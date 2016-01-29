@@ -1,0 +1,236 @@
+// TB97ExtInterfaces 52A8439001F3 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52A8439001F3
+
+FORWARD ME_52A843B3028F
+
+: ME_52A8447101AF
+ CONST UID '52A8447101AF'
+ CONST Name 'FullWidth'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'обычный размер компонента, для вычисления и размещения компонентов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_52A843B3028F // ITB97Ctrl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_52A8447101AF FullWidth
+
+: ME_52A8448E0050
+ CONST UID '52A8448E0050'
+ CONST Name 'IsSizeable'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'компонент может изменять размеры' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_52A843B3028F // ITB97Ctrl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_52A8448E0050 IsSizeable
+
+: ME_52A844A300F5
+ CONST UID '52A844A300F5'
+ CONST Name 'MinWidth'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'минимальный размер до которого может сжиматься компонент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_52A843B3028F // ITB97Ctrl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_52A844A300F5 MinWidth
+
+FORWARD ME_52A844D303D9
+
+: ME_52A844DC011B
+ CONST UID '52A844DC011B'
+ CONST Name 'aWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A844DC011B aWidth
+
+: ME_52A844D900E6
+ CONST UID '52A844D900E6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A844D303D9 // DoFitToWidth
+ ;
+ : Parameters
+   @ ( ME_52A844DC011B // aWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52A844D900E6 DoIt
+
+: ME_52A844D303D9
+ CONST UID '52A844D303D9'
+ CONST Name 'DoFitToWidth'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52A843B3028F // ITB97Ctrl
+ ;
+ : Operations
+   @ ( ME_52A844D900E6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52A844D303D9 DoFitToWidth
+
+FORWARD ME_52A844E6012E
+
+: ME_52A844EC0287
+ CONST UID '52A844EC0287'
+ CONST Name 'aWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52A844EC0287 aWidth
+
+: ME_52A844EA02A6
+ CONST UID '52A844EA02A6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A844E6012E // DoUnFitToWidth
+ ;
+ : Parameters
+   @ ( ME_52A844EC0287 // aWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52A844EA02A6 DoIt
+
+: ME_52A844E6012E
+ CONST UID '52A844E6012E'
+ CONST Name 'DoUnFitToWidth'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52A843B3028F // ITB97Ctrl
+ ;
+ : Operations
+   @ ( ME_52A844EA02A6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52A844E6012E DoUnFitToWidth
+
+FORWARD ME_52A844F600E6
+
+: ME_9EA634B49ABA
+ CONST UID '9EA634B49ABA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Expand' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52A844F600E6 // Expand
+ ;
+
+ref; // ME_9EA634B49ABA DoIt
+
+: ME_52A844F600E6
+ CONST UID '52A844F600E6'
+ CONST Name 'Expand'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52A843B3028F // ITB97Ctrl
+ ;
+ : Operations
+   @ ( ME_9EA634B49ABA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52A844F600E6 Expand
+
+: ME_52A843B3028F
+ CONST UID '52A843B3028F'
+ CONST GUID '239FBDAE-69C9-4CC1-A677-638DBAFFC648'
+ CONST Name 'ITB97Ctrl'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'интерфейс поддерживаемый по необходимости компонентами размещенными на toolbar-е' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52A8439001F3 // TB97ExtInterfaces
+ ;
+ : Attributes
+   @ ( ME_52A8447101AF // FullWidth
+ ME_52A8448E0050 // IsSizeable
+ ME_52A844A300F5 // MinWidth
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_52A844D303D9 // DoFitToWidth
+ ME_52A844E6012E // DoUnFitToWidth
+ ME_52A844F600E6 // Expand
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52A843B3028F ITB97Ctrl
+
+: ME_52A8439001F3
+ CONST UID '52A8439001F3'
+ CONST Name 'TB97ExtInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4C43E84F0304' '4C43E84F0304.pas.ms.script' // tb97
+ ;
+ : Children
+   @ ( ME_52A843B3028F // ITB97Ctrl
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\tb97\TB97ExtInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52A8439001F3.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52A8439001F3.pas.ms.script.runner'
+
+ref; // ME_52A8439001F3 TB97ExtInterfaces

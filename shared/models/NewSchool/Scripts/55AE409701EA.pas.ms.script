@@ -1,0 +1,3316 @@
+// TabsWords 55AE409701EA ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55AE409701EA
+
+FORWARD ME_55AE40B600B7
+
+FORWARD ME_137FD631C8A7
+
+: ME_0B7962BC085B
+ CONST UID '0B7962BC085B'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_CloseCurrent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ;
+
+ref; // ME_0B7962BC085B Ini_Reg
+
+: ME_156E80F91CF2
+ CONST UID '156E80F91CF2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_156E80F91CF2 
+
+: ME_37484B746683
+ CONST UID '37484B746683'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_37484B746683 
+
+: ME_2F27439CEFA3
+ CONST UID '2F27439CEFA3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_2F27439CEFA3 
+
+: ME_4DAEEDE10285_ME_137FD631C8A7
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ;
+ref; // ME_4DAEEDE10285_ME_137FD631C8A7 DoDoIt
+
+: ME_4DB0614603C8_ME_137FD631C8A7
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ;
+ref; // ME_4DB0614603C8_ME_137FD631C8A7 GetWordNameForRegister
+
+: ME_551544E2001A_ME_137FD631C8A7
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ;
+ref; // ME_551544E2001A_ME_137FD631C8A7 GetResultTypeInfo
+
+: ME_559687E6025A_ME_137FD631C8A7
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ;
+ref; // ME_559687E6025A_ME_137FD631C8A7 GetAllParamsCount
+
+: ME_137FD631C8A7
+ CONST UID '137FD631C8A7'
+ CONST Name 'vcm_tabs_CloseCurrent'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:CloseCurrent'#13#10'{panel}Закрыть текущую вкладку в активном окне. Не закрывает последнюю.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' vcm:tabs:CloseCurrent'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_0B7962BC085B // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_137FD631C8A7 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_137FD631C8A7 // GetWordNameForRegister
+ ME_551544E2001A_ME_137FD631C8A7 // GetResultTypeInfo
+ ME_559687E6025A_ME_137FD631C8A7 // GetAllParamsCount
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_156E80F91CF2 // 
+ ME_37484B746683 // 
+ ME_2F27439CEFA3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:CloseCurrent'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsCloseCurrent'
+
+ref; // ME_137FD631C8A7 vcm_tabs_CloseCurrent
+
+FORWARD ME_12F6A6736B71
+
+: ME_08F546E4E858
+ CONST UID '08F546E4E858'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_08F546E4E858 aCtx
+
+: ME_08F546E4E859
+ CONST UID '08F546E4E859'
+ CONST Name 'aTabIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_08F546E4E859 aTabIndex
+
+: ME_6AA735B1AFE9
+ CONST UID '6AA735B1AFE9'
+ CONST Name 'vcm_tabs_Close'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:Close' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ : Parameters
+   @ ( ME_08F546E4E858 // aCtx
+ ME_08F546E4E859 // aTabIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_6AA735B1AFE9 vcm_tabs_Close
+
+: ME_9D70A7FB028A
+ CONST UID '9D70A7FB028A'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_Close' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+
+ref; // ME_9D70A7FB028A Ini_Reg
+
+: ME_3FA6AF7AE815
+ CONST UID '3FA6AF7AE815'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_3FA6AF7AE815 
+
+: ME_EE697764B73A
+ CONST UID 'EE697764B73A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_EE697764B73A 
+
+: ME_478C437B953C
+ CONST UID '478C437B953C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_478C437B953C 
+
+: ME_4DAEEDE10285_ME_12F6A6736B71
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ref; // ME_4DAEEDE10285_ME_12F6A6736B71 DoDoIt
+
+: ME_4DB0614603C8_ME_12F6A6736B71
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ref; // ME_4DB0614603C8_ME_12F6A6736B71 GetWordNameForRegister
+
+: ME_551544E2001A_ME_12F6A6736B71
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ref; // ME_551544E2001A_ME_12F6A6736B71 GetResultTypeInfo
+
+: ME_559687E6025A_ME_12F6A6736B71
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ref; // ME_559687E6025A_ME_12F6A6736B71 GetAllParamsCount
+
+: ME_5617F4D00243_ME_12F6A6736B71
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_12F6A6736B71 // vcm_tabs_Close
+ ;
+ref; // ME_5617F4D00243_ME_12F6A6736B71 ParamsTypes
+
+: ME_12F6A6736B71
+ CONST UID '12F6A6736B71'
+ CONST Name 'vcm_tabs_Close'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:Close'#13#10'{panel}Закрыть вкладку по индексу. Нумерация с нуля.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aTabIndex vcm:tabs:Close'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_6AA735B1AFE9 // vcm_tabs_Close
+ ME_9D70A7FB028A // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_12F6A6736B71 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_12F6A6736B71 // GetWordNameForRegister
+ ME_551544E2001A_ME_12F6A6736B71 // GetResultTypeInfo
+ ME_559687E6025A_ME_12F6A6736B71 // GetAllParamsCount
+ ME_5617F4D00243_ME_12F6A6736B71 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_3FA6AF7AE815 // 
+ ME_EE697764B73A // 
+ ME_478C437B953C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:Close'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsClose'
+
+ref; // ME_12F6A6736B71 vcm_tabs_Close
+
+FORWARD ME_91294BF70EF7
+
+: ME_7C18B91A4147
+ CONST UID '7C18B91A4147'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_CloseAllButCurrent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ;
+
+ref; // ME_7C18B91A4147 Ini_Reg
+
+: ME_130550B3B469
+ CONST UID '130550B3B469'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_130550B3B469 
+
+: ME_4875ED98166F
+ CONST UID '4875ED98166F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_4875ED98166F 
+
+: ME_345573492A34
+ CONST UID '345573492A34'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_345573492A34 
+
+: ME_4DAEEDE10285_ME_91294BF70EF7
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ;
+ref; // ME_4DAEEDE10285_ME_91294BF70EF7 DoDoIt
+
+: ME_4DB0614603C8_ME_91294BF70EF7
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ;
+ref; // ME_4DB0614603C8_ME_91294BF70EF7 GetWordNameForRegister
+
+: ME_551544E2001A_ME_91294BF70EF7
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ;
+ref; // ME_551544E2001A_ME_91294BF70EF7 GetResultTypeInfo
+
+: ME_559687E6025A_ME_91294BF70EF7
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ;
+ref; // ME_559687E6025A_ME_91294BF70EF7 GetAllParamsCount
+
+: ME_91294BF70EF7
+ CONST UID '91294BF70EF7'
+ CONST Name 'vcm_tabs_CloseAllButCurrent'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:CloseAllButCurrent'#13#10'{panel}Закрыть все вкладки кроме текущей в активном окне{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' vcm:tabs:CloseAllButCurrent'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_7C18B91A4147 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_91294BF70EF7 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_91294BF70EF7 // GetWordNameForRegister
+ ME_551544E2001A_ME_91294BF70EF7 // GetResultTypeInfo
+ ME_559687E6025A_ME_91294BF70EF7 // GetAllParamsCount
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_130550B3B469 // 
+ ME_4875ED98166F // 
+ ME_345573492A34 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:CloseAllButCurrent'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsCloseAllButCurrent'
+
+ref; // ME_91294BF70EF7 vcm_tabs_CloseAllButCurrent
+
+FORWARD ME_EA6F3BD4A5CA
+
+: ME_83C1F134A3D4
+ CONST UID '83C1F134A3D4'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_83C1F134A3D4 aCtx
+
+: ME_BFE28234E0FC
+ CONST UID 'BFE28234E0FC'
+ CONST Name 'vcm_tabs_Active'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:Active' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_83C1F134A3D4 // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_BFE28234E0FC vcm_tabs_Active
+
+: ME_551B1CEB1237
+ CONST UID '551B1CEB1237'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_Active' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+
+ref; // ME_551B1CEB1237 Ini_Reg
+
+: ME_5CADEB4376DE
+ CONST UID '5CADEB4376DE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_5CADEB4376DE 
+
+: ME_3FB888889E7D
+ CONST UID '3FB888889E7D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_3FB888889E7D 
+
+: ME_CA966E875DBD
+ CONST UID 'CA966E875DBD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_CA966E875DBD 
+
+: ME_4DAEEDE10285_ME_EA6F3BD4A5CA
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ref; // ME_4DAEEDE10285_ME_EA6F3BD4A5CA DoDoIt
+
+: ME_4DB0614603C8_ME_EA6F3BD4A5CA
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ref; // ME_4DB0614603C8_ME_EA6F3BD4A5CA GetWordNameForRegister
+
+: ME_551544E2001A_ME_EA6F3BD4A5CA
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ref; // ME_551544E2001A_ME_EA6F3BD4A5CA GetResultTypeInfo
+
+: ME_559687E6025A_ME_EA6F3BD4A5CA
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ref; // ME_559687E6025A_ME_EA6F3BD4A5CA GetAllParamsCount
+
+: ME_5617F4D00243_ME_EA6F3BD4A5CA
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ;
+ref; // ME_5617F4D00243_ME_EA6F3BD4A5CA ParamsTypes
+
+: ME_EA6F3BD4A5CA
+ CONST UID 'EA6F3BD4A5CA'
+ CONST Name 'vcm_tabs_Active'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:Active'#13#10'{panel}Номер активной вкладки в текущем окне. Нумерация с нуля.{panel}'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' vcm:tabs:Active >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_BFE28234E0FC // vcm_tabs_Active
+ ME_551B1CEB1237 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_EA6F3BD4A5CA // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_EA6F3BD4A5CA // GetWordNameForRegister
+ ME_551544E2001A_ME_EA6F3BD4A5CA // GetResultTypeInfo
+ ME_559687E6025A_ME_EA6F3BD4A5CA // GetAllParamsCount
+ ME_5617F4D00243_ME_EA6F3BD4A5CA // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5CADEB4376DE // 
+ ME_3FB888889E7D // 
+ ME_CA966E875DBD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:Active'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsActive'
+
+ref; // ME_EA6F3BD4A5CA vcm_tabs_Active
+
+FORWARD ME_36E868893B0A
+
+: ME_D0F77C68DB2D
+ CONST UID 'D0F77C68DB2D'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_D0F77C68DB2D aCtx
+
+: ME_D0F77C68DB2E
+ CONST UID 'D0F77C68DB2E'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_D0F77C68DB2E aValue
+
+: ME_4D8DA9C0F345
+ CONST UID '4D8DA9C0F345'
+ CONST Name 'vcm_tabs_SetActive'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:SetActive' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ : Parameters
+   @ ( ME_D0F77C68DB2D // aCtx
+ ME_D0F77C68DB2E // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D8DA9C0F345 vcm_tabs_SetActive
+
+: ME_CAFC28FF2F8A
+ CONST UID 'CAFC28FF2F8A'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_SetActive' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+
+ref; // ME_CAFC28FF2F8A Ini_Reg
+
+: ME_7DB7C1E7DEB2
+ CONST UID '7DB7C1E7DEB2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_7DB7C1E7DEB2 
+
+: ME_DE852B28DCEB
+ CONST UID 'DE852B28DCEB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_DE852B28DCEB 
+
+: ME_D6ED346A6D24
+ CONST UID 'D6ED346A6D24'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_D6ED346A6D24 
+
+: ME_4DAEEDE10285_ME_36E868893B0A
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ref; // ME_4DAEEDE10285_ME_36E868893B0A DoDoIt
+
+: ME_4DB0614603C8_ME_36E868893B0A
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ref; // ME_4DB0614603C8_ME_36E868893B0A GetWordNameForRegister
+
+: ME_551544E2001A_ME_36E868893B0A
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ref; // ME_551544E2001A_ME_36E868893B0A GetResultTypeInfo
+
+: ME_559687E6025A_ME_36E868893B0A
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ref; // ME_559687E6025A_ME_36E868893B0A GetAllParamsCount
+
+: ME_5617F4D00243_ME_36E868893B0A
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_36E868893B0A // vcm_tabs_SetActive
+ ;
+ref; // ME_5617F4D00243_ME_36E868893B0A ParamsTypes
+
+: ME_36E868893B0A
+ CONST UID '36E868893B0A'
+ CONST Name 'vcm_tabs_SetActive'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:SetActive'#13#10'{panel}Перейти на вкладку в активном окне (нумерация с нуля){panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue vcm:tabs:SetActive'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4D8DA9C0F345 // vcm_tabs_SetActive
+ ME_CAFC28FF2F8A // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_36E868893B0A // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_36E868893B0A // GetWordNameForRegister
+ ME_551544E2001A_ME_36E868893B0A // GetResultTypeInfo
+ ME_559687E6025A_ME_36E868893B0A // GetAllParamsCount
+ ME_5617F4D00243_ME_36E868893B0A // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_7DB7C1E7DEB2 // 
+ ME_DE852B28DCEB // 
+ ME_D6ED346A6D24 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:SetActive'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsSetActive'
+
+ref; // ME_36E868893B0A vcm_tabs_SetActive
+
+FORWARD ME_D1C0BD993D2F
+
+: ME_298E38DE716D
+ CONST UID '298E38DE716D'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_298E38DE716D aCtx
+
+: ME_D3D18ECCBD33
+ CONST UID 'D3D18ECCBD33'
+ CONST Name 'vcm_tabs_Count'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:Count' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_298E38DE716D // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_D3D18ECCBD33 vcm_tabs_Count
+
+: ME_125164F7AD23
+ CONST UID '125164F7AD23'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_Count' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+
+ref; // ME_125164F7AD23 Ini_Reg
+
+: ME_DD9325EBE71C
+ CONST UID 'DD9325EBE71C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_DD9325EBE71C 
+
+: ME_8EC2A2A353A0
+ CONST UID '8EC2A2A353A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_8EC2A2A353A0 
+
+: ME_325BEC2806B1
+ CONST UID '325BEC2806B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_325BEC2806B1 
+
+: ME_4DAEEDE10285_ME_D1C0BD993D2F
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ref; // ME_4DAEEDE10285_ME_D1C0BD993D2F DoDoIt
+
+: ME_4DB0614603C8_ME_D1C0BD993D2F
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ref; // ME_4DB0614603C8_ME_D1C0BD993D2F GetWordNameForRegister
+
+: ME_551544E2001A_ME_D1C0BD993D2F
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ref; // ME_551544E2001A_ME_D1C0BD993D2F GetResultTypeInfo
+
+: ME_559687E6025A_ME_D1C0BD993D2F
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ref; // ME_559687E6025A_ME_D1C0BD993D2F GetAllParamsCount
+
+: ME_5617F4D00243_ME_D1C0BD993D2F
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_D1C0BD993D2F // vcm_tabs_Count
+ ;
+ref; // ME_5617F4D00243_ME_D1C0BD993D2F ParamsTypes
+
+: ME_D1C0BD993D2F
+ CONST UID 'D1C0BD993D2F'
+ CONST Name 'vcm_tabs_Count'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:Count'#13#10'{panel}Количество вкладок в активном окне{panel}'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' vcm:tabs:Count >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_D3D18ECCBD33 // vcm_tabs_Count
+ ME_125164F7AD23 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_D1C0BD993D2F // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_D1C0BD993D2F // GetWordNameForRegister
+ ME_551544E2001A_ME_D1C0BD993D2F // GetResultTypeInfo
+ ME_559687E6025A_ME_D1C0BD993D2F // GetAllParamsCount
+ ME_5617F4D00243_ME_D1C0BD993D2F // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_DD9325EBE71C // 
+ ME_8EC2A2A353A0 // 
+ ME_325BEC2806B1 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:Count'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsCount'
+
+ref; // ME_D1C0BD993D2F vcm_tabs_Count
+
+FORWARD ME_76B187B4575B
+
+: ME_9E25BE36E19A
+ CONST UID '9E25BE36E19A'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_OpenNewTab' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ;
+
+ref; // ME_9E25BE36E19A Ini_Reg
+
+: ME_2E1B5B09084E
+ CONST UID '2E1B5B09084E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_2E1B5B09084E 
+
+: ME_82C13B0DA703
+ CONST UID '82C13B0DA703'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_82C13B0DA703 
+
+: ME_834C03E3B54B
+ CONST UID '834C03E3B54B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_834C03E3B54B 
+
+: ME_4DAEEDE10285_ME_76B187B4575B
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ;
+ref; // ME_4DAEEDE10285_ME_76B187B4575B DoDoIt
+
+: ME_4DB0614603C8_ME_76B187B4575B
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ;
+ref; // ME_4DB0614603C8_ME_76B187B4575B GetWordNameForRegister
+
+: ME_551544E2001A_ME_76B187B4575B
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ;
+ref; // ME_551544E2001A_ME_76B187B4575B GetResultTypeInfo
+
+: ME_559687E6025A_ME_76B187B4575B
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ;
+ref; // ME_559687E6025A_ME_76B187B4575B GetAllParamsCount
+
+: ME_76B187B4575B
+ CONST UID '76B187B4575B'
+ CONST Name 'vcm_tabs_OpenNewTab'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:OpenNewTab'#13#10'{panel}Открыть новую вкладку в активном окне{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' vcm:tabs:OpenNewTab'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_9E25BE36E19A // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_76B187B4575B // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_76B187B4575B // GetWordNameForRegister
+ ME_551544E2001A_ME_76B187B4575B // GetResultTypeInfo
+ ME_559687E6025A_ME_76B187B4575B // GetAllParamsCount
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_2E1B5B09084E // 
+ ME_82C13B0DA703 // 
+ ME_834C03E3B54B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:OpenNewTab'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsOpenNewTab'
+
+ref; // ME_76B187B4575B vcm_tabs_OpenNewTab
+
+FORWARD ME_D42D3E4F7AC2
+
+: ME_75201AD2E865
+ CONST UID '75201AD2E865'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_75201AD2E865 aCtx
+
+: ME_18CE39730151
+ CONST UID '18CE39730151'
+ CONST Name 'vcm_tabs_CanOpenNewTab'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:CanOpenNewTab' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_75201AD2E865 // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_18CE39730151 vcm_tabs_CanOpenNewTab
+
+: ME_DF62EF8FE860
+ CONST UID 'DF62EF8FE860'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_CanOpenNewTab' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+
+ref; // ME_DF62EF8FE860 Ini_Reg
+
+: ME_F70E92D297AF
+ CONST UID 'F70E92D297AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_F70E92D297AF 
+
+: ME_A62BC56285E2
+ CONST UID 'A62BC56285E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_A62BC56285E2 
+
+: ME_01F3814C50D3
+ CONST UID '01F3814C50D3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_01F3814C50D3 
+
+: ME_4DAEEDE10285_ME_D42D3E4F7AC2
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ref; // ME_4DAEEDE10285_ME_D42D3E4F7AC2 DoDoIt
+
+: ME_4DB0614603C8_ME_D42D3E4F7AC2
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ref; // ME_4DB0614603C8_ME_D42D3E4F7AC2 GetWordNameForRegister
+
+: ME_551544E2001A_ME_D42D3E4F7AC2
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ref; // ME_551544E2001A_ME_D42D3E4F7AC2 GetResultTypeInfo
+
+: ME_559687E6025A_ME_D42D3E4F7AC2
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ref; // ME_559687E6025A_ME_D42D3E4F7AC2 GetAllParamsCount
+
+: ME_5617F4D00243_ME_D42D3E4F7AC2
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ;
+ref; // ME_5617F4D00243_ME_D42D3E4F7AC2 ParamsTypes
+
+: ME_D42D3E4F7AC2
+ CONST UID 'D42D3E4F7AC2'
+ CONST Name 'vcm_tabs_CanOpenNewTab'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:CanOpenNewTab'#13#10'{panel}Можно ли открыть новую вкладку в активном окне{panel}'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' vcm:tabs:CanOpenNewTab >>> l_Boolean'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_18CE39730151 // vcm_tabs_CanOpenNewTab
+ ME_DF62EF8FE860 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_D42D3E4F7AC2 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_D42D3E4F7AC2 // GetWordNameForRegister
+ ME_551544E2001A_ME_D42D3E4F7AC2 // GetResultTypeInfo
+ ME_559687E6025A_ME_D42D3E4F7AC2 // GetAllParamsCount
+ ME_5617F4D00243_ME_D42D3E4F7AC2 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_F70E92D297AF // 
+ ME_A62BC56285E2 // 
+ ME_01F3814C50D3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:CanOpenNewTab'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsCanOpenNewTab'
+
+ref; // ME_D42D3E4F7AC2 vcm_tabs_CanOpenNewTab
+
+FORWARD ME_25BDB3DFEC33
+
+: ME_15DB99F2CC03
+ CONST UID '15DB99F2CC03'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_15DB99F2CC03 aCtx
+
+: ME_15DB99F2CC04
+ CONST UID '15DB99F2CC04'
+ CONST Name 'aTabIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_15DB99F2CC04 aTabIndex
+
+: ME_A4A5C2458E8A
+ CONST UID 'A4A5C2458E8A'
+ CONST Name 'vcm_tabs_Duplicate'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:Duplicate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ : Parameters
+   @ ( ME_15DB99F2CC03 // aCtx
+ ME_15DB99F2CC04 // aTabIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_A4A5C2458E8A vcm_tabs_Duplicate
+
+: ME_015C6B01A439
+ CONST UID '015C6B01A439'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_Duplicate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+
+ref; // ME_015C6B01A439 Ini_Reg
+
+: ME_6A9611D373AE
+ CONST UID '6A9611D373AE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_6A9611D373AE 
+
+: ME_7C89011B2E72
+ CONST UID '7C89011B2E72'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_7C89011B2E72 
+
+: ME_A2134C6CE39E
+ CONST UID 'A2134C6CE39E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_A2134C6CE39E 
+
+: ME_4DAEEDE10285_ME_25BDB3DFEC33
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ref; // ME_4DAEEDE10285_ME_25BDB3DFEC33 DoDoIt
+
+: ME_4DB0614603C8_ME_25BDB3DFEC33
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ref; // ME_4DB0614603C8_ME_25BDB3DFEC33 GetWordNameForRegister
+
+: ME_551544E2001A_ME_25BDB3DFEC33
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ref; // ME_551544E2001A_ME_25BDB3DFEC33 GetResultTypeInfo
+
+: ME_559687E6025A_ME_25BDB3DFEC33
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ref; // ME_559687E6025A_ME_25BDB3DFEC33 GetAllParamsCount
+
+: ME_5617F4D00243_ME_25BDB3DFEC33
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ;
+ref; // ME_5617F4D00243_ME_25BDB3DFEC33 ParamsTypes
+
+: ME_25BDB3DFEC33
+ CONST UID '25BDB3DFEC33'
+ CONST Name 'vcm_tabs_Duplicate'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:Duplicate'#13#10'{panel}Дублировать вкладку в активном окне{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aTabIndex vcm:tabs:Duplicate'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_A4A5C2458E8A // vcm_tabs_Duplicate
+ ME_015C6B01A439 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_25BDB3DFEC33 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_25BDB3DFEC33 // GetWordNameForRegister
+ ME_551544E2001A_ME_25BDB3DFEC33 // GetResultTypeInfo
+ ME_559687E6025A_ME_25BDB3DFEC33 // GetAllParamsCount
+ ME_5617F4D00243_ME_25BDB3DFEC33 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_6A9611D373AE // 
+ ME_7C89011B2E72 // 
+ ME_A2134C6CE39E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:Duplicate'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsDuplicate'
+
+ref; // ME_25BDB3DFEC33 vcm_tabs_Duplicate
+
+FORWARD ME_43C0563688C9
+
+: ME_B822FE7F00A7
+ CONST UID 'B822FE7F00A7'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_B822FE7F00A7 aCtx
+
+: ME_B822FE7F00A8
+ CONST UID 'B822FE7F00A8'
+ CONST Name 'aTabIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_B822FE7F00A8 aTabIndex
+
+: ME_56B44CB5CD89
+ CONST UID '56B44CB5CD89'
+ CONST Name 'vcm_tabs_CanDuplicate'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:CanDuplicate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_B822FE7F00A7 // aCtx
+ ME_B822FE7F00A8 // aTabIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_56B44CB5CD89 vcm_tabs_CanDuplicate
+
+: ME_7198902CE4B0
+ CONST UID '7198902CE4B0'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_CanDuplicate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+
+ref; // ME_7198902CE4B0 Ini_Reg
+
+: ME_1D03C220D5C0
+ CONST UID '1D03C220D5C0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_1D03C220D5C0 
+
+: ME_611942EE3FCC
+ CONST UID '611942EE3FCC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_611942EE3FCC 
+
+: ME_056C1373BF64
+ CONST UID '056C1373BF64'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_056C1373BF64 
+
+: ME_4DAEEDE10285_ME_43C0563688C9
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ref; // ME_4DAEEDE10285_ME_43C0563688C9 DoDoIt
+
+: ME_4DB0614603C8_ME_43C0563688C9
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ref; // ME_4DB0614603C8_ME_43C0563688C9 GetWordNameForRegister
+
+: ME_551544E2001A_ME_43C0563688C9
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ref; // ME_551544E2001A_ME_43C0563688C9 GetResultTypeInfo
+
+: ME_559687E6025A_ME_43C0563688C9
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ref; // ME_559687E6025A_ME_43C0563688C9 GetAllParamsCount
+
+: ME_5617F4D00243_ME_43C0563688C9
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ;
+ref; // ME_5617F4D00243_ME_43C0563688C9 ParamsTypes
+
+: ME_43C0563688C9
+ CONST UID '43C0563688C9'
+ CONST Name 'vcm_tabs_CanDuplicate'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:CanDuplicate'#13#10'{panel}Можно ли дублировать вкладку в активном окне{panel}'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aTabIndex vcm:tabs:CanDuplicate >>> l_Boolean'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_56B44CB5CD89 // vcm_tabs_CanDuplicate
+ ME_7198902CE4B0 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_43C0563688C9 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_43C0563688C9 // GetWordNameForRegister
+ ME_551544E2001A_ME_43C0563688C9 // GetResultTypeInfo
+ ME_559687E6025A_ME_43C0563688C9 // GetAllParamsCount
+ ME_5617F4D00243_ME_43C0563688C9 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_1D03C220D5C0 // 
+ ME_611942EE3FCC // 
+ ME_056C1373BF64 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:CanDuplicate'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsCanDuplicate'
+
+ref; // ME_43C0563688C9 vcm_tabs_CanDuplicate
+
+FORWARD ME_C449AC698640
+
+: ME_9848D5C5917E
+ CONST UID '9848D5C5917E'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_Reopen' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_C449AC698640 // vcm_tabs_Reopen
+ ;
+
+ref; // ME_9848D5C5917E Ini_Reg
+
+: ME_093F7C730ABF
+ CONST UID '093F7C730ABF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_C449AC698640 // vcm_tabs_Reopen
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_093F7C730ABF 
+
+: ME_096C26074420
+ CONST UID '096C26074420'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_C449AC698640 // vcm_tabs_Reopen
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_096C26074420 
+
+: ME_19D5DA74E5E3
+ CONST UID '19D5DA74E5E3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_C449AC698640 // vcm_tabs_Reopen
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_19D5DA74E5E3 
+
+: ME_4DAEEDE10285_ME_C449AC698640
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_C449AC698640 // vcm_tabs_Reopen
+ ;
+ref; // ME_4DAEEDE10285_ME_C449AC698640 DoDoIt
+
+: ME_4DB0614603C8_ME_C449AC698640
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_C449AC698640 // vcm_tabs_Reopen
+ ;
+ref; // ME_4DB0614603C8_ME_C449AC698640 GetWordNameForRegister
+
+: ME_551544E2001A_ME_C449AC698640
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_C449AC698640 // vcm_tabs_Reopen
+ ;
+ref; // ME_551544E2001A_ME_C449AC698640 GetResultTypeInfo
+
+: ME_559687E6025A_ME_C449AC698640
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_C449AC698640 // vcm_tabs_Reopen
+ ;
+ref; // ME_559687E6025A_ME_C449AC698640 GetAllParamsCount
+
+: ME_C449AC698640
+ CONST UID 'C449AC698640'
+ CONST Name 'vcm_tabs_Reopen'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:Reopen'#13#10'{panel}Открыть закрытую вкладку в активном окне{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' vcm:tabs:Reopen'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_9848D5C5917E // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_C449AC698640 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_C449AC698640 // GetWordNameForRegister
+ ME_551544E2001A_ME_C449AC698640 // GetResultTypeInfo
+ ME_559687E6025A_ME_C449AC698640 // GetAllParamsCount
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_093F7C730ABF // 
+ ME_096C26074420 // 
+ ME_19D5DA74E5E3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:Reopen'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsReopen'
+
+ref; // ME_C449AC698640 vcm_tabs_Reopen
+
+FORWARD ME_B8D479345CBE
+
+: ME_826C02649069
+ CONST UID '826C02649069'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_826C02649069 aCtx
+
+: ME_6BFDCF32FEC5
+ CONST UID '6BFDCF32FEC5'
+ CONST Name 'vcm_tabs_CanReopen'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:CanReopen' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_826C02649069 // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_6BFDCF32FEC5 vcm_tabs_CanReopen
+
+: ME_84810D38496A
+ CONST UID '84810D38496A'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_CanReopen' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+
+ref; // ME_84810D38496A Ini_Reg
+
+: ME_8B2AE7DAE42C
+ CONST UID '8B2AE7DAE42C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_8B2AE7DAE42C 
+
+: ME_D01DC6FCBB68
+ CONST UID 'D01DC6FCBB68'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_D01DC6FCBB68 
+
+: ME_C54234E20D48
+ CONST UID 'C54234E20D48'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_C54234E20D48 
+
+: ME_4DAEEDE10285_ME_B8D479345CBE
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ref; // ME_4DAEEDE10285_ME_B8D479345CBE DoDoIt
+
+: ME_4DB0614603C8_ME_B8D479345CBE
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ref; // ME_4DB0614603C8_ME_B8D479345CBE GetWordNameForRegister
+
+: ME_551544E2001A_ME_B8D479345CBE
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ref; // ME_551544E2001A_ME_B8D479345CBE GetResultTypeInfo
+
+: ME_559687E6025A_ME_B8D479345CBE
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ref; // ME_559687E6025A_ME_B8D479345CBE GetAllParamsCount
+
+: ME_5617F4D00243_ME_B8D479345CBE
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_B8D479345CBE // vcm_tabs_CanReopen
+ ;
+ref; // ME_5617F4D00243_ME_B8D479345CBE ParamsTypes
+
+: ME_B8D479345CBE
+ CONST UID 'B8D479345CBE'
+ CONST Name 'vcm_tabs_CanReopen'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:CanReopen'#13#10'{panel}Можно ли открыть закрытую вкладку в активном окне{panel}'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' vcm:tabs:CanReopen >>> l_Boolean'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_6BFDCF32FEC5 // vcm_tabs_CanReopen
+ ME_84810D38496A // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_B8D479345CBE // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_B8D479345CBE // GetWordNameForRegister
+ ME_551544E2001A_ME_B8D479345CBE // GetResultTypeInfo
+ ME_559687E6025A_ME_B8D479345CBE // GetAllParamsCount
+ ME_5617F4D00243_ME_B8D479345CBE // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_8B2AE7DAE42C // 
+ ME_D01DC6FCBB68 // 
+ ME_C54234E20D48 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:CanReopen'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsCanReopen'
+
+ref; // ME_B8D479345CBE vcm_tabs_CanReopen
+
+FORWARD ME_1F0AD0312C05
+
+: ME_C498193D8DF5
+ CONST UID 'C498193D8DF5'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_C498193D8DF5 aCtx
+
+: ME_C498193D8DF6
+ CONST UID 'C498193D8DF6'
+ CONST Name 'aTabIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_C498193D8DF6 aTabIndex
+
+: ME_5F70A124CAC6
+ CONST UID '5F70A124CAC6'
+ CONST Name 'vcm_tabs_GetIconIndex'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта vcm:tabs:GetIconIndex' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_C498193D8DF5 // aCtx
+ ME_C498193D8DF6 // aTabIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5F70A124CAC6 vcm_tabs_GetIconIndex
+
+: ME_27CD5515F76F
+ CONST UID '27CD5515F76F'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация vcm_tabs_GetIconIndex' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+
+ref; // ME_27CD5515F76F Ini_Reg
+
+: ME_530364680884
+ CONST UID '530364680884'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_530364680884 
+
+: ME_7BE95005948A
+ CONST UID '7BE95005948A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_7BE95005948A 
+
+: ME_52A569A98A15
+ CONST UID '52A569A98A15'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_52A569A98A15 
+
+: ME_4DAEEDE10285_ME_1F0AD0312C05
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ref; // ME_4DAEEDE10285_ME_1F0AD0312C05 DoDoIt
+
+: ME_4DB0614603C8_ME_1F0AD0312C05
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ref; // ME_4DB0614603C8_ME_1F0AD0312C05 GetWordNameForRegister
+
+: ME_551544E2001A_ME_1F0AD0312C05
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ref; // ME_551544E2001A_ME_1F0AD0312C05 GetResultTypeInfo
+
+: ME_559687E6025A_ME_1F0AD0312C05
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ref; // ME_559687E6025A_ME_1F0AD0312C05 GetAllParamsCount
+
+: ME_5617F4D00243_ME_1F0AD0312C05
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ;
+ref; // ME_5617F4D00243_ME_1F0AD0312C05 ParamsTypes
+
+: ME_1F0AD0312C05
+ CONST UID '1F0AD0312C05'
+ CONST Name 'vcm_tabs_GetIconIndex'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта vcm:tabs:GetIconIndex'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aTabIndex vcm:tabs:GetIconIndex >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_5F70A124CAC6 // vcm_tabs_GetIconIndex
+ ME_27CD5515F76F // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_1F0AD0312C05 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_1F0AD0312C05 // GetWordNameForRegister
+ ME_551544E2001A_ME_1F0AD0312C05 // GetResultTypeInfo
+ ME_559687E6025A_ME_1F0AD0312C05 // GetAllParamsCount
+ ME_5617F4D00243_ME_1F0AD0312C05 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_530364680884 // 
+ ME_7BE95005948A // 
+ ME_52A569A98A15 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:tabs:GetIconIndex'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwVcmTabsGetIconIndex'
+
+ref; // ME_1F0AD0312C05 vcm_tabs_GetIconIndex
+
+: ME_55AE4C31002C
+ CONST UID '55AE4C31002C'
+ CONST Name 'vcm_tabs_CloseCurrent'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Закрыть текущую вкладку в активном окне. Не закрывает последнюю.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ref; // ME_55AE4C31002C vcm_tabs_CloseCurrent
+
+: ME_55AE4C5902F1
+ CONST UID '55AE4C5902F1'
+ CONST Name 'aTabIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55AE4C5902F1 aTabIndex
+
+: ME_55AE4C470082
+ CONST UID '55AE4C470082'
+ CONST Name 'vcm_tabs_Close'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Закрыть вкладку по индексу. Нумерация с нуля.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Parameters
+   @ ( ME_55AE4C5902F1 // aTabIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55AE4C470082 vcm_tabs_Close
+
+: ME_55AE4C630229
+ CONST UID '55AE4C630229'
+ CONST Name 'vcm_tabs_CloseAllButCurrent'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Закрыть все вкладки кроме текущей в активном окне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ref; // ME_55AE4C630229 vcm_tabs_CloseAllButCurrent
+
+: ME_55AE78F700E1
+ CONST UID '55AE78F700E1'
+ CONST Name 'vcm_tabs_Active'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Номер активной вкладки в текущем окне. Нумерация с нуля.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55AE78F700E1 vcm_tabs_Active
+
+: ME_55AE790C0142
+ CONST UID '55AE790C0142'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55AE790C0142 aValue
+
+: ME_55AE790302E8
+ CONST UID '55AE790302E8'
+ CONST Name 'vcm_tabs_SetActive'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Перейти на вкладку в активном окне (нумерация с нуля)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Parameters
+   @ ( ME_55AE790C0142 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55AE790302E8 vcm_tabs_SetActive
+
+: ME_55AE79190270
+ CONST UID '55AE79190270'
+ CONST Name 'vcm_tabs_Count'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Количество вкладок в активном окне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55AE79190270 vcm_tabs_Count
+
+: ME_55AE7931034C
+ CONST UID '55AE7931034C'
+ CONST Name 'vcm_tabs_OpenNewTab'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Открыть новую вкладку в активном окне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ref; // ME_55AE7931034C vcm_tabs_OpenNewTab
+
+: ME_55AE794F0259
+ CONST UID '55AE794F0259'
+ CONST Name 'vcm_tabs_CanOpenNewTab'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Можно ли открыть новую вкладку в активном окне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_55AE794F0259 vcm_tabs_CanOpenNewTab
+
+: ME_55DB227A0252
+ CONST UID '55DB227A0252'
+ CONST Name 'aTabIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55DB227A0252 aTabIndex
+
+: ME_55DB1AF403B8
+ CONST UID '55DB1AF403B8'
+ CONST Name 'vcm_tabs_Duplicate'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Дублировать вкладку в активном окне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Parameters
+   @ ( ME_55DB227A0252 // aTabIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DB1AF403B8 vcm_tabs_Duplicate
+
+: ME_55DB2284038F
+ CONST UID '55DB2284038F'
+ CONST Name 'aTabIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55DB2284038F aTabIndex
+
+: ME_55DB1BAC0203
+ CONST UID '55DB1BAC0203'
+ CONST Name 'vcm_tabs_CanDuplicate'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Можно ли дублировать вкладку в активном окне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_55DB2284038F // aTabIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DB1BAC0203 vcm_tabs_CanDuplicate
+
+: ME_55DB1B1500D4
+ CONST UID '55DB1B1500D4'
+ CONST Name 'vcm_tabs_Reopen'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Открыть закрытую вкладку в активном окне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ref; // ME_55DB1B1500D4 vcm_tabs_Reopen
+
+: ME_55DB1B7A0137
+ CONST UID '55DB1B7A0137'
+ CONST Name 'vcm_tabs_CanReopen'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Можно ли открыть закрытую вкладку в активном окне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_55DB1B7A0137 vcm_tabs_CanReopen
+
+: ME_5601688D017E
+ CONST UID '5601688D017E'
+ CONST Name 'aTabIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5601688D017E aTabIndex
+
+: ME_560168780139
+ CONST UID '560168780139'
+ CONST Name 'vcm_tabs_GetIconIndex'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_5601688D017E // aTabIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_560168780139 vcm_tabs_GetIconIndex
+
+: ME_F629076ECC89
+ CONST UID 'F629076ECC89'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ref; // ME_F629076ECC89 Reg_TtfwContext
+
+: ME_9B693D487791
+ CONST UID '9B693D487791'
+ CONST Name 'Reg_Integer'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа Integer' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ref; // ME_9B693D487791 Reg_Integer
+
+: ME_7161DFFB7032
+ CONST UID '7161DFFB7032'
+ CONST Name 'Reg_Boolean'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа Boolean' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ref; // ME_7161DFFB7032 Reg_Boolean
+
+: ME_55B600340140
+ CONST UID '55B600340140'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_553213D902E0' '553213B80041.pas.ms.script' // Tl3TabbedContainersDispatcher
+ ;
+
+ref; // ME_55B600340140 
+
+: ME_55C8A9BA007E
+ CONST UID '55C8A9BA007E'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_5538940C00DD' '553893E60323.pas.ms.script' // TvcmTabbedContainersService
+ ;
+
+ref; // ME_55C8A9BA007E 
+
+: ME_E96DB07A593B
+ CONST UID 'E96DB07A593B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_E96DB07A593B 
+
+: ME_E8094E4A0DE0
+ CONST UID 'E8094E4A0DE0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_E8094E4A0DE0 
+
+: ME_55AE40B600B7
+ CONST UID '55AE40B600B7'
+ CONST Name 'vcmTabsWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE409701EA // TabsWords
+ ;
+ : Operations
+   @ ( ME_55AE4C31002C // vcm_tabs_CloseCurrent
+ ME_55AE4C470082 // vcm_tabs_Close
+ ME_55AE4C630229 // vcm_tabs_CloseAllButCurrent
+ ME_55AE78F700E1 // vcm_tabs_Active
+ ME_55AE790302E8 // vcm_tabs_SetActive
+ ME_55AE79190270 // vcm_tabs_Count
+ ME_55AE7931034C // vcm_tabs_OpenNewTab
+ ME_55AE794F0259 // vcm_tabs_CanOpenNewTab
+ ME_55DB1AF403B8 // vcm_tabs_Duplicate
+ ME_55DB1BAC0203 // vcm_tabs_CanDuplicate
+ ME_55DB1B1500D4 // vcm_tabs_Reopen
+ ME_55DB1B7A0137 // vcm_tabs_CanReopen
+ ME_560168780139 // vcm_tabs_GetIconIndex
+ ME_F629076ECC89 // Reg_TtfwContext
+ ME_9B693D487791 // Reg_Integer
+ ME_7161DFFB7032 // Reg_Boolean
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_137FD631C8A7 // vcm_tabs_CloseCurrent
+ ME_12F6A6736B71 // vcm_tabs_Close
+ ME_91294BF70EF7 // vcm_tabs_CloseAllButCurrent
+ ME_EA6F3BD4A5CA // vcm_tabs_Active
+ ME_36E868893B0A // vcm_tabs_SetActive
+ ME_D1C0BD993D2F // vcm_tabs_Count
+ ME_76B187B4575B // vcm_tabs_OpenNewTab
+ ME_D42D3E4F7AC2 // vcm_tabs_CanOpenNewTab
+ ME_25BDB3DFEC33 // vcm_tabs_Duplicate
+ ME_43C0563688C9 // vcm_tabs_CanDuplicate
+ ME_C449AC698640 // vcm_tabs_Reopen
+ ME_B8D479345CBE // vcm_tabs_CanReopen
+ ME_1F0AD0312C05 // vcm_tabs_GetIconIndex
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_55B600340140 // 
+ ME_55C8A9BA007E // 
+ ME_E96DB07A593B // 
+ ME_E8094E4A0DE0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmTabsWordsPack.pas'
+
+ref; // ME_55AE40B600B7 vcmTabsWordsPack
+
+FORWARD ME_55C874550184
+
+FORWARD ME_710C3389FF5D
+
+: ME_8EB74A65376C
+ CONST UID '8EB74A65376C'
+ CONST Name 'RegAxiom'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_710C3389FF5D // TvcmTabbedMenuWordsPackResNameGetter
+ ;
+
+ref; // ME_8EB74A65376C RegAxiom
+
+: ME_55B7A3AF0359_ME_710C3389FF5D
+ CONST UID '55B7A3AF0359'
+ CONST Name 'ResName'
+ : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
+ ;
+ : Implementor ME_710C3389FF5D // TvcmTabbedMenuWordsPackResNameGetter
+ ;
+ CONST "is static" true
+ref; // ME_55B7A3AF0359_ME_710C3389FF5D ResName
+
+: ME_710C3389FF5D
+ CONST UID '710C3389FF5D'
+ CONST Name 'TvcmTabbedMenuWordsPackResNameGetter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_8EB74A65376C // RegAxiom
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_55B7A3AF0359_ME_710C3389FF5D // ResName
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_710C3389FF5D TvcmTabbedMenuWordsPackResNameGetter
+
+: ME_34A232DABB8F
+ CONST UID '34A232DABB8F'
+ CONST Name 'TvcmBaseMenuForChromeLikeFriend'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Друг для TvcmBaseMenuForChromeLike' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ref; // ME_34A232DABB8F TvcmBaseMenuForChromeLikeFriend
+
+FORWARD ME_0E751338C548
+
+: ME_FB7C94EE936C
+ CONST UID 'FB7C94EE936C'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_FB7C94EE936C aCtx
+
+: ME_FB7C94EE936D
+ CONST UID 'FB7C94EE936D'
+ CONST Name 'aMenuForChromeLike'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ref; // ME_FB7C94EE936D aMenuForChromeLike
+
+: ME_996A05E3E097
+ CONST UID '996A05E3E097'
+ CONST Name 'Active'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:MenuForChromeLike:Active' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ : Target WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ;
+ : Parameters
+   @ ( ME_FB7C94EE936C // aCtx
+ ME_FB7C94EE936D // aMenuForChromeLike
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_996A05E3E097 Active
+
+: ME_8EF8960B0083
+ CONST UID '8EF8960B0083'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_MenuForChromeLike_Active' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+
+ref; // ME_8EF8960B0083 Ini_Reg
+
+: ME_263DD872FDFE
+ CONST UID '263DD872FDFE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_263DD872FDFE 
+
+: ME_2093F7C7D659
+ CONST UID '2093F7C7D659'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_2093F7C7D659 
+
+: ME_D25EB0047720
+ CONST UID 'D25EB0047720'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_D25EB0047720 
+
+: ME_4DAEEDE10285_ME_0E751338C548
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ref; // ME_4DAEEDE10285_ME_0E751338C548 DoDoIt
+
+: ME_4DB0614603C8_ME_0E751338C548
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ref; // ME_4DB0614603C8_ME_0E751338C548 GetWordNameForRegister
+
+: ME_551544E2001A_ME_0E751338C548
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ref; // ME_551544E2001A_ME_0E751338C548 GetResultTypeInfo
+
+: ME_559687E6025A_ME_0E751338C548
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ref; // ME_559687E6025A_ME_0E751338C548 GetAllParamsCount
+
+: ME_5617F4D00243_ME_0E751338C548
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ;
+ref; // ME_5617F4D00243_ME_0E751338C548 ParamsTypes
+
+: ME_0E751338C548
+ CONST UID '0E751338C548'
+ CONST Name 'pop_MenuForChromeLike_Active'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:MenuForChromeLike:Active'#13#10'*Тип результата:* TvcmBaseMenuForChromeLike'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvcmBaseMenuForChromeLike'#13#10' aMenuForChromeLike pop:MenuForChromeLike:Active >>> l_TvcmBaseMenuForChromeLike'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_996A05E3E097 // Active
+ ME_8EF8960B0083 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_0E751338C548 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_0E751338C548 // GetWordNameForRegister
+ ME_551544E2001A_ME_0E751338C548 // GetResultTypeInfo
+ ME_559687E6025A_ME_0E751338C548 // GetAllParamsCount
+ ME_5617F4D00243_ME_0E751338C548 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_263DD872FDFE // 
+ ME_2093F7C7D659 // 
+ ME_D25EB0047720 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'pop:MenuForChromeLike:Active'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwPopMenuForChromeLikeActive'
+
+ref; // ME_0E751338C548 pop_MenuForChromeLike_Active
+
+FORWARD ME_82B96D3A5D58
+
+: ME_3C9919E492ED
+ CONST UID '3C9919E492ED'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_3C9919E492ED aCtx
+
+: ME_3C9919E492EE
+ CONST UID '3C9919E492EE'
+ CONST Name 'aMenuForChromeLike'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ref; // ME_3C9919E492EE aMenuForChromeLike
+
+: ME_0DAF76B47AA2
+ CONST UID '0DAF76B47AA2'
+ CONST Name 'Hovered'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:MenuForChromeLike:Hovered' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ : Parameters
+   @ ( ME_3C9919E492ED // aCtx
+ ME_3C9919E492EE // aMenuForChromeLike
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_0DAF76B47AA2 Hovered
+
+: ME_BFCA19DAEFFF
+ CONST UID 'BFCA19DAEFFF'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_MenuForChromeLike_Hovered' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+
+ref; // ME_BFCA19DAEFFF Ini_Reg
+
+: ME_3B1C0B1C3D4E
+ CONST UID '3B1C0B1C3D4E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_3B1C0B1C3D4E 
+
+: ME_CD3520DDBADE
+ CONST UID 'CD3520DDBADE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_CD3520DDBADE 
+
+: ME_15A111AAAF9D
+ CONST UID '15A111AAAF9D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_15A111AAAF9D 
+
+: ME_4DAEEDE10285_ME_82B96D3A5D58
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ref; // ME_4DAEEDE10285_ME_82B96D3A5D58 DoDoIt
+
+: ME_4DB0614603C8_ME_82B96D3A5D58
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ref; // ME_4DB0614603C8_ME_82B96D3A5D58 GetWordNameForRegister
+
+: ME_551544E2001A_ME_82B96D3A5D58
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ref; // ME_551544E2001A_ME_82B96D3A5D58 GetResultTypeInfo
+
+: ME_559687E6025A_ME_82B96D3A5D58
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ref; // ME_559687E6025A_ME_82B96D3A5D58 GetAllParamsCount
+
+: ME_5617F4D00243_ME_82B96D3A5D58
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ;
+ref; // ME_5617F4D00243_ME_82B96D3A5D58 ParamsTypes
+
+: ME_82B96D3A5D58
+ CONST UID '82B96D3A5D58'
+ CONST Name 'pop_MenuForChromeLike_Hovered'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:MenuForChromeLike:Hovered'#13#10'*Тип результата:* TMenuItem'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TMenuItem'#13#10' aMenuForChromeLike pop:MenuForChromeLike:Hovered >>> l_TMenuItem'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_0DAF76B47AA2 // Hovered
+ ME_BFCA19DAEFFF // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_82B96D3A5D58 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_82B96D3A5D58 // GetWordNameForRegister
+ ME_551544E2001A_ME_82B96D3A5D58 // GetResultTypeInfo
+ ME_559687E6025A_ME_82B96D3A5D58 // GetAllParamsCount
+ ME_5617F4D00243_ME_82B96D3A5D58 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_3B1C0B1C3D4E // 
+ ME_CD3520DDBADE // 
+ ME_15A111AAAF9D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'pop:MenuForChromeLike:Hovered'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwPopMenuForChromeLikeHovered'
+
+ref; // ME_82B96D3A5D58 pop_MenuForChromeLike_Hovered
+
+FORWARD ME_B39FBDC27B79
+
+: ME_D40537C8822A
+ CONST UID 'D40537C8822A'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_D40537C8822A aCtx
+
+: ME_D40537C8822B
+ CONST UID 'D40537C8822B'
+ CONST Name 'aMenuForChromeLike'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ref; // ME_D40537C8822B aMenuForChromeLike
+
+: ME_62E15A24D84E
+ CONST UID '62E15A24D84E'
+ CONST Name 'MenuItem'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:MenuForChromeLike:MenuItem' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ : Parameters
+   @ ( ME_D40537C8822A // aCtx
+ ME_D40537C8822B // aMenuForChromeLike
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_62E15A24D84E MenuItem
+
+: ME_30DECF7C94DA
+ CONST UID '30DECF7C94DA'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_MenuForChromeLike_MenuItem' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+
+ref; // ME_30DECF7C94DA Ini_Reg
+
+: ME_0AEF92B55C88
+ CONST UID '0AEF92B55C88'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_0AEF92B55C88 
+
+: ME_270547BD8FE8
+ CONST UID '270547BD8FE8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_270547BD8FE8 
+
+: ME_A0CA75A1ECD9
+ CONST UID 'A0CA75A1ECD9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_A0CA75A1ECD9 
+
+: ME_4DAEEDE10285_ME_B39FBDC27B79
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ref; // ME_4DAEEDE10285_ME_B39FBDC27B79 DoDoIt
+
+: ME_4DB0614603C8_ME_B39FBDC27B79
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ref; // ME_4DB0614603C8_ME_B39FBDC27B79 GetWordNameForRegister
+
+: ME_551544E2001A_ME_B39FBDC27B79
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ref; // ME_551544E2001A_ME_B39FBDC27B79 GetResultTypeInfo
+
+: ME_559687E6025A_ME_B39FBDC27B79
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ref; // ME_559687E6025A_ME_B39FBDC27B79 GetAllParamsCount
+
+: ME_5617F4D00243_ME_B39FBDC27B79
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ;
+ref; // ME_5617F4D00243_ME_B39FBDC27B79 ParamsTypes
+
+: ME_B39FBDC27B79
+ CONST UID 'B39FBDC27B79'
+ CONST Name 'pop_MenuForChromeLike_MenuItem'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:MenuForChromeLike:MenuItem'#13#10'*Тип результата:* TMenuItem'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TMenuItem'#13#10' aMenuForChromeLike pop:MenuForChromeLike:MenuItem >>> l_TMenuItem'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_62E15A24D84E // MenuItem
+ ME_30DECF7C94DA // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_B39FBDC27B79 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_B39FBDC27B79 // GetWordNameForRegister
+ ME_551544E2001A_ME_B39FBDC27B79 // GetResultTypeInfo
+ ME_559687E6025A_ME_B39FBDC27B79 // GetAllParamsCount
+ ME_5617F4D00243_ME_B39FBDC27B79 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_0AEF92B55C88 // 
+ ME_270547BD8FE8 // 
+ ME_A0CA75A1ECD9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'pop:MenuForChromeLike:MenuItem'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwPopMenuForChromeLikeMenuItem'
+
+ref; // ME_B39FBDC27B79 pop_MenuForChromeLike_MenuItem
+
+: ME_55C8753A0311
+ CONST UID '55C8753A0311'
+ CONST Name 'Active'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Target WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8753A0311 Active
+
+: ME_55C8756402D3
+ CONST UID '55C8756402D3'
+ CONST Name 'Hovered'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8756402D3 Hovered
+
+: ME_55C8992400F6
+ CONST UID '55C8992400F6'
+ CONST Name 'MenuItem'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8992400F6 MenuItem
+
+: ME_7D809316D4C1
+ CONST UID '7D809316D4C1'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+
+ref; // ME_7D809316D4C1 Reg_TtfwContext
+
+: ME_47F830E61EFC
+ CONST UID '47F830E61EFC'
+ CONST Name 'Reg_TvcmBaseMenuForChromeLike'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TvcmBaseMenuForChromeLike' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+
+ref; // ME_47F830E61EFC Reg_TvcmBaseMenuForChromeLike
+
+: ME_221764A7F4A2
+ CONST UID '221764A7F4A2'
+ CONST Name 'Reg_TMenuItem'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TMenuItem' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+
+ref; // ME_221764A7F4A2 Reg_TMenuItem
+
+: ME_55C8B0DF017A
+ CONST UID '55C8B0DF017A'
+ CONST Class class_Dependency
+ : Stereotype st_friend::Dependency ;
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Target WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ref; // ME_55C8B0DF017A 
+
+: ME_310974F97020
+ CONST UID '310974F97020'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_310974F97020 
+
+: ME_CD7A7B089CCD
+ CONST UID 'CD7A7B089CCD'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Target WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ref; // ME_CD7A7B089CCD 
+
+: ME_03B9E2B7883F
+ CONST UID '03B9E2B7883F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_03B9E2B7883F 
+
+: ME_55C874550184
+ CONST UID '55C874550184'
+ CONST Name 'vcmTabbedMenuWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE409701EA // TabsWords
+ ;
+ : Inherits
+   @ ( WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_55C8753A0311 // Active
+ ME_55C8756402D3 // Hovered
+ ME_55C8992400F6 // MenuItem
+ ME_7D809316D4C1 // Reg_TtfwContext
+ ME_47F830E61EFC // Reg_TvcmBaseMenuForChromeLike
+ ME_221764A7F4A2 // Reg_TMenuItem
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_710C3389FF5D // TvcmTabbedMenuWordsPackResNameGetter
+ ME_34A232DABB8F // TvcmBaseMenuForChromeLikeFriend
+ ME_0E751338C548 // pop_MenuForChromeLike_Active
+ ME_82B96D3A5D58 // pop_MenuForChromeLike_Hovered
+ ME_B39FBDC27B79 // pop_MenuForChromeLike_MenuItem
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_55C8B0DF017A // 
+ ME_310974F97020 // 
+ ME_CD7A7B089CCD // 
+ ME_03B9E2B7883F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" true
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_rc.pas
+ gen_rc.script.pas
+ gen_res.cmd.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.pas'
+ CONST rc.pas:Path 'common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.rc'
+ CONST rc.script.pas:Path 'common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.rc.script'
+ CONST res.cmd.pas:Path 'common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.res.cmd'
+
+ref; // ME_55C874550184 vcmTabbedMenuWordsPack
+
+: ME_55AE409701EA
+ CONST UID '55AE409701EA'
+ CONST Name 'TabsWords'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ ;
+ : Children
+   @ ( ME_55AE40B600B7 // vcmTabsWordsPack
+ ME_55C874550184 // vcmTabbedMenuWordsPack
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
+ WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
+ WL 'ME_553213B80041' '553213B80041.pas.ms.script' // TabbedInterfaceServices
+ WL 'ME_553893E60323' '553893E60323.pas.ms.script' // Services
+ WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts,NoTabs'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55AE409701EA.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55AE409701EA.pas.ms.script.runner'
+
+ref; // ME_55AE409701EA TabsWords

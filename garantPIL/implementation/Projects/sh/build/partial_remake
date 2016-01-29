@@ -1,0 +1,50 @@
+#!/bin/sh
+
+if test "$1" = "" || test "$2" = "" ; then
+echo "Usage: partial_remake <root_workspace_dir> <root_workspace_name> [<mwc_sh>]"
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the shell scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_TARGET" = ""; then
+echo "You must export MPCXC_TARGET env: currently supported: i686-pc-linux-gnu i686-pc-freebsd."
+exit
+fi
+
+target=$MPCXC_TARGET
+
+#export PILOT_ROOT=$MPCXC_ROOT/src
+##export XERCES_ROOT=/home/grigorio/tuning/xerces-c-src_2_6_0
+#export MPCXC_TAOACE=/mnt/windows/work/taoace-2005-08-23-gcc344
+
+export ACE_ROOT=$MPCXC_ROOT/src
+export TAO_ROOT=$ACE_ROOT/TAO
+
+root_workspace_dir=$1
+root_workspace_name=$2
+mwc_sh=$3
+if test "$mwc_sh" = "" ; then
+mwc_sh="mwc.sh"
+fi
+
+echo "partial_remake: MPCXC_ROOT = $MPCXC_ROOT"
+echo "partial_remake: $root_workspace_dir/$root_workspace_name ..."
+
+$MPCXC_SH/clean_thilde_only
+$MPCXC_SH/clean_makefiles_only
+
+$MPCXC_SH/configure $root_workspace_dir $root_workspace_name $mwc_sh
+
+$MPCXC_SH/partial_build $root_workspace_dir $mwc_sh
+
+echo "end."
+

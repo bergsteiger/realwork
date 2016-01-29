@@ -1,0 +1,395 @@
+// DOM 4A23D24F0125 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A23D24F0125
+
+FORWARD ME_4A23D3F70344
+
+: ME_4A23D41001F1
+ CONST UID '4A23D41001F1'
+ CONST Name 'Custom'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23D3F70344 // PaperSize
+ ;
+
+ref; // ME_4A23D41001F1 Custom
+
+: ME_4A23D4170158
+ CONST UID '4A23D4170158'
+ CONST Name 'A0'
+ CONST Class class_Attribute
+ %SUMMARY '84   x 118.8' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23D3F70344 // PaperSize
+ ;
+
+ref; // ME_4A23D4170158 A0
+
+: ME_4A23D42201B7
+ CONST UID '4A23D42201B7'
+ CONST Name 'A1'
+ CONST Class class_Attribute
+ %SUMMARY '59.4 x 84' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23D3F70344 // PaperSize
+ ;
+
+ref; // ME_4A23D42201B7 A1
+
+: ME_4A23D42D0247
+ CONST UID '4A23D42D0247'
+ CONST Name 'A2'
+ CONST Class class_Attribute
+ %SUMMARY '42   x 59.4' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23D3F70344 // PaperSize
+ ;
+
+ref; // ME_4A23D42D0247 A2
+
+: ME_4A23D4380254
+ CONST UID '4A23D4380254'
+ CONST Name 'A3'
+ CONST Class class_Attribute
+ %SUMMARY '29.7 x 42' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23D3F70344 // PaperSize
+ ;
+
+ref; // ME_4A23D4380254 A3
+
+: ME_4A23D4430390
+ CONST UID '4A23D4430390'
+ CONST Name 'A4'
+ CONST Class class_Attribute
+ %SUMMARY '21   x 29.7' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23D3F70344 // PaperSize
+ ;
+
+ref; // ME_4A23D4430390 A4
+
+: ME_4A23D45100FC
+ CONST UID '4A23D45100FC'
+ CONST Name 'A5'
+ CONST Class class_Attribute
+ %SUMMARY '14.8 x 21' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23D3F70344 // PaperSize
+ ;
+
+ref; // ME_4A23D45100FC A5
+
+: ME_4A23D3F70344
+ CONST UID '4A23D3F70344'
+ CONST Name 'PaperSize'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Размер бумаги' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23D24F0125 // DOM
+ ;
+ : Attributes
+   @ ( ME_4A23D41001F1 // Custom
+ ME_4A23D4170158 // A0
+ ME_4A23D42201B7 // A1
+ ME_4A23D42D0247 // A2
+ ME_4A23D4380254 // A3
+ ME_4A23D4430390 // A4
+ ME_4A23D45100FC // A5
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'ps'
+ CONST extprop:pas:TypeName 'TevdPaperSize'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_ps'
+
+ref; // ME_4A23D3F70344 PaperSize
+
+FORWARD ME_4A23D6B90323
+
+: ME_4A23D6C9011C
+ CONST UID '4A23D6C9011C'
+ CONST Name 'PaperSize'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Размер бумаги' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4A23D6B90323 // Section
+ ;
+ : Target ME_4A23D3F70344 // PaperSize
+ ;
+ CONST "pm" true
+
+ref; // ME_4A23D6C9011C PaperSize
+
+: ME_4A23D6D802FC
+ CONST UID '4A23D6D802FC'
+ CONST Name 'Orientation'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Ориентация страницы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4A23D6B90323 // Section
+ ;
+ : Target WL 'ME_468CFC7101C1' '469D0AC7005E.pas.ms.script' // PageOrientation
+ ;
+ CONST "pm" true
+
+ref; // ME_4A23D6D802FC Orientation
+
+: ME_4A23D6B90323
+ CONST UID '4A23D6B90323'
+ CONST GUID '200906F8-7E80-4FA3-B51F-628A5D751D6E'
+ CONST Name 'Section'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Свойства раздела документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23D24F0125 // DOM
+ ;
+ : Attributes
+   @ ( ME_4A23D6C9011C // PaperSize
+ ME_4A23D6D802FC // Orientation
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'IevdSection'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_4A23D6B90323 Section
+
+FORWARD ME_4A23DC990340
+
+: ME_4A23DCB40119
+ CONST UID '4A23DCB40119'
+ CONST Name 'Russian'
+ CONST Class class_Attribute
+ %SUMMARY 'Русский' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23DC990340 // Language
+ ;
+
+ref; // ME_4A23DCB40119 Russian
+
+: ME_4A23DCC101D4
+ CONST UID '4A23DCC101D4'
+ CONST Name 'English'
+ CONST Class class_Attribute
+ %SUMMARY 'Английский' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23DC990340 // Language
+ ;
+
+ref; // ME_4A23DCC101D4 English
+
+: ME_4A23DCCB021A
+ CONST UID '4A23DCCB021A'
+ CONST Name 'German'
+ CONST Class class_Attribute
+ %SUMMARY 'Немецкий' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23DC990340 // Language
+ ;
+
+ref; // ME_4A23DCCB021A German
+
+: ME_4A23DCD5016C
+ CONST UID '4A23DCD5016C'
+ CONST Name 'French'
+ CONST Class class_Attribute
+ %SUMMARY 'Французский' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23DC990340 // Language
+ ;
+
+ref; // ME_4A23DCD5016C French
+
+: ME_4A23DCE002CE
+ CONST UID '4A23DCE002CE'
+ CONST Name 'Italian'
+ CONST Class class_Attribute
+ %SUMMARY 'Итальянский' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23DC990340 // Language
+ ;
+
+ref; // ME_4A23DCE002CE Italian
+
+: ME_4A23DCED02FA
+ CONST UID '4A23DCED02FA'
+ CONST Name 'Spanish'
+ CONST Class class_Attribute
+ %SUMMARY 'Испанский' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23DC990340 // Language
+ ;
+
+ref; // ME_4A23DCED02FA Spanish
+
+: ME_4A23DC990340
+ CONST UID '4A23DC990340'
+ CONST Name 'Language'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Язык' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23D24F0125 // DOM
+ ;
+ : Attributes
+   @ ( ME_4A23DCB40119 // Russian
+ ME_4A23DCC101D4 // English
+ ME_4A23DCCB021A // German
+ ME_4A23DCD5016C // French
+ ME_4A23DCE002CE // Italian
+ ME_4A23DCED02FA // Spanish
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'lg'
+ CONST extprop:pas:TypeName 'TevdLanguage'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_lg'
+
+ref; // ME_4A23DC990340 Language
+
+FORWARD ME_4A23DD010135
+
+FORWARD ME_4A23DD320199
+
+: ME_4A23DD410110
+ CONST UID '4A23DD410110'
+ CONST Name 'aLang'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A23DD320199 // ShortName
+ ;
+ : Target ME_4A23DC990340 // Language
+ ;
+
+ref; // ME_4A23DD410110 aLang
+
+: ME_4A23DD320199
+ CONST UID '4A23DD320199'
+ CONST Name 'ShortName'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Короткие имена' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4A23DD010135 // DictEntry
+ ;
+ : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
+ ;
+ : Attributes
+   @ ( ME_4A23DD410110 // aLang
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" true
+
+ref; // ME_4A23DD320199 ShortName
+
+: ME_4A23DD010135
+ CONST UID '4A23DD010135'
+ CONST GUID '70F7FC17-4C78-4917-A9D5-593B8889B4A5'
+ CONST Name 'DictEntry'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Вхождение толкового словаря' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23D24F0125 // DOM
+ ;
+ : Attributes
+   @ ( ME_4A23DD320199 // ShortName
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'IevdDictEntry'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_4A23DD010135 DictEntry
+
+: ME_4A23D24F0125
+ CONST UID '4A23D24F0125'
+ CONST Name 'DOM'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Объектная модель документа EVD' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ ;
+ : Children
+   @ ( ME_4A23D3F70344 // PaperSize
+ ME_4A23D6B90323 // Section
+ ME_4A23DC990340 // Language
+ ME_4A23DD010135 // DictEntry
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '01.06.2009 17:06'
+ : Generators
+ @ (
+ gen_h
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST h:Path 'common\components\rtl\Garant\EVD\DOM\DOM.h'
+ CONST intf.pas:Path 'common\components\rtl\Garant\EVD\evdDOM.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A23D24F0125.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A23D24F0125.pas.ms.script.runner'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_4A23D24F0125 DOM

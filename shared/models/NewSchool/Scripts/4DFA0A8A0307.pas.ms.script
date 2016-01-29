@@ -1,0 +1,49 @@
+// Everest$Extensions 4DFA0A8A0307 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4DFA0A8A0307
+ CONST UID '4DFA0A8A0307'
+ CONST Name 'Everest'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ ;
+ : Children
+   @ ( WL 'ME_52999D370284' '52999D370284.pas.ms.script' // QueryCardControlContainers$View
+ WL 'ME_4DFA0AB5029C' '4DFA0AB5029C.pas.ms.script' // QueryCardControlContainers
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
+ WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'evDefine.inc'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'gui'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi\Everest$Extensions\Everest$Extensions.model.script'
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\Everest$Extensions_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DFA0A8A0307.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DFA0A8A0307.pas.ms.script.runner'
+
+ref; // ME_4DFA0A8A0307 Everest$Extensions

@@ -1,0 +1,104 @@
+: InsertLog
+
+ WORDWORKER DoFiles
+ 
+  : DoDirPrim STRING IN aDir
+   WordToWork '*.pas' aDir ProcessFilesWithMask
+  ; // DoDirPrim
+  
+  FORWARD DoDir
+  
+  : DoDir STRING IN aDir
+   aDir .
+   aDir DoDirPrim
+   @ DoDir aDir ProcessSubDirs
+  ; // DoDir
+  
+  : DoRoot STRING IN aRoot
+    @ DoDir aRoot ProcessSubDirs
+    aRoot DoDirPrim
+  ; // DoRoot
+  
+  //'W:\common\components\rtl\external\Borland\Delphi\Vcl\' DoRoot
+  'W:\common\components\rtl\external\Borland\Delphi\' DoRoot
+  'W:\common\components\gui\' DoRoot
+  'W:\common\components\rtl\Garant\' DoRoot
+ ; // DoFiles
+ 
+ : TestFile STRING IN aIn
+  STRING VAR cOut 
+  aIn '.log' Cat =: cOut
+  cOut .
+  
+  BOOLEAN VAR l_Changed
+  false =: l_Changed
+  
+  BOOLEAN VAR l_WasEnter
+  false =: l_WasEnter
+  
+  FILE VAR l_In
+  aIn file:OpenRead =: l_In
+  TRY
+   FILE VAR l_Out
+   cOut file:OpenWrite =: l_Out
+   TRY
+   
+   : DoLine W-STRING IN aStr
+   
+    CONST cTouched '{!touched!}'
+    
+    ( l_WasEnter И ( 
+      ( aStr РАВНО 'end.' ) ИЛИ
+      ( aStr РАВНО 'finalization' )
+      ) 
+    ) ? (
+      cTouched l_Out file:WriteStr
+      [ '{$IfDef LogInit} ' 'WriteLn(''' aIn ' initialization leave'');' ' {$EndIf}' ] strings:Cat l_Out file:WriteStr
+      #13#10 l_Out file:WriteStr
+      false =: l_WasEnter
+    )
+    
+    ( aStr "начинается с" cTouched ) ! IF
+     aStr l_Out file:WriteWStrLn
+     ( aStr РАВНО 'initialization' ) ? (
+      true =: l_Changed
+      true =: l_WasEnter
+      cTouched l_Out file:WriteStr
+      [ '{$IfDef LogInit} ' 'WriteLn(''' aIn ' initialization enter'');' ' {$EndIf}' ] strings:Cat l_Out file:WriteStr
+      #13#10 l_Out file:WriteStr
+     )
+    ELSE 
+     true =: l_Changed
+    ENDIF
+   ;
+   
+   l_In file:ReadLines DoLine
+   
+   FINALLY
+    nil =: l_Out
+   END 
+  FINALLY 
+   nil =: l_In
+  END 
+  
+  l_Changed IF
+   aIn DeleteFile ! ? (
+    [ 'Не удалось удалить ' aIn ] strings:Cat .
+   )
+   
+   cOut aIn RenameFile ! ? (
+    [ 'Не удалось переименовать ' cOut ' в ' aIn ] strings:Cat .
+   )
+  ELSE
+   cOut DeleteFile ! ? (
+    [ 'Не удалось удалить ' cOut ] strings:Cat .
+   )
+  ENDIF
+  
+  //cOut '%' tests:CheckEtalon
+ ; // TestFile
+ 
+ DoFiles TestFile
+;
+
+InsertLog

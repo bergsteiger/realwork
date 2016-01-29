@@ -1,0 +1,74 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/T_TestShared.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ExeTarget::Category>> shared::TestShared
+//
+// Утилита для тестирования различных функцианальных частей shared.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_TestShared) : project_generic_core_corba, project_subsystem_console {
+	exename = TestShared
+	
+	includes += ../../
+	
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += TestLib_cs
+	libs  += TestLib_cs
+	after += TestLib
+	libs  += TestLib
+	after += GCI
+	libs  += GCI
+	after += GCL
+	libs  += GCL
+	after += GSI
+	libs  += GSI
+	after += ContextSearch
+	libs  += ContextSearch
+	after += GCL
+	libs  += GCL
+	after += DB
+	libs  += DB
+	after += Morpho
+	libs  += Morpho
+	after += GCL
+	libs  += GCL
+	after += DB
+	libs  += DB
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	
+	Header_Files {
+		Std_Headers {
+			
+		}
+	}
+	
+	Inline_Files {
+		Std_Inlines {
+			
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../TestShared/TestShared_main.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../TestShared/TestShared_vi.rc
+		./../TestShared/TestShared_vi.rch
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

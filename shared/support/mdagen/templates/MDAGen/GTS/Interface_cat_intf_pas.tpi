@@ -1,0 +1,39 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ intf.pas
+/ Генератор в интерфейсные секции Delphi.
+# ../CommonLang/pasDefine
+//#UC START# *46AB63300336*
+C %f_pas_UnitPath(%S)
+O [{%M{check finished}=false|%S{finished}=true}%f_pas_UnitFileName(%S)]
+
+	[{%M{check finished}=false|%S{finished}=true}\
+	unit %f_pas_UnitName(%S);
+	\{* %SD \}
+	
+	[{%S{weak}=true}\{$IfDef DesignTimeLibrary\}
+	\{$WEAKPACKAGEUNIT ON\}
+	\{$EndIf DesignTimeLibrary\}\n\n]\
+	// Библиотека "%PN"
+	[// Автор: %S{author}\n]\
+	// Модуль: %SN
+	[// Начат: %S{started}\n]\
+	[{"%S{no hands}"="true"}\n// ! Полностью генерируется с модели. Править руками - нельзя. !\n]\
+	
+# pasCVS	
+	[{"%S{defines}"=""}{\{$Include %S{defines}\}\n\n}[\{$Include %P{defines}\}\n\n]]\
+	interface
+	\
+	%f_set_var(WAS_USES,"0")\
+	%f_set_var(WAS_TYPE,"0")\
+	%f_set_var(WAS_CONST,"0")\
+	%f_pas_Uses(%S,"Interface")\
+	%f_pas_CloseUses(%S)\
+	
+	<{}{%C{is default ancestor}=true}%CX\n>\
+	<{\n}{%C{is default ancestor}!=true}%CX>
+
+	implementation
+	
+	end.\
+	]
+//#UC END# *46AB63300336*

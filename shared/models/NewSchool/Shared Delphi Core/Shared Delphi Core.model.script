@@ -1,0 +1,58 @@
+%DISABLE_CASCADE_DICT
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation1.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation2.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\EVD.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\VCM.tpl.script'
+;
+
+USES
+ 'w:\shared\models\NewSchool\MDProcess$ForDelphi\MDProcess$ForDelphi.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Rtl\Shared Delphi Rtl.model.script'
+;
+
+<<Project>> "Shared Delphi Core"
+ %UID '49B1511700CA'
+ %SUMMARY 'Общие системные библиотеки для Delphi' ;
+ %INCLUDES
+  'w:\shared\models\NewSchool\Shared Delphi Core\Vcl\Vcl.model.script' /* Vcl */
+  'w:\shared\models\NewSchool\Shared Delphi Core\Internet\Internet.model.script' /* Internet */
+  'w:\shared\models\NewSchool\Shared Delphi Core\Samples\Samples.model.script' /* Samples */
+  'w:\shared\models\NewSchool\Shared Delphi Core\Toolsapi\Toolsapi.model.script' /* Toolsapi */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %DEPENDS
+ %META
+  %upv "Full MDP" false
+  %upv "create project" true
+  %upv "fix version" 0
+  %upv "force usage" true
+  %upv "full constraint" true
+  %upv "major version" 1
+  %upv "minor version" 0
+  %upv "package prefix" 'ru.garant'
+  %upv "root path suffix" '/components'
+  %upv "space key" 'SHD'
+  %upv "space name" 'Shared (delphi)'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '483E96C10305' /* Internet */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '52A1EF91018B' /* Toolsapi */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+; // "Shared Delphi Core"

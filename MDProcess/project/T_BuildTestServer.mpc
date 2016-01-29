@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/T_BuildTestServer.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ExeTarget::Category>> MDProcess::BuildTestServer
+//
+// экзешник сервера запуска тестов ночных сборок
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_BuildTestServer) : project_generic_core_corba, project_subsystem_console {
+	exename = BuildTestServer
+	
+	includes += ../../
+	
+	includes += X:/boost/include
+
+	libpaths += X:/boost/lib
+
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += BuildTestLib_cs
+	libs  += BuildTestLib_cs
+	after += BuildTestLib
+	libs  += BuildTestLib
+	after += GCL
+	libs  += GCL
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+	after += boost_filesystem boost_system
+	libs  += boost_filesystem boost_system
+
+	
+	Header_Files {
+		Std_Headers {
+			
+		}
+	}
+	
+	Inline_Files {
+		Std_Inlines {
+			
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../BuildTestServer/BuildTestServer_main.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../BuildTestServer/BuildTestServer_vi.rc
+		./../BuildTestServer/BuildTestServer_vi.rch
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

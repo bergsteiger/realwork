@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/ArchiGate_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::ArchiGate
+//
+// серверная либа для коммуникации с арчи
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (ArchiGate_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = ArchiGate_cs
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+
+	IDL_Files (DocCardRemote) {
+		idlflags += -o ./../ArchiGate/DocCardRemote
+		./../ArchiGate/DocCardRemote/DocCardRemote.idl
+	}
+
+	Header_Files {
+		Std_Headers {
+			./../ArchiGate/LibHome.h
+		}
+	
+		DocCardRemote {
+			./../ArchiGate/DocCardRemote/DocCardRemote.h
+			./../ArchiGate/DocCardRemote/DocCardRemoteC.h
+			./../ArchiGate/DocCardRemote/DocCardRemoteS.h
+			./../ArchiGate/DocCardRemote/DocCardRemoteFactories.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		DocCardRemote {
+			
+			./../ArchiGate/DocCardRemote/DocCardRemoteC.inl
+			./../ArchiGate/DocCardRemote/DocCardRemoteS.inl
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../ArchiGate/LibHome.cpp
+		}
+	
+		DocCardRemote {
+			./../ArchiGate/DocCardRemote/DocCardRemote.cpp
+			./../ArchiGate/DocCardRemote/DocCardRemoteC.cpp
+			./../ArchiGate/DocCardRemote/DocCardRemoteS.cpp
+			./../ArchiGate/DocCardRemote/DocCardRemoteFactories.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

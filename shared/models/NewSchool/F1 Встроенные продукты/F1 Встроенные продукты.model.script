@@ -1,0 +1,169 @@
+%DISABLE_CASCADE_DICT
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation1.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation2.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\EVD.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\VCM.tpl.script'
+;
+
+USES
+ 'w:\shared\models\NewSchool\garant6x\garant6x.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi\Shared Delphi.model.script'
+ 'w:\shared\models\NewSchool\F1 Базовые определения предметной области\F1 Базовые определения предметной области.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Core\Shared Delphi Core.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Operations\Shared Delphi Operations.model.script'
+ 'w:\shared\models\NewSchool\F1 Common For Shell And Monitoring\F1 Common For Shell And Monitoring.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi For F1\Shared Delphi For F1.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Low Level\Shared Delphi Low Level.model.script'
+ 'w:\shared\models\NewSchool\F1 Core\F1 Core.model.script'
+ 'w:\shared\models\NewSchool\F1 Требования\F1 Требования.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Требования к низкоуровневым библиотекам\Shared Delphi Требования к низкоуровневым библиотекам.model.script'
+ 'w:\shared\models\NewSchool\F1 Проблемы и решения\F1 Проблемы и решения.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi F1 Like Application\Shared Delphi F1 Like Application.model.script'
+ 'w:\shared\models\NewSchool\F1 Оболочка Без Прецедентов\F1 Оболочка Без Прецедентов.model.script'
+;
+
+ABSTRACT <<VCMUseCases>> "F1 Встроенные продукты"
+ %UID '4AC2470103B2'
+ %SUMMARY 'Встроенные в F1 продукты' ;
+ %INCLUDES
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\Chat\Chat.model.script' /* Chat */
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\InternetAgent\InternetAgent.model.script' /* InternetAgent */
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\DictionLike\DictionLike.model.script' /* DictionLike */
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\Diction\Diction.model.script' /* Diction */
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\Inpharm\Inpharm.model.script' /* Inpharm */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '442BEDF00290' /* garant6x */
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '498B35810374' /* "F1 Базовые определения предметной области" */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '4A82FE48010A' /* "Shared Delphi Operations" */
+  U$ '4A856C6B0338' /* "F1 Common For Shell And Monitoring" */
+  U$ '4AB1071F01B0' /* "Shared Delphi For F1" */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4AC23B8E0397' /* "F1 Core" */
+  U$ '4E366CA201C2' /* "F1 Требования" */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '4E78CD64017F' /* "F1 Проблемы и решения" */
+  U$ '4F6CCC8800A0' /* "Shared Delphi F1 Like Application" */
+  U$ '4F7D791203A1' /* "F1 Оболочка Без Прецедентов" */
+  U$ '561FCFDC007C' /* Templates */
+ ; // %DEPENDS
+ %META
+  %upv "Full MDP" false
+  %upv "create project" true
+  %upv "defines" 'nsDefine.inc'
+  %upv "fix version" 0
+  %upv "full constraint" false
+  %upv "ifndef" 'Admin,Monitorings'
+  %upv "major version" 7
+  %upv "minor version" 12
+  %upv "package prefix" 'ru.garant'
+  %upv "root path suffix" '/implementation/Garant'
+  %upv "space key" 'NMS'
+  %upv "space name" 'Nemesis'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '442BEDF00290' /* garant6x */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '483E96C10305' /* Internet */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '493FAECB025F' /* Tree */
+  U$ '4940F539014E' /* Diction */
+  U$ '494104850236' /* CommonDiction */
+  U$ '494106E500F3' /* Medic */
+  U$ '49410AA9008B' /* Drug */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '49549C280153' /* Diction */
+  U$ '4954BDE30347' /* Splash */
+  U$ '4954C00703D0' /* OfficeLike */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '4954F58900E8' /* List */
+  U$ '4954FAA00232' /* Search */
+  U$ '4958E46E007B' /* View */
+  U$ '4979D3680163' /* View */
+  U$ '4986ECDF01F4' /* View */
+  U$ '498B35810374' /* "F1 Базовые определения предметной области" */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '49EC6D0903DD' /* InternetAgent */
+  U$ '4A66B91A01E4' /* Chat */
+  U$ '4A66B9520090' /* View */
+  U$ '4A78010000B7' /* Search */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A7C095601DA' /* "Base Operations" */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A82FE48010A' /* "Shared Delphi Operations" */
+  U$ '4A8567F2039C' /* SearchLite */
+  U$ '4A85683403A8' /* View */
+  U$ '4A856C6B0338' /* "F1 Common For Shell And Monitoring" */
+  U$ '4A92C561015D' /* Common */
+  U$ '4A92C59801C7' /* View */
+  U$ '4A969297010D' /* View */
+  U$ '4A9FD48B02A5' /* "F1 Application Template" */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4AB1071F01B0' /* "Shared Delphi For F1" */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4AC23B8E0397' /* "F1 Core" */
+  U$ '4AC2418902B3' /* Medic */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4D358B9A01E5' /* DictionLike */
+  U$ '4D358BAD038E' /* DictionLikeDocumentProcessing */
+  U$ '4D5E61FC01F0' /* AFW$Core */
+  U$ '4DC170560325' /* PrimListControllers */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4E366CA201C2' /* "F1 Требования" */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '4E78CD64017F' /* "F1 Проблемы и решения" */
+  U$ '4F4B8F830023' /* ExternalObjects */
+  U$ '4F5DB66602DC' /* View */
+  U$ '4F6B65EA0392' /* F1Like */
+  U$ '4F6B660100D5' /* View */
+  U$ '4F6CCC8800A0' /* "Shared Delphi F1 Like Application" */
+  U$ '4F7D791203A1' /* "F1 Оболочка Без Прецедентов" */
+  U$ '4F7D7B7F0216' /* "F1 Without Usecases" */
+  U$ '4F7D7B980383' /* View */
+  U$ '51DD5AB6022D' /* Components */
+  U$ '5257E836001C' /* View$Strange */
+  U$ '53BA5A5D03A0' /* TabInterface */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '550AA6E1017D' /* InpharmControllers */
+  U$ '55B62380030A' /* Logging */
+  U$ '561FCFDC007C' /* Templates */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+; // "F1 Встроенные продукты"

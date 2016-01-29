@@ -1,0 +1,20 @@
+<project name="builder">
+    <target name="build.copy.all" description="Store all build resources to build storage folder">
+        <echo message="Copy all changed resources to directory for zip" level="info"/>
+        
+        <copy todir="${build.storage}/iChecker_${build.version.major}_${build.version.minor}_b${build.number}">
+            <fileset dir="${build.home}">
+                <include name="**/*.ini"/>
+                <include name="**/*.exe"/>
+                <include name="**/*.cmd"/>
+                <include name="**/*.py"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="build.zip" description="Zip distributive">
+        <zip destfile="${build.storage}/iChecker_${build.version.major}_${build.version.minor}_b${build.number}.zip">
+            <fileset dir="${build.storage}/iChecker_${build.version.major}_${build.version.minor}_b${build.number}"/>
+        </zip>
+    </target>
+</project>

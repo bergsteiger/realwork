@@ -1,0 +1,1768 @@
+uses  Main,  common,  commonEventHandlers,  DocumentWork,  exceptions,  FileWork,
+  FoldersWork,  ListWork,  MenuWork, RunPrograms,  SearchWork,  SettingsWork,  
+  States,  Clicks ;
+      
+/////////////////////////////   Проверка Инфарма   /////////////////////////////
+
+
+{
+HLTC393: Инфарм
+  HLTC393.1: Проверить, что словарь медицинских терминов можно вызвать из следующих мест системы:
+    HLTC393.1.1: Главное меню  
+}
+function HLTC393_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  dictWnd;
+begin
+try
+  dictWnd := GoToInfarmDictionary('1', true);
+  if NOT IsExists(dictWnd) then
+  begin
+    Log.Error('Не удалось перейти в Словарь Медицинских терминов из Главного меню!');
+    Raise('Не удалось перейти в Словарь Медицинских терминов из Главного меню!');  
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_1_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.1: Проверить, что словарь медицинских терминов можно вызвать из следующих мест системы:
+   HLTC393.1.2: Навигатор  
+}
+function HLTC393_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  dictWnd;
+begin
+try
+  dictWnd := GoToInfarmDictionary('1', true);
+  if NOT IsExists(dictWnd) then  
+  begin
+    Log.Error('Не удалось перейти в Словарь Медицинских терминов из Навигатора!');
+    Raise('Не удалось перейти в Словарь Медицинских терминов из Навигатора!');  
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_1_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.2: Проверить, что КЗ поиска лекарственных препаратов можно вызвать из следующих мест системы:
+   HLTC393.2.1: Главное меню  
+}
+function HLTC393_2_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  kzPLPWnd;
+begin
+try
+  kzPLPWnd := GoToPLP('1', true);
+  if NOT IsExists(kzPLPWnd) then  
+  begin
+    Log.Error('Не удалось перейти в КЗ Поиск лекарственного средства!');
+    Raise('Не удалось перейти в КЗ Поиск лекарственного средства!');  
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_2_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.4: Словарь медицинских терминов(интерфейс аналогичен ТС)
+    HLTC393.4.1: Проверить переход по терминам  
+}
+function HLTC393_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  termins;
+  paramString;
+  terminText;
+  dictWnd;
+  terminsWnd;
+  i;
+begin
+try
+  GoToMainMenu;
+  termins := ([
+    (['Acne*', 'Acne*(лат., искаженное*']),
+    (['Aedes togoi*', 'Aedes togoi*- вид кровососущих комаров*']),
+    (['Bacillus anthracis*', 'Bacillus anthracis*см. Бацилла сибиреязвенная.*']),    
+    (['Ясли логопедическое*', 'Ясли логопедическое*- специализированные ясли для детей, страдающих дефектами*'])
+  ]);
+  dictWnd := GoToInfarmDictionary('2', true);
+  if NOT IsExists(dictWnd) then
+    Raise('Не удалось перейти в Словарь Медицинских терминов из Навигатора!');
+  terminsWnd := GetFromInfarmDictionary('ВКЛАДКА НАВИГАТОРА "СПИСОК МЕДИЦИНСКИХ ТЕРМИНОВ"');
+  if NOT IsExists(terminsWnd) then Raise('Не удалось получить ВКЛАДКА НАВИГАТОРА "СПИСОК МЕДИЦИНСКИХ ТЕРМИНОВ"');
+  
+  for i := VarArrayLowBound(termins, 1) to VarArrayHighBound(termins, 1) do
+  begin
+    terminsWnd.SetFocus;
+    paramString := 'IsPressHome:=true';
+    if i = VarArrayHighBound(termins, 1) then
+    begin
+      Sys.Keys('[End]' + keyPause + '[PageUp]' + keyPause + '[PageUp]'  + keyPause + '[PageUp]'); 
+      paramString := '';
+    end;      
+    if NOT Position_Internal(terminsWnd, termins[i][0], '\', true, paramString ) then 
+      Raise('Не удалось спозиционироваться на термин: ' + termins[i][0]);    
+    terminText := CopyToClipBoard(dictWnd, 'ALL', 'Trim:=true');        
+    if NOT StringCompare(termins[i][1], terminText) then
+    begin
+      Log.Error('Текст термина не эталонный:' + termins[i][1], terminText);
+      Raise('Текст термина не эталонный:' + termins[i][1]);      
+    end;
+  end;    
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_4_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.4: Словарь медицинских терминов(интерфейс аналогичен ТС)
+    HLTC393.4.2: Проверить переход по ссылкам в толковании терминов
+}
+function HLTC393_4_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  firstTermin;  
+  firstTerminText;
+  dictWnd;
+  terminsWnd;
+  arr;
+  str;  
+  i;
+begin
+try
+  GoToMainMenu;
+  firstTermin := 'Adenoma adamantinum*';
+  firstTerminText := 'Adenoma adamantinum*- см. Адамантинома.*'; 
+  arr := ([
+    (['Адамантинома', 'Адамантинома*(adamantinoma; греч. adamantinos очень твердый, твердый как сталь + -ома; син.:*']),
+    (['адамантобластома', 'Адамантобластома*(adamantoblastoma; адаманто- + бластома) - см. Адамантинома.*']),
+    (['бластома)', 'Бластома*(blastoma; бласто- + -ома) - см. Опухоль.*'])
+  ]);
+  dictWnd := GoToInfarmDictionary('2', true);
+  if NOT IsExists(dictWnd) then
+    Raise('Не удалось перейти в Словарь Медицинских терминов из Навигатора!');
+  terminsWnd := GetFromInfarmDictionary('ВКЛАДКА НАВИГАТОРА "СПИСОК МЕДИЦИНСКИХ ТЕРМИНОВ"');
+  if NOT IsExists(terminsWnd) then Raise('Не удалось получить ВКЛАДКА НАВИГАТОРА "СПИСОК МЕДИЦИНСКИХ ТЕРМИНОВ"');
+  
+  if NOT Position_Internal(terminsWnd, firstTermin, '\', true, 'IsPressHome:=true' ) then 
+      Raise('Не удалось спозиционироваться на термин: ' + firstTermin);    
+  str := CopyToClipBoard(dictWnd, 'ALL', 'Trim:=true');        
+  if NOT StringCompare(firstTerminText, str) then
+  begin
+    Log.Error('Текст термина, открытого из словаря мед.Терминов не эталонный:' + str, firstTerminText);
+    Raise('Текст термина, открытого из словаря мед.Терминов не эталонный.');      
+  end;  
+  
+  for i := VarArrayLowBound(arr, 1) to VarArrayHighBound(arr, 1) do
+  begin
+    //Кликаем по гиперссылке
+    if NOT ClickByHyperLink(dictWnd, arr[i][0]) then
+    begin
+      Log.Error('Не удалос  кликнуть по гиперссылке :' + arr[i][0]); 
+      Raise('Не удалос  кликнуть по гиперссылке :' + arr[i][0]);
+    end;  
+    //Проверяем, что перешли в нужное место
+    str := CopyToClipBoard(dictWnd, 'ALL', 'Trim:=true');
+    if NOT StringCompare(arr[i][1], str) then
+    begin
+      Log.Error('После перехода по гиперссылке ' + arr[1][0]+ 'перешлие Не на эталонный термин', str);
+      Raise('После перехода по гиперссылке ' + arr[1][0]+ 'перешлие Не на эталонный термин');
+    end;
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_4_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC393: Инфарм
+  HLTC393.4: Словарь медицинских терминов(интерфейс аналогичен ТС)
+    HLTC393.4.4: Проверить, что термины попадают в журнал работы в папку «Термины толкового словаря», 
+    но не попадают в последние открытые препараты в ОМ.  
+}
+function HLTC393_4_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  pathInJurnal;
+  termins;  
+  terminText;
+  dictWnd;
+  terminsWnd;
+  myDocWnd;
+  i;
+  omWnd;  
+begin
+try
+  GoToMainMenu;
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  termins := ([
+    (['-иаз', '-иаз*(-иазис; греч. -iasis; суффикс*']),
+    (['-ит',  '-ит*(греч. -itis суффикс имен прилагательных*']),
+    (['-оз',  '-оз*(-озис; греч. -osis суффикс существительных*']),
+    (['-ома', '-ома*(греч. -oma суффикс имен существительных)*'])
+  ]);
+  if NOT  GoToInfarmDictionary then Raise('Не удалось открыть словарь медицинских терминов');
+  terminsWnd := GetFromInfarmDictionary('ВКЛАДКА НАВИГАТОРА "СПИСОК МЕДИЦИНСКИХ ТЕРМИНОВ"');
+  if NOT IsExists(terminsWnd) then Raise('Не удалось получить ВКЛАДКА НАВИГАТОРА "СПИСОК МЕДИЦИНСКИХ ТЕРМИНОВ"');  
+  if NOT Position_Internal(terminsWnd, termins[VarArrayHighBound(termins, 1)][0] + '*', '\', true, 'IsPressHome:=true' ) then 
+      Raise('Не удалось спозиционироваться на термин: ' + termins[VarArrayHighBound(termins, 1)][0]);
+  if NOT GoToMainMenu then Raise('Не удалсоь открыть ОМ');    
+  for i := VarArrayLowBound(termins, 1) to VarArrayHighBound(termins, 1) do
+  begin
+    pathInJurnal := DateTimeToStr(Utilities.Date) + '\Термины толкового словаря\' + termins[i][0];    
+    if NOT OpenObjectFromFolder(pathInJurnal, OpenJurnalTab) then
+    begin
+      Log.Error('Не удалось в журнале работы спозиционироваться на медицинский термин :' + pathInJurnal);
+      Raise('Не удалось в журнале работы спозиционироваться на медицинский термин :' + pathInJurnal);
+    end;
+    dictWnd := GetFromInfarmDictionary('ТЕКСТ СТАТЬИ');
+    if NOT IsExists(dictWnd) then Raise('После перехода по термину в Журнале работы не удалось получить ТЕКСТ СТАТЬИ');
+    terminText := CopyToClipBoard(dictWnd, 'ALL', 'Trim:=true');        
+    if NOT StringCompare(termins[i][1], terminText) then
+    begin
+      Log.Error('Текст термина, открытого из Журнала работы,  не эталонный:' + termins[i][1], terminText);
+      Raise('Текст термина , открытого из Журнала работы, не эталонный:' + termins[i][1]);      
+    end;    
+  end;//for
+  //Проверяем, что термины не попадают в СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ ОМ Инфарма
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ Инфарм!'); 
+  omWnd := GetFromMainMenu_Infarm('СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ');
+  if NOT IsExists(omWnd) then Raise('Не удалось получить в ОМ Инфарма СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ');
+  for i := VarArrayLowBound(termins, 1) to VarArrayHighBound(termins, 1) do
+    if OpenObjectFromFolder(termins[i][0], omWnd) then
+    begin
+      Log.Error('В СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ существует мед.Термин:' + termins[i][0]);
+      Raise('В СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ существует мед.Термин:' + termins[i][0]);
+    end;
+          
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_4_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.5: Список фирм
+    HLTC393.5.1: Проверить, что фирмы представлены в виде плоского списка с синхронным просмотром их описания. 
+}
+function HLTC393_5_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  firms;
+  frimsWnd;
+  pageControl;
+  synhroViewWnd;
+  firmText;
+  i;  
+begin
+try  
+  firms := ([
+    (['Abic', 'Наименование: Abic*Страна: Израиль*Адрес: Израиль; e-mail: AMNON-M@TEVA.CO.IL Россия, г. Москва*']),
+    (['Acopharma',  'Наименование: Acopharma*Страна: Египет*Адрес: Египет.*']),    
+    (['Adamed Ltd', 'Наименование: Adamed Ltd*Страна: Польша*Адрес: Польша, Pienkow 146, 05-152 Czosnow*'])
+  ]);
+  frimsWnd := GoToInfarmListFirms('', true);
+  if NOT IsExists(frimsWnd) then Raise('Не удалось получить СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');
+  pageControl := GetFromInfarmListFirms('ЗАКЛАДКИ');
+  if NOT IsExists(pageControl) then Raise('Не удалось получить pageControl ЗАКЛАДКИ');
+  for i := VarArrayLowBound(firms, 1) to VarArrayHighBound(firms, 1) do
+  begin        
+    if NOT Position_Internal(frimsWnd, firms[i][0], '\', true, 'IsPressHome:=true' ) then 
+      Raise('Не удалось спозиционироваться на фирму-производитель: ' + firms[i][0]);
+    if NOT SwitchToPage(pageControl, 'Описание') then Raise('Не удалось PageControl переключить на вкладку "Описание"');
+    synhroViewWnd := GetFromSynchroViewInfarmListFirms('ОБЛАСТЬ РЕДАКТОРА');    
+    if NOT IsExists(synhroViewWnd) then Raise('Не удалось в области синхронного просмотра получить ОБЛАСТЬ РЕДАКТОРА');  
+    
+    firmText := CopyToClipBoard(synhroViewWnd, 'ALL', 'Trim:=true');        
+    if NOT StringCompare(firms[i][1], firmText) then
+    begin
+      Log.Error('Описание фирмы не эталонно:' + firms[i][1], firmText);
+      Raise('Описание фирмы не эталонно:' + firms[i][1]);      
+    end;    
+  end;//for 
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_5_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.5: Список фирм
+    HLTC393.5.2: При клике на фирму должно открываться ее описание. 
+}
+function HLTC393_5_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  firma;
+  firmaDescriptionEtalon;
+  firmaDescription;
+  frimsWnd;
+  firmaDescriptionWnd;
+  x, y;  
+begin
+try  
+  firma := 'AAI International';
+  firmaDescriptionEtalon :=
+    'Наименование: AAI International' + endOfLine + 
+    'Страна: США*Адрес: 2320 Научный Парк. Dr., Wilmington NC 28405-1800, United States Д-р, ' + 
+    'Wilmington NC 28405-1800, США; сайт: http://www.aaiintl.com (данные по состоянию на май 2007 года)*' + 
+    'Телефон: (910) 254-7000*Факс: (910) 815-2300*Список зарегистрированных препаратов*'
+  ;
+  frimsWnd := GoToInfarmListFirms('', true);
+  if NOT IsExists(frimsWnd) then Raise('Не удалось получить СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');          
+  if NOT Position_Internal(frimsWnd, firma, '\', true, 'IsPressHome:=true' ) then 
+    Raise('Не удалось спозиционироваться на фирму-производитель: ' + firma);    
+  if NOT GetTextSelectionCoords(frimsWnd, x, y, true) then 
+    Raise('Не удалось найти выделенную фирму в списке и кликнуть по ней');    
+  firmaDescriptionWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(firmaDescriptionWnd) then Raise('Не удалось получить ОПИСАНИЕ ФИРМЫ');    
+  firmaDescription := CopyToClipBoard(firmaDescriptionWnd, 'ALL', 'Trim:=true');        
+  if NOT StringCompare(firmaDescriptionEtalon, firmaDescription) then
+  begin
+    Log.Error('Описание фирмы не эталонно:' + firmaDescription, firmaDescriptionEtalon);
+    Raise('Описание фирмы не эталонно:' + firmaDescription);      
+  end;    
+ 
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_5_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.5: Список фирм
+    HLTC393.5.2: При клике на фирму должно открываться ее описание.
+      HLTC393.5.2.1: Описание фирмы отображается в виде документа со следующими доступными функциями:
+        HLTC393.5.2.1.1: Вставка комментариев(при этом они не должны попадать в поиск <Документы с комментариями>) 
+}
+function HLTC393_5_2_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC393_5_2_1_1';
+var
+  firma;
+  frimsWnd;
+  firmaDescriptionWnd;
+  str;  
+begin
+try
+  firma := 'Abic';
+  DeleteAllUserCommentsFromContents;
+  frimsWnd := GoToInfarmListFirms('', true);
+  if NOT IsExists(frimsWnd) then Raise('Не удалось получить СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');
+  if NOT OpenObjectFromFolder(firma, frimsWnd) then 
+    Raise('Не удалось из списка о открыть фирму-производитель: ' + firma);
+  firmaDescriptionWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(firmaDescriptionWnd) then Raise('Не удалось получить ОПИСАНИЕ ФИРМЫ');    
+  if NOT InsertComment (firmaDescriptionWnd, PREF) then
+  begin    
+    Log.Error('Не удалось поставить комментарий!'); 
+    Raise( 'Не удалось поставить комментарий!' );
+  end;
+  if NOT Position_Internal(openMyDocTab, 'Мои комментарии\Документы с комментариями пользователя', '\', true, 'isPressHome:=true') then
+    Raise('Не удалось спозиционироваться на "Мои комментарии\Документы с комментариями пользователя"');
+  Sys.Keys('[Enter]');  
+
+  if NOT StringCompare('Документы с комментариями пользователя отсутствуют*', WaitForWarningWindow) then
+  begin
+    Log.Error('Не обнаружили предупреждения об отсутствии документов с комментариями, видимо комментарий на фирму попал в "Документы с комментариями пользователя"');
+    Raise('Не обнаружили предупреждения об отсутствии документов с комментариями, видимо комментарий на фирму попал в "Документы с комментариями пользователя"');
+  end;  
+        
+  if NOT SelectComment(firmaDescriptionWnd) then
+  begin
+    Log.Error('Не удалось на вкладке СПРАВКА К ДОКУМЕНТУ обнаружить комментарий'); 
+    Raise('Не удалось на вкладке СПРАВКА К ДОКУМЕНТУ обнаружить комментарий');
+  end;      
+  str := CopyToClipBoard(firmaDescriptionWnd, '', 'Trim:=true');
+  if NOT StringCompare(str, PREF) then
+  begin
+    Log.Error('Текст комментария в описании фирмы сформировался неправильно :' + str);
+    Raise('Текст комментария в описании фирмы сформировался неправильно :' + str);    
+  end;
+  Sys.Keys('[Del]');
+  result := true;
+  GoToMainMenu;
+except
+  Log.Message( 'HLTC393_5_2_1_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.5: Список фирм
+    HLTC393.5.3: В статусной строке должно быть «Фирма производитель X из Y». 
+}
+function HLTC393_5_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  FIRMS_COUNT = '3131';
+var
+  firms;  
+  frimsWnd;
+  statusBar;
+  statusBarText;
+  firmsCount;
+  i;  
+begin
+try  
+  firms := ([
+    (['Abic', 'Фармацевтическая фирма 14 из ' + FIRMS_COUNT]),
+    (['Acopharma',  'Фармацевтическая фирма 15 из ' + FIRMS_COUNT]),    
+    (['Adamed Ltd', 'Фармацевтическая фирма 18 из ' + FIRMS_COUNT])
+  ]);
+  frimsWnd := GoToInfarmListFirms('', true);
+  if NOT IsExists(frimsWnd) then Raise('Не удалось получить СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');
+  statusBar := GetFromMainWindow('СТАТУСБАР');
+  if NOT IsExists(statusBar) then Raise('Не удалось получить СТАТУСБАР');
+  for i := VarArrayLowBound(firms, 1) to VarArrayHighBound(firms, 1) do
+  begin 
+    if NOT Position_Internal(frimsWnd, firms[i][0], '\', true, 'IsPressHome:=true' ) then 
+      Raise('Не удалось спозиционироваться на фирму-производитель: ' + firms[i][0]);
+    Delay(1000);//что бы успел прогрузится текст статусбара
+    statusBarText := common.GetWindowText(statusBar);
+    if NOT StringCompare(statusBarText, firms[i][1]) then
+      begin
+        Log.Error('Текст в статусБаре не эталонен:' + statusBarText, firms[i][1]);
+        Raise('Описание фирмы не эталонно:' + statusBarText);
+      end;
+  end;//for
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_5_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.5: Список фирм
+    HLTC393.5.4: Проверить невозможность мультивыделения. 
+}
+function HLTC393_5_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  firmOne;  
+  firmTwo;
+  firmsWnd;
+  x1, y1;
+  x2, y2;
+  x, y;  
+begin
+try
+  firmOne := '3M Espe AG';
+  firmTwo := 'Abic';
+  firmsWnd := GoToInfarmListFirms('', true);
+  if NOT IsExists(firmsWnd) then Raise('Не удалось получить СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');  
+  
+  if NOT Position_Internal(firmsWnd, firmTwo, '\', true, 'IsPressHome:=true' ) then 
+      Raise('Не удалось спозиционироваться на фирму-производитель: ' + firmTwo);      
+  if NOT GetTextSelectionCoords(firmsWnd, x2, y2) then 
+    Raise('Не удалось найти вторую выделенную фирму в списке и кликнуть по ней');
+   
+  if NOT Position_Internal(firmsWnd, firmOne, '\', true, 'IsPressHome:=true' ) then 
+      Raise('Не удалось спозиционироваться на фирму-производитель: ' + firmOne);      
+  if NOT GetTextSelectionCoords(firmsWnd, x1, y1) then 
+    Raise('Не удалось найти первую выделенную фирму в списке и кликнуть по ней');
+    
+  firmsWnd.Click(x2, y2, skCtrl);
+  
+  if NOT GetTextSelectionCoords(firmsWnd, x, y) then 
+    Raise('Не удалось найти выделенную фирму в списке и кликнуть по ней');
+  
+  if NOT ( (x=x2) AND (y=y2) ) then
+  begin
+    Log.Error('По всей видимости сработало мультивыделение, хотя не должно было');
+    Raise('По всей видимости сработало мультивыделение, хотя не должно было');  
+  end;    
+  result := true;
+  GoToMainMenu;  
+except  
+  Log.Message( 'HLTC393_5_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.5: Список фирм
+    HLTC393.5.6: Проверить установку закладки по контекстному меню и по кнопке на тулбаре описания. 
+}
+function HLTC393_5_6_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC393_5_6';
+var
+  firms;
+  firmsWnd;
+  firmDescriptionWnd;  
+  firmDescriptionText;
+  pageControl;
+  toolBar;  
+  i;
+begin
+try  
+  firms := ([
+    (['Abic', 'Наименование: Abic*']),
+    (['Acopharma',  'Наименование: Acopharma*'])    
+  ]);
+  for i := VarArrayLowBound(firms, 1) to VarArrayHighBound(firms, 1) do
+  begin
+    firmsWnd := GoToInfarmListFirms('', true);
+    if NOT IsExists(firmsWnd) then Raise('Не удалось получить СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');  
+    if NOT Position_Internal(firmsWnd, firms[i][0], '\', true, 'IsPressHome:=true' ) then 
+      Raise('Не удалось спозиционироваться на фирму-производитель: ' + firms[i][0]);    
+    if i = 0 then
+    begin
+      Sys.Keys('[Apps]');
+      if NOT ClickByPopupMenuItem(firmsWnd, 'Документ\Установить закладку...') then
+        Raise('Не удалось вызвать пункт контекстного меню Документ\Установить закладку...');
+    end
+    else
+    begin    
+      pageControl := GetFromInfarmListFirms('ЗАКЛАДКИ');
+      if NOT IsExists(pageControl) then Raise('Не удалось получить pageControl ЗАКЛАДКИ');  
+      if NOT SwitchToPage(pageControl, 'Описание') then Raise('Не удалось PageControl переключить на вкладку "Описание"');
+      toolBar := GetFromSynchroViewInfarmListFirms('ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР ОПИСАНИЕ ФИРМЫ"');
+      if NOT IsExists(toolBar) then Raise('Не удалось получить ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР ОПИСАНИЕ ФИРМЫ"');
+      if NOT ClickToolbarButton(toolBar, 'Установить закладку...') then 
+        Raise('Не удалось кликнуть по кнопке "Установить закладку..." на тулбаре ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР ОПИСАНИЕ ФИРМЫ"');    
+    end;//if .. else
+    if NOT SimpleSaveToFolders('закладка_' + IntToStr(i) + '_' + PREF, true) then
+      Raise('Не удалось сохранить закладку!');
+    if NOT OpenObjectFromFolder(MY_DOCS_PATH + 'закладка_' + IntToStr(i) + '_' + PREF) then
+    begin
+      Log.Error('Не удалось найти в моих документах закладку на фирму-производитель: закладка_' + IntToStr(i) + '_' + PREF);
+      Raise('Не удалось найти в моих документах закладку на фирму-производитель : закладка_' + IntToStr(i) + '_' + PREF);
+    end;    
+    firmDescriptionWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    if NOT IsExists(firmDescriptionWnd) then Raise('Не удалось получить ОПИСАНИЕ ФИРМЫ');
+    firmDescriptionText := CopyToClipBoard(firmDescriptionWnd, 'STRING', 'Trim:=true'); 
+    if NOT StringCompare (firms[i][1], firmDescriptionText) then
+    begin
+      Log.Error('Переход по закладке перешёл не в эталонное место! ', firmDescriptionText);
+      Raise('Переход по закладке перешёл не в эталонное место!');
+    end;
+  end;//for
+  DeleteAllInMyDoc;      
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_5_6_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  DeleteAllInMyDoc;
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393: Инфарм
+  HLTC393.5: Список фирм
+    HLTC393.5.7: Проверить фильтрацию фирм по странам. 
+}
+function HLTC393_5_7_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  ALL_FIRMS_COUNT = '3131';
+var
+  firms;
+  firmsWnd;
+  firmDescriptionWnd;  
+  comboBox;
+  statusBar; 
+  i;
+  currentText_in_statusBar;
+begin
+try  
+  firms := ([
+    (['Азербайджан', (['Azerfarm Ltd.', 'Союз Фармацевтов Азербайджана']) ]),    
+    (['ЮАР',         (['Lennon Ltd', 'Murex Biotech Ltd']) ])    
+  ]);
+  firmsWnd := GoToInfarmListFirms('', true);
+  if NOT IsExists(firmsWnd) then Raise('Не удалось получить СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');
+  comBoBox := GetToolBarObject(GetFromInfarmListFirms('ВЕРХНИЙ ТУЛБАР'), 'COMBOBOX', 'Фильтр по странам');
+  if NOT IsExists(comBoBox) then Raise('Не удалось получить комбобокс "Фильтр по странам"');
+  if NOT StringCompare(common.GetWindowText(combobox), 'Все страны') then 
+    Raise('По умолчанию фильтр комбобокса не эталонный: ' + common.GetWindowText(combobox) + ', должен быть "Все страны"');    
+  statusBar := GetFromMainWindow('СТАТУСБАР');  
+  if NOT IsExists(statusBar) then Raise('Не удалось получить СТАТУСБАР');
+  if NOT StringCompare('*из ' + ALL_FIRMS_COUNT, common.GetWindowText(statusBar)) then
+  begin
+    Log.Error('На неотфильрованном списке количество фирм-произодителей не эталонно, должно быть ' + ALL_FIRMS_COUNT, common.GetWindowText(statusBar));
+    Raise('На неотфильрованном списке количество фирм-произодителей не эталонно, должно быть ' + ALL_FIRMS_COUNT);
+  end;
+  //Вообще косячный комбобокс, поэтому работаем с ним чисто руками
+  comBoBox.Click;
+  Sys.Keys('[Home]'+keyPause+'[Down]'+keyPause+'[Down]'+keyPause+'[Down]'+keyPause+'[Enter]');  
+  if NOT CompareArray(GetElementsFromTree(firmsWnd),firms[0][1]) then
+  begin
+    Log.Error('Список элементов отфильтровался не правильно при выборе элемента:' + firms[0][0]);
+    Raise('Список элементов отфильтровался не правильно при выборе элемента:' + firms[0][0]);
+  end;
+  comBoBox.Click;
+  Sys.Keys('[End]'+keyPause+'[Up]'+keyPause+'[Up]'+keyPause+'[Enter]');  
+  if NOT CompareArray(GetElementsFromTree(firmsWnd),firms[1][1]) then
+  begin
+    Log.Error('Список элементов отфильтровался не правильно при выборе элемента:' + firms[1][0]);
+    Raise('Список элементов отфильтровался не правильно при выборе элемента:' + firms[1][0]);
+  end;
+  comBoBox.Click;
+  Sys.Keys('[Home]'+keyPause+'[Enter]');
+  Delay('1000');//что бы успел перерисоваться статусБар
+  currentText_in_statusBar := common.GetWindowText(statusBar);   
+  if NOT StringCompare('*из ' + ALL_FIRMS_COUNT, currentText_in_statusBar) then
+  begin
+    Log.Error('При снятии фильтра количество элементов в списке не эталонно, должно быть ' + ALL_FIRMS_COUNT, currentText_in_statusBar);
+    Raise('При снятии фильтра количество элементов в списке не эталонно, должно быть ' + ALL_FIRMS_COUNT);
+  end;        
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message( 'HLTC393_5_7_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.6: Показ лекарственного препарата
+  HLTC393.6.1: Описание препарата отображается в виде документа с оглавлением и следующими доступными функциями:
+    HLTC393.6.1.1: Вставка комментариев(при этом они не должны попадать в поиск «Документы с комментариями») 
+}
+function HLTC393_6_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC393_6_1_1';
+var
+  medicalProductsWnd;
+  preparatWnd;
+  structuraWnd;
+  textComent;
+begin
+try    
+  medicalProductsWnd := GoToMedicalProducts('', true);   
+  if NOT IsExists(medicalProductsWnd) then Raise('Не удалось получить список "Лекарственные средства"');
+  if NOT OpenDocFromList('D-сорбит (Сорбитол)', medicalProductsWnd) then 
+    Raise('Не удалось открыть документ "D-сорбит (Сорбитол)" из списка');
+  preparatWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(preparatWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  preparatWnd.SetFocus;
+  Sys.Keys('[Down]');   
+  if NOT InsertComment( preparatWnd, 'комментарий_' + PREF) then
+  begin  
+    Log.Error('Не удалось поставить комментарий!'); 
+    Raise('Не удалось поставить комментарий!');
+  end;  
+  if NOT Position_Internal(OpenMyDocTab, 'Мои комментарии\Документы с комментариями пользователя', '\', true, 'IsPressHome:=true') then
+    Raise('Не удалось спозиционироваться на Мои комментарии\Документы с комментариями пользователя');
+  Sys.Keys('[Enter]');    
+  if WaitForWarningWindow = '' then
+  begin
+    Log.Error('Со вкладки  "Документы с комментариями пользователя" открылся комментарий, хотя не должен был');
+    Raise('Со вкладки  "Документы с комментариями пользователя" открылся комментарий, хотя не должен был');
+  end;
+  if NOT ClickNearIconOnSubInDocument(preparatWnd, 'КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ') then
+    Raise('Не удалось кликнуть в докумнете возле иконки КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ');
+  textComent := CopyToClipBoard(preparatWnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(textComent, 'комментарий_' + PREF) then
+    Raise('Текст комментария не эталонный: ' + textComent);   
+  structuraWnd := GetFromNavigator('ДЕРЕВО "МОИ КОММЕНТАРИИ" СО ВКЛАДКИ НАВИГАТОРА "СТРУКТУРА ПРЕПАРАТА"');
+  if NOT IsExists(structuraWnd) then Raise('Не удалось получить ДЕРЕВО "МОИ КОММЕНТАРИИ" СО ВКЛАДКИ НАВИГАТОРА "СТРУКТУРА ПРЕПАРАТА"');
+  if NOT OpenObjectFromFolder('комментарий_' + PREF, structuraWnd) then
+    Raise('Не удалось открыть комментарий со вкладки СТРУКТУРА ПРЕПАРАТА');
+  preparatWnd.SetFocus;  
+  Sys.Keys('[Down]');  
+  textComent := CopyToClipBoard(preparatWnd, 'STRING', 'Trim:=true');
+  Sys.Keys('[Del]');
+  if NOT StringCompare(textComent, 'комментарий_' + PREF) then
+    Raise('Со вкладки Структура документа перешли не на эталонный комментарий: ' + textComent);   
+  result := true;
+  CloseTabIfNeeded;
+except  
+  Log.Message( 'HLTC393_6_1_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+  GoToMainMenuWithCloseTabsExceptOne;
+end;
+
+
+{
+HLTC393.6: Показ лекарственного препарата
+  HLTC393.6.1: Описание препарата отображается в виде документа с оглавлением и следующими доступными функциями:
+    HLTC393.6.1.2: Установка закладки 
+}
+function HLTC393_6_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC393_6_1_2';
+var
+  medicalProductsWnd;
+  preparatWnd;  
+  textBookm;
+  etalonBookm;
+begin
+try
+  DeleteAllInMyDoc;
+  medicalProductsWnd := GoToMedicalProducts('', true);   
+  if NOT IsExists(medicalProductsWnd) then Raise('Не удалось получить список "Лекарственные средства"');
+  if NOT OpenDocFromList('L-Лизина ацетат (Лизин)', medicalProductsWnd) then 
+    Raise('Не удалось открыть документ "L-Лизина ацетат (Лизин)" из списка');    
+  preparatWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(preparatWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickOnContext(preparatWnd, 'Состав') then
+    Raise('Не удалось кликнуть по искомому контексту');  
+  etalonBookm := CopyToClipBoard(preparatWnd, 'STRING', 'Trim:=true');  
+  if NOT SetBookMark(PREF) then
+  begin
+    Log.Error('Не удалось установить закладку!');
+    Raise('Не удалось установить закладку!');
+  end;
+  GoToMainMenu;         
+  if NOT OpenObjectFromFolder(MY_DOCS_PATH + PREF, OpenMyDocTab) then
+    Raise('Не удалось открыть закладку со вкладки  Мои документы!');
+  preparatWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(preparatWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА помле перехода по закладки');        
+  textBookm := CopyToClipBoard(preparatWnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(textBookm, etalonBookm) then
+  begin
+    Log.Error('Закладка стоит не в эталонном месте: ' + textBookm);
+    Raise('Закладка стоит не в эталонном месте: ' + textBookm);
+  end;
+  if NOT ClickNearIconOnSubInDocument(preparatWnd, 'ЗАКЛАДКА') then
+  begin
+    Log.Error('Не удалось кликнуть в тексте документа возле иконки закладки на саб панели');
+    Raise('Не удалось кликнуть в тексте документа возле иконки закладки на саб панели');
+  end;
+  textBookm := CopyToClipBoard(preparatWnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(textBookm, etalonBookm) then
+  begin
+    Log.Error('Закладка стоит не в эталонном месте: ' + textBookm);
+    Raise('Закладка стоит не в эталонном месте: ' + textBookm);
+  end;           
+  DeleteAllInMyDoc; 
+  result := true;
+  CloseTabIfNeeded;
+except  
+  Log.Message( 'HLTC393_6_1_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  DeleteAllInMyDoc;
+  CommonExceptionHandler;             
+end;
+  GoToMainMenuWithCloseTabsExceptOne;  
+end;
+
+{
+HLTC393.6: Показ лекарственного препарата
+  HLTC393.6.1: Описание препарата отображается в виде документа с оглавлением и следующими доступными функциями:
+    HLTC393.6.1.3: Выделение текста 
+}
+function HLTC393_6_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC393_6_1_3';
+var
+  medicalProductsWnd;
+  preparatWnd;  
+  text;
+  etalonText;
+begin
+try
+  etalonText := 
+    'Торговое название: 2-(4-нитрофенил)-фуран (2-(4-nitrophenyl)-furan)*' +
+    'Фармакологическая группа: вспомогательное вещество*' +
+    'Страна: Россия*' +
+    'Формы выпуска: вспомогательное вещество (банки) 500 г*' +
+    'Номер фармстатьи: ВФС 42-26ВС-86*' +
+    'Срок годности: 2 года*' +
+    'Состояние регистрационного удостоверения: действующее*' +
+    'Номер регистрации: 94/161/1*' +
+    'Даты регистрации, перерегистрации: 10.08.1994';
+
+  medicalProductsWnd := GoToMedicalProducts('', true);   
+  if NOT IsExists(medicalProductsWnd) then Raise('Не удалось получить список "Лекарственные средства"');  
+  if NOT OpenDocFromList('2-(4-нитрофенил)-фуран', medicalProductsWnd) then 
+    Raise('Не удалось открыть документ "2-(4-нитрофенил)-фуран" из списка');
+  preparatWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(preparatWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  text := CopyToClipBoard(preparatWnd, 'ALL', 'Trim:=true');  
+  if NOT StringCompare(etalonText, text) then
+  begin
+    Log.Error('Текст документа не эталонен, либо скопировался не правильно', text);
+    Raise('Текст документа не эталонен, либо скопировался не правильно');
+  end;   
+  result := true;
+  CloseTabIfNeeded;
+except  
+  Log.Message( 'HLTC393_6_1_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  DeleteAllInMyDoc;
+  CommonExceptionHandler;             
+end;
+  GoToMainMenuWithCloseTabsExceptOne;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2: В основном меню отображены и доступны разделы:
+    HLTC393.7.2.1: Справочники и словари
+      HLTC393.7.2.1.1: Государственный реестр лекарственных средств 
+}
+function HLTC393_7_2_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+begin
+try
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ"');
+  if NOT OpenObjectFromFolder('Государственный реестр лекарственных средств', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "Справочники и словари\Государственный реестр лекарственных средств"');
+    
+  wnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT ( IsExists(wnd) AND StringCompare('*Список препаратов*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить список СПИСОК ПРЕПАРАТОВ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить список СПИСОК ПРЕПАРАТОВ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_1_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2: В основном меню отображены и доступны разделы:
+    HLTC393.7.2.1: Справочники и словари
+      HLTC393.7.2.1.2:  Поиск лекарственных средств
+}
+function HLTC393_7_2_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+begin
+try
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ"');  
+  if NOT OpenObjectFromFolder('Поиск лекарственных средств', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "СПРАВОЧНИКИ И СЛОВАРИ\Поиск лекарственных средств "');
+    
+  wnd := GetFromPLP('ФОРМА КАРТОЧКИ ЗАПРОСА');
+  if NOT ( IsExists(wnd) AND StringCompare('*Поиск лекарственных средств*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить список КЗ "Поиск лекарственных средств" или он не валиден, после попытки открыть из ОМ Инфарма');
+    Raise('Не удалось получить список КЗ "Поиск лекарственного средства" или он не валиден, после попытки открыть из ОМ Инфарма');    
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_1_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2: В основном меню отображены и доступны разделы:
+    HLTC393.7.2.1: Справочники и словари
+      HLTC393.7.2.1.3: Справочник фармацевтических фирм
+}
+function HLTC393_7_2_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+begin
+try
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ"');  
+  if NOT OpenObjectFromFolder('Справочник фармацевтических фирм', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "СПРАВОЧНИКИ И СЛОВАРИ\Справочник фармацевтических фирм"');
+  wnd := GetFromInfarmListFirms('СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');
+  if NOT ( IsExists(wnd) AND StringCompare('*Фармацевтические фирмы (полный список)*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить список СПИСОК "Фармацевтические фирмы" или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить список СПИСОК "Фармацевтические фирмы" или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_1_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2: В основном меню отображены и доступны разделы:
+    HLTC393.7.2.1: Справочники и словари
+      HLTC393.7.2.1.4: Словарь медицинских терминов
+}
+function HLTC393_7_2_1_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+begin
+try
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ"');  
+  if NOT OpenObjectFromFolder('Словарь медицинских терминов', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "СПРАВОЧНИКИ И СЛОВАРИ\Словарь медицинских терминов"');  
+  wnd := GetFromInfarmDictionary('ТЕКСТ СТАТЬИ');
+  if NOT ( IsExists(wnd) AND StringCompare('*-иаз*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить словарь термино или он не валиден, после попытки открыть его из ОМ Инфарма : ' + GetTabCaption);
+    Raise('Не удалось получить словарь термино или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_1_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2: В основном меню отображены и доступны разделы:
+    HLTC393.7.2.2: Нормативная информация
+      HLTC393.7.2.2.1: Обзор изменений законодательства
+      
+      При активации, делается поиск по КЗ ПРАЙМ с параметрами:
+      И Раздел тема: Здравоохранение, образование, наука, культура, спорт и туризм\Охрана здоровья населения
+      Дата принятия с: 2 месяца ранее текущей даты
+
+      На ТБ вряд ли что-то найдётся, но параметры в КЗ должны быть именно такими 
+}
+function HLTC393_7_2_2_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  Data;
+begin
+try
+  Data :=
+    [
+    	CARD_PPOIZ, ([([
+      FD_SOURCE, ([
+    		'']) ]),([
+    	FD_THEME, ([
+    		'[И]ЗДРАВООХРАНЕНИЕ, ОБРАЗОВАНИЕ, НАУКА, КУЛЬТУРА, СПОРТ И ТУРИЗМ\ОХРАНА ЗДОРОВЬЯ НАСЕЛЕНИЯ']) ]),([
+      FD_ACCEPTANCE_DATE_FROM, ([
+    		'11.04.2015']) ]),([
+      FD_ACCEPTANCE_DATE_TO, ([
+    		'11.04.2015']) ]),([//должно быть "", но при клике в поле прописывается начальная дата
+    	FD_KIND_OF_INFORMATION, ([
+    		'']) ]) ]) 
+    ];
+  Result := false;
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: НОРМАТИВНАЯ ИНФОРМАЦИЯ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: НОРМАТИВНАЯ ИНФОРМАЦИЯ"');  
+  if NOT common.Position_Internal(tree, 'Обзор изменений законодательства', '\', true,  'IsPressHome:=true') then
+    Raise('Не удалось спозиционироваться в ОМ Инфарма на элементе "Обзор изменений законодательства"');
+  Sys.Keys('[Enter]');
+  if (WaitForWarningWindow(Options.Run.Timeout div 60, '*Информация по данному запросу отсутствует в установленном у Вас комплекте.*', true, '#Вернуться*', true) = '') then
+  begin
+    Log.Error('После перехода из ОМ_Инфарма по "Обзор изменений законодательства" поиск прошел, хотя не должен был!');
+    Raise('После перехода из ОМ_Инфарма по "Обзор изменений законодательства" поиск прошел, хотя не должен был!');
+  end;
+  Result := CompareQueryCardData(Data, ExtractQueryCardData(GetFromAnalyticReview('КАРТОЧКА ЗАПРОСА')));
+  if NOT Result then
+      Log.Error('После перехода из ОМ_Инфарма по "Обзор изменений законодательства" КЗ заполнена не эталонно!');   
+except  
+  Log.Message( 'HLTC393_7_2_2_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2: В основном меню отображены и доступны разделы:
+    HLTC393.7.2.2: Нормативная информация
+      HLTC393.7.2.2.2: Перечни и списки лекарств на особом контроле
+}
+function HLTC393_7_2_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Перечни и списки лекарств на особом контроле';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: НОРМАТИВНАЯ ИНФОРМАЦИЯ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: НОРМАТИВНАЯ ИНФОРМАЦИЯ"');
+  
+  if NOT OpenObjectFromFolder('Перечни и списки лекарств на особом контроле', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "НОРМАТИВНАЯ ИНФОРМАЦИЯ\Перечни и списки лекарств на особом контроле"');
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_2_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2: В основном меню отображены и доступны разделы:
+    HLTC393.7.2.2: Нормативная информация
+      HLTC393.7.2.2.3 : Регулирование обращения медицинских изделий
+
+}
+function HLTC393_7_2_2_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Регулирование обращения медицинских изделий';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: НОРМАТИВНАЯ ИНФОРМАЦИЯ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: НОРМАТИВНАЯ ИНФОРМАЦИЯ"');
+  
+  if NOT OpenObjectFromFolder('Регулирование обращения медицинских изделий', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "НОРМАТИВНАЯ ИНФОРМАЦИЯ\Регулирование обращения медицинских изделий"');
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_2_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2: В основном меню отображены и доступны разделы:
+    HLTC393.7.2.2: Нормативная информация
+      HLTC393.7.2.2.4: Типовые формы и шаблоны документов
+}
+function HLTC393_7_2_2_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Типовые формы и шаблоны документов';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: НОРМАТИВНАЯ ИНФОРМАЦИЯ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: НОРМАТИВНАЯ ИНФОРМАЦИЯ"');
+  
+  if NOT OpenObjectFromFolder('Типовые формы и шаблоны документов', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "НОРМАТИВНАЯ ИНФОРМАЦИЯ\Типовые формы и шаблоны документов"');
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_2_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.3: Основные возможности
+    HLTC393.7.2.3.1: Специально для руководителей и юристов
+}
+function HLTC393_7_2_3_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Специально для руководителей и юристов';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: ОСНОВНЫЕ ВОЗМОЖНОСТИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: ОСНОВНЫЕ ВОЗМОЖНОСТИ"');
+  
+  if NOT OpenObjectFromFolder(doc, tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "ОСНОВНЫЕ ВОЗМОЖНОСТИ\"' + doc);
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except     
+  Log.Message( 'HLTC393_7_2_3_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));    
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.3: Основные возможности
+        HLTC393.7.2.3.2: Стандарты и порядки медицинской помощи
+
+}
+function HLTC393_7_2_3_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Стандарты и порядки медицинской помощи';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: ОСНОВНЫЕ ВОЗМОЖНОСТИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: ОСНОВНЫЕ ВОЗМОЖНОСТИ"');
+  
+  if NOT OpenObjectFromFolder(doc, tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "ОСНОВНЫЕ ВОЗМОЖНОСТИ\"' + doc);
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except   
+  Log.Message( 'HLTC393_7_2_3_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));    
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.3: Основные возможности
+    HLTC393.7.2.3.3: СМИ по медицине и здравоохранению
+}
+function HLTC393_7_2_3_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;  
+begin
+try  
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: ОСНОВНЫЕ ВОЗМОЖНОСТИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: ОСНОВНЫЕ ВОЗМОЖНОСТИ"');
+  
+  if NOT OpenObjectFromFolder('СМИ по медицине и здравоохранению', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "ОСНОВНЫЕ ВОЗМОЖНОСТИ\СМИ по медицине и здравоохранению"');
+  
+  wnd := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');     
+  if NOT ( IsExists(wnd) AND StringCompare('СМИ по медицине и здравоохранению' + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить КЗ ППИО или она не валиден, после попытки открыть её из ОМ Инфарма');
+    Raise('Не удалось получить КЗ ППИО или она не валиден, после попытки открыть её из ОМ Инфарма');    
+  end;  
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_3_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));    
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.3: Основные возможности
+    HLTC393.7.2.3.4: Экспертная правовая поддержка
+}
+function HLTC393_7_2_3_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Экспертная правовая поддержка';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: ОСНОВНЫЕ ВОЗМОЖНОСТИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: ОСНОВНЫЕ ВОЗМОЖНОСТИ"');
+  
+  if NOT OpenObjectFromFolder(doc, tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "ОСНОВНЫЕ ВОЗМОЖНОСТИ\"' + doc);
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except   
+  Log.Message( 'HLTC393_7_2_3_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));    
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.4: Справочная фармацевтическая информация
+    HLTC393.7.2.4.1: Госреестр цен ЖНВЛП
+}
+function HLTC393_7_2_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Госреестр цен ЖНВЛП';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ"');
+  
+  if NOT OpenObjectFromFolder(doc, tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ\"' + doc);
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_4_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.4: Справочная фармацевтическая информация
+    HLTC393.7.2.4.2: Фармаконадзор. Изъятые из обращения серии препаратов
+}
+function HLTC393_7_2_4_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Фармаконадзор. Изъятые из обращения серии препаратов';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ"');
+  
+  if NOT OpenObjectFromFolder(doc, tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ\"' + doc);
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_4_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.4: Справочная фармацевтическая информация
+    HLTC393.7.2.4.3: Мониторинг безопасности лекарственных средств     
+}
+function HLTC393_7_2_4_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Мониторинг безопасности лекарственных средств';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ"');
+  
+  if NOT OpenObjectFromFolder(doc, tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ\"' + doc);
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except  
+  helpWnd.Close;  
+  Log.Message( 'HLTC393_7_2_4_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));    
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.4: Справочная фармацевтическая информация
+    HLTC393.7.2.4.4: Синонимы по МНН
+}
+function HLTC393_7_2_4_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;  
+  wnd;
+  doc, str;
+begin
+try
+  doc := 'Синонимы по МНН';
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: ОСПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ"');
+  
+  if NOT OpenObjectFromFolder(doc, tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "СПРАВОЧНАЯ ФАРМАВЦЕВТИЧЕСКАЯ ИНФОРМАЦИЯ\"' + doc);
+  
+  wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT ( IsExists(wnd) AND StringCompare(doc + '*', GetTabCaption) ) then
+  begin
+    Log.Error('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');
+    Raise('Не удалось получить справочный документ или он не валиден, после попытки открыть его из ОМ Инфарма');    
+  end;
+  str := CopyToClipBoard(wnd, 'STRING', 'Trim:=true');
+  if NOT StringCompare(doc, str) then
+  begin
+    Log.Error('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+    Raise('Текст открывшегося из ОМ Инфарма документа не эталонен:' + str);
+  end;
+  result := true;
+except  
+  helpWnd.Close;  
+  Log.Message( 'HLTC393_7_2_4_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));    
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню
+  HLTC393.7.2.4 : Справочная информация
+    HLTC393.7.2.5: Последние открытые препараты(несворачиваемый пункт)
+}
+function HLTC393_7_2_5_Execute (var  CurrentState: OleVariant): OleVariant;
+var    
+  omWnd;    
+  lastOpenPreparWnd;
+  medicalProductsWnd;
+  pathToImage;
+  preparations;
+  i;  
+  str;
+begin
+try  
+  //Проверяем, что препараты попадают в "Последние открытые препараты" списка ОМ Инфарма
+  preparations := ([
+    (['2-(4-нитрофенил)-фуран',  'Торговое название: 2-(4-нитрофенил)-фуран (2-(4-nitrophenyl)-furan)']), 
+    (['5-НОК (Нитроксолин)',     'Торговое название: 5-НОК (5-NOK)']), 
+    (['L-Лизина ацетат (Лизин)', 'Торговое название: L-Лизина ацетат (L-Lysine acetate)'])
+  ]);
+  for i := VarArrayLowBound(preparations, 1) to VarArrayHighBound(preparations, 1) do
+  begin
+    medicalProductsWnd := GoToMedicalProducts('', true);   
+    if NOT IsExists(medicalProductsWnd) then Raise('Не удалось получить список "Лекарственные средства"');    
+    if NOT OpenDocFromList(preparations[i][0], medicalProductsWnd) then     
+      Raise('Не удалось открыть препарат из списка Лекарственных препаратов' + preparations[i][0]);      
+    medicalProductsWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');       
+    if NOT IsExists(medicalProductsWnd) then Raise('Не удалось получить ТЕКСТ ПРЕПАРАТА');
+    str := CopyToClipBoard(medicalProductsWnd, 'STRING', 'Trim:=true');
+    if NOT StringCompare(str, preparations[i][1]) then 
+      Raise('После открытия Мед.препарата его текст не эталонен: ' + str);
+    CloseTabIfNeeded;//закрываем вклаку  
+  end;
+  
+  for i := VarArrayLowBound(preparations, 1) to VarArrayHighBound(preparations, 1) do
+  begin
+    if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИНфарм!'); 
+    lastOpenPreparWnd := GetFromMainMenu_Infarm('СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ');
+    if NOT IsExists(lastOpenPreparWnd) then Raise('Не удалось получить СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ');
+    if NOT OpenObjectFromFolder(preparations[i][0], lastOpenPreparWnd) then 
+      Raise('Не удалось открыть препарат из списка Лекарственных препаратов');    
+    medicalProductsWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');       
+    if NOT IsExists(medicalProductsWnd) then Raise('Не удалось получить ТЕКСТ ПРЕПАРАТА');
+    str := CopyToClipBoard(medicalProductsWnd, 'STRING', 'Trim:=true');
+    if NOT StringCompare(str+'*', preparations[i][1]) then 
+      Raise('После открытия Мед.препарата из списка ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ его текст не эталонен: ' + str);
+  end;
+  //Проверяем, что список не сварачиваемый
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИНфарм!');
+  pathToImage := GetTempDirectory + '\HLTC393_7_2_5.bmp';
+  lastOpenPreparWnd := GetFromMainMenu_Infarm('СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ');
+  if NOT IsExists(lastOpenPreparWnd) then Raise('Не удалось получить СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ');
+  lastOpenPreparWnd.SetFocus;
+  lastOpenPreparWnd := GetFromMainMenu_Infarm('ОБЛАСТЬ: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ');
+  if NOT IsExists(lastOpenPreparWnd) then Raise('Не удалось получить ОБЛАСТЬ: ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ');  
+  lastOpenPreparWnd.Picture.SaveToFile(pathToImage);  
+  lastOpenPreparWnd.Click(lastOpenPreparWnd.width div 2, 25);
+  SlideMouse(10, 10); 
+  if NOT Regions.Compare(lastOpenPreparWnd, pathToImage, false, false, false, 0) then
+  begin
+    Log.Error('После попытке развернуть группу "ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ" (кликом по ней) что то произошло, возможно группа свернулась\развенулась, этого быть не должно');  
+    Raise('После попытке развернуть группу "ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ" (кликом по ней) что то произошло, возможно группа свернулась\развенулась, этого быть не должно');
+  end;
+  lastOpenPreparWnd.Click(lastOpenPreparWnd.width div 2, 25);
+  SlideMouse(10, 10); 
+  if NOT Regions.Compare(lastOpenPreparWnd, pathToImage, false, false, false, 0) then
+  begin
+    Log.Error('После повторной попытке развернуть группу "ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ" (кликом по ней) что то произошло, возможно группа свернулась\развенулась, этого быть не должно');  
+    Raise('После повторной попытке развернуть группу "ПОСЛЕДНИЕ ОТКРЫТЫЕ ПРЕПАРАТЫ" (кликом по ней) что то произошло, возможно группа свернулась\развенулась, этого быть не должно');
+  end;  
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_2_5_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC393.7: Основное меню  
+    HLTC393.7.3: Проверить, что если в базе есть Инфарм, то в главном тулбаре к кнопке ОМ доступно
+    расширение с двумя ОМ.
+}
+function HLTC393_7_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  popupMenu;
+  contItems;  
+begin
+try  
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');
+  popupMenu := ClickToolbarButton(GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Основное меню', 'ClickForPopupMenu:=true');
+  if NOT IsPopupMenuItemExists(popupMenu, 'Основное меню справочника Инфарм') then
+  begin
+    Log.Error('При раскрытии попап меню у кнопки "ОМ" не найден элемент "Основное меню справочника Инфарм"');
+    Raise('При раскрытии попап меню у кнопки "ОМ" не найден элемент "Основное меню справочника Инфарм"');  
+  end;
+  if NOT IsPopupMenuItemExists(popupMenu, 'Основное меню системы ГАРАНТ') then
+  begin
+    Log.Error('При раскрытии попап меню у кнопки "ОМ" не найден элемент "Основное меню системы ГАРАНТ"');
+    Raise('При раскрытии попап меню у кнопки "ОМ" не найден элемент "Основное меню системы ГАРАНТ"');  
+  end;
+  contItems := popupMenu.Items.Count; 
+  if NOT ( contItems = 2) then
+  begin
+    Log.Error('КОличество элементов выпадающего меню, раскрытого от кнопки ОМ не равно ДВУМ, а :'+ IntToStr(countItems));
+    Raise('КОличество элементов выпадающего меню, раскрытого от кнопки ОМ не равно ДВУМ, а :'+ IntToStr(countItems));
+  end;  
+  Sys.Keys('[Esc]');
+  result := true;
+except
+  Sys.Keys('[Esc]');  
+  Log.Message( 'HLTC393_7_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC393.7: Основное меню  
+   HLTC393.7.5: Проверить, что по разделам справочника из ОМ не должно находиться аннулированных препаратов
+}
+function HLTC393_7_5_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  tree;
+  listWnd;
+  i;
+  elementsCount;    
+  x, y;
+  regEx;
+  hint;
+begin
+try
+  if NOT GoToMainMenu_Infarm then Raise('Не удалось открыть ОМ ИнФарм!');    
+  tree := GetFromMainMenu_Infarm('СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ');
+  if NOT IsExists(tree) then Raise('Не удалось в ОМ Инфарма получить "СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ"');
+  if NOT OpenObjectFromFolder('Государственный реестр лекарственных средств', tree) then 
+    Raise('Не удалось открыть ИЗ ОМ Инфарма "СПИСОК: СПРАВОЧНИКИ И СЛОВАРИ\Государственный реестр лекарственных средств"');
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT  IsExists(listWnd) then  
+    Raise('Не удалось получить СПИСОК Препаратов, после попытки открыть его из ОМ Инфарма');        
+  //Проверяем по хинту (перебираем каждый объект и смотрим его хинт)
+  elementsCount := common.GetWindowText(GetFromMainWindow('СТАТУСБАР'));
+  regEx := HISUtils.RegExpr;                       
+  regEx.Expression := '(?ms).*\d*.*из\s(\d*)';
+  if regEx.Exec(elementsCount) then      
+    elementsCount := StrToInt(regEx.Match[1]);  
+  
+  listWnd.SetFocus;  
+  Sys.Keys('[Home]');  
+  for i := 1 to elementsCount do
+  begin    
+    if NOT FindPicture(listWnd, 'start_selection.bmp', x, y) then 
+      Raise('Не удалось обнаружить выделенный элемент в списке');    
+    common.ClientToScreen(listWnd, x, y);
+    hint := GetHintTextByCoords(x-15, y+5);
+    if NOT (StringCompare(hint, 'Действующий препарат') or StringCompare(hint, 'Особый контроль'))then
+    begin
+      Log.Error('Хинт элемента не равен "Действующий препарат", возможно он Анулирован : ' + hint);
+      Raise('Хинт элемента не равен "Действующий препарат", возможно он Анулирован : ' + hint);
+    end;
+    listWnd.SetFocus;
+    Sys.Keys('[Down]');
+  end;
+  
+  //Проверяем по иконке (перемещаемся в конец и смотрим, что нет объекта и иконкоцй анулированных)
+  listWnd.SetFocus;
+  Sys.Keys('[End]');  
+  if MoveMouseToObject(listWnd, 'med_prep_NotUsed.bmp', 0, 0) then
+  begin
+    Log.Error('Обнаружился объект с иконкой Анулированного препарата!');
+    Raise('Обнаружился объект с иконкой Анулированного препарата!');
+  end;
+   
+  result := true;
+except  
+  Log.Message( 'HLTC393_7_5_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC393.8.1 Проверка правильности индексов с именами сабов и работа с ними на сервере для инфарма.
+
+  HLTC393.8.1.1  Открыть КЗ инфарм, выбрать все страны в поле запроса, построить список (должны попасть все
+  документы со всеми вхождениями, которые есть в базе), применить контекстный фильтр,
+  которого нет ни в одном имени препарата - "zzz". Проверить, что ошибок(визуальных и в логе) нет.
+  
+  HLTC393.8.1.2 Открыть КЗ инфарм, выбрать все страны в поле запроса, построить список, применить
+  контекстный фильтр "ъъъ". Проверить, что ошибок(визуальных и в логе) нет.
+  
+  HLTC393.8.1.3 Открыть КЗ инфарм, выбрать все страны в поле запроса, построить список, ввести в поле 
+  контекстного фильтра "z", потом "z" стереть и ввести "ъ". Проверить, что ошибок(визуальных и в логе) нет.
+    
+}
+function HLTC393_8_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  wndCardAttr;
+  wndCardAttrTree;
+  wndContextFilter;
+  i;
+begin
+try
+  for i := 1 to 3 do
+  begin
+    if NOT GoToPLP then Raise('Не удалось открыть КЗ Поиск лекарственного средства');
+    //Пока нет функции позиционирования на нужный элемент КЗ Инфарма, делаем по дибильному:
+    PressKeyNCount('[Tab]', 9);
+    //if i = 1 then Sys.Keys('[Enter]');//заточка: группу "Данные о регистрации" разворачиваем только первый раз 
+    //PressKeyNCount('[Tab]', 7);
+    Sys.Keys('[Enter]');    
+    wndCardAttr := GetFromAttributeSelect('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА');
+    if NOT IsExists(wndCardAttr) then Raise('Не удалось получить ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА');   
+    if NOT StringCompare('Страна', wndCardAttr.Caption) then
+      Raise('Не удалось обнаружить окно выбора атрибутов "СТРАНА"');
+    wndCardAttrTree :=  GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ', wndCardAttr);
+    if NOT IsExists(wndCardAttrTree) then Raise('Не удалось получить ДЕРЕВО АТТРИБУТОВ');
+    wndCardAttrTree.SetFocus;
+    PressKeyWithCheck(['^a'], wndCardAttrTree);
+    Sys.Keys('[Apps]');
+    if NOT ClickByPopupMenuItem(wndCardAttrTree, 'ИЛИ') then Raise('Не удалось вызвать контекстную операцию "ИЛИ"');
+    PressKeyNCount('^[Enter]', 2);
+    
+    wndContextFilter := GetFromList('КОНТЕКСТНЫЙ ФИЛЬТР');
+    if NOT IsExists(wndContextFilter) then Raise('Не удалось получить КОНТЕКСТНЫЙ ФИЛЬТР');
+    wndContextFilter.SetFocus;
+    
+    case i of
+      1:  Sys.Keys('zzz');
+      2:  Sys.Keys('ъъъ');
+      3:  begin
+            Sys.Keys('z');
+            Delay('1000');
+            Sys.Keys('[BS] ');
+            Delay('1000');
+            Sys.Keys('ъ');
+            GoToMainMenu; //Что изменить состояние оболочки, авось вылезла ошибка 
+          end;
+    end; //for    
+    
+  end;
+  result := true;
+except  
+  Log.Message( 'HLTC393_8_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+
+//------------------------------------------------------------------------------
+procedure RykovTest393;
+var cur;
+begin
+  gbl_F1ShellTabsEnabled := true;  
+ //Log.Message( HLTC393_1_1_Execute(cur) );
+ //Log.Message( HLTC393_1_2_Execute(cur) );
+ //Log.Message( HLTC393_2_1_Execute(cur) ); 
+ //Log.Message( HLTC393_4_1_Execute(cur) );  
+  //Log.Message( HLTC393_4_2_Execute(cur) );
+  //Log.Message( HLTC393_4_4_Execute(cur) );
+  //Log.Message( HLTC393_5_1_Execute(cur) );
+  //Log.Message( HLTC393_5_2_Execute(cur) );
+  //Log.Message( HLTC393_5_3_Execute(cur) );
+  //Log.Message( HLTC393_5_4_Execute(cur) );
+  //Log.Message( HLTC393_5_6_Execute(cur) );
+  //Log.Message( HLTC393_5_7_Execute(cur) );  
+  //Log.Message(HLTC393_6_1_1_Execute(cur) );
+  //Log.Message(HLTC393_6_1_2_Execute(cur) );
+  //Log.Message(HLTC393_6_1_3_Execute(cur) );
+
+  
+   //Log.Message(HLTC393_7_2_1_1_Execute(cur) ); 
+   //Log.Message(HLTC393_7_2_1_2_Execute(cur) );
+   //Log.Message(HLTC393_7_2_1_3_Execute(cur) );
+   //Log.Message(HLTC393_7_2_1_4_Execute(cur) );
+   
+   Log.Message(HLTC393_7_2_2_1_Execute(cur) );
+   //Log.Message(HLTC393_7_2_2_2_Execute(cur) );
+   //Log.Message(HLTC393_7_2_2_3_Execute(cur) );
+   //Log.Message(HLTC393_7_2_2_4_Execute(cur) );    
+    
+   //Log.Message(HLTC393_7_2_3_1_Execute(cur) );
+   //Log.Message(HLTC393_7_2_3_2_Execute(cur) );
+   //Log.Message(HLTC393_7_2_3_3_Execute(cur) );    
+   //Log.Message(HLTC393_7_2_3_4_Execute(cur) );
+   
+   //Log.Message(HLTC393_7_2_4_1_Execute(cur) );
+   //Log.Message(HLTC393_7_2_4_2_Execute(cur) );
+   //Log.Message(HLTC393_7_2_4_3_Execute(cur) );
+   //Log.Message(HLTC393_7_2_4_4_Execute(cur) );
+      
+   //Log.Message(HLTC393_7_2_5_Execute(cur) );
+   //Log.Message(HLTC393_7_3_Execute(cur) );   
+   //Log.Message(HLTC393_7_5_Execute(cur) );
+    //Log.Message(HLTC393_5_2_1_1_Execute(cur));
+    //Log.Message(HLTC393_8_1_Execute(cur));      
+    
+   
+   
+   
+end;
+
+procedure test2;
+begin
+ 
+end;

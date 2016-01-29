@@ -1,0 +1,53 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Constants
+//////////////////////////////////////////////////////////////////////////////////
+
+: Constants::Class
+? Определение констант
+? Класс с этим стекреотипом служит виртуальным контейнером для констант. Т.е. сам класс не определяет никаких артефактов генерации, однако его атрибуты как раз определяют константы.
+? Для задания констант вннесите в класс атрибуты (не связи) нужного типа и определитие их значение. Например: "MY_CONST : long = 123"
+< *::Category,*::Class
+$ S
+$ C 245,245,245
+$ l 100,100,100
+$ f 100,100,100
+v +#-
+Y t4_constants.gif
+
++ wiki
+G %PU
+
++ idl
+P
+	%f_docs(%S)\
+	<{\n}%CX>
+
++ h
+	%f_docs(%S)\
+	<{\n}{}{%C}#static const %f_type(%C%T) %CN[{%PC=Category|%PM=UtilityPack::Class} = [{"%C%TN"="string"|"%C%TN"="wstring"}{%f_init(%C)}"%CI"]];[ // %CD]>
+
++ cpp
+	[{"%PC"!="Category"&%PM!=UtilityPack::Class}%f_docs(%S)\
+	<{\n}%f_shift_scope(true)const %f_type(%C%T)%f_shift_scope(false) %f_function_scope(%P)%CN = [{"%C%TN"="string"|"%C%TN"="wstring"}{%f_init(%C)}"%CI"];[ // %CD]>]
+
++ pas
+	%f_docs(%S)\
+	const
+	<{\n}#\t%CN: %f_type(%C%T) = [{"%C%TN"="string"|"%C%TN"="wstring"}{%CI}'%CI'];>
+
+# MDAGen/GTS/Constants_class_intf_pas
+
+//////////////////////////////////////////////////////////////////////////////////
+: Constants::Class::Attribute
+p AutoInc:b=false ? Определяет что значение константы будет генеироваться автоматический как инкрементальный счетчик, увеличивающийся на единицу при каждой генерации
+l al
+Y t5_attr.gif
+T
+
+%t _constraint
+c                         {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%P%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+
++ idl
+	%f_docs(%S)\
+	#const %T<%NN::>%TN %SN = [{"%S{AutoInc}"="true"}{%f_init(%S)}%SA];

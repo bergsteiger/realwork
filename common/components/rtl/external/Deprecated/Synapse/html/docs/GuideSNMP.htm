@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<META HTTP-EQUIV="Content-language" CONTENT="en">
+	<META NAME="Robots" CONTENT="ALL; FOLLOW">
+	<META name="description" content="SYNAPSE - Synchronous TCP/IP Library for Delphi">
+	<META name="keywords" content="Synapse, TCP/IP, Socket, Synchronous, Blocking">
+	<title>SYNAPSE - Synchronous TCP/IP Library for Delphi</title>
+</head>
+<body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+
+<CENTER>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue">
+<B>SYNAPSE - Synchronous TCP/IP Library for Delphi</B>
+</FONT>
+<br>
+Other related information can be found at <A HREF="http://www.ararat.cz/synapse/">http://www.ararat.cz/synapse/</A>
+</CENTER>
+<hr>
+<font face="sans-serif" size="+2" color="Blue"><b>SNMP guide</b></font><p>
+<b>Class:</b> TSNMPSend<p>
+<b>RFC:</b> 1157<p>
+<b>Features:</b>
+<ul>
+	<li>support for all method of SNMP protocol, except traps. (for trap support is separate unit)
+	<li>supported all possible data types (integers, strings, OIDs, IP addresses, etc...) for all methods (SET, GET, etc...).
+	<li>support for multiparameter queries.
+	<li>native code, not need any support DLLs.
+</ul>
+<b>Typical use:</b><p>
+
+<ul>
+	<li>In all cases you must have <i>SNMPsend</i> in your <b>uses</b>.
+	<li>For simple query for one MIB OID from your applications call function <i>SNMPGet</i>. Not need any more. This function create needed object, query SNMP host and return response as string.
+	<li>If you can query for multiple MIB OIDs or implement any method, see example:<p> 
+<font size="-1">
+<font color="Teal"><I>
+{you must create object for SNMP session}
+</I></FONT><br>
+SNMP:=TSNMPSend.Create;<br>
+<B>try</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{set address of SNMP server}
+  </I></FONT><br>
+  &nbsp;&nbsp;SNMP.Host:=SNMPHost;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{build query...}<br>
+  &nbsp;&nbsp;{set COMMUNITY for grant accessto SNMP server}
+  </I></FONT><br>
+  &nbsp;&nbsp;SNMP.Query.Community:=COMMUNITY;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{set type of PDU to define requested SNMP operation. Possible values are: PDUGetRequest, PDUGetNextRequest and PDUSetRequest}
+  </I></FONT><br>
+  &nbsp;&nbsp;SNMP.Query.PDUtype:=PDUGetRequest;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{define query OIDs...}<br>
+  &nbsp;&nbsp;{add MIBOID as string to set of MIBs}
+  </I></FONT><br>
+  &nbsp;&nbsp;SNMP.Query.MIBAdd(FirstMIBOID,'',ASN1_NULL);<br>
+  &nbsp;&nbsp;SNMP.Query.MIBAdd(SecondMIBOID,'',ASN1_NULL);<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;//...etc...
+  </I></FONT><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{send query to SNMP server}
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>if </B> SNMP.DoIt <B>then</B>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;&nbsp;&nbsp;{In Reply structure is response from SNMP server}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;{set Value with value of searched MIBOID}
+  </I></FONT><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;Value:=Snmp.Reply.MIBGet(MIBOID);
+  <font color="Teal"><I>
+  &nbsp;&nbsp;&nbsp;&nbsp;//...etc...
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>else</B> 
+  <font color="Teal"><I>
+  &nbsp;&nbsp;&nbsp;&nbsp;{error connecting to server}
+  </I></FONT>;<br>
+  <B>finally</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{destroy SNMP object}
+  </I></FONT><br>
+  &nbsp;&nbsp;SNMP.Free;<br>
+  <B>end</B>;
+</font>
+</ul>
+
+<hr>
+</body>
+</html>
+

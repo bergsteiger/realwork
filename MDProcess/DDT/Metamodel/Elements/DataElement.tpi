@@ -1,0 +1,1238 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DDT/Metamodel/Elements/DataElement.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::DDT::Metamodel::Elements::DataElement
+//
+// Элемент данных
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: DataElement::Class
+? Элемент данных
+< *::Class,*::Category
+
+= WikiImplClass::Class
+= DDGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_data_element.gif
+L code_data_element
+// Параметры визуализации
+$ C 230,190,120
+$ l 180,145,70
+$ f 230,190,120
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p postfix_rule:s ? определяет ключевое слово, которым должно заканчиваться описание атрибута
+p prefix_rule:s ? определяет ключевое слово, котором должно предваряться описание атрибута
+p separator:s ? определяет разделитель в списках
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{postfix_rule}"!="%S{!postfix_rule}"}%f_up_prefix(%S) *postfix_rule* = *%S{postfix_rule}* - определяет ключевое слово, которым должно заканчиваться описание атрибута
+	][{"%S{prefix_rule}"!="%S{!prefix_rule}"}%f_up_prefix(%S) *prefix_rule* = *%S{prefix_rule}* - определяет ключевое слово, котором должно предваряться описание атрибута
+	][{"%S{separator}"!="%S{!separator}"}%f_up_prefix(%S) *separator* = *%S{separator}* - определяет разделитель в списках
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48622F510339*
+c                                                                                  {}
+r {%f_number_cmp("<{}{%sS=extern}{%sC}>","1","\>")=1}:                             {%SS не может использоваться как внешний атрибут для нескольких элементов}
+r {%f_used_by_grammar(%S)=false&<{}{%CC=Attribute&%CS=namespace}{%CC}>!=0}:        {%SS не может иметь namespace'ов, т.к не является рутовым элементом грамматики}
+r {""=""}:                                 {}
+//#UC END# *4704C0E30186for48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических cpp-шников (например хидере реализации хранения)
+%f _specific_cpp_files_list
+//#UC START# *47EA208B0009for48622F510339*
+//#UC END# *47EA208B0009for48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических хидеров (например хидере реализации хранения)
+%f _specific_h_files_list
+//#UC START# *47EA1ED00157for48622F510339*
+//#UC END# *47EA1ED00157for48622F510339*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48622F510339*
+P
+S class %SN;
+O [{<{}{"%CC"="Attribute"&[{"%CS"=""|%CS=key}true]=true}{%CC}>!=0}%SN.cpp]
+	[{<{}{"%CC"="Attribute"&[{"%CS"=""|%CS=key}true]=true}{%CC}>!=0}\
+	%f_header(%S)
+	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+	%f_std_inc(%S)
+	[{"%SK"!="ParameterizedClass"}\#include %f_dump_include_path(%f_with_gen_id(h,%SW),%S)
+	]%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+	><{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	][\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+	]>][// by \<\<friend\>\> dependencies
+	<{}{"%AS"="friend"&"%AC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>][{"%S{local supervisor}"="true"}// as local supervisor
+	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"|"%CM"="SimpleClass::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+	>][// local helpers
+	%P<{}{%C{local helper}=true}\#include %f_dump_include_path(%f_with_gen_id(h,%CW),%C)
+	>]%f_with_gen_id(h,%f_dump_used_includes(%S))
+	
+	%SP
+	%f_clear_list(ATTRS)%f_collect_attrs(%S,"ATTRS")%f_copy_list(ATTRS,COPY)\
+	[{"<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)[{"%{ATTR}I"!=""}.]]>"!=""}// init ctor
+	%f_default_ctor_init_cpp(%S)
+	
+	]std::ostream& operator \<\< (std::ostream& out_stream, const %SN& item) {
+	%f_dump_serialize_elem(%S)
+		return out_stream;
+	}
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self data accessors
+	%f_copy_list(ATTRS,COPY)\
+	<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)[{%f_need_spec_accessor(%{ATTR})=false}[%f_read_accessor_cpp(%{ATTR},%{SERV})
+	
+	%f_write_accessor_cpp(%{ATTR},%{SERV})
+	
+	]]]>%f_copy_list(ATTRS,COPY)\
+	<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)[{%f_need_spec_accessor(%{ATTR})=true}[%f_data_elem_spec_read_accessor_cpp(%{ATTR},%{SERV})
+	
+	%f_data_elem_spec_write_accessor_cpp(%{ATTR},%{SERV})
+	
+	]]]>[{%f_used_by_grammar(%S)=true}const std::string& %{SERV}N::get_file_name () const {
+		return m_file_name;
+	}
+	
+	void %{SERV}N::set_file_name (const std::string& file_name) {
+		m_file_name = file_name;
+	}]
+	]
+	%Sp
+	
+	%f_footer(%S)
+	]
+
+f _dump_used_includes
+	%f_clear_list(USED)%f_set_var(OWNER,S)\
+	%f_collect_used_includes(%S,"USED")\
+	[<{}{%f_is_empty(USED)=false}{W}[%f_pop_first_to_var(USED,FWD)\#include %f_dump_include_path(%{FWD}L,%{FWD})
+	]>]
+
+f _collect_used_includes
+	%f_clear_list(CONT_DATA)%f_set_var(OWNER,S)\
+	%f_collect_used_includes_i(%S)\
+	%f_sort_list(CONT_DATA,u)%f_unique_list(CONT_DATA)\
+/	%f_copy_list(CONT_DATA,%1N)
+	%f_fill_used_elements(%S,"CONT_DATA","%1N")
+//	%f_dump_list(%S,"%1N","\n")
+
+f _collect_used_includes_i
+	<{}{%CC=Attribute&%Cl=agr&%t_is_container(%C%T)=true}%C%T[{%SW!=%{OWNER}W&%C%TW!=%{OWNER}W&%f_need_includes_by_containers(%C)=true}%C%T[%f_set_var(TYPE,S)][{%{OWNER}<{}{%wU=%{TYPE}U}{%wC}>=0}%f_add_to_list(CONT_DATA,{TYPE})]]>
+
+f _data_elem_spec_read_accessor_cpp
+	[{%Sa!=abstract}%f_init_scope(%T)\
+	%f_templ_header(%P)[const %t_attr(%T,"ref")& %f_type(%P)::%SN () const[ /*throw <{, }%f_type(%E)>*/] {
+		%U[{_GET_ACCESSOR}
+		return m_%SN;
+		]
+	}]%f_shift_scope(false)]
+
+f _data_elem_spec_write_accessor_cpp
+	[{%Sa!=abstract}%f_templ_header(%P)[void %f_type(%P)::%SN (const %t_attr(%T,"ref")& %SN)[ /*throw <{, }%f_type(%e)>*/] {
+		%U[{_SET_ACCESSOR}
+		m_%SN = %SN;
+		]
+	}]%f_shift_scope(false)]
+
+f _default_ctor_init_cpp
+	%f_default_ctor_init_header_cpp(%S)
+		%U[{_DEF_INIT_CTOR!cpp!}
+		]
+	}
+
+f _default_ctor_init_header_cpp
+	%f_copy_list(ATTRS,COPY)\
+	%f_set_var(HEADER,"%SN::%SN () : <{, }{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)[{"%{ATTR}I"!=""}m_[{}{%f_to_omg(%{ATTR}%TN)}%{ATTR}N](%f_init(%{ATTR}))]]> {")\
+	%f_set_var(OP_LEN,"%f_string_length("%{HEADER}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","100","\>")")\
+	[{%f_true(%{NEED_WRAP})=true}{%{HEADER}N}%f_copy_list(ATTRS,COPY)\
+	%SN::%SN ()
+		: <{, }{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)[{"%{ATTR}I"!=""}m_[{}{%f_to_omg(%{ATTR}%TN)}%CN](%f_init(%{ATTR}))
+	]]>{]
+
+f _dump_serialize_elem
+	%f_clear_list(GROUPS)\
+	<{}{%CC=Attribute&%t_is_real_attr(%C)=true&%f_number_cmp("%C{number}","0","\<")=1}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)%f_dump_serialize_elem_impl(%{SERV},"%{LIST_ID}N")
+	]>\
+	[	out_stream \<\< "%S{prefix_rule}" \<\< std::endl;
+	]%f_clear_list(GROUPS)\
+	<{}{%CC=Attribute&%t_is_real_attr(%C)=true&%f_number_cmp("%C{number}","0","\<")=0}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)%f_dump_serialize_elem_impl(%{SERV},"%{LIST_ID}N")
+	]>[	out_stream \<\< "%S{postfix_rule}" \<\< std::endl;]
+
+t _is_real_attr
+c                               {}
+r {%SS=extern|%SS=namespace}:   {false}
+r {""=""}:                      {true}
+
+f _dump_serialize_elem_impl
+/	<{\n}{%f_is_empty(%1N)=false}{W}[%f_pop_first_to_var(%1N,RULE)[{%t_is_container(%{RULE}%T)=false}{%f_serialize_container_rule(%{RULE})}%f_serialize_rule(%{RULE})]]>
+	<{\n}{%f_is_empty(%1N)=false}{W}[%f_pop_first_to_var(%1N,RULE)%t_serialize_rule_impl(%{RULE})]>
+
+f _serialize_rule
+	[{%S{optional}=true}{%f_serialize_rule_impl(%S,"\t")}\
+		if (%t_if_condition_for_optional(%S)) {
+			%f_serialize_rule_impl(%S)
+		}]
+
+t _if_condition_for_optional
+c                                      {}
+r {%TS=DataElement}:                   {item.get_%f_to_omg(%SN) ().is_nil () == false}
+r {%TS=UMLPrimitive&%TN=string}:       {ACE_OS::strcmp (item.get_%f_to_omg(%SN) (), %f_init(%S)) != 0}
+r {""=""}:                             {item.get_%f_to_omg(%SN) () != %f_init(%S)}
+
+f _serialize_rule_impl
+	[{%TS=UMLPrimitive&%TN=arbitrary string}{%1Nout_stream [{%S{prefix_rule}!=NL}{\<\< std::endl }[\<\< "%S{prefix_rule} " ]]\<\< [%t_frame_symbol(%S) \<\< ][{%TS=DataElement&%S{optional}=true}*]item.get_%f_to_omg(%SN) () [\<\< %t_frame_symbol(%S) ][{%S{postfix_rule}!=NL}[\<\< " %S{postfix_rule}" ]]\<\< std::endl;}\
+	%1Nout_stream [{%S{prefix_rule}!=NL}{\<\< std::endl }[\<\< "%S{prefix_rule}" ]]\<\< item.get_%f_to_omg(%SN) () [{%S{postfix_rule}!=NL}[\<\< "%S{postfix_rule}" ]]\<\< std::endl;]
+
+t _serialize_rule_impl
+c                                                                    {}
+r {%TS=UMLPrimitive&%TN=boolean}:                                    {%f_serialize_boolean_rule_impl(%S,"\t")}
+r {%TS=DataEnum}:                                                    {%f_serialize_enum_rule_impl(%S,"\t")}
+r {%t_is_container(%T)=true}:                                        {%f_serialize_container_rule(%S)}
+r {""=""}:                                                           {%f_serialize_rule(%S)}
+
+f _serialize_enum_rule_impl
+	%f_set_var(PREFIX,"%S{prefix_rule}")\
+	%f_set_var(POSTFIX,"%S{postfix_rule}")\
+	%f_set_var(TAB,"%1N")\
+	%f_set_var(ENUM,T)\
+	%{TAB}Nswitch (item.get_%f_to_omg(%SN) ()) {
+	%T<{\n}{}%{TAB}N	case [%{ENUM}<%NN::>]%CN: out_stream [{%{PREFIX}N!=NL}{\<\< std::endl }[\<\< "%{PREFIX}N " ]]\<\< "%C{description}" [{%{POSTFIX}N!=NL}[\<\< " %{POSTFIX}N" ]]\<\< std::endl;
+	%{TAB}N		break;>
+	%{TAB}N	default: GDS_ASSERT_MSG(0,("Wrong enum value for %SN attr"));
+	%{TAB}N}
+
+f _serialize_boolean_rule_impl
+	%1Nif(item.get_%f_to_omg(%SN) ()) {
+	%1N	out_stream [{%S{prefix_rule}!=NL}{\<\< std::endl }[\<\< "%S{prefix_rule} " ]][{%S{postfix_rule}!=NL}[\<\< " %S{postfix_rule}" ]]\<\< std::endl;
+	%1N}
+
+f _serialize_container_rule
+	%f_set_var(SEPARATOR,"")\
+	%f_set_var(CONTAINER_DATA,"")\
+	%{RULE}[{%t_is_container(%T)=true}%T<{}{"%CS"=""}%f_set_var(CONTAINER_DATA,C)[{"%C%T{separator}"!=""}{[{%C%TS=UMLPrimitive}%f_set_var(SEPARATOR,",")]}%f_set_var(SEPARATOR,"%C%T{separator}")]>]\
+		if (item.%f_to_omg(%SN) ().empty () == false) {
+			%f_type(%{RULE}%T)::const_iterator it = item.get_%f_to_omg(%SN) ().begin ();
+			%f_type(%{RULE}%T)::const_iterator it_end = item.get_%f_to_omg(%SN) ().end ();
+			[{%S{prefix_rule}!=NL}[out_stream \<\< "%S{prefix_rule} ";]]
+			for (; it != it_end; ++it) {
+				out_stream \<\< [%t_frame_symbol(%{CONTAINER_DATA}) \<\< ][{%{CONTAINER_DATA}%TS=DataElement}*]*it [\<\< %t_frame_symbol(%{CONTAINER_DATA}) ]\<\< std::endl;[{"%{SEPARATOR}N"!=""}
+				if (std::distance (it, it_end) \> 1) {
+					out_stream \<\< "%{SEPARATOR}N ";
+				}]
+			}
+			[{%S{postfix_rule}!=NL}[out_stream \<\< " %S{postfix_rule}" \<\< std::endl;]]
+		}
+
+t _frame_symbol
+c                                                                         {}
+r {%TN=integer|%TN=long|%TN=long long|%TN=short}:                         {}
+r {%TN=unsigned integer|%TN=unsigned long}:                               {}
+r {%TN=unsigned long long|%TN=unsigned short}:                            {}
+r {%f_is_string(%T)=true}:                                                {"\\""}
+r {}:                                                                     {%f_error("Unsupported primitive %TN")}
+//#UC END# *47022CB8034Bfor48622F510339*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48622F510339*
+F class %SN;
+S class %SN;
+O %SN.h
+	%f_h_header(%S)
+	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+	%f_std_inc(%S)
+	%f_includes_by_contents(%S)\
+	%f_dump_includes_h(%S)\
+	\#include \<ostream\>[
+	%S%f_open_ifdef()]
+	
+	%SP
+	%f_clear_list(ATTRS)%f_collect_attrs(%S,"ATTRS")%f_copy_list(ATTRS,COPY)\
+	%f_docs(%S)\
+	#class %SN {
+	[{"<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)[{"%{ATTR}I"!=""}.]]>"!=""}#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// init ctor
+	#public:
+	#	%SN ();
+	
+	][#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self data accessors
+	#public:
+	%f_copy_list(ATTRS,COPY)\
+	<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)[{%f_need_spec_accessor(%{ATTR})=false}[%f_read_accessor_h(%{ATTR})
+	
+	%f_write_accessor_h(%{ATTR})
+	
+	]]]>%f_copy_list(ATTRS,COPY)\
+	<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)[{%f_need_spec_accessor(%{ATTR})=true}[%f_data_elem_spec_read_accessor_h(%{ATTR})
+	
+	%f_data_elem_spec_write_accessor_h(%{ATTR})
+	
+	]]]>[{%f_used_by_grammar(%S)=true}#	const std::string& get_file_name () const;
+	
+	#	void set_file_name (const std::string& file_name);
+	]][#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self data
+	#private:
+	%f_copy_list(ATTRS,COPY)<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ATTR)%f_dump_data_element_attr(%{ATTR})
+	
+	]>[{%f_used_by_grammar(%S)=true}#	std::string m_file_name; //хранит информацию - из какого файла был прочитан элемент
+	]]
+	#}; //class %SN
+	
+	#std::ostream& operator \<\< (std::ostream& out_stream, const %SN& item);
+	%Sp
+	
+	%f_h_footer(%S)
+
+//собираем все атрибуты в список, имя, которого указано в качестве второго парметра
+f _collect_attrs
+	%f_set_var(LIST_ID,"%1N")\
+	%f_clear_list(ATTRS_NAME)\
+	%f_collect_attrs_impl(%S,"%{LIST_ID}N")
+//	<{}{%CC=Attribute&%CS=extern}%f_collect_attrs_impl(%C%T,"%{LIST_ID}N")>
+
+f _collect_attrs_impl
+	<{}{%CC=Attribute&%CS!=namespace}[{%f_exists_in_list(ATTRS_NAME,"%CN")=false}%f_add_to_list(%{LIST_ID}N,C)%f_add_to_list(ATTRS_NAME,"%CN")]>
+
+f _dump_includes_h
+	%f_clear_list(INCLUDES)\
+	<{}{}{%I}%f_add_to_list(INCLUDES,"%f_dump_include_path(%IL,%I)")\
+	%f_collect_used_includes(%I,"USED")%f_copy_includes_to_list(%I,"USED","INCLUDES")>\
+	%f_remove_from_list(INCLUDES,"")%f_remove_from_list(INCLUDES,"%f_dump_include_path(%SL,%S)")\
+	%f_sort_list(INCLUDES,n)%f_unique_list(INCLUDES)\
+	<{}{%f_is_empty(INCLUDES)=false}{W}[%f_pop_first_to_var(INCLUDES,ITEM)\#include %{ITEM}N
+	]>
+
+f _copy_includes_to_list
+	<{}{%f_is_empty(%1N)=false}{W}[%f_pop_first_to_var(%1N,ITEM)%f_add_to_list(%2N,"%f_dump_include_path(%{ITEM}L,%{ITEM})")]>
+
+f _data_elem_spec_read_accessor_h
+	[{%Sa!=abstract}#[const %t_attr(%T,"ref")& %SN () const[ /*throw <{, }%f_type(%E)>*/];]]
+
+f _data_elem_spec_write_accessor_h
+	[{%Sa!=abstract}#[void %SN (const %t_attr(%T,"ref")& %SN)[ /*throw <{, }%f_type(%e)>*/];]]
+
+f _need_spec_accessor
+	[{[{%S{optional}=true|%SS=extern}{false}true]=true&%TS=DataElement}{false}true]
+//#UC END# *47022C88029Ffor48622F510339*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48622F510339*
+//#UC END# *47022CCF00EAfor48622F510339*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor48622F510339*
+//#UC END# *470321C1038Afor48622F510339*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for48622F510339*
+O %SN.java
+	%f_header(%S)
+	%f_set_var(SELF,S)%f_set_var(SERVANT,S)package %f_dump_java_package_ex(%S);
+	
+	%f_dump_std_java_imports(%S)
+	[%f_java_dump_import_block(%S)
+	]%f_includes_by_contents_java(%S)
+	
+	#%t_visibility(%S,"%XU")%t_abstract_type(%S)class %SN {
+	[#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self data
+	<{\n\n}{"%CC"="Attribute"&[{"%CS"=""|%CS=key}true]=true}%CX>
+	
+	][#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self data accessors
+	<{}{"%CC"="Attribute"&[{"%CS"=""|%CS=key}true]=true}[%f_read_accessor_java(%C)
+	
+	%f_write_accessor_java(%C)
+	
+	]>
+	]
+	#};
+	%f_footer(%S)
+//#UC END# *470321950119for48622F510339*
+
+// реализация абстрактного стереотипа Грамматика::MDAGenerator
+// Генератор грамматики для ANTLR (целевой язык c++)
++ g.cpp
+//#UC START# *4863819D0383for48622F510339*
+	%f_set_var(SERV,S)\
+	%f_set_var(DATA_TYPE,S)\
+	%f_find_main_type(%S,"DATA_TYPE")\
+	%f_parser_rule_name(%S) returns \[%f_with_gen_id(h,%t_attr(%{DATA_TYPE},"ref")) %f_to_omg(%{DATA_TYPE}N)_ret\]][
+		{
+			%f_to_omg(%{DATA_TYPE}N)_ret = new %f_with_gen_id(h,%f_type(%{DATA_TYPE})) ();
+	[%f_dump_groups_rules_type_flag(%S)
+	][%f_dump_rule_helper_class(%S)
+	][%f_dump_container_temp_var(%S)
+	]	}]
+		:	{rule_begin ();}
+	[%f_dump_prev_groups_rules_call(%S)
+	][		%f_str_to_rule(%S{prefix_rule})
+	][%f_dump_groups_rules_call(%S)][		%f_str_to_rule(%S{postfix_rule})
+	][%f_dump_container_temp_var_to_element(%S)
+	]		{[{%f_used_by_grammar(%{DATA_TYPE})=true}{rule_end ();}
+				%f_to_omg(%{DATA_TYPE}N)_ret-\>set_file_name (this-\>getFilename ());\
+/	[
+/	%f_dump_link_extern_with_main(%S)]
+				rule_end ();
+			]}
+		;
+	
+	%f_dump_groups_rules(%S)
+
+//связываем рутовый
+f _dump_link_extern_with_main
+	[{<{}{%aC=Attribute&%aS=extern}{C}>!=0&%f_used_by_grammar(%S)=true}%f_find_main_grammar(%S,"MAIN_GRAMMAR")\
+	%f_find_main_grammar_result(%S,"ROOT_TYPE")\
+	
+				%f_with_gen_id(h,%t_attr(%{ROOT_TYPE}%T,"[{%{ROOT_TYPE}%TS=DataElement}{in}ref]")) owner = %f_with_gen_id(h,%f_type(%{MAIN_GRAMMAR}))Parser::ContextSingleton::instance ()-\>find_context (
+					%f_to_omg(%{DATA_TYPE}N)_ret-\>name ()
+				);
+				if (owner.is_nil () == false) {
+					owner-\><{}{%aC=Attribute&%aS=extern}set_%f_to_omg(%aN)> (%f_to_omg(%{DATA_TYPE}N)_ret);
+				}]
+
+f _clear_groups
+	<{}{%CC=Attribute&%CS!=extern}%f_clear_list(%C{number})>\
+	%f_clear_list(GROUPS)
+
+//итерируется по списку, содержащие в себе идентификаторы других списков
+//удаляет эти списки (рекурсивно применяя данную функцию)
+//и очищает исходный список
+f _clear_list_req
+	<{}{%f_is_empty(%1N)=false}{W}[%f_pop_first_to_var(%1N,ITEM)%f_clear_list_req(%S,"%{ITEM}N")]>\
+	%f_clear_list(%1N)
+
+//генерация вспомагетльных внутренних методов
+f _dump_rule_helper_class
+/			static const unsigned long attrs_mask_map\[\] = {<{, }{}{%C}%Cn>};
+			class local {
+			public:
+				static const DescriptionMap& get_descriptions () {
+					static local helper;
+					
+					return helper.get_attribute_descriptions ();
+				}
+			private:
+				local () {
+					<{}{%CC=Attribute&%CS!=extern}{%C}m_descriptions_map.insert (DescriptionMap::value_type (1 \<\< %Cn, "%CN"));
+					>
+				}
+				
+				const DescriptionMap& get_attribute_descriptions () {
+					return m_descriptions_map;
+				}
+			private:
+				DescriptionMap m_descriptions_map;
+			};
+
+//генерим временный переменные для атрибутов типа контэйнер (вектор, список и т.д)
+f _dump_container_temp_var
+	%f_clear_groups(%S)\
+	<{}{%CC=Attribute&%CS!=extern&%t_is_container(%C%T)=true}		%f_with_gen_id(h,%f_type(%C%T)) %f_to_omg(%CN)_;
+	>
+
+//генерим код для записи временных атрибутов типа контэйнер в объект
+f _dump_container_temp_var_to_element
+	%f_clear_groups(%S)\
+	[		{
+	<{}{%CC=Attribute&%CS!=extern&%t_is_container(%C%T)=true}			%f_to_omg(%{DATA_TYPE}N)_ret-\>set_%f_to_omg(%CN) (%f_to_omg(%CN)_);
+	>		}]
+
+f _dump_groups_rules_type_flag
+	%f_clear_groups(%S)\
+	<{}{%CC=Attribute&%CS!=extern}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)		unsigned long accumulated_flag_[%f_str_replace(%{LIST_ID}N,-,prev_)] = 0;
+	]>		unsigned long flag = 0;
+
+f _dump_prev_groups_rules_call
+	%f_dump_groups_rules_call(%S,"negative")
+
+f _dump_groups_rules_call
+	%f_clear_list_req(%S,"GROUPS")\
+	%f_clear_list(DUMPED_ARBITRARY)\
+	%f_set_var(SELF,S)\
+	[<{}{%CC=Attribute&%CS!=extern&%f_dump_groups_rules_call_condition(%C,%1)=true}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)%f_dump_group_call(%{SELF},"%{LIST_ID}N","DUMPED_ARBITRARY")]>]
+
+//needs:
+//	%1N - list ID
+//	%2N - collect dumped arbitrary group
+f _dump_group_call
+	%f_clear_list(ARBITRARY_LIST)\
+	%f_clear_list(NON_ARBITRARY_LIST)\
+	%f_set_var(HAS_ARBITRARY,"false")\
+	%f_set_var(HAS_NON_ARBITRARY,"false")\
+	%f_set_var(NON_ARBITRARY_SIZE,"0")\
+	<{}{%CC=Attribute&%CS!=extern&%1N=%C{number}&%C{optional}=true}{%C}%f_add_to_list(ARBITRARY_LIST,C)%f_set_var(HAS_ARBITRARY,"true")>\
+	<{}{%CC=Attribute&%CS!=extern&%1N=%C{number}&%C{optional}!=true}{%C}%f_add_to_list(NON_ARBITRARY_LIST,C)%f_set_var(HAS_NON_ARBITRARY,"true")%f_set_var(NON_ARBITRARY_SIZE,"%f_evaluate(%{NON_ARBITRARY_SIZE}N + 1)")>\
+	[{%{HAS_ARBITRARY}N=true}		(flag=%f_parser_rule_name(%S)_arbitrary_group_[%f_str_replace(%1N,-,prev_)][%f_dump_group_rule_args_call(%S,"ARBITRARY_LIST")]%f_dump_flag_check_block(%S,"true")\n		)*
+	][{%{HAS_NON_ARBITRARY}N=true}		[{%{NON_ARBITRARY_SIZE}N!=1}(flag=]%f_parser_rule_name(%S)_group_[%f_str_replace(%1N,-,prev_)][%f_dump_group_rule_args_call(%S,"NON_ARBITRARY_LIST")][{%{NON_ARBITRARY_SIZE}N!=1}{\n}%f_dump_flag_check_block(%S)\t\t)+[%f_dump_necessary_check(%S,"NON_ARBITRARY_LIST")]][{%{HAS_ARBITRARY}N=true}
+	%f_add_to_list(%2N,"%1N")		(flag=%f_parser_rule_name(%S)_arbitrary_group_[%f_str_replace(%1N,-,prev_)][%f_dump_group_rule_args_call(%S,"ARBITRARY_LIST")]%f_dump_flag_check_block(%S,"true")\n		)*
+	]]
+
+f _dump_groups_rules_call_bk
+	%f_clear_groups(%S)\
+	%f_set_var(SELF,S)\
+	[<{}{%CC=Attribute&%CS!=extern&%C{optional}!=true&%f_dump_groups_rules_call_condition(%C,%1)=true}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	%f_set_var(HAS_ARBITRARY,"false")\
+	%f_clear_list(DUMPED_ARBITRARY)\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)%f_set_var(HAS_ARBITRARY,"false")%f_clear_list(ARBITRARY_LIST)\
+	<{}{%CC=Attribute&%CS!=extern&%{LIST_ID}N=%C{number}&%C{optional}=true}{%C}%f_add_to_list(ARBITRARY_LIST,C)%f_set_var(HAS_ARBITRARY,"true")>\
+	[{%{HAS_ARBITRARY}N=true}		(flag=%f_parser_rule_name(%S)_arbitrary_group_[%f_str_replace(%{LIST_ID}N,-,prev_)][%f_dump_group_rule_args_call(%S,"ARBITRARY_LIST")]%f_dump_flag_check_block(%S,"true")\n		)*
+	]\
+	[		[{%f_size_list(%{LIST_ID}N)!=1}(flag=]%f_parser_rule_name(%S)_group_[%f_str_replace(%{LIST_ID}N,-,prev_)][%f_dump_group_rule_args_call(%S,%{LIST_ID})][{%f_size_list(%{LIST_ID}N)!=1}%f_dump_flag_check_block(%S)\t\t)+[%f_dump_necessary_check(%S,"%{LIST_ID}N")]]
+	[{%{HAS_ARBITRARY}N=true}%f_add_to_list(DUMPED_ARBITRARY,"%{LIST_ID}N")		(flag=%f_parser_rule_name(%S)_arbitrary_group_%{LIST_ID}N[%f_dump_group_rule_args_call(%S,"ARBITRARY_LIST")]%f_dump_flag_check_block(%S,"true")\n		)*
+	]]\
+	]>][%f_clear_groups(%S)
+	<{}{%CC=Attribute&%CS!=extern&%C{optional}=true&%f_dump_groups_rules_call_condition(%C,%1)=true}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	%f_set_var(HAS_ARBITRARY,"false")\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)[{%f_size_list(%{LIST_ID}N)!=0&%f_exists_in_list(DUMPED_ARBITRARY,"%{LIST_ID}N")=false}\
+			(flag=%f_parser_rule_name(%S)_arbitrary_group_[%f_str_replace(%{LIST_ID}N,-,prev_)][%f_dump_group_rule_args_call(%S,%{LIST_ID})]%f_dump_flag_check_block(%S,"true")\n		)*]
+	]>]
+
+f _dump_groups_rules_call_condition
+	[{%1N!=negative}{[{%f_number_cmp("%S{number}","0","\<")=0}{true}false]}[{%f_number_cmp("%S{number}","0","\<")=0}{false}true]]
+f _dump_flag_check_block
+	\n\
+			{accumulated_flag_[%f_str_replace(%{LIST_ID}N,-,prev_)] = check_attribute_originality (accumulated_flag_[%f_str_replace(%{LIST_ID}N,-,prev_)], flag, LT (1), local::get_descriptions ());}\n
+
+f _dump_necessary_check
+	%f_copy_list(%1N,TEMP)\
+	\n\
+			{
+				AttributeIDList attr_ids;
+				<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)[{%t_is_container(%{ITEM}%T)=false|%{ITEM}{optional}!=true}attr_ids.push_back (%{ITEM}%P<{}{}{%C}[{%{ITEM}U=%CU}1 \<\< %Cn]>);
+				]]>check_all_necessary_parsed (
+					accumulated_flag_[%f_str_replace(%{LIST_ID}N,-,prev_)]
+					, attr_ids
+					, local::get_descriptions ()
+					, LT (1)
+				);
+			}\n
+
+f _dump_groups_rules
+	%f_clear_list_req(%S,"GROUPS")\
+	[<{}{%CC=Attribute&%CS!=extern&%C{optional}!=true}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)%f_set_var(COUNTER_%C{number},"0")>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)%f_dump_group_rule_def(%S,"%{LIST_ID}N")
+	
+	]>]%f_clear_list_req(%S,"GROUPS")[<{}{%CC=Attribute&%CS!=extern&%C{optional}=true}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)%f_dump_group_rule_def(%S,"%{LIST_ID}N","arbitrary")
+	
+	]>]
+
+f _dump_group_rule_def
+	%f_copy_list(%1N,BACKUP_LIST_ID)\
+	%f_set_var(IN_GROUP,"false")\
+	%f_set_var(NEED_PREDICATE,"false")\
+	%f_set_var(NEED_RET_TYPE,"false")\
+	%f_parser_rule_name(%S)[_%2N]_group_[%f_str_replace(%1N,-,prev_)][
+	%f_dump_group_rule_args_def(%S,%1)][{%f_size_list(%1N)!=1|"%2N"!=""}
+		returns \[unsigned long type = 0\]]%f_copy_list(%1N,COPY)[
+		{
+	[<{\n}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ITEM)		%f_init_rule_attr(%{ITEM})]>]
+		}
+		]
+		:	{rule_begin ();}
+		[{%f_size_list(%1N)=1}{%f_set_var(IN_GROUP,"true")%f_set_var(NEED_PREDICATE,"%f_need_predicate_for_group(%S,"%1N")")%f_set_var(NEED_RET_TYPE,"true")	(%f_iterate_list_rules(%S,"%1N","\t")\n\t\t)}[{"%2N"!=""}%f_set_var(NEED_RET_TYPE,"true")]\
+	%f_iterate_list_rules(%S,"%1N","\t")]
+			{rule_end ();}
+		;
+
+f _is_list_has_duplicate_names
+	%f_copy_list(%1N,TEMP1)\
+	%f_copy_list(%1N,TEMP2)\
+	[{"<{}{%f_is_empty(TEMP1)=false}{W}[%f_pop_first_to_var(TEMP1,ITEM)[{%f_number_cmp("%f_count_in_list(TEMP2,"%{ITEM}N")","1","\>")=1}.]]>"!=""}{false}true]
+
+f _need_predicate_for_group
+	%f_copy_list(%1N,TEMP)\
+	%f_clear_list(PREFIXES)\
+	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)%f_set_var(RULE_PREFIX,"%f_str_replace(%f_str_to_rule(%{ITEM}{prefix_rule}),%f_dump_q(%S),)")\
+	%f_add_to_list(PREFIXES,"%f_substr_from_begin(%{RULE_PREFIX}N,[{}{2}%{GRAMMAR}{parser_lookahead}])")]>\
+	%f_remove_from_list(PREFIXES,"")\
+	[{%f_is_list_has_duplicate_names(%S,"PREFIXES")=false}{true}\
+	%f_clear_list(PREFIXES)\
+	%f_copy_list(%1N,TEMP)\
+	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)%f_set_var(TARGET,"")\
+	[{%{ITEM}%TS=DataElement}{\
+	[{%t_is_container(%{ITEM}%T)=true&%{ITEM}%T<{}{"%CS"=""&%C%TS=DataElement}{CC}>!=0}%{ITEM}%T<{}{"%CS"=""}%C[%f_set_var(TARGET,T)]>]\
+	}%{ITEM}[%f_set_var(TARGET,T)]][{"%{TARGET}U"!=""}\
+/	%{TARGET}N:%f_get_first_not_optional_group_id(%{TARGET})
+	%{TARGET}<{}{%CC=Attribute&%CS!=extern}[{%f_number_more_or_equal_cmp(%S,"%C{number}","%f_get_first_not_optional_group_id(%{TARGET})")=1}%f_set_var(RULE_PREFIX,"%f_str_replace(%f_str_to_rule(%C{prefix_rule}),%f_dump_q(%S),)")\
+	[{%C%TS=DataElement|%C%TS=DataEnum}{}%f_add_to_list(PREFIXES,"%C%TN")]\
+	]>]]>\
+	%f_remove_from_list(PREFIXES,"")\
+//	%f_dump_list(%S,"PREFIXES")\
+	%f_is_list_has_duplicate_names(%S,"PREFIXES")\
+	]
+
+f _number_more_or_equal_cmp
+	%f_number_cmp("%1N","%2N","\<=")
+
+f _get_first_not_optional_group_id
+	%f_set_var(FIRST_ID,"0")\
+	<{}{%CC=Attribute&%CS!=extern&%C{optional}!=true}[{%f_number_cmp("%{FIRST_ID}N","%C{number}","\>")=1}%f_set_var(FIRST_ID,"%C{number}")]>\
+	%{FIRST_ID}N
+
+//список аргументов, которые передаются в паравило
+f _dump_group_rule_args_def
+	%f_copy_list(%1N,COPY)\
+	%f_set_var(NEED_WRAP,"false")\
+	<{}{%f_is_empty(COPY)=false&%{NEED_WRAP}N=false}{W}[%f_pop_first_to_var(COPY,RULE)[{%t_is_container(%{RULE}%T)=true}%f_set_var(NEED_WRAP,"true")]]>\
+	%f_copy_list(%1N,COPY)\
+		\[[{%{NEED_WRAP}N=true}\n\t\t]%f_with_gen_id(h,%t_attr(%{DATA_TYPE},"ref"))& %f_to_omg(%{DATA_TYPE}N)_ret<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,RULE)[{%t_is_container(%{RULE}%T)=true}
+			, %f_with_gen_id(h,%f_type(%{RULE}%T))& %f_to_omg(%{RULE}N)_]]>[{%{NEED_WRAP}N=true}\n\t]\]
+
+f _dump_group_rule_args_call
+	%f_copy_list(%1N,COPY)\
+	\[%f_to_omg(%{DATA_TYPE}N)_ret<{}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,RULE)[{%t_is_container(%{RULE}%T)=true}, %f_to_omg(%{RULE}N)_]]>\]
+
+//возвращаемое значение из правила
+f _dump_group_rule_ret_def
+
+f _container_item_name
+	[{%XU=g.cpp}{%f_to_java(%f_to_omg(%SN)_item)}%f_to_omg(%SN)_item]
+
+f _container_item_type
+	[{%XU=g.cpp}{%f_with_gen_id(java,%f_data_dump(%T))}%f_with_gen_id(h,%f_data_dump(%T))]
+
+f _container_item_decl
+	[{%T<{}{%C%TS=UMLPrimitive&%f_is_identifier(%C%T)=false}{C}>=0}%f_container_item_type(%S) %f_container_item_name(%S);]
+
+f _init_rule_attr
+	[{%t_is_container(%T)=true}{%t_init_rule_attr(%{ITEM})}%f_container_item_decl(%S)]
+//#UC END# *4863819D0383for48622F510339*
+
+// реализация абстрактного стереотипа Грамматика::MDAGenerator
+// Генератор грамматики для ANTLR (целевой язык java)
++ g.java
+//#UC START# *48632D7803AEfor48622F510339*
+	%f_set_var(SERV,S)\
+	%f_parser_rule_name(%S) returns \[%f_with_gen_id(java,%f_type(%S)) %f_to_java(%f_to_omg(%SN)_ret)\]]
+		{
+			%f_to_java(%f_to_omg(%SN)_ret) = new %f_with_gen_id(java,%f_type(%S)) ();<{}{%CC=Attribute}[
+			%t_init_rule_attr(%C)]>
+		}
+		
+		:
+	[		%f_str_to_rule(%S{prefix_rule})
+	][%S%f_dump_sub_rules()][		%f_str_to_rule(%S{postfix_rule})
+	]	;
+
+f _iterate_list_rules
+	%f_set_var(DELIM,"%2N")\
+	<{\n\t\t|}{%f_is_empty(%1N)=false}{W}[%f_pop_first_to_var(%1N,RULE)\
+	%{DELIM}N%{RULE}X]]>
+
+%f _dump_sub_rules
+	%f_clear_list(GROUPS)\
+	<{}{%CC=Attribute&%CS!=extern}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)%f_set_var(IN_GROUP,"false")\
+	[{%f_size_list(%{LIST_ID}N)=1}{%f_set_var(IN_GROUP,"true")\
+	\t\t(%f_iterate_list_rules(%S,"%{LIST_ID}N","\t")\n\t\t)+}\
+	%f_iterate_list_rules(%S,"%{LIST_ID}N","\t\t")]
+	]>
+
+%f _dump_sub_rules1
+	%f_clear_list(RULES)\
+	<{}{%CC=Attribute&%CS!=extern}%f_add_to_list(RULES,C)>\
+	%f_sort_list(RULES,"%S{number}")\
+	%f_set_var(IS_FIRST,"true")\
+	<{}{%f_is_empty(RULES)=false}{W}[%f_pop_first_to_var(RULES,RULE)[		%{RULE}X
+	]]>
+
+
+f _dump_data_attr_g
+	[{%S{plurality}!=1&"%S{plurality}"!=""}{%t_dump_data_attr_g(%S)}(%t_dump_data_attr_g(%S))%t_rule_plurality(%S)]
+
+t _dump_data_attr_g
+c                                       {}
+r {""=""}:                              {%f_to_java(%SN)[{%TS=UMLPrimitive}{=}:]%t_rule_name(%S) \{%t_parser_rule_action_java(%S)\}}
+
+
+f _test
+	%f_clear_list(TEMP)\
+	<{}{%CC=Attribute}{%C}%f_add_to_list(TEMP,C)>\
+	%f_copy_list(TEMP,TEMP_COPY)\
+	%f_sort_list(TEMP_COPY,"%SN")\
+	//sorted by name
+	<{,}{%f_is_empty(TEMP_COPY)=false}{}%f_pop_first_to_var(TEMP_COPY,EL)%{EL}N>
+	%f_copy_list(TEMP,TEMP_COPY)\
+	%f_sort_list(TEMP_COPY,"%S{number}")\
+	//sorted by number
+	<{,}{%f_is_empty(TEMP_COPY)=false}{W}%f_pop_first_to_var(TEMP_COPY,EL)%{EL}N>
+	%f_copy_list(TEMP,TEMP_COPY)\
+	%f_sort_list(TEMP_COPY,"%TN")\
+	//sorted by target type
+	<{,}{%f_is_empty(TEMP_COPY)=false}{W}%f_pop_first_to_var(TEMP_COPY,EL)%{EL}N>
+
+//#UC END# *48632D7803AEfor48622F510339*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
++ link_to_requests_hack
+//#UC START# *4E65F581015Afor48622F510339*
+//#UC END# *4E65F581015Afor48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor48622F510339*
+//#UC END# *47031E41002Efor48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for48622F510339*
+//#UC END# *47031E850177for48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor48622F510339*
+//#UC END# *471442BE033Cfor48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for48622F510339*
+//#UC END# *47031EDE0138for48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor48622F510339*
+//#UC END# *47031EA5002Efor48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor48622F510339*
+//#UC END# *47031EF6005Dfor48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor48622F510339*
+//#UC END# *47031F13004Efor48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for48622F510339*
+//#UC END# *470322DF03A9for48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor48622F510339*
+//#UC END# *47032262037Afor48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for48622F510339*
+//#UC END# *470322910119for48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor48622F510339*
+//#UC END# *47032220003Efor48622F510339*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for48622F510339*
+//#UC END# *4703223D01A5for48622F510339*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: DataElement::Class::key::Attribute
+? Данные, идентифицирущие элемент
+? используется для того, чтобы понять:
+? - в какую грамматику развернуть ссылку
+? - по какому свойству искать родителя при построении объектного дерева
+= CommonAttribute::MDAGenerator
+= C++ интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+a f
+/ - тип абстракции
+Y code_data_key_attr.gif
+L code_data_key_attr
+l a
+/ - возможные типы связи атрибута
+
+// Пользовательские свойства
+p number:s=0 ? Порядковый номер (используется для генерации грамматического правила разбора элемента)
+p postfix_rule:s ? определяет ключевое слово, которым должно заканчиваться описание атрибута
+p prefix_rule:s ? определяет ключевое слово, котором должно предваряться описание атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48637AC80135*
+	%f_dump_data_element_attr(%S)
+
+f _dump_data_element_attr
+	[{%S{needs field}!=false}%f_docs(%S)\
+	#[{%S{is mutable}=true}mutable ][{[{%S{optional}=true|%SS=extern}{false}true]=true&%TS=DataElement}{%f_attr(%S)}%t_attr(%T,"ref")] m_[{}{%f_to_omg(%TN)}%SN];]
+//#UC END# *47022C88029Ffor48637AC80135*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48637AC80135*
+//#UC END# *47022CB8034Bfor48637AC80135*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48637AC80135*
+//#UC END# *47022CCF00EAfor48637AC80135*
+
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor48637AC80135*
+//#UC END# *47031E41002Efor48637AC80135*
+
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for48637AC80135*
+//#UC END# *47031E850177for48637AC80135*
+
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor48637AC80135*
+//#UC END# *47031EA5002Efor48637AC80135*
+
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for48637AC80135*
+//#UC END# *47031EDE0138for48637AC80135*
+
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor48637AC80135*
+//#UC END# *47031EF6005Dfor48637AC80135*
+
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor48637AC80135*
+//#UC END# *47031F13004Efor48637AC80135*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for48637AC80135*
+	%f_docs(%S)\
+	#private %f_attr(%S) [{}{%f_to_java(%TN)_}%f_to_java(%SN)_][{%f_can_be_init(%S)=true}{[ = %f_init(%S)];} = %f_to_java(init_%SN) ();
+	
+	#static private %f_attr(%S) %f_to_java(init_%SN) () {
+	#	%U[{_INIT_%SN}
+	#	return %f_attr_init_java(%S);
+	#	]
+	#}]
+//#UC END# *470321950119for48637AC80135*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor48637AC80135*
+//#UC END# *470321C1038Afor48637AC80135*
+
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor48637AC80135*
+//#UC END# *47032220003Efor48637AC80135*
+
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for48637AC80135*
+//#UC END# *4703223D01A5for48637AC80135*
+
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor48637AC80135*
+//#UC END# *47032262037Afor48637AC80135*
+
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for48637AC80135*
+//#UC END# *470322910119for48637AC80135*
+
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for48637AC80135*
+//#UC END# *470322DF03A9for48637AC80135*
+
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor48637AC80135*
+//#UC END# *471442BE033Cfor48637AC80135*
+
+// Генератор грамматики для ANTLR (целевой язык java)
++ g.java
+//#UC START# *48632D7803AEfor48637AC80135*
+	[{%TS=UMLPrimitive&%TN=arbitrary string}{[{%S{optional}=true}(][%f_str_to_rule(%S{prefix_rule}) ][%f_to_java(%SN)[{%TS=UMLPrimitive|%TS=LexicalRule}{=}:]%t_rule_name(%S) \{%t_parser_rule_action_java(%S)\}][ %f_str_to_rule(%S{postfix_rule})][{%S{optional}=true})?]}\
+	%f_to_java(%SN):%t_rule_name(%S) \{%t_parser_rule_action_java(%S)\}]
+//#UC END# *48632D7803AEfor48637AC80135*
+
+// Генератор грамматики для ANTLR (целевой язык c++)
++ g.cpp
+//#UC START# *4863819D0383for48637AC80135*
+	%f_set_var(SEPARATOR,"")\
+	[{%t_is_container(%T)=true}%T<{}{"%CS"=""}[{"%C%T{separator}"!=""}{[{%C%TS=UMLPrimitive}%f_set_var(SEPARATOR,",")]}%f_set_var(SEPARATOR,"%C%T{separator}")]>]\
+	[{%TS=UMLPrimitive&%TN=arbitrary string}{[[%f_dump_syntactic_pred(%S) ][%f_str_to_rule(%S{prefix_rule}) ]][{"%S{prefix_rule}"!=""&%t_is_container(%T)=true&"%{SEPARATOR}N"=""}(]%f_dump_rule_call(%S)[{"%S{prefix_rule}"!=""&%t_is_container(%T)=true}[{"%{SEPARATOR}N"=""}{ ("%{SEPARATOR}N" %f_dump_rule_call(%S,"[{%t_is_lexical_ret(%S)=true}1]"))*})+]][ [%f_str_to_rule(%S{postfix_rule})]]}\
+	%f_variable_name_for_rule_ret(%S,"_"):%f_rule_name(%S) \{[%f_dump_type_flag_ret(%S) ]%t_parser_rule_action_cpp(%S)\}]
+
+f _dump_rule_call
+	[{%TS=UMLPrimitive&%TN=boolean}{%f_variable_name_for_rule_ret(%S,"_")%1N[{%t_is_lexical_ret(%S)=true}{=}:]%f_rule_name(%S) }]\{[%f_dump_type_flag_ret(%S) ]%t_parser_rule_action_cpp(%S,"","%1N")\}
+
+t _is_lexical_ret
+c                                                                                                          {}
+r {%TS=LexicalRule}:                                                                                       {true}
+r {%TS=UMLPrimitive&%TN!=identifier}:                                                                      {true}
+r {%t_is_container(%T)=true&%T<{}{"%CS"=""&%C%TS=UMLPrimitive&%f_is_identifier(%C%T)=false}{CC}>!=0}:      {true}
+r ""="":                                                                                                   {false}
+f _rule_name
+	[{%t_is_container(%T)=true}{%t_rule_name(%S)}%T<{}{"%CS"=""}%t_rule_name(%C)>]
+
+f _dump_syntactic_pred
+	[{%{IN_GROUP}N=true&%{NEED_PREDICATE}N=true}%t_syntactic_pred(%S)]
+
+f _dump_type_flag_ret
+	%f_set_var(ATTR,S)[{%{NEED_RET_TYPE}N=true}type = [{%SS!=namespace&%t_is_container(%T)=false|%S{optional}!=true}{0}1 \<\< %P<{}{}{%C}[{%CU=%{ATTR}U}%Cn]>];]
+
+/	[{}{[{%t_is_container(%T)=true}%T<{}{%CC=Attribute&"%CS"=""}%f_dump_syntactic_pred(%C%T)>]}(%f_str_to_rule(%S{prefix_rule})) =\>]
+
+t _syntactic_pred
+c                                                       {}
+r {"%S{prefix_rule}"=""&%t_is_container(%T)=true}:      {%T<{}{%CC=Attribute&"%CS"=""}%t_syntactic_pred(%C%T,"",%C)>}
+r {"%S{prefix_rule}"=""&"%TU"!=""}:                     {(%f_rule_name(%S)) =\>}
+r {"%S{prefix_rule}"!=""&%2x=false}:                    {(%f_str_to_rule(%S{prefix_rule})) =\>}
+r {%2x=true&[{%SS=DataElement|%DataEunum}true]=true}:   {(%f_rule_name(%2)) =\>}
+r {""=""}:                                              {}
+//#UC END# *4863819D0383for48637AC80135*
+
+// Хак для [$281531116]
++ link_to_requests_hack
+//#UC START# *4E65F581015Afor48637AC80135*
+//#UC END# *4E65F581015Afor48637AC80135*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{number}"!="%S{!number}"}%f_up_prefix(%S) *number* = *%S{number}* - Порядковый номер (используется для генерации грамматического правила разбора элемента)
+	][{"%S{prefix_rule}"!="%S{!prefix_rule}"}%f_up_prefix(%S) *prefix_rule* = *%S{prefix_rule}* - определяет ключевое слово, котором должно предваряться описание атрибута
+	][{"%S{postfix_rule}"!="%S{!postfix_rule}"}%f_up_prefix(%S) *postfix_rule* = *%S{postfix_rule}* - определяет ключевое слово, которым должно заканчиваться описание атрибута
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48637AC80135*
+c                                                                    {}
+r {""=""}:                                                           {}
+//#UC END# *4704C0E30186for48637AC80135*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor48637AC80135*
+	property
+//#UC END# *4705CBD6003Efor48637AC80135*
+
+: DataElement::Class::Attribute
+? Данные
+? определяет данные, которыми обладает элемент (для данных автоматически генерируется соответствующее грамматическое правило)
+= DataElement::Class::key::Attribute
+
+// Параметры стереотипа
+a f
+/ - тип абстракции
+Y code_data_attr.gif
+L code_data_attr
+
+// Пользовательские свойства
+p optional:b=false ? обязательный ли это парамтер или нет
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{optional}"!="%S{!optional}"}%f_up_prefix(%S) *optional* = *%S{optional}* - обязательный ли это парамтер или нет
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48622FE90365*
+c                                                                    {}
+r {%S{optional}=true&"%SI"=""&%TS=UMLPrimitive}:                     {Необязательный атрибут должен иметь значение по-умолчанию}
+r {%S{optional}=true&"%SI"=""&%TS=DataEnum}:                         {Необязательный атрибут должен иметь значение по-умолчанию}
+r {%TS=UMLPrimitive&%TN=boolean&"%S{prefix_rule}"=""}:               {Для атрибут типа boolean должно быть задано свойство "prefix_rule"}
+r {""=""}:                                                           {}
+//#UC END# *4704C0E30186for48622FE90365*
+
+: DataElement::Class::extern::Attribute
+? Внешний атрибут
+? это атрибут который определён в другом файле.
+= CommonAttribute::MDAGenerator
+= C++ интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+v +
+/ - типы видимости
+a f
+/ - тип абстракции
+Y code_data_extern_attr.gif
+L code_data_extern_attr
+l a
+/ - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48C509EA0136*
+	%f_dump_data_element_attr(%S)
+//#UC END# *47022C88029Ffor48C509EA0136*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48C509EA0136*
+//#UC END# *47022CB8034Bfor48C509EA0136*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48C509EA0136*
+//#UC END# *47022CCF00EAfor48C509EA0136*
+
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor48C509EA0136*
+//#UC END# *47031E41002Efor48C509EA0136*
+
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for48C509EA0136*
+//#UC END# *47031E850177for48C509EA0136*
+
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor48C509EA0136*
+//#UC END# *47031EA5002Efor48C509EA0136*
+
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for48C509EA0136*
+//#UC END# *47031EDE0138for48C509EA0136*
+
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor48C509EA0136*
+//#UC END# *47031EF6005Dfor48C509EA0136*
+
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor48C509EA0136*
+//#UC END# *47031F13004Efor48C509EA0136*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for48C509EA0136*
+//#UC END# *470321950119for48C509EA0136*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor48C509EA0136*
+//#UC END# *470321C1038Afor48C509EA0136*
+
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor48C509EA0136*
+//#UC END# *47032220003Efor48C509EA0136*
+
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for48C509EA0136*
+//#UC END# *4703223D01A5for48C509EA0136*
+
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor48C509EA0136*
+//#UC END# *47032262037Afor48C509EA0136*
+
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for48C509EA0136*
+//#UC END# *470322910119for48C509EA0136*
+
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for48C509EA0136*
+//#UC END# *470322DF03A9for48C509EA0136*
+
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor48C509EA0136*
+//#UC END# *471442BE033Cfor48C509EA0136*
+
+// Генератор грамматики для ANTLR (целевой язык java)
++ g.java
+//#UC START# *48632D7803AEfor48C509EA0136*
+//#UC END# *48632D7803AEfor48C509EA0136*
+
+// Генератор грамматики для ANTLR (целевой язык c++)
++ g.cpp
+//#UC START# *4863819D0383for48C509EA0136*
+//#UC END# *4863819D0383for48C509EA0136*
+
+// Хак для [$281531116]
++ link_to_requests_hack
+//#UC START# *4E65F581015Afor48C509EA0136*
+//#UC END# *4E65F581015Afor48C509EA0136*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48C509EA0136*
+c                           {}
+r {"%TS"!="DataElement"}:   {Типом внешнего атрибута может быть только DataElement}
+r {"%SN"=""}:               {Имя не может быть пустым!}
+r {""=""}:                  {}
+//#UC END# *4704C0E30186for48C509EA0136*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor48C509EA0136*
+//#UC END# *4705CBD6003Efor48C509EA0136*
+
+: DataElement::Class::namespace::Attribute
+? Пространство имён
+? Тип данных атрибута определяет тип текущего контекста при разборе конкретного входного потока, т.е если при разборе встречается элемент данного типа, то в общей структуре данных будет производится поиск элемента с сооветствующим типом и атрибутом-ключем.
+= DataElement::Class::Attribute
+
+// Параметры стереотипа
+Y code_data_ns_attr.gif
+L code_data_ns_attr
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for48C510030327*
+//#UC END# *46E6D4BB0339for48C510030327*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48C510030327*
+//#UC END# *47022C88029Ffor48C510030327*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48C510030327*
+//#UC END# *47022CB8034Bfor48C510030327*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48C510030327*
+//#UC END# *47022CCF00EAfor48C510030327*
+
+// Хак для [$281531116]
++ link_to_requests_hack
+//#UC START# *4E65F581015Afor48C510030327*
+//#UC END# *4E65F581015Afor48C510030327*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for48C510030327*
+//#UC END# *470484D50138for48C510030327*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48C510030327*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for48C510030327*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,97 @@
+c------------------------------------------------------------------------------|
+c                                                                              |
+C TSTQSORT.F                                                                   |
+c Purpose: demonstrates calling NDP Pascal from NDP Fortran. Calls             |
+c          quicksort routine                                                   |
+C Copyright (C) Microway, Inc., 1989-1992                                      |
+c                                                                              |
+c------------------------------------------------------------------------------|
+
+      PROGRAM TSTQSORT
+
+
+      INTEGER MAX, N
+      PARAMETER (MAX = 300)
+
+c Function returns random number
+      REAL*4 RAN
+c NDP Fortran defaults to REAL*4
+      DIMENSION X(MAX)
+
+      WRITE (*,100)
+      WRITE (*,101) 'Program prompts for array size'
+      WRITE (*,101) 'Maximum is 300 - Enter 0 to end'
+
+   10 WRITE (*,100)
+      WRITE (*,102)
+      READ (*,103) N
+      WRITE (*,100)
+
+      IF (N .GT. MAX) THEN
+        WRITE (*,104) 'Array size limit is ',MAX
+        GOTO 10
+      ENDIF
+    
+      DO 200 I = 1, N
+            X(I) = 100.0 * RAN(1.0)
+  200 CONTINUE
+
+      WRITE (*,101) 'Displaying unsorted array'
+      CALL DISPLAY(X,N)
+      WRITE (*,100)
+
+c sort random numbers
+      CALL QUIKSORT(X,N)
+      WRITE (*,101) 'Displaying results of first sort'
+      CALL DISPLAY(X,N)
+      WRITE (*,100)
+
+c sort already sorted numbers
+      CALL QUIKSORT(X,N)
+      WRITE (*,101) 'Displaying results of second sort'
+      CALL DISPLAY(X,N)
+      WRITE (*,100)
+
+      WRITE (*,101) 'Now filling array with numbers in reverse order'
+      DO 300 I = 1, N
+            X(I) = N + 1 - I
+  300 CONTINUE
+
+c sort reversed numbers
+      CALL QUIKSORT(X,N)
+      WRITE (*,101) 'Displaying results of third sort'
+      CALL DISPLAY(X,N)
+      WRITE (*,100)
+
+      IF (N .EQ. 0) THEN
+            STOP
+      ELSE
+        GOTO 10
+      ENDIF
+
+c Format statements used in main program
+  100 FORMAT (1X)
+  101 FORMAT (1X,A)
+  102 FORMAT (' Enter array size  ',$)
+  103 FORMAT (I)
+  104 FORMAT (1X,A,I5)
+
+c end of main
+      END
+
+c displays elements of array X
+      SUBROUTINE DISPLAY(A,N)
+      INTEGER N
+      REAL A(N)
+
+      INTEGER I
+      WRITE (*,1020)
+      DO 1000 I = 1, N
+            WRITE (*,1010) A(I)
+ 1000 CONTINUE
+
+c Format statements used in subroutine DISPLAY
+ 1010 FORMAT (1X,F10.2)
+ 1020 FORMAT (1X)
+
+      END

@@ -1,0 +1,213 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/UseCases.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$CoreTemplates::CoreTemplates::RequirementsLib::Requirements::UseCases
+//
+// Пакет прецедентов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UseCases::Category
+implementation @ <<UseCases>>
+//? Пакет прецедентов
+//> Actor::Class
+//> UseCase::Class
+//> UseCaseTagRequirement::Class
+
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y usecases.gif
+//L usecases
+// Параметры визуализации
+//$ C 255,230,190
+//$ l 150,120,100
+//$ f 235,190,130
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+; // st_space_key
+
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470472F6005D*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	{info}Реализует возможности из пакета:
+   '{info}Реализует возможности из пакета:'
+//	<{}{%DS=Features}* %f_k_link_wp(%D,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %D |S ) %== 'Features' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %D %, %S )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for D
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Зависит от пакета прецедентов:
+   '{info}Зависит от пакета прецедентов:'
+//	<{}{%DS=UseCases}* %f_k_link_wp(%D,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %D |S ) %== 'UseCases' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %D %, %S )% 
+//	>{info}][{%mx=true&%Cx=true}
+
+     ++! l_Counter
+    end // if
+   end // for D
+   '{info}' 
+  end // if
+  NOP
+  if ( ( %m |x ) %==  true AND 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Диаграмма пакета:_
+   '_Диаграмма пакета:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+   [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+   %m |U '.jpg}'
+//	]][
+  end // if
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав пакета[
+  'h2. Состав пакета'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Прецеденты:_<{}{%CS=UseCase}
+   '_Прецеденты:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'UseCase' ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for470472F6005D*
+; // wiki
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for470472F6005D*
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A41A13D03D5for470472F6005D*
+; // spell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<UseCases>>
+

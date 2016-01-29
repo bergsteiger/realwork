@@ -1,0 +1,118 @@
+// ReleaseNewGen 18703EC5C0A6 TestTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_18703EC5C0A6
+
+FORWARD ME_46C66075B1E8
+
+: ME_4B7AB0B6016E_ME_46C66075B1E8
+ CONST UID '4B7AB0B6016E'
+ CONST Name 'CommandLineKey'
+ : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
+ ;
+ : Implementor ME_46C66075B1E8 // ReleaseItsLAW
+ ;
+ref; // ME_4B7AB0B6016E_ME_46C66075B1E8 CommandLineKey
+
+: ME_4B7C0B43005B_ME_46C66075B1E8
+ CONST UID '4B7C0B43005B'
+ CONST Name 'TimesPage'
+ : Original WL 'ME_4B7C0B43005B' '4B2A112B011A.pas.ms.script' // TimesPage
+ ;
+ : Implementor ME_46C66075B1E8 // ReleaseItsLAW
+ ;
+ref; // ME_4B7C0B43005B_ME_46C66075B1E8 TimesPage
+
+: ME_4B7C0B670215_ME_46C66075B1E8
+ CONST UID '4B7C0B670215'
+ CONST Name 'ResultsPage'
+ : Original WL 'ME_4B7C0B670215' '4B2A112B011A.pas.ms.script' // ResultsPage
+ ;
+ : Implementor ME_46C66075B1E8 // ReleaseItsLAW
+ ;
+ref; // ME_4B7C0B670215_ME_46C66075B1E8 ResultsPage
+
+: ME_46C66075B1E8
+ CONST UID '46C66075B1E8'
+ CONST Name 'ReleaseItsLAW'
+ CONST Class class_Class
+ : Stereotype st_TestResults ;
+ CONST Kind kind_NormalClass
+ %SUMMARY ' (релизный вариант)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_18703EC5C0A6 // ReleaseNewGen
+ ;
+ : Inherits
+   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4B7AB0B6016E_ME_46C66075B1E8 // CommandLineKey
+ ME_4B7C0B43005B_ME_46C66075B1E8 // TimesPage
+ ME_4B7C0B670215_ME_46C66075B1E8 // ResultsPage
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "needs script keywords documentation" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'MDProcess\NewGenTest\ReleaseItsLAW.pas'
+ CONST extprop:pas:TypeName 'TReleaseItsLAW'
+
+ref; // ME_46C66075B1E8 ReleaseItsLAW
+
+: ME_18703EC5C0A6
+ CONST UID '18703EC5C0A6'
+ CONST Name 'ReleaseNewGen'
+ CONST Class class_Category
+ : Stereotype st_TestTarget ;
+ %SUMMARY 'Тесты для НИР по новому генератору (релизный вариант)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4F5F65870086' '4F5F65870086.pas.ms.script' // MDProcess$NewGen
+ ;
+ : Children
+   @ ( ME_46C66075B1E8 // ReleaseItsLAW
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
+ WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_4B2A6D4303A9' '4B2A112B011A.pas.ms.script' // KTestRunner
+ WL 'ME_4CA0BB8600CF' '4CA0BB31027B.pas.ms.script' // TKBridge
+ WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
+ WL 'ME_4DC24756009A' '5130776E01BE.pas.ms.script' // TAutoTestsSuite
+ WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "CONFIG_UC" false
+ CONST "console" false
+ CONST "defines" 'NewGenTest.inc'
+ CONST "is insider test" false
+ CONST "need UC in project" false
+ CONST "no scripts" 'undefined'
+ CONST "old format" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'MDProcess\NewGenTest\ReleaseNewGenTest.dpr'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\18703EC5C0A6.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\18703EC5C0A6.pas.ms.script.runner'
+
+ref; // ME_18703EC5C0A6 ReleaseNewGen

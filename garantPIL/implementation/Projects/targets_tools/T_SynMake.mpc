@@ -1,0 +1,38 @@
+project (T_SynMake) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console {
+
+	Header_Files {
+		./../../component/cpp/tools/SynMake/SynMake.h
+	}
+
+	Source_Files {
+		./../../component/cpp/tools/SynMake/Main.cpp
+		./../../component/cpp/tools/SynMake/SynMake.cpp
+	}
+
+	exename = SynMake
+	macros += MIN_MEM_CONTEXT
+
+	after += gkdb_gudll
+	libs += gkdb_gudll
+
+	after += cchlp1
+	libs += cchlp1
+
+	after += gctx_tools
+	libs += gctx_tools
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+
+	after += ContextSearch
+	libs += ContextSearch
+
+	after += Morpho
+	libs += Morpho
+
+	after += SearchAdapterLib
+	libs += SearchAdapterLib
+}

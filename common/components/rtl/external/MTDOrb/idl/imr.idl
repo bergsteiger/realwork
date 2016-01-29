@@ -1,0 +1,119 @@
+/* -*- c++ -*- */
+
+#pragma prefix "omg.org"
+
+module CORBA {
+
+    /*
+     * Implementation Repository Entry
+     */
+    interface ImplementationDef {
+
+	enum ActivationMode {
+	    ActivateShared,
+	    ActivateUnshared,
+	    ActivatePerMethod,
+	    ActivatePersistent,
+	    ActivateLibrary,
+	    ActivatePOA
+	};
+
+	typedef sequence<octet> ObjectTag;
+
+	struct ObjectInfo {
+	    string repoid;
+	    ObjectTag tag;
+	};
+
+	typedef sequence<ObjectInfo> ObjectInfoList;
+
+	attribute ActivationMode mode;
+	attribute ObjectInfoList objs;
+	readonly attribute string name;
+	attribute string command;
+	readonly attribute string tostring;
+    };
+
+    /*
+     * Implementation Repository
+     */
+    interface ImplRepository {
+	typedef sequence<ImplementationDef> ImplDefSeq;
+
+	ImplementationDef restore (in string asstring);
+	ImplementationDef create (in ImplementationDef::ActivationMode mode,
+				  in ImplementationDef::ObjectInfoList objs,
+				  in string name,
+				  in string command);
+	void destroy (in ImplementationDef impl_def);
+	ImplDefSeq find_by_name (in string name);
+	ImplDefSeq find_by_repoid (in string repoid);
+	ImplDefSeq find_by_repoid_tag (in string repoid,
+				       in ImplementationDef::ObjectTag tag);
+	ImplDefSeq find_all ();
+    };
+
+    /*
+     * interface provided by an object adapter to the mediator
+     */
+    typedef sequence<Object> ObjSeq;
+    interface OAServer {
+	oneway void restore_request (in ObjSeq objs);
+	oneway void obj_inactive (in Object obj);
+	oneway void impl_inactive ();
+    };
+
+    /*
+     * object adapter mediator
+     */
+    interface OAMediator {
+	typedef sequence<octet> RefData;
+	/* typedef sequence<Object> ObjSeq; */
+	typedef unsigned long ServerId;
+
+	void create_obj (in Object objref, in RefData id,
+			 out Object remote_objref, in ServerId svid);
+	void restore_obj (in Object objref, inout Object remote_objref,
+			  out RefData id, in ServerId svid);
+	oneway void activate_obj (in Object objref, in ServerId svid);
+	oneway void deactivate_obj (in Object objref, in ServerId svid);
+	oneway void migrate_obj (in Object objref, in ServerId svid,
+				 in ImplementationDef impl);
+        oneway void orphan_obj (in Object objref, in ServerId svid);
+	oneway void dispose_obj (in Object objref, in ServerId svid);
+
+	void create_impl (in ImplementationDef impl,
+			  in OAServer server, inout ServerId id);
+	oneway void activate_impl (in ServerId id);
+	oneway void deactivate_impl (in ServerId id);
+	Object get_remote_object (in RefData key);
+
+	/*
+	 * this cannot be oneway, because we must be sure the
+	 * mediator has has seen the dispose_impl() before the
+	 * server exists
+	 */
+	void dispose_impl (in ServerId id);
+
+	ObjSeq get_restore_objs (in ServerId id);
+
+	// admin interface
+	boolean force_activation (in ImplementationDef impl);
+    };
+
+    /*
+     * POA Mediator
+     */
+
+    interface POAMediator {
+      string create_impl (in string svid, in string ior);
+      void activate_impl (in string svid);
+      void deactivate_impl (in string svid);
+
+      // admin interface
+      boolean force_activation (in ImplementationDef impl);
+      boolean hold (in ImplementationDef impl);
+      boolean stop (in ImplementationDef impl);
+      boolean continue (in ImplementationDef impl);
+    };
+};

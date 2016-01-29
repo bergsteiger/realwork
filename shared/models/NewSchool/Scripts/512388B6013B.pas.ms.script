@@ -1,0 +1,54 @@
+// Outliner 512388B6013B Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512388B6013B
+
+: ME_512388D403AF
+ CONST UID '512388D403AF'
+ CONST Name 'TnscLister'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_512388B6013B // Outliner
+ ;
+ CONST "base wnd class" 'CWnd'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscLister.pas'
+
+ref; // ME_512388D403AF TnscLister
+
+: ME_512388B6013B
+ CONST UID '512388B6013B'
+ CONST Name 'Outliner'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ ;
+ : Children
+   @ ( ME_512388D403AF // TnscLister
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\512388B6013B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\512388B6013B.pas.ms.script.runner'
+
+ref; // ME_512388B6013B Outliner

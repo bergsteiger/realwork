@@ -1,0 +1,2214 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Commands"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/MDProcess/MDAAddinLib/Commands/CommandsFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/MDProcess/MDAAddinLib/Commands/CommandsFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/MDProcess/MDAAddinLib/Commands/Commands.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/MDProcess/MDAAddinLib/Commands/Commands.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAAddinLib/Commands|48031C110142
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19028331761"))
+    quid       	"48031C110142"
+    documentation 	"интерфейсы для обработки MDA-команд"
+    stereotype 	"Interfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4803211303BA"
+	    supplier   	"Logical View::MDProcess::MDAModel::RoseTypes"
+	    quidu      	"47D60FA90394")
+	(object Visibility_Relationship
+	    quid       	"4803214A024F"
+	    supplier   	"Logical View::MDProcess::MDAModel::RoseDumpers"
+	    quidu      	"4571D1820251"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "CmdManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*48031C2C0060_48031C62008B_462D87C6033C_BASE_INIT*"
+		    value      	"//#UC START# *48031C2C0060_48031C62008B_462D87C6033C_BASE_INIT*¤//#UC END# *48031C2C0060_48031C62008B_462D87C6033C_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*48031C2C0060_48031C62008B_462D87C6033C_BODY*"
+		    value      	(value Text 
+|//#UC START# *48031C2C0060_48031C62008B_462D87C6033C_BODY*¤	CoCreateInstance(¤		 CLSID_CoIModelExplorer, NULL, CLSCTX_ALL, IID_IModelExplorer, (void**)&m_model_explorer¤	);¤	//#UC END# *48031C2C0060_48031C62008B_462D87C6033C_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAAddinLib/Commands/CmdManager|48031C2C0060
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038272936"))
+	    quid       	"48031C2C0060"
+	    documentation 	"интерфейс - менеджер команд"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19012561940"))
+		    quid       	"48031C62008B"
+		    documentation 	"получить менеджер команд"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "colorize"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C6B022D*"
+			    value      	(value Text 
+|//#UC START# *48031C6B022D*¤	RoseHelper::reset_template ();¤	if (RoseHelper::load_template ()) {¤		MDPSupport::CatLockerFacade_var clf =¤			MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)diag);¤		if (false == clf->try_change ()) {¤			RoseHelper::write_warning_log ("Can't colorize diagram, because lock failed");¤			return;¤		}¤		RoseHelper::colorize (diag);¤		clf->do_change ();¤	}¤	//#UC END# *48031C6B022D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C6B022D_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C6B022D_462D87C6033C*¤	try {¤		RoseHelper::reset_template ();¤		if (RoseHelper::load_template ()) {¤			MDPSupport::CatLockerFacade_var clf =¤				MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)diag);¤			if (false == clf->try_change ()) {¤				GenSupport::LogManagerFactory::get ().log_warning ("Can't colorize diagram, because lock failed");¤				return;¤			}¤			RoseHelper::colorize (diag);¤			clf->do_change ();¤		}¤	} catch (Base::FatalError&) {¤		GenerationErrorDialog dlg (GenSupport::ErrorManagerFactory::get ().get_errors ());¤		dlg.DoModal ();¤	}¤	//#UC END# *48031C6B022D_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073408810"))
+		    quid       	"48031C6B022D"
+		    documentation 	"раскраска диграммы"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "diag"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571F3BE00BB")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012562630"))
+			    quid       	"48031C6B024D"
+			    type       	"IRoseDiagramPtr"
+			    quidu      	"4571F3BE00BB"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "colorize_all_diagrams"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C740232*"
+			    value      	(value Text 
+|//#UC START# *48031C740232*¤	RoseHelper::reset_template ();¤	if (RoseHelper::load_template ()) {¤		RoseHelper::write_info_log ("Colorize all diagram started");¤		IRoseClassDiagramCollectionPtr cls_diags = cat->ClassDiagrams;¤		short cls_diags_count = cls_diags->Count;		¤		¤		if (cls_diags_count != 0) {¤			MDPSupport::CatLockerFacade_var cat_clf =¤				MDPSupport::CatLockerFacadeFactory::make ((IRoseCategoryPtr)cat);¤			if (false == cat_clf->try_change ()) {¤				RoseHelper::write_warning_log ("Can't colorize diagram, because lock failed");¤				return;¤			}¤			¤			for (int i = 1; i <= cls_diags_count; i++) {¤				IRoseClassDiagramPtr diag = cls_diags->GetAt(i);¤				RoseHelper::colorize (diag);¤			}¤			¤			cat_clf->do_change ();¤		}¤		¤		IRoseCategoryCollectionPtr cats = cat->GetAllCategories	();¤		short cats_count = cats->Count;¤		for (int i = 1; i <= cats_count; i++) {¤			IRoseCategoryPtr ch_cat = cats->GetAt(i);¤			MDPSupport::CatLockerFacade_var ch_cat_clf =¤				MDPSupport::CatLockerFacadeFactory::make ((IRoseCategoryPtr)cat);¤			if (false == ch_cat_clf->try_change ()) {¤				std::string mess ("Lock failed for cat: ");¤				mess += (const char*)ch_cat->Name;¤				RoseHelper::write_error_log (mess.c_str ());¤				continue;¤			}¤¤			IRoseClassDiagramCollectionPtr cls_diags_ch = ch_cat->ClassDiagrams;¤			short cls_diags_ch_count = cls_diags->Count;¤			for (int j = 1; j <= cls_diags_ch_count; j++) {¤				IRoseClassDiagramPtr diag = cls_diags_ch->GetAt(j);¤				this->colorize (diag);¤			}¤¤			ch_cat_clf->do_change ();¤		}¤¤		RoseHelper::write_info_log ("Colorize all diagram finished");¤	}¤	//#UC END# *48031C740232*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C740232_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C740232_462D87C6033C*¤	try {¤		RoseHelper::reset_template ();¤		if (RoseHelper::load_template ()) {¤			GenSupport::LogManagerFactory::get ().log_info ("Colorize all diagram started");¤			IRoseClassDiagramCollectionPtr cls_diags = cat->ClassDiagrams;¤			short cls_diags_count = cls_diags->Count;		¤			¤			if (cls_diags_count != 0) {¤				MDPSupport::CatLockerFacade_var cat_clf =¤					MDPSupport::CatLockerFacadeFactory::make ((IRoseCategoryPtr)cat);¤				if (false == cat_clf->try_change ()) {¤					GenSupport::LogManagerFactory::get ().log_warning ("Can't colorize diagram, because lock failed");¤					return;¤				}¤				¤				for (int i = 1; i <= cls_diags_count; i++) {¤					IRoseClassDiagramPtr diag = cls_diags->GetAt(i);¤					RoseHelper::colorize (diag);¤				}¤				¤				cat_clf->do_change ();¤			}¤			¤			IRoseCategoryCollectionPtr cats = cat->GetAllCategories	();¤			short cats_count = cats->Count;¤			for (int i = 1; i <= cats_count; i++) {¤				IRoseCategoryPtr ch_cat = cats->GetAt(i);¤				MDPSupport::CatLockerFacade_var ch_cat_clf =¤					MDPSupport::CatLockerFacadeFactory::make ((IRoseCategoryPtr)cat);¤				if (false == ch_cat_clf->try_change ()) {¤					std::string mess ("Lock failed for cat: ");¤					mess += (const char*)ch_cat->Name;¤					GenSupport::LogManagerFactory::get ().log_error (mess.c_str ());¤					continue;¤				}¤¤				IRoseClassDiagramCollectionPtr cls_diags_ch = ch_cat->ClassDiagrams;¤				short cls_diags_ch_count = cls_diags->Count;¤				for (int j = 1; j <= cls_diags_ch_count; j++) {¤					IRoseClassDiagramPtr diag = cls_diags_ch->GetAt(j);¤					this->colorize (diag);¤				}¤¤				ch_cat_clf->do_change ();¤			}¤¤			GenSupport::LogManagerFactory::get ().log_info ("Colorize all diagram finished");¤		}¤	} catch (Base::FatalError&) {¤		GenerationErrorDialog dlg (GenSupport::ErrorManagerFactory::get ().get_errors ());¤		dlg.DoModal ();¤	}¤	//#UC END# *48031C740232_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073406688"))
+		    quid       	"48031C740232"
+		    documentation 	"раскрашивает все диаграммы в cat, с учетом вложенных"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012563345"))
+			    quid       	"48031C740257"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "control"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C76013C*"
+			    value      	(value Text 
+|//#UC START# *48031C76013C*¤	bool res = false;¤	IRoseCategoryPtr rootCat = cat->Model->GetRootCategory();¤	if (¤		cat->GetUniqueID () != rootCat->GetUniqueID ()¤		&& !cat->IsControlled () ¤		&& RoseHelper::can_control (cat)¤	) {¤		std::string dir_path = RoseHelper::create_dir_path (cat);				¤		if (GCL::create_tree_dirs (dir_path.c_str (), false)) {¤			std::string full_name = dir_path ¤				+ "\\" ¤				+ RoseHelper::clean_wrong_sympbols (cat->Name) ¤				+ ".cat";¤			IRoseCategoryPtr parent = RoseHelper::get_nearest_controllable_unit (cat);¤			MDPSupport::CatLockerFacade_var clf =¤				MDPSupport::CatLockerFacadeFactory::make (parent);¤			if (false == clf->try_change ()) {¤				RoseHelper::write_warning_log ("Can't control package, because lock failed");¤				return false;¤			}¤			if (!cat->Control (full_name.c_str ())) {					¤				std::string mess = "Can't control Category: ";¤				mess += full_name;¤				RoseHelper::write_error_log (mess.c_str ());¤			} else {¤				res = true;¤				std::string mess = "Category: ";¤				mess += (const char*) cat->Name;¤				mess += " was controlled to file: ";¤				mess += full_name;¤				RoseHelper::write_info_log (mess.c_str ());¤				//controlled_set.insert (full_name);¤			}¤			clf->do_change ();¤		} else {¤			std::string mess = "Can't create tree dirs: ";¤			mess += dir_path;¤			RoseHelper::write_error_log (mess.c_str ());¤		}				¤	}¤	return res;¤	//#UC END# *48031C76013C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C76013C_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C76013C_462D87C6033C*¤	bool res = false;¤	IRoseCategoryPtr rootCat = cat->Model->GetRootCategory();¤	if (¤		get_rose_element_uid(cat) != get_rose_element_uid(rootCat)¤		&& !cat->IsControlled () ¤		&& RoseHelper::can_control (cat)¤	) {¤		std::string dir_path = RoseHelper::create_dir_path (cat);				¤		if (GCL::create_tree_dirs (dir_path.c_str (), false)) {¤			std::string full_name = dir_path ¤				+ "\\" ¤				+ RoseHelper::clean_wrong_sympbols (cat->Name) ¤				+ ".cat";¤			IRoseCategoryPtr parent = RoseHelper::get_nearest_controllable_unit (cat);¤			MDPSupport::CatLockerFacade_var clf =¤				MDPSupport::CatLockerFacadeFactory::make (parent);¤			if (false == clf->try_change ()) {¤				GenSupport::LogManagerFactory::get ().log_warning ("Can't control package, because lock failed");¤				return false;¤			}¤			if (!cat->Control (full_name.c_str ())) {					¤				std::string mess = "Can't control Category: ";¤				mess += full_name;¤				GenSupport::LogManagerFactory::get ().log_error (mess.c_str ());¤			} else {¤				res = true;¤				std::string mess = "Category: ";¤				mess += (const char*) cat->Name;¤				mess += " was controlled to file: ";¤				mess += full_name;¤				GenSupport::LogManagerFactory::get ().log_info (mess.c_str ());¤				//controlled_set.insert (full_name);¤			}¤			clf->do_change ();¤		} else {¤			std::string mess = "Can't create tree dirs: ";¤			mess += dir_path;¤			GenSupport::LogManagerFactory::get ().log_error (mess.c_str ());¤		}				¤	}¤	return res;¤	//#UC END# *48031C76013C_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073403243"))
+		    quid       	"48031C76013C"
+		    documentation 	
+|"выливает" папку в отдельный кат
+|возвращает true в случае успеха, иначе false
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012564065"))
+			    quid       	"48031C760161"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "control_all"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C77031C*"
+			    value      	(value Text 
+|//#UC START# *48031C77031C*¤	bool res = control (cat);¤	IRoseCategoryCollectionPtr cats = cat->GetAllCategories ();¤	short cats_count = cats->Count;¤	for (short i = 1; i <= cats_count; ++i) {¤		IRoseCategoryPtr sub_cat = cats->GetAt (i);¤		res |= control (sub_cat);¤	}¤	return res;¤	//#UC END# *48031C77031C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C77031C_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C77031C_462D87C6033C*¤	bool res = control (cat);¤	IRoseCategoryCollectionPtr cats = cat->GetAllCategories ();¤	short cats_count = cats->Count;¤	for (short i = 1; i <= cats_count; ++i) {¤		IRoseCategoryPtr sub_cat = cats->GetAt (i);¤		res |= control (sub_cat);¤	}¤	return res;¤	//#UC END# *48031C77031C_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073401544"))
+		    quid       	"48031C77031C"
+		    documentation 	
+|операция "control" применяется к cat и всем подпапкам рекурсивно
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012564857"))
+			    quid       	"48031C770342"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "control_to_file"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C790311*"
+			    value      	(value Text 
+|//#UC START# *48031C790311*¤	bool res = false;¤	if (¤		!cat->IsControlled () ¤		&& RoseHelper::can_control (cat)¤	) {¤		CFileDialog f_dlg (false);¤		if (f_dlg.DoModal() == IDOK) {¤			std::string file_name = (LPCTSTR)f_dlg.GetPathName();¤			¤			IRoseCategoryPtr parent = RoseHelper::get_nearest_controllable_unit (cat);¤			MDPSupport::CatLockerFacade_var clf =¤				MDPSupport::CatLockerFacadeFactory::make (parent);¤			if (false == clf->try_change ()) {¤				RoseHelper::write_warning_log ("Can't control package, because lock failed");¤				return false;¤			}¤			if (!cat->Control (file_name.c_str ())) {					¤				std::string mess = "Can't control Category: ";¤				mess += file_name;¤				RoseHelper::write_error_log (mess.c_str ());¤			} else {¤				res = true;¤				std::string mess = "Category: ";¤				mess += (const char*) cat->Name;¤				mess += " was controlled to file: ";¤				mess += file_name;¤				RoseHelper::write_info_log (mess.c_str ());¤			}¤			clf->do_change ();¤		}¤	}¤	return res;¤	//#UC END# *48031C790311*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C790311_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C790311_462D87C6033C*¤	bool res = false;¤	if (¤		!cat->IsControlled () ¤		&& RoseHelper::can_control (cat)¤	) {¤		CFileDialog f_dlg (false);¤		if (f_dlg.DoModal() == IDOK) {¤			std::string file_name = (LPCTSTR)f_dlg.GetPathName();¤			¤			IRoseCategoryPtr parent = RoseHelper::get_nearest_controllable_unit (cat);¤			MDPSupport::CatLockerFacade_var clf =¤				MDPSupport::CatLockerFacadeFactory::make (parent);¤			if (false == clf->try_change ()) {¤				GenSupport::LogManagerFactory::get ().log_warning ("Can't control package, because lock failed");¤				return false;¤			}¤			if (!cat->Control (file_name.c_str ())) {					¤				std::string mess = "Can't control Category: ";¤				mess += file_name;¤				GenSupport::LogManagerFactory::get ().log_error (mess.c_str ());¤			} else {¤				res = true;¤				std::string mess = "Category: ";¤				mess += (const char*) cat->Name;¤				mess += " was controlled to file: ";¤				mess += file_name;¤				GenSupport::LogManagerFactory::get ().log_info (mess.c_str ());¤			}¤			clf->do_change ();¤		}¤	}¤	return res;¤	//#UC END# *48031C790311_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073400310"))
+		    quid       	"48031C790311"
+		    documentation 	"выливает папку в отдельный кат, путь к кату выбирается пользователем"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012565582"))
+			    quid       	"48031C79033D"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "copy"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C7A03D7*"
+			    value      	(value Text 
+|//#UC START# *48031C7A03D7*¤	MDPSupport::CatLockerFacade_var clf_item =¤		MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)item);¤	¤	MDPSupport::CatLockerFacade_var clf_new_parent =¤		MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)parent);¤	if (¤		false == clf_item->try_change () ¤		|| false == clf_new_parent->try_change ()		¤	) {¤		RoseHelper::write_warning_log ("Can't copy item, because lock failed");¤		return false;¤	}¤	IRoseElementPtr res;¤	if (item->IsClass ("Class")) {		¤		if (parent->IsClass ("Class")) {¤			IRoseClassPtr parent_cls = parent;¤			IRoseClassPtr cls = item;¤			IRoseClassPtr new_cls = parent_cls->AddNestedClass (cls->Name);¤			new_cls->Stereotype = cls->Stereotype;¤			new_cls->Documentation = cls->Documentation;¤			RoseCopyHelper::copy_mda_property (cls, (IRoseElementPtr)new_cls);¤			res = new_cls;¤		} else if (parent->IsClass ("Category")) {¤			IRoseCategoryPtr parent_cat = parent;¤			IRoseClassPtr cls = item;¤			IRoseClassPtr new_cls = parent_cat->AddClass (cls->Name);¤			new_cls->Stereotype = cls->Stereotype;¤			new_cls->Documentation = cls->Documentation;¤			RoseCopyHelper::copy_mda_property (cls, (IRoseElementPtr)new_cls);¤			res = new_cls;¤		} else {¤			res = 0;¤		}¤	} else if (item->IsClass ("Category")) {¤		if (parent->IsClass ("Category")) {¤			IRoseCategoryPtr parent_cat = parent;¤			IRoseCategoryPtr cat = item;¤			IRoseCategoryPtr new_cat = parent_cat->AddCategory (cat->Name);¤			new_cat->Stereotype = cat->Stereotype;¤			new_cat->Documentation = cat->Documentation;¤			RoseCopyHelper::copy_mda_property (cat, (IRoseElementPtr)new_cat);¤			res = new_cat;¤		} else {¤			res = 0;¤		}¤	} else if (item->IsClass ("Operation")) {¤		if (parent->IsClass ("Class")) {¤			IRoseClassPtr parent_cls = parent;¤			IRoseOperationPtr op = item;¤			IRoseOperationPtr new_op = parent_cls->AddOperation (¤				op->GetName (), op->GetReturnType ()¤			);¤			RoseCopyHelper::copy (op, new_op);¤			res = new_op;¤		} else {¤			res = 0;¤		}¤	} else if (item->IsClass ("Attribute")) {¤		if (parent->IsClass ("Class")) {¤			IRoseClassPtr parent_cls = parent;¤			IRoseAttributePtr attr = item;¤			IRoseAttributePtr new_attr = parent_cls->AddAttribute (¤				attr->GetName (), attr->GetType (), attr->GetInitValue ()¤			);¤			RoseCopyHelper::copy (attr, new_attr);¤			res = new_attr;¤		} else {¤			res = 0;¤		}¤	}¤	if (res) {¤		clf_item->do_change ();¤		clf_new_parent->do_change ();¤	}¤	return res;¤	//#UC END# *48031C7A03D7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C7A03D7_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C7A03D7_462D87C6033C*¤	MDPSupport::CatLockerFacade_var clf_item =¤		MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)item);¤	¤	MDPSupport::CatLockerFacade_var clf_new_parent =¤		MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)parent);¤	if (¤		false == clf_item->try_change () ¤		|| false == clf_new_parent->try_change ()		¤	) {¤		GenSupport::LogManagerFactory::get ().log_warning ("Can't copy item, because lock failed");¤		return false;¤	}¤	IRoseElementPtr res;¤	if (item->IsClass (CLASS_TYPE)) {		¤		if (parent->IsClass (CLASS_TYPE)) {¤			IRoseClassPtr parent_cls = parent;¤			IRoseClassCollectionPtr classes = parent_cls->GetNestedClasses ();¤			short index = classes->FindFirst (item->Name);¤			if (index == 0) {¤				IRoseClassPtr cls = item;¤				IRoseClassPtr new_cls = parent_cls->AddNestedClass (cls->Name);¤				new_cls->Stereotype = cls->Stereotype;¤				new_cls->Documentation = cls->Documentation;¤				RoseCopyHelper::copy_mda_property (cls, (IRoseElementPtr)new_cls, false);¤				res = new_cls;¤			} else {¤				std::string mess = "Can't copy class: ";¤				mess += RoseHelper::get_full_name (item);¤				mess += ", because new parent already have class with same name";¤				GenSupport::LogManagerFactory::get ().log_error (mess.c_str ());¤				¤				res = 0;¤			}¤		} else if (parent->IsClass (CATEGORY_TYPE)) {¤			IRoseCategoryPtr parent_cat = parent;¤			IRoseClassCollectionPtr classes = parent_cat->GetClasses ();¤			short index = classes->FindFirst (item->Name);¤			if (index == 0) {¤				IRoseClassPtr cls = item;¤				IRoseClassPtr new_cls = parent_cat->AddClass (cls->Name);¤				new_cls->Stereotype = cls->Stereotype;¤				new_cls->Documentation = cls->Documentation;¤				RoseCopyHelper::copy_mda_property (cls, (IRoseElementPtr)new_cls, false);¤				res = new_cls;¤			} else {¤				std::string mess = "Can't copy class: ";¤				mess += RoseHelper::get_full_name (item);¤				mess += ", because new parent already have class with same name";¤				GenSupport::LogManagerFactory::get ().log_error (mess.c_str ());¤				¤				res = 0;¤			}¤		} else {¤			res = 0;¤		}¤	} else if (item->IsClass (CLASS_TYPE)) {¤		if (parent->IsClass (CLASS_TYPE)) {¤			IRoseCategoryPtr parent_cat = parent;¤			IRoseCategoryCollectionPtr parent_cats = parent_cat->GetCategories ();¤			short index = parent_cats->FindFirst (item->Name);¤			if (index == 0) {¤				IRoseCategoryPtr cat = item;¤				IRoseCategoryPtr new_cat = parent_cat->AddCategory (cat->Name);¤				new_cat->Stereotype = cat->Stereotype;¤				new_cat->Documentation = cat->Documentation;¤				RoseCopyHelper::copy_mda_property (cat, (IRoseElementPtr)new_cat, false);¤				res = new_cat;¤			} else {¤				std::string mess = "Can't copy category: ";¤				mess += RoseHelper::get_full_name (item);¤				mess += ", because new parent already have category with same name";¤				GenSupport::LogManagerFactory::get ().log_error (mess.c_str ());¤				res = 0;¤			}¤			¤		} else {¤			res = 0;¤		}¤	} else if (item->IsClass (OPERATION_TYPE)) {¤		if (parent->IsClass (CLASS_TYPE)) {¤			IRoseClassPtr parent_cls = parent;¤			IRoseOperationPtr op = item;¤			IRoseOperationPtr new_op = parent_cls->AddOperation (¤				op->GetName (), op->GetReturnType ()¤			);¤			RoseCopyHelper::copy (op, new_op, false);¤			res = new_op;¤		} else {¤			res = 0;¤		}¤	} else if (item->IsClass (ATTRIBUTE_TYPE)) {¤		if (parent->IsClass (CLASS_TYPE)) {¤			IRoseClassPtr parent_cls = parent;¤			IRoseAttributePtr attr = item;¤			IRoseAttributePtr new_attr = parent_cls->AddAttribute (¤				attr->GetName (), attr->GetType (), attr->GetInitValue ()¤			);¤¤			RoseCopyHelper::copy (attr, new_attr, false);¤			res = new_attr;¤		} else {¤			res = 0;¤		}¤	}¤	if (res) {¤		clf_item->do_change ();¤		clf_new_parent->do_change ();¤	}¤	return res;¤	//#UC END# *48031C7A03D7_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45C3177C0177")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073399051"))
+		    quid       	"48031C7A03D7"
+		    documentation 	
+|копирует элемент item в parent
+|возвращает новый элемент
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "item"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45C3177C0177")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012566293"))
+			    quid       	"48031C7B001B"
+			    type       	"IRoseElementPtr"
+			    quidu      	"45C3177C0177")
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45C3177C0177")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012566667"))
+			    quid       	"48031C7B0051"
+			    type       	"IRoseElementPtr"
+			    quidu      	"45C3177C0177"))
+		    result     	"IRoseElementPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"45C3177C0177")
+		(object Operation "generate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C7C0377*"
+			    value      	(value Text 
+|//#UC START# *48031C7C0377*	¤	class auto_locker {¤	public:¤		auto_locker () {¤			RoseAbstractDumper::lock_reset();¤		}¤¤		~auto_locker () {¤			RoseAbstractDumper::unlock_reset();¤		}¤	};	¤¤	try {¤		AbstractDumperBase::dump_prepare ();¤		RoseHelper::reset_template ();¤		RoseHelper::load_template ();¤		¤		RoseAbstractDumper* ad = 0;¤¤		bool need_rebuild_tree = false;¤¤		do {¤			if (RoseHelper::check_model_for_changes ()) {¤				int res = QuestionBox::show (¤					"Вы хотите сохранить модель перед генерацией?"¤					, "Модель была изменена"¤				);¤				if (res == IDOK) {¤					RoseHelper::rose_app()->CurrentModel->Save ();¤				} else if (res == IDCANCEL) {¤					return;¤				}¤			}¤¤			if (¤				AbstractDumperBase::is_has_error ()				¤			) {¤				RoseAbstractDumper::reset_model_tree_root ();¤			}¤			RoseHelper::init_logs ();¤			RoseAbstractDumper::get_model_tree_root();¤¤			AbstractDumperBase::s_options.cancel_generations = 0;¤			¤			if (AbstractDumperBase::is_has_error ()) {¤				MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "Обнаружены структурные ошибки метамодели - см. лог для деталей", "Ошибка", MB_ICONEXCLAMATION);¤				RoseHelper::write_info_log("Сodogeneration breaks by matamodel errors");¤				AbstractDumperBase::s_options.cancel_generations = 1;			¤				return;¤			}¤			if (elem == 0) {¤				if (AbstractDumperBase::s_model_main_element) {¤					const RoseAbstractDumper* main_rad = dynamic_cast<const RoseAbstractDumper*> (¤						AbstractDumperBase::s_model_main_element¤					);¤					if (main_rad) {¤						elem = main_rad->rose_element ();¤					}¤				}¤			}¤			ad = dynamic_cast<RoseAbstractDumper*>(RoseAbstractDumper::find_in_tree (elem));¤			if (ad) {¤				ad->prepare ();¤				if (need_auto_rep) {¤					// run auto reports			¤					for (¤						AbstractDumperBase::ReportInfos::iterator it = AbstractDumperBase::s_report_infos.begin()¤						; it != AbstractDumperBase::s_report_infos.end()¤						; it++¤					) {¤						if (it->second->get_auto() != "") {						¤							ReportView dlg (elem, it->second);¤							if (dlg.DoModal() != IDOK) {¤								AbstractDumperBase::s_options.cancel_generations = 1;¤								return;¤							}						¤						}¤					}¤				}¤			}¤		} while (RoseTreeState::instance ()->is_changed () == true);¤				¤		GeneratorSelect ts_dlg;¤		if (ts_dlg.make_choice(elem)) {¤			RoseHelper::write_info_log("Codogeneration starts");¤			AbstractDumperBase::s_options.cancel_generations = 0;¤¤			ad = dynamic_cast<const RoseAbstractDumper*>(¤				RoseAbstractDumper::find_in_tree (elem)¤			);¤			¤			if (AbstractDumperBase::is_has_error ()) {¤				MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "Обнаружены структурные ошибки метамодели- см. лог для деталей", "Ошибка", MB_ICONEXCLAMATION);¤				RoseHelper::write_info_log("Сodogeneration breaks by matamodel errors");¤				AbstractDumperBase::s_options.cancel_generations = 1;¤				return;¤			}¤¤			if (ad) {¤				auto_locker locker;¤				{¤					¤					std::string mes = "Start generation from ";¤					mes += RoseHelper::get_full_name(elem);¤					mes += "...";¤					ad->write_info_log (mes);¤				#ifndef GDS_NLOG_DEBUG¤					Core::GDS::StopWatch sw (mes.c_str ());¤				#endif¤					try {¤						//RoseAbstractDumper::lock_reset();¤						RoseAbstractDumper::s_selections_map.clear ();¤						ad->dump_start();¤					} catch (...) {¤						AbstractDumperBase::s_options.cancel_generations = 1;¤						ad->push_changes ();¤						AbstractDumper::reset ();¤						//RoseAbstractDumper::unlock_reset();¤						throw;¤					}¤											¤					if (AbstractDumperBase::is_has_error ()) {¤						AbstractDumperBase::has_error(false);¤						MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "В модели обнаружены нарушения шаблона - см. лог для деталей", "Ошибка", MB_ICONEXCLAMATION);¤						RoseHelper::write_info_log("Codogeneration breaks by template constraints");¤						AbstractDumperBase::s_options.cancel_generations = 1;							¤					} else {¤						UnusedUserCode uuc;¤						if (uuc.DoModal() == IDCANCEL) {¤							AbstractDumperBase::s_options.cancel_generations = 1;¤						}¤					}¤¤					ad->push_changes ();¤				}													¤				if (!AbstractDumperBase::s_options.cancel_generations) {¤					try {¤						GenStatistics stat;¤						unsigned int res = stat.DoModal();¤						stat.remove_temp_files ();¤						¤						if (res == IDOK) {¤							ad->dump_commit ();¤							AbstractDumper::persistent_commit (stat.is_minor_changes ());¤						}¤					} catch (...) {¤						AbstractDumper::reset ();¤						throw;¤					}¤				}¤				AbstractDumper::reset ();¤				//RoseAbstractDumper::unlock_reset();¤			}¤¤			RoseHelper::write_info_log("Сodogeneration finished");¤			if (elem->IsClass ("Category")) {¤				std::string model_path = elem->Model->GetFileName ();¤				if (model_path.find ("shared\\models") != std::string::npos) {¤					RoseHelper::write_info_log ("Start try control cat");¤					bool something_controlled = control_all (elem);¤					if (something_controlled == true) {¤						::MessageBox (¤							AfxGetMainWnd ()->GetSafeHwnd ()¤							, "Некоторые пакеты были помещены в отдельные cat-ы - не забудьте поместить их в CVS"¤							, "Внимание!"¤							, MB_OK | MB_ICONINFORMATION¤						);¤					}¤					RoseHelper::write_info_log ("Finished try control cat");¤				}¤			}¤		}				¤	} catch (RoseAbstractDumper::FatalError& ex) {¤		//RoseAbstractDumper::reset_model_tree_root ();¤		RoseAbstractDumper::has_error (false);¤		RoseHelper::write_error_log ("Codogeneration finished by Fatal error:");¤		RoseHelper::write_error_log (ex.what ());¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "Генерациия завершилась ошибкой смотри лог для деталей", "Ошибка", MB_OK|MB_ICONEXCLAMATION );¤	} catch (std::exception& ex) {¤		std::string mess ("Во время генерации кода произошло исключение: ");¤		mess += ex.what ();¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), _T (mess.c_str ()), "Ошибка", MB_OK|MB_ICONEXCLAMATION );¤	} catch (CORBA::Exception& ex) {¤		std::string mess ("Во время генерации кода произошло исключение:\n");¤		mess += ex._info ().c_str ();¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), _T (mess.c_str ()), "Ошибка", MB_OK|MB_ICONEXCLAMATION );¤	} catch (_com_error& ex) {¤		std::string mess ("Во время генерации кода произошло исключение: _com_error (\n");¤		mess += ex.ErrorMessage ();¤		mess += ")";¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), _T (mess.c_str ()), "Ошибка", MB_OK|MB_ICONEXCLAMATION );¤	} catch (...) {¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "Во время генерации кода произошло не обработанное исключение", "Ошибка", MB_OK | MB_ICONEXCLAMATION );¤		//RoseAbstractDumper::reset_model_tree_root ();¤	}¤	//#UC END# *48031C7C0377*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C7C0377_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C7C0377_462D87C6033C*¤	if (!save_model_if_need ()) {¤		return;¤	}¤¤	GenSupport::AutoErrorSuppress auto_suppresser (need_auto_rep);¤¤	RoseElementVector rose_items;¤¤	if (elem) {¤		rose_items.push_back (RoseElementWrapper (elem));¤	}¤¤	if (rose_items.empty ()) {¤		if (AbstractDumperBase::s_model_main_element) {¤			const RoseAbstractDumper* main_rad = dynamic_cast<const RoseAbstractDumper*> (¤				AbstractDumperBase::s_model_main_element¤			);¤			if (main_rad) {¤				rose_items.push_back (main_rad->rose_element ());¤			}¤		}¤	}¤¤	if (!rose_items.empty ()) {¤		GeneratorSelect ts_dlg;¤		if (ts_dlg.make_choice(rose_items[0].element)) {¤			this->generate_impl (rose_items, need_auto_rep);¤		}¤	}¤	//#UC END# *48031C7C0377_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073410473"))
+		    quid       	"48031C7C0377"
+		    documentation 	
+|операция генерации выбранного элемента (elem)
+|флаг need_auto_rep указывает нужно ли запускать построенеи автоматических отчетов или нет
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012567394"))
+			    quid       	"48031C7C03A8"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF")
+			(object Parameter "need_auto_rep"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012567767"))
+			    quid       	"48031C7C03E3"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "generate_with_consumers"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4ACC677F0296_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *4ACC677F0296_462D87C6033C*¤	class local {¤	public:¤		static bool should_visit (¤			const RoseAbstractDumper* rad¤			, RoseAbstractDumper::UnorderedRADSet& visited¤		) {¤			bool res = false;¤			if (rad && visited.find (rad) == visited.end ()) {¤				res = true;				¤			}¤¤			return res;¤		}¤¤		static void collect_consumers (¤			const RoseAbstractDumper* rad¤			, RoseAbstractDumper::RADVector& consumers¤			, RoseAbstractDumper::UnorderedRADSet& visited¤		) {¤			if (should_visit (rad, visited)) {¤				visited.insert (rad);¤				ObjectTreeResolver::Consumer_set consumer_infos = rad->get_consumer_infos ();¤				for (¤					ObjectTreeResolver::Consumer_set::const_iterator it = consumer_infos.begin ()¤					; it != consumer_infos.end ()¤					; ++it¤				) {¤					const RoseAbstractDumper* consumer = dynamic_cast<const RoseAbstractDumper*> (it->consumer);¤					if (should_visit (consumer, visited)) {¤						consumers.push_back (consumer);¤						collect_consumers (consumer, consumers, visited);¤					}¤				}¤			}¤		}¤	};¤	¤	if (!save_model_if_need ()) {¤		return;¤	}¤¤	GenSupport::AutoErrorSuppress auto_suppresser (need_auto_rep);¤¤	if (elem) {¤		GeneratorSelect ts_dlg;¤		if (ts_dlg.make_choice(elem)) {¤			if (¤				AbstractDumperBase::is_has_error ()				¤			) {¤				RoseAbstractDumper::reset_model_tree_root ();¤			}¤¤			RoseAbstractDumper::get_model_tree_root();¤¤			RoseAbstractDumper::RADVector items;¤			RoseAbstractDumper* rad = RoseAbstractDumper::find_in_tree (elem);¤			if (rad) {¤				items.push_back (rad);¤				RoseAbstractDumper::UnorderedRADSet visited;¤				local::collect_consumers (rad, items, visited);¤			}¤¤			RoseElementVector rose_items;¤			for (¤				RoseAbstractDumper::RADVector::const_iterator it = items.begin ()¤				; it != items.end ()¤				; ++it¤			) {¤				//добавляем элемент в результирующий список только!¤				//если он не является ребенком одного из элементов¤				//в списке зависимых¤				bool should_add = true;¤				for (¤					RoseAbstractDumper::RADVector::const_iterator it2 = items.begin ()¤					; it2 != items.end ()¤					; ++it2¤				) {¤					const RoseAbstractDumper* consumer = *it2;¤					const AbstractDumperBase* rad_parent = *it;¤					while (rad_parent = rad_parent->parent ()) {¤						if (rad_parent == consumer) {¤							should_add = false;¤							break;¤						}¤					}¤				}¤¤				if (should_add) {¤					rose_items.push_back ((*it)->rose_element ());¤				}¤			}¤¤			this->generate_impl (rose_items, need_auto_rep);¤		}¤	}¤	//#UC END# *4ACC677F0296_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073401958"))
+		    quid       	"4ACC677F0296"
+		    documentation 	
+|операция генерации выбранного элемента (elem)  и всех зависимых от него элементов
+|флаг need_auto_rep указывает нужно ли запускать построенеи автоматических отчетов или нет
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012568506"))
+			    quid       	"4ACC678E0265"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF")
+			(object Parameter "need_auto_rep"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012568863"))
+			    quid       	"4ACC678E02FF"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "lock"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C7E0215*"
+			    value      	(value Text 
+|//#UC START# *48031C7E0215*¤	GDS_ASSERT(cat);¤	MDPSupport::CatLocker_var cl = MDPSupport::CatLockerFactory::make (cat);¤	cl->modify ();	¤	//#UC END# *48031C7E0215*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C7E0215_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C7E0215_462D87C6033C*¤	GDS_ASSERT(cat);¤	MDPSupport::CatLocker_var cl = MDPSupport::CatLockerFactory::make (cat);¤	cl->modify ();	¤	//#UC END# *48031C7E0215_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073411714"))
+		    quid       	"48031C7E0215"
+		    documentation 	
+|операция "залочки" выбранного пакета
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012569582"))
+			    quid       	"48031C7E0248"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "new_attribute"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8001E0*"
+			    value      	(value Text 
+|//#UC START# *48031C8001E0*¤	GDS_ASSERT (parent);¤	return (IRoseAttributePtr)this->new_element (parent, "Attribute");¤	//#UC END# *48031C8001E0*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8001E0_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C8001E0_462D87C6033C*¤	GDS_ASSERT (parent);¤	return (IRoseAttributePtr)this->new_element (parent, "Attribute");¤	//#UC END# *48031C8001E0_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46C56D4A0000")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073410879"))
+		    quid       	"48031C8001E0"
+		    documentation 	"операция создания нового атрибута для класса"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45757AC102BB")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012570293"))
+			    quid       	"48031C800219"
+			    type       	"IRoseClassPtr"
+			    quidu      	"45757AC102BB"))
+		    result     	"IRoseAttributePtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46C56D4A0000")
+		(object Operation "new_attribute_key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8201F4*"
+			    value      	(value Text 
+|//#UC START# *48031C8201F4*¤	//AfxMessageBox ("Операция new_attribute_key не реализована", MB_ICONEXCLAMATION);¤	GDS_ASSERT (parent);¤	¤	MDPSupport::CatLockerFacade_var clf = ¤		MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)parent);¤	if (false == clf->try_change ()) {¤		RoseHelper::write_warning_log ("Can't create new attr key, because lock failed");¤		return 0;¤	}¤¤	IRoseAttributePtr key = parent->AddKey("NewKey", "?");¤	RoseHelper::set_link_type(key, "agr");¤	if (this->properties (key, true, true) != RoseHelper::ER_EDIT_OK) {¤		parent->DeleteKey (key);¤		key = 0;¤	} else {¤		RoseTreeState::instance ()->set_changed (true);¤		clf->do_change ();¤		if (m_model_explorer) {¤			IRoseApplicationPtr app = parent->Application;¤			IRoseElementPtr elem = key;¤			m_model_explorer->OnNewModelElement (app, elem);¤		}¤	}¤	return key;¤	//#UC END# *48031C8201F4*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8201F4_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C8201F4_462D87C6033C*¤	GDS_ASSERT (parent);¤	¤	MDPSupport::CatLockerFacade_var clf = ¤		MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)parent);¤	if (false == clf->try_change ()) {¤		GenSupport::LogManagerFactory::get ().log_warning ("Can't create new attr key, because lock failed");¤		return 0;¤	}¤¤	IRoseAttributePtr key = parent->AddKey("NewKey", "?");¤	RoseHelper::set_link_type(key, "agr");¤	if (this->properties (key, true, true) != RoseHelper::ER_EDIT_OK) {¤		parent->DeleteKey (key);¤		key = 0;¤	} else {¤		RoseTreeState::instance ()->set_changed (true);¤		clf->do_change ();¤		if (m_model_explorer) {¤			IRoseApplicationPtr app = parent->Application;¤			IRoseElementPtr elem = key;¤			m_model_explorer->OnNewModelElement (app, elem);¤		}¤	}¤	return key;¤	//#UC END# *48031C8201F4_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46C56D4A0000")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073409233"))
+		    quid       	"48031C8201F4"
+		    documentation 	"операция создания нового ключа для связи (parent)"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"462D90AF0157")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012571024"))
+			    quid       	"48031C82022F"
+			    type       	"IRoseRolePtr"
+			    quidu      	"462D90AF0157"))
+		    result     	"IRoseAttributePtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46C56D4A0000")
+		(object Operation "new_class"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8303CD*"
+			    value      	(value Text 
+|//#UC START# *48031C8303CD*¤	GDS_ASSERT (parent);¤	return (IRoseClassPtr)this->new_element (parent, "Class");¤	//#UC END# *48031C8303CD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8303CD_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C8303CD_462D87C6033C*¤	GDS_ASSERT (parent);¤	return (IRoseClassPtr)this->new_element (parent, "Class");¤	//#UC END# *48031C8303CD_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45757AC102BB")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073407150"))
+		    quid       	"48031C8303CD"
+		    documentation 	"операция создания нового класса, вложенного в parent, где parent - класс или пакет"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012571760"))
+			    quid       	"48031C840026"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF"))
+		    result     	"IRoseClassPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"45757AC102BB")
+		(object Operation "new_class_diagram"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8501AC*"
+			    value      	(value Text 
+|//#UC START# *48031C8501AC*¤	GDS_ASSERT (parent);¤		¤	EnterStringDialog dlg;¤	dlg.entered_string ("Main");¤	if (dlg.DoModal () != IDOK) {¤		return 0;¤	}	¤	return (IRoseClassDiagramPtr)this->new_class_diagram (parent, dlg.entered_string ());¤	//#UC END# *48031C8501AC*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8501AC_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C8501AC_462D87C6033C*¤	GDS_ASSERT (parent);¤		¤	EnterStringDialog dlg;¤	dlg.set_entered_string ("Main");¤	if (dlg.DoModal () != IDOK) {¤		return 0;¤	}	¤	return (IRoseClassDiagramPtr)this->new_class_diagram (parent, dlg.get_entered_string ());¤	//#UC END# *48031C8501AC_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46C53AE2003E")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073404069"))
+		    quid       	"48031C8501AC"
+		    documentation 	
+|операция создания новой диаграммы классов, имя диаграммы предлагается ввести пользователю.
+|
+|\parent - элемент для которого создаётся диаграмма, может быть классом, либо папкой
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012572485"))
+			    quid       	"48031C8501F0"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF"))
+		    result     	"IRoseClassDiagramPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46C53AE2003E")
+		(object Operation "new_class_diagram"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C870123*"
+			    value      	(value Text 
+|//#UC START# *48031C870123*¤	IRoseCategoryPtr cat = RoseHelper::get_nearest_category (parent);¤	//IRoseCategoryPtr unit = RoseHelper::get_nearest_controllable_unit (parent);¤	MDPSupport::CatLockerFacade_var clf = ¤		MDPSupport::CatLockerFacadeFactory::make (cat);¤	if (false == clf->try_change ()) {¤		RoseHelper::write_warning_log ("Can't create new class diagram, because lock failed");¤		return 0;¤	}	¤¤	IRoseClassDiagramPtr diag = cat->AddClassDiagram (name.c_str ());¤	RoseTreeState::instance ()->set_changed (true);¤¤	if (parent->IsClass ("Class")) {¤		RoseHelper::override_property (¤			diag, TOOL_NAME, RoseHelper::CLASS_DIAG_LINK_PROPERTY, parent->GetUniqueID ()¤		);¤	}¤¤	if (m_model_explorer) {¤		IRoseApplicationPtr app = diag->Application;¤		IRoseElementPtr elem = diag;¤		m_model_explorer->OnNewModelElement (app, elem);¤	}¤	diag->Activate ();¤	clf->do_change ();¤	return diag;¤	//#UC END# *48031C870123*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C870123_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C870123_462D87C6033C*¤	IRoseCategoryPtr cat = RoseHelper::get_nearest_category (parent);¤	//IRoseCategoryPtr unit = RoseHelper::get_nearest_controllable_unit (parent);¤	MDPSupport::CatLockerFacade_var clf = ¤		MDPSupport::CatLockerFacadeFactory::make (cat);¤	if (false == clf->try_change ()) {¤		GenSupport::LogManagerFactory::get ().log_warning ("Can't create new class diagram, because lock failed");¤		return 0;¤	}	¤¤	IRoseClassDiagramPtr diag = cat->AddClassDiagram (name.c_str ());¤	RoseTreeState::instance ()->set_changed (true);¤¤	if (parent->IsClass (CLASS_TYPE)) {¤		RoseHelper::override_property (¤			diag¤			, TOOL_NAME¤			, RoseHelper::CLASS_DIAG_LINK_PROPERTY¤			, get_rose_element_uid(parent).c_str ()¤		);¤	}¤¤	if (m_model_explorer) {¤		IRoseApplicationPtr app = diag->Application;¤		IRoseElementPtr elem = diag;¤		m_model_explorer->OnNewModelElement (app, elem);¤	}¤	diag->Activate ();¤	clf->do_change ();¤	return diag;¤	//#UC END# *48031C870123_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46C53AE2003E")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073403652"))
+		    quid       	"48031C870123"
+		    documentation 	
+|операция создания новой диаграммы классов.
+|
+|\parent - элемент для которого создаётся диаграмма, может быть классом, либо папкой
+|
+|\name - имя диаграммы
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012573210"))
+			    quid       	"48031C87016C"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF")
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012573592"))
+			    quid       	"48031C8701C0"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"IRoseClassDiagramPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46C53AE2003E")
+		(object Operation "new_element"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8A0014*"
+			    value      	(value Text 
+|//#UC START# *48031C8A0014*¤	RoseHelper::reset_template ();¤	if (!RoseHelper::load_template ()) {¤		return 0;¤	}¤¤	CPoint point;¤	GetCursorPos (&point);¤	IRoseClassDiagramPtr diag = (IRoseClassDiagramPtr)parent->Model->GetActiveDiagram();¤	IRoseItemPtr new_item;¤	¤	bool need_colorize = true;¤	¤	MDPSupport::CatLockerFacade_var clf = ¤		MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)parent);¤	if (false == clf->try_change ()) {¤		RoseHelper::write_warning_log ("Can't create new element, because lock failed");¤		return 0;¤	}¤¤	new_item = create_new_element (parent, element_type);¤	if (new_item == 0) {¤		return 0;¤	}¤	if (new_item->IsClass ("Class") || new_item->IsClass ("Category")) {		¤		RoseHelper::position_in_diagram (¤			diag¤			, new_item¤			, point.x¤			, point.y¤		);¤	}¤	¤	if (this->properties (new_item, true, false) != RoseHelper::ER_EDIT_OK) {¤		RoseHelper::delete_item(new_item);¤		new_item = 0;¤	} else {¤		//RoseHelper::colorize(diag);¤		//RoseHelper::ChangedDiagramCollectionSingleton::instance ()->insert ((const char*)diag->GetUniqueID ());¤		RoseTreeState::instance ()->set_changed (true);¤		clf->do_change ();¤		if (m_model_explorer) {¤			IRoseApplicationPtr app = parent->Application;¤			IRoseElementPtr elem = new_item;¤			m_model_explorer->OnNewModelElement (app, elem);¤		}¤	}¤	return new_item;¤	//#UC END# *48031C8A0014*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8A0014_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C8A0014_462D87C6033C*¤	try {¤		RoseHelper::reset_template ();¤		if (!RoseHelper::load_template ()) {¤			return 0;¤		}¤¤		CPoint point;¤		GetCursorPos (&point);¤		IRoseClassDiagramPtr diag = (IRoseClassDiagramPtr)parent->Model->GetActiveDiagram();¤		IRoseItemPtr new_item;¤		¤		bool need_colorize = true;¤		¤		MDPSupport::CatLockerFacade_var clf = ¤			MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)parent);¤		if (false == clf->try_change ()) {¤			GenSupport::LogManagerFactory::get ().log_warning ("Can't create new element, because lock failed");¤			return 0;¤		}¤¤		new_item = create_new_element (parent, element_type);¤		if (new_item == 0) {¤			return 0;¤		}¤		if (new_item->IsClass (CLASS_TYPE) || new_item->IsClass (CATEGORY_TYPE)) {		¤			RoseHelper::position_in_diagram (¤				diag¤				, new_item¤				, point.x¤				, point.y¤			);¤		}¤		¤		if (this->properties (new_item, true, false) != RoseHelper::ER_EDIT_OK) {¤			RoseHelper::delete_item(new_item);¤			new_item = 0;¤		} else {¤			RoseTreeState::instance ()->set_changed (true);¤			clf->do_change ();¤			if (m_model_explorer) {¤				IRoseApplicationPtr app = parent->Application;¤				IRoseElementPtr elem = new_item;¤				m_model_explorer->OnNewModelElement (app, elem);¤			}¤		}¤¤		return new_item;¤	} catch (Base::FatalError&) {¤		GenerationErrorDialog dlg (GenSupport::ErrorManagerFactory::get ().get_errors ());¤		dlg.DoModal ();¤	}¤¤	return 0;¤	//#UC END# *48031C8A0014_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45C3177C0177")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073405747"))
+		    quid       	"48031C8A0014"
+		    documentation 	
+|операция создания нового элемента, element_type  - тип элемента ("Class", "Category", "Attribute", "Operation")
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012574305"))
+			    quid       	"48031C8A005C"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF")
+			(object Parameter "element_type"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012574679"))
+			    quid       	"48031C8A00B4"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"IRoseElementPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"45C3177C0177")
+		(object Operation "new_operation"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8B03BB*"
+			    value      	(value Text 
+|//#UC START# *48031C8B03BB*¤	GDS_ASSERT (parent);¤	return (IRoseOperationPtr)this->new_element (parent, "Operation");¤	//#UC END# *48031C8B03BB*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8B03BB_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C8B03BB_462D87C6033C*¤	GDS_ASSERT (parent);¤	return (IRoseOperationPtr)this->new_element (parent, "Operation");¤	//#UC END# *48031C8B03BB_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46C56D5B036B")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073398192"))
+		    quid       	"48031C8B03BB"
+		    documentation 	"операция создания новой операции для класса"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45757AC102BB")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012575436"))
+			    quid       	"48031C8C001C"
+			    type       	"IRoseClassPtr"
+			    quidu      	"45757AC102BB"))
+		    result     	"IRoseOperationPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46C56D5B036B")
+		(object Operation "new_package"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8E00A1*"
+			    value      	(value Text 
+|//#UC START# *48031C8E00A1*¤	GDS_ASSERT (parent);¤	return (IRoseCategoryPtr)this->new_element (parent, "Category");¤	//#UC END# *48031C8E00A1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8E00A1_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C8E00A1_462D87C6033C*¤	GDS_ASSERT (parent);¤	return (IRoseCategoryPtr)this->new_element (parent, "Category");¤	//#UC END# *48031C8E00A1_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45BF43DE00DA")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073412547"))
+		    quid       	"48031C8E00A1"
+		    documentation 	"операция создания нового пакета"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012576164"))
+			    quid       	"48031C8E00F1"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    result     	"IRoseCategoryPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"45BF43DE00DA")
+		(object Operation "new_sequence_diagram"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8F0277*"
+			    value      	(value Text 
+|//#UC START# *48031C8F0277*¤	GDS_ASSERT (parent);¤	if (parent->Stereotype == _bstr_t ("UseCase")) {¤		EnterStringDialog dlg;¤		dlg.entered_string ((const char*)parent->Name);¤		if (dlg.DoModal () != IDOK) {¤			return 0;¤		}¤¤		IRoseCategoryPtr cat = RoseHelper::get_parent_category (parent);¤		if (cat) {¤			MDPSupport::CatLockerFacade_var clf = ¤				MDPSupport::CatLockerFacadeFactory::make (cat);¤			if (false == clf->try_change ()) {¤				RoseHelper::write_warning_log ("Can't create new sequence diagram, because lock failed");¤				return 0;¤			}			¤			IRoseScenarioDiagramPtr diag = cat->AddScenarioDiagram (dlg.entered_string ().c_str (), 1);¤			¤			RoseHelper::override_property(diag, TOOL_NAME, "UseCase", parent->GetUniqueID ());¤			if (m_model_explorer) {¤				IRoseApplicationPtr app = diag->Application;¤				IRoseElementPtr elem = diag;¤				m_model_explorer->OnNewModelElement (app, elem);¤			}¤			diag->Activate ();¤			clf->do_change ();¤			return diag;¤		}¤		return 0;¤	} else {¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "Сиквенс диаграмму можно создавать только в usecase", "Ошибка", MB_OK);¤	}¤	return 0;¤	//#UC END# *48031C8F0277*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C8F0277_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C8F0277_462D87C6033C*¤	GDS_ASSERT (parent);¤	if (parent->Stereotype == _bstr_t ("UseCase")) {¤		EnterStringDialog dlg;¤		dlg.set_entered_string ((const char*)parent->Name);¤		if (dlg.DoModal () != IDOK) {¤			return 0;¤		}¤¤		IRoseCategoryPtr cat = RoseHelper::get_parent_category (parent);¤		if (cat) {¤			MDPSupport::CatLockerFacade_var clf = ¤				MDPSupport::CatLockerFacadeFactory::make (cat);¤			if (false == clf->try_change ()) {¤				GenSupport::LogManagerFactory::get ().log_warning ("Can't create new sequence diagram, because lock failed");¤				return 0;¤			}			¤			IRoseScenarioDiagramPtr diag = cat->AddScenarioDiagram (dlg.get_entered_string ().c_str (), 1);¤			¤			RoseHelper::override_property(diag, TOOL_NAME, "UseCase", get_rose_element_uid(parent).c_str ());¤			if (m_model_explorer) {¤				IRoseApplicationPtr app = diag->Application;¤				IRoseElementPtr elem = diag;¤				m_model_explorer->OnNewModelElement (app, elem);¤			}¤			¤			diag->Activate ();¤			clf->do_change ();¤			return diag;¤		}¤		return 0;¤	} else {¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "Сиквенс диаграмму можно создавать только в usecase", "Ошибка", MB_OK);¤	}¤	return 0;¤	//#UC END# *48031C8F0277_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46C56CE30109")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073412137"))
+		    quid       	"48031C8F0277"
+		    documentation 	
+|создание сиквенс диграммы, parent - класс со стереотипом "UseCase"
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45757AC102BB")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012576887"))
+			    quid       	"48031C8F02CB"
+			    type       	"IRoseClassPtr"
+			    quidu      	"45757AC102BB"))
+		    result     	"IRoseScenarioDiagramPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46C56CE30109")
+		(object Operation "new_state_diagram"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C91017F*"
+			    value      	(value Text 
+|//#UC START# *48031C91017F*¤	GDS_ASSERT (parent);¤		¤	EnterStringDialog dlg;¤	dlg.entered_string ("State diagram");¤	if (dlg.DoModal () != IDOK) {¤		return 0;¤	}	¤	return this->new_state_diagram (parent, dlg.entered_string ());¤	//#UC END# *48031C91017F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C91017F_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C91017F_462D87C6033C*¤	GDS_ASSERT (parent);¤		¤	EnterStringDialog dlg;¤	dlg.set_entered_string ("State diagram");¤	if (dlg.DoModal () != IDOK) {¤		return 0;¤	}	¤	return this->new_state_diagram (parent, dlg.get_entered_string ());¤	//#UC END# *48031C91017F_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"465E64C00157")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073411309"))
+		    quid       	"48031C91017F"
+		    documentation 	"Добавляет диаграмму состояний к элементу (parent)m в качестве результата возвращает собственно диаграмму. Имя диаграммы предлагается ввести пользователю в специальном диалоге."
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012577625"))
+			    quid       	"48031C9101DD"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF"))
+		    result     	"IRoseStateDiagramPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"465E64C00157")
+		(object Operation "new_state_diagram"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C9400AC*"
+			    value      	(value Text 
+|//#UC START# *48031C9400AC*¤	IRoseStateDiagramPtr diag;¤¤	IRoseStateMachineOwnerPtr owner = parent->StateMachineOwner;¤	¤	if (owner) {¤		MDPSupport::CatLockerFacade_var clf = ¤			MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)parent);¤		if (false == clf->try_change ()) {¤			RoseHelper::write_warning_log ("Can't create new state diagram, because lock failed");¤			return 0;¤		}		¤				¤		IRoseStateMachineCollectionPtr machines = owner->StateMachines;¤		IRoseStateMachinePtr machine;¤		if (machines->Count > 0) {¤			machine = machines->GetAt (1);¤		} else {¤			machine = owner->CreateStateMachine ("StateModel");¤			RoseTreeState::instance ()->set_changed (true);¤		}		¤		if (machine) {¤			diag = machine->AddStateChartDiagram (name.c_str ());¤			RoseTreeState::instance ()->set_changed (true);¤			if (m_model_explorer) {¤				IRoseApplicationPtr app = diag->Application;¤				IRoseElementPtr elem = diag;¤				m_model_explorer->OnNewModelElement (app, elem);¤			}¤			diag->Activate ();¤		}¤¤		clf->do_change ();¤	}¤	return diag;¤	//#UC END# *48031C9400AC*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C9400AC_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C9400AC_462D87C6033C*¤	IRoseStateDiagramPtr diag;¤¤	IRoseStateMachineOwnerPtr owner = parent->StateMachineOwner;¤	¤	if (owner) {¤		MDPSupport::CatLockerFacade_var clf = ¤			MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)parent);¤		if (false == clf->try_change ()) {¤			GenSupport::LogManagerFactory::get ().log_warning ("Can't create new state diagram, because lock failed");¤			return 0;¤		}		¤				¤		IRoseStateMachineCollectionPtr machines = owner->StateMachines;¤		IRoseStateMachinePtr machine;¤		if (machines->Count > 0) {¤			machine = machines->GetAt (1);¤		} else {¤			machine = owner->CreateStateMachine ("StateModel");¤			RoseTreeState::instance ()->set_changed (true);¤		}		¤		if (machine) {¤			diag = machine->AddStateChartDiagram (name.c_str ());¤			RoseTreeState::instance ()->set_changed (true);¤			if (m_model_explorer) {¤				IRoseApplicationPtr app = diag->Application;¤				IRoseElementPtr elem = diag;¤				m_model_explorer->OnNewModelElement (app, elem);¤			}¤			diag->Activate ();¤		}¤¤		clf->do_change ();¤	}¤	return diag;¤	//#UC END# *48031C9400AC_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"465E64C00157")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073408402"))
+		    quid       	"48031C9400AC"
+		    documentation 	"Добавляет диаграмму состояний с именем <name> к элементу (parent)m в качестве результата возвращает собственно диаграмму"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012578355"))
+			    quid       	"48031C940104"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF")
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012578718"))
+			    quid       	"48031C940178"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"IRoseStateDiagramPtr"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"465E64C00157")
+		(object Operation "properties"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C950385*"
+			    value      	(value Text 
+|//#UC START# *48031C950385*¤	RoseHelper::ExecResult is_ok;¤	if (need_reload_template) {¤		RoseHelper::reset_template ();¤		RoseHelper::load_template ();¤	}¤	ItemPropertySheet::edit_prop (elem, is_ok, false, is_new);	¤	return is_ok;¤	//#UC END# *48031C950385*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C950385_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C950385_462D87C6033C*¤	RoseHelper::ExecResult is_ok = RoseHelper::ER_CANCEL;¤	try {¤		if (need_reload_template) {¤			RoseHelper::reset_template ();¤			RoseHelper::load_template ();¤		}¤	} catch (Base::FatalError&) {¤		GenerationErrorDialog dlg (GenSupport::ErrorManagerFactory::get ().get_errors (), true);¤		if (dlg.DoModal () == IDOK) {¤			return RoseHelper::ER_CANCEL;¤		}¤	}¤	¤	ItemPropertySheet::edit_prop (elem, is_ok, false, is_new);¤¤	return is_ok;¤	//#UC END# *48031C950385_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"457585E402CB")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073398636"))
+		    quid       	"48031C950385"
+		    documentation 	
+|команда вызова дилога свойств элемента
+|\is_new - флаг определяет является ли elem новым, если да, то поля диалога заполняются значениями по умолчанию
+|\need_reload_template - флаг определяет нужно ли перечитывать шаблон перед показом свойств
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012579449"))
+			    quid       	"48031C9503E2"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF")
+			(object Parameter "is_new"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012579810"))
+			    quid       	"48031C960071"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "need_reload_template"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012580167"))
+			    quid       	"48031C9600F2"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    result     	"ExecResult"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"457585E402CB")
+		(object Operation "relocate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C980087*"
+			    value      	(value Text 
+|//#UC START# *48031C980087*¤	is_new = false;¤	if (item->IsClass ("ClassDependency")) {¤		return false;¤	}	¤	MDPSupport::CatLockerFacade_var clf_item = ¤			MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)item);¤¤	MDPSupport::CatLockerFacade_var clf_new_parent = ¤			MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)new_parent);¤¤	MDPSupport::CatLockerFacade_var clf_old_parent = ¤			MDPSupport::CatLockerFacadeFactory::make (item->IsClass ("Category") ? ((IRoseCategoryPtr)item)->ParentCategory : 0);¤	¤	if (¤		false == clf_item->try_change () ¤		|| false == clf_new_parent->try_change ()¤		|| false == clf_old_parent->try_change ()¤	) {¤		RoseHelper::write_warning_log ("Can't relocate item, because lock failed");¤		return false;¤	}¤	bool res = false;¤	bool need_standart_relocate = true;¤	if (¤		(¤			item->IsClass ("Attribute")¤			|| item->IsClass ("Operation")¤		) && (¤			new_parent->IsClass ("Class")¤			&& RoseHelper::is_it_implementable (item)¤		)¤	) {¤		//атрибут или операция, которые могут быть переопределены в наследниках¤		//при перемещении нужно у наследников поменять гуид...¤		typedef std::map<std::string, MDPSupport::CatLockerFacade_var > CatLockerFacadeMap;¤		CatLockerFacadeMap need_to_locked;¤		unsigned long cant_lock_size = 0;¤¤		IRoseClassPtr source_cls = RoseHelper::get_context (item);¤		IRoseClassCollectionPtr all_derived = RoseHelper::get_all_derived (source_cls);¤		¤		std::string src_guid = item->GetUniqueID ();¤		std::string src_parent_guid = source_cls->GetUniqueID ();¤¤		short count = all_derived->Count;¤		_bstr_t tool_name = TOOL_NAME;¤		for (short i = 1; i <= count; ++i) {¤			IRoseClassPtr subcls = all_derived->GetAt (i);¤			bool need_override_guid = false;¤			IRosePropertyCollectionPtr subcls_props = subcls->GetAllProperties ();¤			short count_props = subcls_props->Count;¤			¤			//ещем среди свойств производного класса упоминание о ГУИД'ах¤			//перемещаемого элемента и его родителя¤			//и принимаем решение нужно ли переписывать их, если нужно - ¤			//добавляем пакет, в котором находится производный класс в список¤			//залочек¤			for (short j = 1; j <= count_props; ++j) {¤				IRosePropertyPtr prop = subcls_props->GetAt (j);¤				if (prop->GetToolName () == tool_name) {¤					std::string prop_name = prop->GetName ();¤					std::string prop_value = prop->GetValue ();¤					¤					if (¤						prop_name.find (src_guid) != std::string::npos¤						|| prop_name.find (src_parent_guid) != std::string::npos¤						|| prop_value.find (src_guid) != std::string::npos¤						|| prop_value.find (src_parent_guid) != std::string::npos¤					) {¤						need_override_guid = true;¤						break;¤					}¤				}¤			}¤			IRoseCategoryPtr cat = RoseHelper::get_nearest_controllable_unit (subcls);¤			if (cat && need_override_guid) {¤				std::string cat_uid = cat->GetUniqueID ();¤				if (need_to_locked.find (cat_uid) == need_to_locked.end ()) {				¤					if (!cat->IsModifiable ()) {¤						MDPSupport::CatLockerFacade_var locker = ¤							MDPSupport::CatLockerFacadeFactory::make (cat);¤						if (locker->can_change ()) {¤							need_to_locked.insert (¤								CatLockerFacadeMap::value_type (cat_uid, locker)¤							);¤							//need_to_locked[cat_uid] = locker;¤						} else {¤							cant_lock_size++;¤						}¤					}¤				}¤			}¤		}¤		if (need_to_locked.empty () == false) {¤			char mess[1024];¤			if (cant_lock_size == 0) {¤				ACE_OS::sprintf (¤					mess¤					, "Изменение связанных UC затронет %d незалоченных пакетов\n\r"\¤					  "Для того, чтобы залочить пакеты нажмите - Yes\n\r"\¤					  "Для того, чтобы не менять пакеты нажмите - No\n\r"\¤					  "Для отмены нажмите - Cancel"¤					, need_to_locked.size ()¤				);				¤			} else {¤				ACE_OS::sprintf (¤					mess¤					, "Изменение связанных UC затронет %d незалоченных пакетов, %d из которых залочить нельзя\n\r"\¤					  "Для того, чтобы залочить пакеты (которые можно) нажмите - Yes\n\r"\¤					  "Для того, чтобы не менять пакеты нажмите - No\n\r"\¤					  "Для отмены нажмите - Cancel"¤					, need_to_locked.size ()¤					, cant_lock_size¤				);¤			}¤			int res = ::AfxMessageBox (mess, MB_YESNOCANCEL | MB_ICONEXCLAMATION | MB_APPLMODAL);¤			switch (res) {¤				case IDYES: {¤					need_standart_relocate = false;¤					for (¤						CatLockerFacadeMap::iterator it = need_to_locked.begin ()¤						; it != need_to_locked.end ()¤						; ++it¤					) {¤						if (it->second->try_change () == false) {¤							RoseHelper::write_warning_log ("Can't relocate item, because lock failed");¤							return false;¤						}¤					}¤					if (RoseHelper::relocate (item, new_parent, is_new)) {¤						res = true;¤						RoseTreeState::instance ()->set_changed (true);¤						for (¤							CatLockerFacadeMap::iterator it = need_to_locked.begin ()¤							; it != need_to_locked.end ()¤							; ++it¤						) {¤							it->second->do_change ();¤						}¤						clf_item->do_change ();¤						clf_new_parent->do_change ();¤					}¤					break;¤				}¤				case IDCANCEL: {¤					need_standart_relocate = false;¤					break;¤				}¤			}¤		}¤	}¤	if (need_standart_relocate) {¤		if (RoseHelper::relocate (item, new_parent, is_new)) {¤			res = true;¤			RoseTreeState::instance ()->set_changed (true);¤			clf_item->do_change ();¤			clf_new_parent->do_change ();		¤		}¤	}¤	return res;¤	//#UC END# *48031C980087*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031C980087_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031C980087_462D87C6033C*¤	typedef std::map<std::string, MDPSupport::CatLockerFacade_var > CatLockerFacadeMap;¤¤	class LockHelper {¤	public:¤		static bool try_change (CatLockerFacadeMap& to_lock) {¤			for (¤				CatLockerFacadeMap::iterator it = to_lock.begin ()¤				; it != to_lock.end ()¤				; ++it¤			) {¤				if (it->second->try_change () == false) {					¤					return false;¤				}¤			}¤			return true;¤		}¤¤		static void do_change (CatLockerFacadeMap& to_lock) {¤			for (¤				CatLockerFacadeMap::iterator it = to_lock.begin ()¤				; it != to_lock.end ()¤				; ++it¤			) {¤				it->second->do_change ();¤			}¤		}¤	};¤	try {¤		is_new = false;¤		if (item->IsClass (CLASS_DEPENDENCY_TYPE)) {¤			return false;¤		}¤		¤		CatLockerFacadeMap standart_items_to_lock;		¤¤		standart_items_to_lock.insert (¤			std::make_pair (¤				get_rose_element_uid(item)¤				, MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)item)¤			)¤		);¤		standart_items_to_lock.insert (¤			std::make_pair (¤				get_rose_element_uid(new_parent)¤				, MDPSupport::CatLockerFacadeFactory::make ((IRoseElementPtr)new_parent)¤			)¤		);¤		¤		if (item->IsClass (CATEGORY_TYPE)) {¤			IRoseCategoryPtr item_cat_parent = ((IRoseCategoryPtr)item)->ParentCategory;¤			if (item_cat_parent) {¤				standart_items_to_lock.insert (¤					std::make_pair (¤						get_rose_element_uid(item_cat_parent)¤						, MDPSupport::CatLockerFacadeFactory::make (item_cat_parent)¤					)¤				);¤			}¤		}¤		¤		if (item->IsClass (CLASS_TYPE)) {¤			IRoseClassPtr cls = item;¤			IRoseRoleCollectionPtr rl_attrs = cls->GetAssociateRoles();¤			int rl_attrs_count = rl_attrs->Count;¤			for (short i = 1; i <= rl_attrs_count; i++) {¤				IRoseRolePtr rl_attr = rl_attrs->GetAt(i);¤				if (RoseHelper::is_attribute_role (rl_attr)) {¤					IRoseCategoryPtr assoc_cat = rl_attr->Association->ParentCategory;¤					standart_items_to_lock.insert (¤						std::make_pair (¤							get_rose_element_uid(assoc_cat)¤							, MDPSupport::CatLockerFacadeFactory::make (assoc_cat)¤						)¤					);¤				}¤			}¤		}¤		if (!LockHelper::try_change (standart_items_to_lock)) {¤			GenSupport::LogManagerFactory::get ().log_warning ("Can't relocate item, because lock failed");¤			return false;¤		}¤		bool res = false;¤		bool need_standart_relocate = true;¤		if (¤			(¤				item->IsClass (ATTRIBUTE_TYPE)¤				|| item->IsClass (OPERATION_TYPE)¤			) && (¤				new_parent->IsClass (CLASS_TYPE)¤				&& RoseHelper::is_it_implementable (item)¤			)¤		) {¤			//атрибут или операция, которые могут быть переопределены в наследниках¤			//при перемещении нужно у наследников поменять гуид...¤			CatLockerFacadeMap need_to_locked;¤			unsigned long cant_lock_size = 0;¤¤			IRoseClassPtr source_cls = RoseHelper::get_context (item);¤			IRoseClassCollectionPtr all_derived = RoseHelper::get_all_derived (source_cls);¤			¤			//std::string src_guid (get_rose_element_uid(item));¤			std::string src_parent_guid (get_rose_element_uid(source_cls));¤¤			short count = all_derived->Count;¤			_bstr_t tool_name = TOOL_NAME;¤			for (short i = 1; i <= count; ++i) {¤				IRoseClassPtr subcls = all_derived->GetAt (i);¤				bool need_override_guid = false;¤				IRosePropertyCollectionPtr subcls_props = subcls->GetAllProperties ();¤				short count_props = subcls_props->Count;¤				¤				//ещем среди свойств производного класса упоминание о ГУИД'ах¤				//перемещаемого элемента и его родителя¤				//и принимаем решение нужно ли переписывать их, если нужно - ¤				//добавляем пакет, в котором находится производный класс в список¤				//залочек¤				for (short j = 1; j <= count_props; ++j) {¤					IRosePropertyPtr prop = subcls_props->GetAt (j);¤					if (prop->GetToolName () == tool_name) {¤						std::string prop_name = prop->GetName ();¤						std::string prop_value = prop->GetValue ();¤						¤						if (prop_name.find (src_parent_guid) != std::string::npos) {¤							need_override_guid = true;¤							break;¤						}¤					}¤				}¤				IRoseCategoryPtr cat = RoseHelper::get_nearest_controllable_unit (subcls);¤				if (cat && need_override_guid) {¤					std::string cat_uid (get_rose_element_uid(cat));¤					if (need_to_locked.find (cat_uid) == need_to_locked.end ()) {				¤						if (!cat->IsModifiable ()) {¤							MDPSupport::CatLockerFacade_var locker = ¤								MDPSupport::CatLockerFacadeFactory::make (cat);¤							if (locker->can_change ()) {¤								need_to_locked.insert (¤									CatLockerFacadeMap::value_type (cat_uid, locker)¤								);¤								//need_to_locked[cat_uid] = locker;¤							} else {¤								cant_lock_size++;¤							}¤						}¤					}¤				}¤			}¤			if (need_to_locked.empty () == false) {¤				std::string mess;¤				if (cant_lock_size == 0) {¤					mess = "Изменение связанных UC затронет ";¤					mess += boost::lexical_cast<std::string> (need_to_locked.size ());¤					mess += " незалоченных пакетов\n\r"\¤						  "Для того, чтобы залочить пакеты нажмите - Yes\n\r"\¤						  "Для того, чтобы не менять пакеты нажмите - No\n\r"\¤						  "Для отмены нажмите - Cancel";			¤				} else {¤					mess = "Изменение связанных UC затронет ";¤					mess += boost::lexical_cast<std::string> (need_to_locked.size ());¤					mess += " незалоченных пакетов, ";¤					mess += boost::lexical_cast<std::string> (cant_lock_size);¤					mess += " из которых залочить нельзя\n\r"\¤						  "Для того, чтобы залочить пакеты (которые можно) нажмите - Yes\n\r"\¤						  "Для того, чтобы не менять пакеты нажмите - No\n\r"\¤						  "Для отмены нажмите - Cancel";					¤				}¤				int res = ::AfxMessageBox (mess.c_str (), MB_YESNOCANCEL | MB_ICONEXCLAMATION | MB_APPLMODAL);¤				switch (res) {¤					case IDYES: {¤						need_standart_relocate = false;¤						if (!LockHelper::try_change (need_to_locked)) {¤							GenSupport::LogManagerFactory::get ().log_warning ("Can't relocate item, because lock failed");¤							return false;¤						}¤						¤						if (RoseHelper::relocate (item, new_parent, is_new)) {¤							res = true;¤							RoseTreeState::instance ()->set_changed (true);¤							¤							LockHelper::do_change (need_to_locked);¤							LockHelper::do_change (standart_items_to_lock);¤						}¤						break;¤					}¤					case IDCANCEL: {¤						need_standart_relocate = false;¤						break;¤					}¤				}¤			}¤		}¤		if (need_standart_relocate) {¤			if (RoseHelper::relocate (item, new_parent, is_new)) {¤				res = true;¤				RoseTreeState::instance ()->set_changed (true);¤				LockHelper::do_change (standart_items_to_lock);¤			}¤		}¤		return res;¤	} catch (std::exception& ex) {¤		std::string mess ("При переносе элемента произошло исключение: ");¤		mess += ex.what ();¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), _T (mess.c_str ()), "Ошибка", MB_OK|MB_ICONEXCLAMATION );¤	} catch (CORBA::Exception& ex) {¤		std::string mess ("При переносе элемента произошло исключение:\n");¤		mess += ex._info ().c_str ();¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), _T (mess.c_str ()), "Ошибка", MB_OK|MB_ICONEXCLAMATION );¤	} catch (_com_error& ex) {¤		std::string mess ("При переносе элемента произошло исключение: _com_error (\n");¤		mess += ex.ErrorMessage ();¤		mess += ")";¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), _T (mess.c_str ()), "Ошибка", MB_OK|MB_ICONEXCLAMATION );¤	} catch (...) {¤		MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "При переносе элемента произошло не обработанное исключение", "Ошибка", MB_OK | MB_ICONEXCLAMATION );¤		//RoseAbstractDumper::reset_model_tree_root ();¤	}¤¤	return false;¤	//#UC END# *48031C980087_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073406277"))
+		    quid       	"48031C980087"
+		    documentation 	
+|метод перемещает в модели Розы элемент в нового родителя (new_parent), при необходимости лочит пакеты
+|возвращает true в случае успеха
+|
+|is_new - флаг сигнализирует о том, был ли в результате перемещения создан новый объект (например нельзя перемещать операции, атрибуты)
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "item"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45C3177C0177")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012581005"))
+			    quid       	"48031C9800E7"
+			    type       	"IRoseElementPtr"
+			    quidu      	"45C3177C0177")
+			(object Parameter "new_parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45C3177C0177")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012581385"))
+			    quid       	"48031C980163"
+			    type       	"IRoseElementPtr"
+			    quidu      	"45C3177C0177")
+			(object Parameter "inout is_new"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012581745"))
+			    quid       	"48031C9801DA"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "rollback"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CA6011F*"
+			    value      	(value Text 
+|//#UC START# *48031CA6011F*¤	GDS_ASSERT(cat);¤	MDPSupport::CatLocker_var cl = MDPSupport::CatLockerFactory::make (cat);¤	cl->rollback ();¤	//#UC END# *48031CA6011F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CA6011F_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031CA6011F_462D87C6033C*¤	GDS_ASSERT(cat);¤	MDPSupport::CatLocker_var cl = MDPSupport::CatLockerFactory::make (cat);¤	cl->rollback ();¤	//#UC END# *48031CA6011F_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073410060"))
+		    quid       	"48031CA6011F"
+		    documentation 	"откатить изменения"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012582471"))
+			    quid       	"48031CA6017E"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "uncontrol"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CA80039*"
+			    value      	(value Text 
+|//#UC START# *48031CA80039*¤	¤	if (cat->IsControlled ()) {¤		IRoseCategoryPtr parent = RoseHelper::get_nearest_controllable_unit (cat->GetParentCategory ());¤		MDPSupport::CatLockerFacade_var clf = ¤			MDPSupport::CatLockerFacadeFactory::make (parent);¤		if (false == clf->try_change ()) {¤			RoseHelper::write_warning_log ("Can't uncontrol, because lock failed");¤			return;¤		}¤		MDPSupport::CatLockerFacade_var cat_clf = ¤			MDPSupport::CatLockerFacadeFactory::make (cat);¤		if (false == cat_clf->can_change ()) {¤			RoseHelper::write_warning_log ("Can't uncontrol, because lock failed");¤			return;¤		}¤		cat->Uncontrol ();¤		clf->do_change ();¤	}¤	¤	//#UC END# *48031CA80039*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CA80039_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031CA80039_462D87C6033C*¤	if (cat->IsControlled ()) {¤		IRoseCategoryPtr parent = RoseHelper::get_nearest_controllable_unit (cat->GetParentCategory ());¤		MDPSupport::CatLockerFacade_var clf = ¤			MDPSupport::CatLockerFacadeFactory::make (parent);¤		if (false == clf->try_change ()) {¤			GenSupport::LogManagerFactory::get ().log_warning ("Can't uncontrol, because lock failed");¤			return;¤		}¤		MDPSupport::CatLockerFacade_var cat_clf = ¤			MDPSupport::CatLockerFacadeFactory::make (cat);¤		if (false == cat_clf->can_change ()) {¤			GenSupport::LogManagerFactory::get ().log_warning ("Can't uncontrol, because lock failed");¤			return;¤		}¤		cat->Uncontrol ();¤		clf->do_change ();¤	}¤	//#UC END# *48031CA80039_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073407985"))
+		    quid       	"48031CA80039"
+		    documentation 	
+|операция обратная выливке в отдельный кат - "засасывает" кат в файл модели (mdl) или cat родителя
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012583205"))
+			    quid       	"48031CA800A0"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "uncontrol_all"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CA90345*"
+			    value      	(value Text 
+|//#UC START# *48031CA90345*¤	uncontrol (cat);	¤	IRoseCategoryCollectionPtr cats = cat->GetAllCategories ();¤	short cats_count = cats->Count;¤	for (short i = 1; i <= cats_count; ++i) {¤		IRoseCategoryPtr sub_cat = cats->GetAt (i);¤		uncontrol (sub_cat);¤	}¤	//#UC END# *48031CA90345*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CA90345_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031CA90345_462D87C6033C*¤	uncontrol (cat);	¤	IRoseCategoryCollectionPtr cats = cat->GetAllCategories ();¤	short cats_count = cats->Count;¤	for (short i = 1; i <= cats_count; ++i) {¤		IRoseCategoryPtr sub_cat = cats->GetAt (i);¤		uncontrol (sub_cat);¤	}¤	//#UC END# *48031CA90345_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073405342"))
+		    quid       	"48031CA90345"
+		    documentation 	"операция uncontrol применяется к cat и всем его подпапкам рекурсивно"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012583922"))
+			    quid       	"48031CA903AE"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "unlock"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CAB0155*"
+			    value      	(value Text 
+|//#UC START# *48031CAB0155*¤	GDS_ASSERT(cat);¤	MDPSupport::CatLocker_var cl = MDPSupport::CatLockerFactory::make (cat);¤	cl->commit ();	¤	//#UC END# *48031CAB0155*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CAB0155_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031CAB0155_462D87C6033C*¤	GDS_ASSERT(cat);¤	MDPSupport::CatLocker_var cl = MDPSupport::CatLockerFactory::make (cat);¤	cl->commit ();¤	//#UC END# *48031CAB0155_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073402820"))
+		    quid       	"48031CAB0155"
+		    documentation 	
+|операция "отлочки" выбранного пакета
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cat"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45BF43DE00DA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012584642"))
+			    quid       	"48031CAB01C2"
+			    type       	"IRoseCategoryPtr"
+			    quidu      	"45BF43DE00DA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "search"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CAE00E0*"
+			    value      	(value Text 
+|//#UC START# *48031CAE00E0*¤	RoseHelper::reset_template ();¤	if (RoseHelper::load_template ()) {¤		RoseHelper::check_model_for_changes ();¤		AdvancedSearch dlg (elem);	¤		dlg.DoModal ();¤	}¤	//#UC END# *48031CAE00E0*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CAE00E0_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031CAE00E0_462D87C6033C*¤	try {¤		RoseHelper::reset_template ();¤		if (RoseHelper::load_template ()) {¤			RoseHelper::check_model_for_changes ();¤		}¤	} catch (Base::FatalError&) {¤		GenerationErrorDialog dlg (GenSupport::ErrorManagerFactory::get ().get_errors (), true);¤		if (dlg.DoModal () == IDOK) {¤			return;¤		}¤	}¤¤¤	if (!elem) {¤		IRoseApplicationPtr app = RoseHelper::rose_app ();¤		IRoseModelPtr model = app != 0 ? app->CurrentModel : 0;¤		elem = model ? model->GetRootCategory () : 0;¤	}¤	RoseElementVector rose_elems;¤	rose_elems.push_back (RoseElementWrapper (elem));¤¤	AdvancedSearch dlg (rose_elems);	¤	dlg.DoModal ();¤	//#UC END# *48031CAE00E0_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073401123"))
+		    quid       	"48031CAE00E0"
+		    documentation 	"операция поиска внутри elem"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012585373"))
+			    quid       	"48031CAE0128"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "show_locked"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CAF030A*"
+			    value      	(value Text 
+|//#UC START# *48031CAF030A*¤	ChangedPackageInfo::instance ()->show ();¤	//#UC END# *48031CAF030A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CAF030A_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031CAF030A_462D87C6033C*¤	ChangedPackageInfo::instance ()->show ();¤	//#UC END# *48031CAF030A_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073399886"))
+		    quid       	"48031CAF030A"
+		    documentation 	"операция показа списка залоченных пакетов"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "view_elem_in_confluence"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CB103AC*"
+			    value      	(value Text 
+|//#UC START# *48031CB103AC*¤	char buf[1024];¤	sprintf (¤		buf¤		, "http://mdp.garant.ru/ru/garant/MDProcess/MDGenPlugins/PageMacros/ViewPageActions/ViewPageActionsPackage/viewpagebyguid.action?elemGuid=%s"¤		, (const char*)elem->GetUniqueID ()¤	);¤	::ShellExecute (NULL, "open", buf, NULL, NULL, SW_SHOWNORMAL);¤	//#UC END# *48031CB103AC*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CB103AC_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031CB103AC_462D87C6033C*¤	Helpers::KViewElementFactory::get ().view (elem);¤	//#UC END# *48031CB103AC_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073409644"))
+		    quid       	"48031CB103AC"
+		    documentation 	"открывает браузер и в нем показывает соответствующую элементу страницу в К"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012586449"))
+			    quid       	"48031CB2000D"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "view_reports"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CB40105*"
+			    value      	(value Text 
+|//#UC START# *48031CB40105*¤	RoseHelper::reset_template ();¤	if (RoseHelper::load_template ()) {¤		RoseHelper::check_model_for_changes ();¤		ReportView dlg (elem);¤		dlg.DoModal ();¤	}¤	//#UC END# *48031CB40105*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48031CB40105_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *48031CB40105_462D87C6033C*¤	try {¤		RoseHelper::reset_template ();¤		if (RoseHelper::load_template ()) {¤			RoseHelper::check_model_for_changes ();¤		}¤	} catch (Base::FatalError&) {¤		GenerationErrorDialog dlg (GenSupport::ErrorManagerFactory::get ().get_errors (), true);¤		if (dlg.DoModal () == IDOK) {¤			return;¤		}¤	}¤	¤	if (!elem) {¤		IRoseApplicationPtr app = RoseHelper::rose_app ();¤		IRoseModelPtr model = app != 0 ? app->CurrentModel : 0;¤		elem = model ? model->GetRootCategory () : 0;¤	}¤	RoseElementVector rose_elems;¤	rose_elems.push_back (RoseElementWrapper (elem));¤¤	ReportView dlg (rose_elems);¤	dlg.DoModal ();¤	//#UC END# *48031CB40105_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073407575"))
+		    quid       	"48031CB40105"
+		    documentation 	"операция построения отчета"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4571DE0802BF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012587192"))
+			    quid       	"48031CB40156"
+			    type       	"IRoseItemPtr"
+			    quidu      	"4571DE0802BF"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "set_template"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*486467FB0209_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *486467FB0209_462D87C6033C*¤	try {¤		IRoseItemPtr item = app->CurrentModel->GetRootCategory ();¤		bool by_parent;¤		¤		std::string file_name = template_path;¤		¤		//получаем текущий файл шаблона¤		std::string cur_templ = RoseHelper::get_template_file(item, by_parent);	¤		std::string template_dir = MDAModelParams::get_templates_dir();¤		std::string::size_type pos = file_name.find (template_dir);¤¤		if (pos != std::string::npos) {¤			file_name = file_name.substr (pos + template_dir.length ());¤		} else {¤		}¤¤		if (cur_templ != file_name) {¤			//если файл шаблона другой¤			std::ifstream templ_file (RoseHelper::make_template_file (file_name).c_str (), std::ios::in);¤			if (templ_file.is_open ()) {¤				templ_file.close ();¤				RoseHelper::set_template_file(item, file_name);¤				RoseHelper::reset_template ();¤¤				if (RoseHelper::load_template () == true) {¤					MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "Template changed", "OK", MB_OK);¤				}¤			} else {¤				MessageBox (AfxGetMainWnd ()->GetSafeHwnd (), "Can't open template file", "ERROR", MB_OK);¤			}¤		}¤	} catch (Base::FatalError&) {¤		GenerationErrorDialog dlg (GenSupport::ErrorManagerFactory::get ().get_errors ());¤		dlg.DoModal ();¤	}¤	//#UC END# *486467FB0209_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073404915"))
+		    quid       	"486467FB0209"
+		    documentation 	"Установить шаблон для модели, template_path - путь к файлу шаблона"
+		    parameters 	(list Parameters
+			(object Parameter "app"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45B9F58B004E")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012587899"))
+			    quid       	"486469A60013"
+			    type       	"IRoseApplicationPtr"
+			    quidu      	"45B9F58B004E")
+			(object Parameter "template_path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012588278"))
+			    quid       	"486469A600AF"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "remove"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*490AEF1D03B1_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *490AEF1D03B1_462D87C6033C*¤	if (m_model_explorer) {¤		m_model_explorer->remove (elem);		¤	}¤	//#UC END# *490AEF1D03B1_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073397610"))
+		    quid       	"490AEF1D03B1"
+		    documentation 	"удалить элемент из модели (требуется подтверждение пользователя)"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45C3177C0177")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012589006"))
+			    quid       	"490AEF8500C4"
+			    type       	"IRoseElementPtr"
+			    quidu      	"45C3177C0177"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "lock"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*497DB2070183_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *497DB2070183_462D87C6033C*¤	short count = cats->Count;¤	for (short i = 1; i <= count; ++i) {¤		MDPSupport::CatLockerFacade_var clf_child = MDPSupport::CatLockerFacadeFactory::make (cats->GetAt (i));¤		if (clf_child->can_lock ()) {¤			MDPSupport::CatLocker_var cl = MDPSupport::CatLockerFactory::make (cats->GetAt (i));¤			cl->modify ();¤		}¤	}¤	//#UC END# *497DB2070183_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073404506"))
+		    quid       	"497DB2070183"
+		    documentation 	"Пытается захватить все пакеты из переданной коллекции."
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cats"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EC04F80339")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012589713"))
+			    quid       	"497DB38302AA"
+			    type       	"IRoseCategoryCollectionPtr"
+			    quidu      	"45EC04F80339"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "unlock"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*497DB38602D3_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *497DB38602D3_462D87C6033C*¤	short count = cats->Count;¤	for (short i = 1; i <= count; ++i) {¤		MDPSupport::CatLockerFacade_var clf_child = MDPSupport::CatLockerFacadeFactory::make (cats->GetAt (i));¤		if (clf_child->can_commit ()) {¤			MDPSupport::CatLocker_var cl = MDPSupport::CatLockerFactory::make (cats->GetAt (i));¤			cl->commit ();¤		}¤	}¤	//#UC END# *497DB38602D3_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073402404"))
+		    quid       	"497DB38602D3"
+		    documentation 	"пытаеться разлочить все пакеты из переданной коллекции"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "cats"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EC04F80339")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012590423"))
+			    quid       	"497DB3C80076"
+			    type       	"IRoseCategoryCollectionPtr"
+			    quidu      	"45EC04F80339"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "clean_properties"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4AFBC0BA0246_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *4AFBC0BA0246_462D87C6033C*¤	class local_helper {¤	public:¤		static GCL::StrSet* collect_all_inherites_and_realized (const IRoseClassPtr& cls) {¤			Core::Aptr<GCL::StrSet> result = new GCL::StrSet ();¤			collect_all_inherites_and_realized (cls, *result.ptr ());¤¤			return result.forget ();¤		}¤¤		static void collect_all_inherites_and_realized (const IRoseClassPtr& cls, GCL::StrSet& collection) {¤			IRoseInheritRelationCollectionPtr inherites = cls->GetInheritRelations ();¤			short inherites_count = inherites->Count;¤¤			for (short i = 1; i <= inherites_count; ++i) {¤				IRoseInheritRelationPtr inherite = inherites->GetAt (i);¤				IRoseClassPtr inherite_cls = inherite->GetSupplierClass ();¤				if (inherite_cls) {¤					collection.insert (get_rose_element_uid(inherite_cls));¤					collect_all_inherites_and_realized (inherite_cls, collection);¤				}¤			}¤¤			IRoseRealizeRelationCollectionPtr realizations = cls->GetRealizeRelations ();¤			short realizations_count = realizations->Count;¤¤			for (short i = 1; i <= realizations_count; ++i) {¤				IRoseRealizeRelationPtr realization = realizations->GetAt (i);¤				IRoseClassPtr realization_cls = realization->GetSupplierClass ();¤				if (realization_cls) {¤					collection.insert (get_rose_element_uid(realization_cls));¤					collect_all_inherites_and_realized (realization_cls, collection);¤				}¤			}¤		}¤¤		local_helper (const IRoseElementPtr& elem) ¤			: m_elem (elem), m_template (0), m_user_properties (0)¤		{¤		}¤¤		AbstractDumperBase::Template& get_template () {¤			if (!this->m_template) {¤				AbstractDumperBase::StereotypeID stereotype = RoseHelper::get_gen_stereotype(m_elem);¤				this->m_template = &AbstractDumperBase::get_template (stereotype);				¤			}¤¤			return *this->m_template;¤		}¤¤		AbstractDumperBase::UserPropertyMap& get_user_properties () {¤			if (m_user_properties.is_nil ()) {¤				m_user_properties = new AbstractDumperBase::UserPropertyMap ();¤¤				AbstractDumperBase::Template& tpl = this->get_template ();¤				if (tpl.user_properties_group.is_nil () == false) {		¤					tpl.user_properties_group->for_each (¤						AbstractDumperBase::CollectUserProperty ()¤						, *m_user_properties.ptr ()¤					);¤				}¤			}¤			return *m_user_properties;¤		}¤	private:¤		IRoseElementPtr m_elem;¤		AbstractDumperBase::Template* m_template;¤		Core::Aptr<AbstractDumperBase::UserPropertyMap> m_user_properties;¤	};¤¤	std::string message (GDS_CURRENT_FUNCTION);¤	message += " : process \"";¤	message += RoseHelper::get_full_name (elem);¤	message += "\"";¤	GenSupport::LogManagerFactory::get ().log_info (message.c_str ());¤¤	IRosePropertyCollectionPtr all_props = elem->GetAllProperties ();¤	short all_props_count = all_props->Count;¤¤¤	local_helper template_loader (elem);¤¤	IRosePropertyCollectionPtr for_clean (__uuidof(RosePropertyCollection));¤¤	IRoseModelPtr model = elem->Model;¤¤	IRoseClassPtr elem_as_class;¤	Core::Aptr<GCL::StrSet> all_inherites_and_realized;¤	if (elem->IsClass (CLASS_TYPE)) {¤		elem_as_class = elem;¤		all_inherites_and_realized = local_helper::collect_all_inherites_and_realized (elem);¤	}¤¤	for (short i = 1; i <= all_props_count; ++i) {¤		IRosePropertyPtr prop = all_props->GetAt (i);¤		if (PropertyHelperFactory::get ().can_be_deleted (prop)) {¤			prop->PutValue ("");¤			for_clean->Add (prop);¤		} else {¤			std::string prop_name = prop->GetName ();¤			std::string tool_name = prop->GetToolName ();¤			if (¤				prop_name == std::string (static_cast<const char*> (_bstr_t (PROP_DERIVED_IMPLEMENT)))¤				|| prop_name == std::string (static_cast<const char*> (_bstr_t (PROP_DERIVED_OVERLOAD)))¤			) {¤				if (¤					elem_as_class != 0 ¤					&& !all_inherites_and_realized.is_nil ()¤					&& !all_inherites_and_realized->empty ()¤				) {¤					//если элемент в действительности не связан c элементами-родителями¤					//операций/атрибутов из этих списков, то нужно их из этого списка удалить¤¤					//TODO: переделать на использование InheritedItemHelper¤					Core::Aptr<InheritedItemSet> inhertied_items = InheritedItemHelperFactory::get ().get_stored_inherited_items (¤						elem, prop_name¤					);¤¤					std::string value = prop->GetValue ();¤					//GCL::StrSet items;¤					//GCL::split_string_by (items, value.c_str (), ',');¤¤					//получаем классы - от которых унаследовали эти операции:¤					InheritedItemSet updated_inherited_items;¤					ModelSearcher* searcher = &ModelSearcherFactory::get ();¤					¤					for (InheritedItemSet::const_iterator it = inhertied_items->begin(); it != inhertied_items->end(); ++it) {¤						std::string guid = (*it)->get_uid ();¤						IRoseItemPtr item = searcher->search (guid);¤¤						if (item) {¤							if (!(*it)->get_need_collect_children ()) {¤								//если это не рутовый элемент в списке DerivedImpl¤								IRoseItemPtr cls = RoseHelper::get_nearest_container (RoseHelper::get_context (item));¤¤								if (cls) {¤									std::string cls_guid (get_rose_element_uid(cls));¤									if (¤										all_inherites_and_realized->find (cls_guid) ¤											!= all_inherites_and_realized->end ()¤									) {¤										updated_inherited_items.insert (*it);¤									}¤								}¤							} else if (all_inherites_and_realized->find (guid) != all_inherites_and_realized->end ()) {¤								updated_inherited_items.insert (*it);¤							}		¤						}¤					}¤¤					std::string updated_property_value = InheritedItemHelperFactory::get ().stored_value (updated_inherited_items);¤¤					if (updated_property_value != value) {¤						prop->PutValue (updated_property_value.c_str ());¤						for_clean->Add (prop);¤					}¤				} else {¤					//если не класс или не имеет связей наследования/реализации - удаляем свойство¤					prop->PutValue ("");¤					for_clean->Add (prop);¤				}¤			} else if (tool_name == std::string (static_cast<const char*> (_bstr_t (Base::USER_PROPERTY_TOOL)))) {¤				//если UP не из шаблона - нужно его удалить¤				AbstractDumperBase::UserPropertyMap& props = template_loader.get_user_properties ();¤				if (props.find (prop_name) == props.end ()) {¤					prop->PutValue ("");¤					for_clean->Add (prop);¤				}¤			}¤		}¤	}¤¤	short for_clean_count = for_clean->Count;¤	for (short i = 1; i <= for_clean_count; ++i) {¤		IRosePropertyPtr prop = for_clean->GetAt (i);¤		RoseHelper::write_property_with_lock (¤			elem¤			, static_cast<const char*> (prop->GetToolName ())¤			, static_cast<const char*> (prop->GetName ())¤			, static_cast<const char*> (prop->GetValue ())¤			, GenSupport::LS_LOCK_ALL¤			, true¤			, static_cast<const char*> (prop->GetName ())¤		);¤	}¤	//#UC END# *4AFBC0BA0246_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073400715"))
+		    quid       	"4AFBC0BA0246"
+		    documentation 	"очищает свойства элемента, оставляя только необходимые (списки derived impl; списки исключений; UP, определенные в шаблоне)"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45C3177C0177")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012591153"))
+			    quid       	"4AFBC1240333"
+			    type       	"IRoseElementPtr"
+			    quidu      	"45C3177C0177"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "clean_properties_recursively"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4AFBC132012E_462D87C6033C*"
+			    value      	(value Text 
+|//#UC START# *4AFBC132012E_462D87C6033C*¤¤	this->clean_properties (elem);¤	Core::Aptr<RoseElementSet> all_childs;¤	if (elem->IsClass (MODEL_TYPE)) {¤		all_childs = RoseHelper::get_all_childs (((IRoseModelPtr)elem)->RootCategory);¤	} else {¤		all_childs = RoseHelper::get_all_childs (elem);¤	}¤¤	if (!all_childs.is_nil ()) {¤		for (RoseElementSet::iterator it = all_childs->begin (); it != all_childs->end (); ++it) {¤			this->clean_properties (it->element);			¤		}¤	}¤	//#UC END# *4AFBC132012E_462D87C6033C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073399472"))
+		    quid       	"4AFBC132012E"
+		    documentation 	"То же, что и clean_properties, но применяется рекурсивно но всем детям элемента"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45C3177C0177")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012591860"))
+			    quid       	"4AFBC15003B1"
+			    type       	"IRoseElementPtr"
+			    quidu      	"45C3177C0177"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "DblClickAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*480323260316_480323740072_46FB3844007D_BASE_INIT*"
+		    value      	"//#UC START# *480323260316_480323740072_46FB3844007D_BASE_INIT*¤//#UC END# *480323260316_480323740072_46FB3844007D_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*480323260316_480323740072_46FB3844007D_BODY*"
+		    value      	(value Text 
+|//#UC START# *480323260316_480323740072_46FB3844007D_BODY*¤	//#UC END# *480323260316_480323740072_46FB3844007D_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAAddinLib/Commands/DblClickAction|480323260316
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038281791"))
+	    quid       	"480323260316"
+	    documentation 	"реакция на дабл-клик"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "action"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4803236B0028*"
+			    value      	(value Text 
+|//#UC START# *4803236B0028*¤	static const std::string defult_action_class_str ¤		= ActionIDConvertorSingleton::instance ()->get (DEFAULT_ACTION_CLASS);¤	static const std::string defult_action_cat_str ¤		= ActionIDConvertorSingleton::instance ()->get (DEFAULT_ACTION_PACKAGE);¤¤	ActionID action;¤	if (elem->IsClass ("Class")) {¤		action = DEFAULT_ACTION_CLASS;¤		std::string action_str = Core::ParamManager::instance ()->get_string (¤			ACTION_KEY_FOR_CLASS, defult_action_class_str.c_str ()¤		);¤		try {¤			action = ActionIDConvertorSingleton::instance ()->get (action_str);¤		} catch (Core::ElementNotFound&) {¤			LOG_E (("Unknown action %s", action_str.c_str ()));			¤		}¤	} else if (elem->IsClass ("Category")) {¤		action = DEFAULT_ACTION_PACKAGE;¤		std::string action_str = Core::ParamManager::instance ()->get_string (¤			ACTION_KEY_FOR_PACKAGE, defult_action_cat_str.c_str ()¤		);¤		try {¤			action = ActionIDConvertorSingleton::instance ()->get (action_str);¤		} catch (Core::ElementNotFound&) {¤			LOG_E (("Unknown action %s", action_str.c_str ()));		¤		}¤	} else if (elem->IsClass ("DependencyRelation")) {¤		action = OPEN_PROPERTIES;¤	} else {¤		std::string caption ("Неопределено действие для: ");¤		caption += elem->IdentifyClass ();¤¤		std::string text ("Для данного типа объектов не поддерживается\nспециальная реакция на double-click");¤		::MessageBox (¤			0, text.c_str (), caption.c_str (), MB_OK | MB_ICONERROR¤		);¤		return;¤	}¤	switch (action) {¤		case OPEN_PROPERTIES: {¤			MDACmdManager::instance ()->properties (elem, false, true);¤			break;¤		}¤		case OPEN_DIAGRAM: {¤			this->open_create_diag (elem);¤			break;¤		}¤		case ALWAYS_ASK: {¤			this->ask (elem);¤			break;¤		}¤		case OPEN_DIAGRAM_IF_EXISTS_ELSE_PROPERTIES: {¤			if (this->open_diag (elem) == false) {¤				MDACmdManager::instance ()->properties (elem, false, true);¤			}¤			break;¤		}¤		case OPEN_DIAGRAM_IF_EXISTS_ELSE_ASK: {¤			if (this->open_diag (elem) == false) {				¤				this->ask (elem);¤			}¤			break;¤		}¤	}¤	//#UC END# *4803236B0028*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4803236B0028_46FB3844007D*"
+			    value      	(value Text 
+|//#UC START# *4803236B0028_46FB3844007D*¤¤	ActionID action;¤	if (elem->IsClass (CLASS_TYPE)) {¤		std::string action_str = ActionSettings::get_class_dbl_click_action();¤		try {¤			action = ActionIDConvertorSingleton::instance ()->get (action_str);¤		} catch (Core::ElementNotFound&) {¤			LOG_E (("Unknown action %s", action_str.c_str ()));			¤		}¤	} else if (elem->IsClass (CATEGORY_TYPE)) {¤		std::string action_str = ActionSettings::get_package_dbl_click_action();¤		try {¤			action = ActionIDConvertorSingleton::instance ()->get (action_str);¤		} catch (Core::ElementNotFound&) {¤			LOG_E (("Unknown action %s", action_str.c_str ()));		¤		}¤	} else if (elem->IsClass ("DependencyRelation")) {¤		action = OPEN_PROPERTIES;¤	} else {¤		std::string caption ("Неопределено действие для: ");¤		caption += elem->IdentifyClass ();¤¤		std::string text ("Для данного типа объектов не поддерживается\nспециальная реакция на double-click");¤		::MessageBox (¤			0, text.c_str (), caption.c_str (), MB_OK | MB_ICONERROR¤		);¤		return;¤	}¤	switch (action) {¤		case OPEN_PROPERTIES: {¤			Commands::CmdManagerFactory::get ().properties (elem, false, true);¤			break;¤		}¤		case OPEN_DIAGRAM: {¤			this->open_create_diag (elem);¤			break;¤		}¤		case ALWAYS_ASK: {¤			this->ask (elem);¤			break;¤		}¤		case OPEN_DIAGRAM_IF_EXISTS_ELSE_PROPERTIES: {¤			if (this->open_diag (elem) == false) {¤				Commands::CmdManagerFactory::get ().properties (elem, false, true);¤			}¤			break;¤		}¤		case OPEN_DIAGRAM_IF_EXISTS_ELSE_ASK: {¤			if (this->open_diag (elem) == false) {				¤				this->ask (elem);¤			}¤			break;¤		}¤	}¤	//#UC END# *4803236B0028_46FB3844007D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19073692807"))
+		    quid       	"4803236B0028"
+		    documentation 	"выполняет действие"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "elem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45C3177C0177")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19012593217"))
+			    quid       	"4803236B0045"
+			    type       	"IRoseElementPtr"
+			    quidu      	"45C3177C0177"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19012593624"))
+		    quid       	"480323740072"
+		    documentation 	"фабрика, создаёт экземпляр интерфейса"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48031C2402B4"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	475
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::MDAAddinLib::Commands::CmdManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1104, 1020)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(111, 61)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1986
+			justify    	0
+			label      	"• CmdManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(111, 11)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1986
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"48031C2C0060"
+		    width      	2004
+		    height     	2042
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::MDAAddinLib::Commands::DblClickAction" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(504, 2595)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(121, 2515)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	766
+			justify    	0
+			label      	"DblClickAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(121, 2465)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	766
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"480323260316"
+		    width      	784
+		    height     	284
+		    annotation 	8
+		    autoResize 	TRUE)))))

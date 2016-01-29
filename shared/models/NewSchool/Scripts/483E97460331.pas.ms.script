@@ -1,0 +1,77 @@
+// XMLIntf 483E97460331 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483E97460331
+
+: ME_483E97620058
+ CONST UID '483E97620058'
+ CONST GUID 'B26664A9-CAD7-4E09-95F2-64D526BAAFB7'
+ CONST Name 'IXMLNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_483E97460331 // XMLIntf
+ ;
+
+ref; // ME_483E97620058 IXMLNode
+
+: ME_483E976B0393
+ CONST UID '483E976B0393'
+ CONST GUID 'EF4AA228-7FBC-4555-8EEC-1879F4BA536B'
+ CONST Name 'IXMLNodeList'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_483E97460331 // XMLIntf
+ ;
+
+ref; // ME_483E976B0393 IXMLNodeList
+
+: ME_483E978A0380
+ CONST UID '483E978A0380'
+ CONST GUID '45F1A776-5349-490A-9B3B-78F8096F5097'
+ CONST Name 'IXMLDocument'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_483E97460331 // XMLIntf
+ ;
+
+ref; // ME_483E978A0380 IXMLDocument
+
+: ME_483E97460331
+ CONST UID '483E97460331'
+ CONST Name 'XMLIntf'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_483E96C10305' '483E96C10305.pas.ms.script' // Internet
+ ;
+ : Children
+   @ ( ME_483E97620058 // IXMLNode
+ ME_483E976B0393 // IXMLNodeList
+ ME_483E978A0380 // IXMLDocument
+ ) .SequenceCode.It
+ ; // Children
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Internet\XMLIntf.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\483E97460331.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\483E97460331.pas.ms.script.runner'
+
+ref; // ME_483E97460331 XMLIntf

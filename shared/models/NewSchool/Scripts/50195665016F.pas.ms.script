@@ -1,0 +1,70 @@
+// KeyboardInputPack 50195665016F ScriptKeywordsPack Class
+
+FORWARD ME_50195665016F
+
+INCLUDE '55B7A33101AF.pas.ms.script'
+
+FORWARD ME_83D838C45464
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_8BE6A6DAEBE2
+ CONST UID '8BE6A6DAEBE2'
+ CONST Name 'RegAxiom'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8BE6A6DAEBE2 RegAxiom
+
+: ME_83D838C45464
+ CONST UID '83D838C45464'
+ CONST Name 'TKeyboardInputPackResNameGetter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_8BE6A6DAEBE2 // RegAxiom
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55B7A3AF0359 // ResName
+ ]
+ ; // Implemented
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_83D838C45464 TKeyboardInputPackResNameGetter
+
+: ME_50195665016F
+ CONST UID '50195665016F'
+ CONST Name 'KeyboardInputPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_83D838C45464 // TKeyboardInputPackResNameGetter
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" true
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_50195665016F KeyboardInputPack

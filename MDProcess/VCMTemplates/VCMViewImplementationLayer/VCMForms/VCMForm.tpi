@@ -1,0 +1,1223 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/VCMForms/VCMForm.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::VCMForms::VCMForm
+//
+// Форма VCM
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: VCMForm::Class
+? Форма VCM
+> UserType::Class
+> Control::Class
+> ControlOverride::Class
+> ExcludeUserTypes::Class
+> IncludeUserTypes::Class
+> VCMFormDefinition::Class
+> ScriptKeyword::Class
+
+= VCMCustomForm::Class
+= OperationsPublisher::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p ZoneType=Any|Parent|Child|Main|Navigator|Modal|SimpleFloat|ManualModal|Floating ? Тип зоны
+p restrict form def:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{ZoneType}"!="%S{!ZoneType}"}%f_up_prefix(%S) *ZoneType* = *%S{ZoneType}* - Тип зоны
+	][{"%S{restrict form def}"!="%S{!restrict form def}"}%f_up_prefix(%S) *restrict form def* = *%S{restrict form def}*
+	]
+
+// Есть ли UserType'ы
+%f _HasUserType
+// возвращаемый результат: boolean
+//#UC START# *4B5DE4800324for4B5DA84A00DD*
+@ %SU
+	[{<{}{%C#f_IsUserType()=true}{C}>!=0}{false}true]
+//#UC END# *4B5DE4800324for4B5DA84A00DD*
+
+// Есть ли UserType'ы (рекурсивно)
+%f _HasUserTypeRec
+// возвращаемый результат: boolean
+//#UC START# *4B5DE48F01D4for4B5DA84A00DD*
+@ %SU
+	[{%S%f_HasUserType()=true}{\
+	[{<{}{%G#f_HasUserTypeRec()=true}{C}>!=0}{\
+	[{<{}{%R#f_HasUserTypeRec()=true}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true]
+//#UC END# *4B5DE48F01D4for4B5DA84A00DD*
+
+%f _IsVCMFinalForm
+// возвращаемый результат: boolean
+//#UC START# *4B5F28CD00A9for4B5DA84A00DD*
+	false
+//#UC END# *4B5F28CD00A9for4B5DA84A00DD*
+
+// Надо ли выводить перекрытие процедуры InitEntities
+%f _NeedsInitEntities
+// возвращаемый результат: boolean
+//#UC START# *4BDB046402D7for4B5DA84A00DD*
+@ %SU
+	[{%S%f_ImplementsSomeVCMOperation()=true|<{}{%CS=ExcludeUserTypes|%CS=IncludeUserTypes}{C}>!=0}{false}true]
+//#UC END# *4BDB046402D7for4B5DA84A00DD*
+
+// Реализует ли хоть одну операцию VCM
+%f _ImplementsSomeVCMOperation
+// возвращаемый результат: boolean
+//#UC START# *4BDB047F02CDfor4B5DA84A00DD*
+@ %SU
+	[{<{}{%R#f_IsVCMOperations()=true}{C}>!=0}{\
+	%f_set_var(RESULT,"false")\
+	<{}{%O#f_IsVCMOperation()=true}\
+	[{"%O{ShowInContextMenu}"!=""|%O{ShowInContextMenu}!=undefined|"%O{ContextMenuWeight}"!=""|"%O{ShowInToolbar}"!=""|%O{ShowInToolbar}!=undefined}\
+	%f_set_var(RESULT,"true")\
+	%f_cycle_break(%S)\
+	]\
+	>\
+	[{%{RESULT}N!=true}\
+	<{}{%C#f_IsControl()=true}{%C}\
+	[{%C<{}{%R#f_IsVCMOperations()=true}{C}>!=0}\
+	%f_set_var(RESULT,"true")\
+	%f_cycle_break(%S)\
+	]\
+	>\
+	]\
+	%{RESULT}N\
+	}\
+	true\
+	]
+//#UC END# *4BDB047F02CDfor4B5DA84A00DD*
+
+// Набирает все UserType'ы в список ALLUUSERTYPES
+%f _GetAllUserTypes
+//#UC START# *4C3ACBF60387for4B5DA84A00DD*
+	<{}{%CS=UserType}\
+	[{%f_exists_in_list(ALLUSERTYPES,C)!=true}\
+	%f_add_to_list(ALLUSERTYPES,C)\
+	]\
+	>\
+	<%G#f_GetAllUserTypes()>\
+	<%R#f_GetAllUserTypes()>
+//#UC END# *4C3ACBF60387for4B5DA84A00DD*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+%f _OperationsToFuncImpl
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9F9502BBfor4B5DA84A00DD*
+	<%R#f_OperationsToFuncImpl(%1)>\
+	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToFuncImpl(%1)>\
+	<{}{%o#f_IsVCMOperation()=true}\
+	%o#f_OperationsToFuncImpl(%1)\
+	>\
+	<%C%T#f_OperationsToFuncImpl(%1)>
+//#UC END# *4A8E9F9502BBfor4B5DA84A00DD*
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в функции
+%f _OperationsToFuncIntf
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9D5E0038for4B5DA84A00DD*
+	<%R#f_OperationsToFuncIntf(%1)>\
+	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToFuncIntf(%1)>\
+	<{}{%o#f_IsVCMOperation()=true}\
+	%o#f_OperationsToFuncIntf(%1)>\
+	>\
+	<%C%T#f_OperationsToFuncIntf(%1)>
+//#UC END# *4A8E9D5E0038for4B5DA84A00DD*
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Определяет необходимые uses для операций
+%f _OperationsToUses
+//#UC START# *4A82DDA6016Afor4B5DA84A00DD*
+	<%R#f_OperationsToUses()>\
+	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToUses()>\
+	<{}{%o#f_IsVCMOperation()=true}\
+	%o#f_OperationsToUses()\
+	>\
+	<%C%T#f_OperationsToUses()>
+//#UC END# *4A82DDA6016Afor4B5DA84A00DD*
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в секцию Var
+%f _OperationsToVar
+//#UC START# *4A8E9D3A01FEfor4B5DA84A00DD*
+	<%R#f_OperationsToVar()>\
+	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToVar()>\
+	<{}{%o#f_IsVCMOperation()=true}\
+	%o#f_OperationsToVar()\
+	>\
+	<%C%T#f_OperationsToVar()>
+//#UC END# *4A8E9D3A01FEfor4B5DA84A00DD*
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Публикует операции
+%f _PublishOperations
+//#UC START# *4A770F770199for4B5DA84A00DD*
+	<%R#f_PublishOperations()>\
+	<{}{%G#f_IsVCMMainForm()!=true}%G#f_PublishOperations()>\
+	<{}{%o#f_IsVCMOperation()=true}\
+	%o#f_PublishOperations()\
+	>\
+	<%C%T#f_PublishOperations()>
+//#UC END# *4A770F770199for4B5DA84A00DD*
+
+// реализация абстрактного стереотипа VCMCustomForm::Class
+// Переопределение стандартного типа
+%f _pas_HackRef
+//#UC START# *498AFB440035for4B5DA84A00DD*
+	TvcmEntityFormRef
+//#UC END# *498AFB440035for4B5DA84A00DD*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4B5DA84A00DD*
+	%S%[inherited]\
+
+	[{%Sa=final}\
+
+	[{%S%f_HasUserTypeRec()!=true}\
+	%S%f_add_class(%SU_UserType,UserType,ut_%SN,Form_Def)\
+	%{Form_Def}%f_set_documentation([{}{%SN}%SD])\
+	%{Form_Def}%f_set_up(VisibleToUser,false)\
+	]\
+
+	[{%S{restrict form def}!=true}\
+	[{<{}{%RS=VCMFormDefinition}{C}>=0}\
+	[{%S{finished}=true}\
+	%S%f_add_class(%SU_Def,VCMFormDefinition,%SN$Def,Form_Def)\
+	%{Form_Def}%f_set_documentation(Идентификатор формы %SN)\
+	%f_addR(%S,%{Form_Def})\
+	]\
+	]\
+	]\
+	]\
+
+	<{}{%RS=VCMFormDefinition}\
+	[{%f_HasFactory(%S)!=true}\
+	[{%S{finished}=true}{\
+	%P%f_add_operation(%{Word_Inst}U_Ini,ini,Ini_FormFactory_%SN_%RN (),Op_Instance)\
+	}\
+	%S%f_add_operation(%{Word_Inst}U_Ini,ini,Ini_FormFactory_%RN (),Op_Instance)\
+	]\
+	%{Op_Instance}%f_set_documentation(Регистрация фабрики формы %SN)\
+	%{Op_Instance}%f_set_abstraction_type(final)\
+	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+	 fm_%f_cut_prefix(%f_pas_TypeName(%S),T).SetFactory(%f_pas_TypeName(%S).Make);\
+	)\
+	]\
+	>\
+
+	[{%Sa=final}\
+
+	%f_clear_list(CONTROLS)\
+	%f_CollectControls(%S)\
+	%f_set_var(SELF,S)\
+
+	%{SELF}%f_set_visibility_type(PublicAccess)\
+	%{SELF}%P%f_add_class(%{SELF}U_Pack,ScriptKeywordsPack,%f_N(%{SELF})KeywordsPack,Pack_Inst)\
+	%f_addG(%{Pack_Inst},%{SELF})\
+	%{Pack_Inst}%f_set_visibility_type(PublicAccess)\
+	%{Pack_Inst}%f_set_documentation(Набор слов словаря для доступа к экземплярам контролов формы %{SELF}N)\
+	%{Pack_Inst}%f_set_up(noRegistrator,true)\
+	%{Pack_Inst}%f_set_up(no_pop,true)\
+	%{Pack_Inst}%f_set_up(ifdef,%{SELF}{ifdef})\
+	[{"%{SELF}{ifndef}"!=""}{\
+	%{Pack_Inst}%f_set_up(ifndef,NoScripts)\
+	}\
+	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)%{SELF}{ifndef})\
+	]\
+
+	%{Pack_Inst}%f_add_class(%SU_Word,ScriptKeyword,Tkw_Form_%f_N(%S),Word_Inst)\
+	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
+	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
+
+	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
+	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
+	%f_addG(%{Word_Inst},%{TtfwControlString})\
+
+	%{Word_Inst}%f_set_up(NameForScript,форма::%f_str_replace(%f_N(%S), ,_))\
+
+	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора формы %SN
+	----
+	*Пример использования*:
+	\{code\}
+	'aControl' %f_loc_GetNameForScript(%{Word_Inst}) TryFocus ASSERT
+	\{code\})\
+
+	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
+	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
+	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
+	 {-}\
+	)\
+	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
+	 Result := '%f_cut_prefix(%f_pas_TypeName(%S),T)';\
+	)\
+
+	[{%S{finished}!=true}\
+	[{"%{TtfwClassRef}N"=""}%f_find_element(561F9F9400BC,TtfwClassRef)]\
+	%{Word_Inst}%f_make_accessable(%{TtfwClassRef}U)\
+	%f_addCDep(%{Word_Inst},%{TtfwClassRef})\
+	%f_addCDep(%{Word_Inst},%S)\
+
+	[{"%{TtfwRegisterableWordPrim.RegisterInEngine}N"=""}%f_find_element(52A086150180,TtfwRegisterableWordPrim.RegisterInEngine)]\
+	%{Word_Inst}%f_add_override(%{TtfwRegisterableWordPrim.RegisterInEngine}U)\
+	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
+	 {-}\
+	)\
+	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
+	 inherited;
+	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
+	)\
+	]\
+
+	%{Word_Inst}%f_set_abstraction_type(final)\
+
+	%f_set_var(NAMEDPARENT,S)\
+	%f_set_var(PARENT,{Pack_Inst})\
+
+	%{CONTROLS}<{}{}{%C}\
+	%C#f_CheckG()\
+	%f_SpellControl(%C)\
+
+	[{""=""}\
+// - специально так хитро закомментировано
+	[{%CV=PublicAccess}\
+	[{"%C%GU"!=""}\
+	%{Pack_Inst}%f_make_accessable(%C%GU)\
+	%{Pack_Inst}%f_add_attribute(%{Pack_Inst}U_%CU_Control,readonly,\
+	%f_N(%C) : %C%GU,\
+	Attr_Inst)\
+	%{Attr_Inst}%f_set_documentation(Контрол %CN формы %f_pas_TypeName(%{SELF}))\
+	%{Attr_Inst}%f_set_up(NameForScript,.%f_pas_TypeName(%{SELF}).%f_N(%C))\
+	%{Attr_Inst}%f_set_up(mapped,true)\
+	%{Attr_Inst}%f_set_up(ifdef,%C{ifdef})\
+	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
+	]\
+	]\
+	]\
+
+	>\
+
+	%f_clear_list(CONTROLS)\
+	]
+
+f _SpellControl
+	%{PARENT}%f_add_class(%SU_Word,ScriptKeyword,Tkw_%f_N(%{NAMEDPARENT})_[{%SS!=Component}{Component}Control]_%f_N(%S),Word_Inst)\
+	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
+	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
+	%{Word_Inst}%f_set_up(ifdef,%S{ifdef})\
+	%{Word_Inst}%f_set_up(ifndef,%S{ifndef})\
+	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
+	%f_addG(%{Word_Inst},%{TtfwControlString})\
+	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
+
+	[{%Gx=true}\
+	%f_addCDep(%{Word_Inst},%G)\
+	]\
+
+	%{Word_Inst}%f_set_up(NameForScript,\
+	[{%SS!=Component}{\
+	компонент\
+	}\
+	контрол\
+	]\
+	::%f_str_replace(%f_N(%S), ,_))\
+
+	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора контрола %SN
+	----
+	*Пример использования*:
+	\{code\}
+	%f_loc_GetNameForScript(%{Word_Inst}) TryFocus ASSERT
+	\{code\})\
+	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+	%{Word_Inst}%f_set_abstraction_type(final)\
+
+	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
+	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
+	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
+	 {-}\
+	)\
+	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
+	 Result := '%f_N(%S)';\
+	)\
+
+	[{"%{TtfwClassRef}N"=""}%f_find_element(TtfwClassRef,TtfwClassRef)]\
+	%{Word_Inst}%f_make_accessable(%{TtfwClassRef}U)\
+	%f_addCDep(%{Word_Inst},%{TtfwClassRef})\
+
+	[{"%{TtfwRegisterableWordPrim.RegisterInEngine}N"=""}%f_find_element(52A086150180,TtfwRegisterableWordPrim.RegisterInEngine)]\
+	%{Word_Inst}%f_add_override(%{TtfwRegisterableWordPrim.RegisterInEngine}U)\
+	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
+	 {-}\
+	)\
+	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
+	 inherited;
+	 TtfwClassRef.Register(%S%f_pas_ResultTypeName());\
+	)\
+
+	[{%SS!=Component}\
+	%{PARENT}%f_add_class(%SU_Word_Push,ScriptKeyword,Tkw_%f_N(%{NAMEDPARENT})_[{%SS!=Component}{Component}Control]_%f_N(%S)_Push,Word_Inst)\
+	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
+	%{Word_Inst}%f_set_up(ifdef,%S{ifdef})\
+	%{Word_Inst}%f_set_up(ifndef,%S{ifndef})\
+	[{"%{TkwControlPush}N"=""}%f_find_element(byname_control_push,TkwControlPush)]\
+	[{"%{TtfwContext}N"=""}%f_find_element(TtfwContext,TtfwContext)]\
+	%{Word_Inst}%f_make_accessable(%{TkwControlPush}U)\
+	%f_addG(%{Word_Inst},%{TkwControlPush})\
+	%{Word_Inst}%f_make_accessable(%{TtfwContext}U)\
+	%f_addCDep(%{Word_Inst},%{TtfwContext})\
+
+	%{Word_Inst}%f_set_up(NameForScript,\
+	[{%SS!=Component}{\
+	компонент\
+	}\
+	контрол\
+	]\
+	::%f_str_replace(%f_N(%S), ,_):push)\
+
+	%{Word_Inst}%f_set_documentation(Слово словаря для контрола %SN
+	----
+	*Пример использования*:
+	\{code\}
+	%f_loc_GetNameForScript(%{Word_Inst}) pop:control:SetFocus ASSERT
+	\{code\})\
+	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+	%{Word_Inst}%f_set_abstraction_type(final)\
+
+	[{"%{TtfwWord.DoDoIt}N"=""}%f_find_element(4DAEEDE10285,TtfwWord.DoDoIt)]\
+	%{Word_Inst}%f_add_override(%{TtfwWord.DoDoIt}U)\
+	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_var,\
+	 {-}\
+	)\
+	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_impl,\
+	 aCtx.rEngine.PushString('%f_N(%S)');
+	 inherited;\
+	)\
+	]
+
+f _CollectControlsPrim
+	<{}{%C#f_IsControl()=true}{}\
+	[{%C#f_IsOverride()!=true}\
+	[{%f_exists_in_list(CONTROLS,C)!=true}\
+	%f_add_to_list(CONTROLS,C)\
+	]\
+	]\
+	%f_CollectControlsPrim(%C)\
+	>
+
+f _CollectControls
+	%f_CollectControlsPrim(%S)\
+	<%f_CollectControls(%G)>\
+	<%f_CollectControls(%R)>
+
+f _IsFormFactory
+	[{%SN=Make}{false}[{%SS=factory|%SS=Factory}{false}true]]
+
+f _HasFactory
+@ %SU
+	[{<{}{%f_IsFormFactory(%C)=true}{C}>=0}{\
+	true\
+	}\
+	[{<{}{%GS!=SimpleClass&%f_HasFactory(%G)=true}{C}>=0}{\
+	true\
+	}\
+	false\
+	]\
+	]
+//#UC END# *4B2A19E3038Bfor4B5DA84A00DD*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+%f _pas_ImplUses
+//#UC START# *4948EB2601FAfor4B5DA84A00DD*
+	%S%[inherited]\
+	[{%Gx!=true}%f_pas_PutToUses("vcmEntityForm")]\
+	[{%S%f_HasAnyNamedVCMController()=true}%f_pas_PutToUses("SysUtils")]\
+	[{%Sa=regular}\
+	%f_pas_PutToUses("StdRes")\
+	]\
+	[{<{}{%C#f_IsFactory()=true}{C}>!=0}\
+	%f_pas_PutToUses("l3Base")\
+	]\
+	<{}{%O#f_IsVCMOperation()=true}\
+	[{"%O{ShowInContextMenu}"!=""|%O{ShowInContextMenu}!=undefined|"%O{ContextMenuWeight}"!=""|"%O{ShowInToolbar}"!=""|%O{ShowInToolbar}!=undefined}\
+	%O#f_OperationsToUses()\
+	]\
+	>
+//#UC END# *4948EB2601FAfor4B5DA84A00DD*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+%f _pas_IntfUses
+//#UC START# *4948F2EE0334for4B5DA84A00DD*
+	%S%[inherited]\
+	[{%Sa=final}\
+	%f_pas_PutToUses("Classes")\
+	%f_pas_PutToUses("l3InterfacedComponent")\
+	%f_pas_PutToUses("vcmComponent")\
+	%f_pas_PutToUses("vcmBaseEntities")\
+	%f_pas_PutToUses("vcmEntities")\
+	]\
+	%f_pas_PutToUses("vcmExternalInterfaces")\
+	%f_pas_PutToUses("vcmInterfaces")\
+	%f_pas_PutToUses("vcmEntityForm")\
+	[{%S%f_HasAnyVCMController()=true}\
+	%f_pas_PutToUses("vcmControllers")\
+	]\
+	[{<{}{%C#f_IsFactory()=true}{C}>!=0}\
+	%f_pas_PutToUses("vcmBase")\
+	]
+//#UC END# *4948F2EE0334for4B5DA84A00DD*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит реализацию переопределённых методов
+%f _pas_OutOverridesImpl
+//#UC START# *494B86B5014Bfor4B5DA84A00DD*
+	%S%[inherited]\
+	[{%S%f_HasAnyVCMController()=true}\
+	%f_pas_OpenMethodImplementation("SignalDataSourceChanged",%S)\
+	procedure %f_pas_TypeName(%S).SignalDataSourceChanged(const anOld : IvcmViewAreaController;
+	 const aDsNew : IvcmViewAreaController);
+	begin
+	 inherited;
+	 if (aDsNew = nil) then
+	 begin
+	  <{\n  }{%C#f_IsVCMController()=true}%C%f_pas_AttrName() := nil;>
+	 end//aDsNew = nil
+	 else
+	 begin
+	  <{\n  }{%C#f_IsVCMController()=true}\
+	[{%C#f_IsViewAreaController()=true}[{%C%T#f_IsViewAreaController()!=true}%f_error("Атрибут %CN:%CS у %SN:%SS неверного типа %C%TN:%C%TS")]]\
+	[{%C#f_IsUseCaseController()=true}[{%C%T#f_IsUseCaseController()!=true}%f_error("Атрибут %CN:%CS у %SN:%SS неверного типа %C%TN:%C%TS")]]\
+	[{%C#f_IsUseCaseController()=true}{\
+	[{"%CN"=""}{Supports(aDsNew, %f_pas_TypeName(%C%T), %C%f_pas_AttrName());}\
+	%C%f_pas_AttrName() := aDsNew As %f_pas_TypeName(%C%T);]\
+	}\
+	aDsNew.CastUCC(%f_pas_TypeName(%C%T), %C%f_pas_AttrName()[{"%CN"=""}, true]);]\
+	>
+	 end;//aDsNew = nil
+	end;\
+	]\
+	[{%S%f_NeedsInitEntities()=true}\
+	%f_pas_OpenMethodImplementation("InitEntities",%S)\
+	procedure %f_pas_TypeName(%S).InitEntities;
+	begin
+	 inherited;\
+	[{%S%f_ImplementsSomeVCMOperation()=true}\
+	\n\
+	 with Entities.Entities do
+	 begin\
+
+	%f_clear_list(FORM_PUBLISHED_ENTITIES_LIST)\
+	[\n  \
+	<{\n  }{%R#f_IsVCMOperations()=true}\
+	[{%f_exists_in_list(FORM_PUBLISHED_ENTITIES_LIST,"%f_N(%R)")!=true}\
+	%f_add_to_list(FORM_PUBLISHED_ENTITIES_LIST,"%f_N(%R)")\
+	PublishFormEntity(en_%f_N(%R), [{}{nil}%S%f_OnGetTarget(%R)]);\
+	]\
+	>\
+	]\
+
+	<{}{%C#f_NeedGroupItemsInContextMenu()=true&%C%T#f_IsVCMOperations()=true}{%C}\
+	\n  GroupItemsInContextMenu(en_%f_N(%C%T));\
+	>\
+
+	<{}{%C#f_ToolbarAtBottom()=true&%C%T#f_IsVCMOperations()=true}{%C}\
+	\n  ToolbarAtBottom(en_%f_N(%C%T));\
+	>\
+	<{}{%C#f_ContextMenuWeight()=true&%C%T#f_IsVCMOperations()=true}{%C}\
+	[{"%C{Value}"!=""}\
+	\n  ContextMenuWeight(en_%f_N(%C%T), %C{Value});\
+	]\
+	>\
+
+	%f_PublishControls(%S,%S)\
+	%f_clear_list(FORM_PUBLISHED_ENTITIES_LIST)\
+
+	%f_clear_list(FORM_PUBLISHED_OPERATIONS_LIST)\
+
+	[\n  \
+	<{\n  }{%o#f_IsVCMOperation()=true}\
+	[{%f_exists_in_list(FORM_PUBLISHED_OPERATIONS_LIST,"%f_N(%o%P)_%f_N(%o)")!=true}\
+	%f_add_to_list(FORM_PUBLISHED_OPERATIONS_LIST,"%f_N(%o%P)_%f_N(%o)")\
+	[%o%f_open_ifdef()\n  ]\
+	[{%o#f_IsInternalVCMOperation()=true}{\
+	PublishOp\
+	}\
+	PublishOpWithResult\
+	]\
+	(en_%f_N(%o%P), op_%f_N(%o),\
+	 [{%o{is FormActivate}!=true|%o#f_IsInternalVCMOperation()=true}{nil}\
+	[{%o#f_IsInternalVCMOperation()=true}{\
+	%o%f_pas_MethodName("exec")}\
+	%o%f_pas_MethodName("callgate")\
+	]\
+	],\
+	 [{%o{is query}!=true}{nil}%o%f_pas_MethodName("test")],\
+	 [{%o{has states}=true}{nil}%o%f_pas_MethodName("getstate")]\
+	[{%o{no prefix}=true}, true]);\
+
+	[{"%o{ShowInContextMenu}"!=""&%o{ShowInContextMenu}!=undefined}\
+	\n  ShowInContextMenu(en_%f_N(%o%P), op_%f_N(%o), %o{ShowInContextMenu}\
+	[{%o{no prefix}=true}, true]);\
+	]\
+// %o{ShowInContextMenu}!=undefined
+	[{"%o{ShowInToolbar}"!=""&%o{ShowInToolbar}!=undefined}\
+	\n  ShowInToolbar(en_%f_N(%o%P), op_%f_N(%o), %o{ShowInToolbar}\
+	[{%o{no prefix}=true}, true]);\
+	]\
+// %o{ShowInToolbar}!=undefined
+	[{"%o{ContextMenuWeight}"!=""}\
+	\n  ContextMenuWeight(en_%f_N(%o%P), op_%f_N(%o), %o{ContextMenuWeight}\
+	[{%o{no prefix}=true}, true]);\
+	]\
+	[\n  %o%f_close_ifdef()\n]\
+	]\
+	>\
+
+	%f_clear_list(FORM_PUBLISHED_OPERATIONS_LIST)\
+
+	<{\n  }{%O#f_IsVCMOperation()=true}\
+	[%O%f_open_ifdef()\n  ]\
+	[{"%O{ShowInContextMenu}"!=""&%O{ShowInContextMenu}!=undefined}\
+	\n  ShowInContextMenu(en_%f_N(%O%P), op_%f_N(%O), %O{ShowInContextMenu}\
+	[{%O{no prefix}=true}, true]);\
+	]\
+// %O{ShowInContextMenu}!=undefined
+	[{"%O{ShowInToolbar}"!=""&%O{ShowInToolbar}!=undefined}\
+	\n  ShowInToolbar(en_%f_N(%O%P), op_%f_N(%O), %O{ShowInToolbar}\
+	[{%O{no prefix}=true}, true]);\
+	]\
+// %O{ShowInToolbar}!=undefined
+	[{"%O{ContextMenuWeight}"!=""}\
+	\n  ContextMenuWeight(en_%f_N(%O%P), op_%f_N(%O), %O{ContextMenuWeight}\
+	[{%O{no prefix}=true}, true]);\
+	]\
+	[\n  %O%f_close_ifdef()\n]\
+	>\
+
+	]
+	 end;//with Entities.Entities\
+	]
+
+	%f_clear_list(PUBLISHED_EXLUDES)\
+
+	<{}{%CS=ExcludeUserTypes}\
+
+	%f_set_var(THIS,C)\
+	%f_clear_list(EXCLUDES)\
+
+	%C<{}{%GS=UserType}{%G}\
+	[{%f_exists_in_list(EXCLUDES,G)!=true}\
+	%f_add_to_list(EXCLUDES,G)\
+	]\
+	>\
+//	%C<{}{%GS=UserType}{%G}\
+
+	%C<{}{%gS=ExcludeUserTypes}{%g}\
+	%g<{}{%GS=UserType}{%G}\
+	[{%f_exists_in_list(EXCLUDES,G)!=true}\
+	%f_add_to_list(EXCLUDES,G)\
+	]\
+	>\
+//	%g<{}{%GS=UserType}{%G}\
+	>\
+//	%C<{}{%gS=ExcludeUserTypes}{%g}\
+
+	%{EXCLUDES}<{}{}{%C}\
+	%f_set_var(USERTYPE,C)\
+	%{THIS}<{}{}{%o}\
+	[{%f_exists_in_list(PUBLISHED_EXLUDES,"%f_N(%{USERTYPE})_%f_N(%o%P)_%f_N(%o)")!=true}\
+	%f_add_to_list(PUBLISHED_EXLUDES,"%f_N(%{USERTYPE})_%f_N(%o%P)_%f_N(%o)")\
+	[ %o%f_open_ifdef()\n]\
+	 AddUserTypeExclude(%{USERTYPE}NName, en_%f_N(%o%P), op_%f_N(%o), %o{no prefix});\n\
+	[ %o%f_close_ifdef()\n]\
+	]\
+	>\
+//	%{THIS}
+	>\
+//	%{EXCLUDES}<{}{}{%C}\
+	>\
+//	<{}{%CS=ExcludeUserTypes}\
+
+	%f_clear_list(ALLUSERTYPES)\
+	%f_set_var(ALLUSERTYPESGOT,"false")\
+
+	<{}{%CS=IncludeUserTypes}\
+
+	[{%{ALLUSERTYPESGOT}N!=true}\
+	%f_set_var(ALLUSERTYPESGOT,"true")\
+	%S%f_GetAllUserTypes()\
+// - здесь набираем все UserType'ы рекурсивно для всех предков
+	]\
+
+	%f_clear_list(EXCLUDES)\
+
+	%C<{}{%GS=UserType}{%G}\
+	[{%f_exists_in_list(EXCLUDES,G)!=true}\
+	%f_add_to_list(EXCLUDES,G)\
+	]\
+	>\
+
+	%C<{}{%gS=IncludeUserTypes}{%g}\
+	%g<{}{%GS=UserType}{%G}\
+	[{%f_exists_in_list(EXCLUDES,G)!=true}\
+	%f_add_to_list(EXCLUDES,G)\
+	]\
+	>\
+	>\
+
+	%f_set_var(USERTYPE,C)\
+	%C<{}{}{%o}\
+	%f_set_var(OP,o)\
+	%{ALLUSERTYPES}<{}{%CS=UserType}{%C}\
+	%f_set_var(THIS,C)\
+	[{%{EXCLUDES}<{}{%CU=%{THIS}U}{C}>=0}\
+	[{%f_exists_in_list(PUBLISHED_EXLUDES,"%f_N(%C)_%f_N(%{OP}%P)_%f_N(%{OP})")!=true}\
+	%f_add_to_list(PUBLISHED_EXLUDES,"%f_N(%C)_%f_N(%{OP}%P)_%f_N(%{OP})")\
+	[ %{OP}%f_open_ifdef()\n]\
+	 AddUserTypeExclude(%CNName, en_%f_N(%{OP}%P), op_%f_N(%{OP}), %{OP}{no prefix});\n\
+	[ %{OP}%f_close_ifdef()\n]\
+	]\
+	]\
+	>\
+	>\
+	>\
+	%f_clear_list(ALLUSERTYPES)\
+	%f_clear_list(PUBLISHED_EXLUDES)\
+
+//	%S%f_ImplementsSomeVCMOperation()=true}
+	end;\
+	]\
+	[{%f_NeedMakeControls(%S)=true}\
+	%f_pas_OpenMethodImplementation("MakeControls",%S)\
+	procedure %f_pas_TypeName(%S).MakeControls;
+	begin
+	 inherited;\
+	<%C#f_PutToMakeControls()>
+	end;\
+	]
+
+f _PublishControls
+	%f_set_var(THE_FORM,1)\
+	<{}{%C#f_IsControl()=true}{%C}\
+	%f_set_var(THE_CONTROL,C)\
+	%C<{}{%R#f_IsVCMOperations()=true}\
+	[{%f_exists_in_list(FORM_PUBLISHED_ENTITIES_LIST,"%f_N(%R)")!=true}\
+	%f_add_to_list(FORM_PUBLISHED_ENTITIES_LIST,"%f_N(%R)")\
+	\n  PublishFormEntity(en_%f_N(%R), [{}{nil}%{THE_FORM}%f_OnGetTarget(%R)]);\
+	]\
+	[\n  %{THE_CONTROL}%f_open_ifdef()]\
+	\n  MakeEntitySupportedByControl(en_%f_N(%R), %f_N(%{THE_CONTROL}));\
+	[\n  %{THE_CONTROL}%f_close_ifdef()]\
+	>\
+	%f_PublishControls(%C,%{THE_FORM})\
+	>
+
+f _NeedMakeControls
+@ %SU
+	[{<{}{%C#f_NeedPutToMakeControls()=true}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]
+
+%f _OnGetTarget
+// - тут выводим метод НАШЕЙ формы, который "реализует" данную сущность
+	%1<{}{%L%PU=%1U&%L#f_IsMethod()=true}%f_N(%L)>
+//#UC END# *494B86B5014Bfor4B5DA84A00DD*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит интерфейс переопределённых методов
+%f _pas_OutOverridesIntf
+//#UC START# *494B856502ECfor4B5DA84A00DD*
+	%S%[inherited]\
+	[{%S%f_HasAnyVCMController()=true}\
+	# procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
+	#                               const aDsNew : IvcmViewAreaController); override;
+	]\
+	[{%S%f_NeedsInitEntities()=true}\
+	# procedure InitEntities; override;
+	]\
+	[{%f_NeedMakeControls(%S)=true}\
+	# procedure MakeControls; override;
+	]
+//#UC END# *494B856502ECfor4B5DA84A00DD*
+
+// перекрытие базового стереотипа VCMCustomForm::Class
+%f _pas_BeforeDFMControls
+//#UC START# *4B5DDD5A02ACfor4B5DA84A00DD*
+	%S%[inherited]\
+	\n\
+	  Caption = '%SD'
+//	  Color = clBtnFace\
+	  Color = $00F9F8FA\
+	[{"%S{ZoneType}"!="%S{!ZoneType}"}
+	  ZoneType = vcm_zt%S{ZoneType}]\
+//	[{%S%f_HasUserTypeRec()!=true}
+//	  UserTypes = \<
+//	    item
+//	      Name = 'ut%f_N(%S)'
+//	      Caption = '%SD'
+//	    end\>]\
+	\n\
+	  PixelsPerInch = 96
+	  TextHeight = 13\
+
+	[\n  Zones = \<<%G#f_pas_DefineZones()>\>]
+
+	  object Entities: TvcmEntities\n\
+//	    Entities = \<
+//	      item
+//	        Name = 'enFake'
+//	        Operations = \<
+//	          item
+//	            Name = 'opFake'
+//	          end\>
+//	      end\
+//	\>\n\
+	    Left = 24
+	    Top = 24
+	  end
+//#UC END# *4B5DDD5A02ACfor4B5DA84A00DD*
+
+// перекрытие базового стереотипа VCMCustomForm::Class
+%f _pas_OutEntities
+//#UC START# *4B5DE28502D6for4B5DA84A00DD*
+	%S%[inherited]\
+	\n  Entities : TvcmEntities;
+//#UC END# *4B5DE28502D6for4B5DA84A00DD*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: VCMForm::Class::ViewArea::Attribute
+? Контроллер области вывода
+= VCMController::Class
+
+// Параметры стереотипа
+v #-
+/ - типы видимости
+a f
+/ - тип абстракции
+l l
+/ - возможные типы связи атрибута
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является контролелром области вывода
+%f _IsViewAreaController
+//#UC START# *497DF8C8028Efor494B848E003E*
+	true
+//#UC END# *497DF8C8028Efor494B848E003E*
+
+: VCMForm::Class::UseCase::Attribute
+? Контроллер прецедента
+= VCMController::Class
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет является ли элемент контроллером прецедента
+%f _IsUseCaseController
+//#UC START# *494B7E8B02B1for496A21CE0209*
+	true
+//#UC END# *494B7E8B02B1for496A21CE0209*
+
+: VCMForm::Class::GroupItemsInContextMenu::ClassDependency
+? Группировать операции сущности в контекстном меню
+= ClassBaseGenerator::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for502128C500BE*
+//#UC END# *46E6D4BB0339for502128C500BE*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor502128C500BE*
+//#UC END# *47022C88029Ffor502128C500BE*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor502128C500BE*
+//#UC END# *47022CB8034Bfor502128C500BE*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor502128C500BE*
+//#UC END# *47022CCF00EAfor502128C500BE*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for502128C500BE*
+//#UC END# *470321950119for502128C500BE*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor502128C500BE*
+//#UC END# *470321C1038Afor502128C500BE*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor502128C500BE*
+//#UC END# *470F1571031Cfor502128C500BE*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor502128C500BE*
+//#UC END# *470F15B800CBfor502128C500BE*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for502128C500BE*
+//#UC END# *477398E501C0for502128C500BE*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for502128C500BE*
+//#UC END# *4774D2A20372for502128C500BE*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor502128C500BE*
+//#UC END# *49F5795900ECfor502128C500BE*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for502128C500BE*
+//#UC END# *55B8D28B0157for502128C500BE*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for502128C500BE*
+//#UC END# *55B8D2F80145for502128C500BE*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for502128C500BE*
+//#UC END# *55B8DD9C0301for502128C500BE*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _NeedGroupItemsInContextMenu
+// возвращаемый результат: boolean
+//#UC START# *502129440035for502128C500BE*
+	true
+//#UC END# *502129440035for502128C500BE*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for502128C500BE*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for502128C500BE*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor502128C500BE*
+	dep
+//#UC END# *4705CBD6003Efor502128C500BE*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for502128C500BE*
+//#UC END# *470484D50138for502128C500BE*
+
+: VCMForm::Class::ToolbarAtBottom::ClassDependency
+= ClassBaseGenerator::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for502149B8006C*
+//#UC END# *46E6D4BB0339for502149B8006C*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor502149B8006C*
+//#UC END# *47022C88029Ffor502149B8006C*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor502149B8006C*
+//#UC END# *47022CB8034Bfor502149B8006C*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor502149B8006C*
+//#UC END# *47022CCF00EAfor502149B8006C*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for502149B8006C*
+//#UC END# *470321950119for502149B8006C*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor502149B8006C*
+//#UC END# *470321C1038Afor502149B8006C*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor502149B8006C*
+//#UC END# *470F1571031Cfor502149B8006C*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor502149B8006C*
+//#UC END# *470F15B800CBfor502149B8006C*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for502149B8006C*
+//#UC END# *477398E501C0for502149B8006C*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for502149B8006C*
+//#UC END# *4774D2A20372for502149B8006C*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor502149B8006C*
+//#UC END# *49F5795900ECfor502149B8006C*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for502149B8006C*
+//#UC END# *55B8D28B0157for502149B8006C*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for502149B8006C*
+//#UC END# *55B8D2F80145for502149B8006C*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for502149B8006C*
+//#UC END# *55B8DD9C0301for502149B8006C*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _ToolbarAtBottom
+// возвращаемый результат: boolean
+//#UC START# *502149CA00B1for502149B8006C*
+	true
+//#UC END# *502149CA00B1for502149B8006C*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for502149B8006C*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for502149B8006C*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor502149B8006C*
+	dep
+//#UC END# *4705CBD6003Efor502149B8006C*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for502149B8006C*
+//#UC END# *470484D50138for502149B8006C*
+
+: VCMForm::Class::ContextMenuWeight::ClassDependency
+= ClassBaseGenerator::MDAGenerator
+
+// Пользовательские свойства
+p Value:s ? 
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for51CE86080034*
+//#UC END# *46E6D4BB0339for51CE86080034*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor51CE86080034*
+//#UC END# *47022C88029Ffor51CE86080034*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor51CE86080034*
+//#UC END# *47022CB8034Bfor51CE86080034*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor51CE86080034*
+//#UC END# *47022CCF00EAfor51CE86080034*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for51CE86080034*
+//#UC END# *470321950119for51CE86080034*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor51CE86080034*
+//#UC END# *470321C1038Afor51CE86080034*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor51CE86080034*
+//#UC END# *470F1571031Cfor51CE86080034*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor51CE86080034*
+//#UC END# *470F15B800CBfor51CE86080034*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for51CE86080034*
+//#UC END# *477398E501C0for51CE86080034*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for51CE86080034*
+//#UC END# *4774D2A20372for51CE86080034*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor51CE86080034*
+//#UC END# *49F5795900ECfor51CE86080034*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for51CE86080034*
+//#UC END# *55B8D28B0157for51CE86080034*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for51CE86080034*
+//#UC END# *55B8D2F80145for51CE86080034*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for51CE86080034*
+//#UC END# *55B8DD9C0301for51CE86080034*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{Value}"!="%S{!Value}"}%f_up_prefix(%S) *Value* = *%S{Value}*
+	]
+
+%f _ContextMenuWeight
+// возвращаемый результат: boolean
+//#UC START# *51CE863501D2for51CE86080034*
+	true
+//#UC END# *51CE863501D2for51CE86080034*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for51CE86080034*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for51CE86080034*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor51CE86080034*
+//#UC END# *4705CBD6003Efor51CE86080034*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for51CE86080034*
+//#UC END# *470484D50138for51CE86080034*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

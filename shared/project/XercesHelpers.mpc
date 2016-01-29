@@ -1,0 +1,81 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/XercesHelpers.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> shared::XercesHelpers
+//
+// обёрки для классов xerces-а
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (XercesHelpers) : project_generic_core {
+	sharedname = XercesHelpers
+	staticname = XercesHelpers
+
+	includes += ../../
+
+	//#UC START# *491C05CA0197_CUSTOM_DEPENDENCES*
+	Header_Files {
+		./../XercesHelpers/wrappers/defines.h
+		./../XercesHelpers/wrappers/exceptions.h
+	}
+
+	Source_Files {
+		./../XercesHelpers/wrappers/exceptions.cpp
+	}
+	//#UC END# *491C05CA0197_CUSTOM_DEPENDENCES*
+	after += xerces-c
+	libs  += xerces-c
+
+	Header_Files {
+		Std_Headers {
+			./../XercesHelpers/LibHome.h
+		}
+	
+		defines {
+		}
+	
+		wrappers {
+			./../XercesHelpers/wrappers/DOMNodeEx.h
+			./../XercesHelpers/wrappers/DOMSettingsErrorHandler.h
+			./../XercesHelpers/wrappers/DocumentManager.h
+			./../XercesHelpers/wrappers/TranscodeHelper.h
+			./../XercesHelpers/wrappers/XMLStrUnicode.h
+			./../XercesHelpers/wrappers/XStr.h
+			./../XercesHelpers/wrappers/XercesHelper.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		defines {
+		}
+	
+		wrappers {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../XercesHelpers/LibHome.cpp
+		}
+	
+		defines {
+		}
+	
+		wrappers {
+			./../XercesHelpers/wrappers/DOMNodeEx.cpp
+			./../XercesHelpers/wrappers/DOMSettingsErrorHandler.cpp
+			./../XercesHelpers/wrappers/DocumentManager.cpp
+			./../XercesHelpers/wrappers/TranscodeHelper.cpp
+			./../XercesHelpers/wrappers/XMLStrUnicode.cpp
+			./../XercesHelpers/wrappers/XStr.cpp
+			./../XercesHelpers/wrappers/XercesHelper.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

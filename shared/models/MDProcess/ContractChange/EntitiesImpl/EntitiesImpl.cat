@@ -1,0 +1,1757 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "EntitiesImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/EntitiesImpl|48D25C2100D5
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.java)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text ""))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19020910318"))
+    quid       	"48D25C2100D5"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"48D25C350219"
+	    supplier   	"Logical View::MDProcess::ContractChange::Entities"
+	    quidu      	"48C78A85004C")
+	(object Visibility_Relationship
+	    quid       	"48D25F600072"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestsImpl"
+	    quidu      	"4741B70F01EA")
+	(object Visibility_Relationship
+	    quid       	"48D9D1E6000A"
+	    supplier   	"Logical View::MDProcess::ContractChange::ContractDAO"
+	    quidu      	"48D2570200D7")
+	(object Visibility_Relationship
+	    quid       	"48D9DD3E01C1"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::MDChangeDAO"
+	    quidu      	"47B940BF00E5")
+	(object Visibility_Relationship
+	    quid       	"48E07E0B010F"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Requests"
+	    quidu      	"4741A5C102D5")
+	(object Visibility_Relationship
+	    quid       	"48EB60B501AB"
+	    supplier   	"Logical View::MDProcess::ContractChange::ContractSupportTypes"
+	    quidu      	"48DBAA8A0001")
+	(object Visibility_Relationship
+	    quid       	"49007AB101FD"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::MdcCommonImpl"
+	    quidu      	"48D8E72F0140"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ContractRequestS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/EntitiesImpl/ContractRequestS|48D25C730028
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractRequestS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *48D25C730028_CUSTOM_IMPORT*¤import ru.garant.MDProcess.ContractChange.ContractDAO.ContractNotification;¤import java.lang.reflect.InvocationTargetException;¤import java.util.ArrayList;¤import java.util.Collection;¤import java.util.Collections;¤import java.util.Date;¤import java.util.HashSet;¤import java.util.Set;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Session;¤¤import org.apache.commons.beanutils.PropertyUtils;¤import org.apache.commons.collections.CollectionUtils;¤import org.apache.commons.lang.StringUtils;¤¤import com.atlassian.confluence.security.Permission;¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.atlassian.user.*;¤¤import ru.garant.shared.FSM.NotStarted;¤import ru.garant.shared.FSM.ValidationFailed;¤import ru.garant.shared.GCI.I18N.Messages;¤¤¤import ru.garant.MDProcess.ConfluenceMDChange.RequestDashboard.DashboardCacheManager;¤¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.AbstractRequestDAOProxy;¤¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.AbstractState;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.Closed;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.Discarded;¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.GarantHibernate;¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.UnreadDocument;¤import ru.garant.MDProcess.ConfluencePlugins.UserSupport.UserHelper;¤import ru.garant.MDProcess.HRChange.HRSupport.HrHelper;¤¤import ru.garant.MDProcess.ContractChange.MdccCommon.MDCCManager;¤//#UC END# *48D25C730028_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *48D25C730028_CUSTOM_CLASS_DEFINITION*¤//#UC END# *48D25C730028_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_IS_SIMPLE_REWORK_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_IS_SIMPLE_REWORK_GUARD_IMPL*¤		return !getIsVisaRework();¤		//#UC END# *48D25C730028_48C78B88001F_IS_SIMPLE_REWORK_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_IS_VISA_REWORK_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_IS_VISA_REWORK_GUARD_IMPL*¤		return getIsVisaRework();¤		//#UC END# *48D25C730028_48C78B88001F_IS_VISA_REWORK_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CREATE_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CREATE_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_CREATE_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CREATE_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CREATE_PRE_ENTER*¤		//#UC END# *48D25C730028_48C78B88001F_CREATE_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CREATE_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CREATE_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_CREATE_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONVISA_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONVISA_VALIDATE*¤		commonValidation();¤		¤		if (getVisaProvider() == null) {¤			throw new ValidationFailed(10,¤					ru.garant.shared.GCI.I18N.Messages.Factory.messages().get("contractrequests.impossible.to.visa.contract.necessary.input.visa.provider"));¤		}¤		//#UC END# *48D25C730028_48C78B88001F_ONVISA_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONVISA_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONVISA_PRE_ENTER*¤		setExecutor(getProxy().getVisaProvider());¤		//#UC END# *48D25C730028_48C78B88001F_ONVISA_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONVISA_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONVISA_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONVISA_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONACCEPT_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONACCEPT_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONACCEPT_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONACCEPT_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONACCEPT_PRE_ENTER*¤		super.preEnterActionOnAccept(event);¤		//#UC END# *48D25C730028_48C78B88001F_ONACCEPT_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONACCEPT_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONACCEPT_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONACCEPT_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONRETRY_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONRETRY_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONRETRY_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONRETRY_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONRETRY_PRE_ENTER*¤		String requestAuthorName = getPage().getCreatorName();¤		setExecutor(requestAuthorName);¤		//#UC END# *48D25C730028_48C78B88001F_ONRETRY_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONRETRY_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONRETRY_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONRETRY_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ASSIGNED_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ASSIGNED_VALIDATE*¤		commonValidation();¤¤		if (getDeveloper() == null) {¤			throw new ValidationFailed(1,¤					Messages.Factory.messages().get("contractrequests.impossible.to.assign.contract.necessary.input.developer"));¤		}¤		if (getForecastTime() == null) {¤			throw new ValidationFailed(8,¤					Messages.Factory.messages().get("contractrequests.impossible.to.assign.contract.necessary.input.forecast"));¤		}¤		¤		if (getEtc().getTime() < 0 && getEvent() instanceof ContractRequestLifecycle.Assign) {¤			User poManager = MDCCManager.Factory.get(getPage().getSpace()).getActiveDevelopmentManager();¤			ContractDAOProxy currentData = loadCurrentData();¤			if (currentData != null && currentData.getExecutionGroup() != null && poManager != null¤					&& currentData.getExecutionGroup().getMembers().contains(poManager.getName())) {¤				throw new ValidationFailed(6, Messages.Factory.messages().get(¤								"contractrequests.impossible.to.assign.contract.necessary.input.positive.forecast"));¤			}¤		}¤		¤		if(getCompletionTime() == null) {¤				throw new ValidationFailed(11,¤					Messages.Factory.messages().get("contractrequests.impossible.to.assign.contract.necessary.input.completion.time"));¤		}¤		//#UC END# *48D25C730028_48C78B88001F_ASSIGNED_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ASSIGNED_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ASSIGNED_PRE_ENTER*¤		super.preEnterActionAssigned(event);¤		//#UC END# *48D25C730028_48C78B88001F_ASSIGNED_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ASSIGNED_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ASSIGNED_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ASSIGNED_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ACTIVE_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ACTIVE_VALIDATE*¤		commonValidation();¤		super.validateActive();¤		//#UC END# *48D25C730028_48C78B88001F_ACTIVE_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ACTIVE_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ACTIVE_PRE_ENTER*¤		super.preEnterActionActive(event);¤		//#UC END# *48D25C730028_48C78B88001F_ACTIVE_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ACTIVE_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ACTIVE_PRE_EXIT*¤		super.preExitActionActive(event);¤		//#UC END# *48D25C730028_48C78B88001F_ACTIVE_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_PAUSE_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_PAUSE_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_PAUSE_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_PAUSE_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_PAUSE_PRE_ENTER*¤		//#UC END# *48D25C730028_48C78B88001F_PAUSE_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_PAUSE_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_PAUSE_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_PAUSE_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONFINAPPROVE_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONFINAPPROVE_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONFINAPPROVE_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONFINAPPROVE_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONFINAPPROVE_PRE_ENTER*¤		User fuResponsible = MDCCManager.Factory.get(getPage().getSpace()).getFuResponsible();¤		if (fuResponsible != null) {¤			setExecutor(fuResponsible.getName());¤		}¤		//#UC END# *48D25C730028_48C78B88001F_ONFINAPPROVE_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONFINAPPROVE_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONFINAPPROVE_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONFINAPPROVE_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONAPPROVE_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONAPPROVE_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONAPPROVE_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONAPPROVE_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONAPPROVE_PRE_ENTER*¤		User poManager = MDCCManager.Factory.get(getPage().getSpace()).getActiveDevelopmentManager();¤		if (poManager != null) {¤			setExecutor(poManager.getName());¤		}¤		//#UC END# *48D25C730028_48C78B88001F_ONAPPROVE_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONAPPROVE_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONAPPROVE_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONAPPROVE_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CLOSED_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CLOSED_VALIDATE*¤		//#UC END# *48D25C730028_48C78B88001F_CLOSED_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CLOSED_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CLOSED_PRE_ENTER*¤		super.preEnterActionClosed(event);¤		//#UC END# *48D25C730028_48C78B88001F_CLOSED_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CLOSED_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CLOSED_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_CLOSED_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_DISCARDED_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_DISCARDED_VALIDATE*¤		//#UC END# *48D25C730028_48C78B88001F_DISCARDED_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_DISCARDED_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_DISCARDED_PRE_ENTER*¤		super.preEnterActionDiscarded(event);¤		//#UC END# *48D25C730028_48C78B88001F_DISCARDED_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_DISCARDED_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_DISCARDED_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_DISCARDED_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_SAVE_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_SAVE_IMPL*¤		super.executeSave();¤		//#UC END# *48D25C730028_48C78B88001F_SAVE_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_CUSTOM_METHODS_AND_DATA*¤	¤	@Override¤	protected ContractDAOProxy getProxy () {¤		return (ContractDAOProxy) super.getProxy();¤	}¤	¤	@Override¤	protected ContractDAOProxy createProxy () {¤		ContractDAOProxy ret = new ContractDAOProxy();¤		ret.setReleasePriority(AbstractRequestDAOProxy.ACTIVE_RELEASE_PRIORITY);¤		ret.setSortRelease(AbstractRequestDAOProxy.stringSortLastValue);¤		ret.setSortExecutorName(AbstractRequestDAOProxy.stringSortLastValue);¤		return ret;¤	}¤¤	@Override¤	protected Class<? extends AbstractRequestDAOProxy> getProxyClass () {¤		return ContractDAOProxy.class;¤	}¤	¤	@Override¤	protected ContractNotificationGateway createNotificationGateway () {¤		return ContractNotificationGateway.Factory.make(this);¤	}¤	¤	@Override¤	protected void onStateChanged () {¤		super.onStateChanged();¤¤		GarantHibernate uds = new GarantHibernate(ContainerManager.Factory.get().getSessionFactory());¤		UnreadDocument ud = uds.get(UnreadDocument.class, getPage().getId());¤¤		if (getAdministrationManager() != null) {¤			ud.addUserThatUnreadOwn(getAdministrationManager());¤		}¤	}¤	¤	@Override¤	protected long getTimeDifference (long initialForecast, AbstractState currentState) {¤		AbstractRequestManager rm = getManager();¤		if (rm.isInFinalState(currentState) || rm.isInDiscardedState(currentState)) {¤			long inWorkTime = getInActiveState() != null ? getInActiveState().getTime() : 0;¤			return initialForecast - inWorkTime;¤		} else {¤			long forecast = getForecastTime() != null ? getForecastTime().getTime() : 0;¤			return initialForecast - forecast;¤		}¤	}¤	¤	@Override¤	protected long getCompletionTimeDifference (long initialForecast, AbstractState currentState) {¤		AbstractRequestManager rm = getManager();¤		if (rm.isInFinalState(currentState) || rm.isInDiscardedState(currentState)) {¤			if(getWorkCompleteAt() != null) {¤				return initialForecast - getWorkCompleteAt().getTime();¤			}¤			return 0;¤		} else {¤			return initialForecast != 0 ? initialForecast - new Date().getTime() : 0;¤		}¤	}¤	¤	@Override¤	protected boolean inChangeInitialCompletionTimeStates () {¤		try {¤			AbstractState currentState = (AbstractState) getCurrentState();¤			return super.inChangeInitialCompletionTimeStates() || currentState instanceof OnMinorVisa¤					|| currentState instanceof OnVisa || currentState instanceof OnRetry¤					|| currentState instanceof OnMinorRetry;¤		} catch (NotStarted e) {¤			Logs.LOG_E("ContracttRequestS::inChangeCompletionTimeStates: catch NotStarted, request in incorrect state, how?!");¤			return false;¤		}¤	}¤	¤	private boolean is_fu_responsible(){¤		String spaceKey = getProxy().getPage().getSpaceKey();¤		User fuUser = MDCCManager.Factory.get(spaceKey).getFuResponsible();¤		User curUser = AuthenticatedUserThreadLocal.getUser();¤		String nameCurUser = "";¤		if(curUser != null){¤			nameCurUser = curUser.getName();¤		}¤		if(fuUser != null && fuUser.getName().equals(nameCurUser))¤			return true;¤		return false;¤¤	}¤	protected HrHelper getHrHelper() {¤		return new HrHelper();¤	}¤	¤	Collection<ContractNotification> newContractNotificationListWhenLimitTimeUpdated = null;¤	@Override¤	protected void afterSave () {¤		super.afterSave();¤		¤		if (newContractNotificationListWhenLimitTimeUpdated != null) {¤			Session session = ContainerManager.Factory.get().getSession();¤			try {¤				session.delete("from ContractNotification n where n.requestId = " + getProxy().getId());¤				session.flush();¤				for (ContractNotification n : newContractNotificationListWhenLimitTimeUpdated) {¤					n.setRequestId(getProxy().getId());¤					session.save(n);¤				}¤			} catch (HibernateException e) {¤				Logs.LOG_SEX(e);¤				throw new IllegalStateException(e.getMessage());¤			}¤		}¤		¤	}¤	¤	//#UC END# *48D25C730028_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractRequestSFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONSPECIFY_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONSPECIFY_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONSPECIFY_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONSPECIFY_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONSPECIFY_PRE_ENTER*¤		setExecutor(getPage().getCreatorName());¤		//#UC END# *48D25C730028_48C78B88001F_ONSPECIFY_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONSPECIFY_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONSPECIFY_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONSPECIFY_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ACTION_ASSIGNED_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ACTION_ASSIGNED_ENTER*¤		super.postAssignedEnter (event);¤		//#UC END# *48D25C730028_48C78B88001F_ACTION_ASSIGNED_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ACTION_CLOSED_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ACTION_CLOSED_ENTER*¤		super.postClosedEnter (event);¤		ContractNotificationGateway notifyGateway = (ContractNotificationGateway) getNotificationGateway();¤		Closed state = AbstractRequestLifeCycle.ST_CLOSED;¤		notifyGateway.queueFinalEmailForAuthor(state);¤		notifyGateway.queueFinalEmailForPrManager(state);¤		//#UC END# *48D25C730028_48C78B88001F_ACTION_CLOSED_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ACTION_DISCARDED_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ACTION_DISCARDED_ENTER*¤		ContractNotificationGateway notifyGateway = (ContractNotificationGateway) getNotificationGateway();¤		Discarded state = AbstractRequestLifeCycle.ST_DISCARDED;¤		notifyGateway.queueFinalEmailForAuthor(state);¤		notifyGateway.queueFinalEmailForPrManager(state);¤		//#UC END# *48D25C730028_48C78B88001F_ACTION_DISCARDED_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ACTION_ACTIVE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ACTION_ACTIVE_ENTER*¤		//#UC END# *48D25C730028_48C78B88001F_ACTION_ACTIVE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONMINORVISA_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONMINORVISA_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONMINORVISA_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONMINORVISA_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONMINORVISA_PRE_ENTER*¤		setExecutor(getAdministrationManager());¤		//#UC END# *48D25C730028_48C78B88001F_ONMINORVISA_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONMINORVISA_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONMINORVISA_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONMINORVISA_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CANCELED_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CANCELED_VALIDATE*¤		//#UC END# *48D25C730028_48C78B88001F_CANCELED_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CANCELED_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CANCELED_PRE_ENTER*¤		//#UC END# *48D25C730028_48C78B88001F_CANCELED_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CANCELED_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CANCELED_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_CANCELED_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CANCELLED_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CANCELLED_VALIDATE*¤		//#UC END# *48D25C730028_48C78B88001F_CANCELLED_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CANCELLED_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CANCELLED_PRE_ENTER*¤		onPreFinalState();¤		//#UC END# *48D25C730028_48C78B88001F_CANCELLED_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_CANCELLED_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_CANCELLED_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_CANCELLED_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_POST_COMMIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_POST_COMMIT*¤		super.postCommit();¤		//#UC END# *48D25C730028_POST_COMMIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONMINORRETRY_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONMINORRETRY_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONMINORRETRY_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONMINORRETRY_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONMINORRETRY_PRE_ENTER*¤		setExecutor(getPage().getCreatorName());¤		//#UC END# *48D25C730028_48C78B88001F_ONMINORRETRY_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONMINORRETRY_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONMINORRETRY_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONMINORRETRY_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONAUTHORAPPROVE_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONAUTHORAPPROVE_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONAUTHORAPPROVE_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONAUTHORAPPROVE_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONAUTHORAPPROVE_PRE_ENTER*¤		setExecutor(getPage().getCreatorName());¤		//#UC END# *48D25C730028_48C78B88001F_ONAUTHORAPPROVE_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONAUTHORAPPROVE_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONAUTHORAPPROVE_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONAUTHORAPPROVE_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_POST_COMMIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_POST_COMMIT*¤		super.postCommit ();¤		//#UC END# *48D25C730028_48C78B88001F_POST_COMMIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ACTION_ACTIVE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ACTION_ACTIVE_EXIT*¤		super.postActiveExit (event);¤		//#UC END# *48D25C730028_48C78B88001F_ACTION_ACTIVE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_HAS_INTERNAL_MANAGER_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_HAS_INTERNAL_MANAGER_GUARD_IMPL*¤		return StringUtils.isNotEmpty(getInternalManager());¤		//#UC END# *48D25C730028_48C78B88001F_HAS_INTERNAL_MANAGER_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_HAS_NO_INTERNAL_MANAGER_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_HAS_NO_INTERNAL_MANAGER_GUARD_IMPL*¤		return !hasInternalManager();¤		//#UC END# *48D25C730028_48C78B88001F_HAS_NO_INTERNAL_MANAGER_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONINTERNALVISA_VALIDATE*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONINTERNALVISA_VALIDATE*¤		commonValidation();¤		//#UC END# *48D25C730028_48C78B88001F_ONINTERNALVISA_VALIDATE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONINTERNALVISA_PRE_ENTER*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONINTERNALVISA_PRE_ENTER*¤		setExecutor(getInternalManager());¤		//#UC END# *48D25C730028_48C78B88001F_ONINTERNALVISA_PRE_ENTER*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ONINTERNALVISA_PRE_EXIT*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ONINTERNALVISA_PRE_EXIT*¤		//#UC END# *48D25C730028_48C78B88001F_ONINTERNALVISA_PRE_EXIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_INTERNAL_VISA_AVAILABLE_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_INTERNAL_VISA_AVAILABLE_GUARD_IMPL*¤		return StringUtils.isNotEmpty(getInternalManager()) && !UserHelper.isFuUser(getPage().getSpaceKey());¤		//#UC END# *48D25C730028_48C78B88001F_INTERNAL_VISA_AVAILABLE_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_INTERNAL_VISA_NOT_AVAILABLE_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_INTERNAL_VISA_NOT_AVAILABLE_GUARD_IMPL*¤		return !internalVisaAvailable();¤		//#UC END# *48D25C730028_48C78B88001F_INTERNAL_VISA_NOT_AVAILABLE_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedImplement"
+		    value      	"49E2DBAD0226")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ON_RESURRECT_ACTION_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ON_RESURRECT_ACTION_IMPL*¤		super.onResurrect (event);¤		//#UC END# *48D25C730028_48C78B88001F_ON_RESURRECT_ACTION_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_ON_RESURECT_ACTION_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_ON_RESURECT_ACTION_IMPL*¤		super.onResurect (event);¤		//#UC END# *48D25C730028_48C78B88001F_ON_RESURECT_ACTION_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_IS_AUTHOR_APPROVE_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_IS_AUTHOR_APPROVE_GUARD_IMPL*¤		return !is_fu_responsible();¤		//#UC END# *48D25C730028_48C78B88001F_IS_AUTHOR_APPROVE_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_IS_AUTHOR_ESCAPE_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_IS_AUTHOR_ESCAPE_GUARD_IMPL*¤		return !is_fu_responsible();¤		//#UC END# *48D25C730028_48C78B88001F_IS_AUTHOR_ESCAPE_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_IS_FIN_ESCAPE_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_IS_FIN_ESCAPE_GUARD_IMPL*¤		return is_fu_responsible();¤		//#UC END# *48D25C730028_48C78B88001F_IS_FIN_ESCAPE_GUARD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19020941203")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48D25C730028_48C78B88001F_INTERNAL_VISA_AND_MINOR_VISA_NOT_AVAILABLE_GUARD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *48D25C730028_48C78B88001F_INTERNAL_VISA_AND_MINOR_VISA_NOT_AVAILABLE_GUARD_IMPL*¤		return UserHelper.internalVisaAndMinorVisaNotAvailable(getPage().getSpaceKey());¤		//#UC END# *48D25C730028_48C78B88001F_INTERNAL_VISA_AND_MINOR_VISA_NOT_AVAILABLE_GUARD_IMPL*
+		    )))
+	    quid       	"48D25C730028"
+	    documentation 	"ñåðâàíò, ðåàëèçóþùèé ðàáîòó ñî ñâ-âàìè çàÿâêè"
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"48D25D5102B9"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::AbstractRequestS"
+		    quidu      	"4757F83900B2"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19020941558"))
+		    quid       	"48DCD7D20388"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ContractChange::ContractDAO::ContractDAOProxy"
+		    quidu      	"48CE55FD017D"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"48D25D2A01DE"
+		    supplier   	"Logical View::MDProcess::ContractChange::Entities::ContractRequest"
+		    quidu      	"48C78B4E00AA"))
+	    language   	"MDA Generator")
+	(object Class "ContractManagerS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractManagerS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractManagerSFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/EntitiesImpl/ContractManagerS|48DBA9690391
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48DBA9690391_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *48DBA9690391_CUSTOM_IMPORT*¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.AbstractRequestLifeCycle.AbstractEvent;¤¤import java.text.SimpleDateFormat;¤import java.util.*;¤¤import com.atlassian.confluence.spaces.*;¤¤import net.sf.hibernate.*;¤¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.*;¤import ru.garant.MDProcess.ContractChange.MdccCommon.MDCCManager;¤¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.AbstractRequestDAOProxy;¤import ru.garant.MDProcess.ConfluenceMDChange.MdcCommon.MDCManager;¤import ru.garant.MDProcess.ConfluencePlugins.UserSupport.UserHelper;¤import ru.garant.MDProcess.ContractChange.ContractDAO.ContractDAOProxy;¤¤import com.atlassian.user.Group;¤¤import ru.garant.shared.FSM.NotStarted;¤import ru.garant.shared.FSM.PreEnterFailed;¤import ru.garant.shared.FSM.PreExitFailed;¤import ru.garant.shared.FSM.SaveFailed;¤import ru.garant.shared.FSM.StateNotChanged;¤import ru.garant.shared.FSM.ValidationFailed;¤¤import ru.garant.shared.ConfluenceCore.HibernateSupportImpl.QueryHelper;¤¤import ru.garant.MDProcess.ContractChange.ContractSupportTypes.ContractType;¤¤//#UC END# *48DBA9690391_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48DBA9690391_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *48DBA9690391_CUSTOM_CLASS_DEFINITION*¤//#UC END# *48DBA9690391_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48DBA9690391_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *48DBA9690391_CUSTOM_METHODS_AND_DATA*¤	¤	¤	¤	@Override¤	protected ContractRequest doMoveRequest (AbstractRequest request) throws StateNotChanged, NotStarted,¤			ValidationFailed, SaveFailed, PreEnterFailed, PreExitFailed {¤		final ContractRequest req = (ContractRequest) request;¤		final Page requestPage = req.getPage();¤		final Space requestSpace = requestPage.getSpace();¤		¤		ContractRequest movedContract = (ContractRequest) newRequest(req.getType(), requestPage);¤		copyCommonProperties(req, movedContract);¤		¤		movedContract.setImportance(req.getImportance());¤		¤		String internalManager = getInternalManagerForMovingContract(requestSpace, requestPage);¤		movedContract.setInternalManager(internalManager);¤¤		String administractionManager = getAdministractionManagerForMovingContract(requestSpace, requestPage);¤		movedContract.setAdministrationManager(administractionManager);¤¤		movedContract.setContractPrice(req.getContractPrice());¤		movedContract.setEmpowerImportant(req.getEmpowerImportant());¤		movedContract.commit();¤		return movedContract;¤	}¤	¤	private String getAdministractionManagerForMovingContract (Space space, Page requestPage) {¤		Group administrationManagerGroup = MDCCManager.Factory.get(space).getAdministrationManagementGroup();¤		return getFirstUserFromGroup(administrationManagerGroup, requestPage);¤	}¤	¤	private String getInternalManagerForMovingContract (Space space, Page requestPage) {¤		Group internalManagerGroup = MDCCManager.Factory.get(space).getInternalManagementGroup();¤		return getFirstUserFromGroup(internalManagerGroup, requestPage);¤	}¤¤	private String getFirstUserFromGroup (Group group, Page requestPage) {¤		if (group != null) {¤			Collection<User> users = new UserHelper().getEditPermittedUsersByGroup(group.getName(), requestPage);¤			if (!users.isEmpty()) {¤				return users.iterator().next().getName();¤			}¤		}¤		return null;¤	}¤¤	@Override¤	// âîçâðàùàåò true, åñëè çàïðîñ Îòêëîíåí, Äóáëèðóþùèé¤	public boolean isInDiscardedState(AbstractState state) {¤		return super.isInDiscardedState(state) || state instanceof Cancelled;¤	}¤¤¤	@Override¤	public MDCCManager getMdcManager(String spaceKey) {¤		return MDCCManager.Factory.get(spaceKey);¤	}¤¤¤	@Override¤	public boolean hasExecutionState() {¤		// TODO Auto-generated method stub¤		return true;¤	}¤¤	¤	¤	//#UC END# *48DBA9690391_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedOverload"
+		    value      	(value Text 
+|{"476F868A0304":{"need_collect_children":"false"},"4862004501DC":{"need_collect_children":"false"},"48DCBB0900E0":{"need_collect_children":"false"},"49A7E4C401BE":{"need_collect_children":"false"},"4A2397620239":{"need_collect_children":"false"},"4A239DD00277":{"need_collect_children":"false"},"4A239DD8025E":{"need_collect_children":"false"},"4A239DDE02CB":{"need_collect_children":"false"},"4A239E4A020F":{"need_collect_children":"false"},"4DC11D800214":{"need_collect_children":"false"}}
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedImplement"
+		    value      	(value Text 
+|{"48DBA91502D2":{"need_collect_children":"true"},"48E5FFCC0087":{"need_collect_children":"true"},"4B1F6D2D0121":{"need_collect_children":"true"}}
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"factory priority"
+		    value      	"0")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19020942206"))
+	    quid       	"48DBA9690391"
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"48EC55FE0051"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::AbstractRequestManagerS"
+		    quidu      	"48EC4EA70206"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"48DBA9860357"
+		    supplier   	"Logical View::MDProcess::ContractChange::Entities::ContractManager"
+		    quidu      	"48DBA91502D2"))
+	    language   	"MDA Generator")
+	(object Class "ContractManagerGetterS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractManagerGetterSFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractManagerGetterS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48E07D2A0054_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *48E07D2A0054_CUSTOM_IMPORT*¤¤import ru.garant.MDProcess.ContractChange.Entities.ContractManager;¤¤//#UC END# *48E07D2A0054_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48E07D2A0054_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *48E07D2A0054_CUSTOM_CLASS_DEFINITION*¤//#UC END# *48E07D2A0054_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48E07D2A0054_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *48E07D2A0054_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *48E07D2A0054_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/EntitiesImpl/ContractManagerGetterS|48E07D2A0054
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19020942694"))
+	    quid       	"48E07D2A0054"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"48E9B83002E0"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Requests::RequestManagerGetter"
+		    quidu      	"48E073900264"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19020942973"))
+		    quid       	"48E0842501D0"
+		    stereotype 	"switch"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    initv      	"contract"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ContractPermissionManagerS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractPermissionManagerS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractPermissionManagerSFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedOverload"
+		    value      	(value Text 
+|{"48D76037031F":{"need_collect_children":"false"},"4B4AC9DE025E":{"need_collect_children":"false"},"5360CCC60186":{"need_collect_children":"false"}}
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48DCE08F03D7_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *48DCE08F03D7_CUSTOM_IMPORT*¤¤import java.util.Collection;¤import java.util.List;¤¤import org.apache.commons.collections.CollectionUtils;¤import org.apache.commons.collections.Predicate;¤import org.apache.commons.lang.StringUtils;¤¤import com.atlassian.confluence.labels.Label;¤¤import ru.garant.MDProcess.ContractChange.MdccCommon.MDCCManager;¤¤import ru.garant.shared.FSM.NotStarted;¤import ru.garant.shared.FSM.State;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.AbstractState;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.Active;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.Closed;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.OnAccept;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.Assigned;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.Pause;¤¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnApprove;¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnAuthorApprove;¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnFinApprove;¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnInternalVisa;¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnMinorRetry;¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnMinorVisa;¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnRetry;¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnSpecify;¤import ru.garant.MDProcess.ContractChange.Entities.sm.ContractRequestLifecycle.OnVisa;¤¤//#UC END# *48DCE08F03D7_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48DCE08F03D7_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *48DCE08F03D7_CUSTOM_CLASS_DEFINITION*¤//#UC END# *48DCE08F03D7_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48DCE08F03D7_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *48DCE08F03D7_CUSTOM_METHODS_AND_DATA*¤	¤	protected boolean canEditContractPrice (AbstractRequest request, String user) {¤		return request.getPage().getCreatorName().equals(user) && isStateBeforeVisa(request);¤	}¤	¤	protected boolean isStateBeforeVisa(AbstractRequest request){¤		try {¤			final State currentState = request.getCurrentState();¤			if(currentState instanceof OnInternalVisa || currentState instanceof OnMinorVisa ¤					|| currentState instanceof OnRetry || currentState instanceof OnMinorRetry){¤				return true;¤			}	¤			} catch (NotStarted e) {¤				Logs.LOG_E("ContractPermissionManagerS::isAuthorState: catch NotStarted, how?!");¤				throw new IllegalStateException(¤						"ContractPermissionManagerS::isAuthorState: catch NotStarted, how?!");¤			}¤			return false;¤	}¤	¤	protected boolean canEditEmpowerImportant(AbstractRequest request, String user) {¤		return request.getPage().getCreatorName().equals(user) && isAuthorState(request, user);¤	}¤¤	private boolean isAuthorState(AbstractRequest request, String user){¤		try {¤		final State currentState = request.getCurrentState();¤		if(currentState instanceof OnAuthorApprove || currentState instanceof OnMinorRetry¤				 || currentState instanceof OnRetry || currentState instanceof OnSpecify){¤			return true;¤		}	¤		} catch (NotStarted e) {¤			Logs.LOG_E("ContractPermissionManagerS::isAuthorState: catch NotStarted, how?!");¤			throw new IllegalStateException(¤					"ContractPermissionManagerS::isAuthorState: catch NotStarted, how?!");¤		}¤		return false;¤	}¤	¤	@Override¤	protected boolean canEditCompletionTime (AbstractRequest request, State currentState, String user) {¤		MDCCManager mdcc = MDCCManager.Factory.get(request.getPage().getSpace());¤		return super.canEditCompletionTime(request, currentState, user) && mdcc.isDevelopmentManager(user);¤	}¤	¤	@Override¤	protected boolean canEditState (final AbstractRequest request, final State currentState, final String user) {¤		if (!super.canEditState(request, currentState, user)) {¤			return false;¤		}¤			MDCCManager mdcc = MDCCManager.Factory.get(request.getPage().getSpace());¤			¤			if (currentState instanceof Closed¤					&& (request.getPage().getCreatorName().equals(user) || mdcc.isDevelopmentManager(user))) {¤				return true;¤			}¤			¤			if (isFinalState(currentState) || isDiscardedState(currentState)) {¤				return false;¤			}¤¤			if (request.getExecutorLogins().contains(user)) {¤				return true;¤			}¤¤			if(currentState instanceof OnAuthorApprove && mdcc.isFuResponsible(user)){¤				return true;¤			}¤			¤			return mdcc.isDevelopmentManager(user) || mdcc.isInVisaGroup(user);¤	}¤	¤	private boolean canEditType (final AbstractRequest request, final State currentState, final String user) {¤			String spaceKey = request.getPage().getSpaceKey();¤			MDCCManager mdccManager = MDCCManager.Factory.get(spaceKey);¤			if (mdccManager.isDevelopmentManager(user)) {¤				if (currentState instanceof OnAccept) {¤					return true;¤				}¤			}¤			return false;¤	}¤	¤	private boolean canEditDeveloper (final AbstractRequest request, final State currentState, final String user) {¤		if (currentState instanceof Active || isFinalState(currentState) || isDiscardedState(currentState)) {¤			return false;¤		}¤		MDCCManager mdcc = MDCCManager.Factory.get(request.getPage().getSpace());¤		return mdcc.isDevelopmentManager(user);¤	}¤	¤	protected boolean canEditUnacceptedForecastTime (AbstractRequest request, String user) {¤		MDCCManager mdccManager = MDCCManager.Factory.get(request.getPage().getSpace());¤		return mdccManager.isDevelopmentManager(user);¤	}¤	¤	private boolean canEditLocationSpace (AbstractRequest request, String user) {¤		MDCCManager mdccManager = MDCCManager.Factory.get(request.getPage().getSpace());¤		return mdccManager.isDevelopmentManager(user);¤	}¤	¤	private boolean canEditInitialContract (final AbstractRequest request, final State currentState, final String user) {¤		if (isFinalState(currentState) || isDiscardedState(currentState)) {¤			return false;¤		}¤		MDCCManager mdcc = MDCCManager.Factory.get(request.getPage().getSpace());¤		return mdcc.isDevelopmentManager(user);¤	}¤¤¤	private boolean canEditVisaProvider (AbstractRequest request, final State currentState, String user) {¤		if (isFinalState(currentState) || isDiscardedState(currentState)) {¤			return false;¤		}¤		MDCCManager mdcc = MDCCManager.Factory.get(request.getPage().getSpace());¤		if (mdcc.isInAdministrationManagementGroup(user)) {¤			return true;¤		}¤		if (mdcc.isDevelopmentManager(user) && (currentState instanceof OnMinorRetry ¤						|| currentState instanceof OnMinorVisa¤						|| currentState instanceof OnVisa ¤						|| currentState instanceof OnRetry)) {¤			return true;¤		}¤		return false;¤	}¤	¤	private boolean canEditImportance (final AbstractRequest request, final State currentState, final String user) {¤		AbstractPage page = request.getPage();¤		MDCCManager mdccManager = MDCCManager.Factory.get(page.getSpace());¤		if(page.getCreatorName().equals(user) || mdccManager.isInAdministrationManagementGroup(user))¤			return true;¤		if (currentState instanceof OnInternalVisa || currentState instanceof OnMinorVisa¤				|| currentState instanceof OnVisa || currentState instanceof OnMinorRetry) {¤			final Collection<String> executorLogins = request.getExecutorLogins();¤			return CollectionUtils.isNotEmpty(executorLogins) ? executorLogins.contains(user) : false;¤		}¤		return false;¤	}¤	¤	private boolean canEditForecastTime (final AbstractRequest request, final State currentState, final String currentUser) {¤		if (!canReadForecastTime(request, currentUser)) {¤			return false;¤		}¤			MDCCManager mdccManager = MDCCManager.Factory.get(request.getPage().getSpace());¤			¤			if (isFinalState(currentState) || isDiscardedState(currentState)¤					|| currentState instanceof OnFinApprove || currentState instanceof OnAuthorApprove¤					|| currentState instanceof OnApprove) {¤				return false;¤			}¤			¤			if (mdccManager.isDevelopmentManager(currentUser)) {¤				return true;¤			}¤			¤			if (currentState instanceof Active || currentState instanceof Pause¤					|| currentState instanceof Assigned) {¤				return request.getExecutorLogins().contains(currentUser);¤			}¤			¤			return mdccManager.isInPoGroup(currentUser);			¤	}¤	¤	private boolean canEditOwner (final AbstractRequest request, final State currentState, final String user) {¤			if (currentState instanceof OnFinApprove == false) {¤				return false;¤			}¤			¤			final MDCCManager mdcc = MDCCManager.Factory.get(request.getPage().getSpace());¤			if(mdcc.isDevelopmentManager(user)) {¤				return true;¤			}¤			¤			boolean executorFromFu = CollectionUtils.exists(request.getExecutorLogins(), new Predicate() {¤				@Override¤				public boolean evaluate (Object executorLoginObj) {¤					String executorLogin = (String) executorLoginObj;¤					return mdcc.isFuResponsible(executorLogin) || mdcc.isInFuGroup(executorLogin);¤				}¤			});¤			¤			final boolean currentUserFromFu = mdcc.isFuResponsible(user) || mdcc.isInFuGroup(user);¤			return currentState instanceof OnFinApprove	&& currentUserFromFu && executorFromFu;¤	}¤	¤	private boolean hasAllowedLabel (AbstractPage page) {¤		MDCCManager mdcc = MDCCManager.Factory.get(page.getSpace());¤		List<String> allowedLabels = mdcc.getAllowedLabels();¤		if (allowedLabels.isEmpty()) {¤			return true;¤		}¤		for (Label label : (List<Label>) page.getLabels()) {¤			if (allowedLabels.contains(label.getName())) {¤				return true;¤			}¤		}¤		return false;¤	}¤	¤	@Override¤	protected boolean isFinalState (State state) {¤		return ContractManager.Factory.get().isInFinalState((AbstractState) state);¤	}¤	¤	@Override¤	protected boolean isDiscardedState(State state) {¤		return ContractManager.Factory.get().isInDiscardedState((AbstractState) state);¤	}¤¤	private static class CanAddContractFromDashboardCache extends UserSpaceCache {¤		public CanAddContractFromDashboardCache() {¤			super(900);¤		}¤¤		protected Boolean loadData (String userName, String spaceKey) {¤			final MDCCManager mdcc = MDCCManager.Factory.get(spaceKey);¤			return mdcc.getEnabled() && mdcc.isContractCreator(userName);¤		}¤	};¤¤	private static CanAddContractFromDashboardCache canAddContractFromDashboardCache = new CanAddContractFromDashboardCache();¤	¤	public static boolean canEditLimitTime (AbstractRequest request, final State currentState, String user) {¤		if (currentState instanceof OnVisa && request.getExecutorLogins().contains(user)) {¤			return true;¤		}¤		return false;¤	}¤¤	//#UC END# *48DCE08F03D7_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/EntitiesImpl/ContractPermissionManagerS|48DCE08F03D7
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19020943560")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedImplement"
+		    value      	(value Text 
+|{"48DCDFDB0150":{"need_collect_children":"true"},"48EB593602EB":{"need_collect_children":"true"}}
+		    )))
+	    quid       	"48DCE08F03D7"
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"48EB5B27030C"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::AbstractRequestPermissionManagerS"
+		    quidu      	"48EB5A1901CF"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19020943868"))
+		    quid       	"48EB6095007D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ContractChange::ContractSupportTypes::ContractPermissions"
+		    quidu      	"48EB5FE10350"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"48DCE1060014"
+		    supplier   	"Logical View::MDProcess::ContractChange::Entities::ContractPermissionManager"
+		    quidu      	"48DCDFDB0150"))
+	    language   	"MDA Generator")
+	(object Class "ContractNotificationGatewayS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractNotificationGatewayS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ContractChange/EntitiesImpl/ContractNotificationGatewaySFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*490079AC0267_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *490079AC0267_CUSTOM_IMPORT*¤¤import ru.garant.MDProcess.ConfluencePlugins.CommonVelocityContext.GlobalHelper;¤import com.atlassian.confluence.pages.Page;¤import com.atlassian.mail.Email;¤import com.atlassian.user.User;¤¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.sm.AbstractRequestLifeCycle.AbstractState;¤¤import ru.garant.MDProcess.ContractChange.MdccCommon.MDCCManager;¤¤//#UC END# *490079AC0267_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*490079AC0267_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *490079AC0267_CUSTOM_CLASS_DEFINITION*¤//#UC END# *490079AC0267_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*490079AC0267_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *490079AC0267_CUSTOM_METHODS_AND_DATA*¤	¤	private ContractRequest contract_;¤	¤	@Override¤	protected ContractRequest getRequest () {¤		return contract_;¤	}¤¤	@Override¤	protected Email createAssignmentEmailForExternalAuthor (User prManager, Observer author) {¤		Email mail = new Email (author.getEmail());¤		mail.setFrom("proposal@garant.ru");¤		mail.setFromName("GARANT COMPANY");¤		mail.setBcc("proposal@garant.ru, " + prManager.getEmail());¤		mail.setSubject(getText("contractnotificationgateways.your.contract.acceptance") + " (" + getRequest().getPage().getTitle() + ")");¤		String body = getText("requestnotificationgateways.good.day") + ", " + author.getFullName() + "!<br/>";¤		body += getText("contractnotificationgateways.your.contract") + " &quot;" + getRequest().getPage().getTitle() + "&quot; " + getText("contractnotificationgateways.include.in.sistem") + " ";¤		body += getText("contractnotificationgateways.your.contract.id") + " " + getRequest().getPage().getId() + ".<br/>";¤		body += getText("requestnotificationgateways.thank.you");¤		body += getText("requestnotificationgateways.with.best.regards.garant");¤		mail.setBody(body);¤		mail.setMimeType("text/html");¤		mail.setEncoding(EMAIL_ENCODING);¤		return mail;¤	}¤	¤	@Override¤	protected Email createFinalEmailFor (User user, AbstractState state) {¤		final Page requestPage = getRequest().getPage();¤		¤		String subj = getText("contractnotificationgateways.your.contract") + " " + stateToString(state, WordType.FEMALE);¤		String pageAddress = GlobalHelper.getPageUrl(requestPage);¤		String body = getText("requestnotificationgateways.good.day") + ", " + user.getFullName() + "!"¤			+ "<br>" + getText("contractnotificationgateways.your.contract") + " '" + requestPage.getDisplayTitle()¤			+ "' (" + getText("requestnotificationgateways.adress.in.mdc") + ": <a href=\"" + pageAddress + "\">"¤			+ pageAddress + "</a>) " + getText("contractnotificationgateways.was.change.state.on.final.state") + " (" + stateToString(state, WordType.FEMALE) + "). "¤			+ " " + getText("contractnotificationgateways.full.request.text.you.may.see.in.link.or.in.wiki.markup")¤	        + " " + getText("requestnotificationgateways.dont.replay.on.this")¤			+ " " + getText("requestnotificationgateways.with.best.regards.system.mdc")¤			+ addWikiTextToSubject();¤		¤		String email = user.getEmail();¤		return createEmail(subj, body, email);¤	}¤	¤	@Override¤	protected Email createAssignmentEmailFor(User executor, byte prevState) {¤		final Page requestPage = getRequest().getPage();¤		boolean assignedRepeatedly = isRequestAssignedRepeatedly(requestPage.getId(), prevState);¤		String subj = assignedRepeatedly ? getText("contractnotificationgateways.returned.contract") : getText("contractnotificationgateways.send.contract");¤		String pageAddress = GlobalHelper.getPageUrl(requestPage);¤		String body = getText("requestnotificationgateways.good.day") + ", " + executor.getFullName() + "!"¤			+ (assignedRepeatedly ? "<br>" + getText("contractnotificationgateways.returned.contract") + " '" : "<br>" + getText("contractnotificationgateways.send.contract") + " '") ¤			+ requestPage.getDisplayTitle()¤			+ "' (" + getText("requestnotificationgateways.adress.in.mdc") + ": <a href=\"" + pageAddress + "\">"¤			+ pageAddress + "</a>)."¤	        + " " + getText("requestnotificationgateways.dont.replay.on.this")¤			+ " " + getText("contractnotificationgateways.full.request.text.you.may.see.in.link.or.in.wiki.markup")¤			+ " " + getText("requestnotificationgateways.with.best.regards.system.mdc")¤			+ addWikiTextToSubject();¤		¤		String email = executor.getEmail();¤		return createEmail(subj, body, email);¤	}¤	¤	@Override¤	protected String makeFinalEmailBodyForPrManager (String prManagerName, boolean rejected) {¤		Page requestPage = getRequest().getPage();¤		String pageUrl = GlobalHelper.getPageUrl(requestPage);		¤		String ret =¤			  "<br>" + getText("requestnotificationgateways.good.day") + ", " + prManagerName + "!"¤			+ "<br><br>" + getText("contractnotificationgateways.contract") + " ¹ " + requestPage.getIdAsString()¤			+ " ("+ "<a href='" + pageUrl + "'>" + pageUrl + "</a>) "¤			+ (rejected	? getText("contractnotificationgateways.was.discarded") : getText("contractnotificationgateways.was.closed") )¤			+ "<br><br>"¤			+ " " + getText("contractnotificationgateways.full.request.text.you.may.see.in.link.or.in.wiki.markup")¤			+ " " + getText("requestnotificationgateways.with.best.regards.garant")¤			+ addWikiTextToSubject();¤		return ret;¤	}¤	¤	@Override¤	protected MDCCManager getMDCManager () {¤		return MDCCManager.Factory.get(getRequest().getPage().getSpace());¤	}¤	¤	//#UC END# *490079AC0267_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/EntitiesImpl/ContractNotificationGatewayS|490079AC0267
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19020944437"))
+	    quid       	"490079AC0267"
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"490079C001FB"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::AbstractRequestNotificationGatewayS"
+		    quidu      	"490074B702B8"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"490079C2017C"
+		    supplier   	"Logical View::MDProcess::ContractChange::Entities::ContractNotificationGateway"
+		    quidu      	"490079430364"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48D25C380220"
+	    title      	"Main"
+	    zoom       	75
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	896
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::Entities::ContractRequest" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2184, 168)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1975, 136)
+			nlines     	1
+			max_width  	418
+			justify    	0
+			label      	"ContractRequest")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1975, 86)
+			anchor     	10
+			nlines     	1
+			max_width  	418
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"48C78B4E00AA"
+		    width      	436
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::AbstractRequestS" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1554, 381)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1316, 348)
+			nlines     	1
+			max_width  	476
+			justify    	0
+			label      	"AbstractRequestS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1316, 298)
+			anchor     	10
+			nlines     	1
+			max_width  	476
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"4757F83900B2"
+		    width      	494
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::EntitiesImpl::ContractRequestS" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1578, 789)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1353, 756)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"ContractRequestS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1353, 706)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"48D25C730028"
+		    width      	468
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @4
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48D25D2A01DE"
+		    client     	@3
+		    supplier   	@1
+		    vertices   	(list Points
+			(1669, 693)
+			(2090, 262))
+		    line_style 	0)
+		(object InheritView "" @5
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48D25D5102B9"
+		    client     	@3
+		    supplier   	@2
+		    vertices   	(list Points
+			(1572, 693)
+			(1559, 476))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::EntitiesImpl::ContractManagerS" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(576, 804)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(387, 767)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"ContractManagerS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(387, 717)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"48DBA9690391"
+		    width      	396
+		    height     	198
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::Entities::ContractManager" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(954, 156)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(779, 128)
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"ContractManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(779, 74)
+			anchor     	10
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"48DBA91502D2"
+		    width      	368
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @8
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48DBA9860357"
+		    client     	@6
+		    supplier   	@7
+		    vertices   	(list Points
+			(632, 704)
+			(897, 251))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::ContractDAO::ContractDAOProxy" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1578, 1365)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(1347, 1332)
+			nlines     	1
+			max_width  	462
+			justify    	0
+			label      	"ContractDAOProxy")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(1347, 1282)
+			anchor     	10
+			nlines     	1
+			max_width  	462
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"48CE55FD017D"
+		    width      	480
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @10
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @11
+			Parent_View 	@10
+			location   	(1698, 1077)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"48DCD7D20388"
+		    client     	@3
+		    supplier   	@9
+		    vertices   	(list Points
+			(1578, 884)
+			(1578, 1269))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::EntitiesImpl::ContractManagerGetterS" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(561, 1506)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(200, 1447)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	722
+			justify    	0
+			label      	"ContractManagerGetterS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(200, 1397)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	722
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"48E07D2A0054"
+		    width      	740
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::RequestManagerGetter" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(555, 1116)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(251, 1084)
+			nlines     	1
+			max_width  	608
+			justify    	0
+			label      	"• RequestManagerGetter")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(251, 1034)
+			anchor     	10
+			nlines     	1
+			max_width  	608
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"48E073900264"
+		    width      	626
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @14
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48E9B83002E0"
+		    client     	@12
+		    supplier   	@13
+		    vertices   	(list Points
+			(558, 1384)
+			(555, 1210))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::EntitiesImpl::ContractPermissionManagerS" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3153, 852)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(2868, 816)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	570
+			justify    	0
+			label      	"ContractPermissionManagerS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(2868, 766)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	570
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"48DCE08F03D7"
+		    width      	588
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::Entities::ContractPermissionManager" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(3099, 135)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(2754, 108)
+			nlines     	1
+			max_width  	690
+			justify    	0
+			label      	"ContractPermissionManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(2754, 54)
+			anchor     	10
+			nlines     	1
+			max_width  	690
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"48DCDFDB0150"
+		    width      	708
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @17
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48DCE1060014"
+		    client     	@15
+		    supplier   	@16
+		    vertices   	(list Points
+			(3145, 753)
+			(3105, 229))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::AbstractRequestPermissionManagerS" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2637, 438)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(2273, 406)
+			nlines     	1
+			max_width  	728
+			justify    	0
+			label      	"AbstractRequestPermissionManagerS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(2273, 356)
+			anchor     	10
+			nlines     	1
+			max_width  	728
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"48EB5A1901CF"
+		    width      	746
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @19
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48EB5B27030C"
+		    client     	@15
+		    supplier   	@18
+		    vertices   	(list Points
+			(3031, 753)
+			(2755, 532))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::AbstractRequestManagerS" @20
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(351, 321)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(8, 288)
+			nlines     	1
+			max_width  	686
+			justify    	0
+			label      	"• AbstractRequestManagerS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@20
+			location   	(8, 238)
+			anchor     	10
+			nlines     	1
+			max_width  	686
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"48EC4EA70206"
+		    width      	704
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @21
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48EC55FE0051"
+		    client     	@6
+		    supplier   	@20
+		    vertices   	(list Points
+			(528, 704)
+			(395, 416))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::AbstractRequestNotificationGatewayS" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(4308, 456)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(3857, 423)
+			nlines     	1
+			max_width  	902
+			justify    	0
+			label      	"AbstractRequestNotificationGatewayS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@22
+			location   	(3857, 373)
+			anchor     	10
+			nlines     	1
+			max_width  	902
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"490074B702B8"
+		    width      	920
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::Entities::ContractNotificationGateway" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(3819, 126)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(3547, 98)
+			nlines     	1
+			max_width  	544
+			justify    	0
+			label      	"ContractNotificationGateway")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(3547, 44)
+			anchor     	10
+			nlines     	1
+			max_width  	544
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"490079430364"
+		    width      	562
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::EntitiesImpl::ContractNotificationGatewayS" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3909, 837)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(3622, 801)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	574
+			justify    	0
+			label      	"ContractNotificationGatewayS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@24
+			location   	(3622, 751)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	574
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"490079AC0267"
+		    width      	592
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @25
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"490079C001FB"
+		    client     	@24
+		    supplier   	@22
+		    vertices   	(list Points
+			(4010, 738)
+			(4208, 551))
+		    line_style 	0)
+		(object RealizeView "" @26
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"490079C2017C"
+		    client     	@24
+		    supplier   	@23
+		    vertices   	(list Points
+			(3718, 738)
+			(3718, 221))
+		    line_style 	3
+		    origin_attachment 	(3718, 738)
+		    terminal_attachment 	(3718, 221))))))

@@ -1,0 +1,398 @@
+// SupportWords 509A5CB50110 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_509A5CB50110
+
+FORWARD ME_509A5CCB022A
+
+: ME_E1711FEC1213
+ CONST UID 'E1711FEC1213'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация LoadFromFile' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_509A5CCB022A // LoadFromFile
+ ;
+
+ref; // ME_E1711FEC1213 Ini_Reg
+
+: ME_4DAEEDE10285_ME_509A5CCB022A
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_509A5CCB022A // LoadFromFile
+ ;
+ref; // ME_4DAEEDE10285_ME_509A5CCB022A DoDoIt
+
+: ME_4DB0614603C8_ME_509A5CCB022A
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_509A5CCB022A // LoadFromFile
+ ;
+ref; // ME_4DB0614603C8_ME_509A5CCB022A GetWordNameForRegister
+
+: ME_509A5CCB022A
+ CONST UID '509A5CCB022A'
+ CONST Name 'LoadFromFile'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Загружает файл в форму дочернего класса TPrimTextLoadForm. '#13#10'*Формат:* имя_файла LoadFromFile'#13#10'*Примечание:* Создан специально для тестов DailyTests в результате переделок form:Needs. Имя файла можно подавать без пути - будет автоматически добавлен путь к данным для тестов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_509A5CB50110 // SupportWords
+ ;
+ : Inherits
+   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_509B4CC20221' '4E2955E50377.pas.ms.script' // LoadUnits
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_E1711FEC1213 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_509A5CCB022A // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_509A5CCB022A // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwLoadFromFile.pas'
+ CONST extprop:pas:TypeName 'TkwLoadFromFile'
+
+ref; // ME_509A5CCB022A LoadFromFile
+
+FORWARD ME_509A5D0D0141
+
+: ME_509A5D18026B
+ CONST UID '509A5D18026B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_509A5D0D0141 // SupportKeyWords
+ ;
+ : Target ME_509A5CCB022A // LoadFromFile
+ ;
+
+ref; // ME_509A5D18026B 
+
+FORWARD ME_509B8C5A0200
+
+: ME_509B8C6B00EE
+ CONST UID '509B8C6B00EE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_509A5D0D0141 // SupportKeyWords
+ ;
+ : Target ME_509B8C5A0200 // SetFontSize
+ ;
+
+ref; // ME_509B8C6B00EE 
+
+FORWARD ME_509B9A8A0270
+
+: ME_509B9A9F02E3
+ CONST UID '509B9A9F02E3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_509A5D0D0141 // SupportKeyWords
+ ;
+ : Target ME_509B9A8A0270 // GetFontSize
+ ;
+
+ref; // ME_509B9A9F02E3 
+
+: ME_DEEBB12A3121
+ CONST UID 'DEEBB12A3121'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_509A5D0D0141 // SupportKeyWords
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_DEEBB12A3121 
+
+: ME_509A5D0D0141
+ CONST UID '509A5D0D0141'
+ CONST Name 'SupportKeyWords'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_509A5CB50110 // SupportWords
+ ;
+ : Dependencies
+   @ ( ME_509A5D18026B // 
+ ME_509B8C6B00EE // 
+ ME_509B9A9F02E3 // 
+ ME_DEEBB12A3121 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\SupportKeyWords.pas'
+
+ref; // ME_509A5D0D0141 SupportKeyWords
+
+: ME_7E94DA15205F
+ CONST UID '7E94DA15205F'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация SetFontSize' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_509B8C5A0200 // SetFontSize
+ ;
+
+ref; // ME_7E94DA15205F Ini_Reg
+
+: ME_509B92AC027B
+ CONST UID '509B92AC027B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_509B8C5A0200 // SetFontSize
+ ;
+ : Target WL 'ME_480DB927035A' '47ECB2870309.pas.ms.script' // TevStyleInterface
+ ;
+
+ref; // ME_509B92AC027B 
+
+: ME_509B9AEC03D3
+ CONST UID '509B9AEC03D3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_509B8C5A0200 // SetFontSize
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_509B9AEC03D3 
+
+: ME_4DAEEDE10285_ME_509B8C5A0200
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_509B8C5A0200 // SetFontSize
+ ;
+ref; // ME_4DAEEDE10285_ME_509B8C5A0200 DoDoIt
+
+: ME_4DB0614603C8_ME_509B8C5A0200
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_509B8C5A0200 // SetFontSize
+ ;
+ref; // ME_4DB0614603C8_ME_509B8C5A0200 GetWordNameForRegister
+
+: ME_509B8C5A0200
+ CONST UID '509B8C5A0200'
+ CONST Name 'SetFontSize'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Устанавливает размер шрифта для стиля "Нормальный".' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_509A5CB50110 // SupportWords
+ ;
+ : Inherits
+   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_7E94DA15205F // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_509B8C5A0200 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_509B8C5A0200 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_509B92AC027B // 
+ ME_509B9AEC03D3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwSetFontSize.pas'
+ CONST extprop:pas:TypeName 'TkwSetFontSize'
+
+ref; // ME_509B8C5A0200 SetFontSize
+
+: ME_C12BBF9E85AA
+ CONST UID 'C12BBF9E85AA'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация GetFontSize' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_509B9A8A0270 // GetFontSize
+ ;
+
+ref; // ME_C12BBF9E85AA Ini_Reg
+
+: ME_509B9AC5027F
+ CONST UID '509B9AC5027F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_509B9A8A0270 // GetFontSize
+ ;
+ : Target WL 'ME_480DB927035A' '47ECB2870309.pas.ms.script' // TevStyleInterface
+ ;
+
+ref; // ME_509B9AC5027F 
+
+: ME_509B9AE3017C
+ CONST UID '509B9AE3017C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_509B9A8A0270 // GetFontSize
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_509B9AE3017C 
+
+: ME_4DAEEDE10285_ME_509B9A8A0270
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_509B9A8A0270 // GetFontSize
+ ;
+ref; // ME_4DAEEDE10285_ME_509B9A8A0270 DoDoIt
+
+: ME_4DB0614603C8_ME_509B9A8A0270
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_509B9A8A0270 // GetFontSize
+ ;
+ref; // ME_4DB0614603C8_ME_509B9A8A0270 GetWordNameForRegister
+
+: ME_509B9A8A0270
+ CONST UID '509B9A8A0270'
+ CONST Name 'GetFontSize'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возвращает установленный размер шрифта для стиля "Нормальный".' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_509A5CB50110 // SupportWords
+ ;
+ : Inherits
+   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_C12BBF9E85AA // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_509B9A8A0270 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_509B9A8A0270 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_509B9AC5027F // 
+ ME_509B9AE3017C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwGetFontSize.pas'
+ CONST extprop:pas:TypeName 'TkwGetFontSize'
+
+ref; // ME_509B9A8A0270 GetFontSize
+
+: ME_509A5CB50110
+ CONST UID '509A5CB50110'
+ CONST Name 'SupportWords'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_509A5C8903C7' '509A5C8903C7.pas.ms.script' // Keywords4Daily
+ ;
+ : Children
+   @ ( ME_509A5CCB022A // LoadFromFile
+ ME_509A5D0D0141 // SupportKeyWords
+ ME_509B8C5A0200 // SetFontSize
+ ME_509B9A8A0270 // GetFontSize
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47ECB2870309' '47ECB2870309.pas.ms.script' // StyleTable
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4E2955E50377' '4E2955E50377.pas.ms.script' // AutoTestSupport
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\509A5CB50110.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\509A5CB50110.pas.ms.script.runner'
+
+ref; // ME_509A5CB50110 SupportWords

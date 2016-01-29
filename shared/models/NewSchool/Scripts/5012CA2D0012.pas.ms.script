@@ -1,0 +1,306 @@
+// l3TestUtils 5012CA2D0012 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5012CA2D0012
+
+FORWARD ME_5012BFDC0300
+
+FORWARD ME_5320560B0287
+
+: ME_5320562A01DD
+ CONST UID '5320562A01DD'
+ CONST Name 'anObject'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_5320562A01DD anObject
+
+: ME_5320562A01FE
+ CONST UID '5320562A01FE'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5320562A01FE aValue
+
+: ME_53205624023C
+ CONST UID '53205624023C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5320560B0287 // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+ : Parameters
+   @ ( ME_5320562A01DD // anObject
+ ME_5320562A01FE // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53205624023C DoIt
+
+: ME_5320560B0287
+ CONST UID '5320560B0287'
+ CONST Name 'TRTTIInfoObjectPropertyFoundCallBack'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5012BFDC0300 // l3RTTI
+ ;
+ : Operations
+   @ ( ME_53205624023C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_5320560B0287 TRTTIInfoObjectPropertyFoundCallBack
+
+: ME_5012C26403DE
+ CONST UID '5012C26403DE'
+ CONST Name 'ERTTIInfoSkipProperty'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5012BFDC0300 // l3RTTI
+ ;
+ : Inherits
+   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_5012C26403DE ERTTIInfoSkipProperty
+
+FORWARD ME_5012C016039F
+
+: ME_5012C1290357
+ CONST UID '5012C1290357'
+ CONST Name 'anObject'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_5012C1290357 anObject
+
+: ME_5012C129037F
+ CONST UID '5012C129037F'
+ CONST Name 'aSkipEvents'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5012C129037F aSkipEvents
+
+: ME_5320564100C2
+ CONST UID '5320564100C2'
+ CONST Name 'anObjectPropertyFoundCallBack'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5320560B0287 // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+ CONST Value 'nil'
+ : ValueType ME_5320560B0287 // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+
+ref; // ME_5320564100C2 anObjectPropertyFoundCallBack
+
+: ME_5515867D0303
+ CONST UID '5515867D0303'
+ CONST Name 'aEscapeSpecialChars'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5515867D0303 aEscapeSpecialChars
+
+: ME_5012C0830028
+ CONST UID '5012C0830028'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5012C016039F // l3FormatRTTIInfo
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_5012C1290357 // anObject
+ ME_5012C129037F // aSkipEvents
+ ME_5320564100C2 // anObjectPropertyFoundCallBack
+ ME_5515867D0303 // aEscapeSpecialChars
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5012C0830028 DoIt
+
+: ME_5012C17B01CF
+ CONST UID '5012C17B01CF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5012C016039F // l3FormatRTTIInfo
+ ;
+ : Target WL 'ME_4F82F2A000A1' '4767743E00E5.pas.ms.script' // GetObjectProp
+ ;
+
+ref; // ME_5012C17B01CF 
+
+: ME_5012C23D029C
+ CONST UID '5012C23D029C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5012C016039F // l3FormatRTTIInfo
+ ;
+ : Target WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ ;
+
+ref; // ME_5012C23D029C 
+
+: ME_5012C3430080
+ CONST UID '5012C3430080'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5012C016039F // l3FormatRTTIInfo
+ ;
+ : Target WL 'ME_4DE89E560091' '4AB0C3C60310.pas.ms.script' // Format
+ ;
+
+ref; // ME_5012C3430080 
+
+: ME_5012C3DA003A
+ CONST UID '5012C3DA003A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5012C016039F // l3FormatRTTIInfo
+ ;
+ : Target WL 'ME_4DFF098B00CC' '47913B47006E.pas.ms.script' // l3Free
+ ;
+
+ref; // ME_5012C3DA003A 
+
+: ME_5016C771023A
+ CONST UID '5016C771023A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5012C016039F // l3FormatRTTIInfo
+ ;
+ : Target WL 'ME_4E788E98006B' '4799D29F033F.pas.ms.script' // TCursor
+ ;
+
+ref; // ME_5016C771023A 
+
+: ME_5016C7AD0090
+ CONST UID '5016C7AD0090'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5012C016039F // l3FormatRTTIInfo
+ ;
+ : Target WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_5016C7AD0090 
+
+: ME_5012C016039F
+ CONST UID '5012C016039F'
+ CONST Name 'l3FormatRTTIInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5012BFDC0300 // l3RTTI
+ ;
+ : Operations
+   @ ( ME_5012C0830028 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5012C17B01CF // 
+ ME_5012C23D029C // 
+ ME_5012C3430080 // 
+ ME_5012C3DA003A // 
+ ME_5016C771023A // 
+ ME_5016C7AD0090 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_5012C016039F l3FormatRTTIInfo
+
+: ME_5012BFDC0300
+ CONST UID '5012BFDC0300'
+ CONST Name 'l3RTTI'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5012CA2D0012 // l3TestUtils
+ ;
+ : Operations
+   @ ( ME_5012C016039F // l3FormatRTTIInfo
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_5320560B0287 // TRTTIInfoObjectPropertyFoundCallBack
+ ME_5012C26403DE // ERTTIInfoSkipProperty
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Костицын'
+ CONST "no hands" false
+ CONST "started" '27.07.2012'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3RTTI.pas'
+
+ref; // ME_5012BFDC0300 l3RTTI
+
+: ME_5012CA2D0012
+ CONST UID '5012CA2D0012'
+ CONST Name 'l3TestUtils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_5012BFDC0300 // l3RTTI
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5012CA2D0012.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5012CA2D0012.pas.ms.script.runner'
+
+ref; // ME_5012CA2D0012 l3TestUtils

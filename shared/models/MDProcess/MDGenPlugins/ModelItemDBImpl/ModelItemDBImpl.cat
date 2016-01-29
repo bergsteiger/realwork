@@ -1,0 +1,314 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ModelItemDBImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/MDGenSupport/ModelItemDBImpl/ModelItemTableImplFactoryImpl.java::465D2393035B")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/MDGenSupport/ModelItemDBImpl/ModelItemTableImpl.java::465D2393035B")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/MDGenSupport/ModelItemDBImpl|465D236D0119
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/MDGenSupport/ModelItemDBImpl/ModelItemTableImpl|465D2393035B::465D2393035B;MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà/MDGenSupport/ModelItemDBImpl/ModelItemTableImpl|465D2393035B::465D2393035B
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19016640624"))
+    quid       	"465D236D0119"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"465D271901D4"
+	    supplier   	"Logical View::MDProcess::MDGenSupport::ModelItemDB"
+	    quidu      	"465D21580119"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ModelItemTableImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/MDGenSupport/ModelItemDBImpl/ModelItemTableImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/MDGenSupport/ModelItemDBImpl/ModelItemTableImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/MDGenSupport/ModelItemDBImpl/ModelItemTableImpl|465D2393035B
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D2393035B_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *465D2393035B_CUSTOM_IMPORT*¤¤¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Session;¤import ru.garant.MDProcess.CodeRepository.ArtefactDAO;¤import ru.garant.shared.ConfluenceCore.Helpers.*;¤//#UC END# *465D2393035B_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D2393035B_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *465D2393035B_CUSTOM_CLASS_DEFINITION*¤//#UC END# *465D2393035B_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D2393035B_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *465D2393035B_CUSTOM_METHODS_AND_DATA*¤	¤	private Session getSession () {¤		return SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤	}¤	¤	//#UC END# *465D2393035B_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D21BA032C_465D23BD0261_465D2393035B_BODY*"
+		    value      	(value Text 
+|//#UC START# *465D21BA032C_465D23BD0261_465D2393035B_BODY*¤		//#UC END# *465D21BA032C_465D23BD0261_465D2393035B_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D229B0242_465D2393035B*"
+		    value      	(value Text 
+|//#UC START# *465D229B0242_465D2393035B*¤		java.lang.Long pid = new java.lang.Long(pageId);¤		try {¤			com.atlassian.bandana.BandanaManager bm = ContainerManager.Factory.get().getBandanaManager();¤			bm.setValue(¤					new com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext()¤					, "garant.MDProcess.ServerGate.Contents.Page.PageGUID:"+guid¤					, pid¤			);¤			bm.setValue(¤					new com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext()¤					, "garant.MDProcess.ServerGate.Contents.Page.PageID:"+pid¤					, guid¤			);¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			Logs.LOG_W ("ERROR! no active factory for BandanaManager");¤		}¤		/*s_guid2pid.put (guid, pid);¤		s_pid2guid.put (pid, guid);*/¤		//#UC END# *465D229B0242_465D2393035B*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D233702BF_465D2393035B*"
+		    value      	(value Text 
+|//#UC START# *465D233702BF_465D2393035B*¤		try {¤			com.atlassian.bandana.BandanaManager bm = ContainerManager.Factory.get().getBandanaManager();¤			java.lang.Long pid = (java.lang.Long)bm.getValue(¤					new com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext()¤					, "garant.MDProcess.ServerGate.Contents.Page.PageGUID:"+guid¤				);¤			if (null != pid) {¤				bm.setValue(¤						new com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext()¤						, "garant.MDProcess.ServerGate.Contents.Page.PageGUID:"+guid¤						, ""¤				);¤				bm.setValue(¤						new com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext()¤						, "garant.MDProcess.ServerGate.Contents.Page.PageID:"+pid¤						, ""¤				);¤			}¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			Logs.LOG_W ("ERROR! no active factory for BandanaManager ");¤		}¤		/*java.lang.Long pid = s_guid2pid.get (guid);¤		if (pid != null) {¤			s_guid2pid.remove(guid);¤			s_pid2guid.remove(pid);¤		}*/¤		//#UC END# *465D233702BF_465D2393035B*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D2280037A_465D2393035B*"
+		    value      	(value Text 
+|//#UC START# *465D2280037A_465D2393035B*¤		java.lang.Long pid = new java.lang.Long(pageId);¤		try {¤			com.atlassian.bandana.BandanaManager bm = ContainerManager.Factory.get().getBandanaManager();¤¤			java.lang.Object ret = bm.getValue(¤					new com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext()¤					, "garant.MDProcess.ServerGate.Contents.Page.PageID:"+pid¤				);¤			if (null != ret && ret instanceof String && !ret.equals("")) {¤				return (String)ret;¤			}¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			Logs.LOG_E ("ERROR! no active factory for BandanaManager");¤		}¤		return null;¤		/*String ret = s_pid2guid.get(new java.lang.Long(pid));¤		return (ret == null) ? null: ret;*/¤		//#UC END# *465D2280037A_465D2393035B*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D226102BF_465D2393035B*"
+		    value      	(value Text 
+|//#UC START# *465D226102BF_465D2393035B*¤		if (guid == null) {¤			return 0;¤		}¤		try {¤			com.atlassian.bandana.BandanaManager bm = ContainerManager.Factory.get().getBandanaManager();¤			java.lang.Object ret = bm.getValue(¤					new com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext()¤					, "garant.MDProcess.ServerGate.Contents.Page.PageGUID:"+guid¤				);¤			if (null != ret && ret instanceof java.lang.Long) {¤				long lv = ((java.lang.Long)ret).longValue();¤				if (null != ContainerManager.Factory.get().getPageManager().getAbstractPage(lv)) {¤					return lv;¤				}¤			}¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			Logs.LOG_E ("ERROR! no active factory for BandanaManager");¤		}¤		return 0;¤		/*java.lang.Long ret = s_guid2pid.get(guid);¤		return (ret == null) ? 0: ret.longValue();*/¤		//#UC END# *465D226102BF_465D2393035B*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19016649992"))
+	    quid       	"465D2393035B"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"465D23B60119"
+		    supplier   	"Logical View::MDProcess::MDGenSupport::ModelItemDB::ModelItemTable"
+		    quidu      	"465D21BA032C"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"465D237902DE"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::MDGenSupport::ModelItemDBImpl::ModelItemTableImpl" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"645")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"768")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"416")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(645, 768)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(446, 740)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"ModelItemTableImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(446, 690)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"465D2393035B"
+		    width      	416
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::MDGenSupport::ModelItemDB::ModelItemTable" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"636")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"369")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"336")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(636, 369)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(477, 337)
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"ModelItemTable")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(477, 287)
+			anchor     	10
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"465D21BA032C"
+		    width      	336
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"642,677;637,459"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"465D23B60119"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(642, 677)
+			(637, 463))
+		    line_style 	0)))))

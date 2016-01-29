@@ -1,0 +1,4305 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////// HLTC250. Обновление данных  ///////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+uses States, common, RunPrograms, MenuWork, FileWork, DocumentWork, FoldersWork, SearchWork, ListWork, SettingsWork;   
+
+//заголовки функций
+function GetFromDataUpd(form: string; whatToGet: string = 'ФОРМА'; parent: OleVariant = nil):OleVariant;forward;
+function AnalizToUpdateLog(pathToLog: string; isEasyMode: boolean): boolean; forward;
+{
+  TYPE: Общие
+  DESC: Возвращает процесс F1DataUpd
+  RESULT:
+  REMARK: В случае неудачи выбрасывает исключение EX_CANNOT_FIND_F1DATAUPD_PROCESS
+}
+function GetF1DataUpdProcess(
+  const timeOut : integer = -1; // таймаут
+  const searchesCount : integer = 2; // столько раз ищем процесс
+  const isRaiseException : boolean = true
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetF1DataUpdProcess';
+  var 
+    i, timeElapsed, timeToWait, startTime : integer;  
+    cacheKey : OleVariant;
+begin
+  try
+    cacheKey := FUNCTION_NAME + 'F1DataUpdProcess';
+    if NOT Cache_Check(nil, cacheKey, Result) then
+    begin
+      if timeOut = -1 then timeOut := Options.Run.Timeout; 
+      if searchesCount < 1 then searchesCount := 1;
+      Result := NonExObj;
+      
+      for i := 1 to searchesCount do
+      begin
+        timeToWait := timeOut div searchesCount;
+        timeElapsed := Win32API.GetTickCount;
+        Sys.Refresh;
+        Result := Sys.WaitProcess(DATAUPD_PROCESS_NAME, timeToWait);
+
+        timeElapsed := Win32API.GetTickCount - timeElapsed;
+        timeToWait := timeToWait - timeElapsed;
+        
+        if IsValidNotOpenApplicationProcess(Result) then break;
+        
+        if timeToWait > 0 then
+        begin
+          startTime := Win32API.GetTickCount;
+          while ( timeToWait > Win32API.GetTickCount - startTime ) AND (NOT IsValidNotOpenApplicationProcess(Result)) do
+            Delay(300);
+        end;
+      end;
+      
+      if NOT IsValidNotOpenApplicationProcess(Result) then
+        Result := NonExObj
+      else      
+        Result := Cache_Put(nil, cacheKey, Result);
+    end;
+       
+    if NOT IsValidNotOpenApplicationProcess(Result) then
+      if isRaiseException then 
+        Raise(EX_CANNOT_FIND_F1DATAUPD_PROCESS)
+      else
+        Result := NonExObj;          
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Попытка корректно запустить апдейтер,
+  RESULT:
+  REMARK:  
+}
+function StartF1DataUpd(
+  path : string = '';
+  attemptsCount: integer = 3;
+  stringParam : string = ''
+): boolean;
+var
+  pathToF1DataUpd : string;
+  oldAttemptsCount : integer;
+begin
+try
+  result := false;   
+  if path = '' then path := GetF1Directory;    
+  path := Utilities.IncludeTrailingBackslash(path);   
+  pathToF1DataUpd := path + 'dataupd.exe';
+  if NOT Utilities.FileExists(pathToF1DataUpd) then
+    begin
+      Log.Error('Файл "' + pathToF1DataUpd + '" не найден!');
+      Exit;
+    end;
+    // запускаем
+    repeat
+      Win32API.WinExec('"' + pathToF1DataUpd + '" ' + stringParam, Win32API.SW_SHOWMAXIMIZED);
+      try
+        Result := IsExists( GetF1DataUpdProcess(Options.Run.Timeout * 3, 5) );
+      except
+        Result := false;
+        Log.Warning('StartF1DataUpd: Попытка запуска апдейтера № ' + VarToString(oldAttemptsCount - attemptsCount + 1) + ' не удалась!' );        
+        if (attemptsCount <= 1) then 
+          CommonExceptionHandler
+        else
+        begin
+          Sys.WaitProcess(DATAUPD_PROCESS_NAME, 1000).Terminate;
+          Delay(500);
+          Log.Message('StartF1DataUpd: Пробуем еще раз.');
+        end;    
+      end;
+      attemptsCount := attemptsCount - 1;
+    until (attemptsCount < 1) OR Result;      
+except
+  Log.Message('StartF1DataUpd: ' + ExceptionMessage, 'path: "' + path + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Попытка корректно закрыть все окна приложения,
+  RESULT:
+  REMARK:
+    Попытка корректно закрыть все окна приложения, если не получается - terminate process
+}
+procedure CloseF1DataUpd(
+  countOfAttempt: Integer = 3; // столько раз пытаемся закрыть
+  timeOut: integer = 5000
+);
+var
+  p,w1,w2,i;
+  
+begin
+  try  
+    p := GetF1DataUpdProcess(Options.Run.Timeout div 15, 2, false); //Ищем наш процесс
+    if IsExists(p) then
+    begin
+      if countOfAttempt = 0  then Raise('Не удалось закрыть апдейтер');
+      if countOfAttempt < 2 then
+      begin
+        for i := 1 to 5 do
+          if IsExists(p) then
+          begin
+            Delay(Options.Run.Delay div 30);
+            p.Terminate;
+          end
+          else
+            break;
+      end
+      else
+      begin
+        w1 := GetFromDataUpd('ГЛАВНАЯ ФОРМА', 'ФОРМА');        
+        if IsExists(w1) then
+        begin
+        	w1.Activate;
+          w1.SetFocus;
+          Sys.Keys('~[F4]');
+        end
+        else
+          Raise('Не удалось получить Форму "ГЛАВНАЯ ФОРМА" на "ФОРМА"');        
+        w2 := GetFromDataUpd('ПОДТВЕРЖДЕНИЕ', 'КНОПКА ДА');
+        if IsExists(w2) then w2.Click;             
+      end;      
+      Delay(timeOut);      
+      if IsExists(p) then CloseF1DataUpd(countOfAttempt-1);      
+    end;
+  except
+    Log.Message('CloseF1DataUpd: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+const //Типы имеющихся дельт
+  PAK = 'Пакованная дельта';
+  NO_PAK = 'Не Пакованная дельта';
+  SEGMENT = 'Дельта сегмента';
+  BROKEN = 'Битая дельта';
+  ZIP_BROKEN = 'Битый архив с дельтой';
+  NO_CHANGE = 'Дельта без изменений null_delta.D03';
+
+{
+  Desk: Возвращает путь к каталогу с дельтой, в зависимости от типа версии
+} 
+function GivePathToDelta(
+  productType : string = '' 
+) : string;
+var
+  tempStr : string;
+  regEx;
+begin
+try
+  if productType = '' then Raise('Не передали тип версии!');
+  
+  if (productType = PT_FILESERVER_CONSOLE) OR (productType = PT_FILESERVER) then
+  begin
+    tempStr := GetValueFromGarantIni('[F1DataUpd]', 'CommandLine');
+    regEx := HISUtils.RegExpr;
+    regEx.Expression := '[\-\w\s]*\"(\$\(ExecuteRoot\)\\delta)';
+    regEx.Exec(tempStr);
+    tempStr := regEx.Match[1];   
+    regEx.Expression := '\$\(ExecuteRoot\)';
+    
+    Result := regEx.Replace(tempStr, GetF1Directory('CLIENT'));
+  end
+  else
+  begin
+    if (productType = PT_DESKTOP) OR (productType = PT_DESKTOP_CONSOLE) OR 
+       (productType = PT_SERVER)  OR (productType = PT_SERVER_CONSOLE) then    
+      Result := GetValueFromGarantIni('[F1DataUpd Params]', '-DUDeltaDefaultPath')
+      else
+        Raise('Не правильно передали тип версии : ' + productType);
+  end;    
+except
+  Log.Message('GivePathToDelta: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  Result := '';
+  CommonExceptionHandler;
+end;
+end;  
+  
+{
+Функция копирует заданную дельту в ЭТАЛОННОЕ место
+}
+function CopyDelta(
+  typeDelta : string
+) : boolean;
+var
+  sourcePathFromDelta, targetPathFromDelta, deltaName;
+  fileHandle : integer;
+  buf;
+  i;
+  excludeList; 
+begin
+try  
+  if (typeDelta = SEGMENT) then
+  begin
+    deltaName := '*.d03';
+    excludeList := ['*\CVS\*', '*delta_*.D03', '*null_delta.D03'];
+  end 
+  else 
+  if (typeDelta = NO_CHANGE) then    
+  begin
+    deltaName := 'null_delta.D03';
+    excludeList := ['*\CVS\*'];
+  end
+  else  
+  begin
+    deltaName := 'delta_full64.D03';
+    excludeList := ['*\CVS\*'];
+  end;
+  
+  
+      
+  sourcePathFromDelta := '\\builds-store\garant-nemesis\deployment\data\7.12\testbase\fullbase\delta\' + deltaName;
+  targetPathFromDelta := GivePathToDelta(GetProductType);
+  if targetPathFromDelta = '' then Raise('Не удалось получить путь к каталогу с дельтой!'); 
+    
+  //Очищаем папку с дельтой
+  if NOT EmptyFolder(targetPathFromDelta) then Log.Warning('Не удалось очистить папку : ' + targetPathFromDelta);
+  //Копируем дельту в указанный каталог
+  if CopyFilesExt(sourcePathFromDelta, targetPathFromDelta, excludeList) = 0  then
+    Raise('Не удалось скопировать Дельту из  < ' + sourcePathFromDelta +' >  в  < ' + targetPathFromDelta + ' >.');    
+  sourcePathFromDelta := targetPathFromDelta + '\' + deltaName;     
+  case typeDelta of
+    PAK ://Пакуем дельту
+    begin
+      //Размножаем файлы, что б побольше был архив, а он быстро распаковывается и невозможно отловить окно распаковки
+      if NOT PackingFileByZip(sourcePathFromDelta, targetPathFromDelta + '\delta.zip', false, false) then
+        Raise('Не удалось запоковать дельту');
+      
+      if NOT PackingFileByZip(sourcePathFromDelta, targetPathFromDelta + '\delta.zip', true) then
+        Raise('Не удалось запоковать дельту');  
+    end;   
+    BROKEN :
+    begin
+      fileHandle := Utilities.FileOpen(sourcePathFromDelta, fmShareDenyNone or fmOpenWrite ); 
+      if fileHandle = -1 then Raise('Не удалось открыть файл на чтение');      
+      Utilities.FileSeek(fileHandle, 0, 0);
+      buf := #32;
+      for i := 1 to 99 do buf := buf + ' ';
+      Utilities.FileWrite(fileHandle ,buf , Length(buf));
+      Utilities.FileClose(fileHandle);  
+    end;
+    ZIP_BROKEN :
+    begin
+     //if NOT PackingFileByZip(sourcePathFromDelta, targetPathFromDelta + '\delta.zip', false, false) then
+     //   Raise('Не удалось запоковать дельту');
+        
+      if NOT PackingFileByZip(sourcePathFromDelta, targetPathFromDelta + '\delta.zip', true) then
+        Raise('Не удалось запоковать дельту');
+        
+      fileHandle := Utilities.FileOpen(targetPathFromDelta + '\delta.zip', fmShareDenyNone or fmOpenWrite ); 
+      if fileHandle = -1 then Raise('Не удалось открыть файл на чтение');      
+      Utilities.FileSeek(fileHandle, 200, 0);//ставим указатель не в начало, а на 200-й байт,что бы точно побить файл
+      buf := #32;
+      for i := 1 to 299 do buf := buf + ' ';
+      Utilities.FileWrite(fileHandle ,buf , Length(buf));
+      Utilities.FileClose(fileHandle);
+      //TMP: временно сохраняем дельту      
+      //if (CopyFilesExt(targetPathFromDelta + '\delta.zip', 'c:\') = 0)  then
+      //  Raise('Не удалось скопировать Дельту в C:\');  
+    end;              
+  end;
+  Result := true;
+except
+  Log.Message('CopyDelta: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  Result := false;
+  CommonExceptionHandler;
+end;    
+end;
+
+{
+DESK: Функция копирует данные, необходимые для апдейта(delta)  и запускает апдейтер
+REMARK: В самом скрипте будем учитывать, что база должна быть старая и без морфологии
+}
+function RunUpdater(
+  paramString: string = ''
+): boolean;
+var
+  paramList;
+  isCloseF1Shell;//Пытаемся ли закрыть оболочку f1shell
+  isArhiveDelta;  
+  paramStringToUpdater;//Строка параметров для апдейтеру(которые будут передаваться в командной строке)  
+  countOsAttempts;
+  pathToLog;
+  p; 
+begin
+try
+  paramList := ParseParamString(paramString);
+  paramStringToUpdater := VarToStr( GetParam(paramList, 'paramStringToUpdater', '') );  
+  isCloseF1Shell := VarToBool( GetParam(paramList, 'isCloseF1Shell', true) );
+  pathToLog := GetF1Directory;
+  pathToLog := Utilities.IncludeTrailingBackslash(pathToLog) + 'logs\update.log';
+  //Если апдейтер открыт, тогда закрываем его
+  CloseF1DataUpd;  
+  //Если необходимо, пытаемся закрыть оболочку
+  if isCloseF1Shell then
+  begin 
+    countOsAttempts := 3;
+    CloseF1Shell(countOsAttempts, Options.Run.Timeout div 6);   
+  end;
+  //..........
+  
+  
+  //Удалем лог апдейтера, что б потом в нём оказались записи только текущего апдейта
+  if Utilities.FileExists(pathToLog) then
+    if NOT Utilities.DeleteFile(pathToLog) then Raise('Не удалось  удалить файл: ' + pathToLog);
+  //Запускаем апдейтер (если есть переданные параметры, то запускаем апдейтер с этой строкой параметров) и проверяем, что он запустился
+  if NOT StartF1DataUpd('', 3, paramStringToUpdater) then
+    Raise('Не удалось запустить апдейтер');
+    
+  result := true;  
+except
+  Log.Message('RunUpdater: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  Result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+//Константы, описывающие все возможные состояния апдейтера
+const
+  ONE_STATE =     'Добро пожаловать!';
+  TWO_STATE =     'Выбор типа обновления';
+  THREE_STATE =   'Выбор каталога с файлами пакетного пополнения';
+  FOUR_STATE =    'Возможно частичное обновление';
+  FIVE_STATE =    'Копирование информационного банка для последующего обновления.';
+  SIX_STATE =     'Мастер пакетного пополнения. Создание копии информационного банка';
+  SEVEN_STATE =   'Пакетное пополнение комплекта системы ГАРАНТ';
+  EIGHT_STATE =   'Внимание';
+  UNKNOWN_STATE = 'Неизвестное состояние';
+  SPACE_ONE_STATE = 'Распаковка архивов';
+  SPACE_TWO_STATE = 'Обновление не возможно';
+  SPACE_THREE_STATE = 'Мастер пакетного пополнения. Освобождение данных';
+
+function GetFromDataUpd(
+  form: string;
+  whatToGet: string = 'ФОРМА';
+  parent: OleVariant = nil
+  
+):OleVariant;
+const
+  FUNCTION_NAME = 'GetFromDataUpd';
+begin
+try
+
+  if parent = nil then
+    parent := GetF1DataUpdProcess;  
+  whatToGet := AnsiUpperCase(whatToGet);
+  
+  case form of
+    'ГЛАВНАЯ ФОРМА':
+    case whatToGet of
+      'ФОРМА':
+        Result := GetF1DataUpdProcess.Window('#32770', '*', 1);
+    end;  
+    //    
+    'ДОБРО ПОЖАЛОВАТЬ':
+    case whatToGet of 
+      'ФОРМА':  
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=' + ONE_STATE);
+      'КНОПКА НАЗАД': 
+        Result := FindWindowByPath(GetFromDataUpd('ДОБРО ПОЖАЛОВАТЬ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Назад*');
+      'КНОПКА ДАЛЕЕ':
+        Result := FindWindowByPath(GetFromDataUpd('ДОБРО ПОЖАЛОВАТЬ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Далее*');
+      'КНОПКА ОТМЕНА':
+        Result := FindWindowByPath(GetFromDataUpd('ДОБРО ПОЖАЛОВАТЬ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Отмена*');
+      'КНОПКА ПОМОЩЬ':
+        Result := FindWindowByPath(GetFromDataUpd('ДОБРО ПОЖАЛОВАТЬ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Помощь*');
+    end; 
+    //
+    'ВЫБОР ТИПА ОБНОВЛЕНИЯ':
+    case whatToGet of      
+      'ФОРМА':
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=' + TWO_STATE); 
+      'КНОПКА НАЗАД':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Назад*');
+      'КНОПКА ДАЛЕЕ':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Далее*');
+      'КНОПКА ОТМЕНА':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Отмена*');
+      'КНОПКА ПОМОЩЬ':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Помощь*');
+      'ЧЕКБОКС УПРОЩЕННЫЙ':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Упрощенный (рекомендуется)*');
+      'ЧЕКБОКС РАСШИРЕННЫЙ':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Расширенный*');
+        
+    end;  
+    //  
+    'ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ':
+    case whatToGet of
+      'ФОРМА':
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=' + THREE_STATE); 
+      'КНОПКА НАЗАД':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Назад*');
+      'КНОПКА ДАЛЕЕ':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Далее*');
+      'КНОПКА ОТМЕНА':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Отмена*');
+      'КНОПКА ПОМОЩЬ':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Помощь*');
+      'ПОЛЕ "ПУТЬ К ДЕЛЬТЕ"':
+        Result := FindWindowByPath(GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Static;INDEX:=5');  
+    end;    
+    //  
+    'ВОЗМОЖНО ЧАСТИЧНОЕ ОБНОВЛЕНИЕ':
+    case whatToGet of
+      'ФОРМА':
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=' + FOUR_STATE); 
+      'КНОПКА НАЗАД':
+        Result := FindWindowByPath(GetFromDataUpd('ВОЗМОЖНО ЧАСТИЧНОЕ ОБНОВЛЕНИЕ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Назад*');
+      'КНОПКА ДАЛЕЕ':
+        Result := FindWindowByPath(GetFromDataUpd('ВОЗМОЖНО ЧАСТИЧНОЕ ОБНОВЛЕНИЕ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Далее*');
+      'КНОПКА ОТМЕНА':
+        Result := FindWindowByPath(GetFromDataUpd('ВОЗМОЖНО ЧАСТИЧНОЕ ОБНОВЛЕНИЕ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Отмена*');
+      'КНОПКА ПОМОЩЬ':
+        Result := FindWindowByPath(GetFromDataUpd('ВОЗМОЖНО ЧАСТИЧНОЕ ОБНОВЛЕНИЕ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Помощь*');
+    end;    
+    //  
+    'КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ':
+    case whatToGet of
+      'ФОРМА':
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=' + FIVE_STATE);
+      'КНОПКА НАЗАД':
+        Result := FindWindowByPath(GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Назад*');
+      'КНОПКА ДАЛЕЕ':
+        Result := FindWindowByPath(GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Далее*');
+      'КНОПКА ОТМЕНА':
+        Result := FindWindowByPath(GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Отмена*');
+      'КНОПКА ПОМОЩЬ':
+        Result := FindWindowByPath(GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Помощь*');
+      'ЧЕКБОКС СОЗДАТЬ РЕЗЕРВНУЮ КОПИЮ' :
+        Result := FindWindowByPath(GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Создать резервную копию.*');
+      'ЧЕКБОКС ОТКАЗАТЬСЯ ОТ СОЗДАНИЯ РЕЗЕРВНОЙ КОПИИ':
+        Result := FindWindowByPath(GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Отказаться от создания резервной копии*');
+    end;       
+    //
+    'ПАКЕТНОЕ ПОПОЛНЕНИЕ СИСТЕМЫ ГАПАНТ':
+    case whatToGet of  
+      'ФОРМА':
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=' + SIX_STATE);
+    end;   
+    //  
+    'ВНИМАНИЕ. ПРОЦЕСС ПАКЕТНОГО ПОПОЛНЕНИЯ УСПЕШНО ЗАВЕРШЕН':
+    case whatToGet of
+      'ФОРМА':   
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=' + EIGHT_STATE);
+      'КНОПКА ОК':
+        Result := FindWindowByPath(GetFromDataUpd('ВНИМАНИЕ. ПРОЦЕСС ПАКЕТНОГО ПОПОЛНЕНИЯ УСПЕШНО ЗАВЕРШЕН', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*OK*');
+    end;
+    'ПОДТВЕРЖДЕНИЕ':
+    case whatToGet of
+      'ФОРМА':   
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=Внимание');
+      'КНОПКА ДА':
+        Result := FindWindowByPath(GetFromDataUpd('ПОДТВЕРЖДЕНИЕ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Да*'); 
+      'КНОПКА НЕТ':
+        Result := FindWindowByPath(GetFromDataUpd('ПОДТВЕРЖДЕНИЕ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Нет*'); 
+    end;
+    'ПРОВЕРКА ФАЙЛОВ ПАКЕТНОГО ОБНОВЛЕНИЯ':
+    case whatToGet of
+      'ФОРМА':   
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=Проверка файлов пакетного обновления');
+      'КНОПКА ДАЛЕЕ':
+        Result := FindWindowByPath(GetFromDataUpd('ПРОВЕРКА ФАЙЛОВ ПАКЕТНОГО ОБНОВЛЕНИЯ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Далее*'); 
+    end;
+    'РАСПАКОВКА АРХИВОВ':
+    case whatToGet of
+      'ФОРМА':   
+        Result := FindWindowByPath(parent, 'WNDCAPTION:=Распаковка архивов');
+      'КНОПКА ДАЛЕЕ':
+        Result := FindWindowByPath(GetFromDataUpd('РАСПАКОВКА АРХИВОВ', 'ФОРМА'), 'WNDCLASS:=Button;WNDCAPTION:=*Далее*'); 
+    end;                  
+  end;  
+  
+
+
+except
+  Log.Message(FUNCTION_NAME + ':' + ExceptionMessage, 'whatToGet:' + whatToGet, pmNormal, GetLogAttr('EXCEPTION'));
+  Result := NonExObj;
+  CommonExceptionHandler;
+end;
+end;
+
+
+{
+DESK: Возвращается текущие состояние апдейтера 
+}
+function GetCurrentState: string;
+var
+  mainWnd : OleVariant;
+  str : string;
+begin
+  mainWnd := GetFromDataUpd('ГЛАВНАЯ ФОРМА');  
+  if NOT ( IsExists(mainWnd) AND mainWnd.Visible) then
+    Raise('Не удалось получить главную форму апдейтера');
+  //mainWnd.SetFocus;  
+  str := mainWnd.WndCaption;  
+  case str of
+    ONE_STATE:   result := ONE_STATE;   
+    TWO_STATE:   result := TWO_STATE;
+    THREE_STATE: result := THREE_STATE;
+    FOUR_STATE:  result := FOUR_STATE;
+    FIVE_STATE:  result := FIVE_STATE;                                              
+    SIX_STATE:   result := SIX_STATE;
+    SEVEN_STATE: result := SEVEN_STATE;
+    EIGHT_STATE: result := EIGHT_STATE;
+    SPACE_ONE_STATE   : result := SPACE_ONE_STATE;
+    SPACE_TWO_STATE   : result := SPACE_TWO_STATE;
+    SPACE_THREE_STATE : result := SPACE_THREE_STATE 
+    else
+      result := UNKNOWN_STATE + ' : ' + str;
+  end;  
+end;
+
+
+{
+DESK: Изменяется состояние апдейтера 
+}
+function ChangeState(
+  targetState: string;
+  paramString : string = ''
+) : boolean;
+const
+  FUNCTION_NAME = 'ChangeState';
+var
+  curState: string;
+  obj;
+  paramList;
+  isEasyMode;
+  isBackupIB;
+  isArhiveDelta;
+  pathDelta;
+  timeOut;
+  timeOutFromBackupIB;
+  timeOutFromUpdateIB;
+  timeOutFromReleaseData;
+  tempString;
+  i;  
+begin
+try
+  paramList := ParseParamString(paramString);  
+  isEasyMode := VarToBool( GetParam(paramList, 'isEasyMode', 'true') );//По умолчанию УПРАЩЁННЫЙ РЕЖИМ
+  isBackupIB := VarToBool( GetParam(paramList, 'isBackupIB', 'true') );//По умолчанию с КОПИРОВАНИЕМ ИНФОРМАЦИОННОГО БАНКА
+  isArhiveDelta := VarToBool( GetParam(paramList, 'isArhiveDelta', 'false') );//По умолчанию дельта НЕпакованная
+  pathDelta :=  VarToStr( GetParam(paramList, 'pathDelta', '') );
+  if pathDelta = '' then pathDelta := GetF1Directory + '\delta'; 
+  timeOutFromBackupIB := 5*60*1000;//отводится на ожидание, пока не завершится создание резервной копии
+  timeOutFromUpdateIB := 20*60*1000;//отводится на ожидание, пока не завершится пакетное пополнение
+  timeOutFromReleaseData := 5*60*1000;//отводится на ожидание, пока не завершится "Освобождение данных" (только для Фс) 
+  if (isEasyMode) AND (NOT isBackupIB) then
+    Raise('Переданы неправильные параметры: "Упрощённое обновление" и "Не создвать копию информационного банка", так как при Упрощённом обновлении всегда должна создаваться копия ИБ');
+  
+      
+  curState := GetCurrentState;
+  if curState = UNKNOWN_STATE then Raise('Не удалось определить текущее состояние апдейтера');
+  
+  if targetState = ONE_STATE then Raise('Неверно задано целевое состояние: ' + targetState);
+  if (targetState = FIVE_STATE) AND isEasyMode then 
+    Raise('Переданные параметры: "targetState=' + targetState + '" и  "isEasyMode=true" конфликтуют');
+  if (targetState = SIX_STATE) AND (NOT isBackupIB) then 
+    Raise('Переданные параметры: "targetState=' + targetState + '" и  "isBackupIB=false" конфликтуют');
+          
+  case curState of   
+    ONE_STATE://Добро пожаловать!
+    begin
+      obj :=  GetFromDataUpd('ДОБРО ПОЖАЛОВАТЬ', 'КНОПКА ДАЛЕЕ');      
+      if NOT IsExists(obj) then Raise('Не удалось получить "КНОПКА ДАЛЕЕ" на форме "ДОБРО ПОЖАЛОВАТЬ" ');
+      obj.SetFocus;      
+      obj.Click;
+      //Проверяем, успешно ли мы перешли в следующие состояние
+      curState := GetCurrentState; 
+      if curState <> TWO_STATE then Raise('Не удачно перешли в состояние: <<' + TWO_STATE + '>> ,текущее состояние=' + curState);
+      //Смотрим, если следующие состояние равно целевому- тогда выходим, иначе продолжаем 
+      if curState <> targetState then ChangeState(targetState, paramString);  
+    end;
+    TWO_STATE://Выбор типа обновления
+    begin
+      if isEasyMode then
+      begin
+        obj :=  GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'ЧЕКБОКС УПРОЩЕННЫЙ');
+        if NOT IsExists(obj) then Raise('Не удалось получить "ЧЕКБОКС УПРОЩЕННЫЙ" на форме "ВЫБОР ТИПА ОБНОВЛЕНИЯ" ');
+        obj.Click;
+        if NOT obj.wChecked then Raise('Не удалось включить "ЧЕКБОКС УПРОЩЕННЫЙ" на форме "ВЫБОР ТИПА ОБНОВЛЕНИЯ" ');     
+      end
+      else
+      begin
+        obj :=  GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'ЧЕКБОКС РАСШИРЕННЫЙ');
+        if NOT IsExists(obj) then Raise('Не удалось получить "ЧЕКБОКС РАСШИРЕННЫЙ" на форме "ВЫБОР ТИПА ОБНОВЛЕНИЯ" ');
+        obj.Click;
+        if NOT obj.wChecked then Raise('Не удалось включить "ЧЕКБОКС РАСШИРЕННЫЙ" на форме "ВЫБОР ТИПА ОБНОВЛЕНИЯ" ');
+      end;
+      obj :=  GetFromDataUpd('ВЫБОР ТИПА ОБНОВЛЕНИЯ', 'КНОПКА ДАЛЕЕ');
+      if NOT IsExists(obj) then Raise('Не удалось получить "КНОПКА ДАЛЕЕ" на форме "ВЫБОР ТИПА ОБНОВЛЕНИЯ" ');
+      obj.Click;      
+      curState := GetCurrentState; 
+      if curState <> THREE_STATE then Raise('Не удачно перешли в состояние: ' + THREE_STATE + ' ,текущее состояние=' + curState);       
+      if curState <> targetState then ChangeState(targetState, paramString);  
+    end;
+    THREE_STATE://Выбор каталога с файлами пакетного пополнения
+    begin
+      obj :=  GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ', 'КНОПКА ДАЛЕЕ');
+      if NOT IsExists(obj) then Raise('Не удалось получить "КНОПКА ДАЛЕЕ" на форме "ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ" ');
+      obj.Click;
+      //Выбор каталога с дельтой
+      //...   
+      curState := GetCurrentState;
+      if isArhiveDelta then   
+      begin  
+        if curState <> SPACE_ONE_STATE then Raise('Не удачно перешли в состояние: ' + SPACE_ONE_STATE + ' ,текущее состояние=' + curState);
+      end
+      else
+        if curState <> FOUR_STATE then Raise('Не удачно перешли в состояние: ' + FOUR_STATE + ' ,текущее состояние=' + curState);
+      if curState <> targetState then ChangeState(targetState, paramString);  
+    end;
+    SPACE_ONE_STATE://Распаковка архивов
+    begin
+      timeOut := Win32API.GetTickCount + timeOutFromBackupIB;
+      while Win32API.GetTickCount < timeOut do
+      begin 
+        Delay(1*1000);
+        curState := GetCurrentState;      
+        if curState = FOUR_STATE then break;        
+      end;      
+      if curState <> FOUR_STATE then Raise('Не удачно перешли в состояние: ' + FOUR_STATE + ' ,текущее состояние=' + curState);
+      for i := 1 to 2 do
+      begin
+        case i of 
+          1: tempString := pathDelta + '\Archive\*.zip'//Проверяем, что архив переместился в папку ..\Arсhive
+          2: tempString := pathDelta + '\delta*.d*'//Проверяем, архив распоковался в ..\delta
+        end; 
+        if NOT CheckFileExist(tempString) then Log.Error('После Этапа "Распаковка архива" не найден файл: ' + tempString);
+      end;
+      tempString := pathDelta + '\delta*.zip';//Проверяем, что архива нет в папке ..\delta, что он переместился
+      if CheckFileExist(tempString) then Log.Error('После Этапа "Распаковка архива" файл: ' + tempString + ' не переместился');
+      if curState <> targetState then ChangeState(targetState, paramString);    
+    end;    
+    FOUR_STATE://Возможно частичное обновление
+    begin
+      obj :=  GetFromDataUpd('ВОЗМОЖНО ЧАСТИЧНОЕ ОБНОВЛЕНИЕ', 'КНОПКА ДАЛЕЕ');
+      if NOT IsExists(obj) then Raise('Не удалось получить "КНОПКА ДАЛЕЕ" на форме "ВОЗМОЖНО ЧАСТИЧНОЕ ОБНОВЛЕНИЕ" ');
+      obj.Click;
+      Delay(Options.Run.Timeout div 30);//на этом несколько апдейтер несколько секунд не одупляется
+      curState := GetCurrentState;
+      if isEasyMode then
+      begin        
+        if curState <> SIX_STATE then Raise('Не удачно перешли в состояние: ' + SIX_STATE + ' ,текущее состояние=' + curState);
+      end
+      else
+      begin
+        if curState <> FIVE_STATE then Raise('Не удачно перешли в состояние: ' + FIVE_STATE + ' ,текущее состояние=' + curState);
+      end;
+      if curState <> targetState then ChangeState(targetState, paramString);
+    end;
+    FIVE_STATE://Копирование информационного банка для последующего обновления.
+    begin
+      if isBackupIB then
+      begin
+        obj := GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'ЧЕКБОКС СОЗДАТЬ РЕЗЕРВНУЮ КОПИЮ');
+        if NOT IsExists(obj) then Raise('Не удалось получить "ЧЕКБОКС СОЗДАТЬ РЕЗЕРВНУЮ КОПИЮ" на форме "КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ"');
+        obj.Click;
+        if NOT obj.wChecked then Raise('Не удалось включить "ЧЕКБОКС СОЗДАТЬ РЕЗЕРВНУЮ КОПИЮ" на форме "КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ" ');
+        obj :=  GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'КНОПКА ДАЛЕЕ');
+        if NOT IsExists(obj) then Raise('Не удалось получить "КНОПКА ДАЛЕЕ" на форме "КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ" ');
+        obj.Click;
+        curState := GetCurrentState;      
+        if curState <> SIX_STATE then Raise('Не удачно перешли в состояние: ' + SIX_STATE + ' ,текущее состояние=' + curState);
+      end
+      else
+      begin
+        obj := GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'ЧЕКБОКС ОТКАЗАТЬСЯ ОТ СОЗДАНИЯ РЕЗЕРВНОЙ КОПИИ');
+        if NOT IsExists(obj) then Raise('Не удалось получить "ЧЕКБОКС ОТКАЗАТЬСЯ ОТ СОЗДАНИЯ РЕЗЕРВНОЙ КОПИИ" на форме "КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ"');
+        obj.Click;
+        if NOT obj.wChecked then Raise('Не удалось включить "ЧЕКБОКС ОТКАЗАТЬСЯ ОТ СОЗДАНИЯ РЕЗЕРВНОЙ КОПИИ" на форме "КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ" ');
+        obj := GetFromDataUpd('КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ', 'КНОПКА ДАЛЕЕ');
+        if NOT IsExists(obj) then Raise('Не удалось получить "КНОПКА ДАЛЕЕ" на форме "КОПИРОВАНИЕ ИНФОРМАЦИОННОГО БАНКА ДЛЯ ПОСЛЕДУЮЩЕГО ОБНОВЛЕНИЯ" ');
+        obj.Click;
+        curState := GetCurrentState;
+        //Если ФС версия, тогда перед состояние "Пакетное пополнение ..."(SEVEN STATE) идёт состояние "Освобождение данных"(SPACE_THREE_STATE)
+        if (GetProductType = PT_FILESERVER_CONSOLE) OR (GetProductType = PT_FILESERVER) then
+        begin 
+          if curState <> SPACE_THREE_STATE then Raise('Не удачно перешли в состояние: ' + SPACE_THREE_STATE + ' ,текущее состояние=' + curState);
+        end
+        else
+          if curState <> SEVEN_STATE then Raise('Не удачно перешли в состояние: ' + SEVEN_STATE + ' ,текущее состояние=' + curState);        
+      end;
+      if curState <> targetState then ChangeState(targetState, paramString);
+    end;
+    SPACE_THREE_STATE://Мастер пакетного пополнения. Освобождение данных (только для ФС)
+    begin      
+      timeOut := Win32API.GetTickCount + timeOutFromReleaseData;      
+      while Win32API.GetTickCount < timeOut do
+      begin 
+        Delay(20*1000);
+        curState := GetCurrentState;        
+        if curState = SEVEN_STATE then break;                
+      end;
+      if curState <> SEVEN_STATE then Raise('Не удачно перешли в состояние: ' + SEVEN_STATE + ' ,текущее состояние=' + curState);
+      ChangeState(targetState, paramString);
+    end;
+    SIX_STATE://Мастер пакетного пополнения. Создание копии информационного банка
+    begin
+      timeOut := Win32API.GetTickCount + timeOutFromBackupIB;
+      while Win32API.GetTickCount < timeOut do
+      begin 
+        Delay(3*1000);
+        curState := GetCurrentState;      
+        if curState = SEVEN_STATE then break;        
+      end;
+      if curState <> SEVEN_STATE then Raise('Не удачно перешли в состояние: ' + SEVEN_STATE + ' ,текущее состояние=' + curState);
+      if curState <> targetState then ChangeState(targetState, paramString); 
+    end;
+    SEVEN_STATE://Пакетное пополнение комплекта системы ГАРАНТ
+    begin
+      Delay(1*60*1000);//пакетное пополнение для ТБ идёт полюбому не меньше 1-х минут
+      timeOut := Win32API.GetTickCount + timeOutFromUpdateIB;      
+      while Win32API.GetTickCount < timeOut do
+      begin 
+        Delay(20*1000);
+        curState := GetCurrentState;        
+        if curState = EIGHT_STATE then break;                
+      end;
+      if curState <> EIGHT_STATE then Raise('Не удачно перешли в состояние: ' + EIGHT_STATE + ' ,текущее состояние=' + curState);
+      ChangeState(targetState, paramString);
+    end;
+    EIGHT_STATE://Внимание
+    begin
+      obj :=  GetFromDataUpd('ВНИМАНИЕ. ПРОЦЕСС ПАКЕТНОГО ПОПОЛНЕНИЯ УСПЕШНО ЗАВЕРШЕН', 'КНОПКА ОК');
+      if NOT IsExists(obj) then Raise('Не удалось получить "КНОПКА ОК" на форме "ВНИМАНИЕ. ПРОЦЕСС ПАКЕТНОГО ПОПОЛНЕНИЯ УСПЕШНО ЗАВЕРШЕН" ');
+      obj.SetFocus;
+      Delay(Options.Run.Timeout div 30);
+      obj.Click;      
+      Delay(20*1000);
+      //Проверяем, что в логе всё нравственно
+      if AnalizToUpdateLog(GetF1Directory + '\logs\update.log', isEasyMode) then
+        Log.Message('Проверка лога апдейтера прошла успешно') 
+      else Log.Error('После завершения пакетного пополнения в логе апдейтера есть ошибки!');            
+      //Проверяем, что процесс закрылся
+      if IsExists(GetF1DataUpdProcess(-1, 2, false)) then Raise('После завершения Пакетного пополнения процесс F1DataUpd.exe остался висеть в памяти');      
+    end;
+  end;
+  
+  Result := true;
+  
+except
+  Log.Picture(Sys_Desktop.Picture, 'ChangeState: Не удачно перешли в заданное состояние!"');
+  Log.Message(FUNCTION_NAME + ':' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));  
+  Raise;  
+end;    
+end;
+
+//Desk: Проверяем, что в логе апдейтера нет ошибок     
+function AnalizToUpdateLog(
+  pathToLog : string;
+  isEasyMode : boolean  
+): boolean;
+var
+  stringFromLog;
+  stringParam;
+  etalonStrings;
+  tempString;
+  i;
+begin
+try
+  result := false;
+//Проверяем, что есть эталонные строки
+  if NOT isEasyMode then tempString := 'Выбран расширенный тип обновления' else tempString := 'Выбран упрощенный тип обновления'; 
+  stringParam := 'InFileName:=' + pathToLog;
+  etalonStrings := [tempString,
+                    'Проверка свободного места, требуемого для обновления:',
+                    'Применение дельт(ы) прошло успешно',
+                    'Применение GL прошло успешно.'
+                   ];  
+  stringFromLog := ProcessingLogForErrors( etalonStrings, nil, stringParam);
+  tempString := '*';   
+  for i := VarArrayLowBound(etalonStrings, 1) to VarArrayHighBound(etalonStrings, 1) do
+    tempString := tempString + etalonStrings[i] + '*'; 
+  if NOT StringCompare(tempString, stringFromLog) then
+  begin
+    Log.Error('Лог апдейтера не содержит эталонных данных', stringFromLog);
+    Raise;
+  end;
+//Проверяем, что нет ошибок
+  stringFromLog := ProcessingLogForErrors( nil, nil, stringParam);  
+  if stringFromLog <> '' then
+  begin
+    Log.Error('Лог апдейтера содержит ошибки', stringFromLog);
+    Raise;
+  end; 
+  result := true;  
+except
+  Log.Message('AnalizToUpdateLog:' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  Result := false;
+  CommonExceptionHandler;    
+end;
+end;
+
+{
+DESK: Ф-ция прерывает корректность отмены обновления.
+ 
+}
+function AnalizeCanselUpdate(
+  curStateUpdater : string = ''//Состояние, в котором находится апдейтер в текущий момент
+): boolean;
+var
+  curState;
+  formName;
+  obj;
+begin
+try
+  if curStateUpdater = '' then Raise('Не переданы необходимые параметры'); 
+  curState := GetCurrentState;  
+  if curState <> curStateUpdater then Raise('Текущее состояние апдейтеро НЕ равно эталонному: ' + curStateUpdater+ ', состояние равно: ' + curState);
+  case GetCurrentState of
+    ONE_STATE :   formName := 'ДОБРО ПОЖАЛОВАТЬ';
+    TWO_STATE :   formName := 'ВЫБОР ТИПА ОБНОВЛЕНИЯ';
+    THREE_STATE : formName := 'ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ';
+    FOUR_STATE :  formName := 'ВОЗМОЖНО ЧАСТИЧНОЕ ОБНОВЛЕНИЕ';
+    else          formName := ''
+  end; 
+  obj := GetFromDataUpd(formName, 'КНОПКА ОТМЕНА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКА ОТМЕНА');
+  obj.Click;
+  obj := GetFromDataUpd('ПОДТВЕРЖДЕНИЕ', 'ФОРМА');
+  if NOT IsExists(obj) then
+    Raise('После отмены обновления мы не Получили ПОДТВЕРЖДЕНИЕ');
+  //Сначала проверяем, что мы возвращаемся в одновление отказе от завершения  
+  obj := GetFromDataUpd('ПОДТВЕРЖДЕНИЕ', 'КНОПКА НЕТ');
+  obj.Click;
+  obj := GetFromDataUpd(formName, 'ФОРМА');
+  if NOT IsExists(obj) then
+    Raise('После отказа от завершения обновления мы не вернулись назад в Режим обновления');
+  obj := GetFromDataUpd(formName, 'КНОПКА ОТМЕНА');
+  obj.Click; 
+  obj := GetFromDataUpd('ПОДТВЕРЖДЕНИЕ', 'ФОРМА');
+  if NOT IsExists(obj) then
+    Raise('После отмены обновления мы не Получили ПОДТВЕРЖДЕНИЕ');
+  //Теперь проверяем, что обновление завершается после отказа от него  
+  obj := GetFromDataUpd('ПОДТВЕРЖДЕНИЕ', 'КНОПКА ДА');
+  obj.Click;
+  Delay(10*1000);  
+  if IsExists(GetF1DataUpdProcess(-1 ,2, false)) then Raise('После завершения Пакетного пополнения процесс F1DataUpd.exe остался висеть в памяти');
+  result := true;
+except
+  Log.Message('AnalizToUpdateLog:' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  Result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  DESK: Функция говорит - построено ли ПРЕВЬЮ
+  REMARK: Мониторит статус бар, и если в нём появилось "*Страница*из*" - значит превью готово
+}
+function IsPreviewReady(
+  maxTimeOut : integer = 300000 //5 минут\ отводится на ожидание, если за это время в статусбаре не появился эталонный текст - Result=false 
+) : boolean;
+var
+  statusBarWnd;
+  timeOut;
+begin
+try    
+  statusBarWnd := GetFromMainWindow('СТАТУСБАР');
+  if NOT IsExists(statusBarWnd) then Raise('Не удалось получить СТАТУСБАР');
+  Result := false;    
+  timeOut := Win32API.GetTickCount + maxTimeOut;  
+  while Win32API.GetTickCount < timeOut do
+  begin
+    Delay(1000);                 
+    if StringCompare('*Объем распечатки в листах*', common.GetWindowText(statusBarWnd.handle)) then 
+    begin
+      Result := true;
+      break;      
+    end;    
+  end;
+except
+  Log.Message('IsPreviewReady:' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  Result := false;
+  CommonExceptionHandler;
+end;
+end;
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////  Сами скрипты    //////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+{
+HLTC250.1: Последовательность диалогов
+  HLTC250.1.1: Проверить последовательность диалогов при упрощенном типе обновления данных:
+  Добро пожаловать!
+  Выберите тип обновления (выбрать упрощенный)
+  Выбор каталога с файлами пакетного пополнения
+  Возможно частичное обновление
+  Мастер пакетного обновления. Создание копии информационного банка 
+  Пакетное пополение системы ГАРАНТ
+  Внимание. Процесс пакетного пополнения успешно завершен.
+HLTC250.2: Проверить в версиях разной сетевости  
+  HLTC250.2.1: Локальная версия
+HLTC250.4: Пакованные и непакованные дельты
+  HLTC250.4.2: Проверить обновление когда дельта не запакована 
+HLTC250.5: Местонахождение дельты
+  HLTC250.5.1: Проверить обновление, когда дельта находится:  
+    HLTC250.5.1.1: На локальном диске
+HLTC250.9: Корректность обновления
+  HLTC250.9.1: Проверить корректность обновления различными дельтами:
+    HLTC250.9.1.2
+      Дельтой для базы, которая должна:
+      удалить, изменить и добавить документы
+      удалить, изменить и добавить топики толкового словаря
+      изменить рубрикатор
+      изменить классификаторы ППС/ППР
+      Файл: delta_full64.D03      
+}
+function HLTC250_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;      
+  stringParam;  
+begin                                  
+try  
+  if NOT CopyDelta(NO_PAK) then Raise('Не удалось подготовить дельту : ' + NO_PAK);
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');
+  stringParam := 'isEasyMode:=true';
+         
+  if NOT ChangeState(EIGHT_STATE, stringParam) then
+  begin 
+    Log.Error('Не удалось корректно выполнить процесс Пакетного Обновления Данных!!!');
+    Raise;
+  end;
+      
+  result := true;  
+except  
+  Log.Message('HLTC250_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC250.1: Последовательность диалогов
+  HLTC250.1.2: Проверить последовательность диалогов при расширенном типе обновления данных с копированием информационного банка:
+  Добро пожаловать!
+  Выберите тип обновления (выбрать расширенный)
+  Выбор каталога с файлами пакетного пополнения
+  Возможно частичное обновление
+  Копирование информационного банка  для последующего обновления (выбрать создание копии)
+  Мастер пакетного обновления. Создание копии информационного банка 
+  Пакетное пополение системы ГАРАНТ
+  Внимание. Процесс пакетного пополнения успешно завершен.
+HLTC250.2: Проверить в версиях разной сетевости  
+  HLTC250.2.2: Клиент-серверная версия
+    HLTC250.2.2.3: Проверить обновление с сервера
+HLTC250.4: Пакованные и непакованные дельты
+  HLTC250.4.1: Проверить обновление когда дельта запакована в ZIP-архив
+HLTC250.5: Местонахождение дельты
+  HLTC250.5.1: Проверить обновление, когда дельта находится:  
+    HLTC250.5.1.2: по сетевому UNC пути
+HLTC250.9: Корректность обновления
+  HLTC250.9.1: Проверить корректность обновления различными дельтами:
+    HLTC250.9.1.2
+      Дельтой для базы, которая должна:
+      удалить, изменить и добавить документы
+      удалить, изменить и добавить топики толкового словаря
+      изменить рубрикатор
+      изменить классификаторы ППС/ППР
+      Файл: delta_full64.D03        
+    
+}
+function HLTC250_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;      
+  stringParam;  
+begin                                  
+try
+  if NOT CopyDelta(PAK) then Raise('Не удалось подготовить дельту : ' + PAK);
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');
+    
+  stringParam := 'isEasyMode:=false;isBackupIB:=true;isArhiveDelta:=true';       
+  if NOT ChangeState(EIGHT_STATE, stringParam) then
+  begin 
+    Log.Error('Не удалось корректно выполнить процесс Пакетного Обновления Данных!!!');
+    Raise;
+  end;    
+  result := true;  
+except  
+  Log.Message('HLTC250_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC250.1: Последовательность диалогов
+  HLTC250.1.3: Проверить последовательность диалогов при расширенном типе обновления данных без копирования информационного банка:
+  Добро пожаловать!
+  Выберите тип обновления (выбрать расширенный)
+  Выбор каталога с файлами пакетного пополнения
+  Возможно частичное обновление
+  Копирование информационного банка  для последующего обновления (выбрать НЕ создавать копию)
+  Пакетное пополение системы ГАРАНТ
+  Внимание. Процесс пакетного пополнения успешно завершен.
+HLTC250.2: Проверить в версиях разной сетевости  
+  HLTC250.2.3: Файл-серверная версия
+    HLTC250.2.3.2: Проверить обновление с сервера
+HLTC250.4: Пакованные и непакованные дельты
+  HLTC250.4.2: Проверить обновление когда дельта не запакована 
+HLTC250.5: Местонахождение дельты
+  HLTC250.5.1: Проверить обновление, когда дельта находится:  
+    HLTC250.5.1.1: На локальном диске
+HLTC250.9: Корректность обновления
+  HLTC250.9.1: Проверить корректность обновления различными дельтами:
+    HLTC250.9.1.2
+      Дельтой для базы, которая должна:
+      удалить, изменить и добавить документы
+      удалить, изменить и добавить топики толкового словаря
+      изменить рубрикатор
+      изменить классификаторы ППС/ППР
+      Файл: delta_full64.D03         
+    
+}
+function HLTC250_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;      
+  stringParam;  
+begin                                  
+try  
+  if NOT CopyDelta(NO_PAK) then Raise('Не удалось подготовить дельту : ' + NO_PAK);
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');
+    
+  stringParam := 'isEasyMode:=false;isBackupIB:=false';     
+  if NOT ChangeState(EIGHT_STATE, stringParam) then
+  begin 
+    Log.Error('Не удалось корректно выполнить процесс Пакетного Обновления Данных!!!');
+    Raise;
+  end;    
+  result := true;  
+except  
+  Log.Message('HLTC250_1_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+{
+HLTC250.3: Проверить отмену обновления
+  Проверить отмену обновления в диалогах:
+  HLTC250.3.1: Окно Добро пожаловать!  
+}
+
+function HLTC250_3_1_Execute (var  CurrentState: OleVariant): OleVariant;
+begin                                  
+try  
+  if NOT StartF1DataUpd then
+    Raise('Не удалось запустить апдейтер'); 
+  result :=  AnalizeCanselUpdate(ONE_STATE);
+  if NOT result then Log.Error('В состоянии "' + ONE_STATE + '" ОТМЕНА обновления не прошла успешно!');  
+except  
+  Log.Message('HLTC250_3_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.3: Проверить отмену обновления
+  Проверить отмену обновления в диалогах:
+  HLTC250.3.2: Выберите тип обновления (выбрать упрощенный)  
+}
+
+function HLTC250_3_2_Execute (var  CurrentState: OleVariant): OleVariant;
+begin                                  
+try  
+  if NOT StartF1DataUpd then
+    Raise('Не удалось запустить апдейтер');
+  if NOT ChangeState(TWO_STATE, 'isEasyMode:=true') then
+  begin 
+    Log.Error('Не удалось корректно перевести апдейтер в состояние :' + TWO_STATE);
+    Raise;
+  end; 
+  result :=  AnalizeCanselUpdate(TWO_STATE);
+  if NOT result then Log.Error('В состоянии "' + TWO_STATE + '" ОТМЕНА обновления не прошла успешно!');  
+except  
+  Log.Message('HLTC250_3_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.3: Проверить отмену обновления
+  Проверить отмену обновления в диалогах:
+  HLTC250.3.3: Выбор каталога с файлами пакетного пополнения 
+}
+
+function HLTC250_3_3_Execute (var  CurrentState: OleVariant): OleVariant;
+begin                                  
+try  
+  if NOT StartF1DataUpd then
+    Raise('Не удалось запустить апдейтер');
+  ChangeState(THREE_STATE, 'isEasyMode:=true');
+  result :=  AnalizeCanselUpdate(THREE_STATE);
+  if NOT result then Log.Error('В состоянии "' + THREE_STATE + '" ОТМЕНА обновления не прошла успешно!');  
+except  
+  Log.Message('HLTC250_3_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.3: Проверить отмену обновления
+  Проверить отмену обновления в диалогах:
+  HLTC250.3.4: Возможно частичное обновление 
+}
+
+function HLTC250_3_4_Execute (var  CurrentState: OleVariant): OleVariant;
+begin                                  
+try  
+  if NOT CopyDelta(NO_PAK) then Raise('Не удалось подготовить дельту : ' + NO_PAK);
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');
+  ChangeState(FOUR_STATE, 'isEasyMode:=true');//Если не выполнится, тогда пробросится исключение
+  result :=  AnalizeCanselUpdate(FOUR_STATE);
+  if NOT result then Log.Error('В состоянии "' + FOUR_STATE + '" ОТМЕНА обновления не прошла успешно!');  
+except  
+  Log.Message('HLTC250_3_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.5: Местонахождение дельты
+  HLTC250.5.2: Проверить, что по умолчанию дельта ищется по  пути <каталог установки>\delta
+}
+
+function HLTC250_5_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  defaultPath;
+  currentPath;
+  obj;
+begin                                  
+try  
+  if NOT StartF1DataUpd then
+    Raise('Не удалось запустить апдейтер');
+  defaultPath := GetF1Directory + '\Delta';  
+  ChangeState(THREE_STATE, 'isEasyMode:=true');
+  obj := GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ', 'ПОЛЕ "ПУТЬ К ДЕЛЬТЕ"');
+  if NOT IsExists(obj) then Raise('Не удалось получить ПОЛЕ "ПУТЬ К ДЕЛЬТЕ"');
+  currentPath := obj.WndCaption; 
+  result :=  StringCompare(defaultPath, currentPath);
+  if NOT result then Log.Error('Дельта по умолчанию ищется в: ' + currentPath + ', а должна в : ' + defaultPath);
+  CloseF1DataUpd;  
+except  
+  Log.Message('HLTC250_5_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.6: Неправильная дельта
+  HLTC250.6.1: Проверить, что если в указанном пользователем каталоге нет дельт, программа предупреждает об этом. 
+}
+
+function HLTC250_6_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+  defaultWndCaption;
+  wndCaption;  
+begin                                  
+try
+  defaultWndCaption := 'Обновление невозможно';
+  if NOT StartF1DataUpd then
+    Raise('Не удалось запустить апдейтер');  
+  
+  ChangeState(THREE_STATE, 'isEasyMode:=true');
+  obj := GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ','КНОПКА ДАЛЕЕ');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКА ДАЛЕЕ на форме ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ');
+  obj.Click;
+  
+  obj := GetFromDataUpd('ГЛАВНАЯ ФОРМА', 'ФОРМА');
+  wndCaption := obj.WndCaption;
+  result := StringCompare(defaultWndCaption, wndCaption);
+  if NOT result then
+  begin
+    Log.Error('После выбора каталога с несуществующей дельтой, апдейтер не перешёл в состояние "Обновление не возможно"', wndCaption);
+    Raise('После выбора каталога с несуществующей дельтой, апдейтер не перешёл в состояние "Обновление не возможно"');
+  end;
+  CloseF1DataUpd; 
+except  
+  Log.Message('HLTC250_6_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.6: Неправильная дельта
+  HLTC250.6.2: Что будет, если дельта есть, но неправильная (не от этой базы, не для того перида времени) 
+}
+
+function HLTC250_6_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  defaultWndCaption;
+  wndCaption;  
+  obj;  
+begin                                  
+try
+  defaultWndCaption := 'Обновление невозможно';  
+  if NOT CopyDelta(SEGMENT) then Raise('Не удалось подготовить дельту : ' + SEGMENT);//Неправильная Дельта
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');
+    
+  ChangeState(THREE_STATE, 'isEasyMode:=true');
+  obj := GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ','КНОПКА ДАЛЕЕ');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКА ДАЛЕЕ на форме ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ');
+  obj.Click;
+  
+  obj := GetFromDataUpd('ГЛАВНАЯ ФОРМА', 'ФОРМА');
+  wndCaption := obj.WndCaption;
+  result := StringCompare(defaultWndCaption, wndCaption);
+  if NOT result then
+  begin
+    Log.Error('После выбора каталога с Неправильной дельтой, апдейтер не перешёл в состояние "Обновление не возможно"', wndCaption);
+    Raise('После выбора каталога с Неправильной дельтой, апдейтер не перешёл в состояние "Обновление не возможно"');
+  end;
+  CloseF1DataUpd; 
+except  
+  Log.Message('HLTC250_6_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.6: Неправильная дельта
+  HLTC250.6.3: Что будет, если дельта битая 
+}
+function HLTC250_6_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  defaultWndCaption;
+  wndCaption;
+  stringParam;
+  obj;  
+begin                                  
+try
+  defaultWndCaption := 'Обновление невозможно'; 
+  if NOT CopyDelta(BROKEN) then Raise('Не удалось подготовить дельту : ' + BROKEN);//Побитая Дельта
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');
+    
+  ChangeState(THREE_STATE, 'isEasyMode:=true');
+  
+  obj := GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ','КНОПКА ДАЛЕЕ');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКА ДАЛЕЕ на форме ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ');
+  obj.Click;
+  
+  obj := GetFromDataUpd('ПРОВЕРКА ФАЙЛОВ ПАКЕТНОГО ОБНОВЛЕНИЯ','ФОРМА');
+  if NOT IsExists(obj) AND obj.Visible then
+   Raise('Не удалось получить форму ПРОВЕРКА ФАЙЛОВ ПАКЕТНОГО ОБНОВЛЕНИЯ после обнаружения Битой дельты');
+  obj := GetFromDataUpd('ПРОВЕРКА ФАЙЛОВ ПАКЕТНОГО ОБНОВЛЕНИЯ','КНОПКА ДАЛЕЕ');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКА ДАЛЕЕ на форме ПРОВЕРКА ФАЙЛОВ ПАКЕТНОГО ОБНОВЛЕНИЯ');
+  obj.Click;
+   
+  obj := GetFromDataUpd('ГЛАВНАЯ ФОРМА', 'ФОРМА');
+  wndCaption := obj.WndCaption;
+  result := StringCompare(defaultWndCaption, wndCaption);
+  if NOT result then
+  begin
+    Log.Error('После выбора каталога с Неправильной дельтой, апдейтер не перешёл в состояние "Обновление не возможно"', wndCaption);
+    Raise('После выбора каталога с Неправильной дельтой, апдейтер не перешёл в состояние "Обновление не возможно"');
+  end;
+  CloseF1DataUpd; 
+except  
+  Log.Message('HLTC250_6_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.6: Неправильная дельта
+  HLTC250.6.4: Что будет, если архив дельты битый 
+}
+function HLTC250_6_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  defaultWndCaption;
+  wndCaption;
+  stringParam;
+  obj;
+  timeOut;  
+begin                                  
+try
+  result := false;
+  defaultWndCaption := 'Обновление невозможно'; 
+  if NOT CopyDelta(ZIP_BROKEN) then Raise('Не удалось подготовить дельту : ' + ZIP_BROKEN);//Побитый архив с дельтой
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');  
+    
+  ChangeState(THREE_STATE, 'isEasyMode:=true');
+  
+  obj := GetFromDataUpd('ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ','КНОПКА ДАЛЕЕ');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКА ДАЛЕЕ на форме ВЫБОР КАТАЛОГА С ФАЙЛАМИ ПАКЕТНОГО ПОПОЛНЕНИЯ');
+  obj.Click;
+  
+  obj := GetFromDataUpd('РАСПАКОВКА АРХИВОВ','ФОРМА');
+  if NOT IsExists(obj) AND obj.Visible then
+   Raise('Не удалось получить форму РАСПАКОВКА АРХИВОВ после обнаружения Битого АРХИВА с дельтой');
+  obj := GetFromDataUpd('РАСПАКОВКА АРХИВОВ','КНОПКА ДАЛЕЕ');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКА ДАЛЕЕ на форме РАСПАКОВКА АРХИВОВ');
+  //Пока дельта распакуется
+  timeOut := Win32API.GetTickCount + (30 * 1000);//30 секуднд на распаковку дельты      
+  while Win32API.GetTickCount < timeOut do
+  begin
+    Delay(1*1000);
+    if obj.Enabled then break;                
+  end;
+  obj.Click;  
+  obj := GetFromDataUpd('ПРОВЕРКА ФАЙЛОВ ПАКЕТНОГО ОБНОВЛЕНИЯ','КНОПКА ДАЛЕЕ');
+  if NOT IsExists(obj) then
+    Raise('Не удалось на форме ПРОВЕРКА ФАЙЛОВ ПАКЕТНОГО ОБНОВЛЕНИЯ найти КНОПКА ДАЛЕЕ');
+  obj.click;
+  Delay(2*1000);    
+  obj := GetFromDataUpd('ГЛАВНАЯ ФОРМА', 'ФОРМА');
+  wndCaption := obj.WndCaption;
+  result := StringCompare(defaultWndCaption, wndCaption);
+  if NOT result then
+  begin
+    Log.Error('После попытки подложить битый архив с дельтой, апдейтер не перешёл в состояние "Обновление не возможно"', wndCaption);
+    Raise('После попытки подложить битый архив с дельтой, апдейтер не перешёл в состояние "Обновление не возможно"');
+  end;
+  CloseF1DataUpd;    
+  result := true; 
+except  
+  Log.Message('HLTC250_6_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+
+HLTC250.9: Корректность обновления
+  HLTC250.9.1: Проверить корректность обновления различными дельтами:
+    HLTC250.9.1.1  Дельтой для базы, которая не содержит никаких изменений в данных для нее 
+    Файл null_delta.D03 
+    Если для текущей версии нет - надо попросить Макса Смолькина сварить.        
+}
+function HLTC250_9_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;      
+  stringParam;  
+begin                                  
+try
+  if NOT CopyDelta(NO_CHANGE) then Raise('Не удалось подготовить дельту : ' + NO_CHANGE);
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');
+  stringParam := 'isEasyMode:=true';
+         
+  if NOT ChangeState(EIGHT_STATE, stringParam) then
+  begin
+    Log.Error('Не удалось корректно выполнить процесс Пакетного Обновления Данных!!!');
+    Raise;
+  end;
+      
+  result := true;  
+except  
+  Log.Message('HLTC250_9_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.9: Корректность обновления
+  HLTC250.9.1: Проверить корректность обновления различными дельтами:
+    HLTC250.9.1.6: дельтой для отдельных сегментов.         
+}
+function HLTC250_9_1_6_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;      
+  stringParam;  
+begin                                  
+try
+  if NOT CopyDelta(SEGMENT) then Raise('Не удалось подготовить дельту : ' + SEGMENT);
+  if NOT RunUpdater then
+    Raise('Не удалось успешно выполнить этап, включающий в себя копирование дельты и запуск апдейтера');
+  stringParam := 'isEasyMode:=true';
+         
+  if NOT ChangeState(EIGHT_STATE, stringParam) then
+  begin
+    Log.Error('Не удалось корректно выполнить процесс Пакетного Обновления Данных!!!');
+    Raise;
+  end;
+      
+  result := true;  
+except  
+  Log.Message('HLTC250_9_1_6_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.1: Открыт чисто документ (желательно с картинками и таблиц
+      HLTC250.12.1.1.1: Документ есть в текущей и обновленной базах
+}
+function HLTC250_12_1_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 2001;
+var
+  obj;
+  str;
+begin                                  
+try
+  str := 'МНС (при поиске должны сначала учитываться синонимы*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then 
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;
+  if NOT StringCompare(str, CopyToClipBoard(obj, 'STRING')) then
+    Raise('После переключения на другую базу текст документа не эталонный');
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.1: Открыт чисто документ (желательно с картинками и таблиц
+      HLTC250.12.1.1.2: Документ есть в текущей, но нет в обновленной базе
+}
+function HLTC250_12_1_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 6086112;
+var
+  obj;
+  warningText;
+  str;  
+begin                                  
+try
+  warningText := '*Данный документ не включён в состав вашего комплекта.*';   
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');  
+  str := WaitForWarningWindow(Options.Run.Timeout div 60, warningText, true, '#Вернуться*', true);   
+  if NOT StringCompare(warningText, str) then
+  begin
+    Log.Error('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+    Raise('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+  end; 
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then 
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.1: Открыт чисто документ (желательно с картинками и таблиц
+      HLTC250.12.1.1.3: В обновленной базе меняется текст документа
+}
+function HLTC250_12_1_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 333555;
+var
+  obj;
+  str ;
+begin                                  
+try
+  str := 'Справочник банковских идентификационных кодов';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then 
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;
+  if NOT StringCompare(str, CopyToClipBoard(obj, 'STRING')) then
+    Raise('После переключения на другую базу текст документа не эталонный');
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_1_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.1: Открыт чисто документ (желательно с картинками и таблиц
+      HLTC250.12.1.1.4: Когда открыто окно контекстного поиска в документе
+}
+function HLTC250_12_1_1_4_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  obj;
+  str;
+  baseSearchWnd;
+begin                                  
+try
+  str := 'КОНСТИТУЦИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  baseSearchWnd := OpenBaseSearch; 
+  if NOT  IsExists(baseSearchWnd) then Raise('Не удалось получить окно котекстного поиска');    
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;
+  if NOT StringCompare(str, CopyToClipBoard(obj, 'STRING')) then
+    Raise('После переключения на другую базу текст документа не эталонный');
+  CloseContextSearchForm;
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_1_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.1: Открыт чисто документ (желательно с картинками и таблиц
+      HLTC250.12.1.1.5: Когда висит диалог сохранения в файл
+}
+function HLTC250_12_1_1_5_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 2001;
+var
+  obj;
+  saveWnd;  
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');  
+  if NOT ClickByMainMenuItem('Файл\Сохранить в файл*') then Raise('Не удалось вызвать пункт главного меню "Файл\Сохранить в файл"');
+  saveWnd := GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"');
+  if NOT IsExists(saveWnd) then  Raise('Не найден ДИАЛОГ "СОХРАНИТЬ КАК"');
+  saveWnd.Activate; 
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  
+  if NOT (IsExists(saveWnd) AND saveWnd.Visible ) then
+  begin
+    Log.Error('После переключения баз неудалось обнаружить ДИАЛОГ "СОХРАНИТЬ КАК"');
+    Raise('После переключения баз неудалось обнаружить ДИАЛОГ "СОХРАНИТЬ КАК"');
+  end;  
+  Sys.Keys('[Esc]');
+   
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end; 
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_1_5_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.1: Открыт чисто документ (желательно с картинками и таблиц
+      HLTC250.12.1.1.6: Когда висит диалог сохранения в папки пользователя
+}
+function HLTC250_12_1_1_6_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 2001;
+var
+  obj;  
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := OpenSaveToFolderDialog;        
+  if NOT IsExists(obj) then Raise('Не удалось открыть диалог сохранения в Мои документы');
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  {//В 7.7 этот диалог после переключения закрывается
+  if NOT (IsExists(obj) AND obj.Visible ) then
+  begin
+    Log.Error('После переключения баз неудалось обнаружить диалог сохранения в мои документы');
+    Raise('После переключения баз неудалось обнаружить диалог сохранения в мои документы');
+  end;  
+  Sys.Keys('[Esc]');
+  } 
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end; 
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_1_6_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  Sys.Keys('[Esc]');
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.1: Открыт чисто документ (желательно с картинками и таблиц
+      HLTC250.12.1.1.8: Когда поднято контекстное меню
+}
+function HLTC250_12_1_1_8_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 2001;
+var
+  obj;
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  Sys.Keys('[Apps]');      
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_1_8_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.2: Просмотр текста документа, открытого со справкой
+      HLTC250.12.1.2.1: Документ есть в текущей и обновленной базах
+}
+function HLTC250_12_1_2_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+var
+  helpWnd;
+  str;
+begin                                  
+try
+  str := 'Договор "О создании Союзного государства" (Москва, 8 декабря 1999 г.)*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  helpWnd := OpenInDocument('СПРАВКА');
+  if NOT IsExists(helpWnd) then Raise('Не удалось открыть окно СПРАВКА');
+  helpWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(helpWnd) AND helpWnd.Visible)then 
+  begin
+    Log.Error('После переключения баз окно СПРАВКА не активно');
+    Raise('После переключения баз окно СПРАВКА не активно');
+  end;
+  Sys.Keys('^[Home][Down]');
+  if NOT StringCompare(str, CopyToClipBoard(helpWnd, 'STRING')) then
+    Raise('После переключения на другую базу текст Спраки не эталонный');
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_2_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.2: Просмотр текста документа, открытого со справкой
+      HLTC250.12.1.2.2: Документ есть в текущей, но нет в обновленной базе
+}
+function HLTC250_12_1_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055340;
+var
+  helpWnd, docWnd;
+  str, warningText;
+begin                                  
+try
+  warningText := '*Данный документ не включён в состав вашего комплекта.*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  helpWnd := OpenInDocument('СПРАВКА');
+  if NOT IsExists(helpWnd) then Raise('Не удалось открыть окно СПРАВКА');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus; 
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');  
+  str := WaitForWarningWindow(Options.Run.Timeout div 60, warningText, true, '#Вернуться*', true);  
+  if NOT StringCompare(warningText, str) then
+  begin
+    Log.Error('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+    Raise('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+  end; 
+  if NOT ( IsExists(docWnd) AND docWnd.Visible) then 
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;
+  result := true;  
+except  
+  Log.Message('HLTC250_12_1_2_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.2: Просмотр текста документа, открытого со справкой
+      HLTC250.12.1.2.3: В обновленной базе меняется текст документа
+}
+function HLTC250_12_1_2_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10101873;
+var
+  helpWnd, docWnd;
+  etalonStr;
+  str;
+begin                                  
+try
+  etalonStr := 'Конвенция, отменяющая требование легализации*';
+  if NOT OpenDocByNumber(DOC_NUM, false, false) then Raise('Не удалось открыть документ по Alt+N');
+  helpWnd := OpenInDocument('СПРАВКА');
+  if NOT IsExists(helpWnd) then Raise('Не удалось открыть окно СПРАВКА');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(helpWnd) AND helpWnd.Visible)then 
+  begin
+    Log.Error('После переключения баз окно СПРАВКА не активно');
+    Raise('После переключения баз окно СПРАВКА не активно');
+  end;
+  helpWnd.SetFocus;
+  Sys.Keys('^[Home]');
+  str := CopyToClipBoard(helpWnd, 'ALL'); 
+  if NOT StringCompare(etalonStr, str) then
+    Raise('После переключения на другую базу текст Спраки не эталонный: ' + str);
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_2_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.3: Просмотр текста, внизу открыты атрибуты
+      HLTC250.12.1.3.1: Документ есть в текущей и обновленной базах
+}
+function HLTC250_12_1_3_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  attributesWnd, docWnd; 
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  attributesWnd := OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  if NOT IsExists(attributesWnd) then Raise('Не удалось открыть окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(attributesWnd) AND attributesWnd.Visible )then 
+  begin
+    Log.Error('После переключения баз окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ не активно');
+    Raise('После переключения баз окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ не активно');
+  end;  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_3_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.3: Просмотр текста, внизу открыты атрибуты
+      HLTC250.12.1.3.2: Документ есть в текущей, но нет в обновленной базе
+}
+function HLTC250_12_1_3_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055340;
+var
+  attributesWnd, docWnd;
+  obj;
+  str, warningText; 
+begin                                  
+try
+  warningText := '*Данный документ не включён в состав вашего комплекта*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  attributesWnd := OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  if NOT IsExists(attributesWnd) then Raise('Не удалось открыть окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  str := WaitForWarningWindow(Options.Run.Timeout div 60, warningText, true, '#Вернуться*', true);    
+  if NOT StringCompare(warningText, str) then
+  begin
+    Log.Error('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+    Raise('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+  end;
+  if NOT ( IsExists(attributesWnd) AND attributesWnd.Visible )then 
+  begin
+    Log.Error('После переключения баз окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ не активно');
+    Raise('После переключения баз окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ не активно');
+  end;   
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then 
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_3_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.3: Просмотр текста, внизу открыты атрибуты
+      HLTC250.12.1.3.3: В обновленной базе меняется текст документа
+}
+function HLTC250_12_1_3_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10101873;
+var
+  attributesWnd, docWnd;
+  str;
+begin                                  
+try
+  str := 'Конвенция, отменяющая требование легализации иностранных официальных документов*';
+  if NOT OpenDocByNumber(DOC_NUM, false, false) then Raise('Не удалось открыть документ по Alt+N');
+  attributesWnd := OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  if NOT IsExists(attributesWnd) then Raise('Не удалось открыть окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ');  
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(attributesWnd) AND attributesWnd.Visible )then 
+  begin
+    Log.Error('После переключения баз окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ не активно');
+    Raise('После переключения баз окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ не активно');
+  end;
+  if NOT ( IsExists(attributesWnd) AND attributesWnd.Visible ) then 
+  begin
+    Log.Error('После переключения баз окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ не активно');
+    Raise('После переключения баз окно ИНФОРМАЦИЯ О ДОКУМЕНТЕ не активно');
+  end;
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_3_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.4: Просмотр текста, внизу открыт СКР
+      HLTC250.12.1.4.1: Документ есть в текущей и обновленной базах
+}
+function HLTC250_12_1_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  skrWnd;
+  docWnd; 
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  skrWnd := OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ');
+  if NOT IsExists(skrWnd) then Raise('Не удалось открыть окно ССЫЛКИ НА ДОКУМЕНТ');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;    
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(docWnd) AND docWnd.Visible AND IsExists(skrWnd) AND skrWnd.Visible )then 
+  begin
+    Log.Error('После переключения баз окно ССЫЛКИ НА ДОКУМЕНТ не активно');
+    Raise('После переключения баз окно ССЫЛКИ НА ДОКУМЕНТ не активно');
+  end;  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_4_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.4: Просмотр текста, внизу открыт СКР
+      HLTC250.12.1.4.2: Документ есть в текущей, но нет в обновленной базе
+}
+function HLTC250_12_1_4_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 6086112;//помимо этого - больше не документов с СКР, отсутствующих в новой базе
+var
+  attributesWnd;
+  docWnd;  
+  str, warningText; 
+begin                                  
+try
+  warningText := '*Данный документ не включён в состав вашего комплекта*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  attributesWnd := OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ');
+  if NOT IsExists(attributesWnd) then Raise('Не удалось открыть окно ССЫЛКИ НА ДОКУМЕНТ');  
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  str := WaitForWarningWindow(Options.Run.Timeout div 60, warningText, true, '#Вернуться*', true);  
+  if NOT StringCompare(warningText, str) then
+  begin
+    Log.Error('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+    Raise('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+  end;  
+  if NOT ( IsExists(docWnd) AND docWnd.Visible) then 
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_4_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.4: Просмотр текста, внизу открыт СКР
+      HLTC250.12.1.4.3: В обновленной базе меняется текст документа
+}
+function HLTC250_12_1_4_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 8901001;
+var
+  skrWnd, docWnd;  
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  skrWnd := OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ');
+  if NOT IsExists(skrWnd) then Raise('Не удалось открыть окно ССЫЛКИ НА ДОКУМЕНТ');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;    
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(docWnd) AND docWnd.Visible AND IsExists(skrWnd) )then 
+  begin
+    Log.Error('После переключения баз окно ССЫЛКИ НА ДОКУМЕНТ не активно');
+    Raise('После переключения баз окно ССЫЛКИ НА ДОКУМЕНТ не активно');
+  end;  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_4_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.5: Просмотр текста, внизу предупреждение
+      HLTC250.12.1.5.1: Документ есть в текущей и обновленной базах
+        HLTC250.12.1.5.1.1: Предупреждение остается         
+}
+function HLTC250_12_1_5_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 2223371;
+var
+  warningWnd, docWnd;
+  warningStr;
+begin                                  
+try
+  warningStr := 'Внимание! Настоящий документ фактически прекратил действие*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  warningWnd := GetFromEditor('ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ"');  
+  if NOT IsExists(warningWnd) then Raise('Не удалось получить ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ');
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(docWnd) AND docWnd.Visible AND IsExists(warningWnd) AND warningWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ не активна');
+    Raise('После переключения баз ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ не активна');    
+  end;
+  warningWnd.SetFocus;
+  Sys.Keys('^[Home]');
+  if NOT StringCompare(warningStr, CopyToClipBoard(warningWnd, 'STRING')) then
+    Raise('После переключения на другую базу текст Предупреждения не эталонный');
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_5_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.5: Просмотр текста, внизу предупреждение
+      HLTC250.12.1.5.1: Документ есть в текущей и обновленной базах
+        HLTC250.12.1.5.1.2: Предупреждение меняется        
+}
+function HLTC250_12_1_5_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 9003;
+var
+  warningWnd, docWnd;
+  warningStr;
+begin                                  
+try
+  warningStr := 'Внимание! Нормативный акт, на основании которого принят данный*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  warningWnd := GetFromEditor('ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ"');  
+  if NOT IsExists(warningWnd) then Raise('Не удалось получить ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ');
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(docWnd) AND docWnd.Visible AND IsExists(warningWnd) AND warningWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ не активна');
+    Raise('После переключения баз ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ не активна');    
+  end;
+  warningWnd.SetFocus;
+  Sys.Keys('^[Home]');
+  if NOT StringCompare(warningStr, CopyToClipBoard(warningWnd, 'STRING')) then
+    Raise('После переключения на другую базу текст Предупреждения не эталонный');
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_5_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.5: Просмотр текста, внизу предупреждение
+      HLTC250.12.1.5.1: Документ есть в текущей и обновленной базах
+        HLTC250.12.1.5.1.3: Предупреждение удаляется        
+}
+function HLTC250_12_1_5_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 9001;
+var
+  warningWnd, docWnd;
+  pgControl;  
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  warningWnd := GetFromEditor('ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ"');  
+  if NOT IsExists(warningWnd) then Raise('Не удалось получить ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ');
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');  
+  if ( (IsExists(warningWnd) AND warningWnd.Visible) AND (NOT (IsExists( docWnd) AND  docWnd.Visible)) ) then
+  begin
+    Log.Error('После переключения баз при удалении Предупреждения ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ" существует');
+    Raise('После переключения баз при удалении Предупреждения ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ" существует');
+  end;
+  pgControl := GetFromEditor('ЗАКЛАДКИ');
+  if NOT IsExists(pgControl) then Raise('Не удалось получить ЗАКЛАДКИ');
+  if SwitchToPage(pgControl, 'Предупреждение') then
+  begin
+    Log.Error('После переключения баз при удалении Предупреждения ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ" каким то образом существует на PageConrol-е');
+    Raise('После переключения баз при удалении Предупреждения ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ" каким то образом существует на PageConrol-е');
+  end;   
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_5_1_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.5: Просмотр текста, внизу предупреждение
+      HLTC250.12.1.5.2: Документ есть в текущей, но нет в обновленной базе                 
+}
+
+function HLTC250_12_1_5_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 500002003;//помимо этого - больше не документов с Warning, отсутствующих в новой базе
+var
+  warningWnd;
+  docWnd;  
+  str, warningText; 
+begin                                  
+try
+  warningText := '*Данный документ не включён в состав вашего комплекта.*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  warningWnd := GetFromEditor('ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ"');  
+  if NOT IsExists(warningWnd) then Raise('Не удалось получить ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ');
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;    
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  str := WaitForWarningWindow(Options.Run.Timeout div 60, warningText, true, '#Вернуться*', true);  
+  if NOT StringCompare(warningText, str) then
+  begin
+    Log.Error('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+    Raise('После переключения базы на несуществующий документ не обнаружилось окно предупреждения');
+  end;  
+  if NOT ( IsExists(docWnd) AND docWnd.Visible) then 
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после переключения баз');
+  end;
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_5_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.5: Просмотр текста, внизу предупреждение
+      HLTC250.12.1.5.1: Документ есть в текущей и обновленной базах
+        HLTC250.12.1.5.3: В обновленной базе меняется текст документа         
+}
+function HLTC250_12_1_5_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 8901001;
+var
+  warningWnd, docWnd;
+  warningStr;
+  str;
+begin                                  
+try
+  warningStr := 'Это предупреждение для действующей редакции*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  warningWnd := GetFromEditor('ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ"');  
+  if NOT IsExists(warningWnd) then Raise('Не удалось получить ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ');
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(docWnd) AND docWnd.Visible AND IsExists(warningWnd) AND warningWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ не активна');
+    Raise('После переключения баз ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ не активна');    
+  end;
+  warningWnd.SetFocus;
+  Sys.Keys('^[Home]');
+  str := CopyToClipBoard(warningWnd, 'STRING'); 
+  if NOT StringCompare(warningStr, str) then
+    Raise('После переключения на другую базу текст Предупреждения не эталонный: ' + str);
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_5_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.6: Предварительный просмотр печати
+      HLTC250.12.1.6.1: Документ есть в текущей и обновленной базах
+}
+function HLTC250_12_1_6_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10064072;
+var
+  previewWnd;
+  docWnd;  
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');    
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickByMainMenuItem('Файл\Предварительный просмотр') then 
+    Raise('Не удалось вызвать "Файл\Предварительный просмотр"');
+  previewWnd := GetFromMainWindow('ПРЕВЬЮ');
+  if NOT IsExists(previewWnd) then Raise('Не удалось получить ПРЕВЬЮ');
+  if NOT IsPreviewReady then Raise('В течении интервала времени не удалось получить ПРЕВЬЮ уже с подсчитанными страницами');
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(previewWnd) AND previewWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ПРЕВЬЮ не активно');
+    Raise('После переключения баз ПРЕВЬЮ не активно');    
+  end;
+  if NOT IsPreviewReady then Raise('В течении интервала времени не удалось получить ПРЕВЬЮ уже с подсчитанными страницами');
+  Delay(Options.Run.Timeout div 60);  
+  PressKeyWithCheck(['[Esc]']);  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_6_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  Sys.Keys('[Esc]');
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.6: Предварительный просмотр печати
+      HLTC250.12.1.6.2: Документ есть в текущей, но нет в обновленной базе
+}
+function HLTC250_12_1_6_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 500002003;
+var
+  previewWnd;
+  docWnd; 
+  docText;  
+  res;
+  str;  
+begin                                  
+try
+  docText := '*Данный документ содержится в информационном блоке*';             
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');    
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickByMainMenuItem('Файл\Предварительный просмотр') then 
+    Raise('Не удалось вызвать "Файл\Предварительный просмотр"');
+  previewWnd := GetFromMainWindow('ПРЕВЬЮ');
+  if NOT IsExists(previewWnd) then Raise('Не удалось получить ПРЕВЬЮ');
+  if NOT IsPreviewReady then 
+    Raise('В течении интервала времени не удалось получить ПРЕВЬЮ уже с подсчитанными страницами');
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(previewWnd) AND previewWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ПРЕВЬЮ не активно');
+    Raise('После переключения баз ПРЕВЬЮ не активно');    
+  end;
+  Delay(Options.Run.Timeout div 60);  
+  PressKeyWithCheck(['[Esc]']);  
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после выхода из превью');
+  docWnd.SetFocus;
+  Sys.Keys('^[Home]');
+  str := CopyToClipBoard(docWnd, 'STRING');
+  if NOT StringCompare(docText, str) then
+    Raise('После переключения на другую базу, без текущего документ - текст документа не эталонный :' + str);
+  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_6_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  Sys.Keys('[Esc]');
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.6: Предварительный просмотр печати
+      HLTC250.12.1.6.3: В обновленной базе меняется текст документа
+}
+function HLTC250_12_1_6_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10001873;
+var
+  previewWnd;
+  docWnd;
+  docText;  
+begin                                  
+try
+  docText := 'ГАРАНТ:*Перевод с французского*';
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');    
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickByMainMenuItem('Файл\Предварительный просмотр') then 
+    Raise('Не удалось вызвать "Файл\Предварительный просмотр"');
+  previewWnd := GetFromMainWindow('ПРЕВЬЮ');
+  if NOT IsExists(previewWnd) then Raise('Не удалось получить ПРЕВЬЮ');
+  if NOT IsPreviewReady then Raise('В течении интервала времени не удалось получить ПРЕВЬЮ уже с подсчитанными страницами');
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(previewWnd) AND previewWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ПРЕВЬЮ не активно');
+    Raise('После переключения баз ПРЕВЬЮ не активно');    
+  end;
+  if NOT IsPreviewReady then Raise('В течении интервала времени не удалось получить ПРЕВЬЮ уже с подсчитанными страницами');
+  Delay(Options.Run.Timeout div 60);  
+  PressKeyWithCheck(['[Esc]']);
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после выхода из превью');
+  docWnd.SetFocus;
+  Sys.Keys('^[Home]');
+  if NOT StringCompare(docText, CopyToClipBoard(docWnd, 'STRING')) then
+    Raise('После переключения на другую базу - текст документа не эталонный');  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_6_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  Sys.Keys('[Esc]');
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.6: Предварительный просмотр печати
+      HLTC250.12.1.6.4: Во время подсчета страниц большого документа со структурой(например, ГК 10064072)
+}
+function HLTC250_12_1_6_4_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  DOC_NUM = 10064072;
+var
+  previewWnd;
+  docWnd;  
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');    
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickByMainMenuItem('Файл\Предварительный просмотр') then 
+    Raise('Не удалось вызвать "Файл\Предварительный просмотр"');
+  previewWnd := GetFromMainWindow('ПРЕВЬЮ');
+  if NOT IsExists(previewWnd) then Raise('Не удалось получить ПРЕВЬЮ');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(previewWnd) AND previewWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ПРЕВЬЮ не активно');
+    Raise('После переключения баз ПРЕВЬЮ не активно');    
+  end;  
+  Delay(Options.Run.Timeout div 60);    
+  PressKeyWithCheck(['[Esc]']);
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');  
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  docWnd.SetFocus;
+  Sys.Keys('[PageDown][PageDown][PageUp]');  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_6_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  Sys.Keys('[Esc]');
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.1: Просмотр текста документа
+    HLTC250.12.1.6: Предварительный просмотр печати
+      HLTC250.12.1.6.1: Документ есть в текущей и обновленной базах
+}
+{
+function HLTC250_12_1_6_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10064072;
+var
+  previewWnd;
+  docWnd;  
+begin                                  
+try  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');    
+  docWnd :=  GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickByMainMenuItem('Файл\Предварительный просмотр') then 
+    Raise('Не удалось вызвать "Файл\Предварительный просмотр"');
+  previewWnd := GetFromMainWindow('ПРЕВЬЮ');
+  if NOT IsExists(previewWnd) then Raise('Не удалось получить ПРЕВЬЮ');
+  if NOT IsPreviewReady then Raise('В течении интервала времени не удалось получить ПРЕВЬЮ уже с подсчитанными страницами');
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(previewWnd) AND previewWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ПРЕВЬЮ не активно');
+    Raise('После переключения баз ПРЕВЬЮ не активно');    
+  end;
+  if NOT IsPreviewReady then Raise('В течении интервала времени не удалось получить ПРЕВЬЮ уже с подсчитанными страницами');
+  Delay(Options.Run.Timeout div 60);  
+  PressKeyWithCheck(['[Esc]']);  
+  result := true;
+except  
+  Log.Message('HLTC250_12_1_6_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  Sys.Keys('[Esc]');
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+}
+
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.1: Список с вхождениями
+      HLTC250.12.2.1.1: Часть документов списка отсутствует в обновленной базе
+}
+function HLTC250_12_2_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+
+var
+  cardData;
+  listWnd;
+  docWnd;  
+begin                                  
+try
+  carddata:=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'Документ']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];    
+  SearchInPPR(carddata);  
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(listWnd) AND listWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СПИСОК не активен');
+    Raise('После переключения баз СПИСОК не активен');    
+  end;
+  if NOT OpenDocFromList('Документ*', listWnd) then 
+    Raise('Не удалось открыть документ  из списка');
+    
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить текст документа');
+  docWnd.SetFocus;
+  Sys.Keys('[PageDown][PageDown]');
+  result := true;
+  CloseTabIfNeeded;
+except  
+  Log.Message('HLTC250_12_2_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.1.2: Все документы списка отсутствуют в обновленной базе
+}
+function HLTC250_12_2_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+
+var
+  cardData;
+  listWnd;
+  docWnd;  
+begin                                  
+try
+  carddata:=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'Сравнительные очерк горного']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];    
+  SearchInPPR(carddata);  
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  
+  listWnd := GetFromList('ПУСТОЙ СПИСОК ДОКУМЕНТОВ');
+  if NOT ( IsExists(listWnd) AND listWnd.Visible ) then Raise('Не удалось получить ПУСТОЙ СПИСОК ДОКУМЕНТОВ после переключения баз');
+  Sys.Keys('[PageDown][PageDown]');
+  result := true;
+except  
+  Log.Message('HLTC250_12_2_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.1: Список с вхождениями
+      HLTC250.12.2.1.3: Все документы списка есть в текущей базе
+}
+function HLTC250_12_2_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  cardData;
+  listWnd;
+  docWnd;  
+begin                                  
+try
+
+  carddata :=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'Конституция']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];    
+  SearchInPPR(carddata);  
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(listWnd) AND listWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ПРЕВЬЮ не активно');
+    Raise('После переключения баз ПРЕВЬЮ не активно');    
+  end;
+  if NOT OpenDocFromList('Конституция*', listWnd) then 
+    Raise('Не удалось открыть документ  из списка');  
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить текст документа');
+  docWnd.SetFocus;
+  Sys.Keys('[PageDown][PageDown]');
+  result := true;
+  CloseTabIfNeeded;
+except  
+  Log.Message('HLTC250_12_2_1_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.2: Список, внизу – синхронный просмотр документа
+      HLTC250.12.2.2.1: Просматриваемый синхронно документ есть в обоих базах
+}
+function HLTC250_12_2_2_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  cardData;
+  listWnd;
+  synhroWnd;    
+begin                                  
+try
+  carddata :=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'Конституция']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];    
+  SearchInPPR(carddata);  
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT Position_Internal(listWnd, 'Конституция Российской Федерации*', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на документе "Конституция Российской Федерации"');
+  synhroWnd := OpenInList('СИНХРОННЫЙ ПРОСМОТР');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось открыть область СИНХРОННЫЙ ПРОСМОТР');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(synhroWnd) AND synhroWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СИНХРОННЫЙ ПРОСМОТР не активно');
+    Raise('После переключения баз СИНХРОННЫЙ ПРОСМОТР не активно');    
+  end;    
+  result := true;
+except
+  Log.Message('HLTC250_12_2_2_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.2: Список, внизу – синхронный просмотр документа
+      HLTC250.12.2.2.2: Просматриваемый синхронно документ отсутствует в обновленной базе
+!!!Старая база      
+}
+function HLTC250_12_2_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  cardData;
+  listWnd;
+  synhroWnd;    
+begin                                  
+try
+  carddata :=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'Решение о председательстве в Совете глав правительств']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];    
+  SearchInPPR(carddata);  
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT Position_Internal(listWnd, 'Решение о председательстве в Совете глав правительств*25*', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на документе "Решение о председательстве в Совете глав правительств*25*"');
+  synhroWnd := OpenInList('СИНХРОННЫЙ ПРОСМОТР');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось открыть область СИНХРОННЫЙ ПРОСМОТР');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(synhroWnd) AND synhroWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СИНХРОННЫЙ ПРОСМОТР не активно');
+    Raise('После переключения баз СИНХРОННЫЙ ПРОСМОТР не активно');
+  end;    
+  result := true;
+except
+  Log.Message('HLTC250_12_2_2_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.2: Список, внизу – синхронный просмотр документа
+      HLTC250.12.2.2.3: В списке появился новый документ (Тестовая база, список по первой ветке. Новый документ - 8901044).
+!!!Старая база      
+}
+function HLTC250_12_2_2_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  listWnd;
+  synhroWnd;    
+begin                                  
+try
+  if NOT OpenObjectFromFolder(LIST_MAIN,  OpenMenuTab) then
+    Raise('Не удалось открыть список по первой ветки рубрикатора');  
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT Position_Internal(listWnd, 'Конституция*', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на документе "Конституция*"');
+  synhroWnd := OpenInList('СИНХРОННЫЙ ПРОСМОТР');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось открыть область СИНХРОННЫЙ ПРОСМОТР');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(synhroWnd) AND synhroWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СИНХРОННЫЙ ПРОСМОТР не активно');
+    Raise('После переключения баз СИНХРОННЫЙ ПРОСМОТР не активно');
+  end;
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+    Raise('Не удалось открыть список по первой ветки рубрикатора');    
+  if NOT Position_Internal(listWnd, 'Документ 8901044', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на документе "Документ 8901044", который появился в новой базе');    
+  result := true;
+except
+  Log.Message('HLTC250_12_2_2_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.3: Список, внизу – синхронный просмотр СКР      
+}
+function HLTC250_12_2_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  cardData;
+  listWnd;
+  synhroWnd;
+  toolBar;    
+begin                                  
+try
+  carddata :=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'Конституция']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];    
+  SearchInPPR(carddata);  
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT Position_Internal(listWnd, 'Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.)', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на документе "Конституция Российской Федерации"');
+  synhroWnd := OpenInList('СИНХРОННЫЙ ПРОСМОТР');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось открыть область СИНХРОННЫЙ ПРОСМОТР');  
+  toolBar := GetFromSynchroView('ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР"');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР"');
+    
+  if NOT ClickToolbarButton(toolBar, 'Судебная практика') then
+    Raise('Не удалось кликнуть по кнопке "Судебная практика"');
+  synhroWnd := GetFromSynchroView('СПИСОК ССЫЛОК НА ДОКУМЕНТ');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось получить СПИСОК ССЫЛОК НА ДОКУМЕНТ');
+        
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(synhroWnd) AND synhroWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СПИСОК ССЫЛОК НА ДОКУМЕНТ не активно');
+    Raise('После переключения баз СПИСОК ССЫЛОК НА ДОКУМЕНТ не активно');    
+  end;    
+  result := true;
+except
+  Log.Picture(Sys_Desktop.Picture, 'Скриншот при выбрасывании исключения"');
+  Log.Message('HLTC250_12_2_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.4: Список, внизу – справка      
+}
+function HLTC250_12_2_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  cardData;
+  listWnd;
+  synhroWnd;
+  toolBar;    
+begin                                  
+try
+  carddata :=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'Договор О создании Союзного']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];    
+  SearchInPPR(carddata);
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT Position_Internal(listWnd, 'Договор "О создании Союзного государства" *', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на документе "Договор "О создании Союзного государства"');
+  synhroWnd := OpenInList('СИНХРОННЫЙ ПРОСМОТР');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось открыть область СИНХРОННЫЙ ПРОСМОТР');  
+   
+  if NOT ClickToolbarButton(GetFromSynchroView('ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР"'), 'Справка к документу') then
+    Raise('Не удалось кликнуть по кнопке "Справка к документу"');
+  synhroWnd := GetFromSynchroView('СПРАВКА К ДОКУМЕНТУ');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось получить СПРАВКА К ДОКУМЕНТУ');
+        
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(synhroWnd) AND synhroWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СПРАВКА К ДОКУМЕНТУ не активно');
+    Raise('После переключения баз СПРАВКА К ДОКУМЕНТУ не активно');    
+  end;    
+  result := true;
+except
+  Log.Message('HLTC250_12_2_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.2: Просмотр списка (проверить что после обновления не лезут ошибки и документы открываются)
+    HLTC250.12.2.5: Список, внизу – атрибуты
+      HLTC250.12.2.5.1:В списке появился новый документ (Тестовая база, список по первой ветке. Новый документ - 8901044).
+      !!!Старая база      
+}
+function HLTC250_12_2_5_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  listWnd;
+  synhroWnd;
+  toolBar;    
+begin                                  
+try
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+    Raise('Не удалось открыть список по первой ветки рубрикатора');    
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');  
+  if NOT Position_Internal(listWnd, 'Конституция*', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на документе "Конституция"');
+  synhroWnd := OpenInList('СИНХРОННЫЙ ПРОСМОТР');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось открыть область СИНХРОННЫЙ ПРОСМОТР');  
+   
+  if NOT ClickToolbarButton(GetFromSynchroView('ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР"'), 'Информация о документе') then
+    Raise('Не удалось кликнуть по кнопке "Информация о документе"');
+  synhroWnd := GetFromSynchroView('АТТРИБУТЫ');
+  if NOT IsExists(synhroWnd) then Raise('Не удалось получить АТТРИБУТЫ');
+        
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(synhroWnd) AND synhroWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз АТТРИБУТЫ не активно');
+    Raise('После переключения баз АТТРИБУТЫ не активно');    
+  end;
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+    Raise('Не удалось открыть список по первой ветки рубрикатора');    
+  if NOT Position_Internal(listWnd, 'Документ 8901044', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на документе "Документ 8901044", который появился в новой базе');  
+  result := true;
+except
+  Log.Message('HLTC250_12_2_5_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.3: Просмотр рубрикатора
+    HLTC250.12.3.1: В обновленной базе есть просматриваемая ветка рубрикатора
+      !!!Старая база      
+}
+function HLTC250_12_3_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  rubrWnd;      
+begin                                  
+try
+  if NOT OpenObjectFromFolder(
+      LIST_RUBR_MAIN,
+      OpenMenuTab
+    ) then
+    Raise('Не удалось первую ветку рубрикатора');
+        
+  rubrWnd := GetFromList('СПИСОК РУБРИКАТОРА');
+  if NOT IsExists(rubrWnd) then Raise('Не удалось получить СПИСОК РУБРИКАТОРА');
+  rubrWnd.SetFocus;      
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(rubrWnd) AND rubrWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СПИСОК РУБРИКАТОРА не активно');
+    Raise('После переключения баз СПИСОК РУБРИКАТОРА не активно');    
+  end;
+  rubrWnd.SetFocus;
+  Sys.Keys('[End]');//Проверем, что не висим  
+  result := true;
+except
+  Log.Message('HLTC250_12_3_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.3: Просмотр рубрикатора
+    HLTC250.12.3.2: В обновленной базе нет просматриваемой ветки рубрикатора
+      !!!Старая база      
+}
+function HLTC250_12_3_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  rubrWnd;      
+begin                                  
+try
+  if NOT OpenObjectFromFolder(
+      LIST_RUBR_MAIN,
+      OpenMenuTab
+    ) then
+    Raise('Не удалось первую ветку рубрикатора');
+        
+  rubrWnd := GetFromList('СПИСОК РУБРИКАТОРА');
+  if NOT IsExists(rubrWnd) then Raise('Не удалось получить СПИСОК РУБРИКАТОРА');
+  rubrWnd.SetFocus;      
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');
+  if NOT ( IsExists(rubrWnd) AND rubrWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СПИСОК РУБРИКАТОРА не активно');
+    Raise('После переключения баз СПИСОК РУБРИКАТОРА не активно');    
+  end;
+  rubrWnd.SetFocus;
+  Sys.Keys('[End]');//Проверем, что не висим  
+  result := true;
+except
+  Log.Message('HLTC250_12_3_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.3: Просмотр рубрикатора
+    HLTC250.12.3.4: В обновленной базе изменилось содержание просматриваемой ветки рубрикатора
+      !!!Старая база      
+}
+function HLTC250_12_3_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  rubrWnd;      
+begin                                  
+try
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');//Переключаемся на ТБ27
+  
+  if NOT OpenObjectFromFolder('Правовой навигатор\Еще один класс. Верхний уровень', OpenMenuTab) then
+    Raise('Не удалось  ветку рубрикатора "Правовой навигатор\Ещё один класс. Верхний уровень"');        
+  rubrWnd := GetFromList('СПИСОК РУБРИКАТОРА');
+  if NOT IsExists(rubrWnd) then Raise('Не удалось получить СПИСОК РУБРИКАТОРА');
+  rubrWnd.SetFocus;      
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(rubrWnd) AND rubrWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СПИСОК РУБРИКАТОРА не активно');
+    Raise('После переключения баз СПИСОК РУБРИКАТОРА не активно');    
+  end;
+  rubrWnd.SetFocus;
+  if NOT Position_Internal(rubrWnd, 'Еще один класс. Нижний уровень 3', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на ветке рубрикатора "Правовой навигатор\Еще один класс. Верхний уровень\Еще один класс. Нижний уровень 3", видимо сожержание рубрикатора не изменилось');    
+  result := true;
+except
+  Log.Message('HLTC250_12_3_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.2: Сегмент Толкового словаря есть в обновленной базе
+      HLTC250.12.8.2.1: Термин есть в обновленной базе
+        HLTC250.12.8.2.1.1: Когда открыты только русские толкования
+}
+function HLTC250_12_8_2_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  dictWnd;
+  text;      
+begin                                  
+try
+  if NOT GoToDictionary then
+    Raise('Не удалось открыть ТС');
+  dictWnd := GetFromDictionary('ТЕКСТ СТАТЬИ');
+  if NOT IsExists(dictWnd) then Raise('Не удалось получить ТЕКСТ СТАТЬИ');  
+  dictWnd.SetFocus;
+  text := CopyToClipBoard(dictWnd, 'ALL');      
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(dictWnd) AND dictWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ТЕКСТ СТАТЬИ не активно');
+    Raise('После переключения баз ТЕКСТ СТАТЬИ не активно');    
+  end;
+  dictWnd.SetFocus;
+  if NOT StringCompare(text, CopyToClipBoard(dictWnd, 'ALL')) then
+  begin
+    Log.Error('После обновления базы текст Толкования не эталонен');
+    Raise('После обновления базы текст Толкования не эталонен');
+  end;  
+  result := true;
+except
+  Log.Message('HLTC250_12_8_2_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.2: Сегмент Толкового словаря есть в обновленной базе
+      HLTC250.12.8.2.1: Термин есть в обновленной базе
+        HLTC250.12.8.2.1.2: Когда открыты английские толкования
+}
+function HLTC250_12_8_2_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  dictWnd;
+  dictEnglishWnd;
+  text;      
+begin                                  
+try
+  if NOT GoToDictionary then Raise('Не удалось открыть ТС');
+  obj := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if NOT IsExists(obj) then Raise('Не удалось найти СПИСОК ТЕРМИНОВ');
+  if NOT Position_Internal(obj, 'Q Тобина','\', true,  'IsPressHome:=true') then Raise('Не удалось спозиционироваться на Q Тобина');  
+  dictWnd := GetFromDictionary('ТЕКСТ СТАТЬИ');  
+  if NOT IsExists(dictWnd) then Raise('Не удалось получить ТЕКСТ СТАТЬИ');  
+  dictEnglishWnd := GetFromDictionary('ПЕРЕВОД СТАТЬИ');  
+  if NOT IsExists(dictEnglishWnd) then Raise('Не удалось получить ПЕРЕВОД СТАТЬИ');  
+  dictEnglishWnd.SetFocus;      
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(dictWnd) AND dictWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ТЕКСТ СТАТЬИ не активно');
+    Raise('После переключения баз ТЕКСТ СТАТЬИ не активно');    
+  end;    
+  result := true;
+except
+  Log.Message('HLTC250_12_8_2_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.2: Сегмент Толкового словаря есть в обновленной базе
+      HLTC250.12.8.2.1: Термин есть в обновленной базе
+        HLTC250.12.8.2.1.3: Когда открыт список терминов на русском
+}
+function HLTC250_12_8_2_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  listWnd;
+  button;
+begin                                  
+try
+  if NOT GoToDictionary then
+    Raise('Не удалось открыть ТС');
+    
+  listWnd := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ТЕРМИНОВ');  
+  listWnd.SetFocus;
+  button := GetToolbarObject( GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), 'BUTTON', 'Русский язык');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Русский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА"');
+  if NOT button.Down then button.Click; 
+  if NOT Position_Internal(listWnd, 'Абекор', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться в списке терминов на "Абекор"'); 
+        
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(listWnd) AND listWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СПИСОК ТЕРМИНОВ не активно');
+    Raise('После переключения баз СПИСОК ТЕРМИНОВ не активно');    
+  end;  
+  if NOT Position_Internal(listWnd, 'Абекор', '\', true, 'IsPressHome := true') then
+  begin
+    Log.Error('После обновления базы список терминов не удалось спозиционироваться на "Абекор"');
+    Raise('После обновления базы список терминов не удалось спозиционироваться на "Абекор"');
+  end;  
+  if NOT button.Down then
+  begin
+    Log.Error('После переключения баз кнопка "Русский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА" не нажата');
+    Raise('После переключения баз кнопка "Русский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА" не нажата');
+  end;;  
+  result := true;
+except
+  Log.Message('HLTC250_12_8_2_1_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.2: Сегмент Толкового словаря есть в обновленной базе
+      HLTC250.12.8.2.1: Термин есть в обновленной базе
+        HLTC250.12.8.2.1.4: Когда открыт список терминов на французском
+}
+function HLTC250_12_8_2_1_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  listWnd;
+  button;
+begin                                  
+try
+  if NOT GoToDictionary then
+    Raise('Не удалось открыть ТС');
+    
+  listWnd := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ТЕРМИНОВ');  
+  listWnd.SetFocus;
+  button := GetToolbarObject( GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), 'BUTTON', 'Французский язык');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Французский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА"');
+  if NOT button.Down then button.Click; 
+  if NOT Position_Internal(listWnd, 'A jour', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться в списке терминов на "A jour"'); 
+        
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(listWnd) AND listWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз СПИСОК ТЕРМИНОВ не активно');
+    Raise('После переключения баз СПИСОК ТЕРМИНОВ не активно');    
+  end;  
+  if NOT Position_Internal(listWnd, 'A jour', '\', true, 'IsPressHome := true') then
+  begin
+    Log.Error('После обновления базы список терминов не удалось спозиционироваться на "A jour"');
+    Raise('После обновления базы список терминов не удалось спозиционироваться на "A jour"');
+  end;  
+  if NOT button.Down then
+  begin
+    Log.Error('После переключения баз кнопка "Французский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА" не нажата');
+    Raise('После переключения баз кнопка "Французский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА" не нажата');
+  end;;  
+  result := true;
+except
+  Log.Message('HLTC250_12_8_2_1_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.2: Сегмент Толкового словаря есть в обновленной базе
+      HLTC250.12.8.2.2: Термина нет в обновленной базе
+        HLTC250.12.8.2.2.1: Когда открыты только русские толкования
+        
+        HLTC250.12.8.2.2.3: Когда открыт список терминов на русском
+}
+function HLTC250_12_8_2_2_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  dictWnd;
+  listWnd;        
+  button;
+begin                                  
+try
+  if NOT GoToDictionary then
+    Raise('Не удалось открыть ТС');  
+  
+  listWnd := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ТЕРМИНОВ');  
+  listWnd.SetFocus;
+  button := GetToolbarObject( GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), 'BUTTON', 'Русский язык');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Русский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА"');
+  if NOT button.Down then button.Click;
+  if NOT OpenObjectFromFolder('А-дато', listWnd) then   
+    Raise('Не удалось открыть из списка терминов термин "А-дато"');      
+  dictWnd := GetFromDictionary('ТЕКСТ СТАТЬИ');
+  if NOT IsExists(dictWnd) then Raise('Не удалось получить ТЕКСТ СТАТЬИ');        
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(dictWnd) AND dictWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ТЕКСТ СТАТЬИ не активно');
+    Raise('После переключения баз ТЕКСТ СТАТЬИ не активно');    
+  end;
+  dictWnd.SetFocus;
+  //Идём в ОМ, что бы если вдруг возникла ошибка - отловить её
+  GoToMainMenu;
+  result := true;
+except
+  Log.Message('HLTC250_12_8_2_2_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.2: Сегмент Толкового словаря есть в обновленной базе
+      HLTC250.12.8.2.2: Термина нет в обновленной базе
+        HLTC250.12.8.2.2.2: Когда открыты английские толкования
+        !!!New Base
+}
+function HLTC250_12_8_2_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  dictWnd;
+  listWnd;
+  button;
+  context;
+  contextWnd;
+  contextBtn;      
+begin                                  
+try
+  context := 'мониторинг окружающей среды (экологический мониторинг)';  
+  if NOT GoToDictionary then Raise('Не удалось открыть ТС');  
+  button := GetToolbarObject( GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), 'BUTTON', 'Русский язык');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Русский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА"');
+  if NOT button.Down then button.Click;  
+  contextWnd := GetFromDictionary('ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT IsExists(contextWnd) then Raise('Не удалось получить ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  contextWnd.SetFocus;
+  Sys.Keys('[End]![Home][End]');
+  PressKeyWithCheck([context]);
+  contextBtn := GetFromDictionary('КНОПКА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT IsExists(contextBtn) then Raise('Не удалось получить КНОПКА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT contextBtn.Down then contextBtn.Click;
+  listWnd := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ТЕРМИНОВ');
+  if NOT OpenObjectFromFolder(context, listWnd) then   
+    Raise('Не удалось открыть из списка терминов термин: ' + context);      
+  dictWnd := GetFromDictionary('ПЕРЕВОД СТАТЬИ');
+  if NOT IsExists(dictWnd) then Raise('Не удалось получить ПЕРЕВОД СТАТЬИ');
+  dictWnd.SetFocus;       
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+
+  //Идём в ОМ, что бы если вдруг возникла ошибка - отловить её
+  GoToMainMenu;
+  result := true;
+except
+  Log.Message('HLTC250_12_8_2_2_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.2: Сегмент Толкового словаря есть в обновленной базе
+      HLTC250.12.8.2.2: Термина нет в обновленной базе
+        HLTC250.12.8.2.2.4: Когда открыт список терминов на французском
+        !!!New Base
+}
+function HLTC250_12_8_2_2_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  dictWnd;
+  listWnd;
+  button;  
+  context;
+  contextWnd;
+  contextBtn;      
+begin                                  
+try
+  context := 'Environmental monitoring (ecological monitoring)';  
+  if NOT GoToDictionary then Raise('Не удалось открыть ТС');  
+  button := GetToolbarObject( GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), 'BUTTON', 'Английский язык');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Английский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА"');
+  if NOT button.Down then button.Click;  
+  contextWnd := GetFromDictionary('ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT IsExists(contextWnd) then Raise('Не удалось получить ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  contextWnd.SetFocus;
+  Sys.Keys('[End]![Home][End]');
+  PressKeyWithCheck([context]);
+  contextBtn := GetFromDictionary('КНОПКА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT IsExists(contextBtn) then Raise('Не удалось получить КНОПКА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT contextBtn.Down then contextBtn.Click;
+  listWnd := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ТЕРМИНОВ');
+  if NOT OpenObjectFromFolder(context, listWnd) then   
+    Raise('Не удалось открыть из списка терминов термин: ' + context);      
+  dictWnd := GetFromDictionary('ТЕКСТ СТАТЬИ');
+  if NOT IsExists(dictWnd) then Raise('Не удалось получить ТЕКСТ СТАТЬИ');
+  dictWnd.SetFocus;       
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(dictWnd) AND dictWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ТЕКСТ СТАТЬИ не активно');
+    Raise('После переключения баз ТЕКСТ СТАТЬИ не активно');    
+  end;
+  dictWnd.SetFocus;
+  //Идём в ОМ, что бы если вдруг возникла ошибка - отловить её
+  GoToMainMenu;  
+  result := true;
+except
+  Log.Message('HLTC250_12_8_2_2_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.9: Просмотр информации о комплекте
+    HLTC250.12.9.1: Когда меняется комплект полностью
+    !!! OLD BASE
+}
+function HLTC250_12_9_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  infoWnd;
+  context;
+  caption;
+begin                                  
+try  
+  if NOT GoToMainMenu then Raise('Не удалось перейти в ОМ');
+  caption := GetMainWindow.Caption;
+  if NOT StringCompare('*24 мая 2013 г.*', caption) then 
+    Raise('По умолчанию комплект является не от 24 мая 2013 г.');
+  infoWnd := GoToComplectInfo('', true); 
+  if NOT IsExists(infoWnd) then Raise('Не удалось открыть "Информация о комплекте"'); 
+         
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT ( IsExists(infoWnd) AND infoWnd.Visible) then 
+  begin
+    Log.Error('После переключения баз ИНФОРМАЦИЯ О КОМПЛЕКТЕ не активно');
+    Raise('После переключения баз ИНФОРМАЦИЯ О КОМПЛЕКТЕ не активно');    
+  end;
+  if NOT GoToMainMenu then Raise('Не удалось перейти в ОМ');
+  caption := GetMainWindow.Caption;
+  if NOT StringCompare('*27 мая 2013 г.*', caption) then 
+    Raise('После переключения баз комплект не изменился на "от 27 мая 2013 г."');  
+  result := true;
+except
+  Log.Message('HLTC250_12_9_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.1: Сегмента Толкового словаря нет в обновленной базе
+      HLTC250.12.8.1.1: Когда открыты только русские толкования
+    !!! OLD BASE
+}
+function HLTC250_12_8_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  dictWnd;
+  button;
+  text;      
+begin                                  
+try
+  text := 'Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта*';
+  if NOT GoToDictionary then Raise('Не удалось открыть ТС');
+  button := GetToolbarObject( GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), 'BUTTON', 'Русский язык');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Русский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА"');
+  if NOT button.Down then button.Click;
+  dictWnd := GetFromDictionary('ТЕКСТ СТАТЬИ');
+  if NOT IsExists(dictWnd) then Raise('Не удалось получить ТЕКСТ СТАТЬИ');
+  dictWnd.SetFocus;        
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');
+  if NOT ( IsExists(dictWnd) AND dictWnd.Visible) then 
+  begin
+    Log.Error('После переключения на базу без ТС ТЕКСТ СТАТЬИ не активен');
+    Raise('После переключения баз без ТС ТЕКСТ СТАТЬИ не активен');    
+  end;
+  dictWnd.SetFocus;
+  if NOT StringCompare(text, CopyToClipBoard(dictWnd, 'ALL')) then
+  begin
+    Log.Error('После переключения на базу без ТС ТЕКСТ СТАТЬИ не "Данный документ не содержится в ИБ"');
+    Raise('После переключения на базу без ТС ТЕКСТ СТАТЬИ не "Данный документ не содержится в ИБ"');
+  end;  
+  result := true;
+except
+  Log.Message('HLTC250_12_8_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.1: Сегмента Толкового словаря нет в обновленной базе
+      HLTC250.12.8.1.2: Когда открыты английские толкования
+    !!! OLD BASE
+}
+function HLTC250_12_8_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  dictWnd;
+  button;
+  text;      
+begin                                  
+try
+  text := 'Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта*';
+  if NOT GoToDictionary then Raise('Не удалось открыть ТС');
+  button := GetToolbarObject( GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), 'BUTTON', 'Русский язык');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Русский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА"');
+  if NOT button.Down then button.Click;
+  dictWnd := GetFromDictionary('ПЕРЕВОД СТАТЬИ');
+  if NOT IsExists(dictWnd) then Raise('Не удалось получить ПЕРЕВОД СТАТЬИ');
+  dictWnd.SetFocus;        
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');
+  if NOT ( IsExists(dictWnd) AND dictWnd.Visible) then 
+  begin
+    Log.Error('После переключения на базу без ТС ПЕРЕВОД СТАТЬИ не активен');
+    Raise('После переключения баз без ТС ПЕРЕВОД СТАТЬИ не активен');    
+  end;
+  dictWnd.SetFocus;
+  if NOT StringCompare(text, CopyToClipBoard(dictWnd, 'ALL')) then
+  begin
+    Log.Error('После переключения на базу без ТС ПЕРЕВОД СТАТЬИ не "Данный документ не содержится в ИБ"');
+    Raise('После переключения на базу без ТС ПЕРЕВОД СТАТЬИ не "Данный документ не содержится в ИБ"');
+  end;  
+  result := true;
+except
+  Log.Message('HLTC250_12_8_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляе
+  HLTC250.12.8: Просмотр Толкового Словаря
+    HLTC250.12.8.1: Сегмента Толкового словаря нет в обновленной базе
+      HLTC250.12.8.1.4: Когда открыт список терминов на французском
+    !!! OLD BASE
+}
+function HLTC250_12_8_1_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  dictWnd;
+  text;
+  button;        
+begin                                  
+try
+  text := 'Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта*';  
+  if NOT GoToDictionary then Raise('Не удалось открыть ТС');
+  button := GetToolbarObject( GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), 'BUTTON', 'Французский язык');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Французский язык" на тулбаре "ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА"');
+  if NOT button.Down then button.Click;  
+  dictWnd := GetFromDictionary('ТЕКСТ СТАТЬИ');
+  if NOT IsExists(dictWnd) then Raise('Не удалось получить ТЕКСТ СТАТЬИ');
+  dictWnd.SetFocus;        
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');
+  if NOT ( IsExists(dictWnd) AND dictWnd.Visible) then 
+  begin
+    Log.Error('После переключения на базу без ТС ТЕКСТ СТАТЬИ не активен');
+    Raise('После переключения баз без ТС ТЕКСТ СТАТЬИ не активен');    
+  end;
+  dictWnd.SetFocus;
+  if NOT StringCompare(text, CopyToClipBoard(dictWnd, 'ALL')) then
+  begin
+    Log.Error('После переключения на базу без ТС ТЕКСТ СТАТЬИ не "Данный документ не содержится в ИБ"');
+    Raise('После переключения на базу без ТС ТЕКСТ СТАТЬИ не "Данный документ не содержится в ИБ"');
+  end;  
+  result := true;
+except
+  Log.Message('HLTC250_12_8_1_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.4: Просмотр ППР
+    HLTC250.12.4.2: ППР Стандарт – открыта основная форма, выбраны атрибуты, которые все есть в обновленной базе
+!!OLD Base    
+}
+function HLTC250_12_4_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  cardData;
+  cardWnd;
+begin
+try  
+  cardData := [
+  	CARD_PPR,([
+      ([FD_TYPE, ([ 
+        '[ИЛИ]Акт',
+        '[ИЛИ]Бухгалтерские проводки']) 
+      ]),
+      ([FD_SOURCE, ([ 
+        '[ИЛИ]Органы законодательной власти России и СССР',
+        '[ИЛИ]Президент России и СССР']) 
+      ]),
+      ([FD_THEME, ([ 
+        '[ИЛИ]Основы государственно-правового устройства',
+        '[ИЛИ]Банковская деятельность']) 
+      ]),
+      ([	FD_INOPERATIVE_EDITION, ([  
+        'Да'])
+       ]) 
+    ]) 
+  ];
+  if NOT FillPPRCard(cardData) then Raise('Не удалось заполнить КЗ ППР');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  cardWnd :=  GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(cardWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить КЗ');
+    Raise('После переключения базы не удалось получить КЗ');
+  end;  
+  result := true;
+except
+  Log.Message( 'HLTC250_12_4_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end; 
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.4: Просмотр ППР
+    HLTC250.12.4.4: ППР Стандарт – открыта основная форма, выбраны атрибуты, части которых нет в обновленной базе.
+!!OLD Base    
+}
+function HLTC250_12_4_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  cardData;
+  cardWnd;
+begin
+try  
+  cardData := [
+  	CARD_PPR,([
+      ([FD_TYPE, ([ 
+        '[ИЛИ]Акт',
+        '[ИЛИ]Закон']) 
+      ]),      
+      ([	FD_INOPERATIVE_EDITION, ([  
+        'Да'])
+       ]) 
+    ]) 
+  ];
+  if NOT FillPPRCard(cardData) then Raise('Не удалось заполнить КЗ ППР');  
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');
+  cardWnd :=  GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(cardWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить КЗ');
+    Raise('После переключения базы не удалось получить КЗ');
+  end;  
+  result := true;
+except
+  Log.Message( 'HLTC250_12_4_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.4: Просмотр ППР
+    HLTC250.12.4.6: ППР Стандарт – открыт словарь поисковых атрибутов, он меняется. В тестовой базе – список номеров (добавляется номер 8901044)
+!!OLD Base    
+}
+function HLTC250_12_4_6_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  cardWnd;
+  atrWnd;  
+begin
+try  
+  cardWnd := GoToPPR('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось получить КЗ');
+  
+  if NOT PositionInQueryCard(cardWnd, FD_TYPE, [CT_LABEL], 'auto') then 
+    Raise('Не удалось спозиционироваться в КЗ на поле "Номер"'); 
+  Sys.Keys('[Enter]');
+  atrWnd := GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА');
+  if NOT IsExists(atrWnd) then Raise('Не удалось получить ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА'); 
+    
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');  
+  if NOT IsExists(atrWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить окно выбора аттрибутов');
+    Raise('После переключения базы не удалось получить окно выбора аттрибутов');
+  end;
+  atrWnd.Close;  
+  result := true;
+except
+  Log.Message( 'HLTC250_12_4_6_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  if IsExists(atrWnd) then atrWnd.Close;
+  result := false;
+  CommonExceptionHandler; 
+end;
+end; 
+
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.4: Просмотр ППР
+    HLTC250.12.4.8: ППР Стандарт – открыт и отфильтрован словарь поисковых атрибутов, он меняется. 
+    В тестовой базе – список номеров (добавляется номер 8901044).
+!!OLD Base    
+}
+function HLTC250_12_4_8_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  cardWnd;
+  atrWnd;
+  contFiltrField;  
+begin
+try  
+  cardWnd := GoToPPR('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось получить КЗ');
+  
+  if NOT PositionInQueryCard(cardWnd, FD_TYPE, [CT_LABEL], 'auto') then 
+    Raise('Не удалось спозиционироваться в КЗ на поле "Номер"'); 
+  Sys.Keys('[Enter]');
+  atrWnd := GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА');
+  if NOT IsExists(atrWnd) then Raise('Не удалось получить ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА'); 
+  contFiltrField := GetFromAttributeSelect('ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT IsExists(contFiltrField) then Raise('Не удалось получить ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');  
+  contFiltrField.SetFocus;
+  PressKeyWithCheck(['бухгалтерские проводки'], contFiltrField);  
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');  
+  if NOT IsExists(atrWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить окно выбора аттрибутов');
+    Raise('После переключения базы не удалось получить окно выбора аттрибутов');
+  end;
+  atrWnd.Close;  
+  result := true;
+except
+  Log.Message( 'HLTC250_12_4_8_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  if IsExists(atrWnd) then atrWnd.Close; 
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.4: Просмотр ППР
+    HLTC250.12.4.10: ППР Стандарт – Открыт календарь для выбора даты
+!!OLD Base    
+}
+function HLTC250_12_4_10_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  cardWnd;
+  calendarWnd;  
+begin
+try  
+  cardWnd := GoToPPR('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось получить КЗ');
+  
+  if NOT PositionInQueryCard(cardWnd, FD_ACCEPTANCE_DATE_FROM, [CT_CALENDAR], 'auto') then 
+    Raise('Не удалось спозиционироваться в КЗ на поле "Номер"'); 
+  if NOT MoveMouseToObject(cardWnd, 'calendar.bmp', 0, 0, true) then
+  begin
+    Log.Picture(cardWnd, 'Не удалось кликнуть по иконке календаря в КЗ');
+    Raise('Не удалось кликнуть по иконке календаря в КЗ');
+  end;
+  calendarWnd := GetFromShell('ОКНО КАЛЕНДАРЯ');
+  if NOT IsExists(calendarWnd) then Raise('Не удалось получить ОКНО КАЛЕНДАРЯ');
+    
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');  
+  if NOT IsExists(cardWnd) then
+  begin
+    Log.Error('После переключения базы при открытом окне Календаря не удалось получить КЗ ППР');
+    Raise('После переключения базы при открытом окне Календаря не удалось получить КЗ ППР');
+  end;    
+  result := true;
+except
+  Log.Message( 'HLTC250_12_4_10_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));   
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.5: Просмотр ППС
+    HLTC250.12.5.1: ППС 5.х
+!!OLD Base
+}
+function HLTC250_12_5_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  cardWnd;    
+begin
+try
+if NOT SetSettings( 
+    [
+     (['ПОИСК', 'КАРТОЧКА ЗАПРОСА\ПОИСК ПО СИТУАЦИИ [COMBOBOX]', 'Преемственная'])
+    ]
+  ) then Raise('Не удалось установить настройки конфигурации!');
+  
+  cardWnd := GoToPPS('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось получить "ситуаций дополнительного уровня ППС"');
+   
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');  
+  if NOT IsExists(cardWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить "ситуаций дополнительного уровня ППС"');
+    Raise('После переключения базы не удалось получить "ситуаций дополнительного уровня ППС"');
+  end;
+  cardWnd.SetFocus;
+  Sys.Keys('[PageDown][PageUp]');
+  if NOT SetSettings( [(['ПОИСК', 'КАРТОЧКА ЗАПРОСА\ПОИСК ПО СИТУАЦИИ [COMBOBOX]', 'Стандартная'])] ) then
+    Log.Warning('Не удалось установить в настройках конфигурации КАРТОЧКА ЗАПРОСА\ПОИСК ПО СИТУАЦИИ [COMBOBOX]=Стандартная');    
+  result := true;
+except
+  Log.Message( 'HLTC250_12_5_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  SetSettings( [(['ПОИСК', 'КАРТОЧКА ЗАПРОСА\ПОИСК ПО СИТУАЦИИ [COMBOBOX]', 'Стандартная'])] );   
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.5: Просмотр ППС
+    HLTC250.12.5.2: ППС Стандарт
+!!OLD Base
+}
+function HLTC250_12_5_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  cardWnd;    
+begin
+try
+if NOT SetSettings( 
+    [
+     (['ПОИСК', 'КАРТОЧКА ЗАПРОСА\ПОИСК ПО СИТУАЦИИ [COMBOBOX]', 'Стандартная'])
+    ]
+  ) then Raise('Не удалось установить настройки конфигурации!');
+  
+  cardWnd := GoToPPS('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось получить "ситуаций дополнительного уровня ППС"');
+    
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');  
+  if NOT IsExists(cardWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить "ситуаций дополнительного уровня ППС"');
+    Raise('После переключения базы не удалось получить "ситуаций дополнительного уровня ППС"');
+  end;
+  cardWnd.SetFocus;
+  Sys.Keys('[PageDown][PageUp]');      
+  result := true;
+except
+  Log.Message( 'HLTC250_12_5_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.5: Просмотр ППС
+    HLTC250.12.5.3: ППС отфильтрована, после обновления отфильтрованные и выбранные элементы должны остаться
+!!OLD Base
+}
+function HLTC250_12_5_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  cardWnd;
+  contFiltrField;  
+begin
+try
+  cardWnd := GoToPPS('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось получить "ситуаций дополнительного уровня ППС"');
+  contFiltrField := GetFromPPS('ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT IsExists(contFiltrField) then Raise('Не удалось получить ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  contFiltrField.SetFocus;
+  PressKeyWithCheck(['авария'], contFiltrField);
+  if NOT Position_Internal(cardWnd, 'Авария', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на атрибуте "Авария"');
+  Sys.Keys('[Apps]');  
+  if NOT ClickByPopupMenuItem(cardWnd, 'ИЛИ') then Raise('Не удалось вызвать контекстную операцию "ИЛИ"');
+    
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');  
+  if NOT IsExists(cardWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить "ситуаций дополнительного уровня ППС"');
+    Raise('После переключения базы не удалось получить "ситуаций дополнительного уровня ППС"');
+  end;
+  cardWnd.SetFocus;
+  Sys.Keys('[PageDown][PageUp]');      
+  result := true;
+except
+  Log.Message( 'HLTC250_12_5_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.5: Просмотр ППС
+    HLTC250.12.5.4: ППС отфильтрована, после обновления отфильтрованные и выбранные элементы не остаются
+!!OLD Base    
+}
+function HLTC250_12_5_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  cardWnd;
+  contFiltrField;  
+begin
+try
+  cardWnd := GoToPPS('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось получить "ситуаций дополнительного уровня ППС"');
+  contFiltrField := GetFromPPS('ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT IsExists(contFiltrField) then Raise('Не удалось получить ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  contFiltrField.SetFocus;
+  PressKeyWithCheck(['авария'], contFiltrField);
+  if NOT Position_Internal(cardWnd, 'Авария', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на атрибуте "Авария"');
+  Sys.Keys('[Apps]');  
+  if NOT ClickByPopupMenuItem(cardWnd, 'ИЛИ') then Raise('Не удалось вызвать контекстную операцию "ИЛИ"');
+    
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');  
+  if NOT IsExists(cardWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить "ситуаций дополнительного уровня ППС"');
+    Raise('После переключения базы не удалось получить "ситуаций дополнительного уровня ППС"');
+  end;
+  cardWnd.SetFocus;
+  Sys.Keys('[PageDown][PageUp]');      
+  result := true;
+except
+  Log.Message( 'HLTC250_12_5_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.6: Просмотр ППИО
+    HLTC250.12.6.1: Когда рубрикатор поиска по публикации не меняется
+!!OLD Base    
+}
+function HLTC250_12_6_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  treeWnd;    
+begin
+try
+  treeWnd := GoToPPIO('', true);
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ИЗДАНИЙ в ППИО');
+  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');  
+  if NOT IsExists(treeWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить ДЕРЕВО ИЗДАНИЙ в ППИО');
+    Raise('После переключения базы не удалось получить ДЕРЕВО ИЗДАНИЙ в ППИО');
+  end;
+  treeWnd.SetFocus;
+  Sys.Keys('[PageDown][PageUp]');      
+  result := true;
+except
+  Log.Message( 'HLTC250_12_6_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;  
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12: Реакция оболочки на обновление
+Когда происходит обновление, на компьютере-клиенте открыта оболочка, в которой осуществляется:
+  HLTC250.12.6: Просмотр ППИО
+    HLTC250.12.6.3: Когда рубрикатор поиска по публикации исчезает.
+!!OLD Base    
+}
+function HLTC250_12_6_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  treeWnd;    
+begin
+try
+  treeWnd := GoToPPIO('', true);
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ИЗДАНИЙ в ППИО');
+  
+  if NOT SwitchDataBase(DBT_MINI, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_MINI');    
+  if NOT IsExists(treeWnd) then
+  begin
+    Log.Error('После переключения базы не удалось получить ДЕРЕВО ИЗДАНИЙ в ППИО');
+    Raise('После переключения базы не удалось получить ДЕРЕВО ИЗДАНИЙ в ППИО');
+  end;
+  treeWnd.SetFocus;
+  Sys.Keys('[PageDown][PageUp]');      
+  result := true;
+except
+  Log.Message( 'HLTC250_12_6_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12.14: Тестовая база. Проверить, что в обновленной базе все хорошо с точки зрения новых документов 
+(которых не было в старой базе). Особенно в сетевой версии ДО перезапуска сервера после обновления.
+  HLTC250.12.14.1: До обновления открыто что-либо кроме ППР. После обновления открыть ППР и в поле «Номер» ввести 
+  «8901044» (это номер нового документа). И вообще попытаться открыть список номеров. Найти документ по номеру,
+   перейти к нему.
+!!OLD Base    
+}
+function HLTC250_12_14_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  cardWnd;
+  treeWnd;
+  atrWnd;
+  listWnd;
+  docWnd;
+  contFiltrField;  
+begin
+try  
+  if NOT GoToPPS then Raise('Не удалось получить открыть ППС');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  
+  cardWnd := GoToPPR('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось получить КЗ');
+  
+  if NOT PositionInQueryCard(cardWnd, FD_NUMBER, [CT_LABEL], 'auto') then 
+    Raise('Не удалось спозиционироваться в КЗ на поле "Номер"'); 
+  Sys.Keys('[Enter]');
+  atrWnd := GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА');
+  if NOT IsExists(atrWnd) then Raise('Не удалось получить ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА'); 
+  contFiltrField := GetFromAttributeSelect('ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if NOT IsExists(contFiltrField) then Raise('Не удалось получить ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"');  
+  contFiltrField.SetFocus;
+  PressKeyWithCheck(['8901044'], contFiltrField);
+  treeWnd := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО АТТРИБУТОВ');   
+  if NOT Position_Internal(treeWnd, '8901044', '\', true, 'IsPressHome:=true') then 
+    Raise('Не удалось в дереве атрибутов спозиционироваться на выбранный атрибут');
+  Sys.Keys('[Enter]');
+  if NOT ClickToolBarButton(GetFromPPR('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Искать') then 
+    Raise('Не удалось кликнуть на нижнем тулбаре ППР на Искать');
+        
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  
+   if NOT OpenDocFromList('Документ 8901044', listWnd) then 
+    Raise('Не удалось открыть документ "Документ 8901044" из списка');
+    
+    
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  Sys.Keys('[PageDown]');
+  Sys.Keys('[PageUp]');
+  result := true;
+  CloseTabIfNeeded;
+except
+  Log.Message( 'HLTC250_12_14_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  if IsExists(atrWnd) then atrWnd.Close;
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12.14: Тестовая база. Проверить, что в обновленной базе все хорошо с точки зрения новых документов 
+(которых не было в старой базе). Особенно в сетевой версии ДО перезапуска сервера после обновления.
+
+  HLTC250.12.14.2: До обновления открыто что-либо кроме ППР. После обновления открыть ППР. В Типах выбрать «Приказ» 
+  И «Выписка». Найти документы. В списке должен быть новый документ – 8901044
+!!OLD Base    
+}
+function HLTC250_12_14_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  listWnd;
+  docWnd;
+  cardData;
+begin
+try  
+  if NOT GoToPPS then Raise('Не удалось получить открыть ППС');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  
+  cardData:=
+    [
+    	CARD_PPR, ([
+          ([FD_TYPE,  
+            (['[ИЛИ]Приказ', '[ИЛИ]Выписка'])    
+          ]),                    
+          ([  FD_INOPERATIVE_EDITION, 
+            (['Да']) 
+          ]) 
+        ]) 
+    ];
+  SearchInPPR(carddata);
+        
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+   if NOT OpenDocFromList('Документ 8901044', listWnd) then 
+    Raise('Не удалось открыть документ  из списка');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  Sys.Keys('[PageDown]');
+  Sys.Keys('[PageUp]'); 
+  result := true;
+  CloseTabIfNeeded;
+except
+  Log.Message( 'HLTC250_12_14_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12.14: Тестовая база. Проверить, что в обновленной базе все хорошо с точки зрения новых документов 
+(которых не было в старой базе). Особенно в сетевой версии ДО перезапуска сервера после обновления.
+  
+  HTC250.12.14.3: До обновления открыто что-либо кроме ППР. После обновления открыть ППР, выбрать «Вид правовой информации» = «Формы документов».  
+  Найти документы. В списке должен быть новый документ : <<Документ 9016. При обновлении название блока должно "виндексироваться" в текст.>>
+  
+!!OLD Base    
+}
+function HLTC250_12_14_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  listWnd;
+  docWnd;
+  cardData;
+begin
+try  
+  if NOT GoToPPIO then Raise('Не удалось получить открыть ППИО');  
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  
+  cardData:=
+    [
+    	CARD_PPR, ([
+          ([FD_KIND_OF_INFORMATION, (['[ИЛИ]Формы документов'])  ])          
+      ]) 
+    ];
+  SearchInPPR(carddata);
+        
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT OpenObjectFromFolder('Документ 9016. При обновлении название блока должно "виндексироваться" в текст.', listWnd) then
+    Raise('Не удалось открыть из полученного списка документ : <<Документ 9016. При обновлении название блока должно "виндексироваться" в текст>>');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  Sys.Keys('[PageDown]');
+  Sys.Keys('[PageUp]'); 
+  result := true;
+except
+  Log.Message( 'HLTC250_12_14_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC250.12.14: Тестовая база. Проверить, что в обновленной базе все хорошо с точки зрения новых документов 
+(которых не было в старой базе). Особенно в сетевой версии ДО перезапуска сервера после обновления.
+
+  HLTC250.12.14.5: Проверить, что корректно строится список по первой ветке рубрикатора. 
+  В нем есть новый документ – 8901044.
+!!OLD Base    
+}
+function HLTC250_12_14_5_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  listWnd;
+  docWnd;
+begin
+try    
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список по первой ветки рубрикатора');
+    
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');  
+  if NOT OpenDocFromList('Документ 8901044', listWnd) then 
+    Raise('Не удалось открыть документ из списка');  
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  Sys.Keys('[PageDown]');
+  Sys.Keys('[PageUp]'); 
+  result := true;
+  CloseTabIfNeeded;
+except
+  Log.Message( 'HLTC250_12_14_5_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+ HLTC250.12.11: Редактирование конфигурации
+!!OLD Base    
+}
+function HLTC250_12_11_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  pageWnd;
+  controlWnd;
+  settingsWnd;
+  toolBar;
+begin
+try
+  settingsWnd := GoToSettings;
+  if NOT IsExists(settingsWnd) then Raise('Не удалось получить окно "Настройки конфигурации"');
+  pageWnd := OpenSettingsPage('НАСТРОЙКИ ИНТЕРФЕЙСА');
+  if NOT IsExists(pageWnd) then Raise('Не удалось открыть нужную страницы с настройками!');
+  controlWnd := GetSettingsElement('НАСТРОЙКИ ИНТЕРФЕЙСА', 'ПАНЕЛЬ НАВИГАЦИИ\С ЛЕВОЙ СТОРОНЫ\ПОЛОЖЕНИЕ [COMBOBOX]', pageWnd);
+  if NOT IsExists(controlWnd) then Raise('Не удалось получить ПАНЕЛЬ НАВИГАЦИИ\С ЛЕВОЙ СТОРОНЫ\ПОЛОЖЕНИЕ [COMBOBOX]');
+  if NOT SelectInComboBox(controlWnd,'Авто')then Raise('Не удалось изменить значение комбобокса на "Авто"');
+
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT IsExists(pageWnd) then
+  begin
+    Log.Error('Окно "настройки конфигурации" после переключения базы не активно');
+    Raise('Окно "настройки конфигурации" после переключения базы не активно');
+  end;
+  toolBar := GetFromSettings('НИЖНИЙ ТУЛБАР');
+  if NOT ClickToolbarButton(toolBar, 'Ок') then 
+    Raise('Не удалось кликнуть по кнопке "Ок" на Нижнем тулбаре в "настройки конфигурации"');
+  if NOT SetDefaultSettings then Log.Warning('Не удалось установить настройки по умолчанию');    
+  result := true;
+except
+  Log.Message( 'HLTC250_12_11_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  if IsExists(settingsWnd) then settingsWnd.Close; 
+  SetDefaultSettings;  
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+ HLTC250.12.12: Редактирование таблицы стилей
+!!OLD Base    
+}
+function HLTC250_12_12_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  settingsWnd;
+  controlWnd;
+  toolBar;
+begin
+try
+  settingsWnd := GoToStyleEditor;
+  if NOT IsExists(settingsWnd) then Raise('Не удалось получить окно "Редактор стилей"');
+  controlWnd := GetFromStyleEditor('КОМБОБОКС "РАЗМЕР"');
+  if NOT IsExists(controlWnd) then Raise('Не удалось получить в настройках стилей КОМБОБОКС "РАЗМЕР"');
+  
+  if NOT SelectInComboBox(controlWnd,'22')then Raise('Не удалось изменить значение комбобокса на "22"');
+
+  if NOT SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true') then Raise('Не удалось переключить базу на DBT_OTHER');
+  if NOT IsExists(settingsWnd) then
+  begin
+    Log.Error('Окно "Редактор стилей" после переключения базы не активно');
+    Raise('Окно "Редактор стилей" после переключения базы не активно');
+  end;
+  toolBar := GetFromStyleEditor('НИЖНИЙ ТУЛБАР');
+  if NOT ClickToolbarButton(toolBar, 'Ок') then 
+    Raise('Не удалось кликнуть по кнопке "Ок" на Нижнем тулбаре в "редакторе стилей"');
+  if NOT SetDefaultSettings then Log.Warning('Не удалось установить настройки по умолчанию');    
+  result := true;
+except
+  Log.Message( 'HLTC250_12_12_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  if IsExists(settingsWnd) then settingsWnd.Close; 
+  SetDefaultSettings;  
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+    
+    
+//////////////////////////////////////////////////////////////////////////////////
+
+
+procedure RykovTest250;
+var cur;
+begin
+  gbl_F1ShellTabsEnabled := true;
+  {Log.Message( HLTC250_1_1_Execute(cur));
+  Log.Message( HLTC250_1_2_Execute(cur));
+  Log.Message( HLTC250_1_3_Execute(cur));
+  Log.Message( HLTC250_3_1_Execute(cur));
+  Log.Message( HLTC250_3_2_Execute(cur));
+  Log.Message( HLTC250_3_3_Execute(cur));  
+  Log.Message( HLTC250_3_4_Execute(cur));
+  Log.Message( HLTC250_5_2_Execute(cur));
+  
+  Log.Message( HLTC250_6_1_Execute(cur));
+  Log.Message( HLTC250_6_2_Execute(cur));
+  Log.Message( HLTC250_6_3_Execute(cur));
+  Log.Message( HLTC250_6_4_Execute(cur));}        
+  Log.Message( HLTC250_9_1_1_Execute(cur));
+{  Log.Message( HLTC250_9_1_6_Execute(cur));
+                               
+  Log.Message( HLTC250_12_1_1_1_Execute(cur));
+  Log.Message( HLTC250_12_1_1_2_Execute(cur));  
+  Log.Message( HLTC250_12_1_1_3_Execute(cur));
+  Log.Message( HLTC250_12_1_1_4_Execute(cur));    
+  Log.Message( HLTC250_12_1_1_5_Execute(cur));
+  Log.Message( HLTC250_12_1_1_6_Execute(cur));  
+  Log.Message( HLTC250_12_1_1_8_Execute(cur));
+                                                
+  Log.Message( HLTC250_12_1_2_1_Execute(cur));
+  Log.Message( HLTC250_12_1_2_2_Execute(cur)); 
+  Log.Message( HLTC250_12_1_2_3_Execute(cur));  
+  Log.Message( HLTC250_12_1_3_1_Execute(cur));
+  Log.Message( HLTC250_12_1_3_2_Execute(cur));
+  Log.Message( HLTC250_12_1_3_3_Execute(cur));  
+ 
+  Log.Message( HLTC250_12_1_4_1_Execute(cur));
+  Log.Message( HLTC250_12_1_4_2_Execute(cur));
+  Log.Message( HLTC250_12_1_4_3_Execute(cur)); 
+  Log.Message( HLTC250_12_1_5_1_1_Execute(cur));
+  Log.Message( HLTC250_12_1_5_1_2_Execute(cur));
+  Log.Message( HLTC250_12_1_5_1_3_Execute(cur));
+  Log.Message( HLTC250_12_1_5_2_Execute(cur));
+  Log.Message( HLTC250_12_1_5_3_Execute(cur));
+  Log.Message( HLTC250_12_1_6_1_Execute(cur));                                              
+  Log.Message( HLTC250_12_1_6_2_Execute(cur));
+  Log.Message( HLTC250_12_1_6_3_Execute(cur));
+  Log.Message( HLTC250_12_1_6_4_Execute(cur));    
+  Log.Message( HLTC250_12_2_1_1_Execute(cur));  
+  Log.Message( HLTC250_12_2_1_2_Execute(cur));
+  Log.Message( HLTC250_12_2_1_3_Execute(cur));
+  Log.Message( HLTC250_12_2_2_1_Execute(cur));
+  Log.Message( HLTC250_12_2_2_2_Execute(cur));
+  Log.Message( HLTC250_12_2_2_3_Execute(cur));  
+  Log.Message( HLTC250_12_2_3_Execute(cur));  
+  Log.Message( HLTC250_12_2_4_Execute(cur));  
+  Log.Message( HLTC250_12_2_5_1_Execute(cur));
+  Log.Message( HLTC250_12_3_1_Execute(cur));
+  Log.Message( HLTC250_12_3_4_Execute(cur));
+  Log.Message( HLTC250_12_8_2_1_1_Execute(cur));
+  Log.Message( HLTC250_12_8_2_1_2_Execute(cur));
+  Log.Message( HLTC250_12_8_2_1_3_Execute(cur));
+  Log.Message( HLTC250_12_8_2_1_4_Execute(cur));
+  Log.Message( HLTC250_12_8_2_2_1_Execute(cur));
+  Log.Message( HLTC250_12_8_2_2_2_Execute(cur));
+  Log.Message( HLTC250_12_8_2_2_4_Execute(cur));
+ Log.Message( HLTC250_12_9_1_Execute(cur)); 
+ Log.Message( HLTC250_12_8_1_1_Execute(cur));
+ Log.Message( HLTC250_12_8_1_2_Execute(cur));
+ Log.Message( HLTC250_12_8_1_4_Execute(cur)); 
+ Log.Message( HLTC250_12_4_2_Execute(cur));      
+ Log.Message( HLTC250_12_4_4_Execute(cur));
+ Log.Message( HLTC250_12_4_6_Execute(cur));
+ Log.Message( HLTC250_12_4_8_Execute(cur));
+ Log.Message( HLTC250_12_4_10_Execute(cur));
+ Log.Message( HLTC250_12_5_1_Execute(cur));
+ Log.Message( HLTC250_12_5_2_Execute(cur));
+ Log.Message( HLTC250_12_5_3_Execute(cur));
+ Log.Message( HLTC250_12_5_4_Execute(cur)); 
+ Log.Message( HLTC250_12_6_1_Execute(cur));
+ Log.Message( HLTC250_12_6_3_Execute(cur)); 
+ Log.Message( HLTC250_12_3_2_Execute(cur)); 
+ Log.Message( HLTC250_12_14_1_Execute(cur));
+ Log.Message( HLTC250_12_14_3_Execute(cur));
+ Log.Message( HLTC250_12_14_5_Execute(cur)); 
+ Log.Message( HLTC250_12_11_Execute(cur));
+ Log.Message( HLTC250_12_12_Execute(cur));}
+   
+end;
+
+
+
+function test;
+var
+  obj, p;
+begin
+
+   //result := GivePathToDelta(PT_FILESERVER_CONSOLE);
+
+  //Log.Message( PackingFileByZip('C:\works\desktop\garant.ini', 'C:\garant.zip', false));
+  //if NOT ChangeState(EIGHT_STATE, 'isEasyMode:=false;isBackupIB:=false;isArhiveDelta:=true') then Log.Error('121');
+  //if NOT ChangeState(EIGHT_STATE) then Log.Error('121');
+
+  //  if NOT AnalizToUpdateLog(GetF1Directory + '\logs\update.log', false) then   
+  //  Log.Error('После завершения пакетного пополнения в логе апдейтера есть ошибки!'); 
+end;

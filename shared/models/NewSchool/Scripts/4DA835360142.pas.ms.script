@@ -1,0 +1,135 @@
+// afwDockingInterfaces 4DA835360142 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DA835360142
+
+FORWARD ME_4DA835920377
+
+: ME_4DA83600037F
+ CONST UID '4DA83600037F'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_4DA83600037F aControl
+
+: ME_4DA835E501AA
+ CONST UID '4DA835E501AA'
+ CONST Name 'CanBeDockedInto'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DA835920377 // IafwDockableControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4DA83600037F // aControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DA835E501AA CanBeDockedInto
+
+: ME_4DA835920377
+ CONST UID '4DA835920377'
+ CONST GUID 'A3986FC8-A811-4B72-BEBF-BD68FA7D6038'
+ CONST Name 'IafwDockableControl'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DA835360142 // afwDockingInterfaces
+ ;
+ : Operations
+   @ ( ME_4DA835E501AA // CanBeDockedInto
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DA835920377 IafwDockableControl
+
+FORWARD ME_4DA834C4007C
+
+: ME_4DA835DC0394
+ CONST UID '4DA835DC0394'
+ CONST Name 'aDockable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4DA835920377 // IafwDockableControl
+ ;
+
+ref; // ME_4DA835DC0394 aDockable
+
+: ME_4DA835AB02CC
+ CONST UID '4DA835AB02CC'
+ CONST Name 'GetDockControl'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DA834C4007C // IafwControlDock
+ ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+ : Parameters
+   @ ( ME_4DA835DC0394 // aDockable
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DA835AB02CC GetDockControl
+
+: ME_4DA834C4007C
+ CONST UID '4DA834C4007C'
+ CONST GUID 'DD464262-1D9A-41AB-B85C-A0E351F0E9F1'
+ CONST Name 'IafwControlDock'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DA835360142 // afwDockingInterfaces
+ ;
+ : Operations
+   @ ( ME_4DA835AB02CC // GetDockControl
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DA834C4007C IafwControlDock
+
+: ME_4DA835360142
+ CONST UID '4DA835360142'
+ CONST Name 'afwDockingInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ ;
+ : Children
+   @ ( ME_4DA835920377 // IafwDockableControl
+ ME_4DA834C4007C // IafwControlDock
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '15.04.2011 16:08'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwDockingInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DA835360142.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DA835360142.pas.ms.script.runner'
+
+ref; // ME_4DA835360142 afwDockingInterfaces

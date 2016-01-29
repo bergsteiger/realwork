@@ -1,0 +1,28 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Dim ListArray(1 to 1) as String
+Sub FillArray
+    ListArray(1)="Кодекс торгового мореплавания Российской Федерации от 30 апреля 1999 г. N 81-ФЗ (с изм. и доп. от 26 мая 2001 г.)"
+  
+                   
+end sub
+Sub Main
+    call FillArray
+    CUR_STATE=ST_NONE_STANDART
+    Call NeedState (ST_PPR_6x)
+    
+    Window Click, "CurrentWindow","Coords=560,425"
+    InputKeys "{HOME}абандон"
+    GenericObject Click, "Text=Только в названии", "Coords=159,12"
+    InputKeys "{HOME}По всему тексту"
+    'Window SetContext, "Caption={ГАРАН*}", ""
+    InputKeys "^{ENTER}"
+    Window SetContext, "Caption={ГАРАН*}", ""
+    'ListBox Click, "ObjectIndex=4", "Coords=8,8"
+    Dim ListCount%
+    Dim elem$
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call StrComp2Log(CSTR(ListCount),"1")
+    call CheckItemNames(ListArray,"{DOWN}",0,ListCount,1)
+    CUR_STATE=ST_NONE_STANDART   
+End Sub

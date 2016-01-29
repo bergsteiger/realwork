@@ -1,0 +1,24 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: clean_idlstubs_only <cvs_mod>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+cvs_mod=$1
+
+echo "clean_idlstubs_only for dir = $MPCXC_ROOT/src/$cvs_mod ..."
+
+find $MPCXC_ROOT/src/$cvs_mod -type f -name "*[C,S].h" -exec rm -f {} \;
+find $MPCXC_ROOT/src/$cvs_mod -type f -name "*[C,S].i" -exec rm -f {} \;
+find $MPCXC_ROOT/src/$cvs_mod -type f -name "*[C,S].inl" -exec rm -f {} \;
+find $MPCXC_ROOT/src/$cvs_mod -type f -name "*[C,S].cpp" -exec rm -f {} \;
+
+find $MPCXC_ROOT/src/$cvs_mod -type f -name "*.idl.dup" -exec rm -f {} \;
+
+echo "end."

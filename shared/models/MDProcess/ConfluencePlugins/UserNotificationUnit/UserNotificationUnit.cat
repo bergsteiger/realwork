@@ -1,0 +1,537 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "UserNotificationUnit"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/UserNotificationUnit|490ACC32003C
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19032919037"))
+    quid       	"490ACC32003C"
+    documentation 	"Ýëåìåíòû ïðåäñòàâëåíèÿ äëÿ ðàáîòû ñ ïðèãëàøåíèÿìè"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "editnotifymonitoring"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"All")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/UserNotificationUnit/editnotifymonitoring.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*490ACCC201E7_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*490ACCC201E7_CUSTOM_CONTENT*¤## ses:  ¤##    <title>$garHelper.getText("editnotifymonitoring.title")</title>¤	#if($oldNotify)¤	<span id='div_img_notify_${macrosNotifyString}'>¤		<img height='16' border='0' align='absmiddle' width='16' src='$garIcon.getTypeIcon("forgui_old_notify")'/>¤		<font color='red'><em>#if(!$titleNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')) && !$titleNotify.equals(''))&nbsp;$titleNotify#end</em></font>¤	</span>¤	#else¤	#set($params = "notifyTo=" + $notifyTo + "&cycleNotify=" + $cycleNotify + "&durationNotify=" + $durationNotify + "&startDateNotify=" + $startDateNotify + "&renderCommentId=" + $renderCommentId + "&renderPageId=" + $renderPageId + "&macrosNotifyString=" + $macrosNotifyString + "&editContent=false" + "&spaceKey=" + $spaceKey + "&parentId=" + $parentId)¤	<span id='div_img_notify_${macrosNotifyString}' onClick="getEditFormNotify('$params', '50', '$titleNotify')">¤		<img id='img_notify' #if($notifyDeferred) src='$garIcon.getTypeIcon("forgui_deferred_notify")' #elseif($notifyDismissed) src='$garIcon.getTypeIcon("forgui_notify_dismissed")' #elseif($notifyForSender) src='$garIcon.getTypeIcon("forgui_notify_only_for_sender")' #else src='$garIcon.getTypeIcon("forgui_notify_red")' #end onmouseover="getEditFormNotify('$params', '1000', '$titleNotify')" onmouseout='UnTip()' height='16' width='16' align='absmiddle' alt='' border='0'/><font #if($notifyForSender) color='green' #elseif($notifyDeferred) color='gray' #else color='red' #end><em>#if(!$titleNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')) && !$titleNotify.equals('')) $titleNotify#end</em></font>¤		</span>¤	#end¤¤##UC_END*490ACCC201E7_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/UserNotificationUnit/editnotifymonitoring|490ACCC201E7
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039121424"))
+	    quid       	"490ACCC201E7"
+	    documentation 	"Âåëîñèòè øàáëîí äëÿ ïëàãèíà ïðèãëàøåíèÿ"
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011348145"))
+		    quid       	"4B289C0E03BB"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::extendednotify"
+		    quidu      	"4923D14603BD"))
+	    language   	"MDA Generator")
+	(object Class "notifytooltipcontent"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/UserNotificationUnit/notifytooltipcontent.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*490C560D025C_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*490C560D025C_CUSTOM_CONTENT*¤¤#set ($renderCommentId = $params.get("renderCommentId"))¤#set ($renderPageId = $params.get("renderPageId"))¤#set ($editContent = $params.get("editContent"))¤#set ($spaceKey = $params.get("spaceKey"))¤#set ($parentId = $params.get("parentId"))¤#set ($isSender = $params.get("isSender"))¤#set ($defNotify = $params.get("defNotify"))¤<div id="notify_main_div" style="background-color: rgb(216, 228, 241);padding-left: 10px; padding-top: 10px; padding-bottom: 10px; padding-right: 10px; float: left;">¤<span style="font-size: 16px;" class="formtitle">¤	$garHelper.escapeHtml($garHelper.getText('notifytooltipcontent.notification.properties')) #iconByObject($garIcon.getTypeIcon("forgui_notify_red"))¤</span>¤<div id="msgAboutChangingNotify" style="display:none"></div>¤<div id="msgValidateFailedNotify" class="error" style="display:none"></div>¤<div id="form_notify_div">¤#set ($formMarginTop = 7)¤#set ($formMarginBottom = 0)¤¤<input type="hidden" name="hiddenRenderedPageName" id="hiddenRenderedPageId" value="${renderPageId}"/>¤<input type="hidden" name="hiddenRenderedCommentName" id="hiddenRenderedCommentId" value="${renderCommentId}"/>¤<input type="hidden" name="hiddenMacrosNotifyStringName" id="hiddenMacrosNotifyStringId" value="${macrosNotifyString}"/>¤<input type="hidden" name="hiddenEditContentName" id="hiddenEditContentId" value="${editContent}"/>¤#if($isSender || $defNotify || $notifyDismissed)¤<form style="margin-top: ${formMarginTop}px; margin-bottom: ${formMarginBottom}px;">¤	$garHelper.getText("notifytooltipcontent.notify.status")¤	<span id="notify_status">¤		#if($isSender)$garHelper.getText("notifytooltipcontent.notify.to.sender")¤		#elseif($defNotify)$garHelper.getText("notifytooltipcontent.notify.deffered")¤		#elseif($notifyDismissed)$garHelper.getText("notifytooltipcontent.notify.dismissed")#end¤	</span>¤</form>¤#end¤¤<form style="margin-top: ${formMarginTop}px; margin-bottom: ${formMarginBottom}px;">¤	<div id="notify_to_id_full_names" style="display:none">$action.notifyTo</div>¤	<div id="notify_to_surname" style="display:none"></div>¤	<span id="notify_to_id">¤	#if($action.fullNamesNotifyTo.equals($garHelper.getText('editnotifymonitoring.no.specifed')))<font color="gray">#end¤	$garHelper.getText("editnotifymonitoring.notify.to"): $action.fullNamesNotifyTo¤	#if($action.fullNamesNotifyTo.equals($garHelper.getText('editnotifymonitoring.no.specifed')))</font>#end¤	</span>¤	¤	#if($renderCommentId == $renderPageId || $garArchiveComment.isArchiveCommentId($renderCommentId) == 0 || $action.notifyTo.contains($action.RemoteUser.name))¤	<span id="notify_to_edit_link" class="inline-control-link fontSizeTiny" onclick="showUpdateNotify('notify_to');" #if($!action.notifyTo == '')style="display: none;" #end>$garHelper.getText('edit.name.caps')</span>¤	#end¤	<div id="notify_to_div" style="border: 1px solid #cccccc; padding:8px; text-align:center; background-color:#f0f0f0;#if($!action.notifyTo != '') display:none; #end">¤		<table style="width:100%;">¤			<tr>¤				<td nowrap="true" style="width:65%" colspan="2"><div class="formtitle" style="font-size: 14px;">$garHelper.getText('editnotifymonitoring.change.notify.to')</div></td>¤				<td style="width:5%" align="right"><a onClick="doCloseDivNotify('notify_to'); return false;" href=""><img border="0" width="8" height="8" src="$req.contextPath/images/icons/del_16.gif"/></a></td>¤			</tr>¤			<tr>¤				<td nowrap="true" align="left" style="width:30%">$garHelper.getText('editnotifymonitoring.new.notify.to'):</td>¤				<td align="left" style="width:50%"><input id="notify_to_text" type="text" style="width:99%"/></td>¤				<td align="left"><input type="submit" accesskey="s" value="$garHelper.getText('done.word')" onClick="toggleAllNotify('$renderCommentId', '$renderPageId', '$macrosNotifyString', '$editContent', '$spaceKey', '$parentId'); return false;" id="notify_to_button_done"/></td>¤			</tr>¤			<tr>¤				<td></td>¤				<td align="center" nowrap="true">¤					<a href="#" id="notify_to_choose_user" onclick="window.open('$req.contextPath/spaces/openuserpicker.action?key=$generalUtil.urlEncode(${parameters.spaceKey})&amp;startIndex=0&amp;onPopupSubmit=addUsersToNotify','user_inserter', 'width=620, height=480, resizable, scrollbars=yes'); return false;">$garHelper.getText('choose.users')</a>¤				</td>¤			</tr>	¤		</table>¤	</div>¤</form>¤¤<form style="margin-top: ${formMarginTop}px; margin-bottom: ${formMarginBottom}px;">¤	<span id="title_notify_id">¤	#if($action.titleNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')))<font color="gray">#end¤	$garHelper.getText("editnotifymonitoring.title.notify"): <span id="title_notify_id_value">$action.titleNotify</span>¤	#if($action.titleNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')))</font>#end¤	</span>¤	#if($renderCommentId == $renderPageId || $garArchiveComment.isArchiveCommentId($renderCommentId) == 0 || $action.notifyTo.contains($action.RemoteUser.name))¤		<span id="title_notify_edit_link" class="inline-control-link fontSizeTiny" onclick="showUpdateNotify('title_notify')">$garHelper.getText('edit.name.caps')</span>¤	#end¤	<div id="title_notify_div" style="border: 1px solid #cccccc; padding:8px; text-align:center; background-color:#f0f0f0; display:none">¤		<table style="width:100%;">¤			<tr>¤				<td nowrap="true" style="width:65%" colspan="2"><div class="formtitle" style="font-size: 14px;">$garHelper.getText('editnotifymonitoring.change.title.notify')</div></td>¤				<td style="width:5%" align="right"><a onClick="doCloseDivNotify('title_notify'); return false;" href=""><img border="0" width="8" height="8" src="$req.contextPath/images/icons/del_16.gif"/></a></td>¤			</tr>¤			<tr>¤				<td nowrap="true" align="left" style="width:30%">$garHelper.getText('editnotifymonitoring.new.title.notify'):</td>¤				<td align="left" style="width:50%"><input id="title_notify_text" type="text" style="width:99%" maxlength="255"/></td>¤				<td align="left"><input type="submit" accesskey="s" value="$garHelper.getText('done.word')" onClick="toggleAllNotify('$renderCommentId', '$renderPageId', '$macrosNotifyString', '$editContent', '$spaceKey', '$parentId'); return false;" id="title_notify_button_done"/></td>¤			</tr>¤		</table>¤	</div>¤</form>¤¤<form style="margin-top: ${formMarginTop}px; margin-bottom: ${formMarginBottom}px;">¤	<span id="start_date_notify_id">¤	#if($action.startDateNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')))<font color="gray">#end¤	$garHelper.getText("editnotifymonitoring.notify.start.date"): <span id="start_date_notify_id_value">$action.startDateNotify</span>¤	#if($action.startDateNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')))</font>#end¤	</span>¤	#if(($action.startDateNotify == $garHelper.getText('editnotifymonitoring.no.specifed') || $action.isStartDateLater()) && ($renderCommentId == $renderPageId || $garArchiveComment.isArchiveCommentId($renderCommentId) == 0 || $action.notifyTo.contains($action.RemoteUser.name)))¤		<span id="start_date_notify_edit_link" class="inline-control-link fontSizeTiny" onclick="showUpdateNotify('start_date_notify')">$garHelper.getText('edit.name.caps')</span>¤	#end¤	<div id="start_date_notify_div" style="border: 1px solid #cccccc; padding:8px; text-align:center; background-color:#f0f0f0; display:none">¤		<table style="width:100%;">¤			<tr>¤				<td nowrap="true" style="width:65%" colspan="2"><div class="formtitle" style="font-size: 14px;">$garHelper.getText('editnotifymonitoring.change.notify.start.date')</div></td>¤				<td style="width:5%" align="right"><a onClick="doCloseDivNotify('start_date_notify'); return false;" href=""><img border="0" width="8" height="8" src="$req.contextPath/images/icons/del_16.gif"/></a></td>¤			</tr>¤			<tr>¤				<td nowrap="true" align="left" style="width:30%">$garHelper.getText('editnotifymonitoring.new.notify.start.date'):</td>¤				<td align="left" style="width:50%"><input onfocus="initStartNotificationDateCalendar()" id="start_date_notify_text" type="text" style="width:99%" maxlength="50"/></td>¤				<td align="left"><input type="submit" accesskey="s" value="$garHelper.getText('done.word')" onClick="toggleAllNotify('$renderCommentId', '$renderPageId', '$macrosNotifyString', '$editContent', '$spaceKey', '$parentId'); return false;" id="start_date_notify_button_done"/></td>¤			</tr>¤			<tr nowrap="true">¤				<td colspan="3">¤					<span class="smalltext">¤						($garHelper.getText('notifytooltipcontent.start.date.rules'))¤					</span>¤				</td>	¤			</tr>¤		</table>¤	</div>¤</form>¤¤<form style="margin-top: ${formMarginTop}px; margin-bottom: ${formMarginBottom}px;">¤	<span id="cycle_notify_id">¤	#if($action.cycleNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')))<font color="gray">#end¤	$garHelper.getText("editnotifymonitoring.notify.cycle"): <span id="cycle_notify_id_value">$action.cycleNotify</span>¤	#if($action.cycleNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')))</font>#end¤	</span>¤	#if($renderCommentId == $renderPageId || $garArchiveComment.isArchiveCommentId($renderCommentId) == 0 || $action.notifyTo.contains($action.RemoteUser.name))¤	<span id="cycle_notify_edit_link" class="inline-control-link fontSizeTiny" onclick="showUpdateNotify('cycle_notify')">$garHelper.getText('edit.name.caps')</span>¤	#end¤	<div id="cycle_notify_div" style="border: 1px solid #cccccc; padding:8px; text-align:center; background-color:#f0f0f0; display:none">¤		<table style="width:100%;">¤			<tr>¤				<td nowrap="true" style="width:65%" colspan="2"><div class="formtitle" style="font-size: 14px;">$garHelper.getText('editnotifymonitoring.change.notify.cycle')</div></td>¤				<td style="width:5%" align="right"><a onClick="doCloseDivNotify('cycle_notify'); return false;" href=""><img border="0" width="8" height="8" src="$req.contextPath/images/icons/del_16.gif"/></a></td>¤			</tr>¤			<tr>¤				<td nowrap="true" align="left" style="width:30%">$garHelper.getText('editnotifymonitoring.new.notify.cycle'):</td>¤				<td align="left" style="width:50%"><input id="cycle_notify_text" type="text" style="width:99%" maxlength="50"/></td>¤				<td align="left"><input type="submit" accesskey="s" value="$garHelper.getText('done.word')" onClick="toggleAllNotify('$renderCommentId', '$renderPageId', '$macrosNotifyString', '$editContent', '$spaceKey', '$parentId'); return false;" id="cycle_notify_button_done"/></td>¤			</tr>¤			<tr nowrap="true">¤				<td colspan="3">¤					<span class="smalltext">¤						($garHelper.getText('notifytooltipcontent.cycle.and.duration.rules'))¤					</span>¤				</td>	¤			</tr>¤		</table>¤	</div>¤</form>¤¤<form style="margin-top: ${formMarginTop}px; margin-bottom: ${formMarginBottom}px;">¤	<span id="duration_notify_id">¤	#if($action.durationNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')))<font color="gray">#end¤	$garHelper.getText("editnotifymonitoring.notify.duration"): <span id="duration_notify_id_value">$action.durationNotify</span>¤	#if($action.durationNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')))</font>#end¤	</span>¤	#if($renderCommentId == $renderPageId || $garArchiveComment.isArchiveCommentId($renderCommentId) == 0 || $action.notifyTo.contains($action.RemoteUser.name))¤	<span id="duration_notify_edit_link" class="inline-control-link fontSizeTiny" onclick="showUpdateNotify('duration_notify')">$garHelper.getText('edit.name.caps')</span>¤	#end¤	<div id="duration_notify_div" style="border: 1px solid #cccccc; padding:8px; text-align:center; background-color:#f0f0f0; display:none">¤		<table style="width:100%;">¤			<tr>¤				<td nowrap="true" style="width:65%" colspan="2"><div class="formtitle" style="font-size: 14px;">$garHelper.getText('editnotifymonitoring.change.notify.duration')</div></td>¤				<td style="width:5%" align="right"><a onClick="doCloseDivNotify('duration_notify'); return false;" href=""><img border="0" width="8" height="8" src="$req.contextPath/images/icons/del_16.gif"/></a></td>¤			</tr>¤			<tr>¤				<td nowrap="true" align="left" style="width:30%">$garHelper.getText('editnotifymonitoring.new.notify.duration'):</td>¤				<td align="left" style="width:50%"><input id="duration_notify_text" type="text" style="width:99%" maxlength="50"/></td>¤				<td align="left"><input type="submit" accesskey="s" value="$garHelper.getText('done.word')" onClick="toggleAllNotify('$renderCommentId', '$renderPageId', '$macrosNotifyString', '$editContent', '$spaceKey', '$parentId'); return false;" id="duration_notify_button_done"/></td>¤			</tr>¤			<tr nowrap="true">¤				<td colspan="3">¤					<span class="smalltext">¤						($garHelper.getText('notifytooltipcontent.cycle.and.duration.rules'))¤					</span>¤				</td>	¤			</tr>¤		</table>¤	</div>¤</form>¤<br/>¤	#set($textConfirm = $garHelper.getText("editnotifymonitoring.message.remove.notify"))¤	#if($macrosNotifyString != "" && ($renderCommentId == $renderPageId || $garArchiveComment.isArchiveCommentId($renderCommentId) == 0) || $action.notifyTo.contains($action.RemoteUser.name))¤		<div align="left" #if(!$action.startDateNotify.equals($garHelper.getText('editnotifymonitoring.no.specifed')) && $action.isStartDateLater())style="display:none; font-size: 12px;" #else  style="font-size: 12px;" #end>¤			#iconByObject($garIcon.getTypeIcon("forgui_notify_resend")) <a href="#" onClick="sendAgainNotify('$renderCommentId', '$renderPageId', '$macrosNotifyString', '$spaceKey', '$parentId'); return false;">$garHelper.getText('editnotifymonitoring.send.again.notify')</a>¤		</div>¤		<div align="left" style="font-size: 12px;">¤			#iconByObject($garIcon.getTypeIcon("forgui_notify_remove")) <a href="#" onClick="if( confirm( '$textConfirm')) {tt_HideInit();removeNotify('$action.notifyTo', '$renderCommentId', '$renderPageId', '$macrosNotifyString');return false;}else return false;" id="remove_notify_button_done">$garHelper.getText('editnotifymonitoring.remove.notify')</a>¤		</div>¤		#set($un = $action.userNotification)¤		#if($action.userNotification)¤			#set($watchTextContinue = "$garHelper.getText('hunting.continue')")¤			#set($watchTextStop = "$garHelper.getText('hunting.stop')")¤		<div align="left" style="font-size: 12px;">¤			#set ($un_id = $un.getIdNotify())¤			#if ($un.needMonitoring)¤    			<a href="#" onClick="return false;">¤    				<img id="notify-$un_id" onClick="addOrRemoveNotifyFromFavourites('$un_id', '$isSender', '$defNotify', this);" ¤    					border="0" align="absmiddle" #if($isSender) src="$garIcon.getTypeIcon('forgui_watch_on_only_for_sender')" #elseif($defNotify) src="$garIcon.getTypeIcon('forgui_deferred_watch_on')" #else src="$garIcon.getTypeIcon('forgui_watch_on')" #end title="$watchTextStop">¤    			</a>¤				<a href="#" onClick="this.innerHTML = this.innerHTML=='$watchTextContinue' ? this.innerHTML='$watchTextStop' : this.innerHTML='$watchTextContinue'; addOrRemoveNotifyFromFavourites('$un_id', '$isSender', '$defNotify', document.getElementById('notify-$un_id')); return false;">$watchTextStop</a>¤			#elseif($un.startDate == 0 && $un.endDate == 0 && $un.cycle == 0 || $un.lastSendDate > 0)¤				## not allow to modify time driven notifications which have not been sent¤				<a href="#" onClick="return false;">¤    				<img id="notify-$un_id" onClick="addOrRemoveNotifyFromFavourites('$un_id', '$isSender', '$defNotify', this);" ¤    					border="0" align="absmiddle" #if($isSender) src="$garIcon.getTypeIcon('forgui_watch_off_only_for_sender')" #elseif($defNotify) src="$garIcon.getTypeIcon('forgui_deferred_watch_off')" #else src="$garIcon.getTypeIcon('forgui_watch_off')" #end title="$watchTextContinue">¤    			</a>¤				<a href="#" onClick="this.innerHTML = this.innerHTML=='$watchTextContinue'? this.innerHTML='$watchTextStop' : this.innerHTML='$watchTextContinue'; addOrRemoveNotifyFromFavourites('$un_id', '$isSender', '$defNotify', document.getElementById('notify-$un_id')); return false;">$watchTextContinue</a>¤			#end¤			¤		</div>¤		#end¤	#end¤	<div align="left" style="font-size: 12px;">¤		#iconByObject($garIcon.getTypeIcon("forgui_help")) ¤		<a href="/pages/viewpage.action?pageId=90446965">$garHelper.getText('notifytooltipcontent.for.more.details.see.notification')</a>¤	</div>¤</div>¤</div>¤##UC_END*490C560D025C_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/UserNotificationUnit/notifytooltipcontent|490C560D025C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039131775"))
+	    quid       	"490C560D025C"
+	    documentation 	"êîíòåíò òóëòèïà íîòèôèêàöèè"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "changenotify_error"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/UserNotificationUnit/changenotify_error.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*491936C003C9_CUSTOM_CONTENT*"
+		    value      	"##UC_BEGIN*491936C003C9_CUSTOM_CONTENT*¤<changenotify-response>$action.response</changenotify-response>¤##UC_END*491936C003C9_CUSTOM_CONTENT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/UserNotificationUnit/changenotify_error|491936C003C9
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039130261"))
+	    quid       	"491936C003C9"
+	    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "extendednotify"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/UserNotificationUnit/extendednotify.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/UserNotificationUnit/extendednotify|4923D14603BD
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4923D14603BD_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4923D14603BD_CUSTOM_CONTENT*¤¤#requireResource("legacy.confluence.web.resources:prototype")¤#requireResource('confluence.web.resources:utils')¤¤<script type="text/javascript">¤function getEditFormNotify(params, delayTime, title){¤		var xmlhttp = getXmlHttp();¤		var resp = "";¤		params = params + '&titleNotify=' + encodeURIComponent(title); ¤        xmlhttp.open("GET", "/ru/garant/MDProcess/ConfluencePlugins/UserNotificationPlugins/UserNotificationsXPlugin/UserNotificationsXPackage/notifytooltip.action?" + params, true);¤        xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState==4 && xmlhttp.status==200) {¤				resp = xmlhttp.responseText;¤				Tip(resp, STICKY, true, BGCOLOR, '#FAFAFA', CLOSEBTN, true, PADDING, 0, WIDTH, 0, DELAY, delayTime, OFFSETX, 5, OFFSETY, 5);¤            }¤        }¤        xmlhttp.send(null);¤}¤¤¤function addUsersToNotify(entityNames) {¤	var textAreaObject = document.getElementById('notify_to_text').value;¤	if(textAreaObject != "")¤		textAreaObject+= ", ";¤	textAreaObject+= entityNames;¤	document.getElementById('notify_to_text').value = textAreaObject;¤}¤¤function replaceUsersToNotify(entityNames){¤	var textAreaObject = document.getElementById('notify_to_text').value;¤	var userSurname = document.getElementById("notify_to_surname").value;¤	if(textAreaObject != ""){¤		var index = textAreaObject.indexOf(userSurname);¤		var startSeq = "";¤		var endSeq = "";¤		if(index != 0){¤			startSeq = textAreaObject.substring(0, index);¤		}	¤		var lengthPosEndSeq = index + userSurname.length; ¤		if(lengthPosEndSeq != textAreaObject.length){¤			endSeq = textAreaObject.substring(lengthPosEndSeq);¤		}	 ¤		textAreaObject = startSeq + entityNames + endSeq;¤	}	¤	document.getElementById('notify_to_text').value = textAreaObject;¤}¤¤function showValidationMessageNotify(msg) {¤	document.getElementById('msgValidateFailedNotify').style.display='';¤	document.getElementById('msgValidateFailedNotify').innerHTML = msg;¤}                            ¤var allListCtrlNotify = ["title_notify", "notify_to", "cycle_notify", "duration_notify", "start_date_notify"];¤var stackEditPlaces = new Array();¤var globalSeletectedArea = null;¤¤function hideChangesFormsNotify() {¤		for (var i = 0; i < allListCtrlNotify.length; i++) {¤			var elem_div = allListCtrlNotify[i] + "_div";¤			if(document.getElementById (elem_div).style.display != 'none') {¤				doCloseDivNotify(allListCtrlNotify[i]);¤				document.getElementById (allListCtrlNotify[i] + "_text").innerHTML = '';¤			}¤		}¤		document.getElementById ("msgValidateFailedNotify").value = '';¤		document.getElementById ("msgValidateFailedNotify").style.display = 'none';¤}¤¤function showUpdateNotify(prefix) {¤	var elem_div = prefix + "_div";¤	if(document.getElementById (elem_div).style.display == 'none') {¤		//////////////////¤		for (var i = 0; i < allListCtrlNotify.length; i++) {¤			var buttonCtrl = document.getElementById (allListCtrlNotify[i] + "_button_done");¤			if (buttonCtrl != null)  {¤				if (buttonCtrl.style.display != 'none') {¤					buttonCtrl.style.display = 'none';¤				}¤			}¤		}¤		////////////		¤		var elem_edit_link = prefix + "_edit_link";¤		document.getElementById (elem_edit_link).style.display = 'none';		¤		var doneButton = document.getElementById (prefix + "_button_done");¤		if(doneButton != null)  {¤			doneButton.style.display = ''¤		}¤		document.getElementById (elem_div).style.display = '';¤		stackEditPlaces[stackEditPlaces.length] = prefix;¤		if(prefix == "notify_to"){¤			if(document.getElementById ("notify_to_id_full_names").innerHTML != "$garHelper.getText('editnotifymonitoring.no.specifed')"){¤				document.getElementById (prefix + "_text").value = document.getElementById ("notify_to_id_full_names").innerHTML;¤			}¤			else{¤				document.getElementById (prefix + "_text").value = "";¤			}¤		}	¤		document.getElementById(prefix + "_text").focus();¤	}¤	setSizeScreen();¤}¤¤function doCloseDivNotify(prefix) {¤	pushButtonCloseField = true;¤	var elem_div = prefix + "_div";¤	var elem_edit_link = prefix + "_edit_link";¤¤	document.getElementById (elem_div).style.display = 'none';¤	document.getElementById (elem_edit_link).style.display = '';¤	¤	var newStackEditPlaces = new Array ();¤	for (var i = 0; i < stackEditPlaces.length; i++) {¤		if (stackEditPlaces[i] != prefix) {¤			newStackEditPlaces[newStackEditPlaces.length] = stackEditPlaces[i];¤		}¤	}¤	stackEditPlaces = newStackEditPlaces;¤	if (stackEditPlaces.length != 0 && stackEditPlaces[stackEditPlaces.length-1] != prefix) {¤		var buttonCtrl = document.getElementById (stackEditPlaces[stackEditPlaces.length-1] + "_button_done");¤		buttonCtrl.style.display = '';¤	}¤	document.getElementById (prefix + "_text").value = '';¤	document.getElementById ("msgValidateFailedNotify").value = '';¤	document.getElementById ("msgValidateFailedNotify").style.display = 'none';¤¤	var width = 'auto';¤	document.getElementById("WzTtDiV").style.width = width;¤	document.getElementById("WzTiTl").style.width = width;¤	document.getElementById("WzBoDy").style.width = width;¤	document.getElementById("WzTiTlTb").style.width = document.getElementById("WzBoDyI").offsetWidth - 5 + "px";¤}¤¤function removeNotify (notifyTo, renderCommentId, renderPageId, macrosNotifyString) {¤	if(macrosNotifyString == ""){¤		window.location.reload();¤	}¤	else{¤		var params = "titleNotify=" + encodeURIComponent(document.getElementById ("title_notify_id_value").innerHTML);¤		params+= ("&notifyTo=" + encodeURIComponent(document.getElementById ("notify_to_id_full_names").innerHTML));¤		params+= ("&cycleNotify=" + encodeURIComponent(document.getElementById ("cycle_notify_id_value").innerHTML));¤		params+= ("&durationNotify=" + encodeURIComponent(document.getElementById ("duration_notify_id_value").innerHTML));¤		params+= ("&startDateNotify=" + encodeURIComponent(document.getElementById ("start_date_notify_id_value").innerHTML));¤		params+= ("&renderCommentId=" + renderCommentId);	¤		params+= ("&renderPageId=" + renderPageId);	¤		params+= ("&macrosNotifyString=" + macrosNotifyString);	¤		¤		var xmlhttp = getXmlHttp();¤        xmlhttp.open("GET", "/ru/garant/MDProcess/ConfluencePlugins/UserNotificationPlugins/UserNotificationsXPlugin/UserNotificationsXPackage/removenotify.action?" + params, true);¤        xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState==4 && xmlhttp.status==200) {¤##					macrosNotifyString = '\\' + macrosNotifyString;¤					if(document.getElementById ("div_img_notify_" + macrosNotifyString) != null){¤						document.getElementById ("div_img_notify_" + macrosNotifyString).style.display = 'none';¤					}¤            }¤        }¤        xmlhttp.send(null);¤	}	¤}¤¤function sendAgainNotify (renderCommentId, renderPageId, macrosNotifyString, spaceKey, parentId) {¤		var params = "titleNotify=" + encodeURIComponent(document.getElementById ("title_notify_id_value").innerHTML);¤		params+= ("&notifyTo=" + encodeURIComponent(document.getElementById ("notify_to_id_full_names").innerHTML));¤		params+= ("&cycleNotify=" + encodeURIComponent(document.getElementById ("cycle_notify_id_value").innerHTML));¤		params+= ("&durationNotify=" + encodeURIComponent(document.getElementById ("duration_notify_id_value").innerHTML));¤		params+= ("&startDateNotify=" + encodeURIComponent(document.getElementById ("start_date_notify_id_value").innerHTML));¤		params+= ("&renderCommentId=" + renderCommentId);	¤		params+= ("&renderPageId=" + renderPageId);	¤		params+= ("&macrosNotifyString=" + macrosNotifyString);	¤		params+= ("&spaceKey=" + spaceKey);¤		params+= ("&parentId=" + parentId);¤¤		var notifyURL = "/ru/garant/MDProcess/ConfluencePlugins/UserNotificationPlugins/UserNotificationsXPlugin/UserNotificationsXPackage/sendnotifyagain.action?" + params;¤		var xmlhttp = getXmlHttp();¤		xmlhttp.open("GET", notifyURL, true);¤        xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState==4 && xmlhttp.status==200) {¤				var errorBlock = xmlhttp.responseXML.getElementsByTagName("has-error")[0];¤				if (errorBlock == null) {¤						window.location.reload();¤				}else{¤					var errorCode = errorBlock.getAttribute("code");¤					showValidationMessageNotify(errorBlock.firstChild.nodeValue);¤				}¤            }¤        }¤        xmlhttp.send(null);¤}¤¤function trimTitle(title) {¤	return title.replace(/^\s+|\s+$/g, '');¤}¤¤function toggleAllNotify (renderCommentId, renderPageId, macrosNotifyString, editContent, spaceKey, parentId) {¤	showEditFormNotify(false);¤	showChangingMessageNotify(true);¤¤	var title = "";¤	var notifySender = "";¤	var cycle = "";¤	var duration = "";¤	var startDate = "";¤	¤	if(document.getElementById ("title_notify_div").style.display != 'none')¤		title+= $('title_notify_text').value;¤	else	¤		title+= document.getElementById ("title_notify_id_value").innerHTML;¤¤	if(document.getElementById ("notify_to_div").style.display != 'none')¤		notifySender+= $('notify_to_text').value;¤	else¤		notifySender+= document.getElementById ("notify_to_id_full_names").innerHTML;¤¤	if(document.getElementById ("cycle_notify_div").style.display != 'none')¤		cycle+= $('cycle_notify_text').value;¤	else	¤		cycle+= document.getElementById ("cycle_notify_id_value").innerHTML;¤¤	if(document.getElementById ("duration_notify_div").style.display != 'none')¤		duration+= $('duration_notify_text').value;¤	else	¤		duration+= document.getElementById ("duration_notify_id_value").innerHTML;¤¤	if(document.getElementById ("start_date_notify_div").style.display != 'none')¤		startDate+= $('start_date_notify_text').value;¤	else 	¤		startDate+= document.getElementById ("start_date_notify_id_value").innerHTML;¤¤	title = encodeURIComponent(trimTitle(title));¤	notifySender = encodeURIComponent(notifySender);¤	cycle = encodeURIComponent(cycle);¤	duration = encodeURIComponent(duration);¤	startDate = encodeURIComponent(startDate);¤¤	var params = "titleNotify=" + title + "&notifyTo=" + notifySender + "&cycleNotify=" + cycle + "&durationNotify=" + duration + "&startDateNotify=" + startDate;¤¤	params+= ("&renderCommentId=" + renderCommentId);	¤	params+= ("&renderPageId=" + renderPageId);	¤	params+= ("&macrosNotifyString=" + macrosNotifyString);	¤	params+= ("&editContent=" + editContent);	¤	params+= ("&spaceKey=" + spaceKey);¤	params+= ("&parentId=" + parentId);¤¤		var notifyURL = "/ru/garant/MDProcess/ConfluencePlugins/UserNotificationPlugins/UserNotificationsXPlugin/UserNotificationsXPackage/changenotify.action?" + params;¤		var xmlhttp = getXmlHttp();¤		var VALIDATION_NOT_SEND_NAMES = 1040;¤		var VALIDATION_MANY_USERS_ON_ONE_SURNAME = 1050;¤		xmlhttp.open("GET", notifyURL, true);¤        xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState==4 && xmlhttp.status==200) {¤				var errorBlock = xmlhttp.responseXML.getElementsByTagName("has-error")[0];¤				if (errorBlock == null || errorBlock.getAttribute("code") == VALIDATION_NOT_SEND_NAMES) {¤					if(editContent == 'true'){¤						if (errorBlock != null && errorBlock.getAttribute("code") == VALIDATION_NOT_SEND_NAMES)¤							alert(errorBlock.firstChild.nodeValue);¤						var editContentBlock = xmlhttp.responseXML.getElementsByTagName("fullNamesIdString")[0];¤						var textAreaObject = null;¤						if(document.forms['editcommentform'] != null){¤							textAreaObject = document.forms['editcommentform'].elements['markupTextarea'];¤						}¤						else if(document.forms['inlinecommentform'] != null){¤							textAreaObject = document.forms['inlinecommentform'].elements['markupTextarea'];¤						}¤						else if(document.forms['threadedcommentform'] != null){¤							textAreaObject = document.forms['threadedcommentform'].elements['markupTextarea'];¤						}¤						else if(document.forms['editpage'] != null){¤							textAreaObject = document.forms['editpage'].elements['markupTextarea'];¤						}	¤						else if(document.forms['editpageform'] != null){¤							textAreaObject = document.forms['editpageform'].elements['markupTextarea'];¤						}	¤						else if(document.forms['createpageform'] != null){¤							textAreaObject = document.forms['createpageform'].elements['markupTextarea'];¤						}¤						var contentNot;¤						if(textAreaObject != null && editContentBlock != null){¤							contentNot = editContentBlock.firstChild.nodeValue;¤							if(textAreaObject.selectionStart != null){¤								textAreaObject.value = insertInCursorPlace(textAreaObject.value, textAreaObject.selectionStart, textAreaObject.selectionEnd, contentNot, '');¤							}else{¤								// for ie¤								var range = document.selection.createRange();¤								globalSeletectedArea.text = '' + contentNot;¤								range = globalSeletectedArea;¤							}¤						}	¤						disableSaveButton();¤						var errorContentBlock = xmlhttp.responseXML.getElementsByTagName("errorString")[0];¤						if(errorContentBlock != null){¤							alert(errorContentBlock.firstChild.nodeValue);¤						}¤						tt_HideInit();¤						if (textAreaObject.selectionStart != undefined && textAreaObject.selectionStart != null) {¤							textAreaObject.selectionStart = textAreaObject.selectionEnd = textAreaObject.sel1 + contentNot.length;¤							textAreaObject.focus();¤						}¤					}¤					else if(macrosNotifyString == ""){¤						tt_HideInit();¤						var editContentBlock = xmlhttp.responseXML.getElementsByTagName("errorString")[0];¤						if(editContentBlock != null && editContentBlock.firstChild != null){¤							alert(editContentBlock.firstChild.nodeValue);¤						}¤						if (errorBlock != null && errorBlock.getAttribute("code") == VALIDATION_NOT_SEND_NAMES)¤							alert(errorBlock.firstChild.nodeValue);¤						var commentLink = '$req.contextPath$generalUtil.customGetPageUrl($page)';¤						if(renderCommentId != renderPageId){¤							commentLink = commentLink + 'focusedCommentId=' + renderCommentId + '#comment-' + renderCommentId;¤						}¤						window.location.href = commentLink;¤					}¤					else{¤						if(macrosNotifyString != ""){¤								tt_HideInit();¤								var editContentBlock = xmlhttp.responseXML.getElementsByTagName("errorString")[0];¤								if(editContentBlock != null && editContentBlock.firstChild != null){¤									alert(editContentBlock.firstChild.nodeValue);¤								}¤								if (errorBlock != null && errorBlock.getAttribute("code") == VALIDATION_NOT_SEND_NAMES)¤									alert(errorBlock.firstChild.nodeValue);¤								var commentLink = '$req.contextPath$generalUtil.customGetPageUrl($page)';¤								if(renderCommentId != renderPageId){¤									commentLink = commentLink + 'focusedCommentId=' + renderCommentId + '#comment-' + renderCommentId;¤								}	¤								window.location.href = commentLink;¤						}	¤					}	¤				} else if(errorBlock.getAttribute("code") == VALIDATION_MANY_USERS_ON_ONE_SURNAME){¤					var usersSurname = errorBlock.firstChild.nodeValue;¤					document.getElementById("notify_to_surname").value = usersSurname; ¤					showChangingMessageNotify(false);¤					showEditFormNotify(true);¤					window.open('$req.contextPath/users/userpicker.action?onPopupSubmit=replaceUsersToNotify&searchTerm='+ encodeURIComponent(usersSurname),'user_inserter', 'width=620, height=480, resizable, scrollbars=yes');¤					return false;¤				¤				}else{¤					showChangingMessageNotify(false);¤					showEditFormNotify(true);¤					var errorCode = errorBlock.getAttribute("code");¤					showValidationMessageNotify(errorBlock.firstChild.nodeValue);¤				}¤            }¤        }¤        xmlhttp.send(null);¤		¤}¤¤¤function insertInCursorPlace(tao, selectionStart, selectionEnd, selectedText, additionalText){¤		var newText = "";¤		var startSel = 0;¤		var endSel = 0;¤   		startSel = selectionStart;¤		endSel = selectionEnd;¤		newText += tao.substr(0, startSel);¤		newText += (additionalText + selectedText);¤		newText += tao.substr(endSel, tao.length - endSel)¤		tao = newText;¤		return tao;¤}¤¤¤¤function showEditFormNotify(show) {¤	$('form_notify_div').style.display = show ? '' : 'none';¤	if($('form_notify_div').style.display == ''){¤		setSizeScreen();¤	}¤}¤¤function showChangingMessageNotify(show) {¤	if(show) {¤		$('msgAboutChangingNotify').innerHTML = "<ul>$garHelper.getText('changing.name') ...</ul>";¤		$('msgAboutChangingNotify').style.display = '';	¤		document.getElementById ("msgValidateFailedNotify").value = '';¤		document.getElementById ("msgValidateFailedNotify").style.display = 'none';¤		setSizeScreen();¤	} else {¤		$('msgAboutChangingNotify').style.display = 'none';	¤	}¤¤}¤¤function setSizeScreen(){¤	var width = 'auto';¤	document.getElementById("WzTtDiV").style.width = width;¤	document.getElementById("WzTiTl").style.width = width;¤	document.getElementById("WzBoDy").style.width = width;¤	document.getElementById("WzTiTlTb").style.width = document.getElementById("WzBoDyI").offsetWidth - 5 + "px";¤}¤¤var pressNotify = false;¤var coordinateX = 0;¤var coordinateY = 0;¤var mouseNotifyX = 0;¤var mouseNotifyY = 0;¤var pushButtonCloseField = false;¤¤$('WzTtDiV').onkeydown=submitEnterNotify;¤/*private*/ function submitEnterNotify(e) {¤¤	if(new detectBrowser().ie != true) {¤		return true;¤	}¤	¤	var keycode;¤	if (window.event) {¤		keycode = window.event.keyCode;¤	} else if (e) {¤		keycode = e.which;¤	} else { ¤		return true;¤	}¤¤	if (keycode == 13 && stackEditPlaces.length > 0) {¤	var flag = 'false';¤		for (var i = 0; i < allListCtrlNotify.length; i++) {¤			var elem_div = allListCtrlNotify[i] + "_div";¤			var elem_ctrl = document.getElementById (elem_div);¤			if(elem_ctrl != null && elem_ctrl != "undefined" && elem_ctrl.style.display != 'none') {¤				flag = 'true';¤			}¤		}¤		if(flag == 'true'){¤			toggleAllNotify(document.getElementById('hiddenRenderedCommentId').value, document.getElementById('hiddenRenderedPageId').value, document.getElementById('hiddenMacrosNotifyStringId').value, document.getElementById('hiddenEditContentId').value);¤		}¤		return false;¤	}¤	return true;¤}¤¤function initStartNotificationDateCalendar() {¤	garCalendar.setup({¤		inputField : "start_date_notify_text",¤		ifFormat : "%d.%m.%Y %H:%M",¤		showsTime : "true",¤		step : 1¤	});¤}¤¤function getCurcorParentWindow(){¤	var tao = document.forms['editcommentform'].elements['markupTextarea'];¤	tao.focus();¤	alert(document.selection);¤	var range1 = document.selection.createRange();¤	alert(range1.text);¤}¤¤¤$('WzTtDiV').onmouseover=moveScreenNotify;¤/*private*/ function moveScreenNotify(e) {¤	if(pressNotify == true){¤		moveCoordinatesScreenNotify(e);¤	}¤}¤¤$('WzTtDiV').onmousedown=pressDownNotify;¤/*private*/ function pressDownNotify(e) {¤	pressNotify = true;¤	coordinateX = document.getElementById("WzTtDiV").offsetLeft;¤	coordinateY = document.getElementById("WzTtDiV").offsetTop;¤	if (e) {¤		mouseNotifyX = e.pageX;¤		mouseNotifyY = e.pageY;¤	}¤}¤¤$('WzTtDiV').onmouseup=pressUpNotify;¤/*private*/ function pressUpNotify(e) {¤	pressNotify = false;¤}¤¤function moveCoordinatesScreenNotify(e){¤	var moveX = 0;¤	var moveY = 0;¤	if (e) {¤		moveX = e.pageX - mouseNotifyX;¤		moveY = e.pageY - mouseNotifyY;¤		mouseNotifyX = e.pageX;¤		mouseNotifyY = e.pageY;¤	}¤	coordinateX = coordinateX + moveX;¤	coordinateY = coordinateY + moveY;¤¤	document.getElementById("WzTtDiV").style.left = coordinateX + "px";¤	document.getElementById("WzTtDiV").style.top = coordinateY + "px";¤}¤¤Event.observe(window, "click", closeNotifyScreen);¤	¤function closeNotifyScreen(e){¤	if ((tt_iState & 0x8) == 0x8) {¤		return true;¤	}¤	var xScreen = 0;¤	var yScreen = 0;¤	if (e) {¤		xScreen = e.pageX;¤		yScreen = e.pageY;¤	} else { ¤		return true;¤	}¤	var x1 = document.getElementById("WzTtDiV").offsetLeft;¤	var x2 = x1 + document.getElementById("WzTtDiV").offsetWidth;¤	var y1 = document.getElementById("WzTtDiV").offsetTop;¤	var y2 = y1 + document.getElementById("WzTtDiV").offsetHeight;¤	¤	var isNotInNotifyToText = (document.getElementById("notify_to_div") == null || document.getElementById("notify_to_text").value == "");¤	var isNotInTitleNotifyText = (document.getElementById("title_notify_div") == null || document.getElementById("title_notify_text").value == "");¤	var isNotInStartDateNotifyText = (document.getElementById("start_date_notify_div") == null || document.getElementById("start_date_notify_text").value == "");¤	var isNotInCycleNotifyText = (document.getElementById("cycle_notify_div") == null || document.getElementById("cycle_notify_text").value == "");¤	var isNotInDurationNotifyText = (document.getElementById("duration_notify_div") == null || document.getElementById("duration_notify_text").value == "");¤	¤	if(!(xScreen > x1 && yScreen > y1 && xScreen < x2 && yScreen < y2)&& pushButtonCloseField == false){¤		if(isNotInNotifyToText && isNotInTitleNotifyText && isNotInCycleNotifyText && isNotInDurationNotifyText	 && isNotInStartDateNotifyText){¤			tt_HideInit();¤		}¤	}¤	pushButtonCloseField = false;¤}¤¤function validateNotification(){¤	var text = document.getElementById("markupTextarea").value;¤	if(text.indexOf("{notify:") == -1){¤		return true;¤	}¤	var params = "text=" + encodeURI(text);¤	if(document.getElementById("contentId") != null)¤	params+= ("&renderCommentId=" + document.getElementById("contentId").value);	¤	if(document.getElementById("pageId") != null)¤	params+= ("&renderPageId=" + document.getElementById("pageId").value);	¤	if(document.getElementById("spaceKey") != null)¤	params+= ("&spaceKey=" + document.getElementById("spaceKey").value);¤	if(document.getElementById("parentPageId") != null)¤	params+= ("&parentId=" + document.getElementById("parentPageId").value);¤¤	var notifyURL = "/ru/garant/MDProcess/ConfluencePlugins/UserNotificationPlugins/UserNotificationsXPlugin/UserNotificationsXPackage/validatornotify.action?" + params;¤¤	var ret;¤¤	AJS.\u0024.ajax({¤		type: "GET",¤		url: notifyURL,¤		data: null,¤		async: false,¤		success: function (resp) {¤		        if(resp){¤				if(confirm(resp)){¤					ret = true;¤				}else{¤					ret = false;¤				}¤			}¤			},¤		dataType: "html",¤		timeout: 20000,¤		error: function ( xml, status, e) { // ajax error handler¤			if (status == "timeout") {¤				alert("Timeout");¤			}¤		}	¤	});¤¤	return ret;¤}			¤¤document.onclick = function(ev) {¤	if(ev.target.name == 'confirm'){¤		return validateNotification();¤	}¤}¤</script>¤¤##UC_END*4923D14603BD_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027462118"))
+	    quid       	"4923D14603BD"
+	    documentation 	"ñîäåðæàòñÿ javascript-ôóíêöèè"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "changenotify_js"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/UserNotificationUnit/changenotify_js.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4AB2108200AF_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4AB2108200AF_CUSTOM_CONTENT*¤¤<script language="Javascript">¤	var favPagesEditInProgressArray = {};¤¤    function toggleWatch(imgElement, notifyForSender, deferredNotify)¤    {¤        var imagePath = imgElement.src;¤        if (imgElement.src.indexOf("forgui_watch_on") != -1 || imgElement.src.indexOf("forgui_deferred_watch_on") != -1 || imgElement.src.indexOf("forgui_watch_on_only_for_sender") != -1) {¤        	if(notifyForSender == 'true'){¤				imgElement.src = "$garIcon.getTypeIcon('forgui_watch_off_only_for_sender')";¤        	}else if(deferredNotify == 'true'){¤				imgElement.src = "$garIcon.getTypeIcon('forgui_deferred_watch_off')";¤            }else{¤				imgElement.src = "$garIcon.getTypeIcon('forgui_watch_off')";¤			}	¤            imgElement["title"] = "$garHelper.getText('hunting.continue')";¤        } else {¤        	if(notifyForSender == 'true'){¤				imgElement.src = "$garIcon.getTypeIcon('forgui_watch_on_only_for_sender')";¤        	}else if(deferredNotify == 'true'){¤				imgElement.src = "$garIcon.getTypeIcon('forgui_deferred_watch_on')";¤            }else{¤				imgElement.src = "$garIcon.getTypeIcon('forgui_watch_on')";¤			}	¤            imgElement["title"] = "$garHelper.getText('hunting.stop')";¤        }¤    }¤¤    function addOrRemoveNotifyFromFavourites$!{macroKey}(idNotify, notifyForSender, deferredNotify, imgElement) {¤        if (favPagesEditInProgressArray[imgElement.id] == null){¤            favPagesEditInProgressArray[imgElement.id] = true;¤			var xmlhttp = getXmlHttp();¤			var action = "/ru/garant/MDProcess/ConfluencePlugins/UserNotificationPlugins/UserNotificationsXPlugin/UserNotificationsXPackage/changenotifymonitoring.action?idNotify=" + idNotify + "&processGroupped=true";¤            xmlhttp.open("GET", action);¤			xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState == 4 && xmlhttp.status==200){¤                    try{¤                        if (xmlhttp.status == 200){¤                            toggleWatch(imgElement, notifyForSender, deferredNotify);¤                            favPagesEditInProgressArray[imgElement.id] = null;¤                        }¤                        else{¤                            alert("$garHelper.getText('error.occured.toggling.favourite')" + " " + xmlhttp.responseText);¤                        }¤                    }¤                    catch(e){¤                        alert("$garHelper.getText('exception.thrown')" + ": " + e);¤                    }¤            }¤			}¤        }¤        xmlhttp.send(null);¤	}¤	¤</script>¤¤##UC_END*4AB2108200AF_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/UserNotificationUnit/changenotify_js|4AB2108200AF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027039914"))
+	    quid       	"4AB2108200AF"
+	    documentation 	"ñêðèïòû äëÿ èçìåíåíèÿ ñëåæåíèÿ"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"490ACCBC0118"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	124
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::editnotifymonitoring" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(978, 474)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(790, 445)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	376
+			justify    	0
+			label      	"editnotifymonitoring")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(790, 395)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	376
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"490ACCC201E7"
+		    width      	394
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::notifytooltipcontent" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(714, 891)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(525, 862)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"notifytooltipcontent")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(525, 812)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"490C560D025C"
+		    width      	396
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::changenotify_error" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(378, 411)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(192, 382)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"changenotify_error")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(192, 332)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"491936C003C9"
+		    width      	390
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::extendednotify" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1485, 1017)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1336, 988)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	298
+			justify    	0
+			label      	"extendednotify")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1336, 938)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	298
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4923D14603BD"
+		    width      	316
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::changenotify_js" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1599, 624)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1442, 595)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	314
+			justify    	0
+			label      	"changenotify_js")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1442, 545)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	314
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4AB2108200AF"
+		    width      	332
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(1319, 664)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4B289C0E03BB"
+		    client     	@1
+		    supplier   	@4
+		    vertices   	(list Points
+			(1063, 565)
+			(1399, 925))
+		    line_style 	0)))))

@@ -1,0 +1,883 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.4.0410.2500"
+    charSet    	204)
+
+(object Class_Category "ExplanatoryDiction"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false"))
+    quid       	"400FC8AC014B"
+    documentation 	"Òîëêîâûé ñëîâàðü"
+    stereotype 	"Interface"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"400FC92A0229"
+	    supplier   	"Logical View::garant6x::GblAdapter::Document"
+	    quidu      	"3F1506E50115")
+	(object Visibility_Relationship
+	    quid       	"400FD84F03BC"
+	    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes"
+	    quidu      	"3F2557FD00CD")
+	(object Visibility_Relationship
+	    quid       	"400FD94000A1"
+	    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport"
+	    quidu      	"3F255D1E0071")
+	(object Visibility_Relationship
+	    quid       	"40112C0F030F"
+	    supplier   	"Logical View::Garant::GblAdapter::List"
+	    quidu      	"3F15074D013D"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ExplanatoryList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"D08254C5-DC27-4F58-A8BF-4786B386DBDA")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *400FCC6301B7_CUSTOM_PREINCLUDES*¤//#UC END# *400FCC6301B7_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/ExplanatoryDiction/ExplanatoryNode_i.h"¤#include "Garant/GblAdapter/ExplanatoryDiction/ExplanatoryDictionary_i.h"¤#include "Garant/GblAdapter/Document/Document_i.h"¤//#UC END# *400FCC6301B7_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_MAKE_INTERFACE_IMPLEMENTATION*¤	assert (false);¤	return 0;¤	//#UC END# *400FCC6301B7_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤IExplanatoryList* ExplanatoryList_i::make_interface (¤	Languages language¤) {¤_GBLADAPTER_SET_CONTEXT (CONTEXT, "GblAdapter::ExplanatoryList_i::make_interface")¤	GBLADAPTER_DECLARE_AND_NEW (POINTER, ExplanatoryList_i, (language));¤	return ACE_dynamic_cast (IExplanatoryList*, GBLADAPTER_PTR_CHECK (IExplanatoryList*, POINTER));¤_GBLADAPTER_RES_CONTEXT (CONTEXT)¤}¤//#UC END# *400FCC6301B7_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_BASE_METHOD_IMPL*¤IExplanatoryNode_var ExplanatoryList_i::find_explanatory (const char* expression)¤{¤_GBLADAPTER_SET_CONTEXT (CONTEXT, "GblAdapter::ExplanatoryList_i::find_explanatory")¤	CORBA::Long pos;¤	try {¤		pos = application_helper ()->get_cached_explanatory_dictionary ()->get_position_by_key (¤			expression¤			, ExplanatoryDictionary_i::translate (m_language)¤		);¤	} catch (GCD::CanNotFindData&) {¤		throw CanNotFindData ();¤	}¤¤	INode_var child;¤	m_root->get_child (pos, child.out ());¤¤	IExplanatoryNode_var explanatory_node = IExplanatoryNode::_narrow (child.in ());¤	return explanatory_node;¤_GBLADAPTER_RES_CONTEXT (CONTEXT)¤}¤¤//#UC END# *400FCC6301B7_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_CONSTRUCTOR_IMPLEMENTATION*¤	assert (false);¤	//#UC END# *400FCC6301B7_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *400FCC6301B7_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤ExplanatoryList_i::ExplanatoryList_i (¤	Languages language¤) :¤	m_language (language)¤{¤_GBLADAPTER_SET_CONTEXT (CONTEXT, "GblAdapter::ExplanatoryList_i::ExplanatoryList_i")¤	m_root = ExplanatoryNode_i::make_interface (0, 0, 0, 0, m_language);¤_GBLADAPTER_RES_CONTEXT (CONTEXT)¤}¤//#UC END# *400FCC6301B7_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FCC6301B7_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *400FCC6301B7_CUSTOM_INCLUDES*¤//#UC END# *400FCC6301B7_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FCC6301B7_EX*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_EX*¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ òèïîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ñòàòè÷åñêèõ ìåòîäîâ è äàííûõ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ àáñòðàêòíûõ ìåòîäîâ¤public:¤	virtual IExplanatoryNode_var find_explanatory (const char* expression) = 0;¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ìåòîäîâ è äàííûõ¤//#UC END# *400FCC6301B7_EX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FCC6301B7_CUSTOM_TYPES*"
+		    value      	"//#UC START# *400FCC6301B7_CUSTOM_TYPES*¤//#UC END# *400FCC6301B7_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FCC6301B7_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_CUSTOM_STATIC*¤	static IExplanatoryList* make_interface (¤		Languages language¤	);	¤//#UC END# *400FCC6301B7_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FCC6301B7_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *400FCC6301B7_CUSTOM_ABSTRACT*¤//#UC END# *400FCC6301B7_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FCC6301B7_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_CUSTOM_METHODS_AND_DATA*¤public:¤	IExplanatoryNode_var find_explanatory (const char* expression);¤¤protected:¤	ExplanatoryList_i (Languages language);¤¤private:¤	IExplanatoryNode_var m_root;¤	Languages m_language;¤//#UC END# *400FCC6301B7_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FCC6301B7_INLINE_INCLUDES*"
+		    value      	(value Text "//#UC START# *400FCC6301B7_INLINE_INCLUDES*¤//#UC END# *400FCC6301B7_INLINE_INCLUDES*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FCC6301B7_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *400FCC6301B7_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *400FCC6301B7_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"400FCC6301B7"
+	    documentation 	"Ñïèñîê òåðìèíîâ íà êîíêðåòíîì ÿçûêå."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"402090A5001A"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport::BaseCatalog"
+		    quidu      	"3EB8B9E10106"))
+	    language   	"MDA Generator")
+	(object Class "ExplanatoryNode"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"91EAACF0-83E4-4E38-A01D-F5A8374261BA")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *400FD21B016C_CUSTOM_PREINCLUDES*¤//#UC END# *400FD21B016C_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/ExplanatoryDiction/ExplanatoryDictionary_i.h"¤#include "Garant/GblAdapter/Start/Common_i.h"¤//#UC END# *400FD21B016C_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_MAKE_INTERFACE_IMPLEMENTATION*¤	assert (false);¤	return 0;¤	//#UC END# *400FD21B016C_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤IExplanatoryNode* ExplanatoryNode_i::make_interface (¤	const char* caption¤	, long word_id¤	, long index¤	, IExplanatoryNode *const parent¤	, Languages language¤) {¤_GBLADAPTER_SET_CONTEXT (CONTEXT, "GblAdapter::ExplanatoryNode_i::make_interface")¤	GBLADAPTER_DECLARE_AND_NEW (¤		POINTER¤		, ExplanatoryNode_i¤		, (caption, word_id, index, parent, language)¤	);¤	return ACE_dynamic_cast (IExplanatoryNode*, GBLADAPTER_PTR_CHECK (IExplanatoryNode*, POINTER));¤_GBLADAPTER_RES_CONTEXT (CONTEXT)¤}¤//#UC END# *400FD21B016C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_BASE_METHOD_IMPL*¤INode* ExplanatoryNode_i::load_child (const ACE_UINT32 index) {¤_GBLADAPTER_SET_CONTEXT (CONTEXT, "GblAdapter::ExplanatoryNode_i::load_child")¤	long pre_read_count = 100;¤¤	INode_var result;¤	GblPilotDef::DictWordList_var wl ¤		= application_helper ()->get_cached_explanatory_dictionary ()->get_word_list (¤				index¤				, pre_read_count¤				, ExplanatoryDictionary_i::translate (ACE_static_cast (Languages, m_object_type))¤			);¤¤	CORBA::ULong length = wl->length ();¤	for (CORBA::ULong i = 0; i < length; ++i) {¤		¤		long node_index = index+i;¤		 ¤		INode_var node;¤¤		node = ExplanatoryNode_i::make_interface (¤			wl [i].m_word¤			, wl[i].m_id¤			, node_index¤			, this¤			, ACE_static_cast (Languages, m_object_type)¤		);¤¤		m_children_map.bind (node_index, node);¤¤		if (i == 0) {¤			result = node;¤		}¤¤	}¤	return result._retn ();¤_GBLADAPTER_RES_CONTEXT (CONTEXT)¤}¤¤bool ExplanatoryNode_i::load () {¤_GBLADAPTER_SET_CONTEXT (CONTEXT, "GblAdapter::ExplanatoryNode_i::load")¤	return true;¤_GBLADAPTER_RES_CONTEXT (CONTEXT)¤}¤¤//#UC END# *400FD21B016C_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CONSTRUCTOR_IMPLEMENTATION*¤	assert (false);¤	//#UC END# *400FD21B016C_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *400FD21B016C_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤ExplanatoryNode_i::ExplanatoryNode_i (¤	const char* caption¤	, long word_id¤	, long index¤	, IExplanatoryNode*const parent¤	, Languages language¤) :¤	Node_i (¤		caption           // m_caption ¤		, (void*)word_id    // m_data¤		, 0                 // m_flags¤		, 0                 // m_hint¤		, parent ? 1 : 0		// m_level¤		, index							// m_index¤		, language          // m_object_type (èñïîëüçóòåñÿ äëÿ õðàíåíèÿ èäåíòèôèêàòîðà ÿçûêà)¤		, parent						// m_parent¤	)¤{¤_GBLADAPTER_SET_CONTEXT (CONTEXT, "GblAdapter::ExplanatoryNode_i::ExplanatoryNode_i")¤	m_through_index = index;¤	if (parent) {¤		m_all_children_count = m_children_count = 0;¤	} else {¤		m_all_children_count = m_children_count¤			= application_helper ()->get_cached_explanatory_dictionary ()->get_size (¤					ExplanatoryDictionary_i::translate (ACE_static_cast (Languages, m_object_type))¤				);¤	}¤	m_loaded = true;¤_GBLADAPTER_RES_CONTEXT (CONTEXT)¤}¤¤//#UC END# *400FD21B016C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FD21B016C_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/BaseTypes/BaseTypesUnit.h"¤#include "patterns/managers/PoolMemoryManager.h"¤//#UC END# *400FD21B016C_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FD21B016C_EX*"
+		    value      	"//#UC START# *400FD21B016C_EX*¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ òèïîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ñòàòè÷åñêèõ ìåòîäîâ è äàííûõ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ àáñòðàêòíûõ ìåòîäîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ìåòîäîâ è äàííûõ¤//#UC END# *400FD21B016C_EX*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FD21B016C_CUSTOM_TYPES*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CUSTOM_TYPES*¤private:¤	typedef GCL::PoolMemoryManager<ExplanatoryNode_i,512> Pool;¤	typedef ACE_Singleton <Pool, ACE_SYNCH_RECURSIVE_MUTEX> PoolSing;¤//#UC END# *400FD21B016C_CUSTOM_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FD21B016C_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CUSTOM_STATIC*¤public:¤	static IExplanatoryNode* make_interface (¤		const char* caption¤		, long word_id¤		, long index¤		, IExplanatoryNode*const parent¤		, Languages language¤	);¤¤//#UC END# *400FD21B016C_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FD21B016C_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *400FD21B016C_CUSTOM_ABSTRACT*¤//#UC END# *400FD21B016C_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FD21B016C_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CUSTOM_METHODS_AND_DATA*¤public:¤	void* operator new (size_t s) {¤		return PoolSing::instance()->malloc(s);¤	}¤	void operator delete (void* p) {¤		PoolSing::instance()->free(p);¤	}¤¤protected:¤	ExplanatoryNode_i (¤		const char* caption¤		, long word_id¤		, long index¤		, IExplanatoryNode*const parent¤		, Languages language¤	);¤¤	// Çàãðóçèòü äî÷åðíèé ýëåìåíò¤	INode* load_child (const ACE_UINT32 index);¤	bool load ();¤¤//#UC END# *400FD21B016C_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*400FD21B016C_INLINE_INCLUDES*"
+		    value      	"//#UC START# *400FD21B016C_INLINE_INCLUDES*¤//#UC END# *400FD21B016C_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*400FD21B016C_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *400FD21B016C_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *400FD21B016C_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"400FD21B016C"
+	    documentation 	"Ýëåìåíò ñïèñêà òåðìèíîâ"
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4017AD1503D7"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport::Node"
+		    quidu      	"3EC09A3D03C6"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    quid       	"4011355202B5"
+		    supplier   	"Logical View::garant6x::GblAdapter::Document::Document"
+		    quidu      	"3EB8B5400044"))
+	    operations 	(list Operations
+		(object Operation "is_same_PID"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*401130AD03A5*"
+			    value      	(value Text 
+|//#UC START# *401130AD03A5*¤	if ((id.class_id == Defines::CI_TOPIC) && (id.object_id == (ObjectId)m_data)) {¤		return true;¤	}¤	return false;¤	//#UC END# *401130AD03A5*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"47993CE6-4CEC-49F6-ABD5-D7E5B5191F9B"))
+		    quid       	"401130AD03A5"
+		    documentation 	"ïðîâåðÿåò, ÷òî òåêóùàÿ íîäà óêàçûâàåò íà îáúåêò ñ òåì æå PID, ÷òî è óêàçàííûé â ïàðàìåòðå id. "
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    quid       	"401130D80130"
+			    type       	"PId"
+			    quidu      	"3EC346E70306"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240"))
+	    language   	"MDA Generator")
+	(object Class "ExplanatoryDictionary"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"6A33724F-067F-4630-8FD8-408DE802531F")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *40112CFF03AB_CUSTOM_PREINCLUDES*¤//#UC END# *40112CFF03AB_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *40112CFF03AB_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/ExplanatoryDiction/ExplanatoryList_i.h"¤//#UC END# *40112CFF03AB_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *40112CFF03AB_MAKE_INTERFACE_IMPLEMENTATION*¤	GBLADAPTER_DECLARE_AND_NEW (POINTER, ExplanatoryDictionary_i, ());¤	return ACE_dynamic_cast (IExplanatoryDictionary*, GBLADAPTER_PTR_CHECK (IExplanatoryDictionary*, POINTER));¤	//#UC END# *40112CFF03AB_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	"//#UC START# *40112CFF03AB_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *40112CFF03AB_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_BASE_METHOD_IMPL*"
+		    value      	"//#UC START# *40112CFF03AB_BASE_METHOD_IMPL*¤//#UC END# *40112CFF03AB_BASE_METHOD_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *40112CFF03AB_CONSTRUCTOR_IMPLEMENTATION*¤	// 1. Take list of available languages:¤	GblPilotDef::DictLanguageList_var llist¤		= application_helper ()->get_cached_explanatory_dictionary ()->available_languages ();¤¤	// 2. for each language	create ExplanatoryList_i and save it in map¤	CORBA::ULong length = llist->length ();¤	for (CORBA::ULong i = 0; i < length; ++i) {¤		IExplanatoryList_var exp_list;¤		Languages language = translate (llist[i]);¤		exp_list = ExplanatoryList_i::make_interface (language);¤		m_dictionaries[language] = exp_list;¤	}¤	//#UC END# *40112CFF03AB_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *40112CFF03AB_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *40112CFF03AB_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	"//#UC START# *40112CFF03AB_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤//#UC END# *40112CFF03AB_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40112CFF03AB_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *40112CFF03AB_CUSTOM_INCLUDES*¤#include <stdexcept>¤//#UC END# *40112CFF03AB_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40112CFF03AB_EX*"
+		    value      	"//#UC START# *40112CFF03AB_EX*¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ òèïîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ñòàòè÷åñêèõ ìåòîäîâ è äàííûõ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ àáñòðàêòíûõ ìåòîäîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ìåòîäîâ è äàííûõ¤//#UC END# *40112CFF03AB_EX*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40112CFF03AB_CUSTOM_TYPES*"
+		    value      	"//#UC START# *40112CFF03AB_CUSTOM_TYPES*¤//#UC END# *40112CFF03AB_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40112CFF03AB_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *40112CFF03AB_CUSTOM_STATIC*¤public:¤	static Languages translate (GblPilotDef::DictLanguage lang)¤	{¤		switch (lang) {¤			case GblPilotDef::dl_Russian : return LG_RUSSIAN;¤			case GblPilotDef::dl_English : return LG_ENGLISH;¤			case GblPilotDef::dl_French  : return LG_FRENCH;¤			case GblPilotDef::dl_German  : return LG_GERMAN;¤			case GblPilotDef::dl_Spanish : return LG_SPANISH;¤			case GblPilotDef::dl_Italian : return LG_ITALIAN;¤		}¤		throw std::logic_error ("GblAdapter::ExplanatoryDictionary_i::translate: unknown language");¤	}¤¤	static GblPilotDef::DictLanguage translate (Languages lang)¤	{¤		switch (lang) {¤			case LG_RUSSIAN  : return GblPilotDef::dl_Russian;¤			case LG_ENGLISH  : return GblPilotDef::dl_English;¤			case LG_FRENCH   : return GblPilotDef::dl_French;¤			case LG_GERMAN   : return GblPilotDef::dl_German;¤			case LG_SPANISH  : return GblPilotDef::dl_Spanish;¤			case LG_ITALIAN  : return GblPilotDef::dl_Italian;¤		}¤		throw std::logic_error ("GblAdapter::ExplanatoryDictionary_i::translate: unknown language");¤	}¤¤//#UC END# *40112CFF03AB_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40112CFF03AB_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *40112CFF03AB_CUSTOM_ABSTRACT*¤//#UC END# *40112CFF03AB_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40112CFF03AB_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *40112CFF03AB_CUSTOM_METHODS_AND_DATA*¤private:¤	typedef std::map<Languages, IExplanatoryList_var> ListMap;¤	typedef ListMap::iterator ListMapIterator;¤	typedef ListMap::const_iterator ListMapConstIterator;¤¤	ListMap m_dictionaries;¤//#UC END# *40112CFF03AB_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40112CFF03AB_INLINE_INCLUDES*"
+		    value      	"//#UC START# *40112CFF03AB_INLINE_INCLUDES*¤//#UC END# *40112CFF03AB_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40112CFF03AB_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *40112CFF03AB_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *40112CFF03AB_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"40112CFF03AB"
+	    documentation 	"Òîëêîâûé ñëîâàðü."
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get_explanatory_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*40112DC20257*"
+			    value      	(value Text 
+|//#UC START# *40112DC20257*¤	ListMapConstIterator it = m_dictionaries.find (language);¤	if (it == m_dictionaries.end ()) {¤		throw ExplanationDictionaryNotInstalled ();¤	}¤	out_explanatory_list = (*it).second._sretn ();¤	//#UC END# *40112DC20257*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3ED46F8F0286")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"F012746C-ADC3-4B9B-9D61-422E7D4E7307"))
+		    quid       	"40112DC20257"
+		    documentation 	"âîçâðàùàåò ñïèñîê òåðìèíîâ íà çàäàííîì ÿçûêå."
+		    parameters 	(list Parameters
+			(object Parameter "language"
+			    quid       	"40112E0C032F"
+			    type       	"Languages"
+			    quidu      	"400FC9DD017C"))
+		    result     	"ExplanatoryList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"400FCC6301B7")
+		(object Operation "find_explanatory"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*40112E8D01F4*"
+			    value      	(value Text 
+|//#UC START# *40112E8D01F4*¤	IExplanatoryList_var explanatory_list;¤	this->get_explanatory_list (language, explanatory_list.out ());¤	ExplanatoryList_i* explanatory_list_i = dynamic_cast <ExplanatoryList_i*> (explanatory_list.ptr ());¤	out_explanatory_node = explanatory_list_i->find_explanatory (expression)._retn ();¤	//#UC END# *40112E8D01F4*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Pure virtual"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3ED46F8F0286")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"51F1D565-D18C-4C2A-A743-15BFD2C9FE21"))
+		    quid       	"40112E8D01F4"
+		    documentation 	"íàõîäèò ñïèñîê òîëêîâàíèé ïî çàäàííîìó âûðàæåíèþ."
+		    parameters 	(list Parameters
+			(object Parameter "expression"
+			    quid       	"40112EB90053"
+			    type       	"wstring"
+			    quidu      	"3DBFFEBF038C")
+			(object Parameter "language"
+			    quid       	"40150E360292"
+			    type       	"Languages"
+			    quidu      	"400FC9DD017C"))
+		    result     	"ExplanatoryNode"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"400FD21B016C"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"400FC8F300E9"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ExplanatoryDiction::ExplanatoryList" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(402, 912)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(239, 883)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	326
+			justify    	0
+			label      	"ExplanatoryList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(239, 833)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	326
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"400FCC6301B7"
+		    width      	344
+		    height     	183
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @2
+		    location   	(306, 1176)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(168, 1116)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	240
+			justify    	1
+			label      	"Ñïèñîê òåðìèíîâ íà êîíêðåòíîì ÿçûêå.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object AttachView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(368, 1003)
+			(330, 1109))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ExplanatoryDiction::ExplanatoryNode" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1074, 918)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(756, 859)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	636
+			justify    	0
+			label      	"ExplanatoryNode")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(756, 809)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	636
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"400FD21B016C"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(756, 920)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	624
+			justify    	1)
+		    width      	654
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @5
+		    location   	(993, 1215)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(855, 1155)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	240
+			justify    	1
+			label      	
+|Ýëåìåíò ñïèñêà òåðìèíîâ.
+|Ïðè îïåðàöèè open âîçâðàùàåò îáúåêò Document.
+			)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object AttachView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@5
+		    supplier   	@4
+		    vertices   	(list Points
+			(1010, 1148)
+			(1039, 1039))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::BaseCatalog" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    location   	(420, 570)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(419, 678)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1260
+			justify    	0
+			label      	"BaseCatalog")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    quidu      	"3EB8B9E10106"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Document::Document" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    location   	(1716, 558)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1715, 666)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1260
+			justify    	0
+			label      	"Document")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    quidu      	"3EB8B5400044"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4011355202B5"
+		    client     	@4
+		    supplier   	@8
+		    vertices   	(list Points
+			(1287, 796)
+			(1616, 611))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::Node" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    location   	(1080, 564)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(1079, 672)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1260
+			justify    	0
+			label      	"Node")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    quidu      	"3EC09A3D03C6"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Start::Common" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(852, 1713)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(647, 1709)
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"Common")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(647, 1659)
+			anchor     	10
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"<<AdapterInterface>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    quidu      	"3EB8B1370025"
+		    width      	428
+		    height     	133
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @12
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4017AD1503D7"
+		    client     	@4
+		    supplier   	@10
+		    vertices   	(list Points
+			(1080, 797)
+			(1080, 740))
+		    line_style 	3
+		    origin_attachment 	(1080, 797)
+		    terminal_attachment 	(1080, 740))
+		(object InheritView "" @13
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"402090A5001A"
+		    client     	@1
+		    supplier   	@7
+		    vertices   	(list Points
+			(411, 821)
+			(411, 746))
+		    line_style 	3
+		    origin_attachment 	(411, 821)
+		    terminal_attachment 	(411, 746))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ExplanatoryDiction::ExplanatoryDictionary" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(759, 228)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(2, 144)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1514
+			justify    	0
+			label      	"ExplanatoryDictionary")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(2, 94)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1514
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"40112CFF03AB"
+		    compartment 	(object Compartment
+			Parent_View 	@14
+			location   	(2, 205)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	1502
+			justify    	1)
+		    width      	1532
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)))))

@@ -1,0 +1,63 @@
+// nscInterfaces 4AC9AFCE00DC Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC9AFCE00DC
+
+: ME_4AC9AFDC013C
+ CONST UID '4AC9AFDC013C'
+ CONST GUID 'CF244F53-75D1-4817-816B-B9E5E9E51FD0'
+ CONST Name 'InscArrangeGrid'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC9AFCE00DC // nscInterfaces
+ ;
+
+ref; // ME_4AC9AFDC013C InscArrangeGrid
+
+: ME_4AC9CB3003B4
+ CONST UID '4AC9CB3003B4'
+ CONST GUID '511A2195-53E3-4933-8061-D46C12DF9B13'
+ CONST Name 'InscTabTable'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC9AFCE00DC // nscInterfaces
+ ;
+
+ref; // ME_4AC9CB3003B4 InscTabTable
+
+: ME_4AC9AFCE00DC
+ CONST UID '4AC9AFCE00DC'
+ CONST Name 'nscInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ ;
+ : Children
+   @ ( ME_4AC9AFDC013C // InscArrangeGrid
+ ME_4AC9CB3003B4 // InscTabTable
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC9AFCE00DC.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC9AFCE00DC.pas.ms.script.runner'
+
+ref; // ME_4AC9AFCE00DC nscInterfaces

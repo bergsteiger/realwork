@@ -1,0 +1,32 @@
+USES
+	QuickTestsUtils.script
+;
+
+INTEGER VAR l_Index
+CONST acSkipCount 4
+
+PROCEDURE SpellNext BOOLEAN IN aLast
+ Если ( aLast ! ) то (
+	 1 +! l_Index 
+	 Если ( l_Index МЕНЬШЕ acSkipCount ) то 
+	  ( "Контрол по имени {(acSkipButtomInSpelCheckWindow)}" pop:Control:Click )
+	 иначе
+	  ( 
+	   OBJECT VAR l_SpellCheck
+	   "Контрол по имени {(acSpellCheckDlg)}" >>> l_SpellCheck
+	   l_SpellCheck pop:Control:Left .
+	   l_SpellCheck pop:Control:Top .
+	   "Контрол по имени {(acCancelButtomInSpelCheckWindow)}" pop:Control:Click
+	  ) 
+  )
+;  
+
+Тест TK330141531
+	Параметры: ( "Размеры для отображения разрыва раздела" )
+	Выполнить ( 
+		0 >>> l_Index
+		@ ( "Проверка орфографии" ) MODAL ( SpellNext )
+	)
+;
+
+TK330141531

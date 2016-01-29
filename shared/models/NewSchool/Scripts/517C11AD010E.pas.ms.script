@@ -1,0 +1,133 @@
+// Rounded 517C11AD010E TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_517C11AD010E
+
+FORWARD ME_517C11C6019A
+
+: ME_517C40E900DA
+ CONST UID '517C40E900DA'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_517C11C6019A // RoundedControlsTest
+ ;
+
+ref; // ME_517C40E900DA DoIt
+
+: ME_517C11D7018C
+ CONST UID '517C11D7018C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_517C11C6019A // RoundedControlsTest
+ ;
+ : Target WL 'ME_517C0F9C03C3' '517C0F37039A.pas.ms.script' // TRoundedButton
+ ;
+
+ref; // ME_517C11D7018C 
+
+: ME_517C11DE0150
+ CONST UID '517C11DE0150'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_517C11C6019A // RoundedControlsTest
+ ;
+ : Target WL 'ME_517C102F03B5' '517C0F37039A.pas.ms.script' // TRoundedEdit
+ ;
+
+ref; // ME_517C11DE0150 
+
+: ME_517C41500140
+ CONST UID '517C41500140'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_517C11C6019A // RoundedControlsTest
+ ;
+ : Target WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
+ ;
+
+ref; // ME_517C41500140 
+
+: ME_3DB72A1AF61B
+ CONST UID '3DB72A1AF61B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_517C11C6019A // RoundedControlsTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_3DB72A1AF61B 
+
+: ME_517C11C6019A
+ CONST UID '517C11C6019A'
+ CONST Name 'RoundedControlsTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_517C11AD010E // Rounded
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_517C40E900DA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_517C11D7018C // 
+ ME_517C11DE0150 // 
+ ME_517C41500140 // 
+ ME_3DB72A1AF61B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\RoundedControlsTest.pas'
+ CONST extprop:pas:TypeName 'TRoundedControlsTest'
+
+ref; // ME_517C11C6019A RoundedControlsTest
+
+: ME_517C11AD010E
+ CONST UID '517C11AD010E'
+ CONST Name 'Rounded'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5155865B01B6' '5155865B01B6.pas.ms.script' // SandBoxTest
+ ;
+ : Children
+   @ ( ME_517C11C6019A // RoundedControlsTest
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_517C0F37039A' '517C0F37039A.pas.ms.script' // Rounded
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\517C11AD010E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\517C11AD010E.pas.ms.script.runner'
+
+ref; // ME_517C11AD010E Rounded

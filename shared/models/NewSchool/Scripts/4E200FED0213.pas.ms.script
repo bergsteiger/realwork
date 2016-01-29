@@ -1,0 +1,938 @@
+// Operations 4E200FED0213 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E200FED0213
+
+FORWARD ME_523006F7004A
+
+: ME_523007090291
+ CONST UID '523007090291'
+ CONST Name 'f_Op'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ : Target WL 'ME_4D7A109601C2' '4AB34028023E.pas.ms.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ref; // ME_523007090291 f_Op
+
+: ME_523007130010
+ CONST UID '523007130010'
+ CONST Name 'f_En'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ : Target WL 'ME_4DDBBD1103C3' '4AB34028023E.pas.ms.script' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ref; // ME_523007130010 f_En
+
+FORWARD ME_4DDBBDEB00DE
+
+: ME_4DDBBEF60237
+ CONST UID '4DDBBEF60237'
+ CONST Name 'anEn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DDBBD1103C3' '4AB34028023E.pas.ms.script' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ref; // ME_4DDBBEF60237 anEn
+
+: ME_4DDBBEF60294
+ CONST UID '4DDBBEF60294'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4D7A109601C2' '4AB34028023E.pas.ms.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ref; // ME_4DDBBEF60294 anOp
+
+: ME_4DDBBEDE028E
+ CONST UID '4DDBBEDE028E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBBDEB00DE // Create
+ ;
+ : Parameters
+   @ ( ME_4DDBBEF60237 // anEn
+ ME_4DDBBEF60294 // anOp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DDBBEDE028E DoIt
+
+: ME_4DDBBDEB00DE
+ CONST UID '4DDBBDEB00DE'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ : Operations
+   @ ( ME_4DDBBEDE028E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DDBBDEB00DE Create
+
+FORWARD ME_523008BC0096
+
+: ME_523008E500AB
+ CONST UID '523008E500AB'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_523008E500AB aCtx
+
+: ME_523008E500C8
+ CONST UID '523008E500C8'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CF3401F5' '467BAB7F021E.pas.ms.script' // TvcmOPID
+ ;
+
+ref; // ME_523008E500C8 anOp
+
+: ME_523008C901CD
+ CONST UID '523008C901CD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_523008BC0096 // DoOp
+ ;
+ : Parameters
+   @ ( ME_523008E500AB // aCtx
+ ME_523008E500C8 // anOp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_523008C901CD DoIt
+
+: ME_523008BC0096
+ CONST UID '523008BC0096'
+ CONST Name 'DoOp'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ : Operations
+   @ ( ME_523008C901CD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_523008BC0096 DoOp
+
+: ME_15F9C022EB99
+ CONST UID '15F9C022EB99'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwEntityOperationPrim' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_15F9C022EB99 Ini_Reg_Class
+
+: ME_5230086A0164
+ CONST UID '5230086A0164'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ : Target WL 'ME_4683CF3401F5' '467BAB7F021E.pas.ms.script' // TvcmOPID
+ ;
+
+ref; // ME_5230086A0164 
+
+: ME_4DAEEDE10285_ME_523006F7004A
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ref; // ME_4DAEEDE10285_ME_523006F7004A DoDoIt
+
+: ME_523006F7004A
+ CONST UID '523006F7004A'
+ CONST Name 'TkwEntityOperationPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E200FED0213 // Operations
+ ;
+ : Inherits
+   @ ( WL 'ME_54D229E702B6' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWordPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_523007090291 // f_Op
+ ME_523007130010 // f_En
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4DDBBDEB00DE // Create
+ ME_523008BC0096 // DoOp
+ ME_15F9C022EB99 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_523006F7004A // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_5230086A0164 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperationPrim.pas'
+
+ref; // ME_523006F7004A TkwEntityOperationPrim
+
+FORWARD ME_4DDBBDB00019
+
+FORWARD ME_4DDBBF790154
+
+: ME_4DDBBFFF02C4
+ CONST UID '4DDBBFFF02C4'
+ CONST Name 'anEn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DDBBD1103C3' '4AB34028023E.pas.ms.script' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ref; // ME_4DDBBFFF02C4 anEn
+
+: ME_4DDBBFFF030E
+ CONST UID '4DDBBFFF030E'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4D7A109601C2' '4AB34028023E.pas.ms.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ref; // ME_4DDBBFFF030E anOp
+
+: ME_4DDBBF840080
+ CONST UID '4DDBBF840080'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBBF790154 // Register
+ ;
+ : Parameters
+   @ ( ME_4DDBBFFF02C4 // anEn
+ ME_4DDBBFFF030E // anOp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DDBBF840080 DoIt
+
+: ME_4DDBC01E010A
+ CONST UID '4DDBC01E010A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBF790154 // Register
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4DDBC01E010A 
+
+: ME_4DDBC7400205
+ CONST UID '4DDBC7400205'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBF790154 // Register
+ ;
+ : Target WL 'ME_483C378301CB' '4AB0997B00A2.pas.ms.script' // StrUtils
+ ;
+
+ref; // ME_4DDBC7400205 
+
+: ME_4DDBC8E20193
+ CONST UID '4DDBC8E20193'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBF790154 // Register
+ ;
+ : Target WL 'ME_4787B1BA031F' '4787B0A8007B.pas.ms.script' // El3DuplicateItem
+ ;
+
+ref; // ME_4DDBC8E20193 
+
+: ME_4DDBBF790154
+ CONST UID '4DDBBF790154'
+ CONST Name 'Register'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Operations
+   @ ( ME_4DDBBF840080 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4DDBC01E010A // 
+ ME_4DDBC7400205 // 
+ ME_4DDBC8E20193 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "is static" true
+
+ref; // ME_4DDBBF790154 Register
+
+: ME_F6699E5A5B9B
+ CONST UID 'F6699E5A5B9B'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwEntityOperation' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_F6699E5A5B9B Ini_Reg_Class
+
+: ME_4DDBBF15020E
+ CONST UID '4DDBBF15020E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Target WL 'ME_4AA936DC0154' '47D0E1500033.pas.ms.script' // vcmDispatcher
+ ;
+
+ref; // ME_4DDBBF15020E 
+
+: ME_4DDBBF2D03BD
+ CONST UID '4DDBBF2D03BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Target WL 'ME_4683CF3401F5' '467BAB7F021E.pas.ms.script' // TvcmOPID
+ ;
+
+ref; // ME_4DDBBF2D03BD 
+
+: ME_4E201EF90191
+ CONST UID '4E201EF90191'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Target WL 'ME_4AD5DBBD0147' '4AADF9450143.pas.ms.script' // TvcmBaseMenuManagerPrim
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_4E201EF90191 
+
+: ME_4E30129D0123
+ CONST UID '4E30129D0123'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Target WL 'ME_4E3012700155' '4AB34028023E.pas.ms.script' // TvcmRepOperationsCollectionItem
+ ;
+
+ref; // ME_4E30129D0123 
+
+: ME_4F75BB670020
+ CONST UID '4F75BB670020'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_4F75BB670020 
+
+FORWARD ME_5230072D031A
+
+: ME_5230074F0386
+ CONST UID '5230074F0386'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Target ME_5230072D031A // TkwEntityOperationTest
+ ;
+
+ref; // ME_5230074F0386 
+
+: ME_528C9C01026C
+ CONST UID '528C9C01026C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Target WL 'ME_4DB6CD4203D4' '4F3E3F5F0160.pas.ms.script' // TkwString
+ ;
+
+ref; // ME_528C9C01026C 
+
+FORWARD ME_52A73D1701B9
+
+: ME_52A74A7D0134
+ CONST UID '52A74A7D0134'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ : Target ME_52A73D1701B9 // TkwOperationsRegistrar
+ ;
+
+ref; // ME_52A74A7D0134 
+
+: ME_523008BC0096_ME_4DDBBDB00019
+ CONST UID '523008BC0096'
+ CONST Name 'DoOp'
+ : Original ME_523008BC0096 // DoOp
+ ;
+ : Implementor ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ref; // ME_523008BC0096_ME_4DDBBDB00019 DoOp
+
+: ME_4DDBBDB00019
+ CONST UID '4DDBBDB00019'
+ CONST Name 'TkwEntityOperation'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E200FED0213 // Operations
+ ;
+ : Inherits
+   @ ( ME_523006F7004A // TkwEntityOperationPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4DDBBF790154 // Register
+ ME_F6699E5A5B9B // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_523008BC0096_ME_4DDBBDB00019 // DoOp
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_4DDBBF15020E // 
+ ME_4DDBBF2D03BD // 
+ ME_4E201EF90191 // 
+ ME_4E30129D0123 // 
+ ME_4F75BB670020 // 
+ ME_5230074F0386 // 
+ ME_528C9C01026C // 
+ ME_52A74A7D0134 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '24.05.2011 18:15'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperation.pas'
+
+ref; // ME_4DDBBDB00019 TkwEntityOperation
+
+: ME_B2FB3C3B22D7
+ CONST UID 'B2FB3C3B22D7'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwEntityOperationTest' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5230072D031A // TkwEntityOperationTest
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_B2FB3C3B22D7 Ini_Reg_Class
+
+: ME_5230073B0196
+ CONST UID '5230073B0196'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5230072D031A // TkwEntityOperationTest
+ ;
+ : Target WL 'ME_4AA936DC0154' '47D0E1500033.pas.ms.script' // vcmDispatcher
+ ;
+
+ref; // ME_5230073B0196 
+
+: ME_523008070254
+ CONST UID '523008070254'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5230072D031A // TkwEntityOperationTest
+ ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_523008070254 
+
+: ME_5230084E019C
+ CONST UID '5230084E019C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5230072D031A // TkwEntityOperationTest
+ ;
+ : Target WL 'ME_4683CF3401F5' '467BAB7F021E.pas.ms.script' // TvcmOPID
+ ;
+
+ref; // ME_5230084E019C 
+
+: ME_52300D420103
+ CONST UID '52300D420103'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5230072D031A // TkwEntityOperationTest
+ ;
+ : Target WL 'ME_4683D6ED03C5' '467BAB7F021E.pas.ms.script' // TvcmOpFlag
+ ;
+
+ref; // ME_52300D420103 
+
+: ME_52300DD502EA
+ CONST UID '52300DD502EA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5230072D031A // TkwEntityOperationTest
+ ;
+ : Target WL 'ME_47E7659001C3' '4683F37902CF.pas.ms.script' // IvcmTestParams
+ ;
+
+ref; // ME_52300DD502EA 
+
+: ME_523008BC0096_ME_5230072D031A
+ CONST UID '523008BC0096'
+ CONST Name 'DoOp'
+ : Original ME_523008BC0096 // DoOp
+ ;
+ : Implementor ME_5230072D031A // TkwEntityOperationTest
+ ;
+ref; // ME_523008BC0096_ME_5230072D031A DoOp
+
+: ME_5230072D031A
+ CONST UID '5230072D031A'
+ CONST Name 'TkwEntityOperationTest'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E200FED0213 // Operations
+ ;
+ : Inherits
+   @ ( ME_523006F7004A // TkwEntityOperationPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_B2FB3C3B22D7 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_523008BC0096_ME_5230072D031A // DoOp
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_5230073B0196 // 
+ ME_523008070254 // 
+ ME_5230084E019C // 
+ ME_52300D420103 // 
+ ME_52300DD502EA // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperationTest.pas'
+
+ref; // ME_5230072D031A TkwEntityOperationTest
+
+: ME_52A73D57020D
+ CONST UID '52A73D57020D'
+ CONST Name 'new_ini_op'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A73D1701B9 // TkwOperationsRegistrar
+ ;
+
+ref; // ME_52A73D57020D new_ini_op
+
+: ME_AC2C8594F0B0
+ CONST UID 'AC2C8594F0B0'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52A73D1701B9 // TkwOperationsRegistrar
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_AC2C8594F0B0 Exists
+
+: ME_52A73D3501DE
+ CONST UID '52A73D3501DE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A73D1701B9 // TkwOperationsRegistrar
+ ;
+ : Target ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+
+ref; // ME_52A73D3501DE 
+
+: ME_54E7496D03D7
+ CONST UID '54E7496D03D7'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_52A73D1701B9 // TkwOperationsRegistrar
+ ;
+ : Target WL 'ME_4AD5DBBD0147' '4AADF9450143.pas.ms.script' // TvcmBaseMenuManagerPrim
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_54E7496D03D7 
+
+: ME_52A73C7103C7_ME_52A73D1701B9
+ CONST UID '52A73C7103C7'
+ CONST Name 'Register'
+ : Original WL 'ME_52A73C7103C7' '52A73A4401B9.pas.ms.script' // Register
+ ;
+ : Implementor ME_52A73D1701B9 // TkwOperationsRegistrar
+ ;
+ref; // ME_52A73C7103C7_ME_52A73D1701B9 Register
+
+: ME_52A73D1701B9
+ CONST UID '52A73D1701B9'
+ CONST Name 'TkwOperationsRegistrar'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E200FED0213 // Operations
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_52A73AE40326' '52A73A4401B9.pas.ms.script' // IvcmOperationsRegistrar
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_52A73D57020D // new_ini_op
+ ME_AC2C8594F0B0 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_52A73C7103C7_ME_52A73D1701B9 // Register
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_52A73D3501DE // 
+ ME_54E7496D03D7 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwOperationsRegistrar.pas'
+
+ref; // ME_52A73D1701B9 TkwOperationsRegistrar
+
+FORWARD ME_4DB060930263
+
+: ME_4DB079E00084
+ CONST UID '4DB079E00084'
+ CONST Name 'GetModuleOperationCode'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ : Target WL 'ME_4683CF84010A' '467BAB7F021E.pas.ms.script' // TvcmMOPID
+ ;
+
+ref; // ME_4DB079E00084 GetModuleOperationCode
+
+: ME_8C1833A152E6
+ CONST UID '8C1833A152E6'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TtfwModuleOperationWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_8C1833A152E6 Ini_Reg_Class
+
+: ME_4DB060EE029C
+ CONST UID '4DB060EE029C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ : Target WL 'ME_4AA936DC0154' '47D0E1500033.pas.ms.script' // vcmDispatcher
+ ;
+
+ref; // ME_4DB060EE029C 
+
+: ME_52A086F10182
+ CONST UID '52A086F10182'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ : Target WL 'ME_4DB6CD4203D4' '4F3E3F5F0160.pas.ms.script' // TkwString
+ ;
+
+ref; // ME_52A086F10182 
+
+: ME_52A091370167
+ CONST UID '52A091370167'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ : Target WL 'ME_4D7A109601C2' '4AB34028023E.pas.ms.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ref; // ME_52A091370167 
+
+: ME_52A0914F023E
+ CONST UID '52A0914F023E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ : Target WL 'ME_52A08E6701A1' '4AB34028023E.pas.ms.script' // TvcmModulesCollectionItem
+ ;
+
+ref; // ME_52A0914F023E 
+
+: ME_52A097EC005A
+ CONST UID '52A097EC005A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ : Target WL 'ME_4787B1BA031F' '4787B0A8007B.pas.ms.script' // El3DuplicateItem
+ ;
+
+ref; // ME_52A097EC005A 
+
+: ME_52A0A2780007
+ CONST UID '52A0A2780007'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ : Target WL 'ME_4AB24EF502BB' '4AADF9450143.pas.ms.script' // vcmBaseMenuManager
+ ;
+
+ref; // ME_52A0A2780007 
+
+: ME_535E8B0702EB
+ CONST UID '535E8B0702EB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_535E8B0702EB 
+
+: ME_4DAEEDE10285_ME_4DB060930263
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ref; // ME_4DAEEDE10285_ME_4DB060930263 DoDoIt
+
+: ME_52A086150180_ME_4DB060930263
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ CONST "is static" true
+ref; // ME_52A086150180_ME_4DB060930263 RegisterInEngine
+
+: ME_4DB060930263
+ CONST UID '4DB060930263'
+ CONST Name 'TtfwModuleOperationWord'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово для выполнения операции модуля' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4E200FED0213 // Operations
+ ;
+ : Inherits
+   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4DB079E00084 // GetModuleOperationCode
+ ME_8C1833A152E6 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_4DB060930263 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_52A086150180_ME_4DB060930263 // RegisterInEngine
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4DB060EE029C // 
+ ME_52A086F10182 // 
+ ME_52A091370167 // 
+ ME_52A0914F023E // 
+ ME_52A097EC005A // 
+ ME_52A0A2780007 // 
+ ME_535E8B0702EB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "ifndef" 'NoVCM'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '21.04.2011 20:52'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationWord.pas'
+
+ref; // ME_4DB060930263 TtfwModuleOperationWord
+
+: ME_4E200FED0213
+ CONST UID '4E200FED0213'
+ CONST Name 'Operations'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
+ ;
+ : Children
+   @ ( ME_523006F7004A // TkwEntityOperationPrim
+ ME_4DDBBDB00019 // TkwEntityOperation
+ ME_5230072D031A // TkwEntityOperationTest
+ ME_52A73D1701B9 // TkwOperationsRegistrar
+ ME_4DB060930263 // TtfwModuleOperationWord
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_4787B0A8007B' '4787B0A8007B.pas.ms.script' // l3Except
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4F2275C00012' '4F2275C00012.pas.ms.script' // ScriptingKeywordsCore
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_52A73A4401B9' '52A73A4401B9.pas.ms.script' // Operations
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "path prefix" '/implementation/Scripting'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E200FED0213.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E200FED0213.pas.ms.script.runner'
+
+ref; // ME_4E200FED0213 Operations

@@ -1,0 +1,124 @@
+uses func, maps;
+
+
+// клики на объекты главного окна
+function ClickOnMainWindow(
+  WhatToClick : String
+) : OleVariant;
+var
+  MainW, Coords, Seek, i, j, toolbar;
+begin
+  try
+    WhatToClick := AnsiUpperCase(WhatToClick);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmMain');
+    if not IsExists(MainW) then Raise('окно "АРМ" не открыто');
+    Seek := '';
+    
+      case WhatToClick of
+      // тулбар
+        'СОХРАНИТЬ ИЗМЕНЕНИЯ':
+            Seek := 'Сохранить';
+        'ОТМЕНИТЬ ИЗМЕНЕНИЯ':
+            Seek := 'Отменить';          
+        'ДОБАВИТЬ НОВОГО КЛИЕНТА':
+            Seek := 'Добавить';          
+        'ОБНОВИТЬ СПИСОК КЛИЕНТОВ':
+            Seek := 'Обновить';          
+        'НЕ ПОКАЗЫВАТЬ КЛИЕНТОВ БЕЗ ВИДИМЫХ ПРОДУКТОВ':
+            Seek := 'Не показывать клиентов без видимых продуктов';          
+        'КОНТЕКСТНЫЙ ПОИСК':
+            Seek := 'Контекстный поиск';          
+        'РАСШИРЕННЫЙ ПОИСК':
+            Seek := 'Расширенный поиск';          
+      // закладки
+        'ПРОДУКТЫ У КЛИЕНТА', 'ПРОДУКТЫ':
+          MainW.pInfo.pcAllParams.ClickTab('Продукты у клиента');
+        'РЕКВИЗИТЫ КЛИЕНТА', 'РЕКВИЗИТЫ':
+          MainW.pInfo.pcAllParams.ClickTab('Реквизиты клиента');
+        'ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ', 'ИНФОРМАЦИЯ':
+          MainW.pInfo.pcAllParams.ClickTab('Дополнительная информация');
+        'ВЗАИМОДЕЙСТВИЕ':
+          MainW.pInfo.pcAllParams.ClickTab('Взаимодействие');   
+          
+      else 
+        Raise('не допустимый параметр - "' + WhatToClick + '"');    
+      end;
+
+      if Seek <> ''
+        then
+          begin
+            for i := 1 to 3 do
+              begin
+                case i of
+                  1 : toolbar := MainW.VCLObject('TBDock1').VCLObject('tbControls');
+                  2 : toolbar := MainW.VCLObject('TBDock1').VCLObject('tbClient');
+                  3 : toolbar := MainW.VCLObject('TBDock1').VCLObject('tbSearch');
+                end;
+                 
+                for j := 0 to (toolbar.Items.Count -1) do
+                  if toolbar.Items.Items[j].Caption = Seek
+                    then 
+                      begin
+                        coords := toolbar.ItemCoords[toolbar.Items.Items[j]];
+                        toolbar.Click(((coords.Left+coords.Right)/2), ((coords.Top+coords.Bottom)/2));            
+                      end;
+              end;
+          end;                             
+                  
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;    
+
+
+     // кликает по элементу списка с однострочными элементами 
+     // ClickOnItemsList(путь к объекту, номер строки (нумерация с нуля), левая/правая кнопка мыши (l,r,d))
+function ClickOnItemsList(
+  list: string,
+  NumOfItem: Int, 
+  Button: String = 'l');
+
+var ItemsOnScreen, HeightOfItem, y, x, step, correct, i : OleVariant;
+begin
+  try
+    Button := AnsiUpperCase(Button);
+    if not IsExists(list) then Raise('список не доступен');
+    if (NumOfItem + 1) > list.RowCount
+      then Raise('передаваемое значение номера элемента больше максимально возможного, выберите значение больше "0" и меньше или равно "' + VarToStr(list.RowCount-1) + '"')
+      else if NumOfItem < 0 then Raise('передаваемое значение номера элемента не может быть меньше нуля, выберите значение больше "0" и меньше ил равно "' + VarToStr(list.RowCount-1) + '"');
+  
+    HeightOfItem := list.Rows.Height;     // высота элемента в пикселях
+    x := 50;                              // координата клика по оси икс
+    if list.HScroll.Max = 0 then correct := 1 else correct := 2; // поправка учитывающая влияние гор. скролла на количество видимых элементов
+    ItemsOnScreen := ((list.Height - 4) div HeightOfItem) - correct;  //-4 подобранно опытным путём. устраняет ошибку, скорее всего связанную с названиями столбцов, после исправления 28970 можно будет удалить  
+    if (NumOfItem + 1) > ItemsOnScreen
+      then
+        begin
+          // работа со скроллером, перемещение мыши и вычисление новых координат
+          step : = list.VScroll.Max / (list.RowCount - ItemsOnScreen); // шаг в безразмерных еденицах !!! СЮДА БЫ DIV
+          list.VScroll.Pos := step * ((NumOfItem + 1) - ItemsOnScreen);
+          y := (ItemsOnScreen + 1) * HeightOfItem - (HeightOfItem div 2); // - (list.Height mod HeightOfItem);
+        end
+      else
+        begin
+          if list.VScroll.Max <> 0 then list.VScroll.Pos := 0;
+          y := (NumOfItem + 2) * HeightOfItem - (HeightOfItem div 2); // прибавляем "2" потому что учитывается строка с названиями колонок и нумерация идёт с нуля
+        end;
+//      log.message('номер элемента=' + VarToStr(NumOfItem+1) + '; y=' + VarToStr(y) + '; хвостик=' + VarToStr(list.Height mod HeightOfItem) + '; элементов на экране=' + VarToStr(ItemsOnScreen));
+      case Button of
+        'L', 'LEFT', 'CLICK', '' : Button : = list.Click(x, y);
+        'R', 'RIGHT', 'CLICKR' : Button : = list.ClickR(x, y);
+        'D', 'DBLCLICK' : Button : = list.DblClick(x, y);
+      else
+        Raise('не допустимый параметр - "' + Button + '"');
+      end;
+      
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+  
+end;
+
+

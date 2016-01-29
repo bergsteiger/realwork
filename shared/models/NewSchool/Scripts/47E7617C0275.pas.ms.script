@@ -1,0 +1,341 @@
+// Actions 47E7617C0275 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E7617C0275
+
+FORWARD ME_47E761BB02FE
+
+: ME_47E766E10053
+ CONST UID '47E766E10053'
+ CONST Name 'DoUpdate'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47E761BB02FE // TvcmAction
+ ;
+
+ref; // ME_47E766E10053 DoUpdate
+
+: ME_47E761BB02FE
+ CONST UID '47E761BB02FE'
+ CONST Name 'TvcmAction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовая операция библиотеки vcm для привязки к меню.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47E7617C0275 // Actions
+ ;
+ : Inherits
+   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_47E766E10053 // DoUpdate
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '25.02.2003 19:52'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmAction.pas'
+
+ref; // ME_47E761BB02FE TvcmAction
+
+FORWARD ME_47E7652402FF
+
+: ME_47E765F0013D
+ CONST UID '47E765F0013D'
+ CONST Name 'OnTest'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ : Target WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_47E765F0013D OnTest
+
+: ME_6AA98E687BEC
+ CONST UID '6AA98E687BEC'
+ CONST Name 'f_OnTest'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnTest' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ : Target WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
+ ;
+
+ref; // ME_6AA98E687BEC f_OnTest
+
+: ME_47E7672D030D
+ CONST UID '47E7672D030D'
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_47E7672D030D anOwner
+
+: ME_47E7672D032A
+ CONST UID '47E7672D032A'
+ CONST Name 'aTest'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
+ ;
+
+ref; // ME_47E7672D032A aTest
+
+: ME_47E7670B000F
+ CONST UID '47E7670B000F'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ : Parameters
+   @ ( ME_47E7672D030D // anOwner
+ ME_47E7672D032A // aTest
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47E7670B000F Create
+
+: ME_47E7AC3602AE
+ CONST UID '47E7AC3602AE'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+
+ref; // ME_47E7AC3602AE anItem
+
+: ME_47E7AC3602D1
+ CONST UID '47E7AC3602D1'
+ CONST Name 'aTest'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
+ ;
+
+ref; // ME_47E7AC3602D1 aTest
+
+: ME_47E7AC17020C
+ CONST UID '47E7AC17020C'
+ CONST Name 'MakeForMenu'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ : Target ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ : Parameters
+   @ ( ME_47E7AC3602AE // anItem
+ ME_47E7AC3602D1 // aTest
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47E7AC17020C MakeForMenu
+
+: ME_47E7B1910352
+ CONST UID '47E7B1910352'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_47E7B1910352 
+
+: ME_47E766E10053_ME_47E7652402FF
+ CONST UID '47E766E10053'
+ CONST Name 'DoUpdate'
+ : Original ME_47E766E10053 // DoUpdate
+ ;
+ : Implementor ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ref; // ME_47E766E10053_ME_47E7652402FF DoUpdate
+
+: ME_47E7652402FF
+ CONST UID '47E7652402FF'
+ CONST Name 'TvcmMainMenuAction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47E7617C0275 // Actions
+ ;
+ : Inherits
+   @ ( ME_47E761BB02FE // TvcmAction
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_47E765F0013D // OnTest
+ ME_6AA98E687BEC // f_OnTest
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_47E7670B000F // Create
+ ME_47E7AC17020C // MakeForMenu
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47E766E10053_ME_47E7652402FF // DoUpdate
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_47E7B1910352 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '24.03.2008 11:24'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMainMenuAction.pas'
+
+ref; // ME_47E7652402FF TvcmMainMenuAction
+
+: ME_4F82EFAB02D4
+ CONST UID '4F82EFAB02D4'
+ CONST Name 'TvcmEntityAction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47E7617C0275 // Actions
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmEntityAction.pas'
+
+ref; // ME_4F82EFAB02D4 TvcmEntityAction
+
+: ME_4F82EFBE018A
+ CONST UID '4F82EFBE018A'
+ CONST Name 'TvcmOperationAction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47E7617C0275 // Actions
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmOperationAction.pas'
+
+ref; // ME_4F82EFBE018A TvcmOperationAction
+
+: ME_4F82EFD20255
+ CONST UID '4F82EFD20255'
+ CONST Name 'TvcmModuleAction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47E7617C0275 // Actions
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmModuleAction.pas'
+
+ref; // ME_4F82EFD20255 TvcmModuleAction
+
+: ME_47E7617C0275
+ CONST UID '47E7617C0275'
+ CONST Name 'Actions'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_47E761BB02FE // TvcmAction
+ ME_47E7652402FF // TvcmMainMenuAction
+ ME_4F82EFAB02D4 // TvcmEntityAction
+ ME_4F82EFBE018A // TvcmOperationAction
+ ME_4F82EFD20255 // TvcmModuleAction
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "path prefix" '/implementation/Visual'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47E7617C0275.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47E7617C0275.pas.ms.script.runner'
+
+ref; // ME_47E7617C0275 Actions

@@ -1,0 +1,132 @@
+// Tl3StorableDataObject 4680F7E70110 SimpleClass Class
+
+INCLUDE '4680F5AA0274.pas.ms.script'
+
+FORWARD ME_4680F7E70110
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_48F37ABE0354
+ CONST UID '48F37ABE0354'
+ CONST Name 'aFormat'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A449A301E3 // Tl3ClipboardFormat
+ ;
+
+ @SELF
+; // ME_48F37ABE0354 aFormat
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_48F37ABE0371
+ CONST UID '48F37ABE0371'
+ CONST Name 'aPool'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E150FF028A // TStream
+ ;
+
+ @SELF
+; // ME_48F37ABE0371 aPool
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_48F37AAF012F
+ CONST UID '48F37AAF012F'
+ CONST Name 'Store'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_48F37ABE0354 // aFormat
+ ME_48F37ABE0371 // aPool
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_48F37AAF012F Store
+
+: ME_48F37ADD03BC
+ CONST UID '48F37ADD03BC'
+ CONST Name 'aFormat'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A449A301E3 // Tl3ClipboardFormat
+ ;
+
+ @SELF
+; // ME_48F37ADD03BC aFormat
+
+: ME_48F37ADD03DC
+ CONST UID '48F37ADD03DC'
+ CONST Name 'aPool'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5B0060013 // IStream
+ ;
+
+ @SELF
+; // ME_48F37ADD03DC aPool
+
+: ME_48F37AC50290
+ CONST UID '48F37AC50290'
+ CONST Name 'Store'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_48F37ADD03BC // aFormat
+ ME_48F37ADD03DC // aPool
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_48F37AC50290 Store
+
+: ME_4680F7E70110
+ CONST UID '4680F7E70110'
+ CONST Name 'Tl3StorableDataObject'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Класс для реализации интерфейса IDataObject для выделения текста редактора.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4680F5AA0274 // Tl3DataObject
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_48F37AAF012F // Store
+ ME_48F37AC50290 // Store
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_48F3495D0398 // DoGetData
+ ME_48F349AE00F1 // DoGetDataHere
+ ME_48F351BE0015 // AcceptableTymed
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '13.12.2006 14:32'
+
+ @SELF
+; // ME_4680F7E70110 Tl3StorableDataObject

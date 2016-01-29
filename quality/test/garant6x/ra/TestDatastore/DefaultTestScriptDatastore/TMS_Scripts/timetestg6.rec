@@ -1,0 +1,258 @@
+'Перед запуском нужно установить Tools-GUI PlayBack Options - Wait State в 300 сек, Retry - 1 сек
+Declare Function GetTickCount Lib "kernel32.dll" Alias "GetTickCount" As Long
+
+Const Precision = 5 'чем больше тем выше точность - несколько раз делаем одни и те же операции и замеряем.
+Const DelayBeforeAppStart = 15000
+Const NetClientApplicationPathName$ = "T:\garant.exe"
+Const LocalApplicationPathName$ = "C:\GarantF1.loc\garant.exe"
+Dim Result As Integer
+Dim a,b as Long
+Dim i as Integer
+Dim LogText as String
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'ВРЕМЯ ОТКРЫТИЯ ГК    
+Function TimeOpenGK As Long
+    StartApplication NetClientApplicationPathName$
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Основное меню", ""
+    InputKeys "%т"
+    
+    Window SetContext, "Caption=Открыть документ по номеру", ""
+    InputKeys "10064072"
+    b = GetTickCount()
+    InputKeys "{ENTER}"
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Текст документа : ГРАЖДАНСКИЙ КОДЕКС РФ (ЧАСТИ ПЕРВАЯ, ВТОРАЯ И ТРЕТЬЯ)", ""
+    GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=101,19"
+    b = GetTickCount()-b
+    LogText = "Сетевая версия. Открытие ГК заняло " & b & " мсек"
+    SQAVpLog sqaNone, LogText, LogText, "", ""
+    Window CloseWin, "", ""
+    TimeOpenGK = b
+End Function
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'ВРЕМЯ ПРЕДВАРИТЕЛЬНОГО ПРОСМОТРА ГК    
+Function TimePrintPreviewGK As Long
+    StartApplication NetClientApplicationPathName$
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Основное меню", ""
+    InputKeys "%т"
+    
+    Window SetContext, "Caption=Открыть документ по номеру", ""
+    InputKeys "10064072"
+    InputKeys "{ENTER}"
+   
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Текст документа : ГРАЖДАНСКИЙ КОДЕКС РФ (ЧАСТИ ПЕРВАЯ, ВТОРАЯ И ТРЕТЬЯ)", ""
+    GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=101,19"
+    GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=46,221"
+    MenuIDSelect 45
+    b = GetTickCount()
+        
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - ГРАЖДАНСКИЙ КОДЕКС РФ (ЧАСТИ ПЕРВАЯ, ВТОРАЯ И ТРЕТЬЯ)", ""
+    b = GetTickCount()-b
+    LogText = "Сетевая версия. Предварительный просмотр ГК занял " & b & " мсек"
+    SQAVpLog sqaNone, LogText, LogText, "", ""
+    Window CloseWin, "", ""
+    TimePrintPreviewGK = b
+End Function
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'ВРЕМЯ ПРЕДВАРИТЕЛЬНОГО ПРОСМОТРА ГК (ДО ПОДСЧЕТА СТРАНИЦ)
+Function TimePrintPreviewBeforeGK As Long
+    StartApplication NetClientApplicationPathName$
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Основное меню", ""
+    InputKeys "%т"
+    
+    Window SetContext, "Caption=Открыть документ по номеру", ""
+    InputKeys "10064072"
+    InputKeys "{ENTER}"
+   
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Текст документа : ГРАЖДАНСКИЙ КОДЕКС РФ (ЧАСТИ ПЕРВАЯ, ВТОРАЯ И ТРЕТЬЯ)", ""
+    GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=101,19"
+    GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=46,221"
+    MenuIDSelect 45
+    b = GetTickCount()
+        
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Предварительный просмотр печати...", ""
+    MenuIDSelect 13
+    b = GetTickCount()-b
+    LogText = "Сетевая версия. Предварительный просмотр ГК до подсчета страниц занял " & b & " мсек"
+    SQAVpLog sqaNone, LogText, LogText, "", ""
+    DelayFor 1000
+    InputKeys "%{F4}"
+    TimePrintPreviewBeforeGK = b
+End Function
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'ПОЛНЫЙ СПИСОК
+Function TimeFullList As Long
+    StartApplication NetClientApplicationPathName$
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Основное меню", ""
+    MenuIDSelect 142
+    InputKeys "^{ENTER}"
+    
+    Window SetContext, "Caption=Подтверждение", ""
+    InputKeys "{ENTER}"
+    b = GetTickCount()
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - По запросу: Список всех документов", ""
+    b = GetTickCount()-b
+    LogText = "Сетевая версия. Открытие полного списка заняло " & b & " мсек"
+    SQAVpLog sqaNone, LogText, LogText, "", ""
+    Window CloseWin, "", ""
+    TimeFullList = b
+End Function
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'ОТКРЫТИЕ ППС
+Function TimeOpenPPS As Long
+    StartApplication NetClientApplicationPathName$
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Основное меню", ""
+    MenuIDSelect 144
+    b = GetTickCount()
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Поиск по ситуации", ""
+    b = GetTickCount()-b
+    LogText = "Сетевая версия. Открытие ППС заняло " & b & " мсек"
+    SQAVpLog sqaNone, LogText, LogText, "", ""
+    Window CloseWin, "", ""
+    TimeOpenPPS = b
+End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'ОТКРЫТИЕ ППР
+Function TimeOpenPPR As Long
+    StartApplication NetClientApplicationPathName$
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Основное меню", ""
+    b = GetTickCount()
+    MenuIDSelect 142
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Поиск по реквизитам", ""
+    b = GetTickCount()-b
+    LogText = "Сетевая версия. Открытие ППР заняло " & b & " мсек"
+    SQAVpLog sqaNone, LogText, LogText, "", ""
+    Window CloseWin, "", ""
+    TimeOpenPPR = b
+End Function
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'ЗАГРУЗКА
+Function TimeLogin As Long
+    b = GetTickCount()
+    StartApplication NetClientApplicationPathName$
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Основное меню", ""
+    MenuIDSelect 208
+    b = GetTickCount()-b
+    LogText = "Сетевая версия. Загрузка заняла " & b & " мсек"
+    SQAVpLog sqaNone, LogText, LogText, "", ""
+
+    Window SetContext, "Caption=О программе", ""
+    InputKeys "{ENTER}"
+
+    Window CloseWin, "", ""
+    TimeLogin = b
+End Function
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'ЗАГРУЗКА ЛОКАЛЬНАЯ
+Function TimeLoginLocal As Long
+    b = GetTickCount()
+    StartApplication LocalApplicationPathName$
+    
+    Window SetContext, "Caption=ГАРАНТ. Платформа F1 - Основное меню", ""
+    MenuIDSelect 208
+    b = GetTickCount()-b
+    LogText = "Локальная версия. Загрузка заняла " & b & " мсек"
+    SQAVpLog sqaNone, LogText, LogText, "", ""
+
+    Window SetContext, "Caption=О программе", ""
+    InputKeys "{ENTER}"
+
+    Window CloseWin, "", ""
+    TimeLoginLocal = b
+End Function
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'MAIN
+Sub Main
+'    a = 0
+'    for i=1 to Precision
+'        a = a + TimeOpenGK    
+'        DelayFor DelayBeforeAppStart
+'    next i
+'    LogText = "Сетевая версия. Открытие ГК занимает в среднем " & (a/Precision) & " мсек"
+'    SQAVpLog sqaWarning, LogText, LogText, "", ""    
+
+'    a = 0
+'    for i=1 to Precision
+'        a = a + TimePrintPreviewBeforeGK 
+'        DelayFor DelayBeforeAppStart
+'    next i
+'    LogText = "Сетевая версия. Предварительный просмотр ГК занимает в среднем " & (a/Precision) & " мсек"
+'    SQAVpLog sqaWarning, LogText, LogText, "", ""
+
+'    a = 0
+'    for i=1 to Precision
+'        a = a + TimePrintPreviewGK 
+'        DelayFor DelayBeforeAppStart
+'    next i
+'    LogText = "Сетевая версия. Предварительный просмотр ГК занимает в среднем " & (a/Precision) & " мсек"
+'    SQAVpLog sqaWarning, LogText, LogText, "", ""
+'    
+'    a = 0
+'    for i=1 to Precision
+'        a = a + TimeFullList 
+'        DelayFor DelayBeforeAppStart
+'    next i
+'    LogText = "Сетевая версия. Просмотр списка занимает в среднем " & (a/Precision) & " мсек"
+'    SQAVpLog sqaWarning, LogText, LogText, "", ""
+
+'    a = 0
+'    for i=1 to Precision
+'        a = a + TimeOpenPPS 
+'        DelayFor DelayBeforeAppStart
+'    next i
+'    LogText = "Сетевая версия. Открытие ППС занимает в среднем " & (a/Precision) & " мсек"
+'    SQAVpLog sqaWarning, LogText, LogText, "", ""
+'    
+'    a = 0
+'    for i=1 to Precision
+'        a = a + TimeOpenPPR
+'        DelayFor DelayBeforeAppStart
+'    next i
+'    LogText = "Сетевая версия. Открытие ППР занимает в среднем " & (a/Precision) & " мсек"
+'    SQAVpLog sqaWarning, LogText, LogText, "", ""
+    
+    a = 0
+    for i=1 to Precision
+        a = a + TimeLogin
+        DelayFor DelayBeforeAppStart
+    next i
+    LogText = "Сетевая версия. Загрузка занимает в среднем " & (a/Precision) & " мсек"
+    SQAVpLog sqaWarning, LogText, LogText, "", ""
+    
+'    a = 0
+'    for i=1 to Precision
+'        a = a + TimeLoginLocal
+'        DelayFor DelayBeforeAppStart
+'    next i
+'    LogText = "Локальная версия. Загрузка занимает в среднем " & (a/Precision) & " мсек"
+'    SQAVpLog sqaWarning, LogText, LogText, "", ""
+
+End Sub
+

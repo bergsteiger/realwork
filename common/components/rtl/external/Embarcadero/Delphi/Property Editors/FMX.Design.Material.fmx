@@ -1,0 +1,380 @@
+object frmMaterialDesign: TfrmMaterialDesign
+  Left = 488
+  Top = 212
+  Caption = 'Material Designer'
+  BorderStyle = bsSingle
+  BorderIcons = [biSystemMenu]
+  ClientHeight = 337
+  ClientWidth = 650
+  Position = poScreenCenter
+  Visible = False
+  OnCreate = FormCreate
+  StyleLookup = 'backgroundstyle'
+  Left = 488
+  Top = 212
+  object Layout1: TLayout
+    Align = alMostLeft
+    Width = 300.000000000000000000
+    Height = 337.000000000000000000
+    object CheckLight: TCheckBox
+      Align = alTop
+      Enabled = False
+      Position.Point = '(70,87)'
+      Width = 230.000000000000000000
+      Height = 19.000000000000000000
+      Margins.Rect = '(70,9,0,0)'
+      TabOrder = 0
+      Text = 'Light Enabled'
+      OnChange = checkLightChange
+    end
+    object ModulationLayout: TLayout
+      Align = alTop
+      Position.Point = '(0,5)'
+      Width = 300.000000000000000000
+      Height = 21.000000000000000000
+      Margins.Rect = '(0,5,0,0)'
+      object ModulationLabel: TLabel
+        Align = alLeft
+        Locked = True
+        Width = 130.000000000000000000
+        Height = 21.000000000000000000
+        Margins.Rect = '(0,0,5,0)'
+        TabOrder = 0
+        TextAlign = taTrailing
+        Text = 'Modulation:'
+        WordWrap = False
+      end
+      object ModulationPopupBox: TPopupBox
+        Align = alVertCenter
+        Position.Point = '(135,0)'
+        Locked = True
+        Width = 165.000000000000000000
+        Height = 21.000000000000000000
+        TabOrder = 1
+        Items.Strings = (
+          'Modulate'
+          'Replace')
+        ItemIndex = 0
+        OnChange = rgModulationClick
+      end
+    end
+    object FillModeLayout: TLayout
+      Align = alTop
+      Position.Point = '(0,31)'
+      Width = 300.000000000000000000
+      Height = 21.000000000000000000
+      Margins.Rect = '(0,5,0,0)'
+      object FillLabel: TLabel
+        Align = alLeft
+        Locked = True
+        Width = 130.000000000000000000
+        Height = 21.000000000000000000
+        Margins.Rect = '(0,0,5,0)'
+        TabOrder = 0
+        TextAlign = taTrailing
+        Text = 'Fill Mode:'
+      end
+      object FillModePopupBox: TPopupBox
+        Align = alVertCenter
+        Position.Point = '(135,0)'
+        Locked = True
+        Width = 165.000000000000000000
+        Height = 21.000000000000000000
+        TabOrder = 1
+        Items.Strings = (
+          'Solid'
+          'Wire Frame')
+        ItemIndex = 0
+        OnChange = rgFillModeClick
+      end
+    end
+    object ShadeLayout: TLayout
+      Align = alTop
+      Position.Point = '(0,57)'
+      Width = 300.000000000000000000
+      Height = 21.000000000000000000
+      Margins.Rect = '(0,5,0,0)'
+      object ShadeLabel: TLabel
+        Align = alLeft
+        Locked = True
+        Width = 130.000000000000000000
+        Height = 21.000000000000000000
+        Margins.Rect = '(0,0,5,0)'
+        TabOrder = 0
+        TextAlign = taTrailing
+        Text = 'Shade Mode:'
+      end
+      object ShadePopupBox: TPopupBox
+        Align = alVertCenter
+        Position.Point = '(135,0)'
+        Locked = True
+        Width = 165.000000000000000000
+        Height = 21.000000000000000000
+        TabOrder = 1
+        Items.Strings = (
+          'Flat'
+          'Gouraud')
+        ItemIndex = 0
+        OnChange = rgShadeModeClick
+      end
+    end
+    object GroupBox2: TGroupBox
+      Align = alTop
+      Position.Point = '(0,106)'
+      Width = 300.000000000000000000
+      Height = 199.000000000000000000
+      Padding.Rect = '(10,15,10,4)'
+      TabOrder = 4
+      Text = 'Colors: '
+      object ColorBox1: TColorBox
+        Position.Point = '(10,161.899993896484)'
+        Width = 130.000000000000000000
+        Height = 18.000000000000000000
+        Color = claBlack
+      end
+      object ColorList: TListBox
+        Align = alTop
+        Position.Point = '(10,15)'
+        Width = 280.000000000000000000
+        Height = 25.000000000000000000
+        StyleLookup = 'listboxstyle'
+        TabOrder = 1
+        Columns = 2
+        ItemIndex = 1
+        ItemHeight = 19.000000000000000000
+        OnChange = colorListChange
+        object ListBoxItem1: TListBoxItem
+          Width = 139.000000000000000000
+          Height = 19.000000000000000000
+          HitTest = False
+          TabOrder = 0
+          Text = 'Ambient'
+        end
+        object ListBoxItem2: TListBoxItem
+          Position.Point = '(139,0)'
+          Width = 139.000000000000000000
+          Height = 19.000000000000000000
+          HitTest = False
+          TabOrder = 1
+          IsSelected = True
+          Text = 'Diffuse'
+        end
+      end
+      object ColorQuad1: TColorQuad
+        Position.Point = '(10,40.0900001525879)'
+        Width = 128.000000000000000000
+        Height = 120.000000000000000000
+        Alpha = 1.000000000000000000
+        ColorBox = ColorBox1
+        OnChange = ColorQuad1Change
+      end
+      object ColorPicker1: TColorPicker
+        Position.Point = '(140,40.0900001525879)'
+        Width = 19.000000000000000000
+        Height = 119.000000000000000000
+        ColorQuad = ColorQuad1
+      end
+      object Layout6: TLayout
+        Align = alRight
+        Position.Point = '(184,40)'
+        Width = 106.000000000000000000
+        Height = 155.000000000000000000
+        object numR: TNumberBox
+          Align = alTop
+          Position.Point = '(20,0)'
+          Width = 86.000000000000000000
+          Height = 21.000000000000000000
+          Margins.Rect = '(20,0,0,5)'
+          TabOrder = 0
+          KeyboardType = vktDefault
+          OnChange = numRChange
+          Max = 255.000000000000000000
+          ValueType = vtInteger
+          HorzIncrement = 1.000000000000000000
+          VertIncrement = 5.000000000000000000
+          object numRLabel: TLabel
+            Align = alLeft
+            Position.Point = '(-20,0)'
+            Width = 30.000000000000000000
+            Height = 21.000000000000000000
+            Margins.Rect = '(-20,0,0,0)'
+            TabOrder = 0
+            Text = 'R:'
+          end
+        end
+        object numB: TNumberBox
+          Align = alTop
+          Position.Point = '(20,52)'
+          Width = 86.000000000000000000
+          Height = 21.000000000000000000
+          Margins.Rect = '(20,0,0,5)'
+          TabOrder = 1
+          KeyboardType = vktDefault
+          OnChange = numRChange
+          Max = 255.000000000000000000
+          ValueType = vtInteger
+          HorzIncrement = 1.000000000000000000
+          VertIncrement = 5.000000000000000000
+          object numBLabel: TLabel
+            Align = alLeft
+            Position.Point = '(-20,0)'
+            Width = 30.000000000000000000
+            Height = 21.000000000000000000
+            Margins.Rect = '(-20,0,0,0)'
+            TabOrder = 0
+            Text = 'B:'
+          end
+        end
+        object numG: TNumberBox
+          Align = alTop
+          Position.Point = '(20,26)'
+          Width = 86.000000000000000000
+          Height = 21.000000000000000000
+          Margins.Rect = '(20,0,0,5)'
+          TabOrder = 2
+          KeyboardType = vktDefault
+          Max = 255.000000000000000000
+          ValueType = vtInteger
+          HorzIncrement = 1.000000000000000000
+          VertIncrement = 5.000000000000000000
+          object numGLabel: TLabel
+            Align = alLeft
+            Position.Point = '(-20,0)'
+            Width = 30.000000000000000000
+            Height = 21.000000000000000000
+            Margins.Rect = '(-20,0,0,0)'
+            TabOrder = 0
+            Text = 'G:'
+          end
+        end
+        object label2: TLabel
+          Align = alTop
+          Position.Point = '(0,104)'
+          Width = 106.000000000000000000
+          Height = 15.000000000000000000
+          TabOrder = 3
+          Text = 'RGBA:'
+        end
+        object TextRGBA: TEdit
+          Align = alTop
+          Position.Point = '(0,119)'
+          Width = 106.000000000000000000
+          Height = 21.000000000000000000
+          TabOrder = 4
+          KeyboardType = vktDefault
+          OnChange = textRGBAChange
+          Password = False
+          Text = 'TextBox'
+        end
+        object numA: TNumberBox
+          Align = alTop
+          Position.Point = '(20,78)'
+          Width = 86.000000000000000000
+          Height = 21.000000000000000000
+          Margins.Rect = '(20,0,0,5)'
+          TabOrder = 5
+          KeyboardType = vktDefault
+          OnChange = numRChange
+          Max = 255.000000000000000000
+          ValueType = vtInteger
+          HorzIncrement = 1.000000000000000000
+          VertIncrement = 5.000000000000000000
+          object numALabel: TLabel
+            Align = alLeft
+            Position.Point = '(-20,0)'
+            Width = 30.000000000000000000
+            Height = 21.000000000000000000
+            Margins.Rect = '(-20,0,0,0)'
+            TabOrder = 0
+            Text = 'A:'
+          end
+        end
+      end
+    end
+  end
+  object ButtonLayout: TLayout
+    Align = alBottom
+    Position.Point = '(300,277)'
+    Width = 350.000000000000000000
+    Height = 60.000000000000000000
+    object OKButton: TButton
+      Position.Point = '(109,19)'
+      Width = 80.000000000000000000
+      Height = 22.000000000000000000
+      OnClick = OkButtonClick
+      TabOrder = 0
+      ModalResult = 1
+      Text = 'OK'
+    end
+    object CancelButton: TButton
+      Position.Point = '(218,19)'
+      Width = 80.000000000000000000
+      Height = 22.000000000000000000
+      TabOrder = 1
+      ModalResult = 2
+      Text = 'Cancel'
+    end
+  end
+  object Viewport3D1: TViewport3D
+    Align = alClient
+    Position.Point = '(300,0)'
+    Width = 350.000000000000000000
+    Height = 277.000000000000000000
+    Color = claNull
+    object Cube1: TCylinder
+      Position.Point = '(-4,0,0)'
+      Width = 5.000000000000000000
+      Height = 5.000000000000000000
+      Depth = 5.000000000000000000
+      Opacity = 1.000000000000000000
+      Material.Diffuse = xFF8D2D38
+      Material.Ambient = claRed
+      Material.Emissive = claWhite
+      SubdivisionsCap = 2
+      Quanternion = '(0,0,0,1)'
+      object Rotate: TFloatAnimation
+        Enabled = True
+        Duration = 10.000000000000000000
+        Loop = True
+        StopValue = 360.000000000000000000
+        PropertyName = 'RotateAngle.Z'
+      end
+    end
+    object Cube2: TCylinder
+      Position.Point = '(3,0,0)'
+      Width = 5.000000000000000000
+      Height = 5.000000000000000000
+      Depth = 5.000000000000000000
+      Opacity = 1.000000000000000000
+      Material.Diffuse = xFF91E8F7
+      Material.Ambient = claRed
+      Material.Emissive = claWhite
+      SubdivisionsCap = 2
+      Quanternion = '(0,0,0,1)'
+      object FloatAnimation1: TFloatAnimation
+        Enabled = True
+        Duration = 10.000000000000000000
+        Loop = True
+        StopValue = 360.000000000000000000
+        PropertyName = 'RotateAngle.Z'
+      end
+    end
+    object Light1: TLight
+      Position.Point = '(-9.83824729919434,5.73680830001831,1.64410562319972E-6)'
+      RotationAngle.Point = '(33.8147811889648,32.5549926757812,0)'
+      Width = 1.000000000000000000
+      Height = 1.000000000000000000
+      Depth = 1.000000000000000000
+      Opacity = 1.000000000000000000
+      Ambient = xFF202020
+      Diffuse = xFFA0A0A0
+      ConstantAttenuation = 1.000000000000000000
+      LightType = ltDirectional
+      Specular = claWhite
+      SpotCutOff = 180.000000000000000000
+      Quanternion = 
+        '(-0.279168009757996,0.268174469470978,0.0815154314041138,0.91842' +
+        '4189090729)'
+    end
+  end
+end

@@ -1,0 +1,401 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// Requirements
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Requirements::Category
+$ C 245,175,195
+$ l 200,50,100
+$ f 200,50,100
+? Пакет требований
+? Пакет с моделью требований
+> UseCases::Category, Features::Category, Problems::Category
+L requirements
+
+Y t2_requirements.gif
++ wiki
+C /%SN:%SU
+O %SN
+S %SN
+# MDAGen/Core/t0_wiki_header
+	[h2. Модель[
+	
+	{info}Зависит от требоваий:
+	<* %f_k_link(%D)
+	>{info}][
+	
+	{info}Реализован в модуле:
+	<{}{%aS!=Requirements&%t_target_ex(%a)!=true}{Sp}* %f_k_link(%a)
+	>{info}][{%mx=true&%Cx=true}
+	
+	_Диаграмма пакета:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}]][
+	
+	h2. Состав требований[
+	
+	_Проблемы пользователя:_<{}{%CS=Problems}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>][
+	
+	_Возможности:_<{}{%CS=Features}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>][
+	
+	_Прецеденты:_<{}{%CS=UseCases}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>]]
+	
+	----
+	_Таблица возможностей:_
+	
+	{checklist:name=Название|depth=5|parent=%SN|label=feature}
+		{checklist-wiki:Из пакета}
+			{script}
+					com.atlassian.confluence.pages.Page p = context.getEntity ();
+					out.println(p.getParent().getTitle());
+			{script}
+		{checklist-wiki}
+		{checklist-label:Релиз|label=to_release}
+		{checklist-label:Драфт|label=draft}
+		{checklist-select:Статус|uselabels=true}
+				approved|Утвержден
+				deployed|Внедрен
+				rejected|Отклонен
+				changed|Пересматривается
+		{checklist-select}
+	{checklist}
+	
+	_Таблица прецедентов:_
+	
+	{checklist:name=Название|depth=5|parent=%SN|label=usecase}
+		{checklist-wiki:Из пакета}
+			{script}
+					com.atlassian.confluence.pages.Page p = context.getEntity ();
+					out.println(p.getParent().getTitle());
+			{script}
+		{checklist-wiki}
+		{checklist-label:Релиз|label=to_release}
+		{checklist-label:Драфт|label=draft}
+		{checklist-select:Статус|uselabels=true}
+				approved|Утвержден
+				deployed|Внедрен
+				rejected|Отклонен
+				changed|Пересматривается
+		{checklist-select}
+	{checklist}
+	
+	{panel:title=Обозначения}Релиз - Требование включено в ближайший релиз
+	Драфт - Текст описания требования в настоящий момент находится в правке и не завершен
+	Статус "Утвержден" - Текст требования согласован со всеми заинтересованными сторонами и прянят как окончательный.
+	Статус "Внедрен" - Требования полностью реализовано в системе и внедрено у пользователя
+	Статус "Отклонен" - Требование отложено или полностью отклонено
+	Статус "Пересматривается" - Ранее внедренное требование находится в стадии изменения с целью улучшения
+	{panel}
+
+	<%CX>
+# MDAGen/Core/t0_wiki_footer
+
+: UseCases::Category
+$ C 255,230,190
+$ l 235,190,130
+$ f 150,120,100
+? Пакет прецедентов
+> Actor::Class, UseCase::Class
+L usecases
+Y usecases.gif
++ wiki
+C /%SN:%SU
+O %SN
+S %SN
+# MDAGen/Core/t0_wiki_header
+	[h2. Модель[
+	{info}Реализует возможности из пакета:
+	<{}{%DS=Features}* %f_k_link_wp(%D,%S)
+	>{info}][
+	
+	{info}Зависит от пакета прецедентов:
+	<{}{%DS=UseCases}* %f_k_link_wp(%D,%S)
+	>{info}][{%mx=true&%Cx=true}
+	
+	_Диаграмма пакета:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	]][
+	
+	h2. Состав пакета[
+	
+	_Прецеденты:_<{}{%CS=UseCase}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>]]<%CX>
+# MDAGen/Core/t0_wiki_footer
+
+: Features::Category
+$ C 195,245,175
+$ l 10,195,10
+$ f 10,195,10
+
+? Пакет возможностей
+> Feature::Class
+D
+L features
+Y features.gif
+
++ wiki
+C /%SN:%SU
+O %SN
+S %SN
+# MDAGen/Core/t0_wiki_header
+	[h2. Модель[
+	{info}Решает проблемы из пакета:
+	<* %f_k_link_wp(%D,%S)
+	>{info}][
+	
+	{info}Реализован в пакете прецедентов:
+	<{}{}{Sp}* %f_k_link_wp(%a,%S)
+	>{info}][{%mx=true&%Cx=true}
+	
+	_Диаграмма пакета:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	]][
+	
+	h2. Состав пакета[
+	
+	_Возможности:_<{}{%CS=Feature}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>]]<%CX>
+# MDAGen/Core/t0_wiki_footer
+
+: Problems::Category
+$ C 245,175,195
+$ l 175,50,90
+$ f 175,50,90
+
+? Пакет проблем пользователя
+> UserNeeds::Class
+D
+L problems
+Y problems.gif
+
++ wiki
+C /%SN:%SU
+O %SN
+S %SN
+# MDAGen/Core/t0_wiki_header
+	[h2. Модель[
+	{info}Решается в пакете возможеностей:
+	<{}{}{Sp}* %f_k_link_wp(%a,%S)
+	>{info}][{%mx=true&%Cx=true}
+	
+	_Диаграмма пакета:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	]][
+	
+	h2. Состав пакета[
+	
+	_Проблемы:_<{}{%CS=UserNeeds}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>]]<%CX>
+# MDAGen/Core/t0_wiki_footer
+
+: Actor::Class
+? Актер
+< *::Class, *::Category
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+
+$ S
+$ s
+$ i d
+v +
+a ra
+%t _constraint
+c                              {}
+r {%Rx=true}: {%SS неможет реализовывать другие классы}
+r {<{}{%GS!=%SS}{C}>!=0}: {%SS может наследоваться только от другого %SS}
+
++ wiki
+G
+
+: Actor::Class::ClassDependency
+? Использование
+? Актер использует прецедент
+%t _constraint
+c                              {}
+r {%TS!=UseCase}: {%SS может быть связан только с UseCase'ом}
+
+: UserNeeds::Class
+? Проблема пользователя
+> UserNeeds::Class
+$ C 245,175,195
+$ l 175,50,90
+$ f 175,50,90
+
+
+$ S
+$ s
+v +
+a r
+%t _constraint
+c                              {}
+r {%Rx=true}: {%SS не может реализовывать другие классы}
+r {%Gx=true}: {%SS не может наследоваться от других классов}
+L userneeds
+Y user_need.gif
+
++ wiki
+C /%SN:%SU
+O %SN
+S %SN
+# MDAGen/Core/t0_wiki_header
+	[{%Lx=true}
+	
+	{info}Решена возможностью:
+	<* %f_k_link_wp(%L,%S)
+	>{info}][{%Lx=false}
+	
+	{warning}Проблема не решена!
+	{warning}]<%CX>
+# MDAGen/Core/t0_wiki_footer
+
+: Feature::Class
+> Feature::Class
+? Возможность
+$ C 195,245,175
+$ l 10,195,10
+$ f 10,195,10
+
+$ S
+$ s
+$ i i
+v +
+a ra
+L feature
+Y feature.png
+
+%t _constraint
+c                              {}
+r {"<{}{%RS=UserNeeds}{C}>"="0"&"<{}{%CS=Feature}{C}>"="0"}: {%SS долен реализовывать как минимум один UserNeeds}
+
++ wiki
+C /%SN:%SU
+O %SN
+S %SN
+# MDAGen/Core/t0_wiki_header
+	[{%Rx=true}
+	{info}Решает проблему:
+	<* %f_k_link_wp(%R,%S)
+	>{info}][{%Lx=true}
+	
+	{info}Реализованна прецедентом:
+	<* %f_k_link_wp(%L,%S)
+	>{info}][{%Lx=false}
+	
+	{warning}Возможность не реализованна!
+	{warning}]<%CX>
+# MDAGen/Core/t0_wiki_footer
+
+f _use_by_actor
+	[{<{}{%a%PS=Actor}{C}>!=0}{false}true]
+
+/f _use_by_usecase_that_used_by_actor
+/	[{<{}{%cS=UseCase&%f_use_by_actor(%c%G)=true}{C}>=0}{true}false]
+
+f _use_by_usecase_that_used_by_actor
+	[{<{}{%aS=include&%f_used_by_actor_anyway(%a%P)=true|%aS=extend&%f_used_by_actor_anyway(%a%P)=true}{C}>!=0}{false}true]
+
+f _specialized_by_usecase_that_used_by_actor
+	[{%Sa=abstract&<{}{%f_used_by_actor_anyway(%Z)=true}{C}>!=0}{false}true]
+
+f _specialize_usecase_that_used_by_actor
+	[{<{}{%Ga!=abstract&%f_used_by_actor_anyway(%G)=true}{C}>!=0|<{}{%Ga=abstract&%f_use_by_actor(%G)=true|%Ga=abstract&%f_use_by_usecase_that_used_by_actor(%G)=true}{C}>!=0}{false}true]
+
+f _used_by_actor_anyway
+/	true
+	[{%f_exist_in_list(REQURSION_CHECK_LIST,S)=false|a=a}{false}%f_add_to_list(REQURSION_CHECK_LIST,S)\
+	[{%f_use_by_actor(%S)=true|%f_specialized_by_usecase_that_used_by_actor(%S)=true|%f_use_by_usecase_that_used_by_actor(%S)=true|%f_specialize_usecase_that_used_by_actor(%S)=true}{false}true]\
+	%f_remove_to_list(REQURSION_CHECK_LIST,S)]
+
+/f _dump_use_by_actor
+/	<{}{%cS=UseCase&%c<{}{%f_use_by_actor(%G)=true}{%GC}>!=0}%cn><{}{%cS=Actor}(%cN)><{}{%f_use_by_actor(%G)=true}{%G}(%GN)>
+
+: UseCase::Class
+> UseCase::Class
+? Прецедент
+$ C 255,230,190
+$ l 190,90,30
+$ f 190,90,30
+$ S
+$ s
+$ i i
+v +
+a ra
+L usecase
+Y use_case.gif
+
+%t _constraint
+c                              {}
+r {%f_set_var(SELF,S)"<{}{%rS=Feature}{C}>"="0"&"<{}{%cS=UseCase&"%c<{"%CM"="UseCase::Class::include::ClassDependency"|"%CM"="UseCase::Class::extend::ClassDependency"&"%C%TU"="%{SELF}U}{C}>"!="0"}{C}>"="0"}: {%SS должен реализовывать как миниму один Feature}
+r {<{}{%GS!=%SS}{C}>!=0}: {%SS может наследоваться только от другого %SS}
+r {%f_used_by_actor_anyway(%S)=false}: {%SS должен быть использован (непосредственно или через другие %SS) хотябы одним Актером}
+r {<{}{%RS!=Feature}{C}>!=0}: {%SS может реализовывать только UserNeeds}
+
++ wiki
+C /%SN:%SU
+O %SN
+S %SN
+# MDAGen/Core/t0_wiki_header
+	[
+	{tip}Специализирует:
+	<* %f_k_link_wp(%G,%S)
+	>{tip}][{%Rx=true}
+	
+	{info}Реализует возможность:
+	<* %f_k_link_wp(%R,%S)
+	>{info}][
+	
+	_Специализирован:_
+	<* %f_k_link_wp(%Z,%S)
+	>][
+	
+	_Вызывается из прецедентов:_
+	<{}{%aC=Dependency&%a%PS!=Actor}{Sp}* %f_k_link_wp(%a%P,%S) (%aS)
+	>][
+	
+	_Непосредственно вызывается актером:_
+	<{}{%aC=Dependency&%a%PS=Actor}{Sp}* %a%PN
+	>][
+	
+	_Включает прецеденты:_
+	<{}{%CC=Dependency&%CS!=notify}* %f_k_link_wp(%C%T,%S) (%CS)
+	>][
+	
+	_Нотифицирует:_
+	<{}{%CC=Dependency&%CS=notify}* %f_k_link_wp(%C%T,%S)
+	>][{%mx=false}
+	
+	_Диаграмма выполнения:_
+	{warning}Прецедент не спроектирован!
+	{warning}][{%mx=true}
+	
+	<{----\n}_Диаграмма выполнения:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]<%CX>
+# MDAGen/Core/t0_wiki_footer
+
+: UseCase::Class::include::ClassDependency
+? Включение
+? Прецедент включает другой прецидент безусловно
+%t _constraint
+c                              {}
+r {%TS!=UseCase}: {%SS может быть связан только с UseCase'ом}
+
+: UseCase::Class::extend::ClassDependency
+? Расширение
+? Прецедент включает другой прецидент по какому-либо условию
+= UseCase::Class::include::ClassDependency
+
+: UseCase::Class::notify::ClassDependency
+? Сообщение
+? Прецедент передает какое-либо сообщение (нотификацию) Актеру
+%t _constraint
+c                              {}
+r {%TS!=Actor}: {%SS может быть связан только с Актером}

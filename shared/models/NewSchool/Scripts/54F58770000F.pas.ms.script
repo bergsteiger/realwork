@@ -1,0 +1,216 @@
+// RadioGroupWordsPack 54F58770000F ScriptKeywordsPack Class
+
+FORWARD ME_54F58770000F
+
+INCLUDE '5619169603BE.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_8E50130D7478
+
+: ME_D807E60777C4
+ CONST UID 'D807E60777C4'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_D807E60777C4 aCtx
+
+INCLUDE '48C7C95C0221.pas.ms.script'
+
+: ME_D807E60777C5
+ CONST UID 'D807E60777C5'
+ CONST Name 'aRadioGroup'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5034B74700CF // TRadioGroup
+ ;
+
+ @SELF
+; // ME_D807E60777C5 aRadioGroup
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_E20F0AC32CE1
+ CONST UID 'E20F0AC32CE1'
+ CONST Name 'ItemIndex'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:RadioGroup:ItemIndex' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_D807E60777C4 // aCtx
+ ME_D807E60777C5 // aRadioGroup
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E20F0AC32CE1 ItemIndex
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_219ED3F56D17
+ CONST UID '219ED3F56D17'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_RadioGroup_ItemIndex' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_219ED3F56D17 Ini_Reg
+
+: ME_8E50130D7478
+ CONST UID '8E50130D7478'
+ CONST Name 'pop_RadioGroup_ItemIndex'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:RadioGroup:ItemIndex'#13#10'{panel}Индекс элемента{panel}'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRadioGroup pop:RadioGroup:ItemIndex >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E20F0AC32CE1 // ItemIndex
+ ME_219ED3F56D17 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:RadioGroup:ItemIndex'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_8E50130D7478 pop_RadioGroup_ItemIndex
+
+: ME_54F86E0C00C7
+ CONST UID '54F86E0C00C7'
+ CONST Name 'ItemIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ %SUMMARY 'Индекс элемента' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "mapped" true
+
+ @SELF
+; // ME_54F86E0C00C7 ItemIndex
+
+: ME_68E703E52F93
+ CONST UID '68E703E52F93'
+ CONST Name 'ItemIndex'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ %SUMMARY 'Индекс элемента' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_68E703E52F93 ItemIndex
+
+: ME_9FB523F7AD46
+ CONST UID '9FB523F7AD46'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9FB523F7AD46 Reg_TtfwContext
+
+: ME_E96A0AF398E6
+ CONST UID 'E96A0AF398E6'
+ CONST Name 'Reg_TRadioGroup'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TRadioGroup' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E96A0AF398E6 Reg_TRadioGroup
+
+: ME_F85C77FAE408
+ CONST UID 'F85C77FAE408'
+ CONST Name 'Reg_Integer'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Integer' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F85C77FAE408 Reg_Integer
+
+: ME_54F58770000F
+ CONST UID '54F58770000F'
+ CONST Name 'RadioGroupWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5034B74700CF // TRadioGroup
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_54F86E0C00C7 // ItemIndex
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_68E703E52F93 // ItemIndex
+ ME_9FB523F7AD46 // Reg_TtfwContext
+ ME_E96A0AF398E6 // Reg_TRadioGroup
+ ME_F85C77FAE408 // Reg_Integer
+ ]
+ ; // Operations
+ : Children
+   [ ME_8E50130D7478 // pop_RadioGroup_ItemIndex
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_54F58770000F RadioGroupWordsPack

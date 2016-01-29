@@ -1,0 +1,156 @@
+// RefCountedPrim 51612ED700B4 Impurity Class
+
+INCLUDE '516130FB0241.pas.ms.script'
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+FORWARD ME_51612ED700B4
+
+: ME_4791515B0239
+ CONST UID '4791515B0239'
+ CONST Name 'RefCount'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_4791515B0239 RefCount
+
+: ME_623901E83BE0
+ CONST UID '623901E83BE0'
+ CONST Name 'f_RefCount'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства RefCount' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_623901E83BE0 f_RefCount
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_479731C50290
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Функция очистки полей объекта.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_479731C50290 Cleanup
+
+: ME_479152500168
+ CONST UID '479152500168'
+ CONST Name 'Use'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'увеличить счетчик ссылок на 1 и вернуть указатель на себя.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_479152500168 Use
+
+: ME_51613280011E
+ CONST UID '51613280011E'
+ CONST Name 'F'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_51613280011E F
+
+: ME_5161325E01CB
+ CONST UID '5161325E01CB'
+ CONST Name 'SetRefTo'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_51613280011E // F
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5161325E01CB SetRefTo
+
+: ME_49BFC98902FF
+ CONST UID '49BFC98902FF'
+ CONST Name 'BeforeRelease'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_49BFC98902FF BeforeRelease
+
+: ME_479F2AFB0397
+ CONST UID '479F2AFB0397'
+ CONST Name 'Release'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_479F2AFB0397 Release
+
+: ME_51612ED700B4
+ CONST UID '51612ED700B4'
+ CONST Name 'RefCountedPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_516130FB0241 // MObject
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4791515B0239 // RefCount
+ ME_623901E83BE0 // f_RefCount
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_479731C50290 // Cleanup
+ ME_479152500168 // Use
+ ME_5161325E01CB // SetRefTo
+ ME_49BFC98902FF // BeforeRelease
+ ME_479F2AFB0397 // Release
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_48077504027E // Destroy
+ ME_516131510341 // NewInstance
+ ME_5161317A0219 // FreeInstance
+ ME_51DAEFC6017B // BeforeDestruction
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_51612ED700B4 RefCountedPrim

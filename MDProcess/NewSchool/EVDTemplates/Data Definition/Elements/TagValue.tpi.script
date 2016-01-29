@@ -1,0 +1,556 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Elements/TagValue.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Elements::TagValue
+//
+// Предопределённое значение тега
+// ---
+// Экземпляр [Tag].
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TagValue::Class
+implementation @ <<TagValue>>
+//? Предопределённое значение тега
+//? Экземпляр [Tag].
+//> TagChild::Class
+//> InnerTag::Class
+
+//= WikiImplClass::Class
+//= AttrValueSpeller::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a r
+// - тип абстракции
+//Y code_evd_tag_value.gif
+//L code_evd_tag_value
+// Параметры визуализации
+//$ C 152,251,152
+//$ L 0,0,0
+//$ l 50,205,50
+//$ F 0,0,0
+//$ f 50,205,50
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for485FB3190099*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for485FB3190099*
+; // constraint
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor485FB3190099*
+//R  
+//	[#// %SD\n]\
+ if NOT-EMPTY
+ begin
+  out_indent '// '
+  %S |D #13#10 
+ end // if
+ NOP
+//	# with MakeTag.AsObject do
+ out_indent ' with MakeTag.AsObject do'
+//	# begin
+ out_indent ' begin'
+//	[{%Gx=true}#  IntW\[k2_attrStyle, Tk2NonOptimizeContext.Instance\] := \
+ if ( ( %G |x ) %==  true ) then
+ begin
+  out_indent '  IntW[k2_attrStyle, Tk2NonOptimizeContext.Instance] := '
+//	%G<{}{%CN=Handle}\
+  %G
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |N ) %== 'Handle' ) then
+    begin
+//	[{%C%V%TS!=UMLPrimitive}%S#f_pas_Prefix()]\
+     if ( ( %C ->V ->T |S   ) %!= 'UMLPrimitive' ) then
+     begin
+      %S %?f pas_Prefix %( )% 
+     end // if
+//	%C%VN>;\n]\
+     %C ->V |N  
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+   ';'#13#10 
+ end // if
+//	[# <{\n# }{%CC!=Class}%CX>\n]\
+ if NOT-EMPTY
+ begin
+  out_indent ' '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %!= 'Class' ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10
+    out_indent ' ' )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+  #13#10 
+ end // if
+ NOP
+//	%f_shift_intend(+1)\
+ [%f] shift_intend %( 1 )% 
+//	[<{\n}{%CC=Class}%CX>\n]\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Class' ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+  #13#10 
+ end // if
+ NOP
+//	%f_shift_intend(-1)\
+ [%f] shift_intend %( -1 )% 
+//	#  AddValue(Box);
+ out_indent '  AddValue(Box);'
+//	# end;//with MakeTag.AsObject
+ out_indent ' end;//with MakeTag.AsObject'
+//#UC END# *470F15B800CBfor485FB3190099*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor485FB3190099*
+//	[%S%f_open_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  %S %f open_ifdef %( )% #13#10 
+ end // if
+ NOP
+//	%f_pas_OpenConst(%S)\
+ [%f] pas_OpenConst %( %S )% 
+//	<{}{%CN=Handle} %S#f_pas_Prefix()%SN = \
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |N ) %== 'Handle' ) then
+  begin
+   ' '
+   %S %?f pas_Prefix %( )% %S |N ' = '
+//	[{%C%V%TS=Constants}%f_pas_Unit(%C%V%T).%C%V%T%f_pas_ElementPrefix()]\
+   if ( ( %C ->V ->T |S   ) %== 'Constants' ) then
+   begin
+    [%f] pas_Unit %( %C ->V ->T   )% '.'
+    %C ->V ->T %f pas_ElementPrefix %( )%   
+   end // if
+//	%C%VN;
+   %C ->V |N  ';'
+//	  { %SD } >\
+   '  { '
+   %S |D ' } ' 
+   ++! l_Counter
+  end // if
+ end // for C
+//	[\n%S%f_close_ifdef()\n]
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f close_ifdef %( )% #13#10 
+ end // if
+ NOP
+//#UC END# *470F1571031Cfor485FB3190099*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for485FB3190099*
+//#UC END# *477398E501C0for485FB3190099*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for485FB3190099*
+//#UC END# *55B8D28B0157for485FB3190099*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for485FB3190099*
+//#UC END# *55B8D2F80145for485FB3190099*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for485FB3190099*
+//#UC END# *55B8DD9C0301for485FB3190099*
+; // res.cmd.pas
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: TagValue::Class::Attribute
+end. // <<TagValue>>
+
+implementation @ :: <<TagValue>> <<Attribute>> ;
+//? Атрибут
+//= AttrValueSpeller::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//a r
+// - тип абстракции
+//Y code_attr.gif
+//L code_attr
+//T 
+// - может не иметь "цели" (типа/результата)
+//l a
+// - возможные типы связи атрибута
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor485FB4850287*
+//#UC END# *470F1571031Cfor485FB4850287*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor485FB4850287*
+//	[ %S%f_open_ifdef()\n#]\
+ if NOT-EMPTY
+ begin
+  ' '
+  %S %f open_ifdef %( )% #13#10
+  out_indent 
+ end // if
+ NOP
+//	 \
+ ' '
+//	[{%f_substr_from_begin(%VN,1)='}{\
+ if ( ( [%f] substr_from_begin %( %V |N %, 1 )% ) %== '''' ) then
+ begin
+//	StrW\
+  'StrW'
+//	]\
+ end // if
+ else
+ begin
+//	[{%VN=false|%VN=true}{\
+  if ( ( %V |N ) %==  false OR 
+    ( ( %V |N ) %==  true  ) ) then
+  begin
+//	BoolW\
+   'BoolW'
+//	]\
+  end // if
+  else
+  begin
+//	IntW\
+   'IntW'
+//	}\
+  end // else
+//	}\
+ end // else
+//	\[k2_attr%f_N(%S), Tk2NonOptimizeContext.Instance\] := \
+ '[k2_attr'
+ [%f] N %( %S )% ', Tk2NonOptimizeContext.Instance] := '
+
+//	[{%TS=TagValue}{\
+ if ( ( %T |S ) %== 'TagValue' ) then
+ begin
+//	%T#f_pas_Prefix()%TN\
+  %T %?f pas_Prefix %( )% %T |N 
+//	]\
+ end // if
+ else
+ begin
+//	[{%VN=@}{\
+  if ( ( %V |N ) %== '@' ) then
+  begin
+//	k2_TransparentValue\
+   'k2_TransparentValue'
+//	]\
+  end // if
+  else
+  begin
+//	[{%V%TS=Enum|%V%TS=Constants}{\
+   if ( ( %V ->T |S  ) %== 'Enum' OR 
+     ( ( %V ->T |S  ) %== 'Constants'  ) ) then
+   begin
+//	Ord(%V%T%f_pas_ElementPrefix()%VN)\
+    'Ord('
+    %V ->T %f pas_ElementPrefix %( )%  %V |N ')'
+//	]\
+   end // if
+   else
+   begin
+//	[{%f_substr_from_begin(%VN,1)='}{\
+    if ( ( [%f] substr_from_begin %( %V |N %, 1 )% ) %== '''' ) then
+    begin
+//	str_%f_get_AttrConstName(%S).AsStr\
+     'str_'
+     [%f] get_AttrConstName %( %S )% '.AsStr'
+//	]\
+    end // if
+    else
+    begin
+//	%VN\
+     %V |N 
+//	}\
+    end // else
+//	}\
+   end // else
+//	}\
+  end // else
+//	}\
+ end // else
+//	;\
+ ';'
+
+//	[\n# %S%f_close_ifdef()]
+ if NOT-EMPTY
+ begin
+  #13#10
+  out_indent ' '
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *470F15B800CBfor485FB4850287*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for485FB4850287*
+//#UC END# *477398E501C0for485FB4850287*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for485FB4850287*
+//#UC END# *55B8D28B0157for485FB4850287*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for485FB4850287*
+//#UC END# *55B8D2F80145for485FB4850287*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for485FB4850287*
+//#UC END# *55B8DD9C0301for485FB4850287*
+; // res.cmd.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for485FB4850287*
+//#UC END# *46E6D4BB0339for485FB4850287*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for485FB4850287*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for485FB4850287*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor485FB4850287*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor485FB4850287*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for485FB4850287*
+//#UC END# *470484D50138for485FB4850287*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа AttrValueSpeller::Class
+//%f _SpellAttrValue
+: SpellAttrValue OBJECT IN %S
+//#UC START# *4F9002060002for485FB4850287*
+//	%S%[inherited]\
+ inherited
+//	[{%f_substr_from_begin(%VN,1)='}\
+ if ( ( [%f] substr_from_begin %( %V |N %, 1 )% ) %== '''' ) then
+ begin
+//	%f_get_TagTable(%S,%1)\
+  [%f] get_TagTable %( %S %, %1 )% 
+//	%{TAG_TABLE_CONSTANTS}%f_add_attribute(%SU_LocalValue,,\
+  ( get_global_var ( 'TAG_TABLE_CONSTANTS' ) %f add_attribute %( %S |U '_LocalValue' %, '' %, 
+//	%f_get_AttrConstName(%S) = %VN,\
+  [%f] get_AttrConstName %( %S )% ' = '
+  %V |N %, 
+//	Attr_Inst)\
+  'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Локализуемое значения атрибута %f_get_AttrConstName(%S))\
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Локализуемое значения атрибута '
+  [%f] get_AttrConstName %( %S )% )% ) 
+
+//	%{Attr_Inst}%f_set_up(ifdef,%S{ifdef})\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
+//	%{Attr_Inst}%f_set_up(ifndef,%S{ifndef})\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
+//	]
+ end // if
+
+//f _get_TagTable
+; // SpellAttrValue
+
+end. // :: <<TagValue>> <<Attribute>> ;
+
+: get_TagTable OBJECT IN %S
+//	[{"%{TAG_TABLE_CONSTANTS_PACK}N"=""}\
+ if ( ( ( get_global_var ( 'TAG_TABLE_CONSTANTS_PACK' ) |N ) ) %== '' ) then
+ begin
+//	%1%P%f_add_class(%1U_AttrValues_Pack,UtilityPack,%1N_AttrValues,TAG_TABLE_CONSTANTS_PACK)\
+  %1 ->P %f add_class %( %1 |U '_AttrValues_Pack' %, 'UtilityPack' %, %1 |N '_AttrValues' %, 'TAG_TABLE_CONSTANTS_PACK' )%  
+//	%{TAG_TABLE_CONSTANTS_PACK}%f_set_documentation(Локализуемые значения атрибутов значений тегов таблицы тегов %1N)\
+  ( get_global_var ( 'TAG_TABLE_CONSTANTS_PACK' ) %f set_documentation %( 'Локализуемые значения атрибутов значений тегов таблицы тегов '
+  %1 |N )% ) 
+//	%{TAG_TABLE_CONSTANTS_PACK}%f_add_class(%1U_AttrValues,LocalConst,AttrValues,TAG_TABLE_CONSTANTS)\
+  ( get_global_var ( 'TAG_TABLE_CONSTANTS_PACK' ) %f add_class %( %1 |U '_AttrValues' %, 'LocalConst' %, 'AttrValues' %, 'TAG_TABLE_CONSTANTS' )% ) 
+//	%{TAG_TABLE_CONSTANTS}%f_set_documentation(Локализуемые значения атрибутов значений тегов)\
+  ( get_global_var ( 'TAG_TABLE_CONSTANTS' ) %f set_documentation %( 'Локализуемые значения атрибутов значений тегов' )% ) 
+//	%{TAG_TABLE_CONSTANTS}%f_set_visibility_type(PublicAccess)\
+  ( get_global_var ( 'TAG_TABLE_CONSTANTS' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{TAG_TABLE_CONSTANTS}%f_set_up(ifdef,%1{ifdef})\
+  ( get_global_var ( 'TAG_TABLE_CONSTANTS' ) %f set_up %( 'ifdef' %, %1 get_up ( 'ifdef' ) )% ) 
+//	%{TAG_TABLE_CONSTANTS}%f_set_up(ifndef,%1{ifndef})\
+  ( get_global_var ( 'TAG_TABLE_CONSTANTS' ) %f set_up %( 'ifndef' %, %1 get_up ( 'ifndef' ) )% ) 
+//	]
+ end // if
+
+//f _get_AttrConstName
+; // get_TagTable
+
+: get_AttrConstName OBJECT IN %S
+//@ %SU
+//	<{_}{%PC!=Category&%PS!=TagTable}{%Pr}%f_N(%P)>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for downto %S%P
+ begin
+  OBJECT IN %P
+  if ( ( %P |C ) %!= 'Category' AND 
+   ( ( %P |S ) %!= 'TagTable'  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( '_' )
+   [%f] N %( %P )% 
+   ++! l_Counter
+  end // if
+ end // for P
+//	_%f_str_replace(%SN,$,_D_)_Value
+ '_'
+ [%f] str_replace %( %S |N %, '$' %, '_D_' )% '_Value'
+//#UC END# *4F9002060002for485FB4850287*
+; // get_AttrConstName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

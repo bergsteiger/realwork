@@ -1,0 +1,15 @@
+
+interface Test {
+  void aMethod();
+};
+
+interface Retry : Test {
+  unsigned long get_count();
+  void raise_exception( in unsigned long max, in boolean maybe );
+};
+
+interface RetryServer {
+  Test get_location_forward_object();
+  Retry get_retry_object();
+  void deactivate();
+};

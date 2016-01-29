@@ -1,0 +1,603 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "I18N"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"C++ интерфейсы и реализация")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"h:*452CBF700271_CUSTOM_INCLUDE*"
+	    value      	"//#UC START# *452CBF700271_CUSTOM_INCLUDE*¤¤#define TR(str) (GCI::I18N::MessagesFactory::messages ().get (str))¤¤//#UC END# *452CBF700271_CUSTOM_INCLUDE*")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"need UC"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/shared/GCI/I18N/I18N.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/shared/GCI/I18N/I18NFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/shared/GCI/I18N/I18NFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/shared/GCI/I18N/I18N.h"))
+    quid       	"452CBF700271"
+    documentation 	"Интернационализация"
+    stereotype 	"Interface"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Messages"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Use AMI"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452CBFC401C5_452CC6FF03D8_452CCF1602FD_BASE_INIT*"
+		    value      	"//#UC START# *452CBFC401C5_452CC6FF03D8_452CCF1602FD_BASE_INIT*¤//#UC END# *452CBFC401C5_452CC6FF03D8_452CCF1602FD_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452CBFC401C5_452CC6FF03D8_452CCF1602FD_BODY*"
+		    value      	(value Text 
+|//#UC START# *452CBFC401C5_452CC6FF03D8_452CCF1602FD_BODY*¤	//#UC END# *452CBFC401C5_452CC6FF03D8_452CCF1602FD_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"fctr.cpp:*452CBFC401C5452CCF1602FD_452CC6FF03D8_IMPL*"
+		    value      	(value Text 
+|//#UC START# *452CBFC401C5452CCF1602FD_452CC6FF03D8_IMPL*¤	Messages_i* messages = new Messages_i ();¤	messages->m_default_locale = Environment::get_default_locale ();¤¤	return messages;¤	//#UC END# *452CBFC401C5452CCF1602FD_452CC6FF03D8_IMPL*
+		    )))
+	    quid       	"452CBFC401C5"
+	    documentation 	"Работа со строками"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "open"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"452CC1680157,452CC1E800CB")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452CC00003C8_452CCF1602FD*"
+			    value      	(value Text 
+|//#UC START# *452CC00003C8_452CCF1602FD*¤	// Для локали по-умолчанию используем значение ключа, так что файлы открывать¤	// не надо¤	if (locale == Environment::get_default_locale ()) {¤		return;¤	}¤¤	const char* result = ACE_OS::strnchr (file, ACE_DIRECTORY_SEPARATOR_CHAR, ACE_OS::strlen (file));¤¤	std::string path;¤	if (!result) {¤		path = Core::ParamManager::instance ()->get_string (PS_SYS_LOCALE_PATH);¤		// если путь не задан ищем от текущего каталога (не очень ясно что это такое для сервиса :))¤		if (path.empty ()) {¤			LOG_W (("%s: %s option not found (using \".\")", GDS_CURRENT_FUNCTION, PS_SYS_LOCALE_PATH));¤			path=".";¤		}¤		path += std::string (ACE_DIRECTORY_SEPARATOR_STR);¤		path += "messages";¤		path += std::string (ACE_DIRECTORY_SEPARATOR_STR);¤		path += this->locale_to_path (locale);¤		path += std::string (ACE_DIRECTORY_SEPARATOR_STR);¤		path += file;¤	} else {¤		path = file;¤	}¤¤	std::ifstream stream (path.c_str (), std::ios_base::in | std::ios_base::binary);¤	if (!stream) {¤		LOG_E (("%s: can't open file %s", GDS_CURRENT_FUNCTION, path.c_str ()));¤		throw I18N::CantFindFile ();¤	}¤¤	std::vector<char> buffer ((std::istreambuf_iterator<char> (stream)), std::istreambuf_iterator<char> ());¤    // todo - more correct check:¤	if (!buffer.size ()) {¤		LOG_E (("%s: zero length file %s", GDS_CURRENT_FUNCTION, path.c_str ()));¤		throw I18N::BadFileFormat ();¤	}¤	this->read_file (buffer, locale);¤	//this->dump ();¤	//#UC END# *452CC00003C8_452CCF1602FD*
+			    )))
+		    quid       	"452CC00003C8"
+		    documentation 	"вычитать строки из файла"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "file"
+			    quid       	"452DFD0E00CB"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "locale"
+			    quid       	"452DFD0E0128"
+			    type       	"SupportedLocales"
+			    quidu      	"452CC0400196"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "close"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452CC0D401D4_452CCF1602FD*"
+			    value      	(value Text 
+|//#UC START# *452CC0D401D4_452CCF1602FD*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *452CC0D401D4_452CCF1602FD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"452CC0D401D4"
+		    documentation 	"очистить все строки для заданного языка"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "locale"
+			    quid       	"452DFD1C0280"
+			    type       	"SupportedLocales"
+			    quidu      	"452CC0400196"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452CC100002E_452CCF1602FD*"
+			    value      	(value Text 
+|//#UC START# *452CC100002E_452CCF1602FD*¤	// если запрошенная кодировка совпадает с кодировкой ключа, сразу возвращаем ключ¤	if (locale == m_default_locale) {¤		return key;¤	}¤¤	I18NStrings::const_iterator it = m_string_table.find (key);¤	if (it == m_string_table.end ()) {¤		// строки вообще нет в таблице¤		return key;¤	}¤¤	L10NStrings::const_iterator result = it->second.find (locale);¤	if (¤		(result == it->second.end ())¤		&& (locale != I18N::SL_ENGLISH)¤		&& (m_default_locale != I18N::SL_ENGLISH)¤	   ) {¤		result = it->second.find (I18N::SL_ENGLISH);¤	}¤¤	if (result == it->second.end ()) {¤		return key;¤	} else {¤		return result->second.c_str ();¤	}¤	//#UC END# *452CC100002E_452CCF1602FD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const,cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"452CC100002E"
+		    documentation 	"получить локализованную строку"
+		    parameters 	(list Parameters
+			(object Parameter "key"
+			    quid       	"452DFDCC0261"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "locale"
+			    quid       	"452DFDCC02BF"
+			    type       	"SupportedLocales"
+			    quidu      	"452CC0400196"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452F616F03A9_452CCF1602FD*"
+			    value      	(value Text 
+|//#UC START# *452F616F03A9_452CCF1602FD*¤	return this->get (key, I18NHelper::get_locale ());¤	//#UC END# *452F616F03A9_452CCF1602FD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const,cached"))
+		    quid       	"452F616F03A9"
+		    documentation 	"получить локализованную строку для текущей системной локали (используется значение LC_ALL!!!)"
+		    parameters 	(list Parameters
+			(object Parameter "key"
+			    quid       	"452F7BA9002E"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "messages"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached"))
+		    quid       	"452CC6FF03D8"
+		    documentation 	"фабрика для получения объекта, реализующего интерфейс Messages"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "SupportedLocales"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"452CC0400196"
+	    documentation 	"Поддерживаемые виды кодировок"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "SL_UNKNOWN"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"452F668F01C5"
+		    documentation 	"локаль неизвестна"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "SL_RU_CP1251"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"452CC072035B"
+		    documentation 	"русская локаль для виндовой кодировки"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "SL_ENGLISH"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"452CC088004E"
+		    documentation 	"английская локаль"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "BadFileFormat"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"E58EA62D-8ED8-4201-8582-5D5634933455"))
+	    quid       	"452CC1680157"
+	    documentation 	"Не смогли прочитать файл со строками."
+	    stereotype 	"Exception"
+	    language   	"MDA Generator")
+	(object Class "CantFindFile"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"3CCEBFB7-0551-411C-939A-DFF93A658059"))
+	    quid       	"452CC1E800CB"
+	    documentation 	"Не смогли прочитать файл, содержащий строки"
+	    stereotype 	"Exception"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272"))
+	    quid       	"452CBF7502EE"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::GCI::I18N::Messages" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(801, 783)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(665, 755)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"Messages")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(665, 705)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"452CBFC401C5"
+		    width      	290
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::I18N::SupportedLocales" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(729, 309)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(547, 281)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	364
+			justify    	0
+			label      	"SupportedLocales")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(547, 231)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	364
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"452CC0400196"
+		    width      	382
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::I18N::BadFileFormat" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(477, 1200)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(319, 1172)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"BadFileFormat")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(319, 1122)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	313
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"452CC1680157"
+		    width      	334
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::I18N::CantFindFile" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(921, 1200)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(763, 1172)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"CantFindFile")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(763, 1122)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	313
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"452CC1E800CB"
+		    width      	334
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @5
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"452CBFC401C5"))
+		    location   	(1887, 429)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1549, 320)
+			fill_color 	13434879
+			nlines     	5
+			max_width  	640
+			justify    	1
+			label      	
+|FOR OPER. "get"
+|Target stereotype: const,cached
+|
+|FOR OPER. "get"
+|Target stereotype: const,cached
+|
+|FOR OPER. "messages"
+|Target stereotype: cached
+			)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	700
+		    height     	231)
+		(object AttachView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@5
+		    supplier   	@1
+		    vertices   	(list Points
+			(1536, 541)
+			(946, 734))
+		    line_style 	0)))))

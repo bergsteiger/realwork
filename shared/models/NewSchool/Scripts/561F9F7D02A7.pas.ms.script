@@ -1,0 +1,50 @@
+// ScriptEngine 561F9F7D02A7 LibraryST Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561F9F7D02A7
+
+: ME_561F9F9400BC
+ CONST UID '561F9F9400BC'
+ CONST Name 'TtfwClassRef'
+ CONST Class class_Class
+ : Stereotype st_ClassProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_561F9F7D02A7 // ScriptEngine
+ ;
+ : Generators
+ @ (
+ gen_pascal
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pascal:Path 'common\components\rtl\Garant\ScriptEngine\TtfwClassRef_Proxy.pas'
+
+ref; // ME_561F9F9400BC TtfwClassRef
+
+: ME_561F9F7D02A7
+ CONST UID '561F9F7D02A7'
+ CONST Name 'ScriptEngine'
+ CONST Class class_Category
+ : Stereotype st_LibraryST ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
+ ;
+ : Children
+   @ ( ME_561F9F9400BC // TtfwClassRef
+ ) .SequenceCode.It
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "path prefix" 'components/rtl/Garant'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\561F9F7D02A7.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\561F9F7D02A7.pas.ms.script.runner'
+
+ref; // ME_561F9F7D02A7 ScriptEngine

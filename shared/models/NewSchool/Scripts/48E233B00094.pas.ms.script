@@ -1,0 +1,99 @@
+// Tl3Tool 48E233B00094 SimpleClass Class
+
+INCLUDE '4DD26D570378.pas.ms.script'
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_48E233B00094
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_48E2343202C4
+ CONST UID '48E2343202C4'
+ CONST Name 'f_Owner'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_48E2343202C4 f_Owner
+
+: ME_48E23443017A
+ CONST UID '48E23443017A'
+ CONST Name 'anOwner'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_467D37E40254 // Il3ToolOwner
+ ;
+
+ @SELF
+; // ME_48E23443017A anOwner
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_48E2343E007B
+ CONST UID '48E2343E007B'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_48E23443017A // anOwner
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_48E2343E007B Create
+
+: ME_48E233B00094
+ CONST UID '48E233B00094'
+ CONST Name 'Tl3Tool'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DD26D570378 // Tl3ProtoObjectWithCOMQI
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_46A5D3FD00B3 // Il3Tool
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_48E2343202C4 // f_Owner
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_48E2343E007B // Create
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_46A5D4220369 // OwnerDead
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.01.2005 18:05'
+
+ @SELF
+; // ME_48E233B00094 Tl3Tool

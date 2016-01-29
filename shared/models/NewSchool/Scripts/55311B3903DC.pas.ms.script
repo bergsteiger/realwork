@@ -1,0 +1,140 @@
+// TtfwStringConstantRegistrator 55311B3903DC SimpleClass Class
+
+INCLUDE '4DDFD1430390.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_55311B3903DC
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_55311B8702A9
+ CONST UID '55311B8702A9'
+ CONST Name 'f_Value'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_55311B8702A9 f_Value
+
+FORWARD ME_55311BAA0306
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55311BC102E1
+ CONST UID '55311BC102E1'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55311BC102E1 aName
+
+: ME_55311BC1030E
+ CONST UID '55311BC1030E'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_55311BC1030E aValue
+
+: ME_55311BB40378
+ CONST UID '55311BB40378'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_55311BC102E1 // aName
+ ME_55311BC1030E // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55311BB40378 DoIt
+
+: ME_55311BAA0306
+ CONST UID '55311BAA0306'
+ CONST Name 'Register'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55311BB40378 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_55311BAA0306 Register
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_19004952CE56
+ CONST UID '19004952CE56'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwStringConstantRegistrator' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_19004952CE56 Ini_Reg
+
+: ME_55311B3903DC
+ CONST UID '55311B3903DC'
+ CONST Name 'TtfwStringConstantRegistrator'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DDFD1430390 // TtfwString
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_55311B8702A9 // f_Value
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55311BAA0306 // Register
+ ME_19004952CE56 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DAEEDE10285 // DoDoIt
+ ME_4DC2E05B03DD // ReallyNeedRegister
+ ME_4DDFD2EA0116 // GetString
+ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55311B3903DC TtfwStringConstantRegistrator

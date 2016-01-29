@@ -1,0 +1,139 @@
+// TkwScrollInfoWord 517939B9033C SimpleClass Class
+
+INCLUDE '4F212C680161.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_517939B9033C
+
+INCLUDE '48A41FF10094.pas.ms.script'
+
+: ME_51793A310394
+ CONST UID '51793A310394'
+ CONST Name 'ScrollInfo'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_50222C8103A5 // TScrollInfo
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_51793A310394 ScrollInfo
+
+: ME_847F141BB38F
+ CONST UID '847F141BB38F'
+ CONST Name 'f_ScrollInfo'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ScrollInfo' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_50222C8103A5 // TScrollInfo
+ ;
+
+ @SELF
+; // ME_847F141BB38F f_ScrollInfo
+
+FORWARD ME_51793A950073
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_51793AD203BE
+ CONST UID '51793AD203BE'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_51793AD203BE aCtx
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_51793ACC03CF
+ CONST UID '51793ACC03CF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_51793AD203BE // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_51793ACC03CF DoIt
+
+: ME_51793A950073
+ CONST UID '51793A950073'
+ CONST Name 'DoScrollInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_51793ACC03CF // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_51793A950073 DoScrollInfo
+
+: ME_9EA4CA7BAB5E
+ CONST UID '9EA4CA7BAB5E'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwScrollInfoWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_9EA4CA7BAB5E Ini_Reg_Class
+
+: ME_517939B9033C
+ CONST UID '517939B9033C'
+ CONST Name 'TkwScrollInfoWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4F212C680161 // TkwWinControlFromStackWord
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_51793A310394 // ScrollInfo
+ ME_847F141BB38F // f_ScrollInfo
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_51793A950073 // DoScrollInfo
+ ME_9EA4CA7BAB5E // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4F212C930149 // DoWinControl
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_517939B9033C TkwScrollInfoWord

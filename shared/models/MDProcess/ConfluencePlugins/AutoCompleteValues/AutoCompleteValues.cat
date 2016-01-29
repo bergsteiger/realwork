@@ -1,0 +1,762 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "AutoCompleteValues"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/AutoCompleteValues/AutoCompleteProvider.java::47BBED23013E")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/AutoCompleteValues/AutoCompleteProviderFactoryManager.java::47BBED23013E")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/AutoCompleteValues/AutoCompleteProvider|47BBED23013E::47BBED23013E
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/AutoCompleteValues|47BBEB51037F
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19027198316"))
+    quid       	"47BBEB51037F"
+    documentation 	"содержит интерфейсы для доступа и хранения последних введенных данных разных web форм пользователя"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "AutoCompleteProvider"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/AutoCompleteValues/AutoCompleteProvider.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/AutoCompleteValues/AutoCompleteProviderFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBED23013E_47BBEDD00161_47BBF47A03E1_BODY*"
+		    value      	(value Text 
+|//#UC START# *47BBED23013E_47BBEDD00161_47BBF47A03E1_BODY*¤		¤		try {¤			Session session = org.springframework.orm.hibernate.SessionFactoryUtils.getSession (ContainerManager.Factory.get().getSessionFactory(), false);¤			Transaction tx = session.beginTransaction ();¤			AutoCompleteProviderDAOProxy key = new AutoCompleteProviderDAOProxy(userName, form);¤			AutoCompleteProviderDAOProxy currentProxy = ¤				(AutoCompleteProviderDAOProxy) session.get(AutoCompleteProviderDAOProxy.class, key);¤			tx.commit();¤			¤			if (currentProxy != null) {¤				proxy_ = (AutoCompleteProviderDAOProxy) currentProxy.clone();¤			}¤			else {¤				proxy_ = new AutoCompleteProviderDAOProxy(userName, form, false, 10);¤				store();¤			}¤		} catch (Exception e) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::ctor: " + e);¤		}		¤		¤		//#UC END# *47BBED23013E_47BBEDD00161_47BBF47A03E1_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/AutoCompleteValues/AutoCompleteProvider|47BBED23013E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038924230"))
+	    quid       	"47BBED23013E"
+	    documentation 	"содержит методы доступа и хранения последих введенных данных web-формы"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BBEDD00161_47BBEDD00161_47BBF47A03E1_BODY*"
+			    value      	(value Text 
+|//#UC START# *47BBEDD00161_47BBEDD00161_47BBF47A03E1_BODY*¤		try {¤			Session session = org.springframework.orm.hibernate.SessionFactoryUtils.getSession (ContainerManager.Factory.get().getSessionFactory(), false);¤			Transaction tx = session.beginTransaction ();¤			AutoCompleteProviderDAOProxy key = new AutoCompleteProviderDAOProxy(userName, form);¤			AutoCompleteProviderDAOProxy currentProxy = ¤				(AutoCompleteProviderDAOProxy) session.get(AutoCompleteProviderDAOProxy.class, key);¤			tx.commit();¤			¤			if (currentProxy != null) {¤				proxy_ = (AutoCompleteProviderDAOProxy) currentProxy.clone();¤			}¤			else {¤				proxy_ = new AutoCompleteProviderDAOProxy(userName, form, false, 10);¤				store();¤			}¤		} catch (Exception e) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::ctor: " + e);¤		}¤		//#UC END# *47BBEDD00161_47BBEDD00161_47BBF47A03E1_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010839564"))
+		    quid       	"47BBEDD00161"
+		    documentation 	"возвращает или создает объект со значениями по умолчанию"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "user_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010839889"))
+			    quid       	"47BBF157033B"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "form"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010840258"))
+			    quid       	"47BBF157036A"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_suggested_values"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BBF85703CB_47BBF47A03E1*"
+			    value      	(value Text 
+|//#UC START# *47BBF85703CB_47BBF47A03E1*¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::getSuggestedValues - proxy is null, how?!");¤			return Collections.emptyList();¤		}¤		List<String> suggestedValues = proxy_.getSuggestedValues(field);¤		if(suggestedValues == null)¤			suggestedValues = new LinkedList<String>();¤		return Collections.unmodifiableList(suggestedValues);¤		//#UC END# *47BBF85703CB_47BBF47A03E1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47BBEEC301DF")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010840698"))
+		    quid       	"47BBF85703CB"
+		    documentation 	"возвращает предлагаемые значения для поля формы"
+		    parameters 	(list Parameters
+			(object Parameter "field"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010841014"))
+			    quid       	"47BBF8A90135"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"SuggestedList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"47BBEEC301DF")
+		(object Operation "set_suggested_values"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BBF8AF02B2_47BBF47A03E1*"
+			    value      	(value Text 
+|//#UC START# *47BBF8AF02B2_47BBF47A03E1*¤		¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::setSuggestedValues - proxy is null, how?!");¤			return;¤		}¤		if (values == null || values.size() == 0)¤			return;¤		¤		List<String> currentSuggestedValues = proxy_.getSuggestedValues(field);¤		List<String> suggestedValues = currentSuggestedValues != null ? currentSuggestedValues¤				: new LinkedList<String>();¤		suggestedValues.clear();¤		for (int i = 0; i < getMaxValues() && i < values.size(); i++) {¤			if (!StringUtils.isBlank(values.get(i)))¤				suggestedValues.add(values.get(i));¤		}¤		¤		//#UC END# *47BBF8AF02B2_47BBF47A03E1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010841432"))
+		    quid       	"47BBF8AF02B2"
+		    documentation 	"устанавливает предлагаемые значения для поля"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "field"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010841755"))
+			    quid       	"47BBF8E70055"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "values"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47BBEEC301DF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010842118"))
+			    quid       	"47BBF8E70084"
+			    type       	"SuggestedList"
+			    quidu      	"47BBEEC301DF"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "set_initialized"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BBF9AC013C_47BBF47A03E1*"
+			    value      	(value Text 
+|//#UC START# *47BBF9AC013C_47BBF47A03E1*¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::setInitialized - proxy is null, how?!");¤			return;¤		}¤		proxy_.setInitialized(true);¤		//#UC END# *47BBF9AC013C_47BBF47A03E1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010842536"))
+		    quid       	"47BBF9AC013C"
+		    documentation 	"устанавливает флаг инициализации, после чего нельзя будет изменить max_values"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "push_suggested_value"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BBFA7D00D8_47BBF47A03E1*"
+			    value      	(value Text 
+|//#UC START# *47BBFA7D00D8_47BBF47A03E1*¤		¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::pushSuggestedValue - proxy is null, how?!");¤			return;¤		}¤		¤		List<String> values = proxy_.getSuggestedValues(field);¤		if (values != null) {¤			if (values.contains(value))¤				values.remove(value);¤			else if (values.size() >= getMaxValues())¤				values.remove(getMaxValues() - 1);¤		}¤		else {¤			values = new LinkedList<String>();¤			proxy_.setSuggestedValues(field, values);¤		}¤		values.add(0, value);¤		¤		//#UC END# *47BBFA7D00D8_47BBF47A03E1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010842912"))
+		    quid       	"47BBFA7D00D8"
+		    documentation 	"добавляет значение, если количество хранимых значений == максимальному, то удаляет последнее"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "field"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010843218"))
+			    quid       	"47BC30970180"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010843601"))
+			    quid       	"47BBFAEB01AE"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "store"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BC189700F8_47BBF47A03E1*"
+			    value      	(value Text 
+|//#UC START# *47BC189700F8_47BBF47A03E1*¤		¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store - proxy is null, how?!");¤			return;¤		}¤		¤		Session session = org.springframework.orm.hibernate.SessionFactoryUtils.getSession(¤				ContainerManager.Factory.get().getSessionFactory(), false);¤		Transaction tx = null;¤¤		try {¤			tx = session.beginTransaction();¤			AutoCompleteProviderDAOProxy key = new AutoCompleteProviderDAOProxy(proxy_.getUserName(), proxy_¤					.getForm());¤			AutoCompleteProviderDAOProxy currentProxy = (AutoCompleteProviderDAOProxy) session.get(¤					AutoCompleteProviderDAOProxy.class, key);¤			if (currentProxy == null) {¤				session.save(proxy_);¤				proxy_ = (AutoCompleteProviderDAOProxy) proxy_.clone();¤			}¤			else {¤				PropertyUtils.copyProperties(currentProxy, proxy_);¤				session.save(currentProxy);¤			}¤			tx.commit();¤		}¤		catch (HibernateException ex) {¤			if (tx != null) {¤				try {¤					tx.rollback();¤				}¤				catch (HibernateException e) {¤					Logs.LOG_SEX(ex);¤				}¤			}¤			Logs.LOG_SEX(ex);¤		}¤		catch (CloneNotSupportedException e) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store: catch CloneNotSupportedException - "¤					+ e.getMessage());¤		}¤		catch (java.lang.reflect.InvocationTargetException ite) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store: catch InvocationTargetException - "¤					+ ite.getMessage());¤		}¤		catch (NoSuchMethodException nsme) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store: catch NoSuchMethodException - "¤					+ nsme.getMessage());¤		}¤		catch (IllegalAccessException iae) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store: catch IllegalAccessException - "¤					+ iae.getMessage());¤		}¤		¤		//#UC END# *47BC189700F8_47BBF47A03E1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010844017"))
+		    quid       	"47BC189700F8"
+		    documentation 	"сохраняет текущее состояние объекта в БД"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_first_suggested_value"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BD49BD0217_47BBF47A03E1*"
+			    value      	(value Text 
+|//#UC START# *47BD49BD0217_47BBF47A03E1*¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::getFirstSuggestedValue - proxy is null, how?!");¤			return "";¤		}¤		List<String> values = getSuggestedValues(field);¤		if (values.size() != 0)¤			return values.get(0);¤		return "";¤		//#UC END# *47BD49BD0217_47BBF47A03E1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010844372"))
+		    quid       	"47BD49BD0217"
+		    documentation 	"возвращает первое по приоритету значение; пустую строку, если список пуст"
+		    parameters 	(list Parameters
+			(object Parameter "field"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010844712"))
+			    quid       	"47BD4A22007F"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "clear_all_values"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"11654364439")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4E1BF1B10273_47BBF47A03E1*"
+			    value      	(value Text 
+|//#UC START# *4E1BF1B10273_47BBF47A03E1*¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::pushSuggestedValue - proxy is null, how?!");¤			return;¤		}¤		¤		List<String> values = null;¤		proxy_.setSuggestedValues(field, values);¤//		values = new ArrayList<String>();¤		//#UC END# *4E1BF1B10273_47BBF47A03E1*
+			    )))
+		    quid       	"4E1BF1B10273"
+		    parameters 	(list Parameters
+			(object Parameter "field"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"11694921849")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4E1BF1DA00F2"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "max_values"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BBF901023E_47BBF47A03E1_GET*"
+			    value      	(value Text 
+|//#UC START# *47BBF901023E_47BBF47A03E1_GET*¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::getMaxValues - proxy is null, how?!");¤			return 0;¤		}¤		return proxy_.getMaxValues();¤		//#UC END# *47BBF901023E_47BBF47A03E1_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BBF901023E_47BBF47A03E1_SET*"
+			    value      	(value Text 
+|//#UC START# *47BBF901023E_47BBF47A03E1_SET*¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::setMaxValues - proxy is null, how?!");¤			return;¤		}¤		¤		if(!proxy_.getInitialized())¤			proxy_.setMaxValues(maxValues);¤		else¤			throw new IllegalStateException("Already initialized");¤		//#UC END# *47BBF901023E_47BBF47A03E1_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A61050251")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010838791"))
+		    quid       	"47BBF901023E"
+		    documentation 	"максимальное количество предлагаемых значений"
+		    stereotype 	"property"
+		    type       	"integer"
+		    quidu      	"450A61050251"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "initialized"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47BBF9500375_47BBF47A03E1_GET*"
+			    value      	(value Text 
+|//#UC START# *47BBF9500375_47BBF47A03E1_GET*¤		if (proxy_ == null) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::getInitialized - proxy is null, how?!");¤			return false;¤		}¤		return proxy_.getInitialized();¤		//#UC END# *47BBF9500375_47BBF47A03E1_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010839175"))
+		    quid       	"47BBF9500375"
+		    documentation 	"флаг инициализации объекта"
+		    stereotype 	"readonly"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "SuggestedList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"force usage"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"All")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19010845341"))
+	    quid       	"47BBEEC301DF"
+	    documentation 	"документация отсутствует"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"47BBEEE20141"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010845790"))
+		    quid       	"47BBEEE203A1"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"47BBEEE203B1"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::AutoCompleteValues::SuggestedList"
+		    quidu      	"47BBEEC301DF"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"47BBECF303CC"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::AutoCompleteValues::AutoCompleteProvider" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(747, 345)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(113, 77)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1268
+			justify    	0
+			label      	"• AutoCompleteProvider")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(113, 27)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1268
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"47BBED23013E"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(113, 138)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	11
+			max_width  	1308
+			justify    	1)
+		    width      	1286
+		    height     	660
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::string" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1662, 282)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1581, 236)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"string")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE240068"
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::AutoCompleteValues::SuggestedList" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1656, 549)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1485, 518)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	342
+			justify    	0
+			label      	"• SuggestedList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1485, 468)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	342
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"47BBEEC301DF"
+		    width      	360
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @4
+		    location   	(1658, 397)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"47BBEEE20141"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @5
+			    Parent_View 	@4
+			    location   	(-307, -167)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"47BBEEE203A1"
+			    client     	@4
+			    supplier   	@2
+			    vertices   	(list Points
+				(1658, 397)
+				(1660, 340))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @6
+			    Parent_View 	@4
+			    location   	(-307, -167)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"47BBEEE203B1"
+			    client     	@4
+			    supplier   	@3
+			    vertices   	(list Points
+				(1658, 397)
+				(1657, 455))
+			    line_style 	0)))))))

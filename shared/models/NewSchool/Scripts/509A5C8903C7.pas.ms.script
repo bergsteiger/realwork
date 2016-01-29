@@ -1,0 +1,44 @@
+// Keywords4Daily 509A5C8903C7 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_509A5C8903C7
+ CONST UID '509A5C8903C7'
+ CONST Name 'Keywords4Daily'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'Ключевые слова специально для DailyTests' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49B923B60333' '49B923B60333.pas.ms.script' // Shared Delphi Tests
+ ;
+ : Children
+   @ ( WL 'ME_509A5CB50110' '509A5CB50110.pas.ms.script' // SupportWords
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_4B30C5FF0172' '4B30C5FF0172.pas.ms.script' // TestFormsTest
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "ifndef" 'NoVCM'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Tests\Keywords4Daily\Keywords4Daily.model.script'
+ CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\Keywords4Daily_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\509A5C8903C7.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\509A5C8903C7.pas.ms.script.runner'
+
+ref; // ME_509A5C8903C7 Keywords4Daily

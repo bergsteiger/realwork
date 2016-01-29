@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/PackagesIncludes/ImplSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::PackagesIncludes::ImplSupport
+//
+// набор вспомогательных функции для генерации пакета реализации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// нужна ли функция сравнения
+f _need_comp_func
+//#UC START# *4716ECF50399*
+	[{<{}{%f_used_as_compare_func(%s)=true}{%sC}>!=0}{false}true]
+//#UC END# *4716ECF50399*
+
+// возвращает true, если структура генериться в cpp
+f _st_need_impl
+//#UC START# *4716ECFD01D4*
+	[{%SM=Struct::Class}{false}[{%f_need_less_func(%S)=true|%f_need_comp_func(%S)=true|%S%f_struct_need_impl()=true}{false}true]]
+//#UC END# *4716ECFD01D4*
+
+// возвращает true, если нужен cpp-файл
+f _need_impl_cpp
+//#UC START# *4716ED0A0203*
+	[{<{}{%f_st_need_impl(%C)=true|%Ca!=inline&%t_has_impl(%C)=true}{%CC}>!=0|<{}{%f_interface_need_impl(%C)=true}{%CC}>!=0}{false}true]
+
+f _interface_need_impl
+	[{[{%SS=LocalInterface|%SS=Facet}{false}true]=true&[{<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{%CC}>!=0|%f_has_factory_methods(%S)=true}{false}true]=true}{false}true]
+//#UC END# *4716ED0A0203*
+
+// возвращает true, если нужен хедер для классов реалиации
+f _need_impl_header
+//#UC START# *4716ED100203*
+	[{"<{}{"%CO"=""&%CM!=Settings::Class}{C}>"="0"}{true}false]
+//#UC END# *4716ED100203*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

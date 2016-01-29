@@ -1,0 +1,138 @@
+package gtDocEngD12;
+
+{$I .\gtDocDefines.inc}
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Gnostice eDocEngine'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  vcl,
+  vclx,
+  vclimg,
+  gtRtlD12,
+  gtFiltersD12,
+  gtCompressionD12,
+  gtCryptD12,
+  gtFontD12,
+  rtl,
+  inet,
+  xmlrtl;
+
+contains
+     gtCstDocEng in 'gtCstDocEng.pas',
+  gtDocConsts in 'gtDocConsts.pas',
+  gtDocUtils in 'gtDocUtils.pas',
+  gtMetafileProcessor in 'gtMetafileProcessor.pas',
+  gtXportIntf in 'gtXportIntf.pas',
+  gtDocResStrs in 'gtDocResStrs.pas',
+  gtDocDlg in 'gtDocDlg.pas' {gtDocumentDlg},
+  gtSpdDlg in 'gtSpdDlg.pas' {gtSpreadSheetDlg},
+  gtPlnDlg in 'gtPlnDlg.pas' {gtPlainSheetDlg},
+  gtGfxDlg in 'gtGfxDlg.pas' {gtGraphicsDlg},
+  gtHTMLEngDlg in 'gtHTMLEngDlg.pas',
+  gtBMPEng in 'gtBMPEng.pas',
+  gtBMPEngDlg in 'gtBMPEngDlg.pas',
+  gtClipboard in 'gtClipboard.pas',
+  gtCstGfxEng in 'gtCstGfxEng.pas',
+  gtCstHTMLEng in 'gtCstHTMLEng.pas',
+  gtCstPDFEng in 'gtCstPDFEng.pas',
+  gtCstPlnEng in 'gtCstPlnEng.pas',
+  gtCstSpdEng in 'gtCstSpdEng.pas',
+  gtCstXLSEng in 'gtCstXLSEng.pas',
+  gtCstXLS95Eng in 'gtCstXLS95Eng.pas',
+  gtDIFEng in 'gtDIFEng.pas',
+  gtDIFEngDlg in 'gtDIFEngDlg.pas',
+  gtEMFEng in 'gtEMFEng.pas',
+  gtEMFEngDlg in 'gtEMFEngDlg.pas',
+  gtExHTMLEng in 'gtExHTMLEng.pas',
+  gtExPDFEng in 'gtExPDFEng.pas',
+  gtExXLSEng in 'gtExXLSEng.pas',
+  gtExXLS95Eng in 'gtExXLS95Eng.pas',
+  gtGIFEng in 'gtGIFEng.pas',
+  gtGIFEngDlg in 'gtGIFEngDlg.pas' {gtGIFEngineDlg},
+  gtHTMLEng in 'gtHTMLEng.pas',
+  gtImgPrvwDlg in 'gtImgPrvwDlg.pas' {gtImgPrvwDlg},
+  gtJPEGEng in 'gtJPEGEng.pas',
+  gtJPEGEngDlg in 'gtJPEGEngDlg.pas' {gtJPEGEngineDlg},
+  gtLotusEng in 'gtLotusEng.pas',
+  gtLotusEngDlg in 'gtLotusEngDlg.pas',
+  gtMetafileEng in 'gtMetafileEng.pas',
+  gtPDFEng in 'gtPDFEng.pas',
+  gtPDFEngDlg in 'gtPDFEngDlg.pas',
+  gtPNGEng in 'gtPNGEng.pas',
+  gtPNGEngDlg in 'gtPNGEngDlg.pas' {gtPNGEngineDlg},
+  gtQProEng in 'gtQProEng.pas',
+  gtQProEngDlg in 'gtQProEngDlg.pas',
+  gtRTFEng in 'gtRTFEng.pas',
+  gtRTFEngDlg in 'gtRTFEngDlg.pas' {gtRTFEngineDlg},
+  gtSLKEng in 'gtSLKEng.pas',
+  gtSLKEngDlg in 'gtSLKEngDlg.pas',
+  gtSVGEng in 'gtSVGEng.pas',
+  gtSVGEngDlg in 'gtSVGEngDlg.pas' {gtSVGEngineDlg},
+  gtTIFFEng in 'gtTIFFEng.pas',
+  gtTIFFEngDlg in 'gtTIFFEngDlg.pas' {gtTIFFEngineDlg},
+  gtTXTEng in 'gtTXTEng.pas',
+  gtTXTEngDlg in 'gtTXTEngDlg.pas' {gtTextEngineDlg},
+  gtWMFEng in 'gtWMFEng.pas',
+  gtWMFEngDlg in 'gtWMFEngDlg.pas' {gtWMFEngineDlg},
+  gtXHTMLEng in 'gtXHTMLEng.pas',
+  gtXHTMLEngDlg in 'gtXHTMLEngDlg.pas',
+  gtXLSEng in 'gtXLSEng.pas',
+  gtXLS95Eng in 'gtXLS95Eng.pas',
+  gtXLSEngDlg in 'gtXLSEngDlg.pas' {gtExcelEngineDlg},
+  gtGDIPAPI in 'gtGDIPAPI.pas',
+  gtGDIPOBJ in 'gtGDIPOBJ.pas',
+  gtGDIPUTIL in 'gtGDIPUTIL.pas',
+  gtOmniXMLUtils in 'gtOmniXMLUtils.pas',
+  gtOmniXML in 'gtOmniXML.pas',
+  gtOmniXMLXPath in 'gtOmniXMLXPath.pas',
+  gtOmniXML_LookupTables in 'gtOmniXML_LookupTables.pas',
+  gtOmniXML_Dictionary in 'gtOmniXML_Dictionary.pas',
+  gtOmniXML_Types in 'gtOmniXML_Types.pas',
+  gtGpTextStream in 'gtGpTextStream.pas',
+  gtGpStreamWrapper in 'gtGpStreamWrapper.pas',
+  gtZipPackage in 'gtZipPackage.pas',
+  gtAbZipPrc in 'gtAbZipPrc.pas',
+  gtAbDfEnc in 'gtAbDfEnc.pas',
+  gtAbDfPkMg in 'gtAbDfPkMg.pas',
+  gtAbDfStrm in 'gtAbDfStrm.pas',
+  gtAbDfXlat in 'gtAbDfXlat.pas',
+  gtAbDfHufD in 'gtAbDfHufD.pas',
+  gtAbDfInW in 'gtAbDfInW.pas',
+  gtAbDfCryS in 'gtAbDfCryS.pas',
+  gtAbZipTyp in 'gtAbZipTyp.pas',
+  gtAbVMStrm in 'gtAbVMStrm.pas',
+  gtAbSpanSt in 'gtAbSpanSt.pas',
+  gtAbArcTyp in 'gtAbArcTyp.pas',
+  gtAbDfBase in 'gtAbDfBase.pas',
+  gtAbUtils in 'gtAbUtils.pas',
+  gtAbExcept in 'gtAbExcept.pas',
+  gtAbConst in 'gtAbConst.pas',
+  gtAbResString in 'gtAbResString.pas',
+  gtAbCharset in 'gtAbCharset.pas',
+  gtStringHash in 'gtStringHash.pas',
+  gtDirectDraw in 'gtDirectDraw.pas';
+  
+end.

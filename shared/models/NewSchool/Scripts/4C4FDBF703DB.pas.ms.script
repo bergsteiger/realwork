@@ -1,0 +1,4037 @@
+// EditorTests 4C4FDBF703DB TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C4FDBF703DB
+
+FORWARD ME_4C9214C80098
+
+: ME_4C92164901AE
+ CONST UID '4C92164901AE'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_4C92164901AE aText
+
+: ME_4C92181603DD
+ CONST UID '4C92181603DD'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469F7AC50332' '47913B47006E.pas.ms.script' // Il3OpPack
+ ;
+
+ref; // ME_4C92181603DD anOp
+
+: ME_4C9214F6002C
+ CONST UID '4C9214F6002C'
+ CONST Name 'DoProcess'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ;
+ : Parameters
+   @ ( ME_4C92164901AE // aText
+ ME_4C92181603DD // anOp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C9214F6002C DoProcess
+
+: ME_9D890906058D
+ CONST UID '9D890906058D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_9D890906058D 
+
+: ME_4BE13147032C_ME_4C9214C80098
+ CONST UID '4BE13147032C'
+ CONST Name 'Process'
+ : Original WL 'ME_4BE13147032C' '4B30C89F035F.pas.ms.script' // Process
+ ;
+ : Implementor ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ;
+ref; // ME_4BE13147032C_ME_4C9214C80098 Process
+
+: ME_4C937013031D_ME_4C9214C80098
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ;
+ref; // ME_4C937013031D_ME_4C9214C80098 GetFolder
+
+: ME_4DAED6F60146_ME_4C9214C80098
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ;
+ref; // ME_4DAED6F60146_ME_4C9214C80098 GetModelElementGUID
+
+: ME_4C9214C80098
+ CONST UID '4C9214C80098'
+ CONST Name 'TTextViaEditorProcessorWithNavigate'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C9210B70244' '4C500D470030.pas.ms.script' // Navigator
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4C9214F6002C // DoProcess
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BE13147032C_ME_4C9214C80098 // Process
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C9214C80098 // GetFolder
+ ME_4DAED6F60146_ME_4C9214C80098 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_9D890906058D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '16.09.2010 17:00'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TextViaEditorProcessorWithNavigate.pas'
+
+ref; // ME_4C9214C80098 TTextViaEditorProcessorWithNavigate
+
+FORWARD ME_4C4FDC620374
+
+: ME_4C4FDCBA002F
+ CONST UID '4C4FDCBA002F'
+ CONST Name 'TextForInsert'
+ CONST Class class_Operation
+ %SUMMARY 'Текст для вставки' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4C4FDCBA002F TextForInsert
+
+: ME_4C4FDF2100E2
+ CONST UID '4C4FDF2100E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ : Target WL 'ME_46A626BC0145' '4677FBA70343.pas.ms.script' // ClipboardFormats
+ ;
+
+ref; // ME_4C4FDF2100E2 
+
+: ME_4C4FDF59039C
+ CONST UID '4C4FDF59039C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ : Target WL 'ME_499D47A502DE' '47913B47006E.pas.ms.script' // Tl3ConstMemoryStream
+ ;
+
+ref; // ME_4C4FDF59039C 
+
+: ME_4C4FE31D00D2
+ CONST UID '4C4FE31D00D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4C4FE31D00D2 
+
+: ME_E9A182151E49
+ CONST UID 'E9A182151E49'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_E9A182151E49 
+
+: ME_4C9214F6002C_ME_4C4FDC620374
+ CONST UID '4C9214F6002C'
+ CONST Name 'DoProcess'
+ : Original ME_4C9214F6002C // DoProcess
+ ;
+ : Implementor ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ref; // ME_4C9214F6002C_ME_4C4FDC620374 DoProcess
+
+: ME_4C937013031D_ME_4C4FDC620374
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ref; // ME_4C937013031D_ME_4C4FDC620374 GetFolder
+
+: ME_4DAED6F60146_ME_4C4FDC620374
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C4FDC620374 GetModelElementGUID
+
+: ME_4C4FDC620374
+ CONST UID '4C4FDC620374'
+ CONST Name 'TInsertStreamTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест вставки в редактор текста при помощи InsertStream' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4C4FDCBA002F // TextForInsert
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4C9214F6002C_ME_4C4FDC620374 // DoProcess
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C4FDC620374 // GetFolder
+ ME_4DAED6F60146_ME_4C4FDC620374 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4C4FDF2100E2 // 
+ ME_4C4FDF59039C // 
+ ME_4C4FE31D00D2 // 
+ ME_E9A182151E49 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.07.2010 11:30'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\InsertStreamTest.pas'
+
+ref; // ME_4C4FDC620374 TInsertStreamTest
+
+FORWARD ME_4C920D930026
+
+: ME_4C920DFC0394
+ CONST UID '4C920DFC0394'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C920D930026 // TMoveSubTest
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_4C920DFC0394 
+
+: ME_19CD114486FB
+ CONST UID '19CD114486FB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C920D930026 // TMoveSubTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_19CD114486FB 
+
+: ME_4C4FE56300FB_ME_4C920D930026
+ CONST UID '4C4FE56300FB'
+ CONST Name 'Navigate'
+ : Original WL 'ME_4C4FE56300FB' '4C500D470030.pas.ms.script' // Navigate
+ ;
+ : Implementor ME_4C920D930026 // TMoveSubTest
+ ;
+ref; // ME_4C4FE56300FB_ME_4C920D930026 Navigate
+
+: ME_4C9214F6002C_ME_4C920D930026
+ CONST UID '4C9214F6002C'
+ CONST Name 'DoProcess'
+ : Original ME_4C9214F6002C // DoProcess
+ ;
+ : Implementor ME_4C920D930026 // TMoveSubTest
+ ;
+ref; // ME_4C9214F6002C_ME_4C920D930026 DoProcess
+
+: ME_4C937013031D_ME_4C920D930026
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C920D930026 // TMoveSubTest
+ ;
+ref; // ME_4C937013031D_ME_4C920D930026 GetFolder
+
+: ME_4DAED6F60146_ME_4C920D930026
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C920D930026 // TMoveSubTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C920D930026 GetModelElementGUID
+
+: ME_4C920D930026
+ CONST UID '4C920D930026'
+ CONST Name 'TMoveSubTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4C4FE56300FB_ME_4C920D930026 // Navigate
+ ME_4C9214F6002C_ME_4C920D930026 // DoProcess
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C920D930026 // GetFolder
+ ME_4DAED6F60146_ME_4C920D930026 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4C920DFC0394 // 
+ ME_19CD114486FB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '16.09.2010 16:29'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\MoveSubTest.pas'
+
+ref; // ME_4C920D930026 TMoveSubTest
+
+FORWARD ME_4C501582010E
+
+: ME_9A07C7799043
+ CONST UID '9A07C7799043'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C501582010E // TInsertStreamTestWithImplementedNavigate
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_9A07C7799043 
+
+: ME_4C4FE56300FB_ME_4C501582010E
+ CONST UID '4C4FE56300FB'
+ CONST Name 'Navigate'
+ : Original WL 'ME_4C4FE56300FB' '4C500D470030.pas.ms.script' // Navigate
+ ;
+ : Implementor ME_4C501582010E // TInsertStreamTestWithImplementedNavigate
+ ;
+ref; // ME_4C4FE56300FB_ME_4C501582010E Navigate
+
+: ME_4C937013031D_ME_4C501582010E
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C501582010E // TInsertStreamTestWithImplementedNavigate
+ ;
+ref; // ME_4C937013031D_ME_4C501582010E GetFolder
+
+: ME_4DAED6F60146_ME_4C501582010E
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C501582010E // TInsertStreamTestWithImplementedNavigate
+ ;
+ref; // ME_4DAED6F60146_ME_4C501582010E GetModelElementGUID
+
+: ME_4C501582010E
+ CONST UID '4C501582010E'
+ CONST Name 'TInsertStreamTestWithImplementedNavigate'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'То же что и TInsertStreamTest, но с пустым Navigate' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C4FDC620374 // TInsertStreamTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4C4FE56300FB_ME_4C501582010E // Navigate
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C501582010E // GetFolder
+ ME_4DAED6F60146_ME_4C501582010E // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_9A07C7799043 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.07.2010 15:34'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\InsertStreamTestWithImplementedNavigate.pas'
+
+ref; // ME_4C501582010E TInsertStreamTestWithImplementedNavigate
+
+FORWARD ME_4C93529B018C
+
+FORWARD ME_4C93538E0218
+
+: ME_4C9353BD0212
+ CONST UID '4C9353BD0212'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_4C9353BD0212 aText
+
+: ME_4C9353BD0234
+ CONST UID '4C9353BD0234'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469F7AC50332' '47913B47006E.pas.ms.script' // Il3OpPack
+ ;
+
+ref; // ME_4C9353BD0234 anOp
+
+: ME_4C9353B70163
+ CONST UID '4C9353B70163'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C93538E0218 // DoSelect
+ ;
+ : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
+ ;
+ : Parameters
+   @ ( ME_4C9353BD0212 // aText
+ ME_4C9353BD0234 // anOp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C9353B70163 DoIt
+
+: ME_4C93538E0218
+ CONST UID '4C93538E0218'
+ CONST Name 'DoSelect'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выделяет текст в редакторе' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C93529B018C // TCopyPasteTest
+ ;
+ : Operations
+   @ ( ME_4C9353B70163 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4C93538E0218 DoSelect
+
+: ME_4C9355CD01B9
+ CONST UID '4C9355CD01B9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C93529B018C // TCopyPasteTest
+ ;
+ : Target WL 'ME_47C5BA5F017D' '47C5207602D1.pas.ms.script' // InevSelection
+ ;
+
+ref; // ME_4C9355CD01B9 
+
+: ME_4C9355EB0326
+ CONST UID '4C9355EB0326'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C93529B018C // TCopyPasteTest
+ ;
+ : Target WL 'ME_53317DDB0223' '4A4DE16302A2.pas.ms.script' // Il3OpPack
+ ;
+
+ref; // ME_4C9355EB0326 
+
+: ME_4C93571C039A
+ CONST UID '4C93571C039A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C93529B018C // TCopyPasteTest
+ ;
+ : Target WL 'ME_47C695D90332' '47C695A10172.pas.ms.script' // TevSelectTarget
+ ;
+
+ref; // ME_4C93571C039A 
+
+: ME_CC782E790925
+ CONST UID 'CC782E790925'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C93529B018C // TCopyPasteTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_CC782E790925 
+
+: ME_4BE13147032C_ME_4C93529B018C
+ CONST UID '4BE13147032C'
+ CONST Name 'Process'
+ : Original WL 'ME_4BE13147032C' '4B30C89F035F.pas.ms.script' // Process
+ ;
+ : Implementor ME_4C93529B018C // TCopyPasteTest
+ ;
+ref; // ME_4BE13147032C_ME_4C93529B018C Process
+
+: ME_4C937013031D_ME_4C93529B018C
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C93529B018C // TCopyPasteTest
+ ;
+ref; // ME_4C937013031D_ME_4C93529B018C GetFolder
+
+: ME_4DAED6F60146_ME_4C93529B018C
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C93529B018C // TCopyPasteTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C93529B018C GetModelElementGUID
+
+: ME_4C93529B018C
+ CONST UID '4C93529B018C'
+ CONST Name 'TCopyPasteTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест копирования/вставки через буфер обмена' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ WL 'ME_4CE1344403AC' '4E1C0134031B.pas.ms.script' // ClipboardOperations
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4C93538E0218 // DoSelect
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BE13147032C_ME_4C93529B018C // Process
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C93529B018C // GetFolder
+ ME_4DAED6F60146_ME_4C93529B018C // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4C9355CD01B9 // 
+ ME_4C9355EB0326 // 
+ ME_4C93571C039A // 
+ ME_CC782E790925 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '17.09.2010 15:36'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\CopyPasteTest.pas'
+
+ref; // ME_4C93529B018C TCopyPasteTest
+
+FORWARD ME_4CA30546032E
+
+FORWARD ME_4DF781CB0217
+
+: ME_4DF781D803D4
+ CONST UID '4DF781D803D4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DF781CB0217 // CharCount
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4DF781D803D4 DoIt
+
+: ME_4DF781CB0217
+ CONST UID '4DF781CB0217'
+ CONST Name 'CharCount'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CA30546032E // TDeleteCharTest
+ ;
+ : Operations
+   @ ( ME_4DF781D803D4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DF781CB0217 CharCount
+
+: ME_1F513F3BF0AC
+ CONST UID '1F513F3BF0AC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA30546032E // TDeleteCharTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_1F513F3BF0AC 
+
+: ME_4C4FE56300FB_ME_4CA30546032E
+ CONST UID '4C4FE56300FB'
+ CONST Name 'Navigate'
+ : Original WL 'ME_4C4FE56300FB' '4C500D470030.pas.ms.script' // Navigate
+ ;
+ : Implementor ME_4CA30546032E // TDeleteCharTest
+ ;
+ref; // ME_4C4FE56300FB_ME_4CA30546032E Navigate
+
+: ME_4C9214F6002C_ME_4CA30546032E
+ CONST UID '4C9214F6002C'
+ CONST Name 'DoProcess'
+ : Original ME_4C9214F6002C // DoProcess
+ ;
+ : Implementor ME_4CA30546032E // TDeleteCharTest
+ ;
+ref; // ME_4C9214F6002C_ME_4CA30546032E DoProcess
+
+: ME_4C937013031D_ME_4CA30546032E
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CA30546032E // TDeleteCharTest
+ ;
+ref; // ME_4C937013031D_ME_4CA30546032E GetFolder
+
+: ME_4DAED6F60146_ME_4CA30546032E
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CA30546032E // TDeleteCharTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CA30546032E GetModelElementGUID
+
+: ME_4CA30546032E
+ CONST UID '4CA30546032E'
+ CONST Name 'TDeleteCharTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4DF781CB0217 // CharCount
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4C4FE56300FB_ME_4CA30546032E // Navigate
+ ME_4C9214F6002C_ME_4CA30546032E // DoProcess
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CA30546032E // GetFolder
+ ME_4DAED6F60146_ME_4CA30546032E // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_1F513F3BF0AC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.09.2010 13:22'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\DeleteCharTest.pas'
+
+ref; // ME_4CA30546032E TDeleteCharTest
+
+FORWARD ME_4CB6E426014A
+
+: ME_D4B24E84DD8D
+ CONST UID 'D4B24E84DD8D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CB6E426014A // TScrollByLineTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_D4B24E84DD8D 
+
+: ME_4BE419AF0217_ME_4CB6E426014A
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4CB6E426014A // TScrollByLineTest
+ ;
+ref; // ME_4BE419AF0217_ME_4CB6E426014A DoVisit
+
+: ME_4C937013031D_ME_4CB6E426014A
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CB6E426014A // TScrollByLineTest
+ ;
+ref; // ME_4C937013031D_ME_4CB6E426014A GetFolder
+
+: ME_4DAED6F60146_ME_4CB6E426014A
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CB6E426014A // TScrollByLineTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CB6E426014A GetModelElementGUID
+
+: ME_4CB6E426014A
+ CONST UID '4CB6E426014A'
+ CONST Name 'TScrollByLineTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест прокрутки вниз построчно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4BE419AF0217_ME_4CB6E426014A // DoVisit
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CB6E426014A // GetFolder
+ ME_4DAED6F60146_ME_4CB6E426014A // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_D4B24E84DD8D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByLineTest.pas'
+
+ref; // ME_4CB6E426014A TScrollByLineTest
+
+FORWARD ME_4CC6E92E0233
+
+: ME_4CC6EC0E01AD
+ CONST UID '4CC6EC0E01AD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ : Target WL 'ME_48453B7601F9' '47F1F38601A3.pas.ms.script' // evCursorTools
+ ;
+
+ref; // ME_4CC6EC0E01AD 
+
+: ME_4CC6ED7002A0
+ CONST UID '4CC6ED7002A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ : Target WL 'ME_47C5BA5F017D' '47C5207602D1.pas.ms.script' // InevSelection
+ ;
+
+ref; // ME_4CC6ED7002A0 
+
+: ME_64C8002CBC5A
+ CONST UID '64C8002CBC5A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_64C8002CBC5A 
+
+: ME_4BE13147032C_ME_4CC6E92E0233
+ CONST UID '4BE13147032C'
+ CONST Name 'Process'
+ : Original WL 'ME_4BE13147032C' '4B30C89F035F.pas.ms.script' // Process
+ ;
+ : Implementor ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ref; // ME_4BE13147032C_ME_4CC6E92E0233 Process
+
+: ME_4C937013031D_ME_4CC6E92E0233
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ref; // ME_4C937013031D_ME_4CC6E92E0233 GetFolder
+
+: ME_4DAED6F60146_ME_4CC6E92E0233
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CC6E92E0233 GetModelElementGUID
+
+: ME_4CC6E92E0233
+ CONST UID '4CC6E92E0233'
+ CONST Name 'TDeleteColumnToolTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест удаления колонки через редактор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4BE13147032C_ME_4CC6E92E0233 // Process
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CC6E92E0233 // GetFolder
+ ME_4DAED6F60146_ME_4CC6E92E0233 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4CC6EC0E01AD // 
+ ME_4CC6ED7002A0 // 
+ ME_64C8002CBC5A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\DeleteColumnToolTest.pas'
+
+ref; // ME_4CC6E92E0233 TDeleteColumnToolTest
+
+FORWARD ME_4CC7F3170362
+
+: ME_7A516DD11AFB
+ CONST UID '7A516DD11AFB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CC7F3170362 // TDrawTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_7A516DD11AFB 
+
+: ME_4CAC45AE011E_ME_4CC7F3170362
+ CONST UID '4CAC45AE011E'
+ CONST Name 'DoBeforeDrawing'
+ : Original WL 'ME_4CAC45AE011E' '4B30C89F035F.pas.ms.script' // DoBeforeDrawing
+ ;
+ : Implementor ME_4CC7F3170362 // TDrawTest
+ ;
+ref; // ME_4CAC45AE011E_ME_4CC7F3170362 DoBeforeDrawing
+
+: ME_4C937013031D_ME_4CC7F3170362
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CC7F3170362 // TDrawTest
+ ;
+ref; // ME_4C937013031D_ME_4CC7F3170362 GetFolder
+
+: ME_4DA2F7900393_ME_4CC7F3170362
+ CONST UID '4DA2F7900393'
+ CONST Name 'UseFormExtentAsClientSize'
+ : Original WL 'ME_4DA2F7900393' '4BCE9EA0028A.pas.ms.script' // UseFormExtentAsClientSize
+ ;
+ : Implementor ME_4CC7F3170362 // TDrawTest
+ ;
+ref; // ME_4DA2F7900393_ME_4CC7F3170362 UseFormExtentAsClientSize
+
+: ME_4DAED6F60146_ME_4CC7F3170362
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CC7F3170362 // TDrawTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CC7F3170362 GetModelElementGUID
+
+: ME_4CC7F3170362
+ CONST UID '4CC7F3170362'
+ CONST Name 'TDrawTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест вида: нарисовали и сравнили с эталоном.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4CAC405703AE' '4B30C89F035F.pas.ms.script' // TDrawTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4CAC405703AE' '4B30C89F035F.pas.ms.script' // TDrawTestPrim
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4CAC45AE011E_ME_4CC7F3170362 // DoBeforeDrawing
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CC7F3170362 // GetFolder
+ ME_4DA2F7900393_ME_4CC7F3170362 // UseFormExtentAsClientSize
+ ME_4DAED6F60146_ME_4CC7F3170362 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_7A516DD11AFB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\DrawTest.pas'
+
+ref; // ME_4CC7F3170362 TDrawTest
+
+FORWARD ME_4CC8196F0219
+
+: ME_CFE1A38703B4
+ CONST UID 'CFE1A38703B4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CC8196F0219 // TMergeAndCheck
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_CFE1A38703B4 
+
+: ME_4CAC45AE011E_ME_4CC8196F0219
+ CONST UID '4CAC45AE011E'
+ CONST Name 'DoBeforeDrawing'
+ : Original WL 'ME_4CAC45AE011E' '4B30C89F035F.pas.ms.script' // DoBeforeDrawing
+ ;
+ : Implementor ME_4CC8196F0219 // TMergeAndCheck
+ ;
+ref; // ME_4CAC45AE011E_ME_4CC8196F0219 DoBeforeDrawing
+
+: ME_4C937013031D_ME_4CC8196F0219
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CC8196F0219 // TMergeAndCheck
+ ;
+ref; // ME_4C937013031D_ME_4CC8196F0219 GetFolder
+
+: ME_4CC81D4101AC_ME_4CC8196F0219
+ CONST UID '4CC81D4101AC'
+ CONST Name 'GetSelectParam'
+ : Original WL 'ME_4CC81D4101AC' '4E1C0134031B.pas.ms.script' // GetSelectParam
+ ;
+ : Implementor ME_4CC8196F0219 // TMergeAndCheck
+ ;
+ref; // ME_4CC81D4101AC_ME_4CC8196F0219 GetSelectParam
+
+: ME_4DAED6F60146_ME_4CC8196F0219
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CC8196F0219 // TMergeAndCheck
+ ;
+ref; // ME_4DAED6F60146_ME_4CC8196F0219 GetModelElementGUID
+
+: ME_4CC8196F0219
+ CONST UID '4CC8196F0219'
+ CONST Name 'TMergeAndCheck'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест объединения ячеек и сравнения отрисованного' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4CAC405703AE' '4B30C89F035F.pas.ms.script' // TDrawTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4CC815A00031' '4E1C0134031B.pas.ms.script' // SelectTablePart
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4CAC45AE011E_ME_4CC8196F0219 // DoBeforeDrawing
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CC8196F0219 // GetFolder
+ ME_4CC81D4101AC_ME_4CC8196F0219 // GetSelectParam
+ ME_4DAED6F60146_ME_4CC8196F0219 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_CFE1A38703B4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\MergeAndCheck.pas'
+
+ref; // ME_4CC8196F0219 TMergeAndCheck
+
+FORWARD ME_4CD7EBBB02D3
+
+: ME_4CD7F9BC03C1
+ CONST UID '4CD7F9BC03C1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_4CD7F9BC03C1 
+
+: ME_66E1911D7C87
+ CONST UID '66E1911D7C87'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_66E1911D7C87 
+
+: ME_4C4FE56300FB_ME_4CD7EBBB02D3
+ CONST UID '4C4FE56300FB'
+ CONST Name 'Navigate'
+ : Original WL 'ME_4C4FE56300FB' '4C500D470030.pas.ms.script' // Navigate
+ ;
+ : Implementor ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ ;
+ref; // ME_4C4FE56300FB_ME_4CD7EBBB02D3 Navigate
+
+: ME_4C9214F6002C_ME_4CD7EBBB02D3
+ CONST UID '4C9214F6002C'
+ CONST Name 'DoProcess'
+ : Original ME_4C9214F6002C // DoProcess
+ ;
+ : Implementor ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ ;
+ref; // ME_4C9214F6002C_ME_4CD7EBBB02D3 DoProcess
+
+: ME_4C937013031D_ME_4CD7EBBB02D3
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ ;
+ref; // ME_4C937013031D_ME_4CD7EBBB02D3 GetFolder
+
+: ME_4DAED6F60146_ME_4CD7EBBB02D3
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CD7EBBB02D3 GetModelElementGUID
+
+: ME_4CD7EBBB02D3
+ CONST UID '4CD7EBBB02D3'
+ CONST Name 'TInsertBreakInTextTableTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Вставка текста в моноширинную таблицу в режиме рисования текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4C4FE56300FB_ME_4CD7EBBB02D3 // Navigate
+ ME_4C9214F6002C_ME_4CD7EBBB02D3 // DoProcess
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CD7EBBB02D3 // GetFolder
+ ME_4DAED6F60146_ME_4CD7EBBB02D3 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4CD7F9BC03C1 // 
+ ME_66E1911D7C87 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\InsertBreakInTextTableTest.pas'
+
+ref; // ME_4CD7EBBB02D3 TInsertBreakInTextTableTest
+
+FORWARD ME_4C345A91014E
+
+: ME_C668DE68265D
+ CONST UID 'C668DE68265D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C345A91014E // TTableToolsTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_C668DE68265D 
+
+: ME_4C9999C50326_ME_4C345A91014E
+ CONST UID '4C9999C50326'
+ CONST Name 'CheckOperation'
+ : Original WL 'ME_4C9999C50326' '4B30C89F035F.pas.ms.script' // CheckOperation
+ ;
+ : Implementor ME_4C345A91014E // TTableToolsTest
+ ;
+ref; // ME_4C9999C50326_ME_4C345A91014E CheckOperation
+
+: ME_4BE13147032C_ME_4C345A91014E
+ CONST UID '4BE13147032C'
+ CONST Name 'Process'
+ : Original WL 'ME_4BE13147032C' '4B30C89F035F.pas.ms.script' // Process
+ ;
+ : Implementor ME_4C345A91014E // TTableToolsTest
+ ;
+ref; // ME_4BE13147032C_ME_4C345A91014E Process
+
+: ME_4C937013031D_ME_4C345A91014E
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C345A91014E // TTableToolsTest
+ ;
+ref; // ME_4C937013031D_ME_4C345A91014E GetFolder
+
+: ME_4DAED6F60146_ME_4C345A91014E
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C345A91014E // TTableToolsTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C345A91014E GetModelElementGUID
+
+: ME_4C345A91014E
+ CONST UID '4C345A91014E'
+ CONST Name 'TTableToolsTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тесты инструментов работы с таблицами' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4CE38AD60265' '4B30C89F035F.pas.ms.script' // TTableToolsTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ WL 'ME_4CC815A00031' '4E1C0134031B.pas.ms.script' // SelectTablePart
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4C9999C50326_ME_4C345A91014E // CheckOperation
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4BE13147032C_ME_4C345A91014E // Process
+ ME_4C937013031D_ME_4C345A91014E // GetFolder
+ ME_4DAED6F60146_ME_4C345A91014E // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_C668DE68265D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TableToolsTest.pas'
+
+ref; // ME_4C345A91014E TTableToolsTest
+
+FORWARD ME_4CE282AD019D
+
+: ME_96DA696171A4
+ CONST UID '96DA696171A4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE282AD019D // TScrollByArrow
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_96DA696171A4 
+
+: ME_4BE419AF0217_ME_4CE282AD019D
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4CE282AD019D // TScrollByArrow
+ ;
+ref; // ME_4BE419AF0217_ME_4CE282AD019D DoVisit
+
+: ME_4C937013031D_ME_4CE282AD019D
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CE282AD019D // TScrollByArrow
+ ;
+ref; // ME_4C937013031D_ME_4CE282AD019D GetFolder
+
+: ME_4DAED6F60146_ME_4CE282AD019D
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CE282AD019D // TScrollByArrow
+ ;
+ref; // ME_4DAED6F60146_ME_4CE282AD019D GetModelElementGUID
+
+: ME_4CE282AD019D
+ CONST UID '4CE282AD019D'
+ CONST Name 'TScrollByArrow'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прокрутка документа стрелкой на клавиатуре.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4C9899150030' '4B30C89F035F.pas.ms.script' // TPrimScrollTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ WL 'ME_4CE2958803D0' '4C500D470030.pas.ms.script' // ScrollSupport
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4BE419AF0217_ME_4CE282AD019D // DoVisit
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CE282AD019D // GetFolder
+ ME_4DAED6F60146_ME_4CE282AD019D // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_96DA696171A4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByArrow.pas'
+
+ref; // ME_4CE282AD019D TScrollByArrow
+
+FORWARD ME_4C123E8103B3
+
+: ME_E11125B7AE8E
+ CONST UID 'E11125B7AE8E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C123E8103B3 // TMergeCellsTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_E11125B7AE8E 
+
+: ME_4C345B580083_ME_4C123E8103B3
+ CONST UID '4C345B580083'
+ CONST Name 'ApplyTools'
+ : Original WL 'ME_4C345B580083' '4B30C89F035F.pas.ms.script' // ApplyTools
+ ;
+ : Implementor ME_4C123E8103B3 // TMergeCellsTest
+ ;
+ref; // ME_4C345B580083_ME_4C123E8103B3 ApplyTools
+
+: ME_4C937013031D_ME_4C123E8103B3
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C123E8103B3 // TMergeCellsTest
+ ;
+ref; // ME_4C937013031D_ME_4C123E8103B3 GetFolder
+
+: ME_4DAED6F60146_ME_4C123E8103B3
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C123E8103B3 // TMergeCellsTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C123E8103B3 GetModelElementGUID
+
+: ME_4C123E8103B3
+ CONST UID '4C123E8103B3'
+ CONST Name 'TMergeCellsTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Объединение ячеек в таблице.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C345A91014E // TTableToolsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4C345B580083_ME_4C123E8103B3 // ApplyTools
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C123E8103B3 // GetFolder
+ ME_4DAED6F60146_ME_4C123E8103B3 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_E11125B7AE8E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\MergeCellsTest.pas'
+
+ref; // ME_4C123E8103B3 TMergeCellsTest
+
+FORWARD ME_4C3463D800E5
+
+: ME_12D365A79946
+ CONST UID '12D365A79946'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C3463D800E5 // TTranslate2TextTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_12D365A79946 
+
+: ME_4C345B580083_ME_4C3463D800E5
+ CONST UID '4C345B580083'
+ CONST Name 'ApplyTools'
+ : Original WL 'ME_4C345B580083' '4B30C89F035F.pas.ms.script' // ApplyTools
+ ;
+ : Implementor ME_4C3463D800E5 // TTranslate2TextTest
+ ;
+ref; // ME_4C345B580083_ME_4C3463D800E5 ApplyTools
+
+: ME_4C937013031D_ME_4C3463D800E5
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C3463D800E5 // TTranslate2TextTest
+ ;
+ref; // ME_4C937013031D_ME_4C3463D800E5 GetFolder
+
+: ME_4DAED6F60146_ME_4C3463D800E5
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C3463D800E5 // TTranslate2TextTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C3463D800E5 GetModelElementGUID
+
+: ME_4C3463D800E5
+ CONST UID '4C3463D800E5'
+ CONST Name 'TTranslate2TextTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Преобразовать таблицу или её часть в текст' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C345A91014E // TTableToolsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4C345B580083_ME_4C3463D800E5 // ApplyTools
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C3463D800E5 // GetFolder
+ ME_4DAED6F60146_ME_4C3463D800E5 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_12D365A79946 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\Translate2TextTest.pas'
+
+ref; // ME_4C3463D800E5 TTranslate2TextTest
+
+FORWARD ME_4C99945800BC
+
+: ME_4CE3B52E02E8
+ CONST UID '4CE3B52E02E8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C99945800BC // TSelectColumnAndDelete
+ ;
+ : Target WL 'ME_47FB31D1033A' '47C5207602D1.pas.ms.script' // InevLeafPoint
+ ;
+
+ref; // ME_4CE3B52E02E8 
+
+: ME_555E14016BD8
+ CONST UID '555E14016BD8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C99945800BC // TSelectColumnAndDelete
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_555E14016BD8 
+
+: ME_4C345B580083_ME_4C99945800BC
+ CONST UID '4C345B580083'
+ CONST Name 'ApplyTools'
+ : Original WL 'ME_4C345B580083' '4B30C89F035F.pas.ms.script' // ApplyTools
+ ;
+ : Implementor ME_4C99945800BC // TSelectColumnAndDelete
+ ;
+ref; // ME_4C345B580083_ME_4C99945800BC ApplyTools
+
+: ME_4C937013031D_ME_4C99945800BC
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C99945800BC // TSelectColumnAndDelete
+ ;
+ref; // ME_4C937013031D_ME_4C99945800BC GetFolder
+
+: ME_4C9999C50326_ME_4C99945800BC
+ CONST UID '4C9999C50326'
+ CONST Name 'CheckOperation'
+ : Original WL 'ME_4C9999C50326' '4B30C89F035F.pas.ms.script' // CheckOperation
+ ;
+ : Implementor ME_4C99945800BC // TSelectColumnAndDelete
+ ;
+ref; // ME_4C9999C50326_ME_4C99945800BC CheckOperation
+
+: ME_4DAED6F60146_ME_4C99945800BC
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C99945800BC // TSelectColumnAndDelete
+ ;
+ref; // ME_4DAED6F60146_ME_4C99945800BC GetModelElementGUID
+
+: ME_4C99945800BC
+ CONST UID '4C99945800BC'
+ CONST Name 'TSelectColumnAndDelete'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест выделения и удаления колонки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C345A91014E // TTableToolsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4C345B580083_ME_4C99945800BC // ApplyTools
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C99945800BC // GetFolder
+ ME_4C9999C50326_ME_4C99945800BC // CheckOperation
+ ME_4DAED6F60146_ME_4C99945800BC // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4CE3B52E02E8 // 
+ ME_555E14016BD8 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\SelectColumnAndDelete.pas'
+
+ref; // ME_4C99945800BC TSelectColumnAndDelete
+
+FORWARD ME_4C3C2BE800AF
+
+: ME_44CD32299534
+ CONST UID '44CD32299534'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C3C2BE800AF // TColumnAlignHorisontallyTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_44CD32299534 
+
+: ME_4C345B580083_ME_4C3C2BE800AF
+ CONST UID '4C345B580083'
+ CONST Name 'ApplyTools'
+ : Original WL 'ME_4C345B580083' '4B30C89F035F.pas.ms.script' // ApplyTools
+ ;
+ : Implementor ME_4C3C2BE800AF // TColumnAlignHorisontallyTest
+ ;
+ref; // ME_4C345B580083_ME_4C3C2BE800AF ApplyTools
+
+: ME_4C937013031D_ME_4C3C2BE800AF
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C3C2BE800AF // TColumnAlignHorisontallyTest
+ ;
+ref; // ME_4C937013031D_ME_4C3C2BE800AF GetFolder
+
+: ME_4DAED6F60146_ME_4C3C2BE800AF
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C3C2BE800AF // TColumnAlignHorisontallyTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C3C2BE800AF GetModelElementGUID
+
+: ME_4C3C2BE800AF
+ CONST UID '4C3C2BE800AF'
+ CONST Name 'TColumnAlignHorisontallyTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выравнивание текста в колонке горизотально.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C345A91014E // TTableToolsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4C345B580083_ME_4C3C2BE800AF // ApplyTools
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C3C2BE800AF // GetFolder
+ ME_4DAED6F60146_ME_4C3C2BE800AF // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_44CD32299534 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ColumnAlignHorisontallyTest.pas'
+
+ref; // ME_4C3C2BE800AF TColumnAlignHorisontallyTest
+
+FORWARD ME_4CE133F801BA
+
+: ME_0DD4DDD0BC45
+ CONST UID '0DD4DDD0BC45'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE133F801BA // TMergeAndCheckSelectionTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_0DD4DDD0BC45 
+
+: ME_4C937013031D_ME_4CE133F801BA
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CE133F801BA // TMergeAndCheckSelectionTest
+ ;
+ref; // ME_4C937013031D_ME_4CE133F801BA GetFolder
+
+: ME_4C9999C50326_ME_4CE133F801BA
+ CONST UID '4C9999C50326'
+ CONST Name 'CheckOperation'
+ : Original WL 'ME_4C9999C50326' '4B30C89F035F.pas.ms.script' // CheckOperation
+ ;
+ : Implementor ME_4CE133F801BA // TMergeAndCheckSelectionTest
+ ;
+ref; // ME_4C9999C50326_ME_4CE133F801BA CheckOperation
+
+: ME_4CC8189D02DF_ME_4CE133F801BA
+ CONST UID '4CC8189D02DF'
+ CONST Name 'NeedSelection'
+ : Original WL 'ME_4CC8189D02DF' '4E1C0134031B.pas.ms.script' // NeedSelection
+ ;
+ : Implementor ME_4CE133F801BA // TMergeAndCheckSelectionTest
+ ;
+ref; // ME_4CC8189D02DF_ME_4CE133F801BA NeedSelection
+
+: ME_4DAED6F60146_ME_4CE133F801BA
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CE133F801BA // TMergeAndCheckSelectionTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CE133F801BA GetModelElementGUID
+
+: ME_4CE133F801BA
+ CONST UID '4CE133F801BA'
+ CONST Name 'TMergeAndCheckSelectionTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест проверки выделения после объединения ячеек.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C123E8103B3 // TMergeCellsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4CE1344403AC' '4E1C0134031B.pas.ms.script' // ClipboardOperations
+ WL 'ME_4D4137E30326' '4C500D470030.pas.ms.script' // SelectOperation
+ ) .SequenceCode.It
+ ; // Implements
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CE133F801BA // GetFolder
+ ME_4C9999C50326_ME_4CE133F801BA // CheckOperation
+ ME_4CC8189D02DF_ME_4CE133F801BA // NeedSelection
+ ME_4DAED6F60146_ME_4CE133F801BA // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_0DD4DDD0BC45 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\MergeAndCheckSelectionTest.pas'
+
+ref; // ME_4CE133F801BA TMergeAndCheckSelectionTest
+
+FORWARD ME_4C3AF74701A6
+
+: ME_55205C97D292
+ CONST UID '55205C97D292'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C3AF74701A6 // TMergeTablesTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_55205C97D292 
+
+: ME_4C345B580083_ME_4C3AF74701A6
+ CONST UID '4C345B580083'
+ CONST Name 'ApplyTools'
+ : Original WL 'ME_4C345B580083' '4B30C89F035F.pas.ms.script' // ApplyTools
+ ;
+ : Implementor ME_4C3AF74701A6 // TMergeTablesTest
+ ;
+ref; // ME_4C345B580083_ME_4C3AF74701A6 ApplyTools
+
+: ME_4C937013031D_ME_4C3AF74701A6
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C3AF74701A6 // TMergeTablesTest
+ ;
+ref; // ME_4C937013031D_ME_4C3AF74701A6 GetFolder
+
+: ME_4CC8189D02DF_ME_4C3AF74701A6
+ CONST UID '4CC8189D02DF'
+ CONST Name 'NeedSelection'
+ : Original WL 'ME_4CC8189D02DF' '4E1C0134031B.pas.ms.script' // NeedSelection
+ ;
+ : Implementor ME_4C3AF74701A6 // TMergeTablesTest
+ ;
+ref; // ME_4CC8189D02DF_ME_4C3AF74701A6 NeedSelection
+
+: ME_4DAED6F60146_ME_4C3AF74701A6
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C3AF74701A6 // TMergeTablesTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C3AF74701A6 GetModelElementGUID
+
+: ME_4C3AF74701A6
+ CONST UID '4C3AF74701A6'
+ CONST Name 'TMergeTablesTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тестирование объединения таблиц' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C345A91014E // TTableToolsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4C345B580083_ME_4C3AF74701A6 // ApplyTools
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C3AF74701A6 // GetFolder
+ ME_4CC8189D02DF_ME_4C3AF74701A6 // NeedSelection
+ ME_4DAED6F60146_ME_4C3AF74701A6 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55205C97D292 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\MergeTablesTest.pas'
+
+ref; // ME_4C3AF74701A6 TMergeTablesTest
+
+FORWARD ME_4C6CF18001AE
+
+: ME_4C6CFAE20264
+ CONST UID '4C6CFAE20264'
+ CONST Name 'GetLineCount'
+ CONST Class class_Operation
+ %SUMMARY 'Количество строчек (текста), на которое нужно сдинуть курсор перед разбиванием табилцы на две.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6CF18001AE // TSplitTableTest
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C6CFAE20264 GetLineCount
+
+: ME_846BFBDA27B7
+ CONST UID '846BFBDA27B7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C6CF18001AE // TSplitTableTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_846BFBDA27B7 
+
+: ME_4C345B580083_ME_4C6CF18001AE
+ CONST UID '4C345B580083'
+ CONST Name 'ApplyTools'
+ : Original WL 'ME_4C345B580083' '4B30C89F035F.pas.ms.script' // ApplyTools
+ ;
+ : Implementor ME_4C6CF18001AE // TSplitTableTest
+ ;
+ref; // ME_4C345B580083_ME_4C6CF18001AE ApplyTools
+
+: ME_4BE419AF0217_ME_4C6CF18001AE
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4C6CF18001AE // TSplitTableTest
+ ;
+ref; // ME_4BE419AF0217_ME_4C6CF18001AE DoVisit
+
+: ME_4C937013031D_ME_4C6CF18001AE
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C6CF18001AE // TSplitTableTest
+ ;
+ref; // ME_4C937013031D_ME_4C6CF18001AE GetFolder
+
+: ME_4CC8189D02DF_ME_4C6CF18001AE
+ CONST UID '4CC8189D02DF'
+ CONST Name 'NeedSelection'
+ : Original WL 'ME_4CC8189D02DF' '4E1C0134031B.pas.ms.script' // NeedSelection
+ ;
+ : Implementor ME_4C6CF18001AE // TSplitTableTest
+ ;
+ref; // ME_4CC8189D02DF_ME_4C6CF18001AE NeedSelection
+
+: ME_4DAED6F60146_ME_4C6CF18001AE
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C6CF18001AE // TSplitTableTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C6CF18001AE GetModelElementGUID
+
+: ME_4C6CF18001AE
+ CONST UID '4C6CF18001AE'
+ CONST Name 'TSplitTableTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тесты разбиения таблиц' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C345A91014E // TTableToolsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4C6CFAE20264 // GetLineCount
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4C345B580083_ME_4C6CF18001AE // ApplyTools
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4BE419AF0217_ME_4C6CF18001AE // DoVisit
+ ME_4C937013031D_ME_4C6CF18001AE // GetFolder
+ ME_4CC8189D02DF_ME_4C6CF18001AE // NeedSelection
+ ME_4DAED6F60146_ME_4C6CF18001AE // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_846BFBDA27B7 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\SplitTableTest.pas'
+
+ref; // ME_4C6CF18001AE TSplitTableTest
+
+FORWARD ME_4CE3E5F3012B
+
+: ME_75D1F117F8C1
+ CONST UID '75D1F117F8C1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_75D1F117F8C1 
+
+: ME_4BE13147032C_ME_4CE3E5F3012B
+ CONST UID '4BE13147032C'
+ CONST Name 'Process'
+ : Original WL 'ME_4BE13147032C' '4B30C89F035F.pas.ms.script' // Process
+ ;
+ : Implementor ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ ;
+ref; // ME_4BE13147032C_ME_4CE3E5F3012B Process
+
+: ME_4C937013031D_ME_4CE3E5F3012B
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ ;
+ref; // ME_4C937013031D_ME_4CE3E5F3012B GetFolder
+
+: ME_4CC8189D02DF_ME_4CE3E5F3012B
+ CONST UID '4CC8189D02DF'
+ CONST Name 'NeedSelection'
+ : Original WL 'ME_4CC8189D02DF' '4E1C0134031B.pas.ms.script' // NeedSelection
+ ;
+ : Implementor ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ ;
+ref; // ME_4CC8189D02DF_ME_4CE3E5F3012B NeedSelection
+
+: ME_4CC81D4101AC_ME_4CE3E5F3012B
+ CONST UID '4CC81D4101AC'
+ CONST Name 'GetSelectParam'
+ : Original WL 'ME_4CC81D4101AC' '4E1C0134031B.pas.ms.script' // GetSelectParam
+ ;
+ : Implementor ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ ;
+ref; // ME_4CC81D4101AC_ME_4CE3E5F3012B GetSelectParam
+
+: ME_4DAED6F60146_ME_4CE3E5F3012B
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CE3E5F3012B GetModelElementGUID
+
+: ME_4CE3E5F3012B
+ CONST UID '4CE3E5F3012B'
+ CONST Name 'TSelectRowAndDeleteTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выделить строку и удалить.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4CC815A00031' '4E1C0134031B.pas.ms.script' // SelectTablePart
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4BE13147032C_ME_4CE3E5F3012B // Process
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CE3E5F3012B // GetFolder
+ ME_4CC8189D02DF_ME_4CE3E5F3012B // NeedSelection
+ ME_4CC81D4101AC_ME_4CE3E5F3012B // GetSelectParam
+ ME_4DAED6F60146_ME_4CE3E5F3012B // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_75D1F117F8C1 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\SelectRowAndDeleteTest.pas'
+
+ref; // ME_4CE3E5F3012B TSelectRowAndDeleteTest
+
+FORWARD ME_4BF4E6650245
+
+: ME_4BF4E7CC01B7
+ CONST UID '4BF4E7CC01B7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BF4E6650245 // TSelectPtTest
+ ;
+ : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
+ ;
+
+ref; // ME_4BF4E7CC01B7 
+
+: ME_82199D995295
+ CONST UID '82199D995295'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BF4E6650245 // TSelectPtTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_82199D995295 
+
+: ME_4BE419AF0217_ME_4BF4E6650245
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4BF4E6650245 // TSelectPtTest
+ ;
+ref; // ME_4BE419AF0217_ME_4BF4E6650245 DoVisit
+
+: ME_4C937013031D_ME_4BF4E6650245
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4BF4E6650245 // TSelectPtTest
+ ;
+ref; // ME_4C937013031D_ME_4BF4E6650245 GetFolder
+
+: ME_4DAED6F60146_ME_4BF4E6650245
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4BF4E6650245 // TSelectPtTest
+ ;
+ref; // ME_4DAED6F60146_ME_4BF4E6650245 GetModelElementGUID
+
+: ME_4BF4E6650245
+ CONST UID '4BF4E6650245'
+ CONST Name 'TSelectPtTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест вида - загрузили и ткнули в точку со смещением относительно какого-нибудь параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4CED0194038A' '4C500D470030.pas.ms.script' // Para2Point
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4BE419AF0217_ME_4BF4E6650245 // DoVisit
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4BF4E6650245 // GetFolder
+ ME_4DAED6F60146_ME_4BF4E6650245 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4BF4E7CC01B7 // 
+ ME_82199D995295 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\SelectPtTest.pas'
+
+ref; // ME_4BF4E6650245 TSelectPtTest
+
+FORWARD ME_4BFE38A8006A
+
+FORWARD ME_4E44C98700AE
+
+: ME_4E44C9A20188
+ CONST UID '4E44C9A20188'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E44C98700AE // NeedScrollUp
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4E44C9A20188 DoIt
+
+: ME_4E44C98700AE
+ CONST UID '4E44C98700AE'
+ CONST Name 'NeedScrollUp'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ : Operations
+   @ ( ME_4E44C9A20188 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E44C98700AE NeedScrollUp
+
+FORWARD ME_4E44C9B00324
+
+: ME_4E44C9C10187
+ CONST UID '4E44C9C10187'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E44C9B00324 // NeedScrollByLine
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4E44C9C10187 DoIt
+
+: ME_4E44C9B00324
+ CONST UID '4E44C9B00324'
+ CONST Name 'NeedScrollByLine'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ : Operations
+   @ ( ME_4E44C9C10187 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E44C9B00324 NeedScrollByLine
+
+: ME_4BFE40CD0337
+ CONST UID '4BFE40CD0337'
+ CONST Name 'GetScrollCount'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BFE40CD0337 GetScrollCount
+
+: ME_4C9B259F00C2
+ CONST UID '4C9B259F00C2'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5C49600CD' '47C5207602D1.pas.ms.script' // InevInputView
+ ;
+
+ref; // ME_4C9B259F00C2 aView
+
+: ME_4C3C80AF002D
+ CONST UID '4C3C80AF002D'
+ CONST Name 'CheckAfterScroll'
+ CONST Class class_Operation
+ %SUMMARY 'Операции после прокрутки' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ : Parameters
+   @ ( ME_4C9B259F00C2 // aView
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C3C80AF002D CheckAfterScroll
+
+: ME_196BD6AA324E
+ CONST UID '196BD6AA324E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_196BD6AA324E 
+
+: ME_4BE419AF0217_ME_4BFE38A8006A
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ref; // ME_4BE419AF0217_ME_4BFE38A8006A DoVisit
+
+: ME_4C937013031D_ME_4BFE38A8006A
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ref; // ME_4C937013031D_ME_4BFE38A8006A GetFolder
+
+: ME_4DAED6F60146_ME_4BFE38A8006A
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ref; // ME_4DAED6F60146_ME_4BFE38A8006A GetModelElementGUID
+
+: ME_4BFE38A8006A
+ CONST UID '4BFE38A8006A'
+ CONST Name 'TScrollAndSelectPtTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'тесты вида - загрузили, прокрутили и ткнули' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4BF4E6650245 // TSelectPtTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4E44C98700AE // NeedScrollUp
+ ME_4E44C9B00324 // NeedScrollByLine
+ ME_4BFE40CD0337 // GetScrollCount
+ ME_4C3C80AF002D // CheckAfterScroll
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4BE419AF0217_ME_4BFE38A8006A // DoVisit
+ ME_4C937013031D_ME_4BFE38A8006A // GetFolder
+ ME_4DAED6F60146_ME_4BFE38A8006A // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_196BD6AA324E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollAndSelectPtTest.pas'
+
+ref; // ME_4BFE38A8006A TScrollAndSelectPtTest
+
+FORWARD ME_4C3C771A002D
+
+: ME_4C3C79020323
+ CONST UID '4C3C79020323'
+ CONST Name 'f_PrevTopAnchor'
+ CONST Class class_Attribute
+ %SUMMARY 'Предыдущее значение TopAnchor''а.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_4C3C79020323 f_PrevTopAnchor
+
+: ME_B142C9D97111
+ CONST UID 'B142C9D97111'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_B142C9D97111 
+
+: ME_4B2F40FD0088_ME_4C3C771A002D
+ CONST UID '4B2F40FD0088'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_4B2F40FD0088' '4B2A0D6A0077.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ref; // ME_4B2F40FD0088_ME_4C3C771A002D Cleanup
+
+: ME_4BE419AF0217_ME_4C3C771A002D
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ref; // ME_4BE419AF0217_ME_4C3C771A002D DoVisit
+
+: ME_4C3C80AF002D_ME_4C3C771A002D
+ CONST UID '4C3C80AF002D'
+ CONST Name 'CheckAfterScroll'
+ : Original ME_4C3C80AF002D // CheckAfterScroll
+ ;
+ : Implementor ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ref; // ME_4C3C80AF002D_ME_4C3C771A002D CheckAfterScroll
+
+: ME_4C937013031D_ME_4C3C771A002D
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ref; // ME_4C937013031D_ME_4C3C771A002D GetFolder
+
+: ME_4DAED6F60146_ME_4C3C771A002D
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C3C771A002D GetModelElementGUID
+
+: ME_4C3C771A002D
+ CONST UID '4C3C771A002D'
+ CONST Name 'TCheckTopAnchorTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест для выбора точки после прокрутки и проверки изменился ли TopAnchor' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4C3C79020323 // f_PrevTopAnchor
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_4B2F40FD0088_ME_4C3C771A002D // Cleanup
+ ME_4BE419AF0217_ME_4C3C771A002D // DoVisit
+ ME_4C3C80AF002D_ME_4C3C771A002D // CheckAfterScroll
+ ME_4C937013031D_ME_4C3C771A002D // GetFolder
+ ME_4DAED6F60146_ME_4C3C771A002D // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_B142C9D97111 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\CheckTopAnchorTest.pas'
+
+ref; // ME_4C3C771A002D TCheckTopAnchorTest
+
+FORWARD ME_4CED2FCF0081
+
+: ME_4CEFC4F4037F
+ CONST UID '4CEFC4F4037F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CED2FCF0081 // TCellMouseSelectionTest
+ ;
+ : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
+ ;
+
+ref; // ME_4CEFC4F4037F 
+
+: ME_C9223D561DA0
+ CONST UID 'C9223D561DA0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CED2FCF0081 // TCellMouseSelectionTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_C9223D561DA0 
+
+: ME_4BF4E6A00093_ME_4CED2FCF0081
+ CONST UID '4BF4E6A00093'
+ CONST Name 'GetInnerPara'
+ : Original WL 'ME_4BF4E6A00093' '4C500D470030.pas.ms.script' // GetInnerPara
+ ;
+ : Implementor ME_4CED2FCF0081 // TCellMouseSelectionTest
+ ;
+ref; // ME_4BF4E6A00093_ME_4CED2FCF0081 GetInnerPara
+
+: ME_4C3C927B027E_ME_4CED2FCF0081
+ CONST UID '4C3C927B027E'
+ CONST Name 'GetPoint'
+ : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
+ ;
+ : Implementor ME_4CED2FCF0081 // TCellMouseSelectionTest
+ ;
+ref; // ME_4C3C927B027E_ME_4CED2FCF0081 GetPoint
+
+: ME_4C937013031D_ME_4CED2FCF0081
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CED2FCF0081 // TCellMouseSelectionTest
+ ;
+ref; // ME_4C937013031D_ME_4CED2FCF0081 GetFolder
+
+: ME_4DAED6F60146_ME_4CED2FCF0081
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CED2FCF0081 // TCellMouseSelectionTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CED2FCF0081 GetModelElementGUID
+
+: ME_4CED2FCF0081
+ CONST UID '4CED2FCF0081'
+ CONST Name 'TCellMouseSelectionTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выделение ячейки с помощью мыши.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4CED106503D0' '4D02566F01E6.pas.ms.script' // THotSpotSelectionTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4BF4E6A00093_ME_4CED2FCF0081 // GetInnerPara
+ ME_4C3C927B027E_ME_4CED2FCF0081 // GetPoint
+ ME_4C937013031D_ME_4CED2FCF0081 // GetFolder
+ ME_4DAED6F60146_ME_4CED2FCF0081 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4CEFC4F4037F // 
+ ME_C9223D561DA0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\CellMouseSelectionTest.pas'
+
+ref; // ME_4CED2FCF0081 TCellMouseSelectionTest
+
+FORWARD ME_4D19DD6A0378
+
+: ME_9396D369778D
+ CONST UID '9396D369778D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D19DD6A0378 // TTextMetricsAfterCopyPasteTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_9396D369778D 
+
+: ME_4BE13147032C_ME_4D19DD6A0378
+ CONST UID '4BE13147032C'
+ CONST Name 'Process'
+ : Original WL 'ME_4BE13147032C' '4B30C89F035F.pas.ms.script' // Process
+ ;
+ : Implementor ME_4D19DD6A0378 // TTextMetricsAfterCopyPasteTest
+ ;
+ref; // ME_4BE13147032C_ME_4D19DD6A0378 Process
+
+: ME_4C937013031D_ME_4D19DD6A0378
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D19DD6A0378 // TTextMetricsAfterCopyPasteTest
+ ;
+ref; // ME_4C937013031D_ME_4D19DD6A0378 GetFolder
+
+: ME_4DAED6F60146_ME_4D19DD6A0378
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D19DD6A0378 // TTextMetricsAfterCopyPasteTest
+ ;
+ref; // ME_4DAED6F60146_ME_4D19DD6A0378 GetModelElementGUID
+
+: ME_4D19DD6A0378
+ CONST UID '4D19DD6A0378'
+ CONST Name 'TTextMetricsAfterCopyPasteTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Проверка метрик после вставки-копирования текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4D076A0C03C4' '4D02566F01E6.pas.ms.script' // TTextMetricsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4CE1344403AC' '4E1C0134031B.pas.ms.script' // ClipboardOperations
+ WL 'ME_4D4137E30326' '4C500D470030.pas.ms.script' // SelectOperation
+ ) .SequenceCode.It
+ ; // Implements
+ : Overridden
+   @ ( ME_4BE13147032C_ME_4D19DD6A0378 // Process
+ ME_4C937013031D_ME_4D19DD6A0378 // GetFolder
+ ME_4DAED6F60146_ME_4D19DD6A0378 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_9396D369778D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TextMetricsAfterCopyPasteTest.pas'
+
+ref; // ME_4D19DD6A0378 TTextMetricsAfterCopyPasteTest
+
+FORWARD ME_4D1B16D302DD
+
+: ME_39CFC6AEF3C8
+ CONST UID '39CFC6AEF3C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D1B16D302DD // TTextMericsAfterDeleteTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_39CFC6AEF3C8 
+
+: ME_4BE13147032C_ME_4D1B16D302DD
+ CONST UID '4BE13147032C'
+ CONST Name 'Process'
+ : Original WL 'ME_4BE13147032C' '4B30C89F035F.pas.ms.script' // Process
+ ;
+ : Implementor ME_4D1B16D302DD // TTextMericsAfterDeleteTest
+ ;
+ref; // ME_4BE13147032C_ME_4D1B16D302DD Process
+
+: ME_4C937013031D_ME_4D1B16D302DD
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D1B16D302DD // TTextMericsAfterDeleteTest
+ ;
+ref; // ME_4C937013031D_ME_4D1B16D302DD GetFolder
+
+: ME_4CC8189D02DF_ME_4D1B16D302DD
+ CONST UID '4CC8189D02DF'
+ CONST Name 'NeedSelection'
+ : Original WL 'ME_4CC8189D02DF' '4E1C0134031B.pas.ms.script' // NeedSelection
+ ;
+ : Implementor ME_4D1B16D302DD // TTextMericsAfterDeleteTest
+ ;
+ref; // ME_4CC8189D02DF_ME_4D1B16D302DD NeedSelection
+
+: ME_4DAED6F60146_ME_4D1B16D302DD
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D1B16D302DD // TTextMericsAfterDeleteTest
+ ;
+ref; // ME_4DAED6F60146_ME_4D1B16D302DD GetModelElementGUID
+
+: ME_4D1B16D302DD
+ CONST UID '4D1B16D302DD'
+ CONST Name 'TTextMericsAfterDeleteTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Проверка метрик после удаления.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4D076A0C03C4' '4D02566F01E6.pas.ms.script' // TTextMetricsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4CC815A00031' '4E1C0134031B.pas.ms.script' // SelectTablePart
+ ) .SequenceCode.It
+ ; // Implements
+ : Overridden
+   @ ( ME_4BE13147032C_ME_4D1B16D302DD // Process
+ ME_4C937013031D_ME_4D1B16D302DD // GetFolder
+ ME_4CC8189D02DF_ME_4D1B16D302DD // NeedSelection
+ ME_4DAED6F60146_ME_4D1B16D302DD // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_39CFC6AEF3C8 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TextMericsAfterDeleteTest.pas'
+
+ref; // ME_4D1B16D302DD TTextMericsAfterDeleteTest
+
+FORWARD ME_4D3D429001F4
+
+: ME_4D3D51E60211
+ CONST UID '4D3D51E60211'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ;
+ : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
+ ;
+
+ref; // ME_4D3D51E60211 
+
+: ME_139767361CA6
+ CONST UID '139767361CA6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_139767361CA6 
+
+: ME_4BF4E6A00093_ME_4D3D429001F4
+ CONST UID '4BF4E6A00093'
+ CONST Name 'GetInnerPara'
+ : Original WL 'ME_4BF4E6A00093' '4C500D470030.pas.ms.script' // GetInnerPara
+ ;
+ : Implementor ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ;
+ref; // ME_4BF4E6A00093_ME_4D3D429001F4 GetInnerPara
+
+: ME_4C3C927B027E_ME_4D3D429001F4
+ CONST UID '4C3C927B027E'
+ CONST Name 'GetPoint'
+ : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
+ ;
+ : Implementor ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ;
+ref; // ME_4C3C927B027E_ME_4D3D429001F4 GetPoint
+
+: ME_4C937013031D_ME_4D3D429001F4
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ;
+ref; // ME_4C937013031D_ME_4D3D429001F4 GetFolder
+
+: ME_4DAED6F60146_ME_4D3D429001F4
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ;
+ref; // ME_4DAED6F60146_ME_4D3D429001F4 GetModelElementGUID
+
+: ME_4D3D429001F4
+ CONST UID '4D3D429001F4'
+ CONST Name 'TMouseMoveCellsSelectTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест выделения с помощью мыши диапазона ячеек.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4D3D40C70045' '4D02566F01E6.pas.ms.script' // TMouseMoveSelectionTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4BF4E6A00093_ME_4D3D429001F4 // GetInnerPara
+ ME_4C3C927B027E_ME_4D3D429001F4 // GetPoint
+ ME_4C937013031D_ME_4D3D429001F4 // GetFolder
+ ME_4DAED6F60146_ME_4D3D429001F4 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4D3D51E60211 // 
+ ME_139767361CA6 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\MouseMoveCellsSelectTest.pas'
+
+ref; // ME_4D3D429001F4 TMouseMoveCellsSelectTest
+
+FORWARD ME_4D413AD401BD
+
+: ME_4988ADED171A
+ CONST UID '4988ADED171A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D413AD401BD // TSelectionCellTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_4988ADED171A 
+
+: ME_4BE13147032C_ME_4D413AD401BD
+ CONST UID '4BE13147032C'
+ CONST Name 'Process'
+ : Original WL 'ME_4BE13147032C' '4B30C89F035F.pas.ms.script' // Process
+ ;
+ : Implementor ME_4D413AD401BD // TSelectionCellTest
+ ;
+ref; // ME_4BE13147032C_ME_4D413AD401BD Process
+
+: ME_4C937013031D_ME_4D413AD401BD
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D413AD401BD // TSelectionCellTest
+ ;
+ref; // ME_4C937013031D_ME_4D413AD401BD GetFolder
+
+: ME_4DAED6F60146_ME_4D413AD401BD
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D413AD401BD // TSelectionCellTest
+ ;
+ref; // ME_4DAED6F60146_ME_4D413AD401BD GetModelElementGUID
+
+: ME_4D413AD401BD
+ CONST UID '4D413AD401BD'
+ CONST Name 'TSelectionCellTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест на выделение ячейки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE111D30229' '4B30C89F035F.pas.ms.script' // TTextViaEditorProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ WL 'ME_4CE1344403AC' '4E1C0134031B.pas.ms.script' // ClipboardOperations
+ WL 'ME_4D4137E30326' '4C500D470030.pas.ms.script' // SelectOperation
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4BE13147032C_ME_4D413AD401BD // Process
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4D413AD401BD // GetFolder
+ ME_4DAED6F60146_ME_4D413AD401BD // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4988ADED171A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\SelectionCellTest.pas'
+
+ref; // ME_4D413AD401BD TSelectionCellTest
+
+FORWARD ME_4D53D6AA0038
+
+: ME_335A84BE9666
+ CONST UID '335A84BE9666'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D53D6AA0038 // TColumnResizeWithCtrl
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_335A84BE9666 
+
+: ME_4C937013031D_ME_4D53D6AA0038
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D53D6AA0038 // TColumnResizeWithCtrl
+ ;
+ref; // ME_4C937013031D_ME_4D53D6AA0038 GetFolder
+
+: ME_4DAED6F60146_ME_4D53D6AA0038
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D53D6AA0038 // TColumnResizeWithCtrl
+ ;
+ref; // ME_4DAED6F60146_ME_4D53D6AA0038 GetModelElementGUID
+
+: ME_4E32CA120170_ME_4D53D6AA0038
+ CONST UID '4E32CA120170'
+ CONST Name 'GetKeys'
+ : Original WL 'ME_4E32CA120170' '4C500D470030.pas.ms.script' // GetKeys
+ ;
+ : Implementor ME_4D53D6AA0038 // TColumnResizeWithCtrl
+ ;
+ref; // ME_4E32CA120170_ME_4D53D6AA0038 GetKeys
+
+: ME_4D53D6AA0038
+ CONST UID '4D53D6AA0038'
+ CONST Name 'TColumnResizeWithCtrl'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Изменение размера колонки с зажатым Ctrl' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4D53D6170280' '4D02566F01E6.pas.ms.script' // TColumnResizeByMousePrimTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C937013031D_ME_4D53D6AA0038 // GetFolder
+ ME_4DAED6F60146_ME_4D53D6AA0038 // GetModelElementGUID
+ ME_4E32CA120170_ME_4D53D6AA0038 // GetKeys
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_335A84BE9666 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ColumnResizeWithCtrl.pas'
+
+ref; // ME_4D53D6AA0038 TColumnResizeWithCtrl
+
+FORWARD ME_4D5A63ED011A
+
+: ME_4D5A6EE600D3
+ CONST UID '4D5A6EE600D3'
+ CONST Name 'GetLineCount'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D5A63ED011A // TSplitCellTest
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D5A6EE600D3 GetLineCount
+
+: ME_4D5A6F4802CB
+ CONST UID '4D5A6F4802CB'
+ CONST Name 'GetTabCount'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D5A63ED011A // TSplitCellTest
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D5A6F4802CB GetTabCount
+
+: ME_76E7742C6D7B
+ CONST UID '76E7742C6D7B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D5A63ED011A // TSplitCellTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_76E7742C6D7B 
+
+: ME_4C345B580083_ME_4D5A63ED011A
+ CONST UID '4C345B580083'
+ CONST Name 'ApplyTools'
+ : Original WL 'ME_4C345B580083' '4B30C89F035F.pas.ms.script' // ApplyTools
+ ;
+ : Implementor ME_4D5A63ED011A // TSplitCellTest
+ ;
+ref; // ME_4C345B580083_ME_4D5A63ED011A ApplyTools
+
+: ME_4BE419AF0217_ME_4D5A63ED011A
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4D5A63ED011A // TSplitCellTest
+ ;
+ref; // ME_4BE419AF0217_ME_4D5A63ED011A DoVisit
+
+: ME_4C937013031D_ME_4D5A63ED011A
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D5A63ED011A // TSplitCellTest
+ ;
+ref; // ME_4C937013031D_ME_4D5A63ED011A GetFolder
+
+: ME_4CC8189D02DF_ME_4D5A63ED011A
+ CONST UID '4CC8189D02DF'
+ CONST Name 'NeedSelection'
+ : Original WL 'ME_4CC8189D02DF' '4E1C0134031B.pas.ms.script' // NeedSelection
+ ;
+ : Implementor ME_4D5A63ED011A // TSplitCellTest
+ ;
+ref; // ME_4CC8189D02DF_ME_4D5A63ED011A NeedSelection
+
+: ME_4DAED6F60146_ME_4D5A63ED011A
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D5A63ED011A // TSplitCellTest
+ ;
+ref; // ME_4DAED6F60146_ME_4D5A63ED011A GetModelElementGUID
+
+: ME_4D5A63ED011A
+ CONST UID '4D5A63ED011A'
+ CONST Name 'TSplitCellTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест разделения ячеек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C345A91014E // TTableToolsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4D5A6EE600D3 // GetLineCount
+ ME_4D5A6F4802CB // GetTabCount
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4C345B580083_ME_4D5A63ED011A // ApplyTools
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4BE419AF0217_ME_4D5A63ED011A // DoVisit
+ ME_4C937013031D_ME_4D5A63ED011A // GetFolder
+ ME_4CC8189D02DF_ME_4D5A63ED011A // NeedSelection
+ ME_4DAED6F60146_ME_4D5A63ED011A // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_76E7742C6D7B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\SplitCellTest.pas'
+
+ref; // ME_4D5A63ED011A TSplitCellTest
+
+FORWARD ME_4D6B85E6037B
+
+: ME_E06EC5D5FD6A
+ CONST UID 'E06EC5D5FD6A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D6B85E6037B // TScrollAndCheckCursorTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_E06EC5D5FD6A 
+
+: ME_4BE419AF0217_ME_4D6B85E6037B
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4D6B85E6037B // TScrollAndCheckCursorTest
+ ;
+ref; // ME_4BE419AF0217_ME_4D6B85E6037B DoVisit
+
+: ME_4C937013031D_ME_4D6B85E6037B
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D6B85E6037B // TScrollAndCheckCursorTest
+ ;
+ref; // ME_4C937013031D_ME_4D6B85E6037B GetFolder
+
+: ME_4C9B31F6015E_ME_4D6B85E6037B
+ CONST UID '4C9B31F6015E'
+ CONST Name 'F1Like'
+ : Original WL 'ME_4C9B31F6015E' '4B30C89F035F.pas.ms.script' // F1Like
+ ;
+ : Implementor ME_4D6B85E6037B // TScrollAndCheckCursorTest
+ ;
+ref; // ME_4C9B31F6015E_ME_4D6B85E6037B F1Like
+
+: ME_4DAED6F60146_ME_4D6B85E6037B
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D6B85E6037B // TScrollAndCheckCursorTest
+ ;
+ref; // ME_4DAED6F60146_ME_4D6B85E6037B GetModelElementGUID
+
+: ME_4D6B85E6037B
+ CONST UID '4D6B85E6037B'
+ CONST Name 'TScrollAndCheckCursorTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4BE419AF0217_ME_4D6B85E6037B // DoVisit
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4D6B85E6037B // GetFolder
+ ME_4C9B31F6015E_ME_4D6B85E6037B // F1Like
+ ME_4DAED6F60146_ME_4D6B85E6037B // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_E06EC5D5FD6A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollAndCheckCursorTest.pas'
+
+ref; // ME_4D6B85E6037B TScrollAndCheckCursorTest
+
+FORWARD ME_4D7777390386
+
+: ME_4D777A0303A1
+ CONST UID '4D777A0303A1'
+ CONST Name 'aFirst'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4D777A0303A1 aFirst
+
+: ME_4D7779F503A4
+ CONST UID '4D7779F503A4'
+ CONST Name 'GetSubNumber'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D7777390386 // TComplexScrollParams
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4D777A0303A1 // aFirst
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D7779F503A4 GetSubNumber
+
+: ME_4DAEBBCE009E
+ CONST UID '4DAEBBCE009E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D7777390386 // TComplexScrollParams
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4DAEBBCE009E 
+
+: ME_FAD2BFD5F8C9
+ CONST UID 'FAD2BFD5F8C9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D7777390386 // TComplexScrollParams
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_FAD2BFD5F8C9 
+
+: ME_4BE419AF0217_ME_4D7777390386
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4D7777390386 // TComplexScrollParams
+ ;
+ref; // ME_4BE419AF0217_ME_4D7777390386 DoVisit
+
+: ME_4DAEB0DE00D1_ME_4D7777390386
+ CONST UID '4DAEB0DE00D1'
+ CONST Name 'OpenLog'
+ : Original WL 'ME_4DAEB0DE00D1' '4811D4EC0237.pas.ms.script' // OpenLog
+ ;
+ : Implementor ME_4D7777390386 // TComplexScrollParams
+ ;
+ref; // ME_4DAEB0DE00D1_ME_4D7777390386 OpenLog
+
+: ME_4DAEB0F30186_ME_4D7777390386
+ CONST UID '4DAEB0F30186'
+ CONST Name 'CloseLog'
+ : Original WL 'ME_4DAEB0F30186' '4811D4EC0237.pas.ms.script' // CloseLog
+ ;
+ : Implementor ME_4D7777390386 // TComplexScrollParams
+ ;
+ref; // ME_4DAEB0F30186_ME_4D7777390386 CloseLog
+
+: ME_4B4F588B0241_ME_4D7777390386
+ CONST UID '4B4F588B0241'
+ CONST Name 'FileForOutput'
+ : Original WL 'ME_4B4F588B0241' '4B2A112B011A.pas.ms.script' // FileForOutput
+ ;
+ : Implementor ME_4D7777390386 // TComplexScrollParams
+ ;
+ref; // ME_4B4F588B0241_ME_4D7777390386 FileForOutput
+
+: ME_4C08CF700318_ME_4D7777390386
+ CONST UID '4C08CF700318'
+ CONST Name 'FormExtent'
+ : Original WL 'ME_4C08CF700318' '4BCE9EA0028A.pas.ms.script' // FormExtent
+ ;
+ : Implementor ME_4D7777390386 // TComplexScrollParams
+ ;
+ref; // ME_4C08CF700318_ME_4D7777390386 FormExtent
+
+: ME_4C937013031D_ME_4D7777390386
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D7777390386 // TComplexScrollParams
+ ;
+ref; // ME_4C937013031D_ME_4D7777390386 GetFolder
+
+: ME_4DAED6F60146_ME_4D7777390386
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D7777390386 // TComplexScrollParams
+ ;
+ref; // ME_4DAED6F60146_ME_4D7777390386 GetModelElementGUID
+
+: ME_4D7777390386
+ CONST UID '4D7777390386'
+ CONST Name 'TComplexScrollParams'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4DAEB0CB0134' '4811D4EC0237.pas.ms.script' // InevVScrollerPosLogger
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4D7779F503A4 // GetSubNumber
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BE419AF0217_ME_4D7777390386 // DoVisit
+ ME_4DAEB0DE00D1_ME_4D7777390386 // OpenLog
+ ME_4DAEB0F30186_ME_4D7777390386 // CloseLog
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4B4F588B0241_ME_4D7777390386 // FileForOutput
+ ME_4C08CF700318_ME_4D7777390386 // FormExtent
+ ME_4C937013031D_ME_4D7777390386 // GetFolder
+ ME_4DAED6F60146_ME_4D7777390386 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4DAEBBCE009E // 
+ ME_FAD2BFD5F8C9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ComplexScrollParams.pas'
+
+ref; // ME_4D7777390386 TComplexScrollParams
+
+FORWARD ME_4D80B9060123
+
+: ME_4D80BB670151
+ CONST UID '4D80BB670151'
+ CONST Name 'GetScrollCount'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D80BB670151 GetScrollCount
+
+: ME_EA6EDF4E6009
+ CONST UID 'EA6EDF4E6009'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_EA6EDF4E6009 
+
+: ME_4C937013031D_ME_4D80B9060123
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ ;
+ref; // ME_4C937013031D_ME_4D80B9060123 GetFolder
+
+: ME_4CAC45AE011E_ME_4D80B9060123
+ CONST UID '4CAC45AE011E'
+ CONST Name 'DoBeforeDrawing'
+ : Original WL 'ME_4CAC45AE011E' '4B30C89F035F.pas.ms.script' // DoBeforeDrawing
+ ;
+ : Implementor ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ ;
+ref; // ME_4CAC45AE011E_ME_4D80B9060123 DoBeforeDrawing
+
+: ME_4DAED6F60146_ME_4D80B9060123
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ ;
+ref; // ME_4DAED6F60146_ME_4D80B9060123 GetModelElementGUID
+
+: ME_4D80B9060123
+ CONST UID '4D80B9060123'
+ CONST Name 'TScrollByArrowAndCheckShapesTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прокрутить стрелкой до определенной позиции и сравнить "картинку".' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4CC7F3170362 // TDrawTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ WL 'ME_4CE2958803D0' '4C500D470030.pas.ms.script' // ScrollSupport
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4D80BB670151 // GetScrollCount
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4D80B9060123 // GetFolder
+ ME_4CAC45AE011E_ME_4D80B9060123 // DoBeforeDrawing
+ ME_4DAED6F60146_ME_4D80B9060123 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_EA6EDF4E6009 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByArrowAndCheckShapesTest.pas'
+
+ref; // ME_4D80B9060123 TScrollByArrowAndCheckShapesTest
+
+FORWARD ME_4D9AE118015C
+
+: ME_4D9AE20F0229
+ CONST UID '4D9AE20F0229'
+ CONST Name 'aUp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4D9AE20F0229 aUp
+
+: ME_4D9AE1F40181
+ CONST UID '4D9AE1F40181'
+ CONST Name 'GetScrollCount'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4D9AE20F0229 // aUp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D9AE1F40181 GetScrollCount
+
+: ME_3717B36F07B5
+ CONST UID '3717B36F07B5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_3717B36F07B5 
+
+: ME_4C937013031D_ME_4D9AE118015C
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ ;
+ref; // ME_4C937013031D_ME_4D9AE118015C GetFolder
+
+: ME_4CAC45AE011E_ME_4D9AE118015C
+ CONST UID '4CAC45AE011E'
+ CONST Name 'DoBeforeDrawing'
+ : Original WL 'ME_4CAC45AE011E' '4B30C89F035F.pas.ms.script' // DoBeforeDrawing
+ ;
+ : Implementor ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ ;
+ref; // ME_4CAC45AE011E_ME_4D9AE118015C DoBeforeDrawing
+
+: ME_4DAED6F60146_ME_4D9AE118015C
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ ;
+ref; // ME_4DAED6F60146_ME_4D9AE118015C GetModelElementGUID
+
+: ME_4D9AE118015C
+ CONST UID '4D9AE118015C'
+ CONST Name 'TScrollUpAndDownAndCheckShapes'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прокрутка вниз, потом вверх и сравнение разультатов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4CC7F3170362 // TDrawTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4C500D6101D8' '4C500D470030.pas.ms.script' // CursorMover
+ WL 'ME_4CE2958803D0' '4C500D470030.pas.ms.script' // ScrollSupport
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4D9AE1F40181 // GetScrollCount
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4D9AE118015C // GetFolder
+ ME_4CAC45AE011E_ME_4D9AE118015C // DoBeforeDrawing
+ ME_4DAED6F60146_ME_4D9AE118015C // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_3717B36F07B5 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollUpAndDownAndCheckShapes.pas'
+
+ref; // ME_4D9AE118015C TScrollUpAndDownAndCheckShapes
+
+FORWARD ME_4DCA1D3D034A
+
+: ME_0A84D82BE15C
+ CONST UID '0A84D82BE15C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DCA1D3D034A // THorzMergeCells
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_0A84D82BE15C 
+
+: ME_4C345B580083_ME_4DCA1D3D034A
+ CONST UID '4C345B580083'
+ CONST Name 'ApplyTools'
+ : Original WL 'ME_4C345B580083' '4B30C89F035F.pas.ms.script' // ApplyTools
+ ;
+ : Implementor ME_4DCA1D3D034A // THorzMergeCells
+ ;
+ref; // ME_4C345B580083_ME_4DCA1D3D034A ApplyTools
+
+: ME_4C937013031D_ME_4DCA1D3D034A
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4DCA1D3D034A // THorzMergeCells
+ ;
+ref; // ME_4C937013031D_ME_4DCA1D3D034A GetFolder
+
+: ME_4DAED6F60146_ME_4DCA1D3D034A
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4DCA1D3D034A // THorzMergeCells
+ ;
+ref; // ME_4DAED6F60146_ME_4DCA1D3D034A GetModelElementGUID
+
+: ME_4DCA1D3D034A
+ CONST UID '4DCA1D3D034A'
+ CONST Name 'THorzMergeCells'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Объединение ячеек по горизонтали.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4C345A91014E // TTableToolsTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4C345B580083_ME_4DCA1D3D034A // ApplyTools
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_4DCA1D3D034A // GetFolder
+ ME_4DAED6F60146_ME_4DCA1D3D034A // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_0A84D82BE15C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\HorzMergeCells.pas'
+
+ref; // ME_4DCA1D3D034A THorzMergeCells
+
+FORWARD ME_4E44C60E0060
+
+: ME_4E44D18E0379
+ CONST UID '4E44D18E0379'
+ CONST Name 'f_PrevAnchor'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_4E44D18E0379 f_PrevAnchor
+
+: ME_A6D6CECBE922
+ CONST UID 'A6D6CECBE922'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_A6D6CECBE922 
+
+: ME_4BE419AF0217_ME_4E44C60E0060
+ CONST UID '4BE419AF0217'
+ CONST Name 'DoVisit'
+ : Original WL 'ME_4BE419AF0217' '4B30C89F035F.pas.ms.script' // DoVisit
+ ;
+ : Implementor ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ref; // ME_4BE419AF0217_ME_4E44C60E0060 DoVisit
+
+: ME_4C3C80AF002D_ME_4E44C60E0060
+ CONST UID '4C3C80AF002D'
+ CONST Name 'CheckAfterScroll'
+ : Original ME_4C3C80AF002D // CheckAfterScroll
+ ;
+ : Implementor ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ref; // ME_4C3C80AF002D_ME_4E44C60E0060 CheckAfterScroll
+
+: ME_4C937013031D_ME_4E44C60E0060
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ref; // ME_4C937013031D_ME_4E44C60E0060 GetFolder
+
+: ME_4DAED6F60146_ME_4E44C60E0060
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ref; // ME_4DAED6F60146_ME_4E44C60E0060 GetModelElementGUID
+
+: ME_4E44C98700AE_ME_4E44C60E0060
+ CONST UID '4E44C98700AE'
+ CONST Name 'NeedScrollUp'
+ : Original ME_4E44C98700AE // NeedScrollUp
+ ;
+ : Implementor ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ref; // ME_4E44C98700AE_ME_4E44C60E0060 NeedScrollUp
+
+: ME_4E44C9B00324_ME_4E44C60E0060
+ CONST UID '4E44C9B00324'
+ CONST Name 'NeedScrollByLine'
+ : Original ME_4E44C9B00324 // NeedScrollByLine
+ ;
+ : Implementor ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ref; // ME_4E44C9B00324_ME_4E44C60E0060 NeedScrollByLine
+
+: ME_4E44C60E0060
+ CONST UID '4E44C60E0060'
+ CONST Name 'TScrollByLineBackAndSelectPt'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C4FDBF703DB // EditorTests
+ ;
+ : Inherits
+   @ ( ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4E44D18E0379 // f_PrevAnchor
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_4BE419AF0217_ME_4E44C60E0060 // DoVisit
+ ME_4C3C80AF002D_ME_4E44C60E0060 // CheckAfterScroll
+ ME_4C937013031D_ME_4E44C60E0060 // GetFolder
+ ME_4DAED6F60146_ME_4E44C60E0060 // GetModelElementGUID
+ ME_4E44C98700AE_ME_4E44C60E0060 // NeedScrollUp
+ ME_4E44C9B00324_ME_4E44C60E0060 // NeedScrollByLine
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_A6D6CECBE922 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByLineBackAndSelectPt.pas'
+
+ref; // ME_4E44C60E0060 TScrollByLineBackAndSelectPt
+
+: ME_4C4FDBF703DB
+ CONST UID '4C4FDBF703DB'
+ CONST Name 'EditorTests'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ %SUMMARY 'Шаблонные тесты редактора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ME_4C4FDC620374 // TInsertStreamTest
+ ME_4C920D930026 // TMoveSubTest
+ ME_4C501582010E // TInsertStreamTestWithImplementedNavigate
+ ME_4C93529B018C // TCopyPasteTest
+ ME_4CA30546032E // TDeleteCharTest
+ ME_4CB6E426014A // TScrollByLineTest
+ ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ME_4CC7F3170362 // TDrawTest
+ ME_4CC8196F0219 // TMergeAndCheck
+ ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ ME_4C345A91014E // TTableToolsTest
+ ME_4CE282AD019D // TScrollByArrow
+ ME_4C123E8103B3 // TMergeCellsTest
+ ME_4C3463D800E5 // TTranslate2TextTest
+ ME_4C99945800BC // TSelectColumnAndDelete
+ ME_4C3C2BE800AF // TColumnAlignHorisontallyTest
+ ME_4CE133F801BA // TMergeAndCheckSelectionTest
+ ME_4C3AF74701A6 // TMergeTablesTest
+ ME_4C6CF18001AE // TSplitTableTest
+ ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ ME_4BF4E6650245 // TSelectPtTest
+ ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ME_4C3C771A002D // TCheckTopAnchorTest
+ ME_4CED2FCF0081 // TCellMouseSelectionTest
+ ME_4D19DD6A0378 // TTextMetricsAfterCopyPasteTest
+ ME_4D1B16D302DD // TTextMericsAfterDeleteTest
+ ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ME_4D413AD401BD // TSelectionCellTest
+ ME_4D53D6AA0038 // TColumnResizeWithCtrl
+ ME_4D5A63ED011A // TSplitCellTest
+ ME_4D6B85E6037B // TScrollAndCheckCursorTest
+ ME_4D7777390386 // TComplexScrollParams
+ ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ ME_4DCA1D3D034A // THorzMergeCells
+ ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
+ WL 'ME_476BEA0B0103' '476BEA0B0103.pas.ms.script' // evConst
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47C695A10172' '47C695A10172.pas.ms.script' // evTypes
+ WL 'ME_47F086170200' '47F086170200.pas.ms.script' // DocumentContainers
+ WL 'ME_47F0893F0220' '47F0893F0220.pas.ms.script' // nevInternalInterfaces
+ WL 'ME_47F1F38601A3' '47F1F38601A3.pas.ms.script' // ParaUtils
+ WL 'ME_4811D4EC0237' '4811D4EC0237.pas.ms.script' // Views
+ WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ WL 'ME_4A1FCBA0014C' '4A1FCBA0014C.pas.ms.script' // nevGUIInterfaces
+ WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B30C89F035F' '4B30C89F035F.pas.ms.script' // Everest
+ WL 'ME_4B322B67038B' '4B322B67038B.pas.ms.script' // ext
+ WL 'ME_4C500D470030' '4C500D470030.pas.ms.script' // MixIns
+ WL 'ME_4D02566F01E6' '4D02566F01E6.pas.ms.script' // EditorTests
+ WL 'ME_4E1C0134031B' '4E1C0134031B.pas.ms.script' // MixIns
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C4FDBF703DB.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C4FDBF703DB.pas.ms.script.runner'
+
+ref; // ME_4C4FDBF703DB EditorTests

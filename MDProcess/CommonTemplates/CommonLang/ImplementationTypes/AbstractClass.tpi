@@ -1,0 +1,335 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/AbstractClass.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::AbstractClass
+//
+// Абстрактный базовый стереотип для SimpleClass и UtilityClass определяет общие свойства, функции
+// и трансформаторы.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: AbstractClass::Class
+? Абстрактный базовый стереотип для SimpleClass и UtilityClass определяет общие свойства, функции и трансформаторы.
+= AbstractImplInclude::Class
+= WikiImplClass::Class
+= ClassBaseGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+W true
+/ - может быть параметризован
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p non virtual base:b=false ? включает генерацию НЕ виртуального наследования
+p debug log:b=false ? включает генерацию вывода в лог обращений ко всем методам серванта
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+	][{"%S{non virtual base}"!="%S{!non virtual base}"}%f_up_prefix(%S) *non virtual base* = *%S{non virtual base}* - включает генерацию НЕ виртуального наследования
+	][{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений ко всем методам серванта
+	]
+
+// определение специфических данных стереотипа
+%f _auto_self_data_h
+//#UC START# *471728BC0232for4717284C01C5*
+//#UC END# *471728BC0232for4717284C01C5*
+
+// реализация специфических методов стереотипа
+%f _auto_self_methods_cpp
+//#UC START# *471728BE01B5for4717284C01C5*
+//#UC END# *471728BE01B5for4717284C01C5*
+
+// определение специфических методов стереотипа
+%f _auto_self_methods_h
+//#UC START# *471728C000FAfor4717284C01C5*
+//#UC END# *471728C000FAfor4717284C01C5*
+
+// выводит список наследования
+%f _base_class_decl
+//#UC START# *471728C103A9for4717284C01C5*
+//#UC END# *471728C103A9for4717284C01C5*
+
+// реализация контсуктора и деструктора
+%f _ctor_n_dctor_cpp
+//#UC START# *471728C301D4for4717284C01C5*
+//#UC END# *471728C301D4for4717284C01C5*
+
+// выводит определение конструктора и деструктора
+%f _ctor_n_dctor_h
+//#UC START# *471728C5005Dfor4717284C01C5*
+//#UC END# *471728C5005Dfor4717284C01C5*
+
+// выводит forward-определение
+%f _self_forward
+//#UC START# *471728C60280for4717284C01C5*
+//#UC END# *471728C60280for4717284C01C5*
+
+// выводит специфические include
+%f _specific_include
+//#UC START# *471728C803B9for4717284C01C5*
+//#UC END# *471728C803B9for4717284C01C5*
+
+// генерация списка базовых классов и реализуемых интерфейсов
+%f _java_base_class_decl
+//#UC START# *47173062030Dfor4717284C01C5*
+	%f_java_base(%S)
+//#UC END# *47173062030Dfor4717284C01C5*
+
+// генерация блока импорта серванта
+%f _java_servant_import_self
+//#UC START# *4717306F0157for4717284C01C5*
+//#UC END# *4717306F0157for4717284C01C5*
+
+// генерация специфичсекого содержимого
+%f _servant_content_java
+//#UC START# *47173078008Cfor4717284C01C5*
+//#UC END# *47173078008Cfor4717284C01C5*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4717284C01C5*
+//#UC END# *4705CBD6003Efor4717284C01C5*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for4717284C01C5*
+//#UC END# *470484D50138for4717284C01C5*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4717284C01C5*
+P
+S class %SN;
+O [{%f_need_cpp_file_for_servant(%S)=true}<{}{%t_nested_scope_def(%P)=true}{r}%PN_>%SN.cpp]
+	%f_output_constraint(%S)\
+	[{%f_need_cpp_file_for_servant(%S)=true}\
+	%f_header(%S)
+	
+	%f_simple_class_impl_body(%S)
+	%f_footer(%S)
+	]
+//#UC END# *47022CB8034Bfor4717284C01C5*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4717284C01C5*
+F [{"%SK"="ParameterizedClass"}[template \<<{, }{%CC=Parameter}%f_dump_template_param_h(%C)>\> ]]class %SN;
+S class %SN;
+O [{%t_nested_scope_def(%P)=false}%SN.h]
+	%f_output_constraint(%S)\
+	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%t_nested_scope_def(%P)=false}{[#%S%f_open_ifdef()
+	]}\
+	%f_h_header(%S)
+	%f_std_inc(%S)%f_set_var(SERV,S)
+	%f_includes_by_contents(%S)%f_include_factory_by_uses(%S)<\#include %f_dump_include_path(%wL,%w)
+	>%S%f_specific_include()[{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	][
+	%S%f_open_ifdef()][
+	// forward decls for defined friends
+	<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}%a%PP\t%a%PF
+	%a%Pp
+	>]
+	%SP
+	]<%WF
+	>[%f_dump_cpp_functors_h_fd(%S)
+	]%f_docs(%S)\
+	%S%f_self_forward()\
+	[{"%SK"="ParameterizedClass"}#template \<<{, }{"%CC"="Parameter"}%CX>\>%f_set_var(INST,S)
+	]#class %SN %S%f_base_class_decl(){
+	[{%Sa!=abstract&%S{need objcounter}!=false}#	SET_OBJECT_COUNTER (%SN)
+	][<{}{"%aC"="Dependency"&"%aS"="friend"}{Sp}#	friend class %f_type(%a%P); // defined friend
+	>][%P<{}{"%CU"!="%{SELF}U"&"%C{local supervisor}"="true"}#	friend class %f_type(%C);// local supervisor
+	>][{"%S{singleton}"="true"}
+	#	// singleton declaration
+	#	typedef ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+	#	friend class ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	#public:
+	#	static %SN* instance () {
+	#		return Singleton::instance();
+	#	}
+	][[{"<{}{"%CC"="Class"&%CS!=TemplateFunctions}{C}>"!="0"}
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// nested declarations[{"<{}{"%CC"="Class"&%CS!=TemplateFunctions}{C}>"!="0"}
+	%f_visibility_spec(%C)%f_set_var(PREV_C,C)]
+	<{}{"%CC"="Class"&%CS!=TemplateFunctions}\
+	[{%f_visibility_spec(%C)!=%f_visibility_spec(%{PREV_C})}#%f_visibility_spec(%C)\n]%CX%f_set_var(PREV_C,C)
+	
+	>]]%f_set_var(SELF,S)%f_set_var(SERV,S)[#//////////////////////////////////////////////////////////////////////////////////////////
+	#// static member methods and data
+	[#public:<{}{%CC=Operation&"%CS"="static"&"%CV"="PublicAccess"}{Sn}[
+	%CX
+	]>
+	][#protected:<{}{%CC=Operation&"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}[
+	%CX
+	]>
+	][#private:<{}{%CC=Operation&"%CS"="static"&"%CV"="PrivateAccess"}{Sn}[
+	%CX
+	]><{}{%CC=Attribute&[{%CS=static|%t_is_static_accessor(%C)=true}{false}true]=true}{Sn}[
+	%CX
+	]>
+	]][%f_static_data_accessor(%S)
+	]%S%f_ctor_n_dctor_h()\
+	[#//////////////////////////////////////////////////////////////////////////////////////////
+	#// self methods
+	[%S%f_auto_self_methods_h()
+	][#public:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][#protected:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][#private:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]][
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// abstarct methods
+	[#public:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][#protected:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][#private:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]][
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// template methods
+	<{}{%CM=TemplateFunctions::Class}%CX
+	>
+	]%f_dump_cpp_functors_h(%S)[#//////////////////////////////////////////////////////////////////////////////////////////
+	#// self data
+	#private:[
+	%S%f_auto_self_data_h()
+	]<{}{"%CC"="Attribute"&"%CS"!="static"&%t_is_static_accessor(%C)!=true}{Sn}[
+	%CX
+	]>][#//////////////////////////////////////////////////////////////////////////////////////////
+	#// oneway methods impl
+	#private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_h(%C)
+	>
+	#protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_h(%C)
+	>
+	]%f_self_data_accessor(%S)\
+	[%f_dump_cpp_derrived_impl_h(%S)
+	][{%S{need UC}=true}
+	#%U[
+	#]
+	]#}; // class %SN[{%t_nested_scope_def(%P)=false}{[
+	#%S%f_close_ifdef()]}
+	
+	%Sp[
+	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+	%f_h_footer(%S)
+	]
+P false
+//#UC END# *47022C88029Ffor4717284C01C5*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4717284C01C5*
+P
+S class %SN;
+O [{%f_need_inline_file(%S)=true}%SN.i.h]
+	%f_output_constraint(%S)\
+	[{%f_need_inline_file(%S)=true}\
+	%f_header(%S)
+	
+	%f_simple_class_impl_body(%S)
+	%f_footer(%S)
+	]
+//#UC END# *47022CCF00EAfor4717284C01C5*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4717284C01C5*
+//#UC END# *470321C1038Afor4717284C01C5*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4717284C01C5*
+O [{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false|%SM=State::Class}%SN.java]
+	%f_output_constraint(%S)\
+	[{%f_is_server_type(%S)=false}%f_set_var(SELF,S)%f_set_var(SERV,S)[{%t_nested_scope_def(%P)=false|%SM=State::Class}\
+	%f_header(%S)
+	%f_set_var(SELF,S)%f_set_var(SERVANT,S)package %f_dump_java_package_ex(%S);
+	
+	%f_dump_std_java_imports(%S)
+	[%f_java_dump_import_block(%S)
+	]%f_includes_by_contents_java(%S)[%S%f_java_servant_import_self(%S)
+	]
+	%U[{_CUSTOM_IMPORT}
+	]
+	
+	%U[{_CUSTOM_CLASS_DEFINITION}
+	]
+	]#%t_visibility(%S,"%XU")[{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false|%SM=State::Class}{static }]%t_abstract_type(%S)class %SN%S%f_java_base_class_decl(%S) {
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declarations
+	<{}{"%CC"="Class"&%CS!=TemplateFunctions}[
+	%CX
+	]>]%f_set_var(SELF,S)%f_set_var(SERV,S)%f_set_var(SERVANT,S)[#	// static member methods and data
+	[<{}{%CC=Operation&"%CS"="static"&"%CV"="PublicAccess"}{Sn}[
+	%CX
+	]>][<{}{%CC=Operation&"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}[
+	%CX
+	]>][<{}{%CC=Operation&"%CS"="static"&"%CV"="PrivateAccess"}{Sn}[
+	%CX
+	]>][<{}{%CC=Attribute&[{%CS=static|%t_is_static_accessor(%C)=true}{false}true]=true}{Sn}[
+	%CX
+	]>]]%f_static_data_accessor(%S)[#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// constructors
+	[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}%f_dump_empty_ctor_java(%S)\n]}
+	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+	
+	>][#	%f_dump_cpp_servant_derrived_constr_java(%S)]
+	][#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self data
+	<{\n\n}{"%CC"="Attribute"&%CS!=static&%t_is_static_accessor(%C)!=true&%f_can_dump_attr(%C%T)=true}%CX>
+	]%f_self_data_accessor(%S)[#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self methods
+	<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"}{Sp}
+	%CX
+	>][%f_dump_java_derrived_impl(%S)
+	][#	%S%f_servant_content_java(%S)
+	]%f_shift_intend(1)%f_dump_servant_sm_java(%S)%f_shift_intend(-1)\
+	#	%U[{_CUSTOM_METHODS_AND_DATA}
+	#	]
+	
+	#} // class %SN][{%f_is_server_type(%S)=false}\
+	[{%t_nested_scope_def(%P)=false}
+	%f_footer(%S)
+	]]
+//#UC END# *470321950119for4717284C01C5*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

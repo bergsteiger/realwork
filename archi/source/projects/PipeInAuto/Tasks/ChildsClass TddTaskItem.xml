@@ -1,0 +1,255 @@
+<ClassFields>
+	<Class Name="TddTaskItem">
+		<SaveToLoadFrom Inherited="False">
+			<Fields>
+				<Field Name="f_TaskType" Type="Integer" />
+				<Field Name="f_Version" Type="Integer" />
+				<Field Name="f_UserID" Type="LongWord" />
+				<Field Name="f_Date" Type="TDateTime" />
+				<Field Name="f_Priority" Type="Integer" />
+				<Field Name="f_Description" Type="AnsiString" />
+				<Field Name="f_TaskFolder" Comment="if not aIsPipe" Type="AnsiString" />
+			</Fields>
+		</SaveToLoadFrom>
+		<SaveToPipe Inherited="False" AnalogSaveTo="True" Comment="aIsPipe=True" />
+		<ChildsClass>
+			<Class Name="TddRequestTask">
+				<ChildsClass>
+					<Class Name="TddClientMessage">
+						<SaveToLoadFrom Inherited="True">
+							<Fields>
+								<Field Name="f_NotifyType" Type="Integer" />
+								<Field Name="f_Data" Type="Integer" />
+								<Field Name="f_Text" Type="String" />
+							</Fields>
+						</SaveToLoadFrom>
+					</Class>
+					<Class Name="TddCommonDataRequest">
+						<SaveToPipe Inherited="false">
+							<Fields>
+								<Field Name="f_DataIndex" Type="Integer" />
+								<Field Name="f_Data" Type="TddTaskItem" ReadFromPipe="True" />
+							</Fields>
+						</SaveToPipe>
+					</Class>
+					<Class Name="TddBaseStatusRequest">
+						<SaveToPipe Inherited="True">
+							<Fields>
+								<Field Name="f_IsFree" Type="SmallInt" ReadFromPipe="True" />
+								<Field Name="f_Message" Type="String" ReadFromPipe="True" />
+							</Fields>
+						</SaveToPipe>
+					</Class>
+					<Class Name="TddNonEditableDictsRequest">
+						<SaveToPipe Inherited="True">
+							<Fields>
+								<Field Name="f_DictsMask" Type="Integer" ReadFromPipe="True" />
+							</Fields>
+						</SaveToPipe>
+					</Class>
+					<Class Name="TddServerStatusRequest">
+						<SaveToPipe Inherited="True">
+							<Fields>
+								<Field Name="f_ServerStatus" Type="String" ReadFromPipe="True" />
+								<Field Name="f_UsersCount" Type="Integer" ReadFromPipe="True" />
+								<Field Name="f_LineLength" Type="Integer" ReadFromPipe="True" />
+							</Fields>
+						</SaveToPipe>
+					</Class>
+					<Class Name="TaskRequest">
+						<ChildsClass>
+							<Class Name="TddTaskResultRequest">
+								<SaveToPipe Inherited="False">
+									<Fields>
+										<Field Name="TaskID" Type="String"/>
+										<Field Name="f_TaskResult" Type="TStream" ReadFromPipe="True" />
+									</Fields>
+								</SaveToPipe>
+							</Class>
+							<Class Name="TddGetTaskRequest">
+								<SaveToPipe Inherited="False">
+									<Fields>
+										<Field Name="TaskID" Type="String"/>
+										<Field Name="f_Task" Type="TddTaskItem" ReadFromPipe="True" />
+									</Fields>
+								</SaveToPipe>
+							</Class>
+						</ChildsClass>
+					</Class>
+					<Class Name="TcsExportResultRequest">
+						<SaveToPipe Inherited="False">
+							<Fields>
+								<Field Name="TaskID" Type="String"/>
+								<Field Name="Success" Type="Boolean" Comment="читает из Pipe файлы, в папку DestFolder" ReadFromPipe="True" />
+							</Fields>
+						</SaveToPipe>
+					</Class>
+					<Class Name="TcsLineRequest">
+						<SaveToPipe Inherited="True">
+							<Fields>
+								<Field Name="f_TaskList" Type="TddTaskItemList" Comment="читает из Pipe задания" ReadFromPipe="True" />
+							</Fields>
+						</SaveToPipe>
+					</Class>
+				</ChildsClass>
+			</Class>
+			<Class Name="TddProcessTask">
+				<SaveToLoadFrom Inherited="True">
+					<Fields>
+						<Field Name="f_Status" Type="Integer" />
+						<Field Name="f_Comment" Type="String" />
+						<Field Name="f_DocumentIDList" Type="Tl3LongintList" />
+					</Fields>								
+				</SaveToLoadFrom>				
+				<ChildsClass>
+					<Class Name="TalcuAutoClassTask" />
+					<Class Name="TcsExport">
+						<SaveToLoadFrom Inherited="True">
+							<Fields>
+								<Field Name="F_AnnoTopicFileName" Type="String" />
+								<Field Name="F_DiapasonType" Type="Integer" />
+								<Field Name="F_DocID" Type="Integer" />
+								<Field Name="F_DocumentFileNameMask" Type="String" />
+								<Field Name="F_ExportAnnoTopics" Type="Boolean" />
+								<Field Name="F_ExportDirectory" Type="String" />
+								<Field Name="F_ExportDocImage" Type="Boolean" />
+								<Field Name="F_ExportDocument" Type="Boolean" />
+								<Field Name="f_ExportEmptyKW" Type="Boolean" />
+								<Field Name="F_ExportKW" Type="Boolean" />
+								<Field Name="F_ExportRTFBody" Type="Boolean" />
+								<Field Name="F_Family" Type="Integer" />
+								<Field Name="F_InternalFormat" Type="Boolean" />
+								<Field Name="F_KWFileName" Type="String" />
+								<Field Name="F_MultiUser" Type="Boolean" />
+								<Field Name="f_SABStream.Size" Type="Integer" />
+								<Field Name="f_SABStream" Comment="if f_SABStream.Size > 0" Type="TStream" />
+								<Field Name="F_ObjTopicFileName" Type="String" />
+								<Field Name="F_OnlyStructure" Type="Boolean" />
+								<Field Name="F_OutFileType" Type="Longint" />
+								<Field Name="F_OutputFileSize" Type="Longint" />
+								<Field Name="F_ReferenceFileNameMask" Type="String" />
+								<Field Name="F_SeparateFiles" Type="Longint" />
+								<Field Name="f_ToRegion" Type="Cardinal" />
+								<Field Name="F_ExportReferences" Comment="if Version > 1" Type="Boolean" />
+								<Field Name="f_ExportEditions" Comment="if Version > 2" Type="Boolean" />
+								<Field Name="f_FormulaAsPicture" Comment="if Version > 3" Type="Boolean" />
+							</Fields>
+						</SaveToLoadFrom>
+						<ChildsClass>
+							<Class Name="TcsAutoAnnoExport" />
+							<Class Name="TddDossierMakeTask" />
+							<Class Name="TddCaseCodeTask" />
+							<Class Name="TalcuPrimeExportLite" />
+							<Class Name="TalcuExport">
+								<ChildsClass>										
+									<Class Name="TalcuNCFRExport" />
+									<Class Name="TlcRelExportTask" />
+									<Class Name="TalcuAnoncedExport">
+										<ChildsClass>
+											<Class Name="TalcuAnoncedExportEx" />
+										</ChildsClass>
+									</Class>
+									<Class Name="TalcuHavanskyExportTask" />																			
+								</ChildsClass>
+							</Class>
+						</ChildsClass>
+					</Class>
+					<Class Name="TcsImportTaskItem">
+						<SaveToLoadFrom Inherited="True">
+							<Fields>
+								<Field Name="F_DeleteIncluded" Type="Boolean" />
+								<Field Name="F_IsAnnotation" Type="Boolean" />
+								<Field Name="F_IsRegion" Type="Boolean" />
+								<Field Name="f_SourceDir" Type="String" />
+								<Field Name="SourceFiles" Comment="if aIsPipe (SourceFiles список с файлами) записывает/читает файлы в/из поток/а" Type="TStrings" />
+							</Fields>
+						</SaveToLoadFrom>
+						<ChildsClass>
+							<Class Name="TalcuImport" />
+							<Class Name="TalcuRelPublishTask" />
+							<Class Name="TcsAACImport" />
+						</ChildsClass>
+					</Class>
+					<Class Name="TalcuMDPSyncTask" />
+					<Class Name="TcsMisspellCorrectTask">
+						<SaveToLoadFrom Inherited="True">
+							<Fields>
+								<Field Name="f_SABStream.Size" Type="Integer" />
+								<Field Name="f_SABStream" Comment="if f_SABStream.Size > 0" Type="TStream" />
+							</Fields>
+						</SaveToLoadFrom>
+						<ChildsClass>
+							<Class Name="TalcuMisspellCorrectTask" />
+						</ChildsClass>
+					</Class>
+					<Class Name="TddRegionUploadTask">
+						<SaveToLoadFrom Inherited="True">
+							<Fields>
+								<Field Name="f_RegionIndex" Type="Integer" />
+							</Fields>
+						</SaveToLoadFrom>
+					</Class>
+					<Class Name="TcsAutoSpellTask" />
+					<Class Name="TddRunCommandTask" />
+					<Class Name="TalcuAnnotationTaskItem" />
+					<Class Name="TUserEditQuery">
+						<SaveToLoadFrom Inherited="True">
+							<Fields>
+								<Field Name="f_IsGroup" Type="Boolean" />
+								<Field Name="f_ID" Type="Cardinal" />
+							</Fields>
+						</SaveToLoadFrom>
+					</Class>
+					<Class Name="TRemoteDictEditQuery">
+						<SaveToLoadFrom Inherited="True" Comment="проанализировать на корректность чтение и запись">
+							<Fields>
+								<Field Name="Family" Type="Integer" />
+								<Field Name="DictType" Type="Integer" />
+								<Field Name="Operation" Type="Integer" />
+								<Field Name="ID" Type="Cardinal" />
+								<Field Name="ParentID" Type="Cardinal" />
+								<Field Name="NextID" Type="Cardinal" />
+								<Field Name="NameCyr" Type="String" />
+								<Field Name="NameShort" Type="String" />
+								<Field Name="NameLat" Type="String" />
+								<Field Name="IsPrivate" Type="Byte" />
+								<Field Name="IsNonPeriodic" Type="Byte" />
+								<Field Name="DateToDelete" Type="Integer" />
+								<Field Name="f_Data.Size" Type="Integer" />
+								<Field Name="f_Data" Type="PAnsiChar" />
+							</Fields>
+						</SaveToLoadFrom>
+					</Class>
+					<Class Name="TddAutoExportTask" />
+					<Class Name="TDeleteDocsQuery" />					
+					<Class Name="TDictEditQuery">
+						<SaveToLoadFrom Inherited="True">
+							<Fields>
+								<Field Name="DictInfo.Family" Type="Integer" />
+								<Field Name="DictInfo.DictType" Type="Integer" />
+								<Field Name="DictInfo.Operation" Type="Integer" />
+								<Field Name="DictInfo.ID" Type="Cardinal" />
+								<Field Name="DictInfo.ParentID" Type="Cardinal" />
+								<Field Name="DictInfo.NextID" Type="Cardinal" />
+							</Fields>
+						</SaveToLoadFrom>
+						<ChildsClass>
+							<Class Name="TGetDictEditQuery">
+								<SaveToPipe Inherited="false">
+									<Field Name="Index" Type="Boolean" />
+									<Field Name="DictInfo.Family" Type="Integer" ReadFromPipe="True" />
+									<Field Name="DictInfo.DictType" Type="Integer" ReadFromPipe="True" />
+									<Field Name="DictInfo.Operation" Type="Integer" ReadFromPipe="True" />
+									<Field Name="DictInfo.ID" Type="Cardinal" ReadFromPipe="True" />
+									<Field Name="DictInfo.ParentID" Type="Cardinal" ReadFromPipe="True" />
+									<Field Name="DictInfo.NextID" Type="Cardinal" ReadFromPipe="True" />
+								</SaveToPipe>								
+							</Class>
+						</ChildsClass>
+					</Class>
+					<Class Name="TalcuFNSExport" />
+				</ChildsClass>
+			</Class>
+		</ChildsClass>
+	</Class>
+</ClassFields>

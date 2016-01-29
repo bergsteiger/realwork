@@ -1,0 +1,859 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/TemplateFunctions.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::TemplateFunctions
+//
+// Контейнер шаблонных функций
+// ---
+// Класс с этим стекреотипом служит виртуальным контейнером для шаблонных функций. Т.е. сам класс
+// не определяет никаких артефактов генерации.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TemplateFunctions::Class
+implementation @ <<TemplateFunctions>>
+//? Контейнер шаблонных функций
+//? Класс с этим стекреотипом служит виртуальным контейнером для шаблонных функций. Т.е. сам класс не определяет никаких артефактов генерации.
+//< *::Class,*::Category
+
+//= ClassBaseGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +-
+// - типы видимости
+//Y code_template_functions.gif
+//L code_template_functions
+// Параметры визуализации
+//$ C 245,245,245
+//$ l 100,100,100
+//$ f 100,100,100
+//W true
+// - может быть параметризован
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// генерация операций с учетом видимости
+//%f _dump_with_visible_spec
+; // st_space_key
+
+: dump_with_visible_spec OBJECT IN %S
+//#UC START# *4714941C01D4for47148FF9033C*
+//	[public:<{}{%CC=Operation&%CV=PublicAccess}
+ if NOT-EMPTY
+ begin
+  'public:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |V ) %== 'PublicAccess'  ) ) then
+   begin
+    #13#10
+
+//	%CX
+    %C |X 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	][protected:<{}{%CC=Operation&%CV=ProtectedAccess}
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  'protected:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |V ) %== 'ProtectedAccess'  ) ) then
+   begin
+    #13#10
+
+//	%CX
+    %C |X 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	][private:<{}{%CC=Operation&%CV=PrivateAccess}
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  'private:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |V ) %== 'PrivateAccess'  ) ) then
+   begin
+    #13#10
+
+//	%CX
+    %C |X 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+ NOP
+//#UC END# *4714941C01D4for47148FF9033C*
+; // dump_with_visible_spec
+
+
+// генерация определения операций для UtilityPack
+//%f _dump_for_utility_pack_h
+: dump_for_utility_pack_h OBJECT IN %S
+//#UC START# *471494330271for47148FF9033C*
+//	[<{}{%CC=Operation&%CV=PublicAccess}
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |V ) %== 'PublicAccess'  ) ) then
+   begin
+    #13#10
+
+//	%CX
+    %C |X 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+ NOP
+//#UC END# *471494330271for47148FF9033C*
+; // dump_for_utility_pack_h
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47148FF9033C*
+//c                                                               {}
+//r {%SK!=ParameterizedClass}:                                    {%SS must be parametrized}
+//#UC END# *4704C0E30186for47148FF9033C*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47148FF9033C*
+//#UC END# *4705CBD6003Efor47148FF9033C*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for47148FF9033C*
+//#UC END# *470484D50138for47148FF9033C*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47148FF9033C*
+//P
+//	<{}{%CC=Operation}
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Operation' ) then
+  begin
+   #13#10
+
+//	%CX
+   %C |X 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *47022CB8034Bfor47148FF9033C*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47148FF9033C*
+//	%f_shift_intend(-1)\
+ [%f] shift_intend %( -1 )% 
+//	[{%P#f_IsUtilityPack()=true}{%S%f_dump_with_visible_spec()}%S%f_dump_for_utility_pack_h()]%f_shift_intend(1)
+ if ( ( %P %?f IsUtilityPack %( )% ) %==  true ) then
+ begin
+  %S %f dump_for_utility_pack_h %( )% 
+ end // if
+ else
+ begin
+  %S %f dump_with_visible_spec %( )% 
+ end // else
+ [%f] shift_intend %( 1 )% 
+
+//#UC END# *47022C88029Ffor47148FF9033C*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47148FF9033C*
+//= cpp
+%call-other-gen ( 'cpp' )
+//#UC END# *47022CCF00EAfor47148FF9033C*
+; // i.h
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47148FF9033C*
+//#UC END# *470F15B800CBfor47148FF9033C*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47148FF9033C*
+//#UC END# *470F1571031Cfor47148FF9033C*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47148FF9033C*
+//#UC END# *477398E501C0for47148FF9033C*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for47148FF9033C*
+//#UC END# *55B8D28B0157for47148FF9033C*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for47148FF9033C*
+//#UC END# *55B8D2F80145for47148FF9033C*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for47148FF9033C*
+//#UC END# *55B8DD9C0301for47148FF9033C*
+; // res.cmd.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47148FF9033C*
+//#UC END# *470321C1038Afor47148FF9033C*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47148FF9033C*
+//#UC END# *470321950119for47148FF9033C*
+; // java
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47148FF9033C*
+//#UC END# *46E6D4BB0339for47148FF9033C*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: TemplateFunctions::Class::Operation
+end. // <<TemplateFunctions>>
+
+implementation @ :: <<TemplateFunctions>> <<Operation>> ;
+//? Константный метод
+//? По умолчанию все методы константные. Дл того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<chg>>
+//= ClassBase::Class::Operation
+
+// Параметры стереотипа
+//v -#+
+// - типы видимости
+//e g
+// - возможность использовать исключения
+//a raf
+// - тип абстракции
+//Y code_const_method.gif
+//L code_const_method
+//T 
+// - может не иметь "цели" (типа/результата)
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+//A const|cached|const,cached
+// - стереотипы "цели" (типа/результата)
+
+// Генераторы
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor471490940138*
+//= cpp
+%call-other-gen ( 'cpp' )
+//#UC END# *47022CCF00EAfor471490940138*
+; // i.h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471490940138*
+//c                                        {}
+//r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+//r "%P%PM"="UtilityClass::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityClass}
+//#UC END# *4704C0E30186for471490940138*
+; // constraint
+
+
+// Вложенные стереотипы
+//: TemplateFunctions::Class::Operation::Parameter
+end. // :: <<TemplateFunctions>> <<Operation>> ;
+
+implementation @ :: <<TemplateFunctions>> <<Operation>> ;
+//? параметр операции
+//= ClassBase::Class::Operation::Parameter
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for471490A60261*
+//#UC END# *46E6D4BB0339for471490A60261*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor471490A60261*
+//#UC END# *470F1571031Cfor471490A60261*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor471490A60261*
+//#UC END# *470F15B800CBfor471490A60261*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for471490A60261*
+//#UC END# *477398E501C0for471490A60261*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for471490A60261*
+//#UC END# *55B8D28B0157for471490A60261*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for471490A60261*
+//#UC END# *55B8D2F80145for471490A60261*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for471490A60261*
+//#UC END# *55B8DD9C0301for471490A60261*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471490A60261*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for471490A60261*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471490A60261*
+//#UC END# *4705CBD6003Efor471490A60261*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for471490A60261*
+//#UC END# *470484D50138for471490A60261*
+; // wiki_up_add_gen
+
+
+
+//: TemplateFunctions::Class::chg::Operation
+end. // :: <<TemplateFunctions>> <<Operation>> ;
+
+implementation @ :: <<TemplateFunctions>> <<chg>> ;
+//? Неконстантный метод
+//? Метод который может изменить состояние объекта своего класса.
+//= ClassBase::Class::chg::Operation
+
+// Параметры стереотипа
+//Y code_method.gif
+//L code_method
+
+// Генераторы
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4714912A00FA*
+//= cpp
+%call-other-gen ( 'cpp' )
+//#UC END# *47022CCF00EAfor4714912A00FA*
+; // i.h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4714912A00FA*
+//c                                        {}
+//r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+//r "%P%PM"="UtilityClass::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityClass}
+//#UC END# *4704C0E30186for4714912A00FA*
+; // constraint
+
+
+//: TemplateFunctions::Class::oneway::Operation
+end. // :: <<TemplateFunctions>> <<chg>> ;
+
+implementation @ :: <<TemplateFunctions>> <<oneway>> ;
+//? Асинхронная операция
+//? Вызов операции будет выполнен асинхронна. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+//= ClassBase::Class::oneway::Operation
+
+// Параметры стереотипа
+//a arf
+// - тип абстракции
+//Y code_const_method.gif
+//L code_const_method
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4714913A003E*
+//c                                        {}
+//r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+//r "%P%PM"="UtilityClass::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityClass}
+//#UC END# *4704C0E30186for4714913A003E*
+; // constraint
+
+
+//: TemplateFunctions::Class::oneway,chg::Operation
+end. // :: <<TemplateFunctions>> <<oneway>> ;
+
+implementation @ :: <<TemplateFunctions>> <<oneway,chg>> ;
+//? Асинхронная неконстантная операция
+//? Вызов операции будет выполнен асинхронно. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+//? Неконстантная операция может изменять состояние своего объекта
+//= ClassBase::Class::oneway,chg::Operation
+
+// Параметры стереотипа
+//Y code_method.gif
+//L code_method
+
+// Генераторы
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor471491410186*
+//= cpp
+%call-other-gen ( 'cpp' )
+//#UC END# *47022CCF00EAfor471491410186*
+; // i.h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471491410186*
+//r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+//r "%P%PM"="UtilityClass::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityClass}
+//#UC END# *4704C0E30186for471491410186*
+; // constraint
+
+
+//: TemplateFunctions::Class::static::Operation
+end. // :: <<TemplateFunctions>> <<oneway,chg>> ;
+
+implementation @ :: <<TemplateFunctions>> <<static>> ;
+//? Статический метод
+//? Статический метод является методом класса а не объекта. Статический метод может иметь доступ только к статическим данным класса, и может быть вызван на самом классе, а не на его экземпляре.
+//= ClassBase::Class::static::Operation
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471491500261*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#%f_templ_header(%P)\
+ out_indent [%f] templ_header %( %P )% 
+//	#[{%P%P#f_IsUtilityPack()!=true}static ]%f_ret(%S) %SN (<{, }%f_arg_full_decl(%C)>)[
+ out_indent if ( ( %P ->P %?f IsUtilityPack %( )%  ) %!=  true ) then
+ begin
+  'static ' 
+ end // if
+ [%f] ret %( %S )% ' '
+ %S |N ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] arg_full_decl %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ')'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#	/*throw (<{, }%E<%NN::>%EN>)*/];
+  out_indent '	/*throw ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    %E
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%N
+     begin
+      OBJECT IN %N
+      if true then
+      begin
+       %N |N '::' 
+       ++! l_Counter
+      end // if
+     end // for N
+
+    ) // bind
+     %E |N 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')*/' 
+ end // if
+ NOP
+ ';'
+//#UC END# *47022C88029Ffor471491500261*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor471491500261*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	%f_templ_header(%{SERV})\
+ [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% 
+//	%f_templ_header(%P)\
+ [%f] templ_header %( %P )% 
+//	%f_ret(%S) %f_function_scope(%{SERV})%SN (<{, }%f_arg_full_decl(%C)>) [
+ [%f] ret %( %S )% ' '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% %S |N ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] arg_full_decl %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ') '
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//		/*throw (<{, }%E<%NN::>%EN>)*/
+  '	/*throw ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    %E
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%N
+     begin
+      OBJECT IN %N
+      if true then
+      begin
+       %N |N '::' 
+       ++! l_Counter
+      end // if
+     end // for N
+
+    ) // bind
+     %E |N 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')*/'
+//	]{%f_start_func_cpp(%S,"%{SERV}N::%SN")
+ end // if
+ NOP
+ '{'
+ [%f] start_func_cpp %( %S %, ( get_global_var ( 'SERV' ) |N ) '::'
+ %S |N )% 
+//		%f_s_c_op_c_uc(%S)
+ '	'
+ [%f] s_c_op_c_uc %( %S )% 
+//	%f_end_func_cpp(%S)}
+ [%f] end_func_cpp %( %S )% '}'
+//#UC END# *47022CB8034Bfor471491500261*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor471491500261*
+//= cpp
+%call-other-gen ( 'cpp' )
+//#UC END# *47022CCF00EAfor471491500261*
+; // i.h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471491500261*
+//c                                        {}
+//r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+//#UC END# *4704C0E30186for471491500261*
+; // constraint
+
+
+//: TemplateFunctions::Class::Parameter
+end. // :: <<TemplateFunctions>> <<static>> ;
+
+implementation @ :: <<TemplateFunctions>> <<Parameter>> ;
+//? шаблонный параметр
+//= ClassBase::Class::Parameter
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4714915E0232*
+//= cpp
+%call-other-gen ( 'cpp' )
+//#UC END# *47022CCF00EAfor4714915E0232*
+; // i.h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<TemplateFunctions>> <<Parameter>> ;
+

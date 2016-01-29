@@ -1,0 +1,492 @@
+// VCMHelpers 550198F60382 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_550198F60382
+
+FORWARD ME_550199070251
+
+FORWARD ME_513A59658F12
+
+: ME_9CBAC5378D28
+ CONST UID '9CBAC5378D28'
+ CONST Name 'CreateManager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_513A59658F12 // Ml3MenuManagerHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_9CBAC5378D28 CreateManager
+
+: ME_FFCD4B7E45D8
+ CONST UID 'FFCD4B7E45D8'
+ CONST Name 'FreeManager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_513A59658F12 // Ml3MenuManagerHelper
+ ;
+
+ref; // ME_FFCD4B7E45D8 FreeManager
+
+: ME_513A59658F12
+ CONST UID '513A59658F12'
+ CONST Name 'Ml3MenuManagerHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3MenuManagerHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ : Operations
+   @ ( ME_9CBAC5378D28 // CreateManager
+ ME_FFCD4B7E45D8 // FreeManager
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_513A59658F12 Ml3MenuManagerHelper
+
+FORWARD ME_0BEB6CFDB3DA
+
+: ME_9CBAC5378D28_ME_0BEB6CFDB3DA
+ CONST UID '9CBAC5378D28'
+ CONST Name 'CreateManager'
+ : Original ME_9CBAC5378D28 // CreateManager
+ ;
+ : Implementor ME_0BEB6CFDB3DA // Il3MenuManagerHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_9CBAC5378D28_ME_0BEB6CFDB3DA CreateManager
+
+: ME_FFCD4B7E45D8_ME_0BEB6CFDB3DA
+ CONST UID 'FFCD4B7E45D8'
+ CONST Name 'FreeManager'
+ : Original ME_FFCD4B7E45D8 // FreeManager
+ ;
+ : Implementor ME_0BEB6CFDB3DA // Il3MenuManagerHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_FFCD4B7E45D8_ME_0BEB6CFDB3DA FreeManager
+
+: ME_0BEB6CFDB3DA
+ CONST UID '0BEB6CFDB3DA'
+ CONST GUID 'ECC961D9-9F47-4CCE-87B8-CBDE8D5ABCDA'
+ CONST Name 'Il3MenuManagerHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3MenuManagerHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ : Implements
+   @ ( ME_513A59658F12 // Ml3MenuManagerHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_9CBAC5378D28_ME_0BEB6CFDB3DA // CreateManager
+ ME_FFCD4B7E45D8_ME_0BEB6CFDB3DA // FreeManager
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_0BEB6CFDB3DA Il3MenuManagerHelper
+
+: ME_11A29D4E6B77
+ CONST UID '11A29D4E6B77'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3MenuManagerHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ : Target ME_0BEB6CFDB3DA // Il3MenuManagerHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_11A29D4E6B77 Alien
+
+: ME_F8B51AEA986B
+ CONST UID 'F8B51AEA986B'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ : Target ME_0BEB6CFDB3DA // Il3MenuManagerHelper
+ ;
+
+ref; // ME_F8B51AEA986B f_Alien
+
+: ME_5506A8670291
+ CONST UID '5506A8670291'
+ CONST Name 'CreateManager'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5506A8670291 CreateManager
+
+: ME_5506A87D008E
+ CONST UID '5506A87D008E'
+ CONST Name 'FreeManager'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550199070251 // Tl3MenuManagerHelper
+ ;
+
+ref; // ME_5506A87D008E FreeManager
+
+: ME_F99FE6BCC637
+ CONST UID 'F99FE6BCC637'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_F99FE6BCC637 Exists
+
+: ME_9CBAC5378D28_ME_550199070251
+ CONST UID '9CBAC5378D28'
+ CONST Name 'CreateManager'
+ : Original ME_9CBAC5378D28 // CreateManager
+ ;
+ : Implementor ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_9CBAC5378D28_ME_550199070251 CreateManager
+
+: ME_FFCD4B7E45D8_ME_550199070251
+ CONST UID 'FFCD4B7E45D8'
+ CONST Name 'FreeManager'
+ : Original ME_FFCD4B7E45D8 // FreeManager
+ ;
+ : Implementor ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_FFCD4B7E45D8_ME_550199070251 FreeManager
+
+: ME_5000565C019C_ME_550199070251
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_550199070251 // Tl3MenuManagerHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_550199070251 ClearFields
+
+: ME_550199070251
+ CONST UID '550199070251'
+ CONST Name 'Tl3MenuManagerHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550198F60382 // VCMHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_513A59658F12 // Ml3MenuManagerHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_11A29D4E6B77 // Alien
+ ME_F8B51AEA986B // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5506A8670291 // CreateManager
+ ME_5506A87D008E // FreeManager
+ ME_F99FE6BCC637 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_9CBAC5378D28_ME_550199070251 // CreateManager
+ ME_FFCD4B7E45D8_ME_550199070251 // FreeManager
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_550199070251 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_513A59658F12 // Ml3MenuManagerHelper
+ ME_0BEB6CFDB3DA // Il3MenuManagerHelper
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MenuManagerHelper.pas'
+
+ref; // ME_550199070251 Tl3MenuManagerHelper
+
+FORWARD ME_5501A3AE02AA
+
+FORWARD ME_1FB1A07FEA18
+
+: ME_CA1F3F463873
+ CONST UID 'CA1F3F463873'
+ CONST Name 'ClearHistory'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ;
+
+ref; // ME_CA1F3F463873 ClearHistory
+
+: ME_1FB1A07FEA18
+ CONST UID '1FB1A07FEA18'
+ CONST Name 'Ml3DispatcherHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3DispatcherHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+ : Operations
+   @ ( ME_CA1F3F463873 // ClearHistory
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_1FB1A07FEA18 Ml3DispatcherHelper
+
+FORWARD ME_0DC9B60865A3
+
+: ME_CA1F3F463873_ME_0DC9B60865A3
+ CONST UID 'CA1F3F463873'
+ CONST Name 'ClearHistory'
+ : Original ME_CA1F3F463873 // ClearHistory
+ ;
+ : Implementor ME_0DC9B60865A3 // Il3DispatcherHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_CA1F3F463873_ME_0DC9B60865A3 ClearHistory
+
+: ME_0DC9B60865A3
+ CONST UID '0DC9B60865A3'
+ CONST GUID 'BF29E5DD-DC50-4752-800C-CA9E91242A15'
+ CONST Name 'Il3DispatcherHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3DispatcherHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+ : Implements
+   @ ( ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_CA1F3F463873_ME_0DC9B60865A3 // ClearHistory
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_0DC9B60865A3 Il3DispatcherHelper
+
+: ME_C08C1B480486
+ CONST UID 'C08C1B480486'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3DispatcherHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+ : Target ME_0DC9B60865A3 // Il3DispatcherHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_C08C1B480486 Alien
+
+: ME_882A733FAA36
+ CONST UID '882A733FAA36'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+ : Target ME_0DC9B60865A3 // Il3DispatcherHelper
+ ;
+
+ref; // ME_882A733FAA36 f_Alien
+
+: ME_55069D5903C8
+ CONST UID '55069D5903C8'
+ CONST Name 'ClearHistory'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+
+ref; // ME_55069D5903C8 ClearHistory
+
+: ME_6CDEE1E8465D
+ CONST UID '6CDEE1E8465D'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_6CDEE1E8465D Exists
+
+: ME_CA1F3F463873_ME_5501A3AE02AA
+ CONST UID 'CA1F3F463873'
+ CONST Name 'ClearHistory'
+ : Original ME_CA1F3F463873 // ClearHistory
+ ;
+ : Implementor ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_CA1F3F463873_ME_5501A3AE02AA ClearHistory
+
+: ME_5000565C019C_ME_5501A3AE02AA
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_5501A3AE02AA ClearFields
+
+: ME_5501A3AE02AA
+ CONST UID '5501A3AE02AA'
+ CONST Name 'Tl3DispatcherHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550198F60382 // VCMHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_C08C1B480486 // Alien
+ ME_882A733FAA36 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55069D5903C8 // ClearHistory
+ ME_6CDEE1E8465D // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_CA1F3F463873_ME_5501A3AE02AA // ClearHistory
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_5501A3AE02AA // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ME_0DC9B60865A3 // Il3DispatcherHelper
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3DispatcherHelper.pas'
+
+ref; // ME_5501A3AE02AA Tl3DispatcherHelper
+
+: ME_550198F60382
+ CONST UID '550198F60382'
+ CONST Name 'VCMHelpers'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
+ ;
+ : Children
+   @ ( ME_550199070251 // Tl3MenuManagerHelper
+ ME_5501A3AE02AA // Tl3DispatcherHelper
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\550198F60382.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\550198F60382.pas.ms.script.runner'
+
+ref; // ME_550198F60382 VCMHelpers

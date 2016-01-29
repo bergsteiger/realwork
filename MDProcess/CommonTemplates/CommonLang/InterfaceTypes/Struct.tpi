@@ -1,0 +1,730 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/Struct.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::Struct
+//
+// Структура
+// ---
+// Элемент аграгации других типов. Структура не может иметь бизнесс-операций, только данные.
+// Дополнительно (через пользовательское свойство) может быть указанно что для структуоры
+// необходимо сгенерировать стандартные операторы.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Struct::Class
+? Структура
+? Элемент аграгации других типов. Структура не может иметь бизнесс-операций, только данные. Дополнительно (через пользовательское свойство) может быть указанно что для структуоры необходимо сгенерировать стандартные операторы.
+> Enum::Class
+
+= WikiImplClass::Class
+= InterfaceGeneratorWithJava::MDAGenerator
+= Генерация JavaScript::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+Y code_struct.gif
+L code_struct
+// Параметры визуализации
+$ C 240,230,210
+$ l 100,75,35
+$ f 100,75,35
+B -2
+/ - вес форвард декларации
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p need dctor:b=false ? включает генерацию деструктора
+p Need copy ctor:b=false ? включает генерацию копирующего конструктора и оператора присваивания
+p Need init ctor:b=false ? включает генерацию конструктора инициализации
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+p packed:b=false ? определяет упакованность структуры
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+	][{"%S{need dctor}"!="%S{!need dctor}"}%f_up_prefix(%S) *need dctor* = *%S{need dctor}* - включает генерацию деструктора
+	][{"%S{Need copy ctor}"!="%S{!Need copy ctor}"}%f_up_prefix(%S) *Need copy ctor* = *%S{Need copy ctor}* - включает генерацию копирующего конструктора и оператора присваивания
+	][{"%S{Need init ctor}"!="%S{!Need init ctor}"}%f_up_prefix(%S) *Need init ctor* = *%S{Need init ctor}* - включает генерацию конструктора инициализации
+	][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+	][{"%S{packed}"!="%S{!packed}"}%f_up_prefix(%S) *packed* = *%S{packed}* - определяет упакованность структуры
+	]
+
+// базовый класс для структуры
+%f _base_class
+//#UC START# *470F357C03D8for470F33CD0242*
+	[{%XU=java&<{}{%f_used_as_compare_func(%s)=true}{%sC}>!=0}%f_set_var(COMP_KEY,"")<{}{%f_used_as_compare_func(%s)=true}{%s}%f_set_compare_key_type(%s)> implements java.util.Comparator\<%f_type(%{COMP_KEY}%T)\>]
+//#UC END# *470F357C03D8for470F33CD0242*
+
+// возвращает true, если для структуры нужен файл реализации (cpp)
+%f _struct_need_impl
+//#UC START# *470F35A0036Bfor470F33CD0242*
+	[{%S{Need copy ctor}=true|%S{Need init ctor}=true|%S{Need assign op}=true|<{}{"%CC"="Operation"&"%CS"="ctor"}{%CC}>!=0|%S{need dctor}=true}{false}true]
+//#UC END# *470F35A0036Bfor470F33CD0242*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F33CD0242*
+c                                                                      {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}:   {имя %SS, используемой в качестве серверного типа, не должно совпадать с именем родителя}
+r {%M{force usage}=false&%S{force usage}=false&%ax=false}:             {%SS ни кем не используется}
+r {%Gx=true|%Rx=true}:                                                  {%SS не может ни от кого наследоваться и никого реализовывать}
+//#UC END# *4704C0E30186for470F33CD0242*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Стереотип является структурой
+%f _IsStruct
+// возвращаемый результат: boolean
+//#UC START# *4B6C49DA0023for470F33CD0242*
+	true
+//#UC END# *4B6C49DA0023for470F33CD0242*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for470F33CD0242*
+	[{%S{Need init ctor}=true}* конструктор инициализации
+	][{%S{Need copy ctor}=true}* копирующий конструктор
+	][{%S{need dctor}=true}* деструктор для финальных классов
+	]
+//#UC END# *470484D50138for470F33CD0242*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F33CD0242*
+	%f_set_var(__SCOPE,P)%f_set_var(STRUCT,S)%f_dump_cpp_functors_cpp(%S)[{%S{need dctor}=true}\
+	%f_templ_header(%S)%f_function_scope(%S)~%SN () {
+		%U[{_DCTOR}
+		]
+	}
+	][{%S{Need init ctor}=true}\
+	%f_struct_init_ctor_header_cpp(%S)
+	%U[{_INIT_CTOR_BASE_INIT!cpp!}
+	]
+	{
+		%U[{_INIT_CTOR!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	}
+	][{%S{Need copy ctor}=true}\
+	%f_templ_header(%S)%f_function_scope(%S)%SN (const %SN& copy) 
+	%U[{_COPY_CTOR_BASE_INIT!cpp!}
+	]
+	{
+		%U[{_COPY_CTOR!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	}
+	
+	%f_templ_header(%S)%t_ret(%S,"cached") %f_function_scope(%S)operator = (const %SN& copy) {
+		%U[{_ASSIGN_OP!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+		return *this;
+	}
+	][<{}{"%CC"="Operation"&"%CS"="ctor"}
+	%CX
+	>]
+//#UC END# *47022CB8034Bfor470F33CD0242*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F33CD0242*
+F struct %SN;
+	[#%S%f_open_ifdef()
+	][<#%FF
+	>]%f_dump_cpp_functors_h_fd(%S)[{"%PM"="Interfaces::Category"}\#pragma pack (push, 1)
+	
+	]%f_set_var(STRUCT,S)%f_docs(%S)\
+	#struct %SN%S%f_base_class() {
+	<{}{"%CC"!="Operation"}%f_docs(%C)\
+	#	%f_attr(%C) [{}{%f_to_omg(%C%TN)}%CN];
+	>%f_dump_def_init_ctor(%S)[{%S{need dctor}=true}
+	#	~%SN ();
+	][{%S{Need init ctor}=true}
+	%f_struct_init_ctor_header_h(%S)
+	][{%S{Need copy ctor}=true}
+	#	%SN (const %SN& copy);
+	
+	#	%SN& operator = (const %SN& copy);
+	][<{}{"%CC"="Operation"&"%CS"="ctor"}
+	%CX
+	>]%f_dump_cpp_functors_h(%S)[{"%S{need UC}"="true"}#	%U[
+	#	]
+	]#};[{"%PM"="Interfaces::Category"}
+	
+	\#pragma pack (pop)][
+	#%S%f_close_ifdef()]
+//#UC END# *47022C88029Ffor470F33CD0242*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F33CD0242*
+F struct <%NN::>%SN;
+	<#%FF
+	>%f_docs(%S)\
+	#struct %SN {<{}{"%CC"!="Operation"}
+	%CX>
+	#};
+//#UC END# *47022BBE0261for470F33CD0242*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F33CD0242*
+R  
+	<{\n}%CX>
+//#UC END# *470F15B800CBfor470F33CD0242*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F33CD0242*
+R  
+	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+	%f_pas_OpenType(%S)\
+	<{}{%C#f_IsDefine()=true}[%CX\n]>\
+	[#%S#f_open_ifdef()\n]\
+	#%f_pas_TypeName(%S) = [{%S{packed}=true}packed ]record\
+	[\n# \{* %f_Doc(%S) \}]
+	[#  <{\n#  }{%C#f_IsDefine()!=true&%C#f_IsConstructor()!=true}%CX>\n]\
+	[{%S{need UC}=true}%U[{publ}\n]\n]\
+	#end;//%f_pas_TypeName(%S)\
+	[\n#%S#f_close_ifdef()]\
+//	[\n\n<{\n}{%C#f_IsConstructor()=true}%CX>]\
+	]
+//#UC END# *470F1571031Cfor470F33CD0242*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F33CD0242*
+O [{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false}%SN.java]
+	%f_output_constraint(%S)\
+	[{%f_is_server_type(%S)=false}[{%t_nested_scope_def(%P)=false}\
+	%f_header(%S)
+	package %f_dump_java_package(%S);
+	
+	[%f_java_dump_import_block(%S)
+	]%f_includes_by_contents_java(%S)
+	%U[{_CUSTOM_IMPORT}
+	]
+	
+	%U[{_CUSTOM_CLASS_DEFINITION}
+	]
+	]%f_set_var(STRUCT,S)%f_docs(%S)\
+	#%t_visibility(%S,"%XU")[{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false}{static }]class %SN%S%f_base_class() {
+	<{}{"%CC"!="Operation"}
+	%CX
+	>%f_dump_def_init_ctor_java(%S)[{%S{need dctor}=true}
+	#	protected void finalize () {
+	#		%U[{_DTOR}
+	#		]
+	#	}
+	][{%S{Need init ctor}=true}
+	#	public %SN (<{, }{%CC=Attribute}[{%Cl!=lnk}{%f_attr(%C)}%t_arg(%C%T,"in")] %CN_>) {
+	#		%U[{_CTOR}
+	#		]
+	#	}
+	][{%S{Need copy ctor}=true}
+	#	public %SN (final %SN copy) {
+	#		%U[{_COPY_CTOR}
+	#		]
+	#	}
+	][{%S{Need assign op}=true}
+	][<{}{"%CC"="Operation"&"%CS"="ctor"}%f_docs(%C)\
+	#	public %SN (%C<{, }%f_arg_full_decl(%C)>) {
+	#		%U[{_%CU_CTOR_BODY!java!}
+	#		]
+	#	}
+	>]%f_dump_functors_java(%S)[{"%S{need UC}"="true"}#	%U[
+	#	]
+	]#} // class %SN][{%f_is_server_type(%S)=false}\
+	[{%t_nested_scope_def(%P)=false}
+	%f_footer(%S)
+	]]
+
+f _dump_functors_java
+	[%f_set_var(COMP_KEY,"")<{}{%f_used_as_compare_func(%s)=true}{%s}%f_set_compare_key_type(%s)>[{"%{COMP_KEY}U"!=""}
+	#	public int compare (%f_type(%{COMP_KEY}%T) o1, %f_type(%{COMP_KEY}%T) o2) {
+	#		%U[{_%{COMP_KEY}U_COMPARE}
+	#		throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+	#		]
+	#	}
+	]]
+//#UC END# *470321950119for470F33CD0242*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F33CD0242*
+F struct %f_type(%S);
+	[{%f_has_empty_ctor(%S)=false}%f_error("For export struct (%f_type(%S)) from DLL it must have empty ctor")]\
+	[{"%f_need_tie(%S)"="true"}\#pragma pack (push, 1)
+	
+	struct %f_type(%S) {
+	<{\n}{%CC!=Operation}	[{%t_is_container(%C%T)=true}{%t_pointer_attr(%C%T)}%f_tn(%C%T)*] %CN;>
+		
+		static void make_cpp (const %SN_tie& obj, %SN& ret_);
+	
+		static void make_tie (const %SN& obj, %t_arg(%S,"inout") ret_);
+	};[{%f_used_in_callback(%S)=true}
+	
+	struct %f_type(%S)_for_callback {
+	<{\n}{%CC!=Operation}	[{%t_is_container(%C%T)=true}{%t_pointer_attr(%C%T)}%f_tn(%C%T)*] %CN;>
+		
+		~%f_type(%S)_for_callback ();
+		
+		static void make_cpp (const %f_type(%S)_for_callback& obj, %SN& ret_);
+	
+		static void make_tie (const %SN& obj, %f_type(%S)_for_callback& ret_);
+	};]
+	
+	\#pragma pack (pop)]
+
++ dll.cpp
+	[{%f_has_empty_ctor(%S)=false}%f_error("For export struct (%f_type(%S)) from DLL it must have empty ctor")]\
+	[{"%f_need_tie(%S)"="true"}\
+	void %f_type(%S)::make_cpp (const %SN_tie& obj, %SN& ret_) {
+	<{}{%CC!=Operation}		[{"%f_need_tie(%C%T)"="true"}{ret_.%CN = obj.%CN}\
+	[{%t_is_container(%C%T)=true}{%f_type_tie(%C%T)::make_cpp ([{%t_tie_should_be_dereferenced(%C%T)=true}*]obj.%CN, ret_.%CN[{%t_interface(%C%T)=true}.out (), true])}\
+	%f_cpp_type(%C%T)* ret_%CN_;
+			%f_type_tie(%C%T)::make_cpp (obj.%CN, ret_%CN_);
+			ret_.%CN = *ret_%CN_]];
+	>}
+	
+	void %f_type(%S)::make_tie (const %SN& obj, %t_arg(%S,"inout") ret_) {
+	<{}{%CC!=Operation}\
+	[{"%f_need_tie(%C%T)"="true"}{		ret_.%CN = obj.%CN;}[{%t_interface(%C%T)=true|%t_is_container(%C%T)=true}		ret_.%CN = 0;
+	]		%f_type_tie(%C%T)::make_tie (obj.%CN[{"%t_interface(%C%T)"="true"}.in ()], [{%t_tie_should_be_dereferenced(%C%T)=true}*]ret_.%CN[{%t_interface(%C%T)=true}, true]);]
+	>}
+	[{%f_used_in_callback(%S)=true}
+	%f_type(%S)_for_callback::~%f_type(%S)_for_callback () {
+	<{}{%CC=Attribute&%t_interface(%C%T)=true}\
+		if (%CN) {
+			%CN-\>release ();
+		}
+	>
+	}
+	
+	void %f_type(%S)_for_callback::make_cpp (const %f_type(%S)_for_callback& obj, %SN& ret_) {
+	<{}{%CC!=Operation}		[{"%f_need_tie(%C%T)"="true"}{ret_.%CN = obj.%CN}\
+	[{%t_is_container(%C%T)=true}{%f_type_tie(%C%T)::make_cpp (obj.%CN, ret_.%CN[{"%t_interface(%C%T)"="true"}.out ()], true)}\
+	%f_cpp_type(%C%T)* ret_%CN_;
+			%f_type_tie(%C%T)::make_cpp (obj.%CN, ret_%CN_);
+			ret_.%CN = *ret_%CN_]];
+	>}
+	
+	void %f_type(%S)_for_callback::make_tie (const %SN& obj, %f_type(%S)_for_callback& ret_) {
+	<{}{%CC!=Operation}\
+	[{"%f_need_tie(%C%T)"="true"}{		ret_.%CN = obj.%CN;}		ret_.%CN = 0;
+			%f_type_tie(%C%T)::make_tie (obj.%CN[{"%t_interface(%C%T)"="true"}.in ()], ret_.%CN[{%t_interface(%C%T)=true}, true]);]
+	>}
+	]]
+
+t _struct_tie_var_attr
+c                                         {}
+r "%t_is_container(%S)"="true":           {Core::Var\<%f_tn_prefix(%S)%f_tn(%S)\>}
+r "%f_is_fixed_simple(%S)"="true":        {[{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)}
+r "%f_is_fixed_complex(%S)"="true":       {%f_tn_prefix(%S)%f_tn(%S)}
+r "%SN"="string":                         {%f_tn(%S)}
+r "%SN"="pointer":                        {%f_tn(%S)}
+r "%f_is_not_fixed_simple(%S)"="true":    {%f_var(%S)}
+r "%f_is_not_fixed_complex(%S)"="true":   {%f_var(%S)}
+r "%t_refcounted(%S)"="true":             {%f_var(%S)}
+f _used_in_callback
+	[{<{}{%aC=Parameter&%a%PC=Operation&%a%P%P{call way}=back}{%aC}>!=0}{false}true]
+
+f _has_empty_ctor
+	[{%f_count_ctor(%S)=0&%S{Need init ctor}=false&%S{Need copy ctor}=false}{[{<{}{%CC=Operation&%CS=ctor&"%C<%f_arg_full_decl(%C)>"=""}{C}>!=0}{false}true]}true]
+//#UC END# *47032EC4032Cfor470F33CD0242*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F33CD0242*
+	[%f_pas_OpenType(%S)\n]\
+	%f_docs(%S)\
+	#P%SN = ^T%SN;
+	#T%SN = packed record
+	<{\n}{%CC=Attribute}#	r%f_to_borland(%CN): %f_type(%C%T);[ // %f_str_replace(%f_Doc(%C),\n,%f_space())]>
+	#end;
+//#UC END# *470F152700FAfor470F33CD0242*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Struct::Class::Attribute
+? Атрибут
+= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+a fr
+/ - тип абстракции
+Y code_attr.gif
+L code_attr
+A const|ref|const,ref
+/ - стереотипы "цели" (типа/результата)
+l arl
+/ - возможные типы связи атрибута
+
+// Генераторы
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F3680003E*
+	%f_docs(%S)\
+	#[{"%SS"="sequence"}{%T<%NN::>%TN}sequence \<%T<%NN::>%TN\>] %SN;
+//#UC END# *47022BBE0261for470F3680003E*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F3680003E*
+//#UC END# *47022C88029Ffor470F3680003E*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F3680003E*
+//#UC END# *47022CB8034Bfor470F3680003E*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F3680003E*
+	%f_docs(%S)\
+	#private %f_attr(%S) [{}{%f_to_java(%TN)}%f_to_java(%SN)_][{%f_can_be_init(%S)=true}{[ = %f_init(%S)];} = %f_to_java(init_%SN) ();
+	
+	#static private %f_attr(%S) %f_to_java(init_%SN) () {
+	#	%U[{_INIT_%SN}
+	#	return %f_attr_init_java(%S);
+	#	]
+	#}]
+	
+	#final public %f_attr(%S) %f_to_java(get_%SN) () {
+	#	return %f_to_java(%SN)_;
+	#}
+	
+	#final public void %f_to_java(set_%SN) (final %f_attr(%S) %f_to_java(%SN)) {
+	#	%f_to_java(%SN)_ = %f_to_java(%SN);
+	#}
+//#UC END# *470321950119for470F3680003E*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F3680003E*
+//#UC END# *47032EC4032Cfor470F3680003E*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F3680003E*
+//#UC END# *470F152700FAfor470F3680003E*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F3680003E*
+R  
+	[%S%f_open_ifdef()
+	# ]\
+	%f_N(%S) : %f_pas_TypeName(%S%T);[ // %f_Doc(%S)]\
+	[
+	# %S%f_close_ifdef()]
+//#UC END# *470F1571031Cfor470F3680003E*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F3680003E*
+//#UC END# *470F15B800CBfor470F3680003E*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F3680003E*
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем родителя}
+//#UC END# *4704C0E30186for470F3680003E*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F3680003E*
+	attr
+//#UC END# *4705CBD6003Efor470F3680003E*
+
+: Struct::Class::ctor::Operation
+? Конструктор
+= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+Y code_factory.gif
+L code_factory
+T 
+/ - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F36C70128*
+//#UC END# *47022BBE0261for470F36C70128*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F36C70128*
+	%f_docs(%S)\
+	%f_set_var(CTOR,"#%{STRUCT}N (<{, }%f_arg_full_decl(%C)>);")\
+	%f_set_var(OP_LEN,"%f_string_length("%{CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{CTOR}N}#%{STRUCT}N (\n\t\t<{\n\t\t, }%f_arg_full_decl(%C)>\n\t);]
+
+//#UC END# *47022C88029Ffor470F36C70128*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F36C70128*
+	%f_docs(%S)\
+	%f_set_var(CTOR,"%f_templ_header(%{STRUCT})%f_function_scope(%{STRUCT})%{STRUCT}N (<{, }%f_arg_full_decl(%C)>)[ : %{STRUCT}<{, }{"%CI"!=""}m_%CN (%CI)>]")\
+	%f_set_var(OP_LEN,"%f_string_length("%{CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{CTOR}N}%f_templ_header(%{STRUCT})%f_function_scope(%{STRUCT})%{STRUCT}N (\n\t<{\n\t, }%f_arg_full_decl(%C)>\n)[ :\n\t%{STRUCT}<{\n\t, }{"%CI"!=""}m_%CN (%CI)>]]
+	%U[{_INIT_CTOR_BASE_INIT!cpp!}
+	]
+	{%f_start_func_cpp(%S,"%{STRUCT}N::%{STRUCT}N")
+		%U[{_CTOR_BODY!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	%f_end_func_cpp(%S)}
+//#UC END# *47022CB8034Bfor470F36C70128*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F36C70128*
+//#UC END# *470321950119for470F36C70128*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F36C70128*
+//#UC END# *47032EC4032Cfor470F36C70128*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F36C70128*
+//#UC END# *470F152700FAfor470F36C70128*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F36C70128*
+R  
+	%f_pas_OutStaticCtorInterface(%S)
+//#UC END# *470F1571031Cfor470F36C70128*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F36C70128*
+R  
+	%f_pas_OutStaticCtorImplementation(%S)
+//#UC END# *470F15B800CBfor470F36C70128*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470F36C70128*
+//#UC END# *477398E501C0for470F36C70128*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F36C70128*
+//#UC END# *4774D2A20372for470F36C70128*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F36C70128*
+	mng
+//#UC END# *4705CBD6003Efor470F36C70128*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _IsConstructor
+// возвращаемый результат: boolean
+//#UC START# *4AE025440082for470F36C70128*
+	true
+//#UC END# *4AE025440082for470F36C70128*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _pas_BeforeMethodBodyImplementation
+// параметры: Implementator: void = %1, Modification: void = %2
+// возвращаемый результат: a-string
+//#UC START# *4B6C4DE70271for470F36C70128*
+	%S%[inherited]\
+	%S%f_pas_StaticCtorBeforeMethodBodyImplementation(%1,%2)
+//#UC END# *4B6C4DE70271for470F36C70128*
+
+: Struct::Class::sequence::Attribute
+? Атрибут-массив
+? Определяет атрибут как неограниченный массив элементов заданного типа
+= Struct::Class::Attribute
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F36E20261*
+//#UC END# *46E6D4BB0339for470F36E20261*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F36E20261*
+//#UC END# *47022BBE0261for470F36E20261*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for470F36E20261*
+//#UC END# *47022C0F01E4for470F36E20261*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F36E20261*
+//#UC END# *47022C88029Ffor470F36E20261*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F36E20261*
+//#UC END# *47022CB8034Bfor470F36E20261*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor470F36E20261*
+//#UC END# *47022CCF00EAfor470F36E20261*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F36E20261*
+//#UC END# *470321950119for470F36E20261*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F36E20261*
+//#UC END# *470321C1038Afor470F36E20261*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F36E20261*
+//#UC END# *47032EC4032Cfor470F36E20261*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F36E20261*
+//#UC END# *47032ED002DEfor470F36E20261*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F36E20261*
+//#UC END# *470F152700FAfor470F36E20261*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F36E20261*
+//#UC END# *470F1571031Cfor470F36E20261*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F36E20261*
+//#UC END# *470F15B800CBfor470F36E20261*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470F36E20261*
+//#UC END# *477398E501C0for470F36E20261*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F36E20261*
+//#UC END# *4774D2A20372for470F36E20261*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor470F36E20261*
+//#UC END# *49F5795900ECfor470F36E20261*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for470F36E20261*
+//#UC END# *55B8D28B0157for470F36E20261*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for470F36E20261*
+//#UC END# *55B8D2F80145for470F36E20261*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for470F36E20261*
+//#UC END# *55B8DD9C0301for470F36E20261*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for470F36E20261*
+//#UC END# *470484D50138for470F36E20261*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

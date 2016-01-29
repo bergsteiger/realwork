@@ -1,0 +1,170 @@
+// TpgJournal 5602A0790033 SimpleClass Class
+
+INCLUDE '559A3BD901CC.pas.ms.script'
+
+FORWARD ME_5602A0790033
+
+FORWARD ME_5602A3C10042
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+: ME_5602A3CB00B0
+ CONST UID '5602A3CB00B0'
+ CONST Name 'aFactory'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_554C78BD038C // IdaTableQueryFactory
+ ;
+
+ @SELF
+; // ME_5602A3CB00B0 aFactory
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5602A3C803D0
+ CONST UID '5602A3C803D0'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5602A3CB00B0 // aFactory
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5602A3C803D0 DoIt
+
+: ME_5602A3C10042
+ CONST UID '5602A3C10042'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5602A3C803D0 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5602A3C10042 Create
+
+FORWARD ME_5602A3D101FD
+
+: ME_A108F60D9B6A
+ CONST UID 'A108F60D9B6A'
+ CONST Name 'aFactory'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_554C78BD038C // IdaTableQueryFactory
+ ;
+
+ @SELF
+; // ME_A108F60D9B6A aFactory
+
+: ME_95309D06AA76
+ CONST UID '95309D06AA76'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TpgJournal.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5540922C0376 // IdaJournal
+ ;
+ : Parameters
+   [ ME_A108F60D9B6A // aFactory
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_95309D06AA76 DoIt
+
+: ME_5602A3D101FD
+ CONST UID '5602A3D101FD'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5602A3C10042 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5540922C0376 // IdaJournal
+ ]
+ ; // Implements
+ : Operations
+   [ ME_95309D06AA76 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_554092F701E2 // CurStatisticTreeRoot
+ ME_554093EC02FE // CalcStatistics
+ ME_55409430035F // LogExport
+ ME_5540943F02DB // LogImport
+ ME_5540945201E3 // LogPause
+ ME_55409462014D // LogPrintDoc
+ ME_554094740288 // LogSaveDoc
+ ME_554096B30178 // LogEditDoc
+ ME_5540970E00EA // LogEditDoc
+ ME_554097C303BF // LogDeleteDoc
+ ME_554097DC02FC // LogEditDict
+ ME_554098710243 // LogCreateDoc
+ ME_554098930337 // LogAutoClass
+ ME_554098A40242 // LogOpenDoc
+ ME_5541F3E6031F // UserID
+ ME_5541F6EC00DE // StartCaching
+ ME_5541F6FB0124 // StopCaching
+ ME_554A037B0325 // SessionDone
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_5602A3D101FD Make
+
+: ME_5602A0790033
+ CONST UID '5602A0790033'
+ CONST Name 'TpgJournal'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_559A3BD901CC // TdaJournal
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5602A3C10042 // Create
+ ME_5602A3D101FD // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5549F6220397 // LogEvent
+ ME_559A42120304 // CurStatTree
+ ME_559B6A290200 // CheckUser
+ ME_559B6A7C03AA // UserChanged
+ ME_559B6A8C0034 // SessionChanged
+ ME_559B889B030B // DoStartCaching
+ ME_559B88B00126 // DoStopCaching
+ ME_559CF9D300FA // MakeResultSet
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5602A0790033 TpgJournal

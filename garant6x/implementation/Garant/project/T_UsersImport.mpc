@@ -1,0 +1,68 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/T_UsersImport.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ExeTarget::Category>> garant6x::UsersImport
+//
+// утилита импорта списка пользователей, ТЗ - К14517328.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_UsersImport) : project_generic_core_corba, project_subsystem_console {
+	exename = UsersImport
+	
+	includes += ../../../../
+	
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += UsersImportLib
+	libs  += UsersImportLib
+	after += GSI
+	libs  += GSI
+	after += CoreOld_corba_client
+	libs  += CoreOld_corba_client
+	after += GblPilotC_corba
+	libs  += GblPilotC_corba
+	after += GslUserManagerC_corba
+	libs  += GslUserManagerC_corba
+	after += GslSecurityC_corba
+	libs  += GslSecurityC_corba
+	after += Defines_corba
+	libs  += Defines_corba
+	after += GslDataPipeC_corba
+	libs  += GslDataPipeC_corba
+	after += GslSessionHandlerClientS_corba
+	libs  += GslSessionHandlerClientS_corba
+
+	
+	Header_Files {
+		Std_Headers {
+			
+		}
+	}
+	
+	Inline_Files {
+		Std_Inlines {
+			
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../UsersImport/UsersImport_main.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../UsersImport/UsersImport_vi.rc
+		./../UsersImport/UsersImport_vi.rch
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

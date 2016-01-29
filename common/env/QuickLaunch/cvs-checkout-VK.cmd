@@ -1,0 +1,1 @@
+call W:\common\env\QuickLaunch\checkout.bat vkuprovich

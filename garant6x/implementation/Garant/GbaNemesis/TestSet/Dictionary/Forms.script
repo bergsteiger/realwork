@@ -1,0 +1,88 @@
+USES
+ axiom:форма
+ 
+ WordsTranslation.script
+ @\SysUtils.script
+ @\Controls.script
+ @\Forms.script
+;
+
+OBJECT FUNCTION "Главное окно"
+ OBJECT VAR MainWindow
+ "Найти окно по имени {(форма::MainWindow)}" =: MainWindow
+ Если ( HasTabs ) то (
+  MainWindow pop:Control:GetAnotherParentForm =: MainWindow )
+ MainWindow =: Result
+;
+
+OBJECT FUNCTION "Текущая активная вкладка"
+ "Найти окно по имени {(форма::MainWindow)}" =: Result
+;
+
+OBJECT FUNCTION "Найти главное окно для контрола" OBJECT IN "Контрол"
+ "Найти окно по имени {(форма::MainWindow)} для контрола {("Контрол")}" =: Result
+;
+
+OBJECT FUNCTION "Форма БП"
+ ANYUSERTYPE форма::NewBaseSearch vcm:FindForm ?ASSURE 'Не нашли форму БП!'
+ >>> Result
+; // "Форма БП"
+
+OBJECT FUNCTION "Диалог сохранения в Мои документы"
+ 'Мои документы (Сохранить как...)' "Найти окно по имени Caption" "Найти контрол по дескриптору в стеке" >>> Result
+;
+
+OBJECT FUNCTION "Диалог Редактор стилей"
+ "Найти окно по имени {(форма::StyleEditorContainer)}" >>> Result
+;
+
+OBJECT FUNCTION "Текстовое окно редактора стилей"
+ 'Editor' "Диалог Редактор стилей" "Найти контрол по имени на форме" >>> Result
+;
+
+OBJECT FUNCTION "Диалог Условия использования"
+ "Найти окно по имени {(форма::EULA)}" >>> Result
+;
+
+OBJECT FUNCTION "Диалог Совет дня"
+ "Найти окно по имени {(форма::StartupTips)}" >>> Result
+;
+
+OBJECT FUNCTION "Диалог выключения МВ"
+ "Найти окно по имени {(форма::TurnOffTimeMachine)}" >>> Result
+;
+
+OBJECT FUNCTION "Форма ППС"
+ ANYUSERTYPE форма::OldSituationSearch vcm:FindForm ?ASSURE 'Не нашли форму ППС!'
+ >>> Result
+; // "Форма ППС"
+
+BOOLEAN FUNCTION "Существует ли в главном окне форма ?" STRING IN aForm 
+ OBJECT VAR "Форма"
+ aForm "Главное окно" pop:Control:FindControlByName =: "Форма"
+ "Форма" "Объект существует?" >>> Result
+;
+
+OBJECT FUNCTION "Диалог Регистрационные данные"
+ "Найти окно по имени {(форма::SelfInfo)}" >>> Result
+;
+
+OBJECT FUNCTION "Форма с флешем"
+ "Контрол в фокусе" "Имя компонента" РАВНО 'Flash' ?ASSURE
+  [ 'Фокус не во флеше, а в ' "Контрол в фокусе" "Имя компонента" ' : ' "Контрол в фокусе" pop:object:ClassName ' !' ]
+ "Контрол в фокусе" "Получить родительскую форму" =: Result
+;
+
+OBJECT FUNCTION "Отдоченная форма"
+ OBJECT VAR aNavigatorForm
+ "Контрол в фокусе" "Получить родительскую форму" =: aNavigatorForm
+ aNavigatorForm ЯВЛЯЕТСЯ class::TnscFloatingWindow ?ASSURE 'Работаем не с плавающим окном!'
+ "Проверить, что контрол {(aNavigatorForm)} видимый"
+ aNavigatorForm =: Result
+;
+
+OBJECT FUNCTION "Левая часть ААК-содержания"
+ OBJECT VAR "Форма с ААК-Содержанием"
+ "Найти окно {(форма::AACContentsContainer)} по имени" =: "Форма с ААК-Содержанием"
+ "Найти контрол {(контрол::pnLeftEx)} на форме {("Форма с ААК-Содержанием")}" =: Result
+;

@@ -1,0 +1,865 @@
+<<Library>> XercesHelpers
+ %UID '491C05CA0197'
+ %DOCUMENTATION 'обёрки для классов xerces-а'
+ %DEPENDS
+  U$ '44EC25FD0119' /* xerces */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'tie'
+  %upv "is namespace" true
+  %upv "need UC" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '44EC25FD0119' /* xerces */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> defines
+   %UID '491D71C20286'
+   %META
+    %upv "no hands" false
+   ; // %META
+   %CHILDREN
+    
+     <<Typedef>> XMLStr
+      %UID '491D71D700E4'
+     ; // XMLStr
+     <<Interface>> XMLCh
+      %UID '491D7B400034'
+      %META
+       %upv "single impl" false
+      ; // %META
+     ; // XMLCh
+   ; // %CHILDREN
+  ; // defines
+  <<Unit>> wrappers
+   %UID '491C05FF0034'
+   %DOCUMENTATION 'обёртки для xerces'
+   %DEPENDS
+    U$ '44EC26450186' /* XERCES_CPP_NAMESPACE */
+    U$ '491D71C20286' /* defines */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '44EC25FD0119' /* xerces */
+    U$ '491C05CA0197' /* XercesHelpers */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<SimpleClass>> DocumentManager
+      %UID '491C06220031'
+      %DOCUMENTATION 'чтение и запись дерева xml'
+      %META
+       %upv "need UC" true
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '44EC25FD0119' /* xerces */
+       U$ '491C05CA0197' /* XercesHelpers */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "49213A2503B0"
+         %UID '49213A2503B0'
+         %TARGET U$ '491D649501AC' /* XStr */
+        ; // 49213A2503B0
+        <<uses>> "49213A8902AC"
+         %UID '49213A8902AC'
+         %TARGET U$ '491C2EA40004' /* DOMSettingsErrorHandler */
+        ; // 49213A8902AC
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE LINK <<Attribute>> implementation
+         %UID '491D6FD50025'
+         %TARGET U$ '491D714903E6' /* DOMImplementation */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+        ; // implementation
+        PRIVATE STRING FUNCTION qualified_name
+         %UID '491D765E01F8'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+        ; // qualified_name
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> DocumentManager
+         %UID '491D6CC103D9'
+         %PARAMETERS
+           <<in>> name
+            %UID '491D6CE003B9'
+            %TARGET U$ '3DBFFE240068' /* string */
+            %VALUE 'NULL'
+           ; // name
+           <<in>> root_tag
+            %UID '491D6CE003D5'
+            %TARGET U$ '3DBFFE240068' /* string */
+            %VALUE 'NULL'
+           ; // root_tag
+         ; // %PARAMETERS
+        ; // DocumentManager
+        <<chg>> get_doc$491D6D14022F
+         %UID '491D6D14022F'
+         %DOCUMENTATION 'получить документ из заданного файла'
+         %TARGET U$ '44EC26740222' /* DOMDocument */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> path
+            %UID '491D6D3B0345'
+            %TARGET U$ '3DBFFE240068' /* string */
+            %VALUE 'NULL'
+           ; // path
+         ; // %PARAMETERS
+        ; // get_doc$491D6D14022F
+        <<chg>> get_doc$491D6DCA0128
+         %UID '491D6DCA0128'
+         %DOCUMENTATION 'получить документ из заданного буфера'
+         %TARGET U$ '44EC26740222' /* DOMDocument */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> xml_buffer
+            %UID '491D6E210040'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // xml_buffer
+           <<in>> xml_buffer_size
+            %UID '491D6E210065'
+            %TARGET U$ '4538E9230233' /* size */
+           ; // xml_buffer_size
+         ; // %PARAMETERS
+        ; // get_doc$491D6DCA0128
+        <<Operation>> write
+         %UID '491D6E6E0121'
+         %DOCUMENTATION 'записать xml в заданный файл'
+         %PARAMETERS
+           <<in>> path
+            %UID '491D6ED10115'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // path
+           <<in>> generate_file
+            %UID '491D6ED1013F'
+            %TARGET U$ '3DBFFE100240' /* boolean */
+            %VALUE true
+           ; // generate_file
+           <<in>> is_ascii
+            %UID '491D6ED10168'
+            %TARGET U$ '3DBFFE100240' /* boolean */
+            %VALUE false
+           ; // is_ascii
+         ; // %PARAMETERS
+        ; // write
+        <<Operation>> write_to_buffer
+         %UID '491D6F4E0135'
+         %DOCUMENTATION 'записать документ в буфер'
+         %TARGET U$ '3DBFFDE101CA' /* "unsigned long" */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> buffer
+            %UID '491D72D00300'
+            %TARGET U$ '491D71D700E4' /* XMLStr */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // buffer
+           <<in>> is_ascii
+            %UID '491D6FA802DD'
+            %TARGET U$ '3DBFFE100240' /* boolean */
+            %VALUE false
+           ; // is_ascii
+         ; // %PARAMETERS
+        ; // write_to_buffer
+      ; // %OPERATIONS
+     ; // DocumentManager
+     FINAL <<SimpleClass>> DOMNodeEx
+      %UID '491C2DF10320'
+      %DOCUMENTATION 'обёртка для работы с узлом DOM-а, перекодирует данные в заданную кодировку'
+      %META
+       %upv "need UC" true
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '44EC25FD0119' /* xerces */
+       U$ '491C05CA0197' /* XercesHelpers */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "49213BB5000E"
+         %UID '49213BB5000E'
+         %TARGET U$ '491D649501AC' /* XStr */
+        ; // 49213BB5000E
+        <<uses>> "49213BBE0164"
+         %UID '49213BBE0164'
+         %TARGET U$ '491C2FD2018D' /* XMLStrUnicode */
+        ; // 49213BBE0164
+        <<friend>> "49213BCD030B"
+         %UID '49213BCD030B'
+         %TARGET U$ '491C2F420352' /* XercesHelper */
+        ; // 49213BCD030B
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE LINK <<Attribute>> node
+         %UID '491D80E603C9'
+         %TARGET U$ '491D7AD602B0' /* DOMNode */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+        ; // node
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> ctor$491D78330354
+         %UID '491D78330354'
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> node
+            %UID '491D829D03C6'
+            %TARGET U$ '491D7AD602B0' /* DOMNode */
+            %VALUE 'NULL'
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // node
+         ; // %PARAMETERS
+        ; // ctor$491D78330354
+        FINAL <<ctor>> ctor$491D78990080
+         %UID '491D78990080'
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> parent
+            %UID '491D7BE90130'
+            %TARGET U$ '44EC268502DE' /* DOMElement */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // parent
+           <<in>> tag
+            %UID '491D78D10237'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // tag
+           <<in>> accept_first_tag
+            %UID '491D78D1028B'
+            %TARGET U$ '3DBFFE100240' /* boolean */
+            %VALUE true
+           ; // accept_first_tag
+         ; // %PARAMETERS
+        ; // ctor$491D78990080
+        <<Operation>> get_child_nodes
+         %UID '491D799600DE'
+         %DOCUMENTATION 'получить список дочерних узлов'
+         %TARGET U$ '491D7B0C0398' /* DOMNodeList */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+        ; // get_child_nodes
+        <<Operation>> get_elements_by_tag_name$491D79C8011F
+         %UID '491D79C8011F'
+         %DOCUMENTATION 'получить список узлов с заданным именем'
+         %TARGET U$ '491D7B0C0398' /* DOMNodeList */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> tag_name
+            %UID '491D7A0903CE'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // tag_name
+         ; // %PARAMETERS
+        ; // get_elements_by_tag_name$491D79C8011F
+        <<Operation>> get_elements_by_tag_name$491D7A290397
+         %UID '491D7A290397'
+         %DOCUMENTATION 'получить список узлов с заданным именем'
+         %TARGET U$ '491D7B0C0398' /* DOMNodeList */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> tag_name
+            %UID '491D7A31019F'
+            %TARGET U$ '491D7B400034' /* XMLCh */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // tag_name
+         ; // %PARAMETERS
+        ; // get_elements_by_tag_name$491D7A290397
+        <<Operation>> get_attribute$491D7A3F017B
+         %UID '491D7A3F017B'
+         %DOCUMENTATION 'получить атрибут с заданным именем'
+         %TARGET U$ '3DBFFE240068' /* string */
+         %PARAMETERS
+           <<in>> name
+            %UID '491D7AB70147'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // name
+         ; // %PARAMETERS
+        ; // get_attribute$491D7A3F017B
+        <<Operation>> get_attribute$491D7DF603A3
+         %UID '491D7DF603A3'
+         %DOCUMENTATION 'получить атрибут xml-ного тега'
+         %TARGET U$ '3DBFFE240068' /* string */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> name
+            %UID '491D7DFD022D'
+            %TARGET U$ '491D7B400034' /* XMLCh */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // name
+         ; // %PARAMETERS
+        ; // get_attribute$491D7DF603A3
+        <<Operation>> get_int_attribute
+         %UID '491D7E0E01B6'
+         %DOCUMENTATION 'получить атрибут xml-ного тега'
+         %TARGET U$ '450A61050251' /* integer */
+         %PARAMETERS
+           <<in>> name
+            %UID '491D7E270157'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // name
+         ; // %PARAMETERS
+        ; // get_int_attribute
+        INTEGER FUNCTION get_long_attribute$491D7E2F0047
+         %UID '491D7E2F0047'
+         %DOCUMENTATION 'получить атрибут xml-ного тега'
+         %TARGET U$ '3DBFFD7002C2' /* long */
+         %PARAMETERS
+           <<in>> name
+            %UID '491D7E3101FC'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // name
+         ; // %PARAMETERS
+        ; // get_long_attribute$491D7E2F0047
+        INTEGER FUNCTION get_long_attribute$491D7E4F0343
+         %UID '491D7E4F0343'
+         %DOCUMENTATION 'получить атрибут xml-ного тега'
+         %TARGET U$ '3DBFFD7002C2' /* long */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> name
+            %UID '491D7E5701EA'
+            %TARGET U$ '491D7B400034' /* XMLCh */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // name
+         ; // %PARAMETERS
+        ; // get_long_attribute$491D7E4F0343
+        BOOLEAN FUNCTION is_tag
+         %UID '491D7E7102BA'
+         %DOCUMENTATION 'является ли элемент тегом'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> str
+            %UID '491D7E8A0134'
+            %TARGET U$ '491D7B400034' /* XMLCh */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // str
+         ; // %PARAMETERS
+        ; // is_tag
+        BOOLEAN FUNCTION is_attribute
+         %UID '491D7EBA00E3'
+         %DOCUMENTATION 'является ли элемент атрибутом'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> str
+            %UID '491D7ED5013D'
+            %TARGET U$ '491D7B400034' /* XMLCh */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // str
+           <<in>> attr_name
+            %UID '491D7ED50183'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // attr_name
+         ; // %PARAMETERS
+        ; // is_attribute
+        <<Operation>> get_element
+         %UID '491D801A00FD'
+         %DOCUMENTATION 'получить DOM элемент'
+         %TARGET U$ '44EC268502DE' /* DOMElement */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+        ; // get_element
+        <<Operation>> get_text
+         %UID '491D8034000E'
+         %DOCUMENTATION 'получить содержимое тега - <tag>содержимое тега</tag>'
+         %TARGET U$ '3DBFFE240068' /* string */
+        ; // get_text
+        <<Operation>> get
+         %UID '491D804B00B8'
+         %DOCUMENTATION 'получить DOM узел'
+         %TARGET U$ '491D7AD602B0' /* DOMNode */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+        ; // get
+        INTEGER FUNCTION get_type
+         %UID '491D80630357'
+         %DOCUMENTATION 'получить тип DOM объекта'
+         %TARGET U$ '3DBFFD7002C2' /* long */
+        ; // get_type
+        <<Operation>> get_node_name
+         %UID '491D808601FA'
+         %DOCUMENTATION 'получить имя узла'
+         %TARGET U$ '491D7B400034' /* XMLCh */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+        ; // get_node_name
+        BOOLEAN FUNCTION has_child_nodes
+         %UID '491D809E00E9'
+         %DOCUMENTATION 'есть ли у элемента дочерние узлы'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+        ; // has_child_nodes
+        BOOLEAN FUNCTION is_element
+         %UID '491D80B50054'
+         %DOCUMENTATION 'является ли объект элементом'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+        ; // is_element
+        BOOLEAN FUNCTION is_valid
+         %UID '491D80C50206'
+         %DOCUMENTATION 'содержит ли обёртка ссылку на DOM объект'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+        ; // is_valid
+      ; // %OPERATIONS
+     ; // DOMNodeEx
+     FINAL <<SimpleClass>> DOMSettingsErrorHandler
+      %UID '491C2EA40004'
+      %DOCUMENTATION 'обработчик ошибок при разборе xml'
+      %META
+       %upv "need UC" true
+       %upv "no hands" false
+       %upv "non virtual base" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '44EC25FD0119' /* xerces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '491D848E01F3' /* DOMErrorHandler */
+      ; // %IMPLEMENTS
+      %ATTRIBUTES
+        PRIVATE INTEGER FUNCTION errors
+         %UID '491D866500BE'
+         %TARGET U$ '3DBFFD7002C2' /* long */
+        ; // errors
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> ctor
+         %UID '491D85D90277'
+        ; // ctor
+        INTEGER FUNCTION get_errors
+         %UID '491D85F6014C'
+         %DOCUMENTATION 'получить количество ошибок'
+         %TARGET U$ '3DBFFD7002C2' /* long */
+        ; // get_errors
+        <<chg>> handleError
+         %UID '491D86170108'
+         %DOCUMENTATION 'обработчик ошибок во время разбора xml'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> domError
+            %UID '491D86450207'
+            %TARGET U$ '491D84CD029B' /* DOMError */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // domError
+         ; // %PARAMETERS
+        ; // handleError
+      ; // %OPERATIONS
+     ; // DOMSettingsErrorHandler
+     PRIVATE FINAL <<SimpleClass>> TranscodeHelper
+      %UID '491C2F1503A1'
+      %DOCUMENTATION 'перекодировщик строк'
+      %META
+       %upv "need UC" true
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '491C05CA0197' /* XercesHelpers */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        <<chg>> change_encoding
+         %UID '491D8A2D0133'
+         %DOCUMENTATION 'установить кодировку xml'
+         %PARAMETERS
+           <<in>> encoding
+            %UID '491D8A450094'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // encoding
+         ; // %PARAMETERS
+        ; // change_encoding
+        <<Operation>> transcode$491D8A8701B0
+         %UID '491D8A8701B0'
+         %DOCUMENTATION 'перекодировка строки'
+         %TARGET U$ '3DBFFE240068' /* string */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> from
+            %UID '491D8AA70198'
+            %TARGET U$ '491D7B400034' /* XMLCh */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // from
+         ; // %PARAMETERS
+        ; // transcode$491D8A8701B0
+        <<Operation>> transcode$491D8ABA00BB
+         %UID '491D8ABA00BB'
+         %DOCUMENTATION 'перекодировка строки'
+         %TARGET U$ '491D7B400034' /* XMLCh */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> from
+            %UID '491D8AD403BB'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // from
+         ; // %PARAMETERS
+        ; // transcode$491D8ABA00BB
+        <<Operation>> transcode$491D8AE301CB
+         %UID '491D8AE301CB'
+         %DOCUMENTATION 'перекодировка строки'
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> from
+            %UID '491D8AF301FE'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // from
+           <<out>> to
+            %UID '491D8AFF00C6'
+            %TARGET U$ '491D7B400034' /* XMLCh */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // to
+         ; // %PARAMETERS
+        ; // transcode$491D8AE301CB
+        PRIVATE FINAL <<ctor>> ctor
+         %UID '491D8B16029E'
+         %PARAMETERS
+           <<in>> encoding
+            %UID '491D8B280390'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // encoding
+         ; // %PARAMETERS
+        ; // ctor
+      ; // %OPERATIONS
+     ; // TranscodeHelper
+     FINAL <<SimpleClass>> XercesHelper
+      %UID '491C2F420352'
+      %DOCUMENTATION 'получение узлов и их атрибутов'
+      %META
+       %upv "need UC" true
+       %upv "need objcounter" false
+       %upv "no hands" false
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '44EC25FD0119' /* xerces */
+       U$ '491C05CA0197' /* XercesHelpers */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4921451402ED"
+         %UID '4921451402ED'
+         %TARGET U$ '491D649501AC' /* XStr */
+        ; // 4921451402ED
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<ctor>> ctor
+         %UID '491D8DEB0183'
+        ; // ctor
+        <<chg>> change_encoding
+         %UID '491D8E0F02CD'
+         %DOCUMENTATION 'изменить кодировку'
+         %PARAMETERS
+           <<in>> locale
+            %UID '491D8E1C03B0'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // locale
+         ; // %PARAMETERS
+        ; // change_encoding
+        <<Operation>> get_string$491D8E5E00FA
+         %UID '491D8E5E00FA'
+         %DOCUMENTATION 'получить перекодированную строку'
+         %TARGET U$ '491D7B400034' /* XMLCh */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> to_transcode
+            %UID '491D8E920281'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // to_transcode
+         ; // %PARAMETERS
+        ; // get_string$491D8E5E00FA
+        <<Operation>> get_string$491D8EE8012D
+         %UID '491D8EE8012D'
+         %DOCUMENTATION 'получить перекодированную строку'
+         %TARGET U$ '3DBFFE240068' /* string */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> to_transcode
+            %UID '491D8EFE035C'
+            %TARGET U$ '491D7B400034' /* XMLCh */
+            %TOBEINCLUDED
+             U$ '491C05CA0197' /* XercesHelpers */
+            ; // %TOBEINCLUDED
+           ; // to_transcode
+         ; // %PARAMETERS
+        ; // get_string$491D8EE8012D
+        <<chg>> get_attribute
+         %UID '491D8F5700A3'
+         %DOCUMENTATION 'получить атрибут'
+         %TARGET U$ '3DBFFE240068' /* string */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> element
+            %UID '49212C1003AC'
+            %TARGET U$ '44EC268502DE' /* DOMElement */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // element
+           <<in>> name
+            %UID '491D8F9903AA'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // name
+         ; // %PARAMETERS
+        ; // get_attribute
+        <<chg>> set_attribute$491D8FBA02F8
+         %UID '491D8FBA02F8'
+         %DOCUMENTATION 'установить атрибут'
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> element
+            %UID '49212C1F02A1'
+            %TARGET U$ '44EC268502DE' /* DOMElement */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // element
+           <<in>> name
+            %UID '491D8FDA009E'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // name
+           <<in>> value
+            %UID '491D8FDA00CB'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // value
+         ; // %PARAMETERS
+        ; // set_attribute$491D8FBA02F8
+        <<chg>> set_attribute$491D8FE80330
+         %UID '491D8FE80330'
+         %DOCUMENTATION 'установить атрибут'
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> element
+            %UID '49212C2201A9'
+            %TARGET U$ '44EC268502DE' /* DOMElement */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // element
+           <<in>> name
+            %UID '491D8FED02F7'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // name
+           <<in>> value
+            %UID '491D8FED032A'
+            %TARGET U$ '450A61050251' /* integer */
+           ; // value
+         ; // %PARAMETERS
+        ; // set_attribute$491D8FE80330
+        <<chg>> create_element
+         %UID '491D90010125'
+         %DOCUMENTATION 'создать DOM элемент'
+         %TARGET U$ '44EC268502DE' /* DOMElement */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> doc
+            %UID '49212C2F0207'
+            %TARGET U$ '44EC26740222' /* DOMDocument */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // doc
+           <<in>> name
+            %UID '491D902603D6'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // name
+         ; // %PARAMETERS
+        ; // create_element
+        <<chg>> create_text_node
+         %UID '491D90350197'
+         %DOCUMENTATION 'создать текстовый DOM узел'
+         %TARGET U$ '4921474700D5' /* DOMText */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> doc
+            %UID '49212C3203B7'
+            %TARGET U$ '44EC26740222' /* DOMDocument */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // doc
+           <<in>> text
+            %UID '491D90450099'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // text
+         ; // %PARAMETERS
+        ; // create_text_node
+        <<chg>> add_text_node
+         %UID '491D905B03E0'
+         %DOCUMENTATION 'добавить текстовый DOM узел к указанному DOM объекту'
+         %TARGET U$ '491D7AD602B0' /* DOMNode */
+         %TOBEINCLUDED
+          U$ '44EC25FD0119' /* xerces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> doc
+            %UID '49212C35011E'
+            %TARGET U$ '44EC26740222' /* DOMDocument */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // doc
+           <<inout>> node
+            %UID '492145C102CA'
+            %TARGET U$ '491D7AD602B0' /* DOMNode */
+            %TOBEINCLUDED
+             U$ '44EC25FD0119' /* xerces */
+            ; // %TOBEINCLUDED
+           ; // node
+           <<in>> text
+            %UID '491D909702DB'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // text
+         ; // %PARAMETERS
+        ; // add_text_node
+      ; // %OPERATIONS
+     ; // XercesHelper
+     FINAL <<SimpleClass>> XMLStrUnicode
+      %UID '491C2FD2018D'
+      %DOCUMENTATION 'обёртка для юникодной строки'
+      %META
+       %upv "need UC" true
+       %upv "need dctor" true
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '491C05CA0197' /* XercesHelpers */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "49214A5E0399"
+         %UID '49214A5E0399'
+         %TARGET U$ '491C2F420352' /* XercesHelper */
+        ; // 49214A5E0399
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE LINK <<Attribute>> data
+         %UID '49214A170208'
+         %TARGET U$ '491D7B400034' /* XMLCh */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+        ; // data
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> ctor$49212E1700EA
+         %UID '49212E1700EA'
+        ; // ctor$49212E1700EA
+        FINAL <<ctor>> ctor$49212E250083
+         %UID '49212E250083'
+         %PARAMETERS
+           <<in>> data
+            %UID '49212E3701DD'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // data
+         ; // %PARAMETERS
+        ; // ctor$49212E250083
+        <<chg>> init
+         %UID '49212E5A02F5'
+         %DOCUMENTATION 'инициализация обёртки данными'
+         %PARAMETERS
+           <<in>> data
+            %UID '49212E78032D'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // data
+         ; // %PARAMETERS
+        ; // init
+        <<Operation>> data$49212E9C02A4
+         %UID '49212E9C02A4'
+         %DOCUMENTATION 'получить юникодное представление'
+         %TARGET U$ '491D7B400034' /* XMLCh */
+         %TOBEINCLUDED
+          U$ '491C05CA0197' /* XercesHelpers */
+         ; // %TOBEINCLUDED
+        ; // data$49212E9C02A4
+        BOOLEAN FUNCTION is_valid
+         %UID '49212EC101A7'
+         %DOCUMENTATION 'инициализирована ли строка данными'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+        ; // is_valid
+      ; // %OPERATIONS
+     ; // XMLStrUnicode
+     PRIVATE FINAL <<SimpleClass>> XStr
+      %UID '491D649501AC'
+      %DOCUMENTATION 'обёртка для получения строки с конвертацией с использованием установленной для адаптера кодировки'
+      %META
+       %upv "need UC" true
+       %upv "no hands" false
+      ; // %META
+      %LINKS
+        <<uses>> "49214AB600FE"
+         %UID '49214AB600FE'
+         %TARGET U$ '491C2F1503A1' /* TranscodeHelper */
+        ; // 49214AB600FE
+      ; // %LINKS
+     ; // XStr
+   ; // %CHILDREN
+  ; // wrappers
+ ; // %CHILDREN
+; // XercesHelpers

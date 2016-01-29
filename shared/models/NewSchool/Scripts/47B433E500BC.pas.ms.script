@@ -1,0 +1,503 @@
+// l3UntypedList 47B433E500BC Impurity Class
+
+FORWARD ME_47B433E500BC
+
+FORWARD ME_47B99B600208
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47B99B7E0000
+ CONST UID '47B99B7E0000'
+ CONST Name 'aLong'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B99B7E0000 aLong
+
+: ME_47B99B8E0147
+ CONST UID '47B99B8E0147'
+ CONST Name 'aByte'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B99B8E0147 aByte
+
+: ME_47B99B600208
+ CONST UID '47B99B600208'
+ CONST Name 'VOID'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ %SUMMARY 'Специальный тип, заменяющий void в C++.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_47B99B7E0000 // aLong
+ ME_47B99B8E0147 // aByte
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_47B99B600208 VOID
+
+: ME_4B87AD4701FD
+ CONST UID '4B87AD4701FD'
+ CONST Name 'l3Items_FillItem_NeedsList'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ %SUMMARY 'Функции обработки элементов списка требуют знания о самом списке' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4B87AD4701FD l3Items_FillItem_NeedsList
+
+: ME_4D5BFD5202BE
+ CONST UID '4D5BFD5202BE'
+ CONST Name 'l3Items_CompareItemsRec_NeedsRList'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4D5BFD5202BE l3Items_CompareItemsRec_NeedsRList
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+: ME_47BEE7FD01DC
+ CONST UID '47BEE7FD01DC'
+ CONST Name 'ItemSize'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_47BEE7FD01DC ItemSize
+
+: ME_47B99BAF004B
+ CONST UID '47B99BAF004B'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_47B99B600208 // VOID
+ ;
+
+ @SELF
+; // ME_47B99BAF004B ItemType
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_47BC108C03C9
+ CONST UID '47BC108C03C9'
+ CONST Name 'Clear'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Очищает список.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_47BC108C03C9 Clear
+
+: ME_47BC67A9001D
+ CONST UID '47BC67A9001D'
+ CONST Name 'A'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47BC67A9001D A
+
+: ME_47BC67A90080
+ CONST UID '47BC67A90080'
+ CONST Name 'B'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47BC67A90080 B
+
+: ME_47BC67A900E4
+ CONST UID '47BC67A900E4'
+ CONST Name 'DataSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_47BC67A900E4 DataSize
+
+: ME_47BC677E02B1
+ CONST UID '47BC677E02B1'
+ CONST Name 'DoCompare'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сравнивает элементы.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BC67A9001D // A
+ ME_47BC67A90080 // B
+ ME_47BC67A900E4 // DataSize
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BC677E02B1 DoCompare
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_47BEEBFF02EC
+ CONST UID '47BEEBFF02EC'
+ CONST Name 'aLo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767A382039E // Tl3Index
+ ;
+
+ @SELF
+; // ME_47BEEBFF02EC aLo
+
+: ME_47BEEBFF035C
+ CONST UID '47BEEBFF035C'
+ CONST Name 'aHi'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767A382039E // Tl3Index
+ ;
+
+ @SELF
+; // ME_47BEEBFF035C aHi
+
+INCLUDE '4678193C009C.pas.ms.script'
+
+: ME_47BEEBFF03CE
+ CONST UID '47BEEBFF03CE'
+ CONST Name 'Action'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_469FA03900D4 // Tl3IteratorAction
+ ;
+
+ @SELF
+; // ME_47BEEBFF03CE Action
+
+: ME_47BEEBE602B1
+ CONST UID '47BEEBE602B1'
+ CONST Name 'Iterate'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'перебирает все элементы хранилища с aLo по aHi.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BEEBFF02EC // aLo
+ ME_47BEEBFF035C // aHi
+ ME_47BEEBFF03CE // Action
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BEEBE602B1 Iterate
+
+: ME_47BEEC1A0183
+ CONST UID '47BEEC1A0183'
+ CONST Name 'Action'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_469FA03900D4 // Tl3IteratorAction
+ ;
+
+ @SELF
+; // ME_47BEEC1A0183 Action
+
+: ME_47BEEC10022E
+ CONST UID '47BEEC10022E'
+ CONST Name 'IterateAll'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'перебирает все элементы хранилища.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BEEC1A0183 // Action
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BEEC10022E IterateAll
+
+: ME_47BEF07E0044
+ CONST UID '47BEF07E0044'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47BEF07E0044 anIndex
+
+: ME_47BEF07E00C2
+ CONST UID '47BEF07E00C2'
+ CONST Name 'aData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47BEF07E00C2 aData
+
+: ME_47BEF05C0032
+ CONST UID '47BEF05C0032'
+ CONST Name 'DoInsert'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47BEF07E0044 // anIndex
+ ME_47BEF07E00C2 // aData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BEF05C0032 DoInsert
+
+: ME_47BEF39B01E3
+ CONST UID '47BEF39B01E3'
+ CONST Name 'aData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47BEF39B01E3 aData
+
+: ME_47BEF3910285
+ CONST UID '47BEF3910285'
+ CONST Name 'DoAdd'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BEF39B01E3 // aData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BEF3910285 DoAdd
+
+: ME_47BEF5170309
+ CONST UID '47BEF5170309'
+ CONST Name 'aData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47BEF5170309 aData
+
+: ME_47BEF5130164
+ CONST UID '47BEF5130164'
+ CONST Name 'Add'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BEF5170309 // aData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BEF5130164 Add
+
+: ME_47BF0A5C03E1
+ CONST UID '47BF0A5C03E1'
+ CONST Name 'aData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47BF0A5C03E1 aData
+
+: ME_47BF0B5E033A
+ CONST UID '47BF0B5E033A'
+ CONST Name 'theIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47BF0B5E033A theIndex
+
+: ME_47BF0A3100F6
+ CONST UID '47BF0A3100F6'
+ CONST Name 'Find'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Находит данные, при помощи основной операции сравнения.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_47BF0A5C03E1 // aData
+ ME_47BF0B5E033A // theIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BF0A3100F6 Find
+
+: ME_47BF0C870007
+ CONST UID '47BF0C870007'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47BF0C870007 anIndex
+
+: ME_47BF0C87009A
+ CONST UID '47BF0C87009A'
+ CONST Name 'aData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47BF0C87009A aData
+
+: ME_47BF0C7C01D6
+ CONST UID '47BF0C7C01D6'
+ CONST Name 'Insert'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47BF0C870007 // anIndex
+ ME_47BF0C87009A // aData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BF0C7C01D6 Insert
+
+: ME_47B433E500BC
+ CONST UID '47B433E500BC'
+ CONST Name 'l3UntypedList'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_47B45152003F // l3Items
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_47BEE7FD01DC // ItemSize
+ ME_47B99BAF004B // ItemType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_47BC108C03C9 // Clear
+ ME_47BC677E02B1 // DoCompare
+ ME_47BEEBE602B1 // Iterate
+ ME_47BEEC10022E // IterateAll
+ ME_47BEF05C0032 // DoInsert
+ ME_47BEF3910285 // DoAdd
+ ME_47BEF5130164 // Add
+ ME_47BF0A3100F6 // Find
+ ME_47BF0C7C01D6 // Insert
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47B48A510176 // MoveItems
+ ME_47B5976F024E // ReAllocList
+ ME_47B5984B019D // GetCapacity
+ ME_47B5C4080270 // DoExchange
+ ME_47B935AF0066 // FillItem
+ ME_47B94A5C006E // FreeItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ME_47BEDF2A02EA // GetItemSlot
+ ME_47BEE088001A // Count
+ ]
+ ; // Implemented
+ : Children
+   [ ME_47B99B600208 // VOID
+ ME_4B87AD4701FD // l3Items_FillItem_NeedsList
+ ME_4D5BFD5202BE // l3Items_CompareItemsRec_NeedsRList
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47B433E500BC l3UntypedList

@@ -1,0 +1,60 @@
+// BracketBegin 4DBFBBE603E5 ScriptKeyword Class
+
+INCLUDE '4DBAEF29031F.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4DBFBBE603E5
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_20C57DE533EE
+ CONST UID '20C57DE533EE'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация BracketBegin' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_20C57DE533EE Ini_Reg
+
+: ME_4DBFBBE603E5
+ CONST UID '4DBFBBE603E5'
+ CONST Name 'BracketBegin'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Поддержка скобок. '#13#10'Пример:'#13#10'{code}'#13#10' 10 LOOP ( ''Hello'' . )'#13#10'{code}' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DBAEF29031F // TtfwBeginLikeWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_20C57DE533EE // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DB6C99F026E // EndBracket
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DBAEE0D028D // CompiledWordClass
+ ME_560941240035 // CheckWordInfoOnCompile
+ ]
+ ; // Overridden
+ CONST "NameForScript" '('
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.05.2011 12:25'
+
+ @SELF
+; // ME_4DBFBBE603E5 BracketBegin

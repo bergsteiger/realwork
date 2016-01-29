@@ -1,0 +1,329 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/VCMUserInteraction/VCMControls.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::VCMUserInteraction::VCMControls
+//
+// Управляющие элементы VCM
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMControls::Category
+implementation @ <<VCMControls>>
+//? Управляющие элементы VCM
+//> !
+//> VCMOperations::Class
+//> VCMFacet::Class
+//> Facet::Class
+//> SimpleClass::Class
+//> Struct::Class
+//> Enum::Class
+//> Typedef::Class
+//> Vector::Class
+//> VCMFormDefinition::Class
+//> ScriptKeyword::Class
+
+//= VCMInterfacesLike::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_vcm_controls.gif
+//L code_vcm_controls
+// Параметры визуализации
+//$ C 192,255,255
+//$ l 64,224,208
+//$ f 64,224,208
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+; // st_space_key
+
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for494F7EF903BC*
+//	%S%[inherited]\
+ inherited
+//	%f_pas_PutToUses("vcmExternalInterfaces")
+ [%f] pas_PutToUses %( 'vcmExternalInterfaces' )% 
+//#UC END# *4948F2EE0334for494F7EF903BC*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor494F7EF903BC*
+//	%f_set_var(PARENT_NAME,"%f_str_replace(%f_N(%P%P), ,_)")\
+ [%f] set_var %( 'PARENT_NAME' %, [%f] str_replace %( [%f] N %( %P ->P  )% %, ' ' %, '_' )% )% 
+//	[{"%{PARENT_NAME}N"!="%f_N(%S)"}%{PARENT_NAME}N_]\
+ if ( ( ( get_global_var ( 'PARENT_NAME' ) |N ) ) %!= ( [%f] N %( %S )% ) ) then
+ begin
+  ( get_global_var ( 'PARENT_NAME' ) |N ) '_' 
+ end // if
+//	%f_N(%S)_Controls
+ [%f] N %( %S )% '_Controls'
+//#UC END# *4948065C01DFfor494F7EF903BC*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа Interfaces::Category
+//%f _pas_BeforeUnitImplementation
+: pas_BeforeUnitImplementation OBJECT IN %S
+//#UC START# *4A82C8F9037Cfor494F7EF903BC*
+//	%S%[inherited]\
+ inherited
+//	%f_clear_list(PUBLISHED_ENTITIES_LIST)\
+ [%f] clear_list %( 'PUBLISHED_ENTITIES_LIST' )% 
+//	%f_clear_list(PUBLISHED_OPERATIONS_LIST)\
+ [%f] clear_list %( 'PUBLISHED_OPERATIONS_LIST' )% 
+//	[{<{}{%C#f_IsVCMOperations()=true}{C}>!=0}\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsVCMOperations %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//	[\n%S%f_open_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	%f_pas_OpenConst(%S)\
+  [%f] pas_OpenConst %( %S )% 
+//	[<{}{%C#f_IsVCMOperations()=true}\
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f IsVCMOperations %( )% ) %==  true ) then
+    begin
+//	[{%f_exists_in_list(PUBLISHED_ENTITIES_LIST,"%f_N(%C)")!=true}\
+     if ( ( [%f] exists_in_list %( 'PUBLISHED_ENTITIES_LIST' %, [%f] N %( %C )% )% ) %!=  true ) then
+     begin
+//	%f_add_to_list(PUBLISHED_ENTITIES_LIST,"%f_N(%C)")\
+      [%f] add_to_list %( 'PUBLISHED_ENTITIES_LIST' %, [%f] N %( %C )% )% 
+//	[{%f_N(%C)=%f_N(%C%G)}{\
+      if ( ( [%f] N %( %C )% ) %== ( [%f] N %( %C ->G  )% ) ) then
+      begin
+//	 en_%f_N(%C) = %f_pas_Unit(%C%G).en_%f_N(%C);\n\
+       ' en_'
+       [%f] N %( %C )% ' = '
+       [%f] pas_Unit %( %C ->G  )% '.en_'
+       [%f] N %( %C )% ';'#13#10
+//	 en_cap%f_N(%C) = %f_pas_Unit(%C%G).en_cap%f_N(%C);\n\
+       ' en_cap'
+       [%f] N %( %C )% ' = '
+       [%f] pas_Unit %( %C ->G  )% '.en_cap'
+       [%f] N %( %C )% ';'#13#10
+//	]\
+      end // if
+      else
+      begin
+//	 en_%f_N(%C) = '%f_N(%C)';\n\
+       ' en_'
+       [%f] N %( %C )% ' = '''
+       [%f] N %( %C )% ''';'#13#10
+//	 en_cap%f_N(%C) = '%f_str_replace(%CD,\n, )';\n\
+       ' en_cap'
+       [%f] N %( %C )% ' = '''
+       [%f] str_replace %( %C |D %, #13#10 %, ' ' )% ''';'#13#10
+//	}\
+      end // else
+//	]\
+     end // if
+//	%C<{}{%C#f_IsVCMOperation()=true}\
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C %?f IsVCMOperation %( )% ) %==  true ) then
+       begin
+//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%C)")!=true}\
+        if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %C )% )% ) %!=  true ) then
+        begin
+//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%C)")\
+         [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %C )% )% 
+//	 op_%f_N(%C) = '%f_N(%C)';\n\
+         ' op_'
+         [%f] N %( %C )% ' = '''
+         [%f] N %( %C )% ''';'#13#10
+//	 op_cap%f_N(%C) = '%CD';\n\
+         ' op_cap'
+         [%f] N %( %C )% ' = '''
+         %C |D ''';'#13#10
+//	]\
+        end // if
+//	>\
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ //	>\
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	]\
+  end // if
+  NOP
+
+
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	// Состояния операций:
+   '// Состояния операций:'
+//	<{}{%C#f_IsVCMOperations()=true}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f IsVCMOperations %( )% ) %==  true ) then
+    begin
+//	%C<{}{%C#f_IsVCMOperation()=true}\
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C %?f IsVCMOperation %( )% ) %==  true ) then
+       begin
+//	%C<{}{%CS=VCMOperationState}\
+        %C
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%C
+         begin
+          OBJECT IN %C
+          if ( ( %C |S ) %== 'VCMOperationState' ) then
+          begin
+//	[%C#f_open_ifdef()\n]\
+           if NOT-EMPTY
+           begin
+            %C %?f open_ifdef %( )% #13#10 
+           end // if
+           NOP
+//	var st_user_%f_N(%C%P%P)_%f_N(%C%P)_%f_N(%C) : TvcmOperationStateIndex = (rID : -1);\
+           'var st_user_'
+           [%f] N %( %C ->P ->P   )% '_'
+           [%f] N %( %C ->P  )% '_'
+           [%f] N %( %C )% ' : TvcmOperationStateIndex = (rID : -1);'
+//	\n  // [{}{%C%P%PN}%C%P%PD] -\> [{}{%C%PN}%C%PD] \<-\> [{}{%CN}%CD]\
+           #13#10'  // '
+           if NOT-EMPTY
+           begin
+            %C ->P ->P |D   
+           end // if
+           NOP
+           else
+           begin
+            %C ->P ->P |N   
+           end // else
+           ' -> '
+           if NOT-EMPTY
+           begin
+            %C ->P |D  
+           end // if
+           NOP
+           else
+           begin
+            %C ->P |N  
+           end // else
+           ' <-> '
+           if NOT-EMPTY
+           begin
+            %C |D 
+           end // if
+           NOP
+           else
+           begin
+            %C |N 
+           end // else
+//	[\n%C#f_close_ifdef()]\
+           if NOT-EMPTY
+           begin
+            #13#10
+            %C %?f close_ifdef %( )% 
+           end // if
+           NOP
+//	\n\
+           #13#10
+//	>\
+
+           ++! l_Counter
+          end // if
+         end // for C
+
+        ) // bind
+ //	>\
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ //	>\
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	]\
+  end // if
+  NOP
+
+
+//	[%S%f_close_ifdef()\n]\
+  if NOT-EMPTY
+  begin
+   %S %f close_ifdef %( )% #13#10 
+  end // if
+  NOP
+//	]
+ end // if
+//#UC END# *4A82C8F9037Cfor494F7EF903BC*
+; // pas_BeforeUnitImplementation
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMControls>>
+

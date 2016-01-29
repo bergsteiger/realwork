@@ -1,0 +1,110 @@
+// Common 4B4DCD0B0295 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B4DCD0B0295
+
+FORWARD ME_4B4DCD220000
+
+FORWARD ME_4B4DCDA1023B
+
+: ME_4609FBFEBBA2
+ CONST UID '4609FBFEBBA2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода CPUID' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B4DCDA1023B // CPUID
+ ;
+
+ref; // ME_4609FBFEBBA2 DoIt
+
+: ME_4B4DCDA1023B
+ CONST UID '4B4DCDA1023B'
+ CONST Name 'CPUID'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B4DCD220000 // JclSysInfo
+ ;
+ : Operations
+   @ ( ME_4609FBFEBBA2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4B4DCDA1023B CPUID
+
+: ME_4B4DCD220000
+ CONST UID '4B4DCD220000'
+ CONST Name 'JclSysInfo'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B4DCD0B0295 // Common
+ ;
+ : Operations
+   @ ( ME_4B4DCDA1023B // CPUID
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\JEDI\source\common\NOT_FINISHED_JclSysInfo.pas'
+
+ref; // ME_4B4DCD220000 JclSysInfo
+
+: ME_546F146A0008
+ CONST UID '546F146A0008'
+ CONST Name 'zlibh'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B4DCD0B0295 // Common
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\JEDI\source\common\NOT_FINISHED_zlibh.pas'
+
+ref; // ME_546F146A0008 zlibh
+
+: ME_4B4DCD0B0295
+ CONST UID '4B4DCD0B0295'
+ CONST Name 'Common'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.pas.ms.script' // JEDI
+ ;
+ : Children
+   @ ( ME_4B4DCD220000 // JclSysInfo
+ ME_546F146A0008 // zlibh
+ ) .SequenceCode.It
+ ; // Children
+ CONST "path prefix" '/source/common'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B4DCD0B0295.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B4DCD0B0295.pas.ms.script.runner'
+
+ref; // ME_4B4DCD0B0295 Common

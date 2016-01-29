@@ -1,0 +1,160 @@
+// TncsDefaultProviderHolder 551BB2E70032 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_551BB2E70032
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+: ME_551BB37A02B1
+ CONST UID '551BB37A02B1'
+ CONST Name 'f_Provider'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_54EDC87C00B5 // IdaDataProvider
+ ;
+
+ @SELF
+; // ME_551BB37A02B1 f_Provider
+
+FORWARD ME_551BB38C02D3
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_9B220DD444F8
+ CONST UID '9B220DD444F8'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода IntCreateProvider' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9B220DD444F8 DoIt
+
+: ME_551BB38C02D3
+ CONST UID '551BB38C02D3'
+ CONST Name 'IntCreateProvider'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_9B220DD444F8 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_551BB38C02D3 IntCreateProvider
+
+FORWARD ME_551BB3A3005E
+
+: ME_CEBA54852FFD
+ CONST UID 'CEBA54852FFD'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода IntDoneProvider' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CEBA54852FFD DoIt
+
+: ME_551BB3A3005E
+ CONST UID '551BB3A3005E'
+ CONST Name 'IntDoneProvider'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_CEBA54852FFD // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_551BB3A3005E IntDoneProvider
+
+: ME_551BB3090356
+ CONST UID '551BB3090356'
+ CONST Name 'CreateProvider'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_551BB3090356 CreateProvider
+
+: ME_551BB3440181
+ CONST UID '551BB3440181'
+ CONST Name 'DoneProvider'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_551BB3440181 DoneProvider
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5FB8210EFE11
+ CONST UID '5FB8210EFE11'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5FB8210EFE11 Exists
+
+: ME_551BB2E70032
+ CONST UID '551BB2E70032'
+ CONST Name 'TncsDefaultProviderHolder'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_551BB37A02B1 // f_Provider
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_551BB38C02D3 // IntCreateProvider
+ ME_551BB3A3005E // IntDoneProvider
+ ME_551BB3090356 // CreateProvider
+ ME_551BB3440181 // DoneProvider
+ ME_5FB8210EFE11 // Exists
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_551BB2E70032 TncsDefaultProviderHolder

@@ -1,0 +1,29 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _mda_IsClassPart
+/ override
+//#UC START# *46AD680701C7IsClassPart*
+	true
+//#UC END# *46AD680701C7IsClassPart*
+
++ mda
+/ Генератор в шаблоны MDA.
+//#UC START# *46AD680701C7*
+	\n\n: %f_mda_FullSt(%S)
+	/ - %SD\
+	[\n\n/ возможные типы абстрактности элемента\na %S{abstraction type}]\
+	[\n\n/ возможные типы видимости\nv %S{visibility type}]\
+	[\n\n/ возможные типы связей\nl %S{link type}]\
+	[{%S{can be void}=true}\n\n/ может быть нетипизированным\nT]\
+	[{%S{can be implemented}=true}\n\n/ может быть реализован\nm t]\
+	[\n\n/ картинка для стереотипа\nY %S{icon}]\
+	%f_clear_list(_includes_)\
+	[\n<{\n}{%C%f_mda_IsStBody()=true}%f_add_to_list(_includes_,"%f_mda_FullSt(%C%G%P)")\n= %f_mda_FullSt(%C%G%P)>]\
+	[\n\n<{\n}{%C%f_mda_IsGenerator()=true}[{"%C%G%PN"!=""&%f_exist_in_list(_includes_,"%f_mda_FullSt(%C%G%P)")=false}%f_add_to_list(_includes_,"%f_mda_FullSt(%C%G%P)")& %f_mda_FullSt(%C%G%P);f\
+	\n/ - включаем функции указанного стереотипа]>]\
+/	\n\# ../Core/Base_cat_wiki\n
+	\n& CoreGroup::Category;f\n
+	\%f _wiki_child_kind
+	\t[{%f_mda_IsOp(%S)!=true}{method}attr]
+	<[{"%CO"!=""}\n\n\# %f_mda_StFileName(%C)]%CX>
+//#UC END# *46AD680701C7*

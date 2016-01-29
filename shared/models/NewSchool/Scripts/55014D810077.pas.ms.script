@@ -1,0 +1,203 @@
+// Tl3CloseFormHelper 55014D810077 Service Class
+
+FORWARD ME_55014D810077
+
+FORWARD ME_622F6A2DA951
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+: ME_951E20C5C5A6
+ CONST UID '951E20C5C5A6'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E124E90272 // TWinControl
+ ;
+
+ @SELF
+; // ME_951E20C5C5A6 aControl
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_A1E64DB467E3
+ CONST UID 'A1E64DB467E3'
+ CONST Name 'Close'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_951E20C5C5A6 // aControl
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_A1E64DB467E3 Close
+
+: ME_622F6A2DA951
+ CONST UID '622F6A2DA951'
+ CONST Name 'Ml3CloseFormHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3CloseFormHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_A1E64DB467E3 // Close
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_622F6A2DA951 Ml3CloseFormHelper
+
+: ME_7ED31A3A9A99
+ CONST UID '7ED31A3A9A99'
+ CONST GUID 'A031440F-1B01-4D9B-A86B-5F4E065BE1E9'
+ CONST Name 'Il3CloseFormHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3CloseFormHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_622F6A2DA951 // Ml3CloseFormHelper
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_A1E64DB467E3 // Close
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_7ED31A3A9A99 Il3CloseFormHelper
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_F6AF6D2F477A
+ CONST UID 'F6AF6D2F477A'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3CloseFormHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_7ED31A3A9A99 // Il3CloseFormHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_F6AF6D2F477A Alien
+
+: ME_4B1B99FAC447
+ CONST UID '4B1B99FAC447'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_7ED31A3A9A99 // Il3CloseFormHelper
+ ;
+
+ @SELF
+; // ME_4B1B99FAC447 f_Alien
+
+: ME_5506BFFA037E
+ CONST UID '5506BFFA037E'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E124E90272 // TWinControl
+ ;
+
+ @SELF
+; // ME_5506BFFA037E aControl
+
+: ME_5506BFF50385
+ CONST UID '5506BFF50385'
+ CONST Name 'Close'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5506BFFA037E // aControl
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5506BFF50385 Close
+
+: ME_80168DE90672
+ CONST UID '80168DE90672'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_80168DE90672 Exists
+
+: ME_55014D810077
+ CONST UID '55014D810077'
+ CONST Name 'Tl3CloseFormHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_622F6A2DA951 // Ml3CloseFormHelper
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_F6AF6D2F477A // Alien
+ ME_4B1B99FAC447 // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5506BFF50385 // Close
+ ME_80168DE90672 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_A1E64DB467E3 // Close
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_622F6A2DA951 // Ml3CloseFormHelper
+ ME_7ED31A3A9A99 // Il3CloseFormHelper
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55014D810077 Tl3CloseFormHelper

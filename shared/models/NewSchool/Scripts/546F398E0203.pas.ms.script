@@ -1,0 +1,306 @@
+// TncsFileListDeliverer 546F398E0203 SimpleClass Class
+
+FORWARD ME_546F398E0203
+
+INCLUDE '47877EB202FB.pas.ms.script'
+
+: ME_5472D9D7003A
+ CONST UID '5472D9D7003A'
+ CONST Name 'EncsEmptyResults'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4787A405013D // Exception
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_5472D9D7003A EncsEmptyResults
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '546F3918029F.pas.ms.script'
+
+: ME_546F39A50114
+ CONST UID '546F39A50114'
+ CONST Name 'f_Data'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_546F3918029F // TncsOneFileDelivererList
+ ;
+
+ @SELF
+; // ME_546F39A50114 f_Data
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+: ME_5472DC560362
+ CONST UID '5472DC560362'
+ CONST Name 'f_Transporter'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5464B4730055 // IncsTransporter
+ ;
+
+ @SELF
+; // ME_5472DC560362 f_Transporter
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5472EA7D01F5
+ CONST UID '5472EA7D01F5'
+ CONST Name 'f_LocalPath'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5472EA7D01F5 f_LocalPath
+
+: ME_5472FF89034D
+ CONST UID '5472FF89034D'
+ CONST Name 'f_TaskID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5472FF89034D f_TaskID
+
+: ME_547445710331
+ CONST UID '547445710331'
+ CONST Name 'f_Progressor'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_547445710331 f_Progressor
+
+FORWARD ME_5472D96A03B7
+
+INCLUDE '546EF5650026.pas.ms.script'
+
+: ME_5472D97C010C
+ CONST UID '5472D97C010C'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_546EF57803B0 // FileDescHelper
+ ;
+
+ @SELF
+; // ME_5472D97C010C aList
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5472D97302DE
+ CONST UID '5472D97302DE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5472D97C010C // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5472D97302DE DoIt
+
+: ME_5472D96A03B7
+ CONST UID '5472D96A03B7'
+ CONST Name 'PrepareDescription'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5472D97302DE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5472D96A03B7 PrepareDescription
+
+FORWARD ME_5472DC690380
+
+: ME_5474459602B9
+ CONST UID '5474459602B9'
+ CONST Name 'aTransporter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5464B4730055 // IncsTransporter
+ ;
+
+ @SELF
+; // ME_5474459602B9 aTransporter
+
+: ME_5474459602C8
+ CONST UID '5474459602C8'
+ CONST Name 'aProgressor'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_5474459602C8 aProgressor
+
+: ME_5474459602D8
+ CONST UID '5474459602D8'
+ CONST Name 'aTaskID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5474459602D8 aTaskID
+
+: ME_5474459602F7
+ CONST UID '5474459602F7'
+ CONST Name 'aLocalPath'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5474459602F7 aLocalPath
+
+: ME_5472DC76010B
+ CONST UID '5472DC76010B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5474459602B9 // aTransporter
+ ME_5474459602C8 // aProgressor
+ ME_5474459602D8 // aTaskID
+ ME_5474459602F7 // aLocalPath
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5472DC76010B DoIt
+
+: ME_5472DC690380
+ CONST UID '5472DC690380'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5472DC76010B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5472DC690380 Create
+
+: ME_546F407001B2
+ CONST UID '546F407001B2'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_546EF57803B0 // FileDescHelper
+ ;
+
+ @SELF
+; // ME_546F407001B2 aList
+
+: ME_546F3BE702A4
+ CONST UID '546F3BE702A4'
+ CONST Name 'Execute'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_546F407001B2 // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_546F3BE702A4 Execute
+
+: ME_546F398E0203
+ CONST UID '546F398E0203'
+ CONST Name 'TncsFileListDeliverer'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_546F39A50114 // f_Data
+ ME_5472DC560362 // f_Transporter
+ ME_5472EA7D01F5 // f_LocalPath
+ ME_5472FF89034D // f_TaskID
+ ME_547445710331 // f_Progressor
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5472D96A03B7 // PrepareDescription
+ ME_5472DC690380 // Create
+ ME_546F3BE702A4 // Execute
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_5472D9D7003A // EncsEmptyResults
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_546F398E0203 TncsFileListDeliverer

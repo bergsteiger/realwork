@@ -1,0 +1,110 @@
+// TB97 52AB1AAD01E5 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52AB1AAD01E5
+
+FORWARD ME_52AB1AC403E7
+
+FORWARD ME_52EB804601CE
+
+: ME_52EB80B60166
+ CONST UID '52EB80B60166'
+ CONST Name 'CM_TBMOUSEQUERY'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52EB804601CE // MessageConstants
+ ;
+ CONST Value 'WM_USER + 12345'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_52EB80B60166 CM_TBMOUSEQUERY
+
+: ME_52EB80CB00DD
+ CONST UID '52EB80CB00DD'
+ CONST Name 'CM_TBCHECKCONTROL'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52EB804601CE // MessageConstants
+ ;
+ CONST Value 'CB_TBMOUSEQUERY + 1'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_52EB80CB00DD CM_TBCHECKCONTROL
+
+: ME_52EB804601CE
+ CONST UID '52EB804601CE'
+ CONST Name 'MessageConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52AB1AC403E7 // tb97vt
+ ;
+ : Attributes
+   @ ( ME_52EB80B60166 // CM_TBMOUSEQUERY
+ ME_52EB80CB00DD // CM_TBCHECKCONTROL
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_52EB804601CE MessageConstants
+
+: ME_52AB1AC403E7
+ CONST UID '52AB1AC403E7'
+ CONST Name 'tb97vt'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52AB1AAD01E5 // TB97
+ ;
+ : Constants
+   @ ( ME_52EB804601CE // MessageConstants
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\tb97\NOT_FINISHED_tb97vt.pas'
+
+ref; // ME_52AB1AC403E7 tb97vt
+
+: ME_52AB1AAD01E5
+ CONST UID '52AB1AAD01E5'
+ CONST Name 'TB97'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4C43E84F0304' '4C43E84F0304.pas.ms.script' // tb97
+ ;
+ : Children
+   @ ( ME_52AB1AC403E7 // tb97vt
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52AB1AAD01E5.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52AB1AAD01E5.pas.ms.script.runner'
+
+ref; // ME_52AB1AAD01E5 TB97

@@ -1,0 +1,1860 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "DAOProxy"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepository/DAOProxy|49BF74BE01F2
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text ""))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19036035530"))
+    quid       	"49BF74BE01F2"
+    documentation 	"ïàêò ñ ïðîêñè ñóùíîñòÿìè äëÿ Hibernat-à"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49BF7DCC01E9"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.spaces"
+	    quidu      	"4644047C034A")
+	(object Visibility_Relationship
+	    quid       	"49D9F36A0204"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages"
+	    quidu      	"4614919300FA"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "SourceDAO"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepository/DAOProxy/SourceDAO|49BF758E0373
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepository/SourceDAO.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF758E0373_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49BF758E0373_CUSTOM_IMPORT*¤import com.atlassian.confluence.spaces.Space;¤import net.sf.hibernate.Query;¤import net.sf.hibernate.Session;¤import net.sf.hibernate.HibernateException;¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤¤import java.util.*;¤//#UC END# *49BF758E0373_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF758E0373_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49BF758E0373_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49BF758E0373_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF758E0373_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49BF758E0373_CUSTOM_METHODS_AND_DATA*¤	final static String UNKNOWN_REPO_SUFFUIX = ":FROM_MODEL_AND_NOT_COMMITED";¤	static private final String getUnknownRepoNameForSpace (String spaceKey) {¤		return spaceKey + UNKNOWN_REPO_SUFFUIX;¤	}¤	¤	public static SourceDAO makeBySpace (String spaceKey, String path, int type) throws HibernateException {¤		Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		String repo;¤		if (path.indexOf("/") > 0) {¤			repo = SourceRootDAO.getRepoBySpaceAndPath(spaceKey, path.substring(0, path.indexOf("/")));¤		} else {¤			repo = SourceRootDAO.getRepoBySpaceAndPath(spaceKey, path);¤		}¤		¤		SourceDAO ret = null;¤		if (repo != null) {¤			ret = get (repo, path);¤		} else {¤			ret = get (getUnknownRepoNameForSpace(spaceKey), path);¤		}¤		if (ret != null) {¤			return ret;¤		}¤		¤		ret = new SourceDAO ();¤		ret.setId(0);¤		ret.setPath(path);¤		ret.setType((byte) type);¤		ret.setRepo(getUnknownRepoNameForSpace(spaceKey));		¤		return ret;		¤	}¤	¤	public static SourceDAO get (String repo, String path) throws HibernateException {¤		Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		SourceDAO ret = getCommited (session, repo, path);¤		if (ret != null) {¤			return ret;¤		}¤		ret = getUncommited(session, path);¤		if (ret != null) {¤			ret.setRepo(repo);¤			session.save(ret);¤			return ret;¤		}¤		return null;¤	}¤	¤	private static SourceDAO getCommited (Session session, String repo, String path) throws HibernateException {¤		Query q = session.createQuery("from SourceDAO where path = :path and repo = :repo");¤		q.setString("repo", repo);¤		q.setString("path", path);¤		List<SourceDAO> res = q.list();¤		if (res.isEmpty()) {¤			return null;¤		}¤		if (res.size() == 1) {¤			return res.get(0);¤		}¤		throw new IllegalStateException ("SourceDAO::get - has more than one records with path " + path);¤	}¤	¤	private static SourceDAO getUncommited (Session session, String path) throws HibernateException {¤		Query q = session.createQuery("from SourceDAO where path = :path and repo like '%"+UNKNOWN_REPO_SUFFUIX+"'");¤		q.setString("path", path);¤		List<SourceDAO> res = q.list();¤		if (res.isEmpty()) {¤			return null;¤		}¤		if (res.size() == 1) {¤			return res.get(0);¤		}¤		throw new IllegalStateException ("SourceDAO::getUncommited - has more than one records with path " + path);¤	}¤	¤	public static SourceDAO make (String repo, String path, int type) throws HibernateException {¤		SourceDAO ret = get (repo, path);¤		if (ret != null) {¤			return ret;¤		}¤		ret = new SourceDAO ();¤		ret.setId(0);¤		ret.setPath(path);¤		ret.setType((byte) type);¤		ret.setRepo(repo);		¤		¤		return ret;		¤	}	¤	//#UC END# *49BF758E0373_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036026231"))
+	    quid       	"49BF758E0373"
+	    documentation 	"äëÿ õðàíåíèÿ äàííûõ î èñõîäíèêå"
+	    stereotype 	"SimpleClass"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF7C6A0275_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF7C6A0275_GET_ACCESSOR*¤		return id_;¤		//#UC END# *49BF7C6A0275_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF7C6A0275_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF7C6A0275_SET_ACCESSOR*¤		id_ = id;¤		//#UC END# *49BF7C6A0275_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021471352"))
+		    quid       	"49BF7C6A0275"
+		    documentation 	"óíèêàëüíûé â áàçå, èíêðåìåíòàëüíûé íîìåð èñõîäíèêà â áàçå"
+		    stereotype 	"property"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "path"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFACCA0357_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFACCA0357_GET_ACCESSOR*¤		return path_;¤		//#UC END# *49BFACCA0357_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFACCA0357_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFACCA0357_SET_ACCESSOR*¤		path_ = path;¤		//#UC END# *49BFACCA0357_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021471752"))
+		    quid       	"49BFACCA0357"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49CA285E02BC_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49CA285E02BC_GET_ACCESSOR*¤		return type_;¤		//#UC END# *49CA285E02BC_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49CA285E02BC_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49CA285E02BC_SET_ACCESSOR*¤		type_ = type;¤		//#UC END# *49CA285E02BC_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE500260")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021472130"))
+		    quid       	"49CA285E02BC"
+		    documentation 	"òèï èñõîäíèêà"
+		    stereotype 	"property"
+		    type       	"octet"
+		    quidu      	"3DBFFE500260"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "repo"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B3493A300D3_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B3493A300D3_GET_ACCESSOR*¤		return repo_;¤		//#UC END# *4B3493A300D3_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B3493A300D3_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B3493A300D3_SET_ACCESSOR*¤		repo_ = repo;¤		//#UC END# *4B3493A300D3_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021472528"))
+		    quid       	"4B3493A300D3"
+		    documentation 	"ðåïîçèòàðèé"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ChangesetDAO"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepository/DAOProxy/ChangesetDAO|49BF75AD03A6
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepository/ChangesetDAO.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF75AD03A6_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49BF75AD03A6_CUSTOM_IMPORT*¤import java.util.List;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤import net.sf.hibernate.Session;¤¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤¤//#UC END# *49BF75AD03A6_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF75AD03A6_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49BF75AD03A6_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49BF75AD03A6_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF75AD03A6_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49BF75AD03A6_CUSTOM_METHODS_AND_DATA*¤	¤	public boolean isNew () {¤		return getId() == 0;¤	}¤	¤	public static ChangesetDAO get (String repo, String csid) throws HibernateException {¤		Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		Query q = session.createQuery("select ch from ChangesetDAO as ch where ch.key=:key and ch.repo=:repo");¤		q.setString("key", csid);¤		q.setString("repo", repo);¤		List res = q.list();¤		if (res.isEmpty()) {¤			return null;¤		}¤		if (res.size() > 1) {¤			throw new IllegalStateException("ChangesetDAO::get - has more than one records with path " + csid);¤		}¤		return (ChangesetDAO) res.get(0);¤	}¤	¤	public static ChangesetDAO make (String repo, String csid) throws HibernateException {¤		ChangesetDAO ret = get(repo, csid);¤		if (ret != null) {¤			return ret;¤		}¤		ret = new ChangesetDAO();¤		ret.setId(0);¤		ret.setKey(csid);¤		return ret;¤	}¤	¤	public static ChangesetDAO getByRevision (long revId) throws HibernateException {¤		Session s = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		Query q = s.createQuery(¤			"select ch from ChangesetDAO as ch"¤			+ " join ch.revisions as rev"¤			+ " where rev.id = " + revId¤		);¤		return (ChangesetDAO)q.list().get(0);¤	}	¤	//#UC END# *49BF75AD03A6_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036040529"))
+	    quid       	"49BF75AD03A6"
+	    documentation 	"äëÿ õðàíåíèÿ àòîìàðíûõ äàííûõ î èçìåíåíèè ðåïîçèòàðèÿ"
+	    stereotype 	"SimpleClass"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF963C0127_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF963C0127_GET_ACCESSOR*¤		return key_;¤		//#UC END# *49BF963C0127_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF963C0127_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF963C0127_SET_ACCESSOR*¤		key_ = key;¤		//#UC END# *49BF963C0127_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021475053"))
+		    quid       	"49BF963C0127"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF96480138_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF96480138_GET_ACCESSOR*¤		return date_;¤		//#UC END# *49BF96480138_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF96480138_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF96480138_SET_ACCESSOR*¤		date_ = date;¤		//#UC END# *49BF96480138_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4616256D0399")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021475420"))
+		    quid       	"49BF96480138"
+		    stereotype 	"property"
+		    type       	"time"
+		    quidu      	"4616256D0399"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "author"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF965401A1_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF965401A1_GET_ACCESSOR*¤		return author_;¤		//#UC END# *49BF965401A1_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF965401A1_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF965401A1_SET_ACCESSOR*¤		author_ = author;¤		//#UC END# *49BF965401A1_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021475805"))
+		    quid       	"49BF965401A1"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "branch"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF96640083_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF96640083_GET_ACCESSOR*¤		return branch_;¤		//#UC END# *49BF96640083_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF96640083_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF96640083_SET_ACCESSOR*¤		branch_ = branch;¤		//#UC END# *49BF96640083_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021476185"))
+		    quid       	"49BF96640083"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "log"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF967901FA_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF967901FA_GET_ACCESSOR*¤		return log_;¤		//#UC END# *49BF967901FA_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF967901FA_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BF967901FA_SET_ACCESSOR*¤		//ses: ÷òîáû ýñêåéïèòü íåäîïóñòèìûå ñèìâîëû íà ñòîðîíå Ê¤		if (log == null) {¤			log_ = "";¤		} else {¤			log_ = log;¤		}¤		//#UC END# *49BF967901FA_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021476587"))
+		    quid       	"49BF967901FA"
+		    documentation 	"êîììåíòàðèé ê êîììèòó"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "revisions"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"calling conventions"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"force use const arg"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is default"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is mutable"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"needs field"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"pm"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"reads field"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"smart pointer"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"writes field"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1B00186_INIT_revisions*"
+			    value      	(value Text 
+|//#UC START# *49BFA1B00186_INIT_revisions*¤		return new java.util.HashSet<RevisionDAO> ();¤		//#UC END# *49BFA1B00186_INIT_revisions*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1B00186_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA1B00186_GET_ACCESSOR*¤		return revisions_;¤		//#UC END# *49BFA1B00186_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1B00186_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA1B00186_SET_ACCESSOR*¤		revisions_ = revisions;¤		//#UC END# *49BFA1B00186_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"49BFA1790068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021476967"))
+		    quid       	"49BFA1B00186"
+		    stereotype 	"property"
+		    type       	"RevisionDAOSet"
+		    quidu      	"49BFA1790068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1D0014F_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA1D0014F_GET_ACCESSOR*¤		return id_;¤		//#UC END# *49BFA1D0014F_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1D0014F_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA1D0014F_SET_ACCESSOR*¤		id_ = id;¤		//#UC END# *49BFA1D0014F_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021477354"))
+		    quid       	"49BFA1D0014F"
+		    stereotype 	"property"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "repo"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B30C26203C5_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B30C26203C5_GET_ACCESSOR*¤		return repo_;¤		//#UC END# *4B30C26203C5_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B30C26203C5_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B30C26203C5_SET_ACCESSOR*¤		repo_ = repo;¤		//#UC END# *4B30C26203C5_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021477733"))
+		    quid       	"4B30C26203C5"
+		    documentation 	"íàçâàíèå ðåïîçèòàðèÿ, îòêóäà ïðèåõàë changeset"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "ChangesetDAOList"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021473995"))
+		    quid       	"49C79D1A03AA"
+		    documentation 	"ñïèñîê"
+		    stereotype 	"UnsortedSet")))
+	(object Class "RevisionDAO"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepository/DAOProxy/RevisionDAO|49BF75EC0152
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepository/RevisionDAO.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF75EC0152_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49BF75EC0152_CUSTOM_IMPORT*¤//#UC END# *49BF75EC0152_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF75EC0152_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49BF75EC0152_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49BF75EC0152_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF75EC0152_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49BF75EC0152_CUSTOM_METHODS_AND_DATA*¤	@Override¤	public boolean equals(Object obj) {¤		if (this == obj) {¤			return true;¤		}¤		if (obj == null) {¤			return false;¤		}¤		if (getClass() != obj.getClass()) {¤			return false;¤		}¤		RevisionDAO rdao = (RevisionDAO)obj;¤		if (rdao.getSource().getPath().equals(getSource().getPath())) {¤			if (rdao.getRev().equals(getRev())) {¤				return true;¤			}¤		}¤		return false;¤	}¤¤	@Override¤	public int hashCode() {¤		final int prime = 31;¤		int result = 1;¤		result = prime * result + getSource().getPath().hashCode();¤		result = prime * result + getRev().hashCode();¤		return result;¤	}	¤	//#UC END# *49BF75EC0152_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036022342"))
+	    quid       	"49BF75EC0152"
+	    documentation 	"äëÿ õðàíåíèÿ äàííûõ î èçìåíåíèè îäíîãî èñõîäíèêà âíóòðè chageset-à"
+	    stereotype 	"SimpleClass"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1E6003B_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA1E6003B_GET_ACCESSOR*¤		return id_;¤		//#UC END# *49BFA1E6003B_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1E6003B_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA1E6003B_SET_ACCESSOR*¤		id_ = id;¤		//#UC END# *49BFA1E6003B_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021479799"))
+		    quid       	"49BFA1E6003B"
+		    stereotype 	"property"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "source"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1EE01EE_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA1EE01EE_GET_ACCESSOR*¤		return source_;¤		//#UC END# *49BFA1EE01EE_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA1EE01EE_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA1EE01EE_SET_ACCESSOR*¤		source_ = source;¤		//#UC END# *49BFA1EE01EE_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"49BF758E0373")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021480198"))
+		    quid       	"49BFA1EE01EE"
+		    stereotype 	"property"
+		    type       	"SourceDAO"
+		    quidu      	"49BF758E0373"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "rev"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA21A02D1_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA21A02D1_GET_ACCESSOR*¤		return rev_;¤		//#UC END# *49BFA21A02D1_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA21A02D1_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA21A02D1_SET_ACCESSOR*¤		rev_ = rev;¤		//#UC END# *49BFA21A02D1_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021480587"))
+		    quid       	"49BFA21A02D1"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "state"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA2340285_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA2340285_GET_ACCESSOR*¤		return state_;¤		//#UC END# *49BFA2340285_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA2340285_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA2340285_SET_ACCESSOR*¤		state_ = state;¤		//#UC END# *49BFA2340285_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE500260")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021480977"))
+		    quid       	"49BFA2340285"
+		    stereotype 	"property"
+		    type       	"octet"
+		    quidu      	"3DBFFE500260"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "linesAdded"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA24902F1_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA24902F1_GET_ACCESSOR*¤		return linesAdded_;¤		//#UC END# *49BFA24902F1_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA24902F1_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA24902F1_SET_ACCESSOR*¤		linesAdded_ = linesAdded;¤		//#UC END# *49BFA24902F1_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021481504"))
+		    quid       	"49BFA24902F1"
+		    stereotype 	"property"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "linesRemoved"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA2590192_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA2590192_GET_ACCESSOR*¤		return linesRemoved_;¤		//#UC END# *49BFA2590192_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BFA2590192_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49BFA2590192_SET_ACCESSOR*¤		linesRemoved_ = linesRemoved;¤		//#UC END# *49BFA2590192_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021481874"))
+		    quid       	"49BFA2590192"
+		    stereotype 	"property"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "RevisionDAOSet"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021478802"))
+		    quid       	"49BFA1790068"
+		    documentation 	"íàáîð ðåâèçèé"
+		    stereotype 	"UnsortedSet")))
+	(object Class "ArtefactDAO"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepository/DAOProxy/ArtefactDAO|49D9F13900B9
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepository/ArtefactDAO.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49D9F13900B9_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49D9F13900B9_CUSTOM_IMPORT*¤¤import java.util.List;¤¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤import net.sf.hibernate.Session;¤¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤//#UC END# *49D9F13900B9_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49D9F13900B9_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49D9F13900B9_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49D9F13900B9_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49D9F13900B9_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49D9F13900B9_CUSTOM_METHODS_AND_DATA*¤	¤	public static ArtefactDAO make (long pageId, String guid) {¤		ArtefactDAO result = new ArtefactDAO();¤		result.setId(pageId);¤		result.setPage(ContainerManager.Factory.get().getPageManager().getPage(pageId));¤		result.setGuid(guid);¤		return result;¤	}¤	¤	public static ArtefactDAO get (String guid) throws HibernateException {¤		Session session = SessionFactoryUtils.getSession(¤			ContainerManager.Factory.get().getSessionFactory()¤			, false¤		);¤		Query q = session.createQuery("from ArtefactDAO where guid = :guid");¤		q.setString("guid", guid);¤		List<ArtefactDAO> res = q.list();¤		if (res.isEmpty()) {¤			return null;¤		}¤		if (res.size() == 1) {¤			return res.get(0);¤		}¤		throw new IllegalStateException("SourceDAO::get - has more than one records with guid " + guid);¤	}	¤	//#UC END# *49D9F13900B9_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036027334"))
+	    quid       	"49D9F13900B9"
+	    documentation 	"õðàíèìûé êëàññ äëÿ ïðåäñòàâëåíèÿ  àðòåôàêòà ìîäåëè, ê êîòîðîìó ïðèàòòà÷åíû èñõîäíèêè"
+	    stereotype 	"SimpleClass"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F188004D_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49D9F188004D_GET_ACCESSOR*¤		return id_;¤		//#UC END# *49D9F188004D_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F188004D_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49D9F188004D_SET_ACCESSOR*¤		id_ = id;¤		//#UC END# *49D9F188004D_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021485029"))
+		    quid       	"49D9F188004D"
+		    documentation 	"êëþ÷, ñîâïàäàåò ñ id'øíèêîì ñîîòâåòñòâóþùåé ñòðàíèöû"
+		    stereotype 	"property"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "page"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F1B20012_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49D9F1B20012_GET_ACCESSOR*¤		return page_;¤		//#UC END# *49D9F1B20012_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F1B20012_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49D9F1B20012_SET_ACCESSOR*¤		page_ = page;¤		//#UC END# *49D9F1B20012_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"461492D402CE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021485417"))
+		    quid       	"49D9F1B20012"
+		    documentation 	"ñòðàíèöà àðòåôàêòà"
+		    stereotype 	"property"
+		    type       	"Page"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "guid"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F2BD024C_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49D9F2BD024C_GET_ACCESSOR*¤		return guid_;¤		//#UC END# *49D9F2BD024C_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F2BD024C_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49D9F2BD024C_SET_ACCESSOR*¤		guid_ = guid;¤		//#UC END# *49D9F2BD024C_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021485789"))
+		    quid       	"49D9F2BD024C"
+		    documentation 	"èäåíòèôèêàòîð àðòåôàêòà ñ òç ìîäåëè"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "sources"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F333026C_INIT_sources*"
+			    value      	(value Text 
+|//#UC START# *49D9F333026C_INIT_sources*¤		return new java.util.HashSet<SourceDAO> ();¤		//#UC END# *49D9F333026C_INIT_sources*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F333026C_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49D9F333026C_GET_ACCESSOR*¤		return sources_;¤		//#UC END# *49D9F333026C_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D9F333026C_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49D9F333026C_SET_ACCESSOR*¤		sources_ = sources;¤		//#UC END# *49D9F333026C_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"49D9F2E301BC")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021486181"))
+		    quid       	"49D9F333026C"
+		    documentation 	"ìí-âî èñõîäíèêîâ"
+		    stereotype 	"property"
+		    type       	"SourceSet"
+		    quidu      	"49D9F2E301BC"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "dependences"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49DB1232035B_INIT_dependences*"
+			    value      	(value Text 
+|//#UC START# *49DB1232035B_INIT_dependences*¤		return new java.util.HashSet<ArtefactDAO> ();¤		//#UC END# *49DB1232035B_INIT_dependences*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49DB1232035B_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49DB1232035B_GET_ACCESSOR*¤		return dependences_;¤		//#UC END# *49DB1232035B_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49DB1232035B_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49DB1232035B_SET_ACCESSOR*¤		dependences_ = dependences;¤		//#UC END# *49DB1232035B_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"49DB10EA031E")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021486555"))
+		    quid       	"49DB1232035B"
+		    documentation 	"ìí-âî àðòåôàêòîâ, îò êîòîðûõ çàâèñèò äàííûé"
+		    stereotype 	"property"
+		    type       	"ArtefactSet"
+		    quidu      	"49DB10EA031E"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "SourceSet"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021482922"))
+		    quid       	"49D9F2E301BC"
+		    documentation 	"ìí-âî èñõîäíèêîâ"
+		    stereotype 	"UnsortedSet")
+		(object Class "ArtefactSet"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021483990"))
+		    quid       	"49DB10EA031E"
+		    documentation 	"ìí-âî àðòåôàêòîâ"
+		    stereotype 	"UnsortedSet")))
+	(object Class "SourceRootDAO"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepository/SourceRootDAO.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B33661900DF_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B33661900DF_CUSTOM_IMPORT*¤import java.util.*;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤import net.sf.hibernate.Session;¤¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤¤//#UC END# *4B33661900DF_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B33661900DF_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B33661900DF_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B33661900DF_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B33661900DF_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B33661900DF_CUSTOM_METHODS_AND_DATA*¤	public static SourceRootDAO toPersistent (Space space, String root, String branch, String repo) {¤		try {¤			Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			Query q = session.createQuery(String.format(¤				"select srd from SourceRootDAO as srd"¤					+ " where srd.space.id = %d"¤					+ " and srd.root = '%s'"¤					+ " and srd.branch = '%s'"¤					+ " and srd.repo = '%s'"¤				, space.getId(), root, branch, repo¤			));¤			q.setCacheable(true);¤			List qr = q.list();¤			if (qr != null && qr.size() > 0) {¤				return (SourceRootDAO)qr.get(0);¤			} else {¤				SourceRootDAO srd = new SourceRootDAO ();¤				srd.setBranch(branch);¤				srd.setId(0);¤				srd.setRepo(repo);¤				srd.setRoot(root);¤				srd.setSpace(space);¤				session.save(srd);¤				return srd;¤			}¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException (e.getMessage());¤		}¤	}¤	¤	public static List<String> getAllReposInMDP () {¤		List<String> ret = new ArrayList<String> ();¤		try {¤			Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			Query q = session.createQuery(¤				"select distinct srd.repo from SourceRootDAO as srd"¤			);¤			q.setCacheable(true);¤			ret = q.list();¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException (e.getMessage());¤		}¤		return ret;¤	}¤	¤	public static List<SourceRootDAO> getRootsInSpace (String spaceKey) {¤		List<SourceRootDAO> ret = new ArrayList<SourceRootDAO> ();¤		try {¤			Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			Query q = session.createQuery(¤				"select srd from SourceRootDAO as srd"¤				+ " where srd.space.key = '" + spaceKey + "'"¤				+ " order by srd.repo, length(srd.root) desc"¤			);¤			q.setCacheable(true);¤			ret = q.list();¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException (e.getMessage());¤		}¤		return ret;¤	}¤	¤	private static List<SourceRootDAO> getApropriateRootForPath (String path) throws HibernateException {¤		//ses: îäèí è òîò æå ïóòü, íî â ðàçíûõ ðåïîçèòàðèÿõ íå ìîæåò ïîâòîðÿòñÿ â îäíîì ñïýéñå¤		//ses: îäèí è òîò æå ïóòü, â îäíîì ðåïîçèòàðèè, íî â ðàçíûõ âåòêàõ íå ìîæåò ïîâòîðÿòñÿ â îäíîì ñïýéñå¤		¤		Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		Query q = session.createQuery("select srd from SourceRootDAO as srd order by length(srd.root) desc");¤		q.setCacheable(true);¤		¤		List<SourceRootDAO> ret = new ArrayList<SourceRootDAO> ();¤		Set<Long> passedSpaces = new HashSet<Long> ();¤		for (SourceRootDAO srd : (List<SourceRootDAO>)q.list()) {¤			if (path.startsWith(srd.getRoot()) && passedSpaces.contains(srd.getSpace().getId()) == false) {¤				ret.add(srd);¤				passedSpaces.add(srd.getSpace().getId());¤			}¤		}		¤		return ret;¤	}¤	¤	public static String getRepoBySpaceAndPath (String spaceKey, String path) {¤		try {¤			//ses: íå áûâàåò ÷òî áû äâà îäèíàêîâûõ ïóòè, íî èç ðàçíûõ ðåïîçèòàðèåâ, áûëè çàäàíû â îäíîì ñïýéñå			¤			for (SourceRootDAO srd : getApropriateRootForPath(path)) {¤				if (spaceKey.equals(srd.getSpace().getKey())) {¤					return srd.getRepo();¤				}¤			}¤			return ru.garant.shared.Core.ParamManager.Factory.get().getString("-FisheyeRepository", "GARCVS");¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException (e.getMessage());¤		}¤	}¤	¤	public static final Space getSpaceForRepoAndPath(String repo, String branch, String path) throws HibernateException {¤		try {¤			for (SourceRootDAO srd : getApropriateRootForPath(path)) {¤				if (repo.equals(srd.getRepo()) && branch.equals(srd.getBranch())) {¤					return srd.getSpace();¤				}¤			}¤			return null;¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException (e.getMessage());¤		}¤	}¤	¤	public static final List<Space> getSpacesForRepoAndPath(String repo, String branch, String path) throws HibernateException {¤		try {¤			List<Space> ret = new ArrayList<Space>();¤			for (SourceRootDAO srd : getApropriateRootForPath(path)) {¤				if (repo.equals(srd.getRepo()) && branch.equals(srd.getBranch())) {¤					ret.add(srd.getSpace());¤				}¤			}¤			return ret;¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException (e.getMessage());¤		}¤	}	¤¤	public static final List<String> getRootsForRepoAndPathOptimizedForFilter(String repo, String branch, String spaceKey) throws HibernateException {¤		Session session = ContainerManager.Factory.get().getSession();¤		String sql = 				"select srd.root " +¤				"from SourceRootDAO as srd " +¤				"where srd.repo='" + repo + "' and srd.branch='" + branch + "' " + "and srd.space.key='" + spaceKey + "'";¤¤		Query q = session.createQuery(sql);¤		q.setCacheable(true);¤		List<String> roots = (List<String>)q.list();¤		return roots;¤	}¤	¤	@Override¤	public boolean equals(Object obj) {¤		if (this == obj) {¤			return true;¤		}¤		if (obj == null) {¤			return false;¤		}¤		if (getClass() != obj.getClass()) {¤			return false;¤		}¤		SourceRootDAO srd = (SourceRootDAO)obj;¤		if (root_.equals(srd.root_)) {¤			if (branch_.equals(srd.branch_)) {¤				if (repo_.equals(srd.repo_)) {¤					return space_.equals(srd.getSpace());¤				}¤			}¤		}¤		return false;¤	}¤¤	@Override¤	public int hashCode() {¤		final int prime = 31;¤		int result = 1;¤		result = prime * result + root_.hashCode();¤		result = prime * result + branch_.hashCode();¤		result = prime * result + repo_.hashCode();¤		result = prime * result + space_.hashCode();¤		return result;¤	}¤	//#UC END# *4B33661900DF_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepository/DAOProxy/RepositorySpaceDAO|4B33661900DF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19035974756"))
+	    quid       	"4B33661900DF"
+	    documentation 	"ñîäåðæèò äàííûå, ïðèâÿçàííûå ê ñïýéñó/ïðîåêòó, äëÿ ðåàëèçàöèè ðàáîòû ñ ðåïîçèòàðèÿìè"
+	    stereotype 	"SimpleClass"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B38B0700010_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B38B0700010_GET_ACCESSOR*¤		return id_;¤		//#UC END# *4B38B0700010_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B38B0700010_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B38B0700010_SET_ACCESSOR*¤		id_ = id;¤		//#UC END# *4B38B0700010_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021487501"))
+		    quid       	"4B38B0700010"
+		    stereotype 	"property"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public")
+		(object ClassAttribute "root"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B33692D02D4_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B33692D02D4_GET_ACCESSOR*¤		return root_;¤		//#UC END# *4B33692D02D4_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B33692D02D4_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B33692D02D4_SET_ACCESSOR*¤		root_ = root;¤		//#UC END# *4B33692D02D4_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B33692D02D4_INIT_roots*"
+			    value      	(value Text 
+|//#UC START# *4B33692D02D4_INIT_roots*¤		return new java.util.ArrayList<String> ();¤		//#UC END# *4B33692D02D4_INIT_roots*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021487886"))
+		    quid       	"4B33692D02D4"
+		    documentation 	"ñîäåðæèò ïóòü ê äèðåêòðèÿì â êîòîðûõ ëåæàò èñõîäíèêè, êîòîðûå ó÷àâñòâóþò â ðàçðàáîòêå"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "space"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47A0689B0158")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B3369DE0243_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B3369DE0243_GET_ACCESSOR*¤		return space_;¤		//#UC END# *4B3369DE0243_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B3369DE0243_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4B3369DE0243_SET_ACCESSOR*¤		space_ = space;¤		//#UC END# *4B3369DE0243_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021488271"))
+		    quid       	"4B3369DE0243"
+		    documentation 	"ñïýéñ"
+		    stereotype 	"property"
+		    type       	"Space"
+		    quidu      	"47A0689B0158"
+		    exportControl 	"Public")
+		(object ClassAttribute "repo"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4BB9BD650144_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4BB9BD650144_GET_ACCESSOR*¤		return repo_;¤		//#UC END# *4BB9BD650144_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4BB9BD650144_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4BB9BD650144_SET_ACCESSOR*¤		repo_ = repo;¤		//#UC END# *4BB9BD650144_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021488644"))
+		    quid       	"4BB9BD650144"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "branch"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4BB9BD6F00AB_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4BB9BD6F00AB_GET_ACCESSOR*¤		return branch_;¤		//#UC END# *4BB9BD6F00AB_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4BB9BD6F00AB_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4BB9BD6F00AB_SET_ACCESSOR*¤		branch_ = branch;¤		//#UC END# *4BB9BD6F00AB_SET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021489060"))
+		    quid       	"4BB9BD6F00AB"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    initv      	"HEAD"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"49BFA2B3016C"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021479187"))
+		    quid       	"49BFA2B302F9"
+		    supplier   	"Logical View::MDProcess::CodeRepository::DAOProxy::RevisionDAO"
+		    quidu      	"49BF75EC0152"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"49BFA2B302FC"
+		    supplier   	"Logical View::MDProcess::CodeRepository::DAOProxy::RevisionDAO::RevisionDAOSet"
+		    quidu      	"49BFA1790068"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"49C79E09012C"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$4"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021474409"))
+		    quid       	"49C79E09030E"
+		    supplier   	"Logical View::MDProcess::CodeRepository::DAOProxy::ChangesetDAO"
+		    quidu      	"49BF75AD03A6"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"49C79E090313"
+		    supplier   	"Logical View::MDProcess::CodeRepository::DAOProxy::ChangesetDAO::ChangesetDAOList"
+		    quidu      	"49C79D1A03AA"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$6"
+	    quid       	"49D9F3930132"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$7"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021483328"))
+		    quid       	"49D9F395023E"
+		    supplier   	"Logical View::MDProcess::CodeRepository::DAOProxy::SourceDAO"
+		    quidu      	"49BF758E0373"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$8"
+		    quid       	"49D9F3950242"
+		    supplier   	"Logical View::MDProcess::CodeRepository::DAOProxy::ArtefactDAO::SourceSet"
+		    quidu      	"49D9F2E301BC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$9"
+	    quid       	"49DB110A00BC"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$10"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021484412"))
+		    quid       	"49DB110A0240"
+		    supplier   	"Logical View::MDProcess::CodeRepository::DAOProxy::ArtefactDAO"
+		    quidu      	"49D9F13900B9"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$11"
+		    quid       	"49DB110A0245"
+		    supplier   	"Logical View::MDProcess::CodeRepository::DAOProxy::ArtefactDAO::ArtefactSet"
+		    quidu      	"49DB10EA031E"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49BF74F40376"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepository::DAOProxy::RevisionDAO" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(537, 270)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(319, 239)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"RevisionDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(319, 189)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"49BF75EC0152"
+		    width      	454
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepository::DAOProxy::SourceDAO" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1284, 897)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1066, 866)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"• SourceDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1066, 816)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"49BF758E0373"
+		    width      	454
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepository::DAOProxy::SourceRootDAO" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(507, 1440)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(285, 1409)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"• SourceRootDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(285, 1359)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4B33661900DF"
+		    width      	462
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepository::DAOProxy::ArtefactDAO" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(492, 846)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(275, 815)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	434
+			justify    	0
+			label      	"ArtefactDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(275, 765)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	431
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"49D9F13900B9"
+		    width      	452
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepository::DAOProxy::ChangesetDAO" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1437, 309)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1219, 278)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"• ChangesetDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1219, 228)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"49BF75AD03A6"
+		    width      	454
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)))))

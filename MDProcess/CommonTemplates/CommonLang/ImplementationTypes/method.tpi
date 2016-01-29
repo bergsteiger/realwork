@@ -1,0 +1,1002 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/method.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::method
+//
+// Метод класса
+// ---
+// [$140282719]
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: method::Class
+? Метод класса
+? [$140282719]
+> localmethod::Class
+
+= WikiImplClass::Class
+= UsesContainer::Class
+= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v -#+
+/ - типы видимости
+a fra
+/ - тип абстракции
+Y code_method.gif
+L code_method
+// Параметры визуализации
+$ C 240,205,240
+$ l 120,40,120
+$ f 120,40,120
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p is static:tribool=undefined ? Определяет, что метод принадлежит мета-классу
+p force overload:b=false ? Определяет, что метод перегружен
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{is static}"!="%S{!is static}"}%f_up_prefix(%S) *is static* = *%S{is static}* - Определяет, что метод принадлежит мета-классу
+	][{"%S{force overload}"!="%S{!force overload}"}%f_up_prefix(%S) *force overload* = *%S{force overload}* - Определяет, что метод перегружен
+	]
+
+// Выводит переменные
+%f _pas_OutVars
+// параметры: aVisibility: a-string = %1
+//#UC START# *4BB206CD02BBfor49CB43D403C5*
+	%f_set_var(WAS_VARS,"false")\
+	<{\n }{%CV=%1N&%C#f_IsVar()=true&%C#f_IsGlobalVar()!=true}\
+
+	[{%{WAS_VARS}N=false}\
+	%f_set_var(WAS_VARS,"true")\
+
+	[{%1N!=ProtectedAccess}\
+	\n\
+	]\
+
+	%S%f_Ind()\
+	var
+	 \
+	]\
+
+	%C%f_pas_OutVar()\
+	>\
+	[{%{WAS_VARS}N=true&%1N=ProtectedAccess}\
+	\n\
+	]
+//#UC END# *4BB206CD02BBfor49CB43D403C5*
+
+// Конструирует вызов итератора
+%f _SpellIteratorCall
+// параметры: anIterator: MDAClass = %1
+//#UC START# *4C0FD8D9007Dfor49CB43D403C5*
+	%f_addCDep(%S,%1%T%P)\
+	[{"%1{iterator func name}"!=""}{\
+	%f_set_var(DoIt_Name,"DoIt")\
+	}\
+	%f_set_var(DoIt_Name,"%1{iterator func name}")\
+	]\
+	%f_set_var(Action_Inst,"")\
+	%{method_children}<{}{%CS=localmethod&%CN=%{DoIt_Name}N}\
+	%f_set_var(Action_Inst,C)\
+	>\
+	[{"%{Action_Inst}N"=""}\
+	%S%f_add_class(%1U_Stub,localmethod,%{DoIt_Name}N,Action_Inst)\
+	]\
+
+	[{"%{Action_Inst}D"=""|%{Action_Inst}D=undefined}\
+	%{Action_Inst}%f_set_documentation(Подитеративная функция для вызова %1%T%{Stub}%f_pas_MethodName() из %SN)\
+	]\
+
+	%f_set_var(ITEM_TYPE,"")\
+	%1%T[{%SC=Class}{\
+	%f_set_var(ITEM_TYPE,T)\
+	}\
+	<{}{%CS=element type}%f_set_var(ITEM_TYPE,C%T)>\
+	]\
+
+	[{%1%T{needs index}=true}{\
+	%{Action_Inst}%f_add_operation(%1U_Stub_Sig,,\
+	DoIt (anItem: %{ITEM_TYPE}U): boolean,Op_Instance\
+	)\
+	}\
+	[{"%{Integer}N"=""}%f_find_element(46A606AC03B2,Integer)]\
+	%{Action_Inst}%f_add_operation(%1U_Stub_Sig,,\
+	DoIt (anItem: %{ITEM_TYPE}U\
+	, anIndex: %{Integer}U): boolean,Op_Instance\
+	)\
+	]\
+
+	%S%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_impl,\
+	 %U[{iter}\n \
+	%S%f_Ind()\
+	]
+	%S%f_Ind()\
+	  \
+	[{%1%T#f_IsServiceIterator()=true}\
+	%f_pas_TypeName(%1%T%P).Instance.\
+	]\
+	%1%T%f_pas_MethodName("f")(%1%T%{Stub}%f_pas_MethodName()(@%{Action_Inst}%f_pas_MethodName())\
+	[{%1{iterator needs params}=true&%1%T<{}{%CS=in}{C}>!=0}\
+	
+	%S%f_Ind()\
+	   %U[{iterparam}\n   \
+	%S%f_Ind()\
+	]
+	%S%f_Ind()\
+	  ]\
+	)\
+
+	[{%1{needs after iterator UC}=true}{\
+	;\
+	}\
+	\n %S%f_Ind()\
+	%U[{afteriter}\n \
+	%S%f_Ind()\
+	]\
+	]\
+
+	)
+//#UC END# *4C0FD8D9007Dfor49CB43D403C5*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for49CB43D403C5*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor49CB43D403C5*
+	%S%[inherited]\
+	%f_clear_list(method_children)\
+	<{}{}{%C}%f_add_to_list(method_children,C)>\
+
+	%{method_children}<{}{%CS=call&%C%T#f_IsIterator()=true}\
+	%1%f_SpellIteratorCall(%C)\
+	>\
+	%f_clear_list(method_children)\
+	[{%Gx=true}\
+	[{%S#f_IsFactory()!=true}\
+	[{%S{is static}=true|"<{}{%CC=Operation}{C}>"="0"}\
+// - тут будем делать методу такую же сигнатуру, как у того метода, 
+//   от которого он наследуется
+	<{}{%G#f_IsFactory()=true|%G#f_IsMethod()=true|%GS=Function}\
+	%G<{}{%CC=Operation}\
+
+	%C<{}{%CC=Parameter}{%C}\
+//	%C<{}{%CC=Parameter|"%CC"=""}{%C}\
+//	%f_warning(%CN)\
+//	%f_warning(%C%TN)\
+	%2%P%f_make_accessable(%C%TU)\
+	>\
+// - прописываем связи к типам параметров
+
+	%C%f_copy_element(%CU_%1U,%1U,,%CN,true,Op_Instance)\
+
+//	[{%1%Rx=true}\
+//	%{Op_Instance}%f_set_target(%1%RU)\
+//	]\
+//	%{Op_Instance}%f_set_documentation(Сигнатура метода %1%PN.%1N)\
+	%{Op_Instance}%f_set_documentation(%SD)\
+	%{Op_Instance}%f_set_abstraction_type(final)\
+	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+	%f_cycle_break(%S)\
+	>\
+	>\
+	]\
+//	%S{is static}
+	]\
+	]\
+	[{%S#f_IsFactory()!=true&"<{}{%CC=Operation}{C}>"="0"}\
+// - добавляем сигнатуру без параметров
+	%S%f_add_operation(%SU_DoIt,,DoIt (),Op_Instance)\
+	%{Op_Instance}%f_set_documentation(Сигнатура метода %SN)\
+	]
+//#UC END# *4B2A19E3038Bfor49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _FirstParamIsViewAreaController
+// возвращаемый результат: boolean
+//#UC START# *4CBEFA1402F2for49CB43D403C5*
+@ %SU
+	<{}{%C#f_IsMethod()!=true}\
+	%C%f_FirstParamIsViewAreaController()\
+	%f_cycle_break(%S)\
+	>
+//#UC END# *4CBEFA1402F2for49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _FirstParamName
+// возвращаемый результат: a-string
+//#UC START# *4CBEFF7C020Bfor49CB43D403C5*
+@ %SU
+	<{}{%C#f_IsMethod()!=true}\
+	%C%f_FirstParamName()\
+	%f_cycle_break(%S)\
+	>
+//#UC END# *4CBEFF7C020Bfor49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Есть ли у операции параметры
+%f _HasParams
+// возвращаемый результат: boolean
+//#UC START# *4AE065E20005for49CB43D403C5*
+@ %SU
+	<{}{%C#f_IsMethod()!=true}%C%f_HasParams()>
+//#UC END# *4AE065E20005for49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является "внутренностью" класса, атрибутом или операцией
+%f _IsClassInner
+//#UC START# *49CB3EE70382for49CB43D403C5*
+	true
+//#UC END# *49CB3EE70382for49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _IsMethod
+// возвращаемый результат: boolean
+//#UC START# *4B2A29440092for49CB43D403C5*
+	true
+//#UC END# *4B2A29440092for49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _OutCallParams
+// возвращаемый результат: a-string
+//#UC START# *4AE066F202E2for49CB43D403C5*
+	[(%C<{, }%CN>)]
+//#UC END# *4AE066F202E2for49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _pas_CallingConventionsDirective
+// возвращаемый результат: a-string
+//#UC START# *4CBD7CFE025Bfor49CB43D403C5*
+@ %SU
+	<{}{%CC=Operation}\
+	%C%f_pas_CallingConventionsDirective()\
+	%f_cycle_break(%S)\
+	>
+//#UC END# *4CBD7CFE025Bfor49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит секцию определений метода
+%f _pas_MethodDeclarations
+//#UC START# *49CB54AA033Afor49CB43D403C5*
+	[\
+	<{}{%C#f_IsMethod()=true&%CV=PrivateAccess}\
+	%C%f_pas_MethodImplementation()\n\
+	>\
+	\n\
+	]\
+
+	[\
+
+	%S%f_pas_OutVars("ProtectedAccess")\
+
+	[\
+	<{}{%C#f_IsMethod()=true&%CV!=PrivateAccess}\
+	%C%f_pas_MethodImplementation()\n\
+	>\
+	]\n\
+	]\
+
+	%S%[inherited]\
+	%S%f_pas_OutVars("PrivateAccess")
+//#UC END# *49CB54AA033Afor49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodImplementation
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for49CB43D403C5*
+	[\nvar
+	 \
+	<{}{%CV=ProtectedAccess&%C#f_IsGlobalVar()=true}\
+	[ %C%f_pas_OutVar()\n]\
+	>\
+	]\
+
+	[{%R#f_IsClassImplementableElement()=true}{\
+	<{}{%C#f_IsMethod()!=true&%CC=Operation}\
+	%C%f_pas_DoMethodImplementation(%1,%2,%3)\
+	>\
+	}\
+	%R%f_pas_MethodImplementation(%1,%2,%3,%4)\
+	]
+//#UC END# *494BEC7C03E5for49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodInterface
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor49CB43D403C5*
+	[\nvar
+	 \
+	<{}{%CV=PublicAccess&%C#f_IsGlobalVar()=true}\
+	[ %C%f_pas_OutVar()\n]\
+	>\
+	]\
+
+	[{%R#f_IsClassImplementableElement()=true}{\
+	<{}{%C#f_IsMethod()!=true&%CC=Operation}\
+	%C%f_pas_DoMethodInterface(%1,%2,%3)\
+	>\
+	}\
+	%R%f_pas_MethodInterface(%1,%2,%3)\
+	]
+//#UC END# *494BEC6A038Afor49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя владельца метода
+%f _pas_MethodOwnerName
+//#UC START# *49CB3C99034Bfor49CB43D403C5*
+	[{%1S=localmethod}{\
+	%P%f_pas_MethodOwnerName(%S)\
+	}\
+	]
+//#UC END# *49CB3C99034Bfor49CB43D403C5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Параметры операции
+%f _pas_Params
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor49CB43D403C5*
+	<{}{%C#f_IsMethod()!=true}%C%f_pas_Params()>
+//#UC END# *494BDCF3030Efor49CB43D403C5*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor49CB43D403C5*
+R  
+	[{%Sa!=abstract}\
+	[{%R#f_IsClassImplementableElement()=true}{\
+	<{}{%C#f_IsMethod()!=true}%CX>\
+	}\
+	%S%f_pas_MethodImplementation(%P,"r","",%S)\
+	]\
+	]
+//#UC END# *470F15B800CBfor49CB43D403C5*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor49CB43D403C5*
+R  
+	[{%R#f_IsClassImplementableElement()=true}{\
+	<{}{%C#f_IsMethod()!=true}%CX>\
+	}\
+	%S%f_pas_MethodInterface(%P,"r","",%S)\
+	]
+//#UC END# *470F1571031Cfor49CB43D403C5*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for49CB43D403C5*
+//#UC END# *477398E501C0for49CB43D403C5*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for49CB43D403C5*
+//#UC END# *4774D2A20372for49CB43D403C5*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for49CB43D403C5*
+//#UC END# *55B8D28B0157for49CB43D403C5*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for49CB43D403C5*
+//#UC END# *55B8D2F80145for49CB43D403C5*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for49CB43D403C5*
+//#UC END# *55B8DD9C0301for49CB43D403C5*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for49CB43D403C5*
+	%S%f_DoSpell()\
+	<%CX>
+//#UC END# *4A41A13D03D5for49CB43D403C5*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: method::Class::Operation
+? Сигнатура метода
+= CallingConventionsHolder::Class
+= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+v -
+/ - типы видимости
+e g
+/ - возможность использовать исключения
+a f
+/ - тип абстракции
+Y code_method.gif
+L code_method
+T 
+/ - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor49CB473A0201*
+R  
+	%S%f_pas_MethodInterface()
+//#UC END# *470F1571031Cfor49CB473A0201*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor49CB473A0201*
+R  
+	%S%f_pas_MethodImplementation()
+//#UC END# *470F15B800CBfor49CB473A0201*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for49CB473A0201*
+//#UC END# *477398E501C0for49CB473A0201*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for49CB473A0201*
+//#UC END# *4774D2A20372for49CB473A0201*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for49CB473A0201*
+//#UC END# *55B8D28B0157for49CB473A0201*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for49CB473A0201*
+//#UC END# *55B8D2F80145for49CB473A0201*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for49CB473A0201*
+//#UC END# *55B8DD9C0301for49CB473A0201*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for49CB473A0201*
+//#UC END# *46E6D4BB0339for49CB473A0201*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor49CB473A0201*
+//#UC END# *49F5795900ECfor49CB473A0201*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()[{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - Соглашения о вызове
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for49CB473A0201*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for49CB473A0201*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor49CB473A0201*
+	method
+//#UC END# *4705CBD6003Efor49CB473A0201*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for49CB473A0201*
+//#UC END# *470484D50138for49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Отступ. Аналог #, только с учётом особенностей Delphi
+%f _Ind
+// возвращаемый результат: a-string
+//#UC START# *4BB2008E003Afor49CB473A0201*
+	%P%f_Ind()
+//#UC END# *4BB2008E003Afor49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент является виртуальным
+%f _IsVirtual
+// возвращаемый результат: boolean
+//#UC START# *4BC4823500C1for49CB473A0201*
+	%P%f_IsVirtual()
+//#UC END# *4BC4823500C1for49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит ключевое слова типа абстракности
+// 
+// RealizeType = o|r|f
+// Modification = get|set|area|arearef
+%f _pas_AbstractionKeyword
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3
+//#UC START# *494BF05502ACfor49CB473A0201*
+	%P%f_pas_AbstractionKeyword(%1,%2,%3)
+//#UC END# *494BF05502ACfor49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+%f _pas_MethodBodyPrim
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for49CB473A0201*
+	%P%f_pas_MethodBodyPrim(%1,%2,%3)
+//#UC END# *494BB3A201A2for49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит секцию определений метода
+%f _pas_MethodDeclarations
+//#UC START# *49CB54AA033Afor49CB473A0201*
+	%P%f_pas_MethodDeclarations(%1,%2)
+//#UC END# *49CB54AA033Afor49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodImplementation
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for49CB473A0201*
+	%P%f_pas_MethodImplementation(%1,%2,%3)
+//#UC END# *494BEC7C03E5for49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodInterface
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor49CB473A0201*
+	%P%f_pas_MethodInterface(%1,%2,%3)
+//#UC END# *494BEC6A038Afor49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя метода
+%f _pas_MethodName
+// параметры: Modification: a-string = %1
+//#UC START# *494BD6C80075for49CB473A0201*
+	%P%f_pas_MethodName(%1)
+//#UC END# *494BD6C80075for49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Параметры операции
+%f _pas_Params
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor49CB473A0201*
+	[{%P#f_IsFactory()!=true|%P%P#f_IsVCMForm()!=true}{\
+	[%S%[inherited];]\
+	%S%f_pas_VCMFormFactoryParams()\
+	}\
+	%S%[inherited]\
+	]
+//#UC END# *494BDCF3030Efor49CB473A0201*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа результата функции
+%f _pas_ResultTypeName
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for49CB473A0201*
+	[{%P%f_IsFactory()=true}{\
+	[{%P#f_IsFactoryOnModule()=true&%PS!=FactoryMethod}{\
+	%S%[inherited]\
+	}\
+	%P%f_pas_ResultTypeName(%1)\
+	]\
+	}\
+	%P%f_pas_ResultTypeName(%1)\
+	]
+//#UC END# *494BDD190361for49CB473A0201*
+
+// Вложенные стереотипы
+: method::Class::Operation::Parameter
+= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+Y code_param.gif
+L code_param
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4BA74A87028D*
+//#UC END# *470F1571031Cfor4BA74A87028D*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4BA74A87028D*
+//#UC END# *470F15B800CBfor4BA74A87028D*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4BA74A87028D*
+//#UC END# *477398E501C0for4BA74A87028D*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4BA74A87028D*
+//#UC END# *4774D2A20372for4BA74A87028D*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4BA74A87028D*
+//#UC END# *55B8D28B0157for4BA74A87028D*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4BA74A87028D*
+//#UC END# *55B8D2F80145for4BA74A87028D*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4BA74A87028D*
+//#UC END# *55B8DD9C0301for4BA74A87028D*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4BA74A87028D*
+//#UC END# *46E6D4BB0339for4BA74A87028D*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4BA74A87028D*
+//#UC END# *49F5795900ECfor4BA74A87028D*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+: method::Class::var::Attribute
+? Локальная переменная
+= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+v -#
+/ - типы видимости
+a f
+/ - тип абстракции
+Y code_attr.gif
+L code_attr
+l a
+/ - возможные типы связи атрибута
+
+// Пользовательские свойства
+p IsResult:b=false ? Определяет, что переменная мапируется на результат функции
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor49CB56A601B9*
+//#UC END# *470F1571031Cfor49CB56A601B9*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor49CB56A601B9*
+//#UC END# *470F15B800CBfor49CB56A601B9*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for49CB56A601B9*
+//#UC END# *477398E501C0for49CB56A601B9*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for49CB56A601B9*
+//#UC END# *4774D2A20372for49CB56A601B9*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for49CB56A601B9*
+//#UC END# *55B8D28B0157for49CB56A601B9*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for49CB56A601B9*
+//#UC END# *55B8D2F80145for49CB56A601B9*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for49CB56A601B9*
+//#UC END# *55B8DD9C0301for49CB56A601B9*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for49CB56A601B9*
+//#UC END# *46E6D4BB0339for49CB56A601B9*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor49CB56A601B9*
+//#UC END# *49F5795900ECfor49CB56A601B9*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{IsResult}"!="%S{!IsResult}"}%f_up_prefix(%S) *IsResult* = *%S{IsResult}* - Определяет, что переменная мапируется на результат функции
+	]
+
+// Определяет, что элемент является переменной
+%f _IsVar
+// возвращаемый результат: boolean
+//#UC START# *49CB585603D9for49CB56A601B9*
+	true
+//#UC END# *49CB585603D9for49CB56A601B9*
+
+// Выводит описание переменной
+%f _pas_OutVar
+//#UC START# *4BB1DD42008Afor49CB56A601B9*
+	%S%f_Ind()\
+	[{%S#f_IsGlobalVar()=true}{l_}g_]\
+	%SN : %f_pas_TypeName(%T)\
+	[{%S{IsResult}=true} absolute Result];\
+	[ // %f_str_replace(%SD,\n,%f_space(%S))]
+//#UC END# *4BB1DD42008Afor49CB56A601B9*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for49CB56A601B9*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for49CB56A601B9*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor49CB56A601B9*
+	attr
+//#UC END# *4705CBD6003Efor49CB56A601B9*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for49CB56A601B9*
+//#UC END# *470484D50138for49CB56A601B9*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Отступ. Аналог #, только с учётом особенностей Delphi
+%f _Ind
+// возвращаемый результат: a-string
+//#UC START# *4BB2008E003Afor49CB56A601B9*
+	%P%f_Ind()
+//#UC END# *4BB2008E003Afor49CB56A601B9*
+
+: method::Class::globalvar::Attribute
+? Глобальная переменная
+= method::Class::var::Attribute
+
+// Параметры стереотипа
+v #+
+/ - типы видимости
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _IsGlobalVar
+// возвращаемый результат: boolean
+//#UC START# *4B72F6B80275for4B72F4DD0345*
+	true
+//#UC END# *4B72F6B80275for4B72F4DD0345*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Отступ. Аналог #, только с учётом особенностей Delphi
+%f _Ind
+// возвращаемый результат: a-string
+//#UC START# *4BB2008E003Afor4B72F4DD0345*
+//#UC END# *4BB2008E003Afor4B72F4DD0345*
+
+: method::Class::call::ClassDependency
+? Вызов метода (итератора)
+= UsesContainer::Class::uses::ClassDependency
+
+// Параметры стереотипа
+v -
+/ - типы видимости
+a f
+/ - тип абстракции
+
+// Пользовательские свойства
+p iterator func name:s ? Имя подитеративной функции
+p iterator needs params:b=true ? Нужна ли пользовательская секция для передачи параметров
+p needs after iterator UC:b=false ? Нужна ли пользовательская секция после вызова
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4BB0B8710126*
+//#UC END# *46E6D4BB0339for4BB0B8710126*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4BB0B8710126*
+//#UC END# *47022C88029Ffor4BB0B8710126*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4BB0B8710126*
+//#UC END# *47022CB8034Bfor4BB0B8710126*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4BB0B8710126*
+//#UC END# *47022CCF00EAfor4BB0B8710126*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4BB0B8710126*
+//#UC END# *470321950119for4BB0B8710126*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4BB0B8710126*
+//#UC END# *470321C1038Afor4BB0B8710126*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4BB0B8710126*
+//#UC END# *470F1571031Cfor4BB0B8710126*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4BB0B8710126*
+//#UC END# *470F15B800CBfor4BB0B8710126*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4BB0B8710126*
+//#UC END# *477398E501C0for4BB0B8710126*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4BB0B8710126*
+//#UC END# *4774D2A20372for4BB0B8710126*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4BB0B8710126*
+//#UC END# *49F5795900ECfor4BB0B8710126*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4BB0B8710126*
+//#UC END# *55B8D28B0157for4BB0B8710126*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4BB0B8710126*
+//#UC END# *55B8D2F80145for4BB0B8710126*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4BB0B8710126*
+//#UC END# *55B8DD9C0301for4BB0B8710126*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{iterator func name}"!="%S{!iterator func name}"}%f_up_prefix(%S) *iterator func name* = *%S{iterator func name}* - Имя подитеративной функции
+	][{"%S{needs after iterator UC}"!="%S{!needs after iterator UC}"}%f_up_prefix(%S) *needs after iterator UC* = *%S{needs after iterator UC}* - Нужна ли пользовательская секция после вызова
+	][{"%S{iterator needs params}"!="%S{!iterator needs params}"}%f_up_prefix(%S) *iterator needs params* = *%S{iterator needs params}* - Нужна ли пользовательская секция для передачи параметров
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4BB0B8710126*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for4BB0B8710126*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for4BB0B8710126*
+//#UC END# *470484D50138for4BB0B8710126*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

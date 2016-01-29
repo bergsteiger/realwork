@@ -1,0 +1,20 @@
+project (gctx_gc) : project-common-defines-tools, project-common-includes, project_generic_core, gctx_base {
+	staticname = gctx_gc
+	sharedname = gctx_gc
+
+	macros += WITH_DBL_THREAD
+	macros += PL_REPLCTR_FUNC
+	macros += MAKE_HDD
+	macros += VERSION63
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += BLOCKSINHERIT
+	macros += DOC_ONLY
+
+	macros -= INSTLL_CIB
+
+	macros += NEWNODOC // macro used in target *.cpp only
+	macros += FLUSH56 // macro used in target *.cpp only
+	macros += MIN_MEM_CONTEXT
+}

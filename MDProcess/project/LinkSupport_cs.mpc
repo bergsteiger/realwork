@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/LinkSupport_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::LinkSupport
+//
+// поддержка переходов от страницы к элементу в розу
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (LinkSupport_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = LinkSupport_cs
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+
+	IDL_Files (ConfModelLinks) {
+		idlflags += -o ./../LinkSupport/ConfModelLinks
+		./../LinkSupport/ConfModelLinks/ConfModelLinks.idl
+	}
+
+	Header_Files {
+		Std_Headers {
+			./../LinkSupport/LibHome.h
+		}
+	
+		ConfModelLinks {
+			./../LinkSupport/ConfModelLinks/ConfModelLinks.h
+			./../LinkSupport/ConfModelLinks/ConfModelLinksC.h
+			./../LinkSupport/ConfModelLinks/ConfModelLinksS.h
+			./../LinkSupport/ConfModelLinks/ConfModelLinksFactories.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		ConfModelLinks {
+			
+			./../LinkSupport/ConfModelLinks/ConfModelLinksC.inl
+			./../LinkSupport/ConfModelLinks/ConfModelLinksS.inl
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../LinkSupport/LibHome.cpp
+		}
+	
+		ConfModelLinks {
+			./../LinkSupport/ConfModelLinks/ConfModelLinks.cpp
+			./../LinkSupport/ConfModelLinks/ConfModelLinksC.cpp
+			./../LinkSupport/ConfModelLinks/ConfModelLinksS.cpp
+			./../LinkSupport/ConfModelLinks/ConfModelLinksFactories.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,2 @@
+MakeCo vcmTabbedMenuWordsPack.rc.script
+brcc32 vcmTabbedMenuWordsPack.rc

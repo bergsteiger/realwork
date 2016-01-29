@@ -1,0 +1,83 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Functors/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Functors::Support
+//
+// набор вспомогательных функций для генерации функторов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерация тела функтора
+f _functor_impl_body
+//#UC START# *471328B302BF*
+	%t_functor_ret(%S) %f_function_scope(%S)operator () %t_functor_functor(%S) {
+		%U[{_IMPL!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	}[
+	
+	%f_common_functors_impl_body(%S)]
+//#UC END# *471328B302BF*
+
+// возаращает тип результата функтора
+t _functor_ret
+//#UC START# *4713294A002E*
+c                                              {}
+r "%SS"="Predicate"|"%SS"="BinaryPredicate":   {bool}
+r ""="":                                       {[{}{void}<{}{%CS=result}%f_ret(%C)>]}
+//#UC END# *4713294A002E*
+
+// генерация параметра функтора
+f _functor_arg
+//#UC START# *471329B00138*
+	[{"%{PARAM}l"!="ref"}{[{"%t_refcounted(%S)"="true"}{%t_arg(%S,%1)}%t_functor_arg(%S,%1)]}%t_arg(%S,%1)]
+//#UC END# *471329B00138*
+
+// генерация параметра функтора
+t _functor_arg
+//#UC START# *471329BF033C*
+c                                         {in}                                              {inout}              {out}
+r "%t_refcounted(%S)"="true":             {[{%f_is_server_type(%S)=false}const ]%f_tn(%S)_var&} {%f_tn(%S)_var&}         {%f_tn(%S)_var*&}
+//#UC END# *471329BF033C*
+
+// общий код для функторов
+f _common_functors_impl_body
+//#UC START# *4716E5190213*
+	%f_impl_dump_def_init_ctor(%S)[{<{}{%CC=Attribute&"%CS"=""}{C}>!=0}
+	%f_function_scope(%S)%SN (<{, }{%CC=Attribute&"%CS"=""}%t_arg(%C%T,"%f_get_arg_specifier(%C)") %CN_>) : <{, }{%CC=Attribute&"%CS"=""}%CN(%t_init_functor_memeber(%C))> {
+		%U[{_INIT_CTOR!cpp!}
+		]
+	}
+	]<{}{%CC=Operation&%CS=ctor}
+	%CX
+	>
+
+t _init_functor_memeber
+c                                                                                                                                 {}
+r {%f_suffix(%f_attr(%S),*)=*&%f_suffix(%t_arg(%T,"%f_get_arg_specifier(%S)"),%f_dump_apersand(%S))=%f_dump_apersand(%S)}:        {&%SN_}
+r {%t_refcounted(%T)=true&%Sl=ref}:                                                                                               {%f_type(%T)::_duplicate(%SN_)}
+r {""=""}:                                                                                                                        {%SN_}
+//#UC END# *4716E5190213*
+
+// выводит часть сигнатуры для оператора ()
+t _functor_functor
+//#UC START# *4716E55F03A9*
+c                                                 {}
+r "%SS"="Generator"|"%SS=FunctorBase":            {()[{%S{const functor}=true} const]}
+r "%SS"="UnaryFunctor"|"%SS"="Predicate":         {(<{}{%CS=param}%f_set_var(PARAM,C)%f_functor_arg(%C%T,"[{%Cs!=chg}{inout}in]")> param_)[{%S{const functor}=true} const]}
+r "%SS"="BinaryFunctor"|"%SS"="BinaryPredicate":  {(<{}{%CS=first param}%t_arg(%C%T,"[{%Cs!=chg}{inout}in]")> first_param_, <{}{%CS=second param}%t_arg(%C%T,"[{%Cs!=chg}{inout}in]")> second_param_)[{%S{const functor}=true} const]}
+
+f _functor_arg_type
+	%f_set_var(PARAM,S)\
+	%f_str_replace(%f_str_replace(%f_functor_arg(%T,"inout"),&,),*,)%f_set_var(PARAM,"")
+
+f _functor_ret_type
+/	%f_str_replace(%f_str_replace(%f_str_replace(%%t_functor_ret(%S,"inout"),&,),*,),const ,)
+	%f_ret(%S)
+//#UC END# *4716E55F03A9*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

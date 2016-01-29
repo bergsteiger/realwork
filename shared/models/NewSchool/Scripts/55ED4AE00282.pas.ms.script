@@ -1,0 +1,119 @@
+// TtfwMembersIteratorPrim 55ED4AE00282 SimpleClass Class
+
+INCLUDE '52E29ED5016B.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_55ED4AE00282
+
+INCLUDE '4F4659980048.pas.ms.script'
+
+: ME_55ED4B57036E
+ CONST UID '55ED4B57036E'
+ CONST Name 'Dictionary'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_55ED4B57036E Dictionary
+
+: ME_22EA81E96617
+ CONST UID '22EA81E96617'
+ CONST Name 'f_Dictionary'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Dictionary' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+
+ @SELF
+; // ME_22EA81E96617 f_Dictionary
+
+FORWARD ME_52E29FCF00BC
+
+: ME_52E29FE50211
+ CONST UID '52E29FE50211'
+ CONST Name 'aDictionary'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+
+ @SELF
+; // ME_52E29FE50211 aDictionary
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_52E29FD702D1
+ CONST UID '52E29FD702D1'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_52E29FE50211 // aDictionary
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_52E29FD702D1 DoIt
+
+: ME_52E29FCF00BC
+ CONST UID '52E29FCF00BC'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52E29FD702D1 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52E29FCF00BC Create
+
+: ME_55ED4AE00282
+ CONST UID '55ED4AE00282'
+ CONST Name 'TtfwMembersIteratorPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_52E29ED5016B // TtfwIteratableParent
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_55ED4B57036E // Dictionary
+ ME_22EA81E96617 // f_Dictionary
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_52E29FCF00BC // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55ED4AE00282 TtfwMembersIteratorPrim

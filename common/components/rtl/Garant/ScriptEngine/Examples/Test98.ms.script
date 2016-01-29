@@ -1,0 +1,23 @@
+FORWARD Process
+
+: Process
+ STRING IN aDir
+
+ FORWARD ProcessItem
+
+ : DoFile
+  STRING IN anItem
+  anItem .
+ ; // DoFile
+
+ : ProcessItem
+  STRING IN anItem
+  //anItem .
+  @ DoFile '*.ms.script' anItem ProcessFilesWithMask
+  @ ProcessItem anItem ProcessSubDirs
+ ; // ProcessItem
+
+ @ ProcessItem aDir ProcessSubDirs
+; // Process
+
+'..\..\' Process

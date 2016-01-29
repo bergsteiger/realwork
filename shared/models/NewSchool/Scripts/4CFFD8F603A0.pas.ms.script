@@ -1,0 +1,44 @@
+// TeeEditorWithoutOperations 4CFFD8F603A0 GuiControl Class
+
+INCLUDE '495268900201.pas.ms.script'
+
+FORWARD ME_4CFFD8F603A0
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_81DBA3D84CAE
+ CONST UID '81DBA3D84CAE'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TeeEditorWithoutOperations' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_81DBA3D84CAE Ini_Reg_Class
+
+: ME_4CFFD8F603A0
+ CONST UID '4CFFD8F603A0'
+ CONST Name 'TeeEditorWithoutOperations'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_495268900201 // TeeEditor
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_81DBA3D84CAE // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4CFFD8F603A0 TeeEditorWithoutOperations

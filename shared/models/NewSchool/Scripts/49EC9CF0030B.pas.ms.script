@@ -1,0 +1,63 @@
+// shdocvw 49EC9CF0030B UtilityPack Class
+
+FORWARD ME_49EC9CF0030B
+
+INCLUDE '49EEFA91008E.pas.ms.script'
+
+FORWARD ME_49EC9D0E00F0
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4B91F18CB75A
+ CONST UID '4B91F18CB75A'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TWebBrowser' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_4B91F18CB75A Ini_Reg_Class
+
+: ME_49EC9D0E00F0
+ CONST UID '49EC9D0E00F0'
+ CONST Name 'TWebBrowser'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49EEFABF023A // TOleControl
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4B91F18CB75A // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_49EC9D0E00F0 TWebBrowser
+
+: ME_49EC9CF0030B
+ CONST UID '49EC9CF0030B'
+ CONST Name 'shdocvw'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_49EC9D0E00F0 // TWebBrowser
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_49EC9CF0030B shdocvw

@@ -1,0 +1,563 @@
+<<VCMControllers>> DayTips
+ %UID '493FF75500F3'
+ %SUMMARY 'Работа с советами дня' ;
+ %DEPENDS
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '494104850236' /* CommonDiction */
+  U$ '4979D3680163' /* View */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4F4B8F830023' /* ExternalObjects */
+  U$ '521C9DA50125' /* "Application Resources" */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '494104850236' /* CommonDiction */
+  U$ '4979D3680163' /* View */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4F4B8F830023' /* ExternalObjects */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> DayTipsInterfaces
+   %UID '4991C6930254'
+   %SUMMARY 'Интерфейсы работы с советами дня' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '10.02.2009 21:25'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> InsStartupTips
+      %UID '4991C6FF00C7'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<property>> DontShow
+         %UID '4991C75C00D5'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // DontShow
+        ABSTRACT LINK <<readonly>> TipCaption
+         %UID '4991C74701F8'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // TipCaption
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> Next
+         %UID '4991C7680235'
+        ; // Next
+        ABSTRACT <<Operation>> Prev
+         %UID '4991C76E02ED'
+        ; // Prev
+        ABSTRACT <<Operation>> ShowDetails
+         %UID '4991C77601E9'
+        ; // ShowDetails
+        ABSTRACT <<Operation>> GotoWeb
+         %UID '4991C78200E7'
+        ; // GotoWeb
+      ; // %OPERATIONS
+     ; // InsStartupTips
+   ; // %CHILDREN
+  ; // DayTipsInterfaces
+  <<Unit>> DayTipsData
+   %UID '4906F67500B0'
+   %SUMMARY 'Структуры данных для Советов дня' ;
+   %DEPENDS
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '48F747EC0073' /* Common */
+    U$ '48FD8B2702F6' /* Tree */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsTipsTree
+      %UID '4906F6A103D5'
+      %META
+       %upv "author" 'Лукьянец Р.В,'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2008/02/21 06:56:43'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677FF4B0036' /* Data */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '468361010204' /* TnsDataResetTreeStruct */
+      ; // %INHERITS
+      %REALIZES
+       U$ '48FF64F60078' /* ReAqurieUnfilteredRoot */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '48FF56D003E6' /* SettingsID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4906F73E00DA"
+         %UID '4906F73E00DA'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4906F73E00DA
+        <<uses>> "4906F74E00E5"
+         %UID '4906F74E00E5'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 4906F74E00E5
+        <<uses>> "4906F79100A6"
+         %UID '4906F79100A6'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 4906F79100A6
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<static>> Make
+         %UID '4906F6FD017E'
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsTipsTree
+   ; // %CHILDREN
+  ; // DayTipsData
+  <<ControllerUnit>> DayTips
+   %UID '491D560F01F4'
+   %SUMMARY 'Работа с советами дня' ;
+   %DEPENDS
+    U$ '4423F94903C8' /* IO */
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '4570511E038A' /* Document */
+    U$ '457450470167' /* DynamicTree */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4680E826036D' /* eeDocumentContainer */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47C695A10172' /* evTypes */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47EA4BB502F9' /* afwMixIns */
+    U$ '47EA50050263' /* BaseDocument */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '47F260DC003F' /* ns */
+    U$ '48F747EC0073' /* Common */
+    U$ '48FD8B2702F6' /* Tree */
+    U$ '4906F67500B0' /* DayTipsData */
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '492540AF02CD' /* CommonDictionInterfaces */
+    U$ '492543E30278' /* CommonDiction */
+    U$ '4979D3B10102' /* Diction */
+    U$ '4991C6930254' /* DayTipsInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B1FC2FF03CD' /* DocumentInterfaces */
+    U$ '4C6A7BA001A5' /* F1DocumentContainers */
+    U$ '4F4B8FA60272' /* Implementation */
+    U$ '521C9DA50125' /* "Application Resources" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '447878770121' /* GCI */
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '4680C57D01E9' /* Business */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '47E9EEC60260' /* Model */
+    U$ '493FF75500F3' /* DayTips */
+    U$ '494104850236' /* CommonDiction */
+    U$ '4979D3680163' /* View */
+    U$ '4ABB680E0218' /* Common$Lib */
+    U$ '4C6A65ED0374' /* F1DocumentProcessing */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '4F4B8F830023' /* ExternalObjects */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<ViewAreaControllerImp>> TdsTipsDocument
+      %UID '491D56370182'
+      %META
+       %upv "author" 'Лукьянец Р.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2008/02/21 08:50:34'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4926CAF40166' /* dsBaseDocument */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '491C263E03AF' /* GetIsReadOnly */
+       U$ '491C264C02C2' /* GetTimeMachineOff */
+       U$ '4C6AB38800F3' /* MakeContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CE53D1F00EE"
+         %UID '4CE53D1F00EE'
+         %TARGET U$ '4CE53CC80300' /* TnsTipsDocumentContainer */
+        ; // 4CE53D1F00EE
+      ; // %LINKS
+     ; // TdsTipsDocument
+     FINAL <<ViewAreaControllerImp>> TdsTips
+      %UID '49254BC1019C'
+      %SUMMARY 'Список советов дня' ;
+      %META
+       %upv "author" 'Лукьянец Р.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2008/02/20 13:01:22'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '494104850236' /* CommonDiction */
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4925449A0296' /* dsCommonDiction */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47F4C2B9014A' /* MakeSimpleTree */
+       U$ '49254515003C' /* MakeDocInfoForCurrentChanged */
+       U$ '5571EB84007F' /* DictionKind */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "49254C19037D"
+         %UID '49254C19037D'
+         %TARGET U$ '49254B6F0325' /* TdeTips */
+        ; // 49254C19037D
+        <<uses>> "49254CF00100"
+         %UID '49254CF00100'
+         %TARGET U$ '4906F6A103D5' /* TnsTipsTree */
+        ; // 49254CF00100
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '492D5EDD012F'
+         %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+         %TOBEINCLUDED
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+      ; // %ATTRIBUTES
+     ; // TdsTips
+     <<UseCaseControllerImp>> TsdsTips
+      %UID '493D0AFD02F6'
+      %SUMMARY 'Бизнес объект сборки "Совет дня"' ;
+      %META
+       %upv "author" 'Лукьянец Р.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2008/02/20 13:01:22'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '494104850236' /* CommonDiction */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4941654603E7' /* TsdsCommonDiction */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4925B1EC0100' /* BaseDocumentClass */
+       U$ '4936B89C037F' /* MakeDocInfo */
+       U$ '4936BA0D0286' /* MakeContents */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "493D0B3002B4"
+         %UID '493D0B3002B4'
+         %TARGET U$ '491D56370182' /* TdsTipsDocument */
+        ; // 493D0B3002B4
+        <<uses>> "493D0B3D00BB"
+         %UID '493D0B3D00BB'
+         %TARGET U$ '49254BC1019C' /* TdsTips */
+        ; // 493D0B3D00BB
+        <<uses>> "493D0B780263"
+         %UID '493D0B780263'
+         %TARGET U$ '49254B6F0325' /* TdeTips */
+        ; // 493D0B780263
+        <<uses>> "493D0BE8015F"
+         %UID '493D0BE8015F'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 493D0BE8015F
+      ; // %LINKS
+     ; // TsdsTips
+     <<SimpleClass>> TnsStartupTips
+      %UID '4992891800CF'
+      %SUMMARY 'Советик дня' ;
+      %META
+       %upv "author" 'Лукьянец Р.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2008/02/14 13:46:41'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790B4F00236' /* AFW */
+       U$ '4790D09A0378' /* L3 */
+       U$ '493FF75500F3' /* DayTips */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47EA4BEF0140' /* afwApplicationDataUpdate */
+       U$ '4991C6FF00C7' /* InsStartupTips */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4991C74701F8' /* TipCaption */
+       U$ '4991C75C00D5' /* DontShow */
+       U$ '4991C7680235' /* Next */
+       U$ '4991C76E02ED' /* Prev */
+       U$ '4991C77601E9' /* ShowDetails */
+       U$ '4991C78200E7' /* GotoWeb */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47EA4E9002C6' /* FinishDataUpdate */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49928AD80373"
+         %UID '49928AD80373'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 49928AD80373
+        <<uses>> "49928AEE0176"
+         %UID '49928AEE0176'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 49928AEE0176
+        <<uses>> "49928B1500D8"
+         %UID '49928B1500D8'
+         %TARGET U$ '47752AF90375' /* afwFacade */
+        ; // 49928B1500D8
+        <<uses>> "49928B1D0064"
+         %UID '49928B1D0064'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 49928B1D0064
+        <<uses>> "49928C4501B7"
+         %UID '49928C4501B7'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+        ; // 49928C4501B7
+        <<uses>> "49928C59007D"
+         %UID '49928C59007D'
+         %TARGET U$ '45EEC8680109' /* NodeIndexPath */
+        ; // 49928C59007D
+        <<uses>> "49928C8001B8"
+         %UID '49928C8001B8'
+         %TARGET U$ '45EEB6520191' /* Document */
+        ; // 49928C8001B8
+        <<uses>> "49928C900220"
+         %UID '49928C900220'
+         %TARGET U$ '456EB3E10177' /* EntityBase */
+        ; // 49928C900220
+        <<uses>> "499297BF035B"
+         %UID '499297BF035B'
+         %TARGET U$ '46835B4001A4' /* TnsTreeStruct */
+        ; // 499297BF035B
+        <<uses>> "499297E30231"
+         %UID '499297E30231'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 499297E30231
+        <<uses>> "499297F800ED"
+         %UID '499297F800ED'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 499297F800ED
+        <<uses>> "4992981D03AD"
+         %UID '4992981D03AD'
+         %TARGET U$ '49254B6F0325' /* TdeTips */
+        ; // 4992981D03AD
+        <<uses>> "49929A8F0396"
+         %UID '49929A8F0396'
+         %TARGET U$ '4909AEB00352' /* TnsINodeWrap */
+        ; // 49929A8F0396
+        <<uses>> "49929ABF03AB"
+         %UID '49929ABF03AB'
+         %TARGET U$ '47F9C7C9010E' /* nsExternalObjectPrim */
+        ; // 49929ABF03AB
+        <<uses>> "49929C12013C"
+         %UID '49929C12013C'
+         %TARGET U$ '48FF569700F6' /* StringRoutines */
+        ; // 49929C12013C
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_TipsTree
+         %UID '499289CF03A7'
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_TipsTree
+        PRIVATE <<Attribute>> f_CurrentNode
+         %UID '499289E00058'
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_CurrentNode
+        PRIVATE <<Attribute>> f_DontShow
+         %UID '49928A3E007F'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_DontShow
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '49928A97027C'
+        ; // Create
+        FINAL <<factory>> MakePrim
+         %UID '49928AA3039A'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // MakePrim
+        FINAL <<static>> Make
+         %UID '4993F1F80032'
+         %TARGET U$ '4991C6FF00C7' /* InsStartupTips */
+         %TOBEINCLUDED
+          U$ '493FF75500F3' /* DayTips */
+         ; // %TOBEINCLUDED
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsStartupTips
+     <<SimpleClass>> TdeTips
+      %UID '49254B6F0325'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '08.12.2009 18:37'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '494104850236' /* CommonDiction */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B1E70D20312' /* TdeCommonDiction */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4B1E714A0125' /* DefaultDocType */
+      ; // %OVERRIDES
+     ; // TdeTips
+     <<SimpleClass>> TnsTipsDocumentContainer
+      %UID '4CE53CC80300'
+      %SUMMARY 'Контейнер документа для советов дня' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '18.11.2010 17:49'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '4C6A65ED0374' /* F1DocumentProcessing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4680E83D00C8' /* TeeDocumentContainer */
+       U$ '4C6A955F00D6' /* nsDocumentContainer */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47F27DA80172' /* GetDocument */
+       U$ '4B1FBF87020C' /* AfterCreate */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CE53E7702F2"
+         %UID '4CE53E7702F2'
+         %TARGET U$ '483E708900B4' /* "Clipboard Formats" */
+        ; // 4CE53E7702F2
+        <<uses>> "4CE53F7A02A1"
+         %UID '4CE53F7A02A1'
+         %TARGET U$ '46A5B0060013' /* IStream */
+        ; // 4CE53F7A02A1
+        <<uses>> "4E69E09C0253"
+         %UID '4E69E09C0253'
+         %TARGET U$ '431841610361' /* String */
+        ; // 4E69E09C0253
+      ; // %LINKS
+     ; // TnsTipsDocumentContainer
+   ; // %CHILDREN
+  ; // DayTips
+ ; // %CHILDREN
+; // DayTips

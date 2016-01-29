@@ -1,0 +1,1 @@
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}

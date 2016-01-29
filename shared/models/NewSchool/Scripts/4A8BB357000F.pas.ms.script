@@ -1,0 +1,214 @@
+// TnscCustomChatMemoDocumentPartGenerator 4A8BB357000F SimpleClass Class
+
+FORWARD ME_4A8BB357000F
+
+FORWARD ME_4BBDC4E500F0
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4BBDC4EE0017
+ CONST UID '4BBDC4EE0017'
+ CONST Name 'ChatPastePrefix'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Из документа ГАРАНТ:'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_4BBDC4EE0017 ChatPastePrefix
+
+: ME_4BBDC4E500F0
+ CONST UID '4BBDC4E500F0'
+ CONST Name 'Local'
+ CONST Class 'Class'
+ CONST Stereotype 'LocalConst'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_4BBDC4EE0017 // ChatPastePrefix
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ @SELF
+; // ME_4BBDC4E500F0 Local
+
+FORWARD ME_54D92F9F38A5
+
+INCLUDE '4B3B36EC03B2.pas.ms.script'
+
+: ME_20CAE3553527
+ CONST UID '20CAE3553527'
+ CONST Name 'ChatPastePrefix'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY '''Из документа ГАРАНТ:''' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ChatPastePrefix''; rValue : ''Из документа ГАРАНТ:'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_20CAE3553527 ChatPastePrefix
+
+: ME_54D92F9F38A5
+ CONST UID '54D92F9F38A5'
+ CONST Name 'LCImplLocal'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_20CAE3553527 // ChatPastePrefix
+ ]
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+
+ @SELF
+; // ME_54D92F9F38A5 LCImplLocal
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4A8BDA0501E0
+ CONST UID '4A8BDA0501E0'
+ CONST Name 'f_WasHandle'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4A8BDA0501E0 f_WasHandle
+
+: ME_4A8BDDDD0172
+ CONST UID '4A8BDDDD0172'
+ CONST Name 'f_WasInheritedParaAdd'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Было унаследованное добавление параграфа' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4A8BDDDD0172 f_WasInheritedParaAdd
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+: ME_4A8BE554022B
+ CONST UID '4A8BE554022B'
+ CONST Name 'f_Doc'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_532031160122 // Tl3Variant
+ ;
+
+ @SELF
+; // ME_4A8BE554022B f_Doc
+
+: ME_4A8BFBCB02EE
+ CONST UID '4A8BFBCB02EE'
+ CONST Name 'f_ExternalHandle'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4A8BFBCB02EE f_ExternalHandle
+
+: ME_4A8D287202AC
+ CONST UID '4A8D287202AC'
+ CONST Name 'f_NumberedPara'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_532031160122 // Tl3Variant
+ ;
+
+ @SELF
+; // ME_4A8D287202AC f_NumberedPara
+
+: ME_20578FB5691C
+ CONST UID '20578FB5691C'
+ CONST Name 'Init_ChatPastePrefix'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_ChatPastePrefix' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_20578FB5691C Init_ChatPastePrefix
+
+: ME_4A8BB357000F
+ CONST UID '4A8BB357000F'
+ CONST Name 'TnscCustomChatMemoDocumentPartGenerator'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_4A8BDA0501E0 // f_WasHandle
+ ME_4A8BDDDD0172 // f_WasInheritedParaAdd
+ ME_4A8BE554022B // f_Doc
+ ME_4A8BFBCB02EE // f_ExternalHandle
+ ME_4A8D287202AC // f_NumberedPara
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_20578FB5691C // Init_ChatPastePrefix
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ : Children
+   [ ME_4BBDC4E500F0 // Local
+ ]
+ ; // Children
+ : Constants
+   [ ME_54D92F9F38A5 // LCImplLocal
+ ]
+ ; // Constants
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '19.08.2009 12:10'
+
+ @SELF
+; // ME_4A8BB357000F TnscCustomChatMemoDocumentPartGenerator

@@ -1,0 +1,234 @@
+<<MDALibrary>> Integrated
+ %UID '46E13A8E00AB'
+ %SUMMARY 'Модель интегрированного элемента - проекта' ;
+ %DEPENDS
+  U$ '46E801C00348' /* Core */
+  U$ '47022A100167' /* CommonLang */
+  U$ '47739263024C' /* WebLang */
+  U$ '4773963E021D' /* AllGenerators */
+  U$ '478DEEBE011B' /* ServerLib */
+  U$ '499970DC01D0' /* Testing */
+  U$ '49F99E660011' /* Integrated */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '46E801C00348' /* Core */
+  U$ '47022A100167' /* CommonLang */
+  U$ '47739263024C' /* WebLang */
+  U$ '4773963E021D' /* AllGenerators */
+  U$ '478DEEBE011B' /* ServerLib */
+  U$ '499970DC01D0' /* Testing */
+  U$ '49F99E660011' /* Integrated */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<MDALayer>> Root
+   %UID '46E13AB700FA'
+   %SUMMARY 'Основной интегрированный слой' ;
+   %DEPENDS
+    U$ '46E80398003B' /* "Abstract" */
+    U$ '47022B0D038A' /* OtherGens */
+    U$ '470335990177' /* Library */
+    U$ '470335BE01D4' /* Target */
+    U$ '470384F502CE' /* BaseTypes */
+    U$ '4773969402E9' /* СppGens */
+    U$ '4773980602D9' /* JavaGens */
+    U$ '4773984F02AA' /* DelphiGens */
+    U$ '4773C34C0375' /* HighLayers */
+    U$ '478DF23D03CB' /* High */
+    U$ '499971440112' /* Libraries */
+    U$ '49F99E9101A3' /* Root */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E801C00348' /* Core */
+    U$ '47022A100167' /* CommonLang */
+    U$ '47739263024C' /* WebLang */
+    U$ '4773963E021D' /* AllGenerators */
+    U$ '478DEEBE011B' /* ServerLib */
+    U$ '499970DC01D0' /* Testing */
+    U$ '49F99E660011' /* Integrated */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     REDEFINITION <<MDACategory>> Project
+      %UID '46E13AC200BB'
+      %SUMMARY 'Проект'#13#10'---'#13#10'Рутовый элемент модели. Определяет основные проекты. Одна модель может определять несколько проектов, определяя связи между ними.' ;
+      %META
+       %upv "visualization bg color" 12842435
+       %upv "visualization f-font color" 5961040
+       %upv "visualization f-line color" 5961040
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4773963E021D' /* AllGenerators */
+       U$ '49F99E660011' /* Integrated */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47022B8800DA' /* "CORBA IDL" */
+       U$ '47022E21005D' /* "Проектные файлы C++" */
+       U$ '4703206200DA' /* COM */
+       U$ '4703220900DA' /* "Проектные файлы Java" */
+       U$ '47032C8B009C' /* "Дельфи-DLL Адаптер" */
+       U$ '47032F6B01D4' /* "Скрипт для сборки" */
+       U$ '4705C4E1037A' /* "C++ Фабрики" */
+       U$ '470F151302FD' /* "Delphi интерфейсы и реализация" */
+       U$ '470F24F301E4' /* "Дельфи-DLL Адаптер проектные файлы" */
+       U$ '484E3DDD01F0' /* ModelSerialize */
+       U$ '49F99EB100B2' /* Project */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '47022BBE0261' /* idl */
+       U$ '47022C0F01E4' /* idl_ami */
+       U$ '47022C88029F' /* h */
+       U$ '47022CB8034B' /* cpp */
+       U$ '47022CCF00EA' /* i.h */
+       U$ '47031E41002E' /* mpc */
+       U$ '47031E850177' /* mpc2 */
+       U$ '47031EA5002E' /* s.reg */
+       U$ '47031EDE0138' /* s.ini */
+       U$ '47031EF6005D' /* vi.rc */
+       U$ '47031F13004E' /* vi.rch */
+       U$ '47032097038A' /* odl */
+       U$ '470320C1030D' /* com.def */
+       U$ '470320E002CE' /* com.rgs */
+       U$ '470321950119' /* java */
+       U$ '470321C1038A' /* fctr.java */
+       U$ '47032220003E' /* output.project */
+       U$ '4703223D01A5' /* output.xml */
+       U$ '47032262037A' /* build.xml */
+       U$ '470322910119' /* output.classpath */
+       U$ '470322DF03A9' /* Makejar.launch */
+       U$ '47032EC4032C' /* dll.h */
+       U$ '47032ED002DE' /* dll.cpp */
+       U$ '47032F9601A5' /* ant.xml */
+       U$ '47032FA101E4' /* ant.bat */
+       U$ '4705C5490109' /* fctr.h */
+       U$ '4705C54B01F4' /* fctr.cpp */
+       U$ '470F152700FA' /* pas */
+       U$ '470F1571031C' /* intf.pas */
+       U$ '470F15B800CB' /* impl.pas */
+       U$ '470F252801D4' /* mpc.dll */
+       U$ '471442BE033C' /* rc */
+       U$ '477398E501C0' /* intf2.pas */
+       U$ '47EA1ED00157' /* specific_h_files_list */
+       U$ '47EA208B0009' /* specific_cpp_files_list */
+       U$ '55B8D28B0157' /* rc.pas */
+       U$ '55B8D2F80145' /* rc.script.pas */
+       U$ '55B8DD9C0301' /* res.cmd.pas */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '49F5795900EC' /* dfm */
+       U$ '4A41A13D03D5' /* spell */
+       U$ '4F379BBA00BF' /* IsProject */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4703778C02BF"
+        %UID '4703778C02BF'
+        %TARGET U$ '47037635038A' /* ServerLibrary */
+       ; // 4703778C02BF
+       <<include>> "47037791004E"
+        %UID '47037791004E'
+        %TARGET U$ '470361CD0148' /* Library */
+       ; // 47037791004E
+       <<include>> "4715A3F60196"
+        %UID '4715A3F60196'
+        %TARGET U$ '47046C6B02FD' /* AdapterTarget */
+       ; // 4715A3F60196
+       <<include>> "4715A3F80119"
+        %UID '4715A3F80119'
+        %TARGET U$ '47046A7002FD' /* ComTarget */
+       ; // 4715A3F80119
+       <<include>> "4715A3FA0196"
+        %UID '4715A3FA0196'
+        %TARGET U$ '470382290251' /* ExeTarget */
+       ; // 4715A3FA0196
+       <<include>> "4715A400036B"
+        %UID '4715A400036B'
+        %TARGET U$ '470469A6035B' /* InstallerTarget */
+       ; // 4715A400036B
+       <<include>> "473933B102BF"
+        %UID '473933B102BF'
+        %TARGET U$ '4739321200EA' /* AdapterTargetUnion */
+       ; // 473933B102BF
+       <<include>> "4774C55D021D"
+        %UID '4774C55D021D'
+        %TARGET U$ '4773C42B0029' /* WebLibrary */
+       ; // 4774C55D021D
+       <<include>> "499971F90017"
+        %UID '499971F90017'
+        %TARGET U$ '499971A80065' /* TestLibrary */
+       ; // 499971F90017
+      ; // %LINKS
+      %ATTRIBUTES
+       <<bool>> "create project"
+        %UID '47037854004E'
+        %SUMMARY 'определяет необходимость создания файла проекта (MWC)' ;
+        %VALUE true
+       ; // "create project"
+       <<bool>> "need UC"
+        %UID '4703787301B5'
+        %SUMMARY 'явно включает генерацию дополнительных секций Юзер-Кода' ;
+        %VALUE false
+       ; // "need UC"
+       <<string>> "package prefix"
+        %UID '4703790B01A5'
+        %SUMMARY 'префикс проекта (используется при генерации java-кода)' ;
+        %VALUE 'ru.garant'
+       ; // "package prefix"
+       <<string>> "major version"
+        %UID '4703791F00FA'
+        %SUMMARY 'Мажорный номер версии' ;
+        %VALUE 1
+       ; // "major version"
+       <<string>> "minor version"
+        %UID '4703792F03D8'
+        %SUMMARY 'Минорный номер версии' ;
+        %VALUE 0
+       ; // "minor version"
+       <<string>> "fix version"
+        %UID '47037945006D'
+        %SUMMARY 'Номер багфикса' ;
+        %VALUE 0
+       ; // "fix version"
+       <<bool>> "force usage"
+        %UID '47037AC202DE'
+        %SUMMARY 'явно определяет, что элемент будет кем-то использован (нужно для проверки)' ;
+        %VALUE false
+       ; // "force usage"
+       <<string>> "build share"
+        %UID '47188EED0138'
+        %SUMMARY 'название сетевой папки, куда будет собираться проект' ;
+       ; // "build share"
+      ; // %ATTRIBUTES
+     ; // Project
+     [EXPORT] <<Project>>
+     <<MDAUtilityPack>> ProjectSupport
+      %UID '4715A49B01D4'
+      %SUMMARY 'вспомогательные функции для генерации проекта' ;
+      %OPERATIONS
+        <<Operation>> has_tragets_with_server IN %S
+         %UID '4715A4EE004E'
+         %SUMMARY 'имеет ли элемент вложенные элементы использующие серверную часть' ;
+        ; // has_tragets_with_server
+        <<Operation>> has_tragets_without_server IN %S
+         %UID '4715A5180000'
+         %SUMMARY 'имеет ли элемент вложенные элементы использующие НЕ серверную часть' ;
+        ; // has_tragets_without_server
+        <<Operation>> is_dll_target IN %S
+         %UID '4715A56300DA'
+         %SUMMARY 'является ли элемент DLL - целью сборки' ;
+        ; // is_dll_target
+        <<Operation>> dump_exe_target IN %S
+         %UID '4715A580000F'
+         %SUMMARY 'генерация Exe - цели' ;
+        ; // dump_exe_target
+        <<Operation>> dump_dll_target IN %S
+         %UID '4715A5D403B9'
+         %SUMMARY 'генерация DLL - цели' ;
+        ; // dump_dll_target
+      ; // %OPERATIONS
+     ; // ProjectSupport
+     [EXPORT] ProjectSupport
+   ; // %CHILDREN
+  ; // Root
+ ; // %CHILDREN
+; // Integrated

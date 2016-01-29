@@ -1,0 +1,170 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{AF49C4DE-5F4B-4F67-BD08-33F39CE7CCDD}</ProjectGuid>
+			<MainSource>gtCryptD10.dpk</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.0</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_DependencyCheckOutputName>..\..\Lib\BDS2006\gtCryptD10.bpl</DCC_DependencyCheckOutputName>
+			<RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+			<DCC_SymbolReferenceInfo>1</DCC_SymbolReferenceInfo>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_BplOutput>..\..\Lib\BDS2006</DCC_BplOutput>
+			<DCC_Description>Gnostice PDFCrypt</DCC_Description>
+			<DCC_Platform>x86</DCC_Platform>
+			<GenPackage>true</GenPackage>
+			<DCC_S>false</DCC_S>
+			<DCC_N>true</DCC_N>
+			<GenDll>true</GenDll>
+			<DCC_DcpOutput>..\..\Lib\BDS2006</DCC_DcpOutput>
+			<DCC_E>false</DCC_E>
+			<DCC_DcuOutput>..\..\Lib\BDS2006</DCC_DcuOutput>
+			<DCC_K>false</DCC_K>
+			<DCC_F>false</DCC_F>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="gtCryptD10.dpk">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="rtl.dcp"/>
+			<DCCReference Include="vcl.dcp"/>
+			<DCCReference Include="gtRtlD10.dcp"/>
+			<DCCReference Include="gtPDFCrypt3.pas"/>
+			<DCCReference Include="gtEnvelope3.pas"/>
+			<DCCReference Include="gtJwaNtStatus3.pas"/>
+			<DCCReference Include="gtJwaWinBase3.pas"/>
+			<DCCReference Include="gtJwaWinCrypt3.pas"/>
+			<DCCReference Include="gtJwaWinNT3.pas"/>
+			<DCCReference Include="gtJwaWinType3.pas"/>
+			<DCCReference Include="gtWinCrypt3.pas"/>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>Package</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">gtCryptD10.dpk</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">2</VersionInfo>
+						<VersionInfo Name="MinorVer">5</VersionInfo>
+						<VersionInfo Name="Release">2</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1033</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Gnostice InformationTechnology Pvt. Ltd.</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">2.5.2.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright">Copyright © 2002-2008 Gnostice Information Technologies Private Limited</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">2.5.2.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfs10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfs10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfrx10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfrx10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfsDB10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfsDB10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxDB10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxDB10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfsbde10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfsbde10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxbde10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxbde10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfsado10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfsado10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxado10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxado10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfsibx10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfsibx10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxibx10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxibx10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxdbx10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxdbx10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxe10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxe10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfstee10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfstee10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxtee10.bpl">File D:\Sandeep\Reports\FR4.72006\LibD10\dclfrxtee10.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvAppFrmD10D.bpl">JVCL Application and Form Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvBandsD10D.bpl">JVCL Band Objects</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvBDED10D.bpl">JVCL BDE Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvCmpD10D.bpl">JVCL Non-Visual Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvCoreD10D.bpl">JVCL Core Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvCryptD10D.bpl">JVCL Encryption and Compression Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvCtrlsD10D.bpl">JVCL Visual Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvCustomD10D.bpl">JVCL Custom Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvDBD10D.bpl">JVCL Database Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvDlgsD10D.bpl">JVCL Dialog Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvDockingD10D.bpl">JVCL Docking Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvDotNetCtrlsD10D.bpl">JVCL DotNet Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvEDID10D.bpl">JVCL EDI Components Designtime Package</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvGlobusD10D.bpl">JVCL Globus Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvHMID10D.bpl">JVCL HMI Controls design time unit</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvInterpreterD10D.bpl">JVCL Interpreter Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvJansD10D.bpl">JVCL Jans Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvManagedThreadsD10D.bpl">JVCL Managed Threads</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvMMD10D.bpl">JVCL Multimedia and Image Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvNetD10D.bpl">JVCL Network Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvPageCompsD10D.bpl">JVCL Page Style Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvPluginD10D.bpl">JVCL Plugin Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvPrintPreviewD10D.bpl">JVCL Print Preview Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvRuntimeDesignD10D.bpl">JVCL Runtime Design Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvStdCtrlsD10D.bpl">JVCL Standard Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvSystemD10D.bpl">JVCL System Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvTimeFrameworkD10D.bpl">JVCL Time Framework</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvUIBD10D.bpl">JVCL Unified Interbase Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvValidatorsD10D.bpl">JVCL Validators and Error Provider Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvWizardD10D.bpl">JVCL Wizard Design Time Package</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\sandeep\My Documents\Borland Studio Projects\Bpl\JvXPCtrlsD10D.bpl">JVCL XP Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\PDFtoolkit_VCL\Lib\BDS2006\DCLgtPDFkitBDS2006ProP.bpl">File C:\PDFtoolkit_VCL\Lib\BDS2006\DCLgtPDFkitBDS2006ProP.bpl not found</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

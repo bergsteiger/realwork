@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\MANUAL\DICTSYNC.ADMINGUIDE\Dictsync.AdmingGuide.hmxz "/tsk=Recent Publishes:Dictsync.AdmingGuide" "/tsk=Recent Publishes:Dictsync.AdmingGuide_!DAILY"

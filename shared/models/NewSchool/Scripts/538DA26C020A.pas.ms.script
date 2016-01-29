@@ -1,0 +1,1553 @@
+// ServerSide 538DA26C020A Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538DA26C020A
+
+FORWARD ME_537F6306025B
+
+FORWARD ME_537F63170355
+
+: ME_537F6332037F
+ CONST UID '537F6332037F'
+ CONST Name 'aPipe'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_537F62DD009F' '52FBB2FC0386.pas.ms.script' // TCsDataPipe
+ ;
+
+ref; // ME_537F6332037F aPipe
+
+: ME_537F632E0101
+ CONST UID '537F632E0101'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F63170355 // TCsReplyProc
+ ;
+ : Parameters
+   @ ( ME_537F6332037F // aPipe
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_537F632E0101 DoIt
+
+: ME_537F63170355
+ CONST UID '537F63170355'
+ CONST Name 'TCsReplyProc'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_537F6306025B // TCsProcWithId
+ ;
+ : Operations
+   @ ( ME_537F632E0101 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_537F63170355 TCsReplyProc
+
+: ME_537F639102DF
+ CONST UID '537F639102DF'
+ CONST Name 'QueryId'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_537F6306025B // TCsProcWithId
+ ;
+ : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
+ ;
+
+ref; // ME_537F639102DF QueryId
+
+: ME_537F63A1001E
+ CONST UID '537F63A1001E'
+ CONST Name 'Proc'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_537F6306025B // TCsProcWithId
+ ;
+ : Target ME_537F63170355 // TCsReplyProc
+ ;
+
+ref; // ME_537F63A1001E Proc
+
+FORWARD ME_537F63B40386
+
+: ME_537F63C5009E
+ CONST UID '537F63C5009E'
+ CONST Name 'aQueryId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
+ ;
+
+ref; // ME_537F63C5009E aQueryId
+
+: ME_537F63C500C5
+ CONST UID '537F63C500C5'
+ CONST Name 'aProc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_537F63170355 // TCsReplyProc
+ ;
+
+ref; // ME_537F63C500C5 aProc
+
+: ME_537F63C10100
+ CONST UID '537F63C10100'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_537F63B40386 // Create
+ ;
+ : Parameters
+   @ ( ME_537F63C5009E // aQueryId
+ ME_537F63C500C5 // aProc
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_537F63C10100 DoIt
+
+: ME_537F63B40386
+ CONST UID '537F63B40386'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6306025B // TCsProcWithId
+ ;
+ : Operations
+   @ ( ME_537F63C10100 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_537F63B40386 Create
+
+: ME_537F6306025B
+ CONST UID '537F6306025B'
+ CONST Name 'TCsProcWithId'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Inherits
+   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_537F639102DF // QueryId
+ ME_537F63A1001E // Proc
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_537F63B40386 // Create
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_537F63170355 // TCsReplyProc
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsProcWithId.pas'
+
+ref; // ME_537F6306025B TCsProcWithId
+
+FORWARD ME_537F63D60108
+
+: ME_537F63EC035D
+ CONST UID '537F63EC035D'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_537F63D60108 // TCsProcWithIdList
+ ;
+ : Target ME_537F6306025B // TCsProcWithId
+ ;
+
+ref; // ME_537F63EC035D ItemType
+
+: ME_47B2C42A0163_ME_537F63D60108
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_537F63D60108 // TCsProcWithIdList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_537F63D60108 AssignItem
+
+: ME_47B99D4503A2_ME_537F63D60108
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_537F63D60108 // TCsProcWithIdList
+ ;
+ref; // ME_47B99D4503A2_ME_537F63D60108 CompareExistingItems
+
+: ME_537F63D60108
+ CONST UID '537F63D60108'
+ CONST Name 'TCsProcWithIdList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_537F63EC035D // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_537F63D60108 // AssignItem
+ ME_47B99D4503A2_ME_537F63D60108 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsProcWithIdList.pas'
+
+ref; // ME_537F63D60108 TCsProcWithIdList
+
+FORWARD ME_537F645C01D1
+
+: ME_537F64680304
+ CONST UID '537F64680304'
+ CONST Name 'f_List'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ : Target ME_537F63D60108 // TCsProcWithIdList
+ ;
+
+ref; // ME_537F64680304 f_List
+
+: ME_53959A4900AA
+ CONST UID '53959A4900AA'
+ CONST Name 'f_Synchronizer'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ : Target WL 'ME_4807861D0118' '4AB0C3C60310.pas.ms.script' // TMultiReadExclusiveWriteSynchronizer
+ ;
+
+ref; // ME_53959A4900AA f_Synchronizer
+
+FORWARD ME_53959A720000
+
+: ME_53959A7B028D
+ CONST UID '53959A7B028D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53959A720000 // Create
+ ;
+
+ref; // ME_53959A7B028D DoIt
+
+: ME_53959A720000
+ CONST UID '53959A720000'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ : Operations
+   @ ( ME_53959A7B028D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53959A720000 Create
+
+FORWARD ME_53959ABC03D4
+
+: ME_53959AD20374
+ CONST UID '53959AD20374'
+ CONST Name 'aQueryId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
+ ;
+
+ref; // ME_53959AD20374 aQueryId
+
+: ME_53959ACF011C
+ CONST UID '53959ACF011C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53959ABC03D4 // ListItemBy
+ ;
+ : Target ME_537F6306025B // TCsProcWithId
+ ;
+ : Parameters
+   @ ( ME_53959AD20374 // aQueryId
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53959ACF011C DoIt
+
+: ME_53959ABC03D4
+ CONST UID '53959ABC03D4'
+ CONST Name 'ListItemBy'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ : Operations
+   @ ( ME_53959ACF011C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53959ABC03D4 ListItemBy
+
+FORWARD ME_53959B1400E0
+
+: ME_53959B3000BB
+ CONST UID '53959B3000BB'
+ CONST Name 'aQueryId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
+ ;
+
+ref; // ME_53959B3000BB aQueryId
+
+: ME_53959B2C0049
+ CONST UID '53959B2C0049'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53959B1400E0 // ProcBy
+ ;
+ : Target ME_537F63170355 // TCsReplyProc
+ ;
+ : Parameters
+   @ ( ME_53959B3000BB // aQueryId
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53959B2C0049 DoIt
+
+: ME_53959B1400E0
+ CONST UID '53959B1400E0'
+ CONST Name 'ProcBy'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ : Operations
+   @ ( ME_53959B2C0049 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53959B1400E0 ProcBy
+
+: ME_53959AA3034F
+ CONST UID '53959AA3034F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_53959AA3034F 
+
+: ME_53959B4D0242
+ CONST UID '53959B4D0242'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_53959B4D0242 
+
+: ME_53959B740196
+ CONST UID '53959B740196'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_53959B740196 
+
+: ME_479731C50290_ME_537F645C01D1
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ref; // ME_479731C50290_ME_537F645C01D1 Cleanup
+
+: ME_537F645C01D1
+ CONST UID '537F645C01D1'
+ CONST Name 'TCsReplyProceduresPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для регистрации "ответных процедур" сервера для запросов от клиента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Inherits
+   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_537F64680304 // f_List
+ ME_53959A4900AA // f_Synchronizer
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_53959A720000 // Create
+ ME_53959ABC03D4 // ListItemBy
+ ME_53959B1400E0 // ProcBy
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_537F645C01D1 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_53959AA3034F // 
+ ME_53959B4D0242 // 
+ ME_53959B740196 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProceduresPrim.pas'
+
+ref; // ME_537F645C01D1 TCsReplyProceduresPrim
+
+FORWARD ME_538DEBDF0374
+
+FORWARD ME_538DEBEA032D
+
+: ME_538DEC060357
+ CONST UID '538DEC060357'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538DEBDF0374 // TCsReply
+ ;
+ : Target ME_538DEBEA032D // TCsReplyTool
+ ;
+
+ref; // ME_538DEC060357 
+
+: ME_538DEBDF0374
+ CONST UID '538DEBDF0374'
+ CONST Name 'TCsReply'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Dependencies
+   @ ( ME_538DEC060357 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsReply.pas'
+
+ref; // ME_538DEBDF0374 TCsReply
+
+FORWARD ME_538DEC3F03C7
+
+: ME_538DEC740276
+ CONST UID '538DEC740276'
+ CONST Name 'aQueryId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
+ ;
+
+ref; // ME_538DEC740276 aQueryId
+
+: ME_538DEC6C027B
+ CONST UID '538DEC6C027B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_538DEC3F03C7 // TcsProcessQueryProc
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_538DEC740276 // aQueryId
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_538DEC6C027B DoIt
+
+: ME_538DEC3F03C7
+ CONST UID '538DEC3F03C7'
+ CONST Name 'TcsProcessQueryProc'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DEBEA032D // TCsReplyTool
+ ;
+ : Operations
+   @ ( ME_538DEC6C027B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_538DEC3F03C7 TcsProcessQueryProc
+
+FORWARD ME_538DEC9601CC
+
+: ME_538DECF001F6
+ CONST UID '538DECF001F6'
+ CONST Name 'aPipe'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_537F62DD009F' '52FBB2FC0386.pas.ms.script' // TCsDataPipe
+ ;
+
+ref; // ME_538DECF001F6 aPipe
+
+: ME_538DECF0020D
+ CONST UID '538DECF0020D'
+ CONST Name 'aProcessQueryProc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_538DEC3F03C7 // TcsProcessQueryProc
+ ;
+
+ref; // ME_538DECF0020D aProcessQueryProc
+
+: ME_538DEDA503BD
+ CONST UID '538DEDA503BD'
+ CONST Name 'aReplyProcedures'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+
+ref; // ME_538DEDA503BD aReplyProcedures
+
+: ME_538DECF00223
+ CONST UID '538DECF00223'
+ CONST Name 'aLogMessages'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_538DECF00223 aLogMessages
+
+: ME_538DF003015A
+ CONST UID '538DF003015A'
+ CONST Name 'theClientId'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_537F4A04037C' '52FBB2FC0386.pas.ms.script' // TCsClientId
+ ;
+
+ref; // ME_538DF003015A theClientId
+
+: ME_538DECB70355
+ CONST UID '538DECB70355'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_538DEC9601CC // ProcessQuery
+ ;
+ : Parameters
+   @ ( ME_538DECF001F6 // aPipe
+ ME_538DECF0020D // aProcessQueryProc
+ ME_538DEDA503BD // aReplyProcedures
+ ME_538DECF00223 // aLogMessages
+ ME_538DF003015A // theClientId
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_538DECB70355 DoIt
+
+: ME_538DED02009C
+ CONST UID '538DED02009C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538DEC9601CC // ProcessQuery
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_538DED02009C 
+
+: ME_538DED250185
+ CONST UID '538DED250185'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538DEC9601CC // ProcessQuery
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_538DED250185 
+
+: ME_538DED7400B8
+ CONST UID '538DED7400B8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538DEC9601CC // ProcessQuery
+ ;
+ : Target WL 'ME_538DED5F0011' '52FBB2FC0386.pas.ms.script' // CsErrors
+ ;
+
+ref; // ME_538DED7400B8 
+
+: ME_538DED88026C
+ CONST UID '538DED88026C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538DEC9601CC // ProcessQuery
+ ;
+ : Target WL 'ME_538DA49902A4' '52FBB2FC0386.pas.ms.script' // CsConst
+ ;
+
+ref; // ME_538DED88026C 
+
+: ME_538DEDFE017A
+ CONST UID '538DEDFE017A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538DEC9601CC // ProcessQuery
+ ;
+ : Target WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ;
+
+ref; // ME_538DEDFE017A 
+
+: ME_538DF02701F6
+ CONST UID '538DF02701F6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538DEC9601CC // ProcessQuery
+ ;
+ : Target ME_537F63170355 // TCsReplyProc
+ ;
+
+ref; // ME_538DF02701F6 
+
+: ME_538DEC9601CC
+ CONST UID '538DEC9601CC'
+ CONST Name 'ProcessQuery'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_538DEBEA032D // TCsReplyTool
+ ;
+ : Operations
+   @ ( ME_538DECB70355 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_538DED02009C // 
+ ME_538DED250185 // 
+ ME_538DED7400B8 // 
+ ME_538DED88026C // 
+ ME_538DEDFE017A // 
+ ME_538DF02701F6 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "is static" true
+
+ref; // ME_538DEC9601CC ProcessQuery
+
+: ME_538DEBEA032D
+ CONST UID '538DEBEA032D'
+ CONST Name 'TCsReplyTool'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Operations
+   @ ( ME_538DEC9601CC // ProcessQuery
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_538DEC3F03C7 // TcsProcessQueryProc
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyTool.pas'
+
+ref; // ME_538DEBEA032D TCsReplyTool
+
+FORWARD ME_5395C8DC03A7
+
+FORWARD ME_53959AE3018D
+
+: ME_53959AFD012B
+ CONST UID '53959AFD012B'
+ CONST Name 'aQueryId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
+ ;
+
+ref; // ME_53959AFD012B aQueryId
+
+: ME_53959AFD0142
+ CONST UID '53959AFD0142'
+ CONST Name 'aProc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_537F63170355 // TCsReplyProc
+ ;
+
+ref; // ME_53959AFD0142 aProc
+
+: ME_53959AF80329
+ CONST UID '53959AF80329'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53959AE3018D // Register
+ ;
+ : Parameters
+   @ ( ME_53959AFD012B // aQueryId
+ ME_53959AFD0142 // aProc
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53959AF80329 DoIt
+
+: ME_5395C9EC02D5
+ CONST UID '5395C9EC02D5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53959AE3018D // Register
+ ;
+ : Target ME_537F6306025B // TCsProcWithId
+ ;
+
+ref; // ME_5395C9EC02D5 
+
+: ME_5395CA1F025B
+ CONST UID '5395CA1F025B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53959AE3018D // Register
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_5395CA1F025B 
+
+: ME_5395CA2400BF
+ CONST UID '5395CA2400BF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53959AE3018D // Register
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_5395CA2400BF 
+
+: ME_5395CCF9011D
+ CONST UID '5395CCF9011D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53959AE3018D // Register
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_5395CCF9011D 
+
+: ME_53959AE3018D
+ CONST UID '53959AE3018D'
+ CONST Name 'Register'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ ;
+ : Operations
+   @ ( ME_53959AF80329 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5395C9EC02D5 // 
+ ME_5395CA1F025B // 
+ ME_5395CA2400BF // 
+ ME_5395CCF9011D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_53959AE3018D Register
+
+FORWARD ME_53BFBB81029F
+
+: ME_53BFBB88021E
+ CONST UID '53BFBB88021E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53BFBB81029F // UnregisterAll
+ ;
+
+ref; // ME_53BFBB88021E DoIt
+
+: ME_53BFBB81029F
+ CONST UID '53BFBB81029F'
+ CONST Name 'UnregisterAll'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ ;
+ : Operations
+   @ ( ME_53BFBB88021E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53BFBB81029F UnregisterAll
+
+: ME_5395C8DC03A7
+ CONST UID '5395C8DC03A7'
+ CONST Name 'TCsReplyProceduresWithRegistering'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Inherits
+   @ ( ME_537F645C01D1 // TCsReplyProceduresPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_53959AE3018D // Register
+ ME_53BFBB81029F // UnregisterAll
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProceduresWithRegistering.pas'
+
+ref; // ME_5395C8DC03A7 TCsReplyProceduresWithRegistering
+
+FORWARD ME_5395BF930007
+
+FORWARD ME_5395B29D0177
+
+: ME_5395BFA90075
+ CONST UID '5395BFA90075'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5395BF930007 // TCsQueryExecutor
+ ;
+ : Target ME_5395B29D0177 // TCsReplyProcedures
+ ;
+
+ref; // ME_5395BFA90075 
+
+: ME_5395BF930007
+ CONST UID '5395BF930007'
+ CONST Name 'TCsQueryExecutor'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Inherits
+   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Dependencies
+   @ ( ME_5395BFA90075 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryExecutor.pas'
+
+ref; // ME_5395BF930007 TCsQueryExecutor
+
+FORWARD ME_5395BFCE0389
+
+: ME_5395BFDE00E3
+ CONST UID '5395BFDE00E3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5395BFCE0389 // TCsServer
+ ;
+ : Target ME_5395BF930007 // TCsQueryExecutor
+ ;
+
+ref; // ME_5395BFDE00E3 
+
+: ME_5395BFCE0389
+ CONST UID '5395BFCE0389'
+ CONST Name 'TCsServer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Inherits
+   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Dependencies
+   @ ( ME_5395BFDE00E3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsServer.pas'
+
+ref; // ME_5395BFCE0389 TCsServer
+
+: ME_9CCDD2F7DCC6
+ CONST UID '9CCDD2F7DCC6'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5395B29D0177 // TCsReplyProcedures
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_9CCDD2F7DCC6 Exists
+
+: ME_5395B29D0177
+ CONST UID '5395B29D0177'
+ CONST Name 'TCsReplyProcedures'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для регистрации "ответных процедур" сервера для запросов от клиента. Синглетон. Используется для "логики по-умолчанию". Т.е. когда сервер у нас в приложении ОДИН' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Inherits
+   @ ( ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_9CCDD2F7DCC6 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProcedures.pas'
+
+ref; // ME_5395B29D0177 TCsReplyProcedures
+
+FORWARD ME_5507E70200AF
+
+FORWARD ME_550806D90113
+
+: ME_DBE20F5CF12C
+ CONST UID 'DBE20F5CF12C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TncsServerParamsStorage.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_550806D90113 // Make
+ ;
+ : Target WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
+ ;
+
+ref; // ME_DBE20F5CF12C DoIt
+
+: ME_550806D90113
+ CONST UID '550806D90113'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Inherits
+   @ ( WL 'ME_516D582B011F' '4AB0C3C60310.pas.ms.script' // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_DBE20F5CF12C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_550806D90113 Make
+
+: ME_55093AF703A8
+ CONST UID '55093AF703A8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_4B990EF000AA' '4B990EDE031A.pas.ms.script' // ddAppConfig
+ ;
+
+ref; // ME_55093AF703A8 
+
+: ME_550979E70256
+ CONST UID '550979E70256'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_4F191FDD0358' '47D0290B016D.pas.ms.script' // ConcatDirName
+ ;
+
+ref; // ME_550979E70256 
+
+: ME_55097F35022D
+ CONST UID '55097F35022D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_55097F16032A' '4AB0997B00A2.pas.ms.script' // IfThen
+ ;
+
+ref; // ME_55097F35022D 
+
+: ME_55099066031E
+ CONST UID '55099066031E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_5214B1470139' '4F6843C101D1.pas.ms.script' // ddUtils
+ ;
+
+ref; // ME_55099066031E 
+
+: ME_55099079038B
+ CONST UID '55099079038B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_4B2A12BA0288' '4AB0C3C60310.pas.ms.script' // IntToStr
+ ;
+
+ref; // ME_55099079038B 
+
+: ME_550A7FDF0301
+ CONST UID '550A7FDF0301'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_550A7FA50320' '484A470100DD.pas.ms.script' // TcsPredefinedUserIDs
+ ;
+
+ref; // ME_550A7FDF0301 
+
+: ME_55151B02028E
+ CONST UID '55151B02028E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_4E304DE50368' '4B990EDE031A.pas.ms.script' // TddConfigValue
+ ;
+
+ref; // ME_55151B02028E 
+
+: ME_55151B2000A9
+ CONST UID '55151B2000A9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_523038DB01A5' '4B990EDE031A.pas.ms.script' // TddFolderNameConfigItem
+ ;
+
+ref; // ME_55151B2000A9 
+
+: ME_55151B2C019F
+ CONST UID '55151B2C019F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_5225E4F80224' '4B990EDE031A.pas.ms.script' // TddBooleanConfigItem
+ ;
+
+ref; // ME_55151B2C019F 
+
+: ME_55151E410236
+ CONST UID '55151E410236'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_4AC1F98A0155' '47913B47006E.pas.ms.script' // l3FillChar
+ ;
+
+ref; // ME_55151E410236 
+
+: ME_55229A1B02CE
+ CONST UID '55229A1B02CE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_55229480008E' '5432518A0316.pas.ms.script' // UserConsts
+ ;
+
+ref; // ME_55229A1B02CE 
+
+: ME_55DF03AA02AD
+ CONST UID '55DF03AA02AD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_55D6E2FB025D' '55D6CF3B014B.pas.ms.script' // TpgDataProviderFactory
+ ;
+
+ref; // ME_55DF03AA02AD 
+
+: ME_55DF03AF0015
+ CONST UID '55DF03AF0015'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ : Target WL 'ME_54FEAD4402AB' '54F9AF550087.pas.ms.script' // ThtDataProviderFactory
+ ;
+
+ref; // ME_55DF03AF0015 
+
+: ME_5507D9B100F7_ME_5507E70200AF
+ CONST UID '5507D9B100F7'
+ CONST Name 'ProviderKey'
+ : Original WL 'ME_5507D9B100F7' '5432518A0316.pas.ms.script' // ProviderKey
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_5507D9B100F7_ME_5507E70200AF ProviderKey
+
+: ME_55095596033F_ME_5507E70200AF
+ CONST UID '55095596033F'
+ CONST Name 'InitStorage'
+ : Original WL 'ME_55095596033F' '5432518A0316.pas.ms.script' // InitStorage
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ref; // ME_55095596033F_ME_5507E70200AF InitStorage
+
+: ME_550963930391_ME_5507E70200AF
+ CONST UID '550963930391'
+ CONST Name 'Login'
+ : Original WL 'ME_550963930391' '5432518A0316.pas.ms.script' // Login
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963930391_ME_5507E70200AF Login
+
+: ME_550963A60121_ME_5507E70200AF
+ CONST UID '550963A60121'
+ CONST Name 'Password'
+ : Original WL 'ME_550963A60121' '5432518A0316.pas.ms.script' // Password
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963A60121_ME_5507E70200AF Password
+
+: ME_550963BC00B0_ME_5507E70200AF
+ CONST UID '550963BC00B0'
+ CONST Name 'DocStoragePath'
+ : Original WL 'ME_550963BC00B0' '5432518A0316.pas.ms.script' // DocStoragePath
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963BC00B0_ME_5507E70200AF DocStoragePath
+
+: ME_550963CF0092_ME_5507E70200AF
+ CONST UID '550963CF0092'
+ CONST Name 'DocImagePath'
+ : Original WL 'ME_550963CF0092' '5432518A0316.pas.ms.script' // DocImagePath
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963CF0092_ME_5507E70200AF DocImagePath
+
+: ME_550963EB02F8_ME_5507E70200AF
+ CONST UID '550963EB02F8'
+ CONST Name 'HomeDirPath'
+ : Original WL 'ME_550963EB02F8' '5432518A0316.pas.ms.script' // HomeDirPath
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963EB02F8_ME_5507E70200AF HomeDirPath
+
+: ME_550981E5026A_ME_5507E70200AF
+ CONST UID '550981E5026A'
+ CONST Name 'StationName'
+ : Original WL 'ME_550981E5026A' '550981B402B9.pas.ms.script' // StationName
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550981E5026A_ME_5507E70200AF StationName
+
+: ME_550981FF0138_ME_5507E70200AF
+ CONST UID '550981FF0138'
+ CONST Name 'TablePath'
+ : Original WL 'ME_550981FF0138' '550981B402B9.pas.ms.script' // TablePath
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550981FF0138_ME_5507E70200AF TablePath
+
+: ME_550982210098_ME_5507E70200AF
+ CONST UID '550982210098'
+ CONST Name 'LockPath'
+ : Original WL 'ME_550982210098' '550981B402B9.pas.ms.script' // LockPath
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550982210098_ME_5507E70200AF LockPath
+
+: ME_550982360334_ME_5507E70200AF
+ CONST UID '550982360334'
+ CONST Name 'TempPath'
+ : Original WL 'ME_550982360334' '550981B402B9.pas.ms.script' // TempPath
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550982360334_ME_5507E70200AF TempPath
+
+: ME_5512621F0352_ME_5507E70200AF
+ CONST UID '5512621F0352'
+ CONST Name 'StationErrorMessage'
+ : Original WL 'ME_5512621F0352' '550981B402B9.pas.ms.script' // StationErrorMessage
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ref; // ME_5512621F0352_ME_5507E70200AF StationErrorMessage
+
+: ME_551262410001_ME_5507E70200AF
+ CONST UID '551262410001'
+ CONST Name 'TablePathErrorMessage'
+ : Original WL 'ME_551262410001' '550981B402B9.pas.ms.script' // TablePathErrorMessage
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ref; // ME_551262410001_ME_5507E70200AF TablePathErrorMessage
+
+: ME_551262530061_ME_5507E70200AF
+ CONST UID '551262530061'
+ CONST Name 'LockPathErrorMessage'
+ : Original WL 'ME_551262530061' '550981B402B9.pas.ms.script' // LockPathErrorMessage
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ref; // ME_551262530061_ME_5507E70200AF LockPathErrorMessage
+
+: ME_5515121F0358_ME_5507E70200AF
+ CONST UID '5515121F0358'
+ CONST Name 'OuterConfigEdit'
+ : Original WL 'ME_5515121F0358' '5432518A0316.pas.ms.script' // OuterConfigEdit
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ref; // ME_5515121F0358_ME_5507E70200AF OuterConfigEdit
+
+: ME_551512370064_ME_5507E70200AF
+ CONST UID '551512370064'
+ CONST Name 'BuildConfig'
+ : Original WL 'ME_551512370064' '5432518A0316.pas.ms.script' // BuildConfig
+ ;
+ : Implementor ME_5507E70200AF // TncsServerParamsStorage
+ ;
+ CONST "force overload" true
+ref; // ME_551512370064_ME_5507E70200AF BuildConfig
+
+: ME_5507E70200AF
+ CONST UID '5507E70200AF'
+ CONST Name 'TncsServerParamsStorage'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DA26C020A // ServerSide
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
+ WL 'ME_550981CC01F6' '550981B402B9.pas.ms.script' // IhtParamsStorage
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_550806D90113 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_5507D9B100F7_ME_5507E70200AF // ProviderKey
+ ME_55095596033F_ME_5507E70200AF // InitStorage
+ ME_550963930391_ME_5507E70200AF // Login
+ ME_550963A60121_ME_5507E70200AF // Password
+ ME_550963BC00B0_ME_5507E70200AF // DocStoragePath
+ ME_550963CF0092_ME_5507E70200AF // DocImagePath
+ ME_550963EB02F8_ME_5507E70200AF // HomeDirPath
+ ME_550981E5026A_ME_5507E70200AF // StationName
+ ME_550981FF0138_ME_5507E70200AF // TablePath
+ ME_550982210098_ME_5507E70200AF // LockPath
+ ME_550982360334_ME_5507E70200AF // TempPath
+ ME_5512621F0352_ME_5507E70200AF // StationErrorMessage
+ ME_551262410001_ME_5507E70200AF // TablePathErrorMessage
+ ME_551262530061_ME_5507E70200AF // LockPathErrorMessage
+ ME_5515121F0358_ME_5507E70200AF // OuterConfigEdit
+ ME_551512370064_ME_5507E70200AF // BuildConfig
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_55093AF703A8 // 
+ ME_550979E70256 // 
+ ME_55097F35022D // 
+ ME_55099066031E // 
+ ME_55099079038B // 
+ ME_550A7FDF0301 // 
+ ME_55151B02028E // 
+ ME_55151B2000A9 // 
+ ME_55151B2C019F // 
+ ME_55151E410236 // 
+ ME_55229A1B02CE // 
+ ME_55DF03AA02AD // 
+ ME_55DF03AF0015 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerParamsStorage.pas'
+
+ref; // ME_5507E70200AF TncsServerParamsStorage
+
+: ME_538DA26C020A
+ CONST UID '538DA26C020A'
+ CONST Name 'ServerSide'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
+ ;
+ : Children
+   @ ( ME_537F6306025B // TCsProcWithId
+ ME_537F63D60108 // TCsProcWithIdList
+ ME_537F645C01D1 // TCsReplyProceduresPrim
+ ME_538DEBDF0374 // TCsReply
+ ME_538DEBEA032D // TCsReplyTool
+ ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ ME_5395BF930007 // TCsQueryExecutor
+ ME_5395BFCE0389 // TCsServer
+ ME_5395B29D0177 // TCsReplyProcedures
+ ME_5507E70200AF // TncsServerParamsStorage
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B990EDE031A' '4B990EDE031A.pas.ms.script' // AppConfig
+ WL 'ME_4F6843C101D1' '4F6843C101D1.pas.ms.script' // ddCommon
+ WL 'ME_52FBB2FC0386' '52FBB2FC0386.pas.ms.script' // Core
+ WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
+ WL 'ME_54F9AF550087' '54F9AF550087.pas.ms.script' // Provider
+ WL 'ME_550981B402B9' '550981B402B9.pas.ms.script' // htInterfaces
+ WL 'ME_55D6CF3B014B' '55D6CF3B014B.pas.ms.script' // Provider
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifdef" 'AppServerSide'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\538DA26C020A.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\538DA26C020A.pas.ms.script.runner'
+
+ref; // ME_538DA26C020A ServerSide

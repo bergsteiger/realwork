@@ -1,0 +1,214 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/ServerGate/GenerationContents/GenerationContents.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::ServerGate::GenerationContents
+//
+// все ответственности связанные с генерацией в К
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___GENERATIONCONTENTS_IDL__
+#define ___GENERATIONCONTENTS_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#include "MDProcess/ServerGate/Contents/Contents.idl"
+#pragma prefix "garant.ru"
+
+module ServerGate {
+
+module GenerationContents {
+	// Изменение страницы не возможно, т.к. открыта конкурирующая транзакция (другой сессией)
+	exception TransactionConflict {
+	};
+
+	// идентификатор страницы принятый в К
+	typedef string ModelElementId;
+
+	// содержит координаты элемента на диаграмме (как координаты прямоугольника),  нужно для навигации
+	struct NavigationArea {
+		// X координата левого нижнего угла прямоугольника
+		long x1;
+		// Y координата левого нижнего угла прямоугольника
+		long y1;
+		// X координата левого верхнего угла прямоугольника
+		long x2;
+		// Y координата левого верхнего угла прямоугольника
+		long y2;
+		// X координата правого верхнего угла прямоугольника
+		long x3;
+		// Y координата правого верхнего угла прямоугольника
+		long y3;
+		// X координата правого нижнего угла прямоугольника
+		long x4;
+		// Y координата правого нижнего угла прямоугольника
+		long y4;
+		// уникальный идентификатор элемента с модели
+		ModelElementId guid;
+	};
+
+	// навигационная мапа, содержит элементы для навигации
+	typedef sequence<NavigationArea> NavigationMap;
+
+	// диаграмма
+	struct Diagram {
+		// байтовый массив для рисунка с диаграммой. формат рисунка - jpg.
+		Contents::ByteBuffer picture;
+		// вектор для карты, содержит элементы на диаграмме по которым будет выполняться навигация
+		NavigationMap map;
+		// хэш код диаграммы - нужно что бы определять изменилась или нет диаграмма
+		string hash;
+	};
+
+	// пытаемся записать в r/o оръект
+	exception ReadOnlyContent {
+	};
+
+	// путь до страницы.
+	typedef string PagePath;
+
+	// ошибка при сохранении данных в К
+	exception ContentUpdateError {
+	};
+
+	// попытка работы с невалидным путем
+	exception PathNotValid {
+	};
+
+	// список мета-дат, мет-данные представлены в виде произвольной строки (т.к из генератора может
+	// прийти только строка, то нет смысла использовать что-то другое)
+	typedef sequence<string> PropertyDataList;
+
+	// содержит список лэйблов
+	typedef sequence<string> Labels;
+
+	// используется для передачи мапы метаданных из генератора на сервер в одном вызове
+	struct PropertyMapEntry {
+		// ключ для метаданных
+		string key;
+		// список значений
+		PropertyDataList string_list;
+	};
+
+	// используется для передачи различных дополнительных данных в генерируемых элемент, например,
+	// список генерируемых исходников
+	typedef sequence<PropertyMapEntry> PropertyMapEntryList;
+
+	// Интерфейс для работы со сгенерённой страницей в К. Используется генератором документации для
+	// работы с уже сгенерёнными страницами, для создания новых страниц.
+	interface Page {
+		// генерируемая часть текста страницы (без UC). Изменения данного атрибта реально будут
+		// произведены только при операции commit.  При чтении атрибута используются данные транзакции
+		// если читаем из тойже сессии, или персистентные в противном случае. Попытка конкурентной записи
+		// приводит к исключению
+		string get_generated_text ();
+		void set_generated_text (in string generated_text)
+			raises (TransactionConflict, ReadOnlyContent);
+
+		// перечисление лэйблов через запятую
+		string get_labels ();
+		void set_labels (in string labels)
+			raises (TransactionConflict, ReadOnlyContent);
+
+		// r/o экземпляр страницы до не прокоммиченых изменений
+		Page get_page_before_changes ();
+
+		// идентификатор странцы
+		PagePath get_path ();
+		void set_path (in PagePath path)
+			raises (TransactionConflict, ReadOnlyContent, PathNotValid);
+
+		// возвращает гуид страницы
+		ModelElementId get_guid ();
+
+		// помечает страницу на удаление. Реальное удаление произайдет при коммите
+		void mark_for_remove ()
+			raises (TransactionConflict, ReadOnlyContent);
+		// подготовка к коммиту, выполняет необходимые действия такие как создание документа, которого
+		// еще нет.
+		void prepare_for_commit ()
+			raises (ReadOnlyContent, ContentUpdateError);
+		// применяет все изменения сохраняя их в К
+		void commit_all_changes (in boolean minor_changes)
+			raises (ReadOnlyContent, ContentUpdateError);
+		// Сбрасывает все изменения
+		void rollback_all_changes ()
+			raises (ReadOnlyContent);
+		// добавляет диаграмму в аттач
+		void add_diagram (in string name, in Diagram d)
+			raises (TransactionConflict, ReadOnlyContent);
+		// по имени диаграммы возвращает ее хэш
+		string get_diagram_hash (in string name)
+			raises (ReadOnlyContent);
+		// возвращает тру если страница была изменена
+		boolean is_modified ()
+			raises (ReadOnlyContent);
+		// возвращает тру если страница новая
+		boolean is_new_page ()
+			raises (ReadOnlyContent);
+		// удаление кэшированного элемента. нужно при ручном удалении страницы из К
+		void remove ()
+			raises (CoreSrv::ForeignObject);
+		// добавляет или заменяет свойства элемента генерации
+		void add_property_map (in PropertyMapEntryList map)
+			raises (TransactionConflict, ReadOnlyContent, ContentUpdateError, PathNotValid);
+		// возвращает контрольную сумму для всех свойств элемента генерации (нужно для того, чтобы
+		// понять, что значения или набор свойств изменились с прошлой генерации)
+		long long get_all_property_cheksum ();
+	};
+
+	typedef sequence<string> PageFactoryKeySet;
+
+	// factory manager server interface for Page
+	interface PageFactoryManagerSrv {
+		//возвращает список ключей зарегистрированных реализаций интерфейса
+		PageFactoryKeySet keys ();
+
+		// возвращает существующую страницу по ее ид
+		Page get (in ModelElementId guid)
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	// список страниц
+	typedef sequence<Page> PageList;
+
+	// настраивает генерацию, обрабатывает события начал и конца генерации в рамках текущей сессии
+	interface GenerationManager {
+		// список лэйблов которые могут быть сгенерены, нужно при изменении  стереотипа, когда необходимо
+		// сохранить все остальные лэйблы при смене лэйбла стереотипа.
+		Labels get_generated_labels ();
+		void set_generated_labels (in Labels generated_labels);
+
+		// начинает генерацию
+		void begin_generation ();
+		// завершает генерацию, завется всегда
+		void end_generation ();
+		// Применяет результат генерации списка страниц на сервер. Клиент должен звать этот метод
+		// отдельно для каждого типа изменений - отдельно для удаленных, отдельно для новых и т.д.
+		void commit_all (in PageList pages, in boolean is_minor)
+			raises (ReadOnlyContent, ContentUpdateError);
+		// отменяет изменения для страниц
+		void rollback_all (in PageList pages);
+	};
+
+	// factory manager server interface for GenerationManager
+	interface GenerationManagerFactoryManagerSrv {
+		// кэшированная фабрика
+		GenerationManager get ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module ServerGate
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,27 @@
+USES
+	QuickTestsUtils.script
+;
+
+OBJECT VAR l_Editor
+
+PROCEDURE "Переместиться к концу таблицы"
+	"Обработать сообщения"
+	"Поиск текста {('371 568,0')}"
+	"Обработать сообщения"
+;
+
+PROCEDURE "Объединить таблицу со следующей"
+	l_Editor pop:Control:SetFocus ASSERT
+	"Нажать влево"
+	l_Editor pop:editor:MergeTablesWithTimer
+;
+
+Тест TK349116289
+	Выполнить (
+		focused:control:push >>> l_Editor
+		"Переместиться к концу таблицы"
+		"Объединить таблицу со следующей"		
+	)	
+;
+
+TK349116289

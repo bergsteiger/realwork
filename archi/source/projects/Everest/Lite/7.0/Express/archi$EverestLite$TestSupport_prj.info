@@ -1,0 +1,91 @@
+archi$EverestLite$TestSupport : Project - 
+version: 36
+EverestTestSupport : Library - 
+ EverestLiteTestUnit : Unit - 
+  EverestLiteAdapter : UtilityPack - 
+   CreateNewDocument : method - 
+   OpenDocument : method - 
+   CloseDocument : method - 
+   SaveDocumentAs : method - 
+   IsPreviewInProcess : method - 
+ EverestLiteKeyWords : ScriptKeywords - 
+  EverestLiteKeyWords : ScriptKeywordsPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  Create : ScriptKeyword - *Формат:*  Create
+*Описание:* Создает новый документ в редакторе.
+ *Пример:*
+ {code}
+Create
+ {code}
+ *Результат:* Будет создан новый документ.
+    : uses - 
+   Ini_Reg : ini - Регистрация Create
+  Open : ScriptKeyword - *Формат:*  Open
+*Описание:* Отрывает документ с расширением .evd и именем теста в новом окне редактора.
+ *Пример:*
+ {code}
+Open
+ {code}
+ *Результат:* Будет открыт новый документ с именем файла и расширением .evd
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация Open
+  CloseActiveWindow : ScriptKeyword - *Формат:*  CloseActiveWindow
+*Описание:* Закрывает текущее открытое окно редактора.
+ *Пример:*
+ {code}
+CloseActiveWindow
+ {code}
+    : uses - 
+   Ini_Reg : ini - Регистрация CloseActiveWindow
+  SaveWithOtherExtention : ScriptKeyword - *Формат:*  расширение SaveWithOtherExtention
+*Описание:*  Сохраняет текущий открытый файл в редакторе под тем же именем, но с другим расширеним, заданынм через параметр "расширение" 
+ *Пример:*
+ {code}
+'.nsr' SaveWithOtherExtention
+ {code}
+*Результат:* Открытый файл в редакторе будет сохранен с расширением nsr (с преобразованием в формат NSRC, если нужно).
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация SaveWithOtherExtention
+  OpenWith : ScriptKeyword - *Формат:*  OpenWith aFileName
+*Описание:* Отрывает документ с именем aFileName в новом окне редактора.
+ *Пример:*
+ {code}
+OpenWith 'MyEvd.doc'
+ {code}
+ *Результат:* Будет открыт новый документ с именем файла 'MyEvd.doc'
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация OpenWith
+  IsPreviewInProgress : ScriptKeyword - 
+    : uses - 
+   Ini_Reg : ini - Регистрация IsPreviewInProgress
+  archiEditorWindowWordsPack : ScriptKeywordsPack - 
+   IsNeedSaveDocument : keyword - 
+    : uses - undefined
+    : injects - undefined
+   IsNeedSaveDocument : ScriptKeyword - Слово скрипта IsNeedSaveDocument
+*Тип результата:* Boolean
+*Пример:*
+{code}
+BOOLEAN VAR l_Boolean
+ aEditor IsNeedSaveDocument >>> l_Boolean
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TEditorWindow : ini - Регистрация типа TEditorWindow
+   Reg_Boolean : ini - Регистрация типа Boolean
+EverestInsiderTests : Library - 
+ EverestLiteInsiderTest : Unit - 
+  TEverestLiteTestSuite : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 

@@ -1,0 +1,276 @@
+MDProcess$ForDelphi : Project - Шаблоны для Delphi
+version: 73
+EVDTemplates : MDATemplates - Шаблоны для описания структур EVD.
+ Data Definition : MDALibrary - Шаблоны для описания структуры данных.
+  Elements : MDALayer - Элементы.
+   AttrValueSpeller : MDAClass - 
+   Atom : MDAClass - Атом
+---
+Атомарный элемент. Не может содержать атрибутов или дочерних элементов.
+   Tag : MDAClass - Тег
+---
+Структурный элемент. Может содержать дочерние элементы или атрибуты. Мета-класс для [TagValue].
+   TagValue : MDAClass - Предопределённое значение тега
+---
+Экземпляр [Tag].
+   TagChild : MDAClass - Дочерний тег
+   InnerTag : MDAClass - Вложенный тег
+   TagOverride : MDAClass - нет документации
+   TagTable : MDAClass - EVD-схема
+---
+Таблица описания тегов. Может содержать атомы или теги, которые связываются друг с другом отношениями наследования, реализации или связи.
+  Delphi Specific : MDALayer - Элементы реализации, специфичные для Delphi
+   Range : MDAClass - Диапазон
+---
+Декларация типа определяет производный тип как диапазон в исходном. Исходный задаётся как базовый класс (связь наследования). Границы диапазона задаются атрибутами.
+  Implementation : MDALayer - Реализация EVD структур в памяти.
+   Wrapper : MDAClass - Обёртка EVD-тега
+---
+Класс, реализующий специфические аспекты поведения EVD-тега, при обработке в памяти, например преобразование к различным атомарным типам данных.
+   WrapperPack : MDAClass - Пачка обёрток для тегов
+   TagImplementator : MDAClass - Класс, реализующий тег
+---
+Связь реализации задаёт реализуемый тег. Связь наследования задаёт реализующий класс
+   InterfaceFactory : MDAClass - Фабрика интерфейсов для тегов
+---
+Определяет класс для выбора конкретных экземпляров, реализующий интерфейс инструмента для тега.
+   InterfaceFactoryPack : MDAClass - Пачка фабрик интерфейсов для тегов
+  Packages : MDALayer - Пакеты.
+   EVD : MDACategory - Пакет EVD-схем
+---
+Пакет таблиц с описанием EVD тегов.
+DelphiSpecific : MDATemplates - Модель шаблонов, описания стереотипов специфичных для дельфи
+ DelphiLang : MDALibrary - Библиотека стереотипов, специфичных для Delphi
+  ClassInner : MDALayer - Детали реализации классов
+   Constructor : MDAClass - Конструктор
+   FactoryMixIn : MDAClass - Примесь, для реализации фабричного метода
+   Factory : MDAClass - Фабричный метод
+  Interface : MDALayer - слой шаблонов, описывающих интерфейсные типы
+   InterfaceTypesInclude : MDAClass - Примесь для включения стереотипом интерфейсных типов
+   SetOf : MDAClass - Множество
+---
+Декларация типа определяет производный тип - множество значений исходного. Исходный задаются как базовый класс (связь наследования).
+   SetConst : MDAClass - Константа из множества
+---
+Определяет константное множество. Тип множества задаются как базовый класс (связь наследования).
+   DelphiPackageInclude : MDACategory - Абстрактный стереотип, включает в себя стереотипы, которые могут находится как в пакете интерфейсов, так и в пакете имплементации СПЕЦИФИЧНЫХ для Дельфи
+   Interfaces : MDACategory - перекрытие стандартного стереотипа Interface
+   ObjStub : MDAClass - Класс реализации в виде интерфейса
+---
+Хак для рисования объектов в виде интерфейса. [$136252986]
+   FacetIncludePrim : MDAClass - Типы включаемые в Facet и его аналоги
+   FacetInclude : MDAClass - 
+   LocalConst : MDAClass - Локализуемые константы
+   Struct : MDAClass - Структура
+   Facet : MDAClass - 
+   StaticObjectPrim : MDAClass - Заплатка, так как по человечески включение через примесь не работает
+   StaticObject : MDAClass - Статический объект
+---
+Определяет элемент реализации (пока может находится в интерфейсных пакетах, потом должен быть перенёс только в пакеты реализации), экземпляры которого можно создавать на стеке. Аналог Struct, но с методами и наследованием.
+   Define : MDAClass - Директива условной компиляции
+   Undef : MDAClass - Отмена директивы условной компиляции
+   MessagePrim : MDAClass - Хак, для возможности включения классов
+   Choices : MDAClass - Выборы диалога
+   Message : MDAClass - Сообщение пользователю
+   Choice : MDAClass - Выбор диалога
+   facetmethod : MDAClass - Метод интерфейса
+   PureMixIn : MDAClass - 
+  Implementation : MDALayer - слой шаблонов, описывающих типы реализации
+   Impl : MDACategory - перекрытие стандартного стереотипа Impl
+   Unit : MDACategory - перекрытие стандартного стереотипа Unit
+   StandardImplInclude : MDAClass - 
+   StandardClassInclude : MDAClass - 
+   SimpleClass : MDAClass - Простой класс
+---
+Абстракция простого класса в терминах ООП
+используется для опеределяения типов не являющихся ни интерфесйами, ни сервантами, ни структурами, ни производными от них, или патернами более высокого уровня (контейнеры, специализированные шаблоные типы и т.д.)
+
+"Абстрактный" класс - не может быть создан (т.е. должен использоваться как примесь)
+"Финальный" класс, напротив не может быть использован в качестве базового класса.
+   GuiControl : MDAClass - нет дополнительной документации
+   Dialog : MDAClass - Переопределение стандартного стереотипа диалога. Дполнительно позволяет использовать специфичные Delphi-стереотипы (SetOf, StaticObject и т.д)
+   ExeTarget : MDACategory - 
+   TestResults : MDAClass - Результаты теста
+   StandardPackInclude : MDAClass - 
+   Impurity : MDAClass - нет дополнительной документации
+   UtilityPack : MDAClass - перекрытие стандартного стереотипа UtilityPack
+   GUIControlMixIn : MDAClass - Примесь для GUI контрола
+   Views : MDACategory - 
+   TestTarget : MDACategory - Тестовый модуль
+   Contract : MDAClass - Контракт
+   abstractmethod : MDAClass - Абстрактный метод
+   virtualmethod : MDAClass - Виртуальный метод
+   ScriptKeywordsDocumentation : MDAClass - Документация по словам скрипта
+   ScriptKeywordDocumentation : MDAClass - Документация к слову скрипта
+   SettingsHolder : MDAClass - Класс работающий с настройками
+   ScriptKeyword : MDAClass - Слово скрипта
+   ServicePrim : MDAAbstractClass - 
+   Service : MDAClass - Сервис
+   ServiceImplementation : MDAClass - Реализация сервиса
+   serviceiterator : MDAClass - 
+   SupressNextImmediateHolder : MDAAbstractClass - 
+   ScriptKeywordsPack : MDAClass - Набор слов скрипта
+  Scripting : MDALayer - Поддержка скриптов
+   ScriptKeywords : MDACategory - Набор слов скрипта
+  Redefinitions : MDALayer - набор переопределнных стереотипов
+   Vector : MDAClass - переопределение стандартного стереотипа Vector
+   Project : MDACategory - нет дополнительной документации
+   Library : MDACategory - нет дополнительной документации
+   Domain : MDACategory - Предметная область
+   ClassBase : MDAClass - 
+   UseCaseSetting : MDAClass - 
+   InternalInterfaces : MDACategory - Внутренние интерфейсы
+---
+Разрешается смешивание интерфейсов с объектами. Для повышения эффективности.
+SimpleTemplates : MDATemplates - 
+ SimpleTemplatesLibrary : MDALibrary - 
+  Elements : MDALayer - 
+   Delphi ST : MDAGenerator - 
+   PascalGenerator : MDAAbstractClass - 
+   CategoryLike : MDAAbstractClass - 
+   Layer : MDACategory - Слой
+---
+Для структурирования элементов
+   Atomic : MDAAbstractClass - 
+   UnitProducer : MDAAbstractClass - 
+   LibraryST : MDACategory - Библиотека
+   ElementProxy : MDAClass - Заместитель элемента
+   ImplementableProxy : MDAClass - 
+   ClassProxy : MDAClass - 
+   InterfaceProxy : MDAClass - 
+   UMLPrimitive : MDAClass - 
+   UMLModule : MDACategory - 
+  RootStereotypes : MDALayer - 
+   Project : MDACategory - 
+   LibraryGroup : MDACategory - Группа библиотек
+   ProjectGroup : MDACategory - Группа проектов
+VCMTemplates : MDATemplates - Метамодель VCM
+ VCMCore : MDALibrary - Базовые служебные стереотипы
+  StandardLikePackages : MDALayer - Пакеты, похожие на стандартные
+   VCMLibrary : MDACategory - нет документации
+   VCMInterfacesLike : MDACategory - нет документации
+   VCMUnit : MDACategory - нет документации
+ VCMModelLayer : MDALibrary - Слой модели VCM
+  Reflectable : MDALayer - 
+   Reflectable : MDAClass - 
+   ReflectablePureMixIn : MDAClass - 
+  ModelElements : MDALayer - Интерфейсные элементы
+   UseCaseController : MDAClass - Контроллер логики прецедента
+   ViewAreaController : MDAClass - Контроллер области ввода
+   Area : MDAClass - Область ввода
+   SynchroViewArea : MDAClass - Область вывода "Синхронного просмотра"
+  ModelPackages : MDALayer - 
+   ControllerInterfaces : MDACategory - Интерфейсы контроллеров
+ VCMControllersLayer : MDALibrary - Уровень контроллеров VCM
+  ControllersImplementation : MDALayer - Реализация контроллеров
+   ViewAreaControllerImp : MDAClass - Реализация контроллера области ввода
+   UseCaseControllerImp : MDAClass - Реализация контроллера логики прецедента
+  ControllersImplementationPackages : MDALayer - 
+   ControllerUnit : MDACategory - Реализации контроллеров
+ VCMViewInterfacesLayer : MDALibrary - Уровень интерфейсов представления
+  MixIns : MDALayer - Примеси
+   User : MDAClass - Пользователь других классов
+   OperationsPublisher : MDAClass - Публикатор операций
+   FormSetFactoryPublisher : MDAClass - 
+   ModuleOpRecall : MDAClass - Элемент, генерирующий вызов операций модуля VCM
+   VCMZonePrim : MDAClass - Базовая зона
+   FormNamePrefixHolder : MDAClass - 
+   UserTypeIDHolder : MDAClass - 
+  FormOperations : MDALayer - Операции форм VCM
+   VCMOperationPrim : MDAClass - Операция
+   VCMOperationBase : MDAClass - 
+   VCMOperations : MDAClass - Набор операций
+   VCMFacet : MDAClass - VCM "Facet"
+---
+Набор операций, который надо заменить на Facet
+   VCMOperation : MDAClass - Операция
+   VCMOperationState : MDAClass - Состояние операции
+  VCMUserInteraction : MDALayer - Общение с пользователем
+   VCMControls : MDACategory - Управляющие элементы VCM
+   VCMFormDefinition : MDAClass - Описание формы VCM
+---
+Служит для идентификации конкретного типа формы. От такого описания должна наследоваться конкретная форма, идентифицировать которую и нужно.
+
+Служит неким аналогом ключа для фабрики форм
+ VCMViewImplementationLayer : MDALibrary - Уровень реализации представления
+  FormInner : MDALayer - 
+   ControlPrim : MDAClass - 
+   FormInner : MDAClass - Элемент, вставляемый в форму
+   Control : MDAClass - Визуальный контрол
+   ControlOverride : MDAClass - Переопределение контрола
+   Component : MDAClass - Компонент
+  CustomForms : MDALayer - Базовые формы
+   VCMCustomForm : MDAClass - Форма VCM
+   VCMDataModule : MDAClass - Модуль данных
+  VCMForms : MDALayer - Формы VCM
+   CanCloseHolder : MDAClass - 
+   VCMController : MDAClass - Абстрактный стереотип для выращивания конкретных атрибутов - VCM-контроллеров. Не для создания
+   VCMForm : MDAClass - Форма VCM
+   VCMContainer : MDAClass - Форма-контейнер
+   UserType : MDAClass - Пользовательский тип формы
+   ExcludeUserTypes : MDAClass - Исключения обработки операций
+   IncludeUserTypes : MDAClass - Включения обработки операций
+   FakeChild : MDAClass - Фиктивный элемент для возможности рисования диаграмм у элементов, которые его включают
+   VCMFormZone : MDAClass - Зона внутри формы
+  FinalVCMForms : MDALayer - Финальные формы VCM
+   VCMFinalForm : MDAClass - Финальная форма
+---
+Форма, реально отображаемая пользователю. Такие формы группируются в пачки форм из которых составляется приложение.
+   VCMFinalContainer : MDAClass - 
+  Factories : MDALayer - Фабричные методы
+   FormSetFactory : MDAClass - Фабрика сборки форм
+   FormFactory : MDAClass - Фабрика форм
+   FactoryMethod : MDAClass - Фабричный метод
+---
+Для создания модулем всего чего ни попадя
+  FormSetFactory : MDALayer - Фабрика сборки форм
+   VCMFormSetFactory : MDAClass - Фабрика сборки форм
+---
+См. [$85166455].
+   VCMZone : MDAClass - Зона сборки
+  FormsPack : MDALayer - Модуль VCM
+   ModuleOperationPrim : MDAClass - 
+   ModuleMethod : MDAClass - Метод модуля
+   VCMFormsPack : MDAClass - Пачка форм
+---
+Аналог TvcmModule. По историческим причинам VCMModule стал папкой. Может содержать только финальные формы
+  VCMFormsPackages : MDALayer - Пакеты форм
+   VCMForms : MDACategory - Формы представления
+   VCMModule : MDACategory - Модуль VCM
+   VCMAbstractFormSetFactory : MDAAbstractClass - Абстрактная фабрика сборки форм
+ VCMSubsystemLayer : MDALibrary - Уровень подсистем VCM
+  ApplicationLevel : MDALayer - 
+   VCMMainForm : MDAClass - Главная форма
+   VCMApplication : MDAClass - Приложение VCM
+   VCMFinalMainForm : MDAClass - 
+  SubsystemLevel : MDALayer - нет документации
+   VCMControllers : MDACategory - Библиотека содержащая бизнес объекты (контроллеры логики прецедентов)
+   VCMViews : MDACategory - Библиотека, содержащая объекты представления
+   VCMSubsystem : MDACategory - Подсистема
+  UseCases : MDALayer - 
+   VCMUseCase : MDACategory - Реализация прецедента
+   VCMUseCaseRealization : MDAClass - Реализация прецедента
+ VCMProjectLayer : MDALibrary - Уровень приложения VCM
+  ProjectDefinitions : MDALayer - Возможные стереотипы проектов VCM
+   Project : MDACategory - Проект
+   VCMDomain : MDACategory - Предметная область VCM
+   VCMGUI : MDACategory - GUI-приложение
+   VCMUseCases : MDACategory - Набор прецедентов
+   VCMProject : MDACategory - Проект VCM
+---
+Может содержать приложения
+   VCMTestProject : MDACategory - Проект для тестирования приложения VCM
+   VCMTestTarget : MDACategory - Тестовое приложение VCM
+   VCMTestApplication : MDAClass - Ресурсы тестового приложения VCM
+   ProjectGroup : MDACategory - 
+L3$Interface : LibraryST - Интерфейс библиотеки L3
+ Core : Layer - 
+  Tl3ProtoObject : ClassProxy - 
+  Il3CString : InterfaceProxy - 
+  Tl3ProtoDataContainer : ClassProxy - 
+ Containers : Layer - 
+  Tl3LongintList : ClassProxy - 
+ Strings : Layer - 
+  Tl3CustomString : ClassProxy - 
+ScriptEngine : LibraryST - 
+ TtfwClassRef : ClassProxy - 

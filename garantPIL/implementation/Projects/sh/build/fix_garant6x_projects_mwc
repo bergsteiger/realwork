@@ -1,0 +1,36 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: fix_garant6x_projects_mwc <path>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the shell scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+echo "fix_garant6x_projects_mwc ..."
+
+all_src_path=$1
+
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "dll_exe:msvc71-exe-generic-static" "dll_exe:make-exe-generic-dynamic" BINARY_SUBSTR \;
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "dll:msvc71-dll-generic-static" "dll:make-exe-generic-dynamic" BINARY_SUBSTR \;
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "lib:msvc71-lib-generic-static" "dll:make-exe-generic-dynamic" BINARY_SUBSTR \;
+
+#find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "cmdline += -static" "// MPCXC avoids static__linkage" BINARY_SUBSTR \;
+
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "dll_exe:msvc71-exe-generic-static" "dll_exe:make-exe-generic-dynamic" BINARY_SUBSTR \;
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "dll:msvc71-dll-generic-static" "dll:make-exe-generic-dynamic" BINARY_SUBSTR \;
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "lib:msvc71-lib-generic-static" "dll:make-exe-generic-dynamic" BINARY_SUBSTR \;
+
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "dll_exe:msvc71-exe-generic-static" "dll_exe:make-exe-generic-dynamic" BINARY_SUBSTR \;
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "dll:msvc71-dll-generic-static" "dll:make-exe-generic-dynamic" BINARY_SUBSTR \;
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "lib:msvc71-lib-generic-static" "dll:make-exe-generic-dynamic" BINARY_SUBSTR \;
+
+echo "end."

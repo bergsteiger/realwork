@@ -1,0 +1,61 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/ServerGate/Users/Users.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::ServerGate::Users
+//
+// все ответсвенности связанные с авторизованным доступом
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___USERS_IDL__
+#define ___USERS_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#include "shared/CoreSrv/SecuritySrvComm/SecuritySrvComm.idl"
+#pragma prefix "garant.ru"
+
+module ServerGate {
+
+module Users {
+	// выполняет аутентификацию
+	interface Accessor {
+		// выполнить аутентификацию
+		CoreSrv::UserID authenticate (in string login, in string pswd);
+	};
+
+	// factory manager server interface for Accessor
+	interface AccessorFactoryManagerSrv {
+		// получить экземпляр
+		Accessor make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	// интерфейс юзера
+	interface User {
+		// полное имя пользователя
+		string get_name ();
+
+	};
+
+	// factory manager server interface for User
+	interface UserFactoryManagerSrv {
+		// получить экземпляр по юзер-айди
+		User make (in CoreSrv::UserID uid)
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module ServerGate
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

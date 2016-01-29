@@ -1,0 +1,52 @@
+// TkwCompiledTryExcept 4DBADEE702A8 SimpleClass Class
+
+INCLUDE '4DBAC27801EF.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_4DBADEE702A8
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4FD61BDEF5FA
+ CONST UID '4FD61BDEF5FA'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwCompiledTryExcept' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_4FD61BDEF5FA Ini_Reg_Class
+
+: ME_4DBADEE702A8
+ CONST UID '4DBADEE702A8'
+ CONST Name 'TkwCompiledTryExcept'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Скомпилированная версия try except' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DBAC27801EF // TkwDualCompiledWordContainer
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4FD61BDEF5FA // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 19:53'
+
+ @SELF
+; // ME_4DBADEE702A8 TkwCompiledTryExcept

@@ -1,0 +1,189 @@
+// ArchiControls.script
+// Список контролов и форм в Арчи.
+
+USES
+ axiom:SearchWin
+;
+
+CONST carContentsTree 'otlBlocks'
+CONST carEditorWindow 'DocEditorWindow'
+CONST carMainForm 'MainForm'
+
+CONST carDocWizardClassName 'TChangeDocWizardDlg'
+// Список контролов 'TChangeDocWizardDlg'
+CONST carChangingDocIDField 'edtChangingDocID' // ID Изменяемого документа
+CONST carChangeDocIDField 'edtChangeDocID' // ID Изменяющего документа
+CONST carChangeDataField 'edtChangeDate' // Дата издания
+CONST carChangerActivDateField 'edtChangerActivDate' // Дата вступления в силу
+CONST carEditionDocID 'edtEditionDocID' // Поле "ID редакции"
+CONST rbEditionKindNext 'rbEditionKindNext' // Будущая редакция
+
+CONST carNewSubDlg 'TNewSubDlg'
+// Список контролов 'TNewSubDlg'
+CONST carSubNumField 'edtSubNum'
+
+// список контролов 'MainForm'
+CONST carZoomSpinEdit 'seZoom' // SpinEdit Zoom'а
+CONST carObjectExplorer 'ObjectExplorer'
+CONST carStyleComboBox 'StyleComboBox'
+CONST acRunViewer 'acRunViewer'
+
+// список Action 'MainForm'
+CONST arMainActionList 'MainActionList'
+CONST acCut 'acCut'
+CONST acPaste 'acPaste'
+CONST acPrint 'acPrint'
+CONST acSave 'acSave'
+CONST acSpellChecker 'acSpellChecker'
+CONST arGeneralActionList 'GeneralActionList'
+CONST acFindDoc 'acFindDoc'
+CONST acShowObjectExplorer 'acShowObjectExplorer'
+CONST acHideObjectExplorer 'acHideObjectExplorer'
+CONST acColorComboBox 'ColorComboBox'
+CONST acNewDocExtracts 'acNewDocExtracts'
+CONST acListToDocSet 'sbListToDocSet'
+CONST acNewDocument 'acNewDocument' 
+
+// список контролов 'DocEditorWindow'
+// список Action 'DocEditorWindow'
+CONST arEditorWindowActionList 'ActionList1'
+CONST acLinkSet 'acLinkSet'
+CONST acPrevVersion 'acPrevVersion'
+CONST acTblAdjustCellsBoundaries 'acTblAdjustCellsBoundaries' 
+CONST acToolsCnvLowerCase 'acToolsCnvLowerCase'
+CONST acToolsCnvUpperCase 'acToolsCnvUpperCase'
+CONST acToolsCnvInvertCase 'acToolsCnvInvertCase' 
+CONST acToolsCnvLowerCaseWithFirst 'acToolsCnvLowerCaseWithFirst'
+CONST acRememberWidths 'acRememberWidths'
+CONST acApplyWidths 'acApplyWidths'
+CONST acSetBlock 'acSetBlock'
+CONST acSetSub 'acSetSub'
+CONST acTblFromText 'acTblFromText'
+CONST acInsCreateStructure 'acInsCreateStructure'
+CONST acLinkDelete 'acLinkDelete'
+CONST acToolsCnvMergePara 'acToolsCnvMergePara'
+CONST acToolsAutolink 'acToolsAutolink'
+CONST acToolsSetSections 'acToolsSetSections'
+CONST acFindTable 'acFindTable'
+CONST acSubShowPanel 'SubShowPanel'
+CONST acToolsCnvRusCharset 'acToolsCnvRusCharset'
+CONST acToolsCnvEngCharset 'acToolsCnvEngCharset'
+CONST acToolsCnvDate2Text 'acToolsCnvDate2Text'
+CONST acToolsCnvOEM2ANSI 'acToolsCnvOEM2ANSI'
+CONST acToolsCnvANSI2OEM 'acToolsCnvANSI2OEM'
+
+// Список индексов вкладок редактора (из Main.pas)
+CONST piName 0
+CONST piAttr 1
+CONST piText 2
+CONST piPicture 3
+CONST piSprv 4
+CONST piAnno 5
+CONST piClass 6
+CONST piSrcImage 7
+CONST piSub 8
+CONST piResp 9
+CONST piCoresp 10
+CONST piVersion 11
+CONST piJourn 12
+
+CONST carPictureViewer 'ieView' 
+
+CONST acDocumentVersionFormClass 'TddDocumentVersionForm'
+CONST acButtonOK 'OK'
+
+CONST acSpellCheckFormClassName 'TSpellCheckDlg'
+CONST acButtonReplaceInSpellCheckWindow 'btReplace'
+CONST acCancelButtomInSpelCheckWindow 'btCancel'
+CONST acSkipButtomInSpelCheckWindow 'btSkip'
+CONST acSpellCheckDlg 'SpellCheckDlg'
+
+CONST acExprEditorClassName 'TExprEditor'
+CONST acButtonOKInExprEditor 'btnOK'
+
+CONST acInsFormula 'acInsFormula'
+
+CONST acTableConvParamDialogClassName 'TTableConvParamDialog'
+CONST rbParagraph 'rbParagraph'
+CONST rbSpace 'rbSpace'
+CONST acSpinCellCount 'spinCellCount'
+CONST acTableConvParamDialogBTOk 'btOk'
+
+CONST acDocSearchDlgClassName 'TDocSearchDlg'
+CONST acDocSearchDlgOkBtn 'OK'
+
+CONST acTextSearchDlgClassName 'TTextSearchDlg'
+CONST acTextSearchDlgFindBtn 'btnFind'
+CONST acTextSearchDlgCloseBtn 'btnCancel'
+CONST acTextSearchDlgTextComboBox 'STextComboBox'
+CONST "Кнопка выбора типа поиска" 'sbSrchSpecType'
+CONST "Кнопка выбора типа замены" 'sbReplaceSpecType'
+CONST "Выпадающий список выбора стиля для поиска" 'STextComboBox'
+CONST "Номер стиля не вступил в силу" 20 
+CONST "Заменить все" 'btnReplaceAll'
+CONST "Кнопка 'Закрыть'" 'btnCancel'
+
+CONST carSendMailWin 'SendMailWin'
+// Список контролов SendMailWin
+CONST carMemMessage 'memMessage'
+
+// ContentsEditDlg
+CONST acContents6SpinEdit 'edtValue6'
+CONST acContentsEditDlgBtnOK 'OK'
+CONST acContentsEditDlgBtnCancel 'Cancel'
+
+CONST acAttributesOutliner 'otlAttributes'
+
+// Во вкладке "Журналы"
+CONST edtDocID 'edtDocID'
+
+// Окно выборки документов
+CONST carSearchWin 'SearchWin'
+CONST alSearchActions 'alSearchActions'
+CONST actDocExport 'actDocExport'
+CONST alDocList 'alDocList'
+CONST acAddIDtoDocSet 'acAddIDtoDocSet'
+CONST "Поле 'Рабочая директория'" 'cbWorkDir'
+CONST "Поле 'Имя файла для документов'" 'edtDocFileName'
+CONST "Список 'Формат экспорта'" 'cbOutFormat'
+
+CONST cnEVDItemIndex 0
+CONST cnEVDTextItemIndex 1
+CONST cnTextItemIndex 2
+CONST cnNSRCItemIndex 3
+CONST cnRTFItemIndex 4
+CONST cnHTMLItemIndex 5
+CONST cnXMLItemIndex 6
+
+// Окно работы с выборкой:
+CONST actGroupAdd 'actGroupAdd'
+CONST alSearchActioList 'alSearchActions'
+
+CONST "Тип экспорта выборки" 'gbExpType'
+CONST "Текущий документ" 0
+CONST "Всю выборку" 1
+
+CONST "Событие вставки раздела" 'acInsSection'
+
+CONST "Событие 'Исправить имена меток'" 'acSubNameCorrect'
+
+CONST "Событие вызова дизайнера стилей" 'acStyleSheetEditor'
+
+CONST "Отображать стиль в списке текстового редактора" 'chbVisibleUser'
+
+CONST "Событие 'Вычесть выборку'" 'actSubstractSet'
+
+CONST "Список событий операций над выборкой" 'alSearchActions'
+
+CONST csLSTEtln '.lst'
+
+WordAlias "Сохранить список документов выборки" SearchWin:SaveDocumentList
+CONST acAutoCompleteProps 'acAutoCompleteProps'
+
+CONST csSearchWin 'TSearchWin'
+CONST csCheckBox 'TCheckBox'
+CONST "Поле 'Текст'" 'STextComboBox'
+CONST "Поле 'Замена'" 'RTextComboBox'
+CONST "Список 'Экспортировать следующие части'" 'checkExportParts'
+CONST "Каждый файл отдельно" 'rbSeparatedFiles'
+CONST "Все документы в один файл" 'rbOneFile'

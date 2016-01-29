@@ -1,0 +1,32 @@
+// SaveVarAndDo.ms.script
+
+USES
+ types.ms.dict
+ core.ms.dict
+ params.ms.dict
+ macro.ms.dict
+ io.ms.dict
+ Documentation.ms.dict
+ Testing.ms.dict
+ Debug.ms.dict
+ SaveVarAndDo.ms.dict
+;
+
+Test&Dump SaveVarAndDoTest
+
+VAR A
+A := '1'
+A Trace
+
+SaveVarAndDo A (
+ A Trace
+ 'got it' Trace
+ A := 2
+ A Trace
+)
+
+A Trace
+
+; // SaveVarAndDoTest
+
+SaveVarAndDoTest

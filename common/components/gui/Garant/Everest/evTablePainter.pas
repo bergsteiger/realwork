@@ -1,0 +1,281 @@
+unit evTablePainter;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "Everest"
+// Автор: Люлин А.В.
+// Модуль: "w:/common/components/gui/Garant/Everest/evTablePainter.pas"
+// Начат: 06.06.2007 11:44
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::ParaList Painters::TevTablePainter
+//
+// Реализация интерфейса IevPainter для таблицы
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+{$Include ..\Everest\evDefine.inc}
+
+interface
+
+{$If defined(evNeedPainters)}
+uses
+  evFramedParaListPainter,
+  evCellsOffsets,
+  nevRealTools,
+  nevTools,
+  l3Variant
+  ;
+{$IfEnd} //evNeedPainters
+
+{$If defined(evNeedPainters)}
+type
+ TevTablePainter = class(TevFramedParaListPainter, IevTablePainter)
+  {* Реализация интерфейса IevPainter для таблицы }
+ private
+ // private fields
+   f_CellsOffsets : TevCellsOffsets;
+ private
+ // private methods
+   function CellsOffsets: TevCellsOffsets;
+ protected
+ // realized methods
+   procedure CheckCell(aPara: Tl3Tag;
+     aCheckType: TnevCheckType = nev_None);
+   procedure CalcOffset;
+     {* Пересчитать смещение для следующей ячейки }
+   function WasPainted(aPara: Tl3Tag;
+     anPID: Integer;
+     aForLines: Boolean): Boolean;
+     {* Проверка была ли отрисована начальная ячейка объединения. }
+   {$If defined(evNeedPainters) AND defined(nsTest)}
+   function NeedLog: Boolean; override;
+     {* Поддерживает ли табличный объект запись в лог для тестов. }
+   {$IfEnd} //evNeedPainters AND nsTest
+   function HasOwnStyle: Boolean;
+ protected
+ // overridden protected methods
+   procedure Cleanup; override;
+     {* Функция очистки полей объекта. }
+   function DoDraw: Boolean; override;
+     {* Собственно процедура рисования параграфа. Для перекрытия в потомках. }
+   procedure InitBottom(var theBottom: InevBasePoint;
+    var theCellBottom: InevBasePoint); override;
+   function BeforeDrawChild(const ChildPainter: IevPainter): Boolean; override;
+     {* Вызывается перед рисованием каждого дочернего параграфа. }
+   function GetTablePainter: IevTablePainter; override;
+   procedure InitInnerBottom(const aChildInfo: TnevShapeInfo); override;
+   function NeedsHackK235870994: Boolean; override;
+   procedure AfterDrawChild(const aChild: InevPara;
+     const aChildPainter: IevPainter;
+     const aChildInfo: TnevShapeInfo); override;
+ end;//TevTablePainter
+{$IfEnd} //evNeedPainters
+
+implementation
+
+{$If defined(evNeedPainters)}
+uses
+  k2Tags,
+  evdTypes,
+  SysUtils
+  {$If defined(k2ForEditor)}
+  ,
+  evParaTools
+  {$IfEnd} //k2ForEditor
+  
+  ;
+{$IfEnd} //evNeedPainters
+
+{$If defined(evNeedPainters)}
+
+// start class TevTablePainter
+
+function TevTablePainter.CellsOffsets: TevCellsOffsets;
+//#UC START# *49CB6F2D03C8_48C9377502A0_var*
+//#UC END# *49CB6F2D03C8_48C9377502A0_var*
+begin
+//#UC START# *49CB6F2D03C8_48C9377502A0_impl*
+ if f_CellsOffsets = nil then
+  f_CellsOffsets := TevCellsOffsets.Create;
+ Result := f_CellsOffsets;
+//#UC END# *49CB6F2D03C8_48C9377502A0_impl*
+end;//TevTablePainter.CellsOffsets
+
+procedure TevTablePainter.CheckCell(aPara: Tl3Tag;
+  aCheckType: TnevCheckType = nev_None);
+//#UC START# *49CB6BE30032_48C9377502A0_var*
+//#UC END# *49CB6BE30032_48C9377502A0_var*
+begin
+//#UC START# *49CB6BE30032_48C9377502A0_impl*     
+ f_CellsOffsets.SetWidth(aPara.IntA[k2_tiWidth]);
+ case TevMergeStatus(aPara.IntA[k2_tiMergeStatus]) of
+  ev_msHead: begin
+     f_CellsOffsets.CheckOffset(False);
+     f_CellsOffsets.AddCellWidth;
+    end; // ev_msHead
+  ev_msNone: f_CellsOffsets.CheckOffset(False);
+  ev_msContinue: if aCheckType <> nev_None then
+   begin
+    f_CellsOffsets.CheckOffset(False);
+    if aCheckType = nev_NeedAdd then
+    f_CellsOffsets.AddCellWidth;
+   end;
+ end; // case l_MergeStatus of
+//#UC END# *49CB6BE30032_48C9377502A0_impl*
+end;//TevTablePainter.CheckCell
+
+procedure TevTablePainter.CalcOffset;
+//#UC START# *49CB6C1A02DF_48C9377502A0_var*
+//#UC END# *49CB6C1A02DF_48C9377502A0_var*
+begin
+//#UC START# *49CB6C1A02DF_48C9377502A0_impl*
+ CellsOffsets.RecalcOffset;
+//#UC END# *49CB6C1A02DF_48C9377502A0_impl*
+end;//TevTablePainter.CalcOffset
+
+function TevTablePainter.WasPainted(aPara: Tl3Tag;
+  anPID: Integer;
+  aForLines: Boolean): Boolean;
+//#UC START# *49CB6C2E02E2_48C9377502A0_var*
+//#UC END# *49CB6C2E02E2_48C9377502A0_var*
+begin
+//#UC START# *49CB6C2E02E2_48C9377502A0_impl*
+ Result := TevMergeStatus(aPara.IntA[k2_tiMergeStatus]) = ev_msContinue;
+ if Result then
+  Result := (f_CellsOffsets <> nil) and not f_CellsOffsets.CheckParam;
+ if not Result and aForLines then
+  if Area.rCanvas.Printing and (TopAnchor.Inner <> nil) and TopAnchor.Inner.HasHeadPart then
+   Result := TopAnchor.Inner.InnerHead(anPID) <> nil
+//#UC END# *49CB6C2E02E2_48C9377502A0_impl*
+end;//TevTablePainter.WasPainted
+
+{$If defined(evNeedPainters) AND defined(nsTest)}
+function TevTablePainter.NeedLog: Boolean;
+//#UC START# *4D0203AA016F_48C9377502A0_var*
+//#UC END# *4D0203AA016F_48C9377502A0_var*
+begin
+//#UC START# *4D0203AA016F_48C9377502A0_impl*
+ Result := True;
+//#UC END# *4D0203AA016F_48C9377502A0_impl*
+end;//TevTablePainter.NeedLog
+{$IfEnd} //evNeedPainters AND nsTest
+
+function TevTablePainter.HasOwnStyle: Boolean;
+//#UC START# *52B2EF99032C_48C9377502A0_var*
+//#UC END# *52B2EF99032C_48C9377502A0_var*
+begin
+//#UC START# *52B2EF99032C_48C9377502A0_impl*
+ Result := evHasOwnStyle(ParaX);
+//#UC END# *52B2EF99032C_48C9377502A0_impl*
+end;//TevTablePainter.HasOwnStyle
+
+procedure TevTablePainter.Cleanup;
+//#UC START# *479731C50290_48C9377502A0_var*
+//#UC END# *479731C50290_48C9377502A0_var*
+begin
+//#UC START# *479731C50290_48C9377502A0_impl*
+ FreeAndNil(f_CellsOffsets);
+ inherited;
+//#UC END# *479731C50290_48C9377502A0_impl*
+end;//TevTablePainter.Cleanup
+
+function TevTablePainter.DoDraw: Boolean;
+//#UC START# *4804BC2401C2_48C9377502A0_var*
+//#UC END# *4804BC2401C2_48C9377502A0_var*
+begin
+//#UC START# *4804BC2401C2_48C9377502A0_impl*
+(* if HackK235870994 then
+  Result := true
+ else*)
+  Result := inherited DoDraw;
+//#UC END# *4804BC2401C2_48C9377502A0_impl*
+end;//TevTablePainter.DoDraw
+
+procedure TevTablePainter.InitBottom(var theBottom: InevBasePoint;
+  var theCellBottom: InevBasePoint);
+//#UC START# *4804BC800172_48C9377502A0_var*
+var
+ l_Inn : InevBasePoint;
+//#UC END# *4804BC800172_48C9377502A0_var*
+begin
+//#UC START# *4804BC800172_48C9377502A0_impl*
+ l_Inn := theBottom.Inner;
+ inherited InitBottom(theBottom, theCellBottom);
+ if (l_Inn <> nil) AND l_Inn.AfterEnd and not theBottom.AfterEnd then
+  if l_Inn.HasHeadPart and Area.rCanvas.Printing then
+  begin
+   theBottom.Inner := theBottom.Inner.Obj^.BaseLine4Print;
+   theBottom.Inner.CopyHeadParts(l_Inn);
+  end; // if l_Inn.HasHeadPart then
+//#UC END# *4804BC800172_48C9377502A0_impl*
+end;//TevTablePainter.InitBottom
+
+function TevTablePainter.BeforeDrawChild(const ChildPainter: IevPainter): Boolean;
+//#UC START# *481D6C56033A_48C9377502A0_var*
+//#UC END# *481D6C56033A_48C9377502A0_var*
+begin
+//#UC START# *481D6C56033A_48C9377502A0_impl*
+ Result := inherited BeforeDrawChild(ChildPainter);
+ CellsOffsets.ClearOffset;    
+//#UC END# *481D6C56033A_48C9377502A0_impl*
+end;//TevTablePainter.BeforeDrawChild
+
+function TevTablePainter.GetTablePainter: IevTablePainter;
+//#UC START# *49DCA7F3011C_48C9377502A0_var*
+//#UC END# *49DCA7F3011C_48C9377502A0_var*
+begin
+//#UC START# *49DCA7F3011C_48C9377502A0_impl*
+ Result := Self;
+//#UC END# *49DCA7F3011C_48C9377502A0_impl*
+end;//TevTablePainter.GetTablePainter
+
+procedure TevTablePainter.InitInnerBottom(const aChildInfo: TnevShapeInfo);
+//#UC START# *4C4570AE0113_48C9377502A0_var*
+var
+ l_Inn : InevBasePoint;
+//#UC END# *4C4570AE0113_48C9377502A0_var*
+begin
+//#UC START# *4C4570AE0113_48C9377502A0_impl*
+ if Area.rNeedBottom then
+  l_Inn := BottomAnchor.Inner;
+ inherited;
+ if Area.rNeedBottom and (l_Inn <> nil) then
+  if l_Inn.HasHeadPart then
+   BottomAnchor.Inner.CopyHeadParts(l_Inn);
+//#UC END# *4C4570AE0113_48C9377502A0_impl*
+end;//TevTablePainter.InitInnerBottom
+
+function TevTablePainter.NeedsHackK235870994: Boolean;
+//#UC START# *4CAF3D530327_48C9377502A0_var*
+//#UC END# *4CAF3D530327_48C9377502A0_var*
+begin
+//#UC START# *4CAF3D530327_48C9377502A0_impl*
+ Result := false{true};
+              //^ - не нужно это, только всё портит, вызывая полное
+              //    форматироание таблицы
+//#UC END# *4CAF3D530327_48C9377502A0_impl*
+end;//TevTablePainter.NeedsHackK235870994
+
+procedure TevTablePainter.AfterDrawChild(const aChild: InevPara;
+  const aChildPainter: IevPainter;
+  const aChildInfo: TnevShapeInfo);
+//#UC START# *4D63E3490015_48C9377502A0_var*
+//#UC END# *4D63E3490015_48C9377502A0_var*
+begin
+//#UC START# *4D63E3490015_48C9377502A0_impl*
+(* if f_WasStyle then
+ begin
+  Area.rCanvas.PopBC;
+  f_WasStyle := False;
+ end; // if f_WasStyle then *)
+//#UC END# *4D63E3490015_48C9377502A0_impl*
+end;//TevTablePainter.AfterDrawChild
+
+{$IfEnd} //evNeedPainters
+
+end.

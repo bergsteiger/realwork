@@ -1,0 +1,62 @@
+// Tl3ObjectWithHandleRefListPrim 52FCBFC3000D SimpleClass Class
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_52FCBFC3000D
+
+INCLUDE '52FCC02A0232.pas.ms.script'
+
+: ME_52FCC03B0075
+ CONST UID '52FCC03B0075'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_52FCC02A0232 // Tl3ProtoObjectWithHandle
+ ;
+
+ @SELF
+; // ME_52FCC03B0075 ItemType
+
+: ME_52FCBFC3000D
+ CONST UID '52FCBFC3000D'
+ CONST Name 'Tl3ObjectWithHandleRefListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_52FCC03B0075 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52FCBFC3000D Tl3ObjectWithHandleRefListPrim

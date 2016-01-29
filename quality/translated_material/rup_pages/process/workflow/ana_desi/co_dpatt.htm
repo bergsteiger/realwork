@@ -1,0 +1,484 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Promt98 Translation System-->
+<HTML>
+ 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+ 
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+<title> Концепции: Образцы Распределения</title> 
+  </head> 
+<body>
+<a href="_co_dpatt.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+<h2 class="banner"> <a name="Top"></a><a name="XE_distribution_patterns__introduction_to"></a>Концепции: Образцы Распределения</h2> 
+<p class="banner"> Concepts:
+Distribution Patterns</p> 
+<h5> Разделы</h5> 
+<p> Topics</p> 
+<ul>
+ 
+<li> <a href="#Nodes, Processors and Devices">Узлы, Процессоры и Устройства</a></li> 
+<li> <a href="#Distribution Patterns">Образцы
+  Распространения</a></li> 
+<li> <a href="#Client/Server Architectures">&quot;Архитектуры
+  Клиент/Сервер&quot;</a> 
+<ul>
+ 
+<li> <a href="#The 3-Tier Architecture">&quot;3-х уровневая Архитектура&quot;</a></li> 
+<li> <a href="#The 'Fat Client Architecture'">&quot;Архитектура </a><a href="#The 'Fat Client Architecture'">Fat-Client</a><a href="#The 'Fat Client Architecture'">&quot;</a></li> 
+<li> <a href="#Web Application">&quot;Архитектура </a><a href="#Web Application">Fat-Server&quot;</a></li> 
+<li> <a href="#Distributed Client/Server">&quot;Распределенная Архитектура
+  Клиент/Сервер&quot;</a></li> 
+
+</ul>
+</li> 
+<li> <a href="#The Peer-to-Peer Architecture">&quot;Архитектура
+  один-к-одному&quot;</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Nodes, Processors and Devices">Nodes, Processors and Devices</a></li>
+  <li><a href="#Distribution Patterns">Distribution Patterns</a></li>
+  <li><a href="#Client/Server Architectures">'Client/Server Architectures'</a>
+    <ul>
+      <li><a href="#The 3-Tier Architecture">The '3-tier Architecture'</a></li>
+      <li><a href="#The 'Fat Client Architecture'">The 'Fat-Client Architecture'</a></li>
+      <li><a href="#Web Application">The 'Fat-Server Architecture'</a></li>
+      <li><a href="#Distributed Client/Server">The 'Distributed Client/Server
+        Architecture'</a></li>
+    </ul>
+  </li>
+  <li><a href="#The Peer-to-Peer Architecture">The Peer-to-peer 'Architecture'</a></li>
+</ul>
+<h3> <a name="Nodes, Processors and Devices">Узлы, Процессоры и Устройства</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Nodes, Processors and Devices">Nodes, Processors and Devices</a> </p> 
+<p>
+Процессоры и Устройства являются общими
+стереотипами Узла. Иногда кажется, что между ними трудно
+выявить различие, так
+как теперь многие устройства имеют
+собственные центральные процессоры (CPUs). Однако, различие между процессорами и устройствами
+содержится в типе выполняемого на них программного обеспечения. Процессоры выполняют программы/программное обеспечение, которые были написаны
+конкретно для разрабатываемой системы. Процессоры
+являются вычислительными устройствами общего назначения, которые имеют вычислительную способность, память, и
+возможность выполнения.
+</p>
+<p>Processors and Devices are common stereotypes of Node. The distinction
+between the two may seem difficult to assess, as many devices now contain their
+own CPUs. However, the distinction between processors and devices lies in the
+type of software that executes on them. Processors execute programs/software
+that were explicitly written for the system being developed. Processors are
+general-purpose computing devices which have computing capacity, memory, and
+execution capability.
+</p>
+<p>
+Устройства выполняют программное обеспечение,
+которое создано для управления функциональными возможностями
+самого устройства. Устройства обычно
+присоединяются к процессору, управляющему устройством.
+Обычно они выполняют встроенное программное обеспечение и неспособны
+выполнять программы общего назначения. Их функциональные возможности
+обычно управляются программным обеспечением
+драйвера устройства.
+</p>
+<p>Devices execute software written that controls the functionality of the
+device itself. Devices are typically attached to a processor that controls the
+device. They typically execute embedded software and are incapable of running
+general-purpose programs. Their functionality is typically controlled by
+device-driver software.
+</p>
+<h3> <a name="Distribution Patterns">Образцы
+Распространения</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Distribution Patterns">Distribution Patterns</a> &nbsp; <a href="#Top"></a> </p> 
+<p>
+Имеется множество типичных образцов
+распространения в системах, зависящих от функциональных возможностей системы и типа
+приложения. Во многих случаях, образец
+распространения неофициально используется
+для описания 'архитектуры' системы, хотя архитектура
+в целом включает кроме этого еще очень много вещей. Например,
+неоднократно система будет описана как
+имеющая 'архитектуру клиент-сервер', хотя это
+является аспектом только лишь распространения
+архитектуры. Это
+необходимо для выделения важности аспектов
+распространения системы и степени,
+с которой они влияют на другие архитектурные решения.
+</p>
+<p>There are a number of typical patterns of distribution in systems, depending
+on the functionality of the system and the type of application. In many cases,
+the distribution pattern is informally used to describe the 'architecture' of
+the system, though the full architecture encompasses this but also many more
+things. For example, many times a system will be described as having a
+'client-server architecture', although this is only the distribution aspect of
+the architecture. This serves to highlight the importance of the distribution
+aspects of the system and the extent to which they influence other architectural
+decisions.
+</p>
+<p>
+Образцы распространения, описанные ниже подразумевают некоторые характеристики системы, характеристики выполнения, и
+архитектуры процесса. Каждый из них решает некоторые проблемы,
+а также формулирует уникальные сложные
+проблемы.
+</p>
+<p>The distribution patterns described below imply certain system
+characteristics, performance characteristics, and process architectures. Each
+solves certain problems but also poses unique challenges.
+</p>
+<h3> <a name="XE_distribution_patterns__client/server_architectures"></a><a name="Client/Server Architectures">Архитектуры
+Клиент/Сервер</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Client/Server Architectures">Client/Server
+Architectures</a> </p> 
+<p>
+В так называемых "архитектурах клиент/сервер&quot; имеются специализированные
+сетевые процессорные узлы, называемые <strong>клиентами</strong>, и
+узлы называемые <strong>серверами</strong>. Клиенты - потребители
+обеспечиваемых сервером услуг. Клиент часто
+обслуживает одного пользователя и часто
+управляет сервисами представления конечного пользователя (Графические
+интерфейсы пользователя - GUI's), в то время, как
+сервер обычно обеспечивает услугами одновременно
+нескольких клиентов; предоставляемыми
+сервисами являются обычная база данных, безопасность или
+сервисы печати. "Алгоритм приложения", или деловой
+алгоритм, в этих системах обычно
+распределяются между клиентом и сервером. Распределение
+делового алгоритма называется <strong> разделением</strong><strong>
+приложения</strong>.
+</p>
+<p>In so-called &quot;client/server architectures&quot;, there are specialized
+network processor nodes called <strong>clients</strong>, and nodes called <strong>servers</strong>.
+Clients are consumers of services provided by a server. A client often services
+a single user and often handles end-user presentation services (GUI's), while
+the server usually provides services to several clients simultaneously; the
+services provided are typically database, security or print services. The
+&quot;application logic&quot;, or the business logic, in these systems is
+typically distributed among both the client and the server. Distribution of the
+business logic is called <strong>application partitioning</strong>.
+</p>
+<p>На следующем рисунке, Клиент А отображает пример 2-уровневой архитектуры,
+в котором большая часть алгоритма
+приложений расположена на сервере. Клиент В
+отображает типичную 3-х уровневую архитектуру, с Деловыми
+Сервисами,
+реализованными на Сервере Делового Объекта. Клиент
+С отображает типичное приложение
+основанное на&nbsp; web.
+</p>
+<p>In the following figure, Client A shows an example of a 2-tier architecture,
+with most application logic located in the server. Client B shows a typical
+3-tier architecture, with Business Services implemented in a Business Object
+Server. Client C shows a typical web-based application.
+</p>
+<p align="center">
+<img src="images/dpatt01.gif" width="546" height="287"> 
+</p>
+<p class="picturetext">Разновидности Архитектур
+Клиент-Сервер
+</p>
+<p class="picturetext">Variations of Client-Server Architectures
+</p>
+<p>
+В традиционных системах клиент/сервер, большинство
+деловых алгоритмов реализованы на клиентах; но некоторые функциональные возможности
+больше бы подошли для расположения на
+сервере, например, функциональные возможности,
+которые часто обращаются к данным, хранимым
+на сервере. Выполняя это, можно уменьшать
+сетевой трафик, который в большинстве случаев весьма
+дорог (он определяется порядком величины или
+как в два медленнее чем связь между
+процессами).
+</p>
+<p>In traditional client/server systems, most of the business logic is
+implemented on clients; but some functionality is better suited to be located on
+the server, for example functionality that often access data stored on the
+server. By doing this, one can decrease the network traffic, which in most cases
+is quite expensive (it is an order of magnitude or two slower than inter-process
+communication).
+</p>
+<p>
+Некоторые характеристики:
+<p>
+Some characteristics: 
+<ul>
+ 
+<li> Система может состоять из нескольких различных типов клиентов, примеры которых включают: 
+<ul>
+ 
+<li> Автоматизированные рабочие места
+  пользователя</li> 
+<li> Сетевые компьютеры</li> 
+
+</ul>
+</li> 
+<li> Клиенты и серверы соединены с
+  использованием различных технологий, типа CORBA/IDL, или RPC технологии
+  (запрос удаленной процедуры).</li> 
+<li> Система может состоять из нескольких различных типов
+  серверов, примеры которых включают: 
+<ul>
+ 
+<li> <strong>Сервер Базы данных</strong>, машина,
+  обрабатывающая базы данных типа Sybase, Ingres,
+  Oracle, Informix;</li> 
+<li> <strong>Серверы Печати</strong>, обрабатывающие
+  алгоритм драйвера&nbsp; для определенного принтера
+  (постановка в очередь и т.д.);</li> 
+<li> <strong>Сервер Связи</strong> (TCP/IP, ISDN, X.25),</li> 
+<li> <strong>Серверы Администратора
+  Полиэкранного режима </strong>(X)</li> 
+<li> <strong>Файловые сервера</strong> (NFS под UNIX).<br>
+</li> 
+
+</ul>
+</li> 
+
+  <li>A system can consist of several different types of clients, examples of
+    which include:
+    <ul>
+      <li>User workstations</li>
+      <li>Network computers</li>
+    </ul>
+  </li>
+  <li>Clients and servers communicate by using various technologies, such as
+    CORBA/IDL, or RPC (remote-procedure call) technologies.</li>
+  <li>A system can consist of several different types of servers, examples of
+    which include:
+    <ul>
+      <li><strong>Database servers</strong>, handling database machines such as
+        Sybase, Ingres, Oracle, Informix;</li>
+      <li><strong>Print servers</strong>, handling the driver logic (queuing
+        etc.) for a specific printer;</li>
+      <li><strong>Communication servers</strong> (TCP/IP, ISDN, X.25),</li>
+      <li><strong>Window Manager servers</strong> (X)</li>
+      <li><strong>File servers</strong> (NFS under UNIX).</li>
+    </ul>
+  </li>
+
+</ul>
+<p>&nbsp;</p>
+<h4> <a name="XE_3-tier_architecture"></a><a name="XE_distribution_patterns__3-tier_architecture"></a><a name="The 3-Tier Architecture">
+ &quot;3-х уровневая Архитектура&quot;</a><a href="#Top"></a><img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p> <a name="The 3-Tier Architecture">The
+'3-Tier Architecture'</a> </p> 
+<p>&quot;3-х уровневая Архитектура&quot; является
+особым случаем &quot;Архитектуры Клиент/Сервер&quot;, в котором функциональные возможности в системе разделены на 3 логических
+раздела: прикладные сервисы, деловые
+сервисы, и сервисы данных.
+&quot;Логические разделы&quot; фактически могут
+отображать до 3-х или более физических узлов.
+</p>
+<p>The '3-tier Architecture' is a special case of the 'Client/Server
+Architecture' in which functionality in the system is divided into 3 logical
+partitions: application services, business services, and data services. The
+'logical partitions' may in fact map to 3 or more physical nodes.
+</p>
+<p align="center">
+<img src="images/3-tier.gif" width="175" height="268"> 
+</p>
+<p class="picturetext">
+Пример 3-х уровневой Архитектуры
+</p>
+<p class="picturetext">
+Example of a 3-tier Architecture
+</p>
+<p>
+Логическое разделение на эти три &quot;уровня&quot;
+отражает наблюдение того, как функциональные возможности в типичных
+офисных приложениях имеют тенденцию к тому,
+чтобы быть реализованными, и как это изменяется. Прикладные
+сервисы, имеющие
+отношение, прежде всего, к проблемам
+представления Графического интерфейса
+пользователя (GUI), имеют тенденцию работать на
+выделенном рабочем столе АРМ (автоматизированного
+рабочего места) с&nbsp; графической средой и
+средой управления окнами. Изменения в функциональных возможностях имеют тенденцию быть продиктованными
+зачастую простотой использования или
+эстетическими соображениями, по существу, <b>человеческими</b> <b>факторами</b>.
+</p>
+<p>The logical partitioning into these three 'tiers' reflects an observation
+about how functionality in typical office applications tends to be implemented,
+and how it changes. Application services, primarily dealing with GUI
+presentation issues, tends to execute on a dedicated desktop workstation with a
+graphical, windowing operating environment. Changes in functionality tends to be
+dictated often by ease of use or aesthetic considerations, essentially <b>human
+factors</b> issues.
+</p>
+<p>Для Сервисов Данных свойственно быть осуществленными
+с использованием технологии базы данных
+сервера, для которой свойственна работа на одном
+узле или нескольких, более
+быстродействующих, с высокой пропускной
+способностью узлах, обслуживающих сотни или тысячи
+связанных сетью пользователей. Сервисы Данных имеют тенденцию изменяться
+когда меняются представления и отношения между
+хранимой информацией.
+</p>
+<p>Data services tend to be implemented using database server technology, which
+tends to execute on one or more high-performance, high-bandwidth nodes that
+serve hundreds or thousands of users, connected over a network. Data services
+tend to change when the representation and relationships between stored
+information changes.
+</p>
+<p>
+Деловые услуги отражают закодированное знание деловых процессов. Они управляют и синтезируют информацию, полученную от
+сервисов данных, и обеспечивают ею
+прикладные сервисы. Деловые сервисы обычно используются многими пользователями
+совместно, также им свойственно быть расположенными на специализированных
+серверах, хотя они могут постоянно
+находиться на тех же самых узлах, что и
+сервисы данных.
+</p>
+<p>Business services reflect encoded knowledge of business processes. They
+manipulate and synthesize information obtained from the data services, and
+provide it to the application services. Business services are typically used by
+many users in common, so they tend to be located on specialized servers as well,
+though the may reside on the same nodes as the data services.
+</p>
+<p>
+Разделение функциональных возможностей по этим линиям
+дает относительно надежный образец для
+расширяемости: добавляя сервер и заново
+уравновешивая обработку данных и деловые
+серверы, достигается большая степень
+расширяемости.
+</p>
+<p>Partitioning functionality along these lines provides a relatively reliable
+pattern for scalability: by adding servers and re-balancing processing across
+data and business servers, a greater degree of scalability is achieved.
+</p>
+<h4> <a name="XE_distribution_patterns__fat-client_architecture"></a><a name="The 'Fat Client Architecture'">&quot;Архитектура
+Fat-Client&quot;</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p> <a name="The 'Fat Client Architecture'">The
+'Fat Client Architecture'</a> </p> 
+<p>
+Клиент считается "Fat" (&quot;Жирный&quot;) с того
+момента, когда практически все начинает
+выполняться на нем (исключением является вариант,
+называемый &quot;2-уровневой архитектурой&quot;, в котором
+сервисы данных расположены на отдельном узле). Прикладные
+Сервисы, Деловые Сервисы и Сервисы Данных
+-&nbsp; все находятся на машине клиента; сервер
+базы данных, как правило, будет
+располагаться на другой машине.
+</p>
+<p>The client is &quot;Fat&quot; since nearly everything runs on it (except in a
+variation, called the '2-tier architecture', in which the data services are
+located on a separate node). Application Services, Business Services and Data
+Services all reside on client machine; the database server will be usually on
+another machine.
+</p>
+<p align="center">
+<img src="images/2-tier.gif" width="166" height="174"> 
+</p>
+<p class="picturetext">Традиционная 2-уровневая или &quot;Fat Client&quot; Архитектура
+</p>
+<p>'Fat Clients' относительно просты для
+проектирования и построения, но более
+трудным является их распространение (они имеют тенденцию быть большими и монолитными) и
+поддержка. Поскольку машинам клиента
+свойственно помещать в кэш отдельно данные
+о выполнении, локальная согласованность и
+последовательность кэша имеют тенденцию быть
+результатами и областями, гарантирующими
+особое внимание. Изменения в объектах
+совместного доступа, расположенных в
+множественных локальных кэшах трудно и дорого координировать,
+включая то, как они выполняют сетевую
+передачу изменений.
+</p>
+<p>'Fat Clients' are relatively simple to design and build, but more difficult
+to distribute (they tend to be large and monolithic) and maintain. Because the
+client machines tend to cache data locally for performance, local cache
+coherency and consistency tend to be issues and areas warranting particular
+attention. Changes to shared objects located in multiple local caches are
+difficult and expensive to coordinate, involving as they do network broadcast of
+changes.
+</p>
+<h4> <a name="XE_distribution_patterns__fat-server_architecture"></a><a name="Web Application">&quot;Архитектура
+Fat-Server&quot;</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p>На другом конце спектра по отношению к 'Fat Client'
+находится 'Fat Server' (&quot;Жирный сервер&quot;) или 'Anorexic
+Client' (&quot;Истощавший клиент&quot;). Типичным примером
+является приложение web-браузера
+выполняющее набор HTML страниц, в клиенте имеется очень
+маленькое приложение. Практически вся работа имеет место на одном или
+более web серверах и серверах данных.
+</p>
+<p>At the other end of the spectrum from the 'Fat Client' is the 'Fat Server' or
+'Anorexic Client'. A typical example is the web-browser application running a
+set of HTML pages, there is very little application in the client at all. Nearly
+all work takes place on one or more web servers and data servers.
+</p>
+<p align="center">
+<img src="images/dpatt04.gif" width="166" height="174"> 
+</p>
+<p class="picturetext">
+Web Приложение
+</p>
+<p class="picturetext">
+Web Application
+</p>
+<p>Web приложения&nbsp; легки в распространении,
+их легко изменять. Они относительно недороги
+для разработки и поддержки (так как многое из инфраструктуры
+приложений обеспечивается браузером и web
+сервером). Тем не менее они не могут
+обеспечить желаемый уровень контроля над
+приложением, и они имеют тенденцию быстро насыщать сеть если не
+были хорошо разработаны (а иногда несмотря на то, что
+были хорошо разработаны).
+</p>
+<p>Web applications are easy to distribute, easy to change. They are relatively
+inexpensive to develop and support (since much of the application infrastructure
+is provided by the browser and the web server). They may however not provide the
+desired degree of control over the application, and they tend to saturate the
+network quickly if not well-designed (and sometimes despite being
+well-designed).
+</p>
+<h4> <a name="XE_distribution_patterns__distributed_client/server_architecture"></a><a name="Distributed Client/Server">Распределенная</a> Архитектура <a name="Distributed Client/Server">Клиент/</a><a name="Distributed Client/Server">Сервер</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p> <a name="Distributed Client/Server">Distributed
+Client/Server</a> Architecture </p> 
+<p>
+В этой архитектуре, приложении, деловые
+сервисы и сервисы данных расположены на различных узлах, потенциально со специализацией
+серверов в уровни деловых сервисов и
+сервисов данных. Полная реализация 3-х
+уровневой архитектуры.
+</p>
+<p>In this architecture, the application, business and data services reside on
+different nodes, potentially with specialization of servers in the business
+services and data services tiers. A full realization of a 3-tier architecture.
+</p>
+<h3> <a name="XE_peer-to-peer_architecture"></a><a name="XE_distribution_patterns__peer-to-peer_architecture"></a><a name="The Peer-to-Peer Architecture">Архитектура</a> 
+один-к-одному<a href="#Top"></a><img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="The Peer-to-Peer Architecture">The
+Peer-to-Peer Architecture</a> </p> 
+<p>
+В архитектуре&nbsp; один-к-одному, любой процесс или узел в системе может быть и клиентом
+<strong>и</strong>  сервером. Распределение функциональных возможностей
+достигается путем группирования находящиеся во взаимосвязи
+сервисов для минимизации сетевого трафика при максимизировании производительности
+и использования системы. Такие системы
+обычно являются сложными, и имеется большая потребность
+в знании проблем, таких как&nbsp; пассивный
+блок, &quot;зависание&quot; между процессами, и
+обработка ошибки.<p>In the peer-to-peer architecture, any process or node in the system may be
+both client <strong>and </strong>server. Distribution of functionality is
+achieved by grouping inter-related services together to minimize network traffic
+while maximizing throughput and system utilization. Such systems tend to be
+complex, and there is a greater need to be aware of issues such as dead-lock,
+starvation between processes, and fault handling.<p><br>
+<br>
+<font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+
+
+</body>
+ 
+</HTML>

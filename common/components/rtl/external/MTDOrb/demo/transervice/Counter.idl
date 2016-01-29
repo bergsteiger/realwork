@@ -1,0 +1,24 @@
+// **********************************************************************
+//
+// Copyright (c) 1999
+// Object Oriented Concepts, Inc.
+// Billerica, MA, USA
+//
+// All Rights Reserved
+//
+// **********************************************************************
+
+#pragma prefix "implicit"
+
+#include <CosTransactions.idl>
+
+interface Counter: CosTransactions::TransactionalObject
+{
+    readonly attribute long count;
+
+    void increment();
+
+    void decrement();
+
+    void shutdown();
+};

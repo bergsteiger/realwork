@@ -1,0 +1,99 @@
+This file summarizes changes made between Orpheus versions 2.12 and
+2.13.  It is of interest primarily to users who have upgraded from a
+previous version.
+
+
+Bugs fixed
+---------------------------------------------------------------------
+OVCAE
+  - Scrolling using the thumb won't go past 32K
+OVCDBAE
+  - Published the Align property
+OVCDBCL
+  - Published the Align property
+OVCDBED
+  - Display is always empty if DataSource is SQL-Based
+  - Setting Visible to False does not hide control
+  - Pressing <Ctrl><Tab> does not enter edit mode
+  - Cut/Past actions not reflected to datasource
+OVCDBIDX
+  - DbiProcs is used and not referenced
+  - Blank index name shown for expression indexes
+OVCDBNF
+  - Field is validated even if Cancel button is focused
+  - Modified state not maintained through scroll action
+  - Characters allowed by mask are being refused
+OVCDBPF
+  - Field is validated even if Cancel button is focused
+  - Garbage character in right-justified string field
+  - Modified state not maintained through scroll action
+  - Characters allowed by mask are being refused
+OVCDBSF
+  - Caret not positioned properly when mouse clicked
+  - Field is validated even if Cancel button is focused
+  - Modified state not maintained through scroll action
+  - Characters allowed by mask are being refused
+OVCDBTBL
+  - Under NT 3.51 csDropDown style combobox cells don't
+    repaint when they are first edited
+  - Rows are displayed even when dataset has zero records
+  - Combobox flickered under Delphi 1.0
+  - Memory overwrite when using string picture cell
+  - Invalid field index with always editing and notebook
+OVCEDIT
+  - OnChange not fired for <Enter> key
+  - Overflow error with tabs in very long lines
+  - Errors are ignored during loading of file
+  - Scrolling with text highlighted displays garbage chars
+  - Caret hidden when editor is focused during RecreateWnd
+OVCEF
+  - Caret placement does not use value of TextMargin
+  - Character not discarded when used as user command
+  - Range property editor error with Double,Single and Comp
+  - Double error report for db field with InputRequired
+  - InputRequired ignored after Abort is called
+  - Possible call to GetParent with 0 handle
+OVCNBK
+  - Duplicate errors when db fields contain errors
+OVCSC
+  - Spinners don't position correctly if form scrolled
+OVCSF
+  - Beep when entering character if DataType is sftChar
+  - Possible reference to nil pointer during data transfer
+OVCTABLE
+  - Table assumed it had focus even when it didn't
+  - Table assumed it didn't have focus even when it did
+  - Broken column-cell links in certain circumstances (column looses info)
+OVCTCCBX
+  - Edit value not shown in edit field if item not in combo box's items list
+OVCTCPIC
+  - Setting TrimBlanks fails with default default mask
+OVCVIEWR
+  - Line truncation at 64K offsets from end-of-file
+OVCVLB
+  - Pressing <home> does not clear the current selection
+  - List scrolls when menu displayed using the mouse
+
+
+
+New Features/Enhancements
+---------------------------------------------------------------------
+OVCAE
+  - Added WriteCellValue method
+  - Added DisabledColors property
+OVCBASE
+  - Added Version property for all components
+OVCDBTBL
+  - Added OnLeftColumnChanged event
+  - Added methods to support save/restore of column info
+OVCEDIT
+  - Editor scroll speed was too fase - slowed it down
+OVCEF
+  - improve logic used to place the editing caret
+  - Added local popup menu to entry fields (like TEdit)
+  - Made SelectedText a read-write property
+OVCNBK
+  - Invalid index if hiding tabs and doing ownerdraw
+  - Added click notification when hot key used
+OVCVLB
+  - Added SelectAll and DeselectAll methods

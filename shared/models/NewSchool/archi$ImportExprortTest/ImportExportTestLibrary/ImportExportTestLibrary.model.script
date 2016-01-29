@@ -1,0 +1,446 @@
+<<TestLibrary>> ImportExportTestLibrary
+ %UID '519465D90095'
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47BC4FCB0115' /* DT */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4B30CC420206' /* "Shared Delphi Testing Framework" */
+  U$ '4B4DCCBF034F' /* JEDI */
+  U$ '55F29ABD02C2' /* ArchiDBTests */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "ifdef" 'nsTest'
+  %upv "vendor" '/ImportExportTest'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47BC4FCB0115' /* DT */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4B30CC420206' /* "Shared Delphi Testing Framework" */
+  U$ '4B4DCCBF034F' /* JEDI */
+  U$ '55F29ABD02C2' /* ArchiDBTests */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<TestUnit>> ImportExport
+   %UID '51948EC4015D'
+   %DEPENDS
+    U$ '469F3E37025A' /* Rtl */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47BC51FE018B' /* dt_Types */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '484A470100DD' /* Standard */
+    U$ '4A4DE16302A2' /* k2Core */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B72BEC80036' /* Windows */
+    U$ '4C9CD07701E6' /* AttrSchema */
+    U$ '4E4B5C5E0032' /* DataBase */
+    U$ '50598FD9019C' /* PipeOut */
+    U$ '5199EF4C0227' /* PipeIn */
+    U$ '519A10AF03DE' /* dt_Const */
+    U$ '519B70FC02AB' /* DataAccess */
+    U$ '519B75D1009E' /* Tables */
+    U$ '519B797A0048' /* Servers */
+    U$ '51B1C73B0056' /* ImportExport */
+    U$ '559D0BE101B4' /* dtIntf */
+    U$ '55F29BB0025D' /* ArchiDBTests */
+    U$ '5603ED3D011B' /* ddPipeOutInterfaces */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47BC4FCB0115' /* DT */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B4DCCBF034F' /* JEDI */
+    U$ '519465D90095' /* ImportExportTestLibrary */
+    U$ '55F29ABD02C2' /* ArchiDBTests */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<TestCase>> TietBaseTest
+      %UID '51948F2601E9'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E18600C2' /* dd */
+       U$ '467A8734039C' /* EVD */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '55F29ABD02C2' /* ArchiDBTests */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '55F29BD60218' /* TarchiDBTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+       U$ '51B1A75D0367' /* OutputFolderName */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "51960C6D00B5"
+         %UID '51960C6D00B5'
+         %TARGET U$ '4D199AE40101' /* GetCVSTestSetPath */
+        ; // 51960C6D00B5
+        <<uses>> "519612A3023B"
+         %UID '519612A3023B'
+         %TARGET U$ '4D199AE40101' /* GetCVSTestSetPath */
+        ; // 519612A3023B
+        <<uses>> "55F12F85037F"
+         %UID '55F12F85037F'
+         %TARGET U$ '51BAE2BF011A' /* l3IniFile */
+        ; // 55F12F85037F
+        SUMMONED <<uses>> "3DFAF521CB4E"
+         %UID '3DFAF521CB4E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 3DFAF521CB4E
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Test>> DoIt
+         %UID '5194BE87016F'
+        ; // DoIt
+        PRIVATE FINAL <<method>> DoImport
+         %UID '5195F5F7001A'
+         %LINKS
+           <<uses>> "51AC71AA0212"
+            %UID '51AC71AA0212'
+            %TARGET U$ '4C9CD0E8038A' /* dt_AttrSchema */
+           ; // 51AC71AA0212
+           <<uses>> "55F1356C00A0"
+            %UID '55F1356C00A0'
+            %TARGET U$ '52E8BA5101A7' /* LinkServer */
+           ; // 55F1356C00A0
+           <<uses>> "55F2CF960140"
+            %UID '55F2CF960140'
+            %TARGET U$ '52E8BA5101A7' /* LinkServer */
+           ; // 55F2CF960140
+           <<uses>> "55F2D03F029F"
+            %UID '55F2D03F029F'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 55F2D03F029F
+           <<uses>> "55F2D18B037E"
+            %UID '55F2D18B037E'
+            %TARGET U$ '55E6E03B01A7' /* cFamily */
+           ; // 55F2D18B037E
+           <<uses>> "55F2D3600042"
+            %UID '55F2D3600042'
+            %TARGET U$ '519B719002F1' /* dt_Sab */
+           ; // 55F2D3600042
+           <<uses>> "55F2D4280255"
+            %UID '55F2D4280255'
+            %TARGET U$ '519A15650330' /* TddPipeInputFileType */
+           ; // 55F2D4280255
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5195F6070020'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoImport
+        PRIVATE FINAL <<method>> DoExport
+         %UID '5195F62700C7'
+         %LINKS
+           <<uses>> "519B9492032C"
+            %UID '519B9492032C'
+            %TARGET U$ '519B8D8D00E7' /* ExportPipe */
+           ; // 519B9492032C
+           <<uses>> "5617AE420325"
+            %UID '5617AE420325'
+            %TARGET U$ '560A4D4F01AE' /* TddExportDivideBy */
+           ; // 5617AE420325
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5195F637038B'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoExport
+        PRIVATE FINAL <<method>> CompareResults
+         %UID '5195F6E701B6'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5195F6EE00FF'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CompareResults
+        PROTECTED <<virtualmethod>> DoBeforeImport
+         %UID '5195F73400EE'
+         %TOBEINCLUDED
+          U$ '4677E18600C2' /* dd */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5195F7490030'
+            %TOBEINCLUDED
+             U$ '4677E18600C2' /* dd */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> aPipe
+               %UID '5199EDA400CA'
+               %TARGET U$ '5199EFF70361' /* TddImportPipe */
+               %TOBEINCLUDED
+                U$ '4677E18600C2' /* dd */
+               ; // %TOBEINCLUDED
+              ; // aPipe
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoBeforeImport
+        PROTECTED <<virtualmethod>> DoAfterImport
+         %UID '5195F75F02CB'
+         %TOBEINCLUDED
+          U$ '4677E18600C2' /* dd */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5195F7760258'
+            %TOBEINCLUDED
+             U$ '4677E18600C2' /* dd */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> aPipe
+               %UID '5199ED9B024A'
+               %TARGET U$ '5199EFF70361' /* TddImportPipe */
+               %TOBEINCLUDED
+                U$ '4677E18600C2' /* dd */
+               ; // %TOBEINCLUDED
+              ; // aPipe
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoAfterImport
+        PROTECTED <<virtualmethod>> DoBeforeExport
+         %UID '5195F795012D'
+         %TOBEINCLUDED
+          U$ '4677E18600C2' /* dd */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5195F7A402E9'
+            %TOBEINCLUDED
+             U$ '4677E18600C2' /* dd */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> aPipe
+               %UID '519C8095036F'
+               %TARGET U$ '519B8DB20186' /* TExportPipe */
+               %TOBEINCLUDED
+                U$ '4677E18600C2' /* dd */
+               ; // %TOBEINCLUDED
+              ; // aPipe
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoBeforeExport
+        PROTECTED <<virtualmethod>> DoAfterExport
+         %UID '5195F7BA0056'
+         %TOBEINCLUDED
+          U$ '4677E18600C2' /* dd */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5195F8BB033D'
+            %TOBEINCLUDED
+             U$ '4677E18600C2' /* dd */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> aPipe
+               %UID '519C80B102A7'
+               %TARGET U$ '519B8DB20186' /* TExportPipe */
+               %TOBEINCLUDED
+                U$ '4677E18600C2' /* dd */
+               ; // %TOBEINCLUDED
+              ; // aPipe
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoAfterExport
+        PRIVATE FINAL <<method>> TopicEvent
+         %UID '519A1C2700C4'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "519B764D0323"
+            %UID '519B764D0323'
+            %TARGET U$ '519B75E200C7' /* dt_Renum */
+           ; // 519B764D0323
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '519A1C4A033D'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTopicNo
+               %UID '519A1C6A03CE'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTopicNo
+              <<in>> aMessage
+               %UID '519A1C6A03E5'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aMessage
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TopicEvent
+        PROTECTED FINAL <<method>> GetOutputPath
+         %UID '519C80CD01E4'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '519C80F300A3'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetOutputPath
+        PROTECTED <<virtualmethod>> GetOutputFormat
+         %UID '51CBE62E006B'
+         %TOBEINCLUDED
+          U$ '467A8734039C' /* EVD */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51CBFAE203B0'
+            %TARGET U$ '51CBFE650178' /* TepSupportFileType */
+            %TOBEINCLUDED
+             U$ '467A8734039C' /* EVD */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetOutputFormat
+      ; // %OPERATIONS
+     ; // TietBaseTest
+     <<TestCase>> TK455105826
+      %UID '519CA57101A1'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47BC4FCB0115' /* DT */
+       U$ '519465D90095' /* ImportExportTestLibrary */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '51948F2601E9' /* TietBaseTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+       U$ '5195F73400EE' /* DoBeforeImport */
+       U$ '5195F75F02CB' /* DoAfterImport */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "51B1BE6D01E1"
+         %UID '51B1BE6D01E1'
+         %TARGET U$ '519A10DD036F' /* dt_Const */
+        ; // 51B1BE6D01E1
+        <<uses>> "51B1C8520054"
+         %UID '51B1C8520054'
+         %TARGET U$ '51B1C74F010F' /* dt_IFltr */
+        ; // 51B1C8520054
+        <<uses>> "51B6CB0C01FC"
+         %UID '51B6CB0C01FC'
+         %TARGET U$ '4DE60AE303AD' /* TDocID */
+        ; // 51B6CB0C01FC
+        <<uses>> "51B6CCCF03DF"
+         %UID '51B6CCCF03DF'
+         %TARGET U$ '51B1B8BD018E' /* dt_Lock */
+        ; // 51B6CCCF03DF
+        <<uses>> "51B6CD3E02F4"
+         %UID '51B6CD3E02F4'
+         %TARGET U$ '519B79940228' /* dt_LinkServ */
+        ; // 51B6CD3E02F4
+        <<uses>> "51B6CF7D019C"
+         %UID '51B6CF7D019C'
+         %TARGET U$ '51B6CE6100D8' /* dt_Doc */
+        ; // 51B6CF7D019C
+        <<uses>> "51B6D19103AB"
+         %UID '51B6D19103AB'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 51B6D19103AB
+        SUMMONED <<uses>> "3AFFFAF4206E"
+         %UID '3AFFFAF4206E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 3AFFFAF4206E
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_LockJournal
+         %UID '51B1C3DF028C'
+         %TARGET U$ '51B6C83A03E4' /* TAbstractJournal */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // f_LockJournal
+      ; // %ATTRIBUTES
+     ; // TK455105826
+     <<TestCase>> TK465700807
+      %UID '51CC0A110114'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '519465D90095' /* ImportExportTestLibrary */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '51948F2601E9' /* TietBaseTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+       U$ '51CBE62E006B' /* GetOutputFormat */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "1DA519EB9B6A"
+         %UID '1DA519EB9B6A'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 1DA519EB9B6A
+      ; // %LINKS
+     ; // TK465700807
+   ; // %CHILDREN
+  ; // ImportExport
+ ; // %CHILDREN
+; // ImportExportTestLibrary

@@ -1,0 +1,421 @@
+// daTableDescription 55CB200E0058 UtilityPack Class
+
+FORWARD ME_55CB200E0058
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_55360B420250
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55360B83010F
+ CONST UID '55360B83010F'
+ CONST Name 'f_Description'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55360B83010F f_Description
+
+: ME_55360B90038B
+ CONST UID '55360B90038B'
+ CONST Name 'f_IsDublicate'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_55360B90038B f_IsDublicate
+
+: ME_55360B9B0394
+ CONST UID '55360B9B0394'
+ CONST Name 'f_IsFake'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_55360B9B0394 f_IsFake
+
+INCLUDE '5432448401BC.pas.ms.script'
+
+: ME_553791AA013F
+ CONST UID '553791AA013F'
+ CONST Name 'Kind'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_55377C9C0289 // TdaTables
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_553791AA013F Kind
+
+INCLUDE '5538E9E500EE.pas.ms.script'
+
+: ME_5538E9FD007A
+ CONST UID '5538E9FD007A'
+ CONST Name 'f_FieldList'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5538E9E500EE // TdaFieldDescriptionList
+ ;
+
+ @SELF
+; // ME_5538E9FD007A f_FieldList
+
+: ME_553A19F40316
+ CONST UID '553A19F40316'
+ CONST Name 'f_Code'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_553A19F40316 f_Code
+
+: ME_5608EE410143
+ CONST UID '5608EE410143'
+ CONST Name 'f_Name'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5608EE410143 f_Name
+
+: ME_8A13B37C3AC1
+ CONST UID '8A13B37C3AC1'
+ CONST Name 'f_Kind'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Kind' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_55377C9C0289 // TdaTables
+ ;
+
+ @SELF
+; // ME_8A13B37C3AC1 f_Kind
+
+FORWARD ME_55360BAB0116
+
+: ME_55378E470047
+ CONST UID '55378E470047'
+ CONST Name 'aKind'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55377C9C0289 // TdaTables
+ ;
+
+ @SELF
+; // ME_55378E470047 aKind
+
+: ME_553A19E900D3
+ CONST UID '553A19E900D3'
+ CONST Name 'aCode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_553A19E900D3 aCode
+
+: ME_5608EE57012F
+ CONST UID '5608EE57012F'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5608EE57012F aName
+
+: ME_5536407402AE
+ CONST UID '5536407402AE'
+ CONST Name 'aDescription'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5536407402AE aDescription
+
+: ME_5536407402CE
+ CONST UID '5536407402CE'
+ CONST Name 'aDublicate'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST Value false
+ : ValueType ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5536407402CE aDublicate
+
+: ME_5536407402DD
+ CONST UID '5536407402DD'
+ CONST Name 'aFake'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST Value false
+ : ValueType ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5536407402DD aFake
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55360BC10056
+ CONST UID '55360BC10056'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55378E470047 // aKind
+ ME_553A19E900D3 // aCode
+ ME_5608EE57012F // aName
+ ME_5536407402AE // aDescription
+ ME_5536407402CE // aDublicate
+ ME_5536407402DD // aFake
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55360BC10056 DoIt
+
+: ME_55360BAB0116
+ CONST UID '55360BAB0116'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55360BC10056 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55360BAB0116 Create
+
+: ME_5538EA57023C
+ CONST UID '5538EA57023C'
+ CONST Name 'aField'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55377C5F0162 // IdaFieldDescription
+ ;
+
+ @SELF
+; // ME_5538EA57023C aField
+
+: ME_5538EA4402F6
+ CONST UID '5538EA4402F6'
+ CONST Name 'AddField'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5538EA57023C // aField
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5538EA4402F6 AddField
+
+: ME_55360B420250
+ CONST UID '55360B420250'
+ CONST Name 'TdaTableDescription'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_552FADE50173 // IdaTableDescription
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_55360B83010F // f_Description
+ ME_55360B90038B // f_IsDublicate
+ ME_55360B9B0394 // f_IsFake
+ ME_553791AA013F // Kind
+ ME_5538E9FD007A // f_FieldList
+ ME_553A19F40316 // f_Code
+ ME_5608EE410143 // f_Name
+ ME_8A13B37C3AC1 // f_Kind
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55360BAB0116 // Create
+ ME_5538EA4402F6 // AddField
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55360A96000F // Description
+ ME_55360AB100E0 // IsDublicate
+ ME_55360AF00014 // IsFake
+ ME_55378E13022E // Kind
+ ME_55379DA40290 // Field
+ ME_553A19BC0335 // Code
+ ME_55C860390259 // IterateFieldsF
+ ME_5608EE130006 // Name
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55360B420250 TdaTableDescription
+
+FORWARD ME_55CB2045030F
+
+: ME_55CB207A0274
+ CONST UID '55CB207A0274'
+ CONST Name 'Item1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_55CB207A0274 Item1
+
+: ME_55CB207A0284
+ CONST UID '55CB207A0284'
+ CONST Name 'Item2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_55CB207A0284 Item2
+
+: ME_55CB20700310
+ CONST UID '55CB20700310'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_55CB207A0274 // Item1
+ ME_55CB207A0284 // Item2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55CB20700310 DoIt
+
+: ME_55CB2045030F
+ CONST UID '55CB2045030F'
+ CONST Name 'CompareFields'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55CB20700310 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55CB2045030F CompareFields
+
+: ME_55CB200E0058
+ CONST UID '55CB200E0058'
+ CONST Name 'daTableDescription'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55CB2045030F // CompareFields
+ ]
+ ; // Operations
+ : Children
+   [ ME_55360B420250 // TdaTableDescription
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_55CB200E0058 daTableDescription

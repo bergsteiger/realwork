@@ -1,0 +1,157 @@
+// Tm4WordIDStr 4AB37C3E00BA SimpleClass Class
+
+INCLUDE '47A1B04702C2.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_4AB37C3E00BA
+
+INCLUDE '4AB38D7F0007.pas.ms.script'
+
+: ME_4AB38ADC008B
+ CONST UID '4AB38ADC008B'
+ CONST Name 'ID'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4ABA246700B4 // Tm4DictItemAddr
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_4AB38ADC008B ID
+
+: ME_4AB38B5E0320
+ CONST UID '4AB38B5E0320'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_4AB38B45023C // Tm4WordID
+ ;
+
+ @SELF
+; // ME_4AB38B5E0320 ItemType
+
+: ME_9EE7090499DF
+ CONST UID '9EE7090499DF'
+ CONST Name 'f_ID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ID' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4ABA246700B4 // Tm4DictItemAddr
+ ;
+
+ @SELF
+; // ME_9EE7090499DF f_ID
+
+: ME_4AB385790382
+ CONST UID '4AB385790382'
+ CONST Name 'anOther'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4AB37C3E00BA // Tm4WordIDStr
+ ;
+
+ @SELF
+; // ME_4AB385790382 anOther
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4AB3856602A8
+ CONST UID '4AB3856602A8'
+ CONST Name 'Compare'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_4AB385790382 // anOther
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4AB3856602A8 Compare
+
+: ME_4ABA218F03B6
+ CONST UID '4ABA218F03B6'
+ CONST Name 'anID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4ABA246700B4 // Tm4DictItemAddr
+ ;
+
+ @SELF
+; // ME_4ABA218F03B6 anID
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4AB38AF30255
+ CONST UID '4AB38AF30255'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4ABA218F03B6 // anID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4AB38AF30255 Create
+
+: ME_4AB37C3E00BA
+ CONST UID '4AB37C3E00BA'
+ CONST Name 'Tm4WordIDStr'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Элемент словаря. Список идентификаторов слов' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47A1B04702C2 // l3AtomicList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4AB38ADC008B // ID
+ ME_4AB38B5E0320 // ItemType
+ ME_9EE7090499DF // f_ID
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4AB3856602A8 // Compare
+ ME_4AB38AF30255 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.09.2009 16:36'
+
+ @SELF
+; // ME_4AB37C3E00BA Tm4WordIDStr

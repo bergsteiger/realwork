@@ -1,0 +1,129 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Elements/TagChild.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Elements::TagChild
+//
+// Дочерний тег
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TagChild::Class
+implementation @ <<TagChild>>
+//? Дочерний тег
+//= TagValue::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+; // st_space_key
+
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor485FB3B3034A*
+//	[#// %SD\n]\
+ if NOT-EMPTY
+ begin
+  out_indent '// '
+  %S |D #13#10 
+ end // if
+ NOP
+//	# l_%P%PN_%PN_%SN := \
+ out_indent ' l_'
+ %P ->P |N  '_'
+ %P |N '_'
+ %S |N ' := '
+//	[{%Gx=true}{\
+ if ( ( %G |x ) %==  true ) then
+ begin
+//	t_%GN\
+  't_'
+  %G |N 
+//	].MakeTag.AsObject;
+ end // if
+ else
+ begin
+//	Tk2Type(TagType).ArrayProp\[k2_tiChildren\].DefaultChildType\
+  'Tk2Type(TagType).ArrayProp[k2_tiChildren].DefaultChildType'
+//	}\
+ end // else
+ '.MakeTag.AsObject;'
+//	# with l_%P%PN_%PN_%SN do
+ out_indent ' with l_'
+ %P ->P |N  '_'
+ %P |N '_'
+ %S |N ' do'
+//	# begin
+ out_indent ' begin'
+//	[{%Gx=true}#  IntA\[k2_attrStyle\] := %G<{}{%CN=Handle}%C%VN>;\n]\
+//	[# <{\n# }{%CC!=Class}%CX>\n]\
+ if NOT-EMPTY
+ begin
+  out_indent ' '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %!= 'Class' ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10
+    out_indent ' ' )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+  #13#10 
+ end // if
+ NOP
+//	%f_shift_intend(+1)\
+ [%f] shift_intend %( 1 )% 
+//	<{}{%CC=Class}[%CX\n]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Class' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    %C |X #13#10 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_shift_intend(-1)\
+ [%f] shift_intend %( -1 )% 
+//	#  AddValue(Box);
+//	# end;//with MakeTag.AsObject
+ out_indent ' end;//with MakeTag.AsObject'
+//	# AddChild(l_%P%PN_%PN_%SN.AsObject);
+ out_indent ' AddChild(l_'
+ %P ->P |N  '_'
+ %P |N '_'
+ %S |N '.AsObject);'
+//#UC END# *470F15B800CBfor485FB3B3034A*
+; // impl.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<TagChild>>
+

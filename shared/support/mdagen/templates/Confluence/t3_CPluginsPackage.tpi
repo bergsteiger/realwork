@@ -1,0 +1,49 @@
+//////////////////////////////////////////////////////////////////////////////////
+// CPluginsPackage
+//////////////////////////////////////////////////////////////////////////////////
+
+: CPluginsPackage::Category
+? Пакет плагинов
+? Содержит плагины, может зависеть только от других пакетов плагинов
+> CServletPlugin::Class, CListenerPlugin::Class, SimpleClass::Class, CMacroPlugin::Class, CComponentPlugin::Class, CJobPlugin::Class, CTriggerPlugin::Class, CVelocityContextPlugin::Class, VM::Class, CXWorkPlugin::Class, CActionPlugin::Class, Facet::Class, CSpringPlugin::Class, CExtractorPlugin::Class, Facet::Class, CLifecyclePlugin::Class, WebItem::Class
+$ C 255,185,235
+$ l 240,10,200
+$ f 240,10,200
+
+p name ? имя плагина
+p vendor name=ООО НПП 'Гарант-Сервис' ? Название компании (нужно для корректной загрузки плагина)
+p vendor url=www.garant.ru ? Ссылка на сайт компании (нужно для корректной загрузки плагина)
+L code_cplugin_pack
+Y t3_cplugpack.gif
+
+%f _wiki_up_print
+	[{"%S{name}"!=""}* Имя плагина: _%S{name}_
+	]
+
+%t _constraint
+c        {}
+r "%S{name}"="": {Error name of %SN is empty}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Unit::Category;wiki
+
++ output.classpath
+
++ output.project
+
++ output.xml
+P
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	<%CX>
+
++ java
+P
+C /%SN
+	<%CX>
+
++ fctr.java
+= java

@@ -1,0 +1,426 @@
+// ArchiDBTests 55F29BB0025D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55F29BB0025D
+
+FORWARD ME_55F29BD60218
+
+: ME_55F2B795017E
+ CONST UID '55F2B795017E'
+ CONST Name 'f_SabFiller'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_55F29BD60218 // TarchiDBTest
+ ;
+ : Target WL 'ME_519B71FD024C' '519B70FC02AB.pas.ms.script' // IValueSetFiller
+ ;
+
+ref; // ME_55F2B795017E f_SabFiller
+
+: ME_55F2B79A0087
+ CONST UID '55F2B79A0087'
+ CONST Name 'f_NumSab'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_55F29BD60218 // TarchiDBTest
+ ;
+ : Target WL 'ME_519B71CF03DC' '559D0BE101B4.pas.ms.script' // ISab
+ ;
+
+ref; // ME_55F2B79A0087 f_NumSab
+
+FORWARD ME_5195F36403BC
+
+: ME_5195F3990386
+ CONST UID '5195F3990386'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5195F36403BC // UnpackDatabase
+ ;
+
+ref; // ME_5195F3990386 DoIt
+
+: ME_519C997A0093
+ CONST UID '519C997A0093'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F36403BC // UnpackDatabase
+ ;
+ : Target WL 'ME_519C98F80363' '519C98B002F7.pas.ms.script' // ZipForge
+ ;
+
+ref; // ME_519C997A0093 
+
+: ME_55F2CD62012F
+ CONST UID '55F2CD62012F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F36403BC // UnpackDatabase
+ ;
+ : Target WL 'ME_4B2A6D4303A9' '4B2A112B011A.pas.ms.script' // KTestRunner
+ ;
+
+ref; // ME_55F2CD62012F 
+
+: ME_5195F36403BC
+ CONST UID '5195F36403BC'
+ CONST Name 'UnpackDatabase'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_55F29BD60218 // TarchiDBTest
+ ;
+ : Operations
+   @ ( ME_5195F3990386 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_519C997A0093 // 
+ ME_55F2CD62012F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_5195F36403BC UnpackDatabase
+
+FORWARD ME_5195F59C007D
+
+: ME_5195F5BE01EC
+ CONST UID '5195F5BE01EC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5195F59C007D // ConnectToDatabase
+ ;
+
+ref; // ME_5195F5BE01EC DoIt
+
+: ME_5199DD730333
+ CONST UID '5199DD730333'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F59C007D // ConnectToDatabase
+ ;
+ : Target WL 'ME_4E4B5C8E01C8' '4E4B5C5E0032.pas.ms.script' // InitBaseEngine
+ ;
+
+ref; // ME_5199DD730333 
+
+: ME_519A120F010C
+ CONST UID '519A120F010C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F59C007D // ConnectToDatabase
+ ;
+ : Target WL 'ME_519A10DD036F' '519A10AF03DE.pas.ms.script' // dt_Const
+ ;
+
+ref; // ME_519A120F010C 
+
+: ME_519A16A2030E
+ CONST UID '519A16A2030E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F59C007D // ConnectToDatabase
+ ;
+ : Target WL 'ME_519A15650330' '47BC51FE018B.pas.ms.script' // TddPipeInputFileType
+ ;
+
+ref; // ME_519A16A2030E 
+
+: ME_55F2CDFA0286
+ CONST UID '55F2CDFA0286'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F59C007D // ConnectToDatabase
+ ;
+ : Target WL 'ME_51BAE2BF011A' '47D0290B016D.pas.ms.script' // l3IniFile
+ ;
+
+ref; // ME_55F2CDFA0286 
+
+: ME_5195F59C007D
+ CONST UID '5195F59C007D'
+ CONST Name 'ConnectToDatabase'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_55F29BD60218 // TarchiDBTest
+ ;
+ : Operations
+   @ ( ME_5195F5BE01EC // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5199DD730333 // 
+ ME_519A120F010C // 
+ ME_519A16A2030E // 
+ ME_55F2CDFA0286 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_5195F59C007D ConnectToDatabase
+
+FORWARD ME_5195F6A9018D
+
+: ME_5195F6C2005C
+ CONST UID '5195F6C2005C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5195F6A9018D // DeleteDatabase
+ ;
+
+ref; // ME_5195F6C2005C DoIt
+
+: ME_5199D99A0090
+ CONST UID '5199D99A0090'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F6A9018D // DeleteDatabase
+ ;
+ : Target WL 'ME_5199D8D90011' '47D0290B016D.pas.ms.script' // DelDir
+ ;
+
+ref; // ME_5199D99A0090 
+
+: ME_5195F6A9018D
+ CONST UID '5195F6A9018D'
+ CONST Name 'DeleteDatabase'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_55F29BD60218 // TarchiDBTest
+ ;
+ : Operations
+   @ ( ME_5195F6C2005C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5199D99A0090 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_5195F6A9018D DeleteDatabase
+
+FORWARD ME_5195F68401A9
+
+: ME_5195F68B0362
+ CONST UID '5195F68B0362'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+
+ref; // ME_5195F68B0362 DoIt
+
+: ME_55F1390500C6
+ CONST UID '55F1390500C6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+ : Target WL 'ME_54352FD00015' '538DA20300A7.pas.ms.script' // DoneClientBaseEngine
+ ;
+
+ref; // ME_55F1390500C6 
+
+: ME_55F13AAB00E8
+ CONST UID '55F13AAB00E8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+ : Target WL 'ME_555481D1035F' '5486E32B0191.pas.ms.script' // DropAll
+ ;
+
+ref; // ME_55F13AAB00E8 
+
+: ME_55F2E10D03A0
+ CONST UID '55F2E10D03A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+ : Target WL 'ME_555481D1035F' '5486E32B0191.pas.ms.script' // DropAll
+ ;
+
+ref; // ME_55F2E10D03A0 
+
+: ME_55F2E1110037
+ CONST UID '55F2E1110037'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+ : Target WL 'ME_54352FD00015' '538DA20300A7.pas.ms.script' // DoneClientBaseEngine
+ ;
+
+ref; // ME_55F2E1110037 
+
+: ME_5195F68401A9
+ CONST UID '5195F68401A9'
+ CONST Name 'DisconnectFromDatabase'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_55F29BD60218 // TarchiDBTest
+ ;
+ : Operations
+   @ ( ME_5195F68B0362 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_55F1390500C6 // 
+ ME_55F13AAB00E8 // 
+ ME_55F2E10D03A0 // 
+ ME_55F2E1110037 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_5195F68401A9 DisconnectFromDatabase
+
+FORWARD ME_519615B000D3
+
+: ME_519615D702C7
+ CONST UID '519615D702C7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_519615B000D3 // GetDatabasePath
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_519615D702C7 DoIt
+
+: ME_5199D6A90090
+ CONST UID '5199D6A90090'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_519615B000D3 // GetDatabasePath
+ ;
+ : Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.pas.ms.script' // ExtractFilePath
+ ;
+
+ref; // ME_5199D6A90090 
+
+: ME_519615B000D3
+ CONST UID '519615B000D3'
+ CONST Name 'GetDatabasePath'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55F29BD60218 // TarchiDBTest
+ ;
+ : Operations
+   @ ( ME_519615D702C7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5199D6A90090 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_519615B000D3 GetDatabasePath
+
+: ME_55F29BD60218
+ CONST UID '55F29BD60218'
+ CONST Name 'TarchiDBTest'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ѕазовый класс дл€ тестов, использующих базу данных' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55F29BB0025D // ArchiDBTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55F2B795017E // f_SabFiller
+ ME_55F2B79A0087 // f_NumSab
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5195F36403BC // UnpackDatabase
+ ME_5195F59C007D // ConnectToDatabase
+ ME_5195F6A9018D // DeleteDatabase
+ ME_5195F68401A9 // DisconnectFromDatabase
+ ME_519615B000D3 // GetDatabasePath
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ArchiDBTests\archiDBTest.pas'
+
+ref; // ME_55F29BD60218 TarchiDBTest
+
+: ME_55F29BB0025D
+ CONST UID '55F29BB0025D'
+ CONST Name 'ArchiDBTests'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_55F29ABD02C2' '55F29ABD02C2.pas.ms.script' // ArchiDBTests
+ ;
+ : Children
+   @ ( ME_55F29BD60218 // TarchiDBTest
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_4E4B5C5E0032' '4E4B5C5E0032.pas.ms.script' // DataBase
+ WL 'ME_519A10AF03DE' '519A10AF03DE.pas.ms.script' // dt_Const
+ WL 'ME_519B70FC02AB' '519B70FC02AB.pas.ms.script' // DataAccess
+ WL 'ME_519C98B002F7' '519C98B002F7.pas.ms.script' // ZipForge
+ WL 'ME_538DA20300A7' '538DA20300A7.pas.ms.script' // ClientSide
+ WL 'ME_5486E32B0191' '5486E32B0191.pas.ms.script' // StorageHolder
+ WL 'ME_559D0BE101B4' '559D0BE101B4.pas.ms.script' // dtIntf
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55F29BB0025D.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55F29BB0025D.pas.ms.script.runner'
+
+ref; // ME_55F29BB0025D ArchiDBTests

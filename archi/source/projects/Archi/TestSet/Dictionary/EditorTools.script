@@ -1,0 +1,413 @@
+// EditorTools.script
+// Утилитные фукнции для работы с редактором
+
+USES
+ axiom:Control
+ axiom:Editor
+ axiom:Tests
+ axiom:Form
+ axiom:cc
+ axiom:Wait
+ axiom:Waited
+ axiom:окно_редактора
+ axiom:TextPara
+ axiom:push
+ Mouse.script	
+ ArchiSystem.script
+ DocumentConst.script
+ ContentsTree.script
+ BlockTools.script
+ ArchiControls.script
+;
+
+EXPORTS axiom:Editor
+EXPORTS axiom:окно_редактора
+EXPORTS axiom:TextPara
+
+PROCEDURE "Сравнить текст с эталоном"
+ STRING VAR l_File
+ script:FileName csEVDExt sysutils:ChangeFileExt
+ sysutils:ExtractFileName >>> l_File
+ l_File focused:control:push pop:editor:TextToFile
+ l_File '%' tests:CheckEtalon
+;
+
+PROCEDURE "Сохранить в OEM и сравнить с эталоном"	 
+	csOEMExt Editor:Text:SaveAs
+	STRING VAR l_File
+	script:FileName csOEMExt sysutils:ChangeFileExt
+	sysutils:ExtractFileName >>> l_File
+	l_File ';' tests:CheckEtalon	
+;
+
+VOID OPERATOR "Операция редактора документа" ^ IN aCode
+	aCode DO arEditorWindowActionList "Текущее родительское окно" pop:form:ExecuteAction
+;
+
+PROCEDURE "Развернуть редактор"
+ "Спрятать оглавление"
+ wsMaximized "Текущее родительское окно" pop:form:SetWindowState 
+ ProcessMessages
+;
+
+PROCEDURE "Вернуться к сохраненной версии"
+	"Операция редактора документа" acPrevVersion
+;
+
+PROCEDURE "Выравнивание границ ячеек"
+	"Операция редактора документа" acTblAdjustCellsBoundaries
+;
+
+PROCEDURE "Верхний регистр"
+	"Операция редактора документа" acToolsCnvUpperCase
+;
+
+PROCEDURE "Нижний регистр"
+	"Операция редактора документа" acToolsCnvLowerCase
+;
+
+PROCEDURE "Запомнить ширины ячеек"
+	"Операция редактора документа" acRememberWidths
+;
+
+PROCEDURE "Применить ширины ячеек"
+	"Операция редактора документа" acApplyWidths
+;
+
+PROCEDURE "Выполнить автопростановку ссылок"
+	"Операция редактора документа" acToolsAutolink
+;
+
+PROCEDURE "Прокрутить документ от конца к началу"
+	OBJECT VAR l_Editor
+	
+	 : "Достигли начала документа"
+		l_Editor pop:Editor:AtTop
+	 ; 
+	 
+	 : "Не достигли начала документа"
+		"Достигли начала документа" !
+	 ;
+  
+	focused:control:push >>> l_Editor
+	l_Editor pop:Control:SetFocus ASSERT
+	 ProcessMessages 
+	 "В конец документа"
+	 ProcessMessages 
+	 VAR l_Limit 
+	 800 >>> l_Limit
+         WHILE ( "Не достигли начала документа" l_Limit >0 && )
+	 BEGIN
+	  -1 +! l_Limit
+	  cc:PrevPage
+	  l_Editor pop:Control:SetFocus ASSERT
+	  ProcessMessages
+	 END
+	 l_Limit >0 'Не добежали до начала документа' ASSERTS
+	 // - проверяем, то таки добежали до начала документа
+;
+
+PROCEDURE "Установить саб"
+	"Операция редактора документа" acSetSub
+;
+
+PROCEDURE "Преобразовать тест в таблицу" 
+	"Операция редактора документа" acTblFromText
+;
+
+PROCEDURE "Нажать 'OK' в диалоге параметров преобразования"
+	"Контрол по имени {(acTableConvParamDialogBTOk)}" pop:Control:Click
+;
+
+PROCEDURE "Преобразовать тест в таблицу быстро"
+ @ ( "Преобразовать тест в таблицу" ) MODAL ( "Нажать 'OK' в диалоге параметров преобразования" )
+;
+
+USES
+ CommonWords.script
+;
+
+PROCEDURE "Установить саб быстро"
+	"Обработать сообщения" 
+	@ ( "Установить саб" ) MODAL "Нажать ОКBtn"
+;
+
+PROCEDURE "Разбивка на блоки действие"
+	"Операция редактора документа" acInsCreateStructure
+;
+
+PROCEDURE "Разбивка на блоки"
+ @ ( "Разбивка на блоки действие" ) MODAL ( "Контрол по имени {('BitBtn1')}" pop:Control:Click ) 	 
+;
+
+PROCEDURE "Удалить гиперссылку"
+	"Операция редактора документа" acLinkDelete
+;
+
+PROCEDURE "Удалить гиперссылки"
+ wait:Yes
+ TRY
+  "Удалить гиперссылку"
+ FINALLY
+  waited:? ASSERT
+ END 
+;
+
+PROCEDURE "Вызвать установку гиперссылки"
+	'Alt+F7' key
+;
+
+: "Ссылка на конституцию"
+	Конституция IntToStr emitstring	
+	"Контрол по имени {('OKBtn')}" pop:Control:Click
+;
+
+PROCEDURE "Установить гиперссылку вручную быстро"
+  @ ( "Вызвать установку гиперссылки" ) MODAL ( "Ссылка на конституцию" )  
+;
+
+PROCEDURE "Объединить абзацы"
+	"Операция редактора документа" acToolsCnvMergePara
+;
+
+PROCEDURE "Преобразовать в текст"
+	"Операция редактора документа" 'acTranslate2Text'
+;
+
+PROCEDURE "Расстановка разделов"
+	"Операция редактора документа" acToolsSetSections
+;
+
+PROCEDURE "Найти таблицу"
+	"Операция редактора документа" acFindTable
+;
+
+PROCEDURE "Установить фокус в Атрибуты"
+	"Установить фокус в контрол с именем" acAttributesOutliner
+;
+
+PROCEDURE "Перейти на вкладку Атрибуты"
+	piAttr окно_редактора:перейти_на_вкладку
+	"Установить фокус в Атрибуты"
+;	
+
+PROCEDURE "Перейти на вкладку Название"
+	piName окно_редактора:перейти_на_вкладку
+;	
+
+PROCEDURE "Перейти на вкладку Справка"
+	piSprv окно_редактора:перейти_на_вкладку
+;
+
+PROCEDURE "Перейти на вкладку Журналы" 
+	piJourn окно_редактора:перейти_на_вкладку
+;
+
+PROCEDURE "Перейти на вкладку Текст" 
+	piText окно_редактора:перейти_на_вкладку
+;
+
+PROCEDURE "Установить стиль на текущий текстовый параграф" INTEGER IN aStyle OBJECT IN anEditor
+	aStyle anEditor textpara:SetStyleByID  
+;
+ 
+PROCEDURE "Прокрутить на строку вверх" OBJECT IN anEditor
+	anEditor pop:Editor:ScrollLineUp
+;
+
+PROCEDURE "Задать ширину ячеек"
+	"Операция редактора документа" 'acTblSetCellWidth'
+;
+
+PROCEDURE "Обновить курсор по хотспоту" INTEGER IN aX INTEGER IN aY
+	aY aX focused:control:push pop:editor:UpdateCursorFromHotSpotEx
+;
+
+PROCEDURE "Перейти к метке с номером" INTEGER IN aSubID
+	aSubID окно_редактора:перейти_к_метке
+;
+
+PROCEDURE "Показать иконку 'Номер метки'"
+	OBJECT VAR l_SubPanel	
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Операция редактора документа" 'acPMSubPanelLabelNum'
+;
+
+PROCEDURE "Показать иконку 'Тип названия'"
+	OBJECT VAR l_SubPanel	
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Операция редактора документа" 'acPMSubPanelNameType'
+;
+
+PROCEDURE "Показать иконку 'Классы'"
+	OBJECT VAR l_SubPanel	
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Операция редактора документа" 'acPMSubPanelClasses'
+;
+
+PROCEDURE "Показать иконку 'Ключи'"
+	OBJECT VAR l_SubPanel	
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Операция редактора документа" 'acPMSubPanelKeys'
+;
+
+PROCEDURE "Показать иконку 'Типы'"
+	OBJECT VAR l_SubPanel	
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Операция редактора документа" 'acPMSubPanelTypes'
+;
+
+PROCEDURE "Показать иконку 'Оглавление'"
+	OBJECT VAR l_SubPanel	
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Операция редактора документа" 'acPMSubPanelTOC'
+;
+
+PROCEDURE "Показать иконку 'Внешние объекты'"
+	OBJECT VAR l_SubPanel	
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Операция редактора документа" 'acPMSubPanelExtObjects'
+;
+
+PROCEDURE "Работа с сабпанелью. Включить/выключить все иконки"
+	"Показать иконку 'Номер метки'"
+	"Показать иконку 'Тип названия'"
+	"Показать иконку 'Классы'"
+	"Показать иконку 'Ключи'"
+	"Показать иконку 'Типы'"
+	"Показать иконку 'Оглавление'"
+	"Показать иконку 'Внешние объекты'"
+;
+
+PROCEDURE "Вставка разрыва раздела"
+	"Операция редактора документа" "Событие вставки раздела"
+;
+
+PROCEDURE "Установить курсор мыши посередине последней строки предыдущего параграфа" OBJECT IN anEditor
+	VAR l_PARA
+	INTEGER VAR l_X
+	INTEGER VAR l_Y
+	anEditor pop:Editor:PushParaFromCursor >>> l_PARA    
+	anEditor pop:editor:ParaMiddleCoordsToScreen >>> l_Y >>> l_X
+	l_Y 15 - >>> l_Y
+	"Установить курсор мыши по координатам {(l_X)} {(l_Y)}"	
+;
+	
+PROCEDURE "Перейти на вкладку Корреспонденты"
+	piCoresp окно_редактора:перейти_на_вкладку
+;	
+
+PROCEDURE "Поставить ссылку"
+	acLinkSet arEditorWindowActionList 0 push:MainForm pop:form:MDIChildren pop:form:ExecuteAction
+;
+
+VAR l_SecondFormName // в ней будем хранить имя второго окна
+
+PROCEDURE "Начать установку ссылки"
+	"Обработать сообщения"  
+ 	carEditorWindow '_1' Cat >>> l_SecondFormName	
+ 	"Поставить ссылку"
+	"Обработать сообщения"
+;
+
+PROCEDURE "Перейти обратно"
+	push:MainForm pop:form:Next
+	piText окно_редактора:перейти_на_вкладку
+	"Обработать сообщения"
+;
+
+PROCEDURE "Закончить простановку ссылку на самом верхнем сабе"
+	l_SecondFormName окно_редактора:постановить_ссылку_мышью
+;
+
+PROCEDURE "В заголовке выделить символов" INTEGER IN aCharCount
+	"В начало документа"
+	"Начать выделение"
+	aCharCount раз ( "Нажать вправо" )
+	"Закончить выделение"
+; 
+
+WordAlias "Выделить в тексте слева направо символов" "В заголовке выделить символов"
+WordAlias "Выделить в тексте слева направо символа" "В заголовке выделить символов"
+WordAlias "Выделить в тексте слева направо символ" "В заголовке выделить символов"
+
+PROCEDURE "Выделить символов" INTEGER IN aCharCount
+	"Начать выделение"
+	aCharCount раз ( "Нажать вправо" )
+	"Закончить выделение"
+; 
+
+WordAlias "Выделить символ" "Выделить символов"
+WordAlias "Выделить символа" "Выделить символов"
+
+PROCEDURE "Перейти на вкладку Респонденты"
+	piResp окно_редактора:перейти_на_вкладку
+;
+
+PROCEDURE "Перейти на вкладку Редакции"
+	piVersion окно_редактора:перейти_на_вкладку
+;
+
+PROCEDURE "Инвертировать регистр"
+	"Операция редактора документа" acToolsCnvInvertCase
+;
+
+PROCEDURE "Нижний регистр (первая заглавная)"
+	"Операция редактора документа" acToolsCnvLowerCaseWithFirst
+;
+
+PROCEDURE "Русская раскладка"
+	"Операция редактора документа" acToolsCnvRusCharset
+;
+
+PROCEDURE "Английская раскладка"
+	"Операция редактора документа" acToolsCnvEngCharset
+;
+
+PROCEDURE "Дата в текст"
+	"Операция редактора документа" acToolsCnvDate2Text
+;
+
+PROCEDURE "OEM в ANSI"
+	"Операция редактора документа" acToolsCnvOEM2ANSI
+;
+
+PROCEDURE "ANSI в OEM"
+	"Операция редактора документа" acToolsCnvANSI2OEM
+;
+
+PROCEDURE "Разрыв страницы"
+	"Операция редактора документа" 'acInsPageBreak'
+;
+
+PROCEDURE "Прокрутить вниз до конца документа"
+	OBJECT VAR l_Editor
+	"Контрол в фокусе" >>> l_Editor	
+	"В начало документа"
+	WHILE ( l_Editor pop:Editor:DocumentTailVisible ! )
+	BEGIN
+                1 раз ( l_Editor pop:Editor:ScrollLineDown )
+	END
+;
+
+PROCEDURE "Спрятать каретку редактора" OBJECT IN anEditor
+	anEditor pop:Editor:CaretVisible := false
+;
+
+PROCEDURE "Показать каретку редактора" OBJECT IN anEditor
+	anEditor pop:Editor:CaretVisible := true
+;
+
+PROCEDURE "Исправить имена меток"
+	"Операция редактора документа" "Событие 'Исправить имена меток'"
+;
+
+PROCEDURE "Исправить имена меток быстро"
+	"Выполнить с ожиданием 'OK'" (	
+		"Выполнить с ожиданием 'Да'" (	
+			@ ( "Исправить имена меток" ) MODAL (
+				"Нажать кнопку ОК"
+			)
+		)
+	)
+;

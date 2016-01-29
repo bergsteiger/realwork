@@ -1,0 +1,441 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// ServerLibrary
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ServerLibrary::Category
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+? Cерверная библиотка
+? Удаленная серверная компонента (библиотка)
+? Определляет генерацию распределенной сервеной компоненты.
+> Unit::Category, Interface::Category, ServerInterface::Category, Impl::Category, External::Category
+> Directory::Category
+> LibSupport::Category, ComInterface::Category, Views::Category
+
+p is namespace:b=true ? определяет является ли модуль неймспейсом
+p old gcm:b=false ? определяет, что модуль является частью старой модели
+p native name:s ? определяет MPC-имя для внешней (native) библиотеки
+p exec mode=idle|concluded ? определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+D
+L code_server_library
+
+Y server_lib.gif
+
+%f _wiki_up_print
+	[{%S{is namespace}=false}* *не* является неймспейсом 
+	][{%S{old gcm}=false}* билиотека формата GCM 1.х
+	][* режим исполнен6ия дома библиотеки: _%S{thread pool size}_ - [{%S{thread pool size}=idle}{дом завершится когда завершаться все исполнители}дом перейдет в сосотояние ожидания]
+	]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Library::Category;wiki
+
++ pas
++ dll.h
++ dll.cpp
++ dll.pas
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ idl
+S [{"%S{is namespace}"="true"}module %SN {\n]
+s [{"%S{is namespace}"="true"}}; // module %SN\n]
+P
+C /%SN
+	<%CX>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ idl_ami
+S [{"%S{is namespace}"="true"}module %SN {\n]
+s [{"%S{is namespace}"="true"}}; // module %SN\n]
+P
+C /%SN
+	<%CX>
+
++ odl
+= idl
+
++ com.rgs
+= idl
+//////////////////////////////////////////////////////////////////////////////////////////////////
+%f _libhome
+	[{%X{lid}=cpp}{[{%XU=java}{ru.garant.shared.Core.Root.LibHome}ru.garant.shared.CoreSrv.Root.CorbaLibHome]}\
+	[{%XU=h|%XU=cpp}{Core::Root::LibHome}CoreSrv::Root::CorbaLibHome]]
+
+%f _include_base_libhome
+	[{%X{lid}=cpp}{import [{%XU=java}{ru.garant.shared.Core.Root_i.StdLibHomeBase}ru.garant.shared.CoreSrv.Root_i.CorbaLibHomeBase];}\
+	\#include [{%XU=h|%XU=cpp}{"shared/Core/impl/Root_i/StdLibHomeBase.h"}"shared/CoreSrv/impl/Root_i/CorbaLibHomeBase.h"]]
+
+%f _base_libhome
+	[{%X{lid}=cpp}{extends [{%XU=java}{ru.garant.shared.Core.Root_i.StdLibHomeBase}ru.garant.shared.CoreSrv.Root_i.CorbaLibHomeBase]}\
+	virtual public [{%XU=h|%XU=cpp}{Core::Root_i::StdLibHomeBase}CoreSrv::Root_i::CorbaLibHomeBase]]
+
+%f _name_prefix
+	[{%XU=fctr.h|%XU=fctr.cpp|%XU=fctr.java}Server]
+
+%f _interceptor_cpp
+	[{%XU=cpp&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}\
+	void LibHome::ORBInitializer::pre_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException) {
+	<{}{%AS=ServerInterceptor}	{
+			PortableInterceptor::ServerRequestInterceptor_var si = new %AN();
+			info-\>add_server_request_interceptor(si.in());
+		}
+	><{}{%AS=ClientInterceptor}	{
+			PortableInterceptor::ClientRequestInterceptor_var ci = new %AN();
+			info-\>add_client_request_interceptor(ci.in());
+		}
+	><{}{%AS=CurrentSlot}
+		LibHome::s_%f_to_omg(%AN)_slot_id = info-\>allocate_slot_id ();
+	>
+	}
+	
+	void LibHome::ORBInitializer::post_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException) {
+	}
+	
+	PortableInterceptor::ORBInitializer* LibHome::get_orb_initializer () const {
+		return new ORBInitializer ();
+	}
+	
+	]
+
+%f _interceptor_h
+	[{%XU=h&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}
+		PortableInterceptor::ORBInitializer* get_orb_initializer () const;
+	
+		class ORBInitializer: virtual public PortableInterceptor::ORBInitializer {
+			void pre_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException);
+	
+			void post_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException);
+		};
+	
+		friend class ORBInitializer;]
+
+%f _interceptor_java
+	[{%XU=java&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}\
+		public static class ORBInitializer extends org.omg.CORBA.LocalObject implements org.omg.PortableInterceptor.ORBInitializer {
+			public void pre_init (org.omg.PortableInterceptor.ORBInitInfo info) {
+	<{}{%AS=ServerInterceptor}
+				org.omg.PortableInterceptor.ServerRequestInterceptor si%f_to_borland(%AN) = new %f_type(%A) ();
+				try {
+					info.add_server_request_interceptor(si%f_to_borland(%AN));
+				} catch (org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName ex) {
+					Logs.LOG_SEX(ex);
+				}
+	><{}{%AS=ClientInterceptor}
+				org.omg.PortableInterceptor.ClientRequestInterceptor ci%f_to_borland(%AN) = new %f_type(%A) ();
+	
+				try {
+					info.add_client_request_interceptor(ci%f_to_borland(%AN));
+				} catch (org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName ex) {
+					Logs.LOG_SEX(ex);
+				}
+	><{}{%AS=CurrentSlot}
+				LibHome.s%f_to_borland(%AN)SlotId = info.allocate_slot_id ();
+	>
+			}
+	
+			public void post_init (org.omg.PortableInterceptor.ORBInitInfo info) {
+			}
+		}
+	
+		public org.omg.PortableInterceptor.ORBInitializer get_orb_initializer () {
+			return new ORBInitializer ();
+		}]
+
+%f _self_methods_h
+	[{%XU=h}[
+	
+	public:<{}{%AS=CurrentSlot}
+		static PortableInterceptor::SlotId get_%f_to_omg(%AN)_slot_id ();
+	
+	private:
+		static PortableInterceptor::SlotId s_%f_to_omg(%AN)_slot_id;>]
+	
+	private:
+		void publish_all_servers_factories () const;]
+
+%f _self_methods_cpp
+	[{%XU=cpp}<{}{%AS=CurrentSlot}PortableInterceptor::SlotId LibHome::s_%f_to_omg(%AN)_slot_id = 0;
+	
+	PortableInterceptor::SlotId LibHome::get_%f_to_omg(%AN)_slot_id () {
+		return s_%f_to_omg(%AN)_slot_id;
+	}
+	
+	>void LibHome::publish_all_servers_factories () const {
+	<{}{%AS=ServerInterface&%f_has_factory_methods(%A)=true}\
+		%f_type(%A)FactoryManager::publish_self ();
+	>}
+	
+	]
+
+%f _self_methods_java
+	[{%XU=java}[
+	
+	<{}{%AS=CurrentSlot}	public static int get%f_to_borland(%AN)SlotId () {
+			return s%f_to_borland(%AN)SlotId;
+		}
+	
+		private static int s%f_to_borland(%AN)SlotId = 0;>
+	]
+		public void publish_all_servers_factories () {
+		<{}{%AS=ServerInterface&%A<{}{%CS=factory|%CS=multi factory}{C}>!=0}\
+		%f_type(%A)FactoryManager.publish_self ();
+		>}]
+
+%f _add_cpp_inc
+	[{%XU=cpp}<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}\#include "%f_with_gen_id(h,%AL)"
+	><{}{%CS=ServerInterface}[\#include "%f_with_gen_id(fctr.h,%CL)"
+	]>]
+
+%f _add_java_inc
+/	<{}{%CS=ServerInterface}[%f_with_gen_id(fctr.java,%f_java_import(%C))
+/	]>
+
+%t _need_to_execute
+c {}
+r {server/stand alone}: {[{%XU=fctr.h|%XU=fctr.cpp}{false}true]}
+r {both}: {true}
+r {""=""}: {false}
+
+%t _need_to_reg
+c {}
+r {""=""}: {[{%XU=fctr.h|%XU=fctr.cpp|%XU=fctr.java}{false}true]}
+
++ h
+= Library::Category;h
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+%f _set_exec_mode
+	[{%S{exec mode}=idle&%XU=fctr.cpp}	this-\>requested_status () = Core::Root::ES_IDLE;
+	]
+
++ cpp
+= Library::Category;cpp
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ i.h
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+C /%SN
+	<%CX>
+
+// used for generate server part of Library Home
++ fctr.h
+= Library::Category;h
+
+// used for generate server part of Library Home
++ fctr.cpp
+= Library::Category;cpp
+
+// used for generate server part of Library Home
++ fctr.java
+= Library::Category;java
+
++ java
+= Library::Category;java
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// common client-server lib
++ mpc
+P
+O %SN_cs.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN_cs library
+# t0_header
+	project (%SN_cs) : project_generic_core_corba, project_compile_idl {
+		staticname = %SN_cs
+	
+		includes += %PR/
+	[{%SN!=Core&%SN!=CoreSrv}
+		after += CoreSrv_cs
+		libs  += CoreSrv_cs
+	]
+	][{"<{}{}{%DC}>"!="0"}	%f_mpc_lib_dep(%S)]
+	[<{}{%f_need_mpc_idl(%C)=true}{Sn}\
+		IDL_Files (%CN) {
+	[{"%f_normolized_path(idl,C)"!=""}\
+			idlflags += -o %f_normolized_dir(idl,C)
+			%f_normolized_path(idl,C)
+	]%C<{}{}{%ASn}[{"%f_normolized_path(idl,C)"!=""}\
+			idlflags += -o %f_normolized_dir(idl,A)
+			%f_normolized_path(idl,A)
+	]>\
+		}
+	
+	>]	Header_Files {
+			Std_Headers {
+			[	%f_normolized_path(h,S)
+			]}
+		<{}{%CM=ServerInterface::Category}{Sn}
+			%CN {
+			[	%f_normolized_path(h,C)
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.h)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.h)
+			][	%f_normolized_path(fctr.h,C)
+			]]}
+		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+			%CN {			
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.h)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.h)
+			]}
+		><{}{%CC=Category&%CS=LibSupport}{Sn}
+			%CN {
+			%C<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}{%ASn}[	%f_normolized_path(h,A)
+			][	%f_normolized_path(fctr.h,A)
+			]>}
+		>}
+	
+		Inline_Files {
+			Std_Inlines {
+			[	%f_normolized_path(i.h,S)
+			]}
+		<{}{%CM=ServerInterface::Category}{Sn}
+			%CN {
+			[	%f_normolized_path(i.h,C)
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.inl)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.inl)
+			]]}
+		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+			%CN {			
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.inl)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.inl)
+			]}
+		><{}{%CC=Category&%CS=LibSupport}{Sn}
+			%CN {
+			%C<{}{%AS=ClientInterceptor}{%ASn}[	%f_normolized_path(i.h,A)
+			]>}
+		>}
+	
+		Source_Files {
+			Std_Sources {
+			[	%f_normolized_path(cpp,S)
+			]}
+		<{}{%CM=ServerInterface::Category}{Sn}
+			%CN {
+			[	%f_normolized_path(cpp,C)
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.cpp)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.cpp)
+			][	%f_normolized_path(fctr.cpp,C)
+			]]}
+		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+			%CN {			
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.cpp)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.cpp)
+			]}
+		><{}{%CC=Category&%CS=LibSupport}{Sn}
+			%CN {
+			%C<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}{%ASn}[	%f_normolized_path(cpp,A)
+			][	%f_normolized_path(fctr.cpp,A)
+			]>}
+		>}
+	}
+# t0_footer
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// Server impl lib
++ mpc2
+P
+O %SN.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN library
+# t0_header
+	project (%SN) : project_generic_core_corba {
+		staticname = %SN
+	
+		includes += %PR/
+	[{%SN!=Core&%SN!=CoreSrv}
+		after += CoreSrv_cs
+		libs  += CoreSrv_cs
+	]
+		after += %SN_cs
+		libs  += %SN_cs
+	
+	[{"<{}{%DS!=Requirements}{%DC}>"!="0"}	%f_mpc_lib_dep(%S)]
+		Header_Files {
+			Std_Headers {
+			[	%f_normolized_path(fctr.h,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]>}
+		<{}{%CC=Category&%CS!=ServerInterface}{Sn}
+			%CN {
+			[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(h,A)
+			][	%f_normolized_path(fctr.h,A)
+			]>}
+		>}
+	
+		Inline_Files {
+			Std_Inlines {
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(i.h,C)
+			]>}
+		<{}{%CC=Category&%CS!=ServerInterface}{Sn}
+			%CN {
+			[	%f_normolized_path(i.h,C)
+			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(i.h,A)
+			]>}
+		>}
+	
+		Source_Files {
+			Std_Sources {
+			[	%f_normolized_path(fctr.cpp,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]>}
+		<{}{%CC=Category&%CS!=ServerInterface}{Sn}
+			%CN {
+			[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(cpp,A)
+			][	%f_normolized_path(fctr.cpp,A)
+			]>}
+		>}
+	}
+# t0_footer
+
++ build.xml
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O build.xml
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<project name="%SN" basedir="."\>
+		\<property name="build.dir" value="w:/build/target"/\>
+		[{<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}
+		\<target name="idlcomp"\>
+			\<mkdir dir="${build.dir}/classes"/\>
+	<{}{%f_need_mpc_idl(%C)=true}\
+			\<exec executable="idlj"\>
+				\<arg line="-i"/\>
+				\<arg line="w:"/\>
+	[{%SN!=Core&%SN!=CoreSrv}			\<arg line="-pkgPrefix"/\>
+				\<arg line="CoreSrv"/\>
+				\<arg line="ru.garant.shared"/\>
+	]			\<arg line="-pkgPrefix"/\>
+				\<arg line="%SN"/\>
+				\<arg line="ru.garant.%PN"/\>
+				\<arg line="-td"/\>
+				\<arg line="%f_with_gen_id(java,%PR/%PN/java/src/java)"/\>
+				\<arg line="-fall"/\>
+				\<arg line="%f_with_gen_id(idl,%Co)"/\>
+			\</exec\>
+			\<javac srcdir="%f_with_gen_id(java,%PR/%PN/java/src/java)" destdir="${build.dir}/classes" includes="%f_str_replace(%f_dump_java_package(%C),.,/)/%CN/*.java"/\>
+	>	\</target\>]
+		\<target name ="makejar"\>
+			\<mkdir dir="${build.dir}/jar"/\>[{%SN!=Core&%SN!=CoreSrv}
+			\<ant antfile="W:/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/\>
+			]\<jar destfile="${build.dir}/jar/%SN.jar"\>
+				\<fileset dir ="${build.dir}/classes"\>
+					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+				\</fileset\>[{<{}{"%f_with_gen_id(output.xml,%AO)"!=""}{%AC}>!=0}
+				\<fileset dir ="%f_with_gen_id(output.xml,%SR%Sd)"/\>]
+			\</jar\>
+		\</target\>
+		<%CX>
+	\</project\>
+
+f _need_mpc_idl
+	[{%SM=ServerInterface::Category|%SM=Impl::Category}{false}[{%S%f_need_idl()=true}{false}true]]

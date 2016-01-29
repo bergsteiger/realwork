@@ -1,0 +1,302 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{41EAAE15-33D6-4117-86BC-787550C9239B}</ProjectGuid>
+        <MainSource>BuildOSXRTL.dpk</MainSource>
+        <ProjectVersion>14.3</ProjectVersion>
+        <FrameworkType>None</FrameworkType>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <Platform Condition="'$(Platform)'==''">OSX32</Platform>
+        <TargetedPlatforms>4</TargetedPlatforms>
+        <AppType>Package</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Base)'=='true') or '$(Base_OSX32)'!=''">
+        <Base_OSX32>true</Base_OSX32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Cfg_1)'=='true') or '$(Cfg_1_OSX32)'!=''">
+        <Cfg_1_OSX32>true</Cfg_1_OSX32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Cfg_2)'=='true') or '$(Cfg_2_OSX32)'!=''">
+        <Cfg_2_OSX32>true</Cfg_2_OSX32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_UNIT_PLATFORM>false</DCC_UNIT_PLATFORM>
+        <DCC_UNSUPPORTED_CONSTRUCT>false</DCC_UNSUPPORTED_CONSTRUCT>
+        <DCC_DcuOutput>$(BDSCOMMONDIR)\lib\$(Platform)</DCC_DcuOutput>
+        <DCC_UnitSearchPath>$(BDSCOMMONDIR)\lib\$(Platform);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
+        <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+        <DCC_SYMBOL_PLATFORM>false</DCC_SYMBOL_PLATFORM>
+        <DCC_SYMBOL_DEPRECATED>false</DCC_SYMBOL_DEPRECATED>
+        <GenPackage>true</GenPackage>
+        <GenDll>true</GenDll>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_OSX32)'!=''">
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName)</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_RemoteDebug>true</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_OSX32)'!=''">
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName)</VerInfo_Keys>
+        <Debugger_Launcher>/usr/X11/bin/xterm -e &quot;%debuggee%&quot;</Debugger_Launcher>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_RemoteDebug>false</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>false</DCC_DebugInformation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_OSX32)'!=''">
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName)</VerInfo_Keys>
+        <Debugger_Launcher>/usr/X11/bin/xterm -e &quot;%debuggee%&quot;</Debugger_Launcher>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="sys\System.Types.pas"/>
+        <DCCReference Include="common\System.UITypes.pas"/>
+        <DCCReference Include="common\System.UIConsts.pas"/>
+        <DCCReference Include="sys\System.SysConst.pas"/>
+        <DCCReference Include="common\System.RTLConsts.pas"/>
+        <DCCReference Include="common\System.Actions.pas"/>
+        <DCCReference Include="sys\System.Variants.pas"/>
+        <DCCReference Include="posix\Posix.ArpaInet.pas"/>
+        <DCCReference Include="posix\Posix.Base.pas"/>
+        <DCCReference Include="posix\Posix.Dirent.pas"/>
+        <DCCReference Include="posix\Posix.Dlfcn.pas"/>
+        <DCCReference Include="posix\Posix.Errno.pas"/>
+        <DCCReference Include="posix\Posix.Fcntl.pas"/>
+        <DCCReference Include="posix\Posix.Fnmatch.pas"/>
+        <DCCReference Include="posix\Posix.Grp.pas"/>
+        <DCCReference Include="posix\Posix.Iconv.pas"/>
+        <DCCReference Include="posix\Posix.Langinfo.pas"/>
+        <DCCReference Include="posix\Posix.Limits.pas"/>
+        <DCCReference Include="posix\Posix.Locale.pas"/>
+        <DCCReference Include="posix\Posix.NetDB.pas"/>
+        <DCCReference Include="posix\Posix.NetIf.pas"/>
+        <DCCReference Include="posix\Posix.NetinetIcmp6.pas"/>
+        <DCCReference Include="posix\Posix.NetinetIn.pas"/>
+        <DCCReference Include="posix\Posix.NetinetIp6.pas"/>
+        <DCCReference Include="posix\Posix.NetinetTCP.pas"/>
+        <DCCReference Include="posix\Posix.Pthread.pas"/>
+        <DCCReference Include="posix\Posix.Pwd.pas"/>
+        <DCCReference Include="posix\Posix.Sched.pas"/>
+        <DCCReference Include="posix\Posix.Semaphore.pas"/>
+        <DCCReference Include="posix\Posix.Signal.pas"/>
+        <DCCReference Include="posix\Posix.StdDef.pas"/>
+        <DCCReference Include="posix\Posix.Stdio.pas"/>
+        <DCCReference Include="posix\Posix.Stdlib.pas"/>
+        <DCCReference Include="posix\Posix.String_.pas"/>
+        <DCCReference Include="posix\Posix.StrOpts.pas"/>
+        <DCCReference Include="posix\Posix.SysMman.pas"/>
+        <DCCReference Include="posix\Posix.SysSelect.pas"/>
+        <DCCReference Include="posix\Posix.SysSocket.pas"/>
+        <DCCReference Include="posix\Posix.SysStat.pas"/>
+        <DCCReference Include="posix\Posix.SysStatvfs.pas"/>
+        <DCCReference Include="posix\Posix.SysSysctl.pas"/>
+        <DCCReference Include="posix\Posix.SysTime.pas"/>
+        <DCCReference Include="posix\Posix.SysTimes.pas"/>
+        <DCCReference Include="posix\Posix.SysTypes.pas"/>
+        <DCCReference Include="posix\Posix.SysUio.pas"/>
+        <DCCReference Include="posix\Posix.SysUn.pas"/>
+        <DCCReference Include="posix\Posix.SysWait.pas"/>
+        <DCCReference Include="posix\Posix.Termios.pas"/>
+        <DCCReference Include="posix\Posix.Time.pas"/>
+        <DCCReference Include="posix\Posix.Unistd.pas"/>
+        <DCCReference Include="posix\Posix.Utime.pas"/>
+        <DCCReference Include="posix\Posix.Wchar.pas"/>
+        <DCCReference Include="posix\Posix.Wctype.pas"/>
+        <DCCReference Include="posix\Posix.Wordexp.pas"/>
+        <DCCReference Include="osx\System.Mac.CFUtils.pas"/>
+        <DCCReference Include="osx\Macapi.CoreFoundation.pas"/>
+        <DCCReference Include="osx\Macapi.CoreServices.pas"/>
+        <DCCReference Include="osx\Macapi.ObjCRuntime.pas"/>
+        <DCCReference Include="osx\Macapi.Mach.pas"/>
+        <DCCReference Include="sys\System.Internal.MachExceptions.pas"/>
+        <DCCReference Include="sys\System.Internal.Unwinder.pas"/>
+        <DCCReference Include="sys\System.Internal.ExcUtils.pas"/>
+        <DCCReference Include="sys\System.Internal.StrHlpr.pas"/>
+        <DCCReference Include="sys\System.SysUtils.pas"/>
+        <DCCReference Include="sys\System.Internal.VarHlpr.pas"/>
+        <DCCReference Include="sys\System.VarUtils.pas"/>
+        <DCCReference Include="common\System.AnsiStrings.pas"/>
+        <DCCReference Include="common\System.Character.pas"/>
+        <DCCReference Include="common\System.Classes.pas"/>
+        <DCCReference Include="common\System.Contnrs.pas"/>
+        <DCCReference Include="common\System.ConvUtils.pas"/>
+        <DCCReference Include="common\System.DateUtils.pas"/>
+        <DCCReference Include="common\System.Diagnostics.pas"/>
+        <DCCReference Include="common\System.Generics.Collections.pas"/>
+        <DCCReference Include="common\System.Generics.Defaults.pas"/>
+        <DCCReference Include="common\System.HelpIntfs.pas"/>
+        <DCCReference Include="common\System.IniFiles.pas"/>
+        <DCCReference Include="common\System.IOUtils.pas"/>
+        <DCCReference Include="common\System.Masks.pas"/>
+        <DCCReference Include="common\System.MaskUtils.pas"/>
+        <DCCReference Include="common\System.Math.pas"/>
+        <DCCReference Include="common\System.ObjAuto.pas"/>
+        <DCCReference Include="common\System.Rtti.pas"/>
+        <DCCReference Include="common\System.RegularExpressionsAPI.pas"/>
+        <DCCReference Include="common\System.RegularExpressionsConsts.pas"/>
+        <DCCReference Include="common\System.RegularExpressionsCore.pas"/>
+        <DCCReference Include="common\System.RegularExpressions.pas"/>
+        <DCCReference Include="common\System.StdConvs.pas"/>
+        <DCCReference Include="common\System.StrUtils.pas"/>
+        <DCCReference Include="common\System.SyncObjs.pas"/>
+        <DCCReference Include="common\System.TimeSpan.pas"/>
+        <DCCReference Include="common\System.TypInfo.pas"/>
+        <DCCReference Include="common\System.VarCmplx.pas"/>
+        <DCCReference Include="common\System.VarConv.pas"/>
+        <DCCReference Include="common\System.WideStrings.pas"/>
+        <DCCReference Include="common\System.WideStrUtils.pas"/>
+        <DCCReference Include="common\System.ZLib.pas"/>
+        <DCCReference Include="common\System.ZLibConst.pas"/>
+        <DCCReference Include="common\System.Zip.pas"/>
+        <DCCReference Include="common\System.Internal.DebugUtils.pas"/>
+        <DCCReference Include="osx\Macapi.ObjectiveC.pas"/>
+		<DCCReference Include="osx\Macapi.OCBlocks.pas"/>
+        <DCCReference Include="osx\Macapi.OCMarshal.pas"/>
+        <DCCReference Include="osx\Macapi.CocoaTypes.pas"/>
+        <DCCReference Include="osx\Macapi.Security.pas"/>
+        <DCCReference Include="osx\Macapi.SystemConfiguration.pas"/>
+        <DCCReference Include="osx\Macapi.OpenGL.pas"/>
+        <DCCReference Include="osx\Macapi.QuartzCore.pas"/>
+        <DCCReference Include="osx\Macapi.Foundation.pas"/>
+        <DCCReference Include="osx\Macapi.AppKit.pas"/>
+        <DCCReference Include="osx\Macapi.CoreGraphics.pas"/>
+        <DCCReference Include="osx\Macapi.ImageIO.pas"/>
+        <DCCReference Include="osx\Macapi.CoreText.pas"/>
+        <DCCReference Include="osx\Macapi.Consts.pas"/>
+        <DCCReference Include="osx\Macapi.PrintCore.pas"/>
+        <DCCReference Include="common\System.Odbc.pas"/>
+        <DCCReference Include="common\System.Sqlite.pas"/>
+        <DCCReference Include="sys\System.Internal.Unwind.pas"/>
+        <DCCReference Include="common\System.Sensors.pas"/>
+        <DCCReference Include="common\System.Mac.Sensors.pas"/>
+        <DCCReference Include="osx\Macapi.AVFoundation.pas"/>
+        <DCCReference Include="osx\Macapi.CoreVideo.pas"/>
+        <DCCReference Include="osx\Macapi.CoreMedia.pas"/>
+        <DCCReference Include="osx\Macapi.Dispatch.pas"/>
+        <DCCReference Include="osx\Macapi.Quicktime.pas"/>
+        <DCCReference Include="osx\Macapi.QTKit.pas"/>
+        <DCCReference Include="osx\Macapi.CoreLocation.pas"/>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>Package</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">BuildOSXRTL.dpk</Source>
+                </Source>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1033</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                </VersionInfoKeys>
+            </Delphi.Personality>
+            <Deployment/>
+            <Platforms>
+                <Platform value="OSX32">True</Platform>
+                <Platform value="Win32">False</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="RTL.Build.targets"/>
+    <Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+    <Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+</Project>

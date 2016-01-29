@@ -1,0 +1,17 @@
+<project name="init">
+    <target name="init.all" description="Common initialization">
+        <echo message="Init common properties" level="info"/>
+        <buildnumber/>
+        <property file="build.properties"/>
+        
+        <delete dir="${build.storage}" />
+        
+        <mkdir dir="${build.storage}"/>
+        <mkdir dir="${build.storage}/iChecker_${build.version.major}_${build.version.minor}_b${build.number}"/>
+        <mkdir dir="${build.storage}/iChecker_${build.version.major}_${build.version.minor}_b${build.number}/logs"/>
+        <mkdir dir="${build.storage}/iChecker_${build.version.major}_${build.version.minor}_b${build.number}/temp"/>
+        
+        <echo message="Update version files by actual version data" level="info"/>
+        <echo file="${build.storage}/iChecker_${build.version.major}_${build.version.minor}_b${build.number}/version.txt"><![CDATA[${build.version.major}.${build.version.minor}.${build.number}]]></echo>
+    </target>
+</project>

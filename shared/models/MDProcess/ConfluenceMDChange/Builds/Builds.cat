@@ -1,0 +1,1489 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Builds"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluenceMDChange/Builds|47E3C94B02F2
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19033329797"))
+    quid       	"47E3C94B02F2"
+    documentation 	"Пакет для работы со сборками."
+    stereotype 	"Interfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"47E77A68008A"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages"
+	    quidu      	"4614919300FA")
+	(object Visibility_Relationship
+	    quid       	"4BB4A4080157"
+	    supplier   	"Logical View::MDProcess::CodeRepository::Information"
+	    quidu      	"49829E420071"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Build"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/Builds/BuildFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluenceMDChange/Builds/Build|47E3C97D02BD
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/Builds/Build.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47E3C97D02BD_47E3CC8A0283_47E3CA440051_BODY*"
+		    value      	(value Text 
+|//#UC START# *47E3C97D02BD_47E3CC8A0283_47E3CA440051_BODY*¤		buildPage_ = buildPage;¤		isNew_ = false;¤		if (buildPage != null && buildPage.getParent() != null) {¤			parentReleasePageId_ = buildPage.getParent().getId();¤		} else {¤			Logs.LOG_W("DefaultBuild::ctor - try to create Build instance without respective Page object or Release page");¤		}¤		//#UC END# *47E3C97D02BD_47E3CC8A0283_47E3CA440051_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47E3C97D02BD_47E79BDE0028_47E3CA440051_BODY*"
+		    value      	(value Text 
+|//#UC START# *47E3C97D02BD_47E79BDE0028_47E3CA440051_BODY*¤		Page releasePage = ContainerManager.Factory.get().getPageManager().getPage(releasePageId);¤		if (releasePage == null) {¤			Logs.LOG_E("DefaultBuild::ctor: page '" + releasePageId + "' does not exist.");¤		}¤		final com.atlassian.confluence.pages.Page buildPage = makePage(releasePage, title);¤¤		makeReadOnly(buildPage);¤¤		final LabelManager lm = ContainerManager.Factory.get().getLabelManager();¤		ParsedLabelName pln = new ParsedLabelName(LabelConstants.BUILD_LABEL);¤		pln.addLabel(buildPage, lm);¤		¤		parentReleasePageId_ = releasePageId;¤		buildPage_ = buildPage;¤		isNew_ = true;¤		//#UC END# *47E3C97D02BD_47E79BDE0028_47E3CA440051_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038850543"))
+	    quid       	"47E3C97D02BD"
+	    documentation 	"Объект сборки."
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E3CC8A0283_47E3CC8A0283_47E3CA440051_BODY*"
+			    value      	(value Text 
+|//#UC START# *47E3CC8A0283_47E3CC8A0283_47E3CA440051_BODY*¤		buildPage_ = buildPage;¤		isNew_ = false;¤		if (buildPage != null && buildPage.getParent() != null) {¤			parentReleasePageId_ = buildPage.getParent().getId();¤		} else {¤			Logs.LOG_W("DefaultBuild::ctor - try to create Build instance without respective Page object or Release page");¤		}¤		//#UC END# *47E3CC8A0283_47E3CC8A0283_47E3CA440051_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016262241"))
+		    quid       	"47E3CC8A0283"
+		    documentation 	"Поиск ранее созданной сборки."
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "build_page"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"461492D402CE")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016262578"))
+			    quid       	"47E7ADAF0236"
+			    type       	"Page"
+			    quidu      	"461492D402CE"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E777F30281_47E3CA440051*"
+			    value      	(value Text 
+|//#UC START# *47E777F30281_47E3CA440051*¤		String time = ContainerManager.Factory.get().getContentPropertyManager().getStringProperty(¤				buildPage_¤				, "ru.garant.MDProcess.ConfluenceMDChange.BuildsImpl.DefaultBuild.START_BUILD_LABEL"¤			);¤		if (time == null) {¤			// ses: такое бывает, когда сборка создается сразу с лэйблом failed¤			¤			//Logs.LOG_W("DefaultBuild::getDate build not started, how (buildPage:" + buildPage_.getId() + ")?!");¤			//throw new NullPointerException("build not started, how?!");¤			return buildPage_.getCreationDate();¤		}		¤		return new Date (Long.valueOf(time));¤		//#UC END# *47E777F30281_47E3CA440051*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4616256D0399")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016263005"))
+		    quid       	"47E777F30281"
+		    documentation 	"Получение даты сборки."
+		    result     	"time"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4616256D0399")
+		(object Operation "on_event"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E778A4031E_47E3CA440051*"
+			    value      	(value Text 
+|//#UC START# *47E778A4031E_47E3CA440051*¤		final LabelManager lm = ContainerManager.Factory.get().getLabelManager();¤		DefaultBuildManager.forEachLabel(buildPage_, new DefaultBuildManager.ForLabelFunctor() {¤			public boolean process (String labelName) {¤				if (isStateLabel(labelName)) {¤					Label label = lm.getLabel(labelName);¤					lm.removeLabel(buildPage_, label);¤					return false;¤				}¤				return true;¤			}¤		});¤		¤		ParsedLabelName pln = new ParsedLabelName(eventName);¤		pln.addLabel(buildPage_, lm);¤		¤		if (LabelConstants.START_BUILD_LABEL.equals(eventName)) {¤			ContainerManager.Factory.get().getContentPropertyManager().setStringProperty(¤				buildPage_¤				, "ru.garant.MDProcess.ConfluenceMDChange.BuildsImpl.DefaultBuild.START_BUILD_LABEL"¤				, Long.toString(new Date().getTime())¤			);¤		}¤		makeLogAttachment (logData);¤		//#UC END# *47E778A4031E_47E3CA440051*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016263362"))
+		    quid       	"47E778A4031E"
+		    documentation 	"Реакция на событие (начало, окончание и т.д сборки). Устанавливает для страницы сборки соотсветствующее состояние (event_name), добавляет, при необходимости лог (log_data)"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "event_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016263732"))
+			    quid       	"48EDCA2E02F1"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "log_data"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016264096"))
+			    quid       	"48EDCA2E0366"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "create"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E79BDE0028_47E79BDE0028_47E3CA440051_BODY*"
+			    value      	(value Text 
+|//#UC START# *47E79BDE0028_47E79BDE0028_47E3CA440051_BODY*¤		Page releasePage = ContainerManager.Factory.get().getPageManager().getPage(releasePageId);¤		if (releasePage == null) {¤			Logs.LOG_E("DefaultBuild::ctor: page '" + releasePageId + "' does not exist.");¤		}¤		final com.atlassian.confluence.pages.Page buildPage = makePage(releasePage, title);¤¤		makeReadOnly(buildPage);¤¤		final LabelManager lm = ContainerManager.Factory.get().getLabelManager();¤		ParsedLabelName pln = new ParsedLabelName(LabelConstants.BUILD_LABEL);¤		pln.addLabel(buildPage, lm);¤		¤		parentReleasePageId_ = releasePageId;¤		buildPage_ = buildPage;¤		isNew_ = true;¤		//#UC END# *47E79BDE0028_47E79BDE0028_47E3CA440051_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016264551"))
+		    quid       	"47E79BDE0028"
+		    documentation 	"Создание объекта новой сборки."
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "release_page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016264867"))
+			    quid       	"47F248E902D1"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "title"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016265233"))
+			    quid       	"47E79C1A0235"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_state"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E7B6710397_47E3CA440051*"
+			    value      	(value Text 
+|//#UC START# *47E7B6710397_47E3CA440051*¤		Label label = DefaultBuildManager.forEachLabel(buildPage_, new DefaultBuildManager.ForLabelFunctor() {¤			public boolean process (String labelName) {¤				if (isStateLabel(labelName)) {¤					return false;¤				}¤				return true;¤			}¤		});¤		return (label == null)? "" : label.getRealTitle();¤		//#UC END# *47E7B6710397_47E3CA440051*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016265673"))
+		    quid       	"47E7B6710397"
+		    documentation 	"получение состояния сборки."
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "set_content"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E7C0750305_47E3CA440051*"
+			    value      	(value Text 
+|//#UC START# *47E7C0750305_47E3CA440051*¤		if (content != null) {¤			if (!isNew()) {¤				try {¤					Page prev = (Page)buildPage_.clone();¤					buildPage_.setContent(content);¤					final PageManager pm = ContainerManager.Factory.get().getPageManager();			¤					pm.saveContentEntity(buildPage_, prev, null);¤				} catch (CloneNotSupportedException e) {¤					Logs.LOG_E("DefaultBuild::setContent - " + e);¤				}¤			} else {¤				buildPage_.setContent(content);				¤			}¤		}¤		//#UC END# *47E7C0750305_47E3CA440051*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016266031"))
+		    quid       	"47E7C0750305"
+		    documentation 	"Установить содержимое сборки."
+		    parameters 	(list Parameters
+			(object Parameter "content"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016266338"))
+			    quid       	"47E7C087033C"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "is_new"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E7CB1E02A4_47E3CA440051*"
+			    value      	(value Text 
+|//#UC START# *47E7CB1E02A4_47E3CA440051*¤		return isNew_;¤		//#UC END# *47E7CB1E02A4_47E3CA440051*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016266765"))
+		    quid       	"47E7CB1E02A4"
+		    documentation 	"Признак, что страница сборки новая"
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "get_short_title"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48216E7203E5_47E3CA440051*"
+			    value      	(value Text 
+|//#UC START# *48216E7203E5_47E3CA440051*¤		return DefaultBuildManager.getShortTitle(buildPage_.getParent(), buildPage_.getTitle());¤		//#UC END# *48216E7203E5_47E3CA440051*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016267124"))
+		    quid       	"48216E7203E5"
+		    documentation 	"возвращает короткое имя сборки без имени родительского релиза"
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47EB9D7001F8_47E3CA440051_GET*"
+			    value      	(value Text 
+|//#UC START# *47EB9D7001F8_47E3CA440051_GET*¤		return buildPage_.getId();¤		//#UC END# *47EB9D7001F8_47E3CA440051_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016261015"))
+		    quid       	"47EB9D7001F8"
+		    documentation 	"Идентификатор страницы сборки."
+		    stereotype 	"readonly"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public")
+		(object ClassAttribute "parent_release_page_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4822B91F034E_47E3CA440051_GET*"
+			    value      	(value Text 
+|//#UC START# *4822B91F034E_47E3CA440051_GET*¤		return parentReleasePageId_;¤		//#UC END# *4822B91F034E_47E3CA440051_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016261404"))
+		    quid       	"4822B91F034E"
+		    documentation 	"ИД выпуска."
+		    stereotype 	"readonly"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public")
+		(object ClassAttribute "page"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48A3E4BA0279_47E3CA440051_GET*"
+			    value      	(value Text 
+|//#UC START# *48A3E4BA0279_47E3CA440051_GET*¤		return buildPage_;¤		//#UC END# *48A3E4BA0279_47E3CA440051_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"461492D402CE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016261823"))
+		    quid       	"48A3E4BA0279"
+		    documentation 	"документация отсутствует"
+		    stereotype 	"readonly"
+		    type       	"Page"
+		    quidu      	"461492D402CE"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "BuildManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluenceMDChange/Builds/BuildManager|47E3C98D018F
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/Builds/BuildManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/Builds/BuildManagerFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47E3C98D018F_47E3CBC9031A_47E3CA71016E_BODY*"
+		    value      	(value Text 
+|//#UC START# *47E3C98D018F_47E3CBC9031A_47E3CA71016E_BODY*¤		//#UC END# *47E3C98D018F_47E3CBC9031A_47E3CA71016E_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038848139"))
+	    quid       	"47E3C98D018F"
+	    documentation 	"Объект управляющий объектами сборок."
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E3CBC9031A_47E3CBC9031A_47E3CA71016E_BODY*"
+			    value      	(value Text 
+|//#UC START# *47E3CBC9031A_47E3CBC9031A_47E3CA71016E_BODY*¤		//#UC END# *47E3CBC9031A_47E3CBC9031A_47E3CA71016E_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016268146"))
+		    quid       	"47E3CBC9031A"
+		    documentation 	"Фабрика объектов."
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "is_build"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E775C60320_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *47E775C60320_47E3CA71016E*¤		return forEachLabel(page, new ForLabelFunctor() {¤			public boolean process (String labelName) {¤				return (labelName.compareTo(LabelConstants.BUILD_LABEL)) != 0;¤			}¤		}) != null; ¤		//#UC END# *47E775C60320_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016268522"))
+		    quid       	"47E775C60320"
+		    documentation 	"Проверка, является ли данная страница сборкой."
+		    parameters 	(list Parameters
+			(object Parameter "page"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"461492D402CE")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016268825"))
+			    quid       	"47E7761E0054"
+			    type       	"Page"
+			    quidu      	"461492D402CE"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "get_build"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E777100073_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *47E777100073_47E3CA71016E*¤		Page releasePage = ContainerManager.Factory.get().getPageManager().getPage(releasePageId);¤		if (releasePage == null) {¤			Logs.LOG_E("DefaultBuildManager::getBuild: page '" + releasePageId + "' does not exist.");¤			return Build.Factory.create(releasePageId, title);¤		}¤		final String buildTitle = createTitle(releasePage, title);¤		for (final BuildIterator bi = new BuildIterator(releasePage); bi.hasNext();) {¤			final com.atlassian.confluence.pages.Page buildPage = bi.next();¤			if (buildTitle.compareToIgnoreCase(buildPage.getTitle()) == 0) {¤				return Build.Factory.get(buildPage);¤			}¤		}¤		return Build.Factory.create(releasePageId, title);¤		//#UC END# *47E777100073_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47E3C97D02BD")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016269243"))
+		    quid       	"47E777100073"
+		    documentation 	"Поиск сборки по выпуску и заголовку."
+		    parameters 	(list Parameters
+			(object Parameter "release_page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016269623"))
+			    quid       	"47F248D00375"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "title"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016269983"))
+			    quid       	"47E7777C03E0"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"Build"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"47E3C97D02BD")
+		(object Operation "get_branch_label"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E79E5D02CE_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *47E79E5D02CE_47E3CA71016E*¤		Page releasePage = ContainerManager.Factory.get().getPageManager().getPage(releasePageId);¤		if (releasePage == null) {¤			Logs.LOG_E("DefaultBuildManager::getBranchLabel: page '" + releasePageId + "' does not exist.");¤			return "";¤		}¤		Label foundLabel = forEachLabel(releasePage, new ForLabelFunctor() {¤			public boolean process (String labelName) {¤				return (labelName.startsWith(LabelConstants.BRANCH_LABEL)) ? false : true;¤			}¤		});¤		return (foundLabel == null)? "" : foundLabel.getRealTitle();¤		//#UC END# *47E79E5D02CE_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016270422"))
+		    quid       	"47E79E5D02CE"
+		    documentation 	"Получение метки ветки у выпуска."
+		    parameters 	(list Parameters
+			(object Parameter "release_page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016270734"))
+			    quid       	"47F248D80103"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "make_branch_label"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47EA22320396_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *47EA22320396_47E3CA71016E*¤		return LabelConstants.BRANCH_LABEL + branchName;¤		//#UC END# *47EA22320396_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016271147"))
+		    quid       	"47EA22320396"
+		    documentation 	"Создание строки метки ветки по имени ветки."
+		    parameters 	(list Parameters
+			(object Parameter "branch_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016271483"))
+			    quid       	"47EA224100FF"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "get_last_build"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47F2457702BF_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *47F2457702BF_47E3CA71016E*¤		Page releasePage = ContainerManager.Factory.get().getPageManager().getPage(releasePageId);¤		if (releasePage == null) {¤			Logs.LOG_E("DefaultBuildManager::getLastBuild: page '" + releasePageId + "' does not exist.");¤			return null;¤		}¤		Build lastBuild = null;¤		Date lastDate = null;¤		for (DefaultBuildManager.BuildIterator bi = new BuildIterator(releasePage); bi.hasNext();) {¤			com.atlassian.confluence.pages.Page buildPage = bi.next();¤			if (lastDate == null || lastDate.compareTo(buildPage.getLastModificationDate()) < 0) {¤				Build curBuild = Build.Factory.get(buildPage);¤				if (curBuild.getState().compareTo(LabelConstants.DONE_BUILD_LABEL) == 0) {¤					lastBuild = curBuild;¤					lastDate = buildPage.getLastModificationDate();¤				}¤			}¤		}¤		return lastBuild;¤		//#UC END# *47F2457702BF_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47E3C97D02BD")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016271900"))
+		    quid       	"47F2457702BF"
+		    documentation 	"Получение последнего билда указанного выпуска."
+		    parameters 	(list Parameters
+			(object Parameter "release_page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016272205"))
+			    quid       	"47F247E50140"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"Build"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"47E3C97D02BD")
+		(object Operation "get_builds"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48216EDE0156_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *48216EDE0156_47E3CA71016E*¤		List<Build> result = new ArrayList<Build>();¤		Page releasePage = ContainerManager.Factory.get().getPageManager().getPage(releasePageId);¤		if (releasePage == null) {¤			Logs.LOG_E("DefaultBuildManager::getBuilds: page '" + releasePageId + "' does not exist.");¤			return result;¤		}¤		for (DefaultBuildManager.BuildIterator bi = new BuildIterator(releasePage); bi.hasNext();) {¤			result.add(Build.Factory.get(bi.next()));¤		}¤		return result;¤		//#UC END# *48216EDE0156_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48216ECA02F6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016272637"))
+		    quid       	"48216EDE0156"
+		    documentation 	"возвращает список сборок на заданный релиз"
+		    parameters 	(list Parameters
+			(object Parameter "release_page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016272943"))
+			    quid       	"48216F0E03E3"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"BuildList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48216ECA02F6")
+		(object Operation "get_prev_build"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4847F8E6002D_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *4847F8E6002D_47E3CA71016E*		¤		long time1 = new Date().getTime();¤		List<Page> pl = getAllBuildsSortedByDate (build.getParentReleasePageId());¤		Logs.LOG_W("getPrevBuild::time1=" + (new Date().getTime() - time1));¤		int buildPos = pl.indexOf(build.getPage());¤		long time2 = new Date().getTime();¤		for (int j = buildPos-1; j >= 0 && j < pl.size(); j--) {¤			Build res = Build.Factory.get(pl.get(j));¤			if (res.getState().equals(LabelConstants.DONE_BUILD_LABEL)) {¤				Logs.LOG_W("getPrevBuild::time2=" + (new Date().getTime() - time2));¤				return res;¤			}¤		}¤		Logs.LOG_W("getPrevBuild::time2=" + (new Date().getTime() - time2));¤		return null;		¤		¤		//#UC END# *4847F8E6002D_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47E3C97D02BD")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016273387"))
+		    quid       	"4847F8E6002D"
+		    documentation 	"Получение предыдущего для указанного билда."
+		    parameters 	(list Parameters
+			(object Parameter "build"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47E3C97D02BD")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016273695"))
+			    quid       	"4847F99A0240"
+			    type       	"Build"
+			    quidu      	"47E3C97D02BD"))
+		    result     	"Build"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"47E3C97D02BD")
+		(object Operation "get_next_build"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49957802039A_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *49957802039A_47E3CA71016E*¤		List<Page> pl = getAllBuildsSortedByDate (build.getParentReleasePageId());¤		int buildPos = pl.indexOf(build.getPage());¤		for (int j = buildPos+1; j >= 0 && j < pl.size(); j++) {¤			Build res = Build.Factory.get(pl.get(j));¤			if (res.getState().equals(LabelConstants.DONE_BUILD_LABEL)) {¤				return res;¤			}¤		}¤		return null;		¤		//#UC END# *49957802039A_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47E3C97D02BD")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016274113"))
+		    quid       	"49957802039A"
+		    documentation 	"возвращает следующий билд или NULL если билд последний"
+		    parameters 	(list Parameters
+			(object Parameter "build"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47E3C97D02BD")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016274455"))
+			    quid       	"4995780B0135"
+			    type       	"Build"
+			    quidu      	"47E3C97D02BD"))
+		    result     	"Build"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"47E3C97D02BD")
+		(object Operation "find_closed_requests"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4847F90001E3_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *4847F90001E3_47E3CA71016E*¤		Build lastBuild = getPrevBuild(build);¤¤		final String sQuery = "select req.id from RequestDAOProxy as req "¤			+ " where req.page.contentStatus='current' and req.page.originalVersion is null"¤			+ " and req.release = :releaseId"¤			+ " and req.workCompleteAt is not null"¤			+ " and req.workCompleteAt < :date1"¤			+ ((lastBuild != null)? " and req.workCompleteAt > :date2": "")¤			+ " order by req.page.title asc"¤		;¤¤		Transaction tx = null;¤		try {¤			Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			tx = session.beginTransaction();¤			Query query = session.createQuery(sQuery);¤¤			query.setTimestamp("date1", build.getDate());¤			query.setLong("releaseId", build.getParentReleasePageId());¤			if (lastBuild != null) {¤				query.setTimestamp("date2", lastBuild.getDate());¤			}¤¤			List<Long> res  = query.list();¤			tx.commit();¤			return res;¤		} catch (HibernateException e) {¤			Logs.LOG_E("DefaultBuild::findRequests: caught " + e);¤			Logs.LOG_SEX(e);¤			if (tx != null) {¤				try {¤					tx.rollback();¤				} catch (Exception erb) {¤					Logs.LOG_E("DefaultBuild::findRequests:catch due to rollback was caught " + e);¤				}¤			}¤		}¤		return new ArrayList<Long>(0);¤		//#UC END# *4847F90001E3_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47E7B1B1005A")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016274873"))
+		    quid       	"4847F90001E3"
+		    documentation 	"Поиск запросов для указаного билда."
+		    parameters 	(list Parameters
+			(object Parameter "build"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47E3C97D02BD")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016275200"))
+			    quid       	"4847F99F0269"
+			    type       	"Build"
+			    quidu      	"47E3C97D02BD"))
+		    result     	"RequestIdList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"47E7B1B1005A")
+		(object Operation "find_repository_commits"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"499C2A3E0220")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4BB4A2FE012F_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *4BB4A2FE012F_47E3CA71016E*¤		Date dateFormDate;¤		long time1 = new Date().getTime();¤		Build lastBuild = getPrevBuild(build);¤		Logs.LOG_W("DefaultBuildManager::findRepositoryCommits::time1=" + (new Date().getTime() - time1) + " lastBuild is null = " + (lastBuild == null));¤		¤		Release release = getRelease(build.getParentReleasePageId());¤		if (lastBuild == null) {¤			dateFormDate = release.getStartImplDate();¤		} else {¤			dateFormDate = lastBuild.getDate();¤		}¤		¤		long time2 = new Date().getTime();¤		¤		List<ru.garant.MDProcess.CodeRepository.Information.Changeset> chList;¤		if (StringUtils.isBlank(release.getBranch())) {¤			History hist = History.Factory.makeForSpace(¤					dateFormDate¤					, build.getDate()¤					, release.getPage().getSpace().getId()¤				);¤			Logs.LOG_W("DefaultBuildManager::findRepositoryCommits::time2=" + (new Date().getTime() - time2));¤			¤			long time3 = new Date().getTime();¤			¤			chList = hist.getChanges();¤			¤			Logs.LOG_W("DefaultBuildManager::findRepositoryCommits::time3=" + (new Date().getTime() - time3));¤		} else {			¤			History hist = History.Factory.make(¤					dateFormDate¤					, build.getDate()¤				);			¤			Logs.LOG_W("DefaultBuildManager::findRepositoryCommits::time2=" + (new Date().getTime() - time2));¤			¤			long time3 = new Date().getTime();¤			¤			chList = filtrateByBranch(build, hist, release);¤			¤			Logs.LOG_W("DefaultBuildManager::findRepositoryCommits::time3=" + (new Date().getTime() - time3));¤		}¤		¤		return chList;¤		//return new ArrayList<ru.garant.MDProcess.CodeRepository.Information.Changeset>();¤		//#UC END# *4BB4A2FE012F_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016275621"))
+		    quid       	"4BB4A2FE012F"
+		    documentation 	"найти все коммиты, которые вошли в сборку"
+		    parameters 	(list Parameters
+			(object Parameter "build"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47E3C97D02BD")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016275929"))
+			    quid       	"4BB4A31D02E8"
+			    type       	"Build"
+			    quidu      	"47E3C97D02BD"))
+		    result     	"ChangesetsList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"499C2A3E0220")
+		(object Operation "on_event"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49D4674B017C_47E3CA71016E*"
+			    value      	(value Text 
+|//#UC START# *49D4674B017C_47E3CA71016E*¤		if (eventName.compareToIgnoreCase(LabelConstants.START_BUILD_LABEL) == 0) {¤			for (BuildIterator bi = new BuildIterator(build.getParentReleasePageId());¤				bi.hasNext();¤			) {¤				Page buildPage = bi.next();¤				if (build.getId() != buildPage.getId()) {¤					Build curBuild = Build.Factory.get(buildPage);¤					String state = curBuild.getState();¤					if (state.compareTo(LabelConstants.START_BUILD_LABEL) == 0) {¤						curBuild.onEvent(LabelConstants.INTERRUPED_BUILD_LABEL, "");¤						curBuild.setContent(¤							buildPage.getContent()¤							+ "\n\nh3. Сборка была прервана. Ее текущее состояние не известно."¤						);¤					}¤				}¤			}			¤		} else if (eventName.compareToIgnoreCase(LabelConstants.DONE_BUILD_LABEL) == 0) {¤			try {¤				Release release = Release.Factory.get(build.getParentReleasePageId());¤				if (¤					(release.getCurrentState() instanceof Closed)¤					|| (release.getCurrentState() instanceof Deployed)¤				) {¤					if (!release.hasRequestsWithoutBuild()) {¤						release.setBuildPageId(build.getId());¤						release.commit();¤					}¤				}¤			} catch (Exception e) {¤				Logs.LOG_E("DefaultBuildManager::onEvent: " + e);¤				Logs.LOG_SEX(e);¤			}¤		}¤		//#UC END# *49D4674B017C_47E3CA71016E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016276376"))
+		    quid       	"49D4674B017C"
+		    documentation 	"обрабатывает события создания/завершения/падения сборок"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "event_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016276687"))
+			    quid       	"49D467800090"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "build"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47E3C97D02BD")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016277051"))
+			    quid       	"49D4678C0042"
+			    type       	"Build"
+			    quidu      	"47E3C97D02BD"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "RequestIdList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19016277699"))
+	    quid       	"47E7B1B1005A"
+	    documentation 	"Список запросов."
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Class "BuildList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19016278720"))
+	    quid       	"48216ECA02F6"
+	    documentation 	"Список билдов."
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"47E7B1E70082"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016278140"))
+		    quid       	"47E7B1E7024D"
+		    supplier   	"Logical View::Primitives::long long"
+		    quidu      	"3DBFFD860205"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"47E7B1E70251"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Builds::RequestIdList"
+		    quidu      	"47E7B1B1005A"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"48216ED7022B"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$4"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016279107"))
+		    quid       	"48216ED703AD"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Builds::Build"
+		    quidu      	"47E3C97D02BD"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"48216ED703B5"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Builds::BuildList"
+		    quidu      	"48216ECA02F6"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"47E3C9770095"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Builds::BuildManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(726, 471)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(195, 157)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1062
+			justify    	0
+			label      	"• BuildManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(195, 107)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1062
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"47E3C98D018F"
+		    width      	1080
+		    height     	752
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::long long" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2460, 1239)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(2337, 1193)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	246
+			justify    	0
+			label      	"long long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFD860205"
+		    width      	264
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Builds::RequestIdList" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2007, 1239)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1867, 1210)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"RequestIdList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1867, 1160)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"47E7B1B1005A"
+		    width      	298
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @4
+		    location   	(2241, 1239)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"47E7B1E70082"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @5
+			    Parent_View 	@4
+			    location   	(144, 204)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"47E7B1E7024D"
+			    client     	@4
+			    supplier   	@2
+			    vertices   	(list Points
+				(2241, 1239)
+				(2327, 1239))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @6
+			    Parent_View 	@4
+			    location   	(144, 204)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"47E7B1E70251"
+			    client     	@4
+			    supplier   	@3
+			    vertices   	(list Points
+				(2241, 1239)
+				(2156, 1239))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Builds::Build" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2019, 498)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1461, 207)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1116
+			justify    	0
+			label      	"• Build")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1461, 157)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1116
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"47E3C97D02BD"
+		    width      	1134
+		    height     	706
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Builds::BuildList" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1482, 1050)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1386, 1021)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	192
+			justify    	0
+			label      	"BuildList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1386, 971)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	192
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"48216ECA02F6"
+		    width      	210
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$3" @9
+		    location   	(1621, 904)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48216ED7022B"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$4" @10
+			    Parent_View 	@9
+			    location   	(478, -323)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"48216ED703AD"
+			    client     	@9
+			    supplier   	@7
+			    vertices   	(list Points
+				(1621, 904)
+				(1671, 851))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$5" @11
+			    Parent_View 	@9
+			    location   	(478, -323)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"48216ED703B5"
+			    client     	@9
+			    supplier   	@8
+			    vertices   	(list Points
+				(1621, 904)
+				(1567, 958))
+			    line_style 	0)))))))

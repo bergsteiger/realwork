@@ -1,0 +1,2172 @@
+//////////////////////////////////////////////////////////////////////////////
+//  Основной модуль
+//////////////////////////////////////////////////////////////////////////////
+
+uses common, MDP, States, RunPrograms, FileWork, HTMLWork, Clicks, commonEventHandlers, SettingsWork,
+    HLTC70, HLTC71, HLTC72, HLTC73, HLTC74, HLTC76, HLTC77, HLTC78, HLTC99, 
+    HLTC100, HLTC101, HLTC129, HLTC130, HLTC147, HLTC189, HLTC190, HLTC191, HLTC192, HLTC199,
+    HLTC202, HLTC214, HLTC215, HLTC216, HLTC245, HLTC250, HLTC252,
+    HLTC337, HLTC372, HLTC376, HLTC391, HLTC393,
+    HLTC407, HLTC413;
+
+{
+uses common, MDP, States, RunPrograms, FileWork, HTMLWork, Clicks, commonEventHandlers, SettingsWork,
+   HLTC70, HLTC71, HLTC72, HLTC77, HLTC78, HLTC99, 
+   HLTC100, HLTC130, HLTC190, HLTC191, HLTC192, HLTC199,
+   HLTC214, HLTC245, HLTC252,
+   HLTC337, HLTC372, HLTC391,
+   HLTC407, HLTC413;
+}
+      
+const 
+  EndOfLine =  #13#10;
+  
+  NEUTRAL_GROUPNUMBER = 32768;
+  STD_DELIM = ';'; // разделитель
+
+  MODE_STANDALONE = 1;
+  MODE_NETWORK = 2;
+  
+  CMD_NONE = 0;
+  CMD_SAVE_LOG = 1;
+  CMD_STOP = 2;
+  
+  EMAIL_FROM_ADDR = 'AutoTest@garant.ru'; // от этого адреса приходят уведомления на мыло
+  EMAIL_TO_ADDR_MAIN = 'ushakov@garant.ru,gensnet@garant.ru,rykov@garant.ru'; // на этот адрес рассылаются все уведомления, если не указано иное
+  
+  EXIT_MSG_ALL_DONE = 'Не осталось невыполненных скриптов.';
+  EXIT_MSG_STOP = 'Найден файл с командой остановки.';
+  EXIT_MSG_STOP_IMMEDIATELY = 'Найден файл с командой остановки, остановка немедленно.';
+  EXIT_MSG_UNKNOWN = 'Неизвестно. Возможно сбой или исключение в пускаче.';
+  EXIT_MSG_CANT_GO_TO_NEEDED_STATE = 'Невозможно перевести оболочку в нужное состояние. Во избежаниие глюков останавливаем работу!';
+  EXIT_MSG_ERRORS_BEFORE_SCRIPT_RUN = 'Перед выполнением скрипта обнаружены подозрительные устойчивые ошибки на оболочке. Во избежание глюков останавливаем работу!';
+
+var gbl_EMAIL_SUBJ_PREFIX;      
+{
+  TYPE:
+  DESC: Функция доступа/изменения глобальной переменной EMAIL_SUBJ_PREFIX/
+    Эта строка добавляется в начало поля Subject при отсылке письма
+  RESULT:
+  REMARK:
+}
+function EMAIL_SUBJ_PREFIX(
+  whatToDo : String = 'get';
+  const value : String = ''
+): OleVariant;
+  const
+    FUNCTION_NAME = 'EMAIL_SUBJ_PREFIX';
+    DEFAULT_VALUE = 'TC: ';
+begin
+  try
+    // Инициализируем по-умолчанию
+    if VarType(gbl_EMAIL_SUBJ_PREFIX) = varEmpty then gbl_EMAIL_SUBJ_PREFIX := DEFAULT_VALUE;
+  
+    whatToDo := AnsiUpperCase(whatToDo);
+    case whatToDo of
+      'GET': 
+        Result := gbl_EMAIL_SUBJ_PREFIX;
+      'SET': 
+        begin
+          if VarType(value) <> varOleStr then Raise('Значение должно быть строковым!');
+          gbl_EMAIL_SUBJ_PREFIX := value;
+        end;  
+    else
+      Raise('Значение WhatToDo не распознано!');  
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+  
+{
+  TYPE: Общие
+  DESC: Возвращает строку с сообщениями последней ноды
+  RESULT:
+  REMARK:
+}
+function ExtractOpenNodeMessages(workTag: String = '') : String;
+  var
+    currDetails, currData, logResults, logRow, msgType, logEl, logParams, logFileParams, local_LogCopy : OleVariant;
+    begIndex, endIndex, i, j, intColor, logRowIndex, numOfOpenNodes : integer;
+    alignMsgType, msgPlace, pictureLink, currHTMLRow, rows, msgColor, fileLink, str, strEx, nodeType, nodeString : String;
+    logElements;
+begin
+  Log.Message('ExtractOpenNodeMessages.Begin', '', LOG_PRIORITY_INTERNAL );
+  try       
+    Result := '';
+    //rows := HTMLTableTR(
+    //  HTMLTableTD('Тип', 'IsHeader := true') + HTMLTableTD('Описание', 'IsHeader := true') + {HTMLTableTD('Место в коде', 'IsHeader := true;Align:=center') +} HTMLTableTD('Дополнительно', 'IsHeader := true;Align:=center')
+    //);    
+    rows := '<tr><th>Тип</th><th>Описание</th><th align="center">Дополнительно</th></tr>' + EndOfLine;
+    numOfOpenNodes := 0;
+    nodeString := '';
+    alignMsgType := 'align="left"';
+    
+    if NOT IsArray(gbl_LogCopy) then
+      Result := 'NOT ARRAY!!!'
+    else
+    begin
+      //logElements := Map(gbl_logCopy, 'values array', nil);
+      begIndex := VarArrayLowBound(gbl_LogCopy, 1);
+      endIndex := VarArrayHighBound(gbl_LogCopy, 1);     
+      if (endIndex > 500) and (workTag = WT_PAYLOAD) then
+      begin
+        endIndex := 500;
+        rows := rows + '<tr bgcolor="red"><td align="left">!!!!!</td><td title="">Лог обрезан 500 элементами для ускорения работы тестов!</td><td></td></tr>' + EndOfLine;
+      end;
+
+      for i := begIndex to endIndex do 
+      begin
+        currHTMLRow := '';
+        pictureLink := '';      
+        fileLink := '';
+        logEl := gbl_LogCopy[i];
+       
+        msgType := logEl[0]; 
+        logParams := logEl[1];
+        logFileParams := logEl[2];
+        
+        str := logParams.Str;
+        strEx := logParams.StrEx;
+        intColor := logParams.Color;
+           
+        if msgType = LOG_MESSAGE then currHTMLRow := '<td ' + alignMsgType + '>' + nodeString + 'Message</td>' //HTMLTableTD('Message', 'Align:=center');
+        else
+        if msgType = LOG_WARNING then currHTMLRow := '<td ' + alignMsgType + ' bgcolor="yellow">' + nodeString + 'Warning</td>' //HTMLTableTD('Warning', 'bgcolor:=yellow;Align:=center');
+        else
+        if msgType = LOG_ERROR then currHTMLRow := '<td ' + alignMsgType + ' bgcolor="red">' + nodeString + 'Error</td>'//HTMLTableTD('Error', 'bgcolor:=red;Align:=center' );
+        else
+        if msgType = LOG_EVENT then currHTMLRow := '<td ' + alignMsgType + '>' + nodeString + 'Event</td>'//HTMLTableTD('Event', 'Align:=center' );
+        else
+        if msgType = LOG_PICTURE then
+        begin
+          currHTMLRow := '<td ' + alignMsgType + '>' + nodeString + 'Picture</td>';//HTMLTableTD('Picture', 'Align:=center');
+          pictureLink := logFileParams.DestFileName;
+        end
+        else
+        if msgType = LOG_FILE then
+        begin
+          currHTMLRow := '<td ' + alignMsgType + '>' + nodeString + 'File</td>';//HTMLTableTD('File', 'Align:=center');
+          fileLink := ExpandUNCFileName( Log.Path + logFileParams.DestFileName );
+        end
+        else
+        if (msgType = LOG_CREATE_NODE) or (msgType = LOG_CLOSE_NODE) then
+        begin
+          if (msgType = LOG_CREATE_NODE) then
+          begin 
+            Inc(numOfOpenNodes);
+            nodeType := 'Node';
+            //str := 'Node create';
+          end
+          else
+          begin 
+            Dec(numOfOpenNodes);
+            nodeType := 'Node closed';
+            str := '';
+          end;
+
+          nodeString := ''; for j := 1 to numOfOpenNodes do nodeString := nodeString + '&#151';
+          if numOfOpenNodes <> 0 then nodeString := nodeString + ' '; 
+                      
+          currHTMLRow := '<td ' + alignMsgType + ' bgcolor="gray">' + nodeString + nodeType + '</td>';
+          intColor := $7F7F7F7F;
+        end
+        else
+          currHTMLRow := '<td>' + nodeString + 'UNKNOWN</td>';//HTMLTableTD('UNKNOWN');
+
+        if (intColor = $F0F0F0F0 {такая вот константа...}) then
+          msgColor := ''
+        else
+        begin
+          msgColor := IntToHex(intColor, 6);
+          // фиксим BGR -> RGB
+          msgColor := msgColor[5] + msgColor[6] + msgColor[3] + msgColor[4] + msgColor[1] + msgColor[2];
+          //msgColor := 'bgcolor:=' + msgColor;
+        end;  
+          
+        currHTMLRow := 
+          currHTMLRow +
+          '<td bgcolor="' + msgColor + '" title="' + HTMLConv('ExtendedMessage:' + EndOfLine + strEx) + '">' + HTMLConv(str) + '</td>';
+        //HTMLTableTD(  HTMLText(str), msgColor , 'ExtendedMessage: ' + EndOfLine + strEx );
+      
+        if (pictureLink <> '') then 
+          currHTMLRow := 
+            currHTMLRow +
+            '<td align="center"><a href="' + pictureLink + '"><img src="' + pictureLink + '" alt="Картиночка" height=80></a></td>'            
+//            HTMLTableTD(
+//              HTMLHyperLink(
+//                HTMLImage(pictureLink, 'Alt:=Картиночка; Height:=80'),
+//                pictureLink
+//              )
+//              , 'Align:=center'
+//            )
+        else if ( fileLink <> '' ) then
+           currHTMLRow := 
+            currHTMLRow +
+            '<td align="center"><a href="' + fileLink + '">Ссылка на файл</a></td>'
+//            HTMLTableTD(
+//              HTMLHyperLink(
+//                'Ссылка на файл',
+//                fileLink
+//              )
+//              , 'Align:=center'
+//            )
+        else 
+          currHTMLRow := currHTMLRow + '<td align="center">-</td>';//HTMLTableTD('-', 'Align:=center');
+      
+        rows := rows + '<tr>' + currHTMLRow + '</tr>' + EndOfLine;//HTMLTableTR(currHTMLRow);
+      end;
+
+      Result := HTMLTable(rows, 'Border := 1;Align:=center;Width:=95%;CellSpacing:=1');
+    end; // else
+
+  except
+    Log.Message('ExtractOpenNodeMessages: ' + ExceptionMessage, '' , 4);
+  end;
+  Log.Message('ExtractOpenNodeMessages.Successfull End', '', LOG_PRIORITY_INTERNAL );  
+end;
+
+procedure ExtractOpenNodeMessages_Test;
+begin
+  gbl_LogCopyEnabled := true;
+  
+  Log.AppendFolder('1');
+  Log.Message('Message', 'Message Ext');
+  Log.Warning('Warning', 'Warning Ext');
+  Log.Error('Error', 'Error Ext');
+  Log.Picture(Sys.Desktop, 'Picture Ext');
+  Sys.Keys(' ');
+  Log.PopLogFolder();
+
+  Log.Error('Error', 'Error Ext');
+  Log.Picture(Sys.Desktop, 'Picture Ext');
+
+  Log.AppendFolder('2');
+  Log.Message('Message', 'Message Ext');
+  Log.Warning('Warning', 'Warning Ext');
+  Log.Error('Error', 'Error Ext');
+    Log.AppendFolder('2.1');
+    Log.Message('Message', 'Message Ext');
+    Log.Warning('Warning', 'Warning Ext');
+    Log.Error('Error', 'Error Ext');
+    Log.PopLogFolder();
+  Log.PopLogFolder();
+  
+  Sys.CLipboard := ExtractOpenNodeMessages;
+end;
+
+{
+Устанавливаем настройки проекта. Нужна, чтобы вручную не выставлять параметры
+работы скрипта...
+}
+  
+var gbl_DEFAULT_DELAY;      
+{
+  TYPE:
+  DESC: Функция доступа/изменения глобальной переменной EMAIL_SUBJ_PREFIX/
+    Эта строка добавляется в начало поля Subject при отсылке письма
+  RESULT:
+  REMARK:
+}
+function DEFAULT_DELAY(
+  whatToDo : String = 'get';
+  const value : integer = -1
+): OleVariant;
+  const
+    FUNCTION_NAME = 'DEFAULT_DELAY';
+    DEFAULT_VALUE = 300;
+begin
+  try
+    // Инициализируем по-умолчанию
+    if VarType(gbl_DEFAULT_DELAY) = varEmpty then gbl_DEFAULT_DELAY := DEFAULT_VALUE;
+  
+    whatToDo := AnsiUpperCase(whatToDo);
+    case whatToDo of
+      'GET': 
+        Result := gbl_DEFAULT_DELAY;
+      'SET': 
+        begin
+          if VarType(value) <> varInteger then Raise('Значение должно быть целым числом!');
+          gbl_DEFAULT_DELAY := value;
+        end;  
+    else
+      Raise('Значение WhatToDo не распознано!');  
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+var gbl_DEFAULT_TIMEOUT;      
+{
+  TYPE:
+  DESC: Функция доступа/изменения глобальной переменной EMAIL_SUBJ_PREFIX/
+    Эта строка добавляется в начало поля Subject при отсылке письма
+  RESULT:
+  REMARK:
+}
+function DEFAULT_TIMEOUT(
+  whatToDo : String = 'get';
+  const value : integer = -1
+): OleVariant;
+  const
+    FUNCTION_NAME = 'DEFAULT_TIMEOUT';
+    DEFAULT_VALUE = 30000;
+begin
+  try
+    // Инициализируем по-умолчанию
+    if VarType(gbl_DEFAULT_TIMEOUT) = varEmpty then gbl_DEFAULT_TIMEOUT := DEFAULT_VALUE;
+  
+    whatToDo := AnsiUpperCase(whatToDo);
+    case whatToDo of
+      'GET': 
+        Result := gbl_DEFAULT_TIMEOUT;
+      'SET': 
+        begin
+          if VarType(value) <> varInteger then Raise('Значение должно быть целым числом!');
+          gbl_DEFAULT_TIMEOUT := value;
+        end;  
+    else
+      Raise('Значение WhatToDo не распознано!');  
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;  
+
+procedure InitOptions;
+  var
+    pngSettings : OleVariant;
+begin
+  //блок настроек секции Run
+  Options.Run.Delay := DEFAULT_DELAY; //время между командами во  время выполнения скрипта
+  Options.Run.Timeout := DEFAULT_TIMEOUT; //время, которое ожидается появление окна
+  // установка формата картинок для лога
+  try
+    EnableLogCopy;
+    Log.Enabled := true;
+    //Options.Log.ImageFormat := 'PNG'; 
+    pngSettings := Log.CreatePictureConfiguration('PNG');
+    pngSettings.CompressionLevel := 7;
+    Log.SetDefaultPictureConfiguration( pngSettings );
+  except
+    Log.Warning('Произошла ошибка при установке параметров лога.', ExceptionMessage);
+  end;
+end;  
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    Result:
+      Text
+      nUnknown
+      nPassed
+      nFailed
+      nMonitoredPassed
+      nMonitoredFailed
+      nTotal
+}
+function AddDoneScriptsToLog(
+  const mapScriptsDone : OleVariant
+) : OleVariant;
+  var i, j, nUnknown, nPassed, nFailed, nMonPassed, nMonFailed : integer;
+      strUnknown, strPassed, strFailed, strValue, strStatus, strMonPassed, strMonFailed, strText : String;
+begin
+  try
+    strUnknown := ''; strPassed := ''; strFailed := ''; strMonPassed := ''; strMonFailed := '';nUnknown := 0; nPassed := 0; nFailed := 0; nMonPassed := 0; nMonFailed := 0;
+    j := Map(mapScriptsDone, 'max index', nil);
+    for i := 0 to j do
+    begin
+      strValue := Map(mapScriptsDone, 'value by index', i);
+      strStatus := AnsiUpperCase( Trim( GetCSVFieldByIndex(strValue, 1, STD_DELIM) ) );
+      if strStatus = '' then
+        strStatus := AnsiUpperCase(strValue);
+      strValue := Map(mapScriptsDone, 'key by index', i) + ' ' + STD_DELIM + ' ' + strValue + EndOfLine; 
+      case strStatus of
+      'UNKNOWN' : 
+        begin
+          Inc(strUnknown, strValue);
+          Inc(nUnknown);
+        end;
+      'PASSED'  :
+        begin
+          Inc(strPassed, strValue);
+          Inc(nPassed);
+        end;  
+      'FAILED'  :
+        begin
+          Inc(strFailed, strValue);
+          Inc(nFailed);
+        end;
+      'MONITORED.PASSED' :
+        begin
+          Inc(strMonPassed, strValue);
+          Inc(nMonPassed);
+        end;
+      'MONITORED.FAILED' :
+        begin
+          Inc(strMonFailed, strValue);
+          Inc(nMonFailed);
+        end;     
+      end; 
+    end;
+    if j <> -1 then
+    begin
+      strText := 'Всего выполнено скриптов: ' + IntToStr(j+1) + EndOfLine + EndOfLine +
+      'Неуспешно ' + IntToStr(nFailed) + ' :' + EndOfLine + strFailed + EndOfLine +
+      'Неуспешно (Monitored) ' + IntToStr(nMonFailed) + ' :' + EndOfLine + strMonFailed + EndOfLine +
+      'Успешно ' + IntToStr(nPassed) + ' :' + EndOfLine + strPassed + EndOfLine +
+      'Успешно (Monitored) ' + IntToStr(nMonPassed) + ' :' + EndOfLine + strMonPassed + EndOfLine +      
+      'Неизвестно (возможно на них сбой или повисли) ' + IntToStr(nUnknown) + ' :' + EndOfLine + strUnknown;
+      Log.Message('Список выполненных скриптов', strText);
+      SetParam(Result, 'Text', strText);
+      SetParam(Result, 'nUnknown', nUnknown);
+      SetParam(Result, 'nFailed', nFailed);
+      SetParam(Result, 'nPassed', nPassed);
+      SetParam(Result, 'nMonitoredPassed', nMonPassed);
+      SetParam(Result, 'nMonitoredFailed', nMonFailed);
+      SetParam(Result, 'nTotal', j+1);
+    end  
+    else
+      Log.Message('Выполненных скриптов не найдено');
+  except
+    Log.Message('DoneScriptsToLog: ' + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+
+
+
+{
+  TYPE: Пускальщтк скриптов
+  DESC: Проверяет папку на наличие файла с командой и выполянет ее
+  RESULT: Номер, команды, если выполнена. 0 - если файл не найден, или что-то не так
+  REMARK:
+}
+function CheckForCommandAndExecuteIt(
+  const pathToCmdFile : String
+) : integer;
+  var 
+    cmdFileName, fileBody, strEMail, pathToLog, strMessage : String;
+    paramList : OleVariant;
+    command : integer;
+begin
+  try
+    Result := CMD_NONE;
+    cmdFileName := IncludeTrailingBackslash(pathToCmdFile) + CompName + '.command';
+    if NOT Utilities.FileExists(cmdFileName) then Exit;
+    // читаем файл
+    fileBody := GetFileBody(cmdFileName);
+    if fileBody = '' then Exit;
+    // обрабатываем
+    paramList := ParseParamString(fileBody, true, EndOfLine, ':=');
+    // определяем, какая команда задана
+    case AnsiUpperCase( GetParam(paramList, 'Command', '') ) of
+      'SAVE LOG' : command := CMD_SAVE_LOG;
+      'STOP' : command := CMD_STOP;
+    else
+      Exit;
+    end;
+
+    strEMail := GetParam(paramList, 'E-Mail', '');
+    // выполняем команду
+    case command of
+      CMD_SAVE_LOG : // сохранение лога
+        begin
+          pathToLog := IncludeTrailingBackslash( GetParam(paramList, 'Path', '') );
+          if (pathToLog = '\') then Exit;
+          if Utilities.ForceDirectories(pathToLog) then
+          begin
+            if Log.SaveTestAs( VarToInteger(Log.Results.Items[Log.Results.Count - 1].Data.ValueByName['N']), pathToLog ) then
+            begin
+              strMessage := 'Лог успешно сохранен в папку "' + pathToLog + '"';
+              Result := command;
+            end  
+            else
+              strMessage := 'Не удалось сохранить лог в папку "' + pathToLog + '"';
+          end
+          else
+            strMessage := 'Не удалось найти/создать папку "' + pathToLog + '"';    
+        end;
+      CMD_STOP : // выход
+        begin
+          strMessage := 'Найдена команда STOP.';
+          Result := command;
+        end;  
+    end;    
+    
+    // высылаем письмо
+    SendMailByBlat(
+      EMAIL_FROM_ADDR,
+      strEMail,
+      EMAIL_SUBJ_PREFIX + Choose(Result = command, 'Succes command.', 'Fail command.'),
+      'Машина: ' + CompName + EndOfLine + EndOfLine + 'Результат: ' + strMessage + EndOfLine + EndOfLine +  'Был найден файл с командой по пути "' + cmdFileName + '"' + EndOfLine + 'Содержимое файла : "' + EndOfLine + fileBody + '"');
+    // удаляем файл
+    Utilities.DeleteFile( cmdFileName );
+  except
+    Log.Message('CheckForCommandAndExecuteIt: ' + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function ParseStrForJS(
+  str : String
+) : String;
+begin
+  try
+    Result := StringReplaceExt(str, ['\', EndOfLine, '"'], ['\\', '', '\"']);
+  except
+    Log.Message('' + ExceptionMessage, '' , 4);
+    CommonExceptionHandler;
+  end;               
+end;
+
+const
+  SR_RES_PASSED = 1;
+  SR_RES_FAILED = 2;
+  SR_RES_UNKNOWN = 3;
+  SR_BASE_SWITCH = 4;
+  SR_ST_MONITORED = 8;
+  SR_ST_UNEXPWND = 16;
+  SR_ST_ERRORWND = 32;
+  
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}     
+function ScriptReportMsg(
+  commonReportDataFileName : String;
+  sharedPath : String;
+  csName : String;
+  scriptName : String;
+  scriptResult : integer; // bit mask
+  neededShellConf : String;
+  scriptRunTime : integer = -1
+) : boolean;
+  var
+    rNumber, rScriptName, rResult, rCompName, rProductType, rBaseType, rTime : String;
+    str, parStr, rowClass, incVar, computerName, anchor, strRec, strScriptDuration : String;
+begin
+  try
+    Result := false;
+    
+    strScriptDuration := '';
+    if scriptRunTime > -1 then
+      strScriptDuration := ' (' + IntToStr(scriptRunTime div 60000) + ':' + IntToStr((scriptRunTime mod 60000) div 1000) + ')';
+
+    strRec :=
+      'tableArr.push( [ ' +
+        '"' + ParseStrForJS(scriptName) + '", ' +
+        ''  + ParseStrForJS(IntToStr(scriptResult)) + ', ' +
+        '"' + ParseStrForJS(AnsiUpperCase(CompName)) + '", ' +
+        '"' + ParseStrForJS(Utilities.FormatDateTime('dd.mm.yyyy hh:nn:ss', Utilities.Now)) + strScriptDuration + '", ' +
+        '"' + ParseStrForJS(GetProductType('', true)) + '", ' +
+        '"' + ParseStrForJS(GetDatabaseType) + '", ' +
+        '"' + ParseStrForJS(neededShellConf) + '"' +
+      '] );';
+
+    try
+      EnterCriticalSectionByFile(csName, Options.Run.Timeout);
+      AppendFile(commonReportDataFileName, strRec );
+      Result := true;
+    finally
+      LeaveCriticalSectionByFile(csName);
+    end;
+            
+  except
+    Log.Message('ScriptReportMsg: ' + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetJSReportTableTemplate : String;
+begin
+  try
+    Result := 
+      '// КОНСТАНТЫ'+EndOfLine+
+      'var SCRIPT_TBODY_ID = "tBody0";'+EndOfLine+
+      '//'+EndOfLine+
+      'var SR_RES_PASSED = ' + IntToStr(SR_RES_PASSED) + ';'+EndOfLine+
+      'var SR_RES_FAILED = ' + IntToStr(SR_RES_FAILED) + ';'+EndOfLine+
+      'var SR_RES_UNKNOWN = ' + IntToStr(SR_RES_UNKNOWN) + ';'+EndOfLine+
+      'var SR_BASE_SWITCH = ' + IntToStr(SR_BASE_SWITCH) + ';'+EndOfLine+
+      '//'+EndOfLine+
+      'var SR_RESULT_PART = SR_RES_PASSED | SR_RES_FAILED | SR_RES_UNKNOWN | SR_BASE_SWITCH;'+EndOfLine+
+      '//'+EndOfLine+
+      'var SR_ST_MONITORED = ' + IntToStr(SR_ST_MONITORED) + ';'+EndOfLine+
+      'var SR_ST_UNEXPWND = ' + IntToStr(SR_ST_UNEXPWND) + ';'+EndOfLine+
+      ''+EndOfLine+
+      '// ПЕРЕМЕННЫЕ'+EndOfLine+
+      'var filterCompName = "";'+EndOfLine+
+      'var filterResult = 0;'+EndOfLine+
+      'var filterDBType = "";'+EndOfLine+
+      'var filterProductType = "";'+EndOfLine+
+      ''+EndOfLine+
+      'var nTotal = 0;'+EndOfLine+
+      'var nFailed = 0;'+EndOfLine+
+      'var nPassed = 0;'+EndOfLine+
+      'var nFailedMonitored = 0;'+EndOfLine+
+      'var nPassedMonitored = 0;'+EndOfLine+
+      'var nUnknown = 0;'+EndOfLine+
+      ''+EndOfLine+
+      'function DrawStatistics(whatToDo)'+EndOfLine+
+      '{'+EndOfLine+
+      '	switch(whatToDo)'+EndOfLine+
+      '	{'+EndOfLine+
+      '		case "createTable" :'+EndOfLine+
+      '			document.write('+EndOfLine+
+      '				"<TABLE ID=statTable Align=center Border=1 Cellspacing=1>"+'+EndOfLine+
+      '					"<CAPTION>Общая статистика</CAPTION>"+'+EndOfLine+
+      '					"<TR><TH>Всего скриптов</TH><TH>Пройдено</TH><TH>Не пройдено</TH><TH>Пройдено.Monitored</TH><TH>Не пройдено.Monitored</TH><TH>Unknown</TH></TR>"+'+EndOfLine+
+      '					"<TR><TD ID=nTotal>-</TD><TD ID=nPassed>-</TD><TD ID=nFailed>-</TD><TD ID=nPassedMonitored>-</TD><TD ID=nFailedMonitored>-</TD><TD ID=nUnknown>-</TD></TR>"+'+EndOfLine+
+      '				"</TABLE>"'+EndOfLine+
+      '			);'+EndOfLine+
+      '			DrawStatistics("drawStatistics");'+EndOfLine+
+      '			break;'+EndOfLine+
+      '		case "drawStatistics" :'+EndOfLine+
+      '			var statTable = document.all.statTable;'+EndOfLine+
+      '			statTable.all.nTotal.innerText = nTotal;'+EndOfLine+
+      '			statTable.all.nFailed.innerText = nFailed;'+EndOfLine+
+      '			statTable.all.nPassed.innerText = nPassed;'+EndOfLine+
+      '			statTable.all.nFailedMonitored.innerText = nFailedMonitored;'+EndOfLine+
+      '			statTable.all.nPassedMonitored.innerText = nPassedMonitored;'+EndOfLine+
+      '			statTable.all.nUnknown.innerText = nUnknown;'+EndOfLine+
+      '			break;'+EndOfLine+
+      '	}'+EndOfLine+
+      '}'+EndOfLine+
+      ''+EndOfLine+
+      '// возвращаем массив, состоящий только из уникальных элементов'+EndOfLine+
+      'function UniqueArray(sourceArray)'+EndOfLine+
+      '{'+EndOfLine+
+      '	var result = new Array();'+EndOfLine+
+      '	var isNEq;'+EndOfLine+
+      '	sourceArray.sort();'+EndOfLine+
+      ''+EndOfLine+
+      '	for (var i = 0; i < sourceArray.length;	i++ )'+EndOfLine+
+      '	{'+EndOfLine+
+      '   if ( ( sourceArray[i] instanceof Array ) && (sourceArray[i+1] instanceof Array ))'+EndOfLine+
+      '			isNEq = (sourceArray[i].join() !== sourceArray[i+1].join())'+EndOfLine+
+      '		else'+EndOfLine+
+      '			isNEq = (sourceArray[i] !== sourceArray[i+1]);'+EndOfLine+
+      '		if (isNEq)'+EndOfLine+
+      '			result.push(sourceArray[i]);'+EndOfLine+
+      '	}'+EndOfLine+
+      '	if (sourceArray[sourceArray.length] !== result[result.length])'+EndOfLine+
+      '		result.push(sourceArray[sourceArray.length]);'+EndOfLine+
+      '	return result;'+EndOfLine+
+      '}'+EndOfLine+
+      ''+EndOfLine+
+      ''+EndOfLine+
+      'function DrawScriptsList('+EndOfLine+
+      '	whatToDo'+EndOfLine+
+      ')'+EndOfLine+
+      '{'+EndOfLine+
+      '	whatToDo = whatToDo.toUpperCase();'+EndOfLine+
+      '	var isCreate = (whatToDo === "CREATE");'+EndOfLine+
+      '	var isFiltrate = (whatToDo === "FILTRATE");'+EndOfLine+
+      ''+EndOfLine+
+      '	if ( isCreate )'+EndOfLine+
+      '	{'+EndOfLine+
+      '		// создаем таблицу'+EndOfLine+
+      '		document.write('+EndOfLine+
+      '			"<table id=\"scriptsTable\" width=100% border=1 cellspacing=1><caption>" + tableCaption + "</caption>" +'+EndOfLine+
+      '		 		"<thead>" +'+EndOfLine+
+      '		 			"<tr>"+'+EndOfLine+
+      '		 				"<th>№</th>"+'+EndOfLine+
+      '		 				"<th>Скрипт</th>"+'+EndOfLine+
+      '		 				"<th>Результат</th>"+'+EndOfLine+
+      '		 				"<th>Название машины</th>"+'+EndOfLine+
+      '		 				"<th>Время завершения</th>"+'+EndOfLine+
+      '		 				"<th>Тип продукта</th>"+'+EndOfLine+
+      '		 				"<th>Тип базы</th>"+'+EndOfLine+
+      '		 				"<th>Требуемая конфигурация</th>"+'+EndOfLine+
+      '		 			"</tr>" +'+EndOfLine+
+      '					"<tr>"+'+EndOfLine+
+      '						"<th></th>"+'+EndOfLine+
+      '						"<th></th>"+'+EndOfLine+
+      '						"<th>"+'+EndOfLine+
+      '							"<select id=\"comboResultFilter\" size=1 onchange=\"filterResult=this.value;DrawScriptsList(''FILTRATE'');DrawStatistics(''drawStatistics'');\">"+'+EndOfLine+
+      '								"<option selected value=0>ALL</option>"+'+EndOfLine+
+      '							"</select>"+'+EndOfLine+
+      '						"</th>"+'+EndOfLine+
+      '						"<th>"+'+EndOfLine+
+      '							"<select id=\"comboCompNameFilter\" size=1 onchange=\"filterCompName=this.value;DrawScriptsList(''FILTRATE'');DrawStatistics(''drawStatistics'');\">"+'+EndOfLine+
+      '								"<option selected value=\"\">ALL</option>"+'+EndOfLine+
+      '							"</select>"+'+EndOfLine+
+      '						"</th>"+'+EndOfLine+
+      '						"<th></th>"+'+EndOfLine+
+      '						"<th>"+'+EndOfLine+
+      '							"<select id=\"comboProductTypeFilter\" size=1 onchange=\"filterProductType=this.value;DrawScriptsList(''FILTRATE'');DrawStatistics(''drawStatistics'');\">"+'+EndOfLine+
+      '								"<option selected value=\"\">ALL</option>"+'+EndOfLine+
+      '							"</select>"+'+EndOfLine+
+      '						"</th>"+'+EndOfLine+
+      '						"<th>"+'+EndOfLine+
+      '							"<select id=\"comboDBTypeFilter\" size=1 onchange=\"filterDBType=this.value;DrawScriptsList(''FILTRATE'');DrawStatistics(''drawStatistics'');\">"+'+EndOfLine+
+      '								"<option selected value=\"\">ALL</option>"+'+EndOfLine+
+      '							"</select>"+'+EndOfLine+
+      '						"</th>"+'+EndOfLine+
+      '					"</tr>"+'+EndOfLine+
+      '				"</thead>" +'+EndOfLine+
+      '				"<tbody id=\"" + SCRIPT_TBODY_ID +"\">"+'+EndOfLine+
+      '				"</tbody>"+'+EndOfLine+
+      '			"</table>"'+EndOfLine+
+      '		);'+EndOfLine+
+      ''+EndOfLine+
+      '		// создаем массивы, необходимые для заполнения фильтров'+EndOfLine+
+      '		var compNames 		= new Array();'+EndOfLine+
+      '		var results 			= new Array();'+EndOfLine+
+      '		var dbTypes 			= new Array();'+EndOfLine+
+      '		var productTypes 	= new Array();'+EndOfLine+
+      '	}'+EndOfLine+
+      ''+EndOfLine+
+      '	var tableBody = document.getElementById(SCRIPT_TBODY_ID);'+EndOfLine+
+      ''+EndOfLine+
+      '	// очищаем таблицу'+EndOfLine+
+      '	if (isFiltrate)'+EndOfLine+
+      '	{'+EndOfLine+
+      '		for (var i = tableBody.children.length-1 ; i >=0 ; i--)'+EndOfLine+
+      '			tableBody.removeChild(tableBody.children[i]);'+EndOfLine+
+      '	}'+EndOfLine+
+      ''+EndOfLine+
+      ''+EndOfLine+
+      '	nTotal = 0;'+EndOfLine+
+      '	nFailed = 0;'+EndOfLine+
+      '	nPassed = 0;'+EndOfLine+
+      '	nFailedMonitored = 0;'+EndOfLine+
+      '	nPassedMonitored = 0;'+EndOfLine+
+      '	nUnknown = 0;'+EndOfLine+
+      ''+EndOfLine+
+      '	var sResForFilter = "";'+EndOfLine+
+      '	var iRes = 0;'+EndOfLine+
+      '	var sNumber = "";'+EndOfLine+
+      '	var sName = "";'+EndOfLine+
+      '	var sRes = "";'+EndOfLine+
+      '	var sCompName = "";'+EndOfLine+
+      '	var sProductType = "";'+EndOfLine+
+      '	var sDBType = "";'+EndOfLine+
+      '	var sNeededShellConf = "";'+EndOfLine+
+      ''+EndOfLine+
+      '	var row, cell;'+EndOfLine+
+      '	var filterCompNameLength = filterCompName.length;'+EndOfLine+
+      '	var filterProductTypeLength = filterProductType.length;'+EndOfLine+
+      '	var filterDBTypeLength = filterDBType.length;'+EndOfLine+
+      '	// рисуем таблицу'+EndOfLine+
+      '	for (var i = 0; i < tableArr.length; i++)'+EndOfLine+
+      '	{'+EndOfLine+
+      '		iRes             = tableArr[i][1];'+EndOfLine+
+      '		sCompName        = tableArr[i][2];'+EndOfLine+
+      '		sProductType     = tableArr[i][4];'+EndOfLine+
+      '		sDBType          = tableArr[i][5];'+EndOfLine+
+      '		sNeededShellConf = tableArr[i][6];'+EndOfLine+      
+      ''+EndOfLine+
+      '		if (isFiltrate)'+EndOfLine+
+      '		{ // фильтруем'+EndOfLine+
+      '			if ((filterCompNameLength !== 0) && (filterCompName !== sCompName) /*(filterCompName.indexOf(sCompName, 0) != 0)*/) continue;'+EndOfLine+
+      '			//	сообщения base_switch не зафильтровываем'+EndOfLine+
+      '			if ((filterResult != 0) && ((iRes & SR_BASE_SWITCH) !== (iRes & SR_RESULT_PART)) && (filterResult != iRes)) continue;'+EndOfLine+
+      '			if ((filterDBTypeLength !== 0) && (filterDBType !== sDBType)) continue;'+EndOfLine+
+      '			if ((filterProductTypeLength !== 0) && (filterProductType !== sProductType)) continue;'+EndOfLine+
+      '		}'+EndOfLine+
+      ''+EndOfLine+
+      '		row = document.createElement("TR");'+EndOfLine+
+      ''+EndOfLine+
+      '		// подсчитываем типы скриптов'+EndOfLine+
+      '		{'+EndOfLine+
+      '			if ((iRes & SR_RES_PASSED) === (iRes & SR_RESULT_PART))'+EndOfLine+
+      '			{'+EndOfLine+
+      '				if ((iRes & SR_ST_MONITORED) === SR_ST_MONITORED)'+EndOfLine+
+      '				{'+EndOfLine+
+      '					sRes = ''PASSED<br>MONITORED'';'+EndOfLine+
+      '					sResForFilter = ''PASSED+MON'';'+EndOfLine+
+      '					++nPassedMonitored;'+EndOfLine+
+      '				}'+EndOfLine+
+      '				else'+EndOfLine+
+      '				{'+EndOfLine+
+      '					sRes = ''PASSED'';'+EndOfLine+
+      '					sResForFilter = ''PASSED'';'+EndOfLine+
+      '					++nPassed;'+EndOfLine+
+      '				}'+EndOfLine+
+      '			}'+EndOfLine+
+      '			else'+EndOfLine+
+      '			if ((iRes & SR_RES_FAILED) === (iRes & SR_RESULT_PART))'+EndOfLine+
+      '			{'+EndOfLine+
+      '				row.className = "failed";'+EndOfLine+
+      '				if ((iRes & SR_ST_MONITORED) === SR_ST_MONITORED)'+EndOfLine+
+      '				{'+EndOfLine+
+      '					sRes = ''FAILED<br>MONITORED'';'+EndOfLine+
+      '					sResForFilter = ''FAILED+MON'';'+EndOfLine+
+      '					++nFailedMonitored;'+EndOfLine+
+      '				}'+EndOfLine+
+      '				else'+EndOfLine+
+      '				{'+EndOfLine+
+      '					sRes = ''FAILED'';'+EndOfLine+
+      '					sResForFilter = ''FAILED'';'+EndOfLine+
+      '					++nFailed;'+EndOfLine+
+      '				}'+EndOfLine+
+      '			}'+EndOfLine+
+      '			else'+EndOfLine+
+      '			if ((iRes & SR_RES_UNKNOWN) === (iRes & SR_RESULT_PART))'+EndOfLine+
+      '			{'+EndOfLine+
+      '				row.className = "unknown";'+EndOfLine+
+      '				sResForFilter = ''UNKNOWN'';'+EndOfLine+
+      '				sRes = "UNKNOWN";'+EndOfLine+
+      '				++nUnknown;'+EndOfLine+
+      '			}'+EndOfLine+
+      ''+EndOfLine+
+      '			if ((iRes & SR_BASE_SWITCH) === SR_BASE_SWITCH)'+EndOfLine+
+      '			{'+EndOfLine+
+      '				row.className = "base_switch";'+EndOfLine+
+      '				sRes = ''-'';'+EndOfLine+
+      '				sNumber = ''-'';'+EndOfLine+
+      '			}'+EndOfLine+
+      '			else'+EndOfLine+
+      '			{'+EndOfLine+
+      '				++nTotal;'+EndOfLine+
+      '				sNumber = nTotal;'+EndOfLine+
+      '			}'+EndOfLine+
+      ''+EndOfLine+
+      '			if ((iRes & SR_ST_UNEXPWND) === SR_ST_UNEXPWND)'+EndOfLine+
+      '			{'+EndOfLine+
+      '				sRes += ''<br>Было UnexpectedWindow'';'+EndOfLine+
+      '				sResForFilter += ''+UnexpWnd'';'+EndOfLine+
+      '			}'+EndOfLine+
+      '		}'+EndOfLine+
+      ''+EndOfLine+
+      '		// формируем массивы для заполнения комбобоксов фильтрации'+EndOfLine+
+      '		if (isCreate)'+EndOfLine+
+      '		{'+EndOfLine+
+      '			compNames.push(sCompName);'+EndOfLine+
+      '			if (sRes !== "-")'+EndOfLine+
+      '				results.push([iRes, sResForFilter]);'+EndOfLine+
+      '			dbTypes.push(sDBType);'+EndOfLine+
+      '			productTypes.push(sProductType);'+EndOfLine+
+      '		}'+EndOfLine+
+      ''+EndOfLine+
+      '		// НОМЕР'+EndOfLine+
+      '		cell = document.createElement("TD");'+EndOfLine+
+      '		cell.innerText = sNumber;'+EndOfLine+
+      '		row.appendChild(cell);'+EndOfLine+
+      ''+EndOfLine+
+      '		// ИМЯ'+EndOfLine+
+      '		cell = document.createElement("TD");'+EndOfLine+
+      '		cell.innerText = tableArr[i][0];'+EndOfLine+
+      '		row.appendChild(cell);'+EndOfLine+
+      ''+EndOfLine+
+      '		// РЕЗУЛЬТАТ'+EndOfLine+
+      '		cell = document.createElement("TD");'+EndOfLine+
+      '		cell.innerHTML = sRes;'+EndOfLine+
+      '		row.appendChild(cell);'+EndOfLine+
+      ''+EndOfLine+
+      '		// НАЗВАНИЕ МАШИНЫ'+EndOfLine+
+      '		cell = document.createElement("TD");'+EndOfLine+
+      '		cell.innerText = sCompName;'+EndOfLine+
+      '		row.appendChild(cell);'+EndOfLine+
+      ''+EndOfLine+
+      '	  // ВРЕМЯ'+EndOfLine+
+      '		cell = document.createElement("TD");'+EndOfLine+
+      '		cell.innerText = tableArr[i][3];'+EndOfLine+
+      '		row.appendChild(cell);'+EndOfLine+
+      ''+EndOfLine+
+      '		// ТИП ПРОДУКТА'+EndOfLine+
+      '		cell = document.createElement("TD");'+EndOfLine+
+      '		cell.innerText = sProductType;'+EndOfLine+
+      '		row.appendChild(cell);'+EndOfLine+
+      ''+EndOfLine+
+      '		// ТИП БАЗЫ'+EndOfLine+
+      '		cell = document.createElement("TD");'+EndOfLine+
+      '		cell.innerText = sDBType;'+EndOfLine+
+      '		row.appendChild(cell);'+EndOfLine+
+      ''+EndOfLine+
+      '		// ТРЕБУЕМАЯ КОНФИГУРАЦИЯ'+EndOfLine+
+      '		cell = document.createElement("TD");'+EndOfLine+
+      '		cell.innerText = sNeededShellConf;'+EndOfLine+
+      '		row.appendChild(cell);'+EndOfLine+      
+      ''+EndOfLine+
+      '		tableBody.appendChild(row);'+EndOfLine+
+      '  }'+EndOfLine+
+      ''+EndOfLine+
+      '	// заполняем комбобоксы фильтров'+EndOfLine+
+      '	if ( isCreate )'+EndOfLine+
+      '	{'+EndOfLine+
+      '		// ПО ИМЕНИ МАШИНЫ'+EndOfLine+
+      '		compNames = UniqueArray(compNames);'+EndOfLine+
+      '		for (var i = 0; i < compNames.length; i++)'+EndOfLine+
+      '		{'+EndOfLine+
+      '			var oOption = document.createElement("option");'+EndOfLine+
+      '			document.all.scriptsTable.all.comboCompNameFilter.add(oOption);'+EndOfLine+
+      '			oOption.innerText = compNames[i];'+EndOfLine+
+      '			oOption.value = compNames[i];'+EndOfLine+
+      '			delete compNames;'+EndOfLine+
+      '		}'+EndOfLine+
+      ''+EndOfLine+
+      '		// ПО РЕЗУЛЬТАТУ'+EndOfLine+
+      '		results = UniqueArray(results);'+EndOfLine+
+      '		for (var i = 0; i < results.length; i++)'+EndOfLine+
+      '		{'+EndOfLine+
+      '			var oOption = document.createElement("option");'+EndOfLine+
+      '			document.all.scriptsTable.all.comboResultFilter.add(oOption);'+EndOfLine+
+      '			oOption.innerHTML = results[i][1];'+EndOfLine+
+      '			oOption.value = results[i][0];'+EndOfLine+
+      '			delete results;'+EndOfLine+
+      '		}'+EndOfLine+
+      '		// ПО ТИПУ ПРОДУКТА'+EndOfLine+
+      '		productTypes = UniqueArray(productTypes);'+EndOfLine+
+      '		for (var i = 0; i < productTypes.length; i++)'+EndOfLine+
+      '		{'+EndOfLine+
+      '			var oOption = document.createElement("option");'+EndOfLine+
+      '			document.all.scriptsTable.all.comboProductTypeFilter.add(oOption);'+EndOfLine+
+      '			oOption.innerText = productTypes[i];'+EndOfLine+
+      '			oOption.value = productTypes[i];'+EndOfLine+
+      '			delete productTypes;'+EndOfLine+
+      '		}'+EndOfLine+
+      '		// ПО ТИПУ БАЗЫ'+EndOfLine+
+      '		dbTypes = UniqueArray(dbTypes);'+EndOfLine+
+      '		for (var i = 0; i < dbTypes.length; i++)'+EndOfLine+
+      '		{'+EndOfLine+
+      '			var oOption = document.createElement("option");'+EndOfLine+
+      '			document.all.scriptsTable.all.comboDBTypeFilter.add(oOption);'+EndOfLine+
+      '			oOption.innerText = dbTypes[i];'+EndOfLine+
+      '			oOption.value = dbTypes[i];'+EndOfLine+
+      '			delete dbTypes;'+EndOfLine+
+      '		}'+EndOfLine+
+      '	} // if'+EndOfLine+
+      '};'+EndOfLine+
+      ''+EndOfLine+
+      'function DrawAll()'+EndOfLine+
+      '{'+EndOfLine+
+      '	// создаем таблицу статистики'+EndOfLine+
+      '	DrawStatistics("createTable");'+EndOfLine+
+      ''+EndOfLine+
+      '	//'+EndOfLine+
+      '	document.write("<hr>");'+EndOfLine+
+      ''+EndOfLine+
+      '	// выводим список скриптов'+EndOfLine+
+      '	DrawScriptsList("create");'+EndOfLine+
+      ''+EndOfLine+
+      '	// теперь, когда известны количества скриптов обновляем таблицу статистики'+EndOfLine+
+      '	DrawStatistics("drawStatistics");'+EndOfLine+
+      '};'+EndOfLine+
+      ''+EndOfLine;
+  except
+    Result := '';
+    Log.Message('GetJSReportTableTemplate: ' + ExceptionMessage, '' , 4);
+  end;    
+end;
+
+{
+  TYPE:
+  DESC: Специальная процедура для создания списка долгоиграющих скриптов 
+  RESULT:
+  REMARK:
+}
+procedure CreateLongPlayScriptsList;
+var
+  fileVar, oTSList, oTS, actionsArr, i, j, count;
+begin
+  try
+    oTSList := GetTestScripts('', false);
+    Log.Message('Получено скриптов: ' + IntToStr(oTSList.length));
+
+    try
+      AssignFile(fileVar, 'C:\LongPlayScriptsList.txt');
+      Rewrite(fileVar);
+
+      count := 0;
+      for i := 0 to oTSList.length-1 do
+      begin
+        oTS := oTSList._get(i);
+
+        actionsArr := Runner.CallMethod('MDP.GetActions', oTS);
+        if IsArray(actionsArr) then
+          for j := VarArrayLowBound(actionsArr, 1) to VarArrayHighBound(actionsArr, 1) do
+            if actionsArr[j] = SA_LONG_SCRIPT then
+            begin
+              Writeln(fileVar, oTS._get(TSFLD_NAME));
+              Inc(count);
+              break;
+            end; 
+      end;
+      Log.Message('Список успешно создан из ' + IntToStr(count) + ' долгоиграющих скриптов.');
+    finally
+      CloseFile(fileVar);
+    end;
+  except
+    Log.Message('Случилась ошибка!' + ExceptionMessage, '' , 4);  
+  end;
+end;
+
+{
+  TYPE: Общие
+  DESC: Главная функция, запускающая скрипты
+  RESULT:
+  REMARK:
+    Через строку параметров, ini-файл, либо NetSuite.Tag можно передать строку следующих параметров:
+    	Mode - режим работы
+    		MODE_STANDALONE - работа отдельно (default)
+    		MODE_NETWORK - работа по сети, совместно синхронизируясь
+    	ScriptSelectParams - строка с ограничениями на реквизитовские поля скриптов
+    		 '6_4_Ready=Yes' (default)
+    	SharedPath - папка, где будут валяться файлы, используемые для работы
+    		'\\builds-store\public\QC\' (default)
+    	PathTof1Shell - путь к папке, где лежит пускач оболочки
+    		'' (default)
+    	IsRandomize - перемешивать ли полученный из реквизита массив скриптов
+    		false (default)
+    	IsSendMail - высылать ли информационные сообщения на почту
+    		true (default)
+    	CommonSessionID - номер совместной сессии - переопределяется для того, чтобы запускаемый пускач работал с уже запущенными, чьи сессии отличаются от 1
+    	  1 (default)
+    	CommonListFileName - имя файла со списком идентификаторов сессий
+    		Переопределить этот параметр для группы машин - самый простой способ заставить их работать совместно над одной группой скриптов
+}
+function Main;
+  label
+    testLabel;
+  const
+    BASE_CS_NAME = 'RunnerCS';
+    COMMON_DONE_SCRIPTS_FILE_NAME = 'common_sync_file';
+    COMMON_LIST_FILE_NAME = 'common_list_file';
+    COMMON_REPORT_FILE_NAME = 'report.html';
+    COMMON_REPORT_DATA_FILE_NAME = 'reportTable.js';
+    
+    COMMON_REPORT_STYLES = 
+      '<style>' + EndOfLine +
+      '  TR {text-align: center}' + EndOfLine +
+	    '  TR.failed  {background: red}' + EndOfLine +
+      '  TR.unknown {background: yellow}' + EndOfLine +
+      '  TR.base_switch {background: #0080FF}' + EndOfLine +
+      '  TABLE CAPTION {font-size: medium}' + EndOfLine +
+      '  TABLE SELECT {font-size: xx-small}' + EndOfLine +
+      '</style>' + EndOfLine;
+  var 
+    COMMON_REPORT_DATA_TEMPLATE;
+    mapScriptsDone, res, currentState, mapCommonScriptsDone, mapCommonList, paramList, tempVar  : OleVariant;
+    i, j, counter, oldCounter, countOfAttempt, lastCommand, scriptRunTime, readyStatus : integer;
+    buildPath, scriptName, lastScriptName, unitName, neededState, paramString, tempStr, iniFileName, fileKillAfterWaitName, paramGroupDelimiter, exitMessage, tempStr2 : String;
+    isExOccured, tempBool, isMonitored, c_IsOfficeAvailable, isNodeCreated, isBeginScriptNameChecked : boolean;
+    emailMessage, emailSubject, scriptMessages, tracedFrom : String;
+    scriptStrRep, doneScriptsStr : String;
+    commonCS, netSessionCS, targetConf : String;
+    gtnsa : integer; // GoToNeededStateAttempts
+    gtnsaca : integer; // GoToNeededStateAndConfigurationAttempts 
+    oTSList, oTS : OleVariant;
+    
+    param_Mode; // режим работы (отдельный или сетевой)
+    param_DoneFileName; // имя файла, где скрипт хранит результаты
+    param_ScriptSelectParams; // параметры запроса скриптов
+    param_SharedPath; // папка, где будут лежат все файлы, используемые скриптом
+    param_CommonDoneFileName; // имя файла, совместно используемого скриптами
+    param_CommonListFileName; // список с именами совместно используемых файлов. Переопределить этот параметр для группы машин - самый простой способ заставить их работать совместно над одной группой скриптов
+    param_PathToF1Shell; // путь к папке, где лежит garant.exe
+    param_IsRandom; // перемешивать ли массив скриптов перед выполнением
+    param_IsSendMail; // посылать ли сообщение на почту, если скрипт не прошел
+    param_CommonSessionID;
+    param_ErrRepFileName;
+    param_csvStatFileName; 
+    param_DBTypeIfUndefined; // считать, что тип базы данных такой, если невозможно его определить (например, когда только клиент)
+    param_IsDBCheck; // проверять ли требования к базе
+    param_IsSwitchDBForScript; // можно ли пускачу переключать базу. (чтобы переключалось также нужно включить IsDBCheck)
+    param_DBSwitchFactor; // это число. через каждые столько скриптов будет производиться переключение базы на лету (т.е. выполнилось param_DBSwitchFactor скриптов, переключили старая->новая, выполнили выполнилось param_DBSwitchFactor скриптов , переключили новая->старая, выполнили ...)
+    param_BeginScriptName; // начальный скрипт с которого начнется запуск, полезно использовать с "IsRandom=false"
+    param_IsRefreshTracedHLTC; // обновлять ли у оттрасированных к скрипту HLTC дату проверки скриптом и признак "ручная проверка"
+    param_StartupLoggingLevel; // параметр LoggingLevel,  который будет прописываться в инишник при запуске сервера/оболочки, чтобы избежать ситуации, когда он сбрасывается в 0 при наличии старой базы
+    param_GoToNeededStateAttempts; // столько раз будем пытаться перевести оболочку в нужное состояние до выхода
+    param_IsSetNotContinueOnlyAtAllDone; // устанавливать ли флаг непродолжения работы только после того, как все скрипты закончат работу
+    param_IsNeverSetNotContinue; // никогда не устанавливать флаг непродолжения работы. Нужно для проведения нарузочного тестирования, чтобы скрипты выполнялись постоянно
+    param_PathToLogsBackupDir; // папка для бэкапов логов
+    param_WorkTag; // строка как-то идентифицирующая работу
+    param_DefaultDelay;
+    param_DefaultTimeout;
+    param_IsRefreshScripts; // обновлять "дату последнего выполнения" для скрипта
+    param_IsUseProcessKiller; // использовать ли механиз уничтожения процесса оболочки в случае ее зависания 
+    param_IsRunOnBigDatabase; // запуск на большой базе, в этом случае увеличивается таймаут по умолчанию и не запускаются длительные скрипты
+    
+    param_CommonReportPath; // по этому пути будет лежать общий файл отчета
+    param_CommonReportFileName; // это будет полный путь к общему файлу отчета
+    param_LocalCommonReportFileName; // это локальная копия файта отчета
+    commonReportHTML; // это будет содержимое общего файла отчета
+    param_commonReportDataFileName; // это будет полный путь к файлу с телом таблицы отчета
+    commonReportData; // это будет тело (фрагмент) таблицы отчета
+    reportCS;
+    scriptDataBase, c_DataBaseType, groupNumber, arrGroupsToIgnore, scriptNeededDB, currentDBType, reportRes, scriptLogErrors, logErrors, logErrorsFileName, neededShellConf; 
+    opt_IsRunByAll : boolean;
+begin
+  try //begin try-finally
+    COMMON_REPORT_DATA_TEMPLATE := GetJSReportTableTemplate;
+    
+// ================== ВЫСТАВЛЯЕМ ПАРАМЕТРЫ РАБОТЫ ==============================
+    _InitLogFileCopy(Log.Path + 'TestLog.dub.txt');    
+    Log.Message('Начало', g_TextLogFileName);
+    InitOptions;
+    lastCommand := CMD_NONE; 
+    exitMessage := EXIT_MSG_UNKNOWN;
+    doneScriptsStr := '';
+    lastScriptName := '';
+    c_IsOfficeAvailable := (RunPrograms.IsWordInstalled AND RunPrograms.IsExcelInstalled);
+    
+    // строка параметров по умолчанию
+    paramString := 
+      'Mode:=MODE_NETWORK' + EndOfLine +
+      'ScriptSelectParams:=6_4_Ready=Yes|Monitored' + EndOfLine +
+      'SharedPath:=\\builds-store.garant.ru\public\QC\AutoTest\ForCheckOnly\' + EndOfLine +
+      'IsRandomize:=true';
+    // получаем строку параметров, из ini-файла или из параметра TAG NetworkSuite
+    iniFileName := GetValueFromCmdLine('ini_file');
+    if iniFileName <> '' then 
+    begin
+      if Utilities.ExtractFilePath(iniFileName) = '' then
+        iniFileName := IncludeTrailingBackSlash( Project.Path) + iniFileName;
+      Log.Message('Читаем настройки из файла "' + iniFileName + '"');
+      if NOT Utilities.FileExists(iniFileName) then
+        Raise('INI-файл не найден по пути "' + iniFileName + '"');
+      paramString := GetFileBody(iniFileName);
+      if paramString = '' then 
+        Log.Warning('INI-файл пуст или не найден!');
+    end  
+    else if ((NetworkSuite.ProjectType = ptSlave) AND (NetworkSuite.State = ns_Running)) AND (NetworkSuite.Tag <> '') then 
+      paramString := NetworkSuite.Tag;
+      
+    if paramString <> '' then 
+      Log.Message('Получена непустая строка параметров', paramString);    
+    // парсим строку параметров
+    paramList := ParseParamString(paramString, true, EndOfLine);
+    param_Mode := Evaluate( GetParam(paramList, 'Mode', 'MODE_STANDALONE') );
+    param_ScriptSelectParams := GetParam(paramList, 'ScriptSelectParams', '6_4_Ready=Yes');
+    param_SharedPath := IncludeTrailingBackslash( GetParam(paramList, 'SharedPath', '\\strelka.garant.ru\qc\for_RunnerTC6\SharedPath\_DefaultDir\') );
+    Utilities.ForceDirectories(param_SharedPath);
+    SynchroObjectsParams('SET', SO_ALL_SHARED_PATH, param_SharedPath + 'SynchroObjects\');    
+    Utilities.ForceDirectories( SynchroObjectsParams('GET', SO_ALL_SHARED_PATH) );
+    param_CommonReportPath := IncludeTrailingBackslash( GetParam(paramList, 'CommonReportPath', param_SharedPath + '..') );
+    param_PathToF1Shell := GetParam(paramList, 'PathToF1Shell', '');
+    param_IsRandom := VarToBool( GetParam(paramList, 'IsRandomize', 'true') );
+    param_IsSendMail := VarToBool( GetParam(paramList, 'IsSendMail', 'true') );
+    param_CommonSessionID := VarToInteger( GetParam(paramList, 'CommonSessionID', '-1') );
+    param_CommonListFileName := param_SharedPath + GetParam(paramList, 'CommonListFileName', COMMON_LIST_FILE_NAME);
+    
+    param_BeginScriptName := GetParam(paramList, 'BeginScriptName', ''); 
+    isBeginScriptNameChecked := param_BeginScriptName = '';
+
+    param_IsRefreshTracedHLTC := VarToBool( GetParam(paramList, 'IsRefreshTracedHLTC', 'true') );
+    param_IsRefreshScripts := VarToBool( GetParam(paramList, 'IsRefreshScripts', 'true') );
+    param_StartupLoggingLevel := VarToInteger( GetParam(paramList, 'StartupLoggingLevel', '4') );
+    param_GoToNeededStateAttempts := VarToInteger( GetParam(paramList, 'GoToNeededStateAttempts', '1') );
+    param_IsSetNotContinueOnlyAtAllDone := VarToBool( GetParam(paramList, 'IsSetNotContinueOnlyAtAllDone', 'true') );   
+    param_IsNeverSetNotContinue := VarToBool( GetParam(paramList, 'IsNeverSetNotContinue', 'false') );
+    param_PathToLogsBackupDir := IncludeTrailingBackslash(GetParam(paramList, 'PathToLogsBackupDir', ''));
+    param_IsRunOnBigDatabase := VarToBool(GetParam(paramList, 'IsRunOnBigDatabase', 'false'));
+        
+    //проверено временем - ProcessKiller местами станно работает, где не надо прибивает оболочку, поэтому в false его по дефолту
+    param_IsUseProcessKiller := VarToBool(GetParam(paramList, 'IsUseProcessKiller', 'false'));
+    //возможно пригодиться включить на х64 осях, на W8 x64 бывали необоснованные подвисания TC+F1Shell
+    //if (Sys.OSInfo.Windows64bit) then
+    //  param_IsUseProcessKiller := true;
+    SetProcessKillerMode(param_IsUseProcessKiller);
+
+    try
+      param_WorkTag := Evaluate( GetParam(paramList, 'WorkTag', '''''') );
+    except
+      param_WorkTag := '';      
+    end;  
+    if (param_WorkTag <> '') then
+      EMAIL_SUBJ_PREFIX('set', EMAIL_SUBJ_PREFIX('get') + param_WorkTag + ': ');
+    param_DefaultDelay := GetParam(paramList, 'DefaultDelay', '');
+    if param_DefaultDelay <> '' then
+      DEFAULT_DELAY('set', VarToInteger(param_DefaultDelay));
+    param_DefaultTimeout := GetParam(paramList, 'DefaultTimeout', '');
+    if param_DefaultTimeout <> '' then
+      DEFAULT_TIMEOUT('set', VarToInteger(param_DefaultTimeout));
+
+    if param_IsRunOnBigDatabase then
+    begin
+      Log.Message('Усановлен запуск на большой базе, увеличиваем таймаут по умолчанию и отфильтровываем длительные скрипты.');
+      DEFAULT_TIMEOUT('set', 1 * DEFAULT_TIMEOUT);
+      param_ScriptSelectParams := param_ScriptSelectParams + ';Actions<>' + SA_LONG_SCRIPT;
+    end;
+          
+    Permissions('set', 'CHANGE DATABASE' , VarToBool( GetParam(paramList, 'Permission_ChangeDatabase', 'false') )); // устанавливаем параметр, разрешающий изменять базу данных
+    Permissions('set', 'STOP SERVER' , VarToBool( GetParam(paramList, 'Permission_StopServer', 'false') )); // устанавливаем параметр, разрешающий останавливать сервер
+    Permissions('set', 'USE MSOFFICE' , VarToBool( GetParam(paramList, 'Permission_UseMSOffice', 'true') )); // устанавливаем параметр, разрешающий использовать MSOffice
+    Permissions('set', 'SHARE GARANT FOLDERS', VarToBool( GetParam(paramList, 'Permission_ShareGarantFolders', 'true') )); // устанавливаем параметр, разрешающий расшаривать папки на общий доступ
+    
+    param_DBTypeIfUndefined := Evaluate( GetParam(paramList, 'DBTypeIfUndefined', 'DBT_UNKNOWN') );
+    param_IsDBCheck := VarToBool( GetParam(paramList, 'IsDBCheckAndSwitch', 'true') );
+    param_IsSwitchDBForScript := VarToBool( GetParam(paramList, 'IsSwitchDBForScript', 'true') );
+    param_DBSwitchFactor := StrToInt( GetParam(paramList, 'DBSwitchFactor', VarToString(Win32API.MAXLONG) ) );
+    // конструируем дополнительные параметры
+    param_DoneFileName := param_SharedPath + 'doneScripts.' + CompName + '.arr';
+    param_ErrRepFileName := param_SharedPath + 'ErrorReport.' + CompName + '.txt';
+    param_csvStatFileName := param_SharedPath + 'statistics.' + CompName + '.csv';
+    //
+    commonCS := BASE_CS_NAME + '.common';     
+    // Если работаем в сетевом режиме, то определяем, каким файлом синхронизации пользоваться
+    { Общая идея следующая: ведется список: машина - идентификатор сессии,
+        как только машина закончила скрипты, она выставляет себе следующий идентификатор,
+        таким образом должна обеспечиваться непрерывная совместная работа }
+    if param_Mode = MODE_NETWORK then
+      try
+        EnterCriticalSectionByFile(commonCS);
+        // грузим список номеров сессий        
+        Map(mapCommonList, 'load from file', param_CommonListFileName);
+        res := Map(mapCommonList, 'get', CompName);
+        // если инфы о текущей машине нету (или самого файла нету)
+        if IsEmpty(res) then
+        begin //  то записываем в этот файл для этой машины номер сессии заданный из параметра
+          if param_CommonSessionID = -1 then param_CommonSessionID := 1;
+          Map(mapCommonList, 'put', CompName, param_CommonSessionID );
+          Map(mapCommonList, 'save to file', param_CommonListFileName);
+        end
+        else // иначе 
+          if param_CommonSessionID = -1 then  // если параметр не переопределен
+            param_CommonSessionID := res; // то берем его из файла
+      finally
+        LeaveCriticalSectionByFile(commonCS);
+      end;
+    param_CommonDoneFileName := param_SharedPath + COMMON_DONE_SCRIPTS_FILE_NAME + '.' + IntToStr(param_CommonSessionID);
+    //
+    netSessionCS := BASE_CS_NAME + '_' + IntToStr(param_CommonSessionID);
+    reportCS := BASE_CS_NAME + '.report.' + 'common'{IntToStr(param_CommonSessionID)};
+    param_CommonReportFileName := param_CommonReportPath + COMMON_REPORT_FILE_NAME;
+    param_LocalCommonReportFileName := param_SharedPath + 'common'{IntToStr(param_CommonSessionID)} + '.' + COMMON_REPORT_FILE_NAME;
+    if (param_CommonReportFileName = param_LocalCommonReportFileName) then
+      Raise('Локальный общий файл отчета и общий файл отчета совпадают. Такого быть не должно!!!');
+    param_commonReportDataFileName := param_SharedPath + 'common'{IntToStr(param_CommonSessionID)} + '.' + COMMON_REPORT_DATA_FILE_NAME;
+    
+    // создаем базовые файлы отчета
+    try
+      EnterCriticalSectionByFile(reportCS, Options.Run.Timeout);
+      // проверяем, создан ли локальный общий файл отчета, если нет то создаем всю бодягу
+      if NOT FileExists(param_LocalCommonReportFileName) then
+      begin
+        Log.Message('Создаем файлы для отчета');
+        // создаем скрипт, в который мы будем добавлять строки для таблицы
+        buildPath := TestStandParams('get', 'BuildPath');
+        if (buildPath = GEP_EMPTY_VALUE) or IsEmpty(buildPath) then
+          Raise('Параметр "BuildPath" не найден');
+          
+        commonReportData :=
+          COMMON_REPORT_DATA_TEMPLATE +
+          'var tableCaption = "' 
+          + ParseStrForJS(
+            'Общий отчет. Для ' + param_SharedPath
+            + '<br>Сборка: ' + buildPath
+            + '<br>Параметры: ' + 'gbl_F1ShellTabsEnabled:=' +  VarToStr(gbl_F1ShellTabsEnabled) + ';   gbl_F1ShellOpenDocsInNewTab:=' + VarToStr(gbl_F1ShellOpenDocsInNewTab) + ';   IsUseProcessKiller:=' + VarToStr(param_IsUseProcessKiller)
+            ) + '";' + EndOfLine + 'var tableArr = new Array();' + EndOfLine;
+        SaveStrToFile(param_commonReportDataFileName, commonReportData);
+        // создаем общий файл отчета 
+        commonReportHTML := 
+          HTMLDocument(
+            'Общий отчет',
+            '<script src="' + param_commonReportDataFileName + '">' +'</script>'+ EndOfLine+'<script>DrawAll();</script>',
+            COMMON_REPORT_STYLES
+          );
+        SaveStrToFile(param_CommonReportFileName, commonReportHTML);
+        // создаем локальный общий файл отчета (он лежит в папке с файлами синхронизации и отличается от общего файла отчета лишь путем к файлу-скрипту)
+        commonReportHTML := 
+          HTMLDocument(
+            'Общий отчет',
+            '<script src="' + ExtractFileName(param_commonReportDataFileName) + '">' +'</script>'+ EndOfLine+'<script>DrawAll();</script>',
+            COMMON_REPORT_STYLES
+          );
+        SaveStrToFile(param_LocalCommonReportFileName, commonReportHTML);
+        //
+        // сбрасываем признак "Требуется ручная проверка" в "Да"
+        if param_IsRefreshTracedHLTC then 
+          ResetTracedHLTC;        
+      end;
+    finally
+      LeaveCriticalSectionByFile(reportCS);
+    end;
+
+// =========================== НАЧИНАЕМ ТЕСТЫ ==================================
+    // проверяем а нужно ли начинать тесты :)
+    if CheckForCommandAndExecuteIt(param_SharedPath) = CMD_STOP then
+    begin
+      exitMessage := EXIT_MSG_STOP_IMMEDIATELY;
+      AppendFile(param_SharedPath + CompName + '.not_continue', exitMessage);
+      Log.Message('Обнаружили команду STOP до начала выполнения тестов. Стопимся...', '', pmNormal, GetLogAttr('YELLOW'));            
+      Exit;
+    end;
+
+    // выставляем значение параметра logginglevel, которое будет использоваться при (пере)запуске сервера/оболочки
+    StartupLoggingLevel('set', param_StartupLoggingLevel);
+
+    // убиваем на всякий случай дополнительные процессы F1
+    RemoteKillProcesses('','','',[ADMIN_PROCESS_NAME + '.*', F1DATASETUP_PROCESS_NAME + '.*', DATAUPD_PROCESS_NAME + '.*', DATAUPD_STARTER_PROCESS_NAME + '.*', F1DATASETUP_STARTER_PROCESS_NAME + '.*']);
+
+    // если нужно запускаем сервер
+    if (param_WorkTag = WT_DAILY) and (GetProductType = PT_SERVER) and (not IsF1ServerStarted) then
+      StartF1Server;
+
+    // перезапускаем оболочку
+    countOfAttempt := 5;
+    CloseF1Shell(countOfAttempt, 5000);
+    StartF1Shell(param_PathToF1Shell); // эта строка имеет еще один смысл - при запуске оболочки из указанного пути она перепишет соответствующий параметр в реестре, и потом оболочка будет запускаться именно оттуда, нет необходимости тащить путь к оболочке далее
+    currentState := ST_LOGIN;
+    
+    // получаем список скриптов и при необходимости перемешиваем
+    oTSList := GetTestScripts(param_ScriptSelectParams, param_IsRandom);
+
+    // читаем с диска массив сделанных скриптов и пишем его в лог
+    Map(mapScriptsDone, 'load from file', param_DoneFileName);
+    AddDoneScriptsToLog(mapScriptsDone);
+    
+    // определяем, было ли предыдущее завершение работы неожиданным
+    // в этом случае у последнего скрипта должен стоять статус Unknown
+    try
+      if IsMap(mapScriptsDone) then
+      begin
+        j := Map(mapScriptsDone, 'max index', nil);
+        if AnsiUpperCase( Map(mapScriptsDone, 'value by index', j) ) = 'UNKNOWN' then
+        begin // да, предыдущее завершение работы было неожиданным
+          Log.Error('Предыдущее завершение работы скрипта было некорректным'); 
+          tempStr := Map(mapScriptsDone, 'key by index', j); // имя скрипта
+          tempVar := GetTSByName(tempStr); // cкрипт
+
+          // сообщаем об этом
+          Log.Picture(w.Picture, 'Скриншот состояния стенда после Unknown-скрипта: ', '',  pmNormal, GetLogAttr('EXCEPTION'));
+          if (param_IsSendMail) then
+            SendMailByBlat(
+              EMAIL_FROM_ADDR,
+              EMAIL_TO_ADDR_MAIN,
+              EMAIL_SUBJ_PREFIX + 'Завершение работы скрипта ' + tempStr + ' на машине ' + CompName + ' было некорректным!',
+              HTMLDocument(
+                'Завершение работы скрипта ' + tempStr + ' на машине ' + CompName + ' было некорректным! Скрипт имеет статус Unknown.',
+                HTMLParagraph('Лог после невыполненного скрипта: <br>' +  ExtractOpenNodeMessages(param_WorkTag))
+              )
+            );  
+            
+          // добавляем этот скрипт в отчет
+          ScriptReportMsg(param_commonReportDataFileName, param_SharedPath, reportCS, 
+            tempStr,
+            SR_RES_UNKNOWN,
+            GetValueIfSupported(tempVar, TSFLD_SHELL_CONFIGURATION, 'not found!') // требуемая конфигурация оболочки
+          );
+        end;
+      end;
+    except
+      Log.Error('Исключение в блоке определения неверного завершения предыдущего скрипта!');
+    end;
+      
+    // начинаем обрабатывать все
+    counter := 1; 
+    oldCounter := 0;
+    isNodeCreated := false;
+    ErrorUnexpectedWindow('reset');
+    scriptLogErrors := '';
+    ProcessingLogForErrors(nil, nil, 'isResetAllLastLogPositionCountersAndExit:=true');
+    
+    for i := 0 to oTSList.length-1 do
+    begin
+      Log.Enabled := true; // а то всякие кривые функции поотключают его, а мы потом мозг разрушаем себе, мля :)
+      ProductVersion('reset to default');
+     
+      //----------- Передергивание базы -------------
+      if ((oldCounter <> counter) AND ((counter mod param_DBSwitchFactor) = 0)) AND (GetProductType = PT_SERVER) then
+      begin
+        Log.Message('Передергиваем базу данных!');
+        tempVar := GetDatabaseType;
+        if  tempVar =     DBT_OLD      then tempVar := DBT_NEW
+        else if tempVar = DBT_NEW      then tempVar := DBT_OLD
+        else Log.Warning('Неизвестный тип базы');
+        if NOT SwitchDatabase(tempVar, 'IsSwitchOnTheFly := true') then
+          Log.Warning('Периодическое переключение баз данных не удалось.')
+        else
+          ScriptReportMsg(param_commonReportDataFileName, param_SharedPath, reportCS, 
+            'ПЕРЕКЛЮЧЕНИЕ_БАЗ',
+            SR_BASE_SWITCH,
+            '-' 
+          );  
+      end;
+      oldCounter := counter;
+      
+      //
+//      StartTimeMeasure('Проверка наличия файла с командой');
+      lastCommand := CheckForCommandAndExecuteIt(param_SharedPath);
+      case lastCommand of
+        CMD_STOP :
+          begin 
+            exitMessage := EXIT_MSG_STOP;
+            Log.Message('Обнаружили команду STOP во время выполнения тестов. Стопимся...', '', pmNormal, GetLogAttr('YELLOW'));
+            Exit;
+          end;
+      end;
+//      EndTimeMeasure('Проверка наличия файла с командой');
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // получаем параметры скрипта
+      if NOT isNodeCreated then
+      begin
+        Log.AppendFolder('Поиск скрипта для выполнения');
+        StartTimeMeasure('Поиск скрипта для выполнения');
+        isNodeCreated := true;
+      end;
+
+      // вытаскиваем параметры скрипта
+//      StartTimeMeasure('Вытаскиваем параметры скрипта');
+      oTS := oTSList._get(i);
+      
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('oTS', oTS.toJSONString(''));
+      scriptName      := oTS._get(TSFLD_NAME);
+      unitName        := oTS._get(TSFLD_UNIT_NAME);
+      neededState     := oTS._get(TSFLD_STATE);      
+      readyStatus     := oTS._get(TSFLD_READY);
+      groupNumber     := oTS._get(TSFLD_GROUP_NUMBER);
+      scriptDataBase  := oTS._get(TSFLD_DATABASE);
+      neededShellConf := oTS._get(TSFLD_SHELL_CONFIGURATION);
+//      EndTimeMeasure('Вытаскиваем параметры скрипта');
+      //
+      isMonitored := StringCompare('monitored', readyStatus);
+            
+      scriptStrRep:= scriptName + '_Execute(p);' + EndOfLine;
+      
+      // ------------------- Проверяем, может стоит пропустить скрипт ----------
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Проверяем скрипт "' + scriptName + '" на возможность запуска');
+
+      // поиск начального скрипта для выполнения
+      if not isBeginScriptNameChecked then
+      begin
+        if StringCompare(param_BeginScriptName, scriptName, 1) then
+        begin
+          isBeginScriptNameChecked := true;
+          Log.Message('Начинаем работу со скрипта "' + scriptName + '".');
+        end
+        else
+          continue;         
+      end;
+
+      // запрашиваем список выбранных опций с sql-сервера 
+      opt_IsRunByAll := IsOptionSet(oTS, OPT_RUN_BY_ALL);
+      
+      // Проверяем, может он принадлежит группе, которую уже кто-то выполняет. Если сказано выполнять всем, то проверку пропускаем
+      if (NOT opt_IsRunByAll) AND FindElement(arrGroupsToIgnore, groupNumber) then
+      begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт "' + scriptName + '" принадлежит группе, которая уже выполняется.');
+        continue;
+      end;
+      
+      // Проверяем, есть ли текущий скрипт в выполненных 
+      res := Map(mapScriptsDone, 'get', scriptName);
+      // если есть, то берем следующий скрипт
+      if NOT IsEmpty(res) then
+      begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт "' + scriptName + '" уже выполнен ранее с результатом "' + res + '"');
+        continue;
+      end;
+
+      // Проверка для сетевого режима (в локальной копии общего файла)
+      if param_Mode = MODE_NETWORK then 
+      try // здесь проверяем, чтобы не делать того, что делают другие
+//        StartTimeMeasure('Проверка, есть ли скрипт в выполненных (в локальной копии общего списка)');
+        res := Map(mapCommonScriptsDone, 'get', scriptName);
+        if NOT IsEmpty(res) then
+        begin
+          if (groupNumber <> NEUTRAL_GROUPNUMBER) AND (NOT FindElement(arrGroupsToIgnore, groupNumber)) then AddToArray(arrGroupsToIgnore, groupNumber);
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт "' + scriptName + '" уже выполнен (или выполняется) машиной "' + res + '"');
+          if NOT opt_IsRunByAll then continue;
+        end;
+      finally
+//        EndTimeMeasure('Проверка, есть ли скрипт в выполненных (в локальной копии общего списка)');
+      end;  
+      
+      // Проверяем, удовлетворяет ли среда запуска требованиям скрипта
+      
+      // проверяем соответствие затребованного продукта реально имеющемуся
+      if (IsOptionSet(oTS, OPT_FILESERVER_REQUIRED) OR IsOptionSet(oTS, OPT_DESKTOP_REQUIRED) OR IsOptionSet(oTS, OPT_SERVER_REQUIRED)) then
+        if NOT (
+          (IsOptionSet(oTS, OPT_FILESERVER_REQUIRED) AND (GetProductType = PT_FILESERVER))
+          OR
+          (IsOptionSet(oTS, OPT_DESKTOP_REQUIRED) AND (GetProductType = PT_DESKTOP))
+          OR
+          (IsOptionSet(oTS, OPT_SERVER_REQUIRED) AND (GetProductType = PT_SERVER))
+        )
+        then
+        begin
+// отключаем лог для оптимизации его общего размера 
+{
+  if IsOptionSet(oTS, OPT_FILESERVER_REQUIRED) then
+    Log.Message('Скрипту требуется файл-сервер, а обнаружен продукт типа ' + VarToString(GetProductType) );
+  if IsOptionSet(oTS, OPT_DESKTOP_REQUIRED) then
+    Log.Message('Скрипту требуется десктоп, а обнаружен продукт типа ' + VarToString(GetProductType) );
+  if IsOptionSet(oTS, OPT_SERVER_REQUIRED) then
+    Log.Message('Скрипту требуется сервер, а обнаружен продукт типа ' + VarToString(GetProductType) );
+}
+          continue;  
+        end;
+       //Проверяем на соответствие затребованного продукта к Консольной версии 
+       if (IsOptionSet(oTS, OPT_CONSOLE_REQUIRED) AND
+             NOT ( (GetProductType('', true) = PT_DESKTOP_CONSOLE) OR
+                  (GetProductType('', true) = PT_SERVER_CONSOLE) OR
+                  (GetProductType('', true) = PT_FILESERVER_CONSOLE) OR
+                  (GetProductType('', true) = PT_CLIENT_CONSOLE)
+             )
+       )then
+       begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипту требуется Консольная версия, а обнаружен продукт типа ' + VarToString(GetProductType('', true)) );
+         continue; // переходим к следующему скрипту
+       end;       
+       //Проверяем на соответствие затребованного продукта к НЕ Консольной версии 
+       if (IsOptionSet(oTS, OPT_NOT_CONSOLE_REQUIRED) AND
+              ( (GetProductType('', true) = PT_DESKTOP_CONSOLE) OR
+              (GetProductType('', true) = PT_SERVER_CONSOLE) OR
+              (GetProductType('', true) = PT_FILESERVER_CONSOLE) OR
+              (GetProductType('', true) = PT_CLIENT_CONSOLE)
+             )
+       )then
+       begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипту требуется НЕ Консольная версия, а обнаружен продукт типа ' + VarToString(GetProductType('', true)) );
+         continue; // переходим к следующему скрипту
+       end;
+
+       //Проверяем можно ли запускать скрипт на x64 ОС
+       if IsOptionSet(oTS, OPT_NOT_RUN_ON_X64) AND (Sys.OSInfo.Windows64bit) then
+       begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт не может быть запущен на х64 платформе!');
+         continue; // переходим к следующему скрипту
+       end;       
+
+       //Проверяем на требование к порддержки Flash плеера выше 6-ой версии 
+       if IsOptionSet(oTS, OPT_FLASH_REQUIRED) AND ( NOT IsFlashSupported ) then
+       begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипту требуется установленный Flash плеер выше 6-ой версии, а он не найден!');
+         continue; // переходим к следующему скрипту
+       end;       
+       //Проверяем на требование к порддержки Flash плеера ниже 6-ой версии 
+       if IsOptionSet(oTS, OPT_NOT_FLASH_REQUIRED) AND ( IsFlashSupported ) then
+       begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипту требуется установленный Flash плеер 6-ой и ниже версии, а он не найден!');
+         continue; // переходим к следующему скрипту
+       end;      
+      // проверяем на соответсвие экрана разрешению 1280х1024      
+      if IsOptionSet(oTS, OPT_RESOLUTION_1280x1024_REQUIRED) AND (GetResolution <> RES_1280_1024) then
+      begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипту требуется разрешение экрана 1280 на 1024. А обнаруженно разрешение (константа): ' + VarToString(GetResolution) + ' (должна быть ' + VarToString(RES_1280_1024) + ')');
+        continue; // переходим к следующему скрипту
+      end;
+      // проверяем на требования к MSOffice
+      if IsOptionSet(oTS, OPT_MSOFFICE_REQUIRED) AND ( (Permissions('get', 'use msoffice')=false) OR (NOT c_IsOfficeAvailable)) then
+      begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипту требуется установленный Word или Excel, а они не найдены!');
+        continue; // переходим к следующему скрипту
+      end;
+      // проверяем на требования к переключению баз
+      if IsOptionSet(oTS, OPT_SWITCH_DATABASE) AND ( (Permissions('get', 'change database')=false) OR (NOT IsCanChangeDatabase)) then
+      begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт собирается менять базы данных, а на текущей конфигурации это не возможно!');
+        continue; // переходим к следующему скрипту
+      end;
+      if IsOptionSet(oTS, OPT_STOP_SERVER) AND ( Permissions('get', 'stop server')=false ) then
+      begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт собирается останавливать сервер, а на текущей конфигурации это не разрешено!');
+        continue; // переходим к следующему скрипту
+      end;
+      if IsOptionSet(oTS, OPT_SHARE_FOLDERS) AND ( Permissions('get', 'share garant folders')=false ) then
+      begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт собирается расшаривать папки, а на текущей конфигурации это не разрешено!');
+        continue; // переходим к следующему скрипту
+      end;
+      if IsOptionSet(oTS, OPT_OUTLOOK_EXPRESS_REQUIRED) AND (NOT IsOutlookExpressSupported) then
+      begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт собирается использовать Outlook Express, а на текущей конфигурации это не разрешено!');
+        continue; // переходим к следующему скрипту
+      end;
+      
+      try
+//        StartTimeMeasure('Определяем, хочет ли скрипт переключить базу, на какую будем переключать и можно ли это сделать');
+        // Определяем, хочет ли скрипт переключить базу, на какую будем переключать и можно ли это сделать
+        if param_IsDBCheck then
+        begin
+          currentDBType := GetDatabaseType;
+          if currentDBType = DBT_UNDEFINED then // если тип базы данных нельзя определить, то берем его из параметров
+            currentDBType := param_DBTypeIfUndefined;
+          case scriptDataBase of
+            'Старая'              : scriptNeededDB := DBT_OLD;
+            'Новая'               : scriptNeededDB := DBT_NEW;
+            'Все равно'           : scriptNeededDB := currentDBType;             
+            'С консультациями'    : scriptNeededDB := DBT_CONSULTING;
+            'Без консультаций'    : scriptNeededDB := DBT_NEW;
+            'Мини'                : scriptNeededDB := DBT_MINI;
+            'Мини без прайма'     : scriptNeededDB := DBT_MINI_NO_PRIME;
+          else
+            begin
+              Log.Error('Неизвестное знчение scriptDataBase: "' + VarToStr(scriptDataBase) + '"' );
+              scriptNeededDB := DBT_UNKNOWN;
+            end;  
+          end;
+          // Проверяем, нужно ли и можно ли переключаться, если нельзя, то пропускаем
+          if (currentDBType <> scriptNeededDB) AND ((NOT param_IsSwitchDBForScript) OR (Permissions('get', 'change database') = false) OR (NOT IsCanChangeDatabase(scriptNeededDB))) then
+          begin
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт хочет, чтобы ему переключили базу, а этого делать не разрешено или нельзя!');
+            continue;
+          end;
+        end;
+      finally  
+//        EndTimeMeasure('Определяем, хочет ли скрипт переключить базу, на какую будем переключать и можно ли это сделать');
+      end;
+       
+       
+      // проверка для сетевого режима (с предварительной синхронизацией локальной копии) 
+      // Довольно длительная операция, поэтому должна быть расположена после всех возможных локальных проверок
+      if param_Mode = MODE_NETWORK then 
+      try // здесь проверяем, чтобы не делать того, что делают другие
+//        StartTimeMeasure('Проверка, есть ли скрипт в выполненных (с синхронизацией локальной копии)');  
+        // если не смогли войти в критическую секцию в течении таймаута то пропускаем
+        // это чтобы как-т обойти ситуацию с прибитым тесткомплитом внутри секции
+        if NOT EnterCriticalSectionByFile(netSessionCS, Options.Run.Timeout) then
+        begin
+          Log.Message('Критическая секция ' + netSessionCS + ' была заблокирована в течении ' + IntToStr(Options.Run.Timeout) + ' сек.!');
+          continue;
+        end;
+        Map(mapCommonScriptsDone, 'load from file', param_CommonDoneFileName);
+        res := Map(mapCommonScriptsDone, 'get', scriptName);
+        if NOT IsEmpty(res) then
+        begin
+          if (groupNumber <> NEUTRAL_GROUPNUMBER) AND (NOT FindElement(arrGroupsToIgnore, groupNumber)) then AddToArray(arrGroupsToIgnore, groupNumber);
+// отключаем лог для оптимизации его общего размера 
+// Log.Message('Скрипт "' + scriptName + '" уже выполнен (или выполняется) машиной "' + res + '"');
+          if NOT opt_IsRunByAll then continue;
+        end
+        else
+        begin // записываем в общий файл номер выбранного скрипта, чтобы другие его пропускали
+          Map(mapCommonScriptsDone, 'put', scriptName, CompName );
+          Map(mapCommonScriptsDone, 'save to file', param_CommonDoneFileName);
+        end;  
+      finally
+        LeaveCriticalSectionByFile(netSessionCS);
+//        EndTimeMeasure('Проверка, есть ли скрипт в выполненных (с синхронизацией локальной копии)');
+      end;
+      
+      if isNodeCreated then
+      begin
+        EndTimeMeasure('Поиск скрипта для выполнения', true, scriptName, param_csvStatFileName);
+        Log.PopLogFolder();
+        isNodeCreated := false;
+      end;
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // к этой строке известно, что скрипт не был выполнен ранее и не выполняется никем другим.
+      // -------------------- Подготавливаемся к выполнению скрипта --------------
+      
+      // Теперь выполняем переключение базы, если это необходимо (и разрешено)
+      if param_IsDBCheck AND param_IsSwitchDBForScript then
+        if (currentDBType <> scriptNeededDB) AND (NOT SwitchDatabase(scriptNeededDB)) then
+        begin
+          Log.Error('Не удалось выполнить переключение базы данных!');
+          continue;
+        end;      
+      
+      // если скрипт еще не выполнялся, то добавляем его в массив с признаком Unknown
+      Map(mapScriptsDone, 'put', scriptName, 'Unknown');
+      // и сохраняем файл, чтобы при сбое не потерять результаты
+      Map(mapScriptsDone, 'save to file', param_DoneFileName);
+      //сохраняем для отчета последний выполняющийся скрипт
+      lastScriptName := scriptName;
+       
+      // начинаем выполнять скрипт
+      Log.Message('Выполняем скрипт "' + scriptName + '",  ' + VarToStr(counter) + '-й по порядку', 'Текущее состояние: "' + currentState + '", необходимое состояние: "' + neededState + '", 6_4_Ready=' + readyStatus, pmHigher, LogAttr(LOG_FMT_BOLD, 16711935, 16776960) );
+      // --------------- Переводим оболочку в нужное состояние -----------------
+      Log.AppendFolder('Переводим оболочку из состояния: "' + currentState + '" в состояние: "' + neededState + '"');
+      try
+        Options.Run.Delay := DEFAULT_DELAY;
+        Options.Run.Timeout := DEFAULT_TIMEOUT;
+        Log.Picture(Sys_Desktop.Picture, 'Оболочка в состоянии "' + currentState + '"');
+        StartTimeMeasure('Перевод оболочки в нужное состояние');
+      
+        for gtnsaca := 1 to 3 do
+        begin
+          // пытаемся param_GoToNeededStateAttempts раз перевести оболочку в нужное состояние
+          for gtnsa := 1 to param_GoToNeededStateAttempts do
+            if NOT GoToNeededState(currentState,  neededState) then
+            begin // типа если не удалось перейти в нужное состояние, то считаем это ошибкой
+              if (gtnsa = param_GoToNeededStateAttempts) then 
+              begin // Это последняя попытка
+                // удаляем скрипт из общего файла синхронизации, чтобы его мог выполнить кто-нибудь другой
+                if param_Mode = MODE_NETWORK then 
+                  if EnterCriticalSectionByFile(netSessionCS, Options.Run.Timeout) then
+                    try
+                      Map(mapCommonScriptsDone, 'load from file', param_CommonDoneFileName);
+                      Map(mapCommonScriptsDone, 'clear by key', scriptName);
+                      Map(mapCommonScriptsDone, 'save to file', param_CommonDoneFileName);
+                    finally
+                      LeaveCriticalSectionByFile(netSessionCS);
+                    end;
+                // удаляем скрипт из локального файла синхронизации  
+                Map(mapScriptsDone, 'clear by key', scriptName);
+                Map(mapScriptsDone, 'save to file', param_DoneFileName);  
+                // устанавливаем причину выхода            
+                exitMessage := EXIT_MSG_CANT_GO_TO_NEEDED_STATE;
+                Exit; // после этого Exit мы попадем в except..end блок ниже
+              end
+              else // у нас есть еще шанс
+              begin // закрываем оболочку, это может помочь
+                countOfAttempt := 5; 
+                CloseF1Shell(countOfAttempt, 5000);
+              end;   
+            end
+            else
+              break;
+      
+          Log.Picture(Sys_Desktop.Picture, 'Оболочка в состоянии "' + currentState + '". Начало работы скрипта.');
+          // проверяем какая конфигурация включена в оболочке и если надо то меняем ее на нужную
+          // делаем это только в том случае, если состояние оболочки это позволяет
+          if (currentState = ST_MAIN_MENU) OR (currentState = ST_DICTIONARY) then
+          begin
+            targetConf := '';
+            if (neededShellConf = MDP_SHELLCONF_LIGHT) then
+            begin
+              if NOT IsLightConfiguration then targetConf := CONFIGURATION_LIGHT;
+            end  
+            else if (neededShellConf = MDP_SHELLCONF_STANDARD) then
+            begin
+              if IsLightConfiguration then targetConf := CONFIGURATION_STANDART;
+            end 
+            else if (neededShellConf = MDP_SHELLCONF_ANY) or IsEmpty(neededShellConf) then
+            begin
+              // ничего не трогаем
+            end  
+            else 
+              Raise('Не распознан neededShellConf: ' + VarToString(neededShellConf));
+            //  
+            if (targetConf <> '') then 
+              if NOT ( SelectConfiguration(targetConf, false) OR SelectConfiguration(targetConf, true) ) then
+              begin // если не удалось переключится на нужную конфигурацию, то перезапускаем оболочку и пытаемся еще раз
+                Log.Error('Не удалось переключить конфигурацию на "' + targetConf + '"! Сейчас перезагрузимся и попробуем еще разок.');
+                countOfAttempt := 5; 
+                CloseF1Shell(countOfAttempt, 5000);
+                continue;
+              end;
+          end;
+          //
+            if ErrorUnexpectedWindow('get flag') OR 
+              ( ((currentState = ST_MAIN_MENU) OR (currentState = ST_DICTIONARY)) AND ( NOT IsF1Lived) ) then 
+          begin // если в процессе выполнения предыдущего скрипта или перевода оболочки в нужное состояние возникла ошибка ...
+            if (gtnsaca = 1) then 
+            begin // ... и это произошло первый раз, то закрывакм оболочку и пробуем еще раз
+              countOfAttempt := 5; 
+              CloseF1Shell(countOfAttempt, 5000);
+              ErrorUnexpectedWindow('reset');
+              continue;
+            end
+            else // ... и это происходит НЕ первый раз, то завершаем работу
+            begin
+              exitMessage := EXIT_MSG_ERRORS_BEFORE_SCRIPT_RUN;
+              Exit;
+            end;              
+          end
+          else // а если не возникло, то все ништяк и работаем дальше
+            break;  
+        end; // for gtnsaca
+      
+        EndTimeMeasure('Перевод оболочки в нужное состояние', true, scriptName, param_csvStatFileName);
+      finally
+        Log.PopLogFolder();
+      end;      
+
+      // ------------------------- Выполняем скрипт ------------------------------
+      try
+        tracedFrom := GetHLTCText(oTS);
+      except
+        tracedFrom := 'Случилась ошибка при получении текста HLTC' + EndOfLine + ExceptionMessage;
+      end;
+
+      Log.AppendFolder('Запускаем скрипт ' + scriptName, scriptStrRep + EndOfLine + 'Скрипт покрывает следующие тесткейсы: ' + EndOfLine + EndOfLine + tracedFrom + EndOfLine + EndOfLine + 'До него в течении сеанса выполнены следующие скрипты: ' + EndOfLine + doneScriptsStr );
+      try
+        // очищаем буфер лога скрипта 
+        ClearLogArray;
+      
+        res := false; 
+        isExOccured := false; 
+        scriptMessages := '';
+                
+        scriptRunTime := -1; 
+        StartTimeMeasure('Выполнение скрипта');
+        
+        UnexpWindow('reset');
+        Permissions('reset flag', '');
+        ErrorUnexpectedWindow('reset');
+        Options.Run.Delay := DEFAULT_DELAY;
+        Options.Run.Timeout := DEFAULT_TIMEOUT;
+        c_DataBaseType := GetDataBaseType('ACTIVE');
+        ProcessingLogForErrors(nil, nil, 'isDoLogContentBkup:=true;isFromLastLogPositionCounter:=true;IsAnalyseAllLogs:=true'); //анализируем и бекапим лог во время подготовки к скрипту
+      
+        ScriptAction('BEGIN SCRIPT', oTS);
+        try         
+          res := Runner.CallMethod(unitName + '.' + scriptName + '_Execute' , currentState);
+        except
+          isExOccured := true;
+          res := false;
+        end;
+
+        //анализируем и формируем суммарный лог для выполненного скрипта, если не пусто, выведем в отчетном сообщении скрипта
+        scriptLogErrors := ProcessingLogForErrors(nil, nil, 'isGetServerLogContentBkup:=true') + ProcessingLogForErrors(nil, nil, 'isFromLastLogPositionCounter:=true;IsAnalyseAllLogs:=true');
+        //чистим забэкапленный серверный лог
+        ProcessingLogForErrors(nil, nil, 'isResetServerLogContentBkup:=true');
+
+        ProductVersion('reset to default');
+
+        // проверяем, что скрипт вернул булевое значение
+        if (VarType(res) <> varBoolean) then
+        begin
+          try
+            tempStr := 'Значение, которое вернул скрипт, преобразованное к строке: "' + VarToStr(res) + '"';
+          except
+            tempStr := '';
+          end;
+          tempStr := 'По каким-то причинам скрипт вернул значение НЕ типа boolean! Поэтому на всякий случай считаем, что скрипт не пройден.' + EndOfLine + 'Тип значения: ' + IntToStr(VarType(res)) + '. ' + EndOfLine + tempStr;
+          res := false;
+        end
+        else
+          tempStr := '';
+
+        // обновляем для скрипта дату последнего запуска и результат      
+        if (param_IsRefreshScripts) then 
+        try
+          RefreshScriptAndTracedHLTCs(oTS, res);
+        except
+          tempStr := tempStr + EndOfLine + 'Случилась ошибка во время обновления результата скрипта в MDP' + EndOfLine + ExceptionMessage;
+        end;        
+
+        scriptRunTime := EndTimeMeasure('Выполнение скрипта', true, scriptName, param_csvStatFileName);
+
+        // пока отключаем, чтобы не накапливать ложные ошибки, например, в случае зависания сервера скрипт может оказаться длительным
+        // при необходимости можно включить или для отдельных или новых скриптов выставить руками параметр Actions = Длительный скрипт
+{
+        if param_IsRunOnBigDatabase then
+        begin
+          // считаем скрипт длительным, если работаем в режиме большой базы
+          if scriptRunTime > 30*60*1000 then
+          try
+            ScriptAction('SET ACTION', SA_LONG_SCRIPT);
+          except
+            tempStr := tempStr + EndOfLine + 'Случилась ошибка во время установки действия скрипта в "' + SA_LONG_SCRIPT + '"' + EndOfLine + ExceptionMessage;
+          end;
+        end;
+}
+
+        if (NOT isExOccured) then
+          ScriptAction('END SCRIPT');
+        ScriptAction('RESET');
+        
+        if (param_IsSendMail) AND ((NOT res) OR (UnexpWindow('get flag') = true) OR (ErrorUnexpectedWindow('get flag') = true)) then
+          scriptMessages := ExtractOpenNodeMessages(param_WorkTag)
+        else
+          scriptMessages := 'res=true, извлечения из лога не было';
+        doneScriptsStr := doneScriptsStr + 'Log.Message(''' + scriptName + ''');' + EndOfLine + scriptStrRep;
+      finally
+        Log.PopLogFolder;
+      end;
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
+      StartTimeMeasure('Действия после работы скрипта, но до начала обработки следующего');
+      
+      // прибиваем апдейтер и бридер
+      if  IsExists(Sys.WaitProcess(ADMIN_PROCESS_NAME, 0))
+          OR IsExists(Sys.WaitProcess(F1DATASETUP_PROCESS_NAME, 0))
+          OR IsExists(Sys.WaitProcess(DATAUPD_PROCESS_NAME, 0))
+          OR IsExists(Sys.WaitProcess(DATAUPD_STARTER_PROCESS_NAME, 0))
+          OR IsExists(Sys.WaitProcess(F1DATASETUP_STARTER_PROCESS_NAME, 0)) then
+      begin 
+        if NOT RemoteKillProcesses('','','',[ADMIN_PROCESS_NAME + '.*', F1DATASETUP_PROCESS_NAME + '.*', DATAUPD_PROCESS_NAME + '.*', DATAUPD_STARTER_PROCESS_NAME + '.*', F1DATASETUP_STARTER_PROCESS_NAME + '.*']) then
+          Log.Error('Не удалось прибить процессы бридера или апдейтера!');
+        Delay(5000);  
+      end;    
+      
+      // восстанавливаемся из бэкапа после работы скрипта
+      if IsOptionSet(oTS, OPT_NEED_RESTORE_FROM_BACKUP) then
+      begin
+        Log.Message('Выполняем восстановление из бэкапа');
+        TestStandBackup('RESTORE', paramString);
+      end;
+      
+      // ------------------------- Смотрим результат -----------------------------
+            
+      // добавляем скрипт в отчет
+      reportRes := 0;
+      reportRes :=
+        Choose(res, SR_RES_PASSED, SR_RES_FAILED) 
+        or Choose(UnexpWindow('get flag'), SR_ST_UNEXPWND, 0)
+        or Choose(ErrorUnexpectedWindow('get flag'), SR_ST_ERRORWND, 0)  
+        or Choose(isMonitored, SR_ST_MONITORED, 0);
+        
+      ScriptReportMsg(param_commonReportDataFileName, param_SharedPath, reportCS, 
+        scriptName,
+        reportRes,
+        neededShellConf,
+        scriptRunTime
+      );              
+          
+      // заносим результат в лог, в файл и еще куда-нибудь
+      if UnexpWindow('get flag') then Log.Warning('Во время выполнения скрипта было обнаружено неизвестное окно.');
+      if ErrorUnexpectedWindow('get flag') then Log.Warning('Во время выполнения скрипта было обнаружено окно с ошибкой.');
+      if res then 
+        Log.Message('Скрипт "' + scriptName + '" успешно пройден!', '', pmHigher, LogAttr(LOG_FMT_BOLD, 16711935,16776960) )
+      else
+      begin
+        if isExOccured then Log.Error('Во время выполнения скрипта вылетело исключение: ' + ExceptionMessage);
+        Log.Error('Скрипт "' + scriptName + '" не пройден!', '', pmHigher, LogAttr(LOG_FMT_BOLD, 65535, 255) );
+      end;  
+      // высылаем, или не высылаем почту
+      try
+        if param_IsSendMail AND                       // ЕСЛИ разрешена посылка почты И
+           (
+            UnexpWindow('get flag')                   // было неизвестное окно
+            OR ErrorUnexpectedWindow('get flag')      // было обнаружено окно с ошибкой
+            OR (NOT res)                              // ИЛИ скрипт не пройден
+            OR isMonitored                            // ИЛИ скрипт под наблюдением
+            OR (scriptLogErrors <> '')                // ИЛИ во время выполнения скрипта в логах всплыло что-то интересное
+           )
+           // для отключения отправки отчета для несуществующего в коде скрипта
+           //AND (Pos('Unable to find the specified element. Project:', ExceptionMessage) = 0)
+        then
+        begin
+          // конструируем сообщение для почты
+          emailMessage :=
+            HTMLDocument(
+              scriptName,
+              '<p><a href="' + GetHTTPLink(oTS) + '"><b>' + HTMLConv(scriptName) + '</b></a></p>' +
+              '<hr>' + 
+              HTMLParagraph( HTMLText('Скрипт ' + Choose(res, ' пройден', ' не пройден!'), Choose(NOT res, 'FontColor:=red', '') ) ) +
+              HTMLParagraph( scriptStrRep ) +
+              HTMLParagraph( HTMLText('Требуемый тип базы данных: ', 'IsBold:=true') + '"' + VarToStr(scriptDataBase) + '"' ) + 
+              HTMLParagraph( HTMLText('Реальный тип базы данных: ', 'IsBold:=true') + '"' + VarToStr(c_DataBaseType) + '"' ) +
+              HTMLParagraph( HTMLText('Тип продукта: ', 'IsBold:=true') + '"' + VarToStr(GetProductType('', true)) + '"' ) +
+              HTMLParagraph( HTMLText('Требуемая конфигурация: ', 'IsBold:=true') + '"' + VarToStr(neededShellConf) + '"' ) +               
+              HTMLParagraph( HTMLText('Запускался на машине: ', 'IsBold:=true') + CompName ) + 
+              Choose(tracedFrom <> '', HTMLText('Скрипт покрывает тесткейсы:', 'IsBold:=true') + EndOfLine + '<br><br>' + tracedFrom, '' ) +
+              Choose(Permissions('get flag', ''), HTMLParagraph( HTMLText('Не хватило разрешений для выполнения некоторых операций!', 'FontColor:=red')), '' ) +
+              Choose(isExOccured, HTMLParagraph( HTMLText('Во время выполнения скрипта вылетело исключение: "' + ExceptionMessage + '"', 'FontColor:=red')), '' ) +
+              Choose(UnexpWindow('get flag'), HTMLParagraph( HTMLText('Во время выполнения скрипта было обнаружено неизвестное окно типа "' + UnexpWindow('GET TYPE') + '"', 'FontColor:=red')), '' ) +
+              Choose(UnexpWindow('get message') <> '', HTMLParagraph( HTMLText('В нем написано "' + UnexpWindow('get message') + '"', 'FontColor:=red')), '' ) +
+              Choose(ErrorUnexpectedWindow('get flag'), HTMLParagraph( HTMLText('Во время выполнения скрипта было обнаружено окно c ошибкой.', 'FontColor:=red')), '' ) +
+              Choose(ErrorUnexpectedWindow('get message') <> '', HTMLParagraph( HTMLText('В нем написано "' + ErrorUnexpectedWindow('get message') + '"', 'FontColor:=red')), '' ) +
+              Choose(tempStr <> '' , HTMLParagraph(tempStr), '' ) +
+              Choose(scriptLogErrors <> '' , '<hr>' + HTMLParagraph(HTMLText('Сообщения из лог-файлов при выполнении скрипта:', 'FontColor:=red') + '<br>' + HTMLText(scriptLogErrors, 'IsPreformatted:=true')), '' ) +
+              '<hr>' +
+              HTMLParagraph( 'Содержимое узла лога для скрипта: <br>' +  scriptMessages)
+            );
+          //  
+          emailSubject := 
+            EMAIL_SUBJ_PREFIX + 
+            'Script ' + '   ' + scriptName + '   ' + Choose(res, ' success!' , ' failed!') +
+            Choose(scriptLogErrors <> '', ' ! LOG_INFO !', '') +
+            Choose(isMonitored, ' ! MONITORED !', '') +
+            Choose(UnexpWindow('get flag'), ' Было UnexpectedWindow!','') + 
+            Choose(ErrorUnexpectedWindow('get flag'), ' Было окно с ошибкой!','') +
+            Choose(Permissions('get flag', ''), ' Не хватило разрешений!', '');
+          // высылаем
+          SendMailByBlat(
+            EMAIL_FROM_ADDR,
+            Choose( ((param_WorkTag = WT_DAILY) AND IsOptionSet(oTS, OPT_SEND_REPORT_TO_QC)), 'qc@garant.ru', EMAIL_TO_ADDR_MAIN ),
+            emailSubject,
+            emailMessage,
+            Choose( UnexpWindow('get flag'), '"' + UnexpWindow('GET PATH TO SCREENSHOT') + '",' , '' ),
+            true
+          );
+        end;  
+      except
+        Log.Error('Произошла какая-то фигня-шняшка при попытке отправить почту!', ExceptionMessage + EndOfLine + VarToString(param_IsSendMail) + EndOfLine + VarToString(UnexpWindow('get flag')) + EndOfLine + VarToString(ErrorUnexpectedWindow('get flag')) + EndOfLine + VarToString(res) + EndOfLine + VarToString(emailSubject) + EndOfLine + VarToString(emailMessage), 4 );
+      end;       
+      Log.Picture(Sys_Desktop.Picture, 'Оболочка в состоянии "' + VarToString( GetShellState ) + '". Скрипт отработал.');       
+      res :=
+        Choose( isMonitored, 'MONITORED.', '' ) + Choose( res=true, 'Passed', 'Failed') +
+        ' ' + STD_DELIM + ' ' + IntToStr(scriptRunTime) + 
+        ' ' + STD_DELIM + ' ' + Utilities.FormatDateTime('dd-mm-yyyy hh:nn:ss', Utilities.Now ); 
+      Map(mapScriptsDone, 'put', scriptName, res);
+      Map(mapScriptsDone, 'save to file', param_DoneFileName);
+      counter := counter + 1;
+      EndTimeMeasure('Действия после работы скрипта, но до начала обработки следующего', true, scriptName, param_csvStatFileName);
+    end; // end for
+// ========================== ЗАВЕРШАЕМ ТЕСТЫ ==================================
+    // выставляем причину завершения при нормальном ходе
+    exitMessage := EXIT_MSG_ALL_DONE;
+  finally
+    if isNodeCreated then
+    try
+      EndTimeMeasure('Поиск скрипта для выполнения', true, scriptName, param_csvStatFileName);
+      Log.PopLogFolder();
+      isNodeCreated := false;
+    except
+    end;
+
+    Log.Message('Выполнение скриптов завершено. Подготавливаемся к завершению, выполняем finally-секцию.', '', pmNormal, GetLogAttr('YELLOW'));
+
+    // выполняем проверку на EXIT_MSG_STOP_IMMEDIATELY, чтобы лишний раз не высылать отчет и т.д.  
+    if exitMessage <> EXIT_MSG_STOP_IMMEDIATELY then
+    try
+      // проверяем лог на ошибки
+      logErrorsFileName := '';
+      logErrors := '';
+      logErrors := ProcessingLogForErrors(nil, nil, 'IsSaveToFile:=true;IsAnalyseAllLogs:=true');    
+      if logErrors <> '' then
+      begin
+        Log.Error('В логе были найдены ошибки', 'Строки с ошибками:' + EndOfLine + logErrors);
+        logErrorsFileName := ProcessingLogForErrors(nil, nil, 'GetOutFileName:=true;');
+        logErrorsFileName := IncludeTrailingBackslash(GetTempDirectory) + CompName + '_' + GetProductType('', true) + '_' + ExtractFileName(logErrorsFileName);
+        DeleteFile(logErrorsFileName);
+        if BuiltIn.CopyFiles(ProcessingLogForErrors(nil, nil, 'GetOutFileName:=true;'), logErrorsFileName, false) = 0 then
+          Log.Warning('Не получилось скопировать файл извлечений с ошибками!', '', pmHigher);
+      end;                              
+      // постим результаты работы в лог 
+      Log.Message('Завершаем работу. Причина: "' + exitMessage + '"', '', pmHigher, LogAttr(LOG_FMT_BOLD, 16711935, 16776960) );
+      if exitMessage = EXIT_MSG_UNKNOWN then
+        Log.Message('Исключение: ' + ExceptionMessage, '', pmHigher);
+    
+      // постим на мыло      
+      Map(mapScriptsDone, 'load from file', param_DoneFileName);
+      tempVar := AddDoneScriptsToLog(mapScriptsDone);
+      tempStr := GetParam(tempVar, 'Text');
+      if param_IsSendMail then
+      begin
+        SendMailByBlat(
+          EMAIL_FROM_ADDR,
+          EMAIL_TO_ADDR_MAIN,
+          EMAIL_SUBJ_PREFIX + Choose(exitMessage = EXIT_MSG_ALL_DONE, 'All done by ', 'NOT done (restart) by ') + CompName + ': ' + GetProductType('', true) + '. Total: ' + VarToStr(GetParam(tempVar, 'nTotal')) + ' ; Failed: ' + VarToStr(GetParam(tempVar, 'nFailed')) + ' ; Unknown: ' + VarToStr(GetParam(tempVar, 'nUnknown')),
+          'Причина остановки: "' + exitMessage + '"' + EndOfLine + EndOfLine +
+            Choose(logErrors = '', 'В логе ГАРАНТа ошибок найдено не было', 'В логе ГАРАНТа были найдены ошибки (см. аттач)') + EndOfLine + EndOfLine +
+            Choose( (VarType(lastScriptName) = varOleStr) AND (lastScriptName <> ''), 'Последним выполнялся скрипт (или был найден для выполнения): ' + lastScriptName, 'Не удалось определить последний выполнявшийся скрипт.') + EndOfLine + EndOfLine +
+            tempStr,
+          Choose( logErrors = '', '', '"' + logErrorsFileName + '"' )
+        );
+        Delay(Options.Run.Timeout div 3); // даем время БЛАТу отправить файлы
+      end;  
+
+      // выполняем индивидуальные действия
+      if exitMessage = EXIT_MSG_ALL_DONE then 
+      begin // выходим потому что закончились скрипты
+        // переименовываем индивидуальный файл
+        tempStr := '.all done at ' + Utilities.FormatDateTime('yyyy-mm-dd hh-nn-ss', Utilities.Now);
+        Utilities.RenameFile(param_DoneFileName, param_DoneFileName + tempStr);
+        Utilities.RenameFile(param_ErrRepFileName, param_ErrRepFileName + tempStr);
+        // если это сетевой режим работы, то прописываем для текущей машины следующий файл синхронизации
+        if param_Mode = MODE_NETWORK then
+        begin 
+          tempStr2 := param_CommonDoneFileName;
+          try
+            EnterCriticalSectionByFile(commonCS);
+            // грузим список идентификаторов сессий          
+            Map(mapCommonList, 'load from file', param_CommonListFileName);
+            param_CommonSessionID := Map(mapCommonList, 'get', CompName);
+          
+            // если инфы о текущей машине нету (или самого файла нету)
+            if IsEmpty(param_CommonSessionID) then
+            begin // то это какая-то фигня, такого не может быть, пишем в лог ошибку
+              Log.Warning('Не найдена информация о файле синхронизации для текущей машины. Этого не может быть при нормальном функционировании.', '', pmHigher);
+              param_CommonSessionID := 1;
+            end
+            else
+            begin // увеличиваем идентификатор на единицу и пишем его в файл
+              if param_WorkTag = WT_PAYLOAD then
+              begin
+                Map(mapCommonList, 'put', CompName, param_CommonSessionID + 1);
+                Map(mapCommonList, 'save to file', param_CommonListFileName);
+              end
+              else
+                //что-то глючат текущие сессии >1, выключимка их нафик для <>WT_PAYLOAD, сделаем всегда param_CommonSessionID := 1
+                param_CommonSessionID := 1;
+            end;
+            Map(mapCommonList, 'load from file', param_CommonListFileName);
+          finally
+            LeaveCriticalSectionByFile(commonCS);
+          end;
+
+          tempBool := false;
+          // если старый файл больше не используется, то переименовываем его, чтобы не смущать
+          for j := 0 to Map(mapCommonList, 'max index', 0) do
+            if Map(mapCommonList, 'value by index', j) = param_CommonSessionID then
+            begin
+              tempBool := true; // таки да, файл больше никем не используется
+              break;              
+            end;
+            
+          if (NOT tempBool) OR (ArrayLength(GetFileList(param_SharedPath, '*.arr', 0)) = 0) then
+          begin
+            // пишем в общий отчет
+            ScriptReportMsg(param_commonReportDataFileName, param_SharedPath, reportCS, 
+              Choose((param_WorkTag <> WT_PAYLOAD) and (Map(mapScriptsDone, 'max index', nil) = -1),
+                      '- Ошибка (связи c ' + MDP_URL + ') при получении списка скриптов -',
+                      '----- Конец сессии -----'
+              ),
+              SR_BASE_SWITCH,
+              '-'
+            );  
+
+            // отправляем письмо
+            SendMailByBlat(EMAIL_FROM_ADDR, EMAIL_TO_ADDR_MAIN, EMAIL_SUBJ_PREFIX + 'Конец сессии. Последним был: ' + CompName + ' ----------------------------------------',
+              'В аттаче находится файл с массивом выполненных скриптов всеми машинами.',
+              Choose(Utilities.FileExists(tempStr2), '"' + tempStr2 + '"', '')
+            );
+            Delay(Options.Run.Timeout div 3); // даем время БЛАТу отправить файлы
+            Utilities.RenameFile(tempStr2,  tempStr2 + '.renamed at ' + Utilities.FormatDateTime('yyyy-mm-dd hh-nn-ss', Utilities.Now) + ' by ' + CompName);
+          end;
+        end;
+      end;
+
+      // если все сделано, то бэкапим логи
+      if (exitMessage = EXIT_MSG_ALL_DONE) then
+        LogsBackupOp('CREATE', 'PathToGarantINI:=' + IncludeTrailingBackslash(GetF1Directory) + 'garant.ini' + EndOfLine + 'PathToLogsBackupDir:=' + param_pathToLogsBackupDir + EndOfLine + 'WorkTag:=' + param_WorkTag);
+    except
+      ErrorResult('Случился сбой при завершении тестов в finally-секции.' + EndOfLine + ExceptionMessage);
+    end;
+    
+    // если вышли не потому что произошел непредвиденный косяк, то создаем файл непродолжения, который будет обнаружен батником запуска и тот прервет бесконечный цикл убиения-запуска пускача            
+    if  (exitMessage = EXIT_MSG_STOP)
+        OR (exitMessage = EXIT_MSG_STOP_IMMEDIATELY)
+        OR (NOT param_IsNeverSetNotContinue) AND
+          (
+            (param_IsSetNotContinueOnlyAtAllDone) AND (exitMessage = EXIT_MSG_ALL_DONE)
+           OR 
+            (NOT param_IsSetNotContinueOnlyAtAllDone) AND (exitMessage <> EXIT_MSG_UNKNOWN)
+          )
+    then
+    begin
+      AppendFile(param_SharedPath + CompName + '.not_continue', exitMessage);
+      Log.Message('Выполнили команду STOP. Закончили работу.', '', pmNormal, GetLogAttr('YELLOW'));
+    end;
+    
+    // принудительно завершаем TestExecute после выполнения проекта
+    try
+      fileKillAfterWaitName := GetPathTo(PATH_TO_KILLAFTERWAIT) + 'KillAfterWait.bat'; 
+      if not FileExists(fileKillAfterWaitName) then
+        ErrorResult('Не найден "' + fileKillAfterWaitName + '" для принудительного завершения TestExecute!');
+        //TestExecute
+      if Win32API.WinExec('cmd.exe /D /C ""' + fileKillAfterWaitName + '" TestExecute 45"', Win32API.SW_NORMAL) <= 31 then
+        ErrorResult('Возникла ошибка при запуске "' + fileKillAfterWaitName + '"');
+    except
+      ErrorResult('Возник непредвиденный сбой при запуске "' + fileKillAfterWaitName + '"' + EndOfLine + ExceptionMessage);
+    end;
+  end; // end try-finally
+end;

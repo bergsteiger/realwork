@@ -1,0 +1,15 @@
+USES
+	QuickTestsUtils.script 
+;
+
+Тест TK358976813
+	Параметры: ( "Проверка EVD документа" )
+	Выполнить (
+		OBJECT VAR l_Ruler
+		"Контрол по имени {('HRuler')}" >>> l_Ruler
+		l_Ruler pop:object:IsNil ! 'Не удалось найти линейку редактора!' ASSERTS
+		52 13 200 0 l_Ruler pop:Control:MouseLeftDragAndDrop		
+	)	
+;
+
+TK358976813

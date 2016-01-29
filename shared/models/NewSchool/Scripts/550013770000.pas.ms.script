@@ -1,0 +1,406 @@
+// Tl3PopupMenuHelper 550013770000 Service Class
+
+FORWARD ME_550013770000
+
+FORWARD ME_5514099B0316
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_551409B6017E
+ CONST UID '551409B6017E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_551409B6017E DoIt
+
+: ME_5514099B0316
+ CONST UID '5514099B0316'
+ CONST Name 'Tl3PopupMenuHelperCallback'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_551409B6017E // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_5514099B0316 Tl3PopupMenuHelperCallback
+
+FORWARD ME_E654F73164D2
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_E1CC92564CEE
+ CONST UID 'E1CC92564CEE'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_E1CC92564CEE aControl
+
+INCLUDE '4728A7020026.pas.ms.script'
+
+: ME_E1CC92564CEF
+ CONST UID 'E1CC92564CEF'
+ CONST Name 'aPoint'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4739AD110072 // TPoint
+ ;
+
+ @SELF
+; // ME_E1CC92564CEF aPoint
+
+INCLUDE '47E7ABAE0110.pas.ms.script'
+
+: ME_1FF8AE53688A
+ CONST UID '1FF8AE53688A'
+ CONST Name 'GetPopupMenu'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_47E7ABCB0296 // TMenuItem
+ ;
+ : Parameters
+   [ ME_E1CC92564CEE // aControl
+ ME_E1CC92564CEF // aPoint
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_1FF8AE53688A GetPopupMenu
+
+: ME_1873E626AAA8
+ CONST UID '1873E626AAA8'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_1873E626AAA8 aControl
+
+: ME_1873E626AAA9
+ CONST UID '1873E626AAA9'
+ CONST Name 'aPoint'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4739AD110072 // TPoint
+ ;
+
+ @SELF
+; // ME_1873E626AAA9 aPoint
+
+: ME_1873E626AAAA
+ CONST UID '1873E626AAAA'
+ CONST Name 'aCallback'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ ;
+
+ @SELF
+; // ME_1873E626AAAA aCallback
+
+: ME_E1C719B751DC
+ CONST UID 'E1C719B751DC'
+ CONST Name 'GetPopupMenuForComponentInfo'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_1873E626AAA8 // aControl
+ ME_1873E626AAA9 // aPoint
+ ME_1873E626AAAA // aCallback
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E1C719B751DC GetPopupMenuForComponentInfo
+
+: ME_E654F73164D2
+ CONST UID 'E654F73164D2'
+ CONST Name 'Ml3PopupMenuHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3PopupMenuHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_1FF8AE53688A // GetPopupMenu
+ ME_E1C719B751DC // GetPopupMenuForComponentInfo
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_E654F73164D2 Ml3PopupMenuHelper
+
+: ME_04CE71F4AB07
+ CONST UID '04CE71F4AB07'
+ CONST GUID '0FC02FC0-1297-4100-A3A7-8D342CAD75B2'
+ CONST Name 'Il3PopupMenuHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3PopupMenuHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_E654F73164D2 // Ml3PopupMenuHelper
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_1FF8AE53688A // GetPopupMenu
+ ME_E1C719B751DC // GetPopupMenuForComponentInfo
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_04CE71F4AB07 Il3PopupMenuHelper
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+: ME_EFA6EAF6766C
+ CONST UID 'EFA6EAF6766C'
+ CONST Name 'TControlFriend'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Друг для TControl' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_47E1201703C3 // TControl
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ @SELF
+; // ME_EFA6EAF6766C TControlFriend
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_A59886A74A23
+ CONST UID 'A59886A74A23'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3PopupMenuHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_04CE71F4AB07 // Il3PopupMenuHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_A59886A74A23 Alien
+
+: ME_2D9D17149A5C
+ CONST UID '2D9D17149A5C'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_04CE71F4AB07 // Il3PopupMenuHelper
+ ;
+
+ @SELF
+; // ME_2D9D17149A5C f_Alien
+
+: ME_5506BF9E033F
+ CONST UID '5506BF9E033F'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_5506BF9E033F aControl
+
+: ME_5506BF9E038C
+ CONST UID '5506BF9E038C'
+ CONST Name 'aPoint'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4739AD110072 // TPoint
+ ;
+
+ @SELF
+; // ME_5506BF9E038C aPoint
+
+: ME_5506BF830025
+ CONST UID '5506BF830025'
+ CONST Name 'GetPopupMenu'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_47E7ABCB0296 // TMenuItem
+ ;
+ : Parameters
+   [ ME_5506BF9E033F // aControl
+ ME_5506BF9E038C // aPoint
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5506BF830025 GetPopupMenu
+
+: ME_5506BFC00110
+ CONST UID '5506BFC00110'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_5506BFC00110 aControl
+
+: ME_5513F50501E2
+ CONST UID '5513F50501E2'
+ CONST Name 'aPoint'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4739AD110072 // TPoint
+ ;
+
+ @SELF
+; // ME_5513F50501E2 aPoint
+
+: ME_551409E3015F
+ CONST UID '551409E3015F'
+ CONST Name 'aCallback'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ ;
+
+ @SELF
+; // ME_551409E3015F aCallback
+
+: ME_5506BFB302ED
+ CONST UID '5506BFB302ED'
+ CONST Name 'GetPopupMenuForComponentInfo'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5506BFC00110 // aControl
+ ME_5513F50501E2 // aPoint
+ ME_551409E3015F // aCallback
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5506BFB302ED GetPopupMenuForComponentInfo
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_0928230ED8B8
+ CONST UID '0928230ED8B8'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_0928230ED8B8 Exists
+
+: ME_550013770000
+ CONST UID '550013770000'
+ CONST Name 'Tl3PopupMenuHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_E654F73164D2 // Ml3PopupMenuHelper
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_A59886A74A23 // Alien
+ ME_2D9D17149A5C // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5506BF830025 // GetPopupMenu
+ ME_5506BFB302ED // GetPopupMenuForComponentInfo
+ ME_0928230ED8B8 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_1FF8AE53688A // GetPopupMenu
+ ME_E1C719B751DC // GetPopupMenuForComponentInfo
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ ME_E654F73164D2 // Ml3PopupMenuHelper
+ ME_04CE71F4AB07 // Il3PopupMenuHelper
+ ME_EFA6EAF6766C // TControlFriend
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_550013770000 Tl3PopupMenuHelper

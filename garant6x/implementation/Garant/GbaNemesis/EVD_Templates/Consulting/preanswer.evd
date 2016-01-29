@@ -1,0 +1,131 @@
+%producer 'ЭВЕРЕСТ 1.2.0.1420' date '08.02.2012'
+%format version 0.140 revision date '18/06/2010' 
+: Document = {
+ Subs = {
+  : = {
+   Handle = Sub
+  }
+ }
+ MaxSubID = 0
+ Children = 7
+ : = {
+  Segments = {
+   : = {
+    Handle = View
+    : = {
+     Font = {
+      Bold = True
+     }
+     Finish = 11
+    }
+   }
+  }
+  Text = 'Ваш запрос:'
+ }
+ : Table = {
+  LeftIndent = 566
+  : ReqRow = {
+   : = {
+    Width = 10204
+    : = {
+     Name = 'Query'
+     Font = {
+      ForeColor = clPurple
+     }
+    }
+   }
+  }
+ }
+ : = {
+  Segments = {
+   : = {
+    Handle = View
+    : = {
+     Font = {
+      Bold = True
+     }
+     Finish = 18
+    }
+   }
+  }
+  Text = 'Состояние запроса:'
+ }
+ : = {
+  Text = 'Ваш запрос в службу Правовой поддержки онлайн принят и находится в обработке.'
+ }
+ : = {
+  Segments = {
+   : = {
+    Handle = Hyperlinks
+    : HyperLink = {
+     Start = 94
+     Finish = 146
+     : = {
+      Type = 65545
+      DocID = 5
+     }
+    }
+   }
+  }
+  Text = 'Сроки подготовки ответа и дополнительная информация об условиях консультирования приведены в Правилах работы со службой Правовой поддержки онлайн.'
+ }
+ : Table = {
+  LeftIndent = 566
+  : ReqRow = {
+   : = {
+    Width = 10204
+    : = {
+     Name = 'Cost'
+     Font = {
+      ForeColor = clPurple
+     }
+     Justification = ev_itLeft
+     Type = ev_ctTextParaLabel
+    }
+   }
+  }
+ }
+ : Table = {
+  LeftIndent = 566
+  : ReqRow = {
+   ReqID = 'CS_PAYMENT_STATUS'
+   : = {
+    Width = 10204
+    Children = 4
+    : = {
+    }
+    : = {
+     Text = 'Согласны ли Вы оплатить данную консультацию?'
+    }
+    : = {
+     Segments = {
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        : = {
+         Type = 65545
+         DocID = 2
+        }
+       }
+      }
+     }
+     Text = 'Да, согласен.'
+    }
+    : = {
+     Segments = {
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        : = {
+         Type = 65545
+         DocID = 3
+        }
+       }
+      }
+     }
+     Text = 'Нет, не согласен.'
+    }
+   }
+  }
+ }
+}

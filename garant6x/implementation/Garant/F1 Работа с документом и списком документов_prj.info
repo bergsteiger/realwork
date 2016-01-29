@@ -1,0 +1,186 @@
+F1 Работа с документом и списком документов : VCMUseCases - Работа с документом и списком документов
+version: 281
+WorkWithList : VCMUseCase - [$59310257]
+ List$UC : VCMUseCaseRealization - Список
+ List : VCMControllers - Работа со списком
+  List : ControllerUnit - 
+   TsdsList : UseCaseControllerImp - Список
+   TdsMainList : ViewAreaControllerImp - Список документов прецедента "Список". Списков в системе много, а сообщать о смене текущего прецеденту должен только один - список документов прецедента "Cписок". Для этой цели создан dsMainList с перекрытым NotifyAboutChangeCurrent
+   TdList : SimpleClass - 
+   TdsListAnalize : ViewAreaControllerImp - 
+   TdsSynchroViewDocument : ViewAreaControllerImp - 
+ View : VCMViews - Представление
+  StatusBar : VCMControls - 
+   Selection : VCMOperations - Выделенные элементы
+  ListOperations : VCMControls - 
+   List : VCMOperations - Список
+   CRList : VCMOperations - 
+   WarnListFiltered : VCMOperations - Предупреждение о фильтрованном списке
+   Reminder : VCMOperations - 
+   List$WorkWithList : VCMOperations - Список
+   DocumentInList : VCMOperations - 
+   SelectedDocuments : VCMOperations - 
+  List : VCMModule - Работа со списком
+   PrimList : VCMContainer - Список документов
+   PrimListInfo : VCMForm - Информация о списке
+   PrimListAnalizer : VCMForm - Анализ списка
+   PrimListOptions : VCMContainer - 
+   PrimListInfoOptions : VCMForm - 
+   PrimListAnalize : VCMForm - Анализ списка
+   List$FP : VCMFormsPack - Работа со списком документов
+   TnsListSortTypeMap : SimpleClass - 
+   nsListEvents : UtilityPack - 
+UnderControl : VCMUseCase - [$61440038]
+ UnderControl$UC : VCMUseCaseRealization - Документы на контроле
+ View : VCMViews - 
+  Strange : VCMControls - 
+   ControlCenter : VCMOperations - 
+   ControledObject : VCMOperations - 
+  UnderControl : VCMModule - 
+   PrimUnderControl : VCMForm - На контроле
+   PrimUnderControlOptions : VCMForm - На контроле
+   UnderControl$FP : VCMFormsPack - 
+Document : VCMUseCase - [$59311109]
+ Document$UC : VCMUseCaseRealization - Документ
+   : uses - 
+   : uses - 
+ View : VCMViews - Представление
+  Strange : VCMControls - Странные операции, не подавшиеся пока логическому анализу
+   Editions : VCMFacet - Редакции
+   System : VCMFacet - 
+   Selection$ForText : VCMOperations - Выделенные элементы
+   Contents : VCMFacet - Структура документа
+   Warning : VCMFacet - 
+   Picture : VCMFacet - Картинка
+   DocumentBlock : VCMOperations - Пункт оглавления
+   DocumentBlockHeader : VCMOperations - Пункт оглавления - Заголовок документ
+   WarnOnControl : VCMOperations - Предупреждение (на контроле)
+   TasksPanel : VCMOperations - 
+   Document : VCMOperations - 
+   ExternalObject : VCMOperations - 
+   WarnRedaction : VCMOperations - Предупреждение о неактуальной редакции
+   WarnTimeMachine : VCMOperations - Предупреждение для Машины времени
+   WarnJuror : VCMOperations - Предупреждение (юридическое)
+   BookmarkIcon : VCMOperations - 
+   UserCommentIcon : VCMOperations - 
+   UserComment : VCMOperations - 
+   Text : VCMOperations - 
+   Warning$IU : VCMOperations - 
+   Reminder : VCMOperations - 
+   SynchroView : VCMOperations - 
+   Edition : VCMOperations - 
+   Attribute : VCMOperations - 
+   Picture$UI : VCMOperations - Картинка
+   ContentsValidator : VCMFacet - http://mdp.garant.ru/pages/viewpage.action?pageId=259891063
+   DocumentSubPanel : VCMFacet - 
+   Editions$UI : VCMOperations - Редакции
+   DocumentBlockBookmarks : VCMOperations - Закладки на пункт оглавления
+   IntranetSourcePoint : VCMOperations - 
+   Picture$Open : VCMOperations - Картинка
+   Document$ChangesButton : VCMOperations - Документ
+   SubsPanel : VCMOperations - Панель меток
+   BaseSearchPresentationHolder : VCMFacet - 
+   Text$Select : VCMOperations - 
+   IEditions_SetCurrent_Params : Facet - Параметры для операции Editions.SetCurrent
+   TEditions_SetCurrent_Params : SimpleClass - Реализация IEditions_SetCurrent_Params
+   Op_Editions_SetCurrent : SimpleClass - Класс для вызова операции Editions.SetCurrent
+   ISystem_TimeMachineStateChange_Params : Facet - Параметры для операции System.TimeMachineStateChange
+   TSystem_TimeMachineStateChange_Params : SimpleClass - Реализация ISystem_TimeMachineStateChange_Params
+   Op_System_TimeMachineStateChange : SimpleClass - Класс для вызова операции System.TimeMachineStateChange
+   IContents_SetCurrent_Params : Facet - Параметры для операции Contents.SetCurrent
+   TContents_SetCurrent_Params : SimpleClass - Реализация IContents_SetCurrent_Params
+   Op_Contents_SetCurrent : SimpleClass - Класс для вызова операции Contents.SetCurrent
+   IContents_MoveCurrent_Params : Facet - Параметры для операции Contents.MoveCurrent
+   TContents_MoveCurrent_Params : SimpleClass - Реализация IContents_MoveCurrent_Params
+   Op_Contents_MoveCurrent : SimpleClass - Класс для вызова операции Contents.MoveCurrent
+   IContents_HasUserComments_Params : Facet - Параметры для операции Contents.HasUserComments
+   TContents_HasUserComments_Params : SimpleClass - Реализация IContents_HasUserComments_Params
+   Op_Contents_HasUserComments : SimpleClass - Класс для вызова операции Contents.HasUserComments
+   IContents_HasBookmarks_Params : Facet - Параметры для операции Contents.HasBookmarks
+   TContents_HasBookmarks_Params : SimpleClass - Реализация IContents_HasBookmarks_Params
+   Op_Contents_HasBookmarks : SimpleClass - Класс для вызова операции Contents.HasBookmarks
+   IContents_ToggleContentsVisibility_Params : Facet - Параметры для операции Contents.ToggleContentsVisibility
+   TContents_ToggleContentsVisibility_Params : SimpleClass - Реализация IContents_ToggleContentsVisibility_Params
+   Op_Contents_ToggleContentsVisibility : SimpleClass - Класс для вызова операции Contents.ToggleContentsVisibility
+   IContents_IsContentsVisible_Params : Facet - Параметры для операции Contents.IsContentsVisible
+   TContents_IsContentsVisible_Params : SimpleClass - Реализация IContents_IsContentsVisible_Params
+   Op_Contents_IsContentsVisible : SimpleClass - Класс для вызова операции Contents.IsContentsVisible
+   IWarning_BecomeActive_Params : Facet - Параметры для операции Warning.BecomeActive
+   TWarning_BecomeActive_Params : SimpleClass - Реализация IWarning_BecomeActive_Params
+   Op_Warning_BecomeActive : SimpleClass - Класс для вызова операции Warning.BecomeActive
+   IWarning_SwitchActive_Params : Facet - Параметры для операции Warning.SwitchActive
+   TWarning_SwitchActive_Params : SimpleClass - Реализация IWarning_SwitchActive_Params
+   Op_Warning_SwitchActive : SimpleClass - Класс для вызова операции Warning.SwitchActive
+   IPicture_InitNewContent_Params : Facet - Параметры для операции Picture.InitNewContent
+   TPicture_InitNewContent_Params : SimpleClass - Реализация IPicture_InitNewContent_Params
+   Op_Picture_InitNewContent : SimpleClass - Класс для вызова операции Picture.InitNewContent
+   IContentsValidator_IsDocumentAdornmentsChanged_Params : Facet - Параметры для операции ContentsValidator.IsDocumentAdornmentsChanged
+   TContentsValidator_IsDocumentAdornmentsChanged_Params : SimpleClass - Реализация IContentsValidator_IsDocumentAdornmentsChanged_Params
+   Op_ContentsValidator_IsDocumentAdornmentsChanged : SimpleClass - Класс для вызова операции ContentsValidator.IsDocumentAdornmentsChanged
+   Op_DocumentSubPanel_UpdateSubPanel : SimpleClass - Класс для вызова операции DocumentSubPanel.UpdateSubPanel
+   IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params : Facet - Параметры для операции BaseSearchPresentationHolder.GetBaseSearchPresentation
+   TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params : SimpleClass - Реализация IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params
+   Op_BaseSearchPresentationHolder_GetBaseSearchPresentation : SimpleClass - Класс для вызова операции BaseSearchPresentationHolder.GetBaseSearchPresentation
+  F1Lite : VCMControls - Урезанные "сущности" для таких форм как документ-схема
+   Edit : VCMOperations - Правка
+   Text$ForDocument : VCMOperations - 
+   Selection$ForDocument : VCMOperations - 
+  Contents : VCMForms - Работа с оглавлением
+   PrimContents : VCMForm - Оглавление
+   PrimContentsOptions : VCMForm - 
+   TnsContentsListForFiltering : SimpleClass - 
+  BaseDocument : VCMForms - 
+   BaseDocumentForDocumentModule : VCMForm - Форма для работы с документом
+  PrimText : VCMForms - 
+   PrimText : VCMForm - Форма для работы с текстом документа
+  Redactions : VCMForms - 
+   PrimRedactions : VCMForm - Редакции документа
+   PrimRedactionsOptions : VCMForm - 
+  DocumentUtils : Unit - 
+   DocumentUtil : UtilityPack - 
+  Picture : VCMForms - 
+   PrimPicture : VCMForm - Рисунок
+   PrimPictureOptions : VCMForm - Рисунок
+   PrimPictureInfo : VCMForm - Информация о картинке
+   PrimPictureInfoOptions : VCMForm - Информация о картинке
+  Warning : VCMForms - Работа с предупреждением
+   PrimWarning : VCMForm - Предупреждение
+   PrimWarningOptions : VCMForm - 
+   PrimWarningBaloonOptions : VCMForm - 
+   PrimDockedWarning : VCMForm - 
+   TnsWarningDocumentContainer : SimpleClass - 
+  CommonForDocumentAndFlash : VCMForms - 
+   StatusBarDocumentItems : VCMForm - Операции с документом, отображаемые в статусной строке
+   CommonForTextAndFlash : VCMForm - Общее для документов и флеш-схем
+   CommonForTextAndFlashOperations : VCMForm - 
+   TnsDocumentFromListNavigationEvent : SimpleClass - 
+  OpenDocumentByNumber : VCMForms - 
+   PrimDocNumberQuery : VCMForm - 
+   PrimDocNumberQueryOptions : VCMForm - 
+  SynchroView : VCMForms - 
+   PrimSynchroView : VCMContainer - Синхронный просмотр
+   PrimSynchroViewOptions : VCMContainer - Синхронный просмотр
+  Attributes : VCMForms - 
+   PrimAttributes : VCMForm - Атрибуты документа
+   PrimAttributesOptions : VCMForm - 
+  TimeMachine : VCMForms - 
+   PrimTurnOnTimeMachine : VCMForm - Включить Машину времени
+   PrimTurnOnTimeMachineOptions : VCMForm - Включить Машину времени
+  DocumentWithFlash : VCMForms - Документ-схема
+   PrimDocumentWithFlash : VCMForm - Документ-схема
+   PrimDocumentWithFlashOptions : VCMForm - 
+  Document : VCMModule - Работа с документами
+   SearcheableText : VCMForm - 
+   TurnOnTimeMachine : Impurity - Реализация InsTurnOnTimeMachine
+   TurnOffTimeMachine : Impurity - Реализация InsTurnOffTimeMachine
+   ExText : VCMContainer - Форма документа, работающая с IdsDocument и другими вариантами контроллеров области ввода
+   ExTextOptions : VCMContainer - 
+   TnsTimeMachineOffEvent : SimpleClass - 
+   Document : VCMFormsPack - Работа с документом
+   TnsInternalPictureData : SimpleClass - 
+   TnsSwitchVersionCommentsEvent : SimpleClass - 
+   TnsTextTabActivateEvent : SimpleClass - 
+   TnsUseDocumentSubPanelOperationEvent : SimpleClass - 
+   DocumentShowChangesInfoSettingRes : UtilityPack - Ресурсы для настройки "Показывать историю изменений в документе"
+   TstDocumentShowChangesInfoItem : SimpleClass - Визуализатор для настройки "Показывать историю изменений в документе"
+   Tkw_Document_opOpenDocOnNumber : ScriptKeyword - Слово словаря для вызова операции модуля Document.OpenDocOnNumber (Документ Открыть документ по номеру)

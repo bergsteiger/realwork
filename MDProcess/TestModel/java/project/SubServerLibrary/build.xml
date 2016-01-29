@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<project name="SubServerLibrary" basedir=".">
+	<property environment="env"/>
+	<property name="build.dir" value="w:/build/target"/>
+	
+	<target name="idlcomp">
+		<mkdir dir="${build.dir}/classes"/>
+		<exec executable="idl.bat">
+			<arg line="-Iw:/"/>
+			<arg line="-d"/>
+			<arg line="w:/MDProcess/TestModel/java/src/java"/>
+			<arg line="-i2jpackage"/>
+			<arg line="CoreSrv:ru.garant.shared.CoreSrv"/>
+			<arg line="-i2jpackage"/>
+			<arg line="SubServerLibrary:ru.garant.TestModel.SubServerLibrary"/>
+			<arg line="w:/MDProcess/TestModel/SubServerLibrary/NewServerInterfaces/NewServerInterfaces.idl"/>
+		</exec>
+		<javac srcdir="w:/MDProcess/TestModel/java/src/java" destdir="${build.dir}/classes" includes="ru/garant/TestModel/SubServerLibrary/NewServerInterfaces/*.java"/>
+	</target>
+	<target name="gcomp">
+	</target>
+	<target name ="makejar">
+		<mkdir dir="${build.dir}/jar"/>
+		<ant antfile="W:/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/>
+		<jar destfile="${build.dir}/jar/SubServerLibrary.jar">
+			<fileset dir ="${build.dir}/classes">
+				<include name="ru/garant/TestModel/SubServerLibrary/"/>
+			</fileset>
+		</jar>
+	</target>
+	
+</project>

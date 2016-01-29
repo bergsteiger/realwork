@@ -1,0 +1,164 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/ServerGate_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::ServerGate
+//
+// серверная библиотека для поддержки генерации в К
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (ServerGate_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = ServerGate_cs
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	
+	IDL_Files (BuildSupport) {
+		idlflags += -o ./../ServerGate/BuildSupport
+		./../ServerGate/BuildSupport/BuildSupport.idl
+	}
+
+	IDL_Files (Comm) {
+		idlflags += -o ./../ServerGate/Comm
+		./../ServerGate/Comm/Comm.idl
+	}
+
+	IDL_Files (Contents) {
+		idlflags += -o ./../ServerGate/Contents
+		./../ServerGate/Contents/Contents.idl
+	}
+
+	IDL_Files (GenerationContents) {
+		idlflags += -o ./../ServerGate/GenerationContents
+		./../ServerGate/GenerationContents/GenerationContents.idl
+	}
+
+	IDL_Files (Users) {
+		idlflags += -o ./../ServerGate/Users
+		./../ServerGate/Users/Users.idl
+	}
+
+	Header_Files {
+		Std_Headers {
+			./../ServerGate/LibHome.h
+		}
+	
+		BuildSupport {
+			./../ServerGate/BuildSupport/BuildSupport.h
+			./../ServerGate/BuildSupport/BuildSupportC.h
+			./../ServerGate/BuildSupport/BuildSupportS.h
+			./../ServerGate/BuildSupport/BuildSupportFactories.h
+		}
+	
+		Comm {
+			./../ServerGate/Comm/Comm.h
+			./../ServerGate/Comm/CommC.h
+			./../ServerGate/Comm/CommS.h
+			./../ServerGate/Comm/CommFactories.h
+		}
+	
+		Contents {
+			./../ServerGate/Contents/Contents.h
+			./../ServerGate/Contents/ContentsC.h
+			./../ServerGate/Contents/ContentsS.h
+			./../ServerGate/Contents/ContentsFactories.h
+		}
+	
+		GenerationContents {
+			./../ServerGate/GenerationContents/GenerationContents.h
+			./../ServerGate/GenerationContents/GenerationContentsC.h
+			./../ServerGate/GenerationContents/GenerationContentsS.h
+			./../ServerGate/GenerationContents/GenerationContentsFactories.h
+		}
+	
+		Users {
+			./../ServerGate/Users/Users.h
+			./../ServerGate/Users/UsersC.h
+			./../ServerGate/Users/UsersS.h
+			./../ServerGate/Users/UsersFactories.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		BuildSupport {
+			
+			./../ServerGate/BuildSupport/BuildSupportC.inl
+			./../ServerGate/BuildSupport/BuildSupportS.inl
+		}
+	
+		Comm {
+			
+			./../ServerGate/Comm/CommC.inl
+			./../ServerGate/Comm/CommS.inl
+		}
+	
+		Contents {
+			
+			./../ServerGate/Contents/ContentsC.inl
+			./../ServerGate/Contents/ContentsS.inl
+		}
+	
+		GenerationContents {
+			
+			./../ServerGate/GenerationContents/GenerationContentsC.inl
+			./../ServerGate/GenerationContents/GenerationContentsS.inl
+		}
+	
+		Users {
+			
+			./../ServerGate/Users/UsersC.inl
+			./../ServerGate/Users/UsersS.inl
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../ServerGate/LibHome.cpp
+		}
+	
+		BuildSupport {
+			./../ServerGate/BuildSupport/BuildSupport.cpp
+			./../ServerGate/BuildSupport/BuildSupportC.cpp
+			./../ServerGate/BuildSupport/BuildSupportS.cpp
+			./../ServerGate/BuildSupport/BuildSupportFactories.cpp
+		}
+	
+		Comm {
+			./../ServerGate/Comm/Comm.cpp
+			./../ServerGate/Comm/CommC.cpp
+			./../ServerGate/Comm/CommS.cpp
+			./../ServerGate/Comm/CommFactories.cpp
+		}
+	
+		Contents {
+			./../ServerGate/Contents/Contents.cpp
+			./../ServerGate/Contents/ContentsC.cpp
+			./../ServerGate/Contents/ContentsS.cpp
+			./../ServerGate/Contents/ContentsFactories.cpp
+		}
+	
+		GenerationContents {
+			./../ServerGate/GenerationContents/GenerationContents.cpp
+			./../ServerGate/GenerationContents/GenerationContentsC.cpp
+			./../ServerGate/GenerationContents/GenerationContentsS.cpp
+			./../ServerGate/GenerationContents/GenerationContentsFactories.cpp
+		}
+	
+		Users {
+			./../ServerGate/Users/Users.cpp
+			./../ServerGate/Users/UsersC.cpp
+			./../ServerGate/Users/UsersS.cpp
+			./../ServerGate/Users/UsersFactories.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,596 @@
+// kwKeyWordsPack 51304A1F02AD ScriptKeywordsPack Class
+
+FORWARD ME_51304A1F02AD
+
+INCLUDE '55B7A33101AF.pas.ms.script'
+
+FORWARD ME_56D015564877
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_F9AE119BF2CD
+ CONST UID 'F9AE119BF2CD'
+ CONST Name 'RegAxiom'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F9AE119BF2CD RegAxiom
+
+: ME_56D015564877
+ CONST UID '56D015564877'
+ CONST Name 'TkwKeyWordsPackResNameGetter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_F9AE119BF2CD // RegAxiom
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55B7A3AF0359 // ResName
+ ]
+ ; // Implemented
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_56D015564877 TkwKeyWordsPackResNameGetter
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_0200DD1E29D8
+
+: ME_D4C32E2BEA58
+ CONST UID 'D4C32E2BEA58'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_D4C32E2BEA58 aCtx
+
+INCLUDE '4B2A0D9401CC.pas.ms.script'
+
+: ME_8CDAC59949AC
+ CONST UID '8CDAC59949AC'
+ CONST Name 'push_DUnitForm'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта GUITestRunner:push:DUnitForm' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DA30F0F02C1 // TGUITestRunner
+ ;
+ : Parameters
+   [ ME_D4C32E2BEA58 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_8CDAC59949AC push_DUnitForm
+
+: ME_E82DB32DDCEF
+ CONST UID 'E82DB32DDCEF'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация GUITestRunner_push_DUnitForm' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E82DB32DDCEF Ini_Reg
+
+: ME_0200DD1E29D8
+ CONST UID '0200DD1E29D8'
+ CONST Name 'GUITestRunner_push_DUnitForm'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта GUITestRunner:push:DUnitForm'#13#10'*Тип результата:* TGUITestRunner'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TGUITestRunner'#13#10' GUITestRunner:push:DUnitForm >>> l_TGUITestRunner'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_8CDAC59949AC // push_DUnitForm
+ ME_E82DB32DDCEF // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'GUITestRunner:push:DUnitForm'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_0200DD1E29D8 GUITestRunner_push_DUnitForm
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+FORWARD ME_D7892D333B1E
+
+: ME_3741F056079F
+ CONST UID '3741F056079F'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_3741F056079F aCtx
+
+: ME_3741F05607A0
+ CONST UID '3741F05607A0'
+ CONST Name 'aGUITestRunner'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DA30F0F02C1 // TGUITestRunner
+ ;
+
+ @SELF
+; // ME_3741F05607A0 aGUITestRunner
+
+INCLUDE '4AC62798032A.pas.ms.script'
+
+: ME_3741F05607A1
+ CONST UID '3741F05607A1'
+ CONST Name 'aNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_3741F05607A1 aNode
+
+INCLUDE '4B2A0DCE03A9.pas.ms.script'
+
+: ME_03113FE401D9
+ CONST UID '03113FE401D9'
+ CONST Name 'NodeToTest'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:GUITestRunner:NodeToTest' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4B2F420202F4 // ITest
+ ;
+ : Parameters
+   [ ME_3741F056079F // aCtx
+ ME_3741F05607A0 // aGUITestRunner
+ ME_3741F05607A1 // aNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_03113FE401D9 NodeToTest
+
+: ME_338E9E5A2B43
+ CONST UID '338E9E5A2B43'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_GUITestRunner_NodeToTest' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_338E9E5A2B43 Ini_Reg
+
+: ME_D7892D333B1E
+ CONST UID 'D7892D333B1E'
+ CONST Name 'pop_GUITestRunner_NodeToTest'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:GUITestRunner:NodeToTest'#13#10'*Тип результата:* ITest'#13#10'*Пример:*'#13#10'{code}'#13#10'INTERFACE VAR l_ITest'#13#10' aNode aGUITestRunner pop:GUITestRunner:NodeToTest >>> l_ITest'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_03113FE401D9 // NodeToTest
+ ME_338E9E5A2B43 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:GUITestRunner:NodeToTest'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_D7892D333B1E pop_GUITestRunner_NodeToTest
+
+INCLUDE '561BAC4B0005.pas.ms.script'
+
+FORWARD ME_6F1D31444115
+
+: ME_AE9AF9CFD549
+ CONST UID 'AE9AF9CFD549'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_AE9AF9CFD549 aCtx
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_AE9AF9CFD54A
+ CONST UID 'AE9AF9CFD54A'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_AE9AF9CFD54A aName
+
+: ME_AE9AF9CFD54B
+ CONST UID 'AE9AF9CFD54B'
+ CONST Name 'aSubFolder'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_AE9AF9CFD54B aSubFolder
+
+: ME_AE9AF9CFD54C
+ CONST UID 'AE9AF9CFD54C'
+ CONST Name 'anIsScript'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_AE9AF9CFD54C anIsScript
+
+: ME_32E2191A0272
+ CONST UID '32E2191A0272'
+ CONST Name 'DeleteEtalons'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта DeleteEtalons' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_AE9AF9CFD549 // aCtx
+ ME_AE9AF9CFD54A // aName
+ ME_AE9AF9CFD54B // aSubFolder
+ ME_AE9AF9CFD54C // anIsScript
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_32E2191A0272 DeleteEtalons
+
+: ME_776F42C21727
+ CONST UID '776F42C21727'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация DeleteEtalons' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_776F42C21727 Ini_Reg
+
+: ME_6F1D31444115
+ CONST UID '6F1D31444115'
+ CONST Name 'DeleteEtalons'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта DeleteEtalons'#13#10'*Пример:*'#13#10'{code}'#13#10' anIsScript aSubFolder aName DeleteEtalons'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_561BAC4B0005 // TtfwGlobalKeyWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_32E2191A0272 // DeleteEtalons
+ ME_776F42C21727 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'DeleteEtalons'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_6F1D31444115 DeleteEtalons
+
+: ME_55C9F42D0261
+ CONST UID '55C9F42D0261'
+ CONST Name 'push_DUnitForm'
+ CONST Class 'Operation'
+ CONST Stereotype 'creator'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9F42D0261 push_DUnitForm
+
+: ME_55C9F470017F
+ CONST UID '55C9F470017F'
+ CONST Name 'aNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_55C9F470017F aNode
+
+: ME_55C9F44A003C
+ CONST UID '55C9F44A003C'
+ CONST Name 'NodeToTest'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4B2F420202F4 // ITest
+ ;
+ : Parameters
+   [ ME_55C9F470017F // aNode
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9F44A003C NodeToTest
+
+: ME_55C9F4FB0043
+ CONST UID '55C9F4FB0043'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55C9F4FB0043 aName
+
+: ME_55C9F4FB007F
+ CONST UID '55C9F4FB007F'
+ CONST Name 'aSubFolder'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55C9F4FB007F aSubFolder
+
+: ME_55C9F4FB00B1
+ CONST UID '55C9F4FB00B1'
+ CONST Name 'anIsScript'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_55C9F4FB00B1 anIsScript
+
+: ME_55C9F4AC003F
+ CONST UID '55C9F4AC003F'
+ CONST Name 'DeleteEtalons'
+ CONST Class 'Operation'
+ CONST Stereotype 'globalkeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55C9F4FB0043 // aName
+ ME_55C9F4FB007F // aSubFolder
+ ME_55C9F4FB00B1 // anIsScript
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55C9F4AC003F DeleteEtalons
+
+: ME_682B119263FD
+ CONST UID '682B119263FD'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_682B119263FD Reg_TtfwContext
+
+: ME_4B94078A2BBC
+ CONST UID '4B94078A2BBC'
+ CONST Name 'Reg_TGUITestRunner'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TGUITestRunner' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4B94078A2BBC Reg_TGUITestRunner
+
+: ME_49AAD63B2BC1
+ CONST UID '49AAD63B2BC1'
+ CONST Name 'Reg_TTreeNode'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TTreeNode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_49AAD63B2BC1 Reg_TTreeNode
+
+: ME_F25BED7E1C6A
+ CONST UID 'F25BED7E1C6A'
+ CONST Name 'Reg_ITest'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа ITest' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F25BED7E1C6A Reg_ITest
+
+: ME_FD3060D58BC2
+ CONST UID 'FD3060D58BC2'
+ CONST Name 'Reg_String'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_FD3060D58BC2 Reg_String
+
+: ME_9586DF52EAAE
+ CONST UID '9586DF52EAAE'
+ CONST Name 'Reg_Boolean'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Boolean' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9586DF52EAAE Reg_Boolean
+
+: ME_51304A1F02AD
+ CONST UID '51304A1F02AD'
+ CONST Name 'kwKeyWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4DA30F0F02C1 // TGUITestRunner
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_55C9F42D0261 // push_DUnitForm
+ ME_55C9F44A003C // NodeToTest
+ ME_55C9F4AC003F // DeleteEtalons
+ ME_682B119263FD // Reg_TtfwContext
+ ME_4B94078A2BBC // Reg_TGUITestRunner
+ ME_49AAD63B2BC1 // Reg_TTreeNode
+ ME_F25BED7E1C6A // Reg_ITest
+ ME_FD3060D58BC2 // Reg_String
+ ME_9586DF52EAAE // Reg_Boolean
+ ]
+ ; // Operations
+ : Children
+   [ ME_56D015564877 // TkwKeyWordsPackResNameGetter
+ ME_0200DD1E29D8 // GUITestRunner_push_DUnitForm
+ ME_D7892D333B1E // pop_GUITestRunner_NodeToTest
+ ME_6F1D31444115 // DeleteEtalons
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" true
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_51304A1F02AD kwKeyWordsPack

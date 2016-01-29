@@ -1,0 +1,165 @@
+// Tl3DispatcherHelper 5501A3AE02AA Service Class
+
+FORWARD ME_5501A3AE02AA
+
+FORWARD ME_1FB1A07FEA18
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_CA1F3F463873
+ CONST UID 'CA1F3F463873'
+ CONST Name 'ClearHistory'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_CA1F3F463873 ClearHistory
+
+: ME_1FB1A07FEA18
+ CONST UID '1FB1A07FEA18'
+ CONST Name 'Ml3DispatcherHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3DispatcherHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_CA1F3F463873 // ClearHistory
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_1FB1A07FEA18 Ml3DispatcherHelper
+
+: ME_0DC9B60865A3
+ CONST UID '0DC9B60865A3'
+ CONST GUID 'BF29E5DD-DC50-4752-800C-CA9E91242A15'
+ CONST Name 'Il3DispatcherHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3DispatcherHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_CA1F3F463873 // ClearHistory
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_0DC9B60865A3 Il3DispatcherHelper
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_C08C1B480486
+ CONST UID 'C08C1B480486'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3DispatcherHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_0DC9B60865A3 // Il3DispatcherHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_C08C1B480486 Alien
+
+: ME_882A733FAA36
+ CONST UID '882A733FAA36'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_0DC9B60865A3 // Il3DispatcherHelper
+ ;
+
+ @SELF
+; // ME_882A733FAA36 f_Alien
+
+: ME_55069D5903C8
+ CONST UID '55069D5903C8'
+ CONST Name 'ClearHistory'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_55069D5903C8 ClearHistory
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_6CDEE1E8465D
+ CONST UID '6CDEE1E8465D'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_6CDEE1E8465D Exists
+
+: ME_5501A3AE02AA
+ CONST UID '5501A3AE02AA'
+ CONST Name 'Tl3DispatcherHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_C08C1B480486 // Alien
+ ME_882A733FAA36 // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55069D5903C8 // ClearHistory
+ ME_6CDEE1E8465D // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_CA1F3F463873 // ClearHistory
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ME_0DC9B60865A3 // Il3DispatcherHelper
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_5501A3AE02AA Tl3DispatcherHelper

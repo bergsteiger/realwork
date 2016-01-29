@@ -1,0 +1,311 @@
+<<MDALibrary>> VCMProjectLayer
+ %UID '4B5F469E0305'
+ %SUMMARY 'Уровень приложения VCM' ;
+ %DEPENDS
+  U$ '47022A100167' /* CommonLang */
+  U$ '47287F7D02CE' /* RequirementsLib */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '492E952D02A0' /* VCMSubsystemLayer */
+  U$ '499970DC01D0' /* Testing */
+  U$ '561D2FFF03CF' /* SimpleTemplatesLibrary */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '47022A100167' /* CommonLang */
+  U$ '47287F7D02CE' /* RequirementsLib */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '492E952D02A0' /* VCMSubsystemLayer */
+  U$ '499970DC01D0' /* Testing */
+  U$ '561D2FFF03CF' /* SimpleTemplatesLibrary */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<MDALayer>> ProjectDefinitions
+   %UID '492E953D00E4'
+   %SUMMARY 'Возможные стереотипы проектов VCM' ;
+   %DEPENDS
+    U$ '470335BE01D4' /* Target */
+    U$ '470335E60290' /* Requirements */
+    U$ '4732AE850271' /* Redefinitions */
+    U$ '473A7FCA0203' /* Implementation */
+    U$ '492E958E03AF' /* SubsystemLevel */
+    U$ '499971440112' /* Libraries */
+    U$ '4A95178301AC' /* ApplicationLevel */
+    U$ '4A951CD702C9' /* UseCases */
+    U$ '561D302000A4' /* RootStereotypes */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '47022A100167' /* CommonLang */
+    U$ '47287F7D02CE' /* RequirementsLib */
+    U$ '4729C41D032C' /* DelphiLang */
+    U$ '492E952D02A0' /* VCMSubsystemLayer */
+    U$ '499970DC01D0' /* Testing */
+    U$ '4B5F469E0305' /* VCMProjectLayer */
+    U$ '561D2FFF03CF' /* SimpleTemplatesLibrary */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     REDEFINITION <<MDACategory>> Project
+      %UID '492E95760246'
+      %SUMMARY 'Проект' ;
+      %TOBEINCLUDED
+       U$ '561D2FFF03CF' /* SimpleTemplatesLibrary */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '561E4A7E0070' /* Project */
+      ; // %IMPLEMENTS
+      %ATTRIBUTES
+       <<string>> defines
+        %UID '4954CA500241'
+        %SUMMARY 'определяет файл с условиями компиляции' ;
+       ; // defines
+      ; // %ATTRIBUTES
+     ; // Project
+     [EXPORT] <<Project>>
+     <<MDACategory>> VCMDomain
+      %UID '4992E0530224'
+      %SUMMARY 'Предметная область VCM' ;
+      %META
+       %upv "abstraction type" 'a'
+       %upv "can be main" true
+       %upv "inherite constraints" false
+       %upv "personal label" 'code_vcm_domain'
+       %upv "visualization bg color" 13959039
+       %upv "visualization f-font color" 9342520
+       %upv "visualization f-line color" 9342520
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B5F469E0305' /* VCMProjectLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '492E95760246' /* Project */
+      ; // %INHERITS
+      %LINKS
+       <<include>> "4953E1BE016B"
+        %UID '4953E1BE016B'
+        %TARGET U$ '4953E0360081' /* VCMSubsystem */
+       ; // 4953E1BE016B
+       <<include>> "499AEADD03D7"
+        %UID '499AEADD03D7'
+        %TARGET U$ '499971A80065' /* TestLibrary */
+       ; // 499AEADD03D7
+      ; // %LINKS
+     ; // VCMDomain
+     [EXPORT] <<VCMDomain>>
+     <<MDACategory>> VCMGUI
+      %UID '4A8925B00009'
+      %SUMMARY 'GUI-приложение' ;
+      %META
+       %upv "abstraction type" 'f'
+       %upv "inherite constraints" false
+       %upv "personal label" 'code_vcm_gui'
+       %upv "visability type" '+'
+       %upv "visualization bg color" 12842435
+       %upv "visualization f-font color" 5961040
+       %upv "visualization f-line color" 5961040
+      ; // %META
+      %TOBEINCLUDED
+       U$ '492E952D02A0' /* VCMSubsystemLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4953E0360081' /* VCMSubsystem */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4948065C01DF' /* pas_UnitName */
+       U$ '4AA8B17E0178' /* pas_OutUnitFile */
+       U$ '4B2A19E3038B' /* DoSpell */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4A8927F7007F"
+        %UID '4A8927F7007F'
+        %TARGET U$ '4947E343031C' /* VCMViews */
+       ; // 4A8927F7007F
+       <<include>> "4A951D300396"
+        %UID '4A951D300396'
+        %TARGET U$ '4958D0CD0287' /* VCMApplication */
+       ; // 4A951D300396
+      ; // %LINKS
+      %ATTRIBUTES
+       <<string>> HelpFile
+        %UID '4AA8B33802ED'
+       ; // HelpFile
+       <<bool>> "needs second icon"
+        %UID '4AA8B35403AD'
+        %VALUE true
+       ; // "needs second icon"
+       <<tribool>> F1Like
+        %UID '4F6AFC2703A2'
+        %VALUE 'undefined'
+       ; // F1Like
+      ; // %ATTRIBUTES
+      %OPERATIONS
+       BOOLEAN FUNCTION IsVCMGUI OBJECT IN %S
+        %UID '4AA8B1FA0167'
+        %TARGET U$ '3DBFFE100240' /* boolean */
+       ; // IsVCMGUI
+       <<Operation>> OutExtIntfUses OBJECT IN %S
+        %UID '4DA3016E0023'
+       ; // OutExtIntfUses
+       <<Operation>> OutApplicationBody OBJECT IN %S
+        %UID '4DA3018D0398'
+       ; // OutApplicationBody
+      ; // %OPERATIONS
+     ; // VCMGUI
+     [EXPORT] <<VCMGUI>>
+     <<MDACategory>> VCMUseCases
+      %UID '4C851F2E0205'
+      %SUMMARY 'Набор прецедентов' ;
+      %META
+       %upv "abstraction type" 'a'
+       %upv "can be main" true
+       %upv "personal label" 'code_vcm_usecases'
+       %upv "visualization bg color" 11458559
+       %upv "visualization f-font color" 6008319
+       %upv "visualization f-line color" 2124031
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B5F469E0305' /* VCMProjectLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4992E0530224' /* VCMDomain */
+      ; // %INHERITS
+      %LINKS
+       <<include>> "4A891F190005"
+        %UID '4A891F190005'
+        %TARGET U$ '4A891EB000DB' /* VCMUseCase */
+       ; // 4A891F190005
+       <<include>> "4E311C7C0276"
+        %UID '4E311C7C0276'
+        %TARGET U$ '47047244009C' /* Requirements */
+       ; // 4E311C7C0276
+      ; // %LINKS
+     ; // VCMUseCases
+     [EXPORT] <<VCMUseCases>>
+     <<MDACategory>> VCMProject
+      %UID '4B17A8180223'
+      %SUMMARY 'Проект VCM'#13#10'---'#13#10'Может содержать приложения' ;
+      %META
+       %upv "abstraction type" 'f'
+       %upv "can be main" true
+       %upv "personal label" 'code_vcm_project'
+       %upv "visualization bg color" 15438845
+       %upv "visualization f-font color" 8388736
+       %upv "visualization f-line color" 8519755
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B5F469E0305' /* VCMProjectLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C851F2E0205' /* VCMUseCases */
+      ; // %INHERITS
+      %LINKS
+       <<include>> "4A8925D40239"
+        %UID '4A8925D40239'
+        %TARGET U$ '4A8925B00009' /* VCMGUI */
+       ; // 4A8925D40239
+       <<include>> "4E3119CB005C"
+        %UID '4E3119CB005C'
+        %TARGET U$ '47047244009C' /* Requirements */
+       ; // 4E3119CB005C
+      ; // %LINKS
+     ; // VCMProject
+     [EXPORT] <<VCMProject>>
+     <<MDACategory>> VCMTestProject
+      %UID '4D9F244B02F4'
+      %SUMMARY 'Проект для тестирования приложения VCM' ;
+      %META
+       %upv "abstraction type" 'f'
+       %upv "can be main" true
+       %upv "inherite constraints" false
+       %upv "personal label" 'code_vcm_project'
+       %upv "visualization bg color" 12615935
+       %upv "visualization f-font color" 4194432
+       %upv "visualization f-line color" 4194432
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B5F469E0305' /* VCMProjectLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B17A8180223' /* VCMProject */
+      ; // %INHERITS
+      %LINKS
+       <<include>> "4D9F248F02D8"
+        %UID '4D9F248F02D8'
+        %TARGET U$ '499971A80065' /* TestLibrary */
+       ; // 4D9F248F02D8
+       <<include>> "4D9F24B902BB"
+        %UID '4D9F24B902BB'
+        %TARGET U$ '4D9F24AD01A4' /* VCMTestTarget */
+       ; // 4D9F24B902BB
+      ; // %LINKS
+     ; // VCMTestProject
+     [EXPORT] <<VCMTestProject>>
+     <<MDACategory>> VCMTestTarget
+      %UID '4D9F24AD01A4'
+      %SUMMARY 'Тестовое приложение VCM' ;
+      %META
+       %upv "personal label" 'code_test_target'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4729C41D032C' /* DelphiLang */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B4CAE4F00E4' /* TestTarget */
+      ; // %INHERITS
+      %LINKS
+       <<include>> "4D9F254D02BF"
+        %UID '4D9F254D02BF'
+        %TARGET U$ '4D9F253E0082' /* VCMTestApplication */
+       ; // 4D9F254D02BF
+      ; // %LINKS
+     ; // VCMTestTarget
+     [EXPORT] <<VCMTestTarget>>
+     <<MDAClass>> VCMTestApplication
+      %UID '4D9F253E0082'
+      %SUMMARY 'Ресурсы тестового приложения VCM' ;
+      %META
+       %upv "abstraction type" 'f'
+       %upv "personal label" 'code_exe_target'
+       %upv "visualization bg color" 12615935
+       %upv "visualization f-font color" 8388736
+       %upv "visualization f-line color" 8388736
+      ; // %META
+      %TOBEINCLUDED
+       U$ '492E952D02A0' /* VCMSubsystemLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4958D0CD0287' /* VCMApplication */
+      ; // %INHERITS
+     ; // VCMTestApplication
+     [EXPORT] <<VCMTestApplication>>
+     REDEFINITION <<MDACategory>> ProjectGroup
+      %UID '56250DF4011B'
+      %TOBEINCLUDED
+       U$ '561D2FFF03CF' /* SimpleTemplatesLibrary */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '561FCB1E032C' /* ProjectGroup */
+      ; // %IMPLEMENTS
+      %LINKS
+       <<include>> "56250E110353"
+        %UID '56250E110353'
+        %TARGET U$ '4992E0530224' /* VCMDomain */
+       ; // 56250E110353
+       <<include>> "56250E24018C"
+        %UID '56250E24018C'
+        %TARGET U$ '4B17A8180223' /* VCMProject */
+       ; // 56250E24018C
+       <<include>> "56250E2C0226"
+        %UID '56250E2C0226'
+        %TARGET U$ '4D9F244B02F4' /* VCMTestProject */
+       ; // 56250E2C0226
+       <<include>> "56250E350159"
+        %UID '56250E350159'
+        %TARGET U$ '4C851F2E0205' /* VCMUseCases */
+       ; // 56250E350159
+      ; // %LINKS
+     ; // ProjectGroup
+     [EXPORT] <<ProjectGroup>>
+   ; // %CHILDREN
+  ; // ProjectDefinitions
+ ; // %CHILDREN
+; // VCMProjectLayer

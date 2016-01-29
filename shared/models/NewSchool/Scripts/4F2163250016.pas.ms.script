@@ -1,0 +1,1289 @@
+// CodeFlowWords 4F2163250016 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F2163250016
+
+FORWARD ME_4F21634F01C7
+
+FORWARD ME_05ABA7975E25
+
+: ME_D8A71E6A3BD0
+ CONST UID 'D8A71E6A3BD0'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_D8A71E6A3BD0 aCtx
+
+: ME_D8A71E6A3BD1
+ CONST UID 'D8A71E6A3BD1'
+ CONST Name 'aWord'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_D8A71E6A3BD1 aWord
+
+: ME_D8A71E6A3BD2
+ CONST UID 'D8A71E6A3BD2'
+ CONST Name 'aBeforeModal'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_D8A71E6A3BD2 aBeforeModal
+
+: ME_D14B34278240
+ CONST UID 'D14B34278240'
+ CONST Name 'MODAL'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта MODAL' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_05ABA7975E25 // MODAL
+ ;
+ : Parameters
+   @ ( ME_D8A71E6A3BD0 // aCtx
+ ME_D8A71E6A3BD1 // aWord
+ ME_D8A71E6A3BD2 // aBeforeModal
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_D14B34278240 MODAL
+
+: ME_180B238826B1
+ CONST UID '180B238826B1'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MODAL' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_05ABA7975E25 // MODAL
+ ;
+
+ref; // ME_180B238826B1 Ini_Reg
+
+: ME_F685B78B3192
+ CONST UID 'F685B78B3192'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_05ABA7975E25 // MODAL
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_F685B78B3192 
+
+: ME_A28D3283F152
+ CONST UID 'A28D3283F152'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_05ABA7975E25 // MODAL
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_A28D3283F152 
+
+: ME_CEF9AD4431F7
+ CONST UID 'CEF9AD4431F7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_05ABA7975E25 // MODAL
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_CEF9AD4431F7 
+
+: ME_4DB0614603C8_ME_05ABA7975E25
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_05ABA7975E25 // MODAL
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_05ABA7975E25 GetWordNameForRegister
+
+: ME_52E9282B0271_ME_05ABA7975E25
+ CONST UID '52E9282B0271'
+ CONST Name 'RightParamsCount'
+ : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
+ ;
+ : Implementor ME_05ABA7975E25 // MODAL
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52E9282B0271_ME_05ABA7975E25 RightParamsCount
+
+: ME_5512949D0048_ME_05ABA7975E25
+ CONST UID '5512949D0048'
+ CONST Name 'DoRun'
+ : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
+ ;
+ : Implementor ME_05ABA7975E25 // MODAL
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5512949D0048_ME_05ABA7975E25 DoRun
+
+: ME_551544E2001A_ME_05ABA7975E25
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_05ABA7975E25 // MODAL
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_05ABA7975E25 GetResultTypeInfo
+
+: ME_559687E6025A_ME_05ABA7975E25
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_05ABA7975E25 // MODAL
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_05ABA7975E25 GetAllParamsCount
+
+: ME_5617F4D00243_ME_05ABA7975E25
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_05ABA7975E25 // MODAL
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_05ABA7975E25 ParamsTypes
+
+: ME_05ABA7975E25
+ CONST UID '05ABA7975E25'
+ CONST Name 'MODAL'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта MODAL'#13#10'*Пример:*'#13#10'{code}'#13#10' aBeforeModal MODAL aWord'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_5512E4070106' '54F079B5035C.pas.ms.script' // TtfwWordWorkerEx
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_D14B34278240 // MODAL
+ ME_180B238826B1 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_05ABA7975E25 // GetWordNameForRegister
+ ME_52E9282B0271_ME_05ABA7975E25 // RightParamsCount
+ ME_5512949D0048_ME_05ABA7975E25 // DoRun
+ ME_551544E2001A_ME_05ABA7975E25 // GetResultTypeInfo
+ ME_559687E6025A_ME_05ABA7975E25 // GetAllParamsCount
+ ME_5617F4D00243_ME_05ABA7975E25 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_F685B78B3192 // 
+ ME_A28D3283F152 // 
+ ME_CEF9AD4431F7 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'MODAL'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwMODAL'
+
+ref; // ME_05ABA7975E25 MODAL
+
+FORWARD ME_44C318D8896A
+
+: ME_CC1E892D36BB
+ CONST UID 'CC1E892D36BB'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_CC1E892D36BB aCtx
+
+: ME_CC1E892D36BC
+ CONST UID 'CC1E892D36BC'
+ CONST Name 'aWord'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_CC1E892D36BC aWord
+
+: ME_A56425D1C72F
+ CONST UID 'A56425D1C72F'
+ CONST Name 'THREAD'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта THREAD' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_44C318D8896A // THREAD
+ ;
+ : Parameters
+   @ ( ME_CC1E892D36BB // aCtx
+ ME_CC1E892D36BC // aWord
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_A56425D1C72F THREAD
+
+: ME_0B212FF0A16D
+ CONST UID '0B212FF0A16D'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация THREAD' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_44C318D8896A // THREAD
+ ;
+
+ref; // ME_0B212FF0A16D Ini_Reg
+
+: ME_13F4AA310C42
+ CONST UID '13F4AA310C42'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_44C318D8896A // THREAD
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_13F4AA310C42 
+
+: ME_75E2BC923346
+ CONST UID '75E2BC923346'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_44C318D8896A // THREAD
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_75E2BC923346 
+
+: ME_828E9A248D8E
+ CONST UID '828E9A248D8E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_44C318D8896A // THREAD
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_828E9A248D8E 
+
+: ME_4DB0614603C8_ME_44C318D8896A
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_44C318D8896A // THREAD
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_44C318D8896A GetWordNameForRegister
+
+: ME_52E9282B0271_ME_44C318D8896A
+ CONST UID '52E9282B0271'
+ CONST Name 'RightParamsCount'
+ : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
+ ;
+ : Implementor ME_44C318D8896A // THREAD
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52E9282B0271_ME_44C318D8896A RightParamsCount
+
+: ME_5512949D0048_ME_44C318D8896A
+ CONST UID '5512949D0048'
+ CONST Name 'DoRun'
+ : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
+ ;
+ : Implementor ME_44C318D8896A // THREAD
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5512949D0048_ME_44C318D8896A DoRun
+
+: ME_551544E2001A_ME_44C318D8896A
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_44C318D8896A // THREAD
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_44C318D8896A GetResultTypeInfo
+
+: ME_559687E6025A_ME_44C318D8896A
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_44C318D8896A // THREAD
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_44C318D8896A GetAllParamsCount
+
+: ME_5617F4D00243_ME_44C318D8896A
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_44C318D8896A // THREAD
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_44C318D8896A ParamsTypes
+
+: ME_44C318D8896A
+ CONST UID '44C318D8896A'
+ CONST Name 'THREAD'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта THREAD'#13#10'*Пример:*'#13#10'{code}'#13#10' THREAD aWord'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_5512E4070106' '54F079B5035C.pas.ms.script' // TtfwWordWorkerEx
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_A56425D1C72F // THREAD
+ ME_0B212FF0A16D // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_44C318D8896A // GetWordNameForRegister
+ ME_52E9282B0271_ME_44C318D8896A // RightParamsCount
+ ME_5512949D0048_ME_44C318D8896A // DoRun
+ ME_551544E2001A_ME_44C318D8896A // GetResultTypeInfo
+ ME_559687E6025A_ME_44C318D8896A // GetAllParamsCount
+ ME_5617F4D00243_ME_44C318D8896A // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_13F4AA310C42 // 
+ ME_75E2BC923346 // 
+ ME_828E9A248D8E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'THREAD'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwTHREAD'
+
+ref; // ME_44C318D8896A THREAD
+
+: ME_553F9F9B03E2
+ CONST UID '553F9F9B03E2'
+ CONST Name 'aBeforeModal'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_553F9F9B03E2 aBeforeModal
+
+: ME_553F9F73034D
+ CONST UID '553F9F73034D'
+ CONST Name 'MODAL'
+ CONST Class class_Operation
+ : Stereotype st_globalwordworker::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ : Parameters
+   @ ( ME_553F9F9B03E2 // aBeforeModal
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "SupressNextImmediate" 'None'
+
+ref; // ME_553F9F73034D MODAL
+
+: ME_553FAAB10161
+ CONST UID '553FAAB10161'
+ CONST Name 'THREAD'
+ CONST Class class_Operation
+ : Stereotype st_globalwordworker::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ CONST "SupressNextImmediate" 'None'
+
+ref; // ME_553FAAB10161 THREAD
+
+: ME_9826E34AB1D9
+ CONST UID '9826E34AB1D9'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+
+ref; // ME_9826E34AB1D9 Reg_TtfwContext
+
+: ME_BABEA0D1AF95
+ CONST UID 'BABEA0D1AF95'
+ CONST Name 'Reg_TtfwWord'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+
+ref; // ME_BABEA0D1AF95 Reg_TtfwWord
+
+FORWARD ME_4FC7541C02BA
+
+: ME_553F9FA100CA
+ CONST UID '553F9FA100CA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ : Target ME_4FC7541C02BA // seModalSupport
+ ;
+
+ref; // ME_553F9FA100CA 
+
+: ME_553F9FBD035A
+ CONST UID '553F9FBD035A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ : Target WL 'ME_4FC77244014D' '5507EB5803E7.pas.ms.script' // El3TryEnterModalState
+ ;
+
+ref; // ME_553F9FBD035A 
+
+: ME_553FAAC90287
+ CONST UID '553FAAC90287'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ : Target WL 'ME_50BF049002DB' '50C065860332.pas.ms.script' // TseWorkThreadList
+ ;
+
+ref; // ME_553FAAC90287 
+
+: ME_6A42A65C278C
+ CONST UID '6A42A65C278C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_6A42A65C278C 
+
+: ME_943D69EAC7BD
+ CONST UID '943D69EAC7BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_943D69EAC7BD 
+
+: ME_4F21634F01C7
+ CONST UID '4F21634F01C7'
+ CONST Name 'CodeFlowWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2163250016 // CodeFlowWords
+ ;
+ : Operations
+   @ ( ME_553F9F73034D // MODAL
+ ME_553FAAB10161 // THREAD
+ ME_9826E34AB1D9 // Reg_TtfwContext
+ ME_BABEA0D1AF95 // Reg_TtfwWord
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_05ABA7975E25 // MODAL
+ ME_44C318D8896A // THREAD
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_553F9FA100CA // 
+ ME_553F9FBD035A // 
+ ME_553FAAC90287 // 
+ ME_6A42A65C278C // 
+ ME_943D69EAC7BD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CodeFlowWordsPack.pas'
+
+ref; // ME_4F21634F01C7 CodeFlowWordsPack
+
+FORWARD ME_553F737A02D6
+
+: ME_AED6715B9AC0
+ CONST UID 'AED6715B9AC0'
+ CONST Name 'bind'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TseModalService' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_553F737A02D6 // TseModalService
+ ;
+
+ref; // ME_AED6715B9AC0 bind
+
+: ME_3A499AB2229E
+ CONST UID '3A499AB2229E'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_553F737A02D6 // TseModalService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_3A499AB2229E Exists
+
+: ME_553F7384030B
+ CONST UID '553F7384030B'
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent ME_553F737A02D6 // TseModalService
+ ;
+ : Target WL 'ME_553F71BE03E0' '4E030FC801EB.pas.ms.script' // Tl3ModalService
+ ;
+
+ref; // ME_553F7384030B 
+
+: ME_553F7345032E_ME_553F737A02D6
+ CONST UID '553F7345032E'
+ CONST Name 'HasModalWorker'
+ : Original WL 'ME_553F7345032E' '4E030FC801EB.pas.ms.script' // HasModalWorker
+ ;
+ : Implementor ME_553F737A02D6 // TseModalService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_553F7345032E_ME_553F737A02D6 HasModalWorker
+
+: ME_553F8EA30300_ME_553F737A02D6
+ CONST UID '553F8EA30300'
+ CONST Name 'ExecuteCurrentModalWorker'
+ : Original WL 'ME_553F8EA30300' '4E030FC801EB.pas.ms.script' // ExecuteCurrentModalWorker
+ ;
+ : Implementor ME_553F737A02D6 // TseModalService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_553F8EA30300_ME_553F737A02D6 ExecuteCurrentModalWorker
+
+: ME_553F737A02D6
+ CONST UID '553F737A02D6'
+ CONST Name 'TseModalService'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_09072C2825F1' '4E030FC801EB.pas.ms.script' // Il3ModalService
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_AED6715B9AC0 // bind
+ ME_3A499AB2229E // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_553F7345032E_ME_553F737A02D6 // HasModalWorker
+ ME_553F8EA30300_ME_553F737A02D6 // ExecuteCurrentModalWorker
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_553F7384030B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ref; // ME_553F737A02D6 TseModalService
+
+FORWARD ME_4FC7549A03B6
+
+: ME_4FC754B900F6
+ CONST UID '4FC754B900F6'
+ CONST Name 'aWorker'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_4FC754B900F6 aWorker
+
+: ME_4FC75511029A
+ CONST UID '4FC75511029A'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_4FC75511029A aCtx
+
+: ME_4FC754AA030E
+ CONST UID '4FC754AA030E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7549A03B6 // seAddModalWorker
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4FC754B900F6 // aWorker
+ ME_4FC75511029A // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC754AA030E DoIt
+
+: ME_4FC7549A03B6
+ CONST UID '4FC7549A03B6'
+ CONST Name 'seAddModalWorker'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Operations
+   @ ( ME_4FC754AA030E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC7549A03B6 seAddModalWorker
+
+FORWARD ME_4FC754C20096
+
+: ME_552631A303A5
+ CONST UID '552631A303A5'
+ CONST Name 'aModalExecute'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5526316402F9' '4E030FC801EB.pas.ms.script' // TseModalExecute
+ ;
+
+ref; // ME_552631A303A5 aModalExecute
+
+: ME_4FC754ED01A6
+ CONST UID '4FC754ED01A6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC754C20096 // seExecuteCurrentModalWorker
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_552631A303A5 // aModalExecute
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC754ED01A6 DoIt
+
+: ME_5507EA98008B
+ CONST UID '5507EA98008B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC754C20096 // seExecuteCurrentModalWorker
+ ;
+ : Target WL 'ME_5506D3B202FA' '5506D079035B.pas.ms.script' // Tl3MessagesService
+ ;
+
+ref; // ME_5507EA98008B 
+
+: ME_4FC754C20096
+ CONST UID '4FC754C20096'
+ CONST Name 'seExecuteCurrentModalWorker'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Operations
+   @ ( ME_4FC754ED01A6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5507EA98008B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4FC754C20096 seExecuteCurrentModalWorker
+
+FORWARD ME_4FC7749201E0
+
+: ME_4FC774AB0041
+ CONST UID '4FC774AB0041'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7749201E0 // seHasModalWorker
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC774AB0041 DoIt
+
+: ME_4FC7749201E0
+ CONST UID '4FC7749201E0'
+ CONST Name 'seHasModalWorker'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Operations
+   @ ( ME_4FC774AB0041 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC7749201E0 seHasModalWorker
+
+FORWARD ME_5193915002D8
+
+: ME_5193917C0187
+ CONST UID '5193917C0187'
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5193917C0187 aCount
+
+: ME_5193916B0370
+ CONST UID '5193916B0370'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5193915002D8 // seIsValidModalWorkersCount
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5193917C0187 // aCount
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5193916B0370 DoIt
+
+: ME_5193915002D8
+ CONST UID '5193915002D8'
+ CONST Name 'seIsValidModalWorkersCount'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Operations
+   @ ( ME_5193916B0370 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5193915002D8 seIsValidModalWorkersCount
+
+FORWARD ME_4FC756830111
+
+: ME_4FC7568E03C3
+ CONST UID '4FC7568E03C3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Target ME_4FC756830111 // TseModalWorkerList
+ ;
+
+ref; // ME_4FC7568E03C3 
+
+FORWARD ME_4FC7557C0082
+
+: ME_4FC7678C032A
+ CONST UID '4FC7678C032A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Target ME_4FC7557C0082 // TseModalWorker
+ ;
+
+ref; // ME_4FC7678C032A 
+
+: ME_5507EB35024A
+ CONST UID '5507EB35024A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Target WL 'ME_4FC77244014D' '5507EB5803E7.pas.ms.script' // El3TryEnterModalState
+ ;
+
+ref; // ME_5507EB35024A 
+
+: ME_5507FE3C03A0
+ CONST UID '5507FE3C03A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC7541C02BA // seModalSupport
+ ;
+ : Target WL 'ME_5507FDD203E1' '4E030FC801EB.pas.ms.script' // Tl3BatchService
+ ;
+
+ref; // ME_5507FE3C03A0 
+
+: ME_4FC7541C02BA
+ CONST UID '4FC7541C02BA'
+ CONST Name 'seModalSupport'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2163250016 // CodeFlowWords
+ ;
+ : Operations
+   @ ( ME_4FC7549A03B6 // seAddModalWorker
+ ME_4FC754C20096 // seExecuteCurrentModalWorker
+ ME_4FC7749201E0 // seHasModalWorker
+ ME_5193915002D8 // seIsValidModalWorkersCount
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_553F737A02D6 // TseModalService
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4FC7568E03C3 // 
+ ME_4FC7678C032A // 
+ ME_5507EB35024A // 
+ ME_5507FE3C03A0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seModalSupport.pas'
+
+ref; // ME_4FC7541C02BA seModalSupport
+
+FORWARD ME_4FC7562801FE
+
+: ME_4FC756510366
+ CONST UID '4FC756510366'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4FC7562801FE // TseModalWorkerListPrim
+ ;
+ : Target ME_4FC7557C0082 // TseModalWorker
+ ;
+
+ref; // ME_4FC756510366 ItemType
+
+: ME_47B07CF403D0_ME_4FC7562801FE
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_4FC7562801FE // TseModalWorkerListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_4FC7562801FE IsSameItems
+
+: ME_47B2C42A0163_ME_4FC7562801FE
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4FC7562801FE // TseModalWorkerListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4FC7562801FE AssignItem
+
+: ME_47B99D4503A2_ME_4FC7562801FE
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4FC7562801FE // TseModalWorkerListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_4FC7562801FE CompareExistingItems
+
+: ME_4FC7562801FE
+ CONST UID '4FC7562801FE'
+ CONST Name 'TseModalWorkerListPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2163250016 // CodeFlowWords
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4FC756510366 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_4FC7562801FE // IsSameItems
+ ME_47B2C42A0163_ME_4FC7562801FE // AssignItem
+ ME_47B99D4503A2_ME_4FC7562801FE // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seModalWorkerListPrim.pas'
+
+ref; // ME_4FC7562801FE TseModalWorkerListPrim
+
+: ME_CFED9B7131DB
+ CONST UID 'CFED9B7131DB'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC756830111 // TseModalWorkerList
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_CFED9B7131DB Exists
+
+: ME_4FC756830111
+ CONST UID '4FC756830111'
+ CONST Name 'TseModalWorkerList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2163250016 // CodeFlowWords
+ ;
+ : Inherits
+   @ ( ME_4FC7562801FE // TseModalWorkerListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_CFED9B7131DB // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seModalWorkerList.pas'
+
+ref; // ME_4FC756830111 TseModalWorkerList
+
+FORWARD ME_4FC75F0F0061
+
+: ME_4FC755A00150
+ CONST UID '4FC755A00150'
+ CONST Name 'rWord'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_4FC7557C0082 // TseModalWorker
+ ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_4FC755A00150 rWord
+
+: ME_4FC755A80170
+ CONST UID '4FC755A80170'
+ CONST Name 'rContext'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_4FC7557C0082 // TseModalWorker
+ ;
+ : Target WL 'ME_4DCACEA0005A' '4DAF19F600C5.pas.ms.script' // PtfwContext
+ ;
+
+ref; // ME_4FC755A80170 rContext
+
+FORWARD ME_4FC755BA022E
+
+: ME_4FC755C70112
+ CONST UID '4FC755C70112'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC755BA022E // Free
+ ;
+
+ref; // ME_4FC755C70112 DoIt
+
+: ME_4FC755BA022E
+ CONST UID '4FC755BA022E'
+ CONST Name 'Free'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7557C0082 // TseModalWorker
+ ;
+ : Operations
+   @ ( ME_4FC755C70112 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC755BA022E Free
+
+FORWARD ME_4FC755E000C9
+
+: ME_4FC755FE02EC
+ CONST UID '4FC755FE02EC'
+ CONST Name 'aWord'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_4FC755FE02EC aWord
+
+: ME_4FC755FE0327
+ CONST UID '4FC755FE0327'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_4FC755FE0327 aContext
+
+: ME_4FC755E702B0
+ CONST UID '4FC755E702B0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC755E000C9 // C
+ ;
+ : Parameters
+   @ ( ME_4FC755FE02EC // aWord
+ ME_4FC755FE0327 // aContext
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC755E702B0 DoIt
+
+: ME_4FC755E000C9
+ CONST UID '4FC755E000C9'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7557C0082 // TseModalWorker
+ ;
+ : Operations
+   @ ( ME_4FC755E702B0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC755E000C9 C
+
+: ME_4FC7557C0082
+ CONST UID '4FC7557C0082'
+ CONST Name 'TseModalWorker'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4FC75F0F0061 // seModalWorker
+ ;
+ : Attributes
+   @ ( ME_4FC755A00150 // rWord
+ ME_4FC755A80170 // rContext
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4FC755BA022E // Free
+ ME_4FC755E000C9 // C
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_4FC7557C0082 TseModalWorker
+
+: ME_4FC75F0F0061
+ CONST UID '4FC75F0F0061'
+ CONST Name 'seModalWorker'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2163250016 // CodeFlowWords
+ ;
+ : Children
+   @ ( ME_4FC7557C0082 // TseModalWorker
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seModalWorker.pas'
+
+ref; // ME_4FC75F0F0061 seModalWorker
+
+: ME_4F2163250016
+ CONST UID '4F2163250016'
+ CONST Name 'CodeFlowWords'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ %SUMMARY 'Слова управляющие последовательностью исполнения кода' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
+ ;
+ : Children
+   @ ( ME_4F21634F01C7 // CodeFlowWordsPack
+ ME_4FC7541C02BA // seModalSupport
+ ME_4FC7562801FE // TseModalWorkerListPrim
+ ME_4FC756830111 // TseModalWorkerList
+ ME_4FC75F0F0061 // seModalWorker
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4E030FC801EB' '4E030FC801EB.pas.ms.script' // BatchServices
+ WL 'ME_50C065860332' '50C065860332.pas.ms.script' // CodeFlowSupport
+ WL 'ME_54F079B5035C' '54F079B5035C.pas.ms.script' // CompiledWords
+ WL 'ME_5506D079035B' '5506D079035B.pas.ms.script' // AFWServices
+ WL 'ME_5507EB5803E7' '5507EB5803E7.pas.ms.script' // l3AFWExceptions
+ WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F2163250016.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F2163250016.pas.ms.script.runner'
+
+ref; // ME_4F2163250016 CodeFlowWords

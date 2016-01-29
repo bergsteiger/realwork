@@ -1,0 +1,873 @@
+#ifndef __UAKGQUERY_IDL
+#define __UAKGQUERY_IDL
+
+/*
+* IDL Definitions for UAKGQueryService
+* (C) Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>, 1998 - 2002
+* (C) Grad-Soft Ltd <info@gradsoft.kiev.ua> 2001 - 2002
+* $Id: UAKGQuery.idl,v 1.1 2010/09/27 16:45:55 lulin Exp $
+*/
+
+#ifdef CORBA_HAVE_OTS
+#ifndef __COSTRANSACTIONS_IDL
+#include <CosTransactions.idl>
+#endif
+#endif
+
+#ifndef __COSQUERY_IDL
+#include <CosQuery.idl>
+#endif
+
+#ifndef __RC_IDL
+#include <RC.idl>
+#endif
+
+#pragma prefix "gradsoft.kiev.ua"
+
+/**
+ * UAKGQuery module
+ * (GradSoft-specific type of UAKGQuery implementation).
+ **/
+module UAKGQuery 
+{
+
+    ///
+    typedef sequence<string> StringSeq;
+
+   /**
+    * struct for description of field size.
+    * name: name of field in DB.
+    * ValueType: field type.
+    * size: size of field in bytes. (for strings: include \0, i. e. 
+    *       for VARCHAR(x) size is x+1
+    * precision (have sense only for NUMERIC types) - precision.
+    * scale (have sense only for NUMERIC types) - scale, as signed byte.
+    **/
+   struct FieldDescription{
+      /// name of field in db
+      string         name;
+      /// field type
+      CosQueryCollection::FieldType      type;
+      /// size of field in bytes (for strings: include trailing \0, i. e.
+      /// for VARCHAR2(x) size is x+1 
+      unsigned long  size;
+      /// precision (have sense only for numeric types)
+      unsigned short precision;
+      /// scale (have sense only for numeric types)
+      short          scale;
+   };
+
+   ///
+   typedef sequence<FieldDescription>  RecordDescription;
+
+  /*
+   struct ParameterDescription
+   {
+     FieldDescription      field;
+     CORBA::ParameterMode  mode;
+   };
+   typedef sequence<ParameterDescription>  ParametersDescription;
+  */
+     
+   ///
+   struct QueryError
+   {
+    /// error code: 0 is OK.
+    long   errorCode;  
+    /// error message
+    string errorMessage;
+    /// sql string, during execution of which error causes.
+    string sqlString;
+    /// db name
+    string dbName;
+    /// error code from underlaying database
+    long dbErrorCode;
+   };
+
+   ///
+   exception QueryNotPrepared {};
+   ///
+   exception InvalidParameterName{};
+   ///
+   exception InvalidParameterType{};
+   ///
+   exception PropertyNotDefined{};
+
+
+   /**
+    * Hight level interface for evaluationg SQL queries
+    **/
+   interface QueryEvaluator
+#ifdef CORBA_HAVE_OTS
+                         //   :CosTransactions::TransactionalObject
+                         // in all ORB-s context is passing uncoditionally 
+#endif
+   {
+
+     /**
+      * evaluate query <code> queryText </code> and return result as
+      * RC-coded octet sequence.
+      *@param queryText -- text of query
+      *@param queryFlags -- flags for query executing
+      *@param recordDescription -- description of input parameters.
+      *@param params -- input parameters as RC-coded octet sequence
+      *@return result of query
+      **/
+     OctSeq evaluate_rc(in string queryText, in string queryFlags,
+                        in RecordDescription recordDescription_,
+                        in OctSeq params)
+              raises(CosQuery::QueryTypeInvalid,
+                     CosQuery::QueryInvalid,
+                     CosQuery::QueryProcessingError);
+
+     /**
+      * evaluate query <code> queryText </code> and return result as
+      * sequence of records.
+      *@param queryText -- text of query
+      *@param queryFlags -- flags for query executing
+      *@param recordDescription -- description of input parameters.
+      *@param params -- input parameters as record sequence.
+      *@return result of query
+      **/
+     RC::RecordSeq evaluate_records(in string queryText, in string queryFlags,
+                                in RecordDescription recordDescription_,
+                                in RC::RecordSeq params)
+              raises(CosQuery::QueryTypeInvalid,
+                     CosQuery::QueryInvalid,
+                     CosQuery::QueryProcessingError);
+
+
+
+     /**
+      * evaluate query <code> queryText </code> and return result as
+      * RC-coded octet sequence.
+      *@param queryText -- text of query
+      *@param queryFlags -- flags for query executing
+      *@param recordDescription_ -- description of input parameters.
+      *@param params -- input parameters as record .
+      *@return result of query
+      **/
+     RC::RecordSeq evaluate_record(in string queryText,
+                                                in string queryFlags,
+                                in RecordDescription recordDescription_,
+                                in CosQueryCollection::Record params)
+              raises(CosQuery::QueryTypeInvalid,
+                     CosQuery::QueryInvalid,
+                     CosQuery::QueryProcessingError);
+
+
+     /**
+      * evaluate query <code> queryText </code> without bind parameters
+      * and return result as RC-coded octet sequence.
+      *@param queryText -- text of query
+      *@param queryFlags -- flags for query executing
+      *@return result of query
+      **/
+     OctSeq evaluate_rc_e(in string queryText, in string queryFlags)
+              raises(CosQuery::QueryTypeInvalid,
+                     CosQuery::QueryInvalid,
+                     CosQuery::QueryProcessingError);
+
+     /**
+      * evaluate query <code> queryText </code> without bind parameters
+      * and return result as sequence of records.
+      *@param queryText -- text of query
+      *@param queryFlags -- flags for query executing
+      *@return result of query
+      **/
+     RC::RecordSeq evaluate_records_e(in string queryText, in string queryFlags)
+              raises(CosQuery::QueryTypeInvalid,
+                     CosQuery::QueryInvalid,
+                     CosQuery::QueryProcessingError);
+     
+     /**
+      * evaluate query <code> queryText </code> and fill out and inout 
+      * parameters of queury, return result as RC-coded octet sequence.
+      *@param queryText -- text of query
+      *@param queryFlags -- flags for query executing
+      *@param recordDescription_ -- description of input parameters.
+      *@param params -- input parameters as record .
+      *@return result of query
+      **/
+     OctSeq evaluate_rc_inout(in string queryText, in string queryFlags,
+                              in RecordDescription recordDescription_,
+                              inout OctSeq params)
+              raises(CosQuery::QueryTypeInvalid,
+                     CosQuery::QueryInvalid,
+                     CosQuery::QueryProcessingError);
+
+     /**
+      * evaluate query <code> queryText </code> and fill out and inout 
+      * parameters of queury, return result as sequence of records.
+      *@param queryText -- text of query
+      *@param queryFlags -- flags for query executing
+      *@param recordDescription_ -- description of input parameters.
+      *@param params -- input parameters as record .
+      *@return result of query
+      **/
+     RC::RecordSeq evaluate_records_inout(in string queryFlags, 
+                              in string queryType,
+                              in RecordDescription recordDescription_,
+                              inout RC::RecordSeq params)
+              raises(CosQuery::QueryTypeInvalid,
+                     CosQuery::QueryInvalid,
+                     CosQuery::QueryProcessingError);
+
+
+   };
+
+
+
+   interface Query;
+   interface QueryManager;
+
+   /**
+    * this is interface for UAKG Query
+    * Query is SQL text with set of parameters: prepare parameters and 
+    * execute parameters.
+    *  prepare parameters are descriptionas of appropriative execute parameters
+    *  execute parameters are SQL host valiables.
+    * i. e. let we have query (SELECT * from T where x=:x and y=:y);
+    * than prepare query have type RecordDescription and consist from
+    * FieldDescription of :x and :y.
+    * execute query are values of :x and :y (or sequence of pair of values
+    * for multiple evaluated query).
+    */
+   interface Query
+   {
+
+     /**
+      *@return owner of query
+      **/
+     readonly attribute QueryManager query_mgr;
+
+     /**
+      *@return text of query.
+      */
+     readonly attribute string  queryText;
+ 
+
+     /**
+      * return status of query: i.e: 
+      *  complete when query is executed, otherwise incomplete
+      */
+     CosQuery::QueryStatus get_status ();
+
+
+     /**
+      * prepare query for executing.
+      * if query have no parameters, paramsDescription must be empty 
+      * sequence.
+      */
+     void prepare_query(in RecordDescription paramsDescription)
+                   raises(CosQuery::QueryProcessingError);
+
+     /**
+      * synonim for prepare_query 
+      **/
+     void prepare(in RecordDescription paramsDescription)
+                   raises(CosQuery::QueryProcessingError);
+
+
+     /**
+      * execute query
+      *@params octSeq_  records of execute parameters, coded as RCSeq
+      * (note, that prepare parameters is record descriptio of execute
+      *  record).
+      **/
+     void execute_rc(in OctSeq octSeq_)
+                            raises(CosQuery::QueryProcessingError);
+
+     /**
+      * execute query with inout parameters
+      *@params octSeq_  records of execute parameters, coded as RCSeq
+      **/
+     void execute_rc_inout(inout OctSeq octSeq_)
+                            raises(CosQuery::QueryProcessingError);
+     
+     /**
+      * execute query
+      *@params records -- query host parameters in RecordSeq
+      * (query will be evaluated records.length() times)
+      **/
+     void execute_records(in RC::RecordSeq records)
+                            raises(CosQuery::QueryProcessingError);
+
+     /**
+      * execute query
+      *@params record_ -- query host parameters in one recod
+      **/
+     void execute_record(in CosQueryCollection::Record record_)
+                            raises(CosQuery::QueryProcessingError);
+
+     ///
+     void execute_records_inout(inout RC::RecordSeq recordSeq_)
+                            raises(CosQuery::QueryProcessingError);
+     
+     ///
+     RecordDescription  get_result_description() 
+                               raises(CosQuery::QueryProcessingError, 
+                                      QueryNotPrepared);
+
+     /**
+      * get description of records parameters
+      *@precondition
+      * must be called after prepare
+      **/
+     RecordDescription  get_parameters_description()
+                               raises(CosQuery::QueryProcessingError);
+
+     ///
+     RC::RecordSeq get_all_parameters_records() 
+                               raises(CosQuery::QueryProcessingError);
+
+     ///
+     RC::RecordSeq get_parameters_records(in StringSeq neededFields)
+                               raises(CosQuery::QueryProcessingError,
+                                      InvalidParameterName);
+
+     ///
+     OctSeq get_all_parameters_rc() 
+                               raises(CosQuery::QueryProcessingError);
+
+     ///
+     OctSeq get_parameters_rc(in StringSeq fieldNames)
+                               raises(CosQuery::QueryProcessingError,
+                                      InvalidParameterName);
+
+     /**
+      *@returns number of fetched rows.
+      */
+     unsigned long  get_row_count()
+                       raises(CosQuery::QueryProcessingError);
+
+     /**
+      * fetch query result in records.
+      * @param numberOfRecords -- number of records to fetch.
+      *        0 means, that we want to fetch all records.
+      * @param more -- true, if status is incomplete (i.e. we can query
+      * more results), otherwise false.
+      * @returns fetched rows packed in RC coding to octet sequence.
+      **/
+     OctSeq  fetch_rc(in unsigned long numberOfRecords, out boolean more)
+                       raises(CosQuery::QueryProcessingError);
+
+     /**
+      * synonim for fetch_rc.
+      */
+     OctSeq  get_result_rc(in unsigned long numberOfRecords)
+                       raises(CosQuery::QueryProcessingError);
+
+
+     /**
+      * fetch query result in records.
+      * @param numberOfRecords -- number of records to fetch.
+      *        0 means, that we want to fetch all records.
+      * @param more -- true, if status is incomplete (i.e. we can query
+      * more results), otherwise false.
+      * @returns fetched records.
+      **/
+     RC::RecordSeq fetch_records(in unsigned long numberOfRecords,
+                             out boolean more)
+                       raises(CosQuery::QueryProcessingError);
+
+     /**
+      * synonim for fetch_records
+      */
+     RC::RecordSeq  get_result_records(in unsigned long numberOfRecords)
+                       raises(CosQuery::QueryProcessingError);
+
+     /**
+      * skip N records without retrieving.
+      *@returns actual number of skipped records.
+      */
+     unsigned   long  skip(in unsigned long numberOfRecords,
+                           out boolean more)
+                       raises(CosQuery::QueryProcessingError);
+
+
+     /**
+      * request Blob for filling query parameters
+      *@returns empty Blob for writing only.
+      */
+     CosQueryCollection::Blob create_blob()
+             raises(CosQuery::QueryProcessingError);
+
+     /**
+      * request Clob for filling query parameters
+      *@returns empty Clob for writing only.
+      */
+     CosQueryCollection::Clob create_clob()
+             raises(CosQuery::QueryProcessingError);
+
+     /**
+      * request Wclob for filling query parameters
+      *@returns empty Wclob for writing only.
+      */
+     CosQueryCollection::Wclob create_wclob()
+             raises(CosQuery::QueryProcessingError);
+
+
+     /**
+      *@return last error.
+      * if Query is ok, code in error is 0.
+      */
+     QueryError  get_last_error();
+
+     /**
+      * destroy query, which not longer needed
+      **/
+     void        destroy();
+
+   };
+
+//
+// UAKGQueryCollections
+//
+
+
+ interface UAKGCollectionListener;
+ interface UAKGIterator;
+
+ ///
+ exception ReadOnlyCollection {};
+ ///
+ exception ReadOnlyIterator {};
+ ///
+ exception KeyNotFound {};
+
+  ///
+ interface UAKGCollection: QueryEvaluator
+ {
+
+   ///
+   readonly attribute string  selectQueryText;
+   ///
+   readonly attribute string  selectDistinctQueryText;
+   ///
+   readonly attribute string  selectRangeQueryText;
+   ///
+   readonly attribute string  countQueryText;
+   ///
+   readonly attribute string  insertQueryText;
+   ///
+   readonly attribute string  removeAllQueryText;
+   ///
+   readonly attribute string  orderByText;
+
+   ///
+   RecordDescription  getRecordDescription()
+                          raises(CosQuery::QueryProcessingError);
+
+   ///
+   void     set_readonly(in boolean rdonly)
+                          raises(ReadOnlyCollection);
+
+   ///
+   boolean  is_readonly();
+
+   /**
+    * true, is select collection is ordered.
+    **/
+   readonly   attribute boolean    sorted;
+
+   /**
+    * add record
+    **/
+   void       add_record(in CosQueryCollection::Record element) 
+                   raises(CosQueryCollection::ElementInvalid,
+                          CosQuery::QueryProcessingError,
+                          ReadOnlyCollection);
+
+
+   /**
+    * add records
+    **/
+   void       add_records(in RC::RecordSeq elements) 
+                   raises(CosQueryCollection::ElementInvalid,
+                          CosQuery::QueryProcessingError,
+                          ReadOnlyCollection);
+
+
+   /**
+    * add records coded in RC sequence
+    **/
+   void       add_rc(in OctSeq rc)
+                       raises(CosQueryCollection::ElementInvalid,
+                              CosQuery::QueryProcessingError,
+                              ReadOnlyCollection);
+
+
+     //
+     // retrieve record number
+
+   /**
+    *return number of records in collection
+    *@returns number of records in collection
+    **/
+   unsigned long  get_number_of_records()
+                         raises(CosQuery::QueryProcessingError);
+
+     //
+     // retrieve records
+
+   /**
+    * retrieve records by filter. 
+    *@param where-filter : logical expression for selection of records 
+    *   to delete (in SQL-like DBs is context of where clause)
+    *TODO: what it return is it correct ?
+    */
+   OctSeq     retrieve_by_filter(in string where_filter)
+                         raises(CosQuery::QueryProcessingError);
+
+   
+   /**
+    * retrieve records by pattern.
+    *@param : pattern
+    *TODO: what it return is it correct ?
+    **/
+   OctSeq     retrieve_by_pattern(in CosQueryCollection::Record pattern)
+                         raises(CosQuery::QueryProcessingError,
+                                CosQueryCollection::ElementInvalid);
+
+
+     //
+     // replacing
+     //
+
+   /**
+    * update records by pattern
+    *@param  newRecord -- new record instead pattern matched
+    *@param  pattern -- pattern for matching 
+    **/
+   void       update_by_pattern(in CosQueryCollection::Record newRecord, 
+                                in CosQueryCollection::Record pattern ) 
+                       raises(CosQuery::QueryProcessingError,
+                              CosQueryCollection::ElementInvalid,
+                              ReadOnlyCollection);
+
+   /**
+    * update records by filter
+    *@param  newRecord -- new record instead filter matched
+    *@param  filter --  condition
+    **/
+   void       update_by_filter( in CosQueryCollection::Record newRecord, 
+                                in string filter )
+                       raises(CosQuery::QueryProcessingError,
+                              CosQueryCollection::ElementInvalid,
+                              ReadOnlyCollection);
+
+     //
+     // removing
+     //
+
+   /**
+    * remove all records from collection
+    **/
+   void       remove_all_records()
+                      raises(CosQuery::QueryProcessingError,
+                             ReadOnlyCollection);
+
+   /**
+    * remove records with same value as <code> record_ </code>
+    *@param record_ - value of record to be removed.
+    **/
+   void       remove_record(in CosQueryCollection::Record record_)
+                       raises(CosQuery::QueryProcessingError,
+                              CosQueryCollection::ElementInvalid,
+                              ReadOnlyCollection);
+
+   /**
+    * remove records with are satisficated to <code> filter </code>
+    *@param filter - logical expression for selectiong removed records.
+    **/
+   void      remove_records_by_filter(in string filter)
+                       raises(CosQuery::QueryProcessingError,
+                              ReadOnlyCollection);
+
+   /**
+    * remove records with are match pattern  <code> pattern </code>
+    *@param pattern - pattern to match.
+    **/
+   void      remove_records_by_pattern(in CosQueryCollection::Record pattern)
+                       raises(CosQuery::QueryProcessingError,
+                              ReadOnlyCollection);
+
+    //
+    // elements ordering
+    //
+
+   /**
+    * sort - set new order expression
+    *@param order_expressinon - new expresiion for ORDER BY clause
+    **/
+   void       sort(in string order_expression)
+                         raises(CosQuery::QueryProcessingError);
+
+
+    //
+    // access interfaces factories
+    //
+                              
+   /**
+    * create iterator
+    **/ 
+   UAKGIterator    create_iterator();
+
+   /**
+    * create iterator which iterate records, matched for pattern
+    **/
+   UAKGIterator    create_iterator_by_pattern(
+                            in CosQueryCollection::Record pattern)
+                       raises(CosQueryCollection::ElementInvalid,
+                              CosQuery::QueryProcessingError);
+
+    /**
+     *
+     * subquery must be specified in next form:
+     * <code>
+     *   select <field_list> from <table_list> 
+     *       where <conditions> [order by <field_list>]
+     * </code>
+     */
+   UAKGCollection  create_subcollection(in string subquery)
+                raises(CosQuery::QueryInvalid, 
+                       CosQuery::QueryProcessingError);
+
+   ///
+   UAKGCollection  create_subcollection_by_pattern(
+                                     in CosQueryCollection::Record pattern)
+                raises(CosQuery::QueryInvalid, 
+                       CosQuery::QueryProcessingError,
+                       CosQueryCollection::ElementInvalid);
+
+
+   /**
+    * add listener to collection events
+    **/
+   unsigned long  add_listener(in UAKGCollectionListener listener,
+                               in unsigned short eventMask);
+
+   /**
+    * remove listener
+    **/
+   boolean   remove_listener(in unsigned long listenerIndex);
+
+   /**
+    * destroy collection and free server resources, associated with
+    * this collection.
+    **/
+   void      destroy();
+ };
+
+ ///
+ interface UAKGCollectionListener
+ {
+   ///
+   void  elements_added(in OctSeq elements);
+   ///
+   void  elements_updated(in OctSeq prev_elements, 
+                           in OctSeq new_elements);
+   ///
+   void  elements_removed(in OctSeq elements);
+   ///
+   void  all_elements_removed();
+   ///
+   void  collection_destroyed();
+ };
+
+ struct ListenersSeqStruct
+ {
+  UAKGCollectionListener listener;
+  unsigned short         mask;
+ };
+
+ typedef sequence<ListenersSeqStruct> UAKGCollectionListeners;
+ 
+ /**
+  * Iterator for retrieving data
+  **/
+ interface UAKGIterator
+ {
+    /**
+     * are we situated at the end of data set ?
+     **/
+    readonly attribute boolean  end;
+    
+    /**
+     * fetch n records as RC-coded octet sequence
+     *@param n - number of records to fetch
+     *@param more - set to true, if we not at end of collection.
+     *@returns fetched records.
+     */
+    OctSeq      fetch_rc(in unsigned long n, out boolean more);
+
+    /**
+     * fetch n records as records sequence
+     *@param n - number of records to fetch
+     *@param more - set to true, if we not at the end of collection.
+     *@returns fetched records.
+     */
+    RC::RecordSeq   fetch_records(in unsigned long n, out boolean more);
+
+    /**
+     * skip n records 
+     *@param n - number of records to skip
+     *@param more - set to true, if we not at the end of collection.
+     *@returns actual number of skipped records.
+     */
+    unsigned long  skip(in unsigned long n, out boolean more);
+
+    /**
+     * destroy iterator and free associated server resources.
+     */
+    void	destroy();
+ };
+
+ /**
+  * Collection of records with unique keys.
+  */
+ interface UAKGKeyCollection: UAKGCollection
+ {
+
+    ///
+    RecordDescription  get_key_description();
+
+    ///
+    CosQueryCollection::Record  
+              retrieve_record_with_key(in CosQueryCollection::Record key)
+                         raises(CosQuery::QueryProcessingError);
+                                
+
+    ///
+    void update_record_with_key(in CosQueryCollection::Record newRecord,
+                                in CosQueryCollection::Record key)
+                         raises(CosQuery::QueryProcessingError, KeyNotFound);
+
+    ///
+    void remove_record_with_key(in CosQueryCollection::Record key)
+                         raises(CosQuery::QueryProcessingError);
+
+
+    ///
+    OctSeq retrieve_records_with_keys(in OctSeq keys)
+                         raises(CosQuery::QueryProcessingError);
+
+    ///
+    void update_records_with_keys(in OctSeq records)
+                         raises(CosQuery::QueryProcessingError);
+
+    ///
+    void remove_records_with_keys(in OctSeq keys)
+                         raises(CosQuery::QueryProcessingError);
+
+ };
+
+ /**
+  * factory for collection interfaces
+  **/
+ interface UAKGCollectionFactory
+ {
+
+
+    /**
+     * queryText - select <field_list> from <table_list> where <conditions> [order by <field_list>]
+     */
+    UAKGCollection create_collection( in string queryText )
+                                      raises(CosQuery::QueryInvalid,
+                                             CosQuery::QueryProcessingError);
+
+    /**
+     * queryText - select <field_list> from <table_list> where <conditions> [order by <field_list>] with key [key-fields-list]
+     */
+    UAKGKeyCollection create_key_collection(
+                                     in string queryText
+                                           )
+                                      raises(CosQuery::QueryInvalid,
+                                             CosQuery::QueryProcessingError);
+
+    ///
+    UAKGCollection create_collection_by_parts(
+                                      in string selectPartText,
+                                      in string fromPartText,
+                                      in string wherePartText,
+                                      in string orderByPartText)
+                                   raises(CosQuery::QueryInvalid,
+                                             CosQuery::QueryProcessingError);
+
+    ///
+    UAKGKeyCollection create_key_collection_by_parts(
+                                      in string selectPartText,
+                                      in string fromPartText,
+                                      in string wherePartText,
+                                      in string orderByPartText,
+                                      in string keysPartText)
+                                   raises(CosQuery::QueryInvalid,
+                                          CosQuery::QueryProcessingError);
+
+ };
+
+   /**
+    * interface for our QueryManager.
+    */
+   interface QueryManager: QueryEvaluator,  
+                           UAKGCollectionFactory
+   {
+      ///
+      string get_username()  raises(CosQuery::QueryProcessingError);
+      ///
+      string get_dblink()  raises(CosQuery::QueryProcessingError);
+
+      ///
+      readonly attribute unsigned long number_of_queries;
+
+      ///
+      Query create_query(in string query, in string flags)
+                         raises(CosQuery::QueryTypeInvalid,
+                                CosQuery::QueryInvalid);
+
+      ///
+      Query create(in string query, in string flags)
+                         raises(CosQuery::QueryTypeInvalid,
+                                CosQuery::QueryInvalid);
+
+      ///
+      string get_property(in string property_name)
+                          raises(PropertyNotDefined);
+
+      ///
+      long  get_next_sequence_value(in string sequence_name)
+                        raises(CosQuery::QueryProcessingError,
+			       CosQuery::QueryInvalid,
+			       CosQuery::QueryTypeInvalid);
+      
+      ///
+      void destroy();
+
+   };
+
+    ///
+    exception QueryManagerNotFound {};
+    
+    typedef sequence<QueryManager>  UAKGQueryManagerSeq;
+
+    ///
+    interface DBConnectionManager
+    {
+     ///
+     QueryManager createQueryManager(in string login, in string password, 
+                           in string db_name, in string drv_name,
+                           in string implementation_specific_data)
+                                     raises(QueryManagerNotFound,
+                                            CosQuery::QueryProcessingError);
+
+     /**
+      * shutdown query service.
+      **/
+     void shutdown();
+
+    };
+
+};
+
+#endif

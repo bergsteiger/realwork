@@ -1,0 +1,1 @@
+for %%i in ( *.out ) do if %%~zi == 0 del %%i

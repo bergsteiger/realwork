@@ -1,0 +1,298 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Concurrent"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"Java|Документация")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/Core/Concurrent|48119BB902C7
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16662146343"))
+    quid       	"48119BB902C7"
+    documentation 	
+|пакет интерфейсов для работы с потоками
+|
+    
+    stereotype 	"Interfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"48119BEB01F3"
+	    supplier   	"Logical View::external::JavaTypes::java.util.concurrent"
+	    quidu      	"48119B20021F"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ThreadPool"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/Core/Concurrent/ThreadPool.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/Core/Concurrent/ThreadPoolFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48119C2203C5_48119C860260_48119D3B00A9_BODY*"
+		    value      	(value Text 
+|//#UC START# *48119C2203C5_48119C860260_48119D3B00A9_BODY*¤		this (DEFAULT_THREADS_COUNTS);		¤		//#UC END# *48119C2203C5_48119C860260_48119D3B00A9_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48119C2203C5_48119D1B0140_48119D3B00A9_BODY*"
+		    value      	(value Text 
+|//#UC START# *48119C2203C5_48119D1B0140_48119D3B00A9_BODY*¤		super (poolSize, poolSize, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());¤		//#UC END# *48119C2203C5_48119D1B0140_48119D3B00A9_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/Core/Concurrent/ThreadPool|48119C2203C5
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16662149088"))
+	    quid       	"48119C2203C5"
+	    documentation 	
+|Интерфейс позволяет управлять асинхронными задачами. Представляет из себя пул потоков. Пример использования:
+|
+|{code}
+|Runnable task = new Rannable () {
+|   public void run () {
+|       System.out.println ("!!!");
+|   }
+|};
+|ThreadPoolFactory.def ().execute (task);
+|{code}
+	    
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4811A22C0291"
+		    supplier   	"Logical View::external::JavaTypes::java.util.concurrent::ExecutorService"
+		    quidu      	"48119B3D0054"))
+	    operations 	(list Operations
+		(object Operation "def"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48119C860260_48119C860260_48119D3B00A9_BODY*"
+			    value      	(value Text 
+|//#UC START# *48119C860260_48119C860260_48119D3B00A9_BODY*¤		this (DEFAULT_THREADS_COUNTS);¤		//#UC END# *48119C860260_48119C860260_48119D3B00A9_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657546473"))
+		    quid       	"48119C860260"
+		    documentation 	
+|возвращает общий пул "по умолчанию"
+		    
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48119D1B0140_48119D1B0140_48119D3B00A9_BODY*"
+			    value      	(value Text 
+|//#UC START# *48119D1B0140_48119D1B0140_48119D3B00A9_BODY*¤		super (poolSize, poolSize, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());¤		//#UC END# *48119D1B0140_48119D1B0140_48119D3B00A9_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657546835"))
+		    quid       	"48119D1B0140"
+		    documentation 	"создает новый пул с указанным кол-вом потоков"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "pool_size"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"450A61050251")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657547151"))
+			    quid       	"48119ECE011F"
+			    type       	"integer"
+			    quidu      	"450A61050251"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"48119C1E00DB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::Core::Concurrent::ThreadPool" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(600, 840)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(225, 756)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	750
+			justify    	0
+			label      	"ThreadPool")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(225, 706)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	750
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"48119C2203C5"
+		    width      	768
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::JavaTypes::java.util.concurrent::ExecutorService" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(600, 375)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(402, 347)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"• ExecutorService")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(402, 297)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"48119B3D0054"
+		    width      	414
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4811A22C0291"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(600, 693)
+			(600, 465))
+		    line_style 	0)))))

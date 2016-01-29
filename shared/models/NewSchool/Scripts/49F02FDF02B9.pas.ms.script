@@ -1,0 +1,469 @@
+// ContextFilter 49F02FDF02B9 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F02FDF02B9
+
+FORWARD ME_49F0314802E7
+
+: ME_514327310362
+ CONST UID '514327310362'
+ CONST Name 'OnChange'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49F0314802E7 // TnscContextFilter
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_514327310362 OnChange
+
+: ME_5143277901BD
+ CONST UID '5143277901BD'
+ CONST Name 'OnWrongContext'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49F0314802E7 // TnscContextFilter
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_5143277901BD OnWrongContext
+
+: ME_D29638D79041
+ CONST UID 'D29638D79041'
+ CONST Name 'f_OnChange'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnChange' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_49F0314802E7 // TnscContextFilter
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_D29638D79041 f_OnChange
+
+: ME_68E04F576C07
+ CONST UID '68E04F576C07'
+ CONST Name 'f_OnWrongContext'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnWrongContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_49F0314802E7 // TnscContextFilter
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_68E04F576C07 f_OnWrongContext
+
+FORWARD ME_4B97E1EA011F
+
+: ME_4B97E20602F6
+ CONST UID '4B97E20602F6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F0314802E7 // TnscContextFilter
+ ;
+ : Target ME_4B97E1EA011F // nscContextFilterRes
+ ;
+
+ref; // ME_4B97E20602F6 
+
+: ME_49F0314802E7
+ CONST UID '49F0314802E7'
+ CONST Name 'TnscContextFilter'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49F02FDF02B9 // ContextFilter
+ ;
+ : Attributes
+   @ ( ME_514327310362 // OnChange
+ ME_5143277901BD // OnWrongContext
+ ME_D29638D79041 // f_OnChange
+ ME_68E04F576C07 // f_OnWrongContext
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_4B97E20602F6 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscContextFilter.pas'
+
+ref; // ME_49F0314802E7 TnscContextFilter
+
+FORWARD ME_4B97E2240035
+
+: ME_4B97E27B01A5
+ CONST UID '4B97E27B01A5'
+ CONST Name 'LabelCaption'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B97E2240035 // ContextFilterMessages
+ ;
+ CONST Value '''Контекстный фильтр'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B97E27B01A5 LabelCaption
+
+: ME_4B97E2840076
+ CONST UID '4B97E2840076'
+ CONST Name 'ContextEmptyMessage'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B97E2240035 // ContextFilterMessages
+ ;
+ CONST Value '''Введите слова для поиска и фильтрации'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B97E2840076 ContextEmptyMessage
+
+: ME_4B97E28C0134
+ CONST UID '4B97E28C0134'
+ CONST Name 'ButtonActiveHint'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B97E2240035 // ContextFilterMessages
+ ;
+ CONST Value '''Выключить контекстный фильтр'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B97E28C0134 ButtonActiveHint
+
+: ME_4B97E2950337
+ CONST UID '4B97E2950337'
+ CONST Name 'ButtonInActiveHint'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B97E2240035 // ContextFilterMessages
+ ;
+ CONST Value '''Включить контекстный фильтр'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B97E2950337 ButtonInActiveHint
+
+: ME_4B97E2240035
+ CONST UID '4B97E2240035'
+ CONST Name 'ContextFilterMessages'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B97E1EA011F // nscContextFilterRes
+ ;
+ : Attributes
+   @ ( ME_4B97E27B01A5 // LabelCaption
+ ME_4B97E2840076 // ContextEmptyMessage
+ ME_4B97E28C0134 // ButtonActiveHint
+ ME_4B97E2950337 // ButtonInActiveHint
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'nsc_'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefix 'nsc_'
+
+ref; // ME_4B97E2240035 ContextFilterMessages
+
+FORWARD ME_733B11D3BC31
+
+: ME_D2760E622B9B
+ CONST UID 'D2760E622B9B'
+ CONST Name 'LabelCaption'
+ CONST Class class_Attribute
+ %SUMMARY '''Контекстный фильтр''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_733B11D3BC31 // LCImplContextFilterMessages
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''nsc_LabelCaption''; rValue : ''Контекстный фильтр'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_D2760E622B9B LabelCaption
+
+: ME_00384AEED2E1
+ CONST UID '00384AEED2E1'
+ CONST Name 'ContextEmptyMessage'
+ CONST Class class_Attribute
+ %SUMMARY '''Введите слова для поиска и фильтрации''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_733B11D3BC31 // LCImplContextFilterMessages
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''nsc_ContextEmptyMessage''; rValue : ''Введите слова для поиска и фильтрации'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_00384AEED2E1 ContextEmptyMessage
+
+: ME_E9A220EDBF21
+ CONST UID 'E9A220EDBF21'
+ CONST Name 'ButtonActiveHint'
+ CONST Class class_Attribute
+ %SUMMARY '''Выключить контекстный фильтр''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_733B11D3BC31 // LCImplContextFilterMessages
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''nsc_ButtonActiveHint''; rValue : ''Выключить контекстный фильтр'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_E9A220EDBF21 ButtonActiveHint
+
+: ME_D12E82347BBF
+ CONST UID 'D12E82347BBF'
+ CONST Name 'ButtonInActiveHint'
+ CONST Class class_Attribute
+ %SUMMARY '''Включить контекстный фильтр''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_733B11D3BC31 // LCImplContextFilterMessages
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''nsc_ButtonInActiveHint''; rValue : ''Включить контекстный фильтр'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_D12E82347BBF ButtonInActiveHint
+
+: ME_733B11D3BC31
+ CONST UID '733B11D3BC31'
+ CONST Name 'LCImplContextFilterMessages'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки ContextFilterMessages' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B97E1EA011F // nscContextFilterRes
+ ;
+ : Attributes
+   @ ( ME_D2760E622B9B // LabelCaption
+ ME_00384AEED2E1 // ContextEmptyMessage
+ ME_E9A220EDBF21 // ButtonActiveHint
+ ME_D12E82347BBF // ButtonInActiveHint
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'nsc_'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_nsc_'
+
+ref; // ME_733B11D3BC31 LCImplContextFilterMessages
+
+: ME_322AEE41E22D
+ CONST UID '322AEE41E22D'
+ CONST Name 'Init_LabelCaption'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_nsc_LabelCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B97E1EA011F // nscContextFilterRes
+ ;
+
+ref; // ME_322AEE41E22D Init_LabelCaption
+
+: ME_E484154BCC8A
+ CONST UID 'E484154BCC8A'
+ CONST Name 'Init_ContextEmptyMessage'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_nsc_ContextEmptyMessage' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B97E1EA011F // nscContextFilterRes
+ ;
+
+ref; // ME_E484154BCC8A Init_ContextEmptyMessage
+
+: ME_9449AD5B5DC4
+ CONST UID '9449AD5B5DC4'
+ CONST Name 'Init_ButtonActiveHint'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_nsc_ButtonActiveHint' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B97E1EA011F // nscContextFilterRes
+ ;
+
+ref; // ME_9449AD5B5DC4 Init_ButtonActiveHint
+
+: ME_8533BEEA4051
+ CONST UID '8533BEEA4051'
+ CONST Name 'Init_ButtonInActiveHint'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_nsc_ButtonInActiveHint' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B97E1EA011F // nscContextFilterRes
+ ;
+
+ref; // ME_8533BEEA4051 Init_ButtonInActiveHint
+
+: ME_90A44494204D
+ CONST UID '90A44494204D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B97E1EA011F // nscContextFilterRes
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_90A44494204D 
+
+: ME_54CF82B34F5B
+ CONST UID '54CF82B34F5B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B97E1EA011F // nscContextFilterRes
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_54CF82B34F5B 
+
+: ME_4B97E1EA011F
+ CONST UID '4B97E1EA011F'
+ CONST Name 'nscContextFilterRes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ресурсы для TnscContextFilter' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49F02FDF02B9 // ContextFilter
+ ;
+ : Operations
+   @ ( ME_322AEE41E22D // Init_LabelCaption
+ ME_E484154BCC8A // Init_ContextEmptyMessage
+ ME_9449AD5B5DC4 // Init_ButtonActiveHint
+ ME_8533BEEA4051 // Init_ButtonInActiveHint
+ ) .SequenceCode.It
+ ; // Operations
+ : Constants
+   @ ( ME_4B97E2240035 // ContextFilterMessages
+ ME_733B11D3BC31 // LCImplContextFilterMessages
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_90A44494204D // 
+ ME_54CF82B34F5B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '10.03.2010 21:16'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscContextFilterRes.pas'
+
+ref; // ME_4B97E1EA011F nscContextFilterRes
+
+: ME_49F02FDF02B9
+ CONST UID '49F02FDF02B9'
+ CONST Name 'ContextFilter'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ %SUMMARY 'Контекстный фильтр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ ;
+ : Children
+   @ ( ME_49F0314802E7 // TnscContextFilter
+ ME_4B97E1EA011F // nscContextFilterRes
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49F02FDF02B9.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49F02FDF02B9.pas.ms.script.runner'
+
+ref; // ME_49F02FDF02B9 ContextFilter

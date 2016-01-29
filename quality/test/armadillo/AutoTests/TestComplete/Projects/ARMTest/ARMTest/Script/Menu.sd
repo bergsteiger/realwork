@@ -1,0 +1,253 @@
+uses
+  func, maps;
+
+  
+  // клик по элементу меню списка продуктов. на момент выполнения меню должно быть открыто
+  // WhatToClick - название команды - последний пункт пути в иерархии меню
+function ClickOnProductsListMenu(
+  WhatToClick : String
+) : OleVariant;
+var
+  MainW;
+begin
+  try
+    WhatToClick := AnsiUpperCase(WhatToClick); 
+    MainW := Sys.Process('Armadillo').VCLObject('frmMain').VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('gvClientComplectList');
+    if not IsExists(MainW) then Raise('закладка "Продукты у клиента" не открыта');
+//    MainW.Keys([Apps]); 
+
+      case WhatToClick of
+        // продукт
+        'ПРОДАЖА / ДОПРОДАЖА', 'ПРОДАЖА':
+          Result := MainW.PopupMenu.Click('[0|0]');
+        //// другие виды поставки
+        'НЕКОММЕРЧЕСКАЯ ПОСТАВКА':
+          Result := MainW.PopupMenu.Click('[0|2|0]');
+        'ОЗНАКОМИТЕЛЬНАЯ ПОСТАВКА':
+          Result := MainW.PopupMenu.Click('[0|2|1]');
+        'ДЕМО-ВЕРСИЯ', 'ДЕМО':
+          Result := MainW.PopupMenu.Click('[0|2|2]');
+        'ПРЕЗЕНТАЦИОННАЯ ПОСТАВКА':
+          Result := MainW.PopupMenu.Click('[0|2|3]');
+        'ВНУТРЕННЯЯ ПОСТАВКА':
+          Result := MainW.PopupMenu.Click('[0|2|4]');
+        //// изменить вид поставки
+        'НА ОЗНОКОМИТЕЛЬНУЮ':
+          Result := MainW.PopupMenu.Click('[0|3|0]');
+        'НА НЕКОМЕРЧЕСКУЮ':
+          Result := MainW.PopupMenu.Click('[0|3|1]');
+        'НА КОММЕРЧЕСКУЮ':
+          Result := MainW.PopupMenu.Click('[0|3|2]');
+        'ИЗМЕНИТЬ ТЕСТ-ПЕРИОД': 
+          Result := MainW.PopupMenu.Click('[0|3|3]');
+        // продукт
+        'ЗАМЕНА КИБ':
+          Result := MainW.PopupMenu.Click('[0|5]'); 
+        'СЛОЖНЫЙ ПЕРЕХОД С КИБ НА КИБ', 'СЛОЖНЫЙ ПЕРЕХОД': 
+          Result := MainW.PopupMenu.Click('[0|6]'); 
+        'ЗАМЕНА БЛОКА В КИБ', 'ЗАМЕНА БЛОКА':
+          Result := MainW.PopupMenu.Click('[0|7]'); 
+        'ИЗМЕНЕНИЕ ТЕХ. ПАРАМЕТРОВ', 'ИЗМЕНЕНИЕ ПАРАМЕТРОВ':
+          Result := MainW.PopupMenu.Click('[0|8]'); 
+        //// регулярность
+        'ИЗМЕНИТЬ':
+          Result := MainW.PopupMenu.Click('[0|10|0]'); 
+        // продукт
+        'ИЗМЕНИТЬ СКИДКИ НА ОБНОВЛЕНИЕ', 'ИЗМЕНИТЬ СКИДКИ':
+          Result := MainW.PopupMenu.Click('[0|11]'); 
+        'ФАЙЛ ПОДКЛЮЧЕНИЯ К СПП', 'ФАЙЛ ПОДКЛЮЧЕНИЯ':
+          Result := MainW.PopupMenu.Click('[0|13]'); 
+        'ПЕРЕДАЧА ДРУГОМУ ПОЛЬЗОВАТЕЛЮ', 'ПЕРЕДАЧА':
+          Result := MainW.PopupMenu.Click('[0|15]'); 
+        'УДАЛИТЬ':
+          Result := MainW.PopupMenu.Click('[0|16]'); 
+        // обновления
+        'ТЕКУЩИЙ ПРОДУКТ':
+          Result := MainW.PopupMenu.Click('[1|0]');
+        // заказы 
+        'ЗАКАЗАТЬ ДИСТРИБУТИВ', 'ЗАКАЗАТЬ':
+          Result := MainW.PopupMenu.Click('[2|0]'); 
+          
+      else 
+        Raise('не допустимый параметр');    
+      end;
+      
+//    if not IsExists(Result) then 
+//      Raise('Объекта "' + WhatToClick + '" не существует');            
+  except
+    Log.Error(ExceptionMessage);
+  end;
+end;    
+
+
+// клики на элементе главного меню
+function ClickOnMainMenu(
+  WhatToClick : String
+) : OleVariant;
+var
+  MainW, Seek, i, j;
+begin
+  try
+    WhatToClick := AnsiUpperCase(WhatToClick);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmMain');
+    if not IsExists(MainW) then Raise('окно "АРМ" не открыто');
+    Seek := '';
+    
+      case WhatToClick of
+        // файл
+        'СПИСОК ПЕРВИЧНЫХ ПРОДАЖ':
+          MainW.MainMenu.Click('Файл|Экспорт|Список первичных продаж');
+        'СПИСОК ПРИНЯТЫХ ЛОГ-ФАЙЛОВ':
+          MainW.MainMenu.Click('Файл|Экспорт|Список принятых лог-файлов');
+        'ПОДКЛЮЧЕНИЕ К УСЛУГАМ':
+          MainW.MainMenu.Click('Файл|Экспорт|Подключение к услугам');
+        'ФОРМИРОВАНИЕ АРХИВА ЛОГ-ФАЙЛОВ':
+          MainW.MainMenu.Click('Файл|Экспорт|Формирование архива лог-файлов');
+        'ИМПОРТ ИНФОМАЦИИ О КЛИЕНТАХ':
+          MainW.MainMenu.Click('Файл|Импорт|Импорт инфомации о клиентах');
+        'ВЫХОД':
+          MainW.MainMenu.Click('Файл|Выход');
+        // правка
+        'ПОДТВЕРДИТЬ ИЗМЕНЕНИЯ':
+          MainW.MainMenu.Click('Правка|Подтвердить изменения');
+        'ОТМЕНИТЬ ИЗМЕНЕНИЯ':
+          MainW.MainMenu.Click('Правка|Отменить изменения');
+        // поиск
+        'ПРОСТОЙ ПОИСК':
+          MainW.MainMenu.Click('Поиск|Простой поиск');
+        'РАСШИРЕННЫЙ ПОИСК':
+          MainW.MainMenu.Click('Поиск|Расширенный поиск');
+        // клиент 
+        'ОБНОВИТЬ СПИСОК КЛИЕНТОВ':
+          MainW.MainMenu.Click('Клиент|Обновить список клиентов');
+        'ДОБАВИТЬ НОВОГО КЛИЕНТА':
+          MainW.MainMenu.Click('Клиент|Добавить нового клиента');
+        'СПРЯТАТЬ КЛИЕНТА', 'СПРЯТАТЬ КЛИЕНТА (ПЕРЕВЕСТИ В НЕАКТИВНЫЕ)':
+          MainW.MainMenu.Click('Клиент|Спрятать клиента (перевести в неактивные)');
+        'ВОССТАНОВИТЬ КЛИЕНТА ИЗ НЕАКТИВНЫХ':
+          MainW.MainMenu.Click('Клиент|Восстановить клиента из неактивных');
+        'ПРИНЯТЬ КЛИЕНТА(ОВ) ОТ ДРУГОГО РП/СО':
+          MainW.MainMenu.Click('Клиент|Принять клиента(ов) от другого РП/СО');
+        'ПЕРЕДАТЬ КЛИЕНТА(ОВ) ДРУГОМУ РП/СО':
+          MainW.MainMenu.Click('Клиент|передать клиента(ов) другому РП/СО');
+        // продукт
+        'КОММЕРЧЕСКАЯ ПОСТАВКА':
+          MainW.MainMenu.Click('Продукт|Коммерческая поставка'); 
+        'НЕКОММЕРЧЕСКАЯ ПОСТАВКА':
+         MainW.MainMenu.Click('Продукт|Другие Виды поставки|Некоммерческая поставка');
+        'ОЗНАКОМИТЕЛЬНАЯ ПОСТАВКА':
+          MainW.MainMenu.Click('Продукт|Другие Виды поставки|Ознакомительная поставка');
+        'ДЕМО-ВЕРСИЯ', 'ДЕМО':
+          MainW.MainMenu.Click('Продукт|Другие Виды поставки|Демо-версия');
+        'ПРЕЗЕНТАЦИОННАЯ ПОСТАВКА':
+          MainW.MainMenu.Click('Продукт|Другие Виды поставки|Презентационная поставка');
+        'ВНУТРЕННЯЯ ПОСТАВКА':
+          MainW.MainMenu.Click('Продукт|Другие Виды поставки|Внутренняя поставка');
+        'НА ОЗНОКОМИТЕЛЬНУЮ':
+          MainW.MainMenu.Click('Продукт|Изменить Вид поставки|На ознокомительную');
+        'НА НЕКОМЕРЧЕСКУЮ':
+          MainW.MainMenu.Click('Продукт|Изменить Вид поставки|На некомерческую');
+        'НА КОММЕРЧЕСКУЮ':
+          MainW.MainMenu.Click('Продукт|Изменить Вид поставки|На коммерческую');
+        'ИЗМЕНИТЬ ТЕСТ-ПЕРИОД': 
+          MainW.MainMenu.Click('Продукт|Изменить Вид поставки|Изменить тест-период');
+        'ЗАМЕНА КИБ':
+          MainW.MainMenu.Click('Продукт|Замена киб');
+        'СЛОЖНЫЙ ПЕРЕХОД С КИБ НА КИБ', 'СЛОЖНЫЙ ПЕРЕХОД': 
+          MainW.MainMenu.Click('Продукт|Сложный переход с киб на киб');
+        'ЗАМЕНА БЛОКА В КИБ', 'ЗАМЕНА БЛОКА':
+          MainW.MainMenu.Click('Продукт|Замена блока в киб');
+        'ИЗМЕНЕНИЕ ТЕХ. ПАРАМЕТРОВ', 'ИЗМЕНЕНИЕ ПАРАМЕТРОВ':
+          MainW.MainMenu.Click('Продукт|Изменение тех. параметров');
+        'ИЗМЕНИТЬ':
+          MainW.MainMenu.Click('Продукт|Регулярность|Изменить');
+        'ИЗМЕНИТЬ СКИДКИ НА ОБНОВЛЕНИЕ', 'ИЗМЕНИТЬ СКИДКИ':
+          MainW.MainMenu.Click('Продукт|Изменить скидки на обновление');
+        'ФАЙЛ ПОДКЛЮЧЕНИЯ К СПП', 'ФАЙЛ ПОДКЛЮЧЕНИЯ':
+          MainW.MainMenu.Click('Продукт|Файл подключения к спп');
+        'ПЕРЕДАЧА ПРОДУКТА ДРУГОМУ КЛИЕНТУ', 'ПЕРЕДАЧА':
+          MainW.MainMenu.Click('Продукт|Передача продукта другому клиенту');
+        'УДАЛЕНИЕ ПРОДУКТА':
+          MainW.MainMenu.Click('Продукт|Удаление продукта');
+        // обновления
+        'МОНИТОР ОБНОВЛЕНИЙ':
+          MainW.MainMenu.Click('Обновления|Монитор обновлений');
+        'ОБНОВЛЕНИЯ ТЕКУЩЕГО ПРОДУКТА':
+          MainW.MainMenu.Click('Обновления|Обновления текущего продукта');
+        // заказы
+        'МОНИТОР ЗАКАЗОВ':
+          MainW.MainMenu.Click('Заказы|Монитор заказов');
+        'ЗАКАЗАТЬ ДИСТРИБУТИВ':
+          MainW.MainMenu.Click('Заказы|Заказать дистрибутив');
+        'ОБРАБОТКА ОТЧЁТОВ ТУ':
+          MainW.MainMenu.Click('Заказы|Обработка отчётов ТУ');
+        'СИСТЕМА ПАРОЛЬ-ОТВЕТ':
+          MainW.MainMenu.Click('Заказы|Система Пароль-ответ');
+        'ОБРАБОТКА ЭЛЕКТРОННЫЙХ КЛЮЧЕЙ':
+          MainW.MainMenu.Click('Заказы|Обработка электронныйх ключей');
+        // настройки
+        'НАСТРОЙКИ', 'НАСТРОЙКИ...':
+          MainW.MainMenu.Click('Настройки|Настройки...');
+        'ВЫБОР СЕГМЕНТА КЛИЕНТОВ':
+          MainW.MainMenu.Click('Настройки|Выбор сегмента клиентов');
+        'ОБНОВИТЬ СЛОВАРИ':
+          MainW.MainMenu.Click('Настройки|Обновить словари');
+        // партнёр/отдел
+        'ИНФОРМАЦИЯ ОБ РП/СО':
+          MainW.MainMenu.Click('Партнёр/Отдел|Информация об РП/СО');
+        'ВЫБОР РП/СО':
+          MainW.MainMenu.Click('Партнёр/Отдел|Выбор РП/СО');
+        'ОТЧЁТ О ДЕЯТЕЛЬНОСТИ':
+          MainW.MainMenu.Click('Партнёр/Отдел|Отчёт о деятельности');
+        // помощь
+        'СПРАВКА':
+          MainW.MainMenu.Click('Помощь|Справка');
+        'О ПРОГРАММЕ':
+          MainW.MainMenu.Click('Помощь|О программе');                  
+         
+      else 
+        Raise('не допустимый параметр - "' + WhatToClick + '"');    
+      end;
+
+                                 
+                  
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;    
+
+  // клик по элементу меню списка клиентов. на момент выполнения меню должно быть открыто
+  // WhatToClick - название команды - последний пункт пути в иерархии меню
+function ClickOnClientsListMenu(
+  WhatToClick : String
+) : OleVariant;
+var
+  MainW;
+begin
+  try
+    WhatToClick := AnsiUpperCase(WhatToClick); 
+    MainW := GetFromMainWindow('список клиентов');
+    if not IsExists(MainW) then Raise('список клиентов не доступен');
+
+      case WhatToClick of
+        'ДОБАВИТЬ НОВОГО КЛИЕНТА', 'ДОБАВИТЬ':
+          Result := MainW.PopupMenu.Click('[0|0]');
+        'СПРЯТАТЬ КЛИЕНТА (ПЕРЕВЕСТИ В НЕАКТИВНЫЕ)', 'СПРЯТАТЬ КЛИЕНТА', 'СПРЯТАТЬ':
+          Result := MainW.PopupMenu.Click('[0|2]');
+        'ВОССТАНОВИТЬ КЛИЕНТА ИЗ НЕАКТИВНЫХ', 'ВОССТАНОВИТЬ КЛИЕНТА', 'ВОССТАНОВИТЬ':
+          Result := MainW.PopupMenu.Click('[0|3]');
+        'ИЗМЕНИТЬ НОМЕР КАРТОЧКИ', 'ИЗМЕНИТЬ':
+          Result := MainW.PopupMenu.Click('[0|4]');
+        'ПЕРЕДАТЬ КЛИЕНТА ДРУГОМУ РП/СО', 'ПЕРЕДАТЬ':
+          Result := MainW.PopupMenu.Click('[0|5]');
+          
+               
+      else 
+        Raise('не допустимый параметр "' + WhatToClick + '"');    
+      end;
+               
+  except
+    Log.Error(ExceptionMessage);
+  end;
+end; 

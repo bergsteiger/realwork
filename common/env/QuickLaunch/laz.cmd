@@ -1,0 +1,1 @@
+start "" C:\lazarus\startlazarus.exe

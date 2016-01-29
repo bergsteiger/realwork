@@ -1,0 +1,26 @@
+USES
+	QuickTestsUtils.script
+;
+
+Тест TK9434346
+	INTEGER VAR l_NewHeight	
+	600 >>> l_NewHeight 
+	
+	WHILE ( l_NewHeight 1100 LESS ) 
+	(
+		TRY
+			Параметры: ( "Документ для поиска Assert при прокрукте"
+						"Установить ширину {(1400)} и высоту {(l_NewHeight)} главной формы, включить 'Спецсимволы' и 'Структуру документа'" 
+			)
+			Выполнить ( 				
+				"Прокрутить документ вниз до конца стрелкой вниз"
+			)
+			l_NewHeight 20 + >>> l_NewHeight			
+		FINALLY
+			l_NewHeight .
+			"Закрыть без сохранения"
+		END	
+	)
+;
+
+TK9434346

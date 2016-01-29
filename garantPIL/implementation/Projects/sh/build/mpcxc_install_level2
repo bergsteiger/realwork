@@ -1,0 +1,36 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_install_level1 <confirm>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT; see doc for details."
+exit
+fi
+
+if test "$MPCXC_MIRROR_HOME" = ""; then
+echo "You must export MPCXC_HOME; see doc for details."
+exit
+fi
+
+if test "$MPCXC_PATH_TO_ACE_WRAPPERS" = ""; then
+echo "You must export MPCXC_PATH_TO_ACE_WRAPPERS; see doc for details."
+exit
+fi
+
+if test "$MPCXC_PATH_TO_LOKI" = ""; then
+echo "You must export MPCXC_PATH_TO_LOKI see doc for details."
+exit
+fi
+
+echo "mpcxc_install_level2 ..."
+
+$MPCXC_MIRROR_HOME/build/mpcxc_install_tao \
+$MPCXC_ROOT \
+$MPCXC_PATH_TO_ACE_WRAPPERS/TAO > $MPCXC_ROOT/install_level2.log 2>&1
+
+echo "You can make:"
+echo "targets from level1, plus:"
+echo "tao garant_server."

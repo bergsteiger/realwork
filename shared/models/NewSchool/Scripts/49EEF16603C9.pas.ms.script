@@ -1,0 +1,546 @@
+// nsInternetUtils 49EEF16603C9 UtilityPack Class
+
+FORWARD ME_49EEF16603C9
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+FORWARD ME_553A2B570033
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_553A2BE0020B
+ CONST UID '553A2BE0020B'
+ CONST Name 'GarantMainURL'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY '"Новости онлайн"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ CONST Value '''www.garant.ru'''
+
+ @SELF
+; // ME_553A2BE0020B GarantMainURL
+
+: ME_55543C180070
+ CONST UID '55543C180070'
+ CONST Name 'BooksAndImagesURL'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Книги и образа официальных публикаций' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ CONST Value '''mirror2.garant.ru'''
+
+ @SELF
+; // ME_55543C180070 BooksAndImagesURL
+
+: ME_553A2B570033
+ CONST UID '553A2B570033'
+ CONST Name 'InternalBrowserURLArr'
+ CONST Class 'Class'
+ CONST Stereotype 'ConstantArray'
+ %SUMMARY 'URL адреса, открываемые во встроенном браузере' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_483C2FA400B1 // AnsiString
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_553A2BE0020B // GarantMainURL
+ ME_55543C180070 // BooksAndImagesURL
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+
+ @SELF
+; // ME_553A2B570033 InternalBrowserURLArr
+
+FORWARD ME_49EEF1BA019B
+
+: ME_49EEF21F01DC
+ CONST UID '49EEF21F01DC'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_49EEF21F01DC anURL
+
+: ME_49EEF20E0004
+ CONST UID '49EEF20E0004'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_49EEF21F01DC // anURL
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_49EEF20E0004 DoIt
+
+: ME_49EEF1BA019B
+ CONST UID '49EEF1BA019B'
+ CONST Name 'IsGarantURL'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Определяет, что адрес в домене Гаранта' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_49EEF20E0004 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_49EEF1BA019B IsGarantURL
+
+FORWARD ME_4BEBC370007F
+
+: ME_4BEBC3A403D3
+ CONST UID '4BEBC3A403D3'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_4BEBC3A403D3 anURL
+
+: ME_4BEBC3A001E7
+ CONST UID '4BEBC3A001E7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_4BEBC3A403D3 // anURL
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4BEBC3A001E7 DoIt
+
+: ME_4BEBC370007F
+ CONST UID '4BEBC370007F'
+ CONST Name 'IsLocalDocumentURL'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Определяет, что ссылка на внутренний документ' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4BEBC3A001E7 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4BEBC370007F IsLocalDocumentURL
+
+FORWARD ME_4BEBC4090016
+
+: ME_4BEBC866009A
+ CONST UID '4BEBC866009A'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_4BEBC866009A anURL
+
+: ME_4BEBC86600C9
+ CONST UID '4BEBC86600C9'
+ CONST Name 'DocID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4BEBC86600C9 DocID
+
+: ME_4BEBC86600E8
+ CONST UID '4BEBC86600E8'
+ CONST Name 'SubID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4BEBC86600E8 SubID
+
+: ME_4BEBC83F009A
+ CONST UID '4BEBC83F009A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_4BEBC866009A // anURL
+ ME_4BEBC86600C9 // DocID
+ ME_4BEBC86600E8 // SubID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4BEBC83F009A DoIt
+
+: ME_4BEBC4090016
+ CONST UID '4BEBC4090016'
+ CONST Name 'ParseLocalDocumentURL'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Разобрать локальную ссылку на документ' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4BEBC83F009A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4BEBC4090016 ParseLocalDocumentURL
+
+FORWARD ME_52315BE902FD
+
+: ME_52315C0E036E
+ CONST UID '52315C0E036E'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_52315C0E036E anURL
+
+: ME_52315C000354
+ CONST UID '52315C000354'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_52315C0E036E // anURL
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_52315C000354 DoIt
+
+: ME_52315BE902FD
+ CONST UID '52315BE902FD'
+ CONST Name 'IsContractConstructorURL'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52315C000354 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52315BE902FD IsContractConstructorURL
+
+FORWARD ME_523ADD1803CC
+
+: ME_523ADD6F00E5
+ CONST UID '523ADD6F00E5'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_523ADD6F00E5 anURL
+
+: ME_523ADD630258
+ CONST UID '523ADD630258'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_523ADD6F00E5 // anURL
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_523ADD630258 DoIt
+
+: ME_523ADD1803CC
+ CONST UID '523ADD1803CC'
+ CONST Name 'IsMobileGarantOnlineURL'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_523ADD630258 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_523ADD1803CC IsMobileGarantOnlineURL
+
+FORWARD ME_523FE5580232
+
+: ME_523FE5A60244
+ CONST UID '523FE5A60244'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_523FE5A60244 anURL
+
+: ME_523FE59C020B
+ CONST UID '523FE59C020B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_523FE5A60244 // anURL
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_523FE59C020B DoIt
+
+: ME_523FE5580232
+ CONST UID '523FE5580232'
+ CONST Name 'NeedOpenLinkInExternalBrowser'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_523FE59C020B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_523FE5580232 NeedOpenLinkInExternalBrowser
+
+FORWARD ME_524E5895037F
+
+: ME_524E58D10271
+ CONST UID '524E58D10271'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_524E58D10271 anURL
+
+: ME_524E58C7008E
+ CONST UID '524E58C7008E'
+ CONST Name 'Dot'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_524E58D10271 // anURL
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_524E58C7008E Dot
+
+: ME_524E5895037F
+ CONST UID '524E5895037F'
+ CONST Name 'IsObtainRequisitesForMobileAccessURL'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_524E58C7008E // Dot
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_524E5895037F IsObtainRequisitesForMobileAccessURL
+
+FORWARD ME_5524E8BE0065
+
+: ME_5524E8FF0080
+ CONST UID '5524E8FF0080'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_5524E8FF0080 anURL
+
+: ME_5524E8F402BE
+ CONST UID '5524E8F402BE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5524E8FF0080 // anURL
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5524E8F402BE DoIt
+
+: ME_5524E8BE0065
+ CONST UID '5524E8BE0065'
+ CONST Name 'IsMunicipalDecisionsArchiveURL'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5524E8F402BE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5524E8BE0065 IsMunicipalDecisionsArchiveURL
+
+FORWARD ME_553A26CA015B
+
+: ME_553A272302CF
+ CONST UID '553A272302CF'
+ CONST Name 'anURL'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_553A272302CF anURL
+
+: ME_553A271B012A
+ CONST UID '553A271B012A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_553A272302CF // anURL
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_553A271B012A DoIt
+
+: ME_553A26CA015B
+ CONST UID '553A26CA015B'
+ CONST Name 'NeedOpenLinkInInternalBrowser'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_553A271B012A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_553A26CA015B NeedOpenLinkInInternalBrowser
+
+: ME_49EEF16603C9
+ CONST UID '49EEF16603C9'
+ CONST Name 'nsInternetUtils'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Вспомогательные функции для Интернет-агента' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_49EEF1BA019B // IsGarantURL
+ ME_4BEBC370007F // IsLocalDocumentURL
+ ME_4BEBC4090016 // ParseLocalDocumentURL
+ ME_52315BE902FD // IsContractConstructorURL
+ ME_523ADD1803CC // IsMobileGarantOnlineURL
+ ME_523FE5580232 // NeedOpenLinkInExternalBrowser
+ ME_524E5895037F // IsObtainRequisitesForMobileAccessURL
+ ME_5524E8BE0065 // IsMunicipalDecisionsArchiveURL
+ ME_553A26CA015B // NeedOpenLinkInInternalBrowser
+ ]
+ ; // Operations
+ : Children
+   [ ME_553A2B570033 // InternalBrowserURLArr
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "children prefix" 'ns'
+ CONST "no hands" true
+ CONST "started" '22.04.2009 14:29'
+
+ @SELF
+; // ME_49EEF16603C9 nsInternetUtils

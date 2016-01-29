@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" "D:\MANUAL(CVS)\archi\source\DOCUMENTATION\Description of the process of the technical processing the document.hmxz" "/tsk=Recent Publishes:TechDocument" "/tsk=Recent Publishes:TechDocument_!DAILY" "/tsk=Recent Publishes:TechDocument(web)_!DAILY"

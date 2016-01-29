@@ -1,0 +1,158 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::Support
+//
+// набор вспомогательных функций и трансформаторов для генерации шаблонов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// возвращает способ отображения стереотипа элемента диаграмме:
+// Stereotype
+// Icon
+// Decoration
+t _visualization_type
+//#UC START# *4709FA190196*
+c	{}
+r {"%S{visualization type}"="s"}: {Stereotype}
+r {"%S{visualization type}"="i"}: {Icon}
+r {"%S{visualization type}"="d"}: {Decoration}
+r {""=""}: {}
+//#UC END# *4709FA190196*
+
+// собирает рекурсивно все генераторы определенные или реализумые родителями
+f _collect_parents_generators
+//#UC START# *470F600B0177*
+	<%P<{}{%CC=Operation&%CS=generator}[{%f_exists_in_list(GENERATORS,C)=false}%f_add_to_list(GENERATORS,C)]>\
+	[{%f_need_collect_override_generators(%S)=true}%P<{}{%oC=Operation&%oS=generator}[{%f_exists_in_list(GENERATORS,o)=false}%f_add_to_list(GENERATORS,o)]>\
+	%P<{}{%OC=Operation&%OS=generator}[{%f_exists_in_list(GENERATORS,O)=false}%f_add_to_list(GENERATORS,O)]>\
+	]>%S<{}{%oC=Operation&%oS=generator}[{%f_exists_in_list(GENERATORS,o)=false}%f_add_to_list(GENERATORS,o)]>\
+	<{}{%OC=Operation&%OS=generator}[{%f_exists_in_list(GENERATORS,O)=false}%f_add_to_list(GENERATORS,O)]>
+//если стереотип наследуется от такого же стереотипа, то не собираем
+//генераторы его родителя, т.к в этом случае всё наследование идёт на смарку
+// - тело генераторов обнуляется
+f _need_collect_override_generators
+	[{%Rx=false&%Gx=false}{[{%RS=%SS|%GS=%SS}{true}false]}true]
+
+f _dump_wiki_up_print
+	%f_set_var(BODY,"%f_dump_wiki_up_print_body(%S)")\
+	[{"%{BODY}N"!=""}%f_clear_list(LINES)%f_split_to_list(LINES,%{BODY}N,\n)\
+	\%f _wiki_up_print
+	[{}{	}<{\n}{%f_is_empty(LINES)=false}{W}[%f_pop_first_to_var(LINES,LINE)[	%{LINE}N]]>]]
+
+f _dump_wiki_up_print_body
+	%f_clear_list(UPS_NAMES)\
+	%f_clear_list(UPS)\
+	%f_clear_list(MAIN_UPS)\
+	%f_set_var(UP_MAIN,"")\
+	%f_set_var(INHERITANCE_COUNT,"%f_get_inheritance_count(%S)")\
+//
+//
+	%f_collect_self_up(%S,%{UPS},%{UPS_NAMES})\
+	[{%{INHERITANCE_COUNT}N!=0&%{INHERITANCE_COUNT}N!=1}{[{%{INHERITANCE_COUNT}N!=0&%{UPS}<{}{}{%CC}>!=0}\%S\#\[inherited\]]}\
+	%f_collect_inherited_up(%S,%{UPS},%{UPS_NAMES})\
+	%f_find_main_hierarhy_for_up(%S,"UP_MAIN")\
+//
+//
+	[{"%{UP_MAIN}U"!=""}\
+	%f_clear_list(MAIN_NAMES)\
+	%f_collect_self_up(%{UP_MAIN},%{MAIN_UPS},%{MAIN_NAMES})\
+	%f_collect_inherited_up(%{UP_MAIN},%{MAIN_UPS},%{MAIN_NAMES})\
+	%{UPS}%f_substract_list({MAIN_UPS})\
+	\%S\%\[%{UP_MAIN}#f_st_name()\]f_wiki_up_print()]\
+	]\
+	%f_sort_list(UPS,g)\
+	<{}{%f_is_empty(UPS)=false}{W}[%f_pop_first_to_var(UPS,UP)[\[\{"\%S\{%{UP}N\}"!=%t_dump_up_default_value(%{UP})\}\%f_up_prefix(\%S) *%{UP}N*[ = *%t_dump_up_value(%{UP})*][ - %f_convert_tpl_text("%f_str_replace(%{UP}D,\n,%f_space(%{UP}))")]
+	\]]]>
+
+f _collect_up
+	[{"%1N"=""}%f_error("_collect_up: Не задан идентификатор списка!")]\
+	%f_set_var(LIST_ID,1)\
+	%f_clear_list(FULL_NAMES)\
+	%f_collect_up_i(%S)\
+	%f_sort_list(%{LIST_ID}N,g)
+
+f _collect_up_i
+	[<{}{"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_collect_up_i(%G)>]\
+	[<{}{"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_collect_up_i(%R)>]\
+	[<{}{%CC=Attribute&%f_exists_in_list(FULL_NAMES,"%CN")=false}%f_add_to_list(%{LIST_ID}N,C)%f_add_to_list(FULL_NAMES,"%CN")>]
+
+//возвращает количество базовых элементов
+f _get_inheritance_count
+	%f_evaluate(\
+	<{}{"%G#f_st_name()"!="%S#f_st_name()"&"%G#f_st_name()"!=""&%G%f_need_st_define()=true&%f_has_user_properties(%G)=true}{%GC}>\
+	+ <{}{"%R#f_st_name()"!="%S#f_st_name()"&"%R#f_st_name()"!=""&%R%f_need_st_define()=true&%f_has_user_properties(%R)=true}{%RC}>\
+	)
+
+//находит основную иерархию для вывода юзер-свойств элемента,
+//возвращает УИД выбранного элемента (может вернуть "", если элемент ни от кого не наследует UP)
+//%1 - имя переменной, в которую нужно полжить результат
+f _find_main_hierarhy_for_up
+	%f_set_var(CURR_MAX_UPS,"0")%f_set_var(CURR_MAIN,"")\
+	[<{}{"%G#f_st_name()"!="%S#f_st_name()"&"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_update_main_hierarhy_for_up(%G,"CURR_MAX_UPS","CURR_MAIN")>]\
+	[<{}{"%R#f_st_name()"!="%S#f_st_name()"&"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_update_main_hierarhy_for_up(%R,"CURR_MAX_UPS","CURR_MAIN")>]\
+	[{"%{CURR_MAIN}U"!=""}%f_set_var(%1N,{CURR_MAIN})]\
+	%f_set_var(CURR_MAX_UPS,"0")%f_set_var(CURR_MAIN,"")
+
+//%1 - CURR_MAX_UPS
+//%2 - CURR_MAIN
+f _update_main_hierarhy_for_up
+	%f_clear_list(_update_main_hierarhy_for_up_UPS)\
+	%f_clear_list(_update_main_hierarhy_for_up_NAME_UPS)\
+	%f_collect_self_up(%S,%{_update_main_hierarhy_for_up_UPS},%{_update_main_hierarhy_for_up_NAME_UPS})\
+	%f_collect_inherited_up(%S,%{_update_main_hierarhy_for_up_UPS},%{_update_main_hierarhy_for_up_NAME_UPS})\
+	[{%f_number_cmp("%f_size_list(_update_main_hierarhy_for_up_UPS)","%{%1N}N","\>")=1}\
+	%f_set_var(%1N,"%f_size_list(_update_main_hierarhy_for_up_UPS)")%f_set_var(%2N,S)]\
+/	%f_warning("%SN: %f_size_list(_update_main_hierarhy_for_up_UPS), %{%1N}N, %{CURR_MAX_UPS}N, %{CURR_MAIN}N")\
+	%f_clear_list(_update_main_hierarhy_for_up_UPS)\
+	%f_clear_list(_update_main_hierarhy_for_up_NAME_UPS)
+
+f _has_user_properties
+	%f_clear_list(_has_user_properties_UPS)\
+	%f_clear_list(_has_user_properties_NAME_UPS)\
+	%f_collect_self_up(%S,%{_has_user_properties_UPS},%{_has_user_properties_NAME_UPS})\
+	%f_collect_inherited_up(%S,%{_has_user_properties_UPS},%{_has_user_properties_NAME_UPS})\
+	[{%{_has_user_properties_UPS}%Cx=true}{false}true]\
+	%f_clear_list(_has_user_properties_UPS)\
+	%f_clear_list(_has_user_properties_NAME_UPS)
+
+//%1 - список UP
+//%2 - список имен UP
+f _collect_inherited_up
+	[<{}{"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_collect_self_up(%G,%1,%2)%f_collect_inherited_up(%G,%1,%2)>]\
+	[<{}{"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_collect_self_up(%R,%1,%2)%f_collect_inherited_up(%R,%1,%2)>]
+
+//%1 - список UP
+//%2 - список имен UP
+f _collect_self_up
+	[<{}{%CC=Attribute&%f_exists_in_list(%2N,"%CN")=false}%1%f_add_to_list(C)%2%f_add_to_list("%CN")>]
+
+t _dump_up_default_value
+c                    {}
+/r {%SS=tribool}:    {"[{%SI=true|%SI=1}{[{%SI=false|%SI=0}{undefined}false]}true]"}
+/r {%SS=bool}:       {"[{%SI=true|%SI=1}{false}true]"}
+/r {%SS=list}:       {%f_clear_list(VALUES)%f_split_to_list(VALUES,%SI,|)%f_pop_first_to_var(VALUES,FIRST)"%f_convert_tpl_text(%{FIRST}N)"}
+r {""=""}:           {"\%S\{!%{UP}N\}"}
+
+t _dump_up_value
+c                  {}
+r {%SS=color}:     {\%f_to_rgb(\%S\{%SN\})}
+r {""}:            {\%S\{%SN\}}
+
+f _convert_tpl_text
+	%f_str_replace(\
+	%f_str_replace(\
+	%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%SN,\\,\\\\),%f_rbracket(%S),\\%f_rbracket(%S)),%f_lbrace(%S),\\%f_lbrace(%S)),%f_rbrace(%S),\\%f_rbrace(%S)),%f_lbracket(%S),\\%f_lbracket(%S))\
+	,%f_less(%S)\
+	,\\%f_less(%S)\
+	)\
+	,%f_greater(%S)\
+	,\\%f_greater(%S)\
+	)
+//#UC END# *470F600B0177*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

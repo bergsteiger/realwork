@@ -1,0 +1,674 @@
+// TestExecuteCommand.script
+// Поддержка слова "Выполнить" и другие вспомогательные слова.
+
+USES
+ axiom:AutoComplete
+ axiom:Mouse
+ axiom:Control
+ axiom:Editor
+ axiom:Para
+ axiom:Wait
+ axiom:Waited
+ axiom:Component
+ axiom:push
+ axiom:Form
+ axiom:RadioGroup
+ ArchiSystem.script
+ @\TestUtils.script
+ @\TestParamsDefine.script
+ @\TestWithParameters.script
+ MainFormUtils.script
+ AttributeUtils.script
+ ArchiControls.script
+ CommonWords.script
+;
+
+PROCEDURE "Выполнить окончательную очистку"			
+	g_FinalClear CASE
+		cnNotClearBase ( )
+		cnClearBase ( "Очистка тестовой базы" )
+		cnClearBaseAndExportDir ( "Почистить за собой" "Очистка тестовой базы" )
+		cnClearEditorTemplate ( ClearTemplateStorage "Очистить текстовое поле в 'Редакторе текстовых шаблонов'" )
+		cnClearAutoComplete ( AutoComplete:Clear )
+		cnClearZoom ( "Установить счётчику 'Масштаб' значение 100" )
+		cnHideObjectInspector ( "Спрятать РЕЕСТР ОБЪЕКТОВ" )
+		cnClearBaseAndReloadStyle ( "Очистка тестовой базы" "Обработать сообщения" "Перезагрузить стили" )
+        END
+;
+
+INTEGER VAR g_XMouseCoord
+INTEGER VAR g_YMouseCoord
+
+PROCEDURE "Запомнить позицию мыши, если нужно"
+	Если g_SaveMouseCoordinate то (
+		mouse:GetCursorPosition >>> g_YMouseCoord >>> g_XMouseCoord	
+	)
+;
+
+PROCEDURE "Восстановление позиции мыши, если нужно"
+	Если g_SaveMouseCoordinate то (
+		 g_XMouseCoord g_YMouseCoord mouse:SetCursorPosition
+	)
+;
+
+PROCEDURE "Выполнить очистку буфера обмена, если нужно"
+	Если g_ClearClipboard то (
+		"Очистить буфер обмена"
+	)
+;
+
+PROCEDURE "Выполнить завершающее действие"
+	"Выполнить очистку буфера обмена, если нужно"
+	"Восстановление позиции мыши, если нужно"
+	ClearFindDialog
+	g_How2End CASE
+		cnNoAction ( )
+		cnCloseDoument ( "Закрыть без сохранения" )			
+		cnCloseAllWindow ( "Закрыть все окна" )		
+		cnInspectorOfObjectsDefaultSettingsAndCloseAllWindows ( "Закрыть все окна" "Установить исходное состояние Реестра Объектов" )				
+        END
+;
+
+PROCEDURE "Вылить стиль параграфа"
+	g_ParaID focused:control:push pop:editor:GetParaByID ASSERT
+	Para:StyleName .
+;
+
+PROCEDURE "Открыть документ из базы"
+	 glNumDoc true Открыть
+;
+
+PROCEDURE "Открываем сообщение"
+	g_MailID ShowMailWindow  
+;
+
+PROCEDURE "Сделать выборку со списком документов"
+	"Выполнить с ожиданием 'OK'" (	
+		@ ( "Создание выборки документов" ) MODAL (
+			"Нажать кнопку ОК"
+		)
+	)
+;
+
+PROCEDURE "Добавить документ в выборку"
+	@ ( "Новая выборка" ) MODAL ( "Ввести имя выборки" )
+	ARRAY VAR DocsID
+	[ glNumDoc ] >>> DocsID
+	"Добавить документы {( DocsID )}"
+;
+
+BOOLEAN FUNCTION "Открыто окно 'Выборка документов'"
+	OBJECT VAR l_Window
+	TRY	
+		"Текущее родительское окно" >>> l_Window
+		l_Window ЯВЛЯЕТСЯ csSearchWin >>> Result
+	EXCEPT
+			false >>> Result
+	END
+;
+
+PROCEDURE "Выбрать 'Экспортировать Текущий документ'"
+         "Контрол по имени {("Тип экспорта выборки")} " pop:RadioGroup:ItemIndex := "Текущий документ"
+;
+
+PROCEDURE "Выбрать 'Экспортировать Всю выборку'"
+         "Контрол по имени {("Тип экспорта выборки")} " pop:RadioGroup:ItemIndex := "Всю выборку"
+;
+
+PROCEDURE "Экcпортировать в NSR и сравнить с эталоном"			
+	STRING VAR "Имя документа"
+	BOOLEAN VAR "Нет выборки"
+	"Сформировать имя документа NSR из полного имени скрипта" >>> "Имя документа"
+	НЕ "Открыто окно 'Выборка документов'" >>> "Нет выборки"
+	Если ( "Нет выборки" ) то
+	( 		
+		"Добавить документ в выборку" 
+	)
+	2000 SLEEP
+	"Экспортировать выборку в формате NSRC {("Имя документа")}"		
+	2000 SLEEP
+	"Сравнить с эталоном NSRC {("Имя документа")}"
+;
+
+PROCEDURE "Создать или открыть"	
+    g_ActionWithDocument CASE	
+      cnWithOutDocument (  )
+      cnNewDocID ( "Создать текстовый документ из {( csEVDExt )}" )
+      cnNewEmptyDocID ( Создать_пустой )
+      cnNewNSR ( "Создать текстовый документ из {( csNSRExt )}" )
+	  cnNewRTF ( "Создать текстовый документ из {( csRTFExt )}" )
+	  cnNewDOC ( "Создать текстовый документ из {( csDOCExt )}" )
+	  cnNewDOCX ( "Создать текстовый документ из {( csDOCXExt )}" )
+	  cnNewHTML ( "Создать текстовый документ из {( csHTMExt )}" )
+	  cnNewBMPObjTopic ( "Создать документ-объект из {( csBMPExt )}" )
+	  cnNewPDFObjTopic ( "Создать документ-объект из {( csPDFExt )}" )
+	  cnMessage ( "Открываем сообщение" ) 
+	  cnSelectionWithList ( "Сделать выборку со списком документов" )
+	  cnNewTxtTypeTextDoc ( "Создать текстовый документ из {( csOEMExt )}" )	
+	  cnNewTiffTypeTextDoc ( "Создать текстовый документ из {( csTIFFExt )}" )
+      cnNewDocxTypeDocObj ( "Создать документ-объект из {( csDOCXExt )}" ) 	
+       cnNewDocTypeDocObj ( "Создать документ-объект из {( csDOCExt )}" )	
+	  cnNewTxtTypeDocObj ( "Создать документ-объект из {( csOEMExt )}" )	
+	  cnNewJpgTypeDocObj ( "Создать документ-объект из {( csJPGExt )}" )
+	  cnNewPngTypeDocObj ( "Создать документ-объект из {( csPNGExt )}" )
+	  cnNewPngTypeTextDoc ( "Создать текстовый документ из {( csPNGExt )}" ) 
+	  cnNewJpgTypeTextDoc ( "Создать текстовый документ из {( csJPGExt )}" )  
+	  cnNewGifTypeTextDoc ( "Создать текстовый документ из {( csGIFExt )}" )
+	  cnNewIcoTypeDocObj ( "Создать документ-объект из {( csICOExt )}" )
+	  cnNewPcxTypeDocObj ( "Создать документ-объект из {( csPCXExt )}" )
+      cnNewHtmlTypeDocObj ( "Создать документ-объект из {( csHTMExt )}" )
+	  cnNewTgaTypeDocObj ( "Создать документ-объект из {( csTGAExt )}" )
+	  cnNewGifTypeDocObj ( "Создать документ-объект из {( csGIFExt )}" )
+	  cnNewHtmlTypeTextDoc ( "Создать текстовый документ из {( csHTMExt )}" )
+	  cnNewWmfTypeDocObj ( "Создать документ-объект из {( csWMFExt )}" ) 
+	  cnNewDocIDWithName ( "Создать документ с названием {(glNameDoc)}" )
+	  cnNewDocIDWithNumber ( "Создать документ с номером {(glNumDoc)}" )
+	  cnNewDocIDNoName ( "Создать документ без названия" )
+	  cnNewMessage ( "Создать новое сообщение" )
+	  cnNewTiffTypeDocObj ( "Создать документ-объект из {( csTIFFExt )}" )
+	  cnOpenFromBase ( "Открыть документ из базы" )
+	  cnAddToViborka ( "Добавить документ в выборку" )
+      DEFAULT ( false 'Больше не записываем номер документа в качестве параметра!' ASSERTS )
+    END
+;
+
+INTEGER VAR g_EditorWidth4Drawing
+INTEGER VAR g_EditorHeight4Drawing
+
+PROCEDURE "Инициализировать g_Editor4Drawing"
+	0 >>> g_EditorWidth4Drawing
+	0 >>> g_EditorHeight4Drawing
+;
+
+PROCEDURE "Обычные размеры для редактора"
+	930 >>> g_EditorWidth4Drawing
+	545 >>> g_EditorHeight4Drawing
+;
+
+USES
+ EditorTools.script
+;
+
+PROCEDURE "Подготовка дочернего окна"	 
+	g_ActionWithDocument CASE
+                cnWithOutDocument ( )
+                cnMessage ( "Развернуть окно" )
+		cnAddToViborka ( "Развернуть окно" )
+                cnSelectionWithList ( "Развернуть окно" )
+		DEFAULT ( "Развернуть редактор" )
+	END	  
+;
+
+PROCEDURE "Подготовка"
+	"Подготовить главную форму" 
+	"Обычные размеры для редактора"
+	"Подготовка дочернего окна"
+;
+
+PROCEDURE "Подготовка и WebStyle"
+	 "Подготовка"
+	 "Включить WebStyle" 
+;
+
+PROCEDURE "Подготовка для таблиц с невидимыми границами"
+	 "Подготовка"
+     focused:control:push pop:Editor:DrawSpecial := true
+;
+
+USES
+ BlockTools.script
+;
+
+PROCEDURE "Подготовить для блоков"
+	 "Подготовка"	 
+	 "Включить режим отображения блоков"
+;
+
+PROCEDURE "Подготовка к отрисовке" 
+	"Спрятать РЕЕСТР ОБЪЕКТОВ"
+	"Подготовка"
+	"Выключить все флаги"
+;
+
+PROCEDURE "Подготовка для блоков с переходом к метке"
+	"Подготовить для блоков"
+	"Перейти к метке с номером {(g_SubID)}"
+	"Обработать сообщения"
+;
+
+PROCEDURE "Размеры редактора для широкой формы"
+ 	 1115 >>> g_EditorWidth4Drawing
+	 565 >>> g_EditorHeight4Drawing	
+;
+
+PROCEDURE "Подготовка широкой формы"
+	 "Подготовить широкую главную форму"	 
+	 "Размеры редактора для широкой формы"
+	 "Развернуть редактор"  	
+;
+
+PROCEDURE "Размеры редактора для вставки разрыва"
+	1040 >>> g_EditorWidth4Drawing
+	545 >>> g_EditorHeight4Drawing	
+;
+
+PROCEDURE "Подготовка к отрисовке с отображением разрывов разделов"
+	  "Подготовить главную форму для вставки разрыва"
+	  "Размеры редактора для вставки разрыва"
+	  "Развернуть редактор"  
+	  focused:control:push pop:Editor:DrawSpecial := true
+;
+
+PROCEDURE "Подготовка к выравниванию линий"
+	 "Спрятать РЕЕСТР ОБЪЕКТОВ"
+	 "Подготовить широкую главную форму"
+	 "Размеры редактора для широкой формы"
+	 "Развернуть редактор"
+	 "Выключить все флаги"
+;
+
+PROCEDURE "Подготовка к вставке разрыва"
+	"Подготовить главную форму для вставки разрыва"
+	"Размеры редактора для вставки разрыва"
+	"Развернуть редактор"  
+;
+
+PROCEDURE "Размеры редактора для короткой формы"
+	930 >>> g_EditorWidth4Drawing
+	330 >>> g_EditorHeight4Drawing
+;
+
+PROCEDURE "Подготовка короткой формы" 
+	"Подготовить короткую главную форму"
+	"Размеры редактора для короткой формы"
+	"Развернуть редактор"
+;
+
+PROCEDURE "Подготовка для работы со списками"
+	"Подготовить главную форму"
+	"Развернуть окно"	
+;
+
+PROCEDURE "Размеры редактора при показе дерева оглавления"
+	730 >>> g_EditorWidth4Drawing
+	540 >>> g_EditorHeight4Drawing
+;
+
+USES
+ ContentsTree.script
+;
+
+PROCEDURE "Подготовка с показом дерева"
+	"Подготовить главную форму"
+	"Размеры редактора при показе дерева оглавления"
+	"Развернуть редактор"
+	"Обработать сообщения"
+	"Показать оглавление и развернуть"
+;
+
+PROCEDURE "Подготовка с показом дерева и блоки"
+	"Подготовить главную форму"	
+	"Размеры редактора при показе дерева оглавления"
+	"Развернуть редактор"
+	"Включить режим отображения блоков" 
+	"Обработать сообщения"
+	"Показать оглавление и развернуть"	
+;
+
+PROCEDURE "Подготовка к отрисовке с широкой формой"	
+	 "Спрятать РЕЕСТР ОБЪЕКТОВ"
+	 "Подготовить широкую главную форму"
+	 "Размеры редактора для широкой формы"
+	 "Развернуть редактор"
+	 "Выключить все флаги"
+;
+
+PROCEDURE "Выполнить подготовку к отрисовке SBS"
+		"Подготовка к отрисовке" 
+                focused:control:push pop:Editor:DrawSpecial := true
+;
+
+PROCEDURE "Подготовка окна редактора для атрибутов"
+	"Подготовка"
+	"Перейти на вкладку Атрибуты"
+;
+
+PROCEDURE "Подготовка к работе со Справкой"
+	"Подготовка"
+	"Перейти на вкладку Справка"
+;
+
+ PROCEDURE "Подготовка к работе с Журналом" 
+	"Подготовка"
+	"Перейти на вкладку Журналы"
+ ;
+
+PROCEDURE "Cохранить документ в базу"
+		"Перейти на вкладку Журналы"
+		"Перевести фокус на контрол ID Документа и ввести номер {(g_SaveDocID)}"
+		"Выполнить с ожиданием 'Да'" ( "Нажать табуляцию" )		
+		"Закончить работу с документом"			
+		g_SaveDocID >>> glNumDoc // Теперь докумет "доступен" для дальнйшей работы...
+;
+
+PROCEDURE "Подготовка, Спецсимволы, WebStyle"
+	"Подготовка"
+	"Включить Спецсимволы"	
+    "Включить WebStyle" 		
+;
+
+PROCEDURE "Подготовка к работе с Респондентами"
+	"Подготовка"
+	"Перейти на вкладку Респонденты"
+;
+
+PROCEDURE "Подготовка к работе с Корреспондентами"
+	"Подготовка"
+	"Перейти на вкладку Корреспонденты"
+;
+
+PROCEDURE "Подготовка к работе с Редакциями"
+	"Подготовка"
+	"Перейти на вкладку Редакции"
+;
+
+PROCEDURE "Установить ширину и высоту главного окна, Спецсимволы, Структура документа" INTEGER IN aWidth INTEGER IN aHeight
+	"Подготовить главную форму c шириной {(aWidth)} и высотой {(aHeight)}"
+	"Развернуть редактор"  	
+	"Включить Спецсимволы"	
+        "Включить Структуру документа" 		
+;
+
+PROCEDURE "Изменить размеры"
+	"Инициализировать g_Editor4Drawing"	
+	g_How2Prepare CASE
+		cnNotPrepare ( )
+		cnStandartPrepare ( "Подготовка" )	
+		cnPageBreakSize ( "Подготовка к вставке разрыва" )	
+		cnTableAlignment ( "Подготовка к выравниванию линий" )
+		cnPrepare2Drawing ( "Подготовка к отрисовке" )
+		cnPrepare4BlocksAndGo2Sub ( "Подготовка для блоков с переходом к метке" )
+		cnPrepare2DrawingSBS  ( "Выполнить подготовку к отрисовке SBS" )
+		cnPrepare2DrawingWithWideForm ( "Подготовка к отрисовке с широкой формой" )
+		cnPrepare2DrawingWithBreak ( "Подготовка к отрисовке с отображением разрывов разделов" )
+		cnStandartPrepareAndWebStyle ( "Подготовка и WebStyle" )
+		cnTableWithInvisibleBorders ( "Подготовка для таблиц с невидимыми границами" )
+		cnWorkWithContents ( "Подготовка с показом дерева" )
+		cnPrepareWideForm ( "Подготовка широкой формы" )
+		cnPrepare2Block ( "Подготовить для блоков" )
+		cnImportInBase ( "Cохранить документ в базу" )
+		cnOnlyMainForm ( "Подготовить главную форму" )
+		cnShortMainForm ( "Подготовка короткой формы" )		
+		cnWorkWithContentsAndShowBlocks ( "Подготовка с показом дерева и блоки" )
+		cnWorkingWithAttribute ( "Подготовка окна редактора для атрибутов" )
+		cnWorkingWithSpravka ( "Подготовка к работе со Справкой" )
+		cnStandartPrepareAndWebStyleAndSpecSymbol ( "Подготовка, Спецсимволы, WebStyle" )
+		cnWorkingWithResp ( "Подготовка к работе с Респондентами" ) 
+		cnWorkingWithCoresp ( "Подготовка к работе с Корреспондентами" )
+		cnWorkingWithVersion ( "Подготовка к работе с Редакциями" ) 	
+		cnStandartPrepareAndSpecSymbolAndStructDoc ( "Установить ширину {(aSizeWidth)} и высоту {(aSizeHeight)} главного окна, Спецсимволы, Структура документа" )
+		cnStructDoc ( "Включить Структуру документа" )
+		cnSpecSymbol ( "Включить Спецсимволы" )
+		cnViborkaSize ( "Подготовка для работы со списками" )
+		cnWorkWithJournals ( "Подготовка к работе с Журналом" )		
+        END
+;
+
+PROCEDURE "только с учетом параметров" // Необязательная заглушка
+	
+;
+
+PROCEDURE "Сохранить в NSR и сравнить с эталоном"
+	// Пока заглушка...
+;
+
+PROCEDURE "Отрисовка и сохранение линий таблиц"
+	g_LinesSavePrecision focused:control:push pop:editor:RepaintTableLinesAndCheckWithEtalon
+;
+
+INTEGER FUNCTION "Проверить ширину контрола" OBJECT IN aControl INTEGER IN aWidth
+	Если ( aControl pop:object:ClassName РАВНО 'TevEditor' ) то
+	(	 
+        g_EditorWidth4Drawing <> 0 'Используются нестандартные размеры' ASSERTS
+		g_EditorWidth4Drawing =: Result
+	)		
+	иначе
+	( aWidth =: Result )
+;
+
+INTEGER FUNCTION "Проверить высоту контрола" OBJECT IN aControl INTEGER IN aHeight
+	Если ( aControl pop:object:ClassName РАВНО 'TevEditor' ) то
+	(	 
+        g_EditorHeight4Drawing <> 0 'Используются нестандартные размеры' ASSERTS
+		g_EditorHeight4Drawing =: Result
+	)
+	иначе
+	( aHeight =: Result )
+;
+
+PROCEDURE "Сохранить изображение контрола и сравнить с эталоном"
+	EtalonNeedsComputerName
+	OBJECT VAR l_Editor
+	focused:control:push >>> l_Editor 	
+	INTEGER VAR l_Width	
+	l_Editor pop:Control:Width >>> l_Width
+	"Проверить ширину контрола {(l_Editor)} {(l_Width)}" >>> l_Width
+	INTEGER VAR l_Height 	
+	l_Editor pop:Control:Height >>> l_Height	
+	"Проверить высоту контрола {(l_Editor)} {(l_Height)}" >>> l_Height	
+	l_Editor pop:Control:Repaint
+	BOOLEAN VAR l_IsEditor
+	l_Editor ЯВЛЯЕТСЯ class::TevEditor >>> l_IsEditor
+	INTEGER VAR l_Handle
+	l_Editor pop:Control:GetHandle >>> l_Handle	
+	Если ( l_IsEditor ) то ( "Спрятать каретку редактора {(l_Editor)}" )
+	TRY
+	 "Сохранить изображение и сравнить с эталоном {(l_Height)} {(l_Width)} {(0)} {(0)} {(l_Handle)}"	
+	FINALLY
+	 Если ( l_IsEditor ) то ( "Показать каретку редактора {(l_Editor)}" )
+	END
+;
+
+PROCEDURE "Сохранить эталон для PictureViewer и сравнить с эталоном"
+		OBJECT VAR l_Control
+		"Контрол по имени {(carPictureViewer)}" >>> l_Control
+		"Сохранить в BMP и сравнить с эталоном {( l_Control )}"	
+;
+
+PROCEDURE "Сделать привязку к ПК, сохранить эталон для PictureViewer и сравнить с эталоном"
+		EtalonNeedsComputerName
+		OBJECT VAR l_Control
+		"Контрол по имени {(carPictureViewer)}" >>> l_Control
+		"Сохранить в BMP и сравнить с эталоном {( l_Control )}"	
+;
+
+PROCEDURE "Сохранить имя контрола и сравнить с эталоном"
+	focused:control:push pop:Component:Name .
+;
+
+BOOLEAN VAR g_WasException
+
+STRING FUNCTION "Сформировать имя документа HTML"
+	glNumDoc БОЛЬШЕ 0 ?ASSURE 'Документ не из базы!'
+	STRING VAR l_Number
+	glNumDoc IntToStr >>> l_Number
+	[ l_Number csHTMLExt ] strings:Cat >>> Result 	 
+;
+
+PROCEDURE "Экcпортировать в HTML и сравнить с эталоном"			
+	STRING VAR l_DocName
+	"Сформировать имя документа HTML" >>> l_DocName
+	"Экспортировать выборку в формате HTML {(l_DocName)}"	
+	"Сравнить с эталоном HTML {(l_DocName)}"	
+;
+
+STRING FUNCTION "Сформировать имя документа RTF"
+	glNumDoc БОЛЬШЕ 0 ?ASSURE 'Документ не из базы!'
+	STRING VAR l_Number
+	glNumDoc IntToStr >>> l_Number
+	[ l_Number csRTFExt ] strings:Cat >>> Result 	 
+;
+
+PROCEDURE "Экcпортировать в RTF и сравнить с эталоном"
+	STRING VAR l_DocName
+	"Сформировать имя документа RTF" >>> l_DocName
+	"Экспортировать выборку в формате RTF {(l_DocName)}"	
+	"Сравнить с эталоном RTF {(l_DocName)}"	
+;
+
+PROCEDURE "Сравнить выделенный текст редактора с эталоном в формате RTF с привязкой к машине"
+	"Убедиться, что фокус в редакторе"
+	EtalonNeedsComputerName
+;
+
+PROCEDURE "Проверочное действие"	
+	g_SetFuzzValue SetFuzzInPercent
+	g_CheckAction CASE
+		cnNoneAction (  )
+		cnCheckWithEVDEtalon ( "Сравнить текст с эталоном" ) 
+		cnCheckWithNSREtalon ( "Сохранить в NSR и сравнить с эталоном" )
+		cnCheckTable ( "Выполнить проверку таблицы" )
+		cnCheckDrawing ( "Перерисовать и сравнить с эталоном в текущем редакторе" )
+		cnCheckTableLineDrawing ( "Отрисовка и сохранение линий таблиц" ) 
+		cnCheckTopAnchor ( "Проверить верхний якорь" ) 
+		cnCheckBottomAnchor ( "Проверить нижний якорь" ) 
+		cnCheckCellParams ( "Вылить параметры ячеек и сравнить с эталоном" )
+		cnCheckParaStyle ( "Вылить стиль параграфа" )
+		cnCheckPrinting ( "Нажимаем печать" )		
+		cnCheckTreeEtalon ( "Сравнить дерево с эталоном {(g_TreeName)}" ) 
+		cnCheckCombobox ( "Сравнить Combobox с эталоном {(g_ComboboxName)}" ) 
+		cnCheckTextInSelection ( "Сохранить текст выделения" ) 
+		cnSubPanelIcons ( "Проверить с сабпанель" )
+		cnModify ( "Проверить, изменился ли документ" )
+		cnDialog ( "Проверить появление диалога" )
+		cnExport2NSRAndCheckWithEtalon ( "Экcпортировать в NSR и сравнить с эталоном" )
+		cnImageParaWithID ( "Сохранить изображение параграфа и сравнить с эталоном" )
+		cnImageControl ( "Сохранить изображение контрола и сравнить с эталоном" )
+		cnOEMEtalon ( "Сохранить в OEM и сравнить с эталоном" )
+		cnActivePageName ( "Сохранить имя активной вкладки" )
+		cnListOfViborka ( "Сравнить список выборки с эталоном" )
+		cnObjectTopicBMP ( "Сохранить эталон для PictureViewer и сравнить с эталоном" ) 
+		cnCurrentListnerItem ( "Сохранить текущий пункт списка" )		
+		cnSubPanelHelpIcons ( "Перейти на вкладку 'Справка' и записать все видимые иконки сабпанели в эталон" )	
+		cnObjectTopicBMPandGetPC ( "Сделать привязку к ПК, сохранить эталон для PictureViewer и сравнить с эталоном"  )		
+		cnSaveControlName ( "Сохранить имя контрола и сравнить с эталоном" ) 
+		cnNumberFromStatusBar ( "Получить из статусбара число после предлога 'из', сравнить с нулём и записать в эталон" )
+		cnCheckComboboxMetka ( "Сравнить Combobox свойств блока с эталоном {(g_ComboboxName)}" ) 
+		cnExport2HTMLAndCheckWithEtalon ( "Экcпортировать в HTML и сравнить с эталоном" )
+		cnRTFWithPCName ( "Сравнить выделенный текст редактора с эталоном в формате RTF с привязкой к машине" )
+		cnExport2RTFAndCheckWithEtalon ( "Экcпортировать в RTF и сравнить с эталоном" )
+        END
+	Если ( g_AntiTest ) то ( g_WasException 'Не появилось ожидаемое исключение!' ASSERTS )
+;
+
+PROCEDURE "Выполнить до теста"	
+	g_StartAction CASE
+		cnNoStartAction (  )
+		cnMoveCursorDownAndHome ( "Нажать вниз раз {(g_MoveCount)}" "В начало строки" ) 
+		cnMoveCursorDown ( "Нажать вниз раз {(g_MoveCount)}" ) 
+		cnPageDownAndMoveCursorDown ( 
+				g_PageCount раз "На страницу вниз" 
+				"Обработать сообщения" 
+				"Нажать вниз раз {(g_MoveCount)}" 
+				"Обработать сообщения" 
+				) 
+		cnPageDownAndMoveCursorUp ( 
+				g_PageCount раз "На страницу вниз" 
+				"Обработать сообщения" 
+				"Нажать вверх раз {(g_MoveCount)}" 
+				"Обработать сообщения" 
+				) 		
+		cnGo2Sub ( "Перейти к метке с номером {(g_SubID)}" "Обработать сообщения" )
+		cnScrollDown ( "Прокрутить вниз {(g_MoveCount)}раз" ) 
+		cnMoveCursorDownAndTab ( "Нажать вниз раз {(g_MoveCount)}" g_TabCount раз "Нажать табуляцию" )
+		cnTabAndEnd ( g_TabCount раз "Нажать табуляцию" "В конец строки" ) 
+		сnUndo ( "Откатка" )
+		cnWaitYes ( "Ожидать Yes" )
+        END
+;
+
+PROCEDURE "Подготовить справку для RelCorrector" 
+ TRY	
+	"Создать или открыть"
+	"Подготовка к работе со Справкой"	
+	g_PrepareMethod DO
+	"Закончить работу с документом"
+ EXCEPT
+	"Закрыть без сохранения"
+ END
+ "Обработать сообщения"
+ "Вызвать base_RelCorrecter"
+;
+
+PROCEDURE "Сделать активной главную форму"
+	BOOLEAN VAR l_Result
+	push:MainForm pop:Control:SetFocus >>> l_Result // Не оставляем результат на стеке...
+;
+
+PROCEDURE "Подготовка теста"
+	"Сделать активной главную форму"
+	false >>> g_WasException
+	g_BeforeTest CASE
+		cnNotPrepareTest ( )
+		cnMakeSpravka4RelCorrector ( "Подготовить справку для RelCorrector" )
+		cnPictureSave ( "Выставить флаг записи картинок" )
+		cnShowObjectInspector ( "Показать РЕЕСТР ОБЪЕКТОВ" )
+        END
+;
+
+PROCEDURE "Проверяющее слово для дочерних окон"	
+	Если ( ( push:MainForm pop:form:MDIChildCount <> 0 ) ( g_How2End cnNoAction != ) && ) то 
+	( 
+		"Закрыть все окна"
+		false 'Не все окна были закрыты' ASSERTS
+	)
+;
+
+PROCEDURE "Проверяющие слова"
+	"Обработать сообщения"
+	"Проверяющее слово для дочерних окон"
+;
+
+PROCEDURE "Проверка совместимости параметров"
+	Если ( g_CheckAction cnCheckDrawing == ) то
+	(
+	 g_How2Prepare "НЕ РАВНО" cnSpecSymbol ?ASSURE 'Несовместимые параметры!'
+	 g_How2Prepare "НЕ РАВНО" cnNotPrepare ?ASSURE 'Несовместимые параметры!'
+	 g_How2Prepare "НЕ РАВНО" cnOnlyMainForm ?ASSURE 'Несовместимые параметры!'
+	)
+;
+
+VOID WORDWORKER Выполнить		
+	Если ( ( g_WasInit IsVoid ) ИЛИ ( g_WasInit =0 ) ) то ( "Первоначальные параметры" )	
+	Если ( g_FinalClear cnClearBaseAndExportDir == ) то ( "Инициализировать директорию экспорта" )		
+	"Проверка совместимости параметров"
+	"Подготовка теста"
+	TRY
+		"Создать или открыть"
+		TRY
+			"Изменить размеры"				
+			"Обработать сообщения"
+			"Запомнить позицию мыши, если нужно"
+			"Выполнить до теста"
+			"Обработать сообщения"
+			TRY
+			 WordToWork DO
+			EXCEPT
+			 Если ( g_AntiTest ) то 
+			  ( 
+				"Сравнить текущее исключение с эталоном" 
+				true >>> g_WasException
+				)		  
+			 иначе 
+			  ( current:exception:Message RAISE )
+			END
+			"Проверочное действие"
+		FINALLY
+			"Выполнить завершающее действие"			
+		END
+	FINALLY
+		"Выполнить окончательную очистку"			
+		0 >>> g_WasInit // Мало ли сколько раз вызвали...
+	END
+	"Проверяющие слова"
+;

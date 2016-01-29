@@ -1,0 +1,88 @@
+// ExportPipeTestsSupport 55FFC20F00A6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55FFC20F00A6
+
+FORWARD ME_55FFC24301D0
+
+: ME_5617B80503BC
+ CONST UID '5617B80503BC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFC24301D0 // DTTypesUser
+ ;
+ : Target WL 'ME_560A4D4F01AE' '5603ED3D011B.pas.ms.script' // TddExportDivideBy
+ ;
+
+ref; // ME_5617B80503BC 
+
+: ME_561B5A93027F
+ CONST UID '561B5A93027F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFC24301D0 // DTTypesUser
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_561B5A93027F 
+
+: ME_55FFC24301D0
+ CONST UID '55FFC24301D0'
+ CONST Name 'DTTypesUser'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55FFC20F00A6 // ExportPipeTestsSupport
+ ;
+ : Dependencies
+   @ ( ME_5617B80503BC // 
+ ME_561B5A93027F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\DTTypesUser.imp.pas'
+ CONST extprop:pas:TypeName '_DTTypesUser_'
+
+ref; // ME_55FFC24301D0 DTTypesUser
+
+: ME_55FFC20F00A6
+ CONST UID '55FFC20F00A6'
+ CONST Name 'ExportPipeTestsSupport'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_55ED4FE10372' '55ED4FE10372.pas.ms.script' // SimpleTests
+ ;
+ : Children
+   @ ( ME_55FFC24301D0 // DTTypesUser
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+ WL 'ME_5603ED3D011B' '5603ED3D011B.pas.ms.script' // ddPipeOutInterfaces
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55FFC20F00A6.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55FFC20F00A6.pas.ms.script.runner'
+
+ref; // ME_55FFC20F00A6 ExportPipeTestsSupport

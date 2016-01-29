@@ -1,0 +1,396 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/ScriptKeyword.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::ScriptKeyword
+//
+// Слово скрипта
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ScriptKeyword::Class
+implementation @ <<ScriptKeyword>>
+//? Слово скрипта
+//> ScriptKeyword::Class
+
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +-
+// - типы видимости
+//a fra
+// - тип абстракции
+// Параметры визуализации
+//$ C 230,230,250
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p NameForScript:s ? 
+//p is immediate:tribool=undefined ? Определяет - является ли слово исполняемым во время компиляции
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{NameForScript}"!="%S{!NameForScript}"}%f_up_prefix(%S) *NameForScript* = *%S{NameForScript}*
+ ?inherited
+ if ( ( %S get_up ( 'NameForScript' ) ) %!= ( %S get_up_def ( 'NameForScript' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *NameForScript* = *'
+  %S get_up ( 'NameForScript' ) '*'
+//	][{"%S{is immediate}"!="%S{!is immediate}"}%f_up_prefix(%S) *is immediate* = *%S{is immediate}* - Определяет - является ли слово исполняемым во время компиляции
+ end // if
+ if ( ( %S get_up ( 'is immediate' ) ) %!= ( %S get_up_def ( 'is immediate' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is immediate* = *'
+  %S get_up ( 'is immediate' ) '* - Определяет - является ли слово исполняемым во время компиляции'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // wiki_up_print
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4F2C0D86003E*
+//	%S%[inherited]\
+ inherited
+
+//	[{%Gx!=true}\
+ if ( ( %G |x ) %!=  true ) then
+ begin
+//	[{"%{TtfwRegisterableWord}N"=""}%f_find_element(53EDC0E701BC,TtfwRegisterableWord)]\
+  if ( ( ( get_global_var ( 'TtfwRegisterableWord' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '53EDC0E701BC' %, 'TtfwRegisterableWord' )% 
+  end // if
+//	%S%f_make_accessable(%{TtfwRegisterableWord}U)\
+  %S %f make_accessable %( ( get_global_var ( 'TtfwRegisterableWord' ) |U ) )% 
+//	%f_addG(%S,%{TtfwRegisterableWord})\
+  [%f] addG %( %S %, ( get_global_var ( 'TtfwRegisterableWord' ) ) )% 
+//	]\
+ end // if
+
+//	[{%S%f_IsMixIn()!=true}\
+ if ( ( %S %f IsMixIn %( )% ) %!=  true ) then
+ begin
+//	[{%Sa!=abstract}\
+  if ( ( %S |a ) %!= 'abstract' ) then
+  begin
+//	[{"%{TtfwRegisterableWord.GetWordNameForRegister}N"=""}%f_find_element(4DB0614603C8,TtfwRegisterableWord.GetWordNameForRegister)]\
+   if ( ( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '4DB0614603C8' %, 'TtfwRegisterableWord.GetWordNameForRegister' )% 
+   end // if
+//	%S%f_add_override(%{TtfwRegisterableWord.GetWordNameForRegister}U)\
+   %S %f add_override %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) |U ) )% 
+//	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%S)_var,\
+   ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) ) %, %S )% '_var' %, 
+//	 {-}\
+   ' {-}'
+//	)\
+)% ) //	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%S)_impl,\
+   ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwRegisterableWord.GetWordNameForRegister' ) ) %, %S )% '_impl' %, 
+//	 Result := \
+   ' Result := '
+//	[{"%S{NameForScript}"=""}{\
+   if ( ( %S get_up ( 'NameForScript' ) ) %== '' ) then
+   begin
+//	'[%P#f_pas_ElementPrefixBase():]%f_str_replace(%f_N(%S),_,:)'\
+    ''''
+    if NOT-EMPTY
+    begin
+     %P %?f pas_ElementPrefixBase %( )% ':' 
+    end // if
+    NOP
+    [%f] str_replace %( [%f] N %( %S )% %, '_' %, ':' )% ''''
+//	]\
+   end // if
+   else
+   begin
+//	'%S{NameForScript}'\
+    ''''
+    %S get_up ( 'NameForScript' ) ''''
+//	}\
+   end // else
+//	;\
+   ';'
+//	)\
+)% ) //	%f_SpellRegisterInEngine(%S)\
+   [%f] SpellRegisterInEngine %( %S )% 
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{"%S{is immediate}"!="undefined"&"%S{is immediate}"!=""}\
+ if ( ( %S get_up ( 'is immediate' ) ) %!= 'undefined' AND 
+   ( ( %S get_up ( 'is immediate' ) ) %!= ''  ) ) then
+ begin
+//	[{"%{TtfwWord.IsImmediate}N"=""}%f_find_element(4DB6D7F70155,TtfwWord.IsImmediate)]\
+  if ( ( ( get_global_var ( 'TtfwWord.IsImmediate' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '4DB6D7F70155' %, 'TtfwWord.IsImmediate' )% 
+  end // if
+//	%S%f_add_override(4DB6D7F70155)\
+  %S %f add_override %( 4 'DB6D7F70155' )% 
+//	%{TtfwWord.IsImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.IsImmediate},%S)_var,\
+  ( get_global_var ( 'TtfwWord.IsImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.IsImmediate' ) ) %, %S )% '_var' %, 
+//	 {-}\
+  ' {-}'
+//	)\
+)% ) //	%{TtfwWord.IsImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.IsImmediate},%S)_impl,\
+  ( get_global_var ( 'TtfwWord.IsImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.IsImmediate' ) ) %, %S )% '_impl' %, 
+//	 Result := %S{is immediate};\
+  ' Result := '
+  %S get_up ( 'is immediate' ) ';'
+//	)\
+)% ) //	]
+ end // if
+//#UC END# *4B2A19E3038Bfor4F2C0D86003E*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Является ли примесью
+//%f _IsMixIn
+: IsMixIn OBJECT IN %S
+//#UC START# *4947E5D40127for4F2C0D86003E*
+//	false
+ false
+//	[{%Sa=abstract}{false}true]
+//#UC END# *4947E5D40127for4F2C0D86003E*
+; // IsMixIn
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Нужно ли документацию к слову скрипта, которое представляет элемента
+//%f _NeedsKeywordDocumentation
+: NeedsKeywordDocumentation OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4F30B869036Efor4F2C0D86003E*
+//	[{%Sa=abstract}{\
+ if ( ( %S |a ) %== 'abstract' ) then
+ begin
+//	false\
+   false 
+//	]
+ end // if
+ else
+ begin
+//	[{%S%f_IsMixIn()=true}{\
+  if ( ( %S %f IsMixIn %( )% ) %==  true ) then
+  begin
+//	false\
+    false 
+//	]\
+  end // if
+  else
+  begin
+//	true\
+    true 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4F30B869036Efor4F2C0D86003E*
+; // NeedsKeywordDocumentation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _ScriptKeywordDocumentationName
+: ScriptKeywordDocumentationName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4F30B8E60385for4F2C0D86003E*
+//	[%P#f_pas_ElementPrefixBase()_]%f_N(%S)
+ if NOT-EMPTY
+ begin
+  %P %?f pas_ElementPrefixBase %( )% '_' 
+ end // if
+ NOP
+ [%f] N %( %S )% 
+//#UC END# *4F30B8E60385for4F2C0D86003E*
+; // ScriptKeywordDocumentationName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит спец-метку класса
+//%f _pas_OutClassMark
+: pas_OutClassMark OBJECT IN %S
+//#UC START# *494B74D7016Bfor4F2C0D86003E*
+//	scriptword
+ 'scriptword'
+//#UC END# *494B74D7016Bfor4F2C0D86003E*
+; // pas_OutClassMark
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for4F2C0D86003E*
+//	[{%S%f_IsMixIn()=true}{\
+ if ( ( %S %f IsMixIn %( )% ) %==  true ) then
+ begin
+//	[{%f_substr_from_begin(%SN,3)=tfw}{\
+  if ( ( [%f] substr_from_begin %( %S |N %, 3 )% ) %== 'tfw' ) then
+  begin
+//	_tfw[_%P#f_pas_ElementPrefixBase()]%f_to_borland(%f_cut_prefix(%f_N(%S),tfw))_\
+   '_tfw'
+   if NOT-EMPTY
+   begin
+    '_'
+    %P %?f pas_ElementPrefixBase %( )% 
+   end // if
+   NOP
+   [%f] to_borland %( [%f] cut_prefix %( [%f] N %( %S )% %, 'tfw' )% )% '_'
+//	]\
+  end // if
+  else
+  begin
+//	_kw[_%P#f_pas_ElementPrefixBase()]%f_to_borland(%f_cut_prefix(%f_N(%S),kw))_\
+   '_kw'
+   if NOT-EMPTY
+   begin
+    '_'
+    %P %?f pas_ElementPrefixBase %( )% 
+   end // if
+   NOP
+   [%f] to_borland %( [%f] cut_prefix %( [%f] N %( %S )% %, 'kw' )% )% '_'
+//	}\
+  end // else
+//	]
+ end // if
+ else
+ begin
+//	Tkw[_%P#f_pas_ElementPrefixBase()]\
+  'Tkw'
+  if NOT-EMPTY
+  begin
+   '_'
+   %P %?f pas_ElementPrefixBase %( )% 
+  end // if
+  NOP
+//	[{%S{NotStripUnderline}=true}{\
+  if ( ( %S get_up ( 'NotStripUnderline' ) ) %==  true ) then
+  begin
+//	%f_cut_prefix(%f_N(%S),Tkw)\
+   [%f] cut_prefix %( [%f] N %( %S )% %, 'Tkw' )% 
+//	]\
+  end // if
+  else
+  begin
+//	%f_to_borland(%f_cut_prefix(%f_cut_prefix(%f_N(%S),Tkw),_))\
+   [%f] to_borland %( [%f] cut_prefix %( [%f] cut_prefix %( [%f] N %( %S )% %, 'Tkw' )% %, '_' )% )% 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4947F8AD02A1for4F2C0D86003E*
+; // pas_TypeName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor4F2C0D86003E*
+//	[{%S%f_IsMixIn()=true}{\
+ if ( ( %S %f IsMixIn %( )% ) %==  true ) then
+ begin
+//	[{%f_substr_from_begin(%SN,3)=tfw}{\
+  if ( ( [%f] substr_from_begin %( %S |N %, 3 )% ) %== 'tfw' ) then
+  begin
+//	tfw[_%P#f_pas_ElementPrefixBase()]%f_to_borland(%f_cut_prefix(%f_N(%S),tfw)).imp\
+   'tfw'
+   if NOT-EMPTY
+   begin
+    '_'
+    %P %?f pas_ElementPrefixBase %( )% 
+   end // if
+   NOP
+   [%f] to_borland %( [%f] cut_prefix %( [%f] N %( %S )% %, 'tfw' )% )% '.imp'
+//	]\
+  end // if
+  else
+  begin
+//	kw[_%P#f_pas_ElementPrefixBase()]%f_to_borland(%f_cut_prefix(%f_N(%S),kw)).imp\
+   'kw'
+   if NOT-EMPTY
+   begin
+    '_'
+    %P %?f pas_ElementPrefixBase %( )% 
+   end // if
+   NOP
+   [%f] to_borland %( [%f] cut_prefix %( [%f] N %( %S )% %, 'kw' )% )% '.imp'
+//	}\
+  end // else
+//	]
+ end // if
+ else
+ begin
+//	[{%SV!=PrivateAccess|%P#f_IsUnitFileProducer()!=true}{\
+  if ( ( %S |V ) %!= 'PrivateAccess' OR 
+    ( ( %P %?f IsUnitFileProducer %( )% ) %!=  true  ) ) then
+  begin
+//	kw[_%P#f_pas_ElementPrefixBase()]\
+   'kw'
+   if NOT-EMPTY
+   begin
+    '_'
+    %P %?f pas_ElementPrefixBase %( )% 
+   end // if
+   NOP
+//	[{%S{NotStripUnderline}=true}{\
+   if ( ( %S get_up ( 'NotStripUnderline' ) ) %==  true ) then
+   begin
+//	%f_cut_prefix(%f_N(%S),Tkw)\
+    [%f] cut_prefix %( [%f] N %( %S )% %, 'Tkw' )% 
+//	]\
+   end // if
+   else
+   begin
+//	%f_to_borland(%f_cut_prefix(%f_cut_prefix(%f_N(%S),Tkw),_))\
+    [%f] to_borland %( [%f] cut_prefix %( [%f] cut_prefix %( [%f] N %( %S )% %, 'Tkw' )% %, '_' )% )% 
+//	}\
+   end // else
+//	]\
+  end // if
+  else
+  begin
+
+//	[{%SV!=PrivateAccess}{\
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4948065C01DFfor4F2C0D86003E*
+; // pas_UnitName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ScriptKeyword>>
+

@@ -1,0 +1,2759 @@
+// Sys 4AB0C3C60310 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB0C3C60310
+
+FORWARD ME_4807744200AA
+
+FORWARD ME_4807745602C8
+
+FORWARD ME_516131510341
+
+: ME_516131640085
+ CONST UID '516131640085'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_516131510341 // NewInstance
+ ;
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ref; // ME_516131640085 DoIt
+
+: ME_516131510341
+ CONST UID '516131510341'
+ CONST Name 'NewInstance'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807745602C8 // TObject
+ ;
+ : Operations
+   @ ( ME_516131640085 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_516131510341 NewInstance
+
+FORWARD ME_5161317A0219
+
+: ME_516131A80125
+ CONST UID '516131A80125'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5161317A0219 // FreeInstance
+ ;
+
+ref; // ME_516131A80125 DoIt
+
+: ME_5161317A0219
+ CONST UID '5161317A0219'
+ CONST Name 'FreeInstance'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807745602C8 // TObject
+ ;
+ : Operations
+   @ ( ME_516131A80125 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" false
+
+ref; // ME_5161317A0219 FreeInstance
+
+FORWARD ME_516D582B011F
+
+: ME_516D5BE90210
+ CONST UID '516D5BE90210'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_516D582B011F // Create
+ ;
+
+ref; // ME_516D5BE90210 DoIt
+
+: ME_516D582B011F
+ CONST UID '516D582B011F'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4807745602C8 // TObject
+ ;
+ : Operations
+   @ ( ME_516D5BE90210 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_516D582B011F Create
+
+FORWARD ME_51DAEFC6017B
+
+: ME_51DAEFEB0135
+ CONST UID '51DAEFEB0135'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51DAEFC6017B // BeforeDestruction
+ ;
+
+ref; // ME_51DAEFEB0135 DoIt
+
+: ME_51DAEFC6017B
+ CONST UID '51DAEFC6017B'
+ CONST Name 'BeforeDestruction'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807745602C8 // TObject
+ ;
+ : Operations
+   @ ( ME_51DAEFEB0135 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_51DAEFC6017B BeforeDestruction
+
+: ME_48077504027E
+ CONST UID '48077504027E'
+ CONST Name 'Destroy'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807745602C8 // TObject
+ ;
+
+ref; // ME_48077504027E Destroy
+
+: ME_49F057120234
+ CONST UID '49F057120234'
+ CONST Name 'AfterConstruction'
+ CONST Class class_Operation
+ %SUMMARY 'AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.'#13#10''#13#10'The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807745602C8 // TObject
+ ;
+
+ref; // ME_49F057120234 AfterConstruction
+
+: ME_4807745602C8
+ CONST UID '4807745602C8'
+ CONST Name 'TObject'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Operations
+   @ ( ME_516131510341 // NewInstance
+ ME_5161317A0219 // FreeInstance
+ ME_516D582B011F // Create
+ ME_51DAEFC6017B // BeforeDestruction
+ ME_48077504027E // Destroy
+ ME_49F057120234 // AfterConstruction
+ ) .SequenceCode.It
+ ; // Operations
+ : Injected
+   @ ( WL 'ME_B206B381EB71' '5076977D0064.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4807745602C8 TObject
+
+: ME_48077FF80141
+ CONST UID '48077FF80141'
+ CONST Name 'TInterfacedObject'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_4807745602C8 // TObject
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_48077FF80141 TInterfacedObject
+
+: ME_4808BC3A03E1
+ CONST UID '4808BC3A03E1'
+ CONST Name 'Text'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_4808BC3A03E1 Text
+
+: ME_469F8577004B
+ CONST UID '469F8577004B'
+ CONST Name 'TObject'
+ CONST Class class_Class
+ : Stereotype st_ObjStub ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый объект Delphi. Предок всех других классов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_469F8577004B TObject$Stub
+
+: ME_476775CB036A
+ CONST UID '476775CB036A'
+ CONST Name 'TClass'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сылка на RTTI класса.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_469F8577004B // TObject$Stub
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isClassRef" true
+
+ref; // ME_476775CB036A TClass
+
+: ME_48077EC0001D
+ CONST UID '48077EC0001D'
+ CONST Name 'Variant'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_48077EC0001D Variant
+
+: ME_469F99BD026B
+ CONST UID '469F99BD026B'
+ CONST Name 'HResult'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_469F99BD026B HResult
+
+: ME_472094E70218
+ CONST UID '472094E70218'
+ CONST Name 'hResult'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_469F99BD026B // HResult
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_472094E70218 hResult
+
+: ME_48FD996601CE
+ CONST UID '48FD996601CE'
+ CONST Name 'Longword'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_48FD996601CE Longword
+
+: ME_498849D803A8
+ CONST UID '498849D803A8'
+ CONST Name 'WideString'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_4869B190025F' '3DBFDB23006E.pas.ms.script' // a-wstring
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_498849D803A8 WideString
+
+: ME_46A606AC03B2
+ CONST UID '46A606AC03B2'
+ CONST Name 'Integer'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_46A606AC03B2 Integer
+
+: ME_46A608F00301
+ CONST UID '46A608F00301'
+ CONST Name 'Pointer'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_46A608F00301 Pointer
+
+: ME_46A618AF0053
+ CONST UID '46A618AF0053'
+ CONST Name 'Cardinal'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Беззнаковое 32-битное целое.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_46A618AF0053 Cardinal
+
+: ME_47BC524C0245
+ CONST UID '47BC524C0245'
+ CONST Name 'LongWord'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_46A618AF0053 // Cardinal
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_47BC524C0245 LongWord
+
+: ME_46A603BB0391
+ CONST UID '46A603BB0391'
+ CONST Name 'Boolean'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_46A603BB0391 Boolean
+
+FORWARD ME_47CEB00B00F6
+
+: ME_4AB0D93C0108
+ CONST UID '4AB0D93C0108'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47CEB00B00F6 // array [Boolean] of Integer
+ ;
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ref; // ME_4AB0D93C0108 
+
+: ME_47CEB00B00F6
+ CONST UID '47CEB00B00F6'
+ CONST Name 'array [Boolean] of Integer'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_46A603BB0391 // Boolean
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4AB0D93C0108 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_47CEB00B00F6 array [Boolean] of Integer
+
+: ME_48FEE8A90247
+ CONST UID '48FEE8A90247'
+ CONST Name 'PBoolean'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_46A603BB0391 // Boolean
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_48FEE8A90247 PBoolean
+
+: ME_482C48430205
+ CONST UID '482C48430205'
+ CONST Name 'Char'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST extprop:pas:TypeName 'AnsiChar'
+
+ref; // ME_482C48430205 Char
+
+: ME_47C6CC1A033B
+ CONST UID '47C6CC1A033B'
+ CONST Name 'ShortInt'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE6F0305' '3DBFDB23006E.pas.ms.script' // char
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_47C6CC1A033B ShortInt
+
+: ME_47272C8B0128
+ CONST UID '47272C8B0128'
+ CONST Name 'TDateTime'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'дата/время' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD9B0197' '3DBFDB23006E.pas.ms.script' // double
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_47272C8B0128 TDateTime
+
+: ME_475EA27A0131
+ CONST UID '475EA27A0131'
+ CONST Name 'Double'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD9B0197' '3DBFDB23006E.pas.ms.script' // double
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_475EA27A0131 Double
+
+: ME_46A451250363
+ CONST UID '46A451250363'
+ CONST Name 'IUnknown'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфейс.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_46A451250363 IUnknown
+
+FORWARD ME_48FD94B70371
+
+: ME_4AB0D7B30226
+ CONST UID '4AB0D7B30226'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48FD94B70371 // array of IUnknown
+ ;
+ : Target ME_46A451250363 // IUnknown
+ ;
+
+ref; // ME_4AB0D7B30226 
+
+: ME_48FD94B70371
+ CONST UID '48FD94B70371'
+ CONST Name 'array of IUnknown'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Attributes
+   @ ( ME_4AB0D7B30226 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_48FD94B70371 array of IUnknown
+
+: ME_49ED9D5A015F
+ CONST UID '49ED9D5A015F'
+ CONST GUID '23D408F2-6D26-4063-BFA1-7428D7624A59'
+ CONST Name 'IDispatch'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_49ED9D5A015F IDispatch
+
+: ME_49ED88C9020B
+ CONST UID '49ED88C9020B'
+ CONST Name 'WordBool'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_49ED88C9020B WordBool
+
+: ME_469F3EEF0024
+ CONST UID '469F3EEF0024'
+ CONST Name 'TGUID'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'GUID.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_469F3EEF0024 TGUID
+
+: ME_49956803035F
+ CONST UID '49956803035F'
+ CONST Name 'PGUID'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_469F3EEF0024 // TGUID
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_49956803035F PGUID
+
+: ME_48F3385F0275
+ CONST UID '48F3385F0275'
+ CONST Name 'PLongint'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_48F3385F0275 PLongint
+
+: ME_47208C70028B
+ CONST UID '47208C70028B'
+ CONST Name 'Int64'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '64-битное целое.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD860205' '3DBFDB23006E.pas.ms.script' // long long
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_47208C70028B Int64
+
+: ME_4720951F0382
+ CONST UID '4720951F0382'
+ CONST Name 'byte'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'байт' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE500260' '3DBFDB23006E.pas.ms.script' // octet
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4720951F0382 byte
+
+: ME_476130E5023C
+ CONST UID '476130E5023C'
+ CONST Name 'Byte'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'байт' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE500260' '3DBFDB23006E.pas.ms.script' // octet
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_476130E5023C Byte
+
+: ME_476F71A701AB
+ CONST UID '476F71A701AB'
+ CONST Name 'Word'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFDC502B0' '3DBFDB23006E.pas.ms.script' // unsigned short
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_476F71A701AB Word
+
+: ME_476136D3010B
+ CONST UID '476136D3010B'
+ CONST Name 'String'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Стандартный строковый тип Delphi.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST extprop:pas:TypeName 'AnsiString'
+
+ref; // ME_476136D3010B String
+
+: ME_4771179900D8
+ CONST UID '4771179900D8'
+ CONST Name 'PChar'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Нуль-терминированная строка.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST extprop:pas:TypeName 'PAnsiChar'
+
+ref; // ME_4771179900D8 PChar
+
+: ME_483C2FA400B1
+ CONST UID '483C2FA400B1'
+ CONST Name 'AnsiString'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_483C2FA400B1 AnsiString
+
+: ME_49ED892F022E
+ CONST UID '49ED892F022E'
+ CONST Name 'OleVariant'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'The OleVariant type exists on both the Windows and Linux platforms. The main difference between Variant and OleVariant is that Variant can contain data types that only the current application knows what to do with. OleVariant can only contain the data types defined as compatible with OLE Automation which means that the data types that can be passed between programs or across the network without worrying about whether the other end will know how to handle the data.'#13#10''#13#10'When you assign a Variant that contains custom data (such as a Delphi string, or a one of the new custom variant types) to an OleVariant, the runtime library tries to convert the Variant into one of the OleVariant standard data types (such as a Delphi string converts to an OLE BSTR string). For example, if a variant containing an AnsiString is assigned to an OleVariant, the AnsiString becomes a WideString. The same is true when passing a Variant to an OleVariant function parameter.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_49ED892F022E OleVariant
+
+FORWARD ME_478D048D01CC
+
+: ME_4AB0D6C102D1
+ CONST UID '4AB0D6C102D1'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_478D048D01CC // array of AnsiString
+ ;
+ : Target ME_476136D3010B // String
+ ;
+
+ref; // ME_4AB0D6C102D1 
+
+: ME_478D048D01CC
+ CONST UID '478D048D01CC'
+ CONST Name 'array of AnsiString'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'открытый массив строк' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Attributes
+   @ ( ME_4AB0D6C102D1 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+ CONST "force usage" true
+
+ref; // ME_478D048D01CC array of AnsiString
+
+FORWARD ME_516D4A8D0232
+
+: ME_47913C24007F
+ CONST UID '47913C24007F'
+ CONST Name '__AddRef'
+ CONST Class class_Operation
+ %SUMMARY 'Увеличивает счетчик ссылок.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_516D4A8D0232 // MIUnknown
+ ;
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_47913C24007F __AddRef
+
+: ME_47913C5301A1
+ CONST UID '47913C5301A1'
+ CONST Name '__Release'
+ CONST Class class_Operation
+ %SUMMARY 'Уменьшает счетчик ссылок.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_516D4A8D0232 // MIUnknown
+ ;
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_47913C5301A1 __Release
+
+: ME_47913D0C0037
+ CONST UID '47913D0C0037'
+ CONST Name 'IID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_469F3EEF0024 // TGUID
+ ;
+
+ref; // ME_47913D0C0037 IID
+
+: ME_47913D0C005A
+ CONST UID '47913D0C005A'
+ CONST Name 'Obj'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+
+ref; // ME_47913D0C005A Obj
+
+: ME_47913CBF0265
+ CONST UID '47913CBF0265'
+ CONST Name 'QueryInterface'
+ CONST Class class_Operation
+ %SUMMARY 'Приводит базовый интерфейс к запрашиваемуму, если это возможно.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_516D4A8D0232 // MIUnknown
+ ;
+ : Target ME_469F99BD026B // HResult
+ ;
+ : Parameters
+   @ ( ME_47913D0C0037 // IID
+ ME_47913D0C005A // Obj
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_47913CBF0265 QueryInterface
+
+: ME_516D4A8D0232
+ CONST UID '516D4A8D0232'
+ CONST Name 'MIUnknown'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Operations
+   @ ( ME_47913C24007F // __AddRef
+ ME_47913C5301A1 // __Release
+ ME_47913CBF0265 // QueryInterface
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_516D4A8D0232 MIUnknown
+
+: ME_479F11C800E4
+ CONST UID '479F11C800E4'
+ CONST Name 'SmallInt'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_479F11C800E4 SmallInt
+
+: ME_478E1F84022C
+ CONST UID '478E1F84022C'
+ CONST Name 'TResStringRec'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_478E1F84022C TResStringRec
+
+: ME_478E1F9100AC
+ CONST UID '478E1F9100AC'
+ CONST Name 'PResStringRec'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_478E1F84022C // TResStringRec
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_478E1F9100AC PResStringRec
+
+FORWARD ME_478E1FC10349
+
+: ME_4AB0D6D10273
+ CONST UID '4AB0D6D10273'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_478E1FC10349 // array of PResStringRec
+ ;
+ : Target ME_478E1F9100AC // PResStringRec
+ ;
+
+ref; // ME_4AB0D6D10273 
+
+: ME_478E1FC10349
+ CONST UID '478E1FC10349'
+ CONST Name 'array of PResStringRec'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Attributes
+   @ ( ME_4AB0D6D10273 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'open'
+ CONST "force usage" true
+
+ref; // ME_478E1FC10349 array of PResStringRec
+
+: ME_484A796C018C
+ CONST UID '484A796C018C'
+ CONST Name 'TVarRec'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_484A796C018C TVarRec
+
+FORWARD ME_484A797B0390
+
+: ME_4AD5D6570381
+ CONST UID '4AD5D6570381'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_484A797B0390 // array of const
+ ;
+
+ref; // ME_4AD5D6570381 
+
+: ME_484A797B0390
+ CONST UID '484A797B0390'
+ CONST Name 'array of const'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Attributes
+   @ ( ME_4AD5D6570381 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+ CONST "force usage" true
+
+ref; // ME_484A797B0390 array of const
+
+FORWARD ME_478D039C0394
+
+: ME_4AB0D6DD0230
+ CONST UID '4AB0D6DD0230'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_478D039C0394 // array of Integer
+ ;
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ref; // ME_4AB0D6DD0230 
+
+: ME_478D039C0394
+ CONST UID '478D039C0394'
+ CONST Name 'array of Integer'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открытый массив целых чисел.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Attributes
+   @ ( ME_4AB0D6DD0230 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'open'
+ CONST "force usage" true
+
+ref; // ME_478D039C0394 array of Integer
+
+: ME_4B2B6CB403B7
+ CONST UID '4B2B6CB403B7'
+ CONST Name 'TextFile'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_4B2B6CB403B7 TextFile
+
+: ME_4CA0D7180013
+ CONST UID '4CA0D7180013'
+ CONST Name 'ANSIString'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_483C2FA400B1 // AnsiString
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4CA0D7180013 ANSIString
+
+: ME_4D542256019C
+ CONST UID '4D542256019C'
+ CONST Name 'single'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_4D542256019C single
+
+: ME_4D5E80EF01B7
+ CONST UID '4D5E80EF01B7'
+ CONST Name 'WideChar'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE7E0180' '3DBFDB23006E.pas.ms.script' // wchar
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4D5E80EF01B7 WideChar
+
+FORWARD ME_4D5EB5D60394
+
+: ME_4D5EB605011F
+ CONST UID '4D5EB605011F'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4D5EB5D60394 // array of WideString
+ ;
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ref; // ME_4D5EB605011F 
+
+: ME_4D5EB5D60394
+ CONST UID '4D5EB5D60394'
+ CONST Name 'array of WideString'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Attributes
+   @ ( ME_4D5EB605011F // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_4D5EB5D60394 array of WideString
+
+: ME_4DE60F5E00A6
+ CONST UID '4DE60F5E00A6'
+ CONST Name 'LongInt'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4DE60F5E00A6 LongInt
+
+: ME_4F6C9243020F
+ CONST UID '4F6C9243020F'
+ CONST Name 'ByteBool'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_4F6C9243020F ByteBool
+
+: ME_4F82F5BC0086
+ CONST UID '4F82F5BC0086'
+ CONST Name 'LongBool'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4F82F5BC0086 LongBool
+
+: ME_4FA284CE011F
+ CONST UID '4FA284CE011F'
+ CONST Name 'PWideChar'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_4D5E80EF01B7 // WideChar
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_4FA284CE011F PWideChar
+
+: ME_51546CAE03B7
+ CONST UID '51546CAE03B7'
+ CONST Name 'String'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_51546CAE03B7 String$XE
+
+: ME_5154744C018F
+ CONST UID '5154744C018F'
+ CONST Name 'PChar'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_5154744C018F PChar$XE
+
+FORWARD ME_515D492700B2
+
+: ME_515D493C02D9
+ CONST UID '515D493C02D9'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_515D492700B2 // array of String$XE
+ ;
+ : Target ME_51546CAE03B7 // String$XE
+ ;
+
+ref; // ME_515D493C02D9 
+
+: ME_515D492700B2
+ CONST UID '515D492700B2'
+ CONST Name 'array of String'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Attributes
+   @ ( ME_515D493C02D9 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+ CONST "force usage" true
+
+ref; // ME_515D492700B2 array of String$XE
+
+: ME_515D4C4F020D
+ CONST UID '515D4C4F020D'
+ CONST Name 'Char'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_4D5E80EF01B7 // WideChar
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_515D4C4F020D Char$XE
+
+FORWARD ME_47913BA402ED
+
+: ME_47913C24007F_ME_47913BA402ED
+ CONST UID '47913C24007F'
+ CONST Name '__AddRef'
+ : Original ME_47913C24007F // __AddRef
+ ;
+ : Implementor ME_47913BA402ED // IUnknown$Def
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "calling conventions" 'stdcall'
+ref; // ME_47913C24007F_ME_47913BA402ED __AddRef
+
+: ME_47913C5301A1_ME_47913BA402ED
+ CONST UID '47913C5301A1'
+ CONST Name '__Release'
+ : Original ME_47913C5301A1 // __Release
+ ;
+ : Implementor ME_47913BA402ED // IUnknown$Def
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "calling conventions" 'stdcall'
+ref; // ME_47913C5301A1_ME_47913BA402ED __Release
+
+: ME_47913CBF0265_ME_47913BA402ED
+ CONST UID '47913CBF0265'
+ CONST Name 'QueryInterface'
+ : Original ME_47913CBF0265 // QueryInterface
+ ;
+ : Implementor ME_47913BA402ED // IUnknown$Def
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "calling conventions" 'stdcall'
+ref; // ME_47913CBF0265_ME_47913BA402ED QueryInterface
+
+: ME_47913BA402ED
+ CONST UID '47913BA402ED'
+ CONST GUID '6FBF146C-F37A-4150-8541-482A3B39C3DE'
+ CONST Name 'IUnknown'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реальная реализация интерфейса IUnknown.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Implements
+   @ ( ME_516D4A8D0232 // MIUnknown
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_47913C24007F_ME_47913BA402ED // __AddRef
+ ME_47913C5301A1_ME_47913BA402ED // __Release
+ ME_47913CBF0265_ME_47913BA402ED // QueryInterface
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_47913BA402ED IUnknown$Def
+
+: ME_51DAD86D0324
+ CONST UID '51DAD86D0324'
+ CONST Name 'PANSIChar'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_51DAD86D0324 PANSIChar
+
+: ME_522DBFDC02F1
+ CONST UID '522DBFDC02F1'
+ CONST Name 'ShortString'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+
+ref; // ME_522DBFDC02F1 ShortString
+
+FORWARD ME_53E0F89E000C
+
+: ME_53E0F8AD0089
+ CONST UID '53E0F8AD0089'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53E0F89E000C // array of TClass
+ ;
+ : Target ME_476775CB036A // TClass
+ ;
+
+ref; // ME_53E0F8AD0089 
+
+: ME_53E0F89E000C
+ CONST UID '53E0F89E000C'
+ CONST Name 'array of TClass'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Attributes
+   @ ( ME_53E0F8AD0089 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_53E0F89E000C array of TClass
+
+: ME_546330E2006B
+ CONST UID '546330E2006B'
+ CONST Name 'Single'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFEB10300' '3DBFDB23006E.pas.ms.script' // float
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_546330E2006B Single
+
+: ME_54B6A0D8000C
+ CONST UID '54B6A0D8000C'
+ CONST Name 'PAnsiChar'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4807744200AA // System
+ ;
+ : Inherits
+   @ ( ME_51DAD86D0324 // PANSIChar
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_54B6A0D8000C PAnsiChar
+
+: ME_4807744200AA
+ CONST UID '4807744200AA'
+ CONST Name 'System'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB0C3C60310 // Sys
+ ;
+ : Children
+   @ ( ME_4807745602C8 // TObject
+ ME_48077FF80141 // TInterfacedObject
+ ME_4808BC3A03E1 // Text
+ ME_469F8577004B // TObject$Stub
+ ME_476775CB036A // TClass
+ ME_48077EC0001D // Variant
+ ME_469F99BD026B // HResult
+ ME_472094E70218 // hResult
+ ME_48FD996601CE // Longword
+ ME_498849D803A8 // WideString
+ ME_46A606AC03B2 // Integer
+ ME_46A608F00301 // Pointer
+ ME_46A618AF0053 // Cardinal
+ ME_47BC524C0245 // LongWord
+ ME_46A603BB0391 // Boolean
+ ME_47CEB00B00F6 // array [Boolean] of Integer
+ ME_48FEE8A90247 // PBoolean
+ ME_482C48430205 // Char
+ ME_47C6CC1A033B // ShortInt
+ ME_47272C8B0128 // TDateTime
+ ME_475EA27A0131 // Double
+ ME_46A451250363 // IUnknown
+ ME_48FD94B70371 // array of IUnknown
+ ME_49ED9D5A015F // IDispatch
+ ME_49ED88C9020B // WordBool
+ ME_469F3EEF0024 // TGUID
+ ME_49956803035F // PGUID
+ ME_48F3385F0275 // PLongint
+ ME_47208C70028B // Int64
+ ME_4720951F0382 // byte
+ ME_476130E5023C // Byte
+ ME_476F71A701AB // Word
+ ME_476136D3010B // String
+ ME_4771179900D8 // PChar
+ ME_483C2FA400B1 // AnsiString
+ ME_49ED892F022E // OleVariant
+ ME_478D048D01CC // array of AnsiString
+ ME_516D4A8D0232 // MIUnknown
+ ME_479F11C800E4 // SmallInt
+ ME_478E1F84022C // TResStringRec
+ ME_478E1F9100AC // PResStringRec
+ ME_478E1FC10349 // array of PResStringRec
+ ME_484A796C018C // TVarRec
+ ME_484A797B0390 // array of const
+ ME_478D039C0394 // array of Integer
+ ME_4B2B6CB403B7 // TextFile
+ ME_4CA0D7180013 // ANSIString
+ ME_4D542256019C // single
+ ME_4D5E80EF01B7 // WideChar
+ ME_4D5EB5D60394 // array of WideString
+ ME_4DE60F5E00A6 // LongInt
+ ME_4F6C9243020F // ByteBool
+ ME_4F82F5BC0086 // LongBool
+ ME_4FA284CE011F // PWideChar
+ ME_51546CAE03B7 // String$XE
+ ME_5154744C018F // PChar$XE
+ ME_515D492700B2 // array of String$XE
+ ME_515D4C4F020D // Char$XE
+ ME_47913BA402ED // IUnknown$Def
+ ME_51DAD86D0324 // PANSIChar
+ ME_522DBFDC02F1 // ShortString
+ ME_53E0F89E000C // array of TClass
+ ME_546330E2006B // Single
+ ME_54B6A0D8000C // PAnsiChar
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\System.pas'
+
+ref; // ME_4807744200AA System
+
+FORWARD ME_48088D6800F9
+
+: ME_48088D850398
+ CONST UID '48088D850398'
+ CONST Name 'EVariantTypeCastError'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48088D6800F9 // Variants
+ ;
+ CONST "force usage" true
+
+ref; // ME_48088D850398 EVariantTypeCastError
+
+: ME_48088D6800F9
+ CONST UID '48088D6800F9'
+ CONST Name 'Variants'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB0C3C60310 // Sys
+ ;
+ : Children
+   @ ( ME_48088D850398 // EVariantTypeCastError
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\Variants.pas'
+
+ref; // ME_48088D6800F9 Variants
+
+FORWARD ME_47877EB202FB
+
+: ME_4807861D0118
+ CONST UID '4807861D0118'
+ CONST Name 'TMultiReadExclusiveWriteSynchronizer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'TMultiReadExclusiveWriteSynchronizer protects memory in a multi-threaded application.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4807861D0118 TMultiReadExclusiveWriteSynchronizer
+
+: ME_477113FB020B
+ CONST UID '477113FB020B'
+ CONST Name 'TFileName'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'TFileName is a string that represents a file name.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Inherits
+   @ ( ME_476136D3010B // String
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "newRTTI" true
+
+ref; // ME_477113FB020B TFileName
+
+FORWARD ME_4787A405013D
+
+: ME_4787A41F02C5
+ CONST UID '4787A41F02C5'
+ CONST Name 'Message'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4787A405013D // Exception
+ ;
+ : Target ME_476136D3010B // String
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4787A41F02C5 Message
+
+: ME_4787A43A016A
+ CONST UID '4787A43A016A'
+ CONST Name 'HelpContext'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4787A405013D // Exception
+ ;
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4787A43A016A HelpContext
+
+: ME_3DFD05B206FE
+ CONST UID '3DFD05B206FE'
+ CONST Name 'f_Message'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Message' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4787A405013D // Exception
+ ;
+ : Target ME_476136D3010B // String
+ ;
+
+ref; // ME_3DFD05B206FE f_Message
+
+: ME_C9DD50814F7E
+ CONST UID 'C9DD50814F7E'
+ CONST Name 'f_HelpContext'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства HelpContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4787A405013D // Exception
+ ;
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ref; // ME_C9DD50814F7E f_HelpContext
+
+: ME_4787A405013D
+ CONST UID '4787A405013D'
+ CONST Name 'Exception'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Base Exception.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Inherits
+   @ ( ME_4807745602C8 // TObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4787A41F02C5 // Message
+ ME_4787A43A016A // HelpContext
+ ME_3DFD05B206FE // f_Message
+ ME_C9DD50814F7E // f_HelpContext
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "force usage" true
+
+ref; // ME_4787A405013D Exception
+
+: ME_4787A45401C5
+ CONST UID '4787A45401C5'
+ CONST Name 'ExceptClass'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Inherits
+   @ ( ME_4787A405013D // Exception
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isClassRef" true
+
+ref; // ME_4787A45401C5 ExceptClass
+
+: ME_47B19F69027A
+ CONST UID '47B19F69027A'
+ CONST Name 'EOSError'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Inherits
+   @ ( ME_4787A405013D // Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_47B19F69027A EOSError
+
+: ME_4808B68300D5
+ CONST UID '4808B68300D5'
+ CONST Name 'TFormatSettings'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'TFormatSettings defines a thread-safe string formatting context.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+
+ref; // ME_4808B68300D5 TFormatSettings
+
+FORWARD ME_47BB2FD7022D
+
+: ME_47BB2FEC03B9
+ CONST UID '47BB2FEC03B9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47BB2FD7022D // TProcedure
+ ;
+
+ref; // ME_47BB2FEC03B9 DoIt
+
+: ME_47BB2FD7022D
+ CONST UID '47BB2FD7022D'
+ CONST Name 'TProcedure'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'TProcedure is used as the type for generic procedures that do not have arguments.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_47BB2FEC03B9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" false
+
+ref; // ME_47BB2FD7022D TProcedure
+
+: ME_4AA7E2060118
+ CONST UID '4AA7E2060118'
+ CONST Name 'EAbort'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+
+ref; // ME_4AA7E2060118 EAbort
+
+: ME_4F56262B01E8
+ CONST UID '4F56262B01E8'
+ CONST Name 'EAssertionFailed'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Inherits
+   @ ( ME_4787A405013D // Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4F56262B01E8 EAssertionFailed
+
+: ME_502550E80220
+ CONST UID '502550E80220'
+ CONST Name 'TSearchRec'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'TSearchRec defines file information searched for by FindFirst or FindNext.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+
+ref; // ME_502550E80220 TSearchRec
+
+: ME_5485794702B0
+ CONST UID '5485794702B0'
+ CONST Name 'EOutOfMemory'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+
+ref; // ME_5485794702B0 EOutOfMemory
+
+: ME_4E3BC43B021E
+ CONST UID '4E3BC43B021E'
+ CONST Name 'DecimalSeparator'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Target ME_482C48430205 // Char
+ ;
+
+ref; // ME_4E3BC43B021E DecimalSeparator
+
+FORWARD ME_4ADC58F703CF
+
+: ME_2CDEA6B033AA
+ CONST UID '2CDEA6B033AA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода FreeAndNil' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ADC58F703CF // FreeAndNil
+ ;
+
+ref; // ME_2CDEA6B033AA DoIt
+
+: ME_4ADC58F703CF
+ CONST UID '4ADC58F703CF'
+ CONST Name 'FreeAndNil'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_2CDEA6B033AA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4ADC58F703CF FreeAndNil
+
+FORWARD ME_4ADEE49C02DF
+
+: ME_D09152F02B52
+ CONST UID 'D09152F02B52'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Supports' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ADEE49C02DF // Supports
+ ;
+
+ref; // ME_D09152F02B52 DoIt
+
+: ME_4ADEE49C02DF
+ CONST UID '4ADEE49C02DF'
+ CONST Name 'Supports'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_D09152F02B52 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4ADEE49C02DF Supports
+
+FORWARD ME_4B2A12BA0288
+
+: ME_09F589FE46AE
+ CONST UID '09F589FE46AE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода IntToStr' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B2A12BA0288 // IntToStr
+ ;
+
+ref; // ME_09F589FE46AE DoIt
+
+: ME_4B2A12BA0288
+ CONST UID '4B2A12BA0288'
+ CONST Name 'IntToStr'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_09F589FE46AE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4B2A12BA0288 IntToStr
+
+FORWARD ME_4B2F575E03BA
+
+: ME_CDE5E776F486
+ CONST UID 'CDE5E776F486'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода CompareStr' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B2F575E03BA // CompareStr
+ ;
+
+ref; // ME_CDE5E776F486 DoIt
+
+: ME_4B2F575E03BA
+ CONST UID '4B2F575E03BA'
+ CONST Name 'CompareStr'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_CDE5E776F486 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4B2F575E03BA CompareStr
+
+FORWARD ME_4BCED67800F1
+
+: ME_5C9DF6CACA8D
+ CONST UID '5C9DF6CACA8D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ANSISameText' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4BCED67800F1 // ANSISameText
+ ;
+
+ref; // ME_5C9DF6CACA8D DoIt
+
+: ME_4BCED67800F1
+ CONST UID '4BCED67800F1'
+ CONST Name 'ANSISameText'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_5C9DF6CACA8D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4BCED67800F1 ANSISameText
+
+FORWARD ME_4D6BC8D102C0
+
+: ME_E7EDBC9469F6
+ CONST UID 'E7EDBC9469F6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода StrToInt' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6BC8D102C0 // StrToInt
+ ;
+
+ref; // ME_E7EDBC9469F6 DoIt
+
+: ME_4D6BC8D102C0
+ CONST UID '4D6BC8D102C0'
+ CONST Name 'StrToInt'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_E7EDBC9469F6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4D6BC8D102C0 StrToInt
+
+FORWARD ME_4DDA4CFE00E8
+
+: ME_D077841FC7FA
+ CONST UID 'D077841FC7FA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ExtractFilePath' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDA4CFE00E8 // ExtractFilePath
+ ;
+
+ref; // ME_D077841FC7FA DoIt
+
+: ME_4DDA4CFE00E8
+ CONST UID '4DDA4CFE00E8'
+ CONST Name 'ExtractFilePath'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_D077841FC7FA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DDA4CFE00E8 ExtractFilePath
+
+FORWARD ME_4DE89E560091
+
+: ME_66C7B20E6E79
+ CONST UID '66C7B20E6E79'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Format' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DE89E560091 // Format
+ ;
+
+ref; // ME_66C7B20E6E79 DoIt
+
+: ME_4DE89E560091
+ CONST UID '4DE89E560091'
+ CONST Name 'Format'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_66C7B20E6E79 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DE89E560091 Format
+
+FORWARD ME_4DF870EA0062
+
+: ME_E7A933909ECD
+ CONST UID 'E7A933909ECD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ChangeFileExt' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DF870EA0062 // ChangeFileExt
+ ;
+
+ref; // ME_E7A933909ECD DoIt
+
+: ME_4DF870EA0062
+ CONST UID '4DF870EA0062'
+ CONST Name 'ChangeFileExt'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_E7A933909ECD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DF870EA0062 ChangeFileExt
+
+FORWARD ME_4E1DDD650025
+
+: ME_2614BFD361C7
+ CONST UID '2614BFD361C7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода IsEqualGUID' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E1DDD650025 // IsEqualGUID
+ ;
+
+ref; // ME_2614BFD361C7 DoIt
+
+: ME_4E1DDD650025
+ CONST UID '4E1DDD650025'
+ CONST Name 'IsEqualGUID'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_2614BFD361C7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E1DDD650025 IsEqualGUID
+
+FORWARD ME_4E4A3ABD032F
+
+: ME_5A88745D7072
+ CONST UID '5A88745D7072'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода FileExists' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4A3ABD032F // FileExists
+ ;
+
+ref; // ME_5A88745D7072 DoIt
+
+: ME_4E4A3ABD032F
+ CONST UID '4E4A3ABD032F'
+ CONST Name 'FileExists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_5A88745D7072 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E4A3ABD032F FileExists
+
+FORWARD ME_4F7957C203E7
+
+: ME_61AE00490D0A
+ CONST UID '61AE00490D0A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода GetClassName' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F7957C203E7 // GetClassName
+ ;
+
+ref; // ME_61AE00490D0A DoIt
+
+: ME_4F7957C203E7
+ CONST UID '4F7957C203E7'
+ CONST Name 'GetClassName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_61AE00490D0A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F7957C203E7 GetClassName
+
+FORWARD ME_4FACFFF103DB
+
+: ME_00E49E2E4618
+ CONST UID '00E49E2E4618'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Trim' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FACFFF103DB // Trim
+ ;
+
+ref; // ME_00E49E2E4618 DoIt
+
+: ME_4FACFFF103DB
+ CONST UID '4FACFFF103DB'
+ CONST Name 'Trim'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_00E49E2E4618 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FACFFF103DB Trim
+
+FORWARD ME_50195DC90360
+
+: ME_879736D252DA
+ CONST UID '879736D252DA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода AnsiStrLIComp' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_50195DC90360 // AnsiStrLIComp
+ ;
+
+ref; // ME_879736D252DA DoIt
+
+: ME_50195DC90360
+ CONST UID '50195DC90360'
+ CONST Name 'AnsiStrLIComp'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_879736D252DA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_50195DC90360 AnsiStrLIComp
+
+FORWARD ME_509116F601C3
+
+: ME_2B1A99D842F7
+ CONST UID '2B1A99D842F7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода RenameFile' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_509116F601C3 // RenameFile
+ ;
+
+ref; // ME_2B1A99D842F7 DoIt
+
+: ME_509116F601C3
+ CONST UID '509116F601C3'
+ CONST Name 'RenameFile'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_2B1A99D842F7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_509116F601C3 RenameFile
+
+FORWARD ME_5091520A024F
+
+: ME_2AE4F32EF8A1
+ CONST UID '2AE4F32EF8A1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода DeleteFile' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5091520A024F // DeleteFile
+ ;
+
+ref; // ME_2AE4F32EF8A1 DoIt
+
+: ME_5091520A024F
+ CONST UID '5091520A024F'
+ CONST Name 'DeleteFile'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_2AE4F32EF8A1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5091520A024F DeleteFile
+
+FORWARD ME_51D299D903CE
+
+: ME_CF6A68967F72
+ CONST UID 'CF6A68967F72'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода StrToIntDef' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51D299D903CE // StrToIntDef
+ ;
+
+ref; // ME_CF6A68967F72 DoIt
+
+: ME_51D299D903CE
+ CONST UID '51D299D903CE'
+ CONST Name 'StrToIntDef'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_CF6A68967F72 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_51D299D903CE StrToIntDef
+
+FORWARD ME_52F8DC08020F
+
+: ME_095C635C85E0
+ CONST UID '095C635C85E0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода FormatDateTime' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52F8DC08020F // FormatDateTime
+ ;
+
+ref; // ME_095C635C85E0 DoIt
+
+: ME_52F8DC08020F
+ CONST UID '52F8DC08020F'
+ CONST Name 'FormatDateTime'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_095C635C85E0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52F8DC08020F FormatDateTime
+
+FORWARD ME_52F8EEFA01C4
+
+: ME_6C65BA3C61CE
+ CONST UID '6C65BA3C61CE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Sleep' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52F8EEFA01C4 // Sleep
+ ;
+
+ref; // ME_6C65BA3C61CE DoIt
+
+: ME_52F8EEFA01C4
+ CONST UID '52F8EEFA01C4'
+ CONST Name 'Sleep'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_6C65BA3C61CE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52F8EEFA01C4 Sleep
+
+FORWARD ME_549A76510063
+
+: ME_DA8FFE5421F8
+ CONST UID 'DA8FFE5421F8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ForceDirectories' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_549A76510063 // ForceDirectories
+ ;
+
+ref; // ME_DA8FFE5421F8 DoIt
+
+: ME_549A76510063
+ CONST UID '549A76510063'
+ CONST Name 'ForceDirectories'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_DA8FFE5421F8 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "finished" false
+
+ref; // ME_549A76510063 ForceDirectories
+
+FORWARD ME_5511283A02C9
+
+: ME_CC47D0D7E4DB
+ CONST UID 'CC47D0D7E4DB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода IntToHex' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5511283A02C9 // IntToHex
+ ;
+
+ref; // ME_CC47D0D7E4DB DoIt
+
+: ME_5511283A02C9
+ CONST UID '5511283A02C9'
+ CONST Name 'IntToHex'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_CC47D0D7E4DB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "finished" false
+
+ref; // ME_5511283A02C9 IntToHex
+
+FORWARD ME_5559A8820011
+
+: ME_8C43BABFB29A
+ CONST UID '8C43BABFB29A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода AllocMem' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5559A8820011 // AllocMem
+ ;
+
+ref; // ME_8C43BABFB29A DoIt
+
+: ME_5559A8820011
+ CONST UID '5559A8820011'
+ CONST Name 'AllocMem'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Operations
+   @ ( ME_8C43BABFB29A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "finished" false
+
+ref; // ME_5559A8820011 AllocMem
+
+: ME_47877F3902AD
+ CONST UID '47877F3902AD'
+ CONST Name 'Instance'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46A451250363 // IUnknown
+ ;
+
+ref; // ME_47877F3902AD Instance
+
+: ME_47877F3902C6
+ CONST UID '47877F3902C6'
+ CONST Name 'IID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_469F3EEF0024 // TGUID
+ ;
+
+ref; // ME_47877F3902C6 IID
+
+: ME_47877F3902DE
+ CONST UID '47877F3902DE'
+ CONST Name 'Intf'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+
+ref; // ME_47877F3902DE Intf
+
+: ME_47877EF503B1
+ CONST UID '47877EF503B1'
+ CONST Name 'Supports'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47877EB202FB // SysUtils
+ ;
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   @ ( ME_47877F3902AD // Instance
+ ME_47877F3902C6 // IID
+ ME_47877F3902DE // Intf
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47877EF503B1 Supports
+
+: ME_47877EB202FB
+ CONST UID '47877EB202FB'
+ CONST Name 'SysUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'System Utilities Unit' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB0C3C60310 // Sys
+ ;
+ : Attributes
+   @ ( ME_4E3BC43B021E // DecimalSeparator
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4ADC58F703CF // FreeAndNil
+ ME_4ADEE49C02DF // Supports
+ ME_4B2A12BA0288 // IntToStr
+ ME_4B2F575E03BA // CompareStr
+ ME_4BCED67800F1 // ANSISameText
+ ME_4D6BC8D102C0 // StrToInt
+ ME_4DDA4CFE00E8 // ExtractFilePath
+ ME_4DE89E560091 // Format
+ ME_4DF870EA0062 // ChangeFileExt
+ ME_4E1DDD650025 // IsEqualGUID
+ ME_4E4A3ABD032F // FileExists
+ ME_4F7957C203E7 // GetClassName
+ ME_4FACFFF103DB // Trim
+ ME_50195DC90360 // AnsiStrLIComp
+ ME_509116F601C3 // RenameFile
+ ME_5091520A024F // DeleteFile
+ ME_51D299D903CE // StrToIntDef
+ ME_52F8DC08020F // FormatDateTime
+ ME_52F8EEFA01C4 // Sleep
+ ME_549A76510063 // ForceDirectories
+ ME_5511283A02C9 // IntToHex
+ ME_5559A8820011 // AllocMem
+ ME_47877EF503B1 // Supports
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4807861D0118 // TMultiReadExclusiveWriteSynchronizer
+ ME_477113FB020B // TFileName
+ ME_4787A405013D // Exception
+ ME_4787A45401C5 // ExceptClass
+ ME_47B19F69027A // EOSError
+ ME_4808B68300D5 // TFormatSettings
+ ME_47BB2FD7022D // TProcedure
+ ME_4AA7E2060118 // EAbort
+ ME_4F56262B01E8 // EAssertionFailed
+ ME_502550E80220 // TSearchRec
+ ME_5485794702B0 // EOutOfMemory
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\SysUtils.pas'
+
+ref; // ME_47877EB202FB SysUtils
+
+: ME_516130FB0241
+ CONST UID '516130FB0241'
+ CONST Name 'MObject'
+ CONST Class class_Class
+ : Stereotype st_MixInMirror ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AB0C3C60310 // Sys
+ ;
+ : Inherits
+   @ ( ME_4807745602C8 // TObject
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_516130FB0241 MObject
+
+: ME_4AB0C3C60310
+ CONST UID '4AB0C3C60310'
+ CONST Name 'Sys'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ ;
+ : Children
+   @ ( ME_4807744200AA // System
+ ME_48088D6800F9 // Variants
+ ME_47877EB202FB // SysUtils
+ ME_516130FB0241 // MObject
+ ) .SequenceCode.It
+ ; // Children
+ CONST "path prefix" '/Sys'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AB0C3C60310.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AB0C3C60310.pas.ms.script.runner'
+
+ref; // ME_4AB0C3C60310 Sys

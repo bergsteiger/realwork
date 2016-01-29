@@ -1,0 +1,961 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/MDAModel.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::MDAModel
+//
+// библиотека классов отображающих элементы модели в элементы генерации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (MDAModel) : project_generic_core_corba {
+	sharedname = MDAModel
+	staticname = MDAModel
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../;W:/shared/tmp
+
+	after += GCI
+	libs  += GCI
+
+	after += GCL
+	libs  += GCL
+
+	after += RosePackageLocking_cs
+	libs  += RosePackageLocking_cs
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	after += cximage
+	libs  += cximage
+
+	after += WinGUI
+	libs  += WinGUI
+
+	Header_Files {
+		Std_Headers {
+			./../MDAModel/LibHome.h
+		}
+	
+		AbstractDumpers {
+			./../MDAModel/AbstractDumpers/AbstractDumper.h
+			./../MDAModel/AbstractDumpers/AbstractDumperBase.h
+			./../MDAModel/AbstractDumpers/AbstractLogger.h
+			./../MDAModel/AbstractDumpers/AbstractSequenceDumper.h
+			./../MDAModel/AbstractDumpers/AbstractSequenceObject.h
+			./../MDAModel/AbstractDumpers/AbstractSingleDumperBase.h
+			./../MDAModel/AbstractDumpers/DependencyGraph.h
+			./../MDAModel/AbstractDumpers/EmptyDumper.h
+			./../MDAModel/AbstractDumpers/GenerationParams.h
+			./../MDAModel/AbstractDumpers/ObjectTreeResolver.h
+			./../MDAModel/AbstractDumpers/SyntaxDef.h
+			./../MDAModel/AbstractDumpers/TemplateDumperDumper.h
+			./../MDAModel/AbstractDumpers/TemplatePainter.h
+			./../MDAModel/AbstractDumpers/UserCodeExtractor.h
+		}
+	
+		Base {
+			./../MDAModel/Base/Base.h
+		}
+	
+		BaseFunctionImpl {
+			./../MDAModel/impl/BaseFunctionImpl/InternalFunctionBase.h
+			./../MDAModel/impl/BaseFunctionImpl/InternalStereotypeFunctionBase.h
+			./../MDAModel/impl/BaseFunctionImpl/ListOperationBase.h
+		}
+	
+		ContainerOperations {
+			./../MDAModel/ContainerOperations/ContainerOperations.h
+			./../MDAModel/ContainerOperations/ContainerOperationsFactories.h
+		}
+	
+		ContainerOperationsImpl {
+			./../MDAModel/impl/ContainerOperationsImpl/ContainerOperationsImpl.h
+			./../MDAModel/impl/ContainerOperationsImpl/ContainerTemplateOperationsImpl.h
+			./../MDAModel/impl/ContainerOperationsImpl/ContainerTemplateOperationsImpl_factory.h
+			./../MDAModel/impl/ContainerOperationsImpl/ListOperationBaseImpl.h
+			./../MDAModel/impl/ContainerOperationsImpl/StereotypeListOperationBase.h
+		}
+	
+		GenSupport {
+			./../MDAModel/GenSupport/GenSupport.h
+			./../MDAModel/GenSupport/GenSupportFactories.h
+		}
+	
+		GenSupportImpl {
+			./../MDAModel/impl/GenSupportImpl/DefaultLogManagerImpl.h
+			./../MDAModel/impl/GenSupportImpl/DefaultLogManagerImpl_factory.h
+			./../MDAModel/impl/GenSupportImpl/EnvironmentImpl.h
+			./../MDAModel/impl/GenSupportImpl/EnvironmentImpl_factory.h
+			./../MDAModel/impl/GenSupportImpl/ErrorManagerImpl.h
+			./../MDAModel/impl/GenSupportImpl/ErrorManagerImpl_factory.h
+			./../MDAModel/impl/GenSupportImpl/PageProxyImpl.h
+			./../MDAModel/impl/GenSupportImpl/PageProxyImpl_factory.h
+			./../MDAModel/impl/GenSupportImpl/ProgessIndicatorServiceImpl.h
+			./../MDAModel/impl/GenSupportImpl/ProgessIndicatorServiceImpl_factory.h
+		}
+	
+		MDPSupport {
+			./../MDAModel/MDPSupport/MDPSupport.h
+			./../MDAModel/MDPSupport/MDPSupportFactories.h
+		}
+	
+		MetadataFunctionsImpl {
+			./../MDAModel/impl/MetadataFunctionsImpl/AddMetadatas.h
+			./../MDAModel/impl/MetadataFunctionsImpl/AddMetadatas_factory.h
+		}
+	
+		Parsers {
+			./../MDAModel/Parsers/Parsers.h
+			./../MDAModel/Parsers/ParsersFactories.h
+		}
+	
+		ParsersImpl {
+			./../MDAModel/impl/ParsersImpl/AttributeParserImpl.h
+			./../MDAModel/impl/ParsersImpl/AttributeParserImpl_factory.h
+			./../MDAModel/impl/ParsersImpl/OperationParserImpl.h
+			./../MDAModel/impl/ParsersImpl/OperationParserImpl_factory.h
+		}
+	
+		RoseDumpers {
+			./../MDAModel/RoseDumpers/DiagramColorizer.h
+			./../MDAModel/RoseDumpers/MDAModelParams.h
+			./../MDAModel/RoseDumpers/ModelStamp.h
+			./../MDAModel/RoseDumpers/RoseAbstractActionDumper.h
+			./../MDAModel/RoseDumpers/RoseAbstractAttributeDumper.h
+			./../MDAModel/RoseDumpers/RoseAbstractCategoryDumper.h
+			./../MDAModel/RoseDumpers/RoseAbstractClassDumper.h
+			./../MDAModel/RoseDumpers/RoseAbstractDependencyDumper.h
+			./../MDAModel/RoseDumpers/RoseAbstractDumpFactory.h
+			./../MDAModel/RoseDumpers/RoseAbstractDumper.h
+			./../MDAModel/RoseDumpers/RoseAbstractElementDumper.h
+			./../MDAModel/RoseDumpers/RoseAbstractOperationDumper.h
+			./../MDAModel/RoseDumpers/RoseAbstractParameterDumper.h
+			./../MDAModel/RoseDumpers/RoseCopyHelper.h
+			./../MDAModel/RoseDumpers/RoseDiagramDumper.h
+			./../MDAModel/RoseDumpers/RoseEventDumper.h
+			./../MDAModel/RoseDumpers/RoseHelper.h
+			./../MDAModel/RoseDumpers/RoseInitialValue.h
+			./../MDAModel/RoseDumpers/RoseOverridenElementDumper.h
+			./../MDAModel/RoseDumpers/RoseSequenceDumper.h
+			./../MDAModel/RoseDumpers/RoseSequenceObject.h
+			./../MDAModel/RoseDumpers/RoseStateDiagramDumper.h
+			./../MDAModel/RoseDumpers/RoseStateDumper.h
+			./../MDAModel/RoseDumpers/RoseStateMachineDumper.h
+			./../MDAModel/RoseDumpers/RoseTransitionDumper.h
+			./../MDAModel/RoseDumpers/RoseTreeState.h
+		}
+	
+		RoseInternal {
+			./../MDAModel/RoseInternal/BaseRoseImpl.h
+			./../MDAModel/RoseInternal/BaseRoseImpl.h
+			./../MDAModel/RoseInternal/DispatchHelper.h
+			./../MDAModel/RoseInternal/RoseAttribute.h
+			./../MDAModel/RoseInternal/RoseAttributeImpl.h
+			./../MDAModel/RoseInternal/RoseCategory.h
+			./../MDAModel/RoseInternal/RoseCategoryImpl.h
+			./../MDAModel/RoseInternal/RoseClass.h
+			./../MDAModel/RoseInternal/RoseClassDependency.h
+			./../MDAModel/RoseInternal/RoseClassDependencyImpl.h
+			./../MDAModel/RoseInternal/RoseClassImpl.h
+			./../MDAModel/RoseInternal/RoseClassRelation.h
+			./../MDAModel/RoseInternal/RoseCollectionImpl.h
+			./../MDAModel/RoseInternal/RoseElement.h
+			./../MDAModel/RoseInternal/RoseInheritRelation.h
+			./../MDAModel/RoseInternal/RoseInheritRelationImpl.h
+			./../MDAModel/RoseInternal/RoseItem.h
+			./../MDAModel/RoseInternal/RoseObject.h
+			./../MDAModel/RoseInternal/RoseOperation.h
+			./../MDAModel/RoseInternal/RoseOperationImpl.h
+			./../MDAModel/RoseInternal/RoseOverridenElement.h
+			./../MDAModel/RoseInternal/RoseParameter.h
+			./../MDAModel/RoseInternal/RoseParameterImpl.h
+			./../MDAModel/RoseInternal/RoseProperty.h
+			./../MDAModel/RoseInternal/RosePropertyImpl.h
+			./../MDAModel/RoseInternal/RoseRealizeRelation.h
+			./../MDAModel/RoseInternal/RoseRealizeRelationImpl.h
+			./../MDAModel/RoseInternal/RoseRichTypeImpl.h
+			./../MDAModel/RoseInternal/RoseTargetItem.h
+		}
+	
+		RoseModel {
+			./../MDAModel/RoseModel/RoseModel.h
+			./../MDAModel/RoseModel/RoseModelFactories.h
+		}
+	
+		RoseModelImpl {
+			./../MDAModel/impl/RoseModelImpl/RoseModelImpl.h
+			./../MDAModel/impl/RoseModelImpl/CategoryImpl.h
+			./../MDAModel/impl/RoseModelImpl/CategoryImpl_factory.h
+			./../MDAModel/impl/RoseModelImpl/ImplementedItemImpl.h
+			./../MDAModel/impl/RoseModelImpl/ImplementedItemImpl_factory.h
+			./../MDAModel/impl/RoseModelImpl/InheritedItemHelperImpl.h
+			./../MDAModel/impl/RoseModelImpl/InheritedItemHelperImpl_factory.h
+			./../MDAModel/impl/RoseModelImpl/InheritedItemImpl.h
+			./../MDAModel/impl/RoseModelImpl/IsVirtualImpl.h
+			./../MDAModel/impl/RoseModelImpl/IsVirtualImpl_factory.h
+			./../MDAModel/impl/RoseModelImpl/ModelPropertiesHelperImpl.h
+			./../MDAModel/impl/RoseModelImpl/ModelPropertiesHelperImpl_factory.h
+			./../MDAModel/impl/RoseModelImpl/ModelSearcherImpl.h
+			./../MDAModel/impl/RoseModelImpl/ModelSearcherImpl_factory.h
+			./../MDAModel/impl/RoseModelImpl/OverloadedItemImpl.h
+			./../MDAModel/impl/RoseModelImpl/OverloadedItemImpl_factory.h
+			./../MDAModel/impl/RoseModelImpl/PropertyHelperImpl.h
+			./../MDAModel/impl/RoseModelImpl/PropertyHelperImpl_factory.h
+			./../MDAModel/impl/RoseModelImpl/TypeLinkHelperImpl.h
+			./../MDAModel/impl/RoseModelImpl/TypeLinkHelperImpl_factory.h
+		}
+	
+		RoseTypes {
+			./../MDAModel/RoseTypes/RationalRoseTlb.h
+		}
+	
+		StereotypeFunctionsImpl {
+			./../MDAModel/impl/StereotypeFunctionsImpl/AddToList.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/AddToList_factory.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/ClearList.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/ClearList_factory.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/IsEqual.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/IsEqual_factory.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/RemoveFromList.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/RemoveFromList_factory.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/SetVar.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/SetVar_factory.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/SortList.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/SortList_factory.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/SubstractList.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/SubstractList_factory.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/UniqueList.h
+			./../MDAModel/impl/StereotypeFunctionsImpl/UniqueList_factory.h
+		}
+	
+		StrFunctionImpl {
+			./../MDAModel/impl/StrFunctionImpl/ConsistOf.h
+			./../MDAModel/impl/StrFunctionImpl/ConsistOf_factory.h
+			./../MDAModel/impl/StrFunctionImpl/CutPostfix.h
+			./../MDAModel/impl/StrFunctionImpl/CutPostfix_factory.h
+			./../MDAModel/impl/StrFunctionImpl/CutPrefix.h
+			./../MDAModel/impl/StrFunctionImpl/CutPrefix_factory.h
+			./../MDAModel/impl/StrFunctionImpl/DelSubstrFromBegin.h
+			./../MDAModel/impl/StrFunctionImpl/DelSubstrFromBegin_factory.h
+			./../MDAModel/impl/StrFunctionImpl/DelSubstrFromEnd.h
+			./../MDAModel/impl/StrFunctionImpl/DelSubstrFromEnd_factory.h
+			./../MDAModel/impl/StrFunctionImpl/Prefix.h
+			./../MDAModel/impl/StrFunctionImpl/Prefix_factory.h
+			./../MDAModel/impl/StrFunctionImpl/SplitToList.h
+			./../MDAModel/impl/StrFunctionImpl/SplitToList_factory.h
+			./../MDAModel/impl/StrFunctionImpl/StrConv.h
+			./../MDAModel/impl/StrFunctionImpl/StrConv_factory.h
+			./../MDAModel/impl/StrFunctionImpl/StrReplace.h
+			./../MDAModel/impl/StrFunctionImpl/StrReplace_factory.h
+			./../MDAModel/impl/StrFunctionImpl/StrSplit.h
+			./../MDAModel/impl/StrFunctionImpl/StrSplit_factory.h
+			./../MDAModel/impl/StrFunctionImpl/StrToRule.h
+			./../MDAModel/impl/StrFunctionImpl/StrToRule_factory.h
+			./../MDAModel/impl/StrFunctionImpl/StringCmp.h
+			./../MDAModel/impl/StrFunctionImpl/StringCmp_factory.h
+			./../MDAModel/impl/StrFunctionImpl/StringFind.h
+			./../MDAModel/impl/StrFunctionImpl/StringFind_factory.h
+			./../MDAModel/impl/StrFunctionImpl/StringHash.h
+			./../MDAModel/impl/StrFunctionImpl/StringHash_factory.h
+			./../MDAModel/impl/StrFunctionImpl/StringLength.h
+			./../MDAModel/impl/StrFunctionImpl/StringLength_factory.h
+			./../MDAModel/impl/StrFunctionImpl/SubstrFromBegin.h
+			./../MDAModel/impl/StrFunctionImpl/SubstrFromBegin_factory.h
+			./../MDAModel/impl/StrFunctionImpl/SubstrFromEnd.h
+			./../MDAModel/impl/StrFunctionImpl/SubstrFromEnd_factory.h
+			./../MDAModel/impl/StrFunctionImpl/Suffix.h
+			./../MDAModel/impl/StrFunctionImpl/Suffix_factory.h
+			./../MDAModel/impl/StrFunctionImpl/ToLower.h
+			./../MDAModel/impl/StrFunctionImpl/ToLower_factory.h
+			./../MDAModel/impl/StrFunctionImpl/ToUpper.h
+			./../MDAModel/impl/StrFunctionImpl/ToUpper_factory.h
+			./../MDAModel/impl/StrFunctionImpl/ToWideStr.h
+			./../MDAModel/impl/StrFunctionImpl/ToWideStr_factory.h
+		}
+	
+		SystemFunctionsImpl {
+			./../MDAModel/impl/SystemFunctionsImpl/CycleBreak.h
+			./../MDAModel/impl/SystemFunctionsImpl/CycleBreak_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/DebugFunc.h
+			./../MDAModel/impl/SystemFunctionsImpl/DebugFunc_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/DecToHex.h
+			./../MDAModel/impl/SystemFunctionsImpl/DecToHex_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/DumpDiagram.h
+			./../MDAModel/impl/SystemFunctionsImpl/DumpDiagram_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/ElemCounter.h
+			./../MDAModel/impl/SystemFunctionsImpl/ElemCounter_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/Error.h
+			./../MDAModel/impl/SystemFunctionsImpl/Error_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/Evaluate.h
+			./../MDAModel/impl/SystemFunctionsImpl/Evaluate_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/Exec.h
+			./../MDAModel/impl/SystemFunctionsImpl/Exec_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/FileDir.h
+			./../MDAModel/impl/SystemFunctionsImpl/FileDir_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/FileDrive.h
+			./../MDAModel/impl/SystemFunctionsImpl/FileDrive_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/FileExtension.h
+			./../MDAModel/impl/SystemFunctionsImpl/FileExtension_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/FileName.h
+			./../MDAModel/impl/SystemFunctionsImpl/FileName_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/FilePathBase.h
+			./../MDAModel/impl/SystemFunctionsImpl/HasNonEmptyGen.h
+			./../MDAModel/impl/SystemFunctionsImpl/HasNonEmptyGen_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/IsKindOf.h
+			./../MDAModel/impl/SystemFunctionsImpl/IsKindOf_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/JavaRootInternal.h
+			./../MDAModel/impl/SystemFunctionsImpl/JavaRootInternal_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/JavaTypePath.h
+			./../MDAModel/impl/SystemFunctionsImpl/JavaTypePath_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/NormolizedDir.h
+			./../MDAModel/impl/SystemFunctionsImpl/NormolizedDir_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/NormolizedPath.h
+			./../MDAModel/impl/SystemFunctionsImpl/NormolizedPath_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/NumberCmp.h
+			./../MDAModel/impl/SystemFunctionsImpl/NumberCmp_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/PrintStack.h
+			./../MDAModel/impl/SystemFunctionsImpl/PrintStack_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/SetGenID.h
+			./../MDAModel/impl/SystemFunctionsImpl/SetGenID_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/SetProp.h
+			./../MDAModel/impl/SystemFunctionsImpl/SetProp_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/ShiftIntend.h
+			./../MDAModel/impl/SystemFunctionsImpl/ShiftIntend_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/ShiftScope.h
+			./../MDAModel/impl/SystemFunctionsImpl/ShiftScope_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/ToBorland.h
+			./../MDAModel/impl/SystemFunctionsImpl/ToBorland_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/ToJava.h
+			./../MDAModel/impl/SystemFunctionsImpl/ToJava_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/ToOmg.h
+			./../MDAModel/impl/SystemFunctionsImpl/ToOmg_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/ToRGB.h
+			./../MDAModel/impl/SystemFunctionsImpl/ToRGB_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/UpsToList.h
+			./../MDAModel/impl/SystemFunctionsImpl/UpsToList_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/Warning.h
+			./../MDAModel/impl/SystemFunctionsImpl/Warning_factory.h
+			./../MDAModel/impl/SystemFunctionsImpl/WithGenID.h
+			./../MDAModel/impl/SystemFunctionsImpl/WithGenID_factory.h
+		}
+	
+		TemplateFunctions {
+			./../MDAModel/TemplateFunctions/TemplateFunctions.h
+			./../MDAModel/TemplateFunctions/TemplateFunctionsFactories.h
+		}
+	
+		VarFunctionsImpl {
+			./../MDAModel/impl/VarFunctionsImpl/AddToList.h
+			./../MDAModel/impl/VarFunctionsImpl/AddToList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/ClearList.h
+			./../MDAModel/impl/VarFunctionsImpl/ClearList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/CopyList.h
+			./../MDAModel/impl/VarFunctionsImpl/CopyList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/CountInList.h
+			./../MDAModel/impl/VarFunctionsImpl/CountInList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/DelVar.h
+			./../MDAModel/impl/VarFunctionsImpl/DelVar_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/ExistsInList.h
+			./../MDAModel/impl/VarFunctionsImpl/ExistsInList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/FindElement.h
+			./../MDAModel/impl/VarFunctionsImpl/FindElement_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/IsEmpty.h
+			./../MDAModel/impl/VarFunctionsImpl/IsEmpty_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/IsEqualList.h
+			./../MDAModel/impl/VarFunctionsImpl/IsEqualList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/PopFirstToVar.h
+			./../MDAModel/impl/VarFunctionsImpl/PopFirstToVar_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/PopLastToVar.h
+			./../MDAModel/impl/VarFunctionsImpl/PopLastToVar_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/RemoveFromList.h
+			./../MDAModel/impl/VarFunctionsImpl/RemoveFromList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/SetVar.h
+			./../MDAModel/impl/VarFunctionsImpl/SetVar_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/SizeList.h
+			./../MDAModel/impl/VarFunctionsImpl/SizeList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/SortList.h
+			./../MDAModel/impl/VarFunctionsImpl/SortList_factory.h
+			./../MDAModel/impl/VarFunctionsImpl/UniqueList.h
+			./../MDAModel/impl/VarFunctionsImpl/UniqueList_factory.h
+		}
+	
+		VirtualElementsFuncionsImpl {
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/VirtualElementsFuncionsImpl.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/VirtualElementsFuncionsImplFactories.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddAttribute.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddAttribute_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddCategory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddCategory_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddClass.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddClass_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddDependency.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddDependency_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddImplement.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddImplement_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddInheritable.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddInheritable_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddOperation.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddOperation_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddOverride.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddOverride_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddParameter.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddParameter_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddRealized.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddRealized_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/CopyElement.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/CopyElement_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/CopyUP.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/CopyUP_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/IsVirtual.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/IsVirtual_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/MakeAccessable.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/MakeAccessable_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/OverrideImplementBase.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveChild.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveChild_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveInheritable.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveInheritable_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveRealized.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveRealized_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetAbstractionType.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetAbstractionType_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetAppliedGen.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetAppliedGen_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetDefaultUC.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetDefaultUC_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetDocumentation.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetDocumentation_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetGlobalLocally.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetGlobalLocally_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetImplementSelectType.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetImplementSelectType_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetLinkType.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetLinkType_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetOverloadSelectType.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetOverloadSelectType_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetPostUserCodeContent.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetPostUserCodeContent_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetPreUserCodeContent.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetPreUserCodeContent_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetStereotype.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetStereotype_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetTarget.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetTarget_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetTargetStereotype.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetTargetStereotype_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetUp.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetUp_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetUserCodeContent.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetUserCodeContent_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetVisibilityType.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetVisibilityType_factory.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/UCModificationBase.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/VirtualElementsFunctionBase.h
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/VirtualFunctionsHelper.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		AbstractDumpers {
+		}
+	
+		Base {
+		}
+	
+		BaseFunctionImpl {
+		}
+	
+		ContainerOperations {
+		}
+	
+		ContainerOperationsImpl {
+		}
+	
+		GenSupport {
+		}
+	
+		GenSupportImpl {
+		}
+	
+		MDPSupport {
+		}
+	
+		MetadataFunctionsImpl {
+		}
+	
+		Parsers {
+		}
+	
+		ParsersImpl {
+		}
+	
+		RoseDumpers {
+		}
+	
+		RoseInternal {
+			./../MDAModel/RoseInternal/BaseRoseImpl.i.h
+			./../MDAModel/RoseInternal/BaseRoseImpl.i.h
+			./../MDAModel/RoseInternal/RoseCollectionImpl.i.h
+		}
+	
+		RoseModel {
+		}
+	
+		RoseModelImpl {
+			./../MDAModel/impl/RoseModelImpl/InheritedItemHelperImpl.i.h
+		}
+	
+		RoseTypes {
+		}
+	
+		StereotypeFunctionsImpl {
+		}
+	
+		StrFunctionImpl {
+		}
+	
+		SystemFunctionsImpl {
+		}
+	
+		TemplateFunctions {
+		}
+	
+		VarFunctionsImpl {
+		}
+	
+		VirtualElementsFuncionsImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../MDAModel/LibHome.cpp
+		}
+	
+		AbstractDumpers {
+			./../MDAModel/AbstractDumpers/AbstractDumper.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumperBase.cpp
+			./../MDAModel/AbstractDumpers/AbstractSequenceDumper.cpp
+			./../MDAModel/AbstractDumpers/AbstractSequenceObject.cpp
+			./../MDAModel/AbstractDumpers/AbstractSingleDumperBase.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumperBase_CollectUserProperty.cpp
+			./../MDAModel/AbstractDumpers/TemplatePainter_ContainerDumper.cpp
+			./../MDAModel/AbstractDumpers/TemplatePainter_DelayedFunctionParams.cpp
+			./../MDAModel/AbstractDumpers/DependencyGraph.cpp
+			./../MDAModel/AbstractDumpers/EmptyDumper.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumper_GenArtefacts_i.cpp
+			./../MDAModel/AbstractDumpers/GenerationParams.cpp
+			./../MDAModel/AbstractDumpers/ObjectTreeResolver.cpp
+			./../MDAModel/AbstractDumpers/TemplatePainter_OutputWrapper.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumperBase_PropertyGroupTreeItem.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumperBase_ReportsTreeItem.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumperBase_TemplateContext.cpp
+			./../MDAModel/AbstractDumpers/TemplateDumperDumper.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumperBase_TemplateLoader.cpp
+			./../MDAModel/AbstractDumpers/TemplatePainter.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumperBase_TemplateParser.cpp
+			./../MDAModel/AbstractDumpers/TemplatePainter_TextDumper.cpp
+			./../MDAModel/AbstractDumpers/AbstractDumperBase_TransactionContainer.cpp
+			./../MDAModel/AbstractDumpers/UserCodeExtractor.cpp
+		}
+	
+		Base {
+			./../MDAModel/Base/Base.cpp
+		}
+	
+		BaseFunctionImpl {
+			./../MDAModel/impl/BaseFunctionImpl/InternalFunctionBase.cpp
+			./../MDAModel/impl/BaseFunctionImpl/InternalStereotypeFunctionBase.cpp
+			./../MDAModel/impl/BaseFunctionImpl/ListOperationBase.cpp
+		}
+	
+		ContainerOperations {
+			./../MDAModel/ContainerOperations/ContainerOperations.cpp
+			./../MDAModel/ContainerOperations/ContainerOperationsFactories.cpp
+		}
+	
+		ContainerOperationsImpl {
+			./../MDAModel/impl/ContainerOperationsImpl/ContainerOperationsImpl.cpp
+			./../MDAModel/impl/ContainerOperationsImpl/ContainerTemplateOperationsImpl.cpp
+			./../MDAModel/impl/ContainerOperationsImpl/ContainerTemplateOperationsImpl_factory.cpp
+			./../MDAModel/impl/ContainerOperationsImpl/ListOperationBaseImpl.cpp
+			./../MDAModel/impl/ContainerOperationsImpl/StereotypeListOperationBase.cpp
+		}
+	
+		GenSupport {
+			./../MDAModel/GenSupport/GenSupport.cpp
+			./../MDAModel/GenSupport/GenSupportFactories.cpp
+		}
+	
+		GenSupportImpl {
+			./../MDAModel/impl/GenSupportImpl/DefaultLogManagerImpl.cpp
+			./../MDAModel/impl/GenSupportImpl/DefaultLogManagerImpl_factory.cpp
+			./../MDAModel/impl/GenSupportImpl/EnvironmentImpl.cpp
+			./../MDAModel/impl/GenSupportImpl/EnvironmentImpl_factory.cpp
+			./../MDAModel/impl/GenSupportImpl/ErrorManagerImpl.cpp
+			./../MDAModel/impl/GenSupportImpl/ErrorManagerImpl_factory.cpp
+			./../MDAModel/impl/GenSupportImpl/PageProxyImpl.cpp
+			./../MDAModel/impl/GenSupportImpl/PageProxyImpl_factory.cpp
+			./../MDAModel/impl/GenSupportImpl/ProgessIndicatorServiceImpl.cpp
+			./../MDAModel/impl/GenSupportImpl/ProgessIndicatorServiceImpl_factory.cpp
+		}
+	
+		MDPSupport {
+			./../MDAModel/MDPSupport/MDPSupport.cpp
+			./../MDAModel/MDPSupport/MDPSupportFactories.cpp
+		}
+	
+		MetadataFunctionsImpl {
+			./../MDAModel/impl/MetadataFunctionsImpl/AddMetadatas.cpp
+			./../MDAModel/impl/MetadataFunctionsImpl/AddMetadatas_factory.cpp
+		}
+	
+		Parsers {
+			./../MDAModel/Parsers/Parsers.cpp
+			./../MDAModel/Parsers/ParsersFactories.cpp
+		}
+	
+		ParsersImpl {
+			./../MDAModel/impl/ParsersImpl/AttributeParserImpl.cpp
+			./../MDAModel/impl/ParsersImpl/AttributeParserImpl_factory.cpp
+			./../MDAModel/impl/ParsersImpl/OperationParserImpl.cpp
+			./../MDAModel/impl/ParsersImpl/OperationParserImpl_factory.cpp
+		}
+	
+		RoseDumpers {
+			./../MDAModel/RoseDumpers/DiagramColorizer.cpp
+			./../MDAModel/RoseDumpers/MDAModelParams.cpp
+			./../MDAModel/RoseDumpers/ModelStamp.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractActionDumper.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractAttributeDumper.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractCategoryDumper.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractClassDumper.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractDependencyDumper.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractDumpFactory.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractDumper.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractElementDumper.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractOperationDumper.cpp
+			./../MDAModel/RoseDumpers/RoseAbstractParameterDumper.cpp
+			./../MDAModel/RoseDumpers/RoseCopyHelper.cpp
+			./../MDAModel/RoseDumpers/RoseDiagramDumper.cpp
+			./../MDAModel/RoseDumpers/RoseEventDumper.cpp
+			./../MDAModel/RoseDumpers/RoseHelper.cpp
+			./../MDAModel/RoseDumpers/RoseInitialValue.cpp
+			./../MDAModel/RoseDumpers/RoseOverridenElementDumper.cpp
+			./../MDAModel/RoseDumpers/RoseSequenceDumper.cpp
+			./../MDAModel/RoseDumpers/RoseSequenceObject.cpp
+			./../MDAModel/RoseDumpers/RoseStateDiagramDumper.cpp
+			./../MDAModel/RoseDumpers/RoseStateDumper.cpp
+			./../MDAModel/RoseDumpers/RoseStateMachineDumper.cpp
+			./../MDAModel/RoseDumpers/RoseTransitionDumper.cpp
+			./../MDAModel/RoseDumpers/RoseTreeState.cpp
+		}
+	
+		RoseInternal {
+			./../MDAModel/RoseInternal/DispatchHelper.cpp
+			./../MDAModel/RoseInternal/RoseAttribute.cpp
+			./../MDAModel/RoseInternal/RoseCategory.cpp
+			./../MDAModel/RoseInternal/RoseClass.cpp
+			./../MDAModel/RoseInternal/RoseClassDependency.cpp
+			./../MDAModel/RoseInternal/RoseClassRelation.cpp
+			./../MDAModel/RoseInternal/RoseElement.cpp
+			./../MDAModel/RoseInternal/RoseInheritRelation.cpp
+			./../MDAModel/RoseInternal/RoseItem.cpp
+			./../MDAModel/RoseInternal/RoseObject.cpp
+			./../MDAModel/RoseInternal/RoseOperation.cpp
+			./../MDAModel/RoseInternal/RoseOverridenElement.cpp
+			./../MDAModel/RoseInternal/RoseParameter.cpp
+			./../MDAModel/RoseInternal/RoseProperty.cpp
+			./../MDAModel/RoseInternal/RosePropertyImpl.cpp
+			./../MDAModel/RoseInternal/RoseRealizeRelation.cpp
+			./../MDAModel/RoseInternal/RoseRichTypeImpl.cpp
+			./../MDAModel/RoseInternal/RoseTargetItem.cpp
+		}
+	
+		RoseModel {
+			./../MDAModel/RoseModel/RoseModel.cpp
+			./../MDAModel/RoseModel/RoseModelFactories.cpp
+		}
+	
+		RoseModelImpl {
+			./../MDAModel/impl/RoseModelImpl/CategoryImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/CategoryImpl_factory.cpp
+			./../MDAModel/impl/RoseModelImpl/ImplementedItemImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/ImplementedItemImpl_factory.cpp
+			./../MDAModel/impl/RoseModelImpl/InheritedItemHelperImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/InheritedItemHelperImpl_factory.cpp
+			./../MDAModel/impl/RoseModelImpl/InheritedItemImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/IsVirtualImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/IsVirtualImpl_factory.cpp
+			./../MDAModel/impl/RoseModelImpl/ModelPropertiesHelperImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/ModelPropertiesHelperImpl_factory.cpp
+			./../MDAModel/impl/RoseModelImpl/ModelSearcherImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/ModelSearcherImpl_factory.cpp
+			./../MDAModel/impl/RoseModelImpl/OverloadedItemImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/OverloadedItemImpl_factory.cpp
+			./../MDAModel/impl/RoseModelImpl/PropertyHelperImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/PropertyHelperImpl_factory.cpp
+			./../MDAModel/impl/RoseModelImpl/TypeLinkHelperImpl.cpp
+			./../MDAModel/impl/RoseModelImpl/TypeLinkHelperImpl_factory.cpp
+		}
+	
+		RoseTypes {
+			./../MDAModel/RoseTypes/RationalRoseTlb.cpp
+		}
+	
+		StereotypeFunctionsImpl {
+			./../MDAModel/impl/StereotypeFunctionsImpl/AddToList.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/AddToList_factory.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/ClearList.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/ClearList_factory.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/IsEqual.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/IsEqual_factory.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/RemoveFromList.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/RemoveFromList_factory.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/SetVar.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/SetVar_factory.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/SortList.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/SortList_factory.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/SubstractList.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/SubstractList_factory.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/UniqueList.cpp
+			./../MDAModel/impl/StereotypeFunctionsImpl/UniqueList_factory.cpp
+		}
+	
+		StrFunctionImpl {
+			./../MDAModel/impl/StrFunctionImpl/ConsistOf.cpp
+			./../MDAModel/impl/StrFunctionImpl/ConsistOf_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/CutPostfix.cpp
+			./../MDAModel/impl/StrFunctionImpl/CutPostfix_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/CutPrefix.cpp
+			./../MDAModel/impl/StrFunctionImpl/CutPrefix_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/DelSubstrFromBegin.cpp
+			./../MDAModel/impl/StrFunctionImpl/DelSubstrFromBegin_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/DelSubstrFromEnd.cpp
+			./../MDAModel/impl/StrFunctionImpl/DelSubstrFromEnd_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/Prefix.cpp
+			./../MDAModel/impl/StrFunctionImpl/Prefix_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/SplitToList.cpp
+			./../MDAModel/impl/StrFunctionImpl/SplitToList_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/StrConv.cpp
+			./../MDAModel/impl/StrFunctionImpl/StrConv_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/StrReplace.cpp
+			./../MDAModel/impl/StrFunctionImpl/StrReplace_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/StrSplit.cpp
+			./../MDAModel/impl/StrFunctionImpl/StrSplit_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/StrToRule.cpp
+			./../MDAModel/impl/StrFunctionImpl/StrToRule_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/StringCmp.cpp
+			./../MDAModel/impl/StrFunctionImpl/StringCmp_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/StringFind.cpp
+			./../MDAModel/impl/StrFunctionImpl/StringFind_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/StringHash.cpp
+			./../MDAModel/impl/StrFunctionImpl/StringHash_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/StringLength.cpp
+			./../MDAModel/impl/StrFunctionImpl/StringLength_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/SubstrFromBegin.cpp
+			./../MDAModel/impl/StrFunctionImpl/SubstrFromBegin_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/SubstrFromEnd.cpp
+			./../MDAModel/impl/StrFunctionImpl/SubstrFromEnd_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/Suffix.cpp
+			./../MDAModel/impl/StrFunctionImpl/Suffix_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/ToLower.cpp
+			./../MDAModel/impl/StrFunctionImpl/ToLower_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/ToUpper.cpp
+			./../MDAModel/impl/StrFunctionImpl/ToUpper_factory.cpp
+			./../MDAModel/impl/StrFunctionImpl/ToWideStr.cpp
+			./../MDAModel/impl/StrFunctionImpl/ToWideStr_factory.cpp
+		}
+	
+		SystemFunctionsImpl {
+			./../MDAModel/impl/SystemFunctionsImpl/CycleBreak.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/CycleBreak_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/DebugFunc.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/DebugFunc_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/DecToHex.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/DecToHex_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/DumpDiagram.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/DumpDiagram_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ElemCounter.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ElemCounter_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/Error.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/Error_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/Evaluate.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/Evaluate_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/Exec.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/Exec_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FileDir.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FileDir_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FileDrive.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FileDrive_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FileExtension.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FileExtension_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FileName.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FileName_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/FilePathBase.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/HasNonEmptyGen.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/HasNonEmptyGen_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/IsKindOf.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/IsKindOf_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/JavaRootInternal.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/JavaRootInternal_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/JavaTypePath.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/JavaTypePath_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/NormolizedDir.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/NormolizedDir_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/NormolizedPath.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/NormolizedPath_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/NumberCmp.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/NumberCmp_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/PrintStack.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/PrintStack_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/SetGenID.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/SetGenID_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/SetProp.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/SetProp_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ShiftIntend.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ShiftIntend_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ShiftScope.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ShiftScope_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ToBorland.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ToBorland_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ToJava.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ToJava_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ToOmg.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ToOmg_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ToRGB.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/ToRGB_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/UpsToList.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/UpsToList_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/Warning.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/Warning_factory.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/WithGenID.cpp
+			./../MDAModel/impl/SystemFunctionsImpl/WithGenID_factory.cpp
+		}
+	
+		TemplateFunctions {
+			./../MDAModel/TemplateFunctions/TemplateFunctions.cpp
+			./../MDAModel/TemplateFunctions/TemplateFunctionsFactories.cpp
+		}
+	
+		VarFunctionsImpl {
+			./../MDAModel/impl/VarFunctionsImpl/AddToList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/AddToList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/ClearList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/ClearList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/CopyList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/CopyList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/CountInList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/CountInList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/DelVar.cpp
+			./../MDAModel/impl/VarFunctionsImpl/DelVar_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/ExistsInList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/ExistsInList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/FindElement.cpp
+			./../MDAModel/impl/VarFunctionsImpl/FindElement_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/IsEmpty.cpp
+			./../MDAModel/impl/VarFunctionsImpl/IsEmpty_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/IsEqualList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/IsEqualList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/PopFirstToVar.cpp
+			./../MDAModel/impl/VarFunctionsImpl/PopFirstToVar_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/PopLastToVar.cpp
+			./../MDAModel/impl/VarFunctionsImpl/PopLastToVar_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/RemoveFromList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/RemoveFromList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/SetVar.cpp
+			./../MDAModel/impl/VarFunctionsImpl/SetVar_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/SizeList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/SizeList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/SortList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/SortList_factory.cpp
+			./../MDAModel/impl/VarFunctionsImpl/UniqueList.cpp
+			./../MDAModel/impl/VarFunctionsImpl/UniqueList_factory.cpp
+		}
+	
+		VirtualElementsFuncionsImpl {
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/VirtualElementsFuncionsImpl.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/VirtualElementsFuncionsImplFactories.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddAttribute.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddAttribute_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddCategory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddCategory_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddClass.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddClass_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddDependency.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddDependency_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddImplement.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddImplement_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddInheritable.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddInheritable_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddOperation.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddOperation_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddOverride.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddOverride_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddParameter.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddParameter_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddRealized.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/AddRealized_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/CopyElement.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/CopyElement_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/CopyUP.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/CopyUP_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/IsVirtual.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/IsVirtual_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/MakeAccessable.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/MakeAccessable_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/OverrideImplementBase.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveChild.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveChild_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveInheritable.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveInheritable_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveRealized.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/RemoveRealized_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetAbstractionType.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetAbstractionType_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetAppliedGen.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetAppliedGen_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetDefaultUC.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetDefaultUC_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetDocumentation.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetDocumentation_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetGlobalLocally.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetGlobalLocally_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetImplementSelectType.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetImplementSelectType_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetLinkType.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetLinkType_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetOverloadSelectType.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetOverloadSelectType_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetPostUserCodeContent.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetPostUserCodeContent_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetPreUserCodeContent.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetPreUserCodeContent_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetStereotype.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetStereotype_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetTarget.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetTarget_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetTargetStereotype.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetTargetStereotype_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetUp.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetUp_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetUserCodeContent.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetUserCodeContent_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetVisibilityType.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/SetVisibilityType_factory.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/UCModificationBase.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/VirtualElementsFunctionBase.cpp
+			./../MDAModel/impl/VirtualElementsFuncionsImpl/VirtualFunctionsHelper.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

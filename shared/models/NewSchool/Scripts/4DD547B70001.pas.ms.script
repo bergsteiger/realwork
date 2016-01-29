@@ -1,0 +1,57 @@
+// CheckEtalon 4DD547B70001 ScriptKeyword Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4DD547B70001
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_D9126304C173
+ CONST UID 'D9126304C173'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация CheckEtalon' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D9126304C173 Ini_Reg
+
+: ME_4DD547B70001
+ CONST UID '4DD547B70001'
+ CONST Name 'CheckEtalon'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_D9126304C173 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'tests:CheckEtalon'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '19.05.2011 20:39'
+
+ @SELF
+; // ME_4DD547B70001 CheckEtalon

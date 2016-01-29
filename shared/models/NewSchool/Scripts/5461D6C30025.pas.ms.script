@@ -1,0 +1,284 @@
+// TncsReplyDescription 5461D6C30025 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5461D6C30025
+
+INCLUDE '5453986402AC.pas.ms.script'
+
+: ME_5461D95F00E6
+ CONST UID '5461D95F00E6'
+ CONST Name 'Message'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5461D95F00E6 Message
+
+: ME_5461D977016B
+ CONST UID '5461D977016B'
+ CONST Name 'Reply'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5461D977016B Reply
+
+INCLUDE '48078324039E.pas.ms.script'
+
+: ME_5463228D00A9
+ CONST UID '5463228D00A9'
+ CONST Name 'f_Event'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_491D9DB8010F // TEvent
+ ;
+
+ @SELF
+; // ME_5463228D00A9 f_Event
+
+: ME_27C2B26992C3
+ CONST UID '27C2B26992C3'
+ CONST Name 'f_Message'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Message' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+
+ @SELF
+; // ME_27C2B26992C3 f_Message
+
+: ME_05DEC867B990
+ CONST UID '05DEC867B990'
+ CONST Name 'f_Reply'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Reply' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+
+ @SELF
+; // ME_05DEC867B990 f_Reply
+
+FORWARD ME_5461D8CE0020
+
+: ME_5461D8E50366
+ CONST UID '5461D8E50366'
+ CONST Name 'aMessage'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+
+ @SELF
+; // ME_5461D8E50366 aMessage
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5461D8D70179
+ CONST UID '5461D8D70179'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5461D8E50366 // aMessage
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5461D8D70179 DoIt
+
+: ME_5461D8CE0020
+ CONST UID '5461D8CE0020'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5461D8D70179 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5461D8CE0020 Create
+
+FORWARD ME_5463220800C9
+
+: ME_C1FD0A58B390
+ CONST UID 'C1FD0A58B390'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода RequestEvent' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_C1FD0A58B390 DoIt
+
+: ME_5463220800C9
+ CONST UID '5463220800C9'
+ CONST Name 'RequestEvent'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_C1FD0A58B390 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5463220800C9 RequestEvent
+
+FORWARD ME_546335030341
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+INCLUDE '48A41FF10094.pas.ms.script'
+
+: ME_54633B0002A6
+ CONST UID '54633B0002A6'
+ CONST Name 'aTimeOut'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47BC524C0245 // LongWord
+ ;
+ CONST Value 'INFINITE'
+ : ValueType ME_483C21B0003E // Timeouts
+ ;
+
+ @SELF
+; // ME_54633B0002A6 aTimeOut
+
+: ME_546335100360
+ CONST UID '546335100360'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_54633B0002A6 // aTimeOut
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_546335100360 DoIt
+
+: ME_546335030341
+ CONST UID '546335030341'
+ CONST Name 'WaitForReply'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_546335100360 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_546335030341 WaitForReply
+
+FORWARD ME_5464AAB30031
+
+: ME_52271C321839
+ CONST UID '52271C321839'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода AbortWait' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_52271C321839 DoIt
+
+: ME_5464AAB30031
+ CONST UID '5464AAB30031'
+ CONST Name 'AbortWait'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52271C321839 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5464AAB30031 AbortWait
+
+: ME_5461D6C30025
+ CONST UID '5461D6C30025'
+ CONST Name 'TncsReplyDescription'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_5461D95F00E6 // Message
+ ME_5461D977016B // Reply
+ ME_5463228D00A9 // f_Event
+ ME_27C2B26992C3 // f_Message
+ ME_05DEC867B990 // f_Reply
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5461D8CE0020 // Create
+ ME_5463220800C9 // RequestEvent
+ ME_546335030341 // WaitForReply
+ ME_5464AAB30031 // AbortWait
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5461D6C30025 TncsReplyDescription

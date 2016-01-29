@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.1 2009/02/25 06:31:19 pugin Exp $
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="euml.presentation.EumlModelWizardID"
+            name="%_UI_EumlModelWizard_label"
+            class="euml.presentation.EumlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EumlModelFile.gif">
+         <description>%_UI_EumlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="euml.presentation.EumlEditorID"
+            name="%_UI_EumlEditor_label"
+            icon="icons/full/obj16/EumlModelFile.gif"
+            extensions="euml"
+            class="euml.presentation.EumlEditor"
+            contributorClass="euml.presentation.EumlActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

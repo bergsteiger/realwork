@@ -1,0 +1,267 @@
+// TestExecuteCommand.script
+// Поддержка слова "Выполнить" и другие вспомогательные слова.
+
+USES
+ axiom:push
+ axiom:Form
+ axiom:Wait
+ axiom:Waited
+ axiom:Control
+ axiom:Editor
+ 
+ ArchiSystem.script
+ CommonWords.script
+	@\TestParamsDefine.script
+        @\TestWithParameters.script
+        EverestUtils.script
+;
+
+// Совместимость со старыми тестами (deprecated)
+WordAlias "Открывать документ" "Открывать"
+WordAlias "Создавать документ" "Использовать создание документа" 
+WordAlias "Создавать пустой документ" "Использовать создание пустого документа" 
+WordAlias "Пустой документ" "Использовать создание пустого документа" 
+WordAlias "Создавать документ из NSR" "Использовать создание из NSR"
+WordAlias "Создавать документ из RTF" "Использовать создание из RTF"
+WordAlias "Создавать документ из DOC" "Использовать создание из DOC"
+
+PROCEDURE "Создать из NSR"
+	VAR l_File
+	script:FileName '.nsr' sysutils:ChangeFileExt >>> l_File
+	l_File Создать_из 
+;
+
+PROCEDURE "Создать из DOC"
+	VAR l_File
+	script:FileName '.doc' sysutils:ChangeFileExt >>> l_File
+	l_File Создать_из 
+;
+
+PROCEDURE "Создать из DOCX"
+	VAR l_File
+	script:FileName '.docx' sysutils:ChangeFileExt >>> l_File
+	l_File Создать_из 
+;
+
+PROCEDURE "Создать из RTF"
+	VAR l_File
+	script:FileName '.rtf' sysutils:ChangeFileExt >>> l_File
+	l_File Создать_из 
+;
+
+PROCEDURE "Создать из HTML"
+	VAR l_File
+	script:FileName '.htm' sysutils:ChangeFileExt >>> l_File
+	l_File Создать_из 
+;
+
+PROCEDURE "Закрыть без сохранения"
+OBJECT VAR l_Object
+push:MainForm pop:form:ActiveMDIChild >>> l_Object
+Если ( l_Object pop:object:IsNil ! ) то	
+	( 
+		Если ( l_Object IsNeedSaveDocument ) то
+			( wait:No
+	 		  Закрыть
+	  	          waited:? ASSERT )
+		иначе
+			( Закрыть )
+	)
+;
+
+PROCEDURE "Закрыть окно" IN aID
+ aID push:MainForm pop:form:MDIChildren pop:form:Close
+;
+BOOLEAN FUNCTION "Сохранить?" IN aID
+ aID push:MainForm pop:form:MDIChildren IsNeedSaveDocument =: Result
+;
+
+PROCEDURE "Закрыть все окна"
+  INTEGER VAR l_WinID
+  BOOLEAN VAR l_NeedSave
+  INTEGER VAR l_MDICount
+  
+  0 >>> l_WinID
+  push:MainForm pop:form:MDIChildCount >>> l_MDICount
+  l_MDICount LOOP (    
+   "Сохранить?{(l_WinID)}" >>> l_NeedSave
+   Если ( l_NeedSave ) то
+    ( wait:No )
+   "Закрыть окно{(l_WinID)}"  
+   Если ( l_NeedSave ) то
+    ( waited:? ASSERT ) 
+   ++! l_WinID    
+  )  
+;
+
+PROCEDURE "Выполнить завершающее действие"
+	g_How2End CASE
+		cnNoAction ( )
+		cnCloseDoument ( "Закрыть без сохранения" )	
+		cnCloseAllWindow ( "Закрыть все окна" )	
+        END
+;
+
+PROCEDURE "Создать или открыть"	
+    g_DocumentIDToOpen CASE		
+      cnNewDocID ( Создать )
+      cnNewEmptyDocID ( Создать_пустой )
+      cnNewNSR ( "Создать из NSR" )
+	  cnNewRTF ( "Создать из RTF" )
+	  cnNewDOC ( "Создать из DOC" )
+	  cnNewDOCX ( "Создать из DOCX" )
+	  cnNewHTML ( "Создать из HTML" )	  
+      DEFAULT ( false ASSERT )
+    END
+;
+
+PROCEDURE "Подготовка"
+	"Подготовить главную форму" 
+	"Развернуть редактор"  
+;
+
+PROCEDURE "Подготовка к вставке разрыва"
+  "Подготовить главную форму для вставки разрыва"
+  "Развернуть редактор"  
+;
+
+PROCEDURE "Подготовка к отрисовке" 
+	"Спрятать РЕЕСТР ОБЪЕКТОВ"
+	"Подготовка"
+	"Выключить все флаги"
+;
+
+PROCEDURE "Подготовить для горизонтальной прокрутки" 
+	"Подготовить узкую форму" 
+	"Выключить все флаги"
+;
+
+PROCEDURE "Выставить флаг записи картинок"
+	EnabledSaveRTFPictures
+;
+
+PROCEDURE "Подготовить главную форму с высотой"
+ push:MainForm pop:Control:Top := 0
+ push:MainForm pop:Control:Left := 0
+ push:MainForm pop:Control:Width := 1200
+ push:MainForm pop:Control:Height := g_Height
+;
+
+PROCEDURE "Изменить размеры"
+	g_How2Prepare CASE
+		cnNotPrepare ( )
+		cnStandartPrepare ( "Подготовка" )	
+		cnPageBreakSize ( "Подготовка к вставке разрыва" )	
+		cnTableAlignment ( "Подготовка к выравниванию линий" )
+		cnPrepare2Drawing ( "Подготовка к отрисовке" )
+		cnOnlyMainForm ( "Подготовить главную форму" )
+		cnSetHeight ( "Подготовить главную форму с высотой" )
+		cnThinFormSize ( "Подготовить для горизонтальной прокрутки" )
+        END
+;
+
+PROCEDURE "только с учетом параметров" // Необязательная заглушка
+	
+;
+
+PROCEDURE "Перерисовать и сравнить с эталоном в текущем редакторе"
+	focused:control:push pop:editor:RepaintAndCheckWithEtalon     
+;
+
+PROCEDURE "Сохранить изображение и сравнить с эталоном" INTEGER IN aHeight INTEGER IN aWidth INTEGER IN aTop INTEGER IN aLeft INTEGER IN aHandle
+	STRING VAR l_FileName
+	script:FileName '.bmp' sysutils:ChangeFileExt
+	sysutils:ExtractFileName >>> l_FileName		
+	l_FileName aHeight aWidth aTop aLeft aHandle ScreenShot2FileWithCheck	
+;
+
+PROCEDURE "Сохранить изображение контрола и сравнить с эталоном" BOOLEAN IN aNeedRepaint
+	EtalonNeedsComputerName
+	OBJECT VAR l_Editor
+	focused:control:push >>> l_Editor 	
+	INTEGER VAR l_Width	
+	l_Editor pop:Control:Width >>> l_Width
+	INTEGER VAR l_Height 	
+	l_Editor pop:Control:Height >>> l_Height	
+	Если ( aNeedRepaint ) то 
+	 ( l_Editor pop:Control:Repaint )
+	BOOLEAN VAR l_IsEditor
+	l_Editor ЯВЛЯЕТСЯ class::TevEditor >>> l_IsEditor
+	INTEGER VAR l_Handle
+	l_Editor pop:Control:Handle >>> l_Handle	
+	Если ( l_IsEditor ) то ( "Спрятать каретку редактора {(l_Editor)}" )
+	TRY
+	 "Сохранить изображение и сравнить с эталоном {(l_Height)} {(l_Width)} {(0)} {(0)} {(l_Handle)}"	
+	FINALLY
+	 Если ( l_IsEditor ) то ( "Показать каретку редактора {(l_Editor)}" )
+	END
+;
+
+BOOLEAN VAR g_WasException
+
+PROCEDURE "Проверочное действие"	
+	g_CheckAction CASE
+		cnNoneAction (  )
+		cnCheckWithEVDEtalon ( "Сравнить текст с эталоном" ) 
+		cnCheckWithNSREtalon ( "Сохранить в NSR и сравнить с эталоном" )
+		cnCheckWithHTMLEtalon ( "Сохранить в HTML и сравнить с эталоном" )
+		cnCheckDrawing ( "Перерисовать и сравнить с эталоном в текущем редакторе" )
+		cnCheckPrinting ( "Нажимаем предварительный просмотр" )
+		cnCheckWithPDFEtalon ( "Сохранить в PDF и сравнить с эталоном" )
+		cnCheckWithRTFEtalon ( "Сохранить в RTF и сравнить с эталоном" )
+		cnCheckTimeSavePDF ( "Померить время и сравнить с эталоном {( @ "Сохранить в PDF" )}" )
+		cnCheckPDFWithNamePC ( "Сравнить выделенный текст редактора с эталоном в формате PDF с привязкой к машине" )
+		cnImageControl ( "Сохранить изображение контрола и сравнить с эталоном {( true )}" )
+		cnImageControlWithoutRepaint ( "Сохранить изображение контрола и сравнить с эталоном {( false )}" )
+        END
+	Если ( g_AntiTest ) то ( g_WasException 'Не появился ожидаемое исключение!' ASSERTS )		
+;
+
+PROCEDURE "Выполнить до теста"
+	g_StartAction CASE
+		cnNoStartAction (  )
+		cnMoveCursorDownAndHome ( "Нажать вниз раз {(g_MoveCount)}" "В начало строки" ) 
+		cnMoveCursorDown ( "Нажать вниз раз {(g_MoveCount)}" ) 
+		cnPageDownAndMoveCursorUp ( 
+				g_PageCount раз "На страницу вниз" 
+				"Обработать сообщения" 
+				"Нажать вверх раз {(g_MoveCount)}" 
+				"Обработать сообщения" 
+				) 				
+        END
+;
+
+PROCEDURE "Параметры до теста"
+	BOOLEAN VAR g_WasException
+	g_BeforeStart CASE
+		cnNoBeforeTestParams ( )
+		cnPictureSave ( "Выставить флаг записи картинок" )
+        END
+;
+
+VOID WORDWORKER Выполнить			
+	Если ( ( g_WasInit IsVoid ) ИЛИ ( g_WasInit =0 ) ) то ( "Первоначальные параметры" )	
+	"Параметры до теста"
+	TRY
+		"Создать или открыть"
+		"Изменить размеры"		
+		"Обработать сообщения"
+		"Выполнить до теста"
+		"Обработать сообщения"
+		TRY
+		 WordToWork DO
+		EXCEPT
+		 Если ( g_AntiTest ) то 
+		  ( 
+			"Сравнить текущее исключение с эталоном" 
+			true >>> g_WasException
+			)		  
+		 иначе 
+		  ( current:exception:Message RAISE )
+		END
+		"Проверочное действие"
+	FINALLY
+		"Выполнить завершающее действие"
+		0 >>> g_WasInit // Мало ли сколько раз вызвали...
+	END
+;

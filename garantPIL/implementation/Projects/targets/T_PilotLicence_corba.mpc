@@ -1,0 +1,29 @@
+project (T_PilotLicence_corba) : project-common-defines, project-common-includes, project_generic_core_corba, project_subsystem_windows, Base_T_PilotLicence {
+	sharedname = PilotLicence
+
+	dynamicflags += PILOTLICENCE_EXPORTS
+
+	after += zlib
+	libs  += zlib
+
+	after += cchlp1
+	libs  += cchlp1
+
+	after += gctx_gudll
+	libs  += gctx_gudll
+
+	after += gkdb_gudll
+	libs  += gkdb_gudll
+
+	after += Core
+	libs  += Core
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += GCL
+	libs  += GCL
+}

@@ -1,0 +1,93 @@
+////////////////////////////////////////////////////////////
+// Valuetype
+////////////////////////////////////////////////////////////
+: Valuetype::Class
+? Интерфейс-значение
+? Используется только в OMG IDL.
+< *::Class, *::Category
+
+$ C 220,200,255
+$ l 125,40,230
+$ f 125,40,230
+
+a arf
+L code_valuetype
+Y t4_valuetype.gif
+
+%f _wiki_up_print
+%f _wiki_up_add_gen
+
+%t _constraint
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+r {%ax=false}: {%SS ни кем не используется}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ idl
+F [{"%Sa"="abstract"}abstract ]valuetype %SN;
+	<#%FF
+	>%f_docs(%S)\
+	#[{"%Sa"="abstract"}abstract ]valuetype %SN[: <{,}%f_type(%G)>] {<
+	%CX>
+	#};
+
+////////////////////////////////////////////////////////////
+
+: Valuetype::Class::Attribute
+L code_property
+Y t5_property.gif
+
+%t _constraint
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+
+%f _wiki_child_kind
+	property
+
++ idl
+	%f_docs(%S)\
+	#[{"%SV"="PublicAccess"}{private}public] %f_type(%T) %SN;
+
+////////////////////////////////////////////////////////////
+
+: Valuetype::Class::Operation
+e
+T
+L code_method
+Y t5_method.gif
+
+%t _constraint
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+
+%f _wiki_child_kind
+	method
+	
++ idl
+P
+	%f_docs(%S)\
+	#%f_ret(%S) %SN (<{, }%CX>)[
+	#	raises (<{, }%f_type(%E)>)];
+
+: Valuetype::Class::factory::Operation
+? Фабричныей метод
+= Valuetype::Class::Operation
+L code_factory
+Y t5_factory.gif
+
+%t _constraint
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+
+%f _wiki_child_kind
+	mng
+
+////////////////////////////////////////////////////////////
+
+: Valuetype::Class::Operation::Parameter
++ idl
+P
+	%f_arg_full_decl(%S)	

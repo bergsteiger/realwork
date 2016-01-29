@@ -1,0 +1,69 @@
+//////////////////////////////////////////////////////////////////////////////////
+// UtilityClass
+//////////////////////////////////////////////////////////////////////////////////
+
+: UtilityClass::Class::uses::ClassDependency
+= SimpleClass::Class::uses::ClassDependency
+
+: UtilityClass::Class::friend::ClassDependency
+= SimpleClass::Class::friend::ClassDependency
+
+: UtilityClass::Class
+? Утилитный класс
+? Абстроакция простого класса в терминах ООП
+? используется для опеределяения типов не являющихся ни интерфесйами, ни сервантами, ни структурами, ни производными от них, или патернами более высокого уровня (контейнеры, специализированные шаблоные типы и т.д.)
+? "Абстрактный" класс - не может быть создан (т.е. должен использоваться как примесь)
+? "Финальный" класс, напротив не может быть использован в качестве базового класса.
+= SimpleClass::Class
+$ C 255,215,215
+$ l 255,10,10
+$ f 255,10,10
+
+
+L code_utility_class
+Y t4_utility_class.gif
+
+%f _wiki_up_print
+%f _wiki_up_add_gen
+
+%f _base_class_decl
+	[:
+		<{\n#	, }[{%S{non virtual base}!=true}virtual ]public %f_type(%R)>[{"%Rx"="true"}\n\t, ]<{\n	, }[{%S{non virtual base}!=true}virtual ]public %f_type(%G)>
+	]
+
+%f _self_forward
+
+%f _specific_include
+
+%f _ctor_n_dctor_h
+
+%f _ctor_n_dctor_cpp
+
+//////////////////////////////////////////////////////////////////////////////////
+%t _constraint
+c                              {}
+r {"%Rx"="true"}: {%SS cant realize any other class or interfaces}
+r {"<{}{"%GM"!="UtilityClass::Class"}{C%G}>"!="0"}: {%SS can generalize only other %SS}
+r {"%S{singleton}"="true"}: {%SS can't have any instances (cant't be Singleton)}
+/r {"%Sa"="inline"&"%Gx"="true"}: {inline Class can't have base class}
+/r {"%Sa"="inline"&"%Zx"="true"}: {inline Class can't be used as base class}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
+: UtilityClass::Class::Attribute
+= SimpleClass::Class::static::Attribute
+v -+#
+l arl
+A const|ref|const,ref
+
+: UtilityClass::Class::Operation
+= SimpleClass::Class::static::Operation
+
+: UtilityClass::Class::Operation::Parameter
+= SimpleClass::Class::Operation::Parameter
+
+: UtilityClass::Class::Parameter
+= SimpleClass::Class::Parameter

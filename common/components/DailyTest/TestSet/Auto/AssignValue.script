@@ -1,0 +1,136 @@
+USES
+ axiom:WordInfo
+;
+
+USES
+ axiom:TtfwValueTypesAccepts
+;
+
+INTEGER FUNCTION pop:ValueTypes:AcceptsValueTypes
+ TtfwValueTypes IN aTR
+ TtfwValueTypes IN aTL
+ 
+ aTR aTL pop:ValueTypes:Accepts >>> Result
+ 
+; // pop:ValueTypes:AcceptsValueTypes
+
+VOID IMMEDIATE operator :=
+  ^@ IN aLeft
+  ^ IN aRight
+ 
+ %SUMMARY 'Присваивает слову aLeft значение aRight' ;
+ 
+ aRight CompileValue
+ aLeft CompileRef
+ 
+ TtfwWordInfo VAR l_WIL
+ aLeft pop:Word:Info >>> l_WIL
+ 
+ if ( TtfwWordModifier::tfw_wmLeftWordRef l_WIL pop:WordInfo:HasWordModifier ! ) then
+ begin
+ 
+  TtfwValueTypes VAR l_TL
+  TtfwValueTypes VAR l_TR
+  
+  l_WIL pop:WordInfo:ValueTypes >>> l_TL
+  aRight pop:Word:Info pop:WordInfo:ValueTypes >>> l_TR
+  
+  //if ( l_TL IsNil ! ) then
+  if ( ( l_TL IsNil ! ) AND ( l_TR IsNil ! ) ) then
+  begin
+   INTEGER VAR l_Accepts
+   l_TR l_TL pop:ValueTypes:AcceptsValueTypes >>> l_Accepts
+   if ( l_Accepts TtfwValueTypesAccepts::tfw_vtaYes == ) then
+   begin
+    @ pop:Word:SetValuePrim CompileValue
+    EXIT
+   end
+   else
+   if ( l_Accepts TtfwValueTypesAccepts::tfw_vtaNo == ) then
+   begin
+    ERROR [ l_TL pop:ValueTypes:Name ' не совместим с ' l_TR pop:ValueTypes:Name ]
+   end
+  end
+ end
+ 
+ @ pop:Word:SetValue CompileValue
+; // :=
+
+/*{//VOID operator :=
+operator :=
+// - пока так, иначе конструкция Ctx:Engine pop:ScriptEngine:CascadeDict := false - не работает, т.к. Ctx:Engine снимается со стека уже в контексте := И срабатывает КОНТРОЛЬ СТЕКА
+  ^@ IN aLeft
+  ^ IN aRight
+ 
+ %SUMMARY 'Присваивает слову aLeft значение aRight' ;
+ aRight DO >>>^ aLeft
+; // :=}*/
+
+USES
+ Testing.ms.dict
+;
+
+Test&Dump AssignValueTest
+
+VAR A
+ A := 1
+ A .
+ A := 'hello'
+ A .
+
+INTEGER VAR B
+ B := 1
+ B .
+ 
+STRING VAR C
+ C := 'hello'
+ C .
+
+STRING VAR D
+ //D := 10
+ D .
+ 
+VOID VAR E
+ //E := 1
+ E . 
+ 
+STRING INTEGER VAR F
+ F := 'hello'
+ F .
+ F := 10
+ F .
+ 
+OBJECT VAR G
+ G := nil
+ G .
+ 
+INTEGER TYPE X
+
+X VAR H
+ H := 10
+ H .
+ 
+ H := ( 1 2 + )
+ H .
+ 
+OBJECT VAR I
+TComponent VAR J
+ I := J
+
+: K
+ VAR A
+; // K
+
+K -> A := 10
+K -> A .
+
+ARRAY VAR L
+ L := [ ]
+ L .
+ 
+ L := ( [ ] )
+ L .
+ 
+; // AssignValueTest
+
+AssignValueTest

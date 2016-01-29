@@ -1,0 +1,1036 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/ConstantArray.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::ConstantArray
+//
+// Массив констант
+// ---
+// Определяет массив контсант, тип элементов массива задётся связью наследования. Для задания
+// элементов массива добавьте в класс атрибуты (не связи)  и определитие их значение. Например:
+// "first = 123"
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ConstantArray::Class
+implementation @ <<ConstantArray>>
+//? Массив констант
+//? Определяет массив контсант, тип элементов массива задётся связью наследования. Для задания элементов массива добавьте в класс атрибуты (не связи)  и определитие их значение. Например: "first = 123"
+//< *::Class,*::Category
+
+//= ValueMapper::Class
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//a r
+// - тип абстракции
+//Y code_constant_array.gif
+//L code_constant_array
+// Параметры визуализации
+//$ C 245,245,245
+//$ l 100,100,100
+//$ f 100,100,100
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[InterfaceGeneratorWithJava::MDAGenerator]f_wiki_up_print()[{"%S{Need mapping support}"!="%S{!Need mapping support}"}%f_up_prefix(%S) *Need mapping support* = *%S{Need mapping support}* - Нужно ли генерировать поддержку для мапинга значений
+ call-inherited:: 'InterfaceGeneratorWithJava' wiki_up_print %( )%
+ if ( ( %S get_up ( 'Need mapping support' ) ) %!= ( %S get_up_def ( 'Need mapping support' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need mapping support* = *'
+  %S get_up ( 'Need mapping support' ) '* - Нужно ли генерировать поддержку для мапинга значений'
+//	][{"%S{Need map interface}"!="%S{!Need map interface}"}%f_up_prefix(%S) *Need map interface* = *%S{Need map interface}* - Нужна ли реализация интерфейса мапы
+ end // if
+ if ( ( %S get_up ( 'Need map interface' ) ) %!= ( %S get_up_def ( 'Need map interface' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need map interface* = *'
+  %S get_up ( 'Need map interface' ) '* - Нужна ли реализация интерфейса мапы'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47FDE8610215*
+//c {}
+//r {<{}{}{%GC}>!=1}: {%SS должен наследоваться от одного типа}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+//r {<{}{}{%CC}>=0}:  {%SS не может быть пустым}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for47FDE8610215*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor47FDE8610215*
+//	%S%[inherited]\
+ inherited
+
+//	[{%G#f_InheritsFrom("Pl3StringIDEx")=true}\
+ if ( ( %G %?f InheritsFrom %( 'Pl3StringIDEx' )% ) %==  true ) then
+ begin
+
+
+//	[{%S{Need mapping support}=true|%S{Need map interface}=true}\
+  if ( ( %S get_up ( 'Need mapping support' ) ) %==  true OR 
+    ( ( %S get_up ( 'Need map interface' ) ) %==  true  ) ) then
+  begin
+//	%P%f_add_class(%SU_Helper,SimpleClass,%SNHelper,Helper_Inst)\
+   %P %f add_class %( %S |U '_Helper' %, 'SimpleClass' %, %S |N 'Helper' %, 'Helper_Inst' )% 
+//	%{Helper_Inst}%f_set_visibility_type(%SV)\
+   ( get_global_var ( 'Helper_Inst' ) %f set_visibility_type %( %S |V )% ) 
+//	%{Helper_Inst}%f_set_documentation(Утилитный класс для преобразования значений %SN)\
+   ( get_global_var ( 'Helper_Inst' ) %f set_documentation %( 'Утилитный класс для преобразования значений '
+   %S |N )% ) 
+//	%{Helper_Inst}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Helper_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Helper_Inst}%f_set_up(ifdef,%S{ifdef})\
+   ( get_global_var ( 'Helper_Inst' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
+//	%{Helper_Inst}%f_set_up(ifndef,%S{ifndef})\
+   ( get_global_var ( 'Helper_Inst' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
+
+//	[{"%{IafwStrings}N"=""}%f_find_element(IafwStrings,IafwStrings)]\
+   if ( ( ( get_global_var ( 'IafwStrings' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'IafwStrings' %, 'IafwStrings' )% 
+   end // if
+//	%P%f_make_accessable(%{IafwStrings}U)\
+   %P %f make_accessable %( ( get_global_var ( 'IafwStrings' ) |U ) )% 
+
+//	%{Helper_Inst}%f_add_operation(%SU_FillStrings,static,FillStrings (aStrings: %{IafwStrings}U),Op_Instance)\
+   ( get_global_var ( 'Helper_Inst' ) %f add_operation %( %S |U '_FillStrings' %, 'static' %, 'FillStrings (aStrings: '
+   ( get_global_var ( 'IafwStrings' ) |U ) ')' %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Заполнение списка строк значениями)\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Заполнение списка строк значениями' )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
+   ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_var,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_var' %, 
+//	var
+   'var'
+//	 l_Index: %f_pas_TypeName(%R);\
+   ' l_Index: '
+   [%f] pas_TypeName %( %R )% ';'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_impl,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_impl' %, 
+//	 aStrings.Clear;
+   ' aStrings.Clear;'
+//	 for l_Index := Low(l_Index) to High(l_Index) do
+   ' for l_Index := Low(l_Index) to High(l_Index) do'
+//	  aStrings.Add(%SN\[l_Index\].AsCStr);\
+   '  aStrings.Add('
+   %S |N '[l_Index].AsCStr);'
+//	)\
+)% ) 
+
+//	[{"%{Il3CString}N"=""}%f_find_element(46780DA40383,Il3CString)]\
+   if ( ( ( get_global_var ( 'Il3CString' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '46780DA40383' %, 'Il3CString' )% 
+   end // if
+//	%P%f_make_accessable(%{Il3CString}U)\
+   %P %f make_accessable %( ( get_global_var ( 'Il3CString' ) |U ) )% 
+
+//	[{"%{l3String}N"=""}%f_find_element(l3String,l3String)]\
+   if ( ( ( get_global_var ( 'l3String' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'l3String' %, 'l3String' )% 
+   end // if
+//	%P%f_make_accessable(%{l3String}U)\
+   %P %f make_accessable %( ( get_global_var ( 'l3String' ) |U ) )% 
+//	%f_addCDep(%P,%{l3String})\
+   [%f] addCDep %( %P %, ( get_global_var ( 'l3String' ) ) )% 
+
+//	[{"%{Exception}N"=""}%f_find_element(4787A405013D,Exception)]\
+   if ( ( ( get_global_var ( 'Exception' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '4787A405013D' %, 'Exception' )% 
+   end // if
+//	%P%f_make_accessable(%{Exception}U)\
+   %P %f make_accessable %( ( get_global_var ( 'Exception' ) |U ) )% 
+//	%f_addCDep(%P,%{Exception})\
+   [%f] addCDep %( %P %, ( get_global_var ( 'Exception' ) ) )% 
+
+//	%{Helper_Inst}%f_add_operation(%SU_DisplayNameToValue,static,DisplayNameToValue (aDisplayName: %{Il3CString}U): %RU,Op_Instance)\
+   ( get_global_var ( 'Helper_Inst' ) %f add_operation %( %S |U '_DisplayNameToValue' %, 'static' %, 'DisplayNameToValue (aDisplayName: '
+   ( get_global_var ( 'Il3CString' ) |U ) '): '
+   %R |U %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Преобразование строкового значения к порядковому)\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Преобразование строкового значения к порядковому' )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
+   ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_var,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_var' %, 
+//	var
+   'var'
+//	 l_Index: %f_pas_TypeName(%R);\
+   ' l_Index: '
+   [%f] pas_TypeName %( %R )% ';'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_impl,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_impl' %, 
+//	 for l_Index := Low(l_Index) to High(l_Index) do
+   ' for l_Index := Low(l_Index) to High(l_Index) do'
+//	  if l3Same(aDisplayName, %SN\[l_Index\].AsCStr) then
+   '  if l3Same(aDisplayName' %, ' '
+   %S |N '[l_Index].AsCStr) then'
+//	  begin
+   '  begin'
+//	   Result := l_Index;
+   '   Result := l_Index;'
+//	   Exit;
+   '   Exit;'
+//	  end;//l3Same..
+   '  end;//l3Same..'
+//	 raise Exception.CreateFmt('Display name "\%s" not found in map "%SN"', \[l3Str(aDisplayName)\]);\
+   ' raise Exception.CreateFmt(''Display name "%s" not found in map "'
+   %S |N '''' %, ' [l3Str(aDisplayName)]);'
+//	)\
+)% ) //	]\
+  end // if
+
+
+//	[{%S{Need map interface}=true}\
+  if ( ( %S get_up ( 'Need map interface' ) ) %==  true ) then
+  begin
+
+
+//	[{"%{Tl3CProtoObject}N"=""}%f_find_element(Tl3CProtoObject,Tl3CProtoObject)]\
+   if ( ( ( get_global_var ( 'Tl3CProtoObject' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'Tl3CProtoObject' %, 'Tl3CProtoObject' )% 
+   end // if
+//	%P%f_make_accessable(%{Tl3CProtoObject}U)\
+   %P %f make_accessable %( ( get_global_var ( 'Tl3CProtoObject' ) |U ) )% 
+
+//	[{"%{Il3ValueMap}N"=""}%f_find_element(Il3ValueMap,Il3ValueMap)]\
+   if ( ( ( get_global_var ( 'Il3ValueMap' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'Il3ValueMap' %, 'Il3ValueMap' )% 
+   end // if
+//	%P%f_make_accessable(%{Il3ValueMap}U)\
+   %P %f make_accessable %( ( get_global_var ( 'Il3ValueMap' ) |U ) )% 
+
+//	[{"%{Il3IntegerValueMap}N"=""}%f_find_element(Il3IntegerValueMap,Il3IntegerValueMap)]\
+   if ( ( ( get_global_var ( 'Il3IntegerValueMap' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'Il3IntegerValueMap' %, 'Il3IntegerValueMap' )% 
+   end // if
+//	%P%f_make_accessable(%{Il3IntegerValueMap}U)\
+   %P %f make_accessable %( ( get_global_var ( 'Il3IntegerValueMap' ) |U ) )% 
+
+//	%P%f_add_class(%SU_MapImplPrim,SimpleClass,T%SNImplPrim,Map_ImplPrim)\
+   %P %f add_class %( %S |U '_MapImplPrim' %, 'SimpleClass' %, 'T'
+   %S |N 'ImplPrim' %, 'Map_ImplPrim' )% 
+//	%{Map_ImplPrim}%f_set_visibility_type(%SV)\
+   ( get_global_var ( 'Map_ImplPrim' ) %f set_visibility_type %( %S |V )% ) 
+//	%{Map_ImplPrim}%f_set_documentation(Класс для реализации мапы для %SN)\
+   ( get_global_var ( 'Map_ImplPrim' ) %f set_documentation %( 'Класс для реализации мапы для '
+   %S |N )% ) 
+//	%{Map_ImplPrim}%f_set_abstraction_type(abstract)\
+   ( get_global_var ( 'Map_ImplPrim' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	%{Map_ImplPrim}%f_set_up(ifdef,%S{ifdef})\
+   ( get_global_var ( 'Map_ImplPrim' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
+//	%{Map_ImplPrim}%f_set_up(ifndef,%S{ifndef})\
+   ( get_global_var ( 'Map_ImplPrim' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
+//	%f_addG(%{Map_ImplPrim},%{Tl3CProtoObject})\
+   [%f] addG %( ( get_global_var ( 'Map_ImplPrim' ) ) %, ( get_global_var ( 'Tl3CProtoObject' ) ) )% 
+//	%f_addR(%{Map_ImplPrim},%{Il3IntegerValueMap})\
+   [%f] addR %( ( get_global_var ( 'Map_ImplPrim' ) ) %, ( get_global_var ( 'Il3IntegerValueMap' ) ) )% 
+//	%{Map_ImplPrim}%f_add_operation(%{Map_ImplPrim}U_Make,factory,Make (): %{Il3IntegerValueMap}U,Op_Instance)\
+   ( get_global_var ( 'Map_ImplPrim' ) %f add_operation %( ( get_global_var ( 'Map_ImplPrim' ) |U ) '_Make' %, 'factory' %, 'Make (): '
+   ( get_global_var ( 'Il3IntegerValueMap' ) |U ) %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Фабричный метод для %{Map_ImplPrim}N)\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Фабричный метод для '
+   ( get_global_var ( 'Map_ImplPrim' ) |N ) )% ) 
+
+//	[{"%{l3FillChar}N"=""}%f_find_element(l3FillChar,l3FillChar)]\
+   if ( ( ( get_global_var ( 'l3FillChar' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'l3FillChar' %, 'l3FillChar' )% 
+   end // if
+//	%P%f_make_accessable(%{l3FillChar}U)\
+   %P %f make_accessable %( ( get_global_var ( 'l3FillChar' ) |U ) )% 
+//	%f_addCDep(%P,%{l3FillChar})\
+   [%f] addCDep %( %P %, ( get_global_var ( 'l3FillChar' ) ) )% 
+
+
+// MapID
+//	%f_find_element(46A5EFE602DE,Op_Instance)\
+   [%f] find_element %( '46A5EFE602DE' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})get_var,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% 'get_var' %, 
+//	 {-}\
+   ' {-}'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})get_impl,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% 'get_impl' %, 
+//	 l3FillChar(Result, SizeOf(Result));
+   ' l3FillChar(Result' %, ' SizeOf(Result));'
+//	 Assert(false);\
+   ' Assert(false);'
+//	)\
+)% ) 
+
+
+// GetDisplayNames
+//	%f_find_element(46A5F0130365,Op_Instance)\
+   [%f] find_element %( '46A5F0130365' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_var,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
+//	 {-}\
+   ' {-}'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_impl,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
+//	 %f_pas_TypeName(%{Helper_Inst}).FillStrings(aList);\
+   ' '
+   [%f] pas_TypeName %( ( get_global_var ( 'Helper_Inst' ) ) )% '.FillStrings(aList);'
+//	)\
+)% ) 
+
+
+// MapSize
+//	%f_find_element(46A5F03800A2,Op_Instance)\
+   [%f] find_element %( '46A5F03800A2' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_var,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
+//	 {-}\
+   ' {-}'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_impl,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
+//	 Result := Ord(High(%f_pas_TypeName(%R))) - Ord(Low(%f_pas_TypeName(%R)));\
+   ' Result := Ord(High('
+   [%f] pas_TypeName %( %R )% ')) - Ord(Low('
+   [%f] pas_TypeName %( %R )% '));'
+//	)\
+)% ) 
+
+
+// DisplayNameToValue
+//	%f_find_element(46A5FCF900E0,Op_Instance)\
+   [%f] find_element %( '46A5FCF900E0' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_var,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
+//	 {-}\
+   ' {-}'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_impl,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
+//	 Result := Ord(%f_pas_TypeName(%{Helper_Inst}).DisplayNameToValue(aDisplayName));\
+   ' Result := Ord('
+   [%f] pas_TypeName %( ( get_global_var ( 'Helper_Inst' ) ) )% '.DisplayNameToValue(aDisplayName));'
+//	)\
+)% ) 
+
+
+// ValueToDisplayName
+//	%f_find_element(46A5FD1B000D,Op_Instance)\
+   [%f] find_element %( '46A5FD1B000D' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_var,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
+//	 {-}\
+   ' {-}'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_impl,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
+//	 Assert(aValue \>= Ord(Low(%f_pas_TypeName(%R))));
+   ' Assert(aValue >= Ord(Low('
+   [%f] pas_TypeName %( %R )% ')));'
+//	 Assert(aValue \<= Ord(High(%f_pas_TypeName(%R))));
+   ' Assert(aValue <= Ord(High('
+   [%f] pas_TypeName %( %R )% ')));'
+//	 Result := %SN\[%f_pas_TypeName(%R)(aValue)\].AsCStr;\
+   ' Result := '
+   %S |N '['
+   [%f] pas_TypeName %( %R )% '(aValue)].AsCStr;'
+//	)\
+)% ) 
+
+//	%P%f_add_class(%SU_MapImpl,SimpleClass,T%SNImpl,Map_Impl)\
+   %P %f add_class %( %S |U '_MapImpl' %, 'SimpleClass' %, 'T'
+   %S |N 'Impl' %, 'Map_Impl' )% 
+//	%{Map_Impl}%f_set_visibility_type(%SV)\
+   ( get_global_var ( 'Map_Impl' ) %f set_visibility_type %( %S |V )% ) 
+//	%{Map_Impl}%f_set_documentation(Класс для реализации мапы для %SN)\
+   ( get_global_var ( 'Map_Impl' ) %f set_documentation %( 'Класс для реализации мапы для '
+   %S |N )% ) 
+//	%{Map_Impl}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Map_Impl' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Map_Impl}%f_set_up(ifdef,%S{ifdef})\
+   ( get_global_var ( 'Map_Impl' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
+//	%{Map_Impl}%f_set_up(ifndef,%S{ifndef})\
+   ( get_global_var ( 'Map_Impl' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
+//	%f_addG(%{Map_Impl},%{Map_ImplPrim})\
+   [%f] addG %( ( get_global_var ( 'Map_Impl' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% 
+//	%{Map_Impl}%f_set_up(singleton,true)\
+   ( get_global_var ( 'Map_Impl' ) %f set_up %( 'singleton' %, true )% ) 
+//	%{Map_Impl}%f_add_operation(%{Map_Impl}U_Make,factory,Make (): %{Il3IntegerValueMap}U,Op_Instance)\
+   ( get_global_var ( 'Map_Impl' ) %f add_operation %( ( get_global_var ( 'Map_Impl' ) |U ) '_Make' %, 'factory' %, 'Make (): '
+   ( get_global_var ( 'Il3IntegerValueMap' ) |U ) %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Фабричный метод для %{Map_Impl}N)\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Фабричный метод для '
+   ( get_global_var ( 'Map_Impl' ) |N ) )% ) 
+//	]\
+  end // if
+
+
+//	]
+ end // if
+//#UC END# *4B2A19E3038Bfor47FDE8610215*
+; // DoSpell
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47FDE8610215*
+//O [{%GN=string}%PN_%SN.cpp]
+//	[{%GN!=string}{\
+ if ( ( %G |N ) %!= 'string' ) then
+ begin
+  ';'
+//	
+  #13#10
+
+//	
+  #13#10
+
+//	\} // namespace %P%PN
+  '} // namespace '
+  %P ->P |N  
+//	}\
+  '}'
+//	[{"%PC"!="Category"&%P#f_IsUtilityPack()!=true}%f_docs(%S)\
+  if ( ( %P |C ) %!= 'Category' AND 
+    ( ( %P %?f IsUtilityPack %( )% ) %!=  true  ) ) then
+  begin
+   [%f] docs %( %S )% 
+//	[%S%f_open_ifdef()
+   if NOT-EMPTY
+   begin
+    %S %f open_ifdef %( )% 
+//	]%f_shift_scope(true)const %f_type(%G)%f_shift_scope(false) [{%PM!=Constants::Class}{%f_function_scope(%P%P)}%f_function_scope(%P)]%SN \[\] = {<{, }{%CC=Attribute}[{%f_is_string(%C%P%G)=true|%f_is_wstring(%C%P%G)=true}{%f_init(%C)}"%CI"]>};][
+   end // if
+   NOP
+   [%f] shift_scope %( true )% 'const '
+   [%f] type %( %G )% [%f] shift_scope %( false )% ' '
+   if ( ( %P |M ) %!= 'Constants::Class' ) then
+   begin
+    [%f] function_scope %( %P )% 
+   end // if
+   else
+   begin
+    [%f] function_scope %( %P ->P  )% 
+   end // else
+   %S |N ' [] = {'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     if ( ( [%f] is_string %( %C ->P ->G   )% ) %==  true OR 
+       ( ( [%f] is_wstring %( %C ->P ->G   )% ) %==  true  ) ) then
+     begin
+      %C |I 
+     end // if
+     else
+     begin
+      [%f] init %( %C )% 
+     end // else
+
+     ++! l_Counter
+    end // if
+   end // for C
+   '};' 
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_close_ifdef()]
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+
+//	%f_shift_scope(true)const %f_type(%G)%f_shift_scope(false) [{%PM!=Constants::Class}{%f_function_scope(%P%P)}%f_function_scope(%P)]%SN \[\] = {<{, }{%CC=Attribute}%f_init(%C)>};]\
+//	]
+ end // if
+ else
+ begin
+//	namespace %P%PN \{
+  'namespace '
+  %P ->P |N  ' {'
+//	
+  #13#10
+
+//	#const %f_type(%G) %SN \[\] = {<{,\n }{%CC=Attribute}"%f_str_replace(%CI,',)">,\n 0};\
+  out_indent 'const '
+  [%f] type %( %G )% ' '
+  %S |N ' [] = {'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' ) then
+   begin
+    if ( l_Counter >0 ) then ( ','#13#10' ' )
+    [%f] str_replace %( %C |I %, '''' %, )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ','#13#10' 0' 
+ end // else
+//#UC END# *47022CB8034Bfor47FDE8610215*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47FDE8610215*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]\
+ end // if
+ NOP
+//	#[{%GN=string}{static }extern ]const %f_type(%G) %SN \[\]\
+ out_indent if ( ( %G |N ) %== 'string' ) then
+ begin
+  'extern ' 
+ end // if
+ else
+ begin
+  'static ' 
+ end // else
+ 'const '
+ [%f] type %( %G )% ' '
+ %S |N ' []'
+
+//	[{%GN!=string}\
+ if ( ( %G |N ) %!= 'string' ) then
+ begin
+//	[{%PC=Category|%P#f_IsUtilityPack()=true} = {<{, }{%CC=Attribute}[{%f_is_string(%C%P%G)=true|%f_is_wstring(%C%P%G)=true}{%f_init(%C)}"%CI"]>}\
+  if ( ( %P |C ) %== 'Category' OR 
+    ( ( %P %?f IsUtilityPack %( )% ) %==  true  ) ) then
+  begin
+   ' = {'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     if ( ( [%f] is_string %( %C ->P ->G   )% ) %==  true OR 
+       ( ( [%f] is_wstring %( %C ->P ->G   )% ) %==  true  ) ) then
+     begin
+      %C |I 
+     end // if
+     else
+     begin
+      [%f] init %( %C )% 
+     end // else
+
+     ++! l_Counter
+    end // if
+   end // for C
+   '}'
+//	]\
+  end // if
+//	];\
+ end // if
+ ';'
+//	[
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//	#static const %f_type(%G) %SN \[\][{%PC=Category|%P#f_IsUtilityPack()=true} = {<{, }{%CC=Attribute}%f_init(%C)>}];
+//#UC END# *47022C88029Ffor47FDE8610215*
+; // h
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47FDE8610215*
+//	[{%SV!=PublicAccess}[%f_with_gen_id(intf.pas,%SX)\n]]
+ if ( ( %S |V ) %!= 'PublicAccess' ) then
+ begin
+  if NOT-EMPTY
+  begin
+   [%f] with_gen_id %( 'intf.pas' %, %S |X )% #13#10 
+  end // if
+  NOP
+ end // if
+//#UC END# *470F15B800CBfor47FDE8610215*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47FDE8610215*
+//	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+ if ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+  [%f] add_to_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% 
+//	<{}{%f_pas_IsSameUnit(%S,%C%T)=true}%C%TX>\
+//	[\n%S%f_open_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	%f_pas_OpenConst(%S)\
+  [%f] pas_OpenConst %( %S )% 
+//	%f_set_var(SEP,"")\
+  [%f] set_var %( 'SEP' %, '' )% 
+//	# { [{}{%SN}%SD] }
+  out_indent ' { '
+  if NOT-EMPTY
+  begin
+   %S |D 
+  end // if
+  NOP
+  else
+  begin
+   %S |N 
+  end // else
+  ' }'
+//	#%SN : array \[\
+  out_indent %S |N ' : array ['
+//	[{%Rx!=true}{\
+  if ( ( %R |x ) %!=  true ) then
+  begin
+//	0..%f_evaluate(<{}{}{%CC}>-1)\
+   0 '..'
+   [%f] evaluate %( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   integer:?-- )% 
+//	]\
+  end // if
+  else
+  begin
+//	%f_pas_TypeName(%R)\
+   [%f] pas_TypeName %( %R )% 
+//	}\
+  end // else
+//	\] of %f_pas_TypeName(%G) = (
+  '] of '
+  [%f] pas_TypeName %( %G )% ' = ('
+//	# \
+  out_indent ' '
+
+
+//	<{\n# }{}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #13#10
+    out_indent ' ' )
+//	%CX\
+    %C |X 
+//	%f_set_var(SEP,", ")\
+    [%f] set_var %( 'SEP' %, %, ' ' )% 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	#);//%SN\
+  out_indent ');//'
+  %S |N 
+//	[\n%S%f_close_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+//	]
+ end // if
+//#UC END# *470F1571031Cfor47FDE8610215*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47FDE8610215*
+//#UC END# *477398E501C0for47FDE8610215*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47FDE8610215*
+//O [{"%PO"=""&%PM!=Constants::Class&%f_is_server_type(%S)=false}%SN.java]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_is_server_type(%S)=false}[{"%PO"=""&%PM!=Constants::Class}\
+ if ( ( [%f] is_server_type %( %S )% ) %==  false ) then
+ begin
+  if ( ( %P |O ) %== '' AND 
+    ( ( %P |M ) %!= 'Constants::Class'  ) ) then
+  begin
+//	%f_header(%S)
+   [%f] header %( %S )% 
+//	package %f_dump_java_package(%S);
+   'package '
+   [%f] dump_java_package %( %S )% ';'
+//	
+   #13#10
+
+//	#%t_visibility(%S,"%XU")class %SN {
+   out_indent [%t] visibility %( %S %, %X |U )% 'class '
+   %S |N ' {'
+//	]%f_docs(%S)\
+  end // if
+  [%f] docs %( %S )% 
+//	#[{"%PO"=""&%PM!=Constants::Class}	]public static final %f_type(%G) %SN \[\] = {<{, }{%CC=Attribute}[{%f_is_string(%C%P%G)=true|%f_is_wstring(%C%P%G)=true}{%f_init(%C)}"%CI"]>};[{"%PO"=""&%PM!=Constants::Class}
+  out_indent if ( ( %P |O ) %== '' AND 
+    ( ( %P |M ) %!= 'Constants::Class'  ) ) then
+  begin
+   '	' 
+  end // if
+  'public static final '
+  [%f] type %( %G )% ' '
+  %S |N ' [] = {'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    if ( ( [%f] is_string %( %C ->P ->G   )% ) %==  true OR 
+      ( ( [%f] is_wstring %( %C ->P ->G   )% ) %==  true  ) ) then
+    begin
+     %C |I 
+    end // if
+    else
+    begin
+     [%f] init %( %C )% 
+    end // else
+
+    ++! l_Counter
+   end // if
+  end // for C
+  '};'
+  if ( ( %P |O ) %== '' AND 
+    ( ( %P |M ) %!= 'Constants::Class'  ) ) then
+  begin
+   #13#10
+
+//	#} // %SN]][{%f_is_server_type(%S)=false}\
+   out_indent '} // '
+   %S |N 
+  end // if
+ end // if
+ if ( ( [%f] is_server_type %( %S )% ) %==  false ) then
+ begin
+//	[{"%PO"=""&%PM!=Constants::Class}
+  if ( ( %P |O ) %== '' AND 
+    ( ( %P |M ) %!= 'Constants::Class'  ) ) then
+  begin
+   #13#10
+
+//	%f_footer(%S)
+   [%f] footer %( %S )% 
+//	]]
+  end // if
+ end // if
+//#UC END# *470321950119for47FDE8610215*
+; // java
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47FDE8610215*
+//G %PU
+//#UC END# *46E6D4BB0339for47FDE8610215*
+; // wiki
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for47FDE8610215*
+//	%S%f_DoSpell()
+ %S %f DoSpell %( )% 
+//#UC END# *4A41A13D03D5for47FDE8610215*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: ConstantArray::Class::Attribute
+end. // <<ConstantArray>>
+
+implementation @ :: <<ConstantArray>> <<Attribute>> ;
+//? Элемент массива
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_attr.gif
+//L code_attr
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47FDE8AF00BE*
+//#UC END# *46E6D4BB0339for47FDE8AF00BE*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47FDE8AF00BE*
+//#UC END# *47022C88029Ffor47FDE8AF00BE*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47FDE8AF00BE*
+//#UC END# *47022CB8034Bfor47FDE8AF00BE*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47FDE8AF00BE*
+//#UC END# *470321950119for47FDE8AF00BE*
+; // java
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47FDE8AF00BE*
+//	[%S%f_open_ifdef()\n#]\
+ if NOT-EMPTY
+ begin
+  %S %f open_ifdef %( )% #13#10
+  out_indent 
+ end // if
+ NOP
+//	%{SEP}N\
+ ( get_global_var ( 'SEP' ) |N ) 
+//	%P[{%GS=Typedef&%G{isPointer}=true}@]\
+ %P
+ bind ( 
+  OBJECT VAR %S
+  if ( ( %G |S ) %== 'Typedef' AND 
+    ( ( %G get_up ( 'isPointer' ) ) %==  true  ) ) then
+  begin
+   '@' 
+  end // if
+
+ ) // bind
+ //	%S%f_OutValue()\
+ %S %f OutValue %( )% 
+//	[{%SD!=undefined&"%SD"!=""}\n#\{ %SD \}]\
+ if ( ( %S |D ) %!= 'undefined' AND 
+   ( ( %S |D ) %!= ''  ) ) then
+ begin
+  #13#10
+  out_indent '{ '
+  %S |D ' }' 
+ end // if
+//	[\n#%S%f_close_ifdef()]
+ if NOT-EMPTY
+ begin
+  #13#10
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *470F1571031Cfor47FDE8AF00BE*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47FDE8AF00BE*
+//#UC END# *470F15B800CBfor47FDE8AF00BE*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47FDE8AF00BE*
+//#UC END# *477398E501C0for47FDE8AF00BE*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for47FDE8AF00BE*
+//#UC END# *55B8D28B0157for47FDE8AF00BE*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for47FDE8AF00BE*
+//#UC END# *55B8D2F80145for47FDE8AF00BE*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for47FDE8AF00BE*
+//#UC END# *55B8DD9C0301for47FDE8AF00BE*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47FDE8AF00BE*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for47FDE8AF00BE*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47FDE8AF00BE*
+//#UC END# *4705CBD6003Efor47FDE8AF00BE*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for47FDE8AF00BE*
+//#UC END# *470484D50138for47FDE8AF00BE*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<ConstantArray>> <<Attribute>> ;
+

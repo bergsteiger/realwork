@@ -1,0 +1,1 @@
+call W:\common\env\QuickLaunch\update-vcs.bat vkuprovich

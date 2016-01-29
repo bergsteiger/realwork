@@ -1,0 +1,126 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Активность: Провести высокоуровневое функциональное тестирование системы</title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="Top"></a>Активность: Провести высокоуровневое функциональное тестирование системы</h2>
+<div align="center">
+<div align="center"><center>
+
+<table border="1" cellspacing="0" cellpadding="2" width="85%">
+  <tr>
+    <td colspan="2" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Проверить функциональность системы на предмет соответствия требованиям ТЗ.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><small><strong><font face="Arial">Шаги</font></strong></small>
+    <ul>
+      <li><a href="#Identify Requirements for Test">Определить требования к тестированию</a></li>
+      <li><a href="#Create automaic scripts">Создать автоматические тестовые скрипты</a></li>
+      <li><a href="#Do hand tests">Провести ручное тестирование</a></li>
+      <li><a href="#Fix results">Зафиксировать результаты</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/requirements/pa_supspec.htm">Дополнительные спецификации</a></li>
+      <li><a href="../../artifacts/requirements/pa_ucmod.htm">Модель прецедентов</a></li>
+      <li><a href="../../artifacts/requirements/pa_reqattr.htm">Атрибуты требований</a></li>
+      <li><a href="../../artifacts/implementation/pa_release.htm">Выпуск системы</a></li>
+    </ul>
+    </td>
+    <td style="text-indent: 0px" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/implementation/pa_release.htm">Выпуск системы</a>, оттестированный</li>
+      <li><a href="../../artifacts/environment/pa_request.htm">Запрос на изменение</a></li>
+      <li><a href="../../artifacts/test/pa_tstrep.htm">Итоговый отчет о тестировании</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_tster.htm">Тестировщик</a></td>
+  </tr>
+</table>
+</center></div>
+
+</div>
+
+<p>Всем тестировщикам рекомендуется прочтение книги Сема Канера, Джека Фолка и Енг Кек Нгуена &quot;Тестирование программного обеспечения&quot;
+<p>Передача на тестирование является частью работ по интеграции программного продукта (см. <a href="../implementation/ac_intsy.htm">Активность: Интегрировать систему</a>)
+<h3><a name="Identify Requirements for Test">Определить требования к тестированию</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" height="1" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Определить предмет тестирования и рамки тестирования.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+<p>На этом шаге тестировщик, назначенный Менеджером по качеству, должен определить и классифицировать требования, предъявленные
+к программному продукту. Такая работа проводится в случае, когда продукт разрабатывался без систематического подхода 
+к разработке и требования не находятся в базе требований Rational RequisitePro. 
+<p>В ходе работ на этом этапе для приложений, производство которых шло не по описываемой в данном сайте технологии, должен быть воссоздан репозиторий требований к продукту в RequisitePro согласно
+<a href='#' onclick="window.open('../../applet/cvsget/control.asp?fid=quality/guidelines_test/test_non_rup_method.rtf',null,'height=450,width=580,status=no,toolbar=no,menubar=yes,location=no,resizable=yes,scrollbars=no',1);">Методике проведения функционального высокоуровневого тестирования приложений, разработанных без систематического подхода к разработке (без RUP)</a>
+
+<h3><a name="Create automatic scripts">Создать скрипты для автоматизированного тестирования</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" height="1" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Определить перечень необходимых тестовых скриптов.</li>
+      <li>Спроектировать и реализовать тестовые скрипты.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+<p>Процесс создания тестовых скриптов и его результаты - скрипты для автоматизированного тестирования - должны отвечать требованиям, описанным в
+<a href='#' onclick="window.open('../../applet/cvsget/control.asp?fid=quality/guidelines_test/test_non_rup_method.rtf',null,'height=450,width=580,status=no,toolbar=no,menubar=yes,location=no,resizable=yes,scrollbars=no',1);">Методике проведения функционального высокоуровневого тестирования приложений, разработанных без систематического подхода к разработке (без RUP)</a>
+
+<h3><a name="Do hand tests">Провести ручное тестирование</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" height="1" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Проверить функциональность, не охваченную автоматизированным тестированием.</li>
+      <li>Выявить и спроектировать дополнительные автоматизированные тестовые скрипты</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+<p>Тестировщик после прогонки и получения результатов автоматизированного тестирования проводит ручное тестирование.
+Проверяются все не охваченные автоматизированными скриптами и непроверенные требования. 
+<p>Процесс ручного тестирования описан в
+<a href='#' onclick="window.open('../../applet/cvsget/control.asp?fid=quality/guidelines_test/test_non_rup_method.rtf',null,'height=450,width=580,status=no,toolbar=no,menubar=yes,location=no,resizable=yes,scrollbars=no',1);">Методике проведения функционального высокоуровневого тестирования приложений, разработанных без систематического подхода к разработке (без RUP)</a>
+
+<h3><a name="Fix results">Зафиксировать результаты</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Все найденные ошибки фиксируются в ClearQuest, согласно положениям, описанным в 
+<a href='#' onclick="window.open('../../applet/cvsget/control.asp?fid=quality/guidelines_test/test_non_rup_method.rtf',null,'height=450,width=580,status=no,toolbar=no,menubar=yes,location=no,resizable=yes,scrollbars=no',1);">Методике проведения функционального высокоуровневого тестирования приложений, разработанных без систематического подхода к разработке (без RUP)</a>.
+См. также <a href="../environment/ac_subcr.htm">Активность: Создать/отработать запрос на изменение</a>.
+<p>По окончании тестирования создается <a href="../../artifacts/test/pa_tstrep.htm">Итоговый отчет о тестировании</a>, 
+в котором выражается общая оценка продукта, прошедшего тестирование.
+
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+c 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+</body>
+</html>

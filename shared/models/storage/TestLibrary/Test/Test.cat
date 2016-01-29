@@ -1,0 +1,3527 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Test"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"h:*4496934F004E_CUSTOM_INCLUDE*"
+	    value      	(value Text "//#UC START# *4496934F004E_CUSTOM_INCLUDE*¤//#UC END# *4496934F004E_CUSTOM_INCLUDE*"))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/storage/test_candidates/TestLibrary/Test/Test.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/storage/test_candidates/TestLibrary/Test/Test.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/storage/test_candidates/TestLibrary/Test/TestFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/storage/test_candidates/TestLibrary/Test/TestFactories.h"))
+    quid       	"4496934F004E"
+    documentation 	"Содержит описание интерфейсов, требуемых для реализации конкретных простейших тестов."
+    stereotype 	"Interface"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"44BB6CB20399"
+	    supplier   	"Logical View::storage::TestLibrary::DB"
+	    quidu      	"44BB6C5900CB")
+	(object Visibility_Relationship
+	    quid       	"44DADF8D01E4"
+	    supplier   	"Logical View::shared::GCI::IO"
+	    quidu      	"4423F94903C8"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "IAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"fctr.cpp:*449693A900AB_449813C00271*"
+		    value      	(value Text 
+|//#UC START# *449693A900AB_449813C00271*¤		assert (0);¤		return 0;¤	//#UC END# *449693A900AB_449813C00271*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449693A900AB_449813C00271_449694A20213_BASE_INIT*"
+		    value      	"//#UC START# *449693A900AB_449813C00271_449694A20213_BASE_INIT*¤: m_base (0)¤, m_average_size (average_size)¤, m_stddev_size (stddev_size)¤//#UC END# *449693A900AB_449813C00271_449694A20213_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449693A900AB_449813C00271_449694A20213_BODY*"
+		    value      	(value Text 
+|//#UC START# *449693A900AB_449813C00271_449694A20213_BODY*¤	InitPOET (PtTransactionByBase, "base");¤	int err = PtBase::POET () -> GetBase ("LOCAL", PtString ("base"), m_base);¤	this->check_err (err, "open base");¤	//#UC END# *449693A900AB_449813C00271_449694A20213_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none"))
+	    quid       	"449693A900AB"
+	    documentation 	
+|Предназначен для осуществления повторяющихся тестовых действий.
+|
+|<<атрибуты>>
+|
+|db_root_dir - корневая директория, в которой содержатся все файлы хранилища, нужна интерфейсу IMeasure для определения прироста занимаемого хранилищем физического места на диске по мере выполнения теста.
+|
+| message - устаревший атрибут, будет удален.
+|
+|<<методы>>
+|
+|execute () - собственно тестовое действие, которое подлежит измерению, возвращает инфо об изменении логического рамера базы в результате этого действия.
+|
+|Замечание. Для обеспечения бОльшей точности измерений, рекомендуется по возможности все проверки на ошибки вынести из метода execute () в метод post_prepare (), и, при необходимости, возбуждать исключения в последнем.
+|
+|pre_prepare ()
+|post_prepate ()
+|- пред- и пост- подготовка к тестовому дейтствию, которая д.б. выполнена, но не подлежит измерению.
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "execute"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_449694A20213*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_449694A20213*¤	TestLibrary::Test::ActionInfo* ret = 0;¤	InvertedIndex* iip = new InvertedIndex (PtString ("hello"), long (m_average_size));¤	iip -> Assign (m_base);¤	int err = iip->Store ();¤	this->check_err (err, "store object");¤	return ret;¤	//#UC END# *4496AAD001D4_449694A20213*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_449AB3A6031C*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_449AB3A6031C*¤	m_simple_object = new ::SimpleObject (m_blob_buf, long (m_blob_size), m_cur_id);¤	m_simple_object->Assign (this->get_base ());¤	m_db_error = m_simple_object->Store ();¤	m_ret_value->logical_size = long (m_blob_size);¤	return m_ret_value;¤	//#UC END# *4496AAD001D4_449AB3A6031C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_449AB44B02EE*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_449AB44B02EE*¤	TestLibrary::Test::ActionInfo* ret = 0;¤	return ret;¤	//#UC END# *4496AAD001D4_449AB44B02EE*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_449AB4830109*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_449AB4830109*¤	TestLibrary::Test::ActionInfo* ret = 0;¤	return ret;¤	//#UC END# *4496AAD001D4_449AB4830109*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_449AB62401A5*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_449AB62401A5*¤	TestLibrary::Test::ActionInfo* ret = 0;¤	return ret;¤	//#UC END# *4496AAD001D4_449AB62401A5*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_449FCEE402CE*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_449FCEE402CE*¤	try {¤		TestLibrary::Test::ActionInfo* ret (new TestLibrary::Test::ActionInfo);¤		ret->message = ::GCL::IO::IStringFactory::make ("Objectivity::CreateObject");¤¤		double random_size = ::GCL::normal_distribution (m_average_size, m_stddev_size);¤		ret->logical_size = (random_size > 0) ? long (random_size) : 0;¤¤		ooHandle(CreateActionObject) obj = new (m_cont) CreateActionObject;¤		obj->blob.resize (ret->logical_size);¤¤		return ret;¤	} catch (const ooException& ex) {¤		std::cerr << "exception in BaseClass_i::BaseClass_i: " << ex.what() << std::endl;¤		throw;¤	} catch(...) {¤		std::cerr << "unknown exception in BaseClass_i::BaseClass_i" << std::endl;¤		throw;¤	}¤	//#UC END# *4496AAD001D4_449FCEE402CE*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44A1480A0128*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44A1480A0128*¤	try {¤		::GCL::Aptr<TestLibrary::Test::ActionInfo> ret (this->action_info ()._retn ());¤		//this->get_session ()->begin(oocUpdate);¤		ooHandle(CreateActionObject) test_obj;¤		test_obj = new(m_container) CreateActionObject;¤		test_obj->blob.resize (ret->logical_size);¤		ret->logical_size += sizeof (test_obj->doc_id);¤		test_obj->doc_id = this->cur_id ();¤		/*test_obj.nameObj (m_db, m_obj_name);*/¤		m_set->add (test_obj);¤		//this->get_session ()->commit ();¤		return ret._retn ();¤	} catch (const ooException& ex)	{¤		LOG_E (("Objectivity::CreateObjectAction_i::execute: %s", ex.what ()));¤		throw TestLibrary::Test::TestError ();¤	} catch (...) {¤		LOG_E (("Objectivity::CreateObjectAction_i::execute: unknown exception"));¤		throw TestLibrary::Test::TestError ();¤	}¤	//#UC END# *4496AAD001D4_44A1480A0128*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44A91B0F000F*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44A91B0F000F*¤	m_db_operations->read (m_id_info, m_buf_info); // that's all falks¤	action_info2.logical_size = m_buf_info.buf_size;¤	//#UC END# *4496AAD001D4_44A91B0F000F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44A91CF70167*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44A91CF70167*¤	::SimpleObject* p;¤	m_simple_object_all_set->Query (m_simple_object_query, m_simple_object_set);¤	m_set_pos_found = m_simple_object_set->Get (p, 0, PtSTART);¤	m_simple_object_set->Unget (p);¤	m_ret_value->logical_size = 0;¤	return m_ret_value;¤	//#UC END# *4496AAD001D4_44A91CF70167*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44AA1DF202FD*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44AA1DF202FD*¤	try {¤		//this->get_session ()->begin (oocUpdate);¤		ooHandle(ooObj) test_obj;¤		/*if (!test_obj2.lookupObj (m_db, m_obj_name)) {¤			std::cerr << "CreateObject_i::execute: can not find object" << std::endl;¤			throw 1;¤		}*/¤		test_obj = m_set->get (&this->cur_id ());¤		if (test_obj.isNull ()) {¤			std::cerr << class_name << "/execute: exception: object not found" << std::endl;¤			throw TestLibrary::Test::TestError ();¤		}¤		GCL_ASSERT (test_obj->ooIsKindOf (ooTypeN (CreateActionObject)));¤		//this->get_session ()->commit ();¤	} catch (const ooException& ex)	{¤		LOG_E (("Objectivity::ReadObjectAction_i::execute: %s", ex.what ()));¤		throw TestLibrary::Test::TestError ();¤	} catch (...) {¤		LOG_E (("Objectivity::ReadObjectAction_i::execute: unknown exception"));¤		throw TestLibrary::Test::TestError ();¤	}¤	return this->action_info ()._retn ();¤	//#UC END# *4496AAD001D4_44AA1DF202FD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44AA7D2E0109*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44AA7D2E0109*¤	m_blob_data = new unsigned char[m_current_action_info->logical_size];¤¤	m_reversed_current_id = DbtBase::reverse_int (m_current_id);¤¤	Dbt key (&m_reversed_current_id, sizeof (m_reversed_current_id));¤	Dbt data (m_blob_data.ptr (), m_current_action_info->logical_size);¤¤	try {¤		DbtBase::instance ()->get_db ()->put (NULL, &key, &data, DB_NOOVERWRITE);¤	} catch(DbException &e) {¤		int err = e.get_errno ();¤		throw TestLibrary::Test::TestError ();¤		// Error handling code goes here¤	} catch(std::exception &e) {¤		const char* err = e.what ();¤		throw TestLibrary::Test::TestError ();¤		// Error handling code goes here¤	}¤	return m_current_action_info._retn ();¤	//#UC END# *4496AAD001D4_44AA7D2E0109*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44ABC8010196*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44ABC8010196*¤	m_random_object_db = DbtBase::reverse_int ( m_random_object_db );¤	m_current_key = new Dbt (&m_random_object_db, sizeof (m_random_object_db));¤¤	Dbt data; ¤	if (0 != DbtBase::instance ()->get_db ()->get (NULL, m_current_key.ptr (), &data, 0)) {¤		LOG_E (("ReadObjectAction_i::execute: error in read data"));¤		throw TestLibrary::Test::TestError ();¤	}¤	m_blob_data = new unsigned char[data.get_size ()];¤	memcpy (m_blob_data.ptr (), data.get_data (), data.get_size ());¤¤	m_ret->logical_size = data.get_size ();¤	return m_ret._retn ();¤	//#UC END# *4496AAD001D4_44ABC8010196*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44B24CEE02BF*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44B24CEE02BF*¤	Stream *pReaded= CloneIndex::index()->OpenN(&find_object_id, 0);¤	m_blob_data = new char[pReaded->Length()];¤	pReaded->Read(m_blob_data, pReaded->Length());¤	CloneIndex::index()->Close(pReaded);¤	return m_ret_value;¤	//#UC END# *4496AAD001D4_44B24CEE02BF*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44B24CB4032C*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44B24CB4032C*¤	Stream *pCreated= CloneIndex::index()->OpenN(&object_id,0,1);¤	if(pCreated){¤		pCreated->Write(m_blob_buf, m_ret_value->logical_size);¤		CloneIndex::index()->Close(pCreated);¤	}¤	return m_ret_value;¤	//#UC END# *4496AAD001D4_44B24CB4032C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44B6536000EA*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44B6536000EA*¤	::GCL::Aptr<TestLibrary::Test::ActionInfo>& ret = this->m_action_info;¤	::GCL::Aptr<char, ::GCL::ArrayDeleteDestructor <char> > buf (new char [ret->logical_size]);¤	if (!crput (m_curia, (const char*)&m_cur_id, sizeof (m_cur_id), buf.in (), ret->logical_size, CR_DOVER)) {¤		LOG_E (("QDBM::CreateObjectAction_i::execute: 'crput'. obj_id: %d, error: %s", m_cur_id, dperrmsg (dpecode)));¤		throw TestLibrary::Test::TestError ();¤	}¤	ret->logical_size += sizeof (m_cur_id);¤	return ret._retn ();¤	//#UC END# *4496AAD001D4_44B6536000EA*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44B6539700AB*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44B6539700AB*¤	int bsize = 0;¤	::GCL::Aptr<char, ArrayFreeDestructor <char> > buf (crget (m_curia, (const char*)&m_cur_id, sizeof (m_cur_id), 0, -1, &bsize));¤	if (buf.is_nil ()){¤		LOG_E (("QDBM::CreateObjectAction_i::execute: 'crget'. obj_id: %d, error: %s", m_cur_id, dperrmsg (dpecode)));¤		throw TestLibrary::Test::TestError ();¤	}¤	return this->m_action_info._retn ();¤	//#UC END# *4496AAD001D4_44B6539700AB*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44A2743B0119*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44A2743B0119*¤	m_db_operations->create (m_id_info, m_buf_info); // that's all falks¤	action_info2.logical_size = m_buf_info.buf_size;¤	//#UC END# *4496AAD001D4_44A2743B0119*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44D2013E0196*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44D2013E0196*¤	m_db_operations->add (m_ctx_key_info, m_ctx_data_info); // that's all falks¤	action_info2.logical_size = m_ctx_data_info.word_pos_info.buf_size;	¤	//#UC END# *4496AAD001D4_44D2013E0196*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_44D20198007D*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_44D20198007D*¤	m_db_operations->search (m_ctx_key_info, m_ctx_data_info); // that's all falks¤	action_info2.logical_size = m_ctx_data_info.word_pos_info.buf_size;	// 0 if not found	¤	//#UC END# *4496AAD001D4_44D20198007D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_4524C5D8031C*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_4524C5D8031C*¤	(this->*m_execute_for_actual_func) (action_info2);¤	//#UC END# *4496AAD001D4_4524C5D8031C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_452B68D9038A*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_452B68D9038A*¤	action_info2.logical_size = 0;¤	this->part_info ().offset_buf = this->part_info ().offset_db = 0;¤	// this->part_info ().size set by PartialActionBase::initialize ()¤	unsigned long full_size = this->buf_info ().buf_size; // set by pre_prepare ()¤	do {¤		unsigned long next_offset = this->part_info ().offset_db + this->part_info ().size;¤		if (next_offset > full_size) {¤			this->part_info ().size = full_size - this->part_info ().offset_db;¤		}¤		m_db_operations->write (this->id_info (), this->part_info (), this->buf_info ()); // that's all falks¤		action_info2.logical_size += this->part_info ().size;¤		this->part_info ().offset_db += this->part_info ().size;¤		this->part_info ().offset_buf = this->part_info ().offset_db; // to write all data, step by step¤	} while (this->part_info ().offset_db < full_size);¤	//#UC END# *4496AAD001D4_452B68D9038A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_452B6508032C*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_452B6508032C*¤	action_info2.logical_size = 0;¤	this->part_info ().offset_db = 0;¤	// this->part_info ().size set by PartialActionBase::initialize ()¤	do {¤		m_db_operations->read (this->id_info (), this->part_info (), this->buf_info ()); // that's all falks¤		action_info2.logical_size += this->buf_info ().buf_size;¤		this->part_info ().offset_db += this->buf_info ().buf_size;¤		// this->part_info ().offset_buf = 0 by PartialActionBase::initialize () - it is useful¤	} while (this->buf_info ().buf_size == this->part_info ().size);¤	//#UC END# *4496AAD001D4_452B6508032C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496AAD001D4_452B6B3E031C*"
+			    value      	(value Text 
+|//#UC START# *4496AAD001D4_452B6B3E031C*¤	action_info2.logical_size = 0;¤	this->part_info ().offset_buf = this->part_info ().offset_db = 0;¤	// this->part_info ().size set by PartialActionBase::initialize ()¤	GDS_ASSERT (this->part_info ().size == (unsigned long) (this->partial_fraction () * this->buf_info ().max_buf_size));¤	unsigned long full_size = this->buf_info ().buf_size; // set by pre_prepare ()¤	do {¤		m_db_operations->insert (this->id_info (), this->part_info (), this->buf_info ()); // that's all falks¤		action_info2.logical_size += this->part_info ().size;¤		this->part_info ().offset_db += this->part_info ().size;¤		this->part_info ().offset_buf = this->part_info ().offset_db; // to write all data, step by step¤	} while (this->part_info ().offset_db < full_size);¤	//#UC END# *4496AAD001D4_452B6B3E031C*
+			    )))
+		    quid       	"4496AAD001D4"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "inout action_info2"
+			    quid       	"44BB78AB032C"
+			    type       	"ActionInfo2"
+			    quidu      	"44BB78780222"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "pre_prepare"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_449AB3A6031C*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_449AB3A6031C*¤	m_ret_value = new TestLibrary::Test::ActionInfo;¤	m_blob_size = this->get_random_object_size ();¤	m_blob_buf = new char [m_blob_size];¤	++m_cur_id;¤	//#UC END# *44A39B6E0177_449AB3A6031C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44A1480A0128*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44A1480A0128*¤	GCL::Aptr<TestLibrary::Test::ActionInfo> action_info (new TestLibrary::Test::ActionInfo);¤	action_info->logical_size = this->get_random_object_size ();¤	this->action_info () = action_info._retn ();¤	++m_cur_id;¤	//#UC END# *44A39B6E0177_44A1480A0128*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44A91B0F000F*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44A91B0F000F*¤	(this->*m_pre_prepare_for_actual_func) ();¤	//#UC END# *44A39B6E0177_44A91B0F000F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44A91CF70167*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44A91CF70167*¤	m_simple_object_all_set = new ::SimpleObjectAllSet (this->get_base ());¤	m_simple_object_set = new ::SimpleObjectSet;¤	m_simple_object_query = new ::SimpleObjectQuery;¤	m_cur_id = this->get_random_object_id();¤	m_simple_object_query->Setm_id (m_cur_id, PtEQ);¤	m_ret_value = new TestLibrary::Test::ActionInfo;¤	//#UC END# *44A39B6E0177_44A91CF70167*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44AA1DF202FD*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44AA1DF202FD*¤	GCL::Aptr<TestLibrary::Test::ActionInfo> action_info (new TestLibrary::Test::ActionInfo);¤	action_info->logical_size = 0;¤	this->action_info () = action_info._retn ();¤	m_cur_id = this->get_random_object_id ();¤	//#UC END# *44A39B6E0177_44AA1DF202FD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44AA7D2E0109*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44AA7D2E0109*¤	++m_current_id;¤	m_current_action_info = new TestLibrary::Test::ActionInfo ();¤	m_current_action_info->logical_size = this->get_random_object_size ();¤	//#UC END# *44A39B6E0177_44AA7D2E0109*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44ABC8010196*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44ABC8010196*¤	m_ret = new TestLibrary::Test::ActionInfo ();¤	m_random_object_db= this->get_random_object_id ();¤	//#UC END# *44A39B6E0177_44ABC8010196*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44B24CEE02BF*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44B24CEE02BF*¤	m_ret_value = new TestLibrary::Test::ActionInfo;¤	m_ret_value->logical_size= 0;¤	find_object_id = this->get_random_object_id();¤	//#UC END# *44A39B6E0177_44B24CEE02BF*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44B24CB4032C*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44B24CB4032C*¤	m_ret_value = new TestLibrary::Test::ActionInfo;¤	m_ret_value->logical_size = this->get_random_object_size ();¤	m_blob_buf = new char[m_ret_value->logical_size];¤	//#UC END# *44A39B6E0177_44B24CB4032C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44B6536000EA*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44B6536000EA*¤    m_action_info = new TestLibrary::Test::ActionInfo;¤	m_action_info->logical_size = this->get_random_object_size ();¤	++m_cur_id;	¤	//#UC END# *44A39B6E0177_44B6536000EA*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44B6539700AB*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44B6539700AB*¤    m_action_info = new TestLibrary::Test::ActionInfo;¤	m_action_info->logical_size = 0;¤	m_cur_id = this->get_random_object_id ();	¤	//#UC END# *44A39B6E0177_44B6539700AB*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44A2743B0119*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44A2743B0119*¤	(this->*m_pre_prepare_for_actual_func) ();¤	if (m_buf_info.buf_size > m_buf_info.max_buf_size) {¤		LOG_W (("CreateObjectActionBase_i::pre_prepare: m_buf_info.buf_size %d > m_buf_info.max_buf_size %d (now we truncating)", m_buf_info.buf_size, m_buf_info.max_buf_size));¤		m_buf_info.buf_size = m_buf_info.max_buf_size;¤	}¤	//memset (m_buf_info.buf, 0, m_buf_info.buf_size);¤	this->fill_buffer_randomly (m_buf_info.buf, m_buf_info.buf_size);¤	if (0 < m_buf_info.buf_size) {¤		m_buf_info.buf [0] = char (m_id_info.id % 16);¤	}¤	if (1 < m_buf_info.buf_size) {¤		m_buf_info.buf [m_buf_info.buf_size-1] = char (m_id_info.id % 256);¤	}¤	//#UC END# *44A39B6E0177_44A2743B0119*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44D2013E0196*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44D2013E0196*¤	(this->*m_pre_prepare_for_actual_func) ();¤	if (m_ctx_data_info.word_pos_info.buf_size > m_ctx_data_info.word_pos_info.max_buf_size) {¤		LOG_W (("AddIndexActionBase_i::pre_prepare: m_ctx_data_info.word_pos_info.buf_size %d > m_ctx_data_info.word_pos_info.max_buf_size %d (now we truncating)", m_ctx_data_info.word_pos_info.buf_size, m_ctx_data_info.word_pos_info.max_buf_size));¤		m_ctx_data_info.word_pos_info.buf_size = m_ctx_data_info.word_pos_info.max_buf_size;¤	}	¤	for (unsigned long i = 0; i < m_ctx_data_info.word_pos_info.buf_size; ++i) {¤		m_ctx_data_info.word_pos_info.buf [i] = ((i % 10) != 0) ? char (i % 256) : char (GCL::uniform_distribution (0, 255));¤	}¤	//#UC END# *44A39B6E0177_44D2013E0196*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_44D20198007D*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_44D20198007D*¤	(this->*m_pre_prepare_for_actual_func) ();¤	//#UC END# *44A39B6E0177_44D20198007D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_4524C5D8031C*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_4524C5D8031C*¤	(this->*m_pre_prepare_for_actual_func) ();¤	m_n = (unsigned long) ::GCL::uniform_distribution (1.0, 1000.0);¤	bool is_read_op = ((m_n % 2) == 0);¤	if (!is_read_op) {¤		this->pre_prepare_for_write ();¤	}¤	m_execute_for_actual_func = is_read_op ? &UpdateRWObjectActionBase_i::execute_read : &UpdateRWObjectActionBase_i::execute_write;¤	//#UC END# *44A39B6E0177_4524C5D8031C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_452B68D9038A*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_452B68D9038A*¤	(this->*m_pre_prepare_for_actual_func) ();¤	if (this->buf_info ().buf_size > this->buf_info ().max_buf_size) {¤		LOG_W (("PartialWriteObjectActionBase_i::pre_prepare: this->buf_info ().buf_size %d > this->buf_info ().max_buf_size %d (now we truncating)", this->buf_info ().buf_size, this->buf_info ().max_buf_size));¤		this->buf_info ().buf_size = this->buf_info ().max_buf_size;¤	}¤	//memset (this->buf_info ().buf, 0, this->buf_info ().buf_size);¤	this->fill_buffer_randomly (this->buf_info ().buf, this->buf_info ().buf_size);¤	if (0 < this->buf_info ().buf_size) {¤		this->buf_info ().buf [0] = char (this->id_info ().id % 16);¤	}¤	if (1 < this->buf_info ().buf_size) {¤		this->buf_info ().buf [this->buf_info ().buf_size-1] = char (this->id_info ().id % 256);¤	}¤	this->part_info ().size = (unsigned long) (this->partial_fraction () * this->buf_info ().max_buf_size);¤	//#UC END# *44A39B6E0177_452B68D9038A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_452B6508032C*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_452B6508032C*¤	(this->*m_pre_prepare_for_actual_func) ();¤	GDS_ASSERT (this->part_info ().size == (unsigned long) (this->partial_fraction () * this->buf_info ().max_buf_size));¤	//#UC END# *44A39B6E0177_452B6508032C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B6E0177_452B6B3E031C*"
+			    value      	(value Text 
+|//#UC START# *44A39B6E0177_452B6B3E031C*¤	(this->*m_pre_prepare_for_actual_func) ();¤	//#UC END# *44A39B6E0177_452B6B3E031C*
+			    )))
+		    quid       	"44A39B6E0177"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "post_prepare"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_449AB3A6031C*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_449AB3A6031C*¤	delete m_simple_object;¤	m_simple_object = 0;¤	delete [] m_blob_buf;¤	m_blob_buf = 0;¤	if (m_db_error < 0) {¤		throw TestLibrary::Test::TestError (); //Fastobjects db error (documented)¤	}¤	//#UC END# *44A39B8F030D_449AB3A6031C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44A1480A0128*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44A1480A0128*¤	//#UC END# *44A39B8F030D_44A1480A0128*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44A91B0F000F*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44A91B0F000F*¤	GDS_ASSERT ((0 < m_buf_info.buf_size) ? m_buf_info.buf [0] == char (m_id_info.id % 16): true);¤	GDS_ASSERT ((1 < m_buf_info.buf_size) ? m_buf_info.buf [m_buf_info.buf_size-1] == char (m_id_info.id % 256): true);¤	//#UC END# *44A39B8F030D_44A91B0F000F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44A91CF70167*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44A91CF70167*¤	delete m_simple_object_all_set;¤	m_simple_object_all_set = 0;¤	delete m_simple_object_set;¤	m_simple_object_set = 0;¤	delete m_simple_object_query;¤	m_simple_object_query = 0;¤	if (m_set_pos_found != 0 ) {¤		throw TestLibrary::Test::TestError (); //printf ("bad m_cur_id = %d\n", m_cur_id);¤	}¤	//#UC END# *44A39B8F030D_44A91CF70167*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44AA1DF202FD*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44AA1DF202FD*¤	//#UC END# *44A39B8F030D_44AA1DF202FD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44AA7D2E0109*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44AA7D2E0109*¤	¤	//#UC END# *44A39B8F030D_44AA7D2E0109*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44ABC8010196*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44ABC8010196*¤	m_blob_data.release ();	¤	//#UC END# *44A39B8F030D_44ABC8010196*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44B24CEE02BF*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44B24CEE02BF*¤	delete []m_blob_data;¤	m_blob_data= 0;¤	//#UC END# *44A39B8F030D_44B24CEE02BF*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44B24CB4032C*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44B24CB4032C*¤	delete []m_blob_buf;¤	m_blob_buf= 0;¤	object_id++;¤	//#UC END# *44A39B8F030D_44B24CB4032C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44B6536000EA*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44B6536000EA*¤	¤	//#UC END# *44A39B8F030D_44B6536000EA*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44B6539700AB*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44B6539700AB*¤	¤	//#UC END# *44A39B8F030D_44B6539700AB*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44A2743B0119*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44A2743B0119*¤	¤	//#UC END# *44A39B8F030D_44A2743B0119*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44D2013E0196*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44D2013E0196*¤	¤	//#UC END# *44A39B8F030D_44D2013E0196*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_44D20198007D*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_44D20198007D*¤	for (unsigned long i = 0; i < m_ctx_data_info.word_pos_info.buf_size; ++i) {¤		if ((i % 10) != 0) {¤			GDS_ASSERT (m_ctx_data_info.word_pos_info.buf [i] == char (i % 256));¤		}¤	}	¤	//#UC END# *44A39B8F030D_44D20198007D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_4524C5D8031C*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_4524C5D8031C*¤	bool is_read_op = ((m_n % 2) == 0);¤	if (is_read_op) {¤		this->post_prepare_for_read ();¤	}¤	//#UC END# *44A39B8F030D_4524C5D8031C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_452B68D9038A*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_452B68D9038A*¤	¤	//#UC END# *44A39B8F030D_452B68D9038A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_452B6508032C*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_452B6508032C*¤	GDS_ASSERT ((1 < this->buf_info ().buf_size) ? this->buf_info ().buf [this->buf_info ().buf_size-1] == char (this->id_info ().id % 256): true);	¤	//#UC END# *44A39B8F030D_452B6508032C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39B8F030D_452B6B3E031C*"
+			    value      	(value Text 
+|//#UC START# *44A39B8F030D_452B6B3E031C*¤¤	//#UC END# *44A39B8F030D_452B6B3E031C*
+			    )))
+		    quid       	"44A39B8F030D"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "message"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_449AB3A6031C_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_449AB3A6031C_GET*¤return "FastObjects/CreateObjectAction";¤	//#UC END# *44A8D84A01F4_449AB3A6031C_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44A1480A0128_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44A1480A0128_GET*¤    return class_name;¤	//#UC END# *44A8D84A01F4_44A1480A0128_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44A91B0F000F_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44A91B0F000F_GET*¤	return "ReadObjectActionBase_i";¤	//#UC END# *44A8D84A01F4_44A91B0F000F_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44A91CF70167_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44A91CF70167_GET*¤return "Fastobjects/ReadObjectAction";¤	//#UC END# *44A8D84A01F4_44A91CF70167_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44AA1DF202FD_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44AA1DF202FD_GET*¤	return class_name;¤	//#UC END# *44A8D84A01F4_44AA1DF202FD_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44AA7D2E0109_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44AA7D2E0109_GET*¤	return "Berkley/CreateObjectAction";¤	//#UC END# *44A8D84A01F4_44AA7D2E0109_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44ABC8010196_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44ABC8010196_GET*¤	return "Berkley/ReadObjectAction";¤	//#UC END# *44A8D84A01F4_44ABC8010196_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44B24CEE02BF_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44B24CEE02BF_GET*¤	return "NDTClone/ReadObjectAction";¤	//#UC END# *44A8D84A01F4_44B24CEE02BF_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44B24CB4032C_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44B24CB4032C_GET*¤	return "NDTClone/CreateObjectAction";¤	//#UC END# *44A8D84A01F4_44B24CB4032C_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44B6536000EA_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44B6536000EA_GET*¤	return "QDBM/CreateObjectAction";¤	//#UC END# *44A8D84A01F4_44B6536000EA_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44B6539700AB_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44B6539700AB_GET*¤	return "QDBM/ReadObjectAction";¤	//#UC END# *44A8D84A01F4_44B6539700AB_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44A2743B0119_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44A2743B0119_GET*¤	return "CreateObjectActionBase_i";¤	//#UC END# *44A8D84A01F4_44A2743B0119_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44D2013E0196_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44D2013E0196_GET*¤	return "AddIndexActionBase_i";¤	//#UC END# *44A8D84A01F4_44D2013E0196_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_44D20198007D_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_44D20198007D_GET*¤	return "SearchIndexActionBase_i";¤	//#UC END# *44A8D84A01F4_44D20198007D_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_4524C5D8031C_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_4524C5D8031C_GET*¤	return "UpdateRWObjectActionBase_i";¤	//#UC END# *44A8D84A01F4_4524C5D8031C_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_452B68D9038A_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_452B68D9038A_GET*¤	return "PartialWriteObjectActionBase_i";¤	//#UC END# *44A8D84A01F4_452B68D9038A_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_452B6508032C_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_452B6508032C_GET*¤	return "PartialReadObjectActionBase_i";¤	//#UC END# *44A8D84A01F4_452B6508032C_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A8D84A01F4_452B6B3E031C_GET*"
+			    value      	(value Text 
+|//#UC START# *44A8D84A01F4_452B6B3E031C_GET*¤	return "PartialInsertObjectActionBase_i";¤	//#UC END# *44A8D84A01F4_452B6B3E031C_GET*
+			    )))
+		    quid       	"44A8D84A01F4"
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "need_sequential"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4500169A0109_44A2743B0119_GET*"
+			    value      	(value Text 
+|//#UC START# *4500169A0109_44A2743B0119_GET*¤	return this->need_sequential ();¤	//#UC END# *4500169A0109_44A2743B0119_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4500169A0109_44D2013E0196_GET*"
+			    value      	(value Text 
+|//#UC START# *4500169A0109_44D2013E0196_GET*¤	return m_need_sequential;¤	//#UC END# *4500169A0109_44D2013E0196_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4500169A0109_44A91B0F000F_GET*"
+			    value      	(value Text 
+|//#UC START# *4500169A0109_44A91B0F000F_GET*¤	return this->need_sequential ();¤	//#UC END# *4500169A0109_44A91B0F000F_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4500169A0109_44D20198007D_GET*"
+			    value      	(value Text 
+|//#UC START# *4500169A0109_44D20198007D_GET*¤	return this->need_sequential ();¤	//#UC END# *4500169A0109_44D20198007D_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4500169A0109_4524C5D8031C_GET*"
+			    value      	(value Text 
+|//#UC START# *4500169A0109_4524C5D8031C_GET*¤	return this->need_sequential ();¤	//#UC END# *4500169A0109_4524C5D8031C_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4500169A0109_452B68D9038A_GET*"
+			    value      	(value Text 
+|//#UC START# *4500169A0109_452B68D9038A_GET*¤	return this->need_sequential ();¤	//#UC END# *4500169A0109_452B68D9038A_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4500169A0109_452B6508032C_GET*"
+			    value      	(value Text 
+|//#UC START# *4500169A0109_452B6508032C_GET*¤	return this->need_sequential ();¤	//#UC END# *4500169A0109_452B6508032C_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4500169A0109_452B6B3E031C_GET*"
+			    value      	(value Text 
+|//#UC START# *4500169A0109_452B6B3E031C_GET*¤	return this->need_sequential ();¤	//#UC END# *4500169A0109_452B6B3E031C_GET*
+			    )))
+		    quid       	"4500169A0109"
+		    stereotype 	"readonly"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "ICreateAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"449A50BC0271"
+	    documentation 	"Промежуточный абстрактный интерфейс в иерархии, нужен исключительно для систематизации предметной области тестовых действий."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"44BBB464007D"
+		    supplier   	"Logical View::storage::TestLibrary::Test::IAction"
+		    quidu      	"449693A900AB"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "IReadOnlyAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"449A50F1001F"
+	    documentation 	"Промежуточный абстрактный интерфейс в иерархии, нужен исключительно для систематизации предметной области тестовых действий."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"44BBB46603B9"
+		    supplier   	"Logical View::storage::TestLibrary::Test::IAction"
+		    quidu      	"449693A900AB"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "ISearchIndexAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51B20157_449AAEB702DE_449AB62401A5_BASE_INIT*"
+		    value      	"//#UC START# *449A51B20157_449AAEB702DE_449AB62401A5_BASE_INIT*¤//#UC END# *449A51B20157_449AAEB702DE_449AB62401A5_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51B20157_449AAEB702DE_449AB62401A5_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51B20157_449AAEB702DE_449AB62401A5_BODY*¤	//#UC END# *449A51B20157_449AAEB702DE_449AB62401A5_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51B20157_449AAEB702DE_44D20198007D_BASE_INIT*"
+		    value      	"//#UC START# *449A51B20157_449AAEB702DE_44D20198007D_BASE_INIT*¤: ContextIndexTheory (distribution_info)¤, m_db_operations (idb_ctxsearch)¤, m_need_sequential (need_sequential)¤//#UC END# *449A51B20157_449AAEB702DE_44D20198007D_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51B20157_449AAEB702DE_44D20198007D_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51B20157_449AAEB702DE_44D20198007D_BODY*¤	unsigned long freq1 = this->get_word_frequency (1);¤	m_ctx_data_info.word_pos_info.max_buf_size = std::min <unsigned long> (2 * sizeof (long) * freq1 * 2, MAX_BUF_SIZE); // * 2, with 100% reserve¤	LOG_D (("SearchIndexActionBase_i::SearchIndexActionBase_i (): .max_buf_size %d MAX_BUF_SIZE %d", m_ctx_data_info.word_pos_info.max_buf_size, MAX_BUF_SIZE));¤	m_ctx_data_info.word_pos_info.buf = new char [m_ctx_data_info.word_pos_info.max_buf_size];¤	m_pre_prepare_for_actual_func = m_need_sequential ? &SearchIndexActionBase_i::pre_prepare_for_sequential : &SearchIndexActionBase_i::pre_prepare_for_random;¤	//#UC END# *449A51B20157_449AAEB702DE_44D20198007D_BODY*
+		    )))
+	    quid       	"449A51B20157"
+	    documentation 	
+|Предназначен для простейшего теста  "Контекстный поиск".
+|
+|На вход этого простейшего теста подается база, созданная простейшим тестом "Наполнение контекстного индекса".
+|
+|1. Реализация для ОО-хранилища.
+|
+|Метод execute () начинается с поиска id тех объектов, у которых поле word равно данному случайно выбранному значению. Затем по каждому найденному id объекта загружается его поле doc_ids.
+|
+|2. Реализация для ИО-хранилища.
+|
+|Метод execute () ищет значение ключа в индексе, равное случайно сгенеренному, если таковой ключ находится, по нему в память загружаются данные.
+|
+|Соответствующая фабрика похоже не требует каких либо параметров. Для простоты мы предполагаем, что выбираемые для поиска слова имеют равномерное распределение, в отличие от распределения слов по их общей встречаемости в естественом языке, которое имеет ранговое распределение. Дело в том, что для поиска обычно выбирают даже не часто встречаемые слова (с высоким рангом), а редко встречаемые слова (с низким рангом). Но т.к. конечный пользователь может вводить  для поиска фразы, где слова предметной области (низко-ранговые) разделены предлогами (высоко-ранговыми), то в целом мы считаем, что слова, выбираемые для поиска, распределены равномерно.
+|
+|Действие теста происходит в монопольном режиме, транзакции должны быть по возможности отключены. Это позволит нам сравнивать измеренные времена с временами gkdb.
+|
+	    
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"449A51F102AF"
+		    supplier   	"Logical View::storage::TestLibrary::Test::IReadOnlyAction"
+		    quidu      	"449A50F1001F"))
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	""))
+		    quid       	"449AAEB702DE"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "in distribution_info"
+			    quid       	"44D30BB2030D"
+			    type       	"RankDistributionInfo"
+			    quidu      	"44BB694D0138")
+			(object Parameter "inout idb_ctxsearch"
+			    quid       	"44D20E8D01A5"
+			    type       	"IDBContextSearch"
+			    quidu      	"44C0C89F01F4")
+			(object Parameter "need_sequential"
+			    quid       	"450A6F93032C"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "IReadObjectAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_449AB4830109_BASE_INIT*"
+		    value      	"//#UC START# *449A51F80177_449AAEF8005D_449AB4830109_BASE_INIT*¤//#UC END# *449A51F80177_449AAEF8005D_449AB4830109_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_449AB4830109_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51F80177_449AAEF8005D_449AB4830109_BODY*¤	//#UC END# *449A51F80177_449AAEF8005D_449AB4830109_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44A91B0F000F_BASE_INIT*"
+		    value      	"//#UC START# *449A51F80177_449AAEF8005D_44A91B0F000F_BASE_INIT*¤: ObjectAccessTheory (distribution_info)¤, m_db_operations (idb_read)¤, m_need_sequential (need_sequential)¤//#UC END# *449A51F80177_449AAEF8005D_44A91B0F000F_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44A91B0F000F_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51F80177_449AAEF8005D_44A91B0F000F_BODY*¤	long obj_aver_size = Core::ParamManager::instance ()->get_long ("-object_average_size");¤	long obj_stdd_size = Core::ParamManager::instance ()->get_long ("-object_stddev_size");¤	GDS_ASSERT (obj_aver_size > 0);¤	GDS_ASSERT (obj_stdd_size >= 0);¤	GDS_ASSERT (obj_aver_size - obj_stdd_size > 0);¤	m_buf_info.max_buf_size = (unsigned long) (obj_aver_size + obj_stdd_size) + 1; //MAX_BUF_SIZE;¤	m_id_info.id = 0;¤	m_buf_info.buf = new char [m_buf_info.max_buf_size];¤	m_pre_prepare_for_actual_func = m_need_sequential ? &ReadObjectActionBase_i::pre_prepare_for_sequential : &ReadObjectActionBase_i::pre_prepare_for_random;¤	//#UC END# *449A51F80177_449AAEF8005D_44A91B0F000F_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44A91CF70167_BASE_INIT*"
+		    value      	"//#UC START# *449A51F80177_449AAEF8005D_44A91CF70167_BASE_INIT*¤: ReadObjectActionBase_i (max_id)¤//#UC END# *449A51F80177_449AAEF8005D_44A91CF70167_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44A91CF70167_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51F80177_449AAEF8005D_44A91CF70167_BODY*¤	m_set_pos_found = -1;¤	//#UC END# *449A51F80177_449AAEF8005D_44A91CF70167_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44AA1DF202FD_BASE_INIT*"
+		    value      	"//#UC START# *449A51F80177_449AAEF8005D_44AA1DF202FD_BASE_INIT*¤: ReadObjectActionBase_i (max_id), m_cur_id (0)¤//#UC END# *449A51F80177_449AAEF8005D_44AA1DF202FD_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44AA1DF202FD_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51F80177_449AAEF8005D_44AA1DF202FD_BODY*¤	try	{¤		this->create_session (oocRead);¤		this->create_container (oocRead);¤		//this->get_session ()->commit ();¤		this->get_session ()->begin (oocRead);¤	} catch (const ooException& ex)	{¤		LOG_E (("Objectivity::ReadObjectAction_i::ctor: %s", ex.what ()));¤		throw TestLibrary::Test::TestError ();¤	} catch (...) {¤		LOG_E (("Objectivity::ReadObjectAction_i::ctor: unknown exception"));¤		throw TestLibrary::Test::TestError ();¤	}¤	//#UC END# *449A51F80177_449AAEF8005D_44AA1DF202FD_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44ABC8010196_BASE_INIT*"
+		    value      	"//#UC START# *449A51F80177_449AAEF8005D_44ABC8010196_BASE_INIT*¤, m_random_object_db (0)¤//#UC END# *449A51F80177_449AAEF8005D_44ABC8010196_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44ABC8010196_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51F80177_449AAEF8005D_44ABC8010196_BODY*¤	//#UC END# *449A51F80177_449AAEF8005D_44ABC8010196_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44B24CEE02BF_BASE_INIT*"
+		    value      	"//#UC START# *449A51F80177_449AAEF8005D_44B24CEE02BF_BASE_INIT*¤//#UC END# *449A51F80177_449AAEF8005D_44B24CEE02BF_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44B24CEE02BF_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51F80177_449AAEF8005D_44B24CEE02BF_BODY*¤	root_path_without_last= new char[1024];¤	root_path_without_last[0] = 0;¤	m_blob_data= 0;¤	//#UC END# *449A51F80177_449AAEF8005D_44B24CEE02BF_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44B6539700AB_BASE_INIT*"
+		    value      	"//#UC START# *449A51F80177_449AAEF8005D_44B6539700AB_BASE_INIT*¤, m_curia (0), m_cur_id (0)¤//#UC END# *449A51F80177_449AAEF8005D_44B6539700AB_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A51F80177_449AAEF8005D_44B6539700AB_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A51F80177_449AAEF8005D_44B6539700AB_BODY*¤	m_curia = cropen (DBNAME, CR_OREADER, -1, -1);¤	if (!m_curia) {¤		LOG_E (("QDBM::ReadObjectAction_i::ctor: can't open database to read: %s", dperrmsg (dpecode)));¤		throw TestLibrary::Test::TestError ();¤	}¤	//#UC END# *449A51F80177_449AAEF8005D_44B6539700AB_BODY*
+		    )))
+	    quid       	"449A51F80177"
+	    documentation 	
+|Предназначен для простейшего теста "Загрузка простых объектов из базы".
+|
+|На вход этого простейшего теста подается база, созданная простейшим тестом "Создание простых объектов в базе".
+|
+|1. Реализация для ОО-хранилища.
+|
+|Метод execute () производит загрузку объекта (в частности его поля text) по случайно выбранному id (id выбирается случайным образом на основе равномерного распредления из множества всех валидных id).
+|
+|2. Реализация для ИО-хранилища.
+|
+|Метод execute () производит загрузку text-данных по случайно выбранному значению ключа id (id выбирается аналогично реализации для ОО-хранилища).
+|
+|Действие теста происходит в монопольном режиме, транзакции должны быть по возможности отключены. Это позволит нам сравнивать измеренные времена с временами gkdb. Если транзакции не м.б. отключены полностью для данного хранилища, все тестовые действия происходят в контексте одной транзакции.
+|
+|<<фабрика>> make () принимает параметр - верхнюю границу диапазона [1, max_id] равномерно распределенных случайных id, по которым метод execute () (см. выше) производит загрузку объектов из базы в память.
+	    
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"449A522002FD"
+		    supplier   	"Logical View::storage::TestLibrary::Test::IReadOnlyAction"
+		    quidu      	"449A50F1001F"))
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	""))
+		    quid       	"449AAEF8005D"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "in distribution_info"
+			    quid       	"44BBAD21000F"
+			    type       	"UniformDistributionInfo"
+			    quidu      	"44BB6AAD0128")
+			(object Parameter "inout idb_read"
+			    quid       	"44BB6BE2003E"
+			    type       	"IDBRead"
+			    quidu      	"44BB671C0148")
+			(object Parameter "need_sequential"
+			    quid       	"450A6F5B00AB"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "IAddIndexAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A647C02EE_449AADEC00FA_449AB44B02EE_BASE_INIT*"
+		    value      	"//#UC START# *449A647C02EE_449AADEC00FA_449AB44B02EE_BASE_INIT*¤//#UC END# *449A647C02EE_449AADEC00FA_449AB44B02EE_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A647C02EE_449AADEC00FA_449AB44B02EE_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A647C02EE_449AADEC00FA_449AB44B02EE_BODY*¤	//#UC END# *449A647C02EE_449AADEC00FA_449AB44B02EE_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A647C02EE_449AADEC00FA_44D2013E0196_BASE_INIT*"
+		    value      	"//#UC START# *449A647C02EE_449AADEC00FA_44D2013E0196_BASE_INIT*¤: ContextIndexTheory (distribution_info)¤, m_db_operations (idb_ctxadd)¤, m_need_sequential (need_sequential)¤//#UC END# *449A647C02EE_449AADEC00FA_44D2013E0196_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A647C02EE_449AADEC00FA_44D2013E0196_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A647C02EE_449AADEC00FA_44D2013E0196_BODY*¤	unsigned long freq1 = this->get_word_frequency (1);¤	m_ctx_data_info.word_pos_info.max_buf_size = std::min <unsigned long> (2 * sizeof (long) * freq1 * 2, MAX_BUF_SIZE); // * 2, with 100% reserve¤	LOG_D (("AddIndexActionBase_i::AddIndexActionBase_i (): .max_buf_size %d MAX_BUF_SIZE %d", m_ctx_data_info.word_pos_info.max_buf_size, MAX_BUF_SIZE));¤	m_ctx_data_info.word_pos_info.buf = new char [m_ctx_data_info.word_pos_info.max_buf_size];¤	m_pre_prepare_for_actual_func = m_need_sequential ? &AddIndexActionBase_i::pre_prepare_for_sequential : &AddIndexActionBase_i::pre_prepare_for_random;¤	//#UC END# *449A647C02EE_449AADEC00FA_44D2013E0196_BODY*
+		    )))
+	    quid       	"449A647C02EE"
+	    documentation 	
+|Предназначен для простейшего теста  "Наполнение контекстного индекса".
+|
+|1. Реализация для ОО-хранилища.
+|
+|Класс объекта имеет два атрибута:
+|- word, строкового типа, по нему будет в дальнейшем происходить поиск в IContextSearchAction, так что этот аспект должен быть максимально оптимизирован в соответствующем хранилище (например, поле может быть проиндексировано);
+|- doc_ids, типа множество переменного размера значений типа long, конкретный тип данных для этого множества у конкретного хранилища подбирается так, чтобы его модификация в дальнейшем происходила максимально быстро (если сразу не понятно из документации по хранилищу, какой тип нужно использовать - надо пробовать различные типы). Метод execute () генерит случайную словоформу с вероятностью рангового распределения. По сгенеренной словоформе, как по ключу, производит поиск объекта в базе, если его нет - добавляет его, если есть - модифицирует его поле doc_ids.
+|
+|2. Реализация для ИО-хранилища.
+|
+|В базе имеется индекс, ключ которого имеет строковой тип, а данные - тип массив short. Метод execute () генерит случайную словоформу с вероятностью рангового распределения. По значению ключа равному сгенеренной слофоформе происходит поиск данных, если данных с таким ключом нет - они создаются, если есть - модифицируются.
+|
+|Создаваемый объект имеет логический размер равный суммарному размеру значений атрибутов word и doc_ids.
+|
+|Логические размеры создаваемых объектов (длина массива doc_ids) должны быть распределены по ранговому закону, соответствующей фабрике предаются параметры рангового распределения.
+|
+|Действие теста происходит в монопольном режиме, транзакции должны быть по возможности отключены. Это позволит нам сравнивать измеренные времена с временами gkdb.
+|
+|ВАЖНО. В деструкторе соответствующего серванта записывается файл ctx.txt, каждая строка которого состоит из числового ранга (слова) и отделенного от него пробелом самого сгенеренного слова (строка символов).
+	    
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"449A64AD032C"
+		    supplier   	"Logical View::storage::TestLibrary::Test::ICreateAction"
+		    quidu      	"449A50BC0271"))
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	""))
+		    quid       	"449AADEC00FA"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "in distribution_info"
+			    quid       	"44BB6A080109"
+			    type       	"RankDistributionInfo"
+			    quidu      	"44BB694D0138")
+			(object Parameter "inout idb_ctxadd"
+			    quid       	"44D20E58005D"
+			    type       	"IDBContextAdd"
+			    quidu      	"44C0C680000F")
+			(object Parameter "need_sequential"
+			    quid       	"450016E90109"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "ICreateObjectAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_449AB3A6031C_BASE_INIT*"
+		    value      	"//#UC START# *449A64D80242_449AAD790222_449AB3A6031C_BASE_INIT*¤: CreateObjectActionBase_i (average_size, stddev_size)¤//#UC END# *449A64D80242_449AAD790222_449AB3A6031C_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_449AB3A6031C_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A64D80242_449AAD790222_449AB3A6031C_BODY*¤	m_cur_id = 0;¤	//#UC END# *449A64D80242_449AAD790222_449AB3A6031C_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_449FCEE402CE_BASE_INIT*"
+		    value      	(value Text 
+|//#UC START# *449A64D80242_449AAD790222_449FCEE402CE_BASE_INIT*¤	: m_average_size (average_size)¤	, m_stddev_size (stddev_size)¤	, m_session (0)¤//#UC END# *449A64D80242_449AAD790222_449FCEE402CE_BASE_INIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_449FCEE402CE_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A64D80242_449AAD790222_449FCEE402CE_BODY*¤	// create a session¤	try {¤		m_session = this->get_connection ()->createSession ("Main Session");¤¤		// begin an update transaction¤		m_session->begin(oocUpdate);¤¤		// get a reference to the federated database¤		m_fd = m_session->fd ();¤¤		// if the database exists open for update and delete it¤		if (m_db.exist(m_fd, BaseClass_i::m_dbName, oocUpdate)) {¤			std::cout << "Database " << BaseClass_i::m_dbName << " exists; will delete and re-create" << std::endl;¤			ooDelete(m_db);¤		}¤		//cout << "Create database" << endl;¤¤		//  create a new database¤		m_db = new(m_fd) ooDBObj (BaseClass_i::m_dbName);¤¤		//  create a non-hashed container, with default initial size and growth¤		m_cont = new ("TestCont",0,0,0, m_db) ooContObj;¤	} catch (const ooException& ex) {¤		std::cerr << "exception in CreateObject_i::CreateObject_i: " << ex.what() << std::endl;¤		throw;¤	} catch(...) {¤		std::cerr << "unknown exception in CreateObject_i::CreateObject_i" << std::endl;¤		throw;¤	}¤	//#UC END# *449A64D80242_449AAD790222_449FCEE402CE_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44A1480A0128_BASE_INIT*"
+		    value      	"//#UC START# *449A64D80242_449AAD790222_44A1480A0128_BASE_INIT*¤: CreateObjectActionBase_i (average_size, stddev_size), m_cur_id (0)¤//#UC END# *449A64D80242_449AAD790222_44A1480A0128_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44A1480A0128_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A64D80242_449AAD790222_44A1480A0128_BODY*¤	try	{¤		this->create_session (oocUpdate);¤		this->create_container (oocUpdate);¤		//this->get_session ()->commit ();¤		this->get_session ()->begin (oocUpdate);¤	} catch (const ooException& ex)	{¤		LOG_E (("Objectivity::CreateObjectAction_i::ctor: %s", ex.what ()));¤		throw TestLibrary::Test::TestError ();¤	} catch (...) {¤		LOG_E (("Objectivity::CreateObjectAction_i::ctor: unknown exception"));¤		throw TestLibrary::Test::TestError ();¤	}¤	//#UC END# *449A64D80242_449AAD790222_44A1480A0128_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44A2743B0119_BASE_INIT*"
+		    value      	"//#UC START# *449A64D80242_449AAD790222_44A2743B0119_BASE_INIT*¤: ObjectAccessTheory (n_distribution_info, u_distribution_info)¤, m_db_operations (idb_create)¤, m_need_sequential (need_sequential)¤//#UC END# *449A64D80242_449AAD790222_44A2743B0119_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44A2743B0119_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A64D80242_449AAD790222_44A2743B0119_BODY*¤	m_id_info.id = 0;¤	m_buf_info.max_buf_size = (unsigned long) (this->normal_distribution_info ().average_size + this->normal_distribution_info ().stddev_size) + 1; //MAX_BUF_SIZE;¤	m_buf_info.buf = new char [m_buf_info.max_buf_size];¤	m_pre_prepare_for_actual_func = m_need_sequential ? &CreateObjectActionBase_i::pre_prepare_for_sequential : &CreateObjectActionBase_i::pre_prepare_for_random;¤	//#UC END# *449A64D80242_449AAD790222_44A2743B0119_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44AA7D2E0109_BASE_INIT*"
+		    value      	"//#UC START# *449A64D80242_449AAD790222_44AA7D2E0109_BASE_INIT*¤, m_current_id (0)¤//#UC END# *449A64D80242_449AAD790222_44AA7D2E0109_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44AA7D2E0109_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A64D80242_449AAD790222_44AA7D2E0109_BODY*¤	//#UC END# *449A64D80242_449AAD790222_44AA7D2E0109_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44B24CB4032C_BASE_INIT*"
+		    value      	"//#UC START# *449A64D80242_449AAD790222_44B24CB4032C_BASE_INIT*¤//#UC END# *449A64D80242_449AAD790222_44B24CB4032C_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44B24CB4032C_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A64D80242_449AAD790222_44B24CB4032C_BODY*¤	root_path_without_last= new char[1024];¤	root_path_without_last[0] = 0;¤	//#UC END# *449A64D80242_449AAD790222_44B24CB4032C_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44B6536000EA_BASE_INIT*"
+		    value      	"//#UC START# *449A64D80242_449AAD790222_44B6536000EA_BASE_INIT*¤, m_curia (0), m_cur_id (0)¤//#UC END# *449A64D80242_449AAD790222_44B6536000EA_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*449A64D80242_449AAD790222_44B6536000EA_BODY*"
+		    value      	(value Text 
+|//#UC START# *449A64D80242_449AAD790222_44B6536000EA_BODY*¤	const int b_num = 1000000; // RAM usage = 22M¤	const int d_num = -1; // number of split files (-1 = default 5 of 2GB under Win32)¤	m_curia = cropen (DBNAME, CR_OWRITER | CR_OCREAT, b_num, d_num);¤	if (!m_curia) {¤		LOG_E (("QDBM::CreateObjectAction_i::ctor: can't open database to write: %s", dperrmsg (dpecode)));¤		throw TestLibrary::Test::TestError ();¤	}¤	//#UC END# *449A64D80242_449AAD790222_44B6536000EA_BODY*
+		    )))
+	    quid       	"449A64D80242"
+	    documentation 	
+|Предназначен для простейшего теста "Создание простых объектов в базе".
+|
+|1. Реализация для ОО-хранилища.
+|
+|Класс объекта имеет атрибут text типа BLOB, конкретный тип данных для этого множества у конкретного хранилища подбирается так, чтобы добавление и чтение (загрузка в ОЗУ) такого объекта происходила максимально быстро (если сразу не понятно из документации по хранилищу, какой тип нужно использовать - надо пробовать различные типы).
+|
+|Метод execute () производит создание одного нового объекта за один вызов. Каждый создаваемый объект должен иметь id, по которому он может быть впоследствии загружен из базы посредством действия IReadObjectAction. Реализация работы с id объектов зависит от конкретного хранилища. Для Fastobjects, например, требуется ввести дополнительное целочисленное поле id, которое помечается в конфигурационном файле poet.cfg как индексируемое (для ускорения поиска объекта по id).
+|
+|Замечание. Создание объекта в памяти посредством оператора new с целью последующего его сохранения в базу должно включаться в тело метода execute ()  с целью учета времени создания при тестовых замерах, т.к. хранилища могут исполнять при этом свой код для подготовки объекта к сохранению его в базу.
+|
+|2. Реализация для ИО-хранилища.
+|
+|Индекс имеет ключ типа long (будем называть его id по аналогии с реализацией для ОО-хранилища) и данные типа массив char (будем называть его text по аналогии с реализацией для ОО-хранилища).
+|
+|Метод execute () производит создание одной пары ключ-значение за один вызов.
+|
+|Замечание. Создание массива text в памяти посредством оператора new с целью последующего его сохранения в базу должно включаться в тело метода execute ()  с целью учета времени создания при тестовых замерах, по аналогии с реализацией для ОО-хранилища, т.к. мы не можем, в общем случае, полностью отделить время C-runtime от собственного времени хранилища.
+|
+|Независимо от реализации, создаваемый объект (ключ/данные) имеет логический размер равный размеру значения атрибута (массива) text в байтах. Логические размеры создаваемых объектов должны быть распределены по нормальному закону.
+|
+|Действие теста происходит в монопольном режиме, транзакции должны быть по возможности отключены. Это позволит нам сравнивать измеренные времена с временами gkdb. Если транзакции не м.б. отключены полностью для данного хранилища, все тестовые действия происходят в контексте одной транзакции.
+|
+|<<фабрика>> make () принимает параметры нормального распределения логического размера создаваемых объектов:
+|average_size - среднее значение, stddev_size - стандартное отклонение.
+	    
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"449A650603A9"
+		    supplier   	"Logical View::storage::TestLibrary::Test::ICreateAction"
+		    quidu      	"449A50BC0271"))
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	""))
+		    quid       	"449AAD790222"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "in n_distribution_info"
+			    quid       	"450126780138"
+			    type       	"NormalDistributionInfo"
+			    quidu      	"44BB68F8005D")
+			(object Parameter "in u_distribution_info"
+			    quid       	"4501267801D4"
+			    type       	"UniformDistributionInfo"
+			    quidu      	"44BB6AAD0128")
+			(object Parameter "inout idb_create"
+			    quid       	"44BCCE610242"
+			    type       	"IDBCreate"
+			    quidu      	"44BB65D80148")
+			(object Parameter "need_sequential"
+			    quid       	"450016C502CE"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "ITestProfile"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44A29DC600AB_BASE_INIT*"
+		    value      	"//#UC START# *44A28F24031C_44A29E4C035B_44A29DC600AB_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_44A29DC600AB_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44A29DC600AB_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_44A29DC600AB_BODY*¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential", 1);¤	//#UC END# *44A28F24031C_44A29E4C035B_44A29DC600AB_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44A91BE701D4_BASE_INIT*"
+		    value      	"//#UC START# *44A28F24031C_44A29E4C035B_44A91BE701D4_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_44A91BE701D4_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44A91BE701D4_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_44A91BE701D4_BODY*¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential", 0);¤	//#UC END# *44A28F24031C_44A29E4C035B_44A91BE701D4_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44AA7F72004E_BASE_INIT*"
+		    value      	"//#UC START# *44A28F24031C_44A29E4C035B_44AA7F72004E_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_44AA7F72004E_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44AA7F72004E_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_44AA7F72004E_BODY*¤	//#UC END# *44A28F24031C_44A29E4C035B_44AA7F72004E_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44D6FA25009C_BASE_INIT*"
+		    value      	"//#UC START# *44A28F24031C_44A29E4C035B_44D6FA25009C_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_44D6FA25009C_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44D6FA25009C_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_44D6FA25009C_BODY*¤	//#UC END# *44A28F24031C_44A29E4C035B_44D6FA25009C_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44D6FA4C0128_BASE_INIT*"
+		    value      	"//#UC START# *44A28F24031C_44A29E4C035B_44D6FA4C0128_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_44D6FA4C0128_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_44D6FA4C0128_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_44D6FA4C0128_BODY*¤	//#UC END# *44A28F24031C_44A29E4C035B_44D6FA4C0128_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_4518DFE5036B_BASE_INIT*"
+		    value      	(value Text "//#UC START# *44A28F24031C_44A29E4C035B_4518DFE5036B_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_4518DFE5036B_BASE_INIT*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_4518DFE5036B_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_4518DFE5036B_BODY*¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential", 0);¤	//#UC END# *44A28F24031C_44A29E4C035B_4518DFE5036B_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_4518E1510138_BASE_INIT*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_4518E1510138_BASE_INIT*¤: m_make_action_count (0)¤, m_add_test_profile (Test::ITestProfileFactory::make ("add_index_test_monopole"))¤, m_search_test_profile (Test::ITestProfileFactory::make ("search_index_test_monopole"))¤//#UC END# *44A28F24031C_44A29E4C035B_4518E1510138_BASE_INIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_4518E1510138_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_4518E1510138_BODY*¤	//#UC END# *44A28F24031C_44A29E4C035B_4518E1510138_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_452B6D9600AB_BASE_INIT*"
+		    value      	"//#UC START# *44A28F24031C_44A29E4C035B_452B6D9600AB_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_452B6D9600AB_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_452B6D9600AB_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_452B6D9600AB_BODY*¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential", 0);¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential_partial", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-partial_fraction", 10);¤	//#UC END# *44A28F24031C_44A29E4C035B_452B6D9600AB_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_452B6E3D0148_BASE_INIT*"
+		    value      	"//#UC START# *44A28F24031C_44A29E4C035B_452B6E3D0148_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_452B6E3D0148_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_452B6E3D0148_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_452B6E3D0148_BODY*¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential", 0);¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential_partial", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-partial_fraction", 10);¤	//#UC END# *44A28F24031C_44A29E4C035B_452B6E3D0148_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_452B6E8E02AF_BASE_INIT*"
+		    value      	"//#UC START# *44A28F24031C_44A29E4C035B_452B6E8E02AF_BASE_INIT*¤//#UC END# *44A28F24031C_44A29E4C035B_452B6E8E02AF_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A28F24031C_44A29E4C035B_452B6E8E02AF_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A28F24031C_44A29E4C035B_452B6E8E02AF_BODY*¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential", 0);¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_sequential_partial", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-partial_fraction", 10);¤	//#UC END# *44A28F24031C_44A29E4C035B_452B6E8E02AF_BODY*
+		    )))
+	    quid       	"44A28F24031C"
+	    documentation 	
+|Предназначен для задания профиля тестирования, т.е. всей необходимой информации, которая требуется интерфейсу ITestExecutor из пакета TestFramework для выполнения теста. Каждый профиль тестирования соответствует 1 к 1 каждому простейшему тесту.
+|
+|<<атрибут>> message содержит строку идентификации конкретного тестировочного профиля.
+|
+|<<методы>>
+|
+|make_action () - создает и возвращает реализацию конкретного неабстрактного интерфейса - наследника абстрактного интерфейса IAction. В настоящее время описаны следующие неабстрактные наследники: ICreateObjectAction, IReadObjectAction, ICreateIndexAction, ISearchIndexAction.
+|
+|get_thread_count () - возвращает кол-во треад, в каждой из которых ITestExecutor поместит по одному серванту, созданному посредством вызова make_action ().
+|
+|get_action_count () - возвращает кол-во элементарных тестовых действий (вызовов IAction::action ()), которое должно быть совершено при прогоне данного простейшего теста.
+|
+|<<мульти-фабрика>> make () - создает сервант нужного типа по его ключу, передавая в конструктор серванта объект settings, чтобы он получал из него все необходимые ему настройки. Значение ключа берется из настроек, когда управление после старта приложения еще находится в  main () по предопределенному имени параметра "test_profile_key". Затем по этому значению создается нужный сервант ITestPrifile и туда передается объект settings.
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "make_action"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_44A29DC600AB*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_44A29DC600AB*¤	double mx = Core::ParamManager::instance ()->get_long ("-object_average_size");¤	double dx = Core::ParamManager::instance ()->get_long ("-object_stddev_size");¤	if ((mx < 0) || (mx > 1.0E+08)) {¤		throw TestLibrary::Test::TestError (); //mx out of range¤	}¤	if ((dx < 0) || (dx > 1.0E+08)) {¤		throw TestLibrary::Test::TestError (); //dx out of range¤	}¤	::TestLibrary::Test::NormalDistributionInfo n_distrib_info;¤	n_distrib_info.average_size = mx;¤	n_distrib_info.stddev_size = dx;¤	unsigned long max_id = Core::ParamManager::instance ()->get_ulong ("-object_max_id");¤	GDS_ASSERT (0 != max_id);¤	::TestLibrary::Test::UniformDistributionInfo u_distrib_info;¤	u_distrib_info.interval_begin = 1;¤	u_distrib_info.interval_end = max_id;¤	std::string param_db_root_dir = Core::ParamManager::instance ()->get_string ("-db_root_dir");¤	bool need_seq = bool (Core::ParamManager::instance ()->get_long ("-need_sequential"));¤	bool need_trn = bool (Core::ParamManager::instance ()->get_long ("-need_transaction", 0));¤	::GCI::IO::IString_var istr = ::GCI::IO::IStringFactory::make (param_db_root_dir.c_str ());¤	::TestLibrary::DB::IDBCreate_var db_create = ::TestLibrary::DB::IDBCreateFactory::make (¤		istr.in ()¤		, need_seq¤		, need_trn¤	);¤	//root_dir = istr->strdup ();¤	root_dir = ::GCI::IO::IStringFactory::make (db_create->get_db_root_dir ());¤	Test::IAction_var  ret = Test::ICreateObjectActionFactory::make (n_distrib_info, u_distrib_info, db_create._retn (), need_seq);¤	return ret._retn();¤	//#UC END# *44A29B4700BB_44A29DC600AB*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_44A91BE701D4*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_44A91BE701D4*¤	unsigned long max_id = Core::ParamManager::instance ()->get_ulong ("-object_max_id");¤	GDS_ASSERT (0 != max_id);¤	::TestLibrary::Test::UniformDistributionInfo distrib_info;¤	distrib_info.interval_begin = 1;¤	distrib_info.interval_end = max_id;¤	std::string param_db_root_dir = Core::ParamManager::instance ()->get_string ("-db_root_dir");¤	::GCI::IO::IString_var istr = ::GCI::IO::IStringFactory::make (param_db_root_dir.c_str ());¤	bool need_seq = bool (Core::ParamManager::instance ()->get_long ("-need_sequential"));¤	bool need_trn = bool (Core::ParamManager::instance ()->get_long ("-need_transaction", 0));¤	::TestLibrary::DB::IDBRead_var db_read = ::TestLibrary::DB::IDBReadFactory::make (¤		istr.in ()¤		, need_seq¤		, need_trn¤	);¤	//root_dir = istr->strdup ();¤	root_dir = ::GCI::IO::IStringFactory::make (db_read->get_db_root_dir ());¤	Test::IAction_var  ret = Test::IReadObjectActionFactory::make (distrib_info, db_read._retn (), need_seq);¤	return ret._retn();¤	//#UC END# *44A29B4700BB_44A91BE701D4*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_44D6FA25009C*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_44D6FA25009C*¤	std::string str_rank_a = Core::ParamManager::instance ()->get_string ("-rank_distrib_param_a");¤	std::string str_rank_b = Core::ParamManager::instance ()->get_string ("-rank_distrib_param_b");¤	std::string str_rank_c = Core::ParamManager::instance ()->get_string ("-rank_distrib_param_c");¤	::TestLibrary::Test::RankDistributionInfo distrib_info;¤	char *p [1];¤	distrib_info.a = strtod (str_rank_a.c_str (), p);¤	if (str_rank_a.c_str () == *p) {¤		throw TestLibrary::Test::TestError (); // not a double number¤	}¤	distrib_info.b = strtod (str_rank_b.c_str (), p);¤	if (str_rank_b.c_str () == *p) {¤		throw TestLibrary::Test::TestError (); // not a double number¤	}¤	distrib_info.c = strtod (str_rank_c.c_str (), p);¤	if (str_rank_c.c_str () == *p) {¤		throw TestLibrary::Test::TestError (); // not a double number¤	}¤	std::string param_db_root_dir = Core::ParamManager::instance ()->get_string ("-db_root_dir");¤	::GCI::IO::IString_var istr = ::GCI::IO::IStringFactory::make (param_db_root_dir.c_str ());¤	bool need_seq = bool (Core::ParamManager::instance ()->get_long ("-need_sequential", 0));¤	bool need_trn = bool (Core::ParamManager::instance ()->get_long ("-need_transaction", 0));¤	::TestLibrary::DB::IDBContextAdd_var db_ctxadd = ::TestLibrary::DB::IDBContextAddFactory::make (¤		istr.in ()¤		, need_seq¤		, need_trn¤	);¤	//root_dir = istr->strdup ();¤	root_dir = ::GCI::IO::IStringFactory::make (db_ctxadd->get_db_root_dir ());¤	Test::IAction_var  ret = Test::IAddIndexActionFactory::make (distrib_info, db_ctxadd._retn (), need_seq);¤	return ret._retn();¤	//#UC END# *44A29B4700BB_44D6FA25009C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_44D6FA4C0128*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_44D6FA4C0128*¤	std::string str_rank_a = Core::ParamManager::instance ()->get_string ("-rank_distrib_param_a");¤	std::string str_rank_b = Core::ParamManager::instance ()->get_string ("-rank_distrib_param_b");¤	std::string str_rank_c = Core::ParamManager::instance ()->get_string ("-rank_distrib_param_c");¤	::TestLibrary::Test::RankDistributionInfo distrib_info;¤	char *p [1];¤	distrib_info.a = strtod (str_rank_a.c_str (), p);¤	if (str_rank_a.c_str () == *p) {¤		throw TestLibrary::Test::TestError (); // not a double number¤	}¤	distrib_info.b = strtod (str_rank_b.c_str (), p);¤	if (str_rank_b.c_str () == *p) {¤		throw TestLibrary::Test::TestError (); // not a double number¤	}¤	distrib_info.c = strtod (str_rank_c.c_str (), p);¤	if (str_rank_c.c_str () == *p) {¤		throw TestLibrary::Test::TestError (); // not a double number¤	}¤	std::string param_db_root_dir = Core::ParamManager::instance ()->get_string ("-db_root_dir");¤	::GCI::IO::IString_var istr = ::GCI::IO::IStringFactory::make (param_db_root_dir.c_str ());¤	bool need_seq = bool (Core::ParamManager::instance ()->get_long ("-need_sequential", 0));¤	bool need_trn = bool (Core::ParamManager::instance ()->get_long ("-need_transaction", 0));¤	::TestLibrary::DB::IDBContextSearch_var db_ctxsearch = ::TestLibrary::DB::IDBContextSearchFactory::make (¤		istr.in ()¤		, need_seq¤		, need_trn¤	);¤	//root_dir = istr->strdup ();¤	root_dir = ::GCI::IO::IStringFactory::make (db_ctxsearch->get_db_root_dir ());¤	Test::IAction_var  ret = Test::ISearchIndexActionFactory::make (distrib_info, db_ctxsearch._retn (), need_seq);¤	return ret._retn();¤	//#UC END# *44A29B4700BB_44D6FA4C0128*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_4518DFE5036B*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_4518DFE5036B*¤	double mx = Core::ParamManager::instance ()->get_long ("-object_average_size");¤	double dx = Core::ParamManager::instance ()->get_long ("-object_stddev_size");¤	if ((mx < 0) || (mx > 1.0E+08)) {¤		throw TestLibrary::Test::TestError (); //mx out of range¤	}¤	if ((dx < 0) || (dx > 1.0E+08)) {¤		throw TestLibrary::Test::TestError (); //dx out of range¤	}¤	::TestLibrary::Test::NormalDistributionInfo n_distrib_info;¤	n_distrib_info.average_size = mx;¤	n_distrib_info.stddev_size = dx;¤	unsigned long max_id = Core::ParamManager::instance ()->get_ulong ("-object_max_id");¤	GDS_ASSERT (0 != max_id);¤	unsigned long ops_n = Core::ParamManager::instance ()->get_ulong ("-operations_count", 1);¤	GDS_ASSERT (0 != ops_n);¤	::TestLibrary::Test::UniformDistributionInfo u_distrib_info;¤	u_distrib_info.interval_begin = 1;¤	u_distrib_info.interval_end = max_id;¤	std::string param_db_root_dir = Core::ParamManager::instance ()->get_string ("-db_root_dir");¤	bool need_seq = bool (Core::ParamManager::instance ()->get_long ("-need_sequential"));¤	bool need_trn = bool (Core::ParamManager::instance ()->get_long ("-need_transaction", 0));¤	::GCI::IO::IString_var istr = ::GCI::IO::IStringFactory::make (param_db_root_dir.c_str ());¤	::TestLibrary::DB::IDBUpdateRW_var db_updaterw = ::TestLibrary::DB::IDBUpdateRWFactory::make (¤		istr.in ()¤		, need_seq¤		, need_trn¤	);¤	//root_dir = istr->strdup ();¤	root_dir = ::GCI::IO::IStringFactory::make (db_updaterw->get_db_root_dir ());¤	Test::IAction_var  ret = Test::IUpdateRWObjectActionFactory::make (n_distrib_info, u_distrib_info, db_updaterw._retn (), need_seq, ops_n);¤	return ret._retn();¤	//#UC END# *44A29B4700BB_4518DFE5036B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_4518E1510138*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_4518E1510138*¤	++m_make_action_count;¤	return ((m_make_action_count % 2) != 0 ) ? m_add_test_profile->make_action (root_dir) : m_search_test_profile->make_action (root_dir);¤	//#UC END# *44A29B4700BB_4518E1510138*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_452B6D9600AB*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_452B6D9600AB*¤	unsigned long max_id = Core::ParamManager::instance ()->get_ulong ("-object_max_id");¤	GDS_ASSERT (0 != max_id);¤	::TestLibrary::Test::UniformDistributionInfo distrib_info;¤	distrib_info.interval_begin = 1;¤	distrib_info.interval_end = max_id;¤	std::string param_db_root_dir = Core::ParamManager::instance ()->get_string ("-db_root_dir");¤	::GCI::IO::IString_var istr = ::GCI::IO::IStringFactory::make (param_db_root_dir.c_str ());¤	bool need_seq = bool (Core::ParamManager::instance ()->get_long ("-need_sequential"));¤	bool need_trn = bool (Core::ParamManager::instance ()->get_long ("-need_transaction", 0));¤	::TestLibrary::DB::IDBPartialRead_var db_part_read = ::TestLibrary::DB::IDBPartialReadFactory::make (¤		istr.in ()¤		, need_seq¤		, need_trn¤	);¤	//root_dir = istr->strdup ();¤	root_dir = ::GCI::IO::IStringFactory::make (db_part_read->get_db_root_dir ());¤¤	bool need_seq_part = bool (Core::ParamManager::instance ()->get_long ("-need_sequential_partial"));¤	unsigned long part_frac_percent = Core::ParamManager::instance ()->get_ulong ("-partial_fraction");¤	GDS_ASSERT (part_frac_percent > 0);¤	GDS_ASSERT (part_frac_percent < 100);¤	double part_frac = double (part_frac_percent) / 100.0;¤	Test::IAction_var  ret = Test::IPartialReadObjectActionFactory::make (distrib_info, db_part_read._retn (), need_seq, need_seq_part, part_frac);¤	return ret._retn();¤	//#UC END# *44A29B4700BB_452B6D9600AB*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_452B6E3D0148*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_452B6E3D0148*¤	double mx = Core::ParamManager::instance ()->get_long ("-object_average_size");¤	double dx = Core::ParamManager::instance ()->get_long ("-object_stddev_size");¤	if ((mx < 0) || (mx > 1.0E+08)) {¤		throw TestLibrary::Test::TestError (); //mx out of range¤	}¤	if ((dx < 0) || (dx > 1.0E+08)) {¤		throw TestLibrary::Test::TestError (); //dx out of range¤	}¤	::TestLibrary::Test::NormalDistributionInfo n_distrib_info;¤	n_distrib_info.average_size = mx;¤	n_distrib_info.stddev_size = dx;¤	unsigned long max_id = Core::ParamManager::instance ()->get_ulong ("-object_max_id");¤	GDS_ASSERT (0 != max_id);¤	::TestLibrary::Test::UniformDistributionInfo u_distrib_info;¤	u_distrib_info.interval_begin = 1;¤	u_distrib_info.interval_end = max_id;¤	std::string param_db_root_dir = Core::ParamManager::instance ()->get_string ("-db_root_dir");¤	bool need_seq = bool (Core::ParamManager::instance ()->get_long ("-need_sequential"));¤	bool need_trn = bool (Core::ParamManager::instance ()->get_long ("-need_transaction", 0));¤	::GCI::IO::IString_var istr = ::GCI::IO::IStringFactory::make (param_db_root_dir.c_str ());¤	::TestLibrary::DB::IDBPartialWrite_var db_part_write = ::TestLibrary::DB::IDBPartialWriteFactory::make (¤		istr.in ()¤		, need_seq¤		, need_trn¤	);¤	//root_dir = istr->strdup ();¤	root_dir = ::GCI::IO::IStringFactory::make (db_part_write->get_db_root_dir ());¤¤	bool need_seq_part = bool (Core::ParamManager::instance ()->get_long ("-need_sequential_partial"));¤	unsigned long part_frac_percent = Core::ParamManager::instance ()->get_ulong ("-partial_fraction");¤	GDS_ASSERT (part_frac_percent > 0);¤	GDS_ASSERT (part_frac_percent < 100);¤	double part_frac = double (part_frac_percent) / 100.0;¤	Test::IAction_var  ret = Test::IPartialWriteObjectActionFactory::make (n_distrib_info, u_distrib_info, db_part_write._retn (), need_seq, need_seq_part, part_frac);¤	return ret._retn();¤	//#UC END# *44A29B4700BB_452B6E3D0148*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29B4700BB_452B6E8E02AF*"
+			    value      	(value Text 
+|//#UC START# *44A29B4700BB_452B6E8E02AF*¤	double mx = Core::ParamManager::instance ()->get_long ("-object_average_size");¤	double dx = Core::ParamManager::instance ()->get_long ("-object_stddev_size");¤	if ((mx < 0) || (mx > 1.0E+08)) {¤		throw TestLibrary::Test::TestError (); //mx out of range¤	}¤	if ((dx < 0) || (dx > 1.0E+08)) {¤		throw TestLibrary::Test::TestError (); //dx out of range¤	}¤	::TestLibrary::Test::NormalDistributionInfo n_distrib_info;¤	n_distrib_info.average_size = mx;¤	n_distrib_info.stddev_size = dx;¤	unsigned long max_id = Core::ParamManager::instance ()->get_ulong ("-object_max_id");¤	GDS_ASSERT (0 != max_id);¤	::TestLibrary::Test::UniformDistributionInfo u_distrib_info;¤	u_distrib_info.interval_begin = 1;¤	u_distrib_info.interval_end = max_id;¤	std::string param_db_root_dir = Core::ParamManager::instance ()->get_string ("-db_root_dir");¤	bool need_seq = bool (Core::ParamManager::instance ()->get_long ("-need_sequential"));¤	bool need_trn = bool (Core::ParamManager::instance ()->get_long ("-need_transaction", 0));¤	::GCI::IO::IString_var istr = ::GCI::IO::IStringFactory::make (param_db_root_dir.c_str ());¤	::TestLibrary::DB::IDBPartialInsert_var db_part_insert = ::TestLibrary::DB::IDBPartialInsertFactory::make (¤		istr.in ()¤		, need_seq¤		, need_trn¤	);¤	//root_dir = istr->strdup ();¤	root_dir = ::GCI::IO::IStringFactory::make (db_part_insert->get_db_root_dir ());¤¤	bool need_seq_part = bool (Core::ParamManager::instance ()->get_long ("-need_sequential_partial"));¤	unsigned long part_frac_percent = Core::ParamManager::instance ()->get_ulong ("-partial_fraction");¤	GDS_ASSERT (part_frac_percent > 0);¤	GDS_ASSERT (part_frac_percent < 100);¤	double part_frac = double (part_frac_percent) / 100.0;¤	Test::IAction_var  ret = Test::IPartialInsertObjectActionFactory::make (n_distrib_info, u_distrib_info, db_part_insert._retn (), need_seq, need_seq_part, part_frac);¤	return ret._retn();¤	//#UC END# *44A29B4700BB_452B6E8E02AF*
+			    )))
+		    quid       	"44A29B4700BB"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "out root_dir"
+			    quid       	"4518EE3E0109"
+			    type       	"IString"
+			    quidu      	"431841610361"))
+		    result     	"IAction"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"449693A900AB")
+		(object Operation "get_thread_count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29EDD03C8_44A29DC600AB*"
+			    value      	(value Text 
+|//#UC START# *44A29EDD03C8_44A29DC600AB*¤	unsigned long ret = 1;¤	return ret;¤	//#UC END# *44A29EDD03C8_44A29DC600AB*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29EDD03C8_44A91BE701D4*"
+			    value      	(value Text 
+|//#UC START# *44A29EDD03C8_44A91BE701D4*¤	unsigned long ret = 1;¤	return ret;¤	//#UC END# *44A29EDD03C8_44A91BE701D4*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A29EDD03C8_44AA7F72004E*"
+			    value      	(value Text 
+|//#UC START# *44A29EDD03C8_44AA7F72004E*¤	long tc = Core::ParamManager::instance ()->get_long ("-thread_count");¤	unsigned long ret = tc > 0 ? tc : 0;¤	return ret;¤	//#UC END# *44A29EDD03C8_44AA7F72004E*
+			    )))
+		    quid       	"44A29EDD03C8"
+		    result     	"unsigned long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFDE101CA")
+		(object Operation "get_action_count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39A8C01E4_44A29DC600AB*"
+			    value      	(value Text 
+|//#UC START# *44A39A8C01E4_44A29DC600AB*¤	unsigned long ret = 1000;¤	return ret;¤	//#UC END# *44A39A8C01E4_44A29DC600AB*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39A8C01E4_44A91BE701D4*"
+			    value      	(value Text 
+|//#UC START# *44A39A8C01E4_44A91BE701D4*¤	unsigned long ret = 1000;¤	return ret;¤	//#UC END# *44A39A8C01E4_44A91BE701D4*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A39A8C01E4_44AA7F72004E*"
+			    value      	(value Text 
+|//#UC START# *44A39A8C01E4_44AA7F72004E*¤	return Core::ParamManager::instance ()->get_ulong ("-action_count");¤	//#UC END# *44A39A8C01E4_44AA7F72004E*
+			    )))
+		    quid       	"44A39A8C01E4"
+		    result     	"unsigned long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFDE101CA")
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44A29E4C035B"
+		    stereotype 	"multi factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_action_ids_number"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45193D9801D4_44AA7F72004E*"
+			    value      	(value Text 
+|//#UC START# *45193D9801D4_44AA7F72004E*¤	return 1;¤	//#UC END# *45193D9801D4_44AA7F72004E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45193D9801D4_4518DFE5036B*"
+			    value      	(value Text 
+|//#UC START# *45193D9801D4_4518DFE5036B*¤	return 2;¤	//#UC END# *45193D9801D4_4518DFE5036B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45193D9801D4_4518E1510138*"
+			    value      	(value Text 
+|//#UC START# *45193D9801D4_4518E1510138*¤	return 2;;¤	//#UC END# *45193D9801D4_4518E1510138*
+			    )))
+		    quid       	"45193D9801D4"
+		    result     	"unsigned long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFDE101CA"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "message"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_44A29DC600AB_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_44A29DC600AB_GET*¤	return "CreateObjectTestProfile_i";¤	//#UC END# *44A511B80186_44A29DC600AB_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_44A91BE701D4_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_44A91BE701D4_GET*¤return "ReadObjectTestProfile_i";¤	//#UC END# *44A511B80186_44A91BE701D4_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_44D6FA25009C_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_44D6FA25009C_GET*¤	return "AddIndexTestProfile_i";¤	//#UC END# *44A511B80186_44D6FA25009C_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_44D6FA4C0128_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_44D6FA4C0128_GET*¤	return "SearchIndexTestProfile_i";¤	//#UC END# *44A511B80186_44D6FA4C0128_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_4518DFE5036B_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_4518DFE5036B_GET*¤	return "UpdateRWObjectTestProfile_i";¤	//#UC END# *44A511B80186_4518DFE5036B_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_4518E1510138_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_4518E1510138_GET*¤	return "UpdateRWIndexTestProfile_i";¤	//#UC END# *44A511B80186_4518E1510138_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_452B6D9600AB_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_452B6D9600AB_GET*¤	return "PartialReadObjectTestProfile_i";¤	//#UC END# *44A511B80186_452B6D9600AB_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_452B6E3D0148_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_452B6E3D0148_GET*¤	return "PartialWriteObjectTestProfile_i";¤	//#UC END# *44A511B80186_452B6E3D0148_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A511B80186_452B6E8E02AF_GET*"
+			    value      	(value Text 
+|//#UC START# *44A511B80186_452B6E8E02AF_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *44A511B80186_452B6E8E02AF_GET*
+			    )))
+		    quid       	"44A511B80186"
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "IStorageAdmin"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44AB7343031C"
+	    documentation 	
+|Предназначен для инициализации/деинициализации СУБД стороннего хранилища.
+|
+|<<методы>>
+|
+|application_init ()
+|application_fini ()
+|- вызываются из main () один раз для инициализации/деинициализации в контексте приложения в целом.
+|
+|thread_init ()
+|thread_fini ()
+|- вызываются в начале и в конце выполнения каждой треады приложения.
+|
+|Некоторые сторонние хранилища не требуют иницализации в контексте приложения или в контексте треады. Тогда соответствующие методы содержат один оператор return.
+|
+|<<фабрика>> make () всегда вызывается один раз на приложение, например, в самом начале функции main ().
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "application_init"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44AB736C0222"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "application_fini"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44AB7379030D"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "thread_init"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44AB73CF02EE"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "thread_fini"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44AB73DC02CE"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44AB74610399"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "TestError"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"2612D442-E983-43CA-8F5A-44E589200711"))
+	    quid       	"44AE5B5E0167"
+	    documentation 	"Исключительная ситуация, возбуждаемая при возникновении каких-либо ошибок, обусловленных конкретным тестом (но не обусловленных конкретным хранилищем)."
+	    stereotype 	"Exception"
+	    language   	"MDA Generator")
+	(object Class "NormalDistributionInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*44BB68F8005D*"
+		    value      	(value Text 
+|//#UC START# *44BB68F8005D*¤	NormalDistributionInfo (): average_size (0), stddev_size (0) {}¤	//#UC END# *44BB68F8005D*
+		    )))
+	    quid       	"44BB68F8005D"
+	    documentation 	"Структура-описатель нормального распределения. Содержит среднее значение и станадартное отклонение."
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "average_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB691802CE"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "stddev_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB692D038A"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "RankDistributionInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*44BB694D0138*"
+		    value      	(value Text 
+|//#UC START# *44BB694D0138*¤	RankDistributionInfo (): a(0), b (0), c(0) {}¤	//#UC END# *44BB694D0138*
+		    )))
+	    quid       	"44BB694D0138"
+	    documentation 	
+|Структура-описатель рангового распределения.
+|
+|log (f) = a*log(r) + b*(log(r))^2 + c
+	    
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "a"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB69720148"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "b"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB69900109"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "c"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB69AB036B"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "UniformDistributionInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*44BB6AAD0128*"
+		    value      	(value Text 
+|//#UC START# *44BB6AAD0128*¤	UniformDistributionInfo (): interval_begin (0), interval_end (0) {}¤	//#UC END# *44BB6AAD0128*
+		    )))
+	    quid       	"44BB6AAD0128"
+	    documentation 	"Структура-описатель равномерного распределения. Содержит минимально- и максимально- возможное случайное число (границы интервала равномерного распределения)."
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "interval_begin"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB6AD8035B"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "interval_end"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB6AFD00AB"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ActionInfo2"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44BB78780222"
+	    documentation 	"Структура-описатель логического результата тестового действия. Как правило, содержит изменение логического размера базы в результате этого действия."
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "logical_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB7885002E"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "IUpdateRWObjectAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4524C1B5029F_4524C1E6038A_4524C5D8031C_BASE_INIT*"
+		    value      	"//#UC START# *4524C1B5029F_4524C1E6038A_4524C5D8031C_BASE_INIT*¤: ObjectAccessTheory (n_distribution_info, u_distribution_info)¤, m_db_operations (idb_updaterw)¤, m_need_sequential (need_sequential)¤, m_operations_count (operations_count)¤//#UC END# *4524C1B5029F_4524C1E6038A_4524C5D8031C_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4524C1B5029F_4524C1E6038A_4524C5D8031C_BODY*"
+		    value      	(value Text 
+|//#UC START# *4524C1B5029F_4524C1E6038A_4524C5D8031C_BODY*¤	m_pre_prepare_for_actual_func = m_need_sequential ? &UpdateRWObjectActionBase_i::pre_prepare_for_sequential : &UpdateRWObjectActionBase_i::pre_prepare_for_random;¤	m_n = 0;¤	m_id_buf_info_seq = TestLibrary::DB::IdBufInfoSeq ();¤	for (unsigned int i = 0; i < m_operations_count; ++i) {¤		TestLibrary::DB::IdBufInfo tmp;¤		tmp.id_info.id = 0;¤		tmp.buf_info.max_buf_size = (unsigned long) (this->normal_distribution_info ().average_size + this->normal_distribution_info ().stddev_size) + 1; //MAX_BUF_SIZE;¤		tmp.buf_info.buf = new char [tmp.buf_info.max_buf_size];¤		m_id_buf_info_seq->push_back (tmp);¤	}¤	//#UC END# *4524C1B5029F_4524C1E6038A_4524C5D8031C_BODY*
+		    )))
+	    quid       	"4524C1B5029F"
+	    documentation 	"Предназначен для простейшего теста мультипоточное транзакционное чтение-запись."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4524C24C01B5"
+		    supplier   	"Logical View::storage::TestLibrary::Test::ICreateAction"
+		    quidu      	"449A50BC0271"))
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4524C1E6038A"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "in n_distribution_info"
+			    quid       	"4524C20902DE"
+			    type       	"NormalDistributionInfo"
+			    quidu      	"44BB68F8005D")
+			(object Parameter "in u_distribution_info"
+			    quid       	"4524C209032C"
+			    type       	"UniformDistributionInfo"
+			    quidu      	"44BB6AAD0128")
+			(object Parameter "inout idb_updaterw"
+			    quid       	"4524C209036B"
+			    type       	"IDBUpdateRW"
+			    quidu      	"4524BFF4033C")
+			(object Parameter "need_sequential"
+			    quid       	"4524C20903B9"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "operations_count"
+			    quid       	"45264E0900FA"
+			    type       	"unsigned long"
+			    quidu      	"3DBFFDE101CA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "IPartialReadObjectAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452A5C2D0271_452A5E080271_452B6508032C_BASE_INIT*"
+		    value      	"//#UC START# *452A5C2D0271_452A5E080271_452B6508032C_BASE_INIT*¤: PartialActionBase (need_sequential, need_sequential_partial, partial_fraction, distribution_info)¤, ObjectAccessTheory (distribution_info)¤, m_db_operations (idb_part_read)¤//#UC END# *452A5C2D0271_452A5E080271_452B6508032C_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452A5C2D0271_452A5E080271_452B6508032C_BODY*"
+		    value      	(value Text 
+|//#UC START# *452A5C2D0271_452A5E080271_452B6508032C_BODY*¤	//#UC END# *452A5C2D0271_452A5E080271_452B6508032C_BODY*
+		    )))
+	    quid       	"452A5C2D0271"
+	    documentation 	"Предназначен для простейшего теста частичное чтение."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"452A5E2602DE"
+		    supplier   	"Logical View::storage::TestLibrary::Test::IReadOnlyAction"
+		    quidu      	"449A50F1001F"))
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"452A5E080271"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "in distribution_info"
+			    quid       	"452A5E0B0128"
+			    type       	"UniformDistributionInfo"
+			    quidu      	"44BB6AAD0128")
+			(object Parameter "inout idb_part_read"
+			    quid       	"452A5E1E005D"
+			    type       	"IDBPartialRead"
+			    quidu      	"452A4E2D000F")
+			(object Parameter "need_sequential"
+			    quid       	"452A5E0B01C5"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "need_sequential_partial"
+			    quid       	"452A5E6E000F"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "partial_fraction"
+			    quid       	"452A5FDD0261"
+			    type       	"double"
+			    quidu      	"3DBFFD9B0197"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "IPartialWriteObjectAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452A5EDD0280_452A5F7A032C_452B68D9038A_BASE_INIT*"
+		    value      	"//#UC START# *452A5EDD0280_452A5F7A032C_452B68D9038A_BASE_INIT*¤: PartialActionBase (need_sequential, need_sequential_partial, partial_fraction, n_distribution_info, u_distribution_info)¤, ObjectAccessTheory (n_distribution_info, u_distribution_info)¤, m_db_operations (idb_part_write)¤//#UC END# *452A5EDD0280_452A5F7A032C_452B68D9038A_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452A5EDD0280_452A5F7A032C_452B68D9038A_BODY*"
+		    value      	(value Text 
+|//#UC START# *452A5EDD0280_452A5F7A032C_452B68D9038A_BODY*¤	//#UC END# *452A5EDD0280_452A5F7A032C_452B68D9038A_BODY*
+		    )))
+	    quid       	"452A5EDD0280"
+	    documentation 	"Предназначен для простейшего теста частичная запись."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"452A600C0119"
+		    supplier   	"Logical View::storage::TestLibrary::Test::ICreateAction"
+		    quidu      	"449A50BC0271"))
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"452A5F7A032C"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "in n_distribution_info"
+			    quid       	"452B8CB8004E"
+			    type       	"NormalDistributionInfo"
+			    quidu      	"44BB68F8005D")
+			(object Parameter "in u_distribution_info"
+			    quid       	"452B8CB80128"
+			    type       	"UniformDistributionInfo"
+			    quidu      	"44BB6AAD0128")
+			(object Parameter "inout idb_part_write"
+			    quid       	"452A5FF7029F"
+			    type       	"IDBPartialWrite"
+			    quidu      	"452A4F9902CE")
+			(object Parameter "need_sequential"
+			    quid       	"452A5F7D02AF"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "need_sequential_partial"
+			    quid       	"452A5F9702CE"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "partial_fraction"
+			    quid       	"452A5FE500AB"
+			    type       	"double"
+			    quidu      	"3DBFFD9B0197"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "IPartialInsertObjectAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452A602C00BB_452A60510290_452B6B3E031C_BASE_INIT*"
+		    value      	"//#UC START# *452A602C00BB_452A60510290_452B6B3E031C_BASE_INIT*¤: PartialActionBase (need_sequential, need_sequential_partial, partial_fraction, n_distribution_info, u_distribution_info)¤, ObjectAccessTheory (n_distribution_info, u_distribution_info)¤, m_db_operations (idb_part_insert)¤//#UC END# *452A602C00BB_452A60510290_452B6B3E031C_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452A602C00BB_452A60510290_452B6B3E031C_BODY*"
+		    value      	(value Text 
+|//#UC START# *452A602C00BB_452A60510290_452B6B3E031C_BODY*¤	//#UC END# *452A602C00BB_452A60510290_452B6B3E031C_BODY*
+		    )))
+	    quid       	"452A602C00BB"
+	    documentation 	"Предназначен для простейшего теста частичная ставка."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"452E37DD02FD"
+		    supplier   	"Logical View::storage::TestLibrary::Test::ICreateAction"
+		    quidu      	"449A50BC0271"))
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"452A60510290"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "in n_distribution_info"
+			    quid       	"452B8CC602BF"
+			    type       	"NormalDistributionInfo"
+			    quidu      	"44BB68F8005D")
+			(object Parameter "in u_distribution_info"
+			    quid       	"452B8CC7008C"
+			    type       	"UniformDistributionInfo"
+			    quidu      	"44BB6AAD0128")
+			(object Parameter "inout idb_part_insert"
+			    quid       	"452A608D00CB"
+			    type       	"IDBPartialInsert"
+			    quidu      	"452A50370232")
+			(object Parameter "need_sequential"
+			    quid       	"452A605402DE"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "need_sequential_partial"
+			    quid       	"452A6064036B"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "partial_fraction"
+			    quid       	"452A606403D8"
+			    type       	"double"
+			    quidu      	"3DBFFD9B0197"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"449692770167"))
+	    quid       	"44969399008C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	1560
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::ICreateAction" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1338, 705)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1192, 675)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	292
+			justify    	0
+			label      	"ICreateAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1192, 625)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	292
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"449A50BC0271"
+		    width      	310
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IReadOnlyAction" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2475, 693)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(2301, 660)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	348
+			justify    	0
+			label      	"IReadOnlyAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(2301, 610)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	348
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"449A50F1001F"
+		    width      	366
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::ISearchIndexAction" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1380, 3588)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(190, 3529)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	2380
+			justify    	0
+			label      	"ISearchIndexAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(190, 3479)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	2380
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"449A51B20157"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(190, 3590)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	2350
+			justify    	1)
+		    width      	2398
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IReadObjectAction" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1365, 1143)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(290, 1084)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	2150
+			justify    	0
+			label      	"IReadObjectAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(290, 1034)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	2150
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"449A51F80177"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(290, 1145)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	2137
+			justify    	1)
+		    width      	2168
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IAddIndexAction" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1332, 3288)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(198, 3229)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	2268
+			justify    	0
+			label      	"IAddIndexAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(198, 3179)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	2268
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"449A647C02EE"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(198, 3290)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	2237
+			justify    	1)
+		    width      	2286
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::ICreateObjectAction" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1833, 1431)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(294, 1372)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	3078
+			justify    	0
+			label      	"ICreateObjectAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(294, 1322)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	3078
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"449A64D80242"
+		    compartment 	(object Compartment
+			Parent_View 	@6
+			location   	(294, 1433)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	3073
+			justify    	1)
+		    width      	3096
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IAction" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1851, 249)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1374, 90)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	954
+			justify    	0
+			label      	"IAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1374, 40)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	954
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"449693A900AB"
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(1374, 151)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	917
+			justify    	1)
+		    width      	972
+		    height     	442
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::ITestProfile" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(639, 267)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(136, 83)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1006
+			justify    	0
+			label      	"ITestProfile")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(136, 33)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1006
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"44A28F24031C"
+		    width      	1024
+		    height     	492
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IStorageAdmin" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3006, 255)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(2743, 96)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	526
+			justify    	0
+			label      	"IStorageAdmin")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(2743, 46)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	526
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"44AB7343031C"
+		    width      	544
+		    height     	442
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::TestError" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1479, 3936)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(1321, 3907)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"TestError")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(1321, 3857)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	313
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"44AE5B5E0167"
+		    width      	334
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::NormalDistributionInfo" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1563, 4302)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1341, 4243)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"NormalDistributionInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(1341, 4193)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44BB68F8005D"
+		    width      	462
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::RankDistributionInfo" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1050, 3996)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(848, 3902)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	404
+			justify    	0
+			label      	"RankDistributionInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(848, 3852)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	404
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44BB694D0138"
+		    width      	422
+		    height     	312
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::UniformDistributionInfo" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2199, 3957)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(1978, 3898)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	442
+			justify    	0
+			label      	"UniformDistributionInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(1978, 3848)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	442
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44BB6AAD0128"
+		    width      	460
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::ActionInfo2" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3051, 3930)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(2840, 3896)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	422
+			justify    	0
+			label      	"ActionInfo2")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(2840, 3846)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	422
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44BB78780222"
+		    width      	440
+		    height     	192
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @15
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44BBB464007D"
+		    client     	@1
+		    supplier   	@7
+		    vertices   	(list Points
+			(1441, 612)
+			(1601, 470))
+		    line_style 	0)
+		(object InheritView "" @16
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44BBB46603B9"
+		    client     	@2
+		    supplier   	@7
+		    vertices   	(list Points
+			(2342, 597)
+			(2161, 470))
+		    line_style 	0)
+		(object InheritView "" @17
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"449A64AD032C"
+		    client     	@5
+		    supplier   	@1
+		    vertices   	(list Points
+			(189, 3167)
+			(163, 3167)
+			(163, 676)
+			(1183, 676))
+		    line_style 	3
+		    origin_attachment 	(189, 3167)
+		    terminal_attachment 	(1183, 676))
+		(object InheritView "" @18
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"449A650603A9"
+		    client     	@6
+		    supplier   	@1
+		    vertices   	(list Points
+			(1309, 1309)
+			(1309, 796))
+		    line_style 	3
+		    origin_attachment 	(1309, 1309)
+		    terminal_attachment 	(1309, 796))
+		(object InheritView "" @19
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"449A522002FD"
+		    client     	@4
+		    supplier   	@2
+		    vertices   	(list Points
+			(2449, 1262)
+			(3654, 1262)
+			(3654, 650)
+			(2658, 650))
+		    line_style 	3
+		    origin_attachment 	(2449, 1262)
+		    terminal_attachment 	(2658, 650))
+		(object InheritView "" @20
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"449A51F102AF"
+		    client     	@3
+		    supplier   	@2
+		    vertices   	(list Points
+			(2579, 3467)
+			(3518, 3467)
+			(3518, 722)
+			(2658, 722))
+		    line_style 	3
+		    origin_attachment 	(2579, 3467)
+		    terminal_attachment 	(2658, 722))
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IUpdateRWObjectAction" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2115, 1743)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(209, 1662)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	3812
+			justify    	0
+			label      	"IUpdateRWObjectAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(209, 1612)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	3812
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4524C1B5029F"
+		    compartment 	(object Compartment
+			Parent_View 	@21
+			location   	(209, 1723)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	246
+			justify    	1)
+		    width      	3830
+		    height     	286
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @22
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4524C24C01B5"
+		    client     	@21
+		    supplier   	@1
+		    vertices   	(list Points
+			(237, 1600)
+			(237, 701)
+			(1183, 701))
+		    line_style 	3
+		    origin_attachment 	(237, 1600)
+		    terminal_attachment 	(1183, 701))
+		(object NoteView @23
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"44BB68F8005D"))
+		    location   	(1992, 4299)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(1854, 4239)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	240
+			justify    	1
+			label      	"{need UC:=true}")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object AttachView "" @24
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@23
+		    supplier   	@11
+		    vertices   	(list Points
+			(1992, 4299)
+			(1563, 4302))
+		    line_style 	0)
+		(object NoteView @25
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"44BB6AAD0128"))
+		    location   	(2601, 3945)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@25
+			location   	(2463, 3885)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	240
+			justify    	1
+			label      	"{need UC:=true}")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object AttachView "" @26
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@25
+		    supplier   	@13
+		    vertices   	(list Points
+			(2601, 3945)
+			(2199, 3957))
+		    line_style 	0)
+		(object NoteView @27
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"44BB694D0138"))
+		    location   	(627, 3993)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@27
+			location   	(489, 3933)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	240
+			justify    	1
+			label      	"{need UC:=true}")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object AttachView "" @28
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@27
+		    supplier   	@12
+		    vertices   	(list Points
+			(777, 3993)
+			(838, 3994))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IPartialReadObjectAction" @29
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2022, 2061)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@29
+			location   	(302, 2002)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	3440
+			justify    	0
+			label      	"IPartialReadObjectAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@29
+			location   	(302, 1952)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	3440
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"452A5C2D0271"
+		    compartment 	(object Compartment
+			Parent_View 	@29
+			location   	(302, 2063)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	3437
+			justify    	1)
+		    width      	3458
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @30
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"452A5E2602DE"
+		    client     	@29
+		    supplier   	@2
+		    vertices   	(list Points
+			(2984, 1940)
+			(2984, 787)
+			(2658, 787))
+		    line_style 	3
+		    origin_attachment 	(2984, 1940)
+		    terminal_attachment 	(2658, 787))
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IPartialWriteObjectAction" @31
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2559, 2358)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@31
+			location   	(400, 2299)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	4318
+			justify    	0
+			label      	"IPartialWriteObjectAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@31
+			location   	(400, 2249)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	4318
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"452A5EDD0280"
+		    compartment 	(object Compartment
+			Parent_View 	@31
+			location   	(400, 2360)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	4315
+			justify    	1)
+		    width      	4336
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @32
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"452A600C0119"
+		    client     	@31
+		    supplier   	@1
+		    vertices   	(list Points
+			(1360, 2236)
+			(1360, 797))
+		    line_style 	3
+		    origin_attachment 	(1360, 2236)
+		    terminal_attachment 	(1360, 797))
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::IPartialInsertObjectAction" @33
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2568, 2661)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@33
+			location   	(400, 2602)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	4336
+			justify    	0
+			label      	"IPartialInsertObjectAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@33
+			location   	(400, 2552)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	4336
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"452A602C00BB"
+		    compartment 	(object Compartment
+			Parent_View 	@33
+			location   	(400, 2663)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	4334
+			justify    	1)
+		    width      	4354
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @34
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"452E37DD02FD"
+		    client     	@33
+		    supplier   	@1
+		    vertices   	(list Points
+			(1416, 2539)
+			(1416, 796))
+		    line_style 	3
+		    origin_attachment 	(1416, 2539)
+		    terminal_attachment 	(1416, 796))))))

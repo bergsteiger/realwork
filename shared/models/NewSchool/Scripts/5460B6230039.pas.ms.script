@@ -1,0 +1,104 @@
+// TncsTransporterIOThread 5460B6230039 SimpleClass Class
+
+INCLUDE '5452248C02B8.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5460B6230039
+
+INCLUDE '538DDC890328.pas.ms.script'
+
+: ME_545224C80036
+ CONST UID '545224C80036'
+ CONST Name 'IOHandler'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_545224C80036 IOHandler
+
+: ME_932BE204ACB1
+ CONST UID '932BE204ACB1'
+ CONST Name 'f_IOHandler'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства IOHandler' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+
+ @SELF
+; // ME_932BE204ACB1 f_IOHandler
+
+FORWARD ME_545B3DEA0268
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_8DF648F79B54
+ CONST UID '8DF648F79B54'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода ReleaseIOHandler' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8DF648F79B54 DoIt
+
+: ME_545B3DEA0268
+ CONST UID '545B3DEA0268'
+ CONST Name 'ReleaseIOHandler'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_8DF648F79B54 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_545B3DEA0268 ReleaseIOHandler
+
+: ME_5460B6230039
+ CONST UID '5460B6230039'
+ CONST Name 'TncsTransporterIOThread'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5452248C02B8 // TncsTransporterThread
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_545224C80036 // IOHandler
+ ME_932BE204ACB1 // f_IOHandler
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_545B3DEA0268 // ReleaseIOHandler
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_5459DB98029C // TerminatedConnection
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5460B6230039 TncsTransporterIOThread

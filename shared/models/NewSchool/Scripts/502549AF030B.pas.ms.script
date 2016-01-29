@@ -1,0 +1,104 @@
+// Masks 502549AF030B UtilityPack Class
+
+FORWARD ME_502549AF030B
+
+INCLUDE '47877EB202FB.pas.ms.script'
+
+: ME_502549BF02C2
+ CONST UID '502549BF02C2'
+ CONST Name 'EMaskException'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4787A405013D // Exception
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_502549BF02C2 EMaskException
+
+: ME_50254A0700F8
+ CONST UID '50254A0700F8'
+ CONST Name 'TMask'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TMask allows the comparison of strings containing wildcards to a file mask.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_50254A0700F8 TMask
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_50254AA70268
+ CONST UID '50254AA70268'
+ CONST Name 'Filename'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_50254AA70268 Filename
+
+: ME_50254AA70297
+ CONST UID '50254AA70297'
+ CONST Name 'Mask'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_50254AA70297 Mask
+
+: ME_50254A2603D3
+ CONST UID '50254A2603D3'
+ CONST Name 'MatchesMask'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Indicates whether a file name conforms to the format specified by a filter string.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_50254AA70268 // Filename
+ ME_50254AA70297 // Mask
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_50254A2603D3 MatchesMask
+
+: ME_502549AF030B
+ CONST UID '502549AF030B'
+ CONST Name 'Masks'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_50254A2603D3 // MatchesMask
+ ]
+ ; // Operations
+ : Children
+   [ ME_502549BF02C2 // EMaskException
+ ME_50254A0700F8 // TMask
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_502549AF030B Masks

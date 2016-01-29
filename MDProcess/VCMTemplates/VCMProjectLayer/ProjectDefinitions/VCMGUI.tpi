@@ -1,0 +1,133 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMProjectLayer/ProjectDefinitions/VCMGUI.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::VCMTemplates::VCMProjectLayer::ProjectDefinitions::VCMGUI
+//
+// GUI-приложение
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: VCMGUI::Category
+? GUI-приложение
+> !
+> VCMViews::Category
+> VCMApplication::Class
+
+= VCMSubsystem::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +
+/ - типы видимости
+a f
+/ - тип абстракции
+Y code_vcm_gui.gif
+L code_vcm_gui
+// Параметры визуализации
+$ C 195,245,195
+$ l 80,245,90
+$ f 80,245,90
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p HelpFile:s ? 
+p needs second icon:b=true ? 
+p F1Like:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{HelpFile}"!="%S{!HelpFile}"}%f_up_prefix(%S) *HelpFile* = *%S{HelpFile}*
+	][{"%S{needs second icon}"!="%S{!needs second icon}"}%f_up_prefix(%S) *needs second icon* = *%S{needs second icon}*
+	][{"%S{F1Like}"!="%S{!F1Like}"}%f_up_prefix(%S) *F1Like* = *%S{F1Like}*
+	]
+
+%f _IsVCMGUI
+// возвращаемый результат: boolean
+//#UC START# *4AA8B1FA0167for4A8925B00009*
+	true
+//#UC END# *4AA8B1FA0167for4A8925B00009*
+
+%f _OutExtIntfUses
+//#UC START# *4DA3016E0023for4A8925B00009*
+	[{%S{F1Like}!=false}\
+	%f_pas_PutToUses("nsApplication")\
+	]\
+	%f_pas_PutToUses("l3ExceptionsLog")
+//	%f_pas_PutToUses("eeDocumentSchema")\
+//	%f_pas_PutToUses("evExtFormat")\
+//	%f_pas_PutToUses("l3MouseWheelHelper")\
+//	%f_pas_PutToUses("vtMultylineHint")
+//#UC END# *4DA3016E0023for4A8925B00009*
+
+%f _OutApplicationBody
+//#UC START# *4DA3018D0398for4A8925B00009*
+	 StdRes.TdmStdRes.Run(str_%f_N(%S)Title, '[%S{HelpFile}.chm]');
+//#UC END# *4DA3018D0398for4A8925B00009*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4A8925B00009*
+	%S%[inherited]\
+	<{}{%C#f_IsVCMApplication()=true}\
+	[{"%{evExtFormat}N"=""}%f_find_element(evExtFormat,evExtFormat)]\
+	%C%f_make_accessable(%{evExtFormat}U)\
+	%f_addCDep(%C,%{evExtFormat})\
+	[{%Ca=final}\
+	[{"%{StdRes}N"=""}%f_find_element(47F260EC02C7,StdRes)]\
+	%C%f_make_accessable(%{StdRes}U)\
+	%f_addCDep(%C,%{StdRes})\
+	]\
+	>\
+
+	<{}{%CS=VCMTestTarget}\
+	%C<{}{%C#f_IsVCMApplication()=true}\
+	[{"%{evExtFormat}N"=""}%f_find_element(evExtFormat,evExtFormat)]\
+	%C%f_make_accessable(%{evExtFormat}U)\
+	%f_addCDep(%C,%{evExtFormat})\
+	>\
+	>
+//#UC END# *4B2A19E3038Bfor4A8925B00009*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+%f _pas_UnitName
+//#UC START# *4948065C01DFfor4A8925B00009*
+	%f_N(%S)
+//#UC END# *4948065C01DFfor4A8925B00009*
+
+// перекрытие базового стереотипа VCMSubsystem::Category
+%f _pas_OutUnitFile
+//#UC START# *4AA8B17E0178for4A8925B00009*
+	%f_clear_list(TOTAL_USES)\
+	%f_pas_OpenUnitInterface(%S)\
+	%f_pas_PutToUses("ControlResizeBugFix")\
+	%S%f_OutExtIntfUses()\
+	%S%f_pas_TotalUses()\
+	%f_pas_PutToUses("l3MouseWheelHelper")\
+	%f_pas_CloseUses(%S)\
+	%f_clear_TotalUses(%S)\
+	
+	\{$R %f_N(%S).res\}\
+	[{%S{needs second icon}=true}\n\{$R main_icon2.res\} // вторая иконка приложения]
+	
+	begin
+	%S%f_OutApplicationBody()\
+	%f_pas_CloseUnit(%S)
+//#UC END# *4AA8B17E0178for4A8925B00009*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

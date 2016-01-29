@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" "D:\MANUAL(CVS)\archi\source\DOCUMENTATION\The sequence of actions when entering new documents.hmxz" "/tsk=Recent Publishes:SequenceActionsEnteringNewDocuments" "/tsk=Recent Publishes:SequenceActionsEnteringNewDocuments_!DAILY" "/tsk=Recent Publishes:SequenceActionsEnteringNewDocuments(web)_!DAILY"

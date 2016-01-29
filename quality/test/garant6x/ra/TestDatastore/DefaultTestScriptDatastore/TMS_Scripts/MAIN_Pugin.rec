@@ -1,0 +1,59 @@
+'$Include "sqautil.sbh"
+'$include "States.sbl"
+'$include "Random.sbl"
+Declare Function GetScriptName (scNum%, dp_Name$) As String
+
+'Цикл Вызоа скриптов по номеру подаваемому с ГПК и ГСЧ
+'В основоном цикле 2 вложенных
+'Сначала N раз выполняются скрипты, номера которых берутся с ГПК,
+'затем N раз выполняются скритпы, номера которых верутся с ГСЧ
+'ГПК - Генератор Псевдослучайных кодов; ГСЧ - Генератор Случайных Чисел
+Sub Main
+  Dim ScriptNumber%, i%, j%, flag%
+  Dim counter&, msg$, scNum%, scName$, dp_Name$
+  CUR_STATE = ST_MAIN_MENU 'Выставляем начальное состояние тестируемого приложения
+ScriptNumber = 65 'Количество подключенных скриптов
+  CallCount = 0     'Обнуляем кол-во запусков ГПК
+  flag = 1          'Условия окончания цикла выполнения скриптов, пока нигде не меняется
+  counter = 1       'Счетчик циклов
+  msg = ""          'Строка для записи в лог
+  scNum = 0         'Номер вызываемого скрипта для записи в лог
+dp_Name = "scNamesKir"  'Имя датапула из которого берутся имена скриптов
+
+    msg = "Начало итерации № " + CStr(counter)
+    SQALogMessage sqaNone, msg, ""
+    msg = "Шаг 1 - номера берутся с ГПК"
+    SQALogMessage sqaNone, msg, ""    
+    For i=1 To ScriptNumber
+      scNum = GetRandomIndex (ScriptNumber, 1)
+        msg = "Вызываем скрипт № " + CStr(scNum)
+        SQALogMessage sqaNone, msg, ""
+      scName = GetScriptName (scNum, dp_Name)
+        If scName = "" Then
+          SQALogMessage sqaWarning, "Пустое имя скрипта из датапула", ""
+        Else
+          CallScript scName
+        End If
+    Next i
+    counter = counter + 1
+End Sub
+
+'Возвращает название скрипта по номеру (из датапула)
+'Если возвращается пустая строка - ошибка
+Function GetScriptName (scNum%, dp_Name$) As String
+  Dim dp_id&, dp_Result&
+  Dim i%, scName$
+  GetScriptName = ""
+  dp_id = SQADatapoolOpen (dp_Name, TRUE, SQA_DP_SEQUENTIAL, TRUE)
+
+  For i=1 To scNum
+    dp_Result = SQADatapoolFetch (dp_id)
+    If dp_Result <> 0 Then
+      SQALogMessage sqaWarning, "Ошибка работы с датапулом", "невозможно взять след. элемент"
+    End If
+  Next i
+  dp_Result = SQADatapoolValue (dp_id, 1, scName)
+  dp_Result = SQADatapoolRewind (dp_id)
+  dp_Result = SQADatapoolClose (dp_id)
+  GetScriptName = scName
+End Function

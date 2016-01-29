@@ -1,0 +1,122 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Facet (class)
+//////////////////////////////////////////////////////////////////////////////////
+
+: Facet::Class
+? Фасет
+? Фасетный интерфейс представлет из себя простой набор абстрактных "ответственнойстей", без определения способа получения этого набора.
+? Фактически фасетный интерфейс выступает в роли дополнительного абстрактного интерфейса без фабрик. 
+? Фасетный интерфейс реализуется как дополнительный интерфейс(ы) любым сервантом (реализующим какой либо обычный интерфейс) или даже СимплКлассом. Кроме того фасетные интерфейсы могут быть определены в любом модуле, а не только интерфейсном.
+< *::Category, *::Class
+
+= Interface::Class
+L code_facet
+Y t4_facet.gif
+
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+
+%t _constraint
+c          {}
+r {"<{}{%t_check_type(%G,"%SM")=false}{%GC}>"!="0"}:   {%SS can inherit only from Facet}
+r {<{}{%t_check_type(%R,"StateMachine::Class")=false}{%RC}>!=0}:        {%SS can realize only StateMachine}
+/r {<{}{%CC=Attribute&%Cl=ref}{C}>!=0}:                                          {%SS не может иметь ref связи}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ h
+F class %SN;
+	<#%FF
+	>%f_docs(%S)\
+	#class %SN
+	#	: [{}{virtual public ::Core::IObject}<{\n#\t, }virtual public %f_type(%G)>]
+	#{
+	[#public:<[
+	%CX
+	]>][
+	// oneway methods impl
+	private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_h(%C)
+	>
+	protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_h(%C)
+	>]#};]
+	
+	#typedef ::Core::Var\<%SN\> %SN_var;
+	#typedef ::Core::Var\<const %SN\> %SN_cvar;
+
++ cpp
+F class %SN;
+	%f_set_var(INT,S)%f_set_var(SERV,S)[
+	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+	>]
+
++ fctr.h
+
++ fctr.cpp
+
+/+ java
+/+ fctr.java
+
++ dll.h
+
++ dll.cpp
+
++ pas
+
+# MDAGen/GTS/Facet_class_intf_pas
+
+: Facet::Class::Attribute
+= Interface::Class::Attribute
+
+: Facet::Class::readonly::Attribute
+= Facet::Class::Attribute
+e g
+
+: Facet::Class::writeonly::Attribute
+= Facet::Class::Attribute
+e s
+
+: Facet::Class::Attribute::Attribute
+= Interface::Class::Attribute::Attribute
+
+: Facet::Class::readonly::Attribute::Attribute
+= Interface::Class::readonly::Attribute::Attribute
+
+: Facet::Class::Operation
+= Interface::Class::Operation
+
+: Facet::Class::oneway::Operation
+= Interface::Class::oneway::Operation
+
+: Facet::Class::oneway,chg::Operation
+= Facet::Class::oneway::Operation
+L code_method
+Y t5_method.gif
+
+: Facet::Class::chg::Operation
+= Facet::Class::Operation
+L code_method
+Y t5_method.gif
+
+: Facet::Class::Operation::Parameter
+= Interface::Class::Operation::Parameter
+
+: Facet::Class::factory::Operation::Parameter
+= Facet::Class::Operation::Parameter
+
+: Facet::Class::multi factory::Operation::Parameter
+= Facet::Class::Operation::Parameter
+
+: Facet::Class::chg::Operation::Parameter
+= Facet::Class::Operation::Parameter
+
+: Facet::Class::oneway::Operation::Parameter
+= Facet::Class::Operation::Parameter

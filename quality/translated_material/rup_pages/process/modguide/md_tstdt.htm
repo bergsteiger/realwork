@@ -1,0 +1,1066 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Promt98 Translation System-->
+<HTML>
+ 
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Windows-1251">
+<META HTTP-EQUIV="Translator" CONTENT="Promt98 Translation System">  
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+ 
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">  
+<meta name="ProgId" content="FrontPage.Editor.Document">  
+<title> Руководство: Данные Тестирования</title> 
+<meta http-equiv="Content-Type" content="text/html">  
+  
+<meta name="Microsoft Border" content="rb">  </head> 
+<body bgcolor="#C0C0C0">
+<a href="_md_tstdt.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<h2 class="banner"> <a name="Top"></a>Руководство: Данные
+Тестирования</h2> 
+<p class="banner">Guidelines: Test Data</p> 
+<div align="center">
+
+<center>  
+<table border="1" width="547" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="middle" bordercolor="#808080" align="center" width="117"> 
+<font face="Arial" size="2"><strong>Данные Тестирования</strong></font>
+  <p><font face="Arial" size="2"><strong>Test Data</strong></font></p>
+</td> 
+<td width="416" valign="top" bordercolor="#808080"> <strong>Данные</strong> 
+  <b>Тестирования&nbsp; - </b>фактические (наборы)
+  значения, используемые в тесте или необходимые
+  для выполнения теста. Данные тестирования
+  определяют тестируемое условие (такое как
+  исходные или имеющиеся уже данные) и используются
+  для проверки того, что определенный
+  прецедент или требование было успешно
+  реализовано (сравнивая фактические и
+  ожидаемые результаты).<p>
+    A <strong>test data</strong>
+    are the actual (sets of) values used in the test or are necessary to execute
+    the test. Test data creates the condition being tested (as input or as
+    pre-existing data) and is used to verify that a specific use case or
+    requirement has been successfully implemented (comparing actual results to
+    the expected results).
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h3> Разделы</h3> 
+ 
+<p> Topics</p> 
+<ul>
+ 
+<li> <a href="#Explanation">Объяснение</a></li> 
+<li> <a href="#Depth">Глубина</a></li> 
+<li> <a href="#Breadth">Широта</a></li> 
+<li> <a href="#Scope">Рамки</a></li> 
+<li> <a href="#Architecture">Конфигурация</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Depth">Depth</a></li>
+  <li><a href="#Breadth">Breadth</a></li>
+  <li><a href="#Scope">Scope</a></li>
+  <li><a href="#Architecture">Architecture</a></li>
+</ul>
+<p>&nbsp;</p>
+<h3> <a name="Explanation">Объяснение</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Explanation">Explanation</a> </p> 
+<p>В проектировании теста были определены и описаны два существенных артефакта: 
+тест-процедуры и тест-установки. Без данных тестирования, эти два артефакта 
+не могут быть определены и выполнены. Они просто являются описанием условий, 
+сценариев, и путей без конкретных значений для их краткого определения. Данные 
+тестирования, пока не определены артефакты сами по себе, значительно влияют на 
+успех (или неудачу) теста. Тестирование не может быть реализовано и выполнено 
+без данных тестирования, поскольку данные тестирования требуются для следующего:
+<p>In the test design activity, two significant artifacts were identified and
+described: test procedures and test cases. Without test data, these two
+artifacts cannot be implemented and executed. They are merely descriptions of
+conditions, scenarios, and paths without concrete values to succinctly identify
+them. Test data, while not an artifact in its own, significantly impacts the
+success (or failure) of test. Testing cannot be implemented and executed without
+test data, as test data is required for the following: 
+<ul>
+ 
+<li> как исходные данные для определения
+  условия</li> 
+<li> как результат, чтобы оценить требование</li> 
+<li> как поддержка (как предварительное условие к
+  тесту)</li> 
+
+</ul>
+<ul>
+  <li>as input to create a condition</li>
+  <li>as output to evaluate a requirement</li>
+  <li>as support (as a pre-condition to the test)</li>
+</ul>
+<p>
+Поэтому определение значений - важное
+действие, которое выполняется, когда уже
+определены тест-установки (см. <a href="../artifact/ar_tstcs.htm">Артефакты:
+Тест-Установки</a> и <a href="md_tstcs.htm">Руководство:
+</a><a href="md_tstcs.htm">Тест-Установки</a>).
+</p>
+<p>Therefore identifying the values is an important effort which is done when
+test cases are identified (see <a href="../artifact/ar_tstcs.htm">Artifacts:
+Test Case</a> and <a href="md_tstcs.htm">Guidelines: Test Case</a>).
+</p>
+<p>
+Имеются четыре атрибута данных
+тестирования, которые должны быть адресованы при
+определении фактических данных
+тестирования:
+<p>
+There are four attributes of test data that should be addressed when
+identifying the actual test data: 
+<ul>
+ 
+<li> <a href="#Depth">Глубина</a> - объем или количество данных в данных
+  тестирования</li> 
+<li> <a href="#Breadth">Широта</a> - степень вариации данных
+  тестирования</li> 
+<li> <a href="#Scope">Возможности</a> - соответствие данных
+  тестирования&nbsp; цели теста</li> 
+<li> <a href="#Architecture">Конфигурация</a> - физическая структура данных
+  тестирования</li> 
+
+</ul>
+<ul>
+  <li><a href="#Depth">depth</a> - the volume or amount of data in the test data</li>
+  <li><a href="#Breadth">breadth</a> - the degree of variation in the test data</li>
+  <li><a href="#Scope">scope</a> - the relevancy of the test data to the test
+    objective</li>
+  <li><a href="#Architecture">architecture</a> - the physical structure of the
+    test data</li>
+</ul>
+<p>
+Каждая из этих характеристик более
+детально обсуждена&nbsp; в следующих
+разделах:
+</p>
+<p>
+Each of these characteristics are discussed in greater detail in the sections
+below:
+</p>
+<h3> <a name="Depth">Глубина</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Depth">Depth</a> </p> 
+<p>
+Глубина - объем или количество данных, используемых в
+тестировании. Глубина - важное соображение, в
+котором очень маленькое количество данных не может отражать
+реальных условий, в то время, как слишком
+большим количеством данных трудно управлять и
+использовать. В идеале, тестирование должно
+начинаться с небольшого набора данных, который поддерживает критические
+тест-установки (обычно положительные тест-установки).
+Как и уверенность, достигаемое в течение тестирования, данные тестирования также
+должны возрастать до тех пор, пока глубина данных представляет среду
+(или того, что является ей соответствующим).
+</p>
+<p>Depth is the volume or amount of data used in testing. Depth is an important
+consideration in that too little data may not reflect real-life conditions,
+while too much data is hard to manage and maintain. Ideally, testing should
+begin with a small set of data that supports the critical test cases (usually
+the positive test cases). As confidence is gained during testing, the test data
+should be increased until the depth of data is representative of the deployed
+environment (or what is appropriate and feasible).
+</p>
+<p>Глубина данных тестирования
+соответствует данным тестирования, используемым
+в качестве исходных данных и для поддержки
+тестирования (уже существующих данных).
+</p>
+<p>Test data depth is relevant to the test data used in for input and to support
+testing (in pre-existing data).
+</p>
+<h3> <a name="Breadth">Широта</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Breadth">Breadth</a> </p> 
+<p>
+Широта отображает степени варьирования
+данных тестирования. Она может увеличивать глубину данных
+тестирования  только за счет создания
+большего количества записей. Несмотря на то,
+что часто это может быть хорошим решением,
+но при этом истинные изменения данных, которые мы ожидали
+бы увидеть в фактических данных, не
+прослеживаются . Без этих изменений в наших данных
+тестирования мы можем быть не в состоянии идентифицировать дефекты (в конце концов, не каждое изъятие
+из Банкомата выполняется для получения 50.00$
+). Поэтому величины данных тестирования должны
+отражать таковые, найденные в развернутой среде,
+такие как&nbsp; снятие 10.00$&nbsp; или&nbsp; 120.00$. В дополнение, данные
+тестирования должны отражать реальную информацию,
+такую как:<p>Breadth refers to the degree to which the test data values vary. One could
+increase the depth of test data by just creating more records. While this is
+often a good solution, it does not address the true variations in data that we
+would expect to see in actual data. Without these variations in our test data,
+we may fail to identify defects (after all, not every withdrawal from an ATM is
+for $50.00). Therefore, test data values should reflect the data values found in
+the deployed environment, such as withdrawing $10.00, or $120.00. Additionally,
+test data should reflect real-world information such as: 
+<ul>
+ 
+<li> Имена включая титулы, числовые величины, пунктуацию и суффиксы: 
+<ul>
+ 
+<li> Доктор Джеймс Бандлин, госпожа Сьюзен Смит, и Преподобный Джозеф П.
+  Майерс</li> 
+<li> Джеймс Джонсон III, Стивен Вилшир 3-ий, и
+  Господин Чарльз Джеймс Еллсворт&nbsp;</li> 
+<li> Эллен Джонес-Смит, Брайен П. Теллстор</li> 
+
+</ul>
+</li> 
+<li> Адреса с несколькими адресными строками типа: 
+<ul>
+ 
+<li> 6500 Улица Бродвей<br>
+  Номер 175</li> 
+<li> 1550 Шоссе<br>
+  Этаж 17<br>
+  Почтовый ящик 75A</li> 
+
+</ul>
+</li> 
+<li> Город (и Страна) Коды и Телефонные Номера, которые являются реальными и
+  соответствующими 
+<ul>
+ 
+<li> Лексингтон, MA, США + 01 781 676 2400</li> 
+<li> Киста, Швеция +46 8 56 62 82 00</li> 
+<li> Париж, Франция <font size="3">+33 1 30 12 09 50</font></li> 
+
+</ul>
+</li> 
+
+</ul>
+<ul>
+  <li>Names including titles, numerical values, punctuation, and suffixes:
+    <ul>
+      <li>Dr. James Bandlin, Ms. Susan Smith, and Rev. Joseph P. Mayers</li>
+      <li>James Johnson III, Steven Wilshire 3rd, and Charles James Ellsworth,
+        Esq.</li>
+      <li>Ellen Jones-Smythe, Brian P. Tellstor</li>
+    </ul>
+  </li>
+  <li>Addresses with multiple address lines such as:
+    <ul>
+      <li>6500 Broadway Street<br>
+        Suite 175</li>
+      <li>1550 Broadway<br>
+        Floor 17<br>
+        Mailstop 75A</li>
+    </ul>
+  </li>
+  <li>City (and Country) Codes and Phone Numbers that are real and correspond
+    <ul>
+      <li>Lexington, MA, USA + 01 781 676 2400</li>
+      <li>Kista, Sweden +46 8 56 62 82 00</li>
+      <li>Paris, France <font size="3">+33 1 30 12 09 50</font></li>
+    </ul>
+  </li>
+</ul>
+<p>Значения данных тестирования могут
+являться как физическим, так и статистическим представлением реальных данных
+для получения достаточной широты. Оба метода важны и значимы.
+</p>
+<p>Test data values can be either a physical representation or a statistical
+representation of the real data to obtain sufficient breadth. Both methods are
+valuable and suggested.
+</p>
+<p>
+Чтобы создать данные тестирования на основании физического представления 
+развернутых данных, определите допустимые значения (или диапазоны) для каждого 
+элемента данных в развернутой базе данных, и гарантируйте, что для каждого 
+элемента данных по крайней мере одна запись в данных
+тестирования содержит каждое из возможных значений.
+</p>
+<p>To create test data based upon a physical representation of the deployed
+data, identify the allowable values (or ranges) for each data element in the
+deployed database and ensure that, for each data element, at least one record in
+the test data contains each allowable value.
+</p>
+<p>
+Например:
+</p>
+<p>
+For example:
+</p>
+<table border="1" width="100%">  
+<tr>  
+<td width="20%" rowspan="2">  
+<pre>  </pre> 
+</td> 
+<td width="20%" align="center" valign="top"> Номер Счета (диапазон)
+  <p>Account Number (range)</p>
+</td> 
+<td width="20%" align="center" valign="top"> PIN код<br>
+(Целое число)
+  <p>PIN number<br>
+    (integer)</p>
+</td> 
+<td width="20%" align="center" valign="top"> Баланс Счета<br>
+(Десятичное число)
+  <p>Account Balance<br>
+    (decimal)</p>
+</td> 
+<td width="20%" align="center" valign="top"> Тип Счета<br>
+(строковое значение)
+  <p>Account Type<br>
+    (string)</p>
+</td> 
+</tr> 
+<tr>  
+<td width="20%" align="center" valign="top"> 
+<small>
+( S) 0812 0000 0000
+</small>
+ 
+<small>до<br>
+0812 9999 9999</small>
+ 
+<p>
+
+<small>
+( C) 0829 0000 0000
+</small>
+
+<small>до<br>
+0829 9999 9999</small>
+
+</p>
+<p>
+
+<small>
+( X) 0799 0000 0000
+</small>
+<small>до<br>
+0799 9999 9999</small>
+</td> 
+<td width="20%" align="center" valign="top"> 
+<small>
+0000 - 9999
+</small>
+</td> 
+<td width="20%" align="center" valign="top"> 
+<small>
+от -999,999.99 До 999,999.99
+</small>
+</td> 
+<td width="20%" align="center" valign="top"> 
+<small>
+S, C, X
+</small>
+</td> 
+</tr> 
+<tr>  
+<td width="20%"> Запись 1
+  <p>record 1</p>
+</td> 
+<td width="20%" align="right"> 0812 0837 0293</td> 
+<td width="20%" align="center"> 8493</td> 
+<td width="20%" align="center"> -3,123.84</td> 
+<td width="20%" align="center"> S</td> 
+</tr> 
+<tr>  
+<td width="20%"> Запись 2
+  <p>record 2</p>
+</td> 
+<td width="20%" align="right"> 0812 6493 8355</td> 
+<td width="20%" align="center"> 3558</td> 
+<td width="20%" align="center"> 8,438.53</td> 
+<td width="20%" align="center"> S</td> 
+</tr> 
+<tr>  
+<td width="20%"> Запись 3
+  <p>record 3</p>
+</td> 
+<td width="20%" align="right"> 0829 7483 0462</td> 
+<td width="20%" align="center"> 0352</td> 
+<td width="20%" align="center"> 673.00</td> 
+<td width="20%" align="center"> C</td> 
+</tr> 
+<tr>  
+<td width="20%"> Запись 4
+  <p>record 4</p>
+</td> 
+<td width="20%" align="right"> 0799 4896 1893</td> 
+<td width="20%" align="center"> 4896</td> 
+<td width="20%" align="center"> 493,498.49</td> 
+<td width="20%" align="center"> X</td> 
+</tr> 
+</table> 
+<p>Расположенная выше таблица содержит
+минимальное число записей, которые физически
+могут представить приемлемые значения данных. Для Номера Счета, имеется
+одна запись для каждого из трех диапазонов, все
+PIN коды находятся в пределах указанного диапазона,
+имеется несколько различных Балансов Счета - включая тот, который является отрицательным, и имеются
+записи для каждого из различных Типов Счета.
+В расположенной выше таблице указаны минимальные данные,
+лучшей практикой было бы иметь значения данных
+как внутри диапазона , так и на его границе (см.
+<a href="md_tstcs.htm">Руководство: </a><a href="md_tstcs.htm">Тест-установки</a>).
+</p>
+<p>The above matrix contains the minimum number of records that would physically
+represent the acceptable data values. For the Account Number, there is one
+record for each of the three ranges, all the PIN numbers are within the range
+specified, there are several different Account Balances - including one that is
+negative, and there are records for each of the different Account Types. The
+matrix above is the minimum data, best practice would be to have data values at
+the limits of each range as well as inside the range (see <a href="md_tstcs.htm">Guidelines:
+Test Case</a>).
+</p>
+<p>
+Преимущество физического представления состоит в том, что данные
+тестирования ограничены в размере и управляемы, сфокусированы и нацелены на
+приемлемые значения. Неудобство, однако,
+состоит в том, что фактические, реальные данные не полностью случайны. Реальные данные имеют тенденцию
+к отображению статистических профилей, которые могут влиять на производительность, 
+которая при использовании физического представления, не будет соблюдена.
+</p>
+<p>The advantage of physical representation is that the test data is limited in
+size and manageable, focused on and targeting the acceptable values. The
+disadvantage however, is that actual, real-world data is not completely random.
+Real data tends to have statistical profiles that may affect performance, which
+when using physical representation, would not be observed.
+</p>
+<p>Статистическое представление данных тестирования - это данные тестирования,
+которые отражают статистическую выборку (тех же самых процентов)
+производственных данных. Например, использование тех же самых элементов данных 
+как было показано выше, в том случае если бы мы анализировали
+производственную базу данных и обнаружили следующее:
+<p>Statistical test data representation is test data that reflects a statistical
+sampling (of the same percentages) of the production data. For example, using
+the same data elements as above, if we analyzed the production database and
+discovered the following: 
+<ul>
+ 
+<li> Общее количество записей: 294,031</li> 
+<li> Общее количество счетов S типа: 141,135 (48 % от
+  общего количества)</li> 
+<li> Общее количество счетов C типа: 144,075 (49 %)</li> 
+<li> Общее количество счетов X типа: 8,821 (3 %)</li> 
+<li> Номера Счета и PIN коды равномерно распределены</li> 
+
+</ul>
+<ul>
+  <li>Total number of records: 294,031</li>
+  <li>Total number of account type S: 141,135 (48 % of total)</li>
+  <li>Total number of account type C: 144,075 (49 %)</li>
+  <li>Total number of account type X: 8,821 (3 %)</li>
+  <li>Account numbers and PIN numbers are evenly distributed</li>
+</ul>
+<p>наши данные тестирования, основанные на
+статистической выборке составили бы 294
+записи (по сравнению с четырьмя, описанными
+выше):
+</p>
+<p>our test data, based upon statistical sampling would include 294 records (as
+compared to the four we noted above):
+</p>
+<table border="1" width="100%" height="908">  
+<tr>  
+<td width="20%" rowspan="2" height="100">  
+<pre>  </pre> 
+</td> 
+<td width="40%" colspan="2" align="center" height="56"> Данные
+  Тестирования (при .1 проценте от производства)
+  <p>Test Data (at .1 percent of
+    production)</p>
+</td> 
+</tr> 
+<tr>  
+<td width="20%" align="center" height="38"> Число Записей
+  <p>Number of Records</p>
+</td> 
+<td width="20%" align="center" height="38"> Процент
+  <p>Percent</p>
+</td> 
+</tr> 
+<tr>  
+<td width="20%" height="133"> Общее количество записей
+  <p>Total Number of records</p>
+</td> 
+<td width="20%" align="center" height="133"> 294</td> 
+<td width="20%" align="center" height="133"> 100</td> 
+</tr> 
+<tr>  
+<td width="20%" height="215"> Номера Счета<br>
+<small>
+( S) 0812 0000 0000
+</small>
+  <small>до<br>
+0812 9999 9999</small>
+  <p>Account numbers<br>
+    <small>(S) 0812 0000 0000 to<br>
+    0812 9999 9999</small></p>
+</td> 
+<td width="20%" align="center" height="215"> 141</td> 
+<td width="20%" align="center" height="215"> 48</td> 
+</tr> 
+<tr>  
+<td width="20%" height="215"> Номера Счета<br>
+<small>
+( C) 0829 0000 0000
+</small>
+  <small>до<br>
+0829 9999 9999</small>
+  <p>Account numbers<br>
+    <small>(C) 0829 0000 0000 to<br>
+    0829 9999 9999</small></p>
+</td> 
+<td width="20%" align="center" height="215"> 144</td> 
+<td width="20%" align="center" height="215"> 49</td> 
+</tr> 
+<tr>  
+<td width="20%" height="215"> Номера Счета<br>
+<small>
+( X) 0799 0000 0000
+</small>
+  <small>до<br>
+0799 9999 9999</small>
+  <p>Account numbers<br>
+    <small>(X) 0799 0000 0000 to<br>
+    0799 9999 9999</small></p>
+</td> 
+<td width="20%" align="center" height="215"> 9</td> 
+<td width="20%" align="center" height="215"> 3</td> 
+</tr> 
+</table> 
+<p>Отображенная выше таблица только
+отображает типы счета.&nbsp; При разработке
+наилучших данных тестирования на основании статистического представления,
+Вы&nbsp; должны включить значимые элементы данных. В вышеупомянутом примере,
+должно быть включено отражение фактических балансов счета.
+</p>
+<p>The above matrix only addresses the account types. In developing the best
+test data based upon statistical representation, you'd include the significant
+data elements. In the above example, that would include reflecting the actual
+account balances.
+</p>
+<p>
+Неудобство статистического представления
+состоит в том, что оно не может отражать полный диапазон приемлемых
+значений.
+</p>
+<p>A disadvantage of the statistical representation is that may not reflect the
+full range of acceptable values.
+</p>
+<p>
+Как правило, оба метода определения данных
+тестирования используются, чтобы гарантировать, что данные
+тестирования отражают все значения и проблемы
+производительность/население.
+</p>
+<p>
+Typically, both methods of identifying test data are used to ensure that the
+test data address all values and performance / population issues.
+</p>
+<p>Широта данных тестирования соотносится с данными
+тестирования, используемыми как исходные
+данные, а также с данными тестирования,
+используемыми для поддержания
+тестирования (уже существующих данных).
+</p>
+<p>Test data breadth is relevant to the test data used as input as well as the
+test data used to support testing (in pre-existing data).
+</p>
+<h3> <a name="Scope">Рамки</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Scope">Scope</a> </p> 
+<p>Рамки - это соответствие данных
+  тестирования&nbsp; цели теста, и они связаны с глубиной и широтой. Наличие
+большого количества данных не означает, что это правильные данные. Как с широтой
+данных тестирования, мы должны гарантировать, что данные тестирования 
+соответствуют цели тестирования, то есть что существуют данные тестирования для
+поддержки нашей определенной цели тестирования.
+</p>
+<p>Scope is the relevancy of the test data to the test objective, and is related
+to depth and breadth. Having a lot of data does not mean its the right data. As
+with the breadth of test data, we must ensure that the test data is relevant to
+the test objective, that is, that there is test data to support our specific
+test objective.
+</p>
+<p>
+Например, в расположенной ниже таблице, первые четыре
+записи&nbsp; данных тестирования отражают приемлемые
+значения для каждого элемента данных. Однако,
+отсутствуют записи для оценки
+отрицательных балансов для типов счета C и X. Поэтому, хотя эти данные
+тестирования правильно включают в себя отрицательные балансы (допустимая
+широта), представленные ниже данные были бы недостаточны в
+своей полноте, чтобы поддержать любое
+тестирование, использующее отрицательные балансы счета для каждого типа счета.
+Расширяя эти данные для включения
+дополнительных записей, в которые входят и отрицательные балансы для каждого 
+из различных типов счета, было бы необходимо адресовать эту оплошность.
+</p>
+<p>For example, in the matrix below, the first four test data records address
+the acceptable values for each data element. However, there are no records to
+evaluate negative balances for account types C and X. Therefore, although this
+test data correctly includes a negative balances (valid breadth), the data below
+would be insufficient in its scope to support any testing using negative account
+balances for each account type. Expanding this data to include additional
+records, including negative balances for each of the different account types
+would be necessary to address this oversight.
+</p>
+<table border="1" width="100%">  
+<tr>  
+<td width="20%" rowspan="2">  
+<pre>  </pre> 
+</td> 
+<td width="20%" align="center" valign="top"> Номер Счета (диапазон)
+  <p>Account Number (range)</p>
+</td> 
+<td width="20%" align="center" valign="top"> PIN код<br>
+(Целое число)
+  <p>PIN number<br>
+    (integer)</p>
+</td> 
+<td width="20%" align="center" valign="top"> Баланс Счета<br>
+(Десятичное число)
+  <p>Account Balance<br>
+    (decimal)</p>
+</td> 
+<td width="20%" align="center" valign="top"> Тип Счета<br>
+(строковое значение)
+  <p>Account Type<br>
+    (string)</p>
+</td> 
+</tr> 
+<tr>  
+<td width="20%" align="center" valign="top"> 
+<small>
+( S) 0812 0000 0000
+</small>
+ 
+<small>до<br>
+0812 9999 9999</small>
+ 
+<p>
+
+<small>
+( C) 0829 0000 0000
+</small>
+
+до<small>к<br>
+0829 9999 9999
+</small>
+
+</p>
+<p>
+
+<small>
+( X) 0799 0000 0000
+</small>
+<small>до<br>
+0799 9999 9999</small>
+</td> 
+<td width="20%" align="center" valign="top"> 
+<small>
+0000 - 9999
+</small>
+</td> 
+<td width="20%" align="center" valign="top"> 
+<small>
+от -999,999.99 До 999,999.99
+</small>
+</td> 
+<td width="20%" align="center" valign="top"> 
+<small>
+S, C, X
+</small>
+</td> 
+</tr> 
+<tr>  
+<td width="20%"> Запись 1
+  <p>record 1</p>
+</td> 
+<td width="20%" align="right"> 0812 0837 0293</td> 
+<td width="20%" align="center"> 8493</td> 
+<td width="20%" align="center"> -3,123.84</td> 
+<td width="20%" align="center"> S</td> 
+</tr> 
+<tr>  
+<td width="20%"> Запись 2
+  <p>record 2</p>
+</td> 
+<td width="20%" align="right"> 0812 6493 8355</td> 
+<td width="20%" align="center"> 3558</td> 
+<td width="20%" align="center"> 8,438.53</td> 
+<td width="20%" align="center"> S</td> 
+</tr> 
+<tr>  
+<td width="20%"> Запись 3
+  <p>record 3</p>
+</td> 
+<td width="20%" align="right"> 0829 7483 0462</td> 
+<td width="20%" align="center"> 0352</td> 
+<td width="20%" align="center"> 673.00</td> 
+<td width="20%" align="center"> C</td> 
+</tr> 
+<tr>  
+<td width="20%"> Запись 4
+  <p>record 4</p>
+</td> 
+<td width="20%" align="right"> 0799 4896 1893</td> 
+<td width="20%" align="center"> 4896</td> 
+<td width="20%" align="center"> 493,498.49</td> 
+<td width="20%" align="center"> X</td> 
+</tr> 
+<tr>  
+<td width="20%"> Новая запись 1
+  <p>New Record 1</p>
+</td> 
+<td width="20%" align="right"> 0829 3491 4927</td> 
+<td width="20%" align="center"> 0352</td> 
+<td width="20%" align="center"> -995,498.34</td> 
+<td width="20%" align="center"> C</td> 
+</tr> 
+<tr>  
+<td width="20%"> Новая запись 2
+  <p>New Record 2</p>
+</td> 
+<td width="20%" align="right"> 0799 6578 9436</td> 
+<td width="20%" align="center"> 4896</td> 
+<td width="20%" align="center"> -64,913.87</td> 
+<td width="20%" align="center"> X</td> 
+</tr> 
+</table> 
+<p>Рамки данных тестирования соотносятся с данными тестирования, используемыми
+в качестве исходных данных, точно также как и с данными тестирования, 
+используемыми для поддержания тестирования (уже существующих данных).
+</p>
+<p>Test data scope is relevant to the test data used as input as well as the
+test data used to support testing (in pre-existing data).
+</p>
+<h3> <a name="Architecture">Конфигурация</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Architecture">Architecture</a> &nbsp; <a href="#Top"></a> </p> 
+<p>
+Физическая структура данных тестирования соответствует только уже
+существующим данным, используемым целью теста для поддержания тестирования,
+например, такие, как база данных приложений или таблица правил.
+</p>
+<p>The physical structure of test data is relevant only to any pre-existing data
+used by the target-of-test to support testing, such as an application's database
+or rules table.
+</p>
+<p>Тестирование не выполняется однократно после чего все и заканчивается. Оно
+повторяется внутри и между итерациями. Чтобы последовательно, уверено и 
+эффективно выполнить тестирование, данные тестирования должны быть возвращены
+их первоначальному состоянию до выполнения теста. Это особенно важно, когда
+тестирование происходит автоматизировано.
+</p>
+<p>Testing is not executed once and finished. Testing is repeated within and
+between iterations. In order to consistently, confidently, and efficiently
+execute testing, the test data should be returned to its initial state prior to
+the execution of test. This is especially true when the testing is to be
+automated.
+</p>
+<p>
+Поэтому, чтобы гарантировать целостность, уверенность и эффективность
+тестирования,&nbsp; важно, чтобы данные тестирования были свободными от всех 
+внешних влияний, и их состояние было известно в начале, в течение и в конце
+проведения теста. Имеются две проблемы, которые должны быть
+отражены, чтобы достичь этой цели теста:
+<p>Therefore, for to ensure the integrity, confidence, and efficiency of
+testing, it is critical that test data be free of all external influences, and
+it state be known at the start, during, and end of the test execution. There are
+two issues that must be addressed in order to achieve this test objective: 
+<ul>
+ 
+<li> <a href="#Instability / Segregation">Неустойчивость/сегрегация</a> -
+  влияние внешних изолирующих данных
+  тестирования&nbsp;</li> 
+<li> <a href="#Initial State">Начальное состояние</a> - знание определенного начального
+  состояния данных, и возможность возвращения к этому состоянию</li> 
+
+</ul>
+<ul>
+  <li><a href="#Instability / Segregation">instability / segregation</a> -
+    isolating test data external influences</li>
+  <li><a href="#Initial State">initial state</a> - knowledge of the specific
+    initial state of the data, and ability to return to this state</li>
+</ul>
+<p>
+Каждая из этих проблем коснется того, как Вы управляете вашей базой данных
+теста, проектируете вашу тест-модель, и взаимодействуете с другими
+исполнителями.
+</p>
+<p>Each of these issues will affect how you manage your test database, design
+your test model, and interact with other workers.
+</p>
+<h4> <a name="Instability / Segregation">Неустойчивость / Сегрегация</a></h4> 
+<p> <a name="Instability / Segregation">Instability / Segregation</a></p> 
+<p>
+Данные тестирования могут стать
+нестабильными по следующим причинам: 
+<p>
+Test data may become unstable for the following reasons: 
+<ul>
+ 
+<li> Внешние, не связанные с тестом влияния изменяют данные</li> 
+<li> Другие исполнители теста не знают, что данные используются другими</li> 
+
+</ul>
+<ul>
+  <li>external, non-test related influences modify the data</li>
+  <li>other test workers are not aware of what data is used by others</li>
+</ul>
+<p>
+Чтобы быть уверенным в испытании и его целостности, данные
+тестирования должны тщательно контролироваться и быть изолированными от этих 
+влияний. Стратегии, обеспечивающие изоляцию данных тестирования включают:
+<p>To maintain the confidence and integrity of testing, the test data should be
+highly controlled and isolated from these influences. Strategies to insure the
+test data is isolated include: 
+<ul>
+ 
+<li> Отдельные внешние условия теста - каждый исполнитель теста имеет 
+  собственную среду теста, физически отделенную от других. Тестировщик ничего не
+  использует коллективно, то есть имеет свои собственные цели
+  теста и данные. Такое условие может быть реализовано, например, с каждым
+  исполнителем теста, имеющим собственный персональный компьютер.<br>
+</li> 
+ 
+<li> Отдельные основы данных тестирования - каждый исполнитель теста имеет 
+  собственный экземпляр данных, который изолирован от всех других влияний.
+  Физическая среда, возможно даже цель теста разделена, но с каждым тестировщиком, 
+  имеющим собственный экземпляр данных, существует небольшой риск повреждения 
+  данных тестирования.<br>
+</li> 
+<li> Данные&nbsp; тестирования / разделение базы данных - все
+  исполнители теста разделяют базу данных и хорошо осведомлены относительно 
+  данных, используемых другими (и избегают использования данных другого 
+  исполнителя). Например, один тестировщик может использовать записи 0 - 99, а
+  другой использует записи 100 - 199, или кто-то использует клиентов с фамилиями 
+  Aa - Kz, в то время как другой использует пациентов с именами La - Zz.</li> 
+
+</ul>
+<ul>
+  <li>separate test environments - each test worker has their own test
+    environment, physically separate from others. The tester shares nothing,
+    that is, they have their own target-of-test and data. This may be
+    accomplished for example with each test worker having their own PC.<br>
+  </li>
+  <li>separate test data base instances - each test worker has their own
+    instance of data, that is isolated from all other influences. The physical
+    environment, perhaps even the target-of-test are shared, but with each
+    tester having their own instance of data, there is little risk of
+    contaminating the test data.<br>
+  </li>
+  <li>test data / database partitioning - all the test workers share the
+    database and are knowledgeable of which data others are using (and avoid
+    using other worker's data). For example, one tester may use records 0 - 99,
+    and another tester use records 100 - 199, or someone uses customers with
+    last names Aa - Kz, while another tester uses patients named La - Zz.</li>
+</ul>
+<h4><a name="Initial State">Начальное состояние</a></h4> 
+<p> <a name="Initial State">Initial State</a></p> 
+<p>Другой составляющей конфигурации данных тестирования, которая должна быть отражена,
+является возвращение в начальное состояние данных тестирования перед
+выполнением теста. Это особенно важно, когда используется автоматизация. 
+Так же, как цель испытания должна быть известна перед выполнением теста,
+желательно, чтобы были известны и данные тестирования. Это вносит вклад в
+возможность повторного использования и уверенность, которая в каждом последующем
+выполнении теста та же, как и в предыдущем.
+</p>
+<p>The other test data architecture issue that must be addressed is that of the
+initial state of the test data at the beginning of test execution. This is
+especially true when test automation is being used. Just as the target-of-test
+must begin the execution of test in a known, desired state, so to must the test
+data. This contributes to the repeatability and confidence that each test
+execution is the same as the previous.
+</p>
+<p>Для отражения этой проблемы обычно используются четыре стратегии:
+<p>Four strategies are commonly used to address this issue: 
+<ul>
+ 
+<li> Обновление данных</li> 
+<li> Повторная инициализация данных</li> 
+<li> Восстановление данных</li> 
+<li> Прокрутка данных вперед</li> 
+
+</ul>
+<ul>
+  <li>data refresh</li>
+  <li>data re-initialize</li>
+  <li>data reset</li>
+  <li>data roll forward</li>
+</ul>
+<p>Каждая описана более детально ниже.
+<p>Each is described in greater detail below.
+<p>Используемый метод будет зависеть от нескольких факторов, включая физические 
+характеристики базы данных, техническую компетентность исполнителей
+теста, доступность внешних (не связанных с тестом) исполнителей, и цель испытания.
+<p>The method used will depend upon several factors, including the physical
+characteristics of the database, the technical competence of the test workers,
+the availability of external (non-test) workers, and the target-of-test.
+</p>
+<h5><a name="Data Refresh">Обновление Данных</a></h5> 
+<p><a name="Data Refresh">Data Refresh</a></p> 
+<p>Наиболее желательным методом возвращения
+данных тестирования к их начальному состоянию
+является Обновление Данных. Этот метод
+включает создание копии базы данных в ее начальном
+состоянии и сохранение ее. После завершения выполнения
+теста (или до выполнения испытания), архивированная копия базы данных
+теста копируется в среду теста для использования. Это гарантирует, что начальное
+состояние данных тестирования - одно и то же в начале выполнения каждого
+теста.
+</p>
+<p>The most desirable method of returning test data to its initial state is Data
+Refresh. This method involves creating a copy of the data base in its initial
+state and storing it. Upon the completion of test execution (or prior to the
+execution of test), the archived copy of the test database is copied into the
+test environment for use. This ensures that the initial state of the test data
+is the same at the start of each test execution.
+</p>
+<p>
+Преимущество этого метода состоит в том, что данные могут быть архивированы в 
+нескольких различных начальных состояниях. Например, данные тестирования,
+могут быть архивированы в состоянии конца дня, состоянии конца недели, 
+состояние конца месяца, и т.д. Это обеспечивает тестера методом быстрого
+обновления до данного состояния для поддержки теста, такого как тестирование
+прецедента(ов) конца месяца.
+<p>An advantage of this method is that data can be archived in several different
+initial states. For example, test data maybe archived at end-of-day state,
+end-of-week state, end-of-month state, etc. This provides the tester a method of
+quickly refreshing the to a given state to support a test, such as testing of
+the end of month use case(s).
+<h5> <a name="Data Re-initialize">Повторная инициализация данных</a></h5> 
+<p><a name="Data Re-initialize">Data Re-initialize</a></p> 
+<p>Если данные не могут быть обновлены, следующим лучшим методом является
+восстановление данных к их начальному состоянию с помощью некоторых программных
+средств. Повторно инициализированные данные полагаются на специальные
+прецеденты и инструментарий, чтобы возвратить данные тестирования к их 
+начальным значениям.
+<p>If data cannot be refreshed, the next best method is to restore the data to
+its initial state through some programmatic means. Data re-initialize relies on
+special use cases and tools to return the test data to its initial values.
+</p>
+<p>Должна быть предпринята осторожность, чтобы гарантировать что все данные, 
+отношения и ключевые значения возвращены к их соответствующим начальным 
+значениям, чтобы гарантировать, что никакие ошибки в данные не попали.
+<p>Care must be taken to ensure all data, relationships, and key values are
+returned to their appropriate initial value to ensure that no errors are
+introduced into the data.
+</p>
+<p>Преимущество этого метода в том, что он может удерживать тестирование от
+недействительных значений в базе данных. В нормальных условиях, 
+недействительные значения данных будут перехвачены и им будет не позволено
+войти в данные (например как в условии на значение в клиенте). Однако, другой 
+актер может затрагивать данные (например, электронное обновление от другой 
+системы). Тестирование нуждается в проверке, что недействительные данные
+определены и обработаны соответственно, независимо от того, как это происходит.
+</p>
+<p>On advantage of this method is that it can support the testing of the invalid
+values in the database. Under normal conditions, invalid data values would be
+trapped not allowed entry into the data (for example by a validation rule in the
+client). However, another actor may affect the data (for example an electronic
+update from another system). Testing needs to verify that invalid data is
+identified and handled appropriately, independent of how it occurs.
+</p>
+<h5> <a name="Data Reset">Восстановление Данных</a></h5> 
+<p> <a name="Data Reset">Data Reset</a></p> 
+<p>
+Простой метод возвращения данных к их начальному состоянию - это 
+"отменить все изменения" данных , сделанные в течение теста. Этот метод 
+полагается на использование цели теста, чтобы вносить в список
+отмененные элементы, добавляя записи/значения, которые были удалены, не
+изменяя измененные записи/ценности, и удаляя данные, который были добавлены.
+</p>
+<p>A simple method of returning data to its initial state is to &quot;reverse
+the changes&quot; made to the data during the test. This method relies upon
+using the target-of-test to enter reversing entries, that is, adding records /
+values that were deleted, un-modifying modified records / values, and deleting
+data that was added.
+</p>
+<p>Однако имеются риски, связанные с этим методом,
+включающие:
+<p>There are risks associated with this method however, including: 
+<ul>
+ 
+<li> Все действия должны быть полностью изменены, не только некоторые</li> 
+<li> Полагаться на прецеденты в цели теста (которые должны быть тестированы, 
+  чтобы проверить надлежащие функциональные возможности прежде, чем они могут
+  быть использованы для восстановления данных).</li> 
+<li> Ключи базы данных, индексы, и точки не могут или
+  не смогут быть восстановлены</li> 
+<p>
+  <li>all the actions must be reversed, not just some</li>
+  <li>relies upon use cases in the target-of-test (which must be tested to
+    verify proper functionality before they can be used for data reset).</li>
+  <li>database keys, indices, and points may not or cannot be reset</li>
+</ul>
+<p>
+Если это единственный метод, доступный в вашей среде теста, избегайте 
+использование ключей базы данных, индексов и указателей как первичных целей для 
+проверки. То есть например, используйте поле Имя Пациента, чтобы определить, 
+был ли пациент добавлен к базе данных вместо использования
+сгенерированного системой ID номера Пациента.
+</p>
+<p>If this is the only method available in your test environment, avoid using
+database keys, indices and pointers as the primary targets for verification.
+That is, for example, use the Patient Name field to determine if the patient was
+added to the database instead of using a system generated Patient ID number.
+</p>
+<h5> <a name="Data Roll Forward">Прокрутка Данных Вперед</a></h5> 
+<p> <a name="Data Roll Forward">Data Roll Forward</a></p> 
+<p>Прокрутка Данных вперед - наименее желательный метод отражения начального 
+состояния&nbsp; данных тестирования. Фактически, это реально не
+отражает проблему. Вместо этого, состояние данных
+на момент завершения выполнения теста становится новым начальным
+состоянием данных тестирования. Как правило, это требует изменения данных
+тестирования, используемых для исходных данных и/или тест-установок и данных
+тестирования, используемых для оценки результатов.
+</p>
+<p>Data roll forward is the least desirable method of addressing the initial
+state of the test data. In fact, it doesn't really address the issue. Instead,
+the state of the data at the completion of test execution becomes the new
+initial state of the test data. Typically, this requires modifying the test data
+used for input and / or the test cases and test data used for the evaluation of
+the results.
+</p>
+<p>Существуют такие случаи, когда это необходимо, например в конец месяца. Если
+отсутствует архив данных, непосредственно предшествующий концу месяца, то данные
+тестирования и тест- процедуры от каждого дня и недели должны быть выполнены, 
+чтобы "прокручивать вперед" данные до состояния, необходимого для
+проведения теста в конце месяца.
+</p>
+<p>There are some instances when when this is necessary, for example at
+month-end. If no archive of the data, just prior to month's end, then the test
+data and test procedures from each day and week must be executed to &quot;roll
+forward&quot; the data to the state needed for the test of the month end
+processing
+</p>
+<p>
+Риски, связанные с этим методом включают:
+<p>Risks associated with this method include:
+<ul>
+ 
+<li> Ключи базы данных, индексы, и точки
+  которые не могут быть повторно установлены (и не могут использоваться для проверки)</li> 
+<li> Данные постоянно изменяются</li> 
+<li> Требует дополнительного усилия, чтобы
+  удостовериться в проверке результатов</li> 
+
+</ul>
+<p>
+ &nbsp;
+</p>
+<p>
+<font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+
+
+</body>
+ 
+</HTML>

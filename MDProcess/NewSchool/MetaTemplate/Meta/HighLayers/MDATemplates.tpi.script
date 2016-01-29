@@ -1,0 +1,1055 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/HighLayers/MDATemplates.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::MetaTemplate::Meta::HighLayers::MDATemplates
+//
+// Модель шаблонов
+// ---
+// Проект модели, которая описывает произвольные шаблоны и генерит их (на основе мета-шаблонов)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: MDATemplates::Category
+implementation @ <<MDATemplates>>
+//? Модель шаблонов
+//? Проект модели, которая описывает произвольные шаблоны и генерит их (на основе мета-шаблонов)
+//> MDALibrary::Category
+
+//= Мета-MDA::MDAGenerator
+//= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a ra
+// - тип абстракции
+//Y code_mda_templates.gif
+//L code_mda_templates
+// Параметры визуализации
+//$ C 105,205,255
+//$ l 5,205,255
+//$ f 5,205,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for46E13A69005D*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for46E13A69005D*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor46E13A69005D*
+//#UC END# *4705CBD6003Efor46E13A69005D*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for46E13A69005D*
+//#UC END# *470484D50138for46E13A69005D*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E13A69005D*
+//= Requirements::Category;forth_structure
+%call-other-gen ( 'Requirements' 'forth_structure' )
+//#UC END# *4F368B80039Efor46E13A69005D*
+; // forth_structure
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E13A69005D*
+//C /%SN:%SU
+//O %SN
+//S %SN
+
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Включает реализацию требований:
+   '{info}Включает реализацию требований:'
+//	<{}{%aS=Requirements}{Sg}* %f_k_link_wp(%a,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ag
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %== 'Requirements' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Использует другие модели шаблонов:
+   '{info}Использует другие модели шаблонов:'
+//	<{}{%DS!=Requirements}* %f_k_link(%D)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %D |S ) %!= 'Requirements' ) then
+    begin
+     '* '
+     [%f] k_link %( %D )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for D
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Используется из других моделей шаблонов:
+   '{info}Используется из других моделей шаблонов:'
+//	<{}{%aS!=Requirements}{Sp}* %f_k_link(%a)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %!= 'Requirements' ) then
+    begin
+     '* '
+     [%f] k_link %( %a )% 
+//	>{info}][\
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+//	%f_k_common_elem_docs(%S)][{%mx=true&%Cx=true}
+   [%f] k_common_elem_docs %( %S )% 
+  end // if
+  NOP
+  if ( ( %m |x ) %==  true AND 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма модели шаблонов:_
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%m
+   begin
+    OBJECT IN %m
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( '----'#13#10 )
+     '_'
+     if ( ( %m |N ) %!= 'Main' ) then
+     begin
+      %m |N 
+     end // if
+     else
+     begin
+      'Основная' 
+     end // else
+     ' диаграмма модели шаблонов:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>]][
+
+     ++! l_Counter
+    end // if
+   end // for m
+  end // if
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав модели шаблонов[
+  'h2. Состав модели шаблонов'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Библиотеки шаблонов:_<
+   '_Библиотеки шаблонов:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for46E13A69005D*
+; // wiki
+
+
+// реализация абстрактного стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E13A69005D*
+//C /%SN
+//O [{%Sa!=abstract}%SN.tpl]
+//	MDA GENERATOR TEMPLATE FILE
+ 'MDA GENERATOR TEMPLATE FILE'
+//	
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	
+//	Generator definitions:
+ 'Generator definitions:'
+//	group "All" \{
+ 'group "All" {'
+//	<%d<{}{%AS=MDAGenerator&%A{internal}=false&%A<{}{%CS=group}{C}>=0}{Sn}
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %== 'MDAGenerator' AND 
+      ( ( %A get_up ( 'internal' ) ) %==  false  ) AND 
+      ( ( %A
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'group' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for C
+      l_Counter
+
+     ) // bind
+ )      %== 0  ) ) then
+     begin
+      #13#10
+
+//	%f_dump_group(%A)
+      [%f] dump_group %( %A )% 
+//	>><{}{%AS=MDAGenerator&%A{internal}=false&%A<{}{%CS=group}{C}>=0}{Sn}
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%An
+ begin
+  OBJECT IN %A
+  if ( ( %A |S ) %== 'MDAGenerator' AND 
+   ( ( %A get_up ( 'internal' ) ) %==  false  ) AND 
+   ( ( %A
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'group' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+
+  ) // bind
+ )   %== 0  ) ) then
+  begin
+   #13#10
+
+//	%f_dump_group(%A)
+   [%f] dump_group %( %A )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for A
+//	
+//	Stereotype definitions:
+ 'Stereotype definitions:'
+//	
+//	//////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////'
+//	// default
+ '// default'
+//	
+//	: default
+ ': default'
+//	
+//	//////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////'
+//	// default Category (Using for generation LogicalView)
+ '// default Category (Using for generation LogicalView)'
+//	
+//	: default::Category
+ ': default::Category'
+//	%f_clear_list(DEFAULT_CATS)<%d<{}{%A{can be main}=true}[{%f_exists_in_list(DEFAULT_CATS,"%AN::Category")=false}%f_add_to_list(DEFAULT_CATS,"%AN::Category")]>>\
+ [%f] clear_list %( 'DEFAULT_CATS' )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A get_up ( 'can be main' ) ) %==  true ) then
+     begin
+      if ( ( [%f] exists_in_list %( 'DEFAULT_CATS' %, %A |N '::Category' )% ) %==  false ) then
+      begin
+       [%f] add_to_list %( 'DEFAULT_CATS' %, %A |N '::Category' )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+//	<{}{%A{can be main}=true}[{%f_exists_in_list(DEFAULT_CATS,"%AN::Category")=false}%f_add_to_list(DEFAULT_CATS,"%AN::Category")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A get_up ( 'can be main' ) ) %==  true ) then
+  begin
+   if ( ( [%f] exists_in_list %( 'DEFAULT_CATS' %, %A |N '::Category' )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( 'DEFAULT_CATS' %, %A |N '::Category' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for A
+//	<{}{%f_is_empty(DEFAULT_CATS)=false}{W}%f_pop_first_to_var(DEFAULT_CATS,DEF_CAT)\> %{DEF_CAT}N
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'DEFAULT_CATS' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'DEFAULT_CATS' %, 'DEF_CAT' )% '> '
+   ( get_global_var ( 'DEF_CAT' ) |N ) 
+//	>%f_clear_list(DEFAULT_CATS)
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+ [%f] clear_list %( 'DEFAULT_CATS' )% //	%U[{def}\n]
+
+//	[<%d<{}{%AS=MDAGenerator&%A{internal}=false}{Sn}%A<{}{%CS=generator}{Sn}
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%An
+     begin
+      OBJECT IN %A
+      if ( ( %A |S ) %== 'MDAGenerator' AND 
+       ( ( %A get_up ( 'internal' ) ) %==  false  ) ) then
+      begin
+       %A
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%Cn
+        begin
+         OBJECT IN %C
+         if ( ( %C |S ) %== 'generator' ) then
+         begin
+          #13#10
+
+//	+ %CN
+          '+ '
+          %C |N 
+//	P
+          'P'
+//		\<\%CX\>
+          '	<%CX>'
+//	>>><{}{%AS=MDAGenerator&%A{internal}=false}{Sn}%A<{}{%CS=generator}{Sn}
+
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%An
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'MDAGenerator' AND 
+    ( ( %A get_up ( 'internal' ) ) %==  false  ) ) then
+   begin
+    %A
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%Cn
+     begin
+      OBJECT IN %C
+      if ( ( %C |S ) %== 'generator' ) then
+      begin
+       #13#10
+
+//	+ %CN
+       '+ '
+       %C |N 
+//	P
+       'P'
+//		\<\%CX\>
+       '	<%CX>'
+//	>>]
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for A
+ end // if
+ NOP
+//	
+//	[\# %f_normolized_path(mda.inc,S)]
+ if NOT-EMPTY
+ begin
+  '# '
+  [%f] normolized_path %( 'mda.inc' %, 'S' )% 
+ end // if
+ NOP
+//	
+//	f _all_generators
+ 'f _all_generators'
+//	%f_clear_list(GEN_LIST)\
+ [%f] clear_list %( 'GEN_LIST' )% 
+//	[<%d<{}{%AS=MDAGenerator&%A{internal}=false}{Sn}%A<{}{%CS=generator}{Sn}%f_add_to_list(GEN_LIST,"%CN")>>>\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%An
+     begin
+      OBJECT IN %A
+      if ( ( %A |S ) %== 'MDAGenerator' AND 
+       ( ( %A get_up ( 'internal' ) ) %==  false  ) ) then
+      begin
+       %A
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%Cn
+        begin
+         OBJECT IN %C
+         if ( ( %C |S ) %== 'generator' ) then
+         begin
+          [%f] add_to_list %( 'GEN_LIST' %, %C |N )% 
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+//	<{}{%AS=MDAGenerator&%A{internal}=false}{Sn}%A<{}{%CS=generator}{Sn}%f_add_to_list(GEN_LIST,"%CN")>>]\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%An
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'MDAGenerator' AND 
+    ( ( %A get_up ( 'internal' ) ) %==  false  ) ) then
+   begin
+    %A
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%Cn
+     begin
+      OBJECT IN %C
+      if ( ( %C |S ) %== 'generator' ) then
+      begin
+       [%f] add_to_list %( 'GEN_LIST' %, %C |N )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for A
+ end // if
+ NOP
+//	%f_sort_list(GEN_LIST,n)%f_unique_list(GEN_LIST)\
+ [%f] sort_list %( 'GEN_LIST' %, 'n' )% [%f] unique_list %( 'GEN_LIST' )% 
+//		\[\%f_clear_list(ALL_GENERATORS_ID)[<{}{%f_is_empty(GEN_LIST)=false}{W}[%f_pop_first_to_var(GEN_LIST,GEN)
+ '	[%f_clear_list(ALL_GENERATORS_ID)'
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'GEN_LIST' )% ) %==  false ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'GEN_LIST' %, 'GEN' )% 
+//		\%f_add_to_list(ALL_GENERATORS_ID,"%{GEN}N")]>]\]
+     '	%f_add_to_list(ALL_GENERATORS_ID,"'
+     ( get_global_var ( 'GEN' ) |N ) ')' 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+ ']'
+//	
+//	Reports definitions:
+ 'Reports definitions:'
+//	group "All" \{
+ 'group "All" {'
+//	
+//	<%d<{}{%AS=MDAReport&%A<{}{%CS=group}{C}>=0}[\# %f_normolized_path(mda,A)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %== 'MDAReport' AND 
+      ( ( %A
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'group' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for C
+      l_Counter
+
+     ) // bind
+ )      %== 0  ) ) then
+     begin
+      if NOT-EMPTY
+      begin
+       '# '
+       [%f] normolized_path %( 'mda' %, 'A' )% 
+//	]>><{}{%AS=MDAReport&%A<{}{%CS=group}{C}>=0}[\# %f_normolized_path(mda,A)
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |S ) %== 'MDAReport' AND 
+   ( ( %A
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'group' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+
+  ) // bind
+ )   %== 0  ) ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '# '
+    [%f] normolized_path %( 'mda' %, 'A' )% 
+//	]>\}
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for A
+ '}'
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//f _dump_group
+; // mda
+
+end. // <<MDATemplates>>
+
+: dump_group OBJECT IN %S
+//	#group "%SN" {
+ out_indent 'group "'
+ %S |N '" {'
+//	<{}{%CS=generator}{Sn}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'generator' ) then
+  begin
+//	#	generator "%CN" {
+   out_indent '	generator "'
+   %C |N ' {'
+//	#		Description: %f_str_replace(%CD,\n,%f_space(%C))[
+   out_indent '		Description: '
+   [%f] str_replace %( %C |D %, #13#10 %, [%f] space %( %C )% )% if NOT-EMPTY
+   begin
+    #13#10
+
+//	#		lid: %C{lang id}][
+    out_indent '		lid: '
+    %C get_up ( 'lang id' ) 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	#		ifdef_suffix: %C{ifdef_suffix}][%C<{}{}{%C}
+    out_indent '		ifdef_suffix: '
+    %C get_up ( 'ifdef_suffix' ) 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       #13#10
+
+//	#		%CN: %CI>]
+       out_indent '		'
+       %C |N ': '
+       %C |I 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+    end // if
+   NOP
+//	#	}
+   out_indent '	}'
+//	>%f_shift_intend(1)<{}{%aM=MDAGenerator::Class::group::ClassDependency}{Sg}%f_dump_group(%a%P)
+
+   ++! l_Counter
+  end // if
+ end // for C
+ [%f] shift_intend %( 1 )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%ag
+ begin
+  OBJECT IN %a
+  if ( ( %a |M ) %== 'MDAGenerator::Class::group::ClassDependency' ) then
+  begin
+   [%f] dump_group %( %a ->P  )% 
+//	>%f_shift_intend(-1)\
+
+   ++! l_Counter
+  end // if
+ end // for a
+ [%f] shift_intend %( -1 )% 
+//	#}
+ out_indent '}'
+
+//f _dump_default_user_code
+; // dump_group
+
+: dump_default_user_code OBJECT IN %S
+//	%U[{def}\n]
+ %Usersection (
+  'def' 
+ )
+ (
+  #13#10 
+ ) // Usersection
+ 
+//f _collect_all_elems
+; // dump_default_user_code
+
+: collect_all_elems OBJECT IN %S
+//	[%f_clear_list(ALL_ELEMENTS)<%d<{}{}{}[{%f_exists_in_list(ALL_ELEMENTS,A)=false}%f_add_to_list(ALL_ELEMENTS,A)]>>\
+ if NOT-EMPTY
+ begin
+  [%f] clear_list %( 'ALL_ELEMENTS' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     while true
+     begin
+      if true then
+      begin
+       if ( ( [%f] exists_in_list %( 'ALL_ELEMENTS' %, 'A' )% ) %==  false ) then
+       begin
+        [%f] add_to_list %( 'ALL_ELEMENTS' %, 'A' )% 
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // while
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+//	<{}{}{%A}[{%f_exists_in_list(ALL_ELEMENTS,A)=false}%f_add_to_list(ALL_ELEMENTS,A)]>]
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if true then
+   begin
+    if ( ( [%f] exists_in_list %( 'ALL_ELEMENTS' %, 'A' )% ) %==  false ) then
+    begin
+     [%f] add_to_list %( 'ALL_ELEMENTS' %, 'A' )% 
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for A
+ end // if
+ NOP
+
+//определяет может ли стереотип использоваться как зависимый, например
+//включаться в список стереотипов модели
+//f _can_use_by_dep
+; // collect_all_elems
+
+: can_use_by_dep OBJECT IN %S
+//	[{%Lx=true&<{}{%LN=%SN&%L<{}{%PM=MDATemplates::Category}%PU>!=%S<{}{%PM=MDATemplates::Category}%PU>}{C}>!=0}{true}false]
+ if ( ( %L |x ) %==  true AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%L
+  begin
+   OBJECT IN %L
+   if ( ( %L |N ) %== ( %S |N ) AND 
+    ( ( %L
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%P
+    begin
+     OBJECT IN %P
+     if ( ( %P |M ) %== 'MDATemplates::Category' ) then
+     begin
+      %P |U 
+      ++! l_Counter
+     end // if
+    end // for P
+
+   ) // bind
+ )    %!= ( %S
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%P
+    begin
+     OBJECT IN %P
+     if ( ( %P |M ) %== 'MDATemplates::Category' ) then
+     begin
+      %P |U 
+      ++! l_Counter
+     end // if
+    end // for P
+
+   ) // bind
+ )  ) )    then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for L
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *46E28D830109for46E13A69005D*
+; // can_use_by_dep
+
+
+// перекрытие базового стереотипа Мета-MDA::MDAGenerator
+// Генерация списка включения мета-шаблонов (mda.inc)
+//+ mda.inc
+implementation @ <<MDATemplates>>
+<<generator>> mda.inc OBJECT IN %S
+//#UC START# *4A09484300C6for46E13A69005D*
+//C /%SN
+//O %SN.inc.tpi
+//	//////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////'
+//	// includes
+ '// includes'
+//	<{}{}{%D}[\# %f_normolized_path(mda.inc,D)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if true then
+  begin
+   if NOT-EMPTY
+   begin
+    '# '
+    [%f] normolized_path %( 'mda.inc' %, 'D' )% 
+//	]>\
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for D
+////генерим сначала инклуды стереотипов, подстереотипов которых ни от кого не наследуется
+//	<{}{%AS!=MDAIncludeFile&%AS!=MDAReport}[\# %f_normolized_path(mda,A)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |S ) %!= 'MDAIncludeFile' AND 
+   ( ( %A |S ) %!= 'MDAReport'  ) ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '# '
+    [%f] normolized_path %( 'mda' %, 'A' )% 
+//	]>
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for A
+//#UC END# *4A09484300C6for46E13A69005D*
+; // mda.inc
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<MDATemplates>>
+

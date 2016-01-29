@@ -1,0 +1,44 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+/ Генератор в wiki.
+//#UC START# *46AB339C02A7*
+C /%SN:%SU
+O %SN
+S %SN
+
+# t0_wiki_header
+	[h2. Модель[
+	
+	{info}Включает реализацию пакетов прецедентов:
+	<{}{%DS=UseCases}* %f_k_link_wp(%D,%S)
+	>{info}][
+	
+	{info}Использует пакеты:
+	<{}{%DS!=UseCases}* %f_k_link_wp(%D,%S)
+	>{info}][
+	
+	{info}Используется пакетами:
+	<{}{}{Sp}* %f_k_link_wp(%a,%S)
+	>{info}][
+	
+	{note}Дополнительные свойства:
+	%S%f_wiki_up_print(){note}][{%mx=true&%Cx=true}
+	
+	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма пакета:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]][
+	
+	h2. Состав пакета[
+	
+	_Интерфейсы:_<{}{%t_interface(%C)=true}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>][
+	
+	_Дополнительные типы и утилиты:_<{}{%t_interface(%C)=false&%CS!=Servant&%CS!=ComServant}
+	%f_k_type_dump(%C)>][
+	
+	_Реализация:_<{}{%CS=Servant|%CS=ComServant}
+	\# *%f_k_link(%C)*
+	_%C?_[, [{"%CD"=""}{%CD}реализация интерфейса %f_k_link(%C%R)]]>]]<%CX>
+# t0_wiki_footer
+//#UC END# *46AB339C02A7*

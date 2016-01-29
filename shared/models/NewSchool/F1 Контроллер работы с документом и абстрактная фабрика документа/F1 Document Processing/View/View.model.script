@@ -1,0 +1,2276 @@
+<<VCMViews>> View
+ %UID '5009321B01F4'
+ %DEPENDS
+  U$ '4677FF4B0036' /* Data */
+  U$ '4683F37902CF' /* vcmInterfaces */
+  U$ '47B9727603BE' /* FormSets */
+  U$ '499EAAE502A8' /* vcmUserControls */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A92C59801C7' /* View */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A92C59801C7' /* View */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4E13416D0227' /* VCM$Visual */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<VCMForms>> AbstractDocumentFormSetFactory
+   %UID '500932290106'
+   %DEPENDS
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '47B9727603BE' /* FormSets */
+    U$ '48F747EC0073' /* Common */
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '499EAAE502A8' /* vcmUserControls */
+    U$ '4A7C0BB70162' /* "Base Forms" */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4BD856E802F9' /* FormDefinitions */
+    U$ '4D1B548F00EE' /* WorkWithDocumentInterfaces */
+    U$ '4D1B7B830045' /* DocInfoInterfaces */
+    U$ '4D1B85BF03E4' /* BaseDocumentWithAttributesInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4A7C099B004F' /* View */
+    U$ '4A92C59801C7' /* View */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4E13416D0227' /* VCM$Visual */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<VCMAbstractFormSetFactory>> AbstractDocument
+      %UID '5009367A01C3'
+      %META
+       %upv "DefaultStatusForm" '-1'
+       %upv "Need GetMainCaption" false
+       %upv "Need GetMainImageIndex" false
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4A7C099B004F' /* View */
+       U$ '4A92C59801C7' /* View */
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+       U$ '4E13416D0227' /* VCM$Visual */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B97312006D' /* TvcmFormSetFactory */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "50094C2C037F"
+         %UID '50094C2C037F'
+         %TARGET U$ '47F21FE90379' /* bsUtils */
+        ; // 50094C2C037F
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED FINAL <<method>> Attributes_Child_fDocAttribute_NeedMakeForm
+         %UID 'D4A6BAE758F9'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Attributes' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '7463EE079E93'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID 'AAD4451BD7A4'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '99480B97FF35'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID 'B49365DC10FE'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Attributes_Child_fDocAttribute_NeedMakeForm
+        SUMMONED FINAL <<method>> Warning_Child_Warning_NeedMakeForm
+         %UID '8CD5B9BE0897'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Warning' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'A7202BDC3E9E'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '04F0AF103DEF'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID 'A86530036801'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '3BF5A96C010C'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Warning_Child_Warning_NeedMakeForm
+        SUMMONED FINAL <<method>> Related_Child_dftRelatedDoc_NeedMakeForm
+         %UID '4C13947FBAA0'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Related' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'B6020C6981A8'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID 'A5D560FA12AB'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '57FEB62B72F9'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '9B0336EAC418'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Related_Child_dftRelatedDoc_NeedMakeForm
+        SUMMONED FINAL <<method>> Annotation_Child_dftAnnotation_NeedMakeForm
+         %UID '3194A0365B23'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Annotation' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'A9528114C398'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID 'E51E11F7EABF'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID 'C6AEC4699EB5'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '8C94A8782DFD'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Annotation_Child_dftAnnotation_NeedMakeForm
+        SUMMONED FINAL <<method>> Translation_Child_dftTranslation_NeedMakeForm
+         %UID 'F2180FA35764'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Translation' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'FE17B7BF2D84'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID 'A228496E92FE'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID 'A54F80334A91'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '44951ACDA28F'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Translation_Child_dftTranslation_NeedMakeForm
+        SUMMONED FINAL <<method>> TranslationWarnJuror_Child_WarnJuror_NeedMakeForm
+         %UID '83D14E05DE8A'
+         %SUMMARY 'Обработчик OnNeedMakeForm для TranslationWarnJuror' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '260A844B0238'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '74E6516B962C'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '7525C76D2856'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '612D8ACD3524'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TranslationWarnJuror_Child_WarnJuror_NeedMakeForm
+        SUMMONED FINAL <<method>> Contents_Navigator_utContents_NeedMakeForm
+         %UID '50E17AE128E0'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Contents' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '44385E8C09D2'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID 'D5AE35BCA78F'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '7491A491A249'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '3FF7F831C595'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Contents_Navigator_utContents_NeedMakeForm
+        SUMMONED FINAL <<method>> Respondent_Child_lftRespondent_NeedMakeForm
+         %UID '2D8624736BF4'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Respondent' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '96EA306F298B'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '8CD368ED4D8D'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '321943E1B1E3'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID 'F0D0DF0EEC3E'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Respondent_Child_lftRespondent_NeedMakeForm
+        SUMMONED FINAL <<method>> Correspondent_Child_lftCorrespondent_NeedMakeForm
+         %UID '82183C1EB242'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Correspondent' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '0921368ADA6B'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '9FEA679A6ED2'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID 'EC0D307E109C'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '28A458BCB945'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Correspondent_Child_lftCorrespondent_NeedMakeForm
+        SUMMONED FINAL <<method>> Redactions_Navigator_utRedaction_NeedMakeForm
+         %UID '45BF0E881CD3'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Redactions' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '8FE1CA2C5A70'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '0601D32F488B'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID 'AF8F7D21881A'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '550D23D6209C'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Redactions_Navigator_utRedaction_NeedMakeForm
+        SUMMONED FINAL <<method>> SimilarDocuments_Child_lftSimilarDocuments_NeedMakeForm
+         %UID '4BCABC351E44'
+         %SUMMARY 'Обработчик OnNeedMakeForm для SimilarDocuments' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '5FAD12932391'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '0E4E8FB94D04'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '726E1E61A79D'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID 'E229FA0F28E8'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SimilarDocuments_Child_lftSimilarDocuments_NeedMakeForm
+        SUMMONED FINAL <<method>> UserCR1_Child_lftUserCR1_NeedMakeForm
+         %UID 'DB705238EFDE'
+         %SUMMARY 'Обработчик OnNeedMakeForm для UserCR1' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'F497E69218D4'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '569BD4172D56'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID 'F37A96D1E523'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '2B643BA5F90A'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // UserCR1_Child_lftUserCR1_NeedMakeForm
+        SUMMONED FINAL <<method>> remListModifiedUserCR1_Child_remListModified_NeedMakeForm
+         %UID 'D2D46DE2205C'
+         %SUMMARY 'Обработчик OnNeedMakeForm для remListModifiedUserCR1' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'D0087D704B49'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID 'EA67C3AC220F'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '94DD0D3AB1C6'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '7056041DE9B0'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // remListModifiedUserCR1_Child_remListModified_NeedMakeForm
+        SUMMONED FINAL <<method>> UserCR2_Child_lftUserCR2_NeedMakeForm
+         %UID '40569514E17D'
+         %SUMMARY 'Обработчик OnNeedMakeForm для UserCR2' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '63F4D1C2C63A'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '45A196451777'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '3A71171B7C2A'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '23C3E636C090'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // UserCR2_Child_lftUserCR2_NeedMakeForm
+        SUMMONED FINAL <<method>> remListModifiedUserCR2_Child_remListModified_NeedMakeForm
+         %UID '0A8AF18FE5A2'
+         %SUMMARY 'Обработчик OnNeedMakeForm для remListModifiedUserCR2' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'F1A6C261D4DB'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '1AC8585E5BC3'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID 'A2DBA9068BED'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '6246985B07E3'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // remListModifiedUserCR2_Child_remListModified_NeedMakeForm
+        SUMMONED FINAL <<method>> CToPart_Child_lftCToPart_NeedMakeForm
+         %UID '6C795EA9FD5A'
+         %SUMMARY 'Обработчик OnNeedMakeForm для CToPart' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'EC537AB03605'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '6A16ADD4A6EF'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '72AA12BE02E2'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '378C2F41326F'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CToPart_Child_lftCToPart_NeedMakeForm
+        SUMMONED FINAL <<method>> RToPart_Child_lftRToPart_NeedMakeForm
+         %UID '3F6C09EB9F34'
+         %SUMMARY 'Обработчик OnNeedMakeForm для RToPart' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'F015E8866437'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '1A2EC6634DF3'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID 'F4367E94E1A4'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '46AEAA8026D6'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RToPart_Child_lftRToPart_NeedMakeForm
+        SUMMONED FINAL <<method>> Chronology_Child_dftChronology_NeedMakeForm
+         %UID 'E0961DFFC1EB'
+         %SUMMARY 'Обработчик OnNeedMakeForm для Chronology' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'BFFB49BD7133'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID 'D363ABF434D0'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '31E0E476E460'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '744799C7C068'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Chronology_Child_dftChronology_NeedMakeForm
+        SUMMONED FINAL <<method>> SimilarDocumentsToFragment_Child_lftSimilarDocumentsToFragment_NeedMakeForm
+         %UID 'C5AA9536AC66'
+         %SUMMARY 'Обработчик OnNeedMakeForm для SimilarDocumentsToFragment' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50096E800075' /* TvcmNeedMakeFormEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'B2077150BD2E'
+            %SUMMARY 'данные необходимые для создания формы' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataSource
+               %UID '34C98F5BAAB0'
+               %TARGET U$ '47F252870299' /* IvcmFormSetDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aDataSource
+              SUMMONED <<out>> aNew
+               %UID '6495FDFDAE69'
+               %TARGET U$ '47EB900B0216' /* IvcmFormDataSource */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aNew
+              SUMMONED <<in>> aSubUserType
+               %UID '6A57DDE9A456'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aSubUserType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SimilarDocumentsToFragment_Child_lftSimilarDocumentsToFragment_NeedMakeForm
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<VCMZone>> Attributes
+         %UID '4FF593B901FA'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5009A78501A6' /* dsAttributes */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD6BA11008E' /* fDocAttribute */
+          U$ '4D776C9503A8' /* Attributes */
+         ; // %INHERITS
+         %REALIZES
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '49255D4A0215' /* DocInfo */
+         ; // %REALIZES
+        ; // Attributes
+        <<VCMZone>> Warning
+         %UID '4FF5943A0305'
+         %META
+          %upv "ActivateIfUpdate" 'Always'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '500CED6C023C' /* dsWarning */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD6C31B03BC' /* Warning */
+          U$ '4BD877A3035C' /* Warning */
+         ; // %INHERITS
+         %REALIZES
+          U$ '492186B0008F' /* GenerateWarning */
+          U$ '492186D101E0' /* WarningContent */
+          U$ '4DF9D63B0360' /* DocInfo */
+          U$ '4EFC5A31016E' /* ForSynchroView */
+         ; // %REALIZES
+        ; // Warning
+        <<VCMZone>> Related
+         %UID '4FF595FB0176'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5009A673037A' /* dsRelatedDoc */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4B040A84030D' /* dftRelatedDoc */
+          U$ '4BD8574A03A5' /* Text */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47EA04080292' /* HasDoc */
+          U$ '47EA042601D9' /* CanWorkWithRedactions */
+          U$ '47EA04970339' /* HasPrevRedaction */
+          U$ '47EA04B400A1' /* HasNextRedaction */
+          U$ '47EA08690258' /* IsReadOnly */
+          U$ '47EA087C02BC' /* TimeMachineOff */
+          U$ '49145C5D0015' /* SwitchToDocumentFromList */
+          U$ '49145C6E00F8' /* ReturnToList */
+          U$ '49145C7C0021' /* CanOpenPrevDoc */
+          U$ '49145C86028D' /* CanOpenNextDoc */
+          U$ '49145C940250' /* CanReturnToList */
+          U$ '491B2D5A0200' /* Container */
+          U$ '491B2DB200CE' /* DocInfo */
+          U$ '491B2E63002B' /* Language */
+          U$ '491B2E87000D' /* IsDateCurrentRedationEmpty */
+          U$ '491B2F1601B0' /* IsActualRedation */
+          U$ '491B2F63002D' /* MakeGotoPointData */
+          U$ '491B2FE20181' /* NewDocInfo */
+          U$ '491D664C0232' /* OpenSimilarDocuments */
+          U$ '491D66630373' /* GetSubPosition */
+          U$ '491D66910265' /* HasSimilarDocuments */
+          U$ '4953D3B20211' /* OpenContents */
+          U$ '495894020347' /* PreviewCaleeArea */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4AE56DE80093' /* MakeHAFMacroReplacer */
+          U$ '4AE575FA030B' /* MakeFilterInfo */
+          U$ '4E7B663D00A9' /* dsContents */
+          U$ '500E5D3B02AF' /* LikeState */
+          U$ '500E5D5D0268' /* AsLikeable */
+          U$ '53D8C6EA038C' /* GetDocumentShortName */
+          U$ '54B3A7C7038F' /* GetDocumentName */
+          U$ '5594F4830261' /* OpenSimilarDocumentsToFragment */
+         ; // %REALIZES
+        ; // Related
+        <<VCMZone>> Annotation
+         %UID '4FF59666016B'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '500CEDF00141' /* dsAnnotation */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4B040AD300BB' /* dftAnnotation */
+          U$ '4BD8574A03A5' /* Text */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47EA04080292' /* HasDoc */
+          U$ '47EA042601D9' /* CanWorkWithRedactions */
+          U$ '47EA04970339' /* HasPrevRedaction */
+          U$ '47EA04B400A1' /* HasNextRedaction */
+          U$ '47EA08690258' /* IsReadOnly */
+          U$ '47EA087C02BC' /* TimeMachineOff */
+          U$ '49145C5D0015' /* SwitchToDocumentFromList */
+          U$ '49145C6E00F8' /* ReturnToList */
+          U$ '49145C7C0021' /* CanOpenPrevDoc */
+          U$ '49145C86028D' /* CanOpenNextDoc */
+          U$ '49145C940250' /* CanReturnToList */
+          U$ '491B2D5A0200' /* Container */
+          U$ '491B2DB200CE' /* DocInfo */
+          U$ '491B2E63002B' /* Language */
+          U$ '491B2E87000D' /* IsDateCurrentRedationEmpty */
+          U$ '491B2F1601B0' /* IsActualRedation */
+          U$ '491B2F63002D' /* MakeGotoPointData */
+          U$ '491B2FE20181' /* NewDocInfo */
+          U$ '491D664C0232' /* OpenSimilarDocuments */
+          U$ '491D66630373' /* GetSubPosition */
+          U$ '491D66910265' /* HasSimilarDocuments */
+          U$ '4953D3B20211' /* OpenContents */
+          U$ '495894020347' /* PreviewCaleeArea */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4AE56DE80093' /* MakeHAFMacroReplacer */
+          U$ '4AE575FA030B' /* MakeFilterInfo */
+          U$ '4E7B663D00A9' /* dsContents */
+          U$ '500E5D3B02AF' /* LikeState */
+          U$ '500E5D5D0268' /* AsLikeable */
+          U$ '53D8C6EA038C' /* GetDocumentShortName */
+          U$ '54B3A7C7038F' /* GetDocumentName */
+          U$ '5594F4830261' /* OpenSimilarDocumentsToFragment */
+         ; // %REALIZES
+        ; // Annotation
+        <<VCMZone>> Translation
+         %UID '4FF66F720077'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '500CEE0F0071' /* dsTranslation */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4B040F7C030A' /* dftTranslation */
+          U$ '4BD8574A03A5' /* Text */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47EA04080292' /* HasDoc */
+          U$ '47EA042601D9' /* CanWorkWithRedactions */
+          U$ '47EA04970339' /* HasPrevRedaction */
+          U$ '47EA04B400A1' /* HasNextRedaction */
+          U$ '47EA08690258' /* IsReadOnly */
+          U$ '47EA087C02BC' /* TimeMachineOff */
+          U$ '49145C5D0015' /* SwitchToDocumentFromList */
+          U$ '49145C6E00F8' /* ReturnToList */
+          U$ '49145C7C0021' /* CanOpenPrevDoc */
+          U$ '49145C86028D' /* CanOpenNextDoc */
+          U$ '49145C940250' /* CanReturnToList */
+          U$ '491B2D5A0200' /* Container */
+          U$ '491B2DB200CE' /* DocInfo */
+          U$ '491B2E63002B' /* Language */
+          U$ '491B2E87000D' /* IsDateCurrentRedationEmpty */
+          U$ '491B2F1601B0' /* IsActualRedation */
+          U$ '491B2F63002D' /* MakeGotoPointData */
+          U$ '491B2FE20181' /* NewDocInfo */
+          U$ '491D664C0232' /* OpenSimilarDocuments */
+          U$ '491D66630373' /* GetSubPosition */
+          U$ '491D66910265' /* HasSimilarDocuments */
+          U$ '4953D3B20211' /* OpenContents */
+          U$ '495894020347' /* PreviewCaleeArea */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4AE56DE80093' /* MakeHAFMacroReplacer */
+          U$ '4AE575FA030B' /* MakeFilterInfo */
+          U$ '4E7B663D00A9' /* dsContents */
+          U$ '500E5D3B02AF' /* LikeState */
+          U$ '500E5D5D0268' /* AsLikeable */
+          U$ '53D8C6EA038C' /* GetDocumentShortName */
+          U$ '54B3A7C7038F' /* GetDocumentName */
+          U$ '5594F4830261' /* OpenSimilarDocumentsToFragment */
+         ; // %REALIZES
+         %CHILDREN
+          
+           <<VCMZone>> TranslationWarnJuror
+            %UID '4FF66FC703D7'
+            %META
+             %upv "ActivateIfUpdate" 'None'
+             %upv "Need GetFormCount" false
+             %upv "Need OnFormWeight" 'undefined'
+             %upv "Need UC" 'undefined'
+             %upv "ZoneType" 'Child'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4A7C099B004F' /* View */
+             U$ '4A92C59801C7' /* View */
+             U$ '4D1B64E70031' /* BusinessInterfaces */
+            ; // %TOBEINCLUDED
+            %IMPLEMENTS
+             U$ '4EDCF32E02FF' /* dsTranslationWarning */
+            ; // %IMPLEMENTS
+            %INHERITS
+             U$ '4DA825720193' /* WarnJuror */
+             U$ '4EE22F16004F' /* Translation_WarningBaloon */
+            ; // %INHERITS
+            %REALIZES
+             U$ '492186B0008F' /* GenerateWarning */
+             U$ '492186D101E0' /* WarningContent */
+             U$ '4DF9D63B0360' /* DocInfo */
+             U$ '4EFC5A31016E' /* ForSynchroView */
+            ; // %REALIZES
+           ; // TranslationWarnJuror
+         ; // %CHILDREN
+        ; // Translation
+        <<VCMZone>> Contents
+         %UID '4FF66E950164'
+         %META
+          %upv "ActivateIfUpdate" 'IfNotActivated'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Navigator'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '500CEEBD01CB' /* dsContents */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD71CAC000C' /* utContents */
+          U$ '4FF66E2D036A' /* Contents */
+         ; // %INHERITS
+         %REALIZES
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '492566F7019F' /* DocInfo */
+          U$ '492D9071038D' /* CurrentContextFilter */
+          U$ '492D90AA0118' /* FiltrateByContext */
+          U$ '4D2DEA3B0176' /* Bookmarks */
+          U$ '4D2DEA3F012E' /* Comments */
+          U$ '4D2DEA430044' /* ExternalObjects */
+          U$ '4D3089A80114' /* Adornments */
+          U$ '4D404C490215' /* ContentsListCount */
+          U$ '4D416629016B' /* ContentsListItem */
+          U$ '4D4173FE02CC' /* ContentsListParaID */
+          U$ '4E7B5DED03A2' /* Empty */
+         ; // %REALIZES
+        ; // Contents
+        <<VCMZone>> Respondent
+         %UID '4FF596AC024E'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" false
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5009A699023D' /* dsRespondents */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD587B60291' /* lftRespondent */
+          U$ '4BD96F4C0025' /* List */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47F1CDF60078' /* DocumentListType */
+          U$ '47F1DBA00097' /* SortOrder */
+          U$ '47F1E2DB03DA' /* SortType */
+          U$ '47F1E406013F' /* ValidSortTypes */
+          U$ '47F1E425028C' /* IsSaved */
+          U$ '47F1E48F03C7' /* ListName */
+          U$ '47F1E4A901C7' /* ShortListName */
+          U$ '47F1E7000276' /* IsChanged */
+          U$ '47F1E722039F' /* IsFiltered */
+          U$ '47F1E7E70201' /* HasSimilarDocuments */
+          U$ '47F1E8060132' /* HasAnnotation */
+          U$ '47F1E81E0324' /* HasCorrespondents */
+          U$ '47F1E832010D' /* HasRelatedDoc */
+          U$ '47F1E8870093' /* HasRespondents */
+          U$ '47F1E89D01B5' /* IsUnderControl */
+          U$ '47F1E8EB00BA' /* IsDocument */
+          U$ '47F1E96F02DC' /* CRTypeNode */
+          U$ '47F1E988002E' /* CRTypeRoot */
+          U$ '47F1EA050290' /* OpenFrom */
+          U$ '47F1EA1C002D' /* CRTypeName */
+          U$ '47F1EA570068' /* IsListNotFull */
+          U$ '47F1EA8502EE' /* CurrentRelevance */
+          U$ '47F1EDFC0318' /* UpdatePreview */
+          U$ '47F1EE480019' /* MakePreview */
+          U$ '47F1EE7202A6' /* ChangeCRType */
+          U$ '47F1EE960312' /* OpenDocument */
+          U$ '47F1EF0403E7' /* NewListFromSelected */
+          U$ '47F1EF4C03B2' /* ChangeSortOrder */
+          U$ '47F1EF76022D' /* ChangeSortType */
+          U$ '47F1F3380317' /* Find */
+          U$ '47F2053B0244' /* AddToControl */
+          U$ '47F2054C001C' /* DelFromControl */
+          U$ '47F2056400FD' /* CanAddToControl */
+          U$ '47F272B40292' /* IsListEmpty */
+          U$ '47F32E5D01B0' /* NewList */
+          U$ '47F48D7C028E' /* IsTimeMachineEnable */
+          U$ '47F48DF603AF' /* TimeMachineOff */
+          U$ '47F4BC8000F0' /* UpdateListInfo */
+          U$ '47F5C5050227' /* ListType */
+          U$ '47F60913013E' /* CheckList */
+          U$ '47F60D510152' /* ApplyFilter */
+          U$ '47F6121700FE' /* ClearFilters */
+          U$ '47F6180E0359' /* DeleteNodes */
+          U$ '47F61C3D03DE' /* ExportDocument */
+          U$ '47F61FC00314' /* ExportDocuments */
+          U$ '47F9CA3103AC' /* ListAsText */
+          U$ '47F9D29C02D7' /* MergeDocuments */
+          U$ '47F9F86A0108' /* RefreshFilters */
+          U$ '47F9FABC001D' /* IsActiveFilter */
+          U$ '47F9FADF033F' /* NodeId */
+          U$ '47FA0191035A' /* MakeDocumentPreview */
+          U$ '47FA168B01FB' /* List */
+          U$ '47FAF80A0182' /* ListNodeType */
+          U$ '47FAFE3B0226' /* OpenListFromSelectedNodes */
+          U$ '47FB001703CE' /* IsMain */
+          U$ '47FB059C02A3' /* ApplyLogicOperation */
+          U$ '47FC76D302A2' /* ApplyContextFilter */
+          U$ '47FC90B50037' /* SaveToFile */
+          U$ '47FF178F033D' /* NodeForPositioning */
+          U$ '47FF44F20247' /* ReleaseNodeForPositioning */
+          U$ '48034EC0013B' /* CreateBookmark */
+          U$ '4827DF180028' /* AllDocumentFiltered */
+          U$ '4875E7B60332' /* HasAttributes */
+          U$ '489015E10252' /* MakeSuperPreview */
+          U$ '48902C750320' /* MakeMultiDocumentPreview */
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4A2CD019038B' /* IsShortList */
+          U$ '4A2CD04A013A' /* MakeFullList */
+          U$ '4A796E570319' /* IsSnippet */
+          U$ '4AA0E9F503B4' /* CanAnalize */
+          U$ '4AA0EA29019C' /* MakeAnalizeTree */
+          U$ '4AEEE80202AD' /* ActiveFilters */
+          U$ '4B58450403DD' /* FullListCount */
+          U$ '512B22E20169' /* ListAsString */
+         ; // %REALIZES
+        ; // Respondent
+        <<VCMZone>> Correspondent
+         %UID '4FF5975C00B4'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" false
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5009A6BE01DD' /* dsCorrespondents */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD5880300BF' /* lftCorrespondent */
+          U$ '4BD96F4C0025' /* List */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47F1CDF60078' /* DocumentListType */
+          U$ '47F1DBA00097' /* SortOrder */
+          U$ '47F1E2DB03DA' /* SortType */
+          U$ '47F1E406013F' /* ValidSortTypes */
+          U$ '47F1E425028C' /* IsSaved */
+          U$ '47F1E48F03C7' /* ListName */
+          U$ '47F1E4A901C7' /* ShortListName */
+          U$ '47F1E7000276' /* IsChanged */
+          U$ '47F1E722039F' /* IsFiltered */
+          U$ '47F1E7E70201' /* HasSimilarDocuments */
+          U$ '47F1E8060132' /* HasAnnotation */
+          U$ '47F1E81E0324' /* HasCorrespondents */
+          U$ '47F1E832010D' /* HasRelatedDoc */
+          U$ '47F1E8870093' /* HasRespondents */
+          U$ '47F1E89D01B5' /* IsUnderControl */
+          U$ '47F1E8EB00BA' /* IsDocument */
+          U$ '47F1E96F02DC' /* CRTypeNode */
+          U$ '47F1E988002E' /* CRTypeRoot */
+          U$ '47F1EA050290' /* OpenFrom */
+          U$ '47F1EA1C002D' /* CRTypeName */
+          U$ '47F1EA570068' /* IsListNotFull */
+          U$ '47F1EA8502EE' /* CurrentRelevance */
+          U$ '47F1EDFC0318' /* UpdatePreview */
+          U$ '47F1EE480019' /* MakePreview */
+          U$ '47F1EE7202A6' /* ChangeCRType */
+          U$ '47F1EE960312' /* OpenDocument */
+          U$ '47F1EF0403E7' /* NewListFromSelected */
+          U$ '47F1EF4C03B2' /* ChangeSortOrder */
+          U$ '47F1EF76022D' /* ChangeSortType */
+          U$ '47F1F3380317' /* Find */
+          U$ '47F2053B0244' /* AddToControl */
+          U$ '47F2054C001C' /* DelFromControl */
+          U$ '47F2056400FD' /* CanAddToControl */
+          U$ '47F272B40292' /* IsListEmpty */
+          U$ '47F32E5D01B0' /* NewList */
+          U$ '47F48D7C028E' /* IsTimeMachineEnable */
+          U$ '47F48DF603AF' /* TimeMachineOff */
+          U$ '47F4BC8000F0' /* UpdateListInfo */
+          U$ '47F5C5050227' /* ListType */
+          U$ '47F60913013E' /* CheckList */
+          U$ '47F60D510152' /* ApplyFilter */
+          U$ '47F6121700FE' /* ClearFilters */
+          U$ '47F6180E0359' /* DeleteNodes */
+          U$ '47F61C3D03DE' /* ExportDocument */
+          U$ '47F61FC00314' /* ExportDocuments */
+          U$ '47F9CA3103AC' /* ListAsText */
+          U$ '47F9D29C02D7' /* MergeDocuments */
+          U$ '47F9F86A0108' /* RefreshFilters */
+          U$ '47F9FABC001D' /* IsActiveFilter */
+          U$ '47F9FADF033F' /* NodeId */
+          U$ '47FA0191035A' /* MakeDocumentPreview */
+          U$ '47FA168B01FB' /* List */
+          U$ '47FAF80A0182' /* ListNodeType */
+          U$ '47FAFE3B0226' /* OpenListFromSelectedNodes */
+          U$ '47FB001703CE' /* IsMain */
+          U$ '47FB059C02A3' /* ApplyLogicOperation */
+          U$ '47FC76D302A2' /* ApplyContextFilter */
+          U$ '47FC90B50037' /* SaveToFile */
+          U$ '47FF178F033D' /* NodeForPositioning */
+          U$ '47FF44F20247' /* ReleaseNodeForPositioning */
+          U$ '48034EC0013B' /* CreateBookmark */
+          U$ '4827DF180028' /* AllDocumentFiltered */
+          U$ '4875E7B60332' /* HasAttributes */
+          U$ '489015E10252' /* MakeSuperPreview */
+          U$ '48902C750320' /* MakeMultiDocumentPreview */
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4A2CD019038B' /* IsShortList */
+          U$ '4A2CD04A013A' /* MakeFullList */
+          U$ '4A796E570319' /* IsSnippet */
+          U$ '4AA0E9F503B4' /* CanAnalize */
+          U$ '4AA0EA29019C' /* MakeAnalizeTree */
+          U$ '4AEEE80202AD' /* ActiveFilters */
+          U$ '4B58450403DD' /* FullListCount */
+          U$ '512B22E20169' /* ListAsString */
+         ; // %REALIZES
+        ; // Correspondent
+        <<VCMZone>> Redactions
+         %UID '4FF66F010357'
+         %META
+          %upv "ActivateIfUpdate" 'IfNotActivated'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Navigator'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '500CEDBC03A5' /* dsEditions */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD6BF000358' /* utRedaction */
+          U$ '4EC3E01C0298' /* Redactions */
+         ; // %INHERITS
+         %REALIZES
+          U$ '49217DB001A7' /* GetEditionsRoot */
+         ; // %REALIZES
+        ; // Redactions
+        <<VCMZone>> SimilarDocuments
+         %UID '4FF5A4B8038A'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '500CEE5200DF' /* dsSimilarDocuments */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD589E40083' /* lftSimilarDocuments */
+          U$ '4BD96F4C0025' /* List */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47F1CDF60078' /* DocumentListType */
+          U$ '47F1DBA00097' /* SortOrder */
+          U$ '47F1E2DB03DA' /* SortType */
+          U$ '47F1E406013F' /* ValidSortTypes */
+          U$ '47F1E425028C' /* IsSaved */
+          U$ '47F1E48F03C7' /* ListName */
+          U$ '47F1E4A901C7' /* ShortListName */
+          U$ '47F1E7000276' /* IsChanged */
+          U$ '47F1E722039F' /* IsFiltered */
+          U$ '47F1E7E70201' /* HasSimilarDocuments */
+          U$ '47F1E8060132' /* HasAnnotation */
+          U$ '47F1E81E0324' /* HasCorrespondents */
+          U$ '47F1E832010D' /* HasRelatedDoc */
+          U$ '47F1E8870093' /* HasRespondents */
+          U$ '47F1E89D01B5' /* IsUnderControl */
+          U$ '47F1E8EB00BA' /* IsDocument */
+          U$ '47F1E96F02DC' /* CRTypeNode */
+          U$ '47F1E988002E' /* CRTypeRoot */
+          U$ '47F1EA050290' /* OpenFrom */
+          U$ '47F1EA1C002D' /* CRTypeName */
+          U$ '47F1EA570068' /* IsListNotFull */
+          U$ '47F1EA8502EE' /* CurrentRelevance */
+          U$ '47F1EDFC0318' /* UpdatePreview */
+          U$ '47F1EE480019' /* MakePreview */
+          U$ '47F1EE7202A6' /* ChangeCRType */
+          U$ '47F1EE960312' /* OpenDocument */
+          U$ '47F1EF0403E7' /* NewListFromSelected */
+          U$ '47F1EF4C03B2' /* ChangeSortOrder */
+          U$ '47F1EF76022D' /* ChangeSortType */
+          U$ '47F1F3380317' /* Find */
+          U$ '47F2053B0244' /* AddToControl */
+          U$ '47F2054C001C' /* DelFromControl */
+          U$ '47F2056400FD' /* CanAddToControl */
+          U$ '47F272B40292' /* IsListEmpty */
+          U$ '47F32E5D01B0' /* NewList */
+          U$ '47F48D7C028E' /* IsTimeMachineEnable */
+          U$ '47F48DF603AF' /* TimeMachineOff */
+          U$ '47F4BC8000F0' /* UpdateListInfo */
+          U$ '47F5C5050227' /* ListType */
+          U$ '47F60913013E' /* CheckList */
+          U$ '47F60D510152' /* ApplyFilter */
+          U$ '47F6121700FE' /* ClearFilters */
+          U$ '47F6180E0359' /* DeleteNodes */
+          U$ '47F61C3D03DE' /* ExportDocument */
+          U$ '47F61FC00314' /* ExportDocuments */
+          U$ '47F9CA3103AC' /* ListAsText */
+          U$ '47F9D29C02D7' /* MergeDocuments */
+          U$ '47F9F86A0108' /* RefreshFilters */
+          U$ '47F9FABC001D' /* IsActiveFilter */
+          U$ '47F9FADF033F' /* NodeId */
+          U$ '47FA0191035A' /* MakeDocumentPreview */
+          U$ '47FA168B01FB' /* List */
+          U$ '47FAF80A0182' /* ListNodeType */
+          U$ '47FAFE3B0226' /* OpenListFromSelectedNodes */
+          U$ '47FB001703CE' /* IsMain */
+          U$ '47FB059C02A3' /* ApplyLogicOperation */
+          U$ '47FC76D302A2' /* ApplyContextFilter */
+          U$ '47FC90B50037' /* SaveToFile */
+          U$ '47FF178F033D' /* NodeForPositioning */
+          U$ '47FF44F20247' /* ReleaseNodeForPositioning */
+          U$ '48034EC0013B' /* CreateBookmark */
+          U$ '4827DF180028' /* AllDocumentFiltered */
+          U$ '4875E7B60332' /* HasAttributes */
+          U$ '489015E10252' /* MakeSuperPreview */
+          U$ '48902C750320' /* MakeMultiDocumentPreview */
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4A2CD019038B' /* IsShortList */
+          U$ '4A2CD04A013A' /* MakeFullList */
+          U$ '4A796E570319' /* IsSnippet */
+          U$ '4AA0E9F503B4' /* CanAnalize */
+          U$ '4AA0EA29019C' /* MakeAnalizeTree */
+          U$ '4AEEE80202AD' /* ActiveFilters */
+          U$ '4B58450403DD' /* FullListCount */
+          U$ '512B22E20169' /* ListAsString */
+         ; // %REALIZES
+        ; // SimilarDocuments
+        <<VCMZone>> UserCR1
+         %UID '4FF66AE20178'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5009A6EF0016' /* dsUserCR1 */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD5892F01D4' /* lftUserCR1 */
+          U$ '4BD96F4C0025' /* List */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47F1CDF60078' /* DocumentListType */
+          U$ '47F1DBA00097' /* SortOrder */
+          U$ '47F1E2DB03DA' /* SortType */
+          U$ '47F1E406013F' /* ValidSortTypes */
+          U$ '47F1E425028C' /* IsSaved */
+          U$ '47F1E48F03C7' /* ListName */
+          U$ '47F1E4A901C7' /* ShortListName */
+          U$ '47F1E7000276' /* IsChanged */
+          U$ '47F1E722039F' /* IsFiltered */
+          U$ '47F1E7E70201' /* HasSimilarDocuments */
+          U$ '47F1E8060132' /* HasAnnotation */
+          U$ '47F1E81E0324' /* HasCorrespondents */
+          U$ '47F1E832010D' /* HasRelatedDoc */
+          U$ '47F1E8870093' /* HasRespondents */
+          U$ '47F1E89D01B5' /* IsUnderControl */
+          U$ '47F1E8EB00BA' /* IsDocument */
+          U$ '47F1E96F02DC' /* CRTypeNode */
+          U$ '47F1E988002E' /* CRTypeRoot */
+          U$ '47F1EA050290' /* OpenFrom */
+          U$ '47F1EA1C002D' /* CRTypeName */
+          U$ '47F1EA570068' /* IsListNotFull */
+          U$ '47F1EA8502EE' /* CurrentRelevance */
+          U$ '47F1EDFC0318' /* UpdatePreview */
+          U$ '47F1EE480019' /* MakePreview */
+          U$ '47F1EE7202A6' /* ChangeCRType */
+          U$ '47F1EE960312' /* OpenDocument */
+          U$ '47F1EF0403E7' /* NewListFromSelected */
+          U$ '47F1EF4C03B2' /* ChangeSortOrder */
+          U$ '47F1EF76022D' /* ChangeSortType */
+          U$ '47F1F3380317' /* Find */
+          U$ '47F2053B0244' /* AddToControl */
+          U$ '47F2054C001C' /* DelFromControl */
+          U$ '47F2056400FD' /* CanAddToControl */
+          U$ '47F272B40292' /* IsListEmpty */
+          U$ '47F32E5D01B0' /* NewList */
+          U$ '47F48D7C028E' /* IsTimeMachineEnable */
+          U$ '47F48DF603AF' /* TimeMachineOff */
+          U$ '47F4BC8000F0' /* UpdateListInfo */
+          U$ '47F5C5050227' /* ListType */
+          U$ '47F60913013E' /* CheckList */
+          U$ '47F60D510152' /* ApplyFilter */
+          U$ '47F6121700FE' /* ClearFilters */
+          U$ '47F6180E0359' /* DeleteNodes */
+          U$ '47F61C3D03DE' /* ExportDocument */
+          U$ '47F61FC00314' /* ExportDocuments */
+          U$ '47F9CA3103AC' /* ListAsText */
+          U$ '47F9D29C02D7' /* MergeDocuments */
+          U$ '47F9F86A0108' /* RefreshFilters */
+          U$ '47F9FABC001D' /* IsActiveFilter */
+          U$ '47F9FADF033F' /* NodeId */
+          U$ '47FA0191035A' /* MakeDocumentPreview */
+          U$ '47FA168B01FB' /* List */
+          U$ '47FAF80A0182' /* ListNodeType */
+          U$ '47FAFE3B0226' /* OpenListFromSelectedNodes */
+          U$ '47FB001703CE' /* IsMain */
+          U$ '47FB059C02A3' /* ApplyLogicOperation */
+          U$ '47FC76D302A2' /* ApplyContextFilter */
+          U$ '47FC90B50037' /* SaveToFile */
+          U$ '47FF178F033D' /* NodeForPositioning */
+          U$ '47FF44F20247' /* ReleaseNodeForPositioning */
+          U$ '48034EC0013B' /* CreateBookmark */
+          U$ '4827DF180028' /* AllDocumentFiltered */
+          U$ '4875E7B60332' /* HasAttributes */
+          U$ '489015E10252' /* MakeSuperPreview */
+          U$ '48902C750320' /* MakeMultiDocumentPreview */
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4A2CD019038B' /* IsShortList */
+          U$ '4A2CD04A013A' /* MakeFullList */
+          U$ '4A796E570319' /* IsSnippet */
+          U$ '4AA0E9F503B4' /* CanAnalize */
+          U$ '4AA0EA29019C' /* MakeAnalizeTree */
+          U$ '4AEEE80202AD' /* ActiveFilters */
+          U$ '4B58450403DD' /* FullListCount */
+          U$ '512B22E20169' /* ListAsString */
+         ; // %REALIZES
+         %CHILDREN
+          
+           <<VCMZone>> remListModifiedUserCR1
+            %UID '4FF66B37036E'
+            %META
+             %upv "ActivateIfUpdate" 'None'
+             %upv "Need GetFormCount" false
+             %upv "Need OnFormWeight" 'undefined'
+             %upv "Need UC" 'undefined'
+             %upv "ZoneType" 'Child'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4A7C099B004F' /* View */
+             U$ '4A92C59801C7' /* View */
+             U$ '4D1B64E70031' /* BusinessInterfaces */
+            ; // %TOBEINCLUDED
+            %IMPLEMENTS
+             U$ '4EF486CE0310' /* dsCRBaloonWarning */
+            ; // %IMPLEMENTS
+            %INHERITS
+             U$ '4DB97E660273' /* remListModified */
+             U$ '4EF47EF602BE' /* UserCR1_WarningBaloon */
+            ; // %INHERITS
+            %REALIZES
+             U$ '492186B0008F' /* GenerateWarning */
+             U$ '492186D101E0' /* WarningContent */
+             U$ '4DF9D63B0360' /* DocInfo */
+             U$ '4EFC5A31016E' /* ForSynchroView */
+            ; // %REALIZES
+           ; // remListModifiedUserCR1
+         ; // %CHILDREN
+        ; // UserCR1
+        <<VCMZone>> UserCR2
+         %UID '4FF66C8D01D9'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5009A72B01A5' /* dsUserCR2 */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD589720381' /* lftUserCR2 */
+          U$ '4BD96F4C0025' /* List */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47F1CDF60078' /* DocumentListType */
+          U$ '47F1DBA00097' /* SortOrder */
+          U$ '47F1E2DB03DA' /* SortType */
+          U$ '47F1E406013F' /* ValidSortTypes */
+          U$ '47F1E425028C' /* IsSaved */
+          U$ '47F1E48F03C7' /* ListName */
+          U$ '47F1E4A901C7' /* ShortListName */
+          U$ '47F1E7000276' /* IsChanged */
+          U$ '47F1E722039F' /* IsFiltered */
+          U$ '47F1E7E70201' /* HasSimilarDocuments */
+          U$ '47F1E8060132' /* HasAnnotation */
+          U$ '47F1E81E0324' /* HasCorrespondents */
+          U$ '47F1E832010D' /* HasRelatedDoc */
+          U$ '47F1E8870093' /* HasRespondents */
+          U$ '47F1E89D01B5' /* IsUnderControl */
+          U$ '47F1E8EB00BA' /* IsDocument */
+          U$ '47F1E96F02DC' /* CRTypeNode */
+          U$ '47F1E988002E' /* CRTypeRoot */
+          U$ '47F1EA050290' /* OpenFrom */
+          U$ '47F1EA1C002D' /* CRTypeName */
+          U$ '47F1EA570068' /* IsListNotFull */
+          U$ '47F1EA8502EE' /* CurrentRelevance */
+          U$ '47F1EDFC0318' /* UpdatePreview */
+          U$ '47F1EE480019' /* MakePreview */
+          U$ '47F1EE7202A6' /* ChangeCRType */
+          U$ '47F1EE960312' /* OpenDocument */
+          U$ '47F1EF0403E7' /* NewListFromSelected */
+          U$ '47F1EF4C03B2' /* ChangeSortOrder */
+          U$ '47F1EF76022D' /* ChangeSortType */
+          U$ '47F1F3380317' /* Find */
+          U$ '47F2053B0244' /* AddToControl */
+          U$ '47F2054C001C' /* DelFromControl */
+          U$ '47F2056400FD' /* CanAddToControl */
+          U$ '47F272B40292' /* IsListEmpty */
+          U$ '47F32E5D01B0' /* NewList */
+          U$ '47F48D7C028E' /* IsTimeMachineEnable */
+          U$ '47F48DF603AF' /* TimeMachineOff */
+          U$ '47F4BC8000F0' /* UpdateListInfo */
+          U$ '47F5C5050227' /* ListType */
+          U$ '47F60913013E' /* CheckList */
+          U$ '47F60D510152' /* ApplyFilter */
+          U$ '47F6121700FE' /* ClearFilters */
+          U$ '47F6180E0359' /* DeleteNodes */
+          U$ '47F61C3D03DE' /* ExportDocument */
+          U$ '47F61FC00314' /* ExportDocuments */
+          U$ '47F9CA3103AC' /* ListAsText */
+          U$ '47F9D29C02D7' /* MergeDocuments */
+          U$ '47F9F86A0108' /* RefreshFilters */
+          U$ '47F9FABC001D' /* IsActiveFilter */
+          U$ '47F9FADF033F' /* NodeId */
+          U$ '47FA0191035A' /* MakeDocumentPreview */
+          U$ '47FA168B01FB' /* List */
+          U$ '47FAF80A0182' /* ListNodeType */
+          U$ '47FAFE3B0226' /* OpenListFromSelectedNodes */
+          U$ '47FB001703CE' /* IsMain */
+          U$ '47FB059C02A3' /* ApplyLogicOperation */
+          U$ '47FC76D302A2' /* ApplyContextFilter */
+          U$ '47FC90B50037' /* SaveToFile */
+          U$ '47FF178F033D' /* NodeForPositioning */
+          U$ '47FF44F20247' /* ReleaseNodeForPositioning */
+          U$ '48034EC0013B' /* CreateBookmark */
+          U$ '4827DF180028' /* AllDocumentFiltered */
+          U$ '4875E7B60332' /* HasAttributes */
+          U$ '489015E10252' /* MakeSuperPreview */
+          U$ '48902C750320' /* MakeMultiDocumentPreview */
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4A2CD019038B' /* IsShortList */
+          U$ '4A2CD04A013A' /* MakeFullList */
+          U$ '4A796E570319' /* IsSnippet */
+          U$ '4AA0E9F503B4' /* CanAnalize */
+          U$ '4AA0EA29019C' /* MakeAnalizeTree */
+          U$ '4AEEE80202AD' /* ActiveFilters */
+          U$ '4B58450403DD' /* FullListCount */
+          U$ '512B22E20169' /* ListAsString */
+         ; // %REALIZES
+         %CHILDREN
+          
+           <<VCMZone>> remListModifiedUserCR2
+            %UID '4FF66D890235'
+            %META
+             %upv "ActivateIfUpdate" 'None'
+             %upv "Need GetFormCount" false
+             %upv "Need OnFormWeight" 'undefined'
+             %upv "Need UC" 'undefined'
+             %upv "ZoneType" 'Child'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4A7C099B004F' /* View */
+             U$ '4A92C59801C7' /* View */
+             U$ '4D1B64E70031' /* BusinessInterfaces */
+            ; // %TOBEINCLUDED
+            %IMPLEMENTS
+             U$ '4EF486CE0310' /* dsCRBaloonWarning */
+            ; // %IMPLEMENTS
+            %INHERITS
+             U$ '4DB97E660273' /* remListModified */
+             U$ '4EF47F1102A6' /* UserCR2_WarningBaloon */
+            ; // %INHERITS
+            %REALIZES
+             U$ '492186B0008F' /* GenerateWarning */
+             U$ '492186D101E0' /* WarningContent */
+             U$ '4DF9D63B0360' /* DocInfo */
+             U$ '4EFC5A31016E' /* ForSynchroView */
+            ; // %REALIZES
+           ; // remListModifiedUserCR2
+         ; // %CHILDREN
+        ; // UserCR2
+        <<VCMZone>> CToPart
+         %UID '4FF66DF301FB'
+         %META
+          %upv "ActivateIfUpdate" 'IfNotActivated'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '491D6701006E' /* IsdsDocument */
+          U$ '500CED9B0156' /* dsIncomingLinksToPart */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD588C1029B' /* lftCToPart */
+          U$ '4BD96F4C0025' /* List */
+         ; // %INHERITS
+         %REALIZES
+          U$ '01DBA41F4474' /* HasTranslation */
+          U$ '10E3D328A415' /* HasSimilarDocuments */
+          U$ '3690DB82E835' /* HasRelatedDoc */
+          U$ '47F1CDF60078' /* DocumentListType */
+          U$ '47F1DBA00097' /* SortOrder */
+          U$ '47F1E2DB03DA' /* SortType */
+          U$ '47F1E406013F' /* ValidSortTypes */
+          U$ '47F1E425028C' /* IsSaved */
+          U$ '47F1E48F03C7' /* ListName */
+          U$ '47F1E4A901C7' /* ShortListName */
+          U$ '47F1E7000276' /* IsChanged */
+          U$ '47F1E722039F' /* IsFiltered */
+          U$ '47F1E7E70201' /* HasSimilarDocuments */
+          U$ '47F1E8060132' /* HasAnnotation */
+          U$ '47F1E81E0324' /* HasCorrespondents */
+          U$ '47F1E832010D' /* HasRelatedDoc */
+          U$ '47F1E8870093' /* HasRespondents */
+          U$ '47F1E89D01B5' /* IsUnderControl */
+          U$ '47F1E8EB00BA' /* IsDocument */
+          U$ '47F1E96F02DC' /* CRTypeNode */
+          U$ '47F1E988002E' /* CRTypeRoot */
+          U$ '47F1EA050290' /* OpenFrom */
+          U$ '47F1EA1C002D' /* CRTypeName */
+          U$ '47F1EA570068' /* IsListNotFull */
+          U$ '47F1EA8502EE' /* CurrentRelevance */
+          U$ '47F1EDFC0318' /* UpdatePreview */
+          U$ '47F1EE480019' /* MakePreview */
+          U$ '47F1EE7202A6' /* ChangeCRType */
+          U$ '47F1EE960312' /* OpenDocument */
+          U$ '47F1EF0403E7' /* NewListFromSelected */
+          U$ '47F1EF4C03B2' /* ChangeSortOrder */
+          U$ '47F1EF76022D' /* ChangeSortType */
+          U$ '47F1F3380317' /* Find */
+          U$ '47F2053B0244' /* AddToControl */
+          U$ '47F2054C001C' /* DelFromControl */
+          U$ '47F2056400FD' /* CanAddToControl */
+          U$ '47F272B40292' /* IsListEmpty */
+          U$ '47F32E5D01B0' /* NewList */
+          U$ '47F48D7C028E' /* IsTimeMachineEnable */
+          U$ '47F48DF603AF' /* TimeMachineOff */
+          U$ '47F4BC8000F0' /* UpdateListInfo */
+          U$ '47F5C5050227' /* ListType */
+          U$ '47F60913013E' /* CheckList */
+          U$ '47F60D510152' /* ApplyFilter */
+          U$ '47F6121700FE' /* ClearFilters */
+          U$ '47F6180E0359' /* DeleteNodes */
+          U$ '47F61C3D03DE' /* ExportDocument */
+          U$ '47F61FC00314' /* ExportDocuments */
+          U$ '47F9CA3103AC' /* ListAsText */
+          U$ '47F9D29C02D7' /* MergeDocuments */
+          U$ '47F9F86A0108' /* RefreshFilters */
+          U$ '47F9FABC001D' /* IsActiveFilter */
+          U$ '47F9FADF033F' /* NodeId */
+          U$ '47FA0191035A' /* MakeDocumentPreview */
+          U$ '47FA168B01FB' /* List */
+          U$ '47FAF80A0182' /* ListNodeType */
+          U$ '47FAFE3B0226' /* OpenListFromSelectedNodes */
+          U$ '47FB001703CE' /* IsMain */
+          U$ '47FB059C02A3' /* ApplyLogicOperation */
+          U$ '47FC76D302A2' /* ApplyContextFilter */
+          U$ '47FC90B50037' /* SaveToFile */
+          U$ '47FF178F033D' /* NodeForPositioning */
+          U$ '47FF44F20247' /* ReleaseNodeForPositioning */
+          U$ '48034EC0013B' /* CreateBookmark */
+          U$ '4827DF180028' /* AllDocumentFiltered */
+          U$ '4875E7B60332' /* HasAttributes */
+          U$ '489015E10252' /* MakeSuperPreview */
+          U$ '48902C750320' /* MakeMultiDocumentPreview */
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '4925978F00FA' /* ChangeDocument */
+          U$ '492597A602F6' /* MakeGotoPointData */
+          U$ '492598700162' /* OpenAttributes */
+          U$ '4937C4D90220' /* OpenCorrespondents */
+          U$ '4937C4E701F3' /* OpenRespondents */
+          U$ '4937C4F5038B' /* ChangeCRType */
+          U$ '4937C5250138' /* AddToControl */
+          U$ '4937C55101B2' /* DelFromControl */
+          U$ '4937C56002B6' /* ResetCacheAfterUpdate */
+          U$ '4937C58D008D' /* IsTypedCRSelected */
+          U$ '4937C5A5024F' /* HasTypedCRinBigBase */
+          U$ '4937C61C0270' /* IsUnderControl */
+          U$ '4937D0FF0303' /* UserCRListInfo */
+          U$ '4937D8220142' /* OpenWarning */
+          U$ '4937D83003DD' /* OpenEditions */
+          U$ '4937D83B0026' /* OpenSimilarDocuments */
+          U$ '4937D85C028F' /* OpenCRToPart */
+          U$ '4937D8F20041' /* ChangeRedaction */
+          U$ '4937D90C03C6' /* IsWarningNeeded */
+          U$ '4937D92D01E9' /* HasTimeMachineWarning */
+          U$ '4937D93B01BC' /* HasAnyRedaction */
+          U$ '4939534D01FB' /* FlashData */
+          U$ '493E4E670017' /* LockWarning */
+          U$ '493E4E6E0115' /* UnLockWarning */
+          U$ '493E4F7E039B' /* Generate */
+          U$ '4953D3B20211' /* OpenContents */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4A2CD019038B' /* IsShortList */
+          U$ '4A2CD04A013A' /* MakeFullList */
+          U$ '4A796E570319' /* IsSnippet */
+          U$ '4AA0E9F503B4' /* CanAnalize */
+          U$ '4AA0EA29019C' /* MakeAnalizeTree */
+          U$ '4AEEE80202AD' /* ActiveFilters */
+          U$ '4B58450403DD' /* FullListCount */
+          U$ '4DA87F3D006B' /* dsBaloonWarning */
+          U$ '4DABF91B0274' /* dsTimeMachineWarning */
+          U$ '4DF9D63B0360' /* DocInfo */
+          U$ '4EDCF32E02FF' /* dsTranslationWarning */
+          U$ '4EF486CE0310' /* dsCRBaloonWarning */
+          U$ '50002EC80001' /* dsDocument */
+          U$ '5009A673037A' /* dsRelatedDoc */
+          U$ '5009A699023D' /* dsRespondents */
+          U$ '5009A6BE01DD' /* dsCorrespondents */
+          U$ '5009A6EF0016' /* dsUserCR1 */
+          U$ '5009A72B01A5' /* dsUserCR2 */
+          U$ '5009A78501A6' /* dsAttributes */
+          U$ '5009ADAC0080' /* dsDocumentWithFlash */
+          U$ '500CED6C023C' /* dsWarning */
+          U$ '500CED9B0156' /* dsIncomingLinksToPart */
+          U$ '500CEDBC03A5' /* dsEditions */
+          U$ '500CEDF00141' /* dsAnnotation */
+          U$ '500CEE0F0071' /* dsTranslation */
+          U$ '500CEE5200DF' /* dsSimilarDocuments */
+          U$ '500CEEBD01CB' /* dsContents */
+          U$ '5111C2BAF24F' /* HasDocument */
+          U$ '512B22E20169' /* ListAsString */
+          U$ '5236A4FB0320' /* dsOutgoingLinksFromPart */
+          U$ '53BFD3A70050' /* dsChronology */
+          U$ '558928CF0335' /* HasSimilarToFragment */
+          U$ '5594F2C102D7' /* dsSimilarDocumentsToFragment */
+          U$ '559510480014' /* OpenSimilarDocumentsToFragment */
+          U$ '5BAF4D39E661' /* HasChronology */
+          U$ '6DBD21E52E04' /* HasAttributes */
+          U$ '8A0096569944' /* HasAnnotation */
+          U$ 'A0814C441725' /* HasCorrespondents */
+          U$ 'E562F23618B1' /* HasRespondents */
+         ; // %REALIZES
+        ; // CToPart
+        <<VCMZone>> RToPart
+         %UID '5236A5B301A1'
+         %META
+          %upv "ActivateIfUpdate" 'IfNotActivated'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5236A4FB0320' /* dsOutgoingLinksFromPart */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD96F4C0025' /* List */
+          U$ '5236CE6D00AC' /* lftRToPart */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47F1CDF60078' /* DocumentListType */
+          U$ '47F1DBA00097' /* SortOrder */
+          U$ '47F1E2DB03DA' /* SortType */
+          U$ '47F1E406013F' /* ValidSortTypes */
+          U$ '47F1E425028C' /* IsSaved */
+          U$ '47F1E48F03C7' /* ListName */
+          U$ '47F1E4A901C7' /* ShortListName */
+          U$ '47F1E7000276' /* IsChanged */
+          U$ '47F1E722039F' /* IsFiltered */
+          U$ '47F1E7E70201' /* HasSimilarDocuments */
+          U$ '47F1E8060132' /* HasAnnotation */
+          U$ '47F1E81E0324' /* HasCorrespondents */
+          U$ '47F1E832010D' /* HasRelatedDoc */
+          U$ '47F1E8870093' /* HasRespondents */
+          U$ '47F1E89D01B5' /* IsUnderControl */
+          U$ '47F1E8EB00BA' /* IsDocument */
+          U$ '47F1E96F02DC' /* CRTypeNode */
+          U$ '47F1E988002E' /* CRTypeRoot */
+          U$ '47F1EA050290' /* OpenFrom */
+          U$ '47F1EA1C002D' /* CRTypeName */
+          U$ '47F1EA570068' /* IsListNotFull */
+          U$ '47F1EA8502EE' /* CurrentRelevance */
+          U$ '47F1EDFC0318' /* UpdatePreview */
+          U$ '47F1EE480019' /* MakePreview */
+          U$ '47F1EE7202A6' /* ChangeCRType */
+          U$ '47F1EE960312' /* OpenDocument */
+          U$ '47F1EF0403E7' /* NewListFromSelected */
+          U$ '47F1EF4C03B2' /* ChangeSortOrder */
+          U$ '47F1EF76022D' /* ChangeSortType */
+          U$ '47F1F3380317' /* Find */
+          U$ '47F2053B0244' /* AddToControl */
+          U$ '47F2054C001C' /* DelFromControl */
+          U$ '47F2056400FD' /* CanAddToControl */
+          U$ '47F272B40292' /* IsListEmpty */
+          U$ '47F32E5D01B0' /* NewList */
+          U$ '47F48D7C028E' /* IsTimeMachineEnable */
+          U$ '47F48DF603AF' /* TimeMachineOff */
+          U$ '47F4BC8000F0' /* UpdateListInfo */
+          U$ '47F5C5050227' /* ListType */
+          U$ '47F60913013E' /* CheckList */
+          U$ '47F60D510152' /* ApplyFilter */
+          U$ '47F6121700FE' /* ClearFilters */
+          U$ '47F6180E0359' /* DeleteNodes */
+          U$ '47F61C3D03DE' /* ExportDocument */
+          U$ '47F61FC00314' /* ExportDocuments */
+          U$ '47F9CA3103AC' /* ListAsText */
+          U$ '47F9D29C02D7' /* MergeDocuments */
+          U$ '47F9F86A0108' /* RefreshFilters */
+          U$ '47F9FABC001D' /* IsActiveFilter */
+          U$ '47F9FADF033F' /* NodeId */
+          U$ '47FA0191035A' /* MakeDocumentPreview */
+          U$ '47FA168B01FB' /* List */
+          U$ '47FAF80A0182' /* ListNodeType */
+          U$ '47FAFE3B0226' /* OpenListFromSelectedNodes */
+          U$ '47FB001703CE' /* IsMain */
+          U$ '47FB059C02A3' /* ApplyLogicOperation */
+          U$ '47FC76D302A2' /* ApplyContextFilter */
+          U$ '47FC90B50037' /* SaveToFile */
+          U$ '47FF178F033D' /* NodeForPositioning */
+          U$ '47FF44F20247' /* ReleaseNodeForPositioning */
+          U$ '48034EC0013B' /* CreateBookmark */
+          U$ '4827DF180028' /* AllDocumentFiltered */
+          U$ '4875E7B60332' /* HasAttributes */
+          U$ '489015E10252' /* MakeSuperPreview */
+          U$ '48902C750320' /* MakeMultiDocumentPreview */
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4A2CD019038B' /* IsShortList */
+          U$ '4A2CD04A013A' /* MakeFullList */
+          U$ '4A796E570319' /* IsSnippet */
+          U$ '4AA0E9F503B4' /* CanAnalize */
+          U$ '4AA0EA29019C' /* MakeAnalizeTree */
+          U$ '4AEEE80202AD' /* ActiveFilters */
+          U$ '4B58450403DD' /* FullListCount */
+          U$ '512B22E20169' /* ListAsString */
+         ; // %REALIZES
+        ; // RToPart
+        <<VCMZone>> Chronology
+         %UID '53C019870367'
+         %META
+          %upv "ActivateIfUpdate" 'None'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '53BFD3A70050' /* dsChronology */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD8574A03A5' /* Text */
+          U$ '53BFD2E400A4' /* dftChronology */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47EA04080292' /* HasDoc */
+          U$ '47EA042601D9' /* CanWorkWithRedactions */
+          U$ '47EA04970339' /* HasPrevRedaction */
+          U$ '47EA04B400A1' /* HasNextRedaction */
+          U$ '47EA08690258' /* IsReadOnly */
+          U$ '47EA087C02BC' /* TimeMachineOff */
+          U$ '49145C5D0015' /* SwitchToDocumentFromList */
+          U$ '49145C6E00F8' /* ReturnToList */
+          U$ '49145C7C0021' /* CanOpenPrevDoc */
+          U$ '49145C86028D' /* CanOpenNextDoc */
+          U$ '49145C940250' /* CanReturnToList */
+          U$ '491B2D5A0200' /* Container */
+          U$ '491B2DB200CE' /* DocInfo */
+          U$ '491B2E63002B' /* Language */
+          U$ '491B2E87000D' /* IsDateCurrentRedationEmpty */
+          U$ '491B2F1601B0' /* IsActualRedation */
+          U$ '491B2F63002D' /* MakeGotoPointData */
+          U$ '491B2FE20181' /* NewDocInfo */
+          U$ '491D664C0232' /* OpenSimilarDocuments */
+          U$ '491D66630373' /* GetSubPosition */
+          U$ '491D66910265' /* HasSimilarDocuments */
+          U$ '4953D3B20211' /* OpenContents */
+          U$ '495894020347' /* PreviewCaleeArea */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4AE56DE80093' /* MakeHAFMacroReplacer */
+          U$ '4AE575FA030B' /* MakeFilterInfo */
+          U$ '4E7B663D00A9' /* dsContents */
+          U$ '500E5D3B02AF' /* LikeState */
+          U$ '500E5D5D0268' /* AsLikeable */
+          U$ '53D8C6EA038C' /* GetDocumentShortName */
+          U$ '54B3A7C7038F' /* GetDocumentName */
+          U$ '5594F4830261' /* OpenSimilarDocumentsToFragment */
+         ; // %REALIZES
+        ; // Chronology
+        <<VCMZone>> SimilarDocumentsToFragment
+         %UID '5594F37A0253'
+         %META
+          %upv "ActivateIfUpdate" 'IfNotActivated'
+          %upv "Need GetFormCount" false
+          %upv "Need OnFormWeight" 'undefined'
+          %upv "Need UC" 'undefined'
+          %upv "ZoneType" 'Child'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+          U$ '4A92C59801C7' /* View */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5594F2C102D7' /* dsSimilarDocumentsToFragment */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD96F4C0025' /* List */
+          U$ '5594F3A50378' /* lftSimilarDocumentsToFragment */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47F1CDF60078' /* DocumentListType */
+          U$ '47F1DBA00097' /* SortOrder */
+          U$ '47F1E2DB03DA' /* SortType */
+          U$ '47F1E406013F' /* ValidSortTypes */
+          U$ '47F1E425028C' /* IsSaved */
+          U$ '47F1E48F03C7' /* ListName */
+          U$ '47F1E4A901C7' /* ShortListName */
+          U$ '47F1E7000276' /* IsChanged */
+          U$ '47F1E722039F' /* IsFiltered */
+          U$ '47F1E7E70201' /* HasSimilarDocuments */
+          U$ '47F1E8060132' /* HasAnnotation */
+          U$ '47F1E81E0324' /* HasCorrespondents */
+          U$ '47F1E832010D' /* HasRelatedDoc */
+          U$ '47F1E8870093' /* HasRespondents */
+          U$ '47F1E89D01B5' /* IsUnderControl */
+          U$ '47F1E8EB00BA' /* IsDocument */
+          U$ '47F1E96F02DC' /* CRTypeNode */
+          U$ '47F1E988002E' /* CRTypeRoot */
+          U$ '47F1EA050290' /* OpenFrom */
+          U$ '47F1EA1C002D' /* CRTypeName */
+          U$ '47F1EA570068' /* IsListNotFull */
+          U$ '47F1EA8502EE' /* CurrentRelevance */
+          U$ '47F1EDFC0318' /* UpdatePreview */
+          U$ '47F1EE480019' /* MakePreview */
+          U$ '47F1EE7202A6' /* ChangeCRType */
+          U$ '47F1EE960312' /* OpenDocument */
+          U$ '47F1EF0403E7' /* NewListFromSelected */
+          U$ '47F1EF4C03B2' /* ChangeSortOrder */
+          U$ '47F1EF76022D' /* ChangeSortType */
+          U$ '47F1F3380317' /* Find */
+          U$ '47F2053B0244' /* AddToControl */
+          U$ '47F2054C001C' /* DelFromControl */
+          U$ '47F2056400FD' /* CanAddToControl */
+          U$ '47F272B40292' /* IsListEmpty */
+          U$ '47F32E5D01B0' /* NewList */
+          U$ '47F48D7C028E' /* IsTimeMachineEnable */
+          U$ '47F48DF603AF' /* TimeMachineOff */
+          U$ '47F4BC8000F0' /* UpdateListInfo */
+          U$ '47F5C5050227' /* ListType */
+          U$ '47F60913013E' /* CheckList */
+          U$ '47F60D510152' /* ApplyFilter */
+          U$ '47F6121700FE' /* ClearFilters */
+          U$ '47F6180E0359' /* DeleteNodes */
+          U$ '47F61C3D03DE' /* ExportDocument */
+          U$ '47F61FC00314' /* ExportDocuments */
+          U$ '47F9CA3103AC' /* ListAsText */
+          U$ '47F9D29C02D7' /* MergeDocuments */
+          U$ '47F9F86A0108' /* RefreshFilters */
+          U$ '47F9FABC001D' /* IsActiveFilter */
+          U$ '47F9FADF033F' /* NodeId */
+          U$ '47FA0191035A' /* MakeDocumentPreview */
+          U$ '47FA168B01FB' /* List */
+          U$ '47FAF80A0182' /* ListNodeType */
+          U$ '47FAFE3B0226' /* OpenListFromSelectedNodes */
+          U$ '47FB001703CE' /* IsMain */
+          U$ '47FB059C02A3' /* ApplyLogicOperation */
+          U$ '47FC76D302A2' /* ApplyContextFilter */
+          U$ '47FC90B50037' /* SaveToFile */
+          U$ '47FF178F033D' /* NodeForPositioning */
+          U$ '47FF44F20247' /* ReleaseNodeForPositioning */
+          U$ '48034EC0013B' /* CreateBookmark */
+          U$ '4827DF180028' /* AllDocumentFiltered */
+          U$ '4875E7B60332' /* HasAttributes */
+          U$ '489015E10252' /* MakeSuperPreview */
+          U$ '48902C750320' /* MakeMultiDocumentPreview */
+          U$ '491DD57603A3' /* ImageList */
+          U$ '491DD5A10199' /* SimpleTree */
+          U$ '491DD5C90095' /* CurrentChanged */
+          U$ '496F344101D0' /* CanRunBaseSearch */
+          U$ '4A2CD019038B' /* IsShortList */
+          U$ '4A2CD04A013A' /* MakeFullList */
+          U$ '4A796E570319' /* IsSnippet */
+          U$ '4AA0E9F503B4' /* CanAnalize */
+          U$ '4AA0EA29019C' /* MakeAnalizeTree */
+          U$ '4AEEE80202AD' /* ActiveFilters */
+          U$ '4B58450403DD' /* FullListCount */
+          U$ '512B22E20169' /* ListAsString */
+         ; // %REALIZES
+        ; // SimilarDocumentsToFragment
+      ; // %CHILDREN
+     ; // AbstractDocument
+   ; // %CHILDREN
+  ; // AbstractDocumentFormSetFactory
+ ; // %CHILDREN
+; // View

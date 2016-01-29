@@ -1,0 +1,93 @@
+project (T_BreederRus_corba_client) : project-common-defines, project-common-includes, project_generic_core_corba, project_subsystem_windows, Base_T_Breeder, project-corba-client {
+
+	exename = Breeder
+
+	macros -= NO_GSSCREEN
+
+	macros += ONLY_NORM_INDEX
+	macros += QUICK_NEW_DOC
+
+	/////////////////////macros += RUSSIAN_DEF_RC
+
+	after += zlib
+	libs  += zlib
+
+	after += cchlp_breeder
+	libs  += cchlp_breeder
+
+	after += gctx_breeder
+	libs  += gctx_breeder
+
+	after += gc_breeder
+	libs  += gc_breeder
+
+	after += gkdb_breeder_rus
+	libs  += gkdb_breeder_rus
+
+	after += gsplit_breeder
+	libs  += gsplit_breeder
+
+	after += gsscreen_breeder
+	libs  += gsscreen_breeder
+
+	after += mrglib_breeder
+	libs  += mrglib_breeder
+
+	after += vcontrol_breeder
+	libs  += vcontrol_breeder
+
+// IDL dependent libs {
+	after += CoreSrv_cs IdlCompilationSet // does'n have lib and must be first
+
+	after += Core
+	libs  += Core
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += GCL
+	libs  += GCL
+
+	after += GCI
+	libs  += GCI
+
+	after += GSI
+	libs  += GSI
+
+	after += CoreOld_corba_client
+	libs  += CoreOld_corba_client
+
+	after += GblPilotC_corba
+	libs  += GblPilotC_corba
+
+	after += GblLoggingC_corba
+	libs  += GblLoggingC_corba
+
+	after += GslDataPipeC_corba
+	libs  += GslDataPipeC_corba
+
+	after += GslDataPipeS_corba
+	libs  += GslDataPipeS_corba
+
+	after += GslSecurityC_corba
+	libs  += GslSecurityC_corba
+
+	after += GslSessionHandlerClientS_corba
+	libs  += GslSessionHandlerClientS_corba
+
+	after += GslUserManagerC_corba
+	libs  += GslUserManagerC_corba
+
+	after += GslHeartbeatManagerC_corba
+	libs  += GslHeartbeatManagerC_corba
+// } IDL dependent libs
+
+	specific (vc9) {
+		lit_libs += htmlhelp
+		lit_libs += wininet
+		lit_libs += wsock32
+	}
+}

@@ -1,0 +1,887 @@
+<<VCMControllers>> Drug
+ %UID '49410AA9008B'
+ %SUMMARY 'Препараты' ;
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '494106E500F3' /* Medic */
+  U$ '4954F58900E8' /* List */
+  U$ '4954FAA00232' /* Search */
+  U$ '4982BE090383' /* vcmControllers */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4DC170560325' /* PrimListControllers */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '521C9DA50125' /* "Application Resources" */
+  U$ '53BA5A5D03A0' /* TabInterface */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680C57D01E9' /* Business */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '494106E500F3' /* Medic */
+  U$ '4954F58900E8' /* List */
+  U$ '4954FAA00232' /* Search */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4DC170560325' /* PrimListControllers */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '53BA5A5D03A0' /* TabInterface */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> DrugData
+   %UID '4A9FCCDB035B'
+   %DEPENDS
+    U$ '45700BFD0251' /* DynamicDocList */
+    U$ '4678193C009C' /* l3Types */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '47EA50050263' /* BaseDocument */
+    U$ '47F260DC003F' /* ns */
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '491D7C9603B2' /* MedicInterfaces */
+    U$ '4982BE090383' /* vcmControllers */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4680C57D01E9' /* Business */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '494106E500F3' /* Medic */
+    U$ '49410AA9008B' /* Drug */
+    U$ '4ABB680E0218' /* Common$Lib */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Impurity>> dBaseDrugDocument
+      %UID '47F07A9F0098'
+      %SUMMARY 'Данные описания препарата.' ;
+      %META
+       %upv "author" 'Морозов М.А. '
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '12.07.2006'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '494106E500F3' /* Medic */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47F076DD0260' /* IdBaseDrugDocument */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F085A9004C' /* dBaseDocumentWithAttributes */
+      ; // %INHERITS
+      %REALIZES
+       U$ '64B8F5213895' /* dsDrugInternationalNameSynonimsRef */
+       U$ 'B07FE8A09521' /* HasDrugInternationalNameSynonims */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4B16B8CF0307' /* AssignData */
+       U$ '4B18134E01F8' /* DoResetBooleans */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "47F07C1E0213"
+         %UID '47F07C1E0213'
+         %TARGET U$ '47EB55FD007A' /* TvcmFormDataSourceRef */
+        ; // 47F07C1E0213
+        <<uses>> "4B192EC00218"
+         %UID '4B192EC00218'
+         %TARGET U$ '4982B6510327' /* vcmFormDataSourceRef */
+        ; // 4B192EC00218
+        <<uses>> "4B192ED10385"
+         %UID '4B192ED10385'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 4B192ED10385
+        <<uses>> "4B192EE702B0"
+         %UID '4B192EE702B0'
+         %TARGET U$ '480F78BC0146' /* l3Utils */
+        ; // 4B192EE702B0
+      ; // %LINKS
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_dsDrugInternationalNameSynonimsRef
+         %UID 'F16477FCB5D8'
+         %SUMMARY 'Поле для свойства dsDrugInternationalNameSynonimsRef' ;
+         %TARGET U$ '47EB514C0336' /* IvcmFormDataSourceRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsDrugInternationalNameSynonimsRef
+        SUMMONED PRIVATE <<Attribute>> f_HasDrugInternationalNameSynonims
+         %UID '9651F8DE866D'
+         %SUMMARY 'Поле для свойства HasDrugInternationalNameSynonims' ;
+         %TARGET U$ '491BF08F035F' /* Tl3Bool */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_HasDrugInternationalNameSynonims
+      ; // %ATTRIBUTES
+     ; // dBaseDrugDocument
+     <<SimpleClass>> TdDrugList
+      %UID '47EB3E410033'
+      %SUMMARY 'Данные сборки "Список лекартсвенных препаратов".' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '494106E500F3' /* Medic */
+       U$ '49410AA9008B' /* Drug */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47EB3BEB00F1' /* IdDrugList */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F07A9F0098' /* dBaseDrugDocument */
+      ; // %INHERITS
+      %REALIZES
+       U$ '0048137F6167' /* dsFiltersRef */
+       U$ '38AF3FCA8739' /* dsDrugListRef */
+       U$ '47F37CF2000D' /* List */
+       U$ '47FF3A4C03E7' /* NodeForPositioning */
+       U$ '6DCE2C2DE35F' /* dsListInfoRef */
+       U$ '8C15EA0B7407' /* dsSynchroViewRef */
+       U$ 'B53EF7286977' /* DrugList_SynchroView_Form */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '47A042E100E2' /* InitFields */
+       U$ '4B16B8CF0307' /* AssignData */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "47EB5C780228"
+         %UID '47EB5C780228'
+         %TARGET U$ '47EB55FD007A' /* TvcmFormDataSourceRef */
+        ; // 47EB5C780228
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_NodeForPositioning
+         %UID '47FF3A7E02A7'
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_NodeForPositioning
+        PRIVATE <<Attribute>> f_List
+         %UID '47F37FDA00B9'
+         %TARGET U$ '45EEDB730265' /* DynList */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_List
+        PRIVATE ABSTRACT <<impurity_value>> IvcmRealData
+         %UID '4B220E3B03E3'
+         %TARGET U$ '47EB3BEB00F1' /* IdDrugList */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // IvcmRealData
+        SUMMONED PRIVATE <<Attribute>> f_dsFiltersRef
+         %UID '33F42E619E35'
+         %SUMMARY 'Поле для свойства dsFiltersRef' ;
+         %TARGET U$ '47EB514C0336' /* IvcmFormDataSourceRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsFiltersRef
+        SUMMONED PRIVATE <<Attribute>> f_dsDrugListRef
+         %UID '0A39BEC6397D'
+         %SUMMARY 'Поле для свойства dsDrugListRef' ;
+         %TARGET U$ '47EB514C0336' /* IvcmFormDataSourceRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsDrugListRef
+        SUMMONED PRIVATE <<Attribute>> f_dsListInfoRef
+         %UID '40ED9868BC14'
+         %SUMMARY 'Поле для свойства dsListInfoRef' ;
+         %TARGET U$ '47EB514C0336' /* IvcmFormDataSourceRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsListInfoRef
+        SUMMONED PRIVATE <<Attribute>> f_dsSynchroViewRef
+         %UID '95B6DCC3B158'
+         %SUMMARY 'Поле для свойства dsSynchroViewRef' ;
+         %TARGET U$ '47EB514C0336' /* IvcmFormDataSourceRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsSynchroViewRef
+        SUMMONED PRIVATE <<Attribute>> f_DrugList_SynchroView_Form
+         %UID '486F199E3EEB'
+         %SUMMARY 'Поле для свойства DrugList_SynchroView_Form' ;
+         %TARGET U$ 'EDFE395C8EE0' /* TDrugList_SynchroView_Areas */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // f_DrugList_SynchroView_Form
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<factory>> Make
+         %UID '494176F40163'
+         %SUMMARY 'Фабричный метод' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+      ; // %OPERATIONS
+     ; // TdDrugList
+     <<SimpleClass>> TdDrugDocument
+      %UID '47F4CCAD037F'
+      %SUMMARY 'Данные описания препарата.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '494106E500F3' /* Medic */
+       U$ '49410AA9008B' /* Drug */
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49365A300185' /* IdDrugDocument */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F07A9F0098' /* dBaseDrugDocument */
+      ; // %INHERITS
+      %REALIZES
+       U$ '3A7D008F28B6' /* dsContentsRef */
+       U$ '493925D603CF' /* ContentsTree */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '4B16B8CF0307' /* AssignData */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4B1937BE0268"
+         %UID '4B1937BE0268'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 4B1937BE0268
+        <<uses>> "4B1937CC013D"
+         %UID '4B1937CC013D'
+         %TARGET U$ '4982B6510327' /* vcmFormDataSourceRef */
+        ; // 4B1937CC013D
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_ContentsTree
+         %UID '4B1937860328'
+         %TARGET U$ '49145BA70313' /* IdeSimpleTree */
+         %TOBEINCLUDED
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+        ; // f_ContentsTree
+        PRIVATE ABSTRACT <<impurity_value>> IvcmRealData
+         %UID '4B220E4E01FC'
+         %TARGET U$ '49365A300185' /* IdDrugDocument */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // IvcmRealData
+        SUMMONED PRIVATE <<Attribute>> f_dsContentsRef
+         %UID 'D71094880F78'
+         %SUMMARY 'Поле для свойства dsContentsRef' ;
+         %TARGET U$ '47EB514C0336' /* IvcmFormDataSourceRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsContentsRef
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Factory>> Make
+         %UID '4B1936C003CB'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B1936C70313'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TdDrugDocument
+   ; // %CHILDREN
+  ; // DrugData
+  <<ControllerUnit>> sdsDrugDocument
+   %UID '47F075910035'
+   %SUMMARY 'БОС описания препарата.' ;
+   %DEPENDS
+    U$ '45700BFD0251' /* DynamicDocList */
+    U$ '457450470167' /* DynamicTree */
+    U$ '4678193C009C' /* l3Types */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '47EA4BB502F9' /* afwMixIns */
+    U$ '47EA50050263' /* BaseDocument */
+    U$ '47EA5024034B' /* ListDataSources */
+    U$ '47F260DC003F' /* ns */
+    U$ '48F747EC0073' /* Common */
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '491D7C9603B2' /* MedicInterfaces */
+    U$ '491D7CDC0221' /* Medic */
+    U$ '491DCA2C00A9' /* Search */
+    U$ '4A9FCCDB035B' /* DrugData */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B1FC2FF03CD' /* DocumentInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '4680C57D01E9' /* Business */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790D09A0378' /* L3 */
+    U$ '494106E500F3' /* Medic */
+    U$ '49410AA9008B' /* Drug */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4ABB680E0218' /* Common$Lib */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<UseCaseControllerImp>> sdsBaseDrugDocument
+      %UID '47F075CD00DC'
+      %SUMMARY 'БОС описание препарата.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '494106E500F3' /* Medic */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47F0761B0046' /* IsdsBaseDrugDocument */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F0849400D0' /* sdsBaseDocumentWithAttributes */
+      ; // %INHERITS
+      %REALIZES
+       U$ '0D45C46989F3' /* HasDrugInternationalNameSynonims */
+       U$ '500D3CBB01DF' /* dsDrugInternationalNameSynonims */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '47F37DF001FE' /* DataExchange */
+       U$ '4925B7F00156' /* ClearAllDS */
+       U$ '4925B9370022' /* DoChangeDocument */
+       U$ '49352CEF0222' /* GetHasAttributes */
+       U$ '4938F7E702B7' /* ClearAreas */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "47F4972E0203"
+         %UID '47F4972E0203'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 47F4972E0203
+        <<uses>> "493540C40325"
+         %UID '493540C40325'
+         %TARGET U$ '491BF08F035F' /* Tl3Bool */
+        ; // 493540C40325
+        <<uses>> "493542400258"
+         %UID '493542400258'
+         %TARGET U$ '47F07A9F0098' /* dBaseDrugDocument */
+        ; // 493542400258
+        <<uses>> "493545AE022A"
+         %UID '493545AE022A'
+         %TARGET U$ '45EEDB730265' /* DynList */
+        ; // 493545AE022A
+        <<uses>> "493546780135"
+         %UID '493546780135'
+         %TARGET U$ '45EEBA2C02BF' /* CatalogBase */
+        ; // 493546780135
+        <<uses>> "493546D601D9"
+         %UID '493546D601D9'
+         %TARGET U$ '47E9EDD301A4' /* TdsDrugList */
+        ; // 493546D601D9
+        <<uses>> "493546EE007E"
+         %UID '493546EE007E'
+         %TARGET U$ '480F78BC0146' /* l3Utils */
+        ; // 493546EE007E
+        <<uses>> "49354728030B"
+         %UID '49354728030B'
+         %TARGET U$ '47F21FE90379' /* bsUtils */
+        ; // 49354728030B
+        <<uses>> "4935483300E8"
+         %UID '4935483300E8'
+         %TARGET U$ '47F33E9E03C8' /* TdeList */
+        ; // 4935483300E8
+        <<uses>> "49354872032A"
+         %UID '49354872032A'
+         %TARGET U$ '47752AF90375' /* afwFacade */
+        ; // 49354872032A
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED <<Operation>> DoOpenDrugInternationalNameSynonims
+         %UID '47FDDD500143'
+         %SUMMARY '- открыть синонимы по международному названию.' ;
+        ; // DoOpenDrugInternationalNameSynonims
+        PROTECTED <<Operation>> NeedMakeDsDrugInternationalNameSynonims
+         %UID '47FE048E0224'
+         %SUMMARY '- нужно ли создавать БОФ синонимов по международному названию.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // NeedMakeDsDrugInternationalNameSynonims
+      ; // %OPERATIONS
+     ; // sdsBaseDrugDocument
+     <<UseCaseControllerImp>> TsdsDrugDocument
+      %UID '47F4A2F801D8'
+      %SUMMARY 'Базовый для списка препаратов и описания препаратов.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+       U$ '4790B4F00236' /* AFW */
+       U$ '494106E500F3' /* Medic */
+       U$ '49410AA9008B' /* Drug */
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47EA4BEF0140' /* afwApplicationDataUpdate */
+       U$ '4953C95E038F' /* IsdsDrugDocument */
+       U$ '4DF9B9980075' /* nsOpenContents */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F075CD00DC' /* sdsBaseDrugDocument */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47F3778403D9' /* MakeData */
+       U$ '47FDF09F0290' /* OpenDrugInternationalNameSynonims */
+       U$ '4925B1EC0100' /* BaseDocumentClass */
+       U$ '500CEEBD01CB' /* dsContents */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '47EA4E9002C6' /* FinishDataUpdate */
+       U$ '47F37DF001FE' /* DataExchange */
+       U$ '4925B7F00156' /* ClearAllDS */
+       U$ '4938F7E702B7' /* ClearAreas */
+       U$ '493D51ED0329' /* FillState */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49365AB50258"
+         %UID '49365AB50258'
+         %TARGET U$ '492D854C0189' /* TdsBaseContents */
+        ; // 49365AB50258
+        <<uses>> "49365AE102FB"
+         %UID '49365AE102FB'
+         %TARGET U$ '491D89A001A9' /* TdsDrugDocument */
+        ; // 49365AE102FB
+        <<uses>> "49365B10019F"
+         %UID '49365B10019F'
+         %TARGET U$ '47F4CCAD037F' /* TdDrugDocument */
+        ; // 49365B10019F
+        <<uses>> "49365C3902AF"
+         %UID '49365C3902AF'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49365C3902AF
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> SetDataType
+         %UID '49416779025C'
+         %TARGET U$ '49365A300185' /* IdDrugDocument */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // SetDataType
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '4947AE0900DC'
+         %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+         %TOBEINCLUDED
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID 'CD9CE9489C04'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsDrugDocument' ;
+         %TARGET U$ '4953C95E038F' /* IsdsDrugDocument */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // SetType
+      ; // %ATTRIBUTES
+     ; // TsdsDrugDocument
+   ; // %CHILDREN
+  ; // sdsDrugDocument
+  <<ControllerUnit>> sdsDrugList
+   %UID '47EA01EA0070'
+   %SUMMARY 'БОС Список лекарственных препаратов.' ;
+   %DEPENDS
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '47EA50050263' /* BaseDocument */
+    U$ '47EA5024034B' /* ListDataSources */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '47F075910035' /* sdsDrugDocument */
+    U$ '47F22C7501F6' /* Document */
+    U$ '47F260DC003F' /* ns */
+    U$ '48F747EC0073' /* Common */
+    U$ '491D7C9603B2' /* MedicInterfaces */
+    U$ '491D7CDC0221' /* Medic */
+    U$ '491DCA2C00A9' /* Search */
+    U$ '4922BFA000DD' /* SimpleListInterfaces */
+    U$ '4955235700D2' /* SimpleList */
+    U$ '4982BE090383' /* vcmControllers */
+    U$ '4A9FCCDB035B' /* DrugData */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B1D3D250382' /* PrimPrimListInterfaces */
+    U$ '4C6A7BA001A5' /* F1DocumentContainers */
+    U$ '4DC1708D032D' /* PrimListControllersRealization */
+    U$ '521C9DA50125' /* "Application Resources" */
+    U$ '53A402C7010D' /* TabbedInterfaceSupport */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677FF4B0036' /* Data */
+    U$ '4680C57D01E9' /* Business */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '47E9EEC60260' /* Model */
+    U$ '494106E500F3' /* Medic */
+    U$ '49410AA9008B' /* Drug */
+    U$ '4954F58900E8' /* List */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4ABB680E0218' /* Common$Lib */
+    U$ '4C6A65ED0374' /* F1DocumentProcessing */
+    U$ '4DC170560325' /* PrimListControllers */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '53BA5A5D03A0' /* TabInterface */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<UseCaseControllerImp>> TsdsDrugList
+      %UID '47EA0F2B031C'
+      %SUMMARY 'БОС Список лекарственных препаратов.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '494106E500F3' /* Medic */
+       U$ '49410AA9008B' /* Drug */
+       U$ '4A9FFD3F01AD' /* Search */
+       U$ '4DC170560325' /* PrimListControllers */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47EA026B024C' /* IsdsDrugList */
+       U$ '4DC1671402AB' /* nsListWarningGenerator */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F075CD00DC' /* sdsBaseDrugDocument */
+      ; // %INHERITS
+      %REALIZES
+       U$ '41B49128CE19' /* IsDocumentActive */
+       U$ '47F3778403D9' /* MakeData */
+       U$ '47F4BF4E0397' /* UpdateListInfo */
+       U$ '47FB2086026D' /* Open */
+       U$ '47FF2155021A' /* NodeForPositioning */
+       U$ '47FF44850384' /* ReleaseNodeForPositioning */
+       U$ '4925B1EC0100' /* BaseDocumentClass */
+       U$ '49AE664F006B' /* dsListPrim */
+       U$ '4DC185B80232' /* dsBaloonWarning */
+       U$ '500D3D75005B' /* dsDrugList */
+       U$ '500D3E3500FF' /* dsSynchroView */
+       U$ '500D3E780156' /* dsFilters */
+       U$ '500D3EB1023F' /* dsListInfo */
+       U$ '501806DE0323' /* ShortListName */
+       U$ '50180BA801C2' /* ListName */
+       U$ '5D78745D5001' /* OpenDocument */
+       U$ '7680D04D575B' /* OpenDrugInternationalNameSynonims */
+       U$ '7ECE38CEFE6F' /* IsAttributesActive */
+       U$ '862011C4CE04' /* IsDrugInternationalNameSynonimsActive */
+       U$ 'ECBE8DB2214F' /* OpenAttributes */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '47F37DF001FE' /* DataExchange */
+       U$ '47FDDACC0101' /* DoOpenAttributes */
+       U$ '47FDDD500143' /* DoOpenDrugInternationalNameSynonims */
+       U$ '47FE03AE0225' /* NeedMakeDSAttributes */
+       U$ '47FE048E0224' /* NeedMakeDsDrugInternationalNameSynonims */
+       U$ '4925B7F00156' /* ClearAllDS */
+       U$ '4938F7E702B7' /* ClearAreas */
+       U$ '493D1BE601B1' /* NeedMakeDocument */
+       U$ '53B3BF9C00EF' /* DoGetFormSetImageIndex */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "47EA4CB00275"
+         %UID '47EA4CB00275'
+         %TARGET U$ '47E9EDD301A4' /* TdsDrugList */
+        ; // 47EA4CB00275
+        <<uses>> "47ECDBB400FA"
+         %UID '47ECDBB400FA'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 47ECDBB400FA
+        <<uses>> "47F07DAA0084"
+         %UID '47F07DAA0084'
+         %TARGET U$ '47ECD5A6015A' /* TdsDrugListSynchroView */
+        ; // 47F07DAA0084
+        <<uses>> "47F0999D0250"
+         %UID '47F0999D0250'
+         %TARGET U$ '47EB3E410033' /* TdDrugList */
+        ; // 47F0999D0250
+        <<uses>> "47F37B1202FE"
+         %UID '47F37B1202FE'
+         %TARGET U$ '47F33E9E03C8' /* TdeList */
+        ; // 47F37B1202FE
+        <<uses>> "47F3814C0358"
+         %UID '47F3814C0358'
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+        ; // 47F3814C0358
+        <<uses>> "47F5BDD10372"
+         %UID '47F5BDD10372'
+         %TARGET U$ '47F5BC100329' /* TdsFilters */
+        ; // 47F5BDD10372
+        <<uses>> "47F5D75A0063"
+         %UID '47F5D75A0063'
+         %TARGET U$ '47F5D70E03AB' /* TdsMainDrugList */
+        ; // 47F5D75A0063
+        <<uses>> "47FB43500121"
+         %UID '47FB43500121'
+         %TARGET U$ '47752AF90375' /* afwFacade */
+        ; // 47FB43500121
+        <<uses>> "47FB4596011A"
+         %UID '47FB4596011A'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 47FB4596011A
+        <<uses>> "47FB518E0032"
+         %UID '47FB518E0032'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 47FB518E0032
+        <<uses>> "47FEF9D701C3"
+         %UID '47FEF9D701C3'
+         %TARGET U$ '47FEF9AA00CC' /* TdsListInfo */
+        ; // 47FEF9D701C3
+        <<uses>> "47FEFA17014D"
+         %UID '47FEFA17014D'
+         %TARGET U$ '47F21FE90379' /* bsUtils */
+        ; // 47FEFA17014D
+        <<uses>> "4933E90E02F0"
+         %UID '4933E90E02F0'
+         %TARGET U$ '4933E8FF02C7' /* TdsDrugListDocument */
+        ; // 4933E90E02F0
+        <<uses>> "4DC187AB012A"
+         %UID '4DC187AB012A'
+         %TARGET U$ '492189D90209' /* TdsWarning */
+        ; // 4DC187AB012A
+        <<uses>> "53BA49F0034B"
+         %UID '53BA49F0034B'
+         %TARGET U$ '53BA488F00D8' /* nsTabbedInterfaceTypes */
+        ; // 53BA49F0034B
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> SetDataType
+         %UID '494167B70065'
+         %TARGET U$ '47EB3BEB00F1' /* IdDrugList */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // SetDataType
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '4947AE45000E'
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID 'FBDCC06A70A6'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsDrugList' ;
+         %TARGET U$ '47EA026B024C' /* IsdsDrugList */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // SetType
+        SUMMONED PRIVATE <<Attribute>> f_dsBaloonWarning
+         %UID '4B4E4EF4C612'
+         %SUMMARY 'Поле для области вывода dsBaloonWarning' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsBaloonWarning
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED PROTECTED FINAL <<Operation>> ChangeSynchroForm
+         %UID '341E87C755C8'
+         %SUMMARY 'Переключает форму синхронного просмотра' ;
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aSynchroForm
+            %UID '196F9532D3F5'
+            %TARGET U$ 'EDFE395C8EE0' /* TDrugList_SynchroView_Areas */
+            %TOBEINCLUDED
+             U$ '494106E500F3' /* Medic */
+            ; // %TOBEINCLUDED
+           ; // aSynchroForm
+         ; // %PARAMETERS
+        ; // ChangeSynchroForm
+      ; // %OPERATIONS
+     ; // TsdsDrugList
+     <<ViewAreaControllerImp>> TdsDrugListSynchroView
+      %UID '47ECD5A6015A'
+      %SUMMARY 'Бизнес объект формы синхронного просмотра списка препаратов' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '494106E500F3' /* Medic */
+       U$ '4954F58900E8' /* List */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '494690E5004E' /* IdsSimpleListSynchroView */
+       U$ '5016A90300B0' /* IdsDrugListSynchroView */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47ECE94D03D4' /* vcmFormDataSourcePrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '33C4CFE7BE58' /* IsDrugInternationalNameSynonimsActive */
+       U$ '47ECD5280007' /* OpenDocument */
+       U$ '47ECD54803CB' /* HasDocument */
+       U$ '47ECD5490012' /* IsDocumentActive */
+       U$ '47F08A0E035F' /* HasAttributes */
+       U$ '47F08A2A03E6' /* IsAttributesActive */
+       U$ '47F08A7F0108' /* OpenAttributes */
+       U$ '494692790065' /* OpenList */
+       U$ '4946928403A8' /* HasList */
+       U$ '49469292003A' /* IsListActive */
+       U$ 'EBEDED9E4D65' /* HasDrugInternationalNameSynonims */
+       U$ 'FED42B6D17CA' /* OpenDrugInternationalNameSynonims */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PROTECTED FINAL LINK <<UseCase>> SDS
+         %UID '47F0913001F5'
+         %SUMMARY 'Ссылка на сборку' ;
+         %TARGET U$ '47EA026B024C' /* IsdsDrugList */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // SDS
+        PRIVATE ABSTRACT <<impurity_value>> FormDataSourceType
+         %UID '5016A9680205'
+         %TARGET U$ '5016A90300B0' /* IdsDrugListSynchroView */
+         %TOBEINCLUDED
+          U$ '494106E500F3' /* Medic */
+         ; // %TOBEINCLUDED
+        ; // FormDataSourceType
+      ; // %ATTRIBUTES
+     ; // TdsDrugListSynchroView
+     <<ViewAreaControllerImp>> TdsDrugListDocument
+      %UID '4933E8FF02C7'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4926CAF40166' /* dsBaseDocument */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C6AB38800F3' /* MakeContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4D357C2102B8"
+         %UID '4D357C2102B8'
+         %TARGET U$ '4C6A9AD101B4' /* TnsF1DocumentContainer */
+        ; // 4D357C2102B8
+      ; // %LINKS
+     ; // TdsDrugListDocument
+     <<ViewAreaControllerImp>> TdsMainDrugList
+      %UID '47F5D70E03AB'
+      %SUMMARY 'БОФ списка препаратов в главной зоне' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '494106E500F3' /* Medic */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47E9EDD301A4' /* TdsDrugList */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47F0D913030D' /* NotifyAboutChangeCurrent */
+       U$ '47FB00640212' /* DoIsMain */
+      ; // %OVERRIDES
+     ; // TdsMainDrugList
+   ; // %CHILDREN
+  ; // sdsDrugList
+ ; // %CHILDREN
+; // Drug

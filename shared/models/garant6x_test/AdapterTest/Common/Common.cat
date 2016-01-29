@@ -1,0 +1,927 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Common"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis-QC,key:NMST,guid:480759E50328/Home/Ìîäåëü ïðîåêòà "garant6x_test"/AdapterTest/Common|48172BE2027A
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"13070844306"))
+    quid       	"48172BE2027A"
+    stereotype 	"Unit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "atCommon"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis-QC,key:NMST,guid:480759E50328/Home/Ìîäåëü ïðîåêòà "garant6x_test"/AdapterTest/Common/atCommon|48172C290190
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (intf.pas)"
+		    value      	"w:/quality/test/garant6x/AdapterTest/atCommon.pas")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (intf.pas)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13070930067"))
+	    quid       	"48172C290190"
+	    stereotype 	"UtilityPack"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070936388"))
+		    quid       	"487788B7019D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::SysUtils"
+		    quidu      	"47877EB202FB"))
+	    operations 	(list Operations
+		(object Operation "GetRandomStr"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*48172C380180_48172C290190_var*"
+			    value      	"//#UC START# *48172C380180_48172C290190_var*¤  const¤    chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabxdefghijklmnopqratuvwxyzÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäå¸æçèéêëìíîïðñòóôõö÷øùúûüýþÿ';¤  var¤    i, chrLen : integer;¤//#UC END# *48172C380180_48172C290190_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*48172C380180_48172C290190_impl*"
+			    value      	"//#UC START# *48172C380180_48172C290190_impl*¤  chrLen := Length(chars);¤  SetLength(Result, strLength);¤  for i := 1 to strLength do¤    Result[i] := chars[1+Random(chrLen)];¤//#UC END# *48172C380180_48172C290190_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"476136D3010B")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070931436"))
+		    quid       	"48172C380180"
+		    parameters 	(list Parameters
+			(object Parameter "const strLength"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"46A606AC03B2")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13070932372"))
+			    quid       	"48172CBE0307"
+			    type       	"Integer"
+			    quidu      	"46A606AC03B2"))
+		    result     	"String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "GetTimeStamp"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4877882C03CF_48172C290190_var*"
+			    value      	"//#UC START# *4877882C03CF_48172C290190_var*¤//#UC END# *4877882C03CF_48172C290190_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4877882C03CF_48172C290190_impl*"
+			    value      	"//#UC START# *4877882C03CF_48172C290190_impl*¤  Result := FormatDateTime('hh-nn-ss-zzz_dd-mm-yyyy', Now)¤//#UC END# *4877882C03CF_48172C290190_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"476136D3010B")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070933103"))
+		    quid       	"4877882C03CF"
+		    result     	"String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "Less"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46A606AC03B2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B75913601D9_48172C290190_var*"
+			    value      	"//#UC START# *4B75913601D9_48172C290190_var*¤//#UC END# *4B75913601D9_48172C290190_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B75913601D9_48172C290190_impl*"
+			    value      	"//#UC START# *4B75913601D9_48172C290190_impl*¤  if Integer(anItem1) > Integer(anItem2) then¤    Result := 1¤  else if Integer(anItem1) = Integer(anItem2) then¤    Result := 0¤  else¤    Result := -1;¤//#UC END# *4B75913601D9_48172C290190_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070934120"))
+		    quid       	"4B75913601D9"
+		    parameters 	(list Parameters
+			(object Parameter "anItem1"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"46A608F00301")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13070935047"))
+			    quid       	"4B7591460327"
+			    type       	"Pointer"
+			    quidu      	"46A608F00301")
+			(object Parameter "anItem2"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"46A608F00301")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13070935594"))
+			    quid       	"4B7591460336"
+			    type       	"Pointer"
+			    quidu      	"46A608F00301"))
+		    result     	"Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46A606AC03B2")
+		(object Operation "ReadStream"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1300087234458")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46A606AC03B2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4CB8650F023B_48172C290190_var*"
+			    value      	"//#UC START# *4CB8650F023B_48172C290190_var*¤  const¤    BUF_SIZE = 4096;¤  var¤    l_Buf : array [0..BUF_SIZE-1] of Char;¤    l_ReadBytes : Longint;¤    l_NewPos : Int64;¤//#UC END# *4CB8650F023B_48172C290190_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4CB8650F023B_48172C290190_impl*"
+			    value      	"//#UC START# *4CB8650F023B_48172C290190_impl*¤  Result := 0;¤  aStream.Seek(0, 0, l_NewPos);¤  repeat¤    aStream.Read(@l_Buf[0], BUF_SIZE, @l_ReadBytes);¤    Inc(Result, l_ReadBytes);¤  until l_ReadBytes < BUF_SIZE;¤//#UC END# *4CB8650F023B_48172C290190_impl*"))
+		    quid       	"4CB8650F023B"
+		    parameters 	(list Parameters
+			(object Parameter "aStream"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1300166950474")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"46A5AFF103CA"))
+			    quid       	"4CB865240378"
+			    type       	"IStream"))
+		    result     	"Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46A606AC03B2"))
+	    language   	"MDA Generator")
+	(object Class "atCRC32"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (intf.pas)"
+		    value      	"w:/quality/test/garant6x/AdapterTest/atCRC32.pas")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (intf.pas)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis-QC,key:NMST,guid:480759E50328/Home/Ìîäåëü ïðîåêòà "garant6x_test"/AdapterTest/Common/atCRC32|4A4B91810237
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13070938091"))
+	    quid       	"4A4B91810237"
+	    documentation 	"Ðàñ÷åò êîíòðîëüíîé ñóììû CRC32"
+	    stereotype 	"UtilityPack"
+	    operations 	(list Operations
+		(object Operation "Init"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4A4B91E4031E*"
+			    value      	"//#UC START# *4A4B91E4031E*¤  InitCRC32Table();¤//#UC END# *4A4B91E4031E*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070948055"))
+		    quid       	"4A4B91E4031E"
+		    stereotype 	"ini"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "InitCRC32Table"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4A4B93380119_4A4B91810237_var*"
+			    value      	"//#UC START# *4A4B93380119_4A4B91810237_var*¤  var i, j, c : Longword;¤//#UC END# *4A4B93380119_4A4B91810237_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4A4B93380119_4A4B91810237_impl*"
+			    value      	"//#UC START# *4A4B93380119_4A4B91810237_impl*¤  SetLength(CRC32Table, 256);¤  for i := 0 to 255 do¤  begin¤    c := i;¤    for j := 0 to 7 do¤      if ((c and 1) = 0) then¤        c := c shr 1¤      else¤        c := (c shr 1) xor $EDB88320;¤    CRC32Table[i] := c;¤  end;¤//#UC END# *4A4B93380119_4A4B91810237_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070949310"))
+		    quid       	"4A4B93380119"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "ComputeCRC32"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4A4B91EE0198_4A4B91810237_var*"
+			    value      	"//#UC START# *4A4B91EE0198_4A4B91810237_var*¤//#UC END# *4A4B91EE0198_4A4B91810237_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4A4B91EE0198_4A4B91810237_impl*"
+			    value      	"//#UC START# *4A4B91EE0198_4A4B91810237_impl*¤  Result := $FFFFFFFF;¤  UpdateCRC32(Buf, BufLength, Result);¤  Result := not Result;¤//#UC END# *4A4B91EE0198_4A4B91810237_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48FD996601CE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070950366"))
+		    quid       	"4A4B91EE0198"
+		    parameters 	(list Parameters
+			(object Parameter "const Buf"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"46A608F00301")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13070951346"))
+			    quid       	"4A4B91F30019"
+			    type       	"Pointer"
+			    quidu      	"46A608F00301")
+			(object Parameter "const BufLength"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"48FD996601CE")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13070951937"))
+			    quid       	"4A4B91F30029"
+			    type       	"Longword"
+			    quidu      	"48FD996601CE"))
+		    result     	"Longword"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48FD996601CE")
+		(object Operation "UpdateCRC32"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4A4B91F8033D_4A4B91810237_var*"
+			    value      	"//#UC START# *4A4B91F8033D_4A4B91810237_var*¤  var¤    BufEnd : PChar;¤//#UC END# *4A4B91F8033D_4A4B91810237_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4A4B91F8033D_4A4B91810237_impl*"
+			    value      	"//#UC START# *4A4B91F8033D_4A4B91810237_impl*¤  BufEnd := Buf + BufLength - 1;¤  while (Buf <= BufEnd) do¤  begin¤    CRC32 := CRC32Table[(CRC32 xor Longword(Buf^)) and $FF] xor (CRC32 shr 8);¤    Inc(Buf);¤  end;¤//#UC END# *4A4B91F8033D_4A4B91810237_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070952556"))
+		    quid       	"4A4B91F8033D"
+		    parameters 	(list Parameters
+			(object Parameter "Buf"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4771179900D8")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13070953570"))
+			    quid       	"4A4B91FA028E"
+			    type       	"PChar"
+			    quidu      	"4771179900D8")
+			(object Parameter "const BufLength"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"48FD996601CE")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13070954166"))
+			    quid       	"4A4B91FA029D"
+			    type       	"Longword"
+			    quidu      	"48FD996601CE")
+			(object Parameter "inout CRC32"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"48FD996601CE")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13070954711"))
+			    quid       	"4A4B91FA02AD"
+			    type       	"Longword"
+			    quidu      	"48FD996601CE"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "CRC32Table"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4A4B91A1034B")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070946027"))
+		    quid       	"4A4B91B701D1"
+		    type       	"array of Longword"
+		    quidu      	"4A4B91A1034B"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "array of Longword"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"array type"
+			    value      	"open")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug tie log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"force usage"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070939401"))
+		    quid       	"4A4B91A1034B"
+		    stereotype 	"Vector")))
+	(object Association "$UNNAMED$0"
+	    quid       	"4A4B91AC0397"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13070940496"))
+		    quid       	"4A4B91AD0154"
+		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Longword"
+		    quidu      	"48FD996601CE"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"4A4B91AD0164"
+		    supplier   	"Logical View::garant6x_test::AdapterTest::Common::atCRC32::array of Longword"
+		    quidu      	"4A4B91A1034B"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48172C5E028A"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x_test::AdapterTest::Common::atCommon" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(630, 312)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(163, 186)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	934
+			justify    	0
+			label      	"atCommon")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(163, 136)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	934
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"48172C290190"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(163, 247)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	972
+			justify    	1)
+		    width      	952
+		    height     	376
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::SysUtils" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(633, 798)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(469, 766)
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"SysUtils")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(469, 716)
+			anchor     	10
+			nlines     	1
+			max_width  	325
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"47877EB202FB"
+		    width      	346
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(751, 601)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"487788B7019D"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(630, 500)
+			(632, 703))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garant6x_test::AdapterTest::Common::atCRC32" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(918, 1365)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(144, 1206)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1548
+			justify    	0
+			label      	"atCRC32")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(144, 1156)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1548
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	14145535
+		    quidu      	"4A4B91810237"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(144, 1267)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	1537
+			justify    	1)
+		    width      	1566
+		    height     	442
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"4A4B91810237")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4A4B91890343"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Longword" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(495, 237)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	2313060
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(373, 209)
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"Longword")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(373, 159)
+			anchor     	10
+			nlines     	1
+			max_width  	241
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	2313060
+		    fill_color 	16777215
+		    quidu      	"48FD996601CE"
+		    width      	262
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x_test::AdapterTest::Common::atCRC32::array of Longword" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(492, 705)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(285, 652)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	414
+			justify    	0
+			label      	"• array of Longword")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(285, 602)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	414
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4A4B91A1034B"
+		    width      	432
+		    height     	230
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @8
+		    location   	(495, 458)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A4B91AC0397"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @9
+			    Parent_View 	@8
+			    location   	(3, -247)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A4B91AD0154"
+			    client     	@8
+			    supplier   	@6
+			    vertices   	(list Points
+				(495, 458)
+				(495, 327))
+			    line_style 	3
+			    origin_attachment 	(495, 458)
+			    terminal_attachment 	(495, 327))
+			(object RoleView "$UNNAMED$2" @10
+			    Parent_View 	@8
+			    location   	(3, -247)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A4B91AD0164"
+			    client     	@8
+			    supplier   	@7
+			    vertices   	(list Points
+				(495, 458)
+				(495, 589))
+			    line_style 	3
+			    origin_attachment 	(495, 458)
+			    terminal_attachment 	(495, 589))))))))

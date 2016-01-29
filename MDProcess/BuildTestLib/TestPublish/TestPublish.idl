@@ -1,0 +1,50 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/BuildTestLib/TestPublish/TestPublish.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::BuildTestLib::TestPublish
+//
+// стандартная публикация результатов тестов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___TESTPUBLISH_IDL__
+#define ___TESTPUBLISH_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#include "MDProcess/ServerGate/Contents/Contents.idl"
+#include "MDProcess/BuildTestLib/TestResults/TestResults.idl"
+#pragma prefix "garant.ru"
+
+module BuildTestLib {
+
+module TestPublish {
+	// набор результатов тестов
+	typedef sequence<TestResults::Test> TestSuite;
+
+	// публикатор результатов тестов
+	interface Publish {
+		// постит результаты теста стандартным образом (сейчас - в К)
+		void post (in TestSuite result, in ServerGate::Contents::PageId page_id);
+	};
+
+	// factory manager server interface for Publish
+	interface PublishFactoryManagerSrv {
+		// make
+		Publish make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module BuildTestLib
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

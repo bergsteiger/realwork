@@ -1,0 +1,241 @@
+// OvcBase 4754101B004F Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4754101B004F
+
+: ME_475415C50224
+ CONST UID '475415C50224'
+ CONST Name 'TOvcController'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контроллер команд.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4754101B004F // OvcBase
+ ;
+ : Inherits
+   @ ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcController.pas'
+
+ref; // ME_475415C50224 TOvcController
+
+FORWARD ME_475410380119
+
+: ME_475416990003
+ CONST UID '475416990003'
+ CONST Name 'Controller'
+ CONST Class class_Attribute
+ %SUMMARY 'Контроллер команд.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_475410380119 // TOvcBase
+ ;
+ : Target ME_475415C50224 // TOvcController
+ ;
+
+ref; // ME_475416990003 Controller
+
+: ME_795EEB6A33AB
+ CONST UID '795EEB6A33AB'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TOvcBase' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_475410380119 // TOvcBase
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_795EEB6A33AB Ini_Reg_Class
+
+: ME_E825044EA968
+ CONST UID 'E825044EA968'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_475410380119 // TOvcBase
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_E825044EA968 
+
+: ME_475410380119
+ CONST UID '475410380119'
+ CONST Name 'TOvcBase'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'base class for Orpheus components. Provides controller access.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4754101B004F // OvcBase
+ ;
+ : Inherits
+   @ ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_475416990003 // Controller
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_795EEB6A33AB // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_E825044EA968 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcBase.pas'
+
+ref; // ME_475410380119 TOvcBase
+
+FORWARD ME_5150530901CE
+
+: ME_514C8A3B0262
+ CONST UID '514C8A3B0262'
+ CONST Name 'TOvcColors'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5150530901CE // OvcColor
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_514C8A3B0262 TOvcColors
+
+: ME_5150530901CE
+ CONST UID '5150530901CE'
+ CONST Name 'OvcColor'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4754101B004F // OvcBase
+ ;
+ : Children
+   @ ( ME_514C8A3B0262 // TOvcColors
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcColor.pas'
+
+ref; // ME_5150530901CE OvcColor
+
+: ME_5159566B0063
+ CONST UID '5159566B0063'
+ CONST Name 'OvcData'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4754101B004F // OvcBase
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcData.pas'
+
+ref; // ME_5159566B0063 OvcData
+
+: ME_515956AC0167
+ CONST UID '515956AC0167'
+ CONST Name 'OvcExcpt'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4754101B004F // OvcBase
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcExcpt.pas'
+
+ref; // ME_515956AC0167 OvcExcpt
+
+: ME_4754101B004F
+ CONST UID '4754101B004F'
+ CONST Name 'OvcBase'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ %SUMMARY 'Базовые контролы. Base unit for Orpheus visual components.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47540FF802AC' '47540FF802AC.pas.ms.script' // Orpheus
+ ;
+ : Children
+   @ ( ME_475415C50224 // TOvcController
+ ME_475410380119 // TOvcBase
+ ME_5150530901CE // OvcColor
+ ME_5159566B0063 // OvcData
+ ME_515956AC0167 // OvcExcpt
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47541DF90101' '47541DF90101.pas.ms.script' // l3InterfacedComponent
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4754101B004F.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4754101B004F.pas.ms.script.runner'
+
+ref; // ME_4754101B004F OvcBase

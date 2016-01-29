@@ -1,0 +1,104 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/ClassInner/Constructor.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::ClassInner::Constructor
+//
+// Конструктор
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Constructor::Class
+? Конструктор
+= method::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#
+/ - типы видимости
+a fr
+/ - тип абстракции
+Y code_factory.gif
+L code_factory
+// Параметры визуализации
+$ C 126,248,193
+$ l 0,85,0
+$ f 0,85,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _IsConstructor
+// возвращаемый результат: boolean
+//#UC START# *4AE025440082for4AE024D60148*
+	true
+//#UC END# *4AE025440082for4AE024D60148*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _pas_BeforeMethodBodyImplementation
+// параметры: Implementator: void = %1, Modification: void = %2
+// возвращаемый результат: a-string
+//#UC START# *4B6C4DE70271for4AE024D60148*
+	%S%[inherited]\
+	[{%P#f_IsStruct()=true}\
+	%S%f_pas_StaticCtorBeforeMethodBodyImplementation(%1,%2)\
+	]
+//#UC END# *4B6C4DE70271for4AE024D60148*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodImplementation
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for4AE024D60148*
+	[{%P#f_IsStruct()=true}{\
+	%S%[inherited]\
+	}\
+	\n%f_pas_OutStaticCtorImplementation(%S)\
+	]
+//#UC END# *494BEC7C03E5for4AE024D60148*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodInterface
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor4AE024D60148*
+	[{%P#f_IsStruct()=true}{\
+	%S%[inherited]\
+	}\
+	%f_pas_OutStaticCtorInterface(%S)\
+	]
+//#UC END# *494BEC6A038Afor4AE024D60148*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4AE024D60148*
+//#UC END# *49F5795900ECfor4AE024D60148*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4AE024D60148*
+//	%S%f_pas_MethodInterface()
+//#UC END# *4774D2A20372for4AE024D60148*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

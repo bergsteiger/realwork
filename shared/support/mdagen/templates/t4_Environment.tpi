@@ -1,0 +1,90 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Environment
+//////////////////////////////////////////////////////////////////////////////////
+
+: Environment::Class
+< *::Class, *::Category
+$ C 180,250,255
+$ l 5, 120,155
+$ f 5, 120,155
+
+$ S
+? Среда окружения
+? Позволяет носуществлять внешнюю настроку пакета реализации, посредством задания значения переменных окружения.
+Y t4_env.gif
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
++ wiki
+G %PU
+
++ h
+O Environment.h
+	%f_output_constraint(%S)\
+# t0_h_header
+	%f_environment_constraints(%S)%f_std_inc(%S)
+	%f_includes_by_contents(%S)<\#include %f_dump_include_path(%wL,%w)
+	>
+	%U[{_CUSTOM_INCLUDES}
+	]
+	%SP
+	class Environment;
+	
+	class Environment_i {
+		friend class Environment;
+		
+	[	Environment_i () : <{, }{"%CI"!=""}m_%CN(%CI)> {
+		}
+	
+	]<%f_env_var_h(%C)
+	>
+	private:
+		typedef ACE_Singleton\<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+		friend class ACE_Singleton\<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	
+	private:
+	<%CX
+	
+	>}; // class Environment_i
+	
+	class Environment {
+	public:<
+		static %f_iget_attr(%C) get_%CN () {
+			return Environment_i::Singleton::instance()-\>get_%CN ();
+		}
+	
+		static void set_%CN (%f_iset_attr(%C) %CN) {
+			Environment_i::Singleton::instance()-\>set_%CN (%CN);
+		}	
+	>}; // class Environment
+	
+	%Sp
+# t0_h_footer
+
+: Environment::Class::Attribute
+? Переменная окружения
+= SimpleClass::Class::Attribute
+l a
+v +
++ h
+	%f_docs(%S)\
+	#[{%t_refcounted(%T)=true}{%f_attr(%S)}%t_attr(%T,"ref[-%Ss]",%S)] m_[{}{%f_to_omg(%TN)}%SN];
+
+f _env_var_h
+		%f_iget_attr(%S) get_%SN () const {
+		[{"%t_interface(%T)"="true"}{	return m_[{}{%f_to_omg(%TN)}%SN];}\
+		if (m_[{}{%f_to_omg(%TN)}%SN].ptr()) {
+				return *m_[{}{%f_to_omg(%TN)}%SN].ptr();
+			} else {
+				throw Core::Root::CachedAttrUninitialized (GDS_CURRENT_FUNCTION);
+			}]
+		}
+	
+		void set_%SN (%f_iset_attr(%S) %SN) {
+			m_[{}{%f_to_omg(%TN)}%SN] = [{"%t_interface(%T)"="true"}%f_type(%T)::_duplicate(]%SN[{"%t_interface(%T)"="true"})];
+		}
+
+f _environment_constraints
+	[{%P<{}{%CS=Environment}{C}>!=1}%f_error("<{}{}{r}%PN::>%SN - В одном пакете реализации может быть задан только один элемент \<\<%SS\>\>")]

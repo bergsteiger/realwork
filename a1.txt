@@ -1,0 +1,86 @@
+  TApplication = class(TComponent)
+  private
+    FOnException: TExceptionEvent;
+    FRunning: Boolean;
+    FTerminate: Boolean;
+    FOnIdle: TIdleEvent;
+    FTitle: string;
+    FMainForm: TCommonCustomForm;
+    FCreateForms: array of TFormRegistryItem;
+    FBiDiMode: TBiDiMode;
+    FTimerActionHandle: TFmxHandle;
+    FActionUpdateDelay: integer;
+    FTimerActionInterval: Integer;
+    FOnActionUpdate: TActionEvent;
+    FIdleDone: boolean;
+    FRealCreateFormsCalled: Boolean;
+    FFormFactor : TFormFactor;
+    FFormRegistry : TFormRegistry;
+    FMainFormFamily : String;
+    FDefaultTitle: string;
+    {$IFDEF WIN32}
+    FMobileStyleBook: TStyleBook;
+    {$ENDIF}
+    FLastKeyPress: TDateTime;
+    FLastUserActive: TDateTime;
+    procedure Idle;
+    procedure SetupActionTimer;
+    procedure SetActionUpdateDelay(const Value: integer);
+    procedure DoUpdateActions;
+    procedure UpdateActionTimerProc;
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+    procedure FormDestroyed(AForm: TCommonCustomForm);
+    procedure RealCreateForms;
+    procedure CreateForm(InstanceClass: TComponentClass; var Reference);
+    procedure CreateMainForm;
+    procedure RegisterFormFamily(const AFormFamily: String;
+                                 const AForms: array of TComponentClass);
+    procedure ProcessMessages;
+    property LastKeyPress: TDateTime read FLastKeyPress;
+    property LastUserActive: TDateTime read FLastUserActive;
+    procedure DoIdle(var Done: Boolean);
+    function HandleMessage: Boolean;
+    procedure Run;
+    procedure Terminate;
+    procedure Initialize;
+    procedure HandleException(Sender: TObject);
+    procedure ShowException(E: Exception);
+    property BiDiMode: TBiDiMode read FBiDiMode write FBiDiMode default bdLeftToRight;
+    property Terminated: Boolean read FTerminate write FTerminate;
+    /// <summary>
+    /// This event is executed after processing all the events (mouse, keyboard, timers).
+    /// </summary>
+    /// <param name="Sender">
+    /// Usually Application.
+    /// </param>
+    /// <param name="Done">
+    /// This option indicates that you need to perform some standard operations
+    /// (eg updating of all Actions), that run in Idle and methods OnIdle. For example:
+    /// you can control what the user has stopped its activities and assign a value to <c>False</c>,
+    /// in order to reduce the load on the processor when the user is asleep.
+    /// </param>
+    property OnIdle: TIdleEvent read FOnIdle write FOnIdle;
+    property MainForm: TCommonCustomForm read FMainForm write FMainform;
+    property Title: string read FTitle write FTitle; // deprecated
+    property DefaultTitle: string read FDefaultTitle;
+    property OnException: TExceptionEvent read FOnException write FOnException;
+
+    function UpdateAction(Action: TBasicAction): Boolean; override;
+    /// <summary>
+    /// Delay until updating of all Actions. DoIdle method runs the timer
+    /// that activates update of all Actions after the specified timeinterval (ActionUpdateDelay)
+    /// <para>If <c>ActionUpdateDelay = 0</c>, then DoIdle activates update immediately. </para>
+    /// <para>If <c>ActionUpdateDelay &lt; 0</c>, then DoIdle does not activate update. See also <see cref="ActionUpdateDelayNever"/></para>
+    /// </summary>
+    /// <remarks>
+    /// This is performed only if the parameter <c>Done = True</c>. See <see cref="OnIdle"/>
+    /// </remarks>
+    property ActionUpdateDelay: integer read FActionUpdateDelay write SetActionUpdateDelay;
+    property OnActionUpdate: TActionEvent read FOnActionUpdate write FOnActionUpdate;
+    function GetDeviceForm(FormFamily : string; FormFactor : TFormFactor) : TCommonCustomForm; overload;
+    function GetDeviceForm(FormFamily : string) : TCommonCustomForm; overload;
+    function GetFormRegistryItem(FormFamily: string; FormFactor : TFormFactor): TFormRegistryItem;
+    procedure OverrideScreenSize(W, H : Integer);
+end;

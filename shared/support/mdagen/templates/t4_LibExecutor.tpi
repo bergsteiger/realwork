@@ -1,0 +1,257 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// LibExecutor
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: LibExecutor::Class
+$ C 195,245,195
+$ l 10,195,10
+$ f 10,195,10
+
+? Исполнитель
+? Точка входа в программу (библиотеку). Может быть созданно несколько executor'ов - все будут запущенны асинхронно. Может иметь методы и атрибуты.
+< *::Category, Interface::Class, Servant::Class, Valuetype::Class, UMLPrimitive::Class
+< Environment::Class, Iterator::Class, Const Iterator::Class, UtilityPack::Class
+< GuiControl::Class, Dialog::Class, PropertySheet::Class, PropertyPage::Class, ComInterface::Class, ComServant::Class
+< Actor::Class, UserNeeds::Class, Feature::Class, UseCase::Class
+< CServletPlugin::Class, CListenerPlugin::Class, CMacroPlugin::Class, CComponentPlugin::Class, CJobPlugin::Class, CTriggerPlugin::Class, CVelocityContextPlugin::Class, VM::Class, CXWorkPlugin::Class, CActionPlugin::Class, XPackage::Class, CSpringPlugin::Class, CExtractorPlugin::Class, CLifecyclePlugin::Class
+< EvdTag::Class
+< EvdStruct::Class
+< EvdAtom::Class
+< Event::Class
+
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p type=server\stand alone|client|both ? тип executor'а определяет на какой стороне (для КС) будет выполнен
+d 1
+W
+D
+L code_lib_executer
+Y t4_lib_exec.gif
+
+%f _wiki_up_print
+	[{%S{type}=client}* (!) будет выполнен *только* на клиентской стороне
+	][{%S{type}=both}* (!) будет выполнен и на серверной и наклиентской стороне
+	]
+
+%f _wiki_up_add_gen
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ h
+O %SN.h
+	%f_output_constraint(%S)\
+# t0_h_header
+	%f_std_inc(%S)
+	\#include [{%PS!=ServerLibrary}{"shared/CoreSrv/impl/Root_i/CorbaExecutorBase.h"}"shared/Core/impl/Root_i/ExecutorBase.h"]
+	%f_set_var(SELF,S)%f_set_var(SERV,S)[%f_includes_by_contents(%S)
+	]<\#include %f_dump_include_path(%wL,%w)
+	>[{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	]%SP
+	%f_docs(%S)
+	class %SN :[{}{ virtual public [{%PS!=ServerLibrary}{CoreSrv::Root_i::Corba}Core::Root_i::]ExecutorBase }
+		<{\n	, }virtual public %f_type(%R)>[{"%Rx"="true"}\n\t, ]<{\n	, }virtual public %f_type(%G)>
+	]{
+		SET_OBJECT_COUNTER (%SN)		
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declorations
+	protected:
+	<{}{"%CC"="Class"}
+	%CX
+	>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	private:
+		REFCOUNT_SINGLETON(%SN)
+	
+	public:
+		static Core::Root::Executor& get () {
+			return Singleton::instance();
+		}		
+	
+	[protected:<{}{"%CS"="static"&"%CV"!="PrivateAccess"}{Sn}
+	%CX
+	>
+	][private:<{}{"%CS"="static"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]]
+	private:
+		void execute_ ();	
+		
+		void finalize ();
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self methods
+	[protected:
+	<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"&"%CV"!="PrivateAccess"}{Sn}
+	%CX
+	>
+	][private:
+	<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]][//////////////////////////////////////////////////////////////////////////////////////////
+	// self data
+	private:<{}{"%CC"="Attribute"}{Sn}
+	%CX
+	>][%f_dump_cpp_derrived_impl_h(%S)
+	]
+	[{%S{need UC}=true}%U[
+	]
+	]}; // class %SN
+	
+	%Sp
+# t0_h_footer
+
++ cpp
+O %SN.cpp
+P
+	%f_output_constraint(%S)\
+# t0_header
+	%f_set_var(SELF,S)%f_set_var(SERV,S)
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	<{}{}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]><{}{}{%W}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+	][\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>]
+	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+	]
+	]%SP[{%S{need UC}=true}
+	%U[{_CUSTOM_BODY}
+	]
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested implementation<{}{"%CC"="Class"}[
+	%CX
+	]>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	<{}{"%CS"="static"}
+	%CX
+	>
+	]
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// main execute method
+	
+	void %SN::execute_ () {
+		try {
+			%U[
+			LOG_D (("Hello world, this is %SN!"));
+			]	
+			[{%PS=ServerLibrary}Corba]ExecutorBase::execute_ ();
+			return;
+		} CATCH_AND_LOG ("in execute")
+		
+		this-\>current_status() = Core::Root::ES_ERROR;
+	}
+	
+	void %SN::finalize () {
+		%U[{_FINI}
+		]
+	}
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self implementation<{}{"%CC"="Operation"&"%Ca"!="true"&"%CS"!="static"&"%CS"!="ctor"|"%CC"="Attribute"&"%CS"="cached"}{Sn}
+	
+	%CX>]
+	%f_dump_cpp_derrived_impl_cpp(%S)
+	%Sp
+# t0_footer
+
++ java
+O %SN.java
+P
+	%f_output_constraint(%S)\
+# t0_header
+	%f_set_var(SELF,S)%f_set_var(SERV,S)
+	package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	
+	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+	]
+	]public class %SN
+		extends [{%PS!=ServerLibrary}{ru.garant.shared.CoreSrv.Root_i.Corba}ru.garant.shared.Core.Root_i].ExecutorBase]
+	[	implements <{\n	, }%f_type(%R)>
+	]{
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declorations
+	<{}{"%CC"="Class"}
+	%CX
+	>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+		static class Singleton {
+			private static %SN INSTANCE = null;
+	
+			public static %SN instance () {
+				if (INSTANCE == null) {
+					INSTANCE = new %SN ();
+				}
+				return INSTANCE;
+			}
+		}
+	
+		static ru.garant.shared.Core.Root.Executor get () {
+			return Singleton.instance();
+		}
+	
+	[<{}{"%CS"="static"}
+	%CX
+	>
+	]]
+		protected void execute_ () {
+			try {
+				%U[
+				System.out.println ("Hello world, this is %SN!");
+				]
+				super.execute_ ();
+			} catch (java.lang.Throwable ex) {
+				this.CurrentStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_ERROR);
+				Logs.LOG_SEX(ex);
+			}
+		}
+	
+		protected void finalize () {
+			%U[{_FINI}
+			]
+		}
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self methods
+	[<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"}
+	%CX
+	>
+	]][//////////////////////////////////////////////////////////////////////////////////////////
+	// self data
+	<{}{"%CC"="Attribute"}
+	%CX
+	>][%f_dump_java_derrived_impl(%S)
+	]
+	[{%S{need UC}=true}%U[
+	]
+	]}; // class %SN
+# t0_footer
+
+: LibExecutor::Class::Attribute
+= SimpleClass::Class::Attribute
+
+: LibExecutor::Class::Operation
+= SimpleClass::Class::Operation
+
+: LibExecutor::Class::Operation::Parameter
+= SimpleClass::Class::Operation::Parameter
+
+: LibExecutor::Class::uses::ClassDependency
+? Использование
+%f _wiki_child_kind
+	uses

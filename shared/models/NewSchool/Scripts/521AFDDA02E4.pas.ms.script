@@ -1,0 +1,70 @@
+// ddConst 521AFDDA02E4 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_521AFDDA02E4
+
+FORWARD ME_521AFDE50046
+
+: ME_521AFE0403B5
+ CONST UID '521AFE0403B5'
+ CONST Name 'pictNONE'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_521AFDE50046 // PictureFormat
+ ;
+ CONST Value 'ioUnknown'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_521AFE0403B5 pictNONE
+
+: ME_521AFDE50046
+ CONST UID '521AFDE50046'
+ CONST Name 'PictureFormat'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_521AFDDA02E4 // ddConst
+ ;
+ : Attributes
+   @ ( ME_521AFE0403B5 // pictNONE
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_521AFDE50046 PictureFormat
+
+: ME_521AFDDA02E4
+ CONST UID '521AFDDA02E4'
+ CONST Name 'ddConst'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ ;
+ : Constants
+   @ ( ME_521AFDE50046 // PictureFormat
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddConst.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\521AFDDA02E4.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\521AFDDA02E4.pas.ms.script.runner'
+
+ref; // ME_521AFDDA02E4 ddConst

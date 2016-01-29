@@ -1,0 +1,1 @@
+Q:\callMSS.exe %1 > %1.out

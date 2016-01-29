@@ -1,0 +1,175 @@
+// HardKey 501956850225 ScriptKeyword Class
+
+FORWARD ME_501956850225
+
+FORWARD ME_50195C750318
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_50195C8702F3
+ CONST UID '50195C8702F3'
+ CONST Name 'aKey'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_476F71A701AB // Word
+ ;
+
+ @SELF
+; // ME_50195C8702F3 aKey
+
+: ME_50195C9401BC
+ CONST UID '50195C9401BC'
+ CONST Name 'aHold'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_50195C9401BC aHold
+
+: ME_50195C750318
+ CONST UID '50195C750318'
+ CONST Name 'TInputKeyRecord'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_50195C8702F3 // aKey
+ ME_50195C9401BC // aHold
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_50195C750318 TInputKeyRecord
+
+FORWARD ME_50195CA90222
+
+: ME_501969110132
+ CONST UID '501969110132'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_50195C750318 // TInputKeyRecord
+ ;
+
+ @SELF
+; // ME_501969110132 
+
+: ME_50195CA90222
+ CONST UID '50195CA90222'
+ CONST Name 'TInputKeyRecordArray'
+ CONST Class 'Class'
+ CONST Stereotype 'Array'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_501969110132 // 
+ ]
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ @SELF
+; // ME_50195CA90222 TInputKeyRecordArray
+
+FORWARD ME_50195D48017A
+
+INCLUDE '48A41FF10094.pas.ms.script'
+
+: ME_50196939001B
+ CONST UID '50196939001B'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4F7197540233 // TInput
+ ;
+
+ @SELF
+; // ME_50196939001B 
+
+: ME_50195D48017A
+ CONST UID '50195D48017A'
+ CONST Name 'TInputArray'
+ CONST Class 'Class'
+ CONST Stereotype 'Vector'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_50196939001B // 
+ ]
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ @SELF
+; // ME_50195D48017A TInputArray
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_C0AFEA11B8C0
+ CONST UID 'C0AFEA11B8C0'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация HardKey' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_C0AFEA11B8C0 Ini_Reg
+
+: ME_501956850225
+ CONST UID '501956850225'
+ CONST Name 'HardKey'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_C0AFEA11B8C0 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ : Children
+   [ ME_50195C750318 // TInputKeyRecord
+ ME_50195CA90222 // TInputKeyRecordArray
+ ME_50195D48017A // TInputArray
+ ]
+ ; // Children
+ CONST "ifndef" 'NoVCL'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_501956850225 HardKey

@@ -1,0 +1,230 @@
+// Wrap 5477970600C6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5477970600C6
+
+FORWARD ME_547869730335
+
+: ME_5478698F000A
+ CONST UID '5478698F000A'
+ CONST Name 'f_Rect'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_547869730335 // TRectWrap
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_5478698F000A f_Rect
+
+: ME_547869B0000E
+ CONST UID '547869B0000E'
+ CONST Name 'aRect'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_547869B0000E aRect
+
+: ME_547869A4035F
+ CONST UID '547869A4035F'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_547869730335 // TRectWrap
+ ;
+ : Parameters
+   @ ( ME_547869B0000E // aRect
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_547869A4035F Create
+
+: ME_547869730335
+ CONST UID '547869730335'
+ CONST Name 'TRectWrap'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5477970600C6 // Wrap
+ ;
+ : Inherits
+   @ ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_5478698F000A // f_Rect
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_547869A4035F // Create
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\RectWrap.pas'
+
+ref; // ME_547869730335 TRectWrap
+
+FORWARD ME_5477971800CE
+
+: ME_5477A62A0139
+ CONST UID '5477A62A0139'
+ CONST Name 'f_Item'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ;
+ : Target WL 'ME_5477697F0366' '533D53FF00C2.pas.ms.script' // TvcmMenuForChromeLikeItem
+ ;
+
+ref; // ME_5477A62A0139 f_Item
+
+: ME_5477ADBA02BC
+ CONST UID '5477ADBA02BC'
+ CONST Name 'rRectStub'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ;
+ : Target ME_547869730335 // TRectWrap
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_5477ADBA02BC rRectStub
+
+: ME_5478712A0083
+ CONST UID '5478712A0083'
+ CONST Name 'rItemStub'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ CONST "pm" true
+
+ref; // ME_5478712A0083 rItemStub
+
+: ME_5477A64D0105
+ CONST UID '5477A64D0105'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5477697F0366' '533D53FF00C2.pas.ms.script' // TvcmMenuForChromeLikeItem
+ ;
+
+ref; // ME_5477A64D0105 anItem
+
+: ME_5477A63901A9
+ CONST UID '5477A63901A9'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ;
+ : Parameters
+   @ ( ME_5477A64D0105 // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5477A63901A9 Create
+
+: ME_5477971800CE
+ CONST UID '5477971800CE'
+ CONST Name 'TvcmMenuForChromeLikeItemWrap'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5477970600C6 // Wrap
+ ;
+ : Inherits
+   @ ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_5477A62A0139 // f_Item
+ ME_5477ADBA02BC // rRectStub
+ ME_5478712A0083 // rItemStub
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5477A63901A9 // Create
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmMenuForChromeLikeItemWrap.pas'
+
+ref; // ME_5477971800CE TvcmMenuForChromeLikeItemWrap
+
+: ME_5477970600C6
+ CONST UID '5477970600C6'
+ CONST Name 'Wrap'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_499AA43A012F' '499AA43A012F.pas.ms.script' // VCMTest
+ ;
+ : Children
+   @ ( ME_547869730335 // TRectWrap
+ ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'vcmDefine.inc'
+ CONST "ifndef" 'NoTabs'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5477970600C6.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5477970600C6.pas.ms.script.runner'
+
+ref; // ME_5477970600C6 Wrap

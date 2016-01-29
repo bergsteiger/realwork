@@ -1,0 +1,30 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Event
+//////////////////////////////////////////////////////////////////////////////////
+
+: Event::Class
+? Событие
+? Соответствует элементу-событию, определенному на диаграмме состояний, 
+? соответствие определяется по совпадению имен
+< *::Class, *::Category
+= Struct::Class
+
+L code_event
+Y t4_event.gif
+
+%t _constraint
+c                              {}
+r {}:                          {}
+
+%f _base_class
+	[{%X{lid}=java}{[{%X{lid}=cpp} : FSM::BaseEvent]} extends ru.garant.shared.FSM.BaseEvent]
+
+
+: Event::Class::Attribute
+= Struct::Class::Attribute
+
+: Event::Class::sequence::Attribute
+= Struct::Class::sequence::Attribute
+
+: Event::Class::ctor::Operation
+= Struct::Class::ctor::Operation

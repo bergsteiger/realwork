@@ -1,0 +1,2 @@
+#define DEFAULT_USER_CODE_ID_START "//#UC START# "
+#define DEFAULT_USER_CODE_ID_END "//#UC END# "

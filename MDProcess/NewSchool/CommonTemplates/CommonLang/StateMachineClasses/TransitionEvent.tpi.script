@@ -1,0 +1,179 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/StateMachineClasses/TransitionEvent.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::StateMachineClasses::TransitionEvent
+//
+// Событие
+// ---
+// Соответствует элементу-событию, определенному на диаграмме состояний, соответствие определяется
+// по совпадению имен. Абстрактное событие может не соответствовать событию на диаграмме состояний
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TransitionEvent::Class
+implementation @ <<TransitionEvent>>
+//? Событие
+//? Соответствует элементу-событию, определенному на диаграмме состояний, соответствие определяется по совпадению имен. Абстрактное событие может не соответствовать событию на диаграмме состояний
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_sm_event.gif
+//L code_sm_event
+// Параметры визуализации
+//$ C 221,253,221
+//$ l 56,222,65
+//$ f 56,222,65
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p is base:b=false ? Определяет, что данный элемент будет базовым для всех элементов - событий в конкретной машине состояний
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{is base}"!="%S{!is base}"}%f_up_prefix(%S) *is base* = *%S{is base}* - Определяет, что данный элемент будет базовым для всех элементов - событий в конкретной машине состояний
+ ?inherited
+ if ( ( %S get_up ( 'is base' ) ) %!= ( %S get_up_def ( 'is base' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is base* = *'
+  %S get_up ( 'is base' ) '* - Определяет, что данный элемент будет базовым для всех элементов - событий в конкретной машине состояний'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа AbstractClass::Class
+// генерация списка базовых классов и реализуемых интерфейсов
+//%f _java_base_class_decl
+; // wiki_up_print
+
+: java_base_class_decl OBJECT IN %S
+//#UC START# *47173062030Dfor470F3D32029F*
+//	%P%f_find_specific_base_event()\
+//	%f_find_specific_base_event(%P,%S,"BASE_EVENT")\
+ [%f] find_specific_base_event %( %P %, %S %, 'BASE_EVENT' )% 
+//	[{%X{lid}=java}{[{%X{lid}=cpp} : [{"%{BASE_EVENT}U"!=""&%{BASE_EVENT}U!=%SU}{FSM::BaseEvent}%f_type(%{BASE_EVENT})]]}\
+ if ( ( %X get_up ( 'lid' ) ) %== 'java' ) then
+ begin
+//	[{}{[{"%{BASE_EVENT}U"!=""&%{BASE_EVENT}U!=%SU}{ implements ru.garant.shared.FSM.BaseEvent} extends %f_type(%{BASE_EVENT})]}%f_java_base(%S)]]
+  if NOT-EMPTY
+  begin
+   [%f] java_base %( %S )% 
+  end // if
+  NOP
+  else
+  begin
+   if ( ( ( get_global_var ( 'BASE_EVENT' ) |U ) ) %!= '' AND 
+     ( ( ( get_global_var ( 'BASE_EVENT' ) |U ) ) %!= ( %S |U )  ) ) then
+   begin
+    ' extends '
+    [%f] type %( ( get_global_var ( 'BASE_EVENT' ) ) )% 
+   end // if
+   else
+   begin
+    ' implements ru.garant.shared.FSM.BaseEvent' 
+   end // else
+  end // else
+ end // if
+ else
+ begin
+  if ( ( %X get_up ( 'lid' ) ) %== 'cpp' ) then
+  begin
+   ' : '
+   if ( ( ( get_global_var ( 'BASE_EVENT' ) |U ) ) %!= '' AND 
+     ( ( ( get_global_var ( 'BASE_EVENT' ) |U ) ) %!= ( %S |U )  ) ) then
+   begin
+    [%f] type %( ( get_global_var ( 'BASE_EVENT' ) ) )% 
+   end // if
+   else
+   begin
+    'FSM::BaseEvent' 
+   end // else
+  end // if
+ end // else
+//#UC END# *47173062030Dfor470F3D32029F*
+; // java_base_class_decl
+
+
+// перекрытие базового стереотипа AbstractClass::Class
+// генерация специфичсекого содержимого
+//%f _servant_content_java
+: servant_content_java OBJECT IN %S
+//#UC START# *47173078008Cfor470F3D32029F*
+//	[{%Sa!=abstract}\n\
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  #13#10
+//	#	public %SN () {
+  out_indent '	public '
+  %S |N ' () {'
+//	#		%U[{_CTOR_%f_to_upper(%SN)}
+  out_indent '		'
+  %Usersection (
+   '_CTOR_'
+   [%f] to_upper %( %S |N )% 
+  )
+  (
+   #13#10
+
+//	#		]
+   out_indent '		' 
+  ) // Usersection
+ //	#	}
+  out_indent '	}'
+//	][{"%{BASE_EVENT}U"=""|%f_is_base_event(%{BASE_EVENT})=true&%S{is base}=false}
+ end // if
+ if ( ( ( get_global_var ( 'BASE_EVENT' ) |U ) ) %== '' OR 
+   ( ( [%f] is_base_event %( ( get_global_var ( 'BASE_EVENT' ) ) )% ) %==  true  ) AND 
+   ( ( %S get_up ( 'is base' ) ) %==  false  ) ) then
+ begin
+  #13#10
+
+//	#	public int getUid () {
+  out_indent '	public int getUid () {'
+//	#		return %SN.class.hashCode();
+  out_indent '		return '
+  %S |N '.class.hashCode();'
+//	#	}
+  out_indent '	}'
+//	]
+ end // if
+//#UC END# *47173078008Cfor470F3D32029F*
+; // servant_content_java
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F3D32029F*
+//c            {}
+//r {""=""}:   {}
+//#UC END# *4704C0E30186for470F3D32029F*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+//~ TransitionEvent::Class::impurity value::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<TransitionEvent>>
+

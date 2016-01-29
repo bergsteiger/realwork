@@ -1,0 +1,343 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormSetFactory/VCMFormSetFactory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormSetFactory::VCMFormSetFactory
+//
+// Фабрика сборки форм
+// ---
+// См. [$85166455].
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: VCMFormSetFactory::Class
+? Фабрика сборки форм
+? См. [$85166455].
+> VCMZone::Class
+
+= SimpleClass::Class
+= FormSetFactoryPublisher::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+a far
+/ - тип абстракции
+Y code_vcm_formsetfactory.gif
+L code_vcm_formsetfactory
+// Параметры визуализации
+$ C 146,162,254
+$ l 12,35,248
+$ f 12,35,248
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p Caption:s ? Заголовок главного окна
+p DefaultStatusForm:s=-1 ? 
+p finished dfm:b=true ? 
+p Need GetMainImageIndex:b=false ? 
+p Need GetMainCaption:b=false ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{Caption}"!="%S{!Caption}"}%f_up_prefix(%S) *Caption* = *%S{Caption}* - Заголовок главного окна
+	][{"%S{DefaultStatusForm}"!="%S{!DefaultStatusForm}"}%f_up_prefix(%S) *DefaultStatusForm* = *%S{DefaultStatusForm}*
+	][{"%S{finished dfm}"!="%S{!finished dfm}"}%f_up_prefix(%S) *finished dfm* = *%S{finished dfm}*
+	][{"%S{Need GetMainImageIndex}"!="%S{!Need GetMainImageIndex}"}%f_up_prefix(%S) *Need GetMainImageIndex* = *%S{Need GetMainImageIndex}*
+	][{"%S{Need GetMainCaption}"!="%S{!Need GetMainCaption}"}%f_up_prefix(%S) *Need GetMainCaption* = *%S{Need GetMainCaption}*
+	]
+
+%f _IsVCMFormSetFactory
+// возвращаемый результат: boolean
+//#UC START# *500932B703BBfor49F572B403E3*
+	true
+//#UC END# *500932B703BBfor49F572B403E3*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа FormSetFactoryPublisher::Class
+%f _FormSetFactoryToUses
+//#UC START# *4A94F30303DDfor49F572B403E3*
+	%f_pas_PutToUses(%S)
+//#UC END# *4A94F30303DDfor49F572B403E3*
+
+// реализация абстрактного стереотипа FormSetFactoryPublisher::Class
+%f _PublishFormSetFactory
+//#UC START# *4A94F31902FDfor49F572B403E3*
+	[{%f_exists_in_list(PUBLISHED_FormSetFactories_LIST,S)!=true}\
+	%f_add_to_list(PUBLISHED_FormSetFactories_LIST,S)\
+	[%S%f_open_ifdef()\n ]\
+	\n RegisterFormSetFactory(%f_pas_TypeName(%S));\
+	[\n %S%f_close_ifdef()]\
+	]
+//#UC END# *4A94F31902FDfor49F572B403E3*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor49F572B403E3*
+	[{%Sa=final}\
+	%S%f_set_up(singleton,true)\
+	]\
+
+	%S%[inherited]\
+
+	[{"%S{Caption}"!=""}\
+	%S%f_add_class(%SU_Caption_Constants,LocalConst,%SNCaptionLocalConstants,LocalConstants_Inst)\
+	%{LocalConstants_Inst}%f_set_visibility_type(PrivateAccess)\
+	%{LocalConstants_Inst}%f_set_documentation(Локализуемые константы для фабрики сборки форм %SN)\
+	%{LocalConstants_Inst}%f_add_attribute(%SU_CAPTION_ID,,\
+	fs%f_N(%S)Caption = '%S{Caption}',\
+	Attr_Inst)\
+	%{Attr_Inst}%f_set_documentation(Заголовок фабрики сборки форм "%SN")
+	]\
+
+	[{%Gx!=true}\
+	[{"%{TvcmFormSetFactory}N"=""}%f_find_element(TvcmFormSetFactory,TvcmFormSetFactory)]\
+	%S%f_make_accessable(%{TvcmFormSetFactory}U)\
+	%f_addG(%S,%{TvcmFormSetFactory})\
+	]\
+
+	[{%S{Need GetMainImageIndex}=true}\
+
+	[{"%{IvcmFormSetDataSource}N"=""}%f_find_element(IvcmFormSetDataSource,IvcmFormSetDataSource)]\
+	%S%f_make_accessable(%{IvcmFormSetDataSource}U)\
+
+	%S%f_add_operation(%SU_GetMainImageIndex,,\
+	DoGetMainImageIndex (aSender: TObject; aDataSource: %{IvcmFormSetDataSource}U; var aImageIndex: Integer)\
+	,Op_Instance\
+	)\
+	%{Op_Instance}%f_set_abstraction_type(final)\
+	%{Op_Instance}%f_set_documentation(Обработчик OnGetMainImageIndex для %SN)\
+	]\
+
+	[{%S{Need GetMainCaption}=true}\
+
+	[{"%{IvcmFormSetDataSource}N"=""}%f_find_element(IvcmFormSetDataSource,IvcmFormSetDataSource)]\
+	%S%f_make_accessable(%{IvcmFormSetDataSource}U)\
+
+	[{"%{Il3CString}N"=""}%f_find_element(46780DA40383,Il3CString)]\
+	%S%f_make_accessable(%{Il3CString}U)\
+
+	%S%f_add_operation(%SU_GetMainCaption,,\
+	DoGetMainCaption (aSender: TObject; aDataSource: %{IvcmFormSetDataSource}U; var aCaption: %{Il3CString}U)\
+	,Op_Instance\
+	)\
+	%{Op_Instance}%f_set_abstraction_type(final)\
+	%{Op_Instance}%f_set_documentation(Обработчик GetMainCaption для %SN)\
+	]\
+
+	[{%S{singleton}=true}\
+	[{"%{TvcmFormSetFactoryPrim.GetInstance}N"=""}%f_find_element(4FFE854A009B,TvcmFormSetFactoryPrim.GetInstance)]\
+	%S%f_add_override(4FFE854A009B)\
+	%{TvcmFormSetFactoryPrim.GetInstance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TvcmFormSetFactoryPrim.GetInstance},%S)_var,\
+	 {-}\
+	)\
+	%{TvcmFormSetFactoryPrim.GetInstance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TvcmFormSetFactoryPrim.GetInstance},%S)_impl,\
+	 Result := Self.Instance;\
+	)\
+	]\
+
+	[{"%{l3UnknownPrim.InitFields}N"=""}%f_find_element(47A042E100E2,l3UnknownPrim.InitFields)]\
+	%S%f_add_override(47A042E100E2)\
+	%{l3UnknownPrim.InitFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.InitFields},%S)_var,\
+	 {-}\
+	)\
+	%{l3UnknownPrim.InitFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.InitFields},%S)_impl,\
+	 inherited;\
+	%f_shift_intend(-3)\
+	<%C#f_AddZone(%S)>\
+	%f_shift_intend(+3)\
+
+	[{"%S{Caption}"!=""}\n Caption := str_fs%f_N(%S)Caption.AsCStr;]\
+
+	%f_set_var(INDEX,"0")\
+	\n OwnerForm := \
+	<{}{%C#f_IsVCMZone()=true}\
+	[{%C<{}{%aS=OwnerForm}{C}>!=0}{\
+	%f_set_var(INDEX,"%f_evaluate(%{INDEX}N+1)")\
+	}\
+	%f_evaluate(%{INDEX}N+%f_AncestorZonesCount(%S))\
+	%f_set_var(INDEX,"")\
+	%f_cycle_break(%S)\
+	]\
+	>\
+	[{"%{INDEX}N"!=""}0];\
+
+	\
+	[{"%S{DefaultStatusForm}"!="%S{!DefaultStatusForm}"&"%S{DefaultStatusForm}"!=""}\
+	\n DefaultStatusForm := %S{DefaultStatusForm};\
+	]\
+	[{%S{Need GetMainImageIndex}=true}\
+	\n OnGetMainImageIndex := DoGetMainImageIndex;\
+	]\
+	[{%S{Need GetMainCaption}=true}\
+	\n OnGetMainCaption := DoGetMainCaption;\
+	]\
+	)
+
+f _ZonesCount
+@ %SU
+	<{}{%C#f_IsVCMZone()=true}{C}>
+
+f _AncestorZonesCount
+	%f_set_var(l_Count,"0")\
+	<{}{%G#f_IsVCMFormSetFactory()=true}\
+	%f_set_var(l_Count,"%f_evaluate(%{l_Count}N+%f_ZonesCount(%G))")\
+	>\
+	%{l_Count}N
+//#UC END# *4B2A19E3038Bfor49F572B403E3*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Префикс типа
+%f _TypePrefix
+//#UC START# *49F5C7BD00B4for49F572B403E3*
+	fs
+//#UC END# *49F5C7BD00B4for49F572B403E3*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// нет документации
+%f _pas_DefaultAncestor
+//#UC START# *4948E5B60391for49F572B403E3*
+	TvcmFormSetFactory
+//#UC END# *4948E5B60391for49F572B403E3*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+%f _pas_ImplUses
+//#UC START# *4948EB2601FAfor49F572B403E3*
+	%S%[inherited]\
+	%f_pas_PutToUses("SysUtils")
+//#UC END# *4948EB2601FAfor49F572B403E3*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+%f _pas_IntfUses
+//#UC START# *4948F2EE0334for49F572B403E3*
+	%S%[inherited]\
+	%f_pas_PutToUses("vcmInterfaces")\
+	%f_pas_PutToUses("vcmUserControls")\
+	%f_pas_PutToUses("vcmFormSetFactory")
+//#UC END# *4948F2EE0334for49F572B403E3*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит спец-метку класса
+%f _pas_OutClassMark
+//#UC START# *494B74D7016Bfor49F572B403E3*
+	fsf
+//#UC END# *494B74D7016Bfor49F572B403E3*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+%f _pas_TypeName
+//#UC START# *4947F8AD02A1for49F572B403E3*
+	T%S%f_TypePrefix()_%f_N(%S)
+//#UC END# *4947F8AD02A1for49F572B403E3*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+%f _pas_UnitName
+//#UC START# *4948065C01DFfor49F572B403E3*
+	%S%f_TypePrefix()%f_N(%S)
+//#UC END# *4948065C01DFfor49F572B403E3*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: VCMFormSetFactory::Class::OwnerForm::ClassDependency
+= Delphi интерфейсы и реализация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4D78C2510247*
+//#UC END# *46E6D4BB0339for4D78C2510247*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4D78C2510247*
+//#UC END# *470F1571031Cfor4D78C2510247*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4D78C2510247*
+//#UC END# *470F15B800CBfor4D78C2510247*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4D78C2510247*
+//#UC END# *477398E501C0for4D78C2510247*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4D78C2510247*
+//#UC END# *4774D2A20372for4D78C2510247*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4D78C2510247*
+//#UC END# *49F5795900ECfor4D78C2510247*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4D78C2510247*
+//#UC END# *55B8D28B0157for4D78C2510247*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4D78C2510247*
+//#UC END# *55B8D2F80145for4D78C2510247*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4D78C2510247*
+//#UC END# *55B8DD9C0301for4D78C2510247*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4D78C2510247*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for4D78C2510247*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4D78C2510247*
+	uses
+//#UC END# *4705CBD6003Efor4D78C2510247*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for4D78C2510247*
+//#UC END# *470484D50138for4D78C2510247*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

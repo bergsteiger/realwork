@@ -1,0 +1,556 @@
+// BridgeToKviaCORBA 4CA0BB31027B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0BB31027B
+
+FORWARD ME_4CA0BB8600CF
+
+: ME_4CA1C49E0245
+ CONST UID '4CA1C49E0245'
+ CONST Name 'f_orb'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1C4840186' '4CA1C4660358.pas.ms.script' // IORB
+ ;
+
+ref; // ME_4CA1C49E0245 f_orb
+
+: ME_4CA1C666017B
+ CONST UID '4CA1C666017B'
+ CONST Name 'f_session'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1C64B0264' '4CA0DCFB017A.pas.ms.script' // ICoreSrv_SecuritySrv_SessionManager
+ ;
+
+ref; // ME_4CA1C666017B f_session
+
+: ME_4CA1D39202C2
+ CONST UID '4CA1D39202C2'
+ CONST Name 'f_NC'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1C7DB0156' '4CA0D13D017F.pas.ms.script' // INamingContext
+ ;
+
+ref; // ME_4CA1D39202C2 f_NC
+
+FORWARD ME_4CA1D3B10250
+
+: ME_4CA1D3BB016D
+ CONST UID '4CA1D3BB016D'
+ CONST Name 'anID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4CA1D3B10250 // Page
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4CA1D3BB016D anID
+
+: ME_4CA1D3B10250
+ CONST UID '4CA1D3B10250'
+ CONST Name 'Page'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1C00E03B3' '4CA1BFF9036D.pas.ms.script' // IServerGate_Contents_KPage
+ ;
+ : Attributes
+   @ ( ME_4CA1D3BB016D // anID
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4CA1D3B10250 Page
+
+: ME_4CA1D4A00134
+ CONST UID '4CA1D4A00134'
+ CONST Name 'f_KPageFactory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1D48F0229' '4CA1BFF9036D.pas.ms.script' // IServerGate_Contents_KPageFactoryManagerSrv
+ ;
+
+ref; // ME_4CA1D4A00134 f_KPageFactory
+
+FORWARD ME_4CA1E04300B7
+
+: ME_4CA1E04E003F
+ CONST UID '4CA1E04E003F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA1E04300B7 // Logout
+ ;
+
+ref; // ME_4CA1E04E003F DoIt
+
+: ME_4CA1E04300B7
+ CONST UID '4CA1E04300B7'
+ CONST Name 'Logout'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Operations
+   @ ( ME_4CA1E04E003F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4CA1E04300B7 Logout
+
+FORWARD ME_4CA335E50024
+
+: ME_4CA335F403D5
+ CONST UID '4CA335F403D5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA335E50024 // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4CA335F403D5 DoIt
+
+: ME_4CA335E50024
+ CONST UID '4CA335E50024'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Operations
+   @ ( ME_4CA335F403D5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4CA335E50024 Exists
+
+FORWARD ME_4CAC9C6100E7
+
+: ME_4CAC9F4C0250
+ CONST UID '4CAC9F4C0250'
+ CONST Name 'F'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4CAC9C6100E7 // AttachFile
+ ;
+ : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4CAC9F4C0250 F
+
+: ME_4CAC9C7A0199
+ CONST UID '4CAC9C7A0199'
+ CONST Name 'aPage'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4CAC9C7A0199 aPage
+
+: ME_4CAC9C7A01C8
+ CONST UID '4CAC9C7A01C8'
+ CONST Name 'aFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4CAC9C7A01C8 aFile
+
+: ME_4CAC9C6E004D
+ CONST UID '4CAC9C6E004D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CAC9C6100E7 // AttachFile
+ ;
+ : Parameters
+   @ ( ME_4CAC9C7A0199 // aPage
+ ME_4CAC9C7A01C8 // aFile
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4CAC9C6E004D DoIt
+
+: ME_4CAC9E220070
+ CONST UID '4CAC9E220070'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CAC9C6100E7 // AttachFile
+ ;
+ : Target WL 'ME_4B57004201BD' '47D0290B016D.pas.ms.script' // l3FileUtils
+ ;
+
+ref; // ME_4CAC9E220070 
+
+: ME_4CAC9F630325
+ CONST UID '4CAC9F630325'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CAC9C6100E7 // AttachFile
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4CAC9F630325 
+
+: ME_4CAC9F75012D
+ CONST UID '4CAC9F75012D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CAC9C6100E7 // AttachFile
+ ;
+ : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
+ ;
+
+ref; // ME_4CAC9F75012D 
+
+: ME_4CAC9C6100E7
+ CONST UID '4CAC9C6100E7'
+ CONST Name 'AttachFile'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Attributes
+   @ ( ME_4CAC9F4C0250 // F
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4CAC9C6E004D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4CAC9E220070 // 
+ ME_4CAC9F630325 // 
+ ME_4CAC9F75012D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4CAC9C6100E7 AttachFile
+
+: ME_4CA0D5C802FD
+ CONST UID '4CA0D5C802FD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA0D1B8017C' '4CA0D18B0351.pas.ms.script' // TGarORBInitializerImpl
+ ;
+
+ref; // ME_4CA0D5C802FD 
+
+: ME_4CA1C0B501D9
+ CONST UID '4CA1C0B501D9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1C00E03B3' '4CA1BFF9036D.pas.ms.script' // IServerGate_Contents_KPage
+ ;
+
+ref; // ME_4CA1C0B501D9 
+
+: ME_4CA1C4DA0126
+ CONST UID '4CA1C4DA0126'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4807756101FE' '4AB0997B00A2.pas.ms.script' // TStringList
+ ;
+
+ref; // ME_4CA1C4DA0126 
+
+: ME_4CA1C54300EE
+ CONST UID '4CA1C54300EE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1C5300391' '4CA0D13D017F.pas.ms.script' // TNamingContext
+ ;
+
+ref; // ME_4CA1C54300EE 
+
+: ME_4CA1C57101D1
+ CONST UID '4CA1C57101D1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1C5650080' '4CA1C4660358.pas.ms.script' // IORBObject
+ ;
+
+ref; // ME_4CA1C57101D1 
+
+: ME_4CA1C7E9023A
+ CONST UID '4CA1C7E9023A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1C7DB0156' '4CA0D13D017F.pas.ms.script' // INamingContext
+ ;
+
+ref; // ME_4CA1C7E9023A 
+
+: ME_4CA1C9C50373
+ CONST UID '4CA1C9C50373'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4CA1C9C50373 
+
+: ME_4CA1CC060375
+ CONST UID '4CA1CC060375'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1CBF401AD' '4CA0D13D017F.pas.ms.script' // TName
+ ;
+
+ref; // ME_4CA1CC060375 
+
+: ME_4CA1CEF40205
+ CONST UID '4CA1CEF40205'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1CCDD0268' '4CA0D33A02D6.pas.ms.script' // ORB__Init
+ ;
+
+ref; // ME_4CA1CEF40205 
+
+: ME_4CA1D0FE000F
+ CONST UID '4CA1D0FE000F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1D0ED000F' '4CA0DCFB017A.pas.ms.script' // TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
+ ;
+
+ref; // ME_4CA1D0FE000F 
+
+: ME_4CA1D11F0094
+ CONST UID '4CA1D11F0094'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA0D4C90266' '4CA0D18B0351.pas.ms.script' // TGarClientSecurity
+ ;
+
+ref; // ME_4CA1D11F0094 
+
+: ME_4CA1D18A01C8
+ CONST UID '4CA1D18A01C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4CA1D17B0245' '4CA1D154012C.pas.ms.script' // TServerGate_Contents_KPage
+ ;
+
+ref; // ME_4CA1D18A01C8 
+
+: ME_4DF79CD1004B
+ CONST UID '4DF79CD1004B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0BB8600CF // TKBridge
+ ;
+ : Target WL 'ME_4DF79C8702EF' '4DF79C0F03A9.pas.ms.script' // Nemesis
+ ;
+
+ref; // ME_4DF79CD1004B 
+
+: ME_479731C50290_ME_4CA0BB8600CF
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4CA0BB8600CF // TKBridge
+ ;
+ref; // ME_479731C50290_ME_4CA0BB8600CF Cleanup
+
+: ME_47A042E100E2_ME_4CA0BB8600CF
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4CA0BB8600CF // TKBridge
+ ;
+ref; // ME_47A042E100E2_ME_4CA0BB8600CF InitFields
+
+: ME_5000565C019C_ME_4CA0BB8600CF
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4CA0BB8600CF // TKBridge
+ ;
+ref; // ME_5000565C019C_ME_4CA0BB8600CF ClearFields
+
+: ME_4CA0BB8600CF
+ CONST UID '4CA0BB8600CF'
+ CONST Name 'TKBridge'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Мост к К' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CA0BB31027B // BridgeToKviaCORBA
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4CA1C49E0245 // f_orb
+ ME_4CA1C666017B // f_session
+ ME_4CA1D39202C2 // f_NC
+ ME_4CA1D3B10250 // Page
+ ME_4CA1D4A00134 // f_KPageFactory
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4CA1E04300B7 // Logout
+ ME_4CA335E50024 // Exists
+ ME_4CAC9C6100E7 // AttachFile
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4CA0BB8600CF // Cleanup
+ ME_47A042E100E2_ME_4CA0BB8600CF // InitFields
+ ME_5000565C019C_ME_4CA0BB8600CF // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4CA0D5C802FD // 
+ ME_4CA1C0B501D9 // 
+ ME_4CA1C4DA0126 // 
+ ME_4CA1C54300EE // 
+ ME_4CA1C57101D1 // 
+ ME_4CA1C7E9023A // 
+ ME_4CA1C9C50373 // 
+ ME_4CA1CC060375 // 
+ ME_4CA1CEF40205 // 
+ ME_4CA1D0FE000F // 
+ ME_4CA1D11F0094 // 
+ ME_4CA1D18A01C8 // 
+ ME_4DF79CD1004B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '27.09.2010 19:43'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\KBridge.pas'
+
+ref; // ME_4CA0BB8600CF TKBridge
+
+: ME_4CA0BB31027B
+ CONST UID '4CA0BB31027B'
+ CONST Name 'BridgeToKviaCORBA'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Мост к К через CORBA' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ ;
+ : Children
+   @ ( ME_4CA0BB8600CF // TKBridge
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4CA0D13D017F' '4CA0D13D017F.pas.ms.script' // idl
+ WL 'ME_4CA0D18B0351' '4CA0D18B0351.pas.ms.script' // IniAndFini
+ WL 'ME_4CA0D33A02D6' '4CA0D33A02D6.pas.ms.script' // orb
+ WL 'ME_4CA0DCFB017A' '4CA0DCFB017A.pas.ms.script' // build
+ WL 'ME_4CA1BFF9036D' '4CA1BFF9036D.pas.ms.script' // Contents_int
+ WL 'ME_4CA1C4660358' '4CA1C4660358.pas.ms.script' // orb_int
+ WL 'ME_4CA1D154012C' '4CA1D154012C.pas.ms.script' // Impl
+ WL 'ME_4DF79C0F03A9' '4DF79C0F03A9.pas.ms.script' // tfwKConst
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifdef" 'MTDORB,NoKPageTool'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA0BB31027B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA0BB31027B.pas.ms.script.runner'
+
+ref; // ME_4CA0BB31027B BridgeToKviaCORBA

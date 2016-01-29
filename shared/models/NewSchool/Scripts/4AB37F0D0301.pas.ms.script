@@ -1,0 +1,141 @@
+// Tm4Word 4AB37F0D0301 SimpleClass Class
+
+INCLUDE '4773DED9004C.pas.ms.script'
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+FORWARD ME_4AB37F0D0301
+
+INCLUDE '4AB38D7F0007.pas.ms.script'
+
+: ME_4AB37F9903CA
+ CONST UID '4AB37F9903CA'
+ CONST Name 'f_ID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4AB38B45023C // Tm4WordID
+ ;
+
+ @SELF
+; // ME_4AB37F9903CA f_ID
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4AB773690008
+ CONST UID '4AB773690008'
+ CONST Name 'FirstWordIDStrID'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ %SUMMARY 'Первый элемент словаря который начинается с данного слова' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_4AB773690008 FirstWordIDStrID
+
+: ME_0FC8C0BDC2B5
+ CONST UID '0FC8C0BDC2B5'
+ CONST Name 'f_FirstWordIDStrID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства FirstWordIDStrID' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_0FC8C0BDC2B5 f_FirstWordIDStrID
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4AB37FCC0111
+ CONST UID '4AB37FCC0111'
+ CONST Name 'aStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+
+ @SELF
+; // ME_4AB37FCC0111 aStr
+
+: ME_4AB3917D0200
+ CONST UID '4AB3917D0200'
+ CONST Name 'anID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4AB38B45023C // Tm4WordID
+ ;
+
+ @SELF
+; // ME_4AB3917D0200 anID
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4AB37FB103D8
+ CONST UID '4AB37FB103D8'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4AB37FCC0111 // aStr
+ ME_4AB3917D0200 // anID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4AB37FB103D8 Create
+
+: ME_4AB37F0D0301
+ CONST UID '4AB37F0D0301'
+ CONST Name 'Tm4Word'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Слово словаря' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4773DED9004C // Tl3_String
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4AB37F9903CA // f_ID
+ ME_4AB773690008 // FirstWordIDStrID
+ ME_0FC8C0BDC2B5 // f_FirstWordIDStrID
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4AB37FB103D8 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_47BC3BFD017F // StringID
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.09.2009 12:57'
+
+ @SELF
+; // ME_4AB37F0D0301 Tm4Word

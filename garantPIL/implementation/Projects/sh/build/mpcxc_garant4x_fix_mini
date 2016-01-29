@@ -1,0 +1,52 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_garant4x_fix_mini <cvs_mod>"
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+echo "mpcxc_garant4x_fix_mini ..."
+
+cvs_mod=$1
+
+export MPCXC_ROOT=$PWD
+export MPCXC_SH=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+
+libs_src_path=$MPCXC_ROOT/src/$cvs_mod
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} AdvLogger::LOG_INFO AdvLogger::LOG_INFO_MPCXC WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} AdvLogger::LOG_INFO AdvLogger::LOG_INFO_MPCXC WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} AdvLogger::LOG_INFO AdvLogger::LOG_INFO_MPCXC WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} AdvLogger::LOG_WARNING AdvLogger::LOG_WARNING_MPCXC WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} AdvLogger::LOG_WARNING AdvLogger::LOG_WARNING_MPCXC WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} AdvLogger::LOG_WARNING AdvLogger::LOG_WARNING_MPCXC WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} __FreeBSD__ GARANT_TOOLS WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} __FreeBSD__ GARANT_TOOLS WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} __FreeBSD__ GARANT_TOOLS WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} "0664" "" WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} "0664" "" WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} "0664" "" WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} fopen mpcxc_fopen FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} fopen mpcxc_fopen FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} fopen mpcxc_fopen FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} fgetpos mpcxc_fgetpos FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} fgetpos mpcxc_fgetpos FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} fgetpos mpcxc_fgetpos FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} fsetpos mpcxc_fsetpos FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} fsetpos mpcxc_fsetpos FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} fsetpos mpcxc_fsetpos FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} fpos_t long WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} fpos_t long WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} fpos_t long WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} PATHBRK MPCXC_PATHBRK WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} PATHBRK MPCXC_PATHBRK WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} PATHBRK MPCXC_PATHBRK WHOLE_WORD \;

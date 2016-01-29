@@ -1,0 +1,64 @@
+{
+................................................................................
+Модуль предназначен для функций, которые повторяют ошибки в CQ
+
+Предлагается называть функции следующим образом (nnnnn - номер ошибки в CQ): 
+  procedure CQ_nnnnn;
+................................................................................
+}
+
+uses  HLTC71, HLTC72, HLTC73, HLTC74, HLTC76, HLTC78, HLTC77, HLTC99, HLTC100, HLTC101, HLTC129, HLTC130, HLTC147, HLTC189, HLTC190, HLTC191, HLTC192, HLTC199, HLTC337, SettingsWork, States, Clicks, common, DocumentWork, exceptions, FileWork, FoldersWork, Graphics, ListWork, MenuWork, requisitepro, RunPrograms, SearchWork, HTMLWork;
+
+
+{
+  Это пример. Исключительно в тестовых целях.
+}
+procedure CQ_Test;
+begin
+  Log.Message('Это тестовая функция');
+end;
+///////////////////////////////////////////////////////////////////////////////
+procedure CQ_21529;
+var
+  i: integer;
+begin
+try
+  if NOT GoToPPR then Raise('Не удалось перейти в ППР');
+  Sys.Keys('^[Enter]');
+  Delay(Options.Run.Timeout div 30);
+  Sys.Keys('[Enter]');
+  for i := 1 to 300 do
+    Sys.Keys('^[Right]');
+except
+  Log.Message('CQ_21529: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION')); 
+end;  
+end;
+//////////////////////////////////////////////////////////////////////////////////
+procedure CQ_22686;
+const
+  DOC_NUM = 10003000;
+var
+  i: integer;
+  document;
+  tempTimeOut;
+begin
+try
+  Runner.CallMethod('Main.InitOptions');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  document := GetFromEditor('ТЕКСТ ДОКУМЕНТА');  
+  document.SetFocus;
+  tempTimeOut := Options.Run.Delay;
+  Options.Run.Delay := 0;
+  for i := 1 to 100 do
+  begin
+    PressKeyNCount('![Down]', 3);
+    PressKeyNCount('^l', 3);
+    Sys.Keys('[Esc]');
+    PressKeyNCount('[Down]', 3);
+  end;  
+  Options.Run.Delay := tempTimeOut;
+except
+  Log.Message('CQ_22686: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION')); 
+end;  
+end;
+

@@ -1,0 +1,105 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/TestResults.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::TestResults
+//
+// Результаты теста
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: TestResults::Class
+? Результаты теста
+> ScriptKeywordsDocumentation::Class
+
+= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+// Параметры визуализации
+$ C 64,224,208
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p needs script keywords documentation:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{needs script keywords documentation}"!="%S{!needs script keywords documentation}"}%f_up_prefix(%S) *needs script keywords documentation* = *%S{needs script keywords documentation}*
+	]
+
+%f _IsTestResults
+// возвращаемый результат: boolean
+//#UC START# *4B7BFC1202D5for4B7BFBB103E2*
+	true
+//#UC END# *4B7BFC1202D5for4B7BFBB103E2*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4B7BFBB103E2*
+	%S%[inherited]\
+	[{%Gx!=true}\
+	[{"%{TTestResultsPlace}N"=""}%f_find_element(TTestResultsPlace,TTestResultsPlace)]\
+	%S%f_make_accessable(%{TTestResultsPlace}U)\
+	%f_addG(%S,%{TTestResultsPlace})\
+	]\
+	[{"%{TTestResultsPlace_CommandLineKey}N"=""}%f_find_element(4B7AB0B6016E,TTestResultsPlace_CommandLineKey)]\
+	%{TTestResultsPlace_CommandLineKey}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TTestResultsPlace_CommandLineKey},%S)_var, {-})\
+	%{TTestResultsPlace_CommandLineKey}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TTestResultsPlace_CommandLineKey},%S)_impl, \
+	Result := '-%f_cut_prefix(%f_N(%S),Release)';\
+	)\
+
+	[{%S{needs script keywords documentation}=true}\
+	%S%f_add_class(%SU_KeywordsDocumentation,ScriptKeywordsDocumentation,Описание слов тестовой машины,KeywordsDocumentation_Inst)\
+	%{KeywordsDocumentation_Inst}%f_set_documentation(Описание слов тестовой машины для "%f_N(%P%P)")\
+
+	%f_clear_list(WasSpelledToKeywordsDocumentation_LIST)\
+	%f_DoSpellKeywordsDocumentation(%P%P,%{KeywordsDocumentation_Inst})\
+
+//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_del_var(WasSpelledToKeywordsDocumentation)>\
+//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_del_var(WasSpelledToKeywordsDocumentation1)>\
+
+//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(WasSpelledToKeywordsDocumentation,"")>\
+//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(WasSpelledToKeywordsDocumentation1,"")>\
+
+	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(_WasSpelled,"")>\
+	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(_WasSpelled1,"")>\
+
+//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%%f_del_var(WasSpelledTo)>\
+// - НЕЛЬЗЯ это делать, т.к. WasSpelledTo нам ПОТОМ понадобится
+	%f_clear_list(WasSpelledToKeywordsDocumentation_LIST)\
+	]
+
+f _DoSpellKeywordsDocumentation
+	[{%S%{_WasSpelled1}N!=true}\
+	%S%f_set_var(_WasSpelled1,"true")\
+//	[{%S%{WasSpelledToKeywordsDocumentation1}N!=true}\
+//	%S%f_set_var(WasSpelledToKeywordsDocumentation1,"true")\
+	%f_add_to_list(WasSpelledToKeywordsDocumentation_LIST,S)\
+	%S#f_SpellKeywordsDocumentation(%1)\
+	<%f_DoSpellKeywordsDocumentation(%D,%1)>
+	]
+//#UC END# *4B2A19E3038Bfor4B7BFBB103E2*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+%f _pas_TypeName
+//#UC START# *4947F8AD02A1for4B7BFBB103E2*
+	T%f_N(%S)
+//#UC END# *4947F8AD02A1for4B7BFBB103E2*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,11 @@
+{$I ArchiGlobals.inc}
+{$DEFINE ItsVoba}
+{$DEFINE Archi}
+{$DEFINE FlushTbl}
+{$DEFINE ddWriteGarantAttributes}
+{$DEFINE NOFORMS}
+{$DEFINE notImportTaskPriority}
+{$DEFINE l3NotSortedCache}
+{$DEFINE NoVgScene}
+{$DEFINE NoVCM}
+{$DEFINE NoScripts}

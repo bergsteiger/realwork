@@ -1,0 +1,1 @@
+for /r %%i in (*.nsr) do AdjustToPageC.exe  %%i

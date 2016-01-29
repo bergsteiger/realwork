@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\DOCUMENTATION\DbUtil.AdminGuide.hmxz /tsk=FullBuild:DbUtil.AdminGuide(f) /tsk=FullBuild:DbUtil.AdminGuide(r) /tsk=FullBuild:DbUtil.AdminGuide(r)_!DAILY /tsk=FullBuild:DbUtil.AdminGuide(web)_!DAILY

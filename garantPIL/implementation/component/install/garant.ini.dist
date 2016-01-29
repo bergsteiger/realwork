@@ -1,0 +1,129 @@
+[Default]
+Application=F1Shell.run
+CommandLine=$(CommandLineParams)
+CreateDesktopShortcuts=Yes
+CurrentDirectory=$(ExecuteRoot)\apps
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-GCMConfigFile "$(ThisIniFileName)" -GPMAdapterConfigSection "F1Client Params"
+RegistryValueName=ApplicationAdapterOptions
+ShowCreateDesktopShortcutsDialog=Yes
+
+[Downloader]
+AccessType=0
+IdComplect=
+Login=
+Path=
+ProxyAdress=
+ProxyAuthentication=0
+ProxyLogin=
+ProxyPassword=
+ProxyPort=
+Pswd=
+Queries Flags=0
+
+[F1Client Params]
+-GCMServerAddress=localhost
+-GCMServerPort=##CORBA_PORT##
+-GPMAdditionalSection=GCM Params
+;-GCMIsAutoConfigApplyAlways=true
+;-ORBDebugLevel=10
+;-ORBLogFile=C:\garant.log
+
+[F1DataSetup]
+Application=F1DataSetup.run
+CommandLine=-GCMConfigFile "$(ThisIniFileName)" -GPMF1DataSetupConfigSection "F1DataSetup Params" $(CommandLineParams)
+CurrentDirectory=$(ExecuteRoot)\apps\$(Os)
+
+[F1DataSetup Params]
+-DSDataPath=
+-GPMAdditionalSection=F1Client Params
+
+[F1DataUpd]
+Application=F1DataUpd.run
+CommandLine=-GCMConfigFile "$(ThisIniFileName)" -GPMF1DataUpdConfigSection "F1DataUpd Params" $(CommandLineParams)
+CurrentDirectory=$(ExecuteRoot)\apps\$(Os)
+
+[F1DataUpd Params]
+-DUDeltaDefaultPath=##INSTALL_PATH##\delta
+-GPMAdditionalSection=F1Client Params
+
+[F1Download]
+Application=F1Download.run
+CommandLine=-GCMConfigFile "$(ThisIniFileName)" -GPMF1DownloadConfigSection "F1Download Params" $(CommandLineParams)
+CurrentDirectory=$(ExecuteRoot)\apps\$(Os)
+
+[F1Download Params]
+-GPMAdditionalSection=F1Client Params
+
+[F1Prime]
+Application=F1Prime.run
+CommandLine=$(CommandLineParams)
+CreateDesktopShortcuts=Yes
+CurrentDirectory=$(ExecuteRoot)\apps
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-GCMConfigFile "$(ThisIniFileName)" -GPMAdapterConfigSection "F1Client Params"
+RegistryValueName=ApplicationAdapterOptions
+ShowCreateDesktopShortcutsDialog=Yes
+
+[F1Server Params]
+-GCMActiveDataPath=1
+-GCMDataPath1=##INSTALL_PATH##\data1
+-GCMDataPath2=##INSTALL_PATH##\data2
+-GCMSMTPServer=##SMTP_SERVER_NAME##
+-GCMSMTPServerLogin=##SMTP_SERVER_LOGIN##
+-GCMSMTPServerPassword=##SMTP_SERVER_PASSWD##
+-GCMSMTPServerPort=25
+-GCMServerPort=##CORBA_PORT##
+-GCMSettingsPath=##INSTALL_PATH##\settings
+-GPMAdditionalSection=GCM Params
+-ORBLogFile=##INSTALL_PATH##\logs\garant.log
+-TPTInitValue=0
+-TPTFiniValue=0
+-TPTUCrcValue=0
+-XMLLoadPath1=##INSTALL_PATH##\settings-xml
+;-ORBDebugLevel=50
+
+
+[F1ServerInfo Params]
+-GPMAdditionalSection=F1Client Params
+
+[F1UsersSave Params]
+-GPMAdditionalSection=F1Server Params
+-XMLSavePath=##INSTALL_PATH##\settings-xml
+
+[GCM Params]
+-GCMBiDirectional=1
+-GPMAdditionalSection=ORB Params
+
+[Launcher]
+DealerInfFile=##INSTALL_PATH##\data%(F1ServerActiveDataPath)\dealer.inf
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1-Launcher
+
+[LauncherDesktopShortcuts]
+√¿–¿Õ“. œÎ‡ÚÙÓÏ‡ F1=$(ThisApplication)
+
+[ORB Params]
+-ORBDottedDecimalAddresses=1
+-ORBUseSharedProfiles=1
+;-ORBDebugLevel=1
+
+[ServerManager]
+-EMailTo=$SMTP_MAIL_TO$
+-InfoCommand=##INSTALL_PATH##\apps\winNT\F1ServerInfo.exe
+-InfoCommandLine=-GCMConfigFile "##INSTALL_PATH##\garant.ini" -GPMF1ServerInfoConfigSection "F1ServerInfo Params"
+-RefreshTimeout=30
+-Restart=
+-ResultFile=##INSTALL_PATH##\apps\winNT\F1ServerInfo.results
+-SMTPServer=
+-SMTPServerLogin=
+-SMTPServerPassword=
+-SMTPServerPort=25
+-Services=GarantF1Server
+;-AutoRestart=
+
+[Version]
+-IniFile=3
+-Product=server

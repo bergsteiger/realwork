@@ -1,0 +1,727 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/TieSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::TieSupport
+//
+// вспомогательные функции для генерации tie
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерация методов поддержки работы со счетчиком ссылок, для TIE-обёртки контэйнера
+//f _tie_container_refcount_base_h
+: tie_container_refcount_base_h OBJECT IN %S
+//#UC START# *4729ADE70232*
+//		virtual unsigned long __stdcall query_interface (
+ '	virtual unsigned long __stdcall query_interface ('
+//			const ::Core::ComIID& iid
+ '		const ::Core::ComIID& iid'
+//			, void*& object
+ '		, void*& object'
+//		);
+ '	);'
+//	
+//		virtual unsigned long __stdcall addref () const;
+ '	virtual unsigned long __stdcall addref () const;'
+//	
+//	public:
+ 'public:'
+//		virtual unsigned long __stdcall release () const;
+ '	virtual unsigned long __stdcall release () const;'
+//	
+//	// For ObjectPool's objects initialization and destruction
+ '// For ObjectPool's objects initialization and destruction'
+//	public:
+ 'public:'
+//		void init ();
+ '	void init ();'
+//	
+//		void done ();
+ '	void done ();'
+//	
+//	private:
+ 'private:'
+//		%SN_tie ();
+ '	'
+ %S |N '_tie ();'
+//	
+//		typedef ::Core::PoolObjectManager\<%SN_tie\>::PoolObjectManagerSingleton MyPool;
+ '	typedef ::Core::PoolObjectManager<'
+ %S |N '_tie>::PoolObjectManagerSingleton MyPool;'
+//		typedef ::Core::PoolObjectManager\<%SN_tie\> Pool;
+ '	typedef ::Core::PoolObjectManager<'
+ %S |N '_tie> Pool;'
+//		friend class ::Core::PoolObjectManager\<%SN_tie\>;
+ '	friend class ::Core::PoolObjectManager<'
+ %S |N '_tie>;'
+//	
+//	public:
+ 'public:'
+//		static const ::Core::ComIID s_com_iid;
+ '	static const ::Core::ComIID s_com_iid;'
+//		
+ '	'
+//		static void make_cpp (const %SN_tie* obj, %SN*& ret_);
+ '	static void make_cpp (const '
+ %S |N '_tie* obj, '
+ %S |N '*& ret_);'
+//	
+//		static void make_tie (%SN* obj, %SN_tie*& ret_);
+ '	static void make_tie ('
+ %S |N '* obj, '
+ %S |N '_tie*& ret_);'
+//		
+ '	'
+//		static void make_tie (const %SN& obj, %SN_tie*& ret_);
+ '	static void make_tie (const '
+ %S |N '& obj, '
+ %S |N '_tie*& ret_);'
+//	
+//		static void make_tie (const %SN& obj, %SN_tie*& ret_, const Core::TIEBase* owner);
+ '	static void make_tie (const '
+ %S |N '& obj, '
+ %S |N '_tie*& ret_, const Core::TIEBase* owner);'
+//		
+ '	'
+//		static void new_tie (%SN* obj, %SN_tie*& ret_);
+ '	static void new_tie ('
+ %S |N '* obj, '
+ %S |N '_tie*& ret_);'
+//	
+//		%SN* m_impl;
+ '	'
+ %S |N '* m_impl;'
+//		bool m_orphan;
+ '	bool m_orphan;'
+
+//f _tie_container_refcount_base_cpp
+; // tie_container_refcount_base_h
+
+: tie_container_refcount_base_cpp OBJECT IN %S
+//	%f_tie_registrator_cpp(%S)
+ [%f] tie_registrator_cpp %( %S )% 
+//	
+//	unsigned long __stdcall %SN_tie::query_interface (
+ 'unsigned long __stdcall '
+ %S |N '_tie::query_interface ('
+//		const ::Core::ComIID& iid
+ '	const ::Core::ComIID& iid'
+//		, void*& object
+ '	, void*& object'
+//	) {
+ ') {'
+//		if (iid == s_com_iid) {
+ '	if (iid == s_com_iid) {'
+//			this-\>addref();
+ '		this->addref();'
+//			object = this;
+ '		object = this;'
+//			return 0x00000000UL;
+ '		return 0x00000000UL;'
+//		} else {
+ '	} else {'
+//			return 0x80004002UL;
+ '		return 0x80004002UL;'
+//		}
+ '	}'
+//	}
+ '}'
+//	
+//	unsigned long __stdcall %SN_tie::addref () const {
+ 'unsigned long __stdcall '
+ %S |N '_tie::addref () const {'
+//		return ++m_counter;
+ '	return ++m_counter;'
+//	}
+ '}'
+//	
+//	unsigned long __stdcall %SN_tie::release () const {
+ 'unsigned long __stdcall '
+ %S |N '_tie::release () const {'
+//		long const counter = --m_counter;
+ '	long const counter = --m_counter;'
+
+//		if (counter == 0) {
+ '	if (counter == 0) {'
+//			MyPool::instance()-\>release_obj(const_cast\<%SN_tie* const\>(this));
+ '		MyPool::instance()->release_obj(const_cast<'
+ %S |N '_tie* const>(this));'
+//		}
+ '	}'
+//		return counter;
+ '	return counter;'
+//	}
+ '}'
+//	
+//	void %SN_tie::init () {
+ 'void '
+ %S |N '_tie::init () {'
+//		m_counter = 1;
+ '	m_counter = 1;'
+//		m_orphan = true;
+ '	m_orphan = true;'
+//	}
+ '}'
+//	
+//	void %SN_tie::done () {
+ 'void '
+ %S |N '_tie::done () {'
+//			GDS_ASSERT_MSG (0, ("Данный TIE-алгритм (удаление tie-вектора)не тестировался!!!"));
+//		if (m_orphan && m_impl) {
+ '	if (m_orphan && m_impl) {'
+//			delete m_impl;
+ '		delete m_impl;'
+//		}
+ '	}'
+//		m_impl = NULL;
+ '	m_impl = NULL;'
+//		
+ '	'
+//		m_tie_owner.release ();
+ '	m_tie_owner.release ();'
+//	}
+ '}'
+//	
+//	%SN_tie::%SN_tie () : m_impl(NULL), m_orphan(true) {
+ %S |N '_tie::'
+ %S |N '_tie () : m_impl(NULL), m_orphan(true) {'
+//	}
+ '}'
+//	
+//	void %SN_tie::make_cpp (const %SN_tie* obj, %SN*& ret_) {
+ 'void '
+ %S |N '_tie::make_cpp (const '
+ %S |N '_tie* obj, '
+ %S |N '*& ret_) {'
+//		if (!obj) {
+ '	if (!obj) {'
+//			ret_ = 0;
+ '		ret_ = 0;'
+//		} else {
+ '	} else {'
+//			ret_ = obj-\>m_impl;
+ '		ret_ = obj->m_impl;'
+//		}
+ '	}'
+//	}
+ '}'
+//	
+//	void %SN_tie::new_tie (%SN* obj, %SN_tie*& ret_) {
+ 'void '
+ %S |N '_tie::new_tie ('
+ %S |N '* obj, '
+ %S |N '_tie*& ret_) {'
+//		Core::Aptr\<%SN\> obj_aptr (obj);
+ '	Core::Aptr<'
+ %S |N '> obj_aptr (obj);'
+//		if (obj_aptr.is_nil ()) {
+ '	if (obj_aptr.is_nil ()) {'
+//			ret_ = NULL;
+ '		ret_ = NULL;'
+//		} else {
+ '	} else {'
+//			if (ret_) {
+ '		if (ret_) {'
+//				ret_-\>release();
+ '			ret_->release();'
+//			}
+ '		}'
+//			ret_ = MyPool::instance()-\>new_obj();
+ '		ret_ = MyPool::instance()->new_obj();'
+//			ret_-\>m_impl = obj_aptr.forget ();
+ '		ret_->m_impl = obj_aptr.forget ();'
+//		}
+ '	}'
+//	}
+ '}'
+//	
+//	void %SN_tie::make_tie (%SN* obj, %SN_tie*& ret_) {
+ 'void '
+ %S |N '_tie::make_tie ('
+ %S |N '* obj, '
+ %S |N '_tie*& ret_) {'
+//		Core::Aptr\<%SN\> obj_aptr (obj);
+ '	Core::Aptr<'
+ %S |N '> obj_aptr (obj);'
+//		if (obj_aptr.is_nil () || obj_aptr-\>empty ()) {
+ '	if (obj_aptr.is_nil () || obj_aptr->empty ()) {'
+//			ret_ = NULL;
+ '		ret_ = NULL;'
+//		} else {
+ '	} else {'
+//			if (ret_) {
+ '		if (ret_) {'
+//				ret_-\>release();
+ '			ret_->release();'
+//			}
+ '		}'
+//			ret_ = MyPool::instance()-\>new_obj();
+ '		ret_ = MyPool::instance()->new_obj();'
+//			ret_-\>m_impl = obj_aptr.forget ();
+ '		ret_->m_impl = obj_aptr.forget ();'
+//		}
+ '	}'
+//	}
+ '}'
+//		
+ '	'
+//	void %SN_tie::make_tie (const %SN& obj, %SN_tie*& ret_) {
+ 'void '
+ %S |N '_tie::make_tie (const '
+ %S |N '& obj, '
+ %S |N '_tie*& ret_) {'
+//		if (ret_) {
+ '	if (ret_) {'
+//			ret_-\>release();
+ '		ret_->release();'
+//		}
+ '	}'
+//		if (obj.empty () == false) {
+ '	if (obj.empty () == false) {'
+//			ret_ = MyPool::instance()-\>new_obj();
+ '		ret_ = MyPool::instance()->new_obj();'
+//			ret_-\>m_impl = new %SN (obj);
+ '		ret_->m_impl = new '
+ %S |N ' (obj);'
+//		} else {
+ '	} else {'
+//			ret_ = NULL;
+ '		ret_ = NULL;'
+//		}
+ '	}'
+//	}
+ '}'
+//	
+//	void %SN_tie::make_tie (const %SN& obj, %SN_tie*& ret_, const Core::TIEBase* owner) {
+ 'void '
+ %S |N '_tie::make_tie (const '
+ %S |N '& obj, '
+ %S |N '_tie*& ret_, const Core::TIEBase* owner) {'
+//			GDS_ASSERT_MSG (0, ("Данный TIE-алгритм (tie-трансформация вектора c кеш-хозяином) не тестировался!!!"));
+//		GDS_ASSERT(owner);
+ '	GDS_ASSERT(owner);'
+//		if (ret_) {
+ '	if (ret_) {'
+//			ret_-\>release();
+ '		ret_->release();'
+//		}
+ '	}'
+//		
+ '	'
+//		if (obj.empty () == false) {
+ '	if (obj.empty () == false) {'
+//			ret_ = MyPool::instance()-\>new_obj();
+ '		ret_ = MyPool::instance()->new_obj();'
+//			ret_-\>m_impl = const_cast\<%SN*\>(&obj);
+ '		ret_->m_impl = const_cast<'
+ %S |N '*>(&obj);'
+//			owner-\>addref ();
+ '		owner->addref ();'
+//			ret_-\>m_tie_owner = owner;
+ '		ret_->m_tie_owner = owner;'
+//			if (owner) {
+ '		if (owner) {'
+//				ret_-\>m_orphan = false;
+ '			ret_->m_orphan = false;'
+//			}
+ '		}'
+//		} else {
+ '	} else {'
+//			ret_ = NULL;
+ '		ret_ = NULL;'
+//		}
+ '	}'
+//	}
+ '}'
+//	
+
+//f _tie_registrator_cpp
+; // tie_container_refcount_base_cpp
+
+: tie_registrator_cpp OBJECT IN %S
+//	const ::Core::ComIID %SN_tie::s_com_iid = {[{"%S{native definition}"="DLL outside"}{%f_comiid(%S)}
+ 'const ::Core::ComIID '
+ %S |N '_tie::s_com_iid = {'
+ if ( ( %S get_up ( 'native definition' ) ) %== 'DLL outside' ) then
+ begin
+  #13#10
+
+//		%U[{_NATIVE_IID}
+  '	'
+  %Usersection (
+   '_NATIVE_IID' 
+  )
+  (
+   #13#10
+
+//		#error "enter valid ComIID"
+   '	'
+   out_indent 'error "enter valid ComIID"'
+//		]
+   '	' 
+  ) // Usersection
+ //	]};[{%SS=Interface|%SS=Facet}
+ end // if
+ else
+ begin
+  [%f] comiid %( %S )% 
+ end // else
+ '};'
+ if ( ( %S |S ) %== 'Interface' OR 
+   ( ( %S |S ) %== 'Facet'  ) ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	%SN_tie::IidRegistrator %SN_tie::s_iid_registrator;]
+  %S |N '_tie::IidRegistrator '
+  %S |N '_tie::s_iid_registrator;' 
+ end // if
+//#UC END# *4729ADE70232*
+; // tie_registrator_cpp
+
+
+// генерация методов поддержки работы со счетчиком ссылок, для TIE-обёртки
+//f _tie_object_refcount_base_cpp
+: tie_object_refcount_base_cpp OBJECT IN %S
+//#UC START# *4729ADF60196*
+//	%f_tie_registrator_cpp(%S)
+ [%f] tie_registrator_cpp %( %S )% 
+//	
+//	%SN_tie::%SN_tie () : m_impl(NULL) {
+ %S |N '_tie::'
+ %S |N '_tie () : m_impl(NULL) {'
+//	}
+ '}'
+//	
+//	unsigned long __stdcall %SN_tie::query_interface (
+ 'unsigned long __stdcall '
+ %S |N '_tie::query_interface ('
+//		const ::Core::ComIID& iid
+ '	const ::Core::ComIID& iid'
+//		, void*& object
+ '	, void*& object'
+//	) {
+ ') {'
+//		if (iid == s_com_iid) {
+ '	if (iid == s_com_iid) {'
+//			this-\>addref();
+ '		this->addref();'
+//			object = this;
+ '		object = this;'
+//			return 0x00000000UL;
+ '		return 0x00000000UL;'
+//		} else {
+ '	} else {'
+//			return ::Core::IidMapManagerSgl::instance()-\>tie_query_interface (iid, m_impl, object);
+ '		return ::Core::IidMapManagerSgl::instance()->tie_query_interface (iid, m_impl, object);'
+//		}
+ '	}'
+//	}
+ '}'
+
+//	unsigned long __stdcall %SN_tie::addref () const {
+ 'unsigned long __stdcall '
+ %S |N '_tie::addref () const {'
+//		return ++m_counter;
+ '	return ++m_counter;'
+//	}
+ '}'
+//	
+//	unsigned long __stdcall %SN_tie::release () const {
+ 'unsigned long __stdcall '
+ %S |N '_tie::release () const {'
+//		long const counter = --m_counter;
+ '	long const counter = --m_counter;'
+
+//		if (counter == 0) {
+ '	if (counter == 0) {'
+//			MyPool::instance()-\>release_obj(const_cast\<%SN_tie* const\>(this));
+ '		MyPool::instance()->release_obj(const_cast<'
+ %S |N '_tie* const>(this));'
+//		}
+ '	}'
+//		return counter;
+ '	return counter;'
+//	}
+ '}'
+//	
+//	void %SN_tie::init () {
+ 'void '
+ %S |N '_tie::init () {'
+//			m_counter = 1;
+ '		m_counter = 1;'
+//		}
+ '	}'
+//	
+//	void %SN_tie::done () {
+ 'void '
+ %S |N '_tie::done () {'
+//		m_impl-\>release();
+ '	m_impl->release();'
+//		m_impl = NULL;
+ '	m_impl = NULL;'
+//		
+ '	'
+//		m_tie_owner.release ();
+ '	m_tie_owner.release ();'
+//	}
+ '}'
+//	
+//	void* %SN_tie::cast (::Core::IObject* obj) {
+ 'void* '
+ %S |N '_tie::cast (::Core::IObject* obj) {'
+//		%SN* ret = dynamic_cast\<%SN*\>(obj);
+ '	'
+ %S |N '* ret = dynamic_cast<'
+ %S |N '*>(obj);'
+//		if (ret) {
+ '	if (ret) {'
+//			ret-\>addref();
+ '		ret->addref();'
+//		}
+ '	}'
+//		I%SN_tie* ret_ = NULL;
+ '	I'
+ %S |N '_tie* ret_ = NULL;'
+//		%SN_tie::make_tie (ret, ret_);
+ '	'
+ %S |N '_tie::make_tie (ret, ret_);'
+//		return ret_;
+ '	return ret_;'
+//	}
+ '}'
+//	
+//	void %SN_tie::make_cpp (const I%SN_tie* obj, %SN*& ret_, bool interface_addref) {
+ 'void '
+ %S |N '_tie::make_cpp (const I'
+ %S |N '_tie* obj, '
+ %S |N '*& ret_, bool interface_addref) {'
+//		[{"%S{native definition}"!="DLL outside"}{%U[{_NATIVE_DEFINITION_IMPL}
+ '	'
+ if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+ begin
+  'if (!obj) {'
+//			ret_ = 0;
+  '		ret_ = 0;'
+//		} else {
+  '	} else {'
+//			ret_ = [{"%S{native definition}"!="DLL outside"}{dynamic_cast\<const %SN_tie*\> (obj)-\>m_impl}dynamic_cast\<%SN*\> (obj-\>get_impl ())];
+  '		ret_ = '
+  if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+  begin
+   'dynamic_cast<'
+   %S |N '*> (obj->get_impl ())' 
+  end // if
+  else
+  begin
+   'dynamic_cast<const '
+   %S |N '_tie*> (obj)->m_impl' 
+  end // else
+  ';'
+//			if (interface_addref) {
+  '		if (interface_addref) {'
+//				ret_-\>addref();
+  '			ret_->addref();'
+//			}
+  '		}'
+//		}]
+  '	}' 
+ end // if
+ else
+ begin
+  %Usersection (
+   '_NATIVE_DEFINITION_IMPL' 
+  )
+  (
+   #13#10
+
+//		]}if (!obj) {
+   '	' 
+  ) // Usersection
+  end // else
+//	}
+ '}'
+//	
+//	void %SN_tie::make_tie (const %SN* obj, I%SN_tie*& ret_, bool interface_addref) {
+ 'void '
+ %S |N '_tie::make_tie (const '
+ %S |N '* obj, I'
+ %S |N '_tie*& ret_, bool interface_addref) {'
+//		if (!obj) {
+ '	if (!obj) {'
+//			ret_ = NULL;
+ '		ret_ = NULL;'
+//		} else {
+ '	} else {'
+//			if (ret_) {
+ '		if (ret_) {'
+//				ret_-\>release();
+ '			ret_->release();'
+//			}
+ '		}'
+//			%SN_tie* ret = MyPool::instance()-\>new_obj();
+ '		'
+ %S |N '_tie* ret = MyPool::instance()->new_obj();'
+//			ret-\>m_impl = const_cast\<%SN*\>(obj);
+ '		ret->m_impl = const_cast<'
+ %S |N '*>(obj);'
+//			if (interface_addref) {
+ '		if (interface_addref) {'
+//				ret-\>m_impl-\>addref();
+ '			ret->m_impl->addref();'
+//			}
+ '		}'
+//			ret_ = ret;
+ '		ret_ = ret;'
+//		}
+ '	}'
+//	}
+ '}'
+//	
+//	void %SN_tie::make_tie (const %SN& obj, I%SN_tie*& ret_, const Core::TIEBase* owner) {
+ 'void '
+ %S |N '_tie::make_tie (const '
+ %S |N '& obj, I'
+ %S |N '_tie*& ret_, const Core::TIEBase* owner) {'
+//		if (ret_) {
+ '	if (ret_) {'
+//			ret_-\>release();
+ '		ret_->release();'
+//		}
+ '	}'
+//		%SN_tie* ret = MyPool::instance()-\>new_obj();
+ '	'
+ %S |N '_tie* ret = MyPool::instance()->new_obj();'
+//		ret-\>m_impl = const_cast\<%SN*\>(&obj);
+ '	ret->m_impl = const_cast<'
+ %S |N '*>(&obj);'
+//	
+//		ret-\>m_impl-\>addref();
+ '	ret->m_impl->addref();'
+//		owner-\>addref ();
+ '	owner->addref ();'
+//		ret-\>m_tie_owner = owner;
+ '	ret->m_tie_owner = owner;'
+//		
+ '	'
+//		ret_ = ret;
+ '	ret_ = ret;'
+//	}
+ '}'
+//	[{"%S{native definition}"!="DLL outside"}
+ if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+ begin
+  #13#10
+
+//	::Core::IObject* %SN_tie::get_impl () const {
+  '::Core::IObject* '
+  %S |N '_tie::get_impl () const {'
+//		return m_impl;
+  '	return m_impl;'
+//	}]
+  '}' 
+ end // if
+//#UC END# *4729ADF60196*
+; // tie_object_refcount_base_cpp
+
+
+// генерация методов поддержки работы со счетчиком ссылок, для TIE-обёртки
+//f _tie_object_refcount_base_h
+: tie_object_refcount_base_h OBJECT IN %S
+//#UC START# *4729AE01005D*
+//		virtual unsigned long __stdcall query_interface (
+ '	virtual unsigned long __stdcall query_interface ('
+//			const ::Core::ComIID& iid
+ '		const ::Core::ComIID& iid'
+//			, void*& object
+ '		, void*& object'
+//		);
+ '	);'
+//	
+//		virtual unsigned long __stdcall addref () const;
+ '	virtual unsigned long __stdcall addref () const;'
+//	
+//	public:
+ 'public:'
+//		virtual unsigned long __stdcall release () const;
+ '	virtual unsigned long __stdcall release () const;'
+//	[{"%S{native definition}"!="DLL outside"}
+ if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+ begin
+  #13#10
+
+//		virtual ::Core::IObject* get_impl () const;]
+  '	virtual ::Core::IObject* get_impl () const;' 
+ end // if
+//	
+//	// For ObjectPool's objects initialization and destruction
+ '// For ObjectPool's objects initialization and destruction'
+//	public:
+ 'public:'
+//		void init ();
+ '	void init ();'
+//	
+//		void done ();
+ '	void done ();'
+//	
+//	private:
+ 'private:'
+//		%SN_tie ();
+ '	'
+ %S |N '_tie ();'
+//	
+//		typedef ::Core::PoolObjectManager\<%SN_tie\>::PoolObjectManagerSingleton MyPool;
+ '	typedef ::Core::PoolObjectManager<'
+ %S |N '_tie>::PoolObjectManagerSingleton MyPool;'
+//		typedef ::Core::PoolObjectManager\<%SN_tie\> Pool;
+ '	typedef ::Core::PoolObjectManager<'
+ %S |N '_tie> Pool;'
+//		friend class ::Core::PoolObjectManager\<%SN_tie\>;
+ '	friend class ::Core::PoolObjectManager<'
+ %S |N '_tie>;'
+//		typedef ::Core::IidMapRegistrator\<%SN_tie\> IidRegistrator;
+ '	typedef ::Core::IidMapRegistrator<'
+ %S |N '_tie> IidRegistrator;'
+//		static IidRegistrator s_iid_registrator;
+ '	static IidRegistrator s_iid_registrator;'
+//		
+ '	'
+//	public:
+ 'public:'
+//		static const ::Core::ComIID s_com_iid;
+ '	static const ::Core::ComIID s_com_iid;'
+//		
+ '	'
+//		static void* cast (::Core::IObject* obj);
+ '	static void* cast (::Core::IObject* obj);'
+//	
+//		static void make_cpp (const I%SN_tie* obj, %SN*& ret_, bool interface_addref = false);
+ '	static void make_cpp (const I'
+ %S |N '_tie* obj, '
+ %S |N '*& ret_, bool interface_addref = false);'
+//	
+//		static void make_tie (const %SN* obj, I%SN_tie*& ret_, bool interface_addref = false);
+ '	static void make_tie (const '
+ %S |N '* obj, I'
+ %S |N '_tie*& ret_, bool interface_addref = false);'
+//		
+ '	'
+//		static void make_tie (const %SN& obj, I%SN_tie*& ret_, const Core::TIEBase* owner);
+ '	static void make_tie (const '
+ %S |N '& obj, I'
+ %S |N '_tie*& ret_, const Core::TIEBase* owner);'
+//	
+//		%SN* m_impl;
+ '	'
+ %S |N '* m_impl;'
+//#UC END# *4729AE01005D*
+; // tie_object_refcount_base_h
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

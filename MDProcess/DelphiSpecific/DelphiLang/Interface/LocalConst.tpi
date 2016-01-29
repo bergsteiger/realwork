@@ -1,0 +1,412 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Interface/LocalConst.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Interface::LocalConst
+//
+// Локализуемые константы
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: LocalConst::Class
+? Локализуемые константы
+> Message::Class
+
+= Constants::Class
+= WikiImplClass::Class
+= ValueMapper::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v -+
+/ - типы видимости
+a f
+/ - тип абстракции
+// Параметры визуализации
+$ C 192,255,255
+$ l 104,131,139
+$ f 104,131,139
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S%[Constants::Class]f_wiki_up_print()[{"%S{Need mapping support}"!="%S{!Need mapping support}"}%f_up_prefix(%S) *Need mapping support* = *%S{Need mapping support}* - Нужно ли генерировать поддержку для мапинга значений
+	][{"%S{Need map interface}"!="%S{!Need map interface}"}%f_up_prefix(%S) *Need map interface* = *%S{Need map interface}* - Нужна ли реализация интерфейса мапы
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4B386A11030E*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for4B386A11030E*
+
+// перекрытие базового стереотипа Constants::Class
+%f _WikiGParam
+// возвращаемый результат: a-string
+//#UC START# *4E09A34F0037for4B386A11030E*
+	%SU
+//#UC END# *4E09A34F0037for4B386A11030E*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4B386A11030E*
+	%S%[inherited]\
+	[{"%{Tl3StringIDEx}N"=""}%f_find_element(Tl3StringIDEx,Tl3StringIDEx)]\
+	[{"%{Tl3MessageID}N"=""}%f_find_element(Tl3MessageID,Tl3MessageID)]\
+	[{"%{Dialogs}N"=""}%f_find_element(4AB0EE02004E,Dialogs)]\
+
+//	<{}{%C#f_IsMessage()=true}\
+//	%C<{}{%C#f_IsChoices()=true}\
+//	%C%f_DoSpell()>\
+//	>\
+
+	%f_set_var(FOUND,"false")\
+	%f_set_var(PARENT,"")\
+	<{}{%P#f_IsClassBase()=true|%P#f_IsUtilityPack()=true}{%P}\
+	[{%{FOUND}N=false}\
+	%f_set_var(FOUND,"true")\
+	%f_set_var(PARENT,P)\
+	]\
+	>\
+
+	%{PARENT}%f_make_accessable(%{Tl3StringIDEx}U)\
+	%{PARENT}%f_make_accessable(%{Tl3MessageID}U)\
+	[{%{PARENT}C=Class}\
+	%f_addCDep(%{PARENT},%{Tl3StringIDEx})\
+	%f_addCDep(%{PARENT},%{Tl3MessageID})\
+	]\
+	%{PARENT}%f_add_class(%SU_%{Tl3StringIDEx}U_LCImpl,Constants,LCImpl[{%S#f_IsChoices()=true}_%PN_]%SN,LocalConst_Inst)\
+	%{LocalConst_Inst}%f_set_visibility_type(%SV)\
+
+	[{%S#f_IsChoices()=true}{\
+	%{LocalConst_Inst}%f_set_documentation(Локализуемые строки %SN)\
+	}\
+	%{LocalConst_Inst}%f_set_documentation(Варианты выбора для диалога %PN)\
+	]\
+
+	%{LocalConst_Inst}%f_set_up(TreatAsVars,true)\
+// - шаманство, чтобы превратить константы в переменные
+	%{LocalConst_Inst}%f_set_up(ifdef,%S{ifdef})\
+	%{LocalConst_Inst}%f_set_up(ifndef,%S{ifndef})\
+	%{LocalConst_Inst}%f_set_up(children prefix,%S{children prefix})\
+	%{LocalConst_Inst}%f_set_up(elements prefix,str[_%S{elements prefix}])\
+
+	%f_set_var(WAS_USES_TO_DIALOGS,"false")\
+
+	<{}{}{%C}\
+
+	[{%C#f_IsMessage()=true}{\
+	%f_set_var(CONST_TYPE,{Tl3StringIDEx})\
+	}\
+	[{%{WAS_USES_TO_DIALOGS}N!=true}\
+	%{PARENT}%f_make_accessable(%{Dialogs}U)\
+	%f_set_var(WAS_USES_TO_DIALOGS,"true")\
+	%f_addCDep(%{PARENT},%{Dialogs})\
+	]\
+	%f_set_var(CONST_TYPE,{Tl3MessageID})\
+	]\
+
+	%{LocalConst_Inst}%f_add_attribute(%{LocalConst_Inst}U_%CU_Impl,,%C#f_AdditionalPrefix()%f_N(%C) :\
+	 %{CONST_TYPE}U = (rS : -1; rLocalized : false;\
+	 rKey : '%C%f_pas_Prefix()%C#f_AdditionalPrefix()%f_N(%C)';\
+	 rValue : \
+
+	[{"%CD"=""|%C#f_CanUseDocAsValue()!=true}{\
+//                 ^ - ибо UserType'ы неправильно выливаются
+	%CD\
+	}\
+	[{"%C{Value}"=""}{\
+	%C{Value}\
+	}\
+	%C%VN\
+	]\
+	]\
+
+	),Attr_Inst)\
+
+	%{Attr_Inst}%f_set_visibility_type(%CV)\
+	%{Attr_Inst}%f_set_documentation([{}{%C{Value}}[{}{%C%VN}%CD]])\
+	%{Attr_Inst}%f_set_up(ifdef,%C{ifdef})\
+	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
+	%{PARENT}%f_add_operation(%CU_Init,ini,Init_%f_N(%{Attr_Inst}) (),Op_Instance)\
+	%{Op_Instance}%f_set_documentation(Инициализация %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}))\
+	%{Op_Instance}%f_set_abstraction_type(final)\
+	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+
+	[{"%S{ifdef}"!=""}{\
+	%f_set_var(IFDEF_VALUE,"%C{ifdef}")\
+	}\
+	[{"%C{ifdef}"!=""}{\
+	%f_set_var(IFDEF_VALUE,"%S{ifdef}")\
+	}\
+	%f_set_var(IFDEF_VALUE,"%S{ifdef},%C{ifdef}")\
+	]\
+	]\
+
+	%{Op_Instance}%f_set_up(ifdef,%{IFDEF_VALUE}N)\
+
+	[{"%S{ifndef}"!=""}{\
+	%f_set_var(IFDEF_VALUE,"%C{ifndef}")\
+	}\
+	[{"%C{ifndef}"!=""}{\
+	%f_set_var(IFDEF_VALUE,"%S{ifndef}")\
+	}\
+	%f_set_var(IFDEF_VALUE,"%S{ifndef},%C{ifndef}")\
+	]\
+	]\
+
+	%{Op_Instance}%f_set_up(ifndef,%{IFDEF_VALUE}N)\
+	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+	 %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}).Init;\
+	%C%f_AdditionalInitCode("%{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst})")\
+	)\
+	>\
+
+	[{%Gx=true}\
+	%{PARENT}%f_add_class(%SU_%{CONST_TYPE}U_LCConstArr,ConstantArray,%SNMap,LocalConstArray_Inst)\
+	[{"%{Pl3StringIDEx}N"=""}%f_find_element(Pl3StringIDEx,Pl3StringIDEx)]\
+	%f_addG(%{LocalConstArray_Inst},%{Pl3StringIDEx})\
+	%f_addR(%{LocalConstArray_Inst},%G)\
+	%{LocalConstArray_Inst}%f_set_up(ifdef,%S{ifdef})\
+	%{LocalConstArray_Inst}%f_set_up(ifndef,%S{ifndef})\
+	%{LocalConstArray_Inst}%f_set_visibility_type(%SV)\
+	%{LocalConstArray_Inst}%f_set_documentation(Карта преобразования локализованных строк %SN)\
+	%{LocalConstArray_Inst}%f_set_up(Need mapping support,%S{Need mapping support})\
+	%{LocalConstArray_Inst}%f_set_up(Need map interface,%S{Need map interface})\
+
+	%{LocalConst_Inst}<{}{}{%C}\
+	%{LocalConstArray_Inst}%f_add_attribute(%CU_Arr,,%f_N(%C) :\
+	 %{Pl3StringIDEx}U = %{LocalConst_Inst}N::%CN,Attr_Inst)\
+	>\
+
+	]
+
+//#UC END# *4B2A19E3038Bfor4B386A11030E*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4B386A11030E*
+//#UC END# *47022CCF00EAfor4B386A11030E*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for4B386A11030E*
+//#UC END# *47022C0F01E4for4B386A11030E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4B386A11030E*
+//#UC END# *49F5795900ECfor4B386A11030E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4B386A11030E*
+//#UC END# *477398E501C0for4B386A11030E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4B386A11030E*
+//#UC END# *4774D2A20372for4B386A11030E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4B386A11030E*
+//#UC END# *55B8D28B0157for4B386A11030E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4B386A11030E*
+//#UC END# *55B8D2F80145for4B386A11030E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4B386A11030E*
+//#UC END# *55B8DD9C0301for4B386A11030E*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4B386A11030E*
+//#UC END# *470321C1038Afor4B386A11030E*
+
+// реализация абстрактного стереотипа Генерация JavaScript::MDAGenerator
+// генератор JavaScript
++ js
+//#UC START# *477395290327for4B386A11030E*
+//#UC END# *477395290327for4B386A11030E*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor4B386A11030E*
+//#UC END# *47032ED002DEfor4B386A11030E*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor4B386A11030E*
+//#UC END# *47032EC4032Cfor4B386A11030E*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4B386A11030E*
+//#UC END# *470F1571031Cfor4B386A11030E*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for4B386A11030E*
+	<%CX>\
+	%S%f_DoSpell()
+//#UC END# *4A41A13D03D5for4B386A11030E*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: LocalConst::Class::Attribute
+? Локализуемая константа
+= Constants::Class::Attribute
+
+// Пользовательские свойства
+p Value:text ? 
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4DC1281403A3*
+//#UC END# *46E6D4BB0339for4DC1281403A3*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for4DC1281403A3*
+//#UC END# *47022C0F01E4for4DC1281403A3*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4DC1281403A3*
+//#UC END# *470F1571031Cfor4DC1281403A3*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4DC1281403A3*
+//#UC END# *470F15B800CBfor4DC1281403A3*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4DC1281403A3*
+//#UC END# *477398E501C0for4DC1281403A3*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4DC1281403A3*
+//#UC END# *4774D2A20372for4DC1281403A3*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4DC1281403A3*
+//#UC END# *49F5795900ECfor4DC1281403A3*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4DC1281403A3*
+//#UC END# *55B8D28B0157for4DC1281403A3*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4DC1281403A3*
+//#UC END# *55B8D2F80145for4DC1281403A3*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4DC1281403A3*
+//#UC END# *55B8DD9C0301for4DC1281403A3*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{Value}"!="%S{!Value}"}%f_up_prefix(%S) *Value* = *%S{Value}*
+	]
+
+// Добавляет дополнительный код инициализации константы
+%f _AdditionalInitCode
+// параметры: aConstName: a-string = %1
+// возвращаемый результат: a-string
+//#UC START# *4E09C0BD002Afor4DC1281403A3*
+//#UC END# *4E09C0BD002Afor4DC1281403A3*
+
+%f _AdditionalPrefix
+// возвращаемый результат: a-string
+//#UC START# *4E09B7A50370for4DC1281403A3*
+//#UC END# *4E09B7A50370for4DC1281403A3*
+
+%f _CanUseDocAsValue
+// возвращаемый результат: boolean
+//#UC START# *4E09CB3D02F1for4DC1281403A3*
+	false
+//#UC END# *4E09CB3D02F1for4DC1281403A3*
+
+%f _IsMessage
+// возвращаемый результат: boolean
+//#UC START# *4E01C9BC0377for4DC1281403A3*
+	false
+//#UC END# *4E01C9BC0377for4DC1281403A3*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4DC1281403A3*
+	attr
+//#UC END# *4705CBD6003Efor4DC1281403A3*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for4DC1281403A3*
+//#UC END# *470484D50138for4DC1281403A3*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,59 @@
+<<MDALibrary>> F1Templates
+ %UID '498C731501C6'
+ %SUMMARY 'Ѕиблиотека специфичных дл€ F1 стереотипов' ;
+ %DEPENDS
+  U$ '46E13A3C030D' /* Meta */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '478DEEBE011B' /* ServerLib */
+  U$ '492E952D02A0' /* VCMSubsystemLayer */
+  U$ '4B5F469E0305' /* VCMProjectLayer */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '46E13A3C030D' /* Meta */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '478DEEBE011B' /* ServerLib */
+  U$ '492E952D02A0' /* VCMSubsystemLayer */
+  U$ '4B5F469E0305' /* VCMProjectLayer */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<MDALayer>> Redefinitions
+   %UID '498C732000B3'
+   %SUMMARY 'ѕакет переопределений стандартных стереотипов' ;
+   %DEPENDS
+    U$ '46E13A54030D' /* HighLayers */
+    U$ '478DF23D03CB' /* High */
+    U$ '492E953D00E4' /* ProjectDefinitions */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E13A3C030D' /* Meta */
+    U$ '478DEEBE011B' /* ServerLib */
+    U$ '4B5F469E0305' /* VCMProjectLayer */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     REDEFINITION <<MDACategory>> Project
+      %UID '498C733E0315'
+      %SUMMARY 'ѕроект'#13#10'---'#13#10'ѕереопределение стандартного стереотипа проекта, дополнительно позвол€ет использовать в проекте серверные библиотеки.' ;
+      %TOBEINCLUDED
+       U$ '4B5F469E0305' /* VCMProjectLayer */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492E95760246' /* Project */
+      ; // %IMPLEMENTS
+      %LINKS
+       <<include>> "498C73750392"
+        %UID '498C73750392'
+        %TARGET U$ '47037635038A' /* ServerLibrary */
+       ; // 498C73750392
+       <<include>> "4B630AF00312"
+        %UID '4B630AF00312'
+        %TARGET U$ '46E13A69005D' /* MDATemplates */
+       ; // 4B630AF00312
+      ; // %LINKS
+     ; // Project
+     [EXPORT] <<Project>>
+   ; // %CHILDREN
+  ; // Redefinitions
+ ; // %CHILDREN
+; // F1Templates

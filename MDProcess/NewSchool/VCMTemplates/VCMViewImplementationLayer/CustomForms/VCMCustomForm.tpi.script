@@ -1,0 +1,578 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/CustomForms/VCMCustomForm.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::CustomForms::VCMCustomForm
+//
+// Форма VCM
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMCustomForm::Class
+implementation @ <<VCMCustomForm>>
+//? Форма VCM
+//> Component::Class
+//> ScriptKeyword::Class
+
+//= Dialog::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_vcm_form.gif
+//L code_vcm_form
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p finished dfm:b=true ? Определяет, что dfm формы полностью определён на модели
+//p NeedsHackRef:b=true ? Нужно ли генерировать ссылку на класс данной формы для Design-time
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{finished dfm}"!="%S{!finished dfm}"}%f_up_prefix(%S) *finished dfm* = *%S{finished dfm}* - Определяет, что dfm формы полностью определён на модели
+ ?inherited
+ if ( ( %S get_up ( 'finished dfm' ) ) %!= ( %S get_up_def ( 'finished dfm' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *finished dfm* = *'
+  %S get_up ( 'finished dfm' ) '* - Определяет, что dfm формы полностью определён на модели'
+//	][{"%S{NeedsHackRef}"!="%S{!NeedsHackRef}"}%f_up_prefix(%S) *NeedsHackRef* = *%S{NeedsHackRef}* - Нужно ли генерировать ссылку на класс данной формы для Design-time
+ end // if
+ if ( ( %S get_up ( 'NeedsHackRef' ) ) %!= ( %S get_up_def ( 'NeedsHackRef' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *NeedsHackRef* = *'
+  %S get_up ( 'NeedsHackRef' ) '* - Нужно ли генерировать ссылку на класс данной формы для Design-time'
+//	]
+ end // if
+
+// нет документации
+//%f _IsVCMForm
+; // wiki_up_print
+
+: IsVCMForm OBJECT IN %S
+//#UC START# *4947EB1D002Bfor4947E2F10338*
+//	true
+ true
+//#UC END# *4947EB1D002Bfor4947E2F10338*
+; // IsVCMForm
+
+
+// Вы водит переопределение стандартного типа, для того, чтобы в Delphi не развалился Design-time
+// при наследовании от сгенерированной формы
+//%f _pas_OutHackRef
+: pas_OutHackRef OBJECT IN %S
+//#UC START# *494B733D0159for4947E2F10338*
+//	[{%S{NeedsHackRef}=true}\
+ if ( ( %S get_up ( 'NeedsHackRef' ) ) %==  true ) then
+ begin
+//	\n
+  #13#10
+//	#%S%f_pas_HackRef() = %f_pas_TypeName(%S);\
+  out_indent %S %f pas_HackRef %( )% ' = '
+  [%f] pas_TypeName %( %S )% ';'
+//	]
+ end // if
+//#UC END# *494B733D0159for4947E2F10338*
+; // pas_OutHackRef
+
+
+// Выводит конролы формы в DFM
+//%f _ToDFM
+: ToDFM OBJECT IN %S
+//#UC START# *4ACB7806017Bfor4947E2F10338*
+//	<%C#f_ToDFM()>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C %?f ToDFM %( )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<%G#f_ToDFM()>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+   %G %?f ToDFM %( )% 
+   ++! l_Counter
+  end // if
+ end // for G
+//	<%R#f_ToDFM()>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   %R %?f ToDFM %( )% 
+   ++! l_Counter
+  end // if
+ end // for R
+//#UC END# *4ACB7806017Bfor4947E2F10338*
+; // ToDFM
+
+
+//%f _pas_BeforeDFMControls
+: pas_BeforeDFMControls OBJECT IN %S
+//#UC START# *4B5DDD5A02ACfor4947E2F10338*
+//#UC END# *4B5DDD5A02ACfor4947E2F10338*
+; // pas_BeforeDFMControls
+
+
+//%f _pas_OutEntities
+: pas_OutEntities OBJECT IN %S
+//#UC START# *4B5DE28502D6for4947E2F10338*
+//#UC END# *4B5DE28502D6for4947E2F10338*
+; // pas_OutEntities
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Является ли примесью
+//%f _IsMixIn
+: IsMixIn OBJECT IN %S
+//#UC START# *4947E5D40127for4947E2F10338*
+//@ %SU
+//	[{%Sa=abstract}{false}[{%Gx!=true}{[{%G#f_IsMixIn()=true}{false}true]}true]]
+ if ( ( %S |a ) %== 'abstract' ) then
+ begin
+  if ( ( %G |x ) %!=  true ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+   if ( ( %G %?f IsMixIn %( )% ) %==  true ) then
+   begin
+     true 
+   end // if
+   else
+   begin
+     false 
+   end // else
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4947E5D40127for4947E2F10338*
+; // IsMixIn
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Является ли простым классом реализации
+//%f _IsSimpleClass
+: IsSimpleClass OBJECT IN %S
+//#UC START# *4947E4DA0227for4947E2F10338*
+//	true
+ true
+//#UC END# *4947E4DA0227for4947E2F10338*
+; // IsSimpleClass
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _NeedRegisterInScripts
+: NeedRegisterInScripts OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *55278EA5036Afor4947E2F10338*
+//	true
+ true
+//#UC END# *55278EA5036Afor4947E2F10338*
+; // NeedRegisterInScripts
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _pas_AfterClassEnd
+: pas_AfterClassEnd OBJECT IN %S
+//#UC START# *4B17BC05001Efor4947E2F10338*
+//	%S%[inherited]\
+ inherited
+//	[{%S%f_IsMixIn()!=true}\
+ if ( ( %S %f IsMixIn %( )% ) %!=  true ) then
+ begin
+//	[{%Sa!=final}{\
+  if ( ( %S |a ) %!= 'final' ) then
+  begin
+//	%S%f_pas_OutHackRef()\
+   %S %f pas_OutHackRef %( )% 
+//	]\
+  end // if
+  else
+  begin
+//	[{"%S{form name prefix}"!=""}\
+   if ( ( %S get_up ( 'form name prefix' ) ) %!= '' ) then
+   begin
+//	\n
+    #13#10
+//	  T%f_cut_postfix(%f_N(%S),Form)Form = %f_pas_TypeName(%S);\
+    '  T'
+    [%f] cut_postfix %( [%f] N %( %S )% %, 'Form' )% 'Form = '
+    [%f] pas_TypeName %( %S )% ';'
+//	]\
+   end // if
+//	}\
+  end // else
+//	]
+ end // if
+//#UC END# *4B17BC05001Efor4947E2F10338*
+; // pas_AfterClassEnd
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// нет документации
+//%f _pas_DefaultAncestor
+: pas_DefaultAncestor OBJECT IN %S
+//#UC START# *4948E5B60391for4947E2F10338*
+//	TvcmEntityForm
+ 'TvcmEntityForm'
+//#UC END# *4948E5B60391for4947E2F10338*
+; // pas_DefaultAncestor
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor4947E2F10338*
+//	%S%[inherited]
+ inherited
+//#UC END# *4948EB2601FAfor4947E2F10338*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for4947E2F10338*
+//	%S%[inherited]\
+ inherited
+//	[{%Sa=final}\
+ if ( ( %S |a ) %== 'final' ) then
+ begin
+//	<%g<{}{%C#f_IsControl()=true}%C#f_ToIntfUses()>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if true then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C %?f IsControl %( )% ) %==  true ) then
+      begin
+       %C %?f ToIntfUses %( )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+//	<%r<{}{%C#f_IsControl()=true}%C#f_ToIntfUses()>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%r
+  begin
+   OBJECT IN %r
+   if true then
+   begin
+    %r
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C %?f IsControl %( )% ) %==  true ) then
+      begin
+       %C %?f ToIntfUses %( )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for r
+//	]
+ end // if
+//#UC END# *4948F2EE0334for4947E2F10338*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит код после секции implementation
+//%f _pas_OutAfterUnitImplementation
+: pas_OutAfterUnitImplementation OBJECT IN %S
+//#UC START# *498B059101B3for4947E2F10338*
+//	%S%[inherited]\
+ inherited
+//	[{%Sa=final}\n\{$R *.DFM\}\n]]
+ if ( ( %S |a ) %== 'final' ) then
+ begin
+  #13#10'{$R *.DFM}'#13#10 
+ end // if
+ ']'
+//#UC END# *498B059101B3for4947E2F10338*
+; // pas_OutAfterUnitImplementation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит родительский класс
+//%f _pas_OutAncestor
+: pas_OutAncestor OBJECT IN %S
+//#UC START# *4989EB520196for4947E2F10338*
+//	%S%[inherited]
+ inherited
+//	[{%Sa!=final}{[{}{%S%f_pas_DefaultAncestor()}%G#f_pas_HackRef()]}%S%[inherited]]
+//#UC END# *4989EB520196for4947E2F10338*
+; // pas_OutAncestor
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит код перед поляпи класса. Для переопределения в потомках
+//%f _pas_OutBeforeFields
+: pas_OutBeforeFields OBJECT IN %S
+//#UC START# *498B054F03A1for4947E2F10338*
+//	%S%[inherited]\
+ inherited
+//	[{%Sa=final}\
+ if ( ( %S |a ) %== 'final' ) then
+ begin
+//	%S%f_pas_OutEntities()\
+  %S %f pas_OutEntities %( )% 
+//	<%g<{}{%C#f_IsControl()=true}%C#f_ToFields()>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if true then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C %?f IsControl %( )% ) %==  true ) then
+      begin
+       %C %?f ToFields %( )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+//	<%r<{}{%C#f_IsControl()=true}%C#f_ToFields()>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%r
+  begin
+   OBJECT IN %r
+   if true then
+   begin
+    %r
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C %?f IsControl %( )% ) %==  true ) then
+      begin
+       %C %?f ToFields %( )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for r
+//	]
+ end // if
+//#UC END# *498B054F03A1for4947E2F10338*
+; // pas_OutBeforeFields
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит объявление класса
+//%f _pas_OutClassInterface
+: pas_OutClassInterface OBJECT IN %S
+//#UC START# *494B7197025Afor4947E2F10338*
+//	%S%[inherited]
+ inherited
+//#UC END# *494B7197025Afor4947E2F10338*
+; // pas_OutClassInterface
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит спец-метку класса
+//%f _pas_OutClassMark
+: pas_OutClassMark OBJECT IN %S
+//#UC START# *494B74D7016Bfor4947E2F10338*
+//	form
+ 'form'
+//#UC END# *494B74D7016Bfor4947E2F10338*
+; // pas_OutClassMark
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит реализацию переопределённых методов
+//%f _pas_OutOverridesImpl
+: pas_OutOverridesImpl OBJECT IN %S
+//#UC START# *494B86B5014Bfor4947E2F10338*
+//	%S%[inherited]
+ inherited
+//#UC END# *494B86B5014Bfor4947E2F10338*
+; // pas_OutOverridesImpl
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит интерфейс переопределённых методов
+//%f _pas_OutOverridesIntf
+: pas_OutOverridesIntf OBJECT IN %S
+//#UC START# *494B856502ECfor4947E2F10338*
+//	%S%[inherited]
+ inherited
+//#UC END# *494B856502ECfor4947E2F10338*
+; // pas_OutOverridesIntf
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for4947E2F10338*
+//	[{%S%f_IsMixIn()=true}{\
+ if ( ( %S %f IsMixIn %( )% ) %==  true ) then
+ begin
+//	%S%[inherited]\
+  inherited
+//	]
+ end // if
+ else
+ begin
+//	T%S{form name prefix}%f_N(%S)\
+  'T'
+  %S get_up ( 'form name prefix' ) [%f] N %( %S )% 
+//	[{"%S{form name prefix}"=""}Form]}\
+  if ( ( %S get_up ( 'form name prefix' ) ) %== '' ) then
+  begin
+   'Form' 
+  end // if
+ end // else
+//#UC END# *4947F8AD02A1for4947E2F10338*
+; // pas_TypeName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor4947E2F10338*
+//	[{%S%f_IsMixIn()=true}{%f_cut_postfix(%f_N(%S),Form)_Form}%S%[inherited]]
+ if ( ( %S %f IsMixIn %( )% ) %==  true ) then
+ begin
+  inherited
+ end // if
+ else
+ begin
+  [%f] cut_postfix %( [%f] N %( %S )% %, 'Form' )% '_Form' 
+ end // else
+//#UC END# *4948065C01DFfor4947E2F10338*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Путь к модулю
+//%f _pas_UnitPath
+: pas_UnitPath OBJECT IN %S
+//#UC START# *4948C3290020for4947E2F10338*
+//	[{%P#f_IsVCMApplication()!=true&%PS!=VCMForms}/Forms]
+ if ( ( %P %?f IsVCMApplication %( )% ) %!=  true AND 
+   ( ( %P |S ) %!= 'VCMForms'  ) ) then
+ begin
+  '/Forms' 
+ end // if
+//#UC END# *4948C3290020for4947E2F10338*
+; // pas_UnitPath
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor4947E2F10338*
+//O [{%Sa=final}[{%S{finished}!=true|%S{finished dfm}!=true}NOT_FINISHED_]%S%f_pas_UnitName().dfm]
+//C %S%f_pas_UnitPath()
+//	[{"%SO"!=""}\
+ if ( ( %S |O ) %!= '' ) then
+ begin
+//	object %f_cut_prefix(%S%f_pas_TypeName(),T): %S%f_pas_TypeName()
+  'object '
+  [%f] cut_prefix %( %S %f pas_TypeName %( )% %, 'T' )% ': '
+  %S %f pas_TypeName %( )% 
+//	  Left = 204
+  '  Left = 204'
+//	  Top = 118
+  '  Top = 118'
+//	  Width = 320
+  '  Width = 320'
+//	  Height = 240\
+  '  Height = 240'
+
+
+//	%S%f_pas_BeforeDFMControls()\
+  %S %f pas_BeforeDFMControls %( )% 
+
+//	%f_clear_list(FORM_CONTROLS)\
+  [%f] clear_list %( 'FORM_CONTROLS' )% 
+//	%S%f_ToDFM()
+  %S %f ToDFM %( )% 
+//	end\
+  'end'
+//	]
+ end // if
+//#UC END# *49F5795900ECfor4947E2F10338*
+; // dfm
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMCustomForm>>
+

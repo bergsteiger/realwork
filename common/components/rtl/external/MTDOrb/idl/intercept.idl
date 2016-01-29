@@ -1,0 +1,115 @@
+// -*- c++ -*-
+
+#pragma prefix "omg.org"
+#include "iop.idl"
+
+module Interceptor {
+    enum Status {
+        INVOKE_CONTINUE,
+        INVOKE_ABORT,
+        INVOKE_RETRY,
+	INVOKE_BREAK
+    };
+
+    
+    interface Root {
+        typedef unsigned long Priority;
+
+        readonly attribute Priority prio;
+        const Priority LowestPriority = 0;
+        const Priority HighestPriority = 0;
+
+        void activate (in Priority p);
+        void deactivate ();
+        boolean is_active ();
+    };
+
+    
+    interface Context {
+        void destroy ();
+    };
+
+    
+    typedef IOP::ServiceID ServiceID;
+    typedef sequence<octet> ContextData;
+
+    
+    interface LWRootRequest {
+        attribute Object target;
+        attribute Identifier operation;
+
+        void set_service_context (in ServiceID id,
+                                  in long flags,
+                                  in ContextData d);
+        ContextData get_service_context (in ServiceID id,
+                                         in long flags);
+        void remove_service_context (in ServiceID id);
+        boolean has_service_context (in ServiceID id);
+
+        void set_context (in Root interceptor, in Context ctx);
+        Context get_context (in Root interceptor);
+    };
+
+    
+    interface LWRequest : LWRootRequest {
+        readonly attribute CORBA::Request request;
+    };
+
+    
+    interface LWServerRequest : LWRootRequest {
+        readonly attribute CORBA::ServerRequest request;
+    };
+
+    
+    interface ClientInterceptor : Root {
+        Status initialize_request (in LWRequest req,
+                                   in CORBA::Environment env);
+        Status after_marshal (in LWRequest req,
+                              in CORBA::Environment env);
+	Status output_message (in CORBA::Buffer message,
+			       in CORBA::Environment env);
+	Status input_message (in CORBA::Buffer message,
+			      in CORBA::Environment env);
+        Status before_unmarshal (in LWRequest req,
+                                 in CORBA::Environment env);
+        Status finish_request (in LWRequest req,
+                               in CORBA::Environment env);
+    };
+
+    
+    interface ServerInterceptor : Root {
+	Status input_message (in CORBA::Buffer message,
+			      in CORBA::Environment env);
+        Status initialize_request (in LWServerRequest req,
+                                   in CORBA::Environment env);
+        Status after_unmarshal (in LWServerRequest req,
+                              in CORBA::Environment env);
+        Status before_marshal (in LWServerRequest req,
+                               in CORBA::Environment env);
+        Status finish_request (in LWServerRequest req,
+                               in CORBA::Environment env);
+	Status output_message (in CORBA::Buffer message,
+			       in CORBA::Environment env);
+    };
+
+    
+    typedef sequence<string> ArgList;
+
+    interface InitInterceptor : Root {
+        Status initialize (in CORBA::ORB orb,
+                           in CORBA::ORBId id,
+                           inout ArgList arg_list);
+    };
+
+
+    interface BOAInterceptor : Root {
+	Status bind (in string repoid, in CORBA::ORB::ObjectTag tag);
+	Status restore (in Object obj);
+	Status create (in Object obj);
+    };
+
+    interface ConnInterceptor : Root {
+	Status client_connect (in string addr);
+	Status client_disconnect (in string addr);
+    };
+};

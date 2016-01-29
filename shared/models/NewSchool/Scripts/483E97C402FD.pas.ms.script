@@ -1,0 +1,76 @@
+// XML 483E97C402FD Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483E97C402FD
+
+FORWARD ME_483E9810029D
+
+: ME_483E98560141
+ CONST UID '483E98560141'
+ CONST Name 'TXMLDocument'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_483E9810029D // XMLDoc
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_483E98560141 TXMLDocument
+
+: ME_483E9810029D
+ CONST UID '483E9810029D'
+ CONST Name 'XMLDoc'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_483E97C402FD // XML
+ ;
+ : Children
+   @ ( ME_483E98560141 // TXMLDocument
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Internet\XMLDoc.pas'
+
+ref; // ME_483E9810029D XMLDoc
+
+: ME_483E97C402FD
+ CONST UID '483E97C402FD'
+ CONST Name 'XML'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_483E96C10305' '483E96C10305.pas.ms.script' // Internet
+ ;
+ : Children
+   @ ( ME_483E9810029D // XMLDoc
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_483E97460331' '483E97460331.pas.ms.script' // XMLIntf
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\483E97C402FD.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\483E97C402FD.pas.ms.script.runner'
+
+ref; // ME_483E97C402FD XML

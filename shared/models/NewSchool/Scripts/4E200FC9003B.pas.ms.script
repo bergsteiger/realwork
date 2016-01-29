@@ -1,0 +1,54 @@
+// VCM$Scripting 4E200FC9003B Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4E200FC9003B
+ CONST UID '4E200FC9003B'
+ CONST Name 'VCM'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ ;
+ : Children
+   @ ( WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
+ WL 'ME_4F69B9040391' '4F69B9040391.pas.ms.script' // VCMWords
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_4C43E84F0304' '4C43E84F0304.pas.ms.script' // tb97
+ WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_4F91817500AC' '4F91817500AC.pas.ms.script' // VT$Rem
+ WL 'ME_52CFEC8C0111' '52CFEC8C0111.pas.ms.script' // VT$WithVCM
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'vcmDefine.inc'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'gui'
+ CONST "ifndef" 'NoScripts,NoVCM'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi\VCM$Scripting\VCM$Scripting.model.script'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\VCM$Scripting_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E200FC9003B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E200FC9003B.pas.ms.script.runner'
+
+ref; // ME_4E200FC9003B VCM$Scripting

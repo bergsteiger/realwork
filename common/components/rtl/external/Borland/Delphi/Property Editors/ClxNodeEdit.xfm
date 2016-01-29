@@ -1,0 +1,283 @@
+object ClxTreeViewItems: TClxTreeViewItems
+  Left = 314
+  Top = 263
+  Width = 549
+  Height = 371
+  VertScrollBar.Range = 171
+  ActiveControl = TreeView
+  BorderStyle = fbsDialog
+  Caption = 'TreeView Items Editor'
+  Color = clBackground
+  Constraints.MinHeight = 350
+  Constraints.MinWidth = 420
+  Position = poScreenCenter
+  Scaled = False
+  OnCreate = FormCreate
+  PixelsPerInch = 75
+  object GroupBox1: TGroupBox
+    Left = 6
+    Top = 5
+    Width = 340
+    Height = 166
+    Anchors = [akLeft, akTop, akRight]
+    Caption = '&Items'
+    TabOrder = 0
+    object New: TButton
+      Left = 212
+      Top = 20
+      Width = 110
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = '&New Node'
+      Default = True
+      TabOrder = 1
+      OnClick = NewClick
+    end
+    object Delete: TButton
+      Left = 212
+      Top = 89
+      Width = 110
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = '&Delete'
+      TabOrder = 3
+      OnClick = DeleteClick
+    end
+    object NewSub: TButton
+      Left = 212
+      Top = 55
+      Width = 110
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = 'N&ew SubNode'
+      TabOrder = 2
+      OnClick = NewSubClick
+    end
+    object Load: TButton
+      Left = 212
+      Top = 124
+      Width = 110
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = 'L&oad'
+      ParentShowHint = False
+      TabOrder = 4
+      OnClick = LoadClick
+    end
+    object TreeView: TTreeView
+      Left = 6
+      Top = 17
+      Width = 192
+      Height = 138
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      Columns = <
+        item
+          Width = 50
+        end>
+      TabOrder = 0
+      OnChange = TreeViewChange
+      OnDragDrop = TreeViewDragDrop
+      OnDragOver = TreeViewDragOver
+      OnEdited = TreeViewEdited
+    end
+  end
+  object PropGroupBox: TGroupBox
+    Left = 349
+    Top = 5
+    Width = 190
+    Height = 187
+    Anchors = [akTop, akRight, akBottom]
+    Caption = 'Item Properties'
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Top = 17
+      Width = 26
+      Height = 15
+      Caption = '&Text:'
+      FocusControl = Text
+      Layout = tlCenter
+    end
+    object Label2: TLabel
+      Left = 8
+      Top = 63
+      Width = 70
+      Height = 15
+      Caption = 'I&mage Index:'
+      FocusControl = Image
+      Layout = tlCenter
+    end
+    object Label4: TLabel
+      Left = 8
+      Top = 112
+      Width = 86
+      Height = 15
+      Caption = 'Sele&cted Index:'
+      FocusControl = SelectedIndex
+      Layout = tlCenter
+    end
+    object Text: TEdit
+      Left = 7
+      Top = 35
+      Width = 170
+      Height = 23
+      AutoSelect = False
+      MaxLength = 32767
+      TabOrder = 0
+      OnChange = ValueChange
+      OnExit = TextExit
+    end
+    object Image: TEdit
+      Left = 7
+      Top = 83
+      Width = 170
+      Height = 23
+      AutoSelect = False
+      MaxLength = 32767
+      TabOrder = 1
+      OnChange = ValueChange
+      OnExit = ImageExit
+    end
+    object SelectedIndex: TEdit
+      Left = 7
+      Top = 132
+      Width = 170
+      Height = 23
+      AutoSelect = False
+      MaxLength = 32767
+      TabOrder = 2
+      OnChange = ValueChange
+      OnExit = SelectedIndexExit
+    end
+  end
+  object Button4: TButton
+    Left = 209
+    Top = 336
+    Width = 75
+    Height = 25
+    Anchors = [akRight, akBottom]
+    Caption = 'OK'
+    ModalResult = 1
+    TabOrder = 4
+  end
+  object Cancel: TButton
+    Left = 294
+    Top = 336
+    Width = 75
+    Height = 25
+    Anchors = [akRight, akBottom]
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 5
+  end
+  object Apply: TButton
+    Left = 379
+    Top = 336
+    Width = 75
+    Height = 25
+    Anchors = [akRight, akBottom]
+    Caption = '&Apply'
+    TabOrder = 6
+    OnClick = ApplyClick
+  end
+  object Help: TButton
+    Left = 464
+    Top = 336
+    Width = 75
+    Height = 25
+    Anchors = [akRight, akBottom]
+    Caption = '&Help'
+    TabOrder = 7
+    OnClick = HelpClick
+  end
+  object gbSubItems: TGroupBox
+    Left = 6
+    Top = 173
+    Width = 340
+    Height = 147
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Caption = 'S&ub Items'
+    TabOrder = 2
+    object lbSubItems: TListBox
+      Left = 6
+      Top = 16
+      Width = 195
+      Height = 121
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      TabOrder = 0
+      OnClick = lbSubItemsClick
+    end
+    object btnAddSub: TButton
+      Left = 212
+      Top = 35
+      Width = 110
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = 'Add &SubItem'
+      TabOrder = 1
+      OnClick = btnAddSubClick
+    end
+    object btnDelSub: TButton
+      Left = 212
+      Top = 69
+      Width = 110
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = 'De&lete'
+      TabOrder = 2
+      OnClick = btnDelSubClick
+    end
+  end
+  object gbSubItemProps: TGroupBox
+    Left = 349
+    Top = 173
+    Width = 190
+    Height = 147
+    Anchors = [akTop, akRight, akBottom]
+    Caption = 'Sub Item &Properties'
+    TabOrder = 3
+    object edtSubText: TEdit
+      Left = 8
+      Top = 40
+      Width = 170
+      Height = 23
+      MaxLength = 32767
+      TabOrder = 0
+      OnChange = edtSubTextChange
+      OnExit = edtSubTextExit
+    end
+    object edtSubImgIndex: TEdit
+      Left = 8
+      Top = 89
+      Width = 170
+      Height = 23
+      MaxLength = 32767
+      TabOrder = 2
+      OnChange = edtSubTextChange
+      OnExit = edtSubImgIndexExit
+    end
+    object lblSubText: TLabel
+      Left = 8
+      Top = 20
+      Width = 26
+      Height = 15
+      Caption = 'Te&xt:'
+      Layout = tlCenter
+    end
+    object lblSubImgIndex: TLabel
+      Left = 8
+      Top = 69
+      Width = 70
+      Height = 15
+      Caption = 'Ima&ge Index:'
+      Layout = tlCenter
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'All Files(*)'
+    Title = 'Open'
+    Left = 5
+    Top = 250
+  end
+end

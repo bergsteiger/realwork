@@ -1,0 +1,81 @@
+// TtfwValueList 4DCC11A10187 SimpleClass Class
+
+FORWARD ME_4DCC11A10187
+
+: ME_4DCC124401A5
+ CONST UID '4DCC124401A5'
+ CONST Name 'l3Items_NoSort'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4DCC124401A5 l3Items_NoSort
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '4B223ADC02BF.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_4DCC11E10193
+ CONST UID '4DCC11E10193'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_55C0A4F9013F // TtfwStackValue
+ ;
+
+ @SELF
+; // ME_4DCC11E10193 ItemType
+
+: ME_4DCC11A10187
+ CONST UID '4DCC11A10187'
+ CONST Name 'TtfwValueList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Список адаптированный для хранения переменных.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ME_4B223ADC02BF // l3RecordListPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4DCC11E10193 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ : Children
+   [ ME_4DCC124401A5 // l3Items_NoSort
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '12.05.2011 20:58'
+
+ @SELF
+; // ME_4DCC11A10187 TtfwValueList

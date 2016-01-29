@@ -1,0 +1,125 @@
+SUMMARY
+
+   1. MTDORB/JBoss Interoperability
+   2. Prerequisites
+   3. Running the examples
+
+
+1. MTDORB/JBoss Interoperability
+   ---------------------------
+
+The subdirectories of this directory contain examples of MTDORB/JBoss 
+interoperability.
+
+These examples are in the subdirectories
+
+    txiiop
+    exiiop
+
+Each such subdirectory contains an example of EJB, a Delphi client that 
+accesses that EJB.
+
+The examples are:
+
+  - txiiop: example from JBoss test suite. Test of CORBA transactions.
+  
+  - exiiop: example from JBoss test suite. Test of CORBA and java exceptions.
+
+2. Prerequisites
+   -------------
+
+ - Sun's JDK (a.k.a. J2SE) 1.4.x, available from java.sun.com
+
+ - JBoss 4.0.0 or higher, available from the JBoss Files page at SourceForge:
+   http://sourceforge.net/project/showfiles.php?group_id=22866
+
+ - DUnit, available from the SourceForge: https://sourceforge.net/projects/dunit
+
+ - Either MTDORB snapshot with date 2004/07/20 (or later) or the upcoming
+   MTDORB beta 6
+
+
+3. Running the examples
+   --------------------
+
+Compile all the necessary binaries by typing 'ant' in in root directory of MTDORB.
+This will generate a MTDORB client in each example subdirectory. 
+Before you can run each client, you need to deploy the EJB jar file in a
+JBoss server. To do this, copy the EJB jar file to the "deploy" directory
+of the JBoss server. (If you are not familiar with JBoss, read the "NOTE ON 
+JBOSS" below.) Once the EJB jar file is deployed (and the JBoss server 
+running), simply run the MTDORB client. 
+
+The output of the txiiop client should be:
+
+Call txMandatoryMethod without a UserTransaction
+Expected exception: System exception: CORBA::TRANSACTION_REQUIRED
+Locality: exception has been received "over the wire"
+Completed: NO
+Minor code: 0
+Begin UserTransaction
+Commit UserTransaction
+Try to instantiate a UserTransaction
+Press Enter
+
+The output of the exiiop client should be:
+
+DUnit / Testing
+....IdlException: CORBA user exception IDL:org/jboss/test/excepiiop/interfaces/IdlException:1.0
+.JavaException: CORBA user exception IDL:org/jboss/test/excepiiop/interfaces/JavaEx:1.0
+.Avg. time/call(ms):1,57
+.Avg. time/call(ms):5,15
+.Avg. time/call(ms):2,5
+
+Time: 0:00:00.953
+
+OK: 6 tests
+
+Press <RETURN> to continue.
+
+NOTE ON JBOSS: 
+
+JBoss comes with three server configurations: "min", "default", and "all".
+Each of them corresponds to a subdirectory of $JBOSS_HOME/server, e.g.: 
+$JBOSS_HOME/server/default.
+
+The "default" JBoss configuration does not include IIOP support. To run 
+these examples, you should use the "all" configuration:
+
+  - To start the server, go to $JBOSS_HOME/bin and say 
+
+        ./run.sh -c all
+
+    (rather than just `./run.sh', which would start a server with the 
+     "default" config)
+
+  - To deploy an EJB, copy the EJB jar file to $JBOSS_HOME/server/all/deploy
+    (rather than to $JBOSS_HOME/server/default/deploy).
+
+Alternatively, you can use a customized "iiop" configuration, with ejb/IIOP 
+and little else. (This saves machine resources and makes the server startup 
+time much shorter.) Creating a customized "iiop" configuration is very easy:
+
+  - Recursively copy  $JBOSS_HOME/server/all to $JBOSS_HOME/server/iiop:
+
+        cd $JBOSS_HOME/server
+        cp -a all iiop
+
+  - Remove all subdirectories and files in $JBOSS_HOME/server/iiop,
+    EXCEPT the subdirectories jmx-rmi-adaptor.sar and jbossweb-jetty.sar
+    and the following files: 
+        
+        hsqldb-ds.xml
+        iiop-service.xml
+        jboss-jca.sar
+        jboss-local-jdbc.rar
+        jboss-xa-jdbc.rar
+        transaction-service.xml
+
+  - Use the "iiop" configuration instead of the "all" configuration:
+
+        * Start the server by saying `./run.sh -c iiop' at the $JBOSS/bin
+          directory.
+
+        * Deploy an EJB by copying the EJB jar file to the directory
+          $JBOSS_HOME/server/iiop/deploy.

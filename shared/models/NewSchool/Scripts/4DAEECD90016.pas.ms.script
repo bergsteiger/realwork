@@ -1,0 +1,500 @@
+// TtfwDictionary 4DAEECD90016 SimpleClass Class
+
+INCLUDE '4F4659980048.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_4DAEECD90016
+
+FORWARD ME_4F465A710399
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4F465A8B03C2
+ CONST UID '4F465A8B03C2'
+ CONST Name 'aName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_4F465A8B03C2 aName
+
+: ME_4F465A710399
+ CONST UID '4F465A710399'
+ CONST Name 'DRbyCName'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Элемент словаря по его имени' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_4DAEF23D00EE // TtfwKeyWord
+ ;
+ : Attributes
+   [ ME_4F465A8B03C2 // aName
+ ]
+ ; // Attributes
+ CONST "pm" true
+
+ @SELF
+; // ME_4F465A710399 DRbyCName
+
+FORWARD ME_4DAEEDA301CD
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4DAEEDCA0140
+ CONST UID '4DAEEDCA0140'
+ CONST Name 'aWordName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4DAEEDCA0140 aWordName
+
+: ME_4DAEEDCA016B
+ CONST UID '4DAEEDCA016B'
+ CONST Name 'aWordClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED6F03DD // RtfwWord
+ ;
+
+ @SELF
+; // ME_4DAEEDCA016B aWordClass
+
+: ME_4DAEEDC500CC
+ CONST UID '4DAEEDC500CC'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_4DAEEDCA0140 // aWordName
+ ME_4DAEEDCA016B // aWordClass
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DAEEDC500CC DoIt
+
+: ME_4DAEEDA301CD
+ CONST UID '4DAEEDA301CD'
+ CONST Name 'AddWord'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4DAEEDC500CC // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DAEEDA301CD AddWord
+
+FORWARD ME_4DB5781B0086
+
+: ME_4DB5783002CE
+ CONST UID '4DB5783002CE'
+ CONST Name 'aWordName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4DB5783002CE aWordName
+
+: ME_4DB57AA901A2
+ CONST UID '4DB57AA901A2'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_4DB57AA901A2 aWord
+
+: ME_4DB5782C03CE
+ CONST UID '4DB5782C03CE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_4DB5783002CE // aWordName
+ ME_4DB57AA901A2 // aWord
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DB5782C03CE DoIt
+
+: ME_4DB5781B0086
+ CONST UID '4DB5781B0086'
+ CONST Name 'AddWord$1'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4DB5782C03CE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DB5781B0086 AddWord$1
+
+FORWARD ME_4F465D580021
+
+: ME_4F465D6E02EB
+ CONST UID '4F465D6E02EB'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_4F465D6E02EB aName
+
+: ME_4F465D67008B
+ CONST UID '4F465D67008B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DAEF23D00EE // TtfwKeyWord
+ ;
+ : Parameters
+   [ ME_4F465D6E02EB // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F465D67008B DoIt
+
+: ME_4F465D580021
+ CONST UID '4F465D580021'
+ CONST Name 'DoCheckWord'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F465D67008B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F465D580021 DoCheckWord
+
+FORWARD ME_559E655B0290
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_559E65640187
+ CONST UID '559E65640187'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_559E65640187 DoIt
+
+: ME_559E655B0290
+ CONST UID '559E655B0290'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_559E65640187 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_559E655B0290 Create
+
+FORWARD ME_559FEFE603D4
+
+: ME_559FF01C029F
+ CONST UID '559FF01C029F'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_559FF01C029F aName
+
+: ME_559FF01400AB
+ CONST UID '559FF01400AB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DAEF23D00EE // TtfwKeyWord
+ ;
+ : Parameters
+   [ ME_559FF01C029F // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_559FF01400AB DoIt
+
+: ME_559FEFE603D4
+ CONST UID '559FEFE603D4'
+ CONST Name 'OwnDRbyCName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_559FF01400AB // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_559FEFE603D4 OwnDRbyCName
+
+FORWARD ME_559FF0210296
+
+: ME_559FF0500282
+ CONST UID '559FF0500282'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_559FF0500282 aName
+
+: ME_559FF04D02A1
+ CONST UID '559FF04D02A1'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DAEF23D00EE // TtfwKeyWord
+ ;
+ : Parameters
+   [ ME_559FF0500282 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_559FF04D02A1 DoIt
+
+: ME_559FF0210296
+ CONST UID '559FF0210296'
+ CONST Name 'DoGetDRbyCName'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_559FF04D02A1 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_559FF0210296 DoGetDRbyCName
+
+FORWARD ME_55A531FA016A
+
+: ME_55A5320200C3
+ CONST UID '55A5320200C3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_55A5320200C3 DoIt
+
+: ME_55A531FA016A
+ CONST UID '55A531FA016A'
+ CONST Name 'IsMain'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55A5320200C3 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55A531FA016A IsMain
+
+FORWARD ME_55A7ECD8020D
+
+: ME_55A7ECE40233
+ CONST UID '55A7ECE40233'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_55A7ECE40233 DoIt
+
+: ME_55A7ECD8020D
+ CONST UID '55A7ECD8020D'
+ CONST Name 'IsAxiom'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55A7ECE40233 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55A7ECD8020D IsAxiom
+
+FORWARD ME_55B0E87401FA
+
+: ME_55B0E89000EC
+ CONST UID '55B0E89000EC'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEF23D00EE // TtfwKeyWord
+ ;
+
+ @SELF
+; // ME_55B0E89000EC aWord
+
+: ME_55B0E881013D
+ CONST UID '55B0E881013D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_55B0E89000EC // aWord
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55B0E881013D DoIt
+
+: ME_55B0E87401FA
+ CONST UID '55B0E87401FA'
+ CONST Name 'Add'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55B0E881013D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55B0E87401FA Add
+
+: ME_4DAEECD90016
+ CONST UID '4DAEECD90016'
+ CONST Name 'TtfwDictionary'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Словарь' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4F4659980048 // TtfwDictionaryPrim
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_55A8E78D00A9 // MtfwWordChecker
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4F465A710399 // DRbyCName
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4DAEEDA301CD // AddWord
+ ME_4DB5781B0086 // AddWord$1
+ ME_4F465D580021 // DoCheckWord
+ ME_559E655B0290 // Create
+ ME_559FEFE603D4 // OwnDRbyCName
+ ME_559FF0210296 // DoGetDRbyCName
+ ME_55A531FA016A // IsMain
+ ME_55A7ECD8020D // IsAxiom
+ ME_55B0E87401FA // Add
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4F46588B021E // CheckWord
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A042E100E2 // InitFields
+ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 18:25'
+
+ @SELF
+; // ME_4DAEECD90016 TtfwDictionary

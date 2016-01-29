@@ -1,0 +1,34 @@
+<!ELEMENT Metadata (ObjectType+)>
+<!ATTLIST Metadata Version CDATA #REQUIRED>
+<!ELEMENT ObjectType (ObjectDescription?, ObjectFlags, MessageIndex,
+          FolderName?, ObjectNameProperty?, 
+          PropertyType+, RelationshipType*, ExportAs?)>
+<!ATTLIST ObjectType TypeID CDATA #REQUIRED>
+<!ELEMENT ExportAs (#PCDATA)>
+<!ELEMENT MessageIndex (#PCDATA)>
+<!ELEMENT ObjectDescription (#PCDATA)>
+<!ELEMENT ObjectFlags (#PCDATA)>
+<!ELEMENT FolderName (#PCDATA)>
+<!ELEMENT ObjectNameProperty (#PCDATA)>
+<!ELEMENT PropertyType (PropertyDescription?,   PropertyCardinality?, DirectoryName?, FileExtension?,
+ PropertyFlags, MessageIndex, ListID?, MaxLength?,  DataType, ValueType,
+  DefaultValue?, VisibleName?, ExportAs?)>
+<!ATTLIST PropertyType TypeID CDATA #REQUIRED>
+<!ELEMENT PropertyDescription (#PCDATA)>
+<!ELEMENT FileExtension (#PCDATA)>
+<!ELEMENT DirectoryName (#PCDATA)>
+<!ELEMENT PropertyFlags (#PCDATA)>
+<!ELEMENT ListID (#PCDATA)>
+<!ELEMENT MaxLength (#PCDATA)>
+<!ELEMENT DataType (#PCDATA)>
+<!ELEMENT ValueType (#PCDATA)>
+<!ELEMENT DefaultValue (#PCDATA)>
+<!ELEMENT PropertyCardinality (#PCDATA)>
+<!ELEMENT VisibleName (#PCDATA)>
+<!ELEMENT RelationshipType (RelationshipDescription?, RelationshipCardinality,
+ MessageIndex, TargetTypeID, RelationshipFlags, ExportAs?)>
+<!ATTLIST RelationshipType TypeID CDATA #REQUIRED>
+<!ELEMENT RelationshipDescription (#PCDATA)>
+<!ELEMENT RelationshipCardinality (#PCDATA)>
+<!ELEMENT TargetTypeID (#PCDATA)>
+<!ELEMENT RelationshipFlags (#PCDATA)>

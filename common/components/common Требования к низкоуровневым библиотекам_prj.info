@@ -1,0 +1,912 @@
+Shared Delphi Требования к низкоуровневым библиотекам : Project - Требования и базовые понятия системных библиотек
+version: 122
+L3$Domain : Library - Определение предметной области
+ l3Core : Interfaces - Базовые примитивные типы и интерфейсы, унаследованные извне. Для уменьшения связности с внешними модулями.
+  HPALETTE : Typedef - 
+  HMETAFILE : Typedef - 
+  HGLOBAL : Typedef - 
+  TFontName : Typedef - Гарнитура шрифта.
+  TFontPitch : Typedef - 
+  TFontStyles : Typedef - 
+  hFont : Typedef - 
+  TFont : Typedef - 
+  VCLBitmap : Typedef - Картинка.
+  TPoint : Typedef - Точка.
+  TRect : Typedef - 
+  TMessage : Typedef - 
+  Tl3Position : Typedef - Позиция.
+  Tl3Inch : Typedef - Дюйм.
+  Tl3Color : Typedef - Цвет.
+  VCLCanvas : Typedef - 
+  VCLGraphic : Typedef - Картинка.
+  Colors : Constants - Цвета
+   clDefault - Цвет по-умолчанию.
+  PTextMetric : Typedef - 
+  THandle : Typedef - 
+  TPointsArray : Vector - 
+  hRgn : Typedef - Хэндл региона.
+  WinBool : Typedef - 
+  LCID : Typedef - 
+  PMsg : Typedef - 
+  hDC : Typedef - 
+  hWnd : Typedef - 
+  WPARAM : Typedef - 
+  LPARAM : Typedef - 
+  TComponent : Typedef - 
+  TStrings : Typedef - 
+  TShiftState : Typedef - 
+  TPersistent : Typedef - 
+  DWORD : Typedef - 
+  PInteger : Typedef - 
+  RtlDateTime : Typedef - 
+  TShiftState_TShiftState_Constants : Constants - Алиасы для значений Classes.TShiftState
+   ssShift - 
+   ssAlt - 
+   ssCtrl - 
+   ssLeft - 
+   ssRight - 
+   ssMiddle - 
+   ssDouble - 
+  TFontPitch_TFontPitch_Constants : Constants - Алиасы для значений Graphics.TFontPitch
+   fpDefault - The font pitch is set to the default value, which depends on the font specified in the font object's Name property.
+   fpVariable - The font pitch is set to variable. The characters in the font have different widths.
+   fpFixed - The font pitch is set to fixed. All characters in the font have the same width.
+ l3IID : Interfaces - Объект-обертка вокруг GUID
+  Tl3_IID : StaticObject - 
+   IID - 
+  Tl3IID : StaticObject - 
+   EQ - 
+  Tl3_GUID : StaticObject - Объект-обертка вокруг GUID (без методов).
+   IID - 
+  array of TGUID : Vector - Список GUID'ов.
+  Tl3GUID : StaticObject - Объект-обертка вокруг GUID.
+   EQ - сравнить совпадение GUID'ов.
+   EQ - сравнить совпадение GUID'ов.
+   SomeOf - идентификатор один из GUIDs?
+   C : ctor - 
+  Tl3HResult : StaticObject - Результат COM-операции
+   f_Res - Собственно код результата
+   Ok - Результат успешен
+   Fail - Результат неуспешен
+   C : ctor - 
+   SetOk - Установить в S_Ok
+   SetNoInterface - Установить в E_NoInterface
+   Res - Собственно результат
+  OldGUIDS : Constants - 
+   ev_iidCursor - курсор объекта
+   ev_iidBlock - выделение части объекта
+ l3PureMixIns : Interfaces - Абстрактные примеси.
+  ItemType : ImpurityParamType - Тип элемента.
+  Ml3CountHolder : PureMixIn - 
+   Count : readonly - Число элементов.
+  Ml3List : PureMixIn - Список.
+   Empty : readonly - 
+    : impurity param - 
+   First : readonly - Первый элемент.
+   Last : readonly - Последний элемент.
+   Items : readonly - 
+  Ml3ListEx : PureMixIn - 
+   IndexOf - 
+   Add - 
+  Ml3CheckStamp : PureMixIn - 
+   CheckStamp - Проверяет метку реализации интерфейса. Например для того, чтобы узнать, что реализация наша "родная".
+  Ml3ChangingChanged : PureMixIn - 
+   Changed - нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках.
+   Changing - нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках.
+ l3Math : Unit - 
+  l3Math : UtilityPack - Математические функции.
+   l3MulDiv - 
+  l3MinMax : UtilityPack - 
+   Max - 
+   Min - 
+  l3Interlocked : UtilityPack - 
+ l3Interfaces : Interfaces - Базовые интерфейсы.
+  Tl3WString : StaticObject - Строка с кодировкой и с длиной.
+   S - Собственно строка.
+   SLen - Длина.
+   SCodePage - Кодовая страница.
+  Il3CString : Facet - Константная строка
+   AsWStr : readonly - Возвращает данные строки.
+  Il3Base : Facet - Базовый интерфейс библиотеки L3
+  TGUID : Typedef - GUID
+  Il3Reader : Facet - Читатель файла.
+   execute - Выполняет процесс чтения файла.
+  Il3Notify : Facet - Абстрактный подписчик.
+  Il3CaretOwner : Facet - Владелец каретки ввода.
+   RedrawCaret - 
+  Il3Lock : Facet - Замок.
+   Lock - закрыть.
+   Unlock - открыть.
+  Il3FrameTextPainter : Facet - Рисователь текста рамки.
+   DrawFrameText - Рисует текст рамки.
+  IDataObject : Typedef - Объект представляющий данные для буфера обмена или drag-and-drop.
+  Il3ChangeNotifier : Facet - Извещатель об изменении данных.
+   Subscribe - подписка на извещения.
+   Unsubscribe - "отписка" от извещений.
+  Il3Tool : Facet - Инструмент, привязанный к родителю.
+   OwnerDead - Нотификация о смерти родителя.
+  Il3ItemNotifyRecipient : Facet - Подписчик для получения нотификации об операции.
+   Notify - прошла операция.
+  Il3ChangeRecipient : Facet - Подписчик для получения нотификации об изменении данных.
+  TPoint : Typedef - Точка.
+  IEnumFormatEtc : Typedef - Итератор по данным внутри IDataObject.
+  Il3DataObjectInfo : Facet - Информация об объекте содержащимся в буфере обмена.
+   IsQuestionNeedBeforeFlush : readonly - 
+  Tl3PCharLenPrim : Typedef - Строка с длинной.
+  Tl3FontIndex : Enum - Индекс шрифта.
+   l3_fiNone - нет.
+   l3_fiSub - нижний.
+   l3_fiSuper - верхний.
+   l3_fiObject - объект
+   l3_fiBaseLined - 
+  Tl3TabStopStyle : Enum - Стиль позиции табуляции.
+   l3_tssLeft - 
+   l3_tssCenter - 
+   l3_tssRight - 
+   l3_tssDecimal - 
+   l3_tssLine - 
+  Tl3Orientation : Enum - Ориентация объекта.
+   ev_orNone - неопределена.
+   ev_orHorizontal - горизонтально.
+   ev_orVertical - вертикально.
+  HResult : Typedef - 
+  Tl3ClipboardFormat : Typedef - Формат данных буфера обмена.
+  Tl3StringArray : Vector - Динамический массив строк.
+  Tl3StyleId : Typedef - Идентификатор таблицы стилей.
+  Tl3ClipboardFormats : Vector - Набор форматов данных буфера обмена.
+  Tl3StoragePlace : Typedef - Приемник данных.
+  Tl3Color : Typedef - 
+  LCID : Typedef - Идентификатор локали.
+  Il3LocaleInfo : Facet - Информация о локали.
+   Language : readonly - язык.
+   SubLanguage : readonly - диалект.
+   Name : readonly - локаль.
+   Id : readonly - Идентификатор языка.
+  Il3SelectCountChangedRecipient : Facet - Подписчик для получения нотификации об изменении количества выделенных элементов.
+   SelectCountChanged - прошла операция.
+  Il3ExternalTreeChangedRecipient : Facet - Подписчик для получения нотификации об изменении количества видимых элементов.
+   ExternalVisibleCountChanged - прошла операция.
+   ExternalInvalidate - перерисуйся.
+   ExternalModified - в дереве были добавлены/удалены элементы.
+             - aNode:
+                 Узел ниже которого добавили/удалили узлы. Нумерация начинается
+                 с нуля;
+             - aDelta:
+                 Количество элементов которое было добавлено/удалено. Если
+                 aDelta со знаком минус элементы были удалены;
+  Il3MultipartText : Facet - Интерфейс для получения текста в виде кусочков (для многоколоночной ноды, в частности).
+   GetTextPart - Возвращает кусок текста по индексу.
+  Il3XMLWriter : Facet - Генератор XML.
+   PutData$1 : facetmethod - 
+   PutData$2 : facetmethod - 
+   PutData$3 : facetmethod - 
+   OpenLevel - открывает новый тег.
+   OpenLevel - открывает новый тег. aSuffix - атрибуты тега.
+   OpenSubLevel - открывает подуровень, путем отрезания буквы "s" у предыдущего уровня.
+   CloseLevel - закрывает тег.
+   CS - Escape'ит строку.
+   CS - Escape'ит строку.
+   CS - Escape'ит строку.
+   Start - начинает генерацию.
+   Finish - заканчивает генерацию.
+  Il3AString : Facet - ANSI-строка.
+   S - Собственно строка.
+  Il3RangeManager : Facet - Диапазон страниц.
+   Count : readonly - количество поддиапазонов страниц.
+   Pages : readonly - 
+   IndexOfPage : readonly - номер поддиапазона в котором находится указанная страница.
+   HasPage - содержит ли диапазон указанную страницу.
+  TStrings : Typedef - Список строк.
+  hDC : Typedef - Контекст устройства вывода.
+  Tl3PageOrientation : Enum - Ориентация страницы.
+   l3_poPortrait - книжная.
+   l3_poLandscape - альбомная.
+  Il3Strings : Facet - Список строк.
+   Items : readonly - строки.
+  Il3StringsEx : Facet - Список строк.
+   Count : readonly - количество элементов.
+   Sorted : property - 
+   Items : property - элементы списка.
+   Item : property - элементы списка.
+   ItemC : property - элементы списка.
+   Objects : property - объекты, ассоциированные со строками.
+   Assign - 
+   Assign - 
+   EQ - 
+   Add - 
+   Add - 
+   Add - 
+   AddObject - 
+   AddObject - 
+   Insert - 
+   Insert - 
+   BeginUpdate - 
+   EndUpdate - 
+   Clear - 
+   Delete - 
+   IndexOf - 
+   IndexOf - 
+   IndexOf - 
+  Tl3OrientationSet : SetOf - Множество ориентаций объекта.
+  Tl3Orientation1 : Range - Ориентация объекта.
+   first - 
+   last - 
+  Tl3Inch : Typedef - Дюйм.
+  Tl3_PointXY : Struct - 
+   X - 
+   Y - 
+  Tl3InchOArray : Vector - 
+  Tl3InchBArray : Vector - 
+  Tl3PointSF : Struct - 
+   Start - 
+   Finish - 
+  Tl3_PointUnion : Union - 
+   void : switch - 
+   voidXY - 
+   oPt - 
+   bPt - 
+   voidSF - 
+   Border - 
+  Tl3_Point : StaticObject - Базовая точка с координатами в дюймах (мировые координаты).
+   P - 
+   C : ctor - 
+    : uses - 
+    : uses - 
+  Tl3_RectLRTB : Struct - 
+   Left - 
+   Top - 
+   Right - 
+   Bottom - 
+  Tl3_SPoint : StaticObject - Базовая точка с координатами в пикселях (на экране).
+   C : Constructor - 
+   P - 
+  Tl3_RectTB : Struct - 
+   TopLeft - 
+   BottomRight - 
+  Tl3PointBArray : Vector - 
+  Tl3_RectUnion : Union - 
+   void : switch - 
+   voidLRTB - 
+   voidTB - 
+   bRt - 
+  Tl3_Rect : StaticObject - Прямоугольник.
+   R - 
+  Il3Meter : Facet - Индикатор прогресса
+   Prg Consts : Constants - Константы прогресса.
+   ProgressProc - 
+   FreeNotification - 
+   RemoveFreeNotification - 
+  Il3SimpleView : Facet - 
+   Update - 
+  Il3Window : Facet - Окно.
+   Invalidate - Запрос на перерисовку.
+  IStream : Typedef - Поток.
+  Il3TempStream : Facet - Хранилище временных данных.
+   MakeForWrite - Создает поток для записи.
+   MakeForRead - Создает поток для чтения.
+  Il3DropTarget : Facet - Место куда можно опустить объект.
+   GetAcceptableFormats - Список приемлимых форматов.
+   DoDrop - 
+   DoDragOver - 
+   DoDragEnter - 
+   DoDragLeave - 
+   Keys2Effect - 
+  TFormatEtc : Typedef - 
+  PMsg : Typedef - 
+  Tl3HookProcResult : Struct - 
+   Handled - 
+   Result - 
+  LPARAM : Typedef - 
+  WPARAM : Typedef - 
+  Il3Listener : Facet - 
+  Il3ToolOwner : Facet - Менеджер инструментов.
+   AddTool - Добавить инструмент.
+   RemoveTool - Удалить инструмент.
+  IDropSource : Typedef - 
+  IDropTarget : Typedef - 
+  IAdviseSink : Typedef - 
+  IEnumStatData : Typedef - 
+  PFormatEtc : Typedef - 
+  hWnd : Typedef - 
+  HPALETTE : Typedef - 
+  HMETAFILE : Typedef - 
+  HGLOBAL : Typedef - 
+  Tl3CheckBoxState : Enum - Состояние Checkbox'а.
+   l3_cbUnchecked - Не выбран.
+   l3_cbChecked - Выбран.
+   l3_cbGrayed - Запрещен.
+  Tl3ButtonState : Enum - Состояние кнопки.
+   l3_bsUp - Отжата.
+   l3_bsDisabled - Запрещена.
+   l3_bsDown - Нажата.
+   l3_bsExclusive - <?> Коллеги, это что?
+  Tl3Alignment : Enum - Выравнивание.
+   l3_taLeftJustify - Влево.
+   l3_taRightJustify - Вправо.
+   l3_taCenter - По центру.
+  Tl3ValueMapID : Struct - Идентификатор мапы.
+   rName - Имя для контроля.
+   rID - ID по которому идет доступ.
+  Il3ValueMap : Facet - базоый интерфейс для пар "строка"-нечто.
+   MapID : readonly - Идентификатор мапы.
+   GetDisplayNames - заполняет список значениями "UI-строка"
+   MapSize - количество элементов в мапе.
+  Il3StringValueMap : Facet - Пары "строка"-"строка" для перевода.
+   DisplayNameToValue - 
+   ValueToDisplayName - 
+  Il3ValueMapFactory : Facet - Фабрика массивов пар ключ-значение.
+   MakeMap - 
+  Il3StringValueMapFactory : Facet - Фабрика для Il3StringValueMap.
+  Il3IntegerValueMap : Facet - Пары "строка"-"целое" для перевода.
+   DisplayNameToValue - 
+   ValueToDisplayName - 
+  Il3IntegerValueMapFactory : Facet - Фабрика для Il3IntegerValueMap.
+  Il3IntegerValueMapManager : Facet - Контейнер для Il3IntegerValueMap.
+   Map : readonly - Мапа по ID.
+   RegisterFactory - aPreferred - Фабрика будет вызываться как можно раньше.
+   UnRegisterFactory - 
+  Tl3LinePartDrawType : Enum - Тип линии рамки.
+   lpdDraw - линия рисуется всегда.
+   lpdSpecialDraw - невидимая линия (только для специальных режимов отрисовки).
+   lpdHidden - прячем во время оптимизации.
+  Tl3FramePartIndex : Enum - Индекс части рамки.
+   l3_fpiUp - 
+   l3_fpiDown - 
+   l3_fpiLeft - 
+   l3_fpiRight - 
+  Tl3FramePart : Struct - Элемент рамки.
+   rColor - 
+   rWidth - Ширина.
+   rSpaceBefore - Отступ до.
+   rSpaceAfter - Отступ после.
+   rDrawType - Тип линии.
+  Tl3FramePartArray : Vector - Массив элементов рамки.
+  Il3Lines : Facet - Список строк.
+   Count : readonly - 
+   AsObject - 
+  Il3MultiLines : Facet - 
+   IsSingle - 
+   HasBreakInWord - 
+  Il3List : Facet - Список.
+   Count : property - число элементов в хранилище.
+   Clear - очистить список.
+   Delete - удаляет элемент по индексу Index.
+  Il3InterfaceList : Facet - Список интерфейсов.
+   ItemType : impurity value - 
+   Add - Добавляет элемент. Возвращает ео индекс.
+   Insert - вставляет элемент Item по индексу Index.
+   AssignList - 
+  Tl3FontIndexes : SetOf - Множество индексов шрифта.
+  TFontName : Typedef - Гарнитура шрифта.
+  TFontPitch : Typedef - 
+  Il3FontInfo : Facet - Информация о шрифте.
+   Size : readonly - кегль.
+   Bold : readonly - жирный?
+   Italic : readonly - курсив?
+   Underline : readonly - подчеркнутый?
+   Strikeout : readonly - зачеркнытый.
+   ForeColor : readonly - цвет шрифта.
+   BackColor : readonly - цвет фона.
+   Name : readonly - гаринитура.
+   Pitch : readonly - кернинг.
+   Index : readonly - индекс.
+  TFontStyles : Typedef - 
+  Il3FontPrim : Facet - Шрифт объекта.
+   ForeColor : property - цвет шрифта.
+   BackColor : property - цвет фона.
+   Size : property - размер кегля.
+   Bold : property - жирный.
+   Italic : property - курсив.
+   Underline : property - подчеркивание.
+   Strikeout : property - зачеркивание.
+   Name : property - имя шрифта.
+   Pitch : property - Кернинг.
+   Index : property - индекс шрифта.
+   Style : property - 
+  hFont : Typedef - 
+  TFont : Typedef - 
+  Il3FontMetrics : Facet - Метрики шрифта.
+   Pos2Index - находит индекс символа на рассоянии W дюймов от начала строки S.
+   TextExtent - возвращает размеры строки текста в дюймах.
+  TCharSet : SetOf - Множество символов.
+  Tl3DString : Typedef - 
+  Tl3SetBitType : Enum - 
+   sbSelect - 
+   sbDeselect - 
+   sbInvert - 
+  Tl3Direction : Enum - направление движения.
+   dUp - 
+   dUpMax - 
+   dDown - 
+   dDownMax - 
+   dLeft - 
+   dRight - 
+  Tl3WordPosition : Enum - 
+   wpAnyPathWord - в любой части слова.
+   wpAtBeginWord - с начала слова.
+   wpAtBeginString - с начала строки.
+  Tl3WordOrder : Enum - порядок введенных слов.
+   woAnyOrder - в любом порядке.
+   woAsWrote - с учетом порядка введенного контекста.
+  Tl3TreeLevelDist : Enum - область для иерархических деревьев.
+   tldAllLevels - во всех уровнях.
+   tldOneLevel - в пределах одного уровня.
+  Tl3CStringArray : Vector - Динамический массив строк.
+  CharSets : Constants - Кодировки символов.
+   CS_Ansi - 
+   CS_OEM - 
+   CS_Default - 
+   CS_Effective - 
+   CS_Russian - 
+  CodePages : Constants - Кодовые страницы.
+   CP_ANSI - константа представляющая кодировку ANSI.
+   CP_OEM - константа представляющая кодировку OEM.
+   CP_Unicode - константа представляющая кодировку Unicode.
+  ClipboardFormats : Constants - Форматы данных буфера обмена.
+   CF_TEXT - Текст.
+   cf_OEMText - OEM-текст.
+   CF_BITMAP - Картинка.
+   CF_METAFILEPICT - Метафайл.
+   CF_UNICODETEXT - Unicode-текст.
+   CF_ENHMETAFILE - Продвинутый метафайл.
+   CF_HDROP - Данные drag'n'drop.
+  Points : Constants - Точки.
+   l3_Point0 - Начало координат.
+  KeyMasks : Constants - Key State Masks for Mouse Messages
+   MK_CONTROL - 
+   MK_LButton - 
+   MK_RBUTTON - 
+  MediaTypes : Constants - Типы носителей.
+   TYMED_NULL - 
+   TYMED_HGLOBAL - 
+   TYMED_ISTREAM - 
+   TYMED_GDI - 
+   TYMED_MFPICT - 
+  DropEffects : Constants - 
+   DROPEFFECT_COPY - 
+   DROPEFFECT_MOVE - 
+   DROPEFFECT_NONE - 
+  OleErrors : Constants - 
+   OLE_E_ADVISENOTSUPPORTED - 
+   OLE_E_NotRunning - 
+  WindowsErrors : Constants - 
+   E_OutOfMemory - 
+  DragAndDropConstants : Constants - 
+   DRAGDROP_S_CANCEL - 
+   DRAGDROP_S_DROP - 
+   DRAGDROP_S_USEDEFAULTCURSORS - 
+   DATA_S_SAMEFORMATETC - 
+  DVConstants : Constants - 
+   DV_E_FORMATETC - 
+   DV_E_DVAspect - 
+   DV_E_LINDEX - 
+  ActiveXConstants : Constants - 
+   DATADIR_GET - 
+   DVASPECT_CONTENT - 
+  WindowsConstants : Constants - 
+   GMEM_SHARE - 
+  NilObjects : Constants - Нулевые типизированные объекты.
+   nilObj - Нулевой базовый объект.
+  Tl3MemoryFlag : Enum - Флаг распределения памяти.
+   l3_mfNil - Не распределено.
+   l3_mfSmall - Меньше 4-х байт.
+   l3_mfLocal - Выделено по GetMem.
+   l3_mfGlobal - Выделено по GlobalAlloc.
+  Tl3PtrRec : Union - Указатель на кусок памяти.
+   Flag : switch - Флаг распределения памяти.
+   Ptr - Указатель на данные.
+   H - Хендл данных.
+  Tl3PtrRecLen : Struct - Распределенная строка с кодировкой и длиной.
+   S - Строка.
+   SLen - Длина.
+   SCodePage - Кодовая страница.
+  Tl3WrappedWString : Struct - Выровненная строка.
+   Flag - 
+   WS - 
+  Tl3WStrCast : Union - Переходник между Tl3PtrRec и Tl3WStr.
+   void : switch - 
+   voidPtr - Распределенная строка.
+   voidStr - 
+  Il3Console : Facet - Консоль.
+   Shift - Сдвигает отступ вывода.
+   Say - Выводит строчку на консоль.
+  Tl3Frame : Struct - Рамка.
+   rRect - 
+   rInfinite - 
+   rP - Элементы рамки.
+  Il3Font : Facet - Шрифт объекта.
+   AssignFont - 
+   Assign2Font - 
+   Lock - 
+   Unlock - 
+   HF - 
+   IsAtomic - Строка для нанного шрифта представляет собой единый объект?
+   FM - Метрики шрифта.
+  Tl3LinesColorArray : Vector - Цвета для рисования рамок.
+  Tl3Index : Range - Индекс элементов.
+   first - 
+   last - 
+  VCLBitmap : Typedef - Картинка.
+  Tl3OperationCode : Typedef - команда возвращаемая компоненту в результате срабатывания механизма ShortCut-ов
+  IStorage : Typedef - 
+  Il3WordsSeq : Facet - "Строка".
+   WordStart - 
+   WordLeft - 
+   WordFinish - 
+   WordRight - 
+  Ml3PageSetup : PureMixIn - Информация о странице
+   Width : readonly - ширина печатаемой области.
+   Height : readonly - высота печатаемой области.
+   PaperWidth : readonly - ширина бумаги.
+   PaperHeight : readonly - высота бумаги.
+   Margins : property - Поля от края листа (с учетом непечатаемой области)
+  WinBool : Typedef - 
+  Il3Caret : Facet - 
+   Extent : writeonly - 
+   Position : property - 
+   Visible : readonly - 
+   Hidden : writeonly - 
+   CheckHidden - 
+   CanHide - 
+  Il3ScrollCaret : Facet - 
+   IsInited - 
+   IsOnScreen - 
+   Scroll - 
+   Reset - 
+  Il3MemoryPool : Facet - Кусок памяти.
+   Size : property - текущий размер куска памяти.
+  Il3HandleMemoryPool : Facet - Кусок памяти с Windows Handle.
+   ReleaseHandle - 
+   AsHandle - Windows Handle куска памяти.
+  Il3StringValueMapManager : Facet - Контейнер для Il3StringValueMap.
+   Map : readonly - Мапа по ее ID.
+   RegisterFactory - aPreferred - Фабрика будет вызываться как можно раньше.
+   UnRegisterFactory - 
+  Tl3CompareAction : Function - Функция сравнения элементов.
+   DoIt - 
+  PInteger : Typedef - Указатель на Integer.
+  Large : Typedef - 
+  Il3Progress : Facet - Индикатор процесса.
+   Start - начать процесс.
+   Start - начать процесс.
+   Finish - закончить процесс.
+   Progress - изменить текущее состояние.
+   Progress - изменить текущее состояние.
+   ProgressEx - 
+   ChangeIO - изменить флаг InIO.
+   InIO - в процессе ввода/вывода?
+   InUse - 
+  Tl3TabStop : Struct - Описание позиции табуляции.
+   rPosition - Позиция.
+   rStyle - Стиль.
+   rFiller - Символ-заполнитель.
+  Il3TabStops : Facet - Позиции табуляции.
+   Clone - клонирует позиции табуляции.
+   Next - следующая позиция табуляции.
+   Filler - следующий символ-заполнитель.
+   Style - следующий стиль.
+   NeedCutByTab - 
+   Reset - 
+  Il3ProgressSource : Facet - 
+   Progress : property - 
+  Il3DocIDSource : Facet - 
+   DocID : property - 
+  Il3TabInfo : Facet - Информация о текущем состоянии табуляции.
+   TabOffset - 
+   TabStops - 
+  Tl3MouseAction : Enum - событие мыши.
+   l3_maDown - 
+   l3_maUp - 
+   l3_maDouble - 
+   l3_maMove - 
+   l3_maCtlMove - 
+  Tl3MouseButton : Enum - кнопка мыши.
+   l3_mbLeft - 
+   l3_mbMiddle - 
+   l3_mbRight - 
+  Il3Rollback : Facet - Объект, умеющий откатывать данные
+   Rollback - Откатить данные
+  Il3PageSetup : Facet - Информация о странице
+  Tl3StringID : StaticObject - 
+   rS - 
+  Pl3StringID : Typedef - 
+  Il3ApplicationL10NStrings : Facet - Локализуемые строки приложения
+   Define - 
+  Il3IntegerList : Facet - Список целых чисел
+   ItemType : impurity value - 
+  Pl3WString : Typedef - 
+  Il3GetMessageListener : Facet - 
+   GetMessageListenerNotify : facetmethod - 
+  Il3WndProcRetListener : Facet - 
+   WndProcRetListenerNotify : facetmethod - 
+  Il3MouseListener : Facet - 
+   MouseListenerNotify : facetmethod - 
+  Il3WndProcListener : Facet - Слушатель, получающий уведомления о поступлении сообщений в процедуры окон приложения.
+   WndProcListenerNotify : facetmethod - 
+  Il3MouseWheelListener : Facet - 
+   MouseWheelListenerNotify : facetmethod - 
+  Il3CBTListener : Facet - 
+   CBTListenerNotify : facetmethod - 
+  Tl3Point : Typedef - 
+  Tl3Rect : Typedef - 
+  Tl3SPoint : Typedef - 
+  array of Il3CString : Vector - 
+ l3Const : Interfaces - Константы библиотеки L3.
+  Messages : Constants - 
+   rs_LongOperation - 
+  L3 Core Consts : Constants - 
+   l3NilLong - NULL для целых.
+   l3Inch - Дюйм.
+   l3mmInInch - число сантиметров в дюйме.
+   l3FontIndexDelta - 
+   l3Epsilon - предел точности.
+   l3AlingDelta - Велчина выравнивания (значения отличающиеся на меньшую по модулю велчину считаются равными).
+   l3ShapeNil - NULL для координат рисуемых объектов.
+  Strings : Constants - 
+   l3NULLStr - 
+ l3Except : Interfaces - Базовые исключения L3.
+  El3Exception : Exception - 
+  El3CannotModify : Exception - 
+  El3Error : Exception - 
+  El3Warning : Exception - 
+  El3NotFound : Exception - 
+  El3Abort : Exception - 
+  El3AbortLoad : Exception - 
+  El3FilerError : Exception - 
+  El3ReadError : Exception - 
+  El3NoLoggedException : Exception - предок ошибок, которые в лог не попадают (см. l3ExceptionsLog)
+  El3InfoException : Exception - предок ошибок для информационных целей (внутренее использование)
+  El3DuplicateItem : Exception - дублирование элемента в списке
+  El3ConvertError : Exception - 
+  Error Messages : Constants - Сообщения об ошибках.
+   l3_excAbortLoad - 
+  El3BadPictureFormat : Exception - 
+  El3AbortLoadFilter : Exception - 
+  El3BadDataInPara : Exception - 
+ l3Units : Interfaces - Модуль описывающий работу с различными единицами измерения.
+  Tl3Point : StaticObject - Точка с координатами в дюймах (мировые координаты).
+  Tl3SPoint : StaticObject - Точка с координатами в пикселях (на экране).
+  Tl3Rect : StaticObject - Прямоугольник с координатами в дюймах (мировые координаты).
+  Tl3SRect : StaticObject - Прямоугольник с координатами в пикселях (на экране).
+ l3TreeInterfaces : Interfaces - Интерфейсы дерева.
+  Il3Nodes : Facet - контейнер узлов
+  Il3NotifySource : Facet - Объект, рассылающий нотификацию об изменении структуры.
+  Tl3TreeData : Struct - Запись с данными о перемещаемом объекте
+   rMultiSelection - выделен один или много
+   rNode - выбранный узел.
+   rNodes - выбранные узлы
+  Il3SimpleNode : Facet - Узел дерева.
+   Flags : readonly - 
+   ThisChildrenCount : readonly - число дочерних элементов, БЕЗ детей всех вложенные.
+   IndexInParent : readonly - индекс узла в родительском.
+   Text : readonly - текст узла.
+   Parent : readonly - родительский узел.
+   Child : readonly - первый дочерний элемент.
+   Next : readonly - Следующий сосед.
+   Flag : property - 
+   Prev : readonly - Предыдущий сосед.
+   IsFirst - это первый узел внутри родителя?
+   IsLast - это последний узел внутри родителя?
+   HasChild - есть ли дочерние узлы?
+   MaybeChild - может ли иметь дочерние узлы?
+   GetLevel - 
+   GetLevelFor - 
+   IsSame - сравнивает ноды.
+   IsDisappeared - True если интерфейс на удаленную ноду,
+             применяется в виртуальных нодах - указателях на данные.
+   BeginMove - начать перемещение узла.
+   EndMove - закончить перемещение узла.
+   Delete - удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты.
+   CanAcceptData - может ли узел принять данные
+   DropData - принять данные
+   CanMove - определяет возможность перемещения узла
+  Il3SimpleRootNode : Facet - 
+   CanExpandCollapseAll - 
+   ExpandCollapseAll - 
+  Tl3SimpleNodeAction : Function - Подитеративная функция для перебора элементов дерева. Если возвращает true, то процесс перебора узлов прекращается.
+   DoIt - 
+  Il3RootSource : Facet - Источник корня дерева.
+   RootNode : property - корень дерева.
+  Il3HandleNode : Facet - Узел дерева с целочисленным идентификатором.
+   Handle : property - идентификатор узла.
+  Il3TreeFilters : Facet - фильтры реально установленные на дереве
+   Context : readonly - 
+   SetContext - 
+   Clone - 
+  Il3ContextFilterParamsNotifier : Facet - нотификатор о том что параметры изменились.
+   ParamsChanged - 
+  Il3ContextFilterTarget : Facet - проверяет что контекст тот же самый.
+   IsSameContext - 
+  Il3ContextFilterParamsNotifySource : Facet - источник нотификации о том что параметры изменились.
+   Subscribe - 
+   UnSubscribe - 
+  Il3Base : Typedef - Базовый предок.
+  IterMode : Constants - 
+   imExpandOnly - перебирать только открытые узлы
+   imCheckResult - проверять результат, возвращаемый подитеративной функцией (см. Tl3NodeAction)
+   imOneLevel - перебрать только один уровень
+   imParentNeed - включить RootSubNode в список перебираемых
+   imNoSubRoot - RootSubNode - точка начала, но не корень, так же перебираются узлы расположенные на том же уровне, что и RootSubNode и выше него
+   imChildsBefore - перебрать все дочерние узлы перед их родителем, т.е. дети перебираются вперед
+   imNoChilds - не перебирать дочерние узлы, используется во внутренних процедурах
+   imNoHidden - не перебирать невидимые, поддерживается только процедурами Tl3Tree
+   imLeavesOnly - перебирать только "листьевые" узлы (у которых нет детей)
+  flags in tree : Constants - TNode.Flags const
+   nfSelected - узел выделен
+   nfSelModified - выделение узла изменена
+   nfChildSelected - у узла есть выделенные дочерние узлы
+   nfExpanded - узел раскрыт
+   nfReadOnly - узел не для редактирования
+   nfHidden - узел не отображается
+   nfItemModified - узел модифицирован
+   nfHasChild - у узла есть дочерние узлы
+   nfWasDisappear - узел был удален, cm. IsDisappeared
+   nfUserDefined2 - флаг для использования "пользователем". Смысл определяется конкретной реализацией
+   nfUserDefined1 - флаг для использования "пользователем". Смысл определяется конкретной реализацией
+  CountView : Constants - 
+   l3_NeedCountView - 
+   l3_DelayedCountView - 
+   l3_NotChangeCountView - 
+  Il3SimpleTree : Facet - Дерево.
+   ShowRoot : property - показывать ли корень?
+   CountView : readonly - полное количество видимых элементов.
+   SelectCount : readonly - количество выделенных узлов.
+   Flags : readonly - флаги узлов по видимому индексу [0..CountView-1].
+   Select : property - признак видимости узлов по видимому индексу [0..CountView-1].
+   Nodes : readonly - возвращает узел по видимому индексу [0..CountView-1].
+   CursorTop - переставить курсор на первый видимый элемент.
+   GetIndex - возвращает видимый индекс aNode относительно aSubRootNode или корня.
+   GetLevel - возвращает уровень узла относительно корня.
+   SelectAllNodes - выделяет/развыделяет все узлы.
+   SelectInterval - выделяет/развыделяет узлы на указанном интервале.
+   ChangeExpand - меняет развернутость узла.
+   ExpandSubDir - развернуть/свернуть узлы.
+   SetBranchFlag - зачем-то используется визуалкой в ExpandNode.
+   CountViewItemsInSubDir - зачем-то используется визуалкой в ShowMoreChildrenOnScreen.
+   IsRoot - является ли узел корневым для дерева.
+   IsExpanded - раскрыт ли узел.
+   IsFirstVis - является ли узел первым видимым в ветке.
+   IsLastVis - является ли узел последним видимым в ветке.
+   HasVisibleChildren - есть ли видимые дети у aNode.
+   GetLines - маска для рисования линий (надо смотреть реализацию).
+   Wake - проснись!!! Типа начали рисовать.
+   MoveNode - переместить узел.
+   SearchNameBegin - зачем-то используется визуалкой в CharToItem.
+   SearchNameOccur - зачем-то используется визуалкой в SearchOccurStr,  который сейчас никем не используется.
+   MakeNodeVisible - зачем-то используется визуалкой в CharToItem, видимо для перемещения курсора на узел.
+   GetPrev - предыдущий узел. Зачем-то используется в CharToItem.
+   SimpleIterateF - перебрать все узлы и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed
+   IsChanging - дерево находится в фазе обновления.
+   Changing - 
+   Changed - 
+   MakeDataObject - сделать объект данных дерева, используется при перемещении элементов дерева в другие компоненты
+   CanAcceptData - 
+   DropData - 
+  Il3RootSpy : Facet - Объект, следящий за изменением корня.
+   RootChanged - 
+  Il3NodeNotifyRecipient : Facet - Подписчик для получения нотификации об операции.
+   Notify - прошла операция.
+  Il3FilterableTree : Facet - дерево умеющее накладывать фильтры.
+   CloneFilters - 
+   MakeFiltered - 
+  Il3ContextFilterParams : Facet - параметры с которыми будет накладывается контекстный фильтр
+   WordPosition - 
+   WordOrder - 
+   TreeLevelDist - 
+  Il3ContextFilterNotifier : Facet - нотификатор об изменении контекстного фильтра
+   RequestReapply - Желательно переприменить фильтр.
+   RequestClearAndTurnOff - Дерево выключило на себе фильтр.
+   RequestCheckValid - Дерево поменялось - нужно проверить валидность фильтра.
+  Il3ContextFilterNotifySource : Facet - источник нотификации о том что параметры изменились
+   SubscribeToContextFilter - 
+   UnSubscribeFromContextFilter - 
+  Il3ContextFilterTargetContainer : Facet - Контайнер для проверяльшика
+   Unfold - 
+  Il3Wake : Facet - 
+   IsSleep : readonly - 
+   Wake - 
+  Il3SimpleTreeSource : Facet - 
+   Tree : property - 
+  Il3CountViewChangeRecipient : Facet - Подписчик для получения нотификации об изменении количества видимых элементов.
+   CountViewChanged - прошла операция.
+  Il3SimpleInternalNode : Facet - 
+   Parent : writeonly - родительский узел.
+  Pl3TreeData : Typedef - указатель на данные о перемещаемом объекте
+  Il3ExpandedSimpleTree : Facet - Дерево с расширенной функциональностью.
+   FlagIterateF - перебрать все узлы, удовлетворяющие FlagMask, и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed
+  Il3ExtItemNode : Facet - Нода из связанного словаря. А место ли ей в этом модуле?
+   Data : property - 
+   DataSize : readonly - 
+ l3PrinterInterfaces : Interfaces - 
+  TCanvas : Typedef - Канва для вывода.
+  Il3Printer : Facet - Принтер.
+   Refresh : facetmethod - Обновляет список принтеров
+   PrinterIndex : property - индекс текущего принтера.
+   Title : property - заголовок задания печати.
+   FileName : property - Имя файла - куда печатать.
+   Printing : readonly - находимся в процессе печати?
+   PageHeight : readonly - высота текущей страницы.
+   PageWidth : readonly - ширина текущей страницы.
+   Copies : property - количество печатаемых копий.
+   Collate : property - 
+   CanCollate : readonly - 
+   DC : readonly - контекст печати.
+   Canvas : readonly - канва для печати.
+   Printers : readonly - список доступных принтеров.
+   Orientation : property - ориентация текущей страницы.
+   PaperExtent : readonly - Размер бумаги.
+   HasPrinter - есть ли принтер для печати.
+   GetPrinter - получить параметры принтера.
+   SetPrinter - установить параметры принтера.
+   BeginDoc - начать печать документа.
+   EndDoc - закончить печать документа.
+   NewPage - начать новую страницу.
+   Clone - Клонирует принтер
+Отображение объектов : Requirements - 
+ Базовые механизмы отображения объектов : UseCases - 
+  Возможность вывода текста с интерлиньяжем : UseCase - {RequestLink:278833302}
+L3$Basic Concepts : Library - 
+ l3EtalonsWorking : Interfaces - 
+  EtalonsWorking : PureMixIn - 
+   CheckOutputWithInput$1 : facetmethod - 
+   CheckOutputWithInput : facetmethod - 
+   CheckPictureOnly : facetmethod - 
+   CheckWithEtalon - 
+ Ref Counting : Unit - 
+  RefCountedPrim : Impurity - 
+   RefCount : readonly - 
+   Cleanup - Функция очистки полей объекта.
+   Use - увеличить счетчик ссылок на 1 и вернуть указатель на себя.
+   SetRefTo - 
+   BeforeRelease - 
+   Release - 
+    : uses - 
+   f_RefCount - Поле для свойства RefCount
+  RefCounted : Impurity - В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую
+   destroy - Это чтобы не было соблазна перекрывать destroy.
+   NewInstance : static - 
+   FreeInstance - 
+   AfterConstruction - 
+   BeforeDestruction - 
+  UnknownImpl : Impurity - 
+  Unknown : Impurity - 
+  TRefcounted : SimpleClass - 
+  MRefCounted : MixInMirror - 
+ MemoryUtils : Unit - Работа с памятью
+  l3MemorySizeUtils : UtilityPack - 
+   PMem : Typedef - 
+   l3MemorySize$Delphi7 - функция для получения размера куска памяти
+   l3MemorySize$XE - функция для получения размера куска памяти
+  l3MemorySizeUtilsPrim : UtilityPack - 
+   Tl3MemorySizeFunc : Function - прототип функции для получения размера куска памяти
+   l3MemorySizeDelphi7 : method - функция для получения размера куска памяти
+   l3MemorySizeXE : method - функция для получения размера куска памяти
+  Tl3MemUtils : SimpleClass - 
+   Rl3MemUtils : Typedef - 
+   ReallocLocalMem : method - перераспределить кусок локальной памяти
+   FreeLocalMem : method - освободить кусок локальной памяти
+   CheckMaxes : virtualmethod - 
+   StatMemAlloc : virtualmethod - 
+   IsDown : method - 
+   DownBegins : method - 
+   GetLocalMem : method - 
+   GetLocalMemZ : method - 
+   GlobalSize : method - 
+   GlobalSize$P : method - 
+   GlobalFreePtr : method - 
+   GlobalAllocPtr : method - 
+   l3MemU : static - 
+   g_IsDown : static - 
+   f_LocalMemUsed : static - 
+   f_GlobalMemUsed : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+  l3PtrLoc : UtilityPack - 
+   Tl3PtrLoc : StaticObject - 
+ Logging : Unit - 
+  Tl3ExceptionsLog : SimpleClass - 
+   SetOnException : virtualmethod - 
+   ResOnException : virtualmethod - 
+   NeedTime : virtualmethod - 
+  Tl3ExceptionsLogEx : SimpleClass - 

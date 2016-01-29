@@ -1,0 +1,161 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Union
+
+: Union::Class
+? Объединение
+? Объединяет несколько типов используя для них смежную память. Конкретный используемый тип определяется дескрименантом (switch).
+? Объединяемые типы указываются как атрибуты без стереотипа. Тип дескрименанта, как атрибут со стереотипом switch. С каждым объединяемым типом должно быть связано значение дескрименанта, в виде значения по умолчания соответствующего атрибута (например: type: MyType = 1)
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+p Need less:b=false ? Влючает генерацию дефолтного оератора сравнения
+p packed:b=false ? определяет упакованность структуры
+< *::Class, *::Category
+$ S
+$ C 240,230,210
+$ l 100,75,35
+$ f 100,75,35
+v +#-
+Y t4_union.gif
+
+%t _constraint
+c                                     {}
+r {<{}{"%CS"="switch"}{%CC}>!=1}: {%SS must provide one SWICH member}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+r {%M{force usage}=false&%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ idl
+F union <%NN::>%SN;
+	<#%FF
+	>%f_docs(%S)\
+	#union %SN switch (<{}{"%CS"="switch"}%C[%T<%NN::>]%C[%TN]>) {<{}{"%CS"!="switch"}
+	%CX>
+	#};
+
++ h
+F class %f_type(%S);
+	[<#%FF
+	>]%f_docs(%S)\
+	#/*union*/ class %SN {
+	#public:
+	#	class InvalidDiscrimenant: public Core::Exception {
+	#		const char* what () const throw () {
+	#			return "%SN - access to data by invalid discrimenant";
+	#		}
+	
+	#		const char* uid () const /*throw ()*/ {
+	#			return "%SN::InvalidDiscrimenant";
+	#		}
+	#	};
+	<{}{%CS=switch}%C[%f_set_var(SWITCH,T)]>
+	#	%SN () : m_d ((<{}{%CS=switch}%f_type(%C%T)>)-1) {
+	#	}
+	
+	#	%SN (const %SN& c) : m_d ((<{}{%CS=switch}%f_type(%C%T)>)-1) {
+	#			switch (c.m_d) {<{}{%CS!=switch}
+	#			case %{SWITCH}<%NN::>%CI:
+	#				this-\>%CN (c.%CN());
+	#				break;
+	#			>}
+	#	}
+	
+	#	~%SN () {
+	#		this-\>reset();
+	#	}
+	
+	[{%S{Need less}=true}#	bool operator \< (const %SN& c) const {
+	#		if (m_d != c.m_d) {
+	#			return m_d \< c.m_d;
+	#		} else {
+	#			switch (m_d) {<{}{%CS!=switch}[{"%t_interface(%C%T)"="true"}{
+	#			case %{SWITCH}<%NN::>%CI:
+	#				return [{"%f_has_it_cc(%C%T)"="true"}*]m_u.%CN \< [{"%f_has_it_cc(%C%T)"="true"}*]c.m_u.%CN;}
+	#			case %{SWITCH}<%NN::>%CI:
+	#				[{%f_is_server_type(%C%T)=true}{return m_u.%CN-\>is_unsorted_less(c.m_u.%CN)}return m_u.%CN \< c.m_u.%CN];
+	#			]>
+	#			}
+	#			return false;
+	#		}
+	#	}
+	
+	]#	<{}{%CS=switch}%f_type(%C%T)> d_ () const {
+	#		return m_d;
+	#	}
+	
+	<%CX>#private:
+	#	void reset () {
+	#		switch (m_d) {<{}{%CS!=switch}[{"%t_interface(%C%T)"="true"}
+	#		case %{SWITCH}<%NN::>%CI:
+	#			if(m_u.%CN) {
+	#				m_u.%CN-\>[{%f_is_server_type(%C%T)=true}{release}_remove_ref]();
+	#			}
+	#			break;
+	#		][{"%f_has_it_cc(%C%T)"="true"}
+	#		case %{SWITCH}<%NN::>%CI:
+	#			if(m_u.%CN) {
+	#				delete m_u.%CN;
+	#			}
+	#			break;
+	#		]>}
+	#	}
+	#
+	#private:
+	#	<{}{%CS=switch}%f_type(%C%T)> m_d;
+	#
+	#	union {
+	<{}{%CS!=switch}#		[%CS ][{%t_interface(%C%T)=true|%f_has_it_cc(%C%T)=true}{%f_attr(%C)}%f_type(%C%T)*] [{}{%f_to_omg(%C%TN)}%CN];
+	>#	} m_u;
+	#};
+
++ intf.pas
+# PAS/pasUnion
+
+: Union::Class::Attribute
+A const|ref|const,ref
+l arl
+Y t5_attr.gif
+
+%t _constraint
+c             {}
+r {"%SI"=""}: {%SM must specify default value (of SWITCH type) to select theirs CASE}
+
++ idl
+	%f_docs(%S)\
+	#case %SI: %T<%NN::>%TN %SN;
+
++ h
+	%f_set_var(__SCOPE,P)#[{%t_interface(%T)!=true}{%t_ret(%T,"%Ss") %SN () const /*throw (%PN::InvalidDiscrimenant)*/ {
+	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+	#		throw InvalidDiscrimenant ();
+	#	} else {
+	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+	#	}
+	#}
+	#}%t_ret(%T,"const,cached") %SN () const /*throw (%PN::InvalidDiscrimenant)*/ {
+	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+	#		throw InvalidDiscrimenant ();
+	#	} else {
+	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+	#	}
+	#}
+	
+	#%t_ret(%T,"cached") %SN () /*throw (%PN::InvalidDiscrimenant)*/ {
+	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+	#		throw InvalidDiscrimenant ();
+	#	} else {
+	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+	#	}
+	#}
+	#]	
+	#void %SN (%t_arg(%T,"[{%t_interface(%T)=true&%f_is_server_type(%T)=false}{in}inout]") val) {
+	#	this-\>reset ();
+	#	m_d = %{SWITCH}<%NN::>%SI;
+	#	m_u.%SN = [{%t_interface(%T)=true}{[{%f_has_it_cc(%T)=true}{val}new %f_type(%T) (val)]}%f_type(%T)::_duplicate (val)];
+	#}\n\n
+
+: Union::Class::switch::Attribute
+? Дескрименант объединения
+
+f _has_it_cc
+	[{%SS=Set|%SS=Map|%SS=UnsortedSet|%SS=UnsortedMap|%SS=Vector|%SS=Queue|%SS=HashMap|%SS=Box|%SN=a-string|%SN=c-string}{false}true]

@@ -1,0 +1,11 @@
+<script runat=server language="JScript">
+
+function Session_OnStart(){
+ Session('db') = Server.CreateObject('CLEARQUEST.SESSION');
+}
+
+function Session_OnEnd(){
+ Session('db').Close();
+}
+
+</script>

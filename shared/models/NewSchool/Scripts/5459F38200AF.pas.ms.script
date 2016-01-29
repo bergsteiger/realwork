@@ -1,0 +1,102 @@
+// Tm3HashHandle 5459F38200AF SimpleClass Class
+
+INCLUDE '4AE5CA2D0034.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5459F38200AF
+
+INCLUDE '5453BC4F0348.pas.ms.script'
+
+: ME_5459F3AF021F
+ CONST UID '5459F3AF021F'
+ CONST Name 'BranchHandleList'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_5453BC4F0348 // Tm3BranchHandleList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5459F3AF021F BranchHandleList
+
+: ME_634FB4A89A9F
+ CONST UID '634FB4A89A9F'
+ CONST Name 'f_BranchHandleList'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства BranchHandleList' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_5453BC4F0348 // Tm3BranchHandleList
+ ;
+
+ @SELF
+; // ME_634FB4A89A9F f_BranchHandleList
+
+FORWARD ME_5459F3C30067
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5459F3CB016F
+ CONST UID '5459F3CB016F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5459F3CB016F DoIt
+
+: ME_5459F3C30067
+ CONST UID '5459F3C30067'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5459F3CB016F // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5459F3C30067 Create
+
+: ME_5459F38200AF
+ CONST UID '5459F38200AF'
+ CONST Name 'Tm3HashHandle'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4AE5CA2D0034 // Tl3CProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_5459F3AF021F // BranchHandleList
+ ME_634FB4A89A9F // f_BranchHandleList
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5459F3C30067 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5459F38200AF Tm3HashHandle

@@ -1,0 +1,1113 @@
+///////////////////////////////////////////////////////////////////////////////////
+//  Замеры производительности функциональности на клиенте в пределах одной сессии
+//////////////////////////////////////////////////////////////////////////////////
+{TC6 LABEL}
+uses st_common, MenuWork, States, common, RunPrograms, FoldersWork, SettingsWork, Graphics, DocumentWork, FileWork, ListWork, Clicks;
+
+const
+  // константы определяющие какую операцию выполнять (PO = Perfomance Operation)
+  PO_LOGIN_DELAY = 'Запуск_Регистрация';
+  PO_SKR_PAGE_OPEN = 'Открытие_вкладки_СКР';
+  PO_DOC_CONTEXT_SEARCH = 'Контекст_в_документе';
+  PO_PPR_CONTEXT_SEARCH = 'Поиск_контекста_через_КЗ_ППР';
+  PO_LIST_CONTEXT_SEARCH = 'Контекст_в_списке';
+  
+  PO_CMD_KEY = 'perf_op'; // Ключ командной строки определяющий какую операцию выполнять
+  PO_MAX_ITERATIONS = 'max_itr'; // Количество итераций для операции
+  PO_DELAY_AFTER_REBOOT = 'reboot_delay'; // Время задержки после перезапуска сервера (мс)
+  PO_LOG_DIR = 'log_dir'; // Путь к каталогу с лог файлами
+  PO_CUR_DATE = 'cur_date'; // Текущая дата, берется из сист. переменной %DATE%
+  PO_BUILD = 'build'; // название сборки
+  PO_STEND_NAME = 'stand'; // имя ПК на котором проводились тесты
+  PO_XML_FILE = 'xml_file'; // местонахождение xml файла с результатами испытаний
+  
+  PS_TOOLS_PATH = 'ps_tools_path'; // Путь к каталогу с утилитами pstools
+  
+
+  GUI_LOGIN_KEY = 'gui_login'; // Регистрационное имя
+  GUI_PASSWORD_KEY = 'gui_password'; // Пароль
+  
+  F1_HEADER_PREFIX = 'ГАРАНТ Платформа F1 ЭКСПЕРТ'; // Првефикс заголовка оснвоного окна
+  
+const
+  DEFAULT_DELAY = 1;
+  DEFAULT_TIMEOUT = 30000;
+  
+const
+  //Константы определяют имена операций
+  PO_NAME_AUTH = 'Окно авторизации';
+  PO_TAG_AUTH = 'auth';
+  PO_NAME_OM = 'ОМ';
+  PO_TAG_OM = 'om';
+  PO_NAME_DOC_OPEN = 'Открытие документа';
+  PO_TAG_DOC_OPEN = 'doc_open';
+  PO_NAME_SKR_OPEN = 'Открытие вкладки СКР';
+  PO_TAG_SKR_OPEN = 'skr_open';
+  PO_NAME_SEARCH_IN_DOC = 'Поиск в документе';
+  PO_TAG_SEARCH_IN_DOC = 'search_in_doc';
+  PO_NAME_SEC_SEARCH_IN_DOC = 'Повторный поиск в документе';
+  PO_TAG_SEC_SEARCH_IN_DOC = 'sec_search_in_doc';  
+  PO_NAME_BP = 'БП c открытием полного списка';
+  PO_TAG_BP = 'bp';
+  PO_NAME_LIST_AFTER_BP = 'Построение списка после БП';
+  PO_TAG_LIST_AFTER_BP = 'list_after_bp';  
+  PO_NAME_DOC_AFTER_BP = 'Открытие док-а после БП (и поиск контекста для подсветки)';
+  PO_TAG_DOC_AFTER_BP = 'doc_after_bp';
+  PO_NAME_DOC_SCROLL = 'Скроллирование документа';
+  PO_TAG_DOC_SCROLL = 'doc_scroll';
+  PO_NAME_PPR_OPEN = 'Открытие КЗ ППР';
+  PO_TAG_PPR_OPEN = 'ppr_open';
+  PO_NAME_LIST_BUILD = 'Построение списка';
+  PO_TAG_LIST_BUILD = 'list_build';
+  PO_NAME_LIST_SEARCH = 'Поиск в списке';
+  PO_TAG_LIST_SEARCH = 'list_search';
+  PO_NAME_SCROLL = 'Прокрутка документа';
+  PO_TAG_SCROLL = 'scroll';
+    
+  DATE_FORMAT = 'dd/mm/yy';
+  TIME_FORMAT = 'hh:nn:ss';
+  DECIMAL_SEPARATOR = '.';
+var  
+  xmlFile; //Путь к xml файлу с результатами
+  build; //Название сборки
+
+// *******************************************************************
+// Если по указанному пути файла нет, то создаем новый XML файл
+// *******************************************************************
+procedure CreateNewXML (filePath: String);
+var
+  xmlDoc, pi;
+begin
+    if NOT Utilities.FileExists(filePath) then
+    begin
+      xmlDoc := Sys.OleObject('Msxml2.DOMDocument.3.0');
+      xmlDoc.async := false;
+      xmlDoc.loadXML('<root></root>');
+      pi := xmlDoc.createProcessingInstruction('xml', 'version="1.0" encoding="UTF-8" standalone="yes"');
+      xmlDoc.insertBefore(pi, xmlDoc.childNodes.item(0));
+      xmlDoc.save(filePath); 
+    end;
+end;
+// *******************************************************************
+// Создает дочерний узел на основании родительского узла, имени дочернего узла,
+// массива имен атрибутов и аналогичного массива соответсвующих значений атрибутов 
+// *******************************************************************
+function CreateXMLNode(parentNode: OleVariant, nodeTag: String, aAttr: OleVariant = nil, aVal: OleVariant = nil) : OleVariant;
+var
+  xmlDoc;
+  newNode;
+  newAttr;
+  namedNodeMap;
+  i;
+begin
+  xmlDoc := Sys.OleObject('Msxml2.DOMDocument.3.0'); //создаем узел
+  newNode := xmlDoc.createNode(1, nodeTag, '');
+  newNode := parentNode.appendChild(newNode);
+  if ( IsArray(aAttr) ) AND ( IsArray(aVal) ) then
+  begin 
+    for i := VarArrayLowBound(aAttr,1) to VarArrayHighBound(aAttr,1) do //добавляем атрибуты
+    begin
+      newAttr := xmlDoc.createAttribute(aAttr[i]);
+      newAttr.value := aVal[i];
+      namedNodeMap := newNode.attributes;
+      namedNodeMap.setNamedItem(newAttr);     
+    end;
+  end;
+  Result := newNode;
+end;
+// *******************************************************************
+// Добавляет результат теста в XML файл (ПК для измерений, имя операции, тэг, дата, № сборки, задержка
+// *******************************************************************
+procedure AppendResult2XML (perfPC: String, perfOpTag, const perfOpName, timeStamp: DateTime, build: String, delay: String, xmlFile: String);
+var
+  xmlDoc;
+  currNode, lastWorkNode;
+  objNodeList;
+  xmlError;
+  avg_delay, i;
+  xPath;
+begin
+  try
+    //Если нет файла создаем его
+    CreateNewXML(xmlFile);
+    //Загружаем xml
+    xmlDoc := Sys.OleObject('Msxml2.DOMDocument.3.0');    
+    xmlDoc.async := false;
+    xmlDoc.load(xmlFile);
+    if (xmlDoc.parseError.errorCode <> 0) then
+    begin
+       xmlError := xmlDoc.parseError;
+       Log.Error('Ошибка открытия xml: ' + xmlError.reason);    
+    end
+    else // все ок, работает дальше
+    begin
+      lastWorkNode := nil;
+      xmlDoc.setProperty('SelectionNamespaces',    'xmlns:xsl="http://www.w3.org/1999/XSL/Transform"');
+      xmlDoc.setProperty('SelectionLanguage', 'XPath');
+      //Ищем имя ПК
+      xPath := '//pc[@name="'+perfPC+'"]';
+      currNode := xmlDoc.selectSingleNode(xPath);
+      if currNode = nil then //если узел не найден, создаем новый
+      begin
+        lastWorkNode := xmlDoc.documentElement; //создаем узел
+        currNode := CreateXMLNode(lastWorkNode, 'pc', ['name'], [perfPC]);
+      end;
+      lastWorkNode := currNode;
+      //Ищем необходимую операцию
+      xPath := xPath + '/operation[@name="'+perfOpName+'" and @id="'+perfOpTag+'"]';
+      currNode := xmlDoc.selectSingleNode(xPath);
+      if currNode = nil then //если узел не найден, создаем новый
+      begin
+        currNode := CreateXMLNode(lastWorkNode, 'operation', ['name', 'id'], [perfOpName, perfOpTag]);
+      end;
+      lastWorkNode := currNode;
+      //Ищем узел с текущей датой
+      xPath := xPath + '/result_list[@date = "'+Utilities.FormatDateTime(DATE_FORMAT, timeStamp)+'" and @build="'+build+'"]';
+      objNodeList := xmlDoc.documentElement.selectNodes(xPath);
+      if objNodeList.length < 1 then
+        currNode := CreateXMLNode(currNode, 'result_list', ['date', 'build', 'avg_delay'], [Utilities.FormatDateTime(DATE_FORMAT, timeStamp), build, ''])
+      else
+        currNode := objNodeList.item(0);
+      lastWorkNode := currNode;
+      //Добавляем результат измерения
+      currNode := CreateXMLNode(lastWorkNode, 'result', ['time','delay'], [Utilities.FormatDateTime(TIME_FORMAT, timeStamp), delay]);
+      //Вычисляем среднее значение результатов
+      //Utilities.DecimalSeparator := DECIMAL_SEPARATOR;
+      currNode := currNode.parentNode;
+      objNodeList := currNode.childNodes;
+      avg_delay := 0;
+      for i := 0 to objNodeList.length - 1 do
+      begin
+        avg_delay := avg_delay + Utilities.StrToFloat(objNodeList.item(i).attributes.getNamedItem('delay').value);
+      end;
+      avg_delay := avg_delay/objNodeList.length;
+      currNode := currNode.attributes.getNamedItem('avg_delay');
+      //currNode.value := FloatToStr(avg_delay);
+      currNode.value := FloatToStrF(avg_delay,2,10,3);
+    end;
+    xmlDoc.save(xmlFile);
+  except
+    Log.Error('Exception', ExceptionMessage)
+  end;
+end;
+ 
+{
+  Устанавливаем настройки проекта. Нужна, чтобы вручную не выставлять параметры
+  работы скрипта...
+}
+procedure PerfomanceInitOptions;
+  var
+    pngSettings : OleVariant;
+begin
+  //блок настроек секции Run
+  Options.Run.Delay := DEFAULT_DELAY; //время между командами во  время выполнения скрипта
+  Options.Run.Timeout := DEFAULT_TIMEOUT; //время, которое ожидается появление окна
+  // установка формата картинок для лога
+  try
+    Log.Enabled := true;
+    //Options.Log.ImageFormat := 'PNG'; 
+    pngSettings := Log.CreatePictureConfiguration('PNG');
+    pngSettings.CompressionLevel := 7;
+    Log.SetDefaultPictureConfiguration( pngSettings );
+  except
+    Log.Warning('Произошла ошибка при установке параметров лога.', ExceptionMessage);
+  end;  
+end;
+{
+  Запись в лог начала\окончание теста и его название
+}
+procedure LogTimeStamp (const testName, logFile: String; isStart: Boolean);
+begin
+  if isStart then
+    AppendFile (logFile, DateToStr(Date)+' '+TimeToStr(Time)+' | Запущен тест: '+testName)
+  else
+  begin
+    AppendFile (logFile, DateToStr(Date)+' '+TimeToStr(Time)+' | Окончен тест: '+testName);
+    AppendFile (logFile, ' ');
+  end;
+end;
+{
+  Переводит фокус в Edit или ComboBox, 
+  очищает форму ввода простым нажатием клавиш
+  и вводит необходимый текст
+}
+procedure WriteToForm (form : OleVariant, const text: String);
+begin
+  form.setFocus();
+  Sys.Keys(KeyPause +'[End]'+ KeyPause + '![Home]' + KeyPause + '[Del]' + KeyPause + text + KeyPause + KeyPause + '[Del]![End][Del]');  
+end;
+{
+  Убираем диалог подтверждения построения больших СКР
+}
+function RemoveSKRBildDialog(const docNumber : Integer): Boolean;
+var
+  p, w, res, removeDialog, mPage, mBtnFull, mDelay;
+begin
+    res := false;
+  	p := GetF1ShellProcess;
+    w := GetMainWindow;
+    w.Activate;
+    if OpenDocByNumber(docNumber) then
+    begin
+      Delay(1000);
+      //mPage := Sys.Process('F1Shell').VCLObject('nsMainWindow').VCLObject('vcmDockContainer').VCLObject('ClientZone').VCLObject('MainZone').VCLObject('ChildZone').VCLObject('ChildForm').VCLObject('ChildZone');
+      mPage := Sys.Process('F1Shell').VCLObject('nsMainWindow').VCLObject('vcmDockContainer').VCLObject('ClientZone').VCLObject('MainZone').VCLObject('ChildZonePanel').VCLObject('ChildForm').VCLObject('ChildZone');
+      //mPage := Sys.Process('F1Shell').VCLObject('nsMainWindow').VCLObject('ClientZone').VCLObject('MainZone').VCLObject('ChildZonePanel').VCLObject('ChildForm').VCLObject('ChildZone');
+      mDelay := Win32API.GetTickCount;
+      Sys.Keys('~[F8]'); // Ссылки на документ
+      WaitForConfirmationWindow(-1, 'Да', '', 'true');
+      //removeDialog := p.WaitWindow('TMessageForm', 'Подтверждение', -1, Options.Run.Timeout);
+      {
+      if removeDialog.Exists then
+      begin
+        if not removeDialog.VCLObject('Check').Checked then
+        begin //Ставим галку об отказе отобржения диалога
+          removeDialog.VCLObject('Check').Click();
+        end;
+        Delay(1000);
+        removeDialog.VCLObject('Yes').Click; //Строим список
+      }
+        // Ждем построение списка, чтобы не закрывать оболочку во время not responding
+        Delay (3000);
+        repeat 
+          mBtnFull := mPage.Window('TElTabSheet', '', 1).VCLObject('efList_2');
+          if ((Win32API.GetTickCount - mDelay)*0.001) > 300 then raise ('Perfomance_SKRPageOpen_speed: ждем mBtnFull СКР более 15 минут');
+          Delay (100); 
+        until mBtnFull.Exists;
+        res := true;
+      {        
+      end
+      }        
+    end;
+    result  := res;
+end;
+{
+  Время поиска контекста в документе
+}
+procedure Prfomance_DocContextSearch (const logFile, docContext, docNumber, searchNumber: String);
+const
+  TEST_NAME = 'Задержка открытия СКР';
+	DOC_NUMBER = 10064072; // документ который открываем  
+  CONTEXT = 'прецессия'; // контекст, не должен встречаться в документе
+var
+  p, w, w1, cb: OleVariant;
+  PageCtrl;
+  mPage: OleVariant;
+  mBtnFull: OleVariant;
+  mDelay: Float;
+  profilerDocOpenTime: Float;
+  DocumentProfiler: OleVariant;
+  i: integer;
+  searchTime, countAttempt : Float;
+  now;
+  PO_TAG, PO_NAME;
+  label skip_SKR_test;
+begin
+    if searchNumber = 'FIRST_SEARCH' then // Первый поиск с загрузкой индекса
+      begin
+        PO_TAG := PO_TAG_SEARCH_IN_DOC;
+        PO_NAME := PO_NAME_SEARCH_IN_DOC;
+      end
+    else
+      begin
+        PO_TAG := PO_TAG_SEC_SEARCH_IN_DOC;
+        PO_NAME := PO_NAME_SEC_SEARCH_IN_DOC;      
+      end; 
+    /////////// Измеряем скорость контекстного поиска
+  p := GetF1ShellProcess;
+  w := GetMainWindow;
+  w.Activate;      
+    LogTimeStamp ('Контекстный поиск в документе' ,logFile, True);
+    AppendFile(logFile, 'Меряем скорость поиска контекста "' + docContext + '" в документе номер ' + FloatToStr(docNumber));    
+    Sys.Keys('^f');
+    // Переводим фокус в комбобокс, очищаем его и инициируем поиск     
+    cb := GetFromBaseSearch( 'КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    WriteToForm(cb, docContext);
+    WriteToForm(cb, docContext);
+    searchTime := Win32API.GetTickCount;
+    Sys.Keys('[Enter]');
+    // ждем окно
+    w1 := p.WaitWindow('TMessageForm', 'Подтверждение', 1, Options.Run.Timeout);
+    if w1.Exists then
+    begin
+      searchTime := Win32API.GetTickCount - searchTime;
+      now := Utilities.Now; // Добавляем результаты в XML
+      AppendResult2XML (CompName, PO_TAG_SEARCH_IN_DOC, PO_NAME_SEARCH_IN_DOC, now, build, FloatToStr(searchTime*0.001), xmlFile);
+      AppendFile(logFile, 'Поиск занял ' + FloatToStr(searchTime*0.001) + ' сек.');
+      Sys.Keys ('[Esc]'); // medit
+    end
+    else
+    	AppendFile(logFile, 'Окно не дождались или что-то нашли. Результаты будут некорректны!!!');
+    LogTimeStamp ('Контекстный поиск в документе' ,logFile, False);
+end;
+
+{
+  Время поиска контекста в списке всех документов
+}
+procedure Perfomance_ListContextSearch_speed (const logFile : String);
+const
+  LIST_CONTEXT = 'абракадабра'; //контекст для поиска в списке
+  WAIT_TIME = 300000;
+var
+  p, w, mPage, mList, mWinFinish, mBtnFull;
+  mDelay: Float;
+  mPPR: OleVariant ;
+  searchTime, Float;
+  profilerTime: Float;
+  Profiler: OleVariant;
+  i: integer;
+  now;
+begin
+  try
+    AppendFile (logFile, '');
+    AppendFile (logFile, DateTimeToStr(Now)+' Запущен тест: Поиск контекста в списке');
+  	p := GetF1ShellProcess;
+    w := GetMainWindow;
+    if NOT p.Exists then
+      raise ('Не найден процесс F1Shell');
+    // Открываем КЗ ППР читаем время открытия из профайлера
+    mPPR := GoToPPR;
+    if NOT mPPR then
+      raise ('Не смогли перейти в ППР');
+    Profiler := GetProfiler (PR_PPR);
+    for i := 1 to 5 do
+    begin
+      if (Profiler.HasFinished = true) then
+      begin
+        profilerTime := Profiler.ExecuteTime;
+        now := Utilities.Now; // Добавляем результаты в XML
+        AppendResult2XML (CompName, PO_TAG_PPR_OPEN, PO_NAME_PPR_OPEN, now, build, FloatToStr(profilerTime*0.001), xmlFile);
+        AppendFile (logFile, '******************'+ EndOfLine
+          + '******** Задержка открытия КЗ ППР: '+FloatToStr(profilerTime*0.001)+' сек.'
+          + EndOfLine + '******************', 'Результаты производительности');
+        break;
+      end
+      else
+        Sleep (3000);
+    end;
+    // Убираем подтверждение построения списков и строим список по пустой КЗ
+    // SetSettings( [ (['Поиск\Подтверждения', 'ПОСТРОЕНИЕ СПИСКА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ СПИСКА [CHECKBOX]', false]) ] );
+    Delay(3000);
+    mPage := w.VCLObject('vcmDockContainer').Window('TvcmDockPanel', '', 4).Window('TPanel', '', 1).VCLObject('TopDock');
+    mDelay := Win32API.GetTickCount;
+    w.VCLObject('vcmDockContainer').VCLObject('ClientZone').VCLObject('MainZone').VCLObject('ParentZonePanel').VCLObject('ParentForm').VCLObject('ParentZone').VCLObject('cfSaveLoad').Window('TvcmDockPanel', '', 3).Window('TPanel', '', 1).VCLObject('BottomDock').VCLObject('tbcfSaveLoadBottom').VCLObject('bt_enResult_opOkExt').Click;   
+    Delay (1000);      
+    repeat 
+      mBtnFull := mPage.VCLObject('tbefListTop').VCLObject('bt_enFile_opSave');
+      if ((Win32API.GetTickCount - mDelay)*0.001) > 600 then raise ('Perfomance_ListContextSearch_speed: ждем mBtnFull всех документов более 10 минут');
+      Delay (100); 
+    until mBtnFull.Exists and mBtnFull.Enabled;
+    mDelay := Win32API.GetTickCount - mDelay;
+    now := Utilities.Now; // Добавляем результаты в XML
+    AppendResult2XML (CompName, PO_TAG_LIST_BUILD, PO_NAME_LIST_BUILD, now, build, FloatToStr(mDelay*0.001), xmlFile);        
+    AppendFile (logFile, '******************'+ EndOfLine
+      + '******** Задержка открытия списка всех документов: '+FloatToStr(mDelay*0.001)+' сек.'
+      + EndOfLine + '******************', 'Результаты производительности');    
+    // Возвращаем подтверждение построения списка 
+    //SetSettings( [ (['Поиск\Подтверждения', 'ПОСТРОЕНИЕ СПИСКА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ СПИСКА [CHECKBOX]', true]) ] );
+    //Profiler := GetProfiler (PR_LIST);
+    /////////////////////////////////////////////////////////////////
+    mList := GetList;
+    mList.SetFocus;
+    Sys.Keys ('^f');
+    //mWin := p.WaitWindow ('Ten_FindContext', 'Поиск контекста [Список]', -1, Options.Run.Timeout div 6);
+    //if NOT mWin.Exists then
+    //  raise ('Не найдено окно поиска контекста в списке');
+    //mWin.Activate;
+    Sys.Keys ('абракадабра');
+    searchTime := Win32API.GetTickCount;    
+    Sys.Keys ('[Enter]');
+    mWinFinish := p.WaitWindow('TMessageForm', 'Подтверждение', -1, WAIT_TIME);
+    if mWinFinish.Exists then
+    begin
+      searchTime := Win32API.GetTickCount - searchTime;
+      // Добавляем результаты в XML
+      now := Utilities.Now; // Добавляем результаты в XML
+      AppendResult2XML (CompName, PO_TAG_LIST_SEARCH, PO_NAME_LIST_SEARCH, now, build, FloatToStr(searchTime*0.001), xmlFile);      
+      AppendFile (logFile, DateTimeToStr(Now)+' Время поиска контекста '+LIST_CONTEXT+' в списке: '+FloatToStr(searchTime*0.001)+' сек.');
+      mWinFinish.Activate;
+      //Sys.Keys ('[Enter]');
+      //mWin.Activate;
+      Sys.Keys ('[Esc]');
+    end
+    else
+    begin
+      AppendFile (logFile, DateTimeToStr(Now)+' Не могу дождаться окна окончания поиска более 5 мин.');
+    end;
+    AppendFile (logFile, DateTimeToStr(Now)+'Окончен тест: Поиск контекста в списке');
+  except
+    log.message ('Perfomance_ListContextSearch: '+ExceptionMessage);
+  end;
+end;
+{
+  Меряет время контекстного поиска указанного котекста в указанном документе
+}
+procedure Perfomance_ContextSearch_speed(const logFile : String);
+const 
+	DOC_NUMBER = 10064072; // документ который открываем
+  CONTEXT = 'прецессия'; // контекст, не должен встречаться в документе
+var
+	p, w, w1, cb : OleVariant;
+  searchTime, countAttempt : Float; //medit
+  tmpStr : OleVariant;
+begin
+  {
+  countAttempt := 5; // начинаем тест //medit
+  CloseF1Shell(countAttempt, Options.Run.Timeout div 6); //medit
+  if StartF1Shell then
+  }
+  begin
+  	//LoginAnyhow('timetest', 'timetest'); //medit
+  	p := GetF1ShellProcess();
+    if NOT p.Exists then
+    begin
+    	Log.Error('Не найден процесс F1Shell');
+      Exit;
+    end;
+    LogTimeStamp ('Контекстный поиск в документе' ,logFile, True);
+    AppendFile(logFile, 'Меряем скорость поиска контекста "' + CONTEXT + '" в документе номер ' + FloatToStr(DOC_NUMBER));    
+    // тестим
+    OpenDocByNumber(DOC_NUMBER);	
+    Delay(Options.Run.Timeout div 6);
+    Sys.Keys('^f');
+    // Переводим фокус в комбобокс, очищаем его и инициируем поиск     
+    cb := GetFromBaseSearch( 'КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    WriteToForm(cb, CONTEXT);
+    WriteToForm(cb, CONTEXT);
+    searchTime := Win32API.GetTickCount;
+    Sys.Keys('[Enter]');
+    // ждем окно
+    w1 := p.WaitWindow('TMessageForm', 'Подтверждение', -1, Options.Run.Timeout);
+    if w1.Exists then
+    begin
+      searchTime := Win32API.GetTickCount - searchTime;
+      Writeln(logFile, 'Поиск занял ' + FloatToStr(searchTime*0.001) + ' сек.');
+      Sys.Keys ('[Esc]'); // medit
+    end
+    else
+    	Writeln(logFile, 'Окно не дождались или что-то нашли. Результаты будут некорректны!!!');
+    // конец  
+    Writeln(logFile, '=============== Тест закончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+    Writeln(logFile, '');
+    CloseFile(logFile);
+    LogTimeStamp ('Контекстный поиск в документе' ,logFile, False);
+  end;
+end;
+{
+  Определение времени задерж открытия влкдки "Судебная практика" в ГК
+}
+function Perfomance_SKRPageOpen_speed (const logFile: String) : Boolean;
+const
+  TEST_NAME = 'Задержка открытия СКР';
+	DOC_NUMBER = 10064072; // документ который открываем  
+  CONTEXT = 'прецессия'; // контекст, не должен встречаться в документе
+var
+  p, w, w1, cb: OleVariant;
+  PageCtrl;
+  mPage: OleVariant;
+  mBtnFull: OleVariant;
+  mDelay: Float;
+  profilerDocOpenTime: Float;
+  DocumentProfiler: OleVariant;
+  i: integer;
+  searchTime, countAttempt : Float;
+  now;
+begin
+  Result := False;
+  LogTimeStamp (TEST_NAME ,logFile, True);
+  if OpenDocByNumber (DOC_NUMBER) then
+  begin
+    /////////// Измеряем скорость открытия документа из профайлера
+    p := GetF1ShellPRocess;
+    w := GetMainWindow;
+    DocumentProfiler := GetProfiler (PR_DOCUMENT);
+    for i := 1 to 5 do
+    begin
+      if (DocumentProfiler.HasFinished = true) then
+      begin
+        profilerDocOpenTime := DocumentProfiler.ExecuteTime;
+        // Добавляем результатытв XML
+        now := Utilities.Now; // Добавляем результаты в XML
+        AppendResult2XML (CompName, PO_TAG_DOC_OPEN, PO_NAME_DOC_OPEN, now, build, FloatToStr(profilerDocOpenTime*0.001), xmlFile);
+        AppendFile (logFile, '******************'+ EndOfLine
+          + '******** Задержка открытия ГК: '+FloatToStr(profilerDocOpenTime*0.001)+' сек.'
+          + EndOfLine + '******************', 'Результаты производительности');
+        break;
+      end
+      else
+        Sleep (3000);
+    end;
+    Prfomance_DocContextSearch (logFile, 'калашников', DOC_NUMBER, 'FIRST_SEARCH');
+    Prfomance_DocContextSearch (logFile, 'сухой', DOC_NUMBER, 'SECOND_SEARCH');
+    /////////// Измеряем скорость открытия вкладки "Ссылки на документ" (КОРРеспонденты)
+    // Получаем родителский объект расположенный максимально глубоко в дереве, который существует до открытия вкладки СКР
+    
+    // Пока нет новых баз, на которых строятся КОРРеспонденты, тест отключаем
+    Result := True;
+    goto skip_SKR_test;
+     
+    
+    mPage := Sys.Process('F1Shell').VCLObject('nsMainWindow').VCLObject('vcmDockContainer').VCLObject('ClientZone').VCLObject('fMainZone').VCLObject('fChildZone').VCLObject('ChildForm').VCLObject('ChildZone');
+    if mPage.Exists then
+    begin
+      mDelay := Win32API.GetTickCount; // засекаем время
+      Sys.Keys('~[F8]');
+      Delay (1000); // задержка для исключения обращения TC к подвисшей оболочке (not responding)
+      repeat 
+        mBtnFull := mPage.Window('TElTabSheet', '', 1).VCLObject('efList_2');//.Window('TvcmDockPanel', '', 4).Window('TPanel', '', 1).VCLObject('TopDock').VCLObject('tbefListTop').VCLObject('bt_enFile_opSave');
+        if ((Win32API.GetTickCount - mDelay)*0.001) > 300 then raise ('Perfomance_SKRPageOpen_speed: ждем mBtnFull СКР более 5 минут');
+        Delay (100); 
+      until mBtnFull.Exists;
+      mDelay := Win32API.GetTickCount - mDelay;
+      now := Utilities.Now; // Добавляем результаты в XML
+      AppendResult2XML (CompName, PO_TAG_SKR_OPEN, PO_NAME_SKR_OPEN, now, build, FloatToStr(mDelay*0.001), xmlFile);
+      AppendFile (logFile, 'Задержка открытия вкладки: '+FloatToStr(mDelay*0.001)+' сек.');
+      LogTimeStamp (TEST_NAME ,logFile, False);
+      AppendFile (logFile, ' ');
+      Result := True;      
+    end;
+    skip_SKR_test: 
+  end;
+end;
+{
+  Время задержки появления окна регистрации и ОМ
+}
+function Perfomance_StartF1_speed (const logFile: String): Boolean;
+const
+  TEST_NAME = 'Задержка окна регистрации и ОМ';
+  LOGIN = 'perf';
+  PASSWORD = 'perf';
+  WAIT_TIME = 300000;
+var
+ p, w: OleVariant;
+ mWin;
+ mDelay1, mDelay2: Float;
+ login, pass: String;
+ str;
+ mDelayCount, mCountoOfAttempt;
+ now;
+begin
+  Result := False;
+  LogTimeStamp (TEST_NAME ,logFile, True);
+  mDelayCount := 5000;
+  mCountoOfAttempt := 5;
+  Result := False;
+  login := 'perf';
+  pass := login;
+  Win32API.WinExec(GetF1Directory + '\garant.exe default /MakeAsTC6Client', Win32API.SW_SHOWMAXIMIZED);
+  mDelay1 := Win32API.GetTickCount;
+  Delay(2100);  
+  p := Sys.WaitProcess('F1Shell', WAIT_TIME); // Ждем 5 мин.
+  if p.Exists then
+  begin
+    w := p.WaitWindow('TLoginForm', '*', -1, WAIT_TIME);
+    if w.Exists then
+    begin
+      while not w.VisibleOnScreen do
+      begin
+        // stub
+      end;
+    end;
+    mDelay1 := Win32API.GetTickCount - mDelay1;
+    now := Utilities.Now; // Добавляем результаты в XML
+    AppendResult2XML (CompName, PO_TAG_AUTH, PO_NAME_AUTH, now, build, FloatToStr(mDelay1*0.001), xmlFile);
+    Delay (3000);
+    p := Sys.WaitProcess('F1Shell', Options.Run.Timeout);
+    LoginAnyhowEx (login, pass);
+    mDelay2 := Win32API.GetTickCount;
+    //w := p.WaitWindow ('TnsMainWindow', '*', -1, WAIT_TIME);
+    w := GetMainWindow();
+    if w.Exists then
+    begin
+      while ( ( not w.VisibleOnScreen) and (not w.Visible) ) do
+      begin
+        // stub
+      end;
+      mDelay2 := Win32API.GetTickCount - mDelay2;
+      // Добавляем результат в XML
+      now := Utilities.Now;
+      AppendResult2XML (CompName, PO_TAG_OM, PO_NAME_OM, now, build, FloatToStr(mDelay2*0.001), xmlFile);
+      AppendFile (logFile ,'Задержка окна регистрации: '+FloatToStr(mDelay1*0.001)+' сек.');
+      AppendFile (logFile ,'Задержка ОМ: '+FloatToStr(mDelay2*0.001)+' сек.');
+    end;
+    Result := True;
+  end
+  else
+    AppendFile (logFile, 'Оболочка  не запустилась в течение '+ FloatToStr(WAIT_TIME*0.001) +' сек.');
+  LogTimeStamp (TEST_NAME ,logFile, False);
+end;
+{
+  Поиск словосечания "Конституция российской федерации" через КЗ ППРa
+}
+function Perfomance_PPRContextSearch_speed (const logFile: String) : Boolean;
+const
+  TEST_NAME = 'Морфологический поиск';
+  WAIT_TIME = 600000;
+  //MAKE_SNAP_BAT - путь к *.bat файлу делающему скриншот
+  //скриншот делается после поиска для опредления по какому контекстному полю
+  //был осуществлен поиск "Слова в названии" или "Слова в тексте"
+  MAKE_SNAP_BAT = 'F:\CVS\quality\test\garant6x\AutoTest\RunDailyTests\common.make_snap.bat';
+	mContext = 'конституция российской федерации';
+var
+  p, w;
+  mWin;
+  mDelay, Float;
+  mName, currentName;
+  mCounter;
+  i;
+  PPRProfiler: OleVariant;
+  profilerPPROpenTime: Float;
+  d, MyRegExp: OleVariant;
+begin
+  d := Sys.Desktop;
+  MyRegExp:=HISUtils.RegExpr;
+  MyRegExp.Expression:=F1_HEADER_PREFIX;
+  Result := False;
+  LogTimeStamp (TEST_NAME ,logFile, True);  
+  p := GetF1ShellProcess;
+  w := GetMainWindow;
+  w.Activate;
+  GoToPPR;
+  PressKeyNCount('[Tab]', 1);
+  Sys.Keys(mContext);
+  mDelay := Win32API.GetTickCount;
+  Sys.Keys ('^[Enter]');
+  mWin := p.WaitWindow('TMessageForm', 'Подтверждение', -1, WAIT_TIME);
+  if mWin.Exists and mWin.VisibleOnScreen then
+  begin
+    mDelay := Win32API.GetTickCount - mDelay;
+    //Win32API.WinExec(MAKE_SNAP_BAT, Win32API.SW_SHOWMINIMIZED); //делаем скриншот после поиска
+    //Delay (7777); //задержка для того чтобы успеть снять необходимый скриншот
+    ConfirmWindow ('Нет');
+    AppendFile (logFile, 'Время поиска БП: '+FloatToStr(mDelay*0.001)+' сек.');
+    Result := True;
+  end
+  else
+  begin
+  	AppendFile (logFile, 'Не могу дождаться окончания поиска см. лог TC');
+    w := d.ActiveWindow(); // Если находим неожиданное окно кроме основного закрываем его
+    MyRegExp.Expression:=F1_HEADER_PREFIX;
+    if NOT MyRegExp.Exec(w.WndCaption) then
+    begin
+      Log.Picture(d);
+      Log.Warning ('Текущее окно не является основным: ' + w.WndCaption);
+      if (w.WndClass <> 'TnsMainWindow') then
+      begin
+        Log.Warning('Пытаемся закрыть неожиданное окно');
+        w.Close;
+      end;
+    end;    
+  end;
+    
+  LogTimeStamp (TEST_NAME ,logFile, False);
+  /////////// Меряем Время загрузки КЗ
+  PPRProfiler := GetProfiler (PR_PPR);
+  for i := 1 to 5 do
+  begin
+    if (PPRProfiler.HasFinished = true) then
+    begin
+      profilerPPROpenTime := PPRProfiler.ExecuteTime;
+      AppendFile (logFile, '******************'+ EndOfLine
+        + '******** Задержка открытия КЗ ППР: '+FloatToStr(profilerPPROpenTime*0.001)+' сек.'
+        + EndOfLine + '******************', 'Результаты производительности');
+      break;
+    end
+    else
+      Sleep (3000);
+  end;
+    /////////////////////////////////////////////////////////////////
+end;
+{
+  Поиск словосечания "Конституция российской федерации" через БП
+  и открытие документа из полученного списка
+}     //AHTUNG
+function Perfomance_BPSearch_and_DocOpen (const logFile: String) : Boolean;
+const
+  TEST_NAME = 'БП с открытием документа';
+  WAIT_TIME = 600000;
+	//mContext = 'конституция российской федерации';
+  SEARCH_CONTEXT = 'конституция российской федерации';
+  MAX_SEARCH_TIME = 300000;
+  documentName = 'Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.)*';
+var
+  d, p, w, mWin, cb, pc, list, MyRegExp, FormParams: OleVariant;
+  Profiler: OleVariant;
+  ProfilerTime: Float;
+  mDelay, searchTime: Float;  
+  i: integer;
+  now, executeCount, startTime;  
+begin
+  LogTimeStamp (TEST_NAME ,logFile, True);
+  d := Sys.Desktop;
+  MyRegExp:=HISUtils.RegExpr;
+  MyRegExp.Expression:=F1_HEADER_PREFIX;
+  Result := False;
+  p := GetF1ShellProcess; 
+  w := GetMainWindow;
+  w.Activate;
+  LogTimeStamp ('Контекстный поиск БП' ,logFile, True);
+  // Переключаемся на вид информации 'Все документы'
+  pc := GetFromBaseSearch( 'ЗАКЛАДКИ "ВИД ПРАВОВОЙ ИНФОРМАЦИИ"');
+  SwitchToPage(pc, 'Все документы');
+  // Переводим фокус в комбобокс, очищаем его и инициируем поиск     
+  cb := GetFromBaseSearch( 'КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+  WriteToForm(cb, SEARCH_CONTEXT);
+  Profiler := GetProfiler (PR_LIST);
+  executeCount := Profiler.ExecuteCount;
+  startTime := Win32API.GetTickCount;
+  searchTime := 0;
+  Sys.Keys('[Enter]');
+  Log.Message('Начали поиск контекста: ' + SEARCH_CONTEXT);
+  repeat
+  begin
+    searchTime : = Win32API.GetTickCount - startTime;
+    //Log.Message(mContext + ': перед проверкой профайлер - ' + FloatToStr(searchTime*0.001));
+    if (Profiler.ExecuteCount <> executeCount) then
+    begin
+      //Log.Message(mContext + ': прошли проверку - ' + FloatToStr(searchTime*0.001));
+      now := Utilities.Now; // Добавляем результаты в XML
+      AppendResult2XML (CompName, PO_TAG_BP, PO_NAME_BP, now, build, FloatToStr(searchTime*0.001), xmlFile);
+      //AppendResult2XML (CompName, 'cntx_'+IntToStr(count), mContext, now, build, FloatToStr(searchTime*0.001), xmlFile);
+      AppendFile (logFile, '********* Время поиска: '+FloatToStr(searchTime*0.001)+' сек.');
+      LogTimeStamp ('Контекстный поиск БП' ,logFile, False);
+      Log.Message('ЗАКОНЧИЛИ поиск : ' + SEARCH_CONTEXT);
+      Result := True;
+      break;
+    end
+    else
+      Sleep (300);
+  end;
+  until searchTime >= MAX_SEARCH_TIME;
+  if searchTime >= MAX_SEARCH_TIME then  
+  begin
+  	AppendFile (logFile, 'Не могу дождаться окончания поиска см. лог TC');
+    w := d.ActiveWindow(); // Если находим неожиданное окно кроме основного закрываем его
+    MyRegExp.Expression:=F1_HEADER_PREFIX;
+    if NOT MyRegExp.Exec(w.WndCaption) then
+    begin
+      Log.Picture(d);
+      Log.Warning ('Текущее окно не является основным: ' + w.WndCaption);
+      if (w.WndClass <> 'TnsMainWindow') then
+      begin
+        Log.Warning('Пытаемся закрыть неожиданное окно');
+        w.Close;
+      end;
+    end;    
+  end;
+  list := GetList;
+  if IsExists(list) then
+  begin
+    LogTimeStamp ('Открытие документа после БП' ,logFile, True);
+    OpenObjectFromFolder(documentName, list);
+    // Считываем из профайлера время открытия документа
+    w := GetEditor;
+    if IsExists(w) then
+    begin
+      Profiler := GetProfiler (PR_DOCUMENT);
+      for i := 1 to 5 do
+      begin
+        if (Profiler.HasFinished = true) then
+        begin
+          ProfilerTime := Profiler.ExecuteTime;
+          now := Utilities.Now; // Добавляем результаты в XML
+          AppendResult2XML (CompName, PO_TAG_DOC_AFTER_BP, PO_NAME_DOC_AFTER_BP, now, build, FloatToStr(ProfilerTime*0.001), xmlFile);
+          AppendFile (logFile, '********* Задержка открытия документа после БП: '+FloatToStr(ProfilerTime*0.001)+' сек.');
+          break;
+        end
+        else
+          Sleep (3000);
+      end;
+      LogTimeStamp ('Открытие документа после БП' ,logFile, False);
+      Result := True;
+    end
+    else
+      AppendFile (logFile, 'Документ не был открыт'+ EndOfLine);
+  end;        
+  LogTimeStamp (TEST_NAME ,logFile, False);
+end;
+{
+  Замер скорости скроллирования документа (конституция)
+}
+function ScrollSpeed (const logFile: String) : Boolean;
+const
+  TEST_NAME = 'Прокрутка конституции';
+  WAIT_TIME = 600000;
+var
+  scrollTimeOut: float;
+  mDelay: float;
+  edt;
+  res;
+begin
+  res := false;
+  LogTimeStamp (TEST_NAME ,logFile, True);
+  scrollTimeOut := 0;
+  if OpenDocByNumber(10003000) then
+  begin
+    Delay(5000);
+    edt := GetEditor;
+    if NOT IsExists(edt) then
+        raise ('Не смогли получить текст документа');
+    //Таймаут в 5 минуты.
+    mDelay := Win32API.GetTickCount;
+    while scrollTimeOut < 600000 do // Таймаут скроллирования 10 мин.
+    begin
+      //Sys.Keys('[PageDown][PageDown][PageDown][PageDown][PageDown][PageDown][PageDown][PageDown][PageDown][PageDown]');
+      PostMessage(edt.Handle, $100, $22, $1510001); //Зажали PgDown
+      scrollTimeOut := Win32API.GetTickCount - mDelay;
+      if (edt.IsDocumentTailVisible = true) then
+      begin
+        break;
+      end;       
+    end;
+    PostMessage(edt.Handle, $101, $22, $1510001); //Отжали PgDown
+    if (edt.IsDocumentTailVisible = true) then
+    begin
+      AppendResult2XML (CompName, PO_TAG_SCROLL, PO_NAME_SCROLL, now, build, FloatToStr(scrollTimeOut*0.001), xmlFile);
+      AppendFile (logFile, '********* Время прокрутки: '+FloatToStr(scrollTimeOut*0.001)+' сек.');
+      res := true;
+    end
+    else
+      Log.Message('Не смогли проскроллировать за ' + FloatToStr(scrollTimeOut*0.001) + ' сек.');
+    LogTimeStamp (TEST_NAME ,logFile, False);
+    result := res;    
+  end;
+end;
+{
+  Простое закрытие оболочки  минимумом ф-ий
+  при закрытии отмечается чексбокс ".. выходить без подтверждения"
+  P.S. на CloseF1Shell оболочка падает 
+}
+Procedure CloseF1ShellSimple(clickCheckBox : boolean = false);
+var
+  p, w, w1, counter, i;
+  dwwinProc;
+  csrssProc;
+begin
+  w := GetMainWindow();
+  w.Keys('~[F4]');
+  Delay(5000);
+  p := GetF1ShellProcess();
+  if IsExists(p) then
+  begin
+    w := p.WaitWindow('TMessageForm', 'Подтверждение', 1, DEFAULT_TIMEOUT );
+    if IsExists(w) then
+    begin
+      if clickCheckBox then
+      begin
+        w1 := w.VCLObject('Check');
+        w1.SetFocus; // Чекбокс
+        Delay(500);
+        w1.Keys('[X32]'); //Пробел
+        Delay(500);      
+      end;
+      w1 := w.VCLObject('Choices0');// Кнопка 'Выйти'
+      w1.SetFocus;
+      Delay(500);
+      w1.Keys('[Enter]');         
+    end;
+      // После таймаута ожидания исчезнование процесса оболочки, процесс удаляется
+      Delay(7000);
+      p := Sys.WaitProcess(SHELL_PROCESS_NAME, 100);
+      if IsExists(p) then
+      begin
+        ProcessKiller('CloseF1ShellSimple', 'START', Options.Run.Timeout*10, p);
+        Delay(7000);
+        // качественно убиваем оболочку
+        for i := 1 to 10 do
+          if IsExists(p) then
+          begin
+            Delay(Options.Run.Delay div 30);
+            p.Terminate;
+          end
+          else
+            break;
+        end;
+        if IsExists(p) then raise ('CloseF1ShellSimple: не удалось закрыть оболочку');
+    end;
+end;
+
+{
+  Основная процедура замера производительности клиента
+}
+procedure RunPerfomanceTests_speed;
+label start, finish;
+const
+  CLOSE_F1_WAIT = 5000; //время ожидания закрытия оболочки в CloseF1Shell(..)
+//label
+//  link;
+var
+  res, i;
+  cmdLine;
+  mDelayCount;
+  mLogin, mPass;
+  logFile;
+  perfomanceOperation: String;
+  maxIterations;
+  delayAfterReboot, Float;
+  pathToLogDir;
+  pathToPSTools;
+  currentDate;
+  closeAttempt;
+begin
+try
+    //ProductVersion('set', PRODUCT_VERSION_7_1);
+    Utilities.DecimalSeparator := DECIMAL_SEPARATOR;
+    PerfomanceInitOptions;
+    closeAttempt := 5;
+    mLogin := 'perf';
+    mPass := mLogin;
+    
+    //*** 4 run test ***
+    //{
+    pathToLogDir := GetValueFromCmdLine(PO_LOG_DIR); // Путь к каталогу с лог файлами
+    currentDate := GetValueFromCmdLine(PO_CUR_DATE); //Текущая дата
+    build := GetValueFromCmdLine(PO_BUILD); // Название сборки
+    xmlFile := GetValueFromCmdLine(PO_XML_FILE); // Располложение XML файла
+    //}
+    //*** 4 DEBUG ***
+    {    
+    pathToLogDir := 'c:\logs';
+    currentDate := '22.01.14';
+    build := 'T_GARANTF1-7_10_0_010';
+    xmlFile := 'c:\logs\perfspeed.xml';
+    }
+    logFile := GetFileNameWithDateEx (pathToLogDir, currentDate);
+    //GoTO link;
+    //Запуск оболочки и замер времени открытия окна регистрации и ОМ
+    if not Perfomance_StartF1_speed (logFile) then
+      raise ('Perfomance_StartF1_speed - не выполнена');
+    //Закрываем "Совет дня"
+    //login и pass передаём для совместимости, так как они объявлены как VAR, собственно в ф-ции они не нужны
+      DoLoginOperation(mLogin, mPass, OPER_ADVICE_OF_DAY);
+    if not Perfomance_SKRPageOpen_speed (logFile) then
+      raise ('Perfomance_SKRPageOpen_speed - не выполнена');
+    Delay(3000);
+    if not GoToMainMenu(2) then
+      raise ('GoToMainMenu - не удалось перейти в ОМ');
+    //Sys.Keys('[F2]');
+    if not Perfomance_BPSearch_and_DocOpen (logFile) then
+      log.message ('Perfomance_BPSearch_and_DocOpen - не выполнена');
+    Perfomance_ListContextSearch_speed (logFile);
+    if not ScrollSpeed (logFile) then
+      raise ('ScrollSpeed - не выполнена');
+    Delay(5000);
+    
+    log.message ('Run CloseF1Shell: at end of project');
+    //CloseF1ShellSimple(false);
+    //CloseF1Shell (closeAttempt, 7000);
+    //link:
+  except
+    Log.Error ('RunPrefomanceTests: '+ExceptionMessage);
+    log.message ('Run CloseF1Shell: at end of project');
+    //CloseF1Shell (closeAttempt, 7000);
+    //CloseF1ShellSimple(false);
+    AppendFile (logFile, 'RunPrefomanceTests: '+ExceptionMessage);
+  end;
+end;
+{
+  Основная процедура запуска
+  пока только открывает оболочку, регисрируется заданным логином\паролем,
+  ставит "галку" подтверждения построения списка
+  и закрывает оболочку
+  Проект требует двух переменных  "gui_login" и "gui_password";
+
+  Перенесена из проекта Prepare_GUI_Shell
+}
+procedure Prepare_GUI_Shell;
+var
+  p, w;
+  cmdLogin, cmdPassword: String;
+  countOfAttempt;
+  pathToLogDir;
+  currentDate;
+  logFile;
+begin
+  try
+    // 4 RUN
+    //ProductVersion('set', PRODUCT_VERSION_7_4);
+    //{
+    pathToLogDir := GetValueFromCmdLine(PO_LOG_DIR); // Путь к каталогу с лог файлами
+    currentDate := GetValueFromCmdLine(PO_CUR_DATE); //Текущая дата
+    cmdLogin := GetValueFromCmdLine(GUI_LOGIN_KEY);
+    cmdPassword := GetValueFromCmdLine(GUI_PASSWORD_KEY);
+    //}
+    // 4 DEBIG
+    {
+    pathToLogDir := 'c:\logs';
+    currentDate := '22.01.14';
+    cmdLogin := 'perf';
+    cmdPassword := 'perf';
+    }
+    logFile := GetFileNameWithDateEx (pathToLogDir, currentDate);
+    AppendFile (logFile, 'Start Prepare');
+    log.message ('Start Prepare');
+
+    PerfomanceInitOptions;
+    Log.Message(Options.Run.Timeout);
+    countOfAttempt := 5;
+    
+    AppendFile (logFile, 'Run StartF1ShellEx');
+    log.message ('Run StartF1Shell');
+    
+    StartF1Shell;
+
+    AppendFile (logFile, 'Run LoginAnyHow');
+    log.message ('Run LoginAnyHow');
+    LoginAnyHow (cmdLogin, cmdPassword);
+    
+    AppendFile (logFile, 'LoginAnyHow зарегистрировался пользователем: '+ cmdLogin);
+    Log.Message ('LoginAnyHow зарегистрировался пользователем: '+ cmdLogin);
+    
+	//
+	Log.Message ('Задержка 20 сек. для ожидания основного окна');
+	Delay(20000);
+	
+
+    w := GetMainWindow;
+    if NOT w.Exists then
+    begin
+      AppendFile (logFile, 'Не найдено основное окна <TnsMainWindow>');      
+      raise ('Не найдено основное окно <TnsMainWindow>');
+    end;
+    w.Activate;
+    //SetSettings( [ (['Поиск\Подтверждения', 'ПОСТРОЕНИЕ СПИСКА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ СПИСКА [CHECKBOX]', true]) ] );
+    //SetSettings( [ (['ПОИСК\ПОДТВЕРЖДЕНИЯ', 'ПОСТРОЕНИЕ СПИСКА\ПРИ КОЛИЧЕСТВЕ ДОКУМЕНТОВ БОЛЕЕ [EDIT]', '0']) ] );
+    SetSettings( [ (['ПОИСК', 'СПИСОК ПОСЛЕ БАЗОВОГО ПОИСКА [COMBOBOX]', 'Полный']) ] );
+
+    if NOT MoveReminder ('BOTTOM-RIGHT') then
+    begin
+      AppendFile (logFile, 'Не могу переместить медаль');
+      log.message ('Не могу переместить медаль');
+    end;
+    //{ Not working yet
+    if NOT RemoveSKRBildDialog (10064072) then
+    begin
+      AppendFile (logFile, 'RemoveSKRBildDialog failed');
+      log.message ('RemoveSKRBildDialog failed');
+    end;
+    //}    
+    AppendFile (logFile, 'Run CloseF1Shell');     
+    log.message ('Run CloseF1Shell');
+    CloseF1ShellSimple(true);
+    //CloseF1Shell (countOfAttempt, Options.Run.Timeout div 2);
+  except
+    Log.Error ('Prepare: ' + ExceptionMessage);
+  end;
+end;
+
+// Отладочная процедура
+procedure testtest;
+const
+  mContext = 'конституция российской федерации';
+  documentName = 'Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.)*';
+var
+  p, w, w1, cb, f, list;
+  FormParams, Result;
+  mDelay, mPage, mPage2, mPageConst, mPageFind, PageCtrl;
+  mBtnFull, msgType, checkBox, logFile;
+label mark, mark1;
+begin
+  CloseF1ShellSimple(true);  
+end;
+
+

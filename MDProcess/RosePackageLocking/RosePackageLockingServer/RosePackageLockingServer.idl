@@ -1,0 +1,119 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/RosePackageLocking/RosePackageLockingServer/RosePackageLockingServer.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::RosePackageLocking::RosePackageLockingServer
+//
+// ответственности для работы с залочками пакетов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___ROSEPACKAGELOCKINGSERVER_IDL__
+#define ___ROSEPACKAGELOCKINGSERVER_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#pragma prefix "garant.ru"
+
+module RosePackageLocking {
+
+module RosePackageLockingServer {
+	// гуид пакета
+	typedef string PackageGUID;
+
+	// Статус залочки пакета.
+	// LS_LOCKED - пакет залочен и используется другим юзером
+	// LS_FREE - пакет свободен, т.е. ни кем не используется
+	// LS_LOCKED_TO_SELF - пакет залочен тем же юзером, от лица которого спросили статус залочки
+	enum LockStatus {
+		LS_LOCKED // пакет залочен пользователем
+		, LS_FREE // пакет никем не залочен, т.е. свободен
+		, LS_LOCKED_TO_SELF // пакет залочен тем пользователем, от сессии которого делается запрос о статусе залочки пакета
+	};
+
+	// структура, содержащая данные о состоянии залочки пакета
+	struct PackageInfo {
+		// имя пользователя, залочевшего пакет
+		string lock_owner_name;
+		// время, когда залочили/разлочили пакет
+		string time;
+		// полное имя пакета
+		string full_name;
+		// уникальный гуид элемента с модели
+		PackageGUID guid;
+		// статус залочки пакета
+		LockStatus lock_status;
+	};
+
+	// залочить пакет не удалость
+	exception LockFailed {
+	};
+
+	// пакет, содержит ответственности для залочки
+	interface Package {
+		// информация о пакете
+		PackageInfo get_info ();
+
+		// начать модификацию пакета
+		void modify ()
+			raises (LockFailed);
+		// прокоммитеть изменения
+		void commit ()
+			raises (LockFailed);
+		// откатить изменения в пакете
+		void rollback ();
+	};
+
+	// factory manager server interface for Package
+	interface PackageFactoryManagerSrv {
+		// получить кэшированный экземпляр объекта
+		Package instance (in PackageGUID guid)
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	// вектор пакетов
+	typedef sequence<PackageInfo> PackageInfoSeq;
+
+	// тип события о изменении статуса залочки
+	enum LockChange {
+		LC_LOCK // идентификатор сообщения что пакет стал залоченным
+		, LC_UNLOCK // идентификатор сообщения что пакет стал разлоченным
+		, LC_ROLLBACK // идентификатор сообщения о откате изменений в залоченном пакете
+	};
+
+	// lock_changed - событие о том, что состояние залочки пакета поменялся юзером by_user.
+	interface LocksListener {
+		// lock_changed - событие о том, что состояние залочки пакета поменялся юзером by_user.
+		oneway void lock_changed (in PackageGUID guid, in string by_user, in string time, in LockChange what);
+	};
+
+	// sync - проставляет статусы залочек для пакетов с модели, сиквенс которых передается в piseq.
+	interface PackageManager {
+		// sync - проставляет статусы залочек для пакетов с модели, сиквенс которых передается в piseq.
+		void sync (inout PackageInfoSeq piseq);
+		// добавляет слушателя, которые будет получать сообщения о залочках пакетов
+		void add_locks_listener (in LocksListener ll);
+		// возвращает список пакетов, захваченных пользователем
+		PackageInfoSeq get_self_locked ();
+	};
+
+	// factory manager server interface for PackageManager
+	interface PackageManagerFactoryManagerSrv {
+		// получить кэшированый экземпляр
+		PackageManager instance ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module RosePackageLocking
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

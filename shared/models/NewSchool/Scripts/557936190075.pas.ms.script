@@ -1,0 +1,76 @@
+// TestStrings 557936190075 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_557936190075
+
+FORWARD ME_55793634010B
+
+: ME_47A6FEE600FC_ME_55793634010B
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_55793634010B // TtestCConstDelphiString
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_55793634010B IsCacheable
+
+: ME_55793634010B
+ CONST UID '55793634010B'
+ CONST Name 'TtestCConstDelphiString'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_557936190075 // TestStrings
+ ;
+ : Inherits
+   @ ( WL 'ME_46780FF102AE' '47913B47006E.pas.ms.script' // Tl3CConstDelphiString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_47A6FEE600FC_ME_55793634010B // IsCacheable
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\testCConstDelphiString.pas'
+
+ref; // ME_55793634010B TtestCConstDelphiString
+
+: ME_557936190075
+ CONST UID '557936190075'
+ CONST Name 'TestStrings'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_55793634010B // TtestCConstDelphiString
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\557936190075.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\557936190075.pas.ms.script.runner'
+
+ref; // ME_557936190075 TestStrings

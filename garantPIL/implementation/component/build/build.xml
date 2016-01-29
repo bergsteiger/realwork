@@ -1,0 +1,27 @@
+<project name="build" default="help">
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+        <classpath>
+            <pathelement location="c:/Programs/Programming/apache-ant-1.8.0/lib/ant-contrib-1.0b3.jar"/>
+        </classpath>
+    </taskdef>
+    
+    <import file="init.xml"/>
+    <import file="builder.xml"/>
+    <import file="final.xml"/>
+    
+    <target name="build.test" depends="init.intranet,init.all,build.copy.other,final.all" description="Build intranet project">
+    </target>
+    
+    <target name="build.intranet" depends="init.intranet,init.all,build.javascript.compress,build.help,build.copy.all,build.zip,final.all" description="Build intranet project">
+    </target>
+    
+    <target name="build.english" depends="init.english,init.all,build.javascript.compress,build.help,build.copy.all,build.zip,final.all" description="Build english version Intranet project">
+    </target>
+    
+    <target name="build.park" depends="init.park,init.all,build.javascript.compress,build.help,build.copy.all,build.zip,final.all" description="Build PARK project">
+    </target>
+    
+    <target name="help" description="Show help message">
+        <echo message="Specify build target. Example: ant build.intranet" level="info" />
+    </target>
+</project>

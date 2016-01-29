@@ -1,0 +1,38 @@
+USES
+ axiom:DocumentsCache
+ axiom:Wnd
+ axiom:форма
+ 
+ @\Windows.script
+;
+
+PROCEDURE "Убедиться, что контрол - КЗ" OBJECT IN aCtrl
+ aCtrl ЯВЛЯЕТСЯ class::TevQueryCardEditor ?ASSURE 'Контрол не является КЗ' 
+;
+
+USES
+ Forms.script
+;
+
+PROCEDURE "Восстановить все настройки текущей конфигурации"
+ PROCEDURE Действия
+  "Главное окно" "Развернуть окно"
+  RestoreSettings
+ ; 
+ 
+ "Сделать {(@ Действия )} с изменением состояния и размеров окна {("Главное окно")}"
+ ANYUSERTYPE форма::PreviewForm vcm:FindForm ? (
+  OBJECT VAR l_PreviewForm
+  >>> l_PreviewForm
+  //l_PreviewForm .
+  ОсновноеМеню
+  // - скрываем предварительный просмотр, чтобы он не перерасссчитывался
+  history:DeleteBackItem
+  documentscache:Clear
+  // - уничтожаем предварительный просмотр
+ )
+; // "Восстановить все настройки текущей конфигурации"
+
+PROCEDURE "Установить окно оболочки на передний план"
+ 'ГАРАНТ аэро' FindWindowByCaption wnd:SetForeground
+;

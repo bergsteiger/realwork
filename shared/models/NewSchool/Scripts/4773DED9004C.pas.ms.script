@@ -1,0 +1,115 @@
+// Tl3_String 4773DED9004C SimpleClass Class
+
+INCLUDE '4773DEF0021B.pas.ms.script'
+
+FORWARD ME_4773DED9004C
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_47A86895031F
+ CONST UID '47A86895031F'
+ CONST Name 'f_String'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46B1B0F8018F // Tl3WStrCast
+ ;
+
+ @SELF
+; // ME_47A86895031F f_String
+
+FORWARD ME_4FB10B1D016B
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4FB10B4F0064
+ CONST UID '4FB10B4F0064'
+ CONST Name 'aPos'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4FB10B4F0064 aPos
+
+: ME_4FB10B4F0082
+ CONST UID '4FB10B4F0082'
+ CONST Name 'aLen'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4FB10B4F0082 aLen
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4FB10B330160
+ CONST UID '4FB10B330160'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4FB10B4F0064 // aPos
+ ME_4FB10B4F0082 // aLen
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4FB10B330160 DoIt
+
+: ME_4FB10B1D016B
+ CONST UID '4FB10B1D016B'
+ CONST Name 'NotifyDeletion'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4FB10B330160 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4FB10B1D016B NotifyDeletion
+
+: ME_4773DED9004C
+ CONST UID '4773DED9004C'
+ CONST Name 'Tl3_String'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Класс реализующий строки с собственным методом хранения данных.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4773DEF0021B // Tl3CustomString
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_47A86895031F // f_String
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4FB10B1D016B // NotifyDeletion
+ ]
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.01.2008 15:56'
+
+ @SELF
+; // ME_4773DED9004C Tl3_String

@@ -1,0 +1,29 @@
+project (T_Samedocs_part) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_Samedocs_part {
+	exename = samedocs_part
+
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += MIN_MEM_CONTEXT
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+
+	after += Morpho
+	libs += Morpho
+
+	after += cchlp1
+	after += cchlp2
+	after += gsscreen_gl
+	after += gkdb_gudll
+	after += gctx_gl
+	after += vcontrol_ggu
+
+	libs += cchlp1
+	libs += cchlp2
+	libs += gsscreen_gl
+	libs += gkdb_gudll
+	libs += gctx_gl
+	libs += vcontrol_ggu
+}

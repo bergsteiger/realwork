@@ -1,0 +1,65 @@
+// Tl3FrameObjectList 48CA6C24020B SimpleClass Class
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_48CA6C24020B
+
+INCLUDE '48CA64150378.pas.ms.script'
+
+: ME_48CA6C410235
+ CONST UID '48CA6C410235'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_48CA64150378 // Tl3FrameObject
+ ;
+
+ @SELF
+; // ME_48CA6C410235 ItemType
+
+: ME_48CA6C24020B
+ CONST UID '48CA6C24020B'
+ CONST Name 'Tl3FrameObjectList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Массив объектов отрисовки' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_48CA6C410235 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '02.10.06 16:27'
+
+ @SELF
+; // ME_48CA6C24020B Tl3FrameObjectList

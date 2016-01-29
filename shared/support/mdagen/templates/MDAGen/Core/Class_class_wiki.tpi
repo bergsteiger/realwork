@@ -1,0 +1,88 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _wiki_up_add_gen
+/ <?> Коллеги, это что?
+//#UC START# *46AB2F44032Aup_add_gen*
+//#UC END# *46AB2F44032Aup_add_gen*
+
++ wiki
+/ Генератор в wiki.
+//#UC START# *46AB101D02C0*
+C /%SN:%SU
+O %SN
+S %SN
+# t0_wiki_header
+	[h2. Модель[
+
+	{tip}Специализирует:
+	<* %f_k_link_wp(%G,%S)
+	>{tip}][
+
+	{info}Реализует интерфейсы/фасеты:
+	<{}{%t_interface(%R)=true}* %f_k_link_wp(%R,%S)
+	>{info}][
+
+	{info}Используется в реализации прецедентов:
+	<{}{%DS=UseCase}* %f_k_link_wp(%D,%S)
+	>{info}][
+	
+	{note}Дополнительные свойства:
+	%S%f_wiki_up_print(){note}][
+	
+	_Специализирован:_
+	<* %f_k_link_wp(%Z,%S)
+	>][
+	
+	_Реализован:_
+	<* %f_k_link_wp(%L,%S)
+	>][
+	
+	_Используется элементами:_
+	<{}{%aS!=friend&%f_is_rg_derived(%a,%S)!=true}{Sp}[{%aC!=Class&%aC!=Operation&%t_is_container(%a)!=true}{* %f_k_link_wp(%a,%S)}* %f_k_link_wp(%a%P,%S)]
+	>][
+	
+	_Дополнительные связи:_
+	<{}{%CS=uses&%CC=Dependency}* использует %f_k_link_wp(%C%T,%S)
+	><{}{%CS=friend&%CC=Dependency}* использует как друга %f_k_link_wp(%C%T,%S)
+	><{}{%aS=friend&%aC=Dependency}{Sp}* дружит с %f_k_link(%a%P,%S)
+	>]][
+	
+	h2. Состав элемента[
+	
+	_Вложенные типы (публичные):_<{}{%CC=Class&%CV=PublicAccess}
+	%f_k_type_dump(%C)>][
+	
+	_Вложенные типы (приватные):_<{}{%CC=Class&%CV!=PublicAccess}
+	%f_k_type_dump(%C)>][
+	
+	_Статические методы (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_method&%CV=PublicAccess}
+	%f_k_method_dump(%C)>][
+	
+	_Статические методы (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_method&%CV!=PublicAccess}
+	%f_k_method_dump(%C)>][
+	
+	_Статические данные:_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_attr}
+	%f_k_attr_dump(%C)>][
+	
+	_Менеджеры (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=mng&%CV=PublicAccess}
+	%f_k_method_dump(%C)>][
+	
+	_Менеджеры (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=mng&%CV!=PublicAccess}
+	%f_k_method_dump(%C)>][
+	
+	_Методы (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=method&%CV=PublicAccess}
+	%f_k_method_dump(%C)>][
+	
+	_Методы (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=method&%CV!=PublicAccess}
+	%f_k_method_dump(%C)>][
+	
+	_Атрибуты:_<{}{%CC!=Class&%C%f_wiki_child_kind()=attr}
+	%f_k_attr_dump(%C)>][
+	
+	_Свойства:_<{}{%CC!=Class&%C%f_wiki_child_kind()=property}
+	%f_k_attr_dump(%C)>][
+	
+	_Авто-генерируемые методы:_
+	%S%f_wiki_up_add_gen()]]<%CX>
+# t0_wiki_footer
+//#UC END# *46AB101D02C0*

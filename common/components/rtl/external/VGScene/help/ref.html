@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>KSDev - Adobe AIR or WPF like components, 3D in Delphi, Delphi skin, Flash control, Visio like diagram drawing</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="description" content="KSDev - Adobe AIR or WPF like components, 3D in Delphi, Delphi skin, Flash control, Visio like diagram drawing">
+<meta name="keywords" content="3d directx opengl delphi skins avalon wpf silverlight air flash gui visio drawing animation vector graphics">
+<link rel="stylesheet" type="text/css" href="images/style.css" />
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="images/ie.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="js/fancy.css" >
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/jquery.fancybox.js"></script> 
+<script type="text/javascript">
+$(document).ready(function() { $("p#screen1 a").fancybox(); $("p#screen2 a").fancybox({ 'hideOnContentClick': true }); $("p#screen3 a").fancybox({ 'zoomSpeedIn': 0, 'zoomSpeedOut': 0, 'overlayShow': true }); }); 
+</script> 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15344835-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</head>
+
+<body>
+<div id="container">
+<div id="header"><ul class="mainmenu"><li><a href="http://www.ksdev.com/index.html">Home</a></li>
+<li><a href="http://www.ksdev.com/product.html">Products</a></li>
+<li><a href="http://www.ksdev.com/download.html">Downloads</a></li>
+<li><a href="http://www.ksdev.com/service.html">Outsouring</a></li>
+<li><a href="http://www.ksdev.com/order.html">Ordering</a></li>
+<li><a href="http://www.ksdev.com/support.html">Support</a></li>
+<li><a href="http://ksdev.blogspot.com/">Blog</a></li>
+<li><a href="http://ksdev.blogspot.com/feeds/posts/default">RSS</a></li>
+</ul><a href="http://www.ksdev.com"><img src="images/logo.png" class="logo" width="241" height="65"></a></div>
+<div class="pagetop"></div>
+<div class="pagecenter">
+<div id="page">
+<div class="columns">
+<div class="column">
+<ul class="sidebar" style="list-style: none;"><li><b>VGScene</b></li>
+<li><a href="../index.html">Home</a></li>
+<li><b>Online Help</b></li>
+<li><a href="index.html">Getting Started</a></li>
+<li><a href="dyn.html">Run-time Creation</a></li>
+<li><a href="tut1.html">Tutorial</a></li>
+<li><a href="path.html">Import Path</a></li>
+<li><a href="layouts.html">Layouts</a></li>
+</ul>
+<hr class="hrsidebar"/><br>
+
+</div>
+<div class="column last" style="width:630px"><h2>References</h2>
+
+<br><b>LoadThemeFromFile</b><br>
+This function loads a theme from a file and returns the successor object of TTeTheme class in case if everything has passed successfully or nil if the theme cannot be loaded. LoadThemeFromFile can load all available for ThemeEngine themes, whether they are ThemeEngine or MS Visual Styles themes.
+The name of the theme's file is transferred as a parameter, it must contain the full path and the extension to the file as 'c:\themes\xp_blue.mskn'. Besides, this function supports the alternative recording of the path the '\themes\xp_blue.mskn' kind, in that case the function will make the substitution of the path from which the application is run. For example, if your application is located in the 'c:\myprogram' catalogue, '\themes\xp_blue.mskn' will be transformed into 'c:\myprogram\themes\xp_blue.mskn'. In  other words you won't have to calculate the full path to the theme every time.
+The returned object can be used for the theme activization  (ChangeTheme procedure), for the recording to another file (SaveThemeToFile procedure) or a stream (SaveThemeToStream procedure) or otherwise.
+
+More preferable method of theme loading is the use of the TTeThemeEngine component and ThemeFile properties.
+
+<br><b>SaveThemeToFile</b><br>
+Procedure saves the theme into a file.
+
+<br><b>LoadThemeFromStream</b><br>
+Function LoadThemeFromStream loads the previous recorded theme from the stream with the help of the SaveThemeToStream function. If the theme will be loaded successfully and will return the successor object of the TTeTheme class you can use it for the activation of the theme.
+
+<br><b>SaveThemeToStream</b><br>
+It's a theme-to-stream saving procedure for the further reading by the LoadThemeFromFile procedure.
+
+<br><b>ChangeTheme</b><br>
+This procedure changes the active theme to the given one and initiates the updating process of all the components and forms. The user does not have to look after the correct updating of the application. 
+The follow items can be used as parameters:
+<ul>
+<li>a class, only for the built-in themes (TTeFlat)</li>
+<li>the theme name, only for the built-in ones ('Flat')</li>
+<li>the class of the successor object from TTeTheme</li>
+</ul>
+The theme transferred as a parameter cannot be deleted from the memory, the ThemeEngine will automatically remove it at the end of the application or at the next change of the active theme.
+
+<br><b>ReleaseTheme</b><br>
+This function unloads the active theme from the memory and initiates the process of the application updating. When the process is over ThemeEngine goes into the NoTheme mode.
+
+<br><b>RepaintThemedControls</b><br>
+The Function forces all the theme supporting  components to repaint themselves.
+
+<br><b>GetDialogFilter</b><br>
+This function returns the line which you can use for the installation of the Filter property of the TOpenDialog, TSaveDialog component. This line will contain all theme types available for reading.
+
+<br><b>IsThemeAvailable</b><br>
+The function checks the theme availability. If the returned value is true, this theme can be used. Otherwise the reference to this object can call AV. Usually this function is used with the CurrentTheme parameter.
+
+<br><b>DrawControlBackground</b><br>
+The function correctly traces the background of the control element if it has transparent places. Use this function to guarantee compatibility with control elements and the forms of ThemeEngine.
+
+<br><b>TTeThemeEngine</b><br>
+It is the basic theme-operating component. It used for loading, switching-over, disconnecting, changing of the brightness and the contrast of a theme. The TTeThemeEngine component is necessary only in one copy for all applications, you can put it on the main form or the TDataModule form. At the same time it is possible to use only one of the ThemeBuilding, ThemeFile or ThemeIndex property for switching-over. Using TTeThemeEngine both in the performing and in the designing modes you can:
+<ul>
+<li>load themes from files, streams or the TTeThemeList object</li>
+<li>switch themes on the built-in ones or disconnect themes in general</li>
+<li>change the brightness or/and the contrast of the active theme</li>
+<li>process events at the change of the current theme</li>
+</ul>
+
+<br><b>TTeThemeEngine.ThemeBuilding</b><br>
+String property switching-over the built-in themes. In the designing mode it shows all available built-in themes in the dropdown list. In the performing mode the assignment of the value by the text line such as string is possible.
+
+<br><b>TTeThemeEngine.ThemeFile</b><br>
+Specifies a file of the theme which will be immediately loaded or be loaded at the start of the application. The filename must be specified with the extension.
+
+<br><b>TTeThemeEngine.ThemeIndex</b><br>
+Contains the theme number from the TTeThemeList object which will be immediately activezed or loaded at the start of the application. The ThemeList property must be set, and the TTeThemeList component must contain at least one theme, otherwise at the change of this property it is automatically set as -1.
+
+<br><b>TTeThemeEngine.ThemeList</b><br>
+Specifies the TTeThemeList component used for loading of the theme and switching-over by changing ThemeIndex property.
+
+<br><b>TTeThemeEngine.DeltaHue</b><br>
+Property sets the values of changing of the theme contrast. Using the DeltaHue and the DeltaBrightness properties it is possible to receive many various themes from one source. The values can be from 0 up to 255. The changing of the property results in the immediate changes of the theme and repainting of all its components. If at loading of the theme its values are not equal to the default values, the changes are made with the loaded theme.
+
+<br><b>TTeThemeEngine.DeltaBrightness</b><br>
+The property sets the values of change of theme brightness. Using the DeltaHue and the DeltaBrightness properties it is possible to receive many of various themes from one source. The values can be from-50 up to +50. The changing of the property results in the immediate changes of the theme and repainting of all its components. If at loading of the theme its values are not equal to the default values, the changes are made with the loaded theme.
+
+<br><b>TTeThemeEngine.OnThemeChanged</b><br>
+The event is caused at the activation of the theme, the changing of the active theme, switching off the themes.
+
+<br><b>TTeThemeList</b><br>
+The component is used for the theme's storage in the form file. It can store any themes and contain any number of them. It is shared with the TTeThemeEngine and the TTeThemeLink components and the ThemeList and the ThemeIndex properties.
+
+<br><b>TTeThemeList.Themes</b><br>
+It is the subproperty for the convenient access to the themes in the designing mode.
+
+<br><b>TTeThemeStream</b><br>
+The collection element is used by the TTeThemeList component for the theme storage and its modification in the designing mode. This class is necessary for the convenient editing in the designing mode.
+
+<br><b>TTeThemeStream.ThemeStore</b><br>
+It is the subproperty which provides an access to the theme in the designing mode. Do not use this property in the performance mode.
+
+<br><b>TTeThemeLink</b><br>
+The component allows to use several themes in one application. Some visual ThemeEngine components have the ThemeLink property, and it is possible to make this object to use not the general theme but the one stored in the TTeThemeLink object by setting this property into the TTeThemeLink object. This component contains the properties similar to the TTeThemeEngine component.
+
+<br><b>TTeThemeLink.ThemeBuilding</b><br>
+String property switching-over the built-in themes. In the designing mode it shows all available built-in themes in the dropdown list. In the performing mode the assignment of the value by the text line such as string is possible.
+
+<br><b>TTeThemeLink.ThemeFile</b><br>
+Specifies a file of the theme which will be immediately loaded or be loaded at the start of the application. The filename must be specified with the extension.
+
+<br><b>TTeThemeLink.ThemeIndex</b><br>
+Contains the theme number from the TTeThemeList object which will be immediately activezed or loaded at the start of the application. The ThemeList property must be set, and the TTeThemeList component must contain at least one theme, otherwise at the change of this property it is automatically set as -1.
+
+<br><b>TTeThemeLink.ThemeList</b><br>
+Specifies the TTeThemeList component used for loading of the theme and switching-over by changing ThemeIndex property.
+
+<br><b>TTeManager</b><br>
+The component allows to set your own font scheme replacing the active theme font scheme. All the settings of the component are made in the designing mode of with the help of the Fonts property editor. 
+You can set both your own values for all the elements of the theme, and optionally only for the necessary ones by checking the boxes in the Manager list.
+
+<br><b>TTeManager.FontChangeOptions</b><br>
+Having set the values of this property it is possible to allow/forbid to change any of the font metrics, such as the font name, the size, the color, the style, etc. For example, if you want only the color of the font to be changed set the fcoChangeFontColor value true and other parameters - false. The values of this property is also possible to set in the editor of the Change Options group properties.
+
+<br><b>TTeAdapter</b><br>
+This component allows you to adapt the components which do not support ThemeEngine. The adaptation takes place by the automatic change of various properties of the TColor type components considering the active theme. The component setting is carried out only in the designing mode with the help of the component editor.
+You can choose any component you want to adapt in the editor. When choosing the component the list of properties which you can be used for adaptation will show. After choosing the adapted property press the "Add to Adapter" button, and the new element will appear in the list. For each of these elements you can put in the color from the "Theme colors" list accordingly. This list is filled at loading the theme.
+If you have set everything correctly, TTeAdapter will automatically change the adjusted properties of the components not supporting ThemeEngine at changing of the active theme.
+
+<br><b>TTeThemeSwitcher</b><br>
+TTeThemeSwitcher is a convenient visual component, such as the drop-down list, which allows the user to change themes in performance mode. It is enough to put this component on the form and to set the required properties and your application user can easily change or switch off the themes, using intuitively understandable interface.
+
+<br><b>TTeThemeSwitcher.ShowBrowse</b><br>
+It allows/forbids to show the BROWSE element, which opens the dialog box of the theme choice.
+
+<br><b>TTeThemeSwitcher.ShowNoTheme</b><br>
+It allows/forbids to show the NOTHEME element, which switches-off themes.
+
+<br><b>TTeThemeSwitcher.ShowSeparator</b><br>
+It allows/forbids to show strips-separators in the drop-down list.
+
+<br><b>TTeThemeSwitcher.TextBrowse</b><br>
+It is the text which will be displayed in the BROWSE element.
+
+<br><b>TTeThemeSwitcher.TextNoTheme</b><br>
+It is the text which will be displayed in the NOTHEME element.
+
+<br><b>TTeThemeSwitcher.ThemeEngine</b><br>
+The link to the TTeThemeEngine component is required for TTeThemeSwitcher to be able to use the theme collection from the TTeThemeEngine.ThemeList component.
+
+<br><b>TTeThemePreview</b><br>
+This component can make and display a little screenshot of the theme. You can use it as the realization of the theme's preview before its loading.
+
+<br><b>TTeThemePreview.ThemeLink</b><br>
+The component makes the screenshot of the loaded theme into the component to which this property refers. You can make screenshots of various themes by updating the TteThemeLink component.
+
+<br><b>TTeMessage</b><br>
+This component realizes the messages boxes mechanism. It contains the analogues of standard procedures such as: MessageDlg, ShowMessage, InputQuery.
+
+<br><b>TTeMessage.ShowButtonGlyph</b><br>
+Forbids/allows to show button's icons.
+
+<br><b>TTeMessage.ShowHints</b><br>
+Forbids/allows floating hints.
+
+<br><b>TTeMessage.ShowIconImage</b><br>
+Forbids/allows system icons in messages.
+
+<br><b>TTeMessage.MessageDlg</b><br>
+This method is the analogue of the standard function from the Dialogs.pas module. All the parameters are according to the standard, you can read the detailed information in the Borland's documentation.
+
+<br><b>TTeMessage.MessageDlgPos</b><br>
+This method is the analogue of the standard function from the Dialogs.pas module. All the parameters are according to the standard, you can read the detailed information in the Borland's documentation.
+
+<br><b>TTeMessage.MessageDlgPosHelp</b><br>
+This method is the analogue of the standard function from the Dialogs.pas module. All the parameters are according to the standard, you can read the detailed information in the Borland's documentation.
+
+<br><b>TTeMessage.ShowMessage</b><br>
+This method is the analogue of the standard function from the Dialogs.pas module. All the parameters are according to the standard, you can read the detailed information in the Borland's documentation.
+
+<br><b>TTeMessage.ShowMessagePos</b><br>
+This method is the analogue of the standard function from the Dialogs.pas module. All the parameters are according to the standard, you can read the detailed information in the Borland's documentation.
+
+<br><b>TTeMessage.ShowMessageFmt</b><br>
+This method is the analogue of the standard function from the Dialogs.pas module. All the parameters are according to the standard, you can read the detailed information in the Borland's documentation.
+
+<br><b>TTeMessage.InputBox</b><br>
+This method is the analogue of the standard function from the Dialogs.pas module. All the parameters are according to the standard, you can read the detailed information in the Borland's documentation.
+
+<br><b>TTeMessage.InputQuery</b><br>
+This method is the analogue of the standard function from the Dialogs.pas module. All the parameters are according to the standard, you can read the detailed information in the Borland's documentation.
+
+<br><b>TTeDefaultForm</b><br>
+This component adds support of the themes and the additional properties to any form (except the child MDI window). The TTeForm component is necessary for each form of your application. For the child MDI windows it is necessary to use the TTeMDIChild component.
+
+<br><b>TTeDefaultForm.Active</b><br>
+The internal ThemeEngine property is necessary for the activization of the form messages interception. If there is no necessity do not change this property.
+
+<br><b>TTeDefaultForm.Animation</b><br>
+This property does animation adjustment within the form show. You can switch on/off animation, set the time in milliseconds, and choose one of more than 70 effects.
+
+<br><b>TTeDefaultForm.Blending</b><br>
+ThemeEngine supports transparent forms in any Windows versions. The blending property allows to switch on transparency, and to adjust intensity. Since transparency in ThemeEngine is realized with the help of our own algorithms they have some restrictions in the comparison with Windows 2k, XP a transparency, but it works much faster on all Windows versions. We recommend to use  transparency only in small-sized modal forms, such as MessageBox.
+
+<br><b>TTeDefaultForm.BorderIcons</b><br>
+The property is similar to the standard one of the TForm class, but it has additional values. Use this property instead of the TForm.BorderIcons to avoid any conflict situations. The following properties are additional:
+<li>
+<li>kbiRollup - points out whether to show or not the additional system button in the headline, minimizing the form into a small strip.</li>
+<li>kbiTray - points out whether to show or not the additional system button in the headline, allowing to minimize the form in the system tray.</li>
+</ul>
+
+<br><b>TTeDefaultForm.BorderStyle</b><br>
+The property is similar to the standard one of the TForm class. Use this property instead of the TForm.BorderStyle to avoid conflict situations.
+
+<br><b>TTeDefaultForm.Dragging</b><br>
+This property allows to forbid/allow the user to change the size and to move the form over the screen. The additional DragMode property sets the way the form will move. 
+DragMode can possess the following values:
+<ul>
+<li>kfdmFullDrag - the form changes alongside with its contents</li>
+<li>kfdmBorder - during moving or changing the size instead of the form the rectangular with thin borders is displayed.</li>
+</ul>
+
+<br><b>TTeDefaultForm.Gravitation</b><br>
+This property allows to switch on/off and adjust gravitation,  in other words the property of the form to stick to the edges of the screen.
+
+<br><b>TTeDefaultForm.MenuBar</b><br>
+The link to the TTeMenuBar component is necessary for the correct processing of shortkeys and the correct activation of the menu. ThemeEngine tries to set this property automatically but if there is TTeMenuBar component on the form and the MenuBar property is empty, set it manually.
+
+<br><b>TTeDefaultForm.MinimizeApplication</b><br>
+If the value is true the application will be minimized by pressing the minimize-button, otherwise only the form  will be minimized.
+
+<br><b>TTeDefaultForm.Performance</b><br>
+This property operates the form buffering. It can possess the following values:
+<ul>
+<li>ksfpNoBuffer - the form does not use any buffers. It has the most preferable value and the default value. The Buffering was widely used in ThemeEngine 2.x, but now ThemeEngine has well optimized code which allows to do without buffering. But if necessary you can use buffering as many times as you need.</li>
+<li>ksfpDoubleBuffer - the temporary buffer is created and is destroyed if necessary, basically for very short time intervals. It allows to use the memory more effectively, but it takes a lot of processor's time to create and destroy the buffer.</li>
+<li>ksfpPersitentBuffer - is the same as ksfpDoubleBuffer, except that the buffer is created once and is used all the time. ksfpDoubleBuffer is much faster, but it spends many system resources on the constant buffer maintenance.</li>
+<li>ksfpSharedBuffer - using this type of buffering, ThemeEngine creates one buffer of screen-size for the whole application. It is faster than both of the previous types of buffering, but it is necessary to create a screen-size buffer. Use this type of buffering if buffering is necessary for you, and your application has many forms.</li>
+</ul>
+
+<br><b>TTeDefaultForm.Shadow</b><br>
+Switches on/off the effect of a dropped shadow by a window. We recommend to use this effect only in small-size modal forms, such as MessageBox.
+
+<br><b>TTeDefaultForm.SystemMenuOptions</b><br>
+The system menu form's settings.
+
+<br><b>TTeDefaultForm.TrayMenuLink</b><br>
+It is the link to the TteThemeLink component. Usually TTeForm uses the general theme, this property allows to use your own theme for the given form.
+
+<br><b>TTeDefaultForm.TrayMenuOptions</b><br>
+It is the link to the TPopupMenu component or its successor TTePopupMenu. This menu will be shown when the application is minimized in the tray.
+
+<br><b>TTeDefaultForm.WindowMenu</b><br>
+This property is similar to the standard one of the TForm class. It is used in MDI applications.
+
+<br><b>TTeDefaultForm.WindowState</b><br>
+It shows and changes the form state. It can possess the following values:
+<ul>
+<li>kwsNormal - the form in the normal state</li>
+<li>kwsMaximized - the form is maximized</li>
+<li>kwsMinimized - the form is minimized</li>
+<li>kwsTray - the form is minimized in the tray</li>
+<li>kwsRollup - the form is minimized in headline</li>
+</ul>
+
+<br><b>TTeForm</b><br>
+This component adds support of the themes and the additional properties to any form (except the child MDI window). The TTeForm component is necessary for each form of your application. For the child MDI windows it is necessary to use the TTeMDIChild component.
+
+<br><b>TTeForm.ThemeLink</b><br>
+It is the link to the TteThemeLink component. Usually TTeForm uses the general theme, this property allows to use your own theme for the given form. 
+
+<br><b>TTeForm.ThemeObject</b><br>
+It sets a name of an object from the theme which will be used by this form (for example, it is possible to use the non-standard form for your AboutBox). Use this value only in case you use your own or modified themes in which there is an object with the name set in the ThemeObject property. If this theme doesn't contain such object, TTeForm uses the default object.
+
+<br><b>TTeMDIChild</b><br>
+This component is used as TTeForm, but only for child MDI windows. Look for detailed information on its use in TTeForm section.
+
+
+
+</div>
+</div>
+<hr>
+</div>
+</div>
+<div class="pagebottom">
+</div>
+<div id="footer">
+<div class="footeritem"><a href="../product.html">Products</a> 
+&#183;
+<a href="../download.html">Downloads</a> 
+&#183;
+<a href="../order.html">Orders</a> 
+&#183;
+<a href="../support.html">Support</a> 
+</div>Copyright (c) KSDev. All right reserved.</div>
+</div>
+</body>
+</html>

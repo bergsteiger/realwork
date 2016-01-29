@@ -1,0 +1,158 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/AdapterTargetUnion.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::AdapterTargetUnion
+//
+// Объединение нескольких адаптеров DLL-ей
+// ---
+// Определяет генерацию TIE и pas - интерфейсов, которые будут включены в объединяемые цели.
+// Объединение задаётся связью зависимости от AdapterTargetUnion к AdapterTarget. Объединяемые цели
+// должны зависеть от одних и тех же библиотек (кроме серверных), т.е экспортировать из ДЛЛ
+// одинаковый набор интерфейсов, сами объединяемые цели в этом случае не генерят TIE и pas
+// интерфейсов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: AdapterTargetUnion::Category
+implementation @ <<AdapterTargetUnion>>
+//? Объединение нескольких адаптеров DLL-ей
+//? Определяет генерацию TIE и pas - интерфейсов, которые будут включены в объединяемые цели. Объединение задаётся связью зависимости от AdapterTargetUnion к AdapterTarget. Объединяемые цели должны зависеть от одних и тех же библиотек (кроме серверных), т.е экспортировать из ДЛЛ одинаковый набор интерфейсов, сами объединяемые цели в этом случае не генерят TIE и pas интерфейсов
+//= AdapterTarget::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_adapter_target_union.gif
+//L code_adapter_target_union
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4739321200EA*
+//c                                             {}
+//r {%ax=true}:                                 {no one can depend on %SS}
+//r {<{}{%DS!=AdapterTarget}{C}>!=0}:           {%SS can depend on only AdapterTarget}
+//r {"%f_check_equal_adapter_deps(%S)"!=""}:    {%SS must depend on AdapterTargets, that depends on equal Library}
+//r {"%f_check_settings_existance(%S)"!=""}:       {Settings container can't locate inside AdapterTargetUnion}
+
+//f _check_equal_adapter_deps
+; // constraint
+
+end. // <<AdapterTargetUnion>>
+
+: check_equal_adapter_deps OBJECT IN %S
+//	%f_clear_list(DEP_LIST)\
+ [%f] clear_list %( 'DEP_LIST' )% 
+//	<{}{%DS=AdapterTarget}[{%f_is_empty(DEP_LIST)=true}{%D<{}{%DS!=ServerLibrary}[{%f_exists_in_list(DEP_LIST,"%DU")=false}%DU]>}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |S ) %== 'AdapterTarget' ) then
+  begin
+   if ( ( [%f] is_empty %( 'DEP_LIST' )% ) %==  true ) then
+   begin
+//	%D<{}{%DS!=ServerLibrary}%f_add_to_list(DEP_LIST,"%DU")>]>%f_clear_list(DEP_LIST)
+    %D
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%D
+     begin
+      OBJECT IN %D
+      if ( ( %D |S ) %!= 'ServerLibrary' ) then
+      begin
+       [%f] add_to_list %( 'DEP_LIST' %, %D |U )% 
+       ++! l_Counter
+      end // if
+     end // for D
+
+    ) // bind
+    end // if
+   else
+   begin
+    %D
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%D
+     begin
+      OBJECT IN %D
+      if ( ( %D |S ) %!= 'ServerLibrary' ) then
+      begin
+       if ( ( [%f] exists_in_list %( 'DEP_LIST' %, %D |U )% ) %==  false ) then
+       begin
+        %D |U 
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for D
+
+    ) // bind
+    end // else
+
+   ++! l_Counter
+  end // if
+ end // for D
+ [%f] clear_list %( 'DEP_LIST' )% 
+//#UC END# *4704C0E30186for4739321200EA*
+; // check_equal_adapter_deps
+
+
+// перекрытие базового стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+implementation @ <<AdapterTargetUnion>>
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4739321200EA*
+//= AdapterTarget::Category;cpp
+%call-other-gen ( 'AdapterTarget' 'cpp' )
+//#UC END# *47022CB8034Bfor4739321200EA*
+; // cpp
+
+
+// перекрытие базового стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4739321200EA*
+//= AdapterTarget::Category;h
+%call-other-gen ( 'AdapterTarget' 'h' )
+//#UC END# *47022C88029Ffor4739321200EA*
+; // h
+
+
+// перекрытие базового стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
+//+ mpc
+<<generator>> mpc OBJECT IN %S
+//#UC START# *47031E41002Efor4739321200EA*
+//O []
+//#UC END# *47031E41002Efor4739321200EA*
+; // mpc
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<AdapterTargetUnion>>
+

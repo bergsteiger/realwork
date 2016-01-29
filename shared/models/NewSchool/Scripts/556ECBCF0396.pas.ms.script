@@ -1,0 +1,72 @@
+// Tf1ExternalHyperlinkEliminator 556ECBCF0396 SimpleClass Class
+
+FORWARD ME_556ECBCF0396
+
+FORWARD ME_556EEA830002
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+: ME_557FEAAA02B7
+ CONST UID '557FEAAA02B7'
+ CONST Name 'theGenerator'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4678160E01BE // Ik2TagGenerator
+ ;
+
+ @SELF
+; // ME_557FEAAA02B7 theGenerator
+
+: ME_556EEAE90227
+ CONST UID '556EEAE90227'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4678160E01BE // Ik2TagGenerator
+ ;
+ : Parameters
+   [ ME_557FEAAA02B7 // theGenerator
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_556EEAE90227 DoIt
+
+: ME_556EEA830002
+ CONST UID '556EEA830002'
+ CONST Name 'SetTo'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_556EEAE90227 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_556EEA830002 SetTo
+
+: ME_556ECBCF0396
+ CONST UID '556ECBCF0396'
+ CONST Name 'Tf1ExternalHyperlinkEliminator'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_556EEA830002 // SetTo
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_556ECBCF0396 Tf1ExternalHyperlinkEliminator

@@ -1,0 +1,290 @@
+// daUtils 5437B276039C UtilityPack Class
+
+FORWARD ME_5437B276039C
+
+FORWARD ME_551E861C0377
+
+INCLUDE '5432448401BC.pas.ms.script'
+
+: ME_551E863301CC
+ CONST UID '551E863301CC'
+ CONST Name 'aUserID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543244A30197 // TdaUserID
+ ;
+
+ @SELF
+; // ME_551E863301CC aUserID
+
+: ME_551E862A010F
+ CONST UID '551E862A010F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_551E88DF0073 // TdaPathStr
+ ;
+ : Parameters
+   [ ME_551E863301CC // aUserID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_551E862A010F DoIt
+
+: ME_551E861C0377
+ CONST UID '551E861C0377'
+ CONST Name 'GetHomePathCode'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_551E862A010F // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_551E861C0377 GetHomePathCode
+
+FORWARD ME_552279710064
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55227D51036F
+ CONST UID '55227D51036F'
+ CONST Name 'DocBaseVersion'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_55227D51036F DocBaseVersion
+
+: ME_55227D51038E
+ CONST UID '55227D51038E'
+ CONST Name 'AdminBaseVersion'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_55227D51038E AdminBaseVersion
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55227D4B0195
+ CONST UID '55227D4B0195'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55227D51036F // DocBaseVersion
+ ME_55227D51038E // AdminBaseVersion
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55227D4B0195 DoIt
+
+: ME_552279710064
+ CONST UID '552279710064'
+ CONST Name 'CheckDbVersion'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55227D4B0195 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_552279710064 CheckDbVersion
+
+FORWARD ME_552287F70191
+
+: ME_552288240254
+ CONST UID '552288240254'
+ CONST Name 'aUserID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543244A30197 // TdaUserID
+ ;
+
+ @SELF
+; // ME_552288240254 aUserID
+
+: ME_552288240273
+ CONST UID '552288240273'
+ CONST Name 'aRegion'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_551A931F0071 // TdaRegionID
+ ;
+
+ @SELF
+; // ME_552288240273 aRegion
+
+: ME_552288010384
+ CONST UID '552288010384'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_552288240254 // aUserID
+ ME_552288240273 // aRegion
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_552288010384 DoIt
+
+: ME_552287F70191
+ CONST UID '552287F70191'
+ CONST Name 'UserIDBelongsToRegion'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_552288010384 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_552287F70191 UserIDBelongsToRegion
+
+FORWARD ME_55228D9D03B2
+
+: ME_55228DC60087
+ CONST UID '55228DC60087'
+ CONST Name 'aUserID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543244A30197 // TdaUserID
+ ;
+
+ @SELF
+; // ME_55228DC60087 aUserID
+
+: ME_55228DB30096
+ CONST UID '55228DB30096'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_55228DC60087 // aUserID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55228DB30096 DoIt
+
+: ME_55228D9D03B2
+ CONST UID '55228D9D03B2'
+ CONST Name 'UserIsService'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55228DB30096 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55228D9D03B2 UserIsService
+
+FORWARD ME_55228DAB0064
+
+: ME_55228DCB039D
+ CONST UID '55228DCB039D'
+ CONST Name 'aUserID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543244A30197 // TdaUserID
+ ;
+
+ @SELF
+; // ME_55228DCB039D aUserID
+
+: ME_55228DCA013E
+ CONST UID '55228DCA013E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_55228DCB039D // aUserID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55228DCA013E DoIt
+
+: ME_55228DAB0064
+ CONST UID '55228DAB0064'
+ CONST Name 'IsUserRequireReports'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55228DCA013E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55228DAB0064 IsUserRequireReports
+
+: ME_5437B276039C
+ CONST UID '5437B276039C'
+ CONST Name 'daUtils'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_551E861C0377 // GetHomePathCode
+ ME_552279710064 // CheckDbVersion
+ ME_552287F70191 // UserIDBelongsToRegion
+ ME_55228D9D03B2 // UserIsService
+ ME_55228DAB0064 // IsUserRequireReports
+ ]
+ ; // Operations
+ CONST "no hands" false
+
+ @SELF
+; // ME_5437B276039C daUtils

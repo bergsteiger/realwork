@@ -1,0 +1,288 @@
+F1 Common For Shell And Monitoring : VCMUseCases - Общее для мониторинга и оболочки.
+
+В идеале - надо растащить по правильным местам и грохнуть.
+version: 661
+Search : VCMSubsystem - Поиск
+ QueryCardProcessing : Library - Работа с КЗ
+  Containers : Unit - 
+   Tf1QueryDocumentContainer : SimpleClass - 
+   nsSearchClasses : UtilityPack - 
+ ContextHistory : Library - 
+  ContextHistoryInterfaces : Interfaces - 
+   InsContextSearchHistoryNotifier : Facet - 
+   MnsContextSearchHistory : PureMixIn - 
+   InsContextSearchHistory : Facet - 
+   TnsContextHistoryKind : Enum - 
+  ContextHistory : Unit - 
+   nsContextHistory : UtilityPack - 
+   TInsContextSearchHistoryNotifierList : SimpleClass - 
+   nsContextHistoryPrim : Impurity - 
+   TnsInpharmContextHistoryPrim : SimpleClass - 
+   TnsDocumentContextHistoryPrim : SimpleClass - 
+   TnsDocumentContextHistory : SimpleClass - 
+   TnsInpharmContextHistory : SimpleClass - 
+ Search : VCMControllers - 
+  QueryCardInterfaces : ControllerInterfaces - 
+   IdeQuery : Typedef - Данные для инициализации форм поиска
+   IdsQuery : ViewAreaController - БОС для карточек запроса
+   IdsSaveLoad : ViewAreaController - Бизнес объект контейнера карточки поиска
+   IsdsAttributeSelect : UseCaseController - Форма выбора реквизитов
+   IdsTreeAttributeFirstLevel : ViewAreaController - Бизнес объекта формы "enTreeAttributeFirstLevel"
+   IsdsSituation : UseCaseController - 
+   TnsFilterForm : Enum - Типы карточек используемых при редактировании фильтров
+   TnsSearchListType : Enum - Типы используемые для получения списка в nsSearchManager
+  PrimPrimListInterfaces : Interfaces - 
+   IdeSearchInfo : Facet - Информация о поиске
+   IdeList : Facet - Данные списка
+  FoldersDomainInterfaces : Interfaces - Модель папок
+   TnsShowFolders : Enum - Определяет какие папки в дереве "Мои документы" нужно показывать
+   TnsFolderFilterFor : Enum - Место вызова фильтра
+   TnsFolderFilter : Enum - 
+   InsFolderFilterInfoListener : Facet - Слушатель событий информации о фильтре
+   InsFolderFilterInfo : Facet - 
+   InsFoldersInfo : Facet - 
+   TFoldersElementType : Enum - 
+   TFoldersInfoType : Enum - 
+   TFolderOperationType : Enum - 
+   InsFolderNodeListener : Facet - Слушатель событий узла дерева "Мои документы".
+   InsFolderNodeNotify : Facet - Уведомляет о событиях узлов дерева
+   TFoldersNodeChangeEvent : Enum - 
+   TFoldersNodeDeleteEvent : Enum - 
+   InsFolderNodeNotifyObject : Facet - 
+   InsFolderNodeNotification : Facet - 
+   TFoldersActions : Enum - 
+   InsNodeWithRights : Facet - 
+   TFiltersType : Enum - 
+   InsFoldersNode : Facet - 
+   TFoldersActionsSet : SetOf - 
+   InsChildTree : Facet - 
+   InsUnderControlRootListener : Facet - Слушатель событий корня списка документов на контроле
+   TnsUCSortType : Enum - 
+   InsUnderControlInfo : Facet - Информация о документах на контроле
+   InsUnderControlRoot : Facet - Корень списка документов на контроле
+   InsUnderControlNode : Facet - Узел списка документов на контроле
+   TnsKnownDefferedTree : Enum - 
+   InsDefferedTreeListener : Facet - 
+   InsReloadedTree : Facet - 
+   InsControlledList : Facet - 
+   TnsListMergeKind : Enum - 
+   InsDeferredTree : Facet - 
+   IdeSaveObject : Facet - Объект папок
+  Search : ControllerUnit - Поиск
+   TdsAttributeSelect : ViewAreaControllerImp - бизнес объект формы выбранные атрибуты дерева
+   TdsSelectedAttributes : ViewAreaControllerImp - бизнес объект формы "выбранные атрибуты дерева"
+   TdsTreeAttributeFirstLevel : ViewAreaControllerImp - бизнес объект формы выбранные атрибуты дерева
+   TsdsSituation : UseCaseControllerImp - бизнес объект сборки дерево атрибутов
+   TdsSaveLoad : ViewAreaControllerImp - 
+   TnsFixedHAFMacroReplacer : SimpleClass - 
+   TdeSelectedAttributes : SimpleClass - 
+   TdeSearchInfo : SimpleClass - Информация о запросе
+   TdeList : SimpleClass - Данные списка.
+   TnsDocumentPreview : SimpleClass - Предварительный просмотр документа
+   TnsHAFPainterPrim : SimpleClass - 
+   TnsFolderFilterInfo : SimpleClass - 
+   TnsHAFPainter : SimpleClass - -
+   TnsHAFPainterWithoutSettings : SimpleClass - 
+   TnsDocumentPreviewWithoutBlockNames : SimpleClass - 
+  PrimBaseSearchInterfaces : Interfaces - 
+   InsBaseSearchResultProcessor : Facet - 
+  PrimWorkJournalInterfaces : Interfaces - 
+   InsWorkJournalListener : Facet - 
+  BaseSearchInterfaces : Interfaces - 
+   TnsBaseSearchOpenKind : Enum - Типы открытия базового поиска
+   InsBaseSearchVisibleWatcher : Facet - 
+   InsBaseSearchContextProvider : Facet - 
+   TnsBaseSearchClasses : Typedef - 
+   TnsBaseSearchKind : Enum - 
+   TnsBaseSearchClassPrim : Typedef - 
+   TnsSearchArea : Enum - 
+   InsBaseSearchDataReadyChecker : Facet - 
+   MnsSupportDisabled : PureMixIn - 
+   InsBaseSearchQueryDataProcessor : Facet - 
+   InsSearchWindow : Facet - 
+   InsContextSearcher : Facet - 
+   InsMistakesCorrector : Facet - 
+   TnsContainerForBaseSearchInfo : Struct - 
+   MnsBaseSearchPresentationState : PureMixIn - http://mdp.garant.ru/pages/viewpage.action?pageId=321989072
+http://mdp.garant.ru/pages/viewpage.action?pageId=321989072&focusedCommentId=330698655#comment-330698655
+   ETryToFindEmptyContext : Exception - 
+   InsBaseSearchWindowOpener : Facet - 
+   InsBaseSearchListSource : Facet - 
+   InsBaseSearchPresentation : Facet - Представление "Базового поиска"
+   InsCutToLeafFilter : Facet - 
+   InsPromptForDocFilter : Facet - 
+   InsBaseSearchPromptFilters : Facet - 
+   TbsBaseSearchResult : Enum - 
+   IbsBaseDocumentContextSearcher : Facet - 
+   TnsBaseSearchClass : Typedef - 
+   MnsPresentationHolder : PureMixIn - 
+   TnsBaseSearchStateElement : Enum - 
+   SearchClassesConst : Constants - 
+   InsMainMenuLikeBaseSearchOwner : Facet - Определяет, что владелец БП является похожим на ОМ
+   InsBaseSearcherWindowData : Facet - 
+   TnsBaseSearchStateElements : SetOf - 
+   InsBaseSearcherInitialState : Facet - 
+   InsBaseSearchInitialStateProvider : Facet - 
+   InsBaseSearcher : Facet - 
+  nsbQueryUtils : Unit - 
+   nsbQueryUtils : UtilityPack - 
+  nsQueryAttributes : Unit - 
+   nsQueryUtils : UtilityPack - 
+   nsQueryAttribute : UtilityPack - 
+   nsContextUtils : UtilityPack - 
+   TnsDataExchangeProxy : SimpleClass - 
+  List : Unit - 
+   TnsDeferredTreeList : SimpleClass - 
+ View$Strange : VCMViews - 
+  Printing : Unit - Печать
+   TnsPageSetup : SimpleClass - 
+   nsTrialSupport : UtilityPack - 
+  Strange : VCMControls - 
+   Query : VCMFacet - 
+   Filterable : VCMFacet - 
+   TNodesArray : Typedef - 
+   Loadable : VCMFacet - Это первый кандидат на превращение в Facet. Который нужно вызвать вот тут:
+f_RequestingForm.Entity.Operation(op_Loadable_Load, l_Params).Done
+   Filters : VCMFacet - 
+   SearchParameter : VCMFacet - 
+   PrintParams : VCMFacet - 
+   List : VCMFacet - 
+   CardOperation : VCMOperations - 
+   File : VCMOperations - Файл
+   Query$GetOldQuery : VCMOperations - 
+   Query$SearchType : VCMOperations - 
+   LogicOperation : VCMOperations - 
+   Filters$UI : VCMOperations - 
+   Preview : VCMOperations - 
+   Document : VCMOperations - 
+   SubPanelSettings : VCMOperations - Настройки панели меток
+   Result$ForStyleEditorContainer : VCMOperations - 
+   ColontitulMacro : VCMOperations - 
+   SubPanelSettings$ShowSubNumbers : VCMOperations - Настройки панели меток
+   SubPanelSettings$WithShowByShortCut : VCMOperations - 
+   IQuery_ClearAll_Params : Facet - Параметры для операции Query.ClearAll
+   TQuery_ClearAll_Params : SimpleClass - Реализация IQuery_ClearAll_Params
+   Op_Query_ClearAll : SimpleClass - Класс для вызова операции Query.ClearAll
+   IQuery_SetList_Params : Facet - Параметры для операции Query.SetList
+   TQuery_SetList_Params : SimpleClass - Реализация IQuery_SetList_Params
+   Op_Query_SetList : SimpleClass - Класс для вызова операции Query.SetList
+   IQuery_GetList_Params : Facet - Параметры для операции Query.GetList
+   TQuery_GetList_Params : SimpleClass - Реализация IQuery_GetList_Params
+   Op_Query_GetList : SimpleClass - Класс для вызова операции Query.GetList
+   IFilterable_Add_Params : Facet - Параметры для операции Filterable.Add
+   TFilterable_Add_Params : SimpleClass - Реализация IFilterable_Add_Params
+   Op_Filterable_Add : SimpleClass - Класс для вызова операции Filterable.Add
+   IFilterable_Delete_Params : Facet - Параметры для операции Filterable.Delete
+   TFilterable_Delete_Params : SimpleClass - Реализация IFilterable_Delete_Params
+   Op_Filterable_Delete : SimpleClass - Класс для вызова операции Filterable.Delete
+   Op_Filterable_ClearAll : SimpleClass - Класс для вызова операции Filterable.ClearAll
+   IFilterable_Refresh_Params : Facet - Параметры для операции Filterable.Refresh
+   TFilterable_Refresh_Params : SimpleClass - Реализация IFilterable_Refresh_Params
+   Op_Filterable_Refresh : SimpleClass - Класс для вызова операции Filterable.Refresh
+   IFilterable_GetListType_Params : Facet - Параметры для операции Filterable.GetListType
+   TFilterable_GetListType_Params : SimpleClass - Реализация IFilterable_GetListType_Params
+   Op_Filterable_GetListType : SimpleClass - Класс для вызова операции Filterable.GetListType
+   ILoadable_Load_Params : Facet - Параметры для операции Loadable.Load
+   TLoadable_Load_Params : SimpleClass - Реализация ILoadable_Load_Params
+   Op_Loadable_Load : SimpleClass - Класс для вызова операции Loadable.Load
+   IFilters_GetSelected_Params : Facet - Параметры для операции Filters.GetSelected
+   TFilters_GetSelected_Params : SimpleClass - Реализация IFilters_GetSelected_Params
+   Op_Filters_GetSelected : SimpleClass - Класс для вызова операции Filters.GetSelected
+   Op_SearchParameter_QueryNotSaved : SimpleClass - Класс для вызова операции SearchParameter.QueryNotSaved
+   Op_SearchParameter_ClearMistakes : SimpleClass - Класс для вызова операции SearchParameter.ClearMistakes
+   Op_SearchParameter_QuerySaved : SimpleClass - Класс для вызова операции SearchParameter.QuerySaved
+   Op_PrintParams_UpdatePrinter : SimpleClass - Класс для вызова операции PrintParams.UpdatePrinter
+   Op_List_SetNewContent : SimpleClass - Класс для вызова операции List.SetNewContent
+  PrimeDomainInterfaces : Interfaces - 
+   InsPrimeNode : Facet - Узел дерева новостных лент
+  Search : VCMModule - 
+   nsPostingsLine : UtilityPack - 
+   TnsPostingsTreeSingle : SimpleClass - 
+   TnsPrimeNode : SimpleClass - 
+  TreeAttributeSelectSaveLoadRealization : Unit - 
+   TtasSaveLoadRealization : SimpleClass - 
+ View$For F1 and Monitorings : VCMViews - Представление
+  ShellAndMonitorings : VCMApplication - 
+   ShellAndMonitoringsMain : VCMMainForm - 
+    : uses - 
+    : uses - 
+  FormDefinitions : VCMControls - 
+   QueryCard : VCMFormDefinition - 
+   Preview : VCMFormDefinition - 
+   SaveLoad : VCMFormDefinition - 
+   Tkw_Form_QueryCard_ID : ScriptKeyword - Слово словаря для идентификатора формы QueryCard
+----
+*Пример использования*:
+{code}
+'aControl' форма::QueryCard TryFocus ASSERT
+{code}
+   Tkw_Form_Preview_ID : ScriptKeyword - Слово словаря для идентификатора формы Preview
+----
+*Пример использования*:
+{code}
+'aControl' форма::Preview TryFocus ASSERT
+{code}
+   Tkw_Form_SaveLoad_ID : ScriptKeyword - Слово словаря для идентификатора формы SaveLoad
+----
+*Пример использования*:
+{code}
+'aControl' форма::SaveLoad TryFocus ASSERT
+{code}
+  Images : Unit - Иконки
+   resWarnImages : UtilityPack - 
+   MainMenuNewRes : UtilityPack - 
+  BaseSearch : Unit - 
+   TnsBaseSearchPromptFilters : SimpleClass - Коллеги, это что?
+   TnsPromptForDocFilter : SimpleClass - 
+   TnsCutToLeafFilter : SimpleClass - Коллеги, это что?
+   TnsBaseSearchPromptTreeBase : SimpleClass - Дерево подсказок для БП
+   TnsBaseSearchPromptTree : SimpleClass - Дерево подсказок. Синглетон
+   TnsPromptContextFilterParams : SimpleClass - Коллеги, это что?
+  ScalingSupport : VCMControls - 
+   TCanChangeScale : Enum - 
+   Scalable : VCMFacet - Масштабируемый объект
+   IScalable_ChangeScale_Params : Facet - Параметры для операции Scalable.ChangeScale
+   TScalable_ChangeScale_Params : SimpleClass - Реализация IScalable_ChangeScale_Params
+   Op_Scalable_ChangeScale : SimpleClass - Класс для вызова операции Scalable.ChangeScale
+   IScalable_CanChangeScale_Params : Facet - Параметры для операции Scalable.CanChangeScale
+   TScalable_CanChangeScale_Params : SimpleClass - Реализация IScalable_CanChangeScale_Params
+   Op_Scalable_CanChangeScale : SimpleClass - Класс для вызова операции Scalable.CanChangeScale
+  Search$Presentation for F1 and Monitorings : VCMModule - 
+   PrimSaveLoad : VCMContainer - 
+   PrimQueryCard : VCMForm - Карточка запросов
+   PrimTreeAttributeFirstLevel : VCMForm - Первый уровень дерева атрибутов
+   PrimPreview : VCMForm - 
+   PrimPageSetup : VCMForm - Настройка страницы
+   PrimPrintDialog : VCMForm - 
+   PrimPrintDialogOptions : VCMForm - 
+   PrimQueryCardOptions : VCMForm - Карточка запросов
+   PrimSaveLoadOptions : VCMContainer - 
+   PrimPageSetupOptions : VCMForm - Настройка страницы
+   PrimSaveLoadUserTypes : VCMForm - 
+   PrimSaveLoadOptionsWithUserTypes : VCMContainer - 
+   CommonSearch : VCMFormsPack - 
+   PrimSaveLoadOptionsForBaseSearch : VCMContainer - 
+   CommonSearch$UC : VCMFormsPack - 
+  Tree : VCMModule - 
+   TnscTreeViewForNewsLine : GuiControl - 
+PostingOrder : VCMUseCase - 
+ CommonPost : VCMUseCaseRealization - Файл
+ View : VCMViews - Представление
+  FormDefinitions : VCMControls - 
+   PostingsList : VCMFormDefinition - 
+   Tkw_Form_PostingsList_ID : ScriptKeyword - Слово словаря для идентификатора формы PostingsList
+----
+*Пример использования*:
+{code}
+'aControl' форма::PostingsList TryFocus ASSERT
+{code}
+  Strange : VCMControls - 
+   PostingToolBar : VCMOperations - Панель новостей
+   SearchSupport : VCMFacet - 
+   Op_SearchSupport_ActivatePostingsListForm : SimpleClass - Класс для вызова операции SearchSupport.ActivatePostingsListForm
+  Monitorings : VCMModule - 
+   PrimPostingsList : VCMForm - 
+   nsFindSelectDialog : UtilityPack - 
+   PrimPostingsListOptions : VCMForm - 
+   CommonPost : VCMFormsPack - Новостная лента
+   Tkw_CommonPost_opSavePostList : ScriptKeyword - Слово словаря для вызова операции модуля CommonPost.SavePostList$Op (Файл Экспортировать все индивидуальные ленты в файл)

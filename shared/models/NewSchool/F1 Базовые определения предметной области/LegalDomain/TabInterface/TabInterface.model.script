@@ -1,0 +1,272 @@
+<<Library>> TabInterface
+ %UID '53BA5A5D03A0'
+ %DEPENDS
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> TabbedInterfaceSupport
+   %UID '53A402C7010D'
+   %DEPENDS
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '48F747EC0073' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '53BA5A5D03A0' /* TabInterface */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> nsTabbedContainerUtils
+      %UID '53A403330029'
+      %META
+       %upv "children prefix" 'ns'
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "53A405050139"
+         %UID '53A405050139'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 53A405050139
+        <<uses>> "53A405700389"
+         %UID '53A405700389'
+         %TARGET U$ '47752AF90375' /* afwFacade */
+        ; // 53A405700389
+        <<uses>> "53A416130371"
+         %UID '53A416130371'
+         %TARGET U$ '53A410AA031B' /* TvcmMainFormOpenKind */
+        ; // 53A416130371
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> DocumentsFromListOpenKind
+         %UID '53A4034102D5'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53A4049702A9'
+            %TARGET U$ '53A410AA031B' /* TvcmMainFormOpenKind */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DocumentsFromListOpenKind
+        FINAL <<method>> LinksFromDocumentOpenKind
+         %UID '53A403510223'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53A404B60022'
+            %TARGET U$ '53A410AA031B' /* TvcmMainFormOpenKind */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // LinksFromDocumentOpenKind
+        PRIVATE FINAL <<method>> GetOpenKindSettingsValue
+         %UID '53A40360003B'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53A404A80245'
+            %TARGET U$ '53A410AA031B' /* TvcmMainFormOpenKind */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSettingsName
+               %UID '53A404B201C9'
+               %TARGET U$ '483C2FA400B1' /* AnsiString */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSettingsName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetOpenKindSettingsValue
+      ; // %OPERATIONS
+     ; // nsTabbedContainerUtils
+     FINAL <<UtilityPack>> nsTabbedInterfaceTypes
+      %UID '53BA488F00D8'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '53BA5A5D03A0' /* TabInterface */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "53BA84AD0343"
+         %UID '53BA84AD0343'
+         %TARGET U$ '53BA4C3901C1' /* TabbedContainerRes */
+        ; // 53BA84AD0343
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> nsTabIconIndex
+         %UID '53BA848503C1'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '53BA5A5D03A0' /* TabInterface */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53BA84900386'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '53BA5A5D03A0' /* TabInterface */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTabIconType
+               %UID '53BA849D0102'
+               %TARGET U$ '53BA836A0311' /* TnsTabIconType */
+               %TOBEINCLUDED
+                U$ '53BA5A5D03A0' /* TabInterface */
+               ; // %TOBEINCLUDED
+              ; // aTabIconType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // nsTabIconIndex
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Enum>> TnsTabIconType
+         %UID '53BA836A0311'
+         %ATTRIBUTES
+           <<Attribute>> titMain
+            %UID '53BA837E0149'
+           ; // titMain
+           <<Attribute>> titList
+            %UID '53BA838B0351'
+           ; // titList
+           <<Attribute>> titDocumentNormal
+            %UID '53BA83920180'
+           ; // titDocumentNormal
+           <<Attribute>> titDocumentPreactive
+            %UID '53BA839903CD'
+           ; // titDocumentPreactive
+           <<Attribute>> titDocumentAbolished
+            %UID '53BA83A40001'
+           ; // titDocumentAbolished
+           <<Attribute>> titDocumentNewRedaction
+            %UID '53BA83AC0180'
+           ; // titDocumentNewRedaction
+           <<Attribute>> titAAC
+            %UID '53BA83B50341'
+           ; // titAAC
+           <<Attribute>> titDrug
+            %UID '53BA83BD01B8'
+           ; // titDrug
+           <<Attribute>> titDrugSpecial
+            %UID '53BA83C3026D'
+           ; // titDrugSpecial
+           <<Attribute>> titDrugAnnuled
+            %UID '53BA83CA0191'
+           ; // titDrugAnnuled
+           <<Attribute>> titMedicFirm
+            %UID '53BA83D503C1'
+           ; // titMedicFirm
+           <<Attribute>> titMedicDictionary
+            %UID '53BA83DF02C0'
+           ; // titMedicDictionary
+           <<Attribute>> titDictionary
+            %UID '53BA83E70169'
+           ; // titDictionary
+           <<Attribute>> titAttributeSearch
+            %UID '53BA83F302A9'
+           ; // titAttributeSearch
+           <<Attribute>> titPublishSourceSearch
+            %UID '53BA83FD023F'
+           ; // titPublishSourceSearch
+           <<Attribute>> titLegislationReviewSearch
+            %UID '53BA84070081'
+           ; // titLegislationReviewSearch
+           <<Attribute>> titDrugSearch
+            %UID '53BA84120151'
+           ; // titDrugSearch
+           <<Attribute>> titCompareEditions
+            %UID '53BA841900A9'
+           ; // titCompareEditions
+           <<Attribute>> titChangesBetweenEditions
+            %UID '53BA84210051'
+           ; // titChangesBetweenEditions
+           <<Attribute>> titSituationSearch
+            %UID '53BA84640129'
+           ; // titSituationSearch
+           <<Attribute>> titPrime
+            %UID '53D7612B0357'
+           ; // titPrime
+           <<Attribute>> titInpharmMainMenu
+            %UID '543E658D0373'
+           ; // titInpharmMainMenu
+           <<Attribute>> titConsultation
+            %UID '543E6818039D'
+           ; // titConsultation
+           <<Attribute>> titComplectInfo
+            %UID '543E682A00C2'
+           ; // titComplectInfo
+           <<Attribute>> titLawSupportOnline
+            %UID '543E6838009C'
+           ; // titLawSupportOnline
+           <<Attribute>> titRubricator
+            %UID '54461A540338'
+           ; // titRubricator
+           <<Attribute>> titBaseSearch
+            %UID '544627D20012'
+           ; // titBaseSearch
+           <<Attribute>> titPrintPreview
+            %UID '54473D97002D'
+           ; // titPrintPreview
+           <<Attribute>> titNewsOnline
+            %UID '5461B2A90364'
+           ; // titNewsOnline
+         ; // %ATTRIBUTES
+        ; // TnsTabIconType
+      ; // %CHILDREN
+     ; // nsTabbedInterfaceTypes
+     FINAL <<UtilityPack>> TabbedContainerRes
+      %UID '53BA4C3901C1'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // TabbedContainerRes
+   ; // %CHILDREN
+  ; // TabbedInterfaceSupport
+ ; // %CHILDREN
+; // TabInterface

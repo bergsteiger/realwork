@@ -1,0 +1,148 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/Environment.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::Environment
+//
+// Среда окружения
+// ---
+// Позволяет осуществлять внешнюю настройку пакета реализации, посредством задания значения
+// переменных окружения.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Environment::Class
+? Среда окружения
+? Позволяет осуществлять внешнюю настройку пакета реализации, посредством задания значения переменных окружения.
+< *::Class,*::Category
+
+= C++ интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_enviroment.gif
+L code_enviroment
+// Параметры визуализации
+$ C 180,250,255
+$ l 5,120,155
+$ f 5,120,155
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+// ограничение на использование Enviroment
+%f _environment_constraints
+//#UC START# *471DE6E001B5for471DE69E000F*
+	[{%P<{}{%CS=Environment}{C}>!=1}%f_error("<{}{}{r}%PN::>%SN - В одном пакете реализации может быть задан только один элемент \<\<%SS\>\>")]
+//#UC END# *471DE6E001B5for471DE69E000F*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for471DE69E000F*
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%a#f_IsUseCase()=true}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+//#UC END# *4704C0E30186for471DE69E000F*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor471DE69E000F*
+O Environment.h
+	%f_output_constraint(%S)\
+	%f_h_header(%S)
+	%S%f_environment_constraints()%f_std_inc(%S)
+	%f_includes_by_contents(%S)<\#include %f_dump_include_path(%wL,%w)
+	>
+	%U[{_CUSTOM_INCLUDES}
+	][
+	%S%f_open_ifdef()]
+	%SP
+	class Environment;
+	
+	class Environment_i {
+		friend class Environment;
+		
+	[	Environment_i () : <{, }{"%CI"!=""}m_%CN(%CI)> {
+		}
+	
+	]<%C%f_env_var_h()
+	>
+	private:
+		typedef ACE_Singleton\<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+		friend class ACE_Singleton\<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	
+	private:
+	<%CX
+	
+	>}; // class Environment_i
+	
+	class Environment {
+	public:<
+		static %f_iget_attr(%C) get_%CN () {
+			return Environment_i::Singleton::instance()-\>get_%CN ();
+		}
+	
+		static void set_%CN (%f_iset_attr(%C) %CN) {
+			Environment_i::Singleton::instance()-\>set_%CN (%CN);
+		}	
+	>}; // class Environment
+	
+	%Sp
+	%f_h_footer(%S)
+//#UC END# *47022C88029Ffor471DE69E000F*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Environment::Class::Attribute
+? Переменная окружения
+= ClassBase::Class::Attribute
+
+// Параметры стереотипа
+v +
+/ - типы видимости
+l a
+/ - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor471DE6F2009C*
+	%f_docs(%S)\
+	#[{%t_refcounted(%T)=true}{%f_attr(%S)}%t_attr(%T,"ref[-%Ss]",%S)] m_[{}{%f_to_omg(%TN)}%SN];
+//#UC END# *47022C88029Ffor471DE6F2009C*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+// что-то для Enviroment
+%f _env_var_h
+//#UC START# *471DEA9B0399for471DE6F2009C*
+		%f_iget_attr(%S) get_%SN () const {
+		[{"%t_interface(%T)"="true"}{	return m_[{}{%f_to_omg(%TN)}%SN];}\
+		if (m_[{}{%f_to_omg(%TN)}%SN].ptr()) {
+				return *m_[{}{%f_to_omg(%TN)}%SN].ptr();
+			} else {
+				throw Core::Root::CachedAttrUninitialized (GDS_CURRENT_FUNCTION);
+			}]
+		}
+	
+		void set_%SN (%f_iset_attr(%S) %SN) {
+			m_[{}{%f_to_omg(%TN)}%SN] = [{"%t_interface(%T)"="true"}%f_type(%T)::_duplicate(]%SN[{"%t_interface(%T)"="true"})];
+		}
+//#UC END# *471DEA9B0399for471DE6F2009C*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

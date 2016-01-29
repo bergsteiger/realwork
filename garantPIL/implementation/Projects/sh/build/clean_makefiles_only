@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+echo "clean_makefiles_only for MPCXC_ROOT = $MPCXC_ROOT ..."
+
+find $MPCXC_ROOT/src/ -type f -name "*Makefile*" -exec rm -f {} \;
+find $MPCXC_ROOT/src/ -type f -name ".depend*Makefile*" -exec rm -f {} \;
+
+echo "end."

@@ -1,0 +1,152 @@
+<<Library>> SkinnedControls
+ %UID '4CC81F680162'
+ %SUMMARY 'Контролы с поддержкой скинов' ;
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Views>> Core
+   %UID '4CC81FAC02D6'
+   %DEPENDS
+    U$ '473C3BEE0334' /* l3Canvas */
+    U$ '476F78840219' /* Messages */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<GUIControlMixIn>> RegionableControl
+      %UID '4CC81FB7008B'
+      %SUMMARY 'Контрол с поддержкой регионов' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '27.10.2010 16:49'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4A5CB93700CF' /* Ml3Unknown */
+       U$ '4CC81DE8030F' /* MWinControl */
+      ; // %IMPLEMENTS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '4CC8414403B8' /* CreateWnd */
+       U$ '4CC841540158' /* DestroyWnd */
+       U$ '4CC8417A0288' /* Resize */
+       U$ '4CC8658C017B' /* VisibleChanging */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CC833D5027F"
+         %UID '4CC833D5027F'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4CC833D5027F
+        <<uses>> "4CC842480257"
+         %UID '4CC842480257'
+         %TARGET U$ '4CC842370110' /* ThemeServices */
+        ; // 4CC842480257
+        <<uses>> "4CC84EF601E2"
+         %UID '4CC84EF601E2'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 4CC84EF601E2
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Reg
+         %UID '4CC82BBE0358'
+         %TARGET U$ '4CC82A7D0162' /* Tl3Region */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Reg
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<method>> UpdateRegion
+         %UID '4CC8471A035A'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CC8473A0287'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // UpdateRegion
+        PRIVATE FINAL <<method>> ClearRegion
+         %UID '4CC84762022A'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CC847740314'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ClearRegion
+        PROTECTED <<method>> TuneRegion
+         %UID '4CC847800383'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CC8479C01A2'
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aRegion
+               %UID '4CC847B70104'
+               %TARGET U$ '4CC82A7D0162' /* Tl3Region */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aRegion
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TuneRegion
+        PRIVATE FINAL <<message>> CMVisibleChanged
+         %UID '4CC867FC01B3'
+         %META
+          %upv "Message ID" 'CM_VISIBLECHANGED'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> Message
+            %UID '4CC8680702D5'
+            %TARGET U$ '476F78A602B2' /* TMessage */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Message
+         ; // %PARAMETERS
+        ; // CMVisibleChanged
+      ; // %OPERATIONS
+     ; // RegionableControl
+   ; // %CHILDREN
+  ; // Core
+ ; // %CHILDREN
+; // SkinnedControls

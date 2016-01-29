@@ -1,0 +1,386 @@
+<<VCMControllers>> Rubricator
+ %UID '4AA7A7D903AE'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '521C9DA50125' /* "Application Resources" */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> RubricatorInterfaces
+   %UID '4E7AFECB03CB'
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '4DD24BD40021' /* MainMenu */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> InsRubricatorTree
+      %UID '4E7AFF400116'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46825CC00249' /* Il3SimpleTree */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46825CAA0125' /* RootNode */
+       U$ '46A44F6B035E' /* Subscribe */
+       U$ '46A44FFE0143' /* Unsubscribe */
+       U$ '4772448C01D2' /* CursorTop */
+       U$ '4772449B00A1' /* GetIndex */
+       U$ '477244BA0074' /* GetLevel */
+       U$ '477244CE02AE' /* SelectAllNodes */
+       U$ '477244DD0292' /* SelectInterval */
+       U$ '47724512002D' /* ChangeExpand */
+       U$ '4772452E002D' /* ExpandSubDir */
+       U$ '477245520298' /* SetBranchFlag */
+       U$ '4772457D032A' /* CountViewItemsInSubDir */
+       U$ '477245A20228' /* IsRoot */
+       U$ '477245B301DE' /* IsExpanded */
+       U$ '477245C40171' /* IsFirstVis */
+       U$ '477245D9031B' /* IsLastVis */
+       U$ '477245F301AE' /* HasVisibleChildren */
+       U$ '477246040221' /* GetLines */
+       U$ '4772461601C6' /* Wake */
+       U$ '477246270133' /* MoveNode */
+       U$ '477246440037' /* SearchNameBegin */
+       U$ '4772465F0276' /* SearchNameOccur */
+       U$ '477246860169' /* MakeNodeVisible */
+       U$ '477246A40174' /* GetPrev */
+       U$ '477246C70141' /* SimpleIterateF */
+       U$ '477246E802B1' /* IsChanging */
+       U$ '477246F7039B' /* Changing */
+       U$ '4772470100BC' /* Changed */
+       U$ '477248FE005A' /* ShowRoot */
+       U$ '4772490E02F7' /* CountView */
+       U$ '4772491C01C5' /* SelectCount */
+       U$ '4772495902EE' /* Flags */
+       U$ '477249AB0057' /* Select */
+       U$ '477249EB02D9' /* Nodes */
+       U$ '47A86EA80292' /* MakeDataObject */
+       U$ '47BAD3080349' /* CanAcceptData */
+       U$ '47BAD32501E2' /* DropData */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> RootToKeep
+         %UID '4E7AFF540238'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // RootToKeep
+        ABSTRACT LINK <<readonly>> MenuSectionItemToKeep
+         %UID '4E7AFFA700A6'
+         %TARGET U$ '4E36C7D80396' /* SectionItem */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // MenuSectionItemToKeep
+      ; // %ATTRIBUTES
+     ; // InsRubricatorTree
+   ; // %CHILDREN
+  ; // RubricatorInterfaces
+  <<ControllerUnit>> Rubricator
+   %UID '4AA7A7EB0328'
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '476BF10A0280' /* l3Tree_TLB */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '48563BA400A9' /* Навигация */
+    U$ '48F747EC0073' /* Common */
+    U$ '48FD8B2702F6' /* Tree */
+    U$ '4907236C0171' /* Rubricator */
+    U$ '4908A8A20107' /* OldTree */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4DD24BD40021' /* MainMenu */
+    U$ '4E7AFECB03CB' /* RubricatorInterfaces */
+    U$ '521C9DA50125' /* "Application Resources" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '481EF5C4020D' /* Оболочка */
+    U$ '4AA7A7D903AE' /* Rubricator */
+    U$ '4ABB680E0218' /* Common$Lib */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsRubricatorList
+      %UID '46836A280235'
+      %SUMMARY 'Структура "одноуровневое дерево" для узла рубрикатора' ;
+      %META
+       %upv "author" 'Никитин А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2003/06/10 12:57:53'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4677FF4B0036' /* Data */
+       U$ '481EF5C4020D' /* Оболочка */
+       U$ '4AA7A7D903AE' /* Rubricator */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4E70D70C0055' /* "Основное меню должно уметь зависеть от должности пользователя" */
+       U$ '4E7AFF400116' /* InsRubricatorTree */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4683692B0105' /* TnsOneLevelTreeStruct */
+      ; // %INHERITS
+      %REALIZES
+       U$ '48FF64F60078' /* ReAqurieUnfilteredRoot */
+       U$ '4E7AFF540238' /* RootToKeep */
+       U$ '4E7AFFA700A6' /* MenuSectionItemToKeep */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '48FDD9270194' /* Create */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4908839502DB"
+         %UID '4908839502DB'
+         %TARGET U$ '490724F202F5' /* TnsRubricatorCache */
+        ; // 4908839502DB
+        <<uses>> "490884EC0385"
+         %UID '490884EC0385'
+         %TARGET U$ '47F60E8E019C' /* nsNodes */
+        ; // 490884EC0385
+        <<uses>> "490885240168"
+         %UID '490885240168'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 490885240168
+        <<uses>> "490885F20054"
+         %UID '490885F20054'
+         %TARGET U$ '490885C402F8' /* Messages */
+        ; // 490885F20054
+        <<uses>> "4908873902BC"
+         %UID '4908873902BC'
+         %TARGET U$ '476BF22B03E1' /* Il3Node */
+        ; // 4908873902BC
+        <<uses>> "4908875803DA"
+         %UID '4908875803DA'
+         %TARGET U$ '468274930190' /* Il3SimpleRootNode */
+        ; // 4908875803DA
+        <<uses>> "490887860339"
+         %UID '490887860339'
+         %TARGET U$ '48FF63BC0129' /* TnsResetTreeStatus */
+        ; // 490887860339
+        <<uses>> "490887BA01EA"
+         %UID '490887BA01EA'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 490887BA01EA
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_FrozenRoot
+         %UID '46836AC503B7'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_FrozenRoot
+        PRIVATE <<Attribute>> f_RootToKeep
+         %UID '4E73878200DD'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_RootToKeep
+        PRIVATE <<Attribute>> f_MenuSectionItemToKeep
+         %UID '4E7AFFD20303'
+         %TARGET U$ '4E36C7D80396' /* SectionItem */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_MenuSectionItemToKeep
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> CreateKeeped
+         %UID '4E7387AE0021'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4E7387DF02FB'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aRoot
+               %UID '4E738803029C'
+               %TARGET U$ '45EEB95901C5' /* NodeBase */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aRoot
+              <<in>> aRootToKeep
+               %UID '4E7388030316'
+               %TARGET U$ '45EEB95901C5' /* NodeBase */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aRootToKeep
+              <<in>> aMenuSectionItemToKeep
+               %UID '4E7B00060083'
+               %TARGET U$ '4E36C7D80396' /* SectionItem */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aMenuSectionItemToKeep
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CreateKeeped
+        FINAL <<Factory>> Make
+         %UID '4E7387D50196'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4AA7A7D903AE' /* Rubricator */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4E7AFF400116' /* InsRubricatorTree */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4E7387AE0021' /* CreateKeeped */
+         ; // %INHERITS
+         %REALIZES
+          U$ '46825CAA0125' /* RootNode */
+          U$ '46A44F6B035E' /* Subscribe */
+          U$ '46A44FFE0143' /* Unsubscribe */
+          U$ '4772448C01D2' /* CursorTop */
+          U$ '4772449B00A1' /* GetIndex */
+          U$ '477244BA0074' /* GetLevel */
+          U$ '477244CE02AE' /* SelectAllNodes */
+          U$ '477244DD0292' /* SelectInterval */
+          U$ '47724512002D' /* ChangeExpand */
+          U$ '4772452E002D' /* ExpandSubDir */
+          U$ '477245520298' /* SetBranchFlag */
+          U$ '4772457D032A' /* CountViewItemsInSubDir */
+          U$ '477245A20228' /* IsRoot */
+          U$ '477245B301DE' /* IsExpanded */
+          U$ '477245C40171' /* IsFirstVis */
+          U$ '477245D9031B' /* IsLastVis */
+          U$ '477245F301AE' /* HasVisibleChildren */
+          U$ '477246040221' /* GetLines */
+          U$ '4772461601C6' /* Wake */
+          U$ '477246270133' /* MoveNode */
+          U$ '477246440037' /* SearchNameBegin */
+          U$ '4772465F0276' /* SearchNameOccur */
+          U$ '477246860169' /* MakeNodeVisible */
+          U$ '477246A40174' /* GetPrev */
+          U$ '477246C70141' /* SimpleIterateF */
+          U$ '477246E802B1' /* IsChanging */
+          U$ '477246F7039B' /* Changing */
+          U$ '4772470100BC' /* Changed */
+          U$ '477248FE005A' /* ShowRoot */
+          U$ '4772490E02F7' /* CountView */
+          U$ '4772491C01C5' /* SelectCount */
+          U$ '4772495902EE' /* Flags */
+          U$ '477249AB0057' /* Select */
+          U$ '477249EB02D9' /* Nodes */
+          U$ '47A86EA80292' /* MakeDataObject */
+          U$ '47BAD3080349' /* CanAcceptData */
+          U$ '47BAD32501E2' /* DropData */
+          U$ '4E7AFF540238' /* RootToKeep */
+          U$ '4E7AFFA700A6' /* MenuSectionItemToKeep */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'ED328313DB18'
+            %SUMMARY 'Сигнатура фабрики TnsRubricatorList.Make' ;
+            %TARGET U$ '4E7AFF400116' /* InsRubricatorTree */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4AA7A7D903AE' /* Rubricator */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aRoot
+               %UID 'BCF0EEC03A97'
+               %TARGET U$ '45EEB95901C5' /* NodeBase */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aRoot
+              SUMMONED <<in>> aRootToKeep
+               %UID '1ACA91192E88'
+               %TARGET U$ '45EEB95901C5' /* NodeBase */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aRootToKeep
+              SUMMONED <<in>> aMenuSectionItemToKeep
+               %UID '98BC36AC0FCD'
+               %TARGET U$ '4E36C7D80396' /* SectionItem */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aMenuSectionItemToKeep
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsRubricatorList
+   ; // %CHILDREN
+  ; // Rubricator
+ ; // %CHILDREN
+; // Rubricator

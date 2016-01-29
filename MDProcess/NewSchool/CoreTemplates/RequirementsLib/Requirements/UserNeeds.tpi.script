@@ -1,0 +1,163 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/UserNeeds.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$CoreTemplates::CoreTemplates::RequirementsLib::Requirements::UserNeeds
+//
+// Проблема пользователя
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UserNeeds::Class
+implementation @ <<UserNeeds>>
+//? Проблема пользователя
+//> UserNeeds::Class
+
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a r
+// - тип абстракции
+//Y userneeds.gif
+//L userneeds
+// Параметры визуализации
+//$ C 245,175,195
+//$ l 175,50,90
+//$ f 175,50,90
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470476510157*
+//c                              {}
+//r {%Rx=true}: {%SS не может реализовывать другие классы}
+//r {%Gx=true}: {%SS не может наследоваться от других классов}
+//#UC END# *4704C0E30186for470476510157*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470476510157*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[{%Lx=true}
+ if ( ( %L |x ) %==  true ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{info}Решена возможностью:
+  '{info}Решена возможностью:'
+//	<* %f_k_link_wp(%L,%S)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%L
+  begin
+   OBJECT IN %L
+   if true then
+   begin
+    '* '
+    [%f] k_link_wp %( %L %, %S )% 
+//	>{info}][{%Lx=false}
+
+    ++! l_Counter
+   end // if
+  end // for L
+  '{info}' 
+ end // if
+ if ( ( %L |x ) %==  false ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{warning}Проблема не решена!
+  '{warning}Проблема не решена!'
+//	{warning}][{%mx=true&%Cx=true}
+  '{warning}' 
+ end // if
+ if ( ( %m |x ) %==  true AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма элемента:_
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%m
+  begin
+   OBJECT IN %m
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( '----'#13#10 )
+    '_'
+    if ( ( %m |N ) %!= 'Main' ) then
+    begin
+     %m |N 
+    end // if
+    else
+    begin
+     'Основная' 
+    end // else
+    ' диаграмма элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+    [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+    %m |U '.jpg}'
+//	>]<%CX>
+
+    ++! l_Counter
+   end // if
+  end // for m
+ end // if
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for470476510157*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<UserNeeds>>
+

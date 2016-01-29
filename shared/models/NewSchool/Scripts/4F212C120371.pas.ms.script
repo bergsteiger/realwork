@@ -1,0 +1,100 @@
+// kwControlFromStackWord 4F212C120371 Impurity Class
+
+INCLUDE '4F2148300318.pas.ms.script'
+
+FORWARD ME_4F212C120371
+
+FORWARD ME_4F212C3A015A
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+: ME_4F212C5E001D
+ CONST UID '4F212C5E001D'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E1201703C3 // TControl
+ ;
+
+ @SELF
+; // ME_4F212C5E001D aControl
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_4F212C5E006E
+ CONST UID '4F212C5E006E'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_4F212C5E006E aCtx
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4F212C5B0201
+ CONST UID '4F212C5B0201'
+ CONST Name 'DoControl'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F212C5E001D // aControl
+ ME_4F212C5E006E // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F212C5B0201 DoControl
+
+: ME_4F212C3A015A
+ CONST UID '4F212C3A015A'
+ CONST Name 'DoControl'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_4F212C5B0201 // DoControl
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F212C3A015A DoControl
+
+: ME_4F212C120371
+ CONST UID '4F212C120371'
+ CONST Name 'kwControlFromStackWord'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4F2148300318 // TkwComponentFromStackWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4F212C3A015A // DoControl
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4F21485E0184 // DoComponent
+ ]
+ ; // Implemented
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "ifndef" 'NoVCL'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.01.2012 14:34'
+
+ @SELF
+; // ME_4F212C120371 kwControlFromStackWord

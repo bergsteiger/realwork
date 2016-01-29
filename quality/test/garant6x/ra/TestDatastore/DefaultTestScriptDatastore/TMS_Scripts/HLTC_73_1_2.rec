@@ -1,0 +1,38 @@
+'$include "States.sbl"
+'$include "global.sbl"
+'*** Проверка тесткейса № 73.1.2 ***
+'Начальное состояние:
+'В принципе - любое т.к. документ открывается по номеру
+Sub Main
+    Dim Result As Integer
+
+'Открываем по внутреннему номеру документ № 455333
+  CUR_STATE = ST_NONE_STANDART
+  Call OpenDocByNum (455333)
+  DelayFor (5000) 'Ждем открытия документа
+
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+'Закрываем навигатор и скроллируемся  к началу таблицы
+  GenericObject Click, "Class=TNavigatorHeader;ClassIndex=1", "Coords=188,9"
+  DelayFor (2000)
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"
+  InputKeys "{PGDN}{PGDN}"
+  DelayFor (1000)
+  InputKeys "^+{Right}"
+  
+'Сравниваем 3 экрана таблицы  
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=TopStart")
+  RichEdit ScrollPageRight, "ObjectIndex=1", ""
+  RichEdit ScrollPageRight, "ObjectIndex=1", ""
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=Top1Left")
+  RichEdit ScrollPageRight, "ObjectIndex=1", ""
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=Top2Left")
+  
+'Сравниваем таблицу в конце документа и разворачиваем навигатор
+  InputKeys "^{END}"
+  InputKeys "{PGUP}"
+  InputKeys "^{END}{PGUP}"
+  InputKeys "^+{Right}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=Bottom")
+  GenericObject Click, "Class=TNavigatorHeader;ClassIndex=1", "Coords=10,6"
+End Sub

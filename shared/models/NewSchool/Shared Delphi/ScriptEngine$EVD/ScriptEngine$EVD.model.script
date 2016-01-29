@@ -1,0 +1,373 @@
+<<Library>> ScriptEngine$EVD
+ %UID '552D08860307'
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'seDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifndef" 'NoScripts'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ScriptKeywords>> FiltersAndGenerators
+   %UID '505AD9C20338'
+   %DEPENDS
+    U$ '4767743E00E5' /* TypInfo */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47ECA80B000D' /* Generators */
+    U$ '47ECB8BD00A8' /* Generators */
+    U$ '482D6E960087' /* Readers */
+    U$ '483E80C9025F' /* Readers */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '5527F81C020E' /* TypesRegistration */
+    U$ '55B7A3160128' /* ScriptedAxiomatics */
+    U$ '55BA28CE0290' /* tfwScriptingTypes */
+    U$ '55CCADD2013D' /* ClassLikeMapping */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'NoScripts'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ScriptKeywordsPack>> kwFiltersAndGeneratorsPack
+      %UID '505AFAF6026B'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" true
+       %upv "no class name" true
+       %upv "no hands" false
+       %upv "no_pop" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4678160E01BE' /* Ik2TagGenerator */
+      ; // %INHERITS
+      %REALIZES
+       U$ '469F83C300B2' /* AddStringAtom$469F83C300B2 */
+       U$ '469F84BB0023' /* AddStringAtom$469F84BB0023 */
+       U$ '469F870C01B6' /* AddStreamAtom */
+       U$ '469F872B0124' /* AddTransparentAtom */
+       U$ '469F87470084' /* AddIntegerAtom */
+       U$ '469F87D4002D' /* AddBoolAtom */
+       U$ '469F8818037E' /* AddAtom */
+       U$ '469F8B580244' /* AddAtomEx */
+       U$ '469F8B9E02C7' /* Start */
+       U$ '469F8BBA01EB' /* StartChild */
+       U$ '469F8BCC02D7' /* StartDefaultChild */
+       U$ '469F8BF00166' /* StartTag */
+       U$ '469F8C0A031C' /* Finish */
+       U$ '469F8C450231' /* CharsInLine */
+       U$ '469F8C6D01B6' /* NextGenerator */
+       U$ '469F8C8C02FB' /* CurrentStartLevel */
+       U$ '469F956E01A6' /* Rollback */
+       U$ '469F9589032C' /* Pixel2Char */
+       U$ '4C1B7F810123' /* CurrentVersion */
+       U$ '4E31464A0116' /* AddInt64Atom */
+       U$ '532AD07903C5' /* Char2Pixel */
+       U$ '533C0C71011C' /* Context */
+      ; // %REALIZES
+      %LINKS
+        <<injects>> "552BE8F800BE"
+         %UID '552BE8F800BE'
+         %TARGET U$ '47ECAA5B0394' /* Tk2TagGenerator */
+        ; // 552BE8F800BE
+        <<uses>> "55701B120158"
+         %UID '55701B120158'
+         %TARGET U$ '555DB43B00BD' /* Tk2EVDReaderService */
+        ; // 55701B120158
+        <<uses>> "55701B1B00EB"
+         %UID '55701B1B00EB'
+         %TARGET U$ '555DCEA8017E' /* Tk2EVDWriterService */
+        ; // 55701B1B00EB
+        SUMMONED <<uses>> "BAA0882E222E"
+         %UID 'BAA0882E222E'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // BAA0882E222E
+        SUMMONED <<injects>> "DBE5DE848520"
+         %UID 'DBE5DE848520'
+         %TARGET U$ '4678160E01BE' /* Ik2TagGenerator */
+        ; // DBE5DE848520
+        SUMMONED <<uses>> "DF061B2482FA"
+         %UID 'DF061B2482FA'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // DF061B2482FA
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<keyword>> generators_Execute
+         %UID '552BD7AD0110'
+         %SUMMARY 'Берёт со стека имя имя входного файла (EVD) и генератор (или цепочку). Затем делает трубу и прогоняет через неё файл.' ;
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aFileName
+            %UID '552BD7FA0110'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aFileName
+         ; // %PARAMETERS
+        ; // generators_Execute
+        PRIVATE FINAL <<keyword>> generators_Link
+         %UID '552BD8F60043'
+         %SUMMARY 'Берёт со стека два генератора и делает из них цепочку. В результате на стеке остаётся один генератор (к которому подклеен другой)' ;
+         %TARGET U$ '4678160E01BE' /* Ik2TagGenerator */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aGenHead
+            %UID '552BD9280319'
+            %TARGET U$ '4678160E01BE' /* Ik2TagGenerator */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // aGenHead
+         ; // %PARAMETERS
+        ; // generators_Link
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID 'D4EEAD0BBD60'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Ik2TagGenerator
+         %UID '487CDE5ED4FC'
+         %SUMMARY 'Регистрация типа Ik2TagGenerator' ;
+        ; // Reg_Ik2TagGenerator
+        SUMMONED PRIVATE FINAL <<ini>> Reg_String
+         %UID '801FC7BB6B1A'
+         %SUMMARY 'Регистрация типа String' ;
+        ; // Reg_String
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<SimpleClass>> TkwFiltersAndGeneratorsPackResNameGetter
+         %UID '9EE368A1435D'
+         %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55B7A33101AF' /* TtfwAxiomaticsResNameGetter */
+         ; // %INHERITS
+         %REALIZES
+          U$ '55B7A3AF0359' /* ResName */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> RegAxiom
+            %UID '198613660F32'
+            %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+           ; // RegAxiom
+         ; // %OPERATIONS
+        ; // TkwFiltersAndGeneratorsPackResNameGetter
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "generators_Execute"
+         %UID '825779F5AD08'
+         %SUMMARY 'Слово скрипта generators:Execute'#13#10'{panel}Берёт со стека имя имя входного файла (EVD) и генератор (или цепочку). Затем делает трубу и прогоняет через неё файл.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aFileName aTagGenerator generators:Execute'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'generators:Execute'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "B4770784E353"
+            %UID 'B4770784E353'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // B4770784E353
+           SUMMONED <<uses>> "FEB4D26E3E0E"
+            %UID 'FEB4D26E3E0E'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // FEB4D26E3E0E
+           SUMMONED <<uses>> "5081FC449269"
+            %UID '5081FC449269'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 5081FC449269
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> generators_Execute
+            %UID '51B232178794'
+            %SUMMARY 'Реализация слова скрипта generators:Execute' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '9E008A71D7E7'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTagGenerator
+               %UID '9E008A71D7E8'
+               %TARGET U$ '4678160E01BE' /* Ik2TagGenerator */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aTagGenerator
+              SUMMONED <<in>> aFileName
+               %UID '9E008A71D7E9'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFileName
+            ; // %PARAMETERS
+           ; // generators_Execute
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '298E00627EDA'
+            %SUMMARY 'Регистрация generators_Execute' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "generators_Execute"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "generators_Link"
+         %UID 'E6DB290D23D7'
+         %SUMMARY 'Слово скрипта generators:Link'#13#10'{panel}Берёт со стека два генератора и делает из них цепочку. В результате на стеке остаётся один генератор (к которому подклеен другой){panel}'#13#10'*Тип результата:* Ik2TagGenerator'#13#10'*Пример:*'#13#10'{code}'#13#10'INTERFACE VAR l_Ik2TagGenerator'#13#10' aGenHead aTagGenerator generators:Link >>> l_Ik2TagGenerator'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'generators:Link'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "63DC7249DCC1"
+            %UID '63DC7249DCC1'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 63DC7249DCC1
+           SUMMONED <<uses>> "5D1B461D094E"
+            %UID '5D1B461D094E'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 5D1B461D094E
+           SUMMONED <<uses>> "F1EC809573CF"
+            %UID 'F1EC809573CF'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // F1EC809573CF
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> generators_Link
+            %UID 'C44F9D8AB364'
+            %SUMMARY 'Реализация слова скрипта generators:Link' ;
+            %TARGET U$ '4678160E01BE' /* Ik2TagGenerator */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '962EB13D21A0'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTagGenerator
+               %UID '962EB13D21A1'
+               %TARGET U$ '4678160E01BE' /* Ik2TagGenerator */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aTagGenerator
+              SUMMONED <<in>> aGenHead
+               %UID '962EB13D21A2'
+               %TARGET U$ '4678160E01BE' /* Ik2TagGenerator */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aGenHead
+            ; // %PARAMETERS
+           ; // generators_Link
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'F0F091121372'
+            %SUMMARY 'Регистрация generators_Link' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "generators_Link"
+      ; // %CHILDREN
+     ; // kwFiltersAndGeneratorsPack
+   ; // %CHILDREN
+  ; // FiltersAndGenerators
+ ; // %CHILDREN
+; // ScriptEngine$EVD

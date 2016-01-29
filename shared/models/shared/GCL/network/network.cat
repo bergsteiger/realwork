@@ -1,0 +1,492 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "network"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/shared/GCL/network/common_network_operations.cpp::45753171035B,w:/shared/GCL/network/smtp_service.cpp::4503D994032C")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/shared/GCL/network/common_network_operations.h::45753171035B,w:/shared/GCL/network/smtp_service.h::4503D994032C")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations/CantGetIpList|457536350128::45753171035B;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations|45753171035B::45753171035B;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/smtp_service|4503D994032C::4503D994032C;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations/CantGetIpList|457536350128::45753171035B;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations|45753171035B::45753171035B;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/smtp_service|4503D994032C::4503D994032C;Shared (java/c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations/CantGetIpList|457536350128::45753171035B;Shared (java/c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations|45753171035B::45753171035B;Shared (java/c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/smtp_service|4503D994032C::4503D994032C
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network|4503D56703A9
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"C++ èíòåðôåéñû è ðåàëèçàöèÿ|Äîêóìåíòàöèÿ")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16657780146"))
+    quid       	"4503D56703A9"
+    documentation 	"ðàçëè÷íûå ñåòåâûå ôóíêöèè (âêëþ÷àÿ äëÿ ðàáîòû ñ CORBA)"
+    stereotype 	"Unit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "smtp_service"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4503D994032C_USER_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4503D994032C_USER_INCLUDES*¤#include <string>¤#include "ace/INET_Addr.h"¤#include "ace/SOCK_Connector.h"¤#include "ace/SOCK_Stream.h"¤¤//#UC END# *4503D994032C_USER_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4503D994032C_USER_DEFINITION*"
+		    value      	(value Text 
+|//#UC START# *4503D994032C_USER_DEFINITION*¤// Exceptions¤class SMTPServerNotFound : public Core::Exception {¤	virtual const char* uid () const /*throw ()*/ {¤		return "GCL::SMTPServerNotFound";¤	}¤};¤¤class BadSMTPReply : public Core::Exception {¤	virtual const char* uid () const /*throw ()*/ {¤		return "GCL::BadSMTPReply";¤	}¤};¤¤class SMTPAuthorizationFailed : public Core::Exception {¤	virtual const char* uid () const /*throw ()*/ {¤		return "GCL::SMTPAuthorizationFailed";¤	}¤};¤¤class SMTPMessage {¤public:¤	// Encoding to quoted-printable according RFC2047¤	static std::string recode (const std::string& to_recode);¤¤public:¤	SMTPMessage (const std::string& from, const std::string& to, const std::string& data = "");¤	¤	~SMTPMessage () {¤	}¤¤	const std::string& from () const {¤		return m_from;¤	}¤	¤	void from (const std::string& from) {¤		m_from = from;¤	}¤	¤	const std::string& to () const {¤		return m_to;¤	}¤	¤	void to (const std::string& to) {¤		m_to = to;¤	}¤	¤	const std::string& data () const {¤		return m_data;¤	}¤	¤	void data (const std::string& data) {¤		m_data = data;¤	}¤	¤	void add_to_data (const std::string& data_chunk, bool to_end = true);¤¤	void data_from (const std::string& from) {¤		m_data_from = from;¤	}¤	¤	const std::string& data_from () const {¤		return m_data_from;¤	}¤	¤	void data_to (const std::string& to) {¤		m_data_to = to;¤	}¤	¤	const std::string& data_to () const {¤		return m_data_to;¤	}¤	¤	void subject (const std::string& subject) {¤		m_subject = subject;¤	}¤	¤	const std::string& subject () const {¤		return m_subject;¤	}¤	¤	void encoding (const std::string& encoding) {¤		m_encoding = encoding;¤	}¤	¤	const std::string& encoding () const {¤		return m_encoding;¤	}¤¤private:¤	std::string m_from;¤	std::string m_to;¤	std::string m_data;¤	std::string m_data_from;¤	std::string m_data_to;¤	std::string m_subject;¤	std::string m_encoding;¤};¤¤class SMTPServer {¤public:¤	SMTPServer (¤		const std::string& server¤		, unsigned short port = 25¤		, unsigned short timeout = 5¤	);¤	¤	~SMTPServer () {}¤¤	void connect () /*throw (SMTPServerNotFound)*/;¤	¤	void disconnect ();¤¤	unsigned short timeout () {¤		return static_cast<unsigned short>(m_timeout.sec ());¤	}¤	¤	void timeout (unsigned short timeout) {¤		m_timeout = timeout;¤	}¤¤	void set_auth_data (const std::string& name, const std::string& passwd);¤¤	void send_message (const SMTPMessage& message); ¤		/*throw (SMTPServerNotFound, BadSMTPReply, SMTPAuthorizationFailed)*/¤¤private:¤	void send_command (const std::string& command, bool need_recv) const;¤	void send_command (const std::string& command, const char* return_code) const;¤¤	void send_auth_info () const;¤	enum AuthType {¤		AT_NONFOUND,¤		AT_LOGIN,¤		AT_PLAIN¤	};¤	void auth (AuthType type) const;¤	void auth_login () const;¤	void auth_plain () const;¤¤	void recv () const;¤	void recv (const char* success_code) const;¤	ssize_t recv_i (char* buf, size_t size) const;¤¤private:¤	std::string m_server;¤	unsigned short m_port;¤	ACE_SOCK_Stream m_mail_stream;¤	ACE_Time_Value m_timeout;¤	bool m_is_connected;¤¤	std::string m_auth_name;¤	std::string m_auth_passwd;¤};¤//#UC END# *4503D994032C_USER_DEFINITION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4503D994032C_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4503D994032C_CUSTOM_INCLUDES*¤#include <sstream>¤¤#include "shared/GCL/str/base64_encoder.h"¤#include "shared/GCL/str/str_op.h"¤¤#include "ace/Codecs.h"¤//#UC END# *4503D994032C_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4503D994032C*"
+		    value      	(value Text 
+|//#UC START# *4503D994032C*¤SMTPServer::SMTPServer (¤	const std::string& server, unsigned short port, unsigned short timeout¤) :	m_server(server), m_port(port),	m_timeout (timeout), m_is_connected (false)¤{¤}¤¤void SMTPServer::connect () /*throw (SMTPServerNotFound)*/ {¤	if (m_is_connected) {¤		return;¤	}¤	ACE_SOCK_Connector connector;¤	ACE_INET_Addr smtp_addr;¤	if (smtp_addr.set (m_port, m_server.c_str ()) == -1) {¤		throw SMTPServerNotFound ();¤	}¤	// Êîííåêòèìñÿ ê ñåðâåðó¤	if (connector.connect (m_mail_stream, smtp_addr, &m_timeout) == -1) {¤		LOG_E (("Can't connect to %s:%d", m_server.c_str (), m_port));¤		throw SMTPServerNotFound ();¤		return;¤	}¤	recv ();¤¤	m_is_connected = true;¤}¤¤void SMTPServer::disconnect () {¤	if (!m_is_connected) {¤		return;¤	}¤	m_mail_stream.close ();¤¤	m_is_connected = false;¤}¤¤// Example:¤// S: From: John Q. Public <JQP@MIT-AI.ARPA>¤// S: Subject:  The Next Meeting of the Board¤// S: To: Jones@BBN-Vax.ARPA¤// S: Content-Type: text/plain;charset=\"windows-1251\";¤// One encoding used in header and in body.¤// Header encoding is compy with RFC 2047.¤¤void SMTPServer::send_message (const SMTPMessage& message)  /*throw (SMTPServerNotFound, BadSMTPReply)*/ {¤	const static std::string from("MAIL FROM:");¤	const static std::string to("RCPT TO:");¤	const static std::string data("DATA");¤	const static std::string data_from("From: ");¤	const static std::string subject("Subject: ");¤	const static std::string data_to("To: ");¤	const static std::string data_mime("MIME-Version: 1.0");¤	const static std::string data_content("Content-Type: text/plain; charset=");¤	const static std::string quit("QUIT");¤	const static std::string endline("\r\n");¤¤	this->connect ();	¤¤	this->send_auth_info ();¤	std::string from_name (m_auth_name.empty () ? message.from () : m_auth_name);¤	if (from_name.find ('@') == std::string::npos) {¤		from_name += '@';¤		//todo ïî õîðîøåìó íàäî ïðîâåðÿòü íå âèäà ëè xxx.xxx.xxx.xxx àäðåñ¤		from_name += m_server.substr (m_server.find ('.')  + 1, std::string::npos);¤	}¤	send_command (from + "<" + from_name + ">" + endline, "250");¤	GCL::StrVector mail_to_vec = GCL::split_string_by (message.to ().c_str (), ';');¤	for (¤			GCL::StrVector::iterator it = mail_to_vec.begin ()¤			; it != mail_to_vec.end ()¤			; ++it¤	) {¤		send_command (to + "<" + *it + ">" + endline, true);¤	}¤	send_command (data + endline, false);¤	std::string header_encoding ("=?");¤	if (!message.encoding ().empty ()) {¤		header_encoding += message.encoding () + "?Q?";¤	} else {¤		header_encoding += "US-ASCII?Q?";¤	}¤	const static std::string header_encoding_end ("?=");¤	if (!message.data_from ().empty ()) {		¤		send_command (¤			data_from¤			+ header_encoding¤			+ SMTPMessage::recode (message.data_from ()) ¤			+ header_encoding_end¤			+ "<"¤			+ from_name¤			+ ">"¤			+ endline¤			, false¤		);¤	} else {¤		send_command (data_from + from_name + endline, false);¤	}¤	if (!message.data_to ().empty ()) {	¤		GCL::StrVector mail_data_to_vec = GCL::split_string_by (message.data_to ().c_str (), ';');¤		for (¤				GCL::StrVector::iterator it = mail_data_to_vec.begin ()¤				; it != mail_data_to_vec.end ()¤				; ++it¤		) {			¤			send_command (¤				data_to¤				+ header_encoding¤				+ SMTPMessage::recode (*it)¤				+ header_encoding_end¤				+ "<"¤				+ *it¤				+ ">"¤				+ endline¤				, false¤			);¤		}		¤	} else {¤		GCL::StrVector mail_data_to_vec = GCL::split_string_by (message.data_to ().c_str (), ';');¤		for (¤				GCL::StrVector::iterator it = mail_data_to_vec.begin ()¤				; it != mail_data_to_vec.end ()¤				; ++it¤		) {¤			send_command (data_to + *it + endline, false);¤		}¤	}¤	if (!message.subject ().empty ()) {¤		send_command (subject + header_encoding + SMTPMessage::recode (message.subject ()) + header_encoding_end + endline, true);¤	}¤	send_command (data_mime + endline, true);¤	if (!message.encoding ().empty ()) {¤		send_command (¤			data_content + "\"" + message.encoding () + "\"" + endline, true¤		);¤	}¤	send_command (endline, false);¤¤	m_mail_stream.send (message.data ().c_str (), message.data ().size (), &m_timeout);¤¤	send_command (endline + "." + endline, true);¤	send_command (quit + endline, true);¤¤	this->disconnect ();¤}¤¤void SMTPServer::set_auth_data (const std::string& name, const std::string& passwd) {¤	m_auth_name = name;¤	m_auth_passwd = passwd;¤}¤¤// todo: äîáàâèòü èñêëþ÷åíèå ïðî àâòîðèçàöèþ¤// ïðåäïî÷èòàåì òèï àâòîðèçàöèè login, îí òèïà áîëåå áåçîïàñíûé¤void SMTPServer::send_auth_info () const {¤	const static std::string ehlo ("EHLO ");¤	const static std::string endline("\r\n");¤¤	while (!m_auth_name.empty () && !m_auth_passwd.empty ()) {¤		const size_t hostname_len = 1024;¤		char hostname [hostname_len];¤		ACE_OS::hostname (hostname, hostname_len);¤		send_command (ehlo + hostname + endline, false);¤¤		const static int recv_bufsize = 1024;¤		static char recv_buf [recv_bufsize];¤		memset (&recv_buf, 0, sizeof recv_buf);¤		ssize_t recv_bytes = m_mail_stream.recv (&recv_buf, sizeof (recv_buf) - 1, &m_timeout);¤		if (recv_bytes == -1) {¤			LOG_W (("%s: server does not support ehlo command", GDS_CURRENT_FUNCTION));¤			break;¤		}¤		recv_buf[recv_bytes] = 0;¤		std::istringstream reply (std::string (recv_buf, recv_bytes));¤¤		std::string next_line;¤		AuthType auth_type = AT_NONFOUND;¤		for (std::getline (reply, next_line); !next_line.empty (); std::getline (reply, next_line)) {¤			if (next_line[0] == '5') {¤				throw BadSMTPReply();¤			}¤			if (¤				((next_line.find_first_of ("AUTH") == 4) || (next_line.find_first_of ("auth") == 4))¤				&& ((next_line[8] == ' ') || (next_line[8] == '='))¤			) {¤				//ñòðîêà, çàäàþùàÿ òèïû àâòîðèçàöèè, ïîêà ïîääåðæèâàåì PLAIN è LOGIN¤				if (¤					(next_line.find_first_of (" LOGIN") != std::string::npos) ¤					|| (next_line.find_first_of (" login") != std::string::npos)¤				) {¤					auth_type = AT_LOGIN;¤					break;¤				} else if (¤					(next_line.find_first_of (" PLAIN") != std::string::npos) ¤					|| (next_line.find_first_of (" plain") != std::string::npos)¤				) {¤					auth_type = AT_PLAIN;¤					// íå âûõîäèì èç öèêëà, ìîæåò ïîääåðæèâàåòñÿ login òèï àâòîðèçàöèè¤				} else {¤					LOG_W (("%s: not supported auth types: %s", next_line.c_str ()));¤				}¤			}¤		}¤		if (auth_type == AT_NONFOUND) {¤			LOG_W ((¤				"%s: server %s does not supports authentification types login or plain"¤				, GDS_CURRENT_FUNCTION¤				, m_server.c_str ()¤			));¤			break;¤		}¤		auth (auth_type);¤¤		return;¤	}¤¤	const static std::string helo("HELO ");¤	send_command (helo + m_server + endline, true);¤}¤¤void SMTPServer::auth (AuthType type) const {¤	try {¤		GDS_ASSERT (type != AT_NONFOUND);¤		switch (type) {¤			case AT_LOGIN:¤				auth_login ();¤				break;¤			case AT_PLAIN:¤				auth_plain ();¤				break;¤			default:¤				GDS_ASSERT (false && "bad value of type");¤		}¤	} catch (BadSMTPReply&) {¤		throw SMTPAuthorizationFailed ();¤	}¤}¤¤void SMTPServer::auth_login () const {¤	const std::string login_auth ("AUTH LOGIN");¤	const static std::string endline ("\r\n");¤¤	send_command (login_auth + endline, "334");¤¤	std::string data64 = GCL::encode_base64_string (m_auth_name);¤	send_command (data64 + endline, "334");¤¤	data64 = GCL::encode_base64_string (m_auth_passwd);¤	send_command (data64 + endline, "235");¤}¤¤void SMTPServer::auth_plain () const {¤	const std::string plain_auth ("AUTH PLAIN ");¤	const static std::string endline ("\r\n");¤¤	// îòâåò ôîðìèðóåòñÿ êàê "\0login\0passwd" - rfc2595¤	std::string data_for_encoding (1, '\0');¤	data_for_encoding += m_auth_name + '\0' + m_auth_passwd;¤	std::string data64 = plain_auth + GCL::encode_base64_string (data_for_encoding);¤	send_command (data64 + endline, "235");¤}¤¤void SMTPServer::send_command (const std::string& command, bool need_recv) const {¤//	LOG_D (("Send: %s", command.c_str ()));¤	m_mail_stream.send (command.c_str (), command.size (), &m_timeout);¤	if (need_recv) {¤		recv ();¤	}¤}¤¤void SMTPServer::send_command (const std::string& command, const char* return_code) const {¤	//	LOG_D (("Send: %s", command.c_str ()));¤	m_mail_stream.send (command.c_str (), command.size (), &m_timeout);¤	recv (return_code);¤}¤¤const static int recv_bufsize = 1024;¤¤void SMTPServer::recv () const {¤	char recv_buf [recv_bufsize];¤	ssize_t recv_bytes = this->recv_i (recv_buf, recv_bufsize);¤//	LOG_D (("Recv:%s", recv_buf));¤¤	if (recv_bytes == -1) {¤		return;¤	}¤	if (recv_bytes) {¤		std::istringstream reply (std::string (recv_buf, recv_bytes));¤		std::string next_line;¤		for (std::getline (reply, next_line); !next_line.empty (); std::getline (reply, next_line)) {¤			if (next_line[0] == '5') {¤				throw BadSMTPReply();¤			}¤		}¤	}¤}¤¤void SMTPServer::recv (const char* success_code) const {¤	GDS_ASSERT (success_code);¤¤	char recv_buf [recv_bufsize];¤	ssize_t recv_bytes = this->recv_i (recv_buf, recv_bufsize);¤	//	LOG_D (("Recv:%s", recv_buf));¤¤	if (recv_bytes > 0) {¤		std::istringstream reply (std::string (recv_buf, recv_bytes));¤		std::string next_line;¤		for (std::getline (reply, next_line); !next_line.empty (); std::getline (reply, next_line)) {¤			if (ACE_OS::strncmp (success_code, next_line.c_str (), ACE_OS::strlen (success_code))) {¤				throw BadSMTPReply();¤			}¤		}¤¤		return;¤	}¤	throw BadSMTPReply ();¤}¤¤ssize_t SMTPServer::recv_i (char* buf, size_t size) const {¤	memset (buf, 0, sizeof size);¤	return m_mail_stream.recv (buf, size - 1, &m_timeout);¤}¤¤const static char* const default_encoding = "windows-1251";¤¤SMTPMessage::SMTPMessage (¤	const std::string& from¤	, const std::string& to¤	, const std::string& data¤) :	m_from(from), m_to(to), m_data(data)¤	, m_data_from(""), m_data_to(""), m_subject("")¤	, m_encoding(default_encoding)¤{¤}¤¤void SMTPMessage::add_to_data (const std::string& data_chunk, bool to_end) {¤	if (to_end) {¤		m_data += data_chunk;¤	} else {¤		m_data = data_chunk + m_data;¤	}¤}¤¤std::string SMTPMessage::recode (const std::string& to_recode) {¤	std::ostringstream ret;¤	for (size_t i = 0; i < to_recode.length (); i++) {¤		unsigned int character = static_cast<unsigned char> (to_recode[i]);¤		ret << "=" << std::hex << character;¤	}¤	return ret.str ();¤}¤¤/*¤int main (int argc, char *argv[]) {¤	ACE::init ();¤¤	SMTPServer s ("smtp.garant.ru");¤	SMTPMessage m ("dolgop@garant.ru", "evg_dolgop@mail.ru");¤	m.data_from ("Evgeny <dolgop@mccinet.ru>");¤	m.data_to ("Dolgopyat <evg_dolgop@mail.ru>");¤	m.subject ("Test - ïèñüìî");¤	m.data ("FirstString");¤	m.add_to_data ("\n");¤	m.add_to_data ("Âòîðàÿ ñòðîêà");¤	s.send_message (m);¤¤	ACE::fini ();¤¤	return 0;¤}¤*/¤//#UC END# *4503D994032C*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"ifdef"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/GCL/network/smtp_service.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/GCL/network/smtp_service.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/smtp_service|4503D994032C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16657792770"))
+	    quid       	"4503D994032C"
+	    documentation 	"ïðåäîñòàâëÿåò ïðîñòîé èíòåðôåéñ äëÿ îòïðàâêè ïî÷òû ñ ïîìîùüþ SMTP ïðîòîêîëà"
+	    stereotype 	"UtilityPack"
+	    language   	"MDA Generator")
+	(object Class "common_network_operations"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"ifdef"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45753171035B_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *45753171035B_CUSTOM_INCLUDES*¤#include "ace/INET_Addr.h"¤//#UC END# *45753171035B_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45753171035B*"
+		    value      	"//#UC START# *45753171035B*¤//#UC END# *45753171035B*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*45753171035B_USER_INCLUDES*"
+		    value      	"//#UC START# *45753171035B_USER_INCLUDES*¤//#UC END# *45753171035B_USER_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*45753171035B_USER_DEFINITION*"
+		    value      	"//#UC START# *45753171035B_USER_DEFINITION*¤//#UC END# *45753171035B_USER_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/GCL/network/common_network_operations.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/GCL/network/common_network_operations.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NESTED GENERATED WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations/CantGetIpList|457536350128::457536350128;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations/CantGetIpList|457536350128::457536350128;Shared (java/c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations/CantGetIpList|457536350128::457536350128
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations|45753171035B
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16657793324"))
+	    quid       	"45753171035B"
+	    documentation 	"Îáùèå ôóíêöèè äëÿ ðàáîòû ñ ñåòüþ"
+	    stereotype 	"UtilityPack"
+	    operations 	(list Operations
+		(object Operation "is_ip_adresses_configured"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*457531C60280*"
+			    value      	(value Text 
+|//#UC START# *457531C60280*¤	Core::Aptr<ACE_INET_Addr, Core::ArrayDeleteDestructor<ACE_INET_Addr> > addrs (0);¤	size_t count = 0;¤	if (ACE::get_ip_interfaces (count, addrs.out ()) < 0) {¤		LOG_E (("%s: auto_test failed, bad list of ip interfaces", GDS_CURRENT_FUNCTION));¤		throw CantGetIpList ();¤	} else {¤		for (size_t i = 0; i < count; ++i) {¤			if (!addrs.ptr ()[i].is_loopback ()) {¤				return true;¤			}¤		}¤	}¤¤	return false;¤	//#UC END# *457531C60280*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"457536350128")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657794164"))
+		    quid       	"457531C60280"
+		    documentation 	"Âîçâðàùàåò true, åñëè íà ìàøèíå íàñòðîåíû ip-àäðåñà, îòëè÷íûå îò loopback èíòåðôåéñà"
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "CantGetIpList"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"5BD9D9D8-387F-4853-88C0-7A4CB1D5AFCD")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/GCL/network/common_network_operations/CantGetIpList|457536350128
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*457536350128_WHAT_IMPL*"
+			    value      	(value Text 
+|//#UC START# *457536350128_WHAT_IMPL*¤	return "CantGetIpList (Íå ñìîãëè ïîëó÷èòü ñïèñîê àéïèøíèêîâ)";¤	//#UC END# *457536350128_WHAT_IMPL*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16662260602"))
+		    quid       	"457536350128"
+		    documentation 	"Íå ñìîãëè ïîëó÷èòü ñïèñîê àéïèøíèêîâ"
+		    stereotype 	"Exception"))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272"))
+	    quid       	"4503D57700AB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::GCL::network::smtp_service" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"396")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"213")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"318")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"184"))
+		    location   	(396, 213)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(246, 183)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• smtp_service")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(246, 133)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"4503D994032C"
+		    width      	318
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCL::network::common_network_operations" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"597")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"576")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"752")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"242"))
+		    location   	(597, 576)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(230, 517)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	734
+			justify    	0
+			label      	"• common_network_operations")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(230, 467)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	734
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"45753171035B"
+		    width      	752
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCL::network::common_network_operations::CantGetIpList" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"516")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"1002")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"542")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"230"))
+		    location   	(516, 1002)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(254, 949)
+			nlines     	1
+			max_width  	524
+			justify    	0
+			label      	"CantGetIpList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(254, 899)
+			anchor     	10
+			nlines     	1
+			max_width  	524
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"457536350128"
+		    width      	542
+		    height     	230
+		    annotation 	8
+		    autoResize 	TRUE)))))

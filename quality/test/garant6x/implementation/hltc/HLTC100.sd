@@ -1,0 +1,1003 @@
+uses common, States, RunPrograms, SettingsWork, Clicks, MenuWork,
+		 DocumentWork, SearchWork, FoldersWork, ListWork;
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//                       HLTC100: Настройка системы
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+const NAME = 'CHECK_100_2_6';
+
+//////////////////////////////////////
+{
+HLTC100.1: Список конфигураций
+  HLTC100.1.1: Список конфигураций доступен вызовом из пункта меню «Вид\Список конфигураций», 
+    при этом в навигаторе создаётся закладка (если её не было) и становится активной.
+  HLTC100.1.2: Должны быть предустановленные конфигурации:
+  HLTC100.1.2.1: «Основная»
+  HLTC100.1.2.2: «Расширенная»
+  HLTC100.1.4: Проверить, что доступны операции над конфигурациями в панели «Конфигурации» 
+    (операции должны быть доступны как на тулбаре, так и из контекстного меню):
+  HLTC100.1.3: Проверить навигацию по списку конфигураций.
+}
+function HLTC100_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  conf, i;
+begin                                
+try
+  Result := true;
+  conf := [CONFIGURATION_STANDART, CONFIGURATION_LIGHT];
+  for i := VarArrayLowBound(conf,1) to VarArrayHighBound(conf,1) do
+    if not SelectConfiguration(conf[i], true) then
+      Result := ErrorResult('Не получилось переключить конфигурацию на ' + conf[i] + ' из вкладки Конфигурации');
+
+  for i := VarArrayLowBound(conf,1) to VarArrayHighBound(conf,1) do
+    if not SelectConfiguration(conf[i]) then
+      Result := ErrorResult('Не получилось переключить конфигурацию на ' + conf[i]);
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC100.1.4: Проверить, что доступны операции над конфигурациями в панели «Конфигурации»
+  (операции должны быть доступны как на тулбаре, так и из контекстного меню):
+  HLTC100.1.4.6: Создать новую конфигурацию,проверить удаление
+  HLTC100.1.4.6.1: Выбрать команду «Удалить» из контекстного меню или нажать кнопку
+    на тулбаре - удаляет непредустановленную конфигурацию
+  HLTC100.1.4.6.2: Опять создать новую конфигурацию, сделать её активной и проверить,
+    что её нельзя удалить никаким способом.
+  HLTC100.1.4.4: Копировать – создаётся новая конфигурация, в неё копируются параметры текущей (выделенной) конфигурации, 
+    загружается на редактирование.
+  HLTC100.1.5: Проверить, что активная конфигурация в панели «Конфигурации» визуально выделена.    
+}
+function HLTC100_1_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC100_1_4';
+var
+  i, w, buttNames, toolbar;
+begin
+try
+  buttNames := ['Сделать активной', 'Редактировать', 'Копировать', 'Восстановить все', 'Записать по*', 'Удалить*'];
+
+  if not RestartF1Shell(3, Options.Run.Timeout div 6, LOGINNAME, LOGINNAME) then
+    Raise('Не получилось перегрузить оболочку с логином "' + LOGINNAME + '"');
+
+  if not SelectConfiguration(CONFIGURATION_STANDART, true) then
+    Raise('Не получилось выбрать конфигурацию "' + CONFIGURATION_STANDART + '"');
+    
+  w := OpenConfigurationsTab;
+  toolbar := GetFromNavigator('ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"');
+  if not IsExists(toolbar) then
+    Raise('Не найден ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"');
+          
+  for i := VarArrayLowBound(buttNames, 1) to VarArrayHighBound(buttNames, 1) do
+    if not IsExists(GetToolbarButton(toolbar, buttNames[i])) then
+      Result := ErrorResult('Не найдена кнопка "' + buttNames[i] + '" на тулбаре "КОНФИГУРАЦИИ (ВКЛАДКА)"');
+      
+  if not CopyConfiguration(CONFIGURATION_STANDART) then
+    Raise('Не получилось скопировать конфигурацию "' + CONFIGURATION_STANDART + '"');
+  if not DeleteConfiguration('Копия ' + CONFIGURATION_STANDART) then
+    Raise('Не получилось удалить конфигурацию "Копия ' + CONFIGURATION_STANDART + '"');
+
+  if not CopyConfiguration(CONFIGURATION_STANDART ) then
+    Raise('Не получилось скопировать конфигурацию "' + CONFIGURATION_STANDART + '"');
+  if not SelectConfiguration('Копия ' + CONFIGURATION_STANDART, true) then
+    Raise('Не получилось активизировать конфигурацию "Копия ' + CONFIGURATION_STANDART + '"');
+
+  Result := (not DeleteConfiguration('Копия ' + CONFIGURATION_STANDART )) 
+            and (not IsButtonEnabled(GetToolbarButton(GetFromNavigator('ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"'), 'Удалить*')))
+            and (not IsPopupMenuItemExists(w, 'Удалить*'));
+  if not Result then
+    Raise('Функция "Удалить" активна для скопированной конфигурации!');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CloseF1Shell;
+end;
+
+{
+  HLTC100.1.4.5: Проверить, что операция «Сделать активной» доступна только для неактивной конфигурации. 
+}
+function HLTC100_1_4_5_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  if not SelectConfiguration(CONFIGURATION_STANDART, true) then
+    Raise('Не получилось выбрать конфигурацию "' + CONFIGURATION_STANDART + '"');
+
+  if not Position_Internal(OpenConfigurationsTab, CONFIGURATION_LIGHT + '*', DELIM_CHAR, true) then
+	  Raise('Не найдена конфигурация "' + CONFIGURATION_LIGHT + '"');
+  if not IsButtonEnabled(GetToolbarButton(GetFromNavigator('ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"'), 'Сделать активной')) then
+    Result := ErrorResult('Кнопка "Сделать активной" НЕ активна для выбранной непримененной конфигурации');
+
+  if not Position_Internal(OpenConfigurationsTab, CONFIGURATION_STANDART + '*', DELIM_CHAR, true) then
+	  Raise('Не найдена конфигурация "' + CONFIGURATION_STANDART + '"');
+  if IsButtonEnabled(GetToolbarButton(GetFromNavigator('ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"'), 'Сделать активной')) then
+    Result := ErrorResult('Кнопка "Сделать активной" активна для выбранной уже примененной конфигурации');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC100.1.7: Проверить, что все новые конфигурации, созданные пользователем сохраняются в пользовательском профиле. Т.е, при последующем сеансе эти конфигурации доступны.
+  HLTC100.2.2: Проверить, что есть возможность изменить имя конфигурации (только для новых, непредуставновленных конфигураций)
+  HLTC100.2.10: Проверить, что при задании неуникального имени конфигурации система выдаёт сообщение что конфигурация с таким именем существует.
+}
+function HLTC100_1_7_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC100_1_7';
+begin
+try
+  Result := true;
+  if not RestartF1Shell(3, Options.Run.Timeout div 6, LOGINNAME, LOGINNAME) then
+    Raise('Не получилось перегрузить оболочку с логином "' + LOGINNAME + '"');
+  if not CopyConfiguration(CONFIGURATION_STANDART) then
+    Raise('Не получилось скопировать конфигурацию "' + CONFIGURATION_STANDART + '"');
+  if not SelectConfiguration('Копия ' + CONFIGURATION_STANDART, true) then
+    Raise('Не получилось активировать конфигурацию "Копия ' + CONFIGURATION_STANDART + '"');
+    
+  if SetSettings(
+    [
+      (['КОНФИГУРАЦИЯ', 'НАЗВАНИЕ КОНФИГУРАЦИИ [EDIT]', CONFIGURATION_STANDART])
+    ]) then
+    Result := ErrorResult('Получилось изменить имя скопированной конфигурации на уже существующую "' + CONFIGURATION_STANDART + '"');
+  if not SetSettings(
+    [
+      (['КОНФИГУРАЦИЯ', 'НАЗВАНИЕ КОНФИГУРАЦИИ [EDIT]', LOGINNAME])
+    ]) then
+    Raise('Не получилось изменить имя скопированной конфигурации');
+
+  if not RestartF1Shell(3, Options.Run.Timeout div 6, LOGINNAME, LOGINNAME) then
+    Raise('Не получилось перегрузить оболочку с логином "' + LOGINNAME + '"');
+  if not SelectConfiguration(CONFIGURATION_LIGHT, true) then
+    Raise('Не получилось выбрать конфигурацию "' + CONFIGURATION_LIGHT + '"');
+  if not DeleteConfiguration(LOGINNAME) then
+    Raise('После перезапуска оболочки НЕ получилось найти и удалить конфигурацию "' + LOGINNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CloseF1Shell;
+end;
+
+{
+HLTC100.1.4.2: Редактировать – загружает окно редактирования
+HLTC100.1.6: Проверить, что конфигурация, в которую внесли изменения визуально выделена в списке конфигураций (красная «звёздочка» рядом с иконкой конфигурации).
+
+HLTC100.2: Редактирование конфигураций.
+HLTC100.2.1: Действие «Редактировать» должно быть доступно:
+HLTC100.2.1.1:  по кнопке в тулбаре – редактирование выделенной конфигурации.
+HLTC100.2.1.2:  из контекстного меню – редактирование выделенной конфигурации.
+HLTC100.2.1.3:  Пункт меню «Файл\Настройка конфигураци...» - редактирование текущей активной конфигурации
+HLTC100.2.4.1: Проверить, что при активация действия «Записать по умолчанию» появляется предупреждение
+HLTC100.2.4.2: Проверить, что текущие параметры записались параметрами по умолчанию, для этого см. HLTC100.2.5 (предварительно выйти из редактирования, а потом опять войти).
+
+HLTC100.2.5: Проверить, что доступна операция «Восстановить»:
+HLTC100.2.5.1: При активации вместо текущих параметров загружаются параметры, записанные в качестве настроек по-умолчанию.
+HLTC100.2.5.2: Проверить, что выдаётся предупреждение при попытке восстановить значения по умолчанию.
+HLTC100.2.5.3: Проверить, что если конфигурация не изменялась, то операция недоступна
+
+HLTC100.2.3: Проверить, что при отображении настраиваемых параметров система структурирует их по группам показывая название текущей конфигурации, названия входящих в неё групп и значения параметров.
+HLTC100.2.7: Проверить, что редактировать можно не только вновь созданные, но и предустановленные конфигурации.
+HLTC100.2.11: В окне редактирования конфигурации должна быть возможность свернуть/развернуть отдельную группу параметров
+HLTC100.2.13: Проверить, что при редактировании конфигурации, если нажать кнопку «ОК» - система записывает все изменения, и, если конфигурация является активной изменения применяются к объектам системы. Окно редактирования закрывается.
+}
+function CloseSettingsWindow: boolean;
+var
+  w;
+begin
+try
+  w := GetFromSettings('ФОРМА "НАСТРОЙКИ"');
+  if not IsExists(w) then
+    Raise('Окно "НАСТРОЙКИ" не найдено');
+  if not ClickToolbarButton(GetFromSettings('НИЖНИЙ ТУЛБАР'), 'Отмена') then
+    Raise('Не получилось кликнуть по кнопке "Отмена"');
+  Result := not IsExists(w);
+  if not Result then
+    Raise('Окно "НАСТРОЙКИ" не закрылось!');  
+except
+  Result := False;
+  Log.Error('CloseSettingsWindow: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function HLTC100_2_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  OLD_VALUE = '12';
+  NEW_VALUE = '8';
+var
+  sets, value;
+begin
+try
+  Result := true;
+  if not SelectConfiguration(CONFIGURATION_STANDART, true) then
+    Raise('Не получилось выбрать конфигурацию "' + CONFIGURATION_STANDART + '"');
+
+  if not IsExists(OpenConfigurationsTab) then
+    Raise('Не получилось открыть вкладку Конфигурации');
+  if not ClickToolbarButton(GetFromNavigator('ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"'), 'Редактировать') then
+    Raise('Не получилось кликнуть по кнопке "Редактировать" на ТУЛБАРЕ "КОНФИГУРАЦИИ"');
+  if not CloseSettingsWindow then Raise;
+  if not OpenAndClickByPopUpMenuItem(OpenConfigurationsTab(false), 'Редактировать') then
+    Raise('Не получилось кликнуть по пункту попапменю "Редактировать"');
+  if not CloseSettingsWindow then
+    Result := ErrorResult;
+
+  //HLTC100.2.4.1
+  if not CopyConfiguration(CONFIGURATION_STANDART) then
+    Raise('Не получилось скопировать конфигурацию "' + CONFIGURATION_STANDART + '"');
+  if not SelectConfiguration('Копия ' + CONFIGURATION_STANDART, true) then
+    Raise('Не получилось активировать конфигурацию "Копия ' + CONFIGURATION_STANDART + '"');
+  if not SetSettings(
+    [
+    (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ В ИСТОРИИ [EDIT]', OLD_VALUE])
+    ]) then
+    Raise('Не получилось изменить Настройки');
+
+  if not SelectConfiguration('Копия ' + CONFIGURATION_STANDART, true) then
+    Raise('Не получилось активировать конфигурацию "Копия ' + CONFIGURATION_STANDART + '"');
+  if not CheckSelectedListItemIcon(OpenConfigurationsTab(false), 'settings_modified.bmp') then
+    Result := ErrorResult('Не найдена "красная звездочка" для модифицированной конфигурации');
+
+  if not OpenAndClickByPopUpMenuItem(OpenConfigurationsTab(false), 'Записать по умолчани*') then
+    Raise('Не получилось кликнуть по пункту попапменю "Записать по умолчанию"');
+  if WaitForConfirmationWindow(Options.Run.Timeout div 30, 'Да', '*записать*') = '' then
+    Result := ErrorResult('Окно подтверждения "Записать настройки по умолчанию" не найдено');
+  if not SetSettings(
+    [
+    (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ В ИСТОРИИ [EDIT]', NEW_VALUE])
+    ]) then
+    Raise('Не получилось изменить Настройки');
+  if not ClickToolbarButton(GetFromNavigator('ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"'), 'Восстан*вс*') then
+    Raise('Не получилось кликнуть по кнопке на тулбаре "Восстанавливает положения всех окон..."');
+  if WaitForConfirmationWindow(Options.Run.Timeout div 30, 'Да', '*восстановить*') = '' then
+    Raise('Окно подтверждения "Восстановить значения по умолчанию" не найдено');
+
+  if not IsButtonEnabled(GetToolbarButton(GetFromNavigator('ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"'), 'Восстан*вс*')) then
+    Result := ErrorResult('Кнопка "Восстанавливает положения всех окон..." не активна после восстановления конфигурации');
+
+  //HLTC100.2.4.2
+  sets := GetSettings([ (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ В ИСТОРИИ [EDIT]']) ]);
+  value := GetFromSettingsArr(sets, 'НАСТРОЙКИ ИНТЕРФЕЙСА', 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ В ИСТОРИИ [EDIT]');
+  if value <> OLD_VALUE then
+    Result := ErrorResult('После восстановления настроек не сохранилось значение, записанное по умолчанию. Ожидалось: "' + OLD_VALUE + '", в настроках "' + value + '"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  SelectConfiguration(CONFIGURATION_STANDART);
+  DeleteConfiguration('Копия ' + CONFIGURATION_STANDART);
+  GoToMainMenu;
+end;
+
+/////////////////////////////////////
+Procedure SetSettingsForTests(var arr: OleVariant; IsVisible: boolean);
+const
+  FUNCTION_NAME = 'SetSettingsForTests: ';
+var 
+  i:integer;
+  tmp: OleVariant;
+begin
+  for i := VarArrayLowBound(arr,1) to VarArrayHighBound(arr,1) do
+  begin
+    tmp := arr[i];
+    tmp[VarArrayHighBound(arr[i],1)] := IsVisible;  
+    arr[i] := tmp;
+  end;
+   
+  if not SetSettings(arr) then
+    Raise(FUNCTION_NAME + 'Не получилось изменить Настройки'); //выкидываем исключение наружу
+
+  Log.Message(FUNCTION_NAME + 'Настройки установлены в состояние [' + Bool2Str(IsVisible) + ']');
+end;
+
+{
+HLTC100.2.6.34: Изменить Списки документов\Сортировка по умолчанию\Тип сортировки ,нажать ОК. Проверить, что теперь при открытии списка, если он получен не загрузкой из папок, он отсортирован по типу, указанному в настройках :
+  HLTC100.2.6.34.1: По юридической силе
+HLTC100.2.6.36: Изменить Списки документов\Сортировка по умолчанию\Порядок сортировки, нажать ОК. Проверить, что теперь при открытии списка он отсортирован в  направлении, указанном в настройках:  
+  HLTC100.2.6.36.2:  По убыванию
+}
+function  HLTC100_2_6_34_1: boolean;
+var 
+  listTree;
+  listDefaultArray;
+  listCurrentArray;      
+  LISTPATH1;
+begin
+	LISTPATH1 := PNAV + '\Законодательство об обороне\Общие вопросы обороны';
+  //
+  listDefaultArray :=
+    [
+    'Протокол к Соглашению об обеспечении радиолокационного опознавания воздушных, надводных и наземных объектов, оснащенных ответчиками опознавания системы "Пароль", от 26 июня 1992 года (Минск, 4 июня 1999 г.)',
+    'Соглашение об обеспечении радиолокационного опознавания воздушных, надводных и наземных объектов, оснащенных ответчиками опознавания системы "Пароль" (Минск, 26 июня 1992 г.) (с изменениями от 4 июня 1999 г.)',
+    'Воздушный кодекс РФ от 19 марта 1997 г. N 60-ФЗ (с изм. и доп. от 8 июля 1999 г.)',
+    'Земельный кодекс Российской Федерации от 25 октября 2001 г. N 136-ФЗ',
+    'Федеральный закон от 26 мая 1997 г. N 85-ФЗ "О ратификации Договора между Российской Федерацией и Республикой Армения о российской военной базе на территории Республики Армения"',
+    'Федеральный закон от 23 июня 1995 г. N 93-ФЗ "О порядке предоставления Российской Федерацией военного и гражданского персонала для участия в деятельности по поддержанию или восстановлению международного мира и безопасности"',
+    'Закон РСФСР от 19 декабря 1991 г. N 2060-I "Об охране окружающей природной среды" (с изм. и доп. от 21 февраля 1992 г. и 2 июня 1993 г., 27 декабря 2000 г., 10 июля 2001 г., 30 декабря 2001 г.)',
+    'Программа действий Российской Федерации и Республики Беларусь по реализации положений Договора о создании Союзного государства (Москва, 8 декабря 1999 г.)'
+    ];
+  //
+	Result := false;
+  //Включаем сортировку в настройках по юридич. силе, убыван.
+  SetSettings([ (['СПИСКИ ДОКУМЕНТОВ', 'СОРТИРОВКА ПО УМОЛЧАНИЮ\ТИП СОРТИРОВКИ [COMBOBOX]', SORT_BY_JUROR_STRENGTH]) ]);
+  SetSettings([ (['СПИСКИ ДОКУМЕНТОВ', 'СОРТИРОВКА ПО УМОЛЧАНИЮ\ПОРЯДОК СОРТИРОВКИ [COMBOBOX]', SORT_DESCENDING + ' значений']) ]);  
+  //переходим из плоского классификатора на ветку рубрикатора 
+  if (OpenObjectFromFolder(LISTPATH1, OpenMenuTab)) then
+  begin
+    listTree := GetList;     
+    listTree.SetFocus;
+    //Сравниваем списки
+    ListCurrentArray := GetElementsFromTree(listTree);		
+    Result := CompareArray(listDefaultArray, listCurrentArray, true);
+    //
+    if not Result then
+    	Log.Error('Неправильно работает СОРТИРОВКА списка, см. выше результат функции "CompareArray"' );
+    
+    CollapseTreeInNavigator(LISTPATH1);
+  end
+  else
+		Log.Error('Не найден элемент: "' + LISTPATH1 + '"');      	
+  GoToMainMenu;
+end;
+
+{
+HLTC100.2.6.34: Изменить Списки документов\Сортировка по умолчанию\Тип сортировки ,нажать ОК. Проверить, что теперь при открытии списка, если он получен не загрузкой из папок, он отсортирован по типу, указанному в настройках :
+  HLTC100.2.6.34.2: По дате издания 
+HLTC100.2.6.36: Изменить Списки документов\Сортировка по умолчанию\Порядок сортировки, нажать ОК. Проверить, что теперь при открытии списка он отсортирован в  направлении, указанном в настройках:  
+  HLTC100.2.6.36.1:  По возрастанию
+}
+function  HLTC100_2_6_34_2: boolean;
+var 
+  listTree;
+  listDefaultArray;
+  listCurrentArray;      
+  LISTPATH1;
+begin
+	LISTPATH1 := PNAV + '\Законодательство об обороне\Общие вопросы обороны';
+  //
+  listDefaultArray :=
+    [
+    'Закон РСФСР от 19 декабря 1991 г. N 2060-I "Об охране окружающей природной среды" (с изм. и доп. от 21 февраля 1992 г. и 2 июня 1993 г., 27 декабря 2000 г., 10 июля 2001 г., 30 декабря 2001 г.)',
+    'Соглашение об обеспечении радиолокационного опознавания воздушных, надводных и наземных объектов, оснащенных ответчиками опознавания системы "Пароль" (Минск, 26 июня 1992 г.) (с изменениями от 4 июня 1999 г.)',
+    'Федеральный закон от 23 июня 1995 г. N 93-ФЗ "О порядке предоставления Российской Федерацией военного и гражданского персонала для участия в деятельности по поддержанию или восстановлению международного мира и безопасности"',
+    'Воздушный кодекс РФ от 19 марта 1997 г. N 60-ФЗ (с изм. и доп. от 8 июля 1999 г.)',
+    'Федеральный закон от 26 мая 1997 г. N 85-ФЗ "О ратификации Договора между Российской Федерацией и Республикой Армения о российской военной базе на территории Республики Армения"',
+    'Протокол к Соглашению об обеспечении радиолокационного опознавания воздушных, надводных и наземных объектов, оснащенных ответчиками опознавания системы "Пароль", от 26 июня 1992 года (Минск, 4 июня 1999 г.)',
+    'Программа действий Российской Федерации и Республики Беларусь по реализации положений Договора о создании Союзного государства (Москва, 8 декабря 1999 г.)',
+    'Земельный кодекс Российской Федерации от 25 октября 2001 г. N 136-ФЗ'
+    ];
+  //
+	Result := false;
+  //Включаем сортировку в настройках по юридич. силе, убыван.
+  SetSettings([ (['СПИСКИ ДОКУМЕНТОВ', 'СОРТИРОВКА ПО УМОЛЧАНИЮ\ТИП СОРТИРОВКИ [COMBOBOX]', SORT_BY_PUBLICATION_DATE]) ]);
+  SetSettings([ (['СПИСКИ ДОКУМЕНТОВ', 'СОРТИРОВКА ПО УМОЛЧАНИЮ\ПОРЯДОК СОРТИРОВКИ [COMBOBOX]', SORT_ASCENDING + ' значений']) ]);  
+  //переходим из плоского классификатора на ветку рубрикатора 
+  if (OpenObjectFromFolder(LISTPATH1, OpenMenuTab)) then
+  begin
+    listTree := GetList;     
+    listTree.SetFocus;
+    //Сравниваем списки
+    ListCurrentArray := GetElementsFromTree(listTree);		
+    Result := CompareArray(listDefaultArray, listCurrentArray, true);
+    //
+    if not Result then
+    	Log.Error('Неправильно работает СОРТИРОВКА списка, см. выше результат функции "CompareArray"' );
+    
+    CollapseTreeInNavigator(LISTPATH1);    
+  end
+  else
+		Log.Error('Не найден элемент: "' + LISTPATH1 + '"');      	
+  GoToMainMenu;
+end;
+
+{
+HLTC100.2.6.34: Изменить Списки документов\Сортировка по умолчанию\Тип сортировки ,нажать ОК. Проверить, что теперь при открытии списка, если он получен не загрузкой из папок, он отсортирован по типу, указанному в настройках :
+  HLTC100.2.6.34.3: По дате последнего изменения 
+HLTC100.2.6.36: Изменить Списки документов\Сортировка по умолчанию\Порядок сортировки, нажать ОК. Проверить, что теперь при открытии списка он отсортирован в  направлении, указанном в настройках:  
+  HLTC100.2.6.36.1:  По возрастанию  
+}
+function  HLTC100_2_6_34_3: OleVariant;
+var 
+  listTree;
+  listDefaultArray;
+  listCurrentArray;      
+  LISTPATH1;
+begin
+	LISTPATH1 := PNAV + '\Законодательство об обороне\Общие вопросы обороны';
+  //
+  listDefaultArray :=
+    [
+    'Соглашение об обеспечении радиолокационного опознавания воздушных, надводных и наземных объектов, оснащенных ответчиками опознавания системы "Пароль" (Минск, 26 июня 1992 г.) (с изменениями от 4 июня 1999 г.)',
+    'Закон РСФСР от 19 декабря 1991 г. N 2060-I "Об охране окружающей природной среды" (с изм. и доп. от 21 февраля 1992 г. и 2 июня 1993 г., 27 декабря 2000 г., 10 июля 2001 г., 30 декабря 2001 г.)',
+    'Федеральный закон от 23 июня 1995 г. N 93-ФЗ "О порядке предоставления Российской Федерацией военного и гражданского персонала для участия в деятельности по поддержанию или восстановлению международного мира и безопасности"',
+    'Воздушный кодекс РФ от 19 марта 1997 г. N 60-ФЗ (с изм. и доп. от 8 июля 1999 г.)',
+    'Федеральный закон от 26 мая 1997 г. N 85-ФЗ "О ратификации Договора между Российской Федерацией и Республикой Армения о российской военной базе на территории Республики Армения"',
+    'Протокол к Соглашению об обеспечении радиолокационного опознавания воздушных, надводных и наземных объектов, оснащенных ответчиками опознавания системы "Пароль", от 26 июня 1992 года (Минск, 4 июня 1999 г.)',
+    'Программа действий Российской Федерации и Республики Беларусь по реализации положений Договора о создании Союзного государства (Москва, 8 декабря 1999 г.)',
+    'Земельный кодекс Российской Федерации от 25 октября 2001 г. N 136-ФЗ'
+    ];
+  //
+	Result := false;
+  //Включаем сортировку в настройках по юридич. силе, убыван.
+  SetSettings([ (['СПИСКИ ДОКУМЕНТОВ', 'СОРТИРОВКА ПО УМОЛЧАНИЮ\ТИП СОРТИРОВКИ [COMBOBOX]', SORT_BY_EDITION_DATE]) ]);
+  SetSettings([ (['СПИСКИ ДОКУМЕНТОВ', 'СОРТИРОВКА ПО УМОЛЧАНИЮ\ПОРЯДОК СОРТИРОВКИ [COMBOBOX]', SORT_ASCENDING + ' значений']) ]);  
+  //переходим из плоского классификатора на ветку рубрикатора 
+  if (OpenObjectFromFolder(LISTPATH1, OpenMenuTab)) then
+  begin
+    listTree := GetList;     
+    listTree.SetFocus;
+    //Сравниваем списки
+    ListCurrentArray := GetElementsFromTree(listTree);		
+    Result := CompareArray(listDefaultArray, listCurrentArray, true);
+    //
+    if not Result then
+    	Log.Error('Неправильно работает СОРТИРОВКА списка, см. выше результат функции "CompareArray"' );
+    
+    CollapseTreeInNavigator(LISTPATH1);    
+  end
+  else
+		Log.Error('Не найден элемент: "' + LISTPATH1 + '"');      	
+  GoToMainMenu;
+end;
+
+{
+HLTC100.2.6: Создать новую конфигурацию (копированием) и сделать её активной (кнопка на панели инструментов). Проверить, что изменение настроек отражается в системе:
+  HLTC100.2.6.2: Изменить Документ\Вкладки\Редакции, нажать ОК (Для проверки – в тестовой базе документ с редакциями – Alt-N 8901001)
+    HLTC100.2.6.2.1: Если флаг установлен, то при последующем открытии документа, если у него есть редакции, то в навигаторе автоматически создастся соответствующая вкладка.
+    HLTC100.2.6.2.2: Если флаг не установлен, то при последующем открытии документа, вкладка с редакциями не будет создаваться автоматически.
+  HLTC100.2.6.7: Изменить Документ\Показывать вкладку с текстом предупреждения, нажать ОК:
+    HLTC100.2.6.7.1: Если флаг установлен, то при последующем открытии документа, если есть предупреждения, то они будут показаны автоматически (вкладка «Предупреждени» в документе активна) – можно проверить на документе №9001001
+    HLTC100.2.6.7.2: Если флаг не установлен, то при последующем открытии документа, если есть предупреждения, то они не будут показаны автоматически (вкладка «Предпреждение» в документе неактивна) - можно проверить на документе №9001001
+
+  HLTC100.2.6.8: Изменить Документ\Открывать ссылки в новом окне, нажать ОК:
+    HLTC100.2.6.8.1: Если флаг установлен, то при при переходе на документ по ссылке, он будет открыт в новом окне (проверить, переход по внутренним и внешним ссылкам, тоже самое из синхронного просмотра документа в списке)
+    HLTC100.2.6.8.2: Если флаг неустановлен, то при при переходе на документ по ссылке, он будет открыт в текущем окне (проверить, переход по внутренним и внешним ссылкам)
+
+  HLTC100.2.6.4: Изменить Документ\Вкладки\Структура документа, нажать ОК :  
+    HLTC100.2.6.4.1: Если флаг установлен, то при последующем открытии документа (находится по поиску Тип: «кодекс», контекст «трудовой»), если у него есть оглавление, то в навигаторе автоматически создастся соответствующая вкладка.
+    HLTC100.2.6.4.2: Если флаг не установлен, то при последующем открытии документа, вкладка с оглавлением не будет создаваться автоматически.  
+}
+function CHECK_2_6_2i7(
+  var arr: OleVariant;
+  editor: OleVariant;
+  IsVisible: boolean
+  ): boolean;
+var
+  conf, i, tmp;
+  p, mw, w1, w2;
+begin                                
+try
+  Result := true;
+
+  SetSettingsForTests(arr, IsVisible);
+
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ 8901001');
+
+  if IsExists(GetFromEditor('ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ"')) xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "ПОКАЗЫВАТЬ ВКЛАДКУ С ТЕКСТОМ ПРЕДУПРЕЖДЕНИЙ  [CHECKBOX]"');
+ 
+  if IsExists(GetFromEditor('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"')) xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "ВКЛАДКИ\РЕДАКЦИИ [CHECKBOX]"');
+
+  if not ClickByHyperLink(GetEditor, 'ссылка на блок 2001.10') then
+    Result := ErrorResult('Не получилось кликнуть по ссылке');  
+  p := GetF1ShellProcess; mw := GetMainWindow;
+  w1 := p.WaitWindow(mw.WndClass, '*',1,Options.Run.Timeout div 30);
+  w2 := p.WaitWindow(mw.WndClass, '*',2,Options.Run.Timeout div 30);
+  tmp := IsExists(w1) and IsExists(w2);
+  if tmp then
+  begin
+    if StringCompare('*документ 2001*', w1.Caption) then
+      w1.Close
+    else
+      w2.Close;
+  end;
+  if tmp xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "ОТКРЫВАТЬ ССЫЛКИ В НОВОМ ОКНЕ [CHECKBOX]"');
+  //
+  if not OpenDocByNumber(2001) then
+    Result := ErrorResult('Не получилось открыть документ 2001, для проверки Структуры документа');
+  if SwitchToNavigatorPage('Структура документа') xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "ПОВЕДЕНИЕ СИСТЕМЫ\ВКЛАДКИ\СТРУКТУРА ДОКУМЕНТА [CHECKBOX]"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function HLTC100_2_6_2i7: boolean;
+var
+  conf, i, arr;
+begin                                
+try
+  Result := true;
+
+  arr :=
+    [
+    (['ДОКУМЕНТ', 'ПОКАЗЫВАТЬ ВКЛАДКУ С ТЕКСТОМ ПРЕДУПРЕЖДЕНИЙ [CHECKBOX]', false]),
+    (['ДОКУМЕНТ', 'ВКЛАДКИ\РЕДАКЦИИ [CHECKBOX]', false]),
+    (['ДОКУМЕНТ', 'ОТКРЫВАТЬ ССЫЛКИ В НОВОМ ОКНЕ [CHECKBOX]', false]),
+    (['ДОКУМЕНТ', 'ВКЛАДКИ\СТРУКТУРА ДОКУМЕНТА [CHECKBOX]', false])  
+    ];
+  Result := CHECK_2_6_2i7(arr, GetEditor, false) and Result;
+  Result := CHECK_2_6_2i7(arr, GetEditor, true) and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+HLTC100.2.6.30: Изменить Поведение системы\Начало работы ,нажать ОК:
+  HLTC100.2.6.30.1: Основное меню – в начале работы пользователю в основной области будет показано основное меню
+  HLTC100.2.6.30.2: Поиск по реквизитам – в начале работы пользователю в основной области будет показан ППР
+  HLTC100.2.6.30.3: Поиск по ситуации – в начале работы пользователю в основной области будет показан ППС
+  HLTC100.2.6.30.4: Правовой навигатор – в начале работы пользователю в основной области будет показан Классификатор документов (тоже, что при переходе Правовой навигатор\Документы)
+
+HLTC100.2.6.31: Изменить Поведение системы\Вкладки\Конфигурация ,нажать ОК:
+  HLTC100.2.6.31.1: Если флаг установлен, то в начале работы создаётся закладка «Конфигурация» в навигаторе
+  HLTC100.2.6.31.2: Если флаг не установлен, то в начале работы не создаётся закладка «Конфигурация» в навигаторе
+HLTC100.2.6.32: Изменить Поведение системы\Вкладки\Основное меню ,нажать ОК:
+  HLTC100.2.6.32.2: Если флаг не установлен, то в начале работы не создаётся закладка «Основное меню» в навигаторе
+  HLTC100.2.6.32.1: Если флаг установлен, то в начале работы создаётся закладка «Основное меню» в навигаторе
+HLTC100.2.6.33: Изменить Поведение системы\Вкладки\Мои документы ,нажать ОК:  
+  HLTC100.2.6.33.1: Если флаг установлен, то в начале работы создаётся закладка «Мои документы» в навигаторе
+  HLTC100.2.6.33.2: Если флаг не установлен, то в начале работы не создаётся закладка «Мои документы» в навигаторе
+                            
+HLTC100.2.6.37: Изменить Поведение системы\Фильтры\Список документов, нажать ОК:
+  HLTC100.2.6.37.1: Если флаг установлен, то при переходе к списку автоматически создаётся закладка «Фильтры» в навигаторе.
+  HLTC100.2.6.37.2: Если флаг неустановлен, то при переходе к списку не создаётся автоматически закладка «Фильтры» в навигаторе.
+HLTC100.2.6.39: Изменить Поведение системы\Вкладки\Фильтры ,нажать ОК:
+  HLTC100.2.6.39.2: Если флаг не установлен, то при открытии ППР(ППС) не создаётся закладка «Фильтры» в навигаторе
+}
+function CHECK_2_6_30i33(
+  var arr: OleVariant;
+  editor: OleVariant;
+  IsVisible: boolean
+  ): boolean;
+var
+  conf, i, tmp;
+  p, mw, w1, w2;
+begin                                
+try
+  Result := true;
+  //
+  SetSettingsForTests(arr, IsVisible);
+  //
+  if not RestartF1Shell(5, Options.Run.Timeout div 6, NAME, NAME) then
+    Raise('Не получилось перегрузить оболочку с логином "' + NAME + '"');
+
+  if SwitchToNavigatorPage('Меню') xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "ПОВЕДЕНИЕ СИСТЕМЫ\ВКЛАДКИ\ОСНОВНОЕ МЕНЮ [CHECKBOX]"');
+
+  if SwitchToNavigatorPage('Конфигурации') xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "ПОВЕДЕНИЕ СИСТЕМЫ\ВКЛАДКИ\КОНФИГУРАЦИИ [CHECKBOX]"');
+
+  if SwitchToNavigatorPage('Мои документы') xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "ПОВЕДЕНИЕ СИСТЕМЫ\ВКЛАДКИ\"МОИ ДОКУМЕНТЫ" [CHECKBOX]"');
+  if SwitchToNavigatorPage('Документы на контроле') xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "ПОВЕДЕНИЕ СИСТЕМЫ\ВКЛАДКИ\НА КОНТРОЛЕ [CHECKBOX]"');
+
+  if not IsExists(GetListOfAllDocuments) then
+    Result := ErrorResult('Не построился список всех документов')
+  else
+  begin
+    if SwitchToNavigatorPage('Фильтры') xor IsVisible then
+      Result := ErrorResult('Несоответствие настройки "ПОВЕДЕНИЕ СИСТЕМЫ\ВКЛАДКИ\НА КОНТРОЛЕ [CHECKBOX]"');
+  end;
+ 
+  if not GoToPPR then
+    Result := ErrorResult('Карточка запроса ППР не открылась')
+  else
+  begin
+    if SwitchToNavigatorPage('Фильтры') xor IsVisible then
+      Result := ErrorResult('Несоответствие настройки "ПОВЕДЕНИЕ СИСТЕМЫ\ФИЛЬТРЫ\КАРТОЧКИ ПОИСКА [CHECKBOX]"');
+  end;    
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function HLTC100_2_6_30i33: boolean;
+var
+  conf, i, arr;
+begin                                
+try
+  Result := true;
+  //
+  arr :=
+    [
+    (['ПОВЕДЕНИЕ СИСТЕМЫ', 'ВКЛАДКИ\ОСНОВНОЕ МЕНЮ [CHECKBOX]', false]),
+    (['ПОВЕДЕНИЕ СИСТЕМЫ', 'ВКЛАДКИ\"МОИ ДОКУМЕНТЫ" [CHECKBOX]', false]),
+    (['ПОВЕДЕНИЕ СИСТЕМЫ', 'ВКЛАДКИ\КОНФИГУРАЦИИ [CHECKBOX]', false]),
+    (['ПОВЕДЕНИЕ СИСТЕМЫ', 'ВКЛАДКИ\НА КОНТРОЛЕ [CHECKBOX]', false]),
+    (['ПОВЕДЕНИЕ СИСТЕМЫ', 'ФИЛЬТРЫ\КАРТОЧКИ ПОИСКА [CHECKBOX]', false]),
+    (['ПОВЕДЕНИЕ СИСТЕМЫ', 'ФИЛЬТРЫ\СПИСОК ДОКУМЕНТОВ [CHECKBOX]', false])
+    ];
+  Result := CHECK_2_6_30i33(arr, nil, false) and Result;
+  Result := CHECK_2_6_30i33(arr, nil, true) and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+//
+      
+{
+HLTC100.2.6.35: Изменить Списки документов\Автоматический переход, нажать ОК:
+  HLTC100.2.6.35.1: Если флаг установлен, то если в списке один документ, то при переходе к этому списку автоматически осуществляется переход к документу (такой список можно получить поиском в ППР по номеру).
+  HLTC100.2.6.35.2: Если флаг снят – то переход не осуществляется.
+}
+function CHECK_2_6_35(
+  var arr: OleVariant;
+  editor: OleVariant;
+  IsVisible: boolean
+  ): boolean;
+var
+  conf, i, tmp;
+  p, mw, w1, w2;
+begin                                
+try
+  Result := true;
+  //
+  SetSettingsForTests(arr, IsVisible);
+  //
+  SearchInPPR([
+            	CARD_PPR, ([([
+            	FD_NUMBER, (['8903001']) ]),([
+            	FD_INOPERATIVE_EDITION, (['Да']) ]) ])
+              ]);
+  if (not FindInList([([FL_NUMBER, '1'])])) xor IsVisible then
+    Raise('Построение списка из ППР прошло некорректно');      
+  //
+  if IsExists(GetEditor) xor IsVisible then
+    Result := ErrorResult('Несоответствие настройки "АВТОМАТИЧЕСКИЙ ПЕРЕХОД [CHECKBOX]"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function HLTC100_2_6_35: boolean;
+var
+  conf, i, arr;
+begin                                
+try
+  Result := true;
+  //
+  arr :=
+    [
+    (['СПИСКИ ДОКУМЕНТОВ', 'АВТОМАТИЧЕСКИЙ ПЕРЕХОД [CHECKBOX]', false])
+    ];
+  Result := CHECK_2_6_35(arr, nil, false) and Result;
+  Result := CHECK_2_6_35(arr, nil, true) and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+
+{
+HLTC100.2.6.12: Изменить Документ\Выделение текста, нажать ОК, перейти к просмотру документа:
+  HLTC100.2.6.12.1: Постоянное, то при выделении в документе фрагмента и последующем клике мышкой в любое место документа выделение не сбрасывается множественное выделение можно делать без нажатия Ctrl – просто выделил один фрагмент, другой... . Сбросить такое выделение можно только вызовом команды контекстного меню «Снять выделение» (Shift+Ctrl+A)
+  HLTC100.2.6.12.2: Сбрасываемое, то при выделении в документе фрагмента и последующем клике мышкой в любое место документа выделение сбрасывается, множественное выделение осуществляется только при зажатом Ctrl.
+}
+function HLTC100_2_6_12: boolean;
+var
+  i, arr, clipboard, selection,
+  set_type;
+begin                                
+try
+  Result := true;
+
+  for i := 1 to 2 do
+  begin
+    GoToMainMenu;
+    case i of
+    1:begin
+      set_type := 'Сбрасываемое';
+      selection := 'о создании Союзного государства';
+      end;
+    2:begin
+      set_type := 'Постоянное';
+      selection := 'Договор о создании Союзного государства';
+      end;    
+    end;    
+
+    arr :=
+      [
+        (['ДОКУМЕНТ', 'ВЫДЕЛЕНИЕ ТЕКСТА [COMBOBOX]', set_type])
+      ];
+    SetSettings(arr);
+
+    if not OpenDocByNumber(1055132) then
+      Raise('Не получилось открыть документ');
+    PressKeyWithCheck(['^[Home][Home]![End][Down]']);
+    PressKeyWithCheck(['[Home][Home]![End]']);
+    
+    clipboard := CopyToClipboard(GetEditor);
+    if clipboard = '' then
+      Result := ErrorResult('Не получилось скопировать текст в буфер');
+    //      
+    if not StringCompare(selection, clipboard) then
+      Result := ErrorResult('Выделилось неправильно, текст выделения: "' + clipboard + '", а должен быть: ' + selection);
+    
+    if not PressKeyWithCheck(['!^a']) then
+      Raise('Не получилось снять выделение');
+      
+    ClipboardClean;
+    clipboard := CopyToClipboard(GetEditor);
+    if clipboard <> '' then
+      Result := ErrorResult('Выделение не снялось, скопировался текст: "' + clipboard + '"');
+  end;
+except                   
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  SetDefaultSettings;
+end;
+
+
+function HLTC100_2_6_Execute(var  current_state: OleVariant): OleVariant;
+var
+  conf, i;
+begin                                
+try
+  Result := true;
+
+  if not RestartF1Shell(5, Options.Run.Timeout div 6, NAME, NAME) then
+    Raise('Не получилось перегрузить оболочку с логином "' + NAME + '"');
+   
+  if not SelectConfiguration(CONFIGURATION_STANDART, true) then
+    Raise('Не получилось выбрать конфигурацию "' + CONFIGURATION_STANDART + '"');
+  if not CopyConfiguration(CONFIGURATION_STANDART ) then
+    Raise('Не получилось скопировать конфигурацию "' + CONFIGURATION_STANDART + '"');
+  if not SelectConfiguration('Копия ' + CONFIGURATION_STANDART, true) then
+    Raise('Не получилось активизировать конфигурацию "Копия ' + CONFIGURATION_STANDART + '"');
+
+  //Копия создана, теперь выполнем тесты, цифрами задан диапазон HLTC100.2.6..
+  Log.Message('HLTC100_2_6_2i7');
+    Result := HLTC100_2_6_2i7 and Result;
+  Log.Message('HLTC100_2_6_30i33');
+    Result := HLTC100_2_6_30i33 and Result;
+  Log.Message('HLTC100_2_6_35');
+    Result := HLTC100_2_6_35 and Result;  
+  Log.Message('HLTC100_2_6_34_1');    
+    Result := HLTC100_2_6_34_1 and Result;
+  Log.Message('HLTC100_2_6_34_2');    
+    Result := HLTC100_2_6_34_2 and Result;
+  Log.Message('HLTC100_2_6_34_3');    
+    Result := HLTC100_2_6_34_3 and Result;
+  Log.Message('HLTC100_2_6_12');
+    Result := HLTC100_2_6_12 and Result;
+
+  //Проверка завершена
+  if not Result then
+    Raise('Во время сверки настроек возникли несоответствия!')
+  else
+    Log.Message('Проверка настроек успешно пройдена!');
+except
+  Result := False;
+  Log.Error('Проверка настроек: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  SelectConfiguration(CONFIGURATION_STANDART);
+  DeleteConfiguration('Копия ' + CONFIGURATION_STANDART);
+  SetDefaultSettings;
+  GoToMainMenu;
+end;
+
+{
+  HLTC100.2.8: Проверить, что система запоминает изменение настроек и в случае, когда это изменение было произведено не при явном изменении настроек при редактировании конфигурации, а при работе с другими функциями системы (в тех же местах где они были произведены):
+    HLTC100.2.8.1: При удалении ПАПКИ в диaлоге подтверждения поставить галку «Запомнить выбор...» - соответствующее предупрежедение больше показываться не должно (и при следующих сеансах работы). Соответствующий параметр должен быть прописан в настройках
+    HLTC100.2.8.2: При удалении ЗАКЛАДКИ в диалоге подтверждения поставить галку «Запомнить выбор...» - соответствующее предупрежедение больше показываться не должно (и при следующих сеансах работы). Соответствующий параметр должен быть прописан в настройках
+    HLTC100.2.8.3: При удалении ЗАПРОСА (проверить когда запрос является неприменённым и применённым фильтром) в диалоге подтверждения поставить галку «Запомнить выбор...» - соответствующее предупрежедение больше показываться не должно (и при следующих сеансых работы). Соответствующий параметр должен быть прописан в настройках          
+}
+function HLTC100_2_8_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC100_2_8';
+var
+  sets;
+begin
+try
+  Result := true;
+  if not RestartF1Shell(3, Options.Run.Timeout div 6, LOGINNAME, LOGINNAME) then
+    Raise('Не получилось перегрузить оболочку с логином "' + LOGINNAME + '"');
+
+  //закладка
+  if not OpenDocByNumber(10003000) then
+    Raise('Не получилось открыть "Конституцию РФ"');
+  if not SetBookmark(LOGINNAME, LOGINNAME) then
+    Raise('Не получилось поставить закладку под именем "' + LOGINNAME + '"');
+  DeleteObjectFromFolder(MY_DOCS_PATH + LOGINNAME, nil, 'IsWaitConfim:=false');
+  if WaitForConfirmationWindow(-1, 'Да', '', 'True') = '' then
+    Raise('Не найдено окно подтверждения удаления закладки');
+  sets := GetSettings([ (['МОИ ДОКУМЕНТЫ\ПОДТВЕРЖДЕНИЯ', 'УДАЛЕНИЕ ОБЪЕКТА [CHECKBOX]']) ]);
+  if GetFromSettingsArr(sets, 'МОИ ДОКУМЕНТЫ\ПОДТВЕРЖДЕНИЯ', 'УДАЛЕНИЕ ОБЪЕКТА [CHECKBOX]') then
+    Result := ErrorResult('В настройках не сохранилось значение чекбокса подтверждения удаления объекта');
+
+  //папка
+  if not CreateFolderFrom(true, ExcludeTrailingBackSlash(MY_DOCS_PATH), 'FOLDER_' + LOGINNAME) then
+    Raise('Не удалось создать папку "' + 'FOLDER_' + LOGINNAME + '"');
+  DeleteObjectFromFolder(MY_DOCS_PATH + 'FOLDER_' + LOGINNAME, nil, 'IsWaitConfim:=false');
+  if WaitForConfirmationWindow(-1, 'Да', '', 'True') = '' then
+    Raise('Не найдено окно подтверждения удаления папки');
+  sets := GetSettings([ (['МОИ ДОКУМЕНТЫ\ПОДТВЕРЖДЕНИЯ', 'УДАЛЕНИЕ ПУСТОЙ ПАПКИ [CHECKBOX]']) ]);
+  if GetFromSettingsArr(sets, 'МОИ ДОКУМЕНТЫ\ПОДТВЕРЖДЕНИЯ', 'УДАЛЕНИЕ ПУСТОЙ ПАПКИ [CHECKBOX]') then
+    Result := ErrorResult('В настройках не сохранилось значение чекбокса подтверждения удаления папки');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CloseF1Shell;
+end;
+
+{
+  HLTC100.2.9: Проверить, что если при редактировании конфигурации нажать кнопку «Отмена», то система отменяет все изменения в конфигурации, закрывает окно редактирования конфигураций, возвращая в исходное состояние:
+    HLTC100.2.9.1: Проверить для конфигурации, являющейся текущей, – не должно произойти никаких изменений в системе
+}
+function HLTC100_2_9_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  PAGENAME = 'НАСТРОЙКИ ИНТЕРФЕЙСА';
+  PARAMNAME = 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ В ИСТОРИИ [EDIT]';
+var
+  sets, value_old, value_new;
+begin
+try
+  Result := true;
+  sets := GetSettings([ ([PAGENAME, PARAMNAME]) ]);
+  value_old := GetFromSettingsArr(sets, PAGENAME, PARAMNAME);
+
+  if not SetSettings([([PAGENAME, PARAMNAME, '22'])], 'IsClose:=false') then
+    Raise('Не получилось изменить Настройки, не закрывая окно настроек');
+  if not ClickToolbarButton(GetFromSettings('НИЖНИЙ ТУЛБАР'), 'Отмена') then
+    Raise('Не получилось отменить изменение настроек');
+    
+  sets := GetSettings([ ([PAGENAME, PARAMNAME]) ]);
+  value_new := GetFromSettingsArr(sets, PAGENAME, PARAMNAME);  
+  if value_old <> value_new then
+    Raise('Значение настройки отличается после отмены изменения. Начальное значение: ' + value_old + ', значение после отмены: ' + value_new);
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC100.2.9.2: Проверить для неактивной конфигурации – параметры конфигурации не изменились по отношению к моменту вызова операции редактирования.
+}
+function HLTC100_2_9_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  PAGENAME = 'НАСТРОЙКИ ИНТЕРФЕЙСА';
+  PARAMNAME = 'КОЛИЧЕСТВО ДНЕЙ В ЖУРНАЛЕ РАБОТЫ [EDIT]';
+var
+  sets, value_old, value_new;
+begin
+try
+  Result := true;
+  if not SelectConfiguration(CONFIGURATION_STANDART, true) then
+    Raise('Не получилось выбрать конфигурацию "' + CONFIGURATION_STANDART + '"');
+  if not Position_Internal(OpenConfigurationsTab, CONFIGURATION_LIGHT + '*', DELIM_CHAR, true) then
+	  Raise('Не найдена конфигурация "' + CONFIGURATION_LIGHT + '"');
+
+  sets := GetSettings([ ([PAGENAME, PARAMNAME]) ], 'HowToOpen:=КНОПКА НА ТУЛБАРЕ');
+  value_old := GetFromSettingsArr(sets, PAGENAME, PARAMNAME);
+
+  if not SetSettings([([PAGENAME, PARAMNAME, '22'])], 'IsClose:=false;HowToOpen:=КНОПКА НА ТУЛБАРЕ') then
+    Raise('Не получилось изменить Настройки, не закрывая окно настроек');
+  if not ClickToolbarButton(GetFromSettings('НИЖНИЙ ТУЛБАР'), 'Отмена') then
+    Raise('Не получилось отменить изменение настроек');
+    
+  sets := GetSettings([ ([PAGENAME, PARAMNAME]) ], 'HowToOpen:=КНОПКА НА ТУЛБАРЕ');
+  value_new := GetFromSettingsArr(sets, PAGENAME, PARAMNAME);  
+  if value_old <> value_new then
+    Raise('Значение настройки отличается после отмены изменения. Начальное значение: ' + value_old + ', значение после отмены: ' + value_new);
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC100.2.16: Проверить, что при редактировании конфигурации в настройках интерфейса присутствуют кнопки:
+    HLTC100.2.16.1: Панели инструментов – при нажатии на неё открывается диалог настройки панелей инструментов.
+    HLTC100.2.16.2: Редактор стилей -  при нажатии на неё открывается Редактор стилей
+    HLTC100.2.16.3: Настройки страницы  - при нажатии на неё открывается диалог Настройки страницы
+}
+function HLTC100_2_16_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, button;
+begin
+try
+  Result := true;
+  if not IsExists(OpenSettingsPage('НАСТРОЙКИ ИНТЕРФЕЙСА')) then
+    Raise('Не получилось открыть Настройки интерфейса в настройках');
+  try
+    //HLTC100.2.16.1
+    button := GetSettingsElement('НАСТРОЙКИ ИНТЕРФЕЙСА', 'КНОПКА "ПАНЕЛИ ИНСТРУМЕНТОВ"');
+    if not IsExists(button) then
+      Result := ErrorResult('Не найдена кнопка "ПАНЕЛИ ИНСТРУМЕНТОВ"')
+    else
+    begin
+      button.Keys('[Enter]');
+      w := GetFromShell('НАСТРОЙКА ПАНЕЛЕЙ ИНСТРУМЕНТОВ');
+      if not IsExists(w) then
+        Result := ErrorResult('Не найдена окно "НАСТРОЙКА ПАНЕЛЕЙ ИНСТРУМЕНТОВ"')
+      else
+        w.Close;
+    end;
+
+    //HLTC100.2.16.2
+    button := GetSettingsElement('НАСТРОЙКИ ИНТЕРФЕЙСА', 'КНОПКА "РЕДАКТОР СТИЛЕЙ"');
+    if not IsExists(button) then
+      Result := ErrorResult('Не найдена кнопка "РЕДАКТОР СТИЛЕЙ"')
+    else
+    begin
+      button.Keys('[Enter]');
+      w := GetFromShell('РЕДАКТОР СТИЛЕЙ');
+      if not IsExists(w) then
+        Result := ErrorResult('Не найдена окно "РЕДАКТОР СТИЛЕЙ"')
+      else
+        w.Close;
+    end;
+
+    //HLTC100.2.16.3
+    button := GetSettingsElement('НАСТРОЙКИ ИНТЕРФЕЙСА', 'КНОПКА "НАСТРОЙКА СТРАНИЦЫ"');
+    if not IsExists(button) then
+      Result := ErrorResult('Не найдена кнопка "НАСТРОЙКА СТРАНИЦЫ"')
+    else
+    begin
+      button.Keys('[Enter]');
+      w := GetFromShell('НАСТРОЙКИ СТРАНИЦЫ');
+      if not IsExists(w) then
+        Result := ErrorResult('Не найдена окно "НАСТРОЙКИ СТРАНИЦЫ"')
+      else
+        w.Close;
+    end;
+  finally
+    GetFromSettings('ФОРМА "НАСТРОЙКИ"').Close;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+procedure RunTests100;
+var
+  p, w : oleVariant;
+begin
+//  HLTC100_1_2_Execute(p);
+//  HLTC100_1_4_Execute(p);
+//  HLTC100_1_4_5_Execute(p);
+//  HLTC100_1_7_Execute(p);
+//  HLTC100_2_1_1_Execute(p);
+//  HLTC100_2_6_Execute(p);
+//  HLTC100_2_8_Execute(p);
+//  HLTC100_2_9_1_Execute(p);
+//  HLTC100_2_9_2_Execute(p);
+//  HLTC100_2_16_Execute(p);
+//  CopyConfiguration(CONFIGURATION_STANDART);
+//////////////////////////////////////////////                                              
+  gbl_F1ShellTabsEnabled := true;
+  HLTC100_1_4_Execute(p);  
+  
+
+
+
+
+
+
+
+
+
+end;

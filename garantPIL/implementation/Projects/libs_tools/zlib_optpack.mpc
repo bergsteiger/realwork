@@ -1,0 +1,38 @@
+project (zlib_optpack) : project_generic_core, project-common-includes {
+	staticname = zlib_optpack
+	sharedname = zlib_optpack
+
+	macros += USE_CPP_ZIP
+	macros += OPT_PACK
+
+	includes += ./../../../../common // uses mpcxc.h header
+
+	Header_Files {
+		./../../component/cpp/libs/gkdb/src/zlib_old/deflate.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/inffast.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/infblock.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/infcodes.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/inftrees.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/infutil.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/zconf.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/zlib.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/zutil.h
+		./../../component/cpp/libs/gkdb/src/zlib_old/pack.h
+	}
+
+	Source_Files {
+		./../../component/cpp/libs/gkdb/src/zlib_old/deflate.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/inffast.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/infblock.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/infcodes.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/inftrees.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/infutil.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/inflate.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/adler32.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/crc32.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/zutil.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/trees.c
+		./../../component/cpp/libs/gkdb/src/zlib_old/pack.cpp
+		./../../component/cpp/libs/gkdb/src/zlib_old/unzip.cpp
+	}
+}

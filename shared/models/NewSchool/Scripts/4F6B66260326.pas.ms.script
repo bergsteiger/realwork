@@ -1,0 +1,1185 @@
+// ParentAndChildPrim 4F6B66260326 VCMFormsPack Class
+
+FORWARD ME_4F6B66260326
+
+INCLUDE '4F6B665B0143.pas.ms.script'
+
+INCLUDE '4F6B66F8001B.pas.ms.script'
+
+FORWARD ME_4F6B66CB0200
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_11C4BBC32B0E
+ CONST UID '11C4BBC32B0E'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Parent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_11C4BBC32B0E Ini_Reg_Class
+
+: ME_D14DE5EA8184
+ CONST UID 'D14DE5EA8184'
+ CONST Name 'Ini_FormFactory_Parent'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация фабрики формы Parent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D14DE5EA8184 Ini_FormFactory_Parent
+
+: ME_4F6B66CB0200
+ CONST UID '4F6B66CB0200'
+ CONST Name 'Parent'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMFinalContainer'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F6B665B0143 // PrimParent
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4F6B6714032D // Parent
+ ]
+ ; // Implements
+ : Operations
+   [ ME_11C4BBC32B0E // Ini_Reg_Class
+ ME_D14DE5EA8184 // Ini_FormFactory_Parent
+ ]
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+
+ @SELF
+; // ME_4F6B66CB0200 Parent
+
+INCLUDE '4F6B6646037F.pas.ms.script'
+
+FORWARD ME_4F6B66DB0384
+
+: ME_BEC85DF915C7
+ CONST UID 'BEC85DF915C7'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Child' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_BEC85DF915C7 Ini_Reg_Class
+
+: ME_08B213FD0AA1
+ CONST UID '08B213FD0AA1'
+ CONST Name 'Ini_FormFactory_Child'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация фабрики формы Child' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_08B213FD0AA1 Ini_FormFactory_Child
+
+: ME_4F6B66DB0384
+ CONST UID '4F6B66DB0384'
+ CONST Name 'Child'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMFinalContainer'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F6B6646037F // PrimChild
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4F6B670E017C // Child
+ ]
+ ; // Implements
+ : Operations
+   [ ME_BEC85DF915C7 // Ini_Reg_Class
+ ME_08B213FD0AA1 // Ini_FormFactory_Child
+ ]
+ ; // Operations
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Child'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+
+ @SELF
+; // ME_4F6B66DB0384 Child
+
+FORWARD ME_A7368FD6A294
+
+INCLUDE '508527F30183.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+INCLUDE '4DDFD1430390.pas.ms.script'
+
+FORWARD ME_6975EF93CBDF
+
+: ME_16FD6662CBC9
+ CONST UID '16FD6662CBC9'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_Form_Parent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_16FD6662CBC9 Ini_Reg
+
+: ME_6975EF93CBDF
+ CONST UID '6975EF93CBDF'
+ CONST Name 'Tkw_Form_Parent'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для идентификатора формы Parent'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::Parent TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_508527F30183 // TtfwControlString
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_16FD6662CBC9 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DDFD2EA0116 // GetString
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'форма::Parent'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_6975EF93CBDF Tkw_Form_Parent
+
+FORWARD ME_B90C8FAA769A
+
+: ME_A319C4F0C247
+ CONST UID 'A319C4F0C247'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_Parent_Control_ParentZone' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_A319C4F0C247 Ini_Reg
+
+: ME_B90C8FAA769A
+ CONST UID 'B90C8FAA769A'
+ CONST Name 'Tkw_Parent_Control_ParentZone'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для идентификатора контрола ParentZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZone TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_508527F30183 // TtfwControlString
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A319C4F0C247 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DDFD2EA0116 // GetString
+ ME_52A086150180 // RegisterInEngine
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'контрол::ParentZone'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_B90C8FAA769A Tkw_Parent_Control_ParentZone
+
+INCLUDE '4F2141AD0203.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_B1138181AE50
+
+: ME_EC901D97EE81
+ CONST UID 'EC901D97EE81'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_Parent_Control_ParentZone_Push' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_EC901D97EE81 Ini_Reg
+
+: ME_B1138181AE50
+ CONST UID 'B1138181AE50'
+ CONST Name 'Tkw_Parent_Control_ParentZone_Push'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для контрола ParentZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F2141AD0203 // byname_control_push
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_EC901D97EE81 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DAEEDE10285 // DoDoIt
+ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'контрол::ParentZone:push'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_B1138181AE50 Tkw_Parent_Control_ParentZone_Push
+
+INCLUDE '5619169603BE.pas.ms.script'
+
+FORWARD ME_E6FBE1D9F4EF
+
+: ME_F6088323C2CD
+ CONST UID 'F6088323C2CD'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_F6088323C2CD aCtx
+
+: ME_F6088323C2CE
+ CONST UID 'F6088323C2CE'
+ CONST Name 'aParentForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4F6B66CB0200 // Parent
+ ;
+
+ @SELF
+; // ME_F6088323C2CE aParentForm
+
+: ME_A91CC17C63F7
+ CONST UID 'A91CC17C63F7'
+ CONST Name 'ParentZone'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта .TParentForm.ParentZone' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_F6088323C2CD // aCtx
+ ME_F6088323C2CE // aParentForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_A91CC17C63F7 ParentZone
+
+: ME_8BB45A131089
+ CONST UID '8BB45A131089'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация ParentForm_ParentZone' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8BB45A131089 Ini_Reg
+
+: ME_E6FBE1D9F4EF
+ CONST UID 'E6FBE1D9F4EF'
+ CONST Name 'ParentForm_ParentZone'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта .TParentForm.ParentZone'#13#10'{panel}Контрол ParentZone формы TParentForm{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aParentForm .TParentForm.ParentZone >>> l_TvtPanel'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A91CC17C63F7 // ParentZone
+ ME_8BB45A131089 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" '.TParentForm.ParentZone'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_E6FBE1D9F4EF ParentForm_ParentZone
+
+: ME_1CA9B7FE1B52
+ CONST UID '1CA9B7FE1B52'
+ CONST Name 'ParentZone'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Контрол ParentZone формы TParentForm' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ CONST "NameForScript" '.TParentForm.ParentZone'
+ CONST "mapped" true
+
+ @SELF
+; // ME_1CA9B7FE1B52 ParentZone
+
+: ME_9D20DC53896A
+ CONST UID '9D20DC53896A'
+ CONST Name 'ParentZone'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ %SUMMARY 'Контрол ParentZone формы TParentForm' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "NameForScript" '.TParentForm.ParentZone'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_9D20DC53896A ParentZone
+
+: ME_9531F964C87B
+ CONST UID '9531F964C87B'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9531F964C87B Reg_TtfwContext
+
+: ME_62D308410033
+ CONST UID '62D308410033'
+ CONST Name 'Reg_Parent'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Parent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_62D308410033 Reg_Parent
+
+: ME_6DAE71E0C039
+ CONST UID '6DAE71E0C039'
+ CONST Name 'Reg_TvtPanel'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TvtPanel' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_6DAE71E0C039 Reg_TvtPanel
+
+: ME_A7368FD6A294
+ CONST UID 'A7368FD6A294'
+ CONST Name 'ParentKeywordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы Parent' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F6B66CB0200 // Parent
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_1CA9B7FE1B52 // ParentZone
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_9D20DC53896A // ParentZone
+ ME_9531F964C87B // Reg_TtfwContext
+ ME_62D308410033 // Reg_Parent
+ ME_6DAE71E0C039 // Reg_TvtPanel
+ ]
+ ; // Operations
+ : Children
+   [ ME_6975EF93CBDF // Tkw_Form_Parent
+ ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
+ ME_B1138181AE50 // Tkw_Parent_Control_ParentZone_Push
+ ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+
+ @SELF
+; // ME_A7368FD6A294 ParentKeywordsPack
+
+FORWARD ME_D1FA54869B3C
+
+FORWARD ME_AB3A39A6155F
+
+: ME_DC9265AFBE5B
+ CONST UID 'DC9265AFBE5B'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_Form_Child' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DC9265AFBE5B Ini_Reg
+
+: ME_AB3A39A6155F
+ CONST UID 'AB3A39A6155F'
+ CONST Name 'Tkw_Form_Child'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для идентификатора формы Child'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::Child TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_508527F30183 // TtfwControlString
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_DC9265AFBE5B // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DDFD2EA0116 // GetString
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'форма::Child'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_AB3A39A6155F Tkw_Form_Child
+
+FORWARD ME_75A5E92F5203
+
+: ME_379A5A5EFD35
+ CONST UID '379A5A5EFD35'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_Child_Control_ChildZone' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_379A5A5EFD35 Ini_Reg
+
+: ME_75A5E92F5203
+ CONST UID '75A5E92F5203'
+ CONST Name 'Tkw_Child_Control_ChildZone'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для идентификатора контрола ChildZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZone TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_508527F30183 // TtfwControlString
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_379A5A5EFD35 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DDFD2EA0116 // GetString
+ ME_52A086150180 // RegisterInEngine
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'контрол::ChildZone'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_75A5E92F5203 Tkw_Child_Control_ChildZone
+
+FORWARD ME_2C415D2A7542
+
+: ME_D4A12672C5F7
+ CONST UID 'D4A12672C5F7'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_Child_Control_ChildZone_Push' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D4A12672C5F7 Ini_Reg
+
+: ME_2C415D2A7542
+ CONST UID '2C415D2A7542'
+ CONST Name 'Tkw_Child_Control_ChildZone_Push'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для контрола ChildZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F2141AD0203 // byname_control_push
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_D4A12672C5F7 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DAEEDE10285 // DoDoIt
+ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'контрол::ChildZone:push'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_2C415D2A7542 Tkw_Child_Control_ChildZone_Push
+
+FORWARD ME_0FFE16CCAC95
+
+: ME_7DD98A863474
+ CONST UID '7DD98A863474'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_Child_Control_MainPageTab' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_7DD98A863474 Ini_Reg
+
+: ME_0FFE16CCAC95
+ CONST UID '0FFE16CCAC95'
+ CONST Name 'Tkw_Child_Control_MainPageTab'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для идентификатора контрола MainPageTab'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainPageTab TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_508527F30183 // TtfwControlString
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_7DD98A863474 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DDFD2EA0116 // GetString
+ ME_52A086150180 // RegisterInEngine
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'контрол::MainPageTab'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_0FFE16CCAC95 Tkw_Child_Control_MainPageTab
+
+FORWARD ME_1A451665A611
+
+: ME_CD3F8B014A29
+ CONST UID 'CD3F8B014A29'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_Child_Control_MainPageTab_Push' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CD3F8B014A29 Ini_Reg
+
+: ME_1A451665A611
+ CONST UID '1A451665A611'
+ CONST Name 'Tkw_Child_Control_MainPageTab_Push'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для контрола MainPageTab'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainPageTab:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F2141AD0203 // byname_control_push
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_CD3F8B014A29 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DAEEDE10285 // DoDoIt
+ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'контрол::MainPageTab:push'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_1A451665A611 Tkw_Child_Control_MainPageTab_Push
+
+FORWARD ME_310E6CF39C5E
+
+: ME_34B977456965
+ CONST UID '34B977456965'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_34B977456965 aCtx
+
+: ME_34B977456966
+ CONST UID '34B977456966'
+ CONST Name 'aChildForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4F6B66DB0384 // Child
+ ;
+
+ @SELF
+; // ME_34B977456966 aChildForm
+
+INCLUDE '4AF296620379.pas.ms.script'
+
+: ME_C5C282D0C8E1
+ CONST UID 'C5C282D0C8E1'
+ CONST Name 'ChildZone'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта .TChildForm.ChildZone' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4AF296620379 // TnscFormsPageControl
+ ;
+ : Parameters
+   [ ME_34B977456965 // aCtx
+ ME_34B977456966 // aChildForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_C5C282D0C8E1 ChildZone
+
+: ME_D876E8FB3677
+ CONST UID 'D876E8FB3677'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация ChildForm_ChildZone' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D876E8FB3677 Ini_Reg
+
+: ME_310E6CF39C5E
+ CONST UID '310E6CF39C5E'
+ CONST Name 'ChildForm_ChildZone'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта .TChildForm.ChildZone'#13#10'{panel}Контрол ChildZone формы TChildForm{panel}'#13#10'*Тип результата:* TnscFormsPageControl'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscFormsPageControl'#13#10' aChildForm .TChildForm.ChildZone >>> l_TnscFormsPageControl'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_C5C282D0C8E1 // ChildZone
+ ME_D876E8FB3677 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" '.TChildForm.ChildZone'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_310E6CF39C5E ChildForm_ChildZone
+
+FORWARD ME_B752FF576E67
+
+: ME_94EB2ACBD3BF
+ CONST UID '94EB2ACBD3BF'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_94EB2ACBD3BF aCtx
+
+: ME_94EB2ACBD3C0
+ CONST UID '94EB2ACBD3C0'
+ CONST Name 'aChildForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4F6B66DB0384 // Child
+ ;
+
+ @SELF
+; // ME_94EB2ACBD3C0 aChildForm
+
+: ME_2A8075647382
+ CONST UID '2A8075647382'
+ CONST Name 'MainPageTab'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта .TChildForm.MainPageTab' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_94EB2ACBD3BF // aCtx
+ ME_94EB2ACBD3C0 // aChildForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_2A8075647382 MainPageTab
+
+: ME_54D4816525C3
+ CONST UID '54D4816525C3'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация ChildForm_MainPageTab' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54D4816525C3 Ini_Reg
+
+: ME_B752FF576E67
+ CONST UID 'B752FF576E67'
+ CONST Name 'ChildForm_MainPageTab'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта .TChildForm.MainPageTab'#13#10'{panel}Контрол MainPageTab формы TChildForm{panel}'#13#10'*Тип результата:* TElTabSheet'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TElTabSheet'#13#10' aChildForm .TChildForm.MainPageTab >>> l_TElTabSheet'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_2A8075647382 // MainPageTab
+ ME_54D4816525C3 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" '.TChildForm.MainPageTab'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_B752FF576E67 ChildForm_MainPageTab
+
+: ME_4B67108B812B
+ CONST UID '4B67108B812B'
+ CONST Name 'ChildZone'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Контрол ChildZone формы TChildForm' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4AF296620379 // TnscFormsPageControl
+ ;
+ CONST "NameForScript" '.TChildForm.ChildZone'
+ CONST "mapped" true
+
+ @SELF
+; // ME_4B67108B812B ChildZone
+
+: ME_161A4BE9659B
+ CONST UID '161A4BE9659B'
+ CONST Name 'MainPageTab'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Контрол MainPageTab формы TChildForm' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ CONST "NameForScript" '.TChildForm.MainPageTab'
+ CONST "mapped" true
+
+ @SELF
+; // ME_161A4BE9659B MainPageTab
+
+: ME_13E414C54850
+ CONST UID '13E414C54850'
+ CONST Name 'ChildZone'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ %SUMMARY 'Контрол ChildZone формы TChildForm' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_4AF296620379 // TnscFormsPageControl
+ ;
+ CONST "NameForScript" '.TChildForm.ChildZone'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_13E414C54850 ChildZone
+
+: ME_472E607E0BB3
+ CONST UID '472E607E0BB3'
+ CONST Name 'MainPageTab'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ %SUMMARY 'Контрол MainPageTab формы TChildForm' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "NameForScript" '.TChildForm.MainPageTab'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_472E607E0BB3 MainPageTab
+
+: ME_C6C764D448E2
+ CONST UID 'C6C764D448E2'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_C6C764D448E2 Reg_TtfwContext
+
+: ME_B0017D88240B
+ CONST UID 'B0017D88240B'
+ CONST Name 'Reg_Child'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Child' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B0017D88240B Reg_Child
+
+: ME_E4CAE7281E3D
+ CONST UID 'E4CAE7281E3D'
+ CONST Name 'Reg_TnscFormsPageControl'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TnscFormsPageControl' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E4CAE7281E3D Reg_TnscFormsPageControl
+
+: ME_219D8B0FDE02
+ CONST UID '219D8B0FDE02'
+ CONST Name 'Reg_TElTabSheet'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TElTabSheet' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_219D8B0FDE02 Reg_TElTabSheet
+
+: ME_D1FA54869B3C
+ CONST UID 'D1FA54869B3C'
+ CONST Name 'ChildKeywordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы Child' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F6B66DB0384 // Child
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4B67108B812B // ChildZone
+ ME_161A4BE9659B // MainPageTab
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_13E414C54850 // ChildZone
+ ME_472E607E0BB3 // MainPageTab
+ ME_C6C764D448E2 // Reg_TtfwContext
+ ME_B0017D88240B // Reg_Child
+ ME_E4CAE7281E3D // Reg_TnscFormsPageControl
+ ME_219D8B0FDE02 // Reg_TElTabSheet
+ ]
+ ; // Operations
+ : Children
+   [ ME_AB3A39A6155F // Tkw_Form_Child
+ ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
+ ME_2C415D2A7542 // Tkw_Child_Control_ChildZone_Push
+ ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
+ ME_1A451665A611 // Tkw_Child_Control_MainPageTab_Push
+ ME_310E6CF39C5E // ChildForm_ChildZone
+ ME_B752FF576E67 // ChildForm_MainPageTab
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+
+ @SELF
+; // ME_D1FA54869B3C ChildKeywordsPack
+
+FORWARD ME_4F6B67820382
+
+: ME_4F6B682E03C3
+ CONST UID '4F6B682E03C3'
+ CONST Name 'aMainForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4F6B682E03C3 aMainForm
+
+: ME_4F6B682F002C
+ CONST UID '4F6B682F002C'
+ CONST Name 'anOwner'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4F6B682F002C anOwner
+
+: ME_4F6B6815037A
+ CONST UID '4F6B6815037A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F6B682E03C3 // aMainForm
+ ME_4F6B682F002C // anOwner
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F6B6815037A DoIt
+
+: ME_4F6B67820382
+ CONST UID '4F6B67820382'
+ CONST Name 'MakeChild'
+ CONST Class 'Class'
+ CONST Stereotype 'FormFactory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F6B6815037A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F6B67820382 MakeChild
+
+FORWARD ME_4F6B678D03B8
+
+: ME_4F6B67ED0116
+ CONST UID '4F6B67ED0116'
+ CONST Name 'aMainForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4F6B67ED0116 aMainForm
+
+: ME_4F6B67E20007
+ CONST UID '4F6B67E20007'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F6B67ED0116 // aMainForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F6B67E20007 DoIt
+
+: ME_4F6B678D03B8
+ CONST UID '4F6B678D03B8'
+ CONST Name 'MakeParent'
+ CONST Class 'Class'
+ CONST Stereotype 'FormFactory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F6B67E20007 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F6B678D03B8 MakeParent
+
+: ME_4F6B66260326
+ CONST UID '4F6B66260326'
+ CONST Name 'ParentAndChildPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMFormsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_4F6B67820382 // MakeChild
+ ME_4F6B678D03B8 // MakeParent
+ ]
+ ; // Operations
+ : Children
+   [ ME_4F6B66CB0200 // Parent
+ ME_4F6B66DB0384 // Child
+ ME_A7368FD6A294 // ParentKeywordsPack
+ ME_D1FA54869B3C // ChildKeywordsPack
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F6B66260326 ParentAndChildPrim

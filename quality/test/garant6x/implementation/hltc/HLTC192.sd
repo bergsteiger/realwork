@@ -1,0 +1,1091 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////// HLTC 192: Машина времени///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork;
+
+const
+  REDACTION_8901001_ACTIVE   = '21.04.2003 - 31.12.2019 (от 20.04.2003)';
+  REDACTION_8901001_INACTIVE = '01.04.2003 - 20.04.2003 (от 30.03.2003)';
+
+  REDACTION_900100_ACTIVE    = '10.03.2004 - ? (от 09.03.2004)';
+  REDACTION_900100_INACTIVE1 = '01.01.2004 - 09.03.2004 (от 01.01.2004)';
+  REDACTION_900100_INACTIVE2 = '01.12.2003 - 31.12.2003 (от 01.12.2003)';
+
+{
+HLTC192.1: Редакции документа
+Просмотр редакций документа
+  HLTC192.1.1: Перейти в документ с внутренним номером 8901001 (Alt+N - на форме открытия документа по 
+    номеру должна стоять «галка» напротив «Внутренний номер документа в базе»). 
+    Проверить, что в главном и контекстном меню присутствует пункт Включить Машину времени. 
+    А при его выборе появляется диалог с двумя пунктами «Включить Машину времени с календарной даты» и 
+    «Включить Машину времени с начала действия текущей редакции».    
+  HLTC192.1.3: Выбрать из календаря МВ дату = 01.04.2003. Включить отображение вкладки «Редакции» (В командном меню выбрать `Документы \ Список редакций`).
+    На вкладке «Редакции» система должна показать предыдущую редакцию документа и подсветить ее 
+    (у предыдущих, будущих  и актуальной редакций иконки на вкладке «Редакции» должны отличаться). 
+    Должен появиться зеленый значок оповещающий, что машина времени включена и отображаться 
+    предупреждение, что данная редакция документа не действительна на момент выхода справочной 
+    правовой системы. Пункт «Выключить МВ» в главном меню должен стать активным. 
+    В диалоге выключения выбрать «Выключить МВ и перейти в актуальную редакцию». 
+    Убедиться, что система отображает актуальную редакцию и состояние управляющих элементов МВ 
+    в главном и контекстном меню идентично тому, которое было при первом заходе в документ, 
+    а на закладке навигатора «Редакции» выделена актуальная редакция. Зеленый значок МВ должен пропасть.  
+  HLTC192.1.4: Перейти на первоначальную редакцию выбрав ее мышью на вкладке «Редакции». 
+    Убедиться, что МВ выдало предупреждение о неактуальности данной редакции и отображается 
+    желтый значок МВ с всплывающей подсказкой «Внимание! Данная редакция документа не действует».
+    Перейти в актуальную по ссылке предупреждения, убедиться, что система отображает актуальную 
+    редакцию.
+}
+function  HLTC192_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, redWin;
+begin
+try
+  Result := true;
+  //HLTC192.1.1
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ № 8901001');
+    
+  if not CheckTimeMachineIcons(false) then
+    Result := ErrorResult;
+  
+  if not OpenAndClickByPopupMenuItem(GetEditor, 'В*ключить*Машин*Времен*') then
+    Result := ErrorResult('В документе не найден пункт контекстного меню "Включить Машину Времени"')
+  else
+    CloseTimeMachine;
+
+  if not IsExists(GetFromEditor('ЗНАЧОК: ПРЕДУПРЕЖДЕНИЕ ДЛЯ ДЕЙСТВУЮЩЕЙ РЕДАКЦИИ')) then
+    Result := ErrorResult('Нет Значка ПРЕДУПРЕЖДЕНИЕ ДЛЯ ДЕЙСТВУЮЩЕЙ РЕДАКЦИИ');
+
+  //HLTC192.1.3
+  If not OnTimeMachineWithDate('01.04.2003') then
+    Raise('Не получилось включить МВ с даты 01.04.2003');
+
+  if not CheckCurrentRedaction('redaction_inactive.bmp', redaction_8901001_inactive) then
+    Result := ErrorResult;
+
+  if not OnTimeMachineWithDate('') then
+    Raise('Не получилось отключить МВ');
+
+  if not CheckCurrentRedaction('redaction_active.bmp', redaction_8901001_active) then
+    Result := false;
+    
+  //HLTC192.1.4
+
+  if not SelectRedaction(REDACTION_FIRST) then
+    Raise('Не получилось выбрать редакцию "' + REDACTION_FIRST + '"');
+  
+  w := GetFromEditor('ЗНАЧОК: РЕДАКЦИЯ НЕ ДЕЙСТВУЕТ');
+  if not IsExists(w) then
+    Result := ErrorResult('Нет Значка РЕДАКЦИЯ НЕ ДЕЙСТВУЕТ')
+  else
+  begin
+    if not StringCompare(REDACTION_HINT_INACTIVE,
+                         GetHintTextByCoords(w.ScreenLeft + w.Width div 2, w.ScreenTop + w.Height div 2)) then
+      Result := ErrorResult('Неправильный хинт на значке РЕДАКЦИЯ НЕ ДЕЙСТВУЕТ');
+
+    if not OpenAndClickByPopUpMenuItem(GetFromEditor('ЗНАЧОК: РЕДАКЦИЯ НЕ ДЕЙСТВУЕТ'), 'Открыть*актуальную*') then
+      Raise('Не получилось открыть актуальную редакцию через контекстное меню значка "ЗНАЧОК: РЕДАКЦИЯ НЕ ДЕЙСТВУЕТ"');
+    Result := CheckCurrentRedaction('redaction_active.bmp', redaction_8901001_active) and Result;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC192.1.5: Перейти в документ с внутренним номером 900100. 
+  Открыть календарь машины времени и выбрать дату 01 ноября 2003 года. 
+  Убедиться, что система отображает первоначальную редакцию данного документа.
+HLTC192.1.6: Открыть документ с внутренним номером 900100 в актуальной редакции. Включить 
+  отображение вкладки «Редакции» (В командном меню выбрать `Документы \ Список редакций`). 
+  Перейти по ссылке в тексте на предыдущую редакцию (ред. 1.1). Из данной редакции аналогично 
+  перейти по ссылке в редакцию 1.2. Перейти из данной редакции по ссылке в первоначальную 
+  (ред. 1.3). При каждом переходе, на закладке «Редакции» должна просвечиваться соответствующая 
+  редакция. Выделив мышью первоначальную редакцию на закладке «Редакции», перейти на актуальную, 
+  нажимая клавишу клавиатуры «вверх»/ UP. При переходе к следующей редакции основном окне 
+  должен отображаться текст документа в соответствующей редакции
+HLTC192.1.8: Перейти в любой документ без редакций(например в конституцию) и убедиться в доступности 
+  операций включения/выключения МВ. Убедиться, что пункт командного `Документы \ Список редакций` 
+  неактивен (курсор должен находиться в тексте документа).
+HLTC192.1.12: Проверить, что в статусной строке списка редакций отображается порядковый номер 
+  выбранной редакции и их общее количество вида Редакция X из Y.     
+HLTC192.2.3: Перейти в документ с внутренним номером 900100 (Alt+N 900100 – должна быть 
+  выставлена «галка» «Внутренний номер документа в базе»). Перевести дату  в МВ на 29.03.2000 
+  Убедиться, что система отображает первоначальную редакцию документа и выдает сообщение о том, 
+  что, документ не был издан. (случай 1 в диаграмме вычисления редакция). 
+HLTC192.6: Проверить, что в хинте к медали МВ и в сообщении при клике на ней отображается дата, на которую включена МВ.  
+}
+function  HLTC192_1_5_Execute(var  current_state: OleVariant): OleVariant;
+var 
+  w, text_w;
+  message_str;
+begin
+try
+  Result := CheckRedactionInDoc(900100, '01.11.2003', 'redaction_inactive.bmp', REDACTION_FIRST);
+{
+  //HLTC192.1.6
+  if not (//OnTimeMachineWithDate('') and
+          CheckCurrentRedaction('redaction_active.bmp', redaction_900100_active, 1, 4)) then
+    Result := ErrorResult('Не получилось вернуться в активную редакцию: ' + redaction_900100_active);
+  
+  if not (ClickByHyperLink(GetEditor, 'топике 900101') and
+          CheckCurrentRedaction('redaction_inactive.bmp', redaction_900100_inactive1, 2, 4)) then
+    Result := ErrorResult('Не получилось вернуться в редакцию: ' + redaction_900100_inactive1);
+          
+  if not (ClickByHyperLink(GetEditor, 'топике 900102') and
+          CheckCurrentRedaction('redaction_inactive.bmp', redaction_900100_inactive2, 3, 4)) then
+    Result := ErrorResult('Не получилось вернуться в редакцию: ' + redaction_900100_inactive2);
+
+  if not (ClickByHyperLink(GetEditor, 'топике 900103') and
+          CheckCurrentRedaction('redaction_inactive.bmp', REDACTION_FIRST, 4, 4)) then
+    Result := ErrorResult('Не получилось вернуться в редакцию: ' + REDACTION_FIRST);
+}
+  //HLTC192.6
+  w := GetFromEditor('ЗНАЧОК: МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА');
+  if not IsExists(w) then
+    Result := ErrorResult('Нет Значка: МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА')
+  else
+  begin
+    if not StringCompare('Машин*времени*включена на дату*01.11.2003*',
+                         GetHintTextByCoords(w.ScreenLeft + w.Width div 2, w.ScreenTop + w.Height div 2)) then
+      Result := ErrorResult('Неправильный хинт на значке МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА');
+    
+    if not ClickOnVgSceneObject(w) then
+      Result := ErrorResult('Не получилось открыть окно информации Машины времени')
+    else
+    begin
+      text_w := GetFromMainWindow('ОКНО СООБЩЕНИЯ ЗНАЧКА МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА');
+      if not IsExists(text_w) then
+        Result := ErrorResult('Не найдено "ОКНО СООБЩЕНИЯ ЗНАЧКА МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА"')
+      else
+      begin
+        message_str := 'Машин*времени*включена на дату*01.11.2003*Изменить дату или выключить Машину времени';
+        if not StringCompare(message_str, text_w.Selection.CurrentObjectText) then
+          Result := ErrorResult('Содержимое информационного окна значка МВ "' + text_w.Selection.CurrentObjectText + '" не совпадает с эталоном "' + message_str + '"');
+        if not CloseBalloonVgSceneMessage(text_w) then
+          Result := ErrorResult('Не получилось закрыть "ОКНО СООБЩЕНИЯ ЗНАЧКА МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА"');
+      end;
+    end;
+    if not ClickByMainMenuItem(REDACTION_MENU_BASE + REDACTION_MENU_ACTIVE) then
+      Result := ErrorResult('Не получилось открыть "' + REDACTION_MENU_ACTIVE + '" редакцию в документе');
+    Result := CheckCurrentRedaction('redaction_active.bmp', REDACTION_900100_ACTIVE) and Result;
+  end;
+
+  //HLTC192.1.8
+  if OpenDocByNumber(10003000) then
+  begin
+    if not CheckTimeMachineIcons(false) then
+      Result := ErrorResult;
+    
+    CloseTimeMachine;
+    if not (OpenTimeMachine and CloseTimeMachine) then
+      Result := ErrorResult('Не получилось открыть и закрыть диалог МВ в Конституции');  
+            
+    if IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Документы\Список редакций') then
+      Result := ErrorResult('Пункт меню Документы\Список редакций активен для документа 10003000');
+  end
+  else
+    Result := ErrorResult('Не получилось открыть документ 10003000');
+    
+  //HLTC192.2.3
+  Result :=  CheckRedactionInDoc(900100,'29.03.2000', 'redaction_inactive.bmp', REDACTION_FIRST);
+
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  Result := OnTimeMachineWithDate('') and Result;
+  GoToMainMenu;
+end;
+
+{
+HLTC192.1.10: Получить список любым способом, кроме как переход по мультиссылке. 
+  Убедиться что на тулбаре списка нет элементов управления МВ (календарь МВ, кнопка 
+  «Выключить МВ...» и т.д.).
+}
+function  HLTC192_1_10_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  if not IsExists(GetListOfAllDocuments) then
+    Raise('Не получилось построить список всех документов');
+
+  if IsExists(GetToolbarObject(GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), 'DATEEDIT', '*ашин*времени*')) then
+    Result := ErrorResult('Найдено поле ввода даты для МВ');
+    
+  if IsExists(GetToolbarButton(GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), 'В*ключить*Машин*времени*')) then
+    Result := ErrorResult('Найдена кнопка отключения МВ');
+//
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.2.2: Документы с командой !NotTM
+    Открыть документ 9004
+    Не должно быть возможности включить МВ:
+        * Нет кнопки в группе Изменения в документе
+        * Пункт главного меню «Анализ – Включить Машину Времени» должен быть недоступен
+        * Для расширенной редакции, кнопка Включить Машину времени, тоже должна быть недоступна
+        * В контекстном меню к документу не должно быть пункта "Включить Машину времени"
+}
+function  HLTC192_2_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNUM = 9004;
+var
+  i, conf_name;
+begin
+try
+  Result := true;
+
+  for i := 1 to 2 do 
+  begin
+    case i of
+      1: conf_name := CONFIGURATION_LIGHT;
+      2: conf_name := CONFIGURATION_STANDART;
+    end;
+    if not SelectConfiguration(conf_name) then
+      Raise('Не получилось переключится на конфигурацию: ' + conf_name);         
+    if not OpenDocByNumber(DOCNUM) then
+      Raise('Не получилось открыть документ ' + IntToStr(DOCNUM));
+    if OpenTimeMachine then
+    begin
+      Result := ErrorResult('Получилось открыть диалог МВ в документе ' + IntToStr(DOCNUM));
+      CloseTimeMachine;
+    end;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC192.2.4: Перейти в документ с внутренним номером 900100. Перевести дату  в МВ на 01.01.04. 
+  Убедиться, что система отображает версию 1.1 данного документа. Убедиться, что система 
+  отображает зеленый значок сообщающий, что МВ включена и отображает предупреждение о 
+  недействительности редакции с промежутком время действия данной редакции - с 01.01.04 
+  по 09.03.04 (случай 2 в диаграмме вычисления редакция).
+
+HLTC192.2.5: Открыть документ с вн.омером 9003. Установить дату МВ = 10,03,04 (система выдаст 
+  предупреждение, что документ не подключен к МВ). Перейти по ссылке в документ 900100. Убедиться, 
+  что система не выдает никаких сообщений и значек МВ зеленый. (случай 6 в диаграмме вычисления редакций).  
+}
+function  HLTC192_2_5_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(900100) then
+    Raise('Не получилось открыть документ № 900100');
+  if not OnTimeMachineWithDate('01.01.2004') then
+    Raise('Не получилось включить МВ с даты 10.01.2004');
+  if not CheckExistsTMIcons(TM_GREEN_ON) then
+    Result := ErrorResult;
+    
+  if not OpenDocByNumber(9003) then
+    Raise('Не получилось открыть документ № 9003');
+  if not OnTimeMachineWithDate('10.03.2004') then
+    Raise('Не получилось включить МВ с даты 10.03.2004');
+  if not CheckExistsTMIcons(TM_RED_NOTCONNECT + TM_GREEN_ON) then
+    Result := ErrorResult;
+    
+  if not (ClickByHyperLink(GetEditor, 'Документ 900100')) then
+    Raise('Не получилось кликнуть по ссылке: Документ 900100');
+    
+  if not CheckNotExistsTMIcons(TM_RED_NOTCONNECT + TM_YELLOW_WARN + TM_YELLOW_INACTIVE) then
+    Result := ErrorResult;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  Result := OnTimeMachineWithDate('') and Result;
+  GoToMainMenu;
+end;
+
+{
+HLTC192.2.6: Перейти в документ с внутренним Номером 900100. Установить дату в МВ 
+  равную 27.05.2013. Перейти из данного документа по ссылкам на документ с будущей ограниченной
+  редакцией и на документ с будущей не ограниченной редакцией. Убедиться, что система в обоих 
+  случаях не выдает никаких предупреждений. (случай 7 в диаграмме вычисления редакция).
+}
+function  HLTC192_2_6_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;
+  if not OpenDocByNumber(900100) then
+    Raise('Не получилось открыть документ № 900100');
+  if not OnTimeMachineWithDate('27.05.2013') then
+    Raise('Не получилось включить МВ с даты 27.05.2013');
+
+  if not (ClickByHyperLink(GetEditor, 'С ограниченной')) then
+    Result := ErrorResult('Не получилось кликнуть по ссылке: С ограниченной')
+  else
+  begin
+    Result := CheckExistsTMIcons(TM_GREEN_ON) and Result;
+    if not CheckNotExistsTMIcons(TM_RED_NOTCONNECT + TM_YELLOW_WARN + TM_YELLOW_INACTIVE ) then
+      Result := ErrorResult('Найден лишний Значок предупреждения для Ограниченной редакции');
+  end;
+
+  if not (ClickByHyperLink(GetEditor, 'с НЕограниченной')) then
+    Result := ErrorResult('Не получилось кликнуть по ссылке: с НЕограниченной')
+  else
+  begin
+    Result := CheckExistsTMIcons(TM_GREEN_ON) and Result;
+    if not CheckNotExistsTMIcons(TM_RED_NOTCONNECT + TM_YELLOW_WARN + TM_YELLOW_INACTIVE) then
+      Result := ErrorResult('Найден лишний Значок предупреждения для НЕограниченной редакции');
+  end; 
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  Result := OnTimeMachineWithDate('') and Result;
+  GoToMainMenu;
+end;
+
+{
+HLTC192.2.7: Открыть документ с внутренним номером 900100. Установить дату в МВ = 01.10.2004. 
+  Перейти из данного документа по ссылке в документ с «будущей ограниченной редакцией».  
+  Проверить выдачу предупреждения, о том, что документ утратил силу к указанному в МВ времени. 
+  (случай 8 в диаграмме вычисления редакция).
+}
+function  HLTC192_2_7_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;
+  if not OpenDocByNumber(900100) then
+    Raise('Не получилось открыть документ № 900100');
+  if not OnTimeMachineWithDate('01.10.2004') then
+    Raise('Не получилось включить МВ с даты 01.10.2004');
+
+  if not (ClickByHyperLink(GetEditor, 'С ограниченной')) then
+    Result := ErrorResult('Не получилось кликнуть по ссылке (будующая ред.): С ограниченной')
+  else
+  begin
+    Result := CheckExistsTMIcons(TM_GREEN_ON + TM_RED_NOTCONNECT) and Result;
+    if not CheckNotExistsTMIcons(TM_YELLOW_WARN + TM_YELLOW_INACTIVE) then
+      Result := ErrorResult('Найден лишний Значок предупреждения для Ограниченной редакции');
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  Result := OnTimeMachineWithDate('') and Result;
+  GoToMainMenu;
+end;
+
+{
+HLTC192.2.8: Перейти по первой ветке классификатора до списка (список должен быть отсортирован по юридической силе, 
+  по убыванию значений.). Перейти из списка в документ: «Документ (900100) ver 1.0». 
+  Перейти на первоначальную редакцию данного документа, выбрав дату в календаре МВ = 01,11,2003. 
+  Прейти на документ списка («Документ с нормальной цепочкой редакций») при помощи кнопки в статусной строке документа «Следующий документ  в списке»(нажать 3 раза). 
+  Убедиться, что в документе с нормальной цепочкой редакций на закладке «Редакции» подсвечена актуальная редакция. 
+  Перейти на первоначальную редакцию данного документа выбрав в календаре МВ дату = 01,03,2003. 
+  Нажать 3 раза комбинацию клавиш «Ctrl+Left» («горячая клавиша» для кнопки тулбара «Предыдущий документ в списке»). 
+  Убедиться, что система отображает первоначальную редакцию документа с внутренним номером 900103, и система выдает 
+  предупреждение о том что данный документ не был издан.
+HLTC192.2.9: Перейти в документ 900100 и отключить МВ без смены редакции. Перейти в первоначальную редакцию 
+  и обратно в текущую, пользуясь пунктами контекстного меню «предудущая \ следующая редакция», убедиться, 
+  что при переходах на закладке навигатора «Редакции» подсвечивается соответствующая.
+}
+function  HLTC192_2_8_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'Документ (900100) ver 1.0';
+  NEXT_COUNT = 3;
+var
+  i;
+begin
+try 
+  Result := true;
+  
+  if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+    Raise('Не получилось открыть список ' + LIST_MAIN);
+  if not OpenDocFromList(DOCNAME, GetList) then
+    Raise('Не получилось открыть документ ' + DOCNAME);
+  if not OnTimeMachineWithDate('01.11.2003') then
+    Raise('Не получилось включить МВ с даты 01.11.2003');
+  if not CheckCurrentRedaction('redaction_inactive.bmp', REDACTION_FIRST) then
+    Result := ErrorResult;
+  
+  for i := 1 to NEXT_COUNT do
+    if not ClickStatusBarButton('СЛЕДУЮЩИЙ ДОКУМЕНТ В СПИСКЕ') then
+      Raise('Не получилось перейти к следующему документу в списке');
+  if not CheckExistsTMIcons(TM_GREEN_ON) then
+    Result := ErrorResult;
+  if not OnTimeMachineWithDate('01.03.2003') then
+    Raise('Не получилось включить МВ с даты 01.03.2003');
+
+  for i := 1 to NEXT_COUNT do
+    if not ClickStatusBarButton('ПРЕДЫДУЩИЙ ДОКУМЕНТ В СПИСКЕ') then
+      Raise('Не получилось перейти к предыдущему документу в списке'); 
+  if not CheckCurrentRedaction('redaction_inactive.bmp', REDACTION_FIRST) then
+    Result := ErrorResult;
+  if not CheckExistsTMIcons(TM_GREEN_ON + TM_RED_NOTCONNECT) then
+    Result := ErrorResult;
+  if not CheckNotExistsTMIcons(TM_YELLOW_WARN + TM_YELLOW_INACTIVE) then
+    Result := ErrorResult;
+
+  //HLTC192.2.9
+  if not (OpenDocByNumber(900100) and OnTimeMachineWithDate('')) then
+    Raise('Не получилось отключить МВ в документе 900100');
+  if not SelectRedaction(REDACTION_FIRST) then
+    Raise('Не получилось выбрать редакцию "' + REDACTION_FIRST + '"');
+    
+  if not ClickByMainMenuItem(REDACTION_MENU_BASE + REDACTION_MENU_NEXT) then  
+    Result := ErrorResult('Не получилось открыть "' + REDACTION_MENU_NEXT + '" редакцию через ГМ в документе');
+  if not ClickByMainMenuItem(REDACTION_MENU_BASE + REDACTION_MENU_PREV) then
+    Result := ErrorResult('Не получилось открыть "' + REDACTION_MENU_PREV + '" редакцию через ГМ в документе');
+    
+  if not CheckCurrentRedaction('redaction_inactive.bmp', REDACTION_FIRST) then
+    Result := ErrorResult;
+  
+  CloseTabIfNeeded;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  OnTimeMachineWithDate('');
+  GoToMainMenuWithCloseTabsExceptOne;
+end;
+
+{
+HLTC192.2.10: Открыть документ с внутренним номером 12024178. Ищем в документе контекст "мультссылка".
+  Оказываемся рядом с интересуемой ссылкой "мультиссылка на документ ...."
+  Переходим по ней и попадаем в список, отсортировать список по юридической силе по ВОЗРАСТАНИЮ, 
+  чтобы документы были представлены в следующем порядке :
+  Тopic 8901002. Справка к Документу с нормальной цепочкой редакций. 
+  Документ с нормальной цепочкой редакций. ACTIVE 21/04/2003
+  Переходим в “Документ с нормальной цепочкой редакций. ACTIVE 01/04/2003 - 20/04/2003(c 
+  изм. от [дата не установлена])” 
+  Открыть вкладку «Редакции». Выбирать первоначальную редакцию. Щелкнуть правой кнопкой мыши
+  в тексте данной редакции и выбирать пункт контекстного меню «Включить МВ с даты начала 
+  действия текущей редакции». Должна появится дата в МВ = 01/01/2003 и появится зеленый 
+  значок МВ. Выбрать из ГМ пункт Актуальная редакция. 
+  Должен отобразится текст актуальной редакции и данная редакция должна подсветиться на 
+  вкладке «Редакции». Дата в календаре МВ должна остаться = 01/01/2003 и появится красный 
+  значок МВ, сообщающий что дата в МВ не относится к данной редакции.
+  Из ГМ переходим в предыдущую редакцию. Переход должен быть осуществлен 
+  в редакцию действующую 01.04.2003 (проверить на вкладке «Редакции»). Дата в МВ должна 
+  остаться 01,03,2003 и отображаться красный значок МВ, сообщающий, что дата в МВ не относится 
+  к данной редакции. 
+  В данном документе щелкнуть правой кнопкой мыши в тексте и через контекстное меню  выключить МВ и перейти в актуальную редакцию.
+}
+function  HLTC192_2_10_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;
+  if not OpenDocByNumber(12024178) then
+    Raise('Не получилось открыть документ № 12024178');
+  if not ClickByHyperLink(GetEditor, 'мультиссылка на документ') then
+    Raise('Не получилось кликнуть по ссылке: мультиссылка на документ');
+  if not OpenDocFromList('Документ с нормальной цепочкой редакций. ACTIVE 21/04/2003', GetList) then
+    Raise('Не получилось открыть список ' + LIST_MAIN);
+  if not SelectRedaction(REDACTION_FIRST) then 
+    Raise('Не получилось открыть редакцию: ' + REDACTION_FIRST);
+
+  Result := OnTimeMachineWithDate('') and Result;
+  
+  if not OnTimeMachineOnFirstRedaction then
+    Raise('Не получилось включить МВ с начала действия текущей редакции: ' + REDACTION_FIRST);
+  if not StringCompare(GetTimeMachineDate, '01.01.2003') then
+    Result := ErrorResult('Дата календаря МВ (' + GetTimeMachineDate + ') отличается от 01.01.2003');
+    
+  if not CheckExistsTMIcons(TM_GREEN_ON + TM_YELLOW_WARN) then
+    Result := ErrorResult;
+  if not CheckNotExistsTMIcons(TM_YELLOW_INACTIVE + TM_RED_NOTCONNECT) then
+    Result := ErrorResult;
+
+  if not ClickByMainMenuItem(REDACTION_MENU_BASE + REDACTION_MENU_ACTIVE) then
+    Raise('Не получилось открыть "' + REDACTION_MENU_ACTIVE + '" редакцию в документе');
+  if not CheckExistsTMIcons(TM_GREEN_ON + TM_YELLOW_WARN + TM_RED_NOTCONNECT) then
+    Result := ErrorResult;
+  if not CheckNotExistsTMIcons(TM_YELLOW_INACTIVE) then
+    Result := ErrorResult;
+
+  if not ClickByMainMenuItem(REDACTION_MENU_BASE + REDACTION_MENU_PREV) then
+    Raise('Не получилось открыть "' + REDACTION_MENU_PREV + '" редакцию в документе');
+  if not CheckExistsTMIcons(TM_RED_NOTCONNECT) then
+    Result := ErrorResult;
+
+  if not (OpenAndClickByPopUpMenuItem(GetEditor, 'В*ключить*Машин*Времен*') and OnTimeMachineWithDate('')) then
+    Result := ErrorResult('Не получилось отключить Машину времени через контекстное меню');
+    
+  if not CheckTimeMachineIcons(false) then
+    Result := ErrorResult;
+    
+  CloseTabIfNeeded;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  OnTimeMachineWithDate('');
+  GoToMainMenuWithCloseTabsExceptOne;
+end;
+
+{
+HLTC192.2.12: Открыть любой документ с редакциями. Открыть вкладку навигатора «Редакции» и 
+  выбрать любую предыдущую редакцию документа. Должен появится желтый значок предупреждения. 
+  Закрыть вкладку «Предупреждение» внизу окна приложения. Щелкнуть правой кнопкой мыши по 
+  желтому значку предупреждения и выбрать пункт контекстного меню «Показать текст предупреждения». 
+  Убедиться, что отобразится вкладка «Предупреждение». Кликнуть еще раз правой кнопкой мыши по 
+  значку и выбрать пункт контекстного меню «Открыть актуальную редакцию».
+}
+function  HLTC192_2_12_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := false;
+  if not OpenDocByNumber(900100) then
+    Raise('Не получилось открыть документ № 900100');
+  if not SelectRedaction(REDACTION_900100_INACTIVE1) then
+    Raise('Не получилось открыть редакцию: ' + REDACTION_900100_INACTIVE1);
+  if not ClickToolbarButton(GetFromEditor('ТУЛБАР ВЕРХНИЙ ПРАВЫЙ ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ"'), 'Закрыт*') then
+    Raise('Не получилось закрыть окно предупреждения');
+  if not (ClickPopUpByRedationIcon('Показать текст предупреждени*')and IsExists(GetFromEditor('ВКЛАДКА "ПРЕДУПРЕЖДЕНИЕ"'))) then
+    Raise('Не найдено окно предупреждения');
+  Result := ClickPopUpByRedationIcon('Открыть актуальную ред*')and CheckCurrentRedaction('redaction_active.bmp', REDACTION_900100_ACTIVE);
+  if not Result then
+    Raise('Не получилось перейти к актуальной редакции');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  Result := OnTimeMachineWithDate('') and Result;
+  GoToMainMenu;
+end;
+
+{
+HLTC192.3.3: Открываем БИК (№455333), вводим любую дату, например 01.01.01, в машину времени, 
+  жмём Enter – должна включится машина времени (не должно быть никаких ошибок)
+}
+function  HLTC192_3_3_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;
+  if not OpenDocByNumber(455333) then
+    Raise('Не получилось открыть документ № 455333');
+  if not OnTimeMachineWithDate('01.01.01') then
+    Raise('Не получилось включить МВ с даты 01.01.01');
+  if not CheckExistsTMIcons(TM_GREEN_ON) then
+    Result := ErrorResult;
+  if not CheckNotExistsTMIcons(TM_YELLOW_INACTIVE + TM_RED_NOTCONNECT + TM_YELLOW_WARN) then
+    Result := ErrorResult;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  Result := OnTimeMachineWithDate('') and Result;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.3.4: Для документов с командой !Preactive операция "Включить машину времени с даты начала действия текущей редакции" должна быть запрещена. Проверить для документа 8901006.
+}
+function  HLTC192_3_4_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;
+  if not OpenDocByNumber(8901006) then
+    Raise('Не получилось открыть документ № 8901006');
+  if OnTimeMachineOnFirstRedaction then
+    Raise('Получилось включить МВ с начала действия текущей редакции в документе № 8901006');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  OffTimeMachine;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.3.5: Для документов с командой NOTTM операции включения МВ должны быть недоступны(тулбар, Панель задач, главное меню, контекстное меню). При переходе по истории с уже включенной МВ должно появляться предупреждение со ссылкой выключить МВ. Проверить для документа 9004. Также проверить, что для этого документа при переключении на базу от 27 числа МВ станет доступной, т.к. NOTTM уже отсутствует.
+}
+function  HLTC192_3_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOC_NUM = 9004;
+begin
+try 
+  Result := true;
+  if not OpenDocByNumber(DOC_NUM) then
+    Raise('Не получилось открыть документ № ' + IntToStr(DOC_NUM));
+  if OpenTimeMachine then
+    Result := ErrorResult('Получилось открыть диалог МВ в документе № ' + IntToStr(DOC_NUM));  
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CloseTimeMachine;
+  GoToMainMenu;
+end;
+
+{
+HLTC192.4.1: Перейти в ППР и осуществить поиск по номеру «N0TTM». Построить список,
+  должно найтись 4 документа. Пересортировать список по юридической силе. 
+  Перейти в «Документ 9001». Открыть вкладку «Редакции». Щелкнуть правой кнопкой в тексте 
+  документа и выбрать пункт контекстного меню «Включить МВ». В календаре выбрать 10,02,2004. 
+  Нажать кнопку тулбара документа «Следующий документ в списке». Убедиться, что при переходе на 
+  следующий документ появляется красный значок МВ, сообщающий, что документ не подключен к МВ.
+HLTC192.4.2: Перейти в ППР и осуществить поиск по контексту «NOTTM». Построить список 
+  из 4 -х документов. Пересортировать список по юридической силе. Перейти в «Документ 9001». 
+  Ввести дату в МВ = 10,02,2004. Убедиться, что показывается предыдущая редакция документа. 
+  Перейти по ссылке на «второй документ с NOTTM». Убедиться, что система выдает предупреждение, 
+  что документ не подключен к МВ.
+HLTC192.5: Проверить переход по истории при работающей МВ  
+}
+function  HLTC192_4_1_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;                              //ТТМ - русские
+  if not SearchInPPR( [	CARD_PPR, ([([FD_NUMBER, (['N0ТТМ']) ]) ]) ] ) then
+    Raise('Не получилось построить список по номеру "N0ТТМ"');
+  if not OpenDocFromList('Документ 9001', GetList) then
+    Result := ErrorResult('Не получилоь открыть Документ 9001 из списка');
+  if not CheckCurrentRedaction('redaction_active.bmp', '') then
+    Result := ErrorResult;  
+  if not OnTimeMachineWithDate('10.02.04') then
+    Raise('Не получилось включить МВ с даты 10.02.04');
+
+  if not ClickStatusBarButton('СЛЕДУЮЩИЙ ДОКУМЕНТ В СПИСКЕ') then
+    Raise('Не получилось перейти к следующему документу в списке');
+  if not CheckExistsTMIcons(TM_GREEN_ON + TM_RED_NOTCONNECT) then
+    Result := ErrorResult;
+  if not CheckNotExistsTMIcons(TM_YELLOW_INACTIVE +  TM_YELLOW_WARN) then
+    Result := ErrorResult;
+  
+  if not GoByHistory('НАЗАД') then
+    Raise('Не получилось вернуться по истории Назад');
+  if not ClickByHyperLink(GetEditor, 'ссылка на второй! документ с NOTTM') then
+    Raise('Не получилось кликнуть по ссылке: ссылка на второй! документ с NOTTM');
+  if not CheckExistsTMIcons(TM_GREEN_ON + TM_RED_NOTCONNECT) then
+    Result := ErrorResult;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  Result := OnTimeMachineWithDate('') and Result;
+  GoToMainMenuWithCloseTabsExceptOne;
+end;
+
+{
+  HLTC192.7.1.1: В основном окне системы должно появится 2 текста редакций – слева предыдущая действующая, справа текущая.
+}
+function  HLTC192_7_1_1_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;
+
+  if not OpenDocByNumber(9001) then
+    Raise('Не получилось открыть документ 9001!');
+  
+  if not OpenCompareEditions then  
+    Raise('Не получилось открыть "Сравнение редакций"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.7.1.2: Если предыдущей редакции нет, операция сравнения недоступна.
+}
+function  HLTC192_7_1_2_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;
+
+  if not OpenDocByNumber(2009) then
+    Result := ErrorResult('Не получилось открыть документ 2009!')
+  else
+  if OpenCompareEditions then  
+    Result := ErrorResult('Получилось открыть "Сравнение редакций" для документа без редакций!');
+
+  if not OpenDocByNumber(8908000) then
+    Result := ErrorResult('Не получилось открыть документ 8908000!')
+  else
+  if OpenCompareEditions then  
+    Result := ErrorResult('Получилось открыть "Сравнение редакций" для документа без предыдущей редакции, но с будущей редакцией!');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.7.1.3: Общий заголовок окна должен иметь вид «Сравнение редакций документа: <короткий заголовок действующей редакции>».
+}
+function  HLTC192_7_1_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  COMPARE_TEXT = 'Сравнение редакций документа : Документ 9001';
+var
+  wndCap;
+begin
+try 
+  Result := true;
+
+  if not OpenDocByNumber(9001) then
+    Raise('Не получилось открыть документ 9001!');
+
+  if not OpenCompareEditions then  
+    Raise('Не получилось открыть "Сравнение редакций"');
+  
+  wndCap := GetTabCaption;
+  if not StringCompare(COMPARE_TEXT, wndCap) then
+    Result := ErrorResult('Текст заголовка окна "' + wndCap + '", отличается от эталона "' + COMPARE_TEXT + '"'); 
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.7.1.4: Заголовки редакций должны иметь вид: «Редакция:» (ссылка, при нажатию на которую данная редакция открывается в полном окне) и название редакции из списка редакций «с изм. от dd.mm.yyyy».
+}
+function  HLTC192_7_1_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  COMBOTEXT_LEFT = '*10.02.2004*09.03.2004*';
+  COMBOTEXT_RIGHT = '*10.03.2004*09.05.2004, 10.06.2004 - ?';
+var
+  w, text;
+begin
+try 
+  Result := true;
+
+  if not OpenDocByNumber(9001) then
+    Raise('Не получилось открыть документ 9001!');
+
+  if not OpenCompareEditions then  
+    Raise('Не получилось открыть "Сравнение редакций"');
+    
+  w := GetFromEditions('КОМБОБОКС ВЫБОРА ДАТЫ РЕДАКЦИИ СЛЕВА');
+  if not IsExists(w) then
+    Raise('Не найден "КОМБОБОКС ВЫБОРА ДАТЫ РЕДАКЦИИ СЛЕВА"');
+  text := common.GetWindowText(w);
+  if not StringCompare(COMBOTEXT_LEFT, text) then
+    Result := ErrorResult('Дата редакции слева "' + text + '" не соответствует ожидаемой "' + COMBOTEXT_LEFT + '"');
+
+  w := GetFromEditions('КОМБОБОКС ВЫБОРА ДАТЫ РЕДАКЦИИ СПРАВА');
+  if not IsExists(w) then
+    Raise('Не найден "КОМБОБОКС ВЫБОРА ДАТЫ РЕДАКЦИИ СПРАВА"');
+  text := common.GetWindowText(w);
+  if not StringCompare(COMBOTEXT_RIGHT, text) then
+    Result := ErrorResult('Дата редакции справа "' + text + '" не соответствует ожидаемой "' + COMBOTEXT_RIGHT + '"');
+
+  if not IsExists(GetFromEditions('ССЫЛКА РЕДАКЦИИ СПРАВА')) then
+    Raise('Не найдена "ССЫЛКА РЕДАКЦИИ СПРАВА"!');
+  if not IsExists(GetFromEditions('ССЫЛКА РЕДАКЦИИ СЛЕВА')) then
+    Raise('Не найдена "ССЫЛКА РЕДАКЦИИ СЛЕВА"!');
+    
+  GetFromEditions('ССЫЛКА РЕДАКЦИИ СЛЕВА').Click;
+  if not IsExists(GetEditor) then
+    Raise('Редакция слева не открылась в отдельном полном окне редактора!');
+  if not GoByHistory('НАЗАД') then
+    Raise('Не получилось вернуться назад по истории в Сравнение редакций');
+  GetFromEditions('ССЫЛКА РЕДАКЦИИ СПРАВА').Click;
+  if not IsExists(GetEditor) then
+    Raise('Редакция справа не открылась в отдельном полном окне редактора!');   
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.7.2: Проверить, что операция сравнения недоступна:
+    HLTC192.7.2.1: для первоначальных редакций
+}
+function  HLTC192_7_2_1_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try 
+  Result := true;
+
+  if not OpenDocByNumber(8901100) then
+    Raise('Не получилось открыть документ 8901100 (перв. редакция документа 8901001)');
+  
+  if OpenCompareEditions then  
+    Raise('Получилось открыть "Сравнение редакций" для первоначальной редакции документа 8901001');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.7.3: Проверить, что операцию сравнения можно вызвать из:
+    HLTC192.7.3.1: тулбара документа(в кнопке «Изменения в документе», активна только в случае наличия предыдущей редакции)  
+    HLTC192.7.3.2: контекстного меню вкладки «Редакции» документа(активна для всех редакций, кроме первоначальной)
+    HLTC192.7.3.3: контекстного меню вкладки «На контроле»(активна для документов с редакциями, для документов со статусом «изменен» название операции – «показать изменения»)
+    HLTC192.7.3.5: главного меню Анализ после пункта включения МВ
+}
+function  HLTC192_7_3_Execute(var  current_state: OleVariant): OleVariant;
+  const
+    NAME = 'HLTC192_7_3';
+  var 
+    i: integer;
+    open_type: string;
+begin
+try
+  try
+    Result := true;
+
+    gbl_FixTC6bugEnabled := true;
+    if not RestartF1Shell(3, Options.Run.Timeout div 6, NAME, NAME) then
+      Raise('Не получилось перезапустить оболочку c логином и паролем "' + NAME + '"');
+
+    for i := 1 to 2 do // 2 вместо 4, т.к. пока отключаем, см. K: 159366736
+    begin
+      if not OpenDocByNumber(8901001) then
+        Raise('Не получилось открыть документ 8901001');
+      case i of
+        1: open_type := 'МЕНЮ';
+        2: open_type := 'КНОПКА НА ТУЛБАРЕ';
+        3: open_type := 'ПОПАП МЕНЮ ВКЛАДКИ "РЕДАКЦИИ"';
+        4: begin
+             if not SetDocOnControlState(ONCONTROL_STATE_ON) then
+              Raise('Не получилось поставить документ на контроль');
+             open_type := 'ПОПАП МЕНЮ ВКЛАДКИ "ДОКУМЕНТЫ НА КОНТРОЛЕ"';
+           end;
+      end; 
+      if not OpenCompareEditions(open_type) then  
+        Raise('Не получилось открыть "Сравнение редакций" в документе 8901001 через "' + open_type + '"');
+    end;
+  finally
+    gbl_FixTC6bugEnabled := false;
+    DelAllDocsFromControl;
+    CloseF1Shell;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC192.7.4: Проверить, что в сравнении не учавствуют юридические и версионные комментарии, и они отключены.
+}
+function  HLTC192_7_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  VER_COMMENT_TEXT = '*версионный*комментарий*style*';
+  DOC_NUM = 8901001;   
+var
+  w: OleVariant;
+begin
+try 
+  Result := true;
+
+  if not OpenDocByNumber(DOC_NUM) then
+    Raise('Не получилось открыть документ ' + IntToStr(DOC_NUM));
+  if not SwitchToPage(GetFromEditor('ЗАКЛАДКИ'), 'ТЕКСТ') then
+    Result := ErrorResult('Не получилось переключиться на текст документа');
+    
+  if not BaseSearchInDocument(GetEditor, '2001.10 Начало блока 110 Текущий Текст') then
+    Raise('Не получилось перейти к месту версионного комментария');
+
+  w := GetFromEditor('САБ ПАНЕЛЬ'); 
+  if not MoveMouseToObject(w, 'Ver_Comments_off.bmp', 5, 5, true, 2) then
+    Raise('Не получилось открыть контекстное меню на иконке версионного комментария в документе ' + IntToStr(DOC_NUM));
+
+  if not IsPopupMenuItemExists(w, 'Выкл*инф*изм*док*') then    
+    if not ClickByPopupMenuItem(w, 'Вкл*инф*изм*док*') then
+      Raise('Не получилось включить показ версионных комментариев в документе ' + IntToStr(DOC_NUM));
+  if not StringCompare(VER_COMMENT_TEXT, CopyToClipboard(GetEditor, 'ALL')) then
+    Raise('Не найден эталонный текст версионного комментария "' + VER_COMMENT_TEXT + '" в документе ' + IntToStr(DOC_NUM));
+
+  if not OpenCompareEditions then  
+    Raise('Не получилось открыть "Сравнение редакций" для документа ' + IntToStr(DOC_NUM));
+  if StringCompare(VER_COMMENT_TEXT, CopyToClipboard(GetFromEditions('ТЕКСТ ДОКУМЕНТА СПРАВА'), 'ALL')) then
+    Raise('Найден текст версионного комментария "' + VER_COMMENT_TEXT + '" в документе ' + IntToStr(DOC_NUM));
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.7.8: В окне каждой редакции располагаются комбобоксы с выбором редакций.
+    HLTC192.7.8.1: В левом окне из комбобокса можно выбрать любую предыдущую редакцию. При этом процесс сравнения запускается заново, текст позиционируется на том же месте относительно текущей редакции(т.е. если отскроллировались на статью X, то после выбора из комбобокса справа и слева должна быть статья X), а предыдущее состояние окон попадает в историю.
+    HLTC192.7.8.2: В правом окне можно выбрать текущую и любую будущую редакцию. При этом при смене редакции в правом окне текущей становится новая выбранная в комбобоксе редакция.
+}
+function  HLTC192_7_8_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOC_NUM = 8901001;
+  
+  DATE1_RIGHT = '*01.01.2010*';
+  TEXT1_LEFT = '*Документ с нормальной цепочкой редакций. ACTIVE 01/04/2003 - 20/04/2003*';
+  TEXT1_RIGHT = '*Первая будущая редакция. PREACTIVE*';
+  
+  DATE2_LEFT = '*01.01.2003*';
+  TEXT2_LEFT = '*Документ с нормальной цепочкой редакций. ACTIVE 01/03/2003 - 31/03/2003 и 01/01/2003 - 31/01/2003*';
+  TEXT2_RIGHT = '*Первая будущая редакция. PREACTIVE*';
+var
+  w: OleVariant;
+begin
+try 
+  Result := true;
+
+  if not OpenDocByNumber(DOC_NUM) then
+    Raise('Не получилось открыть документ ' + IntToStr(DOC_NUM));
+  if not OpenCompareEditions then  
+    Raise('Не получилось открыть "Сравнение редакций" для документа ' + IntToStr(DOC_NUM));
+
+  // HLTC192.7.8.2
+  w := GetFromEditions('КОМБОБОКС ВЫБОРА ДАТЫ РЕДАКЦИИ СПРАВА');
+  if not IsExists(w) then
+    Raise('Не найден "КОМБОБОКС ВЫБОРА ДАТЫ РЕДАКЦИИ СПРАВА"');
+  if NOT SelectInCombobox(w, DATE1_RIGHT) then
+    Raise('Не получилось выбрать справа редакцию "' + DATE1_RIGHT + '"');
+  if not StringCompare(TEXT1_LEFT, CopyToClipboard(GetFromEditions('ТЕКСТ ДОКУМЕНТА СЛЕВА'), 'ALL')) then
+    Raise('Слева открылась неправильная редакция (выбор был сделан из комбобокса справа), не содержащая "' + TEXT1_LEFT + '"');
+  if not StringCompare(TEXT1_RIGHT, CopyToClipboard(GetFromEditions('ТЕКСТ ДОКУМЕНТА СПРАВА'), 'ALL')) then
+    Raise('Слева открылась неправильная редакция (выбор был сделан из комбобокса справа), не содержащая "' + TEXT1_RIGHT + '"');
+
+  // HLTC192.7.8.1
+  w := GetFromEditions('КОМБОБОКС ВЫБОРА ДАТЫ РЕДАКЦИИ СЛЕВА');
+  if not IsExists(w) then
+    Raise('Не найден "КОМБОБОКС ВЫБОРА ДАТЫ РЕДАКЦИИ СЛЕВА"');
+  if NOT SelectInCombobox(w, DATE2_LEFT) then
+    Raise('Не получилось выбрать слева редакцию "' + DATE2_LEFT + '"');
+  if not StringCompare(TEXT2_LEFT, CopyToClipboard(GetFromEditions('ТЕКСТ ДОКУМЕНТА СЛЕВА'), 'ALL')) then
+    Raise('Слева открылась неправильная редакция (выбор был сделан из комбобокса слева), не содержащая "' + TEXT2_LEFT + '"');
+  if not StringCompare(TEXT2_RIGHT, CopyToClipboard(GetFromEditions('ТЕКСТ ДОКУМЕНТА СПРАВА'), 'ALL')) then
+    Raise('Слева открылась неправильная редакция (выбор был сделан из комбобокса слева), не содержащая "' + TEXT2_RIGHT + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.7.9: Если процесс сравнения редакций идет более 2 секунд, то пользователю выводится индикатор длительного процесса(документ 10064072).
+}
+function  HLTC192_7_9_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOC_NUM = 10064072;
+begin
+try 
+  Result := true;
+
+  if not OpenDocByNumber(DOC_NUM) then
+    Raise('Не получилось открыть документ ' + IntToStr(DOC_NUM));
+  if not OpenCompareEditions then  
+    Raise('Не получилось открыть "Сравнение редакций" для документа ' + IntToStr(DOC_NUM));
+  if not OpenDocByNumber(DOC_NUM) then
+    Raise('Не получилось открыть документ ' + IntToStr(DOC_NUM));
+  if not OpenCompareEditions then  
+    Raise('Не получилось открыть "Сравнение редакций" для документа ' + IntToStr(DOC_NUM));
+    
+  if not IsExists(GetFromShell('ОКНО ПРОЦЕССА СРАВНЕНИЯ')) then
+    Raise('Не найдено окно процесса сравнения редакций для документа ' + IntToStr(DOC_NUM));
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC192.7.12: Для документа 8901001 проверить, что при переходе по внутренним ссылкам в пределах редакции или по ссылкам из одной панели в другую позиционирование происходит в том же окне сравнения редакций, а при переходе по ссылкам на другие документы или редакции, не открытые на экране, открывается стандартная область просмотра документа.
+}
+function  HLTC192_7_12_Execute(var  current_state: OleVariant): OleVariant;
+const
+  NAME = 'HLTC192_7_12';
+  DOC_NUM = 8901001;
+  LINK_ON_THIS_DOC = 'ссылка на начало этого документа';
+  LINK_ON_ANOTHER_DOC = 'ссылка на 2001.100';
+var
+  w: OleVariant;
+begin
+try 
+  try
+    Result := true;
+
+    gbl_FixTC6bugEnabled := true;
+    if not RestartF1Shell(3, Options.Run.Timeout div 6, NAME, NAME) then
+       Raise('Не получилось перезапустить оболочку c логином и паролем "' + NAME + '"');
+
+    if not OpenDocByNumber(DOC_NUM) then
+      Raise('Не получилось открыть документ ' + IntToStr(DOC_NUM));
+    if not OpenCompareEditions then  
+      Raise('Не получилось открыть "Сравнение редакций" для документа ' + IntToStr(DOC_NUM));
+
+    w := GetFromEditions('ТЕКСТ ДОКУМЕНТА СЛЕВА');
+    if not IsExists(w) then
+      Raise('Не найден "ТЕКСТ ДОКУМЕНТА СЛЕВА"');
+    if not ClickByHyperLink(w, LINK_ON_THIS_DOC) then
+      Raise('Не получилось кликнуть по ссылке: ' + LINK_ON_THIS_DOC);
+    if not IsExists(w) then
+      Raise('Не найден "ТЕКСТ ДОКУМЕНТА СЛЕВА"');
+    if not IsExists(GetFromEditions('ТЕКСТ ДОКУМЕНТА СПРАВА')) then
+      Raise('Не найден "ТЕКСТ ДОКУМЕНТА СПРАВА"');
+        
+    if not ClickByHyperLink(w, LINK_ON_ANOTHER_DOC) then
+      Raise('Не получилось кликнуть по ссылке: ' + LINK_ON_ANOTHER_DOC);
+    if not IsExists(GetEditor) then
+      Raise('Не найден текст документа после клика по ссылке: ' + LINK_ON_ANOTHER_DOC);
+  finally
+    gbl_FixTC6bugEnabled := false;
+    CloseF1Shell;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+procedure RunMyTests192;
+var i, p, w;
+begin
+//  HLTC192_1_1_Execute(p);
+//  HLTC192_1_5_Execute(p);
+//  HLTC192_1_10_Execute(p);
+//  HLTC192_2_2_Execute(p);
+//  HLTC192_2_5_Execute(p);
+//  HLTC192_2_6_Execute(p);  
+//  HLTC192_2_7_Execute(p);
+//  HLTC192_2_8_Execute(p);  
+//  HLTC192_2_10_Execute(p);
+//  HLTC192_2_12_Execute(p);
+//  HLTC192_3_3_Execute(p);
+//  HLTC192_3_4_Execute(p);
+//  HLTC192_3_5_Execute(p);
+//  HLTC192_4_1_Execute(p);
+
+//  HLTC192_7_1_1_Execute(p);
+//  HLTC192_7_1_2_Execute(p);
+//  HLTC192_7_1_3_Execute(p);
+//  HLTC192_7_1_4_Execute(p);
+//  HLTC192_7_2_1_Execute(p);
+//  HLTC192_7_3_Execute(p);
+//  HLTC192_7_4_Execute(p);
+//  HLTC192_7_8_Execute(p);
+//  HLTC192_7_9_Execute(p);
+//  HLTC192_7_12_Execute(p);
+////////////////////////////
+ 
+
+
+
+
+
+  
+
+
+
+ 
+
+
+    
+        
+end;

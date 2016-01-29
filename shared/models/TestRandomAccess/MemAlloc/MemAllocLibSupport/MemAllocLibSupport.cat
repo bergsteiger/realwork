@@ -1,0 +1,374 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "MemAllocLibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/MemAlloc/MemAllocLibSupport|4A65C5E00056
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"4A65C5E00056"
+    documentation 	"MemAllocLibSupport"
+    stereotype 	"LibSupport"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "MemAllocLibExecutor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/MemAlloc/MemAllocLibSupport/MemAllocLibExecutor|4A65C60000A0
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"W:/labs/TestRandomAccess/MemAlloc/MemAllocLibExecutor.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"W:/labs/TestRandomAccess/MemAlloc/MemAllocLibExecutor.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A65C60000A0_CUSTOM_INCLUDES*"
+		    value      	
+|//#UC START# *4A65C60000A0_CUSTOM_INCLUDES*¤#if !defined (WIN32)¤#error This program need Windows¤#endif¤¤static DWORD g_ProcessId;¤¤BOOL CALLBACK enumWindowsProc (HWND hwnd, LPARAM lParam) {¤	DWORD process_id;¤	char title[256];¤	GetWindowText(hwnd, title, 256);¤¤	if(strcmp(title, "Cleaner") == 0) {¤		GetWindowThreadProcessId (hwnd, &process_id);¤		if (process_id != g_ProcessId) {¤			HANDLE hProc;¤			hProc = OpenProcess(PROCESS_ALL_ACCESS, false, process_id);¤			UINT exit_code = 0;¤			BOOL result = TerminateProcess(hProc, exit_code);¤			CloseHandle(hProc);¤			if(!result) {¤				LOG_I (("Couldn't terminate process: id <%d>, result <%d>", process_id, result));¤				return true;¤			}¤		}¤	}¤	return true;¤}¤¤//#UC END# *4A65C60000A0_CUSTOM_INCLUDES*
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A65C60000A0_CUSTOM_BODY*"
+		    value      	"//#UC START# *4A65C60000A0_CUSTOM_BODY*¤//#UC END# *4A65C60000A0_CUSTOM_BODY*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A65C60000A0*"
+		    value      	(value Text 
+|//#UC START# *4A65C60000A0*¤		char title[256];¤		std::string new_title;		¤		new_title = "Cleaner";¤		SetConsoleTitle(new_title.c_str());¤		GetConsoleTitle( title, sizeof( title ) );¤		LOG_I (("Console title <%s>", title));¤		std::string app_name = MemAllocSettings::get_app_name();¤		if(app_name.length() !=0 ) {¤			g_ProcessId = GetCurrentProcessId();¤			EnumWindows (enumWindowsProc, 0);¤			ExecutorBase::execute_ ();¤			return;¤		}¤¤		unsigned long size_mb = MemAllocSettings::get_size_mb ();¤		unsigned long size = size_mb*1024*1024;¤		unsigned long block_size = 4*1024;¤		for (unsigned long i = 0; i < size; i += block_size) {¤			char* buf = new char [block_size];¤			ACE_OS::memset (buf, 1, block_size);¤		}¤		LOG_I (("%u Mb allocated", size_mb));¤		for (int i = 1; i <= 2*6*60; i++) {¤			LOG_I (("sleep - %d\n", i));¤			ACE_OS::sleep (10*1000);¤		}¤		//#UC END# *4A65C60000A0*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A65C60000A0_FINI*"
+		    value      	(value Text 
+|//#UC START# *4A65C60000A0_FINI*¤	//#UC END# *4A65C60000A0_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A65C60000A0_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *4A65C60000A0_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *4A65C60000A0_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4A65C60000A0_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4A65C60000A0_CUSTOM_INCLUDES*¤//#UC END# *4A65C60000A0_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4A65C60000A0*"
+		    value      	"//#UC START# *4A65C60000A0*¤//#UC END# *4A65C60000A0*"))
+	    quid       	"4A65C60000A0"
+	    documentation 	"MemAllocLibExecutor"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A65C61D0264"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestRandomAccess::MemAlloc::MemAllocLibSupport::MemAllocSettings"
+		    quidu      	"4A65C60F01CF"))
+	    language   	"MDA Generator")
+	(object Class "MemAllocSettings"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"W:/labs/TestRandomAccess/MemAlloc/MemAllocSettings.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"W:/labs/TestRandomAccess/MemAlloc/MemAllocSettings.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/MemAlloc/MemAllocLibSupport/MemAllocSettings|4A65C60F01CF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4A65C60F01CF"
+	    documentation 	"MemAllocSettings"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "size_mb"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"4A65C630019A"
+		    documentation 	"ðàçìåð âûäåëÿåìîé ïàìÿòè âûòåñíÿòîðà"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"512"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "stop"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"4B605459017D"
+		    documentation 	"Ïðèçíàê òîãî, ÷òî âñå âûòåñíÿòîðû íåîáõîäèìî çàâåðøèòü.."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"0"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4A65C5FB0163"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::TestRandomAccess::MemAlloc::MemAllocLibSupport::MemAllocLibExecutor" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(381, 288)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(147, 258)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	468
+			justify    	0
+			label      	"• MemAllocLibExecutor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(147, 208)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	468
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4A65C60000A0"
+		    width      	486
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::TestRandomAccess::MemAlloc::MemAllocLibSupport::MemAllocSettings" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1014, 699)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(708, 640)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	612
+			justify    	0
+			label      	"• MemAllocSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(708, 590)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	612
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"4A65C60F01CF"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(708, 701)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	609
+			justify    	1)
+		    width      	630
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(722, 454)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.569770
+			height     	47
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A65C61D0264"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(524, 380)
+			(827, 577))
+		    line_style 	0)))))

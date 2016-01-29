@@ -1,0 +1,53 @@
+// QuickTestsUtils.script
+// Вспомогательные методы для QuickTests.script
+// !!! Это специальная переходная версия для EverestLiteTests !!!
+USES
+ axiom:Wait
+ axiom:Waited
+ axiom:Control
+ axiom:Editor
+ axiom:cc
+ 
+	ArchiSystem.script
+	EverestUtils.script
+	CommonWords.script
+	TableUtils.script
+	@\TestExecuteCommand.script
+	@\TestWithParameters.script
+;
+
+PROCEDURE "Нажать 'Да' при создании блока"
+	wait:Yes
+	TRY
+		"Вставить блок"
+	FINALLY
+		waited:? ASSERT
+	END 
+;
+
+PROCEDURE "Прокрутить документ вниз до конца"
+	OBJECT VAR l_Editor
+	focused:control:push >>> l_Editor	
+        WHILE ( l_Editor pop:Editor:DocumentTailVisible ! )
+	BEGIN
+		cc:NextPage
+	END
+;
+
+PROCEDURE "Прокрутить стрелкой вниз до конца"
+	OBJECT VAR l_Editor
+	focused:control:push >>> l_Editor	
+        WHILE ( l_Editor pop:Editor:DocumentTailVisible ! )
+	BEGIN
+		cc:Down
+		"Обработать сообщения"
+	END
+;
+
+PROCEDURE "Вставить из буфера фрагмент RTF"
+	VAR l_File
+	script:FileName '.rtf' sysutils:ChangeFileExt 
+	sysutils:ExtractFileName >>> l_File
+	l_File focused:control:push pop:editor:PasteRTF
+;
+

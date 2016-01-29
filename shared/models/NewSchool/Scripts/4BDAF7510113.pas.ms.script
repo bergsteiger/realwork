@@ -1,0 +1,119 @@
+// Tree 4BDAF7510113 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BDAF7510113
+
+FORWARD ME_4BDAF7790158
+
+: ME_4BDAF7880236
+ CONST UID '4BDAF7880236'
+ CONST Name 'ExpandAll'
+ CONST Class class_Operation
+ %SUMMARY 'Развернуть все' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BDAF7790158 // Tree
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4BDAF7880236 ExpandAll
+
+: ME_4BDAF7A2005C
+ CONST UID '4BDAF7A2005C'
+ CONST Name 'CollapseAll'
+ CONST Class class_Operation
+ %SUMMARY 'Свернуть все' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BDAF7790158 // Tree
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4BDAF7A2005C CollapseAll
+
+: ME_4BDAF7B803CF
+ CONST UID '4BDAF7B803CF'
+ CONST Name 'Wrap'
+ CONST Class class_Operation
+ %SUMMARY 'Перенос по словам' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BDAF7790158 // Tree
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4BDAF7B803CF Wrap
+
+: ME_4BDAF7790158
+ CONST UID '4BDAF7790158'
+ CONST Name 'Tree'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BDAF7510113 // Tree
+ ;
+ : Operations
+   @ ( ME_4BDAF7880236 // ExpandAll
+ ME_4BDAF7A2005C // CollapseAll
+ ME_4BDAF7B803CF // Wrap
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4BDAF7790158 Tree
+
+: ME_4BDAF7510113
+ CONST UID '4BDAF7510113'
+ CONST Name 'Tree'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ %SUMMARY 'Представление в виде дерева' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
+ ;
+ : Children
+   @ ( ME_4BDAF7790158 // Tree
+ ) .SequenceCode.It
+ ; // Children
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Tree_Controls.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4BDAF7510113.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4BDAF7510113.pas.ms.script.runner'
+
+ref; // ME_4BDAF7510113 Tree

@@ -1,0 +1,37 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/GCL/data/StaticNodeStubBase.cpp"
+// генератор файлов реализации C++ (.cpp)
+// Generated from UML model, root element: <<SimpleClass::Class>> shared::GCL::data::StaticNodeStubBase
+//
+// базовый класс для StaticNodeStub
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "shared/Core/sys/std_inc.h"
+#include "shared/GCL/data/StaticNodeStubBase.h"
+
+//#UC START# *450136B500FA_CUSTOM_INCLUDES*
+//#UC END# *450136B500FA_CUSTOM_INCLUDES*
+
+namespace GCL {
+
+//#UC START# *450136B500FA*
+//#UC END# *450136B500FA*
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// constructors and destructor
+
+StaticNodeStubBase::~StaticNodeStubBase () {
+	//#UC START# *450136B500FA_DESTR_BODY*
+	//#UC END# *450136B500FA_DESTR_BODY*
+}
+
+
+} // namespace GCL
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

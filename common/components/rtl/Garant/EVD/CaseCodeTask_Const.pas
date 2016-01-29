@@ -1,0 +1,51 @@
+unit CaseCodeTask_Const;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "EVD"
+// Модуль: "w:/common/components/rtl/Garant/EVD/CaseCodeTask_Const.pas"
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::CaseCodeTask
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Константы для значений тега CaseCodeTask .
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+{$Include ..\EVD\evdDefine.inc}
+
+interface
+
+uses
+  k2Base {a},
+  evdTasks_Schema
+  ;
+
+function k2_typCaseCodeTask: CaseCodeTaskTag;
+
+implementation
+
+uses
+  k2Facade {a},
+  k2Attributes {a}
+  ;
+
+var
+ g_CaseCodeTask : CaseCodeTaskTag = nil;
+
+// start class CaseCodeTaskTag
+
+function k2_typCaseCodeTask: CaseCodeTaskTag;
+begin
+ if (g_CaseCodeTask = nil) then
+ begin
+  Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
+  g_CaseCodeTask := TevdTasksSchema(Tk2TypeTable.GetInstance).t_CaseCodeTask;
+ end;//g_CaseCodeTask = nil
+ Result := g_CaseCodeTask;
+end;
+
+end.

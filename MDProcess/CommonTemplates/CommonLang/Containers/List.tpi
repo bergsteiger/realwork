@@ -1,0 +1,175 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/List.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::List
+//
+// Список
+// ---
+// Абстракция уровня реализации. Представляет собой двусвязный список. Тип данных определяется
+// атрибутом без стереотипа.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: List::Class
+? Список
+? Абстракция уровня реализации. Представляет собой двусвязный список. Тип данных определяется атрибутом без стереотипа.
+= Vector::Class
+= Генерация JavaScript::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа BaseContainer::Class
+// сгенерить определение контэйнера для C++
+%f _dump_container_def_h
+//#UC START# *49015EE401E1for470F0BDF0271*
+	%f_dump_container_fwds_h(%S)\
+	%f_docs(%S)\
+	#typedef std::list \< %f_data_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+//#UC END# *49015EE401E1for470F0BDF0271*
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F0BDF0271*
+	<#%FF
+	>%f_docs(%S)\
+	#typedef sequence\<%C[%T<%NN::>]%C[%TN]\> %SN;
+//#UC END# *47022BBE0261for470F0BDF0271*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F0BDF0271*
+//#UC END# *470F1571031Cfor470F0BDF0271*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F0BDF0271*
+P
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	%f_tie_container_refcount_base_cpp(%S)
+	
+	long %SN_tie::get_count () const {
+		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::get_count"));
+		]return m_impl-\>size();
+	}
+	
+	void %SN_tie::set_count (long count) {
+		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::set_count"));
+		]m_impl-\>resize(count);
+	}
+	
+	void %SN_tie::clear () {
+		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::clear"));
+		]m_impl-\>clear();
+	}
+	
+	void %SN_tie::delete_item (long index) {
+		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::delete_item"));
+		]if ((size_t)index \< m_impl-\>size()) {
+			m_impl-\>erase(m_impl-\>begin() + index);
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	[{%t_simple(%{CONT_TYPE})=true}%t_ret(%{CONT_TYPE},"const,cached") %SN_tie::get_back () {
+	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::get_back"));
+	]][{%t_simple(%{CONT_TYPE})=false}void %SN_tie::get_back (long index, %t_arg(%{CONT_TYPE},"out") ret_) {
+	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::get_back"));
+	]][{%t_simple(%{CONT_TYPE})=true}		return m_impl->back ();]\
+	[{%t_simple(%{CONT_TYPE})=false}		%f_type_tie(%{CONT_TYPE})::make_tie (m_impl->back ()[{%t_interface(%{CONT_TYPE})=true}.in()], [{%t_interface(%{CONT_TYPE})=true}{*ret_}ret_, true]);]
+	}
+	
+	long %SN_tie::add (%t_arg(%{CONT_TYPE},"inout") item) {
+	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::add"));
+	][{%t_simple(%{CONT_TYPE})=true}	m_impl-\>push_back (item);]\
+	[{%t_simple(%{CONT_TYPE})=false}	%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+		%f_type_tie(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+		m_impl-\>push_back (item_);]
+		return m_impl-\>size() - 1;
+	}
+	
+	long %SN_tie::insert (long index, %t_arg(%{CONT_TYPE},"inout") item) {
+		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::insert"));
+		]if ((size_t)index \< m_impl-\>size()) {
+	[{%t_simple(%{CONT_TYPE})=true}		return std::distance (m_impl-\>begin(), m_impl-\>insert (m_impl-\>begin() + index, item));]\
+	[{%t_simple(%{CONT_TYPE})=false}		%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+			%f_type_tie(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+			return std::distance (m_impl-\>begin(), m_impl-\>insert (m_impl-\>begin() + index, item_));]
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+//#UC END# *47032ED002DEfor470F0BDF0271*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F0BDF0271*
+F class %SN_tie;
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	<%FF
+	
+	>class %SN_tie: public Core::TIEBase {
+		SET_OBJECT_COUNTER (%SN_tie)
+	protected:
+	%f_tie_container_refcount_base_h(%S)
+	
+	protected:
+		virtual long get_count () const;
+		virtual void set_count (long count);
+		virtual void clear ();
+		virtual void delete_item (long index);
+		[{%t_simple(%{CONT_TYPE})=true}virtual %t_ret(%{CONT_TYPE},"const,cached") get_back ();
+		][{%t_simple(%{CONT_TYPE})=false}virtual void get_back (%t_arg(%{CONT_TYPE},"out") ret_);
+		][{%t_simple(%{CONT_TYPE})=true}virtual %t_ret(%{CONT_TYPE},"const,cached") get_front ();
+		][{%t_simple(%{CONT_TYPE})=false}virtual void get_front (%t_arg(%{CONT_TYPE},"out") ret_);
+		]virtual void set_item (long index, %t_arg(%{CONT_TYPE},"inout") item);
+		virtual long add (%t_arg(%{CONT_TYPE},"inout") item);
+		virtual long insert (long index, %t_arg(%{CONT_TYPE},"inout") item);
+	};
+//#UC END# *47032EC4032Cfor470F0BDF0271*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F0BDF0271*
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	I%SN = interface(Il3List)
+	\['{%SG}'\]
+	  // property methods
+	    function  pm_GetItem(anIndex: LongInt): %f_type(%{CONT_TYPE});
+/	    procedure pm_SetItem(anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+	      {-}
+	  // public methods
+	    function  Add(const anItem: %f_type(%{CONT_TYPE})): Long;
+	      {* - добавляет элемент Item в конец. }
+	    procedure Insert(const anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+	      {* - вставляет элемент Item по индексу Index. }
+	  // public properties
+	    property  Items\[anIndex: LongInt\]: %f_type(%{CONT_TYPE})
+	      read pm_GetItem
+/	      write pm_SetItem;
+	      default;
+	      {* - элементы списка. }
+	end;//I%SN
+//#UC END# *470F152700FAfor470F0BDF0271*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

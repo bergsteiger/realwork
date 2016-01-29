@@ -1,0 +1,84 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDPSpecific/ConfluenceTemplate/Plugins/KListenerPlugin.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::MDPSpecific::ConfluenceTemplate::Plugins::KListenerPlugin
+//
+// Плагин-листенер
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: KListenerPlugin::Class
+? Плагин-листенер
+= ClassPluginBase::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+a raf
+/ - тип абстракции
+Y code_cplugin.gif
+L code_cplugin
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация иерархии наследования конкретного плагина
+%f _java_base_class_decl
+//#UC START# *4704D85102BFfor47049CAD0186*
+	%f_java_base(%S)[{%Rx=true}{ implements},] EventListener
+//#UC END# *4704D85102BFfor47049CAD0186*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация импорта классов необходимых конкретному плагину
+%f _java_servant_import_self
+//#UC START# *4704D854007Dfor47049CAD0186*
+	import com.atlassian.event.EventListener;
+	import com.atlassian.event.Event;
+//#UC END# *4704D854007Dfor47049CAD0186*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация специфического контента (методы, операции) плагина
+%f _servant_content_java
+//#UC START# *4704D85602FDfor47049CAD0186*
+	#	private static final Class\[\] handledClasses = new Class\[\] {
+	#		%U[{_CONTENT}
+	#		]
+	#	};
+	#
+	#	public Class\[\] getHandledEventClasses () {
+	#		%U[{_GETHANDLEDEVENTCLASSES_IMPLEMETATION}
+	#		return handledClasses;
+	#		]
+	#	}
+	
+		public void handleEvent (Event event) {
+			%U[{_HANDLEEVENT_IMPLEMETATION}
+			]
+		}
+//#UC END# *4704D85602FDfor47049CAD0186*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47049CAD0186*
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+//#UC END# *4704C0E30186for47049CAD0186*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

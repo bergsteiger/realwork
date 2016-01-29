@@ -1,0 +1,60 @@
+// TdaParamListPrim 5555A0950303 SimpleClass Class
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47B9AF6E0228.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_5555A0950303
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+: ME_5555A0B20141
+ CONST UID '5555A0B20141'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_55559D5700AC // IdaParam
+ ;
+
+ @SELF
+; // ME_5555A0B20141 ItemType
+
+: ME_5555A0950303
+ CONST UID '5555A0950303'
+ CONST Name 'TdaParamListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B9AF6E0228 // l3InterfaceRefListPrim
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5555A0B20141 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5555A0950303 TdaParamListPrim

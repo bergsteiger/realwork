@@ -1,0 +1,14 @@
+USES
+ QuickTestsUtils.script
+;
+
+Тест TK518769295
+	Параметры: ( "Документ Конституция" )
+	Выполнить (
+		STRING VAR l_Caption
+		"Найти контрол {(carStyleComboBox)} на форме {("Главное окно")}" pop:Control:Caption =: l_Caption
+		l_Caption РАВНО 'Технический комментарий' ?ASSURE [ 'В StyleComboBox неожиданное значение: ' l_Caption ] 
+	)
+;
+
+TK518769295

@@ -1,0 +1,1372 @@
+// InternalOperations 4F71AD0E01FE VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F71AD0E01FE
+
+FORWARD ME_4AE836C303BC
+
+: ME_4AEF3E8C02F5
+ CONST UID '4AEF3E8C02F5'
+ CONST Name 'BecomeActive'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AE836C303BC // Switcher$SetCaption
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4AEF3E8C02F5 BecomeActive
+
+: ME_4AF832C401A1
+ CONST UID '4AF832C401A1'
+ CONST Name 'SetFirstPageActive'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AE836C303BC // Switcher$SetCaption
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4AF832C401A1 SetFirstPageActive
+
+: ME_4AE836C303BC
+ CONST UID '4AE836C303BC'
+ CONST Name 'Switcher'
+ CONST Class class_Class
+ : Stereotype st_VCMFacet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сущность для управления закладками формы-контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Operations
+   @ ( ME_4AEF3E8C02F5 // BecomeActive
+ ME_4AF832C401A1 // SetFirstPageActive
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4AE836C303BC Switcher$SetCaption
+
+FORWARD ME_4AE874300212
+
+: ME_4AE8744002F3
+ CONST UID '4AE8744002F3'
+ CONST Name 'ShowSplitter'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AE874300212 // Common$ShowSplitter
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4AE8744002F3 ShowSplitter
+
+: ME_4AE8777F01A3
+ CONST UID '4AE8777F01A3'
+ CONST Name 'CheckChildZone'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AE874300212 // Common$ShowSplitter
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4AE8777F01A3 CheckChildZone
+
+: ME_4AE874300212
+ CONST UID '4AE874300212'
+ CONST Name 'Common'
+ CONST Class class_Class
+ : Stereotype st_VCMFacet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Operations
+   @ ( ME_4AE8744002F3 // ShowSplitter
+ ME_4AE8777F01A3 // CheckChildZone
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4AE874300212 Common$ShowSplitter
+
+FORWARD ME_5FF28AB23726
+
+: ME_0C1C073ED7EC
+ CONST UID '0C1C073ED7EC'
+ CONST Name 'Form'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_5FF28AB23726 // ISwitcher_BecomeActive_Params
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST "pm" false
+
+ref; // ME_0C1C073ED7EC Form
+
+: ME_5FF28AB23726
+ CONST UID '5FF28AB23726'
+ CONST GUID 'EF87C1B2-C651-415F-BB29-5A3843B62AE9'
+ CONST Name 'ISwitcher_BecomeActive_Params'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Switcher.BecomeActive' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Attributes
+   @ ( ME_0C1C073ED7EC // Form
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_5FF28AB23726 ISwitcher_BecomeActive_Params
+
+FORWARD ME_07AC461A0DA6
+
+: ME_2E44616E4534
+ CONST UID '2E44616E4534'
+ CONST Name 'f_Form'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_07AC461A0DA6 // TSwitcher_BecomeActive_Params
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_2E44616E4534 f_Form
+
+: ME_BE4EAA83AF8D
+ CONST UID 'BE4EAA83AF8D'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_BE4EAA83AF8D aForm
+
+: ME_844C956CBD25
+ CONST UID '844C956CBD25'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TSwitcher_BecomeActive_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_07AC461A0DA6 // TSwitcher_BecomeActive_Params
+ ;
+ : Parameters
+   @ ( ME_BE4EAA83AF8D // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_844C956CBD25 Create
+
+: ME_3A422A69ACC2
+ CONST UID '3A422A69ACC2'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_3A422A69ACC2 aForm
+
+: ME_4D10C2D453C8
+ CONST UID '4D10C2D453C8'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TSwitcher_BecomeActive_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_07AC461A0DA6 // TSwitcher_BecomeActive_Params
+ ;
+ : Parameters
+   @ ( ME_3A422A69ACC2 // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4D10C2D453C8 Make
+
+: ME_0C1C073ED7EC_ME_07AC461A0DA6
+ CONST UID '0C1C073ED7EC'
+ CONST Name 'Form'
+ : Original ME_0C1C073ED7EC // Form
+ ;
+ : Implementor ME_07AC461A0DA6 // TSwitcher_BecomeActive_Params
+ ;
+ CONST "pm" false
+ref; // ME_0C1C073ED7EC_ME_07AC461A0DA6 Form
+
+: ME_5000565C019C_ME_07AC461A0DA6
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_07AC461A0DA6 // TSwitcher_BecomeActive_Params
+ ;
+ref; // ME_5000565C019C_ME_07AC461A0DA6 ClearFields
+
+: ME_07AC461A0DA6
+ CONST UID '07AC461A0DA6'
+ CONST Name 'TSwitcher_BecomeActive_Params'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация ISwitcher_BecomeActive_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Inherits
+   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_5FF28AB23726 // ISwitcher_BecomeActive_Params
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_2E44616E4534 // f_Form
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_844C956CBD25 // Create
+ ME_4D10C2D453C8 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_0C1C073ED7EC_ME_07AC461A0DA6 // Form
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_07AC461A0DA6 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_07AC461A0DA6 TSwitcher_BecomeActive_Params
+
+FORWARD ME_2C5A39BFDCFE
+
+: ME_D5573AC95ABA
+ CONST UID 'D5573AC95ABA'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_D5573AC95ABA aTarget
+
+: ME_D5573AC95ABB
+ CONST UID 'D5573AC95ABB'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_D5573AC95ABB aForm
+
+: ME_86721B7A6555
+ CONST UID '86721B7A6555'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Switcher.BecomeActive у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_2C5A39BFDCFE // Op_Switcher_BecomeActive
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_D5573AC95ABA // aTarget
+ ME_D5573AC95ABB // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_86721B7A6555 Call
+
+: ME_0DEE7B993472
+ CONST UID '0DEE7B993472'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_0DEE7B993472 aTarget
+
+: ME_0DEE7B993473
+ CONST UID '0DEE7B993473'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_0DEE7B993473 aForm
+
+: ME_B6B1DB68EFA5
+ CONST UID 'B6B1DB68EFA5'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Switcher.BecomeActive у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_2C5A39BFDCFE // Op_Switcher_BecomeActive
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_0DEE7B993472 // aTarget
+ ME_0DEE7B993473 // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_B6B1DB68EFA5 Call
+
+: ME_9C2612CB7FCE
+ CONST UID '9C2612CB7FCE'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_9C2612CB7FCE aTarget
+
+: ME_9C2612CB7FCF
+ CONST UID '9C2612CB7FCF'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_9C2612CB7FCF aForm
+
+: ME_46F588027291
+ CONST UID '46F588027291'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Switcher.BecomeActive у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_2C5A39BFDCFE // Op_Switcher_BecomeActive
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_9C2612CB7FCE // aTarget
+ ME_9C2612CB7FCF // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_46F588027291 Call
+
+: ME_91DA92009017
+ CONST UID '91DA92009017'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_91DA92009017 aTarget
+
+: ME_91DA92009018
+ CONST UID '91DA92009018'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_91DA92009018 aForm
+
+: ME_3A5067493346
+ CONST UID '3A5067493346'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Switcher.BecomeActive у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_2C5A39BFDCFE // Op_Switcher_BecomeActive
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_91DA92009017 // aTarget
+ ME_91DA92009018 // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_3A5067493346 Call
+
+: ME_2C5A39BFDCFE
+ CONST UID '2C5A39BFDCFE'
+ CONST Name 'Op_Switcher_BecomeActive'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Switcher.BecomeActive' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Operations
+   @ ( ME_86721B7A6555 // Call
+ ME_B6B1DB68EFA5 // Call
+ ME_46F588027291 // Call
+ ME_3A5067493346 // Call
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_2C5A39BFDCFE Op_Switcher_BecomeActive
+
+FORWARD ME_2DD92880BD5D
+
+: ME_81CA2E99950E
+ CONST UID '81CA2E99950E'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_81CA2E99950E aTarget
+
+: ME_85165AD9F7BC
+ CONST UID '85165AD9F7BC'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Switcher.SetFirstPageActive у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_2DD92880BD5D // Op_Switcher_SetFirstPageActive
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_81CA2E99950E // aTarget
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_85165AD9F7BC Call
+
+: ME_2631F5C29A64
+ CONST UID '2631F5C29A64'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_2631F5C29A64 aTarget
+
+: ME_B5561AC8820C
+ CONST UID 'B5561AC8820C'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Switcher.SetFirstPageActive у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_2DD92880BD5D // Op_Switcher_SetFirstPageActive
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_2631F5C29A64 // aTarget
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_B5561AC8820C Call
+
+: ME_3201ECCF295F
+ CONST UID '3201ECCF295F'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_3201ECCF295F aTarget
+
+: ME_907F41E69807
+ CONST UID '907F41E69807'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Switcher.SetFirstPageActive у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_2DD92880BD5D // Op_Switcher_SetFirstPageActive
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_3201ECCF295F // aTarget
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_907F41E69807 Call
+
+: ME_B8906EAFBD9A
+ CONST UID 'B8906EAFBD9A'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_B8906EAFBD9A aTarget
+
+: ME_1D02D495FC55
+ CONST UID '1D02D495FC55'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Switcher.SetFirstPageActive у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_2DD92880BD5D // Op_Switcher_SetFirstPageActive
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_B8906EAFBD9A // aTarget
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_1D02D495FC55 Call
+
+: ME_2DD92880BD5D
+ CONST UID '2DD92880BD5D'
+ CONST Name 'Op_Switcher_SetFirstPageActive'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Switcher.SetFirstPageActive' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Operations
+   @ ( ME_85165AD9F7BC // Call
+ ME_B5561AC8820C // Call
+ ME_907F41E69807 // Call
+ ME_1D02D495FC55 // Call
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_2DD92880BD5D Op_Switcher_SetFirstPageActive
+
+FORWARD ME_D4AE7617B567
+
+: ME_80C16E15F37E
+ CONST UID '80C16E15F37E'
+ CONST Name 'Visible'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_D4AE7617B567 // ICommon_ShowSplitter_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_80C16E15F37E Visible
+
+: ME_D4AE7617B567
+ CONST UID 'D4AE7617B567'
+ CONST GUID 'AF74D4F2-0734-4719-BBD8-5E33BA04A510'
+ CONST Name 'ICommon_ShowSplitter_Params'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Common.ShowSplitter' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Attributes
+   @ ( ME_80C16E15F37E // Visible
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_D4AE7617B567 ICommon_ShowSplitter_Params
+
+FORWARD ME_514C9A0BDDA2
+
+: ME_3AA93FFD9C91
+ CONST UID '3AA93FFD9C91'
+ CONST Name 'f_Visible'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_514C9A0BDDA2 // TCommon_ShowSplitter_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_3AA93FFD9C91 f_Visible
+
+: ME_CFD4800B96F9
+ CONST UID 'CFD4800B96F9'
+ CONST Name 'aVisible'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_CFD4800B96F9 aVisible
+
+: ME_9D6F07D6866E
+ CONST UID '9D6F07D6866E'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TCommon_ShowSplitter_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_514C9A0BDDA2 // TCommon_ShowSplitter_Params
+ ;
+ : Parameters
+   @ ( ME_CFD4800B96F9 // aVisible
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_9D6F07D6866E Create
+
+: ME_800776F92B15
+ CONST UID '800776F92B15'
+ CONST Name 'aVisible'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_800776F92B15 aVisible
+
+: ME_7527D470F2DD
+ CONST UID '7527D470F2DD'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TCommon_ShowSplitter_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_514C9A0BDDA2 // TCommon_ShowSplitter_Params
+ ;
+ : Parameters
+   @ ( ME_800776F92B15 // aVisible
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_7527D470F2DD Make
+
+: ME_80C16E15F37E_ME_514C9A0BDDA2
+ CONST UID '80C16E15F37E'
+ CONST Name 'Visible'
+ : Original ME_80C16E15F37E // Visible
+ ;
+ : Implementor ME_514C9A0BDDA2 // TCommon_ShowSplitter_Params
+ ;
+ CONST "pm" false
+ref; // ME_80C16E15F37E_ME_514C9A0BDDA2 Visible
+
+: ME_514C9A0BDDA2
+ CONST UID '514C9A0BDDA2'
+ CONST Name 'TCommon_ShowSplitter_Params'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация ICommon_ShowSplitter_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Inherits
+   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_D4AE7617B567 // ICommon_ShowSplitter_Params
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_3AA93FFD9C91 // f_Visible
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_9D6F07D6866E // Create
+ ME_7527D470F2DD // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_80C16E15F37E_ME_514C9A0BDDA2 // Visible
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_514C9A0BDDA2 TCommon_ShowSplitter_Params
+
+FORWARD ME_9F5B7581601E
+
+: ME_1CB44544ADAE
+ CONST UID '1CB44544ADAE'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_1CB44544ADAE aTarget
+
+: ME_1CB44544ADAF
+ CONST UID '1CB44544ADAF'
+ CONST Name 'aVisible'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_1CB44544ADAF aVisible
+
+: ME_12F715F57197
+ CONST UID '12F715F57197'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Common.ShowSplitter у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_9F5B7581601E // Op_Common_ShowSplitter
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_1CB44544ADAE // aTarget
+ ME_1CB44544ADAF // aVisible
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_12F715F57197 Call
+
+: ME_6EFF9D38775E
+ CONST UID '6EFF9D38775E'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_6EFF9D38775E aTarget
+
+: ME_6EFF9D38775F
+ CONST UID '6EFF9D38775F'
+ CONST Name 'aVisible'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_6EFF9D38775F aVisible
+
+: ME_4336D5E4FBE7
+ CONST UID '4336D5E4FBE7'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Common.ShowSplitter у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_9F5B7581601E // Op_Common_ShowSplitter
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_6EFF9D38775E // aTarget
+ ME_6EFF9D38775F // aVisible
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4336D5E4FBE7 Call
+
+: ME_EC8F3FFC34F0
+ CONST UID 'EC8F3FFC34F0'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_EC8F3FFC34F0 aTarget
+
+: ME_EC8F3FFC34F1
+ CONST UID 'EC8F3FFC34F1'
+ CONST Name 'aVisible'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_EC8F3FFC34F1 aVisible
+
+: ME_D3824D770987
+ CONST UID 'D3824D770987'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Common.ShowSplitter у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_9F5B7581601E // Op_Common_ShowSplitter
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_EC8F3FFC34F0 // aTarget
+ ME_EC8F3FFC34F1 // aVisible
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_D3824D770987 Call
+
+: ME_A3BA29624283
+ CONST UID 'A3BA29624283'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_A3BA29624283 aTarget
+
+: ME_A3BA29624284
+ CONST UID 'A3BA29624284'
+ CONST Name 'aVisible'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_A3BA29624284 aVisible
+
+: ME_21575C14EDF4
+ CONST UID '21575C14EDF4'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Common.ShowSplitter у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_9F5B7581601E // Op_Common_ShowSplitter
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_A3BA29624283 // aTarget
+ ME_A3BA29624284 // aVisible
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_21575C14EDF4 Call
+
+: ME_9F5B7581601E
+ CONST UID '9F5B7581601E'
+ CONST Name 'Op_Common_ShowSplitter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Common.ShowSplitter' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Operations
+   @ ( ME_12F715F57197 // Call
+ ME_4336D5E4FBE7 // Call
+ ME_D3824D770987 // Call
+ ME_21575C14EDF4 // Call
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_9F5B7581601E Op_Common_ShowSplitter
+
+FORWARD ME_CB8AE934B8B5
+
+: ME_917EE15183A6
+ CONST UID '917EE15183A6'
+ CONST Name 'Toggle'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_CB8AE934B8B5 // ICommon_CheckChildZone_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_917EE15183A6 Toggle
+
+: ME_CB8AE934B8B5
+ CONST UID 'CB8AE934B8B5'
+ CONST GUID 'C0C35601-A404-4BE5-9C4D-376FA4AA3760'
+ CONST Name 'ICommon_CheckChildZone_Params'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Common.CheckChildZone' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Attributes
+   @ ( ME_917EE15183A6 // Toggle
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_CB8AE934B8B5 ICommon_CheckChildZone_Params
+
+FORWARD ME_7344A49B8F35
+
+: ME_D5666351D5D9
+ CONST UID 'D5666351D5D9'
+ CONST Name 'f_Toggle'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_7344A49B8F35 // TCommon_CheckChildZone_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_D5666351D5D9 f_Toggle
+
+: ME_6ADBA109D922
+ CONST UID '6ADBA109D922'
+ CONST Name 'aToggle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_6ADBA109D922 aToggle
+
+: ME_A7D4859AA7BB
+ CONST UID 'A7D4859AA7BB'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TCommon_CheckChildZone_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_7344A49B8F35 // TCommon_CheckChildZone_Params
+ ;
+ : Parameters
+   @ ( ME_6ADBA109D922 // aToggle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_A7D4859AA7BB Create
+
+: ME_32A0617D5511
+ CONST UID '32A0617D5511'
+ CONST Name 'aToggle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_32A0617D5511 aToggle
+
+: ME_C6D64E7C7B0A
+ CONST UID 'C6D64E7C7B0A'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TCommon_CheckChildZone_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_7344A49B8F35 // TCommon_CheckChildZone_Params
+ ;
+ : Parameters
+   @ ( ME_32A0617D5511 // aToggle
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_C6D64E7C7B0A Make
+
+: ME_917EE15183A6_ME_7344A49B8F35
+ CONST UID '917EE15183A6'
+ CONST Name 'Toggle'
+ : Original ME_917EE15183A6 // Toggle
+ ;
+ : Implementor ME_7344A49B8F35 // TCommon_CheckChildZone_Params
+ ;
+ CONST "pm" false
+ref; // ME_917EE15183A6_ME_7344A49B8F35 Toggle
+
+: ME_7344A49B8F35
+ CONST UID '7344A49B8F35'
+ CONST Name 'TCommon_CheckChildZone_Params'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация ICommon_CheckChildZone_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Inherits
+   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_CB8AE934B8B5 // ICommon_CheckChildZone_Params
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_D5666351D5D9 // f_Toggle
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_A7D4859AA7BB // Create
+ ME_C6D64E7C7B0A // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_917EE15183A6_ME_7344A49B8F35 // Toggle
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_7344A49B8F35 TCommon_CheckChildZone_Params
+
+FORWARD ME_91AD1A3BA04B
+
+: ME_7C90E38D3FBD
+ CONST UID '7C90E38D3FBD'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_7C90E38D3FBD aTarget
+
+: ME_7C90E38D3FBE
+ CONST UID '7C90E38D3FBE'
+ CONST Name 'aToggle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_7C90E38D3FBE aToggle
+
+: ME_39E53D3A2FA8
+ CONST UID '39E53D3A2FA8'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Common.CheckChildZone у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_91AD1A3BA04B // Op_Common_CheckChildZone
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_7C90E38D3FBD // aTarget
+ ME_7C90E38D3FBE // aToggle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_39E53D3A2FA8 Call
+
+: ME_4DDD5DDFFF18
+ CONST UID '4DDD5DDFFF18'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_4DDD5DDFFF18 aTarget
+
+: ME_4DDD5DDFFF19
+ CONST UID '4DDD5DDFFF19'
+ CONST Name 'aToggle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4DDD5DDFFF19 aToggle
+
+: ME_6A24FD28B9F8
+ CONST UID '6A24FD28B9F8'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Common.CheckChildZone у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_91AD1A3BA04B // Op_Common_CheckChildZone
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_4DDD5DDFFF18 // aTarget
+ ME_4DDD5DDFFF19 // aToggle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_6A24FD28B9F8 Call
+
+: ME_43AA7DFB3C37
+ CONST UID '43AA7DFB3C37'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_43AA7DFB3C37 aTarget
+
+: ME_43AA7DFB3C38
+ CONST UID '43AA7DFB3C38'
+ CONST Name 'aToggle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_43AA7DFB3C38 aToggle
+
+: ME_C78D42F5BFCE
+ CONST UID 'C78D42F5BFCE'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Common.CheckChildZone у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_91AD1A3BA04B // Op_Common_CheckChildZone
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_43AA7DFB3C37 // aTarget
+ ME_43AA7DFB3C38 // aToggle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_C78D42F5BFCE Call
+
+: ME_3BB2BDF718FD
+ CONST UID '3BB2BDF718FD'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_3BB2BDF718FD aTarget
+
+: ME_3BB2BDF718FE
+ CONST UID '3BB2BDF718FE'
+ CONST Name 'aToggle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_3BB2BDF718FE aToggle
+
+: ME_400A1135F0E7
+ CONST UID '400A1135F0E7'
+ CONST Name 'Call'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Common.CheckChildZone у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_91AD1A3BA04B // Op_Common_CheckChildZone
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_3BB2BDF718FD // aTarget
+ ME_3BB2BDF718FE // aToggle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_400A1135F0E7 Call
+
+: ME_91AD1A3BA04B
+ CONST UID '91AD1A3BA04B'
+ CONST Name 'Op_Common_CheckChildZone'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Common.CheckChildZone' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F71AD0E01FE // InternalOperations
+ ;
+ : Operations
+   @ ( ME_39E53D3A2FA8 // Call
+ ME_6A24FD28B9F8 // Call
+ ME_C78D42F5BFCE // Call
+ ME_400A1135F0E7 // Call
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_91AD1A3BA04B Op_Common_CheckChildZone
+
+: ME_4F71AD0E01FE
+ CONST UID '4F71AD0E01FE'
+ CONST Name 'InternalOperations'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4F6B660100D5' '4F6B660100D5.pas.ms.script' // View
+ ;
+ : Children
+   @ ( ME_4AE836C303BC // Switcher$SetCaption
+ ME_4AE874300212 // Common$ShowSplitter
+ ME_5FF28AB23726 // ISwitcher_BecomeActive_Params
+ ME_07AC461A0DA6 // TSwitcher_BecomeActive_Params
+ ME_2C5A39BFDCFE // Op_Switcher_BecomeActive
+ ME_2DD92880BD5D // Op_Switcher_SetFirstPageActive
+ ME_D4AE7617B567 // ICommon_ShowSplitter_Params
+ ME_514C9A0BDDA2 // TCommon_ShowSplitter_Params
+ ME_9F5B7581601E // Op_Common_ShowSplitter
+ ME_CB8AE934B8B5 // ICommon_CheckChildZone_Params
+ ME_7344A49B8F35 // TCommon_CheckChildZone_Params
+ ME_91AD1A3BA04B // Op_Common_CheckChildZone
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\F1Like_InternalOperations_Controls.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F71AD0E01FE.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F71AD0E01FE.pas.ms.script.runner'
+
+ref; // ME_4F71AD0E01FE InternalOperations

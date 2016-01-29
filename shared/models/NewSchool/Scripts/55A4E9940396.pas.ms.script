@@ -1,0 +1,129 @@
+// tfwCodeCompiler 55A4E9940396 Impurity Class
+
+INCLUDE '4A5CB93700CF.pas.ms.script'
+
+INCLUDE '528F7E620313.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_55A4E9940396
+
+INCLUDE '4DB6CAC402B4.pas.ms.script'
+
+: ME_52D55DF500C4
+ CONST UID '52D55DF500C4'
+ CONST Name 'Code'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_4DB6CAC402B4 // TtfwWordRefList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_52D55DF500C4 Code
+
+: ME_57D286D23822
+ CONST UID '57D286D23822'
+ CONST Name 'f_Code'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Code' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_4DB6CAC402B4 // TtfwWordRefList
+ ;
+
+ @SELF
+; // ME_57D286D23822 f_Code
+
+FORWARD ME_55A4EA4402A7
+
+: ME_55A4EA5101B7
+ CONST UID '55A4EA5101B7'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_55A4EA5101B7 aCtx
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55A4EA4B03C3
+ CONST UID '55A4EA4B03C3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55A4EA5101B7 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55A4EA4B03C3 DoIt
+
+: ME_55A4EA4402A7
+ CONST UID '55A4EA4402A7'
+ CONST Name 'RunCode'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55A4EA4B03C3 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55A4EA4402A7 RunCode
+
+: ME_55A4E9940396
+ CONST UID '55A4E9940396'
+ CONST Name 'tfwCodeCompiler'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Implements
+   [ ME_4A5CB93700CF // Ml3Unknown
+ ME_528F7E620313 // MtfwWord
+ ME_55A3BD6B03AE // MtfwCodeCompiler
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_52D55DF500C4 // Code
+ ME_57D286D23822 // f_Code
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55A4EA4402A7 // RunCode
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_4DB6CB1703AD // DoAddCodePart
+ ME_52D40F640308 // HasCode
+ ME_52D4191402A2 // CodeCount
+ ME_52D523A40118 // GetCompiler
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55A4E9940396 tfwCodeCompiler

@@ -1,0 +1,33 @@
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=63,9"
+    GenericObject Click, "Text=Документы", "Coords=57,11"
+    ListBox Click, "ObjectIndex=4", "Coords=140,494"
+    InputKeys "{HOME}"
+    Dim ItemCount%,NewItemCount%
+    SQAGetProperty "CurrentFocus","ItemCount",ItemCount
+    InputKeys "{APPS}"
+    Window SetContext, "CurrentWindow", ""
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{ENTER}"
+    InputKeys "{DELETE}"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=63,9"
+    GenericObject Click, "Text=Документы", "Coords=57,11"
+    ListBox Click, "ObjectIndex=4", "Coords=140,494"
+    InputKeys "{HOME}"
+    SQAGetProperty "CurrentFocus","ItemCount",NewItemCount
+    if NewItemCount<>ItemCount then
+    SQALogMessage sqaFail, "Ошибка! Список не прогрузился заново", "В списке : "+CStr(NewItemCount)+" 'элементов"
+      
+    else
+      SQALogMessage sqaPass, "Список прогрузился", "В списке : "+CStr(NewItemCount)+" элементов"
+    end if 
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+End Sub

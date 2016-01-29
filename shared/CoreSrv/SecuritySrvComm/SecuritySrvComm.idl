@@ -1,0 +1,52 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/CoreSrv/SecuritySrvComm/SecuritySrvComm.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> shared::CoreSrv::SecuritySrvComm
+//
+// коммуникационные распределенные типы и интерфейсы для подсистемы Безопасности
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___SECURITYSRVCOMM_IDL__
+#define ___SECURITYSRVCOMM_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#pragma prefix "garant.ru"
+
+module CoreSrv {
+
+	// В доступе к защищенным услугам - отказано
+	exception AccessDenied {
+	};
+
+	// Идентификатор пользователя уникальный в пространстве идентификаторов определемом конкретной
+	// реализацией Авторизатора
+	typedef unsigned long UserID;
+
+	// Идентификатор сессии
+	typedef unsigned long SessionID;
+
+	// Общий калбек-интерфейс для пользовательских обработчиков создания и удаления сессий.
+	interface SessionInterceptor {
+		// Вызывается послке того как была созданна новая сессия.
+		void after_session_created (in SessionID sid, in UserID uid);
+		// Вызывается до того как сессия будет уничтожена
+		void before_session_delete (in SessionID sid, in UserID uid);
+	};
+
+	// Пользователь уже залогинен в системе
+	exception AlreadyLogged {
+	};
+}; // module CoreSrv
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

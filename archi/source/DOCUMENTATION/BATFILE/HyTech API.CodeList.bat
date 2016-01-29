@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\DOCUMENTATION\HyTechAPI.CodeList.hmxz "/tsk=Recent Publishes:HyTech API.CodeList.AdminGuide" "/tsk=Recent Publishes:HyTech API.CodeList.AdminGuide_!DAILY" "/tsk=Recent Publishes:HyTech API.CodeList.AdminGuide(web)_!DAILY"

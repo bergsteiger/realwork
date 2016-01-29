@@ -1,0 +1,39 @@
+// TestForTFW 4CA0B1CA00A3 TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4CA0B1CA00A3
+ CONST UID '4CA0B1CA00A3'
+ CONST Name 'TestForTFW'
+ CONST Class class_Category
+ : Stereotype st_TestLibrary ;
+ %SUMMARY 'Тесты для тестирования собственно тестового фреймворка TFW' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49B923B60333' '49B923B60333.pas.ms.script' // Shared Delphi Tests
+ ;
+ : Children
+   @ ( WL 'ME_4CA0B2660199' '4CA0B2660199.pas.ms.script' // TFWTests
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.pas.ms.script' // DUnit
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Tests\TestForTFW\TestForTFW.model.script'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA0B1CA00A3.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA0B1CA00A3.pas.ms.script.runner'
+
+ref; // ME_4CA0B1CA00A3 TestForTFW

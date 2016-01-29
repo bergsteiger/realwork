@@ -1,0 +1,21 @@
+unit RubricatorUnit; {$Z4}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "GblAdapterLib"
+// Модуль: "w:/garant6x/implementation/Garant/GblAdapterLib/RubricatorUnit.pas"
+// Delphi интерфейсы для адаптера (.pas)
+// Generated from UML model, root element: <<Interfaces::Category>> garant6x::GblAdapterLib::Rubricator
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+interface
+
+
+
+
+implementation
+end.

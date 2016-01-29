@@ -1,0 +1,57 @@
+// RAISE 4DBAE64F02F7 ScriptKeyword Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4DBAE64F02F7
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_60C693AE0DA5
+ CONST UID '60C693AE0DA5'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация RAISE' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_60C693AE0DA5 Ini_Reg
+
+: ME_4DBAE64F02F7
+ CONST UID '4DBAE64F02F7'
+ CONST Name 'RAISE'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Зарезервированное слово RAISE. Аналогично raise из Delphi. Если не было исключения, то генерируется EtfwScriptException.'#13#10'Пример:'#13#10'{code}'#13#10'TRY'#13#10' ''Тестовое исключение'' RAISE'#13#10'EXCEPT'#13#10' true >>> WasException'#13#10'END'#13#10'{code}' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_60C693AE0DA5 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 20:25'
+
+ @SELF
+; // ME_4DBAE64F02F7 RAISE

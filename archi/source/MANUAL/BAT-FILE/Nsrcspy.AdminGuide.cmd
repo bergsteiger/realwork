@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\MANUAL\NSCRSPY.ADMINGUIDE\Nsrcspy.AdminGuide.hmxz /tsk=FullManual:CHM-MANUAL /tsk=FullManual:MANUAL-OLD-VERSION /tsk=FullManual:MANUAL-NEW-VERSION /tsk=FullManual:NSRCSPY.ADMINGUIDE_!DAILY /tsk=FullManual:NSRCSpy.AdminGuide(r)_!DAILY

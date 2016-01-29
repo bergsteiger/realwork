@@ -1,0 +1,46 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Dim ListArray(1 to 6) as String
+Sub FillArray
+    ListArray(1)="Гражданский кодекс Российской Федерации (части первая, вторая и третья) (с изм. и доп. от 20 февраля, 12 августа 1996 г., 24 октября 1997 г., 8 июля, 17 декабря 1999 г., 16 апреля, 15 мая, 26 ноября 2001 г.)"
+    ListArray(2)="Федеральный закон от 8 января 1998 г. N 2-ФЗ ""Транспортный устав железных дорог Российской Федерации"""
+    ListArray(3)="Циркулярное письмо Госстроя РФ от 15 ноября 1999 г. N ЛЧ-12-12/762 ""О безакцептном списании средств со счетов потребителей за потребленные энергетические ресурсы"""
+    ListArray(4)="Постановление Президиума Высшего Арбитражного Суда РФ от 9 января 1997 г. N 4991/96 Взыскание с должника процентов за пользование чужими денежными средствами в связи с невыделением бюджетных средств, поступающих на счет ответчика целевым назначением для расчетов c истцом-подрядчиком, признано неправильным"
+    ListArray(5)="Положение об организации расчетов между банками разных республик (приложение 2 к Положению о безналичных расчетах в Российской Федерации от 9 июля 1992 г.) (утратило силу)"
+    ListArray(6)="Телеграмма ЦБР от 6 августа 1992 г. N 172-92 О расчетах по взаимным поставкам товаров между государствами-бывшими республиками СССР (утратила силу)"
+          
+end sub
+Sub Main
+    call FillArray
+    'CUR_STATE=ST_NONE_STANDART
+    Call NeedState (ST_MAIN_MENU)
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+'    GenericObject Click, "Text=Правовой навигатор", "Coords=80,15"
+'    GenericObject Click, "Text=Проекты законов", "Coords=58,15"
+    GenericObject DblClick, "Text=Правовой навигатор", ""
+    GenericObject DblClick, "Text=Документы", ""
+ 
+    if Position_by_Text("CurrentFocus","Банковская деятельность",PressHome:=1)<>0 then
+       InputKeys "{ENTER}"
+    else
+       SQALogMessage sqaFail, "Элемент не найден", "Элемент не найден"
+    end if
+    if Position_by_Text("CurrentFocus","Расчеты",PressHome:=1)<>0 then
+       InputKeys "{ENTER}"
+    else
+       SQALogMessage sqaFail, "Элемент не найден", "Элемент не найден"
+    end if
+    if Position_by_Text("CurrentFocus","Безналичные расчеты",PressHome:=1)<>0 then
+       InputKeys "{ENTER}"
+    else
+       SQALogMessage sqaFail, "Элемент не найден", "Элемент не найден"
+    end if
+    Window SetContext, "Caption={ГАРАН*}", ""
+    Dim ListCount%
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call StrComp2Log(CSTR(ListCount),"6")
+    call CheckItemNames(ListArray,"{DOWN}",0,ListCount,1)
+    CUR_STATE=ST_NONE_STANDART
+
+End Sub

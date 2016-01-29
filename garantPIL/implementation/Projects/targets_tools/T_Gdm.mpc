@@ -1,0 +1,26 @@
+project (T_Gdm) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_Gdm {
+	exename = gdm
+
+	macros -= UPDATE_FACE
+	macros -= INSTLL_CIB
+	macros += MIN_MEM_CONTEXT
+
+	after += Core
+	libs += Core
+	after += GCL
+	libs += GCL
+
+	after += delta_gdm
+	after += cchlp1
+	after += cchlp2
+	after += gkdb_gudll
+	after += gctx_gdm
+	//after += Core1_tools
+
+	libs += delta_gdm
+	libs += cchlp1
+	libs += cchlp2
+	libs += gkdb_gudll
+	libs += gctx_gdm
+	//libs += Core1_tools
+}

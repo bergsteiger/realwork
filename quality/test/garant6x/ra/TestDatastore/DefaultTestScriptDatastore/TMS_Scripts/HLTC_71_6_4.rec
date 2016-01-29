@@ -1,0 +1,64 @@
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    'Проверяем переход из ОМ в ППР
+    GenericObject Click, "Class=TeeTreeView;ClassIndex=1", "Coords=10,7"
+    GenericObject Click, "Class=TeeTreeView;ClassIndex=1", "Coords=71,25"
+    
+    Result = PSPanelVP (CompareImage, "ObjectIndex=1", "VP=PPR")
+    
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=12,47"
+   'Проверяем переход в Правовом Навигаторе
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TeeTreeView;ClassIndex=1", "Coords=8,58"
+    GenericObject Click, "Class=TeeTreeView;ClassIndex=1", "Coords=82,87"
+    
+    Window SetContext, "Caption={ГАРАНТ 6*}", ""
+    GenericObject Click, "Class=TeeTreeView", "Coords=400,650"
+    Result = GenericObjectVP (CompareImage, "Text=Основы государственно-правового устройства", "VP=Nav")
+    
+
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,25"
+    'Проверяем переход в Справочной информации    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TeeTreeView;ClassIndex=1", "Coords=11,168"
+    GenericObject Click, "Class=TeeTreeView;ClassIndex=1", "Coords=120,183"
+    GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=647,621"
+    InputKeys "^+{RIGHT}"
+'    GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=95,612"
+    
+    Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Sprav_info")
+    'Проверяем переход в Обновление
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Бизнес-справки, мониторинг", "Coords=9,217"
+    GenericObject Click, "Text=Бизнес-справки, мониторинг", "Coords=85,233"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TeeTreeView", "Coords=400,650"
+    Result = GenericObjectVP (CompareImage, "Text=Документы, включенные за период с 04/01/2004 по 10/01/2004", "VP=New Doc")
+      
+    
+   
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    
+   
+  
+   
+    
+   ' Window SetContext, "Caption=ГАРАНТ 6 - Текст документа : Экономическая информация", ""
+   ' GenericObject Click, "Text=Разъяснения, комментарии, схемы", "Coords=86,184"
+    'GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=647,621"
+   ' InputKeys "^+{RIGHT}"
+    
+   ' Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Sprav_info")
+    
+   
+End Sub

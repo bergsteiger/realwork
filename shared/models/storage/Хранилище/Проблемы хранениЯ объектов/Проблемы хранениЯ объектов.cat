@@ -1,0 +1,598 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Проблемы хранениЯ объектов"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text ""))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов|471630E9036D
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"471630E9036D"
+    documentation 	"Общие проблемы при работе с постоянными данными из кода написанного в объектно-ориентированной парадигме"
+    stereotype 	"Problems"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Потеря экземпляров объектов между запусками программы"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов/Потеря экземпляров объектов между запусками программы|4858E280014C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4858E280014C"
+	    documentation 	"Экземпляры объектов перестают существовать после перезапуска программы, т.е. их уже невозможно получить по тем же самым идентификаторам."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Нефиксированный размер объекта"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов/Нефиксированный размер объекта|47A84E72035D
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"47A84E72035D"
+	    documentation 	"Модель сереализации в которой все хранимые объекты имеют фиксированную длинну - проста и эффективна. Однако не достаточна, т.к. большинство бизнесс данных имеет переменный размер."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Большой расход памяти при загрузке объекта"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов/Большой расход памяти при загрузке объекта|47A9D4400317
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"47A9D4400317"
+	    documentation 	"Если хранимый объект при получении его из хранилища, загружать в память всегда целиком (включая неиспользуемые в данной бизнес-ситуации атрибуты объекта), может произойти чрезмерный расход оперативной памяти."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Медленная загрузка объекта"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов/Большой расход памяти при загрузке объекта/Медленная загрузка объекта|47A9D5C50376
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"47A9D5C50376"
+		    documentation 	
+|Если хранимый объект при получении его из хранилища, загружать частично, только с основными атрибутами, то последующая загрузка оставшихся атрибутов "по требованию" может занять большое время.
+		    
+		    stereotype 	"UserNeeds")))
+	(object Class "Неопределенность типа данных"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов/Неопределенность типа данных|47AB307003BB
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"47AB307003BB"
+	    documentation 	"Иногда возникают ситуации, когда в рамках данной бизнес-модели невозможно обойтись без хранения значения свойства неизвестного заранее типа, произвольно меняющегося в run-time."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Избыточность при доступе только на чтение"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов/Избыточность при доступе только на чтение|4874A3BA026A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4874A3BA026A"
+	    documentation 	"Если к БД треюббуется доступ только на чтение, то многие ееалгоритмы расчитанные на конкурентную запись, могут реботать в холостую, и вносить излишние задержки и сложность."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Потеря типа хранимого объекта"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов/Потеря типа хранимого объекта|4875FE470118
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4875FE470118"
+	    documentation 	"При сохранении объекта наследника как базовгого, может быть утерен его тип (объект может усечся до базового, или просто не восстановиться как наследник)"
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Хранимый объект не обязан иметь атрибуты"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы хранения объектов/Хранимый объект не обязан иметь атрибуты|488CBD180144
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"488CBD180144"
+	    documentation 	"Хранимый объект может обладать только единственным атрибутом - своей идентичностью. Если же фремворк будет требовать наличия атрибутов-состояний, то придется вводить заглушки, для выполнения этого условия."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4716314E02B1"
+	    title      	"Main"
+	    documentation 	"Нельзя устанавливать ссылки с соотношением 1-1 между объектами, т.е. когда один объект ссылается ровно на 1 другой объект."
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	81
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Потеря экземпляров объектов между запусками программы" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1440, 141)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(855, 120)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1170
+			justify    	0
+			label      	"Потеря экземпляров объектов между запусками программы")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(855, 70)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1170
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4858E280014C"
+		    width      	1188
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Нефиксированный размер объекта" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1446, 630)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1105, 609)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	682
+			justify    	0
+			label      	"Нефиксированный размер объекта")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1105, 559)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	682
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"47A84E72035D"
+		    width      	700
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Большой расход памяти при загрузке объекта" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(615, 627)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(152, 606)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	926
+			justify    	0
+			label      	"Большой расход памяти при загрузке объекта")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(152, 556)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	926
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12824565
+		    quidu      	"47A9D4400317"
+		    width      	944
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Неопределенность типа данных" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2121, 438)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1805, 417)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"Неопределенность типа данных")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1805, 367)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"47AB307003BB"
+		    width      	650
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Избыточность при доступе только на чтение" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(627, 432)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(177, 411)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	900
+			justify    	0
+			label      	"Избыточность при доступе только на чтение")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(177, 361)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	900
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4874A3BA026A"
+		    width      	918
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Потеря типа хранимого объекта" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1428, 435)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1111, 414)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	634
+			justify    	0
+			label      	"Потеря типа хранимого объекта")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1111, 364)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	634
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4875FE470118"
+		    width      	652
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Хранимый объект не обязан иметь атрибуты" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(609, 852)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(153, 831)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	912
+			justify    	0
+			label      	"Хранимый объект не обязан иметь атрибуты")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(153, 781)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	912
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"488CBD180144"
+		    width      	930
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"47A9D4400317"))
+	    quid       	"486B8280000B"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Большой расход памяти при загрузке объекта::Медленная загрузка объекта" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(828, 606)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(397, 574)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	862
+			justify    	0
+			label      	"Медленная загрузка объекта")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(397, 524)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	862
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"47A9D5C50376"
+		    width      	880
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)))))

@@ -1,0 +1,760 @@
+// TnscStatusBar 4E15A08E030D GuiControl Class
+
+FORWARD ME_4E15A08E030D
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_503DEB310216
+
+INCLUDE '490838E10313.pas.ms.script'
+
+: ME_503DEC330219
+ CONST UID '503DEC330219'
+ CONST Name 'Def'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_503DEC330219 Def
+
+: ME_503DEC5200A9
+ CONST UID '503DEC5200A9'
+ CONST Name 'Provider'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_498036AD03AB // InscStatusBarItemsProvider
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_503DEC5200A9 Provider
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_503DECB70334
+ CONST UID '503DECB70334'
+ CONST Name 'f_Provider'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'InscStatusBarItemsProvider' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_503DECB70334 f_Provider
+
+: ME_87B9BAB425B8
+ CONST UID '87B9BAB425B8'
+ CONST Name 'f_Def'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Def' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4980350B00FA // InscStatusBarItemDef
+ ;
+
+ @SELF
+; // ME_87B9BAB425B8 f_Def
+
+FORWARD ME_503DFE350045
+
+: ME_503DFE4901D4
+ CONST UID '503DFE4901D4'
+ CONST Name 'aDef'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4980350B00FA // InscStatusBarItemDef
+ ;
+
+ @SELF
+; // ME_503DFE4901D4 aDef
+
+: ME_503DFE4901FA
+ CONST UID '503DFE4901FA'
+ CONST Name 'aProvider'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498036AD03AB // InscStatusBarItemsProvider
+ ;
+
+ @SELF
+; // ME_503DFE4901FA aProvider
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_503DFE3D024E
+ CONST UID '503DFE3D024E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_503DFE4901D4 // aDef
+ ME_503DFE4901FA // aProvider
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_503DFE3D024E DoIt
+
+: ME_503DFE350045
+ CONST UID '503DFE350045'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_503DFE3D024E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_503DFE350045 Create
+
+: ME_503DEB310216
+ CONST UID '503DEB310216'
+ CONST Name 'TOperationInternalDef'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_503DEC330219 // Def
+ ME_503DEC5200A9 // Provider
+ ME_503DECB70334 // f_Provider
+ ME_87B9BAB425B8 // f_Def
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_503DFE350045 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_503DEB310216 TOperationInternalDef
+
+FORWARD ME_503DE730029F
+
+: ME_FE6A44C8A31C
+ CONST UID 'FE6A44C8A31C'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TnscStatusBarDock' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_FE6A44C8A31C Ini_Reg_Class
+
+: ME_503DE730029F
+ CONST UID '503DE730029F'
+ CONST Name 'TnscStatusBarDock'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_FE6A44C8A31C // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_503DE730029F TnscStatusBarDock
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+: ME_503DE89502B5
+ CONST UID '503DE89502B5'
+ CONST Name 'f_Dock'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_503DE730029F // TnscStatusBarDock
+ ;
+
+ @SELF
+; // ME_503DE89502B5 f_Dock
+
+: ME_503DE8E000AA
+ CONST UID '503DE8E000AA'
+ CONST Name 'f_Strings'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_503DE8E000AA f_Strings
+
+: ME_503DE909017D
+ CONST UID '503DE909017D'
+ CONST Name 'f_Visible'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_503DE909017D f_Visible
+
+INCLUDE '48C7C95C0221.pas.ms.script'
+
+: ME_503DE91F01DC
+ CONST UID '503DE91F01DC'
+ CONST Name 'f_Timer'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_48C7C96E0135 // TTimer
+ ;
+
+ @SELF
+; // ME_503DE91F01DC f_Timer
+
+INCLUDE '4CE521C80107.pas.ms.script'
+
+: ME_503DE94F01AC
+ CONST UID '503DE94F01AC'
+ CONST Name 'f_OperationsList'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4CE521C80107 // Tl3ProtoObjectRefList
+ ;
+
+ @SELF
+; // ME_503DE94F01AC f_OperationsList
+
+: ME_503DE97A01F2
+ CONST UID '503DE97A01F2'
+ CONST Name 'f_Form'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'IafwMainForm' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_503DE97A01F2 f_Form
+
+: ME_50477A7203DB
+ CONST UID '50477A7203DB'
+ CONST Name 'f_InAdjustSizeForPanels'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_50477A7203DB f_InAdjustSizeForPanels
+
+: ME_5049B38503C0
+ CONST UID '5049B38503C0'
+ CONST Name 'f_UpdateStringsTimer'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_48C7C96E0135 // TTimer
+ ;
+
+ @SELF
+; // ME_5049B38503C0 f_UpdateStringsTimer
+
+: ME_505C55130356
+ CONST UID '505C55130356'
+ CONST Name 'f_GroupIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_505C55130356 f_GroupIndex
+
+FORWARD ME_503DE99801D3
+
+: ME_B0F55654BC38
+ CONST UID 'B0F55654BC38'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода SetLink' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B0F55654BC38 DoIt
+
+: ME_503DE99801D3
+ CONST UID '503DE99801D3'
+ CONST Name 'SetLink'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_B0F55654BC38 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_503DE99801D3 SetLink
+
+FORWARD ME_503DE9AA03AD
+
+: ME_417EE60869AD
+ CONST UID '417EE60869AD'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода ReleaseLink' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_417EE60869AD DoIt
+
+: ME_503DE9AA03AD
+ CONST UID '503DE9AA03AD'
+ CONST Name 'ReleaseLink'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_417EE60869AD // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_503DE9AA03AD ReleaseLink
+
+FORWARD ME_503DE9C60211
+
+: ME_5044A4050272
+ CONST UID '5044A4050272'
+ CONST Name 'aStrings'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_5044A4050272 aStrings
+
+: ME_5044A405029C
+ CONST UID '5044A405029C'
+ CONST Name 'aCheckActions'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5044A405029C aCheckActions
+
+: ME_5049B6F60100
+ CONST UID '5049B6F60100'
+ CONST Name 'aDelayed'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5049B6F60100 aDelayed
+
+: ME_503DE9CF0309
+ CONST UID '503DE9CF0309'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5044A4050272 // aStrings
+ ME_5044A405029C // aCheckActions
+ ME_5049B6F60100 // aDelayed
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_503DE9CF0309 DoIt
+
+: ME_503DE9C60211
+ CONST UID '503DE9C60211'
+ CONST Name 'DoUpdateStrings'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_503DE9CF0309 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_503DE9C60211 DoUpdateStrings
+
+FORWARD ME_503DEA120182
+
+: ME_D261787E3567
+ CONST UID 'D261787E3567'
+ CONST Name 'Sender'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_D261787E3567 Sender
+
+: ME_3C98A8704C0E
+ CONST UID '3C98A8704C0E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_D261787E3567 // Sender
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_3C98A8704C0E DoIt
+
+: ME_503DEA120182
+ CONST UID '503DEA120182'
+ CONST Name 'TimerProc'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_47881B22005A // TNotifyEvent
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_3C98A8704C0E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_503DEA120182 TimerProc
+
+FORWARD ME_5049B3BE0205
+
+: ME_E817DDA8A51D
+ CONST UID 'E817DDA8A51D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода FireUpUpdateStringsTimer' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E817DDA8A51D DoIt
+
+: ME_5049B3BE0205
+ CONST UID '5049B3BE0205'
+ CONST Name 'FireUpUpdateStringsTimer'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_E817DDA8A51D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5049B3BE0205 FireUpUpdateStringsTimer
+
+FORWARD ME_5049B3DB0227
+
+: ME_E4920E477922
+ CONST UID 'E4920E477922'
+ CONST Name 'Sender'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_E4920E477922 Sender
+
+: ME_325BABDD2741
+ CONST UID '325BABDD2741'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_E4920E477922 // Sender
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_325BABDD2741 DoIt
+
+: ME_5049B3DB0227
+ CONST UID '5049B3DB0227'
+ CONST Name 'UpdateStringsTimerProc'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_47881B22005A // TNotifyEvent
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_325BABDD2741 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5049B3DB0227 UpdateStringsTimerProc
+
+FORWARD ME_504F30D900F7
+
+: ME_504F30F40351
+ CONST UID '504F30F40351'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_504F30F40351 DoIt
+
+: ME_504F30D900F7
+ CONST UID '504F30D900F7'
+ CONST Name 'AllVisiblePanelsText'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_504F30F40351 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_504F30D900F7 AllVisiblePanelsText
+
+INCLUDE '476F78840219.pas.ms.script'
+
+: ME_504F1E040200
+ CONST UID '504F1E040200'
+ CONST Name 'Msg'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_504F1A2302CE // TWMGetText
+ ;
+
+ @SELF
+; // ME_504F1E040200 Msg
+
+: ME_504F1A870252
+ CONST UID '504F1A870252'
+ CONST Name 'WMGetText'
+ CONST Class 'Operation'
+ CONST Stereotype 'message'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_504F1E040200 // Msg
+ ]
+ ; // Parameters
+ CONST "Message ID" 'WM_GETTEXT'
+
+ @SELF
+; // ME_504F1A870252 WMGetText
+
+: ME_504F1E340367
+ CONST UID '504F1E340367'
+ CONST Name 'Msg'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_504F1A3900B2 // TWMGetTextLength
+ ;
+
+ @SELF
+; // ME_504F1E340367 Msg
+
+: ME_504F1E0F03AE
+ CONST UID '504F1E0F03AE'
+ CONST Name 'WMGetTextLength'
+ CONST Class 'Operation'
+ CONST Stereotype 'message'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_504F1E340367 // Msg
+ ]
+ ; // Parameters
+ CONST "Message ID" 'WM_GETTEXTLENGTH'
+
+ @SELF
+; // ME_504F1E0F03AE WMGetTextLength
+
+: ME_B749442CE8C6
+ CONST UID 'B749442CE8C6'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TnscStatusBar' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_B749442CE8C6 Ini_Reg_Class
+
+: ME_4E15A08E030D
+ CONST UID '4E15A08E030D'
+ CONST Name 'TnscStatusBar'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_498036CB01D2 // InscStatusBarItemsVisualizer
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_503DE89502B5 // f_Dock
+ ME_503DE8E000AA // f_Strings
+ ME_503DE909017D // f_Visible
+ ME_503DE91F01DC // f_Timer
+ ME_503DE94F01AC // f_OperationsList
+ ME_503DE97A01F2 // f_Form
+ ME_50477A7203DB // f_InAdjustSizeForPanels
+ ME_5049B38503C0 // f_UpdateStringsTimer
+ ME_505C55130356 // f_GroupIndex
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_503DE99801D3 // SetLink
+ ME_503DE9AA03AD // ReleaseLink
+ ME_503DE9C60211 // DoUpdateStrings
+ ME_503DEA120182 // TimerProc
+ ME_5049B3BE0205 // FireUpUpdateStringsTimer
+ ME_5049B3DB0227 // UpdateStringsTimerProc
+ ME_504F30D900F7 // AllVisiblePanelsText
+ ME_504F1A870252 // WMGetText
+ ME_504F1E0F03AE // WMGetTextLength
+ ME_B749442CE8C6 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47D1602000C6 // Create
+ ME_4A97E78202FC // SetParent
+ ME_4F2A599E0283 // SetBounds
+ ]
+ ; // Overridden
+ : Children
+   [ ME_503DEB310216 // TOperationInternalDef
+ ME_503DE730029F // TnscStatusBarDock
+ ]
+ ; // Children
+ CONST "author" 'Костицын М.Ю.'
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" true
+ CONST "started" '14.08.12'
+
+ @SELF
+; // ME_4E15A08E030D TnscStatusBar

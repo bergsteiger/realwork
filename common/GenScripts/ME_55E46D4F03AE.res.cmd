@@ -1,0 +1,2 @@
+MakeCo TevCustomEditorWordsPack.rc.script
+brcc32 TevCustomEditorWordsPack.rc

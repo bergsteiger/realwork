@@ -1,0 +1,386 @@
+// ImageEnView 52E20E0E0059 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E20E0E0059
+
+FORWARD ME_52E20F060237
+
+FORWARD ME_52E20FD6017C
+
+: ME_52E2163B0209
+ CONST UID '52E2163B0209'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
+ ;
+
+ref; // ME_52E2163B0209 aControl
+
+: ME_52E2163B0219
+ CONST UID '52E2163B0219'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_52E2163B0219 aCtx
+
+: ME_52E2102002AA
+ CONST UID '52E2102002AA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52E20FD6017C // DoWithImageEn
+ ;
+ : Parameters
+   @ ( ME_52E2163B0209 // aControl
+ ME_52E2163B0219 // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52E2102002AA DoIt
+
+: ME_52E20FD6017C
+ CONST UID '52E20FD6017C'
+ CONST Name 'DoWithImageEn'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52E20F060237 // TkwImageEnControl
+ ;
+ : Operations
+   @ ( ME_52E2102002AA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52E20FD6017C DoWithImageEn
+
+: ME_E128D386216B
+ CONST UID 'E128D386216B'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwImageEnControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52E20F060237 // TkwImageEnControl
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_E128D386216B Ini_Reg_Class
+
+: ME_4F212C3A015A_ME_52E20F060237
+ CONST UID '4F212C3A015A'
+ CONST Name 'DoControl'
+ : Original WL 'ME_4F212C3A015A' '54DB92D203C9.pas.ms.script' // DoControl
+ ;
+ : Implementor ME_52E20F060237 // TkwImageEnControl
+ ;
+ref; // ME_4F212C3A015A_ME_52E20F060237 DoControl
+
+: ME_52E20F060237
+ CONST UID '52E20F060237'
+ CONST Name 'TkwImageEnControl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52E20E0E0059 // ImageEnView
+ ;
+ : Inherits
+   @ ( WL 'ME_4F212C120371' '54DB92D203C9.pas.ms.script' // kwControlFromStackWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_52E20FD6017C // DoWithImageEn
+ ME_E128D386216B // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4F212C3A015A_ME_52E20F060237 // DoControl
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwImageEnControl.pas'
+
+ref; // ME_52E20F060237 TkwImageEnControl
+
+FORWARD ME_52E20EB3004D
+
+FORWARD ME_52E20E70006F
+
+: ME_52E20EBE02EF
+ CONST UID '52E20EBE02EF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52E20EB3004D // ImageEnPack
+ ;
+ : Target ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ;
+
+ref; // ME_52E20EBE02EF 
+
+: ME_54F4642100D0
+ CONST UID '54F4642100D0'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_52E20EB3004D // ImageEnPack
+ ;
+ : Target WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
+ ;
+
+ref; // ME_54F4642100D0 
+
+FORWARD ME_54F47ECF0071
+
+: ME_54F47EE30065
+ CONST UID '54F47EE30065'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52E20EB3004D // ImageEnPack
+ ;
+ : Target ME_54F47ECF0071 // TImageEnViewRegistrator
+ ;
+
+ref; // ME_54F47EE30065 
+
+: ME_0FC9E2AEC13A
+ CONST UID '0FC9E2AEC13A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52E20EB3004D // ImageEnPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_0FC9E2AEC13A 
+
+: ME_52E20EB3004D
+ CONST UID '52E20EB3004D'
+ CONST Name 'ImageEnPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52E20E0E0059 // ImageEnView
+ ;
+ : Dependencies
+   @ ( ME_52E20EBE02EF // 
+ ME_54F4642100D0 // 
+ ME_54F47EE30065 // 
+ ME_0FC9E2AEC13A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ImageEnPack.pas'
+
+ref; // ME_52E20EB3004D ImageEnPack
+
+: ME_D4125D4C2FFA
+ CONST UID 'D4125D4C2FFA'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ImageEnViewer_SaveBitmap' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ;
+
+ref; // ME_D4125D4C2FFA Ini_Reg
+
+: ME_52E5E9F30266
+ CONST UID '52E5E9F30266'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ;
+ : Target WL 'ME_4DF870EA0062' '4AB0C3C60310.pas.ms.script' // ChangeFileExt
+ ;
+
+ref; // ME_52E5E9F30266 
+
+: ME_52E20FD6017C_ME_52E20E70006F
+ CONST UID '52E20FD6017C'
+ CONST Name 'DoWithImageEn'
+ : Original ME_52E20FD6017C // DoWithImageEn
+ ;
+ : Implementor ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ;
+ref; // ME_52E20FD6017C_ME_52E20E70006F DoWithImageEn
+
+: ME_4DB0614603C8_ME_52E20E70006F
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ;
+ref; // ME_4DB0614603C8_ME_52E20E70006F GetWordNameForRegister
+
+: ME_52E20E70006F
+ CONST UID '52E20E70006F'
+ CONST Name 'ImageEnViewer_SaveBitmap'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Формат:'#13#10'{code}'#13#10'aFileName ImageEnViewer:SaveBitmap'#13#10'{code}'#13#10'где aFileName - имя файла, куда сохранять.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52E20E0E0059 // ImageEnView
+ ;
+ : Inherits
+   @ ( ME_52E20F060237 // TkwImageEnControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_D4125D4C2FFA // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_52E20FD6017C_ME_52E20E70006F // DoWithImageEn
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_52E20E70006F // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_52E5E9F30266 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwImageEnViewerSaveBitmap.pas'
+ CONST extprop:pas:TypeName 'TkwImageEnViewerSaveBitmap'
+
+ref; // ME_52E20E70006F ImageEnViewer_SaveBitmap
+
+: ME_176FB88EADAA
+ CONST UID '176FB88EADAA'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TImageEnViewRegistrator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54F47ECF0071 // TImageEnViewRegistrator
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_176FB88EADAA Ini_Reg_Class
+
+: ME_E173CBCBB5F7
+ CONST UID 'E173CBCBB5F7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F47ECF0071 // TImageEnViewRegistrator
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_E173CBCBB5F7 
+
+: ME_54F47ECF0071
+ CONST UID '54F47ECF0071'
+ CONST Name 'TImageEnViewRegistrator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52E20E0E0059 // ImageEnView
+ ;
+ : Inherits
+   @ ( WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_176FB88EADAA // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_E173CBCBB5F7 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ImageEnViewRegistrator.pas'
+
+ref; // ME_54F47ECF0071 TImageEnViewRegistrator
+
+: ME_52E20E0E0059
+ CONST UID '52E20E0E0059'
+ CONST Name 'ImageEnView'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54F47D8D007E' '54F47D8D007E.pas.ms.script' // ScriptEngine$ImageEn
+ ;
+ : Children
+   @ ( ME_52E20F060237 // TkwImageEnControl
+ ME_52E20EB3004D // ImageEnPack
+ ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ME_54F47ECF0071 // TImageEnViewRegistrator
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4ACDBC26003C' '4ACDBC26003C.pas.ms.script' // Source
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52E20E0E0059.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52E20E0E0059.pas.ms.script.runner'
+
+ref; // ME_52E20E0E0059 ImageEnView

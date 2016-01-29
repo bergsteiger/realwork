@@ -1,0 +1,317 @@
+// DataBaseTestUtils 5419575202DB Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5419575202DB
+
+FORWARD ME_541957650320
+
+: ME_541FFF93008C
+ CONST UID '541FFF93008C'
+ CONST Name 'f_DataPath'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_541FFF93008C f_DataPath
+
+: ME_541FFFAC039A
+ CONST UID '541FFFAC039A'
+ CONST Name 'f_BasePath'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_541FFFAC039A f_BasePath
+
+FORWARD ME_541FFFCB03B7
+
+: ME_541FFFFE0080
+ CONST UID '541FFFFE0080'
+ CONST Name 'CreateSuspended'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_541FFFFE0080 CreateSuspended
+
+: ME_541FFFFE0090
+ CONST UID '541FFFFE0090'
+ CONST Name 'aDataPath'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
+ ;
+
+ref; // ME_541FFFFE0090 aDataPath
+
+: ME_541FFFFE00A0
+ CONST UID '541FFFFE00A0'
+ CONST Name 'aBaseName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
+ ;
+
+ref; // ME_541FFFFE00A0 aBaseName
+
+: ME_541FFFD600AA
+ CONST UID '541FFFD600AA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_541FFFCB03B7 // Create
+ ;
+ : Parameters
+   @ ( ME_541FFFFE0080 // CreateSuspended
+ ME_541FFFFE0090 // aDataPath
+ ME_541FFFFE00A0 // aBaseName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_541FFFD600AA DoIt
+
+: ME_541FFFCB03B7
+ CONST UID '541FFFCB03B7'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Operations
+   @ ( ME_541FFFD600AA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_541FFFCB03B7 Create
+
+FORWARD ME_542003B40317
+
+: ME_542003F9024D
+ CONST UID '542003F9024D'
+ CONST Name 'aDB'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_472084690055' '4720831F012D.pas.ms.script' // Im3DB
+ ;
+
+ref; // ME_542003F9024D aDB
+
+: ME_542003F302ED
+ CONST UID '542003F302ED'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_542003B40317 // DoBase
+ ;
+ : Parameters
+   @ ( ME_542003F9024D // aDB
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_542003F302ED DoIt
+
+: ME_542003B40317
+ CONST UID '542003B40317'
+ CONST Name 'DoBase'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Operations
+   @ ( ME_542003F302ED // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_542003B40317 DoBase
+
+: ME_541C2D740268
+ CONST UID '541C2D740268'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_541C2D740268 
+
+: ME_541C2DED008D
+ CONST UID '541C2DED008D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_48EA3BDD0023' '4678193C009C.pas.ms.script' // ActiveXConsts
+ ;
+
+ref; // ME_541C2DED008D 
+
+: ME_542009A400BE
+ CONST UID '542009A400BE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_47208653003B' '4720862F0238.pas.ms.script' // Tm3StoreAccess
+ ;
+
+ref; // ME_542009A400BE 
+
+: ME_542009D10396
+ CONST UID '542009D10396'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_495230C40219' '47913B47006E.pas.ms.script' // Tl3NamedTextStream
+ ;
+
+ref; // ME_542009D10396 
+
+: ME_54200A3A00C8
+ CONST UID '54200A3A00C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_4DC25D9502BB' '47D0290B016D.pas.ms.script' // ProcessFilesWithMask
+ ;
+
+ref; // ME_54200A3A00C8 
+
+: ME_54200A8C01F3
+ CONST UID '54200A8C01F3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_4742CA9702AE' '4742C9DB033A.pas.ms.script' // Tm3DB
+ ;
+
+ref; // ME_54200A8C01F3 
+
+: ME_54200DB1031F
+ CONST UID '54200DB1031F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_541957650320 // TDataBaseTester
+ ;
+ : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
+ ;
+
+ref; // ME_54200DB1031F 
+
+: ME_4FFFDF740099_ME_541957650320
+ CONST UID '4FFFDF740099'
+ CONST Name 'Execute'
+ : Original WL 'ME_4FFFDF740099' '4AB0997B00A2.pas.ms.script' // Execute
+ ;
+ : Implementor ME_541957650320 // TDataBaseTester
+ ;
+ref; // ME_4FFFDF740099_ME_541957650320 Execute
+
+: ME_541957650320
+ CONST UID '541957650320'
+ CONST Name 'TDataBaseTester'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5419575202DB // DataBaseTestUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_4FFFDF4601F9' '4AB0997B00A2.pas.ms.script' // TThread
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_541FFF93008C // f_DataPath
+ ME_541FFFAC039A // f_BasePath
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_541FFFCB03B7 // Create
+ ME_542003B40317 // DoBase
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4FFFDF740099_ME_541957650320 // Execute
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_541C2D740268 // 
+ ME_541C2DED008D // 
+ ME_542009A400BE // 
+ ME_542009D10396 // 
+ ME_54200A3A00C8 // 
+ ME_54200A8C01F3 // 
+ ME_54200DB1031F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\DataBaseTester.pas'
+
+ref; // ME_541957650320 TDataBaseTester
+
+: ME_5419575202DB
+ CONST UID '5419575202DB'
+ CONST Name 'DataBaseTestUtils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D53DDBE00EE' '4D53DDBE00EE.pas.ms.script' // Abstract Archi Tests
+ ;
+ : Children
+   @ ( ME_541957650320 // TDataBaseTester
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4720831F012D' '4720831F012D.pas.ms.script' // m3DBInterfaces
+ WL 'ME_4720862F0238' '4720862F0238.pas.ms.script' // m3StorageInterfaces
+ WL 'ME_4742C9DB033A' '4742C9DB033A.pas.ms.script' // m3DB
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5419575202DB.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5419575202DB.pas.ms.script.runner'
+
+ref; // ME_5419575202DB DataBaseTestUtils

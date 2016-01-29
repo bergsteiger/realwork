@@ -1,0 +1,11 @@
+# -*- coding: windows-1251 -*-
+
+from update import *
+
+if __name__ == '__main__':
+    if ClonePatcher().run():
+        print '\nОбновление успешно завершено.'
+        print 'Update finished successful.'
+    else:
+        print '\nВнимание! В ходе обновления возникла ошибка. Свяжитесь со службой поддержки по почте hotline@garant.ru, приложив к письму файлы update.xml и update.log.'
+        print 'Warning! Update finished with error. Contact with support by email hotline@garant.ru and send update.xml, update.log.'

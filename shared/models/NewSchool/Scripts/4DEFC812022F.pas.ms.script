@@ -1,0 +1,152 @@
+// Tl3EventedRecListView 4DEFC812022F SimpleClass Class
+
+FORWARD ME_4DEFC812022F
+
+FORWARD ME_4DEFC883018A
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4DEFC8B501C7
+ CONST UID '4DEFC8B501C7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4DEFC8B501C7 DoIt
+
+: ME_4DEFC883018A
+ CONST UID '4DEFC883018A'
+ CONST Name 'Tl3CompareItemsEvent'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4DEFC8B501C7 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_4DEFC883018A Tl3CompareItemsEvent
+
+INCLUDE '4DEFC4AE0296.pas.ms.script'
+
+: ME_4DEFC8A40391
+ CONST UID '4DEFC8A40391'
+ CONST Name 'f_CompareItemsEvent'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4DEFC883018A // Tl3CompareItemsEvent
+ ;
+
+ @SELF
+; // ME_4DEFC8A40391 f_CompareItemsEvent
+
+FORWARD ME_4DEFC86E0263
+
+INCLUDE '479DF9C5033A.pas.ms.script'
+
+: ME_4DEFC87E035B
+ CONST UID '4DEFC87E035B'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+
+ @SELF
+; // ME_4DEFC87E035B aList
+
+: ME_4DEFC8DD01B0
+ CONST UID '4DEFC8DD01B0'
+ CONST Name 'aCompareItemsEvent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DEFC883018A // Tl3CompareItemsEvent
+ ;
+
+ @SELF
+; // ME_4DEFC8DD01B0 aCompareItemsEvent
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4DEFC87503AA
+ CONST UID '4DEFC87503AA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4DEFC87E035B // aList
+ ME_4DEFC8DD01B0 // aCompareItemsEvent
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DEFC87503AA DoIt
+
+: ME_4DEFC86E0263
+ CONST UID '4DEFC86E0263'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4DEFC87503AA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DEFC86E0263 Create
+
+: ME_4DEFC812022F
+ CONST UID '4DEFC812022F'
+ CONST Name 'Tl3EventedRecListView'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DEFC4AE0296 // Tl3CustomRecListView
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4DEFC8A40391 // f_CompareItemsEvent
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4DEFC86E0263 // Create
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DEFCA7603C4 // CompareRecs
+ ]
+ ; // Implemented
+ : Children
+   [ ME_4DEFC883018A // Tl3CompareItemsEvent
+ ]
+ ; // Children
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '08.06.2011 23:06'
+
+ @SELF
+; // ME_4DEFC812022F Tl3EventedRecListView

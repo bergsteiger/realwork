@@ -1,0 +1,1688 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<application title="ГАРАНТ Платформа F1" exename="F1Prime.run" versionmajor="6" versionminor="5" release="0" build="2771">
+ <menu>
+  <menuitem title="Файл" id="File"/>
+  <menuitem title="Правка" id="Edit"/>
+  <menuitem title="Вид" id="View"/>
+  <menuitem title="Поиск" id="Search"/>
+  <menuitem title="Документы" id="Document"/>
+  <menuitem title="Анализ" id="Analize"/>
+  <menuitem title="Окна" id="Windows"/>
+  <menuitem title="Помощь" id="Help"/>
+ </menu>
+ <modules>
+  <module title="Гарант Платформа F1" id="nsEmptyMainWindow">
+   <forms>
+    <form title="Гарант Платформа F1" id="nsEmptyMainWindow" container="1">
+     <usertypes>
+      <usertype title="Главное окно" id="utEmptyMainWindow" settingscaption="Главная панель инструментов"/>
+     </usertypes>
+     <controls>
+      <control title="" id="fMainZone" hint=""/>
+      <control title="" id="fParentZone" hint=""/>
+      <control title="" id="fChildZone" hint=""/>
+      <control title="" id="fRightNavigator" hint=""/>
+      <control title="" id="fLeftNavigator" hint=""/>
+      <control id="StatusBar" hint=""/>
+      <control id="" hint=""/>
+      <control id="" hint=""/>
+      <control id="TopDock" hint=""/>
+      <control id="" hint=""/>
+      <control id="BottomDock" hint=""/>
+      <control id="" hint=""/>
+      <control id="LeftDock" hint=""/>
+      <control id="" hint=""/>
+      <control id="RightDock" hint=""/>
+      <control title="Главное окно" id="tbnsEmptyMainWindowTop" hint=""/>
+     </controls>
+     <entities>
+      <entity title="Окна" id="enCommon" hint="Окна" longhint="Окна" description="Окна">
+       <operations>
+        <operation title="Выход" id="opExit" hint="Выход" longhint="Выход" description="opExit" vcm_ooShowInMainMenu="1" operationtype="vcm_otButton" groupid="1000" category="Файл"/>
+       </operations>
+      </entity>
+      <entity title="Меню" id="enNavigator" hint="Меню" longhint="Меню" description="Меню">
+       <operations>
+        <operation title="Спрятать левый навигатор" id="opSetLeftFloat" hint="Спрятать левый навигатор" longhint="Спрятать левый навигатор" description="opSetLeftFloat" operationtype="vcm_otButton" groupid="300" category="Окна"/>
+        <operation title="Спрятать правый навигатор" id="opSetRightFloat" hint="Спрятать правый навигатор" longhint="Спрятать правый навигатор" description="opSetRightFloat" operationtype="vcm_otButton" groupid="310" category="Окна"/>
+       </operations>
+      </entity>
+      <entity title="Переключатель закладок" id="Switcher" hint="Переключатель закладок" longhint="Переключатель закладок" description="Переключатель закладок">
+       <operations/>
+      </entity>
+      <entity title="Справка" id="enHelp" hint="Справка" longhint="Справка" description="Справка">
+       <operations>
+        <operation title="Руководство пользователя" id="opHelpTopics" hint="Руководство пользователя" longhint="Руководство пользователя" description="opHelpTopics" icon="174.bmp" vcm_ooShowInMainMenu="1" shortcut="F1" operationtype="vcm_otButton" groupid="200" category="Помощь"/>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+   </forms>
+  </module>
+  <module title="Настройка системы" id="vcm_dmToolbarMenu" hint="Настройка системы" longhint="Настройка системы" description="Настройка системы">
+   <operations>
+    <operation title="Настройка..." id="opCustomize" hint="Настройка..." longhint="Настройка..." description="opCustomize" operationtype="vcm_otButton" category="Настройка системы"/>
+    <operation title="Большие иконки" id="opLargeIcons" hint="Большие иконки" longhint="Большие иконки" description="opLargeIcons" operationtype="vcm_otButton" category="Настройка системы"/>
+    <operation title="Закрепить панели инструментов" id="opFasten" hint="Закрепить панели инструментов" longhint="Закрепить панели инструментов" description="opFasten" operationtype="vcm_otButton" category="Настройка системы"/>
+   </operations>
+   <forms>
+    <form title="Настройка панелей инструментов" id="vcmCustomizeToolsForm" container="0">
+     <usertypes>
+      <usertype title="Настройка панелей инструментов" id="vcmCustomizeToolsForm"/>
+     </usertypes>
+     <controls>
+      <control title="" id="TopPanel" hint=""/>
+      <control title="" id="SingleTopPanel" hint=""/>
+      <control title="Панель инструментов:" id="Label1" hint=""/>
+      <control id="edToolbars" text="" hint=""/>
+      <control title="" id="MultipleTopPanel" hint=""/>
+      <control title="Объект системы:" id="lbObject" hint=""/>
+      <control title="Объект системы изменен. Применить изменения?" id="ConfirmSavaLabel" hint=""/>
+      <control id="cbObject" text="" hint=""/>
+      <control title="" id="BottomPanel" hint=""/>
+      <control title="Восстановить" id="ResetToDefaultButton" hint=""/>
+      <control title="Ок" id="btOk" hint=""/>
+      <control title="Отмена" id="btCancel" hint=""/>
+      <control title="Восстановить все" id="ResetAllToDefaultButton" hint=""/>
+      <control title="Применить" id="btApply" hint=""/>
+      <control id="PageControl" hint=""/>
+      <control title="Панели инструментов" id="ToolBarsTabSheet" hint=""/>
+      <control title="" id="pnToolbar" hint=""/>
+      <control title="Панель инструментов:" id="lbToolbar" hint=""/>
+      <control id="cbToolBar" text="" hint=""/>
+      <control title="Добавить" id="btAdd" hint=""/>
+      <control title="" id="CenterPanel" hint=""/>
+      <control title="Доступные операции:" id="AvailableOperationsLabel" hint=""/>
+      <control title="Текущие операции:" id="SelectedOperationsLabel" hint=""/>
+      <control title="" id="RemoveBitBtn" hint=""/>
+      <control title="" id="AddBitBtn" hint=""/>
+      <control title=" Отображать " id="WhotShowRadioGroup" hint=""/>
+      <control title="Значок" id="cbIcon" hint=""/>
+      <control title="Текст и значок" id="cbTextAndIcon" hint=""/>
+      <control title="" id="DownBitBtn" hint=""/>
+      <control title="" id="UpBitBtn" hint=""/>
+      <control title="" id="pnToolbarProps" hint=""/>
+      <control title="Размер значков:" id="IconSizeLabel" hint=""/>
+      <control title="Показывать только не размещенные" id="chkShowMisplaced" hint=""/>
+      <control id="IconSizeComboBox" text="крупный" hint="" itemstext="крупный&#x00D;&#x00A;мелкий"/>
+      <control title="Быстрый вызов" id="ShortCutsTabSheet" hint=""/>
+      <control title="Операции:" id="AllOperationsLabel" hint=""/>
+      <control title="Быстрый вызов:" id="ShortCutLabel" hint=""/>
+      <control title="Описание:" id="DescriptionLabel" hint=""/>
+      <control title="" id="DescriptionContentLabel" hint=""/>
+      <control id="lwShortCuts" hint=""/>
+      <control id="ShortCutEdit" text="" hint=""/>
+      <control title="Удалить" id="RemoveButton" hint=""/>
+      <control title="Добавить" id="AddButton" hint=""/>
+      <control title="Очистить" id="ClearShortcutButton" hint=""/>
+      <control title="Дополнительные настройки" id="MiscTabSheet" hint=""/>
+      <control id="Bevel1" hint=""/>
+      <control title="Эти настройки влияют на отображение кнопок на всех панелях инструментов." id="Label2" hint=""/>
+      <control title=" Размер кнопок " id="rgGlyphSize" hint="" itemstext="маленькие&#x00D;&#x00A;большие"/>
+      <control title=" Цветность изображений " id="rgGlyphColor" hint="" itemstext="автоматически&#x00D;&#x00A;16 цветов&#x00D;&#x00A;256 цветов&#x00D;&#x00A;полноцветные"/>
+      <control id="" hint=""/>
+      <control id="" hint=""/>
+      <control id="" hint=""/>
+     </controls>
+    </form>
+   </forms>
+  </module>
+  <module title="Найстройка панели задач" id="vcm_dmTasksPanelMenu" hint="Найстройка панели задач" longhint="Найстройка панели задач" description="Найстройка панели задач">
+   <operations>
+    <operation title="Настройка..." id="opCustomize" hint="Настройка..." longhint="Настройка..." description="opCustomize" operationtype="vcm_otButton" category="Найстройка панели задач"/>
+   </operations>
+   <forms>
+    <form title="Редактор панели задач" id="vcmCustomizeTasksPanelForm" container="0">
+     <usertypes>
+      <usertype title="Редактор панели задач" id="vcmCustomizeTasksPanelForm"/>
+     </usertypes>
+     <controls>
+      <control id="spRight" hint=""/>
+      <control title="" id="pnlBottom" hint=""/>
+      <control title="Ок" id="btOk" hint=""/>
+      <control title="Отмена" id="btCancel" hint=""/>
+      <control title="Применить" id="btApply" hint=""/>
+      <control title="" id="pnlLeft" hint=""/>
+      <control title="" id="btnMoveOpToPanel" hint=""/>
+      <control title="" id="btnMoveOpToRep" hint=""/>
+      <control title="" id="btnMoveGroupToPanel" hint=""/>
+      <control title="" id="btnMoveGroupToRep" hint=""/>
+      <control title="pnlTasksPanel" id="pnlTasksPanel" hint=""/>
+      <control title="Текущая панель задач:" id="gbTasksPanel" hint=""/>
+      <control id="tvTasksPanel" hint=""/>
+      <control title="Текущий элемент:" id="vtGroupBox3" hint=""/>
+      <control title="Название:" id="lblCaption" hint=""/>
+      <control id="edChange" text="" hint=""/>
+      <control title="Для всех панелей задач" id="cbForAllUseCases" hint=""/>
+      <control title="Изменить" id="btnChangeItem" hint=""/>
+      <control title="" id="pnlOperationPos" hint=""/>
+      <control title="" id="UpBitBtn" hint=""/>
+      <control title="" id="DownBitBtn" hint=""/>
+      <control title="" id="pnlRep" hint=""/>
+      <control id="splRep" hint=""/>
+      <control title="Доступные операции:" id="gbAvailableOperations" hint=""/>
+      <control id="tvRepOps" hint=""/>
+      <control title="Доступные группы:" id="gbAvailableGroups" hint=""/>
+      <control id="tvRepGroups" hint=""/>
+      <control title="" id="vtPanel1" hint=""/>
+      <control id="cbGroupName" text="" hint=""/>
+      <control title="Добавить" id="btnAddGroup" hint=""/>
+      <control title="Изменить" id="btnChangeGroup" hint=""/>
+      <control title="Удалить" id="btnDeleteGroup" hint=""/>
+     </controls>
+     <entities>
+      <entity title="Правка" id="enEdit" hint="Правка" longhint="Правка" description="Правка">
+       <operations>
+        <operation title="Вставить" id="opPaste" hint="Вставить" longhint="Вставить" description="opPaste" icon="10.bmp" shortcut="Ctrl+V" operationtype="vcm_otButton" groupid="210" category="Правка"/>
+        <operation title="Копировать" id="opCopy" hint="Копировать выделенные элементы в буфер обмена" longhint="Копировать выделенные элементы в буфер обмена" description="opCopy" icon="9.bmp" shortcut="Ctrl+C" operationtype="vcm_otButton" groupid="200" category="Правка">
+         <states>
+          <state title="Копировать" id="AttributesCopy" hint="Копировать все атрибуты документа в буфер обмена" longhint="Копировать все атрибуты документа в буфер обмена" description="" icon="9.bmp"/>
+         </states>
+        </operation>
+        <operation title="Вырезать" id="opCut" hint="Вырезать" longhint="Вырезать" description="opCut" icon="8.bmp" shortcut="Ctrl+X" operationtype="vcm_otButton" category="Правка"/>
+        <operation title="Удалить" id="opDelete" hint="Удалить выделенные элементы" longhint="Удалить выделенные элементы" description="opDelete" icon="5.bmp" shortcut="Del" operationtype="vcm_otButton" groupid="220" category="Правка">
+         <states>
+          <state title="Снять с контроля" id="stControlled" hint="Снять с контроля" longhint="Снять с контроля" description="" icon="5.bmp"/>
+          <state title="Удалить" id="stUser" hint="Удалить пользователя" longhint="Удалить пользователя" description="" icon="149.bmp"/>
+          <state title="Удалить" id="stMultiUsers" hint="Удалить выделенных пользователей" longhint="Удалить выделенных пользователей" description="" icon="149.bmp"/>
+         </states>
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+   </forms>
+  </module>
+  <module title="mo_CommonPost" id="mo_CommonPost" hint="mo_CommonPost" longhint="mo_CommonPost" description="mo_CommonPost">
+   <operations>
+    <operation title="Экспортировать все индивидуальные ленты в файл" id="SavePostList" hint="Экспортировать все индивидуальные ленты в файл" longhint="Экспортировать все индивидуальные ленты в файл" description="SavePostList" icon="173.bmp" vcm_ooShowInMainMenu="1" operationtype="vcm_otButton" category="Файл"/>
+   </operations>
+   <forms>
+    <form title="ПРАЙМ. Моя новостная лента" id="enPostingsList" container="0">
+     <usertypes>
+      <usertype title="ПРАЙМ. Моя новостная лента" id="MyPostingList" icon="145.bmp" settingscaption="ПРАЙМ. Моя новостная лента"/>
+     </usertypes>
+     <controls>
+      <control id="tvPostings" hint=""/>
+     </controls>
+     <entities>
+      <entity title="Панель новостей" id="PostingToolBar" hint="Панель новостей" longhint="Панель новостей" description="Панель новостей">
+       <operations>
+        <operation title="Новая индивидуальная лента" id="ptNewTheme" hint="Новая индивидуальная лента" longhint="Новая индивидуальная лента" description="ptNewTheme" icon="146.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Панель новостей"/>
+        <operation title="Редактировать индивидуальную ленту" id="ptEditPosting" hint="Редактировать индивидуальную ленту" longhint="Редактировать индивидуальную ленту" description="ptEditPosting" icon="143.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Панель новостей"/>
+        <operation title="Удалить индивидуальную ленту" id="ptDeletePosting" hint="Удалить индивидуальную ленту" longhint="Удалить индивидуальную ленту" description="ptDeletePosting" icon="5.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Панель новостей"/>
+        <operation title="Экспортировать все индивидуальные ленты в файл" id="SavePostList" hint="Экспортировать все индивидуальные ленты в файл" longhint="Экспортировать все индивидуальные ленты в файл" description="SavePostList" icon="173.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Файл"/>
+        <operation title="SavePostListInt" id="SavePostListInt" hint="SavePostListInt" longhint="SavePostListInt" description="SavePostListInt" operationtype="vcm_otHidden" category="Панель новостей"/>
+       </operations>
+      </entity>
+      <entity title="Система" id="enSystem" hint="Система" longhint="Система" description="Система">
+       <operations/>
+      </entity>
+     </entities>
+    </form>
+    <form title="" id="cfSaveLoad" container="1">
+     <usertypes>
+      <usertype title="Поиск: По реквизитам" id="slqtAttribute" settingscaption="Поиск: По реквизитам"/>
+      <usertype title="Поиск: По ситуации" id="slqtKW" settingscaption="Поиск: По ситуации"/>
+      <usertype title="Поиск: По ситуации" id="slqtOldKW" settingscaption="Поиск: По ситуации (Преемственный)"/>
+      <usertype title="Поиск: По источнику опубликования" id="slqtPublishSource" settingscaption="Поиск: По источнику опубликования"/>
+      <usertype title="Карточка Фильтров" id="slqtFilters" settingscaption="Карточка Фильтров"/>
+      <usertype title="Поиск: ПРАЙМ. Обзор изменений законодательства" id="slqtLegistationReview" settingscaption="Поиск: ПРАЙМ. Обзор изменений законодательства"/>
+      <usertype title="Настройка индивидуальной ленты новостей" id="slqtPostingOrder" settingscaption="Настройка индивидуальной ленты новостей"/>
+      <usertype title="Поиск: С Правовой поддержкой онлайн" id="slqtWithLawSupport" settingscaption="Поиск: С Правовой поддержкой онлайн"/>
+      <usertype title="Правовая поддержка онлайн" id="slqtConsult" settingscaption="Правовая поддержка онлайн"/>
+     </usertypes>
+     <controls>
+      <control title="ParentZone" id="ParentZone" hint=""/>
+     </controls>
+     <entities>
+      <entity title="Файл" id="enFile" hint="Файл" longhint="Файл" description="Файл">
+       <operations>
+        <operation title="Сохранить в Мои документы..." id="opSaveToFolder" hint="Сохранить в Мои документы..." longhint="Сохранить в Мои документы..." description="opSaveToFolder" icon="35.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Ctrl+F11" operationtype="vcm_otButtonCombo" groupid="120" category="Файл">
+         <excludeusertypes>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="Выбрать из Моих документов..." id="opLoadFromFolder" hint="Выбрать из Моих документов..." longhint="Выбрать из Моих документов..." description="opLoadFromFolder" icon="36.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Shift+F11" operationtype="vcm_otButton" groupid="130" category="Файл">
+         <excludeusertypes>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Завершение работы" id="enResult" hint="Завершение работы" longhint="Завершение работы" description="Завершение работы">
+       <operations>
+        <operation title="Ок" id="opOkExt" hint="Ок" longhint="Ок" description="opOkExt" icon="27.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" shortcut="Ctrl+Enter" operationtype="vcm_otTextButton" category="Завершение работы">
+         <states>
+          <state title="Искать" id="stSearch" hint="Провести поиск по выбранным параметрам" longhint="Провести поиск по выбранным параметрам" description="" icon="27.bmp"/>
+          <state title="Сохранить" id="stSave" hint="Сохранить" longhint="Сохранить" description="" icon="22.bmp"/>
+          <state title="Ок" id="stAttributesSelect" hint="Ок" longhint="Ок" description="" icon="27.bmp"/>
+          <state title="Отправить запрос" id="stConsult" hint="Отправить запрос" longhint="Отправить запрос" description="" icon="154.bmp"/>
+         </states>
+        </operation>
+        <operation title="Отмена" id="opCancel" hint="Отмена" longhint="Отмена" description="opCancel" icon="26.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" shortcut="Esc" operationtype="vcm_otTextButton" category="Завершение работы">
+         <excludeusertypes>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+         <states>
+          <state title="Закрыть" id="stClose" hint="Закрыть" longhint="Закрыть" description="" icon="26.bmp"/>
+         </states>
+        </operation>
+        <operation title="Очистить" id="opClearAll" hint="Очистить" longhint="Очистить" description="opClearAll" icon="32.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" shortcut="Ctrl+Del" operationtype="vcm_otTextButton" category="Завершение работы"/>
+       </operations>
+      </entity>
+      <entity title="Запрос" id="enQuery" hint="Запрос" longhint="Запрос" description="Запрос">
+       <operations>
+        <operation title="История запросов" id="opGetOldQuery" hint="История запросов" longhint="История запросов" description="opGetOldQuery" icon="73.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otButtonCombo" category="Запрос">
+         <excludeusertypes>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="Тип поиска" id="opSearchType" hint="Тип поиска" longhint="Тип поиска" description="opSearchType" icon="2.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCombo" category="Запрос">
+         <excludeusertypes>
+          <usertype index="1" id="slqtKW"/>
+          <usertype index="2" id="slqtOldKW"/>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="5" id="slqtLegistationReview"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="Ситуации первого уровня" id="opShowTopLevelFrmAct" hint="Открыть вкладку &quot;Ситуации первого уровня&quot;" longhint="Открыть вкладку &quot;Ситуации первого уровня&quot;" description="opShowTopLevelFrmAct" icon="29.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCheck" category="Запрос">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute"/>
+          <usertype index="2" id="slqtOldKW"/>
+          <usertype index="3" id="slqtPublishSource"/>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="5" id="slqtLegistationReview"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Логическая операция" id="enLogicOperation" hint="Логическая операция" longhint="Логическая операция" description="Логическая операция">
+       <operations>
+        <operation title="ИЛИ" id="opLogicOr" hint="ИЛИ" longhint="ИЛИ" description="opLogicOr" icon="37.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otCheck" category="Логическая операция">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute"/>
+          <usertype index="1" id="slqtKW"/>
+          <usertype index="3" id="slqtPublishSource"/>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="5" id="slqtLegistationReview"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="И" id="opLogicAnd" hint="И" longhint="И" description="opLogicAnd" icon="38.bmp" operationtype="vcm_otHidden" category="Логическая операция">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute"/>
+          <usertype index="1" id="slqtKW"/>
+          <usertype index="3" id="slqtPublishSource"/>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="5" id="slqtLegistationReview"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="КРОМЕ" id="opLogicNot" hint="КРОМЕ" longhint="КРОМЕ" description="opLogicNot" icon="39.bmp" operationtype="vcm_otHidden" category="Логическая операция">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute"/>
+          <usertype index="1" id="slqtKW"/>
+          <usertype index="3" id="slqtPublishSource"/>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="5" id="slqtLegistationReview"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Система" id="enSystem" hint="Система" longhint="Система" description="Система">
+       <operations/>
+      </entity>
+      <entity title="Фильтры" id="enFilters" hint="Фильтры" longhint="Фильтры" description="Фильтры">
+       <operations>
+        <operation title="Фильтры (вкладка)" id="opFiltersListOpen" hint="Фильтры (вкладка)" longhint="Фильтры (вкладка)" description="opFiltersListOpen" icon="40.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInMainMenu="1" operationtype="vcm_otCheck" groupid="350" category="Вид">
+         <excludeusertypes>
+          <usertype index="2" id="slqtOldKW"/>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="5" id="slqtLegistationReview"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Журнал" id="enJornal" hint="Журнал" longhint="Журнал" description="Журнал">
+       <operations/>
+      </entity>
+      <entity title="Использовать фильтр" id="enFilter" hint="Использовать фильтр" longhint="Использовать фильтр" description="Использовать фильтр">
+       <operations>
+        <operation title="Создать новый фильтр" id="opNewFilter" hint="Создать новый фильтр" longhint="Создать новый фильтр" description="opNewFilter" icon="43.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otButton" category="Использовать фильтр">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute"/>
+          <usertype index="1" id="slqtKW"/>
+          <usertype index="3" id="slqtPublishSource"/>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="5" id="slqtLegistationReview"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="Выбрать фильтр" id="opUseFilter" hint="Выбрать фильтр" longhint="Выбрать фильтр" description="opUseFilter" icon="40.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCombo" category="Использовать фильтр">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute"/>
+          <usertype index="1" id="slqtKW"/>
+          <usertype index="3" id="slqtPublishSource"/>
+          <usertype index="4" id="slqtFilters"/>
+          <usertype index="5" id="slqtLegistationReview"/>
+          <usertype index="6" id="slqtPostingOrder"/>
+          <usertype index="7" id="slqtWithLawSupport"/>
+          <usertype index="8" id="slqtConsult"/>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+    <form title="Выбор значений древовидного атрибута" id="efTreeAttributeSelect" container="0">
+     <usertypes>
+      <usertype title="Поиск: Выбор реквизита" id="astNone" settingscaption="Поиск: Выбор реквизита"/>
+      <usertype title="Ситуации второго уровня" id="astOneLevel" settingscaption="Ситуации второго уровня"/>
+      <usertype title="Ситуации первого уровня" id="astFirstLevel" settingscaption="Ситуации первого уровня"/>
+     </usertypes>
+     <controls>
+      <control title="" id="BackgroundPanel" hint=""/>
+      <control id="ContextFilter" hint=""/>
+      <control id="AttributeTree" hint=""/>
+     </controls>
+     <entities>
+      <entity title="Правка" id="enEdit" hint="Правка" longhint="Правка" description="Правка">
+       <operations>
+        <operation title="Удалить" id="opDelete" hint="Удалить выделенные элементы" longhint="Удалить выделенные элементы" description="opDelete" icon="5.bmp" vcm_ooShowInContextMenu="1" shortcut="Del" operationtype="vcm_otButton" groupid="220" category="Правка">
+         <states>
+          <state title="Снять с контроля" id="stControlled" hint="Снять с контроля" longhint="Снять с контроля" description="" icon="5.bmp"/>
+          <state title="Удалить" id="stUser" hint="Удалить пользователя" longhint="Удалить пользователя" description="" icon="149.bmp"/>
+          <state title="Удалить" id="stMultiUsers" hint="Удалить выделенных пользователей" longhint="Удалить выделенных пользователей" description="" icon="149.bmp"/>
+         </states>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Дерево атрибутов" id="enAttributeTree" hint="Дерево атрибутов" longhint="Дерево атрибутов" description="Дерево атрибутов">
+       <operations/>
+      </entity>
+      <entity title="Контекстная фильтрация" id="enContextParams" hint="Контекстная фильтрация" longhint="Контекстная фильтрация" description="Контекстная фильтрация">
+       <operations/>
+       <controls>
+        <control id="efTreeAttributeSelect"/>
+       </controls>
+      </entity>
+      <entity title="Атрибут" id="enAttribute" hint="Атрибут" longhint="Атрибут" description="Атрибут">
+       <operations>
+        <operation title="ИЛИ" id="opLogicOr" hint="ИЛИ" longhint="ИЛИ" description="opLogicOr" icon="37.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otCheck" category="Атрибут"/>
+        <operation title="И" id="opLogicAnd" hint="И" longhint="И" description="opLogicAnd" icon="38.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otCheck" category="Атрибут"/>
+        <operation title="КРОМЕ" id="opLogicNot" hint="КРОМЕ" longhint="КРОМЕ" description="opLogicNot" icon="39.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otCheck" category="Атрибут"/>
+        <operation title="Действие по умолчанию" id="opDefaultAction" hint="Действие по умолчанию" longhint="Действие по умолчанию" description="opDefaultAction" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otShortCut" category="Файл"/>
+        <operation title="ИЛИ (shortcut)" id="opLogicOrShortcut" hint="ИЛИ (shortcut)" longhint="ИЛИ (shortcut)" description="opLogicOrShortcut" vcm_ooShowInContextMenu="1" shortcut="Ins" operationtype="vcm_otButton" category="Атрибут"/>
+       </operations>
+       <controls>
+        <control id="AttributeTree"/>
+       </controls>
+      </entity>
+      <entity title="Выделенные элементы" id="enSelection" hint="Выделенные элементы" longhint="Выделенные элементы" description="Выделенные элементы">
+       <operations>
+        <operation title="Очистить условия" id="opDropSelection" hint="Очистить условия" longhint="Очистить условия" description="opDropSelection" icon="31.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Выделенные элементы"/>
+       </operations>
+      </entity>
+      <entity title="Папка" id="enFolder" hint="Папка" longhint="Папка" description="Папка">
+       <operations>
+        <operation title="Сместиться к первому выбранному" id="opFindFirstSelected" hint="Сместиться к первому выбранному" longhint="Сместиться к первому выбранному" description="opFindFirstSelected" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Папка">
+         <excludeusertypes>
+          <usertype index="1" id="astOneLevel"/>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Завершение работы" id="enResult" hint="Завершение работы" longhint="Завершение работы" description="Завершение работы">
+       <operations>
+        <operation title="Ок" id="opOk" hint="Ok" longhint="Ok" description="opOk" icon="27.bmp" vcm_ooShowInChildMenu="1" shortcut="Enter" operationtype="vcm_otTextButton" category="Завершение работы">
+         <states>
+          <state title="Искать" id="stSearch" hint="Провести поиск по выбранным параметрам" longhint="Провести поиск по выбранным параметрам" description="" icon="27.bmp"/>
+          <state title="Печать" id="stPrint" hint="Печать" longhint="Печать" description="" icon="3.bmp"/>
+          <state title="Ок" id="stAttributesSelect" hint="Подтвердить выбор элементов" longhint="Подтвердить выбор элементов" description="" icon="27.bmp"/>
+          <state title="Оценить" id="stConsultationMark" hint="Оценить" longhint="Оценить" description="" icon="27.bmp"/>
+         </states>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Дерево" id="enTree" hint="Дерево" longhint="Дерево" description="Дерево">
+       <operations>
+        <operation title="Развернуть все" id="opExpandAll" hint="Развернуть все" longhint="Развернуть все" description="opExpandAll" icon="1.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Дерево"/>
+        <operation title="Свернуть все" id="opCollapseAll" hint="Свернуть все" longhint="Свернуть все" description="opCollapseAll" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Дерево"/>
+        <operation title="Перенос по словам" id="opWrap" hint="Перенос по словам" longhint="Перенос по словам" description="opWrap" icon="147.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otCheck" category="Дерево"/>
+       </operations>
+       <controls>
+        <control id="AttributeTree"/>
+       </controls>
+      </entity>
+      <entity title="Система" id="enSystem" hint="Система" longhint="Система" description="Система">
+       <operations/>
+      </entity>
+     </entities>
+    </form>
+    <form title="Дата" id="en_DefineSearchDate" container="0">
+     <usertypes>
+      <usertype title="Дата" id="en_DefineSearchDate"/>
+     </usertypes>
+     <controls>
+      <control title="" id="Panel1" hint=""/>
+      <control title="Выберите тип диапазона:" id="ElLabel1" hint=""/>
+      <control title="С" id="ElLabel2" hint=""/>
+      <control title="По" id="ElLabel3" hint=""/>
+      <control id="dD1EqD2" text="  .  .    " hint=""/>
+      <control title="Точная дата:" id="rbEq" hint=""/>
+      <control title="Интервал дат:" id="rbInt" hint=""/>
+      <control title="Раньше:" id="rbD2Only" hint=""/>
+      <control id="dD1Only" text="  .  .    " hint=""/>
+      <control id="dD2Only" text="  .  .    " hint=""/>
+      <control id="dD1" text="  .  .    " hint=""/>
+      <control title="Позже:" id="rbD1Only" hint=""/>
+      <control id="dD2" text="  .  .    " hint=""/>
+     </controls>
+     <entities>
+      <entity title="Завершение работы" id="enResult" hint="Завершение работы" longhint="Завершение работы" description="Завершение работы">
+       <operations>
+        <operation title="Ок" id="opOk" hint="Ok" longhint="Ok" description="opOk" icon="27.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" shortcut="Enter" operationtype="vcm_otTextButton" category="Завершение работы">
+         <states>
+          <state title="Искать" id="stSearch" hint="Провести поиск по выбранным параметрам" longhint="Провести поиск по выбранным параметрам" description="" icon="27.bmp"/>
+          <state title="Печать" id="stPrint" hint="Печать" longhint="Печать" description="" icon="3.bmp"/>
+          <state title="Ок" id="stAttributesSelect" hint="Подтвердить выбор элементов" longhint="Подтвердить выбор элементов" description="" icon="27.bmp"/>
+          <state title="Оценить" id="stConsultationMark" hint="Оценить" longhint="Оценить" description="" icon="27.bmp"/>
+         </states>
+        </operation>
+        <operation title="Отмена" id="opCancel" hint="Отмена" longhint="Отмена" description="opCancel" icon="26.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" shortcut="Esc" operationtype="vcm_otTextButton" category="Завершение работы">
+         <states>
+          <state title="Закрыть" id="stClose" hint="Закрыть" longhint="Закрыть" description="" icon="26.bmp"/>
+         </states>
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+    <form title="" id="efPreviewForm" container="0">
+     <usertypes>
+      <usertype title="Предварительный просмотр печати" id="utPrintPreview" settingscaption="Предварительный просмотр печати"/>
+     </usertypes>
+     <controls>
+      <control title="" id="PreviewPanel" hint=""/>
+     </controls>
+     <entities>
+      <entity title="Файл" id="enFile" hint="Файл" longhint="Файл" description="Файл">
+       <operations>
+        <operation title="Печать" id="opPrint" hint="Печать" longhint="Печать" description="opPrint" icon="3.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otButton" category="Файл"/>
+        <operation title="Печать..." id="opPrintDialog" hint="Печать..." longhint="Печать..." description="opPrintDialog" icon="3.bmp" vcm_ooShowInMainMenu="1" shortcut="Ctrl+P" operationtype="vcm_otButton" groupid="200" category="Файл"/>
+       </operations>
+       <controls>
+        <control id="PreviewPanel"/>
+       </controls>
+      </entity>
+      <entity title="Предварительный просмотр" id="enPreview" hint="Предварительный просмотр" longhint="Предварительный просмотр" description="Предварительный просмотр">
+       <operations>
+        <operation title="Приблизить" id="opZoomIn" hint="Приблизить" longhint="Приблизить" description="opZoomIn" icon="68.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Предварительный просмотр"/>
+        <operation title="Отдалить" id="opZoomOut" hint="Отдалить" longhint="Отдалить" description="opZoomOut" icon="69.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Предварительный просмотр"/>
+        <operation title="По ширине листа " id="opZoomWidth" hint="По ширине листа " longhint="По ширине листа " description="opZoomWidth" icon="71.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otCheck" category="Предварительный просмотр"/>
+        <operation title="Страница целиком" id="opZoomPage" hint="Страница целиком" longhint="Страница целиком" description="opZoomPage" icon="72.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otCheck" category="Предварительный просмотр"/>
+       </operations>
+       <controls>
+        <control id="PreviewPanel"/>
+       </controls>
+      </entity>
+      <entity title="Документ" id="enDocument" hint="Документ" longhint="Документ" description="Документ">
+       <operations>
+        <operation title="Показывать выделенный фрагмент" id="opFullSelectedSwitch" hint="Переключатель показа документа целиком/только выделенный фрагмент" longhint="Переключатель показа документа целиком/только выделенный фрагмент" description="opFullSelectedSwitch" icon="118.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otCheck" category="Документ"/>
+        <operation title="Показывать цветным" id="opRGBGrayscaleSwitch" hint="Переключатель показа документа черно-белым/цветным" longhint="Переключатель показа документа черно-белым/цветным" description="opRGBGrayscaleSwitch" icon="119.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otCheck" category="Документ"/>
+        <operation title="Печатать документ/справку" id="opPrintInfoSwitch" hint="Переключатель документа/справки к документу" longhint="Переключатель документа/справки к документу" description="opPrintInfoSwitch" icon="20.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otCheck" category="Документ"/>
+       </operations>
+       <controls>
+        <control id="PreviewPanel"/>
+       </controls>
+      </entity>
+      <entity title="Завершение работы" id="enResult" hint="Завершение работы" longhint="Завершение работы" description="Завершение работы">
+       <operations>
+        <operation title="Ок" id="opOk" hint="Ok" longhint="Ok" description="opOk" icon="27.bmp" vcm_ooShowInChildToolbar="1" shortcut="Enter" operationtype="vcm_otTextButton" category="Завершение работы">
+         <states>
+          <state title="Искать" id="stSearch" hint="Провести поиск по выбранным параметрам" longhint="Провести поиск по выбранным параметрам" description="" icon="27.bmp"/>
+          <state title="Печать" id="stPrint" hint="Печать" longhint="Печать" description="" icon="3.bmp"/>
+          <state title="Ок" id="stAttributesSelect" hint="Подтвердить выбор элементов" longhint="Подтвердить выбор элементов" description="" icon="27.bmp"/>
+          <state title="Оценить" id="stConsultationMark" hint="Оценить" longhint="Оценить" description="" icon="27.bmp"/>
+         </states>
+        </operation>
+        <operation title="Отмена" id="opCancel" hint="Отмена" longhint="Отмена" description="opCancel" icon="26.bmp" vcm_ooShowInChildToolbar="1" shortcut="Esc" operationtype="vcm_otTextButton" category="Завершение работы">
+         <states>
+          <state title="Закрыть" id="stClose" hint="Закрыть" longhint="Закрыть" description="" icon="26.bmp"/>
+         </states>
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+    <form title="Предупреждение" id="enShutdown" container="0">
+     <usertypes>
+      <usertype title="Предупреждение о закрытии приложения" id="sftNone" settingscaption="Предупреждение о закрытии приложения"/>
+     </usertypes>
+     <controls>
+      <control title="" id="vtPanel1" hint=""/>
+      <control title="" id="WarningText" hint=""/>
+      <control title="" id="LeftPanel" hint=""/>
+      <control id="Image" hint=""/>
+      <control title="" id="pnlBottom" hint=""/>
+      <control title="Выход" id="CloseButton" hint=""/>
+     </controls>
+     <entities>
+      <entity title="Система" id="enSystem" hint="Система" longhint="Система" description="Система">
+       <operations/>
+      </entity>
+     </entities>
+    </form>
+    <form title="Информация" id="enLongProcessMessage" container="0">
+     <usertypes>
+      <usertype title="Длительная операция" id="umNone" settingscaption="Длительная операция"/>
+     </usertypes>
+     <controls>
+      <control title="" id="ClientPanel" hint=""/>
+      <control title="" id="MessageLabel" hint=""/>
+      <control title="" id="BottomPanel" hint=""/>
+      <control id="ProgressBar" hint=""/>
+      <control title="" id="LeftPanel" hint=""/>
+      <control id="Image" hint=""/>
+      <control title="" id="ButtonPanel" hint=""/>
+      <control title="Выход" id="btnExit" hint=""/>
+     </controls>
+    </form>
+    <form title="Карточка запросов" id="enQueryCard" container="0">
+     <usertypes>
+      <usertype title="Поиск по реквизитам" id="utqcAttributeSearch" settingscaption="Поиск по реквизитам"/>
+      <usertype title="Создание индивидуальной ленты" id="utqcPostingOrder" settingscaption="Создание индивидуальной ленты"/>
+      <usertype title="ПРАЙМ. Построение обзора изменений законодательства" id="utqcLegistationReview" settingscaption="ПРАЙМ. Построение обзора изменений законодательства"/>
+      <usertype title="Поиск с правовой поддержкой онлайн" id="utqcSearchMachine" settingscaption="Поиск с правовой поддержкой онлайн"/>
+      <usertype title="Правовая поддержка онлайн" id="utqcSendConsultation" settingscaption="Правовая поддержка онлайн"/>
+     </usertypes>
+     <controls>
+      <control id="Editor" hint=""/>
+     </controls>
+     <entities>
+      <entity title="Правка" id="enEdit" hint="Правка" longhint="Правка" description="Правка">
+       <operations>
+        <operation title="Выделить все" id="opSelectAll" hint="Выделить все" longhint="Выделить все" description="opSelectAll" vcm_ooShowInContextMenu="1" shortcut="Ctrl+A" operationtype="vcm_otButton" groupid="300" category="Правка"/>
+        <operation title="Снять выделение" id="opDeselect" hint="Снять выделение" longhint="Снять выделение" description="opDeselect" vcm_ooShowInContextMenu="1" shortcut="Ctrl+Shift+A" operationtype="vcm_otButton" groupid="310" category="Правка"/>
+        <operation title="Копировать" id="opCopy" hint="Копировать выделенные элементы в буфер обмена" longhint="Копировать выделенные элементы в буфер обмена" description="opCopy" icon="9.bmp" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Ctrl+C" operationtype="vcm_otButton" groupid="200" category="Правка">
+         <states>
+          <state title="Копировать" id="AttributesCopy" hint="Копировать все атрибуты документа в буфер обмена" longhint="Копировать все атрибуты документа в буфер обмена" description="" icon="9.bmp"/>
+         </states>
+        </operation>
+        <operation title="Вставить" id="opPaste" hint="Вставить" longhint="Вставить" description="opPaste" icon="10.bmp" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Ctrl+V" operationtype="vcm_otButton" groupid="210" category="Правка"/>
+        <operation title="Отмена изменений" id="opUndo" hint="Отмена изменений" longhint="Отмена изменений" description="opUndo" icon="6.bmp" vcm_ooShowInMainMenu="1" shortcut="Ctrl+Z" operationtype="vcm_otButton" groupid="100" category="Правка"/>
+        <operation title="Возврат изменений" id="opRedo" hint="Возврат изменений" longhint="Возврат изменений" description="opRedo" icon="7.bmp" vcm_ooShowInMainMenu="1" shortcut="Ctrl+Shift+Z" operationtype="vcm_otButton" groupid="110" category="Правка"/>
+        <operation title="Удалить" id="opDelete" hint="Удалить выделенные элементы" longhint="Удалить выделенные элементы" description="opDelete" icon="5.bmp" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Del" operationtype="vcm_otButton" groupid="220" category="Правка">
+         <states>
+          <state title="Снять с контроля" id="stControlled" hint="Снять с контроля" longhint="Снять с контроля" description="" icon="5.bmp"/>
+          <state title="Удалить" id="stUser" hint="Удалить пользователя" longhint="Удалить пользователя" description="" icon="149.bmp"/>
+          <state title="Удалить" id="stMultiUsers" hint="Удалить выделенных пользователей" longhint="Удалить выделенных пользователей" description="" icon="149.bmp"/>
+         </states>
+        </operation>
+        <operation title="Вырезать" id="opCut" hint="Вырезать" longhint="Вырезать" description="opCut" icon="8.bmp" vcm_ooShowInContextMenu="1" shortcut="Ctrl+X" operationtype="vcm_otButton" category="Правка"/>
+       </operations>
+       <controls>
+        <control id="Editor"/>
+       </controls>
+      </entity>
+      <entity title="Поиск" id="enSearchParameter" hint="Поиск" longhint="Поиск" description="Поиск">
+       <operations/>
+      </entity>
+      <entity title="Система" id="enSystem" hint="Система" longhint="Система" description="Система">
+       <operations/>
+      </entity>
+      <entity title="Операции карточки" id="enCardOperation" hint="Операции карточки" longhint="Операции карточки" description="Операции карточки">
+       <operations>
+        <operation title="Развернуть\Свернуть" id="opExpandCollapse" hint="Развернуть\Свернуть" longhint="Развернуть\Свернуть" description="opExpandCollapse" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Операции карточки">
+         <excludeusertypes>
+          <usertype index="3" id="utqcSearchMachine"/>
+          <usertype index="4" id="utqcSendConsultation"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="Удалить все" id="opDeleteAll" hint="Удалить все" longhint="Удалить все" description="opDeleteAll" icon="32.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Операции карточки">
+         <excludeusertypes>
+          <usertype index="3" id="utqcSearchMachine"/>
+          <usertype index="4" id="utqcSendConsultation"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="Добавить новый" id="opCreateAttr" hint="Добавить новый" longhint="Добавить новый" description="opCreateAttr" icon="58.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Операции карточки">
+         <excludeusertypes>
+          <usertype index="3" id="utqcSearchMachine"/>
+          <usertype index="4" id="utqcSendConsultation"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="Выбрать реквизиты" id="opOpenTreeSelection" hint="Выбрать реквизиты" longhint="Выбрать реквизиты" description="opOpenTreeSelection" icon="57.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Операции карточки">
+         <excludeusertypes>
+          <usertype index="3" id="utqcSearchMachine"/>
+          <usertype index="4" id="utqcSendConsultation"/>
+         </excludeusertypes>
+        </operation>
+       </operations>
+       <controls>
+        <control id="Editor"/>
+       </controls>
+      </entity>
+      <entity title="Файл" id="enFile" hint="Файл" longhint="Файл" description="Файл">
+       <operations>
+        <operation title="Печать..." id="opPrintDialog" hint="Печать..." longhint="Печать..." description="opPrintDialog" icon="3.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInMainMenu="1" shortcut="Ctrl+P" operationtype="vcm_otButton" groupid="200" category="Файл">
+         <excludeusertypes>
+          <usertype index="0" id="utqcAttributeSearch"/>
+          <usertype index="2" id="utqcLegistationReview"/>
+          <usertype index="3" id="utqcSearchMachine"/>
+          <usertype index="4" id="utqcSendConsultation"/>
+         </excludeusertypes>
+        </operation>
+        <operation title="Предварительный просмотр" id="opPrintPreview" hint="Предварительный просмотр" longhint="Предварительный просмотр" description="opPrintPreview" icon="4.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInMainMenu="1" shortcut="Ctrl+L" operationtype="vcm_otButton" groupid="210" category="Файл">
+         <excludeusertypes>
+          <usertype index="0" id="utqcAttributeSearch"/>
+          <usertype index="2" id="utqcLegistationReview"/>
+          <usertype index="3" id="utqcSearchMachine"/>
+          <usertype index="4" id="utqcSendConsultation"/>
+         </excludeusertypes>
+        </operation>
+       </operations>
+       <controls>
+        <control id="Editor"/>
+       </controls>
+      </entity>
+      <entity title="Настройки панели меток" id="SubPanelSettings" hint="Настройки панели меток" longhint="Настройки панели меток" description="Настройки панели меток">
+       <operations>
+        <operation title="Показывать спецсимволы" id="opShowSpecial" hint="Показывать спецсимволы" longhint="Показывать спецсимволы" description="opShowSpecial" vcm_ooShowInContextMenu="1" operationtype="vcm_otCheck" category="Настройки панели меток"/>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+   </forms>
+  </module>
+ </modules>
+ <messages>
+  <message title="%s" id="AnyInformation" settingscaption="%s" longhint="" custombuttoncaption=""/>
+  <message title="IP Address не найден!&#x00D;&#x00A;Неправильная конфигурация сетевых соединений" id="IPAddressNotFound" settingscaption="IP Address не найден!&#x00D;&#x00A;Неправильная конфигурация сетевых соединений" longhint="" custombuttoncaption=""/>
+  <message title="SMTP-сервер не найден.&#x00D;&#x00A;Возможно допущена ошибка в адресе сервера" id="SMTPServerNotFound" settingscaption="SMTP-сервер не найден.&#x00D;&#x00A;Возможно допущена ошибка в адресе сервера" longhint="" custombuttoncaption=""/>
+  <message title="Администратор вашей организации запретил самостоятельную регистрацию пользователей в системе ГАРАНТ. Обратитесь, пожалуйста, к администратору:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="UserAutoregistrationForbad" settingscaption="Администратор вашей организации запретил самостоятельную регистрацию пользователей в системе ГАРАНТ. Обратитесь, пожалуйста, к администратору:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Активная конфигурация не может быть удалена" id="ActiveConfigurationCannotDelete" settingscaption="Активная конфигурация не может быть удалена" longhint="" custombuttoncaption=""/>
+  <message title="Библиотека &quot;%s&quot; не найдена.&#x00D;&#x00A;Продолжение работы невозможно" id="LoadLibraryError" settingscaption="Библиотека &quot;%s&quot; не найдена.&#x00D;&#x00A;Продолжение работы невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Благодарим Вас за обращение в службу Правовой поддержки онлайн.&#x00D;&#x00A;Ваш запрос передан для обработки. Чтобы узнать, на какой стадии находится подготовка ответа, откройте раздел «Мои консультации», размещенный на вкладке «Мои документы»." id="ConsultationSuccessCheck" settingscaption="Подтверждение запроса на проверку статуса подключения" longhint="Уведомление об успешной отправке запроса на проверку статуса подключения Правовой поддержки онлайн" custombuttoncaption=""/>
+  <message title="Благодарим Вас за обращение в службу Правовой поддержки онлайн.&#x00D;&#x00A;Ваш запрос передан для обработки. Чтобы узнать, на какой стадии находится подготовка ответа, откройте раздел «Мои консультации», размещенный на вкладке «Мои документы»." id="ConsultationSuccessSend" settingscaption="Отправка запроса по линии Правовой поддержки онлайн" longhint="Уведомление об успешной отправке запроса по линии Правовой поддержки онлайн" custombuttoncaption=""/>
+  <message title="Буфер обмена содержит большой кусок данных. Вы хотите, чтобы эти данные были доступны другим приложениям (операция может занять длительное время)?" id="AskClearClipboard" settingscaption="Буфер обмена содержит большой кусок данных. Вы хотите, чтобы эти данные были доступны другим приложениям (операция может занять длительное время)?" longhint="" custombuttoncaption=""/>
+  <message title="В выбранный вами каталог нельзя сохранить список рассылки." id="WrongCatalogSelect" settingscaption="В выбранный вами каталог нельзя сохранить список рассылки." longhint="" custombuttoncaption=""/>
+  <message title="В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой,  организуя ее более удобным образом.&#x00D;&#x00A;&#x00D;&#x00A;Конфигурация, с которой Вы работали раньше сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации»." id="DefaultSetttingsWereChanged" settingscaption="В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой,  организуя ее более удобным образом.&#x00D;&#x00A;&#x00D;&#x00A;Конфигурация, с которой Вы работали раньше сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации»." longhint="" custombuttoncaption=""/>
+  <message title="В новой версии изменены настройки конфигурации. Новые настройки улучшают пользовательский интерфейс, организуя его более удобным образом. Созданная Вами конфигурация сохранена, по умолчанию используется новая настройка." id="DefaultSetttingsWereCopied" settingscaption="В новой версии изменены настройки конфигурации. Новые настройки улучшают пользовательский интерфейс, организуя его более удобным образом. Созданная Вами конфигурация сохранена, по умолчанию используется новая настройка." longhint="" custombuttoncaption=""/>
+  <message title="В папке %s не содержится ни одного элемента" id="TryToExpandEmptyFolder" settingscaption="Информация о том, что папка пуста" longhint="" custombuttoncaption=""/>
+  <message title="В папке есть документы, стоящие на контроле. При удалении папки они будут сняты с контроля.&#x00D;&#x00A;Продолжить удаление?" id="DeleteControlledFolder" settingscaption="В папке есть документы, стоящие на контроле. При удалении папки они будут сняты с контроля.&#x00D;&#x00A;Продолжить удаление?" longhint="" custombuttoncaption=""/>
+  <message title="В процессе работы фильтры были изменены. В результате операции получается пустой список.&#x00D;&#x00A;Отменить действие всех фильтров?" id="EmptyListFiltersChanged" settingscaption="В процессе работы фильтры были изменены. В результате операции получается пустой список.&#x00D;&#x00A;Отменить действие всех фильтров?" longhint="" custombuttoncaption=""/>
+  <message title="В секции [F1Client Params] отсутствуют параметры:&#x00D;&#x00A;-PathToPictures - путь к каталогу с картинками&#x00D;&#x00A;-PathToPicturesExecutable - путь к утилите openwww.exe" id="ShowPictureInvalidParams" settingscaption="В секции [F1Client Params] отсутствуют параметры:&#x00D;&#x00A;-PathToPictures - путь к каталогу с картинками&#x00D;&#x00A;-PathToPicturesExecutable - путь к утилите openwww.exe" longhint="" custombuttoncaption=""/>
+  <message title="В состав Вашего комплекта не включен  сервисный блок &quot;Прайм&quot;. &#x00D;&#x00A;Настройка индивидуальной ленты новостей невозможна. &#x00D;&#x00A;&#x00D;&#x00A;По вопросам расширения информационного банка обращайтесь в обслуживающую Вас организацию:  &#x00D;&#x00A;%s" id="PrimeNotAvaliable" settingscaption="В состав Вашего комплекта не включен  сервисный блок &quot;Прайм&quot;. &#x00D;&#x00A;Настройка индивидуальной ленты новостей невозможна. &#x00D;&#x00A;&#x00D;&#x00A;По вопросам расширения информационного банка обращайтесь в обслуживающую Вас организацию:  &#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="В установленном у Вас комплекте отсутствует информация, отвечающая данному запросу" id="DocumentsNotFound" settingscaption="В установленном у Вас комплекте отсутствует информация, отвечающая данному запросу" longhint="" custombuttoncaption=""/>
+  <message title="В установленном у Вас комплекте отсутствует информация, отвечающая данному запросу!&#x00D;&#x00A;Для получения дополнительных консультаций вы можете обратиться к специалистам линии Правовой поддержки онлайн." id="ConsultDocumentsNotFound" settingscaption="В установленном у Вас комплекте отсутствует информация, отвечающая данному запросу!&#x00D;&#x00A;Для получения дополнительных консультаций вы можете обратиться к специалистам линии Правовой поддержки онлайн." longhint="" custombuttoncaption="Правовая поддержка онлайн"/>
+  <message title="В уточняемом списке нет документов, отвечающих Вашему запросу. Измените условия поиска или проведите поиск по всем документам Вашего комплекта" id="EmptyResultAfterSearchInList" settingscaption="В уточняемом списке нет документов, отвечающих Вашему запросу. Измените условия поиска или проведите поиск по всем документам Вашего комплекта" longhint="" custombuttoncaption=""/>
+  <message title="Ваш запрос находится в обработке" id="ConsultationInProcess" settingscaption="Ваш запрос находится в обработке" longhint="" custombuttoncaption=""/>
+  <message title="Ваш запрос передан в службу Правовой поддержки онлайн для обработки. При получении ответа система оповестит Вас отдельным информационным сообщением." id="PaymentConfirmed" settingscaption="Подтверждение оплаты" longhint="Подтверждение оплаты запроса по линии Правовой поддержки онлайн" custombuttoncaption=""/>
+  <message title="Ваш ответ уже обрабатывается" id="ConsulationAlreadyConfirmed" settingscaption="Ваш ответ уже обрабатывается" longhint="" custombuttoncaption=""/>
+  <message title="Введен некорректный номер документа" id="WrongDocumentNumber" settingscaption="Введен некорректный номер документа" longhint="" custombuttoncaption=""/>
+  <message title="Введена неверная дата &quot;%s&quot;." id="InvalidDate" settingscaption="Введена неверная дата &quot;%s&quot;." longhint="" custombuttoncaption=""/>
+  <message title="Введеная дата совпадает с датой последнего обновления Вашего комплекта. Введите другую дату." id="BaseRevisionDateNotAcceppted" settingscaption="Введеная дата совпадает с датой последнего обновления Вашего комплекта. Введите другую дату." longhint="" custombuttoncaption=""/>
+  <message title="Введите описание своего вопроса для поиска." id="SimpleMainMenuSearchCondition" settingscaption="Введите описание своего вопроса для поиска." longhint="" custombuttoncaption=""/>
+  <message title="Во время сохранения списка произошла ошибка." id="ListSaveToFileError" settingscaption="Во время сохранения списка произошла ошибка." longhint="" custombuttoncaption=""/>
+  <message title="Возникла ошибка во время сохранения списка рассылок. Список не сохранен." id="ErrorWhileSavePostings" settingscaption="Возникла ошибка во время сохранения списка рассылок. Список не сохранен." longhint="" custombuttoncaption=""/>
+  <message title="Возникла ошибка при сохранении индивидуальной новостной ленты. Проверьте права записи в сетевой каталог, в котором установлена система ГАРАНТ Платформа F1. Повторить запись?" id="Save2ServerPostList" settingscaption="Возникла ошибка при сохранении индивидуальной новостной ленты. Проверьте права записи в сетевой каталог, в котором установлена система ГАРАНТ Платформа F1. Повторить запись?" longhint="" custombuttoncaption=""/>
+  <message title="Восстановить значения по умолчанию" id="RestoreDefaultValuesConf" settingscaption="Восстановление значений по умолчанию для конфигурации" longhint="Подтверждение при восстановлении значений по умолчанию в настройках конфигурации" custombuttoncaption=""/>
+  <message title="Восстановить значения по умолчанию" id="RestoreDefaultValuesPageSetup" settingscaption="Восстановление значений по умолчанию для настроек страницы" longhint="Подтверждение при восстановлении значений по умолчанию в настройках страницы" custombuttoncaption=""/>
+  <message title="Восстановить значения по умолчанию" id="RestoreDefaultValuesStyleTable" settingscaption="Восстановление значений по умолчанию для таблицы стилей" longhint="Подтверждение при восстановлении значений по умолчанию в таблице стилей" custombuttoncaption=""/>
+  <message title="Восстановить положение всех окон, состав всех панелей инструментов и значения всех настроек конфигурации в первоначальное состояние" id="RestoreAllSettings" settingscaption="Восстановить положение всех окон, состав всех панелей инструментов и значения всех настроек конфигурации в первоначальное состояние" longhint="" custombuttoncaption=""/>
+  <message title="Все документы в результирующем списке отфильтрованы" id="AllDocumentsIsFiltered" settingscaption="Все документы в результирующем списке отфильтрованы" longhint="" custombuttoncaption=""/>
+  <message title="Вы ввели недопустимый символ!&#x00D;&#x00A;Возможно Вы осуществляете ввод в русской раскладке клавиатуры" id="InvalidSymbol" settingscaption="Вы ввели недопустимый символ!&#x00D;&#x00A;Возможно Вы осуществляете ввод в русской раскладке клавиатуры" longhint="" custombuttoncaption=""/>
+  <message title="Вы действительно хотите перезаписать &quot;%s&quot;" id="FolderSave" settingscaption="Перезапись объекта" longhint="Подтверждение при перезаписи объекта" custombuttoncaption=""/>
+  <message title="Вы действительно хотите перезаписать список" id="ListOverride" settingscaption="Перезапись объекта" longhint="" custombuttoncaption=""/>
+  <message title="Вы действительно хотите удалить &quot;%s&quot;" id="ObjectDelete" settingscaption="Удаление объекта" longhint="Подтверждение при удалении сохраненного объекта или не пустой папки" custombuttoncaption=""/>
+  <message title="Вы действительно хотите удалить конфигурацию &quot;%s&quot;" id="ConfigurationDelete" settingscaption="Удаление конфигурации" longhint="Подтверждение при удалении конфигурации" custombuttoncaption=""/>
+  <message title="Вы действительно хотите удалить папку" id="FolderEmptyQuery" settingscaption="Удаление пустой папки" longhint="Подтверждение при удалении пустой папки" custombuttoncaption=""/>
+  <message title="Вы действительно хотите удалить пользователя &quot;%s&quot;" id="DeleteUser" settingscaption="Предупреждение об удалении пользователя" longhint="Необходимость подтверждения удаления выделенного пользователя" custombuttoncaption=""/>
+  <message title="Вы действительно хотите удалить рассылку &quot;%s&quot;" id="DeletePosting" settingscaption="Вы действительно хотите удалить рассылку &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Вы действительно хотите удалить фильтр &quot;%s&quot;" id="DeleteFilter" settingscaption="Удаление фильтра" longhint="Подтверждение удаления фильтра" custombuttoncaption=""/>
+  <message title="Вы действительно хотите экспортировать в MS-Word" id="ExportToWord" settingscaption="Экспорт в MS-Word" longhint="Подтверждение экспорта в MS-Word" custombuttoncaption=""/>
+  <message title="Вы отказались от импорта настроек, папок и закладок. При работе с новой версией системы эти данные будут недоступны.&#x00D;&#x00A;Продолжить регистрацию" id="NotImportedOldData" settingscaption="Вы отказались от импорта настроек, папок и закладок. При работе с новой версией системы эти данные будут недоступны.&#x00D;&#x00A;Продолжить регистрацию" longhint="" custombuttoncaption=""/>
+  <message title="Вы отказались от получения консультации эксперта службы Правового консалтинга. Ваш запрос перемещен в папку «Ответы» в разделе «Мои консультации»." id="PaymentRejected" settingscaption="Отказ от оплаты" longhint="Отказ от оплаты запроса по линии Правовой поддержки онлайн" custombuttoncaption=""/>
+  <message title="Вы пытаетесь отредактировать закладку, отсутствующую в папках.&#x00D;&#x00A;Возможно, она была уже кем-то удалена" id="EditMissingBookmark" settingscaption="Вы пытаетесь отредактировать закладку, отсутствующую в папках.&#x00D;&#x00A;Возможно, она была уже кем-то удалена" longhint="" custombuttoncaption=""/>
+  <message title="Вы пытаетесь перейти на закладку, отсутствующую в папках.&#x00D;&#x00A;Возможно, она была уже кем-то удалена" id="GotoOnMissingBookmark" settingscaption="Вы пытаетесь перейти на закладку, отсутствующую в папках.&#x00D;&#x00A;Возможно, она была уже кем-то удалена" longhint="" custombuttoncaption=""/>
+  <message title="Вы пытаетесь удалить закладку, отсутствующую в папках.&#x00D;&#x00A;Возможно, она была уже кем-то удалена" id="DeleteMissingBookmark" settingscaption="Вы пытаетесь удалить закладку, отсутствующую в папках.&#x00D;&#x00A;Возможно, она была уже кем-то удалена" longhint="" custombuttoncaption=""/>
+  <message title="Вы пытаетесь удалить консультацию повторно!" id="ConsultationWasDeleted" settingscaption="Вы пытаетесь удалить консультацию повторно!" longhint="" custombuttoncaption=""/>
+  <message title="Вы работаете с ознакомительной версией системы ГАРАНТ.&#x00D;&#x00A;До окончания срока действия версии осталось %d дней.&#x00D;&#x00A;&#x00D;&#x00A;Чтобы стать зарегистрированным пользователем системы ГАРАНТ&#x00D;&#x00A;и регулярно получать новые документы, обращайтесь в компанию&#x00D;&#x00A;&quot;Гарант&quot; или к ее региональным партнерам:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="TrialModeWarning" settingscaption="Вы работаете с ознакомительной версией системы ГАРАНТ.&#x00D;&#x00A;До окончания срока действия версии осталось %d дней.&#x00D;&#x00A;&#x00D;&#x00A;Чтобы стать зарегистрированным пользователем системы ГАРАНТ&#x00D;&#x00A;и регулярно получать новые документы, обращайтесь в компанию&#x00D;&#x00A;&quot;Гарант&quot; или к ее региональным партнерам:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Вы уверены, что хотите закрыть программу настройки индивидуальной ленты новостей?" id="PostingCanExit" settingscaption="Выход из системы" longhint="" custombuttoncaption=""/>
+  <message title="Вы уверены, что хотите закрыть систему ГАРАНТ Платформа F1" id="MayExit" settingscaption="Выход из системы" longhint="Подтверждение при выходе из ситемы" custombuttoncaption=""/>
+  <message title="Вы уверены, что хотите оставить пароль пустым" id="PasswordIsEmpty" settingscaption="Вы уверены, что хотите оставить пароль пустым" longhint="" custombuttoncaption=""/>
+  <message title="Вы уверены, что хотите снять текущий документ с контроля" id="RemoveDocumentFromControl" settingscaption="Снять объект с контроля" longhint="Подтверждение при снятии объекта с контроля" custombuttoncaption=""/>
+  <message title="Выбранный Вами запрос уже является фильтром" id="QueryIsAlreadyFilterError" settingscaption="Выбранный Вами запрос уже является фильтром" longhint="" custombuttoncaption=""/>
+  <message title="Выбранный Вами объект не может быть поставлен на контроль" id="InvalidControlledObject" settingscaption="Выбранный Вами объект не может быть поставлен на контроль" longhint="" custombuttoncaption=""/>
+  <message title="Выбранный Вами объект уже поставлен на контроль" id="AlreadyControlledObject" settingscaption="Выбранный Вами объект уже поставлен на контроль" longhint="" custombuttoncaption=""/>
+  <message title="Выбранный запрос имеет тип &quot;%s&quot;.&#x00D;&#x00A;Этот тип не может быть загружен в карточку &quot;%s&quot;" id="WrongQueryType" settingscaption="Выбранный запрос имеет тип &quot;%s&quot;.&#x00D;&#x00A;Этот тип не может быть загружен в карточку &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Выбранный элемент не может быть экспортирован" id="CanNotExport" settingscaption="Выбранный элемент не может быть экспортирован" longhint="" custombuttoncaption=""/>
+  <message title="Выделенные документы поставлены на контроль.&#x00D;&#x00A;Система будет автоматически отслеживать и сообщать Вам о всех внесенных в них изменениях" id="SetDocsToControl" settingscaption="Выделенные документы поставлены на контроль.&#x00D;&#x00A;Система будет автоматически отслеживать и сообщать Вам о всех внесенных в них изменениях" longhint="" custombuttoncaption=""/>
+  <message title="Выделенные пользователи будут отключены в течении 30 сек" id="LogoutUsersNotify" settingscaption="Информация об отключении пользователей" longhint="Вывод информации при успешном отключении выделенных пользователей" custombuttoncaption=""/>
+  <message title="Выделено пользователей: %d. Вы действительно хотите их отключить" id="LogoutUsers" settingscaption="Предупреждение об отключении нескольких пользователей" longhint="Необходимость подтверждения отключения выделенных пользователей" custombuttoncaption=""/>
+  <message title="Выделено пользователей: %d. Вы действительно хотите их удалить" id="DeleteUsers" settingscaption="Предупреждение об удалении нескольких пользователей" longhint="Необходимость подтверждения удаления выделенных пользователей" custombuttoncaption=""/>
+  <message title="Данные авторизации отправлены на Ваш адрес электронной почты" id="AutorisationDataSent" settingscaption="Данные авторизации отправлены на Ваш адрес электронной почты" longhint="" custombuttoncaption=""/>
+  <message title="Данные в процессе обновления были повреждены.&#x00D;&#x00A;Требуется переустановка с дистрибутива. &#x00D;&#x00A;Свяжитесь пожалуйста со службой тех. поддержки обслуживающей&#x00D;&#x00A;Вас организации:&#x00D;&#x00A;%s" id="UpdateDataDestroyed" settingscaption="Данные в процессе обновления были повреждены.&#x00D;&#x00A;Требуется переустановка с дистрибутива. &#x00D;&#x00A;Свяжитесь пожалуйста со службой тех. поддержки обслуживающей&#x00D;&#x00A;Вас организации:&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Данные для пользователя введены неправильно или неполностью. Сохранение невозможно" id="WrongUserData" settingscaption="Данные для пользователя введены неправильно или неполностью. Сохранение невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Данные индивидуальной ленты новостей не сохранены. Сохранить?" id="SavePosting" settingscaption="Данные индивидуальной ленты новостей не сохранены. Сохранить?" longhint="" custombuttoncaption=""/>
+  <message title="Данные пользователя были изменены. Сохранить изменения" id="UserChanged" settingscaption="Данные пользователя были изменены. Сохранить изменения" longhint="" custombuttoncaption=""/>
+  <message title="Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта.&#x00D;&#x00A;Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="DocumentMissing" settingscaption="Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта.&#x00D;&#x00A;Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Данный запрос не может быть выполнен в Вашем текущем комплекте." id="QueryCannotBeExecuted" settingscaption="Данный запрос не может быть выполнен в Вашем текущем комплекте." longhint="" custombuttoncaption=""/>
+  <message title="Дата &quot;%s&quot; является неверной и будет скорректирована." id="DateWillBeCorrectF" settingscaption="Дата &quot;%s&quot; является неверной и будет скорректирована." longhint="" custombuttoncaption=""/>
+  <message title="Дата начала периода &quot;%s&quot; больше даты окончания периода &quot;%s&quot;" id="DateBeginLargeDateEnd" settingscaption="Дата начала периода &quot;%s&quot; больше даты окончания периода &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Дата начала периода &quot;%s&quot; больше даты окончания периода &quot;%s&quot;." id="StartDateMoreEnd" settingscaption="Дата начала периода &quot;%s&quot; больше даты окончания периода &quot;%s&quot;." longhint="" custombuttoncaption=""/>
+  <message title="Дата не определена" id="DateNotDefined" settingscaption="Дата не определена" longhint="" custombuttoncaption=""/>
+  <message title="Для Вашего комплекта достигнуто предельно допустимое количество&#x00D;&#x00A;индивидуальных лент." id="TooManyPostings" settingscaption="Превышено количество индивидуальных лент." longhint="" custombuttoncaption=""/>
+  <message title="Для выделенного фрагмента текста в Толковом словаре ничего не найдено" id="NothingWasFound" settingscaption="Для выделенного фрагмента текста в Толковом словаре ничего не найдено" longhint="" custombuttoncaption=""/>
+  <message title="Для выделенных фрагментов текста в установленном у Вас информационном комплекте отсутствуют документы, на которые ссылается данный, с типом &quot;%s&quot;" id="TypedRespondentsListToBlockNotFound" settingscaption="Для выделенных фрагментов текста в установленном у Вас информационном комплекте отсутствуют документы, на которые ссылается данный, с типом &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Для выделенных фрагментов текста в установленном у Вас информационном комплекте отсутствуют документы, ссылающиеся на данный, с типом &quot;%s&quot;" id="TypedCorrespondentsListToBlockNotFound" settingscaption="Для выделенных фрагментов текста в установленном у Вас информационном комплекте отсутствуют документы, ссылающиеся на данный, с типом &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Для корректной работы программы необходимо наличие стандартных системных шрифтов &quot;Arial&quot; и &quot;Courier New&quot;. В случае отсутствия одного из данных шрифтов информация может быть отображена некорректно.&#x00D;&#x00A;&#x00D;&#x00A;Для получения дополнительной информации - пожалуйста, свяжитесь с &quot;Горячей линией&quot; компании Гарант по телефонам: (495)-647-6238 или 8-(800)-200-8888 (междугородный звонок бесплатно).&#x00D;&#x00A;&#x00D;&#x00A;&#x00D;&#x00A;For correct work of the program presence of standard system fonts &quot;Arial&quot; and &quot;Courier New&quot; is necessary. In case of absence of one of the given fonts the information can be displayed incorrectly.&#x00D;&#x00A;&#x00D;&#x00A;For additional information - please call &quot;HotLine&quot; of Garant Company by phones: (495)-647-6238 or 8-(200)-8888 (the long distance call free-of-charge)." id="RequiredFontsNotExist" settingscaption="Для корректной работы программы необходимо наличие стандартных системных шрифтов &quot;Arial&quot; и &quot;Courier New&quot;. В случае отсутствия одного из данных шрифтов информация может быть отображена некорректно.&#x00D;&#x00A;&#x00D;&#x00A;Для получения дополнительной информации - пожалуйста, свяжитесь с &quot;Горячей линией&quot; компании Гарант по телефонам: (495)-647-6238 или 8-(800)-200-8888 (междугородный звонок бесплатно).&#x00D;&#x00A;&#x00D;&#x00A;&#x00D;&#x00A;For correct work of the program presence of standard system fonts &quot;Arial&quot; and &quot;Courier New&quot; is necessary. In case of absence of one of the given fonts the information can be displayed incorrectly.&#x00D;&#x00A;&#x00D;&#x00A;For additional information - please call &quot;HotLine&quot; of Garant Company by phones: (495)-647-6238 or 8-(200)-8888 (the long distance call free-of-charge)." longhint="" custombuttoncaption=""/>
+  <message title="Для поиска в Толковом словаре необходимо выделить в тексте интересующий вас термин" id="ExplanationSearchNotEnabled" settingscaption="Для поиска в Толковом словаре необходимо выделить в тексте интересующий вас термин" longhint="" custombuttoncaption=""/>
+  <message title="Документ &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" id="DocumentMissing" settingscaption="Документ &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" longhint="" custombuttoncaption=""/>
+  <message title="Документ поставлен на контроль.&#x00D;&#x00A;Система будет автоматически отслеживать и сообщать Вам о всех внесенных в него изменениях" id="SetDocToControl" settingscaption="Уведомление о постановке на контроль" longhint="" custombuttoncaption=""/>
+  <message title="Документ, на который указывает закладка, &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" id="BookmarkedDocumentMissing" settingscaption="Документ, на который указывает закладка, &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" longhint="" custombuttoncaption=""/>
+  <message title="Документ:&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;содержится в информационном блоке:&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;Данный блок не включен в состав Вашего комплекта. Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="DocumentMissingWithBlokInfo" settingscaption="Документ:&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;содержится в информационном блоке:&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;Данный блок не включен в состав Вашего комплекта. Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Документ:&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;содержится в информационных блоках:&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;Данные блоки не включены в состав Вашего комплекта. Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="DocumentMissingWithBloksInfo" settingscaption="Документ:&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;содержится в информационных блоках:&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;Данные блоки не включены в состав Вашего комплекта. Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Документы с комментариями пользователя отсутствуют" id="DocumentsWithUserCommentsNotFound" settingscaption="Документы с комментариями пользователя отсутствуют" longhint="" custombuttoncaption=""/>
+  <message title="Документы, на которые ссылается данный, для выделенных фрагментов текста отсутствуют" id="RespondentsListToBlockNotFound" settingscaption="Документы, на которые ссылается данный, для выделенных фрагментов текста отсутствуют" longhint="" custombuttoncaption=""/>
+  <message title="Документы, на которые ссылается данный, с типом &quot;%s&quot; отсутствуют" id="TypedRespondentsListNotFound" settingscaption="Документы, на которые ссылается данный, с типом &quot;%s&quot; отсутствуют" longhint="" custombuttoncaption=""/>
+  <message title="Документы, на которые ссылается данный, с типом &quot;%s&quot; отсутствуют, т.к. в состав Вашего комплекта не включены специализированные информационные блоки:&#x00D;&#x00A;&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="TypedRespondentsInOtherBlock" settingscaption="Документы, на которые ссылается данный, с типом &quot;%s&quot; отсутствуют, т.к. в состав Вашего комплекта не включены специализированные информационные блоки:&#x00D;&#x00A;&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Документы, ссылающиеся на данный, для выделенных фрагментов текста отсутствуют" id="CorrespondentsListToBlockNotFound" settingscaption="Документы, ссылающиеся на данный, для выделенных фрагментов текста отсутствуют" longhint="" custombuttoncaption=""/>
+  <message title="Документы, ссылающиеся на данный, с типом &quot;%s&quot; отсутствуют" id="TypedCorrespondentsListNotFound" settingscaption="Документы, ссылающиеся на данный, с типом &quot;%s&quot; отсутствуют" longhint="" custombuttoncaption=""/>
+  <message title="Документы, ссылающиеся на данный, с типом &quot;%s&quot; отсутствуют, т.к. в состав Вашего комплекта не включены специализированные информационные блоки:&#x00D;&#x00A;&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="TypedCorrespondentsInOtherBlock" settingscaption="Документы, ссылающиеся на данный, с типом &quot;%s&quot; отсутствуют, т.к. в состав Вашего комплекта не включены специализированные информационные блоки:&#x00D;&#x00A;&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;Для расширения информационного банка обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Закладка поставлена на документ отсутсвующий в базе." id="BookmarkHasNoDocument" settingscaption="Закладка поставлена на документ отсутсвующий в базе." longhint="" custombuttoncaption=""/>
+  <message title="Записать текущие значения по умолчанию" id="SaveAsDefaultValuesConf" settingscaption="Запись текущих значений по умолчанию для конфигурации" longhint="Подтверждение при записи значений по умолчанию в настройках конфигурации" custombuttoncaption=""/>
+  <message title="Записать текущие значения по умолчанию" id="SaveAsDefaultValuesPageSetup" settingscaption="Запись текущих значений по умолчанию для настроек страницы" longhint="Подтверждение при записи значений по умолчанию в настройках страницы" custombuttoncaption=""/>
+  <message title="Записать текущие значения по умолчанию" id="SaveAsDefaultValuesStyleTable" settingscaption="Запись текущих значений по умолчанию для таблицы стилей" longhint="Подтверждение при записи значений по умолчанию для таблицы стилей" custombuttoncaption=""/>
+  <message title="Запрос &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" id="QueryMissing" settingscaption="Запрос &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" longhint="" custombuttoncaption=""/>
+  <message title="Запрос &quot;%s&quot; уже был сохранен.&#x00D;&#x00A;Перезаписать" id="QueryWasSavedEx" settingscaption="Перезапись запроса" longhint="Перезапись уже сохраненного запроса" custombuttoncaption=""/>
+  <message title="Запрос отправляется в консультационную службу правовой поддержки онлайн" id="ConsultationSending" settingscaption="Запрос отправляется в консультационную службу правовой поддержки онлайн" longhint="" custombuttoncaption=""/>
+  <message title="Запрос уже был сохранен. Перезаписать" id="QueryWasSaved" settingscaption="Перезапись запроса" longhint="" custombuttoncaption=""/>
+  <message title="Значение &apos;&apos;%s&apos;&apos; уже определено." id="IdenticalAttr" settingscaption="Значение &apos;&apos;%s&apos;&apos; уже определено." longhint="" custombuttoncaption=""/>
+  <message title="Значение для обязательного поля &quot;ФИО пользователя&quot; не определено" id="SurnameNotDefined" settingscaption="Значение для обязательного поля &quot;ФИО пользователя&quot; не определено" longhint="" custombuttoncaption=""/>
+  <message title="Значение должно быть от %d до %d" id="PictureRangeWarning" settingscaption="Значение должно быть от %d до %d" longhint="" custombuttoncaption=""/>
+  <message title="Значение пароля и подтверждения пароля разные" id="PasswordAndConfirmNotSame" settingscaption="Значение пароля и подтверждения пароля разные" longhint="" custombuttoncaption=""/>
+  <message title="Идёт процесс обновления баз.&#x00D;&#x00A;Пожалуйста, попробуйте войти позже" id="UpdateInProgress" settingscaption="Идёт процесс обновления баз.&#x00D;&#x00A;Пожалуйста, попробуйте войти позже" longhint="" custombuttoncaption=""/>
+  <message title="Идёт процесс остановки сервера. Подключение к системе не возможно.&#x00D;&#x00A;Пожалуйста, попробуйте войти позже" id="ShutdownInProgress" settingscaption="Идёт процесс остановки сервера. Подключение к системе не возможно.&#x00D;&#x00A;Пожалуйста, попробуйте войти позже" longhint="" custombuttoncaption=""/>
+  <message title="Идет процесс проверки и актуализации базы настроек" id="XMLImportRunning" settingscaption="Идет процесс проверки и актуализации базы настроек" longhint="" custombuttoncaption=""/>
+  <message title="Использование услуги Правового консалтинга запрещено системным администратором Вашей организации. Обратитесь к администратору системы для снятия данного ограничения." id="PaymentForbidden" settingscaption="Использование услуги Правового консалтинга запрещено системным администратором Вашей организации. Обратитесь к администратору системы для снятия данного ограничения." longhint="" custombuttoncaption=""/>
+  <message title="К сожалению, отсутствует интернет-канал для связи с сервером службы  Правовой поддержки онлайн" id="NoConnection" settingscaption="К сожалению, отсутствует интернет-канал для связи с сервером службы  Правовой поддержки онлайн" longhint="" custombuttoncaption=""/>
+  <message title="Консультация имеет устаревший формат и не может быть открыта для просмотра" id="OldFormatCOnsultation" settingscaption="Консультация имеет устаревший формат и не может быть открыта для просмотра" longhint="" custombuttoncaption=""/>
+  <message title="Конфигурация с именем &quot;%s&quot; уже существует." id="DublicateConfName" settingscaption="Конфигурация с именем &quot;%s&quot; уже существует." longhint="" custombuttoncaption=""/>
+  <message title="Максимально допустимое количество символов %d." id="MaxStringLength" settingscaption="Максимально допустимое количество символов %d." longhint="" custombuttoncaption=""/>
+  <message title="Меню операций с фрагментом &quot;%s&quot;" id="ContentsMenuMessage" settingscaption="Меню операций с фрагментом &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Нам очень важно Ваше мнение, просим Вас оценить предоставленный ответ. Перейти в диалог оценки ответа" id="CloseUnmarkedConsultation" settingscaption="Показывать диалог оценки ответа при выходе из консультации" longhint="Определяет показ диалога оценки ответа, предоставленного  службой Правовой поддержки онлайн" custombuttoncaption=""/>
+  <message title="Нарушена целостность данных - файлы для быстрого контекстного поиска не найдены или повреждены. Продолжение работы невозможно, обратитесь за технической поддержкой в обслуживающую Вас организацию." id="MorphoNotExists" settingscaption="Нарушена целостность данных - файлы для быстрого контекстного поиска не найдены или повреждены. Продолжение работы невозможно, обратитесь за технической поддержкой в обслуживающую Вас организацию." longhint="MorphoNotExists" custombuttoncaption=""/>
+  <message title="Нарушение договорных условий!&#x00D;&#x00A;Превышен лимит зарегистрированных пользователей" id="UsersLicenceViolation" settingscaption="Нарушение договорных условий!&#x00D;&#x00A;Превышен лимит зарегистрированных пользователей" longhint="" custombuttoncaption=""/>
+  <message title="Нарушение договорных условий!&#x00D;&#x00A;Превышен лимит соединений с сервером" id="ConnectionsLicenceViolation" settingscaption="Нарушение договорных условий!&#x00D;&#x00A;Превышен лимит соединений с сервером" longhint="" custombuttoncaption=""/>
+  <message title="Настройки пользовательских типизированных вкладок корреспондентов\респондентов совпадают. Выберите разные значения" id="SettingsAreEqual" settingscaption="Настройки пользовательских типизированных вкладок корреспондентов\респондентов совпадают. Выберите разные значения" longhint="" custombuttoncaption=""/>
+  <message title="Не задано условий поиска, Вы действительно хотите продолжить" id="QueryIsEmpty" settingscaption="Сохранение пустого запроса" longhint="Подтверждение сохранения пустого запроса" custombuttoncaption=""/>
+  <message title="Не задано условий поиска.&#x00D;&#x00A;Для построения обзора изменений законодательства необходимо выбрать хотя бы один поисковый реквизит" id="QueryIsEmptyCantBuild" settingscaption="Не задано условий поиска.&#x00D;&#x00A;Для построения обзора изменений законодательства необходимо выбрать хотя бы один поисковый реквизит" longhint="" custombuttoncaption=""/>
+  <message title="Не задано условий поиска.&#x00D;&#x00A;Для сохранения обзора изменений законодательства необходимо выбрать хотя бы один поисковый реквизит" id="QueryIsEmptyCantSave" settingscaption="Не задано условий поиска.&#x00D;&#x00A;Для сохранения обзора изменений законодательства необходимо выбрать хотя бы один поисковый реквизит" longhint="" custombuttoncaption=""/>
+  <message title="Не найдена библиотека XERCES!&#x00D;&#x00A;Продолжение работы невозможно" id="XercesAdapterNotFound" settingscaption="Не найдена библиотека XERCES!&#x00D;&#x00A;Продолжение работы невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Не найдены рабочие параметры, &#x00D;&#x00A;продолжение работы невозможно" id="WorkingParamsNotFound" settingscaption="Не найдены рабочие параметры, &#x00D;&#x00A;продолжение работы невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Не настроены параметры индивидуальной новостной ленты, будут показаны все поступления в блок &quot;Прайм&quot;.&#x00D;&#x00A;Для настройки индивидуальной ленты новостей обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="MonitoringsNotDefined" settingscaption="Не настроены параметры индивидуальной новостной ленты, будут показаны все поступления в блок &quot;Прайм&quot;.&#x00D;&#x00A;Для настройки индивидуальной ленты новостей обращайтесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Не определена дата начала периода" id="DateBeginNotDefined" settingscaption="Не определена дата начала периода" longhint="" custombuttoncaption=""/>
+  <message title="Не определена дата окончания периода" id="DateEndNotDefined" settingscaption="Не определена дата окончания периода" longhint="" custombuttoncaption=""/>
+  <message title="Не удаётся скопировать %s. &#x00D;&#x00A;&#x00D;&#x00A;Диск может быть переполнен или защищён от записи" id="NotEnoughRoom" settingscaption="Не удаётся скопировать %s. &#x00D;&#x00A;&#x00D;&#x00A;Диск может быть переполнен или защищён от записи" longhint="" custombuttoncaption=""/>
+  <message title="Не удаётся создать файл %s. Нет доступа.&#x00D;&#x00A;&#x00D;&#x00A;Диск может быть переполнен или защищён от записи." id="CannotCreateFile" settingscaption="Не удаётся создать файл %s. Нет доступа.&#x00D;&#x00A;&#x00D;&#x00A;Диск может быть переполнен или защищён от записи." longhint="" custombuttoncaption=""/>
+  <message title="Не удалось загрузить данные из указанного файла" id="DataLoadFailed" settingscaption="Не удалось загрузить данные из указанного файла" longhint="" custombuttoncaption=""/>
+  <message title="Не удалось открыть &quot;%s&quot;" id="CannotOpen" settingscaption="Не удалось открыть &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Не удалось создать папку" id="FolderCreateError" settingscaption="Не удалось создать папку" longhint="" custombuttoncaption=""/>
+  <message title="Не удалось сохранить" id="CannotSaveSomething" settingscaption="Не удалось сохранить" longhint="" custombuttoncaption=""/>
+  <message title="Не удалось сохранить &quot;%s&quot;" id="CannotSave" settingscaption="Не удалось сохранить &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Не удалось удалить часть пользователей. Выделить не удаленных?" id="UsersDeleteFailed" settingscaption="Не удалось удалить часть пользователей. Выделить не удаленных?" longhint="" custombuttoncaption=""/>
+  <message title="Не установлено ни одной конфигурации, продолжение работы не возможно!" id="ConfigurationsNotDefined" settingscaption="Не установлено ни одной конфигурации, продолжение работы не возможно!" longhint="" custombuttoncaption=""/>
+  <message title="Неверное имя пользователя или пароль" id="BadLoginOrPassword" settingscaption="Неверное имя пользователя или пароль" longhint="" custombuttoncaption=""/>
+  <message title="Неверный формат файла." id="InvalidFileFormat" settingscaption="Неверный формат файла." longhint="" custombuttoncaption=""/>
+  <message title="Невозможно отключить текущего пользователя" id="TryLogoutCurrent" settingscaption="Невозможно отключить текущего пользователя" longhint="" custombuttoncaption=""/>
+  <message title="Невозможно прочитать данные из файла &apos;%s&apos;." id="FileReadErrorF" settingscaption="Невозможно прочитать данные из файла &apos;%s&apos;." longhint="" custombuttoncaption=""/>
+  <message title="Нельзя сохранить закладку на отсутствующий документ" id="SaveMissingDocument" settingscaption="Нельзя сохранить закладку на отсутствующий документ" longhint="" custombuttoncaption=""/>
+  <message title="Неподдерживаемая ссылка" id="UnsupportedLink" settingscaption="Неподдерживаемая ссылка" longhint="" custombuttoncaption=""/>
+  <message title="Неправильная версия библиотеки &quot;%s&quot;.&#x00D;&#x00A;Продолжение работы невозможно" id="LibraryVersionError" settingscaption="Неправильная версия библиотеки &quot;%s&quot;.&#x00D;&#x00A;Продолжение работы невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Неправильная версия сервера.&#x00D;&#x00A;Продолжение работы невозможно" id="WrongServerVersion" settingscaption="Неправильная версия сервера.&#x00D;&#x00A;Продолжение работы невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Неправильно введен адрес электронной почты" id="EmailNotValid" settingscaption="Неправильно введен адрес электронной почты" longhint="" custombuttoncaption=""/>
+  <message title="Неправильно обозначен диапазон страниц" id="PageRangeParse" settingscaption="Неправильно обозначен диапазон страниц" longhint="" custombuttoncaption=""/>
+  <message title="Непредвиденная ошибка печати" id="PrintingError" settingscaption="Непредвиденная ошибка печати" longhint="" custombuttoncaption=""/>
+  <message title="Нет ни одного измененного документа на контроле" id="NotChangedControlledDoc" settingscaption="Нет ни одного измененного документа на контроле" longhint="" custombuttoncaption=""/>
+  <message title="Нет прав для редактирования выбранного запроса" id="CanNotEditQuery" settingscaption="Нет прав для редактирования выбранного запроса" longhint="" custombuttoncaption=""/>
+  <message title="Нет прав для удаления закладки" id="CanNotDeleteBookmark" settingscaption="Нет прав для удаления закладки" longhint="" custombuttoncaption=""/>
+  <message title="Ни один документ списка не соответствует условиям фильтра &quot;%s&quot;" id="AllListFiltred" settingscaption="Ни один документ списка не соответствует условиям фильтра &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Оболочка F1 не может получить ответ от сервера. &#x00D;&#x00A;Возможно включен брандмауэр (firewall), блокирующий входящие сообщения, или неправильно сконфигурирована сеть." id="BadNetworkConfig" settingscaption="Оболочка F1 не может получить ответ от сервера. &#x00D;&#x00A;Возможно включен брандмауэр (firewall), блокирующий входящие сообщения, или неправильно сконфигурирована сеть." longhint="" custombuttoncaption=""/>
+  <message title="Объект не сохранен в &quot;Мои документы&quot;.&#x00D;&#x00A;Для его сохранения воспользуйтесь операцией &quot;Сохранить как&quot;" id="NotSaved" settingscaption="Объект не сохранен в &quot;Мои документы&quot;.&#x00D;&#x00A;Для его сохранения воспользуйтесь операцией &quot;Сохранить как&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Операция не реализована" id="NotRealisedStub" settingscaption="Операция не реализована" longhint="" custombuttoncaption=""/>
+  <message title="Ответ уже был оценен." id="ConsulationAlreadyMark" settingscaption="Ответ уже был оценен." longhint="" custombuttoncaption=""/>
+  <message title="Открыть в MS-Word выделенные фрагменты (нет - документ целиком)" id="ExportSelectionToWord" settingscaption="Экспорт в MS-Word" longhint="Подтверждение при открытии в MS-Word выделенного фрагмента" custombuttoncaption=""/>
+  <message title="Открыть объект &quot;%s&quot; для просмотра и редактирования" id="OpenExternalQuery" settingscaption="Открыть встроенный объект" longhint="Подтверждение открытия встроенного объекта во внешнем приложении" custombuttoncaption=""/>
+  <message title="Отправить запрос на проверку условий подключения услуги Правовая поддержка онлайн" id="CheckLegalAdviseAvailable" settingscaption="Подтверждение отправки запроса на проверку условий подключения" longhint="" custombuttoncaption=""/>
+  <message title="Отсутствуют контактные данные, без которых запрос не может быть отправлен в службу Правовой поддержки онлайн. Пожалуйста, введите свои ФИО и  контактный телефон" id="UserCredinailsIsEmpy" settingscaption="Отсутствуют контактные данные, без которых запрос не может быть отправлен в службу Правовой поддержки онлайн. Пожалуйста, введите свои ФИО и  контактный телефон" longhint="" custombuttoncaption=""/>
+  <message title="Ошибка защиты, нарушение %d" id="ProtectionError" settingscaption="Ошибка защиты, нарушение %d" longhint="" custombuttoncaption=""/>
+  <message title="Ошибка инициализации поиска &quot;%s&quot;" id="CannotInitializeSearcher" settingscaption="Ошибка инициализации поиска &quot;%s&quot;" longhint="" custombuttoncaption=""/>
+  <message title="Ошибка при обращении к SMTP-серверу. Возможно допущена ошибка в адресе абонента" id="BadSMTPReply" settingscaption="Ошибка при обращении к SMTP-серверу. Возможно допущена ошибка в адресе абонента" longhint="" custombuttoncaption=""/>
+  <message title="Ошибка связи при попытке отправить запрос на сервер службы Правовой поддержки онлайн. Ваш запрос сохранен в папке &quot;Мои консультации&quot;, система будет автоматически повторять попытку его передачи.&#x00D;&#x00A;&#x00D;&#x00A;Если проблемы с интернет-соединением возникают только для системы ГАРАНТ, обратитесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="NoConnectionOnSend" settingscaption="Ошибка связи при попытке отправить запрос на сервер службы Правовой поддержки онлайн. Ваш запрос сохранен в папке &quot;Мои консультации&quot;, система будет автоматически повторять попытку его передачи.&#x00D;&#x00A;&#x00D;&#x00A;Если проблемы с интернет-соединением возникают только для системы ГАРАНТ, обратитесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Параметры страницы были изменены. Вы действительно хотите выйти без сохранения изменений" id="SavePageSetup" settingscaption="Параметры страницы были изменены. Вы действительно хотите выйти без сохранения изменений" longhint="" custombuttoncaption=""/>
+  <message title="Параметры элемента были изменены&#x00D;&#x00A;Сохранить" id="SaveItemQuery" settingscaption="Изменение параметров элемента" longhint="Подтверждение при изменении параметров элемента" custombuttoncaption=""/>
+  <message title="Пароль содержит недопустимые символы, повторите ввод" id="PasswordHasErrorSimbols" settingscaption="Пароль содержит недопустимые символы, повторите ввод" longhint="" custombuttoncaption=""/>
+  <message title="Печатать выделенный фрагмент (нет - документ целиком)" id="PrintSelectedConfirmation" settingscaption="Печать" longhint="Подтверждение при печати выделенного фрагмента" custombuttoncaption=""/>
+  <message title="Пожалуйста,  введите текст запроса." id="QueryTextIsEmpy" settingscaption="Пожалуйста,  введите текст запроса." longhint="" custombuttoncaption=""/>
+  <message title="Поиск завершен" id="SearchFinished" settingscaption="Поиск завершен" longhint="" custombuttoncaption=""/>
+  <message title="Поиск завершен.&#x00D;&#x00A;Искомый контекст не найден" id="SearchFinishedContextNotFound" settingscaption="Поиск завершен.&#x00D;&#x00A;Искомый контекст не найден" longhint="" custombuttoncaption=""/>
+  <message title="Показ Ваших комментариев сейчас выключен, Вы хотите его включить" id="UserCommentsHidden" settingscaption="Показ Ваших комментариев сейчас выключен, Вы хотите его включить" longhint="" custombuttoncaption=""/>
+  <message title="Поле не может содержать более %d символов." id="LimitCharsReached" settingscaption="Поле не может содержать более %d символов." longhint="" custombuttoncaption=""/>
+  <message title="Получены ответы или уведомления от службы Правовой поддержки онлайн. Перейти к тексту ответа" id="TryOpenConsultationAnswer" settingscaption="Показ первого непрочитанного ответа или уведомления службы Правовой поддержки онлайн" longhint="" custombuttoncaption=""/>
+  <message title="Пользователь &quot;%s&quot; уже выбран." id="DuplicateUser" settingscaption="Пользователь &quot;%s&quot; уже выбран." longhint="" custombuttoncaption=""/>
+  <message title="Пользователь &quot;%s&quot; уже зарегистрирован в системе" id="LoginDuplicate" settingscaption="Пользователь &quot;%s&quot; уже зарегистрирован в системе" longhint="" custombuttoncaption=""/>
+  <message title="Пользователь &quot;%s&quot; уже работает в системе, или предыдущий сеанс пользователя закончился аварийно (в этом случае повторите попытку через 2 минуты)" id="UserAlreadyWorks" settingscaption="Пользователь &quot;%s&quot; уже работает в системе, или предыдущий сеанс пользователя закончился аварийно (в этом случае повторите попытку через 2 минуты)" longhint="" custombuttoncaption=""/>
+  <message title="Пользователь &quot;ADMIN&quot; может использоваться только для специальных целей. Часть функций системы под этим логином может быть недоступна.&#x00D;&#x00A;Продолжить вход в систему под этим логином" id="WantSystemLogin" settingscaption="Пользователь &quot;ADMIN&quot; может использоваться только для специальных целей. Часть функций системы под этим логином может быть недоступна.&#x00D;&#x00A;Продолжить вход в систему под этим логином" longhint="" custombuttoncaption=""/>
+  <message title="Пользователь будет отключен в течение 30 сек." id="LogoutUserNotify" settingscaption="Информация об отключении пользователя" longhint="Вывод информации при успешном отключении пользователя" custombuttoncaption=""/>
+  <message title="Пользователь с указанным почтовым адресом не найден" id="UserNotExist" settingscaption="Пользователь с указанным почтовым адресом не найден" longhint="" custombuttoncaption=""/>
+  <message title="Поставить на контроль все объекты в папке" id="SetControlStatus" settingscaption="Добавить все объекты папки на контроль" longhint="Подтверждение при установке на контроль всех объектов папки" custombuttoncaption=""/>
+  <message title="Права пользования Правовым консалтингом успешно изменены" id="MultiplyChangeConsulting" settingscaption="Информация о смене прав пользования консалтингом" longhint="Вывод информации при успешном изменении прав на пользование платными консультациями" custombuttoncaption=""/>
+  <message title="При восстановлении настроек произошла ошибка" id="SettingsRestoreFailed" settingscaption="При восстановлении настроек произошла ошибка" longhint="" custombuttoncaption=""/>
+  <message title="При импорте настроек, папок и закладок произошла ошибка.&#x00D;&#x00A;Повторить процедуру импорта" id="ImportError" settingscaption="При импорте настроек, папок и закладок произошла ошибка.&#x00D;&#x00A;Повторить процедуру импорта" longhint="" custombuttoncaption=""/>
+  <message title="При установке системы ГАРАНТ не были заданы настройки почтового сервера. Обратитесь к администратору Вашей сети или в обслуживающую Вас организацию.&#x00D;&#x00A;%s" id="SMTPServerNotDefined" settingscaption="При установке системы ГАРАНТ не были заданы настройки почтового сервера. Обратитесь к администратору Вашей сети или в обслуживающую Вас организацию.&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Произошла внутренняя ошибка инициализации компонент при запуске системы" id="InternalApplicationError" settingscaption="Произошла внутренняя ошибка инициализации компонент при запуске системы" longhint="" custombuttoncaption=""/>
+  <message title="Произошла внутренняя ошибка системы:&#x00D;&#x00A;&quot;%s&quot;.&#x00D;&#x00A;Вы можете сообщить о ней разработчикам по телефону горячей линии: %s" id="NotHandledException" settingscaption="Произошла внутренняя ошибка системы:&#x00D;&#x00A;&quot;%s&quot;.&#x00D;&#x00A;Вы можете сообщить о ней разработчикам по телефону горячей линии: %s" longhint="" custombuttoncaption=""/>
+  <message title="Просмотр выделенного фрагмента закончен" id="SelectionSearchFinished" settingscaption="Просмотр выделенного фрагмента закончен" longhint="" custombuttoncaption=""/>
+  <message title="Просмотр выделенного фрагмента закончен. Искомый контекст не найден. Продолжить поиск в оставшейся части документа" id="SelectionSearchFinishedNotFound" settingscaption="Просмотр выделенного фрагмента закончен. Искомый контекст не найден. Продолжить поиск в оставшейся части документа" longhint="" custombuttoncaption=""/>
+  <message title="Просмотр списка закончен" id="ListSearchFinished" settingscaption="Просмотр списка закончен" longhint="" custombuttoncaption=""/>
+  <message title="Размер списка превышает 50 документов, что может затруднить изучение связей документа.&#x00D;Вы можете уточнить свой запрос, построив список связей к фрагменту документа.&#x00D;&#x00D;Продолжить построение списка связей?" id="TooBigTypedCRList" settingscaption="Размер списка превышает 50 документов, что может затруднить изучение связей документа.&#x00D;Вы можете уточнить свой запрос, построив список связей к фрагменту документа.&#x00D;&#x00D;Продолжить построение списка связей?" longhint="" custombuttoncaption=""/>
+  <message title="Размер списка превышает 50 документов, что может затруднить изучение связей документа.&#x00D;Вы можете уточнить свой запрос:&#x00D;     - построив список связей только определенного вида информации&#x00D;     - построив список связей к фрагменту документа.&#x00D;&#x00D;Продолжить построение списка связей?" id="TooBigCRList" settingscaption="Размер списка превышает 50 документов, что может затруднить изучение связей документа.&#x00D;Вы можете уточнить свой запрос:&#x00D;     - построив список связей только определенного вида информации&#x00D;     - построив список связей к фрагменту документа.&#x00D;&#x00D;Продолжить построение списка связей?" longhint="" custombuttoncaption=""/>
+  <message title="Рассылка с таким именем уже существует" id="PostingAlreadyExist" settingscaption="Рассылка с таким именем уже существует" longhint="" custombuttoncaption=""/>
+  <message title="Регистрационное имя содержит недопустимые символы" id="LoginHasNotValidChars" settingscaption="Регистрационное имя содержит недопустимые символы" longhint="" custombuttoncaption=""/>
+  <message title="Регистрация не удалась" id="WrongAuthentification" settingscaption="Регистрация не удалась" longhint="" custombuttoncaption=""/>
+  <message title="Результат операции - пустой список" id="EmptyList" settingscaption="Результат операции - пустой список" longhint="" custombuttoncaption=""/>
+  <message title="Сбой в работе сервера приложения!  Продолжение работы с системой невозможно" id="InternalServerError" settingscaption="Сбой в работе сервера приложения!  Продолжение работы с системой невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Сбросить статус &quot;изменен&quot; для всех просмотренных документов на контроле" id="DropChangeStatusToOpened" settingscaption="Принять изменения в просмотренных объектах" longhint="Подтверждение сброса статуса &quot;изменен&quot; для всех просмотренных документов на контроле" custombuttoncaption=""/>
+  <message title="Сбросить статус &quot;изменен&quot; для текущего документа" id="DropChangeStatusToDoc" settingscaption="Сброс статуса &quot;На контроле&quot;" longhint="Подтверждение сброса статуса &quot;Изменен&quot; для текущего документа, если он стоит на контроле" custombuttoncaption=""/>
+  <message title="Сбросить статус &quot;изменен&quot; с отмеченных документов" id="DropChangeStatusToSelected" settingscaption="Принять изменения в отмеченных объектах" longhint="Подтверждение при снятии статуса &quot;изменён&quot; с отмеченных документов" custombuttoncaption=""/>
+  <message title="Сбросить статус &quot;изменен&quot; у всех объектов" id="DropChangeStatusAllObjects" settingscaption="Сбросить статус &quot;изменен&quot; у всех объектов" longhint="Подтверждение при снятии статуса &quot;изменен&quot; со всех объектов" custombuttoncaption=""/>
+  <message title="Сервер приложения недоступен.&#x00D;&#x00A;Продолжение работы с системой невозможно" id="ServerShutDown" settingscaption="Сервер приложения недоступен.&#x00D;&#x00A;Продолжение работы с системой невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Снять все отмеченные документы с контроля" id="RemoveControlStatus" settingscaption="Снять все объекты с контроля" longhint="Подтверждение при снятии всех отмеченных документов с контроля" custombuttoncaption=""/>
+  <message title="Снять с контроля все объекты в папке" id="DelControlStatus" settingscaption="Снять все объекты папки с контроля" longhint="Подтверждение при снятии с контроля всех объектов папки" custombuttoncaption=""/>
+  <message title="Совместная работа оболочки и утилиты рассылки невозможна.&#x00D;&#x00A;&#x00D;&#x00A;Закройте утилиту рассылки и повторите запуск" id="PrimeIsRunning" settingscaption="Совместная работа оболочки и утилиты рассылки невозможна.&#x00D;&#x00A;&#x00D;&#x00A;Закройте утилиту рассылки и повторите запуск" longhint="" custombuttoncaption=""/>
+  <message title="Совместная работа утилиты рассылки и оболочки невозможна.&#x00D;&#x00A;&#x00D;&#x00A;Закройте оболочку и повторите запуск" id="ShellIsRunning" settingscaption="Совместная работа утилиты рассылки и оболочки невозможна.&#x00D;&#x00A;&#x00D;&#x00A;Закройте оболочку и повторите запуск" longhint="" custombuttoncaption=""/>
+  <message title="Сохранение невозможно&#x00D;&#x00A;Задано пустое имя элемента" id="EmptyItemNameError" settingscaption="Сохранение невозможно&#x00D;&#x00A;Задано пустое имя элемента" longhint="" custombuttoncaption=""/>
+  <message title="Сохраненный запрос &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" id="SavedQueryMissed" settingscaption="Сохраненный запрос &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" longhint="" custombuttoncaption=""/>
+  <message title="Сохраненный список &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" id="SavedListMissing" settingscaption="Сохраненный список &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" longhint="" custombuttoncaption=""/>
+  <message title="Список &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" id="ListMissing" settingscaption="Список &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" longhint="" custombuttoncaption=""/>
+  <message title="Список рассылок не сохранен. Сохранить?" id="SavePostingList" settingscaption="Список рассылок не сохранен. Сохранить?" longhint="" custombuttoncaption=""/>
+  <message title="Список состоит более чем из %d докуменов, сохранение текстов невозможно" id="TryToExportTooManyDocs" settingscaption="Список состоит более чем из %d докуменов, сохранение текстов невозможно" longhint="" custombuttoncaption=""/>
+  <message title="Список уже был сохранен. Перезаписать" id="ListWasSaved" settingscaption="Сохранение списка" longhint="" custombuttoncaption=""/>
+  <message title="Срок ознакомительной версии закончился - доступ в систему невозможен" id="TrialPeriodExpired" settingscaption="Срок ознакомительной версии закончился - доступ в систему невозможен" longhint="" custombuttoncaption=""/>
+  <message title="Таблица стилей была изменена. Вы действительно хотите выйти без сохранения изменений" id="StyleTableChanged" settingscaption="Выход из редактора стилей с изменениями" longhint="Подтверждение при выходе из редактора стилей с изменениями" custombuttoncaption=""/>
+  <message title="Текущая рассылка доступна только для чтения и не может быть перезаписана" id="SaveReadOnlySubsription" settingscaption="Текущая рассылка доступна только для чтения и не может быть перезаписана" longhint="" custombuttoncaption=""/>
+  <message title="Текущий запрос доступен только для чтения и не может быть перезаписан" id="SaveReadOnlyQuery" settingscaption="Текущий запрос доступен только для чтения и не может быть перезаписан" longhint="" custombuttoncaption=""/>
+  <message title="Текущий объект доступен только для чтения и не может быть перезаписан" id="SaveReadOnlyObject" settingscaption="Текущий объект доступен только для чтения и не может быть перезаписан" longhint="" custombuttoncaption=""/>
+  <message title="Текущий список доступен только для чтения и не может быть перезаписан" id="SaveReadOnlyList" settingscaption="Текущий список доступен только для чтения и не может быть перезаписан" longhint="" custombuttoncaption=""/>
+  <message title="Текущий фильтр доступен только для чтения и не может быть перезаписан.&#x00D;&#x00A;Сохранить его под другим именем" id="SaveAsReadOnlyFilter" settingscaption="Документ только для чтения, сохранить с другим именем" longhint="" custombuttoncaption=""/>
+  <message title="Тип установленной у вас версии позволяет одновременную работу в системе ограниченного числа пользователей.&#x00D;&#x00A;В настоящее время этот предел достигнут.&#x00D;&#x00A;Попробуйте повторить попытку после того, как кто-нибудь из ваших коллег выйдет из системы" id="NoMoreConnections" settingscaption="Тип установленной у вас версии позволяет одновременную работу в системе ограниченного числа пользователей.&#x00D;&#x00A;В настоящее время этот предел достигнут.&#x00D;&#x00A;Попробуйте повторить попытку после того, как кто-нибудь из ваших коллег выйдет из системы" longhint="" custombuttoncaption=""/>
+  <message title="Уважаемый пользователь!&#x00D;&#x00A;&#x00D;&#x00A;Вы работаете с ознакомительной версией системы ГАРАНТ, в которой данная функция недоступна.&#x00D;&#x00A;&#x00D;&#x00A;Для установки рабочей версии обратитесь в компанию &quot;Гарант&quot; или ее региональному партнеру:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="NotAllowedInTrialMode" settingscaption="Уважаемый пользователь!&#x00D;&#x00A;&#x00D;&#x00A;Вы работаете с ознакомительной версией системы ГАРАНТ, в которой данная функция недоступна.&#x00D;&#x00A;&#x00D;&#x00A;Для установки рабочей версии обратитесь в компанию &quot;Гарант&quot; или ее региональному партнеру:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Удаление пользователей успешно завершено" id="UsersDeleted" settingscaption="Информация об удалении пользователей" longhint="Вывод информации при успешном удалении выделенных пользователей" custombuttoncaption=""/>
+  <message title="Удалить выделенные объекты списка" id="DeleteListSelected" settingscaption="Удаление выделенных документов из списка" longhint="Спрашивать подтверждение при удалении элементов списка" custombuttoncaption=""/>
+  <message title="Указанный XML-файл содержит данные не совместимые с форматом F1" id="InvalidXMLType" settingscaption="Указанный XML-файл содержит данные не совместимые с форматом F1" longhint="" custombuttoncaption=""/>
+  <message title="Услуга не активирована, обратитесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="NoSubscription" settingscaption="Услуга не активирована, обратитесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Услуга Правовой поддержки онлайн не активирована, обратитесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" id="ConsultationValidationFailed" settingscaption="Услуга Правовой поддержки онлайн не активирована, обратитесь в обслуживающую Вас организацию:&#x00D;&#x00A;&#x00D;&#x00A;%s" longhint="" custombuttoncaption=""/>
+  <message title="Учетная запись &quot;%s&quot; временно заблокирована" id="AccountDisabled" settingscaption="Учетная запись &quot;%s&quot; временно заблокирована" longhint="" custombuttoncaption=""/>
+  <message title="Файлы данных отсутствуют или повреждены" id="InvalidBase" settingscaption="Файлы данных отсутствуют или повреждены" longhint="" custombuttoncaption=""/>
+  <message title="Фильтр &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" id="FilterMissing" settingscaption="Фильтр &quot;%s&quot; отсутствует в установленном у Вас информационном комплекте" longhint="" custombuttoncaption=""/>
+  <message title="Фильтр &quot;%s&quot; уже был сохранен. Перезаписать" id="FilterWasSaved" settingscaption="Сохранение фильтра" longhint="Подтверждение повторного сохранения фильтра" custombuttoncaption=""/>
+  <message title="Фильтр не может быть применен. Один из указанных в фильтре реквизитов отсутствует в установленном у вас комплекте" id="NotAllAttributesRestored" settingscaption="Фильтр не может быть применен. Один из указанных в фильтре реквизитов отсутствует в установленном у вас комплекте" longhint="" custombuttoncaption=""/>
+  <message title="Часть функций системы под логином &quot;ADMIN&quot; недоступна" id="SystemLogin" settingscaption="Часть функций системы под логином &quot;ADMIN&quot; недоступна" longhint="" custombuttoncaption=""/>
+  <message title="Элемент с таким именем уже существует" id="DuplicateNameError" settingscaption="Элемент с таким именем уже существует" longhint="" custombuttoncaption=""/>
+ </messages>
+ <strings>
+  <string title=" (обработано документов: %d)" id="ProgressSuffix"/>
+  <string title="- адрес электронной почты: %s" id="AdminEmail"/>
+  <string title=" Для немедленного выхода из приложения нажмите кнопку &quot;Выход&quot;." id="lpExitMessage"/>
+  <string title=" Мой комментарий " id="nevmmComment"/>
+  <string title=" Начало раздела. (%s, альбомная) " id="nevLandscapeSection"/>
+  <string title=" Начало раздела. (%s, книжная) " id="nevPortaitSection"/>
+  <string title=" Начало страницы. " id="nevmmPageBegin"/>
+  <string title=" Объекты для сохранения: " id="SaveDialogListTarget"/>
+  <string title=" Подождите, пожалуйста." id="lpWaitMessage"/>
+  <string title="- Разделитель -" id="vcmSeparator"/>
+  <string title="- телефон: %s" id="AdminPhone"/>
+  <string title="- телефон: %s;&#x00D;&#x00A;- адрес электронной почты: %s" id="AdminPhoneAndEmail"/>
+  <string title="&quot;Мои документы&quot;" id="pi_Sheets_MyDocuments"/>
+  <string title="&quot;Мои документы&quot;" id="pi_Sheets_MyDocuments_Hint"/>
+  <string title="%d документов. %d выделен" id="ucsStatusWithOutSelected"/>
+  <string title="%d из %d документов. %d выделен" id="ucsStatusWithSelected"/>
+  <string title="%s" id="Version_Message"/>
+  <string title="%producer &apos;ЭВЕРЕСТ 1.0.0.369&apos; date &apos;11.02.2004&apos;&#x00D;&#x00A;%format version 0.129 revision date &apos;10/09/2003&apos; brackets { }&#x00D;&#x00A;: Document = {&#x00D;&#x00A; Subs = {&#x00D;&#x00A;  Children = 1&#x00D;&#x00A;  : = {&#x00D;&#x00A;   Handle = Sub&#x00D;&#x00A;   Children = 1&#x00D;&#x00A;  }&#x00D;&#x00A; }&#x00D;&#x00A; Children = 1&#x00D;&#x00A; : ControlPara = {&#x00D;&#x00A;  Font = {&#x00D;&#x00A;   ForeColor = clWhite&#x00D;&#x00A;   BackColor = &apos;$02A95800&apos;&#x00D;&#x00A;  }&#x00D;&#x00A;  Justification = ev_itLeft&#x00D;&#x00A;  Type = ev_ctPictureLabel&#x00D;&#x00A;  Segments = {&#x00D;&#x00A;   Children = 1&#x00D;&#x00A;   : = {&#x00D;&#x00A;    Handle = View&#x00D;&#x00A;    Children = 16&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 60&#x00D;&#x00A;     Finish = 86&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 87&#x00D;&#x00A;     Finish = 119&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 243&#x00D;&#x00A;     Finish = 252&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 263&#x00D;&#x00A;     Finish = 271&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 273&#x00D;&#x00A;     Finish = 282&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      Bold = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 339&#x00D;&#x00A;     Finish = 377&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 427&#x00D;&#x00A;     Finish = 427&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 440&#x00D;&#x00A;     Finish = 444&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      Bold = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 461&#x00D;&#x00A;     Finish = 511&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 544&#x00D;&#x00A;     Finish = 544&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 557&#x00D;&#x00A;     Finish = 562&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 633&#x00D;&#x00A;     Finish = 637&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 650&#x00D;&#x00A;     Finish = 658&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 660&#x00D;&#x00A;     Finish = 675&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      Bold = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 698&#x00D;&#x00A;     Finish = 725&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 766&#x00D;&#x00A;     Finish = 767&#x00D;&#x00A;    }&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Font = {&#x00D;&#x00A;      ForeColor = clYellow&#x00D;&#x00A;      Italic = True&#x00D;&#x00A;     }&#x00D;&#x00A;     Start = 780&#x00D;&#x00A;     Finish = 808&#x00D;&#x00A;    }&#x00D;&#x00A;   }&#x00D;&#x00A;  }&#x00D;&#x00A;  Text = &apos;Вводите слова и фразы полностью, без сокращений, например, бухгалтерский учет векселей, заполнение налоговой декларации. В результате будут найдены документы, в которых указанное слово встречается во всех формах и падежах (например, для слова налоговой найдутся налоговые, налоговым и т.д.).&lt;10&gt;Другие правила работы с поиском:&lt;10&gt;     &lt;149&gt; Чтобы найти точное вхождение введенного слова, поставьте в конце слова восклицательный знак - ! (например, учет!).&lt;10&gt;     &lt;149&gt; Чтобы найти все слова, начинающиеся с введенных Вами букв, поставьте в конце звездочку - * (например, налог* - будут найдены документы, содержащие все формы как для самого слова налог, так и для налоговый, налогообложение и т.д.).&lt;10&gt;     &lt;149&gt; Чтобы найти точное словосочетание, заключите введенную фразу в кавычки - &quot;&quot; (например, &quot;льготы по налогу на прибыль&quot;).&apos;&#x00D;&#x00A; }&#x00D;&#x00A;}&#x00D;&#x00A;" id="BaseSearchQueryLabel"/>
+  <string title="%producer &apos;ЭВЕРЕСТ 1.0.0.369&apos; date &apos;11.02.2004&apos;&#x00D;&#x00A;%format version 0.129 revision date &apos;10/09/2003&apos; brackets { }&#x00D;&#x00A;: Document = {&#x00D;&#x00A; Subs = {&#x00D;&#x00A;  Children = 1&#x00D;&#x00A;  : = {&#x00D;&#x00A;   Handle = Sub&#x00D;&#x00A;   Children = 1&#x00D;&#x00A;  }&#x00D;&#x00A; }&#x00D;&#x00A; Children = 1&#x00D;&#x00A; : ControlPara = {&#x00D;&#x00A;  Style = -1 // == &apos;Нормальный&apos;&#x00D;&#x00A;  Type = ev_ctLabel&#x00D;&#x00A;  Segments = {&#x00D;&#x00A;   Children = 1&#x00D;&#x00A;   : = {&#x00D;&#x00A;    Handle = Hyperlinks&#x00D;&#x00A;    Children = 1&#x00D;&#x00A;    : HyperLink = {&#x00D;&#x00A;     Style = -8 // == &apos;Гипертекстовая ссылка&apos;&#x00D;&#x00A;     Start = 59&#x00D;&#x00A;    }&#x00D;&#x00A;   }&#x00D;&#x00A;  }&#x00D;&#x00A;  Text = &apos;Ежедневные поступления на Интернет-сайте компании &quot;Гарант&quot; WWW.GARANT.RU&apos;&#x00D;&#x00A;  AlternateText = {&#x00D;&#x00A;   Segments = {&#x00D;&#x00A;    Children = 1&#x00D;&#x00A;    : = {&#x00D;&#x00A;     Handle = Hyperlinks&#x00D;&#x00A;     Children = 1&#x00D;&#x00A;     : Hyperlink = {&#x00D;&#x00A;      Style = -8&#x00D;&#x00A;      Start = 76&#x00D;&#x00A;     }&#x00D;&#x00A;    }&#x00D;&#x00A;   }&#x00D;&#x00A;   Text = &apos;Ежедневный мониторинг законодательства на Интернет-сайте компании &quot;Гарант&quot; WWW.GARANT.RU&apos;&#x00D;&#x00A;  }&#x00D;&#x00A; }&#x00D;&#x00A;}&#x00D;&#x00A;" id="NewDocsEVD"/>
+  <string title="%s - Список множественных ссылок" id="ddmmMultiLinkTitle"/>
+  <string title="%s (оглавление)" id="ContentsPrintTitle"/>
+  <string title="%s (параграф %d)" id="BookmarkNamePattern"/>
+  <string title="%s (фрагмент)" id="nevmmFragment"/>
+  <string title="%s к документу" id="CorrespondetsDocumentSuffix"/>
+  <string title="%s к фрагменту" id="CorrespondetsFagmentSuffix"/>
+  <string title="%s Страниц: %s Напечатан: %s" id="nevpmDefaultColontitul"/>
+  <string title="%s. Версия от %s" id="SimpleMainMenuCaptionF"/>
+  <string title="&amp;Все" id="vtMsgDlgAll"/>
+  <string title="&amp;Да" id="vtMsgDlgYes"/>
+  <string title="&amp;Да для всех" id="vtMsgDlgYesToAll"/>
+  <string title="&amp;Игнорировать" id="vtMsgDlgIgnore"/>
+  <string title="&amp;Нет" id="vtMsgDlgNo"/>
+  <string title="&amp;Нет для всех" id="vtMsgDlgNoToAll"/>
+  <string title="&amp;Отмена" id="vtMsgDlgCancel"/>
+  <string title="&amp;Прервать" id="vtMsgDlgAbort"/>
+  <string title="&amp;ПРОЗРАЧНЫЙ" id="FontInheritanceTransparent"/>
+  <string title="&amp;РОДИТЕЛЬСКИЙ" id="FontInheritanceParent"/>
+  <string title="&amp;СОБСТВЕННЫЙ" id="FontInheritanceOwn"/>
+  <string title="&amp;Справка" id="vtMsgDlgHelp"/>
+  <string title="(активная)" id="ActiveConfPostfix"/>
+  <string title="*.bmp" id="PictuteSaveDialogExtension"/>
+  <string title=", %d сек осталось" id="nevpmTimeLeft"/>
+  <string title=": " id="nsColonSpace"/>
+  <string title="|Evd|*.evd" id="srSaveDialogFilterEvdAppend"/>
+  <string title="|NULL|*.NULL" id="srSaveDialogFilterNullAppend"/>
+  <string title="|XML|*.xml" id="srSaveDialogFilterXMLAppend"/>
+  <string title="&lt;нет доступных принтеров&gt;" id="plPrinterAbsent"/>
+  <string title="10 %" id="li_dps_10"/>
+  <string title="100 %" id="li_dps_100"/>
+  <string title="1000 %" id="li_dps_1000"/>
+  <string title="200 %" id="li_dps_200"/>
+  <string title="2000 %" id="li_dps_2000"/>
+  <string title="25 %" id="li_dps_25"/>
+  <string title="50 %" id="li_dps_50"/>
+  <string title="500 %" id="li_dps_500"/>
+  <string title="ANSI-текст" id="nevtfANSI"/>
+  <string title="BMP" id="BMPFileExiension"/>
+  <string title="c %s" id="DateIntervalFrom"/>
+  <string title="c %s по %s" id="DateIntervalFromTo"/>
+  <string title="Empty" id="Empty"/>
+  <string title="mailto:hotline@garant.ru?subject=Вопрос о консультации&amp;body=Здравствуйте уважаемый пользователь системы ГАРАНТ!&#x00D;&#x00A;&#x00D;&#x00A;Пожалуйста, опишите вопрос, возникший при работе с консультацией. Оставьте без изменения информацию о консультации, ниже по тексту.&#x00D;&#x00A;&#x00D;&#x00A;Информация о консультации:&#x00D;&#x00A;- название: &quot;%s&quot;;&#x00D;&#x00A;- статус: &quot;%s&quot;;&#x00D;&#x00A;- идентификатор: &quot;%s&quot;;&#x00D;&#x00A;- дата создания: &quot;%s&quot;;&#x00D;&#x00A;- дата модификации: &quot;%s&quot;;" id="strMailtoAboutConsultationProblem"/>
+  <string title="mailto:info@garant.ru?subject=Разработчикам системы ГАРАНТ Платформа F1&amp;body=&#x00D;&#x00A;&#x00D;&#x00A;&#x00D;&#x00A;&#x00D;&#x00A;&#x00D;&#x00A;Сообщение от пользователя &quot;%s&quot;.&#x00D;&#x00A;Комплект &quot;%s&quot;, данные от %s" id="illMailTemlate"/>
+  <string title="MP3" id="MP3FileExiension"/>
+  <string title="OEM-текст" id="nevtfOEM"/>
+  <string title="OK" id="pui_ask_OK"/>
+  <string title="OK" id="vtMsgDlgOK"/>
+  <string title="RTF" id="nevtfRtf"/>
+  <string title="RTF" id="RTFFileExiension"/>
+  <string title="Unicode-текст" id="nevtfUnicode"/>
+  <string title="XLS" id="XLSFileExiension"/>
+  <string title="XML" id="XMLFileExiension"/>
+  <string title="Август" id="vtAugust"/>
+  <string title="Авто" id="li_np_AutoHide"/>
+  <string title="Автоматически после просмотра документа" id="li_DropChangeStatus_OnOpen"/>
+  <string title="Автоматический переход" id="pi_List_AutoTransfer"/>
+  <string title="Автоматическое открытие вкладки с предупреждением" id="pi_Document_Warning_Hint"/>
+  <string title="Администратор" id="pui_AdminAsknoweladgemets"/>
+  <string title="Администратор завершил Ваш сеанс работы, окно программы будет закрыто.&#x00D;&#x00A;У вас есть %d сек., чтобы сохранить результаты работы (запросы, списки, закладки на документы)." id="LogoutWarning"/>
+  <string title="Активизировать ввод на языке интерфейса при запуске" id="pi_ActivateDefaultLanguage"/>
+  <string title="Активные пользователи" id="culfActiveUsers"/>
+  <string title="Акты органов власти (нет в базе)" id="li_Document_CRType1"/>
+  <string title="Английский" id="li_il_English"/>
+  <string title="Апрель" id="vtApril"/>
+  <string title="Базовый поиск" id="qtBaseSearch"/>
+  <string title="Базовый поиск" id="wjoBaseSearch"/>
+  <string title="Библиотека &quot;%s&quot; не найдена" id="aeDLLNotFound"/>
+  <string title="Блоки оглавления" id="pi_Document_SubPanel_ShowBlocks"/>
+  <string title="В единый файл" id="SaveDialogListWithMerge"/>
+  <string title="в естественном порядке" id="list_sort_type_NotSorted"/>
+  <string title="В любой части слова" id="nsc_wpAnyPathWord"/>
+  <string title="В любом порядке" id="nsc_woAnyOrder"/>
+  <string title="В пределах одного уровня" id="nsc_tldOneLevel"/>
+  <string title="В режиме автоскрытия скрывать/показывать плавно" id="pi_NavigatorAutoHideFloat"/>
+  <string title="В режиме синхронного просмотра по умолчанию показывать аннотацию к документу" id="pi_List_ShowAnnotationByDefault"/>
+  <string title="В соответствии с режимом показа документ представлен в извлечениях" id="wgIsInParts"/>
+  <string title="В установленном у Вас информационном комплекте отсутствуют документы, на которые ссылается данный." id="UsualRespondentsNotFound"/>
+  <string title="В установленном у Вас информационном комплекте отсутствуют документы, отвечающие данному запросу." id="CommonCRNotFound"/>
+  <string title="В установленном у Вас информационном комплекте отсутствуют документы, ссылающиеся на данный." id="UsualCorrespondentsFound"/>
+  <string title="Введена неверная дата &quot;%s&quot;." id="InvalidDate"/>
+  <string title="Введенное вами значение &quot;%s&quot; не является числом." id="ddcmInvalidIntegerValue"/>
+  <string title="Введенное вами число &quot;%d&quot; находится вне диапазона &quot;%d-%d&quot;." id="ddcmErrorIntegerRange"/>
+  <string title="Введенное значение не найдено в списке допустимых" id="ddcmInvalidMapValue"/>
+  <string title="Введите слова для поиска и фильтрации" id="nsc_ContextEmptyMessage"/>
+  <string title="версия %s" id="FullVersionMessage"/>
+  <string title="Верхняя" id="vcmetbpTop"/>
+  <string title="Весь список" id="WholeListCaption"/>
+  <string title="Вид основного меню:" id="pui_MainMenuType"/>
+  <string title="Вид правовой информации" id="cpPrefixCaption"/>
+  <string title="Вкладки" id="pui_Document_Sheets"/>
+  <string title="Вкладки" id="pui_NavigatorSheets"/>
+  <string title="Вкладки" id="pui_Serach_Sheets"/>
+  <string title="Включить контекстный фильтр" id="nsc_ButtonInActiveHint"/>
+  <string title="Включить перенос по словам" id="nsc_WrapHint"/>
+  <string title="Во время чтения файла произошла ошибка." id="ddmmReadFileError"/>
+  <string title="Во всё окно" id="li_dps_Fit"/>
+  <string title="Во всех уровнях" id="nsc_tldAllLevels"/>
+  <string title="Возврат" id="l3mmRedo"/>
+  <string title="Вручную" id="li_DropChangeStatus_Manual"/>
+  <string title="Вс" id="vtSunday"/>
+  <string title="Все" id="ctmmEverything"/>
+  <string title="Все" id="pui_ask_All"/>
+  <string title="Все документы" id="DefaultFilterValue"/>
+  <string title="Все документы (нет в базе)" id="li_Document_CRType0"/>
+  <string title="Все объекты" id="ffAllObjects"/>
+  <string title="Все пользователи" id="culfAllUsers"/>
+  <string title="все файлы (*.*)|*.*" id="AllFileFilter"/>
+  <string title="Все файлы|*.*" id="vtDefaultOpenDlgFilter"/>
+  <string title="Всегда спрашивать" id="pui_AskConfirmation"/>
+  <string title="Всего памяти: %s байт" id="OverallMemory"/>
+  <string title="Всем пользователям" id="AllUsers"/>
+  <string title="Вставить" id="nevmcmPaste"/>
+  <string title="Вт" id="vtTuesday"/>
+  <string title="Вторая вкладка" id="pi_Document_CRSheet1"/>
+  <string title="Вхождение в документе" id="lntBlock"/>
+  <string title="Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?" id="vcmAskResoreToolbar"/>
+  <string title="Вы действительно хотите удалить элемент &quot;%s&quot;?" id="ddcmConfirmDeleteConfigValue"/>
+  <string title="Выберите каталог для сохранения файла индивидуальных настроек: " id="ChooseSaveSettingsFolder"/>
+  <string title="Выберите каталог для сохранения..." id="ChooseCatalog"/>
+  <string title="Выбор значений реквизита" id="SelectRequisiteValue"/>
+  <string title="Выбранные значения" id="SelectedAttributedRootNode"/>
+  <string title="Выбранный объект" id="fiLoadCaption"/>
+  <string title="Выбранный объект" id="fiSelectCaption"/>
+  <string title="Выбрать" id="ddcmSelectButton"/>
+  <string title="Выбрать" id="vtChoose"/>
+  <string title="Выбрать..." id="SelectCaption"/>
+  <string title="Выделение текста:" id="pi_Document_PermanentSelection"/>
+  <string title="Выделенные документы" id="SelectedDocumentsCaption"/>
+  <string title="Выделенные документы списка: %s" id="ExportSelectedListPrefix"/>
+  <string title="Выделенные элементы списка: %s" id="SaveSelectedListPrefix"/>
+  <string title="Выделенным пользователям" id="SelectedUsers"/>
+  <string title="Выделить блок" id="nevdphSelect"/>
+  <string title="Выделить комментарий" id="nevcphSelect"/>
+  <string title="Выключить контекстный фильтр" id="nsc_ButtonActiveHint"/>
+  <string title="Выключить машину времени" id="wgTimeMachineOffActualRedactionLink"/>
+  <string title="Выключить Машину времени и перейти в актуальную редакцию" id="wgTimeMachineOffLink"/>
+  <string title="Выключить перенос по словам" id="nsc_UnwrapHint"/>
+  <string title="Выполняется длительная операция..." id="l3mmLongOperation"/>
+  <string title="Вырезать" id="nevmcmCut"/>
+  <string title="Вычесть список..." id="ListSubtract"/>
+  <string title="ГАРАНТ Платформа F1" id="PrimeTitle"/>
+  <string title="ГАРАНТ Платформа F1" id="ShellTitle"/>
+  <string title="ГАРАНТ Платформа F1 Турбо" id="ShellTurboTitle"/>
+  <string title="Гарант рядом с Вами" id="ilnRumors"/>
+  <string title="Глобальная память: %s байт" id="GlobalMemory"/>
+  <string title="Глобальные фильтры" id="GlobalFilterTree"/>
+  <string title="Горячие документы" id="ilnHotDocuments"/>
+  <string title="Да" id="pui_ask_Yes"/>
+  <string title="Да для всех" id="pui_ask_YesToAll"/>
+  <string title="Дата начала периода &quot;%s&quot; больше даты окончания периода &quot;%s&quot;." id="StartDateMoreEnd"/>
+  <string title="Дата создания: %s" id="SavedFolderDate"/>
+  <string title="Дата создания: не сохранена" id="UnsavedFolderDate"/>
+  <string title="Дать доступ новому пользователю" id="AddAccessHint"/>
+  <string title="Действующий документ" id="lntDocActive"/>
+  <string title="Декабрь" id="vtDecember"/>
+  <string title="Диапазон действия данной редакции: " id="dwRedactionDateDiapazone"/>
+  <string title="Диапазоны действия данной редакции: " id="dwRedactionDateDiapazones"/>
+  <string title="Для всех просмотренных при выходе из системы" id="li_DropChangeStatus_OnClose"/>
+  <string title="Для данного типа операции не предусмотрена обработка." id="nsc_cpmInvalidOperationType"/>
+  <string title="Для кого" id="FolderRIghtsLabel"/>
+  <string title="Для расширения информационного банка обращайтесь в обслуживающую Вас организацию&#x00D;&#x00A;&#x00D;&#x00A;%s" id="DealerInfo"/>
+  <string title="Добавить" id="AddButtonHint"/>
+  <string title="Добавить" id="ddcmAddConfigValue"/>
+  <string title="Добавить новую строку ввода" id="HintBtnCreateAttr"/>
+  <string title="Документ" id="pui_DOcument"/>
+  <string title="Документ %d из %d" id="nevmmDocumentCount"/>
+  <string title="Документ %d из %d, выделено %d" id="nevmmDocumentCountInt"/>
+  <string title="Документ %d из %d, выделено %d, релевантность %d" id="ListStatusInfoWithRelevance"/>
+  <string title="Документ RTF|*.rtf" id="RTFDocumentFilter"/>
+  <string title="Документ RTF|*.rtf|Только текст|*.txt|Документ HTML|*.htm" id="srSaveDialogFilter"/>
+  <string title="Документ вступил в силу" id="csActive"/>
+  <string title="Документ ГАРАНТа" id="nevtfGarant"/>
+  <string title="Документ зарегистрирован в Минюсте РФ" id="csRegistered"/>
+  <string title="Документ изменен" id="csChanged"/>
+  <string title="Документ с комментариями юристов" id="wgJurorCommentHint"/>
+  <string title="Документ удален" id="csDeleted"/>
+  <string title="Документ утратил силу" id="csAbolished"/>
+  <string title="Документов нет" id="lrDocumentAbsent"/>
+  <string title="Документу отказано в регистрации в Минюсте РФ" id="csNotRegistered"/>
+  <string title="Документы на контроле" id="piSheetsDocUnderControl_Hint"/>
+  <string title="Документы на контроле" id="pui_ControlledDocuments"/>
+  <string title="Документы с комментариями (%s)" id="cqnCommentsForSave"/>
+  <string title="Документы, на которые ссылается данный, с типом &quot;%s&quot; отсутствуют, т.к. в состав Вашего комплекта не включены специализированные информационные блоки:" id="RespondetnsInOtherBlock"/>
+  <string title="Документы, ссылающиеся на данный, с типом &quot;%s&quot; отсутствуют, т.к. в состав Вашего комплекта не включены специализированные информационные блоки:" id="CorrespondetnsInOtherBlock"/>
+  <string title="Должны ли слова строго следовать друг за другом или нет" id="nsc_cpmWordOrderHint"/>
+  <string title="Дополнить список..." id="ListAppend"/>
+  <string title="Доступ на чтение" id="tahReadOnlyAccess"/>
+  <string title="Доступ на чтение/запись" id="tahFullAccess"/>
+  <string title="Дочерняя форма создана раньше ведущей" id="ChildFormCreatedBeforeParent"/>
+  <string title="Ждет отправки" id="csDraft"/>
+  <string title="Журнал за %s" id="DefaulJornalName"/>
+  <string title="Загрузить из XML..." id="XMLSettingsFileCaption"/>
+  <string title="Загрузка документа" id="l3mmFileOp"/>
+  <string title="Загрузка документа [%s]" id="l3mmFileOpFmt"/>
+  <string title="Загрузка папок..." id="WaitFolders"/>
+  <string title="Загрузка списка объектов" id="LoadingObjectList"/>
+  <string title="Загрузка фильтров" id="WaitFilters"/>
+  <string title="Задать вопрос эксперту" id="siMakeConsultation"/>
+  <string title="Заказ рассылки" id="ftMailList"/>
+  <string title="Закладка на документ &quot;%s&quot;" id="BookmarkCommentPattern"/>
+  <string title="Закладка: " id="nsBookmarkPrefix"/>
+  <string title="Закладки" id="ffBookmarks"/>
+  <string title="Закладки" id="pi_Document_SubPanel_ShowBookmarks"/>
+  <string title="Закрыть" id="vcmCloseHint"/>
+  <string title="Закрыть навигатор" id="vtBtnCloseHint"/>
+  <string title="Замена" id="nevmmReplace"/>
+  <string title="Запомнить выбор и больше не показывать это сообщение." id="vcmRememberChoice"/>
+  <string title="Запрос на базовый поиск (%s)" id="cqnBaseSearchForSave"/>
+  <string title="Запрос на поиск по источнику опубликования (%s)" id="cqnPublishSourceForSave"/>
+  <string title="Запрос на поиск по реквизитам (%s)" id="cqnAttributeForSave"/>
+  <string title="Запрос на поиск по реквизитам (%s)" id="cqnOldAttributeForSave"/>
+  <string title="Запрос на поиск по ситуации (%s)" id="cqnKeywordForSave"/>
+  <string title="Запросов нет" id="NotQueries"/>
+  <string title="Запросы" id="ffQueries"/>
+  <string title="Зарегистрированным пользователем копии является:&#x00D;&#x00A;%s" id="SplashUserText"/>
+  <string title="Зафиксировать панель навигации" id="vtAutoHideOffHint"/>
+  <string title="звуковой файл (*.mp3)|*.MP3" id="MP3FileFilter"/>
+  <string title="Звуковые файлы (*.wav)|*.wav" id="ddcmSoundFiles"/>
+  <string title="Значение &apos;&apos;%s&apos;&apos; уже определено." id="DuplicateValue"/>
+  <string title="Значимость" id="cpNormCaption"/>
+  <string title="И" id="LogicOpAndStringCaption"/>
+  <string title="И:" id="LogicOpAndTreeCaption"/>
+  <string title="Игрорировать" id="pui_ask_Ignore"/>
+  <string title="Идёт обновление данных. Пожалуйста, дождитесь конца обновления." id="lpUpdateMessage"/>
+  <string title="Извините, информация после обновления недоступна" id="InformationUnavailable"/>
+  <string title="Изменение индивидуальной ленты " id="ChangePrivateNewsLine"/>
+  <string title="Изменить верхнюю границу блока" id="nevdphChangeTopBorder"/>
+  <string title="Изменить верхнюю границу комментария" id="nevcphChangeTopBorder"/>
+  <string title="Изменить нижнюю границу блока" id="nevdphChangeBottomBorder"/>
+  <string title="Изменить нижнюю границу комментария" id="nevcphChangeBottomBorder"/>
+  <string title="Изменить операцию" id="HintChangeOperation"/>
+  <string title="Изменить ссылку на..." id="ChangeHyperLink"/>
+  <string title="Изображения BMP|*.bmp|Изображения JPEG|*.jpg|Изображения GIF|*.gif" id="PictuteSaveDialogFilter"/>
+  <string title="ИЛИ" id="LogicOpOrStringCaption"/>
+  <string title="ИЛИ:" id="LogicOpOrTreeCaption"/>
+  <string title="Импортировать консультацию" id="ImportConsultationCaption"/>
+  <string title="Индивидуальная новостная лента: &quot;%s&quot;" id="PrivateNewLinePrintTitle"/>
+  <string title="Информационный блок" id="cpBasesCaption"/>
+  <string title="Информация" id="vtMsgDlgInformation"/>
+  <string title="Информация об обновлении" id="lpUpdateCaption"/>
+  <string title="Искать в списке" id="CurListSearch"/>
+  <string title="Искать по всем документам" id="AllBaseSearch"/>
+  <string title="Испанский" id="li_il_Spanish"/>
+  <string title="Исправить" id="ddcmChangeConfigValue"/>
+  <string title="Итальянский" id="li_il_Italian"/>
+  <string title="Июль" id="vtJuly"/>
+  <string title="Июнь" id="vtJune"/>
+  <string title="К тексту" id="RespListForText"/>
+  <string title="К фрагменту" id="RespListForPart"/>
+  <string title="Карточки запроса" id="pui_QueryCards"/>
+  <string title="Карточки поиска" id="pi_Search_Sheets_Filters"/>
+  <string title="Каталог продуктов" id="ilnCatalogue"/>
+  <string title="Количество дней в журнале работы:" id="pi_WorkJournalSize"/>
+  <string title="Количество документов в кеше: %d штук" id="CachedDocumentsCount"/>
+  <string title="Количество документов найденных по запросу: %d" id="QueryHintFrmt"/>
+  <string title="Количество объектов: %s штук" id="ObjectCount"/>
+  <string title="Количество последних выполненных запросов:" id="pi_RecentlyOpenQueriesCount"/>
+  <string title="Количество последних открытых документов:" id="pi_RecentlyOpenDocumentsCount"/>
+  <string title="Количество элементов в истории:" id="piHistoryItems"/>
+  <string title="Колонка таблицы" id="nevmhhTableColumn"/>
+  <string title="Комментарии Гаранта" id="pi_Document_SubPanel_ShowJurorComments"/>
+  <string title="Комментарии пользователя" id="pi_Document_SubPanel_ShowUserComments"/>
+  <string title="Комментарии, разъяснения, схемы (нет в базе)" id="li_Document_CRType2"/>
+  <string title="Комментарий Гаранта" id="nsGarantComment"/>
+  <string title="Компания &quot;Гарант&quot;" id="ilnCompanyName"/>
+  <string title="Консалтинг запрещен" id="culfConsultingDisabled"/>
+  <string title="Консалтинг разрешен" id="culfConsultingEnabled"/>
+  <string title="Консультация|*.xml" id="ConsultationFilter"/>
+  <string title="Контекстная фильтрация" id="pui_ContextFIlter"/>
+  <string title="Контекстный фильтр" id="nsc_LabelCaption"/>
+  <string title="Конфигурации" id="pi_Sheets_Config"/>
+  <string title="Конфигурация" id="cnCaption"/>
+  <string title="Конфигурация с именем &quot;%s&quot; уже существует." id="DuplicateConfigName"/>
+  <string title="Копировать" id="nevmcmCopy"/>
+  <string title="Копия %s" id="CopyConfSingle"/>
+  <string title="Копия%d %s" id="CopyConfDuplicate"/>
+  <string title="Корреспонденты" id="crtCorrespondents"/>
+  <string title="Корреспонденты" id="lcCorrespondents"/>
+  <string title="Корреспонденты к фрагменту" id="lcFragmentCorrespondents"/>
+  <string title="КРОМЕ" id="LogicOpExceptStringCaption"/>
+  <string title="КРОМЕ:" id="LogicOpExceptTreeCaption"/>
+  <string title="Левая" id="vcmetbpLeft"/>
+  <string title="Левая граница ссылки" id="nevmhhLeftHyperlinkBorder"/>
+  <string title="Левое поле" id="nevmhLeftDocMargin"/>
+  <string title="Левый отступ" id="nevmhLeftIndent"/>
+  <string title="Логин пользователя &quot;%s&quot; не верный." id="FtLoginError"/>
+  <string title="Логическая операция для данного реквизита не изменяема" id="HintNotChangedOperation"/>
+  <string title="Логическое условие И" id="HintAndOperation"/>
+  <string title="Логическое условие ИЛИ" id="HintOrOperation"/>
+  <string title="Логическое условие КРОМЕ" id="HintNotOperation"/>
+  <string title="локальная версия для внутреннего использования" id="cvkInternalNonDebugDesktop"/>
+  <string title="локальная коммерческая версия" id="cvkCommerceNonDebugDesktop"/>
+  <string title="локальная отладочная версия для внутреннего использования" id="cvkInternalDebugDesktop"/>
+  <string title="локальная отладочная коммерческая версия" id="cvkCommerceDebugDesktop"/>
+  <string title="Локальная память (L3): %s байт" id="l3LocalMemory"/>
+  <string title="Локальная память (System): %s байт" id="LocalMemory"/>
+  <string title="Май" id="vtMay"/>
+  <string title="Максимальное значение %d не может превышать %d" id="ddcmInvalidMaxValue"/>
+  <string title="Март" id="vtMarch"/>
+  <string title="Мастер-класс" id="ilnMasterClass"/>
+  <string title="Масштаб графических изображений (1%-2000%):" id="piDocumentPictureScale"/>
+  <string title="Масштаб картинки при её детальном просмотре" id="piDocumentPictureScale_Hint"/>
+  <string title="Машина времени будет выключена, а текст документа будет представлен в актуальной редакции" id="wgTimeMachineOffHint"/>
+  <string title="Международные договоры (нет в базе)" id="li_Document_CRType6"/>
+  <string title="Меню операций со всем документом" id="WholeDocumentSubsMenu"/>
+  <string title="Метки на полях" id="piu_Document_SubPanel"/>
+  <string title="Минимальное значение %d не может быть меньше %d" id="ddcmInvalidMinValue"/>
+  <string title="Моего редактора" id="nevtfThyEditor"/>
+  <string title="Мои документы" id="pui_MyDocument"/>
+  <string title="Мои документы (%s)" id="MyDocumentsCaption"/>
+  <string title="Мои комментарии" id="nevmmCommentFolder"/>
+  <string title="Мой комментарий" id="nsUserComment"/>
+  <string title="Мониторинг законодательства" id="ilnMonitoring"/>
+  <string title="На контроле" id="ControlledTree"/>
+  <string title="На контроле" id="piSheetsDocUnderControl"/>
+  <string title="На контроль не поставлено ни одного документа" id="EmptyContolList"/>
+  <string title="Нажмите для установки сегодняшней даты" id="vtTodayHint"/>
+  <string title="Название конфигурации" id="cnConfigurationName"/>
+  <string title="Названия документов" id="SaveDialogListTitles"/>
+  <string title="Найдено %d документов с использованием %d фильтров.&#x00D;&#x00A;Построить список?" id="seManyFilterFound"/>
+  <string title="Найдено %d документов с использованием фильтра &quot;%s&quot;.&#x00D;&#x00A;Построить список?" id="seSingleFilterFound"/>
+  <string title="Найдено: %d документов, %d редакций (%d вхождений в документы и редакции).&#x00D;&#x00A;Построить список?" id="seBuildList"/>
+  <string title="Найти в Толковом словаре" id="SearchInDiction"/>
+  <string title="налоговый кодекс" id="DefaultContextExample"/>
+  <string title="Настоящая редакция документа не будет действовать" id="wgPreActiveRedation"/>
+  <string title="Настоящая редакция документа не действовала" id="wgNoActiveRedation"/>
+  <string title="Настоящая редакция документа не действует на момент выхода установленной у вас версии системы ГАРАНТ" id="wgBadRedation"/>
+  <string title="Настройка страницы..." id="pui_PageSetupButton"/>
+  <string title="Настройки" id="ddmmSettingsCaption"/>
+  <string title="Настройки интерфейса" id="UISettingsCaption"/>
+  <string title="Настройки пользовательских типизированных вкладок корреспондентов\респондентов совпадают. Выберите разные значения" id="CRSettingsAreEqual"/>
+  <string title="Находится в обработке" id="csProcessing"/>
+  <string title="Находятся ли искомые слова на разных уровнях иерархического дерева или в пределах одного уровня" id="nsc_cpmTreeLevelDistHint"/>
+  <string title="Начало работы" id="pi_OpenOnStart"/>
+  <string title="Не верный пароль пользователя." id="PasswordError"/>
+  <string title="Не вступивший в силу документ" id="lntDocPreActive"/>
+  <string title="Не задано значение для обязательного поля &quot;%s&quot;" id="RequiredValue"/>
+  <string title="Не закреплен" id="li_nfp_Float"/>
+  <string title="Не использовать период дат" id="HintBtnDeleteDate"/>
+  <string title="Не определен" id="nevpmUndefinedSize"/>
+  <string title="Не определен" id="nevpmUndefinedTopic"/>
+  <string title="Не определен" id="wjoNone"/>
+  <string title="Не отправлена" id="csNotSent"/>
+  <string title="Не показывать" id="crtNone"/>
+  <string title="Не строить список и автоматически открывать текст документа, если по запросу найден один документ" id="pi_List_AutoTransfer_Hint"/>
+  <string title="Неверная версия Dll!" id="aeWrongDLL"/>
+  <string title="Немецкий" id="li_il_German"/>
+  <string title="Нет" id="pui_ask_No"/>
+  <string title="Нет для всех" id="pui_ask_NoToAll"/>
+  <string title="Ни один найденный документ не соответствует заданным фильтрам.&#x00D;&#x00A;Построить список без учета фильтров (%d документов, %d редакция (%d вхождений в документы и редакции))?" id="seManyFilterNotFound"/>
+  <string title="Ни один найденный документ не соответствует фильтру &quot;%s&quot;.&#x00D;&#x00A;Построить список без учета фильтра (%d документов, %d редакция (%d вхождений в документы и редакции))?" id="seSingleFilterNotFound"/>
+  <string title="Нижняя" id="vcmetbpBottom"/>
+  <string title="Новая папка" id="fiNewFolderCaption"/>
+  <string title="Новая папка %d" id="NewFolderDefaultName"/>
+  <string title="Новости органов власти" id="ilnNews"/>
+  <string title="Новый фильтр" id="NewFilterName"/>
+  <string title="Номер документа" id="cpRegNumberCaption"/>
+  <string title="Номера топиков" id="SaveDialogListIdentifiers"/>
+  <string title="Ноябрь" id="vtNovember"/>
+  <string title="Нужен перевод файла Components\Everest\nemesisstyles.evs" id="DefaultStyleTable"/>
+  <string title="Нужен перевод файла nemesis\config\enStyleTableExample.evd" id="StyleTableExample"/>
+  <string title="Область поиска:" id="pui_COntextSearchArea"/>
+  <string title="Обработка просмотра печати" id="nevpmProcessPreview"/>
+  <string title="Обработка текста" id="nevpmProcessText"/>
+  <string title="Обучение" id="ilnEducation"/>
+  <string title="Обычные пользователи" id="culfRegularUsers"/>
+  <string title="Оглавление" id="nevmmTOC"/>
+  <string title="Оглавление документа" id="pi_Document_Sheets_Contents_Hint"/>
+  <string title="Октябрь" id="vtOctober"/>
+  <string title="Операция не найдена: %s.%s" id="aeDLLOperationNotFound"/>
+  <string title="Описание конфигурации" id="cnConfigurationDescription"/>
+  <string title="Определяет способ сброса статуса &quot;изменён&quot; для документов на контроле" id="pi_DropChangeStatus_Hint"/>
+  <string title="Орган/Источник" id="cpSourceCaption"/>
+  <string title="Основное меню" id="li_OpenOnStartMainMenu"/>
+  <string title="Основное меню" id="pi_Sheets_MainMenu"/>
+  <string title="Основное меню" id="pi_Sheets_MainMenu_Hint"/>
+  <string title="Основное меню" id="pui_MainManu"/>
+  <string title="Основные документы" id="ilnMainDocuments"/>
+  <string title="Ответ получен, но его получение не подтверждено в компании Гарант" id="csAnswerReceivedAndNotConfirm"/>
+  <string title="Ответ прочитан, но его получение не подтверждено в компании Гарант" id="csReadAndNotConfirm"/>
+  <string title="Откат" id="l3mmUndo"/>
+  <string title="Откатить" id="nevmcmUndo"/>
+  <string title="Открывать вкладку перевода при открытии документа" id="pi_Document_Sheets_Translation_Hint"/>
+  <string title="Открывать документы в новом окне" id="pi_List_OpenInNewWindow"/>
+  <string title="Открывать документы списка всегда в новом окне" id="pi_List_OpenInNewWindow_Hint"/>
+  <string title="Открывать сохранённые объекты в новом окне" id="pi_OpenInNewWindow"/>
+  <string title="Открывать сохраненные объекты всегда в новом окне" id="pi_OpenInNewWindow_Hint"/>
+  <string title="Открывать ссылки в новом окне" id="pi_Document_OpenInNewWindow"/>
+  <string title="Открывать ссылки на другие документы всегда в новом окне" id="pi_Document_OpenInNewWindow_Hint"/>
+  <string title="Открытие вкладки с информацией о документе в момент открытия документа" id="pi_Document_Sheets_Attributes_Hint"/>
+  <string title="Открыть в новом окне" id="vcmMaximizedHint"/>
+  <string title="Открыть в текущем окне" id="vcmOpenHint"/>
+  <string title="Открыть закладку..." id="OpenBookmark"/>
+  <string title="Открыть список..." id="ListOpen"/>
+  <string title="Открыть Толковый словарь" id="OpenDiction"/>
+  <string title="Отмена" id="pui_ask_Cancel"/>
+  <string title="Отмена" id="vtCancel"/>
+  <string title="Отменить доступ для данного пользователя" id="DeleteAccessHint"/>
+  <string title="Отправлена оценка" id="csEstimationWasSent"/>
+  <string title="Отступ красной строки" id="nevmhRedLineIndent"/>
+  <string title="Отступ таблицы" id="nevmhTableIndent"/>
+  <string title="Официальные интернет-сайты органов власти" id="ilnWebLinks"/>
+  <string title="Ошибка" id="ddmmErrorCaption"/>
+  <string title="Ошибка" id="vtMsgDlgError"/>
+  <string title="Ошибочный почтовый адрес" id="WrongEMail"/>
+  <string title="Ошибочный элемент истории" id="vcmWrongHistoryElement"/>
+  <string title="Память на объекты: %s байт" id="ObjectMemory"/>
+  <string title="Панели инструментов..." id="pui_ToolbarButton"/>
+  <string title="Панель навигации" id="pui_Navigator"/>
+  <string title="Папки/Настройки в XML|*.xml" id="XMLSettingsFileFilter"/>
+  <string title="Параметры для" id="pui_ContextFilterParams"/>
+  <string title="Параметры раздела." id="nevmhhBlockParams"/>
+  <string title="Параметры шрифта для стиля &quot;%s&quot;" id="StyleEditorFontCaption"/>
+  <string title="Первая вкладка" id="pi_Document_CRSheet0"/>
+  <string title="Перезаписать запрос" id="SaveLoadOverride"/>
+  <string title="Перезаписать список" id="ListSaveOverride"/>
+  <string title="Переключиться в актуальную редакцию документа" id="wgBadRedationLink"/>
+  <string title="Переключиться в режим просмотра полного текста документа" id="wgIsInPartsLink"/>
+  <string title="Переместить блок" id="nevdphMove"/>
+  <string title="Переместить комментарий" id="nevcphMove"/>
+  <string title="Пересечь со списком..." id="ListIntersect"/>
+  <string title="Период действия данной редакции документа не может быть определен однозначно" id="wgNotShureWarningHint"/>
+  <string title="Печать документа" id="nevpmPrinting"/>
+  <string title="Пн" id="vtMonday"/>
+  <string title="По алфавиту" id="ucstAlphabet"/>
+  <string title="По виду изменений" id="ucstChanging"/>
+  <string title="по возрастанию значений" id="SortAscending"/>
+  <string title="по дате издания" id="list_sort_type_PublishDate"/>
+  <string title="по дате последнего изменения" id="list_sort_type_ChangeDate"/>
+  <string title="по степени соответствия" id="list_sort_type_Relevance"/>
+  <string title="по убыванию значений" id="SortDescending"/>
+  <string title="По умолчанию в режиме синхронного просмотра будет открываться краткая аннотация к документу. Если пункт не отмечен, по умолчанию отображается полный текст документа." id="pi_List_ShowAnnotationByDefault_Hint"/>
+  <string title="по юридической силе" id="list_sort_type_JurPower"/>
+  <string title="По:" id="DateLabelTo"/>
+  <string title="Пов&amp;торить" id="vtMsgDlgRetry"/>
+  <string title="Поведение системы" id="pui_SystemBehavior"/>
+  <string title="Повторить" id="pui_ask_Retry"/>
+  <string title="Подготовка просмотра печати... %d страниц из %s%d подготовлено" id="nevpmPreparingExt"/>
+  <string title="Подготовка просмотра печати... %d страниц подготовлено" id="nevpmPreparing"/>
+  <string title="Поддержка пользователей" id="ilnSupport"/>
+  <string title="Подсчет числа страниц... %d (~%d)" id="nevpmCounting"/>
+  <string title="Подтверждать построение автореферата" id="piSearchListIsBuildReview"/>
+  <string title="Подтверждать построение списка" id="pi_Search_List_IsBuild"/>
+  <string title="Подтверждение" id="vtMsgDlgConfirm"/>
+  <string title="Подтверждения" id="pui_Asknoweladgemets"/>
+  <string title="Поиск" id="nevmmSearch"/>
+  <string title="Поиск" id="pui_Search"/>
+  <string title="Поиск документов с комментариями" id="qtComments"/>
+  <string title="Поиск контекста: &quot;%s&quot;" id="SearchContextMessage"/>
+  <string title="Поиск по источнику опубликования" id="cpPublishSourceCaption"/>
+  <string title="Поиск по источнику опубликования" id="ftPublishSource"/>
+  <string title="Поиск по источнику опубликования" id="qtPublishSource"/>
+  <string title="Поиск по источнику опубликования" id="wjoPublishSourceSearch"/>
+  <string title="Поиск по реквизитам" id="ftAttribute"/>
+  <string title="Поиск по реквизитам" id="li_OpenOnStartAttributeSearch"/>
+  <string title="Поиск по реквизитам" id="qtAttribute"/>
+  <string title="Поиск по реквизитам" id="wjoAttributeSearch"/>
+  <string title="Поиск по реквизитам (5.x)" id="qtOldAttribute"/>
+  <string title="Поиск по ситуации" id="cpKeywordSerchCaption"/>
+  <string title="Поиск по ситуации" id="ftSituation"/>
+  <string title="Поиск по ситуации" id="li_OpenOnStartSituationSearch"/>
+  <string title="Поиск по ситуации" id="qtKeyWord"/>
+  <string title="Поиск по ситуации" id="wjoSituationSearch"/>
+  <string title="Поиск по ситуации (5.x)" id="ftOldSituation"/>
+  <string title="Поиск по ситуации:" id="pi_Search_SituationType"/>
+  <string title="Поиск с Правовой поддержкой онлайн" id="ftLawSupports"/>
+  <string title="Поиск с Правовой поддержкой онлайн" id="qtLawSupports"/>
+  <string title="Поиск с Правовой поддержкой онлайн" id="wjoWithLawSupport"/>
+  <string title="Поиск с Правовой поддержкой онлайн (%s)" id="cqnConsultationForSave"/>
+  <string title="Поиск..." id="seSearchTitle"/>
+  <string title="Показ корреспондентов/респондентов" id="pui_Correst_Rest_ShowMethod"/>
+  <string title="Показать вкладку &quot;%s&quot;" id="vcmShowTab"/>
+  <string title="Показывать вкладку &quot;Фильтры&quot; при открытии карточек поиска" id="pi_Search_Sheets_Filters_Hint"/>
+  <string title="Показывать вкладку &quot;Фильтры&quot; при открытии списка документов" id="pi_List_Sheets_Filters_Hint"/>
+  <string title="Показывать вкладку с информацией о документе" id="pi_Document_Sheets_Attributes"/>
+  <string title="Показывать вкладку с переводом" id="pi_Document_Sheets_Translation"/>
+  <string title="Показывать вкладку с текстом предупреждений" id="pi_Document_Warning"/>
+  <string title="Показывать:" id="pui_cFrmIDConfList"/>
+  <string title="Показывать:" id="pui_cFrmIDContents"/>
+  <string title="Показывать:" id="pui_cFrmIDDocUnderControl"/>
+  <string title="Показывать:" id="pui_cFrmIDMainMenu"/>
+  <string title="Показывать:" id="pui_cFrmIDMyDoc"/>
+  <string title="Показывать:" id="pui_cFrmIDRedations"/>
+  <string title="Показывать:" id="pui_cFrmIDSituation"/>
+  <string title="Показывать:" id="pui_SheetPosition"/>
+  <string title="Положение контекста в слове, строке" id="nsc_cpmWordPositionHint"/>
+  <string title="Положение контекста:" id="pui_COntextWordPosition"/>
+  <string title="Положение:" id="pui_LeftNavigatorPosition"/>
+  <string title="Положение:" id="pui_RightNavigatorPosition"/>
+  <string title="Получен ответ" id="csAnswerReceived"/>
+  <string title="Получено уведомление" id="csNotificationReceived"/>
+  <string title="Пользователей и групп: %d, выделено %d" id="UserListStatus"/>
+  <string title="Помощь" id="pui_ask_Help"/>
+  <string title="Порядок слов:" id="pui_ContextWordOrder"/>
+  <string title="Порядок сортировки:" id="pi_List_OrderType"/>
+  <string title="Посмотреть ответы" id="siShowAnswers"/>
+  <string title="Поставить на контроль" id="SetToControl"/>
+  <string title="Постановка на контроль" id="SaveSetToControlCaption"/>
+  <string title="Постоянное" id="li_dpts_Permanent"/>
+  <string title="Построение автореферата" id="pui_Filter_BuildReview"/>
+  <string title="Построение списка" id="pui_FIlter_BuildList"/>
+  <string title="Похожие документы" id="lcSimilarDocuments"/>
+  <string title="Почтовый адрес &quot;%s&quot; не верный." id="FtEmailError"/>
+  <string title="Правая" id="vcmetbpRight"/>
+  <string title="Правая граница ссылки" id="nevmhhRightHyperlinkBorder"/>
+  <string title="Правила работы" id="siLawSupportHelp"/>
+  <string title="Правовaя поддержка онлайн" id="ftConsultation"/>
+  <string title="Правовая поддержка онлайн" id="pui_ConsultationsAsknoweladgemets"/>
+  <string title="Правовая поддержка онлайн" id="qtConsultation"/>
+  <string title="Правовой навигатор" id="cpNavigatorCaption"/>
+  <string title="Правовой навигатор" id="li_OpenOnStartNavigator"/>
+  <string title="Правовой навигатор" id="qtRubricator"/>
+  <string title="Правое поле" id="nevmhRightDocMargin"/>
+  <string title="Правый отступ" id="nevmhRightIndent"/>
+  <string title="ПРАЙМ. Обзор законодательства (%s)" id="cqnReviewForSave"/>
+  <string title="ПРАЙМ. Обзор изменений законодательства" id="ftReview"/>
+  <string title="ПРАЙМ. Обзор изменений законодательства" id="wjoLegistationReview"/>
+  <string title="ПРАЙМ. Построение обзора законодательства" id="qtReview"/>
+  <string title="Предупреждение" id="vtMsgDlgWarning"/>
+  <string title="Предыдущий год" id="vtStrPrevYear"/>
+  <string title="Предыдущий месяц" id="vtStrPrevMonth"/>
+  <string title="Преемственная" id="pui_OldSerachCard"/>
+  <string title="Прервать" id="pui_ask_Abort"/>
+  <string title="При выборе элемента списка показывать:" id="pui_List_SynchroForm"/>
+  <string title="При выделенном фрагменте" id="pui_SelectionsAsk"/>
+  <string title="При количестве документов более" id="pi_Search_List_BuildCount"/>
+  <string title="При количестве документов более" id="piSearchListBuildCountReview"/>
+  <string title="Пример шрифта" id="ddcmFontExample"/>
+  <string title="Проверить условия подключения к услуге Правовая поддержка онлайн" id="CheckLegalAdviseAvailable"/>
+  <string title="Проверка" id="ddcmCheckButton"/>
+  <string title="Продвинутый" id="mmtAdvanced"/>
+  <string title="Проекты законов (нет в базе)" id="li_Document_CRType4"/>
+  <string title="Просмотренные документы" id="wjoDocument"/>
+  <string title="Простой" id="mmtSimple"/>
+  <string title="Прочитан ответ" id="csRead"/>
+  <string title="Пт" id="vtFriday"/>
+  <string title="Развернуть" id="vtMinimazedOffHint"/>
+  <string title="Развернуть блок" id="nevdphExpand"/>
+  <string title="Развернуть комментарий" id="nevcphExpand"/>
+  <string title="Раздел/Тема" id="cpClassCaption"/>
+  <string title="Размер бумаги" id="nevmhPaperSize"/>
+  <string title="Размер столбца" id="nevmhhColumnSize"/>
+  <string title="Размер таблицы" id="nevmhhTableSize"/>
+  <string title="Размер ячейки" id="nevmhCellSize"/>
+  <string title="Распахнута" id="li_np_Normal"/>
+  <string title="растровый рисунок (*.bmp)|*.BMP" id="BMPFileFilter"/>
+  <string title="Регистрационный номер в Минюсте" id="cpMURegNumberCaption"/>
+  <string title="Редактор стилей..." id="pui_StyleTableButton"/>
+  <string title="Редакции" id="pi_Document_Sheets_Redactions"/>
+  <string title="Редакции документа" id="lntRedactions"/>
+  <string title="Редакция %d из %d" id="EditionsStatusInfoFormat"/>
+  <string title="Редакция документа" id="lntRedaction"/>
+  <string title="Редакция документа:%s" id="nsRedactionCaption"/>
+  <string title="Респонденты" id="crtRespondents"/>
+  <string title="Респонденты" id="lcRespondents"/>
+  <string title="Респонденты к фрагменту" id="lcFragmentRespondents"/>
+  <string title="Рисунок из документа" id="pncDocumentPicture"/>
+  <string title="Рисунок из документа &quot;%s&quot;" id="pncNamedDocumentPicture"/>
+  <string title="Рисунок. %s" id="pncSimplePicture"/>
+  <string title="Русский" id="li_il_Russian"/>
+  <string title="С левой стороны" id="pui_LeftNavigator"/>
+  <string title="С начала слова" id="nsc_wpAtBeginWord"/>
+  <string title="С начала строки" id="nsc_wpAtBeginString"/>
+  <string title="С правой стороны" id="pui_RightNavigator"/>
+  <string title="С учетом порядка" id="nsc_woAsWrote"/>
+  <string title="С:" id="DateLabelFrom"/>
+  <string title="Сб" id="vtSaturday"/>
+  <string title="Сбрасываемое" id="li_dpts_Resetable"/>
+  <string title="Сброс статуса:" id="pi_DropChangeStatus"/>
+  <string title="Свернута" id="li_np_Minimized"/>
+  <string title="Свернуть" id="vtMinimazedOnHint"/>
+  <string title="Свернуть блок" id="nevdphCollapse"/>
+  <string title="Свернуть комментарий" id="nevcphCollapse"/>
+  <string title="Свойства блока" id="nevdphProperties"/>
+  <string title="Свойства комментария" id="nevcphProperties"/>
+  <string title="Свойства объекта" id="fiEditCaption"/>
+  <string title="Свойства пользователя" id="UsualUserFormCaption"/>
+  <string title="Сворачивать панель навигации" id="vtAutoHideOnHint"/>
+  <string title="Сегодня" id="vtTodayShortLabel"/>
+  <string title="Сегодня %s" id="vtTodayLongLabel"/>
+  <string title="Сентябрь" id="vtSeptember"/>
+  <string title="Сервер Платформы F1 остановлен, окно программы будет закрыто.&#x00D;&#x00A;У вас есть %d сек., чтобы сохранить результаты работы (запросы, списки, закладки на документы)." id="ShotdownWarning"/>
+  <string title="сетевая версия для внутреннего использования" id="cvkInternalNonDebugNetwork"/>
+  <string title="сетевая коммерческая версия" id="cvkCommerceNonDebugNetwork"/>
+  <string title="сетевая отладочная версия для внутреннего использования" id="cvkInternalDebugNetwork"/>
+  <string title="сетевая отладочная коммерческая версия" id="cvkCommerceDebugNetwork"/>
+  <string title="Символ &quot;%s&quot; может использоваться только в конце слова." id="ContextSymbolMustBeAtEndOfWord"/>
+  <string title="Символ &quot;%s&quot; может использоваться только между цифрами или буквами." id="ContextSymbolMustBeBetweenAlphanum"/>
+  <string title="Символ &quot;%s&quot; не может использоваться при контекстном поиске." id="InvalidContextSymbol"/>
+  <string title="Символу &quot;%s&quot; должен предшествовать текст." id="ErrContextSemicolon"/>
+  <string title="Системе не удалось распознать контекст: &quot;%s&quot;, запрос не может быть выполнен. Уточните искомый контекст." id="UnresolvedContext"/>
+  <string title="Системные пользователи" id="culfSystemUsers"/>
+  <string title="Ситуации" id="pi_Search_Sheets_Situations"/>
+  <string title="Ситуация:" id="SituationTitle"/>
+  <string title="Скрыть вкладку &quot;%s&quot;" id="vcmHideTab"/>
+  <string title="Слева" id="li_nfp_Left"/>
+  <string title="Следующий год" id="vtStrNextYear"/>
+  <string title="Следующий месяц" id="vtStrNextMonth"/>
+  <string title="См. комментарий" id="wgNotSureLinkText"/>
+  <string title="Совет дня" id="ilnDayTip"/>
+  <string title="Создание индивидуальной ленты " id="CreatePrivateNewsLine"/>
+  <string title="Создание нового пользователя" id="CreateUserFormCaption"/>
+  <string title="Сортировка по умолчанию" id="pui_DefaultSort"/>
+  <string title="Сохранение документа в файл" id="SaveDocumentVisualizer"/>
+  <string title="Сохранение документов в файл" id="SaveDocumentsVisualizer"/>
+  <string title="Сохранение списка в файл" id="SaveListVisualizer"/>
+  <string title="Сохранение текста" id="nevmmSaveText"/>
+  <string title="Сохранение текста в формате &quot;%s&quot;" id="nevmmSaveFormattedText"/>
+  <string title="Сохранить выделенные документы как..." id="ListSaveSelectedDocuments"/>
+  <string title="Сохранить запрос как..." id="SaveLoadSaveAs"/>
+  <string title="Сохранить как..." id="SaveAsCaption"/>
+  <string title="Сохранить как..." id="SaveAsDialogTitle"/>
+  <string title="Сохранить список как..." id="ListSaveAs"/>
+  <string title="Сохраняемый объект" id="fiSaveCaption"/>
+  <string title="Списки" id="ffLists"/>
+  <string title="Списки документов" id="pui_List"/>
+  <string title="Список" id="lcConsultation"/>
+  <string title="Список" id="ListCaption"/>
+  <string title="Список : " id="lcUsualList"/>
+  <string title="Список документов" id="nevpmDocumentList"/>
+  <string title="Список документов" id="pi_List_Sheets_Filters"/>
+  <string title="Список конфигураций" id="pi_Sheets_Config_Hint"/>
+  <string title="Список пользователей" id="cpUserListCaption"/>
+  <string title="Список рассылок" id="MonitoringsList"/>
+  <string title="Список редакций документа" id="pi_Document_Sheets_Redactions_Hint"/>
+  <string title="Список связей документа может быть неполон, т.к. в состав Вашего комплекта не включены специализированные информационные блоки:&#x00D;&#x00A;&#x00D;&#x00A;%s&#x00D;&#x00A;&#x00D;&#x00A;" id="NotFullTypedCR"/>
+  <string title="Список ситуации первого уровня в ППС" id="pi_Search_Sheets_Situations_Hint"/>
+  <string title="Список, сохраненный в &quot;Мои документы&quot; : " id="lcSavedList"/>
+  <string title="Справа" id="li_nfp_Right"/>
+  <string title="Справка о &quot;%s&quot;" id="nevmmReference"/>
+  <string title="Спрашивать подтверждение на построение автореферата после поиска" id="piSearchListIsBuildReview_Hint"/>
+  <string title="Спрашивать подтверждение на построение списка после поиска" id="pi_Search_List_IsBuild_Hint"/>
+  <string title="Ср" id="vtWednesday"/>
+  <string title="Стандартная" id="ConfDefault"/>
+  <string title="Стандартная" id="pui_NewSerachCard"/>
+  <string title="Статус" id="cpStatusCaption"/>
+  <string title="Статус документа на контроле изменился:" id="csStatusChanged"/>
+  <string title="Статус регистрации" id="cpMURegStatusCaption"/>
+  <string title="Стиль &quot;%s&quot;" id="StyleEditorExampleHint"/>
+  <string title="Стиль карточки ситуации" id="pi_Search_SituationType_Hint"/>
+  <string title="Страница %d из %d" id="nevmmPageCounter"/>
+  <string title="Строка таблицы" id="nevmhhTableRow"/>
+  <string title="Структура документа" id="cpContentsCaption"/>
+  <string title="Структура документа" id="pi_Document_Sheets_Contents"/>
+  <string title="Судебная практика (нет в базе)" id="li_Document_CRType5"/>
+  <string title="Существует неопределенность в периоде действия данной редакции %s" id="UnshureRedactionPeriod"/>
+  <string title="таблица (*.xls)|*.XLS" id="XLSFileFilter"/>
+  <string title="Текст" id="TextFormParamsCaption"/>
+  <string title="текст (*.rtf)|*.RTF" id="RTFFileFilter"/>
+  <string title="Текст документа будет показан полностью" id="wgIsInPartsHint"/>
+  <string title="Текст документа будет представлен в актуальной редакции" id="wgBadRedationHint"/>
+  <string title="Тексты документов" id="SaveDialogListContents"/>
+  <string title="Тематика рассылки (%s)" id="cqnMailListForSave"/>
+  <string title="Тематика рассылки мониторингов" id="qtMailList"/>
+  <string title="Термин %d из %d" id="DictionStatusInfoFormat"/>
+  <string title="Термины словаря:" id="pui_cFrmIDDictionaryTerm"/>
+  <string title="Территория регулирования" id="cpTerritoryCaption"/>
+  <string title="Тест на знание возможностей системы ГАРАНТ" id="ilnTest"/>
+  <string title="Тип" id="cpTypeCaption"/>
+  <string title="Тип выделения в тексте" id="pi_Document_PermanentSelection_Hint"/>
+  <string title="Тип сортировки:" id="pi_List_SortType"/>
+  <string title="Тип:" id="pi_Document_CRType0"/>
+  <string title="Тип:" id="pi_Document_CRType1"/>
+  <string title="Толковый словарь" id="cpDictionCaption"/>
+  <string title="Только выделенные документы" id="SaveDialogListSelection"/>
+  <string title="Только выделенный фрагмент" id="SaveDialogDocumentSelection"/>
+  <string title="Топик: %d" id="TopicHeader"/>
+  <string title="Удалить" id="ddcmDeleteConfigValue"/>
+  <string title="Удалить" id="nevmcmDelete"/>
+  <string title="Удалить конфигурацию &quot;%s&quot;" id="DeleteConfigConfirmHint"/>
+  <string title="Удалить/очистить строку ввода" id="HintBtnDeleteAttr"/>
+  <string title="Указанный контекст не найден в дереве" id="nsc_cpmContextNotFound"/>
+  <string title="Установить ссылку на..." id="SetHyperLink"/>
+  <string title="Утративший силу документ" id="lntDocAbolished"/>
+  <string title="Файлы XML (*.xml)|*.xml" id="XMLFileFilter"/>
+  <string title="Февраль" id="vtFebruary"/>
+  <string title="Фильтр" id="FilterCaption"/>
+  <string title="Фильтр (%s)" id="cqnOldFilterForSave"/>
+  <string title="Фильтр (%s)" id="SimpleFilterName"/>
+  <string title="Фильтр (5.х)" id="ftFilter"/>
+  <string title="Фильтр (5.х)" id="qtOldFilter"/>
+  <string title="Фильтр по базовому поиску (%s)" id="BaseSearchFilterName"/>
+  <string title="Фильтр по источнику опубликования (%s)" id="PublishSourceFilterName"/>
+  <string title="Фильтр по реквизитам (%s)" id="AttributesFilterName"/>
+  <string title="Фильтр по ситуации (%s)" id="SituationFilterName"/>
+  <string title="Фильтры" id="ffFilters"/>
+  <string title="Фильтры" id="LocalFilterTree"/>
+  <string title="Фильтры" id="pui_Filters"/>
+  <string title="Форматирование" id="nevmmFormating"/>
+  <string title="Формы документов (нет в базе)" id="li_Document_CRType3"/>
+  <string title="Форум" id="ilnForum"/>
+  <string title="Французский" id="li_il_French"/>
+  <string title="Чт" id="vtThursday"/>
+  <string title="Чтение файла" id="l3mmReadFile"/>
+  <string title="Эверест" id="nevtfEverest"/>
+  <string title="Эверест (binary)" id="nevtfEverestBin"/>
+  <string title="Экспорт документа в MS-Word" id="ExportDocumentVisualizer"/>
+  <string title="Экспорт списка в MS-Word" id="ExportListVisualizer"/>
+  <string title="Экспортировать и печатать списки без вхождений" id="pi_List_PrintOnlyFirstLevel"/>
+  <string title="Экспортировать консультацию" id="ExportConsultationCaption"/>
+  <string title="&apos;Элемент системы с которого начинается её работа&apos;" id="pi_OpenOnStartHint"/>
+  <string title="Энциклопедия мониторинга" id="ilnGarantopedia"/>
+  <string title="Язык" id="pui_Language"/>
+  <string title="Язык интерфейса:" id="pi_IfaceLanguage"/>
+  <string title="Январь" id="vtJanuary"/>
+  <string title="Ячейка таблицы" id="nevmhhTableCell"/>
+ </strings>
+</application>

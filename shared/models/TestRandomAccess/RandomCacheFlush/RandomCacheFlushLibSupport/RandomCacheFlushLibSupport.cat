@@ -1,0 +1,646 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "RandomCacheFlushLibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/RandomCacheFlush/RandomCacheFlushLibSupport|49D5F5EF03DA
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"49D5F5EF03DA"
+    documentation 	"RandomCacheFlushLibSupport"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49D5F63800B7"
+	    supplier   	"Logical View::shared::GCI::MMap"
+	    quidu      	"4971D6A70073")
+	(object Visibility_Relationship
+	    quid       	"49D5FF900134"
+	    supplier   	"Logical View::shared::GCI::ResourceInfo"
+	    quidu      	"49990AA703BF"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "RandomCacheFlushEntryPoint"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"W:/labs/TestRandomAccess/RandomCacheFlush/RandomCacheFlushEntryPoint.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/RandomCacheFlush/RandomCacheFlushLibSupport/RandomCacheFlushEntryPoint|49D5F6580351
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"W:/labs/TestRandomAccess/RandomCacheFlush/RandomCacheFlushEntryPoint.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D5F6580351*"
+		    value      	(value Text 
+|//#UC START# *49D5F6580351*¤		LOG_D (("Hello world, this is RandomCacheFlushEntryPoint!"));¤		ftest_as_in_settings ();¤		//#UC END# *49D5F6580351*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D5F6580351_FINI*"
+		    value      	(value Text 
+|//#UC START# *49D5F6580351_FINI*¤	//#UC END# *49D5F6580351_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D5F6580351_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *49D5F6580351_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *49D5F6580351_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D5F6580351_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *49D5F6580351_CUSTOM_INCLUDES*¤#include "shared/Core/GDS/StopWatch.h"¤//#UC END# *49D5F6580351_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D5F6580351_CUSTOM_BODY*"
+		    value      	(value Text 
+|//#UC START# *49D5F6580351_CUSTOM_BODY*¤const unsigned long MAX_ELEM_SIZE = 65536;¤¤typedef void (*XchgFunc) (char* base, unsigned long buf_offset, void* buf, unsigned long buf_size, bool w);¤typedef unsigned long (*PosFunc) (unsigned long i, unsigned long n);¤typedef void (*BufsFunc) (char* buf, unsigned long buf_size, PosFunc pf);¤¤void fmem_xchg (char* base, unsigned long buf_offset, void* buf, unsigned long buf_size, bool w) {¤	if (w) {¤		ACE_OS::memcpy (base + buf_offset, buf, buf_size);¤	} else {¤		ACE_OS::memcpy (buf, base + buf_offset, buf_size);¤	}¤}¤¤unsigned long fpos_rnd (unsigned long i, unsigned long n) {¤	static unsigned long x0 = 1001;¤	unsigned long c = ACE::crc32 (&x0, sizeof (unsigned long));¤	unsigned short ci = (unsigned short) ACE::crc_ccitt (&i, sizeof (unsigned long));¤	unsigned long sh8 = (x0 << (ci % (8*sizeof (unsigned short))));¤	unsigned long x = (c*c + sh8 + x0);¤	x0 = x;¤	x %= n;¤	GDS_ASSERT (x < n);¤	//LOG_I (("x = %d", x));¤	return x;¤}¤¤unsigned long my_long_rand (unsigned long i, unsigned long max_bound) { // íå îáÿçàí áûòü õîðîøèì, ãëàâíîå ÷òîáû áîëüøå íèãäå íå âñòðå÷àëñÿ¤	static unsigned long x0 = 32124214UL;¤	unsigned long x = (1664525UL * x0 + 9869054UL) % 0xFFFFFFFFUL;¤	x0 = x;¤	return (x % max_bound);¤}¤unsigned long my_long_rand_2 (unsigned long i, unsigned long max_bound) { // íå îáÿçàí áûòü õîðîøèì, ãëàâíîå ÷òîáû áîëüøå íèãäå íå âñòðå÷àëñÿ¤	static unsigned long x0 = 76987687UL;¤	unsigned long x = (16807UL * x0 + 5765876UL) % 0xFFFFFFFFUL;¤	x0 = x;¤	return (x % max_bound);¤}¤¤unsigned long fpos_seq (unsigned long i, unsigned long n) {¤	GDS_ASSERT (i < n);¤	return i;¤}¤¤void fbuf_set (char* buf, unsigned long buf_size, PosFunc pf) {¤	for (unsigned long j = 0; j < buf_size; ++j) {¤		buf [j] = (char) pf (j, 256);¤	}¤}¤¤void ftest_create (const char* file_name, XchgFunc fx, PosFunc fp, PosFunc fpb, BufsFunc fb, unsigned long n, unsigned long buf_size) {¤	LOG_I (("%s (): n = %u, buf_size = %u", GDS_CURRENT_FUNCTION, n, buf_size));¤	GDS_ASSERT (buf_size <= MAX_ELEM_SIZE);¤	unsigned long file_size = n*buf_size/65536*65536+65536;¤	LOG_I (("file_size = %u", file_size));¤	GCI::MMap::FileForMem_var ffm = GCI::MMap::FileForMemFactory::create (file_name, file_size, 0);¤	size_t ins_ofs = 0;¤	GCI::MMap::Memory_var m = ffm->get_memory (0, file_size, ins_ofs);¤	GDS_ASSERT (ins_ofs == 0);¤	char* base_addr = (char*) m->get_base_addr ();¤	char buf [MAX_ELEM_SIZE];¤	for (unsigned long i = 0; i < n; ++i) {¤		fb (buf, buf_size, fpb);¤		unsigned long offset = fp (i, n) * buf_size;¤		fx (base_addr, offset, buf, buf_size, true);¤	}¤	LOG_I (("done."));¤}¤¤void ftest_update (const char* file_name, XchgFunc fx, PosFunc fp, PosFunc fpb, BufsFunc fb, unsigned long n, unsigned long n0, unsigned long buf_size) {¤	LOG_I (("%s (): n = %u, n0 = %u, buf_size = %u", GDS_CURRENT_FUNCTION, n, n0, buf_size));¤	GDS_ASSERT (buf_size <= MAX_ELEM_SIZE);¤	unsigned long file_size = n*buf_size/65536*65536+65536;¤	LOG_I (("file_size = %u", file_size));¤	GCI::MMap::FileForMem_var ffm = GCI::MMap::FileForMemFactory::open (file_name, 0, 0);¤	size_t ins_ofs = 0;¤	GCI::MMap::Memory_var m = ffm->get_memory (0, file_size, ins_ofs);¤	GDS_ASSERT (ins_ofs == 0);¤	char* base_addr = (char*) m->get_base_addr ();¤	char buf [MAX_ELEM_SIZE];¤	for (unsigned long i = 0; i < n0; ++i) {¤		fb (buf, buf_size, fpb);¤		unsigned long offset = fp (i, n) * buf_size;¤		fx (base_addr, offset, buf, buf_size, true);¤	}¤	LOG_I (("done."));¤}¤¤void ftest_open (const char* file_name, XchgFunc fx, PosFunc fp, BufsFunc fb, unsigned long n, unsigned long buf_size, bool w) {¤	LOG_I (("%s (): n = %u, buf_size = %u", GDS_CURRENT_FUNCTION, n, buf_size));¤	GDS_ASSERT (buf_size <= MAX_ELEM_SIZE);¤	unsigned long file_size = n*buf_size/65536*65536+65536;¤	LOG_I (("file_size = %u", file_size));¤	GCI::MMap::FileForMem_var ffm = GCI::MMap::FileForMemFactory::open (file_name, 0, 0);¤	size_t ins_ofs = 0;¤	GCI::MMap::Memory_var m = ffm->get_memory (0, file_size, ins_ofs);¤	GDS_ASSERT (ins_ofs == 0);¤	char* base_addr = (char*) m->get_base_addr ();¤	char buf [MAX_ELEM_SIZE];¤	for (unsigned long i = 0; i < n; ++i) {¤		fb (buf, buf_size, fp);¤		unsigned long offset = fp (i, n) * buf_size;¤		fx (base_addr, offset, buf, buf_size, w);¤	}¤}¤¤void ftest_as_in_settings () {¤	LOG_I (("%s (): sequential create and random update by different random values", GDS_CURRENT_FUNCTION));¤¤	std::string settings_file_name = RandomCacheFlushSettings::get_file_name ();¤	unsigned long settings_vector_size = 20*1024*1024;¤	unsigned long settings_element_size = 64;¤¤	LOG_I (("settings_file_name = %s", settings_file_name.c_str ()));¤	LOG_I (("settings_vector_size = %d", settings_vector_size));¤	LOG_I (("settings_element_size = %d", settings_element_size));¤¤	GDS_ASSERT (settings_element_size <= MAX_ELEM_SIZE);¤¤	::Core::GDS::StopWatch sw ("ftest_as_in_settings");¤¤	::Core::GDS::HiResCounter timer;¤	double sec1 = timer.get_seconds ();¤¤	ftest_create (settings_file_name.c_str (), fmem_xchg, fpos_seq, my_long_rand, fbuf_set, settings_vector_size, settings_element_size);¤	ftest_update (settings_file_name.c_str (), fmem_xchg, my_long_rand_2, my_long_rand_2, fbuf_set, settings_vector_size, settings_vector_size / (64 * 8), settings_element_size);¤¤	double sec2 = timer.get_seconds ();¤	LOG_I (("%s (fpos_seq, fpos_rnd): throughput = %4.4f elements/sec", GDS_CURRENT_FUNCTION, double (settings_vector_size) / (sec2 - sec1)));¤¤	GCI::ResourceInfo::ProcessMemoryData myinfo = GCI::ResourceInfo::ProcessMemoryInfoFactory::get ().get_memory_info ();¤	LOG_I (("%s (): phys_memory_used = %4.4f Megabytes", GDS_CURRENT_FUNCTION, double (myinfo.max_usage) / 1024.0 / 1024.0));¤}¤//#UC END# *49D5F6580351_CUSTOM_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49D5F6580351_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *49D5F6580351_CUSTOM_INCLUDES*¤//#UC END# *49D5F6580351_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49D5F6580351*"
+		    value      	"//#UC START# *49D5F6580351*¤//#UC END# *49D5F6580351*"))
+	    quid       	"49D5F6580351"
+	    documentation 	"RandomCacheFlushEntryPoint"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49D5F696012A"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCI::MMap::FileForMem"
+		    quidu      	"4971EE25002F")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49D5F6BD00EB"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCI::MMap::Memory"
+		    quidu      	"4971D83F032E")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49D5F76301BA"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestRandomAccess::RandomCacheFlush::RandomCacheFlushLibSupport::RandomCacheFlushSettings"
+		    quidu      	"49D5F73F0212")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49D5FFB7021E"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCI::ResourceInfo::ProcessMemoryInfo"
+		    quidu      	"46DBF5D002FD"))
+	    language   	"MDA Generator")
+	(object Class "RandomCacheFlushSettings"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"W:/labs/TestRandomAccess/RandomCacheFlush/RandomCacheFlushSettings.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"W:/labs/TestRandomAccess/RandomCacheFlush/RandomCacheFlushSettings.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/RandomCacheFlush/RandomCacheFlushLibSupport/RandomCacheFlushSettings|49D5F73F0212
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49D5F73F0212"
+	    documentation 	"RandomCacheFlushSettings"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "file_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"49D5F76802DA"
+		    documentation 	"file_name"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"49D5F653028F"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::TestRandomAccess::RandomCacheFlush::RandomCacheFlushLibSupport::RandomCacheFlushEntryPoint" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(420, 249)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(110, 219)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	620
+			justify    	0
+			label      	"• RandomCacheFlushEntryPoint")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(110, 169)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	620
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49D5F6580351"
+		    width      	638
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::MMap::Memory" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1386, 564)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1283, 536)
+			nlines     	1
+			max_width  	206
+			justify    	0
+			label      	"Memory")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1283, 486)
+			anchor     	10
+			nlines     	1
+			max_width  	203
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4971D83F032E"
+		    width      	224
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::MMap::FileForMem" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1422, 246)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1268, 218)
+			nlines     	1
+			max_width  	308
+			justify    	0
+			label      	"• FileForMem")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1268, 168)
+			anchor     	10
+			nlines     	1
+			max_width  	308
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4971EE25002F"
+		    width      	326
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @5
+			Parent_View 	@4
+			location   	(987, 207)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.480443
+			height     	41
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49D5F696012A"
+		    client     	@1
+		    supplier   	@3
+		    vertices   	(list Points
+			(739, 247)
+			(1258, 246))
+		    line_style 	0)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(973, 374)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.444947
+			height     	53
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49D5F6BD00EB"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(706, 341)
+			(1273, 526))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::TestRandomAccess::RandomCacheFlush::RandomCacheFlushLibSupport::RandomCacheFlushSettings" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(618, 837)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(326, 803)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"• RandomCacheFlushSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(326, 753)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"49D5F73F0212"
+		    compartment 	(object Compartment
+			Parent_View 	@8
+			location   	(326, 864)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	1
+			max_width  	368
+			justify    	1)
+		    width      	602
+		    height     	192
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(631, 503)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49D5F76301BA"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(450, 341)
+			(584, 740))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GCI::ResourceInfo::ProcessMemoryInfo" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1509, 861)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1283, 833)
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"• ProcessMemoryInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(1283, 783)
+			anchor     	10
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"46DBF5D002FD"
+		    width      	470
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @12
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @13
+			Parent_View 	@12
+			location   	(994, 520)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.507032
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49D5FFB7021E"
+		    client     	@1
+		    supplier   	@11
+		    vertices   	(list Points
+			(585, 341)
+			(1349, 770))
+		    line_style 	0)))))

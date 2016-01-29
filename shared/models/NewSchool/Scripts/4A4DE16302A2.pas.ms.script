@@ -1,0 +1,2179 @@
+// k2Core 4A4DE16302A2 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A4DE16302A2
+
+FORWARD ME_53AABF30022F
+
+: ME_53AAC0110237
+ CONST UID '53AAC0110237'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53AABF30022F // Tk2PropertyArray
+ ;
+
+ref; // ME_53AAC0110237 l3Items_NoSort
+
+: ME_53AABFA60396
+ CONST UID '53AABFA60396'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_53AABF30022F // Tk2PropertyArray
+ ;
+ : Target WL 'ME_5331A06F028A' '47913B47006E.pas.ms.script' // Tl3VariantDef
+ ;
+
+ref; // ME_53AABFA60396 ItemType
+
+: ME_47B2C42A0163_ME_53AABF30022F
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_53AABF30022F // Tk2PropertyArray
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_53AABF30022F AssignItem
+
+: ME_47B99D4503A2_ME_53AABF30022F
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_53AABF30022F // Tk2PropertyArray
+ ;
+ref; // ME_47B99D4503A2_ME_53AABF30022F CompareExistingItems
+
+: ME_53AABF30022F
+ CONST UID '53AABF30022F'
+ CONST Name 'Tk2PropertyArray'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE16302A2 // k2Core
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4B86890E0307' '47913B47006E.pas.ms.script' // l3OpenArray
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_53AABFA60396 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_53AABF30022F // AssignItem
+ ME_47B99D4503A2_ME_53AABF30022F // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_53AAC0110237 // l3Items_NoSort
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2PropertyArray.pas'
+
+ref; // ME_53AABF30022F Tk2PropertyArray
+
+FORWARD ME_4A5341AA0315
+
+: ME_4A5341CF028F
+ CONST UID '4A5341CF028F'
+ CONST Name 'Tk2ChildrenProperty'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A5341AA0315 // k2BaseHack
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4A5341CF028F Tk2ChildrenProperty
+
+: ME_4A5341AA0315
+ CONST UID '4A5341AA0315'
+ CONST Name 'k2BaseHack'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Хак для разрешения циклических ссылок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4DE16302A2 // k2Core
+ ;
+ : Children
+   @ ( ME_4A5341CF028F // Tk2ChildrenProperty
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2BaseHack.pas'
+
+ref; // ME_4A5341AA0315 k2BaseHack
+
+FORWARD ME_4A4DE48C0344
+
+FORWARD ME_4A4E1F7A029F
+
+FORWARD ME_53C7DA31003C
+
+: ME_53C7DA68010A
+ CONST UID '53C7DA68010A'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_53C7DA68010A aListener
+
+: ME_53C7DA590042
+ CONST UID '53C7DA590042'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7DA31003C // AddCreatedListener
+ ;
+ : Parameters
+   @ ( ME_53C7DA68010A // aListener
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53C7DA590042 DoIt
+
+: ME_53C7DA31003C
+ CONST UID '53C7DA31003C'
+ CONST Name 'AddCreatedListener'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4E1F7A029F // Tk2TypeTablePrim
+ ;
+ : Operations
+   @ ( ME_53C7DA590042 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_53C7DA31003C AddCreatedListener
+
+FORWARD ME_53C7D8AB0282
+
+: ME_53C7DA1C02DB
+ CONST UID '53C7DA1C02DB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4E1F7A029F // Tk2TypeTablePrim
+ ;
+ : Target ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+
+ref; // ME_53C7DA1C02DB 
+
+: ME_4A4E1F7A029F
+ CONST UID '4A4E1F7A029F'
+ CONST Name 'Tk2TypeTablePrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_53C7DA31003C // AddCreatedListener
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_53C7DA1C02DB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.07.2009 19:11'
+
+ref; // ME_4A4E1F7A029F Tk2TypeTablePrim
+
+FORWARD ME_4A4DE5000202
+
+FORWARD ME_4A4DE5850182
+
+FORWARD ME_4A4DE0BF039E
+
+: ME_4A4DE5340236
+ CONST UID '4A4DE5340236'
+ CONST Name 'TagType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE0BF039E // Tk2Base
+ ;
+ : Target ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DE5340236 TagType
+
+: ME_4A4DE5AF036A
+ CONST UID '4A4DE5AF036A'
+ CONST Name 'AsProp'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE0BF039E // Tk2Base
+ ;
+ : Target ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DE5AF036A AsProp
+
+: ME_4A4DE0BF039E
+ CONST UID '4A4DE0BF039E'
+ CONST Name 'Tk2Base'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( WL 'ME_5331A06F028A' '47913B47006E.pas.ms.script' // Tl3VariantDef
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A4DE5340236 // TagType
+ ME_4A4DE5AF036A // AsProp
+ ) .SequenceCode.It
+ ; // Attributes
+ : Forwarded
+   @ ( ME_4A4DE5000202 // Tk2TypePrim
+ ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ) .SequenceCode.It
+ ; // Forwarded
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.07.2009 14:43'
+
+ref; // ME_4A4DE0BF039E Tk2Base
+
+FORWARD ME_4FFEF43201C7
+
+: ME_5260173603A3
+ CONST UID '5260173603A3'
+ CONST Name 'Tk2TypeIDPrim'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Inherits
+   @ ( WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_5260173603A3 Tk2TypeIDPrim
+
+: ME_54785F5103A0
+ CONST UID '54785F5103A0'
+ CONST Name 'Tk2TypeIDSet'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Inherits
+   @ ( ME_5260173603A3 // Tk2TypeIDPrim
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_54785F5103A0 Tk2TypeIDSet
+
+FORWARD ME_4A4E1D7C01DB
+
+: ME_54785F7002C1
+ CONST UID '54785F7002C1'
+ CONST Name 'f_Small'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+ : Target ME_54785F5103A0 // Tk2TypeIDSet
+ ;
+
+ref; // ME_54785F7002C1 f_Small
+
+FORWARD ME_54785FC20224
+
+: ME_54785FF00148
+ CONST UID '54785FF00148'
+ CONST Name 'aTypeID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54785FF00148 aTypeID
+
+: ME_54785FD702ED
+ CONST UID '54785FD702ED'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54785FC20224 // Has
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_54785FF00148 // aTypeID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54785FD702ED DoIt
+
+: ME_54785FC20224
+ CONST UID '54785FC20224'
+ CONST Name 'Has'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+ : Operations
+   @ ( ME_54785FD702ED // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54785FC20224 Has
+
+FORWARD ME_54785FF603C6
+
+: ME_5478600602D9
+ CONST UID '5478600602D9'
+ CONST Name 'aTypeID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5478600602D9 aTypeID
+
+: ME_547860010059
+ CONST UID '547860010059'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54785FF603C6 // Include
+ ;
+ : Parameters
+   @ ( ME_5478600602D9 // aTypeID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_547860010059 DoIt
+
+: ME_54785FF603C6
+ CONST UID '54785FF603C6'
+ CONST Name 'Include'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+ : Operations
+   @ ( ME_547860010059 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54785FF603C6 Include
+
+FORWARD ME_547863510376
+
+: ME_5478636303B3
+ CONST UID '5478636303B3'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+
+ref; // ME_5478636303B3 anOther
+
+: ME_5478635B0395
+ CONST UID '5478635B0395'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_547863510376 // Assign
+ ;
+ : Parameters
+   @ ( ME_5478636303B3 // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5478635B0395 DoIt
+
+: ME_547863510376
+ CONST UID '547863510376'
+ CONST Name 'Assign'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+ : Operations
+   @ ( ME_5478635B0395 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_547863510376 Assign
+
+: ME_479731C50290_ME_4A4E1D7C01DB
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+ref; // ME_479731C50290_ME_4A4E1D7C01DB Cleanup
+
+: ME_47A042E100E2_ME_4A4E1D7C01DB
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+ref; // ME_47A042E100E2_ME_4A4E1D7C01DB InitFields
+
+: ME_4A4E1D7C01DB
+ CONST UID '4A4E1D7C01DB'
+ CONST Name 'Tk2TypeIDs'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Inherits
+   @ ( WL 'ME_4CA9A2EB01E4' '47913B47006E.pas.ms.script' // Tl3ProtoIntegerList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_54785F7002C1 // f_Small
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_54785FC20224 // Has
+ ME_54785FF603C6 // Include
+ ME_547863510376 // Assign
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4A4E1D7C01DB // Cleanup
+ ME_47A042E100E2_ME_4A4E1D7C01DB // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4A4E1D7C01DB Tk2TypeIDs
+
+: ME_4A4E17910389
+ CONST UID '4A4E17910389'
+ CONST Name 'ID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4A4E17910389 ID
+
+: ME_4A4E1D8E004C
+ CONST UID '4A4E1D8E004C'
+ CONST Name 'f_IsParents'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+
+ref; // ME_4A4E1D8E004C f_IsParents
+
+: ME_4A4E1D9F0381
+ CONST UID '4A4E1D9F0381'
+ CONST Name 'f_IsNotParents'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+
+ref; // ME_4A4E1D9F0381 f_IsNotParents
+
+: ME_4A5335E200E5
+ CONST UID '4A5335E200E5'
+ CONST Name 'f_IsOrd'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
+ ;
+
+ref; // ME_4A5335E200E5 f_IsOrd
+
+: ME_4A533DF0031C
+ CONST UID '4A533DF0031C'
+ CONST Name 'AtomType'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4A533DF0031C AtomType
+
+: ME_4C177F23037E
+ CONST UID '4C177F23037E'
+ CONST Name 'DisabledChildTypeIDs'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Типы запрещённых детей' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4C177F23037E DisabledChildTypeIDs
+
+: ME_4E7074080099
+ CONST UID '4E7074080099'
+ CONST Name 'FormatInfoFactory'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Фабрика для изотовления информации о форматировании' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_476775CB036A' '4AB0C3C60310.pas.ms.script' // TClass
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4E7074080099 FormatInfoFactory
+
+: ME_4FFEF74A0141
+ CONST UID '4FFEF74A0141'
+ CONST Name 'TypeTable'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target ME_4A4E1F7A029F // Tk2TypeTablePrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4FFEF74A0141 TypeTable
+
+: ME_B8BEFDD24070
+ CONST UID 'B8BEFDD24070'
+ CONST Name 'f_ID'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ID' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_B8BEFDD24070 f_ID
+
+: ME_A8A7A09B21B7
+ CONST UID 'A8A7A09B21B7'
+ CONST Name 'f_AtomType'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства AtomType' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_A8A7A09B21B7 f_AtomType
+
+: ME_9B04698A01C7
+ CONST UID '9B04698A01C7'
+ CONST Name 'f_DisabledChildTypeIDs'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DisabledChildTypeIDs' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target ME_4A4E1D7C01DB // Tk2TypeIDs
+ ;
+
+ref; // ME_9B04698A01C7 f_DisabledChildTypeIDs
+
+: ME_FD75FB83D9B5
+ CONST UID 'FD75FB83D9B5'
+ CONST Name 'f_FormatInfoFactory'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства FormatInfoFactory' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_476775CB036A' '4AB0C3C60310.pas.ms.script' // TClass
+ ;
+
+ref; // ME_FD75FB83D9B5 f_FormatInfoFactory
+
+: ME_CDC72412587B
+ CONST UID 'CDC72412587B'
+ CONST Name 'f_TypeTable'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства TypeTable' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target ME_4A4E1F7A029F // Tk2TypeTablePrim
+ ;
+
+ref; // ME_CDC72412587B f_TypeTable
+
+FORWARD ME_4C177E9D0375
+
+: ME_4C177EE5032C
+ CONST UID '4C177EE5032C'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C177EE5032C anID
+
+: ME_4C177EDF021B
+ CONST UID '4C177EDF021B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C177E9D0375 // IsDisabledChildTypeID
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4C177EE5032C // anID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C177EDF021B DoIt
+
+: ME_4C177E9D0375
+ CONST UID '4C177E9D0375'
+ CONST Name 'IsDisabledChildTypeID'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Проверяет, что тип ребёнка является запрещённым' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Operations
+   @ ( ME_4C177EDF021B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4C177E9D0375 IsDisabledChildTypeID
+
+FORWARD ME_4C177E4700AB
+
+: ME_4C177E96000D
+ CONST UID '4C177E96000D'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C177E96000D anID
+
+: ME_4C177E8A0002
+ CONST UID '4C177E8A0002'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C177E4700AB // AddDisabledChildTypeID
+ ;
+ : Parameters
+   @ ( ME_4C177E96000D // anID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C177E8A0002 DoIt
+
+: ME_4C177E4700AB
+ CONST UID '4C177E4700AB'
+ CONST Name 'AddDisabledChildTypeID'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Добавляет тип запрещённого ребёнка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Operations
+   @ ( ME_4C177E8A0002 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4C177E4700AB AddDisabledChildTypeID
+
+FORWARD ME_4A534133014D
+
+: ME_4A534142039B
+ CONST UID '4A534142039B'
+ CONST Name 'DefaultChildTypeID'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A534133014D // DefaultChildTypeID
+ ;
+ : Target ME_4A4DE5000202 // Tk2TypePrim
+ ;
+
+ref; // ME_4A534142039B DefaultChildTypeID
+
+: ME_4A5344A40062
+ CONST UID '4A5344A40062'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A534133014D // DefaultChildTypeID
+ ;
+ : Target ME_4A5341CF028F // Tk2ChildrenProperty
+ ;
+
+ref; // ME_4A5344A40062 
+
+: ME_4A534133014D
+ CONST UID '4A534133014D'
+ CONST Name 'DefaultChildTypeID'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Operations
+   @ ( ME_4A534142039B // DefaultChildTypeID
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4A5344A40062 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4A534133014D DefaultChildTypeID
+
+: ME_4A4E18B40267
+ CONST UID '4A4E18B40267'
+ CONST Name 'anAtomType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4A4DE5000202 // Tk2TypePrim
+ ;
+
+ref; // ME_4A4E18B40267 anAtomType
+
+: ME_4A4E01DA0396
+ CONST UID '4A4E01DA0396'
+ CONST Name 'GetIsKindOf'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4A4E18B40267 // anAtomType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4A4E01DA0396 GetIsKindOf
+
+: ME_52615ECC03BD
+ CONST UID '52615ECC03BD'
+ CONST Name 'InheritsFrom'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+
+ref; // ME_52615ECC03BD InheritsFrom
+
+: ME_52601998019B
+ CONST UID '52601998019B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_52601998019B 
+
+: ME_5266A6B103C9
+ CONST UID '5266A6B103C9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ : Target WL 'ME_5266A6750356' '52669BFC024E.pas.ms.script' // Empty
+ ;
+
+ref; // ME_5266A6B103C9 
+
+: ME_4A4DE5340236_ME_4FFEF43201C7
+ CONST UID '4A4DE5340236'
+ CONST Name 'TagType'
+ : Original ME_4A4DE5340236 // TagType
+ ;
+ : Implementor ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4A4DE5340236_ME_4FFEF43201C7 TagType
+
+: ME_479731C50290_ME_4FFEF43201C7
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ref; // ME_479731C50290_ME_4FFEF43201C7 Cleanup
+
+: ME_532AE8F2009A_ME_4FFEF43201C7
+ CONST UID '532AE8F2009A'
+ CONST Name 'GetIsOrd'
+ : Original WL 'ME_532AE8F2009A' '47913B47006E.pas.ms.script' // GetIsOrd
+ ;
+ : Implementor ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ref; // ME_532AE8F2009A_ME_4FFEF43201C7 GetIsOrd
+
+: ME_533129DC037C_ME_4FFEF43201C7
+ CONST UID '533129DC037C'
+ CONST Name 'GetIsKindOfPrim'
+ : Original WL 'ME_533129DC037C' '47913B47006E.pas.ms.script' // GetIsKindOfPrim
+ ;
+ : Implementor ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ref; // ME_533129DC037C_ME_4FFEF43201C7 GetIsKindOfPrim
+
+: ME_4FFEF43201C7
+ CONST UID '4FFEF43201C7'
+ CONST Name 'Tk2TypePrimPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( ME_4A4DE0BF039E // Tk2Base
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A4E17910389 // ID
+ ME_4A4E1D8E004C // f_IsParents
+ ME_4A4E1D9F0381 // f_IsNotParents
+ ME_4A5335E200E5 // f_IsOrd
+ ME_4A533DF0031C // AtomType
+ ME_4C177F23037E // DisabledChildTypeIDs
+ ME_4E7074080099 // FormatInfoFactory
+ ME_4FFEF74A0141 // TypeTable
+ ME_B8BEFDD24070 // f_ID
+ ME_A8A7A09B21B7 // f_AtomType
+ ME_9B04698A01C7 // f_DisabledChildTypeIDs
+ ME_FD75FB83D9B5 // f_FormatInfoFactory
+ ME_CDC72412587B // f_TypeTable
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4C177E9D0375 // IsDisabledChildTypeID
+ ME_4C177E4700AB // AddDisabledChildTypeID
+ ME_4A534133014D // DefaultChildTypeID
+ ME_4A4E01DA0396 // GetIsKindOf
+ ME_52615ECC03BD // InheritsFrom
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4A4DE5340236_ME_4FFEF43201C7 // TagType
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_4FFEF43201C7 // Cleanup
+ ME_532AE8F2009A_ME_4FFEF43201C7 // GetIsOrd
+ ME_533129DC037C_ME_4FFEF43201C7 // GetIsKindOfPrim
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_5260173603A3 // Tk2TypeIDPrim
+ ME_54785F5103A0 // Tk2TypeIDSet
+ ME_4A4E1D7C01DB // Tk2TypeIDs
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_52601998019B // 
+ ME_5266A6B103C9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4FFEF43201C7 Tk2TypePrimPrim
+
+: ME_4A4DE0E600F4
+ CONST UID '4A4DE0E600F4'
+ CONST Name 'f_tmpName'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4A4DE0E600F4 f_tmpName
+
+: ME_4A4DEC8E00C2
+ CONST UID '4A4DEC8E00C2'
+ CONST Name 'TagIndex'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4A4DEC8E00C2 TagIndex
+
+: ME_4A4DEE580305
+ CONST UID '4A4DEE580305'
+ CONST Name 'AtomType'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4A4DEE580305 AtomType
+
+: ME_4A4DF48F02F1
+ CONST UID '4A4DF48F02F1'
+ CONST Name 'EmptyMapping'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DF48F02F1 EmptyMapping
+
+: ME_4A4DF4D90012
+ CONST UID '4A4DF4D90012'
+ CONST Name 'ReadOnly'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DF4D90012 ReadOnly
+
+: ME_4A4DF71B035B
+ CONST UID '4A4DF71B035B'
+ CONST Name 'MappingTarget'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DF71B035B MappingTarget
+
+: ME_4A4DF7DB00CB
+ CONST UID '4A4DF7DB00CB'
+ CONST Name 'NeedMarkModified'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4A4DF7DB00CB NeedMarkModified
+
+: ME_4A4DF88301A2
+ CONST UID '4A4DF88301A2'
+ CONST Name 'DefaultValue'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DF88301A2 DefaultValue
+
+: ME_4A4DF8C101CC
+ CONST UID '4A4DF8C101CC'
+ CONST Name 'Shared'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4A4DF8C101CC Shared
+
+: ME_4A4DF9A2024D
+ CONST UID '4A4DF9A2024D'
+ CONST Name 'AtomIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4A4DF9A2024D AtomIndex
+
+: ME_4A4DFBFB034D
+ CONST UID '4A4DFBFB034D'
+ CONST Name 'ParentType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4A4DFBFB034D ParentType
+
+: ME_5A21EAC24E37
+ CONST UID '5A21EAC24E37'
+ CONST Name 'f_TagIndex'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства TagIndex' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5A21EAC24E37 f_TagIndex
+
+: ME_9F579E61858F
+ CONST UID '9F579E61858F'
+ CONST Name 'f_AtomType'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства AtomType' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+
+ref; // ME_9F579E61858F f_AtomType
+
+: ME_138D4E38FEB6
+ CONST UID '138D4E38FEB6'
+ CONST Name 'f_NeedMarkModified'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства NeedMarkModified' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_138D4E38FEB6 f_NeedMarkModified
+
+: ME_425BDF57575D
+ CONST UID '425BDF57575D'
+ CONST Name 'f_Shared'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Shared' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_425BDF57575D f_Shared
+
+: ME_4341F0AAB149
+ CONST UID '4341F0AAB149'
+ CONST Name 'f_AtomIndex'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства AtomIndex' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4341F0AAB149 f_AtomIndex
+
+: ME_DFFFA2701895
+ CONST UID 'DFFFA2701895'
+ CONST Name 'f_ParentType'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ParentType' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+
+ref; // ME_DFFFA2701895 f_ParentType
+
+FORWARD ME_4B85667B0066
+
+: ME_4B856696014A
+ CONST UID '4B856696014A'
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4A4DE5000202 // Tk2TypePrim
+ ;
+
+ref; // ME_4B856696014A anOwner
+
+: ME_4B85668D03AD
+ CONST UID '4B85668D03AD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B85667B0066 // Create
+ ;
+ : Parameters
+   @ ( ME_4B856696014A // anOwner
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4B85668D03AD DoIt
+
+: ME_4B85667B0066
+ CONST UID '4B85667B0066'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Operations
+   @ ( ME_4B85668D03AD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4B85667B0066 Create
+
+FORWARD ME_5357A18303D6
+
+: ME_5357A19C021C
+ CONST UID '5357A19C021C'
+ CONST Name 'theProp'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_5331A06F028A' '47913B47006E.pas.ms.script' // Tl3VariantDef
+ ;
+
+ref; // ME_5357A19C021C theProp
+
+: ME_5357A19501FE
+ CONST UID '5357A19501FE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5357A18303D6 // IsThisArray
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5357A19C021C // theProp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5357A19501FE DoIt
+
+: ME_5357A18303D6
+ CONST UID '5357A18303D6'
+ CONST Name 'IsThisArray'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Operations
+   @ ( ME_5357A19501FE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5357A18303D6 IsThisArray
+
+: ME_4A4DFCF403B7
+ CONST UID '4A4DFCF403B7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A4DFCF403B7 
+
+: ME_4A5357CA02D1
+ CONST UID '4A5357CA02D1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4A5357CA02D1 
+
+: ME_53A986B8022D
+ CONST UID '53A986B8022D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_53A963F700CD' '53A963DD0356.pas.ms.script' // Tk2Attributes
+ ;
+
+ref; // ME_53A986B8022D 
+
+: ME_4A4DE5340236_ME_4A4DE5850182
+ CONST UID '4A4DE5340236'
+ CONST Name 'TagType'
+ : Original ME_4A4DE5340236 // TagType
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4A4DE5340236_ME_4A4DE5850182 TagType
+
+: ME_479731C50290_ME_4A4DE5850182
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ref; // ME_479731C50290_ME_4A4DE5850182 Cleanup
+
+: ME_47A869BB02DE_ME_4A4DE5850182
+ CONST UID '47A869BB02DE'
+ CONST Name 'GetAsPCharLen'
+ : Original WL 'ME_47A869BB02DE' '47913B47006E.pas.ms.script' // GetAsPCharLen
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ref; // ME_47A869BB02DE_ME_4A4DE5850182 GetAsPCharLen
+
+: ME_480DD1890221_ME_4A4DE5850182
+ CONST UID '480DD1890221'
+ CONST Name 'GetOwner'
+ : Original WL 'ME_480DD1890221' '4AB0997B00A2.pas.ms.script' // GetOwner
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ref; // ME_480DD1890221_ME_4A4DE5850182 GetOwner
+
+: ME_4A4DE1FE035C_ME_4A4DE5850182
+ CONST UID '4A4DE1FE035C'
+ CONST Name 'GetIsProp'
+ : Original WL 'ME_4A4DE1FE035C' '47913B47006E.pas.ms.script' // GetIsProp
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ref; // ME_4A4DE1FE035C_ME_4A4DE5850182 GetIsProp
+
+: ME_4A4DE5AF036A_ME_4A4DE5850182
+ CONST UID '4A4DE5AF036A'
+ CONST Name 'AsProp'
+ : Original ME_4A4DE5AF036A // AsProp
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4A4DE5AF036A_ME_4A4DE5850182 AsProp
+
+: ME_5331A12D0103_ME_4A4DE5850182
+ CONST UID '5331A12D0103'
+ CONST Name 'IDw'
+ : Original WL 'ME_5331A12D0103' '47913B47006E.pas.ms.script' // IDw
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST "pm" true
+ref; // ME_5331A12D0103_ME_4A4DE5850182 IDw
+
+: ME_5356910A0042_ME_4A4DE5850182
+ CONST UID '5356910A0042'
+ CONST Name 'DoDoMakeTag'
+ : Original WL 'ME_5356910A0042' '47913B47006E.pas.ms.script' // DoDoMakeTag
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ref; // ME_5356910A0042_ME_4A4DE5850182 DoDoMakeTag
+
+: ME_4A4DE5850182
+ CONST UID '4A4DE5850182'
+ CONST Name 'Tk2CustomPropertyPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовое описание свойств' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( ME_4A4DE0BF039E // Tk2Base
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A4DE0E600F4 // f_tmpName
+ ME_4A4DEC8E00C2 // TagIndex
+ ME_4A4DEE580305 // AtomType
+ ME_4A4DF48F02F1 // EmptyMapping
+ ME_4A4DF4D90012 // ReadOnly
+ ME_4A4DF71B035B // MappingTarget
+ ME_4A4DF7DB00CB // NeedMarkModified
+ ME_4A4DF88301A2 // DefaultValue
+ ME_4A4DF8C101CC // Shared
+ ME_4A4DF9A2024D // AtomIndex
+ ME_4A4DFBFB034D // ParentType
+ ME_5A21EAC24E37 // f_TagIndex
+ ME_9F579E61858F // f_AtomType
+ ME_138D4E38FEB6 // f_NeedMarkModified
+ ME_425BDF57575D // f_Shared
+ ME_4341F0AAB149 // f_AtomIndex
+ ME_DFFFA2701895 // f_ParentType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4B85667B0066 // Create
+ ME_5357A18303D6 // IsThisArray
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4A4DE5340236_ME_4A4DE5850182 // TagType
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_4A4DE5850182 // Cleanup
+ ME_47A869BB02DE_ME_4A4DE5850182 // GetAsPCharLen
+ ME_480DD1890221_ME_4A4DE5850182 // GetOwner
+ ME_4A4DE1FE035C_ME_4A4DE5850182 // GetIsProp
+ ME_4A4DE5AF036A_ME_4A4DE5850182 // AsProp
+ ME_5331A12D0103_ME_4A4DE5850182 // IDw
+ ME_5356910A0042_ME_4A4DE5850182 // DoDoMakeTag
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4A4DFCF403B7 // 
+ ME_4A5357CA02D1 // 
+ ME_53A986B8022D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.07.2009 15:03'
+
+ref; // ME_4A4DE5850182 Tk2CustomPropertyPrim
+
+: ME_469F7AFD0224
+ CONST UID '469F7AFD0224'
+ CONST Name 'Ik2Op'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Пачка операций.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( WL 'ME_469F7AC50332' '47913B47006E.pas.ms.script' // Il3OpPack
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_469F7AFD0224 Ik2Op
+
+: ME_4A532A4B037B
+ CONST UID '4A532A4B037B'
+ CONST Name 'Tk2PropertyArray'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ : Inherits
+   @ ( ME_53AABF30022F // Tk2PropertyArray
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4A532A4B037B Tk2PropertyArray
+
+: ME_4A532D3D019E
+ CONST UID '4A532D3D019E'
+ CONST Name 'Pk2CustomPropertyPrim'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ : Inherits
+   @ ( ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_4A532D3D019E Pk2CustomPropertyPrim
+
+FORWARD ME_4A4DEAE0006B
+
+: ME_4A4DEAFB0277
+ CONST UID '4A4DEAFB0277'
+ CONST Name 'TagIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4DEAE0006B // Prop
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A4DEAFB0277 TagIndex
+
+: ME_4A4DEAE0006B
+ CONST UID '4A4DEAE0006B'
+ CONST Name 'Prop'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Свойства тега' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ : Target ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Attributes
+   @ ( ME_4A4DEAFB0277 // TagIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DEAE0006B Prop
+
+: ME_4A532A65006D
+ CONST UID '4A532A65006D'
+ CONST Name 'f_Tags'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ : Target ME_4A532A4B037B // Tk2PropertyArray
+ ;
+
+ref; // ME_4A532A65006D f_Tags
+
+: ME_479731C50290_ME_4A4DE5000202
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ref; // ME_479731C50290_ME_4A4DE5000202 Cleanup
+
+: ME_47A042E100E2_ME_4A4DE5000202
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ref; // ME_47A042E100E2_ME_4A4DE5000202 InitFields
+
+: ME_47A869BB02DE_ME_4A4DE5000202
+ CONST UID '47A869BB02DE'
+ CONST Name 'GetAsPCharLen'
+ : Original WL 'ME_47A869BB02DE' '47913B47006E.pas.ms.script' // GetAsPCharLen
+ ;
+ : Implementor ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ref; // ME_47A869BB02DE_ME_4A4DE5000202 GetAsPCharLen
+
+: ME_5331A12D0103_ME_4A4DE5000202
+ CONST UID '5331A12D0103'
+ CONST Name 'IDw'
+ : Original WL 'ME_5331A12D0103' '47913B47006E.pas.ms.script' // IDw
+ ;
+ : Implementor ME_4A4DE5000202 // Tk2TypePrim
+ ;
+ CONST "pm" true
+ref; // ME_5331A12D0103_ME_4A4DE5000202 IDw
+
+: ME_4A4DE5000202
+ CONST UID '4A4DE5000202'
+ CONST Name 'Tk2TypePrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовое описание типа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A4DEAE0006B // Prop
+ ME_4A532A65006D // f_Tags
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_479731C50290_ME_4A4DE5000202 // Cleanup
+ ME_47A042E100E2_ME_4A4DE5000202 // InitFields
+ ME_47A869BB02DE_ME_4A4DE5000202 // GetAsPCharLen
+ ME_5331A12D0103_ME_4A4DE5000202 // IDw
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4A532A4B037B // Tk2PropertyArray
+ ME_4A532D3D019E // Pk2CustomPropertyPrim
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.07.2009 15:01'
+
+ref; // ME_4A4DE5000202 Tk2TypePrim
+
+: ME_4A52FBA90049
+ CONST UID '4A52FBA90049'
+ CONST Name 'Tk2ArrayPropertyPrim'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4A52FBA90049 Tk2ArrayPropertyPrim
+
+: ME_53317DB50257
+ CONST UID '53317DB50257'
+ CONST Name 'Ik2Processor'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( WL 'ME_469F6BF0009D' '47913B47006E.pas.ms.script' // Ik2Processor
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_53317DB50257 Ik2Processor
+
+: ME_53317DC80061
+ CONST UID '53317DC80061'
+ CONST Name 'Il3OpPackMode'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( WL 'ME_469F7AAD0070' '47913B47006E.pas.ms.script' // Il3OpPackMode
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_53317DC80061 Il3OpPackMode
+
+: ME_53317DDB0223
+ CONST UID '53317DDB0223'
+ CONST Name 'Il3OpPack'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   @ ( WL 'ME_469F7AC50332' '47913B47006E.pas.ms.script' // Il3OpPack
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_53317DDB0223 Il3OpPack
+
+: ME_4A4DE48C0344
+ CONST UID '4A4DE48C0344'
+ CONST Name 'k2Prim'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4DE16302A2 // k2Core
+ ;
+ : Children
+   @ ( ME_4A4E1F7A029F // Tk2TypeTablePrim
+ ME_4A4DE0BF039E // Tk2Base
+ ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ME_469F7AFD0224 // Ik2Op
+ ME_4A4DE5000202 // Tk2TypePrim
+ ME_4A52FBA90049 // Tk2ArrayPropertyPrim
+ ME_53317DB50257 // Ik2Processor
+ ME_53317DC80061 // Il3OpPackMode
+ ME_53317DDB0223 // Il3OpPack
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '03.07.2009 14:59'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Prim.pas'
+
+ref; // ME_4A4DE48C0344 k2Prim
+
+: ME_53C7E5D50233
+ CONST UID '53C7E5D50233'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+
+ref; // ME_53C7E5D50233 l3Items_NoSort
+
+: ME_53C7D98D02EC
+ CONST UID '53C7D98D02EC'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_53C7D98D02EC ItemType
+
+FORWARD ME_53C7D9E60110
+
+: ME_53C7DA0903C3
+ CONST UID '53C7DA0903C3'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_53C7DA0903C3 aListener
+
+: ME_53C7D9FC0155
+ CONST UID '53C7D9FC0155'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7D9E60110 // AddListener
+ ;
+ : Parameters
+   @ ( ME_53C7DA0903C3 // aListener
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53C7D9FC0155 DoIt
+
+: ME_53C7D9E60110
+ CONST UID '53C7D9E60110'
+ CONST Name 'AddListener'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ : Operations
+   @ ( ME_53C7D9FC0155 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53C7D9E60110 AddListener
+
+FORWARD ME_53C7DA8400D6
+
+: ME_53C7DD14009E
+ CONST UID '53C7DD14009E'
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_53C7DD14009E aSender
+
+: ME_53C7DA940208
+ CONST UID '53C7DA940208'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7DA8400D6 // NotifyListeners
+ ;
+ : Parameters
+   @ ( ME_53C7DD14009E // aSender
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53C7DA940208 DoIt
+
+: ME_53C7DA8400D6
+ CONST UID '53C7DA8400D6'
+ CONST Name 'NotifyListeners'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ : Operations
+   @ ( ME_53C7DA940208 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53C7DA8400D6 NotifyListeners
+
+: ME_FAF791E82CD2
+ CONST UID 'FAF791E82CD2'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_FAF791E82CD2 Exists
+
+: ME_47B07CF403D0_ME_53C7D8AB0282
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_53C7D8AB0282 IsSameItems
+
+: ME_47B2C42A0163_ME_53C7D8AB0282
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_53C7D8AB0282 AssignItem
+
+: ME_47B935AF0066_ME_53C7D8AB0282
+ CONST UID '47B935AF0066'
+ CONST Name 'FillItem'
+ : Original WL 'ME_47B935AF0066' '47BB24D30205.pas.ms.script' // FillItem
+ ;
+ : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ref; // ME_47B935AF0066_ME_53C7D8AB0282 FillItem
+
+: ME_47B94A5C006E_ME_53C7D8AB0282
+ CONST UID '47B94A5C006E'
+ CONST Name 'FreeItem'
+ : Original WL 'ME_47B94A5C006E' '47BB24D30205.pas.ms.script' // FreeItem
+ ;
+ : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ref; // ME_47B94A5C006E_ME_53C7D8AB0282 FreeItem
+
+: ME_47B99D4503A2_ME_53C7D8AB0282
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ref; // ME_47B99D4503A2_ME_53C7D8AB0282 CompareExistingItems
+
+: ME_53C7D8AB0282
+ CONST UID '53C7D8AB0282'
+ CONST Name 'Tk2TypeTableCreatedListeners'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE16302A2 // k2Core
+ ;
+ : Inherits
+   @ ( WL 'ME_47B594B50330' '47913B47006E.pas.ms.script' // l3StandardTypedList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_53C7D98D02EC // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_53C7D9E60110 // AddListener
+ ME_53C7DA8400D6 // NotifyListeners
+ ME_FAF791E82CD2 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_53C7D8AB0282 // IsSameItems
+ ME_47B2C42A0163_ME_53C7D8AB0282 // AssignItem
+ ME_47B935AF0066_ME_53C7D8AB0282 // FillItem
+ ME_47B94A5C006E_ME_53C7D8AB0282 // FreeItem
+ ME_47B99D4503A2_ME_53C7D8AB0282 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_53C7E5D50233 // l3Items_NoSort
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TypeTableCreatedListeners.pas'
+
+ref; // ME_53C7D8AB0282 Tk2TypeTableCreatedListeners
+
+: ME_4A4DE16302A2
+ CONST UID '4A4DE16302A2'
+ CONST Name 'k2Core'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Ну просто самые базовые объекты библиотеки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Children
+   @ ( ME_53AABF30022F // Tk2PropertyArray
+ ME_4A5341AA0315 // k2BaseHack
+ ME_4A4DE48C0344 // k2Prim
+ ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_478CF8070260' '478CF8070260.pas.ms.script' // l3IID
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47AC7B760263' '47AC7B760263.pas.ms.script' // k2Const
+ WL 'ME_4A6D65B9022A' '4A6D65B9022A.pas.ms.script' // Containers
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_52669BFC024E' '52669BFC024E.pas.ms.script' // CoreTypes
+ WL 'ME_5326D70401F3' '5326D70401F3.pas.ms.script' // l3Variants
+ WL 'ME_53A963DD0356' '53A963DD0356.pas.ms.script' // TagAttributes
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A4DE16302A2.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A4DE16302A2.pas.ms.script.runner'
+
+ref; // ME_4A4DE16302A2 k2Core

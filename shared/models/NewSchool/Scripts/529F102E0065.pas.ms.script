@@ -1,0 +1,505 @@
+// StringCache 529F102E0065 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_529F102E0065
+
+: ME_4E71FF0D011C
+ CONST UID '4E71FF0D011C'
+ CONST Name 'nevStringCacheHackBecauseMl3Uknown'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Если когда-нибудь поправлю генерацию примесей наследующихся только от MixInMirror, то это чудовище можно будет убрать' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_529F102E0065 // StringCache
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas'
+ CONST extprop:pas:TypeName '_nevStringCacheHackBecauseMl3Uknown_'
+
+ref; // ME_4E71FF0D011C nevStringCacheHackBecauseMl3Uknown
+
+FORWARD ME_4E71FB8302C6
+
+FORWARD ME_4E568ED60085
+
+: ME_4E56995A01E7
+ CONST UID '4E56995A01E7'
+ CONST Name 'first'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E568ED60085 // TevParaStringsRange
+ ;
+ CONST Value 1
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4E56995A01E7 first
+
+: ME_4E56996200E4
+ CONST UID '4E56996200E4'
+ CONST Name 'last'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E568ED60085 // TevParaStringsRange
+ ;
+ CONST Value 3
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4E56996200E4 last
+
+: ME_4E568ED60085
+ CONST UID '4E568ED60085'
+ CONST Name 'TevParaStringsRange'
+ CONST Class class_Class
+ : Stereotype st_Range ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E71FB8302C6 // nevStringCache
+ ;
+ : Attributes
+   @ ( ME_4E56995A01E7 // first
+ ME_4E56996200E4 // last
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4E568ED60085 TevParaStringsRange
+
+FORWARD ME_4E568EE902FB
+
+: ME_4E568EF7020E
+ CONST UID '4E568EF7020E'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4E568EE902FB // TevParaStrings
+ ;
+ : Target WL 'ME_4773DEF0021B' '47913B47006E.pas.ms.script' // Tl3CustomString
+ ;
+
+ref; // ME_4E568EF7020E 
+
+: ME_4E568EE902FB
+ CONST UID '4E568EE902FB'
+ CONST Name 'TevParaStrings'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E71FB8302C6 // nevStringCache
+ ;
+ : Inherits
+   @ ( ME_4E568ED60085 // TevParaStringsRange
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4E568EF7020E // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_4E568EE902FB TevParaStrings
+
+: ME_4E71FBBC035A
+ CONST UID '4E71FBBC035A'
+ CONST Name 'f_S'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4E71FB8302C6 // nevStringCache
+ ;
+ : Target ME_4E568EE902FB // TevParaStrings
+ ;
+
+ref; // ME_4E71FBBC035A f_S
+
+FORWARD ME_4E5689DF037B
+
+: ME_4E71FC8302E9
+ CONST UID '4E71FC8302E9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E71FB8302C6 // nevStringCache
+ ;
+ : Target ME_4E5689DF037B // TevParaString
+ ;
+
+ref; // ME_4E71FC8302E9 
+
+: ME_4E71FD580124
+ CONST UID '4E71FD580124'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E71FB8302C6 // nevStringCache
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4E71FD580124 
+
+: ME_4E5690220216_ME_4E71FB8302C6
+ CONST UID '4E5690220216'
+ CONST Name 'CheckS'
+ : Original WL 'ME_4E5690220216' '4678209200A6.pas.ms.script' // CheckS
+ ;
+ : Implementor ME_4E71FB8302C6 // nevStringCache
+ ;
+ref; // ME_4E5690220216_ME_4E71FB8302C6 CheckS
+
+: ME_479F2AFB0397_ME_4E71FB8302C6
+ CONST UID '479F2AFB0397'
+ CONST Name 'Release'
+ : Original WL 'ME_479F2AFB0397' '51612EBB02F5.pas.ms.script' // Release
+ ;
+ : Implementor ME_4E71FB8302C6 // nevStringCache
+ ;
+ref; // ME_479F2AFB0397_ME_4E71FB8302C6 Release
+
+: ME_4E71FB8302C6
+ CONST UID '4E71FB8302C6'
+ CONST Name 'nevStringCache'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_529F102E0065 // StringCache
+ ;
+ : Inherits
+   @ ( ME_4E71FF0D011C // nevStringCacheHackBecauseMl3Uknown
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
+ WL 'ME_4E71F79000F7' '4678209200A6.pas.ms.script' // MnevStringCache
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4E71FBBC035A // f_S
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4E5690220216_ME_4E71FB8302C6 // CheckS
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479F2AFB0397_ME_4E71FB8302C6 // Release
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4E568ED60085 // TevParaStringsRange
+ ME_4E568EE902FB // TevParaStrings
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4E71FC8302E9 // 
+ ME_4E71FD580124 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevStringCache.imp.pas'
+ CONST extprop:pas:TypeName '_nevStringCache_'
+
+ref; // ME_4E71FB8302C6 nevStringCache
+
+FORWARD ME_4E71FC4D02BF
+
+FORWARD ME_4E71FCAE00EE
+
+: ME_4E71FCB503E2
+ CONST UID '4E71FCB503E2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E71FCAE00EE // Create
+ ;
+
+ref; // ME_4E71FCB503E2 DoIt
+
+: ME_4E71FCAE00EE
+ CONST UID '4E71FCAE00EE'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E71FC4D02BF // TnevStringCache
+ ;
+ : Operations
+   @ ( ME_4E71FCB503E2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E71FCAE00EE Create
+
+FORWARD ME_4E71FCBD0244
+
+: ME_FEC76867BD07
+ CONST UID 'FEC76867BD07'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TnevStringCache.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E71FCBD0244 // Make
+ ;
+ : Target WL 'ME_4E71F7B20222' '4678209200A6.pas.ms.script' // InevStringCache
+ ;
+
+ref; // ME_FEC76867BD07 DoIt
+
+: ME_4E71FCBD0244
+ CONST UID '4E71FCBD0244'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E71FC4D02BF // TnevStringCache
+ ;
+ : Inherits
+   @ ( ME_4E71FCAE00EE // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4E71F7B20222' '4678209200A6.pas.ms.script' // InevStringCache
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_FEC76867BD07 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4E71FCBD0244 Make
+
+: ME_4E71FC4D02BF
+ CONST UID '4E71FC4D02BF'
+ CONST Name 'TnevStringCache'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_529F102E0065 // StringCache
+ ;
+ : Inherits
+   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ ME_4E71FB8302C6 // nevStringCache
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4E71F7B20222' '4678209200A6.pas.ms.script' // InevStringCache
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4E71FCAE00EE // Create
+ ME_4E71FCBD0244 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '15.09.2011 17:23'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevStringCache.pas'
+
+ref; // ME_4E71FC4D02BF TnevStringCache
+
+: ME_4E568A290345
+ CONST UID '4E568A290345'
+ CONST Name 'f_St'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5689DF037B // TevParaString
+ ;
+ : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
+ ;
+
+ref; // ME_4E568A290345 f_St
+
+: ME_47A6FEE600FC_ME_4E5689DF037B
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_4E5689DF037B // TevParaString
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_4E5689DF037B IsCacheable
+
+: ME_47A869BB02DE_ME_4E5689DF037B
+ CONST UID '47A869BB02DE'
+ CONST Name 'GetAsPCharLen'
+ : Original WL 'ME_47A869BB02DE' '47913B47006E.pas.ms.script' // GetAsPCharLen
+ ;
+ : Implementor ME_4E5689DF037B // TevParaString
+ ;
+ref; // ME_47A869BB02DE_ME_4E5689DF037B GetAsPCharLen
+
+: ME_47A869D10074_ME_4E5689DF037B
+ CONST UID '47A869D10074'
+ CONST Name 'DoSetAsPCharLen'
+ : Original WL 'ME_47A869D10074' '47913B47006E.pas.ms.script' // DoSetAsPCharLen
+ ;
+ : Implementor ME_4E5689DF037B // TevParaString
+ ;
+ref; // ME_47A869D10074_ME_4E5689DF037B DoSetAsPCharLen
+
+: ME_47BC02A50131_ME_4E5689DF037B
+ CONST UID '47BC02A50131'
+ CONST Name 'Clear'
+ : Original WL 'ME_47BC02A50131' '47913B47006E.pas.ms.script' // Clear
+ ;
+ : Implementor ME_4E5689DF037B // TevParaString
+ ;
+ref; // ME_47BC02A50131_ME_4E5689DF037B Clear
+
+: ME_4E568A7E0120_ME_4E5689DF037B
+ CONST UID '4E568A7E0120'
+ CONST Name 'Offset'
+ : Original WL 'ME_4E568A7E0120' '47913B47006E.pas.ms.script' // Offset
+ ;
+ : Implementor ME_4E5689DF037B // TevParaString
+ ;
+ref; // ME_4E568A7E0120_ME_4E5689DF037B Offset
+
+: ME_4E568AB6016C_ME_4E5689DF037B
+ CONST UID '4E568AB6016C'
+ CONST Name 'DoSetCodePage'
+ : Original WL 'ME_4E568AB6016C' '47913B47006E.pas.ms.script' // DoSetCodePage
+ ;
+ : Implementor ME_4E5689DF037B // TevParaString
+ ;
+ref; // ME_4E568AB6016C_ME_4E5689DF037B DoSetCodePage
+
+: ME_54C63008010F_ME_4E5689DF037B
+ CONST UID '54C63008010F'
+ CONST Name 'Len'
+ : Original WL 'ME_54C63008010F' '47913B47006E.pas.ms.script' // Len
+ ;
+ : Implementor ME_4E5689DF037B // TevParaString
+ ;
+ CONST "pm" true
+ref; // ME_54C63008010F_ME_4E5689DF037B Len
+
+: ME_4E5689DF037B
+ CONST UID '4E5689DF037B'
+ CONST Name 'TevParaString'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_529F102E0065 // StringCache
+ ;
+ : Inherits
+   @ ( WL 'ME_4773DEF0021B' '47913B47006E.pas.ms.script' // Tl3CustomString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4E568A290345 // f_St
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_47A6FEE600FC_ME_4E5689DF037B // IsCacheable
+ ME_47A869BB02DE_ME_4E5689DF037B // GetAsPCharLen
+ ME_47A869D10074_ME_4E5689DF037B // DoSetAsPCharLen
+ ME_47BC02A50131_ME_4E5689DF037B // Clear
+ ME_4E568A7E0120_ME_4E5689DF037B // Offset
+ ME_4E568AB6016C_ME_4E5689DF037B // DoSetCodePage
+ ME_54C63008010F_ME_4E5689DF037B // Len
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '25.08.2011 21:44'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaString.pas'
+
+ref; // ME_4E5689DF037B TevParaString
+
+: ME_529F102E0065
+ CONST UID '529F102E0065'
+ CONST Name 'StringCache'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4E71FF0D011C // nevStringCacheHackBecauseMl3Uknown
+ ME_4E71FB8302C6 // nevStringCache
+ ME_4E71FC4D02BF // TnevStringCache
+ ME_4E5689DF037B // TevParaString
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\529F102E0065.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\529F102E0065.pas.ms.script.runner'
+
+ref; // ME_529F102E0065 StringCache

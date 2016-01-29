@@ -1,0 +1,155 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "DashboardView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (vm)"
+	    value      	"w:/MDProcess/java/src/etc/ConfluenceMDChange/DashboardView/tasks-table.vm::4742B8C50399")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/DashboardView/tasks-table|4742B8C50399::4742B8C50399
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/DashboardView|477E291D03A6
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19032447238"))
+    quid       	"477E291D03A6"
+    documentation 	"Ýëåìåíòû îôîðìëåíèÿ äëÿ ðàáîòû ñ ïàíåëüþ óïðàâëåíèÿ"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "tasks-table"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/DashboardView/tasks-table|4742B8C50399
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (output.xml)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"output.xml:*4742B8C50399_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4742B8C50399_CUSTOM_CONTENT*¤¤#macro (showActiveTast $task)¤    #if($task)¤        <a href="${req.contextPath}/pages/viewpage.action?pageId=$task.id" tabindex="diabled">¤            #contentIconWithLinkPrefix($task $req.contextPath)¤            $task.title¤        </a>¤        <span class="smalltext">#contentOther($task)</span>¤    #end¤#end¤¤#macro (showTask $task)¤	#if($task.indicator)¤	<a href="$task.indicator.action" tabindex="diabled">¤	    #if($task.indicator.icon)¤	        <img src="${req.contextPath}$task.indicator.icon" height="16" width="16" border="0" align="top" title="$task.indicator.tip">¤	    #end¤	    $task.indicator.text¤	</a>¤	#if($task.unreadIndicator)¤	   (<a href="$task.unreadIndicator.action" tabindex="diabled">¤	        <font color="#CC0000">$task.unreadIndicator.text</font>¤	    </a>)¤	#end¤	&nbsp;&nbsp;¤	#end¤#end¤¤<div class="tabletitle" style="width: 100%">¤    Çàäà÷è: #if($queryTime)&nbsp;<font size="1">[$queryTime ms]</font>#end¤    <br>¤</div>¤<table width="100%" cellspacing="1"  border="0" class="tableview"><tbody>¤    <tr>¤        <td>¤            #if ($activeTask)¤	        <a href="${req.contextPath}/pages/viewpage.action?pageId=$activeTask.id">Àêòèâíàÿ</a>:¤            #else¤                Àêòèâíàÿ:¤	    #end¤            <br>¤            #if($pauseCount && $pausedTasksAction)¤                <span class="smalltext">íà ïàóçå(<a href="$pausedTasksAction">âñåãî $pauseCount</a>):</span>¤            #end¤        </td>¤        <td>¤            #if($activeTask)¤                #showActiveTast($activeTask)¤            #else¤                àêòèâíûõ çàäà÷ íåò<br>¤            #end¤            <br>¤            #if($lastPauseTask)¤                #showActiveTast($lastPauseTask)¤            #end¤        </td>¤    </tr>¤   <tr>¤        <td>¤            #if ($assignedTasksAction && !$assignedList.isEmpty())¤	        <a href="$assignedTasksAction" tabindex="diabled">Íàçíà÷åííûå:</a>¤            #else¤                Íàçíà÷åííûå:¤	    #end¤        </td>¤        <td>¤            #if ($assignedList.isEmpty())¤                íàçíà÷åííûõ çàäà÷ íåò¤            #else¤		#foreach($assigned in $assignedList)¤		    #showTask($assigned)¤		#end¤            #end¤        </td>¤    </tr>¤    #if(!$myTaskList.isEmpty())¤	    <tr>¤	        <td>¤	            #if ($myRequestsAction && !$myTaskList.isEmpty())¤	                <a href="$myRequestsAction" tabindex="diabled">Âàøè:</a>¤	            #else¤	                Âàøè:¤	            #end¤	        </td>¤	        <td>¤	            #foreach($myTask in $myTaskList)¤	                #showTask($myTask)¤	            #end¤	        </td>¤	    </tr>¤    #end¤</tbody></table>¤##UC_END*4742B8C50399_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4742B8C50399_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4742B8C50399_CUSTOM_CONTENT*¤				¤#requireResource("legacy.confluence.web.resources:prototype")¤¤<script language="JavaScript">¤¤function doChangeActivityState (requestURL, id) {¤	xmlhttp = getXmlHttp();¤	xmlhttp.open("GET", requestURL);¤	xmlhttp.onreadystatechange=function()¤	{¤		if (xmlhttp.readyState==4 && xmlhttp.status==200) {¤			var errorBlock = xmlhttp.responseXML.getElementsByTagName("has-error")[0];¤			if (errorBlock == null) {¤				if (window.location.search) {¤					window.location = window.location + "&grntNoCache=1";¤				} else {¤					window.location = window.location + "?grntNoCache=1";	¤				}¤			} else {¤				if (errorBlock.getAttribute("code") == "4") {¤					var text = "$garHelper.getText('you.have.active.request.toggle.it.on.pause')?";¤					var r = confirm(text);¤					if (r == true) {¤						doChangeActivityState (requestURL + "&autoStopAnotherActive=true");¤					}					¤				} else {¤					var htmlContent = errorBlock.firstChild.nodeValue;¤					alert(htmlContent);¤				}¤			}¤		}¤	}¤	xmlhttp.send(null);¤}¤¤function changeActivityState (id, willClose) {¤	var requestURL = "$req.contextPath/ru/garant/MDProcess/ConfluenceMDChange/RequestSupport/RequestXPlugin/RequestXPackage/changeactivitystate.action?entityId="+id+"&willClose="+willClose;¤	doChangeActivityState(requestURL, id);¤}¤</script>¤¤#macro (showActivityButton $taskId $iconName $willClose)¤	#set($buttonIcon = $garIcon.getTypeIcon($iconName))¤	<img src="$buttonIcon.urlPath" onClick="changeActivityState($taskId, $willClose); return false;" border="0" align="absmiddle" title="$buttonIcon.tooltip"/>¤#end¤¤#macro (showActiveTasks $tasks $type)¤	#set($tasksCount = $tasks.size())¤	#foreach( $task in $tasks )¤		#showActiveTask($task $type)¤		#if($velocityCount <= $tasksCount)<br/>#end¤	#end¤#end¤¤#macro (showActiveTask $task $type)¤    #if($task)¤		#contentIconWithLinkPrefix($task $req.contextPath)¤        <a href="${req.contextPath}/pages/viewpage.action?pageId=$task.id" tabindex="disabled">¤            $task.title¤        </a>¤        <span class="smalltext">#contentOtherFixed($task)</span>¤		#if($type == 1) ## if active¤			#showActivityButton($task.id "forgui_pause" false)¤			#showActivityButton($task.id "forgui_complete" true)¤		#elseif($type == 2 || $type == 3) ##if paused or in the queue¤			#showActivityButton($task.id "forgui_play" false)¤		#end¤    #end¤#end¤¤#macro (showTask $task)¤##	#if($task.indicator && ($task.indicator.icon || $task.unreadIndicator))¤	#if($task.indicator)¤	    <a href="${req.contextPath}/$task.indicator.action" tabindex="disabled" class="noneDecoration" #if($task.indicator.tip)title="$task.indicator.tip"#end¤	        >#if($task.indicator.icon)<img¤	            src="${req.contextPath}$task.indicator.icon" height="16" width="16" border="0" align="top" #if($task.indicator.tip)title="$task.indicator.tip"#end¤    	        >#end<span class="textHref">$task.indicator.text</span></a¤    	    >#if($task.unreadIndicator)(<a¤                href="$task.unreadIndicator.action" tabindex="disabled" #if($task.unreadIndicator.tip)title="$task.unreadIndicator.tip"#end style="color:#CC0000"><font¤                >$task.unreadIndicator.text</font></a>)¤	    #end¤		#if($task.indicator && ($task.indicator.icon || $task.unreadIndicator))&nbsp;#end¤	#end¤#end¤¤#macro (showTasks2 $taskList $rowName)¤	<table cellspacing="0" cellpadding="0" border="0">¤		#foreach($tasks in $taskList)¤		<tr #if($rowName)name="$rowName"#end>¤			#foreach($task in $tasks)¤				<td #if($task.indicator && ($task.indicator.icon || $task.unreadIndicator) || !$task.indicator) nowrap="true" #else nowrap="false" #end style="border-style: none; padding: 0px 0px 0px 0px;">#showTask($task)</td>¤		    #end¤		</tr>¤		#end¤	</table>¤#end¤¤#macro (showTasks $taskList)¤	#showTasks2($taskList false)¤#end¤¤#* Main macros which renders whole panel *#¤#macro (showTasksPanel)¤<div class="tabletitle" style="width: 100%">¤		<span onmouseover="$garHelper.getHelpTooltipJs('dashboard.tasks.title')" onmouseout="UnTip()">¤    $garHelper.getText('tasks.name'): #if($queryTime)&nbsp;<font size="1">[$queryTime ms]</font>#end¤    </span>¤    <br>¤</div>¤<table width="100%" cellspacing="1"  border="0" class="tableview"><tbody>¤    #if($shouldShowInWorkTasks)¤		<tr>¤	        <td>¤	            <table border="0" cellspacing="0" cellpadding="0" width="100%">¤	                <tr><td id="InWorkTasksTitleColumns" nowrap="true" style="border-style: none; padding: 0px 0px 0px 0px;" onmouseover="$garHelper.getHelpTooltipJs('dashboard.tasks.activetask')" onmouseout="UnTip()">¤	                    #if ($inWorkTasksAction)¤	                        <a href="${req.contextPath}/$inWorkTasksAction">$garHelper.getText('tasks.in.work')</a>:¤	                    #else¤	                        $garHelper.getText('tasks.in.work'):¤	                    #end¤	                </td>¤	                <td  style="border-style: none;padding: 0px 0px 0px 0px;" align="left">¤	                    #if($activeTask)¤	                        #showActiveTask($activeTask 1)¤	                    #else¤	                        $garHelper.getText('no.active.tasks')¤	                    #end¤	                </td></tr>¤	                <tr><td  style="border-style: none; padding: 0px 0px 0px 0px;">¤	                    <span class="smalltext" onmouseover="$garHelper.getHelpTooltipJs('dashboard.tasks.order')" onmouseout="UnTip()">$garHelper.getText('tasks.in.queue'):</span>¤	                </td>¤	                <td  style="border-style: none; padding: 0px 0px 0px 0px;" align="left">¤	                    #if($nextAssignedTasks)¤	                        #showActiveTasks($nextAssignedTasks 3)¤	                    #else¤	                        $garHelper.getText('no.assigned.tasks.in.active.releases')¤	                    #end¤	                </td></tr>¤	            </table>¤	        </td>¤	    </tr>¤	#end¤	¤    #if ($shouldShowAssignedTasks)¤        <tr>¤            <td>¤                <table border="0" cellspacing="0" cellpadding="0" width="100%">¤                    <tr><td id="AssignedTitleColumns" style="border-style: none; padding: 0px 0px 0px 0px;">¤                    		<span id="OnlyAssignedTitleColumns" onmouseover="$garHelper.getHelpTooltipJs('dashboard.tasks.assigned')" onmouseout="UnTip()">¤                        #if ($assignedTasksAction && (!$assignedList.isEmpty()|| !$assignedByStateList.isEmpty()))¤                            <a href="${req.contextPath}/$assignedTasksAction" tabindex="disabled">$garHelper.getText('tasks.assigned'):</a>¤                            <span nowrap="true" style="width:5px">&nbsp;</span>¤						#else¤                            $garHelper.getText('tasks.assigned'):¤                        #end¤                        </span>¤						#if ($assignedWaitedTasksAction)¤							<br/><a href="${req.contextPath}/$assignedWaitedTasksAction" tabindex="disabled" onmouseover="$garHelper.getHelpTooltipJs('dashboard.tasks.waited')" onmouseout="UnTip()"><span class="smalltext">($garHelper.getText('tasks.suspended'))</span></a>¤						#end¤                    </td>¤                    <td id="AssignedColumns" style="border-style: none; padding: 0px 0px 0px 0px;" align="left">¤                        #if ($assignedList.isEmpty() && $assignedByStateList.isEmpty())¤                            $garHelper.getText('no.assigned.tasks')¤                        #else¤							#if($assignedList)							¤								#showTasks($assignedList)¤							#end	¤							#if($assignedByStateList)							¤								#showTasks($assignedByStateList)¤							#end¤                        #end¤                    </td></tr>¤                </table>¤            </td>¤        </tr>¤    #end¤	¤    #if($shouldShowMyTasks)¤	    <tr>¤	        <td>¤				<table border="0" cellspacing="0" cellpadding="0" width="100%">¤					<tr id="myTasksTitleRow"><td id="myTasksTitleColumns" nowrap="true" style="border-style: none; padding: 0px 0px 0px 0px;" onmouseover="$garHelper.getHelpTooltipJs('dashboard.tasks.own')" onmouseout="UnTip()">¤        	            #if ($myRequestsAction && !$myTaskList.isEmpty())¤        	                <a href="${req.contextPath}/$myRequestsAction" tabindex="disabled">$garHelper.getText('tasks.your'):</a>¤                            <span nowrap="true" style="width:5px">&nbsp;</span>¤						#else¤        	                $garHelper.getText('tasks.your'):¤        	            #end¤					</td>¤					<td id="myTasksColumns" rowspan="2" style="border-style: none; padding: 0px 0px 0px 0px;" align="left" >¤						#showTasks2($myTaskList "myTasksRow")¤					</td></tr>¤				</table>¤			</td>¤	    </tr>¤    #end¤	¤    #if($shouldShowProjectTasks)¤	    <tr>¤	        <td>¤				<table border="0" cellspacing="0" cellpadding="0" width="100%">¤					<tr id="myProjectTitleRow"><td id="myProjectTitleColumns" nowrap="true" style="border-style: none; padding: 0px 0px 0px 0px;" onmouseover="$garHelper.getHelpTooltipJs('dashboard.tasks.ownproject')" onmouseout="UnTip()">¤        	            #if ($projectRequestsAction && !$projectTaskList.isEmpty())¤        	                <a href="${req.contextPath}/$projectRequestsAction" tabindex="disabled">$garHelper.getText('tasks.projects'):</a>¤							<span nowrap="true" style="width:5px">&nbsp;</span>¤							#else¤        	                $garHelper.getText('tasks.projects'):¤        	            #end¤					</td>¤					<td id="myProjectColumns" style="border-style: none; padding: 0px 0px 0px 0px;" align="left" >¤        	            #showTasks2($projectTaskList "myProjectRow")¤					</td></tr>¤				</table>¤			</td>¤	    </tr>¤    #end¤	¤	#if($shouldShowManagementTasks)¤	    <tr>¤	        <td>¤				<table border="0" cellspacing="0" cellpadding="0" width="100%">¤					<tr id="managementTitleRow"><td id="managementTitleColumns" nowrap="true" style="border-style: none; padding: 0px 0px 0px 0px;" onmouseover="$garHelper.getHelpTooltipJs('dashboard.tasks.oncontrol')" onmouseout="UnTip()">¤        	            #if ($managementRequestsAction && !$managementTaskList.isEmpty())¤        	                <a href="${req.contextPath}/$managementRequestsAction" tabindex="disabled">$garHelper.getText('tasks.management'):<span nowrap="true" style="width:5px">&nbsp;</span></a>¤        	            #else¤        	                $garHelper.getText('tasks.management'):¤        	            #end¤					</td>¤					<td id="managementColumns" style="border-style: none; padding: 0px 0px 0px 0px;" align="left" >¤        	            #showTasks2($managementTaskList "managementRow")¤					</td></tr>¤				</table>¤			</td>¤	    </tr>¤	#end¤	¤	#if($shouldShowCaseManagementTasks)¤	    <tr>¤	        <td>¤				<table border="0" cellspacing="0" cellpadding="0" width="100%">¤					<tr id="caseManagementTitleRow"><td id="caseManagementTitleColumns" nowrap="true" style="border-style: none; padding: 0px 0px 0px 0px;">¤        	            #if ($caseManagementRequestsAction && !$caseManagementTaskList.isEmpty())¤        	                <a href="${req.contextPath}/$caseManagementRequestsAction" tabindex="disabled">$garHelper.getText('tasks.case.management'):<span nowrap="true" style="width:5px">&nbsp;</span></a>¤        	            #else¤        	                $garHelper.getText('tasks.case.management'):¤        	            #end¤					</td>¤					<td id="caseManagementColumns" style="border-style: none; padding: 0px 0px 0px 0px;" align="left" >¤        	            #showTasks2($caseManagementTaskList "caseManagementRow")¤					</td></tr>¤				</table>¤			</td>¤	    </tr>¤    #end¤¤	#if($shouldShowUvsQueryManagementTasks)¤	    <tr>¤	        <td>¤				<table border="0" cellspacing="0" cellpadding="0" width="100%">¤					<tr id="uvsQueryManagementTitleRow"><td id="uvsQueryManagementTitleColumns" nowrap="true" style="border-style: none; padding: 0px 0px 0px 0px;">¤        	            #if ($uvsQueryManagementRequestsAction && !$uvsQueryManagementTaskList.isEmpty())¤        	                <a href="${req.contextPath}/$uvsQueryManagementRequestsAction" tabindex="disabled">$garHelper.getText('tasks.uvsquery.management'):<span nowrap="true" style="width:5px">&nbsp;</span></a>¤        	            #else¤        	                $garHelper.getText('tasks.uvsquery.management'):¤        	            #end¤					</td>¤					<td id="uvsQueryManagementColumns" style="border-style: none; padding: 0px 0px 0px 0px;" align="left" >¤        	            #showTasks2($uvsQueryManagementTaskList "uvsQueryManagementRow")¤					</td></tr>¤				</table>¤			</td>¤	    </tr>¤    #end¤	¤</tbody></table>¤¤#end¤¤#set($shouldShowAssignedTasks = $assignedWaitedTasksAction || $assignedTasksAction && (($assignedList && !$assignedList.isEmpty()) || ($assignedByStateList && !$assignedByStateList.isEmpty()) ))¤#set($shouldShowProjectTasks = $projectRequestsAction && !$projectTaskListIsEmpty)¤#set($shouldShowMyTasks = $myRequestsAction && !$myTaskListIsEmpty)¤#set($shouldShowManagementTasks = $managementRequestsAction && !$managementTaskListIsEmpty)¤#set($shouldShowCaseManagementTasks = $caseManagementRequestsAction && !$caseManagementTaskListIsEmpty)¤#set($shouldShowUvsQueryManagementTasks = $uvsQueryManagementRequestsAction && !$uvsQueryManagementTaskListIsEmpty)¤¤#if($shouldShowInWorkTasks || $shouldShowAssignedTasks || $shouldShowProjectTasks || $shouldShowMyTasks || $shouldShowManagementTasks || $shouldShowCaseManagementTasks || $shouldShowUvsQueryManagementTasks)¤	#showTasksPanel()¤#end¤¤#requireResource('confluence.web.resources:utils')¤¤<script type="text/javascript" language="JavaScript">¤¤var browserDetector = new detectBrowser();¤¤function alignTaskTables() {¤	var myTasksRows = $$('[name="myTasksRow"]');¤	var myProjectRows = $$('[name="myProjectRow"]');¤	var managementRows = $$('[name="managementRow"]');¤	var caseManagementRows = $$('[name="caseManagementRow"]');¤	var uvsQueryManagementRows = $$('[name="uvsQeryManagementRow"]');¤	rowsToAlign = filterEmpty([myTasksRows, myProjectRows, managementRows, caseManagementRows, uvsQueryManagementRows]);¤	doAlignTaskTables(rowsToAlign);¤	¤	var widthTasksTitles;¤	¤#if($shouldShowAssignedTasks)	¤	widthTasksTitles = $("OnlyAssignedTitleColumns").offsetWidth;¤#elseif($shouldShowManagementTasks)¤	widthTasksTitles = $("managementTitleColumns").offsetWidth;¤#elseif($shouldShowCaseManagementTasks)¤	widthTasksTitles = $("caseManagementTitleColumns").offsetWidth;¤#elseif($shouldShowUvsQueryManagementTasks)¤	widthTasksTitles = $("uvsQueryManagementTitleColumns").offsetWidth;¤#elseif($shouldShowProjectTasks)	¤	widthTasksTitles = $("myProjectTitleColumns").offsetWidth;¤#elseif($shouldShowInWorkTasks)	¤	widthTasksTitles = $("InWorkTasksTitleColumns").offsetWidth;¤#elseif($shouldShowMyTasks)	¤	widthTasksTitles = $("myTasksTitleColumns").offsetWidth;¤#end¤¤#if($shouldShowInWorkTasks)¤	$("InWorkTasksTitleColumns").style.width = widthTasksTitles + 'px';¤#end¤¤#if($shouldShowAssignedTasks)¤	$("AssignedTitleColumns").style.width = widthTasksTitles + 'px';¤#end¤¤#if($shouldShowManagementTasks)¤	$("managementTitleColumns").style.width = widthTasksTitles + 'px';¤#end¤¤#if($shouldShowCaseManagementTasks)¤	$("caseManagementTitleColumns").style.width = widthTasksTitles + 'px';¤#end¤¤#if($shouldShowUvsQueryManagementTasks)¤	$("uvsQueryManagementTitleColumns").style.width = widthTasksTitles + 'px';¤#end¤¤#if($shouldShowProjectTasks)¤	$("myProjectTitleColumns").style.width = widthTasksTitles + 'px';¤#end	¤¤#if($shouldShowMyTasks)¤	$("myTasksTitleColumns").style.width = widthTasksTitles + 'px';¤#end¤¤#if($shouldShowMyTasks && $shouldShowProjectTasks)¤    // if real widht of projects is less then set,¤    // align my tasks with projects ¤    if($("myProjectTitleColumns").offsetWidth < widthTasksTitles) {¤    	$("myTasksTitleColumns").style.width = $("myProjectTitleColumns").offsetWidth + 'px';¤    }¤#end¤¤}¤¤function doAlignTaskTables(rowsToAlign) {¤	if(rowsToAlign.length > 1) {¤		var cellCount = getCellCount(rowsToAlign);¤		for(var i=0; i<cellCount; i++) {¤			setNewCellWidth(rowsToAlign, i);¤		}¤	}¤}¤¤function filterEmpty(arr) {¤	var result = [];¤	for(var i=0; i<arr.length; i++) {¤		var el = arr[i];¤		if(el != null) {¤			if(el.length != undefined) {¤				var filteredArr = filterEmpty(el);¤				for(var j=0; j<filteredArr.length; j++) {¤					result.push(filteredArr[j]);¤				}¤			} else {¤				result.push(el);¤			}¤		}¤	}¤	return result;¤}¤¤function setNewCellWidth(rowsToAlign, cellIndex) {¤	var currentCells = [];¤	for(var i=0; i<rowsToAlign.length; i++) {¤		currentCells.push(rowsToAlign[i].cells[cellIndex]);¤	}¤	var result = 0;¤	for(var i=0; i<currentCells.length; i++) {¤		if(result < currentCells[i].offsetWidth) {¤			result = currentCells[i].offsetWidth;¤		}¤	}¤	for(var i=0; i<currentCells.length; i++) {¤		if(result == 0) {¤			var prototypedCell = $(currentCells[i]);¤			if (prototypedCell.hasAttribute('nowrap')) { ¤          		prototypedCell.removeAttribute('nowrap'); ¤      		}¤		}¤		currentCells[i].style.width = result + 'px';¤		currentCells[i].style.minWidth = result + 'px';¤	}¤}¤¤function getCellCount(rowsToAlign) {¤	var result = 1000;¤	for(var i=0; i<rowsToAlign.length; i++) {¤		if(rowsToAlign[i].cells.length < result) {¤			result = rowsToAlign[i].cells.length;¤		}¤	}¤	return result;¤}¤¤Event.observe(window, 'load', alignTaskTables, false);¤¤</script>¤¤##UC_END*4742B8C50399_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluenceMDChange/DashboardView/tasks-table.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038752928"))
+	    quid       	"4742B8C50399"
+	    documentation 	"Øàáëîí çàäà÷ ïîëüçîâàòåëÿ äëÿ Ïàíåëè Óïðàâëåíèÿ."
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"477E293C0172"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	1053
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::DashboardView::tasks-table" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(450, 255)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(335, 225)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	230
+			justify    	0
+			label      	"tasks-table")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(335, 175)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	230
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4742B8C50399"
+		    width      	248
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)))))

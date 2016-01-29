@@ -1,0 +1,24 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/BasicTests/StateMachine/StateMachine.h"
+// генератор заголовочных файлов C++ (.h)
+// Generated from UML model, root element: <<Interfaces::Category>> TestModel::BasicTests::StateMachine
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef __TESTMODEL_BASICTESTS_STATEMACHINE_H__
+#define __TESTMODEL_BASICTESTS_STATEMACHINE_H__
+
+#include "shared/Core/sys/std_inc.h"
+
+namespace BasicTests {
+namespace StateMachine {
+
+} // namespace StateMachine
+} // namespace BasicTests
+
+
+#endif //__TESTMODEL_BASICTESTS_STATEMACHINE_H__
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

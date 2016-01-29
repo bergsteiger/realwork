@@ -1,0 +1,303 @@
+
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity: Setup CM Environment</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<h2 class="banner"><a name="Top"></a>Activity: Set Up Configuration Management
+(CM) Environment</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td valign="top" bordercolor="#808080" colspan="2"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>The purpose of this activity is to establish an environment where the
+        product can be developed and built. This is done in two parts, firstly
+        by setting up the hardware environment, and then by establishing the
+        development environment.</li>
+      <li>Setting up the CM environment involves allocating machine resources
+        (servers and disk space) and installing the configuration management
+        tools</li>
+      <li>Setting up the development environment involves creating repositories,
+        setting up the product directory structure, and importing any existing
+        files. The initial environment serves as a baseline for further
+        development work.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" bordercolor="#808080" colspan="2"><small><strong><font face="Arial">Steps</font></strong></small>
+    <ul>
+      <li><a href="#Plan the CM Environment">Set up the CM Hardware Environment</a></li>
+      <li><a href="#Map the Architecture to the Repository">Map the Architecture
+        to the Repository</a></li>
+      <li><a href="#Create Initial Set of Versioned Elements">Create Initial Set
+        of Versioned Elements</a></li>
+      <li><a href="#Define Baseline Promotion Levels">Define Baseline Promotion
+        Levels</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Input
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><a href="../artifact/ar_cmpln.htm">CM Plan</a></li>
+      <li><a href="../artifact/ar_impmd.htm">Implementation Model</a></li>
+    </ul>
+    </td>
+    <td valign="top" bordercolor="#808080"><font face="Arial"><strong><small>Output
+    Artifacts:</small></strong></font>
+    <ul>
+      <li><a href="../artifact/ar_repos.htm">Project Repository</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" style="text-indent: 4px" bordercolor="#808080" colspan="2"><strong><font face="Arial"><small>Role:</small>
+    </font></strong><a href="../workers/wk_cmmgr.htm">Configuration Manager</a></td>
+  </tr>
+  <tr>
+    <td valign="top" style="text-indent: 4px" bordercolor="#808080" colspan="2"><a name="Top"></a><strong><font face="Arial" size="2">Tool
+    Mentor:</font></strong> 
+    <ul>
+      <li><a href="../../toolment/clearcase/tm_cico.htm">Checking Out and
+        Checking In Configuration Items using Rational ClearCase</a></li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p><table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+<tr>
+<td valign="top" colspan="2" bordercolor="#808080"><small><font face="Arial"><strong>Workflow Details:</strong></font></small><ul>
+<li><b><a href="../workflow/ovu_cm.htm">Core Workflow: Configuration & Change Management</a></b></li><ul>
+<li><a href="../workflow/conf_mgt/wfd_crenv.htm">Create Project CM Environments</a></li>
+</ul>
+</ul>
+</td>
+</tr>
+</table>
+<!-- Linked to Workflow End -->
+</center></div>
+
+<h3><a name="Plan the CM Environment">Set up the CM Hardware Environment</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="510" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="480" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>To allocate the hardware resources required to install&nbsp; and configure
+        the CM Tool.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>The Configuration Manager works with the System Administrator to allocate
+machine resources, and install the necessary software tools.</p>
+<p>The key considerations (in order of priority) for the machine dedicated to
+running the server that mediates access to actual data in&nbsp; the project
+repository are the following:</p>
+<ul>
+  <li>Memory Requirements</li>
+  <li>Disk Input / Output Requirements</li>
+  <li>Network Bandwidth</li>
+  <li>Project Repository Disk Space</li>
+</ul>
+<p>Information on each of these items is provided under the <a href="../artifact/ar_repos.htm">Artifact:
+Project Repository</a></p>
+<h3><a name="Map the Architecture to the Repository">Map the Architecture to the
+Repository </a><a name="Map the Architecture to the Repository" href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="480" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>The Product Directory Structure is logically organized to ensure that
+        there is a placeholder for all project related artifacts.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>The product directory structure serves a logically nested placeholder for all
+product-related artifacts. The shape of the directory (which serves as the
+project repository) depends on the number of subsystems in the overall system,
+and the number of components in each subsystem.</p>
+<p>Even though the logical structure of the product does not emerge until
+Analysis&amp;Design activities are underway, an initial project repository needs
+to be created for the management and planning artifacts. Guidance for the
+initial structure is provided under <a href="../workflow/conf_mgt/co_pdirs.htm">Concepts:
+Product Directory Structure</a>.</p>
+<p>The rest of the structure can be elaborated once design decisions have
+been made, and the nature of the Implementation View becomes clearer on how
+various design elements are to be packaged for implementation.</p>
+<p>The configuration management task is to ensure that is a placeholder for each
+component that needs to be implemented in the directory structure, and that
+there will be sufficient physical storage for the artifacts that will be
+developed as part of the implementation. For CM purposes there must be a high
+degree of cohesion between internal elements in the product directory structure.
+The components should have clearly defined interfaces with the other parts of
+the system, and be independently buildable and testable. The key reason here is
+to allow for independent and parallel development of the systems by separate
+teams. The idea is to&nbsp; significantly speed up development and promote reuse
+and ease of system maintenance.</p>
+<h3><a name="Create Initial Set of Versioned Elements">Create Initial Set of
+Versioned Elements</a><a name="Create Initial Set of Versioned Elements" href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>To create an initial baseline of project artifacts</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>Even on projects with no configuration management there is a notion of a
+directory structure and an existing body of material that is used by the project on an
+on-going basis. The idea is to export/import the existing material into the
+structure created for product development.</p>
+<h3><a name="Define Baseline Promotion Levels">Define Baseline Promotion Levels</a><a name="Define Baseline Promotion Levels" href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="480" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>A baseline is a single version of the project repository. The quality
+        or status of that baseline is indicated by a baseline promotion level.
+        All elements stored in the project repository share a common set of
+        &quot;legal&quot; promotion levels. This is to ensure consistent
+        definition of promotion level across multiple projects.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>There are five baseline levels with the following states:</p>
+<ol>
+  <li>Initial</li>
+  <li>Built</li>
+  <li>Tested</li>
+  <li>Release</li>
+  <li>Rejected</li>
+</ol>
+<p>Baselines are linear, and can be moved up or down levels depending on the
+quality of the items.</p>
+<p>Reference Configuration Management <a href="../workflow/conf_mgt/co_basel.htm">Concepts:
+Baselining</a> for more details.
+<br>
+</p>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+<p><img src="../../images/rup1.gif" border="0" alt="Display Rational Unified Process using frames" name="Home" border="0" width="20" height="110"></a></p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; <img border="0" src="../../_borders/rupversion.gif" width="63" height="7"></small></small></font>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

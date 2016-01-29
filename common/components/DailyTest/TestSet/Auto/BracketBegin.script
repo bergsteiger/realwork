@@ -1,0 +1,23 @@
+USES
+ Testing.ms.dict
+;
+
+Test&Dump BracketBeginTest
+ ( 1 2 + ) .
+ INTEGER ( 1 2 + ) .
+ PRIVATE ( 1 2 + ) .
+ VOID ( 1 2 + . )
+ STRING ( 'a' 'b' + ) .
+ 
+ 100 INTEGER ( INTEGER IN anItem anItem ) .
+ 100 200 INTEGER ( INTEGER IN aDummy INTEGER IN anItem anItem ) .
+ 
+ TRY
+  INTEGER ( 2 3 )
+ EXCEPT
+  for script:ExceptionStack .
+ END 
+ //300 INTEGER ( INTEGER VAR l_Item >>> l_Item l_Item ) .
+; // BracketBeginTest
+
+BracketBeginTest

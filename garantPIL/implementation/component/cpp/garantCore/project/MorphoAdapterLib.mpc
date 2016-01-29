@@ -1,0 +1,95 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garantPIL/implementation/component/cpp/garantCore/project/MorphoAdapterLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> garantCore::MorphoAdapterLib
+//
+// Библиотека с экспортируемой морфологией
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (MorphoAdapterLib) : project_generic_core {
+	sharedname = MorphoAdapterLib
+	staticname = MorphoAdapterLib
+
+	includes += ../../
+
+	//#UC START# *4E9EF358031D_CUSTOM_DEPENDENCES*
+        includes += fake
+	includes += W:\garantPIL\implementation\component\cpp\include
+	includes += W:\garantPIL\implementation\component\cpp\include\win32
+	includes += W:\garantPIL\implementation\component\cpp\libs\cchlp\src
+	includes += W:\garantPIL\implementation\component\cpp\libs\gkdb\src
+	includes += W:\garantPIL\implementation\component\cpp\libs\zlib\src
+	includes += ../../
+
+	macros += INSTLL_CIB
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += NO_GSSCREEN
+	macros += STORE_FORM_N
+	macros += USE_CPP_ZIP
+	macros += WINENCODE
+	macros += GDS_NLOG_TRACE
+	macros += VERSION56
+	macros += VERSION61
+	macros += VERSION62
+	macros += VERSION63
+	macros += USE_ACE
+	//#UC END# *4E9EF358031D_CUSTOM_DEPENDENCES*
+	after += Morpho
+	libs  += Morpho
+
+	Header_Files {
+		Std_Headers {
+			./../MorphoAdapterLib/LibHome.h
+		}
+	
+		Def {
+			./../MorphoAdapterLib/Def/Def.h
+			./../MorphoAdapterLib/Def/DefFactories.h
+		}
+	
+		Impl {
+			./../MorphoAdapterLib/impl/Impl/MlmaRu_i.h
+			./../MorphoAdapterLib/impl/Impl/MlmaRu_i_factory.h
+			./../MorphoAdapterLib/impl/Impl/MorphoAdapter_i.h
+			./../MorphoAdapterLib/impl/Impl/MorphoAdapter_i_factory.h
+			./../MorphoAdapterLib/impl/Impl/MorphoManager_i.h
+			./../MorphoAdapterLib/impl/Impl/MorphoManager_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Def {
+		}
+	
+		Impl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../MorphoAdapterLib/LibHome.cpp
+		}
+	
+		Def {
+			./../MorphoAdapterLib/Def/Def.cpp
+			./../MorphoAdapterLib/Def/DefFactories.cpp
+		}
+	
+		Impl {
+			./../MorphoAdapterLib/impl/Impl/MlmaRu_i.cpp
+			./../MorphoAdapterLib/impl/Impl/MlmaRu_i_factory.cpp
+			./../MorphoAdapterLib/impl/Impl/MorphoAdapter_i.cpp
+			./../MorphoAdapterLib/impl/Impl/MorphoAdapter_i_factory.cpp
+			./../MorphoAdapterLib/impl/Impl/MorphoManager_i.cpp
+			./../MorphoAdapterLib/impl/Impl/MorphoManager_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

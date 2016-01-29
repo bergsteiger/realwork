@@ -1,0 +1,853 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/VCMForms/UserType.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::VCMForms::UserType
+//
+// Пользовательский тип формы
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UserType::Class
+implementation @ <<UserType>>
+//? Пользовательский тип формы
+//> Constants::Class
+//> SimpleClass::Class
+//> ScriptKeyword::Class
+
+//= UserTypeIDHolder::Class
+//= CanCloseHolder::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+//= WikiImplClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_vcm_usertype.gif
+//L code_vcm_usertype
+// Параметры визуализации
+//$ C 152,251,152
+//$ l 0,147,0
+//$ f 0,147,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p VisibleToUser:b=true ? Видим пользователю
+//p ImageIndex:s=-1 ? 
+//p SettingsCaption:s ? 
+//p Weight:s=-1 ? 
+//p NeedOnQueryMaximized:b=false ? Нужен ли обработчик OnQueryMaximized
+//p NeedOnQueryOpen:b=false ? Нужен ли обработчик OnQueryOpen
+//p NeedOnQueryClose:b=false ? Нужен ли обработчик OnQueryClose
+//p CanHaveToolbars:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()[{"%S{VisibleToUser}"!="%S{!VisibleToUser}"}%f_up_prefix(%S) *VisibleToUser* = *%S{VisibleToUser}* - Видим пользователю
+ call-inherited:: 'Delphi интерфейсы и реализация' wiki_up_print %( )%
+ if ( ( %S get_up ( 'VisibleToUser' ) ) %!= ( %S get_up_def ( 'VisibleToUser' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *VisibleToUser* = *'
+  %S get_up ( 'VisibleToUser' ) '* - Видим пользователю'
+//	][{"%S{ImageIndex}"!="%S{!ImageIndex}"}%f_up_prefix(%S) *ImageIndex* = *%S{ImageIndex}*
+ end // if
+ if ( ( %S get_up ( 'ImageIndex' ) ) %!= ( %S get_up_def ( 'ImageIndex' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ImageIndex* = *'
+  %S get_up ( 'ImageIndex' ) '*'
+//	][{"%S{SettingsCaption}"!="%S{!SettingsCaption}"}%f_up_prefix(%S) *SettingsCaption* = *%S{SettingsCaption}*
+ end // if
+ if ( ( %S get_up ( 'SettingsCaption' ) ) %!= ( %S get_up_def ( 'SettingsCaption' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *SettingsCaption* = *'
+  %S get_up ( 'SettingsCaption' ) '*'
+//	][{"%S{Weight}"!="%S{!Weight}"}%f_up_prefix(%S) *Weight* = *%S{Weight}*
+ end // if
+ if ( ( %S get_up ( 'Weight' ) ) %!= ( %S get_up_def ( 'Weight' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Weight* = *'
+  %S get_up ( 'Weight' ) '*'
+//	][{"%S{NeedOnQueryMaximized}"!="%S{!NeedOnQueryMaximized}"}%f_up_prefix(%S) *NeedOnQueryMaximized* = *%S{NeedOnQueryMaximized}* - Нужен ли обработчик OnQueryMaximized
+ end // if
+ if ( ( %S get_up ( 'NeedOnQueryMaximized' ) ) %!= ( %S get_up_def ( 'NeedOnQueryMaximized' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *NeedOnQueryMaximized* = *'
+  %S get_up ( 'NeedOnQueryMaximized' ) '* - Нужен ли обработчик OnQueryMaximized'
+//	][{"%S{NeedOnQueryOpen}"!="%S{!NeedOnQueryOpen}"}%f_up_prefix(%S) *NeedOnQueryOpen* = *%S{NeedOnQueryOpen}* - Нужен ли обработчик OnQueryOpen
+ end // if
+ if ( ( %S get_up ( 'NeedOnQueryOpen' ) ) %!= ( %S get_up_def ( 'NeedOnQueryOpen' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *NeedOnQueryOpen* = *'
+  %S get_up ( 'NeedOnQueryOpen' ) '* - Нужен ли обработчик OnQueryOpen'
+//	][{"%S{NeedOnQueryClose}"!="%S{!NeedOnQueryClose}"}%f_up_prefix(%S) *NeedOnQueryClose* = *%S{NeedOnQueryClose}* - Нужен ли обработчик OnQueryClose
+ end // if
+ if ( ( %S get_up ( 'NeedOnQueryClose' ) ) %!= ( %S get_up_def ( 'NeedOnQueryClose' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *NeedOnQueryClose* = *'
+  %S get_up ( 'NeedOnQueryClose' ) '* - Нужен ли обработчик OnQueryClose'
+//	][{"%S{CanClose}"!="%S{!CanClose}"}%f_up_prefix(%S) *CanClose* = *%S{CanClose}* - Можно ли закрывать формы данного типа
+ end // if
+ if ( ( %S get_up ( 'CanClose' ) ) %!= ( %S get_up_def ( 'CanClose' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *CanClose* = *'
+  %S get_up ( 'CanClose' ) '* - Можно ли закрывать формы данного типа'
+//	][{"%S{CanHaveToolbars}"!="%S{!CanHaveToolbars}"}%f_up_prefix(%S) *CanHaveToolbars* = *%S{CanHaveToolbars}*
+ end // if
+ if ( ( %S get_up ( 'CanHaveToolbars' ) ) %!= ( %S get_up_def ( 'CanHaveToolbars' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *CanHaveToolbars* = *'
+  %S get_up ( 'CanHaveToolbars' ) '*'
+//	]
+ end // if
+
+// Является ли UserType'ом
+//%f _IsUserType
+; // wiki_up_print
+
+: IsUserType OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B0421B502D4for4B0402290215*
+//	true
+ true
+//#UC END# *4B0421B502D4for4B0402290215*
+; // IsUserType
+
+
+//%f _PutToMakeControls
+: PutToMakeControls OBJECT IN %S
+//#UC START# *4B0423CE01F3for4B0402290215*
+//	\n with AddUsertype(%SNName,
+ #13#10' with AddUsertype('
+ %S |N 'Name,'
+//	  str_%SNCaption,
+ '  str_'
+ %S |N 'Caption,'
+//	  [{"%S{SettingsCaption}"!=""}{str_%SNCaption}str_%SNSettingsCaption],
+ '  '
+ if ( ( %S get_up ( 'SettingsCaption' ) ) %!= '' ) then
+ begin
+  'str_'
+  %S |N 'SettingsCaption' 
+ end // if
+ else
+ begin
+  'str_'
+  %S |N 'Caption' 
+ end // else
+ ','
+//	  %S{VisibleToUser},
+ '  '
+ %S get_up ( 'VisibleToUser' ) ','
+//	  %S{ImageIndex},
+ '  '
+ %S get_up ( 'ImageIndex' ) ','
+//	  %S{Weight},
+ '  '
+ %S get_up ( 'Weight' ) ','
+//	  [{}{''}<{}{%CN=UseToolbarOfUserTypeName}%C%TNName>],
+ '  '
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |N ) %== 'UseToolbarOfUserTypeName' ) then
+   begin
+    %C ->T |N  'Name' 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ else
+ begin
+  '''''' 
+ end // else
+ ','
+//	  [{%S{NeedOnQueryMaximized}=true}{nil}%f_to_borland(%SNQueryMaximized)],
+ '  '
+ if ( ( %S get_up ( 'NeedOnQueryMaximized' ) ) %==  true ) then
+ begin
+  [%f] to_borland %( %S |N 'QueryMaximized' )% 
+ end // if
+ else
+ begin
+  'nil' 
+ end // else
+ ','
+//	  [{%S{NeedOnQueryOpen}=true}{nil}%f_to_borland(%SNQueryOpen)],
+ '  '
+ if ( ( %S get_up ( 'NeedOnQueryOpen' ) ) %==  true ) then
+ begin
+  [%f] to_borland %( %S |N 'QueryOpen' )% 
+ end // if
+ else
+ begin
+  'nil' 
+ end // else
+ ','
+//	  [{%S{NeedOnQueryClose}=true}{nil}%f_to_borland(%SNQueryClose)],
+ '  '
+ if ( ( %S get_up ( 'NeedOnQueryClose' ) ) %==  true ) then
+ begin
+  [%f] to_borland %( %S |N 'QueryClose' )% 
+ end // if
+ else
+ begin
+  'nil' 
+ end // else
+ ','
+//	  \
+ '  '
+//	[{%S{CanClose}=undefined}{\
+ if ( ( %S get_up ( 'CanClose' ) ) %== 'undefined' ) then
+ begin
+//	vcm_ccNone\
+  'vcm_ccNone'
+//	]\
+ end // if
+ else
+ begin
+//	[{%S{CanClose}=true}{\
+  if ( ( %S get_up ( 'CanClose' ) ) %==  true ) then
+  begin
+//	vcm_ccEnable\
+   'vcm_ccEnable'
+//	]\
+  end // if
+  else
+  begin
+//	vcm_ccDisable\
+   'vcm_ccDisable'
+//	}\
+  end // else
+//	}\
+ end // else
+//	) do
+ ') do'
+//	 begin
+ ' begin'
+//	[{%S{CanHaveToolbars}=false}  CanHaveToolbars := false;\n]\
+ if ( ( %S get_up ( 'CanHaveToolbars' ) ) %==  false ) then
+ begin
+  '  CanHaveToolbars := false;'#13#10 
+ end // if
+//	 end;//with AddUsertype(%SNName
+ ' end;//with AddUsertype('
+ %S |N 'Name'
+//#UC END# *4B0423CE01F3for4B0402290215*
+; // PutToMakeControls
+
+
+//%f _NeedPutToMakeControls
+: NeedPutToMakeControls OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B0423E502D2for4B0402290215*
+//	true
+ true
+//#UC END# *4B0423E502D2for4B0402290215*
+; // NeedPutToMakeControls
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа UserTypeIDHolder::Class
+// Идентификатор пользовательского типа
+//%f _UserTypeID
+: UserTypeID OBJECT IN %S
+// возвращаемый результат: long
+//#UC START# *4BD70B950302for4B0402290215*
+//@ %SU
+//	[{%Gx=true}{0}%f_evaluate(%G%f_UserTypeID()+1)]
+//	%f_N(%S)
+ [%f] N %( %S )% 
+//#UC END# *4BD70B950302for4B0402290215*
+; // UserTypeID
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4B0402290215*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4B0402290215*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4B0402290215*
+//	%S%[inherited]\
+ inherited
+//	%S%f_add_class(%SU_Constants,Constants,%SNConstants,Constants_Inst)\
+ %S %f add_class %( %S |U '_Constants' %, 'Constants' %, %S |N 'Constants' %, 'Constants_Inst' )% 
+//	%{Constants_Inst}%f_set_documentation(Константы для типа формы %SN)\
+ ( get_global_var ( 'Constants_Inst' ) %f set_documentation %( 'Константы для типа формы '
+ %S |N )% ) 
+
+//	[{"%{TvcmUserType}N"=""}%f_find_element(TvcmUserType,TvcmUserType)]\
+ if ( ( ( get_global_var ( 'TvcmUserType' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( 'TvcmUserType' %, 'TvcmUserType' )% 
+ end // if
+//	%S%f_make_accessable(%{TvcmUserType}U)\
+ %S %f make_accessable %( ( get_global_var ( 'TvcmUserType' ) |U ) )% 
+
+//	%{Constants_Inst}%f_add_attribute(%SU_NAME_ID,,\
+ ( get_global_var ( 'Constants_Inst' ) %f add_attribute %( %S |U '_NAME_ID' %, '' %, 
+//	%SNName = '%SN',\
+ %S |N 'Name = '''
+ %S |N '''' %, 
+//	Attr_Inst)\
+ 'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Строковый идентификатор пользовательского типа "%SD")\
+ ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Строковый идентификатор пользовательского типа "'
+ %S |D )% ) 
+
+//	%{Constants_Inst}%f_add_attribute(%SU_ID,,\
+ ( get_global_var ( 'Constants_Inst' ) %f add_attribute %( %S |U '_ID' %, '' %, 
+//	%SN : %{TvcmUserType}U = [{%Gx=true}{0}%GN],\
+ %S |N ' : '
+ ( get_global_var ( 'TvcmUserType' ) |U ) ' = '
+ if ( ( %G |x ) %==  true ) then
+ begin
+  %G |N 
+ end // if
+ else
+ begin
+  0 
+ end // else
+%, //	Attr_Inst)\
+ 'Attr_Inst' )% ) 
+//	[{%Gx=true}\
+ if ( ( %G |x ) %==  true ) then
+ begin
+//	%{Attr_Inst}%f_set_up(suffix expr,+ 1)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'suffix expr' %, '+ 1' )% ) 
+//	]\
+ end // if
+//	%{Attr_Inst}%f_set_up(is define,true)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'is define' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(no unit prefix,true)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'no unit prefix' %, true )% ) 
+//	%{Attr_Inst}%f_set_documentation(%SD)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %S |D )% ) 
+
+//	%P%f_add_class(%SU_Local_Constants,LocalConst,%SNLocalConstants,LocalConstants_Inst)\
+ %P %f add_class %( %S |U '_Local_Constants' %, 'LocalConst' %, %S |N 'LocalConstants' %, 'LocalConstants_Inst' )% 
+//	%{LocalConstants_Inst}%f_set_visibility_type(PrivateAccess)\
+ ( get_global_var ( 'LocalConstants_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{LocalConstants_Inst}%f_set_documentation(Локализуемые константы для типа формы %SN)\
+ ( get_global_var ( 'LocalConstants_Inst' ) %f set_documentation %( 'Локализуемые константы для типа формы '
+ %S |N )% ) 
+//	%{LocalConstants_Inst}%f_add_attribute(%SU_CAPTION_ID,,\
+ ( get_global_var ( 'LocalConstants_Inst' ) %f add_attribute %( %S |U '_CAPTION_ID' %, '' %, 
+//	%SNCaption = '%SD',\
+ %S |N 'Caption = '''
+ %S |D '''' %, 
+//	Attr_Inst)\
+ 'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Заголовок пользовательского типа "%SD")
+ ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Заголовок пользовательского типа "'
+ %S |D )% ) 
+//	[{"%S{SettingsCaption}"!=""}\
+ if ( ( %S get_up ( 'SettingsCaption' ) ) %!= '' ) then
+ begin
+//	%{LocalConstants_Inst}%f_add_attribute(%SU_SETTINGS_CAPTION_ID,,\
+  ( get_global_var ( 'LocalConstants_Inst' ) %f add_attribute %( %S |U '_SETTINGS_CAPTION_ID' %, '' %, 
+//	%SNSettingsCaption = '%S{SettingsCaption}',\
+  %S |N 'SettingsCaption = '''
+  %S get_up ( 'SettingsCaption' ) '''' %, 
+//	Attr_Inst)\
+  'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Заголовок пользовательского типа "%SD" для настройки панелей инструментов)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Заголовок пользовательского типа "'
+  %S |D ' для настройки панелей инструментов' )% ) 
+//	]\
+ end // if
+
+//	%S%f_add_class(%SU_Word,ScriptKeyword,Tkw_FormUserType_%f_N(%S),Word_Inst)\
+ %S %f add_class %( %S |U '_Word' %, 'ScriptKeyword' %, 'Tkw_FormUserType_'
+ [%f] N %( %S )% %, 'Word_Inst' )% 
+//	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
+ ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NotStripUnderline' %, true )% ) 
+//	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
+ ( get_global_var ( 'Word_Inst' ) %f set_up %( 'ifndef' %, 'NoScripts' )% ) 
+//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+ ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	[{"%{TtfwInteger}N"=""}%f_find_element(TtfwInteger,TtfwInteger)]\
+ if ( ( ( get_global_var ( 'TtfwInteger' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( 'TtfwInteger' %, 'TtfwInteger' )% 
+ end // if
+//	%{Word_Inst}%f_make_accessable(%{TtfwInteger}U)\
+ ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwInteger' ) |U ) )% ) 
+//	%f_addG(%{Word_Inst},%{TtfwInteger})\
+ [%f] addG %( ( get_global_var ( 'Word_Inst' ) ) %, ( get_global_var ( 'TtfwInteger' ) ) )% 
+//	%{Word_Inst}%f_set_documentation(Слово словаря для типа формы %SN\
+ ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для типа формы '
+ %S |N 
+//	----
+
+//	*Пример использования*:
+
+//	\{code\}
+
+//	'aControl' форма::%f_str_replace(%f_N(%S), ,_) TryFocus ASSERT
+
+//	\{code\}\
+//	)\
+)% ) //	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
+
+//	[{"%{TtfwInteger.GetInteger}N"=""}%f_find_element(4EE1DC8903BB,TtfwInteger.GetInteger)]\
+ if ( ( ( get_global_var ( 'TtfwInteger.GetInteger' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( '4EE1DC8903BB' %, 'TtfwInteger.GetInteger' )% 
+ end // if
+//	%{Word_Inst}%f_add_override(4EE1DC8903BB)\
+ ( get_global_var ( 'Word_Inst' ) %f add_override %( 4 'EE1DC8903BB' )% ) 
+//	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_var,\
+ ( get_global_var ( 'TtfwInteger.GetInteger' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwInteger.GetInteger' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_var' %, 
+//	 {-}\
+ ' {-}'
+//	)\
+)% ) //	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_impl,\
+ ( get_global_var ( 'TtfwInteger.GetInteger' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwInteger.GetInteger' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_impl' %, 
+//	 Result := %f_N(%S);\
+ ' Result := '
+ [%f] N %( %S )% ';'
+//	)
+)% ) 
+//	%{Word_Inst}%f_set_up(NameForScript,тип_формы::%f_str_replace(%f_N(%S), ,_))\
+ ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NameForScript' %, 'тип_формы::'
+ [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% )% ) 
+//	%{Word_Inst}%f_set_abstraction_type(final)\
+ ( get_global_var ( 'Word_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+
+//	%{Word_Inst}%f_add_operation(%{Word_Inst}U_Ini,ini,Ini (),Op_Instance)\
+//	%{Op_Instance}%f_set_documentation(Регистрация %{Word_Inst}N)\
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+//	 %{Word_Inst}N.Register('%f_loc_GetNameForScript(%{Word_Inst})');\
+//	)\
+//	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)
+ ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NeedsKeywordDoc' %, true )% ) 
+//#UC END# *4B2A19E3038Bfor4B0402290215*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент производит файл (Unit)
+//%f _IsUnitFileProducer
+: IsUnitFileProducer OBJECT IN %S
+//#UC START# *4947EC0F0380for4B0402290215*
+//	true
+ true
+//#UC END# *4947EC0F0380for4B0402290215*
+; // IsUnitFileProducer
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor4B0402290215*
+//	%PN_%SN_UserType
+ %P |N '_'
+ %S |N '_UserType'
+//#UC END# *4948065C01DFfor4B0402290215*
+; // pas_UnitName
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4B0402290215*
+//	<{}{%CV!=PublicAccess&%CC=Class}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %!= 'PublicAccess' AND 
+   ( ( %C |C ) %== 'Class'  ) ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	[{<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%CC=Operation}{+}%CX>!=0}\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %!= 'PublicAccess' AND 
+    ( ( %C |S ) %!= 'ini'  ) AND 
+    ( ( %C |S ) %!= 'fini'  ) AND 
+    ( ( %C |C ) %== 'Operation'  ) ) then
+   begin
+    if ( l_Counter >0 ) then
+    begin
+     %C |X 
+    end
+    ++! l_Counter
+   end // if
+  end // for C
+  %!= 0 ) then
+ begin
+//	<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%CC=Operation}{+}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %!= 'PublicAccess' AND 
+    ( ( %C |S ) %!= 'ini'  ) AND 
+    ( ( %C |S ) %!= 'fini'  ) AND 
+    ( ( %C |C ) %== 'Operation'  ) ) then
+   begin
+    if ( l_Counter >0 ) then
+    begin
+//	%f_pas_MethodSigImplementation(%C,%S) forward;>\
+     [%f] pas_MethodSigImplementation %( %C %, %S )% ' forward;' 
+    end
+    ++! l_Counter
+   end // if
+  end // for C
+//	]\
+ end // if
+//	<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%CC!=Class}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %!= 'PublicAccess' AND 
+   ( ( %C |S ) %!= 'ini'  ) AND 
+   ( ( %C |S ) %!= 'fini'  ) AND 
+   ( ( %C |C ) %!= 'Class'  ) ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%CV=PublicAccess}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %== 'PublicAccess' ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%CS=ini}%CX>\
+//	<{}{%CS=fini}%CX>
+//	
+//#UC END# *470F15B800CBfor4B0402290215*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4B0402290215*
+//O [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)
+//P
+//	[{"%SO"!=""}\
+ if ( ( %S |O ) %!= '' ) then
+ begin
+//	%S%f_pas_OutLikeUtilityPack()\
+  %S %f pas_OutLikeUtilityPack %( )% 
+//	]
+ end // if
+//#UC END# *470F1571031Cfor4B0402290215*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4B0402290215*
+//#UC END# *477398E501C0for4B0402290215*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4B0402290215*
+//#UC END# *55B8D28B0157for4B0402290215*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4B0402290215*
+//#UC END# *55B8D2F80145for4B0402290215*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4B0402290215*
+//#UC END# *55B8DD9C0301for4B0402290215*
+; // res.cmd.pas
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for4B0402290215*
+//	[{%S{NeedOnQueryMaximized}=true}\
+ if ( ( %S get_up ( 'NeedOnQueryMaximized' ) ) %==  true ) then
+ begin
+//	%P%f_add_operation(%SU_QueryMaximized,,%SNQueryMaximized (aSender : 4807745602C8),Op_Instance)\
+  %P %f add_operation %( %S |U '_QueryMaximized' %, '' %, %S |N 'QueryMaximized (aSender : 4807745602C8)' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_documentation(Обработчик события %SN.OnQueryMaximized)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Обработчик события '
+  %S |N '.OnQueryMaximized' )% ) 
+//	[{%P#f_IsMixIn()!=true}{\
+  if ( ( %P %?f IsMixIn %( )% ) %!=  true ) then
+  begin
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	]\
+  end // if
+  else
+  begin
+//	%{Op_Instance}%f_set_abstraction_type(abstract)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	}\
+  end // else
+//	%{Op_Instance}%f_set_visibility_type(ProtectedAccess)\
+  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'ProtectedAccess' )% ) 
+//	]\
+ end // if
+//	[{%S{NeedOnQueryOpen}=true}\
+ if ( ( %S get_up ( 'NeedOnQueryOpen' ) ) %==  true ) then
+ begin
+//	%P%f_add_operation(%SU_QueryOpen,,%SNQueryOpen (aSender : 4807745602C8),Op_Instance)\
+  %P %f add_operation %( %S |U '_QueryOpen' %, '' %, %S |N 'QueryOpen (aSender : 4807745602C8)' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_documentation(Обработчик события %SN.OnQueryOpen)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Обработчик события '
+  %S |N '.OnQueryOpen' )% ) 
+//	[{%P#f_IsMixIn()!=true}{\
+  if ( ( %P %?f IsMixIn %( )% ) %!=  true ) then
+  begin
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	]\
+  end // if
+  else
+  begin
+//	%{Op_Instance}%f_set_abstraction_type(abstract)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	}\
+  end // else
+//	%{Op_Instance}%f_set_visibility_type(ProtectedAccess)\
+  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'ProtectedAccess' )% ) 
+//	]\
+ end // if
+//	[{%S{NeedOnQueryClose}=true}\
+ if ( ( %S get_up ( 'NeedOnQueryClose' ) ) %==  true ) then
+ begin
+//	%P%f_add_operation(%SU_QueryClose,,%SNQueryClose (aSender : 4807745602C8),Op_Instance)\
+  %P %f add_operation %( %S |U '_QueryClose' %, '' %, %S |N 'QueryClose (aSender : 4807745602C8)' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_documentation(Обработчик события %SN.OnQueryClose)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Обработчик события '
+  %S |N '.OnQueryClose' )% ) 
+//	[{%P#f_IsMixIn()!=true}{\
+  if ( ( %P %?f IsMixIn %( )% ) %!=  true ) then
+  begin
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	]\
+  end // if
+  else
+  begin
+//	%{Op_Instance}%f_set_abstraction_type(abstract)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	}\
+  end // else
+//	%{Op_Instance}%f_set_visibility_type(ProtectedAccess)\
+  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'ProtectedAccess' )% ) 
+//	]\
+ end // if
+//	%S%f_DoSpell()
+ %S %f DoSpell %( )% 
+//#UC END# *4A41A13D03D5for4B0402290215*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: UserType::Class::link::Attribute
+end. // <<UserType>>
+
+implementation @ :: <<UserType>> <<link>> ;
+//= Документация::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//v #
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_property.gif
+//L code_property
+//l l
+// - возможные типы связи атрибута
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4B040B8B0071*
+//#UC END# *470F1571031Cfor4B040B8B0071*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4B040B8B0071*
+//#UC END# *470F15B800CBfor4B040B8B0071*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4B040B8B0071*
+//#UC END# *477398E501C0for4B040B8B0071*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4B040B8B0071*
+//#UC END# *55B8D28B0157for4B040B8B0071*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4B040B8B0071*
+//#UC END# *55B8D2F80145for4B040B8B0071*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4B040B8B0071*
+//#UC END# *55B8DD9C0301for4B040B8B0071*
+; // res.cmd.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4B040B8B0071*
+//#UC END# *46E6D4BB0339for4B040B8B0071*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4B040B8B0071*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4B040B8B0071*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4B040B8B0071*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4B040B8B0071*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4B040B8B0071*
+//#UC END# *470484D50138for4B040B8B0071*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<UserType>> <<link>> ;
+

@@ -1,0 +1,1222 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "TreeInterfaces"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"author"
+	    value      	"Люлин А.В.")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"debug tie log"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"need UC"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"no hands"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"path prefix"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"started"
+	    value      	"14.11.2008 22^23")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"weak"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (intf.pas)"
+	    value      	"w:/garant6x/implementation/Garant/GbaNemesis/Tree/TreeInterfaces.pas")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis,key:NMS,guid:498B35810374/Home/Модель проекта "F1 Domain"/LegalDomain/Tree/TreeInterfaces|491DD2830110
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (intf.pas)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"12957107162"))
+    quid       	"491DD2830110"
+    documentation 	"Интерфейсы для работы с деревьями"
+    stereotype 	"ControllerInterfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"491DD55E0283"
+	    supplier   	"Logical View::Shared Delphi Low Level::L3::l3InternalInterfaces"
+	    quidu      	"467C0CAA02AB")
+	(object Visibility_Relationship
+	    quid       	"491DD59602CC"
+	    supplier   	"Logical View::Shared Delphi ТребованиЯ к низкоуровневым библиотекам::L3$Domain::l3TreeInterfaces"
+	    quidu      	"4682595B0268")
+	(object Visibility_Relationship
+	    quid       	"492D9109012F"
+	    supplier   	"Logical View::Shared Delphi For F1::Nemesis::nscNewInterfaces"
+	    quidu      	"490838E10313"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "InsContextFilter"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis,key:NMS,guid:498B35810374/Home/Модель проекта "F1 Domain"/LegalDomain/Tree/TreeInterfaces/InsContextFilter|492D901E03E1
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"ACA857F6-27D4-429B-ABBA-D8A3B6AF8376")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"12957232855"))
+	    quid       	"492D901E03E1"
+	    stereotype 	"PureMixIn"
+	    operations 	(list Operations
+		(object Operation "FiltrateByContext"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*492D90AA0118_492D91B7037E_var*"
+			    value      	"//#UC START# *492D90AA0118_492D91B7037E_var*¤var¤ l_FilterableTree: Il3FilterableTree;¤//#UC END# *492D90AA0118_492D91B7037E_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*492D90AA0118_492D91B7037E_impl*"
+			    value      	"//#UC START# *492D90AA0118_492D91B7037E_impl*¤ if Supports(aTreeSource, Il3FilterableTree, l_FilterableTree) then¤ begin¤  if (aFilter = nil) then¤   pm_GetCurrentContextFilter¤  else¤   f_CurrentContextFilter := aFilter;¤  Result := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters.¤                                          SetContext(f_CurrentContextFilter.ActiveContext),¤                                          aCurrentNode,¤                                          aCurrent,¤                                          True,¤                                          f_CurrentContextFilter.NeedRefilterTree);¤ end¤ else¤  Result := aTreeSource;¤//#UC END# *492D90AA0118_492D91B7037E_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46825CC00249")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"12957237460"))
+		    quid       	"492D90AA0118"
+		    parameters 	(list Parameters
+			(object Parameter "aTreeSource"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"46825CC00249")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"12957238384"))
+			    quid       	"492D90B00089"
+			    type       	"Il3SimpleTree"
+			    quidu      	"46825CC00249")
+			(object Parameter "aCurrentNode"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"468259900322")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"12957238920"))
+			    quid       	"492D90B000B5"
+			    type       	"Il3SimpleNode"
+			    quidu      	"468259900322")
+			(object Parameter "aFilter"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4908393001C5")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"12957239510"))
+			    quid       	"492D90B00102"
+			    type       	"InscContextFilterState"
+			    quidu      	"4908393001C5")
+			(object Parameter "out   aCurrent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"46A606AC03B2")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"12957240628"))
+			    quid       	"492D90B0014B"
+			    type       	"Integer"
+			    quidu      	"46A606AC03B2"))
+		    result     	"Il3SimpleTree"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"46825CC00249"))
+	    language   	"MDA Generator")
+	(object Class "IdsSimpleTree"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"05B327B7-32D5-4BF3-A7C2-463B5813E61F")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis,key:NMS,guid:498B35810374/Home/Модель проекта "F1 Domain"/LegalDomain/Tree/TreeInterfaces/IdsSimpleTree|47E9F96B035A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"12957241581"))
+	    quid       	"47E9F96B035A"
+	    documentation 	"Бизнес объекта формы с деревом."
+	    stereotype 	"ViewAreaController"
+	    operations 	(list Operations
+		(object Operation "CurrentChanged"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*491DD5C90095_47F0C1410011_var*"
+			    value      	"//#UC START# *491DD5C90095_47F0C1410011_var*¤¤ procedure lp_UpdateMovingCurrent;¤ var¤  l_Node           : INodeBase;¤  l_UnfilteredNode : INodeBase;¤ begin¤  if Assigned(aNode) then¤  begin¤   if Supports(aNode, INodeBase, l_Node) then¤   try¤    // При фильтрации, View дерева может умереть раньше чем, узел этого View, с¤    // которым после умирания работать будет нельзя, поэтому получаем¤    // нефильтрованный вариант узла (CQ: OIT5-28558):¤    l_Node.GetUnfilteredNode(l_UnfilteredNode);¤    try¤     MovingCurrent := TnsNewCachableNode.Make(l_UnfilteredNode);¤    finally¤     l_UnfilteredNode := nil;¤    end;//try..finally¤   finally¤    l_Node := nil;¤   end//try..finally¤   else¤    Assert(False);¤  end¤  else¤   MovingCurrent := nil;¤ end;//lp_UpdateMovingCurrent¤¤//#UC END# *491DD5C90095_47F0C1410011_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*491DD5C90095_47F0C1410011_impl*"
+			    value      	"//#UC START# *491DD5C90095_47F0C1410011_impl*¤ lp_UpdateMovingCurrent;¤ if not aUpdateWithDelay then¤ begin¤  MovingFinished;¤  Exit;¤ end;//if not aUpdateWithDelay then¤ if UpdateCurrentTimer.Enabled then¤  Exit¤ else¤  if (GetTickCount - ChangeCurrentTime < ns_UpdateTime) then¤   UpdateCurrentTimer.Enabled := True¤  else¤   MovingFinished;¤//#UC END# *491DD5C90095_47F0C1410011_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"12957245891"))
+		    quid       	"491DD5C90095"
+		    documentation 	
+|изменился текущий узел дерева. По умолчанию включён режим отложенного
+|           обновления текущего, чтобы не обновлялось свзянное представление при
+|           быстром перемещении. Когда пользователь в дереве открывает элемент
+|           отложенное обновление нужно выключать
+		    
+		    parameters 	(list Parameters
+			(object Parameter "aNode"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"468259900322")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"12957246842"))
+			    quid       	"491DD5DB002E"
+			    type       	"Il3SimpleNode"
+			    quidu      	"468259900322")
+			(object Parameter "aUpdateWithDelay"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"46A603BB0391")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"12957247638"))
+			    quid       	"491DD5DB0074"
+			    type       	"Boolean"
+			    quidu      	"46A603BB0391"
+			    initv      	"True"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"492D907101B8"
+	    roles      	(list role_list
+		(object Role "CurrentContextFilter"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"calling conventions"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug tie log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is default"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"pm"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*492D9071038D_492D91B7037Eget_var*"
+			    value      	"//#UC START# *492D9071038D_492D91B7037Eget_var*¤//#UC END# *492D9071038D_492D91B7037Eget_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*492D9071038D_492D91B7037Eget_impl*"
+			    value      	"//#UC START# *492D9071038D_492D91B7037Eget_impl*¤ if f_CurrentContextFilter = nil then¤  f_CurrentContextFilter := TnscContextFilterState.Make(False, nil, 0);¤ Result := f_CurrentContextFilter;¤//#UC END# *492D9071038D_492D91B7037Eget_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"12957236246"))
+		    quid       	"492D9071038D"
+		    stereotype 	"readonly"
+		    label      	"CurrentContextFilter"
+		    supplier   	"Logical View::Shared Delphi For F1::Nemesis::nscNewInterfaces::InscContextFilterState"
+		    quidu      	"4908393001C5"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"492D9071039E"
+		    supplier   	"Logical View::F1 Базовые определениЯ предметной области::LegalDomain::Tree::TreeInterfaces::InsContextFilter"
+		    quidu      	"492D901E03E1")))
+	(object Association "$UNNAMED$2"
+	    quid       	"491DD5760236"
+	    roles      	(list role_list
+		(object Role "ImageList"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"calling conventions"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug tie log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is default"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"pm"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*491DD57603A3_47F0C1410011get_var*"
+			    value      	"//#UC START# *491DD57603A3_47F0C1410011get_var*¤//#UC END# *491DD57603A3_47F0C1410011get_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*491DD57603A3_47F0C1410011get_impl*"
+			    value      	"//#UC START# *491DD57603A3_47F0C1410011get_impl*¤ Result := MakeImageList;¤//#UC END# *491DD57603A3_47F0C1410011get_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"12957243747"))
+		    quid       	"491DD57603A3"
+		    documentation 	"иконки для дерева"
+		    stereotype 	"readonly"
+		    label      	"ImageList"
+		    supplier   	"Logical View::Shared Delphi Low Level::L3::l3InternalInterfaces::Il3ImageList"
+		    quidu      	"4728C6AC0070"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$3"
+		    quid       	"491DD57603AC"
+		    supplier   	"Logical View::F1 Базовые определениЯ предметной области::LegalDomain::Tree::TreeInterfaces::IdsSimpleTree"
+		    quidu      	"47E9F96B035A")))
+	(object Association "$UNNAMED$4"
+	    quid       	"491DD5A10012"
+	    roles      	(list role_list
+		(object Role "SimpleTree"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"calling conventions"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug tie log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is default"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"pm"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*491DD5A10199_47F0C1410011get_var*"
+			    value      	"//#UC START# *491DD5A10199_47F0C1410011get_var*¤//#UC END# *491DD5A10199_47F0C1410011get_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*491DD5A10199_47F0C1410011get_impl*"
+			    value      	"//#UC START# *491DD5A10199_47F0C1410011get_impl*¤ if not Assigned(f_SimpleTree) then¤ begin¤  pm_SetSimpleTree(MakeSimpleTree);¤  f_IsFirstMake := False;¤ end;//if not Assigned(f_SimpleTree) then¤ Result := f_SimpleTree;¤//#UC END# *491DD5A10199_47F0C1410011get_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*491DD5A10199_47F0C1410011set_var*"
+			    value      	"//#UC START# *491DD5A10199_47F0C1410011set_var*¤var¤ l_Old: Il3SimpleTree;¤//#UC END# *491DD5A10199_47F0C1410011set_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*491DD5A10199_47F0C1410011set_impl*"
+			    value      	(value Text 
+|//#UC START# *491DD5A10199_47F0C1410011set_impl*¤ l_Old := f_SimpleTree;¤  // - нужно увеличить счетчик ссылок, чтобы не получилось, что f_SimpleTree¤  //   в процессе обработки отпустили, а кто либо продолжит работу с "const aOld";¤ try¤  UpdateSimpleTree(l_Old, aValue);¤ finally¤  l_Old := nil;¤ end;//try..finally¤//#UC END# *491DD5A10199_47F0C1410011set_impl*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"12957244865"))
+		    quid       	"491DD5A10199"
+		    documentation 	"дерево. Почему не readonly?"
+		    stereotype 	"property"
+		    label      	"SimpleTree"
+		    supplier   	"Logical View::Shared Delphi ТребованиЯ к низкоуровневым библиотекам::L3$Domain::l3TreeInterfaces::Il3SimpleTree"
+		    quidu      	"46825CC00249"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"491DD5A101AC"
+		    supplier   	"Logical View::F1 Базовые определениЯ предметной области::LegalDomain::Tree::TreeInterfaces::IdsSimpleTree"
+		    quidu      	"47E9F96B035A"))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"491DD4770368"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Shared Delphi Low Level::L3::l3InternalInterfaces::Il3ImageList" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(543, 261)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(356, 233)
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"• Il3ImageList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(356, 183)
+			anchor     	10
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4728C6AC0070"
+		    width      	392
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi ТребованиЯ к низкоуровневым библиотекам::L3$Domain::l3TreeInterfaces::Il3SimpleTree" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1077, 273)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(912, 245)
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"Il3SimpleTree")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(912, 195)
+			anchor     	10
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"46825CC00249"
+		    width      	348
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::F1 Базовые определениЯ предметной области::LegalDomain::Tree::TreeInterfaces::IdsSimpleTree" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(819, 834)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(587, 806)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	464
+			justify    	0
+			label      	"IdsSimpleTree")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(587, 756)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	464
+			justify    	0
+			label      	"<<ViewAreaController>>")
+		    icon_style 	"Label"
+		    fill_color 	15908010
+		    quidu      	"47E9F96B035A"
+		    width      	482
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$2" @4
+		    location   	(580, 547)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"491DD5760236"
+		    roleview_list 	(list RoleViews
+			(object RoleView "ImageList" @5
+			    Parent_View 	@4
+			    location   	(110, -40)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @6
+				Parent_View 	@5
+				location   	(539, 391)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	208
+				justify    	0
+				label      	"+ImageList"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	(object SegLabel @7
+				Parent_View 	@5
+				location   	(628, 313)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.500000
+				height     	120
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"491DD57603A3"
+			    client     	@4
+			    supplier   	@1
+			    vertices   	(list Points
+				(580, 547)
+				(580, 351))
+			    line_style 	3
+			    origin_attachment 	(580, 547)
+			    terminal_attachment 	(580, 351))
+			(object RoleView "$UNNAMED$3" @8
+			    Parent_View 	@4
+			    location   	(110, -40)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"491DD57603AC"
+			    client     	@4
+			    supplier   	@3
+			    vertices   	(list Points
+				(580, 547)
+				(580, 744))
+			    line_style 	3
+			    origin_attachment 	(580, 547)
+			    terminal_attachment 	(580, 744))))
+		(object AssociationViewNew "$UNNAMED$4" @9
+		    location   	(1056, 553)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"491DD5A10012"
+		    roleview_list 	(list RoleViews
+			(object RoleView "SimpleTree" @10
+			    Parent_View 	@9
+			    location   	(586, -34)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @11
+				Parent_View 	@10
+				location   	(1015, 401)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	233
+				justify    	0
+				label      	"+SimpleTree"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	(object SegLabel @12
+				Parent_View 	@10
+				location   	(1104, 323)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<property>>"
+				pctDist    	0.500000
+				height     	120
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"491DD5A10199"
+			    client     	@9
+			    supplier   	@2
+			    vertices   	(list Points
+				(1056, 553)
+				(1056, 363))
+			    line_style 	3
+			    origin_attachment 	(1056, 553)
+			    terminal_attachment 	(1056, 363))
+			(object RoleView "$UNNAMED$5" @13
+			    Parent_View 	@9
+			    location   	(586, -34)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"491DD5A101AC"
+			    client     	@9
+			    supplier   	@3
+			    vertices   	(list Points
+				(1056, 553)
+				(1056, 744))
+			    line_style 	3
+			    origin_attachment 	(1056, 553)
+			    terminal_attachment 	(1056, 744))))
+		(object ClassView "Class" "Logical View::Shared Delphi For F1::Nemesis::nscNewInterfaces::InscContextFilterState" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(576, 1128)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(340, 1100)
+			nlines     	1
+			max_width  	472
+			justify    	0
+			label      	"• InscContextFilterState")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(340, 1050)
+			anchor     	10
+			nlines     	1
+			max_width  	472
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4908393001C5"
+		    width      	490
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::F1 Базовые определениЯ предметной области::LegalDomain::Tree::TreeInterfaces::InsContextFilter" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1464, 1635)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(1304, 1607)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"InsContextFilter")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(1304, 1557)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"<<PureMixIn>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"492D901E03E1"
+		    width      	338
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @16
+		    location   	(1222, 1218)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"492D907101B8"
+		    roleview_list 	(list RoleViews
+			(object RoleView "CurrentContextFilter" @17
+			    Parent_View 	@16
+			    location   	(-918, -257)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @18
+				Parent_View 	@17
+				location   	(902, 1260)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	388
+				justify    	0
+				label      	"+CurrentContextFilter"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	(object SegLabel @19
+				Parent_View 	@17
+				location   	(991, 1182)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.500000
+				height     	120
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"492D9071038D"
+			    client     	@16
+			    supplier   	@14
+			    vertices   	(list Points
+				(1222, 1218)
+				(821, 1218))
+			    line_style 	3
+			    origin_attachment 	(1222, 1218)
+			    terminal_attachment 	(821, 1218))
+			(object RoleView "$UNNAMED$1" @20
+			    Parent_View 	@16
+			    location   	(-918, -257)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"492D9071039E"
+			    client     	@16
+			    supplier   	@15
+			    vertices   	(list Points
+				(1222, 1218)
+				(1297, 1218)
+				(1297, 1545))
+			    line_style 	3
+			    origin_attachment 	(1222, 1218)
+			    terminal_attachment 	(1297, 1545))))))
+	(object ClassDiagram "Uses"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"492D90FA00AC"
+	    title      	"Uses"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object CategoryView "Logical View::F1 Базовые определениЯ предметной области::LegalDomain::Tree::TreeInterfaces" @21
+		    location   	(281, 247)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(47, 212)
+			nlines     	2
+			max_width  	468
+			justify    	0
+			label      	"TreeInterfaces")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(47, 162)
+			anchor     	10
+			nlines     	1
+			max_width  	468
+			justify    	0
+			label      	"<<ControllerInterfaces>>")
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"491DD2830110"
+		    width      	480
+		    height     	182)
+		(object CategoryView "Logical View::Shared Delphi For F1::Nemesis::nscNewInterfaces" @22
+		    location   	(919, 247)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(744, 196)
+			nlines     	2
+			max_width  	350
+			justify    	0
+			label      	"nscNewInterfaces")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@22
+			location   	(744, 146)
+			anchor     	10
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"<<Interfaces>>")
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"490838E10313"
+		    width      	362
+		    height     	214)
+		(object ImportView "" @23
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"492D9109012F"
+		    client     	@21
+		    supplier   	@22
+		    vertices   	(list Points
+			(521, 247)
+			(737, 247))
+		    line_style 	0)
+		(object CategoryView "Logical View::Shared Delphi Low Level::L3::l3InternalInterfaces" @24
+		    location   	(330, 684)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(151, 633)
+			nlines     	2
+			max_width  	358
+			justify    	0
+			label      	"• l3InternalInterfaces")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@24
+			location   	(151, 583)
+			anchor     	10
+			nlines     	1
+			max_width  	358
+			justify    	0
+			label      	"<<Interfaces>>")
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"467C0CAA02AB"
+		    width      	370
+		    height     	214)
+		(object ImportView "" @25
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"491DD55E0283"
+		    client     	@21
+		    supplier   	@24
+		    vertices   	(list Points
+			(290, 338)
+			(311, 522))
+		    line_style 	0)
+		(object CategoryView "Logical View::Shared Delphi ТребованиЯ к низкоуровневым библиотекам::L3$Domain::l3TreeInterfaces" @26
+		    location   	(870, 684)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@26
+			location   	(720, 635)
+			nlines     	2
+			max_width  	300
+			justify    	0
+			label      	"l3TreeInterfaces")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@26
+			location   	(720, 585)
+			anchor     	10
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"<<Interfaces>>")
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4682595B0268"
+		    width      	312
+		    height     	210)
+		(object ImportView "" @27
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"491DD59602CC"
+		    client     	@21
+		    supplier   	@26
+		    vertices   	(list Points
+			(404, 338)
+			(713, 567))
+		    line_style 	0)))))

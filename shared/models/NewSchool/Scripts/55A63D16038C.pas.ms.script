@@ -1,0 +1,50 @@
+// TtfwMainDictionaryList 55A63D16038C SimpleClass Class
+
+INCLUDE '55B0E773009A.pas.ms.script'
+
+INCLUDE '55A63C1701BE.pas.ms.script'
+
+FORWARD ME_55A63D16038C
+
+INCLUDE '55A0005D02CC.pas.ms.script'
+
+: ME_55A63D24011E
+ CONST UID '55A63D24011E'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_55A0005D02CC // TtfwMainDictionary
+ ;
+
+ @SELF
+; // ME_55A63D24011E ItemType
+
+: ME_55A63D16038C
+ CONST UID '55A63D16038C'
+ CONST Name 'TtfwMainDictionaryList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_55B0E773009A // tfwSortedDictionaryList
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_55A63C1701BE // tfwNamedDictionaryList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_55A63D24011E // ItemType
+ ]
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55A63D16038C TtfwMainDictionaryList

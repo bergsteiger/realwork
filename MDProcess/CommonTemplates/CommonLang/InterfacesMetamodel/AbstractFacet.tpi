@@ -1,0 +1,2043 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/AbstractFacet.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::AbstractFacet
+//
+// Базовый стереотип фасета
+// ---
+// Определяет свойства и элементы общие для всех стереотипов, определяеющих поведение.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: AbstractFacet::Class
+? Базовый стереотип фасета
+? Определяет свойства и элементы общие для всех стереотипов, определяеющих поведение.
+> Enum::Class
+> Constants::Class
+
+= WikiImplClass::Class
+= WithFactory::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#
+/ - типы видимости
+Y code_facet.gif
+L code_facet
+// Параметры визуализации
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p call way=forth|back|both ? Указывает тип интерфейса экспортируемого из компоненты. forth - прямой (интерфейс реализуется внутри ДЛЛ); back - обратный (callback interface, реализуется клиентом компоненты); both - возможны оба варианта реализации интерфейса (на данный момент не поддерживается)
+p is default ancestor:b=false ? является ли предком по-умолчанию
+p native definition=none|C++ interface|DLL outside ? определяет что интерфейс является "родным" (внешне определенным в пространстве видимости применения пакета). C++ interface - родной для С++ реализации компоненты; DLL outside - родной для клиента компоненты
+p debug tie log:b=false ? Нужно ли генерить код логирования вызовов всех  определённых tie-методов
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{call way}"!="%S{!call way}"}%f_up_prefix(%S) *call way* = *%S{call way}* - Указывает тип интерфейса экспортируемого из компоненты. forth - прямой (интерфейс реализуется внутри ДЛЛ); back - обратный (callback interface, реализуется клиентом компоненты); both - возможны оба варианта реализации интерфейса (на данный момент не поддерживается)
+	][{"%S{is default ancestor}"!="%S{!is default ancestor}"}%f_up_prefix(%S) *is default ancestor* = *%S{is default ancestor}* - является ли предком по-умолчанию
+	][{"%S{native definition}"!="%S{!native definition}"}%f_up_prefix(%S) *native definition* = *%S{native definition}* - определяет что интерфейс является "родным" (внешне определенным в пространстве видимости применения пакета). C++ interface - родной для С++ реализации компоненты; DLL outside - родной для клиента компоненты
+	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Нужно ли генерить код логирования вызовов всех  определённых tie-методов
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F704E00AB*
+c          {}
+r {"<{}{%t_check_type(%G,"%SM")=false}{%GC}>"!="0"}:   {%SS can inherit only from Facet}
+r {<{}{%t_check_type(%R,"Facet::Class")=false&%R#f_IsPureMixIn()!=true&%t_check_type(%R,"StateMachine::Class")=false}{%RC}>!=0}:        {%SS can realize only StateMachine}
+/r {<{}{%CC=Attribute&%Cl=ref}{C}>!=0}:                                          {%SS не может иметь ref связи}
+r {%Sa!=abstract&%f_need_check_access(%S)=true&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%a#f_IsUseCase()=true}{C}>=0}: {%SS не используется ни в одном прецеденте}
+
+//проверяет, что фасет находится в классе реализации и видимость его не Public
+f _need_check_access
+	[{%t_nested_scope_def(%P)=true}{true}[{%SV=PublicAccess}{false}true]]
+//#UC END# *4704C0E30186for470F704E00AB*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент может реализовываться классом
+%f _ClassImplementable
+//#UC START# *49551CA202CFfor470F704E00AB*
+	true
+//#UC END# *49551CA202CFfor470F704E00AB*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является интерфейсом
+%f _IsInterface
+//#UC START# *49809333028Cfor470F704E00AB*
+	true
+//#UC END# *49809333028Cfor470F704E00AB*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for470F704E00AB*
+//#UC END# *4705C54B01F4for470F704E00AB*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for470F704E00AB*
+//#UC END# *4705C5490109for470F704E00AB*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F704E00AB*
+F class %SN;
+	%f_set_var(INT,S)%f_set_var(SERV,S)[
+	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+	>]
+//#UC END# *47022CB8034Bfor470F704E00AB*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F704E00AB*
+F class %SN;
+	[#%S%f_open_ifdef()
+	]#%SF
+	[{%S{no_root_class}=false}#typedef ::Core::Var\<%SN\> %SN_var;
+	#typedef ::Core::Var\<const %SN\> %SN_cvar;
+	][
+	<#%FF
+	>
+	]%f_docs(%S)\
+	#class %SN[
+	#	%S%f_inheritance_dump()]
+	#{
+	[#public:<{}{}{Sn}[
+	%CX
+	]>][
+	// oneway methods impl
+	private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_h(%C)
+	>
+	protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_h(%C)
+	>]#};][
+	#%S%f_close_ifdef()]
+
+%f _inheritance_dump
+	[: [{}{[{%S{no_root_class}=false}virtual public ::Core::IObject]}<{\n#\t, }virtual public %f_type(%G)>]]
+//#UC END# *47022C88029Ffor470F704E00AB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F704E00AB*
+	<%CX>
+//#UC END# *470F15B800CBfor470F704E00AB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F704E00AB*
+F %f_pas_OutInterfaceForward(%S)
+	[{%f_exists_in_list(GENERATED_INTF,S)!=true}\
+	%f_add_to_list(GENERATED_INTF,S)\
+	<{}{%f_exists_in_list(GENERATED_INTF,G)!=true&%f_pas_IsSameUnit(%S%P,%G%P))=true}[%GX\n]>\
+	[\n%S%f_open_ifdef()]\
+	[<{}{%CC=Class&%C%GU=%SU}\n%CF>]\
+	[<{}{%CC=Class&%C%GU!=%SU&%C%f_IsClassInner()!=true}%CX\n>]\
+	%f_pas_OpenType(%S)\
+
+	[{%t_impl_class(%P)=true|%P#f_IsInterface()=true}\
+	[{<{}{%CC=Attribute&%C%TU=%PU}{C}>!=0}{\
+	[{<{}{%CC=Operation&%C%TU=%PU}{C}>!=0}{\
+	[{<{}{%CC=Operation&%C<{}{%C%TU=%1%PU}{C}>!=0}{C}>!=0}%PF]\
+	}%PF]\
+	}\
+	%PF]\
+	]\
+
+	<{}{%CC=Operation}%C<{}{%C%TU!=%1U&%f_pas_IsSameUnit(%C%T%P,%1%P)=true&%C%TS=SetOf}[%C%TX\n\n]>>\
+	<{}{%CC=Operation}%C<{}{%C%TU!=%1U&%f_pas_IsSameUnit(%C%T%P,%1%P)=true&%C%TS=Enum}[%C%TX\n\n]>>\
+	<{}{%CC=Operation}%C<{}{%C%TU!=%1U&%f_pas_IsSameUnit(%C%T%P,%1%P)=true&%C%TS=Typedef}[%C%TX\n\n]>>\
+	<{}{%CC=Operation}%C<{}{%C%TU!=%1U&%f_pas_IsSameUnit(%C%T%P,%1%P)=true&%C%T#f_IsInterface()=true}%C%TF>>\
+// - генерируем предварительные описания параметров
+
+	<{}{%CS=impurity value}%f_set_var(%CN,"%f_pas_TypeName(%C%T)")>\
+	 %f_pas_TypeName(%S) = interface[(%f_pas_InterfaceAncestor(%S)[\{, <{, }{%R#f_IsPureMixIn()!=true}%f_pas_TypeName(%R)>\}])]\
+	[\n  \{* %f_Doc(%S) \}]
+	   \['{%SG}'\]
+	%f_pas_OutFacetBody(%S)\
+	<{}{%R#f_IsPureMixIn()=true}[  // %RN\n\
+	%f_pas_OutFacetBody(%R)]\
+	%R<{}{%g#f_IsPureMixIn()=true}[  // %gN\n\
+	%f_pas_OutFacetBody(%g)]>\
+	%R<{}{%r#f_IsPureMixIn()=true}[  // %rN\n\
+	%f_pas_OutFacetBody(%r)]>\
+	>\
+	 end;//%f_pas_TypeName(%S)\
+	%f_add_to_list(FORWARDED_INTF,S)\
+
+	%S%f_pas_ForwardPointers()\
+
+	[<{}{%CC=Class&%C%GU=%SU&%C%f_IsClassInner()!=true}\n%CX>]\
+	[\n%S%f_close_ifdef()]\
+	<{}{%CS=impurity value}%f_set_var(%CN,"")>\
+	]
+//#UC END# *470F1571031Cfor470F704E00AB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F704E00AB*
+R  
+	<{\n}{%CS!=UseCaseController}%CX>
+//	- на самом деле тут статические методы выводятся
+//#UC END# *4774D2A20372for470F704E00AB*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F704E00AB*
+//#UC END# *470321C1038Afor470F704E00AB*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F704E00AB*
+O %SN.java
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	%f_set_var(INT,S)package %f_java_type_package(%S,"%SN");
+	
+/	<%C<%f_java_import(%w)
+/	>>
+/	<{}{"%iC"!="Category"}{%i}%f_java_import(%i)
+/	><{}{"%f_set_var(ARG,C)%{INT}<{}{%iU=%{ARG}%TU}{C}>"="0"&%CC=Attribute&%C%TM!=UMLPrimitive::Class&%f_can_dump_attr(%C%T)=true}{%C}%f_java_import(%C%T)
+/	>
+	[{"%f_has_factory_methods(%S)"="true"}%f_java_core_exceptions(%S)
+	][%f_java_dump_import_block(%S)
+	][{%f_is_server_type(%S)=true}
+	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHomeFactory;
+	]
+	%t_visibility(%S,"%XU")interface %SN[
+		extends <{\t\t, }%f_type(%G)
+	>[{%Gx=true&%Rx=true}\t\t, ]<{\t\t, }%f_type(%R)[{%{INT}S=LocalInterface&%f_use_as_srv_type(%R)=true}Operations]
+	>][{%Gx=false&%Rx=false} ]{
+	[#<{}{"%f_is_factory(%C)"="false"&%CV=PublicAccess}{Sn}[
+	%CX
+	]>][%f_shift_intend(1)
+	%f_dump_private_interface_java(%S)%f_shift_intend(-1)][%f_shift_intend(1)
+	%f_dump_java_factory(%S)%f_shift_intend(-1)]
+	} //interface %SN
+	%f_footer(%S)
+//#UC END# *470321950119for470F704E00AB*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F704E00AB*
+P
+	[%S%f_open_ifdef()
+	]%f_set_var(INT,S)\
+	%f_set_var(SERV,"")\
+	[{"%S{call way}"!="back"}%f_tie_object_refcount_base_cpp(%S)
+	
+	][{"%S{native definition}"!="DLL outside"}{// user defined TIE-wrapper for native outside interafce
+	%U[
+	]
+	}%f_set_var(OWNER,S)[%f_dump_tie_operation_cpp(%S)
+	]<{}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}[%CX\n\n]>][{"%S{call way}"="back"}
+	
+	%SN_callback_tie::%SN_callback_tie () : m_impl(NULL), m_counter (1) {
+	}
+	
+	unsigned long %SN_callback_tie::release () const {
+		long const counter = --m_counter;
+	
+		if (counter == 0) {
+			m_counter = 1;
+			m_impl-\>release();
+			m_impl = NULL;
+			MyPool::instance()-\>release_obj(const_cast\<%SN_callback_tie* const\>(this));
+		}
+		return counter;
+	}
+	
+	unsigned long %SN_callback_tie::addref () const {
+			return ++m_counter;
+		}
+	
+	unsigned long %SN_callback_tie::ref_count () const {
+		return m_counter.value ();
+	}
+	
+	void %SN_callback_tie::init () {
+	}
+	
+	void %SN_callback_tie::done () {
+		m_impl = NULL;
+	}
+	
+	void I%SN_tie::make_cpp (const I%SN_tie* obj, %SN*& ret_, bool interface_addref) {
+		if (!obj) {
+			ret_ = NULL;
+		} else {
+			%SN_callback_tie* ret = %SN_callback_tie::MyPool::instance()-\>new_obj();
+			ret-\>m_impl = const_cast\<I%SN_tie*\>(obj);
+			ret-\>m_impl-\>addref ();
+			ret_ = ret;
+		}
+	}
+	
+	void I%SN_tie::make_tie (I%SN_tie* obj, %SN_callback_tie*& ret_) {
+		if (!obj) {
+			ret_ = NULL;
+		} else {
+			//ret_ = MyPool::instance()-\>new_obj();
+			//ret_-\>m_impl = obj;
+		}
+	}][
+	%S%f_close_ifdef()]
+//#UC END# *47032ED002DEfor470F704E00AB*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F704E00AB*
+F class I%SN_tie;\nclass %SN_tie;
+	[%S%f_open_ifdef()
+	]<%FF
+	
+	>%f_set_var(INT,S)\
+	%f_set_var(SERV,"")\
+	[{"%S{call way}"="forth"}%f_select_main_base(%S)\
+	class I%SN_tie: public [{"%S{native definition}"!="DLL outside"}{::Core::TIEBase}[{"%{MAIN_BASE}U"!=""}{::Core::IIObject_tie}%f_type(%{MAIN_BASE})]] {
+	[public:[{"%S{native definition}"!="DLL outside"}
+	<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}[{%CC=Operation}{%f_tie_attribute_dll_h(%C,"interface")}%f_tie_operation_dll_h(%C,"interface")]>
+	][{"%S{native definition}"="DLL outside"}
+	// user defined TIE-wrapper for native outside interafce
+		%U[{_INTERFACE}
+		]
+	]]};
+	
+	class __declspec (dllexport) %SN_tie: public I%SN_tie {
+		SET_OBJECT_COUNTER (%SN_tie)
+	protected:
+	%f_tie_object_refcount_base_h(%S)
+	
+	protected:
+	[{"%S{native definition}"!="DLL outside"}{// user defined TIE-wrapper for native outside interafce
+		%U[
+		]
+	}[%f_dump_tie_operation_h(%S)
+	]<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}%CX>]
+	};][{"%S{call way}"="back"}
+	class I%SN_tie;
+	
+	// callback only cpp-wraper
+	class %SN_callback_tie : virtual public %SN, virtual public ::Core::IObject {
+		SET_OBJECT_COUNTER (%SN_callback_tie)
+		friend class I%SN_tie;
+	protected:
+		virtual unsigned long addref () const;
+	
+		virtual unsigned long ref_count () const;
+	
+	public:
+		virtual unsigned long release () const;
+	[<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}%f_cpp_children_cb_tie_h(%C)>>
+	]<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}%f_cpp_children_cb_tie_h(%C)>
+	
+		%SN_callback_tie ();
+	
+		mutable ACE_Atomic_Op \<ACE_Thread_Mutex, long\> m_counter;
+
+	// For ObjectPool's objects initialization and destruction
+	public:
+		void init ();
+	
+		void done ();
+	
+	protected:
+		typedef ::Core::PoolObjectManager\<%SN_callback_tie\>::PoolObjectManagerSingleton MyPool;
+		typedef ::Core::PoolObjectManager\<%SN_callback_tie\> Pool;
+		friend class ::Core::PoolObjectManager\<%SN_callback_tie\>;
+/		//static MyPool s_obj_pool;
+		
+	public:
+		mutable I%SN_tie* m_impl;
+	};
+	
+	// callback only abstarct interface
+	class I%SN_tie {
+	public:
+		virtual unsigned long __stdcall query_interface (const ::Core::ComIID& iid, void*& object) = 0;	
+		virtual unsigned long __stdcall addref () const = 0;
+		virtual unsigned long __stdcall release () const = 0;
+	
+	[%f_dump_tie_operation_h(%S)
+	]<{\n\n}{"%f_is_factory(%C)"="false"}{Sn}%CX>
+	
+		static void make_cpp (const I%SN_tie* obj, %SN*& ret_, bool interface_addref = false);
+	
+		static void make_tie (I%SN_tie* obj, %SN_callback_tie*& ret_);
+	};
+	][
+	%S%f_close_ifdef()]
+
+//выбираем главного предка интерфейса
+f _select_main_base
+	%f_set_var(MAIN_BASE,"")\
+	[{%Rx=true}[{<{}{}{%RC}>!=1}{%f_set_var(MAIN_BASE,R)}<{}{%t_check_type(%R,"Interface::Class")=true|%t_check_type(%R,"Facet::Class")=true}{%R}%f_set_var(MAIN_BASE,R)>]]\
+	[{%Rx=false}[{<{}{}{%GC}>!=1}{%f_set_var(MAIN_BASE,G)}<{}{%t_check_type(%G,"Interface::Class")=true}{%Gr}%f_set_var(MAIN_BASE,G)>]]
+
+f _dump_tie_operation_h
+	%f_select_main_base(%S)\
+	[{"%{MAIN_BASE}U"!=""}%f_dump_tie_operation_h(%{MAIN_BASE})\
+	%f_select_main_base(%S)\
+	%{MAIN_BASE}<{\n\n}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"&%f_op_already_exist(%C)=false}[{%CC=Operation}{%f_tie_attribute_dll_h(%C)}\
+	%f_tie_operation_dll_h(%C)]>]
+
+f _dump_inherit_tie_operation_h
+	<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"&%f_op_already_exist(%C)=false}[{%CC=Operation}{%f_tie_attribute_dll_h(%C)}\
+	%f_tie_operation_dll_h(%C)]>>
+
+f _dump_tie_operation_cpp
+	%f_select_main_base(%S)\
+	[{"%{MAIN_BASE}U"!=""}%f_dump_tie_operation_cpp(%{MAIN_BASE})\
+	%f_select_main_base(%S)\
+	%{MAIN_BASE}<{\n\n}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"&%f_op_already_exist(%C)=false}[{%CC=Operation}{%f_tie_attribute_dll_cpp_impl(%C)}\
+	%f_tie_operation_dll_cpp_impl(%C)]>]
+
+f _dump_inherit_tie_operation_cpp
+	<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"&%f_op_already_exist(%C)=false}[{%CC=Operation}{%f_tie_attribute_dll_cpp_impl(%C)}\
+	%f_tie_operation_dll_cpp_impl(%C)]>>
+
+f _op_already_exist
+	%f_clear_list(INT_OPS_TIE)\
+	%{INT}<{}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"}\
+	[{%CC=Operation}{%f_add_to_list(INT_OPS_TIE,"%f_tie_attribute_dll_h(%C)")}%f_add_to_list(INT_OPS_TIE,"%f_tie_operation_dll_h(%C)")]>\
+	[{%SC=Operation}{%f_exists_in_list(INT_OPS_TIE,"%f_tie_attribute_dll_h(%S)")}%f_exists_in_list(INT_OPS_TIE,"%f_tie_operation_dll_h(%S)")]
+/	%f_arg(ARG,1)[{"%{INT}<{}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"&%t_tie_ops_is_equal(%C,%{ARG})=true}{%C}>"=""}{true}false]
+//#UC END# *47032EC4032Cfor470F704E00AB*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F704E00AB*
+F [{"%S{native definition}"!="DLL outside"}[%f_pas_OpenType(%S)\n]#I%SN = interface;\n#\{ - предварительное описание I%SN. \}\n\n]
+	[%f_pas_OpenType(%S)\n]\
+	%f_docs(%S)\
+	[{"%S{native definition}"!="DLL outside"}{// %SN - must be native for DLL outside
+	}#I%SN = interface (%f_select_main_base(%S)[{"%{MAIN_BASE}U"!=""}{IInterface}%f_type(%{MAIN_BASE})]) \['{%SG}'\]
+	[{"%{MAIN_BASE}U"=""&"%S{call way}"!="back"}#	function DontUseMe: Pointer;
+	]<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}%CX>
+	#end;]
+//#UC END# *470F152700FAfor470F704E00AB*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for470F704E00AB*
+	<%CX>\
+	%S%f_DoSpell()
+//#UC END# *4A41A13D03D5for470F704E00AB*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: AbstractFacet::Class::property::Attribute
+? Атрибут интерфейса
+? для данного атрибута будут сгенерированы методы получения и установки его значения.
+= CallingConventionsHolder::Class
+= InterfaceGeneratorWithJava::MDAGenerator
+= CommonAttribute::MDAGenerator
+
+// Параметры стереотипа
+v +#
+/ - типы видимости
+e a
+/ - возможность использовать исключения
+a a
+/ - тип абстракции
+Y code_property.gif
+L code_property
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+A const
+/ - стереотипы "цели" (типа/результата)
+l la
+/ - возможные типы связи атрибута
+
+// Пользовательские свойства
+p debug log:b=false ? включает генерацию вывода в лог обращений к методам реализующим доступ к данному атрибуту
+p debug tie log:b=false ? Нужно ли генерить код логирования вызовов tie-методов доступа к атрибуту
+p dll export:b=true ? определяет что данный атрибут будет экспортироваться наружу компоненты
+p force use const arg:b=false ? Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.
+p is default:b=false ? определяем атрибут по-умолчанию
+p pm:b=false ? выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F544503C8*
+	%f_interface_attribute_h(%S)
+//#UC END# *47022C88029Ffor470F544503C8*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F544503C8*
+//#UC END# *47022CB8034Bfor470F544503C8*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F544503C8*
+	%f_interface_attribute_java(%S)
+//#UC END# *470321950119for470F544503C8*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F544503C8*
+//#UC END# *470321C1038Afor470F544503C8*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F544503C8*
+	%f_tie_attribute_dll_h(%S)
+//#UC END# *47032EC4032Cfor470F544503C8*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F544503C8*
+	%f_tie_attribute_dll_cpp_impl(%S)
+
+f _tie_attribute_dll_cpp_impl
+	[{"%P{call way}"="back"}{%f_tie_attribute_dll_cpp(%S)}%f_cb_tie_attribute_dll_cpp(%S)]
+//#UC END# *47032ED002DEfor470F544503C8*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for470F544503C8*
+//#UC END# *4705C5490109for470F544503C8*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for470F544503C8*
+//#UC END# *4705C54B01F4for470F544503C8*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F544503C8*
+	%f_docs(%S)\
+	[{"%SS"!="writeonly"}#[{"%t_simple(%T)"="true"}{procedure Get%f_to_borland(%SN) (%t_arg(%T,"out"))}function Get%f_to_borland(%SN) (): %f_iget_attr(%S)]; stdcall;][{"%SS"!="readonly"&"%SS"!="area"}
+	#procedure Set%f_to_borland(%SN) (%f_iset_attr(%S)); stdcall;]
+//#UC END# *470F152700FAfor470F544503C8*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F544503C8*
+R  
+	%S%f_pas_PropertyMethodInterface()
+//#UC END# *470F1571031Cfor470F544503C8*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F544503C8*
+//#UC END# *470F15B800CBfor470F544503C8*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F544503C8*
+//#UC END# *4774D2A20372for470F544503C8*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470F544503C8*
+R  
+	%S%f_pas_dump_Property()
+//#UC END# *477398E501C0for470F544503C8*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[InterfaceGeneratorWithJava::MDAGenerator]f_wiki_up_print()[{"%S{dll export}"!="%S{!dll export}"}%f_up_prefix(%S) *dll export* = *%S{dll export}* - определяет что данный атрибут будет экспортироваться наружу компоненты
+	][{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений к методам реализующим доступ к данному атрибуту
+	][{"%S{pm}"!="%S{!pm}"}%f_up_prefix(%S) *pm* = *%S{pm}* - выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+	][{"%S{is default}"!="%S{!is default}"}%f_up_prefix(%S) *is default* = *%S{is default}* - определяем атрибут по-умолчанию
+	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Нужно ли генерить код логирования вызовов tie-методов доступа к атрибуту
+	][{"%S{force use const arg}"!="%S{!force use const arg}"}%f_up_prefix(%S) *force use const arg* = *%S{force use const arg}* - Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.
+	][{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - Соглашения о вызове
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F544503C8*
+	property
+//#UC END# *4705CBD6003Efor470F544503C8*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+%f _need_ro_accessor
+//#UC START# *49782FB50256for470F544503C8*
+	true
+//#UC END# *49782FB50256for470F544503C8*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+%f _need_rw_accessor
+//#UC START# *49782FBC0027for470F544503C8*
+	true
+//#UC END# *49782FBC0027for470F544503C8*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это свойство.
+%f _IsProp
+//#UC START# *493D2D510282for470F544503C8*
+	true
+//#UC END# *493D2D510282for470F544503C8*
+
+// Вложенные стереотипы
+: AbstractFacet::Class::property::Attribute::Attribute
+? ключ
+= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+Y code_attr_key.gif
+L code_attr_key
+T 
+/ - может не иметь "цели" (типа/результата)
+A in|inout
+/ - стереотипы "цели" (типа/результата)
+l l
+/ - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F55370280*
+//#UC END# *47022C88029Ffor470F55370280*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F55370280*
+//#UC END# *47022CB8034Bfor470F55370280*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F55370280*
+//#UC END# *470321950119for470F55370280*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F55370280*
+//#UC END# *470321C1038Afor470F55370280*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F55370280*
+//#UC END# *47032EC4032Cfor470F55370280*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F55370280*
+//#UC END# *47032ED002DEfor470F55370280*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for470F55370280*
+//#UC END# *4705C5490109for470F55370280*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for470F55370280*
+//#UC END# *4705C54B01F4for470F55370280*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F55370280*
+//#UC END# *470F152700FAfor470F55370280*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F55370280*
+//#UC END# *470F1571031Cfor470F55370280*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F55370280*
+//#UC END# *470F15B800CBfor470F55370280*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F55370280*
+//#UC END# *4774D2A20372for470F55370280*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470F55370280*
+//#UC END# *477398E501C0for470F55370280*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+: AbstractFacet::Class::readonly::Attribute
+? Атрибут только для чтения
+? для данного атрибута будет сгенерирован только метод получения его значения. Если тип атрибута интерфейс - то он будет возвращаться как константный.
+= AbstractFacet::Class::property::Attribute
+
+// Параметры стереотипа
+e g
+/ - возможность использовать исключения
+Y code_readonly_attr.gif
+L code_readonly_attr
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+%f _need_ro_accessor
+//#UC START# *49782FB50256for470F549D033C*
+	true
+//#UC END# *49782FB50256for470F549D033C*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+%f _need_rw_accessor
+//#UC START# *49782FBC0027for470F549D033C*
+	false
+//#UC END# *49782FBC0027for470F549D033C*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+%f _IsReadOnlyProp
+//#UC START# *4948F9190291for470F549D033C*
+	true
+//#UC END# *4948F9190291for470F549D033C*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+%f _IsWriteOnlyProp
+//#UC START# *4948F93D038Afor470F549D033C*
+	false
+//#UC END# *4948F93D038Afor470F549D033C*
+
+// Вложенные стереотипы
+: AbstractFacet::Class::readonly::Attribute::Attribute
+? ключ
+= AbstractFacet::Class::property::Attribute::Attribute
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for49794A25023E*
+//#UC END# *46E6D4BB0339for49794A25023E*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor49794A25023E*
+//#UC END# *470F1571031Cfor49794A25023E*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor49794A25023E*
+//#UC END# *470F15B800CBfor49794A25023E*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for49794A25023E*
+//#UC END# *477398E501C0for49794A25023E*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for49794A25023E*
+//#UC END# *4774D2A20372for49794A25023E*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor49794A25023E*
+//#UC END# *49F5795900ECfor49794A25023E*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for49794A25023E*
+//#UC END# *55B8D28B0157for49794A25023E*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for49794A25023E*
+//#UC END# *55B8D2F80145for49794A25023E*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for49794A25023E*
+//#UC END# *55B8DD9C0301for49794A25023E*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for49794A25023E*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for49794A25023E*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor49794A25023E*
+//#UC END# *4705CBD6003Efor49794A25023E*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for49794A25023E*
+//#UC END# *470484D50138for49794A25023E*
+
+
+: AbstractFacet::Class::writeonly::Attribute
+? Атрибут только для записи
+? для данного атрибута будут сгенерирован только метод установки его значения.
+= AbstractFacet::Class::property::Attribute
+
+// Параметры стереотипа
+e s
+/ - возможность использовать исключения
+Y code_writeonly_attr.gif
+L code_writeonly_attr
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+%f _need_ro_accessor
+//#UC START# *49782FB50256for470F54C402CE*
+	false
+//#UC END# *49782FB50256for470F54C402CE*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+%f _need_rw_accessor
+//#UC START# *49782FBC0027for470F54C402CE*
+	true
+//#UC END# *49782FBC0027for470F54C402CE*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+%f _IsReadOnlyProp
+//#UC START# *4948F9190291for470F54C402CE*
+	false
+//#UC END# *4948F9190291for470F54C402CE*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+%f _IsWriteOnlyProp
+//#UC START# *4948F93D038Afor470F54C402CE*
+	true
+//#UC END# *4948F93D038Afor470F54C402CE*
+
+// Вложенные стереотипы
+: AbstractFacet::Class::writeonly::Attribute::Attribute
+? ключ
+= AbstractFacet::Class::property::Attribute::Attribute
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for49794A40013F*
+//#UC END# *46E6D4BB0339for49794A40013F*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor49794A40013F*
+//#UC END# *470F1571031Cfor49794A40013F*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor49794A40013F*
+//#UC END# *470F15B800CBfor49794A40013F*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for49794A40013F*
+//#UC END# *477398E501C0for49794A40013F*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for49794A40013F*
+//#UC END# *4774D2A20372for49794A40013F*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor49794A40013F*
+//#UC END# *49F5795900ECfor49794A40013F*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for49794A40013F*
+//#UC END# *55B8D28B0157for49794A40013F*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for49794A40013F*
+//#UC END# *55B8D2F80145for49794A40013F*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for49794A40013F*
+//#UC END# *55B8DD9C0301for49794A40013F*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for49794A40013F*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for49794A40013F*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor49794A40013F*
+//#UC END# *4705CBD6003Efor49794A40013F*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for49794A40013F*
+//#UC END# *470484D50138for49794A40013F*
+
+
+: AbstractFacet::Class::friend::ClassDependency
+? Друг
+? Определяет что интерфейс (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+Y code_dep_friend.gif
+L code_dep_friend
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F659B001F*
+//#UC END# *47022C88029Ffor470F659B001F*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F659B001F*
+//#UC END# *47022CB8034Bfor470F659B001F*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F659B001F*
+//#UC END# *470321950119for470F659B001F*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F659B001F*
+//#UC END# *470321C1038Afor470F659B001F*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F659B001F*
+//#UC END# *47032EC4032Cfor470F659B001F*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F659B001F*
+//#UC END# *47032ED002DEfor470F659B001F*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for470F659B001F*
+//#UC END# *4705C5490109for470F659B001F*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for470F659B001F*
+//#UC END# *4705C54B01F4for470F659B001F*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F659B001F*
+//#UC END# *470F152700FAfor470F659B001F*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F659B001F*
+//#UC END# *470F1571031Cfor470F659B001F*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F659B001F*
+//#UC END# *470F15B800CBfor470F659B001F*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F659B001F*
+//#UC END# *4774D2A20372for470F659B001F*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F659B001F*
+	friend
+//#UC END# *4705CBD6003Efor470F659B001F*
+
+: AbstractFacet::Class::Operation
+? Константный метод интерфейса
+? По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<chg>>. Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.
+= CallingConventionsHolder::Class
+= C++ интерфейсы и реализация::MDAGenerator
+= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+v +#
+/ - типы видимости
+e g
+/ - возможность использовать исключения
+a a
+/ - тип абстракции
+Y code_const_method.gif
+L code_const_method
+T 
+/ - может не иметь "цели" (типа/результата)
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+A const|cached|const,cached
+/ - стереотипы "цели" (типа/результата)
+
+// Пользовательские свойства
+p Must throw in error:b=true ? оределяет тип "граничного" обработчика исключений. Если флаг установлен, то все исключения будут мапится и пробрасываться. Если нет, то некотрый класс исключений... короче я чего то запутался чего там присходит в этом случае.. нужно по исходникам смотреть (Exception.h/cpp)
+p debug log:b=false ? включает генерацию вывода в лог обращений к реализации данной операции
+p debug tie log:b=false ? Нужно ли генерить логирование вызова tie-метода
+p dll export:b=true ? определяет что данный метод будет экспортироваться наружу компоненты
+p force overload:b=false ? Определяет, что метод перегружен.
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F556F0196*
+	%f_set_var(SERV,P)%f_servant_cpp_operation_h(%S)
+//#UC END# *47022C88029Ffor470F556F0196*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F556F0196*
+//#UC END# *47022CB8034Bfor470F556F0196*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F556F0196*
+	[{"%SS"!="factory"&"%SS"!="multi factory"}%f_interface_java_operation(%S)]
+//#UC END# *470321950119for470F556F0196*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F556F0196*
+//#UC END# *470321C1038Afor470F556F0196*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F556F0196*
+	%f_tie_operation_dll_h(%S,"servant")
+
+f _tie_operation_dll_h
+	[#%S%f_open_ifdef()
+	]#virtual %f_dll_cpp_ret(%S) __stdcall %SN_%SU (%f_dll_cpp_params_h(%S))[{"%SS"!="chg"&"%SS"!="oneway,chg"} const][ /*throw (<{, }%f_type(%E)>)*/][{%1N=interface}{[{"%P{call way}"="back"} = 0]} = 0];[
+	#%S%f_close_ifdef()]
+//#UC END# *47032EC4032Cfor470F556F0196*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F556F0196*
+	%f_tie_operation_dll_cpp_impl(%S)
+
+f _tie_operation_dll_cpp_impl
+	[{"%P{call way}"="back"}{%f_tie_operation_dll_cpp(%S)}%f_cb_tie_operation_dll_cpp(%S)]
+//#UC END# *47032ED002DEfor470F556F0196*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for470F556F0196*
+//#UC END# *4705C5490109for470F556F0196*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for470F556F0196*
+//#UC END# *4705C54B01F4for470F556F0196*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F556F0196*
+	%f_docs(%S)\
+	#[{"%f_dll_pas_ret(%S)"=""}{function}procedure] %f_to_borland(%SN) (%f_delphi_op_params(%S))%f_dll_pas_ret(%S);%f_delphi_overload(%S) stdcall;[ // can raise <{, }%f_type(%E)>]
+
+//#UC END# *470F152700FAfor470F556F0196*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F556F0196*
+R  
+	%S%f_pas_MethodInterface()
+//#UC END# *470F1571031Cfor470F556F0196*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F556F0196*
+//#UC END# *470F15B800CBfor470F556F0196*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F556F0196*
+//#UC END# *4774D2A20372for470F556F0196*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[InterfaceGeneratorWithJava::MDAGenerator]f_wiki_up_print()[{"%S{dll export}"!="%S{!dll export}"}%f_up_prefix(%S) *dll export* = *%S{dll export}* - определяет что данный метод будет экспортироваться наружу компоненты
+	][{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений к реализации данной операции
+	][{"%S{Must throw in error}"!="%S{!Must throw in error}"}%f_up_prefix(%S) *Must throw in error* = *%S{Must throw in error}* - оределяет тип "граничного" обработчика исключений. Если флаг установлен, то все исключения будут мапится и пробрасываться. Если нет, то некотрый класс исключений... короче я чего то запутался чего там присходит в этом случае.. нужно по исходникам смотреть (Exception.h/cpp)
+	][{"%S{force overload}"!="%S{!force overload}"}%f_up_prefix(%S) *force overload* = *%S{force overload}* - Определяет, что метод перегружен.
+	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Нужно ли генерить логирование вызова tie-метода
+	][{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - Соглашения о вызове
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F556F0196*
+	method
+//#UC END# *4705CBD6003Efor470F556F0196*
+
+// Вложенные стереотипы
+: AbstractFacet::Class::Operation::Parameter
+? параметр операции
+= C++ Фабрики::MDAGenerator
+= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+Y code_operation_param.gif
+L code_operation_param
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F59EE00AB*
+P
+	%f_arg_full_decl(%S)
+//#UC END# *47022C88029Ffor470F59EE00AB*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F59EE00AB*
+P
+	%f_arg_full_decl(%S)
+//#UC END# *47022CB8034Bfor470F59EE00AB*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F59EE00AB*
+	%f_arg_full_decl(%S)
+//#UC END# *470321950119for470F59EE00AB*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F59EE00AB*
+	%f_arg_full_decl(%S)
+//#UC END# *470321C1038Afor470F59EE00AB*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F59EE00AB*
+//#UC END# *47032EC4032Cfor470F59EE00AB*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F59EE00AB*
+//#UC END# *47032ED002DEfor470F59EE00AB*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for470F59EE00AB*
+P
+	%f_arg_full_decl(%S)
+//#UC END# *4705C5490109for470F59EE00AB*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for470F59EE00AB*
+P
+	%f_arg_full_decl(%S)
+//#UC END# *4705C54B01F4for470F59EE00AB*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F59EE00AB*
+	%f_error("dirrect call to Generate op-params for delphi")
+//#UC END# *470F152700FAfor470F59EE00AB*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F59EE00AB*
+//#UC END# *470F1571031Cfor470F59EE00AB*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F59EE00AB*
+//#UC END# *470F15B800CBfor470F59EE00AB*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F59EE00AB*
+//#UC END# *4774D2A20372for470F59EE00AB*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[InterfaceGeneratorWithJava::MDAGenerator]f_wiki_up_print()
+
+
+
+: AbstractFacet::Class::oneway::Operation
+? Асинхронная операция
+? Вызов операции будет выполнен асинхронна. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+? По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<oneway,chg>>.
+? Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.
+= AbstractFacet::Class::Operation
+
+// Пользовательские свойства
+p separate thread pool=none|per class|per object|per operation|user defined ? определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{separate thread pool}"!="%S{!separate thread pool}"}%f_up_prefix(%S) *separate thread pool* = *%S{separate thread pool}* - определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F56670000*
+c             {}
+r	{<{}{%CS=out|%CS=inout&%t_class_type(%C%T)=false}{C}>!=0|%TN!=void}: {%SM can't contain inout/out parameters or return result}
+//#UC END# *4704C0E30186for470F56670000*
+
+// Вложенные стереотипы
+: AbstractFacet::Class::oneway::Operation::Parameter
+? параметр
+= AbstractFacet::Class::Operation::Parameter
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F641E0157*
+//#UC END# *46E6D4BB0339for470F641E0157*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F641E0157*
+//#UC END# *47022BBE0261for470F641E0157*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for470F641E0157*
+//#UC END# *47022C0F01E4for470F641E0157*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor470F641E0157*
+//#UC END# *47022CCF00EAfor470F641E0157*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F641E0157*
+//#UC END# *47032EC4032Cfor470F641E0157*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F641E0157*
+//#UC END# *47032ED002DEfor470F641E0157*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F641E0157*
+//#UC END# *470F1571031Cfor470F641E0157*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F641E0157*
+//#UC END# *470F15B800CBfor470F641E0157*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470F641E0157*
+//#UC END# *477398E501C0for470F641E0157*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F641E0157*
+//#UC END# *4774D2A20372for470F641E0157*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor470F641E0157*
+//#UC END# *49F5795900ECfor470F641E0157*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for470F641E0157*
+//#UC END# *55B8D28B0157for470F641E0157*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for470F641E0157*
+//#UC END# *55B8D2F80145for470F641E0157*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for470F641E0157*
+//#UC END# *55B8DD9C0301for470F641E0157*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F641E0157*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for470F641E0157*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F641E0157*
+//#UC END# *4705CBD6003Efor470F641E0157*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for470F641E0157*
+//#UC END# *470484D50138for470F641E0157*
+
+
+: AbstractFacet::Class::oneway,chg::Operation
+? Асинхронная неконстантная операция
+? Вызов операции будет выполнен асинхронно. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+? Неконстантная операция может изменять состояние своего объекта.
+= AbstractFacet::Class::oneway::Operation
+
+// Параметры стереотипа
+Y code_method.gif
+L code_method
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+// Вложенные стереотипы
+: AbstractFacet::Class::oneway,chg::Operation::Parameter
+? параметр
+= AbstractFacet::Class::Operation::Parameter
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F6469008C*
+//#UC END# *46E6D4BB0339for470F6469008C*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F6469008C*
+//#UC END# *47022BBE0261for470F6469008C*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for470F6469008C*
+//#UC END# *47022C0F01E4for470F6469008C*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor470F6469008C*
+//#UC END# *47022CCF00EAfor470F6469008C*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F6469008C*
+//#UC END# *47032EC4032Cfor470F6469008C*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F6469008C*
+//#UC END# *47032ED002DEfor470F6469008C*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F6469008C*
+//#UC END# *470F1571031Cfor470F6469008C*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F6469008C*
+//#UC END# *470F15B800CBfor470F6469008C*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470F6469008C*
+//#UC END# *477398E501C0for470F6469008C*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F6469008C*
+//#UC END# *4774D2A20372for470F6469008C*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor470F6469008C*
+//#UC END# *49F5795900ECfor470F6469008C*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for470F6469008C*
+//#UC END# *55B8D28B0157for470F6469008C*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for470F6469008C*
+//#UC END# *55B8D2F80145for470F6469008C*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for470F6469008C*
+//#UC END# *55B8DD9C0301for470F6469008C*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F6469008C*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for470F6469008C*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F6469008C*
+//#UC END# *4705CBD6003Efor470F6469008C*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for470F6469008C*
+//#UC END# *470484D50138for470F6469008C*
+
+
+: AbstractFacet::Class::chg::Operation
+? Неконстантный метод
+? Метод который может изменять состояние своего объекта
+= AbstractFacet::Class::Operation
+
+// Параметры стереотипа
+Y code_method.gif
+L code_method
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+// Вложенные стереотипы
+: AbstractFacet::Class::chg::Operation::Parameter
+? параметр
+= AbstractFacet::Class::Operation::Parameter
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F6452002E*
+//#UC END# *46E6D4BB0339for470F6452002E*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F6452002E*
+//#UC END# *47022BBE0261for470F6452002E*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for470F6452002E*
+//#UC END# *47022C0F01E4for470F6452002E*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor470F6452002E*
+//#UC END# *47022CCF00EAfor470F6452002E*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F6452002E*
+//#UC END# *47032EC4032Cfor470F6452002E*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F6452002E*
+//#UC END# *47032ED002DEfor470F6452002E*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F6452002E*
+//#UC END# *470F1571031Cfor470F6452002E*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F6452002E*
+//#UC END# *470F15B800CBfor470F6452002E*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470F6452002E*
+//#UC END# *477398E501C0for470F6452002E*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470F6452002E*
+//#UC END# *4774D2A20372for470F6452002E*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor470F6452002E*
+//#UC END# *49F5795900ECfor470F6452002E*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for470F6452002E*
+//#UC END# *55B8D28B0157for470F6452002E*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for470F6452002E*
+//#UC END# *55B8D2F80145for470F6452002E*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for470F6452002E*
+//#UC END# *55B8DD9C0301for470F6452002E*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F6452002E*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for470F6452002E*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F6452002E*
+//#UC END# *4705CBD6003Efor470F6452002E*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for470F6452002E*
+//#UC END# *470484D50138for470F6452002E*
+
+
+: AbstractFacet::Class::consume::ClassDependency
+? Получатель
+? Данная связь означает, что элемент источник является "потребителем" данных, определяемых целью связи.
+= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+Y code_dep_consume.gif
+L code_dep_consume
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47FCA95F01DC*
+	%f_dump_consume_interface_h(%S)
+//#UC END# *47022C88029Ffor47FCA95F01DC*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47FCA95F01DC*
+//#UC END# *47022CB8034Bfor47FCA95F01DC*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47FCA95F01DC*
+	%f_dump_consume_interface_java(%S)
+//#UC END# *470321950119for47FCA95F01DC*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor47FCA95F01DC*
+//#UC END# *470321C1038Afor47FCA95F01DC*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor47FCA95F01DC*
+//#UC END# *47032EC4032Cfor47FCA95F01DC*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor47FCA95F01DC*
+//#UC END# *47032ED002DEfor47FCA95F01DC*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for47FCA95F01DC*
+//#UC END# *4705C5490109for47FCA95F01DC*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for47FCA95F01DC*
+//#UC END# *4705C54B01F4for47FCA95F01DC*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor47FCA95F01DC*
+//#UC END# *470F152700FAfor47FCA95F01DC*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor47FCA95F01DC*
+//#UC END# *470F1571031Cfor47FCA95F01DC*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor47FCA95F01DC*
+//#UC END# *470F15B800CBfor47FCA95F01DC*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for47FCA95F01DC*
+//#UC END# *4774D2A20372for47FCA95F01DC*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47FCA95F01DC*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for47FCA95F01DC*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor47FCA95F01DC*
+//#UC END# *4705CBD6003Efor47FCA95F01DC*
+
+: AbstractFacet::Class::supply::ClassDependency
+? Поставщик
+? Данная связь означает, что элемент источник является поставщиком данных, определяемых целью связи.
+= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+Y code_dep_supply.gif
+L code_dep_supply
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47FCA95F0314*
+	%f_dump_supply_interface_h(%S)
+//#UC END# *47022C88029Ffor47FCA95F0314*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47FCA95F0314*
+//#UC END# *47022CB8034Bfor47FCA95F0314*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47FCA95F0314*
+	%f_dump_supply_interface_java(%S)
+//#UC END# *470321950119for47FCA95F0314*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor47FCA95F0314*
+//#UC END# *470321C1038Afor47FCA95F0314*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor47FCA95F0314*
+//#UC END# *47032EC4032Cfor47FCA95F0314*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor47FCA95F0314*
+//#UC END# *47032ED002DEfor47FCA95F0314*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for47FCA95F0314*
+//#UC END# *4705C5490109for47FCA95F0314*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for47FCA95F0314*
+//#UC END# *4705C54B01F4for47FCA95F0314*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor47FCA95F0314*
+//#UC END# *470F152700FAfor47FCA95F0314*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor47FCA95F0314*
+//#UC END# *470F1571031Cfor47FCA95F0314*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor47FCA95F0314*
+//#UC END# *470F15B800CBfor47FCA95F0314*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for47FCA95F0314*
+//#UC END# *4774D2A20372for47FCA95F0314*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47FCA95F0314*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for47FCA95F0314*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor47FCA95F0314*
+//#UC END# *4705CBD6003Efor47FCA95F0314*
+
+: AbstractFacet::Class::static::Operation
+? Статический метод
+? Метод-helper для интерфейса. Не зависит от того, кто реализует интерфейс
+= AbstractFacet::Class::Operation
+
+// Параметры стереотипа
+v +
+/ - типы видимости
+a f
+/ - тип абстракции
+Y code_static_method.gif
+L code_static_method
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4BA7AADE00D2*
+//#UC END# *46E6D4BB0339for4BA7AADE00D2*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for4BA7AADE00D2*
+//#UC END# *47022BBE0261for4BA7AADE00D2*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for4BA7AADE00D2*
+//#UC END# *47022C0F01E4for4BA7AADE00D2*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4BA7AADE00D2*
+//#UC END# *47022CB8034Bfor4BA7AADE00D2*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4BA7AADE00D2*
+//#UC END# *47022CCF00EAfor4BA7AADE00D2*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4BA7AADE00D2*
+//#UC END# *470321C1038Afor4BA7AADE00D2*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4BA7AADE00D2*
+//	%S%f_pas_MethodInterface()
+//#UC END# *470F1571031Cfor4BA7AADE00D2*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4BA7AADE00D2*
+	%S%f_pas_MethodImplementation()
+//#UC END# *470F15B800CBfor4BA7AADE00D2*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4BA7AADE00D2*
+//#UC END# *477398E501C0for4BA7AADE00D2*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4BA7AADE00D2*
+	%S%f_pas_MethodInterface()
+//#UC END# *4774D2A20372for4BA7AADE00D2*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4BA7AADE00D2*
+//#UC END# *49F5795900ECfor4BA7AADE00D2*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4BA7AADE00D2*
+//#UC END# *55B8D28B0157for4BA7AADE00D2*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4BA7AADE00D2*
+//#UC END# *55B8D2F80145for4BA7AADE00D2*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4BA7AADE00D2*
+//#UC END# *55B8DD9C0301for4BA7AADE00D2*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4BA7AADE00D2*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for4BA7AADE00D2*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for4BA7AADE00D2*
+//#UC END# *470484D50138for4BA7AADE00D2*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+%f _pas_ImplUses
+//#UC START# *4948EB2601FAfor4BA7AADE00D2*
+	%S%[inherited]\
+	%f_pas_PutToUses("l3Base")
+//#UC END# *4948EB2601FAfor4BA7AADE00D2*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Разделитель имени метода
+%f _pas_MethodOwnerDelim
+//#UC START# *4999789602FFfor4BA7AADE00D2*
+//#UC END# *4999789602FFfor4BA7AADE00D2*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя владельца метода
+%f _pas_MethodOwnerName
+//#UC START# *49CB3C99034Bfor4BA7AADE00D2*
+//#UC END# *49CB3C99034Bfor4BA7AADE00D2*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

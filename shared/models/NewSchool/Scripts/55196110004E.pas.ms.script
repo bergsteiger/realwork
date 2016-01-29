@@ -1,0 +1,538 @@
+// Services 55196110004E Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55196110004E
+
+FORWARD ME_5519611903CF
+
+FORWARD ME_27F5F6C291D9
+
+FORWARD ME_8CF4FD6A38DB
+
+: ME_79C6E357FC43
+ CONST UID '79C6E357FC43'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_79C6E357FC43 anItem
+
+: ME_67B46DD3EFE7
+ CONST UID '67B46DD3EFE7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Тип подитеративной функции для MIterateableService.IterateF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_8CF4FD6A38DB // MIterateableService_IterateF_Action
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_79C6E357FC43 // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_67B46DD3EFE7 DoIt
+
+: ME_8CF4FD6A38DB
+ CONST UID '8CF4FD6A38DB'
+ CONST Name 'MIterateableService_IterateF_Action'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип подитеративной функции для MIterateableService.IterateF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_27F5F6C291D9 // MIterateableService
+ ;
+ : Operations
+   @ ( ME_67B46DD3EFE7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" false
+
+ref; // ME_8CF4FD6A38DB MIterateableService_IterateF_Action
+
+FORWARD ME_A44911B9A95D
+
+: ME_FAFE12FA42D6
+ CONST UID 'FAFE12FA42D6'
+ CONST Name 'anOwner'
+ CONST Class class_Attribute
+ : Stereotype st_in::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_A44911B9A95D // IterateF
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_FAFE12FA42D6 anOwner
+
+: ME_19E1315B1849
+ CONST UID '19E1315B1849'
+ CONST Class class_Attribute
+ : Stereotype st_element_type::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_A44911B9A95D // IterateF
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_19E1315B1849 
+
+: ME_ED177688C611
+ CONST UID 'ED177688C611'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A44911B9A95D // IterateF
+ ;
+ : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
+ ;
+
+ref; // ME_ED177688C611 
+
+: ME_A44911B9A95D
+ CONST UID 'A44911B9A95D'
+ CONST Name 'IterateF'
+ CONST Class class_Class
+ : Stereotype st_facetiterator ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_27F5F6C291D9 // MIterateableService
+ ;
+ : Attributes
+   @ ( ME_FAFE12FA42D6 // anOwner
+ ME_19E1315B1849 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_ED177688C611 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+ CONST extprop:pas:TypeName 'MIterateableService_IterateF_Action'
+
+ref; // ME_A44911B9A95D IterateF
+
+: ME_EFCE213E71C2
+ CONST UID 'EFCE213E71C2'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
+ ;
+
+ref; // ME_EFCE213E71C2 anAction
+
+: ME_7DFBEBFE2750
+ CONST UID '7DFBEBFE2750'
+ CONST Name 'L2_MIterateableService_IterateF_Action'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для MIterateableService.IterateF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_27F5F6C291D9 // MIterateableService
+ ;
+ : Target ME_8CF4FD6A38DB // MIterateableService_IterateF_Action
+ ;
+ : Parameters
+   @ ( ME_EFCE213E71C2 // anAction
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_7DFBEBFE2750 L2_MIterateableService_IterateF_Action
+
+: ME_27F5F6C291D9
+ CONST UID '27F5F6C291D9'
+ CONST Name 'MIterateableService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TIterateableService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5519611903CF // TIterateableService
+ ;
+ : Operations
+   @ ( ME_A44911B9A95D // IterateF
+ ME_7DFBEBFE2750 // L2_MIterateableService_IterateF_Action
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_8CF4FD6A38DB // MIterateableService_IterateF_Action
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_27F5F6C291D9 MIterateableService
+
+FORWARD ME_12F09FF9D80E
+
+: ME_A44911B9A95D_ME_12F09FF9D80E
+ CONST UID 'A44911B9A95D'
+ CONST Name 'IterateF'
+ : Original ME_A44911B9A95D // IterateF
+ ;
+ : Implementor ME_12F09FF9D80E // IIterateableService
+ ;
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+ref; // ME_A44911B9A95D_ME_12F09FF9D80E IterateF
+
+: ME_12F09FF9D80E
+ CONST UID '12F09FF9D80E'
+ CONST GUID '9584416D-CD11-42E9-A82D-87DFA5441AA3'
+ CONST Name 'IIterateableService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса TIterateableService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5519611903CF // TIterateableService
+ ;
+ : Implements
+   @ ( ME_27F5F6C291D9 // MIterateableService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_A44911B9A95D_ME_12F09FF9D80E // IterateF
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_12F09FF9D80E IIterateableService
+
+: ME_507494232C0A
+ CONST UID '507494232C0A'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса IIterateableService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_5519611903CF // TIterateableService
+ ;
+ : Target ME_12F09FF9D80E // IIterateableService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_507494232C0A Alien
+
+: ME_D158CB6D81FA
+ CONST UID 'D158CB6D81FA'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5519611903CF // TIterateableService
+ ;
+ : Target ME_12F09FF9D80E // IIterateableService
+ ;
+
+ref; // ME_D158CB6D81FA f_Alien
+
+FORWARD ME_551961AE0005
+
+: ME_551982C90396
+ CONST UID '551982C90396'
+ CONST Name 'anOwner'
+ CONST Class class_Attribute
+ : Stereotype st_in::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_551961AE0005 // Iterate
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_551982C90396 anOwner
+
+: ME_551961D80264
+ CONST UID '551961D80264'
+ CONST Class class_Attribute
+ : Stereotype st_element_type::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_551961AE0005 // Iterate
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_551961D80264 
+
+: ME_551961AE0005
+ CONST UID '551961AE0005'
+ CONST Name 'Iterate'
+ CONST Class class_Class
+ : Stereotype st_serviceiterator ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5519611903CF // TIterateableService
+ ;
+ : Attributes
+   @ ( ME_551982C90396 // anOwner
+ ME_551961D80264 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+
+ref; // ME_551961AE0005 Iterate
+
+: ME_C40E608BEBA0
+ CONST UID 'C40E608BEBA0'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5519611903CF // TIterateableService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_C40E608BEBA0 Exists
+
+: ME_A44911B9A95D_ME_5519611903CF
+ CONST UID 'A44911B9A95D'
+ CONST Name 'IterateF'
+ : Original ME_A44911B9A95D // IterateF
+ ;
+ : Implementor ME_5519611903CF // TIterateableService
+ ;
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+ref; // ME_A44911B9A95D_ME_5519611903CF IterateF
+
+: ME_5000565C019C_ME_5519611903CF
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_5519611903CF // TIterateableService
+ ;
+ref; // ME_5000565C019C_ME_5519611903CF ClearFields
+
+: ME_5519611903CF
+ CONST UID '5519611903CF'
+ CONST Name 'TIterateableService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55196110004E // Services
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_27F5F6C291D9 // MIterateableService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_507494232C0A // Alien
+ ME_D158CB6D81FA // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_551961AE0005 // Iterate
+ ME_C40E608BEBA0 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_A44911B9A95D_ME_5519611903CF // IterateF
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_5519611903CF // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_27F5F6C291D9 // MIterateableService
+ ME_12F09FF9D80E // IIterateableService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\IterateableService.pas'
+
+ref; // ME_5519611903CF TIterateableService
+
+FORWARD ME_5519612B01D3
+
+FORWARD ME_551961470035
+
+: ME_B97944B34994
+ CONST UID 'B97944B34994'
+ CONST Name 'bind'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TIterateableServiceImpl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_551961470035 // TIterateableServiceImpl
+ ;
+
+ref; // ME_B97944B34994 bind
+
+: ME_C49CA6E28C7F
+ CONST UID 'C49CA6E28C7F'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551961470035 // TIterateableServiceImpl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_C49CA6E28C7F Exists
+
+: ME_5519615C0325
+ CONST UID '5519615C0325'
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent ME_551961470035 // TIterateableServiceImpl
+ ;
+ : Target ME_5519611903CF // TIterateableService
+ ;
+
+ref; // ME_5519615C0325 
+
+: ME_A44911B9A95D_ME_551961470035
+ CONST UID 'A44911B9A95D'
+ CONST Name 'IterateF'
+ : Original ME_A44911B9A95D // IterateF
+ ;
+ : Implementor ME_551961470035 // TIterateableServiceImpl
+ ;
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+ref; // ME_A44911B9A95D_ME_551961470035 IterateF
+
+: ME_551961470035
+ CONST UID '551961470035'
+ CONST Name 'TIterateableServiceImpl'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5519612B01D3 // TIterateableServiceProvider
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_12F09FF9D80E // IIterateableService
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_B97944B34994 // bind
+ ME_C49CA6E28C7F // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_A44911B9A95D_ME_551961470035 // IterateF
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_5519615C0325 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ref; // ME_551961470035 TIterateableServiceImpl
+
+: ME_5519612B01D3
+ CONST UID '5519612B01D3'
+ CONST Name 'TIterateableServiceProvider'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55196110004E // Services
+ ;
+ : Children
+   @ ( ME_551961470035 // TIterateableServiceImpl
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\IterateableServiceProvider.pas'
+
+ref; // ME_5519612B01D3 TIterateableServiceProvider
+
+: ME_55196110004E
+ CONST UID '55196110004E'
+ CONST Name 'Services'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
+ ;
+ : Children
+   @ ( ME_5519611903CF // TIterateableService
+ ME_5519612B01D3 // TIterateableServiceProvider
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55196110004E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55196110004E.pas.ms.script.runner'
+
+ref; // ME_55196110004E Services

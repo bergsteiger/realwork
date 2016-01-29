@@ -1,0 +1,1245 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ModelSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"name"
+	    value      	"ModelSupport")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"vendor name"
+	    value      	"ÎÎÎ ÍÏÏ 'Ãàðàíò-Ñåðâèñ'")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"vendor url"
+	    value      	"www.garant.ru")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/ModelSupport|499FC2440008
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19021590564"))
+    quid       	"499FC2440008"
+    documentation 	"ïëàãèíû äëÿ ïîääåðæêè ðàáîòû ñ ñãåíåðåííûìè ýëåìåíòàìè"
+    stereotype 	"KPlugins"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"499FC56D00AE"
+	    supplier   	"Logical View::MDProcess::CodeRepository::Information"
+	    quidu      	"49829E420071")
+	(object Visibility_Relationship
+	    quid       	"49A00256010D"
+	    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderers"
+	    quidu      	"499FF971033E")
+	(object Visibility_Relationship
+	    quid       	"49A01705020E"
+	    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal"
+	    quidu      	"49A0114C0240")
+	(object Visibility_Relationship
+	    quid       	"4ADDCABD0064"
+	    supplier   	"Logical View::MDProcess::CodeRepositoryView::Templates"
+	    quidu      	"49A4FD900201")
+	(object Visibility_Relationship
+	    quid       	"4AE060D0011C"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl"
+	    quidu      	"4649E1A40231"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ShowRevisonLink"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"alias"
+		    value      	"sourcelink")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/ModelSupport/ShowRevisonLink.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*499FC3EC0135_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *499FC3EC0135_CUSTOM_IMPORT*¤¤import com.atlassian.confluence.pages.AbstractPage;¤import com.atlassian.confluence.renderer.PageContext;¤¤import ru.garant.MDProcess.CodeRepository.Information.InformationNotFound;¤¤//#UC END# *499FC3EC0135_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*499FC3EC0135_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *499FC3EC0135_CUSTOM_CLASS_DEFINITION*¤//#UC END# *499FC3EC0135_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*499FC3EC0135_EXECUTE_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *499FC3EC0135_EXECUTE_IMPLEMETATION*¤		final String path = (String)parameters.get("0");¤		try {¤			final AbstractPage ap = (AbstractPage)((PageContext) renderContext).getEntity();			¤			Revision rev = Revision.Factory.getLastActualInSpace(ap.getSpace().getKey(), path);		¤			return Source.Factory.current().renderHtml(rev);¤		} catch (InformationNotFound e1) {¤			throw new MacroException ("(path not commited) " + path);¤		} catch (Exception e) {¤			throw new MacroException (e.getMessage());¤		}¤		//#UC END# *499FC3EC0135_EXECUTE_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*499FC3EC0135_ISINLINE_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *499FC3EC0135_ISINLINE_IMPLEMETATION*¤		return true;¤		//#UC END# *499FC3EC0135_ISINLINE_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*499FC3EC0135_HASBODY_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *499FC3EC0135_HASBODY_IMPLEMETATION*¤		return false;¤		//#UC END# *499FC3EC0135_HASBODY_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*499FC3EC0135_GETBODYRENDERMODE_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *499FC3EC0135_GETBODYRENDERMODE_IMPLEMETATION*¤		return RenderMode.NO_RENDER;¤		//#UC END# *499FC3EC0135_GETBODYRENDERMODE_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*499FC3EC0135_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *499FC3EC0135_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *499FC3EC0135_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/ModelSupport/ShowRevisonLink|499FC3EC0135
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038398837"))
+	    quid       	"499FC3EC0135"
+	    documentation 	
+|ïå÷àòàåò ññûëêó íà óêàçàííûé èñõîäíèê ñãåíåðåííîãî ýëåìåíòà, ôîðìàò: \{sourcelink:"shared/models/MDProcess/CodeRepository/CodeRepository.cat"\}
+	    
+	    stereotype 	"KMacroPlugin"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021622296"))
+		    quid       	"499FC5950211"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::CodeRepository::Information::Revision"
+		    quidu      	"499AC24A02FB")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021622677"))
+		    quid       	"49BE66000382"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderers::Source"
+		    quidu      	"49BE5EC60203"))
+	    language   	"MDA Generator")
+	(object Class "LinkedRequestsMacro"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/ModelSupport/LinkedRequestsMacro.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"alias"
+		    value      	"linkedrequests")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"factory priority"
+		    value      	"0")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB0BD03C3_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4ADDB0BD03C3_CUSTOM_IMPORT*¤import ru.garant.shared.GCI.I18N.Messages;¤import ru.garant.MDProcess.CodeRepository.Information.Revision;¤import ru.garant.MDProcess.CodeRepositoryView.KRenderers.Source;¤¤import com.atlassian.confluence.core.ContentEntityObject;¤import com.atlassian.confluence.renderer.PageContext;¤import com.atlassian.confluence.renderer.radeox.macros.MacroUtils;¤import com.atlassian.confluence.util.GeneralUtil;¤import com.atlassian.confluence.util.velocity.VelocityUtils;¤import org.apache.commons.lang.StringEscapeUtils;¤import org.apache.commons.lang.StringUtils;¤¤//#UC END# *4ADDB0BD03C3_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB0BD03C3_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4ADDB0BD03C3_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4ADDB0BD03C3_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB0BD03C3_EXECUTE_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *4ADDB0BD03C3_EXECUTE_IMPLEMETATION*¤		if (StringUtils.isBlank(body) || renderContext instanceof PageContext == false) {¤			return "";¤		}¤		¤		try {¤			final ContentEntityObject contextCeo = ((PageContext) renderContext).getEntity();¤			Map<String, Object> velocityContext = MacroUtils.defaultVelocityContext();¤			¤			velocityContext.put("page", contextCeo);¤			velocityContext.put("macrosBody", StringEscapeUtils.escapeJavaScript(body.trim()));¤			velocityContext.put("cloakTitle",  Messages.Factory.messages ().get ("model.page.history"));			¤			¤			return VelocityUtils.getRenderedTemplate(TEMPLATE_PATH, velocityContext);¤		} catch (Exception e) {¤			throw new MacroException (e.getMessage());¤		}¤		//#UC END# *4ADDB0BD03C3_EXECUTE_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB0BD03C3_ISINLINE_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *4ADDB0BD03C3_ISINLINE_IMPLEMETATION*¤		return false;¤		//#UC END# *4ADDB0BD03C3_ISINLINE_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB0BD03C3_HASBODY_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *4ADDB0BD03C3_HASBODY_IMPLEMETATION*¤		return true;¤		//#UC END# *4ADDB0BD03C3_HASBODY_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB0BD03C3_GETBODYRENDERMODE_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *4ADDB0BD03C3_GETBODYRENDERMODE_IMPLEMETATION*¤		return RenderMode.NO_RENDER;¤		//#UC END# *4ADDB0BD03C3_GETBODYRENDERMODE_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB0BD03C3_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4ADDB0BD03C3_CUSTOM_METHODS_AND_DATA*¤	private static final String TEMPLATE_PATH = "/CodeRepositoryView/Templates/LinkedRequests.vm";¤	//#UC END# *4ADDB0BD03C3_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/ModelSupport/LinkedRequestsMacro|4ADDB0BD03C3
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038411285"))
+	    quid       	"4ADDB0BD03C3"
+	    documentation 	"ìàêðîñ, äëÿ ïîêàçà íà ñòðàíèöå  ýëåìåíòà ìîäåëè âûïàäàþùåãî ñïèñêà ñî ñâÿçàííûìè çàïðîñàìè, ò.å. çàïðîñàìè, â êîòîðûõ ýëåìåíò ìåíÿëñÿ"
+	    stereotype 	"KMacroPlugin"
+	    language   	"MDA Generator")
+	(object Class "LinkedRequestsAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/ModelSupport/LinkedRequestsAction.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB12E034C_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4ADDB12E034C_CUSTOM_IMPORT*¤import java.util.LinkedList;¤import java.util.List;¤¤import com.atlassian.confluence.core.ConfluenceActionSupport;¤import com.atlassian.confluence.pages.Page;¤import com.atlassian.confluence.renderer.PageContext;¤import com.atlassian.confluence.renderer.radeox.macros.MacroUtils;¤import com.atlassian.confluence.util.velocity.VelocityUtils;¤import com.atlassian.renderer.RenderContext;¤¤//#UC END# *4ADDB12E034C_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB12E034C_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4ADDB12E034C_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4ADDB12E034C_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB12E034C_ACTION_NAME*"
+		    value      	(value Text 
+|//#UC START# *4ADDB12E034C_ACTION_NAME*¤		return new String (getClass ().getName ());¤		//#UC END# *4ADDB12E034C_ACTION_NAME*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4ADDB12E034C_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4ADDB12E034C_CUSTOM_METHODS_AND_DATA*¤	private String macrosBody_ = new String ();¤¤	public void setMacrosBody (String macrosBody) {¤		macrosBody_ = macrosBody;¤	}¤¤	public String execute () throws java.lang.Exception {¤		return SUCCESS;¤	}¤	¤	private long pageId_ = 0;¤	¤	public void setPageId (long pid) {¤		pageId_ = pid;¤	}¤	¤	public String getResponseContent () {¤		String ret = ContainerManager.Factory.get().getWikiStyleRenderer().convertWikiToXHtml (¤				new PageContext (ContainerManager.Factory.get().getPageManager().getPage(pageId_))¤				, macrosBody_¤			);¤		return ret; ¤	}¤	//#UC END# *4ADDB12E034C_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/ModelSupport/LinkedRequestsAction|4ADDB12E034C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038409734"))
+	    quid       	"4ADDB12E034C"
+	    documentation 	"ýêøàí äëÿ ïîêàçà ñïèñêà ñâçàííûõ çàïðîñîâ"
+	    stereotype 	"KActionPlugin"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4AE060960276"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::ConfluenceActionSupport"
+		    quidu      	"468C9C950186"))
+	    language   	"MDA Generator")
+	(object Class "ModelSupportXPlugin"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/ModelSupport/ModelSupportXPlugin|4ADDC6D200A5
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021624420"))
+	    quid       	"4ADDC6D200A5"
+	    documentation 	"ñîäåðæèò âñå vm-íèêè èç ïàêåòà"
+	    stereotype 	"KXWorkPlugin"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "ModelSupportXPackage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/ModelSupport/ModelSupportXPlugin/ModelSupportXPackage|4ADDC706009E
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021624704"))
+		    quid       	"4ADDC706009E"
+		    documentation 	"ModelSupportXPackage"
+		    stereotype 	"XPackage"
+		    nestedClasses 	(list nestedClasses
+			(object Class "linkedrequests"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"WikiPageID (wiki)"
+				    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/ModelSupport/ModelSupportXPlugin/ModelSupportXPackage/linkedrequests|4ADDC7480155
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"SourceType (wiki)"
+				    value      	"wiki")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19038412698"))
+			    quid       	"4ADDC7480155"
+			    documentation 	"linkedrequests"
+			    stereotype 	"XAction"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"AbstarctOperation"
+					    value      	"regular")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"IsNative"
+					    value      	"false")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ElementCreationOrder"
+					    value      	"19021625958"))
+				    quid       	"4ADDC78803E2"
+				    stereotype 	"call"
+				    supplier   	"Logical View::MDProcess::CodeRepositoryView::ModelSupport::LinkedRequestsAction"
+				    quidu      	"4ADDB12E034C")))))))
+	(object Association "$UNNAMED$0"
+	    quid       	"4ADDC86C0246"
+	    roles      	(list role_list
+		(object Role "success"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021625456"))
+		    quid       	"4ADDC86D008C"
+		    documentation 	"îäèí îòâåò íà âñå ñëó÷àè æèçíè"
+		    stereotype 	"velocity"
+		    label      	"success"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::Templates::LinkedRequests_Open"
+		    quidu      	"4AE05E8300F3"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"4ADDC86D008E"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::ModelSupport::ModelSupportXPlugin::ModelSupportXPackage::linkedrequests"
+		    quidu      	"4ADDC7480155"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"499FC3E503AC"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	1165
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::ModelSupport::ShowRevisonLink" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(279, 471)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(77, 449)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	404
+			justify    	0
+			label      	"• ShowRevisonLink")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(77, 399)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	404
+			justify    	0
+			label      	"<<KMacroPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	15448575
+		    quidu      	"499FC3EC0135"
+		    width      	422
+		    height     	168
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepository::Information::Revision" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1023, 336)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(892, 309)
+			nlines     	1
+			max_width  	262
+			justify    	0
+			label      	"• Revision")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(892, 259)
+			anchor     	10
+			nlines     	1
+			max_width  	262
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"499AC24A02FB"
+		    width      	280
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(641, 328)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.417541
+			height     	75
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"499FC5950211"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(490, 431)
+			(882, 360))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderers::Source" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1017, 699)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(849, 667)
+			nlines     	1
+			max_width  	336
+			justify    	0
+			label      	"Source")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(849, 622)
+			anchor     	10
+			nlines     	1
+			max_width  	336
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49BE5EC60203"
+		    width      	354
+		    height     	176
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(699, 475)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49BE66000382"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(490, 535)
+			(839, 643))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::ModelSupport::LinkedRequestsMacro" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(423, 1152)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(175, 1124)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	496
+			justify    	0
+			label      	"• LinkedRequestsMacro")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(175, 1074)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	496
+			justify    	0
+			label      	"<<KMacroPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	15448575
+		    quidu      	"4ADDB0BD03C3"
+		    width      	514
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::ModelSupport::LinkedRequestsAction" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1158, 1269)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(932, 1241)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"LinkedRequestsAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(932, 1191)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"<<KActionPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	15448575
+		    quidu      	"4ADDB12E034C"
+		    width      	470
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::ModelSupport::ModelSupportXPlugin" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(420, 1482)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(206, 1461)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"ModelSupportXPlugin")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(206, 1411)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"<<KXWorkPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	16111871
+		    quidu      	"4ADDC6D200A5"
+		    width      	446
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::ConfluenceActionSupport" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1164, 960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(863, 928)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	602
+			justify    	0
+			label      	"• ConfluenceActionSupport")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(863, 878)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	602
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"468C9C950186"
+		    width      	620
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @12
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4AE060960276"
+		    client     	@9
+		    supplier   	@11
+		    vertices   	(list Points
+			(1159, 1178)
+			(1161, 1054))
+		    line_style 	0)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"4ADDC6D200A5")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4ADDC72300AC"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::ModelSupport::ModelSupportXPlugin::ModelSupportXPackage" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(816, 489)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(528, 457)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	576
+			justify    	0
+			label      	"ModelSupportXPackage")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(528, 407)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	576
+			justify    	0
+			label      	"<<XPackage>>")
+		    icon_style 	"Label"
+		    fill_color 	13357823
+		    quidu      	"4ADDC706009E"
+		    width      	594
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"4ADDC706009E")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4ADDC745001D"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::ModelSupport::LinkedRequestsAction" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1224, 357)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	13110000
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(998, 336)
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"LinkedRequestsAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(998, 286)
+			anchor     	10
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"<<KActionPlugin>>")
+		    icon_style 	"Label"
+		    line_color 	13110000
+		    fill_color 	16777215
+		    quidu      	"4ADDB12E034C"
+		    width      	470
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::LinkedRequests_Open" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1464, 828)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	13110000
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(1242, 796)
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"LinkedRequests_Open")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(1242, 746)
+			anchor     	10
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    line_color 	13110000
+		    fill_color 	16777215
+		    quidu      	"4AE05E8300F3"
+		    width      	462
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::ModelSupport::ModelSupportXPlugin::ModelSupportXPackage::linkedrequests" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(552, 825)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(327, 782)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"linkedrequests")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(327, 732)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<XAction>>")
+		    icon_style 	"Label"
+		    fill_color 	13357823
+		    quidu      	"4ADDC7480155"
+		    width      	468
+		    height     	210
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @17
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @18
+			Parent_View 	@17
+			location   	(770, 567)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<call>>"
+			pctDist    	0.292668
+			height     	88
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4ADDC78803E2"
+		    client     	@16
+		    supplier   	@14
+		    vertices   	(list Points
+			(702, 719)
+			(1103, 440))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$0" @19
+		    location   	(1009, 825)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4ADDC86C0246"
+		    roleview_list 	(list RoleViews
+			(object RoleView "success" @20
+			    Parent_View 	@19
+			    location   	(457, 0)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @21
+				Parent_View 	@20
+				location   	(1036, 864)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	190
+				justify    	0
+				label      	"+success"
+				pctDist    	0.121212
+				height     	39
+				orientation 	1)
+			    stereotype 	(object SegLabel @22
+				Parent_View 	@20
+				location   	(1055, 786)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<velocity>>"
+				pctDist    	0.122047
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"4ADDC86D008C"
+			    client     	@19
+			    supplier   	@15
+			    vertices   	(list Points
+				(1009, 825)
+				(1232, 825))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$1" @23
+			    Parent_View 	@19
+			    location   	(457, 0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4ADDC86D008E"
+			    client     	@19
+			    supplier   	@16
+			    vertices   	(list Points
+				(1009, 825)
+				(786, 825))
+			    line_style 	0)))))))

@@ -1,0 +1,508 @@
+// PictureEtalonsWorking 552CF42C0230 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552CF42C0230
+
+FORWARD ME_552BD71503BD
+
+FORWARD ME_0624C398EE8C
+
+: ME_EB10DD6ECB57
+ CONST UID 'EB10DD6ECB57'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация EnabledSaveRTFPictures' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_0624C398EE8C // EnabledSaveRTFPictures
+ ;
+
+ref; // ME_EB10DD6ECB57 Ini_Reg
+
+: ME_7AC4068F2EBF
+ CONST UID '7AC4068F2EBF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0624C398EE8C // EnabledSaveRTFPictures
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_7AC4068F2EBF 
+
+: ME_22A8CC8CF04E
+ CONST UID '22A8CC8CF04E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0624C398EE8C // EnabledSaveRTFPictures
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_22A8CC8CF04E 
+
+: ME_A5CC4C784DCE
+ CONST UID 'A5CC4C784DCE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0624C398EE8C // EnabledSaveRTFPictures
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_A5CC4C784DCE 
+
+: ME_4DAEEDE10285_ME_0624C398EE8C
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_0624C398EE8C // EnabledSaveRTFPictures
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_0624C398EE8C DoDoIt
+
+: ME_4DB0614603C8_ME_0624C398EE8C
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_0624C398EE8C // EnabledSaveRTFPictures
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_0624C398EE8C GetWordNameForRegister
+
+: ME_551544E2001A_ME_0624C398EE8C
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_0624C398EE8C // EnabledSaveRTFPictures
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_0624C398EE8C GetResultTypeInfo
+
+: ME_559687E6025A_ME_0624C398EE8C
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_0624C398EE8C // EnabledSaveRTFPictures
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_0624C398EE8C GetAllParamsCount
+
+: ME_0624C398EE8C
+ CONST UID '0624C398EE8C'
+ CONST Name 'EnabledSaveRTFPictures'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта EnabledSaveRTFPictures'#13#10'{panel}Включить режим сохранения картинок при импорте из RTF/DOC/DOCX. Нужно вызывать перед каждой выливкой из RTF, т.к.флаг сбрасывается.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' EnabledSaveRTFPictures'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_EB10DD6ECB57 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_0624C398EE8C // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_0624C398EE8C // GetWordNameForRegister
+ ME_551544E2001A_ME_0624C398EE8C // GetResultTypeInfo
+ ME_559687E6025A_ME_0624C398EE8C // GetAllParamsCount
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_7AC4068F2EBF // 
+ ME_22A8CC8CF04E // 
+ ME_A5CC4C784DCE // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'EnabledSaveRTFPictures'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwEnabledSaveRTFPictures'
+
+ref; // ME_0624C398EE8C EnabledSaveRTFPictures
+
+FORWARD ME_8682318410BD
+
+: ME_199289C112A2
+ CONST UID '199289C112A2'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_199289C112A2 aCtx
+
+: ME_199289C112A3
+ CONST UID '199289C112A3'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_199289C112A3 aValue
+
+: ME_03229B3839D8
+ CONST UID '03229B3839D8'
+ CONST Name 'GeneratePDFForEtalon'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта GeneratePDFForEtalon' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ : Parameters
+   @ ( ME_199289C112A2 // aCtx
+ ME_199289C112A3 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_03229B3839D8 GeneratePDFForEtalon
+
+: ME_6B17D8C8414B
+ CONST UID '6B17D8C8414B'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация GeneratePDFForEtalon' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_8682318410BD // GeneratePDFForEtalon
+ ;
+
+ref; // ME_6B17D8C8414B Ini_Reg
+
+: ME_9A53D5D23B58
+ CONST UID '9A53D5D23B58'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_9A53D5D23B58 
+
+: ME_3776DB59D36F
+ CONST UID '3776DB59D36F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_3776DB59D36F 
+
+: ME_FD7F46A6C557
+ CONST UID 'FD7F46A6C557'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_FD7F46A6C557 
+
+: ME_4DAEEDE10285_ME_8682318410BD
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_8682318410BD DoDoIt
+
+: ME_4DB0614603C8_ME_8682318410BD
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_8682318410BD GetWordNameForRegister
+
+: ME_551544E2001A_ME_8682318410BD
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_8682318410BD GetResultTypeInfo
+
+: ME_559687E6025A_ME_8682318410BD
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_8682318410BD GetAllParamsCount
+
+: ME_5617F4D00243_ME_8682318410BD
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_8682318410BD // GeneratePDFForEtalon
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_8682318410BD ParamsTypes
+
+: ME_8682318410BD
+ CONST UID '8682318410BD'
+ CONST Name 'GeneratePDFForEtalon'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта GeneratePDFForEtalon'#13#10'{panel}*Формат*:'#13#10'{code}'#13#10'aFlag GeneratePDFForEtalon'#13#10'{code}'#13#10'где aFlag - true или false.'#13#10'Включить/выключить режим генерации текстового PDF, который удобно использовать для сравнения. Нужно выставлять при каждом экспорте, т.к.флаг сбрасывается в False.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue GeneratePDFForEtalon'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ : Inherits
+   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_03229B3839D8 // GeneratePDFForEtalon
+ ME_6B17D8C8414B // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_8682318410BD // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_8682318410BD // GetWordNameForRegister
+ ME_551544E2001A_ME_8682318410BD // GetResultTypeInfo
+ ME_559687E6025A_ME_8682318410BD // GetAllParamsCount
+ ME_5617F4D00243_ME_8682318410BD // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_9A53D5D23B58 // 
+ ME_3776DB59D36F // 
+ ME_FD7F46A6C557 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'GeneratePDFForEtalon'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwGeneratePDFForEtalon'
+
+ref; // ME_8682318410BD GeneratePDFForEtalon
+
+: ME_552BD761009D
+ CONST UID '552BD761009D'
+ CONST Name 'EnabledSaveRTFPictures'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Включить режим сохранения картинок при импорте из RTF/DOC/DOCX. Нужно вызывать перед каждой выливкой из RTF, т.к.флаг сбрасывается.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+
+ref; // ME_552BD761009D EnabledSaveRTFPictures
+
+: ME_552BDFB9027B
+ CONST UID '552BDFB9027B'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_552BDFB9027B aValue
+
+: ME_552BD7870165
+ CONST UID '552BD7870165'
+ CONST Name 'GeneratePDFForEtalon'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ %SUMMARY '*Формат*:'#13#10'{code}'#13#10'aFlag GeneratePDFForEtalon'#13#10'{code}'#13#10'где aFlag - true или false.'#13#10'Включить/выключить режим генерации текстового PDF, который удобно использовать для сравнения. Нужно выставлять при каждом экспорте, т.к.флаг сбрасывается в False.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ : Parameters
+   @ ( ME_552BDFB9027B // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_552BD7870165 GeneratePDFForEtalon
+
+: ME_974C69B47546
+ CONST UID '974C69B47546'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+
+ref; // ME_974C69B47546 Reg_TtfwContext
+
+: ME_F2169A43C125
+ CONST UID 'F2169A43C125'
+ CONST Name 'Reg_Boolean'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа Boolean' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+
+ref; // ME_F2169A43C125 Reg_Boolean
+
+: ME_552BD73E03A6
+ CONST UID '552BD73E03A6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ : Target WL 'ME_552406830331' '552405FA0066.pas.ms.script' // Tl3PicturePathService
+ ;
+
+ref; // ME_552BD73E03A6 
+
+: ME_552BD74401A3
+ CONST UID '552BD74401A3'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ : Target WL 'ME_552406830331' '552405FA0066.pas.ms.script' // Tl3PicturePathService
+ ;
+
+ref; // ME_552BD74401A3 
+
+: ME_4C17E8FB4357
+ CONST UID '4C17E8FB4357'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_4C17E8FB4357 
+
+: ME_982F7C0BA804
+ CONST UID '982F7C0BA804'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_982F7C0BA804 
+
+: ME_552BD71503BD
+ CONST UID '552BD71503BD'
+ CONST Name 'PictureEtalonsWorkingPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_552CF42C0230 // PictureEtalonsWorking
+ ;
+ : Operations
+   @ ( ME_552BD761009D // EnabledSaveRTFPictures
+ ME_552BD7870165 // GeneratePDFForEtalon
+ ME_974C69B47546 // Reg_TtfwContext
+ ME_F2169A43C125 // Reg_Boolean
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_0624C398EE8C // EnabledSaveRTFPictures
+ ME_8682318410BD // GeneratePDFForEtalon
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_552BD73E03A6 // 
+ ME_552BD74401A3 // 
+ ME_4C17E8FB4357 // 
+ ME_982F7C0BA804 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\PictureEtalonsWorkingPack.pas'
+
+ref; // ME_552BD71503BD PictureEtalonsWorkingPack
+
+: ME_552CF42C0230
+ CONST UID '552CF42C0230'
+ CONST Name 'PictureEtalonsWorking'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54EF440B0244' '54EF440B0244.pas.ms.script' // ScriptEngine$L3
+ ;
+ : Children
+   @ ( ME_552BD71503BD // PictureEtalonsWorkingPack
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_552405FA0066' '552405FA0066.pas.ms.script' // ScreenShots
+ WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\552CF42C0230.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\552CF42C0230.pas.ms.script.runner'
+
+ref; // ME_552CF42C0230 PictureEtalonsWorking

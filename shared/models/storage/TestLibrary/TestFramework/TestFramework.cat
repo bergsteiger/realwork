@@ -1,0 +1,1398 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "TestFramework"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"h:*4496AB6800EA_CUSTOM_INCLUDE*"
+	    value      	"//#UC START# *4496AB6800EA_CUSTOM_INCLUDE*¤//#UC END# *4496AB6800EA_CUSTOM_INCLUDE*")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/storage/test_candidates/TestLibrary/TestFramework/TestFramework.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/storage/test_candidates/TestLibrary/TestFramework/TestFramework.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/storage/test_candidates/TestLibrary/TestFramework/TestFrameworkFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/storage/test_candidates/TestLibrary/TestFramework/TestFrameworkFactories.h"))
+    quid       	"4496AB6800EA"
+    documentation 	"Содержит описание интерфейсов, требуемых для реализации тестировочной методологии простейших тестов в целом."
+    stereotype 	"Interface"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4496AC0E029F"
+	    supplier   	"Logical View::storage::TestLibrary::Test"
+	    quidu      	"4496934F004E"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "IMeasure"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4496A1EE002E_449BEAB7007D_4496A7B90280_BASE_INIT*"
+		    value      	"//#UC START# *4496A1EE002E_449BEAB7007D_4496A7B90280_BASE_INIT*¤//#UC END# *4496A1EE002E_449BEAB7007D_4496A7B90280_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4496A1EE002E_449BEAB7007D_4496A7B90280_BODY*"
+		    value      	(value Text 
+|//#UC START# *4496A1EE002E_449BEAB7007D_4496A7B90280_BODY*¤	//#UC END# *4496A1EE002E_449BEAB7007D_4496A7B90280_BODY*
+		    )))
+	    quid       	"4496A1EE002E"
+	    documentation 	
+|Предназначен для измерения длительности тестового действия, а также для измерения приращения физического размера базы в результате тестового действия.
+|
+|Существует одна стандартная имплементация IMeasure.
+|
+|<<метод>> measure () - измеряет длительность действия и приращение физического размера базы. Вызывает последовательно IAction::pre_prepare (), IAction::execute (), IAction::post_prepare (). Длительность измеряется только для метода IAction::execute (), а приращение физического размера базы вычисляется на основе состояний файловой системы до вызова IAction::pre_prepare () и после вызова IAction::post_prepare (). Возвращает инфо об измеренной длительности и приращении физического размера базы.
+|
+|Замечание. Измеритель теперь умеет делать интегральные замеры по интервалу усреднения. Кол-во действий этого интервала передается через параметр integration_count.
+|Для ускорения прогона теста теперь физический размер базы вычисляется один раз за весь интервал усреднения.
+|
+|<<фабрика>> make () - создает одну стандартную имплементацию IMeasure.
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "measure"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496A20A031C_4496A7B90280*"
+			    value      	(value Text 
+|//#UC START# *4496A20A031C_4496A7B90280*¤	// we have to use Aptr, because there is can be exception¤	Core::Aptr <TestFramework::TestInfo> ret (new TestFramework::TestInfo);¤	HiResCounter hi_res_counter;¤	std::vector <double> instant_durations;¤	double sum_logical_size = 0;¤	for (unsigned long j = 0; j < integration_count; ++j) {¤		action->pre_prepare ();¤		Test::ActionInfo2 action_info2;¤		double seconds0 = hi_res_counter.get_seconds (); // start time inspect¤		action->execute (action_info2);¤		double seconds1 = hi_res_counter.get_seconds (); // end time inspect¤		instant_durations.push_back (seconds1 - seconds0);¤		sum_logical_size += action_info2.logical_size;¤		action->post_prepare ();¤	}¤	ret->action_info2 = Test::ActionInfo2 ();¤	ret->action_info2.logical_size = sum_logical_size;¤	ret->measure_info = TestFramework::MeasureInfo ();¤	ret->measure_info.duration = GCL::get_average (instant_durations);¤	ret->measure_info.duration_deviation = GCL::get_stddev (instant_durations, ret->measure_info.duration);¤	return ret._retn ();¤	//#UC END# *4496A20A031C_4496A7B90280*
+			    )))
+		    quid       	"4496A20A031C"
+		    parameters 	(list Parameters
+			(object Parameter "inout action"
+			    quid       	"4496A23C01C6"
+			    type       	"IAction"
+			    quidu      	"449693A900AB")
+			(object Parameter "in integration_count"
+			    quid       	"44BF778D000F"
+			    type       	"unsigned long"
+			    quidu      	"3DBFFDE101CA"))
+		    result     	"TestInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4496A1900290")
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"449BEAB7007D"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_physical_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*450E509C02FD_4496A7B90280*"
+			    value      	(value Text 
+|//#UC START# *450E509C02FD_4496A7B90280*¤	double tmp_start_size = start_size;¤	try {¤	std::string root_path_in = root_dir;¤	std::string::size_type l = root_path_in.size () - 1;¤	std::string root_path_ok = root_path_in;¤	char c = root_path_in [l];¤	if ((c == '/') || (c == '\\')) {¤		root_path_ok = root_path_in.substr (0, l);¤	}¤	const char* root_path_ok_c_str = root_path_ok.c_str ();¤	fs::path root_path (root_path_ok_c_str, ::fs::native);¤	fs::directory_iterator end_iter;¤	for (fs::directory_iterator dir_itr (root_path); dir_itr != end_iter; ++dir_itr) {¤		std::string full_cur_name = root_path_ok + '/' + dir_itr->leaf ();¤		std::string full_native_name = fs::path (full_cur_name, ::fs::native).native_directory_string ();¤		if (fs::is_directory (*dir_itr)) {¤			this->get_physical_size (start_size, full_native_name.c_str ());¤		} else {¤			start_size += fs::file_size (*dir_itr); //ace_os_filesize (fd);¤		}¤	}¤	}¤	catch (...) {¤		LOG_W (("An exception caught while being in Measure_i::get_physical_size (): now retrying"));¤		start_size = tmp_start_size;¤		this->get_physical_size (start_size, root_dir);¤	}¤	//#UC END# *450E509C02FD_4496A7B90280*
+			    )))
+		    quid       	"450E509C02FD"
+		    parameters 	(list Parameters
+			(object Parameter "inout start_size"
+			    quid       	"450E50C803C8"
+			    type       	"double"
+			    quidu      	"3DBFFD9B0197")
+			(object Parameter "root_dir"
+			    quid       	"450E50C9001F"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "ILog"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4496A270000F_449BFE8F007D_4496AC3D009C_BASE_INIT*"
+		    value      	"//#UC START# *4496A270000F_449BFE8F007D_4496AC3D009C_BASE_INIT*¤//#UC END# *4496A270000F_449BFE8F007D_4496AC3D009C_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4496A270000F_449BFE8F007D_4496AC3D009C_BODY*"
+		    value      	(value Text 
+|//#UC START# *4496A270000F_449BFE8F007D_4496AC3D009C_BODY*¤	fprintf (stdout, "test_info\n");¤	fprintf (stdout, "[0] = line number\n");¤	fprintf (stdout, "[1] = .message\n");¤	fprintf (stdout, "[2] = .duration_average [ms]\n");¤	fprintf (stdout, "[3] = .duration_stddev [ms]\n");¤	fprintf (stdout, "[4] = .logical_size [bytes], 0 = not available\n");¤	fprintf (stdout, "[5] = .physical_size [bytes], 0 = not available\n");¤	fprintf (stdout, "[0] [1] [2] [3] [4] [5]\n");¤	fflush (stdout);¤	//#UC END# *4496A270000F_449BFE8F007D_4496AC3D009C_BODY*
+		    )))
+	    quid       	"4496A270000F"
+	    documentation 	
+|Предназначен для вывода информации, собранной во время прогона теста, в лог-файл.
+|
+|Существует одна стандартная имплементация ILog. В настоящее время она выводит лог в stdout.
+|
+|<<методы>>
+|
+|print () - выводит усредненные тестовые данные в лог (сейчас вызывается из ITestExecutor 100 раз - по одному разу на каждый интервал усреднения).
+|print_summarize () - выводит суммарные  тестовые данные в лог (сейчас вызывается из ITestExecutor один раз в конце теста).
+|
+|<<фабрика>> make () - создает одну стандартную имплементацию ILog.
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "print"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496A27C0196_4496AC3D009C*"
+			    value      	(value Text 
+|//#UC START# *4496A27C0196_4496AC3D009C*¤	unsigned int seq_size = test_seq.size ();¤	for (unsigned int i = 0; i < seq_size; ++i) {¤		fprintf (stdout, "%d %s %8.4f %8.4f %8.0f %8.0f\n"¤			, i¤			, action_id¤			, test_seq.operator [] (i).duration_average*1000¤			, test_seq.operator [] (i).duration_stddev*1000¤			, test_seq.operator [] (i).logical_size¤			, test_seq.operator [] (i).physical_size¤		);¤		fflush (stdout);¤	}¤	//#UC END# *4496A27C0196_4496AC3D009C*
+			    )))
+		    quid       	"4496A27C0196"
+		    parameters 	(list Parameters
+			(object Parameter "in action_id"
+			    quid       	"451796F30196"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "in test_seq"
+			    quid       	"451796F30222"
+			    type       	"TestReductionSeq"
+			    quidu      	"451796A4038A"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"449BFE8F007D"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "print_summarize"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44ABC71201A5_4496AC3D009C*"
+			    value      	(value Text 
+|//#UC START# *44ABC71201A5_4496AC3D009C*¤	fprintf (stdout, "action_id = %s\n", action_id);¤	fprintf (stdout, "%8.4f %8.4f %8.4f %8.4f %8.4f %8.4f %8.4f\n"¤		, summarize_info.duration_average*1000¤		, summarize_info.duration_stddev*1000¤		, summarize_info.duration_minimum*1000¤		, summarize_info.duration_maximum*1000¤		, summarize_info.logical_speed_per_action_time¤		, summarize_info.logical_speed_per_total_time¤		, summarize_info.logical_to_physical_size_ratio¤	);¤	fflush (stdout);¤	//#UC END# *44ABC71201A5_4496AC3D009C*
+			    )))
+		    quid       	"44ABC71201A5"
+		    parameters 	(list Parameters
+			(object Parameter "in action_id"
+			    quid       	"4517D8B30222"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "in summarize_info"
+			    quid       	"44ABC75D01F4"
+			    type       	"TestSummarizeInfo"
+			    quidu      	"44ABC5D001E4"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "TestInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4496A1900290"
+	    documentation 	"Предназначена для передачи в ITestExecutor и обработки полного набора инфо об одном тестовом действии IAction."
+	    stereotype 	"Struct"
+	    language   	"MDA Generator")
+	(object Class "MeasureInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44969FB40242"
+	    documentation 	
+|Предназначена для передачи из IMeasure инфо об измеренных физических параметрах одного тестового действия IAction.
+|
+|<<поля>>
+|
+|duration - среднее значение длительности действия в секундах по интервалу усреднения (интервал усреднения - это кол-во действий, попавших в каждый из интервалов, которое определяется таким образом, чтобы общее число интервалов за весь прогон теста было 100).
+|duration_deviation - отклонение мгновенных значений длительности от средненго значения по интервалу усреднения.
+|physical_size - приращение физического размера файлов БД.
+	    
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "duration"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44969FDF01F4"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "physical_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44A3F5F10128"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "duration_deviation"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BF7D91009C"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ITestExecutor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4496A2DF0251_449BFEA20271_4496AC58004E_BASE_INIT*"
+		    value      	(value Text 
+|//#UC START# *4496A2DF0251_449BFEA20271_4496AC58004E_BASE_INIT*¤	: m_objects_thread_pool (Core::ThreadPoolFactory::make (10))¤	, m_integration_count (0)¤	, m_test_profile (test_profile)¤	, m_measure (TestFramework::IMeasureFactory::make ())¤	, m_action_count (test_profile->get_action_count ())¤	, m_thread_count (test_profile->get_thread_count ())¤	, m_run_count (test_profile->get_thread_count ())¤	, m_number_of_action_ids (test_profile->get_action_ids_number ())¤	, m_event (1)¤//#UC END# *4496A2DF0251_449BFEA20271_4496AC58004E_BASE_INIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4496A2DF0251_449BFEA20271_4496AC58004E_BODY*"
+		    value      	(value Text 
+|//#UC START# *4496A2DF0251_449BFEA20271_4496AC58004E_BODY*¤	m_integration_count = m_action_count / INTEGRATION_POINTS_NUMBER / m_number_of_action_ids;¤	if (m_action_count % (INTEGRATION_POINTS_NUMBER / m_number_of_action_ids)) {¤		fprintf (stderr, "TestExecutor_i::TestExecutor_i () warning: action_count = %d\n", m_action_count);¤	}¤	m_total_i = 0;¤	//#UC END# *4496A2DF0251_449BFEA20271_4496AC58004E_BODY*
+		    )))
+	    quid       	"4496A2DF0251"
+	    documentation 	
+|Предназначен для прогона одного простейшего теста, определенного посредством ITestProfile из пакета Test.
+|
+|Существует одна стандартная имплементация ITestExecutor, в настоящее время реализовано только однопоточное тестирование.
+|
+|Имплементация ITestExecutor разбивает весь диапазон кол-ва действий ITestProfile::get_action_count () на 100 интервалов, в пределах которых происходит усреднение измеряемых параметров. Кроме того, имплементация ITestExecutor сохраняет инфо о самой короткой и самой длинной мгновенной (не усредненной) длительности IAction::execute () за весь прогон теста.
+|
+|Всю инфо, собранную за весь прогон теста, ITestExecutor обрабатыаает и передает (уже в обработанном виде) в ILog для печати. Для каждого из 100 интервалов ITestExecutor передает в ILog для печати структуру TestReductionInfo, а по результатам прогона теста в целом - структуру TestSummarizeInfo.
+|
+|<<метод>> run () - устарел, но пока зарезервирован.
+|
+|<<фабрика>> make () принимает ITestProfile для последующего прогона теста. Сейчас, для упрощения, прогон теста осуществляется сразу в конструкторе серванта ITestProfile.
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "run"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4496A2E802FD_4496AC58004E*"
+			    value      	(value Text 
+|//#UC START# *4496A2E802FD_4496AC58004E*¤	double seconds0 = m_hi_res_counter.get_seconds ();¤¤	TestFramework::ILog_var log (TestFramework::ILogFactory::make ());¤¤	this->start_execution ();¤¤	for (;;) {¤		if (m_run_count.value () <= 0 && m_res_queue.empty ()) {¤			this->stop_execution ();¤			if (m_res_queue.empty ()) {¤				break;¤			}¤		}¤		// wait_for_signal¤		m_event.wait ();¤	¤		::GCI::IO::IString_var root_dir = this->scoop_queue_to_scoop_map ();¤		this->scoop_map_to_reduction_map (root_dir.in ());¤	}¤¤	double seconds1 = m_hi_res_counter.get_seconds ();¤¤	this->debug_check_keys ();¤¤	for (DurationsMap::iterator it = m_summarize_durations_map.begin (); it != m_summarize_durations_map.end (); ++it) {¤		unsigned long my_integration_count = (it->first != "total") ? m_integration_count : m_integration_count * m_number_of_action_ids;¤¤		log->print (it->first.c_str (), *(m_reduction_map [it->first].in ()));¤¤		m_summarize_map [it->first].duration_average = GCL::get_average (it->second) / my_integration_count;¤		m_summarize_map [it->first].duration_stddev = GCL::get_stddev (it->second, m_summarize_map [it->first].duration_average * my_integration_count) / my_integration_count;¤		double sum_action_duration = GCL::get_average (it->second) * it->second.size ();¤		m_summarize_map [it->first].logical_speed_per_action_time = m_scoop_map [it->first].sum_logical_size / sum_action_duration;¤¤		m_summarize_map [it->first].logical_speed_per_total_time = m_scoop_map [it->first].sum_logical_size / (seconds1 - seconds0);¤		m_summarize_map [it->first].logical_to_physical_size_ratio = (m_scoop_map [it->first].sum_physical_size != 0) ? m_scoop_map [it->first].sum_logical_size / m_scoop_map [it->first].sum_physical_size : 0;¤¤		log->print_summarize (it->first.c_str (), m_summarize_map [it->first]);¤¤		double full_time = m_summarize_map [it->first].duration_average * (my_integration_count * INTEGRATION_POINTS_NUMBER);¤		double data_processed_in_mb = m_scoop_map [it->first].sum_logical_size/1024;¤		LOG_D (("*********************************"));¤		LOG_D (("Full time in action->execute hours: %8.4f for action_id = %s", full_time/60.0/60.0, it->first.c_str ()));¤		LOG_D (("Data processing speed: %8.4f Kb/sec for action_id = %s", data_processed_in_mb/full_time, it->first.c_str ()));¤		LOG_D (("*********************************"));¤	}¤¤	LOG_D (("test uptime in hours: %8.4f", (seconds1 - seconds0)/60.0/60.0));¤	//#UC END# *4496A2E802FD_4496AC58004E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4496A2E802FD"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"44AE5B5E0167"))
+		    quid       	"449BFEA20271"
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "inout test_profile"
+			    quid       	"4518EFEA00FA"
+			    type       	"ITestProfile"
+			    quidu      	"44A28F24031C"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "TestReductionInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44A514C4033C"
+	    documentation 	
+|Предназначена для передачи в ILog для печати усредненной по каждому из 100 интервалов инфо о тестовых действиях.
+|
+|<<поля>>
+|
+|duration_average - средняя длительность IAction за интервал усреднения.
+|duration_stddev - стандартное отклонение длительностей всех IAction за интервал от среднего значения duration_average.
+|logical_size - логический размер действия; например, для теста ICreateObjectAction, это - изменение логического размера базы за интервал.
+|physical_size - физический размер действия; например, для теста ICreateObjectAction, это - изменение физического размера базы за интервал.
+|message - строка-идентификатор, переданная из ITestProfile.
+	    
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "duration_average"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44A5159000EA"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "duration_stddev"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44A515A30280"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "logical_size"
+		    quid       	"44A515DA0203"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "physical_size"
+		    quid       	"44A515EA009C"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "message"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44A51725031C"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "TestSummarizeInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*44ABC5D001E4*"
+		    value      	(value Text 
+|//#UC START# *44ABC5D001E4*¤	TestSummarizeInfo (): duration_average (0.0), duration_stddev (0.0)¤		, duration_minimum (1.0E+10), duration_maximum (0.0)¤		, logical_speed_per_action_time (0.0), logical_speed_per_total_time (0.0)¤		, logical_to_physical_size_ratio (0.0) {}¤	//#UC END# *44ABC5D001E4*
+		    )))
+	    quid       	"44ABC5D001E4"
+	    documentation 	
+|Предназначена для передачи в ILog для печати суммарной инфо по тестовому прогону.
+|
+|<<поля>>
+|
+|duration_average - средняя длительность IAction за весь прогон теста.
+|duration_stddev - стандартное отклонение длительностей всех IAction за весь прогон теста от среднего значения duration_average.
+|duration_minimum - абсолютный минимум длительности действия, зафиксированный за весь прогон теста.
+|duration_maximum - абсолютный минимум длительности действия, зафиксированный за весь прогон теста.
+|logical_speed_per_action_time - логическая скорость действия в байтах в секунду, определяется как отношение приращения логического размера действия ко времени, суммарно проведенному внутри всех действий.
+|logical_speed_per_total_time - определяется аналогично предыдущему атрибуту, только вместо суммарного времени внутри всех действий берется напрямую измеренная физическая длительность прогона теста в целом.
+|logical_to_physical_size_ratio - отношение логического размера действия к его физическому размеру; например, для теста ICreateObjectAction это отношение определяет степень "фрагментации" базы (КПД использования дискового пространства).
+	    
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "duration_average"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44ABC62D02DE"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "duration_stddev"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44ABC64002EE"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "duration_minimum"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44ABC6530119"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "duration_maximum"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44ABC67000DA"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "logical_speed_per_action_time"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BF4CD3038A"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "logical_speed_per_total_time"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BF4D1D036B"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "logical_to_physical_size_ratio"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BF4D6600CB"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "TestReductionSeq"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"fctr.cpp:*451796A4038A_MAKE_NOCOPY_IMPL*"
+		    value      	(value Text 
+|//#UC START# *451796A4038A_MAKE_NOCOPY_IMPL*¤			assert (0);¤			return 0;¤		//#UC END# *451796A4038A_MAKE_NOCOPY_IMPL*
+		    )))
+	    quid       	"451796A4038A"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"4496A9B90157"
+	    roles      	(list role_list
+		(object Role "measure_info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular"))
+		    quid       	"4496A9B902FD"
+		    label      	"measure_info"
+		    supplier   	"Logical View::storage::TestLibrary::TestFramework::MeasureInfo"
+		    quidu      	"44969FB40242"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"4496A9B902FF"
+		    supplier   	"Logical View::storage::TestLibrary::TestFramework::TestInfo"
+		    quidu      	"4496A1900290"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    quid       	"44BB78BE038A"
+	    roles      	(list role_list
+		(object Role "action_info2"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44BB78BF0148"
+		    label      	"action_info2"
+		    supplier   	"Logical View::storage::TestLibrary::Test::ActionInfo2"
+		    quidu      	"44BB78780222"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$3"
+		    quid       	"44BB78BF0157"
+		    supplier   	"Logical View::storage::TestLibrary::TestFramework::TestInfo"
+		    quidu      	"4496A1900290"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$4"
+	    quid       	"451796C1004E"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$5"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"451796C10232"
+		    supplier   	"Logical View::storage::TestLibrary::TestFramework::TestReductionInfo"
+		    quidu      	"44A514C4033C"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$6"
+		    quid       	"451796C10242"
+		    supplier   	"Logical View::storage::TestLibrary::TestFramework::TestReductionSeq"
+		    quidu      	"451796A4038A"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"449692770167"))
+	    quid       	"4496AB89033C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	563
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::IMeasure" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(903, 201)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(178, 92)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1450
+			justify    	0
+			label      	"IMeasure")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(178, 42)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1450
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4496A1EE002E"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(178, 153)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	1418
+			justify    	1)
+		    width      	1468
+		    height     	342
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::ILog" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(912, 606)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(182, 497)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1460
+			justify    	0
+			label      	"ILog")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(182, 447)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1460
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4496A270000F"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(182, 558)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	1436
+			justify    	1)
+		    width      	1478
+		    height     	342
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::ITestExecutor" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(735, 978)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(261, 894)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	948
+			justify    	0
+			label      	"ITestExecutor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(261, 844)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	948
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4496A2DF0251"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(261, 955)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	917
+			justify    	1)
+		    width      	966
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::TestSummarizeInfo" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2310, 303)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1927, 119)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	766
+			justify    	0
+			label      	"TestSummarizeInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1927, 69)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	766
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44ABC5D001E4"
+		    width      	784
+		    height     	492
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::MeasureInfo" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1554, 1008)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1289, 924)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	530
+			justify    	0
+			label      	"MeasureInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1289, 874)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	530
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44969FB40242"
+		    width      	548
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::ActionInfo2" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1380, 1443)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1258, 1411)
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"ActionInfo2")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1258, 1361)
+			anchor     	10
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	16777215
+		    quidu      	"44BB78780222"
+		    width      	262
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::TestInfo" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1950, 1443)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1832, 1414)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	236
+			justify    	0
+			label      	"TestInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1832, 1364)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	234
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"4496A1900290"
+		    width      	254
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @8
+		    location   	(1776, 1252)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4496A9B90157"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @9
+			    Parent_View 	@8
+			    location   	(1095, 817)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @10
+				Parent_View 	@9
+				location   	(1817, 1358)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4496A9B902FF"
+			    client     	@8
+			    supplier   	@7
+			    vertices   	(list Points
+				(1776, 1252)
+				(1866, 1351))
+			    line_style 	0)
+			(object RoleView "measure_info" @11
+			    Parent_View 	@8
+			    location   	(1095, 817)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @12
+				Parent_View 	@11
+				location   	(1744, 1264)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	266
+				justify    	0
+				label      	"+measure_info"
+				pctDist    	0.105563
+				height     	33
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4496A9B902FD"
+			    client     	@8
+			    supplier   	@5
+			    vertices   	(list Points
+				(1776, 1252)
+				(1687, 1154))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$2" @13
+		    location   	(1666, 1443)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44BB78BE038A"
+		    roleview_list 	(list RoleViews
+			(object RoleView "action_info2" @14
+			    Parent_View 	@13
+			    location   	(1156, 147)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @15
+				Parent_View 	@14
+				location   	(1657, 1401)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	243
+				justify    	0
+				label      	"+action_info2"
+				pctDist    	0.062112
+				height     	43
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44BB78BF0148"
+			    client     	@13
+			    supplier   	@6
+			    vertices   	(list Points
+				(1666, 1443)
+				(1511, 1443))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$3" @16
+			    Parent_View 	@13
+			    location   	(1156, 147)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44BB78BF0157"
+			    client     	@13
+			    supplier   	@7
+			    vertices   	(list Points
+				(1666, 1443)
+				(1822, 1443))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::TestReductionInfo" @17
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2370, 819)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@17
+			location   	(2114, 685)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	512
+			justify    	0
+			label      	"TestReductionInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@17
+			location   	(2114, 635)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	512
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44A514C4033C"
+		    width      	530
+		    height     	392
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::TestReductionSeq" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2379, 1281)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(2193, 1260)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"TestReductionSeq")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(2193, 1210)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	16107765
+		    quidu      	"451796A4038A"
+		    width      	390
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$4" @19
+		    location   	(2374, 1106)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"451796C1004E"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$5" @20
+			    Parent_View 	@19
+			    location   	(-56, -184)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"451796C10232"
+			    client     	@19
+			    supplier   	@17
+			    vertices   	(list Points
+				(2374, 1106)
+				(2373, 1015))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$6" @21
+			    Parent_View 	@19
+			    location   	(-56, -184)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"451796C10242"
+			    client     	@19
+			    supplier   	@18
+			    vertices   	(list Points
+				(2374, 1106)
+				(2376, 1197))
+			    line_style 	0)))
+		(object NoteView @22
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"44ABC5D001E4"))
+		    location   	(2922, 303)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(2784, 243)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	240
+			justify    	1
+			label      	"{need UC:=true}")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object AttachView "" @23
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@22
+		    supplier   	@4
+		    vertices   	(list Points
+			(2771, 303)
+			(2702, 303))
+		    line_style 	0)))))

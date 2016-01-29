@@ -1,0 +1,120 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/UsersImportLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> garant6x::UsersImportLib
+//
+// модули утилиты импорта пользователей
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (UsersImportLib) : project_generic_core_corba {
+	sharedname = UsersImportLib
+	staticname = UsersImportLib
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../../../
+
+	//#UC START# *481D6D4F010F_CUSTOM_DEPENDENCES*
+	after += timestamp_sync_client
+	libs  += timestamp_sync_client
+	Source_Files {
+		Version {
+			./../../../../garantServer/src/Business/GblPilot/Version/NemesisVersion.cpp
+		}
+	}
+	//#UC END# *481D6D4F010F_CUSTOM_DEPENDENCES*
+	after += GSI
+	libs  += GSI
+
+	after += CoreOld_corba_client
+	libs  += CoreOld_corba_client
+
+	after += GblPilotC_corba
+	libs  += GblPilotC_corba
+
+	after += GslUserManagerC_corba
+	libs  += GslUserManagerC_corba
+
+	after += GslSecurityC_corba
+	libs  += GslSecurityC_corba
+
+	after += Defines_corba
+	libs  += Defines_corba
+
+	after += GslDataPipeC_corba
+	libs  += GslDataPipeC_corba
+
+	after += GslSessionHandlerClientS_corba
+	libs  += GslSessionHandlerClientS_corba
+
+	Header_Files {
+		Std_Headers {
+			./../UsersImportLib/LibHome.h
+		}
+	
+		LibSupport {
+			./../UsersImportLib/UsersImportMain.h
+		}
+	
+		UsersImport {
+			./../UsersImportLib/UsersImport/UsersImport.h
+			./../UsersImportLib/UsersImport/UsersImportFactories.h
+		}
+	
+		UsersImport_i {
+			./../UsersImportLib/impl/UsersImport_i/UsersImport_i.h
+			./../UsersImportLib/impl/UsersImport_i/FileReader_i.h
+			./../UsersImportLib/impl/UsersImport_i/FileReader_i_factory.h
+			./../UsersImportLib/impl/UsersImport_i/Parser_i.h
+			./../UsersImportLib/impl/UsersImport_i/Parser_i_factory.h
+			./../UsersImportLib/impl/UsersImport_i/Writer_i.h
+			./../UsersImportLib/impl/UsersImport_i/Writer_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		LibSupport {
+		}
+	
+		UsersImport {
+		}
+	
+		UsersImport_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../UsersImportLib/LibHome.cpp
+		}
+	
+		LibSupport {
+			./../UsersImportLib/UsersImportMain.cpp
+		}
+	
+		UsersImport {
+			./../UsersImportLib/UsersImport/UsersImport.cpp
+			./../UsersImportLib/UsersImport/UsersImportFactories.cpp
+		}
+	
+		UsersImport_i {
+			./../UsersImportLib/impl/UsersImport_i/UsersImport_i.cpp
+			./../UsersImportLib/impl/UsersImport_i/Writer_i_AutoLoginAdmin.cpp
+			./../UsersImportLib/impl/UsersImport_i/FileReader_i.cpp
+			./../UsersImportLib/impl/UsersImport_i/FileReader_i_factory.cpp
+			./../UsersImportLib/impl/UsersImport_i/Parser_i.cpp
+			./../UsersImportLib/impl/UsersImport_i/Parser_i_factory.cpp
+			./../UsersImportLib/impl/UsersImport_i/Writer_i.cpp
+			./../UsersImportLib/impl/UsersImport_i/Writer_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

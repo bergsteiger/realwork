@@ -1,0 +1,71 @@
+// GUITestRunner 4B2A0D9401CC UtilityPack Class
+
+FORWARD ME_4B2A0D9401CC
+
+: ME_4DA30F0F02C1
+ CONST UID '4DA30F0F02C1'
+ CONST Name 'TGUITestRunner'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4DA30F0F02C1 TGUITestRunner
+
+FORWARD ME_4B2A0DAC0037
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_DDF87C338E84
+ CONST UID 'DDF87C338E84'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода RunRegisteredTests' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DDF87C338E84 DoIt
+
+: ME_4B2A0DAC0037
+ CONST UID '4B2A0DAC0037'
+ CONST Name 'RunRegisteredTests'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_DDF87C338E84 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4B2A0DAC0037 RunRegisteredTests
+
+: ME_4B2A0D9401CC
+ CONST UID '4B2A0D9401CC'
+ CONST Name 'GUITestRunner'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4B2A0DAC0037 // RunRegisteredTests
+ ]
+ ; // Operations
+ : Children
+   [ ME_4DA30F0F02C1 // TGUITestRunner
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_4B2A0D9401CC GUITestRunner

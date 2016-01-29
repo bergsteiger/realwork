@@ -1,0 +1,1031 @@
+// TestParamsDefine.script
+// Объявление констант/переменных/массивов для поддержки параметров в скриптах.
+
+USES
+ axiom:dialogs
+ ArchiSystem.script
+;
+
+ARRAY VAR Документы
+
+CONST cnAnyParamDefValue 0
+
+INTEGER VAR g_WasInit // Проверка была ли вызвана процедура "Первоначальные параметры"
+( 0 >>> g_WasInit )
+
+INTEGER VAR g_ActionWithDocument // Что открывать
+( cnAnyParamDefValue >>> g_ActionWithDocument )
+
+INTEGER VAR g_How2Prepare // Подготовка размеров
+( cnAnyParamDefValue >>> g_How2Prepare )
+
+INTEGER VAR g_StartAction // Прокрутка и сдвиг курора и т.п.
+( cnAnyParamDefValue >>> g_StartAction )
+
+INTEGER VAR g_CheckAction // Вид проверки в конце теста
+( cnAnyParamDefValue >>> g_CheckAction )
+
+INTEGER VAR g_How2End // Действия при закрытии теста
+( cnAnyParamDefValue >>> g_How2End )
+
+BOOLEAN VAR g_SaveMouseCoordinate // Запоминать позицию мыши
+( false >>> g_SaveMouseCoordinate )
+
+INTEGER VAR g_FinalClear // Действия по очистке базы
+( cnAnyParamDefValue >>> g_FinalClear )
+
+INTEGER VAR g_BeforeTest // Действия до теста
+( cnAnyParamDefValue >>> g_BeforeTest )
+
+BOOLEAN VAR g_ClearClipboard // Очистка буфера обмена...
+( false >>> g_ClearClipboard )
+
+BOOLEAN VAR g_AntiTest // Антитест
+( false >>> g_AntiTest )
+ 
+// ------------- Действия по очистке после теста ------------
+
+CONST cnNoAction cnAnyParamDefValue
+CONST cnCloseDoument 1
+CONST cnCloseAllWindow 2
+CONST cnInspectorOfObjectsDefaultSettingsAndCloseAllWindows 3
+
+PROCEDURE "Без закрытия документа"
+	cnNoAction >>> g_How2End
+;
+
+PROCEDURE "Не сохранять документ"
+	cnCloseDoument >>> g_How2End
+;
+
+PROCEDURE "Закрывать все окна"
+	cnCloseAllWindow >>> g_How2End
+; 
+ 
+PROCEDURE "Исходная настройка реестра объектов и закрытие всех окон"
+	cnInspectorOfObjectsDefaultSettingsAndCloseAllWindows >>> g_How2End
+;
+// -------------- Что открывать -----------
+ 
+CONST cnWithOutDocument cnAnyParamDefValue
+CONST cnNewDocID -1 
+CONST cnNewEmptyDocID -2
+CONST cnNewNSR -3
+CONST cnNewRTF -4
+CONST cnNewDOC -5
+CONST cnNewHTML -6
+CONST cnNewBMPObjTopic -7
+CONST cnNewPDFObjTopic -8
+CONST cnNewDOCX -9
+CONST cnMessage -10
+CONST cnSelectionWithList -11
+CONST cnNewTxtTypeTextDoc -12
+CONST cnNewTiffTypeTextDoc -13
+CONST cnNewDocxTypeDocObj -14 
+CONST cnNewDocTypeDocObj -15
+CONST cnNewTxtTypeDocObj -16
+CONST cnNewJpgTypeDocObj -17
+CONST cnNewPngTypeDocObj -18
+CONST cnNewPngTypeTextDoc -19
+CONST cnNewJpgTypeTextDoc -20
+CONST cnNewGifTypeTextDoc -21
+CONST cnNewIcoTypeDocObj -22
+CONST cnNewPcxTypeDocObj -23
+CONST cnNewHtmlTypeDocObj -24
+CONST cnNewTgaTypeDocObj -25
+CONST cnNewGifTypeDocObj -26
+CONST cnNewHtmlTypeTextDoc -27
+CONST cnNewWmfTypeDocObj -28
+CONST cnNewDocIDWithName -29
+CONST cnNewDocIDWithNumber -30
+CONST cnNewDocIDNoName -31
+CONST cnNewMessage -32
+CONST cnNewTiffTypeDocObj -33
+CONST cnOpenFromBase -34
+CONST cnAddToViborka -35
+
+STRING VAR glNameDoc
+
+INTEGER VAR glNumDoc
+( 0 >>> glNumDoc )
+ 
+PROCEDURE "Без документа" 
+	cnWithOutDocument >>> g_ActionWithDocument
+	cnNoAction >>> g_How2End
+;
+
+INTEGER VAR g_MailID
+
+PROCEDURE "Открывать почтовое сообщение" INTEGER IN aMsgID
+	cnMessage >>> g_ActionWithDocument 
+	aMsgID >>> g_MailID
+; 
+ 
+PROCEDURE "Использовать создание документа" 
+	cnNewDocID >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание пустого документа" 
+	cnNewEmptyDocID >>> g_ActionWithDocument 
+;
+ 
+PROCEDURE "Использовать создание из NSR"
+	cnNewNSR >>> g_ActionWithDocument
+;
+
+PROCEDURE "Использовать создание из RTF"
+	cnNewRTF >>> g_ActionWithDocument
+;
+
+PROCEDURE "Использовать создание из DOC"
+	cnNewDOC >>> g_ActionWithDocument
+;
+
+PROCEDURE "Использовать создание из DOCX"
+	cnNewDOCX >>> g_ActionWithDocument
+;
+
+PROCEDURE "Использовать создание из HTML"
+	cnNewHTML >>> g_ActionWithDocument
+;
+
+PROCEDURE "Создавать объектный топик из BMP"
+	cnNewBMPObjTopic >>> g_ActionWithDocument	
+;
+
+PROCEDURE "Создавать объектный топик из PDF"
+	cnNewPDFObjTopic >>> g_ActionWithDocument	
+;
+
+PROCEDURE "Использовать создание полной выборки" 
+	cnSelectionWithList >>> g_ActionWithDocument
+;
+
+PROCEDURE "Использовать создание текстового документа TXT" 
+	cnNewTxtTypeTextDoc >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание текстового документа TIFF"
+	cnNewTiffTypeTextDoc >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта DOCX"
+	cnNewDocxTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта DOC"
+	cnNewDocTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта TXT"
+	cnNewTxtTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта JPG"
+	cnNewJpgTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта PNG"
+	cnNewPngTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание текстового документа PNG" 
+	cnNewPngTypeTextDoc >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание текстового документа JPG" 
+	cnNewJpgTypeTextDoc >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание текстового документа GIF" 
+	cnNewGifTypeTextDoc >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта ICO"
+	cnNewIcoTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта PCX"
+	cnNewPcxTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта HTML"
+	cnNewHtmlTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта TGA"
+	cnNewTgaTypeDocObj >>> g_ActionWithDocument 
+; 
+
+PROCEDURE "Использовать создание документа-объекта GIF"
+	cnNewGifTypeDocObj >>> g_ActionWithDocument 
+; 
+
+PROCEDURE "Использовать создание текстового документа HTML" 
+	cnNewHtmlTypeTextDoc >>> g_ActionWithDocument 
+; 
+
+PROCEDURE "Использовать создание документа-объекта WMF"
+	cnNewWmfTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание текстового документа с названием" STRING IN aDocName
+	cnNewDocIDWithName >>> g_ActionWithDocument 
+	aDocName >>> glNameDoc
+;
+
+PROCEDURE "Использовать создание текстового документа с номером" INTEGER IN aDocNumber
+	cnNewDocIDWithNumber >>> g_ActionWithDocument 
+	aDocNumber >>> glNumDoc 
+;
+
+PROCEDURE "Использовать создание текстового документа без названия"
+	cnNewDocIDNoName >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Создание новое сообщения"
+	cnNewMessage >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Использовать создание документа-объекта TIFF"
+	cnNewTiffTypeDocObj >>> g_ActionWithDocument 
+;
+
+PROCEDURE "Открывать документ из базы"
+	cnOpenFromBase >>> g_ActionWithDocument
+;
+
+PROCEDURE "Добавить в выборку документ"
+	cnAddToViborka >>> g_ActionWithDocument
+;
+
+PROCEDURE "Открывать" INTEGER IN aDocID
+	aDocID >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+// ---------------------- Действия по очистке базы -------------------
+
+CONST cnNotClearBase cnAnyParamDefValue
+CONST cnClearBase 1
+CONST cnClearBaseAndExportDir 2
+CONST cnClearEditorTemplate 3
+CONST cnClearAutoComplete 4
+CONST cnClearZoom 5
+CONST cnHideObjectInspector 6
+CONST cnClearBaseAndReloadStyle 7
+
+PROCEDURE "Не очищать базу"
+	cnNotClearBase >>> g_FinalClear
+;
+
+PROCEDURE "Очищать базу"
+	cnClearBase >>> g_FinalClear
+;
+
+PROCEDURE "Очищать базу и директорию экспорта"
+	cnClearBaseAndExportDir >>> g_FinalClear
+;
+
+PROCEDURE "Очищать редактор текстовых шаблонов"
+	cnClearEditorTemplate >>> g_FinalClear
+;
+
+PROCEDURE "Очищать 'параметры автозамены'"
+	cnClearAutoComplete >>> g_FinalClear
+;
+
+PROCEDURE "Перезагрузить стили из базы"
+	cnClearBaseAndReloadStyle >>> g_FinalClear
+;
+
+PROCEDURE "Установить значение счётчика 'Масштаб' по умолчанию"
+	cnClearZoom >>> g_FinalClear
+;
+
+PROCEDURE "Прятать инспектор объектов"
+	cnHideObjectInspector >>> g_FinalClear
+;
+
+// ------------------ Подготовка форм теста ----------------
+
+CONST cnNotPrepare cnAnyParamDefValue
+CONST cnStandartPrepare 1
+CONST cnPageBreakSize 2
+CONST cnTableAlignment 3
+CONST cnPrepare2Drawing 4
+CONST cnPrepare4BlocksAndGo2Sub 5
+CONST cnPrepare2DrawingSBS 6
+CONST cnPrepare2DrawingWithWideForm 7
+CONST cnPrepare2DrawingWithBreak 8
+CONST cnStandartPrepareAndWebStyle 9
+CONST cnTableWithInvisibleBorders 10
+CONST cnWorkWithContents 11
+CONST cnPrepareWideForm 12
+CONST cnPrepare2Block 13
+CONST cnImportInBase 14
+CONST cnOnlyMainForm 15
+CONST cnShortMainForm 16
+CONST cnWorkWithContentsAndShowBlocks 17
+CONST cnWorkingWithAttribute 18
+CONST cnWorkingWithSpravka 19
+CONST cnStandartPrepareAndWebStyleAndSpecSymbol 20
+CONST cnWorkingWithResp 21
+CONST cnWorkingWithCoresp 22
+CONST cnWorkingWithVersion 23
+CONST cnStandartPrepareAndSpecSymbolAndStructDoc 24
+CONST cnStructDoc 25
+CONST cnSpecSymbol 26
+CONST cnViborkaSize 27
+CONST cnWorkWithJournals 28
+
+INTEGER VAR aSizeWidth
+INTEGER VAR aSizeHeight
+
+PROCEDURE "Без установки размеров"
+	cnNotPrepare >>> g_How2Prepare
+;
+
+PROCEDURE "Cтандартные размеры" 
+	cnStandartPrepare >>> g_How2Prepare
+;
+
+PROCEDURE "Размеры для отрисовки"
+	cnPrepare2Drawing >>> g_How2Prepare
+;
+
+PROCEDURE "Подготовка к отрисовке SBS"
+	cnPrepare2DrawingSBS >>> g_How2Prepare
+;
+
+PROCEDURE "Подготовка к работе с атрибутами"
+	cnWorkingWithAttribute >>> g_How2Prepare
+;
+
+PROCEDURE "Подготовка к работе со справкой"
+	cnWorkingWithSpravka >>> g_How2Prepare
+;
+
+INTEGER VAR g_SaveDocID
+( 0 >>> g_SaveDocID )
+
+PROCEDURE "Импортировать документ в базу" INTEGER IN aDocID
+	cnImportInBase >>> g_How2Prepare
+	aDocID >>> g_SaveDocID
+;
+
+PROCEDURE "Не разварачивать редактор"
+	cnOnlyMainForm  >>> g_How2Prepare
+;
+
+PROCEDURE "Короткая форма"
+	cnShortMainForm  >>> g_How2Prepare
+;
+
+PROCEDURE "Размеры для отображения разрыва раздела"
+	cnPageBreakSize >>> g_How2Prepare
+;
+
+PROCEDURE "Размеры для выравнивания линий таблиц"
+	cnTableAlignment >>> g_How2Prepare
+;
+
+PROCEDURE "Размеры для отрисовки с широкой формой"
+	cnPrepare2DrawingWithWideForm >>> g_How2Prepare
+;
+
+PROCEDURE "Размеры для отрисовки разрывов разделов"
+	cnPrepare2DrawingWithBreak >>> g_How2Prepare
+;
+
+PROCEDURE "Широкая форма"
+	cnPrepareWideForm >>> g_How2Prepare
+;
+
+PROCEDURE "Подготовка для блоков"
+	cnPrepare2Block >>> g_How2Prepare
+;
+
+INTEGER VAR g_SubID
+
+PROCEDURE "Подготовка для блоков и переход к метке" IN aSubID
+	cnPrepare4BlocksAndGo2Sub >>> g_How2Prepare
+	aSubID >>> g_SubID
+;
+
+PROCEDURE "Стандартные размеры и WebStyle"
+	cnStandartPrepareAndWebStyle >>> g_How2Prepare
+;
+
+PROCEDURE "Таблицы с невидимыми границами"
+	cnTableWithInvisibleBorders >>> g_How2Prepare
+;
+
+PROCEDURE "Дерево оглавления"
+	cnWorkWithContents >>> g_How2Prepare
+;
+
+PROCEDURE "Дерево оглавления и показ блоков"
+	cnWorkWithContentsAndShowBlocks >>> g_How2Prepare
+;
+
+PROCEDURE "Стандартные размеры, Спецсимволы, WebStyle"
+	cnStandartPrepareAndWebStyleAndSpecSymbol >>> g_How2Prepare
+;
+
+PROCEDURE "Подготовка к работе с респондентами"
+	cnWorkingWithResp >>> g_How2Prepare
+;
+
+PROCEDURE "Подготовка к работе с корреспондентами"
+	cnWorkingWithCoresp >>> g_How2Prepare
+;
+
+PROCEDURE "Подготовка к работе с редакциями"
+	cnWorkingWithVersion >>> g_How2Prepare
+;
+
+PROCEDURE "Указать размер главной формы, Спецсимволы, Структура документа" INTEGER IN aWidth INTEGER IN aHeight
+	aWidth >>> aSizeWidth 
+	aHeight >>> aSizeHeight 
+	cnStandartPrepareAndSpecSymbolAndStructDoc >>> g_How2Prepare
+;
+
+PROCEDURE "Включить режим 'Структура документа'"
+	cnStructDoc >>> g_How2Prepare
+;
+
+PROCEDURE "Включить режим 'Спецсимволы'"
+	cnSpecSymbol >>> g_How2Prepare
+;
+
+ PROCEDURE "Подготовка для списков"
+ 	cnViborkaSize >>> g_How2Prepare
+ ;
+ 
+ PROCEDURE "Подготовка к работе со журналом"
+	cnWorkWithJournals >>> g_How2Prepare
+ ;
+ 
+// -------------------- Проверочные действия -----------------
+
+CONST cnNoneAction cnAnyParamDefValue
+CONST cnCheckWithEVDEtalon 1 // Сравнить с EVD
+CONST cnCheckWithNSREtalon 2 // Сравнить с NSR
+CONST cnCheckTable 3 
+CONST cnCheckDrawing 4
+CONST cnCheckTableLineDrawing 5
+CONST cnCheckTopAnchor 6
+CONST cnCheckBottomAnchor 7
+CONST cnCheckCellParams 8
+CONST cnCheckParaStyle 9
+CONST cnCheckPrinting 10
+CONST cnCheckTreeEtalon 11
+CONST cnCheckCombobox 12
+CONST cnCheckTextInSelection 13
+CONST cnSubPanelIcons 14
+CONST cnModify 15
+CONST cnDialog 16
+CONST cnExport2NSRAndCheckWithEtalon 17
+CONST cnImageParaWithID 18
+CONST cnImageControl 19
+CONST cnOEMEtalon 20
+CONST cnActivePageName 21
+CONST cnListOfViborka 22
+CONST cnObjectTopicBMP 23
+CONST cnCurrentListnerItem 24
+CONST cnSubPanelHelpIcons 25
+CONST cnObjectTopicBMPandGetPC 26
+CONST cnSaveControlName 27
+CONST cnNumberFromStatusBar 28
+CONST cnCheckComboboxMetka 29
+CONST cnExport2HTMLAndCheckWithEtalon 30
+CONST cnRTFWithPCName 31
+CONST cnExport2RTFAndCheckWithEtalon 32
+
+PROCEDURE "Без проверок"
+	cnNoneAction >>> g_CheckAction
+;
+
+PROCEDURE "Проверка EVD эталона"
+	cnCheckWithEVDEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Проверка NSR эталона"	
+	cnCheckWithNSREtalon >>> g_CheckAction
+;
+
+PROCEDURE "Вылить в NSR и сравнить c эталоном"
+	cnExport2NSRAndCheckWithEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Проверка таблицы"	
+	cnCheckTable >>> g_CheckAction
+;
+
+PROCEDURE "Текст выделения"
+	cnCheckTextInSelection >>> g_CheckAction
+;
+
+PROCEDURE "Проверка иконок сабпанели"
+	cnSubPanelIcons >>> g_CheckAction
+;
+
+PROCEDURE "Проверка флага Modify"
+	cnModify >>> g_CheckAction
+;
+
+PROCEDURE "Проверка диалога"
+	cnDialog >>> g_CheckAction
+;
+
+INTEGER VAR g_ParaID
+
+PROCEDURE "Изображение текущего параграфа"
+	cnImageParaWithID >>> g_CheckAction
+;
+
+PROCEDURE "Изображение текущего контрола"
+	cnImageControl >>> g_CheckAction
+;
+
+PROCEDURE "Стиль параграфа с номером" INTEGER IN aParaID
+	 cnCheckParaStyle >>> g_CheckAction
+	 
+	 aParaID >>> g_ParaID
+;
+
+PROCEDURE "Эталон напечатанного"
+	cnCheckPrinting >>> g_CheckAction
+;
+
+PROCEDURE "Эталон отрисованного"
+	cnCheckDrawing >>> g_CheckAction
+;
+
+PROCEDURE "Эталон для линий таблиц"
+	cnCheckTableLineDrawing >>> g_CheckAction	
+;
+
+STRING VAR g_TreeName
+
+PROCEDURE "Эталон для дерева" STRING IN aTreeName
+	cnCheckTreeEtalon >>> g_CheckAction	
+	aTreeName >>> g_TreeName
+;
+
+STRING VAR g_ComboboxName
+
+PROCEDURE "Проверка эталона для ComboBox" STRING IN aComboBoxName
+	cnCheckCombobox >>> g_CheckAction	
+	aComboBoxName >>> g_ComboboxName
+;
+
+USES
+ ArchiControls.script
+;
+
+PROCEDURE "Проверка доступных стилей"
+	"Проверка эталона для ComboBox {(carStyleComboBox)}"
+;
+
+PROCEDURE "Проверять нижний якорь"
+	cnCheckBottomAnchor >>> g_CheckAction	
+;
+
+PROCEDURE "Проверять параметры ячейки" 
+	cnCheckCellParams >>> g_CheckAction	
+;
+
+PROCEDURE "Проверять верхний якорь"
+	cnCheckTopAnchor >>> g_CheckAction	
+;
+
+PROCEDURE "Проверка OEM эталона"
+	cnOEMEtalon >>> g_CheckAction	
+;
+
+PROCEDURE "Проверка активной вкладки"
+	cnActivePageName >>> g_CheckAction	
+;
+
+PROCEDURE "Эталон списка выборки"
+	cnListOfViborka >>> g_CheckAction	
+;
+
+PROCEDURE "Эталон объектного топика"
+	cnObjectTopicBMP >>> g_CheckAction	
+;
+
+PROCEDURE "Эталон выделенного пункта в списке"
+	cnCurrentListnerItem >>> g_CheckAction	
+;
+
+PROCEDURE "Проверка иконок сабпанели на вкладке 'Справка'"
+	cnSubPanelHelpIcons >>> g_CheckAction	
+;
+
+PROCEDURE "Эталон объектного топика и привязка к ПК"
+	cnObjectTopicBMPandGetPC >>> g_CheckAction	
+;
+
+PROCEDURE "Проверка названия контрола"
+	cnSaveControlName >>> g_CheckAction	
+;
+
+PROCEDURE "Число после предлога 'из' статусбара сравнить с нулём и записать в эталон"
+	cnNumberFromStatusBar >>> g_CheckAction
+;
+
+PROCEDURE "Проверка эталона для стилей в свойствах блока" STRING IN aComboBoxName
+	cnCheckComboboxMetka >>> g_CheckAction	
+	aComboBoxName >>> g_ComboboxName
+;
+
+PROCEDURE "Проверка доступных стилей для блока"
+	"Проверка эталона для стилей в свойствах блока {('cbStyle')}"
+;
+
+PROCEDURE "Вылить в HTML и сравнить c эталоном"
+	cnExport2HTMLAndCheckWithEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Проверка RTF и привязка к ПК"
+	cnRTFWithPCName >>> g_CheckAction
+;
+
+PROCEDURE "Вылить в RTF и сравнить c эталоном"
+	cnExport2RTFAndCheckWithEtalon >>> g_CheckAction
+;
+// --------------- Предварительные операции -----------
+
+CONST cnNoStartAction cnAnyParamDefValue
+CONST cnMoveCursorDownAndHome 1
+CONST cnMoveCursorDown 2
+CONST cnPageDownAndMoveCursorDown 3
+CONST cnGo2Sub 4
+CONST cnScrollDown 5
+CONST cnPageDownAndMoveCursorUp 6
+CONST cnMoveCursorDownAndTab 7
+CONST cnTabAndEnd 8
+CONST сnUndo 9
+CONST cnWaitYes 10
+
+INTEGER VAR g_MoveCount
+INTEGER VAR g_PageCount
+
+PROCEDURE "Курсор вниз на строки" INTEGER IN aCount
+		cnMoveCursorDown >>> g_StartAction
+		aCount >>> g_MoveCount
+		0 >>> g_PageCount
+;
+
+PROCEDURE "Прокрутка вниз на строк" INTEGER IN aCount
+		cnScrollDown >>> g_StartAction
+		aCount >>> g_MoveCount	
+		0 >>> g_PageCount
+;
+
+INTEGER VAR g_TabCount
+
+PROCEDURE "Сразу выполнять тест"
+	cnNoStartAction >>> g_StartAction
+	0 >>> g_MoveCount
+	0 >>> g_PageCount
+	0 >>> g_TabCount
+;
+
+PROCEDURE "Курсор вниз на и в начало строки" INTEGER IN aCount
+		cnMoveCursorDownAndHome >>> g_StartAction
+		aCount >>> g_MoveCount
+		0 >>> g_PageCount
+		0 >>> g_TabCount
+;
+
+PROCEDURE "На страницы вниз и сместить курсор вниз на строки" INTEGER IN aPageCount INTEGER IN aCount
+		cnPageDownAndMoveCursorDown >>> g_StartAction
+		aCount >>> g_MoveCount
+		aPageCount >>> g_PageCount
+;
+
+PROCEDURE "На страницы вниз и сместить курсор вверх на строки" INTEGER IN aPageCount INTEGER IN aCount
+		cnPageDownAndMoveCursorUp >>> g_StartAction
+		aCount >>> g_MoveCount
+		aPageCount >>> g_PageCount
+		0 >>> g_TabCount
+;
+
+PROCEDURE "Курсор вниз на строк и нажать табуляцию" INTEGER IN aMoveCount INTEGER IN aTabCount
+	cnMoveCursorDownAndTab >>> g_StartAction
+	aMoveCount >>> g_MoveCount
+	aTabCount >>> g_TabCount
+;
+
+PROCEDURE "Нажать табуляцию и в конец строки" INTEGER IN aTabCount
+		cnTabAndEnd >>> g_StartAction
+		0 >>> g_MoveCount
+		0 >>> g_PageCount
+		aTabCount >>> g_TabCount	
+;
+
+PROCEDURE "Сбросить флаг изменения"
+	сnUndo >>> g_StartAction
+;
+
+PROCEDURE "Переходить к метке" INTEGER IN aSubID
+	cnGo2Sub  >>> g_StartAction
+	aSubID >>> g_SubID	
+;
+
+PROCEDURE "Нажатие 'Да' в диалоге" 
+	cnWaitYes  >>> g_StartAction
+;
+
+// ------------------- Работа с линиями ------------------------
+
+CONST cnNormalPrecision 100
+CONST cnHighPrecision 10
+
+INTEGER VAR g_LinesSavePrecision // Точность выливки в эталон
+( cnNormalPrecision >>> g_LinesSavePrecision )
+
+PROCEDURE "Обычная точность сохранения данных о линиях"
+	cnNormalPrecision >>> g_LinesSavePrecision
+;
+
+PROCEDURE "Высокая точность сохранения данных о линиях"
+	cnHighPrecision >>> g_LinesSavePrecision
+;
+
+// ------------------- Работа с мышью ------------------------
+
+PROCEDURE "Не запоминать позицию мыши"
+	false >>> g_SaveMouseCoordinate
+;
+
+PROCEDURE "Запоминать позицию мыши"
+	true >>> g_SaveMouseCoordinate
+;
+
+// ------------------- Действия до теста ------------------------
+
+CONST cnNotPrepareTest cnAnyParamDefValue
+CONST cnMakeSpravka4RelCorrector 1
+CONST cnPictureSave 2
+CONST cnShowObjectInspector 3
+
+PROCEDURE "Не делать подготовку к тесту"
+	cnNotPrepareTest >>> g_BeforeTest
+;
+
+PROCEDURE "Запись картинок"
+	cnPictureSave >>> g_BeforeTest
+;
+
+VAR g_PrepareMethod
+
+PROCEDURE "Подготовить справку для корректора и вызывать корректор" IN PrepareMethod
+	cnMakeSpravka4RelCorrector >>> g_BeforeTest
+	PrepareMethod >>> g_PrepareMethod
+;
+
+PROCEDURE "Показывать инспектор объектов"
+	cnShowObjectInspector >>> g_BeforeTest
+;
+
+// ----------------- Точность сравнения -------------------------------
+CONST cnDefaultFuzz -1 
+
+INTEGER VAR g_SetFuzzValue // Точность сравнения картинок
+( cnDefaultFuzz >>> g_SetFuzzValue )
+
+PROCEDURE "Точность сравнения по умолчанию"
+	cnDefaultFuzz >>> g_SetFuzzValue
+;
+
+PROCEDURE "Установить точность сравнения равной" INTEGER IN aValue
+	aValue >>> g_SetFuzzValue
+;
+
+// ----------------- Документы в базе ---------------------------
+
+USES
+ DocumentConst.script
+;
+
+PROCEDURE "Документ SBS с отрицательной шириной ячеек"
+	cnSBSNegativeColumnWidths >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с формулой с ошибкой"
+	cnTableWithErrorFormula >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с таблицей в блоке"
+	cnTablesInBlocks >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с блоками"
+	cnDocumentWithBlock >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с комментариями"
+	cnDocumentWithComment >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для тестирования предыдущей версии"
+	cnDoc4TestPrevVersion >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для тестирования блоков с типом ААК-текст" 
+	1489454 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Налоговый кодекс"
+	НК >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с большой таблицей"
+	cnDocumentWithBigTable >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ со стилем STYLE 52"
+	cnDocumentWithDoubleStyle52 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ Конституция"
+	Конституция >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для тестированя выделения после поиска"
+	cnFindTextDocument >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с длинными таблицами"
+	cnDocumentWithLongTable >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для теста TK508179358" 
+	55626096 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для тестирования оглавления"
+	cnTestContentsTree >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с оглавлением"
+	12029475 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ ААК-текст"
+	57970089 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ ААК-содержание"
+	57970000 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с таблицей с Head-ячейками в соседних строках"
+	cnTableWithHeadCellsInNeighbourRows >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для тестирования атрибутов"
+	cnDocument4TestAttribute >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для тестирования корректора справки"
+	cnDocumentForCheckRelCorrecter >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с картинкой"
+	cnObjectTopicWithBMP >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Устав железнодорожного транспорта РФ"
+	"Документ 'Устав железнодорожного транспорта РФ'" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Примерная форма ходатайства об уменьшении размера взыскиваемой неустойки"
+	"Документ 'Примерная форма ходатайства об уменьшении размера взыскиваемой неустойки'" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ типа 'ААК-текст'"
+	"Документ с типом 'ААК-текст'" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ 'Закон Санкт-Петербурга' N 3-6"
+	"Документ 'Закон Санкт-Петербурга от 7 февраля 2008 г. N 3-6'" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ ОКАТО"
+	"Документ 'Общероссийский классификатор объектов административно-территориального деления'" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для задачи TK606826536"
+	27244885 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Показывать диалог о залочке документов"
+	ar_AsUsual dialogs:LockDocument:SetSkipMode
+;
+
+PROCEDURE "Открывать документ, если он залочен"
+	ar_OpenDocument dialogs:LockDocument:SetSkipMode
+;
+
+PROCEDURE "Закрывать документ, если он залочен"
+	ar_NotOpen dialogs:LockDocument:SetSkipMode
+;
+
+PROCEDURE "Очистить буфер обмена после теста"
+	true >>> g_ClearClipboard
+;
+
+PROCEDURE "Не очищать буфер обмена после теста"
+	false >>> g_ClearClipboard
+;
+
+PROCEDURE "Документ 'Постановление Правительства РФ N 50'"
+	"Документ 'Постановление Правительства РФ от 26 января 2007 г. N 50'" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Обычный тест"
+	false >>> g_AntiTest
+;
+
+PROCEDURE "Антитест"
+	true >>> g_AntiTest
+;
+
+PROCEDURE "Тестовый документ с формулами."
+	"Тестовый документ с формулами" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ для проверки скорости автопростановки блоков"
+	cnAutoBlockBenchmark >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Подготовить массив документов для TK565491886"
+	[ Конституция ГК НК cnDocumentWithBlock cnDocumentWithComment cnDocumentWithTables cnTableWithHeadCellsInNeighbourRows ] >>> Документы
+;
+
+PROCEDURE "Случайный Документ"
+	( Документы Array:Count Random Документы [i] ) >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ из английской базы."
+	"Документ из английской базы" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ c календарем 2015"
+	"Календарь 2015" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ ААК-содержание с правыми блоками"
+	"ААК-содержание с правыми блоками" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ ААК-содержание со сворачивающимся блоком"
+	"ААК-документ со сворачивающимся блоком" >>> glNumDoc
+	"Открывать документ из базы"	
+;
+
+PROCEDURE "Документ для поиска Assert при прокрукте"
+	"Документ с Assert в таблицах" >>> glNumDoc
+	"Открывать документ из базы"	
+;

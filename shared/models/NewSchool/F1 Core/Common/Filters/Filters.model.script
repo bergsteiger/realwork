@@ -1,0 +1,1916 @@
+<<Library>> Filters
+ %UID '4CAC58CB03A2'
+ %DEPENDS
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> nsFiltersInterfaces
+   %UID '4CAC58E50231'
+   %DEPENDS
+    U$ '45EEA48F011F' /* Filters */
+    U$ '476BF10A0280' /* l3Tree_TLB */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4CAC58CB03A2' /* Filters */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> InsFiltersContainer
+      %UID '499184BF03C8'
+      %SUMMARY 'Конейнер фильтров' ;
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> Tree
+         %UID '4991850C0199'
+         %TARGET U$ '476BF13201C4' /* Il3Tree */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // Tree
+        ABSTRACT LINK <<readonly>> PermanentFilters
+         %UID '4991855E01FB'
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // PermanentFilters
+      ; // %ATTRIBUTES
+     ; // InsFiltersContainer
+     <<Facet>> InsFiltersTree
+      %UID '499044E00044'
+      %SUMMARY 'Дерево фильтров' ;
+      %TOBEINCLUDED
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> FiltersType
+         %UID '499044F60208'
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // FiltersType
+      ; // %ATTRIBUTES
+     ; // InsFiltersTree
+     <<Facet>> InsFilterNode
+      %UID '4991887A031F'
+      %SUMMARY 'Узел фильтра' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> UsedStatus
+         %UID '499189000111'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // UsedStatus
+        ABSTRACT LINK <<readonly>> DeletedStatus
+         %UID '4991890D03D6'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // DeletedStatus
+        ABSTRACT LINK <<property>> AutoApplied
+         %UID '4991891D0093'
+         %SUMMARY 'постоянный фильтр, используется после каждого поиска' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // AutoApplied
+        ABSTRACT LINK <<readonly>> ID
+         %UID '4FD9E3F900B3'
+         %TARGET U$ '48FD996601CE' /* Longword */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ID
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> CanModify
+         %UID '4CAEEF3100F9'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // CanModify
+        ABSTRACT <<Operation>> MarkToDelete
+         %UID '4CB2FCFD029F'
+        ; // MarkToDelete
+        ABSTRACT <<Operation>> ValidateName
+         %UID '4CB55A3101E0'
+        ; // ValidateName
+      ; // %OPERATIONS
+     ; // InsFilterNode
+     <<Enum>> TnsFiltersType
+      %UID '4CADA33B0257'
+      %ATTRIBUTES
+        <<Attribute>> ftDocuments
+         %UID '4CADA34D0108'
+        ; // ftDocuments
+        <<Attribute>> ftDrugs
+         %UID '4CADA35E0305'
+        ; // ftDrugs
+      ; // %ATTRIBUTES
+     ; // TnsFiltersType
+     <<Facet>> InsFiltersListener
+      %UID '4F98240403BA'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4CB2B25302F7' /* FilterNotifier */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4CB2B26B0365' /* filters_changed */
+       U$ '4CB2B27F03C3' /* filter_name_changed */
+       U$ '4CB2B2910052' /* filter_permanence_changed */
+      ; // %REALIZES
+     ; // InsFiltersListener
+     <<Facet>> InsFilterRootNode
+      %UID '5061DE0D0252'
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4771111001F9' /* Il3RootNode */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46A44F6B035E' /* Subscribe */
+       U$ '46A44FFE0143' /* Unsubscribe */
+       U$ '47710BBE0052' /* InsertChild */
+       U$ '47710BCC0099' /* InsertChildBefore */
+       U$ '47710BF103B7' /* IsAcceptChild */
+       U$ '47710BFD00A6' /* GetChildByNumber */
+       U$ '47710C0E00D9' /* GetNodeByNumber */
+       U$ '47710C1F0389' /* GetNumInParent */
+       U$ '47710C4A017A' /* Notify */
+       U$ '47710C5B0032' /* IncAllChildrenCount */
+       U$ '47710C6002AA' /* Remove */
+       U$ '47710C8C007B' /* Move */
+       U$ '47710C9F001E' /* Iterate */
+       U$ '47710CC30122' /* IterateF */
+       U$ '47710CE400B0' /* ReleaseChilds */
+       U$ '47710DC10100' /* CompareChild */
+       U$ '47710DE4027E' /* SortChilds */
+       U$ '47710DF70238' /* Sort */
+       U$ '47710E430313' /* Text */
+       U$ '47710E730361' /* AllChildrenCount */
+       U$ '47710E8D018C' /* ChildSorted */
+       U$ '47710E9D0055' /* ChildSortedFromParent */
+       U$ '47710EAD0211' /* Flags */
+       U$ '4771102F01C3' /* NextNode */
+       U$ '477110580184' /* PrevNode */
+       U$ '4771108100D0' /* ParentNode */
+       U$ '477110A2026C' /* ChildNode */
+       U$ '47723CDB00A4' /* IsFirst */
+       U$ '47723CFF0148' /* IsLast */
+       U$ '47723D0F0392' /* HasChild */
+       U$ '47723D1D03D6' /* MaybeChild */
+       U$ '47723D2E0051' /* GetLevel */
+       U$ '47723D3B0058' /* GetLevelFor */
+       U$ '47723D4C0360' /* IsSame */
+       U$ '47723DB901CA' /* IsDisappeared */
+       U$ '47723DD1008F' /* BeginMove */
+       U$ '47723DE0009F' /* EndMove */
+       U$ '47723DED006A' /* Delete */
+       U$ '47723E8C0086' /* Text */
+       U$ '4772408A0361' /* Parent */
+       U$ '477240B10267' /* Child */
+       U$ '477241AC00B9' /* Next */
+       U$ '4772423302AF' /* Flag */
+       U$ '477242700004' /* Flags */
+       U$ '4772429202E4' /* ThisChildrenCount */
+       U$ '477242A40219' /* IndexInParent */
+       U$ '47A86F070101' /* CanAcceptData */
+       U$ '47A86F1C016B' /* DropData */
+       U$ '47ADA09C019B' /* CanMove */
+       U$ '47B5759A03C0' /* Prev */
+       U$ '4A5CBFFE0157' /* Changing */
+       U$ '4A5CC00B03D5' /* Changed */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> FiltersType
+         %UID '5061DE2D0275'
+         %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+        ; // FiltersType
+      ; // %ATTRIBUTES
+     ; // InsFilterRootNode
+     <<Facet>> InsFiltersEnumerator
+      %UID '56443DCF0299'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> Current
+         %UID '56443E470148'
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Current
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> Reset
+         %UID '56443DDB0195'
+        ; // Reset
+        ABSTRACT <<Operation>> MoveNext
+         %UID '56443DE2025A'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // MoveNext
+      ; // %OPERATIONS
+     ; // InsFiltersEnumerator
+   ; // %CHILDREN
+  ; // nsFiltersInterfaces
+  <<Unit>> FiltersNotification
+   %UID '4F9823DB021B'
+   %DEPENDS
+    U$ '45EEA48F011F' /* Filters */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '48F747EC0073' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4CAC58E50231' /* nsFiltersInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4CAC58CB03A2' /* Filters */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsFiltersListenersList
+      %UID '4F98251800B4'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B57D630029' /* l3InterfacePtrList */
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+      ; // %INHERITS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4F9825660350'
+         %TARGET U$ '4F98240403BA' /* InsFiltersListener */
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TnsFiltersListenersList
+     <<SimpleClass>> TnsFiltersListenersManagerPrim
+      %UID '4F98242D007E'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4CB2B25302F7' /* FilterNotifier */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4CB2B26B0365' /* filters_changed */
+       U$ '4CB2B27F03C3' /* filter_name_changed */
+       U$ '4CB2B2910052' /* filter_permanence_changed */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4FFD49A801C4"
+         %UID '4FFD49A801C4'
+         %TARGET U$ '4DFF098B00CC' /* l3Free */
+        ; // 4FFD49A801C4
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Listeners
+         %UID '4F9825B402BF'
+         %TARGET U$ '4F98251800B4' /* TnsFiltersListenersList */
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+        ; // f_Listeners
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> AddListener
+         %UID '4F982629031E'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4F98264901C1'
+            %TOBEINCLUDED
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aListener
+               %UID '4F98264C0270'
+               %TARGET U$ '4F98240403BA' /* InsFiltersListener */
+               %TOBEINCLUDED
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+              ; // aListener
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AddListener
+        FINAL <<method>> RemoveListener
+         %UID '4F98265301F4'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4F982660011D'
+            %TOBEINCLUDED
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aListener
+               %UID '4F9826610133'
+               %TARGET U$ '4F98240403BA' /* InsFiltersListener */
+               %TOBEINCLUDED
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+              ; // aListener
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RemoveListener
+        PROTECTED ABSTRACT <<abstractmethod>> GetInstance
+         %UID '4FFD459003A6'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FFD45B80343'
+            %TARGET U$ '4F98242D007E' /* TnsFiltersListenersManagerPrim */
+            %TOBEINCLUDED
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetInstance
+        PROTECTED ABSTRACT <<abstractmethod>> HasInstance
+         %UID '4FFD45CD0313'
+         %META
+          %upv "is static" true
+         ; // %META
+         %OPERATIONS
+           PRIVATE FINAL BOOLEAN FUNCTION DoIt
+            %UID '4FFD45DD0294'
+            %TARGET U$ '3DBFFE100240' /* boolean */
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // HasInstance
+      ; // %OPERATIONS
+     ; // TnsFiltersListenersManagerPrim
+     <<SimpleClass>> TnsFiltersListenersDrugsManager
+      %UID '4F98440301D2'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4F98242D007E' /* TnsFiltersListenersManagerPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4FFD459003A6' /* GetInstance */
+       U$ '4FFD45CD0313' /* HasInstance */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4F98481E015F"
+         %UID '4F98481E015F'
+         %TARGET U$ '4B1E8FAE0380' /* DefDataAdapter$4B1E8FAE0380 */
+        ; // 4F98481E015F
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Exists
+         %UID 'AA61758CAA04'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsFiltersListenersDrugsManager
+     <<SimpleClass>> TnsFiltersListenersDocManager
+      %UID '4F98447C0378'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4F98242D007E' /* TnsFiltersListenersManagerPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4FFD459003A6' /* GetInstance */
+       U$ '4FFD45CD0313' /* HasInstance */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4F9848190238"
+         %UID '4F9848190238'
+         %TARGET U$ '4B1E8FAE0380' /* DefDataAdapter$4B1E8FAE0380 */
+        ; // 4F9848190238
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Exists
+         %UID '5D6B59B9F042'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsFiltersListenersDocManager
+   ; // %CHILDREN
+  ; // FiltersNotification
+  <<Unit>> Impl
+   %UID '4CAC5A7402DE'
+   %DEPENDS
+    U$ '4423F94903C8' /* IO */
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '45700BFD0251' /* DynamicDocList */
+    U$ '45EEA48F011F' /* Filters */
+    U$ '45EEAA8E034E' /* Search */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '476BF10A0280' /* l3Tree_TLB */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47E246C90144' /* l3Trees */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '48F747EC0073' /* Common */
+    U$ '48FD8B2702F6' /* Tree */
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4CAC58E50231' /* nsFiltersInterfaces */
+    U$ '4F9823DB021B' /* FiltersNotification */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '447878770121' /* GCI */
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4CAC58CB03A2' /* Filters */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsFiltersContainerPrim
+      %UID '4CAC5B4900ED'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '499184BF03C8' /* InsFiltersContainer */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4991850C0199' /* Tree */
+       U$ '4991855E01FB' /* PermanentFilters */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CADA09100FD"
+         %UID '4CADA09100FD'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4CADA09100FD
+        <<uses>> "4CAEC8200270"
+         %UID '4CAEC8200270'
+         %TARGET U$ '4CAEC809015D' /* TnsFiltersTree */
+        ; // 4CAEC8200270
+        <<uses>> "4CB5903802AD"
+         %UID '4CB5903802AD'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 4CB5903802AD
+        <<uses>> "4CB592AB018F"
+         %UID '4CB592AB018F'
+         %TARGET U$ '4ADEEDB1033B' /* l3L2NA */
+        ; // 4CB592AB018F
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Tree
+         %UID '4CAECDFE032A'
+         %TARGET U$ '476BF13201C4' /* Il3Tree */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Tree
+        PRIVATE <<Attribute>> f_FilterType
+         %UID '4CAED08C02BC'
+         %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+        ; // f_FilterType
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '4CB30B4A0124'
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CB30B66005B'
+            %TOBEINCLUDED
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFilterType
+               %UID '4CB30B6E0232'
+               %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+               %TOBEINCLUDED
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+              ; // aFilterType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '4CB30B7E0341'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '499184BF03C8' /* InsFiltersContainer */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4CB30B4A0124' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4991850C0199' /* Tree */
+          U$ '4991855E01FB' /* PermanentFilters */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '3E21BFDEFC52'
+            %SUMMARY 'Сигнатура фабрики TnsFiltersContainerPrim.Make' ;
+            %TARGET U$ '499184BF03C8' /* InsFiltersContainer */
+            %TOBEINCLUDED
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aFilterType
+               %UID 'F1BAAFE62B01'
+               %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+               %TOBEINCLUDED
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+              ; // aFilterType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsFiltersContainerPrim
+     <<SimpleClass>> TnsFiltersContainer
+      %UID '4CAC5BD701BF'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4CAC58CB03A2' /* Filters */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CAD71C10281"
+         %UID '4CAD71C10281'
+         %TARGET U$ '4CAC5B4900ED' /* TnsFiltersContainerPrim */
+        ; // 4CAD71C10281
+        <<uses>> "4CB5641F014C"
+         %UID '4CB5641F014C'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4CB5641F014C
+        <<uses>> "4CB56620022C"
+         %UID '4CB56620022C'
+         %TARGET U$ '4AAF9718001D' /* nsAStr */
+        ; // 4CB56620022C
+        <<uses>> "4CB5663B00F8"
+         %UID '4CB5663B00F8'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 4CB5663B00F8
+        <<uses>> "4CB5665D01BB"
+         %UID '4CB5665D01BB'
+         %TARGET U$ '456EB3E10177' /* EntityBase */
+        ; // 4CB5665D01BB
+        <<uses>> "4CB5666201C3"
+         %UID '4CB5666201C3'
+         %TARGET U$ '456EC7C300DA' /* EntityStorage */
+        ; // 4CB5666201C3
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_DocFilter
+         %UID '4CAD92D800A8'
+         %TARGET U$ '499184BF03C8' /* InsFiltersContainer */
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+        ; // f_DocFilter
+        PRIVATE <<Attribute>> f_DrugFilter
+         %UID '4CAD9314034F'
+         %TARGET U$ '499184BF03C8' /* InsFiltersContainer */
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+        ; // f_DrugFilter
+        FINAL <<readonly>> Filters
+         %UID '4CAD6F700075'
+         %TARGET U$ '499184BF03C8' /* InsFiltersContainer */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %INDEXES
+          %INDEX ListType %TARGET U$ '47F5C59F0135' /* TbsListType */
+          ;
+         ; // %INDEXES
+        ; // Filters
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<static>> ConvertToFilter
+         %UID '4CB5545B0148'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aQuery
+            %UID '4CB5547B02F8'
+            %TARGET U$ '45EEE145027B' /* Query */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aQuery
+           <<in>> aName
+            %UID '4CB5547B0327'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aName
+         ; // %PARAMETERS
+        ; // ConvertToFilter
+        FINAL <<static>> RenameFilter
+         %UID '4CB5549500AD'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aFilter
+            %UID '4CB6FCC00148'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+           <<in>> aName
+            %UID '4CB6FCC00186'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aName
+         ; // %PARAMETERS
+        ; // RenameFilter
+        SUMMONED FINAL <<static>> Exists
+         %UID 'D445EFBFB1BF'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsFiltersContainer
+     <<SimpleClass>> TnsFiltersTree
+      %UID '4CAEC809015D'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4CAC58CB03A2' /* Filters */
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '499044E00044' /* InsFiltersTree */
+       U$ '4F98240403BA' /* InsFiltersListener */
+       U$ '51A4D14602F5' /* Il3TreeWithLockRebuild */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4804BDA10127' /* Tl3Tree */
+      ; // %INHERITS
+      %REALIZES
+       U$ '499044F60208' /* FiltersType */
+       U$ '4CB2B26B0365' /* filters_changed */
+       U$ '4CB2B27F03C3' /* filter_name_changed */
+       U$ '4CB2B2910052' /* filter_permanence_changed */
+       U$ '51A4D1810053' /* LockRebuild */
+       U$ '51A4D19100DD' /* UnlockRebuild */
+       U$ '51A4D19E0149' /* IsRebuildLocked */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CAED41A0353"
+         %UID '4CAED41A0353'
+         %TARGET U$ '4A573D2F00C6' /* Tl3PlaceNode */
+        ; // 4CAED41A0353
+        <<uses>> "4CAED5DC0302"
+         %UID '4CAED5DC0302'
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+        ; // 4CAED5DC0302
+        <<uses>> "4CAED5EC000B"
+         %UID '4CAED5EC000B'
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+        ; // 4CAED5EC000B
+        <<uses>> "4CAEDAF3026C"
+         %UID '4CAEDAF3026C'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 4CAEDAF3026C
+        <<uses>> "4CAEEE9500DA"
+         %UID '4CAEEE9500DA'
+         %TARGET U$ '4CAEEE74038E' /* TnsFiltersNode */
+        ; // 4CAEEE9500DA
+        <<uses>> "4CAF0EC501A4"
+         %UID '4CAF0EC501A4'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4CAF0EC501A4
+        <<uses>> "4F97FEB900BE"
+         %UID '4F97FEB900BE'
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+        ; // 4F97FEB900BE
+        <<uses>> "4F982B960396"
+         %UID '4F982B960396'
+         %TARGET U$ '4F98447C0378' /* TnsFiltersListenersDocManager */
+        ; // 4F982B960396
+        <<uses>> "4F9846B300FC"
+         %UID '4F9846B300FC'
+         %TARGET U$ '4F98440301D2' /* TnsFiltersListenersDrugsManager */
+        ; // 4F9846B300FC
+        <<uses>> "4F9925B4017E"
+         %UID '4F9925B4017E'
+         %TARGET U$ '47723AA10142' /* "flags in tree" */
+        ; // 4F9925B4017E
+        <<uses>> "4F992621035C"
+         %UID '4F992621035C'
+         %TARGET U$ '46A61AF500BE' /* Tl3SetBitType */
+        ; // 4F992621035C
+        <<uses>> "4F99264F01A7"
+         %UID '4F99264F01A7'
+         %TARGET U$ '4912DBE30091' /* nsTreeUtils */
+        ; // 4F99264F01A7
+        <<uses>> "5061DE5C038D"
+         %UID '5061DE5C038D'
+         %TARGET U$ '5061DE4402FD' /* TnsFiltersRootNode */
+        ; // 5061DE5C038D
+        <<uses>> "54D486CE00C2"
+         %UID '54D486CE00C2'
+         %TARGET U$ '47F25741021C' /* l3Nodes */
+        ; // 54D486CE00C2
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_DsList
+         %UID '4F96A7E901BD'
+         %TARGET U$ '47E9F00100A2' /* IdsList */
+         %TOBEINCLUDED
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+        ; // f_DsList
+        PRIVATE <<Attribute>> f_FilterType
+         %UID '4F99559302D2'
+         %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+        ; // f_FilterType
+        PRIVATE <<Attribute>> f_RebuildLockCount
+         %UID '51A4D5800110'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_RebuildLockCount
+        PRIVATE <<Attribute>> f_NeedRebuild
+         %UID '51A4D5A60022'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_NeedRebuild
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create$1$4F995492006C
+         %UID '4F995492006C'
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Create$4F9954AB031F
+            %UID '4F9954AB031F'
+            %TOBEINCLUDED
+             U$ '4CAC58CB03A2' /* Filters */
+             U$ '4D1B64E70031' /* BusinessInterfaces */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFilterType
+               %UID '4F9954B3030B'
+               %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+               %TOBEINCLUDED
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+              ; // aFilterType
+              <<in>> aDsList
+               %UID '4FE979F6031E'
+               %TARGET U$ '47E9F00100A2' /* IdsList */
+               %TOBEINCLUDED
+                U$ '4D1B64E70031' /* BusinessInterfaces */
+               ; // %TOBEINCLUDED
+              ; // aDsList
+            ; // %PARAMETERS
+           ; // Create$4F9954AB031F
+         ; // %OPERATIONS
+        ; // Create$1$4F995492006C
+        FINAL <<Factory>> Make$1$4F9954BC025D
+         %UID '4F9954BC025D'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '4CAC58CB03A2' /* Filters */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '476BF13201C4' /* Il3Tree */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4F995492006C' /* Create$1$4F995492006C */
+         ; // %INHERITS
+         %REALIZES
+          U$ '46825CAA0125' /* RootNode */
+          U$ '46A44F6B035E' /* Subscribe */
+          U$ '46A44FFE0143' /* Unsubscribe */
+          U$ '4771115902AA' /* GetFlagsByAbsIndex */
+          U$ '4771117201D7' /* SetFlagsByAbsIndex */
+          U$ '4771117B0132' /* GetNodeByAbsIndex */
+          U$ '477111820195' /* GetAbsIndex */
+          U$ '4771118F0051' /* Notify */
+          U$ '477111A90203' /* ChangeExpand */
+          U$ '47711208036F' /* TestFlagMask$47711208036F */
+          U$ '477112160055' /* TestFlagMask$477112160055 */
+          U$ '4771123B00BD' /* SetFlagMask$4771123B00BD */
+          U$ '4771125F0015' /* SetFlagMask$4771125F0015 */
+          U$ '4771128D013D' /* GetPrev */
+          U$ '477112F70265' /* IterateF */
+          U$ '477113440266' /* SetRootAndCountView */
+          U$ '4771138300B3' /* SetAllFlag */
+          U$ '4771139800F2' /* PrintTreeList */
+          U$ '477117C402D0' /* SearchByName */
+          U$ '47711814010D' /* FindNodeByParam */
+          U$ '47711821014D' /* ResetSelection */
+          U$ '4771182A01D4' /* LockSelModify */
+          U$ '4771183003C7' /* UnLockSelModify */
+          U$ '4771183E037B' /* GetNextSetFlag */
+          U$ '4771185B02D0' /* ChangeName */
+          U$ '4771187100EF' /* InsertNode */
+          U$ '4771188A012C' /* InsertNodeBefore */
+          U$ '477118A00158' /* SetLevelSlash */
+          U$ '477118AC0111' /* IsSelect */
+          U$ '477118BE0229' /* IsChildSelect */
+          U$ '477118C900E7' /* Clear */
+          U$ '477118D20258' /* MoveSelectedNodes */
+          U$ '477118E303A3' /* DeleteSelectedNodes */
+          U$ '4771190501F8' /* CNodes */
+          U$ '477119460035' /* SelectedNode */
+          U$ '47711C11028E' /* NodeFlags */
+          U$ '47711C3D01EA' /* CRootNode */
+          U$ '47711C510141' /* CommonExpanded */
+          U$ '47711C6C004D' /* SelModifiedCount */
+          U$ '47711C7D02D5' /* Modified */
+          U$ '47711CF10305' /* Strings */
+          U$ '4771927702DF' /* GetNextSelect */
+          U$ '4772448C01D2' /* CursorTop */
+          U$ '4772449B00A1' /* GetIndex */
+          U$ '477244BA0074' /* GetLevel */
+          U$ '477244CE02AE' /* SelectAllNodes */
+          U$ '477244DD0292' /* SelectInterval */
+          U$ '47724512002D' /* ChangeExpand */
+          U$ '4772452E002D' /* ExpandSubDir */
+          U$ '477245520298' /* SetBranchFlag */
+          U$ '4772457D032A' /* CountViewItemsInSubDir */
+          U$ '477245A20228' /* IsRoot */
+          U$ '477245B301DE' /* IsExpanded */
+          U$ '477245C40171' /* IsFirstVis */
+          U$ '477245D9031B' /* IsLastVis */
+          U$ '477245F301AE' /* HasVisibleChildren */
+          U$ '477246040221' /* GetLines */
+          U$ '4772461601C6' /* Wake */
+          U$ '477246270133' /* MoveNode */
+          U$ '477246440037' /* SearchNameBegin */
+          U$ '4772465F0276' /* SearchNameOccur */
+          U$ '477246860169' /* MakeNodeVisible */
+          U$ '477246A40174' /* GetPrev */
+          U$ '477246C70141' /* SimpleIterateF */
+          U$ '477246E802B1' /* IsChanging */
+          U$ '477246F7039B' /* Changing */
+          U$ '4772470100BC' /* Changed */
+          U$ '477248FE005A' /* ShowRoot */
+          U$ '4772490E02F7' /* CountView */
+          U$ '4772491C01C5' /* SelectCount */
+          U$ '4772495902EE' /* Flags */
+          U$ '477249AB0057' /* Select */
+          U$ '477249EB02D9' /* Nodes */
+          U$ '47A86EA80292' /* MakeDataObject */
+          U$ '47BAD3080349' /* CanAcceptData */
+          U$ '47BAD32501E2' /* DropData */
+          U$ '4FDB205C023B' /* ClearSelected */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> Create$BB41AA8D4B8B
+            %UID 'BB41AA8D4B8B'
+            %SUMMARY 'Сигнатура фабрики TnsFiltersTree.Make$1' ;
+            %TARGET U$ '476BF13201C4' /* Il3Tree */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+             U$ '4CAC58CB03A2' /* Filters */
+             U$ '4D1B64E70031' /* BusinessInterfaces */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aFilterType
+               %UID 'C9192BE540A1'
+               %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+               %TOBEINCLUDED
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+              ; // aFilterType
+              SUMMONED <<in>> aDsList
+               %UID '2989D2382E8E'
+               %TARGET U$ '47E9F00100A2' /* IdsList */
+               %TOBEINCLUDED
+                U$ '4D1B64E70031' /* BusinessInterfaces */
+               ; // %TOBEINCLUDED
+              ; // aDsList
+            ; // %PARAMETERS
+           ; // Create$BB41AA8D4B8B
+         ; // %OPERATIONS
+        ; // Make$1$4F9954BC025D
+        FINAL <<Constructor>> Create$2$4F9954DC015E
+         %UID '4F9954DC015E'
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Create$4F9954EE00E0
+            %UID '4F9954EE00E0'
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+             U$ '4D1B64E70031' /* BusinessInterfaces */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aListType
+               %UID '4F9954F00242'
+               %TARGET U$ '47F5C59F0135' /* TbsListType */
+               %TOBEINCLUDED
+                U$ '47E9EEC60260' /* Model */
+               ; // %TOBEINCLUDED
+              ; // aListType
+              <<in>> aDsList
+               %UID '4FE979F30335'
+               %TARGET U$ '47E9F00100A2' /* IdsList */
+               %TOBEINCLUDED
+                U$ '4D1B64E70031' /* BusinessInterfaces */
+               ; // %TOBEINCLUDED
+              ; // aDsList
+            ; // %PARAMETERS
+           ; // Create$4F9954EE00E0
+         ; // %OPERATIONS
+        ; // Create$2$4F9954DC015E
+        FINAL <<Factory>> Make$2$4F9954FF036B
+         %UID '4F9954FF036B'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '47E9EEC60260' /* Model */
+          U$ '4CAC58CB03A2' /* Filters */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '476BF13201C4' /* Il3Tree */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4F9954DC015E' /* Create$2$4F9954DC015E */
+         ; // %INHERITS
+         %REALIZES
+          U$ '46825CAA0125' /* RootNode */
+          U$ '46A44F6B035E' /* Subscribe */
+          U$ '46A44FFE0143' /* Unsubscribe */
+          U$ '4771115902AA' /* GetFlagsByAbsIndex */
+          U$ '4771117201D7' /* SetFlagsByAbsIndex */
+          U$ '4771117B0132' /* GetNodeByAbsIndex */
+          U$ '477111820195' /* GetAbsIndex */
+          U$ '4771118F0051' /* Notify */
+          U$ '477111A90203' /* ChangeExpand */
+          U$ '47711208036F' /* TestFlagMask$47711208036F */
+          U$ '477112160055' /* TestFlagMask$477112160055 */
+          U$ '4771123B00BD' /* SetFlagMask$4771123B00BD */
+          U$ '4771125F0015' /* SetFlagMask$4771125F0015 */
+          U$ '4771128D013D' /* GetPrev */
+          U$ '477112F70265' /* IterateF */
+          U$ '477113440266' /* SetRootAndCountView */
+          U$ '4771138300B3' /* SetAllFlag */
+          U$ '4771139800F2' /* PrintTreeList */
+          U$ '477117C402D0' /* SearchByName */
+          U$ '47711814010D' /* FindNodeByParam */
+          U$ '47711821014D' /* ResetSelection */
+          U$ '4771182A01D4' /* LockSelModify */
+          U$ '4771183003C7' /* UnLockSelModify */
+          U$ '4771183E037B' /* GetNextSetFlag */
+          U$ '4771185B02D0' /* ChangeName */
+          U$ '4771187100EF' /* InsertNode */
+          U$ '4771188A012C' /* InsertNodeBefore */
+          U$ '477118A00158' /* SetLevelSlash */
+          U$ '477118AC0111' /* IsSelect */
+          U$ '477118BE0229' /* IsChildSelect */
+          U$ '477118C900E7' /* Clear */
+          U$ '477118D20258' /* MoveSelectedNodes */
+          U$ '477118E303A3' /* DeleteSelectedNodes */
+          U$ '4771190501F8' /* CNodes */
+          U$ '477119460035' /* SelectedNode */
+          U$ '47711C11028E' /* NodeFlags */
+          U$ '47711C3D01EA' /* CRootNode */
+          U$ '47711C510141' /* CommonExpanded */
+          U$ '47711C6C004D' /* SelModifiedCount */
+          U$ '47711C7D02D5' /* Modified */
+          U$ '47711CF10305' /* Strings */
+          U$ '4771927702DF' /* GetNextSelect */
+          U$ '4772448C01D2' /* CursorTop */
+          U$ '4772449B00A1' /* GetIndex */
+          U$ '477244BA0074' /* GetLevel */
+          U$ '477244CE02AE' /* SelectAllNodes */
+          U$ '477244DD0292' /* SelectInterval */
+          U$ '47724512002D' /* ChangeExpand */
+          U$ '4772452E002D' /* ExpandSubDir */
+          U$ '477245520298' /* SetBranchFlag */
+          U$ '4772457D032A' /* CountViewItemsInSubDir */
+          U$ '477245A20228' /* IsRoot */
+          U$ '477245B301DE' /* IsExpanded */
+          U$ '477245C40171' /* IsFirstVis */
+          U$ '477245D9031B' /* IsLastVis */
+          U$ '477245F301AE' /* HasVisibleChildren */
+          U$ '477246040221' /* GetLines */
+          U$ '4772461601C6' /* Wake */
+          U$ '477246270133' /* MoveNode */
+          U$ '477246440037' /* SearchNameBegin */
+          U$ '4772465F0276' /* SearchNameOccur */
+          U$ '477246860169' /* MakeNodeVisible */
+          U$ '477246A40174' /* GetPrev */
+          U$ '477246C70141' /* SimpleIterateF */
+          U$ '477246E802B1' /* IsChanging */
+          U$ '477246F7039B' /* Changing */
+          U$ '4772470100BC' /* Changed */
+          U$ '477248FE005A' /* ShowRoot */
+          U$ '4772490E02F7' /* CountView */
+          U$ '4772491C01C5' /* SelectCount */
+          U$ '4772495902EE' /* Flags */
+          U$ '477249AB0057' /* Select */
+          U$ '477249EB02D9' /* Nodes */
+          U$ '47A86EA80292' /* MakeDataObject */
+          U$ '47BAD3080349' /* CanAcceptData */
+          U$ '47BAD32501E2' /* DropData */
+          U$ '4FDB205C023B' /* ClearSelected */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> Create$1177F803BFD7
+            %UID '1177F803BFD7'
+            %SUMMARY 'Сигнатура фабрики TnsFiltersTree.Make$2' ;
+            %TARGET U$ '476BF13201C4' /* Il3Tree */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+             U$ '47E9EEC60260' /* Model */
+             U$ '4D1B64E70031' /* BusinessInterfaces */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aListType
+               %UID '65E9702B0D62'
+               %TARGET U$ '47F5C59F0135' /* TbsListType */
+               %TOBEINCLUDED
+                U$ '47E9EEC60260' /* Model */
+               ; // %TOBEINCLUDED
+              ; // aListType
+              SUMMONED <<in>> aDsList
+               %UID '4D03337CE2B6'
+               %TARGET U$ '47E9F00100A2' /* IdsList */
+               %TOBEINCLUDED
+                U$ '4D1B64E70031' /* BusinessInterfaces */
+               ; // %TOBEINCLUDED
+              ; // aDsList
+            ; // %PARAMETERS
+           ; // Create$1177F803BFD7
+         ; // %OPERATIONS
+        ; // Make$2$4F9954FF036B
+        PRIVATE FINAL <<method>> LoadChildren
+         %UID '4F9955200151'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4F99553B0071'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // LoadChildren
+      ; // %OPERATIONS
+     ; // TnsFiltersTree
+     <<SimpleClass>> TnsFiltersNode
+      %UID '4CAEEE74038E'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '447878770121' /* GCI */
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4991887A031F' /* InsFilterNode */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4A573D2F00C6' /* Tl3PlaceNode */
+      ; // %INHERITS
+      %REALIZES
+       U$ '499189000111' /* UsedStatus */
+       U$ '4991890D03D6' /* DeletedStatus */
+       U$ '4991891D0093' /* AutoApplied */
+       U$ '4CAEEF3100F9' /* CanModify */
+       U$ '4CB2FCFD029F' /* MarkToDelete */
+       U$ '4CB55A3101E0' /* ValidateName */
+       U$ '4FD9E3F900B3' /* ID */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A869BB02DE' /* GetAsPCharLen */
+       U$ '47A869D10074' /* DoSetAsPCharLen */
+       U$ '4A60B23E00C3' /* COMQueryInterface */
+       U$ '54C78D9201B9' /* GetIsSame */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CAEF85C0246"
+         %UID '4CAEF85C0246'
+         %TARGET U$ '431841610361' /* String */
+        ; // 4CAEF85C0246
+        <<uses>> "4CAEF8770131"
+         %UID '4CAEF8770131'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 4CAEF8770131
+        <<uses>> "4CAEFA6D037A"
+         %UID '4CAEFA6D037A'
+         %TARGET U$ '4ADEE542029C' /* nsWStr */
+        ; // 4CAEFA6D037A
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Filter
+         %UID '4CAEEEB802A5'
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Filter
+        PRIVATE <<Attribute>> f_NameCache
+         %UID '4CB2D316030E'
+         %TARGET U$ '431841610361' /* String */
+         %TOBEINCLUDED
+          U$ '447878770121' /* GCI */
+         ; // %TOBEINCLUDED
+        ; // f_NameCache
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '4CB30BE00217'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CB30C3300E7'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFilter
+               %UID '4CB30C390225'
+               %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFilter
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '4CB30BE802C6'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '476BF22B03E1' /* Il3Node */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4CB30BE00217' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '47710BBE0052' /* InsertChild */
+          U$ '47710BCC0099' /* InsertChildBefore */
+          U$ '47710BF103B7' /* IsAcceptChild */
+          U$ '47710BFD00A6' /* GetChildByNumber */
+          U$ '47710C0E00D9' /* GetNodeByNumber */
+          U$ '47710C1F0389' /* GetNumInParent */
+          U$ '47710C4A017A' /* Notify */
+          U$ '47710C5B0032' /* IncAllChildrenCount */
+          U$ '47710C6002AA' /* Remove */
+          U$ '47710C8C007B' /* Move */
+          U$ '47710C9F001E' /* Iterate */
+          U$ '47710CC30122' /* IterateF */
+          U$ '47710CE400B0' /* ReleaseChilds */
+          U$ '47710DC10100' /* CompareChild */
+          U$ '47710DE4027E' /* SortChilds */
+          U$ '47710DF70238' /* Sort */
+          U$ '47710E430313' /* Text */
+          U$ '47710E730361' /* AllChildrenCount */
+          U$ '47710E8D018C' /* ChildSorted */
+          U$ '47710E9D0055' /* ChildSortedFromParent */
+          U$ '47710EAD0211' /* Flags */
+          U$ '4771102F01C3' /* NextNode */
+          U$ '477110580184' /* PrevNode */
+          U$ '4771108100D0' /* ParentNode */
+          U$ '477110A2026C' /* ChildNode */
+          U$ '47723CDB00A4' /* IsFirst */
+          U$ '47723CFF0148' /* IsLast */
+          U$ '47723D0F0392' /* HasChild */
+          U$ '47723D1D03D6' /* MaybeChild */
+          U$ '47723D2E0051' /* GetLevel */
+          U$ '47723D3B0058' /* GetLevelFor */
+          U$ '47723D4C0360' /* IsSame */
+          U$ '47723DB901CA' /* IsDisappeared */
+          U$ '47723DD1008F' /* BeginMove */
+          U$ '47723DE0009F' /* EndMove */
+          U$ '47723DED006A' /* Delete */
+          U$ '47723E8C0086' /* Text */
+          U$ '4772408A0361' /* Parent */
+          U$ '477240B10267' /* Child */
+          U$ '477241AC00B9' /* Next */
+          U$ '4772423302AF' /* Flag */
+          U$ '477242700004' /* Flags */
+          U$ '4772429202E4' /* ThisChildrenCount */
+          U$ '477242A40219' /* IndexInParent */
+          U$ '47A86F070101' /* CanAcceptData */
+          U$ '47A86F1C016B' /* DropData */
+          U$ '47ADA09C019B' /* CanMove */
+          U$ '47B5759A03C0' /* Prev */
+          U$ '4A5CBFFE0157' /* Changing */
+          U$ '4A5CC00B03D5' /* Changed */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '8CFC9D48E81B'
+            %SUMMARY 'Сигнатура фабрики TnsFiltersNode.Make' ;
+            %TARGET U$ '476BF22B03E1' /* Il3Node */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aFilter
+               %UID '8D31FFC231FB'
+               %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFilter
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsFiltersNode
+     <<SimpleClass>> TnsFiltersRootNode
+      %UID '5061DE4402FD'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '5061DE0D0252' /* InsFilterRootNode */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4A573D2F00C6' /* Tl3PlaceNode */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5061DE2D0275' /* FiltersType */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '54C78D9201B9' /* GetIsSame */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "5061E54901F8"
+         %UID '5061E54901F8'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 5061E54901F8
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_FiltersType
+         %UID '5061DE72023F'
+         %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+        ; // f_FiltersType
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '5061DE910095'
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5061DE9C03B0'
+            %TOBEINCLUDED
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFiltersType
+               %UID '5061DEA303E1'
+               %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+               %TOBEINCLUDED
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+              ; // aFiltersType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '5061DEA9001C'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5061DE910095' /* Create */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'B05823833E68'
+            %SUMMARY 'Сигнатура фабрики TnsFiltersRootNode.Make' ;
+            %TOBEINCLUDED
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aFiltersType
+               %UID 'D5AD8C254A34'
+               %TARGET U$ '4CADA33B0257' /* TnsFiltersType */
+               %TOBEINCLUDED
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+              ; // aFiltersType
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsFiltersRootNode
+     FINAL <<UtilityPack>> nsFiltersUtils
+      %UID '56443D8E031A'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CAC58CB03A2' /* Filters */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "56444008025A"
+         %UID '56444008025A'
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+        ; // 56444008025A
+        <<uses>> "5644400D01D6"
+         %UID '5644400D01D6'
+         %TARGET U$ '56443DCF0299' /* InsFiltersEnumerator */
+        ; // 5644400D01D6
+        <<uses>> "564441300216"
+         %UID '564441300216'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 564441300216
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> HasFilter
+         %UID '564441680148'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5644418D001E'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFilters
+               %UID '5644419003E6'
+               %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFilters
+              <<in>> aFilter
+               %UID '56444191001D'
+               %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFilter
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // HasFilter
+        <<method>> CatFilters
+         %UID '5644419601AD'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '564441AB00D5'
+            %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFirstFilterList
+               %UID '564441CE012B'
+               %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFirstFilterList
+              <<in>> aSecondFilterList
+               %UID '564441CE013A'
+               %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aSecondFilterList
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CatFilters
+        FINAL <<method>> RemoveFilter
+         %UID '5644424602DA'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '56444256021D'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFilters
+               %UID '56444267013F'
+               %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFilters
+              <<in>> aFilterToRemove
+               %UID '56444267014E'
+               %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFilterToRemove
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RemoveFilter
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TnsFiltersEnumerator
+         %UID '56443E71039A'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4CAC58CB03A2' /* Filters */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '56443DCF0299' /* InsFiltersEnumerator */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '49E7754802A9' /* Tl3ProtoObject */
+         ; // %INHERITS
+         %REALIZES
+          U$ '56443DDB0195' /* Reset */
+          U$ '56443DE2025A' /* MoveNext */
+          U$ '56443E470148' /* Current */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '479731C50290' /* Cleanup */
+         ; // %OVERRIDES
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_CurrentIndex
+            %UID '56443F4A02D9'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_CurrentIndex
+           PRIVATE <<Attribute>> f_Filters
+            %UID '56443FC10221'
+            %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // f_Filters
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<Constructor>> Create$1$56443E9B03A4
+            %UID '56443E9B03A4'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$56443EA102F1
+               %UID '56443EA102F1'
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aFilters
+                  %UID '56443EAC0137'
+                  %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                 ; // aFilters
+               ; // %PARAMETERS
+              ; // DoIt$56443EA102F1
+            ; // %OPERATIONS
+           ; // Create$1$56443E9B03A4
+           FINAL <<Factory>> Make$1$56443EB00018
+            %UID '56443EB00018'
+            %META
+             %upv "check nil" false
+             %upv "need AfterCreate" 'undefined'
+             %upv "need Aggregate" 'undefined'
+             %upv "need As" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+            %IMPLEMENTS
+             U$ '56443DCF0299' /* InsFiltersEnumerator */
+            ; // %IMPLEMENTS
+            %INHERITS
+             U$ '56443E9B03A4' /* Create$1$56443E9B03A4 */
+            ; // %INHERITS
+            %REALIZES
+             U$ '56443DDB0195' /* Reset */
+             U$ '56443DE2025A' /* MoveNext */
+             U$ '56443E470148' /* Current */
+            ; // %REALIZES
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<Operation>> DoIt$6B7D7C978727
+               %UID '6B7D7C978727'
+               %SUMMARY 'Сигнатура фабрики TnsFiltersEnumerator.Make$1' ;
+               %TARGET U$ '56443DCF0299' /* InsFiltersEnumerator */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 SUMMONED <<in>> aFilters
+                  %UID '7B360A19CDDF'
+                  %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                 ; // aFilters
+               ; // %PARAMETERS
+              ; // DoIt$6B7D7C978727
+            ; // %OPERATIONS
+           ; // Make$1$56443EB00018
+           FINAL <<Constructor>> Create$2$56444038035E
+            %UID '56444038035E'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$56444042025D
+               %UID '56444042025D'
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aFirstFilters
+                  %UID '564440580047'
+                  %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                 ; // aFirstFilters
+                 <<in>> aSecondFilters
+                  %UID '564440580066'
+                  %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                 ; // aSecondFilters
+               ; // %PARAMETERS
+              ; // DoIt$56444042025D
+            ; // %OPERATIONS
+           ; // Create$2$56444038035E
+           FINAL <<Factory>> Make$2$5644405D0287
+            %UID '5644405D0287'
+            %META
+             %upv "check nil" false
+             %upv "need AfterCreate" 'undefined'
+             %upv "need Aggregate" 'undefined'
+             %upv "need As" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4CAC58CB03A2' /* Filters */
+            ; // %TOBEINCLUDED
+            %IMPLEMENTS
+             U$ '56443DCF0299' /* InsFiltersEnumerator */
+            ; // %IMPLEMENTS
+            %INHERITS
+             U$ '56444038035E' /* Create$2$56444038035E */
+            ; // %INHERITS
+            %REALIZES
+             U$ '56443DDB0195' /* Reset */
+             U$ '56443DE2025A' /* MoveNext */
+             U$ '56443E470148' /* Current */
+            ; // %REALIZES
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<Operation>> DoIt$E85FCAD448FE
+               %UID 'E85FCAD448FE'
+               %SUMMARY 'Сигнатура фабрики TnsFiltersEnumerator.Make$2' ;
+               %TARGET U$ '56443DCF0299' /* InsFiltersEnumerator */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+                U$ '4CAC58CB03A2' /* Filters */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 SUMMONED <<in>> aFirstFilters
+                  %UID 'BBBB84721FD5'
+                  %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                 ; // aFirstFilters
+                 SUMMONED <<in>> aSecondFilters
+                  %UID '666A4BA59989'
+                  %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                 ; // aSecondFilters
+               ; // %PARAMETERS
+              ; // DoIt$E85FCAD448FE
+            ; // %OPERATIONS
+           ; // Make$2$5644405D0287
+         ; // %OPERATIONS
+        ; // TnsFiltersEnumerator
+      ; // %CHILDREN
+     ; // nsFiltersUtils
+   ; // %CHILDREN
+  ; // Impl
+ ; // %CHILDREN
+; // Filters

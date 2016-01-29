@@ -1,0 +1,52 @@
+// Mouse_RightUp 4F967CBF016D ScriptKeyword Class
+
+INCLUDE '4F967BAD0127.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4F967CBF016D
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5C2C3A50665A
+ CONST UID '5C2C3A50665A'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Mouse_RightUp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5C2C3A50665A Ini_Reg
+
+: ME_4F967CBF016D
+ CONST UID '4F967CBF016D'
+ CONST Name 'Mouse_RightUp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F967BAD0127 // TkwMouseUpDownSupport
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5C2C3A50665A // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4F967BED0186 // GetMouseEventFlag
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F967CBF016D Mouse_RightUp

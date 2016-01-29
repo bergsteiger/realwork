@@ -1,0 +1,508 @@
+// pgInterfaces 55DAD4150001 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55DAD4150001
+
+FORWARD ME_55DAD42802B1
+
+: ME_55DAD43B00AF
+ CONST UID '55DAD43B00AF'
+ CONST Name 'DataServerHostName'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" false
+
+ref; // ME_55DAD43B00AF DataServerHostName
+
+: ME_55DAD44D036F
+ CONST UID '55DAD44D036F'
+ CONST Name 'DataServerPort'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_55DAD44D036F DataServerPort
+
+: ME_5507D9B100F7_ME_55DAD42802B1
+ CONST UID '5507D9B100F7'
+ CONST Name 'ProviderKey'
+ : Original WL 'ME_5507D9B100F7' '5432518A0316.pas.ms.script' // ProviderKey
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_5507D9B100F7_ME_55DAD42802B1 ProviderKey
+
+: ME_55095596033F_ME_55DAD42802B1
+ CONST UID '55095596033F'
+ CONST Name 'InitStorage'
+ : Original WL 'ME_55095596033F' '5432518A0316.pas.ms.script' // InitStorage
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ref; // ME_55095596033F_ME_55DAD42802B1 InitStorage
+
+: ME_550963930391_ME_55DAD42802B1
+ CONST UID '550963930391'
+ CONST Name 'Login'
+ : Original WL 'ME_550963930391' '5432518A0316.pas.ms.script' // Login
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963930391_ME_55DAD42802B1 Login
+
+: ME_550963A60121_ME_55DAD42802B1
+ CONST UID '550963A60121'
+ CONST Name 'Password'
+ : Original WL 'ME_550963A60121' '5432518A0316.pas.ms.script' // Password
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963A60121_ME_55DAD42802B1 Password
+
+: ME_550963BC00B0_ME_55DAD42802B1
+ CONST UID '550963BC00B0'
+ CONST Name 'DocStoragePath'
+ : Original WL 'ME_550963BC00B0' '5432518A0316.pas.ms.script' // DocStoragePath
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963BC00B0_ME_55DAD42802B1 DocStoragePath
+
+: ME_550963CF0092_ME_55DAD42802B1
+ CONST UID '550963CF0092'
+ CONST Name 'DocImagePath'
+ : Original WL 'ME_550963CF0092' '5432518A0316.pas.ms.script' // DocImagePath
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963CF0092_ME_55DAD42802B1 DocImagePath
+
+: ME_550963EB02F8_ME_55DAD42802B1
+ CONST UID '550963EB02F8'
+ CONST Name 'HomeDirPath'
+ : Original WL 'ME_550963EB02F8' '5432518A0316.pas.ms.script' // HomeDirPath
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ CONST "pm" false
+ref; // ME_550963EB02F8_ME_55DAD42802B1 HomeDirPath
+
+: ME_5515121F0358_ME_55DAD42802B1
+ CONST UID '5515121F0358'
+ CONST Name 'OuterConfigEdit'
+ : Original WL 'ME_5515121F0358' '5432518A0316.pas.ms.script' // OuterConfigEdit
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ref; // ME_5515121F0358_ME_55DAD42802B1 OuterConfigEdit
+
+: ME_551512370064_ME_55DAD42802B1
+ CONST UID '551512370064'
+ CONST Name 'BuildConfig'
+ : Original WL 'ME_551512370064' '5432518A0316.pas.ms.script' // BuildConfig
+ ;
+ : Implementor ME_55DAD42802B1 // IpgParamsStorage
+ ;
+ CONST "force overload" true
+ref; // ME_551512370064_ME_55DAD42802B1 BuildConfig
+
+: ME_55DAD42802B1
+ CONST UID '55DAD42802B1'
+ CONST GUID '6C19DDA2-B6B6-4D74-B18D-DA7D80F4BEC5'
+ CONST Name 'IpgParamsStorage'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DAD4150001 // pgInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DAD43B00AF // DataServerHostName
+ ME_55DAD44D036F // DataServerPort
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_5507D9B100F7_ME_55DAD42802B1 // ProviderKey
+ ME_55095596033F_ME_55DAD42802B1 // InitStorage
+ ME_550963930391_ME_55DAD42802B1 // Login
+ ME_550963A60121_ME_55DAD42802B1 // Password
+ ME_550963BC00B0_ME_55DAD42802B1 // DocStoragePath
+ ME_550963CF0092_ME_55DAD42802B1 // DocImagePath
+ ME_550963EB02F8_ME_55DAD42802B1 // HomeDirPath
+ ME_5515121F0358_ME_55DAD42802B1 // OuterConfigEdit
+ ME_551512370064_ME_55DAD42802B1 // BuildConfig
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_55DAD42802B1 IpgParamsStorage
+
+FORWARD ME_55E41C6E00E2
+
+: ME_562765090263
+ CONST UID '562765090263'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_562765090263 aData
+
+: ME_5627650001E5
+ CONST UID '5627650001E5'
+ CONST Name 'ToInteger'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_562765090263 // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5627650001E5 ToInteger
+
+: ME_562765190268
+ CONST UID '562765190268'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_562765190268 aData
+
+: ME_56276513038B
+ CONST UID '56276513038B'
+ CONST Name 'ToLargeInt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ : Target WL 'ME_559390220212' '5432448401BC.pas.ms.script' // LargeInt
+ ;
+ : Parameters
+   @ ( ME_562765190268 // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_56276513038B ToLargeInt
+
+: ME_56276527035B
+ CONST UID '56276527035B'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_56276527035B aData
+
+: ME_56276521027B
+ CONST UID '56276521027B'
+ CONST Name 'ToStDate'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
+ ;
+ : Parameters
+   @ ( ME_56276527035B // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_56276521027B ToStDate
+
+: ME_56276537039F
+ CONST UID '56276537039F'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_56276537039F aData
+
+: ME_562765320349
+ CONST UID '562765320349'
+ CONST Name 'ToStTime'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ : Target WL 'ME_5593952A0301' '47D0290B016D.pas.ms.script' // TStTime
+ ;
+ : Parameters
+   @ ( ME_56276537039F // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_562765320349 ToStTime
+
+: ME_56276547024D
+ CONST UID '56276547024D'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_56276547024D aData
+
+: ME_5627654202D2
+ CONST UID '5627654202D2'
+ CONST Name 'ToString'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_56276547024D // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5627654202D2 ToString
+
+: ME_562E12A4001E
+ CONST UID '562E12A4001E'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_562E12A4001E aData
+
+: ME_562E129A00BB
+ CONST UID '562E129A00BB'
+ CONST Name 'ToByte'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ;
+ : Parameters
+   @ ( ME_562E12A4001E // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_562E129A00BB ToByte
+
+: ME_555995210007_ME_55E41C6E00E2
+ CONST UID '555995210007'
+ CONST Name 'AllocateParamBuffer'
+ : Original WL 'ME_555995210007' '5432518A0316.pas.ms.script' // AllocateParamBuffer
+ ;
+ : Implementor ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ref; // ME_555995210007_ME_55E41C6E00E2 AllocateParamBuffer
+
+: ME_5559955500DF_ME_55E41C6E00E2
+ CONST UID '5559955500DF'
+ CONST Name 'ParamToDataBase'
+ : Original WL 'ME_5559955500DF' '5432518A0316.pas.ms.script' // ParamToDataBase
+ ;
+ : Implementor ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ref; // ME_5559955500DF_ME_55E41C6E00E2 ParamToDataBase
+
+: ME_55599596005B_ME_55E41C6E00E2
+ CONST UID '55599596005B'
+ CONST Name 'ParamFromDataBase'
+ : Original WL 'ME_55599596005B' '5432518A0316.pas.ms.script' // ParamFromDataBase
+ ;
+ : Implementor ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ref; // ME_55599596005B_ME_55E41C6E00E2 ParamFromDataBase
+
+: ME_5559D14D02D1_ME_55E41C6E00E2
+ CONST UID '5559D14D02D1'
+ CONST Name 'FreeParamBuffer'
+ : Original WL 'ME_5559D14D02D1' '5432518A0316.pas.ms.script' // FreeParamBuffer
+ ;
+ : Implementor ME_55E41C6E00E2 // IpgDataConverter
+ ;
+ref; // ME_5559D14D02D1_ME_55E41C6E00E2 FreeParamBuffer
+
+: ME_55E41C6E00E2
+ CONST UID '55E41C6E00E2'
+ CONST GUID 'E5C309A7-632D-4345-92DF-9CA08F824EA7'
+ CONST Name 'IpgDataConverter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DAD4150001 // pgInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_5627650001E5 // ToInteger
+ ME_56276513038B // ToLargeInt
+ ME_56276521027B // ToStDate
+ ME_562765320349 // ToStTime
+ ME_5627654202D2 // ToString
+ ME_562E129A00BB // ToByte
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_555995210007_ME_55E41C6E00E2 // AllocateParamBuffer
+ ME_5559955500DF_ME_55E41C6E00E2 // ParamToDataBase
+ ME_55599596005B_ME_55E41C6E00E2 // ParamFromDataBase
+ ME_5559D14D02D1_ME_55E41C6E00E2 // FreeParamBuffer
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_55E41C6E00E2 IpgDataConverter
+
+: ME_55F6B3BF01F9
+ CONST UID '55F6B3BF01F9'
+ CONST Name 'EPgError'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DAD4150001 // pgInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_55F6B3BF01F9 EPgError
+
+FORWARD ME_562F3A6203BD
+
+: ME_562F3A7302D7
+ CONST UID '562F3A7302D7'
+ CONST Name 'c_DefaultPostgresPort'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562F3A6203BD // Defaults
+ ;
+ CONST Value 5432
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_562F3A7302D7 c_DefaultPostgresPort
+
+: ME_562F3A6203BD
+ CONST UID '562F3A6203BD'
+ CONST Name 'Defaults'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DAD4150001 // pgInterfaces
+ ;
+ : Attributes
+   @ ( ME_562F3A7302D7 // c_DefaultPostgresPort
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_562F3A6203BD Defaults
+
+: ME_565D8E820009
+ CONST UID '565D8E820009'
+ CONST Name 'EpgLockError'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DAD4150001 // pgInterfaces
+ ;
+ : Inherits
+   @ ( ME_55F6B3BF01F9 // EPgError
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_565D8E820009 EpgLockError
+
+: ME_55DAD4150001
+ CONST UID '55DAD4150001'
+ CONST Name 'pgInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_543388FB0261' '543388FB0261.pas.ms.script' // PG
+ ;
+ : Children
+   @ ( ME_55DAD42802B1 // IpgParamsStorage
+ ME_55E41C6E00E2 // IpgDataConverter
+ ME_55F6B3BF01F9 // EPgError
+ ME_565D8E820009 // EpgLockError
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_562F3A6203BD // Defaults
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
+ WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\PG\pgInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55DAD4150001.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55DAD4150001.pas.ms.script.runner'
+
+ref; // ME_55DAD4150001 pgInterfaces

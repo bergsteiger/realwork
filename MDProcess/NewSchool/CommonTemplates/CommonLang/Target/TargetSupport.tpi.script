@@ -1,0 +1,2732 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/TargetSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::TargetSupport
+//
+// вспомогательный функция для генерации целей сборки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерит определения фабрик для рутового интерфейса DLL
+// язык - pas
+//f _spec_root_factory_method
+: spec_root_factory_method OBJECT IN %S
+//#UC START# *4715BACB01F4*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}		procedure %f_to_borland(%CN)%f_to_borland(%SN) (
+ if ( ( %S |M ) %== 'Interface::Class' AND 
+   ( ( %S |a ) %!= 'abstract'  ) ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+   begin
+    '		procedure '
+    [%f] to_borland %( %C |N )% [%f] to_borland %( %S |N )% ' ('
+//				[%f_inc_operation_params(%C);
+    '			'
+    if NOT-EMPTY
+    begin
+     [%f] inc_operation_params %( %C )% ';'
+//				][{"%CS"="multi factory"&%C{transparent multy}=false}const aKey: PAnsiChar;
+     '			' 
+    end // if
+    NOP
+    if ( ( %C |S ) %== 'multi factory' AND 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+    begin
+     'const aKey: PAnsiChar;'
+//				]%t_arg(%S,"out")
+     '			' 
+    end // if
+    [%t] arg %( %S %, 'out' )% 
+//			); stdcall; overload;
+    '		); stdcall; overload;'
+//	
+    #13#10
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}		procedure %f_to_borland(%CN)%f_to_borland(%{INT}N) (
+
+    ++! l_Counter
+   end // if
+  end // for C
+  [%f] set_var %( 'INT' %, 'S' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%gn
+  begin
+   OBJECT IN %g
+   if ( ( %g |a ) %== 'abstract' ) then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%Cn
+     begin
+      OBJECT IN %C
+      if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+      begin
+       '		procedure '
+       [%f] to_borland %( %C |N )% [%f] to_borland %( ( get_global_var ( 'INT' ) |N ) )% ' ('
+//				[%f_inc_operation_params(%C);
+       '			'
+       if NOT-EMPTY
+       begin
+        [%f] inc_operation_params %( %C )% ';'
+//				][{"%CS"="multi factory"&%C{transparent multy}=false}const aKey: PAnsiChar;
+        '			' 
+       end // if
+       NOP
+       if ( ( %C |S ) %== 'multi factory' AND 
+         ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+       begin
+        'const aKey: PAnsiChar;'
+//				]%t_arg(%{INT},"out")
+        '			' 
+       end // if
+       [%t] arg %( ( get_global_var ( 'INT' ) ) %, 'out' )% 
+//			); stdcall; overload;
+       '		); stdcall; overload;'
+//	
+       #13#10
+
+//	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}		procedure Make%f_to_borland(%SN) (%t_arg(%S,"out")); stdcall;
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+ end // if
+ if ( ( [%t] is_container %( %S )% ) %==  true AND 
+   ( ( [%t] tied_elem %( %S )% ) %==  true  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P %?f IsInterfaces %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for P
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  '		procedure Make'
+  [%f] to_borland %( %S |N )% ' ('
+  [%t] arg %( %S %, 'out' )% '); stdcall;'
+//	
+  #13#10
+
+//	]
+ end // if
+//#UC END# *4715BACB01F4*
+; // spec_root_factory_method
+
+
+// генерит определения фабрик доступных в DLL
+// язык - pas
+//f _spec_dll_factory_method
+: spec_dll_factory_method OBJECT IN %S
+//#UC START# *4715BAD9003E*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}		function %f_to_borland(%CN)%f_to_borland(%SN) ([
+ if ( ( %S |M ) %== 'Interface::Class' AND 
+   ( ( %S |a ) %!= 'abstract'  ) ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+   begin
+    '		function '
+    [%f] to_borland %( %C |N )% [%f] to_borland %( %S |N )% ' ('
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//				%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+     '			'
+     [%f] inc_operation_params %( %C )% 
+    end // if
+    NOP
+    if ( ( %C |S ) %== 'multi factory' AND 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+    begin
+     if ( ( %C ->C |x  ) %== true ) then
+     begin
+      ';' 
+     end // if
+//				const aKey: PAnsiChar]
+     '			const aKey: PAnsiChar' 
+    end // if
+//			) : %f_type(%S); overload;
+    '		) : '
+    [%f] type %( %S )% '; overload;'
+//	
+    #13#10
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}		function %f_to_borland(%CN)%f_to_borland(%{INT}N) ([
+
+    ++! l_Counter
+   end // if
+  end // for C
+  [%f] set_var %( 'INT' %, 'S' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%gn
+  begin
+   OBJECT IN %g
+   if ( ( %g |a ) %== 'abstract' ) then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%Cn
+     begin
+      OBJECT IN %C
+      if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+      begin
+       '		function '
+       [%f] to_borland %( %C |N )% [%f] to_borland %( ( get_global_var ( 'INT' ) |N ) )% ' ('
+       if NOT-EMPTY
+       begin
+        #13#10
+
+//				%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+        '			'
+        [%f] inc_operation_params %( %C )% 
+       end // if
+       NOP
+       if ( ( %C |S ) %== 'multi factory' AND 
+         ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+       begin
+        if ( ( %C ->C |x  ) %== true ) then
+        begin
+         ';' 
+        end // if
+//				const aKey: PAnsiChar]
+        '			const aKey: PAnsiChar' 
+       end // if
+//			) : %f_type(%{INT}); overload;
+       '		) : '
+       [%f] type %( ( get_global_var ( 'INT' ) ) )% '; overload;'
+//	
+       #13#10
+
+//	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}		function Make%f_to_borland(%SN) () : %f_type(%S);
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+ end // if
+ if ( ( [%t] is_container %( %S )% ) %==  true AND 
+   ( ( [%t] tied_elem %( %S )% ) %==  true  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P %?f IsInterfaces %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for P
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  '		function Make'
+  [%f] to_borland %( %S |N )% ' () : '
+  [%f] type %( %S )% ';'
+//	
+  #13#10
+
+//	]
+ end // if
+//#UC END# *4715BAD9003E*
+; // spec_dll_factory_method
+
+
+// генерит реализацию фабричных методов доступных из DLL
+// язык - pas
+//f _spec_dll_factory_method_impl
+: spec_dll_factory_method_impl OBJECT IN %S
+//#UC START# *4715BAE002FD*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}	function T%{DLL}NDll.%f_to_borland(%CN)%f_to_borland(%SN) ([
+ if ( ( %S |M ) %== 'Interface::Class' AND 
+   ( ( %S |a ) %!= 'abstract'  ) ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+   begin
+    '	function T'
+    ( get_global_var ( 'DLL' ) |N ) 'Dll.'
+    [%f] to_borland %( %C |N )% [%f] to_borland %( %S |N )% ' ('
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//			%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+     '		'
+     [%f] inc_operation_params %( %C )% 
+    end // if
+    NOP
+    if ( ( %C |S ) %== 'multi factory' AND 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+    begin
+     if ( ( %C ->C |x  ) %== true ) then
+     begin
+      ';' 
+     end // if
+//			const aKey: PAnsiChar]
+     '		const aKey: PAnsiChar' 
+    end // if
+//		) : %f_type(%S);
+    '	) : '
+    [%f] type %( %S )% ';'
+//		var
+    '	var'
+//			aRes: %f_type(%S);
+    '		aRes: '
+    [%f] type %( %S )% ';'
+//		begin
+    '	begin'
+//			GetRoot().%f_to_borland(%CN)%f_to_borland(%SN)(%C<a%f_to_borland(%CN), >[{"%CS"="multi factory"&%C{transparent multy}=false}aKey, ]aRes);
+    '		GetRoot().'
+    [%f] to_borland %( %C |N )% [%f] to_borland %( %S |N )% '('
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       'a'
+       [%f] to_borland %( %C |N )% ', ' 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     if ( ( %C |S ) %== 'multi factory' AND 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+    begin
+     'aKey, ' 
+    end // if
+    'aRes);'
+//			Result := aRes;
+    '		Result := aRes;'
+//		end;
+    '	end;'
+//	
+    #13#10
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}%g<{}{"%f_need_to_export(%C)"="true"}	function T%{DLL}NDll.%f_to_borland(%CN)%f_to_borland(%{INT}N) ([
+
+    ++! l_Counter
+   end // if
+  end // for C
+  [%f] set_var %( 'INT' %, 'S' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if ( ( %g |a ) %== 'abstract' ) then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+      begin
+       '	function T'
+       ( get_global_var ( 'DLL' ) |N ) 'Dll.'
+       [%f] to_borland %( %C |N )% [%f] to_borland %( ( get_global_var ( 'INT' ) |N ) )% ' ('
+       if NOT-EMPTY
+       begin
+        #13#10
+
+//			%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+        '		'
+        [%f] inc_operation_params %( %C )% 
+       end // if
+       NOP
+       if ( ( %C |S ) %== 'multi factory' AND 
+         ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+       begin
+        if ( ( %C ->C |x  ) %== true ) then
+        begin
+         ';' 
+        end // if
+//			const aKey: PAnsiChar]
+        '		const aKey: PAnsiChar' 
+       end // if
+//		) : %f_type(%{INT});
+       '	) : '
+       [%f] type %( ( get_global_var ( 'INT' ) ) )% ';'
+//		var
+       '	var'
+//			aRes: %f_type(%{INT});
+       '		aRes: '
+       [%f] type %( ( get_global_var ( 'INT' ) ) )% ';'
+//		begin
+       '	begin'
+//			GetRoot().%f_to_borland(%CN)%f_to_borland(%{INT}N)(%C<a%f_to_borland(%CN), >[{"%CS"="multi factory"&%C{transparent multy}=false}aKey, ]aRes);
+       '		GetRoot().'
+       [%f] to_borland %( %C |N )% [%f] to_borland %( ( get_global_var ( 'INT' ) |N ) )% '('
+       %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if true then
+         begin
+          'a'
+          [%f] to_borland %( %C |N )% ', ' 
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+        if ( ( %C |S ) %== 'multi factory' AND 
+         ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+       begin
+        'aKey, ' 
+       end // if
+       'aRes);'
+//			Result := aRes;
+       '		Result := aRes;'
+//		end;
+       '	end;'
+//	
+       #13#10
+
+//	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}	function T%{DLL}NDll.Make%f_to_borland(%SN) () : %f_type(%S);
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+ end // if
+ if ( ( [%t] is_container %( %S )% ) %==  true AND 
+   ( ( [%t] tied_elem %( %S )% ) %==  true  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P %?f IsInterfaces %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for P
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  '	function T'
+  ( get_global_var ( 'DLL' ) |N ) 'Dll.Make'
+  [%f] to_borland %( %S |N )% ' () : '
+  [%f] type %( %S )% ';'
+//		var
+  '	var'
+//			aRes: %f_type(%S);
+  '		aRes: '
+  [%f] type %( %S )% ';'
+//		begin
+  '	begin'
+//			GetRoot().Make%f_to_borland(%SN)(aRes);
+  '		GetRoot().Make'
+  [%f] to_borland %( %S |N )% '(aRes);'
+//			Result := aRes;
+  '		Result := aRes;'
+//		end;
+  '	end;'
+//	
+  #13#10
+
+//	]
+ end // if
+//#UC END# *4715BAE002FD*
+; // spec_dll_factory_method_impl
+
+
+// перечисление параметров операций
+//f _inc_operation_params
+: inc_operation_params OBJECT IN %S
+//#UC START# *4715BAE90186*
+//	<{;\n\t\t\t}%f_arg_full_decl(%C)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ';'#13#10#9#9#9 )
+   [%f] arg_full_decl %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4715BAE90186*
+; // inc_operation_params
+
+
+// генерация фабричных методов для TIE-обёртки
+//f _spec_tie_factory_method
+: spec_tie_factory_method OBJECT IN %S
+//#UC START# *4715BAF003C8*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}	virtual void _stdcall %CN_%f_to_omg(%SN)_%CU ([{}{\n\t\t}%f_dll_cpp_params_h(%C)	, ][{"%CS"="multi factory"&%C{transparent multy}=false}const char* key\n\t\t, ]%f_type(%S)*& ret_
+ if ( ( %S |M ) %== 'Interface::Class' AND 
+   ( ( %S |a ) %!= 'abstract'  ) ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+   begin
+    '	virtual void _stdcall '
+    %C |N '_'
+    [%f] to_omg %( %S |N )% '_'
+    %C |U ' ('
+    if NOT-EMPTY
+    begin
+     [%f] dll_cpp_params_h %( %C )% '	, ' 
+    end // if
+    NOP
+    else
+    begin
+     #13#10#9#9 
+    end // else
+    if ( ( %C |S ) %== 'multi factory' AND 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+    begin
+     'const char* key'#13#10#9#9', ' 
+    end // if
+    [%f] type %( %S )% '*& ret_'
+//		) {
+    '	) {'
+//			_DLL_TRY
+    '		_DLL_TRY'
+//		%C<{}{"%f_need_tie(%C%T)"="true"}	%f_cpp_ret_holder(%C) %CN_ = 0;
+    '	'
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( [%f] need_tie %( %C ->T  )% ) %== true ) then
+      begin
+       '	'
+       [%f] cpp_ret_holder %( %C )% ' '
+       %C |N '_ = 0;'
+//			%f_type_tie(%C%T)::make_cpp(%CN, %CN_);
+       '		'
+       [%f] type_tie %( %C ->T  )% '::make_cpp('
+       %C |N ', '
+       %C |N '_);'
+//		>	%f_type_tie(%S)::make_tie ([{%Cs=cached|%Cs=const,cached}&]%f_with_gen_id(h,%f_type(%S))Factory::%CN(%C<{, }%CN[{%f_need_tie(%C%T)=true}_]>[{"%f_need_tie(%C%T)"="true"}_][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]), ret_[{%Cs=cached|%Cs=const,cached}, true /*addref*/]);
+       '	' 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     '	'
+    [%f] type_tie %( %S )% '::make_tie ('
+    if ( ( %C |s ) %== 'cached' OR 
+      ( ( %C |s ) %== 'const,cached'  ) ) then
+    begin
+     '&' 
+    end // if
+    [%f] with_gen_id %( 'h' %, [%f] type %( %S )% )% 'Factory::'
+    %C |N '('
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       %C |N if ( ( [%f] need_tie %( %C ->T  )% ) %==  true ) then
+       begin
+        '_' 
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     if ( ( [%f] need_tie %( %C ->T  )% ) %== true ) then
+    begin
+     '_' 
+    end // if
+    if ( ( %C |S ) %== 'multi factory' AND 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+    begin
+     if ( ( %C ->C |x  ) %== true ) then
+     begin
+      ', ' 
+     end // if
+     'key' 
+    end // if
+    '), ret_'
+    if ( ( %C |s ) %== 'cached' OR 
+      ( ( %C |s ) %== 'const,cached'  ) ) then
+    begin
+     ', true /*addref*/' 
+    end // if
+    ');'
+//			_DLL_CATCH
+    '		_DLL_CATCH'
+//		}
+    '	}'
+//	
+    #13#10
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}	virtual void _stdcall %CN_%f_to_omg(%{INT}N)_%CU ([{}{\n\t\t}%f_dll_cpp_params_h(%C)	, ][{"%CS"="multi factory"&%C{transparent multy}=false}const char* key\n\t\t, ]%f_type(%{INT})*& ret_
+
+    ++! l_Counter
+   end // if
+  end // for C
+  [%f] set_var %( 'INT' %, 'S' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%gn
+  begin
+   OBJECT IN %g
+   if ( ( %g |a ) %== 'abstract' ) then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%Cn
+     begin
+      OBJECT IN %C
+      if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+      begin
+       '	virtual void _stdcall '
+       %C |N '_'
+       [%f] to_omg %( ( get_global_var ( 'INT' ) |N ) )% '_'
+       %C |U ' ('
+       if NOT-EMPTY
+       begin
+        [%f] dll_cpp_params_h %( %C )% '	, ' 
+       end // if
+       NOP
+       else
+       begin
+        #13#10#9#9 
+       end // else
+       if ( ( %C |S ) %== 'multi factory' AND 
+         ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+       begin
+        'const char* key'#13#10#9#9', ' 
+       end // if
+       [%f] type %( ( get_global_var ( 'INT' ) ) )% '*& ret_'
+//		) {
+       '	) {'
+//			_DLL_TRY
+       '		_DLL_TRY'
+//		%C<{}{"%f_need_tie(%C%T)"="true"}	%f_cpp_ret_holder(%C) %CN_ = 0;
+       '	'
+       %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( [%f] need_tie %( %C ->T  )% ) %== true ) then
+         begin
+          '	'
+          [%f] cpp_ret_holder %( %C )% ' '
+          %C |N '_ = 0;'
+//			%f_type_tie(%C%T)::make_cpp(%CN, %CN_);
+          '		'
+          [%f] type_tie %( %C ->T  )% '::make_cpp('
+          %C |N ', '
+          %C |N '_);'
+//		>	%f_type_tie(%{INT})::make_tie ([{%Cs=cached|%Cs=const,cached}&]%f_with_gen_id(h,%f_type(%{INT}))Factory::%CN(%C<{, }%CN[{"%f_need_tie(%C%T)"="true"}_]>[{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]), ret_[{%Cs=cached|%Cs=const,cached}, true /*addref*/]);
+          '	' 
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+        '	'
+       [%f] type_tie %( ( get_global_var ( 'INT' ) ) )% '::make_tie ('
+       if ( ( %C |s ) %== 'cached' OR 
+         ( ( %C |s ) %== 'const,cached'  ) ) then
+       begin
+        '&' 
+       end // if
+       [%f] with_gen_id %( 'h' %, [%f] type %( ( get_global_var ( 'INT' ) ) )% )% 'Factory::'
+       %C |N '('
+       %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if true then
+         begin
+          if ( l_Counter >0 ) then ( ', ' )
+          %C |N if ( ( [%f] need_tie %( %C ->T  )% ) %== true ) then
+          begin
+           '_' 
+          end // if
+
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+        if ( ( %C |S ) %== 'multi factory' AND 
+         ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+       begin
+        if ( ( %C ->C |x  ) %== true ) then
+        begin
+         ', ' 
+        end // if
+        'key' 
+       end // if
+       '), ret_'
+       if ( ( %C |s ) %== 'cached' OR 
+         ( ( %C |s ) %== 'const,cached'  ) ) then
+       begin
+        ', true /*addref*/' 
+       end // if
+       ');'
+//			_DLL_CATCH
+       '		_DLL_CATCH'
+//		}
+       '	}'
+//	
+       #13#10
+
+//	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}	virtual void _stdcall make_%f_to_omg(%SN)_%SU (%f_type(%S)*& ret_) {
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+ end // if
+ if ( ( [%t] is_container %( %S )% ) %==  true AND 
+   ( ( [%t] tied_elem %( %S )% ) %==  true  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P %?f IsInterfaces %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for P
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  '	virtual void _stdcall make_'
+  [%f] to_omg %( %S |N )% '_'
+  %S |U ' ('
+  [%f] type %( %S )% '*& ret_) {'
+//			_DLL_TRY
+  '		_DLL_TRY'
+//			%f_type_tie(%S)::new_tie (new %f_with_gen_id(h,%f_type(%S)) (), ret_);
+  '		'
+  [%f] type_tie %( %S )% '::new_tie (new '
+  [%f] with_gen_id %( 'h' %, [%f] type %( %S )% )% ' (), ret_);'
+//			_DLL_CATCH
+  '		_DLL_CATCH'
+//		}
+  '	}'
+//	
+  #13#10
+
+//	]
+ end // if
+//#UC END# *4715BAF003C8*
+; // spec_tie_factory_method
+
+
+// генерация фабричных методов доступных из библиотеки
+// язык - c++
+//f _spec_factory_method
+: spec_factory_method OBJECT IN %S
+//#UC START# *4715BAF802BF*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}	virtual %f_with_gen_id(h,%t_ret(%S,"%Cs")) %CN_%f_to_omg(%SN) (%f_dll_cpp_params_h(%C)[{"%CS"="multi factory"&%C{transparent multy}=false}[{%C%Cx=true}	, ]const char* key[{%C%Cx=true}\t\t]]
+ if ( ( %S |M ) %== 'Interface::Class' AND 
+   ( ( %S |a ) %!= 'abstract'  ) ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+   begin
+    '	virtual '
+    [%f] with_gen_id %( 'h' %, [%t] ret %( %S %, %C |s )% )% ' '
+    %C |N '_'
+    [%f] to_omg %( %S |N )% ' ('
+    [%f] dll_cpp_params_h %( %C )% if ( ( %C |S ) %== 'multi factory' AND 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+    begin
+     if ( ( %C ->C |x  ) %==  true ) then
+     begin
+      '	, ' 
+     end // if
+     'const char* key'
+     if ( ( %C ->C |x  ) %==  true ) then
+     begin
+      #9#9 
+     end // if
+    end // if
+//		) {
+    '	) {'
+//			return %f_with_gen_id(h,%f_type(%S))Factory::%CN(%C<{, }%CN>[{"%f_need_tie(%C%T)"="true"}_][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]);
+    '		return '
+    [%f] with_gen_id %( 'h' %, [%f] type %( %S )% )% 'Factory::'
+    %C |N '('
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       %C |N 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     if ( ( [%f] need_tie %( %C ->T  )% ) %== true ) then
+    begin
+     '_' 
+    end // if
+    if ( ( %C |S ) %== 'multi factory' AND 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+    begin
+     if ( ( %C ->C |x  ) %== true ) then
+     begin
+      ', ' 
+     end // if
+     'key' 
+    end // if
+    ');'
+//		}
+    '	}'
+//	
+    #13#10
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}%g<{}{"%f_need_to_export(%C)"="true"}	virtual %f_with_gen_id(h,%t_ret(%{INT},"%Cs")) %CN_%f_to_omg(%{INT}N) (%f_dll_cpp_params_h(%C)[{"%CS"="multi factory"&%C{transparent multy}=false}[{%C%Cx=true}	, ]const char* key[{%C%Cx=true}\t\t]]
+
+    ++! l_Counter
+   end // if
+  end // for C
+  [%f] set_var %( 'INT' %, 'S' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if ( ( %g |a ) %== 'abstract' ) then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( [%f] need_to_export %( %C )% ) %== true ) then
+      begin
+       '	virtual '
+       [%f] with_gen_id %( 'h' %, [%t] ret %( ( get_global_var ( 'INT' ) ) %, %C |s )% )% ' '
+       %C |N '_'
+       [%f] to_omg %( ( get_global_var ( 'INT' ) |N ) )% ' ('
+       [%f] dll_cpp_params_h %( %C )% if ( ( %C |S ) %== 'multi factory' AND 
+         ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+       begin
+        if ( ( %C ->C |x  ) %==  true ) then
+        begin
+         '	, ' 
+        end // if
+        'const char* key'
+        if ( ( %C ->C |x  ) %==  true ) then
+        begin
+         #9#9 
+        end // if
+       end // if
+//		) {
+       '	) {'
+//			return %f_with_gen_id(h,%f_type(%{INT}))Factory::%CN(%C<{, }%CN[{"%f_need_tie(%C%T)"="true"}_]>[{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]);
+       '		return '
+       [%f] with_gen_id %( 'h' %, [%f] type %( ( get_global_var ( 'INT' ) ) )% )% 'Factory::'
+       %C |N '('
+       %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if true then
+         begin
+          if ( l_Counter >0 ) then ( ', ' )
+          %C |N if ( ( [%f] need_tie %( %C ->T  )% ) %== true ) then
+          begin
+           '_' 
+          end // if
+
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+        if ( ( %C |S ) %== 'multi factory' AND 
+         ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) then
+       begin
+        if ( ( %C ->C |x  ) %== true ) then
+        begin
+         ', ' 
+        end // if
+        'key' 
+       end // if
+       ');'
+//		}
+       '	}'
+//	
+       #13#10
+
+//	>>]
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+ end // if
+//#UC END# *4715BAF802BF*
+; // spec_factory_method
+
+
+// определяет можно ли экспортить фабрику из DLL
+// возвращает true ли false
+//f _need_to_export
+: need_to_export OBJECT IN %S
+//#UC START# *4715BAFF031C*
+//	[{"%f_is_factory(%S)"="true"&"%SV"="PublicAccess"&"%S{dll export}"="true"}{false}true]
+ if ( ( [%f] is_factory %( %S )% ) %== true AND 
+   ( ( %S |V ) %== 'PublicAccess'  ) AND 
+   ( ( %S get_up ( 'dll export' ) ) %== true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _interface_need_export
+; // need_to_export
+
+: interface_need_export OBJECT IN %S
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"&%f_has_exported_child(%S)=true}{false}true]
+ if ( ( %S |M ) %== 'Interface::Class' AND 
+   ( ( %S |a ) %!= 'abstract'  ) AND 
+   ( ( [%f] has_exported_child %( %S )% ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _has_exported_child
+; // interface_need_export
+
+: has_exported_child OBJECT IN %S
+//	[{<{}{%f_need_to_export(%C)=true}{C}>!=0|<{}{%ga=abstract&%g<{}{%f_need_to_export(%C)=true}{C}>!=0}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_to_export %( %C )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if ( ( %g |a ) %== 'abstract' AND 
+    ( ( %g
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( [%f] need_to_export %( %C )% ) %==  true ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+ )    %!= 0  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for g
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4715BAFF031C*
+; // has_exported_child
+
+
+// определяет содержит ли элемент или его дети (рекурсивно) или пакеты, от которых он завсит
+// исключения
+// возвращает true или false
+//f _has_exception
+: has_exception OBJECT IN %S
+//#UC START# *4715BB0B0203*
+//	[{"<{}{"%AM"="Exception::Class"}{C}>"="0"&"<{}{"%d<{}{"%AM"="Exception::Class"}{%AC}>"!="0"}{%dC}>>"="0"}{true}false]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'Exception::Class' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %== 0 AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if ( ( %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'Exception::Class' ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for A
+    l_Counter
+
+   ) // bind
+ )    %!= 0 ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for d
+  l_Counter
+ )   '>' %== 0 ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *4715BB0B0203*
+; // has_exception
+
+
+// проверяет, что COM-таргет не зависит от пакетов, содержащих больше одного пакета COM-интерфейсов
+// (ComInterfaces::Category)
+//f _com_constraint
+: com_constraint OBJECT IN %S
+//#UC START# *4715C7FC0222*
+//	%f_set_var(COM_INTERFACE_COUNT,"%f_count_com_interface(%S)")[{"%{COM_INTERFACE_COUNT}N"=""|"%{COM_INTERFACE_COUNT}N"="."}{false}true]
+ [%f] set_var %( 'COM_INTERFACE_COUNT' %, [%f] count_com_interface %( %S )% )% if ( ( ( get_global_var ( 'COM_INTERFACE_COUNT' ) |N ) ) %== '' OR 
+   ( ( ( get_global_var ( 'COM_INTERFACE_COUNT' ) |N ) ) %== '.'  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4715C7FC0222*
+; // com_constraint
+
+
+// возвращает пустую строчку, если не найдено ни одного COM- интерфейса в элементых, от которых
+// зависит цель, в противном случае возвращает не пустую строчку
+//f _count_com_interface
+: count_com_interface OBJECT IN %S
+//#UC START# *4715C8090203*
+//	[<{}{%de=false}{%d}%d<{}{%AM=ComInterfaces::Category}.>>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if ( ( %d |e ) %==  false ) then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'ComInterfaces::Category' ) then
+      begin
+       '.' 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+ end // if
+ NOP
+//#UC END# *4715C8090203*
+; // count_com_interface
+
+
+// возвращает true, если используется memory пул, иначе false
+//f _use_mem_pool
+: use_mem_pool OBJECT IN %S
+//#UC START# *4718989C01C5*
+//	[{"<{}{"%A{Servant Pool}"="mem"}{%AC}>"!="0"}{[{"<{}{"%DM"="Library::Category"&"%f_use_mem_pool(%D)"="true"}{%DC}>"!="0"}{false}true]}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A get_up ( 'Servant Pool' ) ) %== 'mem' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %D |M ) %== 'Library::Category' AND 
+     ( ( [%f] use_mem_pool %( %D )% ) %== true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for D
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // else
+//#UC END# *4718989C01C5*
+; // use_mem_pool
+
+
+// возвращает true, если используется пул объектов, иначе false
+//f _use_obj_pool
+: use_obj_pool OBJECT IN %S
+//#UC START# *471898A4001F*
+//	[{"<{}{"%A{Servant Pool}"="obj"}{%AC}>"!="0"}{[{"<{}{"%DM"="Library::Category"&"%f_use_obj_pool(%D)"="true"}{%DC}>"!="0"}{false}true]}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A get_up ( 'Servant Pool' ) ) %== 'obj' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %D |M ) %== 'Library::Category' AND 
+     ( ( [%f] use_obj_pool %( %D )% ) %== true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for D
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // else
+//#UC END# *471898A4001F*
+; // use_obj_pool
+
+
+// генерация зависимостей для компиляции idl
+//f _dump_dep_for_idlcomp
+: dump_dep_for_idlcomp OBJECT IN %S
+//#UC START# *475789C20359*
+//	<{\n}{%de=false&%dS=ServerLibrary&%d<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="idlcomp" inheritAll="false"/\>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if ( ( %d |e ) %==  false AND 
+   ( ( %d |S ) %== 'ServerLibrary'  ) AND 
+   ( ( %d
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( [%f] need_mpc_idl %( %C )% ) %==  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+
+  ) // bind
+ )   %!= 0  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+   '		<ant antfile="'
+   [%f] str_replace %( %d |o %, %d |R %, '${env.JAVA_SOURCE_ROOT}' )% ' target="idlcomp" inheritAll=false />' 
+   ++! l_Counter
+  end // if
+ end // for d
+
+//f _dump_dep_for_gcomp
+; // dump_dep_for_idlcomp
+
+: dump_dep_for_gcomp OBJECT IN %S
+//	<{\n}{%d<{}{%AM=Grammar::Class}{C}>!=0}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="gcomp" inheritAll="false"/\>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if ( ( %d
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |M ) %== 'Grammar::Class' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for A
+   l_Counter
+
+  ) // bind
+ )   %!= 0 ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+   '		<ant antfile="'
+   [%f] str_replace %( %d |o %, %d |R %, '${env.JAVA_SOURCE_ROOT}' )% ' target="gcomp" inheritAll=false />' 
+   ++! l_Counter
+  end // if
+ end // for d
+//#UC END# *475789C20359*
+; // dump_dep_for_gcomp
+
+
+// генерит зависимости для сборки jar'ов
+//f _dump_dep_for_makejar
+: dump_dep_for_makejar OBJECT IN %S
+//#UC START# *475789CC0108*
+//	<{\n}{%de=false&%dS!=Requirements&%dS!=KCustomize}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="makejar" inheritAll="false"/\>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if ( ( %d |e ) %==  false AND 
+   ( ( %d |S ) %!= 'Requirements'  ) AND 
+   ( ( %d |S ) %!= 'KCustomize'  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+   '		<ant antfile="'
+   [%f] str_replace %( %d |o %, %d |R %, '${env.JAVA_SOURCE_ROOT}' )% ' target="makejar" inheritAll=false />' 
+   ++! l_Counter
+  end // if
+ end // for d
+//#UC END# *475789CC0108*
+; // dump_dep_for_makejar
+
+
+// поверяет, что параметр уже присутсвует в другом контэйнере
+//f _check_duplicate_params
+: check_duplicate_params OBJECT IN %S
+//#UC START# *48BF989E018B*
+//	%f_set_var(IS_EXIST_DUPLICATE,"false")\
+ [%f] set_var %( 'IS_EXIST_DUPLICATE' %, false )% 
+//	[{"%1N"="LIB"}{[{"%1N"="TARGET"}<{}{"%AM"="Settings::Class"}{%A}%A<{}{}{%C}%f_add_to_list(CONTROL_LIST,"%f_to_upper("%CN")") >>]}<{}{"%dM"="Library::Category"|"%dM"="ServerLibrary::Category"}{%d}%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{}{%C}%f_add_to_list(CONTROL_LIST,"%f_to_upper("%CN")") >>>]\
+ if ( ( %1 |N ) %== 'LIB' ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if ( ( %d |M ) %== 'Library::Category' OR 
+    ( ( %d |M ) %== 'ServerLibrary::Category'  ) ) then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Settings::Class' ) then
+      begin
+       %A
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if true then
+         begin
+          [%f] add_to_list %( 'CONTROL_LIST' %, [%f] to_upper %( %C |N )% )% ' ' 
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+ end // if
+ else
+ begin
+  if ( ( %1 |N ) %== 'TARGET' ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |M ) %== 'Settings::Class' ) then
+    begin
+     %A
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if true then
+       begin
+        [%f] add_to_list %( 'CONTROL_LIST' %, [%f] to_upper %( %C |N )% )% ' ' 
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for A
+  end // if
+ end // else
+//	<{}{"%f_is_empty(CONTROL_LIST)"="false"&"%{IS_EXIST_DUPLICATE}N"="false"}{W}[%f_pop_first_to_var(CONTROL_LIST,EL)[{"%f_exists_in_list(CONTROL_LIST,"%{EL}N")"="true"}%{EL}N%f_set_var(IS_EXIST_DUPLICATE,"true")]]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'CONTROL_LIST' )% ) %== false AND 
+   ( ( ( get_global_var ( 'IS_EXIST_DUPLICATE' ) |N ) ) %== false  ) ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'CONTROL_LIST' %, 'EL' )% if ( ( [%f] exists_in_list %( 'CONTROL_LIST' %, ( get_global_var ( 'EL' ) |N ) )% ) %== true ) then
+    begin
+     ( get_global_var ( 'EL' ) |N ) [%f] set_var %( 'IS_EXIST_DUPLICATE' %, true )% 
+    end // if
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_clear_list(CONTROL_LIST)
+ [%f] clear_list %( 'CONTROL_LIST' )% 
+//#UC END# *48BF989E018B*
+; // check_duplicate_params
+
+
+// проверяет правильность использования контэйнера настроек
+//f _check_settings_existance
+: check_settings_existance OBJECT IN %S
+//#UC START# *48BF9E6F00F1*
+//	<{}{"%AM"="Settings::Class"}{%A}%AN>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Settings::Class' ) then
+  begin
+   %A |N 
+   ++! l_Counter
+  end // if
+ end // for A
+//#UC END# *48BF9E6F00F1*
+; // check_settings_existance
+
+
+// генерит документацию по параметрам используемым в таргете
+//f _config_docs
+: config_docs OBJECT IN %S
+//#UC START# *48BFA2F6034B*
+//	%f_set_var(IS_HEADER_EXIST,"false")[{"%SM"="AdapterTargetUnion::Category"}{\
+ [%f] set_var %( 'IS_HEADER_EXIST' %, false )% if ( ( %S |M ) %== 'AdapterTargetUnion::Category' ) then
+ begin
+  [%f] set_var %( 'LIB_ATTR_EXISTANCE' %, false )% [%f] set_var %( 'TAR_ATTR_EXISTANCE' %, false )% 
+//	<{}{"%dM"="AdapterTarget::Category"}{%d}%d[{<{}{%DS=ServerLibrary}{C}>!=0}%f_set_var(DIRECT_SL,"true")]%d[{<{}{%DS=ServerLibrary}{C}>=0&<{}{%dS=ServerLibrary}{C}>!=0}%f_set_var(INDIRECT_SL,"true")]%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(TAR_ATTR_EXISTANCE,"true")>>%d<{}{"%dM"="Library::Category"|"%dM"="ServerLibrary::Category"&%f_exists_in_list(SL_LIST,"%dU")=false}{%d}%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(LIB_ATTR_EXISTANCE,"true")>>>[{"%{LIB_ATTR_EXISTANCE}N"="true"|"%{TAR_ATTR_EXISTANCE}N"="true"|"%{DIRECT_SL}N"="true"|"%{INDIRECT_SL}N"="true"}%f_add_to_list(TARGETS_DEPEN,d)%f_set_var(TAR_ATTR_EXISTANCE,"false")%f_set_var(LIB_ATTR_EXISTANCE,"false")%f_set_var(DIRECT_SL,"false")%f_set_var(INDIRECT_SL,"false")]>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if ( ( %d |M ) %== 'AdapterTarget::Category' ) then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     if ( 
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%D
+      begin
+       OBJECT IN %D
+       if ( ( %D |S ) %== 'ServerLibrary' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for D
+      l_Counter
+      %!= 0 ) then
+     begin
+      [%f] set_var %( 'DIRECT_SL' %, true )% 
+     end // if
+
+    ) // bind
+     %d
+    bind ( 
+     OBJECT VAR %S
+     if ( 
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%D
+      begin
+       OBJECT IN %D
+       if ( ( %D |S ) %== 'ServerLibrary' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for D
+      l_Counter
+      %== 0 AND 
+       ( 
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%d
+      begin
+       OBJECT IN %d
+       if ( ( %d |S ) %== 'ServerLibrary' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for d
+      l_Counter
+      %!= 0  ) ) then
+     begin
+      [%f] set_var %( 'INDIRECT_SL' %, true )% 
+     end // if
+
+    ) // bind
+     %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Settings::Class' ) then
+      begin
+       %A
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( %C |C ) %== 'Attribute' ) then
+         begin
+          [%f] set_var %( 'TAR_ATTR_EXISTANCE' %, true )% 
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+     %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%d
+     begin
+      OBJECT IN %d
+      if ( ( %d |M ) %== 'Library::Category' OR 
+       ( ( %d |M ) %== 'ServerLibrary::Category'  ) AND 
+       ( ( [%f] exists_in_list %( 'SL_LIST' %, %d |U )% ) %==  false  ) ) then
+      begin
+       %d
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%A
+        begin
+         OBJECT IN %A
+         if ( ( %A |M ) %== 'Settings::Class' ) then
+         begin
+          %A
+          bind ( 
+           OBJECT VAR %S
+           INTEGER VAR l_Counter l_Counter := 0
+           for %S%C
+           begin
+            OBJECT IN %C
+            if ( ( %C |C ) %== 'Attribute' ) then
+            begin
+             [%f] set_var %( 'LIB_ATTR_EXISTANCE' %, true )% 
+             ++! l_Counter
+            end // if
+           end // for C
+
+          ) // bind
+ 
+          ++! l_Counter
+         end // if
+        end // for A
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for d
+
+    ) // bind
+     if ( ( ( get_global_var ( 'LIB_ATTR_EXISTANCE' ) |N ) ) %== true OR 
+      ( ( ( get_global_var ( 'TAR_ATTR_EXISTANCE' ) |N ) ) %== true  ) OR 
+      ( ( ( get_global_var ( 'DIRECT_SL' ) |N ) ) %== true  ) OR 
+      ( ( ( get_global_var ( 'INDIRECT_SL' ) |N ) ) %== true  ) ) then
+    begin
+     [%f] add_to_list %( 'TARGETS_DEPEN' %, 'd' )% [%f] set_var %( 'TAR_ATTR_EXISTANCE' %, false )% [%f] set_var %( 'LIB_ATTR_EXISTANCE' %, false )% [%f] set_var %( 'DIRECT_SL' %, false )% [%f] set_var %( 'INDIRECT_SL' %, false )% 
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for d
+//	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(UNION_ATTR,C)>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'Settings::Class' ) then
+   begin
+    %A
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Attribute' ) then
+      begin
+       [%f] add_to_list %( 'UNION_ATTR' %, 'C' )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for A
+//	[{%f_is_empty(TARGETS_DEPEN)=false|%f_is_empty(UNION_ATTR)=false}\{info\}Настройки таргета:
+  if ( ( [%f] is_empty %( 'TARGETS_DEPEN' )% ) %==  false OR 
+    ( ( [%f] is_empty %( 'UNION_ATTR' )% ) %==  false  ) ) then
+  begin
+   '{info}Настройки таргета:'
+//	[{%f_is_empty(UNION_ATTR)=false}h6. %SN:
+   if ( ( [%f] is_empty %( 'UNION_ATTR' )% ) %==  false ) then
+   begin
+    'h6. '
+    %S |N ':'
+//	
+    #13#10
+
+//	<{}{%f_is_empty(UNION_ATTR)=false}{W}[%f_pop_first_to_var(UNION_ATTR,_UA_)-%{_UA_}N: %{_UA_}%TN [{"%{_UA_}D"!=""} // %{_UA_}D]
+    INTEGER VAR l_Counter l_Counter := 0
+    while true
+    begin
+     if ( ( [%f] is_empty %( 'UNION_ATTR' )% ) %==  false ) then
+     begin
+      if NOT-EMPTY
+      begin
+       [%f] pop_first_to_var %( 'UNION_ATTR' %, '_UA_' )% '-'
+       ( get_global_var ( '_UA_' ) |N ) ': '
+       ( get_global_var ( '_UA_' )  ->T |N ) ' '
+       if ( ( ( get_global_var ( '_UA_' ) |D ) ) %!= '' ) then
+       begin
+        ' // '
+        ( get_global_var ( '_UA_' ) |D ) 
+       end // if
+//	[{"%{_UA_}I"!=""}= %f_k_text_convert(%{_UA_}I)]
+       if ( ( ( get_global_var ( '_UA_' ) |I ) ) %!= '' ) then
+       begin
+        '= '
+        [%f] k_text_convert %( ( get_global_var ( '_UA_' ) |I ) )% 
+       end // if
+//	]>]<{}{%f_is_empty(TARGETS_DEPEN)=false}{W}[%f_pop_first_to_var(TARGETS_DEPEN,TD)\
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+     else
+      break
+    end // while
+   end // if
+   INTEGER VAR l_Counter l_Counter := 0
+   while true
+   begin
+    if ( ( [%f] is_empty %( 'TARGETS_DEPEN' )% ) %==  false ) then
+    begin
+     if NOT-EMPTY
+     begin
+      [%f] pop_first_to_var %( 'TARGETS_DEPEN' %, 'TD' )% 
+//	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%{TD})\
+      [%f] clear_list %( 'REG_ALL_DEP' )% [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% [%f] reg_all_dep_i %( ( get_global_var ( 'TD' ) ) )% 
+//	%f_copy_list(REG_ALL_DEP,REG_ALL_DEP_COPY)%f_clear_list(DEPEND_LIB)\
+      [%f] copy_list %( 'REG_ALL_DEP' %, 'REG_ALL_DEP_COPY' )% [%f] clear_list %( 'DEPEND_LIB' )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%f_add_to_list(DEPEND_LIB,{_RAD_})]>\
+      INTEGER VAR l_Counter l_Counter := 0
+      while true
+      begin
+       if ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) then
+       begin
+        [%f] pop_first_to_var %( 'REG_ALL_DEP' %, '_RAD_' )% if ( ( ( get_global_var ( '_RAD_' ) |M ) ) %!= 'ServerLibrary::Category' OR 
+          ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{_RAD_}' )% ) %==  true  ) ) then
+        begin
+         [%f] add_to_list %( 'DEPEND_LIB' %, '{_RAD_}' )% 
+        end // if
+
+        ++! l_Counter
+       end // if
+       else
+        break
+      end // while
+//	%f_copy_list(REG_ALL_DEP_COPY,REG_ALL_DEP)\
+      [%f] copy_list %( 'REG_ALL_DEP_COPY' %, 'REG_ALL_DEP' )% 
+//	%{TD}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,C)%f_add_to_list(TARGET_N,"%f_to_upper("%CN")")>>\
+      ( get_global_var ( 'TD' ) ) 
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%A
+       begin
+        OBJECT IN %A
+        if ( ( %A |M ) %== 'Settings::Class' ) then
+        begin
+         %A
+         bind ( 
+          OBJECT VAR %S
+          INTEGER VAR l_Counter l_Counter := 0
+          for %S%C
+          begin
+           OBJECT IN %C
+           if ( ( %C |C ) %== 'Attribute' ) then
+           begin
+            [%f] add_to_list %( 'TARGET' %, 'C' )% [%f] add_to_list %( 'TARGET_N' %, [%f] to_upper %( %C |N )% )% 
+            ++! l_Counter
+           end // if
+          end // for C
+
+         ) // bind
+ 
+         ++! l_Counter
+        end // if
+       end // for A
+
+      ) // bind
+//	
+      #13#10
+
+//	h6. %{TD}N:
+      'h6. '
+      ( get_global_var ( 'TD' ) |N ) ':'
+//	
+      #13#10
+
+//	%f_output_target_param(%{TD})\
+      [%f] output_target_param %( ( get_global_var ( 'TD' ) ) )% 
+//	%f_clear_list(TARGET)]>{info}]]%f_clear_list(SL_LIST)
+      [%f] clear_list %( 'TARGET' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+    else
+     break
+   end // while
+   '{info}' 
+  end // if
+ end // if
+ else
+ begin
+//	[{"%SM"!="InstallerTarget::Category"}\
+  if ( ( %S |M ) %!= 'InstallerTarget::Category' ) then
+  begin
+//	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%S)\
+   [%f] clear_list %( 'REG_ALL_DEP' )% [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% [%f] reg_all_dep_i %( %S )% 
+//	%f_copy_list(REG_ALL_DEP,REG_ALL_DEP_COPY)%f_clear_list(DEPEND_LIB)\
+   [%f] copy_list %( 'REG_ALL_DEP' %, 'REG_ALL_DEP_COPY' )% [%f] clear_list %( 'DEPEND_LIB' )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%f_add_to_list(DEPEND_LIB,{_RAD_})]>\
+   INTEGER VAR l_Counter l_Counter := 0
+   while true
+   begin
+    if ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) then
+    begin
+     [%f] pop_first_to_var %( 'REG_ALL_DEP' %, '_RAD_' )% if ( ( ( get_global_var ( '_RAD_' ) |M ) ) %!= 'ServerLibrary::Category' OR 
+       ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{_RAD_}' )% ) %==  true  ) ) then
+     begin
+      [%f] add_to_list %( 'DEPEND_LIB' %, '{_RAD_}' )% 
+     end // if
+
+     ++! l_Counter
+    end // if
+    else
+     break
+   end // while
+//	%f_copy_list(REG_ALL_DEP_COPY,REG_ALL_DEP)\
+   [%f] copy_list %( 'REG_ALL_DEP_COPY' %, 'REG_ALL_DEP' )% 
+//	<{}{"%aM"="AdapterTargetUnion::Category"}{%a}%f_add_to_list(UNIONS,a)>[{%f_is_empty(UNIONS)=true}{%f_clear_list(UNIONS)}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%a
+   begin
+    OBJECT IN %a
+    if ( ( %a |M ) %== 'AdapterTargetUnion::Category' ) then
+    begin
+     [%f] add_to_list %( 'UNIONS' %, 'a' )% 
+     ++! l_Counter
+    end // if
+   end // for a
+   if ( ( [%f] is_empty %( 'UNIONS' )% ) %==  true ) then
+   begin
+//	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,C)%f_add_to_list(TARGET_N,"%f_to_upper("%CN")")>>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'Settings::Class' ) then
+     begin
+      %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |C ) %== 'Attribute' ) then
+        begin
+         [%f] add_to_list %( 'TARGET' %, 'C' )% [%f] add_to_list %( 'TARGET_N' %, [%f] to_upper %( %C |N )% )% 
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for A
+//	%f_set_var(DEP_EXIST,"false")\
+    [%f] set_var %( 'DEP_EXIST' %, false )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%{_RAD_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(DEP_EXIST,"true")>>]>\
+    INTEGER VAR l_Counter l_Counter := 0
+    while true
+    begin
+     if ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) then
+     begin
+      [%f] pop_first_to_var %( 'REG_ALL_DEP' %, '_RAD_' )% if ( ( ( get_global_var ( '_RAD_' ) |M ) ) %!= 'ServerLibrary::Category' OR 
+        ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{_RAD_}' )% ) %==  true  ) ) then
+      begin
+       ( get_global_var ( '_RAD_' ) ) 
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%A
+        begin
+         OBJECT IN %A
+         if ( ( %A |M ) %== 'Settings::Class' ) then
+         begin
+          %A
+          bind ( 
+           OBJECT VAR %S
+           INTEGER VAR l_Counter l_Counter := 0
+           for %S%C
+           begin
+            OBJECT IN %C
+            if ( ( %C |C ) %== 'Attribute' ) then
+            begin
+             [%f] set_var %( 'DEP_EXIST' %, true )% 
+             ++! l_Counter
+            end // if
+           end // for C
+
+          ) // bind
+ 
+          ++! l_Counter
+         end // if
+        end // for A
+
+       ) // bind
+      end // if
+
+      ++! l_Counter
+     end // if
+     else
+      break
+    end // while
+//	[{%f_is_empty(TARGET)=false|"%{DEP_EXIST}N"="true"}%f_set_var(IS_HEADER_EXIST,"true")\{info\}Настройки таргета]
+    if ( ( [%f] is_empty %( 'TARGET' )% ) %==  false OR 
+      ( ( ( get_global_var ( 'DEP_EXIST' ) |N ) ) %== true  ) ) then
+    begin
+     [%f] set_var %( 'IS_HEADER_EXIST' %, true )% '{info}Настройки таргета' 
+    end // if
+//	%f_output_target_param(%S)\
+    [%f] output_target_param %( %S )% 
+//	[{"%{IS_HEADER_EXIST}N"="true"}\{info\}]%f_clear_list(TARGET)\
+    if ( ( ( get_global_var ( 'IS_HEADER_EXIST' ) |N ) ) %== true ) then
+    begin
+     '{info}' 
+    end // if
+    [%f] clear_list %( 'TARGET' )% 
+//	]]}%f_set_var(LIB_ATTR_EXISTANCE,"false")%f_set_var(TAR_ATTR_EXISTANCE,"false")\
+   end // if
+   else
+   begin
+    [%f] clear_list %( 'UNIONS' )% 
+   end // else
+  end // if
+ end // else
+ [%f] clear_list %( 'SL_LIST' )% 
+//#UC END# *48BFA2F6034B*
+; // config_docs
+
+
+// генерит содержимое файл настроек
+//f _config_ini
+: config_ini OBJECT IN %S
+//#UC START# *48BFA801001E*
+//	[{"%S{CONFIG_UC}"="true"}%U[{_CUSTOM_SECTIONS}\n]
+ if ( ( %S get_up ( 'CONFIG_UC' ) ) %== true ) then
+ begin
+  %Usersection (
+   '_CUSTOM_SECTIONS' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+ //	]\
+ end // if
+//	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute&%C%f_in_config()=true}{%C}%f_add_to_list(TARGET,C)>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Settings::Class' ) then
+  begin
+   %A
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' AND 
+      ( ( %C %f in_config %( )% ) %==  true  ) ) then
+     begin
+      [%f] add_to_list %( 'TARGET' %, 'C' )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for A
+//	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%S)\
+ [%f] clear_list %( 'REG_ALL_DEP' )% [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% [%f] reg_all_dep_i %( %S )% 
+//	%f_copy_list(REG_ALL_DEP,REG_LIB_DEPENDENCY)\
+ [%f] copy_list %( 'REG_ALL_DEP' %, 'REG_LIB_DEPENDENCY' )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%{_RAD_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute&%C%f_in_config()=true}{%C}%f_add_to_list(DEPENDENCY,C)>>]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'REG_ALL_DEP' %, '_RAD_' )% if ( ( ( get_global_var ( '_RAD_' ) |M ) ) %!= 'ServerLibrary::Category' OR 
+     ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{_RAD_}' )% ) %==  true  ) ) then
+   begin
+    ( get_global_var ( '_RAD_' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Settings::Class' ) then
+      begin
+       %A
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( %C |C ) %== 'Attribute' AND 
+          ( ( %C %f in_config %( )% ) %==  true  ) ) then
+         begin
+          [%f] add_to_list %( 'DEPENDENCY' %, 'C' )% 
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+   end // if
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_copy_list(DEPENDENCY,COMMON)\
+ [%f] copy_list %( 'DEPENDENCY' %, 'COMMON' )% 
+//	<{}{%f_is_empty(DEPENDENCY)=false}{W}[%f_pop_first_to_var(DEPENDENCY,_DEP_)%f_copy_list(TARGET,TRG_COPY)\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'DEPENDENCY' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'DEPENDENCY' %, '_DEP_' )% [%f] copy_list %( 'TARGET' %, 'TRG_COPY' )% 
+//	<{}{%f_is_empty(TRG_COPY)=false}{W}[%f_pop_first_to_var(TRG_COPY,_TRG_)[{%f_to_upper("%{_DEP_}N")=%f_to_upper("%{_TRG_}N")}\
+    INTEGER VAR l_Counter l_Counter := 0
+    while true
+    begin
+     if ( ( [%f] is_empty %( 'TRG_COPY' )% ) %==  false ) then
+     begin
+      if NOT-EMPTY
+      begin
+       [%f] pop_first_to_var %( 'TRG_COPY' %, '_TRG_' )% if ( ( [%f] to_upper %( ( get_global_var ( '_DEP_' ) |N ) )% ) %== ( [%f] to_upper %( ( get_global_var ( '_TRG_' ) |N ) )% ) ) then
+       begin
+//	%f_remove_from_list(COMMON,{_DEP_})]]>]>\
+        [%f] remove_from_list %( 'COMMON' %, '{_DEP_}' )% 
+       end // if
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+     else
+      break
+    end // while
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	[{%f_is_empty(COMMON)=false}{%f_set_var(OPTION_EXIST,"false")}%f_set_var(OPTION_EXIST,"true")]\
+ if ( ( [%f] is_empty %( 'COMMON' )% ) %==  false ) then
+ begin
+  [%f] set_var %( 'OPTION_EXIST' %, true )% 
+ end // if
+ else
+ begin
+  [%f] set_var %( 'OPTION_EXIST' %, false )% 
+ end // else
+//	\[Common Params\]
+ '[Common Params]'
+//	[<{}{%f_is_empty(REG_LIB_DEPENDENCY)=false}{W}[%f_pop_first_to_var(REG_LIB_DEPENDENCY,_RLD_)[{%{_RLD_}<{}{"%AM"="Entity::Class"&"%Aa"!="abstract"}{C}>!=0}-%{_RLD_}N_db_path=
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'REG_LIB_DEPENDENCY' )% ) %==  false ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'REG_LIB_DEPENDENCY' %, '_RLD_' )% if ( ( ( get_global_var ( '_RLD_' ) ) 
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%A
+       begin
+        OBJECT IN %A
+        if ( ( %A |M ) %== 'Entity::Class' AND 
+         ( ( %A |a ) %!= 'abstract'  ) ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for A
+       l_Counter
+
+      ) // bind
+)       %!= 0 ) then
+     begin
+      '-'
+      ( get_global_var ( '_RLD_' ) |N ) '_db_path='
+//	-%{_RLD_}N_db_name=
+      '-'
+      ( get_global_var ( '_RLD_' ) |N ) '_db_name='
+//	-%{_RLD_}N_db_open_flags=
+      '-'
+      ( get_global_var ( '_RLD_' ) |N ) '_db_open_flags='
+//	]]>]\
+     end // if
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+//	<{}{%f_is_empty(COMMON)=false}{W}[%f_pop_first_to_var(COMMON,_CM_)[{"%{_CM_}I"=""};]-%{_CM_}N=[{"%{_CM_}I"!=""}{%t_config_init_values(%{_CM_}%TN)}%{_CM_}I]]
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'COMMON' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'COMMON' %, '_CM_' )% if ( ( ( get_global_var ( '_CM_' ) |I ) ) %== '' ) then
+    begin
+     ';' 
+    end // if
+    '-'
+    ( get_global_var ( '_CM_' ) |N ) '='
+    if ( ( ( get_global_var ( '_CM_' ) |I ) ) %!= '' ) then
+    begin
+     ( get_global_var ( '_CM_' ) |I ) 
+    end // if
+    else
+    begin
+     [%t] config_init_values %( ( get_global_var ( '_CM_' )  ->T |N ) )% 
+    end // else
+   end // if
+   NOP
+//	>
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_set_var(NEED_UC,"[{"%S{CONFIG_UC}"="true"}{false}true]")\[%SN Params\]
+ [%f] set_var %( 'NEED_UC' %, if ( ( %S get_up ( 'CONFIG_UC' ) ) %== true ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+)%  '['
+ %S |N ' Params]'
+//	[{"%{OPTION_EXIST}N"="true"}-GPMAdditionalSection=Common Params
+ if ( ( ( get_global_var ( 'OPTION_EXIST' ) |N ) ) %== true ) then
+ begin
+  '-GPMAdditionalSection=Common Params'
+//	][{<{}{%DS=ServerLibrary}{C}>!=0}%f_set_var(NEED_UC,"false")\
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if ( ( %D |S ) %== 'ServerLibrary' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for D
+  l_Counter
+  %!= 0 ) then
+ begin
+  [%f] set_var %( 'NEED_UC' %, false )% 
+//	%U[{_CUSTOM_PARAMS}
+  %Usersection (
+   '_CUSTOM_PARAMS' 
+  )
+  (
+   #13#10
+
+//	-ORBEndPoint = iiop://localhost:5051
+   '-ORBEndPoint = iiop://localhost:5051'
+//	;-ORBInitRef = NameService=corbaloc::localhost:5051/NameService
+   ';-ORBInitRef = NameService=corbaloc::localhost:5051/NameService'
+//	]
+
+  ) // Usersection
+ //	][{<{}{%DS=ServerLibrary}{C}>=0&<{}{%dS=ServerLibrary}{C}>!=0}%f_set_var(NEED_UC,"false")\
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if ( ( %D |S ) %== 'ServerLibrary' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for D
+  l_Counter
+  %== 0 AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if ( ( %d |S ) %== 'ServerLibrary' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for d
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  [%f] set_var %( 'NEED_UC' %, false )% 
+//	%U[{_CUSTOM_PARAMS}
+  %Usersection (
+   '_CUSTOM_PARAMS' 
+  )
+  (
+   #13#10
+
+//	-ORBInitRef = NameService=corbaloc::localhost:5051/NameService
+   '-ORBInitRef = NameService=corbaloc::localhost:5051/NameService'
+//	]
+
+  ) // Usersection
+ //	]\
+ end // if
+//	<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_TR_)[{"%{_TR_}I"=""};]-%{_TR_}N=[{"%{_TR_}I"!=""}{%t_config_init_values(%{_TR_}%TN)}%{_TR_}I]]
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'TARGET' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'TARGET' %, '_TR_' )% if ( ( ( get_global_var ( '_TR_' ) |I ) ) %== '' ) then
+    begin
+     ';' 
+    end // if
+    '-'
+    ( get_global_var ( '_TR_' ) |N ) '='
+    if ( ( ( get_global_var ( '_TR_' ) |I ) ) %!= '' ) then
+    begin
+     ( get_global_var ( '_TR_' ) |I ) 
+    end // if
+    else
+    begin
+     [%t] config_init_values %( ( get_global_var ( '_TR_' )  ->T |N ) )% 
+    end // else
+   end // if
+   NOP
+//	>[{%{NEED_UC}N=true}%U[{_CUSTOM_PARAMS}\n]
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+ if ( ( ( get_global_var ( 'NEED_UC' ) |N ) ) %==  true ) then
+ begin
+  %Usersection (
+   '_CUSTOM_PARAMS' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+ //	]%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)%f_clear_list(TRG_COPY)%f_clear_list(COMMON)%f_clear_list(SL_LIST)
+ end // if
+ [%f] clear_list %( 'TARGET' )% [%f] clear_list %( 'DEPENDENCY' )% [%f] clear_list %( 'TRG_COPY' )% [%f] clear_list %( 'COMMON' )% [%f] clear_list %( 'SL_LIST' )% 
+//#UC END# *48BFA801001E*
+; // config_ini
+
+
+// генерит файл для записи в реестр пути в файлу настроек
+//f _config_reg
+: config_reg OBJECT IN %S
+//#UC START# *48BFBBCF01F8*
+//	REGEDIT4
+ 'REGEDIT4'
+//	
+//	\[HKEY_LOCAL_MACHINE\\SOFTWARE\\Garant\\%PN\\%SN\]
+ '[HKEY_LOCAL_MACHINE\SOFTWARE\Garant\'
+ %P |N '\'
+ %S |N ']'
+//	"-GCMConfigFile"="%f_with_gen_id(config,%So)"
+ '"-GCMConfigFile"="'
+ [%f] with_gen_id %( 'config' %, %S |o )% '"'
+//	
+//#UC END# *48BFBBCF01F8*
+; // config_reg
+
+
+// не понятно..., какая-то проверка настроек
+//f _check_non_overload_member
+: check_non_overload_member OBJECT IN %S
+//#UC START# *48C63206026E*
+//	%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)\
+ [%f] clear_list %( 'TARGET' )% [%f] clear_list %( 'DEPENDENCY' )% 
+//	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,"%f_to_upper("%CN")")>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Settings::Class' ) then
+  begin
+   %A
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' ) then
+     begin
+      [%f] add_to_list %( 'TARGET' %, [%f] to_upper %( %C |N )% )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for A
+//	<%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(DEPENDENCY,"%f_to_upper("%CN")")>>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'Settings::Class' ) then
+     begin
+      %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |C ) %== 'Attribute' ) then
+        begin
+         [%f] add_to_list %( 'DEPENDENCY' %, [%f] to_upper %( %C |N )% )% 
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+//	<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_TG_)[{"%f_exists_in_list(DEPENDENCY,"%{_TG_}N")"="false"}%{_TG_}N;]]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'TARGET' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'TARGET' %, '_TG_' )% if ( ( [%f] exists_in_list %( 'DEPENDENCY' %, ( get_global_var ( '_TG_' ) |N ) )% ) %== false ) then
+    begin
+     ( get_global_var ( '_TG_' ) |N ) ';' 
+    end // if
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)
+ [%f] clear_list %( 'TARGET' )% [%f] clear_list %( 'DEPENDENCY' )% 
+//#UC END# *48C63206026E*
+; // check_non_overload_member
+
+
+// значение параметров по-умалчанию для файла настроек
+//t _config_init_values
+<<transformator>> config_init_values OBJECT IN %S
+//#UC START# *48D257BF029F*
+//c	{}
+//r {"%SN"="unsigned long"}:     {0}
+//r {"%SN"="long"}:              {0}
+//r {"%SN"="a-string"}:          {}
+//r {"%SN"="string"}:            {}
+//r {"%SN"="boolean"}:           {0}
+//r {"%SN"="integer"}:           {0}
+//r {"%SN"="unsigned integer"}:  {0}
+//r {"%SN"="short"}:             {0}
+//r {"%SN"="unsigned short"}:    {0}
+//#UC END# *48D257BF029F*
+; // config_init_values
+
+
+// не совсем понятно, но похоже, что выводит сожержимое файла настроек
+//f _output_target_param
+: output_target_param OBJECT IN %S
+//#UC START# *48F88FC903E3*
+//	<{}{%f_is_empty(DEPEND_LIB)=false}{W}%f_pop_first_to_var(DEPEND_LIB,_DEP_LIB_)%f_set_var(FLAG,"false")%{_DEP_LIB_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(FLAG,"true")[{%f_exists_in_list(TARGET_N,"%f_to_upper("%CN")")=true}%f_add_to_list(TARGET_OVERRIDE,%f_to_upper("%CN"))]>>[{"%{FLAG}N"="true"}* Параметры библиотеки %f_k_link(%{_DEP_LIB_}):
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'DEPEND_LIB' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'DEPEND_LIB' %, '_DEP_LIB_' )% [%f] set_var %( 'FLAG' %, false )% ( get_global_var ( '_DEP_LIB_' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'Settings::Class' ) then
+     begin
+      %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |C ) %== 'Attribute' ) then
+        begin
+         [%f] set_var %( 'FLAG' %, true )% if ( ( [%f] exists_in_list %( 'TARGET_N' %, [%f] to_upper %( %C |N )% )% ) %==  true ) then
+         begin
+          [%f] add_to_list %( 'TARGET_OVERRIDE' %, [%f] to_upper %( %C |N )% )% 
+         end // if
+
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+   if ( ( ( get_global_var ( 'FLAG' ) |N ) ) %== true ) then
+   begin
+    '* Параметры библиотеки '
+    [%f] k_link %( ( get_global_var ( '_DEP_LIB_' ) ) )% ':'
+//	%{_DEP_LIB_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}** \\-%CN(%f_k_link_nearest_parent_with_output(%C)): %C%TN [{"%CD"!=""} - %CD][{"%CI"!=""}
+    ( get_global_var ( '_DEP_LIB_' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Settings::Class' ) then
+      begin
+       %A
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( %C |C ) %== 'Attribute' ) then
+         begin
+          '** \-'
+          %C |N '('
+          [%f] k_link_nearest_parent_with_output %( %C )% '): '
+          %C ->T |N  ' '
+          if ( ( %C |D ) %!= '' ) then
+          begin
+           ' - '
+           %C |D 
+          end // if
+          if ( ( %C |I ) %!= '' ) then
+          begin
+           #13#10
+
+//	= %f_k_text_convert(%CI)]
+           '= '
+           [%f] k_text_convert %( %C |I )% 
+          end // if
+//	>>]>[{%f_is_empty(TARGET)=false}<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_T_)[{%f_exists_in_list(TARGET_OVERRIDE,%f_to_upper("%{_T_}N"))=true}{%f_add_to_list(TARGET_SPEC,{_T_})}%f_add_to_list(TARGET_OVER,{_T_})]]>]\
+
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+   end // if
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+ if ( ( [%f] is_empty %( 'TARGET' )% ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'TARGET' )% ) %==  false ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'TARGET' %, '_T_' )% if ( ( [%f] exists_in_list %( 'TARGET_OVERRIDE' %, [%f] to_upper %( ( get_global_var ( '_T_' ) |N ) )% )% ) %==  true ) then
+     begin
+      [%f] add_to_list %( 'TARGET_OVER' %, '{_T_}' )% 
+     end // if
+     else
+     begin
+      [%f] add_to_list %( 'TARGET_SPEC' %, '{_T_}' )% 
+     end // else
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+//	[{%f_is_empty(TARGET_OVER)=false}* Параметры, переопределённые в таргете:
+ if ( ( [%f] is_empty %( 'TARGET_OVER' )% ) %==  false ) then
+ begin
+  '* Параметры, переопределённые в таргете:'
+//	<{}{%f_is_empty(TARGET_OVER)=false}{W}[%f_pop_first_to_var(TARGET_OVER,_TO_)** \\-%{_TO_}N(%f_k_link_nearest_parent_with_output(%{_TO_})): %{_TO_}%TN [{"%{_TO_}D"!=""} - %{_TO_}D][{"%{_TO_}I"!=""}
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'TARGET_OVER' )% ) %==  false ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'TARGET_OVER' %, '_TO_' )% '** \-'
+     ( get_global_var ( '_TO_' ) |N ) '('
+     [%f] k_link_nearest_parent_with_output %( ( get_global_var ( '_TO_' ) ) )% '): '
+     ( get_global_var ( '_TO_' )  ->T |N ) ' '
+     if ( ( ( get_global_var ( '_TO_' ) |D ) ) %!= '' ) then
+     begin
+      ' - '
+      ( get_global_var ( '_TO_' ) |D ) 
+     end // if
+     if ( ( ( get_global_var ( '_TO_' ) |I ) ) %!= '' ) then
+     begin
+      #13#10
+
+//	= %f_k_text_convert(%{_TO_}I)]]
+      '= '
+      [%f] k_text_convert %( ( get_global_var ( '_TO_' ) |I ) )% 
+     end // if
+    end // if
+    NOP
+//	>][{%f_is_empty(TARGET_SPEC)=false}* Параметры, определённые в таргете:
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ if ( ( [%f] is_empty %( 'TARGET_SPEC' )% ) %==  false ) then
+ begin
+  '* Параметры, определённые в таргете:'
+//	<{}{%f_is_empty(TARGET_SPEC)=false}{W}[%f_pop_first_to_var(TARGET_SPEC,_TS_)** \\-%{_TS_}N(%f_k_link_nearest_parent_with_output(%{_TS_})): %{_TS_}%TN [{"%{_TS_}D"!=""} - %{_TS_}D][{"%{_TS_}I"!=""}
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'TARGET_SPEC' )% ) %==  false ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'TARGET_SPEC' %, '_TS_' )% '** \-'
+     ( get_global_var ( '_TS_' ) |N ) '('
+     [%f] k_link_nearest_parent_with_output %( ( get_global_var ( '_TS_' ) ) )% '): '
+     ( get_global_var ( '_TS_' )  ->T |N ) ' '
+     if ( ( ( get_global_var ( '_TS_' ) |D ) ) %!= '' ) then
+     begin
+      ' - '
+      ( get_global_var ( '_TS_' ) |D ) 
+     end // if
+     if ( ( ( get_global_var ( '_TS_' ) |I ) ) %!= '' ) then
+     begin
+      #13#10
+
+//	= %f_k_text_convert(%{_TS_}I)]]
+      '= '
+      [%f] k_text_convert %( ( get_global_var ( '_TS_' ) |I ) )% 
+     end // if
+    end // if
+    NOP
+//	>][{%S<{}{%DS=ServerLibrary}{C}>!=0}* Параметры нейм-сервера:
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ if ( ( %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %D |S ) %== 'ServerLibrary' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for D
+   l_Counter
+
+  ) // bind
+ )   %!= 0 ) then
+ begin
+  '* Параметры нейм-сервера:'
+//	** \\-ORBEndPoint: string
+  '** \-ORBEndPoint: string'
+//	= %f_k_text_convert("iiop://localhost:5051")
+  '= '
+  [%f] k_text_convert %( 'iiop://localhost:5051' )% 
+//	][{%S<{}{%DS=ServerLibrary}{C}>=0&%S<{}{%dS=ServerLibrary}{C}>!=0}* Параметры нейм-сервера:
+ end // if
+ if ( ( %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %D |S ) %== 'ServerLibrary' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for D
+   l_Counter
+
+  ) // bind
+ )   %== 0 AND 
+   ( ( %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%d
+   begin
+    OBJECT IN %d
+    if ( ( %d |S ) %== 'ServerLibrary' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for d
+   l_Counter
+
+  ) // bind
+ )   %!= 0  ) ) then
+ begin
+  '* Параметры нейм-сервера:'
+//	** \\-ORBInitRef: string
+  '** \-ORBInitRef: string'
+//	= %f_k_text_convert("NameService=corbaloc::localhost:5051/NameService")
+  '= '
+  [%f] k_text_convert %( 'NameService=corbaloc::localhost:5051/NameService' )% 
+//	]
+ end // if
+//#UC END# *48F88FC903E3*
+; // output_target_param
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

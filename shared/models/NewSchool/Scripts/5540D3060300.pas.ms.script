@@ -1,0 +1,484 @@
+// ThtJournal 5540D3060300 SimpleClass Class
+
+FORWARD ME_5540D3060300
+
+INCLUDE '5540E6D302BE.pas.ms.script'
+
+: ME_5549F33A0245
+ CONST UID '5549F33A0245'
+ CONST Name 'TBigBrotherAccess'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5549F31C03AC // TBigBrotherTbl
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5549F33A0245 TBigBrotherAccess
+
+INCLUDE '559A3BD901CC.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+: ME_555492700341
+ CONST UID '555492700341'
+ CONST Name 'f_Table'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5549F31C03AC // TBigBrotherTbl
+ ;
+
+ @SELF
+; // ME_555492700341 f_Table
+
+FORWARD ME_5540D6BB015A
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+: ME_554C83D00028
+ CONST UID '554C83D00028'
+ CONST Name 'aFactory'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_554C78BD038C // IdaTableQueryFactory
+ ;
+
+ @SELF
+; // ME_554C83D00028 aFactory
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5540D6C203B0
+ CONST UID '5540D6C203B0'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_554C83D00028 // aFactory
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5540D6C203B0 DoIt
+
+: ME_5540D6BB015A
+ CONST UID '5540D6BB015A'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5540D6C203B0 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5540D6BB015A Create
+
+FORWARD ME_5540D6EC0340
+
+: ME_A0FAD81C877E
+ CONST UID 'A0FAD81C877E'
+ CONST Name 'aFactory'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_554C78BD038C // IdaTableQueryFactory
+ ;
+
+ @SELF
+; // ME_A0FAD81C877E aFactory
+
+: ME_F5104368A59D
+ CONST UID 'F5104368A59D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики ThtJournal.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5540922C0376 // IdaJournal
+ ;
+ : Parameters
+   [ ME_A0FAD81C877E // aFactory
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_F5104368A59D DoIt
+
+: ME_5540D6EC0340
+ CONST UID '5540D6EC0340'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5540D6BB015A // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5540922C0376 // IdaJournal
+ ]
+ ; // Implements
+ : Operations
+   [ ME_F5104368A59D // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_554092F701E2 // CurStatisticTreeRoot
+ ME_554093EC02FE // CalcStatistics
+ ME_55409430035F // LogExport
+ ME_5540943F02DB // LogImport
+ ME_5540945201E3 // LogPause
+ ME_55409462014D // LogPrintDoc
+ ME_554094740288 // LogSaveDoc
+ ME_554096B30178 // LogEditDoc
+ ME_5540970E00EA // LogEditDoc
+ ME_554097C303BF // LogDeleteDoc
+ ME_554097DC02FC // LogEditDict
+ ME_554098710243 // LogCreateDoc
+ ME_554098930337 // LogAutoClass
+ ME_554098A40242 // LogOpenDoc
+ ME_5541F3E6031F // UserID
+ ME_5541F6EC00DE // StartCaching
+ ME_5541F6FB0124 // StopCaching
+ ME_554A037B0325 // SessionDone
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_5540D6EC0340 Make
+
+FORWARD ME_5549F376004F
+
+: ME_5549F6170232
+ CONST UID '5549F6170232'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5549F33A0245 // TBigBrotherAccess
+ ;
+
+ @SELF
+; // ME_5549F6170232 DoIt
+
+: ME_5549F376004F
+ CONST UID '5549F376004F'
+ CONST Name 'BigBrother'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5549F6170232 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5549F376004F BigBrother
+
+FORWARD ME_5563286A0387
+
+INCLUDE '47D02918035D.pas.ms.script'
+
+: ME_559E2EC500A6
+ CONST UID '559E2EC500A6'
+ CONST Name 'FromDate'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4E8EDFCA01C0 // TStDate
+ ;
+
+ @SELF
+; // ME_559E2EC500A6 FromDate
+
+: ME_559E2EC500B6
+ CONST UID '559E2EC500B6'
+ CONST Name 'ToDate'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4E8EDFCA01C0 // TStDate
+ ;
+
+ @SELF
+; // ME_559E2EC500B6 ToDate
+
+INCLUDE '5432448401BC.pas.ms.script'
+
+: ME_559E2EC500C5
+ CONST UID '559E2EC500C5'
+ CONST Name 'UserOrGroupID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543244A30197 // TdaUserID
+ ;
+
+ @SELF
+; // ME_559E2EC500C5 UserOrGroupID
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_559E2EC500C6
+ CONST UID '559E2EC500C6'
+ CONST Name 'UserGr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_559E2EC500C6 UserGr
+
+INCLUDE '559D0BE101B4.pas.ms.script'
+
+: ME_5563289D0091
+ CONST UID '5563289D0091'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_519B71CF03DC // ISab
+ ;
+ : Parameters
+   [ ME_559E2EC500A6 // FromDate
+ ME_559E2EC500B6 // ToDate
+ ME_559E2EC500C5 // UserOrGroupID
+ ME_559E2EC500C6 // UserGr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5563289D0091 DoIt
+
+: ME_5563286A0387
+ CONST UID '5563286A0387'
+ CONST Name 'GetUserStatistic'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5563289D0091 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5563286A0387 GetUserStatistic
+
+FORWARD ME_556328D003C8
+
+: ME_559E2EB90339
+ CONST UID '559E2EB90339'
+ CONST Name 'FromDate'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4E8EDFCA01C0 // TStDate
+ ;
+
+ @SELF
+; // ME_559E2EB90339 FromDate
+
+: ME_559E2EB90348
+ CONST UID '559E2EB90348'
+ CONST Name 'ToDate'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4E8EDFCA01C0 // TStDate
+ ;
+
+ @SELF
+; // ME_559E2EB90348 ToDate
+
+: ME_559E2EB90358
+ CONST UID '559E2EB90358'
+ CONST Name 'aDocID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_551E7DC1024B // TdaDocID
+ ;
+
+ @SELF
+; // ME_559E2EB90358 aDocID
+
+: ME_556328D70346
+ CONST UID '556328D70346'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_519B71CF03DC // ISab
+ ;
+ : Parameters
+   [ ME_559E2EB90339 // FromDate
+ ME_559E2EB90348 // ToDate
+ ME_559E2EB90358 // aDocID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_556328D70346 DoIt
+
+: ME_556328D003C8
+ CONST UID '556328D003C8'
+ CONST Name 'GetDocStatistic'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_556328D70346 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_556328D003C8 GetDocStatistic
+
+FORWARD ME_55657CD20360
+
+: ME_559E2BE2032D
+ CONST UID '559E2BE2032D'
+ CONST Name 'FromDate'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4E8EDFCA01C0 // TStDate
+ ;
+
+ @SELF
+; // ME_559E2BE2032D FromDate
+
+: ME_559E2BE2032E
+ CONST UID '559E2BE2032E'
+ CONST Name 'ToDate'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4E8EDFCA01C0 // TStDate
+ ;
+
+ @SELF
+; // ME_559E2BE2032E ToDate
+
+: ME_55657CED021D
+ CONST UID '55657CED021D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_559E2BE2032D // FromDate
+ ME_559E2BE2032E // ToDate
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55657CED021D DoIt
+
+: ME_55657CD20360
+ CONST UID '55657CD20360'
+ CONST Name 'CorrectDates'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55657CED021D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55657CD20360 CorrectDates
+
+: ME_5540D3060300
+ CONST UID '5540D3060300'
+ CONST Name 'ThtJournal'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_559A3BD901CC // TdaJournal
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_555492700341 // f_Table
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5540D6BB015A // Create
+ ME_5540D6EC0340 // Make
+ ME_5549F376004F // BigBrother
+ ME_5563286A0387 // GetUserStatistic
+ ME_556328D003C8 // GetDocStatistic
+ ME_55657CD20360 // CorrectDates
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5549F6220397 // LogEvent
+ ME_559A42120304 // CurStatTree
+ ME_559B6A290200 // CheckUser
+ ME_559B6A7C03AA // UserChanged
+ ME_559B6A8C0034 // SessionChanged
+ ME_559B889B030B // DoStartCaching
+ ME_559B88B00126 // DoStopCaching
+ ME_559CF9D300FA // MakeResultSet
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ : Children
+   [ ME_5549F33A0245 // TBigBrotherAccess
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5540D3060300 ThtJournal

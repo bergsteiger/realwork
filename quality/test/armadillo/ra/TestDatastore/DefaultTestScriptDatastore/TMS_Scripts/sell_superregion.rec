@@ -1,0 +1,18 @@
+'Продажа Суперрегиона клиенту из датапула
+Sub Main
+    Dim ClientName As String
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 48
+    
+    Window SetContext, "CurrentWindow", ""
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{TAB}{TAB}{DOWN}{TAB}{DOWN}"
+    InputKeys "{TAB}{TAB}{TAB}{TAB}"
+    GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=9,2"
+    InputKeys "{UP}{UP}{RIGHT}{UP}{ENTER}{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 21
+
+End Sub

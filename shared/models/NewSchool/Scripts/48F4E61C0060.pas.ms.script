@@ -1,0 +1,559 @@
+// Interfaces 48F4E61C0060 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F4E61C0060
+
+FORWARD ME_476BED00024F
+
+: ME_476BED11022B
+ CONST UID '476BED11022B'
+ CONST Name 'Internal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_476BED00024F // StoreFlag
+ ;
+
+ref; // ME_476BED11022B Internal
+
+: ME_476BED1701C3
+ CONST UID '476BED1701C3'
+ CONST Name 'ChildrenOnly'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_476BED00024F // StoreFlag
+ ;
+
+ref; // ME_476BED1701C3 ChildrenOnly
+
+: ME_476BED1D003E
+ CONST UID '476BED1D003E'
+ CONST Name 'StoreParaEnd'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_476BED00024F // StoreFlag
+ ;
+
+ref; // ME_476BED1D003E StoreParaEnd
+
+: ME_4FD9BFB501A6
+ CONST UID '4FD9BFB501A6'
+ CONST Name 'OnlyFirstCell'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_476BED00024F // StoreFlag
+ ;
+
+ref; // ME_4FD9BFB501A6 OnlyFirstCell
+
+: ME_476BED00024F
+ CONST UID '476BED00024F'
+ CONST Name 'StoreFlag'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Attributes
+   @ ( ME_476BED11022B // Internal
+ ME_476BED1701C3 // ChildrenOnly
+ ME_476BED1D003E // StoreParaEnd
+ ME_4FD9BFB501A6 // OnlyFirstCell
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'sf'
+ CONST extprop:pas:TypeName 'TevdStoreFlag'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_sf'
+
+ref; // ME_476BED00024F StoreFlag
+
+: ME_476BED2603D7
+ CONST UID '476BED2603D7'
+ CONST Name 'StoreFlags'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Inherits
+   @ ( ME_476BED00024F // StoreFlag
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST extprop:pas:TypeName 'TevdStoreFlags'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+
+ref; // ME_476BED2603D7 StoreFlags
+
+FORWARD ME_476BEEFC018E
+
+: ME_476BEF0F0117
+ CONST UID '476BEF0F0117'
+ CONST Name 'DefaultStoreFlags'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_476BEEFC018E // StoreDefaults
+ ;
+ CONST Value '[evd_sfStoreParaEnd]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_476BEF0F0117 DefaultStoreFlags
+
+: ME_476BEEFC018E
+ CONST UID '476BEEFC018E'
+ CONST Name 'StoreDefaults'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Attributes
+   @ ( ME_476BEF0F0117 // DefaultStoreFlags
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+ CONST extprop:pas:TypeName 'TevdStoreDefaults'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_476BEEFC018E StoreDefaults
+
+: ME_48F5CC20002B
+ CONST UID '48F5CC20002B'
+ CONST Name 'ClipboardFormat'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST extprop:pas:TypeName 'TevdClipboardFormat'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_48F5CC20002B ClipboardFormat
+
+: ME_48F5CCDD0242
+ CONST UID '48F5CCDD0242'
+ CONST Name 'TagGenerator'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4A5359BD03BE' '4678137501EA.pas.ms.script' // Ik2TagGenerator
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST extprop:pas:TypeName 'TevdTagGenerator'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_48F5CCDD0242 TagGenerator
+
+FORWARD ME_47C68C4500D2
+
+: ME_48F5D10C02F6
+ CONST UID '48F5D10C02F6'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_48F5CC20002B // ClipboardFormat
+ ;
+
+ref; // ME_48F5D10C02F6 aFormat
+
+: ME_48F5D10C035D
+ CONST UID '48F5D10C035D'
+ CONST Name 'aPool'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+
+ref; // ME_48F5D10C035D aPool
+
+: ME_48F5D10D0007
+ CONST UID '48F5D10D0007'
+ CONST Name 'aFilters'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_48F5CCDD0242 // TagGenerator
+ ;
+
+ref; // ME_48F5D10D0007 aFilters
+
+: ME_48F5D10D008B
+ CONST UID '48F5D10D008B'
+ CONST Name 'aFlags'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_476BED2603D7 // StoreFlags
+ ;
+ CONST Value 'DefaultStoreFlags'
+ : ValueType ME_476BEEFC018E // StoreDefaults
+ ;
+
+ref; // ME_48F5D10D008B aFlags
+
+: ME_47C68C6701AF
+ CONST UID '47C68C6701AF'
+ CONST Name 'Store'
+ CONST Class class_Operation
+ %SUMMARY 'сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47C68C4500D2 // DataObject
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48F5D10C02F6 // aFormat
+ ME_48F5D10C035D // aPool
+ ME_48F5D10D0007 // aFilters
+ ME_48F5D10D008B // aFlags
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "force overload" true
+
+ref; // ME_47C68C6701AF Store
+
+: ME_47C68C4500D2
+ CONST UID '47C68C4500D2'
+ CONST GUID 'E6851658-F80E-48ED-A2E9-043D34096EBB'
+ CONST Name 'DataObject'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Operations
+   @ ( ME_47C68C6701AF // Store
+ ) .SequenceCode.It
+ ; // Operations
+ CONST extprop:pas:TypeName 'IevdDataObject'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_47C68C4500D2 DataObject
+
+FORWARD ME_4C1B99400116
+
+: ME_4C1B997E0050
+ CONST UID '4C1B997E0050'
+ CONST Name 'aDocID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C1B997E0050 aDocID
+
+: ME_4C1B9957028A
+ CONST UID '4C1B9957028A'
+ CONST Name 'ConvertExternalDocNumberToInternal'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C1B99400116 // ExternalDocNumberToInternal
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4C1B997E0050 // aDocID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C1B9957028A ConvertExternalDocNumberToInternal
+
+: ME_4C1B99400116
+ CONST UID '4C1B99400116'
+ CONST GUID 'D74DA2A1-6425-4307-8458-661386227ACD'
+ CONST Name 'ExternalDocNumberToInternal'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Operations
+   @ ( ME_4C1B9957028A // ConvertExternalDocNumberToInternal
+ ) .SequenceCode.It
+ ; // Operations
+ CONST extprop:pas:TypeName 'IevdExternalDocNumberToInternal'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_4C1B99400116 ExternalDocNumberToInternal
+
+FORWARD ME_48F4941A0249
+
+: ME_49E6003C0110
+ CONST UID '49E6003C0110'
+ CONST Name 'DocID'
+ CONST Class class_Attribute
+ %SUMMARY 'Идентификатор документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_48F4941A0249 // Address
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49E6003C0110 DocID
+
+: ME_49E6004F02BA
+ CONST UID '49E6004F02BA'
+ CONST Name 'SubID'
+ CONST Class class_Attribute
+ %SUMMARY 'Идентификатор метки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_48F4941A0249 // Address
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49E6004F02BA SubID
+
+: ME_49E6006200D6
+ CONST UID '49E6006200D6'
+ CONST Name 'TypeID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_48F4941A0249 // Address
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49E6006200D6 TypeID
+
+: ME_49E6006A025F
+ CONST UID '49E6006A025F'
+ CONST Name 'RevisionID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_48F4941A0249 // Address
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49E6006A025F RevisionID
+
+: ME_4CDD3B0E02A6
+ CONST UID '4CDD3B0E02A6'
+ CONST Name 'E'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48F4941A0249 // Address
+ ;
+
+ref; // ME_4CDD3B0E02A6 E
+
+: ME_4CDD3BEC025D
+ CONST UID '4CDD3BEC025D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48F4941A0249 // Address
+ ;
+ : Target WL 'ME_484AB2B9034D' '469D0AC7005E.pas.ms.script' // Address Defaults
+ ;
+
+ref; // ME_4CDD3BEC025D 
+
+: ME_48F4941A0249
+ CONST UID '48F4941A0249'
+ CONST Name 'Address'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Адрес ссылки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Attributes
+   @ ( ME_49E6003C0110 // DocID
+ ME_49E6004F02BA // SubID
+ ME_49E6006200D6 // TypeID
+ ME_49E6006A025F // RevisionID
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4CDD3B0E02A6 // E
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4CDD3BEC025D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "not treat as record for XE4" 'undefined'
+ CONST extprop:pas:TypeName 'TevdAddress'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_48F4941A0249 Address
+
+FORWARD ME_4CDD38560217
+
+: ME_4CDD38870303
+ CONST UID '4CDD38870303'
+ CONST Name 'Text'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Текст ссылки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4CDD38560217 // HyperlinkInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" false
+
+ref; // ME_4CDD38870303 Text
+
+: ME_4CDD3950013B
+ CONST UID '4CDD3950013B'
+ CONST Name 'Address'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Адрес' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4CDD38560217 // HyperlinkInfo
+ ;
+ : Target ME_48F4941A0249 // Address
+ ;
+ CONST "pm" false
+
+ref; // ME_4CDD3950013B Address
+
+: ME_4CDD6BCA034C
+ CONST UID '4CDD6BCA034C'
+ CONST Name 'AppInfo'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Информация о приложении' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4CDD38560217 // HyperlinkInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" false
+
+ref; // ME_4CDD6BCA034C AppInfo
+
+: ME_4CDD38560217
+ CONST UID '4CDD38560217'
+ CONST GUID 'CF4E3A81-B898-4C91-9A46-9ECDEB78A9EA'
+ CONST Name 'HyperlinkInfo'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация о ссылке' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48F4E61C0060 // Interfaces
+ ;
+ : Attributes
+   @ ( ME_4CDD38870303 // Text
+ ME_4CDD3950013B // Address
+ ME_4CDD6BCA034C // AppInfo
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'IevdHyperlinkInfo'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_4CDD38560217 HyperlinkInfo
+
+: ME_48F4E61C0060
+ CONST UID '48F4E61C0060'
+ CONST Name 'Interfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для обработки объектов на базе EVD' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ ;
+ : Children
+   @ ( ME_476BED00024F // StoreFlag
+ ME_476BED2603D7 // StoreFlags
+ ME_48F5CC20002B // ClipboardFormat
+ ME_48F5CCDD0242 // TagGenerator
+ ME_47C68C4500D2 // DataObject
+ ME_4C1B99400116 // ExternalDocNumberToInternal
+ ME_48F4941A0249 // Address
+ ME_4CDD38560217 // HyperlinkInfo
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_476BEEFC018E // StoreDefaults
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '14.10.2008 22:34'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\EVD\evdInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\48F4E61C0060.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48F4E61C0060.pas.ms.script.runner'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_48F4E61C0060 Interfaces

@@ -1,0 +1,66 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/ChatLibrary_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> shared::ChatLibrary
+//
+// библиотека обмена сообщениями
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (ChatLibrary_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = ChatLibrary_cs
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	IDL_Files (ChatService) {
+		idlflags += -o ./../ChatLibrary/ChatService
+		./../ChatLibrary/ChatService/ChatService.idl
+	}
+
+	Header_Files {
+		Std_Headers {
+			./../ChatLibrary/LibHome.h
+		}
+	
+		ChatService {
+			./../ChatLibrary/ChatService/ChatService.h
+			./../ChatLibrary/ChatService/ChatServiceC.h
+			./../ChatLibrary/ChatService/ChatServiceS.h
+			./../ChatLibrary/ChatService/ChatServiceFactories.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		ChatService {
+			
+			./../ChatLibrary/ChatService/ChatServiceC.inl
+			./../ChatLibrary/ChatService/ChatServiceS.inl
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../ChatLibrary/LibHome.cpp
+		}
+	
+		ChatService {
+			./../ChatLibrary/ChatService/ChatService.cpp
+			./../ChatLibrary/ChatService/ChatServiceC.cpp
+			./../ChatLibrary/ChatService/ChatServiceS.cpp
+			./../ChatLibrary/ChatService/ChatServiceFactories.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

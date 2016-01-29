@@ -1,0 +1,16 @@
+USES
+	QuickTestsUtils.script
+;
+
+Тест TK354255065
+	Выполнить (
+		 OBJECT VAR l_Editor
+		 focused:control:push >>> l_Editor 
+		 1 0 2 4 l_Editor pop:editor:SelectCells
+		 20 раз ( l_Editor pop:Editor:ScrollLineDown )
+		 "Обработать сообщения"
+		 ed_maAll l_Editor pop:editor:MergeCells	
+	)
+;
+
+TK354255065

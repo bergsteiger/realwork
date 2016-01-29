@@ -1,0 +1,316 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{2F2E0144-BB24-44E6-9AA3-35BDC647BD4D}</ProjectGuid>
+        <MainSource>BuildWinRTL.dpk</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <TargetedPlatforms>3</TargetedPlatforms>
+        <AppType>Package</AppType>
+        <FrameworkType>None</FrameworkType>
+        <ProjectVersion>14.3</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_UNSUPPORTED_CONSTRUCT>false</DCC_UNSUPPORTED_CONSTRUCT>
+        <DCC_SYMBOL_DEPRECATED>false</DCC_SYMBOL_DEPRECATED>
+        <DCC_SYMBOL_PLATFORM>false</DCC_SYMBOL_PLATFORM>
+        <DCC_UNIT_PLATFORM>false</DCC_UNIT_PLATFORM>
+        <DCC_UnitSearchPath>$(BDSCOMMONDIR)\lib\$(Platform);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_DcuOutput>$(BDSCOMMONDIR)\lib\$(Platform)</DCC_DcuOutput>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
+        <DCC_Description>Windows RTL Builder</DCC_Description>
+        <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+        <GenPackage>true</GenPackage>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <GenDll>true</GenDll>
+        <DCC_K>false</DCC_K>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_E>false</DCC_E>
+        <DCC_F>false</DCC_F>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_DebugInformation>false</DCC_DebugInformation>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="sys\System.Types.pas"/>
+        <DCCReference Include="common\System.UITypes.pas"/>
+        <DCCReference Include="common\System.UIConsts.pas"/>
+        <DCCReference Include="sys\System.SysConst.pas"/>
+        <DCCReference Include="common\System.RTLConsts.pas"/>
+        <DCCReference Include="win\Winapi.Windows.pas"/>
+        <DCCReference Include="win\Winapi.ImageHlp.pas"/>
+        <DCCReference Include="common\System.Character.pas"/>
+        <DCCReference Include="sys\System.Internal.ExcUtils.pas"/>
+        <DCCReference Include="sys\System.SysUtils.pas"/>
+        <DCCReference Include="common\System.Actions.pas"/>
+        <DCCReference Include="sys\System.VarUtils.pas"/>
+        <DCCReference Include="common\System.SyncObjs.pas"/>
+        <DCCReference Include="common\System.Win.VCLCom.pas"/>
+        <DCCReference Include="common\System.Win.ComConst.pas"/>
+        <DCCReference Include="common\System.Win.ComObj.pas"/>
+        <DCCReference Include="common\System.Win.ComObjWrapper.pas"/>
+        <DCCReference Include="common\System.Contnrs.pas"/>
+        <DCCReference Include="common\System.ConvUtils.pas"/>
+        <DCCReference Include="common\System.DateUtils.pas"/>
+        <DCCReference Include="common\System.IniFiles.pas"/>
+        <DCCReference Include="common\System.Masks.pas"/>
+        <DCCReference Include="common\System.Math.pas"/>
+        <DCCReference Include="common\System.Win.Registry.pas"/>
+        <DCCReference Include="common\System.StdConvs.pas"/>
+        <DCCReference Include="common\System.Win.StdVCL.pas"/>
+        <DCCReference Include="common\System.StrUtils.pas"/>
+        <DCCReference Include="common\System.TypInfo.pas"/>
+        <DCCReference Include="common\System.VarConv.pas"/>
+        <DCCReference Include="common\System.VarCmplx.pas"/>
+        <DCCReference Include="common\System.Classes.pas"/>
+        <DCCReference Include="common\System.MaskUtils.pas"/>
+        <DCCReference Include="common\System.HelpIntfs.pas"/>
+        <DCCReference Include="common\System.Win.ScktComp.pas"/>
+        <DCCReference Include="win\Winapi.AccCtrl.pas"/>
+        <DCCReference Include="win\Winapi.AclAPI.pas"/>
+        <DCCReference Include="win\Winapi.ActiveX.pas"/>
+        <DCCReference Include="win\Winapi.ComSvcs.pas"/>
+        <DCCReference Include="win\Winapi.ADOInt.pas"/>
+        <DCCReference Include="win\Winapi.AspTlb.pas"/>
+        <DCCReference Include="win\Winapi.COMAdmin.pas"/>
+        <DCCReference Include="win\Winapi.CommCtrl.pas"/>
+        <DCCReference Include="win\Winapi.CommDlg.pas"/>
+        <DCCReference Include="win\Winapi.Cpl.pas"/>
+        <DCCReference Include="win\Winapi.DDEml.pas"/>
+        <DCCReference Include="win\Winapi.Dlgs.pas"/>
+        <DCCReference Include="win\Winapi.DwmApi.pas"/>
+        <DCCReference Include="win\Winapi.FlatSB.pas"/>
+        <DCCReference Include="win\Winapi.Imm.pas"/>
+        <DCCReference Include="win\Winapi.Isapi.pas"/>
+        <DCCReference Include="win\Winapi.Isapi2.pas"/>
+        <DCCReference Include="win\Winapi.LZExpand.pas"/>
+        <DCCReference Include="win\Winapi.Mapi.pas"/>
+        <DCCReference Include="win\Winapi.Messages.pas"/>
+        <DCCReference Include="win\Winapi.MMSystem.pas"/>
+        <DCCReference Include="win\Winapi.msxml.pas"/>
+        <DCCReference Include="win\Winapi.Mtx.pas"/>
+        <DCCReference Include="win\Winapi.MultiMon.pas"/>
+        <DCCReference Include="win\Winapi.Nb30.pas"/>
+        <DCCReference Include="common\System.Win.ObjComAuto.pas"/>
+        <DCCReference Include="sys\System.Variants.pas"/>
+        <DCCReference Include="common\System.ObjAuto.pas"/>
+        <DCCReference Include="win\Winapi.OleDB.pas"/>
+        <DCCReference Include="win\Winapi.OleDlg.pas"/>
+        <DCCReference Include="win\Winapi.OpenGL.pas"/>
+        <DCCReference Include="win\Winapi.oleacc.pas"/>
+        <DCCReference Include="win\Winapi.Penwin.pas"/>
+        <DCCReference Include="win\Winapi.PenInputPanel.pas"/>
+        <DCCReference Include="win\Winapi.PsAPI.pas"/>
+        <DCCReference Include="win\Winapi.RegStr.pas"/>
+        <DCCReference Include="win\Winapi.RichEdit.pas"/>
+        <DCCReference Include="win\Winapi.ShellAPI.pas"/>
+        <DCCReference Include="win\Winapi.SHFolder.pas"/>
+        <DCCReference Include="win\Winapi.ShlObj.pas"/>
+        <DCCReference Include="win\Winapi.ShLwApi.pas"/>
+        <DCCReference Include="sys\System.Internal.StrHlpr.pas"/>
+        <DCCReference Include="win\Winapi.TlHelp32.pas"/>
+        <DCCReference Include="win\Winapi.UrlMon.pas"/>
+        <DCCReference Include="win\Winapi.UxTheme.pas"/>
+        <DCCReference Include="sys\System.Internal.VarHlpr.pas"/>
+        <DCCReference Include="common\System.WideStrings.pas"/>
+        <DCCReference Include="common\System.WideStrUtils.pas"/>
+        <DCCReference Include="common\System.Win.Crtl.pas"/>
+        <DCCReference Include="win\Winapi.WinInet.pas"/>
+        <DCCReference Include="win\Winapi.Winsafer.pas"/>
+        <DCCReference Include="win\Winapi.WinSock.pas"/>
+        <DCCReference Include="win\Winapi.Qos.pas"/>
+        <DCCReference Include="win\Winapi.WinSock2.pas"/>
+        <DCCReference Include="win\Winapi.WinSpool.pas"/>
+        <DCCReference Include="win\Winapi.WinSvc.pas"/>
+        <DCCReference Include="win\Winapi.CorError.pas"/>
+        <DCCReference Include="win\Winapi.CorHdr.pas"/>
+        <DCCReference Include="win\Winapi.Cor.pas"/>
+        <DCCReference Include="win\Winapi.DXTypes.pas"/>
+        <DCCReference Include="win\Winapi.DXFile.pas"/>
+        <DCCReference Include="win\Winapi.DxDiag.pas"/>
+        <DCCReference Include="win\Winapi.D3DX8.pas"/>
+        <DCCReference Include="win\Winapi.D3DX9.pas"/>
+        <DCCReference Include="win\Winapi.Direct3D.pas"/>
+        <DCCReference Include="win\Winapi.Direct3D8.pas"/>
+        <DCCReference Include="win\Winapi.DX7toDX8.pas"/>
+        <DCCReference Include="win\Winapi.Direct3D9.pas"/>
+        <DCCReference Include="win\Winapi.DirectDraw.pas"/>
+        <DCCReference Include="win\Winapi.DirectShow9.pas"/>
+        <DCCReference Include="win\Winapi.DirectInput.pas"/>
+        <DCCReference Include="win\Winapi.DirectSound.pas"/>
+        <DCCReference Include="win\Winapi.DirectPlay8.pas"/>
+        <DCCReference Include="win\Winapi.DirectMusic.pas"/>
+        <DCCReference Include="win\Winapi.GDIPAPI.pas"/>
+        <DCCReference Include="win\Winapi.GDIPOBJ.pas"/>
+        <DCCReference Include="win\Winapi.GDIPUTIL.pas"/>
+        <DCCReference Include="win\Winapi.WMF9.pas"/>
+        <DCCReference Include="win\Winapi.IpExport.pas"/>
+        <DCCReference Include="win\Winapi.IpRtrMib.pas"/>
+        <DCCReference Include="win\Winapi.IpTypes.pas"/>
+        <DCCReference Include="win\Winapi.IpHlpApi.pas"/>
+        <DCCReference Include="common\System.ZLibConst.pas"/>
+        <DCCReference Include="common\System.ZLib.pas"/>
+        <DCCReference Include="common\System.Zip.pas"/>
+        <DCCReference Include="common\System.Internal.DebugUtils.pas"/>
+        <DCCReference Include="common\System.Generics.Defaults.pas"/>
+        <DCCReference Include="common\System.Generics.Collections.pas"/>
+        <DCCReference Include="common\System.Rtti.pas"/>
+        <DCCReference Include="common\System.TimeSpan.pas"/>
+        <DCCReference Include="common\System.Diagnostics.pas"/>
+        <DCCReference Include="common\System.AnsiStrings.pas"/>
+        <DCCReference Include="win\Winapi.TpcShrd.pas"/>
+        <DCCReference Include="win\Winapi.RtsCom.pas"/>
+        <DCCReference Include="win\Winapi.MsInkAut.pas"/>
+        <DCCReference Include="win\Winapi.MsInkAut15.pas"/>
+        <DCCReference Include="win\Winapi.Manipulations.pas"/>
+        <DCCReference Include="common\System.IOUtils.pas"/>
+        <DCCReference Include="win\Winapi.D2D1.pas"/>
+        <DCCReference Include="win\Winapi.Dxgi.pas"/>
+        <DCCReference Include="win\Winapi.DxgiType.pas"/>
+        <DCCReference Include="win\Winapi.DxgiFormat.pas"/>
+        <DCCReference Include="win\Winapi.D3D10.pas"/>
+        <DCCReference Include="win\Winapi.D3D10_1.pas"/>
+        <DCCReference Include="win\Winapi.D3DX10.pas"/>
+        <DCCReference Include="win\Winapi.Wincodec.pas"/>
+        <DCCReference Include="win\Winapi.KnownFolders.pas"/>
+        <DCCReference Include="win\Winapi.ObjectArray.pas"/>
+        <DCCReference Include="win\Winapi.PropSys.pas"/>
+        <DCCReference Include="win\Winapi.PropKey.pas"/>
+        <DCCReference Include="common\System.RegularExpressionsAPI.pas"/>
+        <DCCReference Include="common\System.RegularExpressionsConsts.pas"/>
+        <DCCReference Include="common\System.RegularExpressionsCore.pas"/>
+        <DCCReference Include="common\System.RegularExpressions.pas"/>
+        <DCCReference Include="win\Winapi.StructuredQuery.pas"/>
+        <DCCReference Include="win\Winapi.StructuredQueryCondition.pas"/>
+        <DCCReference Include="common\System.Odbc.pas"/>
+        <DCCReference Include="common\System.Sqlite.pas"/>
+        <DCCReference Include="win\Winapi.Portabledevicetypes.pas"/>
+        <DCCReference Include="win\Winapi.Sensors.pas"/>
+        <DCCReference Include="win\Winapi.Sensorsapi.pas"/>
+        <DCCReference Include="win\Winapi.Functiondiscovery.pas"/>
+        <DCCReference Include="win\Winapi.Locationapi.pas"/>
+        <DCCReference Include="win\Winapi.Wbem.pas"/>
+        <DCCReference Include="common\System.Sensors.pas"/>
+        <DCCReference Include="common\System.Win.Sensors.pas"/>
+        <DCCReference Include="win\Winapi.UserEnv.pas"/>
+        <DCCReference Include="win\Winapi.MSXMLIntf.pas"/>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>Package</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">BuildWinRTL.dpk</Source>
+                </Source>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1033</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                </VersionInfoKeys>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="OSX32">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="RTL.Build.targets"/>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>

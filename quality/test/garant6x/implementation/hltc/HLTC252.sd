@@ -1,0 +1,1175 @@
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////// HLTC252: Мониторинги ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////  
+
+uses common, DataSetup, States, RunPrograms, SettingsWork, Clicks, MenuWork, FileWork,
+		 DocumentWork, SearchWork, FoldersWork, ListWork;
+
+//////////////////////////////////////////////////////////////////////////////
+{
+HLTC252.1.1: Проверить, что при клике на ссылку (как из ОМ, так и из навигатора) <Моя новостная лента> открывается основная область, а в навигаторе становится активна вкладка «Моя новостная лента».
+  HLTC252.1.1.1: Проверить что по умолчанию в основную область загружается автореферат на самый последний (по дате) период.
+  HLTC252.1.4: Проверить, что на основной панели инструментов есть пункт «Моя новостная лента» (между пиктограммами «Мои документы».  
+  HLTC252.1.5: Проверить, что в командном меню «Анализ» есть пункт «Моя новостная лента» (после раздела, связанного с контролем)
+  HLTC252.1.7: Проверить, что ленту можно вызвать также по шоткату F3.    
+}
+function HLTC252_1_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_1_1_1_Execute';
+var
+  primeArray, primeStrArray;  
+  i, j, clbrd, res;      
+begin
+  try
+    Result := true; 
+    primeArray := ['КЛАВИАТУРА', 'МЕНЮ', 'КНОПКА НА ТУЛБАРЕ', 'НАВИГАТОР'];
+    primeStrArray := 
+      [
+        '*Аннотация к топику 2002*',
+        '*Аналитическая новостная лента "Все поступления в продукт "Прайм"" за 24.05.2013*',
+        '*Зарегистрировано в Минюсте 20/09/2004. Регистрационный N 2002ВL0СК.*',
+        '*АННОТАЦИЯ К: Сравнительный очерк горного законодательства в России и Западной Европе.*',
+        '*АННОТАЦИЯ К: Смешанная вина и ст. 683 т. Х ч. 1*'
+      ]; 
+    for i := VarArrayLowBound(primeArray, 1) to VarArrayHighBound(primeArray,1) do
+    begin
+      GoToMainMenu;
+      if not GoToPrime(primeArray[i]) then
+        Result := ErrorResult('Не открывается "ПРАЙМ. Моя новостная лента" через "' + primeArray[i] + '"')
+      else
+      if Result then // чтобы не проверять много раз, если уже нашли ошибку
+      begin 
+        clbrd := CopyToClipboard(GetEditor, 'ALL');
+        for j := VarArrayLowBOund(primeStrArray, 1) to VarArrayHighBound(primeStrArray,1) do      
+        if not StringCompare(primeStrArray[j], clbrd) then
+          Result := ErrorResult('При открытии новостной ленты, не найден нужный текст в новостной ленте: "' + primeStrArray[j] + '"');
+      end;
+    end;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+  CloseTabsExceptOne;
+end;
+
+{
+  HLTC252.1.1.2: Состав автореферата Проверять на первой ленте(за 24.05.2013).
+    Название рассылки: Аналитическая новостная лента <Название рассылки> за <период>
+    Где у нас:
+        Название рассылки - "Все поступления в продукт "Прайм""
+        Период - 24.05.2013
+
+    Элементы документа:
+
+        !ANNONAME - выделенное жирным "Аннотация к топику 2002 ... Команда номер 10"
+        Название документа - ссылка "Документ 2002 ... ыыыыыы10"
+        Предупреждение про изменения - комментарий Гаранта: "В документ вносились изменения. См. справку к документу."
+        Информация о регистрации в МЮ - "Зарегистрировано в Минюсте 20/09/2004. Регистрационный N 2002ВL0СК."
+        Мониторинг документа - "Это просто текст..." и до черты, разделяющей документы.
+
+    На ленте за 20.05, у последнего документе ещё есть:
+        Предупреждение про статус - комментарий Гаранта: "На момент обновления Вашего информационного банка документ не действует" - располагается после названия документа.
+}
+function HLTC252_1_1_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_1_1_2_Execute';
+var
+  primeTree, primeArray, primeStrArray;  
+  i, j;      
+begin
+  try
+    Result := true;
+    
+    if not GoToPrime then
+      Raise('Не открылся "ПРАЙМ. Моя новостная лента"');
+    primeTree := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"');
+    if not IsExists(primeTree) then
+      Raise('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА" не найдена');
+
+    // порядок следования названий лент имеет значение
+    primeArray := [
+                    'Лента за 24.05.2013', 
+                    'Лента за 20.05.2013'
+                  ];
+    for i := VarArrayLowBound(primeArray, 1) to VarArrayHighBound(primeArray, 1) do
+    begin
+      case i of
+        0:  primeStrArray := 
+            [
+              '*Аннотация к топику 2002*номер 10*',
+              '*ДОКУМЕНТ 2002*ыыыыыы10*',
+              '*ГАРАНТ:*В документ вносились изменения. См. справку к документу.*',
+              '*Зарегистрировано в Минюсте 20/09/2004. Регистрационный N 2002ВL0СК.*',
+              '*Это просто текст аннотации к топику 2002*"подпись"*'
+            ];
+        1:  primeStrArray := 
+            [
+              '*ГАРАНТ:*На момент обновления Вашего информационного банка документ не действует*'
+            ];
+      end;
+
+      if not OpenObjectFromFolder(primeArray[i], primeTree) then
+        Raise('Не найдена новостная лента: "' + primeArray[i] + '"');
+      for j := VarArrayLowBound(primeStrArray, 1) to VarArrayHighBound(primeStrArray,1) do      
+        if not StringCompare(primeStrArray[j], CopyToClipboard(GetEditor, 'ALL')) then
+          Result := ErrorResult('При открытии новостной ленты "' + primeArray[i] + '", не найден нужный текст в новостной ленте: "' + primeStrArray[j] + '"');
+    end;         
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC252.1.1.3: При работе с авторефератом должны быть докступны следующие операции:
+    HLTC252.1.1.3.1: Поиск контекста
+    HLTC252.1.1.3.2: Печать
+    HLTC252.1.1.3.3: Предварительный просмотр печати
+    HLTC252.1.1.3.4: Экспорт в файл
+    HLTC252.1.1.3.5: Экспорт в Word
+}
+function HLTC252_1_1_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_1_1_3_Execute';
+var
+  res;      
+begin
+  try
+    Result := true;
+    if not GoToPrime then
+      Raise('Не открывается "ПРАЙМ. Моя новостная лента"');
+
+    //HLTC252.1.1.3.1: Поиск контекста
+    if not BaseSearchInDocument(GetEditor, 'Яблочков Тихон Михайлович') then
+      Result := ErrorResult('Не получилось произвести поиск контекста "Яблочков Тихон Михайлович".');
+
+    //HLTC252.1.1.3.2: Печать
+    GoToPrime;
+    if not ClickByMainMenuItem('Файл\Печать...') then
+      Result := ErrorResult('Не получилось кликнуть по пункту "Файл\Печать..."')
+    else
+    begin
+      if not IsExists(GetFromShell('ДИАЛОГ ПЕЧАТИ')) then
+        Result := ErrorResult('ДИАЛОГ ПЕЧАТИ не найден!')
+      else
+        GetFromShell('ДИАЛОГ ПЕЧАТИ').Close;
+    end; 
+
+    //HLTC252.1.1.3.3: Предварительный просмотр печати
+    if not ClickByMainMenuItem('Файл\Предварительный просмотр') then
+      Result := ErrorResult('Не получилось кликнуть по пункту "Файл\Предварительный просмотр"')
+    else
+      Result := IsCorrectPreview and Result;    
+
+    GoToMainMenu;
+    GoToPrime;
+        
+    //HLTC252.1.1.3.4: Экспорт в файл
+    Result := CheckSavedFileName(GetEditor, 'Аналитическая новостная лента*Все поступления в продукт*Прайм*за 24.05.2013*') and Result;
+    
+    //HLTC252.1.1.3.5: Экспорт в Word
+    if not ExportToWord(
+        GetEditor,
+        [
+          '*Аннотация к топику 2002*',
+          '*Аналитическая новостная лента "Все поступления в продукт "Прайм"" за 24.05.2013*',
+          '*Зарегистрировано в Минюсте 20/09/2004. Регистрационный N 2002ВL0СК.*',
+          '*АННОТАЦИЯ К: Сравнительный очерк горного законодательства в России и Западной Европе.*',
+          '*АННОТАЦИЯ К: Смешанная вина и ст. 683 т. Х ч. 1*'
+        ]) then
+      Result := ErrorResult('Не получилось экспортировать "ПРАЙМ. Моя новостная лента" в Word');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+  CloseTabsExceptOne;
+end;
+
+{
+  HLTC252.1.1.4: Документы следуют в порядке убывания юридической силы документов
+    Проверять на ленте "с 13.05 по 19.05".
+
+    Чем меньше значение - тем больше юрсила. Для конституции она 1.
+    Т.е, в нашей ленте, документы должны идти: 69 - 70 - 71 ...
+}
+function HLTC252_1_1_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_1_1_4_Execute';
+  PRIME_NAME = '*с 13.05* по 19.05*';
+  TEXT_FOR_SORT = '* = 69 * = 70 * = 71 * = 79 *';
+var
+  primeTree, primeArray, primeStrArray;  
+  i, j;      
+begin
+  try
+    Result := true;
+    
+    if not GoToPrime then
+      Raise('Не открылся "ПРАЙМ. Моя новостная лента"');
+    primeTree := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"');
+    if not IsExists(primeTree) then
+      Raise('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА" не найдена');
+    if not OpenObjectFromFolder(PRIME_NAME, primeTree) then
+      Raise('Не найдена новостная лента: "' + PRIME_NAME + '"');
+    if not StringCompare(TEXT_FOR_SORT, CopyToClipboard(GetEditor, 'ALL')) then
+      Result := ErrorResult('Возможно изменилась сортировка новостной ленты. В рассылке "' + PRIME_NAME + '" не найдена последовательность: "' + TEXT_FOR_SORT + '"');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC252.1.2.3: Проверить, что если не задавать ни одной тематики рассылки, то:
+    HLTC252.1.2.3.1: Комбобокс д.б. недоступен.
+    HLTC252.1.2.3.3: Текст в комбобоксе - <Все поступления в продукт ПРАЙМ>.
+}
+function GetSelectedStringFromPrimeCombobox: string;
+const
+  FUNCTION_NAME = 'GetSelectedStringFromPrimeCombobox';
+var
+ combobox: OleVariant;
+begin
+  try
+    Result := '';
+    combobox := GetToolbarObject( GetFromNavigator('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"'), 'COMBOBOX', '');
+    if not IsExists(combobox) then
+      Raise('Комбобокс выбора рассылки Прайм не найден!');
+    Result := combobox.wText; 
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+function IsEnabledPrimeCombobox: boolean;
+const
+  FUNCTION_NAME = 'IsEnabledPrimeCombobox';
+var
+ combobox: OleVariant;
+begin
+  try
+    Result := '';
+    combobox := GetToolbarObject( GetFromNavigator('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"'), 'COMBOBOX', '');
+    if not IsExists(combobox) then
+      Raise('Комбобокс выбора рассылки Прайм не найден!');
+    Result := combobox.Enabled;
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+function HLTC252_1_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_1_2_Execute';
+  PRIME_STR = 'Все поступления в продукт ПРАЙМ';
+var
+ combobox, res: OleVariant;
+ combotext;
+begin
+  try
+    Result := true;
+    if not GoToPrime then
+      Raise('Не открылся "ПРАЙМ. Моя новостная лента"');
+    combotext := GetSelectedStringFromPrimeCombobox;
+    if not StringCompare(PRIME_STR, combotext) then
+      Result := ErrorResult('Текст в комбобоксе "' + combotext + '" отличается от ожидаемого "' + PRIME_STR + '"');
+    if IsEnabledPrimeCombobox then
+      Result := ErrorResult('Комбобокс доступен (НЕ задисэйблен) при несуществующих рассылках.');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  HLTC252.1.3: На самой вкладке должен быть список из ссылок на периоды рассылки, с указанием количества вновь поступивших мониторингов, входящих в состав пользовательского комплекта.
+    HLTC252.1.3.3: Проверть, что название новостной ленты содержит в себе период за который она построена:  
+      HLTC252.1.3.3.1: Когда период является интервалом. Например, если период: «С 31.01.2005 по 06.02.2005», то в названии новостной ленты будет фраза «...за период с 31.01.2005 по 06.02.2005»
+      HLTC252.1.3.3.3: Когда период является числом. Например, если период: «За 26.02.2005», то в названии новостной ленты будет фраза «...за 26.02.2005»
+    HLTC252.1.3.2: Периоды должны формироваться следующим образом: За Хi (где Х - даты дней последней недели), Получены с Ya по Zb (где Y это дата начала календарной недели, ближайшей к текущей неделе; Z-конец недели. 1,2,3-порядковые номера недель, предшествующие текущей)
+    HLTC252.1.2.3.2: Периоды дат строятся за 3 последние полные недели.      
+}
+function HLTC252_1_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_1_3_Execute';
+var
+  res: OleVariant;
+  primeTree, listPrimeTree, listCurrentPrimeTree;
+begin
+  try
+  	Result := true;
+    if not GoToPrime then
+      Raise('Не открылся "ПРАЙМ. Моя новостная лента"');
+    
+    listPrimeTree := [
+                      'Лента за 24.05.2013',
+                      'Лента за 23.05.2013',
+                      'Лента за 21.05.2013',
+                      'Лента за 20.05.2013',
+                      'Лента с 13.05.2013 по 19.05.2013',
+                      'Лента с 06.05.2013 по 12.05.2013',
+                      'Лента с 29.04.2013 по 05.05.2013',
+                      'Лента с 22.04.2013 по 28.04.2013',
+                      'Лента с 08.04.2013 по 14.04.2013',
+                      'Лента с 04.03.2013 по 10.03.2013'
+                     ];
+    listPrimeTree := Array2String(listPrimeTree, EndOfLine);
+    
+    primeTree := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"');
+    if not IsExists(primeTree) then
+      Raise('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА" не найдена');
+
+    listCurrentPrimeTree := Array2String(GetElementsFromTree(primeTree), EndOfLine);
+    
+    //Log.Message(listCurrentPrimeTree); exit;
+
+    if not StringCompare(listCurrentPrimeTree, listPrimeTree) then
+      Raise('Формат представления новостной ленты изменился: ' + EndOfLine + listCurrentPrimeTree + EndOfLine + 'Должен быть:' + EndOfLine + listPrimeTree);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  HLTC252.1.6: При смене объекта просмотра в основном окне(открыли ОМ, ППР, документ и т.д.) 
+    вкладка Моя новостная лента должна автоматически закрываться (и появляться после возвращения по истории).
+}
+function HLTC252_1_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_1_6_Execute';
+begin
+  try
+    Result := true;
+    if not GoToPrime then
+      Raise('Не получилось перейти в "Мою новостную ленту"');
+    if not IsExists(GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"')) then
+      Raise('Не найдена ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"');
+      
+    if not GoToMainMenu then
+      Raise('Не получилось перейти в Основное меню');
+    if IsExists(GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"')) then
+      Raise('Найдена ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА" после ухода из "Моей новостной ленты"');
+      
+    if not GoByHistory('BACK') then
+      Raise('Не получилось вернуться назад по истории');
+    if not IsExists(GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"')) then
+      Raise('Не найдена ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  HLTC252.2.1.1: Состав формы поиска:
+    HLTC252.2.1.1.1: « Орган/Источник»
+    HLTC252.2.1.1.2: « Раздел/Тема»
+    HLTC252.2.1.1.3: «Дата принятия»
+    HLTC252.2.1.1.4: «Вид правовой информации»
+  HLTC252.2.1.2: Результатом поиска по запросу в этой карточке должен быть автореферат (не список).
+    HLTC252.2.1.2.1: Правила формирования автореферата:
+Обзор законодательства
+Заголовок:
+Обзор законодательства
+Комплект: <имя комплекта>
+Период: <Дата 1> – <Дата 2>
+Тема: <Тема 1>
+<Тема 2>
+…
+<Тема n>
+Вид правовой информации: <Вид 1>, <Вид 2>,…<Вид n>
+Орган: <Орган 1>, <Орган 2>,…< Орган n>
+(указываются только непустые позиции)
+
+В позиции «Орган» должны использоваться только названия отмеченных органов, без иерархии (полного пути).
+
+<Документ 1>
+<Документ 2>
+….
+<Документ N>
+
+Документы следуют в порядке убывания юридической силы документов.
+
+Документ – блок, состоящей из следующей информации:
+<Название документа>
+<Информация о регистрации в МЮ>
+<Предупреждение про статус>
+<Предупреждение про изменения>
+<Мониторинг документа>
+
+Название документа. !NAME первоначальной редакции документа выделенный цветом заголовка, !STYLE J 0 73 0. Все название - ссылка на текущую редакцию Документа.
+
+Информация о регистрации в МЮ. Если в документе есть команды !RDATE или !RCODE, то после названия вставляются соответственно фразы: 
+!STYLE J 0 73 0 
+Зарегистрировано в Минюсте РФ <!RDATE >. Регистрационный N <!RCODE>
+
+Предупреждение про статус. Если на текущий момент Документ имеет статус «утративший силу» или «не вступил в силу», то после мониторинга вставляется стандартная фраза выделенная стилем «комментарий юристов»:
+На момент обновления Вашего информационного банка  документ не действует 
+
+Предупреждение про изменения. Если статус Документа «действующий» и в Документе есть хотя бы одна команда !СHDATE, то после мониторинга вставляется стандартная фраза выделенная стилем «комментарий юристов»
+В документ вносились изменения. См. справку к документу.
+
+  HLTC252.2.1.2.2: Проверить, что в статусной строке показывается количество найденных аннотаций.
+
+  HLTC252.2.1.3: Проверить, что запросы из этой формы можно сохранять.
+    HLTC252.2.1.3.4: Проверить, что такие запросы попадают в «Журнал работы».
+}
+function HLTC252_2_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_2_1_1_Execute';
+  ANN_COUNT = 22;
+var
+  oizArray;
+  etalonText, currentText, i;
+begin
+  try
+    Result := true;
+
+    if not RestartF1Shell(3, Options.Run.Timeout div 3, FUNCTION_NAME, FUNCTION_NAME) then
+      Raise('Не удалось перезапустить оболочку!');
+    
+    etalonText := [ 
+                    '*Обзор изменений законодательства*Комплект:*Период:*с*18.12.1999*по*18.12.2007*Тема:*Основы государственно-правового устройства*', 
+                    '*NAME в топике 2008 со всеми атрибутами*Зарегистрировано в Минюсте 01/01/2003*Просто текст*',
+                    '*Документ 9001*Это просто текст аннотации к топику 9001.*',
+                    '*Гражданский кодекс Российской Федерации*Аннотация к Гражданскому кодексу*',
+                    '*Документ 9007*Аннотация к топику 9007*',
+                    '*Документ 9003. С NOTTM*На момент обновления Вашего информационного банка документ не действует*Аннотация к топику 9003*'
+                  ];                  
+
+    if not SearchInAnalyticReview(
+                                      [
+                                      	CARD_PPOIZ, ([([
+                                      	FD_THEME, ([
+                                      		'[ИЛИ]Основы государственно-правового устройства']) ]),([
+                                      	FD_ACCEPTANCE_DATE_FROM, ([
+                                      		'18.12.1999']) ]),([
+                                      	FD_ACCEPTANCE_DATE_TO, ([
+                                      		'18.12.2007']) ]) ]) 
+                                      ]
+                                    ) then
+      Raise('Не получилось провести Поиск Обзор изменений законодательства по всем заполненным полям!');
+
+    if not IsExists(GetEditor) then
+      Raise('Не найдено окно редактора автореферата');
+    if GetAnnotationsCount(GetEditor) <> ANN_COUNT then
+      Result := ErrorResult('Отличается число аннотаций в обзоре, есть: ' + IntToStr(GetAnnotationsCount(GetEditor)) + ', ожидалось: ' + IntToStr(ANN_COUNT));
+    currentText := CopyToClipboard(GetEditor, 'ALL');
+    Log.Message('Текст автореферата:' + EndOfLine + currentText);
+
+    for i := VarArrayLowBOund(etalonText, 1) to VarArrayHighBound(etalonText,1) do
+      if not StringCompare(etalonText[i], currentText) then
+        Result := ErrorResult('Не найден текст автореферата:' + EndOfLine + etalonText[i]);
+    
+    if not OpenObjectFromFolder('*\Прайм.*Обзор*\Запрос:*Дата*18.12.1999*18.12.2007;*РАЗДЕЛ*Основы государственно*', OpenJurnalTab) then
+      Result := ErrorResult('Не получилось открыть искомый ранее запрос из Истории запросов в Журнале работы');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  HLTC252.2.2: Проверить, что на основной панели инструментов есть пункт «Прайм. Обзор изменений законодательства» (в кнопке «Поиск»).
+}
+function HLTC252_2_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_2_2_Execute';
+var
+  oizArray;
+  i;
+begin
+  try
+    Result := true; 
+    oizArray := ['МЕНЮ', 'КНОПКА НА ТУЛБАРЕ', 'ССЫЛКА В ОМ'];
+    for i := VarArrayLowBOund(oizArray, 1) to VarArrayHighBound(oizArray,1) do
+    begin
+      GoToMainMenu;
+      if not GoToAnalyticReview(oizArray[i]) then
+        Result := ErrorResult('Не открывается "Прайм. Обзор изменений законодательства" через "' + oizArray[i] + '"');
+    end;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  HLTC252.2.1.8: Проверить, что при пустой карточке запроса:
+    HLTC252.2.1.8.1: Нельзя провести поиск
+    HLTC252.2.1.8.2: Нельзя сохранить запрос
+}
+function HLTC252_2_1_8_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_2_1_8_Execute';
+  MESSAGE_STR = '*Не задано условий поиска*';
+begin
+  try
+    Result := true;
+    if SearchInAnalyticReview(nil, 'IsFillCard:=false') then
+      Result := ErrorResult('Получилось провести Поиск в "Обзор изменений законодательства" по ПУСТОЙ КЗ');
+    if WaitForInfoWindow(Options.Run.Timeout div 60, MESSAGE_STR) = '' then 
+      Result := ErrorResult('Не найдено предупреждение после поиска по ПУСТОЙ КЗ');      
+
+    if SimpleSaveToFolders(FUNCTION_NAME) then
+      Result := ErrorResult('Получилось сохранить пустую КЗ "Обзор изменений законодательства" в Мои документы');
+    if WaitForInfoWindow(Options.Run.Timeout div 60, MESSAGE_STR) = '' then 
+      Result := ErrorResult('Не найдено предупреждение после сохранения ПУСТОЙ КЗ');      
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  HLTC252.2.3: Проверить, что при этом виде поиска нельзя вызвать карточку «Фильтры».
+    HLTC252.2.3.1: Например, перейти в ППР 6.0, убедится, что появилась вкладка «Фильтры» (если вкладка не появилась, 
+                    то нужно выставить соответствующую опцию в настройках: «Поведение систему\Фильтры»), 
+                    затем перейти в «Построение обзора законодательства» - вкладка «Фильтры» должна пропасть.
+}
+//Желательно запускать на "Расширенной конфигурации" 
+function HLTC252_2_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_2_3_1_Execute';
+begin
+  try
+    Result := true;
+    if not GoToPPR then
+      Raise('Не получилось перейти в ППР');
+    if not OpenFilterTab then
+      Raise('Не получилось открыть вкладку "Фильтры"');      
+    if not IsExists(GetFromList('СПИСОК ФИЛЬТРОВ')) then
+      Raise('Вкладка "Фильтры" не найдена');
+      
+    if not GoToAnalyticReview then
+      Raise('Не получилось перейти в "Обзор изменений законодательства"');
+    if IsExists(GetFromList('СПИСОК ФИЛЬТРОВ')) then
+      Raise('Вкладка "Фильтры" найдена в "Обзоре изменения законодательства" (после его открытия следом за открытием ППР)');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  HLTC252.2.5: В Раздел/Тема везде должны присутствовать три уровня для всех разделов (т.е. например, Основы государственного-правового устройства\Федеральные органы власти\Президент), кроме разделов:
+}
+function HLTC252_2_5_Execute(var  current_state: OleVariant): OleVariant;
+begin
+  try
+    Result := FillAnalyticReviewCard([
+                                    	CARD_PPOIZ, ([([
+                                    	FD_THEME, ([
+                                    		'[ИЛИ]Основы государственно-правового устройства\Права и свободы человека и гражданина, гражданство\Гражданство',
+                                        '[ИЛИ]Банковская деятельность\Общие вопросы банковской деятельности',
+                                        '[ИЛИ]Ценные бумаги, рынок ценных бумаг\Общие вопросы',
+                                        '[ИЛИ]Общие вопросы хозяйственной и предпринимательской деятельности\Метрология, пробирное дело\Общие вопросы']) ]) ])
+                                      ]);
+    if not Result then
+      Raise('Не получилось заполнить карточку Обзора изменений законодательства!');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));  
+  end;
+end;
+
+{
+  HLTC252.2.7: В Вид правовой информации должны присутствовать 4 реквизита:
+  •	Акты органов власти
+  •	Судебная практика
+  •	Проекты законов
+  •	Пользовательская (вкладка)
+}
+function HLTC252_2_7_Execute(var  current_state: OleVariant): OleVariant;
+begin
+  try
+    Result := FillAnalyticReviewCard([
+                                    	CARD_PPOIZ, ([([
+                                    	FD_KIND_OF_INFORMATION, ([
+                                    		'[ИЛИ]Акты органов власти', 
+                                        '[ИЛИ]Судебная практика',
+                                        '[ИЛИ]Проекты законов',
+                                        '[ИЛИ]Пользовательская (вкладка)'
+                                        ]) ]) ]) 
+                                    ]);
+    if not Result then
+      Raise('Не получилось заполнить карточку Обзора изменений законодательства!');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));  
+  end;
+end;
+
+{
+HLTC252.3: Программа заказа рассылки
+    HLTC252.3.2.1: На форме создания новостной ленты все поля заполняемые пользователем являются обязательными кроме поля «E-MAIL». Убедиться, что система выдает сообщение, если не заполнено одно или несколько полей.  
+    HLTC252.3.2.3: Убедиться, что поле название автоматически меняется при изменении полей «вид информации» и «вид профессии» и название формируется на основании данных полей.
+      Если выбран вид информации «Федеральное законодательство и проекты федеральных законов» в название добавляется Федеральное зак-во.
+      Если выбран вид информации «Судебная практика», в название добавляется «Судебная практика».
+      Если выбран один или несколько видов «Регионального законодательства», в название добавляется «Региональное законодательство».
+    HLTC252.3.3.1: В случае первого заказа рассылки этот список пустой.
+    HLTC252.3.3.3: При вызове «Новая тема рассылки» автоматически в правой части открывается форма для задания его параметров.
+        HLTC252.3.3.3.1: Работа с этой формой аналогична работе с ППР
+      
+  HLTC252.3.3.2: На ее панели инструментов операции:
+    HLTC252.3.3.3.2.1: «Предварительный просмотр печати»
+    HLTC252.3.3.2.2: «Редактировать тему рассылки» (доступна только для уже имеющейся рассылки)
+    
+  HLTC252.3.1: Заказ рассылки осуществляется из формы следующего содержания (см. текст)
+}
+function HLTC252_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_3_Execute';
+  PRIME_NAME = 'Федеральное законодательство. Судебная практика. Юрист';  
+begin
+  try
+    try
+      Result := true;
+      if not StartF1Prime then
+        Raise('Не получилось запустить F1Prime.exe');
+      
+      if CountElementInTree(F1Prime_GetFromMainWindow('СПИСОК РАССЫЛОК')) > 0 then
+        Result := ErrorResult('СПИСОК РАССЫЛОК для первого запуска F1Prime.exe не пустой');
+
+      if not StringCompare(MFT_ERROR_PRIME_VALUE_EMPTY, GetParam(SavePrimeCard('IsReturnMessageForm:=true'), WFMF_RES_MSGTEXT)) then
+        Result := ErrorResult('Не появилось сообщение об ошибке "' + MFT_ERROR_PRIME_VALUE_EMPTY + '"');
+      if not FillPrimeCard(
+          [
+           CARD_PRIME, ([([
+           FD_ANNO_KIND, ([
+            'Федеральное законодательство и проекты федеральных законов', 'Судебная и арбитражная практика']) ]),([
+           FD_ANNO_USER, ([
+            'Юрист']) ]),([
+           FD_ANNO_ORG, ([
+            'Некоммерческая организация']) ]),([
+           FD_ANNO_INTEREST, ([
+            'Внешнеэкономическая деятельность',
+            'Налоги и налогообложение\Упрощенная система налогообложения']) ]) ]) 
+          ]) then
+        Raise('Не получилось заполнить КЗ ПРАЙМ');
+      if not SavePrimeCard then
+        Raise('Не получилось сохранить КЗ ПРАЙМ');
+      //Перезаписываем запрос
+      if not SavePrimeCard then
+        Raise('Не получилось ПЕРЕсохранить КЗ ПРАЙМ');
+      if not ClickByMainMenuItem_NonTabbed('Файл\Предварительный просмотр') then
+        Result := ErrorResult('Не получилось открыть "Предварительный просмотр"')
+      else
+      begin
+        if not IsCorrectPreview(0, F1Prime_GetFromMainWindow('ПРЕВЬЮ'), true) then
+          Result := ErrorResult('"Предварительный просмотр" для КЗ ПРАЙМ не корректен');
+        Sys.Keys('[Esc]');// выходим из просмотра
+      end;
+      if not (OpenObjectFromFolder(PRIME_NAME, F1Prime_GetFromMainWindow('СПИСОК РАССЫЛОК')) and IsExists(F1Prime_GetFromMainWindow('КАРТОЧКА ЗАПРОСА'))) then    
+        Result := ErrorResult('Не получилось вернуться в КЗ Прайм');    
+      if not DeleteObjectFromFolder(PRIME_NAME, F1Prime_GetFromMainWindow('СПИСОК РАССЫЛОК'), 'HowToDel:=POPUPMENU') then
+        Raise('Не получилось удалить сохраненную ленту из КЗ ПРАЙМ');
+    finally
+      if not Result then
+        DeleteObjectFromFolder('*', F1Prime_GetFromMainWindow('СПИСОК РАССЫЛОК'), 'HowToDel:=POPUPMENU');
+      CloseF1Prime(3, Options.Run.Timeout div 3);
+    end;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;  
+end;
+
+{
+  HLTC252.3.2.2: Убедиться, что поле «E-MAIL» проверяется на валидность адреса.
+  HLTC252.3.2.4: Если пользователь Редактировал поле «Название», то оно не меняется при изменении полей «вид информации» и «вид профессии».
+}
+function HLTC252_3_2_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_3_2_2_Execute';
+  PRIME_NAME = 'Лента1';  
+begin
+  try
+    Result := true;
+    if not StartF1Prime then
+      Raise('Не получилось запустить F1Prime.exe');
+
+    if not FillPrimeCard(
+              [
+               CARD_PRIME, ([([
+            	 FD_IMPORTANT_DOCUMENTS, ([
+                'Не добавлять в рассылку']) ]),([
+               FD_ANNO_KIND, ([
+                'Федеральное законодательство и проекты федеральных законов']) ]),([
+               FD_ANNO_USER, ([
+                'Юрист']) ]),([
+               FD_ANNO_ORG, ([
+                'Некоммерческая организация']) ]),([
+               FD_ANNO_INTEREST, ([
+                'Внешнеэкономическая деятельность',
+                'Налоги и налогообложение\Упрощенная система налогообложения']) ]),([
+               FD_EMAIL, ([
+                '1@2.3']) ])]) 
+              ]) then
+      Raise('Не получилось заполнить КЗ ПРАЙМ');
+    if SavePrimeCard then
+      Raise('Получилось заполнить КЗ ПРАЙМ с неправильно заполненным полем e-mail');      
+      
+    if not FillPrimeCard(
+              [
+               CARD_PRIME, ([([
+               FD_THEMES_NAME, ([
+                PRIME_NAME]) ]),([
+            	 FD_IMPORTANT_DOCUMENTS, ([
+                'Не добавлять в рассылку']) ]),([
+               FD_ANNO_KIND, ([
+                'Федеральное законодательство и проекты федеральных законов']) ]),([
+               FD_ANNO_USER, ([
+                'Юрист']) ]),([
+               FD_ANNO_ORG, ([
+                'Некоммерческая организация']) ]),([
+               FD_ANNO_INTEREST, ([
+                'Внешнеэкономическая деятельность',
+                'Налоги и налогообложение\Упрощенная система налогообложения']) ]),([
+               FD_EMAIL, ([
+                '1@2.com']) ])]) 
+              ]) then
+      Raise('Не получилось заполнить КЗ ПРАЙМ');
+    if not SavePrimeCard then
+      Raise('НЕ получилось заполнить КЗ ПРАЙМ');
+      
+    if not (OpenObjectFromFolder(PRIME_NAME, F1Prime_GetFromMainWindow('СПИСОК РАССЫЛОК')) and IsExists(F1Prime_GetFromMainWindow('КАРТОЧКА ЗАПРОСА'))) then
+      Result := ErrorResult('Не получилось вернуться в КЗ Прайм');    
+    if not DeleteObjectFromFolder(PRIME_NAME, F1Prime_GetFromMainWindow('СПИСОК РАССЫЛОК'), 'HowToDel:=POPUPMENU') then
+      Raise('Не получилось удалить сохраненную ленту из КЗ ПРАЙМ');
+  except
+    Result := false;
+    CloseF1Prime(3, Options.Run.Timeout div 3);
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+  CloseF1Prime(3, Options.Run.Timeout div 3);  
+end;
+
+{
+  HLTC252.1.2.1: Если в утилите F1Prime создана лишь одна рассылка, то комбобокс содержит её имя и задизейблен.
+  HLTC252.1.3.1: Проверить, что если заказынные рассылки пустые, то в панели навигатора отображаются ссылки с датами, а в главном окне отображается поясняющий текст о том, что рассылка пуста со ссылкой на все рассылки комплекта за выбранную дату. В случае, если пусты и заказанные рассылки и рассылки комплекта, то вместо ссылки будет текст с предложением расширить комплект
+}
+function HLTC252_1_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_1_2_1_Execute';
+  PRIME_EMPTY_CONTENT = 'Аналитическая новостная лента "' + FUNCTION_NAME + '" за*2013*Изменить настройки новостной ленты или добавить новую*Новостная лента не содержит документов, отвечающих Вашим индивидуальным настройкам ПРАЙМ.*Ознакомиться со всеми поступлениями в продукт ПРАЙМ';
+var
+  comboBox, listPrimeTree, primeTree, clbrd, i;  
+begin
+try
+  try
+    Result := true;
+    if not StartF1Prime then
+      Raise('Не получилось запустить F1Prime.exe');
+    if not ClickToolbarButton(F1Prime_GetFromMainWindow('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"'), 'Новая*лента*') then
+      Raise('Не удалось кликнуть по кнопке "Новая индивидуальная лента"');      
+    if not FillPrimeCard(
+            [
+             CARD_PRIME, ([([
+             FD_THEMES_NAME, ([
+              FUNCTION_NAME]) ]),([
+           	 FD_IMPORTANT_DOCUMENTS, ([
+        		  'Добавлять в рассылку']) ]),([
+             FD_ANNO_KIND, ([
+              'Федеральное законодательство и проекты федеральных законов']) ]),([
+             FD_ANNO_USER, ([
+              'Специалист по кадрам']) ]),([
+             FD_ANNO_ORG, ([
+              'Коммерческая организация']) ]),([
+             FD_ANNO_INTEREST, ([
+              'Закупки для обеспечения государственных и муниципальных нужд']) ]),([
+             FD_EMAIL, ([
+              '1@2.com']) ])]) 
+            ]) then
+      Raise('Не получилось заполнить КЗ ПРАЙМ "' + FUNCTION_NAME + '"');
+    if not SavePrimeCard then
+      Raise('НЕ получилось сохранить КЗ ПРАЙМ под именем "' + FUNCTION_NAME + '"');
+    CloseF1Prime(3, Options.Run.Timeout div 3);
+    
+    if not RestartF1Shell(3, Options.Run.Timeout div 3, FUNCTION_NAME, FUNCTION_NAME) then
+      Raise('Не удалось запустить оболочку!');
+    if not GoToPrime then
+      Raise('Не открылся "ПРАЙМ. Моя новостная лента"');
+    //HLTC252.1.2.1
+    comboBox := GetToolbarObject(GetFromNavigator('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"'), 'COMBOBOX', '');
+    if not IsExists(comboBox) then
+      Raise('Не найден комбобокс новостной ленты с именем');
+    if not StringCompare(FUNCTION_NAME, comboBox.wText) then
+      Result := ErrorResult('Отличается название комбобокса новостной ленты: ' + comboBox.wText + ', ожидалось: ' + FUNCTION_NAME);
+    if comboBox.Enabled then
+      Result := ErrorResult('Комбобокс, содержащий название одной новостной ленты НЕ задисейблен');
+    //HLTC252.1.3.1
+    listPrimeTree := [
+                      'Лента за 24.05.2013',
+                      'Лента за 23.05.2013',
+                      'Лента за 21.05.2013',
+                      'Лента за 20.05.2013',
+                      'Лента с 13.05.2013 по 19.05.2013',
+                      'Лента с 06.05.2013 по 12.05.2013',
+                      'Лента с 29.04.2013 по 05.05.2013',
+                      'Лента с 22.04.2013 по 28.04.2013',
+                      'Лента с 08.04.2013 по 14.04.2013',
+                      'Лента с 04.03.2013 по 10.03.2013'
+                     ];
+    primeTree := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА"');
+    if not IsExists(primeTree) then
+      Raise('ВКЛАДКА НАВИГАТОРА "МОЯ НОВОСТНАЯ ЛЕНТА" не найдена');
+    for i := VarArrayLowBound(listPrimeTree, 1) to VarArrayHighBound(listPrimeTree,1) do
+    begin
+      if not OpenObjectFromFolder(listPrimeTree[i], primeTree) then
+        Raise('Не найдена новостная лента: "' + listPrimeTree[i] + '"');
+      clbrd := CopyToClipboard(GetEditor, 'ALL');
+      if not StringCompare(PRIME_EMPTY_CONTENT, clbrd) then
+        Raise('Пустая новостная лента "' + listPrimeTree[i] + '" не соответствует, должно быть: "' + PRIME_EMPTY_CONTENT + '", есть: "' + clbrd + '"');
+    end; 
+  finally
+    CloseF1Prime(3, Options.Run.Timeout div 3);
+  end;  
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;    
+end;
+end;
+
+{  
+  HLTC252.3.3.2: На ее панели инструментов операции:
+    HLTC252.3.3.2.1: «Новая индивидуальная лента»
+    HLTC252.3.3.2.3: «Удалить тему рассылки» (доступна только для уже имеющейся рассылки)
+    HLTC252.1.2.2: В случае сетевого однопользовательского или многопользовательского комплектов комбобокс доступен и можно выбрать одну из заказанных рассылочных тематик.
+  HLTC252.3.3.3.5: Проверить что на файл - серверной, клиент - сервеной, клиентской, локальной типах устаноки из каталога где установлена система запускается утилита заказа новостных лент «garant.exe F1Prime.exe». 
+                   Проверить на всех ОС на которых устанавливается система (необходимо включить в сценарии по установке системы).        
+}
+function HLTC252_3_3_2_1_PRIME_SERVER_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_3_3_2_1_Execute';
+  NUM = 4;
+var
+  i;
+  currentText, etalonText;  
+begin
+  try
+    Result := true;
+    if not StartF1Prime then
+      Raise('Не получилось запустить F1Prime.exe');
+    for i :=1 to NUM do
+    begin
+      if not ClickToolbarButton(F1Prime_GetFromMainWindow('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"'), 'Новая*лента*') then
+        Raise('Не удалось кликнуть по кнопке "Новая индивидуальная лента"');      
+      if not FillPrimeCard(
+              [
+               CARD_PRIME, ([([
+               FD_THEMES_NAME, ([
+                FUNCTION_NAME + IntToStr(i)]) ]),([
+             	 FD_IMPORTANT_DOCUMENTS, ([
+            		'Добавлять в рассылку']) ]),([
+               FD_ANNO_KIND, ([
+                'Федеральное законодательство и проекты федеральных законов']) ]),([
+               FD_ANNO_USER, ([
+                'Бухгалтер, финансист', 'Руководитель']) ]),([
+               FD_ANNO_ORG, ([
+                'Иностранное юридическое лицо', 'Коммерческая организация']) ]),([
+               FD_ANNO_INTEREST, ([
+                'Страховая деятельность', 
+                'Торговля', 
+                'Налоги и налогообложение\Налог на добавленную стоимость']) ]),([
+               FD_EMAIL, ([
+                '1@2.com']) ])]) 
+              ]) then
+        Raise('Не получилось заполнить КЗ ПРАЙМ "' + FUNCTION_NAME + IntToStr(i) + '"');
+      if not SavePrimeCard then
+        Raise('НЕ получилось сохранить КЗ ПРАЙМ под именем "' + FUNCTION_NAME + IntToStr(i) + '"');
+    end;
+    CloseF1Prime(3, Options.Run.Timeout div 3);
+    
+    if not RestartF1Shell(3, Options.Run.Timeout div 3, FUNCTION_NAME, FUNCTION_NAME) then
+      Raise('Не удалось запустить оболочку!');
+    if not GoToPrime then
+      Raise('Не открылся "ПРАЙМ. Моя новостная лента"');
+    for i :=1 to NUM do
+    begin
+      if not SelectInCombobox
+             (
+               GetToolbarObject( GetFromNavigator('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"'), 'COMBOBOX', ''),
+               FUNCTION_NAME + IntToStr(i)
+             ) then
+        Result := ErrorResult('НЕ получилось выбрать из комбобокса ПРАЙМ ленту под именем "' + FUNCTION_NAME + IntToStr(i) + '"');
+      //Проверяем содержимое автореферата
+      if not IsExists(GetEditor) then
+        Result := ErrorResult('Не найдено окно редактора автореферата')
+      else
+      begin 
+        etalonText := '*Аналитическая новостная лента*' +
+                      FUNCTION_NAME + IntToStr(i) +
+                      '*за 24.05.2013*Аннотация к топику 2002*Зарегистрировано в Минюсте 20/09/2004*стиля*подпись*';
+        currentText := CopyToClipboard(GetEditor, 'ALL');    
+        if not StringCompare(etalonText, currentText) then
+          Result := ErrorResult('Текст автореферата "' + FUNCTION_NAME + IntToStr(i) + '" отличается от эталонного. Текущий: "' + EndOfLine + currentText + EndOfLine + '". Эталонный: "' + EndOfLine + etalonText + '"');
+      end;
+    end;    
+    CloseF1Shell(3, Options.Run.Timeout div 3);
+
+    if not StartF1Prime then
+      Raise('Не получилось запустить F1Prime.exe');
+    for i :=1 to NUM do
+    begin
+      if not DeleteObjectFromFolder(FUNCTION_NAME + IntToStr(i), F1Prime_GetFromMainWindow('СПИСОК РАССЫЛОК'), 'HowToDel:=POPUPMENU') then
+        Result := ErrorResult('Не получилось удалить сохраненную ленту из КЗ ПРАЙМ под именем "' + FUNCTION_NAME + IntToStr(i) + '"');
+    end;
+  except
+    Result := false;
+    CloseF1Prime(3, Options.Run.Timeout div 3);
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+  CloseF1Prime(3, Options.Run.Timeout div 3);  
+end;
+
+function HLTC252_3_3_2_1_PRIME_DESKTOP_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_3_3_2_1_Execute';
+begin
+  try
+    Result := HLTC252_3_3_2_1_PRIME_SERVER_Execute(current_state);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC252.3.6: Проверить, что на ФС версии при любом изменени рассылок(редактирование, добавление новой, удаление) при закрытии F1Prime происходит сохранение рассылки в settings-xml в корневом каталоге установки в формате xml, после чего успешно заливается всем пользователям при старте оболочки.
+}
+function HLTC252_3_3_2_1_PRIME_FILESERVER_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_3_3_2_1_Execute';
+begin
+  try
+    Result := HLTC252_3_3_2_1_PRIME_SERVER_Execute(current_state);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC252.3.3.3.3: При нажатии кнопки на тулбаре «Экспортировать в файл» происходит сохранение рассылки как в БД, так и в виде отдельного файла на диск.
+    HLTC252.3.3.3.3.1: Проверить, что в сохраненном файле f1prime.psx присутствуют все заполненные в КЗ поля и нет пустых тегов <attribute_tag> <text> и <item logic_operation>. 
+    Для этого переименовать его в xml и открыть с помощью броузера.
+  HLTC252.3.3.3.3.2: Проверить, что сохраненный файл рассылок имеет вид name.psx, где name – значение атрибута AT_CLIENT_REG_NUM в этом файле. Если оно равно «отсутствует», то имя файла будет id_not_found.psx.
+}
+function HLTC252_3_3_3_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_3_3_3_3_1_Execute';
+  //PRIMEPSX_FILE = '77-00007-000024.psx';
+  PRIMEPSX_FILE = 'id_not_found.psx';
+  BZIP_EXEFILE = 'bzip2.exe';
+  NUM = 3;
+var
+  i, bzipExeFileName, psxFileName, psxUnpackFileName;
+begin
+  try
+    Result := true;
+    if not StartF1Prime then
+      Raise('Не получилось запустить F1Prime.exe');
+    try
+      for i :=1 to NUM do
+      begin
+        if not ClickToolbarButton(F1Prime_GetFromMainWindow('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"'), 'Новая*лента*') then
+        begin 
+          Result := ErrorResult('Не удалось кликнуть по кнопке "Новая индивидуальная лента"');      
+          continue;
+        end;
+        if not FillPrimeCard(
+                [
+                 CARD_PRIME, ([([
+                 FD_THEMES_NAME, ([
+                  FUNCTION_NAME + IntToStr(i)]) ]),([
+              	 FD_IMPORTANT_DOCUMENTS, ([
+              		'Добавлять в рассылку']) ]),([
+                 FD_ANNO_KIND, ([
+                  'Федеральное законодательство и проекты федеральных законов']) ]),([
+                 FD_ANNO_USER, ([
+                  'Специалист по кадрам', 'Руководитель', 'Юрист']) ]),([
+                 FD_ANNO_ORG, ([
+                  'Орган государственной власти', 'Некоммерческая организация']) ]),([
+                 FD_ANNO_INTEREST, ([
+                  'Топливно-энергетический комплекс',
+                  'Страховая деятельность',
+                  'Налоги и налогообложение\Единый сельскохозяйственный налог']) ]),([
+                 FD_EMAIL, ([
+                  'garant@garant.ru']) ])]) 
+                ]) then
+          Raise('Не получилось заполнить КЗ ПРАЙМ "' + FUNCTION_NAME + IntToStr(i) + '"');
+        if not SavePrimeCard then
+          Raise('НЕ получилось сохранить КЗ ПРАЙМ под именем "' + FUNCTION_NAME + IntToStr(i) + '"');
+      end;
+
+      //Сохраняем КЗ
+      if not (ExportPrimeCard(GetF1Directory){ or ExportPrimeCard(GetF1Directory) or ExportPrimeCard(GetF1Directory)})then 
+        Raise('Не получилось сохранить рассылку новостной ленты из КЗ ПРАЙМ');
+      //Распаковываем из bzip
+      psxFileName := IncludeTrailingBackslash(GetF1Directory) + PRIMEPSX_FILE;
+      psxUnpackFileName := psxFileName + '.out';     
+      if not FileExists(psxFileName) then
+        Raise('Не найден "' + psxFileName + '"!');
+      bzipExeFileName := GetPathTo(PATH_TO_GARANTUTILS) + BZIP_EXEFILE; 
+      if not FileExists(bzipExeFileName) then
+        Raise('Не найден "' + bzipExeFileName + '" для распаковки psx-файла!');
+      
+      if Win32API.WinExec('cmd.exe /D /C ""' + bzipExeFileName + '" -d -f -k "' + psxFileName + '""', Win32API.SW_HIDE) <= 31 then
+        Raise('Возникла ошибка при запуске "' + bzipExeFileName + '"');
+      i := 0;
+      repeat
+        Delay(Options.Run.Timeout div 6);
+        inc(i);
+      until (FileWork.GetFileSize(psxUnpackFileName) > 0) or (i > 8);
+      if FileWork.GetFileSize(psxUnpackFileName) <= 0 then
+        Raise('При распаковке файла "' + PRIMEPSX_FILE + '" возникла ошибка, размер распакованного файла <= 0');     
+    
+      //Сравниваем (PRIMEPSX_FILE в TC должен лежать в распакованном виде!!!)
+      Result := CompareGarantFiles(psxUnpackFileName, PRIMEPSX_FILE, 'IsWriteFileToLog:=false');
+      if not Result then 
+        Raise('Файл рассылки "' + PRIMEPSX_FILE + '" стал отличаться от эталона');
+    finally
+      CloseF1Prime(3, Options.Run.Timeout div 3);
+    end;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+HLTC252.3.4: Проверить работу, когда в состав комплекта не включен  блок "Прайм".
+	Дистрибутив базы без прайма лежит на девелопере в папке _datasetup\noprime в соответствующем текущей версии каталогу.
+  HLTC252.3.4.1: При запуске утилиты заказа рассылки на коммерческой версии в этом случае выдаётся сообщение: "В состав Вашего комплекта не включен  сервисный блок "Прайм". Настройка индивидуальной ленты новостей невозможна.   По вопросам расширения информационного банка обращайтесь в обслуживающую Вас организацию. <DEALER.INF>"  
+}
+function HLTC252_3_4_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_3_4_1_Execute';
+  MSGTEXT = 'В состав Вашего комплекта не включен  сервисный блок ПРАЙМ.*' + 
+            'Настройка индивидуальной ленты новостей невозможна.*' + 
+            'По вопросам расширения информационного банка обращайтесь в обслуживающую Вас организацию:*' +  
+            'Разработчик системы ГАРАНТ*' +
+            'Компания "Гарант"*' +
+            'Для регионов: Тел. 8-800-200-88-88*' +
+            '(бесплатный междугородный звонок)*' +
+            'Для Москвы: Тел.  (495) 647-62-38*' +
+            'Факс. (495) 647-62-39.';
+var
+  infoMsg;
+begin
+try
+  try  
+    Result := true;
+    if not StartF1Prime('', false) then
+      Raise('Не получилось запустить F1Prime.exe');
+
+    infoMsg := GetParam( WaitForAnyMessageWindow('', Options.Run.Timeout, '', 'OK'), WFMF_RES_MSGTEXT, '');
+    Delay(Options.Run.Timeout div 3);
+    if IsExists( GetF1PrimeProcess(Options.Run.Timeout div 30, 1, false) ) then
+      Result := ErrorResult('После закрытия предупреждения об отсутствии блока ПРАЙМ в базе, процесс "' + PRIME_PROCESS_NAME + '" существует!');
+    
+    if not StringCompare(MSGTEXT, infoMsg) then 
+      Result := ErrorResult('Неправильный текст предупреждения (или не найдено) об отсутствии блока ПРАЙМ в базе. Найдено: "' + EndOfLine + infoMsg + EndOfLine + EndOfLine + '". Должно быть: "' + EndOfLine + MSGTEXT + '"');
+  finally
+    CloseF1Prime(3, Options.Run.Timeout div 3);
+  end;
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;    
+end;
+end;
+
+{
+  HLTC252.3.4.3: Для внутренней базы в оболочке должны быть доступны Построение обзора изменений законодательства и вкладка "аннотация" (в документе и синхронном просмотре списка).
+  HLTC252.2.1.10: Между тулбаром и первым полем КЗ (Орган/Источник) располагается шапка, состоящая из иконки Обзора изменений законодательства и названия КЗ: «Обзор изменений законодательства».
+}
+function HLTC252_3_4_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC252_3_4_3_Execute';
+begin
+  try
+    Result := true;
+    if not GoToAnalyticReview then
+      Result := ErrorResult('Не получилось зайти в Прайм. Обзор изменения законодательства');
+    if not IsExists(GetFromAnalyticReview('ЗАГОЛОВОК КЗ')) then
+      Result := ErrorResult('Заголовок КЗ "Обзор изменений законодательства" не найден или изменился');
+          
+    if GoToPrime then
+      Result := ErrorResult('Получилось зайти в Прайм. Моя новостная лента. Ее не должно быть на базе без Прайма');    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+
+////////////////////////////////////////////////////////////////////////////////
+procedure Run;
+var 
+  i, p, w : oleVariant;
+  fso, drv; 
+begin
+//  _SimpleGetCardData_; exit;
+//  HLTC252_1_1_1_Execute(p);
+//  HLTC252_1_1_2_Execute(p);
+//  HLTC252_1_1_3_Execute(p);
+//  HLTC252_1_1_4_Execute(p);
+//  HLTC252_1_2_Execute(p);
+//  HLTC252_1_2_1_Execute(p);
+//  HLTC252_1_3_Execute(p);
+//  HLTC252_1_6_Execute(p);
+//  HLTC252_2_1_1_Execute(p);
+//  HLTC252_2_2_Execute(p);
+//  HLTC252_2_1_8_Execute(p);
+//  HLTC252_2_3_1_Execute(p);
+//  HLTC252_2_5_Execute(p);
+//  HLTC252_2_7_Execute(p);
+//  HLTC252_3_Execute(p);
+//  HLTC252_3_2_2_Execute(p);
+//  HLTC252_3_3_2_1_PRIME_SERVER_Execute(p);
+//  HLTC252_3_3_2_1_PRIME_DESKTOP_Execute(p);
+//  HLTC252_3_3_2_1_PRIME_FILESERVER_Execute(p);
+//  HLTC252_3_3_3_3_1_Execute(p);
+//  HLTC252_3_4_1_Execute(p);
+//  HLTC252_3_4_3_Execute(p);
+//////////////////////////////////////////////////
+  HLTC252_2_7_Execute(p);     
+
+
+
+
+  
+  
+   
+  
+   
+end;
+

@@ -1,0 +1,18 @@
+USES
+	EditorTools.script
+	QuickTestsUtils.script
+;
+
+: FindTableTest
+	Создать
+	TRY
+		wait:Ok
+		"Найти таблицу"
+		waited:? ASSERT
+	FINALLY
+		"Закрыть без сохранения"
+	END	
+;
+
+FindTableTest
+

@@ -1,0 +1,37 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = datasetup.exe dataupd.exe download.exe F1ConsultingChecker.exe F1Prime.exe garant.exe gclean.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+datasetup.exe: datasetup.dpr
+  $(DCC)
+
+dataupd.exe: dataupd.dpr
+  $(DCC)
+
+download.exe: download.dpr
+  $(DCC)
+
+F1ConsultingChecker.exe: F1ConsultingChecker.dpr
+  $(DCC)
+
+F1Prime.exe: F1Prime.dpr
+  $(DCC)
+
+garant.exe: garant.dpr
+  $(DCC)
+
+gclean.exe: gclean.dpr
+  $(DCC)
+  

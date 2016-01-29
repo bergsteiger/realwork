@@ -1,0 +1,25 @@
+# sh .profile MPCXC fragment
+
+# GARANT {
+export MPCXC_MIRROR_HOME=/home/compile
+export MPCXC_PATH_TO_ACE_WRAPPERS=/mnt/nfs/Garant-external/2006-04-18/winNT+stlport/ACE_wrappers
+
+export PATH=$MPCXC_MIRROR_HOME/build:$PATH # should be $USER-independent
+
+export MPCXC_ROOT=/home/$USER/pilotcvs
+export MPCXC_CVS_USER=nemesis # may be != $USER !
+
+export XERCES_ROOT=$MPCXC_MIRROR_HOME/xerces_260 # should be $USER-independent
+export MPCXC_PATH_TO_LOKI=$MPCXC_PATH_TO_ACE_WRAPPERS/../loki # should be $USER-independent
+export MPCXC_PATH_TO_BZLIB=$MPCXC_PATH_TO_ACE_WRAPPERS/../bzlib # should be $USER-independent
+
+export LOKI_ROOT=$MPCXC_ROOT/src # user-dependent due to non-lite loki copying at level 2 install
+
+export BOOST_ROOT=/usr/local/boost
+
+mkdir -p $MPCXC_ROOT
+cd $MPCXC_ROOT
+
+echo "Current directory to start garant build from must be: $MPCXC_ROOT."
+echo "Garant compile on UNIX ready."
+# GARANT }

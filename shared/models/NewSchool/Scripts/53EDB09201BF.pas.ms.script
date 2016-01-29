@@ -1,0 +1,114 @@
+// TcsCourtDecisionSabCheckerParams 53EDB09201BF SimpleClass Class
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+FORWARD ME_53EDB09201BF
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4EEADA1C3DD0
+ CONST UID '4EEADA1C3DD0'
+ CONST Name 'DocTypeID'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_4EEADA1C3DD0 DocTypeID
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_E24C1E692D7A
+ CONST UID 'E24C1E692D7A'
+ CONST Name 'LastUpdateDate'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47272C8B0128 // TDateTime
+ ;
+ CONST "ifndef" 'Region'
+ CONST "pm" true
+
+ @SELF
+; // ME_E24C1E692D7A LastUpdateDate
+
+: ME_43C9B3E0B545
+ CONST UID '43C9B3E0B545'
+ CONST Name 'NotifyList'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_452257A0036F // a-string
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_43C9B3E0B545 NotifyList
+
+INCLUDE '53F19F280320.pas.ms.script'
+
+: ME_C4D1E41E73D1
+ CONST UID 'C4D1E41E73D1'
+ CONST Name 'CourtsList'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_53F19FE300BB // CourtsListHelper
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_C4D1E41E73D1 CourtsList
+
+: ME_B67A69AEE25A
+ CONST UID 'B67A69AEE25A'
+ CONST Name 'IsParamsValid'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_3DBFFE100240 // boolean
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_B67A69AEE25A IsParamsValid
+
+: ME_53EDB09201BF
+ CONST UID '53EDB09201BF'
+ CONST Name 'TcsCourtDecisionSabCheckerParams'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_534572370056 // Tl3Tag
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4EEADA1C3DD0 // DocTypeID
+ ME_E24C1E692D7A // LastUpdateDate
+ ME_43C9B3E0B545 // NotifyList
+ ME_C4D1E41E73D1 // CourtsList
+ ME_B67A69AEE25A // IsParamsValid
+ ]
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53EDB09201BF TcsCourtDecisionSabCheckerParams

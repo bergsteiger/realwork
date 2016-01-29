@@ -1,0 +1,591 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.4.0410.2500"
+    charSet    	204)
+
+(object Class_Category "Notify"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false"))
+    quid       	"4242E61C007D"
+    stereotype 	"Interface"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4242E964002E"
+	    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes"
+	    quidu      	"3F2557FD00CD"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "NotifyManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"4E4282C5-1F27-4A9E-8F8D-3CC8B00FDA97")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *4242E66A038A_CUSTOM_PREINCLUDES*¤//#UC END# *4242E66A038A_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/Notify/Notification_i.h"¤#include "Global/Core/Common/TimeStampSyncClient.h"¤//#UC END# *4242E66A038A_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_MAKE_INTERFACE_IMPLEMENTATION*¤	return new NotifyManager_i ();¤	//#UC END# *4242E66A038A_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	"//#UC START# *4242E66A038A_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *4242E66A038A_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *4242E66A038A_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_BASE_METHOD_IMPL*"
+		    value      	"//#UC START# *4242E66A038A_BASE_METHOD_IMPL*¤//#UC END# *4242E66A038A_BASE_METHOD_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4242E66A038A_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_DESTRUCTOR_IMPLEMENTATION*¤	try {¤		m_notify_listener_only_for_me = 0;¤		m_notify_listener_for_all = 0; // îòïèñûâàåìñÿ îò ñîîáùåéíèé, ïîëó÷àåìûõ ÷åðåç EventChanel (ýòî íóæíî äåëàòü çäåñü)¤    } catch (...) {¤    	LOG_D (("NotifyManager_i::~NotifyManager_i (): unknown exception catched"));¤		assert (false);¤	}¤	//#UC END# *4242E66A038A_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E66A038A_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤void NotifyManager_i::register_transformer (NotifyType notify_id, const IDataTransformer* transformer) {¤	m_data_transformers[notify_id] = IDataTransformer::_duplicate (transformer);¤}¤¤void NotifyManager_i::listen_for_all () {¤	m_notify_listener_for_all = new GCL::NotifyListener (GCM::get_cached_consumer_admin (), this, 0);¤}¤¤void NotifyManager_i::listen_only_for_me () {¤	CORBA::ULong uid = 0;¤	GslUserManager::Profile_var profile = GslUserManager::get_cached_user_manager ()->get_current_profile ();¤	if (!CORBA::is_nil (profile)) {¤		uid = profile->get_id ();¤	} else {¤		assert (0);¤	}¤	m_notify_listener_only_for_me = new GCL::NotifyListener (GCM::get_cached_consumer_admin (), this, uid);¤}¤¤void NotifyManager_i::stop_listen_me () {¤	m_notify_listener_only_for_me = 0;¤}¤¤void NotifyManager_i::fire_event (const CORBA::Any& data) {¤	GblPilotDef::UserNotify* user_notify;¤	static ACE_Atomic_Op<ACE_Thread_Mutex, long> s_start_notify_whatcher = 0;¤	if (data >>= user_notify) {¤		if (user_notify->m_type == GblPilotDef::unt_LongOperationStart) {¤			if (1 != (++s_start_notify_whatcher)) {¤				LOG_W (("NotifyManager_i::fire_event: unexpected order of Long Operation message"));¤			}¤			this->send_notify_to_all (NT_LONG_OPERATION_START, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_LongOperationEnd) {¤			if (0 != (--s_start_notify_whatcher)) {¤				LOG_W (("NotifyManager_i::fire_event: unexpected order of Long Operation message"));¤			}¤			this->send_notify_to_all (NT_LONG_OPERATION_END, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_PredefinedDataLogout) {			¤			this->send_notify_to_all (NT_PREDEFINED_DATA_LOGOUT, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_ServerStopped) {¤			this->send_notify_to_all (NT_SHUTDOWN, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_LogOut) {¤			this->send_notify_to_all (NT_LOGOUT, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_BaseStartUpdate) {¤			this->send_notify_to_all (NT_BASE_UPDATE_START, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_BaseUpdated) {¤			application_helper ()->clear_cache_and_regenerate_base_id ();			¤			this->send_notify_to_all (NT_BASE_UPDATE_END, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_BaseUpdateFailed) {¤			this->send_notify_to_all (NT_BASE_UPDATE_FAILED, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_TimeStampChanged) {¤			this->timestamp_changed (user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_FoldersChanged) {¤			// Íîòèôèêàöèÿ îá èçìåíåíèè ïàïîê èäåò â îáõîä NotifyManager_i ïîòîìó çäåñü íå îáðàáàòûâàåòñÿ¤		} else {¤			LOG_W (("NotifyManager_i::fire_event (): unknown user type %d", user_notify->m_type));¤			assert (false);¤		}¤	} else {¤		LOG_W (("NotifyManager_i::fire_event (): unknown data"));¤		assert (false);¤	}¤}¤¤void NotifyManager_i::send_notify_to_all (NotifyType notify_id, const CORBA::Any& data_in_any) {¤	Core::Var <Notification_i> notify = dynamic_cast<Notification_i*>(Notification_i::make_interface ());¤	assert (notify.ptr ());¤	notify->set_type (notify_id);¤	TransformersMap::iterator transformers_it = m_data_transformers.find (notify_id);¤	if (m_data_transformers.end () != transformers_it) {¤		IVariant_var v = transformers_it->second->get_variant (data_in_any);¤		notify->set_data (v.in ());¤	}¤¤	for (¤		ListenersMap::iterator it = m_listeners.lower_bound (notify_id)¤		; it != m_listeners.upper_bound (notify_id)¤		; it++¤	) {¤		//LOG_D (("NotifyManager_i::send_notify_to_all: before fire [messageID = %d]", notify_id));¤		it->second->fire (notify.in ());¤	}¤}¤¤¤void NotifyManager_i::timestamp_changed (const CORBA::Any& data) {¤	//SLOG_SHIFT¤	// [timestamp_sync]:¤	const TimeStampSync::TimeStampNotificationHint* hint;¤	if (data >>= hint) {¤		//SLOG_D (("NotifyManager_i::timestamp_changed: new timestamp [%d] received", hint->timestamp));¤		TimeStampSyncClient::TimeStampObjectManagerSingleton::instance ()->object_changed (hint);¤	} else {¤		assert (false);¤	}¤	// :[timestamp_sync]¤}¤¤//#UC END# *4242E66A038A_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E66A038A_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_CUSTOM_INCLUDES*¤namespace GblAdapter {¤	class IDataTransformer;¤	typedef GCL::ConstVar <IDataTransformer> IDataTransformer_cvar;¤}¤¤#include "Garant/GblAdapter/BaseTypes/Variant_i.h"¤//#UC END# *4242E66A038A_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E66A038A_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_CUSTOM_INHERITANCE*¤	, virtual public GCL::NotifyConsumerBase¤	//#UC END# *4242E66A038A_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E66A038A_CUSTOM_TYPES*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_CUSTOM_TYPES*¤	typedef std::multimap <NotifyType, IListener_var> ListenersMap;¤	typedef std::map <NotifyType, IDataTransformer_cvar> TransformersMap;¤//#UC END# *4242E66A038A_CUSTOM_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E66A038A_CUSTOM_STATIC*"
+		    value      	(value Text "//#UC START# *4242E66A038A_CUSTOM_STATIC*¤//#UC END# *4242E66A038A_CUSTOM_STATIC*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E66A038A_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *4242E66A038A_CUSTOM_ABSTRACT*¤//#UC END# *4242E66A038A_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E66A038A_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_CUSTOM_METHODS_AND_DATA*¤	void register_transformer (¤		NotifyType notify_id¤		, const IDataTransformer* listener¤	);¤¤	void listen_for_all ();¤¤	void listen_only_for_me ();¤¤	void stop_listen_me ();¤¤private:¤	void fire_event(const CORBA::Any&);¤	void send_notify_to_all (NotifyType notify_id, const CORBA::Any& data_in_any);¤	void timestamp_changed (const CORBA::Any& data);¤¤private:¤	GCL::NotifyListener_box m_notify_listener_for_all;¤	GCL::NotifyListener_box m_notify_listener_only_for_me;¤	ListenersMap m_listeners;¤	TransformersMap m_data_transformers;¤//#UC END# *4242E66A038A_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E66A038A_INLINE_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4242E66A038A_INLINE_INCLUDES*¤class IDataTransformer :¤	virtual public GCL::RefCountObjectBase¤{¤public:¤	virtual IVariant* get_variant (const CORBA::Any& data) const = 0;¤};¤¤template<class T>¤class DataTransformer_i :¤	virtual public IDataTransformer¤{¤public:¤	IVariant* get_variant (const CORBA::Any& data) const {¤		T val;¤		data >>= val;¤		return new Variant_i (val);¤	}¤};¤¤typedef DataTransformer_i<CORBA::Long> LongTransformer_i;¤typedef DataTransformer_i<CORBA::Boolean> BoolTransformer_i;¤typedef DataTransformer_i<const char*> StringTransformer_i;¤//#UC END# *4242E66A038A_INLINE_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default Constructor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default make_interface"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Final"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Suppres servant generation"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4242E66A038A"
+	    documentation 	"Ìåíåäæåð, îáåñïå÷èâàþùèé îáìåí ñîîáùåíèÿìè ìåæäó àäàïòåðîì è îáîëî÷êîé"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "register_listener_for_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4242E67A00FA*"
+			    value      	(value Text 
+|//#UC START# *4242E67A00FA*¤	m_listeners.insert (ListenersMap::value_type (notify_id, IListener::_duplicate (listener)));¤	//#UC END# *4242E67A00FA*
+			    )))
+		    quid       	"4242E67A00FA"
+		    parameters 	(list Parameters
+			(object Parameter "notify_id"
+			    quid       	"4242E70A0128"
+			    type       	"NotifyType"
+			    quidu      	"4243ED040119")
+			(object Parameter "listener"
+			    quid       	"4242E7200203"
+			    type       	"Listener"
+			    quidu      	"4242E6D6033C"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "Listener"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"DFAC9F0B-95D4-4E9B-8525-1A10739E41A9")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_PREINCLUDES*¤//#UC END# *4242E6D6033C_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_INCLUDES*¤//#UC END# *4242E6D6033C_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4242E6D6033C_MAKE_INTERFACE_IMPLEMENTATION*¤	return new Listener_i ();¤	//#UC END# *4242E6D6033C_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *4242E6D6033C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *4242E6D6033C_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *4242E6D6033C_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_BASE_METHOD_IMPL*"
+		    value      	"//#UC START# *4242E6D6033C_BASE_METHOD_IMPL*¤//#UC END# *4242E6D6033C_BASE_METHOD_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4242E6D6033C_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4242E6D6033C_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4242E6D6033C_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4242E6D6033C_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4242E6D6033C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤//#UC END# *4242E6D6033C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E6D6033C_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_INCLUDES*¤//#UC END# *4242E6D6033C_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E6D6033C_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *4242E6D6033C_CUSTOM_INHERITANCE*¤	//#UC END# *4242E6D6033C_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E6D6033C_CUSTOM_TYPES*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_TYPES*¤//#UC END# *4242E6D6033C_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E6D6033C_CUSTOM_STATIC*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_STATIC*¤//#UC END# *4242E6D6033C_CUSTOM_STATIC*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E6D6033C_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_ABSTRACT*¤//#UC END# *4242E6D6033C_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E6D6033C_CUSTOM_METHODS_AND_DATA*"
+		    value      	"//#UC START# *4242E6D6033C_CUSTOM_METHODS_AND_DATA*¤//#UC END# *4242E6D6033C_CUSTOM_METHODS_AND_DATA*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4242E6D6033C_INLINE_INCLUDES*"
+		    value      	"//#UC START# *4242E6D6033C_INLINE_INCLUDES*¤//#UC END# *4242E6D6033C_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4242E6D6033C"
+	    documentation 	"Callback íà îáëî÷êå äëÿ ïîëó÷åíèÿ ñîîáùåíèé ñ àäàïòåðà"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "fire"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4242E878005D*"
+			    value      	(value Text 
+|//#UC START# *4242E878005D*¤¤	//#UC END# *4242E878005D*
+			    )))
+		    quid       	"4242E878005D"
+		    parameters 	(list Parameters
+			(object Parameter "notify"
+			    quid       	"4242E883035B"
+			    type       	"Notification"
+			    quidu      	"4243FC85003E"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "NotifyType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4243ED040119"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "NT_LONG_OPERATION_START"
+		    quid       	"4243ED7200EA"
+		    exportControl 	"Public")
+		(object ClassAttribute "NT_LONG_OPERATION_END"
+		    quid       	"4243EE1E0177"
+		    exportControl 	"Public")
+		(object ClassAttribute "NT_PREDEFINED_DATA_LOGOUT"
+		    quid       	"42540982037A"
+		    exportControl 	"Public")
+		(object ClassAttribute "NT_SHUTDOWN"
+		    quid       	"429ECBB40280"
+		    exportControl 	"Public")
+		(object ClassAttribute "NT_LOGOUT"
+		    quid       	"43170E6F011C"
+		    exportControl 	"Public")
+		(object ClassAttribute "NT_BASE_UPDATE_START"
+		    quid       	"429ECBBE036B"
+		    exportControl 	"Public")
+		(object ClassAttribute "NT_BASE_UPDATE_END"
+		    quid       	"429ECBC900DA"
+		    exportControl 	"Public")
+		(object ClassAttribute "NT_BASE_UPDATE_FAILED"
+		    quid       	"429ECBD40196"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "Notification"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (h):*4243FC85003E_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_DECLARATIONS*¤//#UC END# *4243FC85003E_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"30BDF2EC-FBC4-4477-AC3B-5BB8CBFC8A4D")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_PREINCLUDES*¤//#UC END# *4243FC85003E_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_INCLUDES*¤//#UC END# *4243FC85003E_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4243FC85003E_MAKE_INTERFACE_IMPLEMENTATION*¤	return new Notification_i ();¤	//#UC END# *4243FC85003E_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *4243FC85003E_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *4243FC85003E_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *4243FC85003E_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_BASE_METHOD_IMPL*"
+		    value      	"//#UC START# *4243FC85003E_BASE_METHOD_IMPL*¤//#UC END# *4243FC85003E_BASE_METHOD_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4243FC85003E_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4243FC85003E_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4243FC85003E_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4243FC85003E_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4243FC85003E_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤//#UC END# *4243FC85003E_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4243FC85003E_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_INCLUDES*¤//#UC END# *4243FC85003E_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4243FC85003E_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *4243FC85003E_CUSTOM_INHERITANCE*¤	//#UC END# *4243FC85003E_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4243FC85003E_CUSTOM_TYPES*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_TYPES*¤//#UC END# *4243FC85003E_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4243FC85003E_CUSTOM_STATIC*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_STATIC*¤//#UC END# *4243FC85003E_CUSTOM_STATIC*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4243FC85003E_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *4243FC85003E_CUSTOM_ABSTRACT*¤//#UC END# *4243FC85003E_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4243FC85003E_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4243FC85003E_CUSTOM_METHODS_AND_DATA*¤	void set_type (NotifyType type) {¤		m_type = type;¤	}¤	void set_data (const IVariant* data) {¤		m_data = IVariant::_duplicate (data);¤	}¤¤private:¤	NotifyType m_type;¤	IVariant_var m_data;¤//#UC END# *4243FC85003E_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4243FC85003E_INLINE_INCLUDES*"
+		    value      	"//#UC START# *4243FC85003E_INLINE_INCLUDES*¤//#UC END# *4243FC85003E_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4243FC85003E"
+	    stereotype 	"Interface"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4243FC8E035B_GET*"
+			    value      	(value Text 
+|//#UC START# *4243FC8E035B_GET*¤	return m_type;¤	//#UC END# *4243FC8E035B_GET*
+			    )))
+		    quid       	"4243FC8E035B"
+		    stereotype 	"readonly"
+		    type       	"NotifyType"
+		    quidu      	"4243ED040119"
+		    exportControl 	"Public")
+		(object ClassAttribute "data"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4243FC9201F4_GET*"
+			    value      	(value Text 
+|//#UC START# *4243FC9201F4_GET*¤	data = m_data._sretn ();¤	//#UC END# *4243FC9201F4_GET*
+			    )))
+		    quid       	"4243FC9201F4"
+		    stereotype 	"readonly"
+		    type       	"Variant"
+		    quidu      	"4242E7E1006D"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4242E66500AB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	107
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Notify::NotifyManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(766, 322)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(73, 263)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1387
+			justify    	0
+			label      	"NotifyManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(73, 213)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1387
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4242E66A038A"
+		    width      	1405
+		    height     	242
+		    annotation 	8)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Notify::Listener" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(507, 666)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(274, 610)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	466
+			justify    	0
+			label      	"Listener")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(274, 560)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	466
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4242E6D6033C"
+		    width      	484
+		    height     	236
+		    annotation 	8)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Notify::NotifyType" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1422, 719)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1010, 510)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	824
+			justify    	0
+			label      	"NotifyType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1010, 460)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	824
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"4243ED040119"
+		    width      	842
+		    height     	542
+		    annotation 	8)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Notify::Notification" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(322, 984)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(23, 900)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	599
+			justify    	0
+			label      	"Notification")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(23, 850)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	599
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4243FC85003E"
+		    width      	617
+		    height     	292
+		    annotation 	8)))))

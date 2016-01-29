@@ -1,0 +1,170 @@
+// m3ListWithFind 545B7E6B00A1 Impurity Class
+
+FORWARD ME_545B7E6B00A1
+
+: ME_545B7582026F
+ CONST UID '545B7582026F'
+ CONST Name 'KeyType'
+ CONST Class 'Class'
+ CONST Stereotype 'ImpurityParamType'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_545B7582026F KeyType
+
+INCLUDE '542179C40347.pas.ms.script'
+
+FORWARD ME_54538E130272
+
+: ME_54538E47029C
+ CONST UID '54538E47029C'
+ CONST Name 'aKey'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_545B7582026F // KeyType
+ ;
+
+ @SELF
+; // ME_54538E47029C aKey
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_54538E4702CC
+ CONST UID '54538E4702CC'
+ CONST Name 'theIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54538E4702CC theIndex
+
+: ME_54538E2B03A5
+ CONST UID '54538E2B03A5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_54538E47029C // aKey
+ ME_54538E4702CC // theIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54538E2B03A5 DoIt
+
+: ME_54538E130272
+ CONST UID '54538E130272'
+ CONST Name 'FindItemByKey'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54538E2B03A5 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54538E130272 FindItemByKey
+
+FORWARD ME_5421A06902CD
+
+: ME_5421A0950178
+ CONST UID '5421A0950178'
+ CONST Name 'aKey'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_545B7582026F // KeyType
+ ;
+
+ @SELF
+; // ME_5421A0950178 aKey
+
+INCLUDE '47A1B1500302.pas.ms.script'
+
+: ME_5421A09501AB
+ CONST UID '5421A09501AB'
+ CONST Name 'anItem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_5421A09501AB anItem
+
+: ME_5421A07A0199
+ CONST UID '5421A07A0199'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_5421A0950178 // aKey
+ ME_5421A09501AB // anItem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5421A07A0199 DoIt
+
+: ME_5421A06902CD
+ CONST UID '5421A06902CD'
+ CONST Name 'CompareKeyByItem'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_5421A07A0199 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5421A06902CD CompareKeyByItem
+
+: ME_545B7E6B00A1
+ CONST UID '545B7E6B00A1'
+ CONST Name 'm3ListWithFind'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_542179C40347 // m3AutoAllocList
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_54538E130272 // FindItemByKey
+ ME_5421A06902CD // CompareKeyByItem
+ ]
+ ; // Operations
+ : Children
+   [ ME_545B7582026F // KeyType
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_545B7E6B00A1 m3ListWithFind

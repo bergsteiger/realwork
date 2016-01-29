@@ -1,0 +1,211 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Активность: Провести декомпозицию системы</title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="XE_database__designing"></a><a name="Top"></a>Активность: Провести декомпозицию системы</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)" bordercolor="#000000">
+  <tr>
+    <td colspan="2" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Провести декомпозицию системы по архитектурным слоям.</li>
+      <li>Провести декомпозицию системы на подсистемы и определить возложенные на каждую из подсистем функции.</li>
+      <li>Описать взаимосвязи подсистем. Продумать взаимосвязи между компонентами</li>
+      <li>Провести обзор и утвердить декомпозицию системы</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/analysisndesign/pa_anmod.htm">Модель Анализа</a></li>
+      <li><a href="../../artifacts/analysisndesign/pa_sad.htm">Документ Программная архитектура</a></li>
+      <li><a href="../../artifacts/environment/pa_design.htm">Инструкция проектирования</a></li>
+    </ul>
+    </td>
+    <td style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектная Модель</a></li>
+      <li><a href="../../artifacts/projectmanagement /pa_report.htm">Экспертный отчет</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_archi.htm">Архитектор</a></td>
+  </tr>
+</table>
+</center></div>
+
+<p>Следуйте <a href="../../library/name_rules.htm">Правилам именования</a> элементов модели при
+проведении работ по проектированию.
+
+
+<h3>Выделить архитектурные слои</h3>
+<p>Архитектурные слои группируют сущности модели проектирования на одном уровне абстракции.
+<p>Выделяются следующие уровни архитектурных слоев: <i>Уровень приложений</i> [<i>Application</i>], 
+<i>Уровень бизнес-логики</i> [<i>Business</i>], <i>Уровень данных бизнес-логики</i> [<i>BusinessData</i>], 
+<i>Уровень общеупотребимых служб</i> [<i>Services</i>], <i>Уровень данных общеупотребимых служб</i> [<i>ServicesData</i>] 
+и <i>Глобальный уровень</i> [<i>Global</i>] (доступный из всех других уровней модели проектирования).
+<p>Между архитектурными слоями должны быть определены зависимости. Уровень приложений, бизнес-логики 
+и данных бизнес-логики зависят от предметной области проектируемой системы, а уровни общеупотребимых служб, 
+данных общеупотребимых служб и глобальный уровень, не зависят от предметной области проектируемой системы. 
+Таким образом, этот критерий может использоваться при распределении классов проектирования 
+по архитектурным слоям, а в дальнейшем и по подсистемам, представляющих декомпозицию этого архитектурного слоя.
+<img src="../images/layers.gif">
+
+<h3>Провести декомпозицию на подсистемы</h3>
+<p>Подсистема - специальный вид пакета, который в качестве public-элементов имеет только 
+интерфейсы. Интерфейсы скрывают внутренние процессы подсистемы от других элементов модели.
+<p><a href="../../artifacts/analysisndesign/pa_sad.htm">Документ Программная архитектура</a> определяет способ, по 
+которому будет проводиться реализация продукта. Этот документ является основным входом активности.
+<p>В ходе данной активности, Архитектор анализирует <a href="../../artifacts/analysisndesign/pa_anmod.htm">Модель анализа</a>
+и выявляет классы, которые имеют достаточно много ответственностей и поэтому являются потенциальными кандидатами стать
+подсистемой. 
+<p>Архитектор группирует классы, которые наиболее тесно связаны друг с другом и таким образом получается другая часть 
+подсистем.
+<p>В целом, выделение подсистем - достаточно неформализованный процесс.
+
+<h3>Определить интерфейсы подсистем</h3>	
+<p>В результате проведения анализа, проектируемая система приобретает иерархический вид: 
+система состоит из архитектурных слоев, каждый архитектурный слой в свою очередь состоит из подсистем. 
+При этом есть зависимости, как между архитектурными слоями, так и между подсистемами в архитектурном слое. 
+Если архитектурный слой зависит от другого архитектурного слоя, то это означает, что существуют 
+подсистемы/классы внутри архитектурного слоя, которые зависят от подсистем/классов, описанных в 
+другом архитектурном слое.
+<p>После того, как определены рамки подсистем, необходимо продумать взаимосвязи между ними. Таким образом, на этом шаге
+первоначально определяются интерфейсы. Взаимодействие с подсистемой может происходить только через ее интерфейсы.
+Используя взаимодействия, определенные для компоненты, найдите взаимодействие которое
+активируется когда инициируется взаимодействие. Такая ответственность уточняется информацией, 
+что должно быть передано в компоненту и что должно быть возвращено по окончанию взаимодействия.
+Эти наборы служат входными и выходными паратметрами операций, реализуемых компонентой.
+Имя операциям задается согласно <a href="../../artifacts/environment/pa_design.htm">Инструкции
+проектирования</a>
+<p>Далее, сгруппируйте операции по их ответственностям. Маленькие группы предпочтительнее
+больших, так как четкий связанный круг ответственностей будет только в группе из небольшого 
+количества операций. При выделении ищите потенциальные возможности вторичного использования 
+компонент.</p>
+<p><strong>Найдите сходства между интерфейсами.</strong>
+Там, где имеются одинаковые операции, рассмотрите возможности выделения отдельных интерфейсов,
+включающих общие операции. Однако контролируйте связанность компонент, уменьшайте число 
+операций между интерфейсами.
+<p><strong>Задайте интерфейсные зависимости.</strong>
+Параметры и возвращаемые значения каждой операции интерфейса должны иметь свой тип: они 
+должны реализовывать отдельный интерфейс или должны быть экземплярами простого типа данных.
+В случаях, когда параметры являются объектами, реализующими отдельный интерфейс, задайте 
+зависимость между интерфейсами.
+<p>При проектировании интерфейсов необходимо учитывать тот факт, что интерфейсы бывают двух видов: 
+распределенные или локальные. Распределенные интерфейсы могут пересекать границы адресного пространства процесса 
+(для этого они используют механизм &quot;маршалинга&quot;), а локальные интерфейсы могут быть 
+доступны только в пределах того адресного пространства, где был создан объект, 
+реализующий функциональность этого локального интерфейса. В силу того, что при работе с распределенным интерфейсом, 
+используется &quot;маршалинг&quot;, а при работе с локальным интерфейсом - нет, этот факт может влиять 
+на производительность системы в целом.
+<p>По умолчанию все интерфейсы считаются распределенными. Если нужно специфицировать интерфейс 
+как локальный, то, в силу особенностей продукта &quot;Rational Rose&quot;, необходимо прописать 
+в поле <i>Documentation</i> первой строкой для такого класса специальный идентификатор 
+<i>IDL-specification: local</i>.
+<h3>Провести обзор декомпозиции системы</h3>
+<p>Результаты работ фиксируются в <a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектной модели</a> и 
+проводится обзор разбиения на подсистемы, в котором принимают участие <a href="../../workers/wk_dsgnr.htm">проектировщики</a> и др. специалисты, имеющие опыт в 
+проектировании. Организует обзор <a href="../../workers/wk_projm.htm">Менеджер проекта ОИТ</a>.
+<p>Все принятые решения фиксируются Архитектором проекта в <a href="../../artifacts/projectmanagement /pa_report.htm">Экспертном отчете</a>
+
+<p>См. также <a href="ac_iddes.htm">Активность: Определить проектные элементы</a>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+</body>
+
+</html>

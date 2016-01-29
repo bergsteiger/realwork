@@ -1,0 +1,559 @@
+//////////////////////////////////////////////////////////////////////////////
+//  ПРОВЕРКА УСТАНОВКИ СИСТЕМЫ (для HLTC214)
+//////////////////////////////////////////////////////////////////////////////
+
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork;
+
+////////////////////////////////////////////////////////////////////////////////
+procedure _____CONST;begin;end;
+////////////////////////////////////////////////////////////////////////////////
+const
+  //Product codes
+  PID_KS = '{28FED968-696E-489A-80BB-FDCE4EB7DBE8}';
+  PID_FS = '{C3455581-1665-478C-80FA-1C9F3841C43B}';
+  PID_DESKTOP ='{6AC5411A-5F27-4CDB-9EED-3FA88FAE899D}';
+  PID_CLIENT = '{7F324EE0-8D3A-43DA-B6FD-DBD0564F444F}';
+  PID_KS_EN = '{B2C98DC0-7C63-4463-909D-534CD5484EAB}';
+  PID_FS_EN = '{0D62505B-9152-4A5B-907C-7128FF3DB1CD}';
+  PID_DESKTOP_EN ='{486E9455-DEF5-46B4-8D80-E04D10CE66D6}';
+  PID_CLIENT_EN = '{67CCE202-628E-4A3A-B42E-C205274EE024}';
+  //Path
+  PATH_INSTALLER_MY = 'D:\f1';
+  PATH_INSTALLER_OLD = '\\Strelka.garant.ru\qc\for_RunnerTC6\Installers\7.11';
+  //Installer names
+  MSI_RU_KS_FILE = 'setup\F1ServerSetupRus_ru-ru.msi';
+  MSI_RU_FS_FILE = 'setup\F1FileServerSetupRus_ru-ru.msi';
+  MSI_RU_DESKTOP_FILE = 'setup\F1LocalSetupRus_ru-ru.msi';
+  MSI_RU_CLIENT_FILE = 'setup\F1ClientSetupRus_ru-ru.msi';
+  MSI_EN_KS_FILE = 'setup\F1ServerSetupEng_en-us.msi';
+  MSI_EN_FS_FILE = 'setup\F1FileServerSetupEng_en-us.msi';
+  MSI_EN_DESKTOP_FILE = 'setup\F1LocalSetupEng_en-us.msi';
+  MSI_EN_CLIENT_FILE = 'setup\F1ClientSetupEng_en-us.msi';
+  //Installer paths
+  KS_INSTALL_PATH = 'C:\Program Files\Garant-Server';
+  FS_INSTALL_PATH = 'C:\Program Files\Garant-FS';
+  DESKTOP_INSTALL_PATH = 'C:\Program Files\Garant-Local';
+  CLIENT_INSTALL_PATH = 'C:\Program Files\GarantClient';
+////////////////////////////////////////////////////////////////////////////////
+procedure _____COMMON;begin;end;
+////////////////////////////////////////////////////////////////////////////////
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetMsiInstallerBatFileName: string;
+  const
+    FUNCTION_NAME = 'GetMsiInstallerBatFileName';
+begin
+  try
+    Result := IncludeTrailingBackslash(GetTempDirectory) + 'msi_run_installer.bat';
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetMsiResultFileName: string;
+  const
+    FUNCTION_NAME = 'GetMsiResultFileName';
+begin
+  try
+    Result := IncludeTrailingBackslash(GetTempDirectory) + 'msi_result.txt';
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetMsiLogFileName: string;
+  const
+    FUNCTION_NAME = 'GetMsiLogFileName';
+begin
+  try
+    Result := IncludeTrailingBackslash(GetTempDirectory) + 'msi_installer.log';
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetInstallDirFromMsiLog: string;
+  const
+    FUNCTION_NAME = 'GetInstallDirFromMsiLog';
+  var
+    fso, inFile, contentGarantIni, inFileName;
+begin
+  try
+    inFileName := GetMsiLogFileName;
+    if not FileExists(inFileName) then
+      Raise('Файл "' + inFileName + '" не найден!');  
+    fso := Sys.OleObject('Scripting.FileSystemObject');
+    inFile := fso.OpenTextFile(inFileName, 1 {forReading}, false, -1 {Unicode});
+    contentGarantIni := inFile.ReadAll;
+    if IsSupported(inFile, 'Close') then inFile.Close;
+    Result := GetSubstr(contentGarantIni, 'Property(S): INSTALLDIR = ', EndOfLine);
+    Log.Message(FUNCTION_NAME + ': Путь к каталогу установки: "' + Result + '"',  '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;      
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetPathToInstallerDir: string;
+  const
+    FUNCTION_NAME = 'GetPathToInstallerDir';
+  var
+    pathToFile;
+begin
+  try
+    Result := PathToInstaller('GET');
+    if Result = '' then
+      Result := PATH_INSTALLER_MY;
+    Result := IncludeTrailingBackslash(Result);
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetPathToGarantIniFromInstallDir: string;
+  const
+    FUNCTION_NAME = 'GetPathToGarantIniFromInstallDir';
+  var
+    pathToFile;
+begin
+  try
+    Result := IncludeTrailingBackslash(GetInstallDirFromMsiLog) + 'garant.ini';
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetBodyGarantIni: string;
+  const
+    FUNCTION_NAME = 'GetBodyGarantIni';
+  var
+    pathToFile;
+begin
+  try
+    pathToFile := GetPathToGarantIniFromInstallDir;
+    if NOT Utilities.FileExists(pathToFile) then 
+      Raise('Файл не найден: "' + pathToFile + '"');
+    Result := GetFileBody(pathToFile);    
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function CompareINIFiles(f1content, f2content: string): string;
+  const
+    FUNCTION_NAME = 'CompareINIFiles';
+  var
+    arrf1, arrf2, diff;
+begin
+  try
+    Log.Message(FUNCTION_NAME + ': Начинаем сравнение.', '',  pmNormal, GetLogAttr('YELLOW'));
+    arrf1 := String2Array(f1content);
+    arrf2 := String2Array(f2content);
+    diff := common.Difference(arrf1, arrf2);
+    
+    Result := IsEqual(diff, nil);
+    if not Result then
+    begin 
+      Log.Message(FUNCTION_NAME + ': Содержимое различается!', '',  pmNormal, GetLogAttr('EXCEPTION'));
+      Log.Message(FUNCTION_NAME + ': Отличия между 1 и 2 содержимым:', '',  pmNormal, GetLogAttr('EXCEPTION'));          
+      Log.Message(Array2String(diff, EndOfLine));
+    end;
+    Log.Message(FUNCTION_NAME + ': Сравнение завершено.', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function CreateAndRunMsiInstallerBatFileName(
+  cmd_str: String;
+  paramStr: String = ''
+): string;
+  const
+    FUNCTION_NAME = 'CreateAndRunMsiInstallerBatFileName';
+  var
+    f, fres, w, deadLine;
+    paramList, isSkipChecker;
+begin
+  try
+    paramList := ParseParamString(paramStr);
+    isSkipChecker := VarToBool(GetParam(paramList, 'IsSkipChecker', 'false'));
+
+    try 
+      AssignFile(f, GetMsiInstallerBatFileName);
+      Rewrite(f);
+      WriteLn(f, 'del /F /Q "' + GetMsiResultFileName + '"');
+      WriteLn(f, 'del /F /Q "' + GetMsiLogFileName + '"');
+      WriteLn(f, cmd_str);
+      WriteLn(f, 'echo %errorlevel% > "' + GetMsiResultFileName + '"');
+    finally
+      CloseFile(f);
+    end;
+    if Win32API.WinExec('cmd.exe /D /C "' + GetMsiInstallerBatFileName + '"', Win32API.SW_HIDE) <= 31 then
+      Raise('Возникла ошибка при запуске "' + GetMsiInstallerBatFileName + '"');
+      
+    deadLine := Win32API.GetTickCount + 600*1000; // 10 мин
+    repeat
+      // закрываем чекер, если необходимо
+      if isSkipChecker then
+      begin
+        w := Sys.WaitProcess('F1ConsultingChecker', Options.Run.Timeout div 30);
+        if IsExists(w) then
+        begin
+          Delay(10000);
+          if IsExists(w) then w.Close;        
+        end;
+      end;
+
+      //ждем завершения инсталляции
+      Delay(Options.Run.Timeout div 3);
+    until (FileWork.GetFileSize(GetMsiResultFileName) > 0) or (Win32API.GetTickCount > deadLine);
+    Delay(Options.Run.Timeout div 10);
+    
+    if not FileExists(GetMsiResultFileName) then
+      Raise('Файл "' + GetMsiResultFileName + '" не найден!');
+    try      
+      AssignFile(fres, GetMsiResultFileName);
+      Reset(fres);
+      ReadLn(fres, Result);
+    finally
+      CloseFile(fres);
+    end;
+    Result := Trim(Result);
+    if Result = '' then
+      Raise('Не получен код завершения после запуска: "' + GetMsiInstallerBatFileName + '"');
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+
+function SaveIniFileToLog(
+  garantini_before, garantini_after, suffix: String
+): boolean;
+  const
+    FUNCTION_NAME = 'SaveIniFileToLog';
+begin
+  try
+    Result := true;
+    BuiltIn.SaveStrToFile(IncludeTrailingBackslash(GetTempDirectory) + 'garant_before' + suffix + '.ini', garantini_before);
+    BuiltIn.SaveStrToFile(IncludeTrailingBackslash(GetTempDirectory) + 'garant_after' + suffix + '.ini', garantini_after);
+    Log.File(IncludeTrailingBackslash(GetTempDirectory) + 'garant_before' + suffix + '.ini', FUNCTION_NAME + ': ' + 'Файл "garant.ini", версия ' + suffix + ' после установки');
+    Log.File(IncludeTrailingBackslash(GetTempDirectory) + 'garant_after' + suffix + '.ini', FUNCTION_NAME + ': ' + 'Файл "garant.ini", версия ' + suffix + ' после ПЕРЕустановки');
+  except
+    Result := false;  
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;    
+
+function ExtendErrorString(
+  error_number: String
+): boolean;
+  const
+    FUNCTION_NAME = 'ExtendErrorString';
+begin
+  try
+    Result := error_number;
+    case error_number of
+      '1603': Result := '(' + Result + ') Файлы заняты.';
+      '1605': Result := '(' + Result + ') Продукт не установлен.';
+      '1639': Result := '(' + Result + ') Invalid command line argument.'; 
+    end;
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;    
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: Применима для MSI инсталлятора только 
+}
+function InstallF1ByMSIFileName(
+  msi_fname: String;
+  paramCmdLine: String = '';
+  paramStr: String = ''
+): boolean;
+  const
+    FUNCTION_NAME = 'InstallF1ByMSIFileName';
+  var
+    errorresult, msi_cmd_str;
+begin
+  try
+    ScriptAction('SET ACTION', SA_USE_INSTALLER);
+      
+    // qn - тихий режим MSI; /lpei - терминальный лог + ошибки + статусные сообщения
+    msi_cmd_str := 'msiexec.exe /i "' + msi_fname + '" /qn /lpei "' + GetMsiLogFileName + '" ' + paramCmdLine;
+    errorresult := CreateAndRunMsiInstallerBatFileName(msi_cmd_str, paramStr);
+    Result := errorresult = '0';
+    // Формирования пояснения к ошибкам
+    errorresult := ExtendErrorString(errorresult);
+    Log.File(GetMsiLogFileName, FUNCTION_NAME + ': ' + 'Лог от msiexec');
+    if not Result then
+      Raise('Ошибка. Код завершения: "' + errorresult + '". Пускали: "' + msi_cmd_str + '"')
+    else
+      Log.Message(FUNCTION_NAME + ': Пакет "' + msi_fname + '" установлен.', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: Применима для MSI инсталлятора только 
+}
+function ReinstallF1ByMSIFileName(
+  msi_fname: String;
+  paramCmdLine: String = '';
+  paramStr: String = ''
+): boolean;
+  const
+    FUNCTION_NAME = 'ReinstallF1ByMSIFileName';
+  var
+    errorresult, msi_cmd_str;
+begin
+  try
+    ScriptAction('SET ACTION', SA_USE_INSTALLER);
+  
+    msi_cmd_str := 'msiexec.exe /i "' + msi_fname + '" REINSTALL=ALL REINSTALLMODE=vamus'  + ' /qn /lpei "' + GetMsiLogFileName + '" ' + paramCmdLine;
+    errorresult := CreateAndRunMsiInstallerBatFileName(msi_cmd_str, paramStr);
+    Result := errorresult = '0';
+    // Формирования пояснения к ошибкам
+    errorresult := ExtendErrorString(errorresult);
+    Log.File(GetMsiLogFileName, FUNCTION_NAME + ': ' + 'Лог от msiexec');
+    if not Result then
+      Raise('Ошибка. Код завершения: "' + errorresult + '". Пускали: "' + msi_cmd_str + '"')
+    else
+      Log.Message(FUNCTION_NAME + ': Пакет "' + msi_fname + '" ПЕРЕустановлен.', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: Применима для MSI инсталлятора только 
+}
+function InstallF1ByProductID(
+  PID: String;
+  pathToInstallDir: String = '';
+  paramString: String = '';
+  addParamString : string = ''
+): boolean;
+  const
+    FUNCTION_NAME = 'InstallF1ByProductID';
+  var
+    pathToF1;
+    paramList;
+    pathToInstaller;
+begin
+  try
+    ScriptAction('SET ACTION', SA_USE_INSTALLER);
+  
+    Result := false;
+    paramString := paramString + ' PORT=' + F1SERVERPORT + ' HOST=' + CompName;
+    
+    paramList := ParseParamString(addParamString);
+    pathToInstaller := AnsiUpperCase( GetParam(paramList, 'pathToInstaller', GetPathToInstallerDir) );    
+    if NOT DirectoryExists(pathToInstaller) then
+      Raise('Каталог инсталятора не найден');
+        
+    if pathToInstallDir <> '' then
+      paramString := paramString + ' INSTALLDIR="' + pathToInstallDir + '"';
+    
+    case PID of
+      PID_KS:      pathToF1 :=  IncludeTrailingBackslash(pathToInstaller) + MSI_RU_KS_FILE;
+      PID_FS:      pathToF1 :=  IncludeTrailingBackslash(pathToInstaller) + MSI_RU_FS_FILE;
+      PID_DESKTOP: pathToF1 :=  IncludeTrailingBackslash(pathToInstaller) + MSI_RU_DESKTOP_FILE;
+      PID_CLIENT:  pathToF1 :=  IncludeTrailingBackslash(pathToInstaller) + MSI_RU_CLIENT_FILE;
+      PID_KS_EN:      pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_EN_KS_FILE;
+      PID_FS_EN:      pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_EN_FS_FILE;
+      PID_DESKTOP_EN: pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_EN_DESKTOP_FILE;
+      PID_CLIENT_EN:  pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_EN_CLIENT_FILE;
+    else
+      Raise('Неизвестный тип устанавливаемой версии: "' + PID + '"');
+    end; 
+
+    if not FileExists(pathToF1) then
+      Raise('Файл установки версии F1 не найден: "' + pathToF1 + '"');
+    Result := InstallF1ByMSIFileName(pathToF1, paramString, addParamString);
+    if not Result then
+      Raise('Установка не пройдена. Имя MSI-файла: "' + pathToF1 + '". Параметры: ' + paramString);    
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: Применима для MSI инсталлятора только 
+}
+function ReinstallF1ByProductID(
+  PID: String;
+  pathToInstallDir: String = '';
+  paramString: String = '';
+  addParamString : string = ''
+): boolean;
+  const
+    FUNCTION_NAME = 'ReinstallF1ByProductID';
+  var
+    pathToF1, paramList, pathToInstaller;
+begin
+  try
+    ScriptAction('SET ACTION', SA_USE_INSTALLER);
+  
+    Result := false;
+    paramString := paramString + ' PORT=' + F1SERVERPORT + ' HOST=' + CompName;
+    
+    paramList := ParseParamString(addParamString);
+    pathToInstaller := AnsiUpperCase( GetParam(paramList, 'pathToInstaller', GetPathToInstallerDir) );    
+    if NOT DirectoryExists(pathToInstaller) then
+      Raise('Каталог инстаоятора не найден');
+    
+    if pathToInstallDir <> '' then
+      paramString := paramString + ' INSTALLDIR="' + pathToInstallDir + '"';
+    case PID of
+      PID_KS:      pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_RU_KS_FILE;
+      PID_FS:      pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_RU_FS_FILE;
+      PID_DESKTOP: pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_RU_DESKTOP_FILE;
+      PID_CLIENT:  pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_RU_CLIENT_FILE;
+      PID_KS_EN:      pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_EN_KS_FILE;
+      PID_FS_EN:      pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_EN_FS_FILE;
+      PID_DESKTOP_EN: pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_EN_DESKTOP_FILE;
+      PID_CLIENT_EN:  pathToF1 := IncludeTrailingBackslash(pathToInstaller) + MSI_EN_CLIENT_FILE;
+    else
+      Raise('Неизвестный тип устанавливаемой версии: "' + PID + '"');
+    end; 
+
+    if not FileExists(pathToF1) then
+      Raise('Файл установки версии F1 не найден: "' + pathToF1 + '"');
+    Result := ReinstallF1ByMSIFileName(pathToF1, paramString, addParamString);
+    if not Result then
+      Raise('Переустановка не пройдена. Имя MSI-файла: "' + pathToF1 + '". Параметры: ' + paramString);    
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: Применима для MSI инсталлятора только 
+}
+function UninstallF1ByProductID(
+  PID: String
+): boolean;
+  const
+    FUNCTION_NAME = 'UninstallF1ByProductID';
+  var
+    errorresult, msi_cmd_str;
+begin
+  try
+    ScriptAction('SET ACTION', SA_USE_INSTALLER);
+  
+    msi_cmd_str := 'msiexec.exe /x' + PID + ' /qn /lpei "' + GetMsiLogFileName + '" ';
+    errorresult := CreateAndRunMsiInstallerBatFileName(msi_cmd_str);
+    Result := errorresult = '0';
+    // Формирования пояснения к ошибкам
+    errorresult := ExtendErrorString(errorresult);
+    Log.File(GetMsiLogFileName, FUNCTION_NAME + ': ' + 'Лог от msiexec');
+    if not Result then
+      Raise('Ошибка. Код завершения: "' + errorresult + '". Пускали: "' + msi_cmd_str + '"')
+    else
+      Log.Message(FUNCTION_NAME + ': Пакет "' + PID + '" удален.', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    //потом разкомментировать, для теста
+    //CommonExceptionHandler;
+  end;
+end;

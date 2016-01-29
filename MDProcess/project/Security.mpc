@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/Security.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::Security
+//
+// нужно для реализаци базовых интерфейсов аутентификации из шареда
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (Security) : project_generic_core_corba {
+	sharedname = Security
+	staticname = Security
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	Header_Files {
+		Std_Headers {
+			./../Security/LibHome.h
+		}
+	
+		SecurityImpl {
+			./../Security/impl/SecurityImpl/AuthenticatorImpl.h
+			./../Security/impl/SecurityImpl/AuthenticatorImpl_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		SecurityImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../Security/LibHome.cpp
+		}
+	
+		SecurityImpl {
+			./../Security/impl/SecurityImpl/AuthenticatorImpl.cpp
+			./../Security/impl/SecurityImpl/AuthenticatorImpl_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

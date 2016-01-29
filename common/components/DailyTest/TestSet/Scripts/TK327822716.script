@@ -1,0 +1,43 @@
+USES
+ axiom:TnevRubberTablesMode
+ EditorTools.script 
+;
+
+OBJECT VAR l_TextForm
+
+: "Открыть редактор F1"  
+ l_TextForm pop:Control:Width := 1000
+ l_TextForm pop:Control:Height := 700
+ l_TextForm pop:Control:Show
+ focused:control:push pop:Editor:AllowRubberTables := TnevRubberTablesMode::nev_rtmFitToWindow
+ "Загрузить документ в {(l_TextForm)}"    
+;
+
+: "Нажимаем и удерживаем Alt+Down, до тех пор пока не упремся в конец изменений" 
+ 15 LOOP ( focused:control:push pop:editor:NextHyperlink ProcessMessages )
+;
+
+: "Нажимаем и удерживаем Alt+Up"
+ 8 LOOP ( focused:control:push pop:editor:PrevHyperlink ProcessMessages )
+;
+
+: K327822716
+ class::TF1LikeTextLoadForm .Create >>> l_TextForm 
+ TRY
+  INTEGER VAR l_FontSize
+  GetFontSize >>> l_FontSize 
+  TRY 
+	cnDefaultFontSize SetFontSize 
+    "Открыть редактор F1"   
+    "Нажимаем и удерживаем Alt+Down, до тех пор пока не упремся в конец изменений"
+    "Нажимаем и удерживаем Alt+Up"
+    focused:control:push pop:editor:RepaintAndCheckWithEtalon
+  FINALLY
+   l_FontSize SetFontSize
+  END  
+ FINALLY
+  l_TextForm pop:Control:Handle AskWindowToCloseItself
+ END 
+;
+
+K327822716

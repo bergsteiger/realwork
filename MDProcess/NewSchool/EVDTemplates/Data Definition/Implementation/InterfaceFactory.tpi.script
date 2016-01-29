@@ -1,0 +1,469 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Implementation/InterfaceFactory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Implementation::InterfaceFactory
+//
+// Фабрика интерфейсов для тегов
+// ---
+// Определяет класс для выбора конкретных экземпляров, реализующий интерфейс инструмента для тега.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: InterfaceFactory::Class
+implementation @ <<InterfaceFactory>>
+//? Фабрика интерфейсов для тегов
+//? Определяет класс для выбора конкретных экземпляров, реализующий интерфейс инструмента для тега.
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // st_space_key
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4856767D006A*
+//	%S%[inherited]\
+ inherited
+
+//	%S%f_set_var(NeedsCOMQT,"false")\
+ %S %f set_var %( 'NeedsCOMQT' %, false )% 
+//	%S%f_set_var(NeedsQT,"false")\
+ %S %f set_var %( 'NeedsQT' %, false )% 
+
+//	<{}{%aC=Dependency&%aS=injects}{Sg}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%ag
+ begin
+  OBJECT IN %a
+  if ( ( %a |C ) %== 'Dependency' AND 
+   ( ( %a |S ) %== 'injects'  ) ) then
+  begin
+
+
+//	[{%a{injects as}=interface|%a{injects as}=mapper}{\
+   if ( ( %a get_up ( 'injects as' ) ) %== 'interface' OR 
+     ( ( %a get_up ( 'injects as' ) ) %== 'mapper'  ) ) then
+   begin
+//	%a%P<{}{%CC=Dependency&"%CS"="injects this"}{Sg}\
+    %a ->P
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%Cg
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Dependency' AND 
+       ( ( %C |S ) %== 'injects this'  ) ) then
+      begin
+//	%1%f_make_accessable(%C%TU)\
+       %1 %f make_accessable %( %C ->T |U  )% 
+//	%f_addCDep(%1,%C%T)\
+       [%f] addCDep %( %1 %, %C ->T  )% 
+
+//	%1%f_set_var(NeedsCOMQT,"true")\
+       %1 %f set_var %( 'NeedsCOMQT' %, true )% 
+
+//	>\
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+  //	]\
+   end // if
+   else
+   begin
+//	%S%f_set_var(NeedsQT,"true")\
+    %S %f set_var %( 'NeedsQT' %, true )% 
+//	}\
+   end // else
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for a
+
+//	[{%S%{NeedsQT}N=true}\
+ if ( ( %S ( get_object_var ( 'NeedsQT' ) |N )  ) %==  true ) then
+ begin
+
+
+//	[{"%{Tk2InterfaceFactory.QueryTool}N"=""}%f_find_element(4D63D26D033F,Tk2InterfaceFactory.QueryTool)]\
+  if ( ( ( get_global_var ( 'Tk2InterfaceFactory.QueryTool' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '4D63D26D033F' %, 'Tk2InterfaceFactory.QueryTool' )% 
+  end // if
+//	%S%f_add_override(%{Tk2InterfaceFactory.QueryTool}U)\
+  %S %f add_override %( ( get_global_var ( 'Tk2InterfaceFactory.QueryTool' ) |U ) )% 
+
+//	%{Tk2InterfaceFactory.QueryTool}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Tk2InterfaceFactory.QueryTool},%S)_var,\
+  ( get_global_var ( 'Tk2InterfaceFactory.QueryTool' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'Tk2InterfaceFactory.QueryTool' ) ) %, %S )% '_var' %, 
+//	 {-}\
+  ' {-}'
+//	)\
+)% ) //	%{Tk2InterfaceFactory.QueryTool}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Tk2InterfaceFactory.QueryTool},%S)_impl,\
+  ( get_global_var ( 'Tk2InterfaceFactory.QueryTool' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'Tk2InterfaceFactory.QueryTool' ) ) %, %S )% '_impl' %, 
+//	 Result := true;
+  ' Result := true;'
+
+
+//	<{}{%aC=Dependency&%aS=injects&%a{injects as}!=interface&%a{injects as}!=mapper}{Sg}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%ag
+  begin
+   OBJECT IN %a
+   if ( ( %a |C ) %== 'Dependency' AND 
+    ( ( %a |S ) %== 'injects'  ) AND 
+    ( ( %a get_up ( 'injects as' ) ) %!= 'interface'  ) AND 
+    ( ( %a get_up ( 'injects as' ) ) %!= 'mapper'  ) ) then
+   begin
+//	[ %a%P#f_open_ifdef()\n]\
+    if NOT-EMPTY
+    begin
+     ' '
+     %a ->P %?f open_ifdef %( )%  #13#10 
+    end // if
+    NOP
+//	 if ID.EQ(\
+    ' if ID.EQ('
+//	[{%a{injects as}=cursor}{\
+    if ( ( %a get_up ( 'injects as' ) ) %== 'cursor' ) then
+    begin
+//	ev_iidCursor\
+     'ev_iidCursor'
+//	]\
+    end // if
+    else
+    begin
+//	ev_iidBlock\
+     'ev_iidBlock'
+//	}\
+    end // else
+//	) then
+    ') then'
+//	  I := %f_pas_TypeName(%a%P).Create(aTag)
+    '  I := '
+    [%f] pas_TypeName %( %a ->P  )% '.Create(aTag)'
+//	 else
+    ' else'
+//	[ %a%P#f_close_ifdef()\n]\
+    if NOT-EMPTY
+    begin
+     ' '
+     %a ->P %?f close_ifdef %( )%  #13#10 
+    end // if
+    NOP
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for a
+
+
+//	  Result := inherited QueryTool(aTag%f_comma(%S) ID%f_comma(%S) I);\
+  '  Result := inherited QueryTool(aTag'
+  [%f] comma %( %S )% ' ID'
+  [%f] comma %( %S )% ' I);'
+//	)\
+)% ) 
+
+//	]\
+ end // if
+
+//	[{%S%{NeedsCOMQT}N=true}\
+ if ( ( %S ( get_object_var ( 'NeedsCOMQT' ) |N )  ) %==  true ) then
+ begin
+
+
+//	%f_set_var(Factory_Self,S)\
+  [%f] set_var %( 'Factory_Self' %, 'S' )% 
+
+//	[{"%{Tk2InterfaceFactory.COMQueryTool}N"=""}%f_find_element(53CCBDA5026D,Tk2InterfaceFactory.COMQueryTool)]\
+  if ( ( ( get_global_var ( 'Tk2InterfaceFactory.COMQueryTool' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '53CCBDA5026D' %, 'Tk2InterfaceFactory.COMQueryTool' )% 
+  end // if
+//	%S%f_add_override(%{Tk2InterfaceFactory.COMQueryTool}U)\
+  %S %f add_override %( ( get_global_var ( 'Tk2InterfaceFactory.COMQueryTool' ) |U ) )% 
+
+//	%{Tk2InterfaceFactory.COMQueryTool}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Tk2InterfaceFactory.COMQueryTool},%S)_var,\
+  ( get_global_var ( 'Tk2InterfaceFactory.COMQueryTool' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'Tk2InterfaceFactory.COMQueryTool' ) ) %, %S )% '_var' %, 
+//	 {-}\
+  ' {-}'
+//	)\
+)% ) //	%{Tk2InterfaceFactory.COMQueryTool}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Tk2InterfaceFactory.COMQueryTool},%S)_impl,\
+  ( get_global_var ( 'Tk2InterfaceFactory.COMQueryTool' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'Tk2InterfaceFactory.COMQueryTool' ) ) %, %S )% '_impl' %, 
+//	 Result := true;
+  ' Result := true;'
+
+
+//	%f_clear_list(INJECTED)\
+  [%f] clear_list %( 'INJECTED' )% 
+//	%f_SpellInjections(%S,"interface")\
+  [%f] SpellInjections %( %S %, 'interface' )% 
+//	%f_SpellInjections(%S,"mapper")\
+  [%f] SpellInjections %( %S %, 'mapper' )% 
+//	%f_SpellInjections(%S,"interface","G")\
+  [%f] SpellInjections %( %S %, 'interface"' %, 'G' )% 
+
+//	  Result := inherited %{Tk2InterfaceFactory.COMQueryTool}N(aTag%f_comma(%S) aIID%f_comma(%S) theTool%f_comma(%S) aProcessor);\
+  '  Result := inherited '
+  ( get_global_var ( 'Tk2InterfaceFactory.COMQueryTool' ) |N ) '(aTag'
+  [%f] comma %( %S )% ' aIID'
+  [%f] comma %( %S )% ' theTool'
+  [%f] comma %( %S )% ' aProcessor);'
+//	)\
+)% ) 
+
+//	]
+ end // if
+
+//f _SpellInjections
+; // DoSpell
+
+end. // <<InterfaceFactory>>
+
+: SpellInjections OBJECT IN %S
+//	%f_set_var(ExtList,"%2N")\
+ [%f] set_var %( 'ExtList' %, %2 |N )% 
+//	<{}{%aC=Dependency&%aS=injects&%a{injects as}=%1N}{Sg}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%ag
+ begin
+  OBJECT IN %a
+  if ( ( %a |C ) %== 'Dependency' AND 
+   ( ( %a |S ) %== 'injects'  ) AND 
+   ( ( %a get_up ( 'injects as' ) ) %== ( %1 |N )  ) ) then
+  begin
+
+
+//	%f_set_var(IsMapper,"false")\
+   [%f] set_var %( 'IsMapper' %, false )% 
+//	[{%a{injects as}=mapper}\
+   if ( ( %a get_up ( 'injects as' ) ) %== 'mapper' ) then
+   begin
+//	%f_set_var(IsMapper,"true")\
+    [%f] set_var %( 'IsMapper' %, true )% 
+//	]\
+   end // if
+
+
+//	%a%P<{}{%CC=Dependency&"%CS"="injects this"}{Sg}\
+   %a ->P
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%Cg
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Dependency' AND 
+      ( ( %C |S ) %== 'injects this'  ) ) then
+     begin
+
+
+//	[{"%{ExtList}N"="G"}{\
+      if ( ( ( get_global_var ( 'ExtList' ) |N ) ) %== 'G' ) then
+      begin
+//	%f_set_var(Link,C)\
+       [%f] set_var %( 'Link' %, 'C' )% 
+//	%f_set_var(Self,S)\
+       [%f] set_var %( 'Self' %, 'S' )% 
+//	%C%T<{}{%ga!=abstract&%gS!=Typedef}{%g}\
+       %C ->T
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%g
+        begin
+         OBJECT IN %g
+         if ( ( %g |a ) %!= 'abstract' AND 
+          ( ( %g |S ) %!= 'Typedef'  ) ) then
+         begin
+//	%f_SpellInjection(%{Self},%{Link},%g,%{IsMapper},%{ExtList})\
+          [%f] SpellInjection %( ( get_global_var ( 'Self' ) ) %, ( get_global_var ( 'Link' ) ) %, %g %, ( get_global_var ( 'IsMapper' ) ) %, ( get_global_var ( 'ExtList' ) ) )% 
+//	>\
+
+          ++! l_Counter
+         end // if
+        end // for g
+
+       ) // bind
+  //	]\
+      end // if
+      else
+      begin
+//	%f_SpellInjection(%S,%C,%C%T,%{IsMapper})\
+       [%f] SpellInjection %( %S %, %C %, %C ->T  %, ( get_global_var ( 'IsMapper' ) ) )% 
+//	}\
+      end // else
+
+
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+  //	>
+
+   ++! l_Counter
+  end // if
+ end // for a
+
+//f _SpellInjection
+; // SpellInjections
+
+: SpellInjection OBJECT IN %S
+//	[{%f_exists_in_list(INJECTED,2)!=true}\
+ if ( ( [%f] exists_in_list %( 'INJECTED' %, '2' )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(INJECTED,2)\
+  [%f] add_to_list %( 'INJECTED' %, '2' )% 
+//	[{%t_interface(%2)=true}\
+  if ( ( [%t] interface %( %2 )% ) %==  true ) then
+  begin
+//	[{"%f_pas_TypeName(%2)"!="IUnknown"&"%f_pas_TypeName(%2)"!="Il3TagRef"&"%f_pas_TypeName(%2)"!="Ik2Tag"}\
+   if ( ( [%f] pas_TypeName %( %2 )% ) %!= 'IUnknown' AND 
+     ( ( [%f] pas_TypeName %( %2 )% ) %!= 'Il3TagRef'  ) AND 
+     ( ( [%f] pas_TypeName %( %2 )% ) %!= 'Ik2Tag'  ) ) then
+   begin
+
+
+//	[{"%4N"!=""}\
+    if ( ( %4 |N ) %!= '' ) then
+    begin
+//	[{"%{Factory_Self}N"!=""}\
+     if ( ( ( get_global_var ( 'Factory_Self' ) |N ) ) %!= '' ) then
+     begin
+//	%{Factory_Self}%f_make_accessable(%2U)\
+      ( get_global_var ( 'Factory_Self' ) %f make_accessable %( %2 |U )% ) 
+//	%f_addCDep(%{Factory_Self},%2)\
+      [%f] addCDep %( ( get_global_var ( 'Factory_Self' ) ) %, %2 )% 
+//	]\
+     end // if
+//	]\
+    end // if
+
+
+//	[ %S#f_open_ifdef()\n]\
+    if NOT-EMPTY
+    begin
+     ' '
+     %S %?f open_ifdef %( )% #13#10 
+    end // if
+    NOP
+//	 if aIID.EQ(%f_pas_TypeName(%2)) then
+    ' if aIID.EQ('
+    [%f] pas_TypeName %( %2 )% ') then'
+//	[{%3N=true}{\
+    if ( ( %3 |N ) %==  true ) then
+    begin
+//	  Result := %f_pas_TypeName(%S).Make(aTag%f_comma(%S) aIID%f_comma(%S) theTool%f_comma(%S) aProcessor)
+     '  Result := '
+     [%f] pas_TypeName %( %S )% '.Make(aTag'
+     [%f] comma %( %S )% ' aIID'
+     [%f] comma %( %S )% ' theTool'
+     [%f] comma %( %S )% ' aProcessor)'
+//	]\
+    end // if
+    else
+    begin
+//	  %f_pas_TypeName(%2)(theTool) := %f_pas_TypeName(%S).Make(aTag\
+     '  '
+     [%f] pas_TypeName %( %2 )% '(theTool) := '
+     [%f] pas_TypeName %( %S )% '.Make(aTag'
+//	[{%1{needs processor}=true}\
+     if ( ( %1 get_up ( 'needs processor' ) ) %==  true ) then
+     begin
+//	%f_comma(%S) aProcessor\
+      [%f] comma %( %S )% ' aProcessor'
+//	]\
+     end // if
+//	\
+//	)
+     ')'
+//	}\
+    end // else
+//	 else
+    ' else'
+//	[ %S#f_close_ifdef()\n]\
+    if NOT-EMPTY
+    begin
+     ' '
+     %S %?f close_ifdef %( )% #13#10 
+    end // if
+    NOP
+//	]\
+   end // if
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4B2A19E3038Bfor4856767D006A*
+; // SpellInjection
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+implementation @ <<InterfaceFactory>>
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor4856767D006A*
+//	%S%[inherited]\
+ inherited
+//	<{}{%aC=Dependency&%aS=injects}{Sg}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%ag
+ begin
+  OBJECT IN %a
+  if ( ( %a |C ) %== 'Dependency' AND 
+   ( ( %a |S ) %== 'injects'  ) ) then
+  begin
+//	%f_pas_PutToUses(%a%P)\
+   [%f] pas_PutToUses %( %a ->P  )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for a
+//#UC END# *4948EB2601FAfor4856767D006A*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4856767D006A*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4856767D006A*
+; // constraint
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<InterfaceFactory>>
+

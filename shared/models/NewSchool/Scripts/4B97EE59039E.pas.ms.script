@@ -1,0 +1,125 @@
+// nscCustomTreeComboWithHistoryRes 4B97EE59039E UtilityPack Class
+
+FORWARD ME_4B97EE59039E
+
+FORWARD ME_4B97EE8B032F
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4B97EEB7015F
+ CONST UID '4B97EEB7015F'
+ CONST Name 'CloseHyperlinkText'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Закрыть'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_4B97EEB7015F CloseHyperlinkText
+
+: ME_4B97EE8B032F
+ CONST UID '4B97EE8B032F'
+ CONST Name 'MiscMessages'
+ CONST Class 'Class'
+ CONST Stereotype 'LocalConst'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_4B97EEB7015F // CloseHyperlinkText
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'nsc_'
+ CONST "spell names" false
+
+ @SELF
+; // ME_4B97EE8B032F MiscMessages
+
+FORWARD ME_DD5314341505
+
+INCLUDE '4B3B36EC03B2.pas.ms.script'
+
+: ME_5F13428B78A0
+ CONST UID '5F13428B78A0'
+ CONST Name 'CloseHyperlinkText'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY '''Закрыть''' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''nsc_CloseHyperlinkText''; rValue : ''Закрыть'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_5F13428B78A0 CloseHyperlinkText
+
+: ME_DD5314341505
+ CONST UID 'DD5314341505'
+ CONST Name 'LCImplMiscMessages'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Локализуемые строки MiscMessages' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5F13428B78A0 // CloseHyperlinkText
+ ]
+ ; // Attributes
+ CONST "children prefix" 'nsc_'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+
+ @SELF
+; // ME_DD5314341505 LCImplMiscMessages
+
+: ME_3B151A0199D7
+ CONST UID '3B151A0199D7'
+ CONST Name 'Init_CloseHyperlinkText'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_nsc_CloseHyperlinkText' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3B151A0199D7 Init_CloseHyperlinkText
+
+: ME_4B97EE59039E
+ CONST UID '4B97EE59039E'
+ CONST Name 'nscCustomTreeComboWithHistoryRes'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Ресурсы для TnscCustomTreeComboWithHistory' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_3B151A0199D7 // Init_CloseHyperlinkText
+ ]
+ ; // Operations
+ : Children
+   [ ME_4B97EE8B032F // MiscMessages
+ ]
+ ; // Children
+ : Constants
+   [ ME_DD5314341505 // LCImplMiscMessages
+ ]
+ ; // Constants
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '10.03.2010 22:09'
+
+ @SELF
+; // ME_4B97EE59039E nscCustomTreeComboWithHistoryRes

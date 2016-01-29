@@ -1,0 +1,175 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Активность: Провести обзор проектирования</title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="Top"></a>Активность: Провести обзор проектирования</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Убедиться, что проектная модель (или модель анализа в случае обзора последней)
+соответствует всем требованиям системы и служит хорошим базисом для проведения последующих работ 
+(в случае обзора модели анализа - проектирования, в случае обзора проектной модели - реализации)</li>
+      <li>Убедиться в соблюдении требований инструкции проектирования.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/requirements/pa_supspec.htm">Дополнительные спецификации</a></li>
+      <li><a href="../../artifacts/environment/pa_design.htm">Инструкция проектирования</a></li>
+      <li><a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектная модель</a> или <a href="../../artifacts/analysisndesign/pa_anmod.htm">Модель анализа</a> в зависимости от предмета обзора</li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/projectmanagement/pa_report.htm">Экспертный отчет</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_projm.htm">Менеджер проекта</a>, ответственный за организацию процесса</td>
+  </tr>
+</table>
+</center></div>
+
+<h3>Проверить модель средствами Rational Rose</h3>
+<p>В качестве инструмента по диагностике модели системы должен быть использован продукт 
+Rational Rose, который позволяет проверить модель на противоречия и логическую целостность. 
+Для этого используется операция <i>Check Model</i> [Проверить модель].
+<p>Если в ходе выполнения проверки модели обнаружены ошибки, то Проектировщик должен их исправить. 
+<p>В общем случае можно сказать, что модель всегда должна находиться в непротиворечивом состоянии, 
+поэтому НЕ РАЗРЕШАЕТСЯ производить сохранение модели в системе конфигурационного контроля, 
+если в ней содержаться ошибки. В таких случаях они должны быть исправлены, и только после 
+этого изменения могут быть сохранены.
+
+
+<h3>Провести обзор</h3>
+<p>
+Обзор модели анализа проводится по завершению разработки модели в первых итерациях на фазе <a href="../../phases/elaboration.htm">Уточнение</a>.
+Далее обзоры модели анализа инициируются Менеджером проекта по достижению значительного 
+количества изменений. 
+<p>Обзор проектной модели проводится один раз на итерацию <a href="../../phases/elaboration.htm">фаз Уточнение</a> или 
+<a href="../../phases/construction.htm">Конструирование</a>.
+
+<p>Проектная модель (модель анализа) должна быть осмотрена в целом, чтобы обнаружить основные
+проблемы, связанные с распределением по слоям и распределением ответственностей.
+<p>Планирование и организация обзорв осуществляется Менеджером проекта. Он определяет группу лиц, участвующих в обзорах
+в обязательном порядке. На обзоры выделяется время, зависящее от объема артефакта, представленного на обзор и его сложности.
+<p>На <a href="../../phases/elaboration.htm">фазе Уточнение</a>, основной упор делается на проверке структуры модели. Выявляются моменты
+излишней связанности элементов модели, а также недостаточно подробного описания или
+отсутствия необходимых ответственностей. Проверяется именование элементов модели.
+<p>После общей структуральной проверки модели, проводится более глубокая проверка результатов 
+анализа/проектирования в рамках выбранных прецедентов.
+<p>Реализация прецедентов должна быть создана для каждого из прецедентов, выбранных для анализа в 
+ходе итерации. Под каждую реализацию прецедентов должна быть 'подложена' как минимум 
+одна диаграмма последовательности (для основного потока) плюс диаграммы для каждого 
+альтернативного подпотока.
+<p>Проверьте, что классы выполняют возложенное на прецедент функционирование системы.
+<p>Проверьте проектирование каждой из компонент в ходе обзора проектной модели: интерфейсы, их 
+функции, классы, реализующие интерфейсы и т.д.
+<p>Если стало необходимым, Менеджер проекта поручает <a href="../../workers/wk_archi.htm">Архитектору проекта</a> проведение работ по изменению 
+инструкции проектирования.
+<p>Все выявленные в ходе обзора недостатки модели фиксируются и после обзора в модель вносятся 
+необходимые изменения. Если необходимо, могут быть изменены также и спецификации прецедентов.
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+// Concret 4861FFF4005B Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4861FFF4005B
+
+FORWARD ME_4862008C0017
+
+: ME_486200F902AB
+ CONST UID '486200F902AB'
+ CONST Name 'T'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_ref
+ : Parent ME_4862008C0017 // Concret
+ ;
+ : Target ME_4862008C0017 // Concret
+ ;
+
+ref; // ME_486200F902AB T
+
+: ME_48620066005A_ME_4862008C0017
+ CONST UID '48620066005A'
+ CONST Name 'compare'
+ : Original WL 'ME_48620066005A' '4861FFE8022A.pas.ms.script' // compare
+ ;
+ : Implementor ME_4862008C0017 // Concret
+ ;
+ref; // ME_48620066005A_ME_4862008C0017 compare
+
+: ME_4862008C0017
+ CONST UID '4862008C0017'
+ CONST GUID '14AF2DBE-A147-42ED-82B8-C7B7360DB3A8'
+ CONST Name 'Concret'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4861FFF4005B // Concret
+ ;
+ : Implements
+   @ ( WL 'ME_4862003B01A0' '4861FFE8022A.pas.ms.script' // Comparable
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_486200F902AB // T
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_48620066005A_ME_4862008C0017 // compare
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4862008C0017 Concret
+
+: ME_4861FFF4005B
+ CONST UID '4861FFF4005B'
+ CONST Name 'Concret'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
+ ;
+ : Children
+   @ ( ME_4862008C0017 // Concret
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4861FFE8022A' '4861FFE8022A.pas.ms.script' // Pure
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\Concret.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4861FFF4005B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4861FFF4005B.pas.ms.script.runner'
+
+ref; // ME_4861FFF4005B Concret

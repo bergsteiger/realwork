@@ -1,0 +1,141 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Functors/BinaryPredicate.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Functors::BinaryPredicate
+//
+// Бинарный предикат
+// ---
+// Специальный класс бинарных функторов. Определяет функтор с двумя параметрами и булевым типом
+// результата
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: BinaryPredicate::Class
+implementation @ <<BinaryPredicate>>
+//? Бинарный предикат
+//? Специальный класс бинарных функторов. Определяет функтор с двумя параметрами и булевым типом результата
+//< *::Class,*::Category
+
+//= FunctorBase::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа FunctorBase::Class
+// дампит базовый класс функтора
+//%f _base_decl_h
+; // st_space_key
+
+: base_decl_h OBJECT IN %S
+//#UC START# *486345750387for47132852037A*
+//	: public std::binary_function\<<{}{%CC=Attribute&%CS=first param}%f_functor_arg_type(%C)>, <{}{%CC=Attribute&%CS=second param}%f_functor_arg_type(%C)>, bool\>
+ ': public std::binary_function<'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Attribute' AND 
+   ( ( %C |S ) %== 'first param'  ) ) then
+  begin
+   [%f] functor_arg_type %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ', '
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Attribute' AND 
+   ( ( %C |S ) %== 'second param'  ) ) then
+  begin
+   [%f] functor_arg_type %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ', bool>'
+//#UC END# *486345750387for47132852037A*
+; // base_decl_h
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47132852037A*
+//c                 {}
+//r {"<{}{%CC=Attribute&%CS=first param}{%CC}>"!="1"}:    {Для %SS должен быть задан первый параметр}
+//r {"<{}{%CC=Attribute&%CS=second param}{%CC}>"!="1"}:   {Для %SS должен быть задан второй параметр}
+//#UC END# *4704C0E30186for47132852037A*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: BinaryPredicate::Class::first param::Attribute
+end. // <<BinaryPredicate>>
+
+implementation @ :: <<BinaryPredicate>> <<"first param">> ;
+//? Первый параметер предиката
+// Параметры стереотипа
+//v +
+// - типы видимости
+//Y code_attr.gif
+//L code_attr
+//A chg
+// - стереотипы "цели" (типа/результата)
+//l l
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: BinaryPredicate::Class::second param::Attribute
+; // st_space_key
+
+end. // :: <<BinaryPredicate>> <<"first param">> ;
+
+implementation @ :: <<BinaryPredicate>> <<"second param">> ;
+//? Второй параметер предиката
+// Параметры стереотипа
+//v +
+// - типы видимости
+//Y code_attr.gif
+//L code_attr
+//A chg
+// - стереотипы "цели" (типа/результата)
+//l l
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<BinaryPredicate>> <<"second param">> ;
+

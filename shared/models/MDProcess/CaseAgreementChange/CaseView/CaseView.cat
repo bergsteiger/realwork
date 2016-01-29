@@ -1,0 +1,324 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "CaseView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CaseAgreementChange/CaseView|4B0BE0AF015F
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19036530182"))
+    quid       	"4B0BE0AF015F"
+    documentation 	"øàáëîíû îòîáðàæåíèÿ äëÿ ðàáîòû ñ Äåëîì"
+    stereotype 	"HtmlUnit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4B0BE0D4032C"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestView"
+	    quidu      	"477E279102F4"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "spaceconfig_cac"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"All")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CaseAgreementChange/CaseView/spaceconfig_cac|4B0BE0E10253
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CaseAgreementChange/CaseView/spaceconfig_cac.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4B0BE0E10253_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4B0BE0E10253_CUSTOM_CONTENT*¤¤#requireResource("confluence.web.resources:jquery_with_plugins")¤¤#set ($garEntityHelper = $garCaseHelper)¤¤#set($developmentManager=$garEntityHelper.getDevelopmentManager($action.key))¤#set($deputyDevelopmentManager=$garEntityHelper.getDeputyDevelopmentManager($action.key))¤#set($deputyDevelopmentManagerActive=$garEntityHelper.getDeputyDevelopmentManagerActive($action.key))¤#set($uvsManagementGroup=$garEntityHelper.getUvsManagementGroup($action.key))¤#set($directorGroup=$garEntityHelper.getDirectorGroup($action.key))¤#set($workGroup=$garEntityHelper.getWorkGroup($action.key))¤#set($deputyWorkGroup=$garEntityHelper.getDeputyWorkGroup($action.key))¤#set($curatorGroup=$garEntityHelper.getCuratorGroup($action.key))¤#set($ccManagementGroup = $garEntityHelper.getCcManagementGroup($action.key))¤¤#set($enabled = $garEntityHelper.getMdcEnabled($action.key))¤#set($enabledCloseDiscussions = $garEntityHelper.getCloseDiscussionsEnabled($action.key))¤¤<script language="JavaScript">¤¤function toggleSave () {¤    var $ = jQuery; ¤	¤	var requestURL  = "$req.contextPath/ru/garant/MDProcess/CaseAgreementChange/CaseSupport/CaseXPlugin/CaseXPackage/cacspaceconfigsave.action";¤	¤	$('#space_cac_config_form').ajaxSubmit({¤		url : requestURL,¤		beforeSubmit : function() {¤			$('#space_config_cac').html("$garHelper.getText('spaceconfig.saving')...");¤		},¤		success : function(responseText, statusText) { ¤			if(responseText == "success") {¤				$('#space_config_cac').html("$garHelper.getText('spaceconfigmdk.save.complete')");¤			} else if(responseText == "workGroupValidation") {¤				$('#space_config_cac').html("$garHelper.getText('spaceconfigcac.cac.work.group.validation.failed').");¤			} else {¤				$('#space_config_cac').html("$garHelper.getText('spaceconfigmdk.error.while.saving.setting')");¤			}¤		}¤	});¤}¤¤function toggleEnabled() {¤	toggleDisabled(${enabled});¤}¤¤function toggleDisabledCloseDiscussions(enable){¤	enabledCloseDiscussions = enable;¤}¤¤function toggleDisabled(enable) {¤	var $ = jQuery;¤	¤	var tableRows = $('#configTable>tbody>tr');¤	var length = tableRows.length;¤	tableRows.each(function(i) {¤		if(i != length - 1 && i != 0) {¤			enable == true || enable == 'true' ? this.show() : this.hide(); ¤		}¤	});¤}¤¤(function($) {¤¤AJS.toInit(toggleEnabled);¤¤AJS.toInit(function() {¤	$('#deputyDevelopmentManager').change(function() {¤		if($(this).val() != 'undefined') {¤			$('#deputyDevelopmentManagerActive').attr('checked', true);¤			$('#deputyDevelopmentManagerActive').removeAttr('disabled');¤		} else { ¤			$('#deputyDevelopmentManagerActive').removeAttr('checked');¤			$('#deputyDevelopmentManagerActive').attr('disabled', 'disabled');¤		}¤	});¤});¤¤})(jQuery);¤¤</script>¤¤#macro(selectGroupOptions $selectedGroup $groups)¤	<option value="undefined" #if($selectedGroup=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤	#foreach($group in $groups)¤    	#if ($group == $selectedGroup)¤    		<option value="$group" selected>$group</option>¤    	#else¤    		<option value="$group">$group</option>¤    	#end¤	#end¤#end¤¤#macro(selectUserOptions $selectedUser $users)¤	<option value="undefined" #if($selectedUser=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤	#foreach($user in $users)¤    	#if ($user.name == $selectedUser)¤    		<option value="$user.name" selected>$user.fullName</option>¤    	#else¤    		<option value="$user.name">$user.fullName</option>¤    	#end¤	#end¤#end¤¤<html>¤	<head>¤		<title>$garHelper.getText('settings.cac.space')</title>¤	</head>¤	¤#applyDecorator("root")¤	#decoratorParam("helper" $action.helper)¤	#decoratorParam("context" "space-administration")¤	#decoratorParam("mode"  "view-space-administration")¤			¤#applyDecorator ("root")¤	#decoratorParam ("context" "spaceadminpanel")¤	#decoratorParam ("selection" $action.selection)¤	#decoratorParam ("title" $action.getActionName($action.getClass().getName()))¤	#decoratorParam ("selectedTab" "admin")¤	#decoratorParam("helper" $action.helper)	¤¤<form id="space_cac_config_form"><div id="space_config_cac" style="padding-top: 0px;">¤	<table id="configTable" cellpadding=0 cellspacing=0>¤		<tr>¤    		<td colspan="2" style="padding-bottom:10px">¤    			<div>¤    				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfigcac.enabled'):</span>¤    				<input id="enabled" name="enabled" value="true" type="checkbox" #if(${enabled})checked="true"#end onClick="toggleDisabled(this.checked)"/>¤    			</div>¤    		</td>¤		</tr>¤		<tr>¤			<td>¤				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfigcac.show.roles.in.cacproject'):</span>¤			</td>¤		</tr>¤		<tr>¤			<td>¤				<table class="navmenu" cellpadding=0 cellspacing=10>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcac.group.manager'):</td>¤						<td><select id="developmentManager" name="developmentManager" style="width:290px">¤								#selectUserOptions($developmentManager $garUserHelper.getEditPermittedUsers($action.key))¤							</select>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcac.deputy.developer.manager'):</td>¤						<td>¤							<select id="deputyDevelopmentManager" name="deputyDevelopmentManager" style="width:290px">¤								#selectUserOptions($deputyDevelopmentManager $garUserHelper.getEditPermittedUsers($action.key))¤							</select>	¤							<span class="smalltext" style="font-size:9pt;"></span>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcac.deputy.developer.manager.active'):</td>¤						<td>¤							<input id="deputyDevelopmentManagerActive" name="deputyDevelopmentManagerActive" type="checkbox" value="true" #if($deputyDevelopmentManager=="undefined")disabled="disabled"#end  #if($deputyDevelopmentManagerActive) checked #end/>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcac.curator.group'):</td>¤						<td><select id="curatorGroup" name="curatorGroup" style="width:290px">¤								#selectGroupOptions($curatorGroup $garUserHelper.getEditPermittedGroups($action.key))¤							</select>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcac.department.main.responsible'):</td>¤						<td>¤							<select id="workGroup" name="workGroup" multiple="multiple" size="5" style="width:290px">¤        						#foreach($user in $garUserHelper.getEditPermittedUsers($action.key))¤									#set($curWorker = $hrHelper.getWorker($user.name))¤        							#if($curWorker.department)¤										<option value="$user.name"#if($hrHelper.containsWorker($workGroup, $user.name) == true) selected#end>$hrHelper.getWorkerFullNameWithDepartment($curWorker)</option>¤									#end¤								#end¤							</select> ¤						</td>¤					</tr>¤					<td>$garHelper.getText('spaceconfigcac.department.deputy.responsible'):</td>¤						<td>¤							<select id="deputyWorkGroup" name="deputyWorkGroup" multiple="multiple" size="5" style="width:290px">¤        						#foreach($user in $garUserHelper.getEditPermittedUsers($action.key))¤									#set($curWorker = $hrHelper.getWorker($user.name))¤        							#if($curWorker.department)¤										<option value="$user.name"#if($hrHelper.containsWorker($deputyWorkGroup, $user.name) == true) selected#end>$hrHelper.getWorkerFullNameWithDepartment($curWorker)</option>¤									#end¤								#end¤							</select> ¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcac.cc.management.group'):</td>¤						<td><select id="ccManagementGroup" name="ccManagementGroup" style="width:290px">¤								#selectGroupOptions($ccManagementGroup $garUserHelper.getEditPermittedGroups($action.key))¤							</select>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcac.uvs.management.group'):</td>¤						<td><select id="uvsManagementGroup" name="uvsManagementGroup" style="width:290px">¤								#selectGroupOptions($uvsManagementGroup $garUserHelper.getEditPermittedGroups($action.key))¤							</select>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcac.director.group'):</td>¤						<td><select id="directorGroup" name="directorGroup" style="width:290px">¤								#selectGroupOptions($directorGroup $garUserHelper.getEditPermittedGroups($action.key))¤							</select>¤						</td>¤					</tr>¤				</table>¤			</td>¤		</tr>¤		<tr>¤			<td>¤				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfig.select.importances'):</span>¤			</td>¤		</tr>¤		<tr>¤			<td>¤				<table class="navmenu" cellpadding=0 cellspacing=7 width="94%">¤					<tr><td>¤						#parse("/ConfluenceMDChange/RequestView/spaceconfig_requestimportances.vm")¤                    </td></tr>¤				</table¤			<td>¤		</tr>¤		<tr>¤			<td colspan="3" width="100%">¤				<table class="navmenu" cellpadding="0" cellspacing="7">¤					<tr><td>¤						<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfigcac.automatically.close.discussions.on.close.cases'):</span>¤						<input id="enabledCloseDiscussions" name="enabledCloseDiscussions" value="true" type="checkbox" #if(${enabledCloseDiscussions})checked="true"#end onClick="toggleDisabledCloseDiscussions(this.checked)"/>¤                        </td></tr>¤				</table>¤			</td>	¤		</tr>¤		<tr>¤			<td colspan="2">¤				<table width="100%" style="min-width: 206px">¤					<tr>¤						<td width="99%" align="right">¤							<input type=button value="$garHelper.getText('add.name')" onClick="toggleSave();"/>&nbsp;&nbsp;¤							<input type=button value="$garHelper.getText('cancel.name')" onClick="location.replace('${req.contextPath}/spaces/spaceadmin.action?key=$action.key');"/>¤						</td>¤						<td></td>¤					</tr>¤				</table>¤			</td>¤		</tr>¤	</table>¤¤<input name="spaceKey" type="hidden" value="$action.key"/>¤	¤</div></form>¤	¤#end¤#end¤</html>¤¤##UC_END*4B0BE0E10253_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039409882"))
+	    quid       	"4B0BE0E10253"
+	    documentation 	"îòîáðàæåíèå íàñòðîåê ñïåéñà CAC"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "case-prop-include-js"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CaseAgreementChange/CaseView/case-prop-include-js.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CaseAgreementChange/CaseView/case-prop-include-js|4B0F958E02A8
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4B0F958E02A8_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4B0F958E02A8_CUSTOM_CONTENT*¤¤#parse("/ConfluenceMDChange/RequestView/request-prop-include-common-js.vm")¤¤<script type="text/javascript" language="JavaScript">¤¤var actionURL = "$req.contextPath/ru/garant/MDProcess/CaseAgreementChange/CaseSupport/CaseXPlugin/CaseXPackage/editcase.action";¤var allEditCtrl = ["forecast", "priorityCalculationType", "releasePriorityCalculationType", "location_request"];¤var allListCtrl = ["type", "event", "executor", "developer", "importance", "director", "ccManager", "uvsManager"];¤var allMultiListCtrl = ["workGroup"];¤var allCheckBoxCtrl = [];¤¤function initWorkGroupSelectBoxes() {¤	var $ = jQuery;¤	¤	$('#workGroupIncudeButton').click(function(event) {¤		$('#workGroup_available_list :selected').clone().appendTo('#workGroup_list');¤		$('#workGroup_available_list :selected').remove();¤		event.preventDefault();¤	});¤	$('#workGroupExcludeButton').click(function(event) {¤		$('#workGroup_list :selected').clone().appendTo('#workGroup_available_list');¤		$('#workGroup_list :selected').remove();¤		event.preventDefault();¤	});¤}¤¤function togglePriorityChange(up, user) {¤	var immediate = getImmediate();¤	var val = "";¤	if(up == true) {¤		val = immediate ? "RELEASE_USER_IMMEDIATE_FIRST" : "RELEASE_USER_NOT_IMMEDIATE_FIRST";¤	} else {¤		val = immediate ? "RELEASE_USER_IMMEDIATE_LAST" : "RELEASE_USER_NOT_IMMEDIATE_LAST";¤	}¤	var params = "entityId=${request.request.page.id}";¤	params += "&priorityRecalculationType=" + val;¤	params += "&isNeedPriorityChange=true";¤	doRequestWithoutRendering (actionURL, params, onPriorityChangedCallback, new function(){});¤	return false;¤}¤¤var onPriorityChangedCallback = function(xmlDoc) {¤	var newPosExecutorEl = xmlDoc.getElementsByTagName("newPosExecutor")[0];¤	var immediate = xmlDoc.getElementsByTagName("immediate")[0];¤	¤	if(newPosExecutorEl != null) {¤		$('ownerPriorityPosition').innerHTML = newPosExecutorEl.firstChild.nodeValue;¤	}¤	¤	invertImmediateTooltips(immediate.firstChild.nodeValue);¤}¤¤</script>¤¤##UC_END*4B0F958E02A8_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039398183"))
+	    quid       	"4B0F958E02A8"
+	    documentation 	"ñïåöèôè÷íûå ñêðèïòû äëÿ ðåäàêòèðîâàíèÿ Äåë"
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19022246021"))
+		    quid       	"4B0F95D90119"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestView::request-prop-include-common-js"
+		    quidu      	"48A40A9602B6"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4B0BE0DA01C3"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::CaseAgreementChange::CaseView::spaceconfig_cac" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(504, 189)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(335, 158)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	338
+			justify    	0
+			label      	"spaceconfig_cac")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(335, 108)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	338
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4B0BE0E10253"
+		    width      	356
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CaseAgreementChange::CaseView::case-prop-include-js" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(552, 537)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(345, 506)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	414
+			justify    	0
+			label      	"case-prop-include-js")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(345, 456)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	414
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4B0F958E02A8"
+		    width      	432
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestView::request-prop-include-common-js" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1467, 555)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	13110000
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1151, 527)
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"request-prop-include-common-js")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1151, 477)
+			anchor     	10
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    line_color 	13110000
+		    fill_color 	16777215
+		    quidu      	"48A40A9602B6"
+		    width      	650
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @5
+			Parent_View 	@4
+			location   	(955, 428)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4B0F95D90119"
+		    client     	@2
+		    supplier   	@3
+		    vertices   	(list Points
+			(768, 547)
+			(1142, 547))
+		    line_style 	3
+		    origin_attachment 	(768, 547)
+		    terminal_attachment 	(1142, 547))))))

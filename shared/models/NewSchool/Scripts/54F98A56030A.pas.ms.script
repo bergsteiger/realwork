@@ -1,0 +1,59 @@
+// TdaDataProviderFactoryList 54F98A56030A SimpleClass Class
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_54F98A56030A
+
+INCLUDE '54F85EE102D1.pas.ms.script'
+
+: ME_54F98A770324
+ CONST UID '54F98A770324'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_54F85EE102D1 // TdaDataProviderFactory
+ ;
+
+ @SELF
+; // ME_54F98A770324 ItemType
+
+: ME_54F98A56030A
+ CONST UID '54F98A56030A'
+ CONST Name 'TdaDataProviderFactoryList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_54F98A770324 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54F98A56030A TdaDataProviderFactoryList

@@ -1,0 +1,964 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Integrated/Root/Project.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$CoreTemplates::CoreTemplates::Integrated::Root::Project
+//
+// Проект
+// ---
+// Рутовый элемент модели. Определяет основные проекты. Одна модель может определять несколько
+// проектов, определяя связи между ними.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Project::Category
+? Проект
+? Рутовый элемент модели. Определяет основные проекты. Одна модель может определять несколько проектов, определяя связи между ними.
+> Requirements::Category
+
+= Документация::MDAGenerator
+= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_project.gif
+L code_project
+// Параметры визуализации
+$ C 195,245,195
+$ l 80,245,90
+$ f 80,245,90
+M
+/ - может быть основным элементом модели
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p Full MDP:b=true ? поддержка полного контроля используемости определяемого MDP
+p full constraint:b=true ? Включает полный контроль за правильностью использования элементов (например при включенной опции серванты не могут нигде использоваться, кроме своих вложенных типов)
+p is namespace:b=false ? определяет является ли проект неймспейсом
+p root path suffix:s ? определяет префикс пути вставляемый между рутовой дирректорией и всем компонентам входящими в проект
+p space key:s ? идентификатор родительского спейса для генерации в MDKnow
+p space name:s ? Название родительского спейса - при генерации будет выставленно в заданное (т.е. изменено при необходимости)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{Full MDP}"!="%S{!Full MDP}"}%f_up_prefix(%S) *Full MDP* = *%S{Full MDP}* - поддержка полного контроля используемости определяемого MDP
+	][{"%S{full constraint}"!="%S{!full constraint}"}%f_up_prefix(%S) *full constraint* = *%S{full constraint}* - Включает полный контроль за правильностью использования элементов (например при включенной опции серванты не могут нигде использоваться, кроме своих вложенных типов)
+	][{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли проект неймспейсом
+	][{"%S{root path suffix}"!="%S{!root path suffix}"}%f_up_prefix(%S) *root path suffix* = *%S{root path suffix}* - определяет префикс пути вставляемый между рутовой дирректорией и всем компонентам входящими в проект
+	][{"%S{space key}"!="%S{!space key}"}%f_up_prefix(%S) *space key* = *%S{space key}* - идентификатор родительского спейса для генерации в MDKnow
+	][{"%S{space name}"!="%S{!space name}"}%f_up_prefix(%S) *space name* = *%S{space name}* - Название родительского спейса - при генерации будет выставленно в заданное (т.е. изменено при необходимости)
+	]
+
+%f _wiki_ProjectPageName
+// возвращаемый результат: a-string
+//#UC START# *4E7C7B0B0192for49F99EB100B2*
+	[{%SN=Nemesis|%f_substr_from_begin(%SN,2)=F1}{\
+	[{%f_substr_from_begin(%SN,13)=Shared Delphi}{\
+	Модель проекта "%f_str_replace(%SN,$, )"\
+	}\
+	[{%SN=Shared Delphi}{\
+	%f_str_replace(%f_cut_prefix(%SN,Shared Delphi ),$, )\
+	}\
+	%f_str_replace(%SN,$, )\
+	]\
+	]\
+	}\
+	[{%SN=F1}{\
+	%f_str_replace(%f_cut_prefix(%SN,F1 ),$, )\
+	}\
+	%f_str_replace(%SN,$, )\
+	]\
+	]
+//#UC END# *4E7C7B0B0192for49F99EB100B2*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for49F99EB100B2*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for49F99EB100B2*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor49F99EB100B2*
+//#UC END# *4705CBD6003Efor49F99EB100B2*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for49F99EB100B2*
+//#UC END# *470484D50138for49F99EB100B2*
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor49F99EB100B2*
+R  
+P
+C /shared/models/NewSchool/%SN
+//C [{%P#f_IsProjectGroup()!=true}/shared/models/NewSchool]/%SN
+//C shared/models/NewSchool/%SN
+//C %SN
+O %SN.model.script
+	\%DISABLE_CASCADE_DICT
+	
+	USES
+	 'W:\\shared\\models\\NewSchool\\Templates\\Implementation1.tpl.script'
+	;
+	
+	USES
+	 'W:\\shared\\models\\NewSchool\\Templates\\Implementation2.tpl.script'
+	;
+	
+	USES
+	 'W:\\shared\\models\\NewSchool\\Templates\\EVD.tpl.script'
+	;
+	
+	USES
+	 'W:\\shared\\models\\NewSchool\\Templates\\VCM.tpl.script'
+	;
+	
+	[USES
+	 <{\n }{"%DO"!=""&%D#f_IsProject()=true}'%f_str_replace(%DR%Dd,/,\\)\\%DO'>
+	;\n\n]\
+	%f_dump_to_FORTH(%S)\
+	<{}{"%CO"!=""}%CX>
+
+f _mangle_name
+	[{"%SN"!=""}{\
+	"%SU"\
+	}\
+	[{%f_consist_of(%SN,"0123456789")!=true&%f_consist_of(%SN,"0123456789abcdefghijklmnopqarstuvwxyzABCDEFGHIJKLMNOPQARSTUVWXYZ_абвгдеёжзийклмнопрстуфхцчщэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧЩЭЮЯ$.")=true&%f_to_upper(%SN)!=ABSTRACT&%f_to_upper(%SN)!=FINAL&%f_to_upper(%SN)!=VIRTUAL&%f_to_upper(%SN)!=TRUE&%f_to_upper(%SN)!=FALSE&%SS!=ScriptKeyword&%f_to_upper(%SN)!=SUMMONED&%f_to_upper(%SN)!=VAR&%f_to_upper(%SN)!=OPERATOR}{\
+	"%f_str_replace(%SN,%f_quote(%S),')"\
+	}\
+	%SN\
+	[{%SC=Operation|%S#f_IsMethod()=true}\
+	[{%f_is_MDA_oper(%S)!=true}\
+	[{"%f_delphi_overload(%S)"!=""}\
+	$%SU\
+	]\
+	]\
+	]\
+	]\
+	]
+
+f _fine_string
+	%f_str_replace(%f_str_replace(%SN,',''),\n,'\#13\#10')
+
+f _cut_quotes
+	%f_cut_postfix(%f_cut_prefix(%SN,%f_quote(%S)),%f_quote(%S))
+
+f _is_default_up_value
+	[{"%1N"="is static"&"%2N"="undefined"}{\
+	[{"%1N"="unstereotyped"&"%2N"="false"}{\
+	[{"%1N"="can set visibility level"&"%2N"="false"}{\
+	[{"%1N"="exception"&"%2N"="false"}{\
+	[{"%1N"="has derived impl"&"%2N"="false"}{\
+	[{"%1N"="implementable"&"%2N"="undefined"}{\
+	[{"%1N"="disable forward decl"&"%2N"="false"}{\
+	[{"%1N"="newRTTI"&"%2N"="false"}{\
+	[{"%1N"="isPointer"&"%2N"="false"}{\
+	[{"%1N"="isClassRef"&"%2N"="false"}{\
+	[{"%1N"="force what"&"%2N"="false"}{\
+	[{"%1N"="is_runtime"&"%2N"="false"}{\
+	[{"%1N"="packed"&"%2N"="false"}{\
+	[{"%1N"="Need init ctor"&"%2N"="false"}{\
+	[{"%1N"="IsAutoHelper"&"%2N"="false"}{\
+	[{"%1N"="force usage"&"%2N"="false"}{\
+	[{"%1N"="no_root_class"&"%2N"="false"}{\
+	[{"%1N"="is immediate"&"%2N"="undefined"}{\
+	[{"%1N"="need inline-file"&"%2N"="false"}{\
+	[{"%1N"="need impl-file"&"%2N"="false"}{\
+	[{"%1N"="local helper"&"%2N"="false"}{\
+	[{"%1N"="need objcounter"&"%2N"="true"}{\
+	[{"%1N"="singleton"&"%2N"="false"}{\
+	[{"%1N"="Refcount"&"%2N"="none"}{\
+	[{"%1N"="Need copy ctor"&"%2N"="false"}{\
+	[{"%1N"="Need assign op"&"%2N"="false"}{\
+	[{"%1N"="call way"&"%2N"="forth"}{\
+	[{"%1N"="native definition"&"%2N"="none"}{\
+	[{"%1N"="Must throw in error"&"%2N"="true"}{\
+	[{"%1N"="is default ancestor"&"%2N"="false"}{\
+	[{"%1N"="weak"&"%2N"="false"}{\
+	[{"%1N"="local supervisor"&"%2N"="false"}{\
+	[{"%1N"="non virtual base"&"%2N"="false"}{\
+	[{"%1N"="dll export"&"%2N"="true"}{\
+	[{"%1N"="force overload"&"%2N"="false"}{\
+	[{"%1N"="debug log"&"%2N"="false"}{\
+	[{"%1N"="debug tie log"&"%2N"="false"}{\
+	[{"%1N"="reads field"&"%2N"="false"}{\
+	[{"%1N"="writes field"&"%2N"="false"}{\
+	[{"%1N"="calling conventions"&"%2N"="none"}{\
+	[{"%1N"="force use const arg"&"%2N"="false"}{\
+	[{"%1N"="inherits getter from some ancestor"&"%2N"="undefined"}{\
+	[{"%1N"="inherits setter from some ancestor"&"%2N"="undefined"}{\
+	[{"%1N"="is default"&"%2N"="false"}{\
+	[{"%1N"="needs field"&"%2N"="undefined"}{\
+	[{"%1N"="needs stored directive"&"%2N"="undefined"}{\
+	[{"%1N"="is mutable"&"%2N"="false"}{\
+	[{"%1N"="smart pointer"&"%2N"="false"}{\
+	[{"%1N"="is redefinition"&"%2N"="false"}{\
+	[{"%1N"="is namespace"&"%2N"="false"}{\
+	[{"%1N"="isHighPriority"&"%2N"="false"}{\
+	[{"%1N"="can be parametrized"&"%2N"="undefined"}{\
+	[{"%1N"="forward weight"&"%2N"="0"}{\
+	[{"%1N"="can be main"&%2N=false}{\
+	[{"%1N"="inherite constraints"&%2N=true}{\
+	[{"%1N"="encoding"&%2N=default}{\
+	[{"%1N"="empty target"&%2N=false}{\
+	[{"%1N"="make auto copies internal"&%2N=false}{\
+	[{"%1N"="no auto copy"&%2N=false}{\
+	[{"%1N"="skip"&%2N=false}{\
+	[{"%1N"="internal"&%2N=false}{\
+	[{"%1N"="need dctor"&%2N=false}{\
+	[{"%1N"="need UC"&%2N=false}{\
+	[{%1N=finished&%2N=true}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//	%f_warning(%1N)\
+//	%f_warning(%S{%1N})\
+//	[{"%S{%1N}"="%S{!%1N}"{\
+//	false\
+//	true\
+//	]
+
+f _is_MDA_inner
+	[{%SS=MDAOperation|%SS=MDAAttribute|%SS=MDADependency}{\
+	false\
+	}\
+	true\
+	]
+
+f _mangle_link_name
+	[{%SS=MDAClass|%SS=MDACategory|%f_is_MDA_inner(%S)=true|%SS=MDAAbstractClass}{\
+	%f_mangle_name(%S)\
+	}\
+	\<\<%f_mangle_name(%S)\>\>\
+	]
+
+f _out_val
+	[{%SN=true|%SN=True}{\
+	[{%SN=false|%SN=False}{\
+	[{%f_consist_of(%SN,"0123456789")=true}{\
+	'%SN'\
+	}\
+	%SN\
+	]\
+	}\
+	false\
+	]\
+	}\
+	true\
+	]
+
+f _out_name_comment_prim
+	[{"%SN"!=""}{%SU}%f_mangle_name(%S)]
+
+f _out_name_comment
+	/* %f_out_name_comment_prim(%S) */
+
+f _out_uid_comment
+	/* %SU */
+
+f _link_to_element_uid
+	%f_out_uid(%S) %f_out_name_comment(%S)
+
+f _inverted_depends
+	true
+//	[{%1U=%S%PU|%SS=Tag}{\
+//	false\
+//	}\
+//	true\
+//	]
+// - пока так, т.к. есть проблемы с тем, что элементы определябтся не в том порядке
+
+f _link_to_element
+	[{%f_inverted_depends(%S,%1)=true}{\
+	[{%S%PU!=%1%PU}{\
+	@ %f_mangle_link_name(%S)\
+	}\
+	%f_clear_list(Parents)\
+	%1<{}{}{%Pr}%f_add_to_list(Parents,P)>\
+	@ :: \
+	<{}{}{%Pr}\
+	%f_pop_first_to_var(Parents,Par)\
+	[{%{Par}U!=%PU}\
+	[{%MU!=%PU}\
+	%f_mangle_link_name(%P) \
+	]\
+	]\
+	>\
+	%f_mangle_link_name(%S) ;\
+	%f_clear_list(Parents)\
+	]\
+	 %f_out_uid_comment(%S)\
+	}\
+	%f_link_to_element_uid(%S)\
+	]
+
+f _out_uid
+	U$ '%SU'
+
+f _safe_link_to_element
+	%f_link_to_element_uid(%S)
+
+f _out_param_type_prim
+	[{"%SN"="a-string"}{\
+	[{"%SN"="boolean"}{\
+	[{"%SN"="MDAClass"}{\
+	[{"%SN"="long"}{\
+	}\
+	INTEGER\
+	]\
+	}\
+	OBJECT\
+	]\
+	}\
+	BOOLEAN\
+	]\
+	}\
+	STRING\
+	]
+
+f _out_param_type
+	[ %f_out_param_type_prim(%S)]
+
+f _out_param
+	[{"%SN"!=""}\
+	%f_out_param_type(%S%T)\
+	 IN %SN\
+	]
+
+f _out_params
+	[{%PS!=MDAUtilityPack} OBJECT] IN \%S\
+	<{}{%CC=Parameter}%f_out_param(%C)>
+
+f _is_MDA_stereo
+@ %SU
+//	[{%SN=MDAClass|%SN=MDAAbstractClass|%SN=MDAUtilityPack|%SN=MDAGenerator|%SN=MDACategory|%SN=MDAOperation|%SN=MDADependency|%SN=MDAAttribute|%SN=MDASubStereotype|%SN=MDASubChild|%SN=MDAStateMachine|%SN=MDAState|%SN=MDAStateAction|%SN=MDATransition|%SN=MDATransitionAttribute|%SN=MDAParameter|%SN=MDATemplates|%SN=MDALayer|%SN=MDALibrary|%SN=MDAReport}{\
+	[{%SN=MDAAbstractClass|%SN=MDAUtilityPack|%SN=MDAGenerator|%SN=MDAOperation|%SN=MDADependency|%SN=MDAAttribute|%SN=MDASubStereotype|%SN=MDASubChild|%SN=MDAStateMachine|%SN=MDAState|%SN=MDAStateAction|%SN=MDATransition|%SN=MDATransitionAttribute|%SN=MDAParameter|%SN=MDATemplates|%SN=MDALayer|%SN=MDALibrary|%SN=MDAReport}{\
+	false\
+	}\
+	true\
+	]
+// - это пока не экспортируем, с этим надо разбираться отдельно - нужно слово StereotypeStereotypeProducer и через него надо определять MDAClass и MDACategory
+
+f _is_MDA_elem
+@ %SU
+	[{%SS=MDAClass|%SS=MDAAbstractClass|%SS=MDAUtilityPack|%SS=MDAGenerator|%SS=MDACategory|%SS=MDADependency}{\
+	false\
+	}\
+	true\
+	]
+
+f _is_MDA_oper
+@ %SU
+	[{%SC=Operation}{\
+	false\
+	}\
+	[{%f_is_MDA_elem(%S%P)=true}{\
+	false\
+	}\
+	true\
+	]\
+	]
+
+f _out_MDA_params
+	[{%f_is_MDA_oper(%S)=true}\
+	%f_out_params(%S)\
+	]
+
+f _out_access
+	[{%SV=PrivateAccess}{\
+	[{%SV=ProtectedAccess}\
+	PROTECTED \
+	]\
+	}\
+	PRIVATE \
+	]
+
+f _is_op
+	[{%SC=Operation|%S#f_IsMethod()=true}{\
+	false\
+	}\
+	true\
+	]
+
+f _is_attr
+	[{%SC=Attribute}{\
+	false\
+	}\
+	true\
+	]
+
+f _out_META
+	%f_clear_list(UP_LIST)\
+	%f_ups_to_list(S,UP_LIST)\
+	[\
+	<{}{%f_is_empty(UP_LIST)=false}{W}\
+	[%f_pop_first_to_var(UP_LIST,UP)\
+
+	%f_split_to_list(VALS,%{UP}N, = )\
+	%f_pop_first_to_var(VALS,LEFT)\
+	%f_pop_first_to_var(VALS,RIGHT)\
+	%f_set_var(LEFT,"%f_cut_quotes("%{LEFT}N")")\
+	%f_set_var(RIGHT,"%f_cut_quotes("%{RIGHT}N")")\
+	%f_set_var(RIGHT,"%f_fine_string("%{RIGHT}N")")\
+
+	[\
+	[{"%{RIGHT}N"!=""}\
+// - не выводим пустые значения
+	[{%f_is_default_up_value(%S,%{LEFT},%{RIGHT})!=true}\
+	#  \%upv \
+
+	"%{LEFT}N" \
+	%f_out_val("%{RIGHT}N")
+	]\
+	]\
+	]\
+
+	]>\
+	]\
+	%f_clear_list(VALS)\
+	%f_clear_list(UP_LIST)
+
+f _out_METAs
+	[\n# \%META
+	%f_out_META(%S)\
+	# ; // \%META]
+
+f _mangle_stereo
+	[\
+	\<\<[{"%SS"!=""}{%SC}\
+	[{%SS=MDAClass}\
+	[{%SN=MDAClass|%SN=MDACategory|%SN=MDAAbstractClass|%SN=MDADependency|%SN=MDAAttribute|%SN=MDAOperation|%SN=MDAParameter}\
+	@\
+	]\
+	]\
+	%f_str_replace(%SS, ,_)\
+	]\>\> \
+	]
+
+f _out_sig
+	[{"%SS"=""&"%f_out_param_type_prim(%S%T)"!=""}{\
+	%f_mangle_stereo(%S)\
+	}\
+	%f_out_param_type_prim(%S%T) FUNCTION \
+	]\
+
+	%f_mangle_name(%S)\
+	%f_out_MDA_params(%S)
+
+f _out_MDA_op
+	[{%f_is_MDA_oper(%S)=true}\
+	%f_out_sig(%S)\
+	%f_out_METAs(%S)
+	# %U[{_%1U}\n#  NotImplemented\n# ]
+	#; // %f_out_name_comment_prim(%S)\
+	]
+
+f _is_Redefinition
+	[{%f_is_MDA_elem(%S)=true}\
+	[{%f_is_MDA_oper(%S)!=true&%SS!=MDADependency}\
+	[{"<{}{%RN=%SN}{C}>"!="0"|"<{}{%GN=%SN}{C}>"!="0"}\
+	true\
+	]\
+	]\
+	]
+
+f _out_abstraction
+	[{%Sa=final}{\
+	[{%Sa=abstract}\
+	ABSTRACT \
+	]\
+	}\
+	FINAL \
+	]
+
+f _out_linktype
+	[{%Sl=lnk}{\
+	[{%Sa=ref}\
+	REFERENCE \
+	]\
+	}\
+	LINK \
+	]
+
+f _dump_to_FORTH
+	[
+	#// Необходимые forward определения
+	<# // %FN %FU
+	>
+	]\
+
+	#[{%S#f_is_virtual()=true}SUMMONED ]\
+
+	[{%f_is_Redefinition(%S)=true}\
+	REDEFINITION \
+	]\
+
+	%f_out_access(%S)\
+
+	%f_out_abstraction(%S)\
+	%f_out_linktype(%S)\
+
+	%f_out_sig(%S)
+
+	# \%UID '%SU'\
+
+	[{"%SD"!=""&"%SD"!="undefined"}\
+	\n# \%SUMMARY '%f_fine_string("%SD")' ;]\
+
+	[{%TN!=void}\
+	[\n# \%TARGET %f_safe_link_to_element(%T)]\
+	]\
+
+	[{"%VU"!=""}{\
+	[{"%VN"!=""}\
+
+	[{%SS=list}{\
+	[\n# \%VALUE %f_out_val(%f_fine_string("%VN"))]\
+	}\
+	%f_split_to_list(VALS,%VN,|)\
+	%f_pop_first_to_var(VALS,LEFT)\
+	[\n# \%VALUE %f_out_val(%f_fine_string("%{LEFT}N"))]\
+	[\n# \%VALUES
+	<{}{%f_is_empty(VALS)=false}{W}\
+	[%f_pop_first_to_var(VALS,LEFT)\
+	#  %f_out_val(%f_fine_string("%{LEFT}N"))
+	]\
+	>\
+	# ; // \%VALUES]\
+
+	%f_clear_list(VALS)\
+	]\
+// - SS=list
+
+	]\
+	}\
+	[\n# \%VALUE %f_safe_link_to_element(%V)]\
+	]\
+
+	[{%S#f_IsProjectGroup()!=true}\
+	[\n# \%INCLUDES
+	#  <{\n#  }{"%CO"!=""}'%f_str_replace(%Co,/,\\)' %f_out_name_comment(%C)>
+	# ; // \%INCLUDES]\
+	]\
+
+	[\n# \%DEPENDS
+	#  <{\n#  }\
+	%f_safe_link_to_element(%D)\
+	>
+	# ; // \%DEPENDS]\
+
+	%f_out_METAs(%S)\
+
+	[\n# \%FORWARDS
+	#  <{\n#  }\
+	%f_safe_link_to_element(%F)\
+	>
+	# ; // \%FORWARDS]\
+
+	[\n# \%TOBEINCLUDED
+	#  <{\n#  }\
+	%f_safe_link_to_element(%w)\
+	>
+	# ; // \%TOBEINCLUDED]\
+
+	[\n# \%RAISES
+	#  <{\n#  }\
+	%f_safe_link_to_element(%E)\
+	>
+	# ; // \%RAISES]\
+
+	[\n# \%RAISESINSET
+	#  <{\n#  }\
+	%f_safe_link_to_element(%e)\
+	>
+	# ; // \%RAISESINSET]\
+
+	[\n# \%IMPLEMENTS
+	#  <{\n#  }\
+//	%f_out_uid(%R) %f_out_name_comment(%R)
+	%f_link_to_element(%R,%S)>
+	# ; // \%IMPLEMENTS]\
+
+	[\n# \%INHERITS
+	#  <{\n#  }\
+	%f_safe_link_to_element(%G)\
+	>
+	# ; // \%INHERITS]\
+
+	[\n# \%REALIZES
+	#  <{\n#  }\
+	%f_safe_link_to_element(%o)\
+	>
+	# ; // \%REALIZES]\
+
+	[\n# \%OVERRIDES
+	#  <{\n#  }\
+	%f_safe_link_to_element(%O)\
+	>
+	# ; // \%OVERRIDES]\
+
+	%f_shift_intend(1)\
+	[\n#\%PARAMETERS
+	%f_shift_intend(1)\
+	[<{\n}{"%CO"=""&%CC=Parameter}%f_dump_to_FORTH(%C)>]
+	%f_shift_intend(-1)\
+	#; // \%PARAMETERS]\
+	%f_shift_intend(-1)\
+
+	%f_shift_intend(1)\
+	[\n#\%LINKS
+	%f_shift_intend(1)\
+	[<{\n}{"%CO"=""&%CC=Dependency}%f_dump_to_FORTH(%C)>]
+	%f_shift_intend(-1)\
+	#; // \%LINKS]\
+	%f_shift_intend(-1)\
+
+	%f_shift_intend(1)\
+	[{%f_is_attr(%S)!=true}\
+	[\n#\%ATTRIBUTES
+	%f_shift_intend(1)\
+	[<{\n}{"%CO"=""&%f_is_attr(%C)=true}%f_dump_to_FORTH(%C)>]
+	%f_shift_intend(-1)\
+	#; // \%ATTRIBUTES]\
+	]\
+	%f_shift_intend(-1)\
+
+	%f_shift_intend(1)\
+	[{%f_is_attr(%S)=true}\
+	[\n#\%INDEXES
+	%f_shift_intend(1)\
+	[<{\n}#\%INDEX %f_mangle_name(%C) [\%TARGET %f_safe_link_to_element(%C%T)\n#]\
+	;>]
+	%f_shift_intend(-1)\
+	#; // \%INDEXES]\
+	]\
+	%f_shift_intend(-1)\
+
+	%f_shift_intend(1)\
+	[\n#\%OPERATIONS
+	%f_shift_intend(1)\
+	[<{\n}{"%CO"=""&%f_is_op(%C)=true}%f_dump_to_FORTH(%C)>]
+	%f_shift_intend(-1)\
+	#; // \%OPERATIONS]\
+	%f_shift_intend(-1)\
+
+	%f_shift_intend(1)\
+	[\n#\%CHILDREN
+	%f_shift_intend(1)\
+	[#\n<{\n}{"%CO"=""&%CC!=Parameter&%CC!=Dependency&%f_is_attr(%C)!=true&%f_is_op(%C)!=true}%f_dump_to_FORTH(%C)>]\
+	%f_shift_intend(-1)\
+	\n\
+	#; // \%CHILDREN]\
+	%f_shift_intend(-1)\
+
+//	%f_shift_intend(1)\
+//	[\
+//	\n#\
+//	<{\n#}{%Ca!=abstract&%f_is_MDA_oper(%C)=true}\
+//	[%f_out_abstraction(%C)%f_out_MDA_op(%C,%S)]>\
+//	]\
+//	%f_shift_intend(-1)\
+
+//	%f_shift_intend(1)\
+//	[\
+//	\n#\
+//	<{\n#}REALIZE %f_out_MDA_op(%o,%S)>\
+//	]\
+//	%f_shift_intend(-1)\
+
+//	%f_shift_intend(1)\
+//	[\
+//	\n#\
+//	<{\n#}OVERRIDE %f_out_MDA_op(%O,%S)>\
+//	]\
+//	%f_shift_intend(-1)\
+
+	\n#; // %f_out_name_comment_prim(%S)\
+
+	[{%f_is_MDA_elem(%S)=true&%f_is_MDA_inner(%S)!=true}\
+//	[{%f_is_MDA_elem(%S)=true&%f_is_MDA_stereo(%S)!=true&%f_is_MDA_inner(%S)!=true}\
+//	[{%SS!=MDAUtilityPack}\
+// - с этим будем разбираться отдельно - надо ли экспортировать в основной словарь MDAUtilityPack
+//   а также каким именно образом это делать, и зачем они вообще нужны (подозреваю, чтобы вызывать их функции)
+//   и вообще эту проверку можно вставить в реализацию слова [EXPORT]
+//   Пользуйтесь своими собственными шаблонами :-)
+	\n#\
+	\[EXPORT\] %f_mangle_link_name(%S)\
+//	]\
+	]
+
+//#UC END# *4F368B80039Efor49F99EB100B2*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for49F99EB100B2*
+C conf:/[{"%S{space name}"!=""}{%SN}%S{space name}],key:%S{space key},guid:%SU/Home/%S%f_wiki_ProjectPageName():%SU
+O %S%f_wiki_ProjectPageName()
+	%f_wiki_header(%S)
+	[h2. Модель[
+	
+	{info}Используемые другие проекты:
+	<{}{%D#f_IsProject()=true}* \
+	[{"%D{space key}"!=""}{\
+
+	[{"%D{space name}"!=""}{\
+	%DN\
+	}\
+	%D{space name}\
+	]\
+
+	}\[\
+	[{"%D{space name}"!=""}{\
+	%DN\
+	}\
+	%D{space name}\
+	]\
+	|%D{space key}:Home\
+	\]\
+	] %f_k_link(%D)
+	>\
+	{info}]\
+
+	[
+	
+	{note}Дополнительные свойства:
+	%S#f_wiki_up_print(){note}][{%mx=true&%Cx=true}
+	
+	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма проекта:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]][
+	
+	h2. Состав проекта[
+	
+	_Требования:_<{}{%CS=Requirements}
+	\# *%f_k_link(%C)*
+	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+	
+	_Модули:_<{}{%CS!=Requirements&%CS!=MDATemplates&%t_target_ex(%C)=false}
+	\# *%f_k_link(%C)*
+	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+	
+	_Компилируемые цели и инсталляторы:_<{}{%t_target_ex(%C)=true}
+	\# *%f_k_link(%C)*
+	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+	
+	_Модель шаблонов:_<{}{%CS=MDATemplates}
+	\# *%f_k_link(%C)*
+	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+	%f_wiki_footer(%S)
+//#UC END# *46E6D4BB0339for49F99EB100B2*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

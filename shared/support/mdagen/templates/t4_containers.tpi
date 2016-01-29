@@ -1,0 +1,823 @@
+//////////////////////////////////////////////////////////////////////////////////
+// containers
+//////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////
+// Iterator
+//////////////////////////////////////////////////////////////////////////////////
+
+: Iterator::Class
+? Итератор по контейнеру
+$ S
+$ s
+$ C 210,230,240
+$ l 35,75,100
+$ f 35,75,100
+
+v +
+< *::Class, *::Category
+Y t4_iterator.gif
+
+%t _constraint
+c                              {}
+r {%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
+//////////////////////////////////////////////////////////////////////////////////
+// Const Iterator
+//////////////////////////////////////////////////////////////////////////////////
+
+: Const Iterator::Class
+? Константный итератор по контейнеру
+? Используя константный итератор нельзя изменить содержимое контейнера
+= Iterator::Class
+
+//////////////////////////////////////////////////////////////////////////////////
+// Map
+//////////////////////////////////////////////////////////////////////////////////
+
+: Map::Class
+? Карта
+? Сортированный индексный контейнер с заданным ключем 
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.
+? Дополнительно могут быть указанны тип аллокатора данных и тип функтора-сравнения, как атрибуты со стереотипами <<allocator>> и <<compare>> соотвественно.
+> Iterator::Class, Const Iterator::Class
+$ S
+$ s
+$ C 210,230,240
+$ l 35,75,100
+$ f 35,75,100
+
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+Y t4_map.gif
+
+%t _constraint
+c                           {}
+r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+r "<{}{"%CS"="compare"}{C}>"!="1"&"<{}{"%CS"="compare"}{C}>"!="0": {%SS can provide only one Compare type (by \<\<compare\>\> link)}
+r "<{}{"%CS"=""&"%C%Cx"="true"}{C}>"!="1": {%SS must provide one Key type (by subkey in Data type link)}
+r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+r "<{}{"%CS"=""&"%C%Cl"="agr"&"%t_has_less(%C%C%T)"="false"&%f_is_foreign_target(%C)=true}{%CC}>"!="0"&"<{}{"%CS"="compare"}{C}>"="0": {%SS with agrigaited foreign Key type must provide Compare type %CN %C%CN %C%C%TN}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ h
+	%f_docs(%S)\
+	#typedef std::map \< %f_key_dump(%S), %f_data_dump(%S)%f_comp_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
++ pas
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM directly in pascal/Delphi, need to write TIE-wrapper")
+
++ idl
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in IDL, need to write specific implementation")
+
+//////////////////////////////////////////////////////////////////////////////////
+: Map::Class::Attribute
+l arl
+A const
+Y t5_attr.gif
++ h
+
+//////////////////////////////////////////////////////////////////////////////////
+: Map::Class::allocator::Attribute
+? Аллокатор элементов контейнера
+l l
++ h
+
+//////////////////////////////////////////////////////////////////////////////////
+: Map::Class::compare::Attribute
+l l
+? Функтор сравнения элементов контейнера
++ h
+
+//////////////////////////////////////////////////////////////////////////////////
+: Map::Class::Attribute::Attribute
+A const
+l arl
+T
+
+//////////////////////////////////////////////////////////////////////////////////
+// MultiMap
+//////////////////////////////////////////////////////////////////////////////////
+
+: MultiMap::Class
+? Мульти-Карта
+? Сортированный индексный контейнер с заданным ключем 
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.
+? Дополнительно могут быть указанны тип аллокатора данных и тип функтора-сравнения, как атрибуты со стереотипами <<allocator>> и <<compare>> соотвественно.
+? Используется для хранения коллекций данных, где каждая коллекция связана с собственным ключем
+> Iterator::Class, Const Iterator::Class
+= Map::Class
+$ S
+$ s
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+
+%t _constraint
+c                           {}
+r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+r "<{}{"%CS"="compare"}{C}>"!="1"&"<{}{"%CS"="compare"}{C}>"!="0": {%SS can provide only one Compare type (by \<\<compare\>\> link)}
+r "<{}{"%CS"=""&"%C%Cx"="true"}{C}>"!="1": {%SS must provide one Key type (by subkey in Data type link)}
+r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+r "<{}{"%CS"=""&"%C%Cl"="agr"&"%t_has_less(%C%C%T)"="false"&%f_is_foreign_target(%C)=true}{%CC}>"!="0"&"<{}{"%CS"="compare"}{C}>"="0": {%SS with agrigaited foreign Key type must provide Compare type %CN %C%CN %C%C%TN}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
++ h
+	%f_docs(%S)\
+	#typedef std::multimap \< %f_key_dump(%S), %f_data_dump(%S)%f_comp_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
++ pas
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM directly in pascal/Delphi, need to write TIE-wrapper")
+
++ idl
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in IDL, need to write specific implementation")
+
++ java
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in JAVA, need to write specific implementation")
+//////////////////////////////////////////////////////////////////////////////////
+: MultiMap::Class::Attribute
+= Map::Class::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+: MultiMap::Class::allocator::Attribute
+= Map::Class::allocator::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+: MultiMap::Class::compare::Attribute
+= Map::Class::compare::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+: MultiMap::Class::Attribute::Attribute
+= Map::Class::Attribute::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+// UnsortedMap
+//////////////////////////////////////////////////////////////////////////////////
+
+: UnsortedMap::Class
+? Карта без сортировки
+? Несортированный индексный контейнер с заданным ключем 
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.
+? В отличии от сортированного индексного контейнера, использует умолчательный оператор сравнения, гарантирующий только уникальность, но не порядок.
+? Дополнительно может быть указанн тип аллокатора данных, как атрибут со стереотипом <<allocator>>.
+> Iterator::Class, Const Iterator::Class
+$ S
+$ s
+$ C 210,230,240
+$ l 35,75,100
+$ f 35,75,100
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+Y t4_unsorted_map.gif
+
+%t _constraint
+c                           {}
+r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+r "<{}{"%CS"=""&"%C%Cx"="true"}{C}>"!="1": {%SS must provide one Key type (by subkey in Data type link)}
+r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ h
+	%f_docs(%S)\
+	#typedef Core::UnsortedMap \< %f_key_dump(%S), %f_data_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
++ pas
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM directly in pascal/Delphi, need to write TIE-wrapper")
+
++ idl
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in IDL, need to write specific implementation")
+
+//////////////////////////////////////////////////////////////////////////////////
+: UnsortedMap::Class::Attribute
++ h
+
+//////////////////////////////////////////////////////////////////////////////////
+: UnsortedMap::Class::allocator::Attribute
+? Аллокатор элементов контейнера
++ h
+
+//////////////////////////////////////////////////////////////////////////////////
+: UnsortedMap::Class::Attribute::Attribute
+A const
+T
+
+//////////////////////////////////////////////////////////////////////////////////
+// HashMap
+//////////////////////////////////////////////////////////////////////////////////
+
+: HashMap::Class
+? Хеш-карта
+? Индексный контейнер с заданным ключем. Индекс построен на ХЕШ-таблице.
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.
+? Дополнительно могут быть указанны тип аллокатора данных, тип функтора-сравнения и тип хеш-функции, как атрибуты со стереотипами <<allocator>>, <<compare>> и <<hasher>> соотвественно.
+> Iterator::Class, Const Iterator::Class
+= Map::Class
+
+$ S
+$ s
+v +#-
+
+%t _constraint
+c                           {}
+r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+r "<{}{"%CS"="hasher"}{C}>"!="1"&"<{}{"%CS"="hasher"}{C}>"!="0": {%SS can provide only one Hasher type (by \<\<compare\>\> link)}
+r "<{}{"%CS"=""&"%C%Cx"="true"}{C}>"!="1": {%SS must provide one Key type (by subkey in Data type link)}
+r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+r "<{}{"%CS"=""&"%C%Cl"="agr"&%f_is_foreign_target(%C)=true}{%CC}>"!="0"&"<{}{"%CS"="hasher"}{C}>"="0": {%SS with agrigaited foreign Key type must provide Hasher type %CN %C%CN %C%C%TN}
+
++ h
+	%f_docs(%S)\
+	#typedef std::hash_map \< %f_key_dump(%S), %f_data_dump(%S)%f_hasher_dump(%S)%f_equalto_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
++ pas
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM directly in pascal/Delphi, need to write TIE-wrapper")
+
++ idl
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in IDL, need to write specific implementation")
+
+//////////////////////////////////////////////////////////////////////////////////
+: HashMap::Class::Attribute
+= Map::Class::Attribute
+? Данные и ключ контейнера
+
+//////////////////////////////////////////////////////////////////////////////////
+: HashMap::Class::allocator::Attribute
+= Map::Class::allocator::Attribute
+? Функтор аллокатора данных
+
+//////////////////////////////////////////////////////////////////////////////////
+: HashMap::Class::hasher::Attribute
+? Функтор ХЭШ функции контейнера
++ h
+T
+
+//////////////////////////////////////////////////////////////////////////////////
+: HashMap::Class::Attribute::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+// Set
+//////////////////////////////////////////////////////////////////////////////////
+
+: Set::Class
+? Сортированный контейнер.
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа.
+? Дополнительно могут быть указанны тип аллокатора данных и тип функтора-сравнения, как атрибуты со стереотипами <<allocator>> и <<compare>> соотвественно.
+> Iterator::Class, Const Iterator::Class
+$ S
+$ s
+$ C 210,230,240
+$ l 35,75,100
+$ f 35,75,100
+
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+Y t4_set.gif
+
+%t _constraint
+c                           {}
+r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+r "<{}{"%CS"="compare"}{C}>"!="1"&"<{}{"%CS"="compare"}{C}>"!="0": {%SS can provide only one Compare type (by \<\<compare\>\> link)}
+r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+r "<{}{"%CS"=""&%t_struct_type(%C%T)=false&%t_has_less(%C%T)=false}{C}>"!="0"&"<{}{"%CS"="compare"}{C}>"!="1": {%SS of not atomic nor Struct types must provide one Compare type (by \<\<compare\>\> link)}
+r "<{}{"%CS"=""&"%Cl"="agr"&"%t_has_less(%C%T)"="false"&%f_is_foreign_target(%C)=true}{%CC}>"!="0"&"<{}{"%CS"="compare"}{C}>"="0": {%SS with agrigaited foreign Data type must provide Compare type}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
+f _is_foreign_target
+	[{%T<{}{%PC=Category}%PU>!=%P<{}{%PC=Category}%PU>}{false}true]
+
++ wiki
+G %PU
+
++ h
+	%f_docs(%S)\
+	#typedef std::set \< %f_data_dump(%S)%f_comp_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
++ dll.h
+F class %SN_tie;
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	<%FF
+	
+	>class %SN_tie: public Core::TIEBase {
+		SET_OBJECT_COUNTER (%SN_tie)
+	protected:
+	%f_tie_container_refcount_base_h(%S)
+	
+	protected:
+		virtual long get_count () const;
+		virtual void set_count (long count);
+		virtual void clear ();
+		virtual void delete_item (long index);
+		virtual %t_ret(%{CONT_TYPE},"const,cached") get_item (long index);
+		virtual long index_of (%t_arg(%{CONT_TYPE},"in") item) const;
+		virtual long add (%t_arg(%{CONT_TYPE},"inout") item);
+		virtual bool find (%t_arg(%{CONT_TYPE},"inout") item, long& index) const;
+		virtual void remove (%t_arg(%{CONT_TYPE},"in") item);
+	};
+
++ dll.cpp
+P
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	%f_tie_object_refcount_base_cpp(%S)
+	
+	long %SN_tie::get_count () const {
+		return m_impl-\>size();
+	}
+	
+	void %SN_tie::set_count (long count) {
+		GDS_ASSERT (0);
+	}
+	
+	void %SN_tie::clear () {
+		m_impl-\>clear();
+	}
+	
+	void %SN_tie::delete_item (long index) {
+		if ((size_t)index \< m_impl-\>size()) {
+			%SN::iterator f = m_impl-\>begin();
+			std::advance (f, index);
+			m_impl-\>erase(f);
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	%t_ret(%{CONT_TYPE},"const,cached") %SN_tie::get_item (long index) {
+		if ((size_t)index \< m_impl-\>size()) {
+			%SN::iterator f = m_impl-\>begin();
+			std::advance (f, index);
+			return *f;
+
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	long %SN_tie::index_of (%t_arg(%{CONT_TYPE},"in") item) const {
+		%SN::iterator f = m_impl-\>find (item);
+		if (f != m_impl-\>end()) {
+			return std::distance (m_impl-\>begin(), f);
+		} else {
+			return -1;
+		}
+	}
+	
+	long %SN_tie::add (%t_arg(%{CONT_TYPE},"inout") item) {
+		return std::distance (m_impl-\>begin(), m_impl-\>insert (item).first);
+	}
+	
+	bool %SN_tie::find (%t_arg(%{CONT_TYPE},"inout") item, long& index) const {
+		%SN::iterator f = m_impl-\>find (item);
+		if (f != m_impl-\>end()) {
+			index = std::distance (m_impl-\>begin(), f);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	void %SN_tie::remove (%t_arg(%{CONT_TYPE},"in") item) {
+		m_impl-\>erase (item);
+	}
+
++ pas
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	I%SN = interface(Il3List)
+	\['{%SG}'\]
+	  // property methods
+	    function  pm_GetItem(anIndex: LongInt): %f_type(%{CONT_TYPE});
+	    procedure pm_SetItem(anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+	      {-}
+	  // public methods
+	    function  IndexOf(anItem: %f_type(%{CONT_TYPE})): LongInt;
+	      {* - возвращает индекс элемента Item или -1 если он не входит в контенйер. }
+	    function  Add(anItem: %f_type(%{CONT_TYPE})): Long;
+	      {* - добавляет элемент Item в контейнер }
+	    function  Find(anInteger       : %f_type(%{CONT_TYPE});
+	                   out   theIndex  : Long;): Bool;
+	      {* - ищет в контейнере элемент Item. }
+	    procedure Remove(anItem: %f_type(%{CONT_TYPE}));
+	      {* - удаляет элемент Item из контейнера. }
+	  // public properties
+	    property  Items\[anIndex: LongInt\]: %f_type(%{CONT_TYPE})
+	      read pm_GetItem
+	      default;
+	      {* - элементы списка. }
+	end;//I%SN
+
++ idl
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in IDL, need to write specific implementation")
+
+//////////////////////////////////////////////////////////////////////////////////
+: Set::Class::Attribute
+= Map::Class::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+: Set::Class::allocator::Attribute
+= Map::Class::allocator::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+: Set::Class::compare::Attribute
+= Map::Class::compare::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+// UsortedSet
+//////////////////////////////////////////////////////////////////////////////////
+
+: UnsortedSet::Class
+? Контейнер без сортировки.
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа.
+? В отличии от сортированного контейнера, использует умолчательный оператор сравнения, гарантирующий только уникальность, но не порядок.
+? Дополнительно могут быть указанны тип аллокатора данных, как атрибут со стереотипами <<allocator>>.
+> Iterator::Class, Const Iterator::Class
+$ S
+$ s
+$ C 210,230,240
+$ l 35,75,100
+$ f 35,75,100
+
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+v +#-
+Y t4_unsorted_set.gif
+
+%t _constraint
+c                           {}
+r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ h
+	%f_docs(%S)\
+	#typedef [{%C%TM!=ServerInterface::Class&%C%TM!=ServerFacet::Class}{std::set}Core::UnsortedSet] \< %f_data_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
++ pas
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM directly in pascal/Delphi, need to write TIE-wrapper")
+
++ idl
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in IDL, need to write specific implementation")
+
+//////////////////////////////////////////////////////////////////////////////////
+: UnsortedSet::Class::Attribute
+= Map::Class::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+: UnsortedSet::Class::allocator::Attribute
+= Map::Class::allocator::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+// Vector
+//////////////////////////////////////////////////////////////////////////////////
+
+: Vector::Class
+? Вектор
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа.
+> Iterator::Class, Const Iterator::Class
+$ S
+$ s
+$ C 210,230,240
+$ l 35,75,100
+$ f 35,75,100
+
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+Y t4_vector.gif
+
+%t _constraint
+c                              {}
+r {%M{force usage}=false&%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ idl
+	<#%FF
+	>%f_docs(%S)\
+	#typedef sequence\<%C[%T<%NN::>]%C[%TN]\> %SN;
+
++ h
+	%f_docs(%S)\
+	#typedef std::vector \< %f_data_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
++ dll.h
+F class %SN_tie;
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	<%FF
+	
+	>class %SN_tie: public Core::TIEBase {
+		SET_OBJECT_COUNTER (%SN_tie)
+	protected:
+	%f_tie_container_refcount_base_h(%S)
+	
+	protected:
+		virtual long get_count () const;
+		virtual void set_count (long count);
+		virtual void clear ();
+		virtual void delete_item (long index);
+		[{%t_simple(%{CONT_TYPE})=true}virtual %t_ret(%{CONT_TYPE},"const,cached") get_item (long index);
+		][{%t_simple(%{CONT_TYPE})=false}virtual void get_item (long index, %t_arg(%{CONT_TYPE},"out") ret_);
+		]virtual void set_item (long index, %t_arg(%{CONT_TYPE},"inout") item);
+		virtual long add (%t_arg(%{CONT_TYPE},"inout") item);
+		virtual long insert (long index, %t_arg(%{CONT_TYPE},"inout") item);
+	};
+
++ dll.cpp
+P
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	%f_tie_object_refcount_base_cpp(%S)
+	
+	long %SN_tie::get_count () const {
+		return m_impl-\>size();
+	}
+	
+	void %SN_tie::set_count (long count) {
+		m_impl-\>resize(count);
+	}
+	
+	void %SN_tie::clear () {
+		m_impl-\>clear();
+	}
+	
+	void %SN_tie::delete_item (long index) {
+		if ((size_t)index \< m_impl-\>size()) {
+			m_impl-\>erase(m_impl-\>begin() + index);
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	[{%t_simple(%{CONT_TYPE})=true}%t_ret(%{CONT_TYPE},"const,cached") %SN_tie::get_item (long index) {
+	][{%t_simple(%{CONT_TYPE})=false}void %SN_tie::get_item (long index, %t_arg(%{CONT_TYPE},"out") ret_) {
+	]	if ((size_t)index \< m_impl-\>size()) {
+	[{%t_simple(%{CONT_TYPE})=true}		return (*m_impl)\[index\];]\
+	[{%t_simple(%{CONT_TYPE})=false}		%f_type(%{CONT_TYPE})::make_tie ((*m_impl)\[index\][{%t_interface(%{CONT_TYPE})=true}.in()], [{%t_interface(%{CONT_TYPE})=true}{*ret_}ret_, true]);]
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	void %SN_tie::set_item (long index, %t_arg(%{CONT_TYPE},"inout") item) {
+		if ((size_t)index \< m_impl-\>size()) {
+	[{%t_simple(%{CONT_TYPE})=true}		(*m_impl)\[index\] = item;]\
+	[{%t_simple(%{CONT_TYPE})=false}		%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+			%f_type(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+			(*m_impl)\[index\] = item_;]
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	long %SN_tie::add (%t_arg(%{CONT_TYPE},"inout") item) {
+	[{%t_simple(%{CONT_TYPE})=true}	m_impl-\>push_back (item);]\
+	[{%t_simple(%{CONT_TYPE})=false}	%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+		%f_type(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+		m_impl-\>push_back (item_);]
+		return m_impl-\>size() - 1;
+	}
+	
+	long %SN_tie::insert (long index, %t_arg(%{CONT_TYPE},"inout") item) {
+		if ((size_t)index \< m_impl-\>size()) {
+	[{%t_simple(%{CONT_TYPE})=true}		return std::distance (m_impl-\>begin(), m_impl-\>insert (m_impl-\>begin() + index, item));]\
+	[{%t_simple(%{CONT_TYPE})=false}		%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+			%f_type(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+			return std::distance (m_impl-\>begin(), m_impl-\>insert (m_impl-\>begin() + index, item_));]
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+
++ pas
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	I%SN = interface(Il3List)
+	\['{%SG}'\]
+	  // property methods
+	    function  pm_GetItem(anIndex: LongInt): %f_type(%{CONT_TYPE});
+	    procedure pm_SetItem(anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+	      {-}
+	  // public methods
+	    function  Add(anItem: %f_type(%{CONT_TYPE})): Long;
+	      {* - добавляет элемент Item в конец. }
+	    procedure Insert(anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+	      {* - вставляет элемент Item по индексу Index. }
+	  // public properties
+	    property  Items\[anIndex: LongInt\]: %f_type(%{CONT_TYPE})
+	      read pm_GetItem
+	      write pm_SetItem;
+	      default;
+	      {* - элементы списка. }
+	end;//I%SN
+
+# MDAGen/GTS/Vector_class_intf_pas
+
+//////////////////////////////////////////////////////////////////////////////////
+: Vector::Class::Attribute
+= Map::Class::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+: Vector::Class::allocator::Attribute
+= Map::Class::allocator::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+// Queue
+//////////////////////////////////////////////////////////////////////////////////
+
+: Queue::Class
+? Очередь
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа.
+> Iterator::Class, Const Iterator::Class
+$ S
+$ s
+$ C 210,230,240
+$ l 35,75,100
+$ f 35,75,100
+
+v +#-
+Y t4_queue.gif
+
+%t _constraint
+c                              {}
+r {%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ h
+	%f_docs(%S)\
+	#typedef std::queue \< %f_data_dump(%S) \> %SN;
+
++ pas
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM directly in pascal/Delphi, need to write TIE-wrapper")
+
++ idl
+	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in IDL, need to write specific implementation")
+
+//////////////////////////////////////////////////////////////////////////////////
+: Queue::Class::Attribute
+= Map::Class::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+// List
+//////////////////////////////////////////////////////////////////////////////////
+
+: List::Class
+? Список
+? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа.
+? Отличаетсяот вектора более эффективной вставкой/удалением элементов
+> Iterator::Class, Const Iterator::Class
+$ S
+$ s
+$ C 210,230,240
+$ l 35,75,100
+$ f 35,75,100
+
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+Y t4_vector.gif
+%t _constraint
+c                              {}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ idl
+	<#%FF
+	>%f_docs(%S)\
+	#typedef sequence\<%C[%T<%NN::>]%C[%TN]\> %SN;
+
++ h
+	%f_docs(%S)\
+	#typedef std::list \< %f_data_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
++ dll.h
+F class %SN_tie;
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	<%FF
+	
+	>class %SN_tie: public Core::TIEBase {
+		SET_OBJECT_COUNTER (%SN_tie)
+	protected:
+	%f_tie_container_refcount_base_h(%S)
+	
+	protected:
+		virtual long get_count () const;
+		virtual void set_count (long count);
+		virtual void clear ();
+		virtual void delete_item (long index);
+		[{%t_simple(%{CONT_TYPE})=true}virtual %t_ret(%{CONT_TYPE},"const,cached") get_back ();
+		][{%t_simple(%{CONT_TYPE})=false}virtual void get_back (%t_arg(%{CONT_TYPE},"out") ret_);
+		][{%t_simple(%{CONT_TYPE})=true}virtual %t_ret(%{CONT_TYPE},"const,cached") get_front ();
+		][{%t_simple(%{CONT_TYPE})=false}virtual void get_front (%t_arg(%{CONT_TYPE},"out") ret_);
+		]virtual void set_item (long index, %t_arg(%{CONT_TYPE},"inout") item);
+		virtual long add (%t_arg(%{CONT_TYPE},"inout") item);
+		virtual long insert (long index, %t_arg(%{CONT_TYPE},"inout") item);
+	};
+
++ dll.cpp
+P
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	%f_tie_object_refcount_base_cpp(%S)
+	
+	long %SN_tie::get_count () const {
+		return m_impl-\>size();
+	}
+	
+	void %SN_tie::set_count (long count) {
+		m_impl-\>resize(count);
+	}
+	
+	void %SN_tie::clear () {
+		m_impl-\>clear();
+	}
+	
+	void %SN_tie::delete_item (long index) {
+		if ((size_t)index \< m_impl-\>size()) {
+			m_impl-\>erase(m_impl-\>begin() + index);
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	[{%t_simple(%{CONT_TYPE})=true}%t_ret(%{CONT_TYPE},"const,cached") %SN_tie::get_back () {
+	][{%t_simple(%{CONT_TYPE})=false}void %SN_tie::get_back (long index, %t_arg(%{CONT_TYPE},"out") ret_) {
+	][{%t_simple(%{CONT_TYPE})=true}		return m_impl->back ();]\
+	[{%t_simple(%{CONT_TYPE})=false}		%f_type(%{CONT_TYPE})::make_tie (m_impl->back ()[{%t_interface(%{CONT_TYPE})=true}.in()], [{%t_interface(%{CONT_TYPE})=true}{*ret_}ret_, true]);]
+	}
+	
+	long %SN_tie::add (%t_arg(%{CONT_TYPE},"inout") item) {
+	[{%t_simple(%{CONT_TYPE})=true}	m_impl-\>push_back (item);]\
+	[{%t_simple(%{CONT_TYPE})=false}	%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+		%f_type(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+		m_impl-\>push_back (item_);]
+		return m_impl-\>size() - 1;
+	}
+	
+	long %SN_tie::insert (long index, %t_arg(%{CONT_TYPE},"inout") item) {
+		if ((size_t)index \< m_impl-\>size()) {
+	[{%t_simple(%{CONT_TYPE})=true}		return std::distance (m_impl-\>begin(), m_impl-\>insert (m_impl-\>begin() + index, item));]\
+	[{%t_simple(%{CONT_TYPE})=false}		%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+			%f_type(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+			return std::distance (m_impl-\>begin(), m_impl-\>insert (m_impl-\>begin() + index, item_));]
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+
++ pas
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	I%SN = interface(Il3List)
+	\['{%SG}'\]
+	  // property methods
+	    function  pm_GetItem(anIndex: LongInt): %f_type(%{CONT_TYPE});
+/	    procedure pm_SetItem(anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+	      {-}
+	  // public methods
+	    function  Add(anItem: %f_type(%{CONT_TYPE})): Long;
+	      {* - добавляет элемент Item в конец. }
+	    procedure Insert(anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+	      {* - вставляет элемент Item по индексу Index. }
+	  // public properties
+	    property  Items\[anIndex: LongInt\]: %f_type(%{CONT_TYPE})
+	      read pm_GetItem
+/	      write pm_SetItem;
+	      default;
+	      {* - элементы списка. }
+	end;//I%SN
+
+//////////////////////////////////////////////////////////////////////////////////
+: List::Class::Attribute
+= Map::Class::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+: List::Class::allocator::Attribute
+= Map::Class::allocator::Attribute
+/////////////////////////////////////////////////////////////////////////////
+// suport function
+//////////////////////////////////////////////////////////////////////////////////
+
+f _hasher_dump
+	[{}{[{"<{}{%CS=allocator|%CS=compare}{%CC}>"!="0"}, std::hash\<%f_key_dump(%S)\>]}<{}{"%CS"="hasher"}, %f_type(%C%T)>]
+
+f _comp_dump
+	[{}{[{"<{}{%CS=allocator}{%CC}>"!="0"}, std::less\<[{%SM=Set::Class}{%f_key_dump(%S)}%f_data_dump(%S)]\>]}<{}{"%CS"="compare"}, %f_type(%C%T)>]
+
+f _equalto_dump
+	[{}{[{"<{}{%CS=allocator}{%CC}>"!="0"}, std::equal_to\<[{%SM=Set::Class}{%f_key_dump(%S)}%f_data_dump(%S)]\>]}<{}{"%CS"="compare"}, %f_type(%C%T)>]
+
+f _key_dump
+	<{}{"%CS"=""}{%C}[{%C%Cl=agr}{%f_attr(%C%C)}%t_attr(%C%C%T,"%C%Cl-const")]>
+
+f _data_dump
+	<{}{"%CS"=""}{%C}%f_attr(%C)>
+
+f _cont_body
+	< <{}{"%CS"=""}{%C}[{"%SM"="Map::Class"|"%SM"="HashMap::Class"}%f_attr(%C%C), ]%f_attr(%C)><{}{"%CS"="hasher"}, %f_type(%C%T)><{}{"%CS"="compare"}, %f_type(%C%T)><{}{"%CS"="allocator"}, %f_type(%C%T)> \>

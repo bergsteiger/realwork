@@ -1,0 +1,202 @@
+{*******************************************************}
+{                                                       }
+{           CodeGear Delphi Runtime Library             }
+{ Copyright(c) 2012-2013 Embarcadero Technologies, Inc. }
+{                                                       }
+{*******************************************************}
+
+package BuildWinRTL;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Windows RTL Builder'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+contains
+  System.Types in 'sys\System.Types.pas',
+  System.UITypes in 'common\System.UITypes.pas',
+  System.UIConsts in 'common\System.UIConsts.pas',
+  System.SysConst in 'sys\System.SysConst.pas',
+  System.RTLConsts in 'common\System.RTLConsts.pas',
+  Winapi.Windows in 'win\Winapi.Windows.pas',
+  Winapi.ImageHlp in 'win\Winapi.ImageHlp.pas',
+  System.Character in 'common\System.Character.pas',
+  System.Internal.ExcUtils in 'sys\System.Internal.ExcUtils.pas',
+  System.SysUtils in 'sys\System.SysUtils.pas',
+  System.Actions in 'common\System.Actions.pas',
+  System.VarUtils in 'sys\System.VarUtils.pas',
+  System.SyncObjs in 'common\System.SyncObjs.pas',
+  System.Win.VCLCom in 'common\System.Win.VCLCom.pas',
+  System.Win.ComConst in 'common\System.Win.ComConst.pas',
+  System.Win.ComObj in 'common\System.Win.ComObj.pas',
+  System.Win.ComObjWrapper in 'common\System.Win.ComObjWrapper.pas',
+  System.Contnrs in 'common\System.Contnrs.pas',
+  System.ConvUtils in 'common\System.ConvUtils.pas',
+  System.DateUtils in 'common\System.DateUtils.pas',
+  System.IniFiles in 'common\System.IniFiles.pas',
+  System.Masks in 'common\System.Masks.pas',
+  System.Math in 'common\System.Math.pas',
+  System.Win.Registry in 'common\System.Win.Registry.pas',
+  System.StdConvs in 'common\System.StdConvs.pas',
+  System.Win.StdVCL in 'common\System.Win.StdVCL.pas',
+  System.StrUtils in 'common\System.StrUtils.pas',
+  System.TypInfo in 'common\System.TypInfo.pas',
+  System.VarConv in 'common\System.VarConv.pas',
+  System.VarCmplx in 'common\System.VarCmplx.pas',
+  System.Classes in 'common\System.Classes.pas',
+  System.MaskUtils in 'common\System.MaskUtils.pas',
+  System.HelpIntfs in 'common\System.HelpIntfs.pas',
+  System.Win.ScktComp in 'common\System.Win.ScktComp.pas',
+  Winapi.AccCtrl in 'win\Winapi.AccCtrl.pas',
+  Winapi.AclAPI in 'win\Winapi.AclAPI.pas',
+  Winapi.ActiveX in 'win\Winapi.ActiveX.pas',
+  Winapi.ComSvcs in 'win\Winapi.ComSvcs.pas',
+  Winapi.ADOInt in 'win\Winapi.ADOInt.pas',
+  Winapi.AspTlb in 'win\Winapi.AspTlb.pas',
+  Winapi.COMAdmin in 'win\Winapi.COMAdmin.pas',
+  Winapi.CommCtrl in 'win\Winapi.CommCtrl.pas',
+  Winapi.CommDlg in 'win\Winapi.CommDlg.pas',
+  Winapi.Cpl in 'win\Winapi.Cpl.pas',
+  Winapi.DDEml in 'win\Winapi.DDEml.pas',
+  Winapi.Dlgs in 'win\Winapi.Dlgs.pas',
+  Winapi.DwmApi in 'win\Winapi.DwmApi.pas',
+  Winapi.FlatSB in 'win\Winapi.FlatSB.pas',
+  Winapi.Imm in 'win\Winapi.Imm.pas',
+  Winapi.Isapi in 'win\Winapi.Isapi.pas',
+  Winapi.Isapi2 in 'win\Winapi.Isapi2.pas',
+  Winapi.LZExpand in 'win\Winapi.LZExpand.pas',
+  Winapi.Mapi in 'win\Winapi.Mapi.pas',
+  Winapi.Messages in 'win\Winapi.Messages.pas',
+  Winapi.MMSystem in 'win\Winapi.MMSystem.pas',
+  Winapi.msxml in 'win\Winapi.msxml.pas',
+  Winapi.Mtx in 'win\Winapi.Mtx.pas',
+  Winapi.MultiMon in 'win\Winapi.MultiMon.pas',
+  Winapi.Nb30 in 'win\Winapi.Nb30.pas',
+  System.Win.ObjComAuto in 'common\System.Win.ObjComAuto.pas',
+  System.Variants in 'sys\System.Variants.pas',
+  System.ObjAuto in 'common\System.ObjAuto.pas',
+  Winapi.OleDB in 'win\Winapi.OleDB.pas',
+  Winapi.OleDlg in 'win\Winapi.OleDlg.pas',
+  Winapi.OpenGL in 'win\Winapi.OpenGL.pas',
+  Winapi.oleacc in 'win\Winapi.oleacc.pas',
+  Winapi.Penwin in 'win\Winapi.Penwin.pas',
+  Winapi.PenInputPanel in 'win\Winapi.PenInputPanel.pas',
+  Winapi.PsAPI in 'win\Winapi.PsAPI.pas',
+  Winapi.RegStr in 'win\Winapi.RegStr.pas',
+  Winapi.RichEdit in 'win\Winapi.RichEdit.pas',
+  Winapi.ShellAPI in 'win\Winapi.ShellAPI.pas',
+  Winapi.SHFolder in 'win\Winapi.SHFolder.pas',
+  Winapi.ShlObj in 'win\Winapi.ShlObj.pas',
+  Winapi.ShLwApi in 'win\Winapi.ShLwApi.pas',
+  System.Internal.StrHlpr in 'sys\System.Internal.StrHlpr.pas',
+  Winapi.TlHelp32 in 'win\Winapi.TlHelp32.pas',
+  Winapi.UrlMon in 'win\Winapi.UrlMon.pas',
+  Winapi.UxTheme in 'win\Winapi.UxTheme.pas',
+  System.Internal.VarHlpr in 'sys\System.Internal.VarHlpr.pas',
+  System.WideStrings in 'common\System.WideStrings.pas',
+  System.WideStrUtils in 'common\System.WideStrUtils.pas',
+  System.Win.Crtl in 'common\System.Win.Crtl.pas',
+  Winapi.WinInet in 'win\Winapi.WinInet.pas',
+  Winapi.Winsafer in 'win\Winapi.Winsafer.pas',
+  Winapi.WinSock in 'win\Winapi.WinSock.pas',
+  Winapi.Qos in 'win\Winapi.Qos.pas',
+  Winapi.WinSock2 in 'win\Winapi.WinSock2.pas',
+  Winapi.WinSpool in 'win\Winapi.WinSpool.pas',
+  Winapi.WinSvc in 'win\Winapi.WinSvc.pas',
+  Winapi.CorError in 'win\Winapi.CorError.pas',
+  Winapi.CorHdr in 'win\Winapi.CorHdr.pas',
+  Winapi.Cor in 'win\Winapi.Cor.pas',
+  Winapi.DXTypes in 'win\Winapi.DXTypes.pas',
+  Winapi.DXFile in 'win\Winapi.DXFile.pas',
+  Winapi.DxDiag in 'win\Winapi.DxDiag.pas',
+  Winapi.D3DX8 in 'win\Winapi.D3DX8.pas',
+  Winapi.D3DX9 in 'win\Winapi.D3DX9.pas',
+  Winapi.Direct3D in 'win\Winapi.Direct3D.pas',
+  Winapi.Direct3D8 in 'win\Winapi.Direct3D8.pas',
+  Winapi.DX7toDX8 in 'win\Winapi.DX7toDX8.pas',
+  Winapi.Direct3D9 in 'win\Winapi.Direct3D9.pas',
+  Winapi.DirectDraw in 'win\Winapi.DirectDraw.pas',
+  Winapi.DirectShow9 in 'win\Winapi.DirectShow9.pas',
+  Winapi.DirectInput in 'win\Winapi.DirectInput.pas',
+  Winapi.DirectSound in 'win\Winapi.DirectSound.pas',
+  Winapi.DirectPlay8 in 'win\Winapi.DirectPlay8.pas',
+  Winapi.DirectMusic in 'win\Winapi.DirectMusic.pas',
+  Winapi.GDIPAPI in 'win\Winapi.GDIPAPI.pas',
+  Winapi.GDIPOBJ in 'win\Winapi.GDIPOBJ.pas',
+  Winapi.GDIPUTIL in 'win\Winapi.GDIPUTIL.pas',
+  Winapi.WMF9 in 'win\Winapi.WMF9.pas',
+  Winapi.IpExport in 'win\Winapi.IpExport.pas',
+  Winapi.IpRtrMib in 'win\Winapi.IpRtrMib.pas',
+  Winapi.IpTypes in 'win\Winapi.IpTypes.pas',
+  Winapi.IpHlpApi in 'win\Winapi.IpHlpApi.pas',
+  System.ZLibConst in 'common\System.ZLibConst.pas',
+  System.ZLib in 'common\System.ZLib.pas',
+  System.Zip in 'common\System.Zip.pas',
+  System.Internal.DebugUtils in 'common\System.Internal.DebugUtils.pas',
+  System.Generics.Defaults in 'common\System.Generics.Defaults.pas',
+  System.Generics.Collections in 'common\System.Generics.Collections.pas',
+  System.Rtti in 'common\System.Rtti.pas',
+  System.TimeSpan in 'common\System.TimeSpan.pas',
+  System.Diagnostics in 'common\System.Diagnostics.pas',
+  System.AnsiStrings in 'common\System.AnsiStrings.pas',
+  Winapi.TpcShrd in 'win\Winapi.TpcShrd.pas',
+  Winapi.RtsCom in 'win\Winapi.RtsCom.pas',
+  Winapi.MsInkAut in 'win\Winapi.MsInkAut.pas',
+  Winapi.MsInkAut15 in 'win\Winapi.MsInkAut15.pas',
+  Winapi.Manipulations in 'win\Winapi.Manipulations.pas',
+  System.IOUtils in 'common\System.IOUtils.pas',
+  Winapi.D2D1 in 'win\Winapi.D2D1.pas',
+  Winapi.Dxgi in 'win\Winapi.Dxgi.pas',
+  Winapi.DxgiType in 'win\Winapi.DxgiType.pas',
+  Winapi.DxgiFormat in 'win\Winapi.DxgiFormat.pas',
+  Winapi.D3D10 in 'win\Winapi.D3D10.pas',
+  Winapi.D3D10_1 in 'win\Winapi.D3D10_1.pas',
+  Winapi.D3DX10 in 'win\Winapi.D3DX10.pas',
+  Winapi.Wincodec in 'win\Winapi.Wincodec.pas',
+  Winapi.KnownFolders in 'win\Winapi.KnownFolders.pas',
+  Winapi.ObjectArray in 'win\Winapi.ObjectArray.pas',
+  Winapi.PropSys in 'win\Winapi.PropSys.pas',
+  Winapi.PropKey in 'win\Winapi.PropKey.pas',
+  System.RegularExpressionsAPI in 'common\System.RegularExpressionsAPI.pas',
+  System.RegularExpressionsConsts in 'common\System.RegularExpressionsConsts.pas',
+  System.RegularExpressionsCore in 'common\System.RegularExpressionsCore.pas',
+  System.RegularExpressions in 'common\System.RegularExpressions.pas',
+  Winapi.StructuredQuery in 'win\Winapi.StructuredQuery.pas',
+  Winapi.StructuredQueryCondition in 'win\Winapi.StructuredQueryCondition.pas',
+  System.Odbc in 'common\System.Odbc.pas',
+  System.Sqlite in 'common\System.Sqlite.pas',
+  Winapi.Portabledevicetypes in 'win\Winapi.Portabledevicetypes.pas',
+  Winapi.Sensors in 'win\Winapi.Sensors.pas',
+  Winapi.Sensorsapi in 'win\Winapi.Sensorsapi.pas',
+  Winapi.Functiondiscovery in 'win\Winapi.Functiondiscovery.pas',
+  Winapi.Locationapi in 'win\Winapi.Locationapi.pas',
+  Winapi.Wbem in 'win\Winapi.Wbem.pas',
+  System.Sensors in 'common\System.Sensors.pas',
+  System.Win.Sensors in 'common\System.Win.Sensors.pas',
+  Winapi.UserEnv in 'win\Winapi.UserEnv.pas',
+  Winapi.MSXMLIntf in 'win\Winapi.MSXMLIntf.pas';
+
+end.

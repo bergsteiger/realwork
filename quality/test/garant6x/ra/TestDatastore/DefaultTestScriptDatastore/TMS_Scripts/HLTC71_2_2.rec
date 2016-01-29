@@ -1,0 +1,44 @@
+'$Include "sqautil.sbh"
+'$Include "global.sbl"
+
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=1", "Coords=11,24"
+    ListBox Click, "ObjectIndex=1", "Coords=69,39"
+    ListBox Click, "ObjectIndex=1", "Coords=28,10"
+    
+    Dim ItemCount%
+    Dim elem_text$
+    InputKeys "{HOME}"
+    SQAGetProperty "CurrentFocus","ItemCount",ItemCount
+    Dim ItemList() as String
+    ReDim ItemList(1 to ItemCount-2)
+    InputKeys "{DOWN}"
+    For i=1 to ItemCount-2
+    InputKeys "{DOWN}"
+    SQAGetProperty "CurrentFocus","Text", elem_text
+    ItemList(i)=elem_text
+    next i
+    InputKeys "{HOME}"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    'call Position_by_Text("Type=ListBox;ObjectIndex=1","Документы")
+    ListBox Click, "ObjectIndex=4", "Coords=9,13"
+    InputKeys "{HOME}"
+    For i=1 to ItemCount-2
+    InputKeys "{DOWN}"
+    SQAGetProperty "CurrentFocus","Text", elem_text
+    call StrComp2Log(elem_text,ItemList(i))
+    next i
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    
+    
+
+End Sub

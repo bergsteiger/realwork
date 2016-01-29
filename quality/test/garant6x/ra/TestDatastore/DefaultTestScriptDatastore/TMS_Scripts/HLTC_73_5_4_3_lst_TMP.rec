@@ -1,0 +1,38 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 73.5.4.3 ***
+
+'Начальное состояние:
+'Пустая КЗ ППР
+Sub Main
+    Dim Result As Integer
+
+    Call NeedState (ST_PPR_6x)
+    CUR_STATE = ST_NONE_STANDART
+
+'Ищем по контексту в названиии "нормальной цепочкой"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FindContext
+  InputKeys "нормальной цепочкой"
+  InputKeys "^{Enter}"
+  DelayFor (3000) 'Ждем загрузки списка
+  
+'Выставляем в МВ дату 23,05,2003 и переходим в документ с нормальной цепочкой редакций
+  Call DblClick_tblistCalendar
+  InputKeys "23052003"
+  InputKeys "{Enter}"
+  Call Fset_List
+  InputKeys "{Enter}"
+  DelayFor (2000) 'Ждем загрузки документа
+  Call Fset_Doc
+  InputKeys "^+{Right}"
+  'Сравниваем 1 экран текста документа
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=PrevRev")
+  'Проверяем состояние закладки навигатора "Редакции"
+  Result = ListBoxVP (CompareImage, "ObjectIndex=1", "VP=NavRed")
+  
+'Возвращаемся в список и отключаем МВ
+  Call Click_Back
+  DelayFor (2000) 'Ждем загрузки списка
+  Call Click_tblistActualRedaction
+End Sub

@@ -1,0 +1,112 @@
+// Tl3CEmptyStringPrim 4F5CBD4201BE SimpleClass Class
+
+INCLUDE '4AE5CA2D0034.pas.ms.script'
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+FORWARD ME_4F5CBD4201BE
+
+FORWARD ME_4F5CBE92035B
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4F5CBE9C027D
+ CONST UID '4F5CBE9C027D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4F5CBE9C027D DoIt
+
+: ME_4F5CBE92035B
+ CONST UID '4F5CBE92035B'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F5CBE9C027D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F5CBE92035B Create
+
+FORWARD ME_4F5CBEA80373
+
+: ME_93C9C583A0E6
+ CONST UID '93C9C583A0E6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики Tl3CEmptyStringPrim.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_93C9C583A0E6 DoIt
+
+: ME_4F5CBEA80373
+ CONST UID '4F5CBEA80373'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F5CBE92035B // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_46780DA40383 // Il3CString
+ ]
+ ; // Implements
+ : Operations
+   [ ME_93C9C583A0E6 // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_4F5CBEA80373 Make
+
+: ME_4F5CBD4201BE
+ CONST UID '4F5CBD4201BE'
+ CONST Name 'Tl3CEmptyStringPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4AE5CA2D0034 // Tl3CProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_46780DA40383 // Il3CString
+ ]
+ ; // Implements
+ : Operations
+   [ ME_4F5CBE92035B // Create
+ ME_4F5CBEA80373 // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_46780DEF03E5 // AsWStr
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F5CBD4201BE Tl3CEmptyStringPrim

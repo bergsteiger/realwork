@@ -1,0 +1,332 @@
+%producer 'ЭВЕРЕСТ 1.2.0.1420' date '13.04.2011'
+%format version 0.140 revision date '18/06/2010' 
+: QueryCard = {
+ Subs = {
+  : = {
+   Handle = Sub
+   Children = 4
+   : = {
+    Handle = 1
+   }
+   : = {
+    Handle = 2
+   }
+   : = {
+    Handle = 3
+   }
+  }
+ }
+ CardType = ev_qtLegistationReview
+ : ControlsBlock = {
+  Handle = 1
+  //ShortName = 'Обзор изменений законодательства'
+  Flat = False
+  : Table = {
+   Children = 4
+   : ReqRow = {
+    ReqID = 'AT_SOURCE_REVIEW'
+    Children = 5
+    : = {
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     : = {
+      Segments = {
+       : = {
+        Handle = Hyperlinks
+        : HyperLink = {
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         : = {
+          Type = 65545
+          DocID = 4
+         }
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Орган/Источник'
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'SelectBTN'
+      Type = ev_ctStateButton
+      StateIndex = 37
+      Flat = True
+      ImageIndex = 37
+     }
+    }
+    : = {
+     Width = 6060
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itLeft
+      Type = ev_ctCombo
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'AddBTN'
+      Type = ev_ctButton
+      StateIndex = 58
+      Flat = True
+      ImageIndex = 58
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_CLASS_REVIEW'
+    FilterType = 2
+    Children = 5
+    : = {
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     : = {
+      Segments = {
+       : = {
+        Handle = Hyperlinks
+        : HyperLink = {
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         : = {
+          Type = 65545
+          DocID = 4
+         }
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Раздел/Тема'
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'SelectBTN'
+      Type = ev_ctStateButton
+      StateIndex = 37
+      Flat = True
+      ImageIndex = 37
+     }
+    }
+    : = {
+     Width = 6060
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itLeft
+      Type = ev_ctCombo
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'AddBTN'
+      Type = ev_ctButton
+      StateIndex = 58
+      Flat = True
+      ImageIndex = 58
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_PUBLISHING_DATE'
+    Multy = False
+    Children = 7
+    : = {
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     : = {
+      Segments = {
+       : = {
+        Handle = Hyperlinks
+        : HyperLink = {
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         : = {
+          Type = 65545
+          DocID = 4
+         }
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Дата принятия'
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itRight
+      Text = ' С : '
+      Enabled = False
+     }
+    }
+    : = {
+     Width = 2737
+     VerticalAligment = ev_valCenter
+     : = {
+      Name = 'CalEdit'
+      Justification = ev_itLeft
+      Text = '  .  .  '
+      Type = ev_ctCalEdit
+      StateIndex = 4
+      ImageIndex = 4
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itRight
+      Text = 'По: '
+      Enabled = False
+     }
+    }
+    : = {
+     Width = 2738
+     VerticalAligment = ev_valCenter
+     : = {
+      Name = 'CalEdit'
+      Justification = ev_itLeft
+      Text = '  .  .  '
+      Type = ev_ctCalEdit
+      StateIndex = 4
+      ImageIndex = 4
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Width = 585
+     : = {
+      Justification = ev_itCenter
+      Text = ''
+      Enabled = False
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_PREFIX_REVIEW'
+    Children = 5
+    : = {
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     : = {
+      Segments = {
+       : = {
+        Handle = Hyperlinks
+        : HyperLink = {
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         : = {
+          Type = 65545
+          DocID = 4
+         }
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Вид правовой информации'
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'SelectBTN'
+      Type = ev_ctStateButton
+      StateIndex = 37
+      Flat = True
+      ImageIndex = 37
+     }
+    }
+    : = {
+     Width = 6060
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itLeft
+      Type = ev_ctCombo
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Width = 585
+     VerticalAligment = ev_valCenter
+     : = {
+      Visible = False
+      Name = 'AddBTN'
+      Type = ev_ctButton
+      StateIndex = 58
+      Flat = True
+      ImageIndex = 58
+     }
+    }
+   }
+  }
+ }
+}

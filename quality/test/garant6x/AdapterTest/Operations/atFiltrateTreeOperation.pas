@@ -1,0 +1,189 @@
+unit atFiltrateTreeOperation;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "AdapterTest"
+// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atFiltrateTreeOperation.pas"
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatFiltrateTreeOperation
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+interface
+
+uses
+  atOperationBase,
+  atStringProvider
+  ;
+
+type
+ _atHasStringParamAddOn_Parent_ = TatOperationBase;
+ {$Include ..\Operations\atHasStringParamAddOn.imp.pas}
+ TatFiltrateTreeOperation = class(_atHasStringParamAddOn_)
+ protected
+ // realized methods
+   function OnString(const aString: AnsiString): Boolean; override;
+ protected
+ // overridden protected methods
+   procedure InitParamList; override;
+ end;//TatFiltrateTreeOperation
+
+implementation
+
+uses
+  atLogger,
+  DynamicTreeUnit,
+  atNodeHelper,
+  atStringHelper,
+  atSettingsHelper,
+  atFilterHelper,
+  SysUtils,
+  atSyncedStringFileReader,
+  atStringFileReader,
+  atConstStringProvider
+  ;
+
+{$Include ..\Operations\atHasStringParamAddOn.imp.pas}
+
+// start class TatFiltrateTreeOperation
+
+function TatFiltrateTreeOperation.OnString(const aString: AnsiString): Boolean;
+//#UC START# *503648620273_503B7D18032C_var*
+  const
+    DELIM = ';';
+  var
+    l_TreeTag, l_Context, l_SrcTreeName, l_SrcContext : String;
+    l_Root, l_Tree, l_FilteredTree, l_Node : INodeBase;
+    l_NodeIter : INodeIterator;
+    l_Filters : IFilterList;
+    l_Filter : TatContextFilter;
+    l_FilterParams : ContextFilterParams;
+    l_SyncIndex, l_NodesCount, l_DelimPos : Integer;
+    l_WasNonEmptyResult : Boolean;
+//#UC END# *503648620273_503B7D18032C_var*
+begin
+//#UC START# *503648620273_503B7D18032C_impl*
+  Result := true;
+
+  // разбиваем входящую строку на контекст и имя дерева
+  l_DelimPos := Pos(DELIM, aString);
+  if l_DelimPos = -1 then
+  begin
+    Logger.Error('Строка %s не содержит разделителя (некорректно сформирована)', [aString]);
+    Exit;
+  end;
+  //
+  l_SrcTreeName := Trim(Copy(aString, 1, l_DelimPos - 1));
+  l_SrcContext := Trim(Copy(aString, l_DelimPos + 1, Length(aString) - l_DelimPos));
+
+  // может быть имя дерева задано в человеческом виде, проверим...
+  try
+    l_TreeTag := TatTreeTagConverter.Instance.SecondToFirstCI(l_SrcTreeName);
+  except
+    on EConvertError do
+      l_TreeTag := l_SrcTreeName; // нет, берем как есть
+  end;
+
+  // получаем фильтруемое дерево
+  try
+    l_Tree := ExecutionContext.GblAdapterWorker.GblAdapterDll.MakeNodeBase(PAnsiChar(l_TreeTag));
+  except
+    on ex : Exception do
+    begin
+      Logger.Exception(ex);
+      l_Tree := nil;
+    end;
+  end;
+  if l_Tree = nil then
+  begin
+    Logger.Error('Нет такого дерева: %s (%s)', [l_TreeTag, l_SrcTreeName]);
+    Exit;
+  end;
+  l_Root := l_Tree; // сохраняем корень дерева
+
+  // создаем и настраиваем фильтр
+  l_Filter := TatContextFilter.Create;
+  try
+    // получаем параметры фильтра из настроек
+    if NOT TatSettingsHelper.GetContextFilterParamsByTreeTag(l_TreeTag, l_FilterParams) then
+      l_FilterParams := DEFAULT_CONTEXT_FILTER_PARAMS; // если в настройках нет, то по-умолчанию
+    // настраиваем фильтр
+    l_Filter.Area := l_FilterParams.SearchArea;
+    l_Filter.Place := l_FilterParams.ContextPlace;
+    l_Filter.Order := l_FilterParams.FindOrder;
+    l_Filter.TweakContextOnAssignment := Parameters['is_tweak_context'].AsBool;
+    //
+    l_Filters := ExecutionContext.GblAdapterWorker.GblAdapterDll.MakeFilterList;
+    l_Filters.Add(l_Filter.Filter);
+
+    if Parameters['is_emulate_user_input'].AsBool then
+      SetLength(l_Context, 0)
+    else
+      SetLength(l_Context, Length(l_SrcContext)-1);
+
+    l_WasNonEmptyResult := false;
+    l_FilteredTree := l_Tree;
+    repeat
+      l_Context := Copy(l_SrcContext, 1, Length(l_Context) + 1); // увеличиваем контекст на один символ
+
+      l_Filter.Context := l_Context;
+
+      Logger.Info('Будем фильтровать дерево %s контекстом "%s" (исходный вариант: "%s")', [l_TreeTag, l_Filter.Context, l_Context]);
+
+      l_Tree := l_FilteredTree;
+      l_Tree.CreateViewEx(l_Filters, FM_USER_FLAG_MASK, nil, l_SyncIndex, 0, false, true, true, l_FilteredTree);
+      //
+      if l_FilteredTree = nil then
+      begin
+        Logger.Info('Результат пуст');
+        break;
+      end
+      else
+      begin
+        // считаем количество отфильтрованных нод
+        l_NodesCount := 0;
+        l_FilteredTree.IterateNodes(FM_SHARED_NONE, l_NodeIter);
+        while true do
+        begin
+          l_NodeIter.GetNext(l_Node);
+          if (l_Node = nil) then break;
+          Inc(l_NodesCount);
+          TatNodeHelper.GetCaption(l_Node);
+        end;
+        Logger.Info('Результат содержит %d узлов', [l_NodesCount]);
+        //
+        if (l_NodesCount = 0) then
+          if (NOT l_WasNonEmptyResult) AND Parameters['is_emulate_user_input'].AsBool then // если сначала ничего не находилось, то потом может быть
+            l_FilteredTree := l_Root
+          else
+            break;  
+        l_WasNonEmptyResult := l_NodesCount > 0;
+      end;
+    until l_Context = l_SrcContext; // обработали весь контекст
+
+  finally
+    FreeAndNil(l_Filter);
+  end;
+//#UC END# *503648620273_503B7D18032C_impl*
+end;//TatFiltrateTreeOperation.OnString
+
+procedure TatFiltrateTreeOperation.InitParamList;
+//#UC START# *48089F3701B4_503B7D18032C_var*
+//#UC END# *48089F3701B4_503B7D18032C_var*
+begin
+//#UC START# *48089F3701B4_503B7D18032C_impl*
+  inherited;
+  with f_ParamList do
+  begin
+    Add( ParamType.Create('is_tweak_context', 'Преобразовывать контекст для фильтрации в соответствии с настройкми фильтра', 'true'));
+    Add( ParamType.Create('is_emulate_user_input', 'Эмулировать фильтрацию по мере ввода пользователем новых символов', 'true'));
+  end;
+//#UC END# *48089F3701B4_503B7D18032C_impl*
+end;//TatFiltrateTreeOperation.InitParamList
+
+end.

@@ -1,0 +1,68 @@
+package vgscene_d2011;
+
+{$R *.res}
+{$R '..\vg_reg.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'VGScene by Eugene Kryukov'}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  designide,
+  vclx,
+  xmlrtl,
+  vclactnband,
+  dbrtl,
+  vcldb;
+
+contains
+  vg_ani in '..\vg_ani.pas',
+  vg_canvas_gdip in '..\vg_canvas_gdip.pas',
+  vg_colors in '..\vg_colors.pas',
+  vg_controls in '..\vg_controls.pas',
+  vg_dsgn in '..\vg_dsgn.pas' {vgBrushDesign},
+  vg_dsgn_bmp in '..\vg_dsgn_bmp.pas' {frmBitmapEditor},
+  vg_dsgn_path in '..\vg_dsgn_path.pas' {frmPathDataDesigner},
+  vg_effects in '..\vg_effects.pas',
+  vg_extctrls in '..\vg_extctrls.pas',
+  vg_layouts in '..\vg_layouts.pas',
+  vg_listbox in '..\vg_listbox.pas',
+  vg_objects in '..\vg_objects.pas',
+  vg_reg in '..\vg_reg.pas',
+  vg_scene in '..\vg_scene.pas',
+  vg_tabcontrol in '..\vg_tabcontrol.pas',
+  vg_textbox in '..\vg_textbox.pas',
+  vg_treeview in '..\vg_treeview.pas',
+  vg_version in '..\vg_version.pas',
+  vg_inspector in '..\vg_inspector.pas',
+  vg_dsgn_styles in '..\vg_dsgn_styles.pas' {frmStyleDesigner},
+  vg_memo in '..\vg_memo.pas',
+  vg_dbctrls in '..\vg_dbctrls.pas',
+  vg_actions in '..\vg_actions.pas',
+  vg_grid in '..\vg_grid.pas',
+  vg_dsgn_lang in '..\vg_dsgn_lang.pas' {vgLangDesigner},
+  vg_dsgn_imglist in '..\vg_dsgn_imglist.pas' {frmDsgnImageList},
+  vg_canvas_d2d in '..\vg_canvas_d2d.pas';
+
+end.

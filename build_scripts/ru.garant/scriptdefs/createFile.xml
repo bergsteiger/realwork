@@ -1,0 +1,65 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.createFile"
+	language = "javascript"
+>
+	<attribute name = "file.name"/>
+	<attribute name = "file.data"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importClass (
+				Packages.java.io.FileWriter
+			);
+
+			importClass (
+				Packages.java.lang.StringBuffer
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_fileName = (
+				attributes.get ("file.name")
+			);
+
+			if (a_fileName != null) {
+				var l_fileNameFile = new File (a_fileName);
+				var l_fileNamePath = l_fileNameFile.getPath ();
+
+				a_fileName = l_fileNamePath;
+			}
+
+			var a_fileData = (
+				attributes.get ("file.data")
+			);
+
+			var l_fileWriter = new FileWriter (new File (a_fileName), false); {
+				if (a_fileData != null) {
+					var l_stringBuffer = new StringBuffer (a_fileData);
+
+					l_fileWriter.write (l_stringBuffer.toString (), 0, l_stringBuffer.length ());
+				}
+
+				l_fileWriter.flush ();
+			}
+
+			l_fileWriter.close ();
+		}
+	]]>
+</scriptdef>

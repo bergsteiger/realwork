@@ -1,0 +1,179 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/ChatLibrary/ChatService/ChatService.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> shared::ChatLibrary::ChatService
+//
+// сервис обмена сообщениями. Интерфейсы подразумевают, что работа с чатом происходит в рамках
+// сессии, которая позволяет идентифицировать текущего пользователя.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___CHATSERVICE_IDL__
+#define ___CHATSERVICE_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#include "shared/CoreSrv/SecuritySrvComm/SecuritySrvComm.idl"
+#pragma prefix "garant.ru"
+
+module ChatLibrary {
+
+module ChatService {
+	// список идентификаторов пользователей
+	typedef sequence<CoreSrv::UserID> UidList;
+
+	// задан некорректный идентификатор пользователя
+	exception UnknownUser {
+	};
+
+	// информация о пользователе
+	struct UserInfo {
+		// имя пользователя
+		string name;
+		// логин пользователя
+		string login;
+		// адрес электронной почты пользователя
+		string email;
+	};
+
+	// управление списком пользователей
+	interface UsersListManager {
+		// добавить пользователя в список контактов
+		void add_user_to_list (in CoreSrv::UserID user)
+			raises (UnknownUser);
+		// удалить пользователя из списка контактов
+		void del_user_from_list (in CoreSrv::UserID user)
+			raises (UnknownUser);
+		// получить список контактов
+		UidList get_contacts_list ();
+	};
+
+	// factory manager server interface for UsersListManager
+	interface UsersListManagerFactoryManagerSrv {
+		// фабрика с кешированным параметром
+		UsersListManager get ()
+			raises (CoreSrv::NoActiveFactory);
+
+		// получить менеджер по идентификатору
+		UsersListManager get_by_uid (in CoreSrv::UserID uid)
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	// тип данных, передаваемых в сообщении
+	enum MessageType {
+		MT_UNKNOWN // тип сообщения неизвестен
+		, MT_TEXT // текстовое сообщение
+		, MT_EVD // сообщение формата EVD
+	};
+
+	// текст сообщения
+	typedef sequence<octet> MessageText;
+
+	// уникальный идентификатор сообщения
+	typedef unsigned long MessageId;
+
+	// данные сообщения
+	struct MessageData {
+		// текст сообщения
+		MessageText text;
+		// тип сообщения
+		MessageType type;
+	};
+
+	// мета-данные сообщения
+	struct MessageMetaData {
+		// время создания сообщения
+		unsigned long long date;
+		// уникальный идентификатор сообщения
+		MessageId id;
+		// приёмник сообщения
+		CoreSrv::UserID receiver;
+		// источник сообщения
+		CoreSrv::UserID sender;
+	};
+
+	// сообщение, передаваемое между пользователями
+	struct Message {
+		// данные, связанные с сообщением
+		MessageMetaData meta_data;
+		// текст и тип сообщения
+		MessageData data;
+	};
+
+	// идентификатор слушателя сообщений
+	typedef unsigned long ListenerId;
+
+	// список сообщений
+	typedef sequence<Message> MessageList;
+
+	// интерфейс слушателя сообщений
+	interface MessageListener {
+		// получить сообщение
+		void receive_message (in Message data);
+	};
+
+	// список идентификаторов сообщений
+	typedef sequence<MessageId> MessageIds;
+
+	// Позволяет получить информацию о заданном пользователе. Также позволяет клиенту чата
+	// зарегестрировать слушателя (одного или нескольких), которым через заданный коллбек интерфейс
+	// будут передаваться новые полученные сообщения.
+	interface ChatManager {
+		// получить информацию о пользователе
+		UserInfo get_user_info (in CoreSrv::UserID user)
+			raises (UnknownUser);
+		// добавить получателя сообщений для пользователя, вызвавшего данный метод
+		ListenerId add_listener (in MessageListener listener);
+		// удалить слушателя с заданным идентификатором
+		void delete_listener (in ListenerId id);
+	};
+
+	// factory manager server interface for ChatManager
+	interface ChatManagerFactoryManagerSrv {
+		// создаётся объект, работающий от имени создавшего его пользователя
+		ChatManager make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	// интерфейс для работы с сообщениями данного пользователя
+	interface MessageManager {
+		// получить список, состоящий из  _count_ последних сообщений при общении текущего пользователя и
+		// пользователя _user_, Если _count=0_, будет возвращена вся история переписки. Если _get_all_new
+		// = true_ будут получены все новые сообщения, а также все сообщения после самого старого нового,
+		// даже если их количество превышает _count_,
+		MessageList get_messages_for_user (in CoreSrv::UserID user, in unsigned long count, in boolean get_all_new)
+			raises (UnknownUser);
+		// список новых сообщений для текущего пользователя
+		MessageList get_unreaded_list ()
+			raises (UnknownUser);
+		// послать сообщение заданному пользователю
+		void send_message (in CoreSrv::UserID receiver, in MessageData data)
+			raises (UnknownUser);
+		// удаляет историю переписки текущего пользователя с заданным пользователем
+		void clean_history_for_user (in CoreSrv::UserID user);
+		// пометить сообщения как прочитанные
+		void set_messages_as_read (in MessageIds list);
+	};
+
+	// factory manager server interface for MessageManager
+	interface MessageManagerFactoryManagerSrv {
+		// фабрика с кешированным параметром
+		MessageManager get ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module ChatLibrary
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

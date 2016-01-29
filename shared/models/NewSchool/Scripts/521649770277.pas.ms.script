@@ -1,0 +1,141 @@
+// VCMSandBox 521649770277 VCMApplication Class
+
+FORWARD ME_521649770277
+
+FORWARD ME_52164E4B0028
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_52164E880101
+ CONST UID '52164E880101'
+ CONST Name 'VCMSandBoxTitle'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Тестовое приложение VCM'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_52164E880101 VCMSandBoxTitle
+
+: ME_52164E4B0028
+ CONST UID '52164E4B0028'
+ CONST Name 'Local'
+ CONST Class 'Class'
+ CONST Stereotype 'LocalConst'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_52164E880101 // VCMSandBoxTitle
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ @SELF
+; // ME_52164E4B0028 Local
+
+FORWARD ME_C2620AA17C48
+
+INCLUDE '4B3B36EC03B2.pas.ms.script'
+
+: ME_9659A6A38ED9
+ CONST UID '9659A6A38ED9'
+ CONST Name 'VCMSandBoxTitle'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY '''Тестовое приложение VCM''' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''VCMSandBoxTitle''; rValue : ''Тестовое приложение VCM'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_9659A6A38ED9 VCMSandBoxTitle
+
+: ME_C2620AA17C48
+ CONST UID 'C2620AA17C48'
+ CONST Name 'LCImplLocal'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_9659A6A38ED9 // VCMSandBoxTitle
+ ]
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+
+ @SELF
+; // ME_C2620AA17C48 LCImplLocal
+
+: ME_5679B8CFF998
+ CONST UID '5679B8CFF998'
+ CONST Name 'TvcmApplicationRef'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ %SUMMARY 'Ссылка на приложение для DesignTime редакторов' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_521649770277 // VCMSandBox
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_5679B8CFF998 TvcmApplicationRef
+
+: ME_340142971821
+ CONST UID '340142971821'
+ CONST Name 'Init_VCMSandBoxTitle'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_VCMSandBoxTitle' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_340142971821 Init_VCMSandBoxTitle
+
+: ME_521649770277
+ CONST UID '521649770277'
+ CONST Name 'VCMSandBox'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMApplication'
+ %SUMMARY 'Тестовое приложение VCM' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_340142971821 // Init_VCMSandBoxTitle
+ ]
+ ; // Operations
+ : Children
+   [ ME_52164E4B0028 // Local
+ ME_5679B8CFF998 // TvcmApplicationRef
+ ]
+ ; // Children
+ : Constants
+   [ ME_C2620AA17C48 // LCImplLocal
+ ]
+ ; // Constants
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_521649770277 VCMSandBox

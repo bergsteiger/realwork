@@ -1,0 +1,159 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/AccessorsSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::AccessorsSupport
+//
+// вспомогательные функции для генерации акцессоров
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерация метода чтения атрибута
+f _read_accessor_h
+//#UC START# *47C666640090*
+	%f_init_accessor_attr(%S,%1)\
+	[#%S%f_open_ifdef()
+	][{%TU!=%{__ATTR__}%TU}%f_error("Не соответсвие типов одноименных свойств (%PN::%SN и %{__ATTR__}%PN::%{__ATTR__}N)")]\
+	[{%t_is_static_accessor(%S)=true}{#[{%Sa!=final}virtual ]%f_iget_attr(%{__ATTR__}) get_%SN (%{__ATTR__}%f_accessor_args("true"))[ %f_op_const_spec(%{__ATTR__})][ /*throw <{, }%f_type(%E)>*/][{%Sa=abstract} = 0];}\
+	#static %f_iget_attr(%{__ATTR__}) get_%SN (%{__ATTR__}%f_accessor_args("true"))[ /*<{, }%f_type(%E)>*/];][
+	#%S%f_close_ifdef()]
+
+f _init_accessor_attr
+	%f_clear_list(__OP_LIST__)\
+	%f_copy_list(%1N,__OP_LIST__)\
+	%f_set_var(__SELF_R__,"%f_read_accessor_signature(%S)")\
+	%f_set_var(__ATTR__,S)\
+	<{}{%f_is_empty(__OP_LIST__)=false}{W}[%f_pop_first_to_var(__OP_LIST__,__OP__)\
+	[{%t_need_ro(%{__OP__})=true&%f_read_accessor_signature(%{__OP__})=%{__SELF_R__}N}%f_set_var(__ATTR__,{__OP__})]]>
+//#UC END# *47C666640090*
+
+// генерация метода чтения атрибута
+f _read_accessor_cpp
+//#UC START# *47C666750027*
+	%f_init_accessor_attr(%S,%1)\
+	[{%Sa!=abstract}\
+	[%S%f_open_ifdef()
+	][{"%1U"!=""}{%f_set_var(OWNER,P)}%f_set_var(OWNER,1)]\
+	[{%{__ATTR__}%T%PU=%{OWNER}U}{%f_init_scope(%{OWNER})}%f_init_scope(%{__ATTR__}%T)]\
+	%f_templ_header(%{OWNER})[{%t_is_static_accessor(%S)=true}{%f_iget_attr(%{__ATTR__}) [{%{OWNER}%PC=Class}%f_type(%{OWNER}%P)::]%f_type(%{OWNER})::get_%SN (%{__ATTR__}%f_accessor_args("true"))[ %f_op_const_spec(%{__ATTR__})][ /*throw <{, }%f_type(%E)>*/] {
+		%U[{_GET_ACCESSOR}
+		[{%S{needs field}=false}{return %f_read_return_impl(%S,%{__ATTR__});}throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);]
+		]
+	}}\
+	%f_iget_attr(%{__ATTR__}) [{%{OWNER}%PC=Class}%f_type(%{OWNER}%P)::]%f_type(%{OWNER})::get_%SN (%{__ATTR__}%f_accessor_args("true"))[ /*throw <{, }%f_type(%E)>*/] {
+		%U[{_GET_ACCESSOR}
+		[{%S{needs field}!=false}{throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);}return %f_read_return_impl(%S,%{__ATTR__});]
+		]
+	}]%f_shift_scope(false)[
+	%S%f_close_ifdef()]]
+
+f _read_return_impl
+	%t_read_return_impl(%S,"%Sl","[{%t_is_static_accessor(%S)=true}{m_%SN}[{%f_can_be_static(%S)=false}{s_%SN}%f_to_borland(%SN)Singleton::instance ()-\>ptr]]","%t_accessor_return_type(%1%T,"%f_accessor_ret_st(%1)")")
+
+f _accessor_return_value
+	[{%f_is_server_type(%T)=false}{const_cast\<%f_iget_attr(%S)\>(%1N)}%1N]
+
+t _read_return_impl
+c                            {agr}          {lnk}                                       {ref}
+r "%3N"="value":             {%2N}          {*%2N}                                      {*%2N}
+r "%3N"="pointer":           {*%2N}         {%f_accessor_return_value(%S,"%2N")}        {%f_accessor_return_value(%S,"%2N.in ()")}
+r "%3N"="reference":         {%2N}          {*%2N}                                      {*%2N}
+r {""=""}:                   {%2N}          {%2N}                                       {%2N}
+
+t _accessor_return_type
+c                                            {}                                                 {const}                                       {const,cached}
+r {%SS=Typedef&%GN=string}:                  {value}                                            {value}                                       {reference}
+r "%f_is_fixed_simple(%S)"="true":           {value}                                            {value}                                       {value}
+r "%SN"="c-string":                          {pointer}                                          {value}                                       {reference}
+r "%f_is_fixed_complex(%S)"="true":          {[{%f_is_server_type(%S)=false}{value}pointer]}    {value}                                       {reference}
+r "%f_is_not_fixed_simple(%S)"="true":       {value}                                            {value}                                       {value}
+r "%f_is_not_fixed_complex(%S)"="true":      {pointer}                                          {value}                                       {reference}
+r "%t_refcounted(%S)"="true":                {pointer}                                          {pointer}                                     {reference}
+
+
+
+f _init_scope
+	[{%t_class_type(P)=true}{%f_set_var(__SCOPE,P)}%f_set_var(__SCOPE,{SERV})]
+//#UC END# *47C666750027*
+
+// генерация метода чтения атрибута
+f _read_accessor_java
+//#UC START# *47C6667C0395*
+	[%S#f_dump_annotations("#")
+	]#[%t_abstract_type(%S)]%t_visibility(%S)[{%t_is_static_accessor(%S)=true}static ]%f_attr(%S) %f_to_java(get_%SN) (%S%f_accessor_args())[ throws <{, }%f_type(%E)>][{%Sa!=abstract} {
+	#	%U[{_GET_ACCESSOR}
+	#	[{%S{needs field}=false}{return %f_to_java([{%t_is_static_accessor(%S)=true}s_]%SN)_}throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ()];
+	#	]
+	#}]
+//#UC END# *47C6667C0395*
+
+// генерации метода записи атрибута
+f _write_accessor_h
+//#UC START# *47C666AD01D0*
+	[#%S%f_open_ifdef()
+	][{%t_is_static_accessor(%S)=true}{#[{%Sa!=final}virtual ]void set_%SN (%t_arg(%T,"%f_arg_specificator(%S)") %SN[, %S%f_accessor_args()])[{%S{is mutable}=true} const][ /*throw <{, }%f_type(%e)>*/][{%Sa=abstract} = 0];}\
+	#static void set_%SN (%t_arg(%T,"in") %SN[, %S%f_accessor_args()])[ /*<{, }%f_type(%e)>*/];][
+	#%S%f_close_ifdef()]
+
+f _arg_specificator
+	[{%Sl=agr&%t_refcounted(%T)=false}{[{%f_is_fixed_simple(%T)=false&%t_is_container(%T)=false&%f_is_server_type(%T)=false&%Ss!=const}{in}[{%Ss!=const&%t_refcounted(%T)=true&%f_is_server_type(%T)=false}{in}inout]]}in]
+//#UC END# *47C666AD01D0*
+
+// генерации метода записи атрибута
+f _write_accessor_cpp
+//#UC START# *47C6670B0197*
+/	[{%T%PU=%PU&%TU!=%PU}%f_shift_scope(true)]\
+	[{%Sa!=abstract}\
+	[%S%f_open_ifdef()
+	][{"%1U"!=""}{%f_set_var(OWNER,P)}%f_set_var(OWNER,1)]%f_templ_header(%{OWNER})[{%t_is_static_accessor(%S)=true}{void [{%{OWNER}%PC=Class}%f_type(%{OWNER}%P)::]%f_type(%{OWNER})::set_%SN (%t_arg(%T,"%f_arg_specificator(%S)") %SN[, %S%f_accessor_args()])[{%S{is mutable}=true} const][ /*throw <{, }%f_type(%e)>*/] {
+		%U[{_SET_ACCESSOR}
+		[{%S{needs field}=false}{m_%SN = [{%Sl=ref&%t_refcounted(%T)=true}{%SN}%f_type(%T)::_duplicate(%SN)];}throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);]
+		]
+	}}\
+	void [{%{OWNER}%PC=Class}%f_type(%{OWNER}%P)::]%f_type(%{OWNER})::set_%SN (%t_arg(%T,"%f_arg_specificator(%S)") %SN[, %S%f_accessor_args()])[ /*throw <{, }%f_type(%e)>*/] {
+		%U[{_SET_ACCESSOR}
+		[{%S{needs field}=false}{[{%f_can_be_static(%S)=true}{%f_to_borland(%SN)Singleton::instance ()-\>ptr = [{%t_refcounted(%T)=true}{%SN}%f_type(%T)::_duplicate(%SN)]}s_%SN = [{%Sl=ref&%t_refcounted(%T)=true}{%SN}%f_type(%T)::_duplicate(%SN)]];}throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);]
+		]
+	}]%f_shift_scope(false)[
+	%S%f_close_ifdef()]]
+//#UC END# *47C6670B0197*
+
+// генерации метода записи атрибута
+f _write_accessor_java
+//#UC START# *47C6671500DC*
+	[%S#f_dump_annotations("#")
+	]#[%t_abstract_type(%S)]%t_visibility(%S)[{%t_is_static_accessor(%S)=true}static ]void %f_to_java(set_%SN) (final %f_attr(%S) %f_to_java(%SN)[, %S%f_accessor_args()])[ throws <{, }%f_type(%e)>][{%Sa!=abstract} {
+	#	%U[{_SET_ACCESSOR}
+	#	[{%S{needs field}=false}{%f_to_java([{%t_is_static_accessor(%S)=true}s_]%SN)_ = %f_to_java(%SN)}throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ()];
+	#	]
+	#}]
+//#UC END# *47C6671500DC*
+
+// возвращает true - если метод доступа должен быть статическим
+t _is_static_accessor
+//#UC START# *47C668A10247*
+c                                 {}
+r {"%SC"="Attribute"}:            {[{}{false}%S#f_is_static()]}
+r {""=""}:                        {false}
+//#UC END# *47C668A10247*
+
+// возвращает true, если нужно генерить readonly акцессор
+t _need_ro
+//#UC START# *47CE9E06011B*
+c                              {}
+r {"%SC"="Attribute"}:                     {[{}{false}%S#f_need_ro_accessor()]}
+r {""=""}:                        {false}
+//#UC END# *47CE9E06011B*
+
+// возвращает true, если нужно генерить rw-акцессор
+t _need_rw
+//#UC START# *47CE9E3A00FB*
+c                               {}
+r {"%SC"="Attribute"}:          {[{}{false}%S#f_need_rw_accessor()]}
+r {""=""}:                      {false}
+//#UC END# *47CE9E3A00FB*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

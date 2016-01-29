@@ -1,0 +1,1 @@
+call ie "http://mdp.garant.ru/pages/viewpage.action?pageId=%1"

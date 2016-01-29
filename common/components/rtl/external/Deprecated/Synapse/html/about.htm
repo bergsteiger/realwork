@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<!--#include file="meta.txt"-->
+</head>
+<body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+
+<!--#include file="header.txt"-->
+
+<CENTER>
+<IMG SRC="synapse.gif" WIDTH=498 HEIGHT=152 ALT="Synapse" BORDER="0"><br>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue">
+<B>Synchronous TCP/IP Library for Delphi</B>
+</FONT>
+</CENTER>
+<hr>
+
+<p>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue"><B>Project idea:</B></FONT>
+<P>&nbsp;&nbsp;&nbsp;
+The <FONT COLOR="Blue">SYNAPSE library</FONT> aims to create a complete library of classes and functions that would markedly simplify application programming of network communication using Winsock.
+
+<P>&nbsp;&nbsp;&nbsp;
+At first glance this effort might seem needless as there are many free components covering this area, However they mostly use asynchronous methods while SYNAPSE library operates in a synchronous method.
+
+<P>&nbsp;&nbsp;&nbsp;
+After having a look at 'competitive' libraries I must say all of them were created relatively early (for Delphi 1.0 and Win16). Thanks to cooperative multitasking, a synchronous access to Winsock was not possible. This is the reason why Microsoft added asynchronous mode to Winsock implementation.
+
+<P>&nbsp;&nbsp;&nbsp;
+Authors did not want to rewrite their libraries after WIN32 arrived and so their work still remains in asynchronous mode. Somewhere here is the root of Delphi programmers' myth that Winsock operates just asynchronously. However, synchronous mode is more natural in pre-emptive multitasking and multithreading environment. Synchronous mode (called 'blocking' in Winsock terminology) features acting thread waits until the needed operation terminates. Thus when we want to send data, the program exits function only after data is sent - or - if we want to receive data, the program exits the function only after the desired data is received.
+
+<P>&nbsp;&nbsp;&nbsp;
+Thus, much more crisp and simple programming is achieved. You especially feel it when trying to implement any Internet protocol, which is typically based on 'send-wait for reply' method. If you want to implement it in an asynchronous method, you would have to accept complicated event processing and synchronous mode simulation. Therefore a synchronous socket is simple and natural for the majority programming tasks.
+
+<P>&nbsp;&nbsp;&nbsp;
+The whole library is oriented on the WIN32 environment, so you will need Delphi 2.0 or higher to use it. The project intentionally does not use Winsock 2.0 services to be allowed to run on all WIN32 platforms (except Windows CE) as Winsock 2.0 is not available in first Windows 95 versions.
+
+
+<!--#include file="footer.txt"-->
+</body>
+</html>

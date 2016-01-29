@@ -1,0 +1,42 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+'Скрипт создаёт две папки на одном уровне с различными именами, соответсвенно,
+'выполняется проверка того что в списке появились эти папки!!!
+'Скрипт заканчивает свою работу переходом к  основного меню, и в левом навигаторе активна закладка "Навигатор" (это не обязательно)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    call Click_FindSaveAs
+    
+    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+    ToolBar Click, "Text=Папка", "Coords=9,15"
+    
+    Window SetContext, "Caption=Новая папка", ""
+    InputKeys "Новая"
+    ToolbaR Click, "Text=Выбор действия", "Coords=28,11"
+    
+    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+    Window CloseWin, "", ""
+
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,115"
+    ListBox Click, "ObjectIndex=1", "Coords=40,10"
+   
+    if Position_by_Text("CurrentFocus","Новая")<>0 then
+        SQALogMessage sqaPass, "Папка создалась", "Папка с именем ""Новая"" создалась"
+        InputKeys "{DELETE}"
+    else
+        SQALogMessage sqaFail, "Папка создалась", "Папка с именем ""Новая"" несоздалась"
+    end if
+    
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,36"
+    
+End Sub

@@ -1,0 +1,1407 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Interface (class)
+//////////////////////////////////////////////////////////////////////////////////
+
+: Interface::Class::friend::ClassDependency
+? Друг
+? Определяет что интерфейс (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+%f _wiki_child_kind
+	friend
+
+: Interface::Class
+? Интерфейс
+? Определяет простой интерфейс, с пооддержкой фремворка фабрик.
+< *::Category, *::Class
+a raf
+p call way=forth|back|both ? указывает тип интерфейса експортируемого из компоненты. forth - прямой (интерфейс реализуется внутри ДЛЛ); back - обратный (callback interface, реализуется клиентом компоненты); both - возможны оба варианта реализации интерфейса (на данный момент не поддерживается)
+p native definition=none|C++ interface|DLL outside ? определяет что интерфейс является "родным" (внешне определенным в пространстве видимости применения пакета). C++ interface - родной для С++ реализации компоненты; DLL outside - родной для клиента компоненты
+p debug log:b=false ? включает генерацию вывода в лог обращений ко всем методам реализации интерфейса
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p TODO:s ? напоминалка что-то сделать
+p is default ancestor:b=false ? является ли предком по-умолчанию
+p author ? автор
+p conditional ? условные директивы, обрамляющие элемент
+p objStub:b=false ? определяет, что интерфейс является подстановкой стандартного класса
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+
+L code_interface
+Y t4_interface.gif
+
+%f _wiki_up_print
+	[{%S{call way}=back}* тип экспортируемого интерфейса: обратный (callback interface, реализуется клиентом компоненты)
+	][{%S{call way}=both}* тип экспортируемого интерфейса: прямой и оброатный (на данный момент не поддерживается)
+	][{%S{native definition}=C++ interface}* интерфйес является "родным" для С++ реализации (native definition = C++ interface)
+	][{%S{native definition}=DLL outside}* интерфйес является "родным" родной для клиента компоненты (native definition = DLL outside)
+	]
+
+%f _wiki_up_add_gen
+
+
+%t _constraint
+c                                                                               {}
+r {%f_has_factory_methods(%S)=false&%Sa!=abstract}:                             {Not abstract %SS must provide at least one factory}
+r {<{}{%t_check_type(%G,"%SM")=false}{%GC}>!=0}:                                                          {%SS can inherit only from other %SS}
+r {<{}{%t_check_type(%R,"Facet::Class")=false&%t_check_type(%R,"ServerFacet::Class")=false&%t_check_type(%R,"StateMachine::Class")=false}{%RC}>!=0}:        {%SS can realize only Facet, ServerFacet or StateMachine}
+/r {<{}{%CC=Attribute&%Cl=ref}{C}>!=0}:                                          {%SS не может иметь ref связи}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}:             {%SS ни кем (включая прецеденты) не используется}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ h
+F class %SN;
+	<#%FF
+	>%f_set_var(SERV,S)%f_docs(%S)\
+	#class %SN[{"%S{native definition}"!="C++ interface"}{
+		// native cpp user's definition
+		%U[
+		]
+	}
+	#	: [{}{virtual public ::Core::IObject}<{\n#\t, }virtual public %f_type(%G)>[{%Gx=true&%Rx=true}\n#\t, ]<{\n#\t, }virtual public %f_type(%R)>]
+	#{
+	[#public:<{}{"%f_is_factory(%C)"="false"}[
+	%CX
+	]>][
+	// oneway methods impl
+	private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_h(%C)
+	>
+	protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_h(%C)
+	>]]#};]
+	
+	#typedef ::Core::Var\<%SN\> %SN_var;
+	#typedef ::Core::Var\<const %SN\> %SN_cvar;[
+	
+	%f_dump_factory(%S)]
+
+%f _additional_fctr_def
+%f _additional_fctr_def_java
+
+f _dump_factory
+	[{"%f_has_factory_methods(%S)"="true"}/// factory interface for %SN
+	class %SNFactory {
+	[<{}{%aS=friend&%aC=Dependency}{Sp}%a%P<	friend class %f_type(%L); // friend's servants
+	>><{}{"%ga"="abstract"}%g<{}{"%aM"="Interface::Class::friend::ClassDependency"}{Sp}%a%P<	friend class %f_type(%L); // friend's servants
+	>>>
+	][%f_set_var(INT,S)public:<{}{"%CS"="factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][protected:<{}{"%CS"="factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>][public:<{}{"%CS"="multi factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][protected:<{}{"%CS"="multi factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>][%f_set_var(INT,S)public:<{}{"%CS"="remover"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][protected:<{}{"%CS"="remover"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>]%S%f_additional_fctr_def()};]
+
+f _dump_java_factory
+	[{"%f_has_factory_methods(%S)"="true"}	/// factory interface for %SN
+///////////фабрика интерфейса обявлена как вложенный в него класс
+		public static class Factory {
+	[<{}{%aS=friend&%aC=Dependency}{Sp}%a%P<	friend class %f_type(%L); // friend's servants
+	>><{}{"%ga"="abstract"}%g<{}{"%aM"="Interface::Class::friend::ClassDependency"}{Sp}%a%P<	friend class %f_type(%L); // friend's servants
+	>>>
+	][%f_set_var(INT,S)<{}{"%CS"="factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="multi factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="multi factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="remover"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="remover"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>]%S%f_additional_fctr_def_java()
+		}// factory interface for %SN]
+
++ cpp
+F class %SN;
+	%f_set_var(INT,S)%f_set_var(SERV,S)\
+	[{"%f_has_factory_methods(%S)"="true"}// factory interface wrapper for %SN\
+	<{}{"%f_is_factory(%C)"="true"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%f_is_factory(%C)"="true"}{%C}
+	%CX
+	>>
+	][
+	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+	>]
+
+%f _base_fctr_mng
+
+%f _base_fctr_mng_java
+	 
+f _dump_abstract_factory_h
+	[{%SS!=remover}\
+	%f_set_var(OPERATION_FACTORY,"virtual %t_ret(%{INT}) %SN (%S<{, }%CX>)[ /*throw (%S<{, }%f_type(%E)>)*/] = 0;")\
+	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}virtual %t_ret(%{INT}) %SN (\n\t\t%S<{\n\t\t, }%CX>\n\t)[ /*throw (%S<{, }%f_type(%E)>)*/] = 0;]]\
+	[{%SS=remover}\
+	%f_set_var(OPERATION_FACTORY,"virtual void %SN (%t_arg(%{INT},"in") obj_%S<, %CX>)[ /*throw (%S<{, }%f_type(%E)>)*/] = 0;")\
+	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}virtual void %SN (\n\t\t%t_arg(%{INT},"in") obj_%S<\n\t\t, %CX>\n\t)[ /*throw (%S<{, }%f_type(%E)>)*/] = 0;]
+	]
+
+f _dump_factory_manager_single_factory_h
+	%f_set_var(OPERATION_FACTORY,"%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %SN (%S<{, }%CX>) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory%S<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory%S<, %f_type(%E)>)*/];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %SN (\n\t\t%S<{\n\t\t, }%CX>\n\t) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory%S<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory%S<, %f_type(%E)>)*/];]
+
+f _dump_factory_manager_multi_factory_h
+	[{%S{transparent multy}=false}\
+////%S{transparent multy}=false
+	%f_set_var(OPERATION_FACTORY,"%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %SN (%S<%CX, >const char* key) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, Core::Root::UnknownFactoryKey%S<, %f_type(%E)>)}/*throw (Core::Root::UnknownFactoryKey%S<, %f_type(%E)>)*/];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %SN (\n\t\t%S<%CX\n\t\t, >const char* key\n\t) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, Core::Root::UnknownFactoryKey%S<, %f_type(%E)>)}/*throw (Core::Root::UnknownFactoryKey%S<, %f_type(%E)>)*/];]][{%S{transparent multy}=true}\
+////%S{transparent multy}=true
+	%f_set_var(OPERATION_FACTORY,"%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %SN (%S<{, }%CX>) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory%S<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory%S<, %f_type(%E)>)*/];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %SN (\n\t\t%S<{\n\t\t, }%CX>\n\t) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory%S<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory%S<, %f_type(%E)>)*/];]]
+
+f _dump_factory_manager_remover_h
+	%f_set_var(OPERATION_FACTORY,"void %SN (%t_arg(%{INT},"in") obj_%S<, %CX>) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::ForeignObject%S<, %f_type(%E)>)}/*throw (CoreSrv::ForeignObject%S<, %f_type(%E)>)*/];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}void %SN (\n\t\t%t_arg(%{INT},"in") obj_%S<\n\t\t, %CX>) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::ForeignObject%S<, %f_type(%E)>)}/*throw (CoreSrv::ForeignObject%S<, %f_type(%E)>)*/];]
+
++ fctr.h
+	[{"%f_has_factory_methods(%S)"="true"}%f_set_var(INT,S)
+	////////////////////////////////////////////////////////////////////////////////////
+	// factories definition for %SN
+	
+	class %SNFactoryManager;
+	
+	/// abstarct factory for %SN
+	class %SNAbstractFactory : virtual public Core::IObject {
+		friend class %SNFactoryManager;
+	protected:
+		virtual const char* key () const = 0;
+	<{}{"%f_is_factory(%C)"="true"}{%C}
+		%f_dump_abstract_factory_h(%C)
+	>%f_set_var(SELF,S)<{}{"%ga"="abstract"}%g<{}{"%f_is_factory(%C)"="true"}{%C}
+		%f_dump_abstract_factory_h(%C)
+	>>};
+	
+	/// factory manager for %SN
+	class %SNFactoryManager%S%f_base_fctr_mng() {
+	public:
+		static void register_factory (%SNAbstractFactory* factory, Core::Root::FactoryPriority priority)
+			/*throw (Core::Root::DuplicatedFactoryKey)*/;
+	
+	%S%f_publish_self_h()\
+	protected:
+		%SNFactoryManager ();
+		
+		void register_factory_i (%SNAbstractFactory* factory, Core::Root::FactoryPriority priority)
+			/*throw (Core::Root::DuplicatedFactoryKey)*/;
+	
+	protected:<{}{"%CS"="factory"}{%C}
+		%f_dump_factory_manager_single_factory_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"}{%C}
+		%f_dump_factory_manager_single_factory_h(%C)
+	>><{}{"%CS"="multi factory"}{%C}
+		%f_dump_factory_manager_multi_factory_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"}{%C}
+		%f_dump_factory_manager_multi_factory_h(%C)
+	>><{}{"%CS"="remover"}{%C}
+		%f_dump_factory_manager_remover_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+		%f_dump_factory_manager_remover_h(%C)
+	>>
+		friend class %SNFactory;
+		typedef ACE_Singleton \<%SNFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+		friend class ACE_Singleton \<%SNFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	
+	private:
+		bool m_has_registred_factories;
+		
+		struct FactoryData {
+			Core::Var\<%SNAbstractFactory\> factory;
+			short priority;
+		};
+		
+		typedef std::map \<std::string, FactoryData\> FactoryMap;
+		
+		FactoryMap m_factories_map;
+		
+		Core::Var\<%SNAbstractFactory\> m_single_active_factory;
+		
+		short m_single_active_factory_priority;
+	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_fctr_mng_fctr_h(%C)
+	><{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_fctr_mng_m_fctr_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_fctr_mng_fctr_h(%C)
+	>%g<{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_fctr_mng_m_fctr_h(%C)
+	>>};]
+
++ fctr.java
+O [{%f_has_factory_methods(%S)=true}%SNFactoryManager.java]
+	%f_output_constraint(%S)\
+	[{%f_has_factory_methods(%S)=true}%f_set_var(INT,S)\
+# t0_header
+	package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	
+	%f_java_core_exceptions(%S)
+	
+	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHome;
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	/// factory manager for %SN
+	public class %SNFactoryManager%S%f_base_fctr_mng_java(){
+	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_fctr_mng_fctr_java(%C)
+	><{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_fctr_mng_m_fctr_java(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_fctr_mng_fctr_java(%C)
+	>%g<{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_fctr_mng_m_fctr_java(%C)
+	>>
+		// abstract factory for %SN
+		public interface %SNAbstractFactory  {
+			public String key ();
+	<{}{"%f_is_factory(%C)"="true"}{%C}
+	[{%CS!=remover}		public %t_ret(%S) %CN (%C<{, }%f_arg_full_decl(%C)>)[ throws %C<{, }%f_type(%E)>];
+	][{%CS=remover}		public void %CN (%t_arg(%{INT},"in") obj_%C<, %CX>) throws [{%f_is_server_type(%C)=true}ru.garant.shared.CoreSrv.]ForeignObject%C<, %f_type(%E)>;
+	]>%f_set_var(SELF,S)<{}{"%ga"="abstract"}%g<{}{"%f_is_factory(%C)"="true"}{%C}
+	[{%CS!=remover}		public %t_ret(%S) %CN (%C<{, }%f_arg_full_decl(%C)>)[ throws %C<{, }%f_type(%E)>];
+	][{%CS=remover}		public void %CN (%t_arg(%{INT},"in") obj_%C<, %CX>) throws [{%f_is_server_type(%C)=true}ru.garant.shared.CoreSrv.]ForeignObject%C<, %f_type(%E)>;
+	]	>>	} //%SNAbstractFactory
+	
+		private java.util.Map factoriesMap = new java.util.TreeMap ();
+		private %SNAbstractFactory singleActiveFactory = null;
+		private static %SNFactoryManager INSTANCE = null;
+		private boolean hasRegistredFactories = false;
+	
+		public static %SNFactoryManager instance () {
+			if (INSTANCE == null) {
+				INSTANCE = new %SNFactoryManager ();
+			}
+			return INSTANCE;
+		}
+	
+		public static void register_factory (%SNAbstractFactory factory, short priority) throws DuplicatedFactoryKey {
+			%SNFactoryManager.instance ().register_factory_i (factory, priority);
+		}
+	
+	%S%f_publish_self_java()
+		protected void register_factory_i (%SNAbstractFactory factory, short priority) throws DuplicatedFactoryKey {
+			hasRegistredFactories = true;
+			if (factoriesMap.get(factory.key()) != null) {
+				throw new DuplicatedFactoryKey ("%{INT}%P%PN.%PN.%SNFactory ", factory.key());
+			}
+			factoriesMap.put(factory.key(), factory);
+			singleActiveFactory = factory;
+		}
+	
+		protected %SNFactoryManager () {
+		}
+	
+	<{}{"%CS"="factory"}{%C}
+		public %t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Cs]") %CN (%C<{, }%f_arg_full_decl(%C)>) throws [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]NoActiveFactory%C<, %f_type(%E)> {[{%Cs!=cached&%Cs!=const,cached}
+			if (singleActiveFactory == null) {
+				throw new [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]NoActiveFactory ("%{INT}%P%PN.%PN.%SNFactory");
+			}
+			return singleActiveFactory.%CN (%C<{, }%CN>);
+	][{%Cs=cached|%Cs=const,cached}[{%C%Cx=true}
+			synchronized (cachedObjectsFor%f_to_borland(%CN)) {
+				ObjectCreationIdFor%f_to_borland(%CN) key = new ObjectCreationIdFor%f_to_borland(%CN)(%C<{, }{"%CS"!="nokey"}%CN>);
+				%t_ret(%{INT}) ret = cachedObjectsFor%f_to_borland(%CN).get (key);
+				if (ret == null) {
+					if (singleActiveFactory == null) {
+						throw new [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]NoActiveFactory ("%{INT}%P%PN.%PN.%SNFactory");
+					}
+					ret = singleActiveFactory.%CN (%C<{, }%CN>);
+					cachedObjectsFor%f_to_borland(%CN).put (key, ret);
+				}
+				return ret;
+			}
+	][{%C%Cx=false}
+			if (cachedObjectFor%f_to_borland(%CN) == null) {
+				synchronized (sMutexFor%f_to_borland(%CN)) {
+					if (cachedObjectFor%f_to_borland(%CN) == null) {
+						if (singleActiveFactory == null) {
+							throw new [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]NoActiveFactory ("%{INT}%P%PN.%PN.%SNFactory");
+						}
+						cachedObjectFor%f_to_borland(%CN) = singleActiveFactory.%CN (%C<{, }%CN>);
+					}
+				}
+			}
+			return cachedObjectFor%f_to_borland(%CN);
+	]]	}
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"}{%C}
+		public %t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Cs]") %CN (%C<{, }%f_arg_full_decl(%C)>) throws [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]NoActiveFactory%C<, %f_type(%E)> {[{%Cs!=cached&%Cs!=const,cached}
+			if (singleActiveFactory == null) {
+				throw new [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]NoActiveFactory ("%{INT}%P%PN.%PN.%SNFactory");
+			}
+			return singleActiveFactory.%CN (%C<{, }%CN>);
+	][{%Cs=cached|%Cs=const,cached}[{%C%Cx=true}
+			synchronized (cachedObjectsFor%f_to_borland(%CN)) {
+				ObjectCreationIdFor%f_to_borland(%CN) key = new ObjectCreationIdFor%f_to_borland(%CN)(%C<{, }{"%CS"!="nokey"}%CN>);
+				%t_ret(%{INT}) ret = cachedObjectsFor%f_to_borland(%CN).get (key);
+				if (ret == null) {
+					if (singleActiveFactory == null) {
+						throw new [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]NoActiveFactory ("%{INT}%P%PN.%PN.%SNFactory");
+					}
+					ret = singleActiveFactory.%CN (%C<{, }%CN>);
+					cachedObjectsFor%f_to_borland(%CN).put (key, ret);
+				}
+				return ret;
+			}
+	][{%C%Cx=false}
+			if (cachedObjectFor%f_to_borland(%CN) == null) {
+				synchronized (sMutexFor%f_to_borland(%CN)) {
+					if (cachedObjectFor%f_to_borland(%CN) == null) {
+						if (singleActiveFactory == null) {
+							throw new [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]NoActiveFactory ("%{INT}%P%PN.%PN.%SNFactory");
+						}
+						cachedObjectFor%f_to_borland(%CN) = singleActiveFactory.%CN (%C<{, }%CN>);
+					}
+				}
+			}
+			return cachedObjectFor%f_to_borland(%CN);
+	]]	}
+	>><{}{"%CS"="multi factory"}{%C}
+	%f_dump_fctr_mng_m_fctr_java(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"}{%C}
+	%f_dump_fctr_mng_m_fctr_java(%C)
+	>><{}{"%CS"="remover"}{%C}
+	%f_dump_factory_manager_remover_java(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+	%f_dump_factory_manager_remover_java(%C)
+	>>
+	}
+# t0_footer
+	]
+
+f _dump_fctr_mng_m_fctr_java
+	[{%S{transparent multy}=false}\
+//{%S{transparent multy}=false}
+	#public %t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %SN (%S<%f_arg_full_decl(%C), >String key) throws UnknownFactoryKey%S<, %f_type(%E)> {[{%Ss!=cached&%Ss!=const,cached}
+	#	%{INT}NAbstractFactory factory = factoriesMap.get(key);
+	#	if (null == factory) {
+	#		throw new UnknownFactoryKey ("%f_dump_java_package(%{INT}).%{INT}NFactory", key);
+	#	}
+	#	return factory.%SN (%S<{, }%CN>);
+	][{%Ss=cached|%Ss=const,cached}
+	#	ObjectCreationIdFor%f_to_borland(%SN) mapKey = new ObjectCreationIdFor%f_to_borland(%SN)(%S<{}{{"%CS"!="nokey"}}%CN, >key);
+	#	%t_ret(%{INT}) ret = cachedObjectsFor%f_to_borland(%SN).get (mapKey);
+	#	if (ret == null) {
+	#		%{INT}NAbstractFactory factory = factoriesMap.get(key);
+	#		if (null == factory) {
+	#			throw new UnknownFactoryKey ("%f_dump_java_package(%{INT}).%{INT}NFactory", key);
+	#		}
+	#		ret = factory.%SN (%S<{, }%CN>);
+	#		cachedObjectsFor%f_to_borland(%SN).put (mapKey, ret);
+	#	}
+	#	return ret;
+	]#}][{%S{transparent multy}=true}\
+//{%S{transparent multy}=true}\
+	#public %t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %SN (%S<{, }%f_arg_full_decl(%C)>) throws NoActiveFactory%S<, %f_type(%E)> {[{%Ss!=cached&%Ss!=const,cached}
+	#	%{INT}NAbstractFactory factory = null;
+	#	%U[{_CUSTOM_SELECT_FACTORY}
+	#	]
+	#	if (null == factory) {
+	#		throw new NoActiveFactory ("%f_dump_java_package(%{INT}).%{INT}NFactory");
+	#	}
+	#	return factory.%SN (%S<{, }%CN>);
+	][{%Ss=cached|%Ss=const,cached}
+	#	ObjectCreationIdFor%f_to_borland(%SN) mapKey = new ObjectCreationIdFor%f_to_borland(%SN)(%S<{, }{{"%CS"!="nokey"}}%CN>);
+	#	%t_ret(%{INT}) ret = cachedObjectsFor%f_to_borland(%SN).get (mapKey);
+	#	if (ret == null) {
+	#		%{INT}NAbstractFactory factory =null;
+	#		%U[{_CUSTOM_SELECT_FACTORY}
+	#		]
+	#		if (null == factory) {
+	#			throw new NoActiveFactory ("%f_dump_java_package(%{INT}).%{INT}NFactory");
+	#		}
+	#		ret = factory.%SN (%S<{, }%CN>);
+	#		cachedObjectsFor%f_to_borland(%SN).put (mapKey, ret);
+	#	}
+	#	return ret;
+	]#}]
+
+f _dump_factory_manager_remover_java
+	#public void %SN (%t_arg(%{INT},"in") obj_%S<, %f_arg_full_decl(%C)>) throws [{%f_is_server_type(%S)=true}{ForeignObject}ru.garant.shared.CoreSrv.ForeignObject]%C<, %f_type(%E)> {
+	#	if (singleActiveFactory == null) {
+	#		throw new [{%f_is_server_type(%S)=true}ru.garant.shared.CoreSrv.]ForeignObject ("%{INT}%P%PN.%P%PN.%PNFactory");
+	#	}
+	%P<{}{%CS=factory|%CS=multy factory}[{%Cs=cached|%Cs=const,cached}\
+	[{%C%Cx=false}\
+	#		synchronized (sMutexFor%f_to_borland(%CN)) {
+	#			if (cachedObjectFor%f_to_borland(%CN) != null && cachedObjectFor%f_to_borland(%CN).[{%f_is_server_type(%{INT})=false}{_is_equivalent}equals] (obj_)) {
+	#				cachedObjectFor%f_to_borland(%CN) = null;
+	#			}
+	#		}][{%C%Cx=true}\
+	#		synchronized (cachedObjectsFor%f_to_borland(%CN)) {
+	#			java.util.Iterator it = cachedObjectsFor%f_to_borland(%CN).entrySet().iterator ();
+	#			while (it.hasNext ()) {
+	#				java.util.Map.Entry entry = (java.util.Map.Entry)it.next ();
+	#				if ([{%f_is_server_type(%{INT})=false}{((org.omg.CORBA.Object)entry.getValue ())._is_equivalent (obj_)}entry.getValue ().equals (obj_)]) {
+	#					cachedObjectsFor%f_to_borland(%CN).remove (entry.getKey ());
+	#					break;
+	#				}
+	#			}
+	#		}]]>
+	#	singleActiveFactory.%SN (obj_%S<{, }%CN>);
+	#}
+
+f _is_it_cached
+	[{%Ss=cached|%Ss=const,cached}{false}true]
+
+f _fctr_mng_fctr_h
+		// for cached factory %SN[{%Cx=true}
+		struct ObjectCreationIdFor%f_to_borland(%SN) {
+	<{}{"%CS"!="nokey"}		[{%f_check_if_type(%C%T,"string")=false}{std::string %CN_arg;}%CX_arg;]
+	>
+			ObjectCreationIdFor%f_to_borland(%SN) (<{, }{"%CS"!="nokey"}%CX>)[ : <{, }{"%CS"!="nokey"}%CN_arg (%CN)>] {
+			}
+	
+			bool operator \< (const ObjectCreationIdFor%f_to_borland(%SN)& c) const {
+				return [{}{false}<{ ? true : }{"%CS"!="nokey"}%CN_arg \< c.%CN_arg>];
+			}
+		};
+	
+		typedef std::map\<ObjectCreationIdFor%f_to_borland(%SN), %f_var(%{INT})\> CachedObjectsFor%f_to_borland(%SN);
+		CachedObjectsFor%f_to_borland(%SN) m_cached_objects_for_%SN;][{%Cx=false}
+		%f_var(%{INT}) m_cached_object_for_%SN;]
+	
+		Core::Mutex m_mutex_for_%SN;
+
+
+f _fctr_mng_m_fctr_h
+	[{%S{transparent multy}=false}\
+////[{%S{transparent multy}=false}\
+		// for cached factory %SN
+		struct ObjectCreationIdFor%f_to_borland(%SN) {
+	<{}{"%CS"!="nokey"}		[{%f_check_if_type(%C%T,"string")=false}{std::string %CN_arg;}%CX_arg;]
+	>		std::string key_arg;
+	
+			ObjectCreationIdFor%f_to_borland(%SN) (<{}{"%CS"!="nokey"}%CX, >const char* key) : <{}{"%CS"!="nokey"}%CN_arg (%CN), >key_arg(key) {
+			}
+	
+			bool operator \< (const ObjectCreationIdFor%f_to_borland(%SN)& c) const {
+				return <{}{"%CS"!="nokey"}%CN_arg \< c.%CN_arg ? true : > key_arg \< c.key_arg;
+			}
+		};
+	
+		typedef std::map\<ObjectCreationIdFor%f_to_borland(%SN), %f_var(%{INT})\> CachedObjectsFor%f_to_borland(%SN);
+		CachedObjectsFor%f_to_borland(%SN) m_cached_objects_for_%SN;
+	
+		Core::Mutex m_mutex_for_%SN;][{%S{transparent multy}=true}\
+////[{%S{transparent multy}=true}\
+		// for cached factory %SN
+		struct ObjectCreationIdFor%f_to_borland(%SN) {
+	<{}{"%CS"!="nokey"}		[{%f_check_if_type(%C%T,"string")=false}{std::string %CN_arg;}%CX_arg;]
+	>
+			ObjectCreationIdFor%f_to_borland(%SN) (<{, }{"%CS"!="nokey"}%CX>) : <{, }{"%CS"!="nokey"}%CN_arg (%CN)> {
+			}
+	
+			bool operator \< (const ObjectCreationIdFor%f_to_borland(%SN)& c) const {
+				return <{ ? true : }{"%CS"!="nokey"}%CN_arg \< c.%CN_arg>;
+			}
+		};
+	
+		typedef std::map\<ObjectCreationIdFor%f_to_borland(%SN), %f_var(%{INT})\> CachedObjectsFor%f_to_borland(%SN);
+		CachedObjectsFor%f_to_borland(%SN) m_cached_objects_for_%SN;
+	
+		Core::Mutex m_mutex_for_%SN;]
+
+f _fctr_mng_fctr_java
+		// for cached factory %SN[{%Cx=true}
+		static class ObjectCreationIdFor%f_to_borland(%SN) {
+	<{}{"%CS"!="nokey"}		[{%f_check_if_type(%C%T,"string")=false}{String %CNArg;}%f_arg_full_decl(%C)Arg;]
+	>
+			ObjectCreationIdFor%f_to_borland(%SN) (<{, }{"%CS"!="nokey"}%f_arg_full_decl(%C)>) {
+	[<{}{"%CS"!="nokey"}			this.%CNArg = %CN;
+	>]		}
+		}
+	
+	%f_comparator_for_cached_object(%S)
+	
+		private java.util.Map\<ObjectCreationIdFor%f_to_borland(%SN), %f_type(%{INT})\> cachedObjectsFor%f_to_borland(%SN) = 
+			new java.util.TreeMap\<ObjectCreationIdFor%f_to_borland(%SN), %f_type(%{INT})\> (new ObjectCreationIdFor%f_to_borland(%SN)Comparator ());][{%Cx=false}
+		private %f_type(%{INT}) cachedObjectFor%f_to_borland(%SN);
+		private static Boolean sMutexFor%f_to_borland(%SN) = new Boolean (true);]
+
+t _to_object_type
+c                                   {}
+r %f_check_if_type(%T,"integer")=true:                      {new Integer (%1N)}
+r %f_check_if_type(%T,"long")=true:                     {new Integer (%1N)}
+r %f_check_if_type(%T,"unsigned integer")=true:                     {new Integer (%1N)}
+r %f_check_if_type(%T,"unsigned long")=true:                     {new Integer (%1N)}
+r %f_check_if_type(%T,"long long")=true:                     {new Long (%1N)}
+r %f_check_if_type(%T,"booolean")=true:                  {new Boolean (%1N)}
+r %f_check_if_type(%T,"char")=true:                     {new Character (%1N)}
+r %f_check_if_type(%T,"short")=true:                     {new Short (%1N)}
+r %f_check_if_type(%T,"unsigned short")=true:                     {new Short (%1N)}
+r %f_check_if_type(%T,"unsigned char")=true:                     {new Character (%1N)}
+r %f_check_if_type(%T,"double")=true:                     {new Double (%1N)}
+r %f_check_if_type(%T,"float")=true:                     {new Float (%1N)}
+r ""="":                            {%1N}
+
+f _comparator_for_cached_object
+	#static class ObjectCreationIdFor%f_to_borland(%SN)Comparator implements java.util.Comparator {
+	#	public int compare (Object a, Object b) {
+	<{}{"%CS"!="nokey"}#		int a%CNArgHash = %t_to_object_type(%C,"((ObjectCreationIdFor%f_to_borland(%SN))a).%CNArg").hashCode ();
+	#		int b%CNArgHash = %t_to_object_type(%C,"((ObjectCreationIdFor%f_to_borland(%SN))b).%CNArg").hashCode ();
+	#		if (a%CNArgHash \< b%CNArgHash) {
+	#			return 1;
+	#		} else if (a%CNArgHash \> b%CNArgHash) {
+	#			return -1;
+	#		}
+	>
+	#		return 0;
+	#	}
+	#}
+
+f _fctr_mng_m_fctr_java
+	[{%S{transparent multy}=false}\
+////{%S{transparent multy}=false}\
+		// for cached factory %SN
+		static class ObjectCreationIdFor%f_to_borland(%SN) {
+	<{}{"%CS"!="nokey"}		[{%f_check_if_type(%C%T,"string")=false}{String %CNArg;}%f_arg_full_decl(%C)Arg;]
+	>		String keyArg;
+	
+			ObjectCreationIdFor%f_to_borland(%SN) (<{}{"%CS"!="nokey"}%CX, >String key) {
+	[<{}{"%CS"!="nokey"}			this.%CNArg = %CN;
+	>]			this.keyArg = key
+			}
+		}
+	
+	%f_comparator_for_cached_object(%S)
+	
+		private java.util.Map\<ObjectCreationIdFor%f_to_borland(%SN), %f_type(%{INT})\> cachedObjectsFor%f_to_borland(%SN)
+			= new java.util.TreeMap\<ObjectCreationIdFor%f_to_borland(%SN), %f_type(%{INT})\> (new ObjectCreationIdFor%f_to_borland(%SN)Comparator ());][{%S{transparent multy}=true}\
+////{%S{transparent multy}=true}\
+		// for cached factory %SN
+		static class ObjectCreationIdFor%f_to_borland(%SN) {
+	<{}{"%CS"!="nokey"}		[{%f_check_if_type(%C%T,"string")=false}{String %CNArg;}%f_arg_full_decl(%C)Arg;]
+	>
+			ObjectCreationIdFor%f_to_borland(%SN) (<{, }{"%CS"!="nokey"}%CX>) {
+	[<{}{"%CS"!="nokey"}			this.%CNArg = %CN;
+	>]
+			}
+		}
+	
+	%f_comparator_for_cached_object(%S)
+	
+		private java.util.Map\<ObjectCreationIdFor%f_to_borland(%SN), %f_type(%{INT})\> cachedObjectsFor%f_to_borland(%SN)
+			= new java.util.TreeMap\<ObjectCreationIdFor%f_to_borland(%SN), %f_type(%{INT})\> (new ObjectCreationIdFor%f_to_borland(%SN)Comparator ());]
+
+%f _publish_self_cpp
+%f _publish_self_h
+%f _publish_self_java
+
++ fctr.cpp
+	[{"%f_has_factory_methods(%S)"="true"}
+	//////////////////////////////////////////////////////////////////////////////////////
+	// implementation of factory manager methods for %SN
+	
+	%SNFactoryManager::%SNFactoryManager () : m_has_registred_factories(false) {
+	}
+	
+	void %SNFactoryManager::register_factory (
+		%SNAbstractFactory* factory, Core::Root::FactoryPriority priority
+	) /*throw (Core::Root::DuplicatedFactoryKey)*/ {
+		Singleton::instance()-\>register_factory_i (factory, priority);
+	}
+	
+	%S%f_publish_self_cpp()\
+	void %SNFactoryManager::register_factory_i (
+		%SNAbstractFactory* factory, Core::Root::FactoryPriority priority
+	) /*throw (Core::Root::DuplicatedFactoryKey)*/ {
+		m_has_registred_factories = true;
+		FactoryMap::iterator f = m_factories_map.find(factory-\>key());
+		if (f != m_factories_map.end() && f-\>second.priority == priority) {
+			throw Core::Root::DuplicatedFactoryKey ("%P%PN::%PN::%SNFactory", factory-\>key());
+		}
+		m_factories_map\[factory-\>key()\].factory = %SNAbstractFactory::_duplicate(factory);
+		m_factories_map\[factory-\>key()\].priority = priority;
+		
+		if (!m_single_active_factory || m_single_active_factory_priority \<= priority) {
+			m_single_active_factory = %SNAbstractFactory::_duplicate(factory);
+			m_single_active_factory_priority = priority;
+		}
+	}%f_set_var(INT,S)<{}{"%CS"="factory"}{%C}
+	
+	%f_fctr_mng_fctr_cpp(%C)><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"}{%C}
+	
+	%f_fctr_mng_fctr_cpp(%C)>><{}{"%CS"="multi factory"}{%C}
+	
+	%f_fctr_mng_m_fctr_cpp(%C)><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"}{%C}
+	
+	%f_fctr_mng_m_fctr_cpp(%C)>><{}{"%CS"="remover"}{%C}
+	
+	%f_fctr_mng_rm_cpp(%C)><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+	
+	%f_fctr_mng_rm_cpp(%C)>>]
+	]
+
++ dll.h
+F class %SN_tie;
+	<%FF
+	
+	>[{"%S{call way}"="forth"}class %SN_tie: public Core::TIEBase {
+		SET_OBJECT_COUNTER (%SN_tie)
+	protected:
+	%f_tie_object_refcount_base_h(%S)
+	
+	protected:
+	[{"%S{native definition}"!="DLL outside"}{// user defined TIE-wrapper for native outside interafce
+		%U[
+		]
+	}[<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}%CX>>
+	]<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}%CX>]
+	};][{"%S{call way}"="back"}
+	class %SN_tie;
+	
+	// callback only cpp-wraper
+	class %SN_callback_tie : virtual public %SN, virtual public ::Core::IObject {
+		SET_OBJECT_COUNTER (%SN_callback_tie)
+		friend class %SN_tie;
+	protected:
+		virtual unsigned long addref () const {
+			return ++m_counter;
+		}
+		
+		bool is_unsorted_less (const IUnsortedLess* c) const {
+			return c \< (const IUnsortedLess*)this;
+		}
+	
+	public:
+		virtual unsigned long release () const;
+	[<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}%f_cpp_children_cb_tie_h(%C)>>
+	]<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}%f_cpp_children_cb_tie_h(%C)>
+	
+		%SN_callback_tie () : m_impl(NULL), m_counter (1) {
+		}
+	
+		mutable ACE_Atomic_Op \<ACE_Thread_Mutex, long\> m_counter;
+
+	// For ObjectPool's objects initialisation and destruction
+	public:
+		void init () {
+		}
+	
+		void done () {
+			m_impl = NULL;
+		}
+	
+	protected:
+		typedef ::Core::PoolObjectManager\<%SN_callback_tie\>::PoolObjectManagerSingleton MyPool;
+		typedef ::Core::PoolObjectManager\<%SN_callback_tie\> Pool;
+		friend class ::Core::PoolObjectManager\<%SN_callback_tie\>;
+/		//static MyPool s_obj_pool;
+		
+	public:
+		mutable %SN_tie* m_impl;
+	};
+	
+	// callback only abstarct interface
+	class %SN_tie {
+	public:
+		virtual unsigned long __stdcall query_interface (const ::Core::ComIID& iid, void*& object) = 0;	
+		virtual unsigned long __stdcall addref () const = 0;
+		virtual unsigned long __stdcall release () const = 0;
+	
+	[<{\n\n}{}{r}%g<{\n\n}{"%CS"!="factory"}%CX>>
+	]<{\n\n}{"%CS"!="factory"}%CX>
+	
+		inline static void make_cpp (const %SN_tie* obj, %SN*& ret_, bool interface_addref = false) {
+			if (!obj) {
+				ret_ = NULL;
+			} else {
+				%SN_callback_tie* ret = %SN_callback_tie::MyPool::instance()-\>new_obj();
+				ret-\>m_impl = const_cast\<%SN_tie*\>(obj);
+				ret_ = ret;				
+			}
+		}
+	
+		static void make_tie (%SN_tie* obj, %SN_callback_tie*& ret_) {
+				if (!obj) {
+					ret_ = NULL;
+				} else {
+					//ret_ = MyPool::instance()-\>new_obj();
+					//ret_-\>m_impl = obj;
+				}
+			}
+		};
+	]
+
++ dll.cpp
+P
+	[{"%S{call way}"!="back"}%f_tie_object_refcount_base_cpp(%S)
+	
+	][{"%S{native definition}"!="DLL outside"}{// user defined TIE-wrapper for native outside interafce
+	%U[
+	]
+	}%f_set_var(OWNER,S)[<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}[%CX]>>
+	]<{}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}[%CX\n\n]>][{"%S{call way}"="back"}
+	
+	unsigned long %SN_callback_tie::release () const {
+		long const counter = --m_counter;
+	
+		if (counter == 0) {			
+			m_counter = 1;
+			m_impl-\>release();
+			m_impl = NULL;
+			MyPool::instance()-\>release_obj(const_cast\<%SN_callback_tie* const\>(this));
+		}
+		return counter;
+	}]
+
++ pas
+	%f_docs(%S)\
+	[{"%S{native definition}"!="DLL outside"}{// %SN - must be native for DLL outside
+	}#%SN = interface ([{}{IInterface}%f_type(%G)]) \['{%SG}'\]
+	<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}%CX>
+	#end;]
+
++ java
+O %SN.java
+	%f_output_constraint(%S)\
+# t0_header
+	%f_set_var(INT,S)package %f_dump_java_package(%S);
+	
+/	<%C<%f_java_import(%w)
+/	>>
+/	<{}{"%iC"!="Category"}{%i}%f_java_import(%i)
+/	><{}{"%f_set_var(ARG,C)%{INT}<{}{%iU=%{ARG}%TU}{C}>"="0"&%CC=Attribute&%C%TM!=UMLPrimitive::Class&%f_can_dump_attr(%C%T)=true}{%C}%f_java_import(%C%T)
+/	>
+	[{"%f_has_factory_methods(%S)"="true"}%f_java_core_exceptions(%S)
+	][{%f_is_server_type(%S)=true}
+	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHome;
+	]
+	%t_visibility(%S,"%XU")interface %SN[
+		extends <{\t\t, }%f_type(%G)
+	>[{%Gx=true&%Rx=true}\t\t, ]<{\t\t, }%f_type(%R)
+	>][{%Gx=false&%Rx=false} ]{
+	[#<{}{"%f_is_factory(%C)"="false"}[
+	%CX
+	]>][%f_shift_intend(1)
+	%f_dump_java_factory(%S)%f_shift_intend(-1)]
+	} //interface %SN
+# t0_footer
+
+: Interface::Class::Attribute
+? Атрибут интерфейса
+? для данного атрибута будут сгенерированы методы получения и установки его значения.
+p dll export:b=true ? определяет что данный атрибут будет экспортироваться наружу компоненты
+p debug log:b=false ? включает генерацию вывода в лог обращений к методам реализующим доступ к данному атрибуту
+p pm:b=false ? выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+p is default:b=false ? определяем атрибут по-умолчанию
+e a
+a a
+v +
+l al
+m t
+A const
+L code_property
+Y t5_property.gif
+
+%f _wiki_child_kind
+	property
+
++ h
+	%f_interface_attribute_h(%S)
+
++ dll.h
+	%f_tie_attribute_dll_h(%S)
+
++ dll.cpp
+	[{"%P{call way}"="back"}{%f_tie_attribute_dll_cpp(%S)}%f_cb_tie_attribute_dll_cpp(%S)]
+/	%f_tie_attribute_dll_cpp(%S)
+
++ pas
+	%f_docs(%S)\
+	[{"%SS"!="writeonly"}#[{"%t_simple(%T)"="true"}{procedure Get%f_to_borland(%SN) (%t_arg(%T,"out"))}function Get%f_to_borland(%SN) (): %f_iget_attr(%S)]; stdcall;][{"%SS"!="readonly"}
+	#procedure Set%f_to_borland(%SN) (%f_iset_attr(%S)); stdcall;]
+
++ intf.pas
+# PAS/pasPropertyMethods
+
++ impl.pas
+# PAS/pasProperty
+
++ java
+	%f_interface_attribute_java(%S)
+
+: Interface::Class::readonly::Attribute
+? Атрибут только для чтения
+? для данного атрибута будет сгенерирован только метод получения его значения. Если тип атрибута интерфейс - то он будет возвращаться как константный.
+= Interface::Class::Attribute
+e g
+Y t5_attr.gif
+
+: Interface::Class::writeonly::Attribute
+? Атрибут только для записи
+? для данного атрибута будут сгенерирован только метод установки его значения.
+= Interface::Class::Attribute
+e s
+
+: Interface::Class::Attribute::Attribute
+A const
+l arl
+T
+
+: Interface::Class::readonly::Attribute::Attribute
+A const
+l arl
+T
+
+: Interface::Class::Operation
+T
+e
+a a
+v +
+m t
+A const|cached|const,cached
+? Константный метод интерфейса
+? По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<chg>>
+? Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.
+p dll export:b=true ? определяет что данный метод будет експортироваться наружу компоненты
+p debug log:b=false ? включает генерацию вывода в лог обращений к реализации данной операции
+p Must throw in error:b=true ? оределяет тип "граничного" обработчика исключений. Если флаг установлен, то все исключения будут мапится и пробрасываться. Если нет, то некотрый класс исключений... короче я чего то запутался чего там присходит в этом случае.. нужно по исходникам смотреть (Exception.h/cpp)
+L code_const_method
+Y t5_const_method.gif
+
+%t _constraint
+c                                                                               {}
+r {%Ss=cached&%SS!=chg&%SS!=oneway,chg}: {const function cant return non const cached value}
+
+%f _wiki_child_kind
+	method
+
++ h
+	%f_set_var(SERV,P)%f_servant_cpp_operation_h(%S)
+
++ dll.h
+	#virtual %f_dll_cpp_ret(%S) __stdcall %SN_%SU (%f_dll_cpp_params_h(%S))[{"%SS"!="chg"&"%SS"!="oneway,chg"} const][ /*throw (<{, }%f_type(%E)>)*/][{"%P{call way}"="back"} = 0];
+
++ dll.cpp
+	[{"%P{call way}"="back"}{%f_tie_operation_dll_cpp(%S)}%f_cb_tie_operation_dll_cpp(%S)]
+
++ pas
+	%f_docs(%S)\
+	#[{"%f_dll_pas_ret(%S)"=""}{function}procedure] %f_to_borland(%SN) (%f_delphi_op_params(%S))%f_dll_pas_ret(%S);%f_delphi_overload(%S) stdcall;[ // can raise <{, }%f_type(%E)>]
+
++ intf.pas
+# PAS/pasMethod
+
++ java
+	[{"%SS"!="factory"&"%SS"!="multi factory"}%f_interface_java_operation(%S)]
+
+: Interface::Class::oneway::Operation
+? Асинхронная операция
+? Вызов операции будет выполнен асинхронна. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+? По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<oneway,chg>>
+? Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.
+= Interface::Class::Operation
+p separate thread pool=none|per class|per object|per operation|user defined ? определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод
+
+%t _constraint
+c             {}
+r	{<{}{%CS=out|%CS=inout&%t_class_type(%C%T)=false}{C}>!=0|%TN!=void}: {%SM can't contain inout/out parameters or return result}
+
+: Interface::Class::oneway,chg::Operation
+? Асинхронная неконстантная операция
+? Вызов операции будет выполнен асинхронно. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+? Неконстантная операция может изменять состояние своего объекта
+= Interface::Class::oneway::Operation
+L code_method
+Y t5_method.gif
+
+: Interface::Class::chg::Operation
+? Неконстантный метод
+? Метод который может изменять состояние своего объекта
+= Interface::Class::Operation
+L code_method
+Y t5_method.gif
+
+: Interface::Class::factory::Operation
+? Фабрика (одиночная).
+? Будет создан абстрактный интерфейс фабрики, который будут реализовывать конкретные фабрики (по одной на каждый сервант), создающие соответствующие серванты.
+? Конкретные фабрики мугут инициализироваться своими специфичными параметрами. Созданные конкретные фабрики будут регистрироваться в менеджере фабрик. 
+? Последний осуществляет выбор нужной "активной" фабрики при получении запроса на создание экземпляра объекта.
+? Для ОДИНОЧНОЙ фабрики - активной может быть только ОДНА такая фабрика - кто последний зарегистрировался тот и активен.
+= Interface::Class::Operation
+m f
+A const|cached|const,cached
+v +-
+L code_factory
+Y t5_factory.gif
+
+%t _constraint
+c                                                                               {}
+r ""="": {}
+
+%f _wiki_child_kind
+	mng
+
++ h
+	%f_docs(%S)\
+	%f_set_var(OPERATION_H,"#static %t_ret(%{INT},"%Ss") %SN (<{, }%CX>)")%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_H}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_H}N\n#	/*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/;}#static %t_ret(%{INT},"%Ss") %SN (\n\t\t<{\n\t\t, }%CX>\n\t) /*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/;]
+
++ cpp
+	%f_set_var(OPERATION_CPP,"%t_ret(%{INT},"%Ss") %{INT}NFactory::%SN (<{, }%CX>) /*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/ {")%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_CPP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_CPP}N}%t_ret(%{INT},"%Ss") %{INT}NFactory::%SN (\n\t<{\n\t, }%CX>\n) /*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/ {]
+		return %{INT}NFactoryManager::Singleton::instance()-\>%SN (<{, }%CN>);
+	}
+
++ java
+	%f_docs(%S)\
+	#%t_visibility(%S,"%XU")static %t_ret(%{INT},"%Ss") %SN (<{, }%CX>) throws NoActiveFactory<, %f_type(%E)> {
+	#	return %f_type(%{INT})FactoryManager.instance ().%SN (<{, }%CN>);
+	#}
+
+: Interface::Class::multi factory::Operation
+? Фабрика (множественная).
+? Будет создан абстрактный интерфейс фабрики, который будут реализовывать конкретные фабрики (по одной на каждый сервант), создающие соответствующие серванты.
+? Конкретные фабрики мугут инициализироваться своими специфичными параметрами. Созданные конкретные фабрики будут регистрироваться в менеджере фабрик. 
+? Последний осуществляет выбор нужной "активной" фабрики при получении запроса на создание экземпляра объекта.
+? Для МНОЖЕСТВЕННОЙ фабрики - активными являются ВСЕ зарегистрированные фабрики, выбор конкретной осущестьвляеться по ключу - дополнительному параметру.
+= Interface::Class::factory::Operation
+p transparent multy:b=false ? определяет, что выбор конкретной реализации будет реализован пользователем
+m f
+A const|cached|const,cached
+v +-
+
++ h
+	%f_docs(%S)\
+	[{%S{transparent multy}=false}%f_set_var(OPERATION_H,"#static %t_ret(%{INT},"%Ss") %SN (<%CX, >const char* key)")%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_H}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_H}N\n#	/*throw (Core::Root::UnknownFactoryKey<, %f_type(%E)>)*/;}#static %t_ret(%{INT},"%Ss") %SN (\n\t\t<%CX\n\t\t, >const char* key\n\t) /*throw (Core::Root::UnknownFactoryKey<, %f_type(%E)>)*/;]][{%S{transparent multy}=true}\
+	%f_set_var(OPERATION_H,"#static %t_ret(%{INT},"%Ss") %SN (<{, }%CX>)")%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_H}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_H}N\n#	/*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/;}#static %t_ret(%{INT},"%Ss") %SN (\n\t\t<{\n\t\t, }%CX>\n\t) /*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/;]]
+
++ cpp
+	[{%S{transparent multy}=false}%f_set_var(OPERATION_CPP,"%t_ret(%{INT},"%Ss") %{INT}NFactory::%SN (<%CX, >const char* key) /*throw (Core::Root::UnknownFactoryKey<, %f_type(%E)>)*/ {")%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_CPP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_CPP}N}%t_ret(%{INT},"%Ss") %{INT}NFactory::%SN (\n\t<%CX\n\t, >const char* key\n) /*throw (Core::Root::UnknownFactoryKey<, %f_type(%E)>)*/ {]
+		return %{INT}NFactoryManager::Singleton::instance()-\>%SN (<%CN, >key);
+	}][{%S{transparent multy}=true}\
+	%f_set_var(OPERATION_CPP,"%t_ret(%{INT},"%Ss") %{INT}NFactory::%SN (<{, }%CX>) /*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/ {")%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_CPP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_CPP}N}%t_ret(%{INT},"%Ss") %{INT}NFactory::%SN (\n\t<{\n\t, }%CX>\n) /*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/ {]
+		return %{INT}NFactoryManager::Singleton::instance()-\>%SN (<{, }%CN>);
+	}]
+
++ java
+	%f_docs(%S)\
+	[{%S{transparent multy}=false}\
+//%S{transparent multy}=false
+	#%t_visibility(%S,"%XU") static %t_ret(%{INT},"%Ss") %SN (<%CX, >String key) throws UnknownFactoryKey<, %f_type(%E)> {
+	#	return %{INT}NFactoryManager.instance ().%SN (<{, }%CN>);
+	#}][{%S{transparent multy}=true}\
+//%S{transparent multy}=true
+	#%t_visibility(%S,"%XU") static %t_ret(%{INT},"%Ss") %SN (<{, }%CX>) throws NoActiveFactory<, %f_type(%E)> {
+	#	return %{INT}NFactoryManager.instance ().%SN (<{, }%CN>);
+	#}]
+: Interface::Class::Operation::Parameter
++ h
+P
+	%f_arg_full_decl(%S)
+
++ cpp
+P
+	%f_arg_full_decl(%S)
+
++ fctr.h
+P
+	%f_arg_full_decl(%S)
+
++ fctr.cpp
+P
+	%f_arg_full_decl(%S)
+
++ pas
+/	%f_arg_full_decl(%S)
+	%f_error("dirrect call to Generate op-params for delphi")
+
++ java
+	%f_arg_full_decl(%S)
+
++ fctr.java
+	%f_arg_full_decl(%S)
+
+: Interface::Class::factory::Operation::Parameter
+= Interface::Class::Operation::Parameter
+
+: Interface::Class::multi factory::Operation::Parameter
+= Interface::Class::Operation::Parameter
+
+: Interface::Class::remover::Operation
+? Уничтожитель
+? Метод обратный фабричному, т.е. метод приводящий к разрушению (временному или постоянному) созданного фабрикой объекта.
+= Interface::Class::Operation
+m f
+v +-
+%t _constraint
+c                                                                               {}
+r ""="": {}
+L code_remover
+Y t5_remover.gif
+
+%f _wiki_child_kind
+	mng
+
++ h
+	%f_docs(%S)\
+	%f_set_var(OPERATION_H,"#static void %SN (%t_arg(%{INT},"inout") obj_<, %CX>)")%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_H}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_H}N\n#	/*throw (Core::Root::ForeignObject<, %f_type(%E)>)*/;}\
+	#static void %SN (\n\t\t%t_arg(%{INT},"inout") obj_<\n\t\t, %CX>\n\t) /*throw (Core::Root::ForeignObject<, %f_type(%E)>)*/;]
+
++ cpp
+	%f_set_var(OPERATION_CPP,"void %{INT}NFactory::%SN (%t_arg(%{INT},"inout") obj_<, %CX>) /*throw (Core::Root::ForeignObject<, %f_type(%E)>)*/ {")%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_CPP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_CPP}N}void %{INT}NFactory::%SN (\n\t%t_arg(%{INT},"inout") obj_<\n\t, %CX>\n) /*throw (Core::Root::ForeignObject<, %f_type(%E)>)*/ {]
+		return %{INT}NFactoryManager::Singleton::instance()-\>%SN (obj_<, %CN>);
+	}
+
++ java
+	%f_docs(%S)\
+	#%t_visibility(%S,"%XU")static void %SN (%t_arg(%{INT},"inout") obj_<, %CX>) throws ForeignObject<, %f_type(%E)> {
+	#	return %f_type(%{INT})FactoryManager.instance ().%SN (obj_<, %CN>);
+	#}
+
+: Interface::Class::chg::Operation::Parameter
+= Interface::Class::Operation::Parameter
+
+: Interface::Class::oneway::Operation::Parameter
+= Interface::Class::Operation::Parameter
+
+//////////////////////////////////////////////////////////////////////////////////
+// support functions
+
+f _fctr_mng_fctr_cpp
+	%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %{INT}NFactoryManager::%SN (<{, }%CX>) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/] \
+	{[{%Ss!=cached&%Ss!=const,cached}
+		if (m_single_active_factory.is_nil()) {
+			throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+		}
+		%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") ret_ = m_single_active_factory-\>%SN (<{, }%CN>);
+		GDS_ASSERT_MSG (ret_ != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+		return ret_;
+	][{%Ss=cached|%Ss=const,cached}[{%Cx=true}
+		GUARD(m_mutex_for_%SN);
+		CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>));
+		if (f == m_cached_objects_for_%SN.end()) {
+			if (m_single_active_factory.is_nil()) {
+				throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+			}
+			f = m_cached_objects_for_%SN.insert (
+				CachedObjectsFor%f_to_borland(%SN)::value_type(
+					ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+					, m_single_active_factory-\>%SN (<{, }%CN>)
+				)
+			).first;
+			GDS_ASSERT_MSG (f-\>second.in() != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+		}
+		return [{%{INT}S!=ServerInterface}{%{INT}N::_duplicate(f-\>second.in())}*f-\>second];
+	][{%Cx=false}
+		if (m_cached_object_for_%SN.ptr() == 0) {
+			GUARD(m_mutex_for_%SN);
+			if (m_cached_object_for_%SN.ptr() == 0) {
+				if (m_single_active_factory.is_nil()) {
+					throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+				}
+				m_cached_object_for_%SN = m_single_active_factory-\>%SN (<{, }%CN>);		
+				GDS_ASSERT_MSG (m_cached_object_for_%SN.ptr() != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+				
+			}
+		}
+		return [{%{INT}S!=ServerInterface}{%{INT}N::_duplicate(m_cached_object_for_%SN.in())}*m_cached_object_for_%SN];
+	]]}
+
+f _fctr_mng_m_fctr_cpp
+	[{%S{transparent multy}=false}\
+////%S{transparent multy}=false
+	%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %{INT}NFactoryManager::%SN (<%CX, >const char* key) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, Core::Root::UnknownFactoryKey<, %f_type(%E)>)}/*throw (Core::Root::UnknownFactoryKey<, %f_type(%E)>)*/] {[{%Ss!=cached&%Ss!=const,cached}
+		FactoryMap::iterator f = m_factories_map.find (key);
+		if (f == m_factories_map.end()) {
+			throw Core::Root::UnknownFactoryKey ("%P%P%PN::%P%PN::%PNFactory", key);
+		}
+		return f-\>second.factory-\>%SN (<{, }%CN>);
+	][{%Ss=cached|%Ss=const,cached}
+		GUARD(m_mutex_for_%SN);
+		CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{}{"%CS"!="nokey"}%CN, >key));
+		if (f == m_cached_objects_for_%SN.end()) {
+			FactoryMap::iterator f_fct = m_factories_map.find (key);
+			if (f_fct == m_factories_map.end()) {
+				throw Core::Root::UnknownFactoryKey ("%P%P%PN::%P%PN::%PNFactory", key);
+			}
+			f = m_cached_objects_for_%SN.insert (
+				CachedObjectsFor%f_to_borland(%SN)::value_type(
+					ObjectCreationIdFor%f_to_borland(%SN)(<{}{"%CS"!="nokey"}%CN, >key)
+					, f_fct-\>second.factory-\>%SN (<{, }%CN>)
+				)
+			).first;
+		}
+		return [{%{INT}S!=ServerInterface}{%{INT}N::_duplicate(f-\>second.in())}*f-\>second];
+	]}][{%S{transparent multy}=true}\
+////%S{transparent multy}=true
+	%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") %{INT}NFactoryManager::%SN (<{, }%CX>) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/] {[{%Ss!=cached&%Ss!=const,cached}
+		Core::Var\<%{INT}NAbstractFactory\> factory;
+		%U[{_CUSTOM_SELECT_FACTORY}
+		]
+		if (factory.is_nil () == true) {
+			throw [{%f_realize_srv_interface(%S)=false}{CoreSrv::NoActiveFactory}Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");]
+		}
+	][{%Ss=cached|%Ss=const,cached}
+		GUARD(m_mutex_for_%SN);
+		CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>));
+		if (f == m_cached_objects_for_%SN.end()) {
+			Core::Var\<%{INT}NAbstractFactory\> factory;
+			%U[{_CUSTOM_SELECT_FACTORY}
+			]
+			if (factory.is_nil () == true) {
+				throw [{%f_realize_srv_interface(%S)=false}{CoreSrv::NoActiveFactory}Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");]
+			}
+			f = m_cached_objects_for_%SN.insert (
+				CachedObjectsFor%f_to_borland(%SN)::value_type(
+					ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+					, factory-\>%SN (<{, }%CN>)
+				)
+			).first;
+		}
+		return [{%{INT}S!=ServerInterface}{%{INT}N::_duplicate(f-\>second.in())}*f-\>second];
+	]}]
+
+f _fctr_mng_rm_cpp
+	void %{INT}NFactoryManager::%SN (%t_arg(%{INT},"in") obj_<, %CX>) [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException, CoreSrv::ForeignObject<, %f_type(%E)>)}/*throw (CoreSrv::ForeignObject<, %f_type(%E)>)*/] \
+	{
+		if (m_single_active_factory.is_nil()) {
+			throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+		}
+		{
+			bool finded = false;
+	%P<{}{%CS=factory|%CS=multy factory}[{%Cs=cached|%Cs=const,cached}\
+			[{%C%Cx=false}\{
+				GUARD(m_mutex_for_%CN);
+				if (!finded && m_cached_object_for_%CN && m_cached_object_for_%CN-\>_is_equivalent(obj_)) {
+					m_cached_object_for_%CN = 0;
+					finded = true;
+				}
+			}][{%C%Cx=true}
+			if (!finded) {
+				GUARD(m_mutex_for_%CN);
+				for (
+					CachedObjectsFor%f_to_borland(%CN)::iterator it = m_cached_objects_for_%CN.begin(); 
+					it != m_cached_objects_for_%CN.end();
+					it ++
+				) {
+					if (it-\>second-\>_is_equivalent(obj_)) {
+						m_cached_objects_for_%CN.erase (it);
+						finded = true;
+						break;
+					}
+				}
+			}]
+	]>
+		}
+		m_single_active_factory-\>%SN (obj_<, %CN>);
+	}
+
+f _tie_attribute_dll_h
+	[{"%SS"!="writeonly"}
+	#virtual %f_dll_cpp_attr_ret(%S) __stdcall get_%SN (%f_dll_cpp_attr_get(%T))[{"%t_interface(%T)"="false"} const][ /*throw (<{, }%f_type(%E)>)*/][{"%P{call way}"="back"} = 0];][{"%SS"!="readonly"}
+	#virtual void __stdcall set_%SN (%f_dll_cpp_attr_set(%S))[ /*throw (<{, }%f_type(%e)>)*/][{"%P{call way}"="back"} = 0];]
+
+f _tie_attribute_dll_cpp
+	[{"%SS"!="writeonly"}
+	#%f_dll_cpp_attr_ret(%S) __stdcall %{OWNER}N_tie::get_%SN (%f_dll_cpp_attr_get(%T))[{"%t_interface(%T)"="false"} const][ /*throw (<{, }%f_type(%E)>)*/] {
+	_DLL_TRY[{"%P{native definition}"!="C++ interface"}{
+		%U[{_NATIVE_GET}
+		]}
+		[{"%t_simple(%T)"="false"}{return m_impl-\>get_%SN();}[{"%f_need_tie(%T)"="true"}{ret_ = m_impl-\>get_%SN();}%f_type(%T)::make_tie (m_impl-\>get_%SN(), ret_[{%Sl=agr}, this]);]]]
+	_DLL_CATCH
+	}][{"%SS"!="readonly"}
+	#void __stdcall %{OWNER}N_tie::set_%SN (%f_dll_cpp_attr_set(%S))[ /*throw (<{, }%f_type(%e)>)*/] {
+	_DLL_TRY[{"%P{native definition}"!="C++ interface"}{
+		%U[{_NATIVE_SET}
+		]}
+		[{"%f_need_tie(%T)"="true"}{m_impl-\>set_%SN(%SN);}[{%t_tied_elem(%T)=true}{%f_cpp_type(%T)}%TN*][{"%t_interface(%T)"="true"}[{"%T{call way}"="back"}{*}_var]] %SN_;
+		%f_type(%T)::make_cpp(%SN, %SN_[{"%T{call way}"="back"}.out()]);
+		m_impl-\>set_%SN([{%t_tied_elem(%T)=true}*]%SN_);]]
+	_DLL_CATCH
+	}]
+
+f _cb_tie_attribute_dll_cpp
+	[{"%SS"!="writeonly"}
+	#%f_dll_cpp_attr_ret(%S) __stdcall %{OWNER}N_tie::get_%SN (%f_dll_cpp_attr_get(%T))[{"%t_interface(%T)"="false"} const][ /*throw (<{, }%f_type(%E)>)*/] {
+	_DLL_TRY[{"%P{native definition}"!="C++ interface"}{
+		%U[{_NATIVE_GET}
+		]}
+		[{"%Tf"="false"}{return m_impl-\>get_%SN()}%f_cpp_type(%T)* ret = m_impl-\>get_%SN();
+		%f_type(%T)::make_tie (ret, %SN);]]
+	_DLL_CATCH
+	}][{"%SS"!="readonly"}
+	#void __stdcall %{OWNER}N_tie::set_%SN (%f_dll_cpp_attr_set(%S))[ /*throw (<{, }%f_type(%e)>)*/] {
+	_DLL_TRY[{"%P{native definition}"!="C++ interface"}{
+		%U[{_NATIVE_SET}
+		]}
+		m_impl-\>set_%SN([{"%Tf"="false"}{%SN}[{"%T{call way}"="back"}{%SN ? %SN-\>m_impl : 0}%f_type(%T)::make_callback_tie(%SN)]]);]
+	_DLL_CATCH
+	}]
+
+f _cpp_children_cb_tie_h
+	%f_set_gen_id(h)[{"%SC"="Operation"}{%f_servant_cpp_attribute_h(%S)}%f_servant_cpp_operation_h(%S)]%f_set_gen_id(dll.h)
+
+f _delphi_op_params
+	[\n#\t<{;\n#\t}%f_arg_full_decl(%C)>[{"%t_simple(%T,"")"="false"}[{"%Cx"="true"};\n#\t]%t_arg(%T,"out")]\n#]
+
+f _dll_pas_ret
+	[{"%t_simple(%T,"")"="true"}: %f_ret(%S)]
+
+f _delphi_overload
+	[{"%P<{}{"%CN"="%1N"}{C}>"!="1"} overload;]
+
+f _cb_tie_operation_dll_cpp
+	%f_set_gen_id(cpp)%f_ret(%S) %{OWNER}N_callback_tie::%SN (%f_dll_cpp_params_cpp(%S))[{"%SS"!="chg"&"%SS"!="oneway,chg"} const][
+		/*throw (<{, }%f_type(%E)>)*/
+	]{%f_set_gen_id(dll.cpp)	
+	[{"%f_is_simple_call(%S)"="true"}{%f_cb_tie_complex_operation_dll_cpp(%S)}	[{"%TN"!="void"}return ]m_impl-\>%SN_%SU (<{, }%CN[{"%Cf"="false"}-\>m_impl]>);]
+	}
+
+f _cb_tie_complex_operation_dll_cpp
+	<{}{"%f_need_tie(%C%T)"="true"}	[{"%t_interface(%C%T)"="true"}{%f_type(%C%T)}::Core::Var\<%f_type(%C%T)\>] %CN_;[{"%CS"!="out"}
+		%f_type(%C%T)::make_tie(%CN, %CN_[{"%t_interface(%C%T)"="true"}.out()]);]
+	>[{"%t_simple(%T)"="false"}	::Core::[{"%t_interface(%T)"="true"}{Aptr}Var]\<%f_type(%T)\> ret_;
+	]
+		[{"%t_simple(%T)"="true"}%f_type(%T) ret_ = ]m_impl-\>%SN_%SU(<{, }%CN[{"%f_need_tie(%C%T)"="true"}_][{"%t_interface(%C%T)"="true"}[{"%CS"="out"}{.in()}.out()]]>[{"%t_simple(%T)"="false"}[{"%Cx"="true"}, ][{"%Tf"="true"}{ret_.out()}*ret_]]);
+	
+	<{}{"%f_need_tie(%C%T)"="true"&"%CS"="out"}	%f_type(%C%T)::make_cpp(_%CN, %CN);
+	>[{"%t_simple(%T)"="false"}{[{"%TN"!="void"}	return ret_;]}	[{"%f_need_tie(%T)"="true"}{return ret_._retn();}%f_cpp_type(%T)* ret = NULL;
+		%f_type(%T)::make_cpp(ret_, ret);
+		return ret;]]
+
+f _dll_cpp_ret
+	[{"%t_simple(%T)"="true"}{void}%f_ret(%S)]
+
+f _dll_cpp_attr_ret
+	[{"%t_simple(%T)"="true"}{void}%f_iget_attr(%S)]
+
+f _dll_cpp_params_h
+	[\n#\t<{\n#\t, }%f_arg_full_decl(%C)>[{"%t_simple(%T)"="false"}[{"%Cx"="true"}\n#\t, ]%t_arg(%T,"out") ret_]\n#]
+
+f _dll_cpp_params_cpp
+	%f_dll_cpp_params_h(%S)
+/	[\n#\t<{\n#\t, }%f_arg_full_decl(%C)>[{"%t_simple(%T)"="false"}[{"%Cx"="true"}\n#\t, ]%t_arg(%T,"out") ret_]\n#]
+
+f _dll_cpp_attr_get
+	[{"%t_simple(%S)"="false"}%t_arg(%S,"out") ret_]
+
+f _dll_cpp_attr_set
+	[{%t_tied_elem(%T)=true}{%f_iset_attr(%S)}%t_attr(%T,"lnk-const")] %SN
+
+f _cpp_ret_holder
+	[{"%SS"!="out"}{[{"%t_interface(%T)"="false"&"%Tf"="false"&"%t_simple(%T)"="false"}{%f_cpp_type(%T)[{"%Tf"="false"}*]}::Core::Aptr\<%f_cpp_type(%T)\>]}%f_cpp_type(%T)[{%t_interface(%T)=true|%t_is_container(%T)=true}*]]
+
+f _tie_operation_dll_cpp
+	%f_dll_cpp_ret(%S) __stdcall %{OWNER}N_tie::%SN_%SU (%f_dll_cpp_params_cpp(%S))[{"%SS"!="chg"&"%SS"!="oneway,chg"} const][ /*throw (<{, }%f_type(%E)>)*/] {
+	_DLL_TRY[{"%P{native definition}"!="C++ interface"}{
+		%U[{_NATIVE}
+		]
+	}
+	[{"%f_is_simple_call(%S)"!="true"}{	[{"%TN"!="void"}return ]m_impl-\>%SN (<{, }%CN>);
+	}%f_complex_tie_call(%S)]]%f_DLL_CATCH(%S)
+	}
+
+f _complex_tie_call
+	<{}{%f_need_tie(%C%T)=true|%CS=out&%t_simple(%C%T)=false&%C%Tf=false}	%f_cpp_ret_holder(%C) %CN_[{"%CS"="out"} = 0];[{"%CS"!="out"}
+		%f_type(%C%T)::make_cpp(%CN, %CN_);]
+	>
+		[{%Tx=true&%TN!=void}\
+	[{%Ss!=cached&%Ss!=const,cached}[{%t_interface(%T)=true|%t_simple(%T)=true}{::Core::Aptr\<%f_cpp_type(%T)\>}%f_cpp_ret(%S)]]\
+	[{%Ss=cached|%Ss=const,cached}%f_cpp_ret(%S)]\
+	 ret = ]m_impl-\>%SN(<{, }[{%t_is_container(%C%T)=true&%CS!=out}*]%CN[{%f_need_tie(%C%T)=true|%CS=out&%t_simple(%C%T)=false&%C%Tf=false}_[{%CS=out&%t_simple(%C%T)=false&%t_interface(%C%T)=false}.out()]]>);
+
+	<{}{%f_need_tie(%C%T)=true&%CS!=in}[{%t_interface(%C%T)=false|%CS=out}	%f_type(%C%T)::make_tie([{%CS=out&%t_interface(%C%T)=false&%t_is_container(%C%T)=false}*]%CN_[{%CS=out&%t_is_container(%C%T)=true}.in()], [{%CS=out&%t_interface(%C%T)=false&%t_is_container(%C%T)=false}*]%CN);
+	]]>\
+	<{}{%CS=out&%f_need_tie(%C%T)=false&%C%Tf=false&%t_simple(%C%T)=false}	if (%CN_.ptr()) {
+			%CN = *_%CN;
+		}
+	>[{%Tx=true&%TN!=void}	[{"%f_need_tie(%T)"="true"}{\
+	[{"%t_simple(%T)"="false"}{return ret;}[{%Ss!=cached&%Ss!=const,cached}if (ret.ptr()) {
+			[{%t_interface(%{CONT_TYPE})=false}*]ret_ = *ret;
+		}][{%Ss=cached|%Ss=const,cached}[{%t_interface(%{CONT_TYPE})=false}*]ret_ = ret;]]\
+	}%f_type(%T)::make_tie([{%t_interface(%T)=false&%t_tied_elem(%T)=false&%Ss!=cached&%Ss!=const,cached}*]ret[{%t_tied_elem(%T)=true}._retn()]\
+	, [{%t_interface(%T)=false&%t_is_container(%T)=false}*]ret_[{%Ss=cached|%Ss=const,cached}, this]);]
+	]
+
+f _is_simple_call
+	[{"%t_simple(%T)"="true"&"<{}{"%f_need_tie(%C%T)"="true"}{%CC}>"="0"}{false}true]
+
+f _DLL_CATCH
+	[{"%S{Must throw in error}"!="false"}{_DLL_CATCH_RETURNED}_DLL_CATCH]
+
+f _interface_attribute_h
+	%f_docs(%S)\
+	[{"%SS"!="writeonly"}#virtual %f_iget_attr(%S) get_%SN () const[
+	#	/*throw (<{, }%E<%NN::>%EN>)*/] = 0;[{"%f_beaccessed(%S)"="true"}
+	#virtual %f_igetnc_attr(%S) get_%SN ()[
+	#	/*throw (<{, }%E<%NN::>%EN>)*/] = 0;]][{"%SS"!="readonly"}[{"%SS"!="writeonly"}\n]#virtual void set_%SN (%f_iset_attr(%S) %SN)[
+	#	/*throw (<{, }%e<%NN::>%eN>)*/] = 0;]
+
+f _interface_attribute_java
+	%f_docs(%S)\
+	[{"%SS"!="writeonly"}#%f_ret(%S) get_%SN ()[
+	#	throws (<{, }%f_type(%E)>)];][{"%SS"!="readonly"}[{"%SS"!="writeonly"}\n]#void set_%SN (%f_iset_attr(%S) %SN)[
+	#	throws (<{, }%f_type(%e)>)];]
+
+f _interface_java_operation
+	%f_docs(%S)\
+	#public %f_ret(%S) %SN (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>];

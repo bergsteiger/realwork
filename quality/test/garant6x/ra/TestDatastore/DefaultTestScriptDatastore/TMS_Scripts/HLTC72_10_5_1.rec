@@ -1,0 +1,25 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART    
+    call Goto_Spisok
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    call Click_Izvle4enie
+    ListBox Click, "ObjectIndex=5", "Coords=31,62"
+    InputKeys "{HOME}"
+    call Position_by_Text("CurrentFocus","Гражданский кодекс",1)
+    InputKeys "{Enter}"
+    DelayFor 5000
+    InputKeys "^+{RIGHT}"
+      
+    Window SetTestContext, "Caption={ГАРАНТ*}", ""
+    Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=2", "VP=Izvle4eniya")
+    Window ResetTestContext, "", ""
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+  
+End Sub

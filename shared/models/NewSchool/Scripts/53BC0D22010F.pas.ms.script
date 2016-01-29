@@ -1,0 +1,264 @@
+// BadEVD 53BC0D22010F TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53BC0D22010F
+
+FORWARD ME_53BC0D3900DF
+
+: ME_53BC0E010210
+ CONST UID '53BC0E010210'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BC0D3900DF // TBadEVDTest
+ ;
+ : Target WL 'ME_53BC0D790357' '47ECACA70141.pas.ms.script' // TevdBadEVDToEmptyDocumentTranslator
+ ;
+
+ref; // ME_53BC0E010210 
+
+: ME_30FE535BC737
+ CONST UID '30FE535BC737'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BC0D3900DF // TBadEVDTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_30FE535BC737 
+
+: ME_4C07BCBE01F2_ME_53BC0D3900DF
+ CONST UID '4C07BCBE01F2'
+ CONST Name 'SetFilters'
+ : Original WL 'ME_4C07BCBE01F2' '4BACDD97014B.pas.ms.script' // SetFilters
+ ;
+ : Implementor ME_53BC0D3900DF // TBadEVDTest
+ ;
+ref; // ME_4C07BCBE01F2_ME_53BC0D3900DF SetFilters
+
+: ME_4C937013031D_ME_53BC0D3900DF
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_53BC0D3900DF // TBadEVDTest
+ ;
+ref; // ME_4C937013031D_ME_53BC0D3900DF GetFolder
+
+: ME_4DAED6F60146_ME_53BC0D3900DF
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_53BC0D3900DF // TBadEVDTest
+ ;
+ref; // ME_4DAED6F60146_ME_53BC0D3900DF GetModelElementGUID
+
+: ME_53BC0D3900DF
+ CONST UID '53BC0D3900DF'
+ CONST Name 'TBadEVDTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53BC0D22010F // BadEVD
+ ;
+ : Inherits
+   @ ( WL 'ME_4C07B5E300F2' '4C07B59F0382.pas.ms.script' // EVDtoEVDWriterTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C07BCBE01F2_ME_53BC0D3900DF // SetFilters
+ ME_4C937013031D_ME_53BC0D3900DF // GetFolder
+ ME_4DAED6F60146_ME_53BC0D3900DF // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_53BC0E010210 // 
+ ME_30FE535BC737 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\BadEVDTest.pas'
+
+ref; // ME_53BC0D3900DF TBadEVDTest
+
+FORWARD ME_53BC205D036D
+
+: ME_0D10DBC54D0F
+ CONST UID '0D10DBC54D0F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BC205D036D // K553427493
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_0D10DBC54D0F 
+
+: ME_4C937013031D_ME_53BC205D036D
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_53BC205D036D // K553427493
+ ;
+ref; // ME_4C937013031D_ME_53BC205D036D GetFolder
+
+: ME_4DAED6F60146_ME_53BC205D036D
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_53BC205D036D // K553427493
+ ;
+ref; // ME_4DAED6F60146_ME_53BC205D036D GetModelElementGUID
+
+: ME_53BC205D036D
+ CONST UID '53BC205D036D'
+ CONST Name 'K553427493'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:553427493}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53BC0D22010F // BadEVD
+ ;
+ : Inherits
+   @ ( ME_53BC0D3900DF // TBadEVDTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C937013031D_ME_53BC205D036D // GetFolder
+ ME_4DAED6F60146_ME_53BC205D036D // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_0D10DBC54D0F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K553427493.pas'
+ CONST extprop:pas:TypeName 'TK553427493'
+
+ref; // ME_53BC205D036D K553427493
+
+FORWARD ME_53BC206602B8
+
+: ME_3329F14712D4
+ CONST UID '3329F14712D4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BC206602B8 // K553427493_notBad
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_3329F14712D4 
+
+: ME_4C937013031D_ME_53BC206602B8
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_53BC206602B8 // K553427493_notBad
+ ;
+ref; // ME_4C937013031D_ME_53BC206602B8 GetFolder
+
+: ME_4DAED6F60146_ME_53BC206602B8
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_53BC206602B8 // K553427493_notBad
+ ;
+ref; // ME_4DAED6F60146_ME_53BC206602B8 GetModelElementGUID
+
+: ME_53BC206602B8
+ CONST UID '53BC206602B8'
+ CONST Name 'K553427493_notBad'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:553427493}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53BC0D22010F // BadEVD
+ ;
+ : Inherits
+   @ ( ME_53BC0D3900DF // TBadEVDTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C937013031D_ME_53BC206602B8 // GetFolder
+ ME_4DAED6F60146_ME_53BC206602B8 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_3329F14712D4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K553427493_notBad.pas'
+ CONST extprop:pas:TypeName 'TK553427493_notBad'
+
+ref; // ME_53BC206602B8 K553427493_notBad
+
+: ME_53BC0D22010F
+ CONST UID '53BC0D22010F'
+ CONST Name 'BadEVD'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_53BC0D3900DF // TBadEVDTest
+ ME_53BC205D036D // K553427493
+ ME_53BC206602B8 // K553427493_notBad
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47ECACA70141' '47ECACA70141.pas.ms.script' // Generators
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4C07B59F0382' '4C07B59F0382.pas.ms.script' // EVD
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53BC0D22010F.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53BC0D22010F.pas.ms.script.runner'
+
+ref; // ME_53BC0D22010F BadEVD

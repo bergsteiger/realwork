@@ -1,0 +1,45 @@
+USES
+ EditorTools.script 
+;
+
+OBJECT VAR l_TextForm
+
+: "Открыть F1Prime" 
+ l_TextForm pop:Control:Width := 1000
+ l_TextForm pop:Control:Height := 500
+ l_TextForm pop:Control:Show
+ "Загрузить документ в {(l_TextForm)}"     
+;
+
+: "Проскроллировать вниз форму создания рассылки" 
+ OBJECT VAR l_Editor
+ focused:control:push >>> l_Editor
+ 20 LOOP (
+  l_Editor pop:Editor:ScrollLineDown 
+  ProcessMessages 
+ )
+;
+
+: "Перевести курсор в поле Наименование обслуживающей организации"
+ 3 LOOP cc:Down
+; 
+
+: K290951357
+ class::TQFLikeTextLoadForm .Create >>> l_TextForm 
+ TRY
+  INTEGER VAR l_FontSize
+  GetFontSize >>> l_FontSize 
+  TRY 
+   cnDefaultFontSize SetFontSize 
+   "Открыть F1Prime"
+   "Проскроллировать вниз форму создания рассылки"
+   "Перевести курсор в поле Наименование обслуживающей организации"   
+  FINALLY
+   l_FontSize SetFontSize
+  END  
+ FINALLY
+  l_TextForm pop:Control:Handle AskWindowToCloseItself
+ END 
+;
+
+K290951357

@@ -1,0 +1,7087 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/ServantSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::ServantSupport
+//
+// набор вспомогательных функций для генерации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// определяет является ли переданный элемент интерфейсом
+//f _is_interface
+: is_interface OBJECT IN %S
+//#UC START# *47145B730232*
+//	[{%t_check_type(%S,"Interface::Class")=true|%t_check_type(%S,"ServerInterface::Class")=true}{false}true]
+ if ( ( [%t] check_type %( %S %, 'Interface::Class' )% ) %==  true OR 
+   ( ( [%t] check_type %( %S %, 'ServerInterface::Class' )% ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47145B730232*
+; // is_interface
+
+
+// возвращает список реализуемых элементов - вершин иерархии
+//f _dump_realize_root
+: dump_realize_root OBJECT IN %S
+//#UC START# *47145BA60261*
+//	%f_set_var(TEMP_ROOT,"")%f_dump_realize_root_i(%S)
+ [%f] set_var %( 'TEMP_ROOT' %, '' )% [%f] dump_realize_root_i %( %S )% 
+//#UC END# *47145BA60261*
+; // dump_realize_root
+
+
+// реализация dump_realize_root ()
+//f _dump_realize_root_i
+: dump_realize_root_i OBJECT IN %S
+//#UC START# *47145C000222*
+//	[{%f_is_interface(%S)=true}{[{%Rx=true}<%f_dump_realize_root_i(%R)>]}[{%Gx=true}{[{"%{TEMP_ROOT}N"!="%SN::%SU"}%f_set_var(TEMP_ROOT,"%SN::%SU")%{TEMP_ROOT}N]}<%f_dump_realize_root_i(%G)>]]
+ if ( ( [%f] is_interface %( %S )% ) %==  true ) then
+ begin
+  if ( ( %G |x ) %==  true ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+     [%f] dump_realize_root_i %( %G )% 
+     ++! l_Counter
+    end // if
+   end // for G
+  end // if
+  else
+  begin
+   if ( ( ( get_global_var ( 'TEMP_ROOT' ) |N ) ) %!= ( %S |N ) '::( '
+    %S |U ) ) then
+   begin
+    [%f] set_var %( 'TEMP_ROOT' %, %S |N '::'
+    %S |U )% ( get_global_var ( 'TEMP_ROOT' ) |N ) 
+   end // if
+  end // else
+ end // if
+ else
+ begin
+  if ( ( %R |x ) %==  true ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_realize_root_i %( %R )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+//#UC END# *47145C000222*
+; // dump_realize_root_i
+
+
+// возвращает список реализуемых классов по ветке реализации
+//f _dump_realize_root_by_realize
+: dump_realize_root_by_realize OBJECT IN %S
+//#UC START# *47145C1D02EE*
+//	%f_dump_realize_root(%S)
+ [%f] dump_realize_root %( %S )% 
+//#UC END# *47145C1D02EE*
+; // dump_realize_root_by_realize
+
+
+// возвращает список реализуемых класов по ветке наследования
+//f _dump_realize_root_by_inherit
+: dump_realize_root_by_inherit OBJECT IN %S
+//#UC START# *47145C3A02AF*
+//	[{%Gx=true}<%f_dump_realize_root(%G)>]
+ if ( ( %G |x ) %==  true ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_realize_root %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+//#UC END# *47145C3A02AF*
+; // dump_realize_root_by_inherit
+
+
+// проверка, что сервант реализует один интерфейс с учетом наследования, т.е т.е иерархия
+// наследования должна иметь в качестве узла единственный реализуемый интерфейс
+//f _check_realize_root
+: check_realize_root OBJECT IN %S
+//#UC START# *47145C72036B*
+//	%f_set_var(DEBUG,"")%f_set_var(DEBUG,"%f_check_realize_root_i(%S)")[{"%{DEBUG}N"!=""}{true}false]
+ [%f] set_var %( 'DEBUG' %, '' )% [%f] set_var %( 'DEBUG' %, [%f] check_realize_root_i %( %S )% )% if ( ( ( get_global_var ( 'DEBUG' ) |N ) ) %!= '' ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *47145C72036B*
+; // check_realize_root
+
+
+// реализация метода check_realize_root
+//f _check_realize_root_i
+: check_realize_root_i OBJECT IN %S
+//#UC START# *47145C870271*
+//	[{%f_is_interface(%S)=true}{[{%Rx=true}<%f_check_realize_root_i(%R)>]}[{%Gx=true}{[{%f_is_derived_from(%{DIRECT_INT},%S)=false}%SN]}<%f_check_realize_root_i(%G)>]]
+ if ( ( [%f] is_interface %( %S )% ) %==  true ) then
+ begin
+  if ( ( %G |x ) %==  true ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+     [%f] check_realize_root_i %( %G )% 
+     ++! l_Counter
+    end // if
+   end // for G
+  end // if
+  else
+  begin
+   if ( ( [%f] is_derived_from %( ( get_global_var ( 'DIRECT_INT' ) ) %, %S )% ) %==  false ) then
+   begin
+    %S |N 
+   end // if
+  end // else
+ end // if
+ else
+ begin
+  if ( ( %R |x ) %==  true ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] check_realize_root_i %( %R )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+//#UC END# *47145C870271*
+; // check_realize_root_i
+
+
+// ищет среди реализуемых классов заданный (передаётся как второй параметр)
+//f _is_derived_from
+: is_derived_from OBJECT IN %S
+//#UC START# *47145C8F03D8*
+//	%f_set_var(TEMP_ARG,1)[{<{}{%rU=%{TEMP_ARG}U}>!=0}{false}true]
+ [%f] set_var %( 'TEMP_ARG' %, 1 )% if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%r
+  begin
+   OBJECT IN %r
+   if ( ( %r |U ) %== ( ( get_global_var ( 'TEMP_ARG' ) |U ) ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for r
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47145C8F03D8*
+; // is_derived_from
+
+
+// проверка констрэйнта наследования сервантов
+//f _check_inherit_int
+: check_inherit_int OBJECT IN %S
+//#UC START# *47145CC7033C*
+//	[{<{}{%f_check_realize_root(%G)!=true}{C}>=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( [%f] check_realize_root %( %G )% ) %!=  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %== 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47145CC7033C*
+; // check_inherit_int
+
+
+// проверка наследования сервантов
+//f _check_inherit_base
+: check_inherit_base OBJECT IN %S
+//#UC START# *47145CD000EA*
+//	%f_set_var(ROOT,"%f_dump_realize_root(%g)")\
+ [%f] set_var %( 'ROOT' %, [%f] dump_realize_root %( %g )% )% 
+//	%f_set_var(DEBUG,"")\
+ [%f] set_var %( 'DEBUG' %, '' )% 
+//	[{"<{}{%f_set_var(G_ROOT,"%f_dump_realize_root(%g)")"%{G_ROOT}N"!=""&"%{G_ROOT}N"!="%{ROOT}N"}.>"=""}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if ( ( [%f] set_var %( 'G_ROOT' %, [%f] dump_realize_root %( %g )% )% ) ( ( get_global_var ( 'G_ROOT' ) |N ) ) %!= '' AND 
+    ( ( ( get_global_var ( 'G_ROOT' ) |N ) ) %!= ( ( get_global_var ( 'ROOT' ) |N ) )  ) ) then
+   begin
+    '.' 
+    ++! l_Counter
+   end // if
+  end // for g
+  %== '' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//#UC END# *47145CD000EA*
+; // check_inherit_base
+
+
+// функция для проверки констрэйнтов
+//f _check_realize_base
+: check_realize_base OBJECT IN %S
+//#UC START# *47145CD8032C*
+//	%f_set_var(ROOT,"%f_dump_realize_root(%R)")\
+ [%f] set_var %( 'ROOT' %, [%f] dump_realize_root %( %R )% )% 
+//	%f_set_var(DEBUG,"")\
+ [%f] set_var %( 'DEBUG' %, '' )% 
+//	[{"<{}{%f_set_var(R_ROOT,"%f_dump_realize_root(%R)")"%{R_ROOT}N"!=""&"%{R_ROOT}N"!="%{ROOT}N"}.>"=""}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( [%f] set_var %( 'R_ROOT' %, [%f] dump_realize_root %( %R )% )% ) ( ( get_global_var ( 'R_ROOT' ) |N ) ) %!= '' AND 
+    ( ( ( get_global_var ( 'R_ROOT' ) |N ) ) %!= ( ( get_global_var ( 'ROOT' ) |N ) )  ) ) then
+   begin
+    '.' 
+    ++! l_Counter
+   end // if
+  end // for R
+  %== '' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//#UC END# *47145CD8032C*
+; // check_realize_base
+
+
+// дампит вспомогательную информацию о наследовании
+//f _dump_debug_inherit
+: dump_debug_inherit OBJECT IN %S
+//#UC START# *47145CED00EA*
+//	/%f_set_var(ROOT,"%f_dump_realize_root(%g)")<{;}{%f_set_var(G_ROOT,"%f_dump_realize_root(%g)")"%{G_ROOT}N"!=""&"%{G_ROOT}N"!="%{ROOT}N"}%{ROOT}N!=%{G_ROOT}N>/
+ '/'
+ [%f] set_var %( 'ROOT' %, [%f] dump_realize_root %( %g )% )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%g
+ begin
+  OBJECT IN %g
+  if ( ( [%f] set_var %( 'G_ROOT' %, [%f] dump_realize_root %( %g )% )% ) ( ( get_global_var ( 'G_ROOT' ) |N ) ) %!= '' AND 
+   ( ( ( get_global_var ( 'G_ROOT' ) |N ) ) %!= ( ( get_global_var ( 'ROOT' ) |N ) )  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( ';' )
+   ( get_global_var ( 'ROOT' ) |N ) '!='
+   ( get_global_var ( 'G_ROOT' ) |N ) 
+   ++! l_Counter
+  end // if
+ end // for g
+ '/'
+
+//#UC END# *47145CED00EA*
+; // dump_debug_inherit
+
+
+// дампит вспомогательную информацию о реализуемых элементах
+//f _dump_debug_realize
+: dump_debug_realize OBJECT IN %S
+//#UC START# *47145CF50128*
+//	/%f_set_var(ROOT,"%f_dump_realize_root(%R)")<{;}{%f_set_var(G_ROOT,"%f_dump_realize_root(%R)")"%{G_ROOT}N"!=""&"%{G_ROOT}N"!="%{ROOT}N"}%{ROOT}N!=%{G_ROOT}N>/
+ '/'
+ [%f] set_var %( 'ROOT' %, [%f] dump_realize_root %( %R )% )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%f] set_var %( 'G_ROOT' %, [%f] dump_realize_root %( %R )% )% ) ( ( get_global_var ( 'G_ROOT' ) |N ) ) %!= '' AND 
+   ( ( ( get_global_var ( 'G_ROOT' ) |N ) ) %!= ( ( get_global_var ( 'ROOT' ) |N ) )  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( ';' )
+   ( get_global_var ( 'ROOT' ) |N ) '!='
+   ( get_global_var ( 'G_ROOT' ) |N ) 
+   ++! l_Counter
+  end // if
+ end // for R
+ '/'
+//#UC END# *47145CF50128*
+; // dump_debug_realize
+
+
+// проверяет, что сервант не релизует (рекурсивно) более одного интерфейса
+//f _supply_realize_constraint
+: supply_realize_constraint OBJECT IN %S
+//#UC START# *47145D0D02EE*
+//	%f_set_var(REALIZE_CNT,"<{}{%f_is_interface(%R)=true}{%RC}>")\
+ [%f] set_var %( 'REALIZE_CNT' %, 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%f] is_interface %( %R )% ) %==  true ) then
+  begin
+
+   ++! l_Counter
+  end // if
+ end // for R
+ l_Counter
+)% //	%f_set_var(INHERIT_CNT,"<{}{}{%GC}>")\
+ [%f] set_var %( 'INHERIT_CNT' %, 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+
+   ++! l_Counter
+  end // if
+ end // for G
+ l_Counter
+)% //	%f_set_var(MORE_THEN_ONE_INT,"%f_number_cmp("%{REALIZE_CNT}N","1","\>")")\
+ [%f] set_var %( 'MORE_THEN_ONE_INT' %, [%f] number_cmp %( ( get_global_var ( 'REALIZE_CNT' ) |N ) %, 1 %, '>' )% )% 
+//	%f_set_var(MORE_THEN_ONE_BASE,"%f_number_cmp("%{INHERIT_CNT}N","1","\>")")\
+ [%f] set_var %( 'MORE_THEN_ONE_BASE' %, [%f] number_cmp %( ( get_global_var ( 'INHERIT_CNT' ) |N ) %, 1 %, '>' )% )% 
+//	%f_set_var(DIRECT_INT,R)\
+ [%f] set_var %( 'DIRECT_INT' %, 'R' )% 
+//	[{%f_true(%{MORE_THEN_ONE_INT})=true}{[{%Rx=true}{[{%f_true(%{MORE_THEN_ONE_BASE})=true}{true}[{%f_check_inherit_base(%S)=true}{1false%f_dump_debug_inherit(%S)}true]]}[{%Gx=true}{true}[{%f_check_inherit_int(%S)=true}{2!%{DEBUG}N!}true]]]}[{%f_check_realize_base(%S)=true}{3false%f_dump_debug_realize(%S)}true]]
+ if ( ( [%f] true %( ( get_global_var ( 'MORE_THEN_ONE_INT' ) ) )% ) %==  true ) then
+ begin
+  if ( ( [%f] check_realize_base %( %S )% ) %==  true ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+   3  false [%f] dump_debug_realize %( %S )% 
+  end // else
+ end // if
+ else
+ begin
+  if ( ( %R |x ) %==  true ) then
+  begin
+   if ( ( %G |x ) %==  true ) then
+   begin
+    if ( ( [%f] check_inherit_int %( %S )% ) %==  true ) then
+    begin
+      true 
+    end // if
+    else
+    begin
+     2 '!'
+     ( get_global_var ( 'DEBUG' ) |N ) '!' 
+    end // else
+   end // if
+   else
+   begin
+     true 
+   end // else
+  end // if
+  else
+  begin
+   if ( ( [%f] true %( ( get_global_var ( 'MORE_THEN_ONE_BASE' ) ) )% ) %==  true ) then
+   begin
+    if ( ( [%f] check_inherit_base %( %S )% ) %==  true ) then
+    begin
+      true 
+    end // if
+    else
+    begin
+     1  false [%f] dump_debug_inherit %( %S )% 
+    end // else
+   end // if
+   else
+   begin
+     true 
+   end // else
+  end // else
+ end // else
+
+//#UC END# *47145D0D02EE*
+; // supply_realize_constraint
+
+
+// выводит имя POA-серванта
+//f _dump_base_poa
+: dump_base_poa OBJECT IN %S
+//#UC START# *47145D40003E*
+//	[POA_%f_full_name(%S)]
+ if NOT-EMPTY
+ begin
+  'POA_'
+  [%f] full_name %( %S )% 
+ end // if
+ NOP
+//#UC END# *47145D40003E*
+; // dump_base_poa
+
+
+// проверка на множественное наследование в java
+//f _java_constraint
+: java_constraint OBJECT IN %S
+//#UC START# *47145D5F03C8*
+//	[{"<{}{}{%SC}>"!="0"}{true}[{"<{}{}{%SC}>"!="1"}{true}false]]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%S
+  begin
+   OBJECT IN %S
+   if true then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for S
+  l_Counter
+  %!= 0 ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%S
+   begin
+    OBJECT IN %S
+    if true then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for S
+   l_Counter
+   %!= 1 ) then
+  begin
+    false 
+  end // if
+  else
+  begin
+    true 
+  end // else
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *47145D5F03C8*
+; // java_constraint
+
+
+// генерация списка наследования для серверного объекта (java)
+//f _java_base_srv
+: java_base_srv OBJECT IN %S
+//#UC START# *47145D76000F*
+//	[{%Gx=true&%f_number_cmp("<{}{%f_is_server_type(%R)=true}{%RC}>","1","\>")=1}{<{}{%f_is_server_type(%R)=true} extends %f_type(%R)POA>[ implements %f_dump_servant_srv_implements_list(%S)]}%f_error(Java class %SN can't realize more than one server interface (<{}{%f_is_server_type(%R)=true}{%RC}>))]
+//	%f_clear_list(IMPLEMENTS_LIST)\
+ [%f] clear_list %( 'IMPLEMENTS_LIST' )% 
+//	%f_clear_list(EXTENDS_LIST)\
+ [%f] clear_list %( 'EXTENDS_LIST' )% 
+//	%f_collect_server_servant_implements_list(%S,"IMPLEMENTS_LIST")\
+ [%f] collect_server_servant_implements_list %( %S %, 'IMPLEMENTS_LIST' )% 
+//	%f_collect_server_servant_extends_list(%S,"EXTENDS_LIST")\
+ [%f] collect_server_servant_extends_list %( %S %, 'EXTENDS_LIST' )% 
+//	%f_unique_list(IMPLEMENTS_LIST,"%SN")\
+ [%f] unique_list %( 'IMPLEMENTS_LIST' %, %S |N )% 
+//	%f_unique_list(EXTENDS_LIST,"%SN")\
+ [%f] unique_list %( 'EXTENDS_LIST' %, %S |N )% 
+//	[{%f_number_cmp("%f_size_list(EXTENDS_LIST)","1","\>")=1}%f_error("%SN в java не может одновременно наследоваться от: %f_dump_servant_base_list("EXTENDS_LIST")")]\
+ if ( ( [%f] number_cmp %( [%f] size_list %( 'EXTENDS_LIST' )% %, 1 %, '>' )% ) %== 1 ) then
+ begin
+  [%f] error %( %S |N ' в java не может одновременно наследоваться от: '
+  [%f] dump_servant_base_list %( 'EXTENDS_LIST' )% )% 
+ end // if
+//	[ extends %f_dump_servant_base_list("EXTENDS_LIST")][ implements %f_dump_servant_base_list("IMPLEMENTS_LIST")]
+ if NOT-EMPTY
+ begin
+  ' extends '
+  [%f] dump_servant_base_list %( 'EXTENDS_LIST' )% 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  ' implements '
+  [%f] dump_servant_base_list %( 'IMPLEMENTS_LIST' )% 
+ end // if
+ NOP
+
+
+//f _is_local_interface_poa
+; // java_base_srv
+
+: is_local_interface_poa OBJECT IN %S
+//	[{%SS=LocalInterface&<{}{%RS=ServerInterface|%RS=ServerFacet}{C}>!=0}{false}true]
+ if ( ( %S |S ) %== 'LocalInterface' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |S ) %== 'ServerInterface' OR 
+    ( ( %R |S ) %== 'ServerFacet'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _dump_servant_base_list
+; // is_local_interface_poa
+
+: dump_servant_base_list OBJECT IN %S
+//	%f_set_var(__ID__,"%SN")\
+ [%f] set_var %( '__ID__' %, %S |N )% 
+//	<{, }{%f_is_empty(%{__ID__}N)=false}{W}%f_pop_first_to_var(%{__ID__}N,ITEM)%{ITEM}N>
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( ( get_global_var ( '__ID__' ) |N ) )% ) %==  false ) then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] pop_first_to_var %( ( get_global_var ( '__ID__' ) |N ) %, 'ITEM' )% ( get_global_var ( 'ITEM' ) |N ) 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+
+//f _dump_servant_srv_implements_list
+; // dump_servant_base_list
+
+: dump_servant_srv_implements_list OBJECT IN %S
+//	%f_clear_list(IMPLEMENTS_LIST)\
+ [%f] clear_list %( 'IMPLEMENTS_LIST' )% 
+//	%f_collect_srv_implements_list(%S,"IMPLEMENTS_LIST")\
+ [%f] collect_srv_implements_list %( %S %, 'IMPLEMENTS_LIST' )% 
+//	%f_sort_list(IMPLEMENTS_LIST,n)%f_unique_list(IMPLEMENTS_LIST)\
+ [%f] sort_list %( 'IMPLEMENTS_LIST' %, 'n' )% [%f] unique_list %( 'IMPLEMENTS_LIST' )% 
+//	<{, }{%f_is_empty(IMPLEMENTS_LIST)=false}{W}%f_pop_first_to_var(IMPLEMENTS_LIST,INT_ITEM)%{INT_ITEM}N>
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'IMPLEMENTS_LIST' )% ) %==  false ) then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] pop_first_to_var %( 'IMPLEMENTS_LIST' %, 'INT_ITEM' )% ( get_global_var ( 'INT_ITEM' ) |N ) 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+
+//f _collect_server_servant_extends_list
+; // dump_servant_srv_implements_list
+
+: collect_server_servant_extends_list OBJECT IN %S
+//	[{""="%1N"}%f_error("_collect__srv_extends_list: Не задан идентификатор списка!")]\
+ if ( '' %== ( %1 |N ) ) then
+ begin
+  [%f] error %( '_collect__srv_extends_list: Не задан идентификатор списка!' )% 
+ end // if
+//	%f_clear_list(BASE_SRV_REALIZE)\
+ [%f] clear_list %( 'BASE_SRV_REALIZE' )% 
+//	%f_set_var(__ID__,"%1N")\
+ [%f] set_var %( '__ID__' %, %1 |N )% 
+//	<{}{}{%G}%f_add_to_list(%{__ID__}N,"%f_type(%G)")%f_collect_implemented_server_type_req(%G,"BASE_SRV_REALIZE")>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+   [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, [%f] type %( %G )% )% [%f] collect_implemented_server_type_req %( %G %, 'BASE_SRV_REALIZE' )% 
+   ++! l_Counter
+  end // if
+ end // for G
+ '>'
+//	<{}{}{%R}[{%f_is_server_type(%R)=false}{[{%f_exists_in_list(BASE_SRV_REALIZE,R)=false}%f_add_to_list(%{__ID__}N,"%f_type(%R)POA")]}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   if ( ( [%f] is_server_type %( %R )% ) %==  false ) then
+   begin
+//	[{%RS=LocalInterface}%R<{}{%f_is_server_type(%r)=true}[{%f_exists_in_list(BASE_SRV_REALIZE,r)=false}%f_add_to_list(%{__ID__}N,"%f_type(%r)POA")]>\
+    if ( ( %R |S ) %== 'LocalInterface' ) then
+    begin
+     %R
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%r
+      begin
+       OBJECT IN %r
+       if ( ( [%f] is_server_type %( %r )% ) %==  true ) then
+       begin
+        if ( ( [%f] exists_in_list %( 'BASE_SRV_REALIZE' %, 'r' )% ) %==  false ) then
+        begin
+         [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, [%f] type %( %r )% 'POA' )% 
+        end // if
+
+        ++! l_Counter
+       end // if
+      end // for r
+
+     ) // bind
+ //	%R<{}{%f_is_server_type(%g)=true}[{%f_exists_in_list(BASE_SRV_REALIZE,g)=false}%f_add_to_list(%{__ID__}N,"%f_type(%g)POA")]>]]>\
+     %R
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%g
+      begin
+       OBJECT IN %g
+       if ( ( [%f] is_server_type %( %g )% ) %==  true ) then
+       begin
+        if ( ( [%f] exists_in_list %( 'BASE_SRV_REALIZE' %, 'g' )% ) %==  false ) then
+        begin
+         [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, [%f] type %( %g )% 'POA' )% 
+        end // if
+
+        ++! l_Counter
+       end // if
+      end // for g
+
+     ) // bind
+     end // if
+   end // if
+   else
+   begin
+    if ( ( [%f] exists_in_list %( 'BASE_SRV_REALIZE' %, 'R' )% ) %==  false ) then
+    begin
+     [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, [%f] type %( %R )% 'POA' )% 
+    end // if
+   end // else
+
+   ++! l_Counter
+  end // if
+ end // for R
+//	%f_remove_from_list(%{__ID__}N,"")
+ [%f] remove_from_list %( ( get_global_var ( '__ID__' ) |N ) %, '' )% 
+
+//f _collect_implemented_server_type_req
+; // collect_server_servant_extends_list
+
+: collect_implemented_server_type_req OBJECT IN %S
+//	%f_set_var(__ID1__,"%1N")\
+ [%f] set_var %( '__ID1__' %, %1 |N )% 
+//	<{}{%f_is_server_type(%R)=true}%f_add_to_list(%{__ID1__}N,R)>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%f] is_server_type %( %R )% ) %==  true ) then
+  begin
+   [%f] add_to_list %( ( get_global_var ( '__ID1__' ) |N ) %, 'R' )% 
+   ++! l_Counter
+  end // if
+ end // for R
+//	<{}{}{%G}%f_collect_implemented_server_type_req(%G,"%{__ID1__}N")>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+   [%f] collect_implemented_server_type_req %( %G %, ( get_global_var ( '__ID1__' ) |N ) )% 
+   ++! l_Counter
+  end // if
+ end // for G
+
+//f _collect_server_servant_implements_list
+; // collect_implemented_server_type_req
+
+: collect_server_servant_implements_list OBJECT IN %S
+//	[{""="%1N"}%f_error("_collect_srv_implements_list: Не задан идентификатор списка!")]\
+ if ( '' %== ( %1 |N ) ) then
+ begin
+  [%f] error %( '_collect_srv_implements_list: Не задан идентификатор списка!' )% 
+ end // if
+//	%f_set_var(__ID__,"%1N")\
+ [%f] set_var %( '__ID__' %, %1 |N )% 
+//	<{}{%f_is_server_type(%R)=false&%t_check_type(%R,"StateMachine::Class")=false}%f_add_to_list(%{__ID__}N,"%f_type(%R)")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%f] is_server_type %( %R )% ) %==  false AND 
+   ( ( [%t] check_type %( %R %, 'StateMachine::Class' )% ) %==  false  ) ) then
+  begin
+   [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, [%f] type %( %R )% )% 
+   ++! l_Counter
+  end // if
+ end // for R
+//	%f_find_sm_impl(%S)\
+ [%f] find_sm_impl %( %S )% 
+//	[{"%{SM_IMPL}U"!=""}[{<{}{%RM=StateMachine::Class}{C}>=0}{%f_add_to_list(%{__ID__}N,"%f_type(%{SM_IMPL})")\
+ if ( ( ( get_global_var ( 'SM_IMPL' ) |U ) ) %!= '' ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |M ) %== 'StateMachine::Class' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %== 0 ) then
+  begin
+   [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, ( get_global_var ( 'SM_IMPL' ) %f get_realization_package %( )% ) '.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Impl.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Comm' )% 
+  end // if
+  else
+  begin
+   [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, [%f] type %( ( get_global_var ( 'SM_IMPL' ) ) )% )% 
+//	%f_add_to_list(%{__ID__}N,"%{SM_IMPL}%f_get_realization_package().%{SM_IMPL}NImpl.%{SM_IMPL}NComm")\
+   [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, ( get_global_var ( 'SM_IMPL' ) %f get_realization_package %( )% ) '.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Impl.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Comm' )% 
+//	}%f_add_to_list(%{__ID__}N,"%{SM_IMPL}%f_get_realization_package().%{SM_IMPL}NImpl.%{SM_IMPL}NComm")]]\
+  end // else
+ end // if
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_collect_consumer_event(%S)\
+ [%f] collect_consumer_event %( %S )% 
+//	<{}{%f_is_empty(CONSUME_DEP_LIST)=false}{W}%f_pop_first_to_var(CONSUME_DEP_LIST,DEP)%f_add_to_list(%{__ID__}N,"%f_type(%{DEP}%T)EventManager.%{DEP}%TNConsumer")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'CONSUME_DEP_LIST' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'CONSUME_DEP_LIST' %, 'DEP' )% [%f] add_to_list %( ( get_global_var ( '__ID__' ) |N ) %, [%f] type %( ( get_global_var ( 'DEP' )  ->T ) )% 'EventManager.'
+   ( get_global_var ( 'DEP' )  ->T |N ) 'Consumer' )% 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_remove_from_list(%{__ID__}N,"")
+ [%f] remove_from_list %( ( get_global_var ( '__ID__' ) |N ) %, '' )% 
+
+//f _collect_servant_srv_implements_list
+; // collect_server_servant_implements_list
+
+: collect_servant_srv_implements_list OBJECT IN %S
+//	<{}{%f_is_server_type(%R)=false&%t_check_type(%R,"StateMachine::Class")=false}%f_add_to_list(IMPLEMENTS_LIST,"%f_type(%R)")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%f] is_server_type %( %R )% ) %==  false AND 
+   ( ( [%t] check_type %( %R %, 'StateMachine::Class' )% ) %==  false  ) ) then
+  begin
+   [%f] add_to_list %( 'IMPLEMENTS_LIST' %, [%f] type %( %R )% )% 
+   ++! l_Counter
+  end // if
+ end // for R
+//	%f_find_sm_impl(%S)\
+ [%f] find_sm_impl %( %S )% 
+//	[{"%{SM_IMPL}U"!=""}[{<{}{%RM=StateMachine::Class}{C}>=0}{%f_add_to_list(IMPLEMENTS_LIST,"%f_type(%{SM_IMPL})")\
+ if ( ( ( get_global_var ( 'SM_IMPL' ) |U ) ) %!= '' ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |M ) %== 'StateMachine::Class' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %== 0 ) then
+  begin
+   [%f] add_to_list %( 'IMPLEMENTS_LIST' %, ( get_global_var ( 'SM_IMPL' ) %f get_realization_package %( )% ) '.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Impl.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Comm' )% 
+  end // if
+  else
+  begin
+   [%f] add_to_list %( 'IMPLEMENTS_LIST' %, [%f] type %( ( get_global_var ( 'SM_IMPL' ) ) )% )% 
+//	%f_add_to_list(IMPLEMENTS_LIST,"%{SM_IMPL}%f_get_realization_package().%{SM_IMPL}NImpl.%{SM_IMPL}NComm")\
+   [%f] add_to_list %( 'IMPLEMENTS_LIST' %, ( get_global_var ( 'SM_IMPL' ) %f get_realization_package %( )% ) '.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Impl.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Comm' )% 
+//	}%f_add_to_list(IMPLEMENTS_LIST,"%{SM_IMPL}%f_get_realization_package().%{SM_IMPL}NImpl.%{SM_IMPL}NComm")]]\
+  end // else
+ end // if
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_collect_consumer_event(%S)\
+ [%f] collect_consumer_event %( %S )% 
+//	<{}{%f_is_empty(CONSUME_DEP_LIST)=false}{W}%f_pop_first_to_var(CONSUME_DEP_LIST,DEP)%f_add_to_list(IMPLEMENTS_LIST,"%f_type(%{DEP}%T)EventManager.%{DEP}%TNConsumer")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'CONSUME_DEP_LIST' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'CONSUME_DEP_LIST' %, 'DEP' )% [%f] add_to_list %( 'IMPLEMENTS_LIST' %, [%f] type %( ( get_global_var ( 'DEP' )  ->T ) )% 'EventManager.'
+   ( get_global_var ( 'DEP' )  ->T |N ) 'Consumer' )% 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//#UC END# *47145D76000F*
+; // collect_servant_srv_implements_list
+
+
+// генерация списка наследования для серванта
+//f _java_base
+: java_base OBJECT IN %S
+//#UC START# *47145D9203B9*
+//	[{%f_java_constraint(%G)=false}{< extends %f_type(%G)>[ implements %f_dump_servant_implements_list(%S)]}%f_error(Java class %SN can't extend more than one class)]
+ if ( ( [%f] java_constraint %( %G )% ) %==  false ) then
+ begin
+  [%f] error %( 'Java class '
+  %S |N ' can''t extend more than one class' )% 
+ end // if
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    ' extends '
+    [%f] type %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+  if NOT-EMPTY
+  begin
+   ' implements '
+   [%f] dump_servant_implements_list %( %S )% 
+  end // if
+  NOP
+ end // else
+
+//f _dump_servant_implements_list
+; // java_base
+
+: dump_servant_implements_list OBJECT IN %S
+//	%f_clear_list(IMPLEMENTS_LIST)\
+ [%f] clear_list %( 'IMPLEMENTS_LIST' )% 
+//	%f_collect_servant_implements_list(%S)\
+ [%f] collect_servant_implements_list %( %S )% 
+//	%f_sort_list(IMPLEMENTS_LIST,n)%f_unique_list(IMPLEMENTS_LIST)\
+ [%f] sort_list %( 'IMPLEMENTS_LIST' %, 'n' )% [%f] unique_list %( 'IMPLEMENTS_LIST' )% 
+//	<{, }{%f_is_empty(IMPLEMENTS_LIST)=false}{W}%f_pop_first_to_var(IMPLEMENTS_LIST,INT_ITEM)%{INT_ITEM}N>
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'IMPLEMENTS_LIST' )% ) %==  false ) then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] pop_first_to_var %( 'IMPLEMENTS_LIST' %, 'INT_ITEM' )% ( get_global_var ( 'INT_ITEM' ) |N ) 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+
+//f _collect_servant_implements_list
+; // dump_servant_implements_list
+
+: collect_servant_implements_list OBJECT IN %S
+//	<{}{%t_check_type(%R,"StateMachine::Class")=false}{%R}%f_add_to_list(IMPLEMENTS_LIST,"%f_type(%R)%f_interface_postfix(%R)")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%t] check_type %( %R %, 'StateMachine::Class' )% ) %==  false ) then
+  begin
+   [%f] add_to_list %( 'IMPLEMENTS_LIST' %, [%f] type %( %R )% [%f] interface_postfix %( %R )% )% 
+   ++! l_Counter
+  end // if
+ end // for R
+//	%f_find_sm_impl(%S)\
+ [%f] find_sm_impl %( %S )% 
+//	[{"%{SM_IMPL}U"!=""}[{<{}{%RM=StateMachine::Class}{C}>=0}{%f_add_to_list(IMPLEMENTS_LIST,"%f_type(%{SM_IMPL})")\
+ if ( ( ( get_global_var ( 'SM_IMPL' ) |U ) ) %!= '' ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |M ) %== 'StateMachine::Class' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %== 0 ) then
+  begin
+   [%f] add_to_list %( 'IMPLEMENTS_LIST' %, ( get_global_var ( 'SM_IMPL' ) %f get_realization_package %( )% ) '.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Impl.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Comm' )% 
+  end // if
+  else
+  begin
+   [%f] add_to_list %( 'IMPLEMENTS_LIST' %, [%f] type %( ( get_global_var ( 'SM_IMPL' ) ) )% )% 
+//	%f_add_to_list(IMPLEMENTS_LIST,"%{SM_IMPL}%f_get_realization_package().%{SM_IMPL}NImpl.%{SM_IMPL}NComm")\
+   [%f] add_to_list %( 'IMPLEMENTS_LIST' %, ( get_global_var ( 'SM_IMPL' ) %f get_realization_package %( )% ) '.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Impl.'
+   ( get_global_var ( 'SM_IMPL' ) |N ) 'Comm' )% 
+//	}%f_add_to_list(IMPLEMENTS_LIST,"%{SM_IMPL}%f_get_realization_package().%{SM_IMPL}NImpl.%{SM_IMPL}NComm")]]\
+  end // else
+ end // if
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_collect_consumer_event(%S)\
+ [%f] collect_consumer_event %( %S )% 
+//	<{}{%f_is_empty(CONSUME_DEP_LIST)=false}{W}%f_pop_first_to_var(CONSUME_DEP_LIST,DEP)%f_add_to_list(IMPLEMENTS_LIST,"%f_type(%{DEP}%T)EventManager.%{DEP}%TNConsumer")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'CONSUME_DEP_LIST' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'CONSUME_DEP_LIST' %, 'DEP' )% [%f] add_to_list %( 'IMPLEMENTS_LIST' %, [%f] type %( ( get_global_var ( 'DEP' )  ->T ) )% 'EventManager.'
+   ( get_global_var ( 'DEP' )  ->T |N ) 'Consumer' )% 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//#UC END# *47145D9203B9*
+; // collect_servant_implements_list
+
+
+// можно ли дампить атрибут (java)
+//f _can_dump_attr
+: can_dump_attr OBJECT IN %S
+//#UC START# *47145EA1029F*
+//	true
+ true
+//#UC END# *47145EA1029F*
+; // can_dump_attr
+
+
+// генерация списка импортов для серванта
+//f _servant_import
+: servant_import OBJECT IN %S
+//#UC START# *47145EB301C5*
+//	[%f_java_dump_import_block(%S)]
+ if NOT-EMPTY
+ begin
+  [%f] java_dump_import_block %( %S )% 
+ end // if
+ NOP
+//#UC END# *47145EB301C5*
+; // servant_import
+
+
+// генерация списка наследования для фабрики серванта (java)
+//f _dump_all_base_fctrs_java
+: dump_all_base_fctrs_java OBJECT IN %S
+//#UC START# *47145ED6037A*
+//	<{, }{%RS=Interface|%RS=ServerInterface|%RS=LocalInterface}%f_type(%R)FactoryManager.%RNAbstractFactory>[{<{}{%RS=Interface|%RS=ServerInterface|%RS=LocalInterface}{C}>=0}<%f_dump_all_base_fctrs_java(%G)>]
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R |S ) %== 'Interface' OR 
+   ( ( %R |S ) %== 'ServerInterface'  ) OR 
+   ( ( %R |S ) %== 'LocalInterface'  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] type %( %R )% 'FactoryManager.'
+   %R |N 'AbstractFactory' 
+   ++! l_Counter
+  end // if
+ end // for R
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |S ) %== 'Interface' OR 
+    ( ( %R |S ) %== 'ServerInterface'  ) OR 
+    ( ( %R |S ) %== 'LocalInterface'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %== 0 ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_base_fctrs_java %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+//	
+//#UC END# *47145ED6037A*
+; // dump_all_base_fctrs_java
+
+
+// реализация "уничтожителя" (java)
+//f _dump_fctr_remover_java
+: dump_fctr_remover_java OBJECT IN %S
+//#UC START# *47145EF9032C*
+//	[{"%1N"!="servant"}\
+ if ( ( %1 |N ) %!= 'servant' ) then
+ begin
+//	[{"%{SERV}{Factory default impl}"!="true"}[#%f_str_split(%SD,#// )
+  if ( ( ( get_global_var ( 'SERV' ) get_up ( 'Factory default impl' ) ) ) %!= true ) then
+  begin
+   if NOT-EMPTY
+   begin
+    out_indent [%f] str_split %( %S |D %, out_indent '// ' )% 
+//	]]#public [{%f_use_as_srv_type(%{SERV})=true}{void}int] %f_to_java(%SN) (%t_arg(%{INT},"in") obj<, %f_arg_full_decl(%C)>)[\n#\tthrows [{%f_use_as_srv_type(%{SERV})=true}{<{, }%f_type(%E)>}ru.garant.shared.CoreSrv.ForeignObject<, %f_type(%E)>]\n#]{
+   end // if
+   NOP
+  end // if
+  out_indent 'public '
+  if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+  begin
+   'int' 
+  end // if
+  else
+  begin
+   'void' 
+  end // else
+  ' '
+  [%f] to_java %( %S |N )% ' ('
+  [%t] arg %( ( get_global_var ( 'INT' ) ) %, 'in' )% ' obj'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    ', '
+    [%f] arg_full_decl %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ')'
+  if NOT-EMPTY
+  begin
+   #13#10
+   out_indent #9'throws '
+   if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+   begin
+    'ru.garant.shared.CoreSrv.ForeignObject'
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      ', '
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+   end // if
+   else
+   begin
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+   end // else
+   #13#10
+   out_indent 
+  end // if
+  NOP
+  '{'
+//		[{%f_use_as_srv_type(%{SERV})=true}#int objHash = obj._hash (Integer.MAX_VALUE);
+  '	'
+  if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+  begin
+   out_indent 'int objHash = obj._hash (Integer.MAX_VALUE);'
+//		][{"%{SERV}{Factory default impl}"="true"}{#%U[{%{SERV}U_%SU_IMPL}
+   '	' 
+  end // if
+  if ( ( ( get_global_var ( 'SERV' ) get_up ( 'Factory default impl' ) ) ) %== true ) then
+  begin
+   if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+   begin
+    out_indent ( get_global_var ( 'SERV' ) |N ) ' lsrv = null;'
+//		#byte\[\] oid = null;
+    '	'
+    out_indent 'byte[] oid = null;'
+//		#try {
+    '	'
+    out_indent 'try {'
+//		#	oid = %{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().reference_to_id (obj);
+    '	'
+    out_indent '	oid = '
+    ( get_global_var ( 'SERV' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%P
+     begin
+      OBJECT IN %P
+      if ( ( %P |M ) %== 'Library::Category' OR 
+       ( ( %P |M ) %== 'ServerLibrary::Category'  ) ) then
+      begin
+       [%f] dump_java_package %( %P )% '.'
+       %P |N '.LibHomeFactory' 
+       ++! l_Counter
+      end // if
+     end // for P
+
+    ) // bind
+    '.get().getOrbFacet().getRootPoa().reference_to_id (obj);'
+//	
+    #13#10
+
+//		#	org.omg.PortableServer.Servant srv = %{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().reference_to_servant (obj);
+    '	'
+    out_indent '	org.omg.PortableServer.Servant srv = '
+    ( get_global_var ( 'SERV' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%P
+     begin
+      OBJECT IN %P
+      if ( ( %P |M ) %== 'Library::Category' OR 
+       ( ( %P |M ) %== 'ServerLibrary::Category'  ) ) then
+      begin
+       [%f] dump_java_package %( %P )% '.'
+       %P |N '.LibHomeFactory' 
+       ++! l_Counter
+      end // if
+     end // for P
+
+    ) // bind
+    '.get().getOrbFacet().getRootPoa().reference_to_servant (obj);'
+//		#	lsrv = (%{SERV}N)srv;
+    '	'
+    out_indent '	lsrv = ('
+    ( get_global_var ( 'SERV' ) |N ) ')srv;'
+//		#} catch (java.lang.Throwable ex) {
+    '	'
+    out_indent '} catch (java.lang.Throwable ex) {'
+//		#	Logs.LOG_SEX(ex);
+    '	'
+    out_indent '	Logs.LOG_SEX(ex);'
+//		#}
+    '	'
+    out_indent '}'
+//	
+    #13#10
+
+//		#if (lsrv == null) {
+    '	'
+    out_indent 'if (lsrv == null) {'
+//		#	throw new ru.garant.shared.CoreSrv.ForeignObject ();
+    '	'
+    out_indent '	throw new ru.garant.shared.CoreSrv.ForeignObject ();'
+//		#}
+    '	'
+    out_indent '}'
+//		#lsrv.%SN (%S<{, }%CN>);
+    '	'
+    out_indent 'lsrv.'
+    %S |N ' ('
+    %S
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       %C |N 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     ');'
+//		#try {
+    '	'
+    out_indent 'try {'
+//			#%{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().deactivate_object (oid);
+    '		'
+    out_indent ( get_global_var ( 'SERV' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%P
+     begin
+      OBJECT IN %P
+      if ( ( %P |M ) %== 'Library::Category' OR 
+       ( ( %P |M ) %== 'ServerLibrary::Category'  ) ) then
+      begin
+       [%f] dump_java_package %( %P )% '.'
+       %P |N '.LibHomeFactory' 
+       ++! l_Counter
+      end // if
+     end // for P
+
+    ) // bind
+    '.get().getOrbFacet().getRootPoa().deactivate_object (oid);'
+//		#} catch (java.lang.Throwable ex) {
+    '	'
+    out_indent '} catch (java.lang.Throwable ex) {'
+//		#	Logs.LOG_SEX(ex);
+    '	'
+    out_indent '	Logs.LOG_SEX(ex);'
+//		#}]
+    '	'
+    out_indent '}' 
+   end // if
+   else
+   begin
+    out_indent '(('
+    ( get_global_var ( 'SERV' ) |N ) ')obj).'
+    %S |N ' ('
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+    ');' 
+   end // else
+//	][{%f_use_as_srv_type(%{SERV})=true}#	return objHash;
+  end // if
+  else
+  begin
+   out_indent %Usersection (
+    ( get_global_var ( 'SERV' ) |U ) '_'
+    %S |U '_IMPL' 
+   )
+   (
+    #13#10
+
+//		#]\n}[{%f_use_as_srv_type(%{SERV})=true}{#((%{SERV}N)obj).%SN (<{, }%CN>);}#%{SERV}N lsrv = null;
+    '	'
+    out_indent 
+   ) // Usersection
+    #13#10 
+  end // else
+  if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+  begin
+   out_indent '	return objHash;'
+//	]#}]
+  end // if
+  out_indent '}' 
+ end // if
+//#UC END# *47145EF9032C*
+; // dump_fctr_remover_java
+
+
+// реализация фабричных методов (java)
+//f _dump_fctr_java
+: dump_fctr_java OBJECT IN %S
+//#UC START# *47145F17000F*
+//	[{"%2N"=""}%f_warning("_dump_fctr_java: Не задан идентификатор списка")]\
+ if ( ( %2 |N ) %== '' ) then
+ begin
+  [%f] warning %( '_dump_fctr_java: Не задан идентификатор списка' )% 
+ end // if
+//	[<{}{%f_is_factory(%C)=true&%CC=Operation}[{%f_exists_in_list(%2N,C)=false}%f_add_to_list(%2N,C)[{%CS!=remover}{%f_dump_fctr_remover_java(%C,"%1N")}
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %==  true AND 
+    ( ( %C |C ) %== 'Operation'  ) ) then
+   begin
+    if ( ( [%f] exists_in_list %( %2 |N %, 'C' )% ) %==  false ) then
+    begin
+     [%f] add_to_list %( %2 |N %, 'C' )% if ( ( %C |S ) %!= 'remover' ) then
+     begin
+      #13#10
+
+//	[{%CS!=finder}{%C%f_for_servant_factory(%{SERV})}%f_dump_servant_factory_java(%C,"%1N")]
+      if ( ( %C |S ) %!= 'finder' ) then
+      begin
+       [%f] dump_servant_factory_java %( %C %, %1 |N )% 
+      end // if
+      else
+      begin
+       %C %f for_servant_factory %( ( get_global_var ( 'SERV' ) ) )% 
+      end // else
+//	]]>]
+     end // if
+     else
+     begin
+      [%f] dump_fctr_remover_java %( %C %, %1 |N )% 
+     end // else
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+
+//f _dump_servant_factory_java
+; // dump_fctr_java
+
+: dump_servant_factory_java OBJECT IN %S
+//	[{%S{const_type}=combo}{%f_dump_servant_factory_java_impl(%S)}%f_dump_servant_factory_java_impl(%S,"%1N","read-write")
+ if ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) then
+ begin
+  [%f] dump_servant_factory_java_impl %( %S %, %1 |N %, 'read-write' )% 
+//	
+  #13#10
+
+//	%f_dump_servant_factory_java_impl(%S,"%1N","read-only","Ro")]
+  [%f] dump_servant_factory_java_impl %( %S %, %1 |N %, 'read-only"' %, 'Ro' )% 
+ end // if
+ else
+ begin
+  [%f] dump_servant_factory_java_impl %( %S )% 
+ end // else
+
+//f _dump_servant_factory_java_impl
+; // dump_servant_factory_java
+
+: dump_servant_factory_java_impl OBJECT IN %S
+//	%f_set_var(SELF_FCTR_PARAMS,"%S%f_factory_params("%2N","","","servant")")\
+ [%f] set_var %( 'SELF_FCTR_PARAMS' %, %S %f factory_params %( %2 |N %, '' %, '' %, 'servant' )% )% 
+//	%f_set_var(FCTR_MEM_PARAM,"[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}%f_type(%{INT})FactoryManager.%T%f_factory_mem_key_name() memKey]")\
+ [%f] set_var %( 'FCTR_MEM_PARAM' %, if ( ( %T |S ) %== 'FactoryMemory' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0  ) ) then
+ begin
+  [%f] type %( ( get_global_var ( 'INT' ) ) )% 'FactoryManager.'
+  %T %f factory_mem_key_name %( )% ' memKey' 
+ end // if
+)% //	%f_set_var(RO_PARAM,"[{%S{const_type}=combo}boolean roMode]")\
+ [%f] set_var %( 'RO_PARAM' %, if ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) then
+ begin
+  'boolean roMode' 
+ end // if
+)% //	%f_set_var(FCTR_ALL_PARAMS,"%f_merge_string(", ","%{SELF_FCTR_PARAMS}N","%{FCTR_MEM_PARAM}N","%{RO_PARAM}N")")\
+ [%f] set_var %( 'FCTR_ALL_PARAMS' %, [%f] merge_string %( %, ' "' %, ( get_global_var ( 'SELF_FCTR_PARAMS' ) |N ) %, ( get_global_var ( 'FCTR_MEM_PARAM' ) |N ) %, ( get_global_var ( 'RO_PARAM' ) |N ) )% )% //
+//
+
+//	%f_set_var(SELF_FCTR_CALL_PARAMS,"<{, }%f_to_java(%CN)>")\
+ [%f] set_var %( 'SELF_FCTR_CALL_PARAMS' %, 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] to_java %( %C |N )% 
+   ++! l_Counter
+  end // if
+ end // for C
+)% //	%f_set_var(FCTR_MEM_CALL_PARAM,"[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}%f_type(%{INT})memKey]")\
+ [%f] set_var %( 'FCTR_MEM_CALL_PARAM' %, if ( ( %T |S ) %== 'FactoryMemory' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0  ) ) then
+ begin
+  [%f] type %( ( get_global_var ( 'INT' ) ) )% 'memKey' 
+ end // if
+)% //	%f_set_var(FCTR_ID_CALL_PARAM,"[{"%f_equal_ctor(%{SERV},%S)"="true"}new %{SERV}N.FactoriesID.%f_to_borland(%SN) ()]")\
+ [%f] set_var %( 'FCTR_ID_CALL_PARAM' %, if ( ( [%f] equal_ctor %( ( get_global_var ( 'SERV' ) ) %, %S )% ) %== true ) then
+ begin
+  'new '
+  ( get_global_var ( 'SERV' ) |N ) '.FactoriesID.'
+  [%f] to_borland %( %S |N )% ' ()' 
+ end // if
+)% //	%f_set_var(RO_CALL_PARAM,"[{%S{const_type}=combo}roMode]")\
+ [%f] set_var %( 'RO_CALL_PARAM' %, if ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) then
+ begin
+  'roMode' 
+ end // if
+)% //	%f_set_var(FCTR_ALL_CALL_PARAMS,"%f_merge_string(", ","%{SELF_FCTR_CALL_PARAMS}N","%{FCTR_MEM_CALL_PARAM}N","%{FCTR_ID_CALL_PARAM}N","%{RO_CALL_PARAM}N")")\
+ [%f] set_var %( 'FCTR_ALL_CALL_PARAMS' %, [%f] merge_string %( %, ' "' %, ( get_global_var ( 'SELF_FCTR_CALL_PARAMS' ) |N ) %, ( get_global_var ( 'FCTR_MEM_CALL_PARAM' ) |N ) %, ( get_global_var ( 'FCTR_ID_CALL_PARAM' ) |N ) %, ( get_global_var ( 'RO_CALL_PARAM' ) |N ) )% )% 
+//		public final %t_ret(%{INT}) %f_to_java(%SN)%3N (%{FCTR_ALL_PARAMS}N)[ throws <{, }%f_type(%E)>] {
+ '	public final '
+ [%t] ret %( ( get_global_var ( 'INT' ) ) )% ' '
+ [%f] to_java %( %S |N )% %3 |N ' ('
+ ( get_global_var ( 'FCTR_ALL_PARAMS' ) |N ) ')'
+ if NOT-EMPTY
+ begin
+  ' throws '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+ end // if
+ NOP
+ ' {'
+//	[{"%{SERV}{Factory default impl}"="true"}{		%U[{%{SERV}U_%SU_[{"%1N"="servant"}SERVANT_]IMPL}[{"%1N"="servant"}\n		return null;]\n		]}[{%f_realize_srv_type(%{SERV})=true}{		return new %{SERV}N (%{FCTR_ALL_CALL_PARAMS}N);}		try {
+ if ( ( ( get_global_var ( 'SERV' ) get_up ( 'Factory default impl' ) ) ) %== true ) then
+ begin
+  if ( ( [%f] realize_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+  begin
+   '		try {'
+//				%f_type(%{SERV}) ret = new %{SERV}N (%{FCTR_ALL_CALL_PARAMS}N);
+   '			'
+   [%f] type %( ( get_global_var ( 'SERV' ) ) )% ' ret = new '
+   ( get_global_var ( 'SERV' ) |N ) ' ('
+   ( get_global_var ( 'FCTR_ALL_CALL_PARAMS' ) |N ) ');'
+//				org.omg.CORBA.Object obj = %{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().servant_to_reference(ret);
+   '			org.omg.CORBA.Object obj = '
+   ( get_global_var ( 'SERV' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%P
+    begin
+     OBJECT IN %P
+     if ( ( %P |M ) %== 'Library::Category' OR 
+      ( ( %P |M ) %== 'ServerLibrary::Category'  ) ) then
+     begin
+      [%f] dump_java_package %( %P )% '.'
+      %P |N '.LibHomeFactory' 
+      ++! l_Counter
+     end // if
+    end // for P
+
+   ) // bind
+   '.get().getOrbFacet().getRootPoa().servant_to_reference(ret);'
+//				[{%{INT}S!=LocalInterface}{return ret;}return [{"%1N"="servant"}{%f_type(%{INT})Helper.narrow(obj);}(%f_type(%{__SERVANT}))%f_type(%{INT})Helper.narrow(obj);]]
+   '			'
+   if ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'LocalInterface' ) then
+   begin
+    'return '
+    if ( ( %1 |N ) %== 'servant' ) then
+    begin
+     '('
+     [%f] type %( ( get_global_var ( '__SERVANT' ) ) )% ')'
+     [%f] type %( ( get_global_var ( 'INT' ) ) )% 'Helper.narrow(obj);' 
+    end // if
+    else
+    begin
+     [%f] type %( ( get_global_var ( 'INT' ) ) )% 'Helper.narrow(obj);' 
+    end // else
+   end // if
+   else
+   begin
+    'return ret;' 
+   end // else
+//	[<{}{}{%E}\
+   if NOT-EMPTY
+   begin
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+//			} catch (%f_type(%E) ex) {
+      '		} catch ('
+      [%f] type %( %E )% ' ex) {'
+//				Logs.LOG_SEX(ex);
+      '			Logs.LOG_SEX(ex);'
+//				throw ex;
+      '			throw ex;'
+//	>]\
+
+      ++! l_Counter
+     end // if
+    end // for E
+   end // if
+   NOP
+//			} catch (Exception ex) {
+   '		} catch (Exception ex) {'
+//				Logs.LOG_SEX(ex);
+   '			Logs.LOG_SEX(ex);'
+//				throw new org.omg.CORBA.portable.UnknownException (ex);
+   '			throw new org.omg.CORBA.portable.UnknownException (ex);'
+//			}]]
+   '		}' 
+  end // if
+  else
+  begin
+   '		return new '
+   ( get_global_var ( 'SERV' ) |N ) ' ('
+   ( get_global_var ( 'FCTR_ALL_CALL_PARAMS' ) |N ) ');' 
+  end // else
+ end // if
+ else
+ begin
+  '		'
+  %Usersection (
+   ( get_global_var ( 'SERV' ) |U ) '_'
+   %S |U '_'
+   if ( ( %1 |N ) %== 'servant' ) then
+   begin
+    'SERVANT_' 
+   end // if
+   'IMPL' 
+  )
+  (
+   if ( ( %1 |N ) %== 'servant' ) then
+   begin
+    #13#10'		return null;' 
+   end // if
+   #13#10'		' 
+  ) // Usersection
+  end // else
+//		}
+ '	}'
+//#UC END# *47145F17000F*
+; // dump_servant_factory_java_impl
+
+
+// реализация всех фабричных методов
+//f _dump_all_fctr_java
+: dump_all_fctr_java OBJECT IN %S
+//#UC START# *47145F3F02AF*
+//приходится использовать отдельный алгоритм, а не f_collect_all_factories, т.к
+//необходимо явно выставлять тип, который возвращает фабрика (%f_set_var(INT,R))
+//	%f_clear_list(47145F3F02AF_ALL_FCTR)\
+ [%f] clear_list %( '47145F3F02AF_ALL_FCTR' )% 
+//	%f_set_var(INT,"")\
+ [%f] set_var %( 'INT' %, '' )% 
+//	%f_dump_all_fctr_java_impl(%S,%1,"47145F3F02AF_ALL_FCTR")
+ [%f] dump_all_fctr_java_impl %( %S %, %1 %, 47145 'F3F02AF_ALL_FCTR' )% 
+
+//f _dump_all_fctr_java_impl
+; // dump_all_fctr_java
+
+: dump_all_fctr_java_impl OBJECT IN %S
+//	<%f_set_var(INT,R)%f_dump_fctr_java(%R,%1,%2)\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] set_var %( 'INT' %, 'R' )% [%f] dump_fctr_java %( %R %, %1 %, %2 )% 
+//	[{%RS=LocalInterface}%f_dump_all_fctr_java_impl(%R,%1,%2)%f_set_var(INT,R)]\
+   if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_fctr_java_impl %( %R %, %1 %, %2 )% [%f] set_var %( 'INT' %, 'R' )% 
+   end // if
+//	%R<{}{"%ga"="abstract"}%f_dump_fctr_java(%g,%2,%3)\
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] dump_fctr_java %( %g %, %2 %, %3 )% 
+//	[{%gS=LocalInterface}%f_dump_all_fctr_java_impl(%g,%2,%3)]\
+      if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_fctr_java_impl %( %g %, %2 %, %3 )% 
+      end // if
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+ //	>\
+
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}<%f_dump_all_fctr_java_impl(%G,%1,%2)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_fctr_java_impl %( %G %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+
+//	%f_clear_list(47145F3F02AF_ALL_FCTRS)\
+//	%f_collect_all_factories(%S,"47145F3F02AF_ALL_FCTRS","\[{\%f_is_factory(\%S)=true}{false}true\]")\
+//	%f_sort_list(47145F3F02AF_ALL_FCTRS,g)%f_unique_list(47145F3F02AF_ALL_FCTRS)\
+//	[<{}{%f_is_empty(47145F3F02AF_ALL_FCTRS)=false}{W}[%f_pop_first_to_var(47145F3F02AF_ALL_FCTRS,47145F3F02AF_FCTR)[{%{47145F3F02AF_FCTR}S!=remover}{%f_dump_fctr_remover_java(%{47145F3F02AF_FCTR},"%1N")}
+//	%f_dump_servant_factory_java(%{47145F3F02AF_FCTR},"%1N")
+//	]]>]
+//#UC END# *47145F3F02AF*
+; // dump_all_fctr_java_impl
+
+
+// регистрация фабрики серванта в менеджере фабрик (java)
+//f _dump_all_registr_fctrs_java
+: dump_all_registr_fctrs_java OBJECT IN %S
+//#UC START# *47145F51029F*
+//	[{}{<%f_dump_all_registr_fctrs_java(%G)>}<{}{%RS=Interface|%RS=ServerInterface|%RS=LocalInterface}	%f_type(%R)FactoryManager.registerFactory (this, priority);
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |S ) %== 'Interface' OR 
+    ( ( %R |S ) %== 'ServerInterface'  ) OR 
+    ( ( %R |S ) %== 'LocalInterface'  ) ) then
+   begin
+    '	'
+    [%f] type %( %R )% 'FactoryManager.registerFactory (this, priority);'
+//	>]
+
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_registr_fctrs_java %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // else
+//#UC END# *47145F51029F*
+; // dump_all_registr_fctrs_java
+
+
+// генерация списка наследования для фабрики серванта
+//f _dump_all_base_fctrs
+: dump_all_base_fctrs OBJECT IN %S
+//#UC START# *47145F8C0222*
+//	<{}{%RS=Interface|%RS=ServerInterface|%RS=LocalInterface|%RS=Entity}[{%1N=true}\n\t], virtual public %f_type(%R)AbstractFactory>[{<{}{%RS=Interface|%RS=ServerInterface|%RS=LocalInterface|%RS=Entity}{C}>=0}[{%Gx=true}{<%f_dump_all_base_fctrs(%R,"%1N")>}<%f_dump_all_base_fctrs(%G,"%1N")>]]
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R |S ) %== 'Interface' OR 
+   ( ( %R |S ) %== 'ServerInterface'  ) OR 
+   ( ( %R |S ) %== 'LocalInterface'  ) OR 
+   ( ( %R |S ) %== 'Entity'  ) ) then
+  begin
+   if ( ( %1 |N ) %==  true ) then
+   begin
+    #13#10#9 
+   end // if
+   ', virtual public '
+   [%f] type %( %R )% 'AbstractFactory' 
+   ++! l_Counter
+  end // if
+ end // for R
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |S ) %== 'Interface' OR 
+    ( ( %R |S ) %== 'ServerInterface'  ) OR 
+    ( ( %R |S ) %== 'LocalInterface'  ) OR 
+    ( ( %R |S ) %== 'Entity'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %== 0 ) then
+ begin
+  if ( ( %G |x ) %==  true ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+     [%f] dump_all_base_fctrs %( %G %, %1 |N )% 
+     ++! l_Counter
+    end // if
+   end // for G
+  end // if
+  else
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_base_fctrs %( %R %, %1 |N )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // else
+ end // if
+//#UC END# *47145F8C0222*
+; // dump_all_base_fctrs
+
+
+// декларация друзей серванта
+//f _dump_friend_decl
+: dump_friend_decl OBJECT IN %S
+//#UC START# *47145FA70213*
+//	[{%SK=ParameterizedClass}{[{%SM=InstanceDef::Class}{	friend class %SN;}	friend class %f_type(%R)\< %f_instdef_args(%S) \>;]}\
+ if ( ( %S |K ) %== 'ParameterizedClass' ) then
+ begin
+
+//	<{\n}{}{%L}%f_set_var(SELF_T,{SELF})%f_set_var(SELF,L)	friend class %f_type(%L%R)%f_dump_parameterized_list(%L%R);%f_set_var(SELF,{SELF_T})>]
+//		template \<<{, }{"%CC"="Parameter"}%CX>\> friend class %SN;]<{}{%RK=ParameterizedClass}
+  '	template <'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Parameter' ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+  '> friend class '
+  %S |N ';' 
+ end // if
+ else
+ begin
+  if ( ( %S |M ) %== 'InstanceDef::Class' ) then
+  begin
+   '	friend class '
+   [%f] type %( %R )% '< '
+   [%f] instdef_args %( %S )% ' >;' 
+  end // if
+  else
+  begin
+   '	friend class '
+   %S |N ';' 
+  end // else
+ end // else
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R |K ) %== 'ParameterizedClass' ) then
+  begin
+   #13#10
+
+//	%f_dump_friend_decl(%R)
+   [%f] dump_friend_decl %( %R )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for R
+//#UC END# *47145FA70213*
+; // dump_friend_decl
+
+
+// форвард декларация друзей серванта
+//f _dump_friend_frwd
+: dump_friend_frwd OBJECT IN %S
+//#UC START# *47145FBB0186*
+//	[%SP\t][{%SM!=InstanceDef::Class}[{%SK=ParameterizedClass}{class %SN; //forward friend}\
+ if NOT-EMPTY
+ begin
+  %S |P #9 
+ end // if
+ NOP
+ if ( ( %S |M ) %!= 'InstanceDef::Class' ) then
+ begin
+  if ( ( %S |K ) %== 'ParameterizedClass' ) then
+  begin
+//	template \<<{, }{"%CC"="Parameter"}%CX>\> class %SN; //forward friend]][
+   'template <'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Parameter' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+   '> class '
+   %S |N '; //forward friend' 
+  end // if
+  else
+  begin
+   'class '
+   %S |N '; //forward friend' 
+  end // else
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%Sp]
+  %S |p 
+ end // if
+ NOP
+//#UC END# *47145FBB0186*
+; // dump_friend_frwd
+
+
+// возвращает true, если нужно использовать ключевое слово explicit при генерации конструктора
+//f _need_explicit
+: need_explicit OBJECT IN %S
+//#UC START# *47145FDA03A9*
+//	%f_set_var(ARG_NUM,"<{}{}{%CC}>")\
+ [%f] set_var %( 'ARG_NUM' %, 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+
+   ++! l_Counter
+  end // if
+ end // for C
+ l_Counter
+)% //	%f_set_var(ARG_ALL_STR,"<{}{"%CN"!=""}.>")\
+ [%f] set_var %( 'ARG_ALL_STR' %, 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |N ) %!= '' ) then
+  begin
+   '.' 
+   ++! l_Counter
+  end // if
+ end // for C
+)% //	%f_set_var(ARG_DEF_ALL_STR,"<{}{"%CI"!=""}{%C}.>")\
+ [%f] set_var %( 'ARG_DEF_ALL_STR' %, 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |I ) %!= '' ) then
+  begin
+   '.' 
+   ++! l_Counter
+  end // if
+ end // for C
+)% //	[{%{ARG_NUM}N!=0}{false}[{%{ARG_NUM}N=1}{[{"%{ARG_ALL_STR}N"="%{ARG_DEF_ALL_STR}N"}{[{"%CI"=""&"%f_delsubstr_from_end(%{ARG_ALL_STR}N,1)"="%{ARG_DEF_ALL_STR}N"}{false}true]}true]}true]]
+ if ( ( ( get_global_var ( 'ARG_NUM' ) |N ) ) %!= 0 ) then
+ begin
+  if ( ( ( get_global_var ( 'ARG_NUM' ) |N ) ) %== 1 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+   if ( ( ( get_global_var ( 'ARG_ALL_STR' ) |N ) ) %== ( ( get_global_var ( 'ARG_DEF_ALL_STR' ) |N ) ) ) then
+   begin
+     true 
+   end // if
+   else
+   begin
+    if ( ( %C |I ) %== '' AND 
+      ( ( [%f] delsubstr_from_end %( ( get_global_var ( 'ARG_ALL_STR' ) |N ) %, 1 )% ) %== ( ( get_global_var ( 'ARG_DEF_ALL_STR' ) |N ) )  ) ) then
+    begin
+      true 
+    end // if
+    else
+    begin
+      false 
+    end // else
+   end // else
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47145FDA03A9*
+; // need_explicit
+
+
+// explicit
+//f _dump_explicit
+: dump_explicit OBJECT IN %S
+//#UC START# *4714600502CE*
+//	[{%f_need_explicit(%S)=true}explicit ]
+ if ( ( [%f] need_explicit %( %S )% ) %==  true ) then
+ begin
+  'explicit ' 
+ end // if
+//#UC END# *4714600502CE*
+; // dump_explicit
+
+
+// определяет может ли атрибут быть статическим (если нельзя, то он оборачивается в синглтон)
+//f _can_be_static
+: can_be_static OBJECT IN %S
+//#UC START# *4714601C035B*
+//	[{%Sl=agr&"[{%t_class_type(%T)=true|%f_has_not_fixed_complex(%T)=true}{false}true]"="true"}{true}false]
+ if ( ( %S |l ) %== 'agr' AND 
+   ( if ( ( [%t] class_type %( %T )% ) %==  true OR 
+    ( ( [%f] has_not_fixed_complex %( %T )% ) %==  true  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+  %== true  ) ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *4714601C035B*
+; // can_be_static
+
+
+// проверяет, что родитель может содержать шаблонные параметры
+//f _need_template_arg
+: need_template_arg OBJECT IN %S
+//#UC START# *4714605D0242*
+//	[{"%S<{}{"%RK"="ParameterizedClass"}{C}>"="0"&"%S<{}{"%GK"="ParameterizedClass"}{C}>"="0"&"%SK"!="ParameterizedClass"}{false}true]
+ if ( ( %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+
+  ) // bind
+ )   %== 0 AND 
+   ( ( %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( %G |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+
+  ) // bind
+ )   %== 0  ) AND 
+   ( ( %S |K ) %!= 'ParameterizedClass'  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4714605D0242*
+; // need_template_arg
+
+
+// генерация реализации "тела" серванта
+//f _servant_impl_body
+: servant_impl_body OBJECT IN %S
+//#UC START# *4714609002DE*
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	<{}{%PS=Library|%PS=ServerLibrary}\#include "%f_with_gen_id(h,%PL)"
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%P
+ begin
+  OBJECT IN %P
+  if ( ( %P |S ) %== 'Library' OR 
+   ( ( %P |S ) %== 'ServerLibrary'  ) ) then
+  begin
+   '#include "'
+   [%f] with_gen_id %( 'h' %, %P |L )% 
+//	>[{"%SK"!="ParameterizedClass"}\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+
+   ++! l_Counter
+  end // if
+ end // for P
+ if ( ( %S |K ) %!= 'ParameterizedClass' ) then
+ begin
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+//	]%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+ end // if
+ %P
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'Environment::Class' ) then
+   begin
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A |L )% %, %A )% 
+//	><{}{%PM=DLL::Category}\#include %f_dump_include_path(%f_with_gen_id(h,%PL),%P)
+
+    ++! l_Counter
+   end // if
+  end // for A
+
+ ) // bind
+  INTEGER VAR l_Counter l_Counter := 0
+ for %S%P
+ begin
+  OBJECT IN %P
+  if ( ( %P |M ) %== 'DLL::Category' ) then
+  begin
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %P |L )% %, %P )% 
+//	><{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+
+   ++! l_Counter
+  end // if
+ end // for P
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%W
+ begin
+  OBJECT IN %W
+  if ( ( %S get_up ( 'local supervisor' ) ) %!= true OR 
+   ( ( %W ->P |U  ) %!= ( %P |U )  ) ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %W |L )% %, %W )% 
+//	]>[// by \<\<uses\>\> dependencies
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for W
+ if NOT-EMPTY
+ begin
+  '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'uses' AND 
+    ( ( %A |C ) %== 'Dependency'  ) AND 
+    ( if ( ( %A ->P |U  ) %== ( %S |U ) OR 
+     ( ( %A ->P |o  ) %== ''  ) ) then
+   begin
+     true 
+   end // if
+   %== true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	][{%A%TS=Servant|%A%TS=SrvServant}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+    end // if
+    NOP
+    if ( ( %A ->T |S  ) %== 'Servant' OR 
+      ( ( %A ->T |S  ) %== 'SrvServant'  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      '#include '
+      [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]]>][// by \<\<friend\>\> dependencies
+     end // if
+     NOP
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for A
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '// by <<friend>> dependencies'
+//	<{}{"%AS"="friend"&"%AC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'friend' AND 
+    ( ( %A |C ) %== 'Dependency'  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>][{"%S{local supervisor}"="true"}%f_set_var(SELF,S)// as local supervisor
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for A
+ end // if
+ NOP
+ if ( ( %S get_up ( 'local supervisor' ) ) %== true ) then
+ begin
+  [%f] set_var %( 'SELF' %, 'S' )% '// as local supervisor'
+//	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+  %P
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |M ) %== 'Servant::Class' AND 
+     ( ( %C |U ) %!= ( ( get_global_var ( 'SELF' ) |U ) )  ) ) then
+    begin
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C |L )% %, %C )% 
+//	>][{%f_set_var(S_INT,"")%f_find_synchro_factory(%S)"%{S_INT}U"!=""}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%{S_INT}W),%{S_INT})
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+  end // if
+ if ( ( [%f] set_var %( 'S_INT' %, '' )% ) ( [%f] find_synchro_factory %( %S )% ) ( ( get_global_var ( 'S_INT' ) |U ) ) %!= '' ) then
+ begin
+  if NOT-EMPTY
+  begin
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, ( get_global_var ( 'S_INT' ) |W ) )% %, ( get_global_var ( 'S_INT' ) ) )% 
+//	]][%f_dump_all_remover_include_cpp(%S)
+  end // if
+  NOP
+ end // if
+ if NOT-EMPTY
+ begin
+  [%f] dump_all_remover_include_cpp %( %S )% 
+//	][{%S{need UC}=true}
+ end // if
+ NOP
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//	%U[{_CUSTOM_INCLUDES}
+  %Usersection (
+   '_CUSTOM_INCLUDES' 
+  )
+  (
+   #13#10
+
+//	]
+
+  ) // Usersection
+ //	][
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	%SP[{%S{need UC}=true}
+ %S |P if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//	%U[
+  %Usersection (
+
+  )
+  (
+   #13#10
+
+//	]
+
+  ) // Usersection
+ //	][
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested implementation<{}{"%CC"="Class"&%CS!=TemplateFunctions}[
+  '// nested implementation'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Class' AND 
+    ( ( %C |S ) %!= 'TemplateFunctions'  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//	%CX
+     %C |X 
+//	]>]%f_set_var(SERV,S)%f_set_var(SELF,S)[
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% if NOT-EMPTY
+ begin
+  #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static member methods
+  '// static member methods'
+//	<{}{"%CS"="static"|%t_is_static_accessor(%C)=true}[
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'static' OR 
+    ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//	%CX
+     %C |X 
+//	]>
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+ NOP
+//	%S%f_dump_ctor_dtor_impl()[{"%S{Servant Pool}"="obj"}
+ %S %f dump_ctor_dtor_impl %( )% if ( ( %S get_up ( 'Servant Pool' ) ) %== 'obj' ) then
+ begin
+  #13#10
+
+//	void %SN::init () {
+  'void '
+  %S |N '::init () {'
+//		%U[{_INIT_BODY}
+  '	'
+  %Usersection (
+   '_INIT_BODY' 
+  )
+  (
+   #13#10
+
+//		]
+   '	' 
+  ) // Usersection
+ //	}
+  '}'
+//	
+  #13#10
+
+//	void %SN::done () {
+  'void '
+  %S |N '::done () {'
+//		%U[{_DONE_BODY}
+  '	'
+  %Usersection (
+   '_DONE_BODY' 
+  )
+  (
+   #13#10
+
+//		]
+   '	' 
+  ) // Usersection
+ //	}
+  '}'
+//	][
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self implementation<{}{"%CC"="Operation"&"%CS"!="factory"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"}{Sn}
+  '// self implementation'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %!= 'factory'  ) AND 
+    ( ( %C |a ) %!= 'abstract'  ) AND 
+    ( ( %C |S ) %!= 'static'  ) AND 
+    ( ( %C |S ) %!= 'ctor'  ) ) then
+   begin
+    #13#10
+
+//	
+    #13#10
+
+//	%CX>]%f_self_data_accessor(%S)%f_static_data_accessor(%S)[
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ [%f] self_data_accessor %( %S )% [%f] static_data_accessor %( %S )% if NOT-EMPTY
+ begin
+  #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  '// oneway methods impl'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'oneway'  ) OR 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) then
+   begin
+    #13#10
+
+//	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+    [%f] servant_cpp_oneway_operation_thr_cpp %( %C )% 
+//	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+
+    ++! l_Counter
+   end // if
+  end // for C
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'oneway'  ) OR 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) then
+   begin
+    #13#10
+
+//	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+    [%f] servant_cpp_oneway_operation_impl_cpp %( %C )% 
+//	>][
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// template methods implementation
+  '// template methods implementation'
+//	<{}{"%CS"="TemplateFunctions"&[{%f_need_inline_file(%S)!=true|%XU=i.h}{false}true]=true}{Sn}
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'TemplateFunctions' AND 
+    ( if ( ( [%f] need_inline_file %( %S )% ) %!=  true OR 
+     ( ( %X |U ) %== 'i.h'  ) ) then
+   begin
+     true 
+   end // if
+   else
+   begin
+     false 
+   end // else
+   %==  true  ) ) then
+   begin
+    #13#10
+
+//	%CX
+    %C |X 
+//	>][{%Sa!=abstract}[{%f_set_var(S_INT,"")%f_find_synchro_factory(%S)"%{S_INT}U"!=""}
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  if ( ( [%f] set_var %( 'S_INT' %, '' )% ) ( [%f] find_synchro_factory %( %S )% ) ( ( get_global_var ( 'S_INT' ) |U ) ) %!= '' ) then
+  begin
+   #13#10
+
+//	/////////////////////////////////////////////////////////////////////////////////////////
+   '/////////////////////////////////////////////////////////////////////////////////////////'
+//	// overload release method
+   '// overload release method'
+//	unsigned long %SN::release () const {
+   'unsigned long '
+   %S |N '::release () const {'
+//		long counter = this-\>internal_release ();
+   '	long counter = this->internal_release ();'
+//		
+   '	'
+//		if (counter == 0) {
+   '	if (counter == 0) {'
+//			%f_type(%{S_INT})FactoryManager::CacheLocker locker;
+   '		'
+   [%f] type %( ( get_global_var ( 'S_INT' ) ) )% 'FactoryManager::CacheLocker locker;'
+//			counter = this-\>ref_count ();
+   '		counter = this->ref_count ();'
+//			if (counter == 0) {
+   '		if (counter == 0) {'
+//				%f_type(%{S_INT})FactoryManager::clean ([{%{S_INT}S=ServerInterface}{this}const_cast\<%SN*\>(this)-\>_this ()]);
+   '			'
+   [%f] type %( ( get_global_var ( 'S_INT' ) ) )% 'FactoryManager::clean ('
+   if ( ( ( get_global_var ( 'S_INT' ) |S ) ) %== 'ServerInterface' ) then
+   begin
+    'const_cast<'
+    %S |N '*>(this)->_this ()' 
+   end // if
+   else
+   begin
+    'this' 
+   end // else
+   ');'
+//			} else {
+   '		} else {'
+//				return counter;
+   '			return counter;'
+//			}
+   '		}'
+//			this-\>init_counter ();
+   '		this->init_counter ();'
+//			const_cast\<%SN*const\>(this)-\>delete_obj ();
+   '		const_cast<'
+   %S |N '*const>(this)->delete_obj ();'
+//		}
+   '	}'
+//		return counter;
+   '	return counter;'
+//	}
+   '}'
+//	]]
+  end // if
+ end // if
+//	%f_dump_cpp_derrived_impl_cpp(%S)
+ [%f] dump_cpp_derrived_impl_cpp %( %S )% 
+//	[%f_dump_consumers_methods_cpp(%S)
+ if NOT-EMPTY
+ begin
+  [%f] dump_consumers_methods_cpp %( %S )% 
+//	][%f_dump_suppliers_methods_cpp(%S)
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  [%f] dump_suppliers_methods_cpp %( %S )% 
+//	][%S%f_additional_implemetations()]%Sp
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  %S %f additional_implemetations %( )% 
+ end // if
+ NOP
+ %S |p 
+//#UC END# *4714609002DE*
+; // servant_impl_body
+
+
+// реализация метода dump_fctr_h
+//f _dump_fctr_h_i
+: dump_fctr_h_i OBJECT IN %S
+//#UC START# *471460B70157*
+//	%S%f_dump_fctr_h_impl("%1N","read-write")[{%S%f_has_two_different_signatures()=true}
+ %S %f dump_fctr_h_impl %( %1 |N %, 'read-write' )% if ( ( %S %f has_two_different_signatures %( )% ) %==  true ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//		%S%f_dump_fctr_h_impl("%1N","read-only")]
+  '	'
+  %S %f dump_fctr_h_impl %( %1 |N %, 'read-only' )% 
+ end // if
+
+//f _dump_fctr_h_impl
+; // dump_fctr_h_i
+
+: dump_fctr_h_impl OBJECT IN %S
+//	%f_set_var(HAS_MEM_KEY,"0")\
+//	%f_set_var(SRV_FACTORY_OP,"[{"%1N"="servant"}{%t_ret(%{INT})}static %t_ret(%{__SERVANT},"%Ss")] %SN (%S%f_factory_params("%2N")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")%t_arg(%T,"inout") mem_key][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%Cx=true}, ]bool ro_mode])[ /*throw (%S<{, }%f_type(%E)>)*/];")\
+//	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}[{"%1N"="servant"}{%t_ret(%{INT})}static %t_ret(%{__SERVANT},"%Ss")] %SN (%S%f_factory_params("%2N","\n\t\t")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}\n\t\t, ]%t_arg(%T,"inout") mem_key][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%Cx=true}\n\t\t, ]bool ro_mode]\n\t)[ /*throw (\n\t\t%S<{\n\t\t, }%f_type(%E)>\n\t)*/];]
+//#UC END# *471460B70157*
+; // dump_fctr_h_impl
+
+
+// реалиацзация dump_fctr_h_rm
+//f _dump_fctr_h_rm_i
+: dump_fctr_h_rm_i OBJECT IN %S
+//#UC START# *471460C300FA*
+//	%f_set_var(SRV_FACTORY_OP,"[{"%1N"="servant"}static ][{%f_is_server_type(%{INT})=true}{void}CORBA::ULong] %SN ([{"%1N"="servant"}{%t_arg(%{INT},"in")}%t_arg(%{__SERVANT},"in")] obj_%S<, %f_arg_full_decl(%C)>)[ /*throw (%S<{, }%f_type(%E)>)*/];")\
+ [%f] set_var %( 'SRV_FACTORY_OP' %, if ( ( %1 |N ) %== 'servant' ) then
+ begin
+  'static ' 
+ end // if
+ if ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) then
+ begin
+  'CORBA::ULong' 
+ end // if
+ else
+ begin
+  'void' 
+ end // else
+ ' '
+ %S |N ' ('
+ if ( ( %1 |N ) %== 'servant' ) then
+ begin
+  [%t] arg %( ( get_global_var ( '__SERVANT' ) ) %, 'in' )% 
+ end // if
+ else
+ begin
+  [%t] arg %( ( get_global_var ( 'INT' ) ) %, 'in' )% 
+ end // else
+ ' obj_'
+ %S
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    ', '
+    [%f] arg_full_decl %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+  ')'
+ if NOT-EMPTY
+ begin
+  ' /*throw ('
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+
+  ) // bind
+   ')*/' 
+ end // if
+ NOP
+ ';' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}[{"%1N"="servant"}static ][{%f_is_server_type(%{INT})=true}{void}CORBA::ULong] %SN (\n\t\t[{"%1N"="servant"}{%t_arg(%{INT},"in")}%t_arg(%{__SERVANT},"in")] obj_%S<\n\t\t, %f_arg_full_decl(%C)>\n\t)[ /*throw (\n\t\t%S<{\n\t\t, }%f_type(%E)>\n\t)*/];]
+ if ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  if ( ( %1 |N ) %== 'servant' ) then
+  begin
+   'static ' 
+  end // if
+  if ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) then
+  begin
+   'CORBA::ULong' 
+  end // if
+  else
+  begin
+   'void' 
+  end // else
+  ' '
+  %S |N ' ('#13#10#9#9
+  if ( ( %1 |N ) %== 'servant' ) then
+  begin
+   [%t] arg %( ( get_global_var ( '__SERVANT' ) ) %, 'in' )% 
+  end // if
+  else
+  begin
+   [%t] arg %( ( get_global_var ( 'INT' ) ) %, 'in' )% 
+  end // else
+  ' obj_'
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     #13#10#9#9', '
+     [%f] arg_full_decl %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+   #13#10#9')'
+  if NOT-EMPTY
+  begin
+   ' /*throw ('#13#10#9#9
+   %S
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( #13#10#9#9', ' )
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+
+   ) // bind
+    #13#10#9')*/' 
+  end // if
+  NOP
+  ';' 
+ end // if
+ else
+ begin
+  ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) 
+ end // else
+//#UC END# *471460C300FA*
+; // dump_fctr_h_rm_i
+
+
+// дампит заголовок фабрики
+//f _dump_fctr_h
+: dump_fctr_h OBJECT IN %S
+//#UC START# *471460CB029F*
+//	<{}{"%f_is_factory(%C)"="true"&%f_exists_in_list(%2N,C)=false}{%C}%2%f_add_to_list(C)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %== true AND 
+   ( ( [%f] exists_in_list %( %2 |N %, 'C' )% ) %==  false  ) ) then
+  begin
+   %2 %f add_to_list %( 'C' )% 
+//		[{%CS!=remover}{%f_dump_fctr_h_rm_i(%C,"%1N")}%f_dump_fctr_h_i(%C,"%1N")]
+   '	'
+   if ( ( %C |S ) %!= 'remover' ) then
+   begin
+    [%f] dump_fctr_h_i %( %C %, %1 |N )% 
+   end // if
+   else
+   begin
+    [%f] dump_fctr_h_rm_i %( %C %, %1 |N )% 
+   end // else
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *471460CB029F*
+; // dump_fctr_h
+
+
+// выводит родителя для специального идентификатора фабрики
+//f _dump_factories_id_parent
+: dump_factories_id_parent OBJECT IN %S
+//#UC START# *471460D50196*
+//	[{%RK=ParameterizedClass}{[{"%XU"="fctr.cpp"}%SN::]}%RN%f_set_var(SELF,S)%f_dump_parameterized_list(%R)::]
+ if ( ( %R |K ) %== 'ParameterizedClass' ) then
+ begin
+  %R |N [%f] set_var %( 'SELF' %, 'S' )% [%f] dump_parameterized_list %( %R )% '::' 
+ end // if
+ else
+ begin
+  if ( ( %X |U ) %== 'fctr.cpp' ) then
+  begin
+   %S |N '::' 
+  end // if
+ end // else
+//#UC END# *471460D50196*
+; // dump_factories_id_parent
+
+
+// выводит заголовок фабрики для фабрики серванта
+//f _dump_fctr_header_cpp_i
+: dump_fctr_header_cpp_i OBJECT IN %S
+//#UC START# *471460E301B5*
+//	%f_set_var(HAS_MEM_KEY,"0")\
+ [%f] set_var %( 'HAS_MEM_KEY' %, 0 )% 
+//	%f_set_var(SRV_FACTORY_OP,"%t_ret(%{INT}) %{SERV}N_factory::%SN (%S%f_factory_params("%1N","","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")%t_arg(%T,"inout") mem_key][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%Cx=true}, ]bool ro_mode])[ /*throw (%S<{, }%f_type(%E)>)*/]")\
+ [%f] set_var %( 'SRV_FACTORY_OP' %, [%t] ret %( ( get_global_var ( 'INT' ) ) )% ' '
+ ( get_global_var ( 'SERV' ) |N ) '_factory::'
+ %S |N ' ('
+ %S %f factory_params %( %1 |N %, '' %, '' %, 'servant' )% if ( ( %T |S ) %== 'FactoryMemory' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0  ) ) then
+ begin
+  if ( ( %C |x ) %==  true ) then
+  begin
+   ', ' 
+  end // if
+  [%f] set_var %( 'HAS_MEM_KEY' %, 1 )% [%t] arg %( %T %, 'inout' )% ' mem_key' 
+ end // if
+ if ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) then
+ begin
+  if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 OR 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   ', ' 
+  end // if
+  'bool ro_mode' 
+ end // if
+ ')'
+ if NOT-EMPTY
+ begin
+  ' /*throw ('
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+
+  ) // bind
+   ')*/' 
+ end // if
+ NOP
+)% //	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}%t_ret(%{INT}) %{SERV}N_factory::%SN (%S%f_factory_params("%1N","\n\t","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}\n\t, ]%t_arg(%T,"inout") mem_key][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%Cx=true}\n\t, ]bool ro_mode]\n)[ /*throw (\n\t%S<{\n\t, }%f_type(%E)>\n)*/]]
+ if ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  [%t] ret %( ( get_global_var ( 'INT' ) ) )% ' '
+  ( get_global_var ( 'SERV' ) |N ) '_factory::'
+  %S |N ' ('
+  %S %f factory_params %( %1 |N %, #13#10#9'"' %, '' %, 'servant' )% if ( ( %T |S ) %== 'FactoryMemory' AND 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'nokey' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %== 0  ) ) then
+  begin
+   if ( ( %C |x ) %==  true ) then
+   begin
+    #13#10#9', ' 
+   end // if
+   [%t] arg %( %T %, 'inout' )% ' mem_key' 
+  end // if
+  if ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) then
+  begin
+   if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 OR 
+     ( ( %C |x ) %==  true  ) ) then
+   begin
+    #13#10#9', ' 
+   end // if
+   'bool ro_mode' 
+  end // if
+  #13#10')'
+  if NOT-EMPTY
+  begin
+   ' /*throw ('#13#10#9
+   %S
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( #13#10#9', ' )
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+
+   ) // bind
+    #13#10')*/' 
+  end // if
+  NOP
+ end // if
+ else
+ begin
+  ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) 
+ end // else
+//#UC END# *471460E301B5*
+; // dump_fctr_header_cpp_i
+
+
+// выводит заголовок ремувера дял фабрики серванта
+//f _dump_fctr_rm_header_cpp_i
+: dump_fctr_rm_header_cpp_i OBJECT IN %S
+//#UC START# *471460EC0242*
+//	%f_set_var(SRV_FACTORY_OP,"[{%f_use_as_srv_type(%{SERV})=true}{void}CORBA::ULong] %{SERV}N_factory::%SN (%t_arg(%{INT},"in") obj_%S<, %f_arg_full_decl(%C)>)[ /*throw (%S<{, }%f_type(%E)>)*/]")\
+ [%f] set_var %( 'SRV_FACTORY_OP' %, if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+ begin
+  'CORBA::ULong' 
+ end // if
+ else
+ begin
+  'void' 
+ end // else
+ ' '
+ ( get_global_var ( 'SERV' ) |N ) '_factory::'
+ %S |N ' ('
+ [%t] arg %( ( get_global_var ( 'INT' ) ) %, 'in' )% ' obj_'
+ %S
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    ', '
+    [%f] arg_full_decl %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+  ')'
+ if NOT-EMPTY
+ begin
+  ' /*throw ('
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+
+  ) // bind
+   ')*/' 
+ end // if
+ NOP
+)% //	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}[{%f_is_server_type(%{INT})=true}{void}CORBA::ULong] %{SERV}N_factory::%SN (\n\t%t_arg(%{INT},"in") obj_%S<\n\t, %f_arg_full_decl(%C)>\n)[ /*throw (\n\t%S<{\n\t, }%f_type(%E)>\n)*/]]
+ if ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  if ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) then
+  begin
+   'CORBA::ULong' 
+  end // if
+  else
+  begin
+   'void' 
+  end // else
+  ' '
+  ( get_global_var ( 'SERV' ) |N ) '_factory::'
+  %S |N ' ('#13#10#9
+  [%t] arg %( ( get_global_var ( 'INT' ) ) %, 'in' )% ' obj_'
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     #13#10#9', '
+     [%f] arg_full_decl %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+   #13#10')'
+  if NOT-EMPTY
+  begin
+   ' /*throw ('#13#10#9
+   %S
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( #13#10#9', ' )
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+
+   ) // bind
+    #13#10')*/' 
+  end // if
+  NOP
+ end // if
+ else
+ begin
+  ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) 
+ end // else
+//#UC END# *471460EC0242*
+; // dump_fctr_rm_header_cpp_i
+
+
+// генерит реализацию ремувера для серванта
+//f _dump_fctr_remover_cpp
+: dump_fctr_remover_cpp OBJECT IN %S
+//#UC START# *471460F30280*
+//	[{"%1N"!="servant"}\
+ if ( ( %1 |N ) %!= 'servant' ) then
+ begin
+//	[{"%{SERV}{Factory default impl}"!="true"}[%f_str_split(%SD,#// )
+  if ( ( ( get_global_var ( 'SERV' ) get_up ( 'Factory default impl' ) ) ) %!= true ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] str_split %( %S |D %, out_indent '// ' )% 
+//	]]%f_dump_fctr_rm_header_cpp_i(%S) {
+   end // if
+   NOP
+  end // if
+  [%f] dump_fctr_rm_header_cpp_i %( %S )% ' {'
+//		[{%f_use_as_srv_type(%{SERV})=true}CORBA::ULong obj_hash = obj_-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ());
+  '	'
+  if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+  begin
+   'CORBA::ULong obj_hash = obj_->_hash (std::numeric_limits<CORBA::ULong>::max ());'
+//		][{"%{SERV}{Factory default impl}"="true"}{%U[{%{SERV}U_%SU_IMPL}
+   '	' 
+  end // if
+  if ( ( ( get_global_var ( 'SERV' ) get_up ( 'Factory default impl' ) ) ) %== true ) then
+  begin
+   if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+   begin
+    ( get_global_var ( 'SERV' ) |N ) '_var lsrv = 0;'
+//		PortableServer::ObjectId_var oid;
+    '	PortableServer::ObjectId_var oid;'
+//		try {
+    '	try {'
+//			oid = LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_id (obj_);
+    '		oid = LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_id (obj_);'
+//			
+    '		'
+//			PortableServer::ServantBase_var srv = LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_servant (obj_);
+    '		PortableServer::ServantBase_var srv = LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_servant (obj_);'
+//			lsrv = dynamic_cast\<%{SERV}N*\>(srv.in());
+    '		lsrv = dynamic_cast<'
+    ( get_global_var ( 'SERV' ) |N ) '*>(srv.in());'
+//			if (!lsrv.is_nil()) {
+    '		if (!lsrv.is_nil()) {'
+//				lsrv-\>addref ();
+    '			lsrv->addref ();'
+//			}
+    '		}'
+//		} CATCH_AND_LOG ("%{SERV}N_factory::%SN - while getting servant from reference"); /*PortableServer::POA::WrongAdapter&*/
+    '	} CATCH_AND_LOG ("'
+    ( get_global_var ( 'SERV' ) |N ) '_factory::'
+    %S |N ' - while getting servant from reference"); /*PortableServer::POA::WrongAdapter&*/'
+//	
+    #13#10
+
+//		if (!lsrv) {
+    '	if (!lsrv) {'
+//			throw CoreSrv::ForeignObject ();
+    '		throw CoreSrv::ForeignObject ();'
+//		}
+    '	}'
+//		lsrv-\>%SN (%S<{, }%f_arg_full_decl(%C)>);
+    '	lsrv->'
+    %S |N ' ('
+    %S
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       [%f] arg_full_decl %( %C )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     ');'
+//		LibHomeFactory::get().get_orb_facet().get_root_poa().deactivate_object (oid);
+    '	LibHomeFactory::get().get_orb_facet().get_root_poa().deactivate_object (oid);'
+//		return obj_hash;]
+    '	return obj_hash;' 
+   end // if
+   else
+   begin
+    'dynamic_cast<'
+    [%f] type %( ( get_global_var ( 'SERV' ) ) )% '*> (const_cast<'
+    [%f] type %( ( get_global_var ( 'INT' ) ) )% '*> (obj_))->'
+    %S |N ' ('
+    %S
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       [%f] arg_full_decl %( %C )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     ');' 
+   end // else
+//	}]]
+   '}' 
+  end // if
+  else
+  begin
+   %Usersection (
+    ( get_global_var ( 'SERV' ) |U ) '_'
+    %S |U '_IMPL' 
+   )
+   (
+    #13#10
+
+//		]
+    '	' 
+   ) // Usersection
+ //		[{%f_use_as_srv_type(%{SERV})=true}return obj_hash;
+   '	'
+   if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+   begin
+    'return obj_hash;'
+//		]\}}[{%f_use_as_srv_type(%{SERV})=true}{dynamic_cast\<%f_type(%{SERV})*\> (const_cast\<%f_type(%{INT})*\> (obj_))-\>%SN (%S<{, }%f_arg_full_decl(%C)>);}%{SERV}N_var lsrv = 0;
+    '	' 
+   end // if
+   '}' 
+  end // else
+ end // if
+//#UC END# *471460F30280*
+; // dump_fctr_remover_cpp
+
+
+// генерит реализацию фабрик для фабрики серванта
+//f _dump_fctr_cpp
+: dump_fctr_cpp OBJECT IN %S
+//#UC START# *471460FD02CE*
+//	%f_set_var(CTOR_P,S)<{}{"%f_is_factory(%C)"="true"&%f_exists_in_list(%2N,C)=false}{%C}%f_add_to_list(%2N,C)
+ [%f] set_var %( 'CTOR_P' %, 'S' )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %== true AND 
+   ( ( [%f] exists_in_list %( %2 |N %, 'C' )% ) %==  false  ) ) then
+  begin
+   [%f] add_to_list %( %2 |N %, 'C' )% 
+//	%f_set_var(HAS_MEM_KEY,"0")\
+   [%f] set_var %( 'HAS_MEM_KEY' %, 0 )% 
+//	%f_set_var(HAS_FCT_ID,"0")\
+   [%f] set_var %( 'HAS_FCT_ID' %, 0 )% 
+//	
+   #13#10
+
+//	[{%CS!=remover}{%f_dump_fctr_remover_cpp(%C)}%f_dump_fctr_cpp_factory(%C,"%1N")]>
+   if ( ( %C |S ) %!= 'remover' ) then
+   begin
+    [%f] dump_fctr_cpp_factory %( %C %, %1 |N )% 
+   end // if
+   else
+   begin
+    [%f] dump_fctr_remover_cpp %( %C )% 
+   end // else
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//f _dump_fctr_cpp_factory
+; // dump_fctr_cpp
+
+: dump_fctr_cpp_factory OBJECT IN %S
+//	%S%f_dump_fctr_cpp_factory_impl("%1N","read-write")[{%S%f_has_two_different_signatures()=true}
+ %S %f dump_fctr_cpp_factory_impl %( %1 |N %, 'read-write' )% if ( ( %S %f has_two_different_signatures %( )% ) %==  true ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	%S%f_dump_fctr_cpp_factory_impl("%1N","read-only")]
+  %S %f dump_fctr_cpp_factory_impl %( %1 |N %, 'read-only' )% 
+ end // if
+//#UC END# *471460FD02CE*
+; // dump_fctr_cpp_factory
+
+
+// генерит обявление реализации фабрики
+//f _fctr_def_impl_h_i
+: fctr_def_impl_h_i OBJECT IN %S
+//#UC START# *47146106001F*
+//	%S%f_fctr_def_impl_h_impl("read-write",%1)[{%S%f_has_two_different_signatures()=true}
+ %S %f fctr_def_impl_h_impl %( 'read-write"' %, %1 )% if ( ( %S %f has_two_different_signatures %( )% ) %==  true ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//		%S%f_fctr_def_impl_h_impl("read-only",%1)]
+  '	'
+  %S %f fctr_def_impl_h_impl %( 'read-only"' %, %1 )% 
+ end // if
+
+//#UC END# *47146106001F*
+; // fctr_def_impl_h_i
+
+
+// генерит объявление реализации ремувера
+//f _fctr_def_impl_rm_h_i
+: fctr_def_impl_rm_h_i OBJECT IN %S
+//#UC START# *4714610D035B*
+//	%f_set_var(SRV_FACTORY_OP,"virtual void %SN[%1N] (%S<{, }%f_arg_full_decl(%C)>)[{%f_realize_srv_interface(%S)=false}{ throw (CORBA::SystemException, CoreSrv::ForeignObject<, %f_type(%E)>)} /*throw (Core::Root::ForeignObject<, %f_type(%E)>)*/];")\
+ [%f] set_var %( 'SRV_FACTORY_OP' %, 'virtual void '
+ %S |N if NOT-EMPTY
+ begin
+  %1 |N 
+ end // if
+ NOP
+ ' ('
+ %S
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] arg_full_decl %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+  ')'
+ if ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) then
+ begin
+  ' /*throw (Core::Root::ForeignObject'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    ', '
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')*/' 
+ end // if
+ else
+ begin
+  ' throw (CORBA::SystemException, CoreSrv::ForeignObject'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    ', '
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')' 
+ end // else
+ ';' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}virtual void %SN[%1N] (\n\t\t%S<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[{%f_realize_srv_interface(%S)=false}{ throw (\n\t\tCORBA::SystemException\n\t\t, CoreSrv::ForeignObject<\n\t\t, %f_type(%E)>\n\t)} /*throw (\n\t\tCore::Root::ForeignObject<\n\t\t, %f_type(%E)>\n\t)*/];]
+ if ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  'virtual void '
+  %S |N if NOT-EMPTY
+  begin
+   %1 |N 
+  end // if
+  NOP
+  ' ('#13#10#9#9
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( #13#10#9#9', ' )
+     [%f] arg_full_decl %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+   #13#10#9')'
+  if ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) then
+  begin
+   ' /*throw ('#13#10#9#9'Core::Root::ForeignObject'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     #13#10#9#9', '
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+   #13#10#9')*/' 
+  end // if
+  else
+  begin
+   ' throw ('#13#10#9#9'CORBA::SystemException'#13#10#9#9', CoreSrv::ForeignObject'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     #13#10#9#9', '
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+   #13#10#9')' 
+  end // else
+  ';' 
+ end // if
+ else
+ begin
+  ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) 
+ end // else
+
+//#UC END# *4714610D035B*
+; // fctr_def_impl_rm_h_i
+
+
+// генерит реализацию объявлений всех фабрик
+//f _fctr_def_impl_h
+: fctr_def_impl_h OBJECT IN %S
+//#UC START# *471461140242*
+//	<{}{"%f_is_factory(%C)"="true"}{%C}[{%f_exists_in_list(%2N,C)=false}%2%f_add_to_list(C)	%f_fctr_def_impl_h_i(%C,%1)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %== true ) then
+  begin
+   if ( ( [%f] exists_in_list %( %2 |N %, 'C' )% ) %==  false ) then
+   begin
+    %2 %f add_to_list %( 'C' )% '	'
+    [%f] fctr_def_impl_h_i %( %C %, %1 )% 
+//	
+    #13#10
+
+//	]>
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//f _fctr_def_rm_impl_h
+; // fctr_def_impl_h
+
+: fctr_def_rm_impl_h OBJECT IN %S
+//	<{}{%CC=Operation&%CS=remover}{%C}	[{%{SERV}a!=abstract}%f_fctr_def_impl_rm_h_i(%C)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Operation' AND 
+   ( ( %C |S ) %== 'remover'  ) ) then
+  begin
+   '	'
+   if ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'abstract' ) then
+   begin
+    [%f] fctr_def_impl_rm_h_i %( %C )% 
+//	
+    #13#10
+
+//		]%f_fctr_def_impl_rm_h_i(%C,"_i")
+    '	' 
+   end // if
+   [%f] fctr_def_impl_rm_h_i %( %C %, '_i' )% 
+//	
+   #13#10
+
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *471461140242*
+; // fctr_def_rm_impl_h
+
+
+// генерит реализацию объявлений всех фабрик
+//f _fctr_def_impl_java
+: fctr_def_impl_java OBJECT IN %S
+//#UC START# *4714611D00BB*
+//	<{}{"%f_is_factory(%C)"="true"}{%C}%f_fctr_def_servant_impl_java(%C)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %== true ) then
+  begin
+   [%f] fctr_def_servant_impl_java %( %C )% 
+//	
+   #13#10
+
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//f _fctr_def_servant_impl_java
+; // fctr_def_impl_java
+
+: fctr_def_servant_impl_java OBJECT IN %S
+//	%f_set_var(FCTR_ARGS,"%S%f_factory_params("","","","servant")")\
+ [%f] set_var %( 'FCTR_ARGS' %, %S %f factory_params %( '' %, '' %, '' %, 'servant' )% )% 
+//	%f_set_var(MEM_ARGS,"[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}%t_arg(%C%T,"inout") memKey]")\
+ [%f] set_var %( 'MEM_ARGS' %, if ( ( %T |S ) %== 'FactoryMemory' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0  ) ) then
+ begin
+  [%t] arg %( %C ->T  %, 'inout' )% ' memKey' 
+ end // if
+)% //	%f_set_var(FCTR_ID_ARGS,"[{%f_equal_ctor(%{SELF},%S)=true}FactoriesID.%f_to_borland(%SN) factoryId]")\
+ [%f] set_var %( 'FCTR_ID_ARGS' %, if ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %S )% ) %==  true ) then
+ begin
+  'FactoriesID.'
+  [%f] to_borland %( %S |N )% ' factoryId' 
+ end // if
+)% //	%f_set_var(RO_MODE,"[{%S{const_type}=combo}boolean roMode}]")\
+ [%f] set_var %( 'RO_MODE' %, if ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) then
+ begin
+  'boolean roMode}' 
+ end // if
+)% //	%f_set_var(ALL_ARGS,"%f_merge_string(", ","%{FCTR_ARGS}N","%{MEM_ARGS}N","%{FCTR_ID_ARGS}N","%{RO_MODE}N")")\
+ [%f] set_var %( 'ALL_ARGS' %, [%f] merge_string %( %, ' "' %, ( get_global_var ( 'FCTR_ARGS' ) |N ) %, ( get_global_var ( 'MEM_ARGS' ) |N ) %, ( get_global_var ( 'FCTR_ID_ARGS' ) |N ) %, ( get_global_var ( 'RO_MODE' ) |N ) )% )% 
+//		public %{SERV}N (%{ALL_ARGS}N)[{}{ }
+ '	public '
+ ( get_global_var ( 'SERV' ) |N ) ' ('
+ ( get_global_var ( 'ALL_ARGS' ) |N ) ')'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//			throws <{, }{}%f_type(%E)>
+  '		throws '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+//		]{%f_start_func_cpp(%{SERV},"%{SERV}N")
+  '	' 
+ end // if
+ NOP
+ else
+ begin
+  ' ' 
+ end // else
+ '{'
+ [%f] start_func_cpp %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SERV' ) |N ) )% 
+//			%U[{_%SU_%{SERV}U_BODY}
+ '		'
+ %Usersection (
+  '_'
+  %S |U '_'
+  ( get_global_var ( 'SERV' ) |U ) '_BODY' 
+ )
+ (
+  #13#10
+
+//			]
+  '		' 
+ ) // Usersection
+ //		%f_end_func_cpp(%{SERV})}
+ '	'
+ [%f] end_func_cpp %( ( get_global_var ( 'SERV' ) ) )% '}'
+
+//f _fctr_def_non_constructed_impl_java
+; // fctr_def_servant_impl_java
+
+: fctr_def_non_constructed_impl_java OBJECT IN %S
+//	[{"%1N"=""}%f_error("_fctr_def_non_constructed_impl_java: Не задан список с уже обработанными элементами")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_fctr_def_non_constructed_impl_java: Не задан список с уже обработанными элементами' )% 
+ end // if
+//	[<{}{%CC=Operation&%CS=remover}{%C}[{%f_exists_in_list(%1N,C)=false}%1%f_add_to_list(C)%f_remover_impl_java(%C,%S)
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'remover'  ) ) then
+   begin
+    if ( ( [%f] exists_in_list %( %1 |N %, 'C' )% ) %==  false ) then
+    begin
+     %1 %f add_to_list %( 'C' )% [%f] remover_impl_java %( %C %, %S )% 
+//	
+     #13#10
+
+//	]>][<{}{%CC=Operation&%CS=finder}{%C}[{%f_exists_in_list(%1N,C)=false}%1%f_add_to_list(C)%C%f_for_servant(%{SERV})
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'finder'  ) ) then
+   begin
+    if ( ( [%f] exists_in_list %( %1 |N %, 'C' )% ) %==  false ) then
+    begin
+     %1 %f add_to_list %( 'C' )% %C %f for_servant %( ( get_global_var ( 'SERV' ) ) )% 
+//	
+     #13#10
+
+//	]>]
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+
+//f _remover_impl_java
+; // fctr_def_non_constructed_impl_java
+
+: remover_impl_java OBJECT IN %S
+//	%f_set_var(RM_OP,S)[{%{SERV}a!=abstract}{	}\
+ [%f] set_var %( 'RM_OP' %, 'S' )% if ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'abstract' ) then
+ begin
+//		// remover (logical destructor) function
+  '	// remover (logical destructor) function'
+//		public void %f_to_java(%{RM_OP}N) (%{RM_OP}<{, }%f_arg_full_decl(%C)>)[{%f_realize_srv_interface(%{RM_OP})=false}{ throws org.omg.CORBA.SystemException, ru.garant.shared.CoreSrv.ForeignObject%{RM_OP}<, %f_type(%E)>}[ throws %{RM_OP}<{, }%f_type(%E)>]] {%f_start_func_cpp(%{RM_OP},"%{SELF}N::%{RM_OP}N")
+  '	public void '
+  [%f] to_java %( ( get_global_var ( 'RM_OP' ) |N ) )% ' ('
+  ( get_global_var ( 'RM_OP' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] arg_full_decl %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+  ')'
+  if ( ( [%f] realize_srv_interface %( ( get_global_var ( 'RM_OP' ) ) )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    ' throws '
+    ( get_global_var ( 'RM_OP' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%E
+     begin
+      OBJECT IN %E
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       [%f] type %( %E )% 
+       ++! l_Counter
+      end // if
+     end // for E
+
+    ) // bind
+   end // if
+   NOP
+  end // if
+  else
+  begin
+   ' throws org.omg.CORBA.SystemException, ru.garant.shared.CoreSrv.ForeignObject'
+   ( get_global_var ( 'RM_OP' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      ', '
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+
+   ) // bind
+  end // else
+  ' {'
+  [%f] start_func_cpp %( ( get_global_var ( 'RM_OP' ) ) %, ( get_global_var ( 'SELF' ) |N ) '::'
+  ( get_global_var ( 'RM_OP' ) |N ) )% 
+//			this.%f_to_java(%{RM_OP}NImpl) ();
+  '		this.'
+  [%f] to_java %( ( get_global_var ( 'RM_OP' ) |N ) 'Impl' )% ' ();'
+//			//call framework to clean all servant-specific data
+  '		//call framework to clean all servant-specific data'
+//	%{RM_OP}[%f_set_var(INT_MNG,P)]\
+  ( get_global_var ( 'RM_OP' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   if NOT-EMPTY
+   begin
+    [%f] set_var %( 'INT_MNG' %, 'P' )% 
+   end // if
+   NOP
+
+  ) // bind
+//	[{%{INT_MNG}a=abstract}%{SERV}<{}{%f_is_interface(%R)=true|%RS=LocalInterface}\
+  if ( ( ( get_global_var ( 'INT_MNG' ) |a ) ) %== 'abstract' ) then
+  begin
+   ( get_global_var ( 'SERV' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( [%f] is_interface %( %R )% ) %==  true OR 
+      ( ( %R |S ) %== 'LocalInterface'  ) ) then
+     begin
+//	%f_set_var(INT_MNG,R)>]\
+      [%f] set_var %( 'INT_MNG' %, 'R' )% 
+      ++! l_Counter
+     end // if
+    end // for R
+
+   ) // bind
+  end // if
+//	[{%f_realize_srv_interface(%{RM_OP})=true}{		%f_type(%{INT_MNG})FactoryManager.%{RM_OP}N (this%{RM_OP}<, %CN>);
+  if ( ( [%f] realize_srv_interface %( ( get_global_var ( 'RM_OP' ) ) )% ) %==  true ) then
+  begin
+//			%f_var(%{INT_MNG}) obj_ = this._this ();
+   '		'
+   [%f] var %( ( get_global_var ( 'INT_MNG' ) ) )% ' obj_ = this._this ();'
+//			%f_type(%{INT_MNG})FactoryManager.%{RM_OP}N (obj_%{RM_OP}<, %CN>);
+   '		'
+   [%f] type %( ( get_global_var ( 'INT_MNG' ) ) )% 'FactoryManager.'
+   ( get_global_var ( 'RM_OP' ) |N ) ' (obj_'
+   ( get_global_var ( 'RM_OP' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      ', '
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+   ');'
+//	][{%f_realize_srv_interface(%{RM_OP})=true}
+  end // if
+  else
+  begin
+   '		'
+   [%f] type %( ( get_global_var ( 'INT_MNG' ) ) )% 'FactoryManager.'
+   ( get_global_var ( 'RM_OP' ) |N ) ' (this'
+   ( get_global_var ( 'RM_OP' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      ', '
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+   ');'
+//	}\
+  end // else
+  if ( ( [%f] realize_srv_interface %( ( get_global_var ( 'RM_OP' ) ) )% ) %==  true ) then
+  begin
+   #13#10
+
+//			//deactivate servant
+   '		//deactivate servant'
+//			byte\[\] oid = null;
+   '		byte[] oid = null;'
+//			try {
+   '		try {'
+//				oid = %{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().servant_to_id (this);
+   '			oid = '
+   ( get_global_var ( 'SERV' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%P
+    begin
+     OBJECT IN %P
+     if ( ( %P |M ) %== 'Library::Category' OR 
+      ( ( %P |M ) %== 'ServerLibrary::Category'  ) ) then
+     begin
+      [%f] dump_java_package %( %P )% '.'
+      %P |N '.LibHomeFactory' 
+      ++! l_Counter
+     end // if
+    end // for P
+
+   ) // bind
+   '.get().getOrbFacet().getRootPoa().servant_to_id (this);'
+//				%{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().deactivate_object (oid);
+   '			'
+   ( get_global_var ( 'SERV' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%P
+    begin
+     OBJECT IN %P
+     if ( ( %P |M ) %== 'Library::Category' OR 
+      ( ( %P |M ) %== 'ServerLibrary::Category'  ) ) then
+     begin
+      [%f] dump_java_package %( %P )% '.'
+      %P |N '.LibHomeFactory' 
+      ++! l_Counter
+     end // if
+    end // for P
+
+   ) // bind
+   '.get().getOrbFacet().getRootPoa().deactivate_object (oid);'
+//			} catch (java.lang.Throwable ex) {
+   '		} catch (java.lang.Throwable ex) {'
+//				Logs.LOG_SEX (ex);
+   '			Logs.LOG_SEX (ex);'
+//			}
+   '		}'
+//	]	}
+  end // if
+  '	}'
+//	
+  #13#10
+
+//		]// remover implementation
+  '	' 
+ end // if
+ else
+ begin
+  '	' 
+ end // else
+ '// remover implementation'
+//		public void %f_to_java(%{RM_OP}NImpl) (%{RM_OP}<{, }%f_arg_full_decl(%C)>)[{%f_realize_srv_interface(%{RM_OP})=false}{ throws org.omg.CORBA.SystemException, ru.garant.shared.CoreSrv.ForeignObject%{RM_OP}<, %f_type(%E)>}[ throws %{RM_OP}<{, }%f_type(%E)>]] {%f_start_func_cpp(%{RM_OP},"%{SELF}N::%{RM_OP}N")
+ '	public void '
+ [%f] to_java %( ( get_global_var ( 'RM_OP' ) |N ) 'Impl' )% ' ('
+ ( get_global_var ( 'RM_OP' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] arg_full_decl %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+ ')'
+ if ( ( [%f] realize_srv_interface %( ( get_global_var ( 'RM_OP' ) ) )% ) %==  false ) then
+ begin
+  if NOT-EMPTY
+  begin
+   ' throws '
+   ( get_global_var ( 'RM_OP' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+
+   ) // bind
+  end // if
+  NOP
+ end // if
+ else
+ begin
+  ' throws org.omg.CORBA.SystemException, ru.garant.shared.CoreSrv.ForeignObject'
+  ( get_global_var ( 'RM_OP' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     ', '
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+
+  ) // bind
+ end // else
+ ' {'
+ [%f] start_func_cpp %( ( get_global_var ( 'RM_OP' ) ) %, ( get_global_var ( 'SELF' ) |N ) '::'
+ ( get_global_var ( 'RM_OP' ) |N ) )% 
+//			%f_remover_uc(%{RM_OP}%P,%{RM_OP})
+ '		'
+ [%f] remover_uc %( ( get_global_var ( 'RM_OP' )  ->P ) %, ( get_global_var ( 'RM_OP' ) ) )% 
+//		%f_end_func_cpp(%{SELF})}
+ '	'
+ [%f] end_func_cpp %( ( get_global_var ( 'SELF' ) ) )% '}'
+
+//f _remover_uc
+; // remover_impl_java
+
+: remover_uc OBJECT IN %S
+//	%U[{_%1U_%{SELF}U}
+ %Usersection (
+  '_'
+  %1 |U '_'
+  ( get_global_var ( 'SELF' ) |U ) 
+ )
+ (
+  #13#10
+
+//			]
+  '		' 
+ ) // Usersection
+ //#UC END# *4714611D00BB*
+; // remover_uc
+
+
+// генерит определение идентификатора фабрик
+//f _fctr_id
+: fctr_id OBJECT IN %S
+//#UC START# *4714612500CB*
+//	<{}{%f_is_factory(%C)=true&%CS!=remover&%f_equal_ctor(%{SELF},%C)=true}{%C}		class %f_to_borland(%CN) {}; // %PN::%SN::%CN
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %==  true AND 
+   ( ( %C |S ) %!= 'remover'  ) AND 
+   ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %C )% ) %==  true  ) ) then
+  begin
+   '		class '
+   [%f] to_borland %( %C |N )% ' {}; // '
+   %P |N '::'
+   %S |N '::'
+   %C |N 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4714612500CB*
+; // fctr_id
+
+
+// проверяет есть у элемента конструкторы с одинаковой сигнатурой
+//f _equal_ctor
+: equal_ctor OBJECT IN %S
+//#UC START# *4714612D03A9*
+//	%f_clear_list(ALL_FCTR)\
+ [%f] clear_list %( 'ALL_FCTR' )% 
+//	%f_clear_list(ALL_CTORS)\
+ [%f] clear_list %( 'ALL_CTORS' )% 
+//	%f_collect_all_factories(%S,"ALL_FCTR","\[{\%f_is_factory(\%S)=true&\%SS!=remover&\%SS!=finder}{false}true\]")\
+ [%f] collect_all_factories %( %S %, 'ALL_FCTR"' %, '[{%f_is_factory(%S)=true&%SS!=remover&%SS!=finder}{false}true]' )% 
+//	%f_collect_all_ctors_if_def_fctr_impl(%S,"ALL_CTORS")\
+ [%f] collect_all_ctors_if_def_fctr_impl %( %S %, 'ALL_CTORS' )% 
+//	%f_sort_list(ALL_FCTR,g)%f_unique_list(ALL_FCTR)\
+ [%f] sort_list %( 'ALL_FCTR' %, 'g' )% [%f] unique_list %( 'ALL_FCTR' )% 
+//	%f_sort_list(ALL_CTORS,g)%f_unique_list(ALL_CTORS)\
+ [%f] sort_list %( 'ALL_CTORS' %, 'g' )% [%f] unique_list %( 'ALL_CTORS' )% 
+//	\
+//	%f_clear_list(ALL_CTORS_SIGNATURES)\
+ [%f] clear_list %( 'ALL_CTORS_SIGNATURES' )% 
+//	%f_add_signatures(%S,"ALL_FCTR","ALL_CTORS_SIGNATURES")\
+ [%f] add_signatures %( %S %, 'ALL_FCTR"' %, 'ALL_CTORS_SIGNATURES' )% 
+//	%f_add_signatures(%S,"ALL_CTORS","ALL_CTORS_SIGNATURES")\
+ [%f] add_signatures %( %S %, 'ALL_CTORS"' %, 'ALL_CTORS_SIGNATURES' )% 
+//	\
+//	[{%f_number_cmp("%f_count_in_list(ALL_CTORS_SIGNATURES,"%f_dump_ctor_signature(%1)")","1","\>")=1}{false}true]
+ if ( ( [%f] number_cmp %( [%f] count_in_list %( 'ALL_CTORS_SIGNATURES' %, [%f] dump_ctor_signature %( %1 )% )% %, 1 %, '>' )% ) %== 1 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4714612D03A9*
+; // equal_ctor
+
+
+// возвращает непустую строку, если у элемента есть конструкторы с одинаковой сигнатурой
+//f _dump_equal_ctor
+: dump_equal_ctor OBJECT IN %S
+//#UC START# *471461350203*
+//	[{"<{}{"%{SERV}%f_has_equal_fctr_base(%R,%1)"="true"}{%RC}>"!="0"}.]\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( ( get_global_var ( 'SERV' ) %f has_equal_fctr_base %( %R %, %1 )% ) ) %== true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %!= 0 ) then
+ begin
+  '.' 
+ end // if
+//	[{%RS=LocalInterface}%f_dump_equal_ctor(%R,%1)]<%R[{"<{}{"%ga"="abstract"&"%{SERV}%f_has_equal_fctr_base(%g,%2)"="true"}{%gC}>"!="0"}.]%R<{%ga=abstract&%gS=LocalInterface}%f_dump_equal_ctor(%g,%1)>>\
+ if ( ( %R |S ) %== 'LocalInterface' ) then
+ begin
+  [%f] dump_equal_ctor %( %R %, %1 )% 
+ end // if
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   %R
+   bind ( 
+    OBJECT VAR %S
+    if ( 
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%g
+     begin
+      OBJECT IN %g
+      if ( ( %g |a ) %== 'abstract' AND 
+       ( ( ( get_global_var ( 'SERV' ) %f has_equal_fctr_base %( %g %, %2 )% ) ) %== true  ) ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for g
+     l_Counter
+     %!= 0 ) then
+    begin
+     '.' 
+    end // if
+
+   ) // bind
+    %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( %g |a '=abstract&'
+      %g |S '=LocalInterface' )
+      [%f] dump_equal_ctor %( %g %, %1 )% 
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_equal_ctor(%R,%1)>]}<%f_dump_equal_ctor(%G,%1)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_equal_ctor %( %G %, %1 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_equal_ctor %( %R %, %1 )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+
+//#UC END# *471461350203*
+; // dump_equal_ctor
+
+
+// возвращает true, если элемент содержит фабрику с сигнатурой, идентичной <fctr>
+//f _has_equal_fctr
+: has_equal_fctr OBJECT IN %S
+// параметры: fctr: void = %1
+//#UC START# *4714613F032C*
+//	[{"<{}{%f_is_factory(%C)=true&%CS!=remover&%C<%f_arg_full_decl(%C)>=%1<%f_arg_full_decl(%C)>&%CU!=%1U}{%CC}>"!="0"}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %==  true AND 
+    ( ( %C |S ) %!= 'remover'  ) AND 
+    ( ( %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      [%f] arg_full_decl %( %C )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ )    %== ( %1
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      [%f] arg_full_decl %( %C )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ )     ) AND 
+    ( ( %C |U ) %!= ( %1 |U )  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4714613F032C*
+; // has_equal_fctr
+
+
+// не понятно что это...
+//f _same_base_realize
+: same_base_realize OBJECT IN %S
+//#UC START# *4714614A01B5*
+//	[{"%S{Factory default impl}"="true"&"%f_dump_same_base_realize(%S,%1)"!=""}{%1N}true]
+ if ( ( %S get_up ( 'Factory default impl' ) ) %== true AND 
+   ( ( [%f] dump_same_base_realize %( %S %, %1 )% ) %!= ''  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  %1 |N 
+ end // else
+//#UC END# *4714614A01B5*
+; // same_base_realize
+
+
+// используется для реализации same_base_realize
+//f _dump_same_base_realize
+: dump_same_base_realize OBJECT IN %S
+//#UC START# *47146152036B*
+//	[{"<{}{"%f_is_same_base_realize(%R,%1)"="true"}{%RC}>"!="0"}.]\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( [%f] is_same_base_realize %( %R %, %1 )% ) %== true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %!= 0 ) then
+ begin
+  '.' 
+ end // if
+//	<%R[{"<{}{"%f_is_same_base_realize(%g,%2)"="true"}{%gC}>"!="0"}.]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   %R
+   bind ( 
+    OBJECT VAR %S
+    if ( 
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%g
+     begin
+      OBJECT IN %g
+      if ( ( [%f] is_same_base_realize %( %g %, %2 )% ) %== true ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for g
+     l_Counter
+     %!= 0 ) then
+    begin
+     '.' 
+    end // if
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+//	<%g[{"<{}{"%f_is_same_base_realize(%R,%2)"="true"}{%RC}>"!="0"}.]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%g
+ begin
+  OBJECT IN %g
+  if true then
+  begin
+   %g
+   bind ( 
+    OBJECT VAR %S
+    if ( 
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%R
+     begin
+      OBJECT IN %R
+      if ( ( [%f] is_same_base_realize %( %R %, %2 )% ) %== true ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for R
+     l_Counter
+     %!= 0 ) then
+    begin
+     '.' 
+    end // if
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for g
+//	<%g<%R[{"<{}{"%f_is_same_base_realize(%g,%3)"="true"}{%gC}>"!="0"}.]>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%g
+ begin
+  OBJECT IN %g
+  if true then
+  begin
+   %g
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if true then
+     begin
+      %R
+      bind ( 
+       OBJECT VAR %S
+       if ( 
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%g
+        begin
+         OBJECT IN %g
+         if ( ( [%f] is_same_base_realize %( %g %, %3 )% ) %== true ) then
+         begin
+
+          ++! l_Counter
+         end // if
+        end // for g
+        l_Counter
+        %!= 0 ) then
+       begin
+        '.' 
+       end // if
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for R
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for g
+//#UC END# *47146152036B*
+; // dump_same_base_realize
+
+
+// название странное, по коду просто сравнивает гуид текущего элемента и переданного, если равно,
+// возвращает true
+//f _is_same_base_realize
+: is_same_base_realize OBJECT IN %S
+//#UC START# *4714615903A9*
+//	[{"%SU"="%1U"}{false}true]
+ if ( ( %S |U ) %== ( %1 |U ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4714615903A9*
+; // is_same_base_realize
+
+
+// генерит объявление конструктора, для соответствующей фабрики
+//f _fctr_def_impl_header_cpp_i
+: fctr_def_impl_header_cpp_i OBJECT IN %S
+//#UC START# *4714616100FA*
+//	%f_set_var(HAS_MEM_KEY,"0")\
+ [%f] set_var %( 'HAS_MEM_KEY' %, 0 )% 
+//	%f_set_var(HAS_FCT_ID,"0")\
+ [%f] set_var %( 'HAS_FCT_ID' %, 0 )% 
+//	%f_set_var(HEADER_FUN,"%f_templ_header(%{SELF})%f_function_scope(%{SELF})%{SELF}N (%S%f_factory_params("%1N","","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")%t_arg(%T,"inout") mem_key][{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"|%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}, ]%f_set_var(HAS_FCT_ID,"1")const %f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%Cx=true}, ]bool ro_mode])[{%Cx=true}{[ : %{SELF}<{, }{"%CC"="Attribute"&"%CI"!=""&%CS!=static&%CS!=template&%CS!=switch}m_%CN (%f_init(%C))>]}[{"%f_same_base_realize(%{SELF}%G,%{SELF_OP})"="true"} : %f_type(%{SELF}%G)(%S<{, }%CN>[{%{HAS_MEM_KEY}N=1}[{"%S%Cx"="true"}, ]mem_key][{"%f_equal_ctor(%{SELF},%S)"="true"}[{%{HAS_MEM_KEY}N=1|"%S%Cx"="true"}, ]%f_type(%{SELF}%G)::FactoriesID::%f_to_borland(%SN)()][{%S{const_type}=combo}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%Cx=true}, ]ro_mode])]]")\
+ [%f] set_var %( 'HEADER_FUN' %, [%f] templ_header %( ( get_global_var ( 'SELF' ) ) )% [%f] function_scope %( ( get_global_var ( 'SELF' ) ) )% ( get_global_var ( 'SELF' ) |N ) ' ('
+ %S %f factory_params %( %1 |N %, '' %, '' %, 'servant' )% if ( ( %T |S ) %== 'FactoryMemory' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0  ) ) then
+ begin
+  if ( ( %C |x ) %==  true ) then
+  begin
+   ', ' 
+  end // if
+  [%f] set_var %( 'HAS_MEM_KEY' %, 1 )% [%t] arg %( %T %, 'inout' )% ' mem_key' 
+ end // if
+ if ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %S )% ) %== true ) then
+ begin
+  if ( ( %S ->C |x  ) %== true OR 
+    ( ( %T |S ) %== 'FactoryMemory'  ) AND 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'nokey' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %== 0  ) ) then
+  begin
+   ', ' 
+  end // if
+  [%f] set_var %( 'HAS_FCT_ID' %, 1 )% 'const '
+  [%f] dump_factories_id_parent %( ( get_global_var ( 'SELF' ) ) )% 'FactoriesID::'
+  [%f] to_borland %( %S |N )% '& factory_id' 
+ end // if
+ if ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) then
+ begin
+  if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 OR 
+    ( ( ( get_global_var ( 'HAS_FCT_ID' ) |N ) ) %== 1  ) OR 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   ', ' 
+  end // if
+  'bool ro_mode' 
+ end // if
+ ')'
+ if ( ( %C |x ) %==  true ) then
+ begin
+  if ( ( [%f] same_base_realize %( ( get_global_var ( 'SELF' )  ->G ) %, ( get_global_var ( 'SELF_OP' ) ) )% ) %== true ) then
+  begin
+   ' : '
+   [%f] type %( ( get_global_var ( 'SELF' )  ->G ) )% '('
+   %S
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+    if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 ) then
+   begin
+    if ( ( %S ->C |x  ) %== true ) then
+    begin
+     ', ' 
+    end // if
+    'mem_key' 
+   end // if
+   if ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %S )% ) %== true ) then
+   begin
+    if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 OR 
+      ( ( %S ->C |x  ) %== true  ) ) then
+    begin
+     ', ' 
+    end // if
+    [%f] type %( ( get_global_var ( 'SELF' )  ->G ) )% '::FactoriesID::'
+    [%f] to_borland %( %S |N )% '()' 
+   end // if
+   if ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) then
+   begin
+    if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 OR 
+      ( ( ( get_global_var ( 'HAS_FCT_ID' ) |N ) ) %== 1  ) OR 
+      ( ( %C |x ) %==  true  ) ) then
+    begin
+     ', ' 
+    end // if
+    'ro_mode' 
+   end // if
+   ')' 
+  end // if
+ end // if
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   ' : '
+   ( get_global_var ( 'SELF' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' AND 
+      ( ( %C |I ) %!= ''  ) AND 
+      ( ( %C |S ) %!= 'static'  ) AND 
+      ( ( %C |S ) %!= 'template'  ) AND 
+      ( ( %C |S ) %!= 'switch'  ) ) then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      'm_'
+      %C |N ' ('
+      [%f] init %( %C )% ')' 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+  end // if
+  NOP
+ end // else
+)% //	%f_set_var(OP_LEN,"%f_string_length("%{HEADER_FUN}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'HEADER_FUN' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{HEADER_FUN}N}%{SELF}N::%{SELF}N (%S%f_factory_params("%1N","\n\t","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}\n\t, ]%t_arg(%T,"inout") mem_key][{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"|%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}\n\t, ]const %f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%Cx=true}, ]bool ro_mode]\n)[{%Cx=true}{[ :\n\t%{SELF}<{\n\t, }{"%CC"="Attribute"&"%CI"!=""&%CS!=static&%CS!=template&%CS!=switch}m_%CN (%f_init(%C))>]}[{%f_same_base_realize(%{SELF}%G,%{SELF_OP})=true} :\n\t%f_type(%{SELF}%G)(\n\t\t%S<{\n\t\t, }%CN>[{%{HAS_MEM_KEY}N=1}[{"%S%Cx"="true"}\n\t\t, ]mem_key][{"%f_equal_ctor(%{SELF},%S)"="true"}[{%{HAS_MEM_KEY}N=1|"%S%Cx"="true"}\n\t\t, ]%f_type(%{SELF}%G)::FactoriesID::%f_to_borland(%SN)()][{%S{const_type}=combo}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%Cx=true}\n\t\t, ]ro_mode]\n\t)]]]
+ if ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  ( get_global_var ( 'SELF' ) |N ) '::'
+  ( get_global_var ( 'SELF' ) |N ) ' ('
+  %S %f factory_params %( %1 |N %, #13#10#9'"' %, '' %, 'servant' )% if ( ( %T |S ) %== 'FactoryMemory' AND 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'nokey' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %== 0  ) ) then
+  begin
+   if ( ( %C |x ) %==  true ) then
+   begin
+    #13#10#9', ' 
+   end // if
+   [%t] arg %( %T %, 'inout' )% ' mem_key' 
+  end // if
+  if ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %S )% ) %== true ) then
+  begin
+   if ( ( %S ->C |x  ) %== true OR 
+     ( ( %T |S ) %== 'FactoryMemory'  ) AND 
+     ( 
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %!= 'nokey' ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+    %== 0  ) ) then
+   begin
+    #13#10#9', ' 
+   end // if
+   'const '
+   [%f] dump_factories_id_parent %( ( get_global_var ( 'SELF' ) ) )% 'FactoriesID::'
+   [%f] to_borland %( %S |N )% '& factory_id' 
+  end // if
+  if ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) then
+  begin
+   if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 OR 
+     ( ( ( get_global_var ( 'HAS_FCT_ID' ) |N ) ) %== 1  ) OR 
+     ( ( %C |x ) %==  true  ) ) then
+   begin
+    ', ' 
+   end // if
+   'bool ro_mode' 
+  end // if
+  #13#10')'
+  if ( ( %C |x ) %==  true ) then
+  begin
+   if ( ( [%f] same_base_realize %( ( get_global_var ( 'SELF' )  ->G ) %, ( get_global_var ( 'SELF_OP' ) ) )% ) %==  true ) then
+   begin
+    ' :'#13#10#9
+    [%f] type %( ( get_global_var ( 'SELF' )  ->G ) )% '('#13#10#9#9
+    %S
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( #13#10#9#9', ' )
+       %C |N 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 ) then
+    begin
+     if ( ( %S ->C |x  ) %== true ) then
+     begin
+      #13#10#9#9', ' 
+     end // if
+     'mem_key' 
+    end // if
+    if ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %S )% ) %== true ) then
+    begin
+     if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 OR 
+       ( ( %S ->C |x  ) %== true  ) ) then
+     begin
+      #13#10#9#9', ' 
+     end // if
+     [%f] type %( ( get_global_var ( 'SELF' )  ->G ) )% '::FactoriesID::'
+     [%f] to_borland %( %S |N )% '()' 
+    end // if
+    if ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) then
+    begin
+     if ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 OR 
+       ( ( ( get_global_var ( 'HAS_FCT_ID' ) |N ) ) %== 1  ) OR 
+       ( ( %C |x ) %==  true  ) ) then
+     begin
+      #13#10#9#9', ' 
+     end // if
+     'ro_mode' 
+    end // if
+    #13#10#9')' 
+   end // if
+  end // if
+  else
+  begin
+   if NOT-EMPTY
+   begin
+    ' :'#13#10#9
+    ( get_global_var ( 'SELF' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Attribute' AND 
+       ( ( %C |I ) %!= ''  ) AND 
+       ( ( %C |S ) %!= 'static'  ) AND 
+       ( ( %C |S ) %!= 'template'  ) AND 
+       ( ( %C |S ) %!= 'switch'  ) ) then
+      begin
+       if ( l_Counter >0 ) then ( #13#10#9', ' )
+       'm_'
+       %C |N ' ('
+       [%f] init %( %C )% ')' 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+   end // if
+   NOP
+  end // else
+ end // if
+ else
+ begin
+  ( get_global_var ( 'HEADER_FUN' ) |N ) 
+ end // else
+//#UC END# *4714616100FA*
+; // fctr_def_impl_header_cpp_i
+
+
+// генерит объявление ремувера на серванте
+//f _fctr_def_rm_impl_header_cpp_i
+: fctr_def_rm_impl_header_cpp_i OBJECT IN %S
+//#UC START# *4714617202CE*
+//	%f_set_var(SRV_FACTORY_OP,"void %{SELF}N::%SN[%1N] (%S<{, }%f_arg_full_decl(%C)>)[{%f_realize_srv_interface(%S)=false}{ throw (CORBA::SystemException, CoreSrv::ForeignObject<, %f_type(%E)>)} /*throw (Core::Root::ForeignObject<, %f_type(%E)>)*/] {")\
+ [%f] set_var %( 'SRV_FACTORY_OP' %, 'void '
+ ( get_global_var ( 'SELF' ) |N ) '::'
+ %S |N if NOT-EMPTY
+ begin
+  %1 |N 
+ end // if
+ NOP
+ ' ('
+ %S
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] arg_full_decl %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+  ')'
+ if ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) then
+ begin
+  ' /*throw (Core::Root::ForeignObject'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    ', '
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')*/' 
+ end // if
+ else
+ begin
+  ' throw (CORBA::SystemException, CoreSrv::ForeignObject'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    ', '
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')' 
+ end // else
+ ' {' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}void %{SELF}N::%SN[%1N] (\n\t\t%S<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[{%f_realize_srv_interface(%S)=false}{ throw (\n\t\tCORBA::SystemException\n\t\t, CoreSrv::ForeignObject<\n\t\t, %f_type(%E)>\n\t)} /*throw (\n\t\tCore::Root::ForeignObject<\n\t\t, %f_type(%E)>\n\t)*/] {]
+ if ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  'void '
+  ( get_global_var ( 'SELF' ) |N ) '::'
+  %S |N if NOT-EMPTY
+  begin
+   %1 |N 
+  end // if
+  NOP
+  ' ('#13#10#9#9
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( #13#10#9#9', ' )
+     [%f] arg_full_decl %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+   #13#10#9')'
+  if ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) then
+  begin
+   ' /*throw ('#13#10#9#9'Core::Root::ForeignObject'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     #13#10#9#9', '
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+   #13#10#9')*/' 
+  end // if
+  else
+  begin
+   ' throw ('#13#10#9#9'CORBA::SystemException'#13#10#9#9', CoreSrv::ForeignObject'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     #13#10#9#9', '
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+   #13#10#9')' 
+  end // else
+  ' {' 
+ end // if
+ else
+ begin
+  ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) 
+ end // else
+
+//#UC END# *4714617202CE*
+; // fctr_def_rm_impl_header_cpp_i
+
+
+// генерит реализацию ремувера на серванте
+//f _fctr_def_rm_impl_cpp
+: fctr_def_rm_impl_cpp OBJECT IN %S
+//#UC START# *4714617902DE*
+//	%f_set_var(RM_OP,S)[{%{SERV}a!=abstract}// remover (logical destructor) function
+ [%f] set_var %( 'RM_OP' %, 'S' )% if ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'abstract' ) then
+ begin
+  '// remover (logical destructor) function'
+//	%f_fctr_def_rm_impl_header_cpp_i(%S)
+  [%f] fctr_def_rm_impl_header_cpp_i %( %S )% 
+//		this-\>%SN_i ();
+  '	this->'
+  %S |N '_i ();'
+//		//call framework to clean all servant-specific data
+  '	//call framework to clean all servant-specific data'
+//	%{RM_OP}[%f_set_var(INT_MNG,P)]\
+  ( get_global_var ( 'RM_OP' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   if NOT-EMPTY
+   begin
+    [%f] set_var %( 'INT_MNG' %, 'P' )% 
+   end // if
+   NOP
+
+  ) // bind
+//	[{%{INT_MNG}a=abstract}%{SERV}<{}{%f_is_interface(%R)=true|%RS=LocalInterface}\
+  if ( ( ( get_global_var ( 'INT_MNG' ) |a ) ) %== 'abstract' ) then
+  begin
+   ( get_global_var ( 'SERV' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( [%f] is_interface %( %R )% ) %==  true OR 
+      ( ( %R |S ) %== 'LocalInterface'  ) ) then
+     begin
+//	%f_set_var(INT_MNG,R)>]\
+      [%f] set_var %( 'INT_MNG' %, 'R' )% 
+      ++! l_Counter
+     end // if
+    end // for R
+
+   ) // bind
+  end // if
+//	[{%f_realize_srv_interface(%{RM_OP})=true}{	%f_type(%{INT_MNG})FactoryManager::%{RM_OP}N (this%{RM_OP}<, %CN>);
+  if ( ( [%f] realize_srv_interface %( ( get_global_var ( 'RM_OP' ) ) )% ) %==  true ) then
+  begin
+//		%f_var(%{INT_MNG}) obj_ = this-\>_this ();
+   '	'
+   [%f] var %( ( get_global_var ( 'INT_MNG' ) ) )% ' obj_ = this->_this ();'
+//		%f_type(%{INT_MNG})FactoryManager::%{RM_OP}N (obj_%{RM_OP}<, %CN>);
+   '	'
+   [%f] type %( ( get_global_var ( 'INT_MNG' ) ) )% 'FactoryManager::'
+   ( get_global_var ( 'RM_OP' ) |N ) ' (obj_'
+   ( get_global_var ( 'RM_OP' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      ', '
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+   ');'
+//	][{%f_realize_srv_interface(%S)=true}
+  end // if
+  else
+  begin
+   '	'
+   [%f] type %( ( get_global_var ( 'INT_MNG' ) ) )% 'FactoryManager::'
+   ( get_global_var ( 'RM_OP' ) |N ) ' (this'
+   ( get_global_var ( 'RM_OP' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      ', '
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+   ');'
+//	}\
+  end // else
+  if ( ( [%f] realize_srv_interface %( %S )% ) %==  true ) then
+  begin
+   #13#10
+
+//		//deactivate servant
+   '	//deactivate servant'
+//		PortableServer::ObjectId_var oid;
+   '	PortableServer::ObjectId_var oid;'
+//		try {
+   '	try {'
+//			oid = LibHomeFactory::get().get_orb_facet().get_root_poa().servant_to_id (this);
+   '		oid = LibHomeFactory::get().get_orb_facet().get_root_poa().servant_to_id (this);'
+//			LibHomeFactory::get().get_orb_facet().get_root_poa().deactivate_object (oid);
+   '		LibHomeFactory::get().get_orb_facet().get_root_poa().deactivate_object (oid);'
+//		} CATCH_AND_LOG ("%{SERV}N::%SN - while deactivate servant");
+   '	} CATCH_AND_LOG ("'
+   ( get_global_var ( 'SERV' ) |N ) '::'
+   %S |N ' - while deactivate servant");'
+//	]}
+  end // if
+  '}'
+//	
+  #13#10
+
+//	]%f_fctr_def_rm_impl_header_cpp_i(%S,"_i")\
+ end // if
+ [%f] fctr_def_rm_impl_header_cpp_i %( %S %, '_i' )% 
+//	%f_start_func_cpp(%S,"%{SELF}N::%SN")
+ [%f] start_func_cpp %( %S %, ( get_global_var ( 'SELF' ) |N ) '::'
+ %S |N )% 
+//		%U[{_%SU_%{SELF}U}
+ '	'
+ %Usersection (
+  '_'
+  %S |U '_'
+  ( get_global_var ( 'SELF' ) |U ) 
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //	%f_end_func_cpp(%S)}
+ [%f] end_func_cpp %( %S )% '}'
+//#UC END# *4714617902DE*
+; // fctr_def_rm_impl_cpp
+
+
+// генерит реалиазцию всех конструкторов, соотвтествующих фабрикам реализуемого интерфейса
+//f _fctr_def_impl_cpp
+: fctr_def_impl_cpp OBJECT IN %S
+//#UC START# *47146186009C*
+//	%f_set_var(SELF_OP,S)\
+ [%f] set_var %( 'SELF_OP' %, 'S' )% 
+//	<{}{"%f_is_factory(%C)"="true"&%f_exists_in_list(%2N,C)=false}{%C}%2%f_add_to_list(C)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %== true AND 
+   ( ( [%f] exists_in_list %( %2 |N %, 'C' )% ) %==  false  ) ) then
+  begin
+   %2 %f add_to_list %( 'C' )% 
+//	
+   #13#10
+
+//	%f_fctr_def_impl_cpp_ctor(%C)>
+   [%f] fctr_def_impl_cpp_ctor %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+
+//f _fctr_def_impl_cpp_ctor
+; // fctr_def_impl_cpp
+
+: fctr_def_impl_cpp_ctor OBJECT IN %S
+//	%S%f_fctr_def_impl_cpp_ctor_impl("read-write")[{%S%f_has_two_different_signatures()=true}
+ %S %f fctr_def_impl_cpp_ctor_impl %( 'read-write' )% if ( ( %S %f has_two_different_signatures %( )% ) %==  true ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	%S%f_fctr_def_impl_cpp_ctor_impl("read-only")]
+  %S %f fctr_def_impl_cpp_ctor_impl %( 'read-only' )% 
+ end // if
+
+//f _fctr_def_removers_impl_cpp
+; // fctr_def_impl_cpp_ctor
+
+: fctr_def_removers_impl_cpp OBJECT IN %S
+//	<{}{%CC=Operation&%CS=remover}{%C}
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Operation' AND 
+   ( ( %C |S ) %== 'remover'  ) ) then
+  begin
+   #13#10
+
+//	%f_set_var(SELF_OP,S)
+   [%f] set_var %( 'SELF_OP' %, 'S' )% 
+//	%f_fctr_def_rm_impl_cpp(%C)>
+   [%f] fctr_def_rm_impl_cpp %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+
+//f _remover_include_cpp
+; // fctr_def_removers_impl_cpp
+
+: remover_include_cpp OBJECT IN %S
+//	[{<{}{%CC=Operation&%CS=remover}{%CC}>!=0}%f_add_to_list(REMOVER_OWNER,S)]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'remover'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  [%f] add_to_list %( 'REMOVER_OWNER' %, 'S' )% 
+ end // if
+//#UC END# *47146186009C*
+; // remover_include_cpp
+
+
+// возвращает true, если сервант "релизует" фабрики с пустым списком аргументов
+//f _has_not_default_fctr
+: has_not_default_fctr OBJECT IN %S
+//#UC START# *4714619E01B5*
+//	[{"%S{Factory default impl}"="true"}[{"%f_dump_all_fctr_args(%S)"!=""}{false}true]]
+ if ( ( %S get_up ( 'Factory default impl' ) ) %== true ) then
+ begin
+  if ( ( [%f] dump_all_fctr_args %( %S )% ) %!= '' ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+//#UC END# *4714619E01B5*
+; // has_not_default_fctr
+
+
+// выводит аргументы всех фабрик
+//f _dump_all_fctr_args
+: dump_all_fctr_args OBJECT IN %S
+//#UC START# *471461A502FD*
+//	<%f_dump_fctr_args(%R)%R<{}{"%ga"="abstract"}%f_dump_fctr_args(%g)>><%g<%f_dump_fctr_args(%R)%R<{}{"%ga"="abstract"}%f_dump_fctr_args(%g)>>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] dump_fctr_args %( %R )% %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] dump_fctr_args %( %g )% 
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%g
+ begin
+  OBJECT IN %g
+  if true then
+  begin
+   %g
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if true then
+     begin
+      [%f] dump_fctr_args %( %R )% %R
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%g
+       begin
+        OBJECT IN %g
+        if ( ( %g |a ) %== 'abstract' ) then
+        begin
+         [%f] dump_fctr_args %( %g )% 
+         ++! l_Counter
+        end // if
+       end // for g
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for R
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for g
+//#UC END# *471461A502FD*
+; // dump_all_fctr_args
+
+
+// возвращает true, если сервант имеет не умолчательный конструктор
+//f _has_not_default_ctor
+: has_not_default_ctor OBJECT IN %S
+//#UC START# *471461AC0203*
+//	[{"%S{Factory default impl}"!="true"}[{"%f_dump_all_ctor_args(%S)"!=""}{false}true]]
+ if ( ( %S get_up ( 'Factory default impl' ) ) %!= true ) then
+ begin
+  if ( ( [%f] dump_all_ctor_args %( %S )% ) %!= '' ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+//#UC END# *471461AC0203*
+; // has_not_default_ctor
+
+
+// выводит аргументы всех конструкторов
+//f _dump_all_ctor_args
+: dump_all_ctor_args OBJECT IN %S
+//#UC START# *471461B4038A*
+//	<{}{"%CS"="ctor"}%C<%CN>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'ctor' ) then
+  begin
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *471461B4038A*
+; // dump_all_ctor_args
+
+
+// выводит аргументы всех фабрик-детей элемента
+//f _dump_fctr_args
+: dump_fctr_args OBJECT IN %S
+//#UC START# *471461BB01D4*
+//	<{}{"%f_is_factory(%C)"="true"}%C<%CN>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %== true ) then
+  begin
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *471461BB01D4*
+; // dump_fctr_args
+
+
+// выводит реализацию всех конструкторов серванта, соответствующих фабрикам
+//f _dump_all_fctr_def_impl_cpp
+: dump_all_fctr_def_impl_cpp OBJECT IN %S
+//#UC START# *471461C1030D*
+//	%f_clear_list(47145F3F02AF_ALL_FCTR)\
+ [%f] clear_list %( '47145F3F02AF_ALL_FCTR' )% 
+//	%f_dump_all_fctr_def_impl_cpp_impl(%S,%1,%{47145F3F02AF_ALL_FCTR})
+ [%f] dump_all_fctr_def_impl_cpp_impl %( %S %, %1 %, ( get_global_var ( '47145F3F02AF_ALL_FCTR' ) ) )% 
+
+//f _dump_all_fctr_def_impl_cpp_impl
+; // dump_all_fctr_def_impl_cpp
+
+: dump_all_fctr_def_impl_cpp_impl OBJECT IN %S
+//	<%f_fctr_def_impl_cpp(%R,%1,%2)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_cpp(%g,%2,%3)[{%gS=LocalInterface}%f_dump_all_fctr_def_impl_cpp_impl(%g,%2,%3)]>[{%RS=LocalInterface}%f_dump_all_fctr_def_impl_cpp_impl(%R,%1,%2)]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] fctr_def_impl_cpp %( %R %, %1 %, %2 )% %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] fctr_def_impl_cpp %( %g %, %2 %, %3 )% if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_fctr_def_impl_cpp_impl %( %g %, %2 %, %3 )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+    if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_fctr_def_impl_cpp_impl %( %R %, %1 %, %2 )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_def_impl_cpp_impl(%R,%1,%2)>]}<%f_dump_all_fctr_def_impl_cpp_impl(%G,%1,%2)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_fctr_def_impl_cpp_impl %( %G %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_fctr_def_impl_cpp_impl %( %R %, %1 %, %2 )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+
+//f _dump_all_remover_include_cpp
+; // dump_all_fctr_def_impl_cpp_impl
+
+: dump_all_remover_include_cpp OBJECT IN %S
+//	%f_clear_list(REMOVER_OWNER)<%f_remover_include_cpp(%R)%R<{}{"%ga"="abstract"}%f_remover_include_cpp(%g)[{%gS=LocalInterface}%f_dump_all_remover_include_cpp(%g)]>[{%RS=LocalInterface}%f_dump_all_remover_include_cpp(%R)]>\
+ [%f] clear_list %( 'REMOVER_OWNER' )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] remover_include_cpp %( %R )% %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] remover_include_cpp %( %g )% if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_remover_include_cpp %( %g )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+    if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_remover_include_cpp %( %R )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_remover_include_cpp(%R)>]}<%f_dump_all_remover_include_cpp(%G)>]\
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_remover_include_cpp %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_remover_include_cpp %( %R )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+//	%f_sort_list(REMOVER_OWNER,u)%f_unique_list(REMOVER_OWNER)\
+ [%f] sort_list %( 'REMOVER_OWNER' %, 'u' )% [%f] unique_list %( 'REMOVER_OWNER' )% 
+//	[<{}{%f_is_empty(REMOVER_OWNER)=false}{W}%f_pop_first_to_var(REMOVER_OWNER,OWNER)[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%{OWNER}W),%{OWNER})
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'REMOVER_OWNER' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'REMOVER_OWNER' %, 'OWNER' )% if NOT-EMPTY
+    begin
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, ( get_global_var ( 'OWNER' ) |W ) )% %, ( get_global_var ( 'OWNER' ) ) )% 
+//	]>]
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+//#UC END# *471461C1030D*
+; // dump_all_remover_include_cpp
+
+
+// выводит определение всех конструкторов серванта, соответствующих фабрикам
+//f _dump_all_fctr_def_impl_h
+: dump_all_fctr_def_impl_h OBJECT IN %S
+//#UC START# *471461C8007D*
+//	%f_set_var(RELEASE_DUMPED,"false")\
+ [%f] set_var %( 'RELEASE_DUMPED' %, false )% 
+//	%f_clear_list(47145F3F02AF_ALL_FCTR)\
+ [%f] clear_list %( '47145F3F02AF_ALL_FCTR' )% 
+//	%f_dump_all_fctr_def_impl_h_impl(%S,%1,%{47145F3F02AF_ALL_FCTR})
+ [%f] dump_all_fctr_def_impl_h_impl %( %S %, %1 %, ( get_global_var ( '47145F3F02AF_ALL_FCTR' ) ) )% 
+
+//f _dump_all_fctr_def_impl_h_impl
+; // dump_all_fctr_def_impl_h
+
+: dump_all_fctr_def_impl_h_impl OBJECT IN %S
+//	<%f_fctr_def_impl_h(%R,%1,%2)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_h(%g,%2,%3)[{%gS=LocalInterface}%f_dump_all_fctr_def_impl_h_impl(%g,%2,%3)]>[{%RS=LocalInterface}%f_dump_all_fctr_def_impl_h_impl(%R,%1,%2)]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] fctr_def_impl_h %( %R %, %1 %, %2 )% %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] fctr_def_impl_h %( %g %, %2 %, %3 )% if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_fctr_def_impl_h_impl %( %g %, %2 %, %3 )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+    if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_fctr_def_impl_h_impl %( %R %, %1 %, %2 )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_def_impl_h_impl(%R,%1,%2)>]}<%f_dump_all_fctr_def_impl_h_impl(%G,%1,%2)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_fctr_def_impl_h_impl %( %G %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_fctr_def_impl_h_impl %( %R %, %1 %, %2 )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+//#UC END# *471461C8007D*
+; // dump_all_fctr_def_impl_h_impl
+
+
+// выводит реализацию всех конструкторов серванта, соответствующих фабрикам
+//f _dump_all_fctr_def_impl_java
+: dump_all_fctr_def_impl_java OBJECT IN %S
+//#UC START# *471461D0003E*
+//	<%f_fctr_def_impl_java(%R)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_java(%g)[{%gS=LocalInterface}%f_dump_all_fctr_def_impl_java(%g)]>[{%RS=LocalInterface}%f_dump_all_fctr_def_impl_java(%R)]>\
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_def_impl_java(%R)>]}<%f_dump_all_fctr_def_impl_java(%G)>]
+//	%f_clear_list(471461D0003E_ALL_CTORS)\
+ [%f] clear_list %( '471461D0003E_ALL_CTORS' )% 
+//	%f_collect_all_factories(%S,"471461D0003E_ALL_CTORS","\[{\%f_is_factory(\%S)=true&\%SS!=remover&\%SS!=finder}{false}true\]")\
+ [%f] collect_all_factories %( %S %, 471461 'D0003E_ALL_CTORS"' %, '[{%f_is_factory(%S)=true&%SS!=remover&%SS!=finder}{false}true]' )% 
+//	%f_sort_list(471461D0003E_ALL_CTORS,g)%f_unique_list(471461D0003E_ALL_CTORS)\
+ [%f] sort_list %( 471461 'D0003E_ALL_CTORS' %, 'g' )% [%f] unique_list %( 471461 'D0003E_ALL_CTORS' )% 
+//	[<{}{%f_is_empty(471461D0003E_ALL_CTORS)=false}{W}[%f_pop_first_to_var(471461D0003E_ALL_CTORS,CTOR)[%f_fctr_def_servant_impl_java(%{CTOR})
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 471461 'D0003E_ALL_CTORS' )% ) %==  false ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 471461 'D0003E_ALL_CTORS' %, 'CTOR' )% if NOT-EMPTY
+     begin
+      [%f] fctr_def_servant_impl_java %( ( get_global_var ( 'CTOR' ) ) )% 
+//	
+      #13#10
+
+//	]]>]
+     end // if
+     NOP
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+
+//f _dump_all_non_constructed_factory_method_def_impl_java
+; // dump_all_fctr_def_impl_java
+
+: dump_all_non_constructed_factory_method_def_impl_java OBJECT IN %S
+// список для того, чтобы в нем сохранять уже обработанные операции, дабы исключить дублирование
+//	%f_clear_list(471461D0003E_ALL_NON_CONSTRUCTED_FACTORIES)\
+ [%f] clear_list %( '471461D0003E_ALL_NON_CONSTRUCTED_FACTORIES' )% 
+//	%f_dump_all_non_constructed_factory_method_def_impl_java_impl(%S,%{471461D0003E_ALL_NON_CONSTRUCTED_FACTORIES})\
+ [%f] dump_all_non_constructed_factory_method_def_impl_java_impl %( %S %, ( get_global_var ( '471461D0003E_ALL_NON_CONSTRUCTED_FACTORIES' ) ) )% 
+//	%f_clear_list(471461D0003E_ALL_NON_CONSTRUCTED_FACTORIES)
+ [%f] clear_list %( '471461D0003E_ALL_NON_CONSTRUCTED_FACTORIES' )% 
+
+//f _dump_all_non_constructed_factory_method_def_impl_java_impl
+; // dump_all_non_constructed_factory_method_def_impl_java
+
+: dump_all_non_constructed_factory_method_def_impl_java_impl OBJECT IN %S
+//	<%f_set_var(INT,R)%f_fctr_def_non_constructed_impl_java(%R,%1)[{%RS=LocalInterface}%f_dump_all_non_constructed_factory_method_def_impl_java_impl(%R,%1)]%R<{}{"%ga"="abstract"}%f_fctr_def_non_constructed_impl_java(%g,%2)[{%gS=LocalInterface}%f_dump_all_non_constructed_factory_method_def_impl_java_impl(%g,%2)]>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] set_var %( 'INT' %, 'R' )% [%f] fctr_def_non_constructed_impl_java %( %R %, %1 )% if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_non_constructed_factory_method_def_impl_java_impl %( %R %, %1 )% 
+   end // if
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] fctr_def_non_constructed_impl_java %( %g %, %2 )% if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_non_constructed_factory_method_def_impl_java_impl %( %g %, %2 )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_non_constructed_factory_method_def_impl_java_impl(%R,%1)>]}<%f_dump_all_non_constructed_factory_method_def_impl_java_impl(%G,%1)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_non_constructed_factory_method_def_impl_java_impl %( %G %, %1 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_non_constructed_factory_method_def_impl_java_impl %( %R %, %1 )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+
+//f _dump_all_remover_def_impl_h
+; // dump_all_non_constructed_factory_method_def_impl_java_impl
+
+: dump_all_remover_def_impl_h OBJECT IN %S
+//	<%{SERV}%f_fctr_def_rm_impl_h_base(%R)%R<{}{"%ga"="abstract"}%{SERV}%f_fctr_def_rm_impl_h_base(%g)[{%gS=LocalInterface}%f_dump_all_remover_def_impl_h(%g)]>[{%RS=LocalInterface}%f_dump_all_remover_def_impl_h(%R)]%{SERV}%f_dump_fctr_additional_removers(%R)>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   ( get_global_var ( 'SERV' ) %f fctr_def_rm_impl_h_base %( %R )% ) %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      ( get_global_var ( 'SERV' ) %f fctr_def_rm_impl_h_base %( %g )% ) if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_remover_def_impl_h %( %g )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+    if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_remover_def_impl_h %( %R )% 
+   end // if
+   ( get_global_var ( 'SERV' ) %f dump_fctr_additional_removers %( %R )% ) 
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_remover_def_impl_h(%R)>]}<%f_dump_all_remover_def_impl_h(%G)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_remover_def_impl_h %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_remover_def_impl_h %( %R )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+
+//f _dump_all_remover_def_impl_cpp
+; // dump_all_remover_def_impl_h
+
+: dump_all_remover_def_impl_cpp OBJECT IN %S
+//	<%{SERV}%f_fctr_def_removers_impl_cpp_base(%R)%R<{}{"%ga"="abstract"}%{SERV}%f_fctr_def_removers_impl_cpp_base(%g)[{%gS=LocalInterface}%f_dump_all_remover_def_impl_cpp(%g)]>[{%RS=LocalInterface}%f_dump_all_remover_def_impl_cpp(%R)]%{SERV}%f_dump_fctr_additional_removers(%R)>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   ( get_global_var ( 'SERV' ) %f fctr_def_removers_impl_cpp_base %( %R )% ) %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      ( get_global_var ( 'SERV' ) %f fctr_def_removers_impl_cpp_base %( %g )% ) if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_remover_def_impl_cpp %( %g )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+    if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_remover_def_impl_cpp %( %R )% 
+   end // if
+   ( get_global_var ( 'SERV' ) %f dump_fctr_additional_removers %( %R )% ) 
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_remover_def_impl_cpp(%R)>]}<%f_dump_all_remover_def_impl_cpp(%G)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_remover_def_impl_cpp %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_remover_def_impl_cpp %( %R )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+//#UC END# *471461D0003E*
+; // dump_all_remover_def_impl_cpp
+
+
+// генерит определение всех типов - идентификаторов фабрик
+//f _dump_all_fctr_id
+: dump_all_fctr_id OBJECT IN %S
+//#UC START# *471461DA002E*
+//	<%{SERV}%f_fctr_id_base(%R)%R<{}{"%ga"="abstract"}%{SERV}%f_fctr_id_base(%g)[{%gS=LocalInterface}%f_dump_all_fctr_id(%g)]>[{%RS=LocalInterface}%f_dump_all_fctr_id(%R)]>[{%Rx=false}<%f_dump_all_fctr_id(%G)>]
+//	%f_clear_list(ALL_FCTR)\
+ [%f] clear_list %( 'ALL_FCTR' )% 
+//	%f_clear_list(ALL_CTORS)\
+ [%f] clear_list %( 'ALL_CTORS' )% 
+//	%f_clear_list(ALL_CTORS_SIGNATURES)\
+ [%f] clear_list %( 'ALL_CTORS_SIGNATURES' )% 
+//	%f_collect_all_factories_signature(%S,"ALL_CTORS_SIGNATURES","ALL_FCTR","ALL_CTORS")\
+ [%f] collect_all_factories_signature %( %S %, 'ALL_CTORS_SIGNATURES"' %, 'ALL_FCTR"' %, 'ALL_CTORS' )% 
+//	\
+//	[<{}{%f_is_empty(ALL_FCTR)=false}{W}\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'ALL_FCTR' )% ) %==  false ) then
+   begin
+//	[%f_pop_first_to_var(ALL_FCTR,FCTR)[{%f_number_cmp("%f_count_in_list(ALL_CTORS_SIGNATURES,"%f_dump_ctor_signature(%{FCTR})")","1","\>")=1}\
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'ALL_FCTR' %, 'FCTR' )% if ( ( [%f] number_cmp %( [%f] count_in_list %( 'ALL_CTORS_SIGNATURES' %, [%f] dump_ctor_signature %( ( get_global_var ( 'FCTR' ) ) )% )% %, 1 %, '>' )% ) %== 1 ) then
+     begin
+
+//			class %f_to_borland(%{FCTR}N) {}; // %{FCTR}%P%PN::%{FCTR}%PN::%{FCTR}N\
+//	%S%f_fctr_id_base(%{FCTR})\
+      %S %f fctr_id_base %( ( get_global_var ( 'FCTR' ) ) )% 
+//	]
+     end // if
+//	]>]
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+//#UC END# *471461DA002E*
+; // dump_all_fctr_id
+
+
+// генерит определение типа - идентификатора фабрики
+//f _fctr_id_java
+: fctr_id_java OBJECT IN %S
+//#UC START# *471461DF0399*
+//	<{}{%f_is_factory(%C)=true&%CS!=remover&%f_equal_ctor(%{SELF},%C)=true}{%C}		public static class %f_to_borland(%CN) {}; // %PN::%SN::%CN
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %==  true AND 
+   ( ( %C |S ) %!= 'remover'  ) AND 
+   ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %C )% ) %==  true  ) ) then
+  begin
+   '		public static class '
+   [%f] to_borland %( %C |N )% ' {}; // '
+   %P |N '::'
+   %S |N '::'
+   %C |N 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *471461DF0399*
+; // fctr_id_java
+
+
+// генерит определение всех типов - идентификаторов фабрик
+//f _dump_all_fctr_id_java
+: dump_all_fctr_id_java OBJECT IN %S
+//#UC START# *471461E60290*
+//	<%f_fctr_id_java(%R)%R<{}{"%ga"="abstract"}%f_fctr_id_java(%g)[{%gS=LocalInterface}%f_dump_all_fctr_id_java(%g)]>[{%RS=LocalInterface}%f_dump_all_fctr_id_java(%R)]>[{%Rx=false}<%f_dump_all_fctr_id_java(%G)>]
+//	%f_clear_list(ALL_FCTR)\
+ [%f] clear_list %( 'ALL_FCTR' )% 
+//	%f_clear_list(ALL_CTORS)\
+ [%f] clear_list %( 'ALL_CTORS' )% 
+//	%f_clear_list(ALL_CTORS_SIGNATURES)\
+ [%f] clear_list %( 'ALL_CTORS_SIGNATURES' )% 
+//	%f_collect_all_factories_signature(%S,"ALL_CTORS_SIGNATURES","ALL_FCTR","ALL_CTORS")\
+ [%f] collect_all_factories_signature %( %S %, 'ALL_CTORS_SIGNATURES"' %, 'ALL_FCTR"' %, 'ALL_CTORS' )% 
+//	\
+//	[<{}{%f_is_empty(ALL_FCTR)=false}{W}[%f_pop_first_to_var(ALL_FCTR,FCTR)[{%f_number_cmp("%f_count_in_list(ALL_CTORS_SIGNATURES,"%f_dump_ctor_signature(%{FCTR})")","1","\>")=1}\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( [%f] is_empty %( 'ALL_FCTR' )% ) %==  false ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'ALL_FCTR' %, 'FCTR' )% if ( ( [%f] number_cmp %( [%f] count_in_list %( 'ALL_CTORS_SIGNATURES' %, [%f] dump_ctor_signature %( ( get_global_var ( 'FCTR' ) ) )% )% %, 1 %, '>' )% ) %== 1 ) then
+     begin
+//			public static class %f_to_borland(%{FCTR}N) {}; // %{FCTR}%P%PN::%{FCTR}%PN::%{FCTR}N]
+      '		public static class '
+      [%f] to_borland %( ( get_global_var ( 'FCTR' ) |N ) )% ' {}; // '
+      ( get_global_var ( 'FCTR' )  ->P ->P |N  ) '::'
+      ( get_global_var ( 'FCTR' )  ->P |N ) '::'
+      ( get_global_var ( 'FCTR' ) |N ) 
+     end // if
+//	]>]
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for P
+ end // if
+ NOP
+
+
+//1 - signatures
+//2 - factories
+//3 - ctors
+//f _collect_all_factories_signature
+; // dump_all_fctr_id_java
+
+: collect_all_factories_signature OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_all_factories_signature: Не задан идентификатор списка 1")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_all_factories_signature: Не задан идентификатор списка 1' )% 
+ end // if
+//	[{"%2N"=""}%f_error("_collect_all_factories_signature: Не задан идентификатор списка 2")]\
+ if ( ( %2 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_all_factories_signature: Не задан идентификатор списка 2' )% 
+ end // if
+//	[{"%3N"=""}%f_error("_collect_all_factories_signature: Не задан идентификатор списка 3")]\
+ if ( ( %3 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_all_factories_signature: Не задан идентификатор списка 3' )% 
+ end // if
+//	%f_collect_all_factories(%S,"%2N","\[{\%f_is_factory(\%S)=true&\%SS!=remover&\%SS!=finder}{false}true\]")\
+ [%f] collect_all_factories %( %S %, %2 |N %, '[{%f_is_factory(%S)=true&%SS!=remover&%SS!=finder}{false}true]' )% 
+//	%f_collect_all_ctors_if_def_fctr_impl(%S,"%3N")\
+ [%f] collect_all_ctors_if_def_fctr_impl %( %S %, %3 |N )% 
+//	%f_sort_list(%2N,g)%f_unique_list(%2N)\
+ [%f] sort_list %( %2 |N %, 'g' )% [%f] unique_list %( %2 |N )% 
+//	%f_sort_list(%3N,g)%f_unique_list(%3N)\
+ [%f] sort_list %( %3 |N %, 'g' )% [%f] unique_list %( %3 |N )% 
+//	\
+//	%f_clear_list(ALL_FCTR_COPY)\
+ [%f] clear_list %( 'ALL_FCTR_COPY' )% 
+//	%f_clear_list(ALL_CTORS_COPY)\
+ [%f] clear_list %( 'ALL_CTORS_COPY' )% 
+//	\
+//	%f_copy_list(%2N,ALL_FCTR_COPY)\
+ [%f] copy_list %( %2 |N %, 'ALL_FCTR_COPY' )% 
+//	%f_copy_list(%3N,ALL_CTORS_COPY)\
+ [%f] copy_list %( %3 |N %, 'ALL_CTORS_COPY' )% 
+//	\
+//	%f_add_signatures(%S,"ALL_FCTR_COPY","%1N")\
+ [%f] add_signatures %( %S %, 'ALL_FCTR_COPY"' %, %1 |N )% 
+//	%f_add_signatures(%S,"ALL_CTORS_COPY","%1N")
+ [%f] add_signatures %( %S %, 'ALL_CTORS_COPY"' %, %1 |N )% 
+
+//f _dump_ctor_signature
+; // collect_all_factories_signature
+
+: dump_ctor_signature OBJECT IN %S
+//	<{, }%C[%t_arg(%T,"%SS",%S)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   %C
+   bind ( 
+    OBJECT VAR %S
+    if NOT-EMPTY
+    begin
+     [%t] arg %( %T %, %S |S %, %S )% 
+    end // if
+    NOP
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+
+//f _add_signatures
+; // dump_ctor_signature
+
+: add_signatures OBJECT IN %S
+//	[{"%1N"=""}%f_error("_add_signatures: Не задан идентификатор списка 1")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_add_signatures: Не задан идентификатор списка 1' )% 
+ end // if
+//	[{"%2N"=""}%f_error("_add_signatures: Не задан идентификатор списка 2")]\
+ if ( ( %2 |N ) %== '' ) then
+ begin
+  [%f] error %( '_add_signatures: Не задан идентификатор списка 2' )% 
+ end // if
+//	<{}{%f_is_empty(%1N)=false}{W}[%f_pop_first_to_var(%1N,__TEMP__)%f_add_to_list(%2N,"%f_dump_ctor_signature(%{__TEMP__})")]>
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( %1 |N )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( %1 |N %, '__TEMP__' )% [%f] add_to_list %( %2 |N %, [%f] dump_ctor_signature %( ( get_global_var ( '__TEMP__' ) ) )% )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+
+
+//f _collect_all_ctors_if_def_fctr_impl
+; // add_signatures
+
+: collect_all_ctors_if_def_fctr_impl OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_all_ctors: Не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_all_ctors: Не задан идентификатор списка' )% 
+ end // if
+//	[{%S{Factory default impl}=true}%f_collect_ctors(%S,"%1N")\
+ if ( ( %S get_up ( 'Factory default impl' ) ) %==  true ) then
+ begin
+  [%f] collect_ctors %( %S %, %1 |N )% 
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}%f_collect_ctors(%R,"%1N")]}<%f_collect_all_ctors_if_def_fctr_impl(%G,"%1N")>]]]
+  if ( ( %R |x ) %==  false ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+     [%f] collect_all_ctors_if_def_fctr_impl %( %G %, %1 |N )% 
+     ++! l_Counter
+    end // if
+   end // for G
+  end // if
+  else
+  begin
+   if ( 
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R |K ) %== 'ParameterizedClass' ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for R
+    l_Counter
+    %!= 0 ) then
+   begin
+    [%f] collect_ctors %( %R %, %1 |N )% 
+   end // if
+  end // else
+ end // if
+ ']'
+
+//f _collect_ctors
+; // collect_all_ctors_if_def_fctr_impl
+
+: collect_ctors OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_ctors: Не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_ctors: Не задан идентификатор списка' )% 
+ end // if
+//	<{}{%CC=Operation&%CS=ctor}%f_add_to_list(%1N,C)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Operation' AND 
+   ( ( %C |S ) %== 'ctor'  ) ) then
+  begin
+   [%f] add_to_list %( %1 |N %, 'C' )% 
+   ++! l_Counter
+  end // if
+ end // for C
+
+
+//f _collect_all_factories
+; // collect_ctors
+
+: collect_all_factories OBJECT IN %S
+//	[{"%1N"=""}%f_warning("_collect_all_factories: Не задан идентификатор списка (%SN - %1N)")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] warning %( '_collect_all_factories: Не задан идентификатор списка ('
+  %S |N ' - '
+  %1 |N ')' )% 
+ end // if
+//	[{"%2N"=""}%f_warning("_collect_all_factories: Не задан функтор для выборки данных (%SN - %2N)")]\
+ if ( ( %2 |N ) %== '' ) then
+ begin
+  [%f] warning %( '_collect_all_factories: Не задан функтор для выборки данных ('
+  %S |N ' - '
+  %2 |N ')' )% 
+ end // if
+//	<%f_collect_factories(%R,%1,%2)\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] collect_factories %( %R %, %1 %, %2 )% 
+//	%R<{}{"%ga"="abstract"}%f_collect_factories(%g,%2,%3)[{%gS=LocalInterface}%f_collect_all_factories(%g,%2,%3)]>\
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] collect_factories %( %g %, %2 %, %3 )% if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] collect_all_factories %( %g %, %2 %, %3 )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+ //	[{%RS=LocalInterface}%f_collect_all_factories(%R,%1,%2)]\
+   if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] collect_all_factories %( %R %, %1 %, %2 )% 
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}<%f_collect_all_factories(%G,%1,%2)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] collect_all_factories %( %G %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+
+//f _collect_factories
+; // collect_all_factories
+
+: collect_factories OBJECT IN %S
+//	[{"%1N"=""}%f_warning("_collect_factories: Не задан идентификатор списка (%SN - %1N)")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] warning %( '_collect_factories: Не задан идентификатор списка ('
+  %S |N ' - '
+  %1 |N ')' )% 
+ end // if
+//	[{"%2N"=""}%f_warning("_collect_factories: Не задан функтор для выборки данных (%SN - %2N)")]\
+ if ( ( %2 |N ) %== '' ) then
+ begin
+  [%f] warning %( '_collect_factories: Не задан функтор для выборки данных ('
+  %S |N ' - '
+  %2 |N ')' )% 
+ end // if
+//	<{}{%C[%f_exec(%3N)]=true}{%C}%f_add_to_list(%1N,C)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C
+  bind ( 
+   OBJECT VAR %S
+   if NOT-EMPTY
+   begin
+    [%f] exec %( %3 |N )% 
+   end // if
+   NOP
+
+  ) // bind
+ )   %==  true ) then
+  begin
+   [%f] add_to_list %( %1 |N %, 'C' )% ']' 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *471461E60290*
+; // collect_factories
+
+
+// генерит спецификатор доступа в C++, в зависимости от видимости элемента на модели
+//f _visibility_spec
+: visibility_spec OBJECT IN %S
+//#UC START# *471461F50177*
+//	[{%SV=PublicAccess}public:]\
+ if ( ( %S |V ) %== 'PublicAccess' ) then
+ begin
+  'public:' 
+ end // if
+//	[{%SV=ProtectedAccess}protected:]\
+ if ( ( %S |V ) %== 'ProtectedAccess' ) then
+ begin
+  'protected:' 
+ end // if
+//	[{%SV=PrivateAccess}private:]
+ if ( ( %S |V ) %== 'PrivateAccess' ) then
+ begin
+  'private:' 
+ end // if
+//#UC END# *471461F50177*
+; // visibility_spec
+
+
+// генерит объявления всех фабрик и ремуверов
+//f _dump_all_fctr_h
+: dump_all_fctr_h OBJECT IN %S
+//#UC START# *471461FC003E*
+//	%f_clear_list(471461FC003E_ALL_FCTR)\
+ [%f] clear_list %( '471461FC003E_ALL_FCTR' )% 
+//	%f_dump_all_fctr_h_impl(%S,%1,%{471461FC003E_ALL_FCTR})
+ [%f] dump_all_fctr_h_impl %( %S %, %1 %, ( get_global_var ( '471461FC003E_ALL_FCTR' ) ) )% 
+
+//f _dump_all_fctr_h_impl
+; // dump_all_fctr_h
+
+: dump_all_fctr_h_impl OBJECT IN %S
+//	<%f_set_var(INT,R)%f_dump_fctr_h(%R,%1,%2)[{%RS=LocalInterface}%f_dump_all_fctr_h_impl(%R,%1,%2)%f_set_var(INT,R)]%R<{}{"%ga"="abstract"}%f_dump_fctr_h(%g,%2,%3)[{%gS=LocalInterface}%f_dump_all_fctr_h_impl(%g,%2,%3)]>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] set_var %( 'INT' %, 'R' )% [%f] dump_fctr_h %( %R %, %1 %, %2 )% if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_fctr_h_impl %( %R %, %1 %, %2 )% [%f] set_var %( 'INT' %, 'R' )% 
+   end // if
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] dump_fctr_h %( %g %, %2 %, %3 )% if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_fctr_h_impl %( %g %, %2 %, %3 )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_h_impl(%R,%1,%2)>]}<%f_dump_all_fctr_h_impl(%G,%1,%2)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_fctr_h_impl %( %G %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_fctr_h_impl %( %R %, %1 %, %2 )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+
+//#UC END# *471461FC003E*
+; // dump_all_fctr_h_impl
+
+
+// регистрация фабрики серванта в менеджере фабрик
+//f _dump_all_registr_fctrs
+: dump_all_registr_fctrs OBJECT IN %S
+//#UC START# *47146207038A*
+//	[{}{<%f_dump_all_registr_fctrs(%G)>}<{}{%RS=Interface|%RS=ServerInterface|%RS=LocalInterface|%RS=Entity}	%f_type(%R)FactoryManager::register_factory (this, priority);
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |S ) %== 'Interface' OR 
+    ( ( %R |S ) %== 'ServerInterface'  ) OR 
+    ( ( %R |S ) %== 'LocalInterface'  ) OR 
+    ( ( %R |S ) %== 'Entity'  ) ) then
+   begin
+    '	'
+    [%f] type %( %R )% 'FactoryManager::register_factory (this, priority);'
+//	>]
+
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_registr_fctrs %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // else
+//#UC END# *47146207038A*
+; // dump_all_registr_fctrs
+
+
+// генерит объявления всех фабрик и ремуверов
+//f _dump_all_fctr_cpp
+: dump_all_fctr_cpp OBJECT IN %S
+//#UC START# *4714620E0000*
+//	%f_clear_list(4714620E0000_ALL_FCTR)\
+ [%f] clear_list %( '4714620E0000_ALL_FCTR' )% 
+//	%f_dump_all_fctr_cpp_impl(%S,%1,%{4714620E0000_ALL_FCTR})
+ [%f] dump_all_fctr_cpp_impl %( %S %, %1 %, ( get_global_var ( '4714620E0000_ALL_FCTR' ) ) )% 
+
+//f _dump_all_fctr_cpp_impl
+; // dump_all_fctr_cpp
+
+: dump_all_fctr_cpp_impl OBJECT IN %S
+//	<%f_set_var(INT,R)%f_dump_fctr_cpp(%R,%1,%2)%R<{}{"%ga"="abstract"}%f_dump_fctr_cpp(%g,%2,%3)[{%gS=LocalInterface}%f_dump_all_fctr_cpp_impl(%g,%2,%3)]>[{%RS=LocalInterface}%f_dump_all_fctr_cpp_impl(%R,%1,%2)]>\
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_cpp_impl(%R,%1,%2)>]}<%f_dump_all_fctr_cpp_impl(%G,%1,%2)>]
+//
+//	<%f_set_var(INT,R)%f_dump_fctr_cpp(%R,%1,%2)[{%RS=LocalInterface}%f_dump_all_fctr_cpp_impl(%R,%1,%2)%f_set_var(INT,R)]%R<{}{"%ga"="abstract"}%f_dump_fctr_cpp(%g,%2,%3)[{%gS=LocalInterface}%f_dump_all_fctr_cpp_impl(%g,%2,%3)]>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] set_var %( 'INT' %, 'R' )% [%f] dump_fctr_cpp %( %R %, %1 %, %2 )% if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] dump_all_fctr_cpp_impl %( %R %, %1 %, %2 )% [%f] set_var %( 'INT' %, 'R' )% 
+   end // if
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      [%f] dump_fctr_cpp %( %g %, %2 %, %3 )% if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] dump_all_fctr_cpp_impl %( %g %, %2 %, %3 )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_cpp_impl(%R,%1,%2)>]}<%f_dump_all_fctr_cpp_impl(%G,%1,%2)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_fctr_cpp_impl %( %G %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] dump_all_fctr_cpp_impl %( %R %, %1 %, %2 )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+
+//#UC END# *4714620E0000*
+; // dump_all_fctr_cpp_impl
+
+
+// возвращает количество конструкторов объявленных на элементе
+//f _count_ctor
+: count_ctor OBJECT IN %S
+//#UC START# *471462140119*
+//	[<{}{"%CC"="Operation"&"%CS"="ctor"}{C}>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'ctor'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+ end // if
+ NOP
+//#UC END# *471462140119*
+; // count_ctor
+
+
+// генерит объявление фабрики для ServantFactory
+//f _dump_ctor_fctr_h
+: dump_ctor_fctr_h OBJECT IN %S
+//#UC START# *4714621B0167*
+//	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Operation' AND 
+   ( ( %C |S ) %== 'ctor'  ) ) then
+  begin
+   #13#10
+
+//		static %t_ret(%{__SERVANT},"%Cs") %CN (%C<{, }%f_arg_full_decl(%C)>)[ /*throw (%C<{, }%f_type(%E)>)*/];
+   '	static '
+   [%t] ret %( ( get_global_var ( '__SERVANT' ) ) %, %C |s )% ' '
+   %C |N ' ('
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] arg_full_decl %( %C )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+    ')'
+   if NOT-EMPTY
+   begin
+    ' /*throw ('
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%E
+     begin
+      OBJECT IN %E
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       [%f] type %( %E )% 
+       ++! l_Counter
+      end // if
+     end // for E
+
+    ) // bind
+     ')*/' 
+   end // if
+   NOP
+   ';'
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4714621B0167*
+; // dump_ctor_fctr_h
+
+
+// генерит реализацию фабрики для ServantFactory
+//f _dump_ctor_fctr_cpp
+: dump_ctor_fctr_cpp OBJECT IN %S
+//#UC START# *47146222004E*
+//	<{\n\n}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%t_ret(%{SERV},"%Cs") %{SERV}NServantFactory::%CN (%C<{, }%f_arg_full_decl(%C)>)[ /*throw (%C<{, }%f_type(%E)>)*/] {
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Operation' AND 
+   ( ( %C |S ) %== 'ctor'  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10#13#10 )
+   [%t] ret %( ( get_global_var ( 'SERV' ) ) %, %C |s )% ' '
+   ( get_global_var ( 'SERV' ) |N ) 'ServantFactory::'
+   %C |N ' ('
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] arg_full_decl %( %C )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+    ')'
+   if NOT-EMPTY
+   begin
+    ' /*throw ('
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%E
+     begin
+      OBJECT IN %E
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       [%f] type %( %E )% 
+       ++! l_Counter
+      end // if
+     end // for E
+
+    ) // bind
+     ')*/' 
+   end // if
+   NOP
+   ' {'
+//		[{"%{SERV}{Factory default impl}"="true"}{%U[{%{SERV}U_%CU_IMPL}
+   '	'
+   if ( ( ( get_global_var ( 'SERV' ) get_up ( 'Factory default impl' ) ) ) %== true ) then
+   begin
+    [%f] var %( ( get_global_var ( 'SERV' ) ) )% ' ret = new '
+    ( get_global_var ( 'SERV' ) |N ) ' ('
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       %C |N 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     ');'
+//		[{%f_use_as_srv_type(%{SERV})=true}[{%f_realize_more_than_one_facet(%{SERV})=false}{%f_full_name(%{SERV})Combine}%f_type(%R)]_var ref = ret-\>_this ();]
+    '	'
+    if ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+    begin
+     if ( ( [%f] realize_more_than_one_facet %( ( get_global_var ( 'SERV' ) ) )% ) %==  false ) then
+     begin
+      [%f] type %( %R )% 
+     end // if
+     else
+     begin
+      [%f] full_name %( ( get_global_var ( 'SERV' ) ) )% 'Combine' 
+     end // else
+     '_var ref = ret->_this ();' 
+    end // if
+//		return ret._retn ();]
+    '	return ret._retn ();' 
+   end // if
+   else
+   begin
+    %Usersection (
+     ( get_global_var ( 'SERV' ) |U ) '_'
+     %C |U '_IMPL' 
+    )
+    (
+     #13#10
+
+//		]}%f_var(%{SERV}) ret = new %{SERV}N (%C<{, }%CN>);
+     '	' 
+    ) // Usersection
+    end // else
+//	}>
+   '}' 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *47146222004E*
+; // dump_ctor_fctr_cpp
+
+
+// генерит реализацию конструктора по-умолчанию
+//f _dump_empty_ctor_cpp
+: dump_empty_ctor_cpp OBJECT IN %S
+//#UC START# *47146227032C*
+//	
+//	%{SELF}N::%{SELF}N ()[ : %{SELF}<{, }{"%CC"="Attribute"&"%CI"!=""&%CS!=static&%CS!=template}m_%CN (%f_init(%C))>]
+ ( get_global_var ( 'SELF' ) |N ) '::'
+ ( get_global_var ( 'SELF' ) |N ) ' ()'
+ if NOT-EMPTY
+ begin
+  ' : '
+  ( get_global_var ( 'SELF' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C |I ) %!= ''  ) AND 
+     ( ( %C |S ) %!= 'static'  ) AND 
+     ( ( %C |S ) %!= 'template'  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     'm_'
+     %C |N ' ('
+     [%f] init %( %C )% ')' 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+ end // if
+ NOP
+//	%U[{_EMPTY_CTOR_%{SELF}U_BASE_INIT}
+ %Usersection (
+  '_EMPTY_CTOR_'
+  ( get_global_var ( 'SELF' ) |U ) '_BASE_INIT' 
+ )
+ (
+  #13#10
+
+//	]
+
+ ) // Usersection
+ //	{%f_start_func_cpp(%{SELF},"%{SELF}N::%{SELF}N")
+ '{'
+ [%f] start_func_cpp %( ( get_global_var ( 'SELF' ) ) %, ( get_global_var ( 'SELF' ) |N ) '::'
+ ( get_global_var ( 'SELF' ) |N ) )% 
+//		%U[{_EMPTY_CTOR_%{SELF}U_BODY}
+ '	'
+ %Usersection (
+  '_EMPTY_CTOR_'
+  ( get_global_var ( 'SELF' ) |U ) '_BODY' 
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //	%f_end_func_cpp(%{SELF})}
+ [%f] end_func_cpp %( ( get_global_var ( 'SELF' ) ) )% '}'
+//#UC END# *47146227032C*
+; // dump_empty_ctor_cpp
+
+
+// генерит реализацию конструктора по-умолчанию
+//f _dump_empty_ctor_java
+: dump_empty_ctor_java OBJECT IN %S
+//#UC START# *471462340128*
+//	#	%t_visibility(%S,"%XU")%{SELF}N () {%f_start_func_cpp(%{SELF},"%{SELF}N")
+ out_indent '	'
+ [%t] visibility %( %S %, %X |U )% ( get_global_var ( 'SELF' ) |N ) ' () {'
+ [%f] start_func_cpp %( ( get_global_var ( 'SELF' ) ) %, ( get_global_var ( 'SELF' ) |N ) )% 
+//	#		%U[{_EMPTY_CTOR_%{SELF}U_BODY}
+ out_indent '		'
+ %Usersection (
+  '_EMPTY_CTOR_'
+  ( get_global_var ( 'SELF' ) |U ) '_BODY' 
+ )
+ (
+  #13#10
+
+//	#		]
+  out_indent '		' 
+ ) // Usersection
+ //	#	%f_end_func_cpp(%{SELF})}
+ out_indent '	'
+ [%f] end_func_cpp %( ( get_global_var ( 'SELF' ) ) )% '}'
+//#UC END# *471462340128*
+; // dump_empty_ctor_java
+
+
+// нужно ли генерить ServantFactory
+//f _need_servant_factory
+: need_servant_factory OBJECT IN %S
+//#UC START# *4714623C02CE*
+//	[{%f_count_ctor(%S)!=0&<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}{false}true]
+ if ( ( [%f] count_ctor %( %S )% ) %!= 0 AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%ap
+  begin
+   OBJECT IN %a
+   if ( ( %a |S ) %== 'uses' AND 
+    ( ( %a |C ) %== 'Dependency'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for a
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4714623C02CE*
+; // need_servant_factory
+
+
+// нужно ли генерить конструктор без параметров
+//f _need_empty_ctor
+: need_empty_ctor OBJECT IN %S
+//#UC START# *47146243009C*
+//	[{"<{}{"%CC"="Attribute"&%CS!=switch&"%CI"!=""}{C}>"!="0"&"%S{Factory default impl}"="false"}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C |S ) %!= 'switch'  ) AND 
+    ( ( %C |I ) %!= ''  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 AND 
+   ( ( %S get_up ( 'Factory default impl' ) ) %== false  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _has_combo_fctr
+; // need_empty_ctor
+
+: has_combo_fctr OBJECT IN %S
+//	<[{%f_has_combo_fctr_impl(%R)=true}%f_set_var(NEED_UPDATE_RW,"1")]%R<{}{"%ga"="abstract"}[{%f_has_combo_fctr_impl(%g)=true}%f_set_var(NEED_UPDATE_RW,"1")][{%gS=LocalInterface}%f_has_combo_fctr(%g)]>[{%RS=LocalInterface}%f_has_combo_fctr(%R)]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   if ( ( [%f] has_combo_fctr_impl %( %R )% ) %==  true ) then
+   begin
+    [%f] set_var %( 'NEED_UPDATE_RW' %, 1 )% 
+   end // if
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |a ) %== 'abstract' ) then
+     begin
+      if ( ( [%f] has_combo_fctr_impl %( %g )% ) %==  true ) then
+      begin
+       [%f] set_var %( 'NEED_UPDATE_RW' %, 1 )% 
+      end // if
+      if ( ( %g |S ) %== 'LocalInterface' ) then
+      begin
+       [%f] has_combo_fctr %( %g )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+    if ( ( %R |S ) %== 'LocalInterface' ) then
+   begin
+    [%f] has_combo_fctr %( %R )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for R
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_has_combo_fctr(%R)>]}<%f_has_combo_fctr(%G)>]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] has_combo_fctr %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |K ) %== 'ParameterizedClass' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     [%f] has_combo_fctr %( %R )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+ end // else
+
+//f _has_combo_fctr_impl
+; // has_combo_fctr
+
+: has_combo_fctr_impl OBJECT IN %S
+//	[{<{}{%f_is_factory(%C)=true&%C{const_type}=combo}{%CC}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %==  true AND 
+    ( ( %C get_up ( 'const_type' ) ) %== 'combo'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47146243009C*
+; // has_combo_fctr_impl
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

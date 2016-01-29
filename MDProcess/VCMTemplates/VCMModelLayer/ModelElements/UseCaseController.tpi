@@ -1,0 +1,959 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMModelLayer/ModelElements/UseCaseController.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMModelLayer::ModelElements::UseCaseController
+//
+// Контроллер логики прецедента
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: UseCaseController::Class
+? Контроллер логики прецедента
+> Facet::Class
+> Area::Class
+> ViewAreaController::Class
+> SynchroViewArea::Class
+
+= Facet::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+a ra
+/ - тип абстракции
+Y code_vcm_usecase_controller.gif
+L code_vcm_usecase_controller
+// Параметры визуализации
+$ C 153,136,198
+$ L 0,0,0
+$ l 128,128,192
+$ F 0,0,0
+$ f 139,132,189
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor492E97E60140*
+	%f_set_var(SELF,S)\
+	%f_clear_list(CAST_AREAS)\
+	<{}{%C#f_IsVCMArea()=true}\
+	[{%f_NeedHas(%C)=true}\
+	%f_add_to_list(CAST_AREAS,C)\
+	]\
+	>\
+	%{CAST_AREAS}<{}{}{%C}\
+	%f_CastHas(%{SELF},%C)\
+	>\
+
+	%f_clear_list(CAST_AREAS)\
+	<{}{%CS=SynchroViewArea}\
+	[{%C<{}{%R#f_IsVCMArea()=true}{C}>!=0}\
+	%f_add_to_list(CAST_AREAS,C)\
+	]\
+	>\
+
+	[{%f_is_empty(CAST_AREAS)=false}\
+	%{CAST_AREAS}<{}{}{%C}\
+	%f_set_var(SV_NAME,"%f_cut_prefix(%{SELF}N,Isds)_%f_cut_prefix(%CN,ds)")\
+	%{SELF}%P%f_add_class(%CU_Enum,Enum,T%{SV_NAME}N_Areas,Enum_Inst)\
+	%{Enum_Inst}%f_set_documentation(Типы зон для "[{}{%CN}%CD]")\
+	%{Enum_Inst}%f_set_up(isSynchroEnum,true)\
+	%{Enum_Inst}%f_set_var(SDS_CASTER,"%{SELF}U")\
+
+	%{Enum_Inst}%f_set_up(elements prefix,sva_%{SV_NAME}N)\
+
+	%{Enum_Inst}%f_add_attribute(%{Enum_Inst}U_None,,None,Attr_Inst)\
+	%{Attr_Inst}%f_set_documentation(Зона не определена)\
+
+	%C<{}{%R#f_IsVCMArea()=true}{%R}\
+	%{Enum_Inst}%f_add_attribute(%RU_%{SELF}U_Enum,,%f_cut_prefix(%RN,ds),Attr_Inst)\
+	%{Attr_Inst}%f_set_documentation([{}{%RN}%RD])\
+	>\
+
+	%{SELF}<{}{%C#f_IsInjectsTo()=true}{%C}\
+
+	%C%T%f_add_attribute(%C%TU_%{Enum_Inst}U_SynchroForm,\
+	[{%C#f_IsReflectedBy()!=true}{property}readonly],\
+	%{SV_NAME}N_Form : %{Enum_Inst}U,Attr_Inst)\
+
+	%{Attr_Inst}%f_set_documentation(Форма синхронного просмотра)\
+	%{Attr_Inst}%f_set_up(needs field,true)\
+	%{Attr_Inst}%f_set_up(pm,true)\
+	%C%T<{}{%L#f_IsSimpleClass()=true|%L#f_IsMixIn()=true}{%L}\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_var,\
+	 {-}\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_impl,\
+	 Result := f_%{Attr_Inst}N;\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_var,\
+	 {-}\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_impl,\
+	 f_%{Attr_Inst}N := aValue;\
+	)\
+	>\
+
+	[{%C{needs default form}=true}\
+	%C%T%f_add_attribute(%C%TU_%{Enum_Inst}U_DefaultSynchroForm,readonly,Default_%{SV_NAME}N_Form : %{Enum_Inst}U,Attr_Inst)\
+	%{Attr_Inst}%f_set_documentation(Форма синхронного просмотра по-умолчанию)\
+	%{Attr_Inst}%f_set_up(needs field,true)\
+	%{Attr_Inst}%f_set_up(pm,true)\
+	]\
+	%C%T%f_set_up(injected,true)\
+	>\
+
+	>\
+	]\
+
+	%{CAST_AREAS}<{}{}{%C}\
+	%C<{}{%R#f_IsVCMArea()=true}{%R}\
+	%f_set_var(CASTER,R)\
+	%f_CastSVAMethods(%2,%{CASTER})\
+	%S<{}{%G#f_IsViewAreaController()=true}{%G}\
+	%f_CastSVAMethods(%G,%{CASTER})\
+	%f_CastHas(%G,%{CASTER})\
+	>\
+	>\
+	>\
+
+	%f_clear_list(CAST_AREAS)\
+	<{}{%C#f_IsVCMArea()=true&%C#f_IsVCMAreaLink()!=true}\
+	%f_add_to_list(CAST_AREAS,C)\
+	>\
+	<{}{%R#f_IsUseCaseController()=true}{%R}\
+	%R<{}{%C#f_IsVCMArea()=true&%C#f_IsVCMAreaLink()!=true}\
+	%f_add_to_list(CAST_AREAS,C)\
+	>\
+	>\
+
+	%{CAST_AREAS}<{}{}{%C}\
+	%f_set_var(CASTER,C)\
+	%{SELF}<{}{%C#f_IsReflectedBy()=true}{%C}\
+	%f_set_var(NAME,"%{CASTER}NRef")\
+	[{%f_HasAttr(%C%T,%{NAME})!=true}\
+	%C%T%f_make_accessable(47EB514C0336)\
+	%C%T%f_add_attribute(%C%TU_%{CASTER}U_Ref,readonly,%{NAME}N : 47EB514C0336,Attr_Inst)\
+	%{Attr_Inst}%f_set_link_type(lnk)\
+	%{Attr_Inst}%f_set_up(pm,true)\
+	%{Attr_Inst}%f_set_up(needs field,true)\
+	%{Attr_Inst}%f_set_documentation(Ссылка на "[{}{%{CASTER}N}%{CASTER}D]")\
+	%C%T<{}{%L#f_IsSimpleClass()=true|%L#f_IsMixIn()=true}{%L}\
+	%L%f_make_accessable(4982B743016E)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_var,\
+	 {-}\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_impl,\
+	 Result := vcmCheckAndMake(f_%{Attr_Inst}N\
+	[{%{CASTER}{required}=true}, vcm_nmYes]\
+	);\
+	)\
+	>\
+	]\
+
+	[{%f_NeedHas(%{CASTER})=true}\
+	%f_set_var(NAME,"Has%f_cut_prefix(%{CASTER}N,ds)")\
+	[{%f_HasAttr(%C%T,%{NAME})!=true}\
+	%C%T%f_make_accessable(491BF08F035F)\
+	%C%T%f_add_attribute(%C%TU_%{CASTER}U_Has,property,%{NAME}N : 491BF08F035F,Attr_Inst)\
+	%{Attr_Inst}%f_set_link_type(lnk)\
+	%{Attr_Inst}%f_set_up(pm,true)\
+	%{Attr_Inst}%f_set_up(needs field,true)\
+	%{Attr_Inst}%f_set_documentation(Есть ли "[{}{%{CASTER}N}%{CASTER}D]")\
+	%C%T<{}{%L#f_IsSimpleClass()=true|%L#f_IsMixIn()=true}{%L}\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_var,\
+	 {-}\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_impl,\
+	 Result := f_%{Attr_Inst}N;\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_var,\
+	 {-}\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_impl,\
+	 f_%{Attr_Inst}N := aValue;\
+	)\
+	>\
+	]\
+	]\
+
+	>\
+	>\
+
+	%f_clear_list(CAST_AREAS)\
+	<{}{%C#f_IsReflectable()=true}\
+	[{%f_exists_in_list(CAST_AREAS,C)!=true}\
+	%f_add_to_list(CAST_AREAS,C)\
+	]\
+	>\
+
+	<{}{%R#f_IsUseCaseController()=true|%R#f_IsPureMixIn()=true}{%R}\
+
+	%R<{}{%C#f_IsReflectable()=true}{%C}\
+	[{%f_exists_in_list(CAST_AREAS,C)!=true}\
+	%f_add_to_list(CAST_AREAS,C)\
+	]\
+	>\
+
+	%R<{}{%R#f_IsPureMixIn()=true}{%R}\
+	%R<{}{%C#f_IsReflectable()=true}{%C}\
+	[{%f_exists_in_list(CAST_AREAS,C)!=true}\
+	%f_add_to_list(CAST_AREAS,C)\
+	]\
+	>\
+	>\
+
+	>\
+
+	%{CAST_AREAS}<{}{}{%C}\
+	%f_set_var(CASTER,C)\
+	%{SELF}<{}{%C#f_IsReflectedBy()=true}{%C}\
+	%f_set_var(NAME,"%{CASTER}N")\
+	[{%f_HasAttr(%C%T,%{NAME})!=true}\
+
+	[{%f_pas_TypeName(%{CASTER}%T)=Boolean}{\
+	%f_set_var(CASTER_TYPE,"%{CASTER}%TU")\
+	}\
+	%f_set_var(CASTER_TYPE,"491BF08F035F")\
+	]\
+
+	%C%T%f_make_accessable(%{CASTER_TYPE}N)\
+	%C%T%f_add_attribute(%C%TU_%{CASTER}U_Ref,property,%{NAME}N : %{CASTER_TYPE}N,Attr_Inst)\
+	%{Attr_Inst}%f_set_link_type(%{CASTER}l)\
+	%{Attr_Inst}%f_set_up(pm,true)\
+	%{Attr_Inst}%f_set_up(needs field,true)\
+	%{Attr_Inst}%f_set_documentation([{}{%{CASTER}N}%{CASTER}D])\
+	%C%T<{}{%L#f_IsSimpleClass()=true|%L#f_IsMixIn()=true}{%L}\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_var,\
+	 {-}\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_impl,\
+	 Result := f_%{Attr_Inst}N;\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_var,\
+	 {-}\
+	)\
+	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_impl,\
+	 f_%{Attr_Inst}N := aValue;\
+	)\
+	>\
+	]\
+	>\
+	>\
+
+	%f_clear_list(CAST_AREAS)\
+
+	%S%[inherited]
+
+f _HasAttr
+@ %SU_%1N
+	[{<{}{%CN=%1N&%CC=Attribute}{%CC}>!=0}{\
+	[{<{}{%f_HasAttr(%G,%1)=true}{%GC}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+
+f _HasOp
+@ %SU_%1N
+	[{<{}{%CN=%1N&%CC=Operation}{%CC}>!=0}{\
+	[{<{}{%f_HasAttr(%G,%1)=true}{%GC}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+
+f _CastSVAMethods
+	%f_set_var(NAME,"Is%f_cut_prefix(%1N,ds)Active")\
+	[{%f_HasAttr(%S,%{NAME})!=true}\
+	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
+	%S%f_add_attribute(%SU_%1U_IsOpened,readonly,\
+	%{NAME}N : %{BOOLEAN}U,\
+	Attr_Inst)\
+	%{Attr_Inst}%f_set_abstraction_type(abstract)\
+	%{Attr_Inst}%f_set_visibility_type(PublicAccess)\
+	%{Attr_Inst}%f_set_up(pm,true)\
+	%{Attr_Inst}%f_set_documentation(Определяет что открыта ViewArea "[{}{%1N}%1D]")\
+	]\
+
+	[{%f_HasOp(%S,%{NAME})!=true}\
+	%f_set_var(NAME,"Open%f_cut_prefix(%1N,ds)")\
+	%S%f_add_operation(%SU_%1U_Open,,\
+	%{NAME}N (),\
+	Op_Inst)\
+//	%{Attr_Inst}%f_set_link_type(ref)\
+	%{Op_Inst}%f_set_abstraction_type(abstract)\
+	%{Op_Inst}%f_set_visibility_type(PublicAccess)\
+	%{Op_Inst}%f_set_documentation(Открывает ViewArea "[{}{%1N}%1D]")\
+	]
+
+f _CastHas
+	%f_set_var(NAME,"Has%f_cut_prefix(%1N,ds)")\
+	[{%f_HasAttr(%S,%{NAME})!=true}\
+	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
+	%S%f_add_attribute(%SU_%1U_NeedHas,readonly,\
+	%{NAME}N : %{BOOLEAN}U,\
+	Attr_Inst)\
+	%{Attr_Inst}%f_set_abstraction_type(abstract)\
+	%{Attr_Inst}%f_set_visibility_type(PublicAccess)\
+	%{Attr_Inst}%f_set_up(ifdef,%1{ifdef})\
+	%{Attr_Inst}%f_set_up(ifndef,%1{ifndef})\
+	%{Attr_Inst}%f_set_up(pm,true)\
+	%{Attr_Inst}%f_set_documentation(Определяет что есть данные для "[{}{%1N}%1D]")\
+	]
+
+f _NeedHas
+	[{%S#f_IsVCMAreaLink()!=true}{\
+	[{%S{Need Has}=true}{false}true]\
+	}\
+//	[{%S{Need Has}!=false&"%S{Need Has}"!=""}{\
+	[{%S{Need Has}!=false}{\
+	false\
+	}\
+	true\
+	]\
+	]
+//#UC END# *4B2A19E3038Bfor492E97E60140*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет является ли элемент контроллером прецедента
+%f _IsUseCaseController
+//#UC START# *494B7E8B02B1for492E97E60140*
+	true
+//#UC END# *494B7E8B02B1for492E97E60140*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+%f _pas_TypeName
+//#UC START# *4947F8AD02A1for492E97E60140*
+@ %SU
+	[I%P#f_pas_ElementPrefixBase()]%SN
+//#UC END# *4947F8AD02A1for492E97E60140*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for492E97E60140*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for492E97E60140*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: UseCaseController::Class::area::Attribute
+? Область ввода
+? Логика прецендента (UseCaseController) собирается из логики областей вывода.
+? 
+? Типы связи:
+? link - прецедент сам содержит область вывода
+? reference - ссылка на область вывода содержится в "данных прецедента" и порождается ещё свойства типа IvcmFormDataSourceRef.
+? 
+? Байда с reference нужна для поддержки существующего положения вещей с сохранением данных прецедента в историю, оставшейся в Наследство от Морозова. Обсуждение - [$127762441].
+= AbstractFacet::Class::readonly::Attribute
+
+// Параметры стереотипа
+l lr
+/ - возможные типы связи атрибута
+
+// Пользовательские свойства
+p Need Has:tribool=undefined ? Определяет, что надо генерировать свойство NeedXXX, где XXX - имя Area
+p pm:b=true ? выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+p required:tribool=undefined ? Определяет, что данную зону надо обязательно открывать при открытии прецедента
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for492EAC6D029A*
+//#UC END# *46E6D4BB0339for492EAC6D029A*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for492EAC6D029A*
+//#UC END# *47022BBE0261for492EAC6D029A*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for492EAC6D029A*
+//#UC END# *47022C0F01E4for492EAC6D029A*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor492EAC6D029A*
+//#UC END# *47022CB8034Bfor492EAC6D029A*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor492EAC6D029A*
+//#UC END# *47022CCF00EAfor492EAC6D029A*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor492EAC6D029A*
+//#UC END# *470321C1038Afor492EAC6D029A*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for492EAC6D029A*
+R  
+	[{%S%f_IsVCMAreaLink()=true}   f_%SN: IvcmViewAreaControllerRef;]
+//#UC END# *4774D2A20372for492EAC6D029A*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor492EAC6D029A*
+//#UC END# *49F5795900ECfor492EAC6D029A*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for492EAC6D029A*
+//#UC END# *55B8D28B0157for492EAC6D029A*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for492EAC6D029A*
+//#UC END# *55B8D2F80145for492EAC6D029A*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for492EAC6D029A*
+//#UC END# *55B8DD9C0301for492EAC6D029A*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{pm}"!="%S{!pm}"}%f_up_prefix(%S) *pm* = *%S{pm}* - выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+	][{"%S{Need Has}"!="%S{!Need Has}"}%f_up_prefix(%S) *Need Has* = *%S{Need Has}* - Определяет, что надо генерировать свойство NeedXXX, где XXX - имя Area
+	][{"%S{required}"!="%S{!required}"}%f_up_prefix(%S) *required* = *%S{required}* - Определяет, что данную зону надо обязательно открывать при открытии прецедента
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for492EAC6D029A*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for492EAC6D029A*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for492EAC6D029A*
+//#UC END# *470484D50138for492EAC6D029A*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что стереотип описывает область ввода (как составную часть прецедента)
+%f _IsVCMArea
+//#UC START# *4A3665370285for492EAC6D029A*
+	true
+//#UC END# *4A3665370285for492EAC6D029A*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это Link на область ввода, а не Reference
+%f _IsVCMAreaLink
+//#UC START# *4A37945D011Ffor492EAC6D029A*
+	[{%Sl=lnk}{false}true]
+//#UC END# *4A37945D011Ffor492EAC6D029A*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+%f _pas_MethodBodyPrim
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for492EAC6D029A*
+//#UC START# *494BB3A201A2for470F151302FD*
+	[{%2N!=arearef}{
+	begin
+	 Result := SetData.%SNRef;
+	end;\
+	}\
+	[{%2N!=get}{
+	%U[{_%f_pas_MethodOwnerID(%S,%1)%2N_var}\n]
+	begin
+	[{%S%f_IsVCMAreaLink()=true}{\
+	 with %S%f_pas_MethodName("arearef") do
+	 begin
+	  if IsEmpty
+	   %U[{_%f_pas_MethodOwnerID(%S,%1)%2N_need}
+	   // - условие создания ViewArea\n  ]
+	   then
+	    Referred := %S%f_pas_MethodName("area")[(<{, }%CN>)];
+	  Result := %S%f_pas_ResultTypeName()(Referred);
+	 end;//with %S%f_pas_MethodName("arearef")\
+	}\
+	 if (f_%SN = nil) then
+	 begin
+	  f_%SN := TvcmViewAreaControllerRef.Make;
+	  %U[{_%f_pas_MethodOwnerID(%S,%1)%2N_init}
+	  // - код инициализации ссылки на ViewArea\n  ]
+	 end;//f_%SN = nil
+	[{%Cx!=true}{\
+	 if (f_%SN.NeedMake = vcm_nmNo) and %CN then
+	  f_%SN.NeedMake := vcm_nmYes;
+	}]\
+	 if f_%SN.IsEmpty
+	  %U[{_%f_pas_MethodOwnerID(%S,%1)%2N_need}
+	  // - условие создания ViewArea\n  ]
+	  then
+	   f_%SN.Referred := %S%f_pas_MethodName("area")[(<{, }%CN>)];
+	 Result := %S%f_pas_ResultTypeName()(f_%SN.Referred);]
+	end;\
+	}\
+	%S%[inherited]f_pas_MethodBodyPrim(%1,%2)\
+	]]
+//#UC END# *494BB3A201A2for492EAC6D029A*
+
+: UseCaseController::Class::injects to::ClassDependency
+= ClassBaseGenerator::MDAGenerator
+
+// Пользовательские свойства
+p needs default form:b=false ? 
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for5011502C019D*
+//#UC END# *46E6D4BB0339for5011502C019D*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor5011502C019D*
+//#UC END# *47022C88029Ffor5011502C019D*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor5011502C019D*
+//#UC END# *47022CB8034Bfor5011502C019D*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor5011502C019D*
+//#UC END# *47022CCF00EAfor5011502C019D*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for5011502C019D*
+//#UC END# *470321950119for5011502C019D*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor5011502C019D*
+//#UC END# *470321C1038Afor5011502C019D*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor5011502C019D*
+//#UC END# *470F1571031Cfor5011502C019D*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor5011502C019D*
+//#UC END# *470F15B800CBfor5011502C019D*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for5011502C019D*
+//#UC END# *477398E501C0for5011502C019D*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for5011502C019D*
+//#UC END# *4774D2A20372for5011502C019D*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor5011502C019D*
+//#UC END# *49F5795900ECfor5011502C019D*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for5011502C019D*
+//#UC END# *55B8D28B0157for5011502C019D*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for5011502C019D*
+//#UC END# *55B8D2F80145for5011502C019D*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for5011502C019D*
+//#UC END# *55B8DD9C0301for5011502C019D*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{needs default form}"!="%S{!needs default form}"}%f_up_prefix(%S) *needs default form* = *%S{needs default form}*
+	]
+
+%f _IsInjectsTo
+// возвращаемый результат: boolean
+//#UC START# *50123F830077for5011502C019D*
+	true
+//#UC END# *50123F830077for5011502C019D*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for5011502C019D*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for5011502C019D*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor5011502C019D*
+	dep
+//#UC END# *4705CBD6003Efor5011502C019D*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for5011502C019D*
+//#UC END# *470484D50138for5011502C019D*
+
+: UseCaseController::Class::reflected by::ClassDependency
+? Ссылка на интерфейс для рефлексии
+? Определяет что контроллер сохраняет свои данные в указанный интерфейс
+= UseCaseController::Class::injects to::ClassDependency
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _IsReflectedBy
+// возвращаемый результат: boolean
+//#UC START# *50123F9502DFfor5011434D0313*
+	true
+//#UC END# *50123F9502DFfor5011434D0313*
+
+: UseCaseController::Class::inited by::ClassDependency
+? Ссылка на интерфейс для инициализации
+? Определяет, что данные объекты инициализируются указанным интерфейсом
+= UseCaseController::Class::injects to::ClassDependency
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+
+: UseCaseController::Class::readonly::Attribute
+= AbstractFacet::Class::readonly::Attribute
+= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for501818650280*
+//#UC END# *46E6D4BB0339for501818650280*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for501818650280*
+//#UC END# *47022BBE0261for501818650280*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for501818650280*
+//#UC END# *47022C0F01E4for501818650280*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor501818650280*
+//#UC END# *47022CB8034Bfor501818650280*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor501818650280*
+//#UC END# *47022CCF00EAfor501818650280*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor501818650280*
+//#UC END# *470321C1038Afor501818650280*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for501818650280*
+//#UC END# *4774D2A20372for501818650280*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor501818650280*
+//#UC END# *49F5795900ECfor501818650280*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for501818650280*
+//#UC END# *55B8D28B0157for501818650280*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for501818650280*
+//#UC END# *55B8D2F80145for501818650280*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for501818650280*
+//#UC END# *55B8DD9C0301for501818650280*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S%[AbstractFacet::Class::readonly::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for501818650280*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for501818650280*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for501818650280*
+//#UC END# *470484D50138for501818650280*
+
+: UseCaseController::Class::writeonly::Attribute
+= AbstractFacet::Class::writeonly::Attribute
+= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for50181882031B*
+//#UC END# *46E6D4BB0339for50181882031B*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for50181882031B*
+//#UC END# *47022BBE0261for50181882031B*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for50181882031B*
+//#UC END# *47022C0F01E4for50181882031B*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor50181882031B*
+//#UC END# *47022CB8034Bfor50181882031B*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor50181882031B*
+//#UC END# *47022CCF00EAfor50181882031B*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor50181882031B*
+//#UC END# *470321C1038Afor50181882031B*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for50181882031B*
+//#UC END# *4774D2A20372for50181882031B*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor50181882031B*
+//#UC END# *49F5795900ECfor50181882031B*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for50181882031B*
+//#UC END# *55B8D28B0157for50181882031B*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for50181882031B*
+//#UC END# *55B8D2F80145for50181882031B*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for50181882031B*
+//#UC END# *55B8DD9C0301for50181882031B*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S%[AbstractFacet::Class::writeonly::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for50181882031B*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for50181882031B*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for50181882031B*
+//#UC END# *470484D50138for50181882031B*
+
+: UseCaseController::Class::property::Attribute
+= AbstractFacet::Class::property::Attribute
+= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for5018188F009D*
+//#UC END# *46E6D4BB0339for5018188F009D*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for5018188F009D*
+//#UC END# *47022BBE0261for5018188F009D*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for5018188F009D*
+//#UC END# *47022C0F01E4for5018188F009D*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor5018188F009D*
+//#UC END# *47022CB8034Bfor5018188F009D*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor5018188F009D*
+//#UC END# *47022CCF00EAfor5018188F009D*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor5018188F009D*
+//#UC END# *470321C1038Afor5018188F009D*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for5018188F009D*
+//#UC END# *4774D2A20372for5018188F009D*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor5018188F009D*
+//#UC END# *49F5795900ECfor5018188F009D*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for5018188F009D*
+//#UC END# *55B8D28B0157for5018188F009D*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for5018188F009D*
+//#UC END# *55B8D2F80145for5018188F009D*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for5018188F009D*
+//#UC END# *55B8DD9C0301for5018188F009D*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S%[AbstractFacet::Class::property::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for5018188F009D*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for5018188F009D*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for5018188F009D*
+//#UC END# *470484D50138for5018188F009D*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

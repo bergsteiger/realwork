@@ -1,0 +1,1731 @@
+// FormsProcessingPack 50741A1F028C ScriptKeywordsPack Class
+
+FORWARD ME_50741A1F028C
+
+INCLUDE '55B7A33101AF.pas.ms.script'
+
+FORWARD ME_38481B365F20
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_916C2FE4B407
+ CONST UID '916C2FE4B407'
+ CONST Name 'RegAxiom'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_916C2FE4B407 RegAxiom
+
+: ME_38481B365F20
+ CONST UID '38481B365F20'
+ CONST Name 'TFormsProcessingPackResNameGetter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_916C2FE4B407 // RegAxiom
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55B7A3AF0359 // ResName
+ ]
+ ; // Implemented
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_38481B365F20 TFormsProcessingPackResNameGetter
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_90DD5B736D00
+
+: ME_F58CAC28D3C7
+ CONST UID 'F58CAC28D3C7'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_F58CAC28D3C7 aCtx
+
+INCLUDE '47E13C6B0341.pas.ms.script'
+
+: ME_F58CAC28D3C8
+ CONST UID 'F58CAC28D3C8'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_F58CAC28D3C8 aForm
+
+: ME_8AB0508CEF4C
+ CONST UID '8AB0508CEF4C'
+ CONST Name 'pop_form_ActiveMDIChild'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:ActiveMDIChild' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4952591E0263 // TForm
+ ;
+ : Parameters
+   [ ME_F58CAC28D3C7 // aCtx
+ ME_F58CAC28D3C8 // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_8AB0508CEF4C pop_form_ActiveMDIChild
+
+: ME_2B1091754695
+ CONST UID '2B1091754695'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_ActiveMDIChild' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2B1091754695 Ini_Reg
+
+: ME_90DD5B736D00
+ CONST UID '90DD5B736D00'
+ CONST Name 'pop_form_ActiveMDIChild'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:ActiveMDIChild'#13#10'*Тип результата:* TForm'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TForm'#13#10' aForm pop:form:ActiveMDIChild >>> l_TForm'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_8AB0508CEF4C // pop_form_ActiveMDIChild
+ ME_2B1091754695 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:ActiveMDIChild'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_90DD5B736D00 pop_form_ActiveMDIChild
+
+FORWARD ME_EF68563BBDE0
+
+: ME_BFD8C08C76B4
+ CONST UID 'BFD8C08C76B4'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_BFD8C08C76B4 aCtx
+
+: ME_BFD8C08C76B5
+ CONST UID 'BFD8C08C76B5'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_BFD8C08C76B5 aForm
+
+: ME_2435574FF0DB
+ CONST UID '2435574FF0DB'
+ CONST Name 'pop_form_Close'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:Close' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_BFD8C08C76B4 // aCtx
+ ME_BFD8C08C76B5 // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_2435574FF0DB pop_form_Close
+
+: ME_445787705BFA
+ CONST UID '445787705BFA'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_Close' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_445787705BFA Ini_Reg
+
+: ME_EF68563BBDE0
+ CONST UID 'EF68563BBDE0'
+ CONST Name 'pop_form_Close'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:Close'#13#10'*Пример:*'#13#10'{code}'#13#10' aForm pop:form:Close'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_2435574FF0DB // pop_form_Close
+ ME_445787705BFA // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:Close'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_EF68563BBDE0 pop_form_Close
+
+FORWARD ME_CCC0609B3BF5
+
+: ME_B084927728F5
+ CONST UID 'B084927728F5'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_B084927728F5 aCtx
+
+: ME_B084927728F6
+ CONST UID 'B084927728F6'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_B084927728F6 aForm
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_B084927728F7
+ CONST UID 'B084927728F7'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_B084927728F7 aName
+
+INCLUDE '47E7ABAE0110.pas.ms.script'
+
+: ME_91740A9F6F65
+ CONST UID '91740A9F6F65'
+ CONST Name 'pop_form_FindMenuItem'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:FindMenuItem' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_47E7ABCB0296 // TMenuItem
+ ;
+ : Parameters
+   [ ME_B084927728F5 // aCtx
+ ME_B084927728F6 // aForm
+ ME_B084927728F7 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_91740A9F6F65 pop_form_FindMenuItem
+
+: ME_E014C3D64715
+ CONST UID 'E014C3D64715'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_FindMenuItem' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E014C3D64715 Ini_Reg
+
+: ME_CCC0609B3BF5
+ CONST UID 'CCC0609B3BF5'
+ CONST Name 'pop_form_FindMenuItem'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:FindMenuItem'#13#10'*Тип результата:* TMenuItem'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TMenuItem'#13#10' aName aForm pop:form:FindMenuItem >>> l_TMenuItem'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_91740A9F6F65 // pop_form_FindMenuItem
+ ME_E014C3D64715 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:FindMenuItem'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_CCC0609B3BF5 pop_form_FindMenuItem
+
+FORWARD ME_DA5ACD40FDF6
+
+: ME_A74D140C4277
+ CONST UID 'A74D140C4277'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_A74D140C4277 aCtx
+
+: ME_A74D140C4278
+ CONST UID 'A74D140C4278'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_A74D140C4278 aForm
+
+: ME_1AF6E71E5FCF
+ CONST UID '1AF6E71E5FCF'
+ CONST Name 'pop_form_GetWindowState'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:GetWindowState' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476A77110209 // TWindowState
+ ;
+ : Parameters
+   [ ME_A74D140C4277 // aCtx
+ ME_A74D140C4278 // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_1AF6E71E5FCF pop_form_GetWindowState
+
+: ME_C5B737BFEE74
+ CONST UID 'C5B737BFEE74'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_GetWindowState' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_C5B737BFEE74 Ini_Reg
+
+: ME_DA5ACD40FDF6
+ CONST UID 'DA5ACD40FDF6'
+ CONST Name 'pop_form_GetWindowState'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:GetWindowState'#13#10'*Тип результата:* TWindowState'#13#10'*Пример:*'#13#10'{code}'#13#10'TWindowState VAR l_TWindowState'#13#10' aForm pop:form:GetWindowState >>> l_TWindowState'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_1AF6E71E5FCF // pop_form_GetWindowState
+ ME_C5B737BFEE74 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:GetWindowState'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_DA5ACD40FDF6 pop_form_GetWindowState
+
+FORWARD ME_AF277B657685
+
+: ME_78C362B03B9A
+ CONST UID '78C362B03B9A'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_78C362B03B9A aCtx
+
+: ME_78C362B03B9B
+ CONST UID '78C362B03B9B'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_78C362B03B9B aForm
+
+: ME_78C362B03B9C
+ CONST UID '78C362B03B9C'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_78C362B03B9C aName
+
+: ME_1040311EDE6F
+ CONST UID '1040311EDE6F'
+ CONST Name 'pop_form_HasControl'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:HasControl' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_78C362B03B9A // aCtx
+ ME_78C362B03B9B // aForm
+ ME_78C362B03B9C // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_1040311EDE6F pop_form_HasControl
+
+: ME_12BA177B3611
+ CONST UID '12BA177B3611'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_HasControl' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_12BA177B3611 Ini_Reg
+
+: ME_AF277B657685
+ CONST UID 'AF277B657685'
+ CONST Name 'pop_form_HasControl'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:HasControl'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aName aForm pop:form:HasControl >>> l_Boolean'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_1040311EDE6F // pop_form_HasControl
+ ME_12BA177B3611 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:HasControl'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_AF277B657685 pop_form_HasControl
+
+FORWARD ME_2C52284D1B9B
+
+: ME_5F3C84217ADA
+ CONST UID '5F3C84217ADA'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_5F3C84217ADA aCtx
+
+: ME_5F3C84217ADB
+ CONST UID '5F3C84217ADB'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_5F3C84217ADB aForm
+
+: ME_12B749ECF277
+ CONST UID '12B749ECF277'
+ CONST Name 'pop_form_MDIChildCount'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:MDIChildCount' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_5F3C84217ADA // aCtx
+ ME_5F3C84217ADB // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_12B749ECF277 pop_form_MDIChildCount
+
+: ME_F6052EFA6569
+ CONST UID 'F6052EFA6569'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_MDIChildCount' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F6052EFA6569 Ini_Reg
+
+: ME_2C52284D1B9B
+ CONST UID '2C52284D1B9B'
+ CONST Name 'pop_form_MDIChildCount'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:MDIChildCount'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aForm pop:form:MDIChildCount >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_12B749ECF277 // pop_form_MDIChildCount
+ ME_F6052EFA6569 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:MDIChildCount'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_2C52284D1B9B pop_form_MDIChildCount
+
+FORWARD ME_8D30B82D3D31
+
+: ME_B11C07B5DF6B
+ CONST UID 'B11C07B5DF6B'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_B11C07B5DF6B aCtx
+
+: ME_B11C07B5DF6C
+ CONST UID 'B11C07B5DF6C'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_B11C07B5DF6C aForm
+
+: ME_B11C07B5DF6D
+ CONST UID 'B11C07B5DF6D'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_B11C07B5DF6D anIndex
+
+: ME_3639BFFF59A0
+ CONST UID '3639BFFF59A0'
+ CONST Name 'pop_form_MDIChildren'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:MDIChildren' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4952591E0263 // TForm
+ ;
+ : Parameters
+   [ ME_B11C07B5DF6B // aCtx
+ ME_B11C07B5DF6C // aForm
+ ME_B11C07B5DF6D // anIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_3639BFFF59A0 pop_form_MDIChildren
+
+: ME_061052C3B520
+ CONST UID '061052C3B520'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_MDIChildren' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_061052C3B520 Ini_Reg
+
+: ME_8D30B82D3D31
+ CONST UID '8D30B82D3D31'
+ CONST Name 'pop_form_MDIChildren'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:MDIChildren'#13#10'*Тип результата:* TForm'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TForm'#13#10' anIndex aForm pop:form:MDIChildren >>> l_TForm'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_3639BFFF59A0 // pop_form_MDIChildren
+ ME_061052C3B520 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:MDIChildren'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_8D30B82D3D31 pop_form_MDIChildren
+
+FORWARD ME_320C0D058217
+
+: ME_ADB774F0874F
+ CONST UID 'ADB774F0874F'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_ADB774F0874F aCtx
+
+: ME_ADB774F08750
+ CONST UID 'ADB774F08750'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_ADB774F08750 aForm
+
+: ME_258A2F5BBDB1
+ CONST UID '258A2F5BBDB1'
+ CONST Name 'pop_form_ModalResult'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:ModalResult' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_ADB774F0874F // aCtx
+ ME_ADB774F08750 // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_258A2F5BBDB1 pop_form_ModalResult
+
+: ME_EC8F6D53BCE9
+ CONST UID 'EC8F6D53BCE9'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_ModalResult' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_EC8F6D53BCE9 Ini_Reg
+
+: ME_320C0D058217
+ CONST UID '320C0D058217'
+ CONST Name 'pop_form_ModalResult'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:ModalResult'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aForm pop:form:ModalResult >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_258A2F5BBDB1 // pop_form_ModalResult
+ ME_EC8F6D53BCE9 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:ModalResult'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_320C0D058217 pop_form_ModalResult
+
+FORWARD ME_12E2A5A1963A
+
+: ME_C1BD3084144E
+ CONST UID 'C1BD3084144E'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_C1BD3084144E aCtx
+
+: ME_C1BD3084144F
+ CONST UID 'C1BD3084144F'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_C1BD3084144F aForm
+
+: ME_BE561C1EA571
+ CONST UID 'BE561C1EA571'
+ CONST Name 'pop_form_Next'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:Next' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_C1BD3084144E // aCtx
+ ME_C1BD3084144F // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_BE561C1EA571 pop_form_Next
+
+: ME_40A1B8D4602D
+ CONST UID '40A1B8D4602D'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_Next' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_40A1B8D4602D Ini_Reg
+
+: ME_12E2A5A1963A
+ CONST UID '12E2A5A1963A'
+ CONST Name 'pop_form_Next'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:Next'#13#10'*Пример:*'#13#10'{code}'#13#10' aForm pop:form:Next'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_BE561C1EA571 // pop_form_Next
+ ME_40A1B8D4602D // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:Next'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_12E2A5A1963A pop_form_Next
+
+FORWARD ME_062C119864B2
+
+: ME_55CE92E4DF6E
+ CONST UID '55CE92E4DF6E'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_55CE92E4DF6E aCtx
+
+: ME_55CE92E4DF6F
+ CONST UID '55CE92E4DF6F'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_55CE92E4DF6F aForm
+
+: ME_55CE92E4DF70
+ CONST UID '55CE92E4DF70'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476A77110209 // TWindowState
+ ;
+
+ @SELF
+; // ME_55CE92E4DF70 aValue
+
+: ME_84606C12BBFD
+ CONST UID '84606C12BBFD'
+ CONST Name 'pop_form_SetWindowState'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:SetWindowState' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55CE92E4DF6E // aCtx
+ ME_55CE92E4DF6F // aForm
+ ME_55CE92E4DF70 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_84606C12BBFD pop_form_SetWindowState
+
+: ME_FC9A9091B0D2
+ CONST UID 'FC9A9091B0D2'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_SetWindowState' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_FC9A9091B0D2 Ini_Reg
+
+: ME_062C119864B2
+ CONST UID '062C119864B2'
+ CONST Name 'pop_form_SetWindowState'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:SetWindowState'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aForm pop:form:SetWindowState'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_84606C12BBFD // pop_form_SetWindowState
+ ME_FC9A9091B0D2 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:SetWindowState'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_062C119864B2 pop_form_SetWindowState
+
+FORWARD ME_76B7945239DF
+
+: ME_CEDF634FE580
+ CONST UID 'CEDF634FE580'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_CEDF634FE580 aCtx
+
+: ME_CEDF634FE581
+ CONST UID 'CEDF634FE581'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4952591E0263 // TForm
+ ;
+
+ @SELF
+; // ME_CEDF634FE581 aForm
+
+: ME_CEDF634FE582
+ CONST UID 'CEDF634FE582'
+ CONST Name 'aListName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_CEDF634FE582 aListName
+
+INCLUDE '47E76250004C.pas.ms.script'
+
+: ME_2D6AE1A8E910
+ CONST UID '2D6AE1A8E910'
+ CONST Name 'pop_form_FindActionList'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:form:FindActionList' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4EF32DDB0235 // TActionList
+ ;
+ : Parameters
+   [ ME_CEDF634FE580 // aCtx
+ ME_CEDF634FE581 // aForm
+ ME_CEDF634FE582 // aListName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_2D6AE1A8E910 pop_form_FindActionList
+
+: ME_91A40258AB1B
+ CONST UID '91A40258AB1B'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_form_FindActionList' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_91A40258AB1B Ini_Reg
+
+: ME_76B7945239DF
+ CONST UID '76B7945239DF'
+ CONST Name 'pop_form_FindActionList'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:form:FindActionList'#13#10'*Тип результата:* TActionList'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TActionList'#13#10' aListName aForm pop:form:FindActionList >>> l_TActionList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_2D6AE1A8E910 // pop_form_FindActionList
+ ME_91A40258AB1B // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:form:FindActionList'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_76B7945239DF pop_form_FindActionList
+
+INCLUDE '561BAC4B0005.pas.ms.script'
+
+FORWARD ME_DBFEA799BB20
+
+: ME_167ACDCB18CF
+ CONST UID '167ACDCB18CF'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_167ACDCB18CF aCtx
+
+: ME_167ACDCB18D0
+ CONST UID '167ACDCB18D0'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_167ACDCB18D0 aLambda
+
+: ME_B1D8BF8B68F8
+ CONST UID 'B1D8BF8B68F8'
+ CONST Name 'IterateForms'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта IterateForms' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_167ACDCB18CF // aCtx
+ ME_167ACDCB18D0 // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_B1D8BF8B68F8 IterateForms
+
+: ME_DA571732428C
+ CONST UID 'DA571732428C'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация IterateForms' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DA571732428C Ini_Reg
+
+: ME_DBFEA799BB20
+ CONST UID 'DBFEA799BB20'
+ CONST Name 'IterateForms'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта IterateForms'#13#10'*Пример:*'#13#10'{code}'#13#10' aLambda IterateForms'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_561BAC4B0005 // TtfwGlobalKeyWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_B1D8BF8B68F8 // IterateForms
+ ME_DA571732428C // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'IterateForms'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_DBFEA799BB20 IterateForms
+
+: ME_55324FF900D2
+ CONST UID '55324FF900D2'
+ CONST Name 'pop_form_ActiveMDIChild'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4952591E0263 // TForm
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55324FF900D2 pop_form_ActiveMDIChild
+
+: ME_5532502900D6
+ CONST UID '5532502900D6'
+ CONST Name 'pop_form_Close'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5532502900D6 pop_form_Close
+
+: ME_5532508600AC
+ CONST UID '5532508600AC'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5532508600AC aName
+
+: ME_5532506100DC
+ CONST UID '5532506100DC'
+ CONST Name 'pop_form_FindMenuItem'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_47E7ABCB0296 // TMenuItem
+ ;
+ : Parameters
+   [ ME_5532508600AC // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5532506100DC pop_form_FindMenuItem
+
+: ME_55325098003C
+ CONST UID '55325098003C'
+ CONST Name 'pop_form_GetWindowState'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476A77110209 // TWindowState
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55325098003C pop_form_GetWindowState
+
+: ME_553250EE0172
+ CONST UID '553250EE0172'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_553250EE0172 aName
+
+: ME_553250E10218
+ CONST UID '553250E10218'
+ CONST Name 'pop_form_HasControl'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_553250EE0172 // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_553250E10218 pop_form_HasControl
+
+: ME_553251110023
+ CONST UID '553251110023'
+ CONST Name 'pop_form_MDIChildCount'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_553251110023 pop_form_MDIChildCount
+
+: ME_553251470232
+ CONST UID '553251470232'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_553251470232 anIndex
+
+: ME_5532513202C9
+ CONST UID '5532513202C9'
+ CONST Name 'pop_form_MDIChildren'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4952591E0263 // TForm
+ ;
+ : Parameters
+   [ ME_553251470232 // anIndex
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5532513202C9 pop_form_MDIChildren
+
+: ME_5532516A0153
+ CONST UID '5532516A0153'
+ CONST Name 'pop_form_ModalResult'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5532516A0153 pop_form_ModalResult
+
+: ME_5532518700A2
+ CONST UID '5532518700A2'
+ CONST Name 'pop_form_Next'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5532518700A2 pop_form_Next
+
+: ME_553251CD02F9
+ CONST UID '553251CD02F9'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476A77110209 // TWindowState
+ ;
+
+ @SELF
+; // ME_553251CD02F9 aValue
+
+: ME_553251B101E3
+ CONST UID '553251B101E3'
+ CONST Name 'pop_form_SetWindowState'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_553251CD02F9 // aValue
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_553251B101E3 pop_form_SetWindowState
+
+: ME_5532521E00A0
+ CONST UID '5532521E00A0'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_5532521E00A0 aLambda
+
+: ME_5532520C033E
+ CONST UID '5532520C033E'
+ CONST Name 'IterateForms'
+ CONST Class 'Operation'
+ CONST Stereotype 'globalkeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5532521E00A0 // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5532520C033E IterateForms
+
+: ME_55B8E3D002B3
+ CONST UID '55B8E3D002B3'
+ CONST Name 'aListName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55B8E3D002B3 aListName
+
+: ME_55B8E3B403B6
+ CONST UID '55B8E3B403B6'
+ CONST Name 'pop_form_FindActionList'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4EF32DDB0235 // TActionList
+ ;
+ : Parameters
+   [ ME_55B8E3D002B3 // aListName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55B8E3B403B6 pop_form_FindActionList
+
+: ME_70A39E147DBA
+ CONST UID '70A39E147DBA'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_70A39E147DBA Reg_TtfwContext
+
+: ME_3C4F98FB3A4C
+ CONST UID '3C4F98FB3A4C'
+ CONST Name 'Reg_TForm'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TForm' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3C4F98FB3A4C Reg_TForm
+
+: ME_79CDF6621B32
+ CONST UID '79CDF6621B32'
+ CONST Name 'Reg_String'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_79CDF6621B32 Reg_String
+
+: ME_B050DF232607
+ CONST UID 'B050DF232607'
+ CONST Name 'Reg_TMenuItem'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TMenuItem' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B050DF232607 Reg_TMenuItem
+
+: ME_0B2F1C5460D8
+ CONST UID '0B2F1C5460D8'
+ CONST Name 'Reg_TWindowState'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TWindowState' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_0B2F1C5460D8 Reg_TWindowState
+
+: ME_DE8D30A008A7
+ CONST UID 'DE8D30A008A7'
+ CONST Name 'Reg_Boolean'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Boolean' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DE8D30A008A7 Reg_Boolean
+
+: ME_6C5FDEA2516E
+ CONST UID '6C5FDEA2516E'
+ CONST Name 'Reg_Integer'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Integer' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_6C5FDEA2516E Reg_Integer
+
+: ME_AE7CFE71E9A4
+ CONST UID 'AE7CFE71E9A4'
+ CONST Name 'Reg_TActionList'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TActionList' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_AE7CFE71E9A4 Reg_TActionList
+
+: ME_71C1CA7C2FEB
+ CONST UID '71C1CA7C2FEB'
+ CONST Name 'Reg_TtfwWord'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_71C1CA7C2FEB Reg_TtfwWord
+
+: ME_50741A1F028C
+ CONST UID '50741A1F028C'
+ CONST Name 'FormsProcessingPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4952591E0263 // TForm
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_55324FF900D2 // pop_form_ActiveMDIChild
+ ME_5532502900D6 // pop_form_Close
+ ME_5532506100DC // pop_form_FindMenuItem
+ ME_55325098003C // pop_form_GetWindowState
+ ME_553250E10218 // pop_form_HasControl
+ ME_553251110023 // pop_form_MDIChildCount
+ ME_5532513202C9 // pop_form_MDIChildren
+ ME_5532516A0153 // pop_form_ModalResult
+ ME_5532518700A2 // pop_form_Next
+ ME_553251B101E3 // pop_form_SetWindowState
+ ME_5532520C033E // IterateForms
+ ME_55B8E3B403B6 // pop_form_FindActionList
+ ME_70A39E147DBA // Reg_TtfwContext
+ ME_3C4F98FB3A4C // Reg_TForm
+ ME_79CDF6621B32 // Reg_String
+ ME_B050DF232607 // Reg_TMenuItem
+ ME_0B2F1C5460D8 // Reg_TWindowState
+ ME_DE8D30A008A7 // Reg_Boolean
+ ME_6C5FDEA2516E // Reg_Integer
+ ME_AE7CFE71E9A4 // Reg_TActionList
+ ME_71C1CA7C2FEB // Reg_TtfwWord
+ ]
+ ; // Operations
+ : Children
+   [ ME_38481B365F20 // TFormsProcessingPackResNameGetter
+ ME_90DD5B736D00 // pop_form_ActiveMDIChild
+ ME_EF68563BBDE0 // pop_form_Close
+ ME_CCC0609B3BF5 // pop_form_FindMenuItem
+ ME_DA5ACD40FDF6 // pop_form_GetWindowState
+ ME_AF277B657685 // pop_form_HasControl
+ ME_2C52284D1B9B // pop_form_MDIChildCount
+ ME_8D30B82D3D31 // pop_form_MDIChildren
+ ME_320C0D058217 // pop_form_ModalResult
+ ME_12E2A5A1963A // pop_form_Next
+ ME_062C119864B2 // pop_form_SetWindowState
+ ME_76B7945239DF // pop_form_FindActionList
+ ME_DBFEA799BB20 // IterateForms
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" true
+ CONST "no class name" true
+ CONST "no hands" false
+ CONST "no_pop" true
+
+ @SELF
+; // ME_50741A1F028C FormsProcessingPack

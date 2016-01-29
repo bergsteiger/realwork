@@ -1,0 +1,669 @@
+// Tl3ComponentInfoHelper 4F72CAA90045 SimpleClass Class
+
+FORWARD ME_4F72CAA90045
+
+FORWARD ME_532059320073
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5320594503DE
+ CONST UID '5320594503DE'
+ CONST Name 'itHierarchyOnly'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5320594503DE itHierarchyOnly
+
+: ME_5320594E0264
+ CONST UID '5320594E0264'
+ CONST Name 'itDetailed'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5320594E0264 itDetailed
+
+: ME_532059320073
+ CONST UID '532059320073'
+ CONST Name 'TRTTIInfoType'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5320594503DE // itHierarchyOnly
+ ME_5320594E0264 // itDetailed
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_532059320073 TRTTIInfoType
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+: ME_CDD86107C8D2
+ CONST UID 'CDD86107C8D2'
+ CONST Name 'TControlFriend'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Друг для TControl' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_47E1201703C3 // TControl
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ @SELF
+; // ME_CDD86107C8D2 TControlFriend
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '48A41FF10094.pas.ms.script'
+
+: ME_5320598C001B
+ CONST UID '5320598C001B'
+ CONST Name 'f_ClickPos'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A104F4028B // TPoint
+ ;
+
+ @SELF
+; // ME_5320598C001B f_ClickPos
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55142A1C03B1
+ CONST UID '55142A1C03B1'
+ CONST Name 'f_MenuInfoString'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55142A1C03B1 f_MenuInfoString
+
+INCLUDE '5012BFDC0300.pas.ms.script'
+
+FORWARD ME_532059A801C4
+
+: ME_40676446935C
+ CONST UID '40676446935C'
+ CONST Name 'anObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_40676446935C anObject
+
+: ME_30DDD1D34BAB
+ CONST UID '30DDD1D34BAB'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_30DDD1D34BAB aValue
+
+: ME_550E57C39476
+ CONST UID '550E57C39476'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_40676446935C // anObject
+ ME_30DDD1D34BAB // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_550E57C39476 DoIt
+
+: ME_532059A801C4
+ CONST UID '532059A801C4'
+ CONST Name 'ObjectPropFound'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5320560B0287 // TRTTIInfoObjectPropertyFoundCallBack
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_550E57C39476 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_532059A801C4 ObjectPropFound
+
+INCLUDE '551542E902F5.pas.ms.script'
+
+FORWARD ME_53205A0E038A
+
+: ME_B8D2F793E025
+ CONST UID 'B8D2F793E025'
+ CONST Name 'aLinkData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_B8D2F793E025 aLinkData
+
+: ME_A0EEB870151D
+ CONST UID 'A0EEB870151D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_B8D2F793E025 // aLinkData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_A0EEB870151D DoIt
+
+: ME_53205A0E038A
+ CONST UID '53205A0E038A'
+ CONST Name 'OnJumpToObjectProp'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5515434903D6 // Tl3WikiLinkClicked
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A0EEB870151D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53205A0E038A OnJumpToObjectProp
+
+FORWARD ME_53205A240166
+
+: ME_53205A340191
+ CONST UID '53205A340191'
+ CONST Name 'anObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_53205A340191 anObject
+
+: ME_53205A3401C6
+ CONST UID '53205A3401C6'
+ CONST Name 'aInfoType'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_532059320073 // TRTTIInfoType
+ ;
+
+ @SELF
+; // ME_53205A3401C6 aInfoType
+
+: ME_551AE1EE016A
+ CONST UID '551AE1EE016A'
+ CONST Name 'aBindedControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E1201703C3 // TControl
+ ;
+ CONST Value 'nil'
+ : ValueType ME_47E1201703C3 // TControl
+ ;
+
+ @SELF
+; // ME_551AE1EE016A aBindedControl
+
+: ME_53205A310298
+ CONST UID '53205A310298'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_53205A340191 // anObject
+ ME_53205A3401C6 // aInfoType
+ ME_551AE1EE016A // aBindedControl
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_53205A310298 DoIt
+
+: ME_53205A240166
+ CONST UID '53205A240166'
+ CONST Name 'ShowRTTIMessageForObject'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53205A310298 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53205A240166 ShowRTTIMessageForObject
+
+FORWARD ME_5502BE68030B
+
+INCLUDE '47E7ABAE0110.pas.ms.script'
+
+: ME_5502BE800321
+ CONST UID '5502BE800321'
+ CONST Name 'aMenu'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E7ABCB0296 // TMenuItem
+ ;
+
+ @SELF
+; // ME_5502BE800321 aMenu
+
+: ME_5502BE80035E
+ CONST UID '5502BE80035E'
+ CONST Name 'aCaption'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5502BE80035E aCaption
+
+: ME_5502BE76007D
+ CONST UID '5502BE76007D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_5502BE800321 // aMenu
+ ME_5502BE80035E // aCaption
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5502BE76007D DoIt
+
+: ME_5502BE68030B
+ CONST UID '5502BE68030B'
+ CONST Name 'FormatMenuInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5502BE76007D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5502BE68030B FormatMenuInfo
+
+INCLUDE '550013770000.pas.ms.script'
+
+FORWARD ME_55141542019C
+
+: ME_FF246BF4607E
+ CONST UID 'FF246BF4607E'
+ CONST Name 'aMenu'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E7ABCB0296 // TMenuItem
+ ;
+
+ @SELF
+; // ME_FF246BF4607E aMenu
+
+: ME_E24C1F72313E
+ CONST UID 'E24C1F72313E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_FF246BF4607E // aMenu
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E24C1F72313E DoIt
+
+: ME_55141542019C
+ CONST UID '55141542019C'
+ CONST Name 'PopupMenuCallback'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E24C1F72313E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55141542019C PopupMenuCallback
+
+FORWARD ME_551D50260138
+
+: ME_551D503E0182
+ CONST UID '551D503E0182'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E1201703C3 // TControl
+ ;
+
+ @SELF
+; // ME_551D503E0182 aControl
+
+: ME_551D503302C7
+ CONST UID '551D503302C7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_551D503E0182 // aControl
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_551D503302C7 DoIt
+
+: ME_551D50260138
+ CONST UID '551D50260138'
+ CONST Name 'FormatMenuInfoForControl'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_551D503302C7 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_551D50260138 FormatMenuInfoForControl
+
+FORWARD ME_551D508901D0
+
+: ME_551D50AF00A2
+ CONST UID '551D50AF00A2'
+ CONST Name 'anObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_551D50AF00A2 anObject
+
+: ME_551D50AF00DF
+ CONST UID '551D50AF00DF'
+ CONST Name 'anInfoType'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_532059320073 // TRTTIInfoType
+ ;
+
+ @SELF
+; // ME_551D50AF00DF anInfoType
+
+: ME_551D6BA40324
+ CONST UID '551D6BA40324'
+ CONST Name 'aResult'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_551D6BA40324 aResult
+
+: ME_551D509A0102
+ CONST UID '551D509A0102'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_551D50AF00A2 // anObject
+ ME_551D50AF00DF // anInfoType
+ ME_551D6BA40324 // aResult
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_551D509A0102 DoIt
+
+FORWARD ME_C7EBA2EF89A6
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_9EAB065C58BD
+ CONST UID '9EAB065C58BD'
+ CONST Name 'anItem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_9EAB065C58BD anItem
+
+: ME_5BA4FC3E0C48
+ CONST UID '5BA4FC3E0C48'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_3DBFFE100240 // boolean
+ ;
+ : Parameters
+   [ ME_9EAB065C58BD // anItem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5BA4FC3E0C48 DoIt
+
+: ME_C7EBA2EF89A6
+ CONST UID 'C7EBA2EF89A6'
+ CONST Name 'DoIt'
+ CONST Class 'Class'
+ CONST Stereotype 'localmethod'
+ %SUMMARY 'Подитеративная функция для вызова L2Ml3IterateComponentParentsIterateFAction из FormatObjectInfo' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5BA4FC3E0C48 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_C7EBA2EF89A6 DoIt
+
+: ME_551D508901D0
+ CONST UID '551D508901D0'
+ CONST Name 'FormatObjectInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_551D509A0102 // DoIt
+ ME_C7EBA2EF89A6 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_551D508901D0 FormatObjectInfo
+
+: ME_4F72D9FF0074
+ CONST UID '4F72D9FF0074'
+ CONST Name 'init'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4F72D9FF0074 init
+
+: ME_1506597AC31B
+ CONST UID '1506597AC31B'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_1506597AC31B Exists
+
+: ME_4F72CAA90045
+ CONST UID '4F72CAA90045'
+ CONST Name 'Tl3ComponentInfoHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Отображаем RTTI-информацию о компонентах.'#13#10'Alt+Ctrl+Shift+LClick - подробная информация;'#13#10'Alt+Ctrl+Shift+RClick - краткая информация вместе с иерархией вложенности;'#13#10'Alt+Ctrl+Shift+C - контрол, захвативший ввод;'#13#10'Alt+Ctrl+Shift+A - контрол в фокусе.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4F62031400F6 // Il3GetMessageListener
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5320598C001B // f_ClickPos
+ ME_55142A1C03B1 // f_MenuInfoString
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_532059A801C4 // ObjectPropFound
+ ME_53205A0E038A // OnJumpToObjectProp
+ ME_53205A240166 // ShowRTTIMessageForObject
+ ME_5502BE68030B // FormatMenuInfo
+ ME_55141542019C // PopupMenuCallback
+ ME_551D50260138 // FormatMenuInfoForControl
+ ME_551D508901D0 // FormatObjectInfo
+ ME_4F72D9FF0074 // init
+ ME_1506597AC31B // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4F62032D0058 // GetMessageListenerNotify
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_532059320073 // TRTTIInfoType
+ ME_CDD86107C8D2 // TControlFriend
+ ]
+ ; // Children
+ CONST "author" 'Костицын'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '28.03.2012'
+
+ @SELF
+; // ME_4F72CAA90045 Tl3ComponentInfoHelper

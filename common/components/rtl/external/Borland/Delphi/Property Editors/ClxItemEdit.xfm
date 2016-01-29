@@ -1,0 +1,182 @@
+object ClxListViewItems: TClxListViewItems
+  Left = 296
+  Top = 317
+  Width = 494
+  Height = 170
+  ActiveControl = TreeView
+  Caption = 'ListView Items Editor'
+  Color = clBackground
+  Constraints.MinHeight = 170
+  Constraints.MinWidth = 440
+  KeyPreview = True
+  Position = poScreenCenter
+  Scaled = False
+  OnCreate = FormCreate
+  PixelsPerInch = 75
+  object GroupBox1: TGroupBox
+    Left = 4
+    Top = 5
+    Width = 286
+    Height = 117
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Caption = '&Items'
+    TabOrder = 0
+    object New: TButton
+      Left = 178
+      Top = 20
+      Width = 98
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = '&New Item'
+      Default = True
+      TabOrder = 0
+      OnClick = NewClick
+    end
+    object Delete: TButton
+      Left = 178
+      Top = 81
+      Width = 98
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = '&Delete'
+      TabOrder = 2
+      OnClick = DeleteClick
+    end
+    object NewSub: TButton
+      Left = 178
+      Top = 51
+      Width = 98
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = 'N&ew SubItem'
+      TabOrder = 1
+      OnClick = NewSubClick
+    end
+    object TreeView: TTreeView
+      Left = 6
+      Top = 15
+      Width = 166
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      Columns = <
+        item
+          Tag = 0
+          Width = 50
+        end>
+      DragMode = dmAutomatic
+      TabOrder = 3
+      OnChange = TreeViewChange
+      OnDragDrop = TreeViewDragDrop
+      OnDragOver = TreeViewDragOver
+      OnEdited = TreeViewEdited
+    end
+  end
+  object PropGroupBox: TGroupBox
+    Left = 294
+    Top = 5
+    Width = 193
+    Height = 117
+    Anchors = [akTop, akRight, akBottom]
+    Caption = 'Item Properties'
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Top = 25
+      Width = 46
+      Height = 15
+      Caption = '&Caption:'
+      FocusControl = Text
+    end
+    object Label2: TLabel
+      Left = 8
+      Top = 56
+      Width = 70
+      Height = 15
+      Caption = 'I&mage Index:'
+      FocusControl = Image
+    end
+    object Label3: TLabel
+      Left = 8
+      Top = 88
+      Width = 65
+      Height = 15
+      Caption = '&State Index:'
+      FocusControl = StateImage
+      Visible = False
+    end
+    object Text: TEdit
+      Left = 92
+      Top = 21
+      Width = 79
+      Height = 23
+      AutoSelect = False
+      MaxLength = 32767
+      TabOrder = 3
+      OnChange = ValueChange
+      OnExit = TextExit
+    end
+    object Image: TEdit
+      Left = 92
+      Top = 52
+      Width = 79
+      Height = 23
+      AutoSelect = False
+      MaxLength = 32767
+      TabOrder = 4
+      OnChange = ValueChange
+      OnExit = ImageExit
+    end
+    object StateImage: TEdit
+      Left = 92
+      Top = 84
+      Width = 79
+      Height = 23
+      AutoSelect = False
+      MaxLength = 32767
+      TabOrder = 5
+      Visible = False
+      OnChange = ValueChange
+      OnExit = StateImageExit
+    end
+  end
+  object Button4: TButton
+    Left = 38
+    Top = 134
+    Width = 75
+    Height = 25
+    Anchors = [akBottom]
+    Caption = 'OK'
+    ModalResult = 1
+    TabOrder = 2
+  end
+  object Cancel: TButton
+    Left = 143
+    Top = 134
+    Width = 75
+    Height = 25
+    Anchors = [akBottom]
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 3
+  end
+  object Apply: TButton
+    Left = 250
+    Top = 134
+    Width = 75
+    Height = 25
+    Anchors = [akBottom]
+    Caption = '&Apply'
+    TabOrder = 4
+    OnClick = ApplyClick
+  end
+  object Button7: TButton
+    Left = 361
+    Top = 134
+    Width = 75
+    Height = 25
+    Anchors = [akBottom]
+    Caption = '&Help'
+    TabOrder = 5
+    OnClick = Button7Click
+  end
+end

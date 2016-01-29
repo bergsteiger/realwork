@@ -1,0 +1,182 @@
+F1 Пользовательские сервисы : VCMUseCases - Сервисы Гаранта
+version: 389
+CompareEditions : VCMUseCase - [$152961076]
+ CompareEditions : VCMUseCaseRealization - Сравнение редакций
+   : uses - 
+ Editions : VCMControllers - 
+  EditionsInterfaces : ControllerInterfaces - Работа с редакциями
+   MnsRedactionCurrentPara : PureMixIn - Источник параграфа
+   TnsParaCoord : StaticObject - Координаты параграфа
+   VScroll : PureMixIn - 
+   InsVScrollListener : Facet - Слушатель вертикального скроллера
+   MnsDocument : PureMixIn - Источник документа
+   MnsCompareEditionsInfo : PureMixIn - 
+   InsEditionListener : Facet - Слушатель изменения редакции
+   InsVScrollController : UseCaseController - Контроллер вертикального скроллера
+   IdsEdition : ViewAreaController - 
+   IdsEditionDiff : ViewAreaController - Результат сравнения редакций
+   IdsRightEdition : ViewAreaController - Текущая редакция
+   MnsEditionForCompare : PureMixIn - 
+   IdsLeftEdition : ViewAreaController - Предыдущая редакция
+   InsEditionDiffData : Facet - Данные для dsEditionDiff
+   MnsChangedParas : PureMixIn - Изменённые параграфы
+   InsEditionsContainerData : Facet - Данные для контейнера сравнения редакций
+   IdsEditionsContainerData : ViewAreaController - Данные для контейнера редакций
+   InsDocumentTextProviderFactory : Facet - 
+   InsCompareEditionsInfo : Facet - Информация для сравнения редакций
+   IsdsCompareEditions : UseCaseController - Сравнение двух соседний редакций
+  CommonObjects : Unit - Общие объекты для работы с редакциями
+   TnsRedactionCurrentPara : SimpleClass - 
+   MnsDocument : Impurity - 
+   TnsCompareEditionsInfoPrim : SimpleClass - 
+   TnsEditionsContainerData : SimpleClass - 
+   TnsCompareEditionsInfo : SimpleClass - 
+  Editions : ControllerUnit - Работа с редакциями
+   VScroll : Impurity - Реализация чистой примеси VScroll транслирующая вызовы к своим подписчикам в виде InsVScrollListener
+   dsEdition : ViewAreaControllerImp - Базовая область ввода, для работы с редакциями
+   dsEditionDiff : ViewAreaControllerImp - Разница редакций
+   TsdsCompareEditions : UseCaseControllerImp - Реализация прецедента "Сравнение редакций документа"
+   TdsEditionsContainerData : ViewAreaControllerImp - Контейнер для сравниваемых редакций
+   TdsLeftEdition : ViewAreaControllerImp - Предыдущая редакция
+   TnsEditionDiffData : SimpleClass - 
+   TdsRightEdition : ViewAreaControllerImp - Текущая редакция
+   TsdsCompareEditionsState : SimpleClass - 
+   TnsEditionFromDTPDocumentContainer : SimpleClass - 
+ View : VCMViews - Отображение редакций
+  CompareEditions : VCMControls - Операции специфичные для Сравнения редакций
+   Edition : VCMOperations - Редакция
+   TGotoParaResult : Enum - Результат перехода на параграф
+   Document : VCMFacet - 
+   RightEdition : VCMFacet - Текущая редакция
+   Finder : VCMFacet - Инструмент для поиска
+   IDocument_OpenEditionLocalLink_Params : Facet - Параметры для операции Document.OpenEditionLocalLink
+   TDocument_OpenEditionLocalLink_Params : SimpleClass - Реализация IDocument_OpenEditionLocalLink_Params
+   Op_Document_OpenEditionLocalLink : SimpleClass - Класс для вызова операции Document.OpenEditionLocalLink
+   Op_RightEdition_ReturnToDocument : SimpleClass - Класс для вызова операции RightEdition.ReturnToDocument
+   Op_RightEdition_SetFocusToText : SimpleClass - Класс для вызова операции RightEdition.SetFocusToText
+   IRightEdition_IsCurrentPara_Params : Facet - Параметры для операции RightEdition.IsCurrentPara
+   TRightEdition_IsCurrentPara_Params : SimpleClass - Реализация IRightEdition_IsCurrentPara_Params
+   Op_RightEdition_IsCurrentPara : SimpleClass - Класс для вызова операции RightEdition.IsCurrentPara
+   IFinder_GotoPara_Params : Facet - Параметры для операции Finder.GotoPara
+   TFinder_GotoPara_Params : SimpleClass - Реализация IFinder_GotoPara_Params
+   Op_Finder_GotoPara : SimpleClass - Класс для вызова операции Finder.GotoPara
+   Op_Finder_DisableForceDrawFocusRect : SimpleClass - Класс для вызова операции Finder.DisableForceDrawFocusRect
+  FormDefinitions : VCMControls - 
+   LeftEdition : VCMFormDefinition - 
+   RightEdition : VCMFormDefinition - 
+   EditionsContainer : VCMFormDefinition - 
+   Tkw_Form_LeftEdition_ID : ScriptKeyword - Слово словаря для идентификатора формы LeftEdition
+----
+*Пример использования*:
+{code}
+'aControl' форма::LeftEdition TryFocus ASSERT
+{code}
+   Tkw_Form_RightEdition_ID : ScriptKeyword - Слово словаря для идентификатора формы RightEdition
+----
+*Пример использования*:
+{code}
+'aControl' форма::RightEdition TryFocus ASSERT
+{code}
+   Tkw_Form_EditionsContainer_ID : ScriptKeyword - Слово словаря для идентификатора формы EditionsContainer
+----
+*Пример использования*:
+{code}
+'aControl' форма::EditionsContainer TryFocus ASSERT
+{code}
+  Editions : VCMModule - Работа с редакциями
+   Diff : VCMForm - Форма для отображения результатов сравнения
+   DiffOptions : VCMForm - 
+   PrimLeftEdition : VCMForm - Текущая редакция
+   PrimEditionsContainer : VCMContainer - Контейнер для двух редакций
+   PrimRightEdition : VCMForm - Текущая редакция
+   PrimEditionsRes : VCMDataModule - 
+   EditionsRes : VCMDataModule - 
+   BaseEditions : VCMFormsPack - 
+Consultation : VCMUseCase - [$69239055]
+ Consultations$UC : VCMUseCaseRealization - Консультации
+ Consultation$View : VCMViews - 
+  HAFPainters : VCMForms - 
+   nsConsultationHAFPainterImages : VCMDataModule - 
+ Consultation : VCMControllers - Работа с консультациями
+  ConsultationInterfaces : ControllerInterfaces - Интерфейсы для работы с консультациями
+   IsdsQuery : UseCaseController - Бизнес объект прецедентов "Поисковый запрос"
+   IsdsSendConsultation : UseCaseController - 
+  Consultation : ControllerUnit - Реализация прецедента работы с консультациями
+   TdsConsultation : ViewAreaControllerImp - БОС запроса на консультацию
+   TdsQuery : ViewAreaControllerImp - 
+   TdsConsultationMark : ViewAreaControllerImp - БОС оценки консультации
+   TsdsConsultation : UseCaseControllerImp - Бизнес объект прецедента "Консультация"
+   TdsConsultationList : ViewAreaControllerImp - список консультации
+   TsdsQuery : UseCaseControllerImp - Бизнес объект прецедента "Поисковый запрос"
+   TsdsSendConsultation : UseCaseControllerImp - Бизнес объект прецедента "Запрос на консультацию"
+   TdsSendConsultation : ViewAreaControllerImp - Бизнес объект "Запрос на консультацию"
+   TnsConsultationDocumentContainerNew : SimpleClass - Контейнер документа-консультации
+   bsConsultationManager : UtilityPack - 
+ View : VCMViews - Представление
+  Consultation : VCMModule - Консультации
+   PrimConsultationMark : VCMForm - Оценка консультации
+   PrimConsultationMarkOptions : VCMForm - Оценка ответа
+   Consultation$FP : VCMFormsPack - Консультации
+Autoreferat : VCMUseCase - [$69699614]
+ Monitorings : VCMUseCaseRealization - Мониторинги
+ Autoreferat : VCMControllers - Работа с новостной лентой
+  AutoreferatInterfaces : ControllerInterfaces - Интерфейсы для работы с новостной лентой
+   IdsNewsLine : ViewAreaController - Новостная лента
+   IsdsAutoreferat : UseCaseController - 
+  Autoreferat : ControllerUnit - Работа с авторефератом
+   TdsAutoreferat : ViewAreaControllerImp - Автореферат
+   TsdsAutoreferat : UseCaseControllerImp - Бизнес объект сборки "Автореферат"
+   TdsNewsLine : ViewAreaControllerImp - Новостная лента
+   TnsAutoreferatDocumentContainer : SimpleClass - Контейнер документа для автореферата
+   TnsAnnotationHeaderTagNode : SimpleClass - 
+   TnsAnnotationHeaderTagData : SimpleClass - 
+   TnsF1AutoreferatDocumentTagNode : SimpleClass - 
+ View : VCMViews - 
+  InternalOperations : VCMControls - 
+   DateInterval : VCMFacet - 
+   NewsThemes : VCMOperations - 
+   DateInterval$UI : VCMOperations - 
+   Op_DateInterval_OpenInt : SimpleClass - Класс для вызова операции DateInterval.OpenInt
+  Search : VCMModule - 
+   PrimNewsLine : VCMForm - ПРАЙМ. Моя новостная лента
+   PrimNewsLineOptions : VCMForm - ПРАЙМ. Моя новостная лента
+   PrimMonitorings : VCMFormsPack - 
+   TnsNewsLine : SimpleClass - 
+   Tkw_Monitorings_opOpenNewsLine : ScriptKeyword - Слово словаря для вызова операции модуля Monitorings.OpenNewsLine (Мониторинги Новостная лента)
+   Tkw_Monitorings_opOpenLegislationReview : ScriptKeyword - Слово словаря для вызова операции модуля Monitorings.OpenLegislationReview (Мониторинги Обзор изменений законодательства)
+ChangesBetweenEditions : VCMUseCase - [$255961155].
+ ChangesBetweenEditions : VCMUseCaseRealization - Просмотр только измененных фрагментов
+ ChangesBetweenEditions$Domain : VCMControllers - 
+  ChangesBetweenEditionsInterfaces : ControllerInterfaces - 
+   MnsEditionsHolder : PureMixIn - 
+   IdsChangesBetweenEditions : ViewAreaController - 
+   InsChangesBetweenEditionsInfo : Facet - 
+   IsdsChangesBetweenEditionsData : Facet - 
+   IsdsChangesBetweenEditions : UseCaseController - Прецедент ОИД
+  ChangesBetweenEditionsImplementation : ControllerUnit - 
+   TsdsChangesBetweenEditions : UseCaseControllerImp - Прецедент ОИД
+   TnsChangesBetweenEditionsInfo : SimpleClass - 
+   TdsChangesBetweenEditions : ViewAreaControllerImp - 
+   TsdsChangesBetweenEditionsData : SimpleClass - 
+   TnsChangesBetweenEditionsDocumentContainer : SimpleClass - Контейнер документа для ОИД
+ View : VCMViews - 
+  ChangesBetweenEditons : VCMModule - 
+   PrimChangesBetweenEditons : VCMForm - Изменения в документе
+   ChangesBetweenEditions : VCMFormsPack - Просмотр только измененных фрагментов
+AAC : VCMUseCase - {RequestLink:365838080}
+ AAC : VCMUseCaseRealization - Актуальная аналитика
+ AAC$DataSources : VCMControllers - Контроллеры бизнес-логики прецедента "Актуальная аналитика"
+  AACInterfaces : ControllerInterfaces - Интерфейсы контроллеров прецедента "Актуальная аналитика"
+  AACImplementation : ControllerUnit - Реализация контроллеров прецедента "Актуальная аналитика"
+   TsdsAAC : UseCaseControllerImp - Контроллер прецедента "Актуальная аналитика"
+   TdsAACContainer : ViewAreaControllerImp - 
+   TdsAACDocumentPrim : ViewAreaControllerImp - 
+   TdsAACDocumentRight : ViewAreaControllerImp - 
+   TdsAACDocumentLeft : ViewAreaControllerImp - 
+   TnsAACLeftDocumentContainer : SimpleClass - 
+   TnsAACRightDocumentContainer : SimpleClass - 
+ View : VCMViews - Объекты представления прецедента "Актуальная аналитика"
+  AAC : VCMModule - 
+   AACContainerPrim : VCMContainer - 
+   AACTextContainerPrim : VCMContainer - 
+   AACPrim : VCMFormsPack - Реализация прецедента "Актуальная аналитика". {RequestLink:365838080}

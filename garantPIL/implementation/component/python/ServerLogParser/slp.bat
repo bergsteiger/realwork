@@ -1,0 +1,1 @@
+python slp.py %1

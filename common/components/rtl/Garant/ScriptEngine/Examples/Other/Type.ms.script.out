@@ -1,0 +1,75 @@
+1
+2
+xxx
+VOID Test TypeTest
+ IMMEDIATE VOID OPERATOR __CompileType
+  TtfwValueTypes IN aValues
+  aValues
+  CompileValue
+  @
+  Ctx:SetValueTypes
+  CompileValue
+ ; // IMMEDIATE VOID OPERATOR __CompileType
+ 
+ X VAR A
+ Y VAR B
+ IMMEDIATE OPERATOR TYPE
+  ^L IN aName
+  aName
+  |N
+  Ctx:ValueTypes
+  pop:ValueTypes:MakeCustomName
+  Ctx:ClearTypeInfo
+  TYPE
+  Ctx:SetWordProducerForCompiledClass
+  [
+   'IMMEDIATE VOID axiom:operator'
+   aName
+   |N
+   '__CompileType'
+   ';'
+  ]
+  Ctx:Parser:PushArray
+ ; // IMMEDIATE OPERATOR TYPE
+ 
+ IMMEDIATE VOID TYPE X
+  TtfwValueTypes
+  Ctx:SetValueTypes
+ ; // IMMEDIATE VOID TYPE X
+ 
+ IMMEDIATE VOID TYPE Y
+  TtfwValueTypes
+  Ctx:SetValueTypes
+ ; // IMMEDIATE VOID TYPE Y
+ 
+ 1
+ A
+ pop:Word:SetValuePrim
+ 2
+ B
+ pop:Word:SetValuePrim
+ A
+ .
+ B
+ .
+ 'xxx'
+ B
+ pop:Word:SetValuePrim
+ B
+ .
+ TypeTest
+ DumpElement
+ TypeTest
+ axiom:DumpMembers
+; // VOID Test TypeTest
+
+VOID OPERATOR Test TypeTest
+IMMEDIATE VOID OPERATOR __CompileType
+TtfwValueTypes OPERATOR IN aValues
+X OPERATOR VAR A
+Y OPERATOR VAR B
+IMMEDIATE OPERATOR TYPE
+^L OPERATOR IN aName
+IMMEDIATE VOID OPERATOR TYPE X
+IMMEDIATE VOID OPERATOR TYPE Y
+TkwMain TkwCompiledMain

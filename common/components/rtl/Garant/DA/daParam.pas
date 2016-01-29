@@ -1,0 +1,201 @@
+unit daParam;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "DA"
+// Модуль: "w:/common/components/rtl/Garant/DA/daParam.pas"
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::DA::Provider::TdaParam
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+{$Include ..\DA\daDefine.inc}
+
+interface
+
+uses
+  l3ProtoObject,
+  daInterfaces,
+  daTypes,
+  l3Date
+  ;
+
+type
+ TdaParam = class(Tl3ProtoObject, IdaParam)
+ private
+ // private fields
+   f_Description : IdaParamDescription;
+   f_Converter : IdaDataConverter;
+   f_Buffer : Pointer;
+ protected
+ // realized methods
+   function Get_Name: AnsiString;
+   function IsSameType(const aDesc: IdaParamDescription): Boolean;
+   function Get_AsInteger: LongInt;
+   procedure Set_AsInteger(aValue: LongInt);
+   function Get_DataBuffer: Pointer;
+   function Get_AsLargeInt: LargeInt;
+   procedure Set_AsLargeInt(aValue: LargeInt);
+   function Get_AsString: AnsiString;
+   procedure Set_AsString(const aValue: AnsiString);
+   function Get_AsStDate: TStDate;
+   procedure Set_AsStDate(aValue: TStDate);
+ protected
+ // overridden protected methods
+   procedure Cleanup; override;
+     {* Функция очистки полей объекта. }
+ public
+ // public methods
+   constructor Create(const aConverter: IdaDataConverter;
+     const aDesc: IdaParamDescription); reintroduce;
+   class function Make(const aConverter: IdaDataConverter;
+     const aDesc: IdaParamDescription): IdaParam; reintroduce;
+     {* Сигнатура фабрики TdaParam.Make }
+ end;//TdaParam
+
+implementation
+
+// start class TdaParam
+
+constructor TdaParam.Create(const aConverter: IdaDataConverter;
+  const aDesc: IdaParamDescription);
+//#UC START# *5555AD6F0065_5555AD2A0004_var*
+//#UC END# *5555AD6F0065_5555AD2A0004_var*
+begin
+//#UC START# *5555AD6F0065_5555AD2A0004_impl*
+ inherited Create;
+ f_Description := aDesc;
+ f_Converter := aConverter;
+ f_Buffer := f_Converter.AllocateParamBuffer(f_Description);
+//#UC END# *5555AD6F0065_5555AD2A0004_impl*
+end;//TdaParam.Create
+
+class function TdaParam.Make(const aConverter: IdaDataConverter;
+  const aDesc: IdaParamDescription): IdaParam;
+var
+ l_Inst : TdaParam;
+begin
+ l_Inst := Create(aConverter, aDesc);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;
+
+function TdaParam.Get_Name: AnsiString;
+//#UC START# *5555CC750283_5555AD2A0004get_var*
+//#UC END# *5555CC750283_5555AD2A0004get_var*
+begin
+//#UC START# *5555CC750283_5555AD2A0004get_impl*
+ Result := f_Description.Name;
+//#UC END# *5555CC750283_5555AD2A0004get_impl*
+end;//TdaParam.Get_Name
+
+function TdaParam.IsSameType(const aDesc: IdaParamDescription): Boolean;
+//#UC START# *5555D4F5030D_5555AD2A0004_var*
+//#UC END# *5555D4F5030D_5555AD2A0004_var*
+begin
+//#UC START# *5555D4F5030D_5555AD2A0004_impl*
+ Result := (f_Description.DataType = aDesc.DataType) and (f_Description.Size = aDesc.Size);
+//#UC END# *5555D4F5030D_5555AD2A0004_impl*
+end;//TdaParam.IsSameType
+
+function TdaParam.Get_AsInteger: LongInt;
+//#UC START# *5555E85C00B8_5555AD2A0004get_var*
+//#UC END# *5555E85C00B8_5555AD2A0004get_var*
+begin
+//#UC START# *5555E85C00B8_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtDWord, f_Buffer, @Result);
+//#UC END# *5555E85C00B8_5555AD2A0004get_impl*
+end;//TdaParam.Get_AsInteger
+
+procedure TdaParam.Set_AsInteger(aValue: LongInt);
+//#UC START# *5555E85C00B8_5555AD2A0004set_var*
+//#UC END# *5555E85C00B8_5555AD2A0004set_var*
+begin
+//#UC START# *5555E85C00B8_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtDWord, @aValue, f_Buffer);
+//#UC END# *5555E85C00B8_5555AD2A0004set_impl*
+end;//TdaParam.Set_AsInteger
+
+function TdaParam.Get_DataBuffer: Pointer;
+//#UC START# *555D928D00E0_5555AD2A0004get_var*
+//#UC END# *555D928D00E0_5555AD2A0004get_var*
+begin
+//#UC START# *555D928D00E0_5555AD2A0004get_impl*
+ Result := f_Buffer;
+//#UC END# *555D928D00E0_5555AD2A0004get_impl*
+end;//TdaParam.Get_DataBuffer
+
+function TdaParam.Get_AsLargeInt: LargeInt;
+//#UC START# *55FA75FD01D3_5555AD2A0004get_var*
+//#UC END# *55FA75FD01D3_5555AD2A0004get_var*
+begin
+//#UC START# *55FA75FD01D3_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtQWord, f_Buffer, @Result);
+//#UC END# *55FA75FD01D3_5555AD2A0004get_impl*
+end;//TdaParam.Get_AsLargeInt
+
+procedure TdaParam.Set_AsLargeInt(aValue: LargeInt);
+//#UC START# *55FA75FD01D3_5555AD2A0004set_var*
+//#UC END# *55FA75FD01D3_5555AD2A0004set_var*
+begin
+//#UC START# *55FA75FD01D3_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtQWord, @aValue, f_Buffer);
+//#UC END# *55FA75FD01D3_5555AD2A0004set_impl*
+end;//TdaParam.Set_AsLargeInt
+
+function TdaParam.Get_AsString: AnsiString;
+//#UC START# *560CEA210293_5555AD2A0004get_var*
+//#UC END# *560CEA210293_5555AD2A0004get_var*
+begin
+//#UC START# *560CEA210293_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtChar, f_Buffer, @Result);
+//#UC END# *560CEA210293_5555AD2A0004get_impl*
+end;//TdaParam.Get_AsString
+
+procedure TdaParam.Set_AsString(const aValue: AnsiString);
+//#UC START# *560CEA210293_5555AD2A0004set_var*
+//#UC END# *560CEA210293_5555AD2A0004set_var*
+begin
+//#UC START# *560CEA210293_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtChar, @aValue, f_Buffer);
+//#UC END# *560CEA210293_5555AD2A0004set_impl*
+end;//TdaParam.Set_AsString
+
+function TdaParam.Get_AsStDate: TStDate;
+//#UC START# *563C8B50016A_5555AD2A0004get_var*
+//#UC END# *563C8B50016A_5555AD2A0004get_var*
+begin
+//#UC START# *563C8B50016A_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtDate, f_Buffer, @Result);
+//#UC END# *563C8B50016A_5555AD2A0004get_impl*
+end;//TdaParam.Get_AsStDate
+
+procedure TdaParam.Set_AsStDate(aValue: TStDate);
+//#UC START# *563C8B50016A_5555AD2A0004set_var*                                       pgDataConverter
+//#UC END# *563C8B50016A_5555AD2A0004set_var*
+begin
+//#UC START# *563C8B50016A_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtDate, @aValue, f_Buffer);
+//#UC END# *563C8B50016A_5555AD2A0004set_impl*
+end;//TdaParam.Set_AsStDate
+
+procedure TdaParam.Cleanup;
+//#UC START# *479731C50290_5555AD2A0004_var*
+//#UC END# *479731C50290_5555AD2A0004_var*
+begin
+//#UC START# *479731C50290_5555AD2A0004_impl*
+ f_Converter.FreeParamBuffer(f_Description, f_Buffer);
+ f_Description := nil;
+ inherited;
+//#UC END# *479731C50290_5555AD2A0004_impl*
+end;//TdaParam.Cleanup
+
+end.

@@ -1,0 +1,317 @@
+// l3EtalonsWorking 515AC8CC02BD Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_515AC8CC02BD
+
+FORWARD ME_4F5F3A4001B5
+
+FORWARD ME_4CAEDCF9006A
+
+: ME_4CAEDD3203E0
+ CONST UID '4CAEDD3203E0'
+ CONST Name 'aIn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4CAEDD3203E0 aIn
+
+: ME_4CAEDD330035
+ CONST UID '4CAEDD330035'
+ CONST Name 'aOut'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4CAEDD330035 aOut
+
+: ME_4CAEDD33006A
+ CONST UID '4CAEDD33006A'
+ CONST Name 'aHeaderBegin'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
+
+ref; // ME_4CAEDD33006A aHeaderBegin
+
+: ME_4CAEDD3300DB
+ CONST UID '4CAEDD3300DB'
+ CONST Name 'aEtalonNeedsComputerName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4CAEDD3300DB aEtalonNeedsComputerName
+
+: ME_4CAEE2CE021B
+ CONST UID '4CAEE2CE021B'
+ CONST Name 'aEtalonCanHaveDiff'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4CAEE2CE021B aEtalonCanHaveDiff
+
+: ME_4CB8100C0066
+ CONST UID '4CB8100C0066'
+ CONST Name 'anExtraFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4CB8100C0066 anExtraFileName
+
+: ME_4CB827F403D3
+ CONST UID '4CB827F403D3'
+ CONST Name 'aNeedsCheck'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4CB827F403D3 aNeedsCheck
+
+: ME_4CAEDD07037F
+ CONST UID '4CAEDD07037F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CAEDCF9006A // CheckOutputWithInput$1
+ ;
+ : Parameters
+   @ ( ME_4CAEDD3203E0 // aIn
+ ME_4CAEDD330035 // aOut
+ ME_4CAEDD33006A // aHeaderBegin
+ ME_4CAEDD3300DB // aEtalonNeedsComputerName
+ ME_4CAEE2CE021B // aEtalonCanHaveDiff
+ ME_4CB8100C0066 // anExtraFileName
+ ME_4CB827F403D3 // aNeedsCheck
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4CAEDD07037F DoIt
+
+: ME_4CAEDCF9006A
+ CONST UID '4CAEDCF9006A'
+ CONST Name 'CheckOutputWithInput'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F5F3A4001B5 // EtalonsWorking
+ ;
+ : Operations
+   @ ( ME_4CAEDD07037F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4CAEDCF9006A CheckOutputWithInput$1
+
+FORWARD ME_4F5F3C61023E
+
+: ME_4F5F3C7B0036
+ CONST UID '4F5F3C7B0036'
+ CONST Name 'aSt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4F5F3C7B0036 aSt
+
+: ME_4F5F3C7B0086
+ CONST UID '4F5F3C7B0086'
+ CONST Name 'aHeaderBegin'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
+ CONST Value '#0'
+ : ValueType WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
+
+ref; // ME_4F5F3C7B0086 aHeaderBegin
+
+: ME_4F5F3C7B00DF
+ CONST UID '4F5F3C7B00DF'
+ CONST Name 'anExtraFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST Value ''''''
+ : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4F5F3C7B00DF anExtraFileName
+
+: ME_4F5F3C7B0135
+ CONST UID '4F5F3C7B0135'
+ CONST Name 'aNeedsCheck'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F5F3C7B0135 aNeedsCheck
+
+: ME_4F5F3C71008C
+ CONST UID '4F5F3C71008C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5F3C61023E // CheckOutputWithInput
+ ;
+ : Parameters
+   @ ( ME_4F5F3C7B0036 // aSt
+ ME_4F5F3C7B0086 // aHeaderBegin
+ ME_4F5F3C7B00DF // anExtraFileName
+ ME_4F5F3C7B0135 // aNeedsCheck
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F5F3C71008C DoIt
+
+: ME_4F5F3C61023E
+ CONST UID '4F5F3C61023E'
+ CONST Name 'CheckOutputWithInput'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F5F3A4001B5 // EtalonsWorking
+ ;
+ : Operations
+   @ ( ME_4F5F3C71008C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F5F3C61023E CheckOutputWithInput
+
+FORWARD ME_536A15F901DA
+
+: ME_536A163B0190
+ CONST UID '536A163B0190'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_536A15F901DA // CheckPictureOnly
+ ;
+
+ref; // ME_536A163B0190 DoIt
+
+: ME_536A15F901DA
+ CONST UID '536A15F901DA'
+ CONST Name 'CheckPictureOnly'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F5F3A4001B5 // EtalonsWorking
+ ;
+ : Operations
+   @ ( ME_536A163B0190 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_536A15F901DA CheckPictureOnly
+
+: ME_4DD533CF0096
+ CONST UID '4DD533CF0096'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4DD533CF0096 aFileName
+
+: ME_4DD534DD032D
+ CONST UID '4DD534DD032D'
+ CONST Name 'aHeaderBegin'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
+
+ref; // ME_4DD534DD032D aHeaderBegin
+
+: ME_4DD533BF023D
+ CONST UID '4DD533BF023D'
+ CONST Name 'CheckWithEtalon'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F5F3A4001B5 // EtalonsWorking
+ ;
+ : Parameters
+   @ ( ME_4DD533CF0096 // aFileName
+ ME_4DD534DD032D // aHeaderBegin
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DD533BF023D CheckWithEtalon
+
+: ME_4F5F3A4001B5
+ CONST UID '4F5F3A4001B5'
+ CONST Name 'EtalonsWorking'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_515AC8CC02BD // l3EtalonsWorking
+ ;
+ : Operations
+   @ ( ME_4CAEDCF9006A // CheckOutputWithInput$1
+ ME_4F5F3C61023E // CheckOutputWithInput
+ ME_536A15F901DA // CheckPictureOnly
+ ME_4DD533BF023D // CheckWithEtalon
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F5F3A4001B5 EtalonsWorking
+
+: ME_515AC8CC02BD
+ CONST UID '515AC8CC02BD'
+ CONST Name 'l3EtalonsWorking'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_515AC89F01E1' '515AC89F01E1.pas.ms.script' // L3$Basic Concepts
+ ;
+ : Children
+   @ ( ME_4F5F3A4001B5 // EtalonsWorking
+ ) .SequenceCode.It
+ ; // Children
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3EtalonsWorking.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\515AC8CC02BD.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\515AC8CC02BD.pas.ms.script.runner'
+
+ref; // ME_515AC8CC02BD l3EtalonsWorking

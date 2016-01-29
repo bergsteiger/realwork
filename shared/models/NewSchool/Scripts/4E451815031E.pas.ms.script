@@ -1,0 +1,7079 @@
+// CellUtils 4E451815031E Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E451815031E
+
+FORWARD ME_49C217110141
+
+: ME_49C218DC01C1
+ CONST UID '49C218DC01C1'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_49C217110141 // TevEpsilonLongIntList
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49C218DC01C1 ItemType
+
+: ME_49C22E20035A
+ CONST UID '49C22E20035A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49C217110141 // TevEpsilonLongIntList
+ ;
+ : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
+ ;
+
+ref; // ME_49C22E20035A 
+
+: ME_47B99D4503A2_ME_49C217110141
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_49C217110141 // TevEpsilonLongIntList
+ ;
+ref; // ME_47B99D4503A2_ME_49C217110141 CompareExistingItems
+
+: ME_49C217110141
+ CONST UID '49C217110141'
+ CONST Name 'TevEpsilonLongIntList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B71611400B3' '47913B47006E.pas.ms.script' // l3AtomicListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49C218DC01C1 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B99D4503A2_ME_49C217110141 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_49C22E20035A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evEpsilonLongIntList.pas'
+
+ref; // ME_49C217110141 TevEpsilonLongIntList
+
+FORWARD ME_49CB6E880188
+
+: ME_4A56298F01F9
+ CONST UID '4A56298F01F9'
+ CONST Name 'f_Offsets'
+ CONST Class class_Attribute
+ %SUMMARY 'Смещения ячеек' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Target ME_49C217110141 // TevEpsilonLongIntList
+ ;
+
+ref; // ME_4A56298F01F9 f_Offsets
+
+: ME_4A5629A30073
+ CONST UID '4A5629A30073'
+ CONST Name 'f_Widths'
+ CONST Class class_Attribute
+ %SUMMARY 'Ширина ячеек по этому смещению' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Target ME_49C217110141 // TevEpsilonLongIntList
+ ;
+
+ref; // ME_4A5629A30073 f_Widths
+
+: ME_4A562BD3021F
+ CONST UID '4A562BD3021F'
+ CONST Name 'f_Width'
+ CONST Class class_Attribute
+ %SUMMARY 'Текущая ширина ячейки' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A562BD3021F f_Width
+
+: ME_4A562BDC03D7
+ CONST UID '4A562BDC03D7'
+ CONST Name 'f_Offset'
+ CONST Class class_Attribute
+ %SUMMARY 'Текущее смещение' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A562BDC03D7 f_Offset
+
+: ME_4A562BFC03B2
+ CONST UID '4A562BFC03B2'
+ CONST Name 'f_CheckChildren'
+ CONST Class class_Attribute
+ %SUMMARY 'Нужно ли проверять дочерние' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A562BFC03B2 f_CheckChildren
+
+FORWARD ME_4A562C3A013E
+
+: ME_4A562C43007D
+ CONST UID '4A562C43007D'
+ CONST Name 'Clear'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A562C3A013E // Clear
+ ;
+
+ref; // ME_4A562C43007D Clear
+
+: ME_4A562C3A013E
+ CONST UID '4A562C3A013E'
+ CONST Name 'Clear'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Operations
+   @ ( ME_4A562C43007D // Clear
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4A562C3A013E Clear
+
+FORWARD ME_4A562C5301A5
+
+: ME_4A562C5B026A
+ CONST UID '4A562C5B026A'
+ CONST Name 'AddCellWidth'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A562C5301A5 // AddCellWidth
+ ;
+
+ref; // ME_4A562C5B026A AddCellWidth
+
+: ME_4A562C5301A5
+ CONST UID '4A562C5301A5'
+ CONST Name 'AddCellWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Operations
+   @ ( ME_4A562C5B026A // AddCellWidth
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4A562C5301A5 AddCellWidth
+
+FORWARD ME_4A562C6C00A6
+
+: ME_4A562DC200B5
+ CONST UID '4A562DC200B5'
+ CONST Name 'Index'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A562C6C00A6 // CheckOffset
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A562DC200B5 Index
+
+: ME_4AB9F86501E4
+ CONST UID '4AB9F86501E4'
+ CONST Name 'aCheckWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AB9F86501E4 aCheckWidth
+
+: ME_4A562C7203CF
+ CONST UID '4A562C7203CF'
+ CONST Name 'CheckOffset'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A562C6C00A6 // CheckOffset
+ ;
+ : Parameters
+   @ ( ME_4AB9F86501E4 // aCheckWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4A562C7203CF CheckOffset
+
+: ME_4A562C6C00A6
+ CONST UID '4A562C6C00A6'
+ CONST Name 'CheckOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Attributes
+   @ ( ME_4A562DC200B5 // Index
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4A562C7203CF // CheckOffset
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4A562C6C00A6 CheckOffset
+
+FORWARD ME_4A562C85014A
+
+: ME_4A562DD40048
+ CONST UID '4A562DD40048'
+ CONST Name 'Index'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A562C85014A // CheckParam
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A562DD40048 Index
+
+: ME_4A562C8D016F
+ CONST UID '4A562C8D016F'
+ CONST Name 'CheckParam'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A562C85014A // CheckParam
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A562C8D016F CheckParam
+
+: ME_4A562D18037C
+ CONST UID '4A562D18037C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A562C85014A // CheckParam
+ ;
+ : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
+ ;
+
+ref; // ME_4A562D18037C 
+
+: ME_4A562C85014A
+ CONST UID '4A562C85014A'
+ CONST Name 'CheckParam'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Attributes
+   @ ( ME_4A562DD40048 // Index
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4A562C8D016F // CheckParam
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4A562D18037C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4A562C85014A CheckParam
+
+FORWARD ME_4A562C9902F5
+
+: ME_4A562CA0003F
+ CONST UID '4A562CA0003F'
+ CONST Name 'RecalcOffset'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A562C9902F5 // RecalcOffset
+ ;
+
+ref; // ME_4A562CA0003F RecalcOffset
+
+: ME_4A562C9902F5
+ CONST UID '4A562C9902F5'
+ CONST Name 'RecalcOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Operations
+   @ ( ME_4A562CA0003F // RecalcOffset
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4A562C9902F5 RecalcOffset
+
+FORWARD ME_4A562CA901FA
+
+: ME_4A562CB00179
+ CONST UID '4A562CB00179'
+ CONST Name 'ClearOffset'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A562CA901FA // ClearOffset
+ ;
+
+ref; // ME_4A562CB00179 ClearOffset
+
+: ME_4A562CA901FA
+ CONST UID '4A562CA901FA'
+ CONST Name 'ClearOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Operations
+   @ ( ME_4A562CB00179 // ClearOffset
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4A562CA901FA ClearOffset
+
+FORWARD ME_4A562CBD0279
+
+: ME_4A562CCF01D5
+ CONST UID '4A562CCF01D5'
+ CONST Name 'aWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A562CCF01D5 aWidth
+
+: ME_4A562CCD0061
+ CONST UID '4A562CCD0061'
+ CONST Name 'SetWidth'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A562CBD0279 // SetWidth
+ ;
+ : Parameters
+   @ ( ME_4A562CCF01D5 // aWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4A562CCD0061 SetWidth
+
+: ME_4A562CBD0279
+ CONST UID '4A562CBD0279'
+ CONST Name 'SetWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Operations
+   @ ( ME_4A562CCD0061 // SetWidth
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4A562CBD0279 SetWidth
+
+: ME_4A562DF002B1
+ CONST UID '4A562DF002B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49CB6E880188 // TevCellsOffsets
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A562DF002B1 
+
+: ME_479731C50290_ME_49CB6E880188
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_49CB6E880188 // TevCellsOffsets
+ ;
+ref; // ME_479731C50290_ME_49CB6E880188 Cleanup
+
+: ME_49CB6E880188
+ CONST UID '49CB6E880188'
+ CONST Name 'TevCellsOffsets'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'работа со смещениями ячеек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A56298F01F9 // f_Offsets
+ ME_4A5629A30073 // f_Widths
+ ME_4A562BD3021F // f_Width
+ ME_4A562BDC03D7 // f_Offset
+ ME_4A562BFC03B2 // f_CheckChildren
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4A562C3A013E // Clear
+ ME_4A562C5301A5 // AddCellWidth
+ ME_4A562C6C00A6 // CheckOffset
+ ME_4A562C85014A // CheckParam
+ ME_4A562C9902F5 // RecalcOffset
+ ME_4A562CA901FA // ClearOffset
+ ME_4A562CBD0279 // SetWidth
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_49CB6E880188 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4A562DF002B1 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2009/03/26 13:34:50'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsets.pas'
+
+ref; // ME_49CB6E880188 TevCellsOffsets
+
+FORWARD ME_4F2F68D80106
+
+: ME_4F2F6AB00110
+ CONST UID '4F2F6AB00110'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F2F68D80106 // TevOneCharLongIntList
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6AB00110 ItemType
+
+: ME_4F2F80DD009E
+ CONST UID '4F2F80DD009E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2F68D80106 // TevOneCharLongIntList
+ ;
+ : Target WL 'ME_4F2A40EA0064' '47913B47006E.pas.ms.script' // evCellWidthEpsilon
+ ;
+
+ref; // ME_4F2F80DD009E 
+
+: ME_47B99D4503A2_ME_4F2F68D80106
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4F2F68D80106 // TevOneCharLongIntList
+ ;
+ref; // ME_47B99D4503A2_ME_4F2F68D80106 CompareExistingItems
+
+: ME_4F2F68D80106
+ CONST UID '4F2F68D80106'
+ CONST Name 'TevOneCharLongIntList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B71611400B3' '47913B47006E.pas.ms.script' // l3AtomicListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F2F6AB00110 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B99D4503A2_ME_4F2F68D80106 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_4F2F80DD009E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evOneCharLongIntList.pas'
+
+ref; // ME_4F2F68D80106 TevOneCharLongIntList
+
+FORWARD ME_511205FA00E2
+
+: ME_5112063F01B9
+ CONST UID '5112063F01B9'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_511205FA00E2 // TedCellTypesList
+ ;
+ : Target WL 'ME_511203F50077' '48E3836D00C8.pas.ms.script' // TedCellType
+ ;
+
+ref; // ME_5112063F01B9 ItemType
+
+: ME_511205FA00E2
+ CONST UID '511205FA00E2'
+ CONST Name 'TedCellTypesList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список для хранения типов содержимого ячеек.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
+ WL 'ME_49142D7000F3' '47913B47006E.pas.ms.script' // l3EnumList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_5112063F01B9 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\edCellTypesList.pas'
+
+ref; // ME_511205FA00E2 TedCellTypesList
+
+FORWARD ME_4F2F6CA40273
+
+: ME_4F2F6CDE01BB
+ CONST UID '4F2F6CDE01BB'
+ CONST Name 'f_Offsets'
+ CONST Class class_Attribute
+ %SUMMARY 'Смещения ячеек' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target ME_4F2F68D80106 // TevOneCharLongIntList
+ ;
+
+ref; // ME_4F2F6CDE01BB f_Offsets
+
+: ME_4F2F6CF20286
+ CONST UID '4F2F6CF20286'
+ CONST Name 'f_Widths'
+ CONST Class class_Attribute
+ %SUMMARY 'Ширина ячеек по этому смещению' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target ME_4F2F68D80106 // TevOneCharLongIntList
+ ;
+
+ref; // ME_4F2F6CF20286 f_Widths
+
+: ME_4F2F6D4900BB
+ CONST UID '4F2F6D4900BB'
+ CONST Name 'f_Width'
+ CONST Class class_Attribute
+ %SUMMARY 'Текущая ширина ячейки' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6D4900BB f_Width
+
+: ME_4F2F6D600246
+ CONST UID '4F2F6D600246'
+ CONST Name 'f_Offset'
+ CONST Class class_Attribute
+ %SUMMARY 'Текущее смещение' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6D600246 f_Offset
+
+: ME_4F2F6D6F007E
+ CONST UID '4F2F6D6F007E'
+ CONST Name 'f_Index'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6D6F007E f_Index
+
+: ME_5093831F0238
+ CONST UID '5093831F0238'
+ CONST Name 'f_UsingCount'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5093831F0238 f_UsingCount
+
+FORWARD ME_4F2F6D94002E
+
+: ME_4F2F6D9B02FD
+ CONST UID '4F2F6D9B02FD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6D94002E // AddCellWidthAndRecalc
+ ;
+
+ref; // ME_4F2F6D9B02FD DoIt
+
+: ME_4F2F6D94002E
+ CONST UID '4F2F6D94002E'
+ CONST Name 'AddCellWidthAndRecalc'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6D9B02FD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6D94002E AddCellWidthAndRecalc
+
+FORWARD ME_4F2F6DAB0114
+
+: ME_4F2F6DB20214
+ CONST UID '4F2F6DB20214'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6DAB0114 // Clear
+ ;
+
+ref; // ME_4F2F6DB20214 DoIt
+
+: ME_4F2F6DAB0114
+ CONST UID '4F2F6DAB0114'
+ CONST Name 'Clear'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6DB20214 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6DAB0114 Clear
+
+FORWARD ME_4F2F6DC40150
+
+: ME_4F2F6DE902F0
+ CONST UID '4F2F6DE902F0'
+ CONST Name 'aOffsetList'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+
+ref; // ME_4F2F6DE902F0 aOffsetList
+
+: ME_4F2F6DE90313
+ CONST UID '4F2F6DE90313'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6DE90313 anIndex
+
+: ME_4F2F6DD901CF
+ CONST UID '4F2F6DD901CF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6DC40150 // FindOffset
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F2F6DE902F0 // aOffsetList
+ ME_4F2F6DE90313 // anIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F6DD901CF DoIt
+
+: ME_4F2F6DC40150
+ CONST UID '4F2F6DC40150'
+ CONST Name 'FindOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6DD901CF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6DC40150 FindOffset
+
+FORWARD ME_4F2F6DEE0354
+
+: ME_4F2F6E16019E
+ CONST UID '4F2F6E16019E'
+ CONST Name 'anOffset'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6E16019E anOffset
+
+: ME_4F2F6E1601EC
+ CONST UID '4F2F6E1601EC'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6E1601EC anIndex
+
+: ME_4F2F6E0C026C
+ CONST UID '4F2F6E0C026C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6DEE0354 // FindOffset$1
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F2F6E16019E // anOffset
+ ME_4F2F6E1601EC // anIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F6E0C026C DoIt
+
+: ME_4F2F6DEE0354
+ CONST UID '4F2F6DEE0354'
+ CONST Name 'FindOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6E0C026C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6DEE0354 FindOffset$1
+
+FORWARD ME_4F2F6E25013C
+
+: ME_4F2F6E30005B
+ CONST UID '4F2F6E30005B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6E25013C // LastWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6E30005B DoIt
+
+: ME_4F2F6E25013C
+ CONST UID '4F2F6E25013C'
+ CONST Name 'LastWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6E30005B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6E25013C LastWidth
+
+FORWARD ME_4F2F6E47025D
+
+: ME_4F2F6E540109
+ CONST UID '4F2F6E540109'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6E47025D // PrevWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6E540109 DoIt
+
+: ME_4F2F6E47025D
+ CONST UID '4F2F6E47025D'
+ CONST Name 'PrevWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6E540109 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6E47025D PrevWidth
+
+FORWARD ME_4F2F6E6301E4
+
+: ME_4F2F6E6B03B5
+ CONST UID '4F2F6E6B03B5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6E6301E4 // GetNextOffset
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6E6B03B5 DoIt
+
+: ME_4F2F6E6301E4
+ CONST UID '4F2F6E6301E4'
+ CONST Name 'GetNextOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6E6B03B5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6E6301E4 GetNextOffset
+
+FORWARD ME_4F2F6E8500D5
+
+: ME_4F2F6EA202B6
+ CONST UID '4F2F6EA202B6'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6EA202B6 anIndex
+
+: ME_4F2F6E95010A
+ CONST UID '4F2F6E95010A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6E8500D5 // SetCurrent
+ ;
+ : Parameters
+   @ ( ME_4F2F6EA202B6 // anIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F6E95010A DoIt
+
+: ME_4F2F6E8500D5
+ CONST UID '4F2F6E8500D5'
+ CONST Name 'SetCurrent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6E95010A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6E8500D5 SetCurrent
+
+FORWARD ME_4F2F6EAB0342
+
+: ME_4F2F6EB302C2
+ CONST UID '4F2F6EB302C2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6EAB0342 // GetOffset
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6EB302C2 DoIt
+
+: ME_4F2F6EAB0342
+ CONST UID '4F2F6EAB0342'
+ CONST Name 'GetOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6EB302C2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6EAB0342 GetOffset
+
+FORWARD ME_4F2F6EC7021E
+
+: ME_4F2F6ED902C1
+ CONST UID '4F2F6ED902C1'
+ CONST Name 'aWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6ED902C1 aWidth
+
+: ME_4F2F6ED303A9
+ CONST UID '4F2F6ED303A9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6EC7021E // SetWidth
+ ;
+ : Parameters
+   @ ( ME_4F2F6ED902C1 // aWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F6ED303A9 DoIt
+
+: ME_4F2F6EC7021E
+ CONST UID '4F2F6EC7021E'
+ CONST Name 'SetWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6ED303A9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6EC7021E SetWidth
+
+FORWARD ME_4F2F6EE10292
+
+: ME_4F2F6EEB0348
+ CONST UID '4F2F6EEB0348'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6EE10292 // GetWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6EEB0348 DoIt
+
+: ME_4F2F6EE10292
+ CONST UID '4F2F6EE10292'
+ CONST Name 'GetWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6EEB0348 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6EE10292 GetWidth
+
+FORWARD ME_4F2F6EFA02E7
+
+: ME_4F2F6F0C018B
+ CONST UID '4F2F6F0C018B'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6F0C018B anIndex
+
+: ME_4F2F6F0C01BD
+ CONST UID '4F2F6F0C01BD'
+ CONST Name 'aDelta'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F6F0C01BD aDelta
+
+: ME_4F2F6F070030
+ CONST UID '4F2F6F070030'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6EFA02E7 // UpdateWidth
+ ;
+ : Parameters
+   @ ( ME_4F2F6F0C018B // anIndex
+ ME_4F2F6F0C01BD // aDelta
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F6F070030 DoIt
+
+: ME_4F2F6EFA02E7
+ CONST UID '4F2F6EFA02E7'
+ CONST Name 'UpdateWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2F6F070030 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F6EFA02E7 UpdateWidth
+
+FORWARD ME_4F2FC2F502F6
+
+: ME_4FC7629103AB
+ CONST UID '4FC7629103AB'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_4FC7629103AB anIterator
+
+: ME_4F2FC301014B
+ CONST UID '4F2FC301014B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2FC2F502F6 // Equals
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4FC7629103AB // anIterator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2FC301014B DoIt
+
+: ME_4F2FC2F502F6
+ CONST UID '4F2FC2F502F6'
+ CONST Name 'Equals'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2FC301014B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2FC2F502F6 Equals
+
+FORWARD ME_4F2FCECA004D
+
+: ME_4F30BE9D0255
+ CONST UID '4F30BE9D0255'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+
+ref; // ME_4F30BE9D0255 aData
+
+: ME_4F30BE9D0269
+ CONST UID '4F30BE9D0269'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_4F30BE9D0269 anIterator
+
+: ME_4F2FCEDB019A
+ CONST UID '4F2FCEDB019A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2FCECA004D // CopyData
+ ;
+ : Parameters
+   @ ( ME_4F30BE9D0255 // aData
+ ME_4F30BE9D0269 // anIterator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2FCEDB019A DoIt
+
+: ME_4F2FCECA004D
+ CONST UID '4F2FCECA004D'
+ CONST Name 'CopyData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2FCEDB019A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2FCECA004D CopyData
+
+FORWARD ME_4F2FD1E202A4
+
+: ME_4F2FD1EC02A2
+ CONST UID '4F2FD1EC02A2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2FD1E202A4 // CheckList
+ ;
+
+ref; // ME_4F2FD1EC02A2 DoIt
+
+: ME_4F2FD1E202A4
+ CONST UID '4F2FD1E202A4'
+ CONST Name 'CheckList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4F2FD1EC02A2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2FD1E202A4 CheckList
+
+FORWARD ME_4FAB832701E6
+
+: ME_4FAB833C02B3
+ CONST UID '4FAB833C02B3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FAB832701E6 // GetRowWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FAB833C02B3 DoIt
+
+: ME_4FAB832701E6
+ CONST UID '4FAB832701E6'
+ CONST Name 'GetRowWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4FAB833C02B3 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FAB832701E6 GetRowWidth
+
+FORWARD ME_4FC773170099
+
+: ME_4FC7734D0017
+ CONST UID '4FC7734D0017'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+
+ref; // ME_4FC7734D0017 aData
+
+: ME_4FC7732201C7
+ CONST UID '4FC7732201C7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC773170099 // AlignByPrevious
+ ;
+ : Parameters
+   @ ( ME_4FC7734D0017 // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC7732201C7 DoIt
+
+: ME_4FC773170099
+ CONST UID '4FC773170099'
+ CONST Name 'AlignByPrevious'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_4FC7732201C7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC773170099 AlignByPrevious
+
+FORWARD ME_50937BBB01BF
+
+: ME_5093800C0108
+ CONST UID '5093800C0108'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_5093800C0108 anIterator
+
+: ME_5093800C0128
+ CONST UID '5093800C0128'
+ CONST Name 'aForTempate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5093800C0128 aForTempate
+
+: ME_50937BDD0032
+ CONST UID '50937BDD0032'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_50937BBB01BF // Equals$1
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5093800C0108 // anIterator
+ ME_5093800C0128 // aForTempate
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_50937BDD0032 DoIt
+
+: ME_50937BBB01BF
+ CONST UID '50937BBB01BF'
+ CONST Name 'Equals'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_50937BDD0032 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_50937BBB01BF Equals$1
+
+FORWARD ME_509383B202C4
+
+: ME_5093840A0025
+ CONST UID '5093840A0025'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_509383B202C4 // IncUsingCount
+ ;
+
+ref; // ME_5093840A0025 DoIt
+
+: ME_509383B202C4
+ CONST UID '509383B202C4'
+ CONST Name 'IncUsingCount'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_5093840A0025 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_509383B202C4 IncUsingCount
+
+FORWARD ME_52F1EC8D0285
+
+: ME_52F1ECA301F7
+ CONST UID '52F1ECA301F7'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52F1ECA301F7 anIndex
+
+: ME_52F1EC9B03A9
+ CONST UID '52F1EC9B03A9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52F1EC8D0285 // GetWidthByIndex
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_52F1ECA301F7 // anIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52F1EC9B03A9 DoIt
+
+: ME_52F1EC8D0285
+ CONST UID '52F1EC8D0285'
+ CONST Name 'GetWidthByIndex'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_52F1EC9B03A9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52F1EC8D0285 GetWidthByIndex
+
+FORWARD ME_52F1ECC0021F
+
+: ME_52F1ECDB00D5
+ CONST UID '52F1ECDB00D5'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52F1ECDB00D5 anIndex
+
+: ME_52F1ECD003B4
+ CONST UID '52F1ECD003B4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52F1ECC0021F // GetOffsetByIndex
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_52F1ECDB00D5 // anIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52F1ECD003B4 DoIt
+
+: ME_52F1ECC0021F
+ CONST UID '52F1ECC0021F'
+ CONST Name 'GetOffsetByIndex'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_52F1ECD003B4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52F1ECC0021F GetOffsetByIndex
+
+FORWARD ME_52F1ECE3002C
+
+: ME_52F1ECF50231
+ CONST UID '52F1ECF50231'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52F1ECE3002C // GetCount
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52F1ECF50231 DoIt
+
+: ME_52F1ECE3002C
+ CONST UID '52F1ECE3002C'
+ CONST Name 'GetCount'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_52F1ECF50231 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52F1ECE3002C GetCount
+
+FORWARD ME_52F1ED3803C8
+
+: ME_52F1ED5100CE
+ CONST UID '52F1ED5100CE'
+ CONST Name 'anOffset'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52F1ED5100CE anOffset
+
+: ME_52F1ED5100DE
+ CONST UID '52F1ED5100DE'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_52F1ED5100DE anIndex
+
+: ME_52F1ED5100ED
+ CONST UID '52F1ED5100ED'
+ CONST Name 'aCellTypeList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_511205FA00E2 // TedCellTypesList
+ ;
+
+ref; // ME_52F1ED5100ED aCellTypeList
+
+: ME_52F1ED480188
+ CONST UID '52F1ED480188'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52F1ED3803C8 // AlignByOffset
+ ;
+ : Parameters
+   @ ( ME_52F1ED5100CE // anOffset
+ ME_52F1ED5100DE // anIndex
+ ME_52F1ED5100ED // aCellTypeList
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52F1ED480188 DoIt
+
+: ME_52F1ED3803C8
+ CONST UID '52F1ED3803C8'
+ CONST Name 'AlignByOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Operations
+   @ ( ME_52F1ED480188 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52F1ED3803C8 AlignByOffset
+
+: ME_4F2F8391018D
+ CONST UID '4F2F8391018D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4F2F8391018D 
+
+: ME_4F2FC54603E7
+ CONST UID '4F2FC54603E7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target WL 'ME_4F2A40EA0064' '47913B47006E.pas.ms.script' // evCellWidthEpsilon
+ ;
+
+ref; // ME_4F2FC54603E7 
+
+: ME_5114B83B0020
+ CONST UID '5114B83B0020'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target WL 'ME_4C3849220132' '47F1F38601A3.pas.ms.script' // evTableCellUtils
+ ;
+
+ref; // ME_5114B83B0020 
+
+: ME_515427E103B5
+ CONST UID '515427E103B5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Target WL 'ME_5154272B0066' '48452B7D0314.pas.ms.script' // EevException
+ ;
+
+ref; // ME_515427E103B5 
+
+: ME_479731C50290_ME_4F2F6CA40273
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ref; // ME_479731C50290_ME_4F2F6CA40273 Cleanup
+
+: ME_4F2F6CA40273
+ CONST UID '4F2F6CA40273'
+ CONST Name 'TevCellsCharOffsets'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'работа со смещениями ячеек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F2F6CDE01BB // f_Offsets
+ ME_4F2F6CF20286 // f_Widths
+ ME_4F2F6D4900BB // f_Width
+ ME_4F2F6D600246 // f_Offset
+ ME_4F2F6D6F007E // f_Index
+ ME_5093831F0238 // f_UsingCount
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F2F6D94002E // AddCellWidthAndRecalc
+ ME_4F2F6DAB0114 // Clear
+ ME_4F2F6DC40150 // FindOffset
+ ME_4F2F6DEE0354 // FindOffset$1
+ ME_4F2F6E25013C // LastWidth
+ ME_4F2F6E47025D // PrevWidth
+ ME_4F2F6E6301E4 // GetNextOffset
+ ME_4F2F6E8500D5 // SetCurrent
+ ME_4F2F6EAB0342 // GetOffset
+ ME_4F2F6EC7021E // SetWidth
+ ME_4F2F6EE10292 // GetWidth
+ ME_4F2F6EFA02E7 // UpdateWidth
+ ME_4F2FC2F502F6 // Equals
+ ME_4F2FCECA004D // CopyData
+ ME_4F2FD1E202A4 // CheckList
+ ME_4FAB832701E6 // GetRowWidth
+ ME_4FC773170099 // AlignByPrevious
+ ME_50937BBB01BF // Equals$1
+ ME_509383B202C4 // IncUsingCount
+ ME_52F1EC8D0285 // GetWidthByIndex
+ ME_52F1ECC0021F // GetOffsetByIndex
+ ME_52F1ECE3002C // GetCount
+ ME_52F1ED3803C8 // AlignByOffset
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4F2F6CA40273 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F2F8391018D // 
+ ME_4F2FC54603E7 // 
+ ME_5114B83B0020 // 
+ ME_515427E103B5 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsCharOffsets.pas'
+
+ref; // ME_4F2F6CA40273 TevCellsCharOffsets
+
+FORWARD ME_4F2F6F750263
+
+FORWARD ME_4FC628290340
+
+: ME_4FC628830018
+ CONST UID '4FC628830018'
+ CONST Name 'ed_cpNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC628290340 // TedCellPosType
+ ;
+
+ref; // ME_4FC628830018 ed_cpNone
+
+: ME_4FC6288E03E7
+ CONST UID '4FC6288E03E7'
+ CONST Name 'ed_cpLast'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC628290340 // TedCellPosType
+ ;
+
+ref; // ME_4FC6288E03E7 ed_cpLast
+
+: ME_4FC6289D006B
+ CONST UID '4FC6289D006B'
+ CONST Name 'ed_cpIgnoreLast'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC628290340 // TedCellPosType
+ ;
+
+ref; // ME_4FC6289D006B ed_cpIgnoreLast
+
+: ME_4FC628290340
+ CONST UID '4FC628290340'
+ CONST Name 'TedCellPosType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Attributes
+   @ ( ME_4FC628830018 // ed_cpNone
+ ME_4FC6288E03E7 // ed_cpLast
+ ME_4FC6289D006B // ed_cpIgnoreLast
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4FC628290340 TedCellPosType
+
+: ME_4F2F6FC70101
+ CONST UID '4F2F6FC70101'
+ CONST Name 'f_FoundUpper'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F2F6FC70101 f_FoundUpper
+
+: ME_4F2F7FD40033
+ CONST UID '4F2F7FD40033'
+ CONST Name 'f_OldOffset'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+
+ref; // ME_4F2F7FD40033 f_OldOffset
+
+: ME_4F2F7FE10238
+ CONST UID '4F2F7FE10238'
+ CONST Name 'f_NewOffset'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+
+ref; // ME_4F2F7FE10238 f_NewOffset
+
+: ME_5112066A0268
+ CONST UID '5112066A0268'
+ CONST Name 'CellsType'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Массив с типами содержимого ячеек.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target ME_511205FA00E2 // TedCellTypesList
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_5112066A0268 CellsType
+
+: ME_5114D122029E
+ CONST UID '5114D122029E'
+ CONST Name 'RowType'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target WL 'ME_4FC5C77503C7' '48E3836D00C8.pas.ms.script' // TedRowType
+ ;
+ CONST "needs field" true
+ CONST "pm" false
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_5114D122029E RowType
+
+: ME_A354356F2814
+ CONST UID 'A354356F2814'
+ CONST Name 'f_CellsType'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства CellsType' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target ME_511205FA00E2 // TedCellTypesList
+ ;
+
+ref; // ME_A354356F2814 f_CellsType
+
+: ME_4B80DF8BB702
+ CONST UID '4B80DF8BB702'
+ CONST Name 'f_RowType'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства RowType' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target WL 'ME_4FC5C77503C7' '48E3836D00C8.pas.ms.script' // TedRowType
+ ;
+
+ref; // ME_4B80DF8BB702 f_RowType
+
+FORWARD ME_4F2F7030001E
+
+: ME_4F2F703B0215
+ CONST UID '4F2F703B0215'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F7030001E // Create
+ ;
+
+ref; // ME_4F2F703B0215 DoIt
+
+: ME_4F2F7030001E
+ CONST UID '4F2F7030001E'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F703B0215 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F7030001E Create
+
+FORWARD ME_4F2F704A01F8
+
+: ME_4F2F7050020A
+ CONST UID '4F2F7050020A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F704A01F8 // Clear
+ ;
+
+ref; // ME_4F2F7050020A DoIt
+
+: ME_4F2F704A01F8
+ CONST UID '4F2F704A01F8'
+ CONST Name 'Clear'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F7050020A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F704A01F8 Clear
+
+FORWARD ME_4F2F70660228
+
+: ME_4F2F70740293
+ CONST UID '4F2F70740293'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F70660228 // AddCellWidthAndRecalc
+ ;
+
+ref; // ME_4F2F70740293 DoIt
+
+: ME_4F2F70660228
+ CONST UID '4F2F70660228'
+ CONST Name 'AddCellWidthAndRecalc'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F70740293 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F70660228 AddCellWidthAndRecalc
+
+FORWARD ME_4F2F708E0299
+
+: ME_4F2F70A90371
+ CONST UID '4F2F70A90371'
+ CONST Name 'aNew'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F2F70A90371 aNew
+
+: ME_4F2F70A1005A
+ CONST UID '4F2F70A1005A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F708E0299 // GetOffset
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4F2F70A90371 // aNew
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F70A1005A DoIt
+
+: ME_4F2F708E0299
+ CONST UID '4F2F708E0299'
+ CONST Name 'GetOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F70A1005A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F708E0299 GetOffset
+
+FORWARD ME_4F2F70B6006A
+
+: ME_4F2F70E103AC
+ CONST UID '4F2F70E103AC'
+ CONST Name 'aNew'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F2F70E103AC aNew
+
+: ME_4F2F70D50001
+ CONST UID '4F2F70D50001'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F70B6006A // GetWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4F2F70E103AC // aNew
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F70D50001 DoIt
+
+: ME_4F2F70B6006A
+ CONST UID '4F2F70B6006A'
+ CONST Name 'GetWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F70D50001 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F70B6006A GetWidth
+
+FORWARD ME_4F2F70EB0222
+
+: ME_4F2F70F4035A
+ CONST UID '4F2F70F4035A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F70EB0222 // LastNewWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F70F4035A DoIt
+
+: ME_4F2F70EB0222
+ CONST UID '4F2F70EB0222'
+ CONST Name 'LastNewWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F70F4035A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F70EB0222 LastNewWidth
+
+FORWARD ME_4F2F710D00D6
+
+: ME_4F2F7115025B
+ CONST UID '4F2F7115025B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F710D00D6 // PrevNewWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F7115025B DoIt
+
+: ME_4F2F710D00D6
+ CONST UID '4F2F710D00D6'
+ CONST Name 'PrevNewWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F7115025B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F710D00D6 PrevNewWidth
+
+FORWARD ME_4F2F712F0179
+
+: ME_4F2F716900C1
+ CONST UID '4F2F716900C1'
+ CONST Name 'aNewWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F716900C1 aNewWidth
+
+: ME_4F2F716900FD
+ CONST UID '4F2F716900FD'
+ CONST Name 'aOldWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F716900FD aOldWidth
+
+: ME_4F2F71430041
+ CONST UID '4F2F71430041'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F712F0179 // SetWidthPair
+ ;
+ : Parameters
+   @ ( ME_4F2F716900C1 // aNewWidth
+ ME_4F2F716900FD // aOldWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F71430041 DoIt
+
+: ME_4F2F712F0179
+ CONST UID '4F2F712F0179'
+ CONST Name 'SetWidthPair'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F71430041 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F712F0179 SetWidthPair
+
+FORWARD ME_4F2F719C01AF
+
+: ME_4F2F71B60020
+ CONST UID '4F2F71B60020'
+ CONST Name 'aOffsetList'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4F2F71B60020 aOffsetList
+
+: ME_4F2F71B60043
+ CONST UID '4F2F71B60043'
+ CONST Name 'l_Delta'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F71B60043 l_Delta
+
+: ME_4F2F71A60111
+ CONST UID '4F2F71A60111'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F719C01AF // CompareWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4F2F71B60020 // aOffsetList
+ ME_4F2F71B60043 // l_Delta
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F71A60111 DoIt
+
+: ME_4F2F719C01AF
+ CONST UID '4F2F719C01AF'
+ CONST Name 'CompareWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F71A60111 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F719C01AF CompareWidth
+
+FORWARD ME_4F2F71C0015D
+
+: ME_4F2F71E5023F
+ CONST UID '4F2F71E5023F'
+ CONST Name 'aOffsetList'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4F2F71E5023F aOffsetList
+
+: ME_4F2F71E50268
+ CONST UID '4F2F71E50268'
+ CONST Name 'l_Delta'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F71E50268 l_Delta
+
+: ME_4F2F71D302BD
+ CONST UID '4F2F71D302BD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F71C0015D // FindUpper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F2F71E5023F // aOffsetList
+ ME_4F2F71E50268 // l_Delta
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F71D302BD DoIt
+
+: ME_4F2F71C0015D
+ CONST UID '4F2F71C0015D'
+ CONST Name 'FindUpper'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F71D302BD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F71C0015D FindUpper
+
+FORWARD ME_4F2F71EF028D
+
+: ME_4F2F721401C4
+ CONST UID '4F2F721401C4'
+ CONST Name 'aOffsetList'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4F2F721401C4 aOffsetList
+
+: ME_4F2F721401CE
+ CONST UID '4F2F721401CE'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F721401CE anIndex
+
+: ME_4F2F721401EC
+ CONST UID '4F2F721401EC'
+ CONST Name 'aDelta'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F721401EC aDelta
+
+: ME_4F2F720702E1
+ CONST UID '4F2F720702E1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F71EF028D // FindLower
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F2F721401C4 // aOffsetList
+ ME_4F2F721401CE // anIndex
+ ME_4F2F721401EC // aDelta
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F720702E1 DoIt
+
+: ME_4F2F71EF028D
+ CONST UID '4F2F71EF028D'
+ CONST Name 'FindLower'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F720702E1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F71EF028D FindLower
+
+FORWARD ME_4F2F7226039B
+
+: ME_4F2F724803C9
+ CONST UID '4F2F724803C9'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F724803C9 anIndex
+
+: ME_4F2F72490000
+ CONST UID '4F2F72490000'
+ CONST Name 'aDelta'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F72490000 aDelta
+
+: ME_4F2F723D0126
+ CONST UID '4F2F723D0126'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F7226039B // UpdateNewWidth
+ ;
+ : Parameters
+   @ ( ME_4F2F724803C9 // anIndex
+ ME_4F2F72490000 // aDelta
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F723D0126 DoIt
+
+: ME_4F2F7226039B
+ CONST UID '4F2F7226039B'
+ CONST Name 'UpdateNewWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F723D0126 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F7226039B UpdateNewWidth
+
+FORWARD ME_4F2F7268015A
+
+: ME_4F2F727E03E3
+ CONST UID '4F2F727E03E3'
+ CONST Name 'aNew'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F2F727E03E3 aNew
+
+: ME_4F2F727700E9
+ CONST UID '4F2F727700E9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F7268015A // GetNextOffset
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4F2F727E03E3 // aNew
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F727700E9 DoIt
+
+: ME_4F2F7268015A
+ CONST UID '4F2F7268015A'
+ CONST Name 'GetNextOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F727700E9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F7268015A GetNextOffset
+
+FORWARD ME_4F2FABC40294
+
+: ME_4FC762AD0247
+ CONST UID '4FC762AD0247'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_4FC762AD0247 anIterator
+
+: ME_4F2FABD7028C
+ CONST UID '4F2FABD7028C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2FABC40294 // EqualCells
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4FC762AD0247 // anIterator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2FABD7028C DoIt
+
+: ME_4F2FABC40294
+ CONST UID '4F2FABC40294'
+ CONST Name 'EqualCells'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2FABD7028C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2FABC40294 EqualCells
+
+FORWARD ME_4FAB83530326
+
+: ME_4FC72A0502F7
+ CONST UID '4FC72A0502F7'
+ CONST Name 'aNew'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC72A0502F7 aNew
+
+: ME_4FAB836403CB
+ CONST UID '4FAB836403CB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FAB83530326 // GetRowWidth
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4FC72A0502F7 // aNew
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FAB836403CB DoIt
+
+: ME_4FAB83530326
+ CONST UID '4FAB83530326'
+ CONST Name 'GetRowWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4FAB836403CB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FAB83530326 GetRowWidth
+
+FORWARD ME_4FC5F3CF0017
+
+: ME_4FC62EAF0192
+ CONST UID '4FC62EAF0192'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4FC62EAF0192 aList
+
+: ME_4FC62EAF01B0
+ CONST UID '4FC62EAF01B0'
+ CONST Name 'aNewWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC62EAF01B0 aNewWidth
+
+: ME_4FC62EAF01D3
+ CONST UID '4FC62EAF01D3'
+ CONST Name 'anOldCellWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC62EAF01D3 anOldCellWidth
+
+: ME_4FC62EAF01F6
+ CONST UID '4FC62EAF01F6'
+ CONST Name 'aPrevRowWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC62EAF01F6 aPrevRowWidth
+
+: ME_4FC62EAF0214
+ CONST UID '4FC62EAF0214'
+ CONST Name 'aCelPosl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4FC628290340 // TedCellPosType
+ ;
+
+ref; // ME_4FC62EAF0214 aCelPosl
+
+: ME_4FC62EAF0243
+ CONST UID '4FC62EAF0243'
+ CONST Name 'aNeedBreak'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC62EAF0243 aNeedBreak
+
+: ME_4FC5F3FD00A2
+ CONST UID '4FC5F3FD00A2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC5F3CF0017 // CheckCurrentRow
+ ;
+ : Parameters
+   @ ( ME_4FC62EAF0192 // aList
+ ME_4FC62EAF01B0 // aNewWidth
+ ME_4FC62EAF01D3 // anOldCellWidth
+ ME_4FC62EAF01F6 // aPrevRowWidth
+ ME_4FC62EAF0214 // aCelPosl
+ ME_4FC62EAF0243 // aNeedBreak
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC5F3FD00A2 DoIt
+
+: ME_4FC5F3CF0017
+ CONST UID '4FC5F3CF0017'
+ CONST Name 'CheckCurrentRow'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4FC5F3FD00A2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC5F3CF0017 CheckCurrentRow
+
+FORWARD ME_4F2F716F0249
+
+: ME_4F2F7187000A
+ CONST UID '4F2F7187000A'
+ CONST Name 'aOffsetList'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4F2F7187000A aOffsetList
+
+: ME_4F2F717C0043
+ CONST UID '4F2F717C0043'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F716F0249 // FindOffset
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F2F7187000A // aOffsetList
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F717C0043 DoIt
+
+: ME_4F2F716F0249
+ CONST UID '4F2F716F0249'
+ CONST Name 'FindOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4F2F717C0043 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F716F0249 FindOffset
+
+FORWARD ME_4FC76FA7005D
+
+: ME_4FC76FF6019A
+ CONST UID '4FC76FF6019A'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4FC76FF6019A aData
+
+: ME_4FC76FDB027E
+ CONST UID '4FC76FDB027E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Выравнять ширину ячеек по переданному списку.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC76FA7005D // AlignByPrevious
+ ;
+ : Parameters
+   @ ( ME_4FC76FF6019A // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC76FDB027E DoIt
+
+: ME_4FC76FA7005D
+ CONST UID '4FC76FA7005D'
+ CONST Name 'AlignByPrevious'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_4FC76FDB027E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC76FA7005D AlignByPrevious
+
+FORWARD ME_50925F0800F6
+
+: ME_509260EA0057
+ CONST UID '509260EA0057'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+
+ref; // ME_509260EA0057 aData
+
+: ME_509260EA0076
+ CONST UID '509260EA0076'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_509260EA0076 anIterator
+
+: ME_50925F560173
+ CONST UID '50925F560173'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_50925F0800F6 // CopyData
+ ;
+ : Parameters
+   @ ( ME_509260EA0057 // aData
+ ME_509260EA0076 // anIterator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_50925F560173 DoIt
+
+: ME_50925F0800F6
+ CONST UID '50925F0800F6'
+ CONST Name 'CopyData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_50925F560173 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_50925F0800F6 CopyData
+
+FORWARD ME_528DED3F007E
+
+: ME_528DED9E031B
+ CONST UID '528DED9E031B'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_528DED9E031B aData
+
+: ME_528DED9E033B
+ CONST UID '528DED9E033B'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_528DED9E033B anIterator
+
+: ME_528DED5B01F5
+ CONST UID '528DED5B01F5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_528DED3F007E // CopyData$1
+ ;
+ : Parameters
+   @ ( ME_528DED9E031B // aData
+ ME_528DED9E033B // anIterator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_528DED5B01F5 DoIt
+
+: ME_528DED3F007E
+ CONST UID '528DED3F007E'
+ CONST Name 'CopyData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_528DED5B01F5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_528DED3F007E CopyData$1
+
+FORWARD ME_52F1EFF800A6
+
+: ME_52F1F00F00EE
+ CONST UID '52F1F00F00EE'
+ CONST Name 'aPrev'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_52F1F00F00EE aPrev
+
+: ME_52F1F0080195
+ CONST UID '52F1F0080195'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52F1EFF800A6 // CheckPrevAlignment
+ ;
+ : Parameters
+   @ ( ME_52F1F00F00EE // aPrev
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52F1F0080195 DoIt
+
+: ME_52F1EFF800A6
+ CONST UID '52F1EFF800A6'
+ CONST Name 'CheckPrevAlignment'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Operations
+   @ ( ME_52F1F0080195 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52F1EFF800A6 CheckPrevAlignment
+
+: ME_4F2F86AD0037
+ CONST UID '4F2F86AD0037'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target WL 'ME_4F2A40EA0064' '47913B47006E.pas.ms.script' // evCellWidthEpsilon
+ ;
+
+ref; // ME_4F2F86AD0037 
+
+: ME_4F2F89540166
+ CONST UID '4F2F89540166'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4F2F89540166 
+
+: ME_479731C50290_ME_4F2F6F750263
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ref; // ME_479731C50290_ME_4F2F6F750263 Cleanup
+
+: ME_4F2F6F750263
+ CONST UID '4F2F6F750263'
+ CONST Name 'TevCellsOffsetsPair'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F2F6FC70101 // f_FoundUpper
+ ME_4F2F7FD40033 // f_OldOffset
+ ME_4F2F7FE10238 // f_NewOffset
+ ME_5112066A0268 // CellsType
+ ME_5114D122029E // RowType
+ ME_A354356F2814 // f_CellsType
+ ME_4B80DF8BB702 // f_RowType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F2F7030001E // Create
+ ME_4F2F704A01F8 // Clear
+ ME_4F2F70660228 // AddCellWidthAndRecalc
+ ME_4F2F708E0299 // GetOffset
+ ME_4F2F70B6006A // GetWidth
+ ME_4F2F70EB0222 // LastNewWidth
+ ME_4F2F710D00D6 // PrevNewWidth
+ ME_4F2F712F0179 // SetWidthPair
+ ME_4F2F719C01AF // CompareWidth
+ ME_4F2F71C0015D // FindUpper
+ ME_4F2F71EF028D // FindLower
+ ME_4F2F7226039B // UpdateNewWidth
+ ME_4F2F7268015A // GetNextOffset
+ ME_4F2FABC40294 // EqualCells
+ ME_4FAB83530326 // GetRowWidth
+ ME_4FC5F3CF0017 // CheckCurrentRow
+ ME_4F2F716F0249 // FindOffset
+ ME_4FC76FA7005D // AlignByPrevious
+ ME_50925F0800F6 // CopyData
+ ME_528DED3F007E // CopyData$1
+ ME_52F1EFF800A6 // CheckPrevAlignment
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4F2F6F750263 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4FC628290340 // TedCellPosType
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4F2F86AD0037 // 
+ ME_4F2F89540166 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsetsPair.pas'
+
+ref; // ME_4F2F6F750263 TevCellsOffsetsPair
+
+FORWARD ME_4F2F72A103AB
+
+: ME_4F2F77200063
+ CONST UID '4F2F77200063'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F2F72A103AB // TevCellsOffsetsPairList
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4F2F77200063 ItemType
+
+FORWARD ME_4FC618A7012C
+
+: ME_4FC618BE03A0
+ CONST UID '4FC618BE03A0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC618A7012C // PenultimateItem
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4FC618BE03A0 DoIt
+
+: ME_4FC618A7012C
+ CONST UID '4FC618A7012C'
+ CONST Name 'PenultimateItem'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F72A103AB // TevCellsOffsetsPairList
+ ;
+ : Operations
+   @ ( ME_4FC618BE03A0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC618A7012C PenultimateItem
+
+: ME_47B2C42A0163_ME_4F2F72A103AB
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4F2F72A103AB // TevCellsOffsetsPairList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4F2F72A103AB AssignItem
+
+: ME_47B99D4503A2_ME_4F2F72A103AB
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4F2F72A103AB // TevCellsOffsetsPairList
+ ;
+ref; // ME_47B99D4503A2_ME_4F2F72A103AB CompareExistingItems
+
+: ME_4F2F72A103AB
+ CONST UID '4F2F72A103AB'
+ CONST Name 'TevCellsOffsetsPairList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F2F77200063 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4FC618A7012C // PenultimateItem
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_4F2F72A103AB // AssignItem
+ ME_47B99D4503A2_ME_4F2F72A103AB // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsetsPairList.pas'
+
+ref; // ME_4F2F72A103AB TevCellsOffsetsPairList
+
+FORWARD ME_4FC701EC00C0
+
+FORWARD ME_4FC7028201D4
+
+: ME_4FC707D40199
+ CONST UID '4FC707D40199'
+ CONST Name 'OpenLog'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4FC707D40199 OpenLog
+
+: ME_4FC707FE01D0
+ CONST UID '4FC707FE01D0'
+ CONST Name 'aLogName'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4FC707FE01D0 aLogName
+
+: ME_4FC707E401BA
+ CONST UID '4FC707E401BA'
+ CONST Name 'CloseLog'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
+ ;
+ : Parameters
+   @ ( ME_4FC707FE01D0 // aLogName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC707E401BA CloseLog
+
+: ME_4FC7028201D4
+ CONST UID '4FC7028201D4'
+ CONST GUID 'D6A90763-2ABA-44CF-9E08-78D3B6C5ACCD'
+ CONST Name 'IevCellsWidthCorrecterLogger'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC707D40199 // OpenLog
+ ME_4FC707E401BA // CloseLog
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC7028201D4 IevCellsWidthCorrecterLogger
+
+FORWARD ME_4FC7091601C8
+
+: ME_4FC709290017
+ CONST UID '4FC709290017'
+ CONST Name 'rCellID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4FC7091601C8 // TevCellLogData
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC709290017 rCellID
+
+: ME_4FC7093A001D
+ CONST UID '4FC7093A001D'
+ CONST Name 'rCellText'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4FC7091601C8 // TevCellLogData
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4FC7093A001D rCellText
+
+: ME_4FC709540014
+ CONST UID '4FC709540014'
+ CONST Name 'rOldWidth'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4FC7091601C8 // TevCellLogData
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC709540014 rOldWidth
+
+: ME_4FC7096303A4
+ CONST UID '4FC7096303A4'
+ CONST Name 'rNewWidth'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4FC7091601C8 // TevCellLogData
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC7096303A4 rNewWidth
+
+: ME_4FC7091601C8
+ CONST UID '4FC7091601C8'
+ CONST Name 'TevCellLogData'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Attributes
+   @ ( ME_4FC709290017 // rCellID
+ ME_4FC7093A001D // rCellText
+ ME_4FC709540014 // rOldWidth
+ ME_4FC7096303A4 // rNewWidth
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4FC7091601C8 TevCellLogData
+
+: ME_4FC702AA039E
+ CONST UID '4FC702AA039E'
+ CONST Name 'f_Logger'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Target ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
+ ;
+
+ref; // ME_4FC702AA039E f_Logger
+
+: ME_4FC7030C0190
+ CONST UID '4FC7030C0190'
+ CONST Name 'f_Filer'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
+ ;
+
+ref; // ME_4FC7030C0190 f_Filer
+
+: ME_4FC70DAD02DE
+ CONST UID '4FC70DAD02DE'
+ CONST Name 'f_LogName'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4FC70DAD02DE f_LogName
+
+FORWARD ME_4FC704C00038
+
+: ME_4FC704CE0228
+ CONST UID '4FC704CE0228'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC704C00038 // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC704CE0228 DoIt
+
+: ME_4FC704C00038
+ CONST UID '4FC704C00038'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC704CE0228 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4FC704C00038 Exists
+
+FORWARD ME_4FC7078600A7
+
+: ME_4FC707B10215
+ CONST UID '4FC707B10215'
+ CONST Name 'aLogger'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
+ ;
+
+ref; // ME_4FC707B10215 aLogger
+
+: ME_4FC70796004D
+ CONST UID '4FC70796004D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7078600A7 // SetLogger
+ ;
+ : Parameters
+   @ ( ME_4FC707B10215 // aLogger
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC70796004D DoIt
+
+: ME_4FC7078600A7
+ CONST UID '4FC7078600A7'
+ CONST Name 'SetLogger'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC70796004D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC7078600A7 SetLogger
+
+FORWARD ME_4FC707B501FD
+
+: ME_4FC707CA032B
+ CONST UID '4FC707CA032B'
+ CONST Name 'aLogger'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
+ ;
+
+ref; // ME_4FC707CA032B aLogger
+
+: ME_4FC707C0029B
+ CONST UID '4FC707C0029B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC707B501FD // RemoveLogger
+ ;
+ : Parameters
+   @ ( ME_4FC707CA032B // aLogger
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC707C0029B DoIt
+
+: ME_4FC707B501FD
+ CONST UID '4FC707B501FD'
+ CONST Name 'RemoveLogger'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC707C0029B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC707B501FD RemoveLogger
+
+FORWARD ME_4FC708230066
+
+: ME_4FC70852012B
+ CONST UID '4FC70852012B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC708230066 // StartSaveData
+ ;
+
+ref; // ME_4FC70852012B DoIt
+
+: ME_4FC708230066
+ CONST UID '4FC708230066'
+ CONST Name 'StartSaveData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC70852012B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC708230066 StartSaveData
+
+FORWARD ME_4FC7085C00D7
+
+: ME_4FC708680361
+ CONST UID '4FC708680361'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC7085C00D7 // EndSaveData
+ ;
+
+ref; // ME_4FC708680361 DoIt
+
+: ME_4FC7085C00D7
+ CONST UID '4FC7085C00D7'
+ CONST Name 'EndSaveData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC708680361 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC7085C00D7 EndSaveData
+
+FORWARD ME_4FC708720012
+
+: ME_4FC709A40398
+ CONST UID '4FC709A40398'
+ CONST Name 'aCellLogData'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4FC7091601C8 // TevCellLogData
+ ;
+
+ref; // ME_4FC709A40398 aCellLogData
+
+: ME_4FC709910019
+ CONST UID '4FC709910019'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC708720012 // SaveAlignmentData
+ ;
+ : Parameters
+   @ ( ME_4FC709A40398 // aCellLogData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC709910019 DoIt
+
+: ME_4FC708720012
+ CONST UID '4FC708720012'
+ CONST Name 'SaveAlignmentData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC709910019 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC708720012 SaveAlignmentData
+
+FORWARD ME_4FC709AF00B7
+
+: ME_4FC70A00011B
+ CONST UID '4FC70A00011B'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC70A00011B anIndex
+
+: ME_4FC70A00013B
+ CONST UID '4FC70A00013B'
+ CONST Name 'aOldRowWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC70A00013B aOldRowWidth
+
+: ME_4FC70A00015C
+ CONST UID '4FC70A00015C'
+ CONST Name 'aNewRowWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FC70A00015C aNewRowWidth
+
+: ME_4FC709C7010D
+ CONST UID '4FC709C7010D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC709AF00B7 // SaveRowData
+ ;
+ : Parameters
+   @ ( ME_4FC70A00011B // anIndex
+ ME_4FC70A00013B // aOldRowWidth
+ ME_4FC70A00015C // aNewRowWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC709C7010D DoIt
+
+: ME_4FC709AF00B7
+ CONST UID '4FC709AF00B7'
+ CONST Name 'SaveRowData'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC709C7010D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC709AF00B7 SaveRowData
+
+FORWARD ME_4FC723F7027F
+
+: ME_4FC7240A011E
+ CONST UID '4FC7240A011E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC723F7027F // NeedLog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC7240A011E DoIt
+
+: ME_4FC723F7027F
+ CONST UID '4FC723F7027F'
+ CONST Name 'NeedLog'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Operations
+   @ ( ME_4FC7240A011E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC723F7027F NeedLog
+
+: ME_4FC70D3F01AB
+ CONST UID '4FC70D3F01AB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
+ ;
+
+ref; // ME_4FC70D3F01AB 
+
+: ME_4FC70DA700FD
+ CONST UID '4FC70DA700FD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Target WL 'ME_4DE89E560091' '4AB0C3C60310.pas.ms.script' // Format
+ ;
+
+ref; // ME_4FC70DA700FD 
+
+: ME_5295CFAD0057
+ CONST UID '5295CFAD0057'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_5295CFAD0057 
+
+: ME_5295D001023C
+ CONST UID '5295D001023C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Target WL 'ME_5295CFE10241' '54B90AC6014B.pas.ms.script' // l3RTrim
+ ;
+
+ref; // ME_5295D001023C 
+
+: ME_529736C400F4
+ CONST UID '529736C400F4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_529736C400F4 
+
+: ME_479731C50290_ME_4FC701EC00C0
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ref; // ME_479731C50290_ME_4FC701EC00C0 Cleanup
+
+: ME_5000565C019C_ME_4FC701EC00C0
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+ref; // ME_5000565C019C_ME_4FC701EC00C0 ClearFields
+
+: ME_4FC701EC00C0
+ CONST UID '4FC701EC00C0'
+ CONST Name 'TevCellWidthCorrecterSpy'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Собиратель информации для тестов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4FC702AA039E // f_Logger
+ ME_4FC7030C0190 // f_Filer
+ ME_4FC70DAD02DE // f_LogName
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4FC704C00038 // Exists
+ ME_4FC7078600A7 // SetLogger
+ ME_4FC707B501FD // RemoveLogger
+ ME_4FC708230066 // StartSaveData
+ ME_4FC7085C00D7 // EndSaveData
+ ME_4FC708720012 // SaveAlignmentData
+ ME_4FC709AF00B7 // SaveRowData
+ ME_4FC723F7027F // NeedLog
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4FC701EC00C0 // Cleanup
+ ME_5000565C019C_ME_4FC701EC00C0 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
+ ME_4FC7091601C8 // TevCellLogData
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4FC70D3F01AB // 
+ ME_4FC70DA700FD // 
+ ME_5295CFAD0057 // 
+ ME_5295D001023C // 
+ ME_529736C400F4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellWidthCorrecterSpy.pas'
+
+ref; // ME_4FC701EC00C0 TevCellWidthCorrecterSpy
+
+FORWARD ME_4F2B77C00327
+
+FORWARD ME_4F2B77FD0024
+
+: ME_5346B2F401B2
+ CONST UID '5346B2F401B2'
+ CONST Name 'aRange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E38399034C' '48E3836D00C8.pas.ms.script' // IedRange
+ ;
+
+ref; // ME_5346B2F401B2 aRange
+
+: ME_5346B2F401F1
+ CONST UID '5346B2F401F1'
+ CONST Name 'aProgress'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+
+ref; // ME_5346B2F401F1 aProgress
+
+: ME_4F2B7E1F01C1
+ CONST UID '4F2B7E1F01C1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5346B2F401B2 // aRange
+ ME_5346B2F401F1 // aProgress
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2B7E1F01C1 DoIt
+
+: ME_4F2BAECF02A3
+ CONST UID '4F2BAECF02A3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target WL 'ME_533C138F0003' '4678137501EA.pas.ms.script' // Ik2Tag
+ ;
+
+ref; // ME_4F2BAECF02A3 
+
+: ME_4F2BAEF103BF
+ CONST UID '4F2BAEF103BF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target WL 'ME_4773DEF0021B' '47913B47006E.pas.ms.script' // Tl3CustomString
+ ;
+
+ref; // ME_4F2BAEF103BF 
+
+FORWARD ME_4F2B767D015E
+
+: ME_4F2BB4B6004C
+ CONST UID '4F2BB4B6004C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+
+ref; // ME_4F2BB4B6004C 
+
+: ME_4F2BB4D7017B
+ CONST UID '4F2BB4D7017B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_4F2BB4D7017B 
+
+: ME_4F2BB4FF0337
+ CONST UID '4F2BB4FF0337'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target WL 'ME_47ECAB310336' '47ECAB0B0265.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_4F2BB4FF0337 
+
+: ME_4F2BB529017F
+ CONST UID '4F2BB529017F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4F2BB529017F 
+
+: ME_4F2BB541024F
+ CONST UID '4F2BB541024F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target WL 'ME_4DFF098B00CC' '47913B47006E.pas.ms.script' // l3Free
+ ;
+
+ref; // ME_4F2BB541024F 
+
+: ME_4F2BB56F0266
+ CONST UID '4F2BB56F0266'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ : Target WL 'ME_47E3C7030369' '47E3C64F037E.pas.ms.script' // Tk2Op
+ ;
+
+ref; // ME_4F2BB56F0266 
+
+: ME_4F2B77FD0024
+ CONST UID '4F2B77FD0024'
+ CONST Name 'evMakeTableRegular'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'делает таблицу "регулярной" структуры, т.е. подгоняет ширины ячеек.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Operations
+   @ ( ME_4F2B7E1F01C1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4F2BAECF02A3 // 
+ ME_4F2BAEF103BF // 
+ ME_4F2BB4B6004C // 
+ ME_4F2BB4D7017B // 
+ ME_4F2BB4FF0337 // 
+ ME_4F2BB529017F // 
+ ME_4F2BB541024F // 
+ ME_4F2BB56F0266 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'Nemesis'
+
+ref; // ME_4F2B77FD0024 evMakeTableRegular
+
+FORWARD ME_4F2B781C0164
+
+: ME_5346B2EB00A2
+ CONST UID '5346B2EB00A2'
+ CONST Name 'aRange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E38399034C' '48E3836D00C8.pas.ms.script' // IedRange
+ ;
+
+ref; // ME_5346B2EB00A2 aRange
+
+: ME_4F2B7E11023D
+ CONST UID '4F2B7E11023D'
+ CONST Name 'aWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_4F2B7E11023D aWidth
+
+: ME_4F2B7E02008E
+ CONST UID '4F2B7E02008E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B781C0164 // evTable_FixNSRCWidth
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5346B2EB00A2 // aRange
+ ME_4F2B7E11023D // aWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2B7E02008E DoIt
+
+: ME_54C2192103AD
+ CONST UID '54C2192103AD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B781C0164 // evTable_FixNSRCWidth
+ ;
+ : Target WL 'ME_54C218510209' '48452B7D0314.pas.ms.script' // EevTooLargeColumnWidth
+ ;
+
+ref; // ME_54C2192103AD 
+
+: ME_4F2B781C0164
+ CONST UID '4F2B781C0164'
+ CONST Name 'evTable_FixNSRCWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'устанавливает ширину колонки таблицы для выливки в NSRC.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Operations
+   @ ( ME_4F2B7E02008E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_54C2192103AD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'Nemesis'
+
+ref; // ME_4F2B781C0164 evTable_FixNSRCWidth
+
+FORWARD ME_4F2B7DD502A3
+
+: ME_52BD34E20176
+ CONST UID '52BD34E20176'
+ CONST Name 'aColumn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4BBC958A01C3' '48E3836D00C8.pas.ms.script' // IedColumn
+ ;
+
+ref; // ME_52BD34E20176 aColumn
+
+: ME_4F2BA318014E
+ CONST UID '4F2BA318014E'
+ CONST Name 'theWidth'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_4F2BA318014E theWidth
+
+: ME_4F2BA2F301D0
+ CONST UID '4F2BA2F301D0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_52BD34E20176 // aColumn
+ ME_4F2BA318014E // theWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2BA2F301D0 DoIt
+
+: ME_4F2BAF9F020C
+ CONST UID '4F2BAF9F020C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_4F2BAF9F020C 
+
+: ME_4F2BB0F6037A
+ CONST UID '4F2BB0F6037A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ : Target WL 'ME_4F2BB0D6021C' '54B90AC6014B.pas.ms.script' // l3CharSetPresent
+ ;
+
+ref; // ME_4F2BB0F6037A 
+
+: ME_4F2BB3FB011D
+ CONST UID '4F2BB3FB011D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_4F2BB3FB011D 
+
+: ME_4F2BB4540199
+ CONST UID '4F2BB4540199'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ : Target WL 'ME_4F2A3451001B' '47913B47006E.pas.ms.script' // evChar2Inch
+ ;
+
+ref; // ME_4F2BB4540199 
+
+: ME_4F2BB47401C5
+ CONST UID '4F2BB47401C5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ : Target WL 'ME_4B17E8E10102' '47BB24D30205.pas.ms.script' // l3IOK
+ ;
+
+ref; // ME_4F2BB47401C5 
+
+: ME_4F2B7DD502A3
+ CONST UID '4F2B7DD502A3'
+ CONST Name 'evTable_CalculateNSRCWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'вычисляет ширину колонки таблицы для выливки в NSRC.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Operations
+   @ ( ME_4F2BA2F301D0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4F2BAF9F020C // 
+ ME_4F2BB0F6037A // 
+ ME_4F2BB3FB011D // 
+ ME_4F2BB4540199 // 
+ ME_4F2BB47401C5 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'Nemesis'
+
+ref; // ME_4F2B7DD502A3 evTable_CalculateNSRCWidth
+
+FORWARD ME_4F2BBCB400BF
+
+: ME_52BD34DB0020
+ CONST UID '52BD34DB0020'
+ CONST Name 'aTable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4BBC910E0391' '48E3836D00C8.pas.ms.script' // IedTable
+ ;
+
+ref; // ME_52BD34DB0020 aTable
+
+: ME_4F2BBCC7036D
+ CONST UID '4F2BBCC7036D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2BBCB400BF // evCheckTableRegular
+ ;
+ : Parameters
+   @ ( ME_52BD34DB0020 // aTable
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2BBCC7036D DoIt
+
+: ME_4F2BBF3A01DB
+ CONST UID '4F2BBF3A01DB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2BBCB400BF // evCheckTableRegular
+ ;
+ : Target WL 'ME_4C3849220132' '47F1F38601A3.pas.ms.script' // evTableCellUtils
+ ;
+
+ref; // ME_4F2BBF3A01DB 
+
+: ME_4F2BBCB400BF
+ CONST UID '4F2BBCB400BF'
+ CONST Name 'evCheckTableRegular'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Operations
+   @ ( ME_4F2BBCC7036D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4F2BBF3A01DB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'Nemesis'
+
+ref; // ME_4F2BBCB400BF evCheckTableRegular
+
+FORWARD ME_4F2BBD58017D
+
+: ME_5346B2E1013F
+ CONST UID '5346B2E1013F'
+ CONST Name 'aColumnsIterator'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4BBC95BF001F' '48E3836D00C8.pas.ms.script' // IedColumnsIterator
+ ;
+
+ref; // ME_5346B2E1013F aColumnsIterator
+
+: ME_4F2BBD82002B
+ CONST UID '4F2BBD82002B'
+ CONST Name 'aWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_4F2BBD82002B aWidth
+
+: ME_4F2BBD63036C
+ CONST UID '4F2BBD63036C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2BBD58017D // evTable_FixNSRCWidth$1
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5346B2E1013F // aColumnsIterator
+ ME_4F2BBD82002B // aWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2BBD63036C DoIt
+
+: ME_4F2BBD58017D
+ CONST UID '4F2BBD58017D'
+ CONST Name 'evTable_FixNSRCWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Operations
+   @ ( ME_4F2BBD63036C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ifndef" 'Nemesis'
+
+ref; // ME_4F2BBD58017D evTable_FixNSRCWidth$1
+
+FORWARD ME_4F2BBD9400E2
+
+: ME_5346B2E402D1
+ CONST UID '5346B2E402D1'
+ CONST Name 'aColumn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4BBC958A01C3' '48E3836D00C8.pas.ms.script' // IedColumn
+ ;
+
+ref; // ME_5346B2E402D1 aColumn
+
+: ME_4F2BBDD70292
+ CONST UID '4F2BBDD70292'
+ CONST Name 'aWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_4F2BBDD70292 aWidth
+
+: ME_4F2BBDD101F6
+ CONST UID '4F2BBDD101F6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2BBD9400E2 // evTable_FixNSRCWidth$2
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5346B2E402D1 // aColumn
+ ME_4F2BBDD70292 // aWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2BBDD101F6 DoIt
+
+: ME_4F2BBD9400E2
+ CONST UID '4F2BBD9400E2'
+ CONST Name 'evTable_FixNSRCWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Operations
+   @ ( ME_4F2BBDD101F6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ifndef" 'Nemesis'
+
+ref; // ME_4F2BBD9400E2 evTable_FixNSRCWidth$2
+
+FORWARD ME_4F2BBFAC0192
+
+: ME_52BD34D30039
+ CONST UID '52BD34D30039'
+ CONST Name 'aTable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4BBC910E0391' '48E3836D00C8.pas.ms.script' // IedTable
+ ;
+
+ref; // ME_52BD34D30039 aTable
+
+: ME_4F2BBFE303A3
+ CONST UID '4F2BBFE303A3'
+ CONST Name 'aSeparateOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F2BBFE303A3 aSeparateOp
+
+: ME_52BD34D30064
+ CONST UID '52BD34D30064'
+ CONST Name 'aProgress'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+
+ref; // ME_52BD34D30064 aProgress
+
+: ME_4F2BBFBB0011
+ CONST UID '4F2BBFBB0011'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2BBFAC0192 // evMakeTableRegular$1
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_52BD34D30039 // aTable
+ ME_4F2BBFE303A3 // aSeparateOp
+ ME_52BD34D30064 // aProgress
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2BBFBB0011 DoIt
+
+: ME_4F2BBFAC0192
+ CONST UID '4F2BBFAC0192'
+ CONST Name 'evMakeTableRegular'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Operations
+   @ ( ME_4F2BBFBB0011 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ifndef" 'Nemesis'
+
+ref; // ME_4F2BBFAC0192 evMakeTableRegular$1
+
+FORWARD ME_4F2BC0450156
+
+: ME_52BD34EE0293
+ CONST UID '52BD34EE0293'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ ;
+
+ref; // ME_52BD34EE0293 aView
+
+: ME_52BD34F60321
+ CONST UID '52BD34F60321'
+ CONST Name 'aCell'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_52BD34F60321 aCell
+
+: ME_4FC47A8C0175
+ CONST UID '4FC47A8C0175'
+ CONST Name 'anUp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C7F0A9014B' '47C5207602D1.pas.ms.script' // TevNeighbourPos
+ ;
+
+ref; // ME_4FC47A8C0175 anUp
+
+: ME_4F2BC0510204
+ CONST UID '4F2BC0510204'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2BC0450156 // evTable_GetNeighbour
+ ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+ : Parameters
+   @ ( ME_52BD34EE0293 // aView
+ ME_52BD34F60321 // aCell
+ ME_4FC47A8C0175 // anUp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2BC0510204 DoIt
+
+: ME_4FC47BA5033D
+ CONST UID '4FC47BA5033D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2BC0450156 // evTable_GetNeighbour
+ ;
+ : Target WL 'ME_48453A750156' '48453A40017C.pas.ms.script' // Operations
+ ;
+
+ref; // ME_4FC47BA5033D 
+
+: ME_4FC47BCB0225
+ CONST UID '4FC47BCB0225'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2BC0450156 // evTable_GetNeighbour
+ ;
+ : Target WL 'ME_49C22CE30210' '476BEA0B0103.pas.ms.script' // evL3CoreConsts
+ ;
+
+ref; // ME_4FC47BCB0225 
+
+: ME_4FC47C190045
+ CONST UID '4FC47C190045'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2BC0450156 // evTable_GetNeighbour
+ ;
+ : Target WL 'ME_47D00CC20108' '47C52679006D.pas.ms.script' // nevFacade
+ ;
+
+ref; // ME_4FC47C190045 
+
+: ME_4F2BC0450156
+ CONST UID '4F2BC0450156'
+ CONST Name 'evTable_GetNeighbour'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Operations
+   @ ( ME_4F2BC0510204 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4FC47BA5033D // 
+ ME_4FC47BCB0225 // 
+ ME_4FC47C190045 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4F2BC0450156 evTable_GetNeighbour
+
+: ME_52BD34BE02FE
+ CONST UID '52BD34BE02FE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_52BD34BE02FE 
+
+: ME_5346B2B70361
+ CONST UID '5346B2B70361'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B77C00327 // evTableTools
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_5346B2B70361 
+
+: ME_4F2B77C00327
+ CONST UID '4F2B77C00327'
+ CONST Name 'evTableTools'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Всякие полезные инструменты для работы с таблицами.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Operations
+   @ ( ME_4F2B77FD0024 // evMakeTableRegular
+ ME_4F2B781C0164 // evTable_FixNSRCWidth
+ ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ME_4F2BBCB400BF // evCheckTableRegular
+ ME_4F2BBD58017D // evTable_FixNSRCWidth$1
+ ME_4F2BBD9400E2 // evTable_FixNSRCWidth$2
+ ME_4F2BBFAC0192 // evMakeTableRegular$1
+ ME_4F2BC0450156 // evTable_GetNeighbour
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_52BD34BE02FE // 
+ ME_5346B2B70361 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableTools.pas'
+
+ref; // ME_4F2B77C00327 evTableTools
+
+FORWARD ME_509228200297
+
+: ME_50922ACE019F
+ CONST UID '50922ACE019F'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_509228200297 // TevCellsOffsetsList
+ ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+
+ref; // ME_50922ACE019F ItemType
+
+FORWARD ME_50922CA3006F
+
+: ME_50922CC10232
+ CONST UID '50922CC10232'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_50922CC10232 anIterator
+
+: ME_50922CB40275
+ CONST UID '50922CB40275'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_50922CA3006F // Try2RemeberWidths
+ ;
+ : Parameters
+   @ ( ME_50922CC10232 // anIterator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_50922CB40275 DoIt
+
+: ME_50922CA3006F
+ CONST UID '50922CA3006F'
+ CONST Name 'Try2RemeberWidths'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_509228200297 // TevCellsOffsetsList
+ ;
+ : Operations
+   @ ( ME_50922CB40275 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_50922CA3006F Try2RemeberWidths
+
+FORWARD ME_509375AF03C8
+
+: ME_50937603003C
+ CONST UID '50937603003C'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_50937603003C anIterator
+
+: ME_50937603005B
+ CONST UID '50937603005B'
+ CONST Name 'aForTempate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_50937603005B aForTempate
+
+: ME_509375CA0284
+ CONST UID '509375CA0284'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_509375AF03C8 // FindList
+ ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+ : Parameters
+   @ ( ME_50937603003C // anIterator
+ ME_50937603005B // aForTempate
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_509375CA0284 DoIt
+
+: ME_509375AF03C8
+ CONST UID '509375AF03C8'
+ CONST Name 'FindList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_509228200297 // TevCellsOffsetsList
+ ;
+ : Operations
+   @ ( ME_509375CA0284 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_509375AF03C8 FindList
+
+: ME_47B2C42A0163_ME_509228200297
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_509228200297 // TevCellsOffsetsList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_509228200297 AssignItem
+
+: ME_47B99D4503A2_ME_509228200297
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_509228200297 // TevCellsOffsetsList
+ ;
+ref; // ME_47B99D4503A2_ME_509228200297 CompareExistingItems
+
+: ME_509228200297
+ CONST UID '509228200297'
+ CONST Name 'TevCellsOffsetsList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_50922ACE019F // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_50922CA3006F // Try2RemeberWidths
+ ME_509375AF03C8 // FindList
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_509228200297 // AssignItem
+ ME_47B99D4503A2_ME_509228200297 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsetsList.pas'
+
+ref; // ME_509228200297 TevCellsOffsetsList
+
+FORWARD ME_4F28F7160399
+
+: ME_50922CDE007D
+ CONST UID '50922CDE007D'
+ CONST Name 'f_TemplatesArray'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Target ME_509228200297 // TevCellsOffsetsList
+ ;
+
+ref; // ME_50922CDE007D f_TemplatesArray
+
+: ME_50ED21D502E1
+ CONST UID '50ED21D502E1'
+ CONST Name 'f_TableTag'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_50ED21D502E1 f_TableTag
+
+FORWARD ME_4F29052701FB
+
+: ME_5355428B0300
+ CONST UID '5355428B0300'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_5355428B0300 anIterator
+
+: ME_4F2905320292
+ CONST UID '4F2905320292'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F29052701FB // RememberRowWidth
+ ;
+ : Parameters
+   @ ( ME_5355428B0300 // anIterator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2905320292 DoIt
+
+: ME_4F29052701FB
+ CONST UID '4F29052701FB'
+ CONST Name 'RememberRowWidth'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Operations
+   @ ( ME_4F2905320292 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F29052701FB RememberRowWidth
+
+: ME_5355424D018B
+ CONST UID '5355424D018B'
+ CONST Name 'aRange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E38399034C' '48E3836D00C8.pas.ms.script' // IedRange
+ ;
+
+ref; // ME_5355424D018B aRange
+
+: ME_4F28FC7702ED
+ CONST UID '4F28FC7702ED'
+ CONST Name 'RememberWidths'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Parameters
+   @ ( ME_5355424D018B // aRange
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F28FC7702ED RememberWidths
+
+: ME_5355425500EC
+ CONST UID '5355425500EC'
+ CONST Name 'aRange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E38399034C' '48E3836D00C8.pas.ms.script' // IedRange
+ ;
+
+ref; // ME_5355425500EC aRange
+
+: ME_53554255011D
+ CONST UID '53554255011D'
+ CONST Name 'aProgress'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+
+ref; // ME_53554255011D aProgress
+
+: ME_4F28FC900076
+ CONST UID '4F28FC900076'
+ CONST Name 'ApplyWidths'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Parameters
+   @ ( ME_5355425500EC // aRange
+ ME_53554255011D // aProgress
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F28FC900076 ApplyWidths
+
+: ME_4F28FCC703E7
+ CONST UID '4F28FCC703E7'
+ CONST Name 'CanApply'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F28FCC703E7 CanApply
+
+: ME_4F28FCDD00F8
+ CONST UID '4F28FCDD00F8'
+ CONST Name 'Clear'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+
+ref; // ME_4F28FCDD00F8 Clear
+
+: ME_EC13559E8B86
+ CONST UID 'EC13559E8B86'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_EC13559E8B86 Exists
+
+: ME_4F29062E001F
+ CONST UID '4F29062E001F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Target WL 'ME_47DA7D6003B8' '4678209200A6.pas.ms.script' // InevProgress
+ ;
+
+ref; // ME_4F29062E001F 
+
+: ME_50927325026C
+ CONST UID '50927325026C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Target ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+
+ref; // ME_50927325026C 
+
+: ME_53554C780204
+ CONST UID '53554C780204'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_53554C780204 
+
+: ME_479731C50290_ME_4F28F7160399
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4F28F7160399 // TevCopyTableCellWidth
+ ;
+ref; // ME_479731C50290_ME_4F28F7160399 Cleanup
+
+: ME_4F28F7160399
+ CONST UID '4F28F7160399'
+ CONST Name 'TevCopyTableCellWidth'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интсрумент для копирования ширин колонок из одной таблицы в другую.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_50922CDE007D // f_TemplatesArray
+ ME_50ED21D502E1 // f_TableTag
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F29052701FB // RememberRowWidth
+ ME_4F28FC7702ED // RememberWidths
+ ME_4F28FC900076 // ApplyWidths
+ ME_4F28FCC703E7 // CanApply
+ ME_4F28FCDD00F8 // Clear
+ ME_EC13559E8B86 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4F28F7160399 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F29062E001F // 
+ ME_50927325026C // 
+ ME_53554C780204 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCopyTableCellWidth.pas'
+
+ref; // ME_4F28F7160399 TevCopyTableCellWidth
+
+FORWARD ME_5112379700A6
+
+: ME_511238650353
+ CONST UID '511238650353'
+ CONST Name 'TableStyle'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Стиль таблицы. Устанавливается в процессе анализа таблицы. В зависимости от него изменяется алгоритм выравнивания границ.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Target WL 'ME_5076AAD90277' '48E3836D00C8.pas.ms.script' // TedTabelType
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_511238650353 TableStyle
+
+: ME_51123FF703D5
+ CONST UID '51123FF703D5'
+ CONST Name 'CurrentRowType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Тип текущей строки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Target WL 'ME_4FC5C77503C7' '48E3836D00C8.pas.ms.script' // TedRowType
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_51123FF703D5 CurrentRowType
+
+: ME_A9CC49571C08
+ CONST UID 'A9CC49571C08'
+ CONST Name 'f_TableStyle'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства TableStyle' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Target WL 'ME_5076AAD90277' '48E3836D00C8.pas.ms.script' // TedTabelType
+ ;
+
+ref; // ME_A9CC49571C08 f_TableStyle
+
+: ME_1FE32F7FE404
+ CONST UID '1FE32F7FE404'
+ CONST Name 'f_CurrentRowType'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства CurrentRowType' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Target WL 'ME_4FC5C77503C7' '48E3836D00C8.pas.ms.script' // TedRowType
+ ;
+
+ref; // ME_1FE32F7FE404 f_CurrentRowType
+
+FORWARD ME_5076B24B0038
+
+: ME_5076B27F0382
+ CONST UID '5076B27F0382'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5076B24B0038 // AnalizeTableStyle
+ ;
+
+ref; // ME_5076B27F0382 DoIt
+
+: ME_5076B24B0038
+ CONST UID '5076B24B0038'
+ CONST Name 'AnalizeTableStyle'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Operations
+   @ ( ME_5076B27F0382 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5076B24B0038 AnalizeTableStyle
+
+FORWARD ME_511240880262
+
+: ME_511240CA0361
+ CONST UID '511240CA0361'
+ CONST Name 'aRow'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
+ ;
+
+ref; // ME_511240CA0361 aRow
+
+: ME_511240BA0167
+ CONST UID '511240BA0167'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_511240880262 // AnalizeRowType
+ ;
+ : Parameters
+   @ ( ME_511240CA0361 // aRow
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_511240BA0167 DoIt
+
+: ME_511240880262
+ CONST UID '511240880262'
+ CONST Name 'AnalizeRowType'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Operations
+   @ ( ME_511240BA0167 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_511240880262 AnalizeRowType
+
+FORWARD ME_51124284008E
+
+: ME_5114D22F001D
+ CONST UID '5114D22F001D'
+ CONST Name 'aPairList'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_5114D22F001D aPairList
+
+: ME_5112428F0378
+ CONST UID '5112428F0378'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51124284008E // SaveRowType
+ ;
+ : Parameters
+   @ ( ME_5114D22F001D // aPairList
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5112428F0378 DoIt
+
+: ME_51124284008E
+ CONST UID '51124284008E'
+ CONST Name 'SaveRowType'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Operations
+   @ ( ME_5112428F0378 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_51124284008E SaveRowType
+
+FORWARD ME_5114D749037C
+
+: ME_5114D7700235
+ CONST UID '5114D7700235'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5114D749037C // GetPrevRowType
+ ;
+ : Target WL 'ME_4FC5C77503C7' '48E3836D00C8.pas.ms.script' // TedRowType
+ ;
+
+ref; // ME_5114D7700235 DoIt
+
+: ME_5114D749037C
+ CONST UID '5114D749037C'
+ CONST Name 'GetPrevRowType'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Operations
+   @ ( ME_5114D7700235 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5114D749037C GetPrevRowType
+
+FORWARD ME_5152CEDE0255
+
+: ME_5152D3960307
+ CONST UID '5152D3960307'
+ CONST Name 'aRow'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
+ ;
+
+ref; // ME_5152D3960307 aRow
+
+: ME_5152CF1602EB
+ CONST UID '5152CF1602EB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Дополнительная проверка получившегося типа строки.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5152CEDE0255 // CheckRowType
+ ;
+ : Parameters
+   @ ( ME_5152D3960307 // aRow
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5152CF1602EB DoIt
+
+: ME_5152CEDE0255
+ CONST UID '5152CEDE0255'
+ CONST Name 'CheckRowType'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Operations
+   @ ( ME_5152CF1602EB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5152CEDE0255 CheckRowType
+
+FORWARD ME_5152D812036E
+
+: ME_5152D8E3025F
+ CONST UID '5152D8E3025F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5152D812036E // GetCellsCountInPreviousRow
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5152D8E3025F DoIt
+
+: ME_5152D812036E
+ CONST UID '5152D812036E'
+ CONST Name 'GetCellsCountInPreviousRow'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возвращает число ячеек в последней выравненной строке' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ : Operations
+   @ ( ME_5152D8E3025F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5152D812036E GetCellsCountInPreviousRow
+
+: ME_479731C50290_ME_5112379700A6
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ref; // ME_479731C50290_ME_5112379700A6 Cleanup
+
+: ME_47A042E100E2_ME_5112379700A6
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ref; // ME_47A042E100E2_ME_5112379700A6 InitFields
+
+: ME_5112379700A6
+ CONST UID '5112379700A6'
+ CONST Name 'TevRowAndTableTypeSupport'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Примесь для классификации таблиц и строк' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_511238650353 // TableStyle
+ ME_51123FF703D5 // CurrentRowType
+ ME_A9CC49571C08 // f_TableStyle
+ ME_1FE32F7FE404 // f_CurrentRowType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5076B24B0038 // AnalizeTableStyle
+ ME_511240880262 // AnalizeRowType
+ ME_51124284008E // SaveRowType
+ ME_5114D749037C // GetPrevRowType
+ ME_5152CEDE0255 // CheckRowType
+ ME_5152D812036E // GetCellsCountInPreviousRow
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_5112379700A6 // Cleanup
+ ME_47A042E100E2_ME_5112379700A6 // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evRowAndTableTypeSupport.pas'
+
+ref; // ME_5112379700A6 TevRowAndTableTypeSupport
+
+FORWARD ME_511C73740306
+
+: ME_511C738F0392
+ CONST UID '511C738F0392'
+ CONST Name 'ev_fstNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511C73740306 // TevFoundSuitebleType
+ ;
+
+ref; // ME_511C738F0392 ev_fstNone
+
+: ME_511C73A40196
+ CONST UID '511C73A40196'
+ CONST Name 'ev_fstTemplate'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511C73740306 // TevFoundSuitebleType
+ ;
+
+ref; // ME_511C73A40196 ev_fstTemplate
+
+: ME_511C73B302C3
+ CONST UID '511C73B302C3'
+ CONST Name 'ev_fstInList'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511C73740306 // TevFoundSuitebleType
+ ;
+
+ref; // ME_511C73B302C3 ev_fstInList
+
+: ME_511C73740306
+ CONST UID '511C73740306'
+ CONST Name 'TevFoundSuitebleType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Attributes
+   @ ( ME_511C738F0392 // ev_fstNone
+ ME_511C73A40196 // ev_fstTemplate
+ ME_511C73B302C3 // ev_fstInList
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_511C73740306 TevFoundSuitebleType
+
+: ME_4F2F8CE800EB
+ CONST UID '4F2F8CE800EB'
+ CONST Name 'f_CellsOffsetPairList'
+ CONST Class class_Attribute
+ %SUMMARY 'Список с парами значений выравненных и невыравненных.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target ME_4F2F72A103AB // TevCellsOffsetsPairList
+ ;
+
+ref; // ME_4F2F8CE800EB f_CellsOffsetPairList
+
+: ME_4F2F8CF6005D
+ CONST UID '4F2F8CF6005D'
+ CONST Name 'f_Index'
+ CONST Class class_Attribute
+ %SUMMARY 'Индекс для прохода с установкой ширины ячеек.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F8CF6005D f_Index
+
+: ME_4F2F8D020078
+ CONST UID '4F2F8D020078'
+ CONST Name 'f_PrevRowWidth'
+ CONST Class class_Attribute
+ %SUMMARY 'Закешированная ширина предыдущей строки - используется при выравнивании строк.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F2F8D020078 f_PrevRowWidth
+
+: ME_4FA5033001F9
+ CONST UID '4FA5033001F9'
+ CONST Name 'f_PriorityTemplateRow'
+ CONST Class class_Attribute
+ %SUMMARY 'Текущий шаблон для выравнивания. Используется если при анализе таблицы был найден загооловок (в начале таблицы закончились объединенные ячеки или была найдена строка с номерами). После этого такой шаблон обновляется ближайшим подходящим.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4FA5033001F9 f_PriorityTemplateRow
+
+: ME_4FA52028019C
+ CONST UID '4FA52028019C'
+ CONST Name 'f_RowsWithSingleCell'
+ CONST Class class_Attribute
+ %SUMMARY 'Список номеров строк с одиночными или "притворящимися" такими ячейками.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ ;
+
+ref; // ME_4FA52028019C f_RowsWithSingleCell
+
+: ME_4FC5EAC30022
+ CONST UID '4FC5EAC30022'
+ CONST Name 'f_Row'
+ CONST Class class_Attribute
+ %SUMMARY 'Указатель на текущую строку.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
+ ;
+
+ref; // ME_4FC5EAC30022 f_Row
+
+: ME_4FC726DB01CD
+ CONST UID '4FC726DB01CD'
+ CONST Name 'f_LogSpy'
+ CONST Class class_Attribute
+ %SUMMARY 'Сохраняльщик результатов выравнивания для тестов.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ;
+
+ref; // ME_4FC726DB01CD f_LogSpy
+
+: ME_4FC864850061
+ CONST UID '4FC864850061'
+ CONST Name 'f_WasNotEqualRows'
+ CONST Class class_Attribute
+ %SUMMARY 'Флаг - были после выранивания неодинаковые строки.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC864850061 f_WasNotEqualRows
+
+: ME_4FC8730E03CC
+ CONST UID '4FC8730E03CC'
+ CONST Name 'f_HeadAlignment'
+ CONST Class class_Attribute
+ %SUMMARY 'Выравнивание заголовка таблицы. Выставляется при повторном выравнивании заголовка на основе выравненных перед этим строк.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC8730E03CC f_HeadAlignment
+
+: ME_509233D502F0
+ CONST UID '509233D502F0'
+ CONST Name 'f_ForegnTemplates'
+ CONST Class class_Attribute
+ %SUMMARY 'Список для выравнивания "из вне" - применяется при копировании/вставке вершин.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target ME_509228200297 // TevCellsOffsetsList
+ ;
+
+ref; // ME_509233D502F0 f_ForegnTemplates
+
+: ME_51541B460391
+ CONST UID '51541B460391'
+ CONST Name 'f_NumbericData'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_51541B460391 f_NumbericData
+
+FORWARD ME_4F2F734203C7
+
+: ME_5119E7F5000B
+ CONST UID '5119E7F5000B'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_5119E7F5000B anOp
+
+: ME_5119E7F5001B
+ CONST UID '5119E7F5001B'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC920100CB' '48E3836D00C8.pas.ms.script' // IedBackCellsIterator
+ ;
+
+ref; // ME_5119E7F5001B anIterator
+
+: ME_5119E7F5003A
+ CONST UID '5119E7F5003A'
+ CONST Name 'aCellCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5119E7F5003A aCellCount
+
+: ME_4F2F73500321
+ CONST UID '4F2F73500321'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F734203C7 // ApplyChanges
+ ;
+ : Parameters
+   @ ( ME_5119E7F5000B // anOp
+ ME_5119E7F5001B // anIterator
+ ME_5119E7F5003A // aCellCount
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F73500321 DoIt
+
+: ME_4F2F734203C7
+ CONST UID '4F2F734203C7'
+ CONST Name 'ApplyChanges'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4F2F73500321 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F734203C7 ApplyChanges
+
+FORWARD ME_4F2F73CD01D1
+
+: ME_509239050276
+ CONST UID '509239050276'
+ CONST Name 'aForegnTemplates'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_509228200297 // TevCellsOffsetsList
+ ;
+
+ref; // ME_509239050276 aForegnTemplates
+
+: ME_4F2F73D7018E
+ CONST UID '4F2F73D7018E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2F73CD01D1 // Create
+ ;
+ : Parameters
+   @ ( ME_509239050276 // aForegnTemplates
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2F73D7018E DoIt
+
+: ME_4F2F73CD01D1
+ CONST UID '4F2F73CD01D1'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4F2F73D7018E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2F73CD01D1 Create
+
+FORWARD ME_4FA504FF0217
+
+: ME_4FA5051F0085
+ CONST UID '4FA5051F0085'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FA504FF0217 // TryToCopyFromSuitableList
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FA5051F0085 DoIt
+
+: ME_4FA504FF0217
+ CONST UID '4FA504FF0217'
+ CONST Name 'TryToCopyFromSuitableList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FA5051F0085 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FA504FF0217 TryToCopyFromSuitableList
+
+FORWARD ME_4FA5095F01AE
+
+: ME_4FA509760136
+ CONST UID '4FA509760136'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FA5095F01AE // GetTemplate
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_4FA509760136 DoIt
+
+: ME_4FA5095F01AE
+ CONST UID '4FA5095F01AE'
+ CONST Name 'GetTemplate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FA509760136 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FA5095F01AE GetTemplate
+
+FORWARD ME_4FA5209302CC
+
+: ME_4FA520B1013D
+ CONST UID '4FA520B1013D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FA5209302CC // GetRowsWithSingleCell
+ ;
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ ;
+
+ref; // ME_4FA520B1013D DoIt
+
+: ME_4FA5209302CC
+ CONST UID '4FA5209302CC'
+ CONST Name 'GetRowsWithSingleCell'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FA520B1013D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FA5209302CC GetRowsWithSingleCell
+
+FORWARD ME_4FA52C7A027C
+
+: ME_511214EE0235
+ CONST UID '511214EE0235'
+ CONST Name 'aCellIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_511214EE0235 aCellIterator
+
+: ME_4FA52CBF0270
+ CONST UID '4FA52CBF0270'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FA52C7A027C // AddevCellsOffsetsPair
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Parameters
+   @ ( ME_511214EE0235 // aCellIterator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FA52CBF0270 DoIt
+
+: ME_4FA52C7A027C
+ CONST UID '4FA52C7A027C'
+ CONST Name 'AddevCellsOffsetsPair'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FA52CBF0270 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FA52C7A027C AddevCellsOffsetsPair
+
+FORWARD ME_4FA530670256
+
+: ME_4FA5308F0063
+ CONST UID '4FA5308F0063'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FA530670256 // CheckRowsWithSingleCell
+ ;
+
+ref; // ME_4FA5308F0063 DoIt
+
+: ME_4FA530670256
+ CONST UID '4FA530670256'
+ CONST Name 'CheckRowsWithSingleCell'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FA5308F0063 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FA530670256 CheckRowsWithSingleCell
+
+FORWARD ME_4FC5D31C000E
+
+: ME_511C74280292
+ CONST UID '511C74280292'
+ CONST Name 'aFoundType'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_511C73740306 // TevFoundSuitebleType
+ ;
+
+ref; // ME_511C74280292 aFoundType
+
+: ME_4FC5D32D00EA
+ CONST UID '4FC5D32D00EA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC5D31C000E // GetSuitableList
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Parameters
+   @ ( ME_511C74280292 // aFoundType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC5D32D00EA DoIt
+
+: ME_4FC5D31C000E
+ CONST UID '4FC5D31C000E'
+ CONST Name 'GetSuitableList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FC5D32D00EA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC5D31C000E GetSuitableList
+
+FORWARD ME_4FC5D4D2033A
+
+: ME_511C744000D1
+ CONST UID '511C744000D1'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_511C744000D1 aList
+
+: ME_511C744000F0
+ CONST UID '511C744000F0'
+ CONST Name 'aFoundType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_511C73740306 // TevFoundSuitebleType
+ ;
+
+ref; // ME_511C744000F0 aFoundType
+
+: ME_4FC5D4F3022F
+ CONST UID '4FC5D4F3022F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC5D4D2033A // CopyFromSuitableList
+ ;
+ : Parameters
+   @ ( ME_511C744000D1 // aList
+ ME_511C744000F0 // aFoundType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC5D4F3022F DoIt
+
+: ME_4FC5D4D2033A
+ CONST UID '4FC5D4D2033A'
+ CONST Name 'CopyFromSuitableList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FC5D4F3022F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC5D4D2033A CopyFromSuitableList
+
+FORWARD ME_4FC5EA5B0165
+
+: ME_4FC5EA80037B
+ CONST UID '4FC5EA80037B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC5EA5B0165 // GetIterator
+ ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_4FC5EA80037B DoIt
+
+: ME_4FC5EA5B0165
+ CONST UID '4FC5EA5B0165'
+ CONST Name 'GetIterator'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FC5EA80037B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC5EA5B0165 GetIterator
+
+FORWARD ME_4FC5FBF401A8
+
+: ME_511C791E02D5
+ CONST UID '511C791E02D5'
+ CONST Name 'aFoundType'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_511C73740306 // TevFoundSuitebleType
+ ;
+
+ref; // ME_511C791E02D5 aFoundType
+
+: ME_4FC5FC3201EC
+ CONST UID '4FC5FC3201EC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC5FBF401A8 // CheckPreparrePriorityTemplate
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Parameters
+   @ ( ME_511C791E02D5 // aFoundType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC5FC3201EC DoIt
+
+: ME_4FC5FBF401A8
+ CONST UID '4FC5FBF401A8'
+ CONST Name 'CheckPreparrePriorityTemplate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Инициализация шаблона строк таблицы с проверокой. Шаблон строк может потребовать дополнительного выравнивани или просто не подходить для выравнивания.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FC5FC3201EC // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC5FBF401A8 CheckPreparrePriorityTemplate
+
+FORWARD ME_4FC72703007E
+
+: ME_4FC7270C025B
+ CONST UID '4FC7270C025B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC72703007E // CheckLog
+ ;
+
+ref; // ME_4FC7270C025B DoIt
+
+: ME_4FC72703007E
+ CONST UID '4FC72703007E'
+ CONST Name 'CheckLog'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FC7270C025B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC72703007E CheckLog
+
+FORWARD ME_4FC8655F01B4
+
+: ME_4FC8657700AB
+ CONST UID '4FC8657700AB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC8655F01B4 // FoundPriorityTemplate
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC8657700AB DoIt
+
+: ME_4FC8655F01B4
+ CONST UID '4FC8655F01B4'
+ CONST Name 'FoundPriorityTemplate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FC8657700AB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC8655F01B4 FoundPriorityTemplate
+
+FORWARD ME_4FC86F1E023D
+
+: ME_4FC86F4300B4
+ CONST UID '4FC86F4300B4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC86F1E023D // AlighHeader
+ ;
+
+ref; // ME_4FC86F4300B4 DoIt
+
+: ME_4FC86F1E023D
+ CONST UID '4FC86F1E023D'
+ CONST Name 'AlighHeader'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Повторное выравнивание заголовка.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4FC86F4300B4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC86F1E023D AlighHeader
+
+FORWARD ME_50923EED0279
+
+: ME_50923F9303CA
+ CONST UID '50923F9303CA'
+ CONST Name 'aTable'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC910E0391' '48E3836D00C8.pas.ms.script' // IedTable
+ ;
+
+ref; // ME_50923F9303CA aTable
+
+: ME_50923F940020
+ CONST UID '50923F940020'
+ CONST Name 'aForegnTemplates'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_509228200297 // TevCellsOffsetsList
+ ;
+
+ref; // ME_50923F940020 aForegnTemplates
+
+: ME_50923F94003F
+ CONST UID '50923F94003F'
+ CONST Name 'aSeparateOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_50923F94003F aSeparateOp
+
+: ME_50923F94006E
+ CONST UID '50923F94006E'
+ CONST Name 'aProgress'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+
+ref; // ME_50923F94006E aProgress
+
+: ME_50923F06009C
+ CONST UID '50923F06009C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_50923EED0279 // DoCorrection
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_50923F9303CA // aTable
+ ME_50923F940020 // aForegnTemplates
+ ME_50923F94003F // aSeparateOp
+ ME_50923F94006E // aProgress
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_50923F06009C DoIt
+
+: ME_50923EED0279
+ CONST UID '50923EED0279'
+ CONST Name 'DoCorrection'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_50923F06009C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_50923EED0279 DoCorrection
+
+FORWARD ME_5092588F021F
+
+: ME_509258A8039C
+ CONST UID '509258A8039C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5092588F021F // TryToCopyForeignList
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_509258A8039C DoIt
+
+: ME_5092588F021F
+ CONST UID '5092588F021F'
+ CONST Name 'TryToCopyForeignList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_509258A8039C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5092588F021F TryToCopyForeignList
+
+FORWARD ME_4F2FA52C00EC
+
+: ME_511C74070144
+ CONST UID '511C74070144'
+ CONST Name 'anIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_511C74070144 anIterator
+
+: ME_511C74070154
+ CONST UID '511C74070154'
+ CONST Name 'aFoundType'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_511C73740306 // TevFoundSuitebleType
+ ;
+
+ref; // ME_511C74070154 aFoundType
+
+: ME_4F2FA5470297
+ CONST UID '4F2FA5470297'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2FA52C00EC // FindSuitableListInPrevious
+ ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ : Parameters
+   @ ( ME_511C74070144 // anIterator
+ ME_511C74070154 // aFoundType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2FA5470297 DoIt
+
+: ME_4F2FA52C00EC
+ CONST UID '4F2FA52C00EC'
+ CONST Name 'FindSuitableListInPrevious'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_4F2FA5470297 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F2FA52C00EC FindSuitableListInPrevious
+
+FORWARD ME_528DDD5B0275
+
+: ME_528DDDA9027D
+ CONST UID '528DDDA9027D'
+ CONST Name 'aCellIterator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC93F50176' '48E3836D00C8.pas.ms.script' // IedCellsIterator
+ ;
+
+ref; // ME_528DDDA9027D aCellIterator
+
+: ME_528DDDA9028C
+ CONST UID '528DDDA9028C'
+ CONST Name 'aCellOffsetPair'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ref; // ME_528DDDA9028C aCellOffsetPair
+
+: ME_528DDD6C01CF
+ CONST UID '528DDD6C01CF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_528DDD5B0275 // SaveCellsTypeList
+ ;
+ : Parameters
+   @ ( ME_528DDDA9027D // aCellIterator
+ ME_528DDDA9028C // aCellOffsetPair
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_528DDD6C01CF DoIt
+
+: ME_528DE0A301AD
+ CONST UID '528DE0A301AD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_528DDD5B0275 // SaveCellsTypeList
+ ;
+ : Target ME_511205FA00E2 // TedCellTypesList
+ ;
+
+ref; // ME_528DE0A301AD 
+
+: ME_528DDD5B0275
+ CONST UID '528DDD5B0275'
+ CONST Name 'SaveCellsTypeList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Operations
+   @ ( ME_528DDD6C01CF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_528DE0A301AD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_528DDD5B0275 SaveCellsTypeList
+
+: ME_4FC5EBE50231
+ CONST UID '4FC5EBE50231'
+ CONST Name 'aRow'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
+ ;
+
+ref; // ME_4FC5EBE50231 aRow
+
+: ME_4F2BC62D00FE
+ CONST UID '4F2BC62D00FE'
+ CONST Name 'CorrectCells'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Parameters
+   @ ( ME_4FC5EBE50231 // aRow
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2BC62D00FE CorrectCells
+
+: ME_5119E7C101CB
+ CONST UID '5119E7C101CB'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_5119E7C101CB anOp
+
+: ME_5119E7C101FA
+ CONST UID '5119E7C101FA'
+ CONST Name 'aRow'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
+ ;
+
+ref; // ME_5119E7C101FA aRow
+
+: ME_5119E7C10229
+ CONST UID '5119E7C10229'
+ CONST Name 'aFirst'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5119E7C10229 aFirst
+
+: ME_4F2BC6810005
+ CONST UID '4F2BC6810005'
+ CONST Name 'ApplyChanges2Row'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Parameters
+   @ ( ME_5119E7C101CB // anOp
+ ME_5119E7C101FA // aRow
+ ME_5119E7C10229 // aFirst
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F2BC6810005 ApplyChanges2Row
+
+: ME_4F2F8FC102CA
+ CONST UID '4F2F8FC102CA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_4C3849220132' '47F1F38601A3.pas.ms.script' // evTableCellUtils
+ ;
+
+ref; // ME_4F2F8FC102CA 
+
+: ME_4F2F900B0223
+ CONST UID '4F2F900B0223'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_4DFF098B00CC' '47913B47006E.pas.ms.script' // l3Free
+ ;
+
+ref; // ME_4F2F900B0223 
+
+: ME_4F2FAFCC01C7
+ CONST UID '4F2FAFCC01C7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_48AC2BDA0309' '4678193C009C.pas.ms.script' // PObject
+ ;
+
+ref; // ME_4F2FAFCC01C7 
+
+: ME_50924A610219
+ CONST UID '50924A610219'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_477515240332' '47750CE700D0.pas.ms.script' // Tafw
+ ;
+
+ref; // ME_50924A610219 
+
+: ME_50924B0A01A3
+ CONST UID '50924B0A01A3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_50924B0A01A3 
+
+: ME_50924BAF01B8
+ CONST UID '50924BAF01B8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_47E3C7030369' '47E3C64F037E.pas.ms.script' // Tk2Op
+ ;
+
+ref; // ME_50924BAF01B8 
+
+: ME_50924D77010E
+ CONST UID '50924D77010E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_48453A750156' '48453A40017C.pas.ms.script' // Operations
+ ;
+
+ref; // ME_50924D77010E 
+
+: ME_509251A90344
+ CONST UID '509251A90344'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target WL 'ME_47ECAB310336' '47ECAB0B0265.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_509251A90344 
+
+: ME_50926414010C
+ CONST UID '50926414010C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ : Target ME_4F2F6CA40273 // TevCellsCharOffsets
+ ;
+
+ref; // ME_50926414010C 
+
+: ME_5114D749037C_ME_4F2B767D015E
+ CONST UID '5114D749037C'
+ CONST Name 'GetPrevRowType'
+ : Original ME_5114D749037C // GetPrevRowType
+ ;
+ : Implementor ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ref; // ME_5114D749037C_ME_4F2B767D015E GetPrevRowType
+
+: ME_5152D812036E_ME_4F2B767D015E
+ CONST UID '5152D812036E'
+ CONST Name 'GetCellsCountInPreviousRow'
+ : Original ME_5152D812036E // GetCellsCountInPreviousRow
+ ;
+ : Implementor ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ref; // ME_5152D812036E_ME_4F2B767D015E GetCellsCountInPreviousRow
+
+: ME_479731C50290_ME_4F2B767D015E
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4F2B767D015E // TevCellsWidthCorrecter
+ ;
+ref; // ME_479731C50290_ME_4F2B767D015E Cleanup
+
+: ME_4F2B767D015E
+ CONST UID '4F2B767D015E'
+ CONST Name 'TevCellsWidthCorrecter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Инструмент для выравнивания границ ячеек.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( ME_5112379700A6 // TevRowAndTableTypeSupport
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F2F8CE800EB // f_CellsOffsetPairList
+ ME_4F2F8CF6005D // f_Index
+ ME_4F2F8D020078 // f_PrevRowWidth
+ ME_4FA5033001F9 // f_PriorityTemplateRow
+ ME_4FA52028019C // f_RowsWithSingleCell
+ ME_4FC5EAC30022 // f_Row
+ ME_4FC726DB01CD // f_LogSpy
+ ME_4FC864850061 // f_WasNotEqualRows
+ ME_4FC8730E03CC // f_HeadAlignment
+ ME_509233D502F0 // f_ForegnTemplates
+ ME_51541B460391 // f_NumbericData
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F2F734203C7 // ApplyChanges
+ ME_4F2F73CD01D1 // Create
+ ME_4FA504FF0217 // TryToCopyFromSuitableList
+ ME_4FA5095F01AE // GetTemplate
+ ME_4FA5209302CC // GetRowsWithSingleCell
+ ME_4FA52C7A027C // AddevCellsOffsetsPair
+ ME_4FA530670256 // CheckRowsWithSingleCell
+ ME_4FC5D31C000E // GetSuitableList
+ ME_4FC5D4D2033A // CopyFromSuitableList
+ ME_4FC5EA5B0165 // GetIterator
+ ME_4FC5FBF401A8 // CheckPreparrePriorityTemplate
+ ME_4FC72703007E // CheckLog
+ ME_4FC8655F01B4 // FoundPriorityTemplate
+ ME_4FC86F1E023D // AlighHeader
+ ME_50923EED0279 // DoCorrection
+ ME_5092588F021F // TryToCopyForeignList
+ ME_4F2FA52C00EC // FindSuitableListInPrevious
+ ME_528DDD5B0275 // SaveCellsTypeList
+ ME_4F2BC62D00FE // CorrectCells
+ ME_4F2BC6810005 // ApplyChanges2Row
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_5114D749037C_ME_4F2B767D015E // GetPrevRowType
+ ME_5152D812036E_ME_4F2B767D015E // GetCellsCountInPreviousRow
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_4F2B767D015E // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_511C73740306 // TevFoundSuitebleType
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4F2F8FC102CA // 
+ ME_4F2F900B0223 // 
+ ME_4F2FAFCC01C7 // 
+ ME_50924A610219 // 
+ ME_50924B0A01A3 // 
+ ME_50924BAF01B8 // 
+ ME_50924D77010E // 
+ ME_509251A90344 // 
+ ME_50926414010C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsWidthCorrecter.pas'
+
+ref; // ME_4F2B767D015E TevCellsWidthCorrecter
+
+FORWARD ME_4FC493C90289
+
+FORWARD ME_4FC4942400EF
+
+: ME_5342B8480290
+ CONST UID '5342B8480290'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ ;
+
+ref; // ME_5342B8480290 aView
+
+: ME_5342B84802EA
+ CONST UID '5342B84802EA'
+ CONST Name 'aTable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4BBC910E0391' '48E3836D00C8.pas.ms.script' // IedTable
+ ;
+
+ref; // ME_5342B84802EA aTable
+
+: ME_5342B8480326
+ CONST UID '5342B8480326'
+ CONST Name 'aTagWrap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5342B8480326 aTagWrap
+
+: ME_5342B848035C
+ CONST UID '5342B848035C'
+ CONST Name 'aProcessor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
+ ;
+
+ref; // ME_5342B848035C aProcessor
+
+: ME_5342B84803B1
+ CONST UID '5342B84803B1'
+ CONST Name 'aLocation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B50E0118' '47C5207602D1.pas.ms.script' // InevLocation
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_47C5B50E0118' '47C5207602D1.pas.ms.script' // InevLocation
+ ;
+
+ref; // ME_5342B84803B1 aLocation
+
+: ME_4FC49437020F
+ CONST UID '4FC49437020F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC4942400EF // Make
+ ;
+ : Target WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
+ ;
+ : Parameters
+   @ ( ME_5342B8480290 // aView
+ ME_5342B84802EA // aTable
+ ME_5342B8480326 // aTagWrap
+ ME_5342B848035C // aProcessor
+ ME_5342B84803B1 // aLocation
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC49437020F DoIt
+
+: ME_4FC4942400EF
+ CONST UID '4FC4942400EF'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC493C90289 // TevRow
+ ;
+ : Operations
+   @ ( ME_4FC49437020F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4FC4942400EF Make
+
+: ME_4FC495EB0359
+ CONST UID '4FC495EB0359'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC493C90289 // TevRow
+ ;
+ : Target WL 'ME_4FC48D1B02AC' '47F1F38601A3.pas.ms.script' // TevCellsIterator
+ ;
+
+ref; // ME_4FC495EB0359 
+
+: ME_4FC49611022B
+ CONST UID '4FC49611022B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC493C90289 // TevRow
+ ;
+ : Target WL 'ME_4DFF098B00CC' '47913B47006E.pas.ms.script' // l3Free
+ ;
+
+ref; // ME_4FC49611022B 
+
+: ME_4FC5D86B03C1
+ CONST UID '4FC5D86B03C1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC493C90289 // TevRow
+ ;
+ : Target WL 'ME_468E49730365' '469D0AC7005E.pas.ms.script' // MergeStatus
+ ;
+
+ref; // ME_4FC5D86B03C1 
+
+: ME_515AF4890335
+ CONST UID '515AF4890335'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FC493C90289 // TevRow
+ ;
+ : Target WL 'ME_4C3849220132' '47F1F38601A3.pas.ms.script' // evTableCellUtils
+ ;
+
+ref; // ME_515AF4890335 
+
+: ME_4BBC94CF038F_ME_4FC493C90289
+ CONST UID '4BBC94CF038F'
+ CONST Name 'Table'
+ : Original WL 'ME_4BBC94CF038F' '48E3836D00C8.pas.ms.script' // Table
+ ;
+ : Implementor ME_4FC493C90289 // TevRow
+ ;
+ CONST "pm" true
+ref; // ME_4BBC94CF038F_ME_4FC493C90289 Table
+
+: ME_4BBC94F0016E_ME_4FC493C90289
+ CONST UID '4BBC94F0016E'
+ CONST Name 'CellsIterator'
+ : Original WL 'ME_4BBC94F0016E' '48E3836D00C8.pas.ms.script' // CellsIterator
+ ;
+ : Implementor ME_4FC493C90289 // TevRow
+ ;
+ CONST "pm" true
+ref; // ME_4BBC94F0016E_ME_4FC493C90289 CellsIterator
+
+: ME_4FC49F620379_ME_4FC493C90289
+ CONST UID '4FC49F620379'
+ CONST Name 'AnalizeRowCells'
+ : Original WL 'ME_4FC49F620379' '48E3836D00C8.pas.ms.script' // AnalizeRowCells
+ ;
+ : Implementor ME_4FC493C90289 // TevRow
+ ;
+ref; // ME_4FC49F620379_ME_4FC493C90289 AnalizeRowCells
+
+: ME_4FC493C90289
+ CONST UID '4FC493C90289'
+ CONST Name 'TevRow'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E451815031E // CellUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_4FA4F2AA0302' '47F1F38601A3.pas.ms.script' // TevTableChild
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4FC4942400EF // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BBC94CF038F_ME_4FC493C90289 // Table
+ ME_4BBC94F0016E_ME_4FC493C90289 // CellsIterator
+ ME_4FC49F620379_ME_4FC493C90289 // AnalizeRowCells
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_4FC495EB0359 // 
+ ME_4FC49611022B // 
+ ME_4FC5D86B03C1 // 
+ ME_515AF4890335 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifdef" 'evNeedEditableCursors'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evRow.pas'
+
+ref; // ME_4FC493C90289 TevRow
+
+: ME_4E451815031E
+ CONST UID '4E451815031E'
+ CONST Name 'CellUtils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Различные классы для работы с параметрами ячеек.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_49C217110141 // TevEpsilonLongIntList
+ ME_49CB6E880188 // TevCellsOffsets
+ ME_4F2F68D80106 // TevOneCharLongIntList
+ ME_511205FA00E2 // TedCellTypesList
+ ME_4F2F6CA40273 // TevCellsCharOffsets
+ ME_4F2F6F750263 // TevCellsOffsetsPair
+ ME_4F2F72A103AB // TevCellsOffsetsPairList
+ ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
+ ME_4F2B77C00327 // evTableTools
+ ME_509228200297 // TevCellsOffsetsList
+ ME_4F28F7160399 // TevCopyTableCellWidth
+ ME_5112379700A6 // TevRowAndTableTypeSupport
+ ME_4F2B767D015E // TevCellsWidthCorrecter
+ ME_4FC493C90289 // TevRow
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_476BEA0B0103' '476BEA0B0103.pas.ms.script' // evConst
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47C52679006D' '47C52679006D.pas.ms.script' // nevUtils
+ WL 'ME_47E3C64F037E' '47E3C64F037E.pas.ms.script' // Operations
+ WL 'ME_47ECAB0B0265' '47ECAB0B0265.pas.ms.script' // evMsgCode
+ WL 'ME_47F1F38601A3' '47F1F38601A3.pas.ms.script' // ParaUtils
+ WL 'ME_48452B7D0314' '48452B7D0314.pas.ms.script' // evExcept
+ WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_48E3836D00C8' '48E3836D00C8.pas.ms.script' // evEditorInterfaces
+ WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E451815031E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E451815031E.pas.ms.script.runner'
+
+ref; // ME_4E451815031E CellUtils

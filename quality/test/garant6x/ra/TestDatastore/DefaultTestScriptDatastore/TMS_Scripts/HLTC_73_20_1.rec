@@ -1,0 +1,75 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 73.20.1 ***
+
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"    
+
+Sub Main
+    Dim Result As Integer
+    
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE = ST_NONE_STANDART
+    
+'Идем по первой ветке рубрикатора до Конституции
+  Window SetContext, "Caption={ГАРАНТ 6*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=100,14"
+  GenericObject Click, "Text=Документы", "Coords=57,9"
+  InputKeys "{ENTER}"
+  InputKeys "{ENTER}"
+  DelayFor (3000) 'Ждем загрузки списка
+  InputKeys "{ENTER}"
+  DelayFor (5000) 'Ждем загрузки Конституции
+  InputKeys "^+{RIGHT}"
+  
+'Сравниваем текст с включенными коментариями
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Const1_cmnt")
+  
+'Сравниваем "человечков" на ТабПанели с включенными коментариями
+  Result = GenericObjectVP (CompareImage, "Class=TeeSubPanel;ClassIndex=1", "VP=TP1_cmnt")
+  
+'Отключаем комментарии
+  Call Click_GarComment
+  DelayFor (5000)
+  
+'Сравниваем текст с отключенными коментариями
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Const1_nocm")
+  
+'Сравниваем "человечков" на ТабПанели с отключенными коментариями
+  Result = GenericObjectVP (CompareImage, "Class=TeeSubPanel;ClassIndex=1", "VP=TP1_nocm")
+  
+'Опускаемся на вниз на один экран и делаем аналогичгые сравнения
+  GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=252,10"
+  InputKeys "{PGDN}"
+  DelayFor (1000)
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Const2_nocm")
+  Result = GenericObjectVP (CompareImage, "Class=TeeSubPanel;ClassIndex=1", "VP=TP2_nocm")
+  
+'Включаем комментарии
+  Call Click_GarComment
+  'GenericObject Click, "Class=TvcmToolbar;ClassIndex=112", "Coords=146,9"
+  DelayFor (5000)
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Const2_cmnt")
+  Result = GenericObjectVP (CompareImage, "Class=TeeSubPanel;ClassIndex=1", "VP=TP2_cmnt")
+  
+'Преходим в ОМ и оттуда идем в Календарь бухгалтера
+  MenuIDSelect 12
+  GenericObject Click, "Text=Справочная информация", "Coords=82,12"
+  GenericObject Click, "Text=Календарь бухгалтера", "Coords=80,11"
+  DelayFor (1500) 'Ждем загрузки календаря
+  InputKeys "^+{RIGHT}"
+  
+'Сравниваем текст и ТабПанель с включенными комментариями
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Clnd_cmnt")
+  Result = GenericObjectVP (CompareImage, "Class=TeeSubPanel;ClassIndex=1", "VP=TPcl_cmnt")
+  
+'Отключаем комментарии
+  Call Click_GarComment
+  DelayFor (5000)
+  
+'Сравниваем текст и ТабПанель с отключенными комментариями  
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Clnd_nocm")
+  Result = GenericObjectVP (CompareImage, "Class=TeeSubPanel;ClassIndex=1", "VP=TPcl_nocm")
+End Sub

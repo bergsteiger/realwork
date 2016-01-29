@@ -1,0 +1,24 @@
+USES    
+	QuickTestsUtils.script
+;
+
+OBJECT VAR l_Editor
+
+PROCEDURE "Выделить"
+ 6 раз "Нажать вниз"
+ "Начать выделение"
+ 100 100 l_Editor pop:editor:SetCursorByPoint
+ "Закончить выделение"
+;
+
+Тест TK280007486 
+	Параметры: ( "Документ с блоками" "Проверка EVD документа" )
+	Выполнить (  
+				focused:control:push >>> l_Editor 
+				"Выделить"
+				l_Editor pop:editor:CopyAndPaste2DocumentBottom
+			)
+;
+
+TK280007486
+ 

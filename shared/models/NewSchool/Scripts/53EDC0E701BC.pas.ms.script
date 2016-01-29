@@ -1,0 +1,49 @@
+// TtfwRegisterableWord 53EDC0E701BC SimpleClass Class
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_53EDC0E701BC
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_2D588FE04F50
+ CONST UID '2D588FE04F50'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwRegisterableWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_2D588FE04F50 Ini_Reg_Class
+
+: ME_53EDC0E701BC
+ CONST UID '53EDC0E701BC'
+ CONST Name 'TtfwRegisterableWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_2D588FE04F50 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_52D7B67501CE // NameForRegister
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53EDC0E701BC TtfwRegisterableWord

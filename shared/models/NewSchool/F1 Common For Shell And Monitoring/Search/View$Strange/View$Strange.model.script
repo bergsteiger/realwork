@@ -1,0 +1,4518 @@
+<<VCMViews>> View$Strange
+ %UID '5257E836001C'
+ %DEPENDS
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4683F37902CF' /* vcmInterfaces */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47913B47006E' /* l3CoreObjects */
+  U$ '4799D29F033F' /* Implementation */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4954FAA00232' /* Search */
+  U$ '4986ECDF01F4' /* View */
+  U$ '4A85683403A8' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '521C9DA50125' /* "Application Resources" */
+  U$ '54B90AC6014B' /* StringUtils */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4954FAA00232' /* Search */
+  U$ '4986ECDF01F4' /* View */
+  U$ '4A85683403A8' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> Printing
+   %UID '4ABB68530117'
+   %SUMMARY 'Печать' ;
+   %DEPENDS
+    U$ '467BAB7F021E' /* vcmExternalInterfaces */
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '48F747EC0073' /* Common */
+    U$ '499164F501ED' /* ConfigInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677FF4B0036' /* Data */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '47E9EEC60260' /* Model */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsPageSetup
+      %UID '4ABB686202B1'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Metrics
+         %UID '4AD5AEF20160'
+         %TARGET U$ '499166CF011C' /* TnsMetrics */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_Metrics
+      ; // %ATTRIBUTES
+     ; // TnsPageSetup
+     FINAL <<UtilityPack>> nsTrialSupport
+      %UID '4951292D01DA'
+      %META
+       %upv "no hands" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "49526055015E"
+         %UID '49526055015E'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 49526055015E
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Operation>> nsDisableOperationInTrialMode
+         %UID '495260290250'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aParams
+            %UID '4952602D0225'
+            %TARGET U$ '4683E07E004B' /* IvcmTestParamsPrim */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aParams
+         ; // %PARAMETERS
+        ; // nsDisableOperationInTrialMode
+      ; // %OPERATIONS
+     ; // nsTrialSupport
+   ; // %CHILDREN
+  ; // Printing
+  <<VCMControls>> Strange
+   %UID '4AE89F8A004B'
+   %DEPENDS
+    U$ '456F02A50196' /* BaseTreeSupport */
+    U$ '457450470167' /* DynamicTree */
+    U$ '45EEA48F011F' /* Filters */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '4912DD020283' /* eeInterfaces */
+    U$ '4914746C019E' /* IvcmEntityForm */
+    U$ '49525C400141' /* IvcmContainer */
+    U$ '4991AD08005B' /* IvcmEntity */
+    U$ '49930CC501C9' /* IvcmAggregate */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+    U$ '4B1D3D250382' /* PrimPrimListInterfaces */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '5257E836001C' /* View$Strange */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<VCMFacet>> Query
+      %UID '4AE8A0D10108'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<InternalOperation>> ClearAll
+         %UID '4AE8A0E10254'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNotClearRange
+            %UID '4AE8A0FA0247'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNotClearRange
+         ; // %PARAMETERS
+        ; // ClearAll
+        ABSTRACT <<InternalOperation>> SetList
+         %UID '4AE96F6C0191'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aList
+            %UID '4AE96F8F031B'
+            %TARGET U$ '47F20DEA0340' /* IdeList */
+            %TOBEINCLUDED
+             U$ '4A9FFD3F01AD' /* Search */
+            ; // %TOBEINCLUDED
+           ; // aList
+           <<in>> aInList
+            %UID '4AE9713102BB'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aInList
+         ; // %PARAMETERS
+        ; // SetList
+        ABSTRACT <<InternalOperation>> GetList
+         %UID '4AF2AA2100CF'
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // GetList
+      ; // %OPERATIONS
+     ; // Query
+     <<VCMFacet>> Filterable
+      %UID '4AE9C8CC0055'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<InternalOperation>> Add
+         %UID '4AEF0BF70306'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" true
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aFilter
+            %UID '4AEF0BF7035D'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Add
+        ABSTRACT <<InternalOperation>> Delete
+         %UID '4AEF0D1A01C3'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" true
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aFilter
+            %UID '4AEF0D26012C'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Delete
+        ABSTRACT <<InternalOperation>> ClearAll
+         %UID '4AF80DB80383'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" true
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // ClearAll
+        ABSTRACT <<InternalOperation>> Refresh
+         %UID '4AF810230307'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Refresh
+        ABSTRACT <<InternalOperation>> GetListType
+         %UID '4F99403A00A5'
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // GetListType
+      ; // %OPERATIONS
+     ; // Filterable
+     <<Typedef>> TNodesArray
+      %UID '4AE9CE790344'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '45EEB14402F9' /* FiltersFromQuery */
+      ; // %INHERITS
+     ; // TNodesArray
+     <<VCMFacet>> Loadable
+      %UID '498959F103C4'
+      %SUMMARY 'Это первый кандидат на превращение в Facet. Который нужно вызвать вот тут:'#13#10'f_RequestingForm.Entity.Operation(op_Loadable_Load, l_Params).Done' ;
+      %TOBEINCLUDED
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<InternalOperation>> Load
+         %UID '49895A2102E8'
+         %SUMMARY 'Коллеги, кто может описать этот метод?' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4AEAC69D027D'
+            %TARGET U$ '4912DD2C0082' /* IeeNode */
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<in>> aData
+            %UID '4AEAC69D02CF'
+            %TARGET U$ '46A451250363' /* IUnknown */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<in>> anOp
+            %UID '4AEAC69D031D'
+            %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+            %VALUE 'LLO_NONE'
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // anOp
+         ; // %PARAMETERS
+        ; // Load
+      ; // %OPERATIONS
+     ; // Loadable
+     <<VCMFacet>> Filters
+      %UID '4AEECB2001BB'
+      %META
+       %upv "ifndef" 'Monitorings'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<InternalOperation>> GetSelected
+         %UID '4AF2B1AC02F8'
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // GetSelected
+      ; // %OPERATIONS
+     ; // Filters
+     <<VCMFacet>> SearchParameter
+      %UID '4AF4067A01D0'
+      %OPERATIONS
+        ABSTRACT <<InternalOperation>> QueryNotSaved
+         %UID '4AF9370C012B'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // QueryNotSaved
+        ABSTRACT <<InternalOperation>> ClearMistakes
+         %UID '4AF9373C02B6'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // ClearMistakes
+        ABSTRACT <<InternalOperation>> QuerySaved
+         %UID '4AF9393802B0'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // QuerySaved
+      ; // %OPERATIONS
+     ; // SearchParameter
+     <<VCMFacet>> PrintParams
+      %UID '4AF8265602EC'
+      %OPERATIONS
+        ABSTRACT <<InternalOperation>> UpdatePrinter
+         %UID '4AF82660008B'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" true
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // UpdatePrinter
+      ; // %OPERATIONS
+     ; // PrintParams
+     <<VCMFacet>> List
+      %UID '4AF81DD60134'
+      %OPERATIONS
+        ABSTRACT <<InternalOperation>> SetNewContent
+         %UID '4AF81DE902B6'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // SetNewContent
+      ; // %OPERATIONS
+     ; // List
+     <<VCMOperations>> CardOperation
+      %UID '4C2E115C00A5'
+      %OPERATIONS
+        ABSTRACT <<Operation>> ExpandCollapse
+         %UID '4C2E116E0315'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // ExpandCollapse
+        ABSTRACT <<Operation>> DeleteAll
+         %UID '4C2E117F022C'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // DeleteAll
+        ABSTRACT <<Operation>> CreateAttr
+         %UID '4C2E118B010B'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // CreateAttr
+        ABSTRACT <<Operation>> OpenTreeSelection
+         %UID '4C2E11960124'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // OpenTreeSelection
+      ; // %OPERATIONS
+     ; // CardOperation
+     <<VCMOperations>> File
+      %UID '49885C2500AE'
+      %SUMMARY 'Файл' ;
+      %OPERATIONS
+        ABSTRACT <<Operation>> SaveToFolder
+         %UID '49885D540232'
+         %SUMMARY 'Сохранить в папки' ;
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // SaveToFolder
+        ABSTRACT <<Operation>> LoadFromFolder
+         %UID '49885D59018D'
+         %SUMMARY 'Загрузить из папок' ;
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // LoadFromFolder
+      ; // %OPERATIONS
+     ; // File
+     <<VCMOperations>> Query$GetOldQuery
+      %UID '4C31A4E203BA'
+      %OPERATIONS
+        ABSTRACT <<Operation>> GetOldQuery
+         %UID '4C31A4EC023F'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // GetOldQuery
+      ; // %OPERATIONS
+     ; // Query$GetOldQuery
+     <<VCMOperations>> Query$SearchType
+      %UID '4C31A67E037B'
+      %OPERATIONS
+        ABSTRACT <<Operation>> SearchType
+         %UID '4C31A68800FA'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // SearchType
+      ; // %OPERATIONS
+     ; // Query$SearchType
+     <<VCMOperations>> LogicOperation
+      %UID '4C31B4810385'
+      %OPERATIONS
+        ABSTRACT <<Operation>> LogicOr
+         %UID '4C31B48D03BB'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // LogicOr
+        ABSTRACT <<Operation>> LogicAnd
+         %UID '4C31B4990225'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // LogicAnd
+        ABSTRACT <<Operation>> LogicNot
+         %UID '4C31B4A90088'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // LogicNot
+      ; // %OPERATIONS
+     ; // LogicOperation
+     <<VCMOperations>> Filters$UI
+      %UID '4B6BEE5800CE'
+      %CHILDREN
+       
+        ABSTRACT <<VCMOperation>> FiltersListOpen
+         %UID '4C81191003E5'
+         %SUMMARY 'Фильтры (вкладка)' ;
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // FiltersListOpen
+      ; // %CHILDREN
+     ; // Filters$UI
+     <<VCMOperations>> Preview
+      %UID '4C43D0420032'
+      %OPERATIONS
+        ABSTRACT <<Operation>> ZoomIn
+         %UID '4C43D04C01D8'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // ZoomIn
+        ABSTRACT <<Operation>> ZoomOut
+         %UID '4C43D058000A'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // ZoomOut
+        ABSTRACT <<Operation>> ZoomWidth
+         %UID '4C43D0610127'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // ZoomWidth
+        ABSTRACT <<Operation>> ZoomPage
+         %UID '4C43D06C0150'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // ZoomPage
+      ; // %OPERATIONS
+     ; // Preview
+     <<VCMOperations>> Document
+      %UID '4C43D09C03C7'
+      %OPERATIONS
+        ABSTRACT <<Operation>> FullSelectedSwitch
+         %UID '4C43D0A70151'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // FullSelectedSwitch
+        ABSTRACT <<Operation>> RGBGrayscaleSwitch
+         %UID '4C43D0B20376'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // RGBGrayscaleSwitch
+        ABSTRACT <<Operation>> PrintInfoSwitch
+         %UID '4C43D0C20003'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // PrintInfoSwitch
+      ; // %OPERATIONS
+     ; // Document
+     <<VCMOperations>> SubPanelSettings
+      %UID '4A7C1889033B'
+      %SUMMARY 'Настройки панели меток' ;
+      %OPERATIONS
+        ABSTRACT <<Operation>> ShowSpecial
+         %UID '4A7C18B20241'
+         %SUMMARY 'Показывать спецсимволы' ;
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // ShowSpecial
+        ABSTRACT <<Operation>> ShowInfo
+         %UID '4A7C1F420169'
+         %SUMMARY 'Показывать блоки' ;
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" 'undefined'
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // ShowInfo
+      ; // %OPERATIONS
+     ; // SubPanelSettings
+     <<VCMOperations>> Result$ForStyleEditorContainer
+      %UID '4C52B3310159'
+      %OPERATIONS
+        ABSTRACT <<Operation>> Restore
+         %UID '4C52B34E0125'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" true
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // Restore
+        ABSTRACT <<Operation>> SaveAsDefault
+         %UID '4C52B36B01B3'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" 'undefined'
+          %upv "ShowInToolbar" true
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // SaveAsDefault
+      ; // %OPERATIONS
+     ; // Result$ForStyleEditorContainer
+     <<VCMOperations>> ColontitulMacro
+      %UID '4C88D3FB02D1'
+      %CHILDREN
+       
+        ABSTRACT <<VCMOperation>> AppTitle
+         %UID '4C88D40C0029'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // AppTitle
+        ABSTRACT <<VCMOperation>> DocName
+         %UID '4C88D42001C2'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // DocName
+        ABSTRACT <<VCMOperation>> DocFullName
+         %UID '4C88D43300C7'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" true
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // DocFullName
+        ABSTRACT <<VCMOperation>> DocRedactionDate
+         %UID '4C88D44401B5'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // DocRedactionDate
+        ABSTRACT <<VCMOperation>> DocCurrentPage
+         %UID '4C88D46203BD'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // DocCurrentPage
+        ABSTRACT <<VCMOperation>> DocPagesCount
+         %UID '4C88D4770266'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // DocPagesCount
+        ABSTRACT <<VCMOperation>> CurrentDate
+         %UID '4C88D48B0325'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // CurrentDate
+        ABSTRACT <<VCMOperation>> CurrentTime
+         %UID '4C88D4A6032C'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // CurrentTime
+        ABSTRACT <<VCMOperation>> InternalDocNumber
+         %UID '4C88D4BF0213'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // InternalDocNumber
+        ABSTRACT <<VCMOperation>> DocumentSIze
+         %UID '4C88D4D202BA'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // DocumentSIze
+        ABSTRACT <<VCMOperation>> FilePosition
+         %UID '4C88D4E8007C'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // FilePosition
+      ; // %CHILDREN
+     ; // ColontitulMacro
+     <<VCMOperations>> SubPanelSettings$ShowSubNumbers
+      %UID '4C7F8DE70364'
+      %SUMMARY 'Настройки панели меток' ;
+      %CHILDREN
+       
+        ABSTRACT <<VCMOperation>> Show
+         %UID '4C7F8DFF02BF'
+         %SUMMARY 'Показывать метки' ;
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // Show
+      ; // %CHILDREN
+     ; // SubPanelSettings$ShowSubNumbers
+     <<VCMOperations>> SubPanelSettings$WithShowByShortCut
+      %UID '528373C80349'
+      %CHILDREN
+       
+        ABSTRACT <<VCMOperation>> ShowByShortCut
+         %UID '528373EC0026'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" false
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // ShowByShortCut
+      ; // %CHILDREN
+     ; // SubPanelSettings$WithShowByShortCut
+     SUMMONED <<Facet>> IQuery_ClearAll_Params
+      %UID '2090923936F5'
+      %SUMMARY 'Параметры для операции Query.ClearAll' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<readonly>> NotClearRange
+         %UID 'F84BBDD03F94'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // NotClearRange
+      ; // %ATTRIBUTES
+     ; // IQuery_ClearAll_Params
+     SUMMONED PRIVATE <<SimpleClass>> TQuery_ClearAll_Params
+      %UID '26380E83DA44'
+      %SUMMARY 'Реализация IQuery_ClearAll_Params' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '2090923936F5' /* IQuery_ClearAll_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ 'F84BBDD03F94' /* NotClearRange */
+      ; // %REALIZES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_NotClearRange
+         %UID 'CE779BE1DA79'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_NotClearRange
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID '4B0B81A55684'
+         %SUMMARY 'Конструктор TQuery_ClearAll_Params' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aNotClearRange
+            %UID '8F43D6262465'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNotClearRange
+         ; // %PARAMETERS
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID '0834430738DA'
+         %SUMMARY 'Фабрика TQuery_ClearAll_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aNotClearRange
+            %UID 'D629C42F07E8'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNotClearRange
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TQuery_ClearAll_Params
+     SUMMONED <<SimpleClass>> Op_Query_ClearAll
+      %UID 'AF22D56472D6'
+      %SUMMARY 'Класс для вызова операции Query.ClearAll' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$AA5A14682839
+         %UID 'AA5A14682839'
+         %SUMMARY 'Вызов операции Query.ClearAll у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '09CCCD0AAF67'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aNotClearRange
+            %UID '09CCCD0AAF68'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNotClearRange
+         ; // %PARAMETERS
+        ; // Call$AA5A14682839
+        SUMMONED FINAL <<static>> Call$DA99D457B289
+         %UID 'DA99D457B289'
+         %SUMMARY 'Вызов операции Query.ClearAll у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'EC66ADE96402'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aNotClearRange
+            %UID 'EC66ADE96403'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNotClearRange
+         ; // %PARAMETERS
+        ; // Call$DA99D457B289
+        SUMMONED FINAL <<static>> Call$2C6B6C415996
+         %UID '2C6B6C415996'
+         %SUMMARY 'Вызов операции Query.ClearAll у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '60C9C072EBF8'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aNotClearRange
+            %UID '60C9C072EBF9'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNotClearRange
+         ; // %PARAMETERS
+        ; // Call$2C6B6C415996
+        SUMMONED FINAL <<static>> Call$E1C53C709F87
+         %UID 'E1C53C709F87'
+         %SUMMARY 'Вызов операции Query.ClearAll у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '2D0801E0D769'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aNotClearRange
+            %UID '2D0801E0D76A'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNotClearRange
+         ; // %PARAMETERS
+        ; // Call$E1C53C709F87
+      ; // %OPERATIONS
+     ; // Op_Query_ClearAll
+     SUMMONED <<Facet>> IQuery_SetList_Params
+      %UID 'F76AE4E304C1'
+      %SUMMARY 'Параметры для операции Query.SetList' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<readonly>> List
+         %UID '4ADE45A30772'
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // List
+        SUMMONED ABSTRACT <<readonly>> InList
+         %UID '1B80B489B34E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // InList
+      ; // %ATTRIBUTES
+     ; // IQuery_SetList_Params
+     SUMMONED PRIVATE <<SimpleClass>> TQuery_SetList_Params
+      %UID '0527389BF9CC'
+      %SUMMARY 'Реализация IQuery_SetList_Params' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A9FFD3F01AD' /* Search */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ 'F76AE4E304C1' /* IQuery_SetList_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '1B80B489B34E' /* InList */
+       U$ '4ADE45A30772' /* List */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_List
+         %UID '506DF02C24FC'
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // f_List
+        SUMMONED PRIVATE <<Attribute>> f_InList
+         %UID '5CD4D44C867B'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_InList
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID 'F9EA34A79D53'
+         %SUMMARY 'Конструктор TQuery_SetList_Params' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aList
+            %UID '9EAA46A7E5D0'
+            %TARGET U$ '47F20DEA0340' /* IdeList */
+            %TOBEINCLUDED
+             U$ '4A9FFD3F01AD' /* Search */
+            ; // %TOBEINCLUDED
+           ; // aList
+           SUMMONED <<in>> aInList
+            %UID '9EAA46A7E5D1'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aInList
+         ; // %PARAMETERS
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID '3AE900F4AB8F'
+         %SUMMARY 'Фабрика TQuery_SetList_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aList
+            %UID '0D2FD08B9B5A'
+            %TARGET U$ '47F20DEA0340' /* IdeList */
+            %TOBEINCLUDED
+             U$ '4A9FFD3F01AD' /* Search */
+            ; // %TOBEINCLUDED
+           ; // aList
+           SUMMONED <<in>> aInList
+            %UID '0D2FD08B9B5B'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aInList
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TQuery_SetList_Params
+     SUMMONED <<SimpleClass>> Op_Query_SetList
+      %UID 'F943B05D3AA0'
+      %SUMMARY 'Класс для вызова операции Query.SetList' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$6AD1C03C3FB3
+         %UID '6AD1C03C3FB3'
+         %SUMMARY 'Вызов операции Query.SetList у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '845323455BA7'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aList
+            %UID '845323455BA8'
+            %TARGET U$ '47F20DEA0340' /* IdeList */
+            %TOBEINCLUDED
+             U$ '4A9FFD3F01AD' /* Search */
+            ; // %TOBEINCLUDED
+           ; // aList
+           SUMMONED <<in>> aInList
+            %UID '845323455BA9'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aInList
+         ; // %PARAMETERS
+        ; // Call$6AD1C03C3FB3
+        SUMMONED FINAL <<static>> Call$9B11802ACA03
+         %UID '9B11802ACA03'
+         %SUMMARY 'Вызов операции Query.SetList у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '3DDB69D3216D'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aList
+            %UID '3DDB69D3216E'
+            %TARGET U$ '47F20DEA0340' /* IdeList */
+            %TOBEINCLUDED
+             U$ '4A9FFD3F01AD' /* Search */
+            ; // %TOBEINCLUDED
+           ; // aList
+           SUMMONED <<in>> aInList
+            %UID '3DDB69D3216F'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aInList
+         ; // %PARAMETERS
+        ; // Call$9B11802ACA03
+        SUMMONED FINAL <<static>> Call$38B33B5801A6
+         %UID '38B33B5801A6'
+         %SUMMARY 'Вызов операции Query.SetList у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '77A1A360FADB'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aList
+            %UID '77A1A360FADC'
+            %TARGET U$ '47F20DEA0340' /* IdeList */
+            %TOBEINCLUDED
+             U$ '4A9FFD3F01AD' /* Search */
+            ; // %TOBEINCLUDED
+           ; // aList
+           SUMMONED <<in>> aInList
+            %UID '77A1A360FADD'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aInList
+         ; // %PARAMETERS
+        ; // Call$38B33B5801A6
+        SUMMONED FINAL <<static>> Call$5A2026DB8504
+         %UID '5A2026DB8504'
+         %SUMMARY 'Вызов операции Query.SetList у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '45D4A3305DFE'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aList
+            %UID '45D4A3305DFF'
+            %TARGET U$ '47F20DEA0340' /* IdeList */
+            %TOBEINCLUDED
+             U$ '4A9FFD3F01AD' /* Search */
+            ; // %TOBEINCLUDED
+           ; // aList
+           SUMMONED <<in>> aInList
+            %UID '45D4A3305E00'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aInList
+         ; // %PARAMETERS
+        ; // Call$5A2026DB8504
+      ; // %OPERATIONS
+     ; // Op_Query_SetList
+     SUMMONED <<Facet>> IQuery_GetList_Params
+      %UID '1CD01D880F0D'
+      %SUMMARY 'Параметры для операции Query.GetList' ;
+      %TOBEINCLUDED
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<property>> ResultValue
+         %UID '8776CEB648C1'
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // ResultValue
+      ; // %ATTRIBUTES
+     ; // IQuery_GetList_Params
+     SUMMONED PRIVATE <<SimpleClass>> TQuery_GetList_Params
+      %UID '91596A0DE58C'
+      %SUMMARY 'Реализация IQuery_GetList_Params' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A9FFD3F01AD' /* Search */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '1CD01D880F0D' /* IQuery_GetList_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '8776CEB648C1' /* ResultValue */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_ResultValue
+         %UID 'C13EB6E0CC17'
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // f_ResultValue
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID '985895464316'
+         %SUMMARY 'Конструктор TQuery_GetList_Params' ;
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID '4AAB03AFE5C2'
+         %SUMMARY 'Фабрика TQuery_GetList_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+      ; // %OPERATIONS
+     ; // TQuery_GetList_Params
+     SUMMONED <<SimpleClass>> Op_Query_GetList
+      %UID 'C293BA5D4F59'
+      %SUMMARY 'Класс для вызова операции Query.GetList' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$4974D3E91A9B
+         %UID '4974D3E91A9B'
+         %SUMMARY 'Вызов операции Query.GetList у сущности' ;
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'E413682ECF1C'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$4974D3E91A9B
+        SUMMONED FINAL <<static>> Call$2C7890CCA4EC
+         %UID '2C7890CCA4EC'
+         %SUMMARY 'Вызов операции Query.GetList у агрегации' ;
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'EC911A430C33'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$2C7890CCA4EC
+        SUMMONED FINAL <<static>> Call$E8AB84B99857
+         %UID 'E8AB84B99857'
+         %SUMMARY 'Вызов операции Query.GetList у формы' ;
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'A294DFBD9DA3'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$E8AB84B99857
+        SUMMONED FINAL <<static>> Call$D0BC1262EB0D
+         %UID 'D0BC1262EB0D'
+         %SUMMARY 'Вызов операции Query.GetList у контейнера' ;
+         %TARGET U$ '47F20DEA0340' /* IdeList */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'A74C552E666C'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$D0BC1262EB0D
+      ; // %OPERATIONS
+     ; // Op_Query_GetList
+     SUMMONED <<Facet>> IFilterable_Add_Params
+      %UID '840DD5760812'
+      %SUMMARY 'Параметры для операции Filterable.Add' ;
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<readonly>> Filter
+         %UID 'B0302A564BD0'
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Filter
+        SUMMONED ABSTRACT <<property>> ResultValue
+         %UID '6F2956910C17'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ResultValue
+      ; // %ATTRIBUTES
+     ; // IFilterable_Add_Params
+     SUMMONED PRIVATE <<SimpleClass>> TFilterable_Add_Params
+      %UID 'BCE5C0A2AB61'
+      %SUMMARY 'Реализация IFilterable_Add_Params' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '840DD5760812' /* IFilterable_Add_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '6F2956910C17' /* ResultValue */
+       U$ 'B0302A564BD0' /* Filter */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_Filter
+         %UID '96D619439BF4'
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Filter
+        SUMMONED PRIVATE <<Attribute>> f_ResultValue
+         %UID '9DF76C757007'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_ResultValue
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID 'DFDFD80C8371'
+         %SUMMARY 'Конструктор TFilterable_Add_Params' ;
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aFilter
+            %UID '3AFE7E3D0473'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID '6A5EDAA21902'
+         %SUMMARY 'Фабрика TFilterable_Add_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aFilter
+            %UID '7B8435979298'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TFilterable_Add_Params
+     SUMMONED <<SimpleClass>> Op_Filterable_Add
+      %UID '28D03FE2C7BD'
+      %SUMMARY 'Класс для вызова операции Filterable.Add' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$483AF9E6B196
+         %UID '483AF9E6B196'
+         %SUMMARY 'Вызов операции Filterable.Add у сущности' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '1E9AE2A28176'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aFilter
+            %UID '1E9AE2A28177'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Call$483AF9E6B196
+        SUMMONED FINAL <<static>> Call$787AB9D63BE6
+         %UID '787AB9D63BE6'
+         %SUMMARY 'Вызов операции Filterable.Add у агрегации' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '8F22FA88A95C'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aFilter
+            %UID '8F22FA88A95D'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Call$787AB9D63BE6
+        SUMMONED FINAL <<static>> Call$74EE31B6C21B
+         %UID '74EE31B6C21B'
+         %SUMMARY 'Вызов операции Filterable.Add у формы' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '25EA09BA81CE'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aFilter
+            %UID '25EA09BA81CF'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Call$74EE31B6C21B
+        SUMMONED FINAL <<static>> Call$5E62F21A402B
+         %UID '5E62F21A402B'
+         %SUMMARY 'Вызов операции Filterable.Add у контейнера' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'C4EF60DEE2E5'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aFilter
+            %UID 'C4EF60DEE2E6'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Call$5E62F21A402B
+      ; // %OPERATIONS
+     ; // Op_Filterable_Add
+     SUMMONED <<Facet>> IFilterable_Delete_Params
+      %UID 'F45A35CB89E2'
+      %SUMMARY 'Параметры для операции Filterable.Delete' ;
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<readonly>> Filter
+         %UID '154DBFBF4A65'
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Filter
+        SUMMONED ABSTRACT <<property>> ResultValue
+         %UID '75CABD471215'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ResultValue
+      ; // %ATTRIBUTES
+     ; // IFilterable_Delete_Params
+     SUMMONED PRIVATE <<SimpleClass>> TFilterable_Delete_Params
+      %UID '3DC7EADDB21D'
+      %SUMMARY 'Реализация IFilterable_Delete_Params' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ 'F45A35CB89E2' /* IFilterable_Delete_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '154DBFBF4A65' /* Filter */
+       U$ '75CABD471215' /* ResultValue */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_Filter
+         %UID 'BC64662F09F4'
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Filter
+        SUMMONED PRIVATE <<Attribute>> f_ResultValue
+         %UID 'A9BE8CF98B0D'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_ResultValue
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID 'ECB894B739F7'
+         %SUMMARY 'Конструктор TFilterable_Delete_Params' ;
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aFilter
+            %UID 'DDBAF422789A'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID '612B0C5F66C8'
+         %SUMMARY 'Фабрика TFilterable_Delete_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aFilter
+            %UID '5899BDEC5B05'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TFilterable_Delete_Params
+     SUMMONED <<SimpleClass>> Op_Filterable_Delete
+      %UID 'DD4274BF7286'
+      %SUMMARY 'Класс для вызова операции Filterable.Delete' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$BA7B6FA09D05
+         %UID 'BA7B6FA09D05'
+         %SUMMARY 'Вызов операции Filterable.Delete у сущности' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'FA2A6DA95F74'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aFilter
+            %UID 'FA2A6DA95F75'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Call$BA7B6FA09D05
+        SUMMONED FINAL <<static>> Call$EABB2F8F2755
+         %UID 'EABB2F8F2755'
+         %SUMMARY 'Вызов операции Filterable.Delete у агрегации' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '63A3D9FA430D'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aFilter
+            %UID '63A3D9FA430E'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Call$EABB2F8F2755
+        SUMMONED FINAL <<static>> Call$8F4E1715FE92
+         %UID '8F4E1715FE92'
+         %SUMMARY 'Вызов операции Filterable.Delete у формы' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '49A0B9642B26'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aFilter
+            %UID '49A0B9642B27'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Call$8F4E1715FE92
+        SUMMONED FINAL <<static>> Call$1DFCDA920C0A
+         %UID '1DFCDA920C0A'
+         %SUMMARY 'Вызов операции Filterable.Delete у контейнера' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '06AF0D8C7800'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aFilter
+            %UID '06AF0D8C7801'
+            %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // Call$1DFCDA920C0A
+      ; // %OPERATIONS
+     ; // Op_Filterable_Delete
+     SUMMONED <<SimpleClass>> Op_Filterable_ClearAll
+      %UID 'C53C53060F28'
+      %SUMMARY 'Класс для вызова операции Filterable.ClearAll' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$B1D92B2753F0
+         %UID 'B1D92B2753F0'
+         %SUMMARY 'Вызов операции Filterable.ClearAll у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'EB8EBB1DE184'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$B1D92B2753F0
+        SUMMONED FINAL <<static>> Call$E218EB15DE40
+         %UID 'E218EB15DE40'
+         %SUMMARY 'Вызов операции Filterable.ClearAll у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '094EA390E239'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$E218EB15DE40
+        SUMMONED FINAL <<static>> Call$C0CDDB8CB55B
+         %UID 'C0CDDB8CB55B'
+         %SUMMARY 'Вызов операции Filterable.ClearAll у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'B14CAAC9418D'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$C0CDDB8CB55B
+        SUMMONED FINAL <<static>> Call$DB48ACC9905D
+         %UID 'DB48ACC9905D'
+         %SUMMARY 'Вызов операции Filterable.ClearAll у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'C0A58E3A3188'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$DB48ACC9905D
+      ; // %OPERATIONS
+     ; // Op_Filterable_ClearAll
+     SUMMONED <<Facet>> IFilterable_Refresh_Params
+      %UID '7DA8E7223366'
+      %SUMMARY 'Параметры для операции Filterable.Refresh' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<property>> ResultValue
+         %UID '9C4792A97B5B'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ResultValue
+      ; // %ATTRIBUTES
+     ; // IFilterable_Refresh_Params
+     SUMMONED PRIVATE <<SimpleClass>> TFilterable_Refresh_Params
+      %UID 'C7169C345BA0'
+      %SUMMARY 'Реализация IFilterable_Refresh_Params' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '7DA8E7223366' /* IFilterable_Refresh_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '9C4792A97B5B' /* ResultValue */
+      ; // %REALIZES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_ResultValue
+         %UID '0069FCF78BE4'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_ResultValue
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID 'CA1CA04931DA'
+         %SUMMARY 'Конструктор TFilterable_Refresh_Params' ;
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID 'E3029A66FED5'
+         %SUMMARY 'Фабрика TFilterable_Refresh_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+      ; // %OPERATIONS
+     ; // TFilterable_Refresh_Params
+     SUMMONED <<SimpleClass>> Op_Filterable_Refresh
+      %UID '5FF6726F2A10'
+      %SUMMARY 'Класс для вызова операции Filterable.Refresh' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$3EB17DD0346B
+         %UID '3EB17DD0346B'
+         %SUMMARY 'Вызов операции Filterable.Refresh у сущности' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'F02835730F3C'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$3EB17DD0346B
+        SUMMONED FINAL <<static>> Call$6EF13DBEBEBB
+         %UID '6EF13DBEBEBB'
+         %SUMMARY 'Вызов операции Filterable.Refresh у агрегации' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '8866ECE40F33'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$6EF13DBEBEBB
+        SUMMONED FINAL <<static>> Call$1D473E14703C
+         %UID '1D473E14703C'
+         %SUMMARY 'Вызов операции Filterable.Refresh у формы' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '49F0E9FF1AED'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$1D473E14703C
+        SUMMONED FINAL <<static>> Call$899325AB3D1A
+         %UID '899325AB3D1A'
+         %SUMMARY 'Вызов операции Filterable.Refresh у контейнера' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '6A453677B2A0'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$899325AB3D1A
+      ; // %OPERATIONS
+     ; // Op_Filterable_Refresh
+     SUMMONED <<Facet>> IFilterable_GetListType_Params
+      %UID '4A4954F7C8D6'
+      %SUMMARY 'Параметры для операции Filterable.GetListType' ;
+      %TOBEINCLUDED
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<property>> ResultValue
+         %UID '37E535CCE119'
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // ResultValue
+      ; // %ATTRIBUTES
+     ; // IFilterable_GetListType_Params
+     SUMMONED PRIVATE <<SimpleClass>> TFilterable_GetListType_Params
+      %UID '24D539CEBDE0'
+      %SUMMARY 'Реализация IFilterable_GetListType_Params' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4A4954F7C8D6' /* IFilterable_GetListType_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '37E535CCE119' /* ResultValue */
+      ; // %REALIZES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_ResultValue
+         %UID 'CD53C75540FF'
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_ResultValue
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID '3419BA94AF0B'
+         %SUMMARY 'Конструктор TFilterable_GetListType_Params' ;
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID '50FBF914C5CF'
+         %SUMMARY 'Фабрика TFilterable_GetListType_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+      ; // %OPERATIONS
+     ; // TFilterable_GetListType_Params
+     SUMMONED <<SimpleClass>> Op_Filterable_GetListType
+      %UID '4C841BEBC825'
+      %SUMMARY 'Класс для вызова операции Filterable.GetListType' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$9A8CDB10DE70
+         %UID '9A8CDB10DE70'
+         %SUMMARY 'Вызов операции Filterable.GetListType у сущности' ;
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '50A97B2C3008'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$9A8CDB10DE70
+        SUMMONED FINAL <<static>> Call$CACC9B0068C0
+         %UID 'CACC9B0068C0'
+         %SUMMARY 'Вызов операции Filterable.GetListType у агрегации' ;
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '9E9EE0C69987'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$CACC9B0068C0
+        SUMMONED FINAL <<static>> Call$61F5544DB1CE
+         %UID '61F5544DB1CE'
+         %SUMMARY 'Вызов операции Filterable.GetListType у формы' ;
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'F3EF1AAB8DA2'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$61F5544DB1CE
+        SUMMONED FINAL <<static>> Call$6B91C9D5E47F
+         %UID '6B91C9D5E47F'
+         %SUMMARY 'Вызов операции Filterable.GetListType у контейнера' ;
+         %TARGET U$ '47F5C59F0135' /* TbsListType */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '685D85763AFF'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$6B91C9D5E47F
+      ; // %OPERATIONS
+     ; // Op_Filterable_GetListType
+     SUMMONED <<Facet>> ILoadable_Load_Params
+      %UID '8678366B1711'
+      %SUMMARY 'Параметры для операции Loadable.Load' ;
+      %TOBEINCLUDED
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<readonly>> Node
+         %UID '0F66BD1D3613'
+         %TARGET U$ '4912DD2C0082' /* IeeNode */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+         ; // %TOBEINCLUDED
+        ; // Node
+        SUMMONED ABSTRACT <<readonly>> Data
+         %UID 'B61D968AA3C8'
+         %TARGET U$ '46A451250363' /* IUnknown */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Data
+        SUMMONED ABSTRACT <<readonly>> nOp
+         %UID 'BDC8C92C149D'
+         %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // nOp
+        SUMMONED ABSTRACT <<property>> ResultValue
+         %UID '3F4281AEF00F'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ResultValue
+      ; // %ATTRIBUTES
+     ; // ILoadable_Load_Params
+     SUMMONED PRIVATE <<SimpleClass>> TLoadable_Load_Params
+      %UID 'FB0182F0ED90'
+      %SUMMARY 'Реализация ILoadable_Load_Params' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '8678366B1711' /* ILoadable_Load_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '0F66BD1D3613' /* Node */
+       U$ '3F4281AEF00F' /* ResultValue */
+       U$ 'B61D968AA3C8' /* Data */
+       U$ 'BDC8C92C149D' /* nOp */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_Node
+         %UID 'E8A00338B3C9'
+         %TARGET U$ '4912DD2C0082' /* IeeNode */
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+         ; // %TOBEINCLUDED
+        ; // f_Node
+        SUMMONED PRIVATE <<Attribute>> f_Data
+         %UID '374F6F988A57'
+         %TARGET U$ '46A451250363' /* IUnknown */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Data
+        SUMMONED PRIVATE <<Attribute>> f_nOp
+         %UID 'DF8F18263F1D'
+         %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_nOp
+        SUMMONED PRIVATE <<Attribute>> f_ResultValue
+         %UID '2DFCDBB91327'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_ResultValue
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID 'F7AF7F0AB91D'
+         %SUMMARY 'Конструктор TLoadable_Load_Params' ;
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aNode
+            %UID 'E815CE57BDF3'
+            %TARGET U$ '4912DD2C0082' /* IeeNode */
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           SUMMONED <<in>> aData
+            %UID 'E815CE57BDF4'
+            %TARGET U$ '46A451250363' /* IUnknown */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           SUMMONED <<in>> anOp
+            %UID 'E815CE57BDF5'
+            %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // anOp
+         ; // %PARAMETERS
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID '1D18FB7A6CFD'
+         %SUMMARY 'Фабрика TLoadable_Load_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aNode
+            %UID '1E88C7744998'
+            %TARGET U$ '4912DD2C0082' /* IeeNode */
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           SUMMONED <<in>> aData
+            %UID '1E88C7744999'
+            %TARGET U$ '46A451250363' /* IUnknown */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           SUMMONED <<in>> anOp
+            %UID '1E88C774499A'
+            %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // anOp
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TLoadable_Load_Params
+     SUMMONED <<SimpleClass>> Op_Loadable_Load
+      %UID 'D5342FDC6257'
+      %SUMMARY 'Класс для вызова операции Loadable.Load' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$2AA9C5E3617A
+         %UID '2AA9C5E3617A'
+         %SUMMARY 'Вызов операции Loadable.Load у сущности' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '12A33EFCF068'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aNode
+            %UID '12A33EFCF069'
+            %TARGET U$ '4912DD2C0082' /* IeeNode */
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           SUMMONED <<in>> aData
+            %UID '12A33EFCF06A'
+            %TARGET U$ '46A451250363' /* IUnknown */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           SUMMONED <<in>> anOp
+            %UID '12A33EFCF06B'
+            %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+            %VALUE 'LLO_NONE'
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // anOp
+         ; // %PARAMETERS
+        ; // Call$2AA9C5E3617A
+        SUMMONED FINAL <<static>> Call$5AE985D1EBCA
+         %UID '5AE985D1EBCA'
+         %SUMMARY 'Вызов операции Loadable.Load у агрегации' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '8AFAC17658B5'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aNode
+            %UID '8AFAC17658B6'
+            %TARGET U$ '4912DD2C0082' /* IeeNode */
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           SUMMONED <<in>> aData
+            %UID '8AFAC17658B7'
+            %TARGET U$ '46A451250363' /* IUnknown */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           SUMMONED <<in>> anOp
+            %UID '8AFAC17658B8'
+            %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+            %VALUE 'LLO_NONE'
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // anOp
+         ; // %PARAMETERS
+        ; // Call$5AE985D1EBCA
+        SUMMONED FINAL <<static>> Call$7C79B405A668
+         %UID '7C79B405A668'
+         %SUMMARY 'Вызов операции Loadable.Load у формы' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'AE151B5E557F'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aNode
+            %UID 'AE151B5E5580'
+            %TARGET U$ '4912DD2C0082' /* IeeNode */
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           SUMMONED <<in>> aData
+            %UID 'AE151B5E5581'
+            %TARGET U$ '46A451250363' /* IUnknown */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           SUMMONED <<in>> anOp
+            %UID 'AE151B5E5582'
+            %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+            %VALUE 'LLO_NONE'
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // anOp
+         ; // %PARAMETERS
+        ; // Call$7C79B405A668
+        SUMMONED FINAL <<static>> Call$D84A269495D4
+         %UID 'D84A269495D4'
+         %SUMMARY 'Вызов операции Loadable.Load у контейнера' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '168A269E1D23'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+           SUMMONED <<in>> aNode
+            %UID '168A269E1D24'
+            %TARGET U$ '4912DD2C0082' /* IeeNode */
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           SUMMONED <<in>> aData
+            %UID '168A269E1D25'
+            %TARGET U$ '46A451250363' /* IUnknown */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           SUMMONED <<in>> anOp
+            %UID '168A269E1D26'
+            %TARGET U$ '47F2791D019A' /* TListLogicOperation */
+            %VALUE 'LLO_NONE'
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // anOp
+         ; // %PARAMETERS
+        ; // Call$D84A269495D4
+      ; // %OPERATIONS
+     ; // Op_Loadable_Load
+     SUMMONED <<Facet>> IFilters_GetSelected_Params
+      %UID 'C13FFDD5C665'
+      %SUMMARY 'Параметры для операции Filters.GetSelected' ;
+      %META
+       %upv "ifndef" 'Monitorings'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED ABSTRACT <<property>> ResultValue
+         %UID '9E9C3B7101C7'
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // ResultValue
+      ; // %ATTRIBUTES
+     ; // IFilters_GetSelected_Params
+     SUMMONED PRIVATE <<SimpleClass>> TFilters_GetSelected_Params
+      %UID 'FA17E90269B4'
+      %SUMMARY 'Реализация IFilters_GetSelected_Params' ;
+      %META
+       %upv "ifndef" 'Monitorings'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ 'C13FFDD5C665' /* IFilters_GetSelected_Params */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '9E9C3B7101C7' /* ResultValue */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        SUMMONED PRIVATE <<Attribute>> f_ResultValue
+         %UID '33B735BCFAB4'
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_ResultValue
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<ctor>> Create
+         %UID 'FD69D90EA0AA'
+         %SUMMARY 'Конструктор TFilters_GetSelected_Params' ;
+        ; // Create
+        SUMMONED FINAL <<factory>> Make
+         %UID 'AFB42FA6E4D6'
+         %SUMMARY 'Фабрика TFilters_GetSelected_Params' ;
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+      ; // %OPERATIONS
+     ; // TFilters_GetSelected_Params
+     SUMMONED <<SimpleClass>> Op_Filters_GetSelected
+      %UID '5412E29D88CA'
+      %SUMMARY 'Класс для вызова операции Filters.GetSelected' ;
+      %META
+       %upv "ifndef" 'Monitorings'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$2BFD88BD4C44
+         %UID '2BFD88BD4C44'
+         %SUMMARY 'Вызов операции Filters.GetSelected у сущности' ;
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '681D48846279'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$2BFD88BD4C44
+        SUMMONED FINAL <<static>> Call$5C3D48ABD694
+         %UID '5C3D48ABD694'
+         %SUMMARY 'Вызов операции Filters.GetSelected у агрегации' ;
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '3C5A46B4FFB8'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$5C3D48ABD694
+        SUMMONED FINAL <<static>> Call$4278F3FECAD6
+         %UID '4278F3FECAD6'
+         %SUMMARY 'Вызов операции Filters.GetSelected у формы' ;
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'A5C09BA0D3A7'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$4278F3FECAD6
+        SUMMONED FINAL <<static>> Call$411F034B11B9
+         %UID '411F034B11B9'
+         %SUMMARY 'Вызов операции Filters.GetSelected у контейнера' ;
+         %TARGET U$ '45EEB14402F9' /* FiltersFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '64C9B7ADF57C'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$411F034B11B9
+      ; // %OPERATIONS
+     ; // Op_Filters_GetSelected
+     SUMMONED <<SimpleClass>> Op_SearchParameter_QueryNotSaved
+      %UID '0162D650D011'
+      %SUMMARY 'Класс для вызова операции SearchParameter.QueryNotSaved' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$5DDE3D1661B8
+         %UID '5DDE3D1661B8'
+         %SUMMARY 'Вызов операции SearchParameter.QueryNotSaved у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'C121B0E8FDF9'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$5DDE3D1661B8
+        SUMMONED FINAL <<static>> Call$8E1DFD05EC08
+         %UID '8E1DFD05EC08'
+         %SUMMARY 'Вызов операции SearchParameter.QueryNotSaved у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '9E5795769F01'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$8E1DFD05EC08
+        SUMMONED FINAL <<static>> Call$296ACD2603A6
+         %UID '296ACD2603A6'
+         %SUMMARY 'Вызов операции SearchParameter.QueryNotSaved у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'E6698609CD3E'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$296ACD2603A6
+        SUMMONED FINAL <<static>> Call$34D4CD1F3C0A
+         %UID '34D4CD1F3C0A'
+         %SUMMARY 'Вызов операции SearchParameter.QueryNotSaved у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '8B17F7CF20C4'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$34D4CD1F3C0A
+      ; // %OPERATIONS
+     ; // Op_SearchParameter_QueryNotSaved
+     SUMMONED <<SimpleClass>> Op_SearchParameter_ClearMistakes
+      %UID 'D46134017F77'
+      %SUMMARY 'Класс для вызова операции SearchParameter.ClearMistakes' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$3E2264E33551
+         %UID '3E2264E33551'
+         %SUMMARY 'Вызов операции SearchParameter.ClearMistakes у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '2B7A0E3554FA'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$3E2264E33551
+        SUMMONED FINAL <<static>> Call$6E6224D1BFA1
+         %UID '6E6224D1BFA1'
+         %SUMMARY 'Вызов операции SearchParameter.ClearMistakes у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'E50254C21ABF'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$6E6224D1BFA1
+        SUMMONED FINAL <<static>> Call$0A6DA23005B9
+         %UID '0A6DA23005B9'
+         %SUMMARY 'Вызов операции SearchParameter.ClearMistakes у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'EB68EA730936'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$0A6DA23005B9
+        SUMMONED FINAL <<static>> Call$339492F0CD95
+         %UID '339492F0CD95'
+         %SUMMARY 'Вызов операции SearchParameter.ClearMistakes у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '2DAF930D65A4'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$339492F0CD95
+      ; // %OPERATIONS
+     ; // Op_SearchParameter_ClearMistakes
+     SUMMONED <<SimpleClass>> Op_SearchParameter_QuerySaved
+      %UID 'BC5EACC49125'
+      %SUMMARY 'Класс для вызова операции SearchParameter.QuerySaved' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$65DABB70416D
+         %UID '65DABB70416D'
+         %SUMMARY 'Вызов операции SearchParameter.QuerySaved у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '2256FD68C3AE'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$65DABB70416D
+        SUMMONED FINAL <<static>> Call$961A7B5ECBBD
+         %UID '961A7B5ECBBD'
+         %SUMMARY 'Вызов операции SearchParameter.QuerySaved у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'F1A6947A96FA'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$961A7B5ECBBD
+        SUMMONED FINAL <<static>> Call$4263FFCEEC3E
+         %UID '4263FFCEEC3E'
+         %SUMMARY 'Вызов операции SearchParameter.QuerySaved у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'ED5E5E6005C8'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$4263FFCEEC3E
+        SUMMONED FINAL <<static>> Call$527559CE7E19
+         %UID '527559CE7E19'
+         %SUMMARY 'Вызов операции SearchParameter.QuerySaved у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'A6B4ED73F47F'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$527559CE7E19
+      ; // %OPERATIONS
+     ; // Op_SearchParameter_QuerySaved
+     SUMMONED <<SimpleClass>> Op_PrintParams_UpdatePrinter
+      %UID '5260E2A845F0'
+      %SUMMARY 'Класс для вызова операции PrintParams.UpdatePrinter' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$EDE528FAE008
+         %UID 'EDE528FAE008'
+         %SUMMARY 'Вызов операции PrintParams.UpdatePrinter у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '9DBB03B4EA00'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$EDE528FAE008
+        SUMMONED FINAL <<static>> Call$1E24E8EA6A59
+         %UID '1E24E8EA6A59'
+         %SUMMARY 'Вызов операции PrintParams.UpdatePrinter у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '256B38593596'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$1E24E8EA6A59
+        SUMMONED FINAL <<static>> Call$7E15D37D2E87
+         %UID '7E15D37D2E87'
+         %SUMMARY 'Вызов операции PrintParams.UpdatePrinter у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '53C8853793D1'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$7E15D37D2E87
+        SUMMONED FINAL <<static>> Call$64F01184BBCD
+         %UID '64F01184BBCD'
+         %SUMMARY 'Вызов операции PrintParams.UpdatePrinter у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '4DA4D65A8221'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$64F01184BBCD
+        SUMMONED FINAL <<static>> Broadcast
+         %UID '9EF735C41D6A'
+         %SUMMARY 'Вызов операции PrintParams.UpdatePrinter у всех зарегистрированных сущностей' ;
+        ; // Broadcast
+      ; // %OPERATIONS
+     ; // Op_PrintParams_UpdatePrinter
+     SUMMONED <<SimpleClass>> Op_List_SetNewContent
+      %UID '6A389B232D6E'
+      %SUMMARY 'Класс для вызова операции List.SetNewContent' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$082D4BD6C217
+         %UID '082D4BD6C217'
+         %SUMMARY 'Вызов операции List.SetNewContent у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'D02BCC004AC0'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$082D4BD6C217
+        SUMMONED FINAL <<static>> Call$386D0BC64C67
+         %UID '386D0BC64C67'
+         %SUMMARY 'Вызов операции List.SetNewContent у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'D00F3AA0BE20'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$386D0BC64C67
+        SUMMONED FINAL <<static>> Call$A64278B83E3E
+         %UID 'A64278B83E3E'
+         %SUMMARY 'Вызов операции List.SetNewContent у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'EEED9DF965EA'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$A64278B83E3E
+        SUMMONED FINAL <<static>> Call$86336FA52647
+         %UID '86336FA52647'
+         %SUMMARY 'Вызов операции List.SetNewContent у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '9CA7EAFC96D3'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$86336FA52647
+      ; // %OPERATIONS
+     ; // Op_List_SetNewContent
+   ; // %CHILDREN
+  ; // Strange
+  <<Interfaces>> PrimeDomainInterfaces
+   %UID '4ADF3FBB00C3'
+   %DEPENDS
+    U$ '47BECCB801BE' /* Prime */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '21.10.2009 21:07'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> InsPrimeNode
+      %UID '499032AE00A0'
+      %SUMMARY 'Узел дерева новостных лент' ;
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> Data
+         %UID '499032D40064'
+         %TARGET U$ '47BECCE501B5' /* Prime */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Data
+      ; // %ATTRIBUTES
+     ; // InsPrimeNode
+   ; // %CHILDREN
+  ; // PrimeDomainInterfaces
+  <<VCMModule>> Search
+   %UID '5267C3880201'
+   %DEPENDS
+    U$ '4423F94903C8' /* IO */
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '457450470167' /* DynamicTree */
+    U$ '45EEAA8E034E' /* Search */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '46837A08002C' /* nsQueryInterfaces */
+    U$ '476BF10A0280' /* l3Tree_TLB */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47BECCB801BE' /* Prime */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47E246C90144' /* l3Trees */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '48F747EC0073' /* Common */
+    U$ '4908A8A20107' /* OldTree */
+    U$ '4912DD020283' /* eeInterfaces */
+    U$ '4912E16B01B4' /* "Engine Core" */
+    U$ '4AADF9450143' /* Visual */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4ADF3FBB00C3' /* PrimeDomainInterfaces */
+    U$ '521C9DA50125' /* "Application Resources" */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '54F5D55D00C6' /* CommonNotifications */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'Admin'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '447878770121' /* GCI */
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4954FAA00232' /* Search */
+    U$ '4986ECDF01F4' /* View */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '5257E836001C' /* View$Strange */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> nsPostingsLine
+      %UID '4AAF93E201FD'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '447878770121' /* GCI */
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4954FAA00232' /* Search */
+       U$ '4986ECDF01F4' /* View */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4ADF433701AC"
+         %UID '4ADF433701AC'
+         %TARGET U$ '4AC21C8401A8' /* TnsPrimeNode */
+        ; // 4ADF433701AC
+        <<uses>> "52FA112C0135"
+         %UID '52FA112C0135'
+         %TARGET U$ '4ADDF51A00B8' /* TnsRootNode */
+        ; // 52FA112C0135
+        <<uses>> "52FA13360164"
+         %UID '52FA13360164'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 52FA13360164
+        <<uses>> "52FA1350016D"
+         %UID '52FA1350016D'
+         %TARGET U$ '47752AF90375' /* afwFacade */
+        ; // 52FA1350016D
+        <<uses>> "52FA13650129"
+         %UID '52FA13650129'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 52FA13650129
+        <<uses>> "52FA13850203"
+         %UID '52FA13850203'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 52FA13850203
+        <<uses>> "52FA1388019F"
+         %UID '52FA1388019F'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 52FA1388019F
+        <<uses>> "52FA13A701F4"
+         %UID '52FA13A701F4'
+         %TARGET U$ '4A6854C70390' /* nsTypes */
+        ; // 52FA13A701F4
+        <<uses>> "52FA13CA0369"
+         %UID '52FA13CA0369'
+         %TARGET U$ '47C80D8E019B' /* DuplicateName */
+        ; // 52FA13CA0369
+        <<uses>> "52FA13E20036"
+         %UID '52FA13E20036'
+         %TARGET U$ '4E01D696020C' /* vcmMessagesSupport */
+        ; // 52FA13E20036
+        <<uses>> "52FA13FD02E6"
+         %UID '52FA13FD02E6'
+         %TARGET U$ '499032AE00A0' /* InsPrimeNode */
+        ; // 52FA13FD02E6
+        <<uses>> "52FA14520205"
+         %UID '52FA14520205'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 52FA14520205
+        <<uses>> "52FA14740075"
+         %UID '52FA14740075'
+         %TARGET U$ '45EEC3DE0232' /* FlagsConst */
+        ; // 52FA14740075
+        <<uses>> "52FA14A2022F"
+         %UID '52FA14A2022F'
+         %TARGET U$ '4912E178000B' /* eeTreeMisc */
+        ; // 52FA14A2022F
+        <<uses>> "52FA14BB01DF"
+         %UID '52FA14BB01DF'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 52FA14BB01DF
+        <<uses>> "52FA14E902A5"
+         %UID '52FA14E902A5'
+         %TARGET U$ '4E01D1980071' /* l3MessageID */
+        ; // 52FA14E902A5
+        <<uses>> "52FA1501030C"
+         %UID '52FA1501030C'
+         %TARGET U$ '4AB0EE02004E' /* Dialogs */
+        ; // 52FA1501030C
+        <<uses>> "52FA15160056"
+         %UID '52FA15160056'
+         %TARGET U$ '47F25741021C' /* l3Nodes */
+        ; // 52FA15160056
+        <<uses>> "52FA255701F0"
+         %UID '52FA255701F0'
+         %TARGET U$ '47BECCE501B5' /* Prime */
+        ; // 52FA255701F0
+      ; // %LINKS
+      %CHILDREN
+       
+        <<Function>> TnsAddEvent
+         %UID '52F9F698015D'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '52F9F6A40349'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aIndex
+               %UID '52F9F6A801E9'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aIndex
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TnsAddEvent
+        <<Function>> TnsCaptionChangeEvent
+         %UID '52F9F6DD0372'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '52F9F717007B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aIndex
+               %UID '52F9F71C020C'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aIndex
+              <<in>> aNewCaption
+               %UID '52F9F71C0239'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aNewCaption
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TnsCaptionChangeEvent
+        <<SimpleClass>> TnsPostingsTree
+         %UID '4ADEF93B0159'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '447878770121' /* GCI */
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4954FAA00232' /* Search */
+          U$ '4986ECDF01F4' /* View */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+          U$ '5257E836001C' /* View$Strange */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '54F5D8820129' /* If1NotificationListener */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '519A130C00B6' /* TvcmCacheableBase */
+         ; // %INHERITS
+         %REALIZES
+          U$ '54F5D89D02FD' /* ServerDownNotification */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '479731C50290' /* Cleanup */
+          U$ '47A042E100E2' /* InitFields */
+          U$ '5000565C019C' /* ClearFields */
+         ; // %OVERRIDES
+         %ATTRIBUTES
+           FINAL <<readonly>> Root
+            %UID '52F9F7970349'
+            %SUMMARY 'указатель на корневой узел дерева, где хранятся списки рассылок списка рассылок. Фактически "Мои документы" для пользователя "_predefined_data".' ;
+            %TARGET U$ '476BF22B03E1' /* Il3Node */
+            %META
+             %upv "needs field" true
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Root
+           FINAL <<property>> DataChanged
+            %UID '52F9F8150340'
+            %SUMMARY 'флаг изменения окна дерева (удаление или добавление узлов). Если пустое, то флаг автоматически выставляется в False. Реально нужен для проверки перед сохранением списка рассылки на диск.' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DataChanged
+           FINAL <<property>> MgrSearch
+            %UID '52F9F8640074'
+            %SUMMARY 'указатель на менеджер КЗ заказа рассылки. Считается, что он всегда один.' ;
+            %TARGET U$ '468395810205' /* IqaMgrSearch */
+            %META
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4954FAA00232' /* Search */
+            ; // %TOBEINCLUDED
+           ; // MgrSearch
+           PRIVATE <<Attribute>> f_MgrSearch
+            %UID '52F9F89C0261'
+            %SUMMARY 'IqaMgrSearch'#13#10'поле для свойства MgrSearch' ;
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_MgrSearch
+           FINAL <<property>> LastCatalog
+            %UID '52F9F8F100AE'
+            %SUMMARY 'каталог, в который последний раз производилось сохранение.' ;
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // LastCatalog
+           FINAL <<property>> EditNodeIndex
+            %UID '52F9F9200319'
+            %SUMMARY 'индекс редактируемого элемента в дереве (для которого открыта КЗ). Может не соответствовать выделенному.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // EditNodeIndex
+           FINAL <<property>> OldModifed
+            %UID '52F9F9730141'
+            %SUMMARY 'кэширование флага изменения параметров рассылки.' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // OldModifed
+           FINAL <<property>> Closed
+            %UID '52F9F9A602E7'
+            %SUMMARY 'признак того, что приложение закрывается.' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Closed
+           FINAL <<readonly>> NeedLoad
+            %UID '52F9F9C40133'
+            %SUMMARY 'флаг для загрузки данных из первой рассылки в КЗ. Флаг сбрасывается в функции GetFirstQuery.' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // NeedLoad
+           FINAL <<property>> ServerDown
+            %UID '52F9FA40001C'
+            %SUMMARY 'флаг закрытия приложения по выключению сервера.' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // ServerDown
+           FINAL <<readonly>> HasChildren
+            %UID '52F9FA6901B9'
+            %SUMMARY 'наличие новостных лент.' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // HasChildren
+           FINAL <<property>> OnAddNode
+            %UID '52F9FA9500E2'
+            %SUMMARY 'обработчик события добавления узла в дерево.' ;
+            %TARGET U$ '52F9F698015D' /* TnsAddEvent */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '5257E836001C' /* View$Strange */
+            ; // %TOBEINCLUDED
+           ; // OnAddNode
+           FINAL <<property>> OnDelNode
+            %UID '52F9FAB60048'
+            %SUMMARY 'обработчик события удаления узла из дерева.' ;
+            %TARGET U$ '52F9F698015D' /* TnsAddEvent */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '5257E836001C' /* View$Strange */
+            ; // %TOBEINCLUDED
+           ; // OnDelNode
+           FINAL <<property>> OnEditNode
+            %UID '52F9FAD102C3'
+            %SUMMARY 'обработчик изменения названия узла.' ;
+            %TARGET U$ '52F9F6DD0372' /* TnsCaptionChangeEvent */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '5257E836001C' /* View$Strange */
+            ; // %TOBEINCLUDED
+           ; // OnEditNode
+           PROTECTED FINAL <<readonly>> Count
+            %UID '52F9FB13006F'
+            %SUMMARY 'количество тематик. У TnsCacheableNode.ThisChildrenCount справшивать нельзя, значение кешируется. На AdapterNode тоже справшивать не хочется, вдруг там кроме тематик ещё какие-нибудь узлы появятся.'#13#10'Нужно сделать, чтобы TnsPrimeNode наследовался от класса, на котором не кешируется ThisChildrenCount.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Count
+           SUMMONED PRIVATE <<Attribute>> f_Root
+            %UID '0FB002DDC37E'
+            %SUMMARY 'Поле для свойства Root' ;
+            %TARGET U$ '476BF22B03E1' /* Il3Node */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // f_Root
+           SUMMONED PRIVATE <<Attribute>> f_DataChanged
+            %UID 'F0CDA3DF750C'
+            %SUMMARY 'Поле для свойства DataChanged' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_DataChanged
+           SUMMONED PRIVATE <<Attribute>> f_LastCatalog
+            %UID '67A7F5A92F4E'
+            %SUMMARY 'Поле для свойства LastCatalog' ;
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // f_LastCatalog
+           SUMMONED PRIVATE <<Attribute>> f_EditNodeIndex
+            %UID '8E93DAE22BCE'
+            %SUMMARY 'Поле для свойства EditNodeIndex' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_EditNodeIndex
+           SUMMONED PRIVATE <<Attribute>> f_OldModifed
+            %UID '7C837D17985A'
+            %SUMMARY 'Поле для свойства OldModifed' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_OldModifed
+           SUMMONED PRIVATE <<Attribute>> f_Closed
+            %UID '5EF87E0F63BF'
+            %SUMMARY 'Поле для свойства Closed' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Closed
+           SUMMONED PRIVATE <<Attribute>> f_NeedLoad
+            %UID '46F538DD40B3'
+            %SUMMARY 'Поле для свойства NeedLoad' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_NeedLoad
+           SUMMONED PRIVATE <<Attribute>> f_ServerDown
+            %UID 'A127C3D72720'
+            %SUMMARY 'Поле для свойства ServerDown' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_ServerDown
+           SUMMONED PRIVATE <<Attribute>> f_OnAddNode
+            %UID 'C7A641FA2525'
+            %SUMMARY 'Поле для свойства OnAddNode' ;
+            %TARGET U$ '52F9F698015D' /* TnsAddEvent */
+            %TOBEINCLUDED
+             U$ '5257E836001C' /* View$Strange */
+            ; // %TOBEINCLUDED
+           ; // f_OnAddNode
+           SUMMONED PRIVATE <<Attribute>> f_OnDelNode
+            %UID '2DEF46290584'
+            %SUMMARY 'Поле для свойства OnDelNode' ;
+            %TARGET U$ '52F9F698015D' /* TnsAddEvent */
+            %TOBEINCLUDED
+             U$ '5257E836001C' /* View$Strange */
+            ; // %TOBEINCLUDED
+           ; // f_OnDelNode
+           SUMMONED PRIVATE <<Attribute>> f_OnEditNode
+            %UID '952FCDB23895'
+            %SUMMARY 'Поле для свойства OnEditNode' ;
+            %TARGET U$ '52F9F6DD0372' /* TnsCaptionChangeEvent */
+            %TOBEINCLUDED
+             U$ '5257E836001C' /* View$Strange */
+            ; // %TOBEINCLUDED
+           ; // f_OnEditNode
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<method>> LoadChildren
+            %UID '52F9FB7F0011'
+            %SUMMARY 'загружает список рассылок.' ;
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '05DE8A35D9F7'
+               %SUMMARY 'Сигнатура метода LoadChildren' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // LoadChildren
+           PRIVATE FINAL <<method>> LoadSettings
+            %UID '52F9FBB9027F'
+            %SUMMARY 'загружает настройки для дерева.' ;
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'B40A3B464672'
+               %SUMMARY 'Сигнатура метода LoadSettings' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // LoadSettings
+           PRIVATE FINAL <<method>> MakeCurrentPrimeName
+            %UID '52F9FC4C00A0'
+            %TOBEINCLUDED
+             U$ '447878770121' /* GCI */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52F9FC5D01C4'
+               %TARGET U$ '431841610361' /* String */
+               %TOBEINCLUDED
+                U$ '447878770121' /* GCI */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // MakeCurrentPrimeName
+           FINAL <<Constructor>> Create
+            %UID '52F9FCAF0340'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'CDA688ABFED7'
+               %SUMMARY 'Сигнатура метода Create' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Create
+           FINAL <<method>> SaveQuery2Adapter
+            %UID '52F9FCCE016F'
+            %SUMMARY 'сохраняет запрос в базу.' ;
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52F9FCEA0253'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aQuery
+                  %UID '52F9FCF0004E'
+                  %TARGET U$ '45EEE145027B' /* Query */
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                 ; // aQuery
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SaveQuery2Adapter
+           FINAL <<method>> SaveXMLForServer
+            %UID '52F9FD21020E'
+            %SUMMARY 'если новостаная лента была изменена, нужно вылить папки для файл-серверной версии системы.' ;
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'C9561814FB5D'
+               %SUMMARY 'Сигнатура метода SaveXMLForServer' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SaveXMLForServer
+           FINAL <<method>> ChangeCaption
+            %UID '52F9FD4D014F'
+            %SUMMARY 'передает дереву новое значение _Caption редактируемого узла.' ;
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'FE892A7F9791'
+               %SUMMARY 'Сигнатура метода ChangeCaption' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ChangeCaption
+           FINAL <<method>> DeletePosting
+            %UID '52F9FD68005A'
+            %SUMMARY 'удаляет рассылку из списка рассылок (одновременно на адаптере и дереве в оболочке).' ;
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52F9FD71029C'
+               %TOBEINCLUDED
+                U$ '4680E7D50168' /* "Everest Engine" */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aNode
+                  %UID '52F9FD780360'
+                  %TARGET U$ '4912DD2C0082' /* IeeNode */
+                  %TOBEINCLUDED
+                   U$ '4680E7D50168' /* "Everest Engine" */
+                  ; // %TOBEINCLUDED
+                 ; // aNode
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DeletePosting
+           FINAL <<method>> DeleteSelectedPostings
+            %UID '52F9FDC0007C'
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52F9FDC70044'
+               %TOBEINCLUDED
+                U$ '4680E7D50168' /* "Everest Engine" */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aTreeView
+                  %UID '52F9FDCB003B'
+                  %TARGET U$ '4912DD200333' /* IeeTreeView */
+                  %TOBEINCLUDED
+                   U$ '4680E7D50168' /* "Everest Engine" */
+                  ; // %TOBEINCLUDED
+                 ; // aTreeView
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DeleteSelectedPostings
+           FINAL <<method>> ExportSelected
+            %UID '52F9FDDA019A'
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52F9FDE10338'
+               %TOBEINCLUDED
+                U$ '4680E7D50168' /* "Everest Engine" */
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aTreeView
+                  %UID '52F9FDE602ED'
+                  %TARGET U$ '4912DD200333' /* IeeTreeView */
+                  %TOBEINCLUDED
+                   U$ '4680E7D50168' /* "Everest Engine" */
+                  ; // %TOBEINCLUDED
+                 ; // aTreeView
+                 <<in>> aFileName
+                  %UID '52F9FDE60309'
+                  %TARGET U$ '46780DA40383' /* Il3CString */
+                  %TOBEINCLUDED
+                   U$ '4E2F0E1B03BB' /* L3$Domain */
+                  ; // %TOBEINCLUDED
+                 ; // aFileName
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ExportSelected
+           FINAL <<method>> GetFirstQuery
+            %UID '52F9FDF500F5'
+            %SUMMARY 'возвращает запрос для первой рассылки в списке.' ;
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52F9FDFB0131'
+               %TARGET U$ '45EEE145027B' /* Query */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetFirstQuery
+           FINAL <<method>> SaveOrCreateQuery
+            %UID '52F9FE130263'
+            %SUMMARY 'чтобы не мотаться по формам, сделан некоторый реверанс в сторону "ручного" программирования, тем более, что все данные для этого есть.' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52F9FE1901ED'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SaveOrCreateQuery
+         ; // %OPERATIONS
+        ; // TnsPostingsTree
+      ; // %CHILDREN
+     ; // nsPostingsLine
+     FINAL <<SimpleClass>> TnsPostingsTreeSingle
+      %UID '4AAF9400011C'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+       %upv "started" '31.10.2011 17:46'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4ADEF93B0159' /* TnsPostingsTree */
+      ; // %INHERITS
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Exists
+         %UID 'B76222301E8D'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsPostingsTreeSingle
+     <<SimpleClass>> TnsPrimeNode
+      %UID '4AC21C8401A8'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "ifndef" 'Admin'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '21.10.2009 19:48'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4677FF4B0036' /* Data */
+       U$ '4790D09A0378' /* L3 */
+       U$ '5257E836001C' /* View$Strange */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '499032AE00A0' /* InsPrimeNode */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AC230590004' /* TnsWrapperNode */
+      ; // %INHERITS
+      %REALIZES
+       U$ '499032D40064' /* Data */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4ADF2E8A00A0"
+         %UID '4ADF2E8A00A0'
+         %TARGET U$ '431841610361' /* String */
+        ; // 4ADF2E8A00A0
+        <<uses>> "4ADF2F0A0024"
+         %UID '4ADF2F0A0024'
+         %TARGET U$ '4ADEE542029C' /* nsWStr */
+        ; // 4ADF2F0A0024
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Prime
+         %UID '4ADF2CE501B2'
+         %TARGET U$ '47BECCE501B5' /* Prime */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Prime
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4ADF2D5D01FC'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aPrime
+            %UID '4ADF2D630290'
+            %TARGET U$ '47BECCE501B5' /* Prime */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aPrime
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '4ADF2D6A03E3'
+         %TARGET U$ '476BF22B03E1' /* Il3Node */
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aPrime
+            %UID '4ADF2D700115'
+            %TARGET U$ '47BECCE501B5' /* Prime */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aPrime
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsPrimeNode
+   ; // %CHILDREN
+  ; // Search
+  <<Unit>> TreeAttributeSelectSaveLoadRealization
+   %UID '54F83B9F01BB'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4A85282C0252' /* LiteSearch */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4EEA07CA0360' /* nsQueryAttributes */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4A85683403A8' /* View */
+    U$ '4A9FFD3F01AD' /* Search */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TtasSaveLoadRealization
+      %UID '54F83BC9036B'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A85683403A8' /* View */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '54F836540343' /* ItasSaveLoadProcessor */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '54F839B602DC' /* LoadFromQuery */
+       U$ '54F839D803D3' /* SaveToQuery */
+       U$ '54F85E5A00B4' /* IsQuerySaved */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "54F83C2F0123"
+         %UID '54F83C2F0123'
+         %TARGET U$ '4AE864B801C5' /* nsQueryUtils */
+        ; // 54F83C2F0123
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<ini>> new_ini_op
+         %UID '54F83BEF0258'
+        ; // new_ini_op
+        SUMMONED FINAL <<static>> Exists
+         %UID 'CE5251F8366F'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TtasSaveLoadRealization
+   ; // %CHILDREN
+  ; // TreeAttributeSelectSaveLoadRealization
+ ; // %CHILDREN
+; // View$Strange

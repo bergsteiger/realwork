@@ -1,0 +1,842 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/ServerInterface.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::CommonTemplates::CommonLang::InterfaceTypes::ServerInterface
+//
+// Серверный интерфейс --- Определяет интерфейсы в контексте своей
+// компоненты. Для Сервера это серверные интерфейсы, для ДЛЛ - объъектный
+// интерфейс экспортируемый ДЛЛ, для библиотеки - интерфейс клсса,
+// для ГУИ набор операция пользователя.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ServerInterface::Class
+? Серверный интерфейс
+? Определяет интерфейсы в контексте своей компоненты. Для Сервера это серверные интерфейсы, для ДЛЛ - объъектный интерфейс экспортируемый ДЛЛ, для библиотеки - интерфейс клсса, для ГУИ набор операция пользователя.
+< *::Class,*::Category
+
+= ServerFacet::Class
+= AbstractInterface::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+a raf
+/ - тип абстракции
+Y code_server_interface.gif
+L code_server_interface
+// Параметры визуализации
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p Use AMI:b=false ? генерирует CORBA интерфейс с поддержкой AMI
+p debug log:b=false ? включает генерацию вывода в лог обращений к методам реализующим доступ к данному атрибуту
+p TODO:s ? напоминалка что-то сделать
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+// есть ли не публичные фабрики
+%f _has_private_factory
+//#UC START# *470F7242038Afor470F71BF03C8*
+	[{<{}{%CS=factory&%CV!=PublicAccess|%CS=multi factory&%CV!=PublicAccess}{C}>!=0}{false}true]
+//#UC END# *470F7242038Afor470F71BF03C8*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа AbstractInterface::Class
+// генерация дополнительных объявлений для фабрик (C++)
+%f _additional_fctr_def
+//#UC START# *471F2C3D0232for470F71BF03C8*
+	private:
+		typedef ACE_Singleton\<%SNFactoryManagerSrv_var, ACE_SYNCH_RECURSIVE_MUTEX\> FactoryManagerSrvSingleton;
+		static Core::Mutex s_init_mutex;
+		static bool s_renew_mode;
+	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"}{%C}	
+	%f_srv_fctr_mng_fctr_h(%C)
+	>
+//#UC END# *471F2C3D0232for470F71BF03C8*
+
+// перекрытие базового стереотипа AbstractInterface::Class
+// генерация дополнительных объявлений для фабрик (Java)
+%f _additional_fctr_def_java
+//#UC START# *471F2C4302FDfor470F71BF03C8*
+		static boolean sRenewMode = false;
+		static class FactoryManagerSrvSingleton {
+			private static %SNFactoryManagerSrv sInstance_ = null;
+	
+			public static %SNFactoryManagerSrv getInstance () {
+				return sInstance_;
+			}
+	
+			public static void setInstance (%SNFactoryManagerSrv instance) {
+				sInstance_ = instance;
+			}
+	
+		}
+	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"}{%C}
+	%f_srv_fctr_mng_fctr_java(%C)
+	>
+//#UC END# *471F2C4302FDfor470F71BF03C8*
+
+// перекрытие базового стереотипа AbstractInterface::Class
+// возвращает базовый менеджер фабрик (C++)
+%f _base_fctr_mng
+//#UC START# *471F2C4701E4for470F71BF03C8*
+	: virtual public POA_%f_full_name(%S)FactoryManagerSrv[{%S%f_has_private_factory()=true}, virtual public %SNFactoryManagerLocal]
+//#UC END# *471F2C4701E4for470F71BF03C8*
+
+// перекрытие базового стереотипа AbstractInterface::Class
+// возвращает базовый менеджер фабрик (Java)
+%f _base_fctr_mng_java
+//#UC START# *471F2C4B008Cfor470F71BF03C8*
+	 extends %SNFactoryManagerSrvPOA[{%S%f_has_private_factory()=true} %SNFactoryManagerLocal]
+//#UC END# *471F2C4B008Cfor470F71BF03C8*
+
+// перекрытие базового стереотипа AbstractInterface::Class
+// что это ??? (C++)
+%f _publish_self_cpp
+//#UC START# *471F2C4F03B9for470F71BF03C8*
+	void %SNFactoryManager::publish_self () {
+		if (Singleton::instance()-\>m_has_registred_factories) {
+			%SNFactoryManagerSrv_var ref = Singleton::instance()-\>_this();
+			CoreSrv::bind_path (&LibHome::get().get_orb_facet().get_ns_root(), ref.in(), "%f_full_name(%S)");
+		}
+	}\n\n
+//#UC END# *471F2C4F03B9for470F71BF03C8*
+
+// перекрытие базового стереотипа AbstractInterface::Class
+// что это?  (C++)
+%f _publish_self_h
+//#UC START# *471F2C52032Cfor470F71BF03C8*
+	\tstatic void publish_self ();\n\n
+//#UC END# *471F2C52032Cfor470F71BF03C8*
+
+// перекрытие базового стереотипа AbstractInterface::Class
+// что это?? (Java)
+%f _publish_self_java
+//#UC START# *471F2C56032Cfor470F71BF03C8*
+	\tpublic static void publishSelf () {
+	\t	if (%SNFactoryManager.getInstance().hasRegistredFactories_) {
+	\t		try {
+	\t			ru.garant.shared.CoreSrv.cos_naming_op.bindPath (
+	\t				<{}{%PM=Library::Category|%PM=ServerLibrary::Category}%f_dump_java_package(%P).%PN.LibHome>.get().getOrbFacet().getNsRoot()
+	\t				, <{}{%PM=Library::Category|%PM=ServerLibrary::Category}%f_dump_java_package(%P).%PN.LibHome>.get().getOrbFacet().getRootPoa().servant_to_reference(%SNFactoryManager.getInstance())
+	\t				, "%f_full_name(%S)"
+	\t			);
+	\t		} catch (Exception e) {
+	\t			Logs.LOG_SEX(e);
+	\t		}
+	\t	}
+	\t}\n\n
+//#UC END# *471F2C56032Cfor470F71BF03C8*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F71BF03C8*
+c                                                                           {}
+r "%f_has_factory_methods(%S)"="false"&"%Sa"!="abstract":                   {Not abstract %SS must provide at least one factory}
+r {"<{}{%GS!=%SS}{C}>"!="0"}:                                               {%SS can inherit only from other %SS}
+r {"<{}{%RS!=ServerFacet}{C}>"!="0"}:                                       {%SS can realize only ServerFacet}
+/r {<{}{%CC=Attribute&%Cl=ref}{C}>!=0}:                                     {%SS не может иметь ref связи}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}:        {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+r {<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}:                   {%SS не используется ни одним прецедентом}
+//#UC END# *4704C0E30186for470F71BF03C8*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание UP для генерации в wiki
+%f _wiki_up_print
+//#UC START# *46E8283F023Ffor470F71BF03C8*
+	%S%[inherited][{%S{Use AMI}=true}* интерфейс с поддержкой AMI
+	]
+//#UC END# *46E8283F023Ffor470F71BF03C8*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470F71BF03C8*
+	[{%f_has_factory_methods(%S)=true}Core::Mutex %SNFactory::s_init_mutex;
+	bool %SNFactory::s_renew_mode = false;
+	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"}{%C}Core::Mutex %SNFactory::s_mutex_for_%CN;
+	>[
+	%f_set_var(INT,S)<{}{"%CS"="factory"}%CX
+	
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"}%CX
+	
+	>>][<{}{"%CS"="multi factory"}%CX
+	
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"}%CX
+	
+	>>][
+	%f_set_var(INT,S)<{}{"%CS"="remover"}%CX
+	
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}%CX
+	
+	>>]]
+//#UC END# *47022CB8034Bfor470F71BF03C8*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F71BF03C8*
+	%f_dump_factory(%S)[{%S%f_has_private_factory()=true}
+	
+	// additional interface for private factories implementation
+	class %SNFactoryManagerLocal {
+		friend class %SNFactory;
+	private:<{}{"%CS"="factory"&%CV!=PublicAccess}{%C}
+		virtual %t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Cs]") %CN (%C<{, }%CX>) /*throw (Core::Root::NoActiveFactory%C<, %f_type(%E)>)*/ = 0;
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&%CV!=PublicAccess}{%C}
+		virtual %t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Cs]") %CN (%C<{, }%CX>) /*throw (Core::Root::NoActiveFactory%C<, %f_type(%E)>)*/ = 0;
+	>><{}{"%CS"="multi factory"&%CV!=PublicAccess}{%C}
+		virtual %t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Cs]") %CN (%C<%CX, >const char* key) /*throw (Core::Root::UnknownFactoryKey%C<, %f_type(%E)>)*/ = 0;
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&%CV!=PublicAccess}{%C}
+		virtual %t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Cs]") %CN (%C<%CX, >const char* key) /*throw (Core::Root::UnknownFactoryKey%C<, %f_type(%E)>)*/ = 0;
+	>><{}{"%CS"="remover"&%CV!=PublicAccess}{%C}
+		virtual void %CN (%t_arg(%{INT},"in")%C<, %CX>) /*throw (RootSrv::ForeignObject%C<, %f_type(%E)>)*/ = 0;
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"&%CV!=PublicAccess}{%C}
+		virtual void %CN (%t_arg(%{INT},"in")%C<, %CX>) /*throw (RootSrv::ForeignObject%C<, %f_type(%E)>)*/ = 0;
+	>>};]
+//#UC END# *47022C88029Ffor470F71BF03C8*
+
+// перекрытие базового стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for470F71BF03C8*
+= AbstractInterface::Class;fctr.cpp
+//#UC END# *4705C54B01F4for470F71BF03C8*
+
+// перекрытие базового стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for470F71BF03C8*
+= AbstractInterface::Class;fctr.h
+//#UC END# *4705C5490109for470F71BF03C8*
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F71BF03C8*
+F [{"%Sa"="abstract"}abstract ]interface %SN;
+	<#%FF
+	>%f_docs(%S)\
+	#[{"%Sa"="abstract"}abstract ]interface %SN[: <{, }%f_type(%G)>] {<{}{%f_is_factory(%C)=false}[
+	%CX]>
+	#};[{%f_has_factory_methods(%S)=true}
+	
+	#// factory manager server interface for %SN
+	#interface %SNFactoryManagerSrv {
+	[%f_set_var(INT,S)<{}{%CS=factory&%CV=PublicAccess}%CX
+	
+	><{}{%ga=abstract}%g<{}{%CS=factory&%CV=PublicAccess}%CX
+	
+	>>][<{}{%CS=multi factory&%CV=PublicAccess}%CX
+	
+	><{}{%ga=abstract}%g<{}{%CS=multi factory&%CV=PublicAccess}%CX
+	
+	>>][%f_set_var(INT,S)<{}{%CS=remover&%CV=PublicAccess}%CX
+	
+	><{}{%ga=abstract}%g<{}{%CS=remover&%CV=PublicAccess}%CX
+	
+	>>]#};]
+//#UC END# *47022BBE0261for470F71BF03C8*
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F71BF03C8*
+= AbstractInterface::Class;fctr.java
+//#UC END# *470321C1038Afor470F71BF03C8*
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F71BF03C8*
+O %SNFactory.java
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	%f_set_var(INT,S)package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	
+/	<{}{"%iC"!="Category"}{%i}%f_java_import(%i)
+/	><{}{"%f_set_var(ARG,C)%{INT}<{}{%iU=%{ARG}%TU}{C}>"="0"&%CC=Attribute&%C%TM!=UMLPrimitive::Class&%f_can_dump_attr(%C%T)=true}{%C}%f_java_import(%C%T)
+/	>
+	[{"%f_has_factory_methods(%S)"="true"}%f_java_core_exceptions(%S)
+	][{%f_is_server_type(%S)=true}
+	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHome;
+	]
+	%t_visibility(%S,"%XU")class %SNFactory {
+	[{"%f_has_factory_methods(%S)"="true"}
+	[<{}{%aS=friend&%aC=Dependency}{Sp}%a%P<	friend class %f_type(%L); // friend's servants
+	>><{}{"%ga"="abstract"}%g<{}{"%aM"="Interface::Class::friend::ClassDependency"}{Sp}%a%P<	friend class %f_type(%L); // friend's servants
+	>>>
+	][%f_set_var(INT,S)<{}{"%CS"="factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="multi factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="multi factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>][%f_set_var(INT,S)<{}{"%CS"="remover"&"%CV"="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"&"%CV"="PublicAccess"}{%C}
+	%CX
+	>>][<{}{"%CS"="remover"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"&"%CV"!="PublicAccess"}{%C}
+	%CX
+	>>]%S%f_additional_fctr_def_java()
+	]
+	} //interface %SNFactory
+//#UC END# *470321950119for470F71BF03C8*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: ServerInterface::Class::remover::Operation
+? Уничтожитель
+? Метод обратный фабричному, т.е. метод приводящий к разрушению (временному или постоянному) созданного фабрикой объекта.
+// Параметры стереотипа
+v +-
+/ - типы видимости
+e g
+/ - возможность использовать исключения
+Y code_remover.gif
+L code_remover
+T 
+/ - может не иметь "цели" (типа/результата)
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+A
+/ - стереотипы "цели" (типа/результата)
+
+// Генераторы
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor471F1823007D*
+	%f_docs(%S)\
+	void %{INT}NFactory::%SN (%t_arg(%{INT},"inout") obj_<, %CX>) /*throw (CoreSrv::ForeignObject<, %f_type(%E)>)*/ {
+		%{INT}NFactory::%SN (*obj_<, %CN>);
+		obj_ = 0;
+	}
+	
+	void %{INT}NFactory::%SN (%f_type(%{INT})& obj_<, %CX>) /*throw (CoreSrv::ForeignObject<, %f_type(%E)>)*/ {
+		if (FactoryManagerSrvSingleton::instance()-\>ptr() == 0) {
+			GUARD (s_init_mutex);
+			if (FactoryManagerSrvSingleton::instance()-\>ptr() == 0) {
+				try {
+					CORBA::Object_var obj = CoreSrv::resolve_path (&LibHome::get().get_orb_facet().get_ns_root(), "%f_full_name(%{INT})");
+					*FactoryManagerSrvSingleton::instance() = %{INT}NFactoryManagerSrv::_narrow (obj);
+				} CATCH_AND_LOG ("COS Naming can't find FactoryManagerSrv for %{INT}N");
+			}
+			if (FactoryManagerSrvSingleton::instance()-\>ptr() == 0) {
+				throw CoreSrv::ForeignObject ();
+			}
+		}
+	[{%SV!=PublicAccess}
+		%{INT}NFactoryManagerLocal* lsrv = 0;
+		try {
+			PortableServer::Servant srv = LibHome::get().get_orb_facet().get_root_poa().reference_to_servant (*FactoryManagerSrvSingleton::instance());
+			lsrv = dynamic_cast\<%{INT}NFactoryManagerLocal*\>(srv);
+		} catch (PortableServer::POA::WrongAdapter&) {
+		}
+		if (!lsrv) {
+			throw CoreSrv::ForeignObject ();
+		}
+	]	try {
+			bool clean_up_all = true; // we can't use _is_equivalent here, so we need to clean up all if we find nothing by simple pointer checking
+			%f_type(%{INT})_var copy;
+			
+			{
+				GUARD (s_init_mutex);
+	
+	%P<{}{%CS=factory|%CS=multi factory}[{%Cs=cached|%Cs=const,cached}\
+				if (clean_up_all[{%C%Cx=false} && *CachedObjectFor%f_to_borland(%CN)::instance() == &obj_]) {
+					[{%C%Cx=false}copy = %f_type(%{INT})::_duplicate (&obj_);
+					*CachedObjectFor%f_to_borland(%CN)::instance() = 0;
+					clean_up_all = false;][{%C%Cx=true}CachedObjectsFor%f_to_borland(%CN)& map = *CachedObjectsFor%f_to_borland(%CN)Sngl::instance();
+					for (
+						CachedObjectsFor%f_to_borland(%CN)::iterator it = map.begin(); 
+						it != map.end();
+						it ++
+					) {
+						if (it-\>second == &obj_) {
+							copy = %f_type(%{INT})::_duplicate (&obj_);
+							map.erase (it);
+							clean_up_all = false;
+							break;
+						}
+					}]
+				}
+	]>		}
+			[{%SV=PublicAccess}{lsrv}(*FactoryManagerSrvSingleton::instance())]-\>%SN (&obj_<, %CN>);
+			
+			if (clean_up_all) {
+				GUARD (s_init_mutex);
+	
+	%P<{}{%CS=factory|%CS=multi factory}[{%Cs=cached|%Cs=const,cached}\
+				[{%C%Cx=false}*CachedObjectFor%f_to_borland(%CN)::instance() = 0;][{%C%Cx=true}CachedObjectsFor%f_to_borland(%CN)Sngl::instance()-\>clear();]
+	]>		}
+		} catch (CORBA::TRANSIENT& ) {
+			if (s_renew_mode) {
+				s_renew_mode = false;
+				LOG_W (("%{INT}NFactoryManagerSrv is in invalid (inactive) state"));
+				throw CoreSrv::ForeignObject ();
+			}
+			GUARD (s_init_mutex);
+			LOG_D (("Try to renew %{INT}NFactoryManagerSrv"));
+			
+			s_renew_mode = true;
+			(*FactoryManagerSrvSingleton::instance()) = 0;
+			%SN (obj_<, %CN>);
+			s_renew_mode = false;
+		}
+	}
+//#UC END# *47022CB8034Bfor471F1823007D*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor471F1823007D*
+	%f_docs(%S)\
+	#static void %SN (%t_arg(%{INT},"inout") obj_<, %CX>)
+	#	/*throw (CoreSrv::ForeignObject<, %f_type(%E)>)*/;
+	#static void %SN (%f_type(%{INT})& obj_<, %CX>)
+	#	/*throw (CoreSrv::ForeignObject<, %f_type(%E)>)*/;
+//#UC END# *47022C88029Ffor471F1823007D*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor471F1823007D*
+//#UC END# *470321C1038Afor471F1823007D*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for471F1823007D*
+	%f_docs(%S)\
+	#%t_visibility(%S,"%XU")static void %SN (%t_arg(%{INT},"in") obj_<, %f_arg_full_decl(%C)>) throws ru.garant.shared.CoreSrv.ForeignObject<, %f_type(%E)> {
+	#	if (FactoryManagerSrvSingleton.getInstance() == null) {
+	#		synchronized (FactoryManagerSrvSingleton.class) {
+	#			try {
+	#				org.omg.CORBA.Object obj = ru.garant.shared.CoreSrv.cos_naming_op.resolvePath (
+	#					LibHome.get().getOrbFacet().getNsRoot(), "%f_full_name(%{INT})"
+	#				);
+	#				FactoryManagerSrvSingleton.setInstance(%{INT}NFactoryManagerSrvHelper.narrow (obj));
+	#			} catch (java.lang.Exception ex) {
+	#				Logs.LOG_SEX (ex);
+	#			}
+	#			if (FactoryManagerSrvSingleton.getInstance() == null) {
+	#				throw new ru.garant.shared.CoreSrv.ForeignObject ();
+	#			}
+	#		}
+	#	}
+	[{%SV!=PublicAccess}
+	#	%f_type(%{INT})FactoryManagerLocal lsrv = null;
+	#	try {
+	#		org.omg.PortableServer.Servant srv = LibHome::get().getOrbFacet().getRootPoa().reference_to_servant (FactoryManagerSrvSingleton.getInstance());
+	#		lsrv = (%f_type(%{INT})FactoryManagerLocal)srv;
+	#	} catch (org.omg.PortableServer.POA.WrongAdapter ex) {
+	#		Logs.LOG_SEX (ex);
+	#	}
+	#	if (lsrv == null) {
+	#		throw new ru.garant.shared.CoreSrv.ForeignObject ();
+	#	}]
+	#	try {
+	#		boolean clean_up_all = true;
+	#		%t_ret(%{INT}) copy = null;
+	%P<{}{%CS=factory|%CS=multi factory}[{%Cs=cached|%Cs=const,cached}\
+	#			synchronized ([{%C%Cx=true}{CachedObjectFor%f_to_borland(%CN)}CachedObjectsFor%f_to_borland(%CN)Sngl].class) {
+	#				if (clean_up_all[{%C%Cx=false} && CachedObjectFor%f_to_borland(%CN).instance().equals (obj_)]) {
+	#					[{%C%Cx=false}CachedObjectFor%f_to_borland(%CN).setInstance(null);
+	#					clean_up_all = false;][{%C%Cx=true}java.util.Iterator it = CachedObjectsFor%f_to_borland(%CN)Sngl.instance().entrySet().iterator ();
+	#					while (it.hasNext ()) {
+	#						java.util.Map.Entry entry = (java.util.Map.Entry)it.next ();
+	#						if (entry.getValue ().equals (obj_)) {
+	#							copy = obj_;
+	#							CachedObjectsFor%f_to_borland(%CN)Sngl.instance().remove (entry.getKey ());
+	#							clean_up_all = false;
+	#							break;
+	#						}
+	#					}]
+	#				}
+	#			}]>
+/	#		try {
+	#			[{%SV=PublicAccess}{lsrv}FactoryManagerSrvSingleton.getInstance()].%f_to_java(%SN) (obj_<, %f_to_java(%CN)>);
+/	#		} catch (ru.garant.shared.CoreSrv.NoActiveFactory ex) {
+/	#			Logs.LOG_SEX (ex);
+/	#			throw new ru.garant.shared.CoreSrv.ForeignObject ();
+/	#		}
+	#		if (clean_up_all) {
+	%P<{}{%CS=factory|%CS=multi factory}[{%Cs=cached|%Cs=const,cached}\
+	#				synchronized ([{%C%Cx=true}{CachedObjectFor%f_to_borland(%CN)}CachedObjectsFor%f_to_borland(%CN)Sngl].class) {
+	#					[{%C%Cx=false}CachedObjectFor%f_to_borland(%CN).setInstance(null);][{%C%Cx=true}CachedObjectsFor%f_to_borland(%CN)Sngl.instance().clear();]
+	#				}
+	]>#		}
+	#	} catch (org.omg.CORBA.TRANSIENT ex) {
+	#		if (sRenewMode) {
+	#			sRenewMode = false;
+	#			Logs.LOG_W ("WARNING: %{INT}NFactoryManagerSrv is in invalid (inactive) state");
+	#			throw  new ru.garant.shared.CoreSrv.ForeignObject ();
+	#		}
+	#		synchronized (FactoryManagerSrvSingleton.class) {
+	#			Logs.LOG_D ("DEBUG: Try to renew %{INT}NFactoryManagerSrv");
+	#			sRenewMode = true;
+	#			FactoryManagerSrvSingleton.setInstance (null);
+	#			%SN (obj_<, %CN>);
+	#			sRenewMode = false;
+	#		}
+	#	}
+	#}
+//#UC END# *470321950119for471F1823007D*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for471F1823007D*
+	%f_docs(%S)\
+	#void %SN (%t_arg(%{INT},"in") obj_<, %CX>)
+	#	raises (CoreSrv::ForeignObject<, %f_type(%E)>);
+//#UC END# *47022BBE0261for471F1823007D*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for471F1823007D*
+//#UC END# *4705C54B01F4for471F1823007D*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for471F1823007D*
+//#UC END# *4705C5490109for471F1823007D*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for471F1823007D*
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+//#UC END# *4704C0E30186for471F1823007D*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor471F1823007D*
+	mng
+//#UC END# *4705CBD6003Efor471F1823007D*
+
+// Вложенные стереотипы
+: ServerInterface::Class::remover::Operation::Parameter
+? Параметр
+= ServerFacet::Class::Operation::Parameter
+
+// Параметры стереотипа
+Y code_param.gif
+L code_param
+
+
+: ServerInterface::Class::factory::Operation
+? Фабрика (одиночная)
+? Будет создан абстрактный интерфейс фабрики, который будут реализовывать конкретные фабрики (по одной на каждый сервант), создающие соответствующие серванты. Конкретные фабрики мугут инициализироваться своими специфичными параметрами. Созданные конкретные фабрики будут регистрироваться в менеджере фабрик. Последний осуществляет выбор нужной "активной" фабрики при получении запроса на создание экземпляра объекта. Для ОДИНОЧНОЙ фабрики - активной может быть только ОДНА такая фабрика - кто последний зарегистрировался тот и активен.
+= Interface::Class::factory::Operation
+
+// Параметры стереотипа
+Y code_factory.gif
+L code_factory
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for471F1E100186*
+	%f_docs(%S)\
+	#%t_ret(%{INT},"%Ss") %SN (<{, }%CX>)
+	#	raises (CoreSrv::NoActiveFactory<, %f_type(%E)>);
+//#UC END# *47022BBE0261for471F1E100186*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for471F1E100186*
+	%f_docs(%S)\
+	#%t_visibility(%S,"%XU")static %t_ret(%{INT},"%Ss") %SN (<{, }%f_arg_full_decl(%C)>) throws ru.garant.shared.CoreSrv.NoActiveFactory<, %f_type(%E)> {
+	#	if (FactoryManagerSrvSingleton.getInstance() == null) {
+	#		synchronized (FactoryManagerSrvSingleton.class) {
+	#			try {
+	#				org.omg.CORBA.Object obj = ru.garant.shared.CoreSrv.cos_naming_op.resolvePath (
+	#					LibHome.get().getOrbFacet().getNsRoot(), "%f_full_name(%{INT})"
+	#				);
+	#				FactoryManagerSrvSingleton.setInstance(%{INT}NFactoryManagerSrvHelper.narrow (obj));
+	#			} catch (java.lang.Exception ex) {
+	#				Logs.LOG_SEX (ex);
+	#			}
+	#			if (FactoryManagerSrvSingleton.getInstance() == null) {
+	#				throw new ru.garant.shared.CoreSrv.NoActiveFactory ();
+	#			}
+	#		}
+	#	}
+	[{%SV!=PublicAccess}
+	#	%f_type(%{INT})FactoryManagerLocal lsrv = null;
+	#	try {
+	#		org.omg.PortableServer.Servant srv = LibHome::get().getOrbFacet().getRootPoa().reference_to_servant (FactoryManagerSrvSingleton.getInstance());
+	#		lsrv = (%f_type(%{INT})FactoryManagerLocal)srv;
+	#	} catch (org.omg.PortableServer.POA.WrongAdapter ex) {
+	#		Logs.LOG_SEX (ex);
+	#	}
+	#	if (lsrv == null) {
+	#		throw new ru.garant.shared.CoreSrv.NoActiveFactory ();
+	#	}
+	][{%Ss!=cached&%Ss!=const,cached}#	return [{%SV=PublicAccess}{lsrv}FactoryManagerSrvSingleton.getInstance()].%SN (<{, }%CN>);
+	][{%Ss=cached|%Ss=const,cached}
+	#	try {
+	[{%Cx=true}\
+	#		synchronized (CachedObjectsFor%f_to_borland(%SN)Sngl.class) {
+	#			ObjectCreationIdFor%f_to_borland(%SN) key = new ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>);
+	#			%t_ret(%{INT},"%Ss") ret = CachedObjectsFor%f_to_borland(%SN)Sngl.instance().get (key);
+	#			if (ret == null) {
+	#				ret = [{%SV=PublicAccess}{lsrv}FactoryManagerSrvSingleton.getInstance()].%f_to_java(%SN) (<{, }%f_to_java(%CN)>);
+	#				CachedObjectsFor%f_to_borland(%SN)Sngl.instance().put (key, ret);
+	#			}
+	#			return ret;
+	][{%Cx=false}
+	#		synchronized (CachedObjectFor%f_to_borland(%SN).class) {
+	#			if (CachedObjectFor%f_to_borland(%SN).instance() == null) {	
+	#				CachedObjectFor%f_to_borland(%SN).setInstance([{%SV=PublicAccess}{lsrv}FactoryManagerSrvSingleton.getInstance()].%f_to_java(%SN) (<{, }%f_to_java(%CN)>));
+	#			}
+	#			return CachedObjectFor%f_to_borland(%SN).instance();
+	]#		}
+	#	} catch (org.omg.CORBA.TRANSIENT ex) {
+	#		if (sRenewMode) {
+	#			sRenewMode = false;
+	#			Logs.LOG_E ("%{INT}NFactoryManagerSrv is in invalid (inactive) state");
+	#			throw new ru.garant.shared.CoreSrv.NoActiveFactory ();
+	#		}
+	#		synchronized (FactoryManagerSrvSingleton.class) {
+	#			sRenewMode = true;
+	#			FactoryManagerSrvSingleton.setInstance (null);
+	#			%t_ret(%{INT},"%Ss") ret = %SN (<{, }%CN>);
+	#			sRenewMode = false;
+	
+	#			return ret;
+	#		}
+	#	}
+	]#}
+//#UC END# *470321950119for471F1E100186*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor471F1E100186*
+	%f_docs(%S)\
+	%t_ret(%{INT},"%Ss") %{INT}NFactory::%SN (<{, }%CX>) /*throw (CoreSrv::NoActiveFactory<, %f_type(%E)>)*/ {
+		if (FactoryManagerSrvSingleton::instance()-\>ptr() == 0) {
+			GUARD (s_init_mutex);
+			if (FactoryManagerSrvSingleton::instance()-\>ptr() == 0) {
+				try {
+					CORBA::Object_var obj = CoreSrv::resolve_path (&LibHome::get().get_orb_facet().get_ns_root(), "%f_full_name(%{INT})");
+					*FactoryManagerSrvSingleton::instance() = %{INT}NFactoryManagerSrv::_narrow (obj);
+				} CATCH_AND_LOG ("COS Naming can't find FactoryManagerSrv for %{INT}N");
+			}
+			if (FactoryManagerSrvSingleton::instance()-\>ptr() == 0) {
+				throw CoreSrv::NoActiveFactory ();
+			}
+		}
+	[{%SV!=PublicAccess}
+		%{INT}NFactoryManagerLocal* lsrv = 0;
+		try {
+			PortableServer::Servant srv = LibHome::get().get_orb_facet().get_root_poa().reference_to_servant (*FactoryManagerSrvSingleton::instance());
+			lsrv = dynamic_cast\<%{INT}NFactoryManagerLocal*\>(srv);
+		} catch (PortableServer::POA::WrongAdapter&) {
+		}
+		if (!lsrv) {
+			throw CoreSrv::NoActiveFactory ();
+		}
+	]	try {
+	[{%Ss!=cached&%Ss!=const,cached}		return [{%SV=PublicAccess}{lsrv}(*FactoryManagerSrvSingleton::instance())]-\>%SN (<{, }%CN>);
+	][{%Ss=cached|%Ss=const,cached}[{%Cx=true}
+			GUARD(s_mutex_for_%SN);
+			CachedObjectsFor%f_to_borland(%SN)::iterator f = CachedObjectsFor%f_to_borland(%SN)Sngl::instance()-\>find (ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>));
+			if (f == CachedObjectsFor%f_to_borland(%SN)Sngl::instance()-\>end()) {
+				f = CachedObjectsFor%f_to_borland(%SN)Sngl::instance()-\>insert (
+					CachedObjectsFor%f_to_borland(%SN)::value_type(
+						ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+						, [{%SV=PublicAccess}{lsrv}(*FactoryManagerSrvSingleton::instance())]-\>%SN (<{, }%CN>)
+					)
+				).first;
+			}
+			return *f-\>second;
+	][{%Cx=false}
+			if (CachedObjectFor%f_to_borland(%SN)::instance()-\>ptr() == 0) {
+				GUARD(s_mutex_for_%SN);
+				if (CachedObjectFor%f_to_borland(%SN)::instance()-\>ptr() == 0) {
+					*CachedObjectFor%f_to_borland(%SN)::instance() = [{%SV=PublicAccess}{lsrv}(*FactoryManagerSrvSingleton::instance())]-\>%SN (<{, }%CN>);
+				}
+			}
+			return *CachedObjectFor%f_to_borland(%SN)::instance()-\>ptr();
+	]]	} catch (CORBA::TRANSIENT& ) {
+			if (s_renew_mode) {
+				s_renew_mode = false;
+				LOG_W (("%{INT}NFactoryManagerSrv is in invalid (inactive) state"));
+				throw CoreSrv::NoActiveFactory ();
+			}
+			GUARD (s_init_mutex);
+			LOG_D (("Try to renew %{INT}NFactoryManagerSrv"));
+			
+			s_renew_mode = true;
+			(*FactoryManagerSrvSingleton::instance()) = 0;
+			%{INT}N[{%Ss!=cached&%Ss!=const,cached}{&}_var] ret = %SN (<{, }%CN>);
+			s_renew_mode = false;
+			
+			return ret[{%Ss!=cached&%Ss!=const,cached}._retn()];
+		}
+	}
+//#UC END# *47022CB8034Bfor471F1E100186*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor471F1E100186*
+	%f_docs(%S)\
+	#static %t_ret(%{INT},"%Ss") %SN (<{, }%CX>)
+	#	/*throw (CoreSrv::NoActiveFactory<, %f_type(%E)>)*/;
+//#UC END# *47022C88029Ffor471F1E100186*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for471F1E100186*
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+//#UC END# *4704C0E30186for471F1E100186*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor471F1E100186*
+	mng
+//#UC END# *4705CBD6003Efor471F1E100186*
+
+// Вложенные стереотипы
+: ServerInterface::Class::factory::Operation::Parameter
+? Параметр
+= ServerFacet::Class::Operation::Parameter
+
+// Параметры стереотипа
+Y code_param.gif
+L code_param
+
+
+: ServerInterface::Class::multi factory::Operation
+? Фабрика (множественная)
+? Будет создан абстрактный интерфейс фабрики, который будут реализовывать конкретные фабрики (по одной на каждый сервант), создающие соответствующие серванты. Конкретные фабрики мугут инициализироваться своими специфичными параметрами. Созданные конкретные фабрики будут регистрироваться в менеджере фабрик. Последний осуществляет выбор нужной "активной" фабрики при получении запроса на создание экземпляра объекта. Для МНОЖЕСТВЕННОЙ фабрики - активными являются ВСЕ зарегистрированные фабрики, выбор конкретной осущестьвляеться по ключу - дополнительному параметру.
+= ServerInterface::Class::factory::Operation
+
+// Параметры стереотипа
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for471F1E81034B*
+	%f_docs(%S)\
+	#%t_ret(%{INT},"%Ss") %SN (<%CX, >string in key)
+	#	raises (GCM::UnknownFactoryKey<, %f_type(%E)>);
+//#UC END# *47022BBE0261for471F1E81034B*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for471F1E81034B*
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+//#UC END# *4704C0E30186for471F1E81034B*
+
+// Вложенные стереотипы
+: ServerInterface::Class::multi factory::Operation::Parameter
+? Параметр
+= ServerFacet::Class::Operation::Parameter
+
+// Параметры стереотипа
+Y code_param.gif
+L code_param
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Авто-копии вложенных стереотипов
+
+: ServerInterface::Class::Attribute
+= ServerFacet::Class::Attribute
+//#UC START# *470F7348002E_OVERRIDE_471F1A6501A5_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F1A6501A5_FOR_470F71BF03C8*
+
+: ServerInterface::Class::Attribute::Attribute
+= ServerFacet::Class::Attribute::Attribute
+//#UC START# *470F7348002E_OVERRIDE_471F1C250167_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F1C250167_FOR_470F71BF03C8*
+
+: ServerInterface::Class::readonly::Attribute
+= ServerFacet::Class::readonly::Attribute
+//#UC START# *470F7348002E_OVERRIDE_471F1C480232_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F1C480232_FOR_470F71BF03C8*
+
+: ServerInterface::Class::writeonly::Attribute
+= ServerFacet::Class::writeonly::Attribute
+//#UC START# *470F7348002E_OVERRIDE_471F1C7903D8_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F1C7903D8_FOR_470F71BF03C8*
+
+: ServerInterface::Class::Operation
+= ServerFacet::Class::Operation
+//#UC START# *470F7348002E_OVERRIDE_471F1CC2035B_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F1CC2035B_FOR_470F71BF03C8*
+
+: ServerInterface::Class::Operation::Parameter
+= ServerFacet::Class::Operation::Parameter
+//#UC START# *470F7348002E_OVERRIDE_471F1D56006D_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F1D56006D_FOR_470F71BF03C8*
+
+: ServerInterface::Class::friend::ClassDependency
+= ServerFacet::Class::friend::ClassDependency
+//#UC START# *470F7348002E_OVERRIDE_471F1FEC0109_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F1FEC0109_FOR_470F71BF03C8*
+
+: ServerInterface::Class::oneway::Operation
+= ServerFacet::Class::oneway::Operation
+//#UC START# *470F7348002E_OVERRIDE_471F202802EE_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F202802EE_FOR_470F71BF03C8*
+
+: ServerInterface::Class::oneway::Operation::Parameter
+= ServerFacet::Class::oneway::Operation::Parameter
+//#UC START# *470F7348002E_OVERRIDE_471F205902EE_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F205902EE_FOR_470F71BF03C8*
+
+: ServerInterface::Class::oneway,chg::Operation
+= ServerFacet::Class::oneway,chg::Operation
+//#UC START# *470F7348002E_OVERRIDE_471F2F9801D4_FOR_470F71BF03C8*
+//#UC END# *470F7348002E_OVERRIDE_471F2F9801D4_FOR_470F71BF03C8*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

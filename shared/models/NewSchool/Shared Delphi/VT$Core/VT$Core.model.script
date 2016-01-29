@@ -1,0 +1,1049 @@
+<<Library>> VT$Core
+ %UID '4D4927B5008B'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4CFCE4F203CE' /* VGScene */
+  U$ '561F9F7D02A7' /* ScriptEngine */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'vtDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4CFCE4F203CE' /* VGScene */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> Dialogs
+   %UID '4B8E675402AB'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4CFCE51A00B0' /* Impl */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+    U$ '4CFCE4F203CE' /* VGScene */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> vtDialogsRes
+      %UID '4B8E6793024B'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "no hands" true
+       %upv "started" '03.03.2010 16:43'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %LINKS
+        SUMMONED <<uses>> "000F4D4014D8"
+         %UID '000F4D4014D8'
+         %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+        ; // 000F4D4014D8
+        SUMMONED <<uses>> "FBD4C1E8CDEE"
+         %UID 'FBD4C1E8CDEE'
+         %TARGET U$ '4E01D1E002AE' /* Tl3MessageID */
+        ; // FBD4C1E8CDEE
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Init_DefaultOpenDlgFilter
+         %UID 'CD3C67ACD63B'
+         %SUMMARY 'Инициализация str_vtDefaultOpenDlgFilter' ;
+        ; // Init_DefaultOpenDlgFilter
+        SUMMONED PRIVATE FINAL <<ini>> Init_Warning$BC662DEE2B85
+         %UID 'BC662DEE2B85'
+         %SUMMARY 'Инициализация str_vtMsgDlgWarning' ;
+         %META
+          %upv "ifndef" 'Nemesis'
+         ; // %META
+        ; // Init_Warning$BC662DEE2B85
+        SUMMONED PRIVATE FINAL <<ini>> Init_Error$CDDB693AFEDA
+         %UID 'CDDB693AFEDA'
+         %SUMMARY 'Инициализация str_vtMsgDlgError' ;
+         %META
+          %upv "ifndef" 'Nemesis'
+         ; // %META
+        ; // Init_Error$CDDB693AFEDA
+        SUMMONED PRIVATE FINAL <<ini>> Init_Information$865BDAD51D76
+         %UID '865BDAD51D76'
+         %SUMMARY 'Инициализация str_vtMsgDlgInformation' ;
+         %META
+          %upv "ifndef" 'Nemesis'
+         ; // %META
+        ; // Init_Information$865BDAD51D76
+        SUMMONED PRIVATE FINAL <<ini>> Init_Confirm$000B0D70C0FB
+         %UID '000B0D70C0FB'
+         %SUMMARY 'Инициализация str_vtMsgDlgConfirm' ;
+         %META
+          %upv "ifndef" 'Nemesis'
+         ; // %META
+        ; // Init_Confirm$000B0D70C0FB
+        SUMMONED PRIVATE FINAL <<ini>> Init_Warning$7AF5D853EB14
+         %UID '7AF5D853EB14'
+         %SUMMARY 'Инициализация str_vtMsgDlgWarning' ;
+         %META
+          %upv "ifdef" 'Nemesis'
+         ; // %META
+        ; // Init_Warning$7AF5D853EB14
+        SUMMONED PRIVATE FINAL <<ini>> Init_Error$16869896A1E8
+         %UID '16869896A1E8'
+         %SUMMARY 'Инициализация str_vtMsgDlgError' ;
+         %META
+          %upv "ifdef" 'Nemesis'
+         ; // %META
+        ; // Init_Error$16869896A1E8
+        SUMMONED PRIVATE FINAL <<ini>> Init_Information$609A6298EEA8
+         %UID '609A6298EEA8'
+         %SUMMARY 'Инициализация str_vtMsgDlgInformation' ;
+         %META
+          %upv "ifdef" 'Nemesis'
+         ; // %META
+        ; // Init_Information$609A6298EEA8
+        SUMMONED PRIVATE FINAL <<ini>> Init_Confirm$15B270249129
+         %UID '15B270249129'
+         %SUMMARY 'Инициализация str_vtMsgDlgConfirm' ;
+         %META
+          %upv "ifdef" 'Nemesis'
+         ; // %META
+        ; // Init_Confirm$15B270249129
+        SUMMONED PRIVATE FINAL <<ini>> Init_Custom
+         %UID '947E9B4A5DC5'
+         %SUMMARY 'Инициализация str_vtMsgDlgCustom' ;
+        ; // Init_Custom
+        SUMMONED PRIVATE FINAL <<ini>> Init_Yes
+         %UID '4D93FCAB32D3'
+         %SUMMARY 'Инициализация str_vtMsgDlgYes' ;
+        ; // Init_Yes
+        SUMMONED PRIVATE FINAL <<ini>> Init_No
+         %UID '71EF9193D69F'
+         %SUMMARY 'Инициализация str_vtMsgDlgNo' ;
+        ; // Init_No
+        SUMMONED PRIVATE FINAL <<ini>> Init_OK
+         %UID 'CF7CF8F2BB16'
+         %SUMMARY 'Инициализация str_vtMsgDlgOK' ;
+        ; // Init_OK
+        SUMMONED PRIVATE FINAL <<ini>> Init_Cancel
+         %UID 'B3D2F87EF901'
+         %SUMMARY 'Инициализация str_vtMsgDlgCancel' ;
+        ; // Init_Cancel
+        SUMMONED PRIVATE FINAL <<ini>> Init_Abort
+         %UID '339E89FC5C4B'
+         %SUMMARY 'Инициализация str_vtMsgDlgAbort' ;
+        ; // Init_Abort
+        SUMMONED PRIVATE FINAL <<ini>> Init_Retry
+         %UID 'BE546B0172FD'
+         %SUMMARY 'Инициализация str_vtMsgDlgRetry' ;
+        ; // Init_Retry
+        SUMMONED PRIVATE FINAL <<ini>> Init_Ignore
+         %UID 'C89C2AAAF71D'
+         %SUMMARY 'Инициализация str_vtMsgDlgIgnore' ;
+        ; // Init_Ignore
+        SUMMONED PRIVATE FINAL <<ini>> Init_All
+         %UID '301E351BA5D0'
+         %SUMMARY 'Инициализация str_vtMsgDlgAll' ;
+        ; // Init_All
+        SUMMONED PRIVATE FINAL <<ini>> Init_NoToAll
+         %UID '4F9998B4CB5F'
+         %SUMMARY 'Инициализация str_vtMsgDlgNoToAll' ;
+        ; // Init_NoToAll
+        SUMMONED PRIVATE FINAL <<ini>> Init_YesToAll
+         %UID '02A969004E4C'
+         %SUMMARY 'Инициализация str_vtMsgDlgYesToAll' ;
+        ; // Init_YesToAll
+        SUMMONED PRIVATE FINAL <<ini>> Init_Help
+         %UID '7AA9145F4774'
+         %SUMMARY 'Инициализация str_vtMsgDlgHelp' ;
+        ; // Init_Help
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        FINAL <<LocalConst>> TvtMiscMessages
+         %UID '4B8E67CE0000'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "children prefix" 'vt'
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> DefaultOpenDlgFilter
+            %UID '4B8E67ED0304'
+            %VALUE '''Все файлы|*.*'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // DefaultOpenDlgFilter
+         ; // %ATTRIBUTES
+        ; // TvtMiscMessages
+        FINAL <<LocalConst>> MsgDlg
+         %UID '4B8E6EE901BF'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "children prefix" 'vtMsgDlg'
+          %upv "ifndef" 'Nemesis'
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> Warning
+            %UID '4B8E6EFE014E'
+            %VALUE '''Warning'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Warning
+           <<Attribute>> Error
+            %UID '4B8E6F0B02FB'
+            %VALUE '''Error'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Error
+           <<Attribute>> Information
+            %UID '4B8E6F1800D2'
+            %VALUE '''Information'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Information
+           <<Attribute>> Confirm
+            %UID '4B8E6F260141'
+            %VALUE '''Confirm'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Confirm
+         ; // %ATTRIBUTES
+        ; // MsgDlg
+        FINAL <<LocalConst>> MsgDlgNemesis
+         %UID '4B8E6F3901D5'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "children prefix" 'vtMsgDlg'
+          %upv "ifdef" 'Nemesis'
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> Warning
+            %UID '4B8E6F6802FD'
+            %VALUE '''Предупреждение'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Warning
+           <<Attribute>> Error
+            %UID '4B8E6F73005D'
+            %VALUE '''Ошибка'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Error
+           <<Attribute>> Information
+            %UID '4B8E6F800141'
+            %VALUE '''Информация'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Information
+           <<Attribute>> Confirm
+            %UID '4B8E6F8D0149'
+            %VALUE '''Подтверждение'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Confirm
+         ; // %ATTRIBUTES
+        ; // MsgDlgNemesis
+        FINAL <<LocalConst>> Custom
+         %UID '4B8E728300D1'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "children prefix" 'vtMsgDlg'
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> Custom
+            %UID '4B8E728D02CC'
+            %VALUE ''''''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Custom
+         ; // %ATTRIBUTES
+        ; // Custom
+        FINAL <<LocalConst>> MsgDlgButtons
+         %UID '4B8E84E802EC'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "children prefix" 'vtMsgDlg'
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> Yes
+            %UID '4B8E84FF0240'
+            %VALUE '''&Да'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Yes
+           <<Attribute>> No
+            %UID '4B8E85090245'
+            %VALUE '''&Нет'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // No
+           <<Attribute>> OK
+            %UID '4B8E8515015A'
+            %VALUE '''OK'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // OK
+           <<Attribute>> Cancel
+            %UID '4B8E85200324'
+            %VALUE '''&Отмена'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Cancel
+           <<Attribute>> Abort
+            %UID '4B8E85C002BB'
+            %VALUE '''&Прервать'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Abort
+           <<Attribute>> Retry
+            %UID '4B8E85D10254'
+            %VALUE '''Пов&торить'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Retry
+           <<Attribute>> Ignore
+            %UID '4B8E85DB0050'
+            %VALUE '''&Игнорировать'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Ignore
+           <<Attribute>> All
+            %UID '4B8E85E50222'
+            %VALUE '''&Все'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // All
+           <<Attribute>> NoToAll
+            %UID '4B8E85F801FE'
+            %VALUE '''&Нет для всех'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // NoToAll
+           <<Attribute>> YesToAll
+            %UID '4B8E860403E1'
+            %VALUE '''&Да для всех'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // YesToAll
+           <<Attribute>> Help
+            %UID '4B8E86100123'
+            %VALUE '''&Справка'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Help
+         ; // %ATTRIBUTES
+        ; // MsgDlgButtons
+        SUMMONED <<Constants>> LCImplTvtMiscMessages
+         %UID '609C00BC9FEF'
+         %SUMMARY 'Локализуемые строки TvtMiscMessages' ;
+         %META
+          %upv "children prefix" 'vt'
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> DefaultOpenDlgFilter
+            %UID 'F2634B0D416D'
+            %SUMMARY '''Все файлы|*.*''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtDefaultOpenDlgFilter''; rValue : ''Все файлы|*.*'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // DefaultOpenDlgFilter
+         ; // %ATTRIBUTES
+        ; // LCImplTvtMiscMessages
+        SUMMONED <<Constants>> LCImplMsgDlg
+         %UID 'C8318EF842F8'
+         %SUMMARY 'Локализуемые строки MsgDlg' ;
+         %META
+          %upv "children prefix" 'vtMsgDlg'
+          %upv "elements prefix" 'str'
+          %upv "ifndef" 'Nemesis'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> Warning
+            %UID '54AE1517D281'
+            %SUMMARY '''Warning''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgWarning''; rValue : ''Warning'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Warning
+           SUMMONED <<Attribute>> Error
+            %UID '3A4C0499FAB1'
+            %SUMMARY '''Error''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgError''; rValue : ''Error'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Error
+           SUMMONED <<Attribute>> Information
+            %UID '4D18F93FA68B'
+            %SUMMARY '''Information''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgInformation''; rValue : ''Information'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Information
+           SUMMONED <<Attribute>> Confirm
+            %UID 'EFC83245675F'
+            %SUMMARY '''Confirm''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgConfirm''; rValue : ''Confirm'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Confirm
+         ; // %ATTRIBUTES
+        ; // LCImplMsgDlg
+        SUMMONED <<Constants>> LCImplMsgDlgNemesis
+         %UID '9FCC522908D2'
+         %SUMMARY 'Локализуемые строки MsgDlgNemesis' ;
+         %META
+          %upv "children prefix" 'vtMsgDlg'
+          %upv "elements prefix" 'str'
+          %upv "ifdef" 'Nemesis'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> Warning
+            %UID '1B68576FAA41'
+            %SUMMARY '''Предупреждение''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgWarning''; rValue : ''Предупреждение'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Warning
+           SUMMONED <<Attribute>> Error
+            %UID '5B72CA52E447'
+            %SUMMARY '''Ошибка''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgError''; rValue : ''Ошибка'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Error
+           SUMMONED <<Attribute>> Information
+            %UID '7B5A9AB51F0E'
+            %SUMMARY '''Информация''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgInformation''; rValue : ''Информация'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Information
+           SUMMONED <<Attribute>> Confirm
+            %UID 'A7E308EBD3C1'
+            %SUMMARY '''Подтверждение''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgConfirm''; rValue : ''Подтверждение'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Confirm
+         ; // %ATTRIBUTES
+        ; // LCImplMsgDlgNemesis
+        SUMMONED <<Constants>> LCImplCustom
+         %UID '05A51E809210'
+         %SUMMARY 'Локализуемые строки Custom' ;
+         %META
+          %upv "children prefix" 'vtMsgDlg'
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> Custom
+            %UID '6E45B7366823'
+            %SUMMARY '''''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgCustom''; rValue : '''')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Custom
+         ; // %ATTRIBUTES
+        ; // LCImplCustom
+        SUMMONED <<Constants>> LCImplMsgDlgButtons
+         %UID '7B1D579EFA30'
+         %SUMMARY 'Локализуемые строки MsgDlgButtons' ;
+         %META
+          %upv "children prefix" 'vtMsgDlg'
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> Yes
+            %UID 'A737A1E260E7'
+            %SUMMARY '''&Да''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgYes''; rValue : ''&Да'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Yes
+           SUMMONED <<Attribute>> No
+            %UID 'C50791090295'
+            %SUMMARY '''&Нет''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgNo''; rValue : ''&Нет'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // No
+           SUMMONED <<Attribute>> OK
+            %UID 'C23DCB97751A'
+            %SUMMARY '''OK''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgOK''; rValue : ''OK'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // OK
+           SUMMONED <<Attribute>> Cancel
+            %UID 'D939681AB3BC'
+            %SUMMARY '''&Отмена''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgCancel''; rValue : ''&Отмена'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Cancel
+           SUMMONED <<Attribute>> Abort
+            %UID 'E3AC85806997'
+            %SUMMARY '''&Прервать''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgAbort''; rValue : ''&Прервать'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Abort
+           SUMMONED <<Attribute>> Retry
+            %UID '69CA9A6CE1B5'
+            %SUMMARY '''Пов&торить''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgRetry''; rValue : ''Пов&торить'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Retry
+           SUMMONED <<Attribute>> Ignore
+            %UID '2E728515D0DC'
+            %SUMMARY '''&Игнорировать''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgIgnore''; rValue : ''&Игнорировать'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Ignore
+           SUMMONED <<Attribute>> All
+            %UID '3D95E95A1C37'
+            %SUMMARY '''&Все''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgAll''; rValue : ''&Все'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // All
+           SUMMONED <<Attribute>> NoToAll
+            %UID 'E1FA5643E367'
+            %SUMMARY '''&Нет для всех''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgNoToAll''; rValue : ''&Нет для всех'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // NoToAll
+           SUMMONED <<Attribute>> YesToAll
+            %UID 'B3EE8AC23FDD'
+            %SUMMARY '''&Да для всех''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgYesToAll''; rValue : ''&Да для всех'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // YesToAll
+           SUMMONED <<Attribute>> Help
+            %UID '34948F5A3B35'
+            %SUMMARY '''&Справка''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgHelp''; rValue : ''&Справка'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Help
+         ; // %ATTRIBUTES
+        ; // LCImplMsgDlgButtons
+      ; // %CHILDREN
+     ; // vtDialogsRes
+     <<SimpleClass>> TvtSaveDialog
+      %UID '4C37236E02A1'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DCC0BE20198' /* TSaveDialog */
+      ; // %INHERITS
+      %LINKS
+        <<uses>> "4DD668280154"
+         %UID '4DD668280154'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 4DD668280154
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED <<method>> GetFileNameForAdjust
+         %UID '4DCAD2B2008F'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DCAD2CD0135'
+            %SUMMARY 'Получить имя файла для корректировки расширения' ;
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetFileNameForAdjust
+        PROTECTED <<method>> FirstCorrectFileName
+         %UID '4DCAD9560008'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DCBAAF80368'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FirstCorrectFileName
+        PROTECTED <<method>> SetAdjustedFileName
+         %UID '4DCBC96000E3'
+         %SUMMARY 'Установить откорректированное имя файла' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DCBC9B90049'
+            %SUMMARY 'Установить откорректированное имя файла' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> aFileName
+               %UID '4DCBC9ED0318'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFileName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SetAdjustedFileName
+      ; // %OPERATIONS
+     ; // TvtSaveDialog
+     FINAL <<UtilityPack>> vtVGSceneRes
+      %UID '4D494D090395'
+      %META
+       %upv "finished" false
+       %upv "ifndef" 'NoVGScene'
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TvtVGSceneResources
+         %UID '4D557516038D'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4AAA214A0250' /* TDataModule */
+         ; // %INHERITS
+        ; // TvtVGSceneResources
+      ; // %CHILDREN
+     ; // vtVGSceneRes
+     <<SimpleClass>> TvtVGButton
+      %UID '4D494D3601A8'
+      %META
+       %upv "ifndef" 'NoVGScene'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '4CFCE4F203CE' /* VGScene */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4CFF5690033D' /* TvgButton */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47D1602000C6' /* Create */
+       U$ '4D5E5ACA029B' /* SetText */
+       U$ '4D5E5B530342' /* ModalResult */
+       U$ '4D5E5BB000A5' /* OnClick */
+       U$ '4D5E5C0A01E6' /* Default */
+       U$ '4D5E5C27000E' /* Cancel */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "CE58CBD802A7"
+         %UID 'CE58CBD802A7'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // CE58CBD802A7
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_DuplicateButton
+         %UID '4D5E5A570158'
+         %TARGET U$ '4D5E5A3A0186' /* TButton */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+        ; // f_DuplicateButton
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<method>> UpdateDuplicateButton
+         %UID '4D5E5A63025B'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D5E5A6B0246'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // UpdateDuplicateButton
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID 'DF49753073E7'
+         %SUMMARY 'Регистрация TvtVGButton' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TvtVGButton
+     FINAL <<UtilityPack>> vtF1InterfaceConst
+      %UID '4D494DA003B6'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // vtF1InterfaceConst
+     FINAL <<UtilityPack>> vtDialogsResEx
+      %UID '4D99E1B401B5'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "finished" false
+       %upv "no hands" false
+       %upv "started" '04.04.2011 19:20'
+      ; // %META
+      %LINKS
+        <<uses>> "4D99E1DD02C7"
+         %UID '4D99E1DD02C7'
+         %TARGET U$ '4B8E6793024B' /* vtDialogsRes */
+        ; // 4D99E1DD02C7
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> vtGetDlgBtnCaption
+         %UID '4D99E1E7012A'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'D5E283EFDCED'
+            %SUMMARY 'Сигнатура метода vtGetDlgBtnCaption' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // vtGetDlgBtnCaption
+        FINAL <<method>> vtGetDlgBtnResult
+         %UID '4D99E2050245'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '19C715E29836'
+            %SUMMARY 'Сигнатура метода vtGetDlgBtnResult' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // vtGetDlgBtnResult
+      ; // %OPERATIONS
+     ; // vtDialogsResEx
+     FINAL <<UtilityPack>> vtDialogs
+      %UID '4D99F7C003E0'
+      %META
+       %upv "finished" false
+       %upv "ifndef" 'Nemesis'
+       %upv "no hands" false
+      ; // %META
+     ; // vtDialogs
+   ; // %CHILDREN
+  ; // Dialogs
+  <<Unit>> Common
+   %UID '4E1447600037'
+   %DEPENDS
+    U$ '4AB0997B00A2' /* Common */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> vtStdRes
+      %UID '49213DFA02CB'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<Operation>> vtStdResources
+         %UID '49213E3A030E'
+        ; // vtStdResources
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TvtStdResources
+         %UID '4AAE399802A2'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4AAA214A0250' /* TDataModule */
+         ; // %INHERITS
+        ; // TvtStdResources
+      ; // %CHILDREN
+     ; // vtStdRes
+   ; // %CHILDREN
+  ; // Common
+ ; // %CHILDREN
+; // VT$Core

@@ -1,0 +1,83 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_install_level2_lite <confirm>"
+exit
+fi
+
+if test "$USER" = "compile"; then
+echo "User $USER must not run this script."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT; see doc for details."
+exit
+fi
+
+if test "$MPCXC_MIRROR_HOME" = ""; then
+echo "You must export MPCXC_HOME; see doc for details."
+exit
+fi
+
+echo "mpcxc_install_level2_lite ..."
+
+taoace_target=`$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/uname2target.rb`
+
+if test "$taoace_target" = "" ; then
+echo "mpcxc_make_target: FATAL: target platform = $taoace_target not supported."
+exit
+fi	  
+
+build_conf=$1
+
+if test "$build_conf" != "y" ; then
+echo "Optimize using $build_conf"
+taoace_target=$taoace_target"_"$build_conf
+else
+echo "Optimize using static"
+taoace_target=$taoace_target"_static"
+fi
+
+echo "target = $taoace_target"
+
+rm -rf $MPCXC_ROOT/src/TAO
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/TAO $MPCXC_ROOT/src/TAO
+rm -rf $MPCXC_ROOT/src/ACEXML
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/ACEXML $MPCXC_ROOT/src/ACEXML
+rm -rf $MPCXC_ROOT/src/apps
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/apps $MPCXC_ROOT/src/apps
+rm -rf $MPCXC_ROOT/src/Kokyu
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/Kokyu $MPCXC_ROOT/src/Kokyu
+rm -rf $MPCXC_ROOT/src/protocols
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/protocols $MPCXC_ROOT/src/protocols
+
+rm -rf $MPCXC_ROOT/src/loki
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/loki $MPCXC_ROOT/src/loki
+
+rm -rf $MPCXC_ROOT/src/bin
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/bin $MPCXC_ROOT/src/bin
+
+rm -f $MPCXC_ROOT/out/$taoace_target/lib/libTAO*.*
+rm -f $MPCXC_ROOT/out/$taoace_target/lib/libKokyu.*
+rm -f $MPCXC_ROOT/out/$taoace_target/lib/libUTF16_UCS2.*
+rm -f $MPCXC_ROOT/out/$taoace_target/bin/gperf
+rm -f $MPCXC_ROOT/out/$taoace_target/bin/tao_idl
+rm -f $MPCXC_ROOT/out/$taoace_target/bin/catior
+cur_dir=$PWD
+cd $MPCXC_MIRROR_HOME/pilotcvs/out/$taoace_target/lib
+mkdir -p $MPCXC_ROOT/out/$taoace_target/lib
+find . -type f -name "libTAO*.*" -exec ln -s -f $PWD/{} $MPCXC_ROOT/out/$taoace_target/lib/{} \;
+find . -type f -name "libKokyu.*" -exec ln -s -f $PWD/{} $MPCXC_ROOT/out/$taoace_target/lib/{} \;
+find . -type f -name "libUTF16_UCS2.*" -exec ln -s -f $PWD/{} $MPCXC_ROOT/out/$taoace_target/lib/{} \;
+cd $MPCXC_MIRROR_HOME/pilotcvs/out/$taoace_target/bin
+mkdir -p $MPCXC_ROOT/out/$taoace_target/bin
+find . -type f -name "gperf" -exec ln -s -f $PWD/{} $MPCXC_ROOT/out/$taoace_target/bin/{} \;
+find . -type f -name "tao_idl" -exec ln -s -f $PWD/{} $MPCXC_ROOT/out/$taoace_target/bin/{} \;
+find . -type f -name "catior" -exec ln -s -f $PWD/{} $MPCXC_ROOT/out/$taoace_target/bin/{} \;
+
+cd $cur_dir
+
+echo "You can make:"
+echo "targets from level 1 lite plus:"
+echo "garant_server."

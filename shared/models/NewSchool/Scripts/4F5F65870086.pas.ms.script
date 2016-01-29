@@ -1,0 +1,63 @@
+// MDProcess$NewGen 4F5F65870086 Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4F5F65870086
+ CONST UID '4F5F65870086'
+ CONST Name 'MDProcess'
+ CONST Class class_Category
+ : Stereotype st_Project ;
+ %SUMMARY 'Новый генератор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Children
+   @ ( WL 'ME_4F5F53C903CB' '4F5F53C903CB.pas.ms.script' // NewGen
+ WL 'ME_18703EC5C0A6' '18703EC5C0A6.pas.ms.script' // ReleaseNewGen
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.pas.ms.script' // DUnit
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4B30CC420206' '4B30CC420206.pas.ms.script' // Shared Delphi Testing Framework
+ WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
+ WL 'ME_4CA0BB31027B' '4CA0BB31027B.pas.ms.script' // BridgeToKviaCORBA
+ WL 'ME_4DEF302C0007' '4DEF302C0007.pas.ms.script' // ScriptEngine
+ WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
+ WL 'ME_5130499D0080' '5130499D0080.pas.ms.script' // DUnit Script Support
+ WL 'ME_5130776E01BE' '5130776E01BE.pas.ms.script' // DUnitKeyWordsSupport
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "Full MDP" false
+ CONST "build share" 'Garant-MDP'
+ CONST "create project" true
+ CONST "fix version" 0
+ CONST "force usage" true
+ CONST "full constraint" true
+ CONST "ifdef" 'NewGen'
+ CONST "major version" 1
+ CONST "minor version" 0
+ CONST "package prefix" 'ru.garant'
+ CONST "space key" 'NGEN'
+ CONST "space name" 'New Gen'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\MDProcess$NewGen\MDProcess$NewGen.model.script'
+ CONST intf.pas:Path 'MDProcess\MDProcess$NewGen_prj.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F5F65870086.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F5F65870086.pas.ms.script.runner'
+
+ref; // ME_4F5F65870086 MDProcess$NewGen

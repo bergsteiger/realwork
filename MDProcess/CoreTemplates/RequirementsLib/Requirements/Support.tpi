@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$CoreTemplates::CoreTemplates::RequirementsLib::Requirements::Support
+//
+// ввспомогательные функции для генерации элементов требований
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+f _specialize_usecase_that_used_by_actor
+//#UC START# *47184CA10232*
+	[{<{}{%Ga!=abstract&%f_used_by_actor_anyway(%G)=true}{C}>!=0|<{}{%Ga=abstract&%f_use_by_actor(%G)=true|%Ga=abstract&%f_use_by_usecase_that_used_by_actor(%G)=true}{C}>!=0}{false}true]
+//#UC END# *47184CA10232*
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+f _specialized_by_usecase_that_used_by_actor
+//#UC START# *47184CB002AF*
+	[{%Sa=abstract&<{}{%f_used_by_actor_anyway(%Z)=true}{C}>!=0}{false}true]
+//#UC END# *47184CB002AF*
+
+// используется ли актёром
+f _use_by_actor
+//#UC START# *47184CBB0399*
+	[{<{}{%a%PS=Actor}{C}>!=0}{false}true]
+//#UC END# *47184CBB0399*
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+f _use_by_usecase_that_used_by_actor
+//#UC START# *47184CC400EA*
+	[{<{}{%aS=include&%f_used_by_actor_anyway(%a%P)=true|%aS=extend&%f_used_by_actor_anyway(%a%P)=true}{C}>!=0}{false}true]
+//#UC END# *47184CC400EA*
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+f _used_by_actor_anyway
+//#UC START# *47184CCB02FD*
+	[{%f_exists_in_list(REQURSION_CHECK_LIST,S)=false}{false}%f_add_to_list(REQURSION_CHECK_LIST,S)\
+	[{%f_use_by_actor(%S)=true|%f_specialized_by_usecase_that_used_by_actor(%S)=true|%f_use_by_usecase_that_used_by_actor(%S)=true|%f_specialize_usecase_that_used_by_actor(%S)=true}{false}true]\
+	%f_remove_from_list(REQURSION_CHECK_LIST,S)]
+//#UC END# *47184CCB02FD*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

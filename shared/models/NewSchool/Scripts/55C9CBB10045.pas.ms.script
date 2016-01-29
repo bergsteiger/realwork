@@ -1,0 +1,1247 @@
+// TreeNodeWordsPack 55C9CBB10045 ScriptKeywordsPack Class
+
+FORWARD ME_55C9CBB10045
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_A78303612230
+
+: ME_A9177B2901DA
+ CONST UID 'A9177B2901DA'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_A9177B2901DA aCtx
+
+INCLUDE '4AC62798032A.pas.ms.script'
+
+: ME_A9177B2901DB
+ CONST UID 'A9177B2901DB'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_A9177B2901DB aTreeNode
+
+: ME_F036C8335C15
+ CONST UID 'F036C8335C15'
+ CONST Name 'GetNext'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetNext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ : Parameters
+   [ ME_A9177B2901DA // aCtx
+ ME_A9177B2901DB // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_F036C8335C15 GetNext
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_C0C5C05B443D
+ CONST UID 'C0C5C05B443D'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_GetNext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_C0C5C05B443D Ini_Reg
+
+: ME_A78303612230
+ CONST UID 'A78303612230'
+ CONST Name 'pop_TreeNode_GetNext'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:GetNext'#13#10'*Тип результата:* TTreeNode'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TTreeNode'#13#10' aTreeNode pop:TreeNode:GetNext >>> l_TTreeNode'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_F036C8335C15 // GetNext
+ ME_C0C5C05B443D // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:GetNext'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_A78303612230 pop_TreeNode_GetNext
+
+FORWARD ME_5E7363490ED0
+
+: ME_EFF0963C81D9
+ CONST UID 'EFF0963C81D9'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_EFF0963C81D9 aCtx
+
+: ME_EFF0963C81DA
+ CONST UID 'EFF0963C81DA'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_EFF0963C81DA aTreeNode
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_A5D06F0C77D0
+ CONST UID 'A5D06F0C77D0'
+ CONST Name 'HasChildren'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:HasChildren' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_EFF0963C81D9 // aCtx
+ ME_EFF0963C81DA // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_A5D06F0C77D0 HasChildren
+
+: ME_00D69C1D220A
+ CONST UID '00D69C1D220A'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_HasChildren' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_00D69C1D220A Ini_Reg
+
+: ME_5E7363490ED0
+ CONST UID '5E7363490ED0'
+ CONST Name 'pop_TreeNode_HasChildren'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:HasChildren'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aTreeNode pop:TreeNode:HasChildren >>> l_Boolean'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A5D06F0C77D0 // HasChildren
+ ME_00D69C1D220A // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:HasChildren'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5E7363490ED0 pop_TreeNode_HasChildren
+
+FORWARD ME_55B024C23EBF
+
+: ME_83D4A136D12E
+ CONST UID '83D4A136D12E'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_83D4A136D12E aCtx
+
+: ME_83D4A136D12F
+ CONST UID '83D4A136D12F'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_83D4A136D12F aTreeNode
+
+: ME_AB6849BAAE6B
+ CONST UID 'AB6849BAAE6B'
+ CONST Name 'GetPrev'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetPrev' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ : Parameters
+   [ ME_83D4A136D12E // aCtx
+ ME_83D4A136D12F // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_AB6849BAAE6B GetPrev
+
+: ME_49D3D5B68851
+ CONST UID '49D3D5B68851'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_GetPrev' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_49D3D5B68851 Ini_Reg
+
+: ME_55B024C23EBF
+ CONST UID '55B024C23EBF'
+ CONST Name 'pop_TreeNode_GetPrev'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:GetPrev'#13#10'*Тип результата:* TTreeNode'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TTreeNode'#13#10' aTreeNode pop:TreeNode:GetPrev >>> l_TTreeNode'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_AB6849BAAE6B // GetPrev
+ ME_49D3D5B68851 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:GetPrev'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55B024C23EBF pop_TreeNode_GetPrev
+
+FORWARD ME_5EA990C4D795
+
+: ME_78D48713A2DC
+ CONST UID '78D48713A2DC'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_78D48713A2DC aCtx
+
+: ME_78D48713A2DD
+ CONST UID '78D48713A2DD'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_78D48713A2DD aTreeNode
+
+: ME_200474EC25F0
+ CONST UID '200474EC25F0'
+ CONST Name 'GetFirstChild'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetFirstChild' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ : Parameters
+   [ ME_78D48713A2DC // aCtx
+ ME_78D48713A2DD // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_200474EC25F0 GetFirstChild
+
+: ME_98215A728036
+ CONST UID '98215A728036'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_GetFirstChild' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_98215A728036 Ini_Reg
+
+: ME_5EA990C4D795
+ CONST UID '5EA990C4D795'
+ CONST Name 'pop_TreeNode_GetFirstChild'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:GetFirstChild'#13#10'*Тип результата:* TTreeNode'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TTreeNode'#13#10' aTreeNode pop:TreeNode:GetFirstChild >>> l_TTreeNode'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_200474EC25F0 // GetFirstChild
+ ME_98215A728036 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:GetFirstChild'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5EA990C4D795 pop_TreeNode_GetFirstChild
+
+FORWARD ME_C6C1AF6914F1
+
+: ME_C6F50A93B566
+ CONST UID 'C6F50A93B566'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_C6F50A93B566 aCtx
+
+: ME_C6F50A93B567
+ CONST UID 'C6F50A93B567'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_C6F50A93B567 aTreeNode
+
+: ME_E2F8A6090E56
+ CONST UID 'E2F8A6090E56'
+ CONST Name 'GetLastChild'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetLastChild' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ : Parameters
+   [ ME_C6F50A93B566 // aCtx
+ ME_C6F50A93B567 // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E2F8A6090E56 GetLastChild
+
+: ME_B2E2C55F228C
+ CONST UID 'B2E2C55F228C'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_GetLastChild' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B2E2C55F228C Ini_Reg
+
+: ME_C6C1AF6914F1
+ CONST UID 'C6C1AF6914F1'
+ CONST Name 'pop_TreeNode_GetLastChild'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:GetLastChild'#13#10'*Тип результата:* TTreeNode'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TTreeNode'#13#10' aTreeNode pop:TreeNode:GetLastChild >>> l_TTreeNode'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E2F8A6090E56 // GetLastChild
+ ME_B2E2C55F228C // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:GetLastChild'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_C6C1AF6914F1 pop_TreeNode_GetLastChild
+
+FORWARD ME_D75C1EAFB29F
+
+: ME_80F55C2450A2
+ CONST UID '80F55C2450A2'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_80F55C2450A2 aCtx
+
+: ME_80F55C2450A3
+ CONST UID '80F55C2450A3'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_80F55C2450A3 aTreeNode
+
+: ME_B86DC202F7D8
+ CONST UID 'B86DC202F7D8'
+ CONST Name 'GetNextSibling'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetNextSibling' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ : Parameters
+   [ ME_80F55C2450A2 // aCtx
+ ME_80F55C2450A3 // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_B86DC202F7D8 GetNextSibling
+
+: ME_C16E1E2CCF34
+ CONST UID 'C16E1E2CCF34'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_GetNextSibling' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_C16E1E2CCF34 Ini_Reg
+
+: ME_D75C1EAFB29F
+ CONST UID 'D75C1EAFB29F'
+ CONST Name 'pop_TreeNode_GetNextSibling'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:GetNextSibling'#13#10'*Тип результата:* TTreeNode'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TTreeNode'#13#10' aTreeNode pop:TreeNode:GetNextSibling >>> l_TTreeNode'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_B86DC202F7D8 // GetNextSibling
+ ME_C16E1E2CCF34 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:GetNextSibling'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_D75C1EAFB29F pop_TreeNode_GetNextSibling
+
+FORWARD ME_35C934477819
+
+: ME_872A8934A574
+ CONST UID '872A8934A574'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_872A8934A574 aCtx
+
+: ME_872A8934A575
+ CONST UID '872A8934A575'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_872A8934A575 aTreeNode
+
+: ME_CBAF62383CA2
+ CONST UID 'CBAF62383CA2'
+ CONST Name 'GetPrevSibling'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetPrevSibling' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ : Parameters
+   [ ME_872A8934A574 // aCtx
+ ME_872A8934A575 // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_CBAF62383CA2 GetPrevSibling
+
+: ME_39EAF0559009
+ CONST UID '39EAF0559009'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_GetPrevSibling' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_39EAF0559009 Ini_Reg
+
+: ME_35C934477819
+ CONST UID '35C934477819'
+ CONST Name 'pop_TreeNode_GetPrevSibling'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:GetPrevSibling'#13#10'*Тип результата:* TTreeNode'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TTreeNode'#13#10' aTreeNode pop:TreeNode:GetPrevSibling >>> l_TTreeNode'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_CBAF62383CA2 // GetPrevSibling
+ ME_39EAF0559009 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:GetPrevSibling'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_35C934477819 pop_TreeNode_GetPrevSibling
+
+FORWARD ME_4D009DB53D61
+
+: ME_92CAA369AC36
+ CONST UID '92CAA369AC36'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_92CAA369AC36 aCtx
+
+: ME_92CAA369AC37
+ CONST UID '92CAA369AC37'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_92CAA369AC37 aTreeNode
+
+: ME_8DB4489FF36F
+ CONST UID '8DB4489FF36F'
+ CONST Name 'GetNextVisible'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetNextVisible' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ : Parameters
+   [ ME_92CAA369AC36 // aCtx
+ ME_92CAA369AC37 // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_8DB4489FF36F GetNextVisible
+
+: ME_DA005915F432
+ CONST UID 'DA005915F432'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_GetNextVisible' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DA005915F432 Ini_Reg
+
+: ME_4D009DB53D61
+ CONST UID '4D009DB53D61'
+ CONST Name 'pop_TreeNode_GetNextVisible'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:GetNextVisible'#13#10'*Тип результата:* TTreeNode'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TTreeNode'#13#10' aTreeNode pop:TreeNode:GetNextVisible >>> l_TTreeNode'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_8DB4489FF36F // GetNextVisible
+ ME_DA005915F432 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:GetNextVisible'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4D009DB53D61 pop_TreeNode_GetNextVisible
+
+FORWARD ME_CA039569FA58
+
+: ME_D9B7A299D6FD
+ CONST UID 'D9B7A299D6FD'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_D9B7A299D6FD aCtx
+
+: ME_D9B7A299D6FE
+ CONST UID 'D9B7A299D6FE'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_D9B7A299D6FE aTreeNode
+
+: ME_4529C267C83B
+ CONST UID '4529C267C83B'
+ CONST Name 'GetPrevVisible'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetPrevVisible' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ : Parameters
+   [ ME_D9B7A299D6FD // aCtx
+ ME_D9B7A299D6FE // aTreeNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4529C267C83B GetPrevVisible
+
+: ME_F36DAA3E6E48
+ CONST UID 'F36DAA3E6E48'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_GetPrevVisible' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F36DAA3E6E48 Ini_Reg
+
+: ME_CA039569FA58
+ CONST UID 'CA039569FA58'
+ CONST Name 'pop_TreeNode_GetPrevVisible'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:GetPrevVisible'#13#10'*Тип результата:* TTreeNode'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TTreeNode'#13#10' aTreeNode pop:TreeNode:GetPrevVisible >>> l_TTreeNode'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4529C267C83B // GetPrevVisible
+ ME_F36DAA3E6E48 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:GetPrevVisible'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_CA039569FA58 pop_TreeNode_GetPrevVisible
+
+FORWARD ME_53AEF2794BFD
+
+: ME_C14BCE515805
+ CONST UID 'C14BCE515805'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_C14BCE515805 aCtx
+
+: ME_C14BCE515806
+ CONST UID 'C14BCE515806'
+ CONST Name 'aTreeNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+
+ @SELF
+; // ME_C14BCE515806 aTreeNode
+
+: ME_C14BCE515807
+ CONST UID 'C14BCE515807'
+ CONST Name 'aRecurse'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_C14BCE515807 aRecurse
+
+: ME_64F2C36D9582
+ CONST UID '64F2C36D9582'
+ CONST Name 'Expand'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:TreeNode:Expand' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_C14BCE515805 // aCtx
+ ME_C14BCE515806 // aTreeNode
+ ME_C14BCE515807 // aRecurse
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_64F2C36D9582 Expand
+
+: ME_CE1672FBEA5E
+ CONST UID 'CE1672FBEA5E'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_TreeNode_Expand' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CE1672FBEA5E Ini_Reg
+
+: ME_53AEF2794BFD
+ CONST UID '53AEF2794BFD'
+ CONST Name 'pop_TreeNode_Expand'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:TreeNode:Expand'#13#10'*Пример:*'#13#10'{code}'#13#10' aRecurse aTreeNode pop:TreeNode:Expand'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_64F2C36D9582 // Expand
+ ME_CE1672FBEA5E // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:TreeNode:Expand'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53AEF2794BFD pop_TreeNode_Expand
+
+: ME_55C9CBEB0063
+ CONST UID '55C9CBEB0063'
+ CONST Name 'GetNext'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9CBEB0063 GetNext
+
+: ME_55C9CBF80354
+ CONST UID '55C9CBF80354'
+ CONST Name 'HasChildren'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9CBF80354 HasChildren
+
+: ME_55C9D4D302CC
+ CONST UID '55C9D4D302CC'
+ CONST Name 'GetPrev'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9D4D302CC GetPrev
+
+: ME_55C9D4EA0111
+ CONST UID '55C9D4EA0111'
+ CONST Name 'GetFirstChild'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9D4EA0111 GetFirstChild
+
+: ME_55C9D4FD035F
+ CONST UID '55C9D4FD035F'
+ CONST Name 'GetLastChild'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9D4FD035F GetLastChild
+
+: ME_55C9D5BB0220
+ CONST UID '55C9D5BB0220'
+ CONST Name 'GetNextSibling'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9D5BB0220 GetNextSibling
+
+: ME_55C9D5D00259
+ CONST UID '55C9D5D00259'
+ CONST Name 'GetPrevSibling'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9D5D00259 GetPrevSibling
+
+: ME_55C9D5F401A4
+ CONST UID '55C9D5F401A4'
+ CONST Name 'GetNextVisible'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9D5F401A4 GetNextVisible
+
+: ME_55C9D6120364
+ CONST UID '55C9D6120364'
+ CONST Name 'GetPrevVisible'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_512F3FCB02F3 // TTreeNode
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9D6120364 GetPrevVisible
+
+: ME_55C9D6390245
+ CONST UID '55C9D6390245'
+ CONST Name 'aRecurse'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_55C9D6390245 aRecurse
+
+: ME_55C9D632015E
+ CONST UID '55C9D632015E'
+ CONST Name 'Expand'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55C9D6390245 // aRecurse
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55C9D632015E Expand
+
+: ME_F26A1E795F1E
+ CONST UID 'F26A1E795F1E'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F26A1E795F1E Reg_TtfwContext
+
+: ME_26493207DE51
+ CONST UID '26493207DE51'
+ CONST Name 'Reg_TTreeNode'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TTreeNode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_26493207DE51 Reg_TTreeNode
+
+: ME_DE431BAEEC71
+ CONST UID 'DE431BAEEC71'
+ CONST Name 'Reg_Boolean'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Boolean' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DE431BAEEC71 Reg_Boolean
+
+: ME_55C9CBB10045
+ CONST UID '55C9CBB10045'
+ CONST Name 'TreeNodeWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_512F3FCB02F3 // TTreeNode
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_55C9CBEB0063 // GetNext
+ ME_55C9CBF80354 // HasChildren
+ ME_55C9D4D302CC // GetPrev
+ ME_55C9D4EA0111 // GetFirstChild
+ ME_55C9D4FD035F // GetLastChild
+ ME_55C9D5BB0220 // GetNextSibling
+ ME_55C9D5D00259 // GetPrevSibling
+ ME_55C9D5F401A4 // GetNextVisible
+ ME_55C9D6120364 // GetPrevVisible
+ ME_55C9D632015E // Expand
+ ME_F26A1E795F1E // Reg_TtfwContext
+ ME_26493207DE51 // Reg_TTreeNode
+ ME_DE431BAEEC71 // Reg_Boolean
+ ]
+ ; // Operations
+ : Children
+   [ ME_A78303612230 // pop_TreeNode_GetNext
+ ME_5E7363490ED0 // pop_TreeNode_HasChildren
+ ME_55B024C23EBF // pop_TreeNode_GetPrev
+ ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
+ ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
+ ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
+ ME_35C934477819 // pop_TreeNode_GetPrevSibling
+ ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
+ ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
+ ME_53AEF2794BFD // pop_TreeNode_Expand
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_55C9CBB10045 TreeNodeWordsPack

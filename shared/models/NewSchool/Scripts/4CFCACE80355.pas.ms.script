@@ -1,0 +1,115 @@
+// NSRC 7.6 4CFCACE80355 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CFCACE80355
+
+FORWARD ME_4CFCACFE0085
+
+: ME_7EEAE5BBE67A
+ CONST UID '7EEAE5BBE67A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CFCACFE0085 // K245206060
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_7EEAE5BBE67A 
+
+: ME_4C937013031D_ME_4CFCACFE0085
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CFCACFE0085 // K245206060
+ ;
+ref; // ME_4C937013031D_ME_4CFCACFE0085 GetFolder
+
+: ME_4CE67DED0192_ME_4CFCACFE0085
+ CONST UID '4CE67DED0192'
+ CONST Name 'IsPlus'
+ : Original WL 'ME_4CE67DED0192' '4B4F68D4033F.pas.ms.script' // IsPlus
+ ;
+ : Implementor ME_4CFCACFE0085 // K245206060
+ ;
+ref; // ME_4CE67DED0192_ME_4CFCACFE0085 IsPlus
+
+: ME_4DAED6F60146_ME_4CFCACFE0085
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CFCACFE0085 // K245206060
+ ;
+ref; // ME_4DAED6F60146_ME_4CFCACFE0085 GetModelElementGUID
+
+: ME_4CFCACFE0085
+ CONST UID '4CFCACFE0085'
+ CONST Name 'K245206060'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:245206060}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CFCACE80355 // NSRC 7.6
+ ;
+ : Inherits
+   @ ( WL 'ME_4CE67D90013B' '4B4F68D4033F.pas.ms.script' // NSRCtoNSRCTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CFCACFE0085 // GetFolder
+ ME_4CE67DED0192_ME_4CFCACFE0085 // IsPlus
+ ME_4DAED6F60146_ME_4CFCACFE0085 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_7EEAE5BBE67A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '06.12.2010 12:29'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K245206060.pas'
+ CONST extprop:pas:TypeName 'TK245206060'
+
+ref; // ME_4CFCACFE0085 K245206060
+
+: ME_4CFCACE80355
+ CONST UID '4CFCACE80355'
+ CONST Name 'NSRC 7.6'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_4CFCACFE0085 // K245206060
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B4F68D4033F' '4B4F68D4033F.pas.ms.script' // NSRCTests
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CFCACE80355.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CFCACE80355.pas.ms.script.runner'
+
+ref; // ME_4CFCACE80355 NSRC 7.6

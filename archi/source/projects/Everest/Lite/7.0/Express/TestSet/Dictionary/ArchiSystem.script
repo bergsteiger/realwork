@@ -1,0 +1,485 @@
+// ArchiSystem.script
+// Здесь складываем всякие обертки из разных модулей
+
+USES
+ axiom:Control
+ axiom:cc
+ axiom:Clipboard
+ axiom:Editor
+;
+
+// Обертка над модулем Classes.pas
+// TShiftState type
+CONST ssNone 0
+CONST ssShift 1
+CONST ssAlt 2
+CONST ssCtrl 3
+
+// EditorInterfaces.script  
+// Выдержки из модуля evEditorInterfaces.pas 
+// TedMergeAlgorythm
+CONST ed_maAll 0
+CONST ed_maHorz 1
+CONST ed_maVert 2
+
+// Выдержки из evdStyles.pas
+CONST ev_saTxtNormalANSI -1
+WordAlias "Текст" ev_saTxtNormalANSI
+// Нормальный
+CONST ev_saVersionInfo -22
+//   информация о версии. 
+CONST ev_saHLE1 -45
+// Необходимые документы 
+CONST ev_saHLE2 -46
+//  Куда обратиться? 
+CONST ev_saHLE3 -47
+//  Внимание: недобросовестность!
+CONST ev_saHLE4 -48
+//  Внимание: криминал!!
+CONST ev_saHLE5 -49
+// Примечание. 
+CONST ev_saHLE6 -50
+//  Пример. 
+CONST ev_saChangesInfo -52
+// Информация об изменениях
+CONST ev_saAttention -68
+// Внимание!
+CONST ev_saTxtNormalAACSeeAlso -70
+// Текст ЭР (см. также)
+CONST ev_saHeaderAACLeftWindow -71
+// Заголовок ЭР (левое окно)
+CONST ev_saTwoColorTable -76
+// Полосатый стиль для таблиц
+
+
+
+// Выдержки из модуля Forms.pas
+// type TWindowState = (wsNormal, wsMinimized, wsMaximized);
+CONST wsNormal 0
+CONST wsMinimized 1
+CONST wsMaximized 2
+
+// Обертка над evdTypes.pas
+// TevPageOrientation
+CONST ev_poPortrait 0
+CONST ev_poLandscape 1
+
+// Dialogs.pas
+CONST mrNoToAll -9
+CONST mrYesToAll -10
+
+FUNCTION "Текст контрола - в стек" STRING IN aName
+	aName byname:control:push pop:Control:Caption =: Result
+;
+
+OBJECT FUNCTION "Контрол по имени - в стек" STRING IN aName
+ aName byname:control:push =: Result
+;
+
+OBJECT FUNCTION "Контрол в фокусе - в стек" 
+	focused:control:push =: Result  
+;
+
+PROCEDURE "Установить фокус в контрол с именем" STRING IN aName // Бывший TryFocus
+	aName byname:control:push pop:Control:SetFocus ASSERT
+;  
+
+PROCEDURE "Новая строка"
+	cc:NewLine
+;
+
+PROCEDURE "Откатка"
+	cc:Undo
+;
+
+PROCEDURE "Повтор"
+	cc:Redo
+;
+
+PROCEDURE "Нажать вверх"
+	cc:Up
+;
+
+PROCEDURE "Нажать вниз"
+	cc:Down
+;
+
+PROCEDURE "В конец документа"
+	cc:LastPage
+;
+
+PROCEDURE "Нажать вниз раз" INTEGER IN aCount
+	aCount LOOP "Нажать вниз"
+;
+
+PROCEDURE "Нажать вниз с зажатым Shift"
+	cc:ExtendDown
+;
+
+PROCEDURE "Скопировать в буфер"
+	cc:Copy
+;
+
+PROCEDURE "Вставить из буфера"
+	cc:Paste
+;
+
+PROCEDURE "Нажать влево"
+	cc:Left
+;
+
+PROCEDURE "Нажать Ctrl+Enter"
+	'Ctrl+Enter' key
+;
+
+WordAlias "Очистить буфер обмена" clipboard:clear
+
+PROCEDURE "Нажать вверх раз" INTEGER IN aCount
+	aCount LOOP "Нажать вверх"
+;
+
+PROCEDURE "В начало строки"
+	cc:Home
+;
+
+PROCEDURE "В начало списка"
+	cc:Home
+;
+
+PROCEDURE "В конец строки"
+	cc:End
+;
+
+PROCEDURE "Нажать Enter"
+	'Enter' key
+;
+
+PROCEDURE "Нажать Enter раз" IN aCount
+	aCount LOOP ( "Нажать Enter" )
+;
+
+PROCEDURE "Начать выделение"
+	cc:StartSelBlock
+;
+
+PROCEDURE "Закончить выделение"
+	cc:EndSelBlock
+;
+
+PROCEDURE "На страницу вниз"
+	cc:NextPage
+;
+
+PROCEDURE "В начало документа"
+	cc:FirstPage
+;
+
+PROCEDURE "Нажать табуляцию"
+ TRY
+  cc:Tab
+ EXCEPT
+  'Tab' key
+ END
+;
+
+PROCEDURE "Прокрутить вниз раз" INTEGER IN aCount
+	VAR l_Editor
+	focused:control:push >>> l_Editor 	
+	aCount LOOP ( l_Editor pop:Editor:ScrollLineDown )
+;
+
+PROCEDURE "Нажать удалить"
+	cc:Del
+;
+
+PROCEDURE "Нажать Down" // новое слово, словарь ArchiSystem.script
+	'Down' key
+;
+
+PROCEDURE "Нажать Up"
+	'Up' key
+;
+ 
+ WORDWORKER раз INTEGER IN aCount
+  aCount LOOP ( WordToWork DO )
+ ; // раз 
+
+WordAlias раза раз
+ 
+ PROCEDURE "Нажать Down раз" INTEGER IN aCount // новое слово, словарь ArchiSystem.script
+	aCount LOOP ( "Нажать Down" )
+ ;
+ 
+ PROCEDURE "Обработать сообщения"
+	ProcessMessages
+ ;
+ 
+ PROCEDURE "Набить текст" STRING IN aText
+	aText emitstring
+ ;
+
+PROCEDURE "Набить цифры" 
+	'123' emitstring   
+;
+
+PROCEDURE "Набить 6 цифр"
+	'123456' emitstring
+;
+
+PROCEDURE "Нажать 'Ctrl+F'"
+	'Ctrl+F' key		
+;
+ 
+PROCEDURE "Вызывать окно поиска"
+	"Нажать 'Ctrl+F'"
+;
+ 
+PROCEDURE "Вызывать окно замены"
+	'Ctrl+R' key
+; 
+ 
+PROCEDURE "Нажать 'Ctrl+V'"
+	'Ctrl+V' key		
+;
+ 
+ PROCEDURE "Вставить пробел"
+	' ' emitstring	
+ ;
+ 
+ PROCEDURE "На слово вправо"
+	cc:WordRight
+ ;
+ 
+ PROCEDURE "На слово влево"
+	cc:WordLeft
+ ;
+ 
+ PROCEDURE "Нажать вправо"
+	cc:Right
+ ;
+ 
+ PROCEDURE "Развернуть узел"
+	cc:TreeExpand
+ ;
+
+ PROCEDURE "Преобразовать текст в SBS"
+	'Shift+Space' key
+ ;
+ 
+ PROCEDURE "Нажать 'Удалить' в списке"
+	'Del' key
+ ;
+ 
+ PROCEDURE "Вызвать установку метки"
+	'F10' key
+;
+
+: "Убедиться, что фокус в редакторе"
+ // Пока заглушка...
+ /* OBJECT VAR l_Control
+ focused:control:push =: l_Control
+ l_Control ЯВЛЯЕТСЯ class::TevCustomEditorWindow 
+  [ 'Фокус не в редакторе, а в ' l_Control pop:component:Name ':' l_Control pop:object:ClassName ] strings:Cat 
+   ASSERTS */
+;
+
+WordAlias "Стрелка вверх" cc:Up
+
+PROCEDURE "Нажать 'Alt+i'"
+	'Alt+i' key
+;
+
+PROCEDURE "Выполнить, обработав исключение" OBJECT IN aProc STRING IN anException
+ TRY
+  aProc DO
+ EXCEPT
+  current:exception:Message anException ?!= ? RAISE
+ END
+;
+
+WORDWORKER EnumerateControls OBJECT IN aParent
+ aParent ЯВЛЯЕТСЯ class::TWinControl ? (
+  VAR I
+  0 =: I
+  aParent pop:Control:ControlCount LOOP ( I aParent pop:Control:GetControl WordToWork DO ++! I )
+ )
+;
+
+WORDWORKER TotalEnum OBJECT IN aControl
+
+ FORWARD DoItem
+
+ : DoItem OBJECT IN aControl
+  aControl ( WordToWork DO )
+  aControl EnumerateControls DoItem
+ ;
+
+ aControl DoItem
+;
+
+CONST cBreak 'BreakTotalEnum'
+
+WORDWORKER "Выполнить для всех контролов" OBJECT IN aControl
+ "Выполнить {(@ ( aControl TotalEnum ( WordToWork DO ) ) )} обработав исключение {(cBreak)}"
+;
+
+PROCEDURE "Выделить параграф" OBJECT IN anEditor
+	anEditor pop:Editor:SelectPara
+;
+
+PROCEDURE "Выделить слово" OBJECT IN anEditor
+	anEditor pop:Editor:SelectWord
+;
+
+PROCEDURE "Выделить весь документ" OBJECT IN anEditor
+        anEditor pop:Editor:SelectAll
+;
+
+WordAlias "Контрол в фокусе" focused:control:push
+WordAlias "Выделенный текст редактора" pop:editor:GetSelectionText
+
+PROCEDURE "Перейти на параграф вниз в текущем редакторе" 
+	focused:control:push pop:editor:ParaDown
+;
+
+PROCEDURE "Нажать стрелку вправо с зажатым Shift"
+	cc:ExtendRight
+;
+
+PROCEDURE "Создание выборки документов"
+	'F4' key
+;
+
+PROCEDURE "Нажать вверх с зажатым Shift"
+	cc:ExtendUp
+;
+
+PROCEDURE "Выделить текст от текущего курсора до начала"
+	cc:ExtendHome
+;
+
+PROCEDURE "Зажать клавишу 'Alt'"
+	'Alt' KeyDown 
+;
+
+PROCEDURE "Отпустить клавишу 'Alt'"
+	'Alt' KeyUp 
+;
+
+PROCEDURE "Нажать Alt+F8"
+	'Alt+F8' key
+;
+
+// DragData.pas TDragDataState = (dsPassive, dsActive, dsPaused);
+CONST dsPassive 0
+CONST dsActive 1
+CONST dsPaused 2
+
+WordAlias "Команда 'Стрелка вниз'" cc:Down
+
+// Константа для общих случаев (операции сравнения и т.д.)
+CONST csPublicZero 0
+
+CONST ar_AsUsual 0
+CONST ar_OpenDocument 1
+CONST ar_NotOpen 2
+
+// Константы-расширения файлов.
+
+CONST csRTFExt '.rtf'
+// Документ с расширением '*.rtf'
+
+CONST csOEMExt '.txt'
+// Документ с расширением '*.txt'
+
+CONST csDOCXExt '.docx'
+// Документ с расширением '*.docx'
+
+CONST csDOCExt '.doc'
+// Документ с расширением '*.doc'
+
+CONST csNSRExt '.nsr'
+// Документ с расширением '*.nsr'
+
+CONST csEVDExt '.evd'
+// Документ с расширением '*.evd'
+
+CONST csTIFFExt '.tiff'
+// Документ с расширением '*.tiff'
+
+CONST csJPGExt '.jpg'
+// Документ с расширением '*.jpg'
+
+CONST csPNGExt '.png'
+// Документ с расширением '*.png'
+
+CONST csHTMExt '.htm'
+// Документ с расширением '*.htm'
+
+CONST csGIFExt '.gif'
+// Документ с расширением '*.gif'
+
+CONST csBMPExt '.bmp'
+// Документ с расширением '*.bmp'
+
+CONST csPDFExt '.pdf'
+// Документ с расширением '*.pdf'
+
+CONST csICOExt '.ico'
+// Документ с расширением '*.ico'
+
+CONST csPCXExt '.pcx'
+// Документ с расширением '*.pcx'
+
+CONST csTGAExt '.tga'
+// Документ с расширением '*.tga'
+
+CONST csWMFExt '.wmf'
+// Документ с расширением '*.wmf'
+
+INTEGER VAR g_TimerNum
+[EXECUTE] ( 0 >>> g_TimerNum )
+
+: "Померить время" IN aProc
+ ++! g_TimerNum
+ VAR l_TimerNumS
+ g_TimerNum IntToStr >>> l_TimerNumS
+ StartTimer
+ TRY
+  aProc DO
+  application:ActionIdle
+  // - чтобы перечитались данные прецедента
+ FINALLY
+  '' l_TimerNumS StopTimerEx
+ END 
+; // "Померить время"
+
+: "Померить время и сравнить с эталоном" IN aProc
+ ++! g_TimerNum
+ VAR l_TimerNumS
+ g_TimerNum IntToStr >>> l_TimerNumS
+// VAR l_ScriptName
+// script:FileName sysutils:ExtractFileName >>> l_ScriptName
+ StartTimer
+ TRY
+  aProc DO
+  application:ActionIdle
+  // - чтобы перечитались данные прецедента
+ FINALLY
+//  l_ScriptName l_TimerNumS StopTimerEx
+  //l_TimerNumS StopTimer
+  '' l_TimerNumS StopTimerEx DROP
+ END 
+ [ 'Замер № ' l_TimerNumS '. Померить время и сравнить с эталоном' ] strings:Cat ToDo
+; // "Померить время и сравнить с эталоном"
+
+PROCEDURE "Сравнить выделенный текст редактора с эталоном в формате PDF"
+ "Убедиться, что фокус в редакторе"
+ CF_PDF "Контрол в фокусе" pop:editor:GetSelectionTextInFormat .
+; // "Сравнить выделенный текст редактора с эталоном в формате HTML с заменой непечатаемых символов"
+
+PROCEDURE "Сравнить выделенный текст редактора с эталоном в формате PDF с привязкой к машине"
+	EtalonNeedsComputerName
+	"Убедиться, что фокус в редакторе"
+	CF_PDF "Контрол в фокусе" pop:editor:GetSelectionTextInFormat .
+;

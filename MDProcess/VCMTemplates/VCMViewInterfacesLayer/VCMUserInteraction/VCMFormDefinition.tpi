@@ -1,0 +1,102 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/VCMUserInteraction/VCMFormDefinition.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::VCMUserInteraction::VCMFormDefinition
+//
+// Описание формы VCM
+// ---
+// Служит для идентификации конкретного типа формы. От такого описания должна наследоваться
+// конкретная форма, идентифицировать которую и нужно.
+// 
+// Служит неким аналогом ключа для фабрики форм
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: VCMFormDefinition::Class
+? Описание формы VCM
+? Служит для идентификации конкретного типа формы. От такого описания должна наследоваться конкретная форма, идентифицировать которую и нужно.
+? 
+? Служит неким аналогом ключа для фабрики форм
+= Facet::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4BD853F50147*
+	%S%[inherited]\
+	<{}{%L#f_IsVCMForm()=true}\
+	%S%f_add_class(%SU_%LU_IDs,Constants,%LNIDs,Const_Inst)\
+
+	[{"%{TvcmFormDescriptor}N"=""}%f_find_element(TvcmFormDescriptor,TvcmFormDescriptor)]\
+	%S%f_make_accessable(%{TvcmFormDescriptor}U)\
+
+	%{Const_Inst}%f_add_attribute(%SU_%LU_ID,,\
+	fm_%f_cut_prefix(%f_pas_TypeName(%L),T) : %{TvcmFormDescriptor}U = \
+	(rFormID : (rName : '%f_cut_prefix(%f_pas_TypeName(%L),T)'; rID : 0); rFactory : nil),Attr_Inst)\
+	%{Attr_Inst}%f_set_documentation(Идентификатор формы %f_pas_TypeName(%L))\
+	>\
+
+	[{%P#f_IsVCMForm()!=true|%S#f_is_virtual()!=true}\
+// - чтобы избежать дубликатов слов для автосгенерированных идентификаторов форм
+	%P%f_add_class(%SU_Word,ScriptKeyword,Tkw_Form_%f_N(%S)_ID,Word_Inst)\
+	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
+	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
+	%{Word_Inst}%f_set_abstraction_type(final)\
+
+	[{"%{TtfwString}N"=""}%f_find_element(TtfwString,TtfwString)]\
+	%{Word_Inst}%f_make_accessable(%{TtfwString}U)\
+	%f_addG(%{Word_Inst},%{TtfwString})\
+	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
+	%{Word_Inst}%f_set_up(NameForScript,форма::%f_str_replace(%f_N(%S), ,_))\
+
+	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора формы %SN
+	----
+	*Пример использования*:
+	\{code\}
+	'aControl' %f_loc_GetNameForScript(%{Word_Inst}) TryFocus ASSERT
+	\{code\})\
+//	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
+
+	[{"%{TtfwString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwString.GetString)]\
+	%{Word_Inst}%f_add_override(4DDFD2EA0116)\
+	%{TtfwString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwString.GetString},%{Word_Inst})_var,\
+	 {-}\
+	)\
+	%{TtfwString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwString.GetString},%{Word_Inst})_impl,\
+	 Result := '%f_cut_prefix(%f_pas_TypeName(%L),T)';\
+	)
+
+//	%{Word_Inst}%f_add_operation(%{Word_Inst}U_Ini,ini,Ini (),Op_Instance)\
+//	%{Op_Instance}%f_set_documentation(Регистрация %{Word_Inst}N)\
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+//	 %{Word_Inst}N.Register('%f_loc_GetNameForScript(%{Word_Inst})');\
+//	)\
+	]
+//#UC END# *4B2A19E3038Bfor4BD853F50147*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+%f _pas_TypeName
+//#UC START# *4947F8AD02A1for4BD853F50147*
+	%f_N(%S)FormDef
+//#UC END# *4947F8AD02A1for4BD853F50147*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

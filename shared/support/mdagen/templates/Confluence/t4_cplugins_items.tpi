@@ -1,0 +1,1178 @@
+//////////////////////////////////////////////////////////////////////////////////
+// CPlugins items
+//////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////
+: CPluginBase::Class
+? Базовый стереотип для всех плагинов
+L code_cplugin
+$ C 255,185,235
+$ l 240,10,200
+$ f 240,10,200
+
+%f _wiki_up_print
+%f _wiki_up_add_gen
+
+%f _can_dump_xml_info
+	true
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
+: CServletPlugin::Class
+< *::Category, *::Class
+? Плагин-сервлет
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+a raf
+v +#-
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+r {<{}{%gS!=%SS}{C}>!=0&<{}{%gS=%SS}{C}>=0}: {%SS должен напрямую или опосредованно наследоваться от %SS}
+
+%f _java_servant_import_self
+	import javax.servlet.http.HttpServlet;
+	import javax.servlet.http.HttpServletRequest;
+	import javax.servlet.http.HttpServletResponse;
+	import javax.servlet.ServletException;
+	import javax.servlet.ServletConfig;
+	import java.io.IOException;
+
+%f _java_base_class_decl
+	[{%Gx=false}{%f_java_base(%S)} extends HttpServlet[{%Rx=true} implements <{, }{}%RN>]]
+
+%f _servant_content_java
+	[{%Gx=false}#	public void init(ServletConfig servletConfig) throws ServletException {
+	#		%U[{_INIT_IMPLEMETATION}
+	#		]
+	#	}
+	
+	#	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	#		%U[{_SERVICE_IMPLEMETATION}
+	#		]
+	#	}]
+
++ java
+= Servant::Class;java
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	%f_dump_plugin_xml(%S)
+
+: CServletPlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CServletPlugin::Class::Operation
+= Servant::Class::Operation
+
+: CServletPlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CServletPlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CServletPlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CServletPlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CServletPlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CServletPlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CServletPlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CServletPlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CServletPlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CServletPlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CServletPlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CServletPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: CListenerPlugin::Class
+< *::Category, *::Class
+? Плагин-листенер
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+a raf
+v +#-
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+/r {<{}{%rN=EventListener}{C}>}: {%SS ни кем (включая прецеденты) не используется}
+
+%f _java_servant_import_self
+	import com.atlassian.event.EventListener;
+	import com.atlassian.event.Event;
+
+%f _java_base_class_decl
+	%f_java_base(%S)[{%Rx=true}{ implements},] EventListener
+
+%f _servant_content_java
+	#	private static final Class\[\] handledClasses = new Class\[\] {
+	#		%U[{_CONTENT}
+	#		]
+	#	};
+	#
+	#	public Class\[\] getHandledEventClasses () {
+	#		%U[{_GETHANDLEDEVENTCLASSES_IMPLEMETATION}
+	#		return handledClasses;
+	#		]
+	#	}
+	
+		public void handleEvent (Event event) {
+			%U[{_HANDLEEVENT_IMPLEMETATION}
+			]
+		}
++ java
+= Servant::Class;java
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	%f_dump_plugin_xml(%S)
+
+: CListenerPlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CListenerPlugin::Class::Operation
+= Servant::Class::Operation
+
+: CListenerPlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CListenerPlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CListenerPlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CListenerPlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CListenerPlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CListenerPlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CListenerPlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CListenerPlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CListenerPlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CListenerPlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CListenerPlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CListenerPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: CMacroPlugin::Class
+< *::Category, *::Class
+? Плагин-макрос
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+a raf
+v +#-
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+r {<{}{%gS!=%SS}{C}>!=0&<{}{%gS=%SS}{C}>=0}: {%SS должен напрямую или опосредованно наследоваться от %SS}
+
+%f _java_servant_import_self
+	[{%Gx=false}import com.atlassian.renderer.v2.macro.BaseMacro;
+	import com.atlassian.renderer.v2.macro.MacroException;
+	import com.atlassian.renderer.v2.RenderMode;
+	import com.atlassian.renderer.RenderContext;
+
+	import java.util.*;]
+
+%f _java_base_class_decl
+	[{%Gx=false}{%f_java_base(%S)} extends BaseMacro[{%Rx=true} implements <{, }{}%RN>]]
+
+%f _servant_content_java
+	[{%Gx=false}#	public String execute (Map parameters, String body, RenderContext renderContext) throws MacroException {
+	#		%U[{_EXECUTE_IMPLEMETATION}
+	#		return "";
+	#		]
+	#	}
+
+	#	public boolean isInline () {
+	#		%U[{_ISINLINE_IMPLEMETATION}
+	#		return false;
+	#		]
+	#	}
+
+	#	public boolean hasBody () {
+	#		%U[{_HASBODY_IMPLEMETATION}
+	#		return false;
+	#		]
+	#	}
+
+	#	public RenderMode getBodyRenderMode () {
+	#		%U[{_GETBODYRENDERMODE_IMPLEMETATION}
+	#		return RenderMode.NO_RENDER;
+	#		]
+	#	}]
+
++ java
+= Servant::Class;java
+
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	%f_dump_plugin_xml(%S)
+
+: CMacroPlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CMacroPlugin::Class::Operation
+= Servant::Class::Operation
+
+: CMacroPlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CMacroPlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CMacroPlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CMacroPlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CMacroPlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CMacroPlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CMacroPlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CMacroPlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CMacroPlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CMacroPlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CMacroPlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CMacroPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+: CComponentPlugin::Class
+< *::Category, *::Class
+? Плагин-компонент
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+a raf
+v +#-
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+%f _java_servant_import_self
+%f _servant_content_java
+
+%f _java_base_class_decl
+	%f_java_base(%S)
+
++ java
+= Servant::Class;java
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	%f_dump_plugin_xml(%S)
+
+: CComponentPlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CComponentPlugin::Class::Operation
+= Servant::Class::Operation
+
+: CComponentPlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CComponentPlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CComponentPlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CComponentPlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CComponentPlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CComponentPlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CComponentPlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CComponentPlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CComponentPlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CComponentPlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CComponentPlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CComponentPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: CVelocityContextPlugin::Class
+< *::Category, *::Class
+? Плагин-позволяет создавать объектдля шаблона Velocity
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+p context-key ? имя объекта в шаблоне
+a raf
+v +#-
+
+%f _wiki_up_print
+	[{"%S{context-key}"!=""}* имя объекта в шаблоне: _%S{context-key}_
+	]
+
+%t _constraint
+c        {}
+r "%S{context-key}"="": {Свойство context-key не может быть пустым}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+r {<{}{%CS=ctor&%C%Cx=false}{C}>=0&<{}{%OS=ctor&%O%Cx=false}{C}>=0}: {%SS должен иметь конструктор по умолчанию}
+
+%f _java_base_class_decl
+	%f_java_base(%S)
+
+%f _java_servant_import_self
+%f _servant_content_java
+
++ java
+= Servant::Class;java
+
++ output.classpath
++ output.project
+
++ output.xml
+	%f_dump_plugin_xml(%S)
+
+: CVelocityContextPlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CVelocityContextPlugin::Class::Operation
+= Servant::Class::Operation
+
+: CVelocityContextPlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CVelocityContextPlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CVelocityContextPlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CVelocityContextPlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CVelocityContextPlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CVelocityContextPlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CVelocityContextPlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CVelocityContextPlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CVelocityContextPlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CVelocityContextPlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CVelocityContextPlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CVelocityContextPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: CJobPlugin::Class
+< *::Category, *::Class
+? Плагин-job
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+a raf
+v +#-
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+r {<{}{%gS!=%SS}{C}>!=0&<{}{%gS=%SS}{C}>=0}: {%SS должен напрямую или опосредованно наследоваться от %SS}
+
+%f _java_servant_import_self
+	import org.quartz.JobExecutionException;
+	import org.quartz.JobExecutionContext;
+	import com.atlassian.quartz.jobs.AbstractJob;
+
+%f _java_base_class_decl
+	[{%Gx=false}{%f_java_base(%S)} extends AbstractJob[{%Rx=true} implements <{, }{}%RN>]]
+
+%f _servant_content_java
+	#	public void doExecute (JobExecutionContext jec) throws JobExecutionException {
+	#		%U[{_DO_EXECUTE_IMPLEMETATION}
+	#		]
+	#	}
+
++ java
+= Servant::Class;java
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	%f_dump_plugin_xml(%S)
+
+: CJobPlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CJobPlugin::Class::Operation
+= Servant::Class::Operation
+
+: CJobPlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CJobPlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CJobPlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CJobPlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CJobPlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CJobPlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CJobPlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CJobPlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CJobPlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CJobPlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CJobPlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CJobPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: CTriggerPlugin::Class
+< *::Category, *::Class
+? Плагин-job
+= CPluginBase::Class
+
+p repeat-interval ? интервал повторения
+p repeat-count ? число повторений
+p cron-expression ? выражение для шедулера
+p repeated:b=false ? определяет повторяемы ли триггер
+a raf
+v +#-
+
+%f _wiki_up_print
+	[{%S{repeated}=true}* повторяемый тригер
+	** интервал повторения: %S{repeat-interval}
+	** число повторений: %S{repeat-count}
+	** выражение для шедулера: %S{cron-expression}
+	]
+
+%t _constraint
+c        {}
+r "<{}{%CM=CTriggerPlugin::Class::uses::ClassDependency}{C}>"="0": {Триггер должен иметь связь uses хотя бы с одним job}
+r "%S{repeated}"="true"&&"%S{repeat-interval}"="":	{При выбраном флаге repeated свойство repeat-interval не может быть пустым}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	[{%Sa!=abstract}
+	\t\<%t_plugin_type(%S) key="%f_dump_java_package(%S).%SN" name="%SN"\>
+	\t	\<description\>%SD\</description\>
+	\t	<{\n\t\t}{%CM=CTriggerPlugin::Class::uses::ClassDependency}\<job key="%f_dump_java_package(%S).%C%TN"/\>>
+	\t	%f_str_replace([{%S{repeated}=true}{\<schedule cron-expression="%S{cron-expression}" /\>}\<schedule repeat-interval="%S{repeat-interval}" [{"%S{repeat-count}"!=""}repeat-count="%S{repeat-count}"] /\>], """""", """")
+	\t\</%t_plugin_type(%S)\>
+	]
+
+: CTriggerPlugin::Class::uses::ClassDependency
+? Использование
+? Определяет что триггер источник установлен для job-цели
+%f _wiki_child_kind
+	job_target
+
+%t _constraint
+c        {}
+r "%TS"!="CJobPlugin": {Триггер может иметь связь uses только с CJobPlugin}
+
+//////////////////////////////////////////////////////////////////////////////////
+: VM::Class
+< *::Category, *::Class
+? Velocity шаблон
+$ C 245,175,225
+$ l 240,10,200
+$ f 240,10,200
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+a raf
+v +#-
+L code_vm
+
+%f _wiki_up_print
+%f _wiki_up_add_gen
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+%f _can_dump_xml_info
+	false
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ output.classpath
++ output.project
++ java
+
++ output.xml
+O %SN.vm
+I ##UC_BEGIN
+J ##UC_END
+c utf8
+	\#*
+# ../t0_header
+	*\#
+	%U[{_CUSTOM_CONTENT}
+	]
+	\#*
+# ../t0_footer
+	*\#
+
+//////////////////////////////////////////////////////////////////////////////////
+: CXWorkPlugin::Class
+> XPackage::Class
+? XWork-плагин
+= CPluginBase::Class
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
++ output.classpath
++ output.project
++ java
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	%f_dump_plugin_xml(%S)
+
+//////////////////////////////////////////////////////////////////////////////////
+: XPackage::Class
+< *::Class, *::Category
+? набор action
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+a raf
+v +#-
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
++ output.classpath
++ output.project
++ java
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	[{%Sa!=abstract}
+	#\t\<%t_plugin_type(%S) name="%SN" extends="default" namespace="%f_str_replace(.%f_dump_java_package(%S).%SN,.,/)"\>
+	#\t	\<description\>%SD\</description\>[{%S{need UC}=true}
+	#\t	%U[{_PACKAGE_CONTENT}
+	#\t	]
+	][
+	<{\n}%CX
+	>]
+	#\t\</%t_plugin_type(%S)\>
+	]
+
+: XPackage::Class::action::Attribute
+? определяет действие, для задания конкретного метода связанного 
+? с действием необходимо задать свойство "method"
+p method:s ? задаёт имя метода, который будет вызван для этого действия, если свойство не задано - будет вызван метод по умолчанию - execute
+
+%f _wiki_child_kind
+	action
+
+%f _wiki_up_print
+	[{"%S{method}"!=""}* метод действия: %S{method}
+	]
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	#\t\<action name="%SN" class="%f_dump_java_package(%S%T).%S%TN"[{"%S{method}"!=""} method="%S{method}"]\>
+	#\t%U[{_ACTION_CONTENT}
+	#\t]
+	#\t\</action\>
+//////////////////////////////////////////////////////////////////////////////////
+: WebItem::Class
+< *::Class, *::Category
+? плагин web-item, предназначен для модификации Web интерфейса Конфлюенс, а именно: меню администратора, добавление табов к страницам просмотра документа
+= CPluginBase::Class
+
+p weight:s ? определяет порядок табов на странице Конфлюенс. Более легкий показывается первым (required)
+p label key:s ? текстовый заголовок таба(required)
+p section:s ? определяет место, в котрое в интерфейсе Конфлюенс куда будет встроен плагин (required)
+p link:s ? url страницы, которая будет показана при выборе таба плагина. Как правило это action (required)
+p accessKey:s ? клавиатурный шоткат
+
+%f _wiki_up_print
+	[{"%S{weight}"!=""}* "вес" таба: %S{weight}
+	][{"%S{label key}"!=""}* заголовок таба: %S{label key}
+	][{"%S{section}"!=""}* место встраивания: %S{section}
+	][{"%S{link}"!=""}* страница таба: %S{link}
+	][{"%S{accessKey}"!=""}* клавиатурный шоткат: %S{accessKey}
+	]
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+r {"%S{weight}"=""}: {не задан обязательный параметр weight}
+r {"%S{label key}"=""}: {не задан обязательный параметр label key}
+r {"%S{section}"=""}: {не задан обязательный параметр section}
+r {"%S{link}"=""}: {не задан обязательный параметр link}
+r {"%S{accessKey}"!=""&%f_string_length(%S{accessKey})!=1}: {параметр accessKey должен быть символом}
+
++ output.classpath
++ output.project
++ java
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	[{%Sa!=abstract}
+	#\t\<web-item name="%SN" key="<{.}{}{%Pr}%PN>::%SN" section="%S{section}" weight="%S{weight}"\>
+	#\t	\<label key="%S{label key}"\>
+	#\t		%U[{LABEL_CONTENT}
+	#\t		]
+	#\t	\</label\>
+	#\t	\<link[{"%S{accessKey}"!=""} accessKey='%S{accessKey}']\>%S{link}\</link\>
+	[<{}{"%AS"="condition"&"%AC"="Dependency"}#\t	\<condition class="%f_with_gen_id(java,%f_type(%A%T))"\>
+	#\t		%U[{CONDITION_CONTENT}
+	#\t		]
+	#\t	\</condition\>
+	>]#\t\</web-item\>
+	]
+
+: WebItem::Class::condition::ClassDependency
+? реализация com.atlassian.plugin.web.Condition, добавляет правила, чтобы определить должен ли 
+? показываться данный таб или нет (optional)
+%f _wiki_child_kind
+	condition
+
+//////////////////////////////////////////////////////////////////////////////////
+: CActionPlugin::Class
+< *::Category, *::Class
+? Плагин-action
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+a raf
+v +#-
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+%f _servant_content_java
+	#	static final long serialVersionUID = %f_string_hash("%SU")L;
+	
+	#	public String getActionName (String fullClassName) {
+	#		%U[{_ACTION_NAME}
+	#		return new String (getClass ().getName ());
+	#		]
+	#	}
+
+%f _java_base_class_decl
+	%f_java_base(%S)
+
+%f _java_servant_import_self
+
++ java
+= Servant::Class;java
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
+: CActionPlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CActionPlugin::Class::Operation
+= Servant::Class::Operation
+
+: CActionPlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CActionPlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CActionPlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CActionPlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CActionPlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CActionPlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CActionPlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CActionPlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CActionPlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CActionPlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CActionPlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CActionPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: CSpringPlugin::Class
+< *::Category, *::Class
+? spring компонента
+= CJobPlugin::Class
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+%f _can_dump_xml_info
+	true
+
+: CSpringPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+/%f _java_servant_import_self
+
+/%f _java_base_class_decl
+
+/%f _servant_content_java
+
+: CExtractorPlugin::Class
+< *::Category, *::Class
+? Плагин-extractor
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+p priority ? приоритет
+a raf
+v +#-
+
+%f _wiki_up_print
+	[{"%S{priority}"!=""}* приоритет: %S{priority}
+	]
+
+%t _constraint
+c        {}
+r "%S{priority}"="": {Error priority property can't be empty}
+r ""="": {}
+
+%f _java_servant_import_self
+	import com.atlassian.bonnie.Searchable;
+	import com.atlassian.bonnie.search.Extractor;
+	import org.apache.lucene.document.Document;
+	import org.apache.lucene.document.Field;
+
+%f _java_base_class_decl
+	%f_java_base(%S)[{%Rx=true}{ implements},] Extractor
+
+%f _servant_content_java
+	#	public void addFields(Document document, StringBuffer defaultSearchableText, Searchable searchable) {
+	#		%U[{_ADD_FIELDS_IMPLEMETATION}
+	#		]
+	#	}
+
++ java
+= Servant::Class;java
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	%f_dump_plugin_xml(%S)
+
+
+: CExtractorPlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CExtractorPlugin::Class::Operation
+= Servant::Class::Operation
+
+: CExtractorPlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CExtractorPlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CExtractorPlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CExtractorPlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CExtractorPlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CExtractorPlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CExtractorPlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CExtractorPlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CExtractorPlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CExtractorPlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CExtractorPlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CExtractorPlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: CLifecyclePlugin::Class
+< *::Category, *::Class
+? Плагин-lifecycle
+= CPluginBase::Class
+
+p need UC:b=true ? явно включает генерацию дополнительных секций Юзер-Кода
+p sequence ? последовательность
+a raf
+v +#-
+
+%f _wiki_up_print
+	[{"%S{sequence}"!=""}* последовательность: %S{sequence}
+	]
+
+
+%t _constraint
+c        {}
+r "%S{sequence}"="": {Error priority property can't be empty}
+r ""="": {}
+
+%f _can_dump_xml_info
+	true
+
+%f _java_servant_import_self
+	import com.atlassian.config.lifecycle.LifecycleItem;
+	import com.atlassian.config.lifecycle.LifecycleContext;
+
+%f _java_base_class_decl
+	%f_java_base(%S)[{%Rx=true}{ implements},] LifecycleItem
+
+%f _servant_content_java
+	#	public void startup (LifecycleContext context) throws Exception {
+	#		%U[{_STARTUP_IMPLEMETATION}
+	#		]
+	#	}
+	
+	#	public void shutdown (LifecycleContext context) throws Exception {
+	#		%U[{_SHUTDOWN_IMPLEMETATION}
+	#		]
+	#	}
+
++ java
+= Servant::Class;java
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	%f_dump_plugin_xml(%S)
+
+: CLifecyclePlugin::Class::Attribute
+= Servant::Class::Attribute
+
+: CLifecyclePlugin::Class::Operation
+= Servant::Class::Operation
+
+: CLifecyclePlugin::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: CLifecyclePlugin::Class::Parameter
+= Servant::Class::Parameter
+
+: CLifecyclePlugin::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: CLifecyclePlugin::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: CLifecyclePlugin::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: CLifecyclePlugin::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: CLifecyclePlugin::Class::static::Operation
+= Servant::Class::static::Operation
+
+: CLifecyclePlugin::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: CLifecyclePlugin::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: CLifecyclePlugin::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: CLifecyclePlugin::Class::template::Attribute
+= Servant::Class::template::Attribute
+
+: CLifecyclePlugin::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////// support functions
+t _plugin_type
+c	{}
+r "%SS"="CServletPlugin":	{servlet}
+r "%SS"="CListenerPlugin":	{listener}
+r "%SS"="CMacroPlugin":	{macro}
+r "%SS"="CComponentPlugin":	{component}
+r "%SS"="CJobPlugin":	{job}
+r "%SS"="CTriggerPlugin":	{trigger}
+r "%SS"="CVelocityContextPlugin":	{velocity-context-item}
+r "%SS"="CXWorkPlugin":	{xwork}
+r "%SS"="XPackage":	{package}
+r "%SS"="CSpringPlugin":	{job}
+r "%SS"="CExtractorPlugin":	{extractor}
+r "%SS"="CLifecyclePlugin":	{lifecycle}
+
+f _is_class
+	[{"%SS"!="CXWorkPlugin"}{false}true]
+
+f _dump_xml_attr
+	[[{"%SS"!="Package"} key="%f_dump_java_package(%S).%SN"]\
+	[{%f_is_class(%S)=true} class="%f_dump_java_package(%S).%SN"]\
+	[{%SS=CVelocityContextPlugin} context-key="%S{context-key}"]\
+	[{%SS=CExtractorPlugin} priority="%S{priority}"]\
+	[{%SS=CExtractorPlugin|%SS=CLifecyclePlugin} sequence="%S{sequence}"]]
+
+f _dump_plugin_xml
+	[{%Sa!=abstract}
+	\t\<%t_plugin_type(%S) name="%SN"%f_dump_xml_attr(%S)\>
+	\t	\<description\>%SD\</description\>[
+	<{\t\t}{}%CX>
+	]
+	\t\</%t_plugin_type(%S)\>
+	]

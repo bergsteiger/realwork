@@ -1,0 +1,291 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Abstracts/Мета-MDA.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAGenerator::Class>> MDProcess$Templates::MetaTemplate::Meta::Abstracts::Мета-MDA
+//
+// генераторы мета-шаблонов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Мета-MDA::MDAGenerator
+implementation @ Мета-MDA
+//? генераторы мета-шаблонов
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Генераторы
+
+// Генерация списка включения мета-шаблонов (mda.inc)
+//+ mda.inc
+<<generator>> mda.inc OBJECT IN %S
+//#UC START# *4A09484300C6for46E28D3A01E4*
+//P
+//C /%SN%S{root path suffix}
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A09484300C6for46E28D3A01E4*
+; // mda.inc
+
+
+//+ tpi.script
+<<generator>> tpi.script OBJECT IN %S
+//R  
+//#UC START# *5655E2B600CAfor46E28D3A01E4*
+//P true
+//C %S#f_pas_script_Path()
+//O %S%f_tpi_script_FileName()
+//F %S%f_tpi_script_GenerateForward()
+//	[{"%SO"!=""}\
+ if ( ( %S |O ) %!= '' ) then
+ begin
+//	%f_clear_list(GENERATED_STEREOS)\
+  [%f] clear_list %( 'GENERATED_STEREOS' )% 
+//	INCLUDE 'classRelations.ms.dict'\n\n\
+  'INCLUDE ''classRelations.ms.dict'''#13#10#13#10
+
+
+//	<{}{"%D#f_tpi_script_FileName()"!=""}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if ( ( %D %?f tpi_script_FileName %( )% ) %!= '' ) then
+   begin
+//	INCLUDE '%D#f_tpi_script_FileName()'\n\
+    'INCLUDE '''
+    %D %?f tpi_script_FileName %( )% ''''#13#10
+//	EXPORTS %D#f_tpi_script_FileName()\n\
+    'EXPORTS '
+    %D %?f tpi_script_FileName %( )% #13#10
+//	\n\
+    #13#10
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for D
+
+
+//	]\
+ end // if
+
+//	[{"%S%f_tpi_script_Name()"!=""}\
+ if ( ( %S %f tpi_script_Name %( )% ) %!= '' ) then
+ begin
+
+
+//	[{%f_exists_in_list(GENERATED_STEREOS,"%S%f_tpi_script_Name()")=true}{\
+  if ( ( [%f] exists_in_list %( 'GENERATED_STEREOS' %, %S %f tpi_script_Name %( )% )% ) %==  true ) then
+  begin
+//	REDEFINITION \
+   'REDEFINITION '
+//	]\
+  end // if
+  else
+  begin
+//	%f_add_to_list(GENERATED_STEREOS,"%S%f_tpi_script_Name()")\
+   [%f] add_to_list %( 'GENERATED_STEREOS' %, %S %f tpi_script_Name %( )% )% 
+//	}\
+  end // else
+
+
+//	<%FF>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%F
+  begin
+   OBJECT IN %F
+   if true then
+   begin
+    %F |F 
+    ++! l_Counter
+   end // if
+  end // for F
+
+
+//	: %S%f_tpi_script_Name()\
+  ': '
+  %S %f tpi_script_Name %( )% 
+//	[ Inherits ( <%G#f_tpi_script_Name() >)]
+  if NOT-EMPTY
+  begin
+   ' Inherits ( '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+     %G %?f tpi_script_Name %( )% ' ' 
+     ++! l_Counter
+    end // if
+   end // for G
+   ')' 
+  end // if
+  NOP
+//	 CONST UID '%SU'
+  ' CONST UID '''
+  %S |U '''
+//	[{"%SN"!=""}\
+  if ( ( %S |N ) %!= '' ) then
+  begin
+//	 CONST Name '%f_str_replace(%f_N(%S), ,_)'
+   ' CONST Name '''
+   [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '''
+//	]\
+  end // if
+//	[{"%SS"!=""}\
+  if ( ( %S |S ) %!= '' ) then
+  begin
+//	 CONST Stereotype '%f_str_replace(%SS,','')'
+   ' CONST Stereotype '''
+   [%f] str_replace %( %S |S %, '''' %, '''''' )% '''
+//	]\
+  end // if
+//	 @SELF
+  ' @SELF'
+//	; // %S%f_tpi_script_Name()\n\n\
+  '; // '
+  %S %f tpi_script_Name %( )% #13#10#13#10
+//	]\
+ end // if
+
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *5655E2B600CAfor46E28D3A01E4*
+; // tpi.script
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _tpi_script_FileName
+; // st_space_key
+
+: tpi_script_FileName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *5655ED7D0175for46E28D3A01E4*
+//	[{%SS=Project}%f_str_replace(%f_str_replace(%SN,$,_), ,_).tpi.script]
+ if ( ( %S |S ) %== 'Project' ) then
+ begin
+  [%f] str_replace %( [%f] str_replace %( %S |N %, '$' %, '_' )% %, ' ' %, '_' )% '.tpi.script' 
+ end // if
+//#UC END# *5655ED7D0175for46E28D3A01E4*
+; // tpi_script_FileName
+
+
+//%f _tpi_script_Name
+: tpi_script_Name OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *5655EDAD01E3for46E28D3A01E4*
+//	[{"%S%f_tpi_script_NamePrim()"!=""}\
+ if ( ( %S %f tpi_script_NamePrim %( )% ) %!= '' ) then
+ begin
+//	st_%S%f_tpi_script_NamePrim()\
+  'st_'
+  %S %f tpi_script_NamePrim %( )% 
+//	]
+ end // if
+//#UC END# *5655EDAD01E3for46E28D3A01E4*
+; // tpi_script_Name
+
+
+//%f _tpi_script_GenerateForward
+: tpi_script_GenerateForward OBJECT IN %S
+//#UC START# *5655F14C01C2for46E28D3A01E4*
+//	[FORWARD %S#f_tpi_script_Name()\n]
+ if NOT-EMPTY
+ begin
+  'FORWARD '
+  %S %?f tpi_script_Name %( )% #13#10 
+ end // if
+ NOP
+//#UC END# *5655F14C01C2for46E28D3A01E4*
+; // tpi_script_GenerateForward
+
+
+//%f _tpi_script_NamePrim
+: tpi_script_NamePrim OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *565872E001A9for46E28D3A01E4*
+//	[{%SS=MDAClass|%SS=MDACategory}{\
+ if ( ( %S |S ) %== 'MDAClass' OR 
+   ( ( %S |S ) %== 'MDACategory'  ) ) then
+ begin
+//	%f_str_replace(%SN, ,_)\
+  [%f] str_replace %( %S |N %, ' ' %, '_' )% 
+//	]
+ end // if
+ else
+ begin
+//	[{%S{unstereotyped}!=true}\
+  if ( ( %S get_up ( 'unstereotyped' ) ) %!=  true ) then
+  begin
+//	[{%SS=MDAOperation}{\
+   if ( ( %S |S ) %== 'MDAOperation' ) then
+   begin
+//	%f_str_replace(%f_N(%S), ,_)::Operation\
+    [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Operation'
+//	]\
+   end // if
+   else
+   begin
+//	[{%SS=MDAAttribute}{\
+    if ( ( %S |S ) %== 'MDAAttribute' ) then
+    begin
+//	%f_str_replace(%f_N(%S), ,_)::Attribute\
+     [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Attribute'
+//	]\
+    end // if
+    else
+    begin
+//	[{%SS=MDADependency}\
+     if ( ( %S |S ) %== 'MDADependency' ) then
+     begin
+//	%f_str_replace(%f_N(%S), ,_)::Dependency\
+      [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Dependency'
+//	]\
+     end // if
+//	}\
+    end // else
+//	}\
+   end // else
+//	]\
+  end // if
+//	}\
+ end // else
+//#UC END# *565872E001A9for46E28D3A01E4*
+; // tpi_script_NamePrim
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // Мета-MDA
+

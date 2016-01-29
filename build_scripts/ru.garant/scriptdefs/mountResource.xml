@@ -1,0 +1,93 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		ru.garant.extensions.scriptdefs.unmountResource
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.mountResource"
+	language = "javascript"
+>
+	<attribute name = "mount.root"/>
+	<attribute name = "mount.path"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_mountRoot = (
+				attributes.get ("mount.root")
+			);
+
+			var a_mountPath = (
+				attributes.get ("mount.path")
+			);
+
+			if (a_mountPath != null) {
+				var l_mountPathFile = new File (a_mountPath);
+				var l_mountPathPath = l_mountPathFile.getPath ();
+
+				a_mountPath = l_mountPathPath;
+			}
+			
+			{
+				var l_unmountResourceTask = project.createTask ("ru.garant.extensions.scriptdefs.unmountResource"); {
+					var l_runtimeConfigurableWrapper = l_unmountResourceTask.getRuntimeConfigurableWrapper (); {
+						var l_mountRoot = a_mountRoot;
+
+						l_runtimeConfigurableWrapper.setAttribute ("force.wait.for.complete", "0");
+						l_runtimeConfigurableWrapper.setAttribute ("mount.root", l_mountRoot);
+					}
+
+					l_unmountResourceTask.reconfigure ();
+				}
+
+				l_unmountResourceTask.execute ();
+			} {
+				project.log (
+					(
+						"\t"
+						+ "Mount `"+ a_mountRoot+ "`"
+						+ " as resourse `"+ a_mountPath+ "`"
+					)
+					, project.MSG_INFO
+				);
+
+				var l_execTask = project.createTask ("exec"); {
+					l_execTask.setError (new File ("nul"));
+					l_execTask.setExecutable ("net.exe");
+					l_execTask.setFailIfExecutionFails (true);
+					l_execTask.setFailonerror (true);
+					l_execTask.setOutput (new File ("nul"));
+
+					var l_execTaskArg = l_execTask.createArg (); {
+						var l_mountRoot = a_mountRoot;
+						var l_mountPath = a_mountPath;
+
+						l_execTaskArg.setLine (
+							"use"
+							+ " \""+ l_mountRoot+ "\""
+							+ " \""+ l_mountPath+ "\""
+							+ " /persistent:no"
+						);
+					}
+
+					l_execTask.reconfigure ();
+				}
+
+				l_execTask.execute ();
+			}
+		}
+	]]>
+</scriptdef>

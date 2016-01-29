@@ -1,0 +1,1 @@
+-+D:\work\eDocEngine4\Trunk\Shared\Source\Rtl\gtConsts3.obj -+D:\work\eDocEngine4\Trunk\Shared\Source\Rtl\gtClasses3.obj -+D:\work\eDocEngine4\Trunk\Shared\Source\Rtl\gtUtils3.obj -+D:\Program Files\RAD2010\7.0\lib\SysInit.obj 

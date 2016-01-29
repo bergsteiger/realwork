@@ -1,0 +1,315 @@
+//////////////////////////////////////////////////////////////////////////////////
+// StateMachine (class)
+//////////////////////////////////////////////////////////////////////////////////
+
+: StateMachine::Class
+? ћашина состо€ний
+? ћашина состо€ний представл€ет собой конечный автомат, состо€щий из множества состо€ний,
+? соединенных между собой переходами.
+> Event::Class
+
+L code_state_machine
+Y t4_state_machine.gif
+
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+
+%f _get_realization_package
+	%f_dump_java_package(%S).impl
+f _check_event
+	%f_clear_list(EVENT_LIST)\
+////заполн€ем список именами Event'ов
+	<{}{%AC=Transition}%A<{}{%AC=Event&"%AN"!=""}%f_add_to_list(EVENT_LIST,"%AN")>>\
+	<{, }{%AC=Transition}%A<{}{%AC=Event&"%AN"!=""}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AN")","1","\>")=1}%AN in %A%PN]>>%f_clear_list(EVENT_LIST)
+
+f _check_guard
+	%f_clear_list(EVENT_LIST)\
+////заполн€ем список именами Guard'ов
+	<{}{%AC=Transition}%A<{}{%AC=Event&"%AI"!=""}%f_add_to_list(EVENT_LIST,"%AI")>>\
+	<{, }{%AC=Transition}%A<{}{%AC=Event&"%AI"!=""}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AI")","1","\>")=1}%AI in %A%PN]>>%f_clear_list(EVENT_LIST)
+
+f _check_state
+	%f_clear_list(EVENT_LIST)\
+////заполн€ем список именами State'ов
+	<{}{%AC=State&"%AN"!=""&%AK=Initial}%f_add_to_list(EVENT_LIST,"%AN")>>\
+	<{, }{%AC=State&"%AN"!=""&%AK=Initial}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AN")","1","\>")=1}%AN in %A%PN]>>%f_clear_list(EVENT_LIST)
+
+f _check_event_correspondence1
+	%f_clear_list(EVENT_LIST)\
+////заполн€ем список именами Event'ов
+	<{}{%AC=Transition}%A<{}{%AC=Event&"%AN"!=""}%f_add_to_list(EVENT_LIST,"%AN")>>\
+	<{;}{%AM=Event::Class&%f_exist_in_list(EVENT_LIST,"%AN")=false}%AN>
+
+f _check_event_correspondence2
+	%f_clear_list(EVENT_LIST)\
+////заполн€ем список именами Event'ов
+	<{}{%AM=Event::Class}%f_add_to_list(EVENT_LIST,"%AN")>\
+	<{;}{%AC=Transition}%A<{}{%AC=Event&"%AN"!=""&%f_exist_in_list(EVENT_LIST,"%AN")=false}%AN>>
+
+f _is_guarded_transition
+////провер€ем есть ли у событи€, св€занного с переходом 
+	[{<{}{%AC=Event}{C}>=0|<{}{%AC=Event&"%AN"!=""}{C}>=0}{false}true]
+
+f _dump_guard
+	%f_set_var(GUARD,"<{}{%AC=Event&"%AN"=""}%AI>")\
+	[{"%{GUARD}N"=""}{"%{GUARD}N"}null]
+
+f _dump_action
+	%f_set_var(ACTION,"<{}{%AC=Action&%AK=trigger}%AN>")\
+	[{"%{ACTION}N"=""}{"%{ACTION}N"}null]
+
+f _dump_connect
+	st%f_to_borland(%S%PN).add_[{%f_is_guarded_transition(%S)=true}{trigged_transition (st%f_to_borland(%S%TN), %S<{}{%CC=Event&"%CN"!=""}ev%CN>, %f_dump_action(%S))}\
+	guarded_transition (st%f_to_borland(%S%TN), %f_dump_guard(%S), %f_dump_action(%S))];
+
+%t _constraint
+c                                                                               {}
+r {<{}{%AC=State&"%f_check_event(%A)"!=""}{%AC}>!=0}:                           {Can't use the same event in many transitions from one source state(<{, }{%AC=State&"%f_check_event(%A)"!=""}{%A}\[%f_check_event(%A)\]>)}
+r {<{}{%AC=State&"%f_check_guard(%A)"!=""}{%AC}>!=0}:                           {Can't use the guard event in many transitions from one source state(<{, }{%AC=State&"%f_check_guard(%A)"!=""}{%A}\[%f_check_guard(%A)\]>)}
+r {"%f_check_state(%S)"!=""}:                                                   {Only one initial state permited (%f_check_state(%S))}
+r {<{}{%AC=State&AK=Initial}(C)>=0}:                                            {State machine must have initial state}
+r {<{}{%AC=State&AK=Final}(C)>=0}:                                              {State machine must have final state}
+r {"%f_check_event_correspondence1(%S)"!=""}:                                   {This events not corresponding with event on state diagram: %f_check_event_correspondence1(%S)}
+r {"%f_check_event_correspondence2(%S)"!=""}:                                   {This events on state diagram not corresponding with event Class: %f_check_event_correspondence2(%S)}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}:             {%SS ни кем (включа€ прецеденты) не используетс€}
+
++ wiki
+= Facet::Class;wiki
+
++ java
+O %SN.java
+	%f_output_constraint(%S)\
+# t0_header
+	package %f_dump_java_package_ex(%S);
+	
+	public interface %SN extends ru.garant.shared.FSM.IStateMachine {
+	
+	<{\n\n}%CX>
+	}
+# t0_footer
+
++ fctr.java
+C /impl
+O %SNImpl.java
+	%f_output_constraint(%S)\
+# t0_header
+	package %f_dump_java_package_ex(%S);
+	
+/	%f_clear_list(EVENT_LIST)<{}{%AM=Event::Class&"%AN"!=""}[{%f_exist_in_list(EVENT_LIST,"%AN")=false}%f_add_to_list(EVENT_LIST,"%AN")\
+/	import %f_type(%A);
+/	]>
+/	
+	public class %SNImpl
+		extends ru.garant.shared.FSM.BaseStateMachine
+		implements %f_type(%S)
+	{
+		//callback-interface
+		public interface %SNComm extends ru.garant.shared.FSM.IContext {
+		}
+	
+		public %SNImpl (%SNComm comm) {
+			this.register_comm (comm);
+		}
+	
+		public void execute_transition_action (final String action_id) {
+			if (this.m_comm != null) {
+				this.m_comm.execute_transition_action (action_id);
+			}
+		}
+	
+		public boolean execute_transition_guard (final String gurad_id) {
+			if (this.m_comm != null) {
+				return this.m_comm.execute_transition_guard (gurad_id);
+			}
+			return false;
+		}
+	
+		public void init () {
+	
+	%f_clear_list(EVENT_LIST)<{}{%AM=Event::Class&"%AN"!=""}[{%f_exist_in_list(EVENT_LIST,"%AN")=false}%f_add_to_list(EVENT_LIST,"%AN")\
+			%AN ev%AN = new %AN ();
+	]>%f_clear_list(EVENT_LIST)]<{}{%AC=State}
+			%AN st%f_to_borland(%AN) = new %AN ();
+	><{}{%AC=Transition}
+			%f_dump_connect(%A)
+	><{}{%AC=State&%AK=Initial}
+			this.add (st%f_to_borland(%AN));
+	><{}{%AC=State&%AK=Normal}
+			this.add (st%f_to_borland(%AN));
+	><{}{%AC=State&%AK=Final}
+			this.add (st%f_to_borland(%AN));
+	>
+		}
+	[	//Context data
+	<{}{%AM=Event::Class::Attribute}	public %f_attr(%A) [{}{%f_to_borland(%A%TN)}%AN][{%f_can_be_init(%A)=true}{;} = init_%AN ();
+	
+		private %f_attr(%A) init_%AN () {
+			%U[{_INIT_%AN}
+			return %f_attr_init_java(%A);
+			]
+		}]
+	>]
+		final public void register_comm (%SNComm comm) {
+			m_comm = comm;
+		}
+	
+		final public void unregister_comm () {
+			m_comm = null;
+		}
+	
+		private %SNComm m_comm = null;
+	
+	} //class %SNImpl
+	<%CX>
+# t0_footer
+
+: StateMachine::Class::StateMachine
++ java
+	<%CX>
++ fctr.java
+	<%CX>
+: StateMachine::Class::StateMachine::State
+
+f _check_action
+	[{<{}{%CC=Action&%CK=%1N}{%CC}>!=0&<{}{%CC=Action&%CK=%1N}{%CC}>!=1}{true}false]
+
+f _check_unconditional_transition
+	[{%f_number_cmp("<{}{%AC=Transition&%f_is_guarded_transition(%A)=true&%f_dump_guard(%A)=null}{%AC}>","1","\>")=1}{true}false]
+
+
+%t _constraint
+c                                                                               {}
+/r {%f_check_action(%S,"entry")=false|%f_check_action(%S,"exit")=false}:        {State can have only one entry action and one exit action)}
+r {%f_check_unconditional_transition(%S)=false}:                                {Can't use more than one unconditional transition from one state}
+r {"%SN"=""}:         {State must have name}
+
+t _select_state
+c                                 {}
+r "%SK"="Initial":               {DefaultInitialState}
+r "%SK"="Final":                  {DefaultFinalState}
+r ""="":                          {BaseState}
+
++ fctr.java
+O %SN.java
+# t0_header
+	package %f_dump_java_package_ex(%S);
+	
+	public class %SN extends ru.garant.shared.FSM.%t_select_state(%S) {
+	
+	[{%SK=Normal}[{<{}{%CC=Action&%CK=entry}{C}>!=0}\
+		public void entry_action (final ru.garant.shared.FSM.BaseEvent event) {
+	<{}{%CC=Action&%CK=entry}		%CN (event);
+	>	}
+	][{<{}{%CC=Action&%CK=exit}{C}>!=0}\
+		public void exit_action (final ru.garant.shared.FSM.BaseEvent event) {
+	<{}{%CC=Action&%CK=exit}		%CN (event);
+	>	}
+	]<{}{%CC=Action}
+	%CX
+	>]
+	}
+# t0_footer
+
++ java
+
+: StateMachine::Class::StateMachine::State::Action
++ fctr.java
+		protected void %SN (final ru.garant.shared.FSM.BaseEvent event) {
+			%P%P%PNImpl context = (%P%P%PNImpl)this.Context ();
+			%U[{_ACTION_IMPL}
+			]
+		}
+
+: StateMachine::Class::StateMachine::State::Transition
+: StateMachine::Class::StateMachine::State::Transition::Action
+
+
+//рекурсивно пробегает по всем реализуемым элементам
+//если находит элемент со стереотипом StateMachine - кладет 
+//в переменную SM_IMPL
+f _find_sm_impl
+	<{}{}{%R}[{%RM=StateMachine::Class}%f_set_var(SM_IMPL,R)]%f_find_sm_impl(%R)>
+
+//дампит необходимые методы и атрибуты дл€ серванта, который реализует машину состо€ний
+f _dump_servant_sm_java
+	%f_find_sm_impl(%S)\
+	[{"%{SM_IMPL}U"!=""}#//IStateMachine and %{SM_IMPL}NImpl.%{SM_IMPL}NComm methods implementation
+	#public void add (final ru.garant.shared.FSM.BaseState state) {
+	#	m_sm_realize.add (state);
+	#}
+	
+	#public boolean is_stopped () {
+	#	return m_sm_realize.is_stopped ();
+	#}
+	
+	#public void post_event (ru.garant.shared.FSM.BaseEvent event) {
+	#	m_sm_realize.post_event (event);
+	#}
+	
+	#public ru.garant.shared.FSM.BaseState get_current_state() {
+	#	return m_sm_realize.get_current_state ();
+	#}
+	
+	#public void init () {
+	#	m_sm_realize.init ();
+	#}
+	
+	#protected void finalize () {
+	#	m_sm_realize.unregister_comm ();
+	#}
+	
+	#private %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl m_sm_realize = 
+	#	new %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl (this);
+	
+/	#private %{SM_IMPL}NImpl init_request_sm () {
+/	#	%{SM_IMPL}NImpl ret = new %{SM_IMPL}NImpl ();
+/	#	ret.register_comm (this);
+/	#	return ret;
+/	#}
+/	
+	[#//Actions
+	%f_clear_list(ACTION_LIST)%{SM_IMPL}<{}{%AC=Transition}%A<{}{%AC=Action}[{%f_exist_in_list(ACTION_LIST,"%AN")=false}%f_add_to_list(ACTION_LIST,"%AN")\
+		void %AN () {
+			%U[{%{SERV}U_%AU_ACTION_IMPL}
+			]
+		}
+	
+	]>>%f_clear_list(ACTION_LIST)][#//Guards
+	%f_clear_list(GUARD_LIST)%{SM_IMPL}<{}{%AC=Transition}%A<{}{%AC=Event&"%AI"!=""}[{%f_exist_in_list(GUARD_LIST,"%AI")=false}%f_add_to_list(GUARD_LIST,"%AI")\
+		boolean %AI () {
+			%U[{%{SERV}U_%AU_GUARD_IMPL}
+			]
+		}
+	]>>%f_clear_list(GUARD_LIST)]
+	
+	#public void execute_transition_action (final String action_id) {
+	#	try {
+	#		Class c = this.getClass();
+	#		java.lang.reflect.Method m = c.getDeclaredMethod(action_id);
+	#		m.invoke(this);
+	#	} catch (java.lang.Throwable e) {
+	#		Logs.LOG_SEX (e);
+	#	}
+	#}
+	
+	#public boolean execute_transition_guard (final String guard) {
+	#	Boolean res = false;
+	#	try {
+	#		Class c = this.getClass();
+	#		java.lang.reflect.Method m = c.getDeclaredMethod(guard);
+	#		res = (Boolean)m.invoke(this);
+	#	} catch (java.lang.Throwable e) {
+	#		Logs.LOG_SEX (e);
+	#	}
+	#	return res;
+	#}
+	]
+
+//генерит список интерйесов, который должен реализовывать
+//сервант (симпл класс), реализующий ћашину состо€ний
+f _dump_servant_sm_interfaces_list
+	%f_find_sm_impl(%S)\
+	[{"%{SM_IMPL}U"!=""}{}\
+	[{<{}{%RM=StateMachine::Class}{C}>=0}{%f_type(%{SM_IMPL}), %{SM_IMPL}%f_get_realization_package().%{SM_IMPL}NImpl.%{SM_IMPL}NComm}%{SM_IMPL}%f_get_realization_package().%{SM_IMPL}NImpl.%{SM_IMPL}NComm]\
+	]

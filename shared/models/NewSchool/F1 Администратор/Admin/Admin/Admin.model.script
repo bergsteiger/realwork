@@ -1,0 +1,3539 @@
+<<VCMControllers>> Admin
+ %UID '493FBE3E033A'
+ %SUMMARY 'Администирование' ;
+ %DEPENDS
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4799D29F033F' /* Implementation */
+  U$ '47D810610398' /* l3PureMixIns */
+  U$ '47E9EEC60260' /* Model */
+  U$ '48EEE54C0072' /* EverestCommon */
+  U$ '493FAECB025F' /* Tree */
+  U$ '4982BE090383' /* vcmControllers */
+  U$ '4AA0050F0360' /* Search */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '521C9DA50125' /* "Application Resources" */
+  U$ '54B90AC6014B' /* StringUtils */
+  U$ '54F5AAED0073' /* L3$Visual */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '48EEE54C0072' /* EverestCommon */
+  U$ '493FAECB025F' /* Tree */
+  U$ '4AA0050F0360' /* Search */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '54F5AAED0073' /* L3$Visual */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> AdminInterfaces
+   %UID '491D961C0122'
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '45EEAA96039C' /* Security */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47D810610398' /* l3PureMixIns */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '491DD2830110' /* TreeInterfaces */
+    U$ '49903C95009E' /* AdminDomainInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '14.11.2008 18:22'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '47E9EEC60260' /* Model */
+    U$ '493FAECB025F' /* Tree */
+    U$ '493FBE3E033A' /* Admin */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<ViewAreaController>> IdsForbidAutoregistration
+      %UID '491D962D01DA'
+      %SUMMARY 'Запрет авторегистрации' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<property>> Phone
+         %UID '491D96B9006E'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %RAISESINSET
+          U$ '491D982203CD' /* EdsMaxLengthExceed */
+         ; // %RAISESINSET
+        ; // Phone
+        ABSTRACT LINK <<property>> Email
+         %UID '491D96D0039F'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %RAISESINSET
+          U$ '491D982203CD' /* EdsMaxLengthExceed */
+         ; // %RAISESINSET
+        ; // Email
+        ABSTRACT LINK <<property>> NeedForbid
+         %UID '4B02D4DD00FC'
+         %SUMMARY 'Форма выставляет флаг, если нужно запретить авторегистрацию' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // NeedForbid
+      ; // %ATTRIBUTES
+     ; // IdsForbidAutoregistration
+     <<ViewAreaController>> IdsUserProperty
+      %UID '491DA3AF0290'
+      %SUMMARY 'Бизнес объект формы "efUserProperty"' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4B5024CA0129' /* nsUserProperty */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '4B5025A002EE' /* HasUserProfile */
+       U$ '4B5025A700F0' /* HasPassword */
+       U$ '4B5026560312' /* SaveUserProfile */
+       U$ '4B5026E201E6' /* UID */
+       U$ '4B5026F60253' /* GroupUID */
+       U$ '4B5026FD015E' /* Login */
+       U$ '4B502705014F' /* Name */
+       U$ '4B50270B0138' /* Mail */
+       U$ '4B5027120274' /* IsChanged */
+       U$ '4B50271C00EE' /* IsNewUser */
+       U$ '4B502720021F' /* CanBuyConsulting */
+       U$ '4B5027240286' /* IsSystem */
+       U$ '4B50272901C3' /* IsPrivileged */
+       U$ '4B5460600098' /* SaveUserInfo */
+       U$ '4F3C01AD01FB' /* DontDeleteIdle */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT LINK <<property>> IsReadOnlyFor268342582
+         %UID '4F1D3E8501B0'
+         %SUMMARY 'IsReadOnly - это "костыль" к К268342582' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsReadOnlyFor268342582
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> CreateUserProfile
+         %UID '491DA41B00E4'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aLogin
+            %UID '49E8220502F1'
+            %TARGET U$ '46780D0003AF' /* Tl3WString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aLogin
+           <<in>> aName
+            %UID '49E82205032F'
+            %TARGET U$ '46780D0003AF' /* Tl3WString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aName
+           <<in>> aMail
+            %UID '49E82205037D'
+            %TARGET U$ '46780D0003AF' /* Tl3WString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aMail
+           <<in>> aPassword
+            %UID '49E8220503BC'
+            %TARGET U$ '46780D0003AF' /* Tl3WString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aPassword
+           <<in>> aCanBuyConsulting
+            %UID '49E822060012'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aCanBuyConsulting
+           <<in>> aIsPrivileged
+            %UID '49E822060051'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aIsPrivileged
+           <<in>> aGroupUID
+            %UID '49E82206008F'
+            %TARGET U$ '3DBFFD7002C2' /* long */
+           ; // aGroupUID
+         ; // %PARAMETERS
+        ; // CreateUserProfile
+        ABSTRACT <<Operation>> CreateUserFinished
+         %UID '49E5B86D002D'
+         %SUMMARY 'Нотификация об отскзе создания пользователя' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> Successfull
+            %UID '4AF3E7EA02FF'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Successfull
+         ; // %PARAMETERS
+        ; // CreateUserFinished
+        ABSTRACT <<Operation>> CheckUnsavedUserProperty
+         %UID '49F6E60E0293'
+        ; // CheckUnsavedUserProperty
+      ; // %OPERATIONS
+     ; // IdsUserProperty
+     <<Enum>> TUserState
+      %UID '49245F2701E9'
+      %SUMMARY 'Состояния пользователя для списка пользователей' ;
+      %ATTRIBUTES
+        <<Attribute>> usActive
+         %UID '49245F3D03D2'
+        ; // usActive
+        <<Attribute>> usSystem
+         %UID '49245F4503D8'
+        ; // usSystem
+        <<Attribute>> usExiting
+         %UID '49245F4C018D'
+        ; // usExiting
+      ; // %ATTRIBUTES
+     ; // TUserState
+     <<SetOf>> TUserStates
+      %UID '49245F5700F6'
+      %SUMMARY 'Состояния пользователя для списка пользователей' ;
+      %TOBEINCLUDED
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49245F2701E9' /* TUserState */
+      ; // %INHERITS
+     ; // TUserStates
+     <<Enum>> TUserListFilterTypes
+      %UID '49245FE703A3'
+      %SUMMARY 'Типы фильтров для списка пользователей' ;
+      %ATTRIBUTES
+        <<Attribute>> ulftNone
+         %UID '492460020380'
+        ; // ulftNone
+        <<Attribute>> ulftActive
+         %UID '49246008016D'
+        ; // ulftActive
+        <<Attribute>> ulftUsual
+         %UID '4924600D023D'
+        ; // ulftUsual
+        <<Attribute>> ulftSystem
+         %UID '4924602602D2'
+        ; // ulftSystem
+        <<Attribute>> ulftConsultingEnabled
+         %UID '4924602B02A3'
+        ; // ulftConsultingEnabled
+        <<Attribute>> ulftConsultingDisabled
+         %UID '492460300149'
+        ; // ulftConsultingDisabled
+        <<Attribute>> ulftPrivileged
+         %UID '4924603402D7'
+        ; // ulftPrivileged
+        <<Attribute>> ulftNonPrivileged
+         %UID '4924603A011C'
+        ; // ulftNonPrivileged
+        <<Attribute>> ulftWithoutGroup
+         %UID '49F0436700B7'
+        ; // ulftWithoutGroup
+      ; // %ATTRIBUTES
+     ; // TUserListFilterTypes
+     <<Facet>> IdeNode
+      %UID '49245E750210'
+      %SUMMARY 'Интерфейс обмена данными содержащий Node' ;
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> Node
+         %UID '4AA523050019'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Node
+      ; // %ATTRIBUTES
+     ; // IdeNode
+     <<Exception>> ETryLogoutCurrentUser
+      %UID '493121F50330'
+      %SUMMARY 'Попытка отключить текущего пользователя' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4787A405013D' /* Exception */
+      ; // %INHERITS
+     ; // ETryLogoutCurrentUser
+     <<ViewAreaController>> IdsAdmin
+      %UID '4933A4190027'
+     ; // IdsAdmin
+     <<Enum>> TbsGroupNodeType
+      %UID '49EC4F7200EA'
+      %ATTRIBUTES
+        <<Attribute>> gntUnknown
+         %UID '49EC8A1C0241'
+         %SUMMARY 'Неизвестно' ;
+        ; // gntUnknown
+        <<Attribute>> gntSystem
+         %UID '49EC8A2C02E2'
+         %SUMMARY 'Системная группа' ;
+        ; // gntSystem
+        <<Attribute>> gntUsual
+         %UID '49EC8A4A02F1'
+         %SUMMARY 'Обычная группа' ;
+        ; // gntUsual
+      ; // %ATTRIBUTES
+     ; // TbsGroupNodeType
+     <<Facet>> IbsUserListViewListener
+      %UID '49E5B8F100D1'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4680CF330338' /* Il3Notify */
+      ; // %INHERITS
+      %OPERATIONS
+        ABSTRACT <<Operation>> CreateUserFinished
+         %UID '49E5B915022D'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> Successfull
+            %UID '4AF3E7D601F7'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Successfull
+         ; // %PARAMETERS
+        ; // CreateUserFinished
+        ABSTRACT <<Operation>> GroupChanged
+         %UID '49F02DCF0116'
+         %SUMMARY 'Сменилась группа' ;
+         %PARAMETERS
+           <<in>> aGroupUID
+            %UID '49F02DE4022C'
+            %TARGET U$ '3DBFFD7002C2' /* long */
+           ; // aGroupUID
+         ; // %PARAMETERS
+        ; // GroupChanged
+        ABSTRACT <<Operation>> RequestUpdateCurrent
+         %UID '49F6E0C101AC'
+        ; // RequestUpdateCurrent
+      ; // %OPERATIONS
+     ; // IbsUserListViewListener
+     <<ViewAreaController>> IdsGroupsList
+      %UID '49EC4FBC01AC'
+      %SUMMARY 'Группы пользователей' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '493FAECB025F' /* Tree */
+       U$ '493FBE3E033A' /* Admin */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47E9F96B035A' /* IdsSimpleTree */
+      ; // %INHERITS
+      %REALIZES
+       U$ '491DD57603A3' /* ImageList */
+       U$ '491DD5A10199' /* SimpleTree */
+       U$ '491DD5C90095' /* CurrentChanged */
+      ; // %REALIZES
+      %OPERATIONS
+        ABSTRACT <<facetmethod>> NotifyTreeViewInvalidate
+         %UID '5492ECBC01A5'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '3768C103F267'
+            %SUMMARY 'Сигнатура метода NotifyTreeViewInvalidate' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // NotifyTreeViewInvalidate
+        ABSTRACT <<Operation>> GroupsListNodeType
+         %UID '49EC50000093'
+         %SUMMARY 'Тип ноды' ;
+         %TARGET U$ '49EC4F7200EA' /* TbsGroupNodeType */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EC501B03A3'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // GroupsListNodeType
+        ABSTRACT <<Operation>> DeleteGroup
+         %UID '49EC50390132'
+         %SUMMARY 'Удалить группу' ;
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EC5049009B'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // DeleteGroup
+        ABSTRACT <<Operation>> CreateNewGroup
+         %UID '49EC51CA014F'
+         %SUMMARY 'Создать группу' ;
+        ; // CreateNewGroup
+        ABSTRACT <<Operation>> ChangeBasesAccessForGroup
+         %UID '49EC52BD01EC'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EC52C70259'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // ChangeBasesAccessForGroup
+        ABSTRACT <<Operation>> RenameGroup
+         %UID '49EEEBB4002A'
+         %SUMMARY 'Переименовать группу' ;
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EEEBCE0203'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // RenameGroup
+        ABSTRACT <<Operation>> HasUsers
+         %UID '49F04DCE0166'
+         %SUMMARY 'Есть ли пользователи в группе' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49F04DE60121'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // HasUsers
+        ABSTRACT <<Operation>> CheckUnsavedUserProperty
+         %UID '49F6DBB30002'
+         %SUMMARY 'Если свойства не сохранены - спросить об этом' ;
+        ; // CheckUnsavedUserProperty
+      ; // %OPERATIONS
+     ; // IdsGroupsList
+     <<Facet>> IadminUserNodeList
+      %UID '559E9E3D0263'
+      %TOBEINCLUDED
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47D821AE00EF' /* Ml3List */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '47D8233603DD' /* First */
+       U$ '47D823570315' /* Last */
+       U$ '47D8248802AD' /* Items */
+       U$ '47E381E203D2' /* Empty */
+       U$ '4BB08B8902F2' /* Count */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '559E9EEA03D6'
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // IadminUserNodeList
+     <<Facet>> IbsEditGroupName
+      %UID '49EEFA5701BB'
+      %SUMMARY 'Редактировщик имени группы' ;
+      %TOBEINCLUDED
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<property>> Name
+         %UID '49EEFAAB0318'
+         %SUMMARY 'Имя' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // Name
+      ; // %ATTRIBUTES
+     ; // IbsEditGroupName
+     <<Exception>> EDuplicateGroupName
+      %UID '49F1635402E3'
+      %SUMMARY 'Дублирующееся имя группы.'#13#10'Имя группы идет как Message' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4787A405013D' /* Exception */
+      ; // %INHERITS
+     ; // EDuplicateGroupName
+     <<Facet>> IbsUserPropertyListener
+      %UID '49F6DBFC01FD'
+      %TOBEINCLUDED
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4680CF330338' /* Il3Notify */
+      ; // %INHERITS
+      %OPERATIONS
+        ABSTRACT <<Operation>> CheckUnsavedProperties
+         %UID '49F6DC2600C0'
+        ; // CheckUnsavedProperties
+      ; // %OPERATIONS
+     ; // IbsUserPropertyListener
+     <<Facet>> IdeAdmin
+      %UID '49EEBFE5027B'
+      %TOBEINCLUDED
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> Groups
+         %UID '4AA510B00041'
+         %TARGET U$ '49245E750210' /* IdeNode */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // Groups
+        ABSTRACT LINK <<readonly>> Users
+         %UID '4AA510C90109'
+         %TARGET U$ '49245E750210' /* IdeNode */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // Users
+      ; // %ATTRIBUTES
+     ; // IdeAdmin
+     <<Facet>> IdeProfile
+      %UID '491DA3810273'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> UserProfile
+         %UID '4AA526EC03C7'
+         %SUMMARY 'профиль пользователя' ;
+         %TARGET U$ '45EED78501B5' /* UserProfile */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // UserProfile
+        ABSTRACT LINK <<readonly>> IsNewProfile
+         %UID '4AA527110040'
+         %SUMMARY 'флаг заведения нового пользователя' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsNewProfile
+      ; // %ATTRIBUTES
+     ; // IdeProfile
+     <<ViewAreaController>> IdsUserList
+      %UID '49245DD203E0'
+      %SUMMARY 'Бизнес объект формы "efUserList"' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+       U$ '493FAECB025F' /* Tree */
+       U$ '493FBE3E033A' /* Admin */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492D901E03E1' /* InsContextFilter */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47E9F96B035A' /* IdsSimpleTree */
+      ; // %INHERITS
+      %REALIZES
+       U$ '491DD57603A3' /* ImageList */
+       U$ '491DD5A10199' /* SimpleTree */
+       U$ '491DD5C90095' /* CurrentChanged */
+       U$ '492D9071038D' /* CurrentContextFilter */
+       U$ '492D90AA0118' /* FiltrateByContext */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> CurrentFlagFilter
+         %UID '492461B60284'
+         %TARGET U$ '49245FE703A3' /* TUserListFilterTypes */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // CurrentFlagFilter
+        ABSTRACT LINK <<property>> ConsultingPaymentForNewbies
+         %UID '492461FE0363'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ConsultingPaymentForNewbies
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> UserListNodeType
+         %UID '49245EB103E1'
+         %TARGET U$ '49245E5800BB' /* TbsUserNodeType */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49245EB703E7'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // UserListNodeType
+        ABSTRACT <<Operation>> GetFrosenNode
+         %UID '49245EC10119'
+         %TARGET U$ '49245E750210' /* IdeNode */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49245EC50087'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // GetFrosenNode
+        ABSTRACT <<Operation>> FindFrosenNode
+         %UID '49245ECB01E9'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49245ED50324'
+            %TARGET U$ '49245E750210' /* IdeNode */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<in>> aShowRootFlag
+            %UID '49245ED50350'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aShowRootFlag
+         ; // %PARAMETERS
+        ; // FindFrosenNode
+        ABSTRACT <<Operation>> DeleteUser
+         %UID '49245EDB0225'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '52A6CEB401B0'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<out>> aFailed
+            %UID '52A6CEB40202'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aFailed
+         ; // %PARAMETERS
+        ; // DeleteUser
+        ABSTRACT <<Operation>> DeleteUsers
+         %UID '49245EE602A0'
+         %SUMMARY 'Удалить выделенных на дереве пользователей, вернуть список нод которые не удалось удалить' ;
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aUserTree
+            %UID '49245EF1038F'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserTree
+           <<out>> aFailed
+            %UID '49245EF103CA'
+            %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aFailed
+         ; // %PARAMETERS
+        ; // DeleteUsers
+        ABSTRACT <<Operation>> CreateNewUser
+         %UID '49245EF90140'
+        ; // CreateNewUser
+        ABSTRACT <<Operation>> GetUserState
+         %UID '49245F730020'
+         %TARGET U$ '49245F5700F6' /* TUserStates */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49245F77001D'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // GetUserState
+        ABSTRACT <<Operation>> LogoutUser
+         %UID '49245FA201D9'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49245FA60155'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // LogoutUser
+        ABSTRACT <<Operation>> LogoutUsers
+         %UID '49245FC30050'
+         %SUMMARY 'Отключить выделенных на дереве пользователей' ;
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aUserTree
+            %UID '49245FCC0007'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserTree
+         ; // %PARAMETERS
+        ; // LogoutUsers
+        ABSTRACT <<Operation>> FiltrateByType
+         %UID '49246092009E'
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTreeSource
+            %UID '492460A7023A'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTreeSource
+           <<in>> aCurrentNode
+            %UID '492460A70276'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aCurrentNode
+           <<in>> aFilter
+            %UID '492460A702B7'
+            %TARGET U$ '49245FE703A3' /* TUserListFilterTypes */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+           <<out>> aCurrent
+            %UID '492460A702F6'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aCurrent
+         ; // %PARAMETERS
+        ; // FiltrateByType
+        ABSTRACT <<Operation>> SetConsultingPaymentForAll
+         %UID '49246116033D'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> IsAllowed
+            %UID '4924611A039C'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsAllowed
+         ; // %PARAMETERS
+        ; // SetConsultingPaymentForAll
+        ABSTRACT <<Operation>> SetConsultingPayment
+         %UID '4924612E0296'
+         %SUMMARY 'Изменить возможность консалтинга для выделенных на дереве пользователей' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aUserTree
+            %UID '49246145035A'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserTree
+           <<in>> IsAllowed
+            %UID '4924614503A2'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsAllowed
+         ; // %PARAMETERS
+        ; // SetConsultingPayment
+        ABSTRACT <<Operation>> SetIsPrivileged
+         %UID '4924614D0345'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '492461560007'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<in>> IsPrivileged
+            %UID '492461560055'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsPrivileged
+         ; // %PARAMETERS
+        ; // SetIsPrivileged
+        ABSTRACT <<Operation>> SetPrivelegedRights
+         %UID '4924615E0279'
+         %SUMMARY 'Изменить привилегированность для выделенных на дереве пользователей' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aUserTree
+            %UID '4924617403A1'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserTree
+           <<in>> IsPrivileged
+            %UID '492461750007'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsPrivileged
+         ; // %PARAMETERS
+        ; // SetPrivelegedRights
+        ABSTRACT <<Operation>> SelectNodes
+         %UID '492461970357'
+         %SUMMARY 'Выделить ноды по списку (Il3SimpleNode)' ;
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aUserTree
+            %UID '492461A40362'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserTree
+           <<in>> aList
+            %UID '492461A403BC'
+            %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aList
+         ; // %PARAMETERS
+        ; // SelectNodes
+        ABSTRACT <<Operation>> NotifyCreateUserFinished
+         %UID '49E5B8C7024C'
+         %SUMMARY 'Нотификация об отскзе создания пользователя' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> Successfull
+            %UID '4AF3E8800183'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Successfull
+         ; // %PARAMETERS
+        ; // NotifyCreateUserFinished
+        ABSTRACT <<Operation>> NotifyGroupChanged
+         %UID '49F02BA70361'
+         %SUMMARY 'Сменилась группа' ;
+         %PARAMETERS
+           <<in>> aGroupUID
+            %UID '49F02BEC0331'
+            %TARGET U$ '3DBFFD7002C2' /* long */
+           ; // aGroupUID
+         ; // %PARAMETERS
+        ; // NotifyGroupChanged
+        ABSTRACT <<Operation>> FiltrateByGroup
+         %UID '49F02C0400AA'
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTreeSource
+            %UID '49F02C2702F2'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTreeSource
+           <<in>> aCurrentNode
+            %UID '49F02C27036E'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aCurrentNode
+           <<in>> aFilter
+            %UID '49F02C280003'
+            %TARGET U$ '3DBFFD7002C2' /* long */
+           ; // aFilter
+           <<out>> aCurrent
+            %UID '49F02C280090'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aCurrent
+         ; // %PARAMETERS
+        ; // FiltrateByGroup
+        ABSTRACT <<Operation>> CheckUnsavedUserProperty
+         %UID '49F6DB9B02A8'
+         %SUMMARY 'Если свойства не сохранены - спросить об этом' ;
+        ; // CheckUnsavedUserProperty
+        ABSTRACT <<Operation>> RequestUpdateCureent
+         %UID '49F6E0DB0163'
+        ; // RequestUpdateCureent
+      ; // %OPERATIONS
+     ; // IdsUserList
+     <<Facet>> IbsGroupListViewListener
+      %UID '5492EB7F00EE'
+      %TOBEINCLUDED
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4680CF330338' /* Il3Notify */
+      ; // %INHERITS
+      %OPERATIONS
+        ABSTRACT <<facetmethod>> TreeViewInvalidate
+         %UID '5492EBB90042'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '10E1BF8015CE'
+            %SUMMARY 'Сигнатура метода TreeViewInvalidate' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TreeViewInvalidate
+      ; // %OPERATIONS
+     ; // IbsGroupListViewListener
+     <<UseCaseController>> IsdsAdmin
+      %UID '491DAB560173'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '493FBE3E033A' /* Admin */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> CurrentGroupUID
+         %UID '49EEDEB10042'
+         %SUMMARY 'Текущая группа' ;
+         %TARGET U$ '3DBFFD7002C2' /* long */
+         %META
+          %upv "pm" false
+          %upv "reflectable" 'undefined'
+         ; // %META
+        ; // CurrentGroupUID
+        ABSTRACT LINK <<property>> ConsultingPaymentForNewbies
+         %UID '4931230801FC'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+          %upv "reflectable" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ConsultingPaymentForNewbies
+        ABSTRACT LINK <<area>> dsUserList
+         %UID '4933A3DE0399'
+         %TARGET U$ '49245DD203E0' /* IdsUserList */
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // dsUserList
+        ABSTRACT LINK <<area>> dsAdmin
+         %UID '4933A42A000B'
+         %TARGET U$ '4933A4190027' /* IdsAdmin */
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // dsAdmin
+        ABSTRACT LINK <<area>> dsUserProperty
+         %UID '4933A4B2026A'
+         %TARGET U$ '491DA3AF0290' /* IdsUserProperty */
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // dsUserProperty
+        ABSTRACT LINK <<area>> dsGroupsList
+         %UID '49EC52D1019D'
+         %TARGET U$ '49EC4FBC01AC' /* IdsGroupsList */
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // dsGroupsList
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> ChangeUser
+         %UID '493121A10045'
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aProfile
+            %UID '493121A4023A'
+            %TARGET U$ '491DA3810273' /* IdeProfile */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aProfile
+         ; // %PARAMETERS
+        ; // ChangeUser
+        ABSTRACT <<Operation>> DeleteUser
+         %UID '4931222C03DE'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '52A6C8F400FB'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<out>> aFailed
+            %UID '52A6C8F40160'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aFailed
+         ; // %PARAMETERS
+        ; // DeleteUser
+        ABSTRACT <<Operation>> DeleteUsers
+         %UID '493122380020'
+         %SUMMARY 'Удалить выделенных на дереве пользователей, вернуть список нод которые не удалось удалить' ;
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aUserTree
+            %UID '49312249037E'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserTree
+           <<in>> anList
+            %UID '4931224903B3'
+            %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // anList
+           <<out>> aFailed
+            %UID '4931224A0005'
+            %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aFailed
+         ; // %PARAMETERS
+        ; // DeleteUsers
+        ABSTRACT <<Operation>> SetConsultingPaymentForAll
+         %UID '49312258036D'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> IsAllowed
+            %UID '4931225B0236'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsAllowed
+         ; // %PARAMETERS
+        ; // SetConsultingPaymentForAll
+        ABSTRACT <<Operation>> SetConsultingPayment
+         %UID '4931226101A3'
+         %SUMMARY 'Изменить возможность консалтинга для выделенных на дереве пользователей' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anList
+            %UID '4931226F0142'
+            %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // anList
+           <<in>> IsAllowed
+            %UID '4931226F017D'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsAllowed
+         ; // %PARAMETERS
+        ; // SetConsultingPayment
+        ABSTRACT <<Operation>> LogoutUser
+         %UID '493122770111'
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '493121F50330' /* ETryLogoutCurrentUser */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4931227D03C4'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // LogoutUser
+        ABSTRACT <<Operation>> LogoutUsers
+         %UID '4931229500C5'
+         %SUMMARY 'Отключить выделенных на дереве пользователей, вернуть список нод которые не удалось отключить' ;
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '493121F50330' /* ETryLogoutCurrentUser */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> anList
+            %UID '4931229D039E'
+            %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // anList
+         ; // %PARAMETERS
+        ; // LogoutUsers
+        ABSTRACT <<Operation>> SetIsPrivileged
+         %UID '493122D301EB'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '493122DC0182'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<in>> IsPrivileged
+            %UID '493122DC01C7'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsPrivileged
+         ; // %PARAMETERS
+        ; // SetIsPrivileged
+        ABSTRACT <<Operation>> SetPrivelegedRights
+         %UID '493122E402DC'
+         %SUMMARY 'Изменить привилегированность для выделенных на дереве пользователей' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anList
+            %UID '493122F10295'
+            %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // anList
+           <<in>> IsPrivileged
+            %UID '493122F102DD'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsPrivileged
+         ; // %PARAMETERS
+        ; // SetPrivelegedRights
+        ABSTRACT <<Operation>> ChangeBaseAccessForGroup$49EC53DA01C9
+         %UID '49EC53DA01C9'
+         %SUMMARY 'Изменить доступ для групп' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EC53EF0253'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // ChangeBaseAccessForGroup$49EC53DA01C9
+        ABSTRACT <<Operation>> DeleteGroup
+         %UID '49EC53FE0039'
+         %SUMMARY 'Удалить группу' ;
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EC54090278'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // DeleteGroup
+        ABSTRACT <<Operation>> CreateNewGroup
+         %UID '49EC5423006B'
+         %SUMMARY 'Создать группу' ;
+        ; // CreateNewGroup
+        ABSTRACT <<Operation>> ChangeBaseAccessForGroup$49EC5B7D023E
+         %UID '49EC5B7D023E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anUID
+            %UID '49EC5B890373'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // anUID
+         ; // %PARAMETERS
+        ; // ChangeBaseAccessForGroup$49EC5B7D023E
+        ABSTRACT <<Operation>> ChangeGroup
+         %UID '49EEDC8F02C1'
+         %SUMMARY 'Поменялась группа' ;
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EEDDF50094'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // ChangeGroup
+        ABSTRACT <<Operation>> RenameGroup
+         %UID '49EEEBD40313'
+         %SUMMARY 'переименовать группу' ;
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EEEBF00057'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // RenameGroup
+        ABSTRACT <<Operation>> CreateUserFinished
+         %UID '49F021CE03E6'
+         %SUMMARY 'Нотификация об убиении пользователя' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> Successfull
+            %UID '4AF3E7E101E5'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Successfull
+         ; // %PARAMETERS
+        ; // CreateUserFinished
+        ABSTRACT <<Operation>> CheckUnsavedUserProperty
+         %UID '49F6DB7B0165'
+         %SUMMARY 'Если свойства не сохранены - спросить об этом' ;
+        ; // CheckUnsavedUserProperty
+        ABSTRACT <<Operation>> RequestUpdateCurrent
+         %UID '49F6E0E901BA'
+        ; // RequestUpdateCurrent
+        ABSTRACT <<Operation>> SetDontDeleteIdle
+         %UID '4F3BE8370292'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4F3BE8640355'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<in>> aValue
+            %UID '4F3BE86403C2'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aValue
+         ; // %PARAMETERS
+        ; // SetDontDeleteIdle
+      ; // %OPERATIONS
+     ; // IsdsAdmin
+   ; // %CHILDREN
+  ; // AdminInterfaces
+  <<Unit>> UsersDataObjects
+   %UID '49F17D370263'
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '45EEAA96039C' /* Security */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '467C0CAA02AB' /* l3InternalInterfaces */
+    U$ '4680F5600033' /* l3DataObject */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '469C688102A3' /* DataObjects */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47C695A10172' /* evTypes */
+    U$ '47E21C730035' /* l3VCLExtensions */
+    U$ '47E246C90144' /* l3Trees */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '47ECB8BD00A8' /* Generators */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '4802FF41005C' /* DataObjects */
+    U$ '48492FC0029D' /* Standard */
+    U$ '48F747EC0073' /* Common */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+   ; // %DEPENDS
+   %META
+    %upv "ifdef" 'Admin'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677FF4B0036' /* Data */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '47E9EEC60260' /* Model */
+    U$ '48EEE54C0072' /* EverestCommon */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '54F5AAED0073' /* L3$Visual */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TbsUserDataObject
+      %UID '49F552BA0035'
+      %SUMMARY 'Данные списка пользователей' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '48EEE54C0072' /* EverestCommon */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48F7014003A5' /* TevNodeData */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '48F3495D0398' /* DoGetData */
+       U$ '48F4B33501DE' /* GetFormats */
+       U$ '48F89615037B' /* MakeExtData */
+       U$ '4A60B23E00C3' /* COMQueryInterface */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49F554A000C4"
+         %UID '49F554A000C4'
+         %TARGET U$ '47725360003C' /* Pl3TreeData */
+        ; // 49F554A000C4
+        <<uses>> "49F55F9E0221"
+         %UID '49F55F9E0221'
+         %TARGET U$ '48F4B5300085' /* l3TreeConst */
+        ; // 49F55F9E0221
+        <<uses>> "49F55FBB02EC"
+         %UID '49F55FBB02EC'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 49F55FBB02EC
+        <<uses>> "49F55FD202D7"
+         %UID '49F55FD202D7'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 49F55FD202D7
+        <<uses>> "49F56D820068"
+         %UID '49F56D820068'
+         %TARGET U$ '49F56C06023C' /* TnsUserDataObject */
+        ; // 49F56D820068
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_UserData
+         %UID '49F556D803AD'
+         %TARGET U$ '49F17AE6005F' /* IbsUserTreeData */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_UserData
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '49F5530A032E'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '47E9EEC60260' /* Model */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '49F5537100E4'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<in>> aBitmap
+            %UID '49F553710103'
+            %TARGET U$ '476F70910097' /* Il3Bitmap */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // aBitmap
+           <<in>> aUserData
+            %UID '49F556F40229'
+            %TARGET U$ '49F17AE6005F' /* IbsUserTreeData */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // aUserData
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '49F55376010B'
+         %TARGET U$ '4680F4790135' /* IDataObject */
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '47E9EEC60260' /* Model */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '49F5537E0246'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<in>> aBitmap
+            %UID '49F5537E0265'
+            %TARGET U$ '476F70910097' /* Il3Bitmap */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // aBitmap
+           <<in>> aUserData
+            %UID '49F556FB0088'
+            %TARGET U$ '49F17AE6005F' /* IbsUserTreeData */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // aUserData
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TbsUserDataObject
+     <<SimpleClass>> TnsUserDataObject
+      %UID '49F56C06023C'
+      %SUMMARY 'Объект данных для нод дерева пользователей' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48F89F4302E3' /* TevPersistentDataObjectEx */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48F475350256' /* COMQueryInterface */
+       U$ '48F4795901B5' /* DataObjectClass */
+       U$ '48F4818300A5' /* GetIsQuestionNeedBeforeFlush */
+       U$ '48F481B6035B' /* DoStore */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49F579B701C7"
+         %UID '49F579B701C7'
+         %TARGET U$ '47C699BD0247' /* InevObjectHolder */
+        ; // 49F579B701C7
+        <<uses>> "49F579E9036A"
+         %UID '49F579E9036A'
+         %TARGET U$ '483E708900B4' /* "Clipboard Formats" */
+        ; // 49F579E9036A
+        <<uses>> "49F57BC00069"
+         %UID '49F57BC00069'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 49F57BC00069
+        <<uses>> "49F57BF001A2"
+         %UID '49F57BF001A2'
+         %TARGET U$ '48F47C8001FF' /* TSeekOrigin */
+        ; // 49F57BF001A2
+        <<uses>> "49F5800D02FA"
+         %UID '49F5800D02FA'
+         %TARGET U$ '49F57FF400B2' /* TnsUserInterfacedDataObject */
+        ; // 49F5800D02FA
+        <<uses>> "49F58BC50013"
+         %UID '49F58BC50013'
+         %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+        ; // 49F58BC50013
+        <<uses>> "49F58BC80107"
+         %UID '49F58BC80107'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 49F58BC80107
+        <<uses>> "49F58BCB01DD"
+         %UID '49F58BCB01DD'
+         %TARGET U$ '483D7C55027A' /* TevdNativeWriter */
+        ; // 49F58BCB01DD
+        <<uses>> "49F5904F02BE"
+         %UID '49F5904F02BE'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 49F5904F02BE
+        <<uses>> "49F5905C0068"
+         %UID '49F5905C0068'
+         %TARGET U$ '485683750360' /* TextPara */
+        ; // 49F5905C0068
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Inited
+         %UID '49F56CDF0209'
+         %SUMMARY 'Данные зачитаны в поток.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Inited
+        PRIVATE <<Attribute>> f_List
+         %UID '49F56D1701DE'
+         %TARGET U$ '49F1AD9B00B6' /* IbsSelectedUsers */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_List
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '49F56D450147'
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aList
+            %UID '49F56D5803A8'
+            %TARGET U$ '49F1AD9B00B6' /* IbsSelectedUsers */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // aList
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '49F56D5F038D'
+         %TARGET U$ '4680F4790135' /* IDataObject */
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aList
+            %UID '49F56D6700B3'
+            %TARGET U$ '49F1AD9B00B6' /* IbsSelectedUsers */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // aList
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsUserDataObject
+     <<SimpleClass>> TnsUserInterfacedDataObject
+      %UID '49F57FF400B2'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48EF3978008D' /* TevDataObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4A60B23E00C3' /* COMQueryInterface */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49F580240342"
+         %UID '49F580240342'
+         %TARGET U$ '49F1AD9B00B6' /* IbsSelectedUsers */
+        ; // 49F580240342
+        <<uses>> "49F582310096"
+         %UID '49F582310096'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49F582310096
+      ; // %LINKS
+     ; // TnsUserInterfacedDataObject
+     <<SimpleClass>> TbsUserTreeData
+      %UID '49F592D400E6'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49F17AE6005F' /* IbsUserTreeData */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '49F17C070091' /* Node */
+       U$ '49F1AE1D02A4' /* Users */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49F59C7A01DA"
+         %UID '49F59C7A01DA'
+         %TARGET U$ '49F59C46028B' /* TbsSelectedUsers */
+        ; // 49F59C7A01DA
+        <<uses>> "49F5A19702EF"
+         %UID '49F5A19702EF'
+         %TARGET U$ '45EED730037A' /* ProfileNode */
+        ; // 49F5A19702EF
+        <<uses>> "49F5A2FC0047"
+         %UID '49F5A2FC0047'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49F5A2FC0047
+        <<uses>> "49F5A37D03DC"
+         %UID '49F5A37D03DC'
+         %TARGET U$ '48FF569700F6' /* StringRoutines */
+        ; // 49F5A37D03DC
+        <<uses>> "49F5A3AC015F"
+         %UID '49F5A3AC015F'
+         %TARGET U$ '45EEC3DE0232' /* FlagsConst */
+        ; // 49F5A3AC015F
+        <<uses>> "49F5A3F2015C"
+         %UID '49F5A3F2015C'
+         %TARGET U$ '47F25741021C' /* l3Nodes */
+        ; // 49F5A3F2015C
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Users
+         %UID '49F593C60146'
+         %TARGET U$ '49F1AD9B00B6' /* IbsSelectedUsers */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_Users
+        PRIVATE <<Attribute>> f_Node
+         %UID '49F5945B027A'
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_Node
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '49F59364009C'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTree
+            %UID '49F59BA100A6'
+            %TARGET U$ '46825CE0014B' /* Il3ExpandedSimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTree
+           <<in>> aNode
+            %UID '49F59BA100D5'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '49F593A70243'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTree
+            %UID '49F59BA80221'
+            %TARGET U$ '46825CE0014B' /* Il3ExpandedSimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTree
+           <<in>> aNode
+            %UID '49F59BA80250'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TbsUserTreeData
+     <<SimpleClass>> TbsSelectedUsers
+      %UID '49F59C46028B'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49F1AD9B00B6' /* IbsSelectedUsers */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '49F1ADEF0280' /* AddUser */
+       U$ '49F1AE8F03C3' /* Name */
+       U$ '49F1AED002EE' /* Count */
+       U$ '49F1AEFF0284' /* UID */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49F5A6B201C6"
+         %UID '49F5A6B201C6'
+         %TARGET U$ '48721F730220' /* Tl3Strings */
+        ; // 49F5A6B201C6
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Items
+         %UID '49F5A6780010'
+         %TARGET U$ '46A4756D00CC' /* Il3StringsEx */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_Items
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<factory>> Make
+         %UID '49F59C6C01A3'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+        FINAL <<ctor>> Create
+         %UID '49F5A7D70158'
+        ; // Create
+      ; // %OPERATIONS
+     ; // TbsSelectedUsers
+   ; // %CHILDREN
+  ; // UsersDataObjects
+  <<Unit>> Users
+   %UID '4901E79300F5'
+   %SUMMARY 'Структуры данных для работы с учётными записями пользователей' ;
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '45EEAA96039C' /* Security */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47E246C90144' /* l3Trees */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '48F747EC0073' /* Common */
+    U$ '48FD8B2702F6' /* Tree */
+    U$ '49F17D370263' /* UsersDataObjects */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4ACF68160358' /* Users$CommonForAdminAndF1 */
+   ; // %DEPENDS
+   %META
+    %upv "ifdef" 'Admin'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '493FBE3E033A' /* Admin */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsGroupTreeStruct
+      %UID '49E8213D00F6'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677FF4B0036' /* Data */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '468361010204' /* TnsDataResetTreeStruct */
+      ; // %INHERITS
+      %REALIZES
+       U$ '48FF64F60078' /* ReAqurieUnfilteredRoot */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '48FF56D003E6' /* SettingsID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49E83D460323"
+         %UID '49E83D460323'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 49E83D460323
+        <<uses>> "49E83DCB00D8"
+         %UID '49E83DCB00D8'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 49E83DCB00D8
+      ; // %LINKS
+     ; // TnsGroupTreeStruct
+     <<SimpleClass>> TnsUserTreeStructWithDrag
+      %UID '49F16EBF02AD'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677FF4B0036' /* Data */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4906E96C0364' /* TnsUserTreeStruct */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48FEE6210205' /* DoMakeDataObject */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49F56569010B"
+         %UID '49F56569010B'
+         %TARGET U$ '49F552BA0035' /* TbsUserDataObject */
+        ; // 49F56569010B
+        <<uses>> "49F596B102B3"
+         %UID '49F596B102B3'
+         %TARGET U$ '49F592D400E6' /* TbsUserTreeData */
+        ; // 49F596B102B3
+      ; // %LINKS
+     ; // TnsUserTreeStructWithDrag
+     <<SimpleClass>> TnsGroupTreeStructWithDrop
+      %UID '49F16EE7010F'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E8213D00F6' /* TnsGroupTreeStruct */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48FEE78E01B2' /* DoCanAcceptData */
+       U$ '48FEE9D303B6' /* DoDropData */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49F5B739033E"
+         %UID '49F5B739033E'
+         %TARGET U$ '49F17AE6005F' /* IbsUserTreeData */
+        ; // 49F5B739033E
+        <<uses>> "49F5BA9800A7"
+         %UID '49F5BA9800A7'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49F5BA9800A7
+        <<uses>> "49F5BAB60373"
+         %UID '49F5BAB60373'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 49F5BAB60373
+        <<uses>> "49F5BADD00A6"
+         %UID '49F5BADD00A6'
+         %TARGET U$ '4651A5AE00FA' /* UidList */
+        ; // 49F5BADD00A6
+        <<uses>> "49F5BD0001EC"
+         %UID '49F5BD0001EC'
+         %TARGET U$ '49E5BB5F02B7' /* nsUserNodes */
+        ; // 49F5BD0001EC
+      ; // %LINKS
+     ; // TnsGroupTreeStructWithDrop
+     FINAL <<UtilityPack>> nsUserNodes
+      %UID '49E5BB5F02B7'
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "no hands" true
+       %upv "started" '2004/02/12 13:28:43'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> GetUserID
+         %UID '4AD5ACC50294'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B1CD74A0065"
+            %UID '4B1CD74A0065'
+            %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+           ; // 4B1CD74A0065
+           <<uses>> "4B1CDA4D016F"
+            %UID '4B1CDA4D016F'
+            %TARGET U$ '45EED730037A' /* ProfileNode */
+           ; // 4B1CDA4D016F
+           <<uses>> "4B1CE05A02B5"
+            %UID '4B1CE05A02B5'
+            %TARGET U$ '47FB50E4008E' /* nsConst */
+           ; // 4B1CE05A02B5
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B1CD6600026'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aNode
+               %UID '4B1CD66C0189'
+               %TARGET U$ '468259900322' /* Il3SimpleNode */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aNode
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetUserID
+        FINAL <<method>> GetUserByID
+         %UID '4B1CD6EE038B'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B1CD80C032E"
+            %UID '4B1CD80C032E'
+            %TARGET U$ '4B1CD77B0238' /* l3L2SNA */
+           ; // 4B1CD80C032E
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B1CD6F90165'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aUserID
+               %UID '4B1CD70900A8'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aUserID
+              <<in>> aTreeStruct
+               %UID '4B1CD70900CC'
+               %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aTreeStruct
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetUserByID
+      ; // %OPERATIONS
+     ; // nsUserNodes
+   ; // %CHILDREN
+  ; // Users
+  <<ControllerUnit>> Admin
+   %UID '491D9414002B'
+   %SUMMARY 'Администрирование пользоватеелй' ;
+   %DEPENDS
+    U$ '4423F94903C8' /* IO */
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '457450470167' /* DynamicTree */
+    U$ '45EEAA96039C' /* Security */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '467BAB7F021E' /* vcmExternalInterfaces */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47E246C90144' /* l3Trees */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '47F282AE0082' /* Tree */
+    U$ '47F485150151' /* vtCommon */
+    U$ '48F747EC0073' /* Common */
+    U$ '49006FAB024A' /* Search */
+    U$ '4901E79300F5' /* Users */
+    U$ '491D961C0122' /* AdminInterfaces */
+    U$ '4982BE090383' /* vcmControllers */
+    U$ '4990510C0026' /* SearchDomainInterfaces */
+    U$ '4AA005310028' /* Search */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4ACF68160358' /* Users$CommonForAdminAndF1 */
+    U$ '521C9DA50125' /* "Application Resources" */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '447878770121' /* GCI */
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '467A75D90346' /* VT */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '493FAECB025F' /* Tree */
+    U$ '493FBE3E033A' /* Admin */
+    U$ '4AA0050F0360' /* Search */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ViewAreaControllerImp>> TdsAdmin
+      %UID '491D945A00C7'
+      %SUMMARY 'бизнес объект контейнера cfAdmin' ;
+      %META
+       %upv "author" 'Тучнин Д.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '16.08.2005 13.00'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4933A4190027' /* IdsAdmin */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47ECE94D03D4' /* vcmFormDataSourcePrim */
+      ; // %INHERITS
+     ; // TdsAdmin
+     FINAL <<ViewAreaControllerImp>> TdsForbidAutoregistration
+      %UID '491D9D81001D'
+      %SUMMARY 'Запрет авторегистрации' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '20.05.2007'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '491D962D01DA' /* IdsForbidAutoregistration */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47ECE94D03D4' /* vcmFormDataSourcePrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '491D96B9006E' /* Phone */
+       U$ '491D96D0039F' /* Email */
+       U$ '4B02D4DD00FC' /* NeedForbid */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "491D9E2B031F"
+         %UID '491D9E2B031F'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 491D9E2B031F
+        <<uses>> "491DA04703CD"
+         %UID '491DA04703CD'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 491DA04703CD
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_NeedForbid
+         %UID '4B02D8A60167'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_NeedForbid
+      ; // %ATTRIBUTES
+      %CHILDREN
+       
+        PRIVATE <<Constants>> Limits
+         %UID '491D9DFC0019'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> c_MaxLength
+            %UID '491D9E0F01A4'
+            %VALUE 50
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // c_MaxLength
+         ; // %ATTRIBUTES
+        ; // Limits
+      ; // %CHILDREN
+     ; // TdsForbidAutoregistration
+     FINAL <<ViewAreaControllerImp>> TdsUserProperty
+      %UID '491DA7AB0298'
+      %META
+       %upv "author" 'Тучнин Д.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '15.08.2005 20.30'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677FF4B0036' /* Data */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '491DA3AF0290' /* IdsUserProperty */
+       U$ '4B50388A00E5' /* nsUserPropertyImpl */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '492ACB4100B2' /* vcmFormDataSource */
+      ; // %INHERITS
+      %REALIZES
+       U$ '491DA41B00E4' /* CreateUserProfile */
+       U$ '49E5B86D002D' /* CreateUserFinished */
+       U$ '49F6E60E0293' /* CheckUnsavedUserProperty */
+       U$ '4B50439D03B6' /* DefaultGroupID */
+       U$ '4F1D3E8501B0' /* IsReadOnlyFor268342582 */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '492ACF630072' /* GotData */
+       U$ '4B5049D901A9' /* ClearNewUser */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "491DA8E3029B"
+         %UID '491DA8E3029B'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 491DA8E3029B
+        <<uses>> "491DA8F702C3"
+         %UID '491DA8F702C3'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 491DA8F702C3
+        <<uses>> "491DA9B30071"
+         %UID '491DA9B30071'
+         %TARGET U$ '48FF569700F6' /* StringRoutines */
+        ; // 491DA9B30071
+        <<uses>> "491DA9D90115"
+         %UID '491DA9D90115'
+         %TARGET U$ '431841610361' /* String */
+        ; // 491DA9D90115
+        <<uses>> "491DABE700BA"
+         %UID '491DABE700BA'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 491DABE700BA
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '491DA8220016'
+         %TARGET U$ '491DA3810273' /* IdeProfile */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        PRIVATE FINAL LINK <<UseCase>> SDS
+         %UID '49787F4B01C1'
+         %TARGET U$ '491DAB560173' /* IsdsAdmin */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // SDS
+        PRIVATE <<Attribute>> f_IsReadOnlyFor268342582
+         %UID '4F1D49590281'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_IsReadOnlyFor268342582
+      ; // %ATTRIBUTES
+     ; // TdsUserProperty
+     FINAL <<ViewAreaControllerImp>> TdsUserList
+      %UID '49246742002B'
+      %SUMMARY 'бизнес объект формы efUserList' ;
+      %META
+       %upv "author" 'Тучнин Д.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '15.08.2005 20.30'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '493FAECB025F' /* Tree */
+       U$ '493FBE3E033A' /* Admin */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49245DD203E0' /* IdsUserList */
+       U$ '492D91B7037E' /* nsContextFilter */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F0C1410011' /* dsSimpleTree */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47F4C2B9014A' /* MakeSimpleTree */
+       U$ '49245EB103E1' /* UserListNodeType */
+       U$ '49245EC10119' /* GetFrosenNode */
+       U$ '49245ECB01E9' /* FindFrosenNode */
+       U$ '49245EDB0225' /* DeleteUser */
+       U$ '49245EE602A0' /* DeleteUsers */
+       U$ '49245EF90140' /* CreateNewUser */
+       U$ '49245F730020' /* GetUserState */
+       U$ '49245FA201D9' /* LogoutUser */
+       U$ '49245FC30050' /* LogoutUsers */
+       U$ '49246092009E' /* FiltrateByType */
+       U$ '49246116033D' /* SetConsultingPaymentForAll */
+       U$ '4924612E0296' /* SetConsultingPayment */
+       U$ '4924614D0345' /* SetIsPrivileged */
+       U$ '4924615E0279' /* SetPrivelegedRights */
+       U$ '492461970357' /* SelectNodes */
+       U$ '492461B60284' /* CurrentFlagFilter */
+       U$ '492461FE0363' /* ConsultingPaymentForNewbies */
+       U$ '49E5B8C7024C' /* NotifyCreateUserFinished */
+       U$ '49F02BA70361' /* NotifyGroupChanged */
+       U$ '49F02C0400AA' /* FiltrateByGroup */
+       U$ '49F6DB9B02A8' /* CheckUnsavedUserProperty */
+       U$ '49F6E0DB0163' /* RequestUpdateCureent */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47F0C1BF0314' /* DoCurrentChanged */
+       U$ '47F465F80149' /* MakeImageList */
+       U$ '492ACF630072' /* GotData */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "492468610112"
+         %UID '492468610112'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 492468610112
+        <<uses>> "492468F10292"
+         %UID '492468F10292'
+         %TARGET U$ '45EED4D003A9' /* ProfileNodeType */
+        ; // 492468F10292
+        <<uses>> "49246BE500AD"
+         %UID '49246BE500AD'
+         %TARGET U$ '47F4853203E7' /* vtUtils */
+        ; // 49246BE500AD
+        <<uses>> "49246C2903B3"
+         %UID '49246C2903B3'
+         %TARGET U$ '49246C1F015D' /* AdminRes */
+        ; // 49246C2903B3
+        <<uses>> "4924716E001A"
+         %UID '4924716E001A'
+         %TARGET U$ '47CBED200390' /* Tl3InterfacedInterfaceList */
+        ; // 4924716E001A
+        <<uses>> "4924726E0339"
+         %UID '4924726E0339'
+         %TARGET U$ '47F25741021C' /* l3Nodes */
+        ; // 4924726E0339
+        <<uses>> "492472BE0394"
+         %UID '492472BE0394'
+         %TARGET U$ '492472AC0033' /* TdeNode */
+        ; // 492472BE0394
+        <<uses>> "49247339034D"
+         %UID '49247339034D'
+         %TARGET U$ '4901E66D024F' /* InsUserFlagsFilters */
+        ; // 49247339034D
+        <<uses>> "492473900010"
+         %UID '492473900010'
+         %TARGET U$ '4901E8E20154' /* TnsUserFlagsFilter */
+        ; // 492473900010
+        <<uses>> "492474700264"
+         %UID '492474700264'
+         %TARGET U$ '456EB3E10177' /* EntityBase */
+        ; // 492474700264
+        <<uses>> "492474B00083"
+         %UID '492474B00083'
+         %TARGET U$ '49F16EBF02AD' /* TnsUserTreeStructWithDrag */
+        ; // 492474B00083
+        <<uses>> "49F0187300D5"
+         %UID '49F0187300D5'
+         %TARGET U$ '49F017390338' /* TnsGroupFilter */
+        ; // 49F0187300D5
+        <<uses>> "49F03CA10181"
+         %UID '49F03CA10181'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 49F03CA10181
+        <<uses>> "4AA527E9029C"
+         %UID '4AA527E9029C'
+         %TARGET U$ '4AA5275401A5' /* TdeProfile */
+        ; // 4AA527E9029C
+        <<uses>> "559F83360136"
+         %UID '559F83360136'
+         %TARGET U$ '559E9F2B02D6' /* TadminUserNodeList */
+        ; // 559F83360136
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Root
+         %UID '492467D4020B'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Root
+        PROTECTED FINAL <<readonly>> CurrentFlagFilter
+         %UID '492467F60282'
+         %TARGET U$ '49245FE703A3' /* TUserListFilterTypes */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // CurrentFlagFilter
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '492D60810349'
+         %TARGET U$ '49245E750210' /* IdeNode */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        PRIVATE FINAL LINK <<UseCase>> SDS
+         %UID '4978666B005C'
+         %SUMMARY 'Прецедент Администрирование' ;
+         %TARGET U$ '491DAB560173' /* IsdsAdmin */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // SDS
+        PROTECTED FINAL <<readonly>> CurrentGroupFilter
+         %UID '49F02D70017F'
+         %TARGET U$ '3DBFFD7002C2' /* long */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+         ; // %META
+        ; // CurrentGroupFilter
+        SUMMONED PRIVATE <<Attribute>> f_CurrentFlagFilter
+         %UID 'AEBFCCE1FE05'
+         %SUMMARY 'Поле для свойства CurrentFlagFilter' ;
+         %TARGET U$ '49245FE703A3' /* TUserListFilterTypes */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // f_CurrentFlagFilter
+        SUMMONED PRIVATE INTEGER FUNCTION f_CurrentGroupFilter
+         %UID 'CF3BF9A8D4AD'
+         %SUMMARY 'Поле для свойства CurrentGroupFilter' ;
+         %TARGET U$ '3DBFFD7002C2' /* long */
+        ; // f_CurrentGroupFilter
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<Operation>> MakeSelectedList
+         %UID '49246C70028F'
+         %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTree
+            %UID '49246C7503D5'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTree
+         ; // %PARAMETERS
+        ; // MakeSelectedList
+      ; // %OPERATIONS
+     ; // TdsUserList
+     FINAL <<UtilityPack>> AdminRes
+      %UID '49246C1F015D'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<Operation>> dmAdmin
+         %UID '49246C310363'
+        ; // dmAdmin
+      ; // %OPERATIONS
+     ; // AdminRes
+     <<UseCaseControllerImp>> TsdsAdmin
+      %UID '493126130280'
+      %SUMMARY 'бизнес объект сборки администратор пользователей' ;
+      %META
+       %upv "author" 'Тучнин Д.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '15.08.2005 20.00'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '493FBE3E033A' /* Admin */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '491DAB560173' /* IsdsAdmin */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49415C640079' /* vcmFormSetDataSourceWithoutData */
+      ; // %INHERITS
+      %REALIZES
+       U$ '493121A10045' /* ChangeUser */
+       U$ '4931222C03DE' /* DeleteUser */
+       U$ '493122380020' /* DeleteUsers */
+       U$ '49312258036D' /* SetConsultingPaymentForAll */
+       U$ '4931226101A3' /* SetConsultingPayment */
+       U$ '493122770111' /* LogoutUser */
+       U$ '4931229500C5' /* LogoutUsers */
+       U$ '493122D301EB' /* SetIsPrivileged */
+       U$ '493122E402DC' /* SetPrivelegedRights */
+       U$ '4931230801FC' /* ConsultingPaymentForNewbies */
+       U$ '4933A3DE0399' /* dsUserList */
+       U$ '4933A42A000B' /* dsAdmin */
+       U$ '4933A4B2026A' /* dsUserProperty */
+       U$ '49EC52D1019D' /* dsGroupsList */
+       U$ '49EC53DA01C9' /* ChangeBaseAccessForGroup$49EC53DA01C9 */
+       U$ '49EC53FE0039' /* DeleteGroup */
+       U$ '49EC5423006B' /* CreateNewGroup */
+       U$ '49EC5B7D023E' /* ChangeBaseAccessForGroup$49EC5B7D023E */
+       U$ '49EEDC8F02C1' /* ChangeGroup */
+       U$ '49EEDEB10042' /* CurrentGroupUID */
+       U$ '49EEEBD40313' /* RenameGroup */
+       U$ '49F021CE03E6' /* CreateUserFinished */
+       U$ '49F6DB7B0165' /* CheckUnsavedUserProperty */
+       U$ '49F6E0E901BA' /* RequestUpdateCurrent */
+       U$ '4F3BE8370292' /* SetDontDeleteIdle */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+       U$ '4938F7E702B7' /* ClearAreas */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "493126F70204"
+         %UID '493126F70204'
+         %TARGET U$ '49246742002B' /* TdsUserList */
+        ; // 493126F70204
+        <<uses>> "4931270B0174"
+         %UID '4931270B0174'
+         %TARGET U$ '491DA7AB0298' /* TdsUserProperty */
+        ; // 4931270B0174
+        <<uses>> "4931271D01CA"
+         %UID '4931271D01CA'
+         %TARGET U$ '491D945A00C7' /* TdsAdmin */
+        ; // 4931271D01CA
+        <<uses>> "4931276601C1"
+         %UID '4931276601C1'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 4931276601C1
+        <<uses>> "49312771033B"
+         %UID '49312771033B'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 49312771033B
+        <<uses>> "4931282A01B5"
+         %UID '4931282A01B5'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+        ; // 4931282A01B5
+        <<uses>> "4931282D02AA"
+         %UID '4931282D02AA'
+         %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+        ; // 4931282D02AA
+        <<uses>> "49312831011C"
+         %UID '49312831011C'
+         %TARGET U$ '483EC24E0308' /* NodeIdList */
+        ; // 49312831011C
+        <<uses>> "493128490271"
+         %UID '493128490271'
+         %TARGET U$ '45EED57B0186' /* UserManager */
+        ; // 493128490271
+        <<uses>> "493129EF033C"
+         %UID '493129EF033C'
+         %TARGET U$ '4912AB3A01ED' /* TnsAttributeTreeCacheNew */
+        ; // 493129EF033C
+        <<uses>> "49312AC70284"
+         %UID '49312AC70284'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 49312AC70284
+        <<uses>> "49312C2702C2"
+         %UID '49312C2702C2'
+         %TARGET U$ '48FF569700F6' /* StringRoutines */
+        ; // 49312C2702C2
+        <<uses>> "49312C8600B3"
+         %UID '49312C8600B3'
+         %TARGET U$ '49312C5F0078' /* vcmFormSetRefreshParams */
+        ; // 49312C8600B3
+        <<uses>> "49312D1A0111"
+         %UID '49312D1A0111'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 49312D1A0111
+        <<uses>> "49339340013E"
+         %UID '49339340013E'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 49339340013E
+        <<uses>> "493394F2001A"
+         %UID '493394F2001A'
+         %TARGET U$ '49243E5C035C' /* nsLogicOperationToFlags */
+        ; // 493394F2001A
+        <<uses>> "49339CFA0123"
+         %UID '49339CFA0123'
+         %TARGET U$ '47F2108E028C' /* IvcmExecuteParams */
+        ; // 49339CFA0123
+        <<uses>> "49339FF10317"
+         %UID '49339FF10317'
+         %TARGET U$ '47F25741021C' /* l3Nodes */
+        ; // 49339FF10317
+        <<uses>> "4933A05B009D"
+         %UID '4933A05B009D'
+         %TARGET U$ '47FE430F0088' /* TModalResult */
+        ; // 4933A05B009D
+        <<uses>> "49905AC6000F"
+         %UID '49905AC6000F'
+         %TARGET U$ '49006BB201CB' /* TLogicOperation */
+        ; // 49905AC6000F
+        <<uses>> "49EC609C02A4"
+         %UID '49EC609C02A4'
+         %TARGET U$ '49EC547C001B' /* TdsGroupsList */
+        ; // 49EC609C02A4
+        <<uses>> "49EEFC480045"
+         %UID '49EEFC480045'
+         %TARGET U$ '49EEFBA6010A' /* TbsEditGroupName */
+        ; // 49EEFC480045
+        <<uses>> "4AA8ECC4021E"
+         %UID '4AA8ECC4021E'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 4AA8ECC4021E
+        <<uses>> "52A6CB350368"
+         %UID '52A6CB350368'
+         %TARGET U$ '45EED4A10226' /* UserActive */
+        ; // 52A6CB350368
+        <<uses>> "559E9F4502BA"
+         %UID '559E9F4502BA'
+         %TARGET U$ '559E9F2B02D6' /* TadminUserNodeList */
+        ; // 559E9F4502BA
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE INTEGER FUNCTION f_CurrentGroupID
+         %UID '49EEDCDA0085'
+         %SUMMARY 'Текущая группа' ;
+         %TARGET U$ '3DBFFD7002C2' /* long */
+        ; // f_CurrentGroupID
+        FINAL <<readonly>> InternalUserList
+         %UID '49F0282D02AA'
+         %SUMMARY 'Ссылка на собственный ds' ;
+         %TARGET U$ '49245DD203E0' /* IdsUserList */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // InternalUserList
+        FINAL <<readonly>> InternalUserProperty
+         %UID '49F6E384028E'
+         %TARGET U$ '491DA3AF0290' /* IdsUserProperty */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // InternalUserProperty
+        PRIVATE <<Attribute>> f_Profile
+         %UID '493126CC02EE'
+         %TARGET U$ '491DA3810273' /* IdeProfile */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // f_Profile
+        PRIVATE FINAL <<readonly>> BaseAccessRootTag
+         %UID '4931295B0260'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // BaseAccessRootTag
+        PRIVATE FINAL <<readonly>> BaseAccessRoot
+         %UID '4931297703B0'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // BaseAccessRoot
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '4947A57603E2'
+         %TARGET U$ '49EEBFE5027B' /* IdeAdmin */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID '733BB3F9441F'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsAdmin' ;
+         %TARGET U$ '491DAB560173' /* IsdsAdmin */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // SetType
+        SUMMONED PRIVATE <<Attribute>> f_dsUserList
+         %UID '179F043F89CE'
+         %SUMMARY 'Поле для области вывода dsUserList' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsUserList
+        SUMMONED PRIVATE <<Attribute>> f_dsAdmin
+         %UID '1E0975AA7959'
+         %SUMMARY 'Поле для области вывода dsAdmin' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsAdmin
+        SUMMONED PRIVATE <<Attribute>> f_dsUserProperty
+         %UID 'F7882BCE599E'
+         %SUMMARY 'Поле для области вывода dsUserProperty' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsUserProperty
+        SUMMONED PRIVATE <<Attribute>> f_dsGroupsList
+         %UID '338696C416ED'
+         %SUMMARY 'Поле для области вывода dsGroupsList' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsGroupsList
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<method>> ChangeBaseAccess
+         %UID '4AAF58000352'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4AAF574702B7"
+            %UID '4AAF574702B7'
+            %TARGET U$ '4AE593970016' /* TdeSearch */
+           ; // 4AAF574702B7
+           <<uses>> "4AAF58D20046"
+            %UID '4AAF58D20046'
+            %TARGET U$ '495504A000F2' /* TdsBasesAccess */
+           ; // 4AAF58D20046
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AAF58140359'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ChangeBaseAccess
+        PRIVATE FINAL <<Operation>> GetUID
+         %UID '4931291701BD'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '493129250026'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // GetUID
+        PRIVATE FINAL <<Operation>> PrepareBasesTree
+         %UID '49312C9E0289'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aList
+            %UID '49312CA3037C'
+            %TARGET U$ '483EC24E0308' /* NodeIdList */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aList
+         ; // %PARAMETERS
+        ; // PrepareBasesTree
+        PRIVATE FINAL <<Operation>> FindNode
+         %UID '49339B8A016C'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anID
+            %UID '49339BDA02DC'
+            %TARGET U$ '45EEC48C01E4' /* NodeId */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // anID
+         ; // %PARAMETERS
+        ; // FindNode
+        PRIVATE FINAL <<Operation>> EncodeUIDList
+         %UID '49339DC90212'
+         %SUMMARY 'В поданном списке лежат ноды, возвращается список их UID' ;
+         %TARGET U$ '4651A5AE00FA' /* UidList */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aList
+            %UID '49339DCF0018'
+            %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aList
+         ; // %PARAMETERS
+        ; // EncodeUIDList
+        PRIVATE FINAL <<Operation>> DecodeUIDList
+         %UID '49339DFE00BD'
+         %SUMMARY 'В поданном списке лежат UID, возвращается список соответствующих нод' ;
+         %TARGET U$ '559E9E3D0263' /* IadminUserNodeList */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '493FBE3E033A' /* Admin */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aUserTree
+            %UID '49339E130360'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserTree
+           <<in>> aList
+            %UID '49339E1303AB'
+            %TARGET U$ '4651A5AE00FA' /* UidList */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aList
+         ; // %PARAMETERS
+        ; // DecodeUIDList
+        PRIVATE FINAL <<Operation>> EditGroupName
+         %UID '49EEEB1D0215'
+         %SUMMARY 'Отредактировать имя группы' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49EEEBA0026C'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<out>> aName
+            %UID '49EEEBA002BA'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aName
+         ; // %PARAMETERS
+        ; // EditGroupName
+      ; // %OPERATIONS
+     ; // TsdsAdmin
+     FINAL <<ViewAreaControllerImp>> TdsGroupsList
+      %UID '49EC547C001B'
+      %SUMMARY 'Группы пользователей' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '493FAECB025F' /* Tree */
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49EC4FBC01AC' /* IdsGroupsList */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F0C1410011' /* dsSimpleTree */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47F4C2B9014A' /* MakeSimpleTree */
+       U$ '49EC50000093' /* GroupsListNodeType */
+       U$ '49EC50390132' /* DeleteGroup */
+       U$ '49EC51CA014F' /* CreateNewGroup */
+       U$ '49EC52BD01EC' /* ChangeBasesAccessForGroup */
+       U$ '49EEEBB4002A' /* RenameGroup */
+       U$ '49F04DCE0166' /* HasUsers */
+       U$ '49F6DBB30002' /* CheckUnsavedUserProperty */
+       U$ '5492ECBC01A5' /* NotifyTreeViewInvalidate */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47F0C1BF0314' /* DoCurrentChanged */
+       U$ '47F465F80149' /* MakeImageList */
+       U$ '49215CE702B9' /* DoDataDropped */
+       U$ '492ACF630072' /* GotData */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49EC54F10191"
+         %UID '49EC54F10191'
+         %TARGET U$ '49246C1F015D' /* AdminRes */
+        ; // 49EC54F10191
+        <<uses>> "49EC563F01BC"
+         %UID '49EC563F01BC'
+         %TARGET U$ '49F16EE7010F' /* TnsGroupTreeStructWithDrop */
+        ; // 49EC563F01BC
+        <<uses>> "49EC63B50010"
+         %UID '49EC63B50010'
+         %TARGET U$ '45EED4D003A9' /* ProfileNodeType */
+        ; // 49EC63B50010
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '49EC55D50082'
+         %TARGET U$ '49245E750210' /* IdeNode */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        PRIVATE <<Attribute>> f_Root
+         %UID '49EC56E601F8'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Root
+        PRIVATE FINAL LINK <<UseCase>> SDS
+         %UID '49EC57280353'
+         %TARGET U$ '491DAB560173' /* IsdsAdmin */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // SDS
+      ; // %ATTRIBUTES
+     ; // TdsGroupsList
+     <<SimpleClass>> TbsEditGroupName
+      %UID '49EEFBA6010A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '493FBE3E033A' /* Admin */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49EEFA5701BB' /* IbsEditGroupName */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '49EEFAAB0318' /* Name */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Name
+         %UID '49EEFC0103B3'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_Name
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '49EEFC1B007D'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aName
+            %UID '49EEFC290306'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aName
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '49EEFC3002CC'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aName
+            %UID '49EEFC3D0121'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aName
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TbsEditGroupName
+     <<ViewAreaControllerImp>> TdsBasesAccess
+      %UID '495504A000F2'
+      %META
+       %upv "author" 'Лукьнец Р.В'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2008/06/23 09:26:00'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4AA0050F0360' /* Search */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '492437620004' /* TdsTreeAttributeSelect */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '492406340209' /* GetOperations */
+      ; // %OVERRIDES
+     ; // TdsBasesAccess
+     <<SimpleClass>> TdeAdmin
+      %UID '4AA50FB0007E'
+      %SUMMARY 'Интерфейс обмена данными содержащий Node' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '07.09.2009 17:51'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49EEBFE5027B' /* IdeAdmin */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4AA510B00041' /* Groups */
+       U$ '4AA510C90109' /* Users */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Groups
+         %UID '4AA51105033B'
+         %TARGET U$ '49245E750210' /* IdeNode */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // f_Groups
+        PRIVATE <<Attribute>> f_Users
+         %UID '4AA511100096'
+         %TARGET U$ '49245E750210' /* IdeNode */
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+        ; // f_Users
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4AA5118C031E'
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aGroups
+            %UID '4AA511960312'
+            %TARGET U$ '49245E750210' /* IdeNode */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aGroups
+           <<in>> aUsers
+            %UID '4AA51196034A'
+            %TARGET U$ '49245E750210' /* IdeNode */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aUsers
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '4AA511B60036'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FBE3E033A' /* Admin */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aGroups
+            %UID '4AA511C00333'
+            %TARGET U$ '49245E750210' /* IdeNode */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aGroups
+           <<in>> aUsers
+            %UID '4AA511C0036D'
+            %TARGET U$ '49245E750210' /* IdeNode */
+            %TOBEINCLUDED
+             U$ '493FBE3E033A' /* Admin */
+            ; // %TOBEINCLUDED
+           ; // aUsers
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TdeAdmin
+     <<SimpleClass>> TdeNode
+      %UID '492472AC0033'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '07.09.2009 19:23'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49245E750210' /* IdeNode */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4AA523050019' /* Node */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Node
+         %UID '4AA523B103C4'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Node
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4AA523C701F4'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4AA523CD03CD'
+            %TARGET U$ '45EEB95901C5' /* NodeBase */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '4AA523D90186'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4AA523E102CA'
+            %TARGET U$ '45EEB95901C5' /* NodeBase */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TdeNode
+     <<SimpleClass>> TdeProfile
+      %UID '4AA5275401A5'
+      %SUMMARY 'Интерфейс обмена данными для формы "efUserProfile"' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '491DA3810273' /* IdeProfile */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4AA526EC03C7' /* UserProfile */
+       U$ '4AA527110040' /* IsNewProfile */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Profile
+         %UID '4AA5277A01A3'
+         %TARGET U$ '45EED78501B5' /* UserProfile */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Profile
+        PRIVATE <<Attribute>> f_IsNew
+         %UID '4AA527890269'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_IsNew
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4AA5279D0119'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aProfile
+            %UID '4AA527A50125'
+            %TARGET U$ '45EED78501B5' /* UserProfile */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aProfile
+           <<in>> aNew
+            %UID '4AA527A50159'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNew
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '4AA527C30217'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aProfile
+            %UID '4AA527C802AE'
+            %TARGET U$ '45EED78501B5' /* UserProfile */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aProfile
+           <<in>> aNew
+            %UID '4AA527C802E6'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE false
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aNew
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TdeProfile
+     <<SimpleClass>> TadminUserNodeList
+      %UID '559E9F2B02D6'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '493FBE3E033A' /* Admin */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '559E9E3D0263' /* IadminUserNodeList */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47E7B92D013D' /* Tl3SimpleNodeList */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BB08B8902F2' /* Count */
+      ; // %REALIZES
+     ; // TadminUserNodeList
+   ; // %CHILDREN
+  ; // Admin
+ ; // %CHILDREN
+; // Admin

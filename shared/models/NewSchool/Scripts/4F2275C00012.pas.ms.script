@@ -1,0 +1,5240 @@
+// ScriptingKeywordsCore 4F2275C00012 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F2275C00012
+
+FORWARD ME_4DAEECD90016
+
+FORWARD ME_4F465A710399
+
+: ME_4F465A8B03C2
+ CONST UID '4F465A8B03C2'
+ CONST Name 'aName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F465A710399 // DRbyCName
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F465A8B03C2 aName
+
+: ME_4F465A710399
+ CONST UID '4F465A710399'
+ CONST Name 'DRbyCName'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Элемент словаря по его имени' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.pas.ms.script' // TtfwKeyWord
+ ;
+ : Attributes
+   @ ( ME_4F465A8B03C2 // aName
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" true
+
+ref; // ME_4F465A710399 DRbyCName
+
+FORWARD ME_4DAEEDA301CD
+
+: ME_4DAEEDCA0140
+ CONST UID '4DAEEDCA0140'
+ CONST Name 'aWordName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4DAEEDCA0140 aWordName
+
+: ME_4DAEEDCA016B
+ CONST UID '4DAEEDCA016B'
+ CONST Name 'aWordClass'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED6F03DD' '4DAF19F600C5.pas.ms.script' // RtfwWord
+ ;
+
+ref; // ME_4DAEEDCA016B aWordClass
+
+: ME_4DAEEDC500CC
+ CONST UID '4DAEEDC500CC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAEEDA301CD // AddWord
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4DAEEDCA0140 // aWordName
+ ME_4DAEEDCA016B // aWordClass
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DAEEDC500CC DoIt
+
+: ME_4DAEF9FD03D2
+ CONST UID '4DAEF9FD03D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAEEDA301CD // AddWord
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4DAEF9FD03D2 
+
+: ME_4DAEEDA301CD
+ CONST UID '4DAEEDA301CD'
+ CONST Name 'AddWord'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_4DAEEDC500CC // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4DAEF9FD03D2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4DAEEDA301CD AddWord
+
+FORWARD ME_4DB5781B0086
+
+: ME_4DB5783002CE
+ CONST UID '4DB5783002CE'
+ CONST Name 'aWordName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4DB5783002CE aWordName
+
+: ME_4DB57AA901A2
+ CONST UID '4DB57AA901A2'
+ CONST Name 'aWord'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_4DB57AA901A2 aWord
+
+: ME_4DB5782C03CE
+ CONST UID '4DB5782C03CE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB5781B0086 // AddWord$1
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4DB5783002CE // aWordName
+ ME_4DB57AA901A2 // aWord
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DB5782C03CE DoIt
+
+: ME_4DB5781B0086
+ CONST UID '4DB5781B0086'
+ CONST Name 'AddWord'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_4DB5782C03CE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DB5781B0086 AddWord$1
+
+FORWARD ME_4F465D580021
+
+: ME_4F465D6E02EB
+ CONST UID '4F465D6E02EB'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F465D6E02EB aName
+
+: ME_4F465D67008B
+ CONST UID '4F465D67008B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F465D580021 // DoCheckWord
+ ;
+ : Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.pas.ms.script' // TtfwKeyWord
+ ;
+ : Parameters
+   @ ( ME_4F465D6E02EB // aName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F465D67008B DoIt
+
+: ME_4F465D580021
+ CONST UID '4F465D580021'
+ CONST Name 'DoCheckWord'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_4F465D67008B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F465D580021 DoCheckWord
+
+FORWARD ME_559E655B0290
+
+: ME_559E65640187
+ CONST UID '559E65640187'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559E655B0290 // Create
+ ;
+
+ref; // ME_559E65640187 DoIt
+
+: ME_559E655B0290
+ CONST UID '559E655B0290'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_559E65640187 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_559E655B0290 Create
+
+FORWARD ME_559FEFE603D4
+
+: ME_559FF01C029F
+ CONST UID '559FF01C029F'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_559FF01C029F aName
+
+: ME_559FF01400AB
+ CONST UID '559FF01400AB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559FEFE603D4 // OwnDRbyCName
+ ;
+ : Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.pas.ms.script' // TtfwKeyWord
+ ;
+ : Parameters
+   @ ( ME_559FF01C029F // aName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_559FF01400AB DoIt
+
+: ME_559FEFE603D4
+ CONST UID '559FEFE603D4'
+ CONST Name 'OwnDRbyCName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_559FF01400AB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_559FEFE603D4 OwnDRbyCName
+
+FORWARD ME_559FF0210296
+
+: ME_559FF0500282
+ CONST UID '559FF0500282'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_559FF0500282 aName
+
+: ME_559FF04D02A1
+ CONST UID '559FF04D02A1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559FF0210296 // DoGetDRbyCName
+ ;
+ : Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.pas.ms.script' // TtfwKeyWord
+ ;
+ : Parameters
+   @ ( ME_559FF0500282 // aName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_559FF04D02A1 DoIt
+
+: ME_559FF0210296
+ CONST UID '559FF0210296'
+ CONST Name 'DoGetDRbyCName'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_559FF04D02A1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_559FF0210296 DoGetDRbyCName
+
+FORWARD ME_55A531FA016A
+
+: ME_55A5320200C3
+ CONST UID '55A5320200C3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A531FA016A // IsMain
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_55A5320200C3 DoIt
+
+: ME_55A531FA016A
+ CONST UID '55A531FA016A'
+ CONST Name 'IsMain'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_55A5320200C3 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A531FA016A IsMain
+
+FORWARD ME_55A7ECD8020D
+
+: ME_55A7ECE40233
+ CONST UID '55A7ECE40233'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A7ECD8020D // IsAxiom
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_55A7ECE40233 DoIt
+
+: ME_55A7ECD8020D
+ CONST UID '55A7ECD8020D'
+ CONST Name 'IsAxiom'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_55A7ECE40233 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A7ECD8020D IsAxiom
+
+FORWARD ME_55B0E87401FA
+
+: ME_55B0E89000EC
+ CONST UID '55B0E89000EC'
+ CONST Name 'aWord'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.pas.ms.script' // TtfwKeyWord
+ ;
+
+ref; // ME_55B0E89000EC aWord
+
+: ME_55B0E881013D
+ CONST UID '55B0E881013D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0E87401FA // Add
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_55B0E89000EC // aWord
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55B0E881013D DoIt
+
+: ME_55B0E87401FA
+ CONST UID '55B0E87401FA'
+ CONST Name 'Add'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Operations
+   @ ( ME_55B0E881013D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55B0E87401FA Add
+
+: ME_4F46561D0083
+ CONST UID '4F46561D0083'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
+ ;
+
+ref; // ME_4F46561D0083 
+
+: ME_55A3D89301D1
+ CONST UID '55A3D89301D1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_55A3D89301D1 
+
+: ME_55A54AC902E2
+ CONST UID '55A54AC902E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAEECD90016 // TtfwDictionary
+ ;
+ : Target WL 'ME_4808A20402DC' '4AB0997B00A2.pas.ms.script' // Math
+ ;
+
+ref; // ME_55A54AC902E2 
+
+: ME_4F46588B021E_ME_4DAEECD90016
+ CONST UID '4F46588B021E'
+ CONST Name 'CheckWord'
+ : Original WL 'ME_4F46588B021E' '4DAF19F600C5.pas.ms.script' // CheckWord
+ ;
+ : Implementor ME_4DAEECD90016 // TtfwDictionary
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F46588B021E_ME_4DAEECD90016 CheckWord
+
+: ME_47A042E100E2_ME_4DAEECD90016
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4DAEECD90016 // TtfwDictionary
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4DAEECD90016 InitFields
+
+: ME_47A6FEE600FC_ME_4DAEECD90016
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_4DAEECD90016 // TtfwDictionary
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_4DAEECD90016 IsCacheable
+
+: ME_4DAEECD90016
+ CONST UID '4DAEECD90016'
+ CONST Name 'TtfwDictionary'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4F4659980048' '4F463D910318.pas.ms.script' // TtfwDictionaryPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_55A8E78D00A9' '4DAF19F600C5.pas.ms.script' // MtfwWordChecker
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F465A710399 // DRbyCName
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4DAEEDA301CD // AddWord
+ ME_4DB5781B0086 // AddWord$1
+ ME_4F465D580021 // DoCheckWord
+ ME_559E655B0290 // Create
+ ME_559FEFE603D4 // OwnDRbyCName
+ ME_559FF0210296 // DoGetDRbyCName
+ ME_55A531FA016A // IsMain
+ ME_55A7ECD8020D // IsAxiom
+ ME_55B0E87401FA // Add
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4F46588B021E_ME_4DAEECD90016 // CheckWord
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A042E100E2_ME_4DAEECD90016 // InitFields
+ ME_47A6FEE600FC_ME_4DAEECD90016 // IsCacheable
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F46561D0083 // 
+ ME_55A3D89301D1 // 
+ ME_55A54AC902E2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ : Injected
+   @ ( WL 'ME_6C38A6517EA2' '4F43A0A401E6.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 18:25'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionary.pas'
+
+ref; // ME_4DAEECD90016 TtfwDictionary
+
+FORWARD ME_55A4FCDC01B8
+
+FORWARD ME_55A4FD6401D3
+
+: ME_55A4FD8103D6
+ CONST UID '55A4FD8103D6'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ref; // ME_55A4FD8103D6 anOther
+
+: ME_55A4FD7303D1
+ CONST UID '55A4FD7303D1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A4FD6401D3 // UsesDictionary
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_55A4FD8103D6 // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A4FD7303D1 DoIt
+
+: ME_55A4FD6401D3
+ CONST UID '55A4FD6401D3'
+ CONST Name 'UsesDictionary'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+ : Operations
+   @ ( ME_55A4FD7303D1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A4FD6401D3 UsesDictionary
+
+FORWARD ME_55A3E53A00A8
+
+: ME_55A3E54B003B
+ CONST UID '55A3E54B003B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A3E53A00A8 // IsValidCode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_55A3E54B003B DoIt
+
+: ME_55A3E53A00A8
+ CONST UID '55A3E53A00A8'
+ CONST Name 'IsValidCode'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+ : Operations
+   @ ( ME_55A3E54B003B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A3E53A00A8 IsValidCode
+
+: ME_55A4FCDC01B8
+ CONST UID '55A4FCDC01B8'
+ CONST Name 'TtfwDictionaryExPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_4DAEECD90016 // TtfwDictionary
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_55A4FD6401D3 // UsesDictionary
+ ME_55A3E53A00A8 // IsValidCode
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryExPrim.pas'
+
+ref; // ME_55A4FCDC01B8 TtfwDictionaryExPrim
+
+FORWARD ME_559F5E060345
+
+: ME_55A549B40137
+ CONST UID '55A549B40137'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+
+ref; // ME_55A549B40137 l3Items_NoSort
+
+: ME_55A549C8025C
+ CONST UID '55A549C8025C'
+ CONST Name 'l3Items_NoChanging'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+
+ref; // ME_55A549C8025C l3Items_NoChanging
+
+: ME_559F5E93019F
+ CONST UID '559F5E93019F'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ref; // ME_559F5E93019F ItemType
+
+: ME_559F5E060345
+ CONST UID '559F5E060345'
+ CONST Name 'TtfwDictionaryPtrList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_559F5E93019F // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_55A549B40137 // l3Items_NoSort
+ ME_55A549C8025C // l3Items_NoChanging
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPtrList.pas'
+
+ref; // ME_559F5E060345 TtfwDictionaryPtrList
+
+FORWARD ME_55B0E6F2013C
+
+: ME_559E7620025F
+ CONST UID '559E7620025F'
+ CONST Name 'l3Items_NoChanging'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0E6F2013C // tfwDictionaryListPrim
+ ;
+
+ref; // ME_559E7620025F l3Items_NoChanging
+
+: ME_559E7680031D
+ CONST UID '559E7680031D'
+ CONST Name 'l3Items_NeedsBeforeFreeItem'
+ CONST Class class_Class
+ : Stereotype st_Undef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0E6F2013C // tfwDictionaryListPrim
+ ;
+
+ref; // ME_559E7680031D l3Items_NeedsBeforeFreeItem
+
+: ME_47B2C42A0163_ME_55B0E6F2013C
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_55B0E6F2013C // tfwDictionaryListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_55B0E6F2013C AssignItem
+
+: ME_55B0E6F2013C
+ CONST UID '55B0E6F2013C'
+ CONST Name 'tfwDictionaryListPrim'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_55B0E6F2013C // AssignItem
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_559E7620025F // l3Items_NoChanging
+ ME_559E7680031D // l3Items_NeedsBeforeFreeItem
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.imp.pas'
+ CONST extprop:pas:TypeName '_tfwDictionaryListPrim_'
+
+ref; // ME_55B0E6F2013C tfwDictionaryListPrim
+
+FORWARD ME_55A63D8C00F0
+
+: ME_559E75F100CC
+ CONST UID '559E75F100CC'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A63D8C00F0 // tfwDictionaryList
+ ;
+
+ref; // ME_559E75F100CC l3Items_NoSort
+
+: ME_47B99D4503A2_ME_55A63D8C00F0
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_55A63D8C00F0 // tfwDictionaryList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_55A63D8C00F0 CompareExistingItems
+
+: ME_55A63D8C00F0
+ CONST UID '55A63D8C00F0'
+ CONST Name 'tfwDictionaryList'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55B0E6F2013C // tfwDictionaryListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_47B99D4503A2_ME_55A63D8C00F0 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_559E75F100CC // l3Items_NoSort
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryList.imp.pas'
+ CONST extprop:pas:TypeName '_tfwDictionaryList_'
+
+ref; // ME_55A63D8C00F0 tfwDictionaryList
+
+FORWARD ME_55A7DA0200C0
+
+: ME_55A7DA1F029C
+ CONST UID '55A7DA1F029C'
+ CONST Name 'Dictionary'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_55A7DA1F029C Dictionary
+
+: ME_2F8D349DBA03
+ CONST UID '2F8D349DBA03'
+ CONST Name 'f_Dictionary'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Dictionary' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ref; // ME_2F8D349DBA03 f_Dictionary
+
+FORWARD ME_55A7DB260310
+
+: ME_55A7DB3901E7
+ CONST UID '55A7DB3901E7'
+ CONST Name 'aDictionary'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ref; // ME_55A7DB3901E7 aDictionary
+
+: ME_55A7DB2D0259
+ CONST UID '55A7DB2D0259'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A7DB260310 // Create
+ ;
+ : Parameters
+   @ ( ME_55A7DB3901E7 // aDictionary
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A7DB2D0259 DoIt
+
+: ME_55A7DB260310
+ CONST UID '55A7DB260310'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ : Operations
+   @ ( ME_55A7DB2D0259 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A7DB260310 Create
+
+: ME_D9ADA330E051
+ CONST UID 'D9ADA330E051'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TtfwInitCodeWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_D9ADA330E051 Ini_Reg_Class
+
+FORWARD ME_559E8B2E0385
+
+: ME_55A7F3A40021
+ CONST UID '55A7F3A40021'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_55A7F3A40021 
+
+FORWARD ME_4DB05FF60115
+
+: ME_55ACE5D8022B
+ CONST UID '55ACE5D8022B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ : Target ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+
+ref; // ME_55ACE5D8022B 
+
+: ME_4DAEEDE10285_ME_55A7DA0200C0
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_55A7DA0200C0 DoDoIt
+
+: ME_4F4161BC0024_ME_55A7DA0200C0
+ CONST UID '4F4161BC0024'
+ CONST Name 'DoDefineInParameter'
+ : Original WL 'ME_4F4161BC0024' '4DAF19F600C5.pas.ms.script' // DoDefineInParameter
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F4161BC0024_ME_55A7DA0200C0 DoDefineInParameter
+
+: ME_52B43311021D_ME_55A7DA0200C0
+ CONST UID '52B43311021D'
+ CONST Name 'InnerDictionary'
+ : Original WL 'ME_52B43311021D' '4DAF19F600C5.pas.ms.script' // InnerDictionary
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_52B43311021D_ME_55A7DA0200C0 InnerDictionary
+
+: ME_52D56341033B_ME_55A7DA0200C0
+ CONST UID '52D56341033B'
+ CONST Name 'GetNewWordDefinitor'
+ : Original WL 'ME_52D56341033B' '4DAF19F600C5.pas.ms.script' // GetNewWordDefinitor
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52D56341033B_ME_55A7DA0200C0 GetNewWordDefinitor
+
+: ME_52D5637A031E_ME_55A7DA0200C0
+ CONST UID '52D5637A031E'
+ CONST Name 'GetKeywordFinder'
+ : Original WL 'ME_52D5637A031E' '4DAF19F600C5.pas.ms.script' // GetKeywordFinder
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52D5637A031E_ME_55A7DA0200C0 GetKeywordFinder
+
+: ME_52D56A980103_ME_55A7DA0200C0
+ CONST UID '52D56A980103'
+ CONST Name 'DoCompileInParameterPopCode'
+ : Original WL 'ME_52D56A980103' '4DAF19F600C5.pas.ms.script' // DoCompileInParameterPopCode
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52D56A980103_ME_55A7DA0200C0 DoCompileInParameterPopCode
+
+: ME_55A7D34102A0_ME_55A7DA0200C0
+ CONST UID '55A7D34102A0'
+ CONST Name 'DoCheckWord'
+ : Original WL 'ME_55A7D34102A0' '4DAF19F600C5.pas.ms.script' // DoCheckWord
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A7D34102A0_ME_55A7DA0200C0 DoCheckWord
+
+: ME_55ACE5210310_ME_55A7DA0200C0
+ CONST UID '55ACE5210310'
+ CONST Name 'GetKeywordByName'
+ : Original WL 'ME_55ACE5210310' '4DAF19F600C5.pas.ms.script' // GetKeywordByName
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55ACE5210310_ME_55A7DA0200C0 GetKeywordByName
+
+: ME_55ACF0F5025D_ME_55A7DA0200C0
+ CONST UID '55ACF0F5025D'
+ CONST Name 'GetParentFinder'
+ : Original WL 'ME_55ACF0F5025D' '4DAF19F600C5.pas.ms.script' // GetParentFinder
+ ;
+ : Implementor ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55ACF0F5025D_ME_55A7DA0200C0 GetParentFinder
+
+: ME_55A7DA0200C0
+ CONST UID '55A7DA0200C0'
+ CONST Name 'TtfwInitCodeWord'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ WL 'ME_55A4E9940396' '54F079B5035C.pas.ms.script' // tfwCodeCompiler
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55A7DA1F029C // Dictionary
+ ME_2F8D349DBA03 // f_Dictionary
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55A7DB260310 // Create
+ ME_D9ADA330E051 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_55A7DA0200C0 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4F4161BC0024_ME_55A7DA0200C0 // DoDefineInParameter
+ ME_52B43311021D_ME_55A7DA0200C0 // InnerDictionary
+ ME_52D56341033B_ME_55A7DA0200C0 // GetNewWordDefinitor
+ ME_52D5637A031E_ME_55A7DA0200C0 // GetKeywordFinder
+ ME_52D56A980103_ME_55A7DA0200C0 // DoCompileInParameterPopCode
+ ME_55A7D34102A0_ME_55A7DA0200C0 // DoCheckWord
+ ME_55ACE5210310_ME_55A7DA0200C0 // GetKeywordByName
+ ME_55ACF0F5025D_ME_55A7DA0200C0 // GetParentFinder
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55A7F3A40021 // 
+ ME_55ACE5D8022B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwInitCodeWord.pas'
+
+ref; // ME_55A7DA0200C0 TtfwInitCodeWord
+
+FORWARD ME_55A53B44029F
+
+: ME_55A549A40356
+ CONST UID '55A549A40356'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A53B44029F // TtfwInitedDictionariesList
+ ;
+
+ref; // ME_55A549A40356 l3Items_NoSort
+
+: ME_55A549D50094
+ CONST UID '55A549D50094'
+ CONST Name 'l3Items_NoChanging'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A53B44029F // TtfwInitedDictionariesList
+ ;
+
+ref; // ME_55A549D50094 l3Items_NoChanging
+
+: ME_55A53B740261
+ CONST UID '55A53B740261'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55A53B44029F // TtfwInitedDictionariesList
+ ;
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ref; // ME_55A53B740261 ItemType
+
+: ME_55A53B44029F
+ CONST UID '55A53B44029F'
+ CONST Name 'TtfwInitedDictionariesList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55A63D8C00F0 // tfwDictionaryList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55A53B740261 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_55A549A40356 // l3Items_NoSort
+ ME_55A549D50094 // l3Items_NoChanging
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwInitedDictionariesList.pas'
+
+ref; // ME_55A53B44029F TtfwInitedDictionariesList
+
+FORWARD ME_55A63C1701BE
+
+FORWARD ME_55A3DF6602FC
+
+: ME_55A3DF7803DE
+ CONST UID '55A3DF7803DE'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55A3DF7803DE anIndex
+
+: ME_55A3DF790028
+ CONST UID '55A3DF790028'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47A1B1500302' '47BB24D30205.pas.ms.script' // ItemType
+ ;
+
+ref; // ME_55A3DF790028 anItem
+
+: ME_55A3DF7000D9
+ CONST UID '55A3DF7000D9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A3DF6602FC // Insert
+ ;
+ : Parameters
+   @ ( ME_55A3DF7803DE // anIndex
+ ME_55A3DF790028 // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A3DF7000D9 DoIt
+
+: ME_55A3DF6602FC
+ CONST UID '55A3DF6602FC'
+ CONST Name 'Insert'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ : Operations
+   @ ( ME_55A3DF7000D9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A3DF6602FC Insert
+
+FORWARD ME_55A3DF510076
+
+: ME_55A3DF610001
+ CONST UID '55A3DF610001'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47A1B1500302' '47BB24D30205.pas.ms.script' // ItemType
+ ;
+
+ref; // ME_55A3DF610001 anItem
+
+: ME_55A3DF5800DB
+ CONST UID '55A3DF5800DB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A3DF510076 // Add
+ ;
+ : Parameters
+   @ ( ME_55A3DF610001 // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A3DF5800DB DoIt
+
+: ME_55A3DF510076
+ CONST UID '55A3DF510076'
+ CONST Name 'Add'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ : Operations
+   @ ( ME_55A3DF5800DB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A3DF510076 Add
+
+FORWARD ME_559E857A037A
+
+: ME_559E85960074
+ CONST UID '559E85960074'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_559E85960074 aFileName
+
+: ME_559E85860327
+ CONST UID '559E85860327'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559E857A037A // FindDictionary
+ ;
+ : Target WL 'ME_47A1B1500302' '47BB24D30205.pas.ms.script' // ItemType
+ ;
+ : Parameters
+   @ ( ME_559E85960074 // aFileName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_559E85860327 DoIt
+
+: ME_559E91B8030C
+ CONST UID '559E91B8030C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_559E857A037A // FindDictionary
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_559E91B8030C 
+
+: ME_559E857A037A
+ CONST UID '559E857A037A'
+ CONST Name 'FindDictionary'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ : Operations
+   @ ( ME_559E85860327 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_559E91B8030C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_559E857A037A FindDictionary
+
+FORWARD ME_55A663000019
+
+: ME_55A6630E006B
+ CONST UID '55A6630E006B'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47A1B1500302' '47BB24D30205.pas.ms.script' // ItemType
+ ;
+
+ref; // ME_55A6630E006B anItem
+
+: ME_55A6630B003C
+ CONST UID '55A6630B003C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A663000019 // Remove
+ ;
+ : Parameters
+   @ ( ME_55A6630E006B // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A6630B003C DoIt
+
+: ME_55A663000019
+ CONST UID '55A663000019'
+ CONST Name 'Remove'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ : Operations
+   @ ( ME_55A6630B003C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A663000019 Remove
+
+FORWARD ME_55A66DCF00D9
+
+: ME_55A66DEA033F
+ CONST UID '55A66DEA033F'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ref; // ME_55A66DEA033F anItem
+
+: ME_55A66DE6039F
+ CONST UID '55A66DE6039F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A66DCF00D9 // RemoveUsersOf
+ ;
+ : Parameters
+   @ ( ME_55A66DEA033F // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A66DE6039F DoIt
+
+: ME_55A66DCF00D9
+ CONST UID '55A66DCF00D9'
+ CONST Name 'RemoveUsersOf'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ : Operations
+   @ ( ME_55A66DE6039F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A66DCF00D9 RemoveUsersOf
+
+FORWARD ME_55AE379002EB
+
+: ME_55AE37BD00BE
+ CONST UID '55AE37BD00BE'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+
+ref; // ME_55AE37BD00BE anOther
+
+: ME_55AE37B400CB
+ CONST UID '55AE37B400CB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE379002EB // CollectNotValidTo
+ ;
+ : Parameters
+   @ ( ME_55AE37BD00BE // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55AE37B400CB DoIt
+
+: ME_55AE379002EB
+ CONST UID '55AE379002EB'
+ CONST Name 'CollectNotValidTo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ : Operations
+   @ ( ME_55AE37B400CB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55AE379002EB CollectNotValidTo
+
+FORWARD ME_55AFA4930133
+
+: ME_55AFA4B901A2
+ CONST UID '55AFA4B901A2'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+
+ref; // ME_55AFA4B901A2 aList
+
+: ME_55AFA4B4012A
+ CONST UID '55AFA4B4012A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AFA4930133 // RemoveElementsOf
+ ;
+ : Parameters
+   @ ( ME_55AFA4B901A2 // aList
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55AFA4B4012A DoIt
+
+: ME_55AFA4930133
+ CONST UID '55AFA4930133'
+ CONST Name 'RemoveElementsOf'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ : Operations
+   @ ( ME_55AFA4B4012A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55AFA4930133 RemoveElementsOf
+
+FORWARD ME_55AFAA59009E
+
+: ME_55AFAA6602D1
+ CONST UID '55AFAA6602D1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AFAA59009E // RemoveNotValid
+ ;
+
+ref; // ME_55AFAA6602D1 DoIt
+
+: ME_55AFAA59009E
+ CONST UID '55AFAA59009E'
+ CONST Name 'RemoveNotValid'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ : Operations
+   @ ( ME_55AFAA6602D1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55AFAA59009E RemoveNotValid
+
+: ME_55A63C1701BE
+ CONST UID '55A63C1701BE'
+ CONST Name 'tfwNamedDictionaryList'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Operations
+   @ ( ME_55A3DF6602FC // Insert
+ ME_55A3DF510076 // Add
+ ME_559E857A037A // FindDictionary
+ ME_55A663000019 // Remove
+ ME_55A66DCF00D9 // RemoveUsersOf
+ ME_55AE379002EB // CollectNotValidTo
+ ME_55AFA4930133 // RemoveElementsOf
+ ME_55AFAA59009E // RemoveNotValid
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" true
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwNamedDictionaryList.imp.pas'
+ CONST extprop:pas:TypeName '_tfwNamedDictionaryList_'
+
+ref; // ME_55A63C1701BE tfwNamedDictionaryList
+
+FORWARD ME_55A54B090362
+
+: ME_55A54B25010B
+ CONST UID '55A54B25010B'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_55A54B090362 // array of TtfwDictionaryEx
+ ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_55A54B25010B 
+
+: ME_55A54B090362
+ CONST UID '55A54B090362'
+ CONST Name 'array of TtfwDictionaryEx'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Attributes
+   @ ( ME_55A54B25010B // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'open'
+
+ref; // ME_55A54B090362 array of TtfwDictionaryEx
+
+: ME_559F5E5101B8
+ CONST UID '559F5E5101B8'
+ CONST Name 'UsedDictionaries'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_559F5E5101B8 UsedDictionaries
+
+: ME_559E651B0107
+ CONST UID '559E651B0107'
+ CONST Name 'FileName'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_559E651B0107 FileName
+
+: ME_559E6729030C
+ CONST UID '559E6729030C'
+ CONST Name 'FileDateTime'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_559E6729030C FileDateTime
+
+: ME_55A65C32012D
+ CONST UID '55A65C32012D'
+ CONST Name 'Stream'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_52F4E6AA02BB' '4F4734A40270.pas.ms.script' // TtfwStreamFactory
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_55A65C32012D Stream
+
+: ME_55A7DAEB0274
+ CONST UID '55A7DAEB0274'
+ CONST Name 'InitCode'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_55A7DAEB0274 InitCode
+
+: ME_55AE591903E6
+ CONST UID '55AE591903E6'
+ CONST Name 'ExportedDictionaries'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_55AE591903E6 ExportedDictionaries
+
+: ME_E41E4AD29236
+ CONST UID 'E41E4AD29236'
+ CONST Name 'f_UsedDictionaries'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства UsedDictionaries' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+
+ref; // ME_E41E4AD29236 f_UsedDictionaries
+
+: ME_15D58D99397B
+ CONST UID '15D58D99397B'
+ CONST Name 'f_FileName'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства FileName' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_15D58D99397B f_FileName
+
+: ME_E79AB2E6538F
+ CONST UID 'E79AB2E6538F'
+ CONST Name 'f_FileDateTime'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства FileDateTime' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+
+ref; // ME_E79AB2E6538F f_FileDateTime
+
+: ME_458B90613B2E
+ CONST UID '458B90613B2E'
+ CONST Name 'f_Stream'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Stream' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_52F4E6AA02BB' '4F4734A40270.pas.ms.script' // TtfwStreamFactory
+ ;
+
+ref; // ME_458B90613B2E f_Stream
+
+: ME_9192BFD29B86
+ CONST UID '9192BFD29B86'
+ CONST Name 'f_InitCode'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства InitCode' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+
+ref; // ME_9192BFD29B86 f_InitCode
+
+: ME_FAB00A107CAA
+ CONST UID 'FAB00A107CAA'
+ CONST Name 'f_ExportedDictionaries'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ExportedDictionaries' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+
+ref; // ME_FAB00A107CAA f_ExportedDictionaries
+
+FORWARD ME_55A3A1E7038F
+
+: ME_55A3A738001B
+ CONST UID '55A3A738001B'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4DAEECD90016 // TtfwDictionary
+ ;
+
+ref; // ME_55A3A738001B anOther
+
+: ME_55A3A2210227
+ CONST UID '55A3A2210227'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_55A3A2210227 aName
+
+: ME_55A3A216025D
+ CONST UID '55A3A216025D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A3A1E7038F // FindInUsedDictionary
+ ;
+ : Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.pas.ms.script' // TtfwKeyWord
+ ;
+ : Parameters
+   @ ( ME_55A3A738001B // anOther
+ ME_55A3A2210227 // aName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A3A216025D DoIt
+
+: ME_55A3A1E7038F
+ CONST UID '55A3A1E7038F'
+ CONST Name 'FindInUsedDictionary'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Operations
+   @ ( ME_55A3A216025D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A3A1E7038F FindInUsedDictionary
+
+FORWARD ME_55A3BF0502F8
+
+: ME_55A3C6BE0323
+ CONST UID '55A3C6BE0323'
+ CONST Name 'aRunned'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55A53B44029F // TtfwInitedDictionariesList
+ ;
+
+ref; // ME_55A3C6BE0323 aRunned
+
+: ME_55A3BF1603A6
+ CONST UID '55A3BF1603A6'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_55A3BF1603A6 aCtx
+
+: ME_55A3BF1200DF
+ CONST UID '55A3BF1200DF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A3BF0502F8 // RunInitCode
+ ;
+ : Parameters
+   @ ( ME_55A3C6BE0323 // aRunned
+ ME_55A3BF1603A6 // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A3BF1200DF DoIt
+
+: ME_55A3BF0502F8
+ CONST UID '55A3BF0502F8'
+ CONST Name 'RunInitCode'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Operations
+   @ ( ME_55A3BF1200DF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A3BF0502F8 RunInitCode
+
+FORWARD ME_55A5294A01E9
+
+: ME_55A5295400CA
+ CONST UID '55A5295400CA'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_55A5295400CA aCtx
+
+: ME_55A52952017E
+ CONST UID '55A52952017E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A5294A01E9 // EnterCode
+ ;
+ : Parameters
+   @ ( ME_55A5295400CA // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A52952017E DoIt
+
+: ME_55A5294A01E9
+ CONST UID '55A5294A01E9'
+ CONST Name 'EnterCode'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Operations
+   @ ( ME_55A52952017E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A5294A01E9 EnterCode
+
+FORWARD ME_55A5295C02AD
+
+: ME_55A529680240
+ CONST UID '55A529680240'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_55A529680240 aCtx
+
+: ME_55A529660204
+ CONST UID '55A529660204'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A5295C02AD // LeaveCode
+ ;
+ : Parameters
+   @ ( ME_55A529680240 // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A529660204 DoIt
+
+: ME_55A5295C02AD
+ CONST UID '55A5295C02AD'
+ CONST Name 'LeaveCode'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Operations
+   @ ( ME_55A529660204 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A5295C02AD LeaveCode
+
+FORWARD ME_559F5EBA0249
+
+: ME_559F5ED000D5
+ CONST UID '559F5ED000D5'
+ CONST Name 'aDictionary'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_559F5ED000D5 aDictionary
+
+: ME_559F5EC60303
+ CONST UID '559F5EC60303'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559F5EBA0249 // UseDictionary
+ ;
+ : Parameters
+   @ ( ME_559F5ED000D5 // aDictionary
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_559F5EC60303 DoIt
+
+: ME_559F5EBA0249
+ CONST UID '559F5EBA0249'
+ CONST Name 'UseDictionary'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Operations
+   @ ( ME_559F5EC60303 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_559F5EBA0249 UseDictionary
+
+FORWARD ME_55A54B4C03BC
+
+: ME_55A651D20113
+ CONST UID '55A651D20113'
+ CONST Name 'aFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_52F4E6AA02BB' '4F4734A40270.pas.ms.script' // TtfwStreamFactory
+ ;
+
+ref; // ME_55A651D20113 aFile
+
+: ME_55A54B63014F
+ CONST UID '55A54B63014F'
+ CONST Name 'aUsed'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55A54B090362 // array of TtfwDictionaryEx
+ ;
+
+ref; // ME_55A54B63014F aUsed
+
+: ME_55A54B53035B
+ CONST UID '55A54B53035B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55A54B4C03BC // Create
+ ;
+ : Parameters
+   @ ( ME_55A651D20113 // aFile
+ ME_55A54B63014F // aUsed
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55A54B53035B DoIt
+
+: ME_55A54B4C03BC
+ CONST UID '55A54B4C03BC'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Operations
+   @ ( ME_55A54B53035B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55A54B4C03BC Create
+
+FORWARD ME_55AE59580215
+
+: ME_55AE596A0006
+ CONST UID '55AE596A0006'
+ CONST Name 'aDictionary'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_55AE596A0006 aDictionary
+
+: ME_55AE5967018B
+ CONST UID '55AE5967018B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE59580215 // ExportDictionary
+ ;
+ : Parameters
+   @ ( ME_55AE596A0006 // aDictionary
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55AE5967018B DoIt
+
+: ME_55AE59580215
+ CONST UID '55AE59580215'
+ CONST Name 'ExportDictionary'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Operations
+   @ ( ME_55AE5967018B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55AE59580215 ExportDictionary
+
+FORWARD ME_55B0E69B0385
+
+: ME_55B0E6B50327
+ CONST UID '55B0E6B50327'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_55B0E6B50327 aFileName
+
+: ME_55B0E6B503D1
+ CONST UID '55B0E6B503D1'
+ CONST Name 'aUsed'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55A54B090362 // array of TtfwDictionaryEx
+ ;
+
+ref; // ME_55B0E6B503D1 aUsed
+
+: ME_55B0E6A503D6
+ CONST UID '55B0E6A503D6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0E69B0385 // Create$1
+ ;
+ : Parameters
+   @ ( ME_55B0E6B50327 // aFileName
+ ME_55B0E6B503D1 // aUsed
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55B0E6A503D6 DoIt
+
+: ME_55B0E69B0385
+ CONST UID '55B0E69B0385'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Operations
+   @ ( ME_55B0E6A503D6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55B0E69B0385 Create$1
+
+: ME_559F6A6F00CA
+ CONST UID '559F6A6F00CA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_559F6A6F00CA 
+
+: ME_55A662C6008C
+ CONST UID '55A662C6008C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_4808A20402DC' '4AB0997B00A2.pas.ms.script' // Math
+ ;
+
+ref; // ME_55A662C6008C 
+
+: ME_55A7ECC50150
+ CONST UID '55A7ECC50150'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+
+ref; // ME_55A7ECC50150 
+
+: ME_55A7F51D01C4
+ CONST UID '55A7F51D01C4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_55A7F51D01C4 
+
+: ME_4DB6E3090290_ME_559E8B2E0385
+ CONST UID '4DB6E3090290'
+ CONST Name 'AddCodePart'
+ : Original WL 'ME_4DB6E3090290' '4DAF19F600C5.pas.ms.script' // AddCodePart
+ ;
+ : Implementor ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DB6E3090290_ME_559E8B2E0385 AddCodePart
+
+: ME_479731C50290_ME_559E8B2E0385
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_559E8B2E0385 Cleanup
+
+: ME_4F465D580021_ME_559E8B2E0385
+ CONST UID '4F465D580021'
+ CONST Name 'DoCheckWord'
+ : Original ME_4F465D580021 // DoCheckWord
+ ;
+ : Implementor ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F465D580021_ME_559E8B2E0385 DoCheckWord
+
+: ME_5000565C019C_ME_559E8B2E0385
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_559E8B2E0385 ClearFields
+
+: ME_559FF0210296_ME_559E8B2E0385
+ CONST UID '559FF0210296'
+ CONST Name 'DoGetDRbyCName'
+ : Original ME_559FF0210296 // DoGetDRbyCName
+ ;
+ : Implementor ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559FF0210296_ME_559E8B2E0385 DoGetDRbyCName
+
+: ME_55A3E53A00A8_ME_559E8B2E0385
+ CONST UID '55A3E53A00A8'
+ CONST Name 'IsValidCode'
+ : Original ME_55A3E53A00A8 // IsValidCode
+ ;
+ : Implementor ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A3E53A00A8_ME_559E8B2E0385 IsValidCode
+
+: ME_55A4FD6401D3_ME_559E8B2E0385
+ CONST UID '55A4FD6401D3'
+ CONST Name 'UsesDictionary'
+ : Original ME_55A4FD6401D3 // UsesDictionary
+ ;
+ : Implementor ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A4FD6401D3_ME_559E8B2E0385 UsesDictionary
+
+: ME_559E8B2E0385
+ CONST UID '559E8B2E0385'
+ CONST Name 'TtfwDictionaryEx'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_55A3BD6B03AE' '4DAF19F600C5.pas.ms.script' // MtfwCodeCompiler
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_559F5E5101B8 // UsedDictionaries
+ ME_559E651B0107 // FileName
+ ME_559E6729030C // FileDateTime
+ ME_55A65C32012D // Stream
+ ME_55A7DAEB0274 // InitCode
+ ME_55AE591903E6 // ExportedDictionaries
+ ME_E41E4AD29236 // f_UsedDictionaries
+ ME_15D58D99397B // f_FileName
+ ME_E79AB2E6538F // f_FileDateTime
+ ME_458B90613B2E // f_Stream
+ ME_9192BFD29B86 // f_InitCode
+ ME_FAB00A107CAA // f_ExportedDictionaries
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55A3A1E7038F // FindInUsedDictionary
+ ME_55A3BF0502F8 // RunInitCode
+ ME_55A5294A01E9 // EnterCode
+ ME_55A5295C02AD // LeaveCode
+ ME_559F5EBA0249 // UseDictionary
+ ME_55A54B4C03BC // Create
+ ME_55AE59580215 // ExportDictionary
+ ME_55B0E69B0385 // Create$1
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DB6E3090290_ME_559E8B2E0385 // AddCodePart
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_559E8B2E0385 // Cleanup
+ ME_4F465D580021_ME_559E8B2E0385 // DoCheckWord
+ ME_5000565C019C_ME_559E8B2E0385 // ClearFields
+ ME_559FF0210296_ME_559E8B2E0385 // DoGetDRbyCName
+ ME_55A3E53A00A8_ME_559E8B2E0385 // IsValidCode
+ ME_55A4FD6401D3_ME_559E8B2E0385 // UsesDictionary
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_55A54B090362 // array of TtfwDictionaryEx
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_559F6A6F00CA // 
+ ME_55A662C6008C // 
+ ME_55A7ECC50150 // 
+ ME_55A7F51D01C4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ : Injected
+   @ ( WL 'ME_45081A42DE4A' '4F43A0A401E6.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryEx.pas'
+
+ref; // ME_559E8B2E0385 TtfwDictionaryEx
+
+FORWARD ME_559E758B01BB
+
+: ME_559E75970086
+ CONST UID '559E75970086'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_559E758B01BB // TtfwDictionaryListPrim
+ ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_559E75970086 ItemType
+
+: ME_559E758B01BB
+ CONST UID '559E758B01BB'
+ CONST Name 'TtfwDictionaryListPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55A63D8C00F0 // tfwDictionaryList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_559E75970086 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.pas'
+
+ref; // ME_559E758B01BB TtfwDictionaryListPrim
+
+FORWARD ME_55A0005D02CC
+
+: ME_55A4E85101BA
+ CONST UID '55A4E85101BA'
+ CONST Name 'CompiledCode'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55A0005D02CC // TtfwMainDictionary
+ ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_55A4E85101BA CompiledCode
+
+: ME_6D7738866C85
+ CONST UID '6D7738866C85'
+ CONST Name 'f_CompiledCode'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства CompiledCode' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55A0005D02CC // TtfwMainDictionary
+ ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_6D7738866C85 f_CompiledCode
+
+: ME_479731C50290_ME_55A0005D02CC
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_55A0005D02CC // TtfwMainDictionary
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_55A0005D02CC Cleanup
+
+: ME_55A3A1E7038F_ME_55A0005D02CC
+ CONST UID '55A3A1E7038F'
+ CONST Name 'FindInUsedDictionary'
+ : Original ME_55A3A1E7038F // FindInUsedDictionary
+ ;
+ : Implementor ME_55A0005D02CC // TtfwMainDictionary
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A3A1E7038F_ME_55A0005D02CC FindInUsedDictionary
+
+: ME_55A531FA016A_ME_55A0005D02CC
+ CONST UID '55A531FA016A'
+ CONST Name 'IsMain'
+ : Original ME_55A531FA016A // IsMain
+ ;
+ : Implementor ME_55A0005D02CC // TtfwMainDictionary
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A531FA016A_ME_55A0005D02CC IsMain
+
+: ME_55A0005D02CC
+ CONST UID '55A0005D02CC'
+ CONST Name 'TtfwMainDictionary'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_559E8B2E0385 // TtfwDictionaryEx
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55A4E85101BA // CompiledCode
+ ME_6D7738866C85 // f_CompiledCode
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_479731C50290_ME_55A0005D02CC // Cleanup
+ ME_55A3A1E7038F_ME_55A0005D02CC // FindInUsedDictionary
+ ME_55A531FA016A_ME_55A0005D02CC // IsMain
+ ) .SequenceCode.It
+ ; // Overridden
+ : Injected
+   @ ( WL 'ME_2377842987E3' '4F43A0A401E6.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwMainDictionary.pas'
+
+ref; // ME_55A0005D02CC TtfwMainDictionary
+
+FORWARD ME_55B0E773009A
+
+: ME_55B0EF8A008E
+ CONST UID '55B0EF8A008E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B0E773009A // tfwSortedDictionaryList
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_55B0EF8A008E 
+
+: ME_55B0F67D0299
+ CONST UID '55B0F67D0299'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B0E773009A // tfwSortedDictionaryList
+ ;
+ : Target WL 'ME_476F9605006B' '4678193C009C.pas.ms.script' // Indexes
+ ;
+
+ref; // ME_55B0F67D0299 
+
+: ME_47B99D4503A2_ME_55B0E773009A
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_55B0E773009A // tfwSortedDictionaryList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_55B0E773009A CompareExistingItems
+
+: ME_47A042E100E2_ME_55B0E773009A
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_55B0E773009A // tfwSortedDictionaryList
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_55B0E773009A InitFields
+
+: ME_55B0E773009A
+ CONST UID '55B0E773009A'
+ CONST Name 'tfwSortedDictionaryList'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55B0E6F2013C // tfwDictionaryListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_47B99D4503A2_ME_55B0E773009A // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A042E100E2_ME_55B0E773009A // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55B0EF8A008E // 
+ ME_55B0F67D0299 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwSortedDictionaryList.imp.pas'
+ CONST extprop:pas:TypeName '_tfwSortedDictionaryList_'
+
+ref; // ME_55B0E773009A tfwSortedDictionaryList
+
+FORWARD ME_55A63D16038C
+
+: ME_55A63D24011E
+ CONST UID '55A63D24011E'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55A63D16038C // TtfwMainDictionaryList
+ ;
+ : Target ME_55A0005D02CC // TtfwMainDictionary
+ ;
+
+ref; // ME_55A63D24011E ItemType
+
+: ME_55A63D16038C
+ CONST UID '55A63D16038C'
+ CONST Name 'TtfwMainDictionaryList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55B0E773009A // tfwSortedDictionaryList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_55A63C1701BE // tfwNamedDictionaryList
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55A63D24011E // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwMainDictionaryList.pas'
+
+ref; // ME_55A63D16038C TtfwMainDictionaryList
+
+FORWARD ME_55A63D300062
+
+: ME_55C1E40B01E8
+ CONST UID '55C1E40B01E8'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55A63D300062 // TtfwMainDictionaryCache
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_55C1E40B01E8 FindDataType
+
+: ME_A991CFA77D9E
+ CONST UID 'A991CFA77D9E'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A63D300062 // TtfwMainDictionaryCache
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_A991CFA77D9E Exists
+
+: ME_55C1E41800B4
+ CONST UID '55C1E41800B4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55A63D300062 // TtfwMainDictionaryCache
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_55C1E41800B4 
+
+: ME_47B9BAFD01F4_ME_55A63D300062
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_55A63D300062 // TtfwMainDictionaryCache
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47B9BAFD01F4_ME_55A63D300062 CompareItemWithData
+
+: ME_559E857A037A_ME_55A63D300062
+ CONST UID '559E857A037A'
+ CONST Name 'FindDictionary'
+ : Original ME_559E857A037A // FindDictionary
+ ;
+ : Implementor ME_55A63D300062 // TtfwMainDictionaryCache
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559E857A037A_ME_55A63D300062 FindDictionary
+
+: ME_55A63D300062
+ CONST UID '55A63D300062'
+ CONST Name 'TtfwMainDictionaryCache'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55A63D16038C // TtfwMainDictionaryList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55C1E40B01E8 // FindDataType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_A991CFA77D9E // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47B9BAFD01F4_ME_55A63D300062 // CompareItemWithData
+ ME_559E857A037A_ME_55A63D300062 // FindDictionary
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55C1E41800B4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifdef" 'seCacheDict'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwMainDictionaryCache.pas'
+
+ref; // ME_55A63D300062 TtfwMainDictionaryCache
+
+FORWARD ME_55B0EF37007C
+
+: ME_55A7ECD8020D_ME_55B0EF37007C
+ CONST UID '55A7ECD8020D'
+ CONST Name 'IsAxiom'
+ : Original ME_55A7ECD8020D // IsAxiom
+ ;
+ : Implementor ME_55B0EF37007C // TtfwStandardDictionary
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A7ECD8020D_ME_55B0EF37007C IsAxiom
+
+: ME_55B0EF37007C
+ CONST UID '55B0EF37007C'
+ CONST Name 'TtfwStandardDictionary'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_559E8B2E0385 // TtfwDictionaryEx
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_55A7ECD8020D_ME_55B0EF37007C // IsAxiom
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStandardDictionary.pas'
+
+ref; // ME_55B0EF37007C TtfwStandardDictionary
+
+FORWARD ME_4F4BB70D0144
+
+: ME_4F4BB75C021E
+ CONST UID '4F4BB75C021E'
+ CONST Name 'RealWord'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4F4BB75C021E RealWord
+
+: ME_72DFED09E01E
+ CONST UID '72DFED09E01E'
+ CONST Name 'f_RealWord'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства RealWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_72DFED09E01E f_RealWord
+
+: ME_D582332776EC
+ CONST UID 'D582332776EC'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwForwardDeclaration' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_D582332776EC Ini_Reg_Class
+
+: ME_55A69803028F
+ CONST UID '55A69803028F'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ : Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.pas.ms.script' // TtfwKeyWord
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_55A69803028F 
+
+: ME_55A6A14C0305
+ CONST UID '55A6A14C0305'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55A6A14C0305 
+
+: ME_4DAEEDE10285_ME_4F4BB70D0144
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4F4BB70D0144 DoDoIt
+
+: ME_479731C50290_ME_4F4BB70D0144
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4F4BB70D0144 Cleanup
+
+: ME_4F43C9A10139_ME_4F4BB70D0144
+ CONST UID '4F43C9A10139'
+ CONST Name 'WordProducer'
+ : Original WL 'ME_4F43C9A10139' '4DAF19F600C5.pas.ms.script' // WordProducer
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_4F43C9A10139_ME_4F4BB70D0144 WordProducer
+
+: ME_4F4BB6CD0359_ME_4F4BB70D0144
+ CONST UID '4F4BB6CD0359'
+ CONST Name 'IsForwardDeclaration'
+ : Original WL 'ME_4F4BB6CD0359' '4DAF19F600C5.pas.ms.script' // IsForwardDeclaration
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F4BB6CD0359_ME_4F4BB70D0144 IsForwardDeclaration
+
+: ME_52B43311021D_ME_4F4BB70D0144
+ CONST UID '52B43311021D'
+ CONST Name 'InnerDictionary'
+ : Original WL 'ME_52B43311021D' '4DAF19F600C5.pas.ms.script' // InnerDictionary
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_52B43311021D_ME_4F4BB70D0144 InnerDictionary
+
+: ME_52CFC11603C8_ME_4F4BB70D0144
+ CONST UID '52CFC11603C8'
+ CONST Name 'ResultTypeInfo'
+ : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_52CFC11603C8_ME_4F4BB70D0144 ResultTypeInfo
+
+: ME_52D5637A031E_ME_4F4BB70D0144
+ CONST UID '52D5637A031E'
+ CONST Name 'GetKeywordFinder'
+ : Original WL 'ME_52D5637A031E' '4DAF19F600C5.pas.ms.script' // GetKeywordFinder
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52D5637A031E_ME_4F4BB70D0144 GetKeywordFinder
+
+: ME_55A7D34102A0_ME_4F4BB70D0144
+ CONST UID '55A7D34102A0'
+ CONST Name 'DoCheckWord'
+ : Original WL 'ME_55A7D34102A0' '4DAF19F600C5.pas.ms.script' // DoCheckWord
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A7D34102A0_ME_4F4BB70D0144 DoCheckWord
+
+: ME_55ACE5210310_ME_4F4BB70D0144
+ CONST UID '55ACE5210310'
+ CONST Name 'GetKeywordByName'
+ : Original WL 'ME_55ACE5210310' '4DAF19F600C5.pas.ms.script' // GetKeywordByName
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55ACE5210310_ME_4F4BB70D0144 GetKeywordByName
+
+: ME_55ACF0F5025D_ME_4F4BB70D0144
+ CONST UID '55ACF0F5025D'
+ CONST Name 'GetParentFinder'
+ : Original WL 'ME_55ACF0F5025D' '4DAF19F600C5.pas.ms.script' // GetParentFinder
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55ACF0F5025D_ME_4F4BB70D0144 GetParentFinder
+
+: ME_55AFD7DA0258_ME_4F4BB70D0144
+ CONST UID '55AFD7DA0258'
+ CONST Name 'WordName'
+ : Original WL 'ME_55AFD7DA0258' '4DAF19F600C5.pas.ms.script' // WordName
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55AFD7DA0258_ME_4F4BB70D0144 WordName
+
+: ME_55CB5B8C004E_ME_4F4BB70D0144
+ CONST UID '55CB5B8C004E'
+ CONST Name 'MakeRefForCompile'
+ : Original WL 'ME_55CB5B8C004E' '4DAF19F600C5.pas.ms.script' // MakeRefForCompile
+ ;
+ : Implementor ME_4F4BB70D0144 // TkwForwardDeclaration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55CB5B8C004E_ME_4F4BB70D0144 MakeRefForCompile
+
+: ME_4F4BB70D0144
+ CONST UID '4F4BB70D0144'
+ CONST Name 'TkwForwardDeclaration'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F4BB75C021E // RealWord
+ ME_72DFED09E01E // f_RealWord
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_D582332776EC // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_4F4BB70D0144 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_4F4BB70D0144 // Cleanup
+ ME_4F43C9A10139_ME_4F4BB70D0144 // WordProducer
+ ME_4F4BB6CD0359_ME_4F4BB70D0144 // IsForwardDeclaration
+ ME_52B43311021D_ME_4F4BB70D0144 // InnerDictionary
+ ME_52CFC11603C8_ME_4F4BB70D0144 // ResultTypeInfo
+ ME_52D5637A031E_ME_4F4BB70D0144 // GetKeywordFinder
+ ME_55A7D34102A0_ME_4F4BB70D0144 // DoCheckWord
+ ME_55ACE5210310_ME_4F4BB70D0144 // GetKeywordByName
+ ME_55ACF0F5025D_ME_4F4BB70D0144 // GetParentFinder
+ ME_55AFD7DA0258_ME_4F4BB70D0144 // WordName
+ ME_55CB5B8C004E_ME_4F4BB70D0144 // MakeRefForCompile
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55A69803028F // 
+ ME_55A6A14C0305 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ : Injected
+   @ ( WL 'ME_53DFBB4003AF' '4F3E3F5F0160.pas.ms.script' // 
+ WL 'ME_55CB5C2901CA' '54F079B5035C.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwForwardDeclaration.pas'
+
+ref; // ME_4F4BB70D0144 TkwForwardDeclaration
+
+FORWARD ME_55A4E71403B3
+
+: ME_55A63C91018C
+ CONST UID '55A63C91018C'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55A4E71403B3 // TtfwDictionaryList
+ ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_55A63C91018C ItemType
+
+: ME_55A4E71403B3
+ CONST UID '55A4E71403B3'
+ CONST Name 'TtfwDictionaryList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55A63D8C00F0 // tfwDictionaryList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_55A63C1701BE // tfwNamedDictionaryList
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55A63C91018C // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryList.pas'
+
+ref; // ME_55A4E71403B3 TtfwDictionaryList
+
+FORWARD ME_55AE5B950148
+
+: ME_55AE5BCB03CE
+ CONST UID '55AE5BCB03CE'
+ CONST Name 'Dictionary'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55AE5B950148 // TtfwDictionaryDataIteratorPrim
+ ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_55AE5BCB03CE Dictionary
+
+: ME_2A05C5CF4E53
+ CONST UID '2A05C5CF4E53'
+ CONST Name 'f_Dictionary'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Dictionary' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55AE5B950148 // TtfwDictionaryDataIteratorPrim
+ ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_2A05C5CF4E53 f_Dictionary
+
+FORWARD ME_55AE5C1603DE
+
+: ME_55AE5C2D026C
+ CONST UID '55AE5C2D026C'
+ CONST Name 'aDictionary'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_55AE5C2D026C aDictionary
+
+: ME_55AE5C210111
+ CONST UID '55AE5C210111'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE5C1603DE // Create
+ ;
+ : Parameters
+   @ ( ME_55AE5C2D026C // aDictionary
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55AE5C210111 DoIt
+
+: ME_55AE5C1603DE
+ CONST UID '55AE5C1603DE'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE5B950148 // TtfwDictionaryDataIteratorPrim
+ ;
+ : Operations
+   @ ( ME_55AE5C210111 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55AE5C1603DE Create
+
+: ME_55AE5C6E023C
+ CONST UID '55AE5C6E023C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55AE5B950148 // TtfwDictionaryDataIteratorPrim
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55AE5C6E023C 
+
+: ME_479731C50290_ME_55AE5B950148
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_55AE5B950148 // TtfwDictionaryDataIteratorPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_55AE5B950148 Cleanup
+
+: ME_55AE5B950148
+ CONST UID '55AE5B950148'
+ CONST Name 'TtfwDictionaryDataIteratorPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( WL 'ME_52E29ED5016B' '54F0A4A302FF.pas.ms.script' // TtfwIteratableParent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55AE5BCB03CE // Dictionary
+ ME_2A05C5CF4E53 // f_Dictionary
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55AE5C1603DE // Create
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_55AE5B950148 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55AE5C6E023C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryDataIteratorPrim.pas'
+
+ref; // ME_55AE5B950148 TtfwDictionaryDataIteratorPrim
+
+FORWARD ME_55E9A6C303B7
+
+: ME_55E9A72901EA
+ CONST UID '55E9A72901EA'
+ CONST Name 'ListType'
+ CONST Class class_Class
+ : Stereotype st_ImpurityParamType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ CONST extprop:pas:TypeName '_ListType_'
+
+ref; // ME_55E9A72901EA ListType
+
+FORWARD ME_55AE64E00011
+
+: ME_55AE64E901CC
+ CONST UID '55AE64E901CC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE64E00011 // ListToIterate
+ ;
+ : Target ME_55E9A72901EA // ListType
+ ;
+
+ref; // ME_55AE64E901CC DoIt
+
+: ME_55AE64E00011
+ CONST UID '55AE64E00011'
+ CONST Name 'ListToIterate'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ : Operations
+   @ ( ME_55AE64E901CC // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55AE64E00011 ListToIterate
+
+: ME_55E9A7E6008D
+ CONST UID '55E9A7E6008D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ : Target ME_4DAEECD90016 // TtfwDictionary
+ ;
+
+ref; // ME_55E9A7E6008D 
+
+: ME_52E23B7A00EC_ME_55E9A6C303B7
+ CONST UID '52E23B7A00EC'
+ CONST Name 'ForEach'
+ : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
+ ;
+ : Implementor ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52E23B7A00EC_ME_55E9A6C303B7 ForEach
+
+: ME_52E23BB102FA_ME_55E9A6C303B7
+ CONST UID '52E23BB102FA'
+ CONST Name 'ForEachBack'
+ : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
+ ;
+ : Implementor ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52E23BB102FA_ME_55E9A6C303B7 ForEachBack
+
+: ME_55CDF40C03D4_ME_55E9A6C303B7
+ CONST UID '55CDF40C03D4'
+ CONST Name 'SetItem'
+ : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
+ ;
+ : Implementor ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55CDF40C03D4_ME_55E9A6C303B7 SetItem
+
+: ME_55E849210175_ME_55E9A6C303B7
+ CONST UID '55E849210175'
+ CONST Name 'ItemsCountInSlice'
+ : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
+ ;
+ : Implementor ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55E849210175_ME_55E9A6C303B7 ItemsCountInSlice
+
+: ME_55E9A6C303B7
+ CONST UID '55E9A6C303B7'
+ CONST Name 'tfwDictionaryListIteratorPrim'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Implements
+   @ ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ WL 'ME_55E9A65B0186' '54F0A4A302FF.pas.ms.script' // MtfwIteratableParent
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_55AE64E00011 // ListToIterate
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_52E23B7A00EC_ME_55E9A6C303B7 // ForEach
+ ME_52E23BB102FA_ME_55E9A6C303B7 // ForEachBack
+ ME_55CDF40C03D4_ME_55E9A6C303B7 // SetItem
+ ME_55E849210175_ME_55E9A6C303B7 // ItemsCountInSlice
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_55E9A72901EA // ListType
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_55E9A7E6008D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas'
+ CONST extprop:pas:TypeName '_tfwDictionaryListIteratorPrim_'
+
+ref; // ME_55E9A6C303B7 tfwDictionaryListIteratorPrim
+
+FORWARD ME_55AE649000FB
+
+: ME_55E9A7C502D8
+ CONST UID '55E9A7C502D8'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55AE649000FB // TtfwDictionaryPtrListIterator
+ ;
+ : Target ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+
+ref; // ME_55E9A7C502D8 ListType
+
+FORWARD ME_55AE65BC01FD
+
+: ME_7C275C131245
+ CONST UID '7C275C131245'
+ CONST Name 'aDictionary'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_7C275C131245 aDictionary
+
+: ME_5E1394CF50E9
+ CONST UID '5E1394CF50E9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TtfwDictionaryPtrListIterator.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE65BC01FD // Make
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+ : Parameters
+   @ ( ME_7C275C131245 // aDictionary
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5E1394CF50E9 DoIt
+
+: ME_55AE65BC01FD
+ CONST UID '55AE65BC01FD'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55AE649000FB // TtfwDictionaryPtrListIterator
+ ;
+ : Inherits
+   @ ( ME_55AE5C1603DE // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_5E1394CF50E9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_55AE65BC01FD Make
+
+: ME_55AE649000FB
+ CONST UID '55AE649000FB'
+ CONST Name 'TtfwDictionaryPtrListIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55AE5B950148 // TtfwDictionaryDataIteratorPrim
+ ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55E9A7C502D8 // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55AE65BC01FD // Make
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPtrListIterator.pas'
+
+ref; // ME_55AE649000FB TtfwDictionaryPtrListIterator
+
+FORWARD ME_55AE651402AA
+
+: ME_55AE64E00011_ME_55AE651402AA
+ CONST UID '55AE64E00011'
+ CONST Name 'ListToIterate'
+ : Original ME_55AE64E00011 // ListToIterate
+ ;
+ : Implementor ME_55AE651402AA // TtfwUsedDictionariesIterator
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55AE64E00011_ME_55AE651402AA ListToIterate
+
+: ME_55AE651402AA
+ CONST UID '55AE651402AA'
+ CONST Name 'TtfwUsedDictionariesIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55AE649000FB // TtfwDictionaryPtrListIterator
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_55AE64E00011_ME_55AE651402AA // ListToIterate
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwUsedDictionariesIterator.pas'
+
+ref; // ME_55AE651402AA TtfwUsedDictionariesIterator
+
+: ME_559E7FC70157
+ CONST UID '559E7FC70157'
+ CONST Name 'TtfwDictionaryStack'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_559E758B01BB // TtfwDictionaryListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryStack.pas'
+
+ref; // ME_559E7FC70157 TtfwDictionaryStack
+
+FORWARD ME_55C0BC550280
+
+: ME_55C0BC7100F7
+ CONST UID '55C0BC7100F7'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55C0BC550280 // TtfwDictionaryCachePrim
+ ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ref; // ME_55C0BC7100F7 ItemType
+
+: ME_55C0BC550280
+ CONST UID '55C0BC550280'
+ CONST Name 'TtfwDictionaryCachePrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55B0E773009A // tfwSortedDictionaryList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_55A63C1701BE // tfwNamedDictionaryList
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55C0BC7100F7 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryCachePrim.pas'
+
+ref; // ME_55C0BC550280 TtfwDictionaryCachePrim
+
+FORWARD ME_55B0FF1501FC
+
+: ME_55B0EFB100C9
+ CONST UID '55B0EFB100C9'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55B0FF1501FC // TtfwStandardDictionaryListPrim
+ ;
+ : Target ME_55B0EF37007C // TtfwStandardDictionary
+ ;
+
+ref; // ME_55B0EFB100C9 ItemType
+
+: ME_55B0FF1501FC
+ CONST UID '55B0FF1501FC'
+ CONST Name 'TtfwStandardDictionaryListPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55B0E773009A // tfwSortedDictionaryList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55B0EFB100C9 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaryListPrim.pas'
+
+ref; // ME_55B0FF1501FC TtfwStandardDictionaryListPrim
+
+: ME_52EF85600031
+ CONST UID '52EF85600031'
+ CONST Name 'AllAxiomaticsDefined'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_52EF85600031 AllAxiomaticsDefined
+
+: ME_22C55AB93BFB
+ CONST UID '22C55AB93BFB'
+ CONST Name 'f_AllAxiomaticsDefined'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства AllAxiomaticsDefined' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_22C55AB93BFB f_AllAxiomaticsDefined
+
+FORWARD ME_559E658901B3
+
+: ME_559E6594006B
+ CONST UID '559E6594006B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559E658901B3 // Create
+ ;
+
+ref; // ME_559E6594006B DoIt
+
+: ME_559E67E90183
+ CONST UID '559E67E90183'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_559E658901B3 // Create
+ ;
+ : Target WL 'ME_4F473F9402D8' '4F473F0902B2.pas.ms.script' // TtfwCStringFactory
+ ;
+
+ref; // ME_559E67E90183 
+
+: ME_559E658901B3
+ CONST UID '559E658901B3'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Operations
+   @ ( ME_559E6594006B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_559E67E90183 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_559E658901B3 Create
+
+FORWARD ME_55B22CD10358
+
+: ME_55B22D2B02F3
+ CONST UID '55B22D2B02F3'
+ CONST Name 'aWord'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_55B22D2B02F3 aWord
+
+: ME_55B22D0601FE
+ CONST UID '55B22D0601FE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B22CD10358 // DictionaryByWord
+ ;
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+ : Parameters
+   @ ( ME_55B22D2B02F3 // aWord
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55B22D0601FE DoIt
+
+: ME_55B22CD10358
+ CONST UID '55B22CD10358'
+ CONST Name 'DictionaryByWord'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Operations
+   @ ( ME_55B22D0601FE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55B22CD10358 DictionaryByWord
+
+FORWARD ME_55B22D3C019E
+
+: ME_55B22D6A0112
+ CONST UID '55B22D6A0112'
+ CONST Name 'aWord'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_55B22D6A0112 aWord
+
+: ME_55B22D650031
+ CONST UID '55B22D650031'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B22D3C019E // CheckDictionaryByWordAndUse
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_55B22D6A0112 // aWord
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55B22D650031 DoIt
+
+: ME_55B22D3C019E
+ CONST UID '55B22D3C019E'
+ CONST Name 'CheckDictionaryByWordAndUse'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Operations
+   @ ( ME_55B22D650031 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55B22D3C019E CheckDictionaryByWordAndUse
+
+: ME_D101BF30AB62
+ CONST UID 'D101BF30AB62'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_D101BF30AB62 Exists
+
+FORWARD ME_55B0E7AD026B
+
+: ME_55B0E7CF021D
+ CONST UID '55B0E7CF021D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Target ME_55B0E7AD026B // TtfwStandardDictionaries
+ ;
+
+ref; // ME_55B0E7CF021D 
+
+: ME_55B0F602008A
+ CONST UID '55B0F602008A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_55B0F602008A 
+
+: ME_55B0FEF403A2
+ CONST UID '55B0FEF403A2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_55B0FEF403A2 
+
+: ME_55B63EEB03BD
+ CONST UID '55B63EEB03BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55B63EEB03BD 
+
+: ME_55C3710E0241
+ CONST UID '55C3710E0241'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_55C3710E0241 
+
+: ME_4F465D580021_ME_4DB05FF60115
+ CONST UID '4F465D580021'
+ CONST Name 'DoCheckWord'
+ : Original ME_4F465D580021 // DoCheckWord
+ ;
+ : Implementor ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F465D580021_ME_4DB05FF60115 DoCheckWord
+
+: ME_5000565C019C_ME_4DB05FF60115
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_4DB05FF60115 ClearFields
+
+: ME_55A7ECD8020D_ME_4DB05FF60115
+ CONST UID '55A7ECD8020D'
+ CONST Name 'IsAxiom'
+ : Original ME_55A7ECD8020D // IsAxiom
+ ;
+ : Implementor ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A7ECD8020D_ME_4DB05FF60115 IsAxiom
+
+: ME_55B0E87401FA_ME_4DB05FF60115
+ CONST UID '55B0E87401FA'
+ CONST Name 'Add'
+ : Original ME_55B0E87401FA // Add
+ ;
+ : Implementor ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55B0E87401FA_ME_4DB05FF60115 Add
+
+: ME_4DB05FF60115
+ CONST UID '4DB05FF60115'
+ CONST Name 'TtfwAutoregisteredDiction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Словарь с базовой аксиоматикой' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55B0EF37007C // TtfwStandardDictionary
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_52EF85600031 // AllAxiomaticsDefined
+ ME_22C55AB93BFB // f_AllAxiomaticsDefined
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_559E658901B3 // Create
+ ME_55B22CD10358 // DictionaryByWord
+ ME_55B22D3C019E // CheckDictionaryByWordAndUse
+ ME_D101BF30AB62 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4F465D580021_ME_4DB05FF60115 // DoCheckWord
+ ME_5000565C019C_ME_4DB05FF60115 // ClearFields
+ ME_55A7ECD8020D_ME_4DB05FF60115 // IsAxiom
+ ME_55B0E87401FA_ME_4DB05FF60115 // Add
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55B0E7CF021D // 
+ ME_55B0F602008A // 
+ ME_55B0FEF403A2 // 
+ ME_55B63EEB03BD // 
+ ME_55C3710E0241 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '21.04.2011 20:49'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAutoregisteredDiction.pas'
+
+ref; // ME_4DB05FF60115 TtfwAutoregisteredDiction
+
+FORWARD ME_55B0EFA300D1
+
+: ME_55B0F90B0230
+ CONST UID '55B0F90B0230'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55B0EFA300D1 // TtfwStandardDictionaryList
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_55B0F90B0230 FindDataType
+
+: ME_55B1E66000B1
+ CONST UID '55B1E66000B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B0EFA300D1 // TtfwStandardDictionaryList
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_55B1E66000B1 
+
+: ME_47B9BAFD01F4_ME_55B0EFA300D1
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_55B0EFA300D1 // TtfwStandardDictionaryList
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47B9BAFD01F4_ME_55B0EFA300D1 CompareItemWithData
+
+: ME_55B0EFA300D1
+ CONST UID '55B0EFA300D1'
+ CONST Name 'TtfwStandardDictionaryList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55B0FF1501FC // TtfwStandardDictionaryListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55B0F90B0230 // FindDataType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_47B9BAFD01F4_ME_55B0EFA300D1 // CompareItemWithData
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55B1E66000B1 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaryList.pas'
+
+ref; // ME_55B0EFA300D1 TtfwStandardDictionaryList
+
+FORWARD ME_55B0FEC503CE
+
+: ME_55B0FEE20076
+ CONST UID '55B0FEE20076'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_55B0FEE20076 aName
+
+: ME_55B0FED402BF
+ CONST UID '55B0FED402BF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0FEC503CE // CheckDictionary
+ ;
+ : Target ME_55B0EF37007C // TtfwStandardDictionary
+ ;
+ : Parameters
+   @ ( ME_55B0FEE20076 // aName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55B0FED402BF DoIt
+
+: ME_55B1E66B0232
+ CONST UID '55B1E66B0232'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B0FEC503CE // CheckDictionary
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_55B1E66B0232 
+
+: ME_55B1E68D0006
+ CONST UID '55B1E68D0006'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B0FEC503CE // CheckDictionary
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55B1E68D0006 
+
+: ME_55B0FEC503CE
+ CONST UID '55B0FEC503CE'
+ CONST Name 'CheckDictionary'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0E7AD026B // TtfwStandardDictionaries
+ ;
+ : Operations
+   @ ( ME_55B0FED402BF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_55B1E66B0232 // 
+ ME_55B1E68D0006 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_55B0FEC503CE CheckDictionary
+
+FORWARD ME_55B1E6EC0088
+
+: ME_55B1E6FC0339
+ CONST UID '55B1E6FC0339'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_55B1E6FC0339 aName
+
+: ME_55B1E6FA0344
+ CONST UID '55B1E6FA0344'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B1E6EC0088 // FindDictionary
+ ;
+ : Target ME_55B0EF37007C // TtfwStandardDictionary
+ ;
+ : Parameters
+   @ ( ME_55B1E6FC0339 // aName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55B1E6FA0344 DoIt
+
+: ME_55B1E6EC0088
+ CONST UID '55B1E6EC0088'
+ CONST Name 'FindDictionary'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0E7AD026B // TtfwStandardDictionaries
+ ;
+ : Operations
+   @ ( ME_55B1E6FA0344 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55B1E6EC0088 FindDictionary
+
+: ME_CE8A7CBCFFB0
+ CONST UID 'CE8A7CBCFFB0'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B0E7AD026B // TtfwStandardDictionaries
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_CE8A7CBCFFB0 Exists
+
+: ME_55B0E7AD026B
+ CONST UID '55B0E7AD026B'
+ CONST Name 'TtfwStandardDictionaries'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55B0EFA300D1 // TtfwStandardDictionaryList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_55B0FEC503CE // CheckDictionary
+ ME_55B1E6EC0088 // FindDictionary
+ ME_CE8A7CBCFFB0 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaries.pas'
+
+ref; // ME_55B0E7AD026B TtfwStandardDictionaries
+
+FORWARD ME_55A3DF0603C6
+
+: ME_55C1E4290136
+ CONST UID '55C1E4290136'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_55C1E4290136 FindDataType
+
+: ME_DEA82D53080E
+ CONST UID 'DEA82D53080E'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_DEA82D53080E Exists
+
+: ME_55AF818D02D4
+ CONST UID '55AF818D02D4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ : Target ME_55A63D300062 // TtfwMainDictionaryCache
+ ;
+
+ref; // ME_55AF818D02D4 
+
+: ME_55C1E42502FD
+ CONST UID '55C1E42502FD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_55C1E42502FD 
+
+: ME_47B9BAFD01F4_ME_55A3DF0603C6
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47B9BAFD01F4_ME_55A3DF0603C6 CompareItemWithData
+
+: ME_559E857A037A_ME_55A3DF0603C6
+ CONST UID '559E857A037A'
+ CONST Name 'FindDictionary'
+ : Original ME_559E857A037A // FindDictionary
+ ;
+ : Implementor ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559E857A037A_ME_55A3DF0603C6 FindDictionary
+
+: ME_55A663000019_ME_55A3DF0603C6
+ CONST UID '55A663000019'
+ CONST Name 'Remove'
+ : Original ME_55A663000019 // Remove
+ ;
+ : Implementor ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55A663000019_ME_55A3DF0603C6 Remove
+
+: ME_55A3DF0603C6
+ CONST UID '55A3DF0603C6'
+ CONST Name 'TtfwDictionaryCache'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55C0BC550280 // TtfwDictionaryCachePrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55C1E4290136 // FindDataType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_DEA82D53080E // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47B9BAFD01F4_ME_55A3DF0603C6 // CompareItemWithData
+ ME_559E857A037A_ME_55A3DF0603C6 // FindDictionary
+ ME_55A663000019_ME_55A3DF0603C6 // Remove
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55AF818D02D4 // 
+ ME_55C1E42502FD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifdef" 'seCacheDict'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryCache.pas'
+
+ref; // ME_55A3DF0603C6 TtfwDictionaryCache
+
+FORWARD ME_55AE650002D8
+
+: ME_55AE64E00011_ME_55AE650002D8
+ CONST UID '55AE64E00011'
+ CONST Name 'ListToIterate'
+ : Original ME_55AE64E00011 // ListToIterate
+ ;
+ : Implementor ME_55AE650002D8 // TtfwExportedDictionariesIterator
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55AE64E00011_ME_55AE650002D8 ListToIterate
+
+: ME_55AE650002D8
+ CONST UID '55AE650002D8'
+ CONST Name 'TtfwExportedDictionariesIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55AE649000FB // TtfwDictionaryPtrListIterator
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_55AE64E00011_ME_55AE650002D8 // ListToIterate
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwExportedDictionariesIterator.pas'
+
+ref; // ME_55AE650002D8 TtfwExportedDictionariesIterator
+
+FORWARD ME_55E9AB2C03C3
+
+: ME_55E9AB7E0109
+ CONST UID '55E9AB7E0109'
+ CONST Name 'f_ListToIterate'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ;
+ : Target ME_55E9A72901EA // ListType
+ ;
+
+ref; // ME_55E9AB7E0109 f_ListToIterate
+
+FORWARD ME_55E9ABC00239
+
+: ME_55E9ABD80073
+ CONST UID '55E9ABD80073'
+ CONST Name 'aListToIterate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55E9A72901EA // ListType
+ ;
+
+ref; // ME_55E9ABD80073 aListToIterate
+
+: ME_55E9ABCB01E0
+ CONST UID '55E9ABCB01E0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55E9ABC00239 // Create
+ ;
+ : Parameters
+   @ ( ME_55E9ABD80073 // aListToIterate
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55E9ABCB01E0 DoIt
+
+: ME_55E9ABC00239
+ CONST UID '55E9ABC00239'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ;
+ : Operations
+   @ ( ME_55E9ABCB01E0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55E9ABC00239 Create
+
+FORWARD ME_55E9ABE001AD
+
+: ME_004F738D8FC5
+ CONST UID '004F738D8FC5'
+ CONST Name 'aListToIterate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55E9A72901EA // ListType
+ ;
+
+ref; // ME_004F738D8FC5 aListToIterate
+
+: ME_EAA55F5772EB
+ CONST UID 'EAA55F5772EB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики tfwDictionaryListIterator.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55E9ABE001AD // Make
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+ : Parameters
+   @ ( ME_004F738D8FC5 // aListToIterate
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_EAA55F5772EB DoIt
+
+: ME_55E9ABE001AD
+ CONST UID '55E9ABE001AD'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ;
+ : Inherits
+   @ ( ME_55E9ABC00239 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_EAA55F5772EB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_55E9ABE001AD Make
+
+: ME_55E9ABAA03D9
+ CONST UID '55E9ABAA03D9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55E9ABAA03D9 
+
+: ME_55AE64E00011_ME_55E9AB2C03C3
+ CONST UID '55AE64E00011'
+ CONST Name 'ListToIterate'
+ : Original ME_55AE64E00011 // ListToIterate
+ ;
+ : Implementor ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55AE64E00011_ME_55E9AB2C03C3 ListToIterate
+
+: ME_479731C50290_ME_55E9AB2C03C3
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_55E9AB2C03C3 Cleanup
+
+: ME_55E9AB2C03C3
+ CONST UID '55E9AB2C03C3'
+ CONST Name 'tfwDictionaryListIterator'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( WL 'ME_52E29ED5016B' '54F0A4A302FF.pas.ms.script' // TtfwIteratableParent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55E9AB7E0109 // f_ListToIterate
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55E9ABC00239 // Create
+ ME_55E9ABE001AD // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_55AE64E00011_ME_55E9AB2C03C3 // ListToIterate
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_55E9AB2C03C3 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55E9ABAA03D9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIterator.imp.pas'
+ CONST extprop:pas:TypeName '_tfwDictionaryListIterator_'
+
+ref; // ME_55E9AB2C03C3 tfwDictionaryListIterator
+
+FORWARD ME_55E9ABFB03AA
+
+: ME_55E9AC1E0086
+ CONST UID '55E9AC1E0086'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55E9ABFB03AA // TtfwStandardDictionaryListIterator
+ ;
+ : Target ME_55B0EFA300D1 // TtfwStandardDictionaryList
+ ;
+
+ref; // ME_55E9AC1E0086 ListType
+
+: ME_55E9ABFB03AA
+ CONST UID '55E9ABFB03AA'
+ CONST Name 'TtfwStandardDictionaryListIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55E9AC1E0086 // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaryListIterator.pas'
+
+ref; // ME_55E9ABFB03AA TtfwStandardDictionaryListIterator
+
+FORWARD ME_55E9ACD10199
+
+: ME_55E9ACF5006D
+ CONST UID '55E9ACF5006D'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55E9ACD10199 // TtfwDictionaryListIterator
+ ;
+ : Target ME_55A4E71403B3 // TtfwDictionaryList
+ ;
+
+ref; // ME_55E9ACF5006D ListType
+
+: ME_55E9ACD10199
+ CONST UID '55E9ACD10199'
+ CONST Name 'TtfwDictionaryListIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55E9ACF5006D // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIterator.pas'
+
+ref; // ME_55E9ACD10199 TtfwDictionaryListIterator
+
+FORWARD ME_55E9AD120155
+
+: ME_55E9AD2D0305
+ CONST UID '55E9AD2D0305'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55E9AD120155 // TtfwInitedDictionariesListIterator
+ ;
+ : Target ME_55A53B44029F // TtfwInitedDictionariesList
+ ;
+
+ref; // ME_55E9AD2D0305 ListType
+
+: ME_55E9AD120155
+ CONST UID '55E9AD120155'
+ CONST Name 'TtfwInitedDictionariesListIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55E9AD2D0305 // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwInitedDictionariesListIterator.pas'
+
+ref; // ME_55E9AD120155 TtfwInitedDictionariesListIterator
+
+FORWARD ME_55ED4D040017
+
+: ME_55ED4D4B0071
+ CONST UID '55ED4D4B0071'
+ CONST Name 'f_Words'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ : Target WL 'ME_4DB6CAC402B4' '54F07F0302C2.pas.ms.script' // TtfwWordRefList
+ ;
+
+ref; // ME_55ED4D4B0071 f_Words
+
+FORWARD ME_55ED4DC20358
+
+: ME_55ED4DD40105
+ CONST UID '55ED4DD40105'
+ CONST Name 'aWords'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB6CAC402B4' '54F07F0302C2.pas.ms.script' // TtfwWordRefList
+ ;
+
+ref; // ME_55ED4DD40105 aWords
+
+: ME_55ED4DCA01B6
+ CONST UID '55ED4DCA01B6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED4DC20358 // Create
+ ;
+ : Parameters
+   @ ( ME_55ED4DD40105 // aWords
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55ED4DCA01B6 DoIt
+
+: ME_55ED4DC20358
+ CONST UID '55ED4DC20358'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ : Operations
+   @ ( ME_55ED4DCA01B6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55ED4DC20358 Create
+
+FORWARD ME_55ED4DDB03D8
+
+: ME_37A47E7BC864
+ CONST UID '37A47E7BC864'
+ CONST Name 'aWords'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB6CAC402B4' '54F07F0302C2.pas.ms.script' // TtfwWordRefList
+ ;
+
+ref; // ME_37A47E7BC864 aWords
+
+: ME_45843FCC7984
+ CONST UID '45843FCC7984'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TtfwWordsIterator.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED4DDB03D8 // Make
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+ : Parameters
+   @ ( ME_37A47E7BC864 // aWords
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_45843FCC7984 DoIt
+
+: ME_55ED4DDB03D8
+ CONST UID '55ED4DDB03D8'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ : Inherits
+   @ ( ME_55ED4DC20358 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_45843FCC7984 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_55ED4DDB03D8 Make
+
+: ME_55ED4D7101F0
+ CONST UID '55ED4D7101F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55ED4D7101F0 
+
+: ME_52E23B7A00EC_ME_55ED4D040017
+ CONST UID '52E23B7A00EC'
+ CONST Name 'ForEach'
+ : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
+ ;
+ : Implementor ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52E23B7A00EC_ME_55ED4D040017 ForEach
+
+: ME_52E23BB102FA_ME_55ED4D040017
+ CONST UID '52E23BB102FA'
+ CONST Name 'ForEachBack'
+ : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
+ ;
+ : Implementor ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52E23BB102FA_ME_55ED4D040017 ForEachBack
+
+: ME_55CDF40C03D4_ME_55ED4D040017
+ CONST UID '55CDF40C03D4'
+ CONST Name 'SetItem'
+ : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
+ ;
+ : Implementor ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55CDF40C03D4_ME_55ED4D040017 SetItem
+
+: ME_55E849210175_ME_55ED4D040017
+ CONST UID '55E849210175'
+ CONST Name 'ItemsCountInSlice'
+ : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
+ ;
+ : Implementor ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55E849210175_ME_55ED4D040017 ItemsCountInSlice
+
+: ME_479731C50290_ME_55ED4D040017
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_55ED4D040017 // TtfwWordsIterator
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_55ED4D040017 Cleanup
+
+: ME_55ED4D040017
+ CONST UID '55ED4D040017'
+ CONST Name 'TtfwWordsIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F2275C00012 // ScriptingKeywordsCore
+ ;
+ : Inherits
+   @ ( WL 'ME_52E29ED5016B' '54F0A4A302FF.pas.ms.script' // TtfwIteratableParent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55ED4D4B0071 // f_Words
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55ED4DC20358 // Create
+ ME_55ED4DDB03D8 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_52E23B7A00EC_ME_55ED4D040017 // ForEach
+ ME_52E23BB102FA_ME_55ED4D040017 // ForEachBack
+ ME_55CDF40C03D4_ME_55ED4D040017 // SetItem
+ ME_55E849210175_ME_55ED4D040017 // ItemsCountInSlice
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_55ED4D040017 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55ED4D7101F0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordsIterator.pas'
+
+ref; // ME_55ED4D040017 TtfwWordsIterator
+
+: ME_4F2275C00012
+ CONST UID '4F2275C00012'
+ CONST Name 'ScriptingKeywordsCore'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ ;
+ : Children
+   @ ( ME_4DAEECD90016 // TtfwDictionary
+ ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ME_559F5E060345 // TtfwDictionaryPtrList
+ ME_55B0E6F2013C // tfwDictionaryListPrim
+ ME_55A63D8C00F0 // tfwDictionaryList
+ ME_55A7DA0200C0 // TtfwInitCodeWord
+ ME_55A53B44029F // TtfwInitedDictionariesList
+ ME_55A63C1701BE // tfwNamedDictionaryList
+ ME_559E8B2E0385 // TtfwDictionaryEx
+ ME_559E758B01BB // TtfwDictionaryListPrim
+ ME_55A0005D02CC // TtfwMainDictionary
+ ME_55B0E773009A // tfwSortedDictionaryList
+ ME_55A63D16038C // TtfwMainDictionaryList
+ ME_55A63D300062 // TtfwMainDictionaryCache
+ ME_55B0EF37007C // TtfwStandardDictionary
+ ME_4F4BB70D0144 // TkwForwardDeclaration
+ ME_55A4E71403B3 // TtfwDictionaryList
+ ME_55AE5B950148 // TtfwDictionaryDataIteratorPrim
+ ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ME_55AE649000FB // TtfwDictionaryPtrListIterator
+ ME_55AE651402AA // TtfwUsedDictionariesIterator
+ ME_559E7FC70157 // TtfwDictionaryStack
+ ME_55C0BC550280 // TtfwDictionaryCachePrim
+ ME_55B0FF1501FC // TtfwStandardDictionaryListPrim
+ ME_4DB05FF60115 // TtfwAutoregisteredDiction
+ ME_55B0EFA300D1 // TtfwStandardDictionaryList
+ ME_55B0E7AD026B // TtfwStandardDictionaries
+ ME_55A3DF0603C6 // TtfwDictionaryCache
+ ME_55AE650002D8 // TtfwExportedDictionariesIterator
+ ME_55E9AB2C03C3 // tfwDictionaryListIterator
+ ME_55E9ABFB03AA // TtfwStandardDictionaryListIterator
+ ME_55E9ACD10199 // TtfwDictionaryListIterator
+ ME_55E9AD120155 // TtfwInitedDictionariesListIterator
+ ME_55ED4D040017 // TtfwWordsIterator
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4B893514021E' '4B893514021E.pas.ms.script' // Pretty Things
+ WL 'ME_4C1B474600AD' '4C1B474600AD.pas.ms.script' // Parser
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4F4734A40270' '4F4734A40270.pas.ms.script' // Parser
+ WL 'ME_4F473F0902B2' '4F473F0902B2.pas.ms.script' // CString
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_54F07F0302C2' '54F07F0302C2.pas.ms.script' // WordsList
+ WL 'ME_54F0A4A302FF' '54F0A4A302FF.pas.ms.script' // Array
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F2275C00012.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F2275C00012.pas.ms.script.runner'
+
+ref; // ME_4F2275C00012 ScriptingKeywordsCore

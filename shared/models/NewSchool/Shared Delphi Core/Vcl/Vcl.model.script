@@ -1,0 +1,4642 @@
+<<Library>> Vcl
+ %UID '4684F91300DD'
+ %SUMMARY 'Visual Component Library.' ;
+ %DEPENDS
+  U$ '469F3E37025A' /* Rtl */
+  U$ '561F9F7D02A7' /* ScriptEngine */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "finished" false
+  %upv "gui" 'rtl'
+  %upv "is namespace" true
+  %upv "vendor" '/external/NotFinished/Borland/Delphi'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> Implementation
+   %UID '4799D29F033F'
+   %SUMMARY 'Реализация.' ;
+   %DEPENDS
+    U$ '4728A7020026' /* Types */
+    U$ '476F78840219' /* Messages */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'NoVCL'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> ActnList
+      %UID '47E76250004C'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TContainedAction
+         %UID '47E76278025E'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E762B6004C' /* TBasicAction */
+         ; // %INHERITS
+        ; // TContainedAction
+        <<SimpleClass>> TCustomAction
+         %UID '47E7626B0083'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E76278025E' /* TContainedAction */
+         ; // %INHERITS
+        ; // TCustomAction
+        <<SimpleClass>> TShortCutList
+         %UID '499563790006'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TShortCutList
+        <<SimpleClass>> TAction
+         %UID '4AC0EFDD029A'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E7626B0083' /* TCustomAction */
+         ; // %INHERITS
+        ; // TAction
+        <<SimpleClass>> TCustomActionList
+         %UID '52A823770326'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TCustomActionList
+        <<SimpleClass>> TActionLink
+         %UID '508F9823023D'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '52A088B20026' /* TBasicActionLink */
+         ; // %INHERITS
+         %OPERATIONS
+           PROTECTED <<method>> IsCaptionLinked
+            %UID '508F983B0344'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98CD03C9'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsCaptionLinked
+           PROTECTED <<method>> IsCheckedLinked
+            %UID '508F984903AB'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98D90170'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsCheckedLinked
+           PROTECTED <<method>> IsEnabledLinked
+            %UID '508F985802BC'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98DE0026'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsEnabledLinked
+           PROTECTED <<method>> IsGroupIndexLinked
+            %UID '508F986500A8'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98E2002D'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsGroupIndexLinked
+           PROTECTED <<method>> IsHelpContextLinked
+            %UID '508F98890136'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98E60141'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsHelpContextLinked
+           PROTECTED <<method>> IsHelpLinked
+            %UID '508F98940186'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98EB00E7'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsHelpLinked
+           PROTECTED <<method>> IsHintLinked
+            %UID '508F98A000B7'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98EF0101'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsHintLinked
+           PROTECTED <<method>> IsImageIndexLinked
+            %UID '508F98AD0210'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98F2027B'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsImageIndexLinked
+           PROTECTED <<method>> IsShortCutLinked
+            %UID '508F98B80325'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98F602E6'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsShortCutLinked
+           PROTECTED <<method>> IsVisibleLinked
+            %UID '508F98C402D2'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F98FA0208'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsVisibleLinked
+           PROTECTED <<method>> SetAutoCheck
+            %UID '508F990A01A7'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F99A903B0'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F99AE00E5'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetAutoCheck
+           PROTECTED <<method>> SetCaption
+            %UID '508F991B003B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F99E6039C'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '5175380C01FA'
+                  %TARGET U$ '51546CAE03B7' /* String$XE */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetCaption
+           PROTECTED <<method>> SetChecked
+            %UID '508F992700F4'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F99B7001E'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F99B8015E'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetChecked
+           PROTECTED <<method>> SetEnabled
+            %UID '508F99340058'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F99C600C7'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F99C70017'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetEnabled
+           PROTECTED <<method>> SetGroupIndex
+            %UID '508F993F026A'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F9A120047'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F9A14031F'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetGroupIndex
+           PROTECTED <<method>> SetHelpContext
+            %UID '508F994C023C'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F9A3502F9'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F9A3801D0'
+                  %TARGET U$ '508FA905037C' /* THelpContext */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetHelpContext
+           PROTECTED <<method>> SetHelpKeyword
+            %UID '508F9958019E'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F9A4901B0'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F9A4D031E'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetHelpKeyword
+           PROTECTED <<method>> SetHelpType
+            %UID '508F99650101'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F9A57006A'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F9A5A01BE'
+                  %TARGET U$ '508FA9150190' /* THelpType */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetHelpType
+           PROTECTED <<method>> SetHint
+            %UID '508F99710030'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F99FF03D8'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F9A000327'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetHint
+           PROTECTED <<method>> SetImageIndex
+            %UID '508F997C0142'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F9A1F0301'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F9A210029'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetImageIndex
+           PROTECTED <<method>> SetShortCut
+            %UID '508F998A00F3'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F9A6902F3'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F9A6C006B'
+                  %TARGET U$ '499562B802E7' /* TShortCut */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetShortCut
+           PROTECTED <<method>> SetVisible
+            %UID '508F99970386'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F99CE02C1'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '508F99D00078'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetVisible
+         ; // %OPERATIONS
+         %CHILDREN
+          
+           <<Typedef>> TActionLinkClass
+            %UID '508F9AC6006D'
+            %META
+             %upv "isClassRef" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '508F9823023D' /* TActionLink */
+            ; // %INHERITS
+           ; // TActionLinkClass
+         ; // %CHILDREN
+        ; // TActionLink
+        <<SimpleClass>> TActionList
+         %UID '4EF32DDB0235'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '52A823770326' /* TCustomActionList */
+         ; // %INHERITS
+        ; // TActionList
+      ; // %CHILDREN
+     ; // ActnList
+     FINAL <<UtilityPack>> Controls
+      %UID '47E11FC3021E'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> FindControl
+         %UID '4AAF9CFA0263'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'EE28020FE13E'
+            %SUMMARY 'Сигнатура метода FindControl' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FindControl
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Enum>> TAlign
+         %UID '47E12539018D'
+         %ATTRIBUTES
+           <<Attribute>> alNone
+            %UID '47E125960045'
+           ; // alNone
+           <<Attribute>> alTop
+            %UID '47E1259A02C3'
+           ; // alTop
+           <<Attribute>> alBottom
+            %UID '47E1259F0010'
+           ; // alBottom
+           <<Attribute>> alLeft
+            %UID '47E125A40071'
+           ; // alLeft
+           <<Attribute>> alRight
+            %UID '47E125A802C0'
+           ; // alRight
+           <<Attribute>> alClient
+            %UID '47E125AD007B'
+           ; // alClient
+           <<Attribute>> alCustom
+            %UID '47E125B10109'
+           ; // alCustom
+         ; // %ATTRIBUTES
+        ; // TAlign
+        <<Enum>> _TControlStyle
+         %UID '47E1245D005E'
+        ; // _TControlStyle
+        <<Enum>> _TControlState
+         %UID '47E124480260'
+        ; // _TControlState
+        <<SetOf>> TControlState
+         %UID '47E124350084'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E124480260' /* _TControlState */
+         ; // %INHERITS
+        ; // TControlState
+        <<SetOf>> TControlStyle
+         %UID '47E1240D016B'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E1245D005E' /* _TControlStyle */
+         ; // %INHERITS
+        ; // TControlStyle
+        <<Typedef>> TWndMethod
+         %UID '47E124B7025A'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E124920022' /* TWndMethod */
+         ; // %INHERITS
+        ; // TWndMethod
+        <<SimpleClass>> TControlActionLink
+         %UID '48BBF59C024E'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508F9823023D' /* TActionLink */
+         ; // %INHERITS
+        ; // TControlActionLink
+        <<Struct>> TCreateParams
+         %UID '48C67E8800A7'
+         %SUMMARY 'TCreateParams is the window-creation parameter record used to specify the type of window to create for a windowed control' ;
+        ; // TCreateParams
+        <<Enum>> TDragMode
+         %UID '47E1254D0069'
+        ; // TDragMode
+        <<Enum>> TAnchorKind
+         %UID '47E1255F013A'
+         %ATTRIBUTES
+           <<Attribute>> akLeft
+            %UID '47E125730005'
+           ; // akLeft
+           <<Attribute>> akTop
+            %UID '47E125780376'
+           ; // akTop
+           <<Attribute>> akRight
+            %UID '47E1257D00FB'
+           ; // akRight
+           <<Attribute>> akBottom
+            %UID '47E125820030'
+           ; // akBottom
+         ; // %ATTRIBUTES
+        ; // TAnchorKind
+        <<SetOf>> TAnchors
+         %UID '47E12569002F'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E1255F013A' /* TAnchorKind */
+         ; // %INHERITS
+        ; // TAnchors
+        <<SetOf>> TAlignSet
+         %UID '47E125C002C8'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E12539018D' /* TAlign */
+         ; // %INHERITS
+        ; // TAlignSet
+        <<Enum>> TMouseButton
+         %UID '4D5EBB350068'
+        ; // TMouseButton
+        <<Typedef>> TModalResult
+         %UID '47FE430F0088'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47C6CC1A033B' /* ShortInt */
+         ; // %INHERITS
+        ; // TModalResult
+        <<Typedef>> TControlActionLinkClass
+         %UID '4F88450800F6'
+         %META
+          %upv "isClassRef" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '48BBF59C024E' /* TControlActionLink */
+         ; // %IMPLEMENTS
+        ; // TControlActionLinkClass
+        <<SimpleClass>> TDragImageList
+         %UID '48BFA01B02E1'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TDragImageList
+        <<SimpleClass>> TDragDockObject
+         %UID '4F8851F9033B'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TDragDockObject
+        <<Enum>> TBevelCut
+         %UID '48C7B9BC037B'
+         %SUMMARY 'TPanelBevel specifies a bevel’s cut' ;
+         %ATTRIBUTES
+           <<Attribute>> bvNone
+            %UID '48C7B9CE01A2'
+           ; // bvNone
+           <<Attribute>> bvLowered
+            %UID '48C7B9D40154'
+           ; // bvLowered
+           <<Attribute>> bvRaised
+            %UID '48C7B9D9006D'
+           ; // bvRaised
+           <<Attribute>> bvSpace
+            %UID '48C7B9DE00EC'
+           ; // bvSpace
+         ; // %ATTRIBUTES
+        ; // TBevelCut
+        <<Struct>> TCMCancelMode
+         %UID '48E22CB90016'
+        ; // TCMCancelMode
+        <<ObjStub>> TControl$Stub
+         %UID '47756BD70222'
+         %SUMMARY 'Визуальный контрол.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46A4B9AA00F0' /* TComponent$Stub */
+         ; // %INHERITS
+        ; // TControl$Stub
+        <<ObjStub>> TWinControl$Stub
+         %UID '47880D2D016B'
+         %SUMMARY 'TWinControl is the base class for all controls that are wrappers for Microsoft Windows screen objects.' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47756BD70222' /* TControl$Stub */
+         ; // %INHERITS
+        ; // TWinControl$Stub
+        <<Facet>> IDockManager$Stub
+         %UID '4995572F0092'
+        ; // IDockManager$Stub
+        <<Constants>> CM_Messages
+         %UID '47979588035F'
+         %SUMMARY 'VCL control message IDs' ;
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> CM_BASE
+            %UID '479795C5036A'
+            %VALUE '$B000'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // CM_BASE
+           <<Attribute>> CM_TEXTCHANGED
+            %UID '479795CF03E7'
+            %VALUE 'CM_BASE + 18'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // CM_TEXTCHANGED
+         ; // %ATTRIBUTES
+        ; // CM_Messages
+        <<Constants>> ModalResults
+         %UID '4A980B37006B'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> mrCancel
+            %UID '4A980B44028A'
+            %VALUE 'idCancel'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // mrCancel
+           <<Attribute>> mrNone
+            %UID '4E03246A01DE'
+            %VALUE 0
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // mrNone
+         ; // %ATTRIBUTES
+        ; // ModalResults
+        <<Typedef>> TDate
+         %UID '4B2F56AF021D'
+         %META
+          %upv "newRTTI" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47272C8B0128' /* TDateTime */
+         ; // %INHERITS
+        ; // TDate
+        <<Struct>> TCMEnter
+         %UID '4C35BEF20229'
+        ; // TCMEnter
+        <<Struct>> TCMExit
+         %UID '4C35C1730235'
+        ; // TCMExit
+        <<Enum>> TDragState
+         %UID '50FD3351038B'
+        ; // TDragState
+        <<Enum>> TCursor
+         %UID '4E788E98006B'
+        ; // TCursor
+
+        // Необходимые forward определения
+         // TWinControl 47E124E90272
+
+        <<SimpleClass>> TControl
+         %UID '47E1201703C3'
+         %SUMMARY 'TControl is the base class for all components that are visible at runtime.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" true
+         ; // %META
+         %FORWARDS
+          U$ '47E124E90272' /* TWinControl */
+         ; // %FORWARDS
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '479878FA0103' /* TComponent */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "23B89D13F32B"
+            %UID '23B89D13F32B'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 23B89D13F32B
+         ; // %LINKS
+         %ATTRIBUTES
+           FINAL <<property>> Align
+            %UID '4F2FEC7002E4'
+            %TARGET U$ '47E12539018D' /* TAlign */
+            %VALUE 'alNone'
+            %META
+             %upv "needs field" true
+             %upv "pm" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // Align
+           SUMMONED PRIVATE <<Attribute>> f_Align
+            %UID '1A5252A06C7B'
+            %SUMMARY 'Поле для свойства Align' ;
+            %TARGET U$ '47E12539018D' /* TAlign */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // f_Align
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PROTECTED <<method>> MouseUp
+            %UID '4E7896270076'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4E7896320102'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Button
+                  %UID '4E78964801FE'
+                  %TARGET U$ '4D5EBB350068' /* TMouseButton */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // Button
+                 <<in>> Shift
+                  %UID '4E789648022A'
+                  %TARGET U$ '4728CE680258' /* TShiftState */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Shift
+                 <<in>> X
+                  %UID '4E789648025E'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '4E7896480290'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // MouseUp
+           PROTECTED <<virtualmethod>> SetParent$4F71E1460089
+            %UID '4F71E1460089'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$4F71E15601FE
+               %UID '4F71E15601FE'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> AParent
+                  %UID '4F71E15A02E0'
+                  %TARGET U$ '47E124E90272' /* TWinControl */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // AParent
+               ; // %PARAMETERS
+              ; // DoIt$4F71E15601FE
+            ; // %OPERATIONS
+           ; // SetParent$4F71E1460089
+           PROTECTED <<method>> GetActionLinkClass
+            %UID '4F8845840032'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F884591028B'
+               %TARGET U$ '4F88450800F6' /* TControlActionLinkClass */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetActionLinkClass
+           PROTECTED <<method>> Click
+            %UID '4F88469E0021'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '3C73589ECB50'
+               %SUMMARY 'Сигнатура метода Click' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Click
+           PROTECTED <<method>> DblClick
+            %UID '4F8846EE022A'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '39C247C71560'
+               %SUMMARY 'Сигнатура метода DblClick' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DblClick
+           PROTECTED <<method>> MouseDown
+            %UID '4F88473B03CD'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F88476701B5'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Button
+                  %UID '4F8847770296'
+                  %TARGET U$ '4D5EBB350068' /* TMouseButton */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // Button
+                 <<in>> Shift
+                  %UID '4F88477702B9'
+                  %TARGET U$ '4728CE680258' /* TShiftState */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Shift
+                 <<in>> X
+                  %UID '4F88477702DB'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '4F88477702FE'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // MouseDown
+           PROTECTED <<method>> SetBounds
+            %UID '4F2A599E0283'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F2A85F90265'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> ALeft
+                  %UID '4F2A8610011D'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // ALeft
+                 <<in>> ATop
+                  %UID '4F2A86100163'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // ATop
+                 <<in>> AWidth
+                  %UID '4F2A861001AE'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // AWidth
+                 <<in>> AHeight
+                  %UID '4F2A861001FE'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // AHeight
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetBounds
+           <<method>> InitiateAction
+            %UID '4F884F39020F'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '3A6B6B6A9F12'
+               %SUMMARY 'Сигнатура метода InitiateAction' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // InitiateAction
+           PROTECTED <<method>> RequestAlign
+            %UID '5022104B03A6'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'BA7709EC7A8D'
+               %SUMMARY 'Сигнатура метода RequestAlign' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // RequestAlign
+           <<method>> MouseWheelHandler
+            %UID '515317860183'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5153179101FD'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<inout>> Message
+                  %UID '5153179401BC'
+                  %TARGET U$ '476F78A602B2' /* TMessage */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Message
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // MouseWheelHandler
+           PROTECTED <<method>> ActionChange
+            %UID '52A9A8710199'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52A9A88702D0'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Sender
+                  %UID '52A9A88A0151'
+                  %TARGET U$ '4807745602C8' /* TObject */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Sender
+                 <<in>> CheckDefaults
+                  %UID '52A9A88A016B'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // CheckDefaults
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ActionChange
+           PROTECTED <<method>> PositionDockRect
+            %UID '52BC260803B0'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52BC261101D1'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> DragDockObject
+                  %UID '52BC261400A9'
+                  %TARGET U$ '4F8851F9033B' /* TDragDockObject */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // DragDockObject
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // PositionDockRect
+           PROTECTED <<method>> HintChanged
+            %UID '53F34DE200C9'
+            %META
+             %upv "ifdef" 'l3HackedVCL'
+             %upv "ifndef" 'DesignTimeLibrary'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '53F34DFC0187'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aHint
+                  %UID '53F34E07029D'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aHint
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // HintChanged
+           PROTECTED <<method>> SetZOrder
+            %UID '550ABB5E00AE'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '550ABB7D0219'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> TopMost
+                  %UID '550ABB85028D'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // TopMost
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetZOrder
+           PROTECTED <<Operation>> WndProc
+            %UID '47E136A80191'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Message
+               %UID '47E136AE0353'
+               %TARGET U$ '476F78A602B2' /* TMessage */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Message
+            ; // %PARAMETERS
+           ; // WndProc
+           <<Operation>> Invalidate
+            %UID '48C6CC4A0395'
+            %SUMMARY 'Completely repaint control' ;
+           ; // Invalidate
+           PROTECTED <<Operation>> DoContextPopup
+            %UID '48E22A6B00BE'
+            %SUMMARY 'OnContextPopup event dispatcher' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<noconst>> MousePos
+               %UID '48E23EC20053'
+               %TARGET U$ '4739AD110072' /* TPoint */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // MousePos
+              <<inout>> Handled
+               %UID '48E23EC20079'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Handled
+            ; // %PARAMETERS
+           ; // DoContextPopup
+           PROTECTED <<Operation>> MouseMove
+            %UID '48E22B250241'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Shift
+               %UID '48E22B340324'
+               %TARGET U$ '4728CE680258' /* TShiftState */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Shift
+              <<in>> X
+               %UID '48E22B34034A'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // X
+              <<in>> Y
+               %UID '48E22B340371'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Y
+            ; // %PARAMETERS
+           ; // MouseMove
+           PROTECTED <<Operation>> SetParent$4A97E78202FC
+            %UID '4A97E78202FC'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> AParent
+               %UID '4A97E7890030'
+               %TARGET U$ '47E124E90272' /* TWinControl */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // AParent
+            ; // %PARAMETERS
+           ; // SetParent$4A97E78202FC
+           PROTECTED <<Operation>> Resize
+            %UID '4CC8417A0288'
+           ; // Resize
+           PROTECTED <<Operation>> VisibleChanging
+            %UID '4CC8658C017B'
+           ; // VisibleChanging
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '9C20B5338CA4'
+            %SUMMARY 'Регистрация TControl' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TControl
+        <<SimpleClass>> TWinControl
+         %UID '47E124E90272'
+         %SUMMARY 'TWinControl is the base class for all controls that are wrappers for Microsoft Windows screen objects.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E1201703C3' /* TControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "50395535F7FD"
+            %UID '50395535F7FD'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 50395535F7FD
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> SelectNext
+            %UID '4D5D1505007A'
+            %META
+             %upv "ifdef" 'l3HackedVCL'
+             %upv "ifndef" 'DesignTimeLibrary'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> SelectNext
+               %UID '4D5D15180115'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> CurControl
+                  %UID '4D5D153E0209'
+                  %TARGET U$ '47E124E90272' /* TWinControl */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // CurControl
+                 <<in>> GoForward
+                  %UID '4D5D153E0247'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // GoForward
+                 <<in>> CheckTabStop
+                  %UID '4D5D153E0279'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // CheckTabStop
+               ; // %PARAMETERS
+              ; // SelectNext
+            ; // %OPERATIONS
+           ; // SelectNext
+           <<method>> CanFocus
+            %UID '4E1350DE0094'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4E1350E8014A'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CanFocus
+           PROTECTED <<method>> ForceWMSize
+            %UID '4E955E8F0237'
+            %META
+             %upv "ifdef" 'l3HackedVCL'
+             %upv "ifndef" 'DesignTimeLibrary'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4E955EA90211'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aWidth
+                  %UID '4E955F290122'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aWidth
+                 <<in>> aHeight
+                  %UID '4E955F29016E'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aHeight
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ForceWMSize
+           <<method>> DockDrop
+            %UID '4F8851380274'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F8851530294'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Source
+                  %UID '4F885165022A'
+                  %TARGET U$ '4F8851F9033B' /* TDragDockObject */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // Source
+                 <<in>> X
+                  %UID '4F885165024C'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '4F885165026F'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DockDrop
+           PROTECTED <<method>> AlignControls
+            %UID '5028E66702B0'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5028E67001ED'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> AControl
+                  %UID '5028E674023A'
+                  %TARGET U$ '47E1201703C3' /* TControl */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // AControl
+                 <<inout>> Rect
+                  %UID '5028E6740299'
+                  %TARGET U$ '4728A7190065' /* TRect */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Rect
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AlignControls
+           PROTECTED <<method>> AdjustClientRect
+            %UID '508F957E0283'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '508F95870313'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<inout>> Rect
+                  %UID '508F958C00B6'
+                  %TARGET U$ '4728A7190065' /* TRect */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Rect
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AdjustClientRect
+           PROTECTED <<method>> SetParentBackground
+            %UID '50FD31EE009B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '50FD3202037B'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '50FD3208005D'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetParentBackground
+           PROTECTED <<method>> DockOver
+            %UID '50FD32F103CA'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '50FD33060118'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Source
+                  %UID '50FD33160354'
+                  %TARGET U$ '4F8851F9033B' /* TDragDockObject */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // Source
+                 <<in>> X
+                  %UID '50FD33160388'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '50FD331603C7'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+                 <<in>> State
+                  %UID '50FD33170017'
+                  %TARGET U$ '50FD3351038B' /* TDragState */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // State
+                 <<inout>> Accept
+                  %UID '50FD33170050'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Accept
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DockOver
+           PROTECTED <<method>> GetSiteInfo
+            %UID '52B9A6A80336'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52B9A74A02CE'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Client
+                  %UID '52B9A75B03A9'
+                  %TARGET U$ '47E1201703C3' /* TControl */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // Client
+                 <<inout>> InfluenceRect
+                  %UID '52B9A75C0002'
+                  %TARGET U$ '4728A7190065' /* TRect */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // InfluenceRect
+                 <<noconst>> MousePos
+                  %UID '52BD9A7E027D'
+                  %TARGET U$ '4739AD110072' /* TPoint */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // MousePos
+                 <<inout>> CanDock
+                  %UID '52B9A75C0088'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // CanDock
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetSiteInfo
+           PROTECTED <<method>> DoEnter
+            %UID '53F45A560187'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '85C40BB223AB'
+               %SUMMARY 'Сигнатура метода DoEnter' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DoEnter
+           PROTECTED <<method>> KeyDown
+            %UID '554CABC100AC'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '554CABD0029A'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<inout>> Key
+                  %UID '554CABD40201'
+                  %TARGET U$ '476F71A701AB' /* Word */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Key
+                 <<in>> Shift
+                  %UID '554CABD4021A'
+                  %TARGET U$ '4728CE680258' /* TShiftState */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Shift
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // KeyDown
+           PROTECTED <<Operation>> KeyPress
+            %UID '482C4E0E01E4'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Key
+               %UID '482C4E18023A'
+               %TARGET U$ '515D4C4F020D' /* Char$XE */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Key
+            ; // %PARAMETERS
+           ; // KeyPress
+           PROTECTED <<Operation>> CreateWindowHandle
+            %UID '48C67EB000EE'
+            %SUMMARY 'Creates a Windows control to represent the control' ;
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Params
+               %UID '48C67ED10077'
+               %TARGET U$ '48C67E8800A7' /* TCreateParams */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // Params
+            ; // %PARAMETERS
+           ; // CreateWindowHandle
+           PROTECTED <<Operation>> DestroyWindowHandle
+            %UID '48C67EDF01C8'
+            %SUMMARY 'Destroys the window created in the CreateWindowHandle method' ;
+           ; // DestroyWindowHandle
+           PROTECTED <<Operation>> PaintWindow
+            %UID '48C6BFF80313'
+            %SUMMARY 'Renders the image of a windowed control' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> DC
+               %UID '48C6C00C0090'
+               %TARGET U$ '46A46A35004F' /* hDC */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DC
+            ; // %PARAMETERS
+           ; // PaintWindow
+           PROTECTED <<Operation>> CreateParams
+            %UID '48C7925A02E5'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Params
+               %UID '48C7925E0225'
+               %TARGET U$ '48C67E8800A7' /* TCreateParams */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // Params
+            ; // %PARAMETERS
+           ; // CreateParams
+           PROTECTED <<Operation>> LockPainting
+            %UID '49CB9A6403B5'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "ifdef" 'l3HackedVCL'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // LockPainting
+           PROTECTED <<Operation>> CreateWnd
+            %UID '4CC8414403B8'
+           ; // CreateWnd
+           PROTECTED <<Operation>> DestroyWnd
+            %UID '4CC841540158'
+           ; // DestroyWnd
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '761E5486914C'
+            %SUMMARY 'Регистрация TWinControl' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TWinControl
+        <<SimpleClass>> TCustomControl
+         %UID '47E1388A03A7'
+         %SUMMARY 'Base class for controls that wrap Windows screen objects but perform their own rendering.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E124E90272' /* TWinControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "513ED83022B5"
+            %UID '513ED83022B5'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 513ED83022B5
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> Paint
+            %UID '5028A60300AD'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'D653438E20F5'
+               %SUMMARY 'Сигнатура метода Paint' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Paint
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '5B2C15AA9620'
+            %SUMMARY 'Регистрация TCustomControl' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomControl
+        <<Typedef>> TCMDialogKey
+         %UID '4F914CD400A4'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '482C45D3015C' /* TWMKey */
+         ; // %INHERITS
+        ; // TCMDialogKey
+        <<SimpleClass>> TImageList
+         %UID '5028E799021D'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TImageList
+        <<SimpleClass>> THintWindow
+         %UID '50C61B670302'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E1388A03A7' /* TCustomControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "26819683ADB3"
+            %UID '26819683ADB3'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 26819683ADB3
+         ; // %LINKS
+         %OPERATIONS
+           <<method>> ActivateHint
+            %UID '50C61BA40123'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '50C61BB30302'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<noconst>> Rect
+                  %UID '50C64025003C'
+                  %TARGET U$ '4728A7190065' /* TRect */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Rect
+                 <<in>> AHint
+                  %UID '50C61BBC0171'
+                  %TARGET U$ '51546CAE03B7' /* String$XE */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // AHint
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ActivateHint
+           <<method>> IsHintMsg
+            %UID '50C61BD700BF'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '50C61BE100A3'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<inout>> Msg
+                  %UID '50C61BE5005E'
+                  %TARGET U$ '50C62DC503C9' /* TMsg */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Msg
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsHintMsg
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'B3537150281E'
+            %SUMMARY 'Регистрация THintWindow' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // THintWindow
+        <<Range>> TBevelWidth
+         %UID '50FD194A022A'
+         %META
+          %upv "spell names" false
+         ; // %META
+        ; // TBevelWidth
+        <<Range>> TBorderWidth
+         %UID '50FD196E008A'
+         %META
+          %upv "spell names" false
+         ; // %META
+        ; // TBorderWidth
+        <<SimpleClass>> TGraphicControl
+         %UID '4F2A5AA1012C'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E1201703C3' /* TControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "337305C4AC9C"
+            %UID '337305C4AC9C'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 337305C4AC9C
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> Paint
+            %UID '4F2A5B6A02A5'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F2A8633016E'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Paint
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'CE0BEED481EB'
+            %SUMMARY 'Регистрация TGraphicControl' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TGraphicControl
+        <<Function>> TMouseEvent
+         %UID '515183DD03C3'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '515183FC003A'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Sender
+               %UID '5151996600E0'
+               %TARGET U$ '4807745602C8' /* TObject */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Sender
+              <<in>> Button
+               %UID '515199660110'
+               %TARGET U$ '4D5EBB350068' /* TMouseButton */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // Button
+              <<in>> Shift
+               %UID '515199660140'
+               %TARGET U$ '4728CE680258' /* TShiftState */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Shift
+              <<in>> X
+               %UID '515199660170'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // X
+              <<in>> Y
+               %UID '5151996601A1'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Y
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TMouseEvent
+        <<Function>> TKeyEvent
+         %UID '51B595330096'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '51B5954F012D'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Sender
+               %UID '51B595550034'
+               %TARGET U$ '4807745602C8' /* TObject */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Sender
+              <<inout>> Key
+               %UID '51B59555004D'
+               %TARGET U$ '476F71A701AB' /* Word */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Key
+              <<in>> Shift
+               %UID '51B595550066'
+               %TARGET U$ '4728CE680258' /* TShiftState */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Shift
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TKeyEvent
+        <<SimpleClass>> TWinControlActionLink
+         %UID '52A8462B0355'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '48BBF59C024E' /* TControlActionLink */
+         ; // %INHERITS
+        ; // TWinControlActionLink
+        <<Struct>> TCMDockNotification
+         %UID '52BB30A0016B'
+        ; // TCMDockNotification
+        <<Typedef>> TControlClass
+         %UID '53A299780097'
+         %META
+          %upv "isClassRef" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E1201703C3' /* TControl */
+         ; // %INHERITS
+        ; // TControlClass
+        <<Enum>> TBevelKind
+         %UID '54C27E8C0136'
+        ; // TBevelKind
+      ; // %CHILDREN
+     ; // Controls
+     FINAL <<UtilityPack>> Forms
+      %UID '47E13C6B0341'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> Application
+         %UID '4C8A2ADD01B1'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'F559EC1BF9CD'
+            %SUMMARY 'Сигнатура метода Application' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Application
+        FINAL <<method>> KeyDataToShiftState
+         %UID '4F75B95B02BD'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'AEE68ABF064C'
+            %SUMMARY 'Сигнатура метода KeyDataToShiftState' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // KeyDataToShiftState
+        FINAL <<Operation>> KeysToShiftState
+         %UID '47E13C7301D2'
+        ; // KeysToShiftState
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TApplication
+         %UID '47ECE41C00D2'
+         %SUMMARY 'TApplication is the type used for a GUI windowed application.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '479878FA0103' /* TComponent */
+         ; // %INHERITS
+        ; // TApplication
+        <<Enum>> TBorderStyle
+         %UID '482B17100178'
+        ; // TBorderStyle
+        <<SimpleClass>> TScrollingWinControl
+         %UID '495259490229'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E124E90272' /* TWinControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "64453FCF31AD"
+            %UID '64453FCF31AD'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 64453FCF31AD
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '9626D6DDF9AE'
+            %SUMMARY 'Регистрация TScrollingWinControl' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TScrollingWinControl
+        <<Enum>> TCloseAction
+         %UID '52BD888400E3'
+        ; // TCloseAction
+        <<SimpleClass>> TCustomForm
+         %UID '484529DC0276'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '495259490229' /* TScrollingWinControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "3CF0B65F0E68"
+            %UID '3CF0B65F0E68'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 3CF0B65F0E68
+         ; // %LINKS
+         %OPERATIONS
+           <<method>> ShowModal
+            %UID '520B42AF0115'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '520B42C90138'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ShowModal
+           PROTECTED <<method>> UpdateActions
+            %UID '533AA4B4006B'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'C167E8486F3A'
+               %SUMMARY 'Сигнатура метода UpdateActions' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // UpdateActions
+           PROTECTED <<method>> DoClose
+            %UID '5576E05C0204'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '557EA4170355'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<inout>> Action
+                  %UID '557EA41A0339'
+                  %TARGET U$ '52BD888400E3' /* TCloseAction */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // Action
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DoClose
+           PROTECTED <<Operation>> CloseQuery
+            %UID '4980403E021E'
+            %SUMMARY 'CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.'#13#10''#13#10'As implemented in TCustomForm, CloseQuery polls any MDI children by calling their CloseQuery methods. If no child form aborts the close, CloseQuery then calls the OnCloseQuery event handler, if it exists, to determine if the close should be allowed. If no such event handler exists, CloseQuery returns true.' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // CloseQuery
+           <<Operation>> NeedAutoScroll
+            %UID '4B0E845502C1'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "ifdef" 'l3HackedVCL'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // NeedAutoScroll
+           <<Operation>> IsRealInstance
+            %UID '4B0E846D022B'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsRealInstance
+           PROTECTED <<Operation>> DoShow
+            %UID '4B321D1301DD'
+           ; // DoShow
+           <<vctor>> CreateNew
+            %UID '4F9007B20376'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> AOwner
+               %UID '4F9007C70254'
+               %TARGET U$ '479878FA0103' /* TComponent */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // AOwner
+              <<in>> Dummy
+               %UID '4F9007C70275'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %VALUE 0
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Dummy
+            ; // %PARAMETERS
+           ; // CreateNew
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '63A7E541206B'
+            %SUMMARY 'Регистрация TCustomForm' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomForm
+        <<Enum>> TWindowState
+         %UID '476A77110209'
+         %SUMMARY 'TWindowState indicates whether a form is maximized, minimized, or normally sized.' ;
+         %ATTRIBUTES
+           <<Attribute>> wsNormal
+            %UID '476A772E0284'
+            %SUMMARY 'The form is in its normal state (that is, neither minimized nor maximized).' ;
+           ; // wsNormal
+           <<Attribute>> wsMinimized
+            %UID '476A77410307'
+            %SUMMARY 'The form is minimized.' ;
+           ; // wsMinimized
+           <<Attribute>> wsMaximized
+            %UID '476A7751007F'
+            %SUMMARY 'The form is maximized.' ;
+           ; // wsMaximized
+         ; // %ATTRIBUTES
+        ; // TWindowState
+        <<SimpleClass>> TScreen
+         %UID '47880AFE0139'
+         %SUMMARY 'TScreen represents the state of the screen in which an application runs.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '479878FA0103' /* TComponent */
+         ; // %INHERITS
+        ; // TScreen
+        <<ObjStub>> TApplication$Stub
+         %UID '47880C5402C3'
+         %SUMMARY 'TApplication is the type used for a GUI windowed application.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46A4B9AA00F0' /* TComponent$Stub */
+         ; // %INHERITS
+        ; // TApplication$Stub
+        <<ObjStub>> TScrollingWinControl$Stub
+         %UID '47880CF803C9'
+         %SUMMARY 'TScrollingWinControl is the base class for controls that support scrolling.' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47880D2D016B' /* TWinControl$Stub */
+         ; // %INHERITS
+        ; // TScrollingWinControl$Stub
+        <<ObjStub>> TCustomForm$Stub
+         %UID '47751723014C'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47880CF803C9' /* TScrollingWinControl$Stub */
+         ; // %INHERITS
+        ; // TCustomForm$Stub
+        <<ObjStub>> TForm$Stub
+         %UID '47880CB7004F'
+         %SUMMARY 'TForm represents a standard application window (form).' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47751723014C' /* TCustomForm$Stub */
+         ; // %INHERITS
+        ; // TForm$Stub
+        <<Typedef>> TFormClass
+         %UID '49956947035F'
+         %META
+          %upv "isClassRef" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47880CB7004F' /* TForm$Stub */
+         ; // %INHERITS
+        ; // TFormClass
+        <<Enum>> TScrollBarKind
+         %UID '500427160316'
+        ; // TScrollBarKind
+        <<Typedef>> TScrollBarInc
+         %UID '50220CFD0326'
+        ; // TScrollBarInc
+        <<SimpleClass>> TCustomFrame
+         %UID '521497E2031E'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TCustomFrame
+        <<SimpleClass>> TFrame
+         %UID '521497EC0337'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '521497E2031E' /* TCustomFrame */
+         ; // %INHERITS
+        ; // TFrame
+        <<Function>> TCloseQueryEvent
+         %UID '523AD9CB02EC'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '523ADA3E021B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Sender
+               %UID '523ADA4103B6'
+               %TARGET U$ '4807745602C8' /* TObject */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Sender
+              <<inout>> CanClose
+               %UID '523ADA420008'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // CanClose
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TCloseQueryEvent
+        <<SimpleClass>> TScrollBox
+         %UID '5270DE77001D'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '495259490229' /* TScrollingWinControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "00A745C81EA9"
+            %UID '00A745C81EA9'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 00A745C81EA9
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '795A62DC7293'
+            %SUMMARY 'Регистрация TScrollBox' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TScrollBox
+        <<Struct>> TCMHintShow
+         %UID '52BB30DF0168'
+        ; // TCMHintShow
+        <<SimpleClass>> TForm
+         %UID '4952591E0263'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '484529DC0276' /* TCustomForm */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "CB9E2F73AC41"
+            %UID 'CB9E2F73AC41'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // CB9E2F73AC41
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '0530DBBAAA74'
+            %SUMMARY 'Регистрация TForm' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TForm
+        <<Enum>> TBorderIcons
+         %UID '533BD88703E5'
+        ; // TBorderIcons
+        <<Enum>> TFormBorderStyle
+         %UID '533BD8C0011D'
+        ; // TFormBorderStyle
+        <<Enum>> TFormStyle
+         %UID '553252AE033C'
+        ; // TFormStyle
+      ; // %CHILDREN
+     ; // Forms
+     FINAL <<UtilityPack>> Menus
+      %UID '47E7ABAE0110'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TMenuItem
+         %UID '47E7ABCB0296'
+         %SUMMARY 'TMenuItem describes the properties of an item in a menu.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '479878FA0103' /* TComponent */
+         ; // %INHERITS
+        ; // TMenuItem
+        <<SimpleClass>> TMenu
+         %UID '49A3EC9F01DC'
+         %SUMMARY 'TMenu is the base type for menu components such as TMainMenu and TPopupMenu.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '479878FA0103' /* TComponent */
+         ; // %INHERITS
+         %OPERATIONS
+           <<method>> IsShortCut
+            %UID '52A0905E002D'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52A09066009F'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<inout>> Message
+                  %UID '52A0906803E7'
+                  %TARGET U$ '482C45D3015C' /* TWMKey */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Message
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsShortCut
+         ; // %OPERATIONS
+        ; // TMenu
+        <<SimpleClass>> TPopupMenu
+         %UID '49A5750A01E8'
+         %SUMMARY 'TPopupMenu encapsulates the properties, methods, and events of a pop-up menu.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49A3EC9F01DC' /* TMenu */
+         ; // %INHERITS
+         %OPERATIONS
+           <<method>> Popup
+            %UID '52A090A90317'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52A090BB00AB'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> X
+                  %UID '52A090C101A2'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '52A090C101BC'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Popup
+         ; // %OPERATIONS
+        ; // TPopupMenu
+        <<Enum>> TMenuKeyCap
+         %UID '5019588700F7'
+        ; // TMenuKeyCap
+        <<ConstantArray>> MenuKeyCaps
+         %UID '501958A100CF'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+         ; // %META
+        ; // MenuKeyCaps
+        <<SimpleClass>> TMainMenu
+         %UID '537D83690313'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49A3EC9F01DC' /* TMenu */
+         ; // %INHERITS
+        ; // TMainMenu
+      ; // %CHILDREN
+     ; // Menus
+     FINAL <<UtilityPack>> Clipbrd
+      %UID '482C8482030E'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<Operation>> Clipboard
+         %UID '482C849E03C1'
+        ; // Clipboard
+      ; // %OPERATIONS
+     ; // Clipbrd
+     FINAL <<UtilityPack>> StdCtrls
+      %UID '48C78D5402A6'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<Enum>> TScrollStyle
+         %UID '48C78D6601CC'
+         %SUMMARY 'Identifies a set of scrollbars by their orientation' ;
+         %ATTRIBUTES
+           <<Attribute>> ssNone
+            %UID '48C78D7502DD'
+           ; // ssNone
+           <<Attribute>> ssHorizontal
+            %UID '48C78D7B03BF'
+           ; // ssHorizontal
+           <<Attribute>> ssVertical
+            %UID '48C78D8202A8'
+           ; // ssVertical
+           <<Attribute>> ssBoth
+            %UID '48C78D8903CF'
+           ; // ssBoth
+         ; // %ATTRIBUTES
+        ; // TScrollStyle
+        <<Enum>> TCheckBoxState
+         %UID '4AE858B300E5'
+        ; // TCheckBoxState
+        <<SimpleClass>> TButton
+         %UID '4D5E5A3A0186'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TButton
+        <<SimpleClass>> TScrollBar
+         %UID '4DF7762A02B0'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TScrollBar
+        <<SimpleClass>> TCustomLabel
+         %UID '4F29268F035C'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2A5AA1012C' /* TGraphicControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "D9298D7764D7"
+            %UID 'D9298D7764D7'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // D9298D7764D7
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> AdjustBounds
+            %UID '4F2A44BC0297'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F2A861800C4'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AdjustBounds
+           PROTECTED <<method>> GetLabelText
+            %UID '4F2A45C40091'
+            %META
+             %upv "ifdef" 'l3HackedVCL'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F2A85850321'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetLabelText
+           PROTECTED <<method>> DoDrawText
+            %UID '4F2A461702D8'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F2A85E80030'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<inout>> Rect
+                  %UID '4F2A85ED0267'
+                  %TARGET U$ '4728A7190065' /* TRect */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Rect
+                 <<in>> Flags
+                  %UID '4F2A85ED02AE'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Flags
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DoDrawText
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'EFABDC777242'
+            %SUMMARY 'Регистрация TCustomLabel' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomLabel
+        <<SimpleClass>> TRadioButton
+         %UID '4F69BC9C014A'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" true
+         ; // %META
+         %LINKS
+           SUMMONED <<uses>> "8F8EF5195ACA"
+            %UID '8F8EF5195ACA'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 8F8EF5195ACA
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '3E909EE4DED1'
+            %SUMMARY 'Регистрация TRadioButton' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TRadioButton
+        <<SimpleClass>> TCustomCheckBox
+         %UID '4F9161AE00F2'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TCustomCheckBox
+        <<SimpleClass>> TCheckBox
+         %UID '4F91677002D7'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F9161AE00F2' /* TCustomCheckBox */
+         ; // %INHERITS
+        ; // TCheckBox
+        <<Enum>> TScrollCode
+         %UID '502211F903A8'
+        ; // TScrollCode
+        <<Function>> TScrollEvent
+         %UID '50220F69008D'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '50220F870025'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Sender
+               %UID '50220F94025A'
+               %TARGET U$ '4807745602C8' /* TObject */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Sender
+              <<in>> ScrollCode
+               %UID '50220F9402AF'
+               %TARGET U$ '502211F903A8' /* TScrollCode */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // ScrollCode
+              <<inout>> ScrollPos
+               %UID '50220F940318'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // ScrollPos
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TScrollEvent
+        <<SimpleClass>> TCustomCombo
+         %UID '5049DA5F0069'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TCustomCombo
+        <<SimpleClass>> TCustomComboBox
+         %UID '5049DA2A035D'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5049DA5F0069' /* TCustomCombo */
+         ; // %INHERITS
+        ; // TCustomComboBox
+        <<SimpleClass>> TComboBox
+         %UID '5049CD720050'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5049DA2A035D' /* TCustomComboBox */
+         ; // %INHERITS
+        ; // TComboBox
+        <<SimpleClass>> TCustomEdit
+         %UID '52A9AE070267'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E124E90272' /* TWinControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "591FA6E866D6"
+            %UID '591FA6E866D6'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 591FA6E866D6
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> Change
+            %UID '554CAA8400E5'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '3BA8D050EEF2'
+               %SUMMARY 'Сигнатура метода Change' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Change
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'E6ABAF26E235'
+            %SUMMARY 'Регистрация TCustomEdit' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomEdit
+        <<Enum>> TComboBoxStyle
+         %UID '52148BC6031D'
+        ; // TComboBoxStyle
+        <<SimpleClass>> TListBox
+         %UID '522F5DBC01E5'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TListBox
+        <<SimpleClass>> TEdit
+         %UID '517C0FF50380'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '52A9AE070267' /* TCustomEdit */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "341F3216FED6"
+            %UID '341F3216FED6'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 341F3216FED6
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '3D4DDD4081C1'
+            %SUMMARY 'Регистрация TEdit' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TEdit
+      ; // %CHILDREN
+     ; // StdCtrls
+     FINAL <<UtilityPack>> ExtCtrls
+      %UID '48C7C95C0221'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TTimer
+         %UID '48C7C96E0135'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TTimer
+        <<SimpleClass>> TPaintBox
+         %UID '4ACB3E4B0001'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TPaintBox
+        <<SimpleClass>> TCustomPanel
+         %UID '5028A3E60050'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E1388A03A7' /* TCustomControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "462D6C8FEA23"
+            %UID '462D6C8FEA23'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 462D6C8FEA23
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '3FBF2144A3F8'
+            %SUMMARY 'Регистрация TCustomPanel' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomPanel
+        <<SimpleClass>> TPanel
+         %UID '5028E84F00EE'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5028A3E60050' /* TCustomPanel */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "A7211717A976"
+            %UID 'A7211717A976'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // A7211717A976
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '26E106F7ABAB'
+            %SUMMARY 'Регистрация TPanel' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TPanel
+        <<SimpleClass>> TRadioGroup
+         %UID '5034B74700CF'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TRadioGroup
+        <<Typedef>> TPanelBevel
+         %UID '50FD17B50177'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '48C7B9BC037B' /* TBevelCut */
+         ; // %INHERITS
+        ; // TPanelBevel
+        <<SimpleClass>> TImage
+         %UID '523AD10C0331'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TImage
+        <<SimpleClass>> TBevel
+         %UID '5270B3E3024B'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TBevel
+      ; // %CHILDREN
+     ; // ExtCtrls
+     FINAL <<UtilityPack>> OleCtrls
+      %UID '49EEFA91008E'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TOleControl
+         %UID '49EEFABF023A'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E124E90272' /* TWinControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "079EECB43117"
+            %UID '079EECB43117'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 079EECB43117
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'BD828AAE7682'
+            %SUMMARY 'Регистрация TOleControl' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TOleControl
+      ; // %CHILDREN
+     ; // OleCtrls
+     FINAL <<UtilityPack>> FileCtrl
+      %UID '4AAF960E0065'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<method>> SelectDirectory
+         %UID '4AAF965F0187'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '2B895134424C'
+            %SUMMARY 'Сигнатура метода SelectDirectory' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SelectDirectory
+      ; // %OPERATIONS
+     ; // FileCtrl
+     FINAL <<UtilityPack>> Dialogs
+      %UID '4AB0EE02004E'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<Enum>> TMsgDlgBtn
+         %UID '49930A4803E7'
+        ; // TMsgDlgBtn
+        <<SetOf>> TMsgDlgButtons
+         %UID '49930A3703D8'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49930A4803E7' /* TMsgDlgBtn */
+         ; // %INHERITS
+        ; // TMsgDlgButtons
+        <<Enum>> TMsgDlgType
+         %UID '49930A29017B'
+        ; // TMsgDlgType
+        <<Enum>> TOpenOption
+         %UID '4C37266101EE'
+        ; // TOpenOption
+        <<SetOf>> TOpenOptions
+         %UID '4C37264D022F'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4C37266101EE' /* TOpenOption */
+         ; // %INHERITS
+        ; // TOpenOptions
+        <<SimpleClass>> TCommonDialog
+         %UID '4DCC0B2702A0'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '479878FA0103' /* TComponent */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '47D1602000C6' /* Create */
+          U$ '48077504027E' /* Destroy */
+         ; // %OVERRIDES
+         %OPERATIONS
+           PROTECTED <<method>> DoClose
+            %UID '4DCC1EF50061'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4DCC1F5D0135'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DoClose
+           PROTECTED <<method>> DoShow
+            %UID '4DCC1FEE0352'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4DCC200500EF'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DoShow
+           ABSTRACT <<method>> Execute
+            %UID '4DCC20C10116'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> Execute
+               %UID '4DCC20FB03CC'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Execute
+            ; // %OPERATIONS
+           ; // Execute
+         ; // %OPERATIONS
+        ; // TCommonDialog
+        <<SimpleClass>> TOpenDialog
+         %UID '4DA44E2C0153'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4DCC0B2702A0' /* TCommonDialog */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DCC20C10116' /* Execute */
+         ; // %REALIZES
+         %OPERATIONS
+           PROTECTED <<method>> DoCanClose
+            %UID '4DCC203E0199'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoCanClose
+               %UID '4DCC205D0020'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoCanClose
+            ; // %OPERATIONS
+           ; // DoCanClose
+         ; // %OPERATIONS
+        ; // TOpenDialog
+        <<SimpleClass>> TSaveDialog
+         %UID '4DCC0BE20198'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4DA44E2C0153' /* TOpenDialog */
+         ; // %INHERITS
+        ; // TSaveDialog
+      ; // %CHILDREN
+     ; // Dialogs
+     FINAL <<UtilityPack>> ImgList
+      %UID '4AB0F6DB029C'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TCustomImageList
+         %UID '473DA2AF0168'
+         %SUMMARY 'CustomImageList is the base class for collections of same-sized images, each of which can be referred to by its index.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '479878FA0103' /* TComponent */
+         ; // %INHERITS
+         %OPERATIONS
+           PROTECTED <<method>> Change
+            %UID '4FD08E8503DC'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '4154305890A1'
+               %SUMMARY 'Сигнатура метода Change' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Change
+           PROTECTED <<method>> ReadData
+            %UID '4FD08F7F01AD'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD08F8A031D'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Stream
+                  %UID '4FD08F8E01F3'
+                  %TARGET U$ '47E150FF028A' /* TStream */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Stream
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ReadData
+           PROTECTED <<method>> WriteData
+            %UID '4FD08FA7008C'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD08FB102BA'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Stream
+                  %UID '4FD08FB3004A'
+                  %TARGET U$ '47E150FF028A' /* TStream */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Stream
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // WriteData
+           <<method>> DoDraw
+            %UID '4FD093CB025F'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD093D6008E'
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index
+                  %UID '4FD09404018E'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index
+                 <<in>> Canvas
+                  %UID '4FD0940401B1'
+                  %TARGET U$ '515581580039' /* TCanvas */
+                  %TOBEINCLUDED
+                   U$ '4684F91300DD' /* Vcl */
+                  ; // %TOBEINCLUDED
+                 ; // Canvas
+                 <<in>> X
+                  %UID '4FD0940401D3'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '4FD0940401F8'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+                 <<in>> Style
+                  %UID '4FD09404021E'
+                  %TARGET U$ '46A618AF0053' /* Cardinal */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Style
+                 <<in>> Enabled
+                  %UID '4FD09404025C'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Enabled
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DoDraw
+           <<method>> ImageExtent
+            %UID '4FD0944D0202'
+            %META
+             %upv "ifndef" 'DesignTimeLibrary,XE'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD09457029C'
+               %TARGET U$ '4739AD110072' /* TPoint */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> anIndex
+                  %UID '4FD0945B0302'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // anIndex
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ImageExtent
+           <<method>> IsSmart
+            %UID '4FD095D20217'
+            %META
+             %upv "ifndef" 'DesignTimeLibrary,XE'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD095E20159'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsSmart
+         ; // %OPERATIONS
+        ; // TCustomImageList
+        <<SimpleClass>> TChangeLink
+         %UID '47881A17009F'
+         %SUMMARY 'The TImageList component uses TChangeLink internally to notify other objects when changes are made to the image list.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4807745602C8' /* TObject */
+         ; // %INHERITS
+         %ATTRIBUTES
+           ABSTRACT <<property>> OnChange
+            %UID '47881BA4006F'
+            %TARGET U$ '47881B22005A' /* TNotifyEvent */
+            %META
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // OnChange
+           ABSTRACT <<property>> Sender
+            %UID '47881BC201CF'
+            %TARGET U$ '473DA2AF0168' /* TCustomImageList */
+            %META
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // Sender
+         ; // %ATTRIBUTES
+        ; // TChangeLink
+        <<Range>> TOverlay
+         %UID '47881F5002C3'
+         %SUMMARY 'TOverlay indicates the index of an overlay mask.' ;
+         %META
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46A606AC03B2' /* Integer */
+         ; // %INHERITS
+         %ATTRIBUTES
+           <<Attribute>> "0"
+            %UID '47881F6A0375'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // "0"
+           <<Attribute>> "3"
+            %UID '47881F7603DD'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // "3"
+         ; // %ATTRIBUTES
+        ; // TOverlay
+        <<Enum>> TDrawingStyle
+         %UID '47881DC5004B'
+         %SUMMARY 'TDrawingStyle indicates the style to use when rendering an image from an image list.' ;
+         %ATTRIBUTES
+           <<Attribute>> dsFocus
+            %UID '47881DE2025E'
+            %SUMMARY 'Draws the image blending 25% with the color specified by the BlendColor property. This only affects image lists that contain masks.' ;
+           ; // dsFocus
+           <<Attribute>> dsSelected
+            %UID '47881E0102BA'
+            %SUMMARY 'Draws the image blending 50% with the color specified by the BlendColor property. This only affects image lists that contain masks.' ;
+           ; // dsSelected
+           <<Attribute>> dsNormal
+            %UID '47881E1F03A7'
+            %SUMMARY 'Draws the image using the color specified in the BkColor property. If the BkColor is clNone, the image is drawn transparently using the mask.' ;
+           ; // dsNormal
+           <<Attribute>> dsTransparent
+            %UID '47881E41037D'
+            %SUMMARY 'Draws using the mask regardless of the BkColor setting.' ;
+           ; // dsTransparent
+         ; // %ATTRIBUTES
+        ; // TDrawingStyle
+        <<Enum>> TImageType
+         %UID '47881E6100E7'
+         %SUMMARY 'TImageType indicates whether to use a mask when rendering an image from an image list.' ;
+         %ATTRIBUTES
+           <<Attribute>> itImage
+            %UID '47881E7A003C'
+            %SUMMARY 'Image does not include a mask.' ;
+           ; // itImage
+           <<Attribute>> itMask
+            %UID '47881E9B0272'
+            %SUMMARY 'Image uses a mask.' ;
+           ; // itMask
+         ; // %ATTRIBUTES
+        ; // TImageType
+        <<Enum>> TResType
+         %UID '47881EBB01B3'
+         %SUMMARY 'TResType identifies a type of graphical resource to an image list.' ;
+         %ATTRIBUTES
+           <<Attribute>> rtBitmap
+            %UID '47881ED60230'
+            %SUMMARY 'Loads or retrieves a bitmap.' ;
+           ; // rtBitmap
+           <<Attribute>> rtCursor
+            %UID '47881EF80166'
+            %SUMMARY 'Loads or retrieves a cursor.' ;
+           ; // rtCursor
+           <<Attribute>> rtIcon
+            %UID '47881F14021A'
+            %SUMMARY 'Loads or retrieves an icon.' ;
+           ; // rtIcon
+         ; // %ATTRIBUTES
+        ; // TResType
+        <<Enum>> TLoadResource
+         %UID '47881F9C0018'
+         %SUMMARY 'TLoadResource and TLoadResources determine how a resource is loaded into an image list.' ;
+         %ATTRIBUTES
+           <<Attribute>> lrDefaultColor
+            %UID '47881FB103AA'
+            %SUMMARY 'Use the color format of the display.' ;
+           ; // lrDefaultColor
+           <<Attribute>> lrDefaultSize
+            %UID '47881FCF01D6'
+            %SUMMARY 'Use system metrics for Height and Width if the Width parameter to GetResource is 0. If the Width parameter is 0 and this option is not specified for cursors and icons, the resources width and height will be used.' ;
+           ; // lrDefaultSize
+           <<Attribute>> lrFromFile
+            %UID '47881FE5026B'
+            %SUMMARY 'Loads the resource from a specified file.' ;
+           ; // lrFromFile
+           <<Attribute>> lrMap3DColors
+            %UID '47881FFF0230'
+            %SUMMARY 'Replaces the images'' gray shades with the 3D windows colors.' ;
+           ; // lrMap3DColors
+           <<Attribute>> lrTransparent
+            %UID '478820170379'
+            %SUMMARY 'Replaces the color table entry for the first pixel of the resource with the default window color (COLOR_WINDOW). This applies only to images with color tables.' ;
+           ; // lrTransparent
+           <<Attribute>> lrMonoChrome
+            %UID '4788202F003B'
+            %SUMMARY 'Loads the resource as black and white.' ;
+           ; // lrMonoChrome
+         ; // %ATTRIBUTES
+        ; // TLoadResource
+        <<SetOf>> TLoadResources
+         %UID '4788204B0354'
+         %SUMMARY 'TLoadResource and TLoadResources determine how a resource is loaded into an image list.' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47881F9C0018' /* TLoadResource */
+         ; // %INHERITS
+        ; // TLoadResources
+        <<Typedef>> TImageIndex
+         %UID '4788207F0056'
+         %SUMMARY 'TImageIndex represents the index of an image in a TImageList component.' ;
+         %META
+          %upv "newRTTI" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46A606AC03B2' /* Integer */
+         ; // %INHERITS
+        ; // TImageIndex
+      ; // %CHILDREN
+     ; // ImgList
+     FINAL <<UtilityPack>> ComCtrls
+      %UID '4AC62798032A'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TProgressBar
+         %UID '4AC627AD00F4'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TProgressBar
+        <<SimpleClass>> TCustomStatusBar
+         %UID '4E159FC602F5'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TCustomStatusBar
+        <<SimpleClass>> TToolbar
+         %UID '5028E54C0057'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TToolbar
+        <<SimpleClass>> TTreeNode
+         %UID '512F3FCB02F3'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TTreeNode
+        <<SimpleClass>> TTreeView
+         %UID '512F402F01BA'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TTreeView
+        <<SimpleClass>> TTreeNodes
+         %UID '512F40A50266'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TTreeNodes
+        <<SimpleClass>> TUpDown
+         %UID '5220C0D002C5'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TUpDown
+        <<SimpleClass>> TCustomUpDown
+         %UID '5374B1D000BC'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" true
+         ; // %META
+         %LINKS
+           SUMMONED <<uses>> "AD9F9844DDC9"
+            %UID 'AD9F9844DDC9'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // AD9F9844DDC9
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'CFB434C213E0'
+            %SUMMARY 'Регистрация TCustomUpDown' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomUpDown
+      ; // %CHILDREN
+     ; // ComCtrls
+     ABSTRACT <<MixInMirror>> MForm
+      %UID '4CC815A201A8'
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4952591E0263' /* TForm */
+      ; // %INHERITS
+     ; // MForm
+     ABSTRACT <<MixInMirror>> MControl
+      %UID '4CC81DDB0252'
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47E1201703C3' /* TControl */
+      ; // %INHERITS
+     ; // MControl
+     ABSTRACT <<MixInMirror>> MWinControl
+      %UID '4CC81DE8030F'
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47E124E90272' /* TWinControl */
+      ; // %INHERITS
+     ; // MWinControl
+     ABSTRACT <<MixInMirror>> MCustomControl
+      %UID '4CC81DF70228'
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47E1388A03A7' /* TCustomControl */
+      ; // %INHERITS
+     ; // MCustomControl
+     FINAL <<UtilityPack>> Themes
+      %UID '4CC842140217'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<method>> ThemeServices
+         %UID '4CC842370110'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '61B65A94D505'
+            %SUMMARY 'Сигнатура метода ThemeServices' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ThemeServices
+      ; // %OPERATIONS
+     ; // Themes
+     FINAL <<UtilityPack>> Buttons
+      %UID '4CFF6D8701C9'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TBitBtn
+         %UID '5523F3F80035'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TBitBtn
+        <<SimpleClass>> TSpeedButton
+         %UID '5562D9C203CB'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TSpeedButton
+      ; // %CHILDREN
+     ; // Buttons
+     FINAL <<UtilityPack>> CommDlg
+      %UID '4DD1237B00AE'
+      %META
+       %upv "no hands" false
+      ; // %META
+     ; // CommDlg
+     FINAL <<UtilityPack>> ToolWin
+      %UID '502CE49803C3'
+      %META
+       %upv "no hands" false
+      ; // %META
+     ; // ToolWin
+     FINAL <<UtilityPack>> CheckLst
+      %UID '51F24E760273'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TCheckListBox
+         %UID '51F24E890269'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TCheckListBox
+      ; // %CHILDREN
+     ; // CheckLst
+     ABSTRACT <<MixInMirror>> MScrollingWinControl
+      %UID '528469FC0256'
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '495259490229' /* TScrollingWinControl */
+      ; // %INHERITS
+     ; // MScrollingWinControl
+     FINAL <<UtilityPack>> Mask
+      %UID '52A9ADB60286'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TCustomMaskEdit
+         %UID '52A9ADCB0092'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '52A9AE070267' /* TCustomEdit */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "EB9C9CF19906"
+            %UID 'EB9C9CF19906'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // EB9C9CF19906
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> TextFromClipboard
+            %UID '554CBB4B0240'
+            %META
+             %upv "ifdef" 'l3HackedVCL'
+             %upv "ifndef" 'DesignTimeLibrary'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '554CBB55006A'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // TextFromClipboard
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '6893EC2A0748'
+            %SUMMARY 'Регистрация TCustomMaskEdit' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomMaskEdit
+      ; // %CHILDREN
+     ; // Mask
+     FINAL <<UtilityPack>> ShadowWnd
+      %UID '545C5B8703C7'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TShadowWindow
+         %UID '545C5BBE01BB'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TShadowWindow
+        <<Enum>> TControlSide
+         %UID '545C5BD10267'
+         %ATTRIBUTES
+           <<Attribute>> csRight
+            %UID '545C5BD801DF'
+           ; // csRight
+           <<Attribute>> csBottom
+            %UID '545C5BE100B8'
+           ; // csBottom
+         ; // %ATTRIBUTES
+        ; // TControlSide
+      ; // %CHILDREN
+     ; // ShadowWnd
+   ; // %CHILDREN
+  ; // Implementation
+  <<Unit>> Printing
+   %UID '55C4AEB903E1'
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> Printers
+      %UID '4799D2E6027B'
+      %SUMMARY 'TPrinter encapsulates the Windows printer interface.' ;
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> Printer$4AE1D63601CB
+         %UID '4AE1D63601CB'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt$3CE0428068EA
+            %UID '3CE0428068EA'
+            %SUMMARY 'Сигнатура метода Printer' ;
+           ; // DoIt$3CE0428068EA
+         ; // %OPERATIONS
+        ; // Printer$4AE1D63601CB
+        FINAL <<Operation>> Printer$4799F731014C
+         %UID '4799F731014C'
+         %TARGET U$ '4799D345027F' /* TPrinter */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+        ; // Printer$4799F731014C
+        FINAL <<Operation>> SetPrinter
+         %UID '4799F74602BA'
+         %TARGET U$ '4799D345027F' /* TPrinter */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> NewPrinter
+            %UID '4799F748023A'
+            %TARGET U$ '4799D345027F' /* TPrinter */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // NewPrinter
+         ; // %PARAMETERS
+        ; // SetPrinter
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Exception>> EPrinter
+         %UID '4799D3180344'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4787A405013D' /* Exception */
+         ; // %INHERITS
+        ; // EPrinter
+        <<SimpleClass>> TPrinter
+         %UID '4799D345027F'
+         %SUMMARY 'TPrinter encapsulates the Windows printer interface.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '469F8577004B' /* TObject$Stub */
+         ; // %INHERITS
+        ; // TPrinter
+        <<Enum>> TPrinterState
+         %UID '4799E9B3024C'
+         %ATTRIBUTES
+           <<Attribute>> psNoHandle
+            %UID '4799E9BB00AA'
+           ; // psNoHandle
+           <<Attribute>> psHandleIC
+            %UID '4799E9C002F2'
+           ; // psHandleIC
+           <<Attribute>> psHandleDC
+            %UID '4799E9C603E2'
+           ; // psHandleDC
+         ; // %ATTRIBUTES
+        ; // TPrinterState
+        <<Enum>> TPrinterOrientation
+         %UID '4799E9D90376'
+         %ATTRIBUTES
+           <<Attribute>> poPortrait
+            %UID '4799E9E00149'
+           ; // poPortrait
+           <<Attribute>> poLandscape
+            %UID '4799E9E500B4'
+           ; // poLandscape
+         ; // %ATTRIBUTES
+        ; // TPrinterOrientation
+        <<Enum>> TPrinterCapability
+         %UID '4799E9EE0087'
+         %ATTRIBUTES
+           <<Attribute>> pcCopies
+            %UID '4799EA0601F6'
+           ; // pcCopies
+           <<Attribute>> pcOrientation
+            %UID '4799EA0C03D0'
+           ; // pcOrientation
+           <<Attribute>> pcCollation
+            %UID '4799EA12003E'
+           ; // pcCollation
+         ; // %ATTRIBUTES
+        ; // TPrinterCapability
+        <<SetOf>> TPrinterCapabilities
+         %UID '4799EA1C0221'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4799E9EE0087' /* TPrinterCapability */
+         ; // %INHERITS
+        ; // TPrinterCapabilities
+      ; // %CHILDREN
+     ; // Printers
+   ; // %CHILDREN
+  ; // Printing
+  <<Unit>> Graphics
+   %UID '55C4AEC801CA'
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> Graphics
+      %UID '47D15712022D'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> ColorToRGB
+         %UID '50F928A102E2'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'F6C1714F93A2'
+            %SUMMARY 'Сигнатура метода ColorToRGB' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ColorToRGB
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TGraphic
+         %UID '47E12114038D'
+         %SUMMARY 'TGraphic is the abstract base class type for objects such as icons, bitmaps, and metafiles that can store and display visual images.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E1214E00F2' /* TInterfacedPersistent */
+         ; // %INHERITS
+        ; // TGraphic
+        <<SimpleClass>> TMetafileCanvas
+         %UID '47E0CB3C022E'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TMetafileCanvas
+        <<SimpleClass>> TGraphicsObject
+         %UID '47E120B90203'
+         %SUMMARY 'TGraphicsObject is the abstract base class for objects which encapsulate a system graphics object: TBrush, TFont, and TPen.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '478CF32A03B6' /* TPersistent */
+         ; // %INHERITS
+        ; // TGraphicsObject
+        <<SimpleClass>> TFont
+         %UID '47E120930217'
+         %SUMMARY 'TFont encapsulates a system font.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E120B90203' /* TGraphicsObject */
+         ; // %INHERITS
+        ; // TFont
+        <<SimpleClass>> TBitmap
+         %UID '47D15723038A'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E12114038D' /* TGraphic */
+         ; // %INHERITS
+        ; // TBitmap
+        <<SimpleClass>> TMetafile
+         %UID '47E121B5039E'
+         %SUMMARY 'TMetafile is an encapsulation of the Win32 Enhanced metafile.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47E12114038D' /* TGraphic */
+         ; // %INHERITS
+        ; // TMetafile
+        <<Constants>> Colors$1
+         %UID '4804ABA703CA'
+         %META
+          %upv "spell names" false
+         ; // %META
+        ; // Colors$1
+        <<Enum>> TFontPitch
+         %UID '4683FD5B018D'
+         %SUMMARY 'Тип шрифта' ;
+         %ATTRIBUTES
+           <<Attribute>> fpDefault
+            %UID '4684FA4B00C7'
+            %SUMMARY 'The font pitch is set to the default value, which depends on the font specified in the font object''s Name property.' ;
+           ; // fpDefault
+           <<Attribute>> fpVariable
+            %UID '4684FA61005B'
+            %SUMMARY 'The font pitch is set to variable. The characters in the font have different widths.' ;
+           ; // fpVariable
+           <<Attribute>> fpFixed
+            %UID '4684FA77037E'
+            %SUMMARY 'The font pitch is set to fixed. All characters in the font have the same width.' ;
+           ; // fpFixed
+         ; // %ATTRIBUTES
+        ; // TFontPitch
+        <<Typedef>> TColor
+         %UID '46A44A2F01C7'
+         %SUMMARY 'Цвет.' ;
+         %INHERITS
+          U$ '3DBFFD7002C2' /* long */
+         ; // %INHERITS
+        ; // TColor
+        <<Typedef>> TFontName
+         %UID '46A60DAA01D5'
+         %SUMMARY 'Гарнитура шрифта.' ;
+         %META
+          %upv "newRTTI" true
+         ; // %META
+         %INHERITS
+          U$ '452257A0036F' /* "a-string" */
+         ; // %INHERITS
+        ; // TFontName
+        <<Enum>> TFontStyle
+         %UID '46A611BA02F3'
+         %ATTRIBUTES
+           <<Attribute>> fsBold
+            %UID '46A611D20211'
+            %SUMMARY 'The font is boldfaced.' ;
+           ; // fsBold
+           <<Attribute>> fsItalic
+            %UID '46A611E500A6'
+            %SUMMARY 'The font is italicized.' ;
+           ; // fsItalic
+           <<Attribute>> fsUnderline
+            %UID '46A611F601C2'
+            %SUMMARY 'The font is underlined.' ;
+           ; // fsUnderline
+           <<Attribute>> fsStrikeOut
+            %UID '46A61206023E'
+            %SUMMARY 'The font is displayed with a horizontal line through it.' ;
+           ; // fsStrikeOut
+         ; // %ATTRIBUTES
+        ; // TFontStyle
+        <<SetOf>> TFontStyles
+         %UID '46A61216025F'
+         %SUMMARY 'TFontStyles is a set of TFontStyle values.' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46A611BA02F3' /* TFontStyle */
+         ; // %INHERITS
+        ; // TFontStyles
+        <<ObjStub>> TGraphicsObject$Stub
+         %UID '47880F360291'
+         %SUMMARY 'TGraphicsObject is the abstract base class for objects which encapsulate a system graphics object: TBrush, TFont, and TPen.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '476F72030260' /* TPersistent$Stub */
+         ; // %INHERITS
+        ; // TGraphicsObject$Stub
+        <<Constants>> Colors
+         %UID '47CBD5980343'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> clDefault
+            %UID '47CBD5B0010A'
+            %VALUE 'TColor($20000000)'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // clDefault
+           <<Attribute>> clYellow
+            %UID '487DC8560219'
+            %VALUE 'TColor($00FFFF)'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // clYellow
+           <<Attribute>> clAqua
+            %UID '4A6988F200D9'
+            %VALUE 'TColor($FFFF00)'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // clAqua
+           <<Attribute>> clRed
+            %UID '4AB0F52B0282'
+            %VALUE 'TColor($0000FF)'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // clRed
+           <<Attribute>> clSilver
+            %UID '4EC294EC020A'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // clSilver
+           <<Attribute>> clWindowText
+            %UID '53FF1DA000BD'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // clWindowText
+           <<Attribute>> clGrayText
+            %UID '53FF1E9D0329'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // clGrayText
+           <<Attribute>> clBlue
+            %UID '53FF1F7802D2'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // clBlue
+         ; // %ATTRIBUTES
+        ; // Colors
+        <<ObjStub>> TFont$Stub
+         %UID '46A614C90258'
+         %SUMMARY 'Шрифт.' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47880F360291' /* TGraphicsObject$Stub */
+         ; // %INHERITS
+        ; // TFont$Stub
+        <<ObjStub>> TCanvas$Stub
+         %UID '46A4659D003A'
+         %SUMMARY 'Канва для вывода.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '476F72030260' /* TPersistent$Stub */
+         ; // %INHERITS
+        ; // TCanvas$Stub
+        <<ObjStub>> TGraphic$Stub
+         %UID '4728B75003B7'
+         %SUMMARY 'TGraphic is the abstract base class type for objects such as icons, bitmaps, and metafiles that can store and display visual images.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47880FB90325' /* TInterfacedPersistent$Stub */
+         ; // %INHERITS
+        ; // TGraphic$Stub
+        <<ObjStub>> TBitmap$Stub
+         %UID '473C530803BE'
+         %SUMMARY 'Картинка. TBitmap is an encapsulation of a Windows bitmap (HBITMAP), including its palette (HPALETTE).' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4728B75003B7' /* TGraphic$Stub */
+         ; // %INHERITS
+        ; // TBitmap$Stub
+        <<SimpleClass>> TMetafileImage
+         %UID '4BE3C76100D2'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TMetafileImage
+        <<SimpleClass>> TSharedImage
+         %UID '4BE3CA8703CF'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TSharedImage
+        <<SimpleClass>> TPicture
+         %UID '4F86C9E50302'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TPicture
+        <<SimpleClass>> TCanvas
+         %UID '515581580039'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TCanvas
+        <<Struct>> TMetafileHeader
+         %UID '54B780970326'
+        ; // TMetafileHeader
+        <<Typedef>> HENHMETAFILE
+         %UID '54BE0AF000A6'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46A465F9028C' /* THandle */
+         ; // %INHERITS
+        ; // HENHMETAFILE
+      ; // %CHILDREN
+     ; // Graphics
+   ; // %CHILDREN
+  ; // Graphics
+  <<Unit>> Consts
+   %UID '55C4AF3F02EE'
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> Consts
+      %UID '4C2D9FF00326'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // Consts
+   ; // %CHILDREN
+  ; // Consts
+ ; // %CHILDREN
+; // Vcl

@@ -1,0 +1,139 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/MixIns/VCMZonePrim.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::MixIns::VCMZonePrim
+//
+// Базовая зона
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMZonePrim::Class
+implementation @ <<VCMZonePrim>>
+//? Базовая зона
+//= WikiImplClass::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_vcm_zone.gif
+//L code_vcm_zone
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p ZoneType=Parent|Child|Main|Navigator|Modal|Reminder ? Тип зоны
+//p Need UC:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{ZoneType}"!="%S{!ZoneType}"}%f_up_prefix(%S) *ZoneType* = *%S{ZoneType}* - Тип зоны
+ ?inherited
+ if ( ( %S get_up ( 'ZoneType' ) ) %!= ( %S get_up_def ( 'ZoneType' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ZoneType* = *'
+  %S get_up ( 'ZoneType' ) '* - Тип зоны'
+//	][{"%S{Need UC}"!="%S{!Need UC}"}%f_up_prefix(%S) *Need UC* = *%S{Need UC}*
+ end // if
+ if ( ( %S get_up ( 'Need UC' ) ) %!= ( %S get_up_def ( 'Need UC' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need UC* = *'
+  %S get_up ( 'Need UC' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4A797DC60043*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4A797DC60043*
+; // constraint
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4A797DC60043*
+//#UC END# *470F15B800CBfor4A797DC60043*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4A797DC60043*
+//#UC END# *470F1571031Cfor4A797DC60043*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4A797DC60043*
+//#UC END# *477398E501C0for4A797DC60043*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4A797DC60043*
+//#UC END# *55B8D28B0157for4A797DC60043*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4A797DC60043*
+//#UC END# *55B8D2F80145for4A797DC60043*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4A797DC60043*
+//#UC END# *55B8DD9C0301for4A797DC60043*
+; // res.cmd.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMZonePrim>>
+

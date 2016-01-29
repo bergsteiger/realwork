@@ -1,0 +1,694 @@
+<<MDALibrary>> VCMViewInterfacesLayer
+ %UID '4B62EC84020F'
+ %SUMMARY 'Уровень интерфейсов представления' ;
+ %DEPENDS
+  U$ '46E13A3C030D' /* Meta */
+  U$ '46E801C00348' /* Core */
+  U$ '47022A100167' /* CommonLang */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '4773963E021D' /* AllGenerators */
+  U$ '4B62DE6100ED' /* VCMCore */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '46E13A3C030D' /* Meta */
+  U$ '46E801C00348' /* Core */
+  U$ '47022A100167' /* CommonLang */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '4773963E021D' /* AllGenerators */
+  U$ '4B62DE6100ED' /* VCMCore */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<MDALayer>> MixIns
+   %UID '4A95156202EB'
+   %SUMMARY 'Примеси' ;
+   %DEPENDS
+    U$ '46E1536802AF' /* Elements */
+    U$ '46E80398003B' /* "Abstract" */
+    U$ '470384F502CE' /* BaseTypes */
+    U$ '4773984F02AA' /* DelphiGens */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E13A3C030D' /* Meta */
+    U$ '46E801C00348' /* Core */
+    U$ '47022A100167' /* CommonLang */
+    U$ '4773963E021D' /* AllGenerators */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<MDAClass>> User
+      %UID '4A9271340328'
+      %SUMMARY 'Пользователь других классов' ;
+      %TOBEINCLUDED
+       U$ '47022A100167' /* CommonLang */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B2A2ADB0305' /* UsesContainer */
+      ; // %INHERITS
+     ; // User
+     [EXPORT] <<User>>
+     ABSTRACT <<MDAClass>> OperationsPublisher
+      %UID '4A770F4B0057'
+      %SUMMARY 'Публикатор операций' ;
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+       ABSTRACT <<Operation>> PublishOperations OBJECT IN %S
+        %UID '4A770F770199'
+        %SUMMARY 'Публикует операции' ;
+       ; // PublishOperations
+       ABSTRACT <<Operation>> OperationsToUses OBJECT IN %S
+        %UID '4A82DDA6016A'
+        %SUMMARY 'Определяет необходимые uses для операций' ;
+       ; // OperationsToUses
+       ABSTRACT <<Operation>> OperationsToVar OBJECT IN %S
+        %UID '4A8E9D3A01FE'
+        %SUMMARY 'Операции в секцию Var' ;
+       ; // OperationsToVar
+       ABSTRACT <<Operation>> OperationsToFuncIntf OBJECT IN %S OBJECT IN aCaller
+        %UID '4A8E9D5E0038'
+        %SUMMARY 'Операции в функции' ;
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %PARAMETERS
+         <<in>> aCaller
+          %UID '4A8EA71D0193'
+          %TARGET U$ '46E1537802AF' /* MDAClass */
+          %TOBEINCLUDED
+           U$ '46E13A3C030D' /* Meta */
+          ; // %TOBEINCLUDED
+         ; // aCaller
+        ; // %PARAMETERS
+       ; // OperationsToFuncIntf
+       ABSTRACT <<Operation>> OperationsToFuncImpl OBJECT IN %S OBJECT IN aCaller
+        %UID '4A8E9F9502BB'
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %PARAMETERS
+         <<in>> aCaller
+          %UID '4A8EA7230268'
+          %TARGET U$ '46E1537802AF' /* MDAClass */
+          %TOBEINCLUDED
+           U$ '46E13A3C030D' /* Meta */
+          ; // %TOBEINCLUDED
+         ; // aCaller
+        ; // %PARAMETERS
+       ; // OperationsToFuncImpl
+      ; // %OPERATIONS
+     ; // OperationsPublisher
+     [EXPORT] <<OperationsPublisher>>
+     ABSTRACT <<MDAClass>> FormSetFactoryPublisher
+      %UID '4A94F2D501C1'
+      %OPERATIONS
+       ABSTRACT <<Operation>> FormSetFactoryToUses OBJECT IN %S
+        %UID '4A94F30303DD'
+       ; // FormSetFactoryToUses
+       ABSTRACT <<Operation>> PublishFormSetFactory OBJECT IN %S
+        %UID '4A94F31902FD'
+       ; // PublishFormSetFactory
+      ; // %OPERATIONS
+     ; // FormSetFactoryPublisher
+     [EXPORT] <<FormSetFactoryPublisher>>
+     ABSTRACT <<MDAClass>> ModuleOpRecall
+      %UID '4A76CBA302A2'
+      %SUMMARY 'Элемент, генерирующий вызов операций модуля VCM' ;
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+       ABSTRACT <<Operation>> OutRecallIntf OBJECT IN %S OBJECT IN aCaller
+        %UID '4A76CC1902FE'
+        %SUMMARY 'Выводит интерфейс метода перенаправления операции' ;
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %PARAMETERS
+         <<in>> aCaller
+          %UID '4A8EA6FD034B'
+          %TARGET U$ '46E1537802AF' /* MDAClass */
+          %TOBEINCLUDED
+           U$ '46E13A3C030D' /* Meta */
+          ; // %TOBEINCLUDED
+         ; // aCaller
+        ; // %PARAMETERS
+       ; // OutRecallIntf
+       ABSTRACT <<Operation>> OutRecallImpl OBJECT IN %S OBJECT IN aCaller
+        %UID '4A76CC1D010D'
+        %SUMMARY 'Выводит реализацию метода перенаправления операции' ;
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %PARAMETERS
+         <<in>> aCaller
+          %UID '4A8EA70403C8'
+          %TARGET U$ '46E1537802AF' /* MDAClass */
+          %TOBEINCLUDED
+           U$ '46E13A3C030D' /* Meta */
+          ; // %TOBEINCLUDED
+         ; // aCaller
+        ; // %PARAMETERS
+       ; // OutRecallImpl
+       ABSTRACT <<Operation>> RecallToIntfUses OBJECT IN %S
+        %UID '4A9CF892039A'
+       ; // RecallToIntfUses
+       ABSTRACT <<Operation>> RecallToImplUses OBJECT IN %S
+        %UID '4A9CF8A30296'
+       ; // RecallToImplUses
+      ; // %OPERATIONS
+     ; // ModuleOpRecall
+     [EXPORT] <<ModuleOpRecall>>
+     ABSTRACT <<MDAClass>> VCMZonePrim
+      %UID '4A797DC60043'
+      %SUMMARY 'Базовая зона' ;
+      %META
+       %upv "personal label" 'code_vcm_zone'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4773963E021D' /* AllGenerators */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '470F151302FD' /* "Delphi интерфейсы и реализация" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '471723E1037A' /* WikiImplClass */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4704C0E30186' /* constraint */
+       U$ '470F1571031C' /* intf.pas */
+       U$ '470F15B800CB' /* impl.pas */
+       U$ '477398E501C0' /* intf2.pas */
+       U$ '55B8D28B0157' /* rc.pas */
+       U$ '55B8D2F80145' /* rc.script.pas */
+       U$ '55B8DD9C0301' /* res.cmd.pas */
+      ; // %REALIZES
+      %ATTRIBUTES
+       <<list>> ZoneType
+        %UID '4A797DFE003B'
+        %SUMMARY 'Тип зоны' ;
+        %VALUE 'Parent'
+        %VALUES
+         'Child'
+         'Main'
+         'Navigator'
+         'Modal'
+         'Reminder'
+        ; // %VALUES
+       ; // ZoneType
+       <<tribool>> "Need UC"
+        %UID '4F72C82A03BB'
+        %VALUE 'undefined'
+       ; // "Need UC"
+      ; // %ATTRIBUTES
+     ; // VCMZonePrim
+     [EXPORT] <<VCMZonePrim>>
+     ABSTRACT <<MDAClass>> FormNamePrefixHolder
+      %UID '4B5F276900DE'
+      %ATTRIBUTES
+       <<string>> "form name prefix"
+        %UID '4B5F2781030C'
+        %SUMMARY 'Префикс имени формы. Для поддержки старых настроек' ;
+       ; // "form name prefix"
+      ; // %ATTRIBUTES
+     ; // FormNamePrefixHolder
+     [EXPORT] <<FormNamePrefixHolder>>
+     ABSTRACT <<MDAClass>> UserTypeIDHolder
+      %UID '4BD70B860015'
+      %OPERATIONS
+       ABSTRACT INTEGER FUNCTION UserTypeID OBJECT IN %S
+        %UID '4BD70B950302'
+        %SUMMARY 'Идентификатор пользовательского типа' ;
+        %TARGET U$ '3DBFFD7002C2' /* long */
+       ; // UserTypeID
+      ; // %OPERATIONS
+     ; // UserTypeIDHolder
+     [EXPORT] <<UserTypeIDHolder>>
+   ; // %CHILDREN
+  ; // MixIns
+  <<MDALayer>> FormOperations
+   %UID '4B5DE69600AD'
+   %SUMMARY 'Операции форм VCM' ;
+   %DEPENDS
+    U$ '46E80398003B' /* "Abstract" */
+    U$ '4773984F02AA' /* DelphiGens */
+    U$ '4A95156202EB' /* MixIns */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E801C00348' /* Core */
+    U$ '4773963E021D' /* AllGenerators */
+    U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<MDAClass>> VCMOperationPrim
+      %UID '494F818000E6'
+      %SUMMARY 'Операция' ;
+      %META
+       %upv "abstraction type" 'a'
+       %upv "implementable" true
+       %upv "personal label" 'code_vcm_operation'
+       %upv "visability type" '+'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4773963E021D' /* AllGenerators */
+       U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '46E6D49602DB' /* Документация */
+       U$ '470F151302FD' /* "Delphi интерфейсы и реализация" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4A770F4B0057' /* OperationsPublisher */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6D4BB0339' /* wiki */
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4704C0E30186' /* constraint */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+       U$ '470F1571031C' /* intf.pas */
+       U$ '470F15B800CB' /* impl.pas */
+       U$ '477398E501C0' /* intf2.pas */
+       U$ '4A770F770199' /* PublishOperations */
+       U$ '4A82DDA6016A' /* OperationsToUses */
+       U$ '4A8E9D3A01FE' /* OperationsToVar */
+       U$ '4A8E9D5E0038' /* OperationsToFuncIntf */
+       U$ '4A8E9F9502BB' /* OperationsToFuncImpl */
+       U$ '55B8D28B0157' /* rc.pas */
+       U$ '55B8D2F80145' /* rc.script.pas */
+       U$ '55B8DD9C0301' /* res.cmd.pas */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '494BD6C80075' /* pas_MethodName */
+       U$ '494BDCF3030E' /* pas_Params */
+       U$ '494BDD190361' /* pas_ResultTypeName */
+       U$ '494BEC6A038A' /* pas_MethodInterface */
+       U$ '494BEC7C03E5' /* pas_MethodImplementation */
+       U$ '494BF05502AC' /* pas_AbstractionKeyword */
+       U$ '4A41A13D03D5' /* spell */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+       <<bool>> "no prefix"
+        %UID '49537DEF0202'
+        %SUMMARY 'Нет префикса у имени. Костыль для [$133891300]' ;
+        %VALUE false
+       ; // "no prefix"
+       <<bool>> "is FormActivate"
+        %UID '49899E1603A0'
+        %SUMMARY 'Это операция переключения активных форм. [$136258958]. Или операция контрола. Не генерируется Execute' ;
+        %VALUE false
+       ; // "is FormActivate"
+       <<bool>> "has states"
+        %UID '4989BAE60150'
+        %SUMMARY 'Определяет, что операция имеет состояния, текущее из которых должна определять форма. См. OnGetState' ;
+        %VALUE false
+       ; // "has states"
+       <<bool>> "is query"
+        %UID '4989DAC800A4'
+        %SUMMARY 'Определает, что операция является запросом к агрегации о возможности сделать что-то. Или операция контрола. Не генерируется Test' ;
+        %VALUE false
+       ; // "is query"
+       <<bool>> LongProcess
+        %UID '4C7D4EE70305'
+        %VALUE false
+       ; // LongProcess
+       <<bool>> AutoLock
+        %UID '4C7D4EF400A1'
+        %VALUE false
+       ; // AutoLock
+       <<bool>> AutoFocus
+        %UID '4C7F83F0031F'
+        %VALUE false
+       ; // AutoFocus
+      ; // %ATTRIBUTES
+      %OPERATIONS
+       <<Operation>> IsVCMOperation OBJECT IN %S
+        %UID '494FCCFC00A6'
+        %SUMMARY 'нет документации' ;
+       ; // IsVCMOperation
+       BOOLEAN FUNCTION IsInternalVCMOperation OBJECT IN %S
+        %UID '4A96B425021A'
+        %TARGET U$ '3DBFFE100240' /* boolean */
+       ; // IsInternalVCMOperation
+       <<Operation>> Spell OBJECT IN %S
+        %UID '4AE58E3801A3'
+       ; // Spell
+       BOOLEAN FUNCTION NeedsOpCode OBJECT IN %S
+        %UID '4C80E64501B5'
+        %SUMMARY 'Нужен ли код операции' ;
+        %TARGET U$ '3DBFFE100240' /* boolean */
+       ; // NeedsOpCode
+      ; // %OPERATIONS
+     ; // VCMOperationPrim
+     [EXPORT] <<VCMOperationPrim>>
+     ABSTRACT <<MDAClass>> VCMOperationBase
+      %UID '4C751E7E0064'
+      %TOBEINCLUDED
+       U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '494F818000E6' /* VCMOperationPrim */
+      ; // %INHERITS
+      %ATTRIBUTES
+       <<tribool>> ShowInContextMenu
+        %UID '4C3F29EF009B'
+        %VALUE 'undefined'
+       ; // ShowInContextMenu
+       <<tribool>> ShowInToolbar
+        %UID '4C3F2A1401EE'
+        %VALUE 'undefined'
+       ; // ShowInToolbar
+       <<string>> ImageIndex
+        %UID '4EC4CB730285'
+       ; // ImageIndex
+       <<string>> ContextMenuWeight
+        %UID '51D1324E00C8'
+       ; // ContextMenuWeight
+      ; // %ATTRIBUTES
+     ; // VCMOperationBase
+     [EXPORT] <<VCMOperationBase>>
+     <<MDAClass>> VCMOperations
+      %UID '494F808C01DB'
+      %SUMMARY 'Набор операций' ;
+      %META
+       %upv "personal label" 'code_vcm_operations'
+       %upv "visualization bg color" 16777152
+       %upv "visualization f-font color" 16744448
+       %upv "visualization f-line color" 16744448
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4773963E021D' /* AllGenerators */
+       U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '470F151302FD' /* "Delphi интерфейсы и реализация" */
+       U$ '4A770F4B0057' /* OperationsPublisher */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '471723E1037A' /* WikiImplClass */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4704C0E30186' /* constraint */
+       U$ '470F1571031C' /* intf.pas */
+       U$ '470F15B800CB' /* impl.pas */
+       U$ '477398E501C0' /* intf2.pas */
+       U$ '4A770F770199' /* PublishOperations */
+       U$ '4A82DDA6016A' /* OperationsToUses */
+       U$ '4A8E9D3A01FE' /* OperationsToVar */
+       U$ '4A8E9D5E0038' /* OperationsToFuncIntf */
+       U$ '4A8E9F9502BB' /* OperationsToFuncImpl */
+       U$ '55B8D28B0157' /* rc.pas */
+       U$ '55B8D2F80145' /* rc.script.pas */
+       U$ '55B8DD9C0301' /* res.cmd.pas */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '49551CA202CF' /* ClassImplementable */
+       U$ '4A41A13D03D5' /* spell */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4C7521720194"
+        %UID '4C7521720194'
+        %TARGET U$ '4C75214E0366' /* VCMOperation */
+       ; // 4C7521720194
+      ; // %LINKS
+      %OPERATIONS
+       <<Operation>> IsVCMOperations OBJECT IN %S
+        %UID '494FCCEC019F'
+        %SUMMARY 'нет документации' ;
+       ; // IsVCMOperations
+      ; // %OPERATIONS
+      %CHILDREN
+       
+       <<MDAOperation>> Operation
+        %UID '4C3F21D003DD'
+        %SUMMARY 'Операция' ;
+        %META
+         %upv "empty target" true
+         %upv "unstereotyped" true
+        ; // %META
+        %TOBEINCLUDED
+         U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '4C751E7E0064' /* VCMOperationBase */
+        ; // %INHERITS
+       ; // Operation
+      ; // %CHILDREN
+     ; // VCMOperations
+     [EXPORT] <<VCMOperations>>
+     <<MDAClass>> VCMFacet
+      %UID '4A96A6C3006A'
+      %SUMMARY 'VCM "Facet"'#13#10'---'#13#10'Набор операций, который надо заменить на Facet' ;
+      %META
+       %upv "visualization bg color" 15510336
+       %upv "visualization f-font color" 12584240
+       %upv "visualization f-line color" 12584240
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '494F808C01DB' /* VCMOperations */
+      ; // %INHERITS
+      %CHILDREN
+       
+       <<MDAOperation>> InternalOperation
+        %UID '4A9801640116'
+        %SUMMARY 'Внутренняя операция' ;
+        %META
+         %upv "empty target" true
+        ; // %META
+        %TOBEINCLUDED
+         U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '494F818000E6' /* VCMOperationPrim */
+        ; // %INHERITS
+        %OVERRIDES
+         U$ '4948EB2601FA' /* pas_ImplUses */
+         U$ '4948F2EE0334' /* pas_IntfUses */
+         U$ '494BB3A201A2' /* pas_MethodBodyPrim */
+         U$ '494BD6C80075' /* pas_MethodName */
+         U$ '494BDCF3030E' /* pas_Params */
+         U$ '494BDD190361' /* pas_ResultTypeName */
+         U$ '494BEC6A038A' /* pas_MethodInterface */
+         U$ '494BEC7C03E5' /* pas_MethodImplementation */
+         U$ '4A96B425021A' /* IsInternalVCMOperation */
+         U$ '4AE58E3801A3' /* Spell */
+         U$ '4C80E64501B5' /* NeedsOpCode */
+        ; // %OVERRIDES
+        %ATTRIBUTES
+         <<bool>> "is query"
+          %UID '4A9801CC034F'
+          %SUMMARY 'Определает, что операция является запросом к агрегации о возможности сделать что-то' ;
+          %VALUE true
+         ; // "is query"
+         <<bool>> "Needs Broadcast"
+          %UID '4C74FEE30244'
+          %SUMMARY 'Нужен ли метод Broadcast' ;
+          %VALUE false
+         ; // "Needs Broadcast"
+        ; // %ATTRIBUTES
+       ; // InternalOperation
+      ; // %CHILDREN
+     ; // VCMFacet
+     [EXPORT] <<VCMFacet>>
+     <<MDAClass>> VCMOperation
+      %UID '4C75214E0366'
+      %SUMMARY 'Операция' ;
+      %META
+       %upv "visualization bg color" 10025880
+       %upv "visualization f-font color" 9342520
+       %upv "visualization f-line color" 9342520
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '471723E1037A' /* WikiImplClass */
+       U$ '4C751E7E0064' /* VCMOperationBase */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+       U$ '49CB3EE70382' /* IsClassInner */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4C7657E300E1"
+        %UID '4C7657E300E1'
+        %TARGET U$ '4C7657C500E9' /* VCMOperationState */
+       ; // 4C7657E300E1
+      ; // %LINKS
+      %ATTRIBUTES
+       <<bool>> "has states"
+        %UID '4C7BAD370224'
+        %VALUE true
+       ; // "has states"
+      ; // %ATTRIBUTES
+     ; // VCMOperation
+     [EXPORT] <<VCMOperation>>
+     <<MDAClass>> VCMOperationState
+      %UID '4C7657C500E9'
+      %SUMMARY 'Состояние операции' ;
+      %META
+       %upv "abstraction type" 'f'
+       %upv "personal label" 'code_vcm_operationstate'
+       %upv "visability type" '+'
+       %upv "visualization bg color" 16777152
+       %upv "visualization f-font color" 12623485
+       %upv "visualization f-line color" 12614523
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4773963E021D' /* AllGenerators */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '470F151302FD' /* "Delphi интерфейсы и реализация" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '471723E1037A' /* WikiImplClass */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4704C0E30186' /* constraint */
+       U$ '470F1571031C' /* intf.pas */
+       U$ '470F15B800CB' /* impl.pas */
+       U$ '477398E501C0' /* intf2.pas */
+       U$ '55B8D28B0157' /* rc.pas */
+       U$ '55B8D2F80145' /* rc.script.pas */
+       U$ '55B8DD9C0301' /* res.cmd.pas */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C766D140383' /* IsNotParam */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+       <<string>> Hint
+        %UID '4C7657F10355'
+       ; // Hint
+       <<tribool>> Enabled
+        %UID '4C76580500EB'
+        %VALUE 'undefined'
+       ; // Enabled
+       <<string>> ImageIndex
+        %UID '4C76582D0215'
+       ; // ImageIndex
+       <<tribool>> Checked
+        %UID '4C76585B0223'
+        %VALUE 'undefined'
+       ; // Checked
+       <<tribool>> Visible
+        %UID '4C7BD46503E3'
+        %VALUE 'undefined'
+       ; // Visible
+      ; // %ATTRIBUTES
+     ; // VCMOperationState
+     [EXPORT] <<VCMOperationState>>
+   ; // %CHILDREN
+  ; // FormOperations
+  <<MDALayer>> VCMUserInteraction
+   %UID '4B62F51F0182'
+   %SUMMARY 'Общение с пользователем' ;
+   %DEPENDS
+    U$ '470EF9BF0138' /* InterfaceTypes */
+    U$ '470F01500290' /* Containers */
+    U$ '4729C4880157' /* Interface */
+    U$ '473A7FCA0203' /* Implementation */
+    U$ '4B5DE69600AD' /* FormOperations */
+    U$ '4B62DE9C006C' /* StandardLikePackages */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '47022A100167' /* CommonLang */
+    U$ '4729C41D032C' /* DelphiLang */
+    U$ '4B62DE6100ED' /* VCMCore */
+    U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDACategory>> VCMControls
+      %UID '494F7EF903BC'
+      %SUMMARY 'Управляющие элементы VCM' ;
+      %META
+       %upv "inherite constraints" false
+       %upv "personal label" 'code_vcm_controls'
+       %upv "visualization bg color" 16777152
+       %upv "visualization f-font color" 13688896
+       %upv "visualization f-line color" 13688896
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B62DE6100ED' /* VCMCore */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '494F7E5C0301' /* VCMInterfacesLike */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4948065C01DF' /* pas_UnitName */
+       U$ '4948F2EE0334' /* pas_IntfUses */
+       U$ '4A82C8F9037C' /* pas_BeforeUnitImplementation */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "494F816A025D"
+        %UID '494F816A025D'
+        %TARGET U$ '494F808C01DB' /* VCMOperations */
+       ; // 494F816A025D
+       <<include>> "4A96A743020E"
+        %UID '4A96A743020E'
+        %TARGET U$ '4A96A6C3006A' /* VCMFacet */
+       ; // 4A96A743020E
+       <<include>> "4AE5ACE402C5"
+        %UID '4AE5ACE402C5'
+        %TARGET U$ '499D6E6D0319' /* Facet */
+       ; // 4AE5ACE402C5
+       <<include>> "4AE5ACF400B6"
+        %UID '4AE5ACF400B6'
+        %TARGET U$ '481EC6BD016B' /* SimpleClass */
+       ; // 4AE5ACF400B6
+       <<include>> "4AE9669E019D"
+        %UID '4AE9669E019D'
+        %TARGET U$ '470F33CD0242' /* Struct */
+       ; // 4AE9669E019D
+       <<include>> "4AE966A200E1"
+        %UID '4AE966A200E1'
+        %TARGET U$ '470F198F0000' /* Enum */
+       ; // 4AE966A200E1
+       <<include>> "4AE966A6021B"
+        %UID '4AE966A6021B'
+        %TARGET U$ '470F144E000F' /* Typedef */
+       ; // 4AE966A6021B
+       <<include>> "4AF95F7D0116"
+        %UID '4AF95F7D0116'
+        %TARGET U$ '470F096E0203' /* Vector */
+       ; // 4AF95F7D0116
+       <<include>> "4BD8543A0045"
+        %UID '4BD8543A0045'
+        %TARGET U$ '4BD853F50147' /* VCMFormDefinition */
+       ; // 4BD8543A0045
+       <<include>> "54E481910053"
+        %UID '54E481910053'
+        %TARGET U$ '4F2C0D86003E' /* ScriptKeyword */
+       ; // 54E481910053
+      ; // %LINKS
+     ; // VCMControls
+     [EXPORT] <<VCMControls>>
+     <<MDAClass>> VCMFormDefinition
+      %UID '4BD853F50147'
+      %SUMMARY 'Описание формы VCM'#13#10'---'#13#10'Служит для идентификации конкретного типа формы. От такого описания должна наследоваться конкретная форма, идентифицировать которую и нужно.'#13#10''#13#10'Служит неким аналогом ключа для фабрики форм' ;
+      %TOBEINCLUDED
+       U$ '4729C41D032C' /* DelphiLang */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '499D6E6D0319' /* Facet */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4947F8AD02A1' /* pas_TypeName */
+       U$ '4B2A19E3038B' /* DoSpell */
+      ; // %OVERRIDES
+     ; // VCMFormDefinition
+     [EXPORT] <<VCMFormDefinition>>
+   ; // %CHILDREN
+  ; // VCMUserInteraction
+ ; // %CHILDREN
+; // VCMViewInterfacesLayer

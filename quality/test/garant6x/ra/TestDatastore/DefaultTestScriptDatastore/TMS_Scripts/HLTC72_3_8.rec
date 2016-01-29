@@ -1,0 +1,27 @@
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=77,17"
+    GenericObject Click, "Text=Международные договоры", "Coords=82,13"
+    ListBox Click, "ObjectIndex=4", "Coords=90,17"
+    'ListBox Click, "ObjectIndex=5", "Coords=10,10"
+    
+    InputKeys "{HOME}{APPS}"
+    'Window SetContext, "CurrentWindow",""
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{ENTER}"
+    InputKeys "{DELETE}"
+    Dim NewItemCount%
+    SQAGetProperty "CurrentFocus","ItemCount",NewItemCount
+    if NewItemCount<>0 then
+        SQALogMessage sqaFail, "Ошибка! Список не пуст", "В списке "+CStr(NewItemCount)+" элемент"
+      
+    else
+      SQALogMessage sqaPass, "Список пуст", "В списке "+CStr(NewItemCount)+" элемент"
+    end if 
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+End Sub

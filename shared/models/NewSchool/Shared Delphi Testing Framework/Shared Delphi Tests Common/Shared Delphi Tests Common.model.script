@@ -1,0 +1,369 @@
+<<Library>> "Shared Delphi Tests Common"
+ %UID '513098F2017C'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifdef" 'nsTest'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> "Tests Res Common"
+   %UID '51309A4A02FB'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4DB14DDC01A9' /* ScriptDebugger */
+    U$ '4DEF302C0007' /* ScriptEngine */
+    U$ '4E030FC801EB' /* BatchServices */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+    U$ '550012C403C4' /* L3$AFW */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> TestForm4Scripts
+      %UID '51349B6001D3'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A0D4A006F' /* DUnit */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> g_TestsForm
+         %UID '51349CE90123'
+         %TARGET U$ '4DA30F0F02C1' /* TGUITestRunner */
+         %TOBEINCLUDED
+          U$ '4B2A0D4A006F' /* DUnit */
+         ; // %TOBEINCLUDED
+        ; // g_TestsForm
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Operation>> LinkTestForm
+         %UID '51349D1803A7'
+         %TOBEINCLUDED
+          U$ '4B2A0D4A006F' /* DUnit */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<const>> aForm
+            %UID '51349D2901B5'
+            %TARGET U$ '4DA30F0F02C1' /* TGUITestRunner */
+            %TOBEINCLUDED
+             U$ '4B2A0D4A006F' /* DUnit */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // LinkTestForm
+        FINAL <<Operation>> UnLinkTestForm
+         %UID '51349D2D0187'
+        ; // UnLinkTestForm
+        FINAL <<Operation>> GetTestForm
+         %UID '51349D4E02CB'
+         %TARGET U$ '4DA30F0F02C1' /* TGUITestRunner */
+         %TOBEINCLUDED
+          U$ '4B2A0D4A006F' /* DUnit */
+         ; // %TOBEINCLUDED
+        ; // GetTestForm
+      ; // %OPERATIONS
+     ; // TestForm4Scripts
+     ABSTRACT <<Impurity>> GUIAppTester
+      %UID '52F21A610247'
+      %SUMMARY 'Ѕазовый тестер GUI-приложений' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B2A0D4A006F' /* DUnit */
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "52F22702013E"
+         %UID '52F22702013E'
+         %TARGET U$ '4CDD241C0184' /* l3System */
+        ; // 52F22702013E
+        <<uses>> "52F259E0007D"
+         %UID '52F259E0007D'
+         %TARGET U$ '4B2A6D4303A9' /* KTestRunner */
+        ; // 52F259E0007D
+        <<uses>> "52F25C7E009E"
+         %UID '52F25C7E009E'
+         %TARGET U$ '4C8A2ADD01B1' /* Application */
+        ; // 52F25C7E009E
+        <<uses>> "52F25F240290"
+         %UID '52F25F240290'
+         %TARGET U$ '4E03119F00B2' /* afwAnswer */
+        ; // 52F25F240290
+        <<uses>> "52F2615A008E"
+         %UID '52F2615A008E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 52F2615A008E
+        <<uses>> "55099C0B00E4"
+         %UID '55099C0B00E4'
+         %TARGET U$ '5507FDD203E1' /* Tl3BatchService */
+        ; // 55099C0B00E4
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<static>> g_IsBatchMode
+         %UID '4DA478990164'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %VALUE false
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_IsBatchMode
+        PRIVATE <<static>> g_IsBatchModeValid
+         %UID '4DA478B5000C'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %VALUE false
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_IsBatchModeValid
+        PRIVATE LINK <<static>> g_Debugger
+         %UID '52F21B18009E'
+         %TARGET U$ '4DB14E0A029D' /* TtfwScriptDebugger_Form */
+         %TOBEINCLUDED
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+        ; // g_Debugger
+        PRIVATE LINK <<static>> g_TestsForm
+         %UID '52F21B3201DF'
+         %TARGET U$ '4DA30F0F02C1' /* TGUITestRunner */
+         %TOBEINCLUDED
+          U$ '4B2A0D4A006F' /* DUnit */
+         ; // %TOBEINCLUDED
+        ; // g_TestsForm
+        PRIVATE LINK <<static>> g_InRun
+         %UID '52F21B3B012E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_InRun
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED ABSTRACT <<abstractmethod>> CalcBatchMode
+         %UID '4F79BCC902C5'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4F79BCDA0351'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CalcBatchMode
+        PRIVATE FINAL <<method>> DoIdle
+         %UID '4DA3361A0305'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DA33626026D'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Sender
+               %UID '4DA3362C0043'
+               %TARGET U$ '4807745602C8' /* TObject */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Sender
+              <<inout>> Done
+               %UID '4DA3362C00B5'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Done
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoIdle
+        FINAL <<method>> IsBatchMode
+         %UID '4DA476580343'
+         %META
+          %upv "ifdef" 'InsiderTest'
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DA4766801BC'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsBatchMode
+        FINAL <<method>> ReadyToRun
+         %UID '4F79B9D500D7'
+         %SUMMARY '¬ызываетс€ непосредственно перед запуском приложени€, например дл€ инициализации/запуска тестов' ;
+         %META
+          %upv "is static" true
+         ; // %META
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4F79B9E70001'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ReadyToRun
+      ; // %OPERATIONS
+     ; // GUIAppTester
+     ABSTRACT <<SimpleClass>> TGUIAppTester
+      %UID '52F255E702F0'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4B2A10C40309' /* DUnitTuning */
+       U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+       U$ '52F21A610247' /* GUIAppTester */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4F79BCC902C5' /* CalcBatchMode */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "52F2645E038F"
+         %UID '52F2645E038F'
+         %TARGET U$ '4B2A6D4303A9' /* KTestRunner */
+        ; // 52F2645E038F
+        <<uses>> "52F268E10370"
+         %UID '52F268E10370'
+         %TARGET U$ '4DEF306102FF' /* TtfwScriptEngineEX */
+        ; // 52F268E10370
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<abstractmethod>> GetResultsPlaces
+         %UID '52F264840382'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52F26508019F'
+            %TARGET U$ '52F264E400E6' /* TResultsPlaces */
+            %TOBEINCLUDED
+             U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetResultsPlaces
+        PROTECTED FINAL <<method>> MakeResults
+         %UID '52F2651C00F4'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4B2A10C40309' /* DUnitTuning */
+          U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52F2654F009A'
+            %TARGET U$ '52F264E400E6' /* TResultsPlaces */
+            %TOBEINCLUDED
+             U$ '4B2A10C40309' /* DUnitTuning */
+             U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aPlaces
+               %UID '52F2656802BD'
+               %TARGET U$ '4B7AAF5C0096' /* "array of RTestResultsPlace" */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // aPlaces
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeResults
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Vector>> TResultsPlaces
+         %UID '52F264E400E6'
+         %META
+          %upv "array type" 'dynamic'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           <<Attribute>> "52F264F70116"
+            %UID '52F264F70116'
+            %TARGET U$ '4B7AAF1203B4' /* RTestResultsPlace */
+            %TOBEINCLUDED
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+           ; // 52F264F70116
+         ; // %ATTRIBUTES
+        ; // TResultsPlaces
+      ; // %CHILDREN
+     ; // TGUIAppTester
+   ; // %CHILDREN
+  ; // "Tests Res Common"
+ ; // %CHILDREN
+; // "Shared Delphi Tests Common"

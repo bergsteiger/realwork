@@ -1,0 +1,713 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/ExeTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::ExeTarget
+//
+// Исполнимый модуль
+// ---
+// Определяет исполнимый файл - агрегацию серверных компонент (и других модулей компиляции).
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ExeTarget::Category
+? Исполнимый модуль
+? Определяет исполнимый файл - агрегацию серверных компонент (и других модулей компиляции).
+= AbstractTarget::Category
+= C++ интерфейсы и реализация::MDAGenerator
+= Проектные файлы Java::MDAGenerator
+= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_exe_target.gif
+L code_exe_target
+D
+/ - запрещена форвард-декларация
+// Параметры визуализации
+$ C 195,245,195
+$ l 80,245,80
+$ f 80,245,90
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p thread pool size:s ? определяет кол-во потоков в Пуле Потоков приложения
+p external name:s ? внешнее имя изсполнимого модуля
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()[{"%S{thread pool size}"!="%S{!thread pool size}"}%f_up_prefix(%S) *thread pool size* = *%S{thread pool size}* - определяет кол-во потоков в Пуле Потоков приложения
+	][{"%S{external name}"!="%S{!external name}"}%f_up_prefix(%S) *external name* = *%S{external name}* - внешнее имя изсполнимого модуля
+	][{"%S{old format}"!="%S{!old format}"}%f_up_prefix(%S) *old format* = *%S{old format}* - включает генерацию дополнительного кода для совместимости со старым сервером
+	][{"%S{CONFIG_UC}"!="%S{!CONFIG_UC}"}%f_up_prefix(%S) *CONFIG_UC* = *%S{CONFIG_UC}* - Генерить юзер-секции в конфигурационный файл
+	]
+
+// специфичные данные, необходимые для включения в classpath
+%f _specific_classpath_entries
+//#UC START# *4AA8997F0292for470382290251*
+		\<classpathentry kind="con" path="ru.garant.shared.support.DIR_CONTAINER/JAVA_EXTERNAL/current_lib/jar,zip"/\>
+		\<classpathentry kind="con" path="ru.garant.shared.support.DIR_CONTAINER/JAVA_EXTERNAL/current_lib/common_lib/jar,zip"/\>
+//#UC END# *4AA8997F0292for470382290251*
+
+// дополнительные исходники, подключаемые к проекту
+%f _specific_project_linked_source
+//#UC START# *4AA89A2E01CEfor470382290251*
+//#UC END# *4AA89A2E01CEfor470382290251*
+
+// список задач через запятую, которые нужно запускать после выполнения команды "Clean"
+%f _attr_ant_after_clean_targets
+//#UC START# *4AA89C080397for470382290251*
+	idlcomp,gcomp,
+//#UC END# *4AA89C080397for470382290251*
+
+// Определяет является ли приложение тестом
+%f _IsTest
+// возвращаемый результат: boolean
+//#UC START# *4B2A46060306for470382290251*
+	false
+//#UC END# *4B2A46060306for470382290251*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor470382290251*
+	%S%[inherited]\
+	[{%S%f_IsTest()=true}\
+
+	[{%SS=VCMTestTarget}{\
+	[{%S{is insider test}!=true}\
+	[{%S{no scripts}!=true}\
+	[{"%{TAutoTestsSuite}N"=""}%f_find_element(TAutoTestsSuite,TAutoTestsSuite)]\
+	%S%f_make_accessable(%{TAutoTestsSuite}U)\
+	%f_addCDep(%S,%{TAutoTestsSuite})\
+	[{"%{TtfwScriptEngineEX}N"=""}%f_find_element(TtfwScriptEngineEX,TtfwScriptEngineEX)]\
+	%S%f_make_accessable(%{TtfwScriptEngineEX}U)\
+	%f_addCDep(%S,%{TtfwScriptEngineEX})\
+	]\
+	]\
+	}\
+	[{<{}{%D#f_IsVCMGUI()=true&%D{F1Like}=false}{C}>=0}{\
+	[{"%{TAutoTestsSuite}N"=""}%f_find_element(TAutoTestsSuite,TAutoTestsSuite)]\
+	%S%f_make_accessable(%{TAutoTestsSuite}U)\
+	%f_addCDep(%S,%{TAutoTestsSuite})\
+	}\
+	[{"%{TF1AutoTestSuite}N"=""}%f_find_element(TF1AutoTestSuite,TF1AutoTestSuite)]\
+	%S%f_make_accessable(%{TF1AutoTestSuite}U)\
+	%f_addCDep(%S,%{TF1AutoTestSuite})\
+	]\
+	]\
+
+	[{"%{Exception}N"=""}%f_find_element(4787A405013D,Exception)]\
+	%S%f_make_accessable(%{Exception}U)\
+	%f_addCDep(%S,%{Exception})\
+
+	[{"%{l3Base}N"=""}%f_find_element(4773D64E036C,l3Base)]\
+	%S%f_make_accessable(%{l3Base}U)\
+	%f_addCDep(%S,%{l3Base})\
+
+	[{"%{TKBridge}N"=""}%f_find_element(TKBridge,TKBridge)]\
+	%S%f_make_accessable(%{TKBridge}U)\
+	%f_addCDep(%S,%{TKBridge})\
+
+	[{"%{KTestRunner}N"=""}%f_find_element(KTestRunner,KTestRunner)]\
+	%S%f_make_accessable(%{KTestRunner}U)\
+	%f_addCDep(%S,%{KTestRunner})\
+
+	[{"%{TextTestRunner}N"=""}%f_find_element(TextTestRunner,TextTestRunner)]\
+	%S%f_make_accessable(%{TextTestRunner}U)\
+	%f_addCDep(%S,%{TextTestRunner})\
+
+	[{"%{GUITestRunner}N"=""}%f_find_element(GUITestRunner,GUITestRunner)]\
+	%S%f_make_accessable(%{GUITestRunner}U)\
+	%f_addCDep(%S,%{GUITestRunner})\
+
+	[{%S{no scripts}!=true}\
+	[{"%{TvcmInsiderTest}N"=""}%f_find_element(TvcmInsiderTest,TvcmInsiderTest)]\
+	%S%f_make_accessable(%{TvcmInsiderTest}U)\
+	%f_addCDep(%S,%{TvcmInsiderTest})\
+	]\
+	]
+//#UC END# *4B2A19E3038Bfor470382290251*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _IsExeTarget
+// возвращаемый результат: boolean
+//#UC START# *4B2A4565034Dfor470382290251*
+	true
+//#UC END# *4B2A4565034Dfor470382290251*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+%f _pas_UnitName
+//#UC START# *4948065C01DFfor470382290251*
+	%f_N(%S)[{%S%f_IsTest()=true}[{%SS=VCMTestTarget}App]Test]
+//#UC END# *4948065C01DFfor470382290251*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Путь к модулю
+%f _pas_UnitPath
+//#UC START# *4948C3290020for470382290251*
+	%S%[inherited]\
+	[{%S%f_IsTest()=true}{\
+	[{%S{need UC in project}=true}{\
+	/%f_N(%S)\
+	}\
+	]\
+	}\
+	[{%SS=VCMTestTarget|%S{need UC in project}=true}{\
+	/%f_cut_prefix(%f_N(%S),Release)Test\
+	}\
+//	/Test\
+	]\
+	]%S{path suffix}
+//#UC END# *4948C3290020for470382290251*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470382290251*
+c                  {}
+r {"%ax"="true"}:  {%SS cant be used as target of dependence}
+r {"%f_check_duplicate_params(%S,"LIB")"!=""}:     {Duplicate Attribute in diffrent Setting container:%f_check_duplicate_params(%S,"LIB")}
+r {"%f_check_duplicate_params(%S,"TARGET")"!=""}:     {Duplicate Attribute in diffrent Setting container in one Target:%f_check_duplicate_params(%S,"TARGET")}
+r {"%f_check_non_overload_member(%S)"!=""}:           {Non overided members found:%f_check_non_overload_member(%S)}
+//#UC END# *4704C0E30186for470382290251*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470382290251*
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+O %SN_main.cpp
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	\#include "shared/Core/sys/AutoInit.h"
+	%f_std_inc(%S)
+	\#include "shared/Core/GDS/MemoryWatcher.h"
+	\#include "shared/Core/GDS/ObjectWatcher.h"	
+	[{"%f_use_mem_pool(%S)"="true"}\#include "shared/Core/mng/PoolMemoryManager.h"
+	][{"%f_use_obj_pool(%S)"="true"}\#include "shared/Core/mng/PoolObjectManager.h"
+	]\#include [{%f_use_server(%S)=true&"%S{old format}"="false"}{"shared/Core/impl/Root_i/StdLibHomeManager_factory.h"}"shared/CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.h"]
+	\#include "shared/Core/impl/ParamsImpl/ParamManagerImpl_factory.h"
+	[%f_inc_all_dep(%S)
+	][{"%S{old format}"="true"}%U[{_CUSTOM_INCLUDE}
+	]
+	][{%f_use_event_service(%S)}\#include "orbsvcs/orbsvcs/Event/EC_Default_Factory.h"
+	\#include "orbsvcs/Event/EC_Dispatching_Task.h"
+	
+	\#if !defined (ACE_WIN32) || (defined (ACE_WIN32) && defined (ACE_AS_STATIC_LIBS))
+	ACE_STATIC_SVC_REQUIRE (TAO_EC_Default_Factory);
+	ACE_STATIC_SVC_REQUIRE (TAO_EC_Simple_Queue_Full_Action);
+	\#endif][
+	%S%f_open_ifdef()]
+	
+	void print_usage (const Core::Root::LibHomeManager& lhm) {
+	%f_str_split(%SN[{"%SD"!=""} - %f_str_replace(%f_str_replace(%SD,\\,\\\\),%f_dump_q(%S),%f_dump_escq(%S))]\\n%f_dump_q(%S);,	std::cout \<\< %f_dump_q(%S),\\n%f_dump_q(%S);\n,90)
+		std::cout \<\< std::endl;
+		lhm.print_usage ();
+		std::cout \<\< "\\nВсе права принадлежат ООО НПП \\"Гарант-Сервис\\"\\n";
+	}
+	
+	/// main-function wrapper
+	class MainFunction {
+	public:
+		static int execute (int argc, char** argv) {
+			int ret_code = 0;
+			Core::AutoInit auto_init;
+	
+			Core::select_log_format_set (Core::LFI_FULL);
+	
+			{
+				[{%f_use_server(%S)=true&"%S{old format}"="false"}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory_var f = new [{%f_use_server(%S)=true&"%S{old format}"="false"}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory ();
+				f-\>registrate_me(0);
+			}
+			{
+				Core::ParamsImpl::ParamManagerImpl_factory_var f = new Core::ParamsImpl::ParamManagerImpl_factory ();
+				f-\>registrate_me(0);
+			}
+			try {
+	[{"%S{old format}"="true"}{%f_dump_default_param_manager_init(%S)}			%U[{_PARAM_MANAGER_INIT}
+	%f_dump_default_param_manager_init(%S)
+				]]
+			} CATCH_AND_LOG ("while init ParamManager executed")
+			
+			Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+	[%f_reg_all_dep(%S)
+	]		if (
+				Core::ParamManagerFactory::get ().is_exist ("-help")
+				|| Core::ParamManagerFactory::get ().is_exist ("-h")
+				|| Core::ParamManagerFactory::get ().is_exist ("-?")
+			) {
+				print_usage(lhm);
+				return ret_code;
+			}
+			if (!lhm.check_params ()) {
+				print_usage (lhm);
+				return 1;
+			}
+			
+			try {
+				lhm.execute ();
+				ret_code = lhm.wait_all () == 0 ? 0 : 2;
+			} CATCH_LOG_AND_DO ("while HomeManager processed", ret_code = 3;)
+		
+			lhm.finalize ();
+			
+			return ret_code;
+		}
+	};
+	
+	int main (int argc, char** argv) {
+		return MainFunction::execute (argc, argv);
+	}<{}{"%CM"!="Settings::Class"}{%C}%CX>
+	%f_footer(%S)
+
+f _dump_default_param_manager_init
+				Core::ParamManagerInitData init = {"%SN", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\\\Software\\\\Garant\\\\%PN\\\\%SN"};
+				Core::ParamManagerFactory::get ().init (Core::ParamConvert::make_arg_list (argc, argv), init);
+//#UC END# *47022CB8034Bfor470382290251*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor470382290251*
+//#UC END# *49F5795900ECfor470382290251*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470382290251*
+//#UC END# *470F15B800CBfor470382290251*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470382290251*
+O [{"%f_pas_UnitFileName(%S)"!=""}[{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)]
+C %S%f_pas_UnitPath()
+	%f_clear_list(TOTAL_USES)\
+	%f_pas_OpenUnitInterface(%S)\
+
+	[{%S{console}=true}\
+	
+	\{$APPTYPE CONSOLE\}
+	]\
+
+	[{%S{console}!=true}\
+	%f_pas_PutToUses("ControlResizeBugFix")\
+	]\
+
+	[{%SS=VCMTestTarget}\
+	<{}{%D#f_IsVCMGUI()=true}\
+	%D%f_OutExtIntfUses()\
+	%f_cycle_break(%S)\
+	>\
+	]\
+
+	%S%f_pas_TotalUses()\
+	[{%S{need UC in project}=true}\
+	\n%U[{manualuses}\n]\
+	]\
+	%f_pas_CloseUses(%S)\
+	%f_clear_TotalUses(%S)\
+	
+	[{%S{console}!=true}\
+	\{$R [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitName(%S).res\}\
+	[{%S{needs second icon}=true}\n\{$R main_icon2.res\} // вторая иконка приложения]
+	
+	]\
+	[{%S{need UC in project}=true}\
+	%U[{manualres}\n]\n
+	]\
+
+	begin
+	[{%S%f_IsTest()=true}{\
+	 %U[{manualcode}\n ]\
+	}\
+	 \{$IfDef nsTest\}
+	 g_CVSPath := '%f_str_replace(%SR%Sd,/,\\)';
+	 \{$EndIf nsTest\}
+	 %U[{CVSPath}\n ]
+	[{%S{need UC in project}=true}{\
+	[{%SS=VCMTestTarget}{\
+	[{%S{no scripts}!=true}\
+	 TAutoTestsSuite.Register;\n\
+	]\
+	 try
+	  if KTestRunner.NeedKTestRunner\
+	(\[<{, }{%C#f_IsTestResults()=true}%f_pas_TypeName(%C)>\])\
+	 then
+	   KTestRunner.RunRegisteredTests
+	  else
+	  if System.IsConsole then
+	   TextTestRunner.RunRegisteredTests
+	  else
+	   GUITestRunner.RunRegisteredTests;
+	 except
+	  on E: Exception do
+	  begin
+	   \{$If defined(MTDORB) AND defined(NoKPageTool)\}
+	   if TKBridge.Exists then
+	    TKBridge.Instance.Logout;
+	   \{$IfEnd\}
+	   l3System.Exception2Log(E);
+	   Halt(2);
+	  end;//Exception
+	 end;//try..except
+	 if (TestsExitCode \<\> 0) then
+	  Halt(TestsExitCode);\
+	}\
+	[{<{}{%D#f_IsVCMGUI()=true&%D{F1Like}=false}{C}>=0}{\
+	 TAutoTestsSuite.Register;
+	}\
+	 TF1AutoTestSuite.Register;
+	]\
+	<{}{%D#f_IsVCMGUI()=true}\
+	%D%f_OutApplicationBody()\
+	%f_cycle_break(%S)\
+	>\
+	]\
+	}\
+	 %U[{manualcode}\n ]\
+	]\
+	]\
+	%f_pas_CloseUnit(%S)\
+	<{}{%CV!=PrivateAccess&%C#f_IsClassInner()!=true&"%CO"!=""}%CX>
+//#UC END# *470F1571031Cfor470382290251*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470382290251*
+//#UC END# *477398E501C0for470382290251*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470382290251*
+//#UC END# *4774D2A20372for470382290251*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for470382290251*
+//#UC END# *55B8D28B0157for470382290251*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for470382290251*
+//#UC END# *55B8D2F80145for470382290251*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for470382290251*
+//#UC END# *55B8DD9C0301for470382290251*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470382290251*
+P
+C /%SN
+O %SNMain.java
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	package %f_dump_java_package(%S).%SN;
+	
+	%f_dump_std_java_imports(%S)
+	
+	public class %SNMain {
+	
+		public static void main (String Args\[\]) throws Exception {
+			[{%f_use_server(%S)=true}{ru.garant.shared.Core.Root_i.Std}ru.garant.shared.CoreSrv.Root_i.Corba]LibHomeManagerFactoryImpl libHomeFactory = new [{%f_use_server(%S)=true}{ru.garant.shared.Core.Root_i.Std}ru.garant.shared.CoreSrv.Root_i.Corba]LibHomeManagerFactoryImpl ();
+			libHomeFactory.registrateMe((short)0);
+			
+			ru.garant.shared.Core.ParamsImpl.ParamManagerImplFactoryImpl paramManagerFactory = new ru.garant.shared.Core.ParamsImpl.ParamManagerImplFactoryImpl ();
+			paramManagerFactory.registrateMe((short)0);
+			
+			try {
+				ru.garant.shared.Core.ParamManagerInitData initData = new ru.garant.shared.Core.ParamManagerInitData ();
+				initData.setApplicationName("%SN");
+				initData.setRegistrySubkey("Core::RegistryHelper::KEY_LOCAL_MACHINE\\\\Software\\\\Garant\\\\%PN\\\\%SN");
+				
+				ru.garant.shared.Core.ParamManager.Factory.get ().init (java.util.Arrays.asList(Args), initData);
+			} catch (Throwable e) {
+				Logs.LOG_SEX (e);
+			}
+			
+			ru.garant.shared.Core.Root.LibHomeManager lhm = ru.garant.shared.Core.Root.LibHomeManager.Factory.get();
+	
+	[%f_reg_all_dep_java(%S)
+	]
+			try {
+				lhm.execute();
+				lhm.waitAll ();
+			} catch (java.lang.Throwable ex) {
+				Logs.LOG_SEX (ex);
+			}
+			
+			lhm.finalize ();
+		}
+
+	} // %SNMain
+	<%CX>
+	%f_footer(%S)
+//#UC END# *470321950119for470382290251*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor470382290251*
+P
+O T_%SN.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd T_%SN utility
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	project (T_%SN) : project_generic_core[{%f_use_server(%S)=true}_corba], project_subsystem_console[{%f_mpc_need_antrl_proj(%S)=true}, project_antlr] {
+		exename = %SN
+		
+		includes += %f_root_relative_path(%S)
+		[
+	%f_mpc_all_includes(%S)][
+	%f_mpc_all_libpaths(%S)]
+		after += Core
+		libs  += Core
+		[{%f_use_server(%S)=true}after += CoreSrv_cs
+		libs  += CoreSrv_cs
+		after += CoreSrv
+		libs  += CoreSrv][{%f_use_db_lib(%S)=true}
+		after += CoreUSF
+		libs  += CoreUSF
+		after += SEA
+		libs  += SEA][
+	
+	%f_mpc_all_dep(%S)]
+		
+		Header_Files {
+			Std_Headers {
+				%f_normolized_path(h,S)
+			}
+		}
+		
+		Inline_Files {
+			Std_Inlines {
+				%f_normolized_path(i.h,S)
+			}
+		}
+	
+		Source_Files {
+			Std_Sources {
+				%f_normolized_path(cpp,S)
+			}
+		}
+		
+		Resource_Files {
+			%f_normolized_path(vi.rc,S)
+			%f_normolized_path(vi.rch,S)
+		}
+	}
+	%f_footer(%S)
+//#UC END# *47031E41002Efor470382290251*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for470382290251*
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O Makejar.launch
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<launchConfiguration type="org.eclipse.ant.AntBuilderLaunchConfigurationType"\>
+		\<booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/\>
+		\<booleanAttribute key="org.eclipse.ant.ui.DEFAULT_VM_INSTALL" value="false"/\>
+		\<booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="true"/\>
+		\<stringAttribute key="org.eclipse.ant.ui.ATTR_ANT_AFTER_CLEAN_TARGETS" value="%S%f_attr_ant_after_clean_targets()"/\>
+		\<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES"\>
+			\<listEntry value="1"/\>
+		\</listAttribute\>
+		\<stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,incremental,"/\>
+		\<booleanAttribute key="org.eclipse.ant.ui.ATTR_TARGETS_UPDATED" value="true"/\>
+		\<booleanAttribute key="org.eclipse.ui.externaltools.ATTR_TRIGGERS_CONFIGURED" value="true"/\>
+		\<booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="true"/\>
+		\<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.ant.ui.AntClasspathProvider"/\>
+		\<stringAttribute key="org.eclipse.ant.ui.ATTR_ANT_MANUAL_TARGETS" value="makejar,"/\>
+		\<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="%SN"/\>
+		\<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${workspace}"/\>
+		\<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS"\>
+			\<listEntry value="/%SN/build.xml"/\>
+		\</listAttribute\>
+		\<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/%SN/build.xml}"/\>
+	\</launchConfiguration\>
+	<%CX>
+//#UC END# *470322DF03A9for470382290251*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor470382290251*
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O build.xml
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<project name="%SN" basedir="."\>
+		\<property environment="env"/\>
+		\<property name="build.dir" value="${env.JAVA_SOURCE_ROOT}/build/target"/\>
+	[{<{}{%D<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}.>>!=""}
+		\<target name="idlcomp"\>[{<{}{%dS=ServerLibrary}{C}>!=0}
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/CoreSrv/build.xml" target="idlcomp" inheritAll="false"/\>][
+	%f_dump_dep_for_idlcomp(%S)]
+		\</target\>]
+	[{<{}{%D<{}{%AM=Grammar::Class}{C}>!=0}.>>!=""}
+		\<target name="gcomp"\>
+	%f_dump_dep_for_gcomp(%S)]
+		\</target\>]
+		\<target name="cleanJar"\>
+			\<delete dir="${build.dir}/jar" /\>
+		\</target\>
+		\<target name="makejar"\>[{<{}{%dS=ServerLibrary}{C}>!=0}
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/Core/build.xml" target="makejar" inheritAll="false"/\>
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/FSM/build.xml" target="makejar" inheritAll="false"/\>[{<{}{%dS=ServerLibrary}{C}>!=0}
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/\>]][
+	%f_dump_dep_for_makejar(%S)]
+			\<jar destfile="${build.dir}/jar/%SN.jar"\>
+				\<fileset dir ="${build.dir}/classes"\>
+					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+				\</fileset\>
+				\<fileset dir ="%f_with_gen_id(output.xml,$\{env.JAVA_SOURCE_ROOT}%Sd)"/\>
+			\</jar\>
+		\</target\><%CX>
+	\</project\>
+//#UC END# *47032262037Afor470382290251*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for470382290251*
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O .classpath
+	%f_output_constraint(%S)\
+	%f_dump_classpath(%S)
+
+f _dump_classpath
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<classpath\>
+		\<classpathentry kind="src" path="%PN"/\>
+		\<classpathentry kind="src" path="shared"/\>
+		\<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/\>
+	[%S%f_specific_classpath_entries()
+	]	\<classpathentry kind="output" path="target"/\>
+	\</classpath\>
+//#UC END# *470322910119for470382290251*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor470382290251*
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O .project
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<projectDescription\>
+		\<name\>%SN\</name\>
+		\<comment\>%SD\</comment\>
+		\<projects\>
+		\</projects\>
+		\<buildSpec\>
+			\<buildCommand\>
+				\<name\>org.eclipse.jdt.core.javabuilder\</name\>
+				\<arguments\>
+				\</arguments\>
+			\</buildCommand\>
+			\<buildCommand\>
+				\<name\>org.eclipse.ui.externaltools.ExternalToolBuilder\</name\>
+				\<triggers\>full,incremental,\</triggers\>
+				\<arguments\>
+					\<dictionary\>
+						\<key\>LaunchConfigHandle\</key\>
+						\<value\>&lt;project&gt;/Makejar.launch\</value\>
+					\</dictionary\>
+				\</arguments\>
+			\</buildCommand\>
+		\</buildSpec\>
+		\<natures\>
+			\<nature\>org.eclipse.jdt.core.javanature\</nature\>
+		\</natures\>
+		\<linkedResources\>
+			\<link\>
+				\<name\>%PN\</name\>
+				\<type\>2\</type\>
+				\<locationURI\>%f_str_replace(%f_java_root(%S),%SR,JAVA_SOURCE_ROOT)\</locationURI\>
+			\</link\>
+			\<link\>
+				\<name\>shared\</name\>
+				\<type\>2\</type\>
+				\<locationURI\>JAVA_SOURCE_ROOT/shared/java/src/java\</locationURI\>
+			\</link\>
+			\<link\>
+				\<name\>target\</name\>
+				\<type\>2\</type\>
+				\<locationURI\>JAVA_SOURCE_ROOT/build/target/classes\</locationURI\>
+			\</link\>
+			\<link\>
+				\<name\>etc\</name\>
+				\<type\>2\</type\>
+				\<locationURI\>%f_with_gen_id(java,JAVA_SOURCE_ROOT/%PN)/java/src/etc\</locationURI\>
+			\</link\>
+	[%S%f_specific_project_linked_source()
+	]	\</linkedResources\>
+		%U[{_CUSTOM_PROJECT_ENTRY}
+		]<%CX>
+	\</projectDescription\>
+//#UC END# *47032220003Efor470382290251*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for470382290251*
+	<%CX>\
+	%S%f_DoSpell()
+//#UC END# *4A41A13D03D5for470382290251*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

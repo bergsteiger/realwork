@@ -1,0 +1,37 @@
+project (gmcsources_gm) : project-common-defines-tools, project-common-includes, project_generic_core {
+	staticname = gmcsources_gm
+	sharedname = gmcsources_gm
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += STORE_FORM_N
+
+	includes += ./../../component/cpp/libs/gctx/src
+	includes += ./../../component/cpp/libs/mrglib/src
+	includes += ./../../component/cpp/libs/VControl/src
+	includes += ./../../component/cpp/tools/gm/src
+
+	Header_Files {
+		./../../component/cpp/tools/gm/src/gm.h
+		./../../component/cpp/tools/gm/src/message.h // empty
+		./../../component/cpp/tools/gm/src/ready.h
+		./../../component/cpp/tools/gm/src/vscreen.h
+	}
+		
+	Source_Files {
+		./../../component/cpp/tools/gm/src/attrs_index.c
+		./../../component/cpp/tools/gm/src/aux_index.c
+		./../../component/cpp/tools/gm/src/blob_index.c
+		./../../component/cpp/tools/gm/src/cmdline.c
+		./../../component/cpp/tools/gm/src/doc_index.c
+		./../../component/cpp/tools/gm/src/gmmain.c
+		./../../component/cpp/tools/gm/src/hier_index.c
+		./../../component/cpp/tools/gm/src/idxmhlp.c
+		./../../component/cpp/tools/gm/src/ind_merge.c
+		./../../component/cpp/tools/gm/src/main.cpp
+		./../../component/cpp/tools/gm/src/msg_tbl.c // empty
+		./../../component/cpp/tools/gm/src/settings.c
+		./../../component/cpp/tools/gm/src/subname_index.c
+	}
+}
+

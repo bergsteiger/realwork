@@ -1,0 +1,1992 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.2.0401.2700"
+    charSet    	204)
+
+(object Class_Category "Redactions"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3F49CCE502BA"
+    documentation 	"Работа с редакциями объекта."
+    stereotype 	"AdapterUnit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"3F49CE2D0013"
+	    supplier   	"Logical View::Garant::GblAdapter::Search"
+	    quidu      	"3F14F6450093")
+	(object Visibility_Relationship
+	    quid       	"3F4E14940376"
+	    supplier   	"Logical View::Garant::GblAdapter::BaseTypes"
+	    quidu      	"3F2557FD00CD"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "RedactionInfoList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"8BDE1298-6218-4C49-9024-3F404F6CC809")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED323E20283_CUSTOM_DESTRUCTOR_FIX*"
+		    value      	(value Text 
+|//#UC START# *3ED323E20283_CUSTOM_DESTRUCTOR_FIX*¤	for (long i=0; i < m_count; ++i) {¤		RedactionInfo& data = m_buffer [i];¤		if (data.name) {¤			ACE_OS::free ((void*)data.name);¤		}¤		if (data.active_intervals) {¤			data.active_intervals->release ();¤		}¤		if (data.not_sure_intervals) {¤			data.not_sure_intervals->release ();¤		}¤	}¤	//#UC END# *3ED323E20283_CUSTOM_DESTRUCTOR_FIX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*3ED323E20283_CUSTOM_DESTROY_DECLARATION*"
+		    value      	(value Text 
+|//#UC START# *3ED323E20283_CUSTOM_DESTROY_DECLARATION*¤var¤	lBuffer: PRedactionInfo;¤	lIndex: Longint;¤//#UC END# *3ED323E20283_CUSTOM_DESTROY_DECLARATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*3ED323E20283_CUSTOM_DESTROY_BODY*"
+		    value      	(value Text 
+|//#UC START# *3ED323E20283_CUSTOM_DESTROY_BODY*¤		lBuffer := fBuffer;¤		for lIndex := 0 to Pred (fCount) do¤		begin¤			with lBuffer^ do¤			begin¤				StrDispose (rName);¤				rActiveIntervals := nil;¤			end;¤			Inc (lBuffer);¤		end;¤		//#UC END# *3ED323E20283_CUSTOM_DESTROY_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED323E20283CUSTOM_MAKE_INTERFACE_IMPL*"
+		    value      	"//#UC START# *3ED323E20283CUSTOM_MAKE_INTERFACE_IMPL*¤//#UC END# *3ED323E20283CUSTOM_MAKE_INTERFACE_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED323E20283CUSTOM_MAKE_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *3ED323E20283CUSTOM_MAKE_INTERFACE*¤	//#UC END# *3ED323E20283CUSTOM_MAKE_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED323E20283CUSTOM_INCLUDE*"
+		    value      	"//#UC START# *3ED323E20283CUSTOM_INCLUDE*¤//#UC END# *3ED323E20283CUSTOM_INCLUDE*"))
+	    quid       	"3ED323E20283"
+	    documentation 	"Список редакций."
+	    stereotype 	"AdapterSequence"
+	    language   	"MDA Generator")
+	(object Class "RedactionInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (h):*3ED31159015E_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *3ED31159015E_CUSTOM_DECLARATIONS*¤//#UC END# *3ED31159015E_CUSTOM_DECLARATIONS*"))
+	    quid       	"3ED31159015E"
+	    documentation 	"Информация о редакции объекта."
+	    stereotype 	"AdapterStruct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED3246302A7"
+		    documentation 	"Имя редакции."
+		    type       	"wstring"
+		    quidu      	"3DBFFEBF038C"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "RedactionType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ED3250A0198"
+	    documentation 	"Тип редакции объекта."
+	    stereotype 	"AdapterEnum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "RT_ACTUAL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED3252D01CB"
+		    exportControl 	"Public")
+		(object ClassAttribute "RT_ACTUAL_NOT_ACTIVE"
+		    quid       	"3F585A130026"
+		    exportControl 	"Public")
+		(object ClassAttribute "RT_ACTUAL_FUTURE"
+		    quid       	"3F585A320356"
+		    exportControl 	"Public")
+		(object ClassAttribute "RT_NOT_ACTIVE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED3254A0227"
+		    exportControl 	"Public")
+		(object ClassAttribute "RT_FUTURE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED3254100B1"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "Redactions"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"71C2A950-3D61-44A9-A0FA-845C4A9F5B97")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_PREINCLUDES*¤//#UC END# *3F49CF83025A_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_INCLUDES*¤//#UC END# *3F49CF83025A_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F49CF83025A_MAKE_INTERFACE_IMPLEMENTATION*¤	assert (false);¤	GBLADAPTER_DECLARE_AND_NEW (POINTER, Redactions_i, ());¤	return ACE_dynamic_cast (IRedactions*, GBLADAPTER_PTR_CHECK (IRedactions*, POINTER));¤	//#UC END# *3F49CF83025A_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *3F49CF83025A_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_BASE_METHOD_IMPL*"
+		    value      	"//#UC START# *3F49CF83025A_BASE_METHOD_IMPL*¤//#UC END# *3F49CF83025A_BASE_METHOD_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F49CF83025A_CONSTRUCTOR_IMPLEMENTATION*¤	assert (false);¤	//#UC END# *3F49CF83025A_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F49CF83025A_DESTRUCTOR_IMPLEMENTATION*¤	assert (false);¤	//#UC END# *3F49CF83025A_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤//#UC END# *3F49CF83025A_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F49CF83025A_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_INCLUDES*¤//#UC END# *3F49CF83025A_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F49CF83025A_EX*"
+		    value      	"//#UC START# *3F49CF83025A_EX*¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Блок определения типов¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Блок определения статических методов и данных¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Блок определения абстрактных методов¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Блок определения методов и данных¤//#UC END# *3F49CF83025A_EX*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F49CF83025A_CUSTOM_TYPES*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_TYPES*¤//#UC END# *3F49CF83025A_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F49CF83025A_CUSTOM_STATIC*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_STATIC*¤//#UC END# *3F49CF83025A_CUSTOM_STATIC*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F49CF83025A_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_ABSTRACT*¤//#UC END# *3F49CF83025A_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F49CF83025A_CUSTOM_METHODS_AND_DATA*"
+		    value      	"//#UC START# *3F49CF83025A_CUSTOM_METHODS_AND_DATA*¤//#UC END# *3F49CF83025A_CUSTOM_METHODS_AND_DATA*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F49CF83025A_INLINE_INCLUDES*"
+		    value      	"//#UC START# *3F49CF83025A_INLINE_INCLUDES*¤//#UC END# *3F49CF83025A_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F49CF83025A_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *3F49CF83025A_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *3F49CF83025A_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default Constructor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default make_interface"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Final"
+		    value      	"true"))
+	    quid       	"3F49CF83025A"
+	    documentation 	"Интерфейс для работы с редакциями объекта."
+	    stereotype 	"AdapterInterface"
+	    operations 	(list Operations
+		(object Operation "has_prev_redaction"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F49D42903C3*"
+			    value      	(value Text 
+|//#UC START# *3F49D42903C3*¤	assert (false);¤	return false;¤	//#UC END# *3F49D42903C3*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"D9A00D63-84C9-4C6F-933B-051351AF9B38"))
+		    quid       	"3F49D42903C3"
+		    documentation 	
+|Функция показывает наличие предыдущей редакции для объекта.
+|Предыдущая редакция считается относительно текущего состояния (current_redaction).
+|Возвращает True в случае наличия хотябы одной более ранней (чем текущая) редакции.
+		    
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "has_next_redaction"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F49D46202C1*"
+			    value      	(value Text 
+|//#UC START# *3F49D46202C1*¤	assert (false);¤	return false;¤	//#UC END# *3F49D46202C1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"60412B5E-67B1-4E5E-9F72-BC641167C2B3"))
+		    quid       	"3F49D46202C1"
+		    documentation 	
+|Функция показывает наличие следующей редакции для объекта.
+|Следующая редакция считается относительно текущего состояния (current_redaction).
+|Возвращает True в случае наличия хотябы одной более поздней (чем текущая) редакции.
+		    
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "set_prev_redaction"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F49D4C10155*"
+			    value      	(value Text 
+|//#UC START# *3F49D4C10155*¤	assert (false);¤	//#UC END# *3F49D4C10155*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"33DDBEE0-322B-40F1-B016-51C466B100C4"))
+		    quid       	"3F49D4C10155"
+		    documentation 	
+|Операция устанавливает в качестве текущей предыдущую редакцию объекта.
+|Если предыдущей редакции нет, то возвращается RedactionNotFound.
+		    
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "set_next_redaction"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F49D4D403A1*"
+			    value      	(value Text 
+|//#UC START# *3F49D4D403A1*¤	assert (false);¤	//#UC END# *3F49D4D403A1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"DFE0EB4A-5011-49C2-AC10-FA7B2702DF71"))
+		    quid       	"3F49D4D403A1"
+		    documentation 	
+|Операция устанавливает в качестве текущей следующую редакцию объекта.
+|Если следующей редакции нет, то возвращается RedactionNotFound.
+		    
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "set_redaction_on_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*40768A6800C3*"
+			    value      	(value Text 
+|//#UC START# *40768A6800C3*¤	assert (false);¤	return false;¤	//#UC END# *40768A6800C3*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"407A426503CC")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Pure virtual"
+			    value      	"false"))
+		    quid       	"40768A6800C3"
+		    parameters 	(list Parameters
+			(object Parameter "date"
+			    quid       	"40768AA502E7"
+			    type       	"Date"
+			    quidu      	"3EC377520179"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "set_redaction_on_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F49D4EF0328*"
+			    value      	(value Text 
+|//#UC START# *3F49D4EF0328*¤	assert (false);¤	return false;¤	//#UC END# *3F49D4EF0328*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"8DB02A25-DF17-48DE-8EAF-5CF23CEBCA0D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3F4A16060147"))
+		    quid       	"3F49D4EF0328"
+		    documentation 	
+|Операция устанавливает в качестве текущей редакцию с заданным идентификатором.
+|Возвращает True в случае если текущая редакиция изменилась и False, если осталась той же самой, что и до вызова метода.
+|Если задан неверный идентификатор редакции, то возвращается InvalidRedactionId.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    quid       	"3F49D5670276"
+			    type       	"RedactionID"
+			    quidu      	"3F49D00801ED"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "set_actual_redaction"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F49D59D031E*"
+			    value      	(value Text 
+|//#UC START# *3F49D59D031E*¤	assert (false);¤	return false;¤	//#UC END# *3F49D59D031E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"3D1B9A58-5199-433C-A19A-1FF33BC6D747"))
+		    quid       	"3F49D59D031E"
+		    documentation 	
+|Операция устанавливает в качестве текущей редакцию, актуальную редакцию для данного документа.
+|Возвращает True в случае если текущая редакиция изменилась и False, если осталась той же самой, что и до вызова метода.
+		    
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240"))
+	    language   	"MDA Generator")
+	(object Class "RedactionID"
+	    quid       	"3F49D00801ED"
+	    documentation 	"Идентификатор редакции объекта (сейчас будет совпадать с ObjectId)."
+	    stereotype 	"AdapterTypedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3F49D06400FF"
+		    supplier   	"Logical View::Garant::Primitives::unsigned long"
+		    quidu      	"3DBFFDE101CA"))
+	    language   	"MDA Generator")
+	(object Class "RedactionNotFound"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"C67DEF89-E674-4575-BCDD-F5B4232F6C43"))
+	    quid       	"3F4A0D680109"
+	    documentation 	"Возвращается в случае попытки получения несуществующей редакции объекта."
+	    stereotype 	"AdapterException"
+	    language   	"MDA Generator")
+	(object Class "InvalidRedactionId"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"18108154-AE1E-456D-B72E-BF57476E232E"))
+	    quid       	"3F4A16060147"
+	    documentation 	"Возвращается в случае попытки получить редакцию с несуществующим RedactionId."
+	    stereotype 	"AdapterException"
+	    language   	"MDA Generator")
+	(object Class "ActiveIntervalList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"A47493FA-0883-40CB-9D8C-E0100F2FFE69")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F4E1F5601CB_CUSTOM_DESTRUCTOR_FIX*"
+		    value      	(value Text 
+|//#UC START# *3F4E1F5601CB_CUSTOM_DESTRUCTOR_FIX*¤	//#UC END# *3F4E1F5601CB_CUSTOM_DESTRUCTOR_FIX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*3F4E1F5601CB_CUSTOM_DESTROY_DECLARATION*"
+		    value      	"//#UC START# *3F4E1F5601CB_CUSTOM_DESTROY_DECLARATION*¤//#UC END# *3F4E1F5601CB_CUSTOM_DESTROY_DECLARATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*3F4E1F5601CB_CUSTOM_DESTROY_BODY*"
+		    value      	(value Text 
+|//#UC START# *3F4E1F5601CB_CUSTOM_DESTROY_BODY*¤		//#UC END# *3F4E1F5601CB_CUSTOM_DESTROY_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F4E1F5601CBCUSTOM_MAKE_INTERFACE_IMPL*"
+		    value      	"//#UC START# *3F4E1F5601CBCUSTOM_MAKE_INTERFACE_IMPL*¤//#UC END# *3F4E1F5601CBCUSTOM_MAKE_INTERFACE_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F4E1F5601CBCUSTOM_MAKE_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *3F4E1F5601CBCUSTOM_MAKE_INTERFACE*¤	//#UC END# *3F4E1F5601CBCUSTOM_MAKE_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F4E1F5601CBCUSTOM_INCLUDE*"
+		    value      	"//#UC START# *3F4E1F5601CBCUSTOM_INCLUDE*¤//#UC END# *3F4E1F5601CBCUSTOM_INCLUDE*"))
+	    quid       	"3F4E1F5601CB"
+	    stereotype 	"AdapterSequence"
+	    language   	"MDA Generator")
+	(object Class "InvalidDate"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"831C4B6F-1F96-4FD9-BC5B-72C094403C0C"))
+	    quid       	"407A426503CC"
+	    stereotype 	"AdapterException"
+	    language   	"MDA Generator")
+	(object Class "NotSureIntervalList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"C5D28F6C-4EDE-4083-889D-C5D2A4D476D4")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40ED1AAA026CCUSTOM_INCLUDE*"
+		    value      	"//#UC START# *40ED1AAA026CCUSTOM_INCLUDE*¤//#UC END# *40ED1AAA026CCUSTOM_INCLUDE*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40ED1AAA026CCUSTOM_MAKE_INTERFACE_IMPL*"
+		    value      	"//#UC START# *40ED1AAA026CCUSTOM_MAKE_INTERFACE_IMPL*¤//#UC END# *40ED1AAA026CCUSTOM_MAKE_INTERFACE_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40ED1AAA026C_CUSTOM_DESTRUCTOR_FIX*"
+		    value      	(value Text 
+|//#UC START# *40ED1AAA026C_CUSTOM_DESTRUCTOR_FIX*¤	//#UC END# *40ED1AAA026C_CUSTOM_DESTRUCTOR_FIX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40ED1AAA026CCUSTOM_MAKE_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *40ED1AAA026CCUSTOM_MAKE_INTERFACE*¤	//#UC END# *40ED1AAA026CCUSTOM_MAKE_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*40ED1AAA026C_CUSTOM_DESTROY_DECLARATION*"
+		    value      	"//#UC START# *40ED1AAA026C_CUSTOM_DESTROY_DECLARATION*¤//#UC END# *40ED1AAA026C_CUSTOM_DESTROY_DECLARATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*40ED1AAA026C_CUSTOM_DESTROY_BODY*"
+		    value      	(value Text 
+|//#UC START# *40ED1AAA026C_CUSTOM_DESTROY_BODY*¤		//#UC END# *40ED1AAA026C_CUSTOM_DESTROY_BODY*
+		    )))
+	    quid       	"40ED1AAA026C"
+	    stereotype 	"AdapterSequence"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ED3257D0144"
+	    roles      	(list role_list
+		(object Role "actual_type"
+		    quid       	"3ED3257E00F5"
+		    documentation 	"Признак актуальности редакции."
+		    label      	"actual_type"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionType"
+		    quidu      	"3ED3250A0198"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"3ED3257E00FF"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfo"
+		    quidu      	"3ED31159015E"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ED311AE0001"
+	    roles      	(list role_list
+		(object Role "active_intervals"
+		    quid       	"3ED311AE0341"
+		    documentation 	"Интервал действия редакции."
+		    label      	"active_intervals"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::ActiveIntervalList"
+		    quidu      	"3F4E1F5601CB"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$3"
+		    quid       	"3ED311AE034B"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfo"
+		    quidu      	"3ED31159015E"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$4"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ED3240703B3"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$5"
+		    quid       	"3ED324080147"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfo"
+		    quidu      	"3ED31159015E"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$6"
+		    quid       	"3ED324080151"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfoList"
+		    quidu      	"3ED323E20283"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$7"
+	    quid       	"3F49D5CB016C"
+	    roles      	(list role_list
+		(object Role "id"
+		    quid       	"3F49D5CC002C"
+		    documentation 	"идентифмкатор."
+		    label      	"id"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionID"
+		    quidu      	"3F49D00801ED"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$8"
+		    quid       	"3F49D5CC002E"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfo"
+		    quidu      	"3ED31159015E"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$9"
+	    quid       	"3F49D69203D5"
+	    roles      	(list role_list
+		(object Role "current_redaction"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F49D6930173_GET*"
+			    value      	(value Text 
+|//#UC START# *3F49D6930173_GET*¤	assert (false);¤	//#UC END# *3F49D6930173_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"1E3CBBD6-1EEC-4FB5-8E70-C51C2FA67CF9"))
+		    quid       	"3F49D6930173"
+		    documentation 	"Информация о текущей редакции объекта."
+		    stereotype 	"readonly"
+		    label      	"current_redaction"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfo"
+		    quidu      	"3ED31159015E"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$10"
+		    quid       	"3F49D693017D"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::Redactions"
+		    quidu      	"3F49CF83025A"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$11"
+	    quid       	"3F49D6E902D5"
+	    roles      	(list role_list
+		(object Role "redactions_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F49D6EA0150_GET*"
+			    value      	(value Text 
+|//#UC START# *3F49D6EA0150_GET*¤	assert (false);¤	//#UC END# *3F49D6EA0150_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"C867EC11-0FA0-46C2-9C70-2A2BF0B0A3B5"))
+		    quid       	"3F49D6EA0150"
+		    documentation 	"Список информации обо всех существующих редакциях объекта."
+		    stereotype 	"readonly"
+		    label      	"redactions_list"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfoList"
+		    quidu      	"3ED323E20283"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$12"
+		    quid       	"3F49D6EA0152"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::Redactions"
+		    quidu      	"3F49CF83025A"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$13"
+	    quid       	"3F4E1FA0016D"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$14"
+		    quid       	"3F4E1FA1006A"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::DateInterval"
+		    quidu      	"3ED312770372"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$15"
+		    quid       	"3F4E1FA1006C"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::ActiveIntervalList"
+		    quidu      	"3F4E1F5601CB"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$16"
+	    quid       	"40069F4F014B"
+	    roles      	(list role_list
+		(object Role "time_machine_date"
+		    quid       	"40069F4F03E0"
+		    label      	"time_machine_date"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::Date"
+		    quidu      	"3EC377520179"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$17"
+		    quid       	"40069F50000C"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfo"
+		    quidu      	"3ED31159015E"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$18"
+	    quid       	"40ED1B5F00D2"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$19"
+		    quid       	"40ED1B60014B"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::DateInterval"
+		    quidu      	"3ED312770372"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$20"
+		    quid       	"40ED1B600155"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::NotSureIntervalList"
+		    quidu      	"40ED1AAA026C"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$21"
+	    quid       	"40ED1C1F010A"
+	    roles      	(list role_list
+		(object Role "not_sure_intervals"
+		    quid       	"40ED1C20009D"
+		    label      	"not_sure_intervals"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::NotSureIntervalList"
+		    quidu      	"40ED1AAA026C"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$22"
+		    quid       	"40ED1C2000A7"
+		    supplier   	"Logical View::Garant::GblAdapter::Redactions::RedactionInfo"
+		    quidu      	"3ED31159015E"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3F49CD7B0049"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object Label @1
+		    location   	(113, 84)
+		    font       	(object Font
+			size       	14
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	1
+		    max_width  	1025
+		    label      	"Module GblAdapter.Redactions")
+		(object ClassView "Class" "Logical View::Garant::Primitives::unsigned long" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(1803, 1420)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1639, 1378)
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"unsigned long")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1639, 1337)
+			anchor     	10
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"<<UMLPrimitive>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    quidu      	"3DBFFDE101CA"
+		    width      	346
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::RedactionNotFound" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(1380, 294)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1179, 270)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"RedactionNotFound")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1179, 229)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"<<AdapterException>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F4A0D680109"
+		    width      	420
+		    height     	150
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::InvalidRedactionId" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(1895, 294)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1694, 271)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"InvalidRedactionId")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1694, 230)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"<<AdapterException>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F4A16060147"
+		    width      	420
+		    height     	148
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::InvalidDate" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1886, 113)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1675, 94)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	422
+			justify    	0
+			label      	"InvalidDate")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1675, 53)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	422
+			justify    	0
+			label      	"<<AdapterException>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"407A426503CC"
+		    width      	440
+		    height     	140
+		    annotation 	8)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::BaseTypes::DateInterval" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(1379, 1622)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1215, 1580)
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"DateInterval")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1215, 1539)
+			anchor     	10
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"<<AdapterStruct>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    quidu      	"3ED312770372"
+		    width      	346
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::RedactionType" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(323, 1291)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(64, 1164)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	518
+			justify    	0
+			label      	"RedactionType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(64, 1123)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	518
+			justify    	0
+			label      	"<<AdapterEnum>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3ED3250A0198"
+		    width      	536
+		    height     	356
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::RedactionID" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(1736, 1116)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1550, 1092)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"RedactionID")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1550, 1051)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"<<AdapterTypedef>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F49D00801ED"
+		    width      	390
+		    height     	150
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @9
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F49D06400FF"
+		    client     	@8
+		    supplier   	@2
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::Redactions" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(552, 432)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(126, 265)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	852
+			justify    	0
+			label      	"Redactions")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(126, 224)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	852
+			justify    	0
+			label      	"<<AdapterInterface>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F49CF83025A"
+		    width      	870
+		    height     	436
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::RedactionInfoList" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(318, 1011)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(116, 986)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	404
+			justify    	0
+			label      	"RedactionInfoList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(116, 945)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	404
+			justify    	0
+			label      	"<<AdapterSequence>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3ED323E20283"
+		    width      	422
+		    height     	152
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$11" @12
+		    location   	(405, 792)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F49D6E902D5"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$12" @13
+			    Parent_View 	@12
+			    location   	(87, -219)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @14
+				Parent_View 	@13
+				location   	(413, 664)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F49D6EA0152"
+			    client     	@12
+			    supplier   	@10
+			    line_style 	0)
+			(object RoleView "redactions_list" @15
+			    Parent_View 	@12
+			    location   	(87, -219)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @16
+				Parent_View 	@15
+				location   	(507, 905)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	228
+				justify    	0
+				label      	"+redactions_list"
+				pctDist    	0.430657
+				height     	137
+				orientation 	0)
+			    stereotype 	(object SegLabel @17
+				Parent_View 	@15
+				location   	(507, 842)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.709220
+				height     	140
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"3F49D6EA0150"
+			    client     	@12
+			    supplier   	@11
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::ActiveIntervalList" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1386, 1347)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(1185, 1324)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"ActiveIntervalList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(1185, 1283)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"<<AdapterSequence>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F4E1F5601CB"
+		    width      	420
+		    height     	148
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$13" @19
+		    location   	(1381, 1474)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F4E1FA0016D"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$14" @20
+			    Parent_View 	@19
+			    location   	(-245, 70)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F4E1FA1006A"
+			    client     	@19
+			    supplier   	@6
+			    line_style 	0)
+			(object RoleView "$UNNAMED$15" @21
+			    Parent_View 	@19
+			    location   	(-245, 70)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F4E1FA1006C"
+			    client     	@19
+			    supplier   	@18
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::BaseTypes::Date" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(1580, 742)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(1413, 700)
+			nlines     	1
+			max_width  	334
+			justify    	0
+			label      	"Date")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@22
+			location   	(1413, 659)
+			anchor     	10
+			nlines     	1
+			max_width  	334
+			justify    	0
+			label      	"<<AdapterStruct>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    quidu      	"3EC377520179"
+		    width      	352
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::NotSureIntervalList" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(878, 1437)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(678, 1410)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	401
+			justify    	0
+			label      	"NotSureIntervalList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(678, 1369)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	401
+			justify    	0
+			label      	"<<AdapterSequence>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"40ED1AAA026C"
+		    width      	419
+		    height     	156
+		    annotation 	8)
+		(object AssociationViewNew "$UNNAMED$18" @24
+		    location   	(1146, 1535)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"40ED1B5F00D2"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$19" @25
+			    Parent_View 	@24
+			    location   	(287, 101)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"40ED1B60014B"
+			    client     	@24
+			    supplier   	@6
+			    line_style 	0)
+			(object RoleView "$UNNAMED$20" @26
+			    Parent_View 	@24
+			    location   	(287, 101)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"40ED1B600155"
+			    client     	@24
+			    supplier   	@23
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::Redactions::RedactionInfo" @27
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(998, 973)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@27
+			location   	(834, 923)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"RedactionInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@27
+			location   	(834, 882)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"<<AdapterStruct>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3ED31159015E"
+		    width      	346
+		    height     	202
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @28
+		    location   	(707, 1107)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ED3257D0144"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @29
+			    Parent_View 	@28
+			    location   	(-985, 513)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @30
+				Parent_View 	@29
+				location   	(819, 1102)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED3257E00FF"
+			    client     	@28
+			    supplier   	@27
+			    line_style 	0)
+			(object RoleView "actual_type" @31
+			    Parent_View 	@28
+			    location   	(-985, 513)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @32
+				Parent_View 	@31
+				location   	(670, 1267)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	200
+				justify    	0
+				label      	"+actual_type"
+				pctDist    	0.799213
+				height     	128
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED3257E00F5"
+			    client     	@28
+			    supplier   	@7
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$7" @33
+		    location   	(1355, 1041)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F49D5CB016C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "id" @34
+			    Parent_View 	@33
+			    location   	(476, -168)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @35
+				Parent_View 	@34
+				location   	(1461, 1023)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	100
+				justify    	0
+				label      	"+id"
+				pctDist    	0.534884
+				height     	39
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F49D5CC002C"
+			    client     	@33
+			    supplier   	@8
+			    line_style 	0)
+			(object RoleView "$UNNAMED$8" @36
+			    Parent_View 	@33
+			    location   	(476, -168)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F49D5CC002E"
+			    client     	@33
+			    supplier   	@27
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$9" @37
+		    location   	(823, 760)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F49D69203D5"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$10" @38
+			    Parent_View 	@37
+			    location   	(-203, -260)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @39
+				Parent_View 	@38
+				location   	(719, 699)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F49D693017D"
+			    client     	@37
+			    supplier   	@10
+			    line_style 	0)
+			(object RoleView "current_redaction" @40
+			    Parent_View 	@37
+			    location   	(-203, -260)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @41
+				Parent_View 	@40
+				location   	(1005, 736)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	276
+				justify    	0
+				label      	"+current_redaction"
+				pctDist    	0.666667
+				height     	156
+				orientation 	0)
+			    stereotype 	(object SegLabel @42
+				Parent_View 	@40
+				location   	(982, 673)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.825911
+				height     	145
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"3F49D6930173"
+			    client     	@37
+			    supplier   	@27
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$4" @43
+		    location   	(676, 990)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ED3240703B3"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$6" @44
+			    Parent_View 	@43
+			    location   	(91, 465)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @45
+				Parent_View 	@44
+				location   	(558, 955)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED324080151"
+			    client     	@43
+			    supplier   	@11
+			    line_style 	0)
+			(object RoleView "$UNNAMED$5" @46
+			    Parent_View 	@43
+			    location   	(91, 465)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @47
+				Parent_View 	@46
+				location   	(793, 943)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED324080147"
+			    client     	@43
+			    supplier   	@27
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$2" @48
+		    location   	(1206, 1173)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ED311AE0001"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$3" @49
+			    Parent_View 	@48
+			    location   	(936, 783)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @50
+				Parent_View 	@49
+				location   	(1096, 1124)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED311AE034B"
+			    client     	@48
+			    supplier   	@27
+			    line_style 	0)
+			(object RoleView "active_intervals" @51
+			    Parent_View 	@48
+			    location   	(936, 783)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @52
+				Parent_View 	@51
+				location   	(1278, 1186)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	259
+				justify    	0
+				label      	"+active_intervals"
+				pctDist    	0.430830
+				height     	41
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED311AE0341"
+			    client     	@48
+			    supplier   	@18
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$16" @53
+		    location   	(1287, 856)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"40069F4F014B"
+		    roleview_list 	(list RoleViews
+			(object RoleView "time_machine_date" @54
+			    Parent_View 	@53
+			    location   	(270, -167)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @55
+				Parent_View 	@54
+				location   	(1366, 781)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	314
+				justify    	0
+				label      	"+time_machine_date"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"40069F4F03E0"
+			    client     	@53
+			    supplier   	@22
+			    line_style 	0)
+			(object RoleView "$UNNAMED$17" @56
+			    Parent_View 	@53
+			    location   	(270, -167)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"40069F50000C"
+			    client     	@53
+			    supplier   	@27
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$21" @57
+		    location   	(934, 1216)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"40ED1C1F010A"
+		    roleview_list 	(list RoleViews
+			(object RoleView "not_sure_intervals" @58
+			    Parent_View 	@57
+			    location   	(-64, 243)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @59
+				Parent_View 	@58
+				location   	(864, 1319)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	282
+				justify    	0
+				label      	"+not_sure_intervals"
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"40ED1C20009D"
+			    client     	@57
+			    supplier   	@23
+			    line_style 	0)
+			(object RoleView "$UNNAMED$22" @60
+			    Parent_View 	@57
+			    location   	(-64, 243)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"40ED1C2000A7"
+			    client     	@57
+			    supplier   	@27
+			    line_style 	0)))))))

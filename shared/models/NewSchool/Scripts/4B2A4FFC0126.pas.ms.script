@@ -1,0 +1,109 @@
+// Environment 4B2A4FFC0126 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B2A4FFC0126
+
+FORWARD ME_4B2A50570311
+
+FORWARD ME_4B2A50640392
+
+: ME_4B2A507E003B
+ CONST UID '4B2A507E003B'
+ CONST Name 'cNSRCFileIn'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B2A50640392 // Constants
+ ;
+ CONST Value '''document.nsr'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B2A507E003B cNSRCFileIn
+
+: ME_4B337C4801AD
+ CONST UID '4B337C4801AD'
+ CONST Name 'cBadTextUnicode'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B2A50640392 // Constants
+ ;
+ CONST Value '''badtext.uni'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B337C4801AD cBadTextUnicode
+
+: ME_4B2A50640392
+ CONST UID '4B2A50640392'
+ CONST Name 'Constants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B2A50570311 // TestGlobals
+ ;
+ : Attributes
+   @ ( ME_4B2A507E003B // cNSRCFileIn
+ ME_4B337C4801AD // cBadTextUnicode
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4B2A50640392 Constants
+
+: ME_4B2A50570311
+ CONST UID '4B2A50570311'
+ CONST Name 'TestGlobals'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B2A4FFC0126 // Environment
+ ;
+ : Constants
+   @ ( ME_4B2A50640392 // Constants
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TestGlobals.pas'
+
+ref; // ME_4B2A50570311 TestGlobals
+
+: ME_4B2A4FFC0126
+ CONST UID '4B2A4FFC0126'
+ CONST Name 'Environment'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Настройки тестов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_4B2A50570311 // TestGlobals
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B2A4FFC0126.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B2A4FFC0126.pas.ms.script.runner'
+
+ref; // ME_4B2A4FFC0126 Environment

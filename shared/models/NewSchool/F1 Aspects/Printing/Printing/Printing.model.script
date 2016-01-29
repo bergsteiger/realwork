@@ -1,0 +1,582 @@
+<<VCMViews>> Printing
+ %UID '4CDABA5D02F6'
+ %SUMMARY 'Печать' ;
+ %DEPENDS
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '467A75D90346' /* VT */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4AB0C3F60375' /* Win */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '55C4AEC801CA' /* Graphics */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '467A75D90346' /* VT */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<VCMForms>> Printing
+   %UID '4CDABA8F024B'
+   %SUMMARY 'Печать' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678209200A6' /* nevBase */
+    U$ '467823B7002C' /* afwInterfaces */
+    U$ '467BAB7F021E' /* vcmExternalInterfaces */
+    U$ '473C3BEE0334' /* l3Canvas */
+    U$ '474144E20301' /* Draw */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47EA968D0155' /* Printing */
+    U$ '47F260DC003F' /* ns */
+    U$ '491DCA2C00A9' /* Search */
+    U$ '494F898C013E' /* Usual */
+    U$ '4981A49103DD' /* Flash */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '4B1FC2FF03CD' /* DocumentInterfaces */
+    U$ '55C4AEC801CA' /* Graphics */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '467A75D90346' /* VT */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '4954C0500033' /* UserInteraction */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4ABB680E0218' /* Common$Lib */
+    U$ '4CDABA5D02F6' /* Printing */
+    U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<VCMForm>> Printable
+      %UID '4CDABAD0032E'
+      %SUMMARY 'Форма с поддержкой печати. [$234366957]' ;
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+       %upv "started" '10.11.2010'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790B4F00236' /* AFW */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4954C0500033' /* UserInteraction */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49521D8203A0' /* File */
+       U$ '4A5CB93700CF' /* Ml3Unknown */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '49521D8E0295' /* Print */
+       U$ '495220DE0298' /* PrintDialog */
+       U$ '495220F2033A' /* PrintPreview */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4CDAC4B4035A"
+         %UID '4CDAC4B4035A'
+         %TARGET U$ '47752AF90375' /* afwFacade */
+        ; // 4CDAC4B4035A
+        <<uses>> "51A44ADB006D"
+         %UID '51A44ADB006D'
+         %TARGET U$ '4683E1AD0047' /* IvcmExecuteParamsPrim */
+        ; // 51A44ADB006D
+      ; // %LINKS
+      %ATTRIBUTES
+        PROTECTED ABSTRACT <<readonly>> Preview
+         %UID '4CDAC5E902FF'
+         %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+        ; // Preview
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED FINAL <<method>> CanPrint
+         %UID '4CDAC581005C'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CDAC58A006B'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CanPrint
+        PROTECTED <<method>> GetCanPrint
+         %UID '4CDAC59301AC'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CDAC59D00E4'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetCanPrint
+        PROTECTED <<method>> DoPrintExecute
+         %UID '51A45199015E'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51A4550A0356'
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aParams
+               %UID '51A4551E017D'
+               %TARGET U$ '4683E1AD0047' /* IvcmExecuteParamsPrim */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aParams
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoPrintExecute
+        PROTECTED <<method>> DoPreviewExecute
+         %UID '51A451E20376'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51A45528009E'
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aParams
+               %UID '51A4553401E4'
+               %TARGET U$ '4683E1AD0047' /* IvcmExecuteParamsPrim */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aParams
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoPreviewExecute
+      ; // %OPERATIONS
+     ; // Printable
+     ABSTRACT <<VCMForm>> PrintableBitmap
+      %UID '4CDACCDF0368'
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+       %upv "started" '10.11.2010 19:48'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790B4F00236' /* AFW */
+       U$ '4CDABA5D02F6' /* Printing */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4CDABAD0032E' /* Printable */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4CDAC5E902FF' /* Preview */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CDACFF60016"
+         %UID '4CDACFF60016'
+         %TARGET U$ '4CDACFDB00AB' /* TevBitmapDataObject */
+        ; // 4CDACFF60016
+        <<uses>> "4CDAD078002E"
+         %UID '4CDAD078002E'
+         %TARGET U$ '495878B40393' /* TnsFixedHAFMacroReplacer */
+        ; // 4CDAD078002E
+        <<uses>> "4CDAD0D00388"
+         %UID '4CDAD0D00388'
+         %TARGET U$ '4CDAD0C70184' /* TnsObjectPreview */
+        ; // 4CDAD0D00388
+        <<uses>> "4CDAD0F30362"
+         %UID '4CDAD0F30362'
+         %TARGET U$ '49E615DB01E9' /* PreviewKeys */
+        ; // 4CDAD0F30362
+        <<uses>> "4CDAD7360295"
+         %UID '4CDAD7360295'
+         %TARGET U$ '47F2317F015E' /* TnsHAFPainter */
+        ; // 4CDAD7360295
+      ; // %LINKS
+      %ATTRIBUTES
+        PROTECTED ABSTRACT <<readonly>> BitmapForPrint
+         %UID '4CDACD8302DD'
+         %TARGET U$ '4CDAD96402B1' /* Graphics_Bitmap */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4CDABA5D02F6' /* Printing */
+         ; // %TOBEINCLUDED
+        ; // BitmapForPrint
+        PRIVATE <<Attribute>> f_Preview
+         %UID '5301CBAD0192'
+         %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+        ; // f_Preview
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED ABSTRACT <<method>> Name
+         %UID '4CDAD282005F'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Get
+            %UID '4CDAD28A0047'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // Get
+         ; // %OPERATIONS
+        ; // Name
+        PROTECTED ABSTRACT <<method>> ShortName
+         %UID '4CDAD29D0169'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Get
+            %UID '4CDAD2A80030'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // Get
+         ; // %OPERATIONS
+        ; // ShortName
+        PROTECTED <<method>> DPI
+         %UID '4CDAE15C035B'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Get
+            %UID '4CDAE16503B9'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Get
+         ; // %OPERATIONS
+        ; // DPI
+        PROTECTED <<method>> MakePreview
+         %UID '5301CBFE023E'
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5301CC170042'
+            %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+            %TOBEINCLUDED
+             U$ '4790B4F00236' /* AFW */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakePreview
+        PROTECTED <<method>> ClearPreview
+         %UID '5592655F00B2'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5592657103A5'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ClearPreview
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Typedef>> Graphics_Bitmap
+         %UID '4CDAD96402B1'
+         %SUMMARY 'Переопределение TBitmap, чтобы не нарваться на конфликт с Windows.TBitmap' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47D15723038A' /* TBitmap */
+         ; // %INHERITS
+        ; // Graphics_Bitmap
+      ; // %CHILDREN
+     ; // PrintableBitmap
+     ABSTRACT <<VCMForm>> PrintableFlash
+      %UID '4CDABB1C0025'
+      %SUMMARY 'Печать флеш-схем. {RequestLink:228689255}' ;
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A75D90346' /* VT */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CDABA5D02F6' /* Printing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4CDACCDF0368' /* PrintableBitmap */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4CDACD8302DD' /* BitmapForPrint */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '4CDAE15C035B' /* DPI */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CDAD3A60047"
+         %UID '4CDAD3A60047'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4CDAD3A60047
+        <<uses>> "4CDAD8E90130"
+         %UID '4CDAD8E90130'
+         %TARGET U$ '46A46A35004F' /* hDC */
+        ; // 4CDAD8E90130
+      ; // %LINKS
+      %ATTRIBUTES
+        PROTECTED ABSTRACT <<readonly>> FlashForPrint
+         %UID '4CDACDBE00B2'
+         %TARGET U$ '4981A4AE0282' /* TvtShockwaveFlashEx */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '467A75D90346' /* VT */
+         ; // %TOBEINCLUDED
+        ; // FlashForPrint
+        PRIVATE <<Attribute>> f_Bitmap
+         %UID '4CDAD18E02AF'
+         %TARGET U$ '47D15062022A' /* Tl3Bitmap */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Bitmap
+      ; // %ATTRIBUTES
+     ; // PrintableFlash
+     <<SimpleClass>> TnsObjectPreview
+      %UID '4CDAD0C70184'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+     ; // TnsObjectPreview
+     ABSTRACT <<VCMForm>> PrintableFlashWithInfo
+      %UID '54D879C9030C'
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790B4F00236' /* AFW */
+       U$ '4CDABA5D02F6' /* Printing */
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4CDABB1C0025' /* PrintableFlash */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+       U$ '5301CBFE023E' /* MakePreview */
+       U$ '5592655F00B2' /* ClearPreview */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "54D87AA001FE"
+         %UID '54D87AA001FE'
+         %TARGET U$ '47F22D5701A7' /* TnsDocumentPreview */
+        ; // 54D87AA001FE
+        <<uses>> "54D890D20030"
+         %UID '54D890D20030'
+         %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+        ; // 54D890D20030
+        <<uses>> "54D894ED0298"
+         %UID '54D894ED0298'
+         %TARGET U$ '47F61C4C0040' /* nsDocumentTools */
+        ; // 54D894ED0298
+        <<uses>> "54D98F7F00FB"
+         %UID '54D98F7F00FB'
+         %TARGET U$ '47DF8F0402F7' /* TafwComplexDocumentPreview */
+        ; // 54D98F7F00FB
+      ; // %LINKS
+      %ATTRIBUTES
+        PROTECTED <<readonly>> InfoPreview
+         %UID '54D886BC0229'
+         %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+        ; // InfoPreview
+        PROTECTED <<readonly>> FlashPreview
+         %UID '54D886F20388'
+         %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+        ; // FlashPreview
+        SUMMONED PRIVATE <<Attribute>> f_InfoPreview
+         %UID '95014124AEC7'
+         %SUMMARY 'Поле для свойства InfoPreview' ;
+         %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+        ; // f_InfoPreview
+        SUMMONED PRIVATE <<Attribute>> f_FlashPreview
+         %UID '5C3A6025E3AB'
+         %SUMMARY 'Поле для свойства FlashPreview' ;
+         %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+        ; // f_FlashPreview
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED FINAL <<method>> MakeDocumentPreview
+         %UID '54D879F001C4'
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '54D87A1C0199'
+            %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+            %TOBEINCLUDED
+             U$ '4790B4F00236' /* AFW */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeDocumentPreview
+        PROTECTED FINAL <<method>> MakeInfoPreview
+         %UID '54D87A03022C'
+         %TOBEINCLUDED
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '54D87A300174'
+            %TARGET U$ '467BB4640328' /* IafwDocumentPreview */
+            %TOBEINCLUDED
+             U$ '4790B4F00236' /* AFW */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeInfoPreview
+        PROTECTED ABSTRACT <<method>> GetDocumentForInfo
+         %UID '54D8913B03A6'
+         %TOBEINCLUDED
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '54D89156012D'
+            %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+            %TOBEINCLUDED
+             U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetDocumentForInfo
+      ; // %OPERATIONS
+     ; // PrintableFlashWithInfo
+   ; // %CHILDREN
+  ; // Printing
+ ; // %CHILDREN
+; // Printing

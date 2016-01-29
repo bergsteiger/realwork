@@ -1,0 +1,48 @@
+// dtIntf 559D0BE101B4 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_559D0BE101B4
+
+: ME_519B71CF03DC
+ CONST UID '519B71CF03DC'
+ CONST GUID '9EF1808E-0254-4493-B759-09898A004F14'
+ CONST Name 'ISab'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_559D0BE101B4 // dtIntf
+ ;
+
+ref; // ME_519B71CF03DC ISab
+
+: ME_559D0BE101B4
+ CONST UID '559D0BE101B4'
+ CONST Name 'dtIntf'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ ;
+ : Children
+   @ ( ME_519B71CF03DC // ISab
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dtIntf.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\559D0BE101B4.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\559D0BE101B4.pas.ms.script.runner'
+
+ref; // ME_559D0BE101B4 dtIntf

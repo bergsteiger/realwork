@@ -1,0 +1,1525 @@
+uses common;
+
+const
+  RQ_PASSED = 2307;
+  RQ_FAILED = 2308;
+  
+  RQ_TS_BREEDER_PREFIX = 'HLTC245_';
+  
+  //Какие HLTC будут использоваться в ходе прогонки тестов
+  SET_SHELL = 'shell';                // Читаются все HLTC кроме начинающихся с контекста ‘HLTC245’
+  SET_DATASETUP = 'datasetup';        // Читаются только HLTC кроме начинающихся с контекста ‘HLTC245’
+
+function GetRequirementFieldData(const id : integer; const fieldName : String) : OleVariant; forward;  
+    
+{Функция коннектится в реквизит и считывает оттуда инфу о имеющихся тестовых скриптах
+возвращает массив строк вида "Script;Unit;State"
+Параметр: SET_SHELL или SET_DATASETUP}
+function GetTestScriptList(const setOfHLTC: string): OleVariant;
+var
+  list: array [0..0] of string;
+  strUnit, strName, strState: string;
+  RequirementsQuery: OleVariant;
+  ind, i: longint;
+  doAddToList: boolean;
+begin
+  try
+    RequirementsQuery := ADO.CreateADOQuery();
+    RequirementsQuery.ConnectionString := 'Driver={SQL Server};Server=process.garant.ru;Database=RequisitePro;Uid=reqpro;Pwd=reqpro;';
+    RequirementsQuery.SQL := 'select RQ.REQUIREMENTNAME as SCRIPTNAME, RQFV.FIELDVALUE AS UNITNAME, RQLI.ITEMTEXT AS STATENAME'+
+      ' from RQREQUIREMENTS RQ, RQUSERDEFINEDFIELDVALUES RQFV, RQUSERDEFINEDLISTVALUES RQLV, RQUSERDEFINEDLISTITEMS RQLI'+
+      ' where RQ.REQUIREMENTTYPEID=73 and RQ.DELETED=0 '+
+      ' and RQ.ID=RQFV.REQUIREMENTID'+
+      ' and RQ.ID=RQLV.REQUIREMENTID'+
+      ' and RQLV.FIELDID=683'+
+      ' and RQLI.ITEMID=RQLV.LISTITEMID'+
+      ' order by RQ.ID';//REQUIREMENTPREFIX';
+    RequirementsQuery.Open;
+
+    RequirementsQuery.First;
+    ind:=0;
+    while not VarToBool(RequirementsQuery.EOF) do
+    begin
+      strUnit:=RequirementsQuery.FieldByName('UNITNAME').Value;
+      strName:=RequirementsQuery.FieldByName('SCRIPTNAME').Value;
+      strState:=RequirementsQuery.FieldByName('STATENAME').Value;
+
+      if  (strName<>'') and (strState<>'') and (strUnit<>'') then
+      begin
+        doAddToList := true;
+        case setOfHLTC of
+          SET_DATASETUP:
+            if pos(RQ_TS_BREEDER_PREFIX, UpperCase(strName))<>1 then doAddToList := false;
+          SET_SHELL:
+            if pos(RQ_TS_BREEDER_PREFIX, UpperCase(strName))=1 then doAddToList := false;
+        else
+          Log.Error('GetTestScriptList. Значение входного параметра неверно');
+        end;
+
+        if doAddToList then
+        begin
+          list[ind] := strName + ';' + strUnit + ';' + strState;
+          ind := ind + 1;
+          VarArrayRedim(list, ind);  
+        end;
+        RequirementsQuery.Next;
+      end;
+    end;
+    RequirementsQuery.Close;
+
+    Result := list;
+  except
+    Log.Error('Exception occurred: ' + ExceptionMessage);
+  CommonExceptionHandler;
+  end;
+end;
+
+procedure ClearAllResultStatus;
+var
+  RequirementsConnection: OleVariant;
+  Res: OleVariant;
+  SQLText: string;
+begin
+  RequirementsConnection := ADO.CreateConnection();
+  RequirementsConnection.Open('Driver={SQL Server};Server=process.garant.ru;Database=RequisitePro;Uid=reqpro;Pwd=reqpro;');
+  SQLText := 'delete from RQUSERDEFINEDLISTVALUES where FIELDID=685 and exists'+
+    ' (select 1 from RQREQUIREMENTS RQ where RQ.REQUIREMENTTYPEID=73 and RQ.ID=RQUSERDEFINEDLISTVALUES.REQUIREMENTID)';
+  Res := RequirementsConnection.Execute (SQLText,0,8);
+  RequirementsConnection.Close;
+end;
+
+
+//Если не было статуса, или был Passed, то записываем в зависимости от значения параметра Passed или Failed в RP.
+//Параметр TSName - название скрипта
+//Параметр res - true или false (прошел или не прошел скрипт)
+procedure SetResultStatus(const TSName: String; const res: OleVariant);
+var
+  RequirementsQuery, RequirementsConnection: OleVariant;
+  ResultCollection: OleVariant;
+  SQLText: string;
+  strId, statusId, currentStatusId: integer;
+begin
+  case res of
+    true: statusId:=RQ_PASSED;
+    false: statusId:=RQ_FAILED;
+  else
+    begin
+      Log.Error('SetResultStatus. Переданное в качестве параметра значение res="'+res+'" недопустимо');
+      exit;
+    end;
+  end;
+
+  RequirementsQuery := ADO.CreateADOQuery();
+  RequirementsQuery.ConnectionString := 'Driver={SQL Server};Server=process.garant.ru;Database=RequisitePro;Uid=reqpro;Pwd=reqpro;';
+  RequirementsQuery.SQL := 'select ID from RQREQUIREMENTS where REQUIREMENTTYPEID=73 and REQUIREMENTNAME=''' + TSName + '''';
+  RequirementsQuery.Open;
+  RequirementsQuery.First;
+  if not RequirementsQuery.EOF then
+  begin
+    strId:=RequirementsQuery.FieldByName('ID').Value;
+  end
+  else
+  begin
+    Log.Error('SetResultStatus. Переданное в качестве параметра значение TSName="'+TSName+'" недопустимо');
+    RequirementsQuery.Close;
+    exit;
+  end;
+  RequirementsQuery.Close;
+
+  currentStatusId:=0;
+  RequirementsQuery := ADO.CreateADOQuery();
+  RequirementsQuery.ConnectionString := 'Driver={SQL Server};Server=process.garant.ru;Database=RequisitePro;Uid=reqpro;Pwd=reqpro;';
+  RequirementsQuery.SQL := 'select LISTITEMID from RQUSERDEFINEDLISTVALUES where FIELDID=685 and REQUIREMENTID='+IntToStr(strId);
+  RequirementsQuery.Open;
+  RequirementsQuery.First;
+  if not RequirementsQuery.EOF then
+  begin
+    currentStatusId:=RequirementsQuery.FieldByName('LISTITEMID').Value;
+  end;
+  RequirementsQuery.Close;
+    
+  if currentStatusId<>RQ_FAILED then
+  begin
+    RequirementsConnection := ADO.CreateConnection();
+    RequirementsConnection.Open('Driver={SQL Server};Server=process.garant.ru;Database=RequisitePro;Uid=reqpro;Pwd=reqpro;');
+    SQLText := 'delete from RQUSERDEFINEDLISTVALUES where FIELDID=685 and REQUIREMENTID='+IntToStr(strId);
+    ResultCollection := RequirementsConnection.Execute (SQLText,0,8);
+
+    SQLText := 'insert into RQUSERDEFINEDLISTVALUES (REQUIREMENTID, FIELDID, LISTITEMID) values ('+IntToStr(strId)+', 685, '+IntToStr(statusID)+')';
+    ResultCollection := RequirementsConnection.Execute (SQLText,0,8);
+    RequirementsConnection.Close;      
+  end;
+end;
+
+
+{Функция коннектится в реквизит и считывает оттуда инфу о имеющихся тестовых скриптах
+возвращает массив строк вида "Script;63 Ready"
+Параметр: SET_SHELL или SET_DATASETUP}
+function GetTestScript63Ready(const setOfHLTC: string): OleVariant;
+var
+  list: array [0..0] of string;
+  strUnit, strName, str63Ready: string;
+  RequirementsQuery: OleVariant;
+  ind, i: longint;
+  doAddToList: boolean;
+begin
+  try                              
+    RequirementsQuery := ADO.CreateADOQuery();
+    RequirementsQuery.ConnectionString := 'Driver={SQL Server};Server=process.garant.ru;Database=RequisitePro;Uid=reqpro;Pwd=reqpro;';
+    RequirementsQuery.SQL := 'select RQ.REQUIREMENTNAME as SCRIPTNAME, RQFV.FIELDVALUE AS UNITNAME, RQLI.ITEMTEXT AS READY63NAME'+
+      ' from RQREQUIREMENTS RQ, RQUSERDEFINEDFIELDVALUES RQFV, RQUSERDEFINEDLISTVALUES RQLV, RQUSERDEFINEDLISTITEMS RQLI'+
+      ' where RQ.REQUIREMENTTYPEID=73 and RQ.DELETED=0 '+
+      ' and RQ.ID=RQFV.REQUIREMENTID'+
+      ' and RQ.ID=RQLV.REQUIREMENTID'+
+      ' and RQLV.FIELDID=687'+
+      ' and RQLI.ITEMID=RQLV.LISTITEMID'+
+      ' order by RQ.REQUIREMENTPREFIX';
+    RequirementsQuery.Open;
+
+    RequirementsQuery.First;
+    ind:=0;
+    while not VarToBool(RequirementsQuery.EOF) do
+    begin
+      strUnit:=RequirementsQuery.FieldByName('UNITNAME').Value;
+      strName:=RequirementsQuery.FieldByName('SCRIPTNAME').Value;
+      str63Ready:=RequirementsQuery.FieldByName('READY63NAME').Value;
+
+      if  (strName<>'') and (strUnit<>'') then
+      begin
+        doAddToList := true;
+        case setOfHLTC of
+          SET_DATASETUP:
+            if pos(RQ_TS_BREEDER_PREFIX, UpperCase(strName))<>1 then doAddToList := false;
+          SET_SHELL:
+            if pos(RQ_TS_BREEDER_PREFIX, UpperCase(strName))=1 then doAddToList := false;
+        else
+          Log.Error('GetTestScriptList. Значение входного параметра неверно');
+        end;
+
+        if doAddToList then
+        begin
+          list[ind] := strName + ';' + str63Ready;
+          ind := ind + 1;
+          VarArrayRedim(list, ind);  
+        end;
+        RequirementsQuery.Next;
+      end;
+    end;
+    RequirementsQuery.Close;
+
+    Result := list;
+  except
+    Log.Error('Exception occurred: ' + ExceptionMessage);
+  CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Добавляет или отдает параметр из записи для одного скрипта
+  RESULT:
+  REMARK:
+}
+function ScriptParam(
+  var paramObject : OleVariant;
+  const whatToDo : String;
+  const paramName : OleVariant;
+  const paramValue : OleVariant = ''
+  ) : OleVariant;
+begin
+  try
+    case AnsiUpperCase(whatToDo) of
+      'GET' :
+        Result := Map(paramObject, 'get', AnsiUpperCase(paramName) );
+      'SET' :
+        begin
+          Map(paramObject, 'put', AnsiUpperCase(paramName), paramValue);
+          Result := paramObject;
+        end;
+      'RESET VAR' :
+
+        paramObject := nil;
+    else
+      Raise('Неизвестный параметр whatToDo!');
+    end;  
+  except
+    Log.Message('ScriptParam: ' + ExceptionMessage, 'whatToDo: "' + VarToStr(whatToDo) + '"; '+ 'paramName: "' + VarToStr(paramName) + '"; ' + 'paramValue: "' + VarToStr(paramValue) + '"; '  ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+const
+  CONNECTION_STRING = 'Driver={SQL Server};NETWORK=dbmssocn;Server=process.garant.ru;Database=RequisitePro;Uid=reqpro;Pwd=reqpro;';
+
+{
+  TYPE:
+  DESC: Ждет доступности SQL-сервера
+  RESULT:
+  REMARK:
+}
+function WaitForSQLServer(
+  timeOut : integer = -1
+) : boolean;
+  const 
+    DELAY = 10000;
+    INT_ANSWER = 121212;
+  var 
+    RequirementsQuery, connection : OleVariant;
+    time : integer;
+begin
+  try
+    Result := false;
+    if timeOut = -1 then timeOut := Options.Run.Timeout;
+    time := Win32API.GetTickCount + timeOut;
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+    
+    while (NOT Result) AND (time > Win32API.GetTickCount) do
+    begin
+      RequirementsQuery.SQL := 'SELECT ' + IntToStr(INT_ANSWER) + '+' + IntToStr(INT_ANSWER) +  ' AS ANSWER';
+  
+      try
+        RequirementsQuery.Open;
+      except
+        Delay(DELAY);
+        continue;
+      end;
+      
+      RequirementsQuery.First;
+      if not VarToBool(RequirementsQuery.EOF) then
+      begin
+        Result := RequirementsQuery.FieldByName('ANSWER').Value = INT_ANSWER + INT_ANSWER;
+        RequirementsQuery.Next;
+      end;
+      RequirementsQuery.Close;    
+      if Result then break;
+      Delay(DELAY);
+    end;
+    
+  except
+    Log.Message('WaitForSQLServer: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+  CommonExceptionHandler;
+  end;               
+end;
+
+const
+  OPT_MSOFFICE_REQUIRED = 'Требуется MSOffice';
+  OPT_SERVER_REQUIRED = 'Требуется сервер';
+  OPT_DESKTOP_REQUIRED = 'Требуется десктоп';
+  OPT_FILESERVER_REQUIRED = 'Требуется файл-сервер';
+  OPT_RESOLUTION_1280x1024_REQUIRED = 'Требуется разрешение 1280*1024';
+  OPT_SWITCH_DATABASE = 'Переключает БД';
+  OPT_RUN_BY_ALL = 'Выполнять всем';
+  OPT_STOP_SERVER = 'Останавливает сервер';
+  OPT_SHARE_FOLDERS = 'Расшаривает папки';
+  OPT_NEED_RESTORE_FROM_BACKUP = 'После скрипта восстановить бэкап';
+  OPT_SEND_REPORT_TO_QC = 'Посылать отчет на qc@garant.ru';
+  OPT_FLASH_REQUIRED = 'Требуется Flash выше 6-ой версии';
+  OPT_NOT_FLASH_REQUIRED = 'Требуется Flash ниже 6-ой версии';
+  OPT_PRIVATE_REQUIRED = 'Требуется Private';
+  OPT_NOT_PRIVATE_REQUIRED = 'Требуется НЕ Private';
+  OPT_OUTLOOK_EXPRESS_REQUIRED = 'Требуется Outlook Express';
+  OPT_NOT_RUN_ON_X64 = 'Не запускать на x64';
+{
+  TYPE:
+  DESC: Возвращает список значений поля Options по id скрипта
+  RESULT:
+  REMARK:
+}
+function GetScriptOptionsByID(
+  id : integer
+) : OleVariant;
+  var 
+    RequirementsQuery, strings : OleVariant;
+    prefix, text : String;
+    i : integer;
+begin
+  try
+    VarClear(Result);
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.CacheSize := 1000;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+       
+    RequirementsQuery.SQL := 
+      'SELECT	rquserdefinedlistitems.itemtext AS OPTIONS' + 
+      ' FROM	rqrequirements, rquserdefinedlistitems, rquserdefinedlistvalues, rquserdefinedfields' + 
+      ' WHERE	rqrequirements.id = ' + IntToStr(id) + 
+      ' AND rquserdefinedlistvalues.requirementid=rqrequirements.id' + 
+      ' AND rquserdefinedlistvalues.fieldid = rquserdefinedfields.id' + 
+      '	AND rquserdefinedfields.label=''Options''' + 
+      '	AND rquserdefinedlistitems.itemid=rquserdefinedlistvalues.listitemid';
+
+      RequirementsQuery.Open;
+      RequirementsQuery.First; 
+      while NOT VarToBool(RequirementsQuery.EOF) do
+      begin
+        AddToArray(Result, RequirementsQuery.FieldByName('OPTIONS').Value );
+        RequirementsQuery.Next;
+      end;  
+
+      RequirementsQuery.Close;      
+   
+  except
+    Log.Message('GetScriptOptionsByID: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Не для использования в скриптах. Просто чтобы запустить и ПЕРЕсоздать функции. Поэтому при работе скриптов в данный момент возможны странные глюки. 
+  RESULT:
+  REMARK:
+}
+function InitializeSQLFunctions;
+  var 
+    query: OleVariant;
+    str : String;
+    queryArray : OleVariant;
+    i : integer;
+begin
+  try
+    queryArray := [
+    {1} 'DROP FUNCTION dbo.QCSCRIPTS_GetSortvalue',
+    
+    {2} 'DROP FUNCTION dbo.QCSCRIPTS_HexToInt',
+    
+    {3} 'create function dbo.QCSCRIPTS_HexToInt(@vsData varchar(255))' + EndOfLine + 
+        ' RETURNS decimal AS' + EndOfLine + 
+        ' begin' + EndOfLine + 
+        '   declare @sResult varchar(255)' + EndOfLine + 
+        '   declare @iResult decimal' + EndOfLine + 
+        '' + EndOfLine + 
+        '   declare @iDataLength int' + EndOfLine + 
+        '   declare @i int' + EndOfLine + 
+        '   declare @j decimal' + EndOfLine + 
+        '' + EndOfLine + 
+        '   declare @iTemp decimal' + EndOfLine + 
+        '   declare @sTemp varchar(255)' + EndOfLine + 
+        '' + EndOfLine + 
+        '   set @iDataLength = Len(@vsData)' + EndOfLine + 
+        '' + EndOfLine + 
+        '   set @vsData = upper(@vsData)' + EndOfLine + 
+        '' + EndOfLine + 
+        '   set @i = 0' + EndOfLine + 
+        '   set @iResult = 0' + EndOfLine + 
+        '' + EndOfLine + 
+        '   while @i < @iDataLength' + EndOfLine + 
+        '   begin' + EndOfLine + 
+        '     set @iTemp = 1' + EndOfLine + 
+        '     set @j = 0' + EndOfLine + 
+        '     while @j < @i' + EndOfLine + 
+        '     begin' + EndOfLine + 
+        '       set @iTemp = 16 * @iTemp' + EndOfLine + 
+        '       set @j = @j + 1' + EndOfLine + 
+        '     end' + EndOfLine + 
+        '     set @sTemp = substring(@vsData, @iDataLength - @i, 1)' + EndOfLine + 
+        '' + EndOfLine + 
+        '     if isnumeric(@sTemp)= 0' + EndOfLine + 
+        '     begin' + EndOfLine + 
+        '       set @sTemp = convert(varchar(255),Ascii(@sTemp) - 55)' + EndOfLine + 
+        '     end' + EndOfLine + 
+        '' + EndOfLine + 
+        '     set @iResult = @iResult + convert(int,@sTemp) * @iTemp' + EndOfLine + 
+        '     set @i = @i + 1' + EndOfLine + 
+        '   end' + EndOfLine + 
+        '   Return @iResult' + EndOfLine + 
+        ' end',
+        
+    {4} 'CREATE FUNCTION dbo.QCSCRIPTS_GetSortvalue(@newid AS uniqueidentifier, @group AS decimal, @priority AS decimal)' + EndOfLine +
+        'RETURNS decimal' + EndOfLine +
+        'AS' + EndOfLine +
+        'BEGIN' + EndOfLine +
+        '	DECLARE @result AS decimal' + EndOfLine +
+        '	SET @result = 0' + EndOfLine +
+        '' + EndOfLine +
+        '	IF (@priority = 0)' + EndOfLine +
+        '		SET @result = dbo.QCSCRIPTS_HexToInt(SUBSTRING(CAST(@newid AS CHAR(40)), 2, 4))' + EndOfLine +
+        '	ELSE' + EndOfLine +
+        '		SET @result = @priority' + EndOfLine +
+        '' + EndOfLine +
+        '	SET @result = @result + @group*65536' + EndOfLine +
+        '' + EndOfLine +
+        '	RETURN @result' + EndOfLine +
+        'END'    
+    ];
+  
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    query := ADO.CreateADOQuery();
+    query.CacheSize := 1000;    
+    query.ConnectionString := CONNECTION_STRING;
+       
+    for i := VarArrayLowBound(queryArray,1) to VarArrayHighBound(queryArray,1) do
+    begin  
+      query.SQL := queryArray[i];
+      try
+        query.ExecSQL;
+      except
+        Log.Message(IntToStr(i) + ' : ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+      end;  
+    end;
+         
+    query.Close;
+  except
+    Log.Message('InitializeSQLFunctions: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+  end;               
+end;
+
+const
+  RQ_SHELLCONF_LIGHT = 'Основная';
+  RQ_SHELLCONF_STANDARD = 'Расширенная';
+
+{
+  TYPE: Работа с реквизитом
+  DESC: Коннектиться к sql-серверу, и получает оттуда список скриптов, согласно запросу
+  RESULT: Выдает массив строк вида ScriptName;UnitName;State
+  REMARK:
+}
+function GetScriptListByFields(
+  const paramString : String; // State=Основное меню;Unitname<>HLTC71
+  const isRandomize : Boolean = true // перемешивать ли список скриптов
+): OleVariant; 
+var
+  strUnit, strName, strState: string;
+  RequirementsQuery: OleVariant;
+  i: longint;
+  paramList, list, param : OleVariant;
+  tempStr, strRelation, strField, strValue, query : String;
+  sSortValue, sOrderBy : String;
+begin
+  try
+    if NOT WaitForSQLServer(Options.Run.Timeout * 30) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    paramList := String2Array(paramString, ';');
+    RequirementsQuery := ADO.CreateADOQuery();
+    RequirementsQuery.CacheSize := 1000;    
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+    
+    if isRandomize then
+    begin
+      sSortValue := 'dbo.QCSCRIPTS_GetSortvalue(NEWID(), FV_2.fieldvalue, FV_3.fieldvalue)';
+      sOrderBy := 'ORDER BY SORTVALUE ASC';
+    end
+    else
+    begin
+      sSortValue := 'CAST(FV_2.fieldvalue AS DECIMAL)*65536 + CAST(FV_3.fieldvalue AS DECIMAL)';
+      sOrderBy := 'ORDER BY SORTVALUE ASC, REQID ASC';
+    end;
+    
+    // формируем запрос
+    // общий заголовок
+    query := '' + 
+      'SELECT	rqrequirements.id AS REQID, rqrequirements.requirementname AS SCRIPTNAME, FV_1.fieldvalue AS UNITNAME, LI_1.itemtext AS STATE, LI_3.itemtext AS READY64, CAST(FV_2.fieldvalue AS int) AS GROUPNUMBER, CAST(FV_3.fieldvalue AS int) AS INGROUPPRIORITY, LI_4.itemtext AS DATABASEFIELD, LI_5.itemtext AS SHELLCONF, ' + sSortValue + ' AS SORTVALUE' + 
+      ' FROM	rqrequirements, rquserdefinedfieldvalues AS FV_1, rquserdefinedlistitems AS LI_1, rquserdefinedlistvalues AS LV_1, rquserdefinedlistitems AS LI_3, rquserdefinedlistvalues AS LV_3, rquserdefinedfieldvalues AS FV_2, rquserdefinedfieldvalues AS FV_3, rquserdefinedlistitems AS LI_4, rquserdefinedlistvalues AS LV_4, rquserdefinedlistitems AS LI_5, rquserdefinedlistvalues AS LV_5' +
+      ' WHERE	rqrequirements.requirementtypeid = (' + 
+	    ' SELECT	id' + 
+		  ' FROM	rqrequirementtypes' +
+		  ' WHERE	name = ''Автоматический скрипт'')';
+    // здесь вставляем для кажого поля
+    for i := VarArrayLowBound(paramList,1) to VarArrayHighBound(paramList,1) do
+      if paramList[i] <> '' then
+      begin
+        strRelation := Choose(Pos('<>', paramList[i]) <> 0, 'NOT', '');
+        tempStr := Choose(strRelation = 'NOT', '<>', '=');
+        strField := AnsiUpperCase( GetSubStr(paramList[i], '', tempStr) );
+        strValue := GetSubStr(paramList[i], tempStr, '');
+        case strField of
+          'UNITNAME' : // НЕ списочные типы
+            begin
+              strValue := Utilities.StringReplace(strValue, '|', ''' OR fieldvalue LIKE ''', 1 or 2);
+              query := query +
+                ' AND rqrequirements.id ' + strRelation + ' IN (' + 
+  	    	      ' SELECT	requirementid' + 
+		            ' FROM 	rquserdefinedfieldvalues' + 
+                ' WHERE	fieldid IN (' + 
+				        ' SELECT id' + 
+				        ' FROM rquserdefinedfields' + 
+				        ' WHERE label=''' + strField + '''' + 
+  				      ' )' + 
+	  		        ' AND	( fieldvalue LIKE ''' + strValue + '''' +
+	              ' ) )';
+            end;    
+          else // остальное считаем списочными типами (например, State)
+            begin
+              strValue := Utilities.StringReplace(strValue, '|', ''' OR itemtext LIKE ''', 1 or 2);
+              query := query +
+                ' AND rqrequirements.id ' + strRelation + ' IN (' + 
+    		        ' SELECT	requirementid' + 
+    		        ' FROM 	rquserdefinedlistvalues' + 
+    		        ' WHERE	listitemid IN ('+
+    				    ' SELECT 	itemid' + 
+    				    ' FROM 	rquserdefinedlistitems' + 
+    				    ' WHERE 	fieldid IN (' +
+    						' SELECT id' +
+    						' FROM rquserdefinedfields' +
+    						' WHERE label=''' +  strField + '''' +
+    					  ' )	AND	( itemtext LIKE ''' + strValue + ''')))';
+            end;    
+        end;    
+      end;
+    // общее окончание
+    query := query +
+      ' AND FV_1.requirementid=rqrequirements.id' + 
+    	' AND FV_1.fieldid = (' + 
+    	'	SELECT id' + 
+    	'	FROM rquserdefinedfields' + 
+    	'	WHERE label=''Unitname''' + 
+    	' )'+
+    	' AND LV_1.requirementid=rqrequirements.id'+
+	    ' AND LV_1.fieldid = (' + 
+    	'	SELECT id'+
+    	'	FROM rquserdefinedfields'+
+    	'	WHERE label=''State'''+
+    	' )' +
+    	' AND LI_1.itemid=LV_1.listitemid' +
+      //
+    	' AND LV_3.requirementid=rqrequirements.id' +
+    	' AND LV_3.fieldid = (' +
+    	'	SELECT id' +
+    	'	FROM rquserdefinedfields' +
+    	'	WHERE label=''6.4 Ready''' +
+    	' )' +
+    	' AND LI_3.itemid=LV_3.listitemid' +
+      //      
+      '	AND FV_2.requirementid=rqrequirements.id' +
+      '	AND FV_2.fieldid = (' +
+      '		SELECT id' +
+      '		FROM rquserdefinedfields' +
+      '		WHERE label=''GroupNumber''' +
+      '	)' +
+      //
+      '	AND FV_3.requirementid=rqrequirements.id' +
+      '	AND FV_3.fieldid = (' +
+      '		SELECT id' +
+      '		FROM rquserdefinedfields' +
+      '		WHERE label=''InGroupPriority''' +
+      '	)' +
+      //
+      ' AND LV_4.requirementid=rqrequirements.id' +
+    	' AND LV_4.fieldid = (' +
+    	'	SELECT id' +
+    	'	FROM rquserdefinedfields' +
+    	'	WHERE label=''DataBase''' +
+    	' )' +
+    	' AND LI_4.itemid=LV_4.listitemid' +
+      ' ' +
+      //
+      ' AND LV_5.requirementid=rqrequirements.id' +
+    	' AND LV_5.fieldid = (' +
+    	'	SELECT id' +
+    	'	FROM rquserdefinedfields' +
+    	'	WHERE label=''Конфигурация оболочки''' +
+    	' )' +
+    	' AND LI_5.itemid=LV_5.listitemid' +
+      ' ' +
+      //
+      sOrderBy;
+
+    RequirementsQuery.SQL := query;
+    RequirementsQuery.Open;
+    
+    RequirementsQuery.First;
+
+    StartTimeMeasure('Засовываем результаты в массив');
+    
+    while not VarToBool(RequirementsQuery.EOF) do
+    begin
+      param := nil;
+      SetParam(param, 'Requirement ID', RequirementsQuery.FieldByName('REQID').Value);
+      SetParam(param, 'Script name', RequirementsQuery.FieldByName('SCRIPTNAME').Value); 
+      SetParam(param, 'Unit name', RequirementsQuery.FieldByName('UNITNAME').Value);     
+      SetParam(param, 'Needed state', RequirementsQuery.FieldByName('STATE').Value);     
+      SetParam(param, '6.4 Ready', RequirementsQuery.FieldByName('READY64').Value);      
+      SetParam(param, 'GroupNumber', RequirementsQuery.FieldByName('GROUPNUMBER').Value);
+      SetParam(param, 'DataBase', RequirementsQuery.FieldByName('DATABASEFIELD').Value);        
+      SetParam(param, 'Конфигурация оболочки', RequirementsQuery.FieldByName('SHELLCONF').Value);
+         
+      AddToArray(list, param);
+      RequirementsQuery.Next;
+    end;
+    
+    EndTimeMeasure('Засовываем результаты в массив');
+    
+    RequirementsQuery.Close;
+    Result := list;
+  except
+    Log.Error('Exception occurred: ' + ExceptionMessage);
+  CommonExceptionHandler;
+  end;
+end;
+
+
+function GetScriptListByFields_Test;
+  var 
+    arr, scriptRecord : OleVariant;
+    i : Integer;
+    str : String;
+begin
+  arr := GetScriptListByFields('6.4 Ready=Yes|Monitored;CtrlReady<>No', false);
+  //
+  str := '';  
+  for i := VarArrayLowBound(arr, 1) to VarArrayHighBound(arr, 1) do
+  begin
+    scriptRecord := arr[i];
+    //
+    str := str + EndOfLine + GetParam(scriptRecord, 'Script name');        
+  end;
+  //
+  Log.Message('Имена скриптов', str);
+  
+
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function GetScriptIDByName(
+  scriptName : String
+): integer;
+  const
+    FUNCTION_NAME = 'GetScriptIDByName';
+  var
+    sqlQuery;    
+begin
+  try
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    sqlQuery := ADO.CreateADOQuery;
+    sqlQuery.CacheSize := 1000;
+    sqlQuery.ConnectionString := CONNECTION_STRING;
+    
+    scriptName := StringReplace(scriptName, '''', '', 1 or 2);
+    //
+    sqlQuery.SQL :=  
+      'SELECT	rqrequirements.id AS REQID' +  
+      ' FROM rqrequirements, rqrequirementtypes' +
+      ' WHERE'+
+      ' rqrequirements.requirementtypeid = rqrequirementtypes.id' +
+      ' AND rqrequirementtypes.name = ''Автоматический скрипт''' + 
+	    ' AND rqrequirements.requirementname LIKE ''' + scriptName + '''';
+        
+    sqlQuery.Open;
+    sqlQuery.First; 
+    
+    if NOT VarToBool(sqlQuery.EOF) then
+      Result := sqlQuery.FieldByName('REQID').Value
+    else
+      Result := 0;  
+      
+    if (sqlQuery.RowsAffected > 1) then
+      Log.Warning('По запросу "' + scriptName + '" получено больше одного значения!');      
+      
+    sqlQuery.Close;         
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function GetScriptParamsByID(
+  id : integer
+): OleVariant;
+  const
+    FUNCTION_NAME = 'GetScriptParamsByID';
+  var
+    sqlQuery;    
+begin
+  try
+    if NOT WaitForSQLServer(Options.Run.Timeout * 30) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    sqlQuery := ADO.CreateADOQuery();
+    sqlQuery.CacheSize := 1000;    
+    sqlQuery.ConnectionString := CONNECTION_STRING;
+      
+    sqlQuery.SQL := '' + 
+      'SELECT	rqrequirements.id AS REQID, rqrequirements.requirementname AS SCRIPTNAME, FV_1.fieldvalue AS UNITNAME, LI_1.itemtext AS STATE, LI_3.itemtext AS READY64, CAST(FV_2.fieldvalue AS int) AS GROUPNUMBER, CAST(FV_3.fieldvalue AS int) AS INGROUPPRIORITY, LI_4.itemtext AS DATABASEFIELD, LI_5.itemtext AS SHELLCONF' + 
+      ' FROM	rqrequirements, rquserdefinedfieldvalues AS FV_1, rquserdefinedlistitems AS LI_1, rquserdefinedlistvalues AS LV_1, rquserdefinedlistitems AS LI_3, rquserdefinedlistvalues AS LV_3, rquserdefinedfieldvalues AS FV_2, rquserdefinedfieldvalues AS FV_3, rquserdefinedlistitems AS LI_4, rquserdefinedlistvalues AS LV_4, rquserdefinedlistitems AS LI_5, rquserdefinedlistvalues AS LV_5' +
+      ' WHERE	rqrequirements.id = ' + VarToString(id) + 
+      ' AND FV_1.requirementid=rqrequirements.id' + 
+    	' AND FV_1.fieldid = (' + 
+    	'	SELECT id' + 
+    	'	FROM rquserdefinedfields' + 
+    	'	WHERE label=''Unitname''' + 
+    	' )'+
+    	' AND LV_1.requirementid=rqrequirements.id'+
+	    ' AND LV_1.fieldid = (' + 
+    	'	SELECT id'+
+    	'	FROM rquserdefinedfields'+
+    	'	WHERE label=''State'''+
+    	' )' +
+    	' AND LI_1.itemid=LV_1.listitemid' +
+      //
+    	' AND LV_3.requirementid=rqrequirements.id' +
+    	' AND LV_3.fieldid = (' +
+    	'	SELECT id' +
+    	'	FROM rquserdefinedfields' +
+    	'	WHERE label=''6.4 Ready''' +
+    	' )' +
+    	' AND LI_3.itemid=LV_3.listitemid' +
+      //      
+      '	AND FV_2.requirementid=rqrequirements.id' +
+      '	AND FV_2.fieldid = (' +
+      '		SELECT id' +
+      '		FROM rquserdefinedfields' +
+      '		WHERE label=''GroupNumber''' +
+      '	)' +
+      //
+      '	AND FV_3.requirementid=rqrequirements.id' +
+      '	AND FV_3.fieldid = (' +
+      '		SELECT id' +
+      '		FROM rquserdefinedfields' +
+      '		WHERE label=''InGroupPriority''' +
+      '	)' +
+      //
+      ' AND LV_4.requirementid=rqrequirements.id' +
+    	' AND LV_4.fieldid = (' +
+    	'	SELECT id' +
+    	'	FROM rquserdefinedfields' +
+    	'	WHERE label=''DataBase''' +
+    	' )' +
+    	' AND LI_4.itemid=LV_4.listitemid' +
+      ' ' +
+      //
+      ' AND LV_5.requirementid=rqrequirements.id' +
+    	' AND LV_5.fieldid = (' +
+    	'	SELECT id' +
+    	'	FROM rquserdefinedfields' +
+    	'	WHERE label=''Конфигурация оболочки''' +
+    	' )' +
+    	' AND LI_5.itemid=LV_5.listitemid';
+
+    sqlQuery.Open;    
+    sqlQuery.First;
+
+    if not VarToBool(sqlQuery.EOF) then
+    begin
+      SetParam(Result, 'Requirement ID', sqlQuery.FieldByName('REQID').Value);
+      SetParam(Result, 'Script name', sqlQuery.FieldByName('SCRIPTNAME').Value); 
+      SetParam(Result, 'Unit name', sqlQuery.FieldByName('UNITNAME').Value);     
+      SetParam(Result, 'Needed state', sqlQuery.FieldByName('STATE').Value);     
+      SetParam(Result, '6.4 Ready', sqlQuery.FieldByName('READY64').Value);      
+      SetParam(Result, 'GroupNumber', sqlQuery.FieldByName('GROUPNUMBER').Value);
+      SetParam(Result, 'DataBase', sqlQuery.FieldByName('DATABASEFIELD').Value);        
+      SetParam(Result, 'Конфигурация оболочки', sqlQuery.FieldByName('SHELLCONF').Value);
+         
+      sqlQuery.Next;
+    end;
+    
+    if (sqlQuery.RowsAffected > 1) then
+      Log.Warning('По id "' + VarToString(id) + '" получено больше одного значения! Бред какой-то, такого не должно быть!'); 
+    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+function temporary;
+  var p, w : OleVariant;
+begin
+  try
+    GetScriptListByFields('State=Основное меню');
+  except
+    Log.Message('' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetConfigurationByName(
+  const name : string
+) : String;
+  var 
+    RequirementsQuery : OleVariant;
+begin
+  try
+    Result := '';
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+    RequirementsQuery.SQL := 
+      'SELECT	rquserdefinedlistitems.itemtext AS CONFIGURATION' + 
+      ' FROM	rqrequirements, rquserdefinedlistitems, rquserdefinedlistvalues, rquserdefinedfields' + 
+      ' WHERE	rqrequirements.REQUIREMENTNAME = ''' + name + '''' +
+      ' AND rquserdefinedlistvalues.requirementid=rqrequirements.id' + 
+      ' AND rquserdefinedlistvalues.fieldid = rquserdefinedfields.id' + 
+      '	AND rquserdefinedfields.label=''Конфигурация оболочки''' + 
+      '	AND rquserdefinedlistitems.itemid=rquserdefinedlistvalues.listitemid';  
+    RequirementsQuery.Open;
+    RequirementsQuery.First;
+    if NOT VarToBool(RequirementsQuery.EOF) then
+      Result := RequirementsQuery.FieldByName('CONFIGURATION').Value;
+    RequirementsQuery.Close;    
+  except
+    Log.Message('GetConfigurationByName: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := '';
+  CommonExceptionHandler;
+  end;               
+end;
+
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetRemarkByID(
+  const id : integer
+) : String;
+  var 
+    RequirementsQuery : OleVariant;
+begin
+  try
+    Result := '';
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+    RequirementsQuery.SQL := 
+      'SELECT	rquserdefinedfieldvalues.fieldvalue AS REMARK' + 
+      ' FROM	rqrequirements, rquserdefinedfieldvalues' +
+      ' WHERE	rqrequirements.requirementtypeid = (' + 
+      '		SELECT	id' + 
+      '		FROM	rqrequirementtypes' + 
+      '		WHERE	name = ''Автоматический скрипт''' +
+      '	)'+
+      '	AND rqrequirements.id = ' + IntToStr(id) +
+      '	AND rquserdefinedfieldvalues.requirementid=rqrequirements.id' +
+      '	AND rquserdefinedfieldvalues.fieldid = (' +
+      '		SELECT id' +
+      '		FROM rquserdefinedfields' +
+      '		WHERE label=''Remark''' +
+      '	)';
+    RequirementsQuery.Open;
+    RequirementsQuery.First;
+    if NOT VarToBool(RequirementsQuery.EOF) then
+      Result := RequirementsQuery.FieldByName('REMARK').Value;
+    RequirementsQuery.Close;
+  except
+    Log.Message('GetRemarkByID: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := '';
+  CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetTracedFromIDsByID(
+  const id : integer
+) : OleVariant;
+  var 
+    RequirementsQuery : OleVariant;
+begin
+  try
+    Result := '';
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+    RequirementsQuery.SQL := 
+      'SELECT	requirementid AS ID_FROM' + 
+      ' FROM	rqtorelationships' +
+      ' WHERE	toid = ' + IntToStr(id);
+    RequirementsQuery.Open;
+    RequirementsQuery.First;
+    while NOT VarToBool(RequirementsQuery.EOF) do
+    begin
+      AddToArray(Result, RequirementsQuery.FieldByName('ID_FROM').Value );
+      RequirementsQuery.Next; 
+    end;  
+    RequirementsQuery.Close;
+  except
+    Log.Message('GetTracedFromIDsByID: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := '';
+  CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetHLTCDescriptionByID(
+  id : integer
+) : String;
+  var 
+    RequirementsQuery, strings : OleVariant;
+    prefix, text : String;
+    i : integer;
+begin
+  try
+    Result := '';
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+
+    while id <> -1 do
+    begin
+      RequirementsQuery.SQL := 
+      'SELECT requirementprefix AS PREFIX, requirementtext AS TEXT' + 
+      ' FROM rqrequirements' + 
+      ' WHERE id=' + IntToStr(id);
+
+      RequirementsQuery.Open;
+      RequirementsQuery.First; 
+      if NOT VarToBool(RequirementsQuery.EOF) then
+      begin
+        prefix := RequirementsQuery.FieldByName('PREFIX').Value;
+        text := RequirementsQuery.FieldByName('TEXT').Value;
+      end;
+      RequirementsQuery.Close;
+      
+      AddToArray(strings, prefix + ' : ' + text);
+      if (Pos('.', prefix) = 0) then 
+        id := -1
+      else
+      begin
+        Delete(prefix, Length(prefix) - Length(AnsiStrRScan(prefix, '.'))+1, Length(AnsiStrRScan(prefix, '.')));
+        RequirementsQuery.SQL :=
+          'SELECT id AS ID ' + 
+          ' FROM rqrequirements' + 
+          ' WHERE requirementprefix = ''' + prefix + '''';
+        RequirementsQuery.Open;
+        RequirementsQuery.First; 
+        if NOT VarToBool(RequirementsQuery.EOF) then
+          id := RequirementsQuery.FieldByName('ID').Value;
+        RequirementsQuery.Close;  
+      end;  
+    end;
+    if IsArray(strings) then
+      for i := VarArrayHighBound(strings,1) downto VarArrayLowBound(strings,1) do
+        Result := Result + RepeatString('  ', VarArrayHighBound(strings,1)-i) + strings[i] + EndOfLine;
+  except
+    Log.Message('GetHLTCDescriptionByID: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetTracedFromDescByID(
+  const id : integer // id элемента, для которого получаем описания его traced-from элементов
+) : String;
+  var 
+    tracedFrom : OleVariant;
+    i : integer;
+begin
+  try
+    Result := '';
+    tracedFrom := GetTracedFromIDsByID(id);
+    if IsArray(tracedFrom) then
+      for i := VarArrayLowBound(tracedFrom,1) to VarArrayHighBound(tracedFrom,1) do
+        Result := Result + GetHLTCDescriptionByID(tracedFrom[i]) + EndOfLine;
+  except
+    Log.Message('GetTracedFromDescByID: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+  end;               
+end;
+
+
+function GetScriptActionsByID(
+  id : integer
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetScriptActionsByID';
+  var 
+    RequirementsQuery : OleVariant;
+begin
+  try
+    VarClear(Result);
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.CacheSize := 1000;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+       
+    RequirementsQuery.SQL := 
+      'SELECT	rquserdefinedlistitems.itemtext AS ACTIONS' + 
+      ' FROM	rqrequirements, rquserdefinedlistitems, rquserdefinedlistvalues, rquserdefinedfields' + 
+      ' WHERE	rqrequirements.id = ' + IntToStr(id) + 
+      ' AND rquserdefinedlistvalues.requirementid=rqrequirements.id' + 
+      ' AND rquserdefinedlistvalues.fieldid = rquserdefinedfields.id' + 
+      '	AND rquserdefinedfields.label=''Actions''' + 
+      '	AND rquserdefinedlistitems.itemid=rquserdefinedlistvalues.listitemid';
+
+    RequirementsQuery.Open;
+    RequirementsQuery.First; 
+    while NOT VarToBool(RequirementsQuery.EOF) do
+    begin
+      AddToArray(Result, RequirementsQuery.FieldByName('ACTIONS').Value );
+      RequirementsQuery.Next;
+    end;  
+    RequirementsQuery.Close;      
+   
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+function SetScriptActionOn(
+  id : integer;
+  action : String
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'SetScriptActionOn';
+  var 
+    RequirementsQuery: OleVariant;
+begin
+  try
+    VarClear(Result);
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.CacheSize := 1000;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+       
+    RequirementsQuery.SQL :=    
+      'INSERT INTO rquserdefinedlistvalues' +
+	    ' SELECT rqrequirements.id, rquserdefinedfields.id, rquserdefinedlistitems.itemid' +
+	    ' FROM rquserdefinedfields, rquserdefinedlistitems, rqrequirements' +
+	    ' WHERE rqrequirements.id = ' + IntToStr(id) +
+		  ' AND rquserdefinedfields.label=''Actions'''+
+		  ' AND rquserdefinedlistitems.fieldid = rquserdefinedfields.id'+
+		  ' AND rquserdefinedlistitems.itemtext = ''' + action + '''';
+     
+    RequirementsQuery.ExecSQL;    
+    Result := (RequirementsQuery.RowsAffected = 1);      
+    RequirementsQuery.Close;         
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+function SetScriptActionOff(
+  id : integer;
+  action : String
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'SetScriptActionOff';
+  var 
+    RequirementsQuery : OleVariant;
+begin
+  try
+    VarClear(Result);
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    RequirementsQuery := ADO.CreateADOQuery;
+    RequirementsQuery.CacheSize := 1000;
+    RequirementsQuery.ConnectionString := CONNECTION_STRING;
+       
+    RequirementsQuery.SQL :=    
+      'DELETE rquserdefinedlistvalues' +
+      ' FROM rquserdefinedlistvalues, rquserdefinedfields, rquserdefinedlistitems, rqrequirements' +
+  	  ' WHERE rqrequirements.id = ' + IntToStr(id) +
+  		' AND rquserdefinedfields.label=''Actions''' +
+  		' AND rquserdefinedlistitems.fieldid = rquserdefinedfields.id' + 
+  		' AND rquserdefinedlistitems.itemtext = ''' + action + '''' +
+  		' AND rquserdefinedlistvalues.requirementid = rqrequirements.id' + 
+  		' AND rquserdefinedlistvalues.fieldid = rquserdefinedfields.id' +
+  		' AND rquserdefinedlistvalues.listitemid = rquserdefinedlistitems.itemid';
+     
+    RequirementsQuery.ExecSQL;    
+    Result := (RequirementsQuery.RowsAffected = 1);      
+    RequirementsQuery.Close;         
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+    empty - если не удалось найти требование, поле или его значение не присвоено
+    массив со значениями поля (1 значение в массиве, в случае списочного поля без мульивыбора или несписочного поля)  
+  REMARK:
+}
+function GetRequirementFieldData(
+  const id : integer; // id требования (записи)
+  const fieldName : String // название поля
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetRequirementFieldData';
+  var
+    sqlQuery;
+    idStr : String;
+begin
+  try
+    idStr := IntToStr(id);
+    
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    sqlQuery := ADO.CreateADOQuery;
+    sqlQuery.CacheSize := 1000;
+    sqlQuery.ConnectionString := CONNECTION_STRING;
+    
+    sqlQuery.SQL := 
+      'IF (SELECT rquserdefinedfields.datatype' +
+      ' FROM rquserdefinedfields, rqrequirementtypefields, rqrequirements' + 
+      ' WHERE rquserdefinedfields.label = ''' + fieldName + '''' +
+      ' AND rqrequirements.id = ' + idStr +
+      ' AND rqrequirementtypefields.requirementtypeid = rqrequirements.requirementtypeid' +
+      ' AND rquserdefinedfields.id = rqrequirementtypefields.userdefinedfieldid) IN (0, 10)' + 
+      ' BEGIN /* это у нас списочный тип */'+
+      '	 SELECT rquserdefinedlistitems.itemtext AS DATA'+ 
+      '	 FROM rqrequirements, rquserdefinedlistitems, rquserdefinedlistvalues, rquserdefinedfields'+
+      '	 WHERE rqrequirements.id = ' + idStr +
+      '	 AND rquserdefinedlistvalues.requirementid=rqrequirements.id'+
+      '	 AND rquserdefinedlistvalues.fieldid = rquserdefinedfields.id'+
+      '	 AND rquserdefinedfields.label=''' + fieldName + ''''+
+      '	 AND rquserdefinedlistitems.itemid=rquserdefinedlistvalues.listitemid'+
+      ' END'+
+      ' ELSE /* а это тип не списочный */'+
+      ' BEGIN'+
+      '	 SELECT	rquserdefinedfieldvalues.fieldvalue AS DATA'+
+      '	 FROM	rqrequirements, rquserdefinedfieldvalues, rquserdefinedfields'+
+      '	 WHERE	rqrequirements.id = ' + idStr +
+      '	 AND rquserdefinedfieldvalues.requirementid=rqrequirements.id'+
+      '	 AND rquserdefinedfieldvalues.fieldid = rquserdefinedfields.id'+
+      '	 AND rquserdefinedfields.label=''' + fieldName + '''' +
+      ' END';
+    
+    sqlQuery.Open;
+    sqlQuery.First; 
+    while NOT VarToBool(sqlQuery.EOF) do
+    begin
+      AddToArray(Result, sqlQuery.FieldByName('DATA').Value );
+      sqlQuery.Next;
+    end;  
+    sqlQuery.Close;        
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+    true - если вставилось столько данных, сколько указано  
+  REMARK: 
+}
+function SetRequirementFieldData(
+  const id : integer; // id требования (записи)
+  const fieldName : String; // название поля
+  const fieldData : OleVariant // массив со значениями (или единственным значением, но всегда массив!). 
+                         // Если массив пустой ( [EmptyVar] ), то просто очищаем данные в указанном поле
+) : boolean; // true - если вставилось столько данных, сколько указано
+  const
+    FUNCTION_NAME = 'SetRequirementFieldData';
+    TRANSACTION_NAME = 'ChangingValue';
+  var
+    sqlQuery;
+    dataType, i, fieldIDStr : integer;
+    itemsListStr, idStr : String;
+    isClearOnly : boolean;
+begin
+  try 
+    Result := false;     
+    idStr := IntToStr(id);
+    isClearOnly := (ArrayLength(fieldData) = 1) AND IsEmpty(fieldData[VarArrayLowBound(fieldData, 1)]); 
+         
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    sqlQuery := ADO.CreateADOQuery;
+    sqlQuery.CacheSize := 1000;
+    sqlQuery.ConnectionString := CONNECTION_STRING;
+
+    //1/ Проверка входных данных
+    //1/  - проверяем, что поле вообще существует и что оно подерживается требованием с указанным id, а также получаем идентификатор поля 
+    sqlQuery.SQL := 
+      'SELECT rquserdefinedfields.datatype AS DATATYPE, rquserdefinedfields.id AS FIELDID' +
+      ' FROM rquserdefinedfields, rqrequirementtypefields, rqrequirements' + 
+      ' WHERE rquserdefinedfields.label = ''' + fieldName + '''' +
+      ' AND rqrequirements.id = ' + idStr +
+      ' AND rqrequirementtypefields.requirementtypeid = rqrequirements.requirementtypeid' +
+      ' AND rquserdefinedfields.id = rqrequirementtypefields.userdefinedfieldid';
+    sqlQuery.Open;
+    if (sqlQuery.RecordCount = 0) then Raise('Указанное поле не найдено или не поддерживается требованием с указанным ID!');
+    sqlQuery.First;  
+    dataType := VarToInteger( sqlQuery.FieldByName('DATATYPE').Value );
+    fieldIDStr := VarToString( sqlQuery.FieldByName('FIELDID').Value );    
+    sqlQuery.Close;
+    
+    if (NOT isClearOnly) then 
+    begin
+      itemsListStr := '''' + Array2String(fieldData, ''', ''') + '''';
+      //
+      if (dataType = 0) then // у нас список без множественного выбора
+        if (ArrayLength(fieldData) <> 1) then Raise('В списке без множественного выбора может быть только одно значение!');
+      //
+      //1/ - теперь проверяем для списков, что переданные значения реально существуют
+      if (dataType = 0) OR (dataType = 10) then
+      begin
+        sqlQuery.SQL := 
+          'SELECT COUNT(*) AS ITEMSCOUNT' +
+          ' FROM rquserdefinedlistitems' +
+          ' WHERE rquserdefinedlistitems.fieldid = ' + fieldIDStr +
+          ' AND rquserdefinedlistitems.itemtext in (' + itemsListStr + ')';
+        sqlQuery.Open;
+        sqlQuery.First;
+        if (ArrayLength(fieldData) <> VarToInteger(sqlQuery.FieldByName('ITEMSCOUNT').Value) ) then
+          Raise('Не все переданные значения списка существуют в базе!');
+        sqlQuery.Close;        
+      end;
+    end;
+    
+    //2/ Производим вставку   
+    //2/  - начинаем транзакцию
+    sqlQuery.SQL := 'BEGIN TRANSACTION ' + TRANSACTION_NAME;
+    sqlQuery.ExecSQL;
+    //
+    try
+      if (dataType = 0) OR (dataType = 10) then
+      begin // это у нас списочный тип
+        //2/  -- сначала удаляем имеющиеся данные              
+        sqlQuery.SQL := 
+          'DELETE rquserdefinedlistvalues' +
+          ' FROM rquserdefinedlistvalues, rqrequirements' +
+          ' WHERE rqrequirements.id = ' + idStr +
+          ' AND rquserdefinedlistvalues.fieldid = ' + fieldIDStr +
+          ' AND rquserdefinedlistvalues.requirementid = rqrequirements.id';
+        sqlQuery.ExecSQL;      
+        //    
+        //2/ -- затем производим вставку
+        if (NOT isClearOnly) then
+        begin
+          sqlQuery.SQL := 
+            'INSERT INTO rquserdefinedlistvalues (requirementid, fieldid, listitemid)' +
+            ' SELECT rqrequirements.id, rquserdefinedlistitems.fieldid, rquserdefinedlistitems.itemid' +
+            ' FROM rqrequirements, rquserdefinedlistitems' +
+            ' WHERE rqrequirements.id = ' + idStr +
+            ' AND rquserdefinedlistitems.fieldid = ' + fieldIDStr +
+            ' AND rquserdefinedlistitems.itemtext IN ('+ itemsListStr +')';      
+          sqlQuery.ExecSQL;
+        end;         
+      end
+      else // а это тип не списочный
+      begin
+        //2/  -- сначала удаляем имеющиеся данные              
+        sqlQuery.SQL := 
+          'DELETE rquserdefinedfieldvalues' +
+          ' FROM rquserdefinedfieldvalues, rqrequirements' +
+          ' WHERE rqrequirements.id = ' + idStr +
+          ' AND rquserdefinedfieldvalues.requirementid = rqrequirements.id' +
+          ' AND rquserdefinedfieldvalues.fieldid = ' + fieldIDStr;
+        sqlQuery.ExecSQL;      
+        //    
+        //2/ -- затем производим вставку
+        if (NOT isClearOnly) then
+        begin
+          sqlQuery.SQL := 
+            'INSERT INTO rquserdefinedfieldvalues (requirementid, fieldid, fieldvalue)' +
+            ' SELECT rqrequirements.id, ' + fieldIDStr + ', ' + itemsListStr +
+            ' FROM rqrequirements' +
+            ' WHERE rqrequirements.id = ' + idStr;
+          sqlQuery.ExecSQL;
+        end;
+      end; 
+      // 
+      Result := isClearOnly OR (sqlQuery.RowsAffected = ArrayLength(fieldData));
+      //
+      //2/  - если вставилось столько сколько указали, то закрываем транзакцию, иначе - откатываем
+      sqlQuery.SQL := Choose(Result, 'COMMIT', 'ROLLBACK') + ' TRANSACTION ' + TRANSACTION_NAME;
+      sqlQuery.ExecSQL;
+    except
+      sqlQuery.SQL := 'ROLLBACK TRANSACTION ' + TRANSACTION_NAME;
+      sqlQuery.ExecSQL;
+    end;    
+      
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,
+      DbgVarValue(id, 'id') + DbgVarValue(fieldName, 'fieldName') + DbgVarValue(fieldData, 'fieldData'),
+      pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+
+{
+  TYPE:
+  DESC: преобразование даты из формата TestComplete в дату формата RequisitePro
+  RESULT:
+  REMARK:
+}
+function TCDate2RPDate(
+  const tcDate : OleVariant // дата в формате TestComplete, например, возвращаемая функцией Utilities.Date()
+): OleVariant ;
+  const
+    FUNCTION_NAME = 'TCDate2RPDate';
+begin
+  try
+    Result := tcDate - 367;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValue(tcDate, 'tcDate'), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+    для каждого оттрасированного к скрипту тесткейса устанавливает текущую дату как дату проверки скриптом, и 
+    в зависимости от результата скрипта выставляет признак "Требуется ручная проверка"
+  RESULT:
+  REMARK:
+}
+function RefreshTracedHLTC(
+  const scriptID : integer; // внутренний id скрипта в базе данных RequsitePro
+  const scriptResult : boolean // результат скрипта
+): integer; // количество обработанных HLTC
+  const
+    FUNCTION_NAME = 'RefreshTracedHLTC';
+  var
+    tracedIDs : OleVariant;
+    i : integer;      
+begin
+  try
+    Result := 0;
+    
+    // пытаемся получить массив оттрасированных к скрипту HLTC
+    tracedIDs := GetTracedFromIDsByID(scriptID);
+    
+    if IsArray(tracedIDs) then
+    begin // получили
+      for i := VarArrayLowBound(tracedIDs, 1) to VarArrayHighBound(tracedIDs, 1) do
+      begin //1/ для каждого оттрасированного HLTC
+        //1/ - устанавливаем текущую дату в качестве даты проверки скриптом
+        SetRequirementFieldData(tracedIDs[i], 'Дата проверки скриптом', [TCDate2RPDate(Utilities.Date)]);
+        //1/ - если скрипт не пройден, то выставляем признак 'Требуется ручная проверка' 
+        SetRequirementFieldData(tracedIDs[i], 'Требуется ручная проверка', [Choose(scriptResult, 'Нет', 'Да')]);
+        //
+        Inc(Result);
+      end;  
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValue(scriptID, 'scriptID') + DbgVarValue(scriptResult, 'scriptResult'), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+
+{
+  TYPE:
+  DESC:
+    сбрасывает признак "Требуется ручная проверка" в "Да" для скриптов, дата проверка которых отстоит от текущей даты на DAY_DIFF дней
+  RESULT:
+  REMARK:
+}
+function ResetTracedHLTC : OleVariant; // количество обновленных записей
+  const
+    FUNCTION_NAME = 'ResetTracedHLTC';
+    //
+    // при такой разнице между "датой проверки скриптом" и сегодняшней датой признак "Требуется ручная проверка" будет сброшен в "Да"
+    // 0 - начиная с проверенных сегодня, 1 - вчера и т.д.
+    DAY_DIFF = 3; 
+  var
+    sqlQuery;
+begin
+  try
+    if NOT WaitForSQLServer(Options.Run.Timeout * 10) then Raise('Не могу подключиться к SQL-серверу!');
+    
+    sqlQuery := ADO.CreateADOQuery;
+    sqlQuery.CacheSize := 1000;
+    sqlQuery.ConnectionString := CONNECTION_STRING;
+    
+    // сбрасываем признак "Требуется ручная проверка" в "Да" для скриптов, дата проверка которых отстоит от текущей даты на DAY_DIFF дней
+    sqlQuery.SQL := 
+      'UPDATE rquserdefinedlistvalues' +
+      ' SET listitemid = rquserdefinedlistitems.itemid' +
+      ' FROM rquserdefinedlistvalues, rquserdefinedfieldvalues, rqrequirements, rquserdefinedfields, rqrequirementtypefields, rqrequirementtypes, rquserdefinedfields AS RQUDF2, rqrequirementtypefields AS RQRTF2, rquserdefinedlistitems' +
+      ' WHERE rqrequirementtypes.name = ''High-level test case''' +
+      ' AND rquserdefinedfields.label = ''Дата проверки скриптом''' +
+      ' AND rqrequirementtypefields.requirementtypeid = rqrequirementtypes.id' +
+      ' AND rquserdefinedfields.id = rqrequirementtypefields.userdefinedfieldid' +
+      ' AND rqrequirements.requirementtypeid = rqrequirementtypes.id' +
+      ' AND rquserdefinedfieldvalues.fieldid = rquserdefinedfields.id' +
+      ' AND CAST(rquserdefinedfieldvalues.fieldvalue AS INTEGER) <= '  + VarToString(TCDate2RPDate(Utilities.Date-DAY_DIFF)) +
+      ' AND rqrequirements.id = rquserdefinedfieldvalues.requirementid' +
+      ' /* Здесь определяем идентификатор поля "Требуется ручная проверка" */' +
+      ' AND RQUDF2.label = ''Требуется ручная проверка''' +
+      ' AND RQRTF2.requirementtypeid = rqrequirementtypes.id' +
+      ' AND RQUDF2.id = RQRTF2.userdefinedfieldid' +
+      ' /* Здесь определяем идентификатор значения "Нет" поля "Требуется ручная проверка" */' +
+      ' AND rquserdefinedlistitems.fieldid = RQUDF2.id' +
+      ' AND rquserdefinedlistitems.itemtext = ''Да''' +
+      ' /* Здесь выбираем на обновление записи соответсвующие полю и условиям */' +
+      ' AND rquserdefinedlistvalues.requirementid=rqrequirements.id' +
+      ' AND rquserdefinedlistvalues.fieldid = RQUDF2.id';    
+    sqlQuery.ExecSQL;
+    
+    Result := sqlQuery.RowsAffected;     
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC: обновляет дату проверки скрипта, результат и обновляет данные по оттрасированным HLTC
+  RESULT:
+  REMARK:
+}
+function UpdateScriptAndRefreshTracedHLTC(
+  scriptName : String;
+  scriptResult : boolean
+): OleVariant;
+  const
+    FUNCTION_NAME = 'UpdateScriptAndRefreshTracedHLTC';
+  var
+    reqID;      
+begin
+  try
+    reqID := GetScriptIDByName(scriptName);
+    if (reqID = 0) then
+      Raise('Скрипт с таким именем не найден, возможно неправильно задано имя!');
+    // обновляем поля скрипта  
+    SetRequirementFieldData(reqID, 'Дата последнего запуска', [TCDate2RPDate(Utilities.Date)]);
+    SetRequirementFieldData(reqID, 'Result', [Choose(scriptResult, 'Passed', 'Failed')]);
+    // обновляем оттрасированные HLTC
+    if (RefreshTracedHLTC(reqID, scriptResult) = 0) then
+      Log.Warning('К скрипту ' + scriptName + ' не оттрасированно ни одного HLTC!');
+    Result := true;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([scriptName, scriptResult], ['scriptName', 'scriptResult']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+

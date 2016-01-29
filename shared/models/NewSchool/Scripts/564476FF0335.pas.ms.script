@@ -1,0 +1,417 @@
+// Diff 564476FF0335 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_564476FF0335
+
+FORWARD ME_5644774902C8
+
+FORWARD ME_564477CC036E
+
+: ME_5644781A0078
+ CONST UID '5644781A0078'
+ CONST Name 'I'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5644781A0078 I
+
+: ME_5644781A008E
+ CONST UID '5644781A008E'
+ CONST Name 'J'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5644781A008E J
+
+: ME_564477E40358
+ CONST UID '564477E40358'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_564477CC036E // Tl3DiffCompareFunc
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5644781A0078 // I
+ ME_5644781A008E // J
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_564477E40358 DoIt
+
+: ME_564477CC036E
+ CONST UID '564477CC036E'
+ CONST Name 'Tl3DiffCompareFunc'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5644774902C8 // l3Diff
+ ;
+ : Operations
+   @ ( ME_564477E40358 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" false
+
+ref; // ME_564477CC036E Tl3DiffCompareFunc
+
+FORWARD ME_564479C20374
+
+: ME_564479D50136
+ CONST UID '564479D50136'
+ CONST Name 'l3diffSame'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_564479C20374 // Tl3DiffOperation
+ ;
+
+ref; // ME_564479D50136 l3diffSame
+
+: ME_56459EDB0121
+ CONST UID '56459EDB0121'
+ CONST Name 'l3diffDeleted'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_564479C20374 // Tl3DiffOperation
+ ;
+
+ref; // ME_56459EDB0121 l3diffDeleted
+
+: ME_564479EC0382
+ CONST UID '564479EC0382'
+ CONST Name 'l3diffAdded'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_564479C20374 // Tl3DiffOperation
+ ;
+
+ref; // ME_564479EC0382 l3diffAdded
+
+: ME_564479C20374
+ CONST UID '564479C20374'
+ CONST Name 'Tl3DiffOperation'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5644774902C8 // l3Diff
+ ;
+ : Attributes
+   @ ( ME_564479D50136 // l3diffSame
+ ME_56459EDB0121 // l3diffDeleted
+ ME_564479EC0382 // l3diffAdded
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_564479C20374 Tl3DiffOperation
+
+FORWARD ME_56691ABF0264
+
+: ME_56691AE501D7
+ CONST UID '56691AE501D7'
+ CONST Name 'rOp'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56691ABF0264 // Tl3DiffReportRec
+ ;
+ : Target ME_564479C20374 // Tl3DiffOperation
+ ;
+
+ref; // ME_56691AE501D7 rOp
+
+: ME_56691B010068
+ CONST UID '56691B010068'
+ CONST Name 'rLeftIdx'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56691ABF0264 // Tl3DiffReportRec
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56691B010068 rLeftIdx
+
+: ME_56691B1D0291
+ CONST UID '56691B1D0291'
+ CONST Name 'rRightIdx'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56691ABF0264 // Tl3DiffReportRec
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56691B1D0291 rRightIdx
+
+: ME_56691ABF0264
+ CONST UID '56691ABF0264'
+ CONST Name 'Tl3DiffReportRec'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5644774902C8 // l3Diff
+ ;
+ : Attributes
+   @ ( ME_56691AE501D7 // rOp
+ ME_56691B010068 // rLeftIdx
+ ME_56691B1D0291 // rRightIdx
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_56691ABF0264 Tl3DiffReportRec
+
+FORWARD ME_564478EF0289
+
+: ME_56691B4A0057
+ CONST UID '56691B4A0057'
+ CONST Name 'aRR'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_56691ABF0264 // Tl3DiffReportRec
+ ;
+
+ref; // ME_56691B4A0057 aRR
+
+: ME_5644799302F7
+ CONST UID '5644799302F7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_564478EF0289 // Tl3DiffReportProc
+ ;
+ : Parameters
+   @ ( ME_56691B4A0057 // aRR
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5644799302F7 DoIt
+
+: ME_564478EF0289
+ CONST UID '564478EF0289'
+ CONST Name 'Tl3DiffReportProc'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5644774902C8 // l3Diff
+ ;
+ : Operations
+   @ ( ME_5644799302F7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" false
+
+ref; // ME_564478EF0289 Tl3DiffReportProc
+
+FORWARD ME_56447A0802A9
+
+: ME_56447A910180
+ CONST UID '56447A910180'
+ CONST Name 'aCountLeft'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56447A910180 aCountLeft
+
+: ME_56447A910193
+ CONST UID '56447A910193'
+ CONST Name 'aCountRight'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56447A910193 aCountRight
+
+: ME_56447A9101A4
+ CONST UID '56447A9101A4'
+ CONST Name 'aCompareFunc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_564477CC036E // Tl3DiffCompareFunc
+ ;
+
+ref; // ME_56447A9101A4 aCompareFunc
+
+: ME_56447A9101C6
+ CONST UID '56447A9101C6'
+ CONST Name 'aReportProc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_564478EF0289 // Tl3DiffReportProc
+ ;
+
+ref; // ME_56447A9101C6 aReportProc
+
+: ME_56447A240227
+ CONST UID '56447A240227'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56447A0802A9 // l3DoDiff
+ ;
+ : Parameters
+   @ ( ME_56447A910180 // aCountLeft
+ ME_56447A910193 // aCountRight
+ ME_56447A9101A4 // aCompareFunc
+ ME_56447A9101C6 // aReportProc
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_56447A240227 DoIt
+
+: ME_56459FF301BA
+ CONST UID '56459FF301BA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56447A0802A9 // l3DoDiff
+ ;
+ : Target WL 'ME_56459FB100FF' '4AB0997B00A2.pas.ms.script' // Max
+ ;
+
+ref; // ME_56459FF301BA 
+
+: ME_5645A045018D
+ CONST UID '5645A045018D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56447A0802A9 // l3DoDiff
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_5645A045018D 
+
+: ME_56447A0802A9
+ CONST UID '56447A0802A9'
+ CONST Name 'l3DoDiff'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5644774902C8 // l3Diff
+ ;
+ : Operations
+   @ ( ME_56447A240227 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_56459FF301BA // 
+ ME_5645A045018D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_56447A0802A9 l3DoDiff
+
+: ME_5644774902C8
+ CONST UID '5644774902C8'
+ CONST Name 'l3Diff'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_564476FF0335 // Diff
+ ;
+ : Operations
+   @ ( ME_56447A0802A9 // l3DoDiff
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_564477CC036E // Tl3DiffCompareFunc
+ ME_564479C20374 // Tl3DiffOperation
+ ME_56691ABF0264 // Tl3DiffReportRec
+ ME_564478EF0289 // Tl3DiffReportProc
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Diff.pas'
+
+ref; // ME_5644774902C8 l3Diff
+
+: ME_5645BDF50334
+ CONST UID '5645BDF50334'
+ CONST Name 'l3DiffSupport'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_564476FF0335 // Diff
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3DiffSupport.pas'
+
+ref; // ME_5645BDF50334 l3DiffSupport
+
+: ME_564476FF0335
+ CONST UID '564476FF0335'
+ CONST Name 'Diff'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_5644774902C8 // l3Diff
+ ME_5645BDF50334 // l3DiffSupport
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\564476FF0335.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\564476FF0335.pas.ms.script.runner'
+
+ref; // ME_564476FF0335 Diff

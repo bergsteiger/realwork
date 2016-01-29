@@ -1,0 +1,284 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+
+<Wix
+	xmlns = 'http://schemas.microsoft.com/wix/2003/01/wi'
+>
+	<?define ProductGUID = "6AC5411A-5F27-4CDB-9EED-3FA88FAE899D"?> <!-- change, if  only major upgrade -->
+
+	<?define PackageGUID = "????????-????-????-????-????????????"?> <!--   autogenuuid, don't change it -->
+	<?define UpgradeGUID = "ACAC883D-32C1-4719-BDDF-38C015C3CB4E"?> <!--    uuid, keep the same as long -->
+
+	<?ifndef TargetAssembly?>
+		<?define TargetAssembly = "desktop"?>                       <!--                target assembly -->
+	<?endif?>
+
+	<?ifndef TargetLanguage?>
+		<?define TargetLanguage = "rus"?>                           <!--                target language -->
+	<?endif?>
+
+
+	<?define Guid.Apps.Product = "64FBADF3-1FD2-4553-8F58-766BFC7330DC"?>
+	<?define Guid.Apps.Product_Configs = "6B8CC108-9B0F-4C3E-9AAD-BDC400F9A80C"?>
+	<?define Guid.Apps.Product_Registry.Uninstall = "100A74F3-4C8B-4CF2-A835-567F939CA94A"?>
+	<?define Guid.Apps.Product_Registry.Uninstall.Win9X = "26E3B6D7-B95C-46DB-9A15-E3FEA432C190"?>
+	<?define Guid.Apps.Product_Registry.Uninstall.WinNT = "6CFDC44D-EE40-4586-B7D9-18A80CD4435A"?>
+	<?define Guid.Apps.Product.Apps = "633C4821-089A-4647-8664-51EE5C7E972B"?>
+	<?define Guid.Apps.Product.Apps_Registry.HKCU = "669A19D5-2994-4E8E-A17D-AF903E7B064B"?>
+	<?define Guid.Apps.Product.Apps.Help = "1BF294CE-40E9-4B28-B4E9-B3BAB1106039"?>
+	<?define Guid.Apps.Product.Apps.Messages = "C8AC2640-AFA7-4A4D-913B-C62E6F2E47BF"?>
+	<?define Guid.Apps.Product.Apps.Messages.En = "34A54E67-80C8-49B7-A443-8DBB5F12812F"?>
+	<?define Guid.Apps.Product.Apps.Rules = "DE6C4C15-F29D-46F8-A81C-92B77AFBC503"?>
+	<?define Guid.Apps.Product.Apps.Schedule = "7F92D4AB-9F31-40DA-8989-1A43CBA4FB13"?>
+	<?define Guid.Apps.Product.Apps.Win9X = "ED01C54F-3C67-4D90-9BC1-F6E4CE63FCD0"?>
+	<?define Guid.Apps.Product.Apps.WinNT = "8EAE287C-4901-4130-BE14-307345DB72B3"?>
+	<?define Guid.Apps.Product.Apps.WinNT_Registry.HKLM = "902A8857-2792-488B-B0A6-450A3822DF07"?>
+	<?define Guid.Apps.Product.Apps.WinNT_RunRegistration.F1ServerMng = "EB23CF9A-3AD8-4993-B0BA-39428949A42C"?>
+	<?define Guid.Apps.Product.Apps.WinNT.Messages = "84607068-194A-4EE8-A972-EBA5375D20E6"?>
+	<?define Guid.Apps.Product.Apps.WinNT.Messages.En = "FFB1D838-9D04-4177-AE2C-0C9BB8C7F776"?>
+	<?define Guid.Apps.Product.Apps.WinNT.Rules = "B5EB5782-7253-45F3-BF09-1BA4CFF3B682"?>
+	<?define Guid.Apps.Product.Data1 = "F6826BB8-1A17-432D-A479-53E2B8B6307A"?>
+	<?define Guid.Apps.Product.Data2 = "D84E8451-1089-4829-805E-158FC5FBC7F1"?>
+	<?define Guid.Apps.Product.Delta = "48594B19-C2F6-4C92-9C6E-6CDC7B0E7773"?>
+	<?define Guid.Apps.Product.ER = "80A6FD43-161B-4CEE-867F-42B1B793946B"?>
+	<?define Guid.Apps.Product.ER.Tmp = "88ACD0B2-78D7-448E-98A6-0606DF96DBE0"?>
+	<?define Guid.Apps.Product.FixRules = "20FC77DC-62A3-4CF3-8221-F029E5F778F4"?>
+	<?define Guid.Apps.Product.Help = "2274F63B-8208-4A37-B3C3-81CF9E1365A1"?>
+	<?define Guid.Apps.Product.HotFixes = "39871C32-C355-4DDD-AA1E-C03F1FC1AD13"?>
+	<?define Guid.Apps.Product.Lics = "24192CF0-A3C2-49A8-BCB1-733FEC9CA784"?>
+	<?define Guid.Apps.Product.Logs = "A7844ECC-22DA-46DB-91B2-4E2444B82157"?>
+	<?define Guid.Apps.Product.Logs.Backups = "ABDD01BE-6012-4231-B316-E4CB7FF7ED6B"?>
+	<?define Guid.Apps.Product.Logs.DataSetup = "1108B79A-5365-4D01-BBA2-54C170493C72"?>
+	<?define Guid.Apps.Product.Settings = "209F79F5-3148-42DF-9B07-670EA6BE5B6E"?>
+	<?define Guid.Apps.Product.Settings.EtalonCopy = "6A7A5E68-A250-40C0-9E81-E9060516FC17"?>
+	<?define Guid.Apps.Product.Settings.EtalonCopy.UserData = "4A0EFB0C-F4D5-4FBD-B969-7373B2F3F9C1"?>
+	<?define Guid.Apps.Product.Settings.XMLTools = "92D7EBBB-680A-442D-945C-4C5969E0FF0E"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.Tmp = "A01C5E90-849A-4E49-8A8A-F29840D282AC"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.Win9X = "6C58043D-9B5F-483D-8692-D1DCF364F576"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.Win9X.Messages = "A85F2B5C-E243-4A10-96DD-61CEEDC61375"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.Win9X.Messages.En = "2A8306E8-BFB3-4692-8397-9E68BECF07B0"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.Win9X.Rules = "860C342F-3625-4025-9ED9-134A499E7FF3"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.WinNT = "61EA22CE-A2DB-4FFE-870C-E50E3FF56585"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.WinNT.Messages = "21ED6BF9-0914-4248-86D5-75C531835FBB"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.WinNT.Messages.En = "1DB2E955-94F8-4072-B247-4A5DAC886186"?>
+	<?define Guid.Apps.Product.Settings.XMLTools.WinNT.Rules = "3A7622D5-09A0-4C30-A9F0-BA4F4EF99CAC"?>
+	<?define Guid.Apps.Product.Settings.Bad = "A2E70350-E71F-4EC8-8EB0-6391F0F4F1B6"?>
+	<?define Guid.Apps.Product.Settings.Bad.Tmp = "5BDEEF52-E8F0-4201-98B7-57725E2B6D76"?>
+	<?define Guid.Apps.Product.Settings.New = "94C5E625-905F-4437-9811-60767E9503B8"?>
+	<?define Guid.Apps.Product.Settings.New.EtalonCopy = "F35EEA8A-633E-4C6E-933D-1FB4D5D5070D"?>
+	<?define Guid.Apps.Product.Settings.New.EtalonCopy.UserData = "7EF3C3B8-4E5D-4E6A-95F0-21D5720B56B4"?>
+	<?define Guid.Apps.Product.Settings.New.UserData = "9F32D39F-6315-448F-8467-6AF284D5B58A"?>
+	<?define Guid.Apps.Product.Settings.New.XMLBackup = "800DEC55-8893-4B55-A02E-350339AAE791"?>
+	<?define Guid.Apps.Product.Settings.New.XMLLocal = "472E404C-C781-46DF-B65C-53471A48E077"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools = "9C6D14A2-3590-46B9-BBB0-608A4F4A0CC4"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools.Win9X = "31E4DF77-975F-4954-9417-A80E18BB013A"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools.Win9X.Messages = "56071664-CE38-4E81-8786-6F526FD9915E"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools.Win9X.Messages.En = "4763D959-CDA6-4440-B7BA-EC16A7F2BEEF"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools.Win9X.Rules = "AF8CA2EC-3E8A-49F9-A7C8-EFA00251090F"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools.WinNT = "220D2483-0A64-48FE-9C99-860D629539C5"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools.WinNT.Messages = "AAF74075-50AB-4CA0-BC18-940D37F63C21"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools.WinNT.Messages.En = "7651B51D-2D15-465C-9087-4D1AC3613D0A"?>
+	<?define Guid.Apps.Product.Settings.New.XMLTools.WinNT.Rules = "78F03B13-B959-4F46-95BB-6C353C39D372"?>
+	<?define Guid.Apps.Product.Settings.Tmp = "C7479ED5-CD7F-4A61-BD89-211737BAB394"?>
+	<?define Guid.Apps.Product.SettingsXML = "76933736-9523-4B95-B0A0-A72E50D429E9"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_10_0_01 = "99C82FF4-9B28-46C7-9CF0-A8A000A6978E"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_10_0_01.xml = "9E7B175E-F728-44A9-B93F-28000844CCFB"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_10_0_02 = "1E7A19F8-598D-4142-8A9D-C032323786FD"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_10_0_02.xml = "4B652750-5C93-499C-B4EC-785FB049D12A"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_11_0_00 = "{D1CAFE7F-28A2-48A2-8343-A9A66DD13B69}"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_11_0_00.xml = "{16670409-D2C8-489C-BF5A-1772A521D299}"?>
+	<?define Guid.Apps.Product.SettingsXML.Tmp = "30F950F8-E868-49ED-AB02-F2ECE2274F96"?>
+	<?define Guid.Apps.Product.Support.Tmp.Win9X = "45EC137B-6345-4A70-AD4A-A88148DBDDCE"?>
+	<?define Guid.Apps.Product.Support.Tmp.Win9X.INI = "91E2404E-BCBA-4BAB-9A49-1877B5BC7F7D"?>
+	<?define Guid.Apps.Product.Support.Tmp.Win9X.XML = "398A9899-8101-4E79-B17E-562F4152A7D4"?>
+	<?define Guid.Apps.Product.Support.Tmp.WinNT = "0A2B2C5A-B13A-42C8-8F85-0957F0289026"?>
+	<?define Guid.Apps.Product.Support.Tmp.WinNT.INI = "424AB41C-541D-49CD-8DC2-2E6BE36500CB"?>
+	<?define Guid.Apps.Product.Support.Tmp.WinNT.XML = "0417587C-1D83-4049-8099-498E7E83A0DC"?>
+	<?define Guid.Apps.Product.Tools = "41FF44A0-8B87-4FEF-93E7-A1A09D412A8C"?>
+	<?define Guid.Apps.Product.Tools.Schedule = "E2D6AF79-92BB-4299-BD26-2596B217B4AD"?>
+
+	<?define Guid.Menu.Product = "DE2B8FB4-0955-490A-97ED-F07061961C49"?>
+	<?define Guid.Menu.Product.Documentation = "ED544A6F-8532-489C-BFD7-94AB513A3BA3"?>
+	<?define Guid.Menu.Product.Informational.Bank = "9F72349E-EC85-40BA-ACE8-35CC2E09399F"?>
+	<?define Guid.Menu.Product.Win9X = "{9DED53BC-F63B-4F4F-9713-292016E0E4DC}"?>
+	<?define Guid.Menu.Product.WinNT = "{D73471F5-9B89-4E43-BF65-BFB0C5EB48FE}"?>
+
+<!-- REMOVED: NEED FOR UPDATE COMPATIBILITY { -->
+	<?define Guid.Apps.Product.Apps.WinNT_Registry.HKCU = "4C661A06-27F9-43AB-82CF-6AFDEC38B151"?>
+
+	<?define Guid.Apps.Product.HotFixes.HotFix00 = "D0BD70C5-8A46-4E83-99F7-05042AB5FD42"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix00.XMLTools = "344875BF-6347-4CB9-95A6-BF3AB75A9582"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix00.XMLTools.Win9X = "30F1F041-4A9A-4F03-B65E-D5FF789D75A3"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix00.XMLTools.WinNT = "244A7189-DBE9-4F5C-A16C-8906222F4D0B"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix05 = "F6D31464-97F5-45F9-A13D-F38EBAE9CCA5"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix05.XMLTools = "62C6FE61-E525-41F3-BBE6-1DB0CCAB1E85"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix05.XMLTools.Win9X = "54671564-809B-4F5C-BE5A-6BB6C367A722"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix05.XMLTools.WinNT = "D793E96B-F0AB-4E68-975A-EC70AAAF5860"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix06 = "A338383E-C33D-477A-B378-ECD901913C27"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix06.XMLTools = "0758064C-6A71-41A6-8A88-F747A088854A"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix06.XMLTools.Win9X = "0575BBDE-1F79-4D23-8DBE-AE86CCC5BF9D"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix06.XMLTools.WinNT = "0EFBEAC4-CF73-4408-9289-A459CC7771B7"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix10 = "9195C772-FD53-4622-AD17-557FAB64A9BC"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix10.XMLTools = "1BA38147-B943-48A4-B32E-7C1165DB2A0C"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix10.XMLTools.Win9X = "6CFDCEB1-B651-4FB3-8468-8DBDFF1F4C82"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix10.XMLTools.WinNT = "CDABD0D8-5065-4AD8-B814-A01CFBA48558"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix11 = "09466CD9-585A-4F20-A4DF-2E16A21F5699"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix11.XMLTools = "F5EDF32D-C986-41F9-B835-9E2AD1F0172D"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix11.XMLTools.Win9X = "D6DC8A0B-24B3-4FEA-8EAC-5A5F4BE18676"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix11.XMLTools.WinNT = "D8854176-2C59-4E16-B3B8-369572268DD4"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix13 = "1053A026-9D49-4814-A9A3-DB7AD4CD4217"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix13.XMLTools = "C2D88DA0-92A8-4862-A7CE-B0EB5A02B666"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix13.XMLTools.Win9X = "20391432-7120-4B65-81ED-3E256F71B5F3"?>
+	<?define Guid.Apps.Product.HotFixes.HotFix13.XMLTools.WinNT = "8BABA133-3FCB-46DD-AD89-A7125A141642"?>
+
+	<?define Guid.Apps.Product.IA6X = "01DC1121-34E8-4E0C-8508-1A9BAE05E4E2"?>
+	<?define Guid.Apps.Product.IA6X.Resource = "C39EE61D-99E9-43AA-9C8D-8133B8E1A187"?>
+	<?define Guid.Apps.Product.J2RE = "B1E6DA29-1508-4F0C-B626-DC72C529C033"?>
+	<?define Guid.Apps.Product.J2RE.Bin = "A7595F19-1875-4998-9434-6E372F0A11B2"?>
+	<?define Guid.Apps.Product.J2RE.Bin.Client = "4F174A43-27B0-46F3-AAC6-5A4FDAAC097C"?>
+	<?define Guid.Apps.Product.J2RE.JavaWS = "2C5DB3C7-B338-4705-A6E9-4133AAD05295"?>
+	<?define Guid.Apps.Product.J2RE.JavaWS.Resources = "EA1D320C-571B-4841-9778-FBA758115861"?>
+	<?define Guid.Apps.Product.J2RE.Lib = "DFA381AD-BC3A-42E4-8BA1-3DE274771E89"?>
+	<?define Guid.Apps.Product.J2RE.Lib.Audio = "69C43FA0-93EE-46FD-8B6D-64665F9BB9AC"?>
+	<?define Guid.Apps.Product.J2RE.Lib.CMM = "BEF9E05C-3DCF-4BFD-9081-24D9F9E209D4"?>
+	<?define Guid.Apps.Product.J2RE.Lib.EXT = "62846D8B-7FBE-49B4-9344-641A728E7F3D"?>
+	<?define Guid.Apps.Product.J2RE.Lib.Fonts = "4AA6A1FD-9CAB-4C26-8ED0-9B613CA564BE"?>
+	<?define Guid.Apps.Product.J2RE.Lib.I386 = "43057695-D5D0-48F6-812A-000A9EF9C5CD"?>
+	<?define Guid.Apps.Product.J2RE.Lib.IM = "1A61ACD6-6F36-4884-8785-4FC409AACAD1"?>
+	<?define Guid.Apps.Product.J2RE.Lib.Images = "DA676E9D-D4D1-4392-9AF9-1A8861411936"?>
+	<?define Guid.Apps.Product.J2RE.Lib.Images.Cursors = "C6767A71-9037-4543-AEDF-584EEAEC5376"?>
+	<?define Guid.Apps.Product.J2RE.Lib.Security = "A3E7FCCC-BB6F-48DF-B68A-AC2895DBE1BE"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI = "C67664A3-ADAD-4548-A4EA-EB0772E2432B"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Africa = "9F05DB24-A66F-41D1-98AE-96455968B773"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.America = "F2096B89-E40F-441A-9345-C296958585E4"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.America.Indiana = "8865B78C-105C-47D0-8896-90DF0BF38AE4"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.America.Kentucky = "05D08A98-E88B-4DEE-804C-D87820C53BC8"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.America.North_Dakota = "3CBBDF67-0729-4F59-9FF5-EC25C27D1FA2"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Antarctica = "BA9EDDDB-DDD0-4CA0-B82E-A21301262F81"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Asia = "BBE2EB16-C6FA-497E-9B65-E056D3E6B213"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Atlantic = "2E68208D-3D96-4524-9806-8FCB06EC95A5"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Australia = "DA57DEC1-AFDB-4474-9A2C-4CECC124CA6D"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Etc = "1C0D6B88-9E34-4033-AE12-17757668F035"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Europe = "C7AAF7E6-2706-47F2-96BD-623B67BA7554"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Indian = "D1093747-2703-466F-AD0A-E61FE6745577"?>
+	<?define Guid.Apps.Product.J2RE.Lib.ZI.Pacific = "08559980-7357-406E-91F9-E03D34A8A2D5"?>
+
+	<?define Guid.Apps.Product.Settings.BackupDir = "B2D42831-EBF9-477F-8493-0D231357FEE2"?>
+	<?define Guid.Apps.Product.Settings.BackupDir.Old = "284DB409-B410-48EE-8775-FE167AC543FA"?>
+	<?define Guid.Apps.Product.Settings.UserData = "38C24784-AC71-47EE-8E31-0CA529E65D12"?>
+	<?define Guid.Apps.Product.Settings.UserData.BackupDir = "2149D3CE-673F-4C10-80F6-F11D45306F9A"?>
+	<?define Guid.Apps.Product.Settings.UserData.BackupDir.Old = "BC6D53A8-6FF8-4295-822D-F12ECDE1E2BF"?>
+	<?define Guid.Apps.Product.Settings.XMLBackup = "F1E284F3-02B3-424B-B688-28CC27A4F0D2"?>
+	<?define Guid.Apps.Product.Settings.XMLLocal = "749B15D2-0CCC-4614-B3F7-3F525E5DAAA0"?>
+
+	<?define Guid.Apps.Product.Settings.Bad.BackupDir = "3B2CCEFE-5EAE-4EB3-8C51-9F982644D9CA"?>
+	<?define Guid.Apps.Product.Settings.Bad.BackupDir.Old = "A76E63B8-3147-4849-BFBC-B189363F4E8C"?>
+	<?define Guid.Apps.Product.Settings.Bad.UserData = "512F57B3-1CD8-48E6-8C38-23AAE9FC3D35"?>
+	<?define Guid.Apps.Product.Settings.Bad.UserData.BackupDir = "585A2725-8406-44A2-B6D4-B4D181AE0BEE"?>
+	<?define Guid.Apps.Product.Settings.Bad.UserData.BackupDir.Old = "722DE164-BC8D-4926-904B-9D501408F998"?>
+	<?define Guid.Apps.Product.Settings.Bad.XMLBackup = "1EC8C6F0-D189-4132-A698-98B783749748"?>
+	<?define Guid.Apps.Product.Settings.Bad.XMLTools = "0B47E273-8949-4673-B92D-E3C126B229BD"?>
+	<?define Guid.Apps.Product.Settings.Bad.XMLTools.Win9X = "35AEEEF6-13D8-4626-BDD0-CDF5DF6EF1B4"?>
+	<?define Guid.Apps.Product.Settings.Bad.XMLTools.WinNT = "C6B97D7E-E751-4601-A2EB-442E1D88FB97"?>
+
+	<?define Guid.Apps.Product.Settings.New.BackupDir = "220AD6AD-C285-44BF-935F-A6D16921778E"?>
+	<?define Guid.Apps.Product.Settings.New.BackupDir.Old = "A28D6C04-E613-4C4E-A388-5C1FBE8C1F57"?>
+	<?define Guid.Apps.Product.Settings.New.UserData.BackupDir = "0250F147-4BE2-4F52-856C-467F0376899A"?>
+	<?define Guid.Apps.Product.Settings.New.UserData.BackupDir.Old = "ED9EAE50-1637-40A3-A2D9-726E1E3FA113"?>
+
+	<?define Guid.Apps.Product.SettingsXML.FFFF_6_04_2_01 = "FE02D39A-871C-4E1F-B74B-3485B67DC831"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_6_04_2_01._predefined_data = "A8EF0C79-8884-44A8-B53E-8C02C6F16343"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_6_04_2_02 = "BABB4946-57A7-4104-AD56-8B2D033B2A60"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_6_04_2_01.xml = "F42184E6-D45D-48E5-92D9-1A4E44C2F472"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_6_04_2_02.xml = "B0AD65FF-5E8D-4132-A551-1AB1F6F0290A"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_00_0_01 = "1E9CD619-00F0-4357-AE04-4D0DB0074CE0"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_00_0_01.00000002 = "7E1E166C-9FF5-43E9-890E-7AE5C06AF72D"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_00_0_02 = "DF821618-5613-471F-819B-EC2AFFB8406A"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_00_0_03 = "BB7B907D-6999-4189-9572-109B232C11EB"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_00_0_04 = "D590F01F-8505-4C3B-B63D-A1216049F7CA"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_00_0_04.00000002 = "75325095-D9A2-445D-9835-E888B16C8E6F"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_00_0_01.xml = "2BA7B898-4151-4AA1-8DA2-CFC957F0AC5F"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_00_0_02.xml = "9E7BE33C-D483-42B1-B575-E58E53E1184C"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_00_0_03.xml = "4442C2EB-CC14-4FC7-A0A2-671F4D05EDAC"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_00_0_04.xml = "26419AFC-3605-49B4-B6E3-270EC428C288"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_01_0_01 = "3A47644E-7229-4AA4-B9B7-087D38613475"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_01_0_01.00000002 = "7A3383BA-CCF4-4E6A-85E0-3AC2D2344989"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_01_0_02 = "A5AF30FD-23D5-4846-ABED-B268FCB87BA3"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_01_0_01.xml = "FB23FF36-8A2F-4365-958C-79FF23474C9A"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_01_0_02.xml = "F52E7310-287F-40C3-A8BC-27087E802B39"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_02_0_01 = "D35B62B7-F43A-4767-9C20-919F8DB28916"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_02_0_01.00000002 = "8B8A5721-A5E1-435A-BBF6-11613637BDB2"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_02_0_02 = "37EB3118-29E8-466B-B7C4-B46F9E355DDE"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_02_0_01.xml = "019CD81C-19AB-4466-89A4-0CFDCB8DAE3F"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_02_0_02.xml = "FB70EEE9-8C9F-4528-BDDE-F2D9C972580B"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_02_1_01 = "8A81FB21-3D11-49DD-B973-D9AE4F79DA0C"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_02_1_01.00000002 = "BCE345C6-B1D1-410C-8E5E-BDD58E89A87F"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_02_1_02 = "E963D57A-4215-46D8-BA12-AE9834EEDAE5"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_02_1_01.xml = "F569755E-75E1-4CC8-8A78-771B7C228E23"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_02_1_02.xml = "85A854DC-71A4-470B-83A6-849022B3A298"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_0_01 = "50A70695-173C-4D80-96B2-96AEAC3787D2"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_0_01.00000002 = "D41B03B8-AAB9-485D-BFEA-1A3666BD1F0D"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_0_02 = "E0034918-D29B-4296-83C7-FA46A2B04847"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_03_0_01.xml = "A7948863-F600-48EE-8116-A4341442E094"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_03_0_02.xml = "7CCC01C3-AC11-429E-A28D-746D029A8C43"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_1_01 = "074BC8D6-591A-4D1B-9AF9-CA6B59DC1EBC"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_1_01.00000002 = "AABB62E8-5CBE-40F3-B68B-C560B2CD11E9"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_1_02 = "95766EDE-F62D-44E6-B3E3-199DB38EA03B"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_03_1_01.xml = "C5C3036C-30EF-4C0A-A3BE-35409EAC1F48"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_03_1_02.xml = "4665DE00-8DAB-47E9-BBA7-D4DF6B7337C2"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_2_01 = "B5C12797-44D0-4655-88A2-ED13E93A70F1"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_2_01.00000002 = "7EE542CC-8DD9-4E4D-A6CE-DB9550C9EA63"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_03_2_02 = "70BC9F02-FAB8-4099-8F94-9AF362BD7149"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_03_2_01.xml = "E716649A-18A1-44D7-B377-D17B43E0F35A"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_03_2_02.xml = "0C4E2A2C-3387-42C8-BE0E-4D4D38EEE8DD"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_04_0_01 = "778CF052-2BF3-486D-B6A9-495884513FBA"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_04_0_01.00000002 = "E955BDE8-30F7-4338-A44D-7B96E1DBB9F7"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_04_0_02 = "607551D0-092D-488F-88D8-EE04F58F71F7"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_04_0_01.xml = "F09AD25C-5C15-4333-B46E-E52FC34E98DB"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_04_0_02.xml = "F4FB1915-7B0B-4445-B6FF-46E9FCBCF90B"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_04_1_01 = "F9D1DB19-C355-4FA0-BC3A-DBB6CA82C5CA"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_04_1_01.00000002 = "8732D74C-72D5-4666-9CCE-401380A4AF48"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_04_1_02 = "EDBBEAB5-33B4-4CB7-B822-8F2FC2B2DA15"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_04_1_01.xml = "10473380-5205-4431-8BC6-42A0ED923A96"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_04_1_02.xml = "BF72EA3C-3D37-48D3-B3F4-2BFD60004991"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_05_0_01 = "2776C0EE-C23E-4F86-A4AB-557BA256470B"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_05_0_01.00000002 = "3D65AA6D-C5B6-41A8-80A3-98BB0479D1EA"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_05_0_02 = "64F89D6A-31E3-41EE-A162-37C76D7C41F6"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_05_0_01.xml = "186BCB4B-4A43-4C33-B1D1-46B23AA27912"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_05_0_02.xml = "F97B2F31-9AE8-4A7E-B946-23695AE5E07A"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_05_1_01 = "C726EA03-65C7-4272-8EF7-03252733EEF2"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_05_1_01.00000002 = "987F402B-8CC9-4B60-B4A9-03179A10EF92"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_05_1_02 = "BD2B7D2F-DD6B-44F2-9598-9CC52D07C99F"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_05_1_01.xml = "394AAADE-B16A-4D31-BD73-35B6D95D2C04"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_05_1_02.xml = "5DEF64D1-CFA9-4230-BC5C-52E176057D2C"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_06_0_01 = "4EE6DAA4-44FD-4D76-B55D-87B22A11DB22"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_06_0_01.00000002 = "EC0C7C70-B674-4328-B3DA-C084FEFFD0C9"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_06_0_02 = "9D28BA76-5ED8-48A0-9235-2C7804AE7A67"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_06_0_01.xml = "64FBE70E-CFF2-4F4A-AD4E-166D6379727E"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_06_0_02.xml = "465D3764-D341-4CAE-A666-E7A376717E95"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_07_0_01 = "7FE9EE8D-8E76-43DF-9D7D-AE3A798AB277"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_07_0_01.xml = "60D8712C-1F69-49ED-AC43-F8CA72813F52"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_07_1_01 = "AE434581-0B43-40E0-8237-F9C1C1BCF6F1"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_07_1_01.xml = "71721473-1A0B-4580-AED3-A6231A78F378"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_07_2_01 = "852EAC60-33F2-428E-B461-27B15A8FD222"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_07_2_01.xml = "86907DA0-2D03-4D45-8EE8-3149EBC7FD42"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_08_0_01 = "8D566D9E-6FE7-4ACB-BB1A-61A8D2667F93"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_08_0_01.xml = "80004FE1-7629-481A-A5B8-ADDA80748F07"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_08_0_02 = "75C4E6B6-65FE-43EB-9AF4-A2F9A3ABD5BD"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_08_0_02.xml = "59A58698-113D-4673-A961-B54F598B60AB"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_09_0_01 = "865E50B9-0BF0-4D90-ACFB-37527D2FC19B"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_09_0_01.xml = "E78183C5-D90E-40E9-BC53-5B40AAB1D25D"?>
+	<?define Guid.Apps.Product.SettingsXML.FFFF_7_09_0_02 = "1B1EDA32-BFBF-419D-8152-CF867250E2AF"?>
+	<?define Guid.Apps.Product.SettingsXML_FFFF_7_09_0_02.xml = "757D9098-C469-41D8-BCFA-01092A3DC5C1"?>
+
+	<?define Guid.Menu.RemoveProduct = "8057B849-0E43-42ED-AD04-017C6A54693E"?>
+	<?define Guid.Menu.RemoveProduct.Documentation = "6444A171-2496-4D7D-9E5C-DCF73E945233"?>
+	<?define Guid.Menu.RemoveProduct.Informational.Bank = "E643A6F6-448E-41A7-B2BE-23C3FB95A931"?>
+<!-- } REMOVED: NEED FOR UPDATE COMPATIBILITY -->
+
+
+	<?define ProductId.Exist.Value = "{12D1BC8A-9734-4906-8FB5-85BA197DAA05}"?>
+	<?define ProductId.Setup.Value = "{12D1BC8A-9734-4906-8FB5-85BA197DAA05}"?>
+
+
+	<?include F1SharedSetupUni.wxi?>
+</Wix>

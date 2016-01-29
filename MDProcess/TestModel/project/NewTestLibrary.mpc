@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/project/NewTestLibrary.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<TestLibrary::Category>> TestModel::NewTestLibrary
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (NewTestLibrary) : project_generic_core_corba {
+	sharedname = NewTestLibrary
+	staticname = NewTestLibrary
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../
+
+	after += BasicTests
+	libs  += BasicTests
+
+	after += SubTestLibrary
+	libs  += SubTestLibrary
+
+	after += SubServerLibrary_cs
+	libs  += SubServerLibrary_cs
+
+	Header_Files {
+		Std_Headers {
+			./../gui/Garant/NewTestLibrary/LibHome.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../gui/Garant/NewTestLibrary/LibHome.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

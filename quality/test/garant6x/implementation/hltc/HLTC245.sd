@@ -1,0 +1,560 @@
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////// HLTC245: Установка данных ///////////////////////////
+//////////////////////////////////////////////////////////////////////////////  
+
+uses common, DataSetup, States, RunPrograms, SettingsWork, Clicks, MenuWork, FileWork,
+		 DocumentWork, SearchWork, FoldersWork, ListWork;
+
+//////////////////////////////////////////////////////////////////////////////
+{
+HLTC245.1: Последовательность диалогов
+  Проверить последовательность диалогов в f1datasetup:
+  Выбор клиента и продукта
+  Авторизация установки
+  Отключение
+  Копирование
+  Распаковывание (когда дистрибутивные данные упакованы и установка идет копированием)
+  Комплект успешно установлен
+  HLTC245.1.1: Проверить для установки копированием
+HLTC245.2: Проверить названия и целостность установленных данных
+  HLTC245.2.1: Установленные файлы должны иметь имя data.*, а не какое-либо иное.
+  HLTC245.2.2: В числе прочих должны быть dealer.inf и data.org
+  HLTC245.2.3: Проверить, что в DATA.ORG по окончании установки прописан правильный тип версии. Сейчас F1DataSetup всегда создает локальный bases.org.
+               14-й c конца байт в bases.org определял тип комплекта: 01 - локальный, 02 - сетевой, 03 - однопользовательский.
+  HLTC245.2.5: Для сетевой версии проверить, что сервер автоматически после успешной установки переключился на новые данные               
+HLTC245.3.1: Проверить, что при переустановке с отключением пользователей при попытке зайти в программу в момент 
+  копирования данных выдается сообщение «Идет процесс обновления баз».
+  HLTC245.3.1.1: Проверить для КС-версии
+  HLTC245.3.1.2: Проверить для ФС-версии
+HLTC245.3.2: Проверить, что при переустановке с отключением пользователей всем работающим пользователям в момент
+  начала копирования данных выдается сообщение «Идет процесс обновления баз»
+  HLTC245.3.2.1: Проверить для КС-версии
+  HLTC245.3.2.2: Проверить для ФС-версии    
+                 
+HLTC245.3.4: Проверить, что по окончании установки программа перестраивается на работу с новыми данными:
+  HLTC245.3.4.1: В случае установки с отключением пользователей в INI файле значение ключа ActiveDataPath не изменяется.  
+  HLTC245.3.4.2: В случае установки без отключения пользователей в INI файле значение ключа ActiveDataPath меняется на другое (было 1 – стало 2; было 2 – стало 1).
+  
+HLTC245.4: Проверить установку с/без распаковкой
+  HLTC245.4.1: Проверить установку с распаковкой для маленьких комплектов
+    Убедиться, что на установленной базе запускается оболочка, ищутся контексты, открываются документы.  
+  HLTC245.4.2: Проверить установку без распаковки для маленьких комплектов
+    Убедиться, что на установленной базе запускается оболочка, ищутся контексты, открываются документы.
+
+HLTC245.5.2.2: Проверить переустановку на сервере
+
+HLTC245.10: DSDataPath – путь к дистрибутиву
+  HLTC245.10.1: Правильный DSDataPath Проверить, что если в файле garant.ini в секции [F1DataSetup Params] значение параметра -DSDataPath= задать правильный путь к дистрибутивному комплекту, то не возникает предложения пользователю указать путь к дистрибутивным данным. Убедиться, что данные найдены и что информация, отображенная в диалоге «Выбор клиента и продукта» соответствует истине (т.е. то, что заказали). 
+  HLTC245.10.2: Неправильный DSDataPath Вынуть диск, если устанавливали с диска или в файле garant.ini в секции [F1DataSetup Params] значение параметра -DSDataPath= задать «c:\temp» (т.е. туда, где данных точно нет). Запустить утилиту datasetup. Убедиться, что после того, как дистрибутив по указанному пути не найден, предлагается указать путь вручную. Указать правильный путь. Убедиться, что данные найдены и что информация, отображенная в диалоге «Выбор клиента и продукта» соответствует истине (т.е. то, что заказали). 
+
+HLTC245.11.1: Выбор устанавливаемой базы
+  Проверить, что в случае, когда с дистрибутива можно установить более 1 базы, то при выборе каждой из них в списке соответствующим образом будет изменяться информация в нижней части диалога.
+  
+HLTC245.13.1: Проверить переустановку всех версий при наличии базы в директорию, куда производится установка.
+  HLTC245.13.1.2: Сетевая
+
+HLTC245.15.2.1: Если параметр = 1, то в конце установки покажется сообщение:
+«Сохранить статус установки?
+(данная функциональность предназначена только для специалистов по сервисному обслуживанию системы ГАРАНТ)»
+А такому же параметру в инишнике присвоится значение 1.        
+       
+HLTC245.16: Ведение логов
+!!!!!!!!!  HLTC245.16.1: Проверить, что при запуске бридера в папке Logs создается обычный лог и в папке datasetup шифрованый лог формата datasetup-<dd-mm-yyyy-hh-mm-ss>.cry. Расшифровщик шифрованного лога будет позже.
+!!!!!!!!!  HLTC245.16.2: В случае успешного завершения работы мастера установки данных по кнопке "Выход", нешифрованный лог удаляется, шифрованный остается.
+  HLTC245.16.4: Проверить, что в лог попадает информация: 
+  о параметрах установки (путь к дистрибутиву, устанавливаемый комплект, путь к каталогу с данными, количество свободного места) 
+  о времени вывода каждого диалогового окна 
+  о выполнении каждой значимой операции (окончание записи в каждый из файлов данных, создание резервной копии, переключение на обновленную базу, отключение пользователей 
+  об ответе пользователя на каждый из вопросов, предложенных в ходе диалога 
+  о возникших ошибках (дублируется текст сообщений, выводимых пользователю)
+}
+function CheckF1ShellAfterDataSetup: boolean;
+const
+  FUNCTION_NAME = 'CheckF1ShellAfterDataSetup';
+  CONTEXT = '1';
+begin
+  try
+    Result := true;
+    if not RestartF1Shell(3, Options.Run.Timeout div 6, FUNCTION_NAME, FUNCTION_NAME) then
+      Raise('Не получилось перегрузить оболочку с логином "' + FUNCTION_NAME + '"');
+
+    // оставим эту проверку на всякий случай, на коммерч. базе должно появляться предупреждение для пустой КЗ: 
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=566110676  
+    if IsExists(GetListOfAllDocuments) then
+      Result := ErrorResult('Получилось построить список всех документов на коммерческой базе!');
+    WaitForWarningWindow(Options.Run.Timeout div 30);
+    
+    if not BaseSearch(nil, CONTEXT) then
+    	Raise('БП по контексту ' + CONTEXT + ' не прошел');
+
+    if not OpenDocFromList('*', GetList) then
+      Raise('Не получилось открыть первый документ списка');
+
+    if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+      Raise('Не получилось открыть "' + LIST_MAIN + '"');
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));  
+  end;
+end;
+
+function HLTC245_SERVER_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_SERVER_Execute';
+var
+  activeDataPath: OleVariant;
+  res, wnd;      
+begin
+  try
+    ScriptAction('SET ACTION', SA_INSTALL_DATABASE);  
+
+    Result := true;
+    if not CloseF1DataSetup then 
+      Raise('Продолжение невозможно, найден процесс "' + F1DATASETUP_PROCESS_NAME + '"');
+
+    //Шаг 1
+    if DeleteF1DataSetup_Log then
+      Log.Warning('Лог F1DataSetup удален, хотя, по идее его не должно было быть.');
+    activeDataPath := GetGCMActiveDataPath;
+    if activeDataPath = 0 then
+      Result := ErrorResult('Параметр "-GCMActiveDataPath" не получен, т.к. равен 0.');     
+    
+    if not SetDSDataPath('') then
+      Raise('Не получилось установить параметр "DSDataPath" в garant.ini');    
+    Log.Message(FUNCTION_NAME + ': 1. Устанавливаем тестовую базу БЕЗ распаковки и БЕЗ ОТКЛ. пользователей. Путь к дистрибутиву: "' + GetDistributiveDataPath + '". -DSDataPath: "' + GetDSDataPath + '"', '', pmNormal, GetLogAttr('BLUE'));
+    ////////////////
+    res := ExecuteF1DataSetupDialog(F1DS_NO_EXISTS_STATE, F1DS_ALL_DONE_STATE, 
+                                    'IsCloseAfterComplete:=true;IsCheckLog:=true');
+    ////////////////                                    
+    if res and F1DS_EX_DIALOG_LOG_ERROR <> 0 then
+      Result := ErrorResult('Найдены ошибки в ЛОГЕ, во время установки данных, шаг 1');    
+    if res and F1DS_EX_DIALOG_ERROR <> 0 then
+      Raise('Возникла ошибка во время установки данных, шаг 1');
+    Result := CheckInstalledBaseFileNames(GetDataPath, GetDistributiveDataPath) and Result;
+    Result := CheckBasesOrg(GetDataPath) and Result;
+    // должен меняться т.к. пользователей не отключали
+    if GetGCMActiveDataPath = activeDataPath then 
+      Result := ErrorResult('Параметр "-GCMActiveDataPath" остался прежним после переустаноки базы! Был: "' + IntToStr(activeDataPath) + '", стал "' + IntToStr(GetGCMActiveDataPath) + '"');
+    //должен создаться пакованный лог *.cry  
+    Result := IsExistsF1DataSetup_Cry_Log and Result;
+      
+    if not CloseF1DataSetup then
+     Raise('Не получилось закрыть F1DataSetup или статусное окно после первой установки базы!');
+    // HLTC245.4.2
+    if not CheckF1ShellAfterDataSetup then
+      Result := ErrorResult('Тест живучести оболочки не прошел после установки базы БЕЗ распаковки!');    
+
+    //Шаг 2
+    Log.Message(FUNCTION_NAME + ': 2. Устанавливаем тестовую базу C распаковкой и ОТКЛ. пользователей. Путь к дистрибутиву: "' + GetDistributiveDataPath + '". -DSDataPath валидный: "' + GetDSDataPath + '"', '', pmNormal, GetLogAttr('BLUE'));
+    if DeleteF1DataSetup_Log then
+      Result := ErrorResult('Лог F1DataSetup удален, хотя, по идее его не должно было быть после удачной установки.');
+    activeDataPath := GetGCMActiveDataPath;
+    if activeDataPath = 0 then
+      Result := ErrorResult('Параметр "-GCMActiveDataPath" не получен, т.к. равен 0.');
+    ////////////////           
+    res := ExecuteF1DataSetupDialog(F1DS_NO_EXISTS_STATE, F1DS_ALL_DONE_STATE,
+                                    'IsDisconnectUser:=true;IsCheckDisconnectMessage:=true;IsUnpackData:=true;IsCheckLog:=true;IsCloseAfterComplete:=true');
+    ////////////////
+    if res and F1DS_EX_DIALOG_LOG_ERROR <> 0 then
+      Result := ErrorResult('Найдены ошибки в ЛОГЕ, во время установки данных, шаг 2');    
+    if res and F1DS_EX_DIALOG_NO_DISCONNECT_MESSAGE_ERROR <> 0 then
+      Result := ErrorResult('На оболочке не найдено ОКНО "ИНФОРМАЦИЯ ОБ ОБНОВЛЕНИИ" во время процесса установки данных, шаг 2');
+    if res and F1DS_EX_DIALOG_ERROR <> 0 then
+      Raise('Возникла ошибка во время установки данных, шаг 2');
+    
+    // проверка EnableInstallationStatusSaving 
+    res := GetValueFromGarantINI('F1DataSetup', 'EnableInstallationStatusSaving'); 
+    if res <> '1' then
+      Result := ErrorResult('После установки базы, параметр "F1DataSetup\EnableInstallationStatusSaving=' + res + '", а должен быть "1"');
+    wnd := GetFromF1DataSetupStarter('КНОПКА "НЕТ" ОКНА "СТАТУС УСТАНОВКИ"');
+    if not IsExists(wnd) then
+      Result := ErrorResult('Не найдено ОКНО "СТАТУС УСТАНОВКИ" по окончанию установки базы')
+    else
+      wnd.Click;
+
+    //другие проверки
+    Result := CheckInstalledBaseFileNames(GetDataPath, GetDistributiveDataPath) and Result;
+    Result := CheckBasesOrg(GetDataPath) and Result;
+    // НЕ должен меняться т.к. пользователей отключали
+    if GetGCMActiveDataPath <> activeDataPath then 
+      Result := ErrorResult('Параметр "-GCMActiveDataPath" НЕ остался прежним после переустаноки базы! Был: "' + IntToStr(activeDataPath) + '", стал "' + IntToStr(GetGCMActiveDataPath) + '"');
+      
+    // HLTC245.4.1
+    if not CheckF1ShellAfterDataSetup then
+      Result := ErrorResult('Тест живучести оболочки не прошел после установки базы С распаковки!');    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC245.13.1: Проверить переустановку всех версий при наличии базы в директорию, куда производится установка.
+    HLTC245.13.1.1: Локальная
+    HLTC245.5.1: Установка/Переустановка данных локальной версии    
+}
+function HLTC245_DESKTOP_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_DESKTOP_Execute';
+begin
+  try
+    Result := HLTC245_SERVER_Execute(current_state);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC245.13.1: Проверить переустановку всех версий при наличии базы в директорию, куда производится установка.
+    HLTC245.13.1.3: Файл-серверная
+}
+function HLTC245_FILESERVER_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_FILESERVER_Execute';
+begin
+  try
+    Result := HLTC245_SERVER_Execute(current_state);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC245.7: Проверить, что при нажатии на кнопку «Справка» (и то же самое - горячей клавиши F1), вызывается соответствующий топик хелпа Datasetup
+    HLTC245.7.1: В диалоге «Выбор клиента и продукта»
+    HLTC245.7.2: Диалог «Авторизация установки»
+    HLTC245.7.3: В диалоге отключения работающих пользователей
+    HLTC245.7.4: При копировании данных
+    HLTC245.7.5: В диалоге «Комплект корректно установлен»
+  HLTC245.8: Проверить работу кнопки Отмена (и то же самое - горячей клавиши Esc). Должен появляться диалог «Прервать установку данных?» Да/Нет
+    HLTC245.8.1: В диалоге «Выбор клиента и продукта»
+    HLTC245.8.2: Диалог «Авторизация установки»
+    HLTC245.8.3: В диалоге отключения работающих пользователей      
+    HLTC245.8.4: При копировании данных
+    HLTC245.8.5: При нажатии Esc в диалоге «Комплект установлен» программа должна завершить работу без дополнительного подтверждения.
+}
+function HLTC245_7_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_7_Execute';
+var
+  i, w, state_arr;
+begin
+  try
+    ScriptAction('SET ACTION', SA_INSTALL_DATABASE);  
+  
+    Result := true;
+    if not CloseF1DataSetup then 
+      Raise('Продолжение невозможно, найден процесс "' + F1DATASETUP_PROCESS_NAME + '"');
+    Log.Message(FUNCTION_NAME + ': Проверяем открытие ФОРМЫ ОКНА СПРАВКИ И ОКНА "ОТМЕНА УСТАНОВКИ". Путь к дистрибутиву: "' + GetDistributiveDataPath + '". -DSDataPath: "' + GetDSDataPath + '"', '', pmNormal, GetLogAttr('BLUE'));
+
+    state_arr := [
+                  F1DS_CHOOSE_STATE,
+                  F1DS_AUTHORIZATION_STATE, 
+                  F1DS_MASTER_READY_STATE, 
+                  F1DS_COPYING_STATE,
+                  F1DS_ALL_DONE_STATE
+                 ];
+    for i := VarArrayLowBOund(state_arr, 1) to VarArrayHighBound(state_arr,1) do
+    begin 
+      if ExecuteF1DataSetupDialog(F1DS_CURRENT_STATE, state_arr[i]) <> F1DS_EX_DIALOG_NO_ERROR  then  
+        Raise('Не получилось перейти к состоянию "' + F1DS_GetVarNameOfState(state_arr[i]) + '"');
+        
+      //w := GetFromF1DataSetup('КНОПКА "СПРАВКА"');
+      w := GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"').Window('Button', '&Справка');
+      if not IsExists(w) then 
+        Result := ErrorResult('В состоянии "' + F1DS_GetVarNameOfState(state_arr[i]) + '" не найдена КНОПКА "СПРАВКА"')
+      else
+      begin
+        //Проверка окна справки
+        Log.Picture(Sys_Desktop.Picture, FUNCTION_NAME + ': Скриншот до нажатия на КНОПКУ "СПРАВКА"');        
+        
+        //SlideMouse(0, 0); // fix
+        //ResetUserInactivity;
+        //ClickByF1DataSetupButton('КНОПКА "СПРАВКА"', 21); // fix
+        //ClickByF1DataSetupButton('КНОПКА "СПРАВКА"');
+        //Sys.Keys('[Tab]' + KeyPause + '![Tab]');
+        //w.Keys('[Enter]'); // Sys.Keys('[Enter]');
+
+        w.ClickButton;
+
+        Delay(TIME_TO_WAIT_F1DATASETUPPROCESS);
+        Log.Picture(Sys_Desktop.Picture, FUNCTION_NAME + ': Скриншот через секунды после нажатия на КНОПКУ "СПРАВКА"');
+      end;
+
+      w := GetFromF1DataSetup('ФОРМА ОКНА СПРАВКИ', 'TIMEOUT:=' + IntToStr(5*TIME_TO_WAIT_F1DATASETUPPROCESS));
+      if IsExists(w) then
+        w.Close
+      else    
+        Result := ErrorResult('В состоянии "' + F1DS_GetVarNameOfState(state_arr[i]) + '" окно "ФОРМА ОКНА СПРАВКИ" не открылось после нажатия КНОПКА "СПРАВКА"');
+      
+      //Проверка окна отмены
+      if state_arr[i] = F1DS_ALL_DONE_STATE then
+      begin
+        w := GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"'); 
+        if IsExists(w) then 
+          w.Keys('[Esc]');
+        Delay(3*TIME_TO_WAIT_F1DATASETUPPROCESS);
+        if IsExists(GetF1DataSetupProcess) then    
+          Result := ErrorResult('В состоянии "' + F1DS_GetVarNameOfState(state_arr[i]) + '", процесс "' + F1DATASETUP_PROCESS_NAME + '" остался существовать после нажатия "Esc" на экране выхода.'); 
+      end
+      else
+      begin
+        ClickByF1DataSetupButton('КНОПКА "ОТМЕНА"');
+        if IsExists(GetFromF1DataSetup('ОКНО "ОТМЕНА УСТАНОВКИ"')) then
+          ClickByF1DataSetupButton('КНОПКА "НЕТ" ОКНА "ОТМЕНА УСТАНОВКИ"')
+        else    
+          Result := ErrorResult('В состоянии "' + F1DS_GetVarNameOfState(state_arr[i]) + '", ОКНО "ОТМЕНА УСТАНОВКИ" не открылось после нажатия КНОПКА "ОТМЕНА".'); 
+      end;
+    end;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC245.9: Неверный отзыв
+    HLTC245.9.1: В диалоге авторизации установки, ввести неправильный отзыв. Убедиться, что выдается сообщение «Отзыв неверен» и происходит возврат в диалог.
+    HLTC245.9.2: Убедиться, что при трехкратном вводе неверного пароля утилита завершает работу         
+}
+function HLTC245_9_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_9_Execute';
+var
+  i: integer;
+begin
+  try
+    ScriptAction('SET ACTION', SA_INSTALL_DATABASE);
+    
+    if not CloseF1DataSetup then 
+      Raise('Продолжение невозможно, найден процесс "' + F1DATASETUP_PROCESS_NAME + '"');
+    Log.Message(FUNCTION_NAME + ': Проверяем 3-х кратный ввод неправильного отзыва. Путь к дистрибутиву: "' + GetDistributiveDataPath + '". -DSDataPath: "' + GetDSDataPath + '"', '', pmNormal, GetLogAttr('BLUE'));
+    ////
+    for i:=1 to 3 do
+    begin
+      ////
+      if ExecuteF1DataSetupDialog(F1DS_CURRENT_STATE, F1DS_PREPAIRED_STATE, 'PasswordReply:=Uncorrect reply') <> F1DS_EX_DIALOG_NO_ERROR  then 
+        Raise('Не получилось перейти к состоянию F1DS_PREPAIRED_STATE');
+      ////
+      if not IsExists(GetF1DataSetupProcess) then 
+        Raise('По неизвестной причине процесса "' + F1DATASETUP_PROCESS_NAME + '" не существует!');      
+      case i of
+      1, 2: ClickByF1DataSetupButton('КНОПКА "OK" ОКНА "ОШИБКА ВВОДА"'); 
+         3: ClickByF1DataSetupButton('КНОПКА "OK" ОКНА "КРИТИЧЕСКАЯ ОШИБКА"');
+      end;
+    end;
+    Delay(3*TIME_TO_WAIT_F1DATASETUPPROCESS);
+    Result := not IsExists(GetF1DataSetupProcess);
+    if not Result then 
+      Raise('После последнего, 3-ого неправильного ввода отзыв, процесс "' + F1DATASETUP_PROCESS_NAME + '" остался существовать!');      
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC245.15.2.5: Проверка влияния ini-шника при отмене установки базы
+    1. Выставляем параметр в ini-шнике  = 1 
+    2. Запускаем datasetup, доходим до ввода ключа
+    3. Отменяем установку
+    Должно появиться сообщение.
+}
+function HLTC245_15_2_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_15_2_5_Execute';
+var
+  wnd;
+begin
+  try
+    ScriptAction('SET ACTION', SA_INSTALL_DATABASE);  
+  
+    Result := true;
+    CloseF1DataSetup;
+    if not SetValueToGarantINI('F1DataSetup', 'EnableInstallationStatusSaving', '1') then
+      Raise('Не получилось установить параметр "F1DataSetup\EnableInstallationStatusSaving=1"');
+
+    if ExecuteF1DataSetupDialog(F1DS_CURRENT_STATE, F1DS_CHOOSE_STATE) <> F1DS_EX_DIALOG_NO_ERROR  then
+      Raise('Не получилось перейти к состоянию F1DS_CHOOSE_STATE');
+    CloseF1DataSetup(F1DS_CMD_CLOSE, false);
+    
+    wnd := GetFromF1DataSetupStarter('КНОПКА "НЕТ" ОКНА "СТАТУС УСТАНОВКИ"');
+    if not IsExists(wnd) then 
+      Result := ErrorResult('Не найдено ОКНО "СТАТУС УСТАНОВКИ" при "EnableInstallationStatusSaving=1"')
+    else
+      wnd.Click;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC245.15.2.6: Проверка влияния ini-шника при отмене установки базы
+    1. Выставляем параметр в ini-шнике = 0
+    2. Запускаем datasetup, доходим до ввода ключа
+    3. Отменяем установку
+    Сообщение не должно появиться.        
+}
+function HLTC245_15_2_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_15_2_6_Execute';
+var
+  wnd;
+begin
+  try
+    ScriptAction('SET ACTION', SA_INSTALL_DATABASE);  
+  
+    Result := true;
+    CloseF1DataSetup;
+    if not SetValueToGarantINI('F1DataSetup', 'EnableInstallationStatusSaving', '0') then
+      Raise('Не получилось установить параметр "F1DataSetup\EnableInstallationStatusSaving=0"');
+
+    if ExecuteF1DataSetupDialog(F1DS_CURRENT_STATE, F1DS_CHOOSE_STATE) <> F1DS_EX_DIALOG_NO_ERROR  then 
+      Raise('Не получилось перейти к состоянию F1DS_CHOOSE_STATE');
+    CloseF1DataSetup(F1DS_CMD_CLOSE, false);
+    
+    wnd := GetFromF1DataSetupStarter('КНОПКА "НЕТ" ОКНА "СТАТУС УСТАНОВКИ"');
+    if IsExists(wnd) then
+    begin 
+      Result := ErrorResult('Найдено ОКНО "СТАТУС УСТАНОВКИ" при "EnableInstallationStatusSaving=0"');
+      wnd.Click;
+    end;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+HLTC245.16.3: В случае любого  досрочного завершения работы - оба лога остаются.
+HLTC245.11.2.2: В ходе установки копированием должны корректно определяться объем свободного дискового пространства, 
+  требуемый объем.
+}
+function HLTC245_16_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_16_3_Execute';
+var
+  w, free_size_from_F1DS, free_size_from_OS;
+begin
+  try
+    ScriptAction('SET ACTION', SA_INSTALL_DATABASE);
+
+    Result := true;
+    if not CloseF1DataSetup then 
+      Raise('Продолжение невозможно, найден процесс "' + F1DATASETUP_PROCESS_NAME + '"');
+    Log.Message(FUNCTION_NAME + ': Проверяем свободное место и наличие логов 2-х типов в случае досрочного завершения работы. Путь к дистрибутиву: "' + GetDistributiveDataPath + '". -DSDataPath: "' + GetDSDataPath + '"', '', pmNormal, GetLogAttr('BLUE'));
+    ////
+    if ExecuteF1DataSetupDialog(F1DS_CURRENT_STATE, F1DS_CHOOSE_STATE) <> F1DS_EX_DIALOG_NO_ERROR  then 
+      Raise('Не получилось перейти к состоянию F1DS_CHOOSE_STATE');
+
+    w := GetFromF1DataSetup('НАДПИСЬ "НА ДИСКЕ СВОБОДНО"');     
+    if not IsExists(w) then
+      Result := ErrorResult('Не получилось считать размер свободного места на диске!')
+    else
+    begin 
+      free_size_from_F1DS := StrToInt(GetSubStr(w.WndCaption, ': '#9, ' Мб'));
+      free_size_from_OS := Round(GetDiskFreeSize(ExtractFileDrive(GetDataPath)) / 1048576);
+      Log.Message(FUNCTION_NAME + ': Свободное место из "' + F1DATASETUP_PROCESS_NAME + '"(Мб): ' + IntToStr(free_size_from_F1DS) + ': Свободное место из ОС(Мб): ' + IntToStr(free_size_from_OS));
+      // погрешность в 8 мб считаем незначительной
+      if Abs(free_size_from_OS - free_size_from_F1DS) > 8 then
+        Result := ErrorResult('Разница показаний ОС и "' + F1DATASETUP_PROCESS_NAME + '" составляет(Мб): ' + IntToStr(Abs(free_size_from_OS - free_size_from_F1DS)));       
+    end;
+      
+    if not CloseF1DataSetup then 
+      Raise('Не получилось закрыть "' + F1DATASETUP_PROCESS_NAME + '" через КНОПКА "ОТМЕНА".');
+    Delay(TIME_TO_WAIT_F1DATASETUPPROCESS);
+    if not IsExistsF1DataSetup_Log then
+      Result := ErrorResult('Не найден файл лога "' + F1DS_LOGFILE + '"');
+    if not IsExistsF1DataSetup_Cry_Log then
+      Result := ErrorResult('Не найден cry-файл лога "' + F1DS_CRY_LOGFILENAME + '"');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+
+function HLTC245_LOOP(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC245_LOOP';
+  PATH_TO_BASE = 'D:\GARANT'; 
+var
+  activeDataPath: OleVariant;
+  res: integer;      
+begin
+  try
+    Result := true;
+    if not CloseF1DataSetup then 
+      Raise('Продолжение невозможно, найден процесс "' + F1DATASETUP_PROCESS_NAME + '"');
+    //Шаг 1
+    if DeleteF1DataSetup_Log then
+      Log.Warning('Лог F1DataSetup удален, хотя, по идее его не должно было быть.');
+    activeDataPath := GetGCMActiveDataPath;
+    if activeDataPath = 0 then
+      Result := ErrorResult('Параметр "-GCMActiveDataPath" не получен, т.к. равен 0.');     
+    
+    if not SetDSDataPath('') then
+      Raise('Не получилось установить параметр "DSDataPath" в garant.ini');    
+    Log.Message(FUNCTION_NAME + ': 1. Устанавливаем тестовую базу БЕЗ распаковки и БЕЗ ОТКЛ. пользователей. Путь к дистрибутиву: "' + GetDistributiveDataPath + '". -DSDataPath: "' + GetDSDataPath + '"', '', pmNormal, GetLogAttr('BLUE'));
+    ////////////////
+    res := ExecuteF1DataSetupDialog(F1DS_NO_EXISTS_STATE, F1DS_ALL_DONE_STATE, 
+                                    'PathToBase:=' + PATH_TO_BASE + ';IsCloseAfterComplete:=true;IsCheckLog:=true');
+    ////////////////                                    
+    if res and F1DS_EX_DIALOG_LOG_ERROR <> 0 then
+      Result := ErrorResult('Найдены ошибки в ЛОГЕ, во время установки данных, шаг 1');    
+    if res and F1DS_EX_DIALOG_ERROR <> 0 then
+      Raise('Возникла ошибка во время установки данных, шаг 1');
+    Result := CheckInstalledBaseFileNames(GetDataPath, GetDistributiveDataPath) and Result;
+    Result := CheckBasesOrg(GetDataPath) and Result;
+    // должен меняться т.к. пользователей не отключали
+    if GetGCMActiveDataPath = activeDataPath then 
+      Result := ErrorResult('Параметр "-GCMActiveDataPath" остался прежним после переустаноки базы! Был: "' + IntToStr(activeDataPath) + '", стал "' + IntToStr(GetGCMActiveDataPath) + '"');
+    //должен создаться пакованный лог *.cry  
+    Result := IsExistsF1DataSetup_Cry_Log and Result;      
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+
+////////////////////////////////////////////////////////////////////////////////
+procedure Run;
+var 
+  i, p, w : oleVariant;
+begin
+//  Log.Message(HLTC245_FILESERVER_Execute(p));
+//  Log.Message(HLTC245_DESKTOP_Execute(p));
+//  Log.Message(HLTC245_SERVER_Execute(p));
+
+//  Log.Message(HLTC245_7_Execute(p));
+//  Log.Message(HLTC245_9_Execute(p));
+//  Log.Message(HLTC245_15_2_5_Execute(p));
+//  Log.Message(HLTC245_15_2_6_Execute(p));
+//  Log.Message(HLTC245_16_3_Execute(p));
+//////////////////////////////////////////////////
+
+
+ 
+
+
+
+
+
+
+
+
+
+end;

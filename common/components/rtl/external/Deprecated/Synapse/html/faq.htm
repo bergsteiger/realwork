@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<!--#include file="meta.txt"-->
+</head>
+<body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+
+<!--#include file="header.txt"-->
+
+<CENTER>
+<IMG SRC="synapse.gif" WIDTH=498 HEIGHT=152 ALT="Synapse" BORDER="0"><br>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue">
+<B>Synchronous TCP/IP Library for Delphi</B>
+</FONT>
+</CENTER>
+<hr>
+
+<p>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue"><B>FAQ:</B></FONT>
+<p>
+<FONT COLOR="Blue">Version of FAQ: 1.7.0</FONT>
+<P>&nbsp;&nbsp;&nbsp;
+<i>The FAQ is created based on your questions. If you do not ask questions, nothing will appear here. So please ask when facing any trouble, I will reply.
+</i><p>
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Why Synapse instead Indy?
+</FONT>
+<p>&nbsp;&nbsp;&nbsp;Indy is very large and complex set of complicated classes. In many cases you need simple thinks. Why use very large Indy? Use small Synapse! Synapse is very simple and maximal versatile.
+<p>&nbsp;&nbsp;&nbsp;In my opinion, Indy and Synapse is for different purpose. This is reason, why I develop Synapase. This is reason, why I helping to Indy.
+<p>&nbsp;&nbsp;&nbsp;And IMHO Synapse is much better with nearly 100% kompatibility between Windows and Linux platform. Indy have lot of problems in Linux platform!
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+How can I install Synapse components?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp;Synapse is NOT components. It is only library units with code and classes. It cannot install, it not need install! For using synapse you can copy all neccessary Synapse units to your project directory (or to your library search path) and in your project add USES line with refference to needed Synapse units.
+<p>&nbsp;&nbsp;&nbsp;Non-component concept is very good for writing non-visual application, i.e. NT services, CGI programs, Command-line program. You may use synapse in visual program too. It is easy!
+<p>&nbsp;&nbsp;&nbsp;TCP/IP communication cannot be visualised, why use components?
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+How can I write TCP server?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp;See to DEMOS in distribute package. ECHO server is good sample for you!
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+I try ECHO demo under Kylix, byt they not work. Why?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp;Because this demo uses standard port 8 fpr echo. but Linux systems ussualy have their echo server at this port. Suimply change source of Demo for use another port instead 'echo'. (i.e. 2000).
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+How can I write UDP server?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp;Try next code on thread, or in any other case:
+<p>
+<font size="-1">
+<pre>
+procedure TSomeThread.Execute;
+var
+  Sock:TUDPBlockSocket;
+  size:integer;
+  buf:string;
+begin
+  Sock:=TUDPBlockSocket.Create;
+  try
+    sock.createsocket;
+    sock.bind('0.0.0.0','port');
+    if sock.LastError<>0 then exit;
+    while True do
+      begin
+        if terminated then break;
+		buf := sock.RecvPacket(1000);
+		if sock.lasterror=0 then
+		  begin
+  //        do something with data and prepare response data
+            sock.SendString(Buf);
+          end;
+        sleep(1);
+      end;
+    sock.CloseSocket;
+  finally
+    sock.free;
+  end;
+end;
+</pre>
+</font>
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+How can I use SOCKS5 proxy?
+</FONT>
+<p>&nbsp;&nbsp;&nbsp; Under windows you may install some Winsock wrapper with this support. Try <A href="http://www.hummingbird.com/products/nc/socks/index.html">Hummingbird</A> or <A href="http://www.socks.nec.com/reference/sockscap.html">NEC</A>.
+<p>&nbsp;&nbsp;&nbsp; But latest releases of Synapse have full native support for SOCKS5 in library code. Simply you fill adequate properties and this is all! Not need any external libraries, etc.
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Do Synapse all exactly same under Windows and Linux?
+</FONT>
+<p>&nbsp;&nbsp;&nbsp; Yes! Only one small exception is loading alternate socket stack. Only under windows you may select what DLL is used for calling Winsock. Under linux is called Libc in all cases. All other thinks is same under both operating systems, include autodetection time zones or autodetection of charset used by system.
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Why I get negative numbers instead large integer numbers in some cases?
+</FONT>
+<p>&nbsp;&nbsp;&nbsp; Because lot of internet protocols use unsigned 32-bit integers type. But Delphi Integer type is signed! 31-bits used for value, last bit is sign. If I load 32-bit unsigned integer to Delphi Integer type, last 32-th bit is loades to sign. This is reason why large internet integer looks like negative numbers.
+<p>&nbsp;&nbsp;&nbsp; Nevertheless this negative number is same value as 32-bit internet integer! Different is only representation of this number. If you try convert this negative number to HEX, (or other format), you get correct value. If you try typecast this negative value to larger integer type (i.e. int64), you get good value!
+<p>&nbsp;&nbsp;&nbsp; Negative values is not bug, it is only different representation of same value of large number!
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Why you not use Int64 type for large integers?
+</FONT>
+<p>&nbsp;&nbsp;&nbsp; Because older Delphi does not have this 64-bit integer type! But Synapse is compatible with Delphi version 2.0 and 3.0 too! Cardinal type is not solution, because in this older Delphi versions is cardinal only 31-bits integer. (It is terrible!)
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Where can I find any demos and examples?
+</FONT>
+<p>&nbsp;&nbsp;&nbsp; Check documentation and demo subdirectory in distribute packages. You may also check contributed download area.
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Where can I find SNMP TRAP demo?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp; If you not found demo in DEMo subdirectory in synapse.zip, try to search contributed download.
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Where can I find contributed download area?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp; Look to main page of Synapse's WEB. Between download links you can find ling to directory with contributed downloads.
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Can I use Synapse as free?
+</FONT>
+<p>&nbsp;&nbsp;&nbsp; Check MPL license... generally: Yes, you may use Synapse in all your projects, you must only respects my coporights. For details check license file.
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Can I use SSL with Synapse?
+</FONT>
+<p>&nbsp;&nbsp;&nbsp; Yes. You need OpenSSL library at least version 0.9.6c. Interface between OpenSSL and Synapse is created in unit SynaSSL.pas. OpenSSL is loaded to memory only on demand. If you not need SSL/TLS mode, then you not need OpenSSL!<br>
+For simply use of SSL mode is prepared lot of methods in TCP code.<br>
+<p>&nbsp;&nbsp;&nbsp; HTTP protocol implementation is SSL ready... simply use 'https' in URL.
+<p>&nbsp;&nbsp;&nbsp; IMAP, SMTP or POP3 protocols now support SSL too.
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+How can I bind UDP listener to more then one IP? (Indy can do it.)
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp; Is impossible bind one socket to more then one IP. Indy virtually can do it, but this is only illusions. Indy create one socket for each binded interface! If you need this, simply create one socket for each IP by your hands.
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+How can determine, if TCP connection is still active?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp; Direct test is impossible. Determining if connection still alive you can do only at moment of communicating. If you try send or receive data on broken TCP channel, then error is returned. It is only one way to determine broken TCP channel!
+<p>&nbsp;&nbsp;&nbsp; If Connection is closed gracefuly, then CanRead is signalised, but read operation read 0 bytes.
+<p>&nbsp;&nbsp;&nbsp; Yes, other packages have property 'active', but true value of this property is determined previous principes. It is not direct determine of live TCP conection. It is faked value!
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+Where is event for reading data?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp; There is no any event for reading data. Synapse have another reading design!
+<p>&nbsp;&nbsp;&nbsp; Other asynchronous packages have event, what is called if some data arraived. You must implement this event, read all data to your buffers, and then your application logic must parse this data.
+<p>&nbsp;&nbsp;&nbsp; In Synapse is another logic used. There is no any event! All data is readed at moment when your application logic need data. Simply you implement your application logic in style: "I need send data, simply call command for send. I need receive some data, simply call command for receive this data."
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+How to use Synapse .pas files in Borland C++Builder's projects?
+</FONT><p>
+(respond by Nikolay Buhalov shaman@lotofsoftware.com)
+<p>&nbsp;&nbsp;&nbsp;
+1. Needed to generate header files (hpp) for including in project (example for creatinh header file for dnssend.pas):<br>
+DCC32.EXE -JPHW DNSSEND.PAS
+<p>&nbsp;&nbsp;&nbsp;
+2. Need to define path of .pas files:<br>
+Project->Add->Directories/Conditionals add in "Include path", "Library path" and "Debug source path" next string:<br>
+"$(BCB)\synapse\source\lib"
+<p>&nbsp;&nbsp;&nbsp;
+3. Define path to .pas files in BCB enviroment variables:<br>
+Tools -> Environment Options ->Library "Library path" and "Browsing path".
+<p>
+including library to project:<br>
+Project -> Add to project -> DNSSEND.PAS (for example)
+<p>
+including header file:
+<br>
+unit1.h
+------------------------<br>
+#include <DNSsend.hpp><br>
+------------------------<br>
+unit1.cpp<br>
+-------------------------<br>
+#pragma link "DNSsend"<br>
+-------------------------
+<p>
+
+Possible, error can appear in string 180 of file blcksock.hpp:
+<br>
+__property WSAData WSAData = {read=FWsaData};
+<br>
+I' just comment this string cause i don't need to use this variable:
+<br>
+// __property WSAData WSAData = {read=FWsaData};
+
+<hr>
+<FONT FACE="sans-serif" COLOR="Blue">
+How to use UDP multicasts?
+</FONT><p>
+<p>&nbsp;&nbsp;&nbsp;
+This is one example of using multicasts from SynaList:<p>
+
+Description:<br>
+10.0.0.5 is a network adapter on the local machine<br>
+224.1.0.1/22401 is any class D IP address + port<br>
+
+<font size="-1">
+<pre>
+procedure multicasttest;
+var
+  sndsock:TUDPBlockSocket;
+  rcvsock:TUDPBlockSocket;
+  buf:string;
+begin
+  sndsock:=TUDPBlockSocket.Create;
+  rcvsock:=TUDPBlockSocket.Create;
+  try
+    sndsock.createsocket;
+    sndsock.connect('10.0.0.5','22401');
+    sndsock.AddMulticast('224.1.0.1');
+    if sndsock.LastError<>0 then exit;
+
+    rcvsock.createsocket;
+    rcvsock.bind('10.0.0.5','22401');
+    rcvsock.AddMulticast('224.1.0.1');
+    if rcvsock.LastError<>0 then exit;
+
+    if sndsock.LastError=0 then
+    sndsock.SendString('Test Payload');
+
+    buf:=rcvsock.RecvPacket(1000);
+    showmessage(buf);
+
+    sleep(1);
+    sndsock.CloseSocket;
+    rcvsock.CloseSocket;
+
+  finally
+    sndsock.free;
+    rcvsock.free;
+  end;
+end;
+</pre>
+</font>
+
+
+<hr>
+
+
+<!--#include file="footer.txt"-->
+</body>
+</html>

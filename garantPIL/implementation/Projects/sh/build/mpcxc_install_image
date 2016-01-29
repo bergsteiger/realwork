@@ -1,0 +1,78 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_install_image <path_to_install> <path_to_scripts> <path_to_MPC> <path_to_ace> <path_to_ace_config>"
+exit
+fi
+
+echo "mpcxc_install_image ..."
+
+# name input parameters
+
+path_to_install=$1
+path_to_scripts=$2
+path_to_MPC=$3
+path_to_ace=$4
+path_to_ace_config=$5
+
+export MPCXC_ROOT=$path_to_install
+export MPCXC_SH=$path_to_scripts
+
+echo "mpcxc_install_image: using scripts at $MPCXC_SH ..."
+
+# update cvs
+
+$MPCXC_SH/checkout_cvs_all y
+$MPCXC_SH/update_cvs_all y
+
+# make cvs scripts ready to use
+
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+
+chmod 755 $future_scripts_path/*
+
+rm -rf $future_scripts_path/MPC
+cp -Rf $path_to_MPC $future_scripts_path
+
+find $future_scripts_path/MPC -type d -exec chmod 755 {} \;
+find $future_scripts_path/MPC -type f -exec chmod 644 {} \;
+find $future_scripts_path/MPC -type f -name "*.pl" -exec chmod 755 {} \;
+
+export MPCXC_SH=$future_scripts_path # switch to new cvs scripts
+
+# make ACE ready to use
+
+future_config_path=$MPCXC_ROOT/src/shared/support/mpc/make/TAOACE
+
+rm -rf $MPCXC_ROOT/src/ace
+cp -Rf $path_to_ace $MPCXC_ROOT/src
+
+find $MPCXC_ROOT/src/ace -type d -exec chmod 755 {} \;
+find $MPCXC_ROOT/src/ace -type f -exec chmod 644 {} \;
+
+find $path_to_ace_config -type f -name "*.mpb" -exec cp -f {} $future_config_path \;
+
+find $future_config_path -type d -exec chmod 755 {} \;
+find $future_config_path -type f -exec chmod 644 {} \;
+
+$MPCXC_SH/update_cvs shared/support/mpc/make/TAOACE
+
+export MPCXC_CONFIG=$future_config_path # switch to new cvs ace
+
+rm -f $MPCXC_ROOT/src/ace/config.h
+short_system_name=`uname -s`
+cp $MPCXC_CONFIG/config.h.$short_system_name.txt $MPCXC_ROOT/src/ace/config.h
+
+# compile fix_replace binary and fix various files
+
+CC="g++"
+CCOPT="-O3"
+CCOUT="-o"
+EXEEXT=""
+$CC $CCOPT $CCOUT $MPCXC_SH/fix_replace$EXEEXT $MPCXC_SH/fix_replace.cpp 
+
+$MPCXC_SH/mpcxc_fix_cvs_all y
+
+echo "You may run mpcxc_full_rebuild_ace."
+
+echo "end."

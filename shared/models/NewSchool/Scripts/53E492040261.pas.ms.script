@@ -1,0 +1,119 @@
+// Stuff 53E492040261 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53E492040261
+
+FORWARD ME_53E49235000B
+
+FORWARD ME_53E494B002C7
+
+: ME_53E494DB00DC
+ CONST UID '53E494DB00DC'
+ CONST Name 'Dummy'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53E494DB00DC Dummy
+
+: ME_53E494D80162
+ CONST UID '53E494D80162'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53E494B002C7 // Free
+ ;
+ : Parameters
+   @ ( ME_53E494DB00DC // Dummy
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53E494D80162 DoIt
+
+: ME_53E494B002C7
+ CONST UID '53E494B002C7'
+ CONST Name 'Free'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Для ловли Free' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53E49235000B // TvtGauge
+ ;
+ : Operations
+   @ ( ME_53E494D80162 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53E494B002C7 Free
+
+: ME_53E49235000B
+ CONST UID '53E49235000B'
+ CONST Name 'TvtGauge'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53E492040261 // Stuff
+ ;
+ : Inherits
+   @ ( WL 'ME_53E491DB0065' '5226F7CC03C6.pas.ms.script' // TGauge
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_53E494B002C7 // Free
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtGauge.pas'
+
+ref; // ME_53E49235000B TvtGauge
+
+: ME_53E492040261
+ CONST UID '53E492040261'
+ CONST Name 'Stuff'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
+ ;
+ : Children
+   @ ( ME_53E49235000B // TvtGauge
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_5226F7CC03C6' '5226F7CC03C6.pas.ms.script' // Samples
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53E492040261.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53E492040261.pas.ms.script.runner'
+
+ref; // ME_53E492040261 Stuff

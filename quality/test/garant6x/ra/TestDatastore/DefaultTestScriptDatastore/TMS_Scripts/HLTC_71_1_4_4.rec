@@ -1,0 +1,57 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 71.1.4.4 ***
+
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+Sub Main
+    Dim Result As Integer
+    Dim ItemNamesArray (1 To 11) As String
+    
+  ItemNamesArray (1) = "Основы государственно-правового устройства"
+  ItemNamesArray (2) = "Государственная граница"
+  ItemNamesArray (3) = "Информация, информатизация и средства массовой информации"
+  ItemNamesArray (4) = "Налоговое законодательство"
+  ItemNamesArray (5) = "Основы налоговой системы"
+  ItemNamesArray (6) = "Федеральные налоги и сборы"
+  ItemNamesArray (7) = "Таможенное законодательство, внешнеэкономическая деятельность"
+  ItemNamesArray (8) = "Общие вопросы регулирования внешнеэкономических отношений"
+  ItemNamesArray (9) = ItemNamesArray (1)
+  ItemNamesArray (10) = ItemNamesArray (4)
+  ItemNamesArray (11) = ItemNamesArray (7)
+  
+  Call NeedState (ST_MAIN_MENU)
+  CUR_STATE = ST_NONE_STANDART
+
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Правовой навигатор \ Проекты законов
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=106,13"
+  GenericObject Click, "Text=Проекты законов", "Coords=70,10"
+  
+'Переводим фокус на закладку навигатора "Разъяснения, комментарии, схемы"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+  
+'Разворачиваем все элементы кнопкой "Развренуть все"
+  Call Click_NavExpClps
+  
+'Проверяем, что состояние кнопки "Свернуть все"
+  Result = GenericObjectVP (CompareImage, "Class=TvcmToolbar;ClassIndex=2", "VP=Collapse")
+  Call Click_FirstKnot
+  InputKeys "{DOWN}"
+
+'Проверяем несколько элементов в развернутом дереве
+  Call CheckItemNames ( ItemNamesArray, "{DOWN}", 0, 8)
+  
+'Сворачиваем несколько узлов
+  InputKeys "{HOME}{DOWN}{Num+}{DOWN}{Num+}{DOWN}{Num+}"
+
+'Проверяем, что мы свернули необходимые элементы
+  Call CheckItemNames ( ItemNamesArray, "{UP}", 10, 3)
+  
+'Проверяем, что состояние кнопки осталось "Свернуть все"
+  Result = GenericObjectVP (CompareImage, "Class=TvcmToolbar;ClassIndex=2", "VP=Collapse")
+End Sub

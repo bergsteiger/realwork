@@ -1,0 +1,19 @@
+project (gchange_tools) : project-common-defines-tools, project-common-includes, project_generic_core {
+	staticname = gchange_tools
+	sharedname = gchange_tools
+	macros += MIN_MEM_CONTEXT
+
+	includes += ./../../component/cpp/libs/gchange/include
+	includes += ./../../component/cpp/libs/lex/include
+
+	Header_Files {
+			./../../component/cpp/libs/gchange/include/context.h
+			./../../component/cpp/libs/gchange/include/parser.h
+	}
+
+	Source_Files {
+			./../../component/cpp/libs/gchange/src/context.cpp
+			./../../component/cpp/libs/gchange/src/parser.cpp
+	}
+}
+

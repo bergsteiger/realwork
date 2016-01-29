@@ -1,0 +1,135 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/ClassInner/Factory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::ClassInner::Factory
+//
+// Фабричный метод
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Factory::Class
+? Фабричный метод
+= method::Class
+= FactoryMixIn::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +
+/ - типы видимости
+a f
+/ - тип абстракции
+Y code_factory.gif
+L code_factory
+// Параметры визуализации
+$ C 0,255,255
+$ l 0,0,255
+$ f 0,0,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S%[method::Class]f_wiki_up_print()[{"%S{check nil}"!="%S{!check nil}"}%f_up_prefix(%S) *check nil* = *%S{check nil}* - Проверять, что первый параметр nil и не создавать объекта
+	][{"%S{need As}"!="%S{!need As}"}%f_up_prefix(%S) *need As* = *%S{need As}* - Определяет, что нужно приводить класс к интерфейсу через As
+	][{"%S{need AfterCreate}"!="%S{!need AfterCreate}"}%f_up_prefix(%S) *need AfterCreate* = *%S{need AfterCreate}*
+	][{"%S{need Aggregate}"!="%S{!need Aggregate}"}%f_up_prefix(%S) *need Aggregate* = *%S{need Aggregate}*
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4AE0263A0260*
+	%S%[inherited]\
+	<{}{%G#f_IsConstructor()=true|%G{is static}=true}\
+	%G<{}{%CC=Operation}\
+	%C%f_copy_element(%CU_%1U,%1U,,%CN,true,Op_Instance)\
+	[{%1%Rx=true}\
+	%{Op_Instance}%f_set_target(%1%RU)\
+	]\
+	%{Op_Instance}%f_set_documentation(Сигнатура фабрики %1%PN.%1N)\
+	%{Op_Instance}%f_set_abstraction_type(final)\
+	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+	%f_cycle_break(%S)\
+	>\
+	>
+//#UC END# *4B2A19E3038Bfor4AE0263A0260*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _IsFactory
+// возвращаемый результат: boolean
+//#UC START# *4AE026A90143for4AE0263A0260*
+	true
+//#UC END# *4AE026A90143for4AE0263A0260*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+%f _pas_MethodBodyPrim
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for4AE0263A0260*
+	%S%f_OutFactoryBody(%1,%2)
+//#UC END# *494BB3A201A2for4AE0263A0260*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа результата функции
+%f _pas_ResultTypeName
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for4AE0263A0260*
+@ %SU
+	[{%Rx=true}{\
+	%S%f_OutFactoryResult()\
+	}\
+	%f_pas_TypeName(%R)\
+	]
+//#UC END# *494BDD190361for4AE0263A0260*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4AE0263A0260*
+//#UC END# *49F5795900ECfor4AE0263A0260*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Factory::Class::Operation
+= method::Class::Operation
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _IsMakeSingleChild
+// возвращаемый результат: boolean
+//#UC START# *4CC01C0D0010for4CC01C720055*
+	%P%f_IsMakeSingleChild()
+//#UC END# *4CC01C0D0010for4CC01C720055*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Нужна ли фабрике формы агрегация
+%f _NeedAggregate
+// возвращаемый результат: boolean
+//#UC START# *4CC02B360368for4CC01C720055*
+	%P%f_NeedAggregate()
+//#UC END# *4CC02B360368for4CC01C720055*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

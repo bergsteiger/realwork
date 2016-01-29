@@ -1,0 +1,1 @@
+H:\Dropbox\mindstream\Examples\Scripts\call.ms.script.exe %1 > %1.out

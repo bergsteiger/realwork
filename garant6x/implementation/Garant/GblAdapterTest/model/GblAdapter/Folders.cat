@@ -1,0 +1,4322 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.4.0410.2500"
+    charSet    	204)
+
+(object Class_Category "Folders"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"C++ DLL (cpp):*3F150A0B010A_CVS_LOG*"
+	    value      	(value Text "//#UC START# *3F150A0B010A_CVS_LOG*¤// ¤//#UC END# *3F150A0B010A_CVS_LOG*"))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"C++ DLL (h):*3F150A0B010A_CVS_LOG*"
+	    value      	(value Text "//#UC START# *3F150A0B010A_CVS_LOG*¤// ¤//#UC END# *3F150A0B010A_CVS_LOG*"))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false"))
+    quid       	"3F150A0B010A"
+    documentation 	"Ðàáîòà ñ ïàïêàìè."
+    stereotype 	"Interface"
+    external_docs 	(list external_doc_list
+	(object external_doc
+	    external_doc_path 	"$GARANT_6X\\implementation\\Garant\\GblAdapter\\model\\folders_node_flags.JPG"))
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"3F33C384014A"
+	    supplier   	"Logical View::garant6x::GblAdapter::Filters"
+	    quidu      	"3F1518650262")
+	(object Visibility_Relationship
+	    quid       	"3F4E13F502FF"
+	    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport"
+	    quidu      	"3F255D1E0071")
+	(object Visibility_Relationship
+	    quid       	"3F4E14250128"
+	    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes"
+	    quidu      	"3F2557FD00CD")
+	(object Visibility_Relationship
+	    quid       	"400FD7880329"
+	    supplier   	"Logical View::garant6x::GblAdapter::UnderControl"
+	    quidu      	"3FE5E1670033")
+	(object Visibility_Relationship
+	    quid       	"401280B800B4"
+	    supplier   	"Logical View::garant6x::GblAdapter::Security"
+	    quidu      	"40126A8A03D1")
+	(object Visibility_Relationship
+	    quid       	"4226E83000FA"
+	    supplier   	"Logical View::garant6x::GblAdapter::Monitoring"
+	    quidu      	"421F34D1036B"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Folders"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"085870DB-A1B6-48E7-ADDD-3C9F3911FEF5")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_INCLUDES*¤#include "Garant/BusinessAdapter/GbaSettings/Save/XMLSettingsImport.h"¤#include "Garant/GblAdapter/Folders/FoldersNode_i.h"¤#include "Garant/GblAdapter/Folders/Folder_i.h"¤#include "Garant/GblAdapter/Filters/Filters_i.h"¤#include "Garant/GblAdapter/UnderControl/ControlledObjects_i.h"¤#include "Garant/GblAdapter/BaseTreeSupport/NodeList_i.h"¤#include "Garant/GblAdapter/ImportExport/ImportExportUnit.h"¤//#UC END# *3EB8B6BC00CC_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_MAKE_INTERFACE_IMPLEMENTATION*¤	return new Folders_i ();¤	//#UC END# *3EB8B6BC00CC_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text "//#UC START# *3EB8B6BC00CC_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *3EB8B6BC00CC_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_BASE_METHOD_IMPL*¤void Folders_i::refresh (void) {¤	if (m_root.is_nil ()) {		¤		¤		// Áåðåì ïåðâóþ äî÷åðíþþ ïàïêó, êîòîðàÿ ÿâëÿåòñÿ ëè÷íîé ïàïêîé¤		//  òåêóùåãî ïîëüçîâàòåëÿ¤		GblFolders::Folder_var root_folder = m_folders->get_folders ();¤		Core::Var<FoldersNode_i> f = new FoldersNode_i (root_folder.in (), this);¤		this->set_root(f.in ());¤	}¤}¤¤// recursion!¤void Folders_i::pick_up_filter_nodes (INode_var node, std::vector<INode_var>& filters) const {¤	assert (node.ptr ()); ¤	¤	long child_count = node->get_child_count ();¤	for (long i = 0; i < child_count; ++i) {¤		INode_var child;¤		node->get_child (i, child.out ());¤		assert (child.ptr ());¤¤		if (child->get_flags () & NF_FILTER	|| child->get_flags () & NF_GLOBAL_FILTER) {¤			filters.push_back (child);¤		}¤¤		pick_up_filter_nodes (child, filters);¤	}¤}¤¤// recursion!¤void Folders_i::pick_up_monitorings_nodes (INode_var node, std::vector<INode_var>& monitorings) const {¤	assert (node.ptr ()); ¤	¤	long child_count = node->get_child_count ();¤	for (long i = 0; i < child_count; ++i) {¤		INode_var child;¤		node->get_child (i, child.out ());¤		assert (child.ptr ());¤¤		if (child->get_flags () & NF_MONITORING_QUERY) {¤			monitorings.push_back (child);¤		}¤¤		this->pick_up_monitorings_nodes (child, monitorings);¤	}¤}¤¤bool Folders_i::check_server_content (Containers::Content* content) {¤	if (!content) {¤		return false;¤	}¤	try {¤		Containers::Node_var parent_node = content->parent_node ();¤		Containers::ContainerManager_var manager = parent_node->manager ();¤		Containers::Content_var valid_content = manager->id_to_content (content->id ());¤		return true;¤	} catch (...) {¤	}¤	return false;¤}¤¤bool Folders_i::check_content (Containers::Content* content) {¤	// Ýòî ÕÀÊ, âîçìîæíî ïðèâîäÿùèé ê ãëþêàì ïðè ñîõðàíåíèè â ïàïêó - íàì ìîãóò îøèáî÷íî ñêàçàòü èëè íå ñêàçàòü î ñîõðàíåííîñòè îáúåêòà¤	return content != NULL;¤	// êîíåö ÕÀÊà¤¤	if (!content) {¤		return false;¤	}¤¤	try {¤		Containers::Node_var parent_node = content->parent_node ();¤		Containers::ContainerManager_var manager = parent_node->manager ();¤		Containers::Content_var valid_content = manager->id_to_content (content->id ());¤		return true;¤	} catch (...) {¤	}¤¤	return false;¤}¤¤void Folders_i::recalc_shared_flags () {¤	dynamic_cast <FoldersNode_i*> (m_root.ptr ())->recalc_shared_flags (false);¤}¤¤¤void Folders_i::recalc_node_flags () {¤	dynamic_cast <FoldersNode_i*> (m_root.ptr ())->recalc_node_flags (false, NF_HISTORY, NF_IN_HISTORY);¤	dynamic_cast <FoldersNode_i*> (m_root.ptr ())->recalc_node_flags (false, NF_COMMENTS, NF_IN_COMMENTS);¤}¤¤//#UC END# *3EB8B6BC00CC_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CONSTRUCTOR_IMPLEMENTATION*¤	m_folders = GblFolders::Folders::_duplicate (application_helper ()->get_cached_folders ());¤	this->refresh ();¤	this->recalc_node_flags ();¤	this->recalc_shared_flags ();¤	//#UC END# *3EB8B6BC00CC_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text "//#UC START# *3EB8B6BC00CC_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤//#UC END# *3EB8B6BC00CC_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *3EB8B6BC00CC_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_CVS_LOG*"
+		    value      	(value Text "//#UC START# *3EB8B6BC00CC_CVS_LOG*¤// ¤//#UC END# *3EB8B6BC00CC_CVS_LOG*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_INCLUDES*¤#include <vector>¤#include "Business/GblFolders/GblFoldersC.h"¤//#UC END# *3EB8B6BC00CC_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PUBLIC_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PUBLIC_TYPES*
+|	//#UC END# *3EB8B6BC00CC_EX_PUBLIC_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PROTECTED_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PROTECTED_TYPES*
+|	//#UC END# *3EB8B6BC00CC_EX_PROTECTED_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PRIVATE_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PRIVATE_TYPES*
+|	//#UC END# *3EB8B6BC00CC_EX_PRIVATE_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PUBLIC_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PUBLIC_STATIC_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PUBLIC_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PROTECTED_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PROTECTED_STATIC_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PROTECTED_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PRIVATE_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PRIVATE_STATIC_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PRIVATE_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PUBLIC_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PUBLIC_ABSTRACT_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PUBLIC_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PROTECTED_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PROTECTED_ABSTRACT_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PROTECTED_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PRIVATE_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PRIVATE_ABSTRACT_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PRIVATE_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PUBLIC_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PUBLIC_VIRTUAL_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PUBLIC_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PROTECTED_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PROTECTED_VIRTUAL_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PROTECTED_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PRIVATE_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PRIVATE_VIRTUAL_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PRIVATE_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PUBLIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PUBLIC_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PUBLIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PROTECTED_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PROTECTED_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PROTECTED_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PRIVATE_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PRIVATE_METHODS*
+|	//#UC END# *3EB8B6BC00CC_EX_PRIVATE_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_STATIC_PUBLIC_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_STATIC_PUBLIC_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_EX_STATIC_PUBLIC_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_STATIC_PROTECTED_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_STATIC_PROTECTED_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_EX_STATIC_PROTECTED_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_STATIC_PRIVATE_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_STATIC_PRIVATE_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_EX_STATIC_PRIVATE_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PUBLIC_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PUBLIC_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_EX_PUBLIC_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PROTECTED_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PROTECTED_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_EX_PROTECTED_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX_PRIVATE_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX_PRIVATE_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_EX_PRIVATE_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PUBLIC_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PUBLIC_TYPES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PUBLIC_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PROTECTED_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PROTECTED_TYPES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PROTECTED_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PRIVATE_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PRIVATE_TYPES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PRIVATE_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PUBLIC_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PUBLIC_STATIC_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PUBLIC_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PROTECTED_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PROTECTED_STATIC_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PROTECTED_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PRIVATE_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PRIVATE_STATIC_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PRIVATE_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PUBLIC_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PUBLIC_ABSTRACT_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PUBLIC_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PROTECTED_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PROTECTED_ABSTRACT_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PROTECTED_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PRIVATE_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PRIVATE_ABSTRACT_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PRIVATE_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PUBLIC_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PUBLIC_VIRTUAL_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PUBLIC_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PROTECTED_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PROTECTED_VIRTUAL_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PROTECTED_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PRIVATE_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PRIVATE_VIRTUAL_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PRIVATE_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PUBLIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PUBLIC_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PUBLIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PROTECTED_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PROTECTED_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PROTECTED_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PRIVATE_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PRIVATE_METHODS*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PRIVATE_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_STATIC_PUBLIC_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_STATIC_PUBLIC_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_STATIC_PUBLIC_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_STATIC_PROTECTED_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_STATIC_PROTECTED_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_STATIC_PROTECTED_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_STATIC_PRIVATE_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_STATIC_PRIVATE_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_STATIC_PRIVATE_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PUBLIC_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PUBLIC_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PUBLIC_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PROTECTED_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PROTECTED_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PROTECTED_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_PRIVATE_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_PRIVATE_VARIABLES*
+|	//#UC END# *3EB8B6BC00CC_CUSTOM_PRIVATE_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_INLINE_INCLUDES*"
+		    value      	(value Text "//#UC START# *3EB8B6BC00CC_INLINE_INCLUDES*¤//#UC END# *3EB8B6BC00CC_INLINE_INCLUDES*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CVS_LOG*"
+		    value      	(value Text "//#UC START# *3EB8B6BC00CC_CVS_LOG*¤// ¤//#UC END# *3EB8B6BC00CC_CVS_LOG*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_EX*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_EX*¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ òèïîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ñòàòè÷åñêèõ ìåòîäîâ è äàííûõ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ àáñòðàêòíûõ ìåòîäîâ¤public:¤	virtual void invalidate_shared_flags () = 0;¤//	virtual void invalidate_controlled_flags () = 0;¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ìåòîäîâ è äàííûõ¤//#UC END# *3EB8B6BC00CC_EX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_TYPES*"
+		    value      	(value Text "//#UC START# *3EB8B6BC00CC_CUSTOM_TYPES*¤//#UC END# *3EB8B6BC00CC_CUSTOM_TYPES*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_STATIC*¤	static bool check_content (Containers::Content* content);¤	static bool check_server_content (Containers::Content* content);¤//#UC END# *3EB8B6BC00CC_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_ABSTRACT*"
+		    value      	(value Text "//#UC START# *3EB8B6BC00CC_CUSTOM_ABSTRACT*¤//#UC END# *3EB8B6BC00CC_CUSTOM_ABSTRACT*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_METHODS_AND_DATA*¤public:¤	virtual void recalc_shared_flags ();¤	virtual void recalc_node_flags ();¤	//virtual void invalidate_controlled_flags ();¤¤protected:¤	void refresh (void);¤	void pick_up_filter_nodes (INode_var node, std::vector<INode_var>& filters) const;¤	void pick_up_monitorings_nodes (INode_var node, std::vector<INode_var>& monitorings) const;¤¤	GblFolders::Folders_var m_folders;¤//#UC END# *3EB8B6BC00CC_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *3EB8B6BC00CC_CUSTOM_PREINCLUDES*¤//#UC END# *3EB8B6BC00CC_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EB8B6BC00CC_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *3EB8B6BC00CC_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default Constructor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default make_interface"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Final"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EB8B6BC00CC_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *3EB8B6BC00CC_CUSTOM_INHERITANCE*¤	//#UC END# *3EB8B6BC00CC_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3EB8B6BC00CC"
+	    documentation 	"Èíòåðôåéñ (ìåíåäæåð) îáåñïå÷èâàþùèé ðàáîòó ñ äåðåâîì ïàïîê. Ñëîæèò ôàáðèêîé äëÿ óçëîâ (Folder)."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3EB8BA350306"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport::BaseCatalog"
+		    quidu      	"3EB8B9E10106"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"3F28DE8A0115"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport::StaticCatalog"
+		    quidu      	"3F1FC0EA016D"))
+	    operations 	(list Operations
+		(object Operation "create_folder"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3EB8F50202FF*"
+			    value      	(value Text 
+|//#UC START# *3EB8F50202FF*¤	Containers::Content_var content;¤	GblFolders::Folder_var folder_content;¤¤	content = m_folders->create_content (Defines::CT_FOLDER);¤	folder_content = GblFolders::Folder::_narrow (content);¤¤	out_folder = Folder_i::make_interface (folder_content.in ());¤	//#UC END# *3EB8F50202FF*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"15344F3B-3A78-4BDA-A248-3D4AE9582B93"))
+		    quid       	"3EB8F50202FF"
+		    documentation 	"Ôàáðèêà óçëîâ, âîçâðàùàåò íîâûé ñîçäàííûé ýêçåìïëÿð BaseEntity òèïà Folder."
+		    result     	"Folder"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3F25455602E4")
+		(object Operation "find_folder_node"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Pure virtual"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3EC0FDD90321")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F52FFF70041*"
+			    value      	(value Text 
+|//#UC START# *3F52FFF70041*¤	bool found = false;¤	try {¤		FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (m_root.ptr ());¤		folders_node_i->find_node_by_id (id, out_folders_node);¤¤		if (out_folders_node != 0) {¤			found  = true;¤		}¤	} catch (...) {¤	}¤	if (!found) {¤		throw CanNotFindData ();¤	}¤	//#UC END# *3F52FFF70041*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"E2FEF235-4813-477D-AE82-044EC8976233"))
+		    quid       	"3F52FFF70041"
+		    documentation 	"Íàéòè óçåë ïàïêè ïî åãî èäåíòèôèêàòîðó. Åñëè íå íàéäåí òî CanNotFindData."
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    quid       	"3F53005801B9"
+			    documentation 	"Èäåíòèôèêàòîð óçëà ïàïêè."
+			    type       	"FolderId"
+			    quidu      	"3F52FF6B0340"))
+		    result     	"FoldersNode"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3F254B900029")
+		(object Operation "save_mail_delivery_task"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*421F26800187*"
+			    value      	(value Text 
+|//#UC START# *421F26800187*¤	XercesAdapterLoader xerces_adapter_loader; {¤		IXercesAdapter_var xerces_adapter = xerces_adapter_loader.get_xerces_adapter ();¤¤		if (xerces_adapter.ptr () == 0) {¤			LOG_E (("Folders_i::save_mail_delivery_task: `XERCES_Adapter` not found"));¤			throw XercesAdapterNotFound ();¤		}¤¤		try {¤			GbaSettingsSave::SettingsSave save (¤				xerces_adapter.in ()¤				, application_helper ()¤				, xml_file_path¤				, dt_Monitorings¤			);¤			save.run ();¤		} catch (...) {¤			LOG_E (("Folders_i::save_mail_delivery_task: unknown export error"));¤			throw UnknownExportError ();¤		}¤	}¤	//#UC END# *421F26800187*
+			    )))
+		    quid       	"421F26800187"
+		    parameters 	(list Parameters
+			(object Parameter "xml_file_path"
+			    quid       	"421F26AD010A"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "save_xml_for_server"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4265153E024D*"
+			    value      	(value Text 
+|//#UC START# *4265153E024D*¤#if defined (_GCD_SERVER)¤	XercesAdapterLoader xerces_adapter_loader; {¤		IXercesAdapter_var xerces_adapter = xerces_adapter_loader.get_xerces_adapter ();¤¤		if (xerces_adapter.ptr () == 0) {¤			LOG_E (("Folders_i::save_xml_for_server: `XERCES_Adapter` not found"));¤			throw XercesAdapterNotFound ();¤		}¤¤		std::string xml_server_path;¤		if (GCL::ParamManager::instance ()->is_exist ("-XMLSavePath")) {¤			xml_server_path = GCL::ParamManager::instance ()->get_string ("-XMLSavePath");¤		}¤¤		try {¤			GbaSettingsSave::SettingsSave save (¤				xerces_adapter.in ()¤				, application_helper ()¤				, xml_server_path.c_str ()¤				, dt_UserFolders¤			);¤			save.run ();¤		} catch (...) {¤			LOG_E (("Folders_i::save_xml_for_server: unknown export error"));¤			throw UnknownExportError ();¤		}¤	}¤#endif // defined (_GCD_SERVER)¤	//#UC END# *4265153E024D*
+			    )))
+		    quid       	"4265153E024D"
+		    documentation 	
+|Ñîõðàíåíèå XML íà ñòîðîíå ñåðâåðà ïðèëîæåíèé (ñåé÷àñ ýòî èñïîëüçóåòñÿ äëÿ "ðàñøàðèâàíèÿ" èíôîðìàöèè î ìîíèòîðèíãàõ â ÔÑ âåðñèè).
+		    
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE61019C"))
+	    language   	"MDA Generator")
+	(object Class "Folder"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"4B736A91-FDC7-4F00-B445-9C91CE120AB9")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *3F25455602E4_CUSTOM_PREINCLUDES*¤//#UC END# *3F25455602E4_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/Folders/Folders_i.h"¤#include "Garant/GblAdapter/Folders/FoldersNode_i.h"¤#include "Garant/GblAdapter/BaseTypes/NamedElement_i.h"¤#include "Garant/GblAdapter/Start/Common_i.h"¤#include "Business/GblFolders/GblFoldersAdapC.h"¤#include "Garant/GblAdapter/Security/UserRightsList_i.h"¤//#UC END# *3F25455602E4_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_MAKE_INTERFACE_IMPLEMENTATION*¤	return new Folder_i ();¤	//#UC END# *3F25455602E4_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤IFolder* Folder_i::make_interface (¤	GblFolders::Folder* folder¤	, IFoldersNode* folders_node¤) {¤	return new Folder_i (folder, folders_node);¤}¤//#UC END# *3F25455602E4_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_BASE_METHOD_IMPL*¤bool __stdcall Folder_i::get_is_changed () const {¤	return false;¤}¤¤bool __stdcall Folder_i::get_is_saved () const {¤	return true;¤}¤¤void __stdcall Folder_i::save_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (Unsupported, AccessDenied, CanNotSave) {¤	throw Unsupported ();¤}¤¤void __stdcall Folder_i::append_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (ConstantModify, Unsupported, AccessDenied, CanNotSave) {¤	throw Unsupported ();¤}¤¤GblFolders::Folder* Folder_i::get_content_folder () {¤	return GblFolders::Folder::_duplicate (m_folder.in ());¤}¤¤void Folder_i::clear_content_folder () {¤	m_folder = GblFolders::Folder::_nil ();¤}¤¤// Âîçâðàùàåò ïðàâî íà îïåðàöèþ äëÿ òåêóùåãî ïîëüçîâàòåëÿ.¤bool __stdcall Folder_i::is_allowed (¤	ActionId action¤) {¤_GCL_DLL_TRY¤	bool retv;¤¤	if (m_id == 0¤		|| m_id == GblFoldersAdap::CommonFolderID_c) {¤		// "Root" or "All Documents" folder¤		retv = (action == AI_FOLDER_VIEW);¤	} else {¤		retv = m_folder->is_allowed (action, false) != 0;¤	}¤¤	return retv;¤_GCL_DLL_CATCH¤}¤¤void __stdcall Folder_i::set_user_rights (¤	IUserRightsList* user_rights¤) {¤_GCL_DLL_TRY¤	//#UC START# *4032032301DB_SET*¤	GslSecurityDef::UserRightsList_var pilot_user_rights_list;¤	CORBA::ULong i, j, user_rights_list_count;¤¤	user_rights_list_count = user_rights->get_count ();¤¤	pilot_user_rights_list = new GslSecurityDef::UserRightsList ();¤	pilot_user_rights_list->length (user_rights_list_count);¤¤	for (i = 0; i < user_rights_list_count; i ++) {¤		GslSecurityDef::AccessRightsList_var pilot_access_rights;¤		GslSecurityDef::UserRights_var pilot_user_rights;¤		IAccessRightList* access_right_list;¤		UserRights* cur_user_rights;¤		CORBA::ULong access_right_list_count;¤¤		cur_user_rights = user_rights->get_data_ptr (i);¤¤		pilot_user_rights = new GslSecurityDef::UserRights ();¤		pilot_user_rights->user = cur_user_rights->user;¤¤		if (cur_user_rights->rights) {¤			access_right_list = cur_user_rights->rights;¤			access_right_list_count = access_right_list->get_count ();¤¤			pilot_user_rights->rights.length (access_right_list_count);¤¤			for (j = 0; j < access_right_list_count; j++) {¤				GslSecurityDef::AccessRight pilot_access_right;¤				AccessRight* access_right;¤¤				access_right = access_right_list->get_data_ptr (j);¤¤				pilot_access_right.m_action = access_right->action;¤				pilot_access_right.m_right = access_right->right;¤¤				pilot_user_rights->rights [j] = pilot_access_right;¤			}¤		}¤¤		pilot_user_rights_list [i] = pilot_user_rights;¤	}¤¤	m_folder->set_access_rights (pilot_user_rights_list.in ());¤	//#UC END# *4032032301DB_SET*¤_GCL_DLL_CATCH¤}¤¤void __stdcall Folder_i::get_user_rights (IUserRightsList*& user_rights) const {¤_GCL_DLL_TRY¤¤	GslSecurity::SecurityManager_ptr sec = application_helper ()->get_cached_security_manager();¤¤	GCD::PID pid;¤	pid.m_class_id = Defines::CI_FOLDER;¤	pid.m_object_id = m_id;¤¤	GslSecurityDef::UserRightsList_var rights;¤	rights = sec->get_users_rights (pid);¤¤	user_rights = UserRightsList_i::make_interface (rights);	¤	¤_GCL_DLL_CATCH¤}¤¤bool Folder_i::is_my () const {¤	GslUserManager::UserProfile* current_user_profile;¤¤	current_user_profile = application_helper ()->get_cached_current_profile ();¤¤	if (current_user_profile->get_id () == m_folder->get_owner ()) {¤		return true;¤	} else {¤		return false;¤	}¤}¤¤//#UC END# *3F25455602E4_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *3F25455602E4_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *3F25455602E4_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤Folder_i::Folder_i (¤	GblFolders::Folder* folder¤	, IFoldersNode* folders_node¤) {¤	m_folder = GblFolders::Folder::_duplicate (folder);¤	m_folders_node = IFoldersNode::_duplicate (folders_node);¤	m_is_shared = -1;¤	m_is_external = -1;¤¤	try {¤		if (!CORBA::is_nil (m_folder)) {¤			m_id = m_folder->id ();¤		} else {¤			m_id = m_folders_node->get_id ();¤		}¤	} catch (CORBA::OBJECT_NOT_EXIST&) {¤		throw CanNotFindData ();¤	}¤}¤//#UC END# *3F25455602E4_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F25455602E4_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/BaseTypes/StringOld_i.h"¤//#UC END# *3F25455602E4_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F25455602E4_EX*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_EX*¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ òèïîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ñòàòè÷åñêèõ ìåòîäîâ è äàííûõ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ àáñòðàêòíûõ ìåòîäîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ìåòîäîâ è äàííûõ¤public:¤	virtual GblFolders::Folder* get_content_folder () = 0;¤	virtual void clear_content_folder () = 0;¤//#UC END# *3F25455602E4_EX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F25455602E4_CUSTOM_TYPES*"
+		    value      	"//#UC START# *3F25455602E4_CUSTOM_TYPES*¤//#UC END# *3F25455602E4_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F25455602E4_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CUSTOM_STATIC*¤	static IFolder* make_interface (¤		GblFolders::Folder* folder¤		, IFoldersNode* folders_node = 0¤	);	¤//#UC END# *3F25455602E4_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F25455602E4_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *3F25455602E4_CUSTOM_ABSTRACT*¤//#UC END# *3F25455602E4_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F25455602E4_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CUSTOM_METHODS_AND_DATA*¤public:¤	Folder_i (¤		GblFolders::Folder* folder¤		, IFoldersNode* folders_node¤	);¤¤	virtual bool __stdcall get_is_changed () const;¤¤	virtual bool __stdcall get_is_saved () const;¤¤	virtual void __stdcall save_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (Unsupported, AccessDenied, CanNotSave);¤¤	virtual void __stdcall append_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (ConstantModify, Unsupported, AccessDenied, CanNotSave);¤¤	virtual EntityId __stdcall get_eid () const {¤		return 0;¤	}¤¤	virtual GblFolders::Folder* get_content_folder ();¤¤	virtual void clear_content_folder ();¤¤¤	// Âîçâðàùàåò ïðàâî íà îïåðàöèþ äëÿ òåêóùåãî ïîëüçîâàòåëÿ.¤	virtual bool __stdcall is_allowed (¤		ActionId action¤	);¤¤	// Óñòàíîâèòü ïðàâà äëÿ ïîëüçîâàòåëÿ íà îïåðàöèþ.¤	/*¤	virtual void __stdcall set_access_rights (¤		IAccessRightList* rights¤		, IPublicProfile* profile¤	);¤	*/¤¤	virtual void __stdcall set_user_rights (¤		IUserRightsList* user_rights¤	);¤¤	virtual void __stdcall get_user_rights (¤		IUserRightsList*& user_rights¤	) const;¤¤	bool is_my () const;¤private:¤	mutable GblFolders::Folder_var m_folder;¤¤	mutable GblAdapter::StringOld_var m_name;¤	mutable GblAdapter::StringOld_var m_comment;¤¤	IFoldersNode_var m_folders_node;¤	mutable char m_is_shared;¤	mutable char m_is_external;¤	Containers::ContentID m_id;¤¤//#UC END# *3F25455602E4_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F25455602E4_INLINE_INCLUDES*"
+		    value      	"//#UC START# *3F25455602E4_INLINE_INCLUDES*¤//#UC END# *3F25455602E4_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F25455602E4_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *3F25455602E4_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F25455602E4_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *3F25455602E4_CUSTOM_INHERITANCE*¤	//#UC END# *3F25455602E4_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default Constructor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default make_interface"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Final"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Suppres servant generation"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3F25455602E4"
+	    documentation 	"Ðåàëèçàöèÿ BaseEntity âîïëîùàþùàÿ óçëîâîé ýëåìåíò äåðâà Ïàïîê."
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3F3794E80173"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::NamedElement"
+		    quidu      	"3F37949200C6"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4012809B00D1"
+		    supplier   	"Logical View::garant6x::GblAdapter::Security::Secure"
+		    quidu      	"40126AB202F2")
+		(object Realize_Relationship
+		    quid       	"4341171002FD"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::EntityBase"
+		    quidu      	"411C9622007F"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "shared"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"3FA9F74B03A6,3F0940350153")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F2551D902F4_GET*"
+			    value      	(value Text 
+|//#UC START# *3F2551D902F4_GET*¤	if (m_is_shared == -1) {¤		if (m_folder->get_folder_privacy_type () == GblFolders::ft_public) {¤			m_is_shared = true;¤		} else {¤			m_is_shared = false;¤		}¤	}¤	return m_is_shared > 0;¤	//#UC END# *3F2551D902F4_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F2551D902F4_SET*"
+			    value      	(value Text 
+|//#UC START# *3F2551D902F4_SET*¤	m_is_shared = shared;¤¤	try {¤		if (m_is_shared) {¤			m_folder->set_folder_privacy_type (GblFolders::ft_public);¤		} else {¤			m_folder->set_folder_privacy_type (GblFolders::ft_private);¤		}¤¤		if (!m_folders_node.is_nil ()) {¤			FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (m_folders_node.ptr ());¤			folders_node_i->set_shared_flag (m_is_shared != 0);¤		}¤	} catch (GCD::AccessDenied&) {¤		throw AccessDenied ();¤	} catch (Containers::ContentNotFound&) {¤		throw CanNotFindData ();¤	}¤	//#UC END# *3F2551D902F4_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"9E708536-FA49-4A56-9D17-DD9A95B31D29")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	""))
+		    quid       	"3F2551D902F4"
+		    documentation 	
+|Äëÿ ñåòåâîé âåðñèè. Ïðèçíàê òîãî ÷òî ïàïêà ÿâëÿåòñÿ îáùåäîñòóïíîé, ò.å âèäèìîé äðóãèì ïîëüçîâàòåëÿì.
+|Ïðèì. âíåøíèå ïàïêè âåãäà ÿâëÿþòñÿ îáùåäîñòóïíûìè.
+|Ïðè ïîïûòêè èçìåíèòü äàííûé ïðèçíàê ó âíåøíåé ïàïêè ãåíåðèðóåòñÿ èñêëþ÷åíèå ConstantModify.
+		    
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public")
+		(object ClassAttribute "external"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F2551E40372_GET*"
+			    value      	(value Text 
+|//#UC START# *3F2551E40372_GET*¤	if (m_is_external == -1) {¤		if (is_my ()) {¤			m_is_external = false;¤		} else {¤			m_is_external = true;¤		}¤	}¤	return m_is_external > 0;¤	//#UC END# *3F2551E40372_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"BB14406B-CC8A-43FD-8C7A-A873A59884BF"))
+		    quid       	"3F2551E40372"
+		    documentation 	
+|Äëÿ ñåòåâîé âåðñèè. 
+|Ïðèçíàê òîãî ÷òî ïàïêà ÿâëÿåòñÿ âíåøíåé (ò.å. íå ñîáñòâåííîé à ïðèíàäëåæàùåé äðóãîìó ïîëüçîâàòåëþ).
+		    
+		    stereotype 	"readonly"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "FoldersNode"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"6B1E4393-7BE4-4201-A8F9-D3C817C440B5")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *3F254B900029_CUSTOM_PREINCLUDES*¤//#UC END# *3F254B900029_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/Folders/Folder_i.h"¤#include "Garant/Business/GblFolders/GblFoldersAdapC.h"¤#include "Garant/Business/GblConsultingClient/GblConsultingClientC.h"¤#include "Garant/GblAdapter/Start/Common_i.h"¤#include "Garant/GblAdapter/Document/Bookmark_i.h"¤#include "Garant/GblAdapter/Document/Document_i.h"¤#include "Garant/GblAdapter/Search/Query_i.h"¤#include "Garant/GblAdapter/convertors.h"¤#include "Garant/GblAdapter/DynamicDocList/DynList_i.h"¤#include "Garant/GblAdapter/BaseTypes/EntityStorage_i.h"¤#include "Garant/GblAdapter/Consulting/Consultation_i.h"¤//#UC END# *3F254B900029_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_MAKE_INTERFACE_IMPLEMENTATION*¤	return new FoldersNode_i ();¤	//#UC END# *3F254B900029_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤IFoldersNode* FoldersNode_i::make_interface (¤	Containers::Content* content¤	, IFolders* folders¤) {¤	return new FoldersNode_i (content, folders);¤}¤//#UC END# *3F254B900029_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_BASE_METHOD_IMPL*¤const unsigned FoldersNode_i::MAX_TREE_DEPTH = 5;//31;¤¤void FoldersNode_i::add_child_node_i (¤	const GCL::IObjectOld* entity¤	, INode*& out_node¤){¤	IFolder_var folder;¤	IBookmark_var bookmark;¤	IQuery_var query;¤	Containers::Content_var content;¤	GblFolders::Folder_var pilot_folder;¤¤	if (m_content_type != Defines::CT_FOLDER ) {¤		throw InvalidEntityType ();¤	}¤¤	folder = IFolder::_narrow (entity);¤	// Ïàïêà¤	if (!folder.is_nil ()) {¤		Folder_i* folder_i = dynamic_cast <Folder_i*> (folder.ptr ());¤¤		// Ïîëó÷àåì Content ïàïêè¤		content = folder_i->get_content_folder ();¤¤		// Äîáàâëÿåì íà ñåðâåðå ïàïêó¤		pilot_folder = GblFolders::Folder::_narrow (m_content);¤		try {¤			pilot_folder->add_content (content);¤		} catch (Containers::DuplicateName&) {¤			folder_i->clear_content_folder ();¤			throw DuplicateNode ();¤		} catch (GCD::AccessDenied&) {¤			folder_i->clear_content_folder ();¤			throw AccessDenied ();¤		} catch (...) {¤			folder_i->clear_content_folder ();¤			throw CanNotFindData ();¤		}¤¤		// Ñîçäàåì IFoldersNode¤		out_node = FoldersNode_i::make_interface (content.in (), m_folders);¤		FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (out_node);¤		this->insert_back_child (folders_node_i);¤		IFoldersNode::_duplicate (folders_node_i);¤	}¤¤	bookmark = IBookmark::_narrow (entity);¤	// Äîêóìåíò¤	if (!bookmark.is_nil ()) {¤		Bookmark_i* bookmark_i = dynamic_cast <Bookmark_i*> (bookmark.ptr ());¤		content = bookmark_i->get_doc_bookmark ();¤¤		// Äîáàâëÿåì íà ñåðâåðå ïàïêó¤		pilot_folder = GblFolders::Folder::_narrow (m_content);¤		try {¤			pilot_folder->add_content (content);¤		} catch (Containers::DuplicateName&) {¤			bookmark_i->clear_doc_bookmark ();¤			throw DuplicateNode ();¤		} catch (GCD::AccessDenied&) {¤			bookmark_i->clear_doc_bookmark ();¤			throw AccessDenied ();¤		} catch (...) {¤			bookmark_i->clear_doc_bookmark ();¤			throw CanNotFindData ();¤		}¤		out_node = FoldersNode_i::make_interface (content.in (), m_folders);¤		FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (out_node);¤¤		this->insert_back_child (folders_node_i);¤		IFoldersNode::_duplicate (folders_node_i);¤¤		IControlManager_var control_manager;¤		CommonSingleton::instance ()->get_common ()->get_control_manager (control_manager.out ());¤¤		ControlManager_i* controlManager_i = dynamic_cast <ControlManager_i*> (control_manager.ptr ());¤		controlManager_i->refresh_control_status ();¤	}¤¤	IDynList_var list = IDynList::_narrow (entity);¤	if (!list.is_nil ()) {¤		DynList_i* list_i = dynamic_cast<DynList_i*>(list.ptr ());¤		// Äîáàâëÿåì íà ñåðâåðå ñïèñîê¤		pilot_folder = GblFolders::Folder::_narrow (m_content);¤		// Ïîëó÷àåì Content ïàïêè¤		content = list_i->save_to_folder (pilot_folder);¤¤		out_node = FoldersNode_i::make_interface (content.in (), m_folders);¤		FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (out_node);¤		this->insert_back_child (folders_node_i);¤		IFoldersNode::_duplicate (folders_node_i);¤	}¤¤¤	query = IQuery::_narrow (entity);¤	// Çàïðîñ¤	if (!query.is_nil ()) {¤		Query_i* query_i = dynamic_cast <Query_i*> (query.ptr ());¤¤		// Ïîëó÷àåì Content çàïðîñà¤		content = query_i->get_saved_query ();¤¤		// Äîáàâëÿåì íà ñåðâåðå ñïèñîê¤		pilot_folder = GblFolders::Folder::_narrow (m_content);¤		try {¤			pilot_folder->add_content (content);¤		} catch (Containers::DuplicateName&) {¤			query_i->reset_saved_query ();¤			throw DuplicateNode ();¤		} catch (GCD::AccessDenied&) {¤			throw AccessDenied ();¤		} catch (...) {¤			throw CanNotFindData ();¤		}¤¤		out_node = FoldersNode_i::make_interface (content.in (), m_folders);¤		FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (out_node);¤		this->insert_back_child (folders_node_i);¤		IFoldersNode::_duplicate (folders_node_i);¤	}¤¤	m_folders->recalc_shared_flags ();¤	m_folders->recalc_node_flags ();¤}¤¤FoldersItemType FoldersNode_i::convert_type (Containers::ContentType content_type) {¤	FoldersItemType retv;¤¤	if (content_type == Defines::CT_DOC_BOOKMARK) {¤		retv = FIT_BOOKMARK;¤	} else if (content_type == Defines::CT_FOLDER) {¤		retv = FIT_FOLDER;¤	} else if (content_type == Defines::CT_SAVED_LIST) {¤		retv = FIT_LIST;¤	} else if (content_type == Defines::CT_CONSULTATION) {¤		retv = FIT_CONSULTATION;¤	} else {¤		m_flags &= ~(NF_FILTER|NF_GLOBAL_FILTER);¤		GblFolders::SavedQuery_var saved_query = GblFolders::SavedQuery::_narrow (m_content);¤		FilterType filter_type = FilterTypeTranslator::translate (saved_query->get_filter_type ());¤		switch (filter_type) {¤			case FT_REGULAR : m_flags |= NF_FILTER;        break;¤			case FT_GLOBAL  : m_flags |= NF_GLOBAL_FILTER; break;¤		}¤		¤		if (QueryTypeTranslator::translate (saved_query->get_query_type ()) == QT_MAIL_LIST) {¤			m_flags |= NF_MONITORING_QUERY;¤		}¤		retv = FIT_QUERY;¤	}¤¤	return retv;¤}¤¤GblFolders::Folder* FoldersNode_i::get_folder () {¤	if (m_content_type == Defines::CT_FOLDER) {¤		return GblFolders::Folder::_narrow (m_content);¤	} else {¤		return 0;¤	}¤}¤¤void FoldersNode_i::update_query_type (FilterType type) {¤	m_flags &= ~(NF_FILTER|NF_GLOBAL_FILTER);¤	switch (type) {¤		case FT_REGULAR : m_flags |= NF_FILTER;        break;¤		case FT_GLOBAL  : m_flags |= NF_GLOBAL_FILTER; break;¤	}¤}¤¤void FoldersNode_i::update_content (¤) {¤	CORBA::String_var temp_str;¤	GCD::GCDate date;¤	tm* time_struct;¤¤	m_id = m_content->id ();¤	m_folder_element = GblFolders::FolderElement::_narrow (m_content);¤	m_content_type = m_content->type ();¤	m_type = convert_type (m_content_type);¤¤	temp_str = m_content->get_name ();¤	*m_caption = temp_str;¤	temp_str = m_folder_element->get_comment ();¤	*m_hint = temp_str;¤¤	date = m_folder_element->create_date ();¤	time_struct = localtime ((const long*)&date);¤	if (time_struct) { // if date < 01.01.1970 localtime return 0, so we must check it¤		m_creation_date.day = time_struct->tm_mday;¤		m_creation_date.month = time_struct->tm_mon + 1; // ìåñÿöû íà÷èíàþòñÿ ñ 0¤		// òàê íàïèñàíî â MSDN (óðîäû)¤		m_creation_date.year = time_struct->tm_year + 1900;¤	}¤¤	// check Shared flag¤	// check External flag¤	recalc_external_flag ();¤}¤¤void FoldersNode_i::recalc_external_flag (void) {¤	GblFolders::Folder_var folder_content;¤¤	folder_content = GblFolders::Folder::_narrow (m_content);¤¤	if (!CORBA::is_nil (folder_content)) {¤		if (folder_content->get_attribute () == GblFolders::FA_MY_COMMENTS) {¤			m_flags |= NF_COMMENTS;¤		} else {¤			m_flags -= (m_flags & NF_COMMENTS);¤		}¤¤		if (folder_content->get_attribute () == GblFolders::FA_HISTORY) {¤			m_flags |= NF_HISTORY;¤		} else {¤			m_flags -= (m_flags & NF_HISTORY);¤		}¤¤		if (folder_content->get_attribute () == GblFolders::FA_MY_DOCUMENTS) {¤			m_flags |= NF_MY_DOCUMENTS;¤		} else {¤			m_flags -= (m_flags & NF_MY_DOCUMENTS);¤		}¤¤		if (folder_content->get_folder_privacy_type () == GblFolders::ft_public) {¤			m_flags |= NF_SHARED;¤		} else {¤			m_flags -= (m_flags & NF_SHARED);¤		}¤¤		// Ôëàãè â ïàïêå Ìîè êîíñóëüòàöèè¤		if (folder_content->get_attribute () == GblFolders::FA_MY_CONSULTATION) {¤			m_flags |= NF_MY_CONSULTATIONS;¤		} else {¤			m_flags -= (m_flags & NF_MY_CONSULTATIONS);¤		}¤¤		if (folder_content->get_attribute () == GblFolders::FA_SENT) {¤			m_flags |= NF_FOLDER_SENT;¤		} else {¤			m_flags -= (m_flags & NF_FOLDER_SENT);¤		}¤¤		if (folder_content->get_attribute () == GblFolders::FA_RECEIVED) {¤			m_flags |= NF_FOLDER_RECEIVED;¤		} else {¤			m_flags -= (m_flags & NF_FOLDER_RECEIVED);¤		}¤	}¤	GblFolders::SavedConsultation_var saved_consultation;¤	saved_consultation = GblFolders::SavedConsultation::_narrow (m_content);¤	if (!CORBA::is_nil (saved_consultation)) {¤		GblConsultingClient::Consultation_var server_consultation = saved_consultation->get_consultation ();¤		// Ôëàãè äëÿ ñàìèõ êîíñóëüòàöèé¤		unsigned long flag = ConsultationStatusTranslator::translate_status_to_flag (server_consultation->status ());¤		if (flag == NF_CONSULTATION_SENT) {¤			m_flags |= flag;¤		} else {¤			m_flags -= (m_flags & flag);¤		}¤		if (flag == NF_NOTIFICATION_RECEIVED) {¤			m_flags |= flag;¤		} else {¤			m_flags -= (m_flags & flag);¤		}¤		if (flag == NF_ANSWER_RECEIVED) {¤			m_flags |= flag;¤		} else {¤			m_flags -= (m_flags & flag);¤		}¤		if (flag == NF_ANSWER_READ) {¤			m_flags |= flag;¤		} else {¤			m_flags -= (m_flags & flag);¤		}¤		if (flag == NF_ESTIMATION_SENT) {¤			m_flags |= flag;¤		} else {¤			m_flags -= (m_flags & flag);¤		}¤	}¤¤¤	GslUserManager::UserProfile* current_user_profile;¤¤	current_user_profile = application_helper ()->get_cached_current_profile ();¤¤	if (!CORBA::is_nil (folder_content)) {¤		if (current_user_profile->get_id () == folder_content->get_owner ()) {¤			m_flags -= (m_flags & NF_EXTERNAL);¤		} else {¤			m_flags |= NF_EXTERNAL;¤		}¤	} else {¤		INode_var parent_node;¤¤		this->get_parent (parent_node.out ());¤¤		if (!parent_node.is_nil ()) {¤			m_flags |= (parent_node->get_flags () & NF_EXTERNAL);¤		}¤	}¤}¤¤void FoldersNode_i::update_children () {¤	this->clear_children ();¤	this->load_children ();¤}¤¤void FoldersNode_i::update_rights () {¤}¤¤void FoldersNode_i::load_children (¤) {¤	CORBA::ULong i;¤	//¤	// Ïðîãðóæàåì ðåêóðñèâíî âñåõ äåòåé¤	//¤	if (!CORBA::is_nil (m_content.in ())) {¤		if (m_content_type == Defines::CT_FOLDER ) {¤			GblFolders::Folder_var folder;¤			folder = GblFolders::Folder::_narrow (m_content.in ());¤			GCD::SequenceIndex count = 0;¤			try {¤				count = folder->count ();¤			} catch(...) {¤			}¤¤			if (count > 0) {¤				Containers::ContentList_var content_list;¤				try¤				{¤					content_list = folder->get_contents (0, count);¤				} catch(...) {¤				}¤¤				for (i = 0; i < content_list->length (); i ++) {¤					FoldersNode_i* node;¤					try {¤						node = new FoldersNode_i (content_list [i].in (), m_folders);¤					} catch (...) {¤						continue;¤					}¤					this->insert_back_child (node);¤				}¤			}¤		} else if (m_content_type == Defines::CT_DOC_BOOKMARK) {¤		} else if (m_content_type == Defines::CT_SAVED_LIST) {¤		} else if (m_content_type == Defines::CT_SAVED_QUERY) {¤		} else if (m_content_type == Defines::CT_CONSULTATION) {¤		}¤	}¤}¤¤void FoldersNode_i::find_node_by_id (¤	FolderId id¤	, IFoldersNode*& folders_node¤) {¤	long i;¤¤	folders_node = 0;¤¤	for (i = 0; i < this->get_child_count (); i ++) {¤		INode_var child_node;¤		IFoldersNode_var child_folders_node;¤¤		this->get_child (i, child_node.out ());¤		child_folders_node = IFoldersNode::_narrow (child_node.ptr ());¤¤		if (child_folders_node->get_id () == id) {¤			folders_node = child_folders_node._retn ();¤			break;¤		} else {¤			FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (child_folders_node.ptr ());¤			folders_node_i->find_node_by_id (id, folders_node);¤			if (folders_node != 0) {¤				break;¤			}¤		}¤	}¤}¤¤bool FoldersNode_i::recalc_shared_flags (¤	bool from_shared¤) {¤	// clear shared flags¤	m_flags -= (m_flags & (NF_HAS_SHARED | NF_IN_SHARED));¤¤	if (from_shared) {¤		m_flags |= NF_IN_SHARED;¤	}¤¤	for (long i = 0; i < this->get_child_count (); ++i) {¤		INode_var child_node;¤		this->get_child (i, child_node.out ());¤¤		FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (child_node.ptr ());¤		if (folders_node_i->recalc_shared_flags ((m_flags & (NF_SHARED | NF_IN_SHARED)) != 0)) {¤			m_flags |= NF_HAS_SHARED;¤		}¤	}¤¤	return (m_flags & (NF_SHARED | NF_HAS_SHARED)) != 0;¤}¤¤¤bool FoldersNode_i::recalc_node_flags (¤	bool from_node¤	, unsigned long flag1¤	, unsigned long flag2¤) {¤	m_flags -= (m_flags & flag2);¤¤	if (from_node) {¤		m_flags |= flag2;¤	}¤¤	for (long i = 0; i < this->get_child_count (); ++i) {¤		INode_var child_node;¤		this->get_child (i, child_node.out ());¤¤		FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (child_node.ptr ());¤		folders_node_i->recalc_node_flags ((m_flags & (flag1 | flag2))!=0, flag1, flag2);¤	}¤¤	return (m_flags & flag1) != 0;¤}¤¤¤// Îïåðàöèè äîñòóïà ê àòòðèáóòó controlled - ñâîéñòâî îïðåäåëÿþùåå, ¤// ÷òî äàííàÿ ñóùíîñòü íàõîäèòñÿ íà êîíòðîëå. Óñòàíîâêà ñâîéñòâà ¤// â true ïðèâîäèò ê äîáàâëåíèþ ñóùíîñòè íà êîíòðîëü, â false ñîîòâåòñòâåííî ¤// ê ñíÿòèþ.¤bool __stdcall FoldersNode_i::get_controlled () const {¤_GCL_DLL_TRY¤	return (this->get_flags () & NF_CONTROLLED) != 0;¤_GCL_DLL_CATCH¤}¤¤void __stdcall FoldersNode_i::set_controlled (¤	bool controlled¤) {¤_GCL_DLL_TRY¤	IControlManager_var control_manager;¤	CommonSingleton::instance ()->get_common ()->get_control_manager (control_manager.out ());¤¤	ControlManager_i* control_manager_i = dynamic_cast <ControlManager_i*> (control_manager.ptr ());¤	if (controlled) {¤		control_manager_i->add (this->get_pid ());¤	} else {¤		control_manager_i->remove (this->get_pid ());¤	}¤	control_manager_i->refresh_control_status ();¤_GCL_DLL_CATCH¤}¤¤// Âîçâðÿùàåò òåêóùåå çíà÷åíèå ñòàòóñà èçìåíåíèé.¤unsigned long __stdcall FoldersNode_i::get_control_status () {¤_GCL_DLL_TRY¤	if (get_controlled ()) {¤		return m_under_control_status;¤	} else {¤		throw NotUnderControl ();¤	}¤_GCL_DLL_CATCH¤}¤¤// Ñáðàñûâàåò ñòàòóñ èçìåíåíèé â íîëü.¤void __stdcall FoldersNode_i::reset_control_status () {¤_GCL_DLL_TRY¤	IControlManager_var control_manager;¤	CommonSingleton::instance ()->get_common ()->get_control_manager (control_manager.out ());¤¤	ControlManager_i* control_manager_i = dynamic_cast <ControlManager_i*> (control_manager.ptr ());¤	if (get_controlled ()) {¤		control_manager_i->reset_control_status (this->get_pid ());¤	}¤_GCL_DLL_CATCH¤}¤¤bool __stdcall FoldersNode_i::is_same_controllable (¤	IControllable* other¤) {¤_GCL_DLL_TRY¤	bool retv = false;¤¤	IControllable_var this_controlable = IControllable::_narrow (dynamic_cast <const IControllable*> (this));¤¤	if (this_controlable.ptr () == other) {¤		retv = true;¤	} else {¤		Document_i* document_i = dynamic_cast <Document_i*> (other);¤		if (document_i != 0) {¤			if (this->get_document_pid () == document_i->get_document_pid ()) {¤				retv = true;¤			}¤		} else {¤			FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (other);¤			if (folders_node_i != 0) {¤				if (this->get_pid () == folders_node_i->get_pid ()) {¤					retv = true;¤				}¤			}¤		}¤	}¤¤	return retv;¤_GCL_DLL_CATCH¤}¤¤ControlledItemType __stdcall FoldersNode_i::get_type (¤) const {¤_GCL_DLL_TRY¤	//return CIT_DOCUMENT;¤	if (this->get_object_type () == FIT_BOOKMARK) {¤		return CIT_DOCUMENT;¤	} else {¤		throw Unsupported ();¤	}¤_GCL_DLL_CATCH¤}¤¤void __stdcall FoldersNode_i::get_short_name (¤	IStringOld*& name¤) const {¤_GCL_DLL_TRY¤	if (m_short_doc_name.is_nil () && m_content_type == Defines::CT_DOC_BOOKMARK) {¤		GblFolders::DocBookmark_var doc_bookmark = GblFolders::DocBookmark::_narrow (¤			const_cast <FoldersNode_i*> (this)->m_content¤		);¤		try {¤			GblPilotDef::Bookmark bookmark = doc_bookmark->get_bookmark ();¤			GCD::PersistentObj_var object =¤				application_helper ()->get_cached_function_manager ()->get_object_by_id (bookmark.id);¤			GblPilot::Document_var pilot_document = GblPilot::Document::_narrow (object);¤			*m_short_doc_name = pilot_document->get_short_name ();¤		} catch (...) {¤			m_short_doc_name = m_caption;¤		}¤	}¤	name = m_short_doc_name._sretn ();¤_GCL_DLL_CATCH¤}¤¤GCD::PID FoldersNode_i::get_pid () const {¤	GCD::PID pid;¤¤	pid.m_object_id = m_id;¤	if (m_type == FIT_BOOKMARK) {¤		pid = ACE_const_cast(FoldersNode_i*, this)->get_document_pid ();¤	} else if (m_type == FIT_LIST) {¤		pid.m_class_id = Defines::CI_LIST;¤	} else if (m_type == FIT_QUERY) {¤		pid.m_class_id = Defines::CI_QUERY;¤	} else {¤		pid.m_class_id = 0;¤	};¤¤	return pid;¤}¤¤¤GCD::PID FoldersNode_i::get_document_pid () {¤	GCD::PID retv;¤¤	retv.m_class_id = 0;¤	retv.m_object_id = 0;¤	if (m_content_type == Defines::CT_DOC_BOOKMARK) {¤		if (m_pid.is_nil()) {¤			GblFolders::DocBookmark_var doc_bookmark;¤¤			doc_bookmark = GblFolders::DocBookmark::_narrow (m_content);¤			try {¤				*m_pid = doc_bookmark->get_doc_pid ();¤			} catch (...) {¤				// [dk]: ãàñèì âñå èñêëþ÷åíèÿ, äëÿ ñëó÷àÿ, åñëè åñòü çàêëàäêà íà íåñóùåñòâóþùèé â áàçå äîêóìåíò¤			}¤		}¤		retv = *m_pid;¤	}¤	return retv;¤}¤¤bool FoldersNode_i::can_change () {¤	if (this->get_object_type () != FIT_FOLDER) {¤		INode_var parent;¤		this->get_parent(parent.out ());¤¤		FoldersNode_i* folders_node_i = dynamic_cast <FoldersNode_i*> (parent.ptr ());¤		return folders_node_i->can_change ();¤	} ¤	long flags = this->get_flags ();¤	if (flags & NF_EXTERNAL) {¤		GblFolders::Folder_var folder = GblFolders::Folder::_narrow (m_content);¤		return (folder->is_allowed (AI_FOLDER_MODIFY, false) != 0);¤	}¤	return true; ¤}¤¤void FoldersNode_i::set_shared_flag (bool is_shared) {¤	if (is_shared) {¤		m_flags |= NF_SHARED;¤	} else {¤		m_flags -= (m_flags & NF_SHARED);¤	}¤¤	m_folders->recalc_shared_flags ();¤}¤//#UC END# *3F254B900029_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CONSTRUCTOR_IMPLEMENTATION*¤	m_pid = 0;¤	m_id = (Containers::ContentID)this;¤	m_flags = 0;¤	m_valid_controlled_flags = false;¤	m_under_control_status = 0;¤	m_pid = 0;¤	//#UC END# *3F254B900029_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *3F254B900029_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤FoldersNode_i::FoldersNode_i (¤	Containers::Content* content¤	, IFolders* folders¤) {¤	m_pid = 0;¤	m_flags = 0;¤	m_valid_controlled_flags = false;¤	m_under_control_status = 0;¤¤	m_content = Containers::Content::_duplicate (content);¤	m_folders = dynamic_cast <Folders_i*> (folders);¤¤	IControlManager_var control_manager;¤	CommonSingleton::instance ()->get_common ()->get_control_manager (control_manager.out ());¤¤	this->update_content ();¤¤	this->load_children ();¤}¤//#UC END# *3F254B900029_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F254B900029_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/Search/SearchUnit.h"¤#include "Garant/GblAdapter/Folders/Folders_i.h"¤#include "Garant/GblAdapter/UnderControl/ControlManager_i.h"¤#include "list"¤//#UC END# *3F254B900029_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F254B900029_EX*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_EX*¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ òèïîâ¤public:¤typedef std::list<Containers::ContentIDList_var> ContentIdLists;¤typedef ContentIdLists::iterator ContentIdListsIterator;¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ñòàòè÷åñêèõ ìåòîäîâ è äàííûõ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ àáñòðàêòíûõ ìåòîäîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ìåòîäîâ è äàííûõ¤public:¤	virtual GblFolders::Folder* get_folder () = 0;¤	virtual void update_query_type (GblFolders::QueryType type) = 0;¤	virtual void update_content () = 0;¤	virtual void update_children () = 0;¤	virtual void update_rights () = 0;¤	virtual void find_node_by_id (FolderId id, IFoldersNode** folders_node) = 0;¤	virtual bool recalc_shared_flags (bool from_shared) = 0;¤	virtual void invalidate_shared_flags () = 0;¤//	virtual void invalidate_controlled_flags () = 0;¤	virtual bool is_last_under_control (ContentIdLists* id_lists) = 0;¤	virtual GCD::PID get_pid () const = 0;¤	virtual GCD::PID get_document_pid () = 0;¤	virtual void set_shared_flag (bool is_shared) = 0;¤//#UC END# *3F254B900029_EX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F254B900029_CUSTOM_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_TYPES*¤	typedef std::list<Containers::ContentIDList_var> ContentIdLists;¤	typedef ContentIdLists::iterator ContentIdListsIterator;¤//#UC END# *3F254B900029_CUSTOM_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F254B900029_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_STATIC*¤	static IFoldersNode* make_interface (¤		Containers::Content* content¤		, IFolders* folders¤	);	¤//#UC END# *3F254B900029_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F254B900029_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *3F254B900029_CUSTOM_ABSTRACT*¤//#UC END# *3F254B900029_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F254B900029_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_METHODS_AND_DATA*¤public:¤	virtual GblFolders::Folder* get_folder ();¤	virtual void update_query_type (FilterType type);¤	void add_child_node_i (const GCL::IObjectOld* entity, INode*& out_node);¤¤	// Îáíîâèòü ñîäåðæèìîå ýòîãî óçëà¤	virtual void update_content ();¤	// Îáíîâèòü êýø âñåõ äåòåé¤	virtual void update_children ();¤	// Îáíîâèòü íà îñíîâå èçìåíèâøèõñÿ ïðàâ¤	virtual void update_rights ();¤	// Ïðîãðóçèòü äåòåé, ðåêóðñèâíî¤	virtual void load_children ();¤	// Îáíîâèòü ôëàãè NF_HAS_SHARED, NF_IN_SHARED¤	// Âûçûâàåòñÿ ðåêóðñèâíî îò ðîäèòåëÿ ïåðåäà÷åé êóìóëÿòèâíîãî ôëàãà from_shared¤	// Âîçâðàùàåò true åñëè õîòÿ áû îäèí èç äåòåíûøåé èìååò ôëàã NS_SHARED¤	virtual bool recalc_shared_flags (bool from_shared);¤¤	// Îáíîâèòü ôëàã flag2¤	// Âûçûâàåòñÿ ðåêóðñèâíî îò ðîäèòåëÿ ïåðåäà÷åé êóìóëÿòèâíîãî ôëàãà from_node¤	// Âîçâðàùàåò true åñëè õîòÿ áû îäèí èç äåòåíûøåé èìååò ôëàã flag1¤	virtual bool recalc_node_flags (¤		bool from_node¤		, unsigned long flag1¤		, unsigned long flag2¤	);¤¤	// Ðåêóðñèâíûé ïîèñê ðåáåíêà ïî èäåíòèôèêàòîðó¤	virtual void find_node_by_id (FolderId id, IFoldersNode*& folders_node);¤¤	// Îïåðàöèè äîñòóïà ê àòòðèáóòó controlled - ñâîéñòâî îïðåäåëÿþùåå, ¤	// ÷òî äàííàÿ ñóùíîñòü íàõîäèòñÿ íà êîíòðîëå. Óñòàíîâêà ñâîéñòâà ¤	// â true ïðèâîäèò ê äîáàâëåíèþ ñóùíîñòè íà êîíòðîëü, â false ñîîòâåòñòâåííî ¤	// ê ñíÿòèþ.¤	virtual bool __stdcall get_controlled () const;¤	virtual void __stdcall set_controlled (¤		bool controlled	¤	);¤	// Âîçâðÿùàåò òåêóùåå çíà÷åíèå ñòàòóñà èçìåíåíèé.¤	virtual unsigned long __stdcall get_control_status ();¤	// Ñáðàñûâàåò ñòàòóñ èçìåíåíèé â íîëü.¤	virtual void __stdcall reset_control_status ();¤¤	virtual bool __stdcall is_same_controllable (¤		IControllable* other¤	);¤	virtual ControlledItemType __stdcall get_type () const;¤	virtual void __stdcall get_short_name (IStringOld*& name) const;¤	virtual GCD::PID get_pid () const;¤	virtual GCD::PID get_document_pid ();¤	bool can_change ();¤	virtual void set_shared_flag (bool is_shared);¤	void recalc_external_flag (void);¤¤	//EntityStorage impl¤	virtual Containers::ContentType get_content_type () const {¤		return m_content_type;¤	}¤¤	virtual const Containers::Content_ptr get_cached_content () const {¤		//if (Containers::Content::_nil () == m_content.ptr ()) {¤		//	GCL::IObjectOld_var obj;¤		//	this->open (obj.out ());¤		//}¤		return m_content.in ();¤	}¤protected:¤	friend class Folders_i;¤¤	FoldersNode_i (¤		Containers::Content* content¤		, IFolders* folders¤	);¤¤	FoldersItemType convert_type (Containers::ContentType);¤¤	Date m_creation_date;¤¤	GblAdapter::StringOld_var m_caption;¤	GblAdapter::StringOld_var m_hint;¤	mutable GblAdapter::StringOld_var m_short_doc_name;¤¤	Containers::Content_var m_content;¤	GblFolders::FolderElement_var m_folder_element;¤¤	Containers::ContentType m_content_type;¤	mutable FoldersItemType m_type;¤	mutable unsigned long m_flags;¤	mutable unsigned long m_under_control_status;¤	//mutable bool m_valid_shared_flags;¤	mutable bool m_valid_controlled_flags;¤	IQuery_var m_iquery;¤	Folders_i* m_folders;¤¤	mutable Containers::ContentID m_id;¤	mutable GCL::Aptr<GCD::PID> m_pid;¤¤	static const unsigned MAX_TREE_DEPTH;¤¤//#UC END# *3F254B900029_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F254B900029_INLINE_INCLUDES*"
+		    value      	"//#UC START# *3F254B900029_INLINE_INCLUDES*¤//#UC END# *3F254B900029_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3F254B900029_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_QUERY_INTERFACE*¤		if (m_type != FIT_BOOKMARK && iid == IID_IControllable) {¤			return 0x8000FFFFUL;¤		}¤		//#UC END# *3F254B900029_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default Constructor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default make_interface"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Final"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Suppres servant generation"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3F254B900029_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *3F254B900029_CUSTOM_INHERITANCE*¤	, virtual public EntityStorage_i¤	//#UC END# *3F254B900029_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3F254B900029"
+	    documentation 	
+|Ñïåöèàëèçèðîâàííàÿ íîäà äëÿ Ïàïîê. Õðàíèò äîïîëíèòåëüíûé àòðèáóò "äàòà ñîçäàíèÿ".
+|Àòðèáóòû Caption è Hint óíàñëåäîâàííûå îò Node ïðåäñòàâëÿþ ñîáîé Èìÿ ýëåìåíòà è Ïîëüçîâàòåëüñêèé Êîììåíòàðèé ñîîòâåòñòâåííî.
+|Â êà÷åñòâå BaseEntity íîäà ìîæåò ñîäåðæàòü Çàêëàäêó íà Äîêóìåíò, Ñïèñîê, Çàïðîñ èëè ñîáñòâåííî óçåë (Folder). Èìåíà è õèíòû âñåõ ýëåìåíòîâ (êðîìå óçëà) êîïèðóþòñÿ ïðè ñîçäàíèè â íîäó, îäíàêî ïîòîì ìîãóò èçìåíÿòñÿ íåçàâèñèìî (ò.å. èçìåíåíèÿ èìåíè íîäû íå âëå÷åò çà ñîáîé èçìåíåíèÿ èìåíè ñóùíîñòè ñîäåðæàùåéñÿ â íåé).
+	    
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3F254BE20009"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport::Node"
+		    quidu      	"3EC09A3D03C6"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"3F27BF2A000B"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport::StaticNode"
+		    quidu      	"3F2165630026")
+		(object Realize_Relationship
+		    quid       	"3FE5E4F10108"
+		    supplier   	"Logical View::garant6x::GblAdapter::UnderControl::Controllable"
+		    quidu      	"3FE5E1B1036E"))
+	    language   	"MDA Generator")
+	(object Class "FoldersItemType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3F2A349A01A3"
+	    documentation 	"Çíà÷åíèÿ object_type äëÿ  ýëåìåíòà FolderNode."
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "FIT_BOOKMARK"
+		    quid       	"3F2A35150024"
+		    documentation 	"Èíòåðôåéñ Bookamark"
+		    exportControl 	"Public")
+		(object ClassAttribute "FIT_LIST"
+		    quid       	"3F2A351C006A"
+		    documentation 	"Èíòåðôåéñ List"
+		    exportControl 	"Public")
+		(object ClassAttribute "FIT_QUERY"
+		    quid       	"3F2A352001E2"
+		    documentation 	"Èíòåðôåéñ Query"
+		    exportControl 	"Public")
+		(object ClassAttribute "FIT_FOLDER"
+		    quid       	"3F2A353000F5"
+		    documentation 	"Ãðóïïèðóþùèé ýëåìåíò (ïàïêà)"
+		    exportControl 	"Public")
+		(object ClassAttribute "FIT_CONSULTATION"
+		    quid       	"4451C2F80100"
+		    documentation 	"Êîíñóëüòàöèÿ"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "FolderId"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3F52FF6B0340"
+	    documentation 	"Èäåíòèôèêàòîð ïàïêè."
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3F52FFC802B6"
+		    supplier   	"Logical View::Primitives::unsigned long"
+		    quidu      	"3DBFFDE101CA"))
+	    language   	"MDA Generator")
+	(object Class "NodeFlags"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"400D01F600A9"
+	    documentation 	"Çíà÷åíèÿ flags äëÿ  ýëåìåíòà FoldersNode."
+	    stereotype 	"Constants"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "NF_FILTER"
+		    quid       	"400D02170089"
+		    documentation 	"Ñîõðàíåííûé ýëåìåíò ÿâëÿåòñÿ ôèëüòðîì."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"1"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_CONTROLLED"
+		    quid       	"400D022D036F"
+		    documentation 	"Ñîõðàíåííûé ýëåìåíò ñòîèò íà êîíòðîëå."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"2"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_SHARED"
+		    quid       	"4023359A01A5"
+		    documentation 	"Ðàñøàðåí ëè ýòîò óçåë (åñëè ïàïêà)."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"4"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_EXTERNAL"
+		    quid       	"402335D5027C"
+		    documentation 	"Âíåøíèé óçåë."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"8"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_IN_SHARED"
+		    quid       	"402349B7036B"
+		    documentation 	"Ðàñïîëîæåí ëè ýòîò óçåë â øàðåíîé ïàïêå."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"16"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_HAS_SHARED"
+		    quid       	"402349FC0176"
+		    documentation 	"Åñòü ëè â ýòîì óçëå (åñëè ïàïêà) øàðåííûå ïàïêè."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"32"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_HISTORY"
+		    quid       	"419DF55A008D"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"64"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_IN_HISTORY"
+		    quid       	"419DF57201BE"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"128"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_GLOBAL_FILTER"
+		    quid       	"41B5B78503D0"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"256"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_COMMENTS"
+		    quid       	"421F26B201B6"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"512"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_IN_COMMENTS"
+		    quid       	"421F26CB0281"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"1024"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_COMMON"
+		    quid       	"421F26DC0149"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"2048"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_USER"
+		    quid       	"421F26FE00CC"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"4096"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_MY_DOCUMENTS"
+		    quid       	"421F270E00FA"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"8192"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_MONITORING_QUERY"
+		    quid       	"4226F9B8035C"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"16384"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_MY_CONSULTATIONS"
+		    quid       	"4451C1690110"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"32768"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_FOLDER_SENT"
+		    quid       	"4451C1AC018F"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"65536"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_FOLDER_RECEIVED"
+		    quid       	"4451C24E000B"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"131072"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_CONSULTATION_SENT"
+		    quid       	"4451E80C0361"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"262144"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_NOTIFICATION_RECEIVED"
+		    quid       	"4451E93F00B0"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"524288"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_ANSWER_RECEIVED"
+		    quid       	"4451E9540060"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"1048576"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_ANSWER_READ"
+		    quid       	"4451E95E006E"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"2097152"
+		    exportControl 	"Public")
+		(object ClassAttribute "NF_ESTIMATION_SENT"
+		    quid       	"4451E96B00BD"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"4194304"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "ExternalFoldersChangeNotifier"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"9AFA9214-42F7-439F-97DB-EB7827289CE0")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *40126C6A00A6_CUSTOM_PREINCLUDES*¤//#UC END# *40126C6A00A6_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *40126C6A00A6_CUSTOM_INCLUDES*¤//#UC END# *40126C6A00A6_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *40126C6A00A6_MAKE_INTERFACE_IMPLEMENTATION*¤	return new ExternalFoldersChangeNotifier_i ();¤	//#UC END# *40126C6A00A6_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	"//#UC START# *40126C6A00A6_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *40126C6A00A6_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *40126C6A00A6_BASE_METHOD_IMPL*¤NotifyStatus ExternalFoldersChangeNotifier_i::status_convert (¤	GblFolders::ChangedStatus pilot_status¤) {¤	NotifyStatus retv;¤	switch (pilot_status) {¤		case GblFolders::cs_Node:¤			retv = NS_NODE;¤		break;¤		case GblFolders::cs_Content:¤			retv = NS_CONTENT;¤		break;¤		case GblFolders::cs_Rights:¤			retv = NS_RIGHTS;¤		break;¤	}¤	return retv;¤}¤//#UC END# *40126C6A00A6_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *40126C6A00A6_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *40126C6A00A6_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *40126C6A00A6_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *40126C6A00A6_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	"//#UC START# *40126C6A00A6_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤//#UC END# *40126C6A00A6_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40126C6A00A6_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *40126C6A00A6_CUSTOM_INCLUDES*¤//#UC END# *40126C6A00A6_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40126C6A00A6_EX*"
+		    value      	"//#UC START# *40126C6A00A6_EX*¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ òèïîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ñòàòè÷åñêèõ ìåòîäîâ è äàííûõ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ àáñòðàêòíûõ ìåòîäîâ¤¤////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////¤// Áëîê îïðåäåëåíèÿ ìåòîäîâ è äàííûõ¤//#UC END# *40126C6A00A6_EX*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40126C6A00A6_CUSTOM_TYPES*"
+		    value      	"//#UC START# *40126C6A00A6_CUSTOM_TYPES*¤//#UC END# *40126C6A00A6_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40126C6A00A6_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *40126C6A00A6_CUSTOM_STATIC*¤public:¤	static NotifyStatus status_convert (GblFolders::ChangedStatus pilot_status);¤//#UC END# *40126C6A00A6_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40126C6A00A6_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *40126C6A00A6_CUSTOM_ABSTRACT*¤//#UC END# *40126C6A00A6_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40126C6A00A6_CUSTOM_METHODS_AND_DATA*"
+		    value      	"//#UC START# *40126C6A00A6_CUSTOM_METHODS_AND_DATA*¤//#UC END# *40126C6A00A6_CUSTOM_METHODS_AND_DATA*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40126C6A00A6_INLINE_INCLUDES*"
+		    value      	"//#UC START# *40126C6A00A6_INLINE_INCLUDES*¤//#UC END# *40126C6A00A6_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*40126C6A00A6_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *40126C6A00A6_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *40126C6A00A6_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*40126C6A00A6_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *40126C6A00A6_CUSTOM_INHERITANCE*¤	//#UC END# *40126C6A00A6_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"40126C6A00A6"
+	    documentation 	"Èíòåðôåéñ íîòèôèêàöèè èçìåíåíèÿ ñòðóêòóðû ïàïîê."
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "fire"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*40126CAD0124*"
+			    value      	(value Text 
+|//#UC START# *40126CAD0124*¤¤	//#UC END# *40126CAD0124*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"237830D6-B8BF-4216-9ACD-F0E78EAAA47B"))
+		    quid       	"40126CAD0124"
+		    documentation 	"Ïðîèçîøëî èçìåíåíèå ïàïêè. Ïðè ýòîì íåîáõîäèìî ïåðå÷èòàòü òîëüêî íåïîñðåäñòâåííîå ñîäåðæèìîå ïàïêè, èñêëþ÷àÿ ðåêóðñèâíóþ ïðîãðóçêó äî÷åðíèõ ïàïîê."
+		    parameters 	(list Parameters
+			(object Parameter "data"
+			    quid       	"40126E09028D"
+			    documentation 	"Äàííûå íîòèôèêàöèè."
+			    type       	"NotifyData"
+			    quidu      	"40126D640128"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE61019C"))
+	    language   	"MDA Generator")
+	(object Class "NotifyData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (h):*40126D640128_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *40126D640128_CUSTOM_DECLARATIONS*¤//#UC END# *40126D640128_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"old.dll.h:*40126D640128_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *40126D640128_CUSTOM_DECLARATIONS*¤//#UC END# *40126D640128_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"40126D640128"
+	    documentation 	"Äàííûå íîòèôèêàöèè ïî èçìåíåíèþ ïàïîê."
+	    stereotype 	"Struct"
+	    language   	"MDA Generator")
+	(object Class "NotifyStatus"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4020FD01011C"
+	    documentation 	"Ñòàòóñ èçìåíåíèÿ ïàïêè."
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "NS_NODE"
+		    quid       	"4020FD4900D0"
+		    documentation 	"Èçìåíåíà ñòðóêòóðà ïàïêè. Îçíà÷àåò ÷òî óäàëèëñÿ/äîáàâèëñÿ îäèí èç äî÷åðíèõ óçëîâ."
+		    exportControl 	"Public")
+		(object ClassAttribute "NS_CONTENT"
+		    quid       	"4020FD5402AC"
+		    documentation 	"Èçìåíåíî ñîäåðæèìîå ïàïêè, íàïðèìåð èìÿ ïàïêè, êîììåíòàðèé, äàòà, è ò.ä."
+		    exportControl 	"Public")
+		(object ClassAttribute "NS_RIGHTS"
+		    quid       	"4020FD6600C7"
+		    documentation 	"Èçìåíåíû ïðàâà ïàïêè."
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "DoneNotifier"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"B9089580-C0F0-43C8-B449-B2AA3A0D4FFF")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *41810AA402B3_CUSTOM_PREINCLUDES*¤//#UC END# *41810AA402B3_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *41810AA402B3_CUSTOM_INCLUDES*¤//#UC END# *41810AA402B3_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_MAKE_INTERFACE_IMPLEMENTATION*¤	return new DoneNotifier_i ();¤	//#UC END# *41810AA402B3_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤IDoneNotifier* DoneNotifier_i::make_interface (NotifierServant_i* servant) {¤	return new DoneNotifier_i (servant);¤}¤//#UC END# *41810AA402B3_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *41810AA402B3_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_BASE_METHOD_IMPL*¤void DoneNotifier_i::clear_cache () {¤	GCL_GUARD (m_done_mutex);¤	//LOG_D (("Clear cache"));¤	m_notify_data_list.clear ();¤}¤¤void DoneNotifier_i::add_notify_data (NotifyStatus status, CORBA::ULong folder) {¤	// Åñëè ìû íå â ïðîöåññå îáðàáîòêè íîòèôèêàöèè - ïîñûëàåì íîòèôèêàöèþ¤	if (m_fire_done) {¤		{¤			GCL_GUARD (m_done_mutex);¤			m_fire_done = false;¤		}¤		//LOG_D (("Send notify"));¤		m_notifier->send_notify (status, folder);¤	} else {¤		GCL_GUARD (m_done_mutex);¤		//LOG_D (("Add to array"));¤		Notify data (status, folder);¤		m_notify_data_list.push_back (data);¤	}¤}¤//#UC END# *41810AA402B3_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *41810AA402B3_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *41810AA402B3_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*41810AA402B3_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤DoneNotifier_i::DoneNotifier_i (NotifierServant_i* notifier)  {¤	m_notifier = notifier;¤	m_fire_done = true;¤}¤//#UC END# *41810AA402B3_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*41810AA402B3_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/Folders/NotifierServant_i.h"¤//#UC END# *41810AA402B3_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*41810AA402B3_CUSTOM_TYPES*"
+		    value      	"//#UC START# *41810AA402B3_CUSTOM_TYPES*¤//#UC END# *41810AA402B3_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*41810AA402B3_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_CUSTOM_STATIC*¤static IDoneNotifier* make_interface (NotifierServant_i* servant);	¤//#UC END# *41810AA402B3_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*41810AA402B3_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *41810AA402B3_CUSTOM_ABSTRACT*¤//#UC END# *41810AA402B3_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*41810AA402B3_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_CUSTOM_METHODS_AND_DATA*¤public:¤	DoneNotifier_i (NotifierServant_i* notifier);¤¤	void add_notify_data (NotifyStatus status, CORBA::ULong folder);¤	void clear_cache ();¤	struct Notify {¤		Notify () {¤			status = NS_NODE;¤			folder = 0;¤		};¤		Notify (NotifyStatus status_, CORBA::ULong folder_) {¤			status = status_;¤			folder = folder_;¤		};¤		NotifyStatus status;¤		CORBA::ULong folder;¤	};¤private:¤	typedef std::list <Notify> NotifyDataList;¤	NotifyDataList m_notify_data_list;¤	bool m_fire_done;¤	GCL::Mutex m_done_mutex;¤	NotifierServant_i* m_notifier;¤//#UC END# *41810AA402B3_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*41810AA402B3_INLINE_INCLUDES*"
+		    value      	"//#UC START# *41810AA402B3_INLINE_INCLUDES*¤//#UC END# *41810AA402B3_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*41810AA402B3_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *41810AA402B3_CUSTOM_INHERITANCE*¤	//#UC END# *41810AA402B3_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"41810AA402B3"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "done"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*41810AC40100*"
+			    value      	(value Text 
+|//#UC START# *41810AC40100*¤	bool ret = true;¤	{¤		GCL_GUARD (m_done_mutex);¤		m_fire_done = true;¤	}¤	// Ñïèñîê íåîáðàáîòàííûõ íîòèôèêàöèé íå ïóñò - îòïðàâèòü î÷åðåäíóþ íîòèôèêàöèþ ¤	//LOG_D (("DoneNotifier_i::done"));¤	if (!m_notify_data_list.empty ()) {¤		//LOG_D (("Notify array size=%d", m_notify_data_list.size ()));¤		Notify data;¤		{¤			GCL_GUARD (m_done_mutex);¤			m_fire_done = false;¤			data = m_notify_data_list.front ();¤			m_notify_data_list.pop_front ();¤		}¤		m_notifier->send_notify (data.status, data.folder);¤	}¤	return ret;¤	//#UC END# *41810AC40100*
+			    )))
+		    quid       	"41810AC40100"
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ECB447701BA"
+	    documentation 	"Ïàïêè."
+	    roles      	(list role_list
+		(object Role "folders"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECB4477039A_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECB4477039A_GET*¤	if (m_folders.is_nil ()) {¤		try {¤			m_folders = Folders_i::make_interface ();¤		} catch (CORBA::BAD_CONTEXT) {¤			throw FoldersNotAvailable ();¤		}¤	}¤	folders = m_folders._sretn ();¤	//#UC END# *3ECB4477039A_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"373CB3B7-B7BE-4ABF-967C-E5BA88467458")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"40E1061402C1"))
+		    quid       	"3ECB4477039A"
+		    documentation 	"Âîçâðàùàåò èíòåðôåéñ äëÿ ðàáîòû ñ ïàïêàìè."
+		    stereotype 	"readonly"
+		    label      	"folders"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::Folders"
+		    quidu      	"3EB8B6BC00CC"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"3ECB4477039C"
+		    supplier   	"Logical View::garant6x::GblAdapter::Start::Common"
+		    quidu      	"3EB8B1370025"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    quid       	"3F2548E30060"
+	    roles      	(list role_list
+		(object Role "creation_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F2548E30197_GET*"
+			    value      	(value Text 
+|//#UC START# *3F2548E30197_GET*¤	creation_date = m_creation_date;¤	//#UC END# *3F2548E30197_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"74F982ED-F5F9-4051-912F-2D3CF49B1400"))
+		    quid       	"3F2548E30197"
+		    documentation 	"Äàòà ñîçäàíèÿ ýëåìåíòà. Âûñòàâëÿåòñÿ àâòîìàòè÷åñêè ïðè ñîçäàíèè íîâîãî ýëåìåíòà (BaseEntity)"
+		    stereotype 	"readonly"
+		    label      	"creation_date"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::Date"
+		    quidu      	"3EC377520179"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$3"
+		    quid       	"3F2548E301BF"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::FoldersNode"
+		    quidu      	"3F254B900029"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$4"
+	    quid       	"3F33BE760095"
+	    roles      	(list role_list
+		(object Role "filters"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Pure virtual"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F33BE77000A_GET*"
+			    value      	(value Text 
+|//#UC START# *3F33BE77000A_GET*¤¤	std::vector<INode_var> nodes;¤	this->pick_up_filter_nodes (m_root, nodes);¤¤	size_t length = nodes.size ();¤	IFilters_var result;¤	result = Filters_i::make_interface (length);¤	¤	for (size_t i = 0; i < length; ++i) {¤		FilterBox* box = result->get_data_ptr (i);	¤		box->filter = nodes[i]._sretn ();¤	}¤	¤	filters = result._retn ();¤	//#UC END# *3F33BE77000A_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"2F79633B-D56C-4D73-8E02-F6DAAEA394C2"))
+		    quid       	"3F33BE77000A"
+		    documentation 	"Âñå ôèëüòðû èç äåðåâà ïàïîê"
+		    stereotype 	"readonly"
+		    label      	"filters"
+		    supplier   	"Logical View::garant6x::GblAdapter::Filters::Filters"
+		    quidu      	"3F33624E0215"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"3F33BE770029"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::Folders"
+		    quidu      	"3EB8B6BC00CC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$6"
+	    quid       	"3F5300CC010C"
+	    roles      	(list role_list
+		(object Role "id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F5300CC01FC_GET*"
+			    value      	(value Text 
+|//#UC START# *3F5300CC01FC_GET*¤	return m_id;¤	//#UC END# *3F5300CC01FC_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"A4B2EA63-2131-4A63-A4D5-01B14139AF9C"))
+		    quid       	"3F5300CC01FC"
+		    documentation 	"Èäåíòèôèêàòîð ïàïêè."
+		    stereotype 	"readonly"
+		    label      	"id"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::FolderId"
+		    quidu      	"3F52FF6B0340"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$7"
+		    quid       	"3F5300CC0206"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::FoldersNode"
+		    quidu      	"3F254B900029"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$8"
+	    quid       	"4020FD3000A2"
+	    roles      	(list role_list
+		(object Role "status"
+		    quid       	"4020FD3001B0"
+		    documentation 	"Ñòàòóñ èçìåíåíèÿ."
+		    label      	"status"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::NotifyStatus"
+		    quidu      	"4020FD01011C"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$9"
+		    quid       	"4020FD3001BA"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::NotifyData"
+		    quidu      	"40126D640128"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$10"
+	    quid       	"41810AF602ED"
+	    roles      	(list role_list
+		(object Role "folder"
+		    quid       	"41810AF803B8"
+		    label      	"folder"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::FoldersNode"
+		    quidu      	"3F254B900029"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$11"
+		    quid       	"41810AF803C2"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::NotifyData"
+		    quidu      	"40126D640128"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$12"
+	    quid       	"41810F050016"
+	    roles      	(list role_list
+		(object Role "done_notifier"
+		    quid       	"41810F050246"
+		    label      	"done_notifier"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::DoneNotifier"
+		    quidu      	"41810AA402B3"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$13"
+		    quid       	"41810F050248"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::NotifyData"
+		    quidu      	"40126D640128"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$14"
+	    quid       	"4226E4F703D9"
+	    roles      	(list role_list
+		(object Role "monitorings"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4226E4F8011A_GET*"
+			    value      	(value Text 
+|//#UC START# *4226E4F8011A_GET*¤	std::vector<INode_var> nodes;¤	this->pick_up_monitorings_nodes (m_root, nodes);¤¤	size_t length = nodes.size ();¤	INodeList_var result;¤	result = NodeList_i::make_interface (length);¤	¤	for (size_t i = 0; i < length; ++i) {¤		NodeBox* box = result->get_data_ptr (i);	¤		box->node = nodes[i]._sretn ();¤	}¤	¤	monitorings = result._retn ();¤	//#UC END# *4226E4F8011A_GET*
+			    )))
+		    quid       	"4226E4F8011A"
+		    stereotype 	"readonly"
+		    label      	"monitorings"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTreeSupport::NodeList"
+		    quidu      	"3F9673B402F3"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$15"
+		    quid       	"4226E4F8011C"
+		    supplier   	"Logical View::garant6x::GblAdapter::Folders::Folders"
+		    quidu      	"3EB8B6BC00CC"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3F150A2C02E8"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	297
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::BaseEntity" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2868, 1377)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(2867, 1485)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	927
+			justify    	0
+			label      	"BaseEntity")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3EB8B951025D"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @2
+		    location   	(2361, 540)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(2223, 480)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	240
+			justify    	1
+			label      	"Äîïóñòèìûå ñóùíîñòè äëÿ õðàíåíèÿ â Ïàïêàõ")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Search::Query" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2811, 579)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(2810, 687)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	257
+			justify    	0
+			label      	"Query")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3F1BA274021B"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::Folder" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2139, 804)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1812, 720)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	654
+			justify    	0
+			label      	"Folder")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1812, 670)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	654
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"3F25455602E4"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(1812, 781)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	646
+			justify    	1)
+		    width      	672
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::Folder" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2505, 1953)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(2179, 1869)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	652
+			justify    	0
+			label      	"Folder")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(2179, 1819)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	652
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"3F25455602E4"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(2179, 1930)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	646
+			justify    	1)
+		    width      	670
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::StaticNode" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1335, 549)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1334, 657)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	2208
+			justify    	0
+			label      	"StaticNode")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3F2165630026"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::FoldersItemType" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2253, 2805)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(2029, 2671)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	448
+			justify    	0
+			label      	"FoldersItemType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(2029, 2621)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	448
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"3F2A349A01A3"
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(2029, 2732)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	443
+			justify    	1)
+		    width      	466
+		    height     	392
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Document::Bookmark" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1893, 582)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1892, 690)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	2210
+			justify    	0
+			label      	"Bookmark")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3F2A518D01BE"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::BaseCatalog" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1062, 1647)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(1061, 1755)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	15873
+			justify    	0
+			label      	"BaseCatalog")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3EB8B9E10106"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::Node" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(510, 570)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(509, 678)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	49392
+			justify    	0
+			label      	"Node")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3EC09A3D03C6"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "" @11
+		    location   	(1040, 832)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ECB45720387"
+		    roleview_list 	(list RoleViews
+			(object RoleView "" @12
+			    Parent_View 	@11
+			    location   	(-667, 241)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @13
+				Parent_View 	@12
+				location   	(1000, 1462)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.800508
+				height     	41
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ECB45730194"
+			    client     	@11
+			    supplier   	@9
+			    vertices   	(list Points
+				(1040, 832)
+				(1040, 1619))
+			    line_style 	3
+			    origin_attachment 	(1040, 832)
+			    terminal_attachment 	(1040, 1619))
+			(object RoleView "root" @14
+			    Parent_View 	@11
+			    location   	(-667, 241)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @15
+				Parent_View 	@14
+				location   	(879, 610)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	97
+				justify    	0
+				label      	"+root"
+				pctDist    	0.564168
+				height     	62
+				orientation 	0)
+			    stereotype 	(object SegLabel @16
+				Parent_View 	@14
+				location   	(946, 532)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	0
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.451080
+				height     	1
+				orientation 	1)
+			    line_color 	3342489
+			    quidu      	"3ECB45730180"
+			    client     	@11
+			    supplier   	@10
+			    vertices   	(list Points
+				(1040, 832)
+				(1040, 548)
+				(536, 548))
+			    line_style 	3
+			    origin_attachment 	(1040, 832)
+			    terminal_attachment 	(536, 548))))
+		(object InheritView "" @17
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F216575005E"
+		    client     	@6
+		    supplier   	@10
+		    vertices   	(list Points
+			(1306, 547)
+			(536, 547))
+		    line_style 	3
+		    origin_attachment 	(1306, 547)
+		    terminal_attachment 	(536, 547))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTypes::NamedElement" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(3309, 1929)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(3308, 2037)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	29918
+			justify    	0
+			label      	"NamedElement")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3F37949200C6"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @19
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F3794E80173"
+		    client     	@5
+		    supplier   	@18
+		    vertices   	(list Points
+			(2840, 1919)
+			(3280, 1919))
+		    line_style 	3
+		    origin_attachment 	(2840, 1919)
+		    terminal_attachment 	(3280, 1919))
+		(object ClassView "Class" "Logical View::Primitives::unsigned long" @20
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1203, 2430)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(1028, 2379)
+			fill_color 	16777215
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"unsigned long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFDE101CA"
+		    width      	368
+		    height     	127
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::NodeFlags" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3036, 2625)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(2482, 2041)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1108
+			justify    	0
+			label      	"NodeFlags")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(2482, 1991)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1108
+			justify    	0
+			label      	"<<Constants>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"400D01F600A9"
+		    compartment 	(object Compartment
+			Parent_View 	@21
+			location   	(2482, 2102)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	23
+			max_width  	1094
+			justify    	1)
+		    width      	1126
+		    height     	1292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Security::Secure" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2130, 2385)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(2129, 2493)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	453
+			justify    	0
+			label      	"Secure")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"40126AB202F2"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @23
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4012809B00D1"
+		    client     	@5
+		    supplier   	@22
+		    vertices   	(list Points
+			(2170, 2099)
+			(2130, 2099)
+			(2130, 2356))
+		    line_style 	3
+		    origin_attachment 	(2170, 2099)
+		    terminal_attachment 	(2130, 2356))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::UnderControl::ControlledObjects" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    location   	(324, 3036)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(137, 3009)
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"ControlledObjects")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@24
+			location   	(137, 2959)
+			anchor     	10
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"<<Sequence>>")
+		    icon_style 	"Icon"
+		    fill_color 	16777215
+		    quidu      	"400CFDFE018F"
+		    width      	392
+		    height     	179
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::UnderControl::ControlledBox" @25
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1044, 3048)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@25
+			location   	(893, 3021)
+			nlines     	1
+			max_width  	302
+			justify    	0
+			label      	"ControlledBox")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@25
+			location   	(893, 2971)
+			anchor     	10
+			nlines     	1
+			max_width  	302
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Icon"
+		    fill_color 	16777215
+		    quidu      	"400CFE4E00FD"
+		    width      	320
+		    height     	179
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "" @26
+		    location   	(702, 3048)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"400CFEDA0040"
+		    roleview_list 	(list RoleViews
+			(object RoleView "" @27
+			    Parent_View 	@26
+			    location   	(-516, 33)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @28
+				Parent_View 	@27
+				location   	(556, 3008)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	41
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"400CFEDA024B"
+			    client     	@26
+			    supplier   	@24
+			    vertices   	(list Points
+				(702, 3048)
+				(520, 3048))
+			    line_style 	3
+			    origin_attachment 	(702, 3048)
+			    terminal_attachment 	(520, 3048))
+			(object RoleView "" @29
+			    Parent_View 	@26
+			    location   	(-516, 33)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @30
+				Parent_View 	@29
+				location   	(846, 3008)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.794702
+				height     	41
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"400CFEDA0249"
+			    client     	@26
+			    supplier   	@25
+			    vertices   	(list Points
+				(702, 3048)
+				(884, 3048))
+			    line_style 	3
+			    origin_attachment 	(702, 3048)
+			    terminal_attachment 	(884, 3048))))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::ExternalFoldersChangeNotifier" @31
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2220, 3207)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@31
+			location   	(1919, 3148)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	602
+			justify    	0
+			label      	"ExternalFoldersChangeNotifier")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@31
+			location   	(1919, 3098)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	602
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"40126C6A00A6"
+		    compartment 	(object Compartment
+			Parent_View 	@31
+			location   	(1919, 3209)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	546
+			justify    	1)
+		    width      	620
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::FolderId" @32
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1206, 2772)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@32
+			location   	(1084, 2756)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"FolderId")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@32
+			location   	(1084, 2706)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	241
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"3F52FF6B0340"
+		    width      	262
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @33
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F52FFC802B6"
+		    client     	@32
+		    supplier   	@20
+		    vertices   	(list Points
+			(1209, 2694)
+			(1209, 2493))
+		    line_style 	3
+		    origin_attachment 	(1209, 2694)
+		    terminal_attachment 	(1209, 2493))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTypes::Date" @34
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2193, 1296)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@34
+			location   	(2059, 1269)
+			nlines     	1
+			max_width  	268
+			justify    	0
+			label      	"Date")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@34
+			location   	(2059, 1219)
+			anchor     	10
+			nlines     	1
+			max_width  	268
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Icon"
+		    fill_color 	16777215
+		    quidu      	"3EC377520179"
+		    width      	286
+		    height     	179
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::FolderId" @35
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(846, 1335)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@35
+			location   	(724, 1319)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"FolderId")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@35
+			location   	(724, 1269)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	241
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"3F52FF6B0340"
+		    width      	262
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::NotifyStatus" @36
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1623, 3423)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@36
+			location   	(1457, 3339)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"NotifyStatus")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@36
+			location   	(1457, 3289)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"4020FD01011C"
+		    compartment 	(object Compartment
+			Parent_View 	@36
+			location   	(1457, 3400)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	325
+			justify    	1)
+		    width      	350
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::FoldersNode" @37
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1311, 1002)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@37
+			location   	(1174, 973)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	274
+			justify    	0
+			label      	"FoldersNode")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@37
+			location   	(1174, 923)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	274
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"3F254B900029"
+		    width      	292
+		    height     	183
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$2" @38
+		    location   	(1753, 1147)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F2548E30060"
+		    roleview_list 	(list RoleViews
+			(object RoleView "creation_date" @39
+			    Parent_View 	@38
+			    location   	(-163, -676)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @40
+				Parent_View 	@39
+				location   	(1823, 1135)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	16711680
+				    default_color 	FALSE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	268
+				justify    	0
+				label      	"+creation_date"
+				pctDist    	0.202338
+				height     	35
+				orientation 	0)
+			    stereotype 	(object SegLabel @41
+				Parent_View 	@39
+				location   	(1803, 1057)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	2
+				max_width  	0
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.435938
+				height     	122
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"3F2548E30197"
+			    client     	@38
+			    supplier   	@34
+			    vertices   	(list Points
+				(1753, 1147)
+				(2049, 1246))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$3" @42
+			    Parent_View 	@38
+			    location   	(-163, -676)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F2548E301BF"
+			    client     	@38
+			    supplier   	@37
+			    vertices   	(list Points
+				(1753, 1147)
+				(1457, 1049))
+			    line_style 	0)))
+		(object InheritView "" @43
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F254BE20009"
+		    client     	@37
+		    supplier   	@10
+		    vertices   	(list Points
+			(1164, 923)
+			(561, 596))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$6" @44
+		    location   	(1066, 1174)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F5300CC010C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "id" @45
+			    Parent_View 	@44
+			    location   	(-223, 152)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @46
+				Parent_View 	@45
+				location   	(981, 1189)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	16711680
+				    default_color 	FALSE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	72
+				justify    	0
+				label      	"+id"
+				pctDist    	0.562162
+				height     	39
+				orientation 	1)
+			    stereotype 	(object SegLabel @47
+				Parent_View 	@45
+				location   	(1067, 1111)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	0
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	-0.282883
+				height     	39
+				orientation 	1)
+			    line_color 	3342489
+			    quidu      	"3F5300CC01FC"
+			    client     	@44
+			    supplier   	@35
+			    vertices   	(list Points
+				(1066, 1174)
+				(953, 1256))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$7" @48
+			    Parent_View 	@44
+			    location   	(-223, 152)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F5300CC0206"
+			    client     	@44
+			    supplier   	@37
+			    vertices   	(list Points
+				(1066, 1174)
+				(1180, 1093))
+			    line_style 	0)))
+		(object RealizeView "" @49
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F27BF2A000B"
+		    client     	@37
+		    supplier   	@6
+		    vertices   	(list Points
+			(1397, 910)
+			(1397, 725))
+		    line_style 	3
+		    origin_attachment 	(1397, 910)
+		    terminal_attachment 	(1397, 725))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::DoneNotifier" @50
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1101, 3462)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@50
+			location   	(925, 3403)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	353
+			justify    	0
+			label      	"DoneNotifier")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@50
+			location   	(925, 3353)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	353
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"41810AA402B3"
+		    compartment 	(object Compartment
+			Parent_View 	@50
+			location   	(925, 3464)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	350
+			justify    	1)
+		    width      	371
+		    height     	242
+		    annotation 	8)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::NotifyData" @51
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1623, 3033)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@51
+			location   	(1500, 3004)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	246
+			justify    	0
+			label      	"NotifyData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@51
+			location   	(1500, 2954)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	246
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"40126D640128"
+		    width      	264
+		    height     	183
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$8" @52
+		    location   	(1623, 3200)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4020FD3000A2"
+		    roleview_list 	(list RoleViews
+			(object RoleView "status" @53
+			    Parent_View 	@52
+			    location   	(-78, 135)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @54
+				Parent_View 	@53
+				location   	(1588, 3229)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	16711680
+				    default_color 	FALSE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	140
+				justify    	0
+				label      	"+status"
+				pctDist    	0.375000
+				height     	36
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4020FD3001B0"
+			    client     	@52
+			    supplier   	@36
+			    vertices   	(list Points
+				(1623, 3200)
+				(1623, 3276))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$9" @55
+			    Parent_View 	@52
+			    location   	(-78, 135)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4020FD3001BA"
+			    client     	@52
+			    supplier   	@51
+			    vertices   	(list Points
+				(1623, 3200)
+				(1623, 3124))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$10" @56
+		    location   	(1466, 2017)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"41810AF602ED"
+		    roleview_list 	(list RoleViews
+			(object RoleView "folder" @57
+			    Parent_View 	@56
+			    location   	(-158, -1017)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @58
+				Parent_View 	@57
+				location   	(1311, 1284)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	134
+				justify    	0
+				label      	"+folder"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"41810AF803B8"
+			    client     	@56
+			    supplier   	@37
+			    vertices   	(list Points
+				(1466, 2017)
+				(1324, 1093))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$11" @59
+			    Parent_View 	@56
+			    location   	(-158, -1017)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"41810AF803C2"
+			    client     	@56
+			    supplier   	@51
+			    vertices   	(list Points
+				(1466, 2017)
+				(1608, 2941))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$12" @60
+		    location   	(1378, 3232)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"41810F050016"
+		    roleview_list 	(list RoleViews
+			(object RoleView "done_notifier" @61
+			    Parent_View 	@60
+			    location   	(-246, 198)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @62
+				Parent_View 	@61
+				location   	(1247, 3286)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	251
+				justify    	0
+				label      	"+done_notifier"
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"41810F050246"
+			    client     	@60
+			    supplier   	@50
+			    vertices   	(list Points
+				(1378, 3232)
+				(1246, 3340))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$13" @63
+			    Parent_View 	@60
+			    location   	(-246, 198)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"41810F050248"
+			    client     	@60
+			    supplier   	@51
+			    vertices   	(list Points
+				(1378, 3232)
+				(1508, 3124))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Start::Common" @64
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1692, 2082)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@64
+			location   	(1691, 2190)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	2576
+			justify    	0
+			label      	"Common")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3EB8B1370025"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Filters::Filters" @65
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(729, 2634)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@65
+			location   	(581, 2607)
+			nlines     	1
+			max_width  	296
+			justify    	0
+			label      	"Filters")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@65
+			location   	(581, 2557)
+			anchor     	10
+			nlines     	1
+			max_width  	296
+			justify    	0
+			label      	"<<Sequence>>")
+		    icon_style 	"Icon"
+		    fill_color 	16777215
+		    quidu      	"3F33624E0215"
+		    width      	314
+		    height     	179
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::NodeList" @66
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(284, 2637)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@66
+			location   	(6, 2610)
+			nlines     	1
+			max_width  	556
+			justify    	0
+			label      	"NodeList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@66
+			location   	(6, 2560)
+			anchor     	10
+			nlines     	1
+			max_width  	556
+			justify    	0
+			label      	"<<Sequence>>")
+		    icon_style 	"Label"
+		    fill_color 	16777215
+		    quidu      	"3F9673B402F3"
+		    width      	574
+		    height     	179
+		    annotation 	8)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::Folders" @67
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(546, 2124)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@67
+			location   	(96, 1990)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	900
+			justify    	0
+			label      	"Folders")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@67
+			location   	(96, 1940)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	900
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"3EB8B6BC00CC"
+		    compartment 	(object Compartment
+			Parent_View 	@67
+			location   	(96, 2051)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	893
+			justify    	1)
+		    width      	918
+		    height     	392
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @68
+		    location   	(1334, 2078)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ECB447701BA"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @69
+			    Parent_View 	@68
+			    location   	(710, 1376)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @70
+				Parent_View 	@69
+				location   	(1597, 2038)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	41
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ECB4477039C"
+			    client     	@68
+			    supplier   	@64
+			    vertices   	(list Points
+				(1334, 2078)
+				(1663, 2078))
+			    line_style 	3
+			    origin_attachment 	(1334, 2078)
+			    terminal_attachment 	(1663, 2078))
+			(object RoleView "folders" @71
+			    Parent_View 	@68
+			    location   	(710, 1376)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @72
+				Parent_View 	@71
+				location   	(1216, 2122)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	151
+				justify    	0
+				label      	"+folders"
+				pctDist    	0.362117
+				height     	44
+				orientation 	0)
+			    stereotype 	(object SegLabel @73
+				Parent_View 	@71
+				location   	(1258, 2044)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	0
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.114206
+				height     	19
+				orientation 	1)
+			    line_color 	3342489
+			    quidu      	"3ECB4477039A"
+			    client     	@68
+			    supplier   	@67
+			    vertices   	(list Points
+				(1334, 2078)
+				(1005, 2078))
+			    line_style 	3
+			    origin_attachment 	(1334, 2078)
+			    terminal_attachment 	(1005, 2078))))
+		(object InheritView "" @74
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3EB8BA350306"
+		    client     	@67
+		    supplier   	@9
+		    vertices   	(list Points
+			(1005, 2032)
+			(1029, 2032)
+			(1029, 1824))
+		    line_style 	3
+		    origin_attachment 	(1005, 2032)
+		    terminal_attachment 	(1029, 1824))
+		(object AssociationViewNew "$UNNAMED$4" @75
+		    location   	(681, 2431)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F33BE760095"
+		    roleview_list 	(list RoleViews
+			(object RoleView "filters" @76
+			    Parent_View 	@75
+			    location   	(194, 508)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @77
+				Parent_View 	@76
+				location   	(595, 2507)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	16711680
+				    default_color 	FALSE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	131
+				justify    	0
+				label      	"+filters"
+				pctDist    	0.684848
+				height     	87
+				orientation 	1)
+			    stereotype 	(object SegLabel @78
+				Parent_View 	@76
+				location   	(648, 2429)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	0
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.303030
+				height     	2
+				orientation 	1)
+			    line_color 	3342489
+			    quidu      	"3F33BE77000A"
+			    client     	@75
+			    supplier   	@65
+			    vertices   	(list Points
+				(681, 2431)
+				(681, 2544))
+			    line_style 	3
+			    origin_attachment 	(681, 2431)
+			    terminal_attachment 	(681, 2544))
+			(object RoleView "$UNNAMED$5" @79
+			    Parent_View 	@75
+			    location   	(194, 508)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3F33BE770029"
+			    client     	@75
+			    supplier   	@67
+			    vertices   	(list Points
+				(681, 2431)
+				(681, 2319))
+			    line_style 	3
+			    origin_attachment 	(681, 2431)
+			    terminal_attachment 	(681, 2319))))
+		(object AssociationViewNew "$UNNAMED$14" @80
+		    location   	(411, 2433)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4226E4F703D9"
+		    roleview_list 	(list RoleViews
+			(object RoleView "monitorings" @81
+			    Parent_View 	@80
+			    location   	(-134, 310)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @82
+				Parent_View 	@81
+				location   	(278, 2492)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	251
+				justify    	0
+				label      	"+monitorings"
+				pctDist    	0.522523
+				height     	134
+				orientation 	1)
+			    stereotype 	(object SegLabel @83
+				Parent_View 	@81
+				location   	(275, 2414)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.009259
+				height     	142
+				orientation 	1)
+			    line_color 	3342489
+			    quidu      	"4226E4F8011A"
+			    client     	@80
+			    supplier   	@66
+			    vertices   	(list Points
+				(411, 2433)
+				(411, 2548))
+			    line_style 	3
+			    origin_attachment 	(411, 2433)
+			    terminal_attachment 	(411, 2548))
+			(object RoleView "$UNNAMED$15" @84
+			    Parent_View 	@80
+			    location   	(-134, 310)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4226E4F8011C"
+			    client     	@80
+			    supplier   	@67
+			    vertices   	(list Points
+				(411, 2433)
+				(411, 2319))
+			    line_style 	3
+			    origin_attachment 	(411, 2433)
+			    terminal_attachment 	(411, 2319))))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::DynamicDocList::DynList" @85
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2354, 588)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@85
+			location   	(2081, 539)
+			nlines     	1
+			max_width  	546
+			justify    	0
+			label      	"DynList")
+		    icon       	"Interface"
+		    icon_style 	"None"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"418E334400DA"
+		    width      	564
+		    height     	123
+		    annotation 	8)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTypes::EntityBase" @86
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2335, 252)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@86
+			location   	(2025, 203)
+			nlines     	1
+			max_width  	620
+			justify    	0
+			label      	"EntityBase")
+		    icon       	"Interface"
+		    icon_style 	"None"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"411C9622007F"
+		    width      	638
+		    height     	123
+		    annotation 	8)
+		(object RealizeView "" @87
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"42F3289B01A5"
+		    client     	@85
+		    supplier   	@86
+		    vertices   	(list Points
+			(2350, 526)
+			(2337, 313))
+		    line_style 	0)
+		(object RealizeView "" @88
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4236D4E302B0"
+		    client     	@3
+		    supplier   	@86
+		    vertices   	(list Points
+			(2783, 559)
+			(2425, 313))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTypes::EntityStorage" @89
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1334, 144)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@89
+			location   	(1333, 252)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	526
+			justify    	0
+			label      	"EntityStorage")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"434114CE0109"
+		    annotation 	8)
+		(object RealizeView "" @90
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4341170D006D"
+		    client     	@8
+		    supplier   	@86
+		    vertices   	(list Points
+			(1919, 559)
+			(2251, 313))
+		    line_style 	0)
+		(object RealizeView "" @91
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4341171002FD"
+		    client     	@4
+		    supplier   	@86
+		    vertices   	(list Points
+			(2139, 657)
+			(2142, 494)
+			(2284, 313))
+		    line_style 	0)
+		(object InheritView "" @92
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4342364C0213"
+		    client     	@10
+		    supplier   	@89
+		    vertices   	(list Points
+			(536, 552)
+			(1204, 209))
+		    line_style 	0)))
+	(object ClassDiagram "MainEx"
+	    quid       	"3F28DE72016A"
+	    title      	"MainEx"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::Folders" @93
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1548, 732)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@93
+			location   	(1547, 840)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	530
+			justify    	0
+			label      	"Folders")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3EB8B6BC00CC"
+		    width      	58
+		    height     	58
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::BaseCatalog" @94
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1161, 237)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@94
+			location   	(1160, 345)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	45213
+			justify    	0
+			label      	"BaseCatalog")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3EB8B9E10106"
+		    width      	58
+		    height     	58
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @95
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3EB8BA350306"
+		    client     	@93
+		    supplier   	@94
+		    vertices   	(list Points
+			(1526, 704)
+			(1526, 239)
+			(1187, 239))
+		    line_style 	3
+		    origin_attachment 	(1526, 704)
+		    terminal_attachment 	(1187, 239))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::StaticCatalog" @96
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(399, 246)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@96
+			location   	(394, 459)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	104098
+			justify    	0
+			label      	"StaticCatalog")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F1FC0EA016D"
+		    width      	518
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @97
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F1FC0FE032E"
+		    client     	@96
+		    supplier   	@94
+		    vertices   	(list Points
+			(606, 246)
+			(1132, 246))
+		    line_style 	3
+		    origin_attachment 	(606, 246)
+		    terminal_attachment 	(1132, 246))
+		(object RealizeView "" @98
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F28DE8A0115"
+		    client     	@93
+		    supplier   	@96
+		    vertices   	(list Points
+			(1518, 732)
+			(348, 732)
+			(348, 479))
+		    line_style 	3
+		    origin_attachment 	(1518, 732)
+		    terminal_attachment 	(348, 479))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Folders::FoldersNode" @99
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(468, 1284)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@99
+			location   	(467, 1392)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	530
+			justify    	0
+			label      	"FoldersNode")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F254B900029"
+		    width      	58
+		    height     	58
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTreeSupport::StaticNode" @100
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(468, 900)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@100
+			location   	(467, 1008)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	104098
+			justify    	0
+			label      	"StaticNode")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F2165630026"
+		    width      	58
+		    height     	58
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @101
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3F27BF2A000B"
+		    client     	@99
+		    supplier   	@100
+		    vertices   	(list Points
+			(469, 1255)
+			(469, 1026))
+		    line_style 	3
+		    origin_attachment 	(469, 1255)
+		    terminal_attachment 	(469, 1026))))))

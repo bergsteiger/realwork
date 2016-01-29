@@ -1,0 +1,57 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/Integrated/Root/ProjectSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::Integrated::Root::ProjectSupport
+//
+// вспомогательные функции для генерации проекта
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// имеет ли элемент вложенные элементы использующие серверную часть
+f _has_tragets_with_server
+//#UC START# *4715A4EE004E*
+	[{<{}{%f_use_server(%C)=true}{C}>!=0}{false}true]
+//#UC END# *4715A4EE004E*
+
+// имеет ли элемент вложенные элементы использующие НЕ серверную часть
+f _has_tragets_without_server
+//#UC START# *4715A5180000*
+	[{<{}{%f_use_server(%C)=false}{C}>!=0}{false}true]
+//#UC END# *4715A5180000*
+
+// является ли элемент DLL - целью сборки
+f _is_dll_target
+//#UC START# *4715A56300DA*
+	[{%SS=ComTarget|%SS=AdapterTarget|%SS=DLL|%SS=ComDLL}{false}true]
+//#UC END# *4715A56300DA*
+
+// генерация Exe - цели
+f _dump_exe_target
+//#UC START# *4715A580000F*
+	[exe_target_%f_to_lower(%SN) {
+		\tcmdline += -ti dll_exe:msvc90-exe-generic-static
+		\t%U[{_EXE_TARGET}
+		\t]
+		[\t%So
+		][\t%f_with_gen_id(mpc2,%So)]
+	\t}]
+//#UC END# *4715A580000F*
+
+// генерация DLL - цели
+f _dump_dll_target
+//#UC START# *4715A5D403B9*
+	[dll_target_%f_to_lower(%SN) {
+		\tcmdline += -ti dll:msvc90-dll-generic-static
+		\t%U[{_DLL_TARGET}
+		\t]
+		[{%SS=ComTarget}\tcmdline += -value_template link_options+=/def:%f_normolized_path(com.def,S)
+		][\t%So
+		][\t%f_with_gen_id(mpc2,%So)]
+	\t}]
+//#UC END# *4715A5D403B9*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,54 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/T_KPageTool.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ExeTarget::Category>> MDProcess::KPageTool
+//
+// утилита для чтения/записи текста страницы
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_KPageTool) : project_generic_core_corba, project_subsystem_console {
+	exename = KPageTool
+	
+	includes += ../../
+	
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += KPageToolLib
+	libs  += KPageToolLib
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	
+	Header_Files {
+		Std_Headers {
+			
+		}
+	}
+	
+	Inline_Files {
+		Std_Inlines {
+			
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../KPageTool/KPageTool_main.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../KPageTool/KPageTool_vi.rc
+		./../KPageTool/KPageTool_vi.rch
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,507 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "NewLibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/storage/test_candidates/TestLibrary/MainTestInitialization.h::44AE1963034B")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/storage/test_candidates/TestLibrary/MainTestInitialization.cpp::44AE1963034B"))
+    quid       	"46FD09F0007D"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"46FE500A0222"
+	    supplier   	"Logical View::shared::GCL::math"
+	    quidu      	"45018D5E036B")
+	(object Visibility_Relationship
+	    quid       	"47021713031C"
+	    supplier   	"Logical View::storage::TestLibrary::Test"
+	    quidu      	"4496934F004E")
+	(object Visibility_Relationship
+	    quid       	"47021BD103A9"
+	    supplier   	"Logical View::storage::TestLibrary::TestFramework"
+	    quidu      	"4496AB6800EA"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "MainTestInitialization"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44AE1963034B_CUSTOM_INCLUDES*"
+		    value      	(value Text "//#UC START# *44AE1963034B_CUSTOM_INCLUDES*¤#include <vector>¤#include <fstream>¤//#UC END# *44AE1963034B_CUSTOM_INCLUDES*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44AE1963034B*"
+		    value      	(value Text 
+|//#UC START# *44AE1963034B*¤	Core::select_log_format_set (Core::LFI_FULL);¤	Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "create_object_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "read_object_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "add_index_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "search_index_test_monopole");¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-action_count", 1000);¤	Core::ParamManager::instance ()->add_hardcode_long ("-thread_count", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-object_average_size", 1000);¤	Core::ParamManager::instance ()->add_hardcode_long ("-object_stddev_size", 100);¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-object_max_id", 1000);¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-operations_count", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_transaction", 0);¤	// SES! EACH TEST PROFILE MAKES A DECISION UPON -need_sequential ITSELF!¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_a", "-0.352897");¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_b", "-0.129214");¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_c", "7.32762");¤¤#ifdef WIN32¤	Core::ParamManager::instance ()->add_hardcode_string ("-db_root_dir", "c:\\test_storage");¤#else¤	Core::ParamManager::instance ()->add_hardcode_string ("-db_root_dir", "/var/local/db/test/storage");¤#endif¤¤	std::string log_path = Core::ParamManager::instance ()->get_string ("-ORBLogFile");¤	if (!log_path.empty ()) {¤		open_log_stream (log_path.c_str ());¤	}¤¤	try {¤		::TestLibrary::Test::ITestProfile_var test_profile = ::TestLibrary::Test::ITestProfileFactory::make (¤			Core::ParamManager::instance ()->get_string ("-test_profile_key").c_str ()¤		);¤¤		LOG_D (("Test execute params:"));¤		LOG_D (("-test_profile_key %s", Core::ParamManager::instance ()->get_string ("-test_profile_key").c_str ()));¤		LOG_D (("-action_count %u", Core::ParamManager::instance ()->get_long ("-action_count")));¤		LOG_D (("-thread_count %u", Core::ParamManager::instance ()->get_long ("-thread_count")));¤		LOG_D (("-need_sequential %u", Core::ParamManager::instance ()->get_long ("-need_sequential")));¤		LOG_D (("-need_transaction %u", Core::ParamManager::instance ()->get_long ("-need_transaction")));¤		LOG_D (("-need_rdonly %u", Core::ParamManager::instance ()->get_long ("-need_rdonly")));¤¤		LOG_D (("-need_sequential_partial %u", Core::ParamManager::instance ()->get_long ("-need_sequential_partial")));¤		LOG_D (("-partial_fraction %u", Core::ParamManager::instance ()->get_long ("-partial_fraction")));¤¤		LOG_D (("-object_max_id %u", Core::ParamManager::instance ()->get_long ("-object_max_id")));¤		LOG_D (("-object_average_size %d", Core::ParamManager::instance ()->get_long ("-object_average_size")));¤		LOG_D (("-object_stddev_size %d", Core::ParamManager::instance ()->get_long ("-object_stddev_size")));¤		LOG_D (("-operations_count %u", Core::ParamManager::instance ()->get_long ("-operations_count")));¤¤		LOG_D (("-rank_distrib_param_a %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_a").c_str ()));¤		LOG_D (("-rank_distrib_param_b %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_b").c_str ()));¤		LOG_D (("-rank_distrib_param_c %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_c").c_str ()));¤¤		TestFramework::ITestExecutor_var executor = TestFramework::ITestExecutorFactory::make (test_profile.in ());¤		executor->run ();¤	} catch (Core::Exception& ex) {¤		LOG_SEX ((ex, "while execute test function"));¤	}¤//#UC END# *44AE1963034B*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44AE1963034B_MAIN_COSTR*"
+		    value      	(value Text 
+|//#UC START# *44AE1963034B_MAIN_COSTR*¤	//#UC END# *44AE1963034B_MAIN_COSTR*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44AE1963034B_DESTR_BODY*"
+		    value      	(value Text 
+|//#UC START# *44AE1963034B_DESTR_BODY*¤	//#UC END# *44AE1963034B_DESTR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44AE1963034B_MAIN_EXECUTE*"
+		    value      	(value Text 
+|//#UC START# *44AE1963034B_MAIN_EXECUTE*¤	//this->unit_test_math_statistics (); // uncomment this to check math statistics¤	Core::select_log_format_set (Core::LFI_FULL);¤	Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "create_object_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "read_object_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "add_index_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "search_index_test_monopole");¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-action_count", 1000);¤	Core::ParamManager::instance ()->add_hardcode_long ("-thread_count", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-object_average_size", 1000);¤	Core::ParamManager::instance ()->add_hardcode_long ("-object_stddev_size", 100);¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-object_max_id", 1000);¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-operations_count", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_transaction", 0);¤	// SES! EACH TEST PROFILE MAKES A DECISION UPON -need_sequential ITSELF!¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_a", "-0.352897");¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_b", "-0.129214");¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_c", "7.32762");¤¤#ifdef WIN32¤	Core::ParamManager::instance ()->add_hardcode_string ("-db_root_dir", "c:\\test_storage");¤#else¤	Core::ParamManager::instance ()->add_hardcode_string ("-db_root_dir", "/var/local/db/test/storage");¤#endif¤¤	std::string log_path = Core::ParamManager::instance ()->get_string ("-ORBLogFile");¤	if (!log_path.empty ()) {¤		open_log_stream (log_path.c_str ());¤	}¤¤	try {¤		::TestLibrary::Test::ITestProfile_var test_profile = ::TestLibrary::Test::ITestProfileFactory::make (¤			Core::ParamManager::instance ()->get_string ("-test_profile_key").c_str ()¤		);¤¤		LOG_D (("Test execute params:"));¤		LOG_D (("-test_profile_key %s", Core::ParamManager::instance ()->get_string ("-test_profile_key").c_str ()));¤		LOG_D (("-action_count %u", Core::ParamManager::instance ()->get_long ("-action_count")));¤		LOG_D (("-thread_count %u", Core::ParamManager::instance ()->get_long ("-thread_count")));¤		LOG_D (("-need_sequential %u", Core::ParamManager::instance ()->get_long ("-need_sequential")));¤		LOG_D (("-need_transaction %u", Core::ParamManager::instance ()->get_long ("-need_transaction")));¤		LOG_D (("-need_rdonly %u", Core::ParamManager::instance ()->get_long ("-need_rdonly")));¤¤		LOG_D (("-need_sequential_partial %u", Core::ParamManager::instance ()->get_long ("-need_sequential_partial")));¤		LOG_D (("-partial_fraction %u", Core::ParamManager::instance ()->get_long ("-partial_fraction")));¤¤		LOG_D (("-object_max_id %u", Core::ParamManager::instance ()->get_long ("-object_max_id")));¤		LOG_D (("-object_average_size %d", Core::ParamManager::instance ()->get_long ("-object_average_size")));¤		LOG_D (("-object_stddev_size %d", Core::ParamManager::instance ()->get_long ("-object_stddev_size")));¤		LOG_D (("-operations_count %u", Core::ParamManager::instance ()->get_long ("-operations_count")));¤¤		LOG_D (("-rank_distrib_param_a %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_a").c_str ()));¤		LOG_D (("-rank_distrib_param_b %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_b").c_str ()));¤		LOG_D (("-rank_distrib_param_c %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_c").c_str ()));¤¤		Core::ThreadPool::instance()->activate (test_profile->get_thread_count ());¤¤		::TestLibrary::TestFramework::ITestExecutor_var executor = ::TestLibrary::TestFramework::ITestExecutorFactory::make (test_profile);¤		executor->run ();¤	} catch (Core::Exception& ex) {¤		LOG_SEX ((ex, "while execute test function"));¤	}¤	//#UC END# *44AE1963034B_MAIN_EXECUTE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*44AE1963034B_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *44AE1963034B_CUSTOM_INCLUDES*¤//#UC END# *44AE1963034B_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*44AE1963034B*"
+		    value      	"//#UC START# *44AE1963034B*¤//#UC END# *44AE1963034B*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/storage/test_candidates/TestLibrary/MainTestInitialization.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/storage/test_candidates/TestLibrary/MainTestInitialization.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44AE1963034B_FINI*"
+		    value      	(value Text 
+|//#UC START# *44AE1963034B_FINI*¤	//#UC END# *44AE1963034B_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44AE1963034B_EXECUTE*"
+		    value      	(value Text 
+|//#UC START# *44AE1963034B_EXECUTE*¤	//this->unit_test_math_statistics (); // uncomment this to check math statistics¤	Core::select_log_format_set (Core::LFI_FULL);¤	Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "create_object_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "read_object_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "add_index_test_monopole");¤	//Core::ParamManager::instance ()->add_hardcode_string ("-test_profile_key", "search_index_test_monopole");¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-action_count", 1000);¤	Core::ParamManager::instance ()->add_hardcode_long ("-thread_count", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-object_average_size", 1000);¤	Core::ParamManager::instance ()->add_hardcode_long ("-object_stddev_size", 100);¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-object_max_id", 1000);¤	Core::ParamManager::instance ()->add_hardcode_ulong ("-operations_count", 1);¤	Core::ParamManager::instance ()->add_hardcode_long ("-need_transaction", 0);¤	// SES! EACH TEST PROFILE MAKES A DECISION UPON -need_sequential ITSELF!¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_a", "-0.352897");¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_b", "-0.129214");¤	Core::ParamManager::instance ()->add_hardcode_string ("-rank_distrib_param_c", "7.32762");¤¤#ifdef WIN32¤	Core::ParamManager::instance ()->add_hardcode_string ("-db_root_dir", "c:\\test_storage");¤#else¤	Core::ParamManager::instance ()->add_hardcode_string ("-db_root_dir", "/var/local/db/test/storage");¤#endif¤¤	std::string log_path = Core::ParamManager::instance ()->get_string ("-ORBLogFile");¤	if (!log_path.empty ()) {¤		open_log_stream (log_path.c_str ());¤	}¤¤	try {¤		Test::ITestProfile_var test_profile = Test::ITestProfileFactory::make (¤			::Core::ParamManager::instance ()->get_string ("-test_profile_key").c_str ()¤		);¤¤		LOG_D (("Test execute params:"));¤		LOG_D (("-test_profile_key %s", Core::ParamManager::instance ()->get_string ("-test_profile_key").c_str ()));¤		LOG_D (("-action_count %u", Core::ParamManager::instance ()->get_long ("-action_count")));¤		LOG_D (("-thread_count %u", Core::ParamManager::instance ()->get_long ("-thread_count")));¤		LOG_D (("-need_sequential %u", Core::ParamManager::instance ()->get_long ("-need_sequential")));¤		LOG_D (("-need_transaction %u", Core::ParamManager::instance ()->get_long ("-need_transaction")));¤		LOG_D (("-need_rdonly %u", Core::ParamManager::instance ()->get_long ("-need_rdonly")));¤¤		LOG_D (("-need_sequential_partial %u", Core::ParamManager::instance ()->get_long ("-need_sequential_partial")));¤		LOG_D (("-partial_fraction %u", Core::ParamManager::instance ()->get_long ("-partial_fraction")));¤¤		LOG_D (("-object_max_id %u", Core::ParamManager::instance ()->get_long ("-object_max_id")));¤		LOG_D (("-object_average_size %d", Core::ParamManager::instance ()->get_long ("-object_average_size")));¤		LOG_D (("-object_stddev_size %d", Core::ParamManager::instance ()->get_long ("-object_stddev_size")));¤		LOG_D (("-operations_count %u", Core::ParamManager::instance ()->get_long ("-operations_count")));¤¤		LOG_D (("-rank_distrib_param_a %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_a").c_str ()));¤		LOG_D (("-rank_distrib_param_b %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_b").c_str ()));¤		LOG_D (("-rank_distrib_param_c %s", Core::ParamManager::instance ()->get_string ("-rank_distrib_param_c").c_str ()));¤¤		Core::ThreadPool::instance()->activate (test_profile->get_thread_count ());¤¤		::TestLibrary::TestFramework::ITestExecutor_var executor = ::TestLibrary::TestFramework::ITestExecutorFactory::make (test_profile);¤		executor->run ();¤	} catch (Core::Exception& ex) {¤		LOG_SEX ((ex, "while execute test function"));¤}¤//#UC END# *44AE1963034B_EXECUTE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44AE1963034B_CUSTOM_BODY*"
+		    value      	"//#UC START# *44AE1963034B_CUSTOM_BODY*¤//#UC END# *44AE1963034B_CUSTOM_BODY*"))
+	    quid       	"44AE1963034B"
+	    documentation 	
+|Êëàññ, çàìåíÿùèé ôóíêöèþ main â ÎÎ-ïðîãðàììèðîâàíèè. Åñëè ïàðàìåòðû òåñòà áåðóòñÿ ÍÅ èç êîìàíäíîé ñòðîêè, òåñò, çàïóñêàåìûé ïî-óìîë÷àíèþ, ä.á. read-only òåñòîì, ò.å. çíà÷åíèå ïàðàìåòðà "-test_profile_key", óñòàíàâëèâàåìîå âíóòðè ìåòîäà MainTestInitialization::execute () äîëæíî áûòü (íàïðèìåð) "read_object_test_monopole", íî íå (íàïðèìåð) "create_object_test_monopole".
+	    
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"46FE4FDD029F"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCL::math::statistics"
+		    quidu      	"45018DFD030D")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"470217460213"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::storage::TestLibrary::Test::ITestProfile"
+		    quidu      	"44A28F24031C")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"47021BE5035B"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::storage::TestLibrary::TestFramework::ITestExecutor"
+		    quidu      	"4496A2DF0251"))
+	    operations 	(list Operations
+		(object Operation "unit_test_math_statistics"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44AE622701A5*"
+			    value      	(value Text 
+|//#UC START# *44AE622701A5*¤	long period = ::GCL::unit_test_pseudorandom_period ();¤	printf ("GCL::unit_test_pseudorandom_period () = %d (0 = not found)\n", period);¤	bool normal = ::GCL::unit_test_normal_distribution_ok ();¤	printf ("GCL::unit_test_normal_distribution_ok () = %d\n", int (normal));¤	bool uniform = ::GCL::unit_test_uniform_distribution_ok ();¤	printf ("GCL::unit_test_uniform_distribution_ok () = %d\n", int (uniform));¤	//#UC END# *44AE622701A5*
+			    )))
+		    quid       	"44AE622701A5"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "open_log_stream"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*47021A3D006D*"
+			    value      	(value Text 
+|//#UC START# *47021A3D006D*¤	std::ofstream* output_stream = new std::ofstream (log_file);¤	output_stream->open (log_file, std::ios::out | std::ios::app);¤	if (!output_stream->bad ()) {¤		ACE_LOG_MSG->msg_ostream (output_stream, 1);¤	} else {¤		delete output_stream;¤	}¤	ACE_LOG_MSG->clr_flags (ACE_Log_Msg::STDERR | ACE_Log_Msg::LOGGER);¤	ACE_LOG_MSG->set_flags (ACE_Log_Msg::OSTREAM);¤	//#UC END# *47021A3D006D*
+			    )))
+		    quid       	"47021A3D006D"
+		    parameters 	(list Parameters
+			(object Parameter "in log_file"
+			    quid       	"47021A5E02AF"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"46FD09F201A5"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::storage::TestLibrary::NewLibSupport::MainTestInitialization" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(651, 1128)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(304, 1044)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	694
+			justify    	0
+			label      	"MainTestInitialization")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(304, 994)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	694
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"44AE1963034B"
+		    width      	712
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCL::math::statistics" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1113, 555)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(963, 527)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"statistics")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(963, 477)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"45018DFD030D"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(811, 738)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"46FE4FDD029F"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(767, 981)
+			(1039, 645))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::Test::ITestProfile" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(441, 360)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(305, 328)
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"ITestProfile")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(305, 278)
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"44A28F24031C"
+		    width      	290
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(423, 750)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"470217460213"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(610, 981)
+			(466, 454))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::storage::TestLibrary::TestFramework::ITestExecutor" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1809, 1017)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1638, 985)
+			nlines     	1
+			max_width  	342
+			justify    	0
+			label      	"ITestExecutor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1638, 935)
+			anchor     	10
+			nlines     	1
+			max_width  	342
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4496A2DF0251"
+		    width      	360
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(1300, 1021)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.477691
+			height     	44
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"47021BE5035B"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(1007, 1093)
+			(1628, 1032))
+		    line_style 	0)))))

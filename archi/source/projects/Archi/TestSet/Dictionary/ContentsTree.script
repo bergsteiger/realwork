@@ -1,0 +1,135 @@
+// ContentsTree.script
+// Утилитные функции для работы с деревом содержания
+
+USES
+ axiom:Control
+ axiom:Tree
+ axiom:Node
+ axiom:Tests
+ axiom:окно_редактора
+ axiom:cc
+ ArchiSystem.script
+ ArchiControls.script
+;
+
+CONST cnRootItem 0
+CONST cnDefaultContentsWidth 200
+CONST cnHideContentsWidth 0
+CONST cnContentsFlag 32768
+
+OBJECT FUNCTION "Объект дерева в стек"
+	"Контрол по имени {(carContentsTree)}" =: Result
+;
+
+PROCEDURE "проверить что флаг в оглавлении выставлен" IN anItemID
+ BOOLEAN VAR l_Flag
+ anItemID cnContentsFlag "Объект дерева в стек" tree:CheckFlag >>> l_Flag
+ l_Flag 'Флаг в оглавлении не выставлен выставлен, а должен быть выставлен' ASSERTS
+;
+
+PROCEDURE "проверить что флаг в оглавлении не выставлен" IN anItemID
+ BOOLEAN VAR l_Flag
+ anItemID cnContentsFlag "Объект дерева в стек" tree:CheckFlag >>> l_Flag
+ l_Flag ! 'Флаг в оглавлении выставлен выставлен, а не должен быть выставлен' ASSERTS
+;
+
+PROCEDURE "развернуть узел" IN aID
+  aID "Объект дерева в стек" tree:развернуть 
+  "Обработать сообщения"
+;
+
+: "развернуть узлы" IN aCount
+  OBJECT VAR l_Tree 
+  "Объект дерева в стек" >>> l_Tree
+  VAR l_NodeID
+  1 >>> l_NodeID
+  aCount LOOP (   
+  l_NodeID l_Tree tree:развернуть 
+  1 +! l_NodeID 
+  ) 
+;
+
+PROCEDURE "Показать оглавление"
+         "Объект дерева в стек" pop:Control:Width := cnDefaultContentsWidth
+;
+
+PROCEDURE "Спрятать оглавление"
+        "Объект дерева в стек" pop:Control:Width := cnHideContentsWidth
+;
+
+: "Проверить, что количество дочерних больше нуля" IN aItemID
+	aItemID "Объект дерева в стек" tree:ChildrenCount >0 ASSERT
+;
+
+PROCEDURE "Показать оглавление и развернуть"
+	"Показать оглавление" 
+	"Установить фокус в контрол с именем" carContentsTree
+	cnRootItem "Объект дерева в стек" tree:развернуть 
+	"Обработать сообщения"
+;
+
+: "Cохранить количество дочерних в узле дерева оглавления"
+ cnRootItem "Объект дерева в стек" tree:ChildrenCount .
+;
+
+: "Сравнить дерево с эталоном" IN ContentsTree
+ VAR l_File
+ script:FileName '.tree' sysutils:ChangeFileExt
+ sysutils:ExtractFileName >>> l_File
+ l_File ContentsTree byname:control:push tree:SaveState2File
+ l_File '%' tests:CheckEtalon
+;
+
+: "Удалить саб с проверкой количества дочерних" IN aSubID
+	aSubID окно_редактора:удалить_саб
+	ProcessMessages
+	"Cохранить количество дочерних в узле дерева оглавления"
+;
+
+: "Имя текущего элемента дерева - в стек" OBJECT IN aControl
+ INTERFACE VAR l_Node
+ aControl tree:CurrentNode =: l_Node
+ l_Node Node:Text 
+;
+
+WordAlias "Переместиться в начало дерева" cc:Home
+
+PROCEDURE "Найти и выделить элемент в дереве" STRING IN aName 
+	INTEGER VAR l_Count
+	INTEGER VAR l_Item
+	OBJECT VAR l_List  
+	STRING VAR l_NodeText
+	0 >>> l_Item
+	focused:control:push >>> l_List
+	"Переместиться в начало дерева"
+	l_List tree:GetItemsCount >>> l_Count	
+	l_Count LOOP (
+		l_Item l_List tree:GetItem Node:Text >>> l_NodeText
+		Если ( l_NodeText aName == ) то 
+			выходим
+			++! l_Item
+			"Нажать вниз"    
+		)
+	Если ( l_NodeText НЕРАВНО aName ) то
+		( false 'Не удалось найти элемент в дереве!' ASSERTS )
+;
+
+PROCEDURE "Свернуть все узлы дерева"
+	OBJECT VAR l_List 
+	INTEGER VAR l_Count
+	INTEGER VAR l_CurrentNodeIndex
+	INTEGER VAR l_NextNodeIndex
+	focused:control:push >>> l_List
+	"Переместиться в начало дерева"
+	-1 >>> l_CurrentNodeIndex 
+	0 >>> l_NextNodeIndex 
+	WHILE ( l_NextNodeIndex НЕРАВНО l_CurrentNodeIndex )
+	BEGIN
+		l_List tree:CurrentNode Node:IndexInTree >>> l_CurrentNodeIndex
+		Если ( l_List tree:CurrentNode:IsExpanded ) то
+			"Свернуть узел" 
+		"Нажать вниз" 
+		l_List tree:CurrentNode Node:IndexInTree >>> l_NextNodeIndex
+	END
+	"Переместиться в начало дерева"
+;

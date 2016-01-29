@@ -1,0 +1,92 @@
+// Tl3StringPtr 4ABB5B2603B1 SimpleClass Class
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_4ABB5B2603B1
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4ABB5B890205
+ CONST UID '4ABB5B890205'
+ CONST Name 'f_Str'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+
+ @SELF
+; // ME_4ABB5B890205 f_Str
+
+: ME_4ABB5CA60048
+ CONST UID '4ABB5CA60048'
+ CONST Name 'aStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+
+ @SELF
+; // ME_4ABB5CA60048 aStr
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4ABB5C98013B
+ CONST UID '4ABB5C98013B'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4ABB5CA60048 // aStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4ABB5C98013B Create
+
+: ME_4ABB5B2603B1
+ CONST UID '4ABB5B2603B1'
+ CONST Name 'Tl3StringPtr'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Строка, не владеющая своими данными' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47A8693601A1 // Tl3PrimString
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4ABB5B890205 // f_Str
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4ABB5C98013B // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A6FEE600FC // IsCacheable
+ ME_47A869BB02DE // GetAsPCharLen
+ ME_47A869D10074 // DoSetAsPCharLen
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '24.09.2009 15:43'
+
+ @SELF
+; // ME_4ABB5B2603B1 Tl3StringPtr

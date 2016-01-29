@@ -1,0 +1,18 @@
+
+#include "b.idl"
+
+module A {
+
+  struct S {
+    boolean b;
+  };
+
+  typedef sequence<B::S> BSSeq;
+  typedef sequence<S> SSeq;
+
+  interface foo {
+    void bar( in BSSeq x );
+  };
+
+};
+

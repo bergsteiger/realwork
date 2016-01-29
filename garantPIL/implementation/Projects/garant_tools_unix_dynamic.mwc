@@ -1,0 +1,26 @@
+workspace (garant_tools_unix_dynamic) {
+	cmdline += -ti dll_exe:make-exe-generic-static
+	cmdline += -ti dll:make-exe-generic-static
+
+	./targets/T_CSAdapter.mpc
+
+	static_projects {
+		cmdline += -ti lib:make-exe-generic-static
+		cmdline += -static
+
+		./libs/zlib.mpc
+		./libs/gkdb.mpc
+		./libs/gsscreen.mpc
+		./libs/cchlp1.mpc
+		./libs/cchlp2.mpc
+		./libs/gctx.mpc
+
+		../../../shared/project/Morpho.mpc
+		../../../shared/project/ContextSearch.mpc
+		../../../shared/project/GCL.mpc
+		../../../shared/project/Core.mpc
+
+		../../../garantPIL/implementation/component/cpp/garantCore/project/DBExt.mpc
+		../../../garantPIL/implementation/component/cpp/garantCore/project/SearchAdapterLib.mpc
+	}
+}

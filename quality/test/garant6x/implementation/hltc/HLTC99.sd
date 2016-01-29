@@ -1,0 +1,1094 @@
+uses common, States, RunPrograms, SettingsWork, Clicks, MenuWork,
+		 DocumentWork, SearchWork, FoldersWork, FileWork, ListWork;
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//                       HLTC99: ТОЛКОВЫЙ СЛОВАРЬ
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+const
+  D_NO_EXISTS = '?';
+  D_RUS_WORD = 'Q Тобина';
+  D_ENG_WORD = 'Tobin''s Q';
+  D_FRA_WORD = 'Q de Tobin';
+  D_ISP_WORD = 'Teoria Q de Tobin';
+  D_ITA_WORD = 'Q Tobina';
+
+  D_RUS_WORD_FIRST = 'ABC-Метод';    
+  D_ENG_WORD_FIRST = 'ABC method';
+    
+  LANG_RUS = 'Русский';
+  LANG_ENG = 'Английский';
+  LANG_GER = 'Немецкий';
+  LANG_FRA = 'Французский';
+  LANG_ISP = 'Испанский';
+  LANG_ITA = 'Итальянский';
+
+function  SetLanguage(lang: string; needWord: string = ''): boolean;
+var s: string;
+begin
+try
+  if not ClickToolbarButton(GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), lang + '*язык') then
+    Raise('Не получилось кликнуть по кнопке "' + lang + ' язык"');
+  s := common.GetWindowText(GetFromDictionary('СПИСОК ТЕРМИНОВ').Handle);
+  if s = '' then s := D_NO_EXISTS;
+  Result := (needWord = '') or StringCompare(needWord, s);
+  if not Result then
+    Raise('Текущий выделенный элемент словоря (вкладка "' + lang + ' язык"):' + s + ', Должен: ' + needWord);
+except
+  Result := false;
+  Log.Error('SetLanguage: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));  
+end;  
+end;
+
+function  CheckCurrentLanguage(lang: string; needWord: string = ''): boolean;
+var s: string;
+  w;
+begin
+try
+  w := GetToolbarButton(GetFromDictionary('ТУЛБАР ВЫБОРА ЯЗЫКА ТЕРМИНА'), lang + '*язык');
+  if not IsExists(w) then
+    Raise('Не получилось найти кнопку "' + lang + ' язык"');
+  s := common.GetWindowText(GetFromDictionary('СПИСОК ТЕРМИНОВ').Handle);
+  if s = '' then s := D_NO_EXISTS;
+  Result := w.Down and ((needWord = '') or (StringCompare(needWord, s)));
+except
+  Result := false;
+  Log.Error('CheckCurrentLanguage: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;  
+end;
+
+function  CheckDictionaryOpened(wndname: string): boolean;
+var w, s;
+begin
+	Result := false;
+  w := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+	Result := IsExists(w) and w.Visible;
+  w := GetFromDictionary('РЕДАКТОР');
+	Result := Result and IsExists(w) and w.Visible;
+  s := GetMainWindow.Caption;
+
+  if VarToBool(gbl_F1ShellTabsEnabled) then
+    Result := Result and StringCompare(wndname, s)
+  else
+    Result := Result and StringCompare(MAINWINDOW_CAPTION + '*' + wndname, s);
+
+  if not Result then
+  	Log.Error('CheckDictionaryOpened: Толковый словарь не открылся или неверно отображается название статьи в заголовке окна:', 'Заголовок окна: "' + s + '", статья: "' + wndname + '"');
+end;
+
+function  CommentProcessingInDictionary(weditor: OleVariant): boolean;
+const
+  COMMNAME = 'HLTC99.4.7';
+begin
+try
+  Result := true;
+  if not InsertComment(weditor, COMMNAME) then
+    Raise('Не получилось вставить комментарий "' + COMMNAME + '" в тексте документа');
+
+  if SelectTextComment(weditor) = '' then 
+    Raise('Не получилось выделить комментарий "' + COMMNAME + '" в тексте документа');
+  Sys.Keys('[Apps]');
+  if not ClickByPopUpMenuItem(weditor, 'Удалить комментарий') then
+    Raise('Не удалось вызвать "Удалить комментарий" из попап меню выделенного комментария');
+except
+	Result := false;
+  Log.Error('CommentProcessingInDictionary: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function CompareTCFiles(w, typedoc: OleVariant; fethalon: string): boolean;
+const
+  FUNCTION_NAME = 'CompareTCFiles: ';
+var
+  pathTofile;
+begin
+try
+  pathTofile := GetTempDirectory + fethalon;
+  if not SaveDocToFile(w, pathTofile, typedoc) then
+    Raise('Не получилось сохранить файл "' + pathTofile + '"');
+//  Result := Files.Compare(pathTofile, fethalon);
+  Result := CompareGarantFiles(pathTofile, fethalon, 'IsWriteFileToLog:=false');    
+  if not Result then
+  begin
+    Log.Message(FUNCTION_NAME + 'Путь к временному каталогу: "' + pathTofile + '"');
+    Raise('Формат сохранения в файл ' + typedoc + ' стал отличаться от эталона ' + fethalon);
+  end;
+except
+  Result := False;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function CheckPreviewAndPrintDialog(toolbar):boolean;
+const
+  FUNCTION_NAME = 'CheckPreviewAndPrintDialog: ';
+var 
+  w;
+begin
+try
+  Result := true;
+  if not ClickToolbarButton(toolbar, 'Печать...') then
+    Raise('Не получилось кликнуть по кнопке "Печать..."');
+  w := GetFromShell('ДИАЛОГ ПЕЧАТИ');
+  if not (IsExists(w) and (PosCI('печать', w.Caption) <> 0)) then
+    Result := ErrorResult(FUNCTION_NAME + 'Не найден диалог печати "Печать..."')
+  else
+    Sys.Keys('[Esc]');
+  
+  if not ClickToolbarButton(toolbar, 'Предварительный просмотр*') then
+    Raise('Не получилось кликнуть по кнопке "Предварительный просмотр"');
+  if not (IsExists(GetFromMainWindow('ПРЕВЬЮ')) and (PosCI('предварительный просмотр', GetMainWindow.Caption) <> 0))  then
+    Result := ErrorResult(FUNCTION_NAME + 'Не найден Предварительный просмотр')
+  else
+    Sys.Keys('[Esc]');
+except
+  Result := False;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC99.1:  Открытие толкового словаря. 
+    HLTC99.1.1: Проверить, что толковый словарь может быть открыт:
+      HLTC99.1.1.1: Вызовом из главного меню системы.
+  HLTC99.2.1: Проверить, что толковый словарь представляет из себя две части: список терминов и толкования терминов.
+  HLTC99.2.8: Между тулбаром и основным окном (содержит поле контекстного фильтра и толкование термина) располагается шапка, состоящая из иконки Толкового словаря и названия КЗ: «Толковый словарь».                
+}
+function  HLTC99_1_1_1_Execute(var  current_state: OleVariant): OleVariant;
+begin
+  try
+  	Result := true;
+    GoToMainMenu;
+    if not GoToDictionary then
+      Raise('Не получилось открыть ТС');
+    if not CheckDictionaryOpened('*ABC-Метод ABC method') then
+      Raise('Найдена ошибка в ТС');
+    if not IsExists(GetFromDictionary('ЗАГОЛОВОК ТС')) then
+      Raise('Заголовок (шапка) "Толковый словарь" не найден или изменился');
+  except
+    Result := False;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC99.1.1.2: Кликом по соответствующей кнопке в тулбаре.
+  HLTC190.4.3: Для толкования – имя формируется из названия терминов, на всех имеющихся языках.
+}
+function HLTC99_1_1_2_Execute(var current_state: OleVariant): OleVariant;
+const
+  TCNAME = '*ABC-Метод ABC method';
+begin
+  try
+  	Result := true;
+    GoToMainMenu;
+     
+    if not GoToDictionary('КНОПКА НА ТУЛБАРЕ') then
+      Raise('Не получилось открыть ТС через подменю Поиск');
+    Result := CheckDictionaryOpened(TCNAME) 
+              and CheckSavedFileName(GetEditor, TCNAME + '*');
+  except
+    Result := False;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC99.1.1.3: Вызовом толкования при работе с документом – пункт контекстного меню «Найти в толкованиях» на выделенном фрагменте.
+}
+function  HLTC99_1_1_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.)';
+var
+  editor;
+begin
+	try
+    Result := false;
+
+    if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+      Raise('Не получилось открыть список "' + LIST_MAIN + '"');
+
+    if not OpenDocFromList(DOCNAME, GetList) then
+      Raise('Не получилось открыть документ: "' + DOCNAME + '"');
+    editor := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    if not IsExists(editor) then
+      Raise('Не найден текст документа : "' + DOCNAME + '"');     
+    editor.Keys('[Home]![End]');
+    if not OpenAndClickByPopupMenuItem(editor, 'Найти в Толков*') then
+      Raise('Не получилось кликнуть по пункту контекстного меню Найти в Толков* в документе "' + DOCNAME + '"');
+          
+    Result := CheckDictionaryOpened('*Глава муниципального образования Head of the municipal formation Chef (m) de collectivit¦ municipale Chef (m) der Munizipalbildung Jefe/cabeza del аrea municipal');
+
+    CloseTabIfNeeded;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenuWithCloseTabsExceptOne;
+end;
+
+{
+HLTC99.2: Интерфейс работы со словарём:
+  HLTC99.2.2.1: Проверить, что на тестовой базе термины доступны
+  на 6-ти языках: Русском, Английском, Немецком, Французском,
+  Испанском и Итальянском (соответственно, каждому языку
+  соответствует кнопка на тулбаре).
+
+HLTC99.2.2.2: Попереключаться между языками несколько раз.
+  Проверить, что термины показываются на нужных языках.
+}
+// начальное состояние - ТС
+function  HLTC99_2_2_1_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try  
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder(D_RUS_WORD, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + D_RUS_WORD + '"');  
+
+  Result := SetLanguage(LANG_RUS, D_RUS_WORD);
+  Result := SetLanguage(LANG_ENG, D_ENG_WORD) and Result;
+  Result := SetLanguage(LANG_GER, D_NO_EXISTS) and Result;
+  Result := SetLanguage(LANG_FRA, D_FRA_WORD) and Result;
+  Result := SetLanguage(LANG_ISP, D_ISP_WORD) and Result;
+  Result := SetLanguage(LANG_ITA, D_ITA_WORD) and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+HLTC99.2.3.1: Проверить для термина, для которого есть перевод на язык, на
+который переключились (для термина «Денонсация» есть переводы на все языки)
+HLTC99.2.2: На тулбаре должны быть кнопки для переключения языка терминов.
+HLTC99.2.3: Проверить, что при переключении языка терминов (через панель инструментов) система должна позиционироваться на том же термине, который был выбран в предыдущем списке.
+}
+function  HLTC99_2_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  D_WORD = 'Денонсация (1)';
+begin        
+try  
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not (SetLanguage(LANG_RUS) and
+          BinaryPositioning(GetFromDictionary('СПИСОК ТЕРМИНОВ'), D_WORD)) then
+    Raise('Не получилось найти термин ' + D_WORD);
+  Result := SetLanguage(LANG_RUS, D_WORD);
+  Result := SetLanguage(LANG_ENG, 'Denunciation') and Result;
+  Result := SetLanguage(LANG_GER, 'Kuendigung (f)') and Result;
+  Result := SetLanguage(LANG_FRA, 'Dйnonciation (f)') and Result;
+  Result := SetLanguage(LANG_ISP, 'Denuncia') and Result;
+  Result := SetLanguage(LANG_ITA, 'Denuncia (f)') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+HLTC99.2.3.2: Проверить для термина, для которого нет перевода на язык, на
+который переключились – в результате в списке терминов не должно быть выделено
+ни одной строчки (термин «Деньги легкие» - нет перевода на испанский язык).
+HLTC99.6.1.1: Навигация с помощью клавиатуры: стрелками «вверх», «вниз»; клавишами «PgUp», «PgDown», «Home», «End»
+HLTC99.6.1.2: Навигация с помощью полосы прокрутки, перемещая указатель мыши по списку, держа нажатой левую кнопку, прокрутки колеса мыши.
+HLTC99.6.4: При клике на каком-либо термине должно происходить перемещение указателя и соответствующее изменение содержимого окна толкований.
+}
+function  HLTC99_2_3_2_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not (SetLanguage(LANG_RUS) and
+          BinaryPositioning(GetFromDictionary('СПИСОК ТЕРМИНОВ'), 'Деньги легкие')) then
+    Raise('Не получилось найти термин Деньги легкие');
+  Result := SetLanguage(LANG_ISP, D_NO_EXISTS);
+  Result := SetLanguage(LANG_GER, '"Leichtes" Geld (n)') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC99.2.4: Проверить, что если при переключении языка терминов термин на новом языке отсутствует, то система позиционируется на начале списка.
+  HLTC99.2.7: Проверить, что в статусной строке окна терминов показываются общее количество терминов и текущий термин.
+}
+function  HLTC99_2_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  TERM = 'А форфэ';
+  COUNT_RUS_TERMS = 40000;
+  COUNT_ENG_TERMS = 30000;  
+begin        
+try
+  Result := true;
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder(TERM, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + TERM + '"');  
+  if not SetLanguage(LANG_ENG) then
+    Raise('Не получилось переключиться на "' + LANG_ENG + '" язык');
+  if GetCurrentElementNumberInList(GetFromDictionary('СПИСОК ТЕРМИНОВ')) <> 0 then
+    Result := ErrorResult('Неправильный номер несуществующего документа (должен = 0): ' + IntToStr(GetCurrentElementNumberInList(GetFromDictionary('СПИСОК ТЕРМИНОВ'))));
+  if CountElementInList(GetFromDictionary('СПИСОК ТЕРМИНОВ')) < COUNT_ENG_TERMS  then
+    Result := ErrorResult('Не соответствует количество английских терминов ТС (должно быть больше ' +  IntToStr(COUNT_ENG_TERMS) + '), есть: ' + IntToStr(CountElementInList(GetFromDictionary('СПИСОК ТЕРМИНОВ'))));
+
+  if not SetLanguage(LANG_RUS) then
+    Raise('Не получилось переключиться на "' + LANG_RUS + '" язык');
+  if CountElementInList(GetFromDictionary('СПИСОК ТЕРМИНОВ')) < COUNT_RUS_TERMS  then
+    Result := ErrorResult('Не соответствует количество русских терминов ТС (должно быть больше ' +  IntToStr(COUNT_RUS_TERMS) + '), есть: ' + IntToStr(CountElementInList(GetFromDictionary('СПИСОК ТЕРМИНОВ'))));
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.2.5: Проверить, что по умолчанию список терминов выводится на языке указанном в настройках пользователя (меню – Файл\Настройка конфигурации..., далее - Настройки интерфейса\Язык интерфейса). 
+  Проверить для русского и английского языков (пока есть только Русский...)
+}
+function  HLTC99_2_5_Execute(var  current_state: OleVariant): OleVariant;
+begin        
+try
+  if not (GoToDictionary and SetLanguage(LANG_ENG, D_ENG_WORD_FIRST) and GoToMainMenu and GoToDictionary) then
+    Raise('Не получилось открыть ТС');
+  Result := CheckCurrentLanguage(LANG_RUS, D_RUS_WORD_FIRST);
+  if not Result then
+    Raise('Текущий язык не является "' + LANG_RUS + ' языком"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.2.6: Проверить реализацию контекстного фильтра терминов:
+  HLTC99.2.6.1: Ввести в качестве контекстного фильтра: «Абан» - в списке терминов должны остаться «Абандон(1)». Найдется 5 терминов
+  HLTC99.2.6.2: Ввести в качестве контекстного фильтра: «Перегон» - должен остаться ОДИН «Расходы по перегону судна».
+  HLTC99.2.6.3: Ввести в качестве контекстного фильтра: «Бейс» - в списке должны остаться термины «Бейсик», «Расширенная версия Бейсика».
+}
+function  HLTC99_2_6_Execute(var  current_state: OleVariant): OleVariant;
+var w;
+begin
+try
+  SetDefaultSettings;
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  Result := CheckTCContextFilter('Абан', 5);
+  Result := CheckTCContextFilter('Перегон', 1) and Result;
+  Result := CheckTCContextFilter('Бейс', 2) and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.3.3: Проверить, что толкования на английском языке доступно при открытии отдельной 
+  вкладки.
+HLTC99.3.8: Проверить переключение между языками толкований: Не используя контекстного фильтра 
+  выбрать термин «автономные бюджеты» открыть вкладку «Английский» для отображения  
+  английского толкования. Теперь выбрать термин «Автономная контрольно-кассовая машина». 
+  Убедиться, что вкладка «Английский» для данного термина отсутствует, т.к. для него нет 
+  английского толкования. 
+}
+function  HLTC99_3_3_Execute(var  current_state: OleVariant): OleVariant;
+begin        
+try  
+  Result := true;
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not FillTCContextFilterField('Автоном') then
+    Raise('Не получилось ввести текст "Автоном"');
+  if not OpenObjectFromFolder('Автономная контрольно-кассовая машина', GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "Автономная контрольно-кассовая машина"');
+  if IsExists(GetFromDictionary('ПЕРЕВОД СТАТЬИ')) then   
+    Result := ErrorResult('Найден текст перевода термина "Автономная контрольно-кассовая машина"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.3.4: Проверить работу полосы прокрутки
+HLTC99.3.5: Проверить переход по ссылкам из окна толкований, в случае, когда ссылаемся не на п
+  ервый параграф. Например ссылка на документ в толковании термина «Задаток (1)» - должны 
+  перейти на статью 380 ГК
+}
+function  HLTC99_3_5_Execute(var  current_state: OleVariant): OleVariant;
+begin        
+try  
+  Result := true;
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not FillTCContextFilterField('Задаток') then
+    Raise('Не получилось ввести текст "Задаток"');
+  if not OpenObjectFromFolder('Задаток (1)', GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "Задаток (1)"');
+  if not StringCompare('Advance*The sum of money*The Civil Code of the Russian Federation', CopyToClipboard(GetFromDictionary('ПЕРЕВОД СТАТЬИ'),'ALL')) then
+    Result := ErrorResult('Неправильный текст перевода статьи термина "Задаток (1)"');
+  if not ClickByHyperLink(GetFromDictionary('ТЕКСТ СТАТЬИ'), 'Гражданский кодекс') then
+    Raise('Не получилось кликнуть по ссылке "Гражданский кодекс" в статье ТС');
+  if not StringCompare('Статья 380*', CopyToClipboard(GetEditor,'STRING')) then
+    Raise('Не найдена Статья 380 в документе Гражданский кодекс РФ');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.3.1: Толкование термина показывается в основной области
+HLTC99.3.7: Правильность текста в окне толкований – текст толкования должен соответствовать 
+  термину - например, термин «Ячейка, клетка»)
+}
+function  HLTC99_3_7_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD = 'Ячейка, клетка';
+begin        
+try  
+  Result := true;
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not FillTCContextFilterField('Ячейка') then
+    Raise('Не получилось ввести текст "Ячейка"');
+  if not OpenObjectFromFolder(WORD, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + WORD + '"');
+  if not StringCompare(WORD + '*Независимый коллектив экспертов, специалистов, работающих вместе в сфере производства групповых технологий.',
+                       CopyToClipboard(GetFromDictionary('ТЕКСТ СТАТЬИ'),'ALL')) then
+    Result := ErrorResult('Неправильный текст перевода статьи термина "' + WORD + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.4.1: Копировать – копирование в буфер выделенного фрагмента
+  HLTC99.4.1.1: проверить при выборе команды из всплывающего меню по правой кнопке мыши
+  HLTC99.4.1.2: проверить при выборе команды Правка-Копировать из главного меню системы
+}
+function  HLTC99_4_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  COPYTEXT = 'АБЕКОР';
+var 
+  w, buffer, bufferMenu;
+begin        
+try  
+  Result := true;
+  if not (GoToDictionary and CheckCurrentLanguage(LANG_RUS, D_RUS_WORD_FIRST)) then
+    Raise('Не получилось открыть ТС на термин ' + D_RUS_WORD_FIRST);
+  if not OpenObjectFromFolder('Абекор', GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "Абекор"');
+  if not PressKeyWithCheck(['^![Right]'], GetFromDictionary('ТЕКСТ СТАТЬИ')) then
+    Raise('Не получилось выделить слово ' + COPYTEXT + ' в статье "Абекор"');
+
+  buffer := CopyToClipboard(GetFromDictionary('ТЕКСТ СТАТЬИ'), '', 'HowToCopy:=MAINMENU');
+  bufferMenu := CopyToClipboard(GetFromDictionary('ТЕКСТ СТАТЬИ'), '', 'HowToCopy:=POPUPMENU');
+  if not StringCompare(buffer, bufferMenu) then
+    Result := ErrorResult('Разный текст в буфере, через гл.меню: ' + buffer + '; через попапменю: ' + bufferMenu);
+
+  if not StringCompare(buffer, COPYTEXT) then
+    Result := ErrorResult('При копировании, в буфере: ' + buffer + '; должно: ' + COPYTEXT);
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.4.3: Экспорт (Сохранение в файл). Проверить экспорт в форматы (формат для экспорта выбирается из специального списка в диалоге экспорта):
+  HLTC99.4.3.5: Для русских толкований
+  HLTC99.4.3.5.1: HTML – созданный после экспорта файл, должен открываться в Internet Explorer. Проверить, что его содержание и оформление соответствует тому, что видим в Гарант 6
+  HLTC99.4.3.5.2: Текстовый - созданный после экспорта файл, должен открываться в любом текстовом редакторе (например Notepad). Проверить, что его содержание соответствует тому, что видим в Гарант 6
+  HLTC99.4.3.5.3: RTF - созданный после экспорта файл, должен открываться в MS-Word. Проверить, что его содержание и оформление соответствует тому, что видим в Гарант 6
+  HLTC99.4.3.5.5: XML – созданный после экспорта файл должен открываться в Internet Explorer, или любом xml-редакторе, например EmEditor. Проверить, что содержание тега Text соответсвует тому, что видим в Гаранте.  
+HLTC99.4.3.6: Для английских толкований
+  HLTC99.4.3.6.1: HTML – созданный после экспорта файл, должен открываться в Internet Explorer. Проверить, что его содержание и оформление соответствует тому, что видим в Гарант 6
+  HLTC99.4.3.6.2: Текстовый - созданный после экспорта файл, должен открываться в любом текстовом редакторе (например Notepad). Проверить, что его содержание соответствует тому, что видим в Гарант 6
+  HLTC99.4.3.6.3: RTF - созданный после экспорта файл, должен открываться в MS-Word. Проверить, что его содержание и оформление соответствует тому, что видим в Гарант 6
+  HLTC99.4.3.6.5: XML – созданный после экспорта файл должен открываться в Internet Explorer, или любом xml-редакторе, например EmEditor. Проверить, что содержание тега Text соответсвует тому, что видим в Гаранте.
+  
+HLTC190.1.3: Толкование термина  
+  HLTC190.1.3.1: На языке по умолчанию (см. настройки текущей конфигурации – Настройки интерфейса/Язык интерфейса)
+  HLTC190.1.3.2: На всех доступных языках
+}
+function  HLTC99_4_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  editor;
+begin
+try
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder(D_RUS_WORD, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + D_RUS_WORD + '"');  
+
+  editor := GetFromDictionary('ТЕКСТ СТАТЬИ');
+  Result := CompareTCFiles(editor, SAVE_PLAIN_TEXT, 'dict_rus.txt');
+  Result := CompareTCFiles(editor, SAVE_HTML, 'dict_rus.htm') and Result;
+  Result := CompareTCFiles(editor, SAVE_RTF, 'dict_rus.rtf') and Result;
+  Result := CompareTCFiles(editor, SAVE_XML, 'dict_rus.xml') and Result;  
+  editor := GetFromDictionary('ПЕРЕВОД СТАТЬИ');
+  Result := CompareTCFiles(editor, SAVE_PLAIN_TEXT, 'dict_eng.txt') and Result;
+  Result := CompareTCFiles(editor, SAVE_HTML, 'dict_eng.htm') and Result;
+  Result := CompareTCFiles(editor, SAVE_RTF, 'dict_eng.rtf') and Result;
+  Result := CompareTCFiles(editor, SAVE_XML, 'dict_eng.xml') and Result;  
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.4.5: Предварительный просмотр.
+  HLTC99.4.5.1: Убедиться, что  предварительный просмотр доступен и для русских и для английских толкований.
+  HLTC99.4.5.2: Убедиться, что толкования на этих двух языках в предварительном просмотре отображаются корректно.
+HLTC99.4.8: Печать
+  HLTC99.4.8.1: Проверить для русского толкования
+  HLTC99.4.8.2: Проверить для английского толкования
+}
+function  HLTC99_4_5_Execute(var  current_state: OleVariant): OleVariant;
+var
+  pagectrl;
+begin
+try
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder(D_RUS_WORD, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + D_RUS_WORD + '"');  
+
+  if not (CheckCurrentLanguage(LANG_RUS, D_RUS_WORD)) then
+    Raise('Не получилось открыть ТС на термин ' + D_RUS_WORD);
+  Result := CheckPreviewAndPrintDialog(GetFromDictionary('ТУЛБАР ТЕКСТ СТАТЬИ')) and
+            CheckPreviewAndPrintDialog(GetFromDictionary('ТУЛБАР ПЕРЕВОД СТАТЬИ'));
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.4.7: Пользовательские комментарии
+  HLTC99.4.7.1: Проверить установку пользовательского комментария
+  HLTC99.4.7.2: Проверить удаление пользовательского комментария
+}
+function  HLTC99_4_7_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder(D_RUS_WORD, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + D_RUS_WORD + '"');  
+  Result := CommentProcessingInDictionary(GetFromDictionary('ТЕКСТ СТАТЬИ'));
+  Result := CommentProcessingInDictionary(GetFromDictionary('ПЕРЕВОД СТАТЬИ')) and Result;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.4.10: Проверить, что закладку можно поставить только в основной области (т.е нельзя поставить, 
+  например в толковании на Английском языке)
+}
+function  HLTC99_4_10_Execute(var  current_state: OleVariant): OleVariant;
+const
+  BM_NAME = 'HLTC99_4_10';
+var 
+  w;
+begin        
+try  
+  Result := true;
+  
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder(D_RUS_WORD, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + D_RUS_WORD + '"');  
+
+  w := GetFromDictionary('ПЕРЕВОД СТАТЬИ');
+  if not IsExists(w) then
+    Raise('Не найден перевод словарной статьи');
+  w.SetFocus;
+
+  w.Keys('[Apps]');
+  if IsPopupMenuItemExists(w.QCPopupmenu, '*Установ*заклад*', true) then
+    Result := ErrorResult('Найден пункт меню "Установить закладку" в переводе словарной статьи: "' + D_RUS_WORD + '"');
+  
+  w := GetFromDictionary('ТЕКСТ СТАТЬИ');
+  if not IsExists(w) then
+    Raise('Не найден текст словарной статьи');
+  w.SetFocus;
+  
+  if not SimpleSaveToFolders(BM_NAME + 'X') then
+    Result := ErrorResult('Не получилось поставить закладку на текст статьи ' + D_RUS_WORD);
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DeleteAllInMyDoc;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.5.3: Проверить поиск выделенного фрагмента в толкованиях, когда:
+  HLTC99.5.3.1: Выделено словосочетание
+  HLTC99.5.3.1.1: «Денежная сумма» (контекст в статье 380 ГК РФ) – переходим на термин ТС «Денежная масса совокупная»
+}
+function  HLTC99_5_3_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+ QUERY = 'денежная сумма 380';
+ RESWORD = 'Денежная масса совокупная';
+var 
+ editor;
+begin        
+try  
+  if not OpenDocByNumber(10064072) then
+    Raise('Не получилось открыть ГК');
+
+  editor := GetEditor;
+  if not BaseSearchInDocument(editor, QUERY) then
+    Raise('Не найден текст "' + QUERY + '" в документе');
+
+  if not OpenAndClickByPopUpMenuItem(editor, 'Найти в Толков*') then
+    Raise('Не получилось кликнуть по пункту Найти в Толковом словаре');
+  Result := CheckCurrentLanguage(LANG_RUS, RESWORD);
+  if not Result then
+    Raise('Текущий термин ТС не "' + RESWORD + '"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.5.3.2: Выделено несколько фрагментов, в пределах одного абзаца
+HLTC99.5.3.2.1: Из п.3 ст 380 ГК РФ «сумма» «несоблюдения» (выделяется 2-а слова в абзаце 
+  при помощи мыши и зажатой клавиши Ctrl) - переход на термин «Выкупная сумма (негосударственные пенсионные фонды)»
+}
+function  HLTC99_5_3_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+ WORDS = 'сумма! несоблюдения!';
+ RESWORD = 'Последствия несоблюдения*';
+ iMAX = 1;
+ iMIN = 1;
+var 
+ editor, ftext, i;
+ stemp, scont, sclose;
+begin        
+try  
+  if not OpenDocByNumber(10064072) then
+    Raise('Не получилось открыть ГК'); 
+  editor := GetEditor;
+  
+  for i :=iMIN to iMAX do
+  begin
+    if i=iMIN then stemp := 'true' else stemp := 'false';
+    if i=iMIN then scont := 'false' else scont := 'true';
+    if i=iMAX then sclose := 'true' else sclose := 'false';
+    if not BaseSearchInDocument(editor, WORDS, 'IsCloseWindow:=' + sclose + ';IsOpenWindow:=' + stemp + ';IsContinueSearch:=' + scont) then
+      Raise('Не найден текст "' + WORDS + '" в документе');
+  end;
+
+  ftext := CopyToClipboard(editor);
+  if not StringCompare(ftext, 'несоблюдения сумма') then
+    Raise('Найденный текст "' + ftext + '" отличается от искомого "' + WORDS + '"');
+  if not OpenAndClickByPopUpMenuItem(editor, 'Найти в Толков*') then
+    Raise('Не получилось кликнуть по пункту Найти в Толковом словаре');
+  Result := CheckCurrentLanguage(LANG_RUS, RESWORD);
+  if not Result then
+    Raise('Текущий термин ТС не "' + RESWORD + '"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.5.3.4: Выделено несколько абзацев.
+  HLTC99.5.3.4.1: Выделить в ГК РФ все абзацы статьи 380, начиная со слов «Задатком...»- переход на термин “Последствия прекращения и неисполнения обязательства, обеспеченного задатком”
+}
+function  HLTC99_5_3_4_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+ WORDS = 'Задатком признается денежная сумма выдаваемая одной из договаривающихся сторон в счет причитающихся с нее по договору платежей другой стороне в доказательство заключения договора и в обеспечение его исполнения Соглашение о задатке независимо от суммы задатка должно быть совершено в письменной форме В случае сомнения в отношении того является ли сумма уплаченная в счет причитающихся со стороны по договору платежей задатком в частности вследствие несоблюдения правила';
+ RESWORD = 'Последствия прекращения и неисполнения*';
+var 
+ editor, ftext;
+begin        
+try  
+  if not OpenDocByNumber(10064072) then
+    Raise('Не получилось открыть ГК');
+  editor := GetEditor;
+  if not BaseSearchInDocument(editor, WORDS) then
+    Raise('Не найден текст "' + WORDS + '" в документе');
+
+{  ftext := CopyToClipboard(editor);
+  if not StringCompare(WORDS, ftext) then
+    Raise('Найденный текст "' + ftext + '" отличается от искомого "' + WORDS + '"');}
+  if not OpenAndClickByPopUpMenuItem(editor, 'Найти в Толков*') then
+    Raise('Не получилось кликнуть по пункту Найти в Толковом словаре');
+  Result := CheckCurrentLanguage(LANG_RUS, RESWORD);
+  if not Result then
+    Raise('Текущий термин ТС не "' + RESWORD + '"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC99.5.3.3: Выделено несколько фрагментов, из разных абзацев
+    HLTC99.5.3.3.1: Из п.1 ст 380 ГК РФ «сумма» Из п.3 ст 380 ГК РФ «несоблюдения» - переход на термин «Выкупная сумма (негосударственные пенсионные фонды)» 
+}
+function  HLTC99_5_3_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOC_NUM = 10064072;
+  CONTEXT = 'сумма несоблюдения 951';
+  RESWORD = 'Выкупная сумма (негосударственные пенсионные фонды)';
+begin        
+try  
+  Result := false;
+  if not OpenDocByNumber(DOC_NUM) then
+    Raise('Не получилось открыть документ по номеру ' + IntToStr(DOC_NUM));
+  if not BaseSearchInDocument(GetEditor, CONTEXT) then
+    Raise('Не найден текст "' + CONTEXT + '" в документе');
+  if not OpenAndClickByPopUpMenuItem(GetEditor, 'Найти в Толков*') then
+    Raise('Не получилось кликнуть по пункту Найти в Толковом словаре');
+  Result := CheckCurrentLanguage(LANG_RUS, RESWORD);
+  if not Result then
+    Raise('Текущий термин ТС не "' + RESWORD + '"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.5.3.5: Выделен термин не на русском языке – система должна проверить наличие термина в базе и, если он есть – отобразить его толкование.
+  HLTC99.5.3.5.1: Документ 2001 выделить текст «Block» - переход к термину Big Blue
+}
+function  HLTC99_5_3_5_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+ WORDS = 'Block';
+ RESWORD = 'Слэнг "Big Blue"';
+var 
+ editor, ftext;
+begin        
+try  
+  if not OpenDocByNumber(2001) then
+    Raise('Не получилось открыть документ 2001');
+  editor := GetEditor;
+  if not BaseSearchInDocument(editor, WORDS) then
+    Raise('Не найден текст "' + WORDS + '" в документе');
+
+  ftext := CopyToClipboard(editor);
+  if not StringCompare(WORDS, ftext) then
+    Raise('Найденный текст "' + ftext + '" отличается от искомого "' + WORDS + '"');
+  if not OpenAndClickByPopUpMenuItem(editor, 'Найти в Толков*') then
+    Raise('Не получилось кликнуть по пункту Найти в Толковом словаре');
+  Result := CheckCurrentLanguage(LANG_RUS, RESWORD);
+  if not Result then
+    Raise('Текущий термин ТС не "' + RESWORD + '"');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.5.3.6: Проверить, что когда подходящего термина не найдено, система выдаёт соответствующее сообщение.
+  HLTC99.5.3.6.1: Выделить пустую строку и попробовать перейти к просмотру толкования в Толковом Словаре
+}
+function  HLTC99_5_3_6_1_Execute(var  current_state: OleVariant): OleVariant;
+var 
+ editor;
+begin        
+try  
+  Result := true;
+  if not OpenDocByNumber(2001) then
+    Raise('Не получилось открыть документ 2001');
+  editor := GetEditor;
+  editor.Keys('^[End]![Up]'); // выделяем пустую строку
+  if not OpenAndClickByPopUpMenuItem(editor, 'Найти в Толков*') then
+    Raise('Не получилось кликнуть по пункту Найти в толковом словаре');
+  if WaitForInfoWindow(Options.Run.TimeOut div 20, 'Для выделенного фрагмента*не найдено.') = '' then
+    Result := ErrorResult('Не было окна предупреждения "Для выделенного фрагмента ничего не найдено."');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.5.6: 
+  1. Перейти на термин «Абандон (1)» 
+  2. Переключить термины на Итальянский язык 
+  3. Переключить  термины на Русский язык 
+  4. В толковании термина перейти по ссылке – должен осуществиться переход на соответствующее
+  толкование.
+}
+function  HLTC99_5_6_Execute(var  current_state: OleVariant): OleVariant;
+begin        
+try  
+  Result := true;
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder('Абандон (1)', GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "Абандон (1)"');
+  Result := SetLanguage(LANG_ITA, 'Abbandono (m)') and Result;
+  Result := SetLanguage(LANG_RUS, 'Абандон (1)') and Result;
+  if not ClickByHyperLink(GetFromDictionary('ТЕКСТ СТАТЬИ'), 'страхователя') then
+    Raise('Не получилось перейти по ссылке "страхователя"');
+  if not CheckCurrentLanguage(LANG_RUS, 'Страхователь (*)') then
+    Result := ErrorResult('Отличается текущий язык или термин');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.5.7:
+  1. Идём в ТС
+  2. Переходим к термину "Q Тобина"
+  3. Переключаемся на английское толкование
+  4. В тексте Английского толкования  выделяем слово "A" и кликаем на 
+     кнопку “Найти в толкованиях” на тулбаре в просмотре толкования на английском языке
+  5. Возвращаемся назад по истории – проверить, что не дублируются вкладки языков в окне 
+     толкований.
+}
+function  HLTC99_5_7_Execute(var  current_state: OleVariant): OleVariant;
+var
+  pagectrl;
+begin
+try
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder(D_RUS_WORD, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + D_RUS_WORD + '"');  
+
+  if not SetLanguage(LANG_ENG) then
+    Raise('Не получилось переключиться на англ. язык');
+  if not PressKeyWithCheck(['^[Home][Down][Down][Home]^![Right]'], GetFromDictionary('ПЕРЕВОД СТАТЬИ')) then
+    Raise('Не получилось выделить "А " в статье "' + D_RUS_WORD + '"');
+  if not OpenAndClickByPopupMenuItem(GetFromDictionary('ПЕРЕВОД СТАТЬИ'), 'Найти в Толковом*') then
+    Raise('Не получилось кликнуть по пункту попап меню "Найти в Толковом словаре"');
+  if not GoByHistory('НАЗАД') then
+    Raise('Не получилось вернуться НАЗАД по истории к термину ' + D_RUS_WORD);
+  pagectrl := GetFromDictionary('ЗАКЛАДКИ');
+  Result := IsExists(pagectrl) and (pagectrl.ChildCount = 2);
+  if not Result then
+    Raise('Закладки Рус./Анг. в ТС не найдены или их больше ДВУХ!');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC99.5.8: Проверить, что для внутренней версии системы возможно вызвать атрибуты толкований (вкладка информация о документе) из командного меню и сочетанием клавиш Alt+I. Для коммерческой версии эту вкладку вызвать нельзя.
+}
+function  HLTC99_5_8_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder(D_RUS_WORD, GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "' + D_RUS_WORD + '"');  
+  
+  if IsExists(GetFromDictionary('ВКЛАДКА ТС "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"')) then
+    Result := ErrorResult('Информация о документе уже существует до открытия');  
+  if not ClickByMainMenuItem('Документы\Информация о документе') then 
+    Raise('Не получилось кликнуть по "Документы\Информация о документе" из главного меню');
+  if not IsExists(GetFromDictionary('ВКЛАДКА ТС "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"')) then
+    Raise('Не получилось открыть Информацию о документе в ТС');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC99.5.9: Проверить, что на базе без словаря не предлагается поиск по словарю(в главном тулбаре, навигаторе и в контекстном меню документа на выделенном фрагменте).
+}
+function  HLTC99_5_9_Execute(var  current_state: OleVariant): OleVariant;
+begin        
+try  
+  Result := true;
+  if ClickByMainMenuItem('Поиск\Толковый*') then
+    Result := ErrorResult('Получилось вызвать ТС через главное меню');
+  
+  if ClickByPopupMenuItem(
+    ClickToolbarButton(GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Поиск' , 'ClickForPopupMenu:=true' ), 'Толковый словарь*') then
+    Result := ErrorResult('Получилось вызвать ТС через клавишу тулбара "Поиск"');
+  
+  if not OpenDocByNumber(2003) then
+    Raise('Не получилось открыть документ 2003');
+  if OpenAndClickByPopUpMenuItem(GetFromEditor('ТЕКСТ ДОКУМЕНТА'), 'Найти в Толков*') then
+    Result := ErrorResult('Получилось вызвать ТС через "Найти в Толковом словаре" контекстного меню документа');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC99.6.6: Если курсор находится в поле контекстного фильтра, поле обводится голубой рамкой.
+}
+function  HLTC99_6_6_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, editor;
+begin        
+try  
+  Result := true;
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+    
+  editor := GetFromDictionary('РЕДАКТОР');
+  if not IsExists(editor) then
+    Raise('Не найден текст словарной статьи');
+  w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"')); 
+  if not IsExists(w) then
+    Raise('Не найдено поле ввода Контекстный фильтр в ТС');
+
+  editor.SetFocus;
+  if IsBlueRectExists(GetMainWindow) then
+    Result := ErrorResult('Найдена голубая рамка, когда фокус надится в документе!');
+  w.SetFocus;
+  if not IsBlueRectExists(GetMainWindow) then
+    Result := ErrorResult('Не найдена голубая рамка в поле Контекстного фильтра!');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC99.7: История навигации и толковый словарь
+HLTC99.7.1: Проверить, что переходы по гиперссылкам из толкований терминов на другие 
+  термины толкового словаря попадают в историю навигации и к ним можно вернуться посредством 
+  переходов назад-вперед.
+  переходов назад-вперед.
+HLTC99.7.2: Проверить, что, перемещаясь по списку терминов толкового словаря, в историю навигации попадают все просмотренные термины. 
+HLTC99.6.2: Проверить, что при клике на термин он становится текущим.  
+HLTC99.3.6: Проверить правильность переходов по ссылкам из окна толкований на другие термины Словаря (по Click на ссылке)
+HLTC99.5.5: Проверить, что изменение текущей словарной статьи не попадает в историю.
+HLTC99.4.2: Искать контекст – то же, что и в документе
+}
+function  HLTC99_7_Execute(var  current_state: OleVariant): OleVariant;
+  var i, links, n_step;
+begin        
+try  
+  //последовательность имеет значение
+  Result := true;
+  links := ['инвестиций', 'эмиссии', 'денег', 'эквивалента'];
+  if not (GoToPPR and GoToDictionary) then
+    Raise('Не получилось открыть ТС');
+  if not OpenObjectFromFolder('Q Тобина', GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "Q Тобина" в статье ТС');  
+
+  for i := VarArrayLowBound(links, 1) to VarArrayHighBound(links, 1) do
+   if not ClickByHyperLink(GetFromDictionary('ТЕКСТ СТАТЬИ'), links[i]) then
+    Raise('Не получилось кликнуть по ссылке "' + links[i] + '" в статье ТС');
+
+  //HLTC99.7.2
+  //открываем второй термин из списка
+  if not OpenObjectFromFolder('Q Тобина', GetFromDictionary('СПИСОК ТЕРМИНОВ')) then
+    Raise('Не получилось открыть словарную статью "Q Тобина" в статье ТС');  
+
+  //прибавляем количество переходов назад
+  n_step := 1 + 3;
+  for i := 1 to ArrayLength(links) + n_step do
+    if not GoByHistory('НАЗАД') then
+      Raise('Не получилось вернуться назад по истории');
+  if not IsExists(GetFromPPR('КЗ')) then
+    Result := ErrorResult('Должна быть КЗ, учитывая количество переходов Назад по истории');
+
+  for i := 1 to n_step do
+    if not GoByHistory('ВПЕРЕД') then
+      Raise('Не получилось вернуться вперед по истории (к термину Эмиссия)');
+
+  if not CheckCurrentLanguage(LANG_RUS, 'Эмиссия') then
+    Result := ErrorResult('Отличается текущий язык или термин');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+/////////////////////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests99;
+var i, p : oleVariant;
+begin
+//  HLTC99_1_1_1_Execute(p);
+//  HLTC99_1_1_2_Execute(p);
+//  HLTC99_1_1_3_Execute(p);
+//  HLTC99_2_2_1_Execute(p);
+//  HLTC99_2_3_1_Execute(p);  
+//  HLTC99_2_3_2_Execute(p);
+//  HLTC99_2_4_Execute(p);
+//  HLTC99_2_5_Execute(p);
+//  HLTC99_2_6_Execute(p);
+//  HLTC99_3_3_Execute(p);
+//  HLTC99_3_5_Execute(p);
+//  HLTC99_3_7_Execute(p);
+//  HLTC99_4_3_Execute(p);
+//  HLTC99_4_10_Execute(p);
+//  HLTC99_4_1_Execute(p);  
+//  HLTC99_4_7_Execute(p);
+//  HLTC99_4_5_Execute(p);
+
+//  HLTC99_5_3_1_1_Execute(p);
+//  HLTC99_5_3_2_1_Execute(p);  
+//  HLTC99_5_3_3_1_Execute(p);
+//  HLTC99_5_3_4_1_Execute(p);
+//  HLTC99_5_3_5_1_Execute(p);
+//  HLTC99_5_3_6_1_Execute(p);
+//  HLTC99_5_6_Execute(p);
+//  HLTC99_5_7_Execute(p);
+//  HLTC99_5_8_Execute(p);
+//  HLTC99_5_9_Execute(p);
+
+//  HLTC99_7_Execute(p);
+/////////////////////////////////////////////
+
+
+
+  
+
+
+
+
+
+
+
+
+end;          

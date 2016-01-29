@@ -1,0 +1,4656 @@
+// ParentAndChild 4F6B66140294 VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B66140294
+
+FORWARD ME_4F6B6646037F
+
+FORWARD ME_4F6B69A902A6
+
+: ME_4F6B6A3802B6
+ CONST UID '4F6B6A3802B6'
+ CONST Name 'ChildZone'
+ CONST Class class_Class
+ : Stereotype st_VCMFormZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Inherits
+   @ ( ME_4F6B69A902A6 // ChildZone
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "CanClose" true
+ CONST "MergeBottomTollbarWithContainer" false
+ CONST "MergeTopTollbarWithContainer" false
+ CONST "Need UC" 'undefined'
+ CONST "ZoneType" 'Child'
+
+ref; // ME_4F6B6A3802B6 ChildZone$Zone
+
+: ME_4F71E73401DC
+ CONST UID '4F71E73401DC'
+ CONST Name 'THackControl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Inherits
+   @ ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4F71E73401DC THackControl
+
+FORWARD ME_4D9AE77A0246
+
+FORWARD ME_9A5352DE6337
+
+: ME_881C30D3D837
+ CONST UID '881C30D3D837'
+ CONST Name 'cutUsualName'
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа ""' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_9A5352DE6337 // cutUsualConstants
+ ;
+ CONST Value '''cutUsual'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_881C30D3D837 cutUsualName
+
+: ME_4109BD52AAA3
+ CONST UID '4109BD52AAA3'
+ CONST Name 'cutUsual'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_9A5352DE6337 // cutUsualConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" true
+
+ref; // ME_4109BD52AAA3 cutUsual
+
+: ME_9A5352DE6337
+ CONST UID '9A5352DE6337'
+ CONST Name 'cutUsualConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы cutUsual' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D9AE77A0246 // cutUsual
+ ;
+ : Attributes
+   @ ( ME_881C30D3D837 // cutUsualName
+ ME_4109BD52AAA3 // cutUsual
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_9A5352DE6337 cutUsualConstants
+
+FORWARD ME_58F5AF8EBB1D
+
+: ME_3E2A9FCFA96A
+ CONST UID '3E2A9FCFA96A'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_cutUsual' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_58F5AF8EBB1D // Tkw_FormUserType_cutUsual
+ ;
+
+ref; // ME_3E2A9FCFA96A Ini_Reg
+
+: ME_4DB0614603C8_ME_58F5AF8EBB1D
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_58F5AF8EBB1D // Tkw_FormUserType_cutUsual
+ ;
+ref; // ME_4DB0614603C8_ME_58F5AF8EBB1D GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_58F5AF8EBB1D
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_58F5AF8EBB1D // Tkw_FormUserType_cutUsual
+ ;
+ref; // ME_4EE1DC8903BB_ME_58F5AF8EBB1D GetInteger
+
+: ME_58F5AF8EBB1D
+ CONST UID '58F5AF8EBB1D'
+ CONST Name 'Tkw_FormUserType_cutUsual'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы cutUsual' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D9AE77A0246 // cutUsual
+ ;
+ : Inherits
+   @ ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_3E2A9FCFA96A // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_58F5AF8EBB1D // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_58F5AF8EBB1D // GetInteger
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::cutUsual'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_58F5AF8EBB1D Tkw_FormUserType_cutUsual
+
+: ME_4D9AE77A0246
+ CONST UID '4D9AE77A0246'
+ CONST Name 'cutUsual'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Children
+   @ ( ME_58F5AF8EBB1D // Tkw_FormUserType_cutUsual
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_9A5352DE6337 // cutUsualConstants
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutUsual_UserType.pas'
+
+ref; // ME_4D9AE77A0246 cutUsual
+
+FORWARD ME_4D9AE78D0196
+
+FORWARD ME_357FCEE5A5F5
+
+: ME_81CB4A4EBFC4
+ CONST UID '81CB4A4EBFC4'
+ CONST Name 'cutForDictionName'
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа ""' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_357FCEE5A5F5 // cutForDictionConstants
+ ;
+ CONST Value '''cutForDiction'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_81CB4A4EBFC4 cutForDictionName
+
+: ME_540228CB6E4A
+ CONST UID '540228CB6E4A'
+ CONST Name 'cutForDiction'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_357FCEE5A5F5 // cutForDictionConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 'cutUsual'
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" true
+ CONST "suffix expr" '+ 1'
+
+ref; // ME_540228CB6E4A cutForDiction
+
+: ME_357FCEE5A5F5
+ CONST UID '357FCEE5A5F5'
+ CONST Name 'cutForDictionConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы cutForDiction' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D9AE78D0196 // cutForDiction
+ ;
+ : Attributes
+   @ ( ME_81CB4A4EBFC4 // cutForDictionName
+ ME_540228CB6E4A // cutForDiction
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_357FCEE5A5F5 cutForDictionConstants
+
+FORWARD ME_52E2FD3F4FC1
+
+: ME_D9AF1D431A09
+ CONST UID 'D9AF1D431A09'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_cutForDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52E2FD3F4FC1 // Tkw_FormUserType_cutForDiction
+ ;
+
+ref; // ME_D9AF1D431A09 Ini_Reg
+
+: ME_4DB0614603C8_ME_52E2FD3F4FC1
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_52E2FD3F4FC1 // Tkw_FormUserType_cutForDiction
+ ;
+ref; // ME_4DB0614603C8_ME_52E2FD3F4FC1 GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_52E2FD3F4FC1
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_52E2FD3F4FC1 // Tkw_FormUserType_cutForDiction
+ ;
+ref; // ME_4EE1DC8903BB_ME_52E2FD3F4FC1 GetInteger
+
+: ME_52E2FD3F4FC1
+ CONST UID '52E2FD3F4FC1'
+ CONST Name 'Tkw_FormUserType_cutForDiction'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы cutForDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D9AE78D0196 // cutForDiction
+ ;
+ : Inherits
+   @ ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_D9AF1D431A09 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_52E2FD3F4FC1 // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_52E2FD3F4FC1 // GetInteger
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::cutForDiction'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_52E2FD3F4FC1 Tkw_FormUserType_cutForDiction
+
+: ME_4D9AE78D0196
+ CONST UID '4D9AE78D0196'
+ CONST Name 'cutForDiction'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Inherits
+   @ ( ME_4D9AE77A0246 // cutUsual
+ ) .SequenceCode.It
+ ; // Inherits
+ : Children
+   @ ( ME_52E2FD3F4FC1 // Tkw_FormUserType_cutForDiction
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_357FCEE5A5F5 // cutForDictionConstants
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutForDiction_UserType.pas'
+
+ref; // ME_4D9AE78D0196 cutForDiction
+
+FORWARD ME_1EC042A319A2
+
+: ME_616F67EF3EA5
+ CONST UID '616F67EF3EA5'
+ CONST Name 'cutUsualCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа ""' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_1EC042A319A2 // cutUsualLocalConstants
+ ;
+ CONST Value ''''''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_616F67EF3EA5 cutUsualCaption
+
+: ME_1EC042A319A2
+ CONST UID '1EC042A319A2'
+ CONST Name 'cutUsualLocalConstants'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы cutUsual' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Attributes
+   @ ( ME_616F67EF3EA5 // cutUsualCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_1EC042A319A2 cutUsualLocalConstants
+
+FORWARD ME_8A0C8883E73C
+
+: ME_E9E42C2E601D
+ CONST UID 'E9E42C2E601D'
+ CONST Name 'cutUsualCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа ""' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_8A0C8883E73C // LCImplcutUsualLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''cutUsualCaption''; rValue : '''')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_E9E42C2E601D cutUsualCaption
+
+: ME_8A0C8883E73C
+ CONST UID '8A0C8883E73C'
+ CONST Name 'LCImplcutUsualLocalConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки cutUsualLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Attributes
+   @ ( ME_E9E42C2E601D // cutUsualCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_8A0C8883E73C LCImplcutUsualLocalConstants
+
+FORWARD ME_98E7C1DF94DE
+
+: ME_BE03D6BDC6B1
+ CONST UID 'BE03D6BDC6B1'
+ CONST Name 'cutForDictionCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа ""' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_98E7C1DF94DE // cutForDictionLocalConstants
+ ;
+ CONST Value ''''''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_BE03D6BDC6B1 cutForDictionCaption
+
+: ME_98E7C1DF94DE
+ CONST UID '98E7C1DF94DE'
+ CONST Name 'cutForDictionLocalConstants'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы cutForDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Attributes
+   @ ( ME_BE03D6BDC6B1 // cutForDictionCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_98E7C1DF94DE cutForDictionLocalConstants
+
+FORWARD ME_AEDFC5EDA78A
+
+: ME_C8404C0A9804
+ CONST UID 'C8404C0A9804'
+ CONST Name 'cutForDictionCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа ""' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_AEDFC5EDA78A // LCImplcutForDictionLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''cutForDictionCaption''; rValue : '''')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_C8404C0A9804 cutForDictionCaption
+
+: ME_AEDFC5EDA78A
+ CONST UID 'AEDFC5EDA78A'
+ CONST Name 'LCImplcutForDictionLocalConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки cutForDictionLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Attributes
+   @ ( ME_C8404C0A9804 // cutForDictionCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_AEDFC5EDA78A LCImplcutForDictionLocalConstants
+
+: ME_4F6B6A9200A8
+ CONST UID '4F6B6A9200A8'
+ CONST Name 'MainPageTab'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'MainDataCaption' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B69A902A6 // ChildZone
+ ;
+ : Inherits
+   @ ( WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "need Caption" 'undefined'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4F6B6A9200A8 MainPageTab
+
+: ME_4F6B69A902A6
+ CONST UID '4F6B69A902A6'
+ CONST Name 'ChildZone'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Inherits
+   @ ( WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F6B6A9200A8 // MainPageTab
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "ControlClass" 'none'
+ CONST "need Caption" 'undefined'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4F6B69A902A6 ChildZone
+
+: ME_4F71E183026E
+ CONST UID '4F71E183026E'
+ CONST Name 'f_ParentHeight'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F71E183026E f_ParentHeight
+
+: ME_4F71E19800AD
+ CONST UID '4F71E19800AD'
+ CONST Name 'f_ParentParentHeight'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F71E19800AD f_ParentParentHeight
+
+: ME_4F71E1A103CC
+ CONST UID '4F71E1A103CC'
+ CONST Name 'f_ParentMinHeight'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F71E1A103CC f_ParentMinHeight
+
+: ME_4F71E1B30114
+ CONST UID '4F71E1B30114'
+ CONST Name 'f_CalcHeightFlag'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F71E1B30114 f_CalcHeightFlag
+
+: ME_DFCBDC8743BF
+ CONST UID 'DFCBDC8743BF'
+ CONST Name 'f_ChildZone'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ChildZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
+ ;
+
+ref; // ME_DFCBDC8743BF f_ChildZone
+
+: ME_4B6CDE991F2C
+ CONST UID '4B6CDE991F2C'
+ CONST Name 'f_MainPageTab'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства MainPageTab' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+
+ref; // ME_4B6CDE991F2C f_MainPageTab
+
+FORWARD ME_4F71E05E036B
+
+: ME_4F71E06600C5
+ CONST UID '4F71E06600C5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E05E036B // AdjustSizeToFixed
+ ;
+
+ref; // ME_4F71E06600C5 DoIt
+
+: ME_4F71E05E036B
+ CONST UID '4F71E05E036B'
+ CONST Name 'AdjustSizeToFixed'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E06600C5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E05E036B AdjustSizeToFixed
+
+FORWARD ME_4F71E078021D
+
+: ME_4F71E07E00E3
+ CONST UID '4F71E07E00E3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E078021D // ChildZoneMinHeight
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F71E07E00E3 DoIt
+
+: ME_4F71E078021D
+ CONST UID '4F71E078021D'
+ CONST Name 'ChildZoneMinHeight'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E07E00E3 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E078021D ChildZoneMinHeight
+
+FORWARD ME_4F71E0B601D4
+
+: ME_4F71E0C10062
+ CONST UID '4F71E0C10062'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E0B601D4 // ActivePageHasOnlyEntityForm
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F71E0C10062 DoIt
+
+: ME_4F71E0B601D4
+ CONST UID '4F71E0B601D4'
+ CONST Name 'ActivePageHasOnlyEntityForm'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E0C10062 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E0B601D4 ActivePageHasOnlyEntityForm
+
+FORWARD ME_4F71E0D10182
+
+: ME_4F71E0D7032E
+ CONST UID '4F71E0D7032E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E0D10182 // GrandParentProportional
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F71E0D7032E DoIt
+
+: ME_4F71E0D10182
+ CONST UID '4F71E0D10182'
+ CONST Name 'GrandParentProportional'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E0D7032E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E0D10182 GrandParentProportional
+
+FORWARD ME_4F71E1C9011F
+
+: ME_4F71E1DD0189
+ CONST UID '4F71E1DD0189'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4F71E1DD0189 aForm
+
+: ME_4F71E1D50394
+ CONST UID '4F71E1D50394'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E1C9011F // UpdateMainTab
+ ;
+ : Parameters
+   @ ( ME_4F71E1DD0189 // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F71E1D50394 DoIt
+
+: ME_4F71E1C9011F
+ CONST UID '4F71E1C9011F'
+ CONST Name 'UpdateMainTab'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E1D50394 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E1C9011F UpdateMainTab
+
+FORWARD ME_4F71E2050390
+
+: ME_4F71E23901F4
+ CONST UID '4F71E23901F4'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F71E23901F4 Sender
+
+: ME_4F71E2390247
+ CONST UID '4F71E2390247'
+ CONST Name 'ANewWidth'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F71E2390247 ANewWidth
+
+: ME_4F71E23902A1
+ CONST UID '4F71E23902A1'
+ CONST Name 'ANewHeight'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F71E23902A1 ANewHeight
+
+: ME_4F71E23902FB
+ CONST UID '4F71E23902FB'
+ CONST Name 'CanResize'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F71E23902FB CanResize
+
+: ME_4F71E2210249
+ CONST UID '4F71E2210249'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E2050390 // OnParentCanResize
+ ;
+ : Parameters
+   @ ( ME_4F71E23901F4 // Sender
+ ME_4F71E2390247 // ANewWidth
+ ME_4F71E23902A1 // ANewHeight
+ ME_4F71E23902FB // CanResize
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F71E2210249 DoIt
+
+: ME_4F71E2050390
+ CONST UID '4F71E2050390'
+ CONST Name 'OnParentCanResize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'при восстановлении всех настроек и активной первой закладке не даём менять размер и запоминаем ANewHeight' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E2210249 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E2050390 OnParentCanResize
+
+FORWARD ME_4F71E25E0127
+
+: ME_4F71E27200E0
+ CONST UID '4F71E27200E0'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F71E27200E0 Sender
+
+: ME_4F71E26D02DF
+ CONST UID '4F71E26D02DF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E25E0127 // ChildZoneChange
+ ;
+ : Parameters
+   @ ( ME_4F71E27200E0 // Sender
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F71E26D02DF DoIt
+
+: ME_4F71E25E0127
+ CONST UID '4F71E25E0127'
+ CONST Name 'ChildZoneChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E26D02DF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E25E0127 ChildZoneChange
+
+FORWARD ME_4F71E27F0180
+
+: ME_4F71E29F002E
+ CONST UID '4F71E29F002E'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4F71E29F002E aForm
+
+: ME_4F71E293013F
+ CONST UID '4F71E293013F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E27F0180 // vcmContainerFormAfterRemoveForm
+ ;
+ : Parameters
+   @ ( ME_4F71E29F002E // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F71E293013F DoIt
+
+: ME_4F71E27F0180
+ CONST UID '4F71E27F0180'
+ CONST Name 'vcmContainerFormAfterRemoveForm'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E293013F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E27F0180 vcmContainerFormAfterRemoveForm
+
+FORWARD ME_4F71E2AE02D3
+
+: ME_4F71E2C100EC
+ CONST UID '4F71E2C100EC'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4F71E2C100EC aForm
+
+: ME_4F71E2BC02A6
+ CONST UID '4F71E2BC02A6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E2AE02D3 // vcmContainerFormAfterInsertForm
+ ;
+ : Parameters
+   @ ( ME_4F71E2C100EC // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F71E2BC02A6 DoIt
+
+: ME_4F71E2AE02D3
+ CONST UID '4F71E2AE02D3'
+ CONST Name 'vcmContainerFormAfterInsertForm'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E2BC02A6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E2AE02D3 vcmContainerFormAfterInsertForm
+
+FORWARD ME_4F71E2D500D1
+
+: ME_4F71F5CB019B
+ CONST UID '4F71F5CB019B'
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F71F5CB019B aSender
+
+: ME_4F71E2F50336
+ CONST UID '4F71E2F50336'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4F71E2F50336 aForm
+
+: ME_4F71E2E80397
+ CONST UID '4F71E2E80397'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E2D500D1 // vcmContainerFormNeedUpdateTab
+ ;
+ : Parameters
+   @ ( ME_4F71F5CB019B // aSender
+ ME_4F71E2F50336 // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F71E2E80397 DoIt
+
+: ME_4F71E2D500D1
+ CONST UID '4F71E2D500D1'
+ CONST Name 'vcmContainerFormNeedUpdateTab'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E2E80397 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E2D500D1 vcmContainerFormNeedUpdateTab
+
+FORWARD ME_4F71E3020328
+
+: ME_4F71E3140147
+ CONST UID '4F71E3140147'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4F71E3140147 Sender
+
+: ME_4F71E31401A5
+ CONST UID '4F71E31401A5'
+ CONST Name 'Page'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+
+ref; // ME_4F71E31401A5 Page
+
+: ME_4F71E30F02C8
+ CONST UID '4F71E30F02C8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E3020328 // ChildZoneTabSheetClick
+ ;
+ : Parameters
+   @ ( ME_4F71E3140147 // Sender
+ ME_4F71E31401A5 // Page
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F71E30F02C8 DoIt
+
+: ME_4F71E3020328
+ CONST UID '4F71E3020328'
+ CONST Name 'ChildZoneTabSheetClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Operations
+   @ ( ME_4F71E30F02C8 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F71E3020328 ChildZoneTabSheetClick
+
+: ME_5A2F1E4CD1D4
+ CONST UID '5A2F1E4CD1D4'
+ CONST Name 'Init_cutUsualCaption'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_cutUsualCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+
+ref; // ME_5A2F1E4CD1D4 Init_cutUsualCaption
+
+: ME_478C8F3863D3
+ CONST UID '478C8F3863D3'
+ CONST Name 'Init_cutForDictionCaption'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_cutForDictionCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+
+ref; // ME_478C8F3863D3 Init_cutForDictionCaption
+
+: ME_D700584F0296
+ CONST UID 'D700584F0296'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimChild' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_D700584F0296 Ini_Reg_Class
+
+: ME_4F6B6AD5006C
+ CONST UID '4F6B6AD5006C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4F6B6AD5006C 
+
+: ME_4F6B6AE002C5
+ CONST UID '4F6B6AE002C5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4F6B6AE002C5 
+
+: ME_4F6B6AE601FB
+ CONST UID '4F6B6AE601FB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_4F6B6AE601FB 
+
+: ME_4F6B6AEF0232
+ CONST UID '4F6B6AEF0232'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_4F6B6AEF0232 
+
+: ME_4F6B6AFE0131
+ CONST UID '4F6B6AFE0131'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4F6B6AFE0131 
+
+: ME_4F71E3680252
+ CONST UID '4F71E3680252'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_4AE874300212' '4F71AD0E01FE.pas.ms.script' // Common$ShowSplitter
+ ;
+
+ref; // ME_4F71E3680252 
+
+: ME_4F71E76702D2
+ CONST UID '4F71E76702D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_4F71E76702D2 
+
+FORWARD ME_4F71E93E00EA
+
+: ME_4F71E94303C5
+ CONST UID '4F71E94303C5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target ME_4F71E93E00EA // nsFormUtils
+ ;
+
+ref; // ME_4F71E94303C5 
+
+: ME_4F71E9A20177
+ CONST UID '4F71E9A20177'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_47ECBD5D03BB' '476F78840219.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_4F71E9A20177 
+
+: ME_4F71EEB4007D
+ CONST UID '4F71EEB4007D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_499037730242' '49804E310263.pas.ms.script' // InsMainFormChildZoneManager
+ ;
+
+ref; // ME_4F71EEB4007D 
+
+: ME_4F71F9210394
+ CONST UID '4F71F9210394'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_4F71F9080285' '4A7960CC03A4.pas.ms.script' // TvtProportionalCustomPanel
+ ;
+
+ref; // ME_4F71F9210394 
+
+: ME_4F71F939033E
+ CONST UID '4F71F939033E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4F71F939033E 
+
+: ME_4F71F9740088
+ CONST UID '4F71F9740088'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F71F9740088 
+
+: ME_4F71F9840347
+ CONST UID '4F71F9840347'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F71F9840347 
+
+: ME_05FBF8421C54
+ CONST UID '05FBF8421C54'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_05FBF8421C54 
+
+: ME_E20424ED00FF
+ CONST UID 'E20424ED00FF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_E20424ED00FF 
+
+: ME_77EACE652BFC
+ CONST UID '77EACE652BFC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B6646037F // PrimChild
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_77EACE652BFC 
+
+: ME_4AEF3E8C02F5_ME_4F6B6646037F
+ CONST UID '4AEF3E8C02F5'
+ CONST Name 'BecomeActive'
+ : Original WL 'ME_4AEF3E8C02F5' '4F71AD0E01FE.pas.ms.script' // BecomeActive
+ ;
+ : Implementor ME_4F6B6646037F // PrimChild
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AEF3E8C02F5_ME_4F6B6646037F BecomeActive
+
+: ME_4AF832C401A1_ME_4F6B6646037F
+ CONST UID '4AF832C401A1'
+ CONST Name 'SetFirstPageActive'
+ : Original WL 'ME_4AF832C401A1' '4F71AD0E01FE.pas.ms.script' // SetFirstPageActive
+ ;
+ : Implementor ME_4F6B6646037F // PrimChild
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AF832C401A1_ME_4F6B6646037F SetFirstPageActive
+
+: ME_49803F5503AA_ME_4F6B6646037F
+ CONST UID '49803F5503AA'
+ CONST Name 'DoInit'
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ : Implementor ME_4F6B6646037F // PrimChild
+ ;
+ref; // ME_49803F5503AA_ME_4F6B6646037F DoInit
+
+: ME_4A8AE0FA03B2_ME_4F6B6646037F
+ CONST UID '4A8AE0FA03B2'
+ CONST Name 'BecomeActive'
+ : Original WL 'ME_4A8AE0FA03B2' '4AADF9450143.pas.ms.script' // BecomeActive
+ ;
+ : Implementor ME_4F6B6646037F // PrimChild
+ ;
+ref; // ME_4A8AE0FA03B2_ME_4F6B6646037F BecomeActive
+
+: ME_4A8E8F2E0195_ME_4F6B6646037F
+ CONST UID '4A8E8F2E0195'
+ CONST Name 'InitControls'
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ : Implementor ME_4F6B6646037F // PrimChild
+ ;
+ref; // ME_4A8E8F2E0195_ME_4F6B6646037F InitControls
+
+: ME_4AD5FA8E03DD_ME_4F6B6646037F
+ CONST UID '4AD5FA8E03DD'
+ CONST Name 'BecomeInactive'
+ : Original WL 'ME_4AD5FA8E03DD' '4AADF9450143.pas.ms.script' // BecomeInactive
+ ;
+ : Implementor ME_4F6B6646037F // PrimChild
+ ;
+ref; // ME_4AD5FA8E03DD_ME_4F6B6646037F BecomeInactive
+
+: ME_4E7C2AA3037E_ME_4F6B6646037F
+ CONST UID '4E7C2AA3037E'
+ CONST Name 'DoLoadFromSettings'
+ : Original WL 'ME_4E7C2AA3037E' '4AADF9450143.pas.ms.script' // DoLoadFromSettings
+ ;
+ : Implementor ME_4F6B6646037F // PrimChild
+ ;
+ref; // ME_4E7C2AA3037E_ME_4F6B6646037F DoLoadFromSettings
+
+: ME_4F71E1460089_ME_4F6B6646037F
+ CONST UID '4F71E1460089'
+ CONST Name 'SetParent'
+ : Original WL 'ME_4F71E1460089' '4799D29F033F.pas.ms.script' // SetParent
+ ;
+ : Implementor ME_4F6B6646037F // PrimChild
+ ;
+ref; // ME_4F71E1460089_ME_4F6B6646037F SetParent
+
+: ME_4F6B6646037F
+ CONST UID '4F6B6646037F'
+ CONST Name 'PrimChild'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6B66140294 // ParentAndChild
+ ;
+ : Inherits
+   @ ( WL 'ME_49525C240170' '4AADF9450143.pas.ms.script' // TvcmContainerForm
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4AE836C303BC' '4F71AD0E01FE.pas.ms.script' // Switcher$SetCaption
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F6B69A902A6 // ChildZone
+ ME_4F71E183026E // f_ParentHeight
+ ME_4F71E19800AD // f_ParentParentHeight
+ ME_4F71E1A103CC // f_ParentMinHeight
+ ME_4F71E1B30114 // f_CalcHeightFlag
+ ME_DFCBDC8743BF // f_ChildZone
+ ME_4B6CDE991F2C // f_MainPageTab
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F71E05E036B // AdjustSizeToFixed
+ ME_4F71E078021D // ChildZoneMinHeight
+ ME_4F71E0B601D4 // ActivePageHasOnlyEntityForm
+ ME_4F71E0D10182 // GrandParentProportional
+ ME_4F71E1C9011F // UpdateMainTab
+ ME_4F71E2050390 // OnParentCanResize
+ ME_4F71E25E0127 // ChildZoneChange
+ ME_4F71E27F0180 // vcmContainerFormAfterRemoveForm
+ ME_4F71E2AE02D3 // vcmContainerFormAfterInsertForm
+ ME_4F71E2D500D1 // vcmContainerFormNeedUpdateTab
+ ME_4F71E3020328 // ChildZoneTabSheetClick
+ ME_5A2F1E4CD1D4 // Init_cutUsualCaption
+ ME_478C8F3863D3 // Init_cutForDictionCaption
+ ME_D700584F0296 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4AEF3E8C02F5_ME_4F6B6646037F // BecomeActive
+ ME_4AF832C401A1_ME_4F6B6646037F // SetFirstPageActive
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_49803F5503AA_ME_4F6B6646037F // DoInit
+ ME_4A8AE0FA03B2_ME_4F6B6646037F // BecomeActive
+ ME_4A8E8F2E0195_ME_4F6B6646037F // InitControls
+ ME_4AD5FA8E03DD_ME_4F6B6646037F // BecomeInactive
+ ME_4E7C2AA3037E_ME_4F6B6646037F // DoLoadFromSettings
+ ME_4F71E1460089_ME_4F6B6646037F // SetParent
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4F6B6A3802B6 // ChildZone$Zone
+ ME_4F71E73401DC // THackControl
+ ME_4D9AE77A0246 // cutUsual
+ ME_4D9AE78D0196 // cutForDiction
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_1EC042A319A2 // cutUsualLocalConstants
+ ME_8A0C8883E73C // LCImplcutUsualLocalConstants
+ ME_98E7C1DF94DE // cutForDictionLocalConstants
+ ME_AEDFC5EDA78A // LCImplcutForDictionLocalConstants
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_4F6B6AD5006C // 
+ ME_4F6B6AE002C5 // 
+ ME_4F6B6AE601FB // 
+ ME_4F6B6AEF0232 // 
+ ME_4F6B6AFE0131 // 
+ ME_4F71E3680252 // 
+ ME_4F71E76702D2 // 
+ ME_4F71E94303C5 // 
+ ME_4F71E9A20177 // 
+ ME_4F71EEB4007D // 
+ ME_4F71F9210394 // 
+ ME_4F71F939033E // 
+ ME_4F71F9740088 // 
+ ME_4F71F9840347 // 
+ ME_05FBF8421C54 // 
+ ME_E20424ED00FF // 
+ ME_77EACE652BFC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_Form.pas'
+ CONST extprop:pas:TypeName 'TPrimChildForm'
+
+ref; // ME_4F6B6646037F PrimChild
+
+FORWARD ME_4F6B665B0143
+
+FORWARD ME_4F6B6B7D01BB
+
+: ME_4F6B6BA30248
+ CONST UID '4F6B6BA30248'
+ CONST Name 'ParentZone'
+ CONST Class class_Class
+ : Stereotype st_VCMFormZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Inherits
+   @ ( ME_4F6B6B7D01BB // ParentZone
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "CanClose" 'undefined'
+ CONST "MergeBottomTollbarWithContainer" false
+ CONST "MergeTopTollbarWithContainer" false
+ CONST "Need UC" 'undefined'
+ CONST "ZoneType" 'Parent'
+
+ref; // ME_4F6B6BA30248 ParentZone$Zone
+
+FORWARD ME_4F72C32000CF
+
+FORWARD ME_672DFEB48E47
+
+: ME_16A2E323DD7A
+ CONST UID '16A2E323DD7A'
+ CONST Name 'utHistoryName'
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа "История навигации"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_672DFEB48E47 // utHistoryConstants
+ ;
+ CONST Value '''utHistory'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_16A2E323DD7A utHistoryName
+
+: ME_3231A2453A3C
+ CONST UID '3231A2453A3C'
+ CONST Name 'utHistory'
+ CONST Class class_Attribute
+ %SUMMARY 'История навигации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_672DFEB48E47 // utHistoryConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" true
+
+ref; // ME_3231A2453A3C utHistory
+
+: ME_672DFEB48E47
+ CONST UID '672DFEB48E47'
+ CONST Name 'utHistoryConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы utHistory' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F72C32000CF // utHistory
+ ;
+ : Attributes
+   @ ( ME_16A2E323DD7A // utHistoryName
+ ME_3231A2453A3C // utHistory
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_672DFEB48E47 utHistoryConstants
+
+FORWARD ME_971AF1DC9566
+
+: ME_47E72C47881D
+ CONST UID '47E72C47881D'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_utHistory' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_971AF1DC9566 // Tkw_FormUserType_utHistory
+ ;
+
+ref; // ME_47E72C47881D Ini_Reg
+
+: ME_4DB0614603C8_ME_971AF1DC9566
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_971AF1DC9566 // Tkw_FormUserType_utHistory
+ ;
+ref; // ME_4DB0614603C8_ME_971AF1DC9566 GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_971AF1DC9566
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_971AF1DC9566 // Tkw_FormUserType_utHistory
+ ;
+ref; // ME_4EE1DC8903BB_ME_971AF1DC9566 GetInteger
+
+: ME_971AF1DC9566
+ CONST UID '971AF1DC9566'
+ CONST Name 'Tkw_FormUserType_utHistory'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы utHistory' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F72C32000CF // utHistory
+ ;
+ : Inherits
+   @ ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_47E72C47881D // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_971AF1DC9566 // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_971AF1DC9566 // GetInteger
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::utHistory'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_971AF1DC9566 Tkw_FormUserType_utHistory
+
+: ME_4F72C32000CF
+ CONST UID '4F72C32000CF'
+ CONST Name 'utHistory'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'История навигации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Children
+   @ ( ME_971AF1DC9566 // Tkw_FormUserType_utHistory
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_672DFEB48E47 // utHistoryConstants
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_utHistory_UserType.pas'
+
+ref; // ME_4F72C32000CF utHistory
+
+FORWARD ME_20823EC4821C
+
+: ME_72FF019EBB87
+ CONST UID '72FF019EBB87'
+ CONST Name 'utHistoryCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "История навигации"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_20823EC4821C // utHistoryLocalConstants
+ ;
+ CONST Value '''История навигации'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_72FF019EBB87 utHistoryCaption
+
+: ME_20823EC4821C
+ CONST UID '20823EC4821C'
+ CONST Name 'utHistoryLocalConstants'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы utHistory' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Attributes
+   @ ( ME_72FF019EBB87 // utHistoryCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_20823EC4821C utHistoryLocalConstants
+
+FORWARD ME_495780055CD7
+
+: ME_AE552CC92C2B
+ CONST UID 'AE552CC92C2B'
+ CONST Name 'utHistoryCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "История навигации"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495780055CD7 // LCImplutHistoryLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''utHistoryCaption''; rValue : ''История навигации'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_AE552CC92C2B utHistoryCaption
+
+: ME_495780055CD7
+ CONST UID '495780055CD7'
+ CONST Name 'LCImplutHistoryLocalConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки utHistoryLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Attributes
+   @ ( ME_AE552CC92C2B // utHistoryCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_495780055CD7 LCImplutHistoryLocalConstants
+
+: ME_4F6B6B7D01BB
+ CONST UID '4F6B6B7D01BB'
+ CONST Name 'ParentZone'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Inherits
+   @ ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "ControlClass" 'none'
+ CONST "need Caption" 'undefined'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ref; // ME_4F6B6B7D01BB ParentZone
+
+: ME_F0B072DF088C
+ CONST UID 'F0B072DF088C'
+ CONST Name 'f_ParentZone'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ParentZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+
+ref; // ME_F0B072DF088C f_ParentZone
+
+: ME_CA820491E8FE
+ CONST UID 'CA820491E8FE'
+ CONST Name 'Init_utHistoryCaption'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_utHistoryCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+
+ref; // ME_CA820491E8FE Init_utHistoryCaption
+
+: ME_370A4B3F1187
+ CONST UID '370A4B3F1187'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimParent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_370A4B3F1187 Ini_Reg_Class
+
+: ME_4F6B6B160050
+ CONST UID '4F6B6B160050'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4F6B6B160050 
+
+: ME_4F6B6B1903D8
+ CONST UID '4F6B6B1903D8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_4F6B6B1903D8 
+
+: ME_4F6B6B1D019A
+ CONST UID '4F6B6B1D019A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4F6B6B1D019A 
+
+: ME_4F6B6B200397
+ CONST UID '4F6B6B200397'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4F6B6B200397 
+
+: ME_4F6B6B24009F
+ CONST UID '4F6B6B24009F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_4F6B6B24009F 
+
+: ME_009B1871AC8B
+ CONST UID '009B1871AC8B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_009B1871AC8B 
+
+: ME_1A205A383B68
+ CONST UID '1A205A383B68'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_1A205A383B68 
+
+: ME_0435EDAB00F2
+ CONST UID '0435EDAB00F2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B665B0143 // PrimParent
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_0435EDAB00F2 
+
+: ME_49803F5503AA_ME_4F6B665B0143
+ CONST UID '49803F5503AA'
+ CONST Name 'DoInit'
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ : Implementor ME_4F6B665B0143 // PrimParent
+ ;
+ref; // ME_49803F5503AA_ME_4F6B665B0143 DoInit
+
+: ME_4A8E8F2E0195_ME_4F6B665B0143
+ CONST UID '4A8E8F2E0195'
+ CONST Name 'InitControls'
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ : Implementor ME_4F6B665B0143 // PrimParent
+ ;
+ref; // ME_4A8E8F2E0195_ME_4F6B665B0143 InitControls
+
+: ME_4F7C6D6801F4_ME_4F6B665B0143
+ CONST UID '4F7C6D6801F4'
+ CONST Name 'FocusIsSetToUs'
+ : Original WL 'ME_4F7C6D6801F4' '4AADF9450143.pas.ms.script' // FocusIsSetToUs
+ ;
+ : Implementor ME_4F6B665B0143 // PrimParent
+ ;
+ref; // ME_4F7C6D6801F4_ME_4F6B665B0143 FocusIsSetToUs
+
+: ME_4F7C6DFE00DE_ME_4F6B665B0143
+ CONST UID '4F7C6DFE00DE'
+ CONST Name 'AfterInsertForm'
+ : Original WL 'ME_4F7C6DFE00DE' '4AADF9450143.pas.ms.script' // AfterInsertForm
+ ;
+ : Implementor ME_4F6B665B0143 // PrimParent
+ ;
+ref; // ME_4F7C6DFE00DE_ME_4F6B665B0143 AfterInsertForm
+
+: ME_541011910033_ME_4F6B665B0143
+ CONST UID '541011910033'
+ CONST Name 'GetNeedSetFocusToMainObjectFormOnRefresh'
+ : Original WL 'ME_541011910033' '4AADF9450143.pas.ms.script' // GetNeedSetFocusToMainObjectFormOnRefresh
+ ;
+ : Implementor ME_4F6B665B0143 // PrimParent
+ ;
+ref; // ME_541011910033_ME_4F6B665B0143 GetNeedSetFocusToMainObjectFormOnRefresh
+
+: ME_4F6B665B0143
+ CONST UID '4F6B665B0143'
+ CONST Name 'PrimParent'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6B66140294 // ParentAndChild
+ ;
+ : Inherits
+   @ ( WL 'ME_49525C240170' '4AADF9450143.pas.ms.script' // TvcmContainerForm
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F6B6B7D01BB // ParentZone
+ ME_F0B072DF088C // f_ParentZone
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_CA820491E8FE // Init_utHistoryCaption
+ ME_370A4B3F1187 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_49803F5503AA_ME_4F6B665B0143 // DoInit
+ ME_4A8E8F2E0195_ME_4F6B665B0143 // InitControls
+ ME_4F7C6D6801F4_ME_4F6B665B0143 // FocusIsSetToUs
+ ME_4F7C6DFE00DE_ME_4F6B665B0143 // AfterInsertForm
+ ME_541011910033_ME_4F6B665B0143 // GetNeedSetFocusToMainObjectFormOnRefresh
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4F6B6BA30248 // ParentZone$Zone
+ ME_4F72C32000CF // utHistory
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_20823EC4821C // utHistoryLocalConstants
+ ME_495780055CD7 // LCImplutHistoryLocalConstants
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_4F6B6B160050 // 
+ ME_4F6B6B1903D8 // 
+ ME_4F6B6B1D019A // 
+ ME_4F6B6B200397 // 
+ ME_4F6B6B24009F // 
+ ME_009B1871AC8B // 
+ ME_1A205A383B68 // 
+ ME_0435EDAB00F2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_Form.pas'
+ CONST extprop:pas:TypeName 'TPrimParentForm'
+
+ref; // ME_4F6B665B0143 PrimParent
+
+FORWARD ME_4F6B66260326
+
+FORWARD ME_4F6B66CB0200
+
+: ME_11C4BBC32B0E
+ CONST UID '11C4BBC32B0E'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Parent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66CB0200 // Parent
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_11C4BBC32B0E Ini_Reg_Class
+
+: ME_D14DE5EA8184
+ CONST UID 'D14DE5EA8184'
+ CONST Name 'Ini_FormFactory_Parent'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Parent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66CB0200 // Parent
+ ;
+
+ref; // ME_D14DE5EA8184 Ini_FormFactory_Parent
+
+: ME_BBB293908FC5
+ CONST UID 'BBB293908FC5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B66CB0200 // Parent
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_BBB293908FC5 
+
+FORWARD ME_6739F7D39C4D
+
+: ME_4F6B66CB0200
+ CONST UID '4F6B66CB0200'
+ CONST Name 'Parent'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Inherits
+   @ ( ME_4F6B665B0143 // PrimParent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4F6B6714032D' '4F6B66F8001B.pas.ms.script' // Parent
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_11C4BBC32B0E // Ini_Reg_Class
+ ME_D14DE5EA8184 // Ini_FormFactory_Parent
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_BBB293908FC5 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ : Injected
+   @ ( ME_6739F7D39C4D // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Parent'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ : Generators
+ @ (
+ gen_dfm
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST dfm:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Parent_Form.dfm'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Parent_Form.pas'
+ CONST extprop:pas:TypeName 'TParentForm'
+
+ref; // ME_4F6B66CB0200 Parent
+
+FORWARD ME_4F6B66DB0384
+
+: ME_BEC85DF915C7
+ CONST UID 'BEC85DF915C7'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Child' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66DB0384 // Child
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_BEC85DF915C7 Ini_Reg_Class
+
+: ME_08B213FD0AA1
+ CONST UID '08B213FD0AA1'
+ CONST Name 'Ini_FormFactory_Child'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Child' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66DB0384 // Child
+ ;
+
+ref; // ME_08B213FD0AA1 Ini_FormFactory_Child
+
+: ME_99B624705FB2
+ CONST UID '99B624705FB2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B66DB0384 // Child
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_99B624705FB2 
+
+FORWARD ME_FDE7583158CE
+
+: ME_4F6B66DB0384
+ CONST UID '4F6B66DB0384'
+ CONST Name 'Child'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalContainer ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Inherits
+   @ ( ME_4F6B6646037F // PrimChild
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4F6B670E017C' '4F6B66F8001B.pas.ms.script' // Child
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_BEC85DF915C7 // Ini_Reg_Class
+ ME_08B213FD0AA1 // Ini_FormFactory_Child
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_99B624705FB2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ : Injected
+   @ ( ME_FDE7583158CE // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Child'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ : Generators
+ @ (
+ gen_dfm
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST dfm:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Child_Form.dfm'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Child_Form.pas'
+ CONST extprop:pas:TypeName 'TChildForm'
+
+ref; // ME_4F6B66DB0384 Child
+
+FORWARD ME_A7368FD6A294
+
+FORWARD ME_6975EF93CBDF
+
+: ME_16FD6662CBC9
+ CONST UID '16FD6662CBC9'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Form_Parent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_6975EF93CBDF // Tkw_Form_Parent
+ ;
+
+ref; // ME_16FD6662CBC9 Ini_Reg
+
+: ME_4DB0614603C8_ME_6975EF93CBDF
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_6975EF93CBDF // Tkw_Form_Parent
+ ;
+ref; // ME_4DB0614603C8_ME_6975EF93CBDF GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_6975EF93CBDF
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_6975EF93CBDF // Tkw_Form_Parent
+ ;
+ref; // ME_4DDFD2EA0116_ME_6975EF93CBDF GetString
+
+: ME_6975EF93CBDF
+ CONST UID '6975EF93CBDF'
+ CONST Name 'Tkw_Form_Parent'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора формы Parent'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::Parent TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_16FD6662CBC9 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_6975EF93CBDF // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_6975EF93CBDF // GetString
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "NameForScript" 'форма::Parent'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_6975EF93CBDF Tkw_Form_Parent
+
+FORWARD ME_B90C8FAA769A
+
+: ME_A319C4F0C247
+ CONST UID 'A319C4F0C247'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Parent_Control_ParentZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
+ ;
+
+ref; // ME_A319C4F0C247 Ini_Reg
+
+: ME_CE9F2C46D80A
+ CONST UID 'CE9F2C46D80A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+
+ref; // ME_CE9F2C46D80A 
+
+: ME_155B0233893F
+ CONST UID '155B0233893F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_155B0233893F 
+
+: ME_4DB0614603C8_ME_B90C8FAA769A
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
+ ;
+ref; // ME_4DB0614603C8_ME_B90C8FAA769A GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_B90C8FAA769A
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
+ ;
+ref; // ME_4DDFD2EA0116_ME_B90C8FAA769A GetString
+
+: ME_52A086150180_ME_B90C8FAA769A
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
+ ;
+ CONST "is static" true
+ref; // ME_52A086150180_ME_B90C8FAA769A RegisterInEngine
+
+: ME_B90C8FAA769A
+ CONST UID 'B90C8FAA769A'
+ CONST Name 'Tkw_Parent_Control_ParentZone'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола ParentZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZone TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_A319C4F0C247 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_B90C8FAA769A // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_B90C8FAA769A // GetString
+ ME_52A086150180_ME_B90C8FAA769A // RegisterInEngine
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_CE9F2C46D80A // 
+ ME_155B0233893F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ParentZone'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_B90C8FAA769A Tkw_Parent_Control_ParentZone
+
+FORWARD ME_B1138181AE50
+
+: ME_EC901D97EE81
+ CONST UID 'EC901D97EE81'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Parent_Control_ParentZone_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B1138181AE50 // Tkw_Parent_Control_ParentZone_Push
+ ;
+
+ref; // ME_EC901D97EE81 Ini_Reg
+
+: ME_C52FBDADC66B
+ CONST UID 'C52FBDADC66B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B1138181AE50 // Tkw_Parent_Control_ParentZone_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_C52FBDADC66B 
+
+: ME_4DAEEDE10285_ME_B1138181AE50
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_B1138181AE50 // Tkw_Parent_Control_ParentZone_Push
+ ;
+ref; // ME_4DAEEDE10285_ME_B1138181AE50 DoDoIt
+
+: ME_4DB0614603C8_ME_B1138181AE50
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B1138181AE50 // Tkw_Parent_Control_ParentZone_Push
+ ;
+ref; // ME_4DB0614603C8_ME_B1138181AE50 GetWordNameForRegister
+
+: ME_B1138181AE50
+ CONST UID 'B1138181AE50'
+ CONST Name 'Tkw_Parent_Control_ParentZone_Push'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола ParentZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_EC901D97EE81 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DAEEDE10285_ME_B1138181AE50 // DoDoIt
+ ME_4DB0614603C8_ME_B1138181AE50 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_C52FBDADC66B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ParentZone:push'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_B1138181AE50 Tkw_Parent_Control_ParentZone_Push
+
+FORWARD ME_E6FBE1D9F4EF
+
+: ME_F6088323C2CD
+ CONST UID 'F6088323C2CD'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_F6088323C2CD aCtx
+
+: ME_F6088323C2CE
+ CONST UID 'F6088323C2CE'
+ CONST Name 'aParentForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F6B66CB0200 // Parent
+ ;
+
+ref; // ME_F6088323C2CE aParentForm
+
+: ME_A91CC17C63F7
+ CONST UID 'A91CC17C63F7'
+ CONST Name 'ParentZone'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TParentForm.ParentZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ : Parameters
+   @ ( ME_F6088323C2CD // aCtx
+ ME_F6088323C2CE // aParentForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_A91CC17C63F7 ParentZone
+
+: ME_8BB45A131089
+ CONST UID '8BB45A131089'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ParentForm_ParentZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+
+ref; // ME_8BB45A131089 Ini_Reg
+
+: ME_C4C4124AE474
+ CONST UID 'C4C4124AE474'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_C4C4124AE474 
+
+: ME_D8644E7BE2D6
+ CONST UID 'D8644E7BE2D6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_D8644E7BE2D6 
+
+: ME_B17C82043BA4
+ CONST UID 'B17C82043BA4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_B17C82043BA4 
+
+: ME_4DAEEDE10285_ME_E6FBE1D9F4EF
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ref; // ME_4DAEEDE10285_ME_E6FBE1D9F4EF DoDoIt
+
+: ME_4DB0614603C8_ME_E6FBE1D9F4EF
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ref; // ME_4DB0614603C8_ME_E6FBE1D9F4EF GetWordNameForRegister
+
+: ME_52D00B00031A_ME_E6FBE1D9F4EF
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ref; // ME_52D00B00031A_ME_E6FBE1D9F4EF SetValuePrim
+
+: ME_551544E2001A_ME_E6FBE1D9F4EF
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ref; // ME_551544E2001A_ME_E6FBE1D9F4EF GetResultTypeInfo
+
+: ME_559687E6025A_ME_E6FBE1D9F4EF
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ref; // ME_559687E6025A_ME_E6FBE1D9F4EF GetAllParamsCount
+
+: ME_5617F4D00243_ME_E6FBE1D9F4EF
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ;
+ref; // ME_5617F4D00243_ME_E6FBE1D9F4EF ParamsTypes
+
+: ME_E6FBE1D9F4EF
+ CONST UID 'E6FBE1D9F4EF'
+ CONST Name 'ParentForm_ParentZone'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TParentForm.ParentZone'#13#10'{panel}Контрол ParentZone формы TParentForm{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aParentForm .TParentForm.ParentZone >>> l_TvtPanel'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_A91CC17C63F7 // ParentZone
+ ME_8BB45A131089 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_E6FBE1D9F4EF // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_E6FBE1D9F4EF // GetWordNameForRegister
+ ME_52D00B00031A_ME_E6FBE1D9F4EF // SetValuePrim
+ ME_551544E2001A_ME_E6FBE1D9F4EF // GetResultTypeInfo
+ ME_559687E6025A_ME_E6FBE1D9F4EF // GetAllParamsCount
+ ME_5617F4D00243_ME_E6FBE1D9F4EF // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_C4C4124AE474 // 
+ ME_D8644E7BE2D6 // 
+ ME_B17C82043BA4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" '.TParentForm.ParentZone'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwParentFormParentZone'
+
+ref; // ME_E6FBE1D9F4EF ParentForm_ParentZone
+
+: ME_1CA9B7FE1B52
+ CONST UID '1CA9B7FE1B52'
+ CONST Name 'ParentZone'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол ParentZone формы TParentForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "NameForScript" '.TParentForm.ParentZone'
+ CONST "mapped" true
+
+ref; // ME_1CA9B7FE1B52 ParentZone
+
+: ME_9D20DC53896A
+ CONST UID '9D20DC53896A'
+ CONST Name 'ParentZone'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол ParentZone формы TParentForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "NameForScript" '.TParentForm.ParentZone'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_9D20DC53896A ParentZone
+
+: ME_9531F964C87B
+ CONST UID '9531F964C87B'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+
+ref; // ME_9531F964C87B Reg_TtfwContext
+
+: ME_62D308410033
+ CONST UID '62D308410033'
+ CONST Name 'Reg_Parent'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа Parent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+
+ref; // ME_62D308410033 Reg_Parent
+
+: ME_6DAE71E0C039
+ CONST UID '6DAE71E0C039'
+ CONST Name 'Reg_TvtPanel'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TvtPanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+
+ref; // ME_6DAE71E0C039 Reg_TvtPanel
+
+: ME_46FB0E862AE2
+ CONST UID '46FB0E862AE2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_46FB0E862AE2 
+
+: ME_6739F7D39C4D
+ CONST UID '6739F7D39C4D'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Target ME_4F6B66CB0200 // Parent
+ ;
+
+ref; // ME_6739F7D39C4D 
+
+: ME_4801B816B57B
+ CONST UID '4801B816B57B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A7368FD6A294 // ParentKeywordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_4801B816B57B 
+
+: ME_A7368FD6A294
+ CONST UID 'A7368FD6A294'
+ CONST Name 'ParentKeywordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы Parent' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Inherits
+   @ ( ME_4F6B66CB0200 // Parent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_1CA9B7FE1B52 // ParentZone
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_9D20DC53896A // ParentZone
+ ME_9531F964C87B // Reg_TtfwContext
+ ME_62D308410033 // Reg_Parent
+ ME_6DAE71E0C039 // Reg_TvtPanel
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_6975EF93CBDF // Tkw_Form_Parent
+ ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
+ ME_B1138181AE50 // Tkw_Parent_Control_ParentZone_Push
+ ME_E6FBE1D9F4EF // ParentForm_ParentZone
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_46FB0E862AE2 // 
+ ME_6739F7D39C4D // 
+ ME_4801B816B57B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\ParentKeywordsPack.pas'
+
+ref; // ME_A7368FD6A294 ParentKeywordsPack
+
+FORWARD ME_D1FA54869B3C
+
+FORWARD ME_AB3A39A6155F
+
+: ME_DC9265AFBE5B
+ CONST UID 'DC9265AFBE5B'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Form_Child' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_AB3A39A6155F // Tkw_Form_Child
+ ;
+
+ref; // ME_DC9265AFBE5B Ini_Reg
+
+: ME_4DB0614603C8_ME_AB3A39A6155F
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_AB3A39A6155F // Tkw_Form_Child
+ ;
+ref; // ME_4DB0614603C8_ME_AB3A39A6155F GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_AB3A39A6155F
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_AB3A39A6155F // Tkw_Form_Child
+ ;
+ref; // ME_4DDFD2EA0116_ME_AB3A39A6155F GetString
+
+: ME_AB3A39A6155F
+ CONST UID 'AB3A39A6155F'
+ CONST Name 'Tkw_Form_Child'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора формы Child'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::Child TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_DC9265AFBE5B // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_AB3A39A6155F // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_AB3A39A6155F // GetString
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "NameForScript" 'форма::Child'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_AB3A39A6155F Tkw_Form_Child
+
+FORWARD ME_75A5E92F5203
+
+: ME_379A5A5EFD35
+ CONST UID '379A5A5EFD35'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Child_Control_ChildZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
+ ;
+
+ref; // ME_379A5A5EFD35 Ini_Reg
+
+: ME_9DA7E4E4A429
+ CONST UID '9DA7E4E4A429'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
+ ;
+ : Target WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
+ ;
+
+ref; // ME_9DA7E4E4A429 
+
+: ME_637FD66242AF
+ CONST UID '637FD66242AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_637FD66242AF 
+
+: ME_4DB0614603C8_ME_75A5E92F5203
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
+ ;
+ref; // ME_4DB0614603C8_ME_75A5E92F5203 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_75A5E92F5203
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
+ ;
+ref; // ME_4DDFD2EA0116_ME_75A5E92F5203 GetString
+
+: ME_52A086150180_ME_75A5E92F5203
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
+ ;
+ CONST "is static" true
+ref; // ME_52A086150180_ME_75A5E92F5203 RegisterInEngine
+
+: ME_75A5E92F5203
+ CONST UID '75A5E92F5203'
+ CONST Name 'Tkw_Child_Control_ChildZone'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола ChildZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZone TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_379A5A5EFD35 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_75A5E92F5203 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_75A5E92F5203 // GetString
+ ME_52A086150180_ME_75A5E92F5203 // RegisterInEngine
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_9DA7E4E4A429 // 
+ ME_637FD66242AF // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ChildZone'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_75A5E92F5203 Tkw_Child_Control_ChildZone
+
+FORWARD ME_2C415D2A7542
+
+: ME_D4A12672C5F7
+ CONST UID 'D4A12672C5F7'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Child_Control_ChildZone_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_2C415D2A7542 // Tkw_Child_Control_ChildZone_Push
+ ;
+
+ref; // ME_D4A12672C5F7 Ini_Reg
+
+: ME_32351ABC3715
+ CONST UID '32351ABC3715'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_2C415D2A7542 // Tkw_Child_Control_ChildZone_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_32351ABC3715 
+
+: ME_4DAEEDE10285_ME_2C415D2A7542
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_2C415D2A7542 // Tkw_Child_Control_ChildZone_Push
+ ;
+ref; // ME_4DAEEDE10285_ME_2C415D2A7542 DoDoIt
+
+: ME_4DB0614603C8_ME_2C415D2A7542
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_2C415D2A7542 // Tkw_Child_Control_ChildZone_Push
+ ;
+ref; // ME_4DB0614603C8_ME_2C415D2A7542 GetWordNameForRegister
+
+: ME_2C415D2A7542
+ CONST UID '2C415D2A7542'
+ CONST Name 'Tkw_Child_Control_ChildZone_Push'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола ChildZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_D4A12672C5F7 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DAEEDE10285_ME_2C415D2A7542 // DoDoIt
+ ME_4DB0614603C8_ME_2C415D2A7542 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_32351ABC3715 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ChildZone:push'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_2C415D2A7542 Tkw_Child_Control_ChildZone_Push
+
+FORWARD ME_0FFE16CCAC95
+
+: ME_7DD98A863474
+ CONST UID '7DD98A863474'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Child_Control_MainPageTab' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
+ ;
+
+ref; // ME_7DD98A863474 Ini_Reg
+
+: ME_A79E4AF5CACE
+ CONST UID 'A79E4AF5CACE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
+ ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+
+ref; // ME_A79E4AF5CACE 
+
+: ME_542D5E5A4A9E
+ CONST UID '542D5E5A4A9E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_542D5E5A4A9E 
+
+: ME_4DB0614603C8_ME_0FFE16CCAC95
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
+ ;
+ref; // ME_4DB0614603C8_ME_0FFE16CCAC95 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_0FFE16CCAC95
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
+ ;
+ref; // ME_4DDFD2EA0116_ME_0FFE16CCAC95 GetString
+
+: ME_52A086150180_ME_0FFE16CCAC95
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
+ ;
+ CONST "is static" true
+ref; // ME_52A086150180_ME_0FFE16CCAC95 RegisterInEngine
+
+: ME_0FFE16CCAC95
+ CONST UID '0FFE16CCAC95'
+ CONST Name 'Tkw_Child_Control_MainPageTab'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола MainPageTab'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainPageTab TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_7DD98A863474 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_0FFE16CCAC95 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_0FFE16CCAC95 // GetString
+ ME_52A086150180_ME_0FFE16CCAC95 // RegisterInEngine
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_A79E4AF5CACE // 
+ ME_542D5E5A4A9E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::MainPageTab'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_0FFE16CCAC95 Tkw_Child_Control_MainPageTab
+
+FORWARD ME_1A451665A611
+
+: ME_CD3F8B014A29
+ CONST UID 'CD3F8B014A29'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Child_Control_MainPageTab_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_1A451665A611 // Tkw_Child_Control_MainPageTab_Push
+ ;
+
+ref; // ME_CD3F8B014A29 Ini_Reg
+
+: ME_5E5D20AABA09
+ CONST UID '5E5D20AABA09'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1A451665A611 // Tkw_Child_Control_MainPageTab_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_5E5D20AABA09 
+
+: ME_4DAEEDE10285_ME_1A451665A611
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_1A451665A611 // Tkw_Child_Control_MainPageTab_Push
+ ;
+ref; // ME_4DAEEDE10285_ME_1A451665A611 DoDoIt
+
+: ME_4DB0614603C8_ME_1A451665A611
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_1A451665A611 // Tkw_Child_Control_MainPageTab_Push
+ ;
+ref; // ME_4DB0614603C8_ME_1A451665A611 GetWordNameForRegister
+
+: ME_1A451665A611
+ CONST UID '1A451665A611'
+ CONST Name 'Tkw_Child_Control_MainPageTab_Push'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола MainPageTab'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainPageTab:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_CD3F8B014A29 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DAEEDE10285_ME_1A451665A611 // DoDoIt
+ ME_4DB0614603C8_ME_1A451665A611 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5E5D20AABA09 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::MainPageTab:push'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_1A451665A611 Tkw_Child_Control_MainPageTab_Push
+
+FORWARD ME_310E6CF39C5E
+
+: ME_34B977456965
+ CONST UID '34B977456965'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_34B977456965 aCtx
+
+: ME_34B977456966
+ CONST UID '34B977456966'
+ CONST Name 'aChildForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F6B66DB0384 // Child
+ ;
+
+ref; // ME_34B977456966 aChildForm
+
+: ME_C5C282D0C8E1
+ CONST UID 'C5C282D0C8E1'
+ CONST Name 'ChildZone'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TChildForm.ChildZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ : Target WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
+ ;
+ : Parameters
+   @ ( ME_34B977456965 // aCtx
+ ME_34B977456966 // aChildForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_C5C282D0C8E1 ChildZone
+
+: ME_D876E8FB3677
+ CONST UID 'D876E8FB3677'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ChildForm_ChildZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+
+ref; // ME_D876E8FB3677 Ini_Reg
+
+: ME_D1DF2D25C5A1
+ CONST UID 'D1DF2D25C5A1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_D1DF2D25C5A1 
+
+: ME_6C79B2E77F3B
+ CONST UID '6C79B2E77F3B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_6C79B2E77F3B 
+
+: ME_09BB99F7908A
+ CONST UID '09BB99F7908A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_09BB99F7908A 
+
+: ME_4DAEEDE10285_ME_310E6CF39C5E
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ref; // ME_4DAEEDE10285_ME_310E6CF39C5E DoDoIt
+
+: ME_4DB0614603C8_ME_310E6CF39C5E
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ref; // ME_4DB0614603C8_ME_310E6CF39C5E GetWordNameForRegister
+
+: ME_52D00B00031A_ME_310E6CF39C5E
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ref; // ME_52D00B00031A_ME_310E6CF39C5E SetValuePrim
+
+: ME_551544E2001A_ME_310E6CF39C5E
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ref; // ME_551544E2001A_ME_310E6CF39C5E GetResultTypeInfo
+
+: ME_559687E6025A_ME_310E6CF39C5E
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ref; // ME_559687E6025A_ME_310E6CF39C5E GetAllParamsCount
+
+: ME_5617F4D00243_ME_310E6CF39C5E
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_310E6CF39C5E // ChildForm_ChildZone
+ ;
+ref; // ME_5617F4D00243_ME_310E6CF39C5E ParamsTypes
+
+: ME_310E6CF39C5E
+ CONST UID '310E6CF39C5E'
+ CONST Name 'ChildForm_ChildZone'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TChildForm.ChildZone'#13#10'{panel}Контрол ChildZone формы TChildForm{panel}'#13#10'*Тип результата:* TnscFormsPageControl'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscFormsPageControl'#13#10' aChildForm .TChildForm.ChildZone >>> l_TnscFormsPageControl'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_C5C282D0C8E1 // ChildZone
+ ME_D876E8FB3677 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_310E6CF39C5E // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_310E6CF39C5E // GetWordNameForRegister
+ ME_52D00B00031A_ME_310E6CF39C5E // SetValuePrim
+ ME_551544E2001A_ME_310E6CF39C5E // GetResultTypeInfo
+ ME_559687E6025A_ME_310E6CF39C5E // GetAllParamsCount
+ ME_5617F4D00243_ME_310E6CF39C5E // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_D1DF2D25C5A1 // 
+ ME_6C79B2E77F3B // 
+ ME_09BB99F7908A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" '.TChildForm.ChildZone'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwChildFormChildZone'
+
+ref; // ME_310E6CF39C5E ChildForm_ChildZone
+
+FORWARD ME_B752FF576E67
+
+: ME_94EB2ACBD3BF
+ CONST UID '94EB2ACBD3BF'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_94EB2ACBD3BF aCtx
+
+: ME_94EB2ACBD3C0
+ CONST UID '94EB2ACBD3C0'
+ CONST Name 'aChildForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F6B66DB0384 // Child
+ ;
+
+ref; // ME_94EB2ACBD3C0 aChildForm
+
+: ME_2A8075647382
+ CONST UID '2A8075647382'
+ CONST Name 'MainPageTab'
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TChildForm.MainPageTab' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+ : Parameters
+   @ ( ME_94EB2ACBD3BF // aCtx
+ ME_94EB2ACBD3C0 // aChildForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_2A8075647382 MainPageTab
+
+: ME_54D4816525C3
+ CONST UID '54D4816525C3'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ChildForm_MainPageTab' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+
+ref; // ME_54D4816525C3 Ini_Reg
+
+: ME_BD589DC0CC2A
+ CONST UID 'BD589DC0CC2A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_BD589DC0CC2A 
+
+: ME_8DE78473622F
+ CONST UID '8DE78473622F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_8DE78473622F 
+
+: ME_7508A0540F6B
+ CONST UID '7508A0540F6B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_7508A0540F6B 
+
+: ME_4DAEEDE10285_ME_B752FF576E67
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ref; // ME_4DAEEDE10285_ME_B752FF576E67 DoDoIt
+
+: ME_4DB0614603C8_ME_B752FF576E67
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ref; // ME_4DB0614603C8_ME_B752FF576E67 GetWordNameForRegister
+
+: ME_52D00B00031A_ME_B752FF576E67
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ref; // ME_52D00B00031A_ME_B752FF576E67 SetValuePrim
+
+: ME_551544E2001A_ME_B752FF576E67
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ref; // ME_551544E2001A_ME_B752FF576E67 GetResultTypeInfo
+
+: ME_559687E6025A_ME_B752FF576E67
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ref; // ME_559687E6025A_ME_B752FF576E67 GetAllParamsCount
+
+: ME_5617F4D00243_ME_B752FF576E67
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_B752FF576E67 // ChildForm_MainPageTab
+ ;
+ref; // ME_5617F4D00243_ME_B752FF576E67 ParamsTypes
+
+: ME_B752FF576E67
+ CONST UID 'B752FF576E67'
+ CONST Name 'ChildForm_MainPageTab'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TChildForm.MainPageTab'#13#10'{panel}Контрол MainPageTab формы TChildForm{panel}'#13#10'*Тип результата:* TElTabSheet'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TElTabSheet'#13#10' aChildForm .TChildForm.MainPageTab >>> l_TElTabSheet'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_2A8075647382 // MainPageTab
+ ME_54D4816525C3 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_B752FF576E67 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_B752FF576E67 // GetWordNameForRegister
+ ME_52D00B00031A_ME_B752FF576E67 // SetValuePrim
+ ME_551544E2001A_ME_B752FF576E67 // GetResultTypeInfo
+ ME_559687E6025A_ME_B752FF576E67 // GetAllParamsCount
+ ME_5617F4D00243_ME_B752FF576E67 // ParamsTypes
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_BD589DC0CC2A // 
+ ME_8DE78473622F // 
+ ME_7508A0540F6B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" '.TChildForm.MainPageTab'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwChildFormMainPageTab'
+
+ref; // ME_B752FF576E67 ChildForm_MainPageTab
+
+: ME_4B67108B812B
+ CONST UID '4B67108B812B'
+ CONST Name 'ChildZone'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол ChildZone формы TChildForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Target WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
+ ;
+ CONST "NameForScript" '.TChildForm.ChildZone'
+ CONST "mapped" true
+
+ref; // ME_4B67108B812B ChildZone
+
+: ME_161A4BE9659B
+ CONST UID '161A4BE9659B'
+ CONST Name 'MainPageTab'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол MainPageTab формы TChildForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+ CONST "NameForScript" '.TChildForm.MainPageTab'
+ CONST "mapped" true
+
+ref; // ME_161A4BE9659B MainPageTab
+
+: ME_13E414C54850
+ CONST UID '13E414C54850'
+ CONST Name 'ChildZone'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол ChildZone формы TChildForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Target WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
+ ;
+ CONST "NameForScript" '.TChildForm.ChildZone'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_13E414C54850 ChildZone
+
+: ME_472E607E0BB3
+ CONST UID '472E607E0BB3'
+ CONST Name 'MainPageTab'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол MainPageTab формы TChildForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+ CONST "NameForScript" '.TChildForm.MainPageTab'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_472E607E0BB3 MainPageTab
+
+: ME_C6C764D448E2
+ CONST UID 'C6C764D448E2'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+
+ref; // ME_C6C764D448E2 Reg_TtfwContext
+
+: ME_B0017D88240B
+ CONST UID 'B0017D88240B'
+ CONST Name 'Reg_Child'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа Child' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+
+ref; // ME_B0017D88240B Reg_Child
+
+: ME_E4CAE7281E3D
+ CONST UID 'E4CAE7281E3D'
+ CONST Name 'Reg_TnscFormsPageControl'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TnscFormsPageControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+
+ref; // ME_E4CAE7281E3D Reg_TnscFormsPageControl
+
+: ME_219D8B0FDE02
+ CONST UID '219D8B0FDE02'
+ CONST Name 'Reg_TElTabSheet'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TElTabSheet' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+
+ref; // ME_219D8B0FDE02 Reg_TElTabSheet
+
+: ME_75428A758E9D
+ CONST UID '75428A758E9D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_75428A758E9D 
+
+: ME_FDE7583158CE
+ CONST UID 'FDE7583158CE'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Target ME_4F6B66DB0384 // Child
+ ;
+
+ref; // ME_FDE7583158CE 
+
+: ME_B3284C8F4472
+ CONST UID 'B3284C8F4472'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_D1FA54869B3C // ChildKeywordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_B3284C8F4472 
+
+: ME_D1FA54869B3C
+ CONST UID 'D1FA54869B3C'
+ CONST Name 'ChildKeywordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы Child' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Inherits
+   @ ( ME_4F6B66DB0384 // Child
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4B67108B812B // ChildZone
+ ME_161A4BE9659B // MainPageTab
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_13E414C54850 // ChildZone
+ ME_472E607E0BB3 // MainPageTab
+ ME_C6C764D448E2 // Reg_TtfwContext
+ ME_B0017D88240B // Reg_Child
+ ME_E4CAE7281E3D // Reg_TnscFormsPageControl
+ ME_219D8B0FDE02 // Reg_TElTabSheet
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_AB3A39A6155F // Tkw_Form_Child
+ ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
+ ME_2C415D2A7542 // Tkw_Child_Control_ChildZone_Push
+ ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
+ ME_1A451665A611 // Tkw_Child_Control_MainPageTab_Push
+ ME_310E6CF39C5E // ChildForm_ChildZone
+ ME_B752FF576E67 // ChildForm_MainPageTab
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_75428A758E9D // 
+ ME_FDE7583158CE // 
+ ME_B3284C8F4472 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\ChildKeywordsPack.pas'
+
+ref; // ME_D1FA54869B3C ChildKeywordsPack
+
+FORWARD ME_4F6B67820382
+
+: ME_4F6B682E03C3
+ CONST UID '4F6B682E03C3'
+ CONST Name 'aMainForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_4F6B682E03C3 aMainForm
+
+: ME_4F6B682F002C
+ CONST UID '4F6B682F002C'
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_4F6B682F002C anOwner
+
+: ME_4F6B6815037A
+ CONST UID '4F6B6815037A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B67820382 // MakeChild
+ ;
+ : Parameters
+   @ ( ME_4F6B682E03C3 // aMainForm
+ ME_4F6B682F002C // anOwner
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6B6815037A DoIt
+
+: ME_4F6B67820382
+ CONST UID '4F6B67820382'
+ CONST Name 'MakeChild'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Operations
+   @ ( ME_4F6B6815037A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6B67820382 MakeChild
+
+FORWARD ME_4F6B678D03B8
+
+: ME_4F6B67ED0116
+ CONST UID '4F6B67ED0116'
+ CONST Name 'aMainForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_4F6B67ED0116 aMainForm
+
+: ME_4F6B67E20007
+ CONST UID '4F6B67E20007'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B678D03B8 // MakeParent
+ ;
+ : Parameters
+   @ ( ME_4F6B67ED0116 // aMainForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6B67E20007 DoIt
+
+: ME_4F6B678D03B8
+ CONST UID '4F6B678D03B8'
+ CONST Name 'MakeParent'
+ CONST Class class_Class
+ : Stereotype st_FormFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Operations
+   @ ( ME_4F6B67E20007 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6B678D03B8 MakeParent
+
+: ME_4F6B684401E9
+ CONST UID '4F6B684401E9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Target WL 'ME_4AD89C420296' '47D0E1500033.pas.ms.script' // vcmMakeParams
+ ;
+
+ref; // ME_4F6B684401E9 
+
+: ME_67B6714CC55B
+ CONST UID '67B6714CC55B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+
+ref; // ME_67B6714CC55B 
+
+: ME_4F6B66260326
+ CONST UID '4F6B66260326'
+ CONST Name 'ParentAndChildPrim'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6B66140294 // ParentAndChild
+ ;
+ : Operations
+   @ ( ME_4F6B67820382 // MakeChild
+ ME_4F6B678D03B8 // MakeParent
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4F6B66CB0200 // Parent
+ ME_4F6B66DB0384 // Child
+ ME_A7368FD6A294 // ParentKeywordsPack
+ ME_D1FA54869B3C // ChildKeywordsPack
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4F6B684401E9 // 
+ ME_67B6714CC55B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas'
+ CONST extprop:pas:TypeName 'TParentAndChildPrimModule'
+
+ref; // ME_4F6B66260326 ParentAndChildPrim
+
+: ME_4F6B663803AE
+ CONST UID '4F6B663803AE'
+ CONST Name 'ParentAndChild'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поддержка работы с родительской и дочерней зонами' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66140294 // ParentAndChild
+ ;
+ : Inherits
+   @ ( ME_4F6B66260326 // ParentAndChildPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas'
+ CONST extprop:pas:TypeName 'Tmo_ParentAndChild'
+
+ref; // ME_4F6B663803AE ParentAndChild
+
+FORWARD ME_4F71E957012F
+
+: ME_4F71E968009B
+ CONST UID '4F71E968009B'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4F71E968009B aForm
+
+: ME_4F71E9640011
+ CONST UID '4F71E9640011'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E957012F // nsSetPageIcon
+ ;
+ : Parameters
+   @ ( ME_4F71E968009B // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F71E9640011 DoIt
+
+: ME_4F71E98F00F9
+ CONST UID '4F71E98F00F9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F71E957012F // nsSetPageIcon
+ ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+
+ref; // ME_4F71E98F00F9 
+
+: ME_4F71F9B00040
+ CONST UID '4F71F9B00040'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F71E957012F // nsSetPageIcon
+ ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_4F71F9B00040 
+
+: ME_4F71E957012F
+ CONST UID '4F71E957012F'
+ CONST Name 'nsSetPageIcon'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F71E93E00EA // nsFormUtils
+ ;
+ : Operations
+   @ ( ME_4F71E9640011 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4F71E98F00F9 // 
+ ME_4F71F9B00040 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4F71E957012F nsSetPageIcon
+
+: ME_4F71E93E00EA
+ CONST UID '4F71E93E00EA'
+ CONST Name 'nsFormUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66140294 // ParentAndChild
+ ;
+ : Operations
+   @ ( ME_4F71E957012F // nsSetPageIcon
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\nsFormUtils.pas'
+
+ref; // ME_4F71E93E00EA nsFormUtils
+
+FORWARD ME_4F7B037D01FF
+
+FORWARD ME_4F7B03D70163
+
+: ME_4F7B03E40371
+ CONST UID '4F7B03E40371'
+ CONST Name 'gi_Internal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value '''Внутренняя'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B03E40371 gi_Internal
+
+: ME_4F7B03F803A4
+ CONST UID '4F7B03F803A4'
+ CONST Name 'pi_Navigator_RightSize'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'gi_Internal + ''/Навигатор/Правый размер'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B03F803A4 pi_Navigator_RightSize
+
+: ME_4F7B0413001B
+ CONST UID '4F7B0413001B'
+ CONST Name 'pi_Navigator_LeftSize'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'gi_Internal + ''/Навигатор/Левый размер'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B0413001B pi_Navigator_LeftSize
+
+: ME_4F7B042F0290
+ CONST UID '4F7B042F0290'
+ CONST Name 'dv_Navigator_LeftSize'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 200
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B042F0290 dv_Navigator_LeftSize
+
+: ME_4F7B043A0230
+ CONST UID '4F7B043A0230'
+ CONST Name 'dv_Navigator_RightSize'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 200
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B043A0230 dv_Navigator_RightSize
+
+: ME_4F7B0F0D0136
+ CONST UID '4F7B0F0D0136'
+ CONST Name 'gi_IfaceSettings'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value '''Настройки интерфейса'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B0F0D0136 gi_IfaceSettings
+
+: ME_4F7B0F1E0183
+ CONST UID '4F7B0F1E0183'
+ CONST Name 'piHistoryItems'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'gi_IfaceSettings + ''/HistoryItems'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B0F1E0183 piHistoryItems
+
+: ME_4F7B0F6D033E
+ CONST UID '4F7B0F6D033E'
+ CONST Name 'cv6xHistoryItems'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 25
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B0F6D033E cv6xHistoryItems
+
+: ME_4F7B0F7B00EF
+ CONST UID '4F7B0F7B00EF'
+ CONST Name 'dvHistoryItems'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'cv6xHistoryItems'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B0F7B00EF dvHistoryItems
+
+: ME_4F7B1E9A037B
+ CONST UID '4F7B1E9A037B'
+ CONST Name 'pi_LeftNavigator'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'gi_IfaceSettings + ''/Левый навигатор'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B1E9A037B pi_LeftNavigator
+
+: ME_4F7B1EC203C1
+ CONST UID '4F7B1EC203C1'
+ CONST Name 'dv_LeftNavigator'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'nsNormal'
+ : ValueType WL 'ME_4F7B1E670309' '47CD07B900E0.pas.ms.script' // TNavigatorState
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B1EC203C1 dv_LeftNavigator
+
+: ME_4F7B1F000021
+ CONST UID '4F7B1F000021'
+ CONST Name 'pi_RightNavigator'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'gi_IfaceSettings + ''/Правый навигатор'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B1F000021 pi_RightNavigator
+
+: ME_4F7B1F0C00EF
+ CONST UID '4F7B1F0C00EF'
+ CONST Name 'dv_RightNavigator'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'nsNormal'
+ : ValueType WL 'ME_4F7B1E670309' '47CD07B900E0.pas.ms.script' // TNavigatorState
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B1F0C00EF dv_RightNavigator
+
+: ME_4F7B1F3D0008
+ CONST UID '4F7B1F3D0008'
+ CONST Name 'pi_lnAutoHideFloat'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'pi_LeftNavigator + ''/AutoFloat'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B1F3D0008 pi_lnAutoHideFloat
+
+: ME_4F7B1F4802D6
+ CONST UID '4F7B1F4802D6'
+ CONST Name 'dv_lnAutoHideFloat'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value false
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B1F4802D6 dv_lnAutoHideFloat
+
+: ME_4F7B1F53014E
+ CONST UID '4F7B1F53014E'
+ CONST Name 'pi_rnAutoHideFloat'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value 'pi_RightNavigator + ''/AutoFloat'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B1F53014E pi_rnAutoHideFloat
+
+: ME_4F7B1F5E0065
+ CONST UID '4F7B1F5E0065'
+ CONST Name 'dv_rnAutoHideFloat'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F7B03D70163 // Settings Const
+ ;
+ CONST Value false
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F7B1F5E0065 dv_rnAutoHideFloat
+
+: ME_4F7B03D70163
+ CONST UID '4F7B03D70163'
+ CONST Name 'Settings Const'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F7B037D01FF // nsSettingsConst
+ ;
+ : Attributes
+   @ ( ME_4F7B03E40371 // gi_Internal
+ ME_4F7B03F803A4 // pi_Navigator_RightSize
+ ME_4F7B0413001B // pi_Navigator_LeftSize
+ ME_4F7B042F0290 // dv_Navigator_LeftSize
+ ME_4F7B043A0230 // dv_Navigator_RightSize
+ ME_4F7B0F0D0136 // gi_IfaceSettings
+ ME_4F7B0F1E0183 // piHistoryItems
+ ME_4F7B0F6D033E // cv6xHistoryItems
+ ME_4F7B0F7B00EF // dvHistoryItems
+ ME_4F7B1E9A037B // pi_LeftNavigator
+ ME_4F7B1EC203C1 // dv_LeftNavigator
+ ME_4F7B1F000021 // pi_RightNavigator
+ ME_4F7B1F0C00EF // dv_RightNavigator
+ ME_4F7B1F3D0008 // pi_lnAutoHideFloat
+ ME_4F7B1F4802D6 // dv_lnAutoHideFloat
+ ME_4F7B1F53014E // pi_rnAutoHideFloat
+ ME_4F7B1F5E0065 // dv_rnAutoHideFloat
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4F7B03D70163 Settings Const
+
+: ME_4F7B037D01FF
+ CONST UID '4F7B037D01FF'
+ CONST Name 'nsSettingsConst'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B66140294 // ParentAndChild
+ ;
+ : Constants
+   @ ( ME_4F7B03D70163 // Settings Const
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\nsSettingsConst.pas'
+
+ref; // ME_4F7B037D01FF nsSettingsConst
+
+: ME_4F6B66140294
+ CONST UID '4F6B66140294'
+ CONST Name 'ParentAndChild'
+ CONST Class class_Category
+ : Stereotype st_VCMModule ;
+ %SUMMARY 'Поддержка работы с родительской и дочерней зонами' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4F6B660100D5' '4F6B660100D5.pas.ms.script' // View
+ ;
+ : Children
+   @ ( ME_4F6B6646037F // PrimChild
+ ME_4F6B665B0143 // PrimParent
+ ME_4F6B66260326 // ParentAndChildPrim
+ ME_4F6B663803AE // ParentAndChild
+ ME_4F71E93E00EA // nsFormUtils
+ ME_4F7B037D01FF // nsSettingsConst
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47CD07B900E0' '47CD07B900E0.pas.ms.script' // vtNavigator
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_49804E310263' '49804E310263.pas.ms.script' // PresentationInterfaces
+ WL 'ME_499ABF4F02A1' '499ABF4F02A1.pas.ms.script' // elClone
+ WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4AC5E84C02AA' '4AC5E84C02AA.pas.ms.script' // PageControl
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
+ WL 'ME_4F6B66F8001B' '4F6B66F8001B.pas.ms.script' // FormDefinitions
+ WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.pas.ms.script' // InternalOperations
+ WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
+ WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6B66140294.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6B66140294.pas.ms.script.runner'
+
+ref; // ME_4F6B66140294 ParentAndChild

@@ -1,0 +1,827 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Core/Abstract/Ifdef.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAGenerator::Class>> MDProcess$CoreTemplates::CoreTemplates::Core::Abstract::Ifdef
+//
+// предоставляет функциональность для генерации кода по условной компиляции
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Ifdef::MDAGenerator*
+implementation @ <<Ifdef>>
+//? предоставляет функциональность для генерации кода по условной компиляции
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p ifdef:s ? Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+//p ifndef:s ? Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{ifdef}"!="%S{!ifdef}"}%f_up_prefix(%S) *ifdef* = *%S{ifdef}* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+ if ( ( %S get_up ( 'ifdef' ) ) %!= ( %S get_up_def ( 'ifdef' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ifdef* = *'
+  %S get_up ( 'ifdef' ) '* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.'
+//	][{"%S{ifndef}"!="%S{!ifndef}"}%f_up_prefix(%S) *ifndef* = *%S{ifndef}* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+ end // if
+ if ( ( %S get_up ( 'ifndef' ) ) %!= ( %S get_up_def ( 'ifndef' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ifndef* = *'
+  %S get_up ( 'ifndef' ) '* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.'
+//	]
+ end // if
+
+// закрывает блок условной компиляции (если блок нужен)
+//%f _close_ifdef
+; // wiki_up_print
+
+: close_ifdef OBJECT IN %S
+//#UC START# *4976EBC9015Ffor4976EB82018C*
+//	[{%f_end_ifdef(%S)=true}[{%X{lid}!=delphi}{[\{$IfEnd\} //%f_dump_close_ifdef_str(%S)]}[\#endif //%f_dump_close_ifdef_str(%S)]]]
+ if ( ( [%f] end_ifdef %( %S )% ) %==  true ) then
+ begin
+  if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '#endif //'
+    [%f] dump_close_ifdef_str %( %S )% 
+   end // if
+   NOP
+  end // if
+  else
+  begin
+   if NOT-EMPTY
+   begin
+    '{$IfEnd} //'
+    [%f] dump_close_ifdef_str %( %S )% 
+   end // if
+   NOP
+  end // else
+ end // if
+
+//f _dump_close_ifdef_str
+; // close_ifdef
+
+end. // <<Ifdef>>
+
+: dump_close_ifdef_str OBJECT IN %S
+//	%f_clear_list(IFDEFS)\
+ [%f] clear_list %( 'IFDEFS' )% 
+//	%f_clear_list(IFNDEFS)\
+ [%f] clear_list %( 'IFNDEFS' )% 
+//	%f_collect_ifdefs(%S,"IFDEFS")\
+ [%f] collect_ifdefs %( %S %, 'IFDEFS' )% 
+//	%f_collect_ifndefs(%S,"IFNDEFS")\
+ [%f] collect_ifndefs %( %S %, 'IFNDEFS' )% 
+//	%f_clear_list(IFDEFS_STR)\
+ [%f] clear_list %( 'IFDEFS_STR' )% 
+//	<{}{%f_is_empty(IFDEFS)=false}{W}[%f_pop_first_to_var(IFDEFS,IFDEF)%f_add_to_list(IFDEFS_STR,"%{IFDEF}N")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'IFDEFS' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'IFDEFS' %, 'IFDEF' )% [%f] add_to_list %( 'IFDEFS_STR' %, ( get_global_var ( 'IFDEF' ) |N ) )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	<{}{%f_is_empty(IFNDEFS)=false}{W}[%f_pop_first_to_var(IFNDEFS,IFNDEF)%f_add_to_list(IFDEFS_STR,"[{%X{lid}!=delphi}{not }!]%{IFNDEF}N")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'IFNDEFS' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'IFNDEFS' %, 'IFNDEF' )% [%f] add_to_list %( 'IFDEFS_STR' %, if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+    begin
+     '!' 
+    end // if
+    else
+    begin
+     'not ' 
+    end // else
+    ( get_global_var ( 'IFNDEF' ) |N ) )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	<{%f_ifdef_delim(%S)}{%f_is_empty(IFDEFS_STR)=false}{W}[%f_pop_first_to_var(IFDEFS_STR,IFDEF)%{IFDEF}N]>
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'IFDEFS_STR' )% ) %==  false ) then
+  begin
+   if ( l_Counter >0 ) then ( [%f] ifdef_delim %( %S )% )
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'IFDEFS_STR' %, 'IFDEF' )% ( get_global_var ( 'IFDEF' ) |N ) 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//#UC END# *4976EBC9015Ffor4976EB82018C*
+; // dump_close_ifdef_str
+
+
+// открывает блок условной компиляции (если необходимо)
+//%f _open_ifdef
+implementation @ <<Ifdef>>
+: open_ifdef OBJECT IN %S
+//#UC START# *4976EBCD03ABfor4976EB82018C*
+//инициализиурем список открытых ifdef, если он ещё не был проинициализирован:
+//	[{%f_is_empty(OPEN_IFDEFS)=true}%f_add_to_list(OPEN_IFDEFS,"")%f_clear_list(OPEN_IFDEFS)]\
+ if ( ( [%f] is_empty %( 'OPEN_IFDEFS' )% ) %==  true ) then
+ begin
+  [%f] add_to_list %( 'OPEN_IFDEFS' %, '' )% [%f] clear_list %( 'OPEN_IFDEFS' )% 
+ end // if
+//получаем дефайн для текущего элемента:
+//	%f_set_var(TEMP_IFDEF,"%f_dump_open_ifdef_str(%S)")\
+ [%f] set_var %( 'TEMP_IFDEF' %, [%f] dump_open_ifdef_str %( %S )% )% 
+//если TEMP_IFDEF пуст - ничего не выводим, в список открытых IFDEF добавляем признак пустого Ifdef-а:
+//	[{"%{TEMP_IFDEF}N"!=""}{%f_add_to_list(OPEN_IFDEFS,"%f_get_empty_ifdef_flag(%S)")}\
+ if ( ( ( get_global_var ( 'TEMP_IFDEF' ) |N ) ) %!= '' ) then
+ begin
+
+//если TEMP_IFDEF не пуст - нужно проверить, не находимся ли мы уже под нужным ifdef-ом
+
+//для этого нужно взять первый НЕ пустой ifdef из списка открытых,
+
+//если уже под нужным ifdef'ом - в список открытых IFDEF добавляем признак пустого Ifdef-а
+
+//если не находимся под нужным ifdef'ом - в список открытых IFDEF добавляем признак пустого %{TEMP_IFDEF}N и выводим ifdef
+//	[{%f_is_already_under_ifdef(%S,"%{TEMP_IFDEF}N")=false}{%f_add_to_list(OPEN_IFDEFS,"%f_get_empty_ifdef_flag(%S)")\
+  if ( ( [%f] is_already_under_ifdef %( %S %, ( get_global_var ( 'TEMP_IFDEF' ) |N ) )% ) %==  false ) then
+  begin
+//	%f_add_to_list(OPEN_IFDEFS,"%{TEMP_IFDEF}N")\
+   [%f] add_to_list %( 'OPEN_IFDEFS' %, ( get_global_var ( 'TEMP_IFDEF' ) |N ) )% 
+//	[{%X{lid}!=delphi}{\{$If}\#if] %{TEMP_IFDEF}N[{%X{lid}!=delphi}{\}}]]\
+   if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+   begin
+    '#if' 
+   end // if
+   else
+   begin
+    '{$If' 
+   end // else
+   ' '
+   ( get_global_var ( 'TEMP_IFDEF' ) |N ) if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+   begin
+   end // if
+   else
+   begin
+    '}' 
+   end // else
+  end // if
+  else
+  begin
+   [%f] add_to_list %( 'OPEN_IFDEFS' %, [%f] get_empty_ifdef_flag %( %S )% )% 
+//	}\
+  end // else
+//	]
+ end // if
+ else
+ begin
+  [%f] add_to_list %( 'OPEN_IFDEFS' %, [%f] get_empty_ifdef_flag %( %S )% )% 
+ end // else
+
+
+//f _new_file_flag
+; // open_ifdef
+
+end. // <<Ifdef>>
+
+: new_file_flag OBJECT IN %S
+//	111
+ '111'
+
+//f _start_new_file
+; // new_file_flag
+
+: start_new_file OBJECT IN %S
+//	%f_add_to_list(OPEN_IFDEFS,"%f_new_file_flag(%S)")
+ [%f] add_to_list %( 'OPEN_IFDEFS' %, [%f] new_file_flag %( %S )% )% 
+
+//f _end_new_file
+; // start_new_file
+
+: end_new_file OBJECT IN %S
+//	%f_pop_last_to_var(OPEN_IFDEFS,__TMP__)
+ [%f] pop_last_to_var %( 'OPEN_IFDEFS' %, '__TMP__' )% 
+
+//f _is_already_under_ifdef
+; // end_new_file
+
+: is_already_under_ifdef OBJECT IN %S
+///получаем последний не пустой ifdef:
+//	%f_clear_list(__TEMP_LIST__)\
+ [%f] clear_list %( '__TEMP_LIST__' )% 
+//	%f_copy_list(OPEN_IFDEFS,__TEMP_LIST__)\
+ [%f] copy_list %( 'OPEN_IFDEFS' %, '__TEMP_LIST__' )% 
+//	%f_remove_from_list(__TEMP_LIST__,"%f_get_empty_ifdef_flag(%S)")\
+ [%f] remove_from_list %( '__TEMP_LIST__' %, [%f] get_empty_ifdef_flag %( %S )% )% 
+//	%f_set_var(LAST_OPENED,"%f_get_empty_ifdef_flag(%S)")\
+ [%f] set_var %( 'LAST_OPENED' %, [%f] get_empty_ifdef_flag %( %S )% )% 
+//	[{%f_is_empty(__TEMP_LIST__)=false}%f_pop_last_to_var(__TEMP_LIST__,LAST_OPENED)]\
+ if ( ( [%f] is_empty %( '__TEMP_LIST__' )% ) %==  false ) then
+ begin
+  [%f] pop_last_to_var %( '__TEMP_LIST__' %, 'LAST_OPENED' )% 
+ end // if
+//	[{%{LAST_OPENED}N!=%f_get_empty_ifdef_flag(%S)}{false}\
+ if ( ( ( get_global_var ( 'LAST_OPENED' ) |N ) ) %!= ( [%f] get_empty_ifdef_flag %( %S )% ) ) then
+ begin
+//	[{%f_is_ifdef_already_defined("%{LAST_OPENED}N","%1N")=false}{true}false]]
+  if ( ( [%f] is_ifdef_already_defined %( ( get_global_var ( 'LAST_OPENED' ) |N ) %, %1 |N )% ) %==  false ) then
+  begin
+    false 
+  end // if
+  else
+  begin
+    true 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+
+
+//f _get_last_non_empty_ifdef_str
+; // is_already_under_ifdef
+
+: get_last_non_empty_ifdef_str OBJECT IN %S
+
+
+
+//f _get_empty_ifdef_flag
+; // get_last_non_empty_ifdef_str
+
+: get_empty_ifdef_flag OBJECT IN %S
+//	000
+ '000'
+
+//f _start_ifdef11
+//	[{%f_is_empty(OPEN_IFDES)=false}{%f_add_to_list(OPEN_IFDES,"")%f_clear_list(OPEN_IFDES)}\
+//	%f_get_last_non_empty_ifdef("OPEN_IFDES","IFDEF")]\
+//	%f_warning("%SN (3), %XU: %{IFDEF}N, %1N")\
+//	[{%f_is_ifdef_already_defined("%{IFDEF}N","%1N")=false}{%f_add_to_list(OPEN_IFDES,"%f_get_empty_ifdef_flag(%S)")}\
+//	%f_add_to_list(OPEN_IFDES,"%1N")]
+
+//f _get_last_non_empty_ifdef111
+//	[{"%SN"=""}%B[%f_error("_get_last_non_empty_ifdef: не задан идентификатор списка")]]\
+//	[{"%1N"=""}%B[%f_error("_get_current_ifdef_str: не задан идентификатор переменной")]]\
+//	%f_clear_list(__TEMP_IFDEFS__)\
+//	%f_copy_list(%SN,__TEMP_IFDEFS__)\
+//	%B[%f_warning("%SN (4), %XU: %f_dump_list(%S,"__TEMP_IFDEFS__")")]\
+//	%f_remove_from_list(__TEMP_IFDEFS__,"%f_get_empty_ifdef_flag(%S)")\
+//	%f_set_var(%1N,"%f_get_empty_ifdef_flag(%S)")\
+//	%f_pop_last_to_var(__TEMP_IFDEFS__,%1N)
+
+//f _get_current_ifdef_str
+; // get_empty_ifdef_flag
+
+: get_current_ifdef_str OBJECT IN %S
+//	[{"%SN"=""}%B[%f_error("_get_current_ifdef_str: не задан идентификатор списка")]]\
+ if ( ( %S |N ) %== '' ) then
+ begin
+  %B
+  bind ( 
+   OBJECT VAR %S
+   if NOT-EMPTY
+   begin
+    [%f] error %( '_get_current_ifdef_str: не задан идентификатор списка' )% 
+   end // if
+   NOP
+
+  ) // bind
+  end // if
+//	%f_clear_list(__TEMP_IFDEFS__)\
+ [%f] clear_list %( '__TEMP_IFDEFS__' )% 
+//	%f_copy_list(%SN,__TEMP_IFDEFS__)\
+ [%f] copy_list %( %S |N %, '__TEMP_IFDEFS__' )% 
+//	%f_pop_last_to_var(__TEMP_IFDEFS__,__TEMP_IFDEF__)\
+ [%f] pop_last_to_var %( '__TEMP_IFDEFS__' %, '__TEMP_IFDEF__' )% 
+//	%{__TEMP_IFDEF__}N
+ ( get_global_var ( '__TEMP_IFDEF__' ) |N ) 
+
+
+//%S - текущий флаг условной компиляции
+//%1 - проверяемый флаг
+//проверяет, что флаг уже учтен в текущем флаге условной компиляции, например:
+//%f_is_ifdef_already_defined("defined(A) && !defined(B)","!defined(B)") вернёт true
+//это позволяет не генерить ifdef для вложенных элементов, если они уже под нужным дефайном
+
+//f _is_ifdef_already_defined
+; // get_current_ifdef_str
+
+: is_ifdef_already_defined OBJECT IN %S
+//	%f_clear_list(CURRENT_IFDEFS)\
+ [%f] clear_list %( 'CURRENT_IFDEFS' )% 
+//	%f_clear_list(CHECK_IFDEFS)\
+ [%f] clear_list %( 'CHECK_IFDEFS' )% 
+//	%f_split_to_list(CURRENT_IFDEFS,%SN,%f_ifdef_delim(%S))\
+ [%f] split_to_list %( 'CURRENT_IFDEFS' %, %S |N %, [%f] ifdef_delim %( %S )% )% 
+//	%f_split_to_list(CHECK_IFDEFS,%1N,%f_ifdef_delim(%S))\
+ [%f] split_to_list %( 'CHECK_IFDEFS' %, %1 |N %, [%f] ifdef_delim %( %S )% )% 
+//	%f_set_var(RES,"[{%f_is_empty(CURRENT_IFDEFS)=true&%f_is_empty(CHECK_IFDEFS)=true}{false}true]")\
+ [%f] set_var %( 'RES' %, if ( ( [%f] is_empty %( 'CURRENT_IFDEFS' )% ) %==  true AND 
+   ( ( [%f] is_empty %( 'CHECK_IFDEFS' )% ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+)% //	[{%{RES}N!=true}\
+ if ( ( ( get_global_var ( 'RES' ) |N ) ) %!=  true ) then
+ begin
+//	<{}{%f_is_empty(CURRENT_IFDEFS)=false&%f_is_empty(CHECK_IFDEFS)=false}{W}[%f_pop_first_to_var(CURRENT_IFDEFS,CHECK)\
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'CURRENT_IFDEFS' )% ) %==  false AND 
+    ( ( [%f] is_empty %( 'CHECK_IFDEFS' )% ) %==  false  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'CURRENT_IFDEFS' %, 'CHECK' )% 
+//	%f_remove_from_list(CHECK_IFDEFS,"%{CHECK}N")\
+     [%f] remove_from_list %( 'CHECK_IFDEFS' %, ( get_global_var ( 'CHECK' ) |N ) )% 
+//	]>\
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	%f_set_var(RES,"%f_is_empty(CHECK_IFDEFS)")]\
+  [%f] set_var %( 'RES' %, [%f] is_empty %( 'CHECK_IFDEFS' )% )% 
+ end // if
+//	%{RES}N
+ ( get_global_var ( 'RES' ) |N ) 
+
+//f _ifdef_delim
+; // is_ifdef_already_defined
+
+: ifdef_delim OBJECT IN %S
+//	[{%X{lid}!=delphi}{ AND } && ]
+ if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+ begin
+  ' && ' 
+ end // if
+ else
+ begin
+  ' AND ' 
+ end // else
+
+//f _end_ifdef
+; // ifdef_delim
+
+: end_ifdef OBJECT IN %S
+//	[{%f_is_empty(OPEN_IFDEFS)=false}{false}\
+ if ( ( [%f] is_empty %( 'OPEN_IFDEFS' )% ) %==  false ) then
+ begin
+
+//	%f_warning(2: %SN (%XU): %f_dump_list(%S,"OPEN_IFDEFS"))\
+//	%f_pop_last_to_var(OPEN_IFDEFS,IFDEF)\
+  [%f] pop_last_to_var %( 'OPEN_IFDEFS' %, 'IFDEF' )% 
+//	[{"%{IFDEF}N"!="%f_get_empty_ifdef_flag(%S)"}{false}true]]
+  if ( ( ( get_global_var ( 'IFDEF' ) |N ) ) %!= ( [%f] get_empty_ifdef_flag %( %S )% ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _dump_open_ifdef_str
+; // end_ifdef
+
+: dump_open_ifdef_str OBJECT IN %S
+//	%f_clear_list(IFDEFS)\
+ [%f] clear_list %( 'IFDEFS' )% 
+//	%f_clear_list(IFNDEFS)\
+ [%f] clear_list %( 'IFNDEFS' )% 
+//	%f_collect_ifdefs(%S,"IFDEFS")\
+ [%f] collect_ifdefs %( %S %, 'IFDEFS' )% 
+//	%f_collect_ifndefs(%S,"IFNDEFS")\
+ [%f] collect_ifndefs %( %S %, 'IFNDEFS' )% 
+//	%f_clear_list(IFDEFS_STR)\
+ [%f] clear_list %( 'IFDEFS_STR' )% 
+//	<{}{%f_is_empty(IFDEFS)=false}{W}[%f_pop_first_to_var(IFDEFS,IFDEF)%f_add_ifdef_to_list(%S,%{IFDEF},"IFDEFS_STR","true")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'IFDEFS' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'IFDEFS' %, 'IFDEF' )% [%f] add_ifdef_to_list %( %S %, ( get_global_var ( 'IFDEF' ) ) %, 'IFDEFS_STR"' %, true )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	<{}{%f_is_empty(IFNDEFS)=false}{W}[%f_pop_first_to_var(IFNDEFS,IFNDEF)%f_add_ifdef_to_list(%S,%{IFNDEF},"IFDEFS_STR","false")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'IFNDEFS' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'IFNDEFS' %, 'IFNDEF' )% [%f] add_ifdef_to_list %( %S %, ( get_global_var ( 'IFNDEF' ) ) %, 'IFDEFS_STR"' %, false )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	<{%f_ifdef_delim(%S)}{%f_is_empty(IFDEFS_STR)=false}{W}[%f_pop_first_to_var(IFDEFS_STR,IFDEF)%{IFDEF}N]>
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'IFDEFS_STR' )% ) %==  false ) then
+  begin
+   if ( l_Counter >0 ) then ( [%f] ifdef_delim %( %S )% )
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'IFDEFS_STR' %, 'IFDEF' )% ( get_global_var ( 'IFDEF' ) |N ) 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+
+//f _add_ifdef_to_list
+; // dump_open_ifdef_str
+
+: add_ifdef_to_list OBJECT IN %S
+//	[{"%2N"=""}%f_error("_add_ifdef_to_list: не задан идентификатор списка")]\
+ if ( ( %2 |N ) %== '' ) then
+ begin
+  [%f] error %( '_add_ifdef_to_list: не задан идентификатор списка' )% 
+ end // if
+//	[{"%3N"=""}%f_error("_add_ifdef_to_list: не задан тип дефайна (true - для defined и false для !defined)")]\
+ if ( ( %3 |N ) %== '' ) then
+ begin
+  [%f] error %( '_add_ifdef_to_list: не задан тип дефайна (true - для defined и false для !defined)' )% 
+ end // if
+//	[{%f_string_find(%1N,\>)!=-1|%f_string_find(%1N,\<)!=-1|%f_string_find(%1N,%f_equal(%S))!=-1|%f_string_find(%1N,[{%X{lid}!=delphi}{not }!]%f_equal(%S))!=-1}{%f_add_to_list(%2N,"[{%3N=false}[{%X{lid}!=delphi}{not }!]]defined(%1N)")}\
+ if ( ( [%f] string_find %( %1 |N %, '>' )% ) %!= -1 OR 
+   ( ( [%f] string_find %( %1 |N %, '<' )% ) %!= -1  ) OR 
+   ( ( [%f] string_find %( %1 |N %, [%f] equal %( %S )% )% ) %!= -1  ) OR 
+   ( ( [%f] string_find %( %1 |N %, if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+  begin
+   '!' 
+  end // if
+  else
+  begin
+   'not ' 
+  end // else
+  [%f] equal %( %S )% )% ) %!= -1  ) ) then
+ begin
+//	%f_set_var(IFDEF_STR,"%1N")\
+  [%f] set_var %( 'IFDEF_STR' %, %1 |N )% 
+//	%f_set_var(POS,"%f_string_find(%{IFDEF_STR}N,%f_space(%S))")\
+  [%f] set_var %( 'POS' %, [%f] string_find %( ( get_global_var ( 'IFDEF_STR' ) |N ) %, [%f] space %( %S )% )% )% 
+//	%f_set_var(VAR1,"")\
+  [%f] set_var %( 'VAR1' %, '' )% 
+//	%f_set_var(VAR2,"")\
+  [%f] set_var %( 'VAR2' %, '' )% 
+//	%f_set_var(OP,"")\
+  [%f] set_var %( 'OP' %, '' )% 
+//	%f_set_var(STR_SIZE,"%f_string_length(%{IFDEF_STR}N)")\
+  [%f] set_var %( 'STR_SIZE' %, [%f] string_length %( ( get_global_var ( 'IFDEF_STR' ) |N ) )% )% 
+//	%f_set_var(CURR_TOKEN,"var1")\
+  [%f] set_var %( 'CURR_TOKEN' %, 'var1' )% 
+//	<{}{"%{IFDEF_STR}N"!=""}{W}%f_set_var(CURR_SYMBOL,"%f_substr_from_begin(%{IFDEF_STR}N,1)")\
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( ( get_global_var ( 'IFDEF_STR' ) |N ) ) %!= '' ) then
+   begin
+    [%f] set_var %( 'CURR_SYMBOL' %, [%f] substr_from_begin %( ( get_global_var ( 'IFDEF_STR' ) |N ) %, 1 )% )% 
+//	%f_set_var(IFDEF_STR,"%f_delsubstr_from_begin(%{IFDEF_STR}N,1)")\
+    [%f] set_var %( 'IFDEF_STR' %, [%f] delsubstr_from_begin %( ( get_global_var ( 'IFDEF_STR' ) |N ) %, 1 )% )% 
+//	[{%{CURR_SYMBOL}N=\>|%{CURR_SYMBOL}N=\<|%{CURR_SYMBOL}N=!|%{CURR_SYMBOL}N=%f_equal(%S)}{[{%{CURR_TOKEN}N=op}%f_set_var(CURR_TOKEN,"var2")]}%f_set_var(CURR_TOKEN,"op")]\
+    if ( ( ( get_global_var ( 'CURR_SYMBOL' ) |N ) ) %== '>' OR 
+      ( ( ( get_global_var ( 'CURR_SYMBOL' ) |N ) ) %== '<'  ) OR 
+      ( ( ( get_global_var ( 'CURR_SYMBOL' ) |N ) ) %== '!'  ) OR 
+      ( ( ( get_global_var ( 'CURR_SYMBOL' ) |N ) ) %== ( [%f] equal %( %S )% )  ) ) then
+    begin
+     [%f] set_var %( 'CURR_TOKEN' %, 'op' )% 
+    end // if
+    else
+    begin
+     if ( ( ( get_global_var ( 'CURR_TOKEN' ) |N ) ) %== 'op' ) then
+     begin
+      [%f] set_var %( 'CURR_TOKEN' %, 'var2' )% 
+     end // if
+    end // else
+//	[{%{CURR_TOKEN}N=var1}%f_set_var(VAR1,"%{VAR1}N%{CURR_SYMBOL}N")]\
+    if ( ( ( get_global_var ( 'CURR_TOKEN' ) |N ) ) %== 'var1' ) then
+    begin
+     [%f] set_var %( 'VAR1' %, ( get_global_var ( 'VAR1' ) |N ) ( get_global_var ( 'CURR_SYMBOL' ) |N ) )% 
+    end // if
+//	[{%{CURR_TOKEN}N=op}%f_set_var(OP,"%{OP}N%{CURR_SYMBOL}N")]\
+    if ( ( ( get_global_var ( 'CURR_TOKEN' ) |N ) ) %== 'op' ) then
+    begin
+     [%f] set_var %( 'OP' %, ( get_global_var ( 'OP' ) |N ) ( get_global_var ( 'CURR_SYMBOL' ) |N ) )% 
+    end // if
+//	[{%{CURR_TOKEN}N=var2}%f_set_var(VAR2,"%{VAR2}N%{CURR_SYMBOL}N")]\
+    if ( ( ( get_global_var ( 'CURR_TOKEN' ) |N ) ) %== 'var2' ) then
+    begin
+     [%f] set_var %( 'VAR2' %, ( get_global_var ( 'VAR2' ) |N ) ( get_global_var ( 'CURR_SYMBOL' ) |N ) )% 
+    end // if
+//	>\
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	%f_set_var(VAR1,"%f_str_replace(%{VAR1}N,%f_space(%S),)")\
+  [%f] set_var %( 'VAR1' %, [%f] str_replace %( ( get_global_var ( 'VAR1' ) |N ) %, [%f] space %( %S )% %, )% )% 
+//	%f_set_var(OP,"%f_str_replace(%{OP}N,%f_space(%S),)")\
+  [%f] set_var %( 'OP' %, [%f] str_replace %( ( get_global_var ( 'OP' ) |N ) %, [%f] space %( %S )% %, )% )% 
+//	%f_set_var(VAR2,"%f_str_replace(%{VAR2}N,%f_space(%S),)")\
+  [%f] set_var %( 'VAR2' %, [%f] str_replace %( ( get_global_var ( 'VAR2' ) |N ) %, [%f] space %( %S )% %, )% )% 
+//	[{"%{VAR1}N"=""|"%{OP}N"=""|"%{VAR2}N"=""}%f_error("%PN::%SN: не правильно задан ifdef: %{POS}N, %1N (%{VAR1}N %{OP}N %{VAR2}N)")]\
+  if ( ( ( get_global_var ( 'VAR1' ) |N ) ) %== '' OR 
+    ( ( ( get_global_var ( 'OP' ) |N ) ) %== ''  ) OR 
+    ( ( ( get_global_var ( 'VAR2' ) |N ) ) %== ''  ) ) then
+  begin
+   [%f] error %( %P |N '::'
+   %S |N ': не правильно задан ifdef: '
+   ( get_global_var ( 'POS' ) |N ) %, ' '
+   %1 |N ' ('
+   ( get_global_var ( 'VAR1' ) |N ) ' '
+   ( get_global_var ( 'OP' ) |N ) ' '
+   ( get_global_var ( 'VAR2' ) |N ) ')' )% 
+  end // if
+//	[{%f_is_variable_def(%S,"%{VAR1}N")=true}%f_add_to_list(%2N,"[{%3N=false}[{%X{lid}!=delphi}{not }!]]defined(%{VAR1}N)")]\
+  if ( ( [%f] is_variable_def %( %S %, ( get_global_var ( 'VAR1' ) |N ) )% ) %==  true ) then
+  begin
+   [%f] add_to_list %( %2 |N %, if ( ( %3 |N ) %==  false ) then
+   begin
+    if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+    begin
+     '!' 
+    end // if
+    else
+    begin
+     'not ' 
+    end // else
+   end // if
+   'defined('
+   ( get_global_var ( 'VAR1' ) |N ) ')' )% 
+  end // if
+//	[{%f_is_variable_def(%S,"%{VAR2}N")=true}%f_add_to_list(%2N,"[{%3N=false}[{%X{lid}!=delphi}{not }!]]defined(%{VAR2}N)")]\
+  if ( ( [%f] is_variable_def %( %S %, ( get_global_var ( 'VAR2' ) |N ) )% ) %==  true ) then
+  begin
+   [%f] add_to_list %( %2 |N %, if ( ( %3 |N ) %==  false ) then
+   begin
+    if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+    begin
+     '!' 
+    end // if
+    else
+    begin
+     'not ' 
+    end // else
+   end // if
+   'defined('
+   ( get_global_var ( 'VAR2' ) |N ) ')' )% 
+  end // if
+//	%f_add_to_list(%2N,"[{%3N=false}[{%X{lid}!=delphi}{not }!]](%{VAR1}N %{OP}N %{VAR2}N)")\
+  [%f] add_to_list %( %2 |N %, if ( ( %3 |N ) %==  false ) then
+  begin
+   if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+   begin
+    '!' 
+   end // if
+   else
+   begin
+    'not ' 
+   end // else
+  end // if
+  '('
+  ( get_global_var ( 'VAR1' ) |N ) ' '
+  ( get_global_var ( 'OP' ) |N ) ' '
+  ( get_global_var ( 'VAR2' ) |N ) ')' )% 
+//	]
+ end // if
+ else
+ begin
+  [%f] add_to_list %( %2 |N %, if ( ( %3 |N ) %==  false ) then
+  begin
+   if ( ( %X get_up ( 'lid' ) ) %!= 'delphi' ) then
+   begin
+    '!' 
+   end // if
+   else
+   begin
+    'not ' 
+   end // else
+  end // if
+  'defined('
+  %1 |N ')' )% 
+ end // else
+
+
+//f _in_diapason
+; // add_ifdef_to_list
+
+: in_diapason OBJECT IN %S
+//	[{%f_string_cmp("%SN","%1N","\>")=1&%f_string_cmp("%SN","%2N","\<")=1}{[{%SN=%1N|%SN=%2N}{false}true]}true]
+ if ( ( [%f] string_cmp %( %S |N %, %1 |N %, '>' )% ) %== 1 AND 
+   ( ( [%f] string_cmp %( %S |N %, %2 |N %, '<' )% ) %== 1  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  if ( ( %S |N ) %== ( %1 |N ) OR 
+    ( ( %S |N ) %== ( %2 |N )  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // else
+
+//проверяет, что имя является именем переменной, т.е начинается с буквы или символа подчеркивания
+//f _is_variable_def
+; // in_diapason
+
+: is_variable_def OBJECT IN %S
+//	%f_set_var(SMB,"%f_substr_from_begin(%1N,1)")\
+ [%f] set_var %( 'SMB' %, [%f] substr_from_begin %( %1 |N %, 1 )% )% 
+//	[{%f_in_diapason("%{SMB}N","A","Z")=true|%f_in_diapason("%{SMB}N","a","z")=true|%{SMB}N=_|}{false}true]
+ if ( ( [%f] in_diapason %( ( get_global_var ( 'SMB' ) |N ) %, 'A"' %, 'Z' )% ) %==  true OR 
+   ( ( [%f] in_diapason %( ( get_global_var ( 'SMB' ) |N ) %, 'a"' %, 'z' )% ) %==  true  ) OR 
+   ( ( ( get_global_var ( 'SMB' ) |N ) ) %== '_'  ) OR 
+   (  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _split_string
+; // is_variable_def
+
+: split_string OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_ifdefs: не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_ifdefs: не задан идентификатор списка' )% 
+ end // if
+//	%f_set_var(ID,"%1N")\
+ [%f] set_var %( 'ID' %, %1 |N )% 
+//	%f_set_var(STR,"%f_str_replace(%2N,%f_space(%S),%f_empty(%S))")\
+ [%f] set_var %( 'STR' %, [%f] str_replace %( %2 |N %, [%f] space %( %S )% %, [%f] empty %( %S )% )% )% 
+//	%f_clear_list(SPLITED)\
+ [%f] clear_list %( 'SPLITED' )% 
+//	%f_split_to_list(SPLITED,%{STR}N,%f_comma(%S))\
+ [%f] split_to_list %( 'SPLITED' %, ( get_global_var ( 'STR' ) |N ) %, [%f] comma %( %S )% )% 
+//	%f_del_var(STR)\
+ [%f] del_var %( 'STR' )% 
+//	<{}{%f_is_empty(SPLITED)=false}{W}[%f_pop_first_to_var(SPLITED,ITEM)%f_add_to_list(%{ID}N,"%{ITEM}N")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'SPLITED' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'SPLITED' %, 'ITEM' )% [%f] add_to_list %( ( get_global_var ( 'ID' ) |N ) %, ( get_global_var ( 'ITEM' ) |N ) )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_clear_list(SPLITED)
+ [%f] clear_list %( 'SPLITED' )% 
+
+//f _collect_ifdefs
+; // split_string
+
+: collect_ifdefs OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_ifdefs: не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_ifdefs: не задан идентификатор списка' )% 
+ end // if
+//	%f_set_var(ID,"%1N")\
+ [%f] set_var %( 'ID' %, %1 |N )% 
+//	%f_split_string(%S,"%{ID}N","%S{ifdef}")\
+ [%f] split_string %( %S %, ( get_global_var ( 'ID' ) |N ) %, %S get_up ( 'ifdef' ) )% 
+//	<{}{}{%P}%f_split_string(%S,"%{ID}N","%P{ifdef}")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%P
+ begin
+  OBJECT IN %P
+  if true then
+  begin
+   [%f] split_string %( %S %, ( get_global_var ( 'ID' ) |N ) %, %P get_up ( 'ifdef' ) )% 
+   ++! l_Counter
+  end // if
+ end // for P
+//	%f_remove_from_list(%{ID}N,"")\
+ [%f] remove_from_list %( ( get_global_var ( 'ID' ) |N ) %, '' )% 
+//	%f_unique_list(%{ID}N,"%SN")
+ [%f] unique_list %( ( get_global_var ( 'ID' ) |N ) %, %S |N )% 
+
+//f _collect_ifndefs
+; // collect_ifdefs
+
+: collect_ifndefs OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_ifndefs: не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_ifndefs: не задан идентификатор списка' )% 
+ end // if
+//	%f_set_var(ID,"%1N")\
+ [%f] set_var %( 'ID' %, %1 |N )% 
+//	%f_split_string(%S,"%{ID}N","%S{ifndef}")\
+ [%f] split_string %( %S %, ( get_global_var ( 'ID' ) |N ) %, %S get_up ( 'ifndef' ) )% 
+//	<{}{}{%P}%f_split_string(%S,"%{ID}N","%P{ifndef}")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%P
+ begin
+  OBJECT IN %P
+  if true then
+  begin
+   [%f] split_string %( %S %, ( get_global_var ( 'ID' ) |N ) %, %P get_up ( 'ifndef' ) )% 
+   ++! l_Counter
+  end // if
+ end // for P
+//	%f_remove_from_list(%{ID}N,"")\
+ [%f] remove_from_list %( ( get_global_var ( 'ID' ) |N ) %, '' )% 
+//	%f_unique_list(%{ID}N,"%SN")
+ [%f] unique_list %( ( get_global_var ( 'ID' ) |N ) %, %S |N )% 
+//#UC END# *4976EBCD03ABfor4976EB82018C*
+; // collect_ifndefs
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

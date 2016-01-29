@@ -1,0 +1,36 @@
+// l3EnumList 49142D7000F3 Impurity Class
+
+INCLUDE '4914299C020A.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+: ME_49142D7000F3
+ CONST UID '49142D7000F3'
+ CONST Name 'l3EnumList'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY 'Стандартный список из элементов перечислимого типа' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4914299C020A // l3StandardMemTypedList
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B2C42A0163 // AssignItem
+ ME_47B5C4080270 // DoExchange
+ ME_47B935AF0066 // FillItem
+ ME_47B94A5C006E // FreeItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_49142D7000F3 l3EnumList

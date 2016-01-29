@@ -1,0 +1,47 @@
+project (T_GGDlt_clone) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_GGDlt_clone {
+	exename = gdlt_clone
+
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += NEMESIS
+	macros += VERSION63
+	macros -= UPDATE_FACE
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+
+	after += Morpho
+	libs += Morpho
+
+	after += cchlp1
+	after += cchlp2
+	after += delta_ggdlt_clone
+	after += gsscreen_ggrev
+	after += gkdb
+	after += gctx_ggrev
+	after += mrglib_ggrev
+	after += vcontrol_ggu
+	after += dummies_tools
+
+	libs += cchlp1
+	libs += cchlp2
+	libs += delta_ggdlt_clone
+	libs += gsscreen_ggrev
+	libs += gkdb
+	libs += gctx_ggrev
+	libs += mrglib_ggrev
+	libs += vcontrol_ggu
+	libs += dummies_tools
+
+	after += SearchBase
+	libs += SearchBase
+
+	after += boost_thread
+	libs  += boost_thread
+
+	after += boost_system
+	libs += boost_system
+}
+

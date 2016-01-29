@@ -1,0 +1,350 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/MDAAddinLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::MDAAddinLib
+//
+// бибилиотека классов для работы плагина к Rose
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (MDAAddinLib) : project_generic_core_corba, project_compile_odl {
+	sharedname = MDAAddinLib
+	staticname = MDAAddinLib
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../;W:/shared/tmp
+
+	//#UC START# *456C157B0186_CUSTOM_DEPENDENCES*
+	//#UC END# *456C157B0186_CUSTOM_DEPENDENCES*
+	after += GCL
+	libs  += GCL
+
+	after += MDAModel
+	libs  += MDAModel
+
+	after += RosePackageLocking_cs
+	libs  += RosePackageLocking_cs
+
+	after += WinGUI
+	libs  += WinGUI
+
+	after += LinkSupport_cs
+	libs  += LinkSupport_cs
+
+	Header_Files {
+		Std_Headers {
+			./../MDAAddinLib/LibHome.h
+		}
+	
+		Addin {
+		}
+	
+		Addin_i {
+			./../MDAAddinLib/impl/Addin_i/AuthorizationSettings.h
+			./../MDAAddinLib/impl/Addin_i/CGeneration.h
+			./../MDAAddinLib/impl/Addin_i/CModelExplorer.h
+			./../MDAAddinLib/impl/Addin_i/CatLockerFacadeImpl.h
+			./../MDAAddinLib/impl/Addin_i/CatLockerFacadeImpl_factory.h
+			./../MDAAddinLib/impl/Addin_i/CatLockerSrv.h
+			./../MDAAddinLib/impl/Addin_i/CatLockerSrv_factory.h
+			./../MDAAddinLib/impl/Addin_i/CatsContainerImpl.h
+			./../MDAAddinLib/impl/Addin_i/CatsContainerImpl_factory.h
+			./../MDAAddinLib/impl/Addin_i/CmdHandler.h
+			./../MDAAddinLib/impl/Addin_i/MDPFacadeSrv.h
+			./../MDAAddinLib/impl/Addin_i/MDPFacadeSrv_factory.h
+			./../MDAAddinLib/impl/Addin_i/MenuFactory.h
+			./../MDAAddinLib/impl/Addin_i/MenuHelper.h
+			./../MDAAddinLib/impl/Addin_i/ModelTreeItem.h
+			./../MDAAddinLib/impl/Addin_i/MouseEventHandler.h
+			./../MDAAddinLib/impl/Addin_i/Other.h
+			./../MDAAddinLib/impl/Addin_i/Settings.h
+			./../MDAAddinLib/impl/Addin_i/ShowOnModelSrv.h
+			./../MDAAddinLib/impl/Addin_i/TreeViewChildIterator.h
+			./../MDAAddinLib/impl/Addin_i/TreeViewItemIterator.h
+		}
+	
+		Commands {
+			./../MDAAddinLib/Commands/Commands.h
+			./../MDAAddinLib/Commands/CommandsFactories.h
+		}
+	
+		CommonViews {
+			./../MDAAddinLib/CommonViews/CTooltipListCtrl.h
+			./../MDAAddinLib/CommonViews/ChoiceDialog.h
+			./../MDAAddinLib/CommonViews/EnterStringDialog.h
+			./../MDAAddinLib/CommonViews/QuestionBox.h
+			./../MDAAddinLib/CommonViews/RoseItemList.h
+			./../MDAAddinLib/CommonViews/RoseViewBase.h
+		}
+	
+		Helpers {
+			./../MDAAddinLib/Helpers/Helpers.h
+			./../MDAAddinLib/Helpers/HelpersFactories.h
+		}
+	
+		HelpersImpl {
+			./../MDAAddinLib/impl/HelpersImpl/HelpersImpl.h
+			./../MDAAddinLib/impl/HelpersImpl/KSettings.h
+			./../MDAAddinLib/impl/HelpersImpl/KViewElementImpl.h
+			./../MDAAddinLib/impl/HelpersImpl/KViewElementImpl_factory.h
+			./../MDAAddinLib/impl/HelpersImpl/ReportBuilderImpl.h
+			./../MDAAddinLib/impl/HelpersImpl/ReportBuilderImpl_factory.h
+			./../MDAAddinLib/impl/HelpersImpl/StereotypeManagerImpl.h
+			./../MDAAddinLib/impl/HelpersImpl/StereotypeManagerImpl_factory.h
+		}
+	
+		LockViews {
+			./../MDAAddinLib/LockViews/ChangedPackageInfo.h
+			./../MDAAddinLib/LockViews/MDSupportServerAuthorization.h
+			./../MDAAddinLib/LockViews/ToClearLockedPacks.h
+		}
+	
+		MDACommands {
+			./../MDAAddinLib/impl/MDACommands/ActionSettings.h
+			./../MDAAddinLib/impl/MDACommands/DblClickActionImpl.h
+			./../MDAAddinLib/impl/MDACommands/DblClickActionImpl_factory.h
+			./../MDAAddinLib/impl/MDACommands/MDACmdManager.h
+			./../MDAAddinLib/impl/MDACommands/MDACmdManager_factory.h
+		}
+	
+		MDAGui {
+			./../MDAAddinLib/MDAGui/ATLControls.h
+			./../MDAAddinLib/MDAGui/AdvancedSearch.h
+			./../MDAAddinLib/MDAGui/ChoiceType.h
+			./../MDAAddinLib/MDAGui/CreateReport.h
+			./../MDAAddinLib/MDAGui/DeleteQuestion.h
+			./../MDAAddinLib/MDAGui/GenStatistics.h
+			./../MDAAddinLib/MDAGui/GenerationErrorDialog.h
+			./../MDAAddinLib/MDAGui/GeneratorSelect.h
+			./../MDAAddinLib/MDAGui/ListCtrlWithCopy.h
+			./../MDAAddinLib/MDAGui/MdaAbout.h
+			./../MDAAddinLib/MDAGui/MdaStart.h
+			./../MDAAddinLib/MDAGui/ReportView.h
+			./../MDAAddinLib/MDAGui/StCollection.h
+			./../MDAAddinLib/MDAGui/StartProperties.h
+			./../MDAAddinLib/MDAGui/TemplArgs.h
+			./../MDAAddinLib/MDAGui/UnusedUserCode.h
+		}
+	
+		PropertyViews {
+			./../MDAAddinLib/PropertyViews/ContentView.h
+			./../MDAAddinLib/PropertyViews/Contents.h
+			./../MDAAddinLib/PropertyViews/IppApplGen.h
+			./../MDAAddinLib/PropertyViews/IppBase.h
+			./../MDAAddinLib/PropertyViews/IppDerivedImpl.h
+			./../MDAAddinLib/PropertyViews/IppException.h
+			./../MDAAddinLib/PropertyViews/IppNative.h
+			./../MDAAddinLib/PropertyViews/IppStd.h
+			./../MDAAddinLib/PropertyViews/IppSystem.h
+			./../MDAAddinLib/PropertyViews/IppUserProp.h
+			./../MDAAddinLib/PropertyViews/IppUses.h
+			./../MDAAddinLib/PropertyViews/ItemPropertySheet.h
+			./../MDAAddinLib/PropertyViews/MDAGeneratorProperties.h
+		}
+	
+		WindowsHookImpl {
+			./../MDAAddinLib/impl/WindowsHookImpl/WindowsHookImpl.h
+			./../MDAAddinLib/impl/WindowsHookImpl/HookHandlerBase.h
+			./../MDAAddinLib/impl/WindowsHookImpl/WindowsHook.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Addin {
+		}
+	
+		Addin_i {
+		}
+	
+		Commands {
+		}
+	
+		CommonViews {
+		}
+	
+		Helpers {
+		}
+	
+		HelpersImpl {
+		}
+	
+		LockViews {
+		}
+	
+		MDACommands {
+		}
+	
+		MDAGui {
+		}
+	
+		PropertyViews {
+		}
+	
+		WindowsHookImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../MDAAddinLib/LibHome.cpp
+		}
+	
+		Addin {
+		}
+	
+		Addin_i {
+			./../MDAAddinLib/impl/Addin_i/AuthorizationSettings.cpp
+			./../MDAAddinLib/impl/Addin_i/CGeneration.cpp
+			./../MDAAddinLib/impl/Addin_i/CModelExplorer.cpp
+			./../MDAAddinLib/impl/Addin_i/CatLockerFacadeImpl.cpp
+			./../MDAAddinLib/impl/Addin_i/CatLockerFacadeImpl_factory.cpp
+			./../MDAAddinLib/impl/Addin_i/CatLockerSrv.cpp
+			./../MDAAddinLib/impl/Addin_i/CatLockerSrv_factory.cpp
+			./../MDAAddinLib/impl/Addin_i/CatsContainerImpl.cpp
+			./../MDAAddinLib/impl/Addin_i/CatsContainerImpl_factory.cpp
+			./../MDAAddinLib/impl/Addin_i/CmdHandler.cpp
+			./../MDAAddinLib/impl/Addin_i/CatsContainerImpl_LocksListenerImpl.cpp
+			./../MDAAddinLib/impl/Addin_i/MDPFacadeSrv.cpp
+			./../MDAAddinLib/impl/Addin_i/MDPFacadeSrv_factory.cpp
+			./../MDAAddinLib/impl/Addin_i/MenuFactory.cpp
+			./../MDAAddinLib/impl/Addin_i/MenuHelper.cpp
+			./../MDAAddinLib/impl/Addin_i/ModelTreeItem.cpp
+			./../MDAAddinLib/impl/Addin_i/MouseEventHandler.cpp
+			./../MDAAddinLib/impl/Addin_i/Other.cpp
+			./../MDAAddinLib/impl/Addin_i/Settings.cpp
+			./../MDAAddinLib/impl/Addin_i/ShowOnModelSrv.cpp
+			./../MDAAddinLib/impl/Addin_i/TreeViewChildIterator.cpp
+			./../MDAAddinLib/impl/Addin_i/TreeViewItemIterator.cpp
+		}
+	
+		Commands {
+			./../MDAAddinLib/Commands/Commands.cpp
+			./../MDAAddinLib/Commands/CommandsFactories.cpp
+		}
+	
+		CommonViews {
+			./../MDAAddinLib/CommonViews/CTooltipListCtrl.cpp
+			./../MDAAddinLib/CommonViews/ChoiceDialog.cpp
+			./../MDAAddinLib/CommonViews/EnterStringDialog.cpp
+			./../MDAAddinLib/CommonViews/QuestionBox.cpp
+			./../MDAAddinLib/CommonViews/RoseItemList.cpp
+			./../MDAAddinLib/CommonViews/RoseViewBase.cpp
+		}
+	
+		Helpers {
+			./../MDAAddinLib/Helpers/Helpers.cpp
+			./../MDAAddinLib/Helpers/HelpersFactories.cpp
+		}
+	
+		HelpersImpl {
+			./../MDAAddinLib/impl/HelpersImpl/HelpersImpl.cpp
+			./../MDAAddinLib/impl/HelpersImpl/KSettings.cpp
+			./../MDAAddinLib/impl/HelpersImpl/KViewElementImpl.cpp
+			./../MDAAddinLib/impl/HelpersImpl/KViewElementImpl_factory.cpp
+			./../MDAAddinLib/impl/HelpersImpl/ReportBuilderImpl.cpp
+			./../MDAAddinLib/impl/HelpersImpl/ReportBuilderImpl_factory.cpp
+			./../MDAAddinLib/impl/HelpersImpl/StereotypeManagerImpl.cpp
+			./../MDAAddinLib/impl/HelpersImpl/StereotypeManagerImpl_factory.cpp
+		}
+	
+		LockViews {
+			./../MDAAddinLib/LockViews/ChangedPackageInfo.cpp
+			./../MDAAddinLib/LockViews/MDSupportServerAuthorization.cpp
+			./../MDAAddinLib/LockViews/ToClearLockedPacks.cpp
+		}
+	
+		MDACommands {
+			./../MDAAddinLib/impl/MDACommands/ActionSettings.cpp
+			./../MDAAddinLib/impl/MDACommands/DblClickActionImpl.cpp
+			./../MDAAddinLib/impl/MDACommands/DblClickActionImpl_factory.cpp
+			./../MDAAddinLib/impl/MDACommands/MDACmdManager.cpp
+			./../MDAAddinLib/impl/MDACommands/MDACmdManager_factory.cpp
+		}
+	
+		MDAGui {
+			./../MDAAddinLib/MDAGui/AdvancedSearch.cpp
+			./../MDAAddinLib/MDAGui/ChoiceType.cpp
+			./../MDAAddinLib/MDAGui/CreateReport.cpp
+			./../MDAAddinLib/MDAGui/DeleteQuestion.cpp
+			./../MDAAddinLib/MDAGui/GenStatistics.cpp
+			./../MDAAddinLib/MDAGui/GenerationErrorDialog.cpp
+			./../MDAAddinLib/MDAGui/GeneratorSelect.cpp
+			./../MDAAddinLib/MDAGui/ListCtrlWithCopy.cpp
+			./../MDAAddinLib/MDAGui/MdaAbout.cpp
+			./../MDAAddinLib/MDAGui/MdaStart.cpp
+			./../MDAAddinLib/MDAGui/ReportView.cpp
+			./../MDAAddinLib/MDAGui/StCollection.cpp
+			./../MDAAddinLib/MDAGui/StartProperties.cpp
+			./../MDAAddinLib/MDAGui/TemplArgs.cpp
+			./../MDAAddinLib/MDAGui/UnusedUserCode.cpp
+		}
+	
+		PropertyViews {
+			./../MDAAddinLib/PropertyViews/ContentView.cpp
+			./../MDAAddinLib/PropertyViews/Contents.cpp
+			./../MDAAddinLib/PropertyViews/IppUserProp_GUITreePropertyBuilder.cpp
+			./../MDAAddinLib/PropertyViews/IppApplGen.cpp
+			./../MDAAddinLib/PropertyViews/IppBase.cpp
+			./../MDAAddinLib/PropertyViews/IppDerivedImpl.cpp
+			./../MDAAddinLib/PropertyViews/IppException.cpp
+			./../MDAAddinLib/PropertyViews/IppNative.cpp
+			./../MDAAddinLib/PropertyViews/IppStd.cpp
+			./../MDAAddinLib/PropertyViews/IppSystem.cpp
+			./../MDAAddinLib/PropertyViews/IppUserProp.cpp
+			./../MDAAddinLib/PropertyViews/IppUses.cpp
+			./../MDAAddinLib/PropertyViews/ItemPropertySheet.cpp
+			./../MDAAddinLib/PropertyViews/MDAGeneratorProperties.cpp
+			./../MDAAddinLib/PropertyViews/IppDerivedImpl_TreeNode.cpp
+		}
+	
+		WindowsHookImpl {
+			./../MDAAddinLib/impl/WindowsHookImpl/HookHandlerBase.cpp
+			./../MDAAddinLib/impl/WindowsHookImpl/WindowsHook.cpp
+		}
+	}
+	
+	ODL_Files (Addin) {
+		./../MDAAddinLib/Addin/Addin.odl
+		
+	}
+	ODL_Files (Addin_i) {
+		
+	}
+	ODL_Files (Commands) {
+		
+	}
+	ODL_Files (CommonViews) {
+		
+	}
+	ODL_Files (Helpers) {
+		
+	}
+	ODL_Files (HelpersImpl) {
+		
+	}
+	ODL_Files (LockViews) {
+		
+	}
+	ODL_Files (MDACommands) {
+		
+	}
+	ODL_Files (MDAGui) {
+		
+	}
+	ODL_Files (PropertyViews) {
+		
+	}
+	ODL_Files (WindowsHookImpl) {
+		
+	}
+	
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

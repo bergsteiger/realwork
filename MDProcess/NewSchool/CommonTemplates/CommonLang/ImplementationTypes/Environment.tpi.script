@@ -1,0 +1,428 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/Environment.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::Environment
+//
+// Среда окружения
+// ---
+// Позволяет осуществлять внешнюю настройку пакета реализации, посредством задания значения
+// переменных окружения.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Environment::Class
+implementation @ <<Environment>>
+//? Среда окружения
+//? Позволяет осуществлять внешнюю настройку пакета реализации, посредством задания значения переменных окружения.
+//< *::Class,*::Category
+
+//= C++ интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_enviroment.gif
+//L code_enviroment
+// Параметры визуализации
+//$ C 180,250,255
+//$ l 5,120,155
+//$ f 5,120,155
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// ограничение на использование Enviroment
+//%f _environment_constraints
+; // st_space_key
+
+: environment_constraints OBJECT IN %S
+//#UC START# *471DE6E001B5for471DE69E000F*
+//	[{%P<{}{%CS=Environment}{C}>!=1}%f_error("<{}{}{r}%PN::>%SN - В одном пакете реализации может быть задан только один элемент \<\<%SS\>\>")]
+ if ( ( %P
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'Environment' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+
+  ) // bind
+ )   %!= 1 ) then
+ begin
+  [%f] error %( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for downto %S%P
+  begin
+   OBJECT IN %P
+   if true then
+   begin
+    %P |N '::' 
+    ++! l_Counter
+   end // if
+  end // for P
+  %S |N ' - В одном пакете реализации может быть задан только один элемент <<'
+  %S |S '>>' )% 
+ end // if
+//#UC END# *471DE6E001B5for471DE69E000F*
+; // environment_constraints
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471DE69E000F*
+//c                              {}
+//r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%a#f_IsUseCase()=true}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+//#UC END# *4704C0E30186for471DE69E000F*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471DE69E000F*
+//O Environment.h
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	%S%f_environment_constraints()%f_std_inc(%S)
+ %S %f environment_constraints %( )% [%f] std_inc %( %S )% 
+//	%f_includes_by_contents(%S)<\#include %f_dump_include_path(%wL,%w)
+ [%f] includes_by_contents %( %S )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%w
+ begin
+  OBJECT IN %w
+  if true then
+  begin
+   '#include '
+   [%f] dump_include_path %( %w |L %, %w )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for w
+//	%U[{_CUSTOM_INCLUDES}
+ %Usersection (
+  '_CUSTOM_INCLUDES' 
+ )
+ (
+  #13#10
+
+//	][
+
+ ) // Usersection
+  if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	%SP
+ %S |P 
+//	class Environment;
+ 'class Environment;'
+//	
+//	class Environment_i {
+ 'class Environment_i {'
+//		friend class Environment;
+ '	friend class Environment;'
+//		
+ '	'
+//	[	Environment_i () : <{, }{"%CI"!=""}m_%CN(%CI)> {
+ if NOT-EMPTY
+ begin
+  '	Environment_i () : '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |I ) %!= '' ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    'm_'
+    %C |N '('
+    %C |I ')' 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' {'
+//		}
+  '	}'
+//	
+  #13#10
+
+//	]<%C%f_env_var_h()
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C %f env_var_h %( )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	private:
+ 'private:'
+//		typedef ACE_Singleton\<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+ '	typedef ACE_Singleton<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX> Singleton;'
+//		friend class ACE_Singleton\<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX\>;
+ '	friend class ACE_Singleton<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX>;'
+//	
+//	private:
+ 'private:'
+//	<%CX
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+//	
+   #13#10
+
+//	>}; // class Environment_i
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}; // class Environment_i'
+//	
+//	class Environment {
+ 'class Environment {'
+//	public:<
+ 'public:'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   #13#10
+
+//		static %f_iget_attr(%C) get_%CN () {
+   '	static '
+   [%f] iget_attr %( %C )% ' get_'
+   %C |N ' () {'
+//			return Environment_i::Singleton::instance()-\>get_%CN ();
+   '		return Environment_i::Singleton::instance()->get_'
+   %C |N ' ();'
+//		}
+   '	}'
+//	
+   #13#10
+
+//		static void set_%CN (%f_iset_attr(%C) %CN) {
+   '	static void set_'
+   %C |N ' ('
+   [%f] iset_attr %( %C )% ' '
+   %C |N ') {'
+//			Environment_i::Singleton::instance()-\>set_%CN (%CN);
+   '		Environment_i::Singleton::instance()->set_'
+   %C |N ' ('
+   %C |N ');'
+//		}	
+   '	}	'
+//	>}; // class Environment
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}; // class Environment'
+//	
+//	%Sp
+ %S |p 
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+//#UC END# *47022C88029Ffor471DE69E000F*
+; // h
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Environment::Class::Attribute
+end. // <<Environment>>
+
+implementation @ :: <<Environment>> <<Attribute>> ;
+//? Переменная окружения
+//= ClassBase::Class::Attribute
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//l a
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471DE6F2009C*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#[{%t_refcounted(%T)=true}{%f_attr(%S)}%t_attr(%T,"ref[-%Ss]",%S)] m_[{}{%f_to_omg(%TN)}%SN];
+ out_indent if ( ( [%t] refcounted %( %T )% ) %==  true ) then
+ begin
+  [%t] attr %( %T %, 'ref'
+  if NOT-EMPTY
+  begin
+   '-'
+   %S |s 
+  end // if
+  NOP
+%,   %S )% 
+ end // if
+ else
+ begin
+  [%f] attr %( %S )% 
+ end // else
+ ' m_'
+ if NOT-EMPTY
+ begin
+  %S |N 
+ end // if
+ NOP
+ else
+ begin
+  [%f] to_omg %( %T |N )% 
+ end // else
+ ';'
+//#UC END# *47022C88029Ffor471DE6F2009C*
+; // h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// что-то для Enviroment
+//%f _env_var_h
+; // st_space_key
+
+: env_var_h OBJECT IN %S
+//#UC START# *471DEA9B0399for471DE6F2009C*
+//		%f_iget_attr(%S) get_%SN () const {
+ '	'
+ [%f] iget_attr %( %S )% ' get_'
+ %S |N ' () const {'
+//		[{"%t_interface(%T)"="true"}{	return m_[{}{%f_to_omg(%TN)}%SN];}\
+ '	'
+ if ( ( [%t] interface %( %T )% ) %== true ) then
+ begin
+//		if (m_[{}{%f_to_omg(%TN)}%SN].ptr()) {
+  '	if (m_'
+  if NOT-EMPTY
+  begin
+   %S |N 
+  end // if
+  NOP
+  else
+  begin
+   [%f] to_omg %( %T |N )% 
+  end // else
+  '.ptr()) {'
+//				return *m_[{}{%f_to_omg(%TN)}%SN].ptr();
+  '			return *m_'
+  if NOT-EMPTY
+  begin
+   %S |N 
+  end // if
+  NOP
+  else
+  begin
+   [%f] to_omg %( %T |N )% 
+  end // else
+  '.ptr();'
+//			} else {
+  '		} else {'
+//				throw Core::Root::CachedAttrUninitialized (GDS_CURRENT_FUNCTION);
+  '			throw Core::Root::CachedAttrUninitialized (GDS_CURRENT_FUNCTION);'
+//			}]
+  '		}' 
+ end // if
+ else
+ begin
+  '	return m_'
+  if NOT-EMPTY
+  begin
+   %S |N 
+  end // if
+  NOP
+  else
+  begin
+   [%f] to_omg %( %T |N )% 
+  end // else
+  ';' 
+ end // else
+//		}
+ '	}'
+//	
+//		void set_%SN (%f_iset_attr(%S) %SN) {
+ '	void set_'
+ %S |N ' ('
+ [%f] iset_attr %( %S )% ' '
+ %S |N ') {'
+//			m_[{}{%f_to_omg(%TN)}%SN] = [{"%t_interface(%T)"="true"}%f_type(%T)::_duplicate(]%SN[{"%t_interface(%T)"="true"})];
+ '		m_'
+ if NOT-EMPTY
+ begin
+  %S |N 
+ end // if
+ NOP
+ else
+ begin
+  [%f] to_omg %( %T |N )% 
+ end // else
+ ' = '
+ if ( ( [%t] interface %( %T )% ) %== true ) then
+ begin
+  [%f] type %( %T )% '::_duplicate(' 
+ end // if
+ %S |N if ( ( [%t] interface %( %T )% ) %== true ) then
+ begin
+  ')' 
+ end // if
+ ';'
+//		}
+ '	}'
+//#UC END# *471DEA9B0399for471DE6F2009C*
+; // env_var_h
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Environment>> <<Attribute>> ;
+

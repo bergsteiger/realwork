@@ -1,0 +1,23 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: checkout_cvs_all <confirm>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT."
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH."
+exit
+fi
+
+# cd to MPCXC_ROOT is checked in update_cvs
+
+$MPCXC_SH/mpcxc_fix_mwc_mpc garantPIL
+$MPCXC_SH/mpcxc_fix_mwc_mpc garant6x
+$MPCXC_SH/mpcxc_fix_mwc_mpc shared
+$MPCXC_SH/mpcxc_fix_mwc_mpc storage

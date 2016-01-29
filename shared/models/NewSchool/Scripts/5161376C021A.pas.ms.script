@@ -1,0 +1,27 @@
+// Reference Counting 5161376C021A Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_5161376C021A
+ CONST UID '5161376C021A'
+ CONST Name 'Reference Counting'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
+ ;
+ : Depends
+   @ ( WL 'ME_51612EBB02F5' '51612EBB02F5.pas.ms.script' // Ref Counting
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5161376C021A.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5161376C021A.pas.ms.script.runner'
+
+ref; // ME_5161376C021A Reference Counting

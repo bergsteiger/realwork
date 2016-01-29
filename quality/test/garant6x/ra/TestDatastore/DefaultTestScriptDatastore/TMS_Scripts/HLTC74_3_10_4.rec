@@ -1,0 +1,53 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+   call OpenDocByNum(650000)
+   Dim sBookMark$
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=200,9"
+   RichEdit Click, "ObjectIndex=1", "Coords=24,27"
+   InputKeys "{DOWN}{APPS}"
+   Window SetContext, "CurrentWindow", ""
+   InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{ENTER}"
+  
+  
+    
+   Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+   SQAGetProperty "Type=EditBox;ObjectIndex=2","Text",sBookMark
+   Toolbar Click, "Text=Выбор действия", "Coords=47,7"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,140"
+    ListBox Click, "ObjectIndex=1", "Coords=49,11"
+    
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    if Position_by_Text("CurrentFocus",sBookMark)<>0 then
+        InputKeys "{ENTER}"
+        DelayFor 2000
+        RichEdit Click, "ObjectIndex=1", "Coords=307,11"
+        InputKeys "^+{RIGHT}"
+        Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=references")
+        
+        Window SetContext, "Caption={ГАРАНТ*}", ""
+        GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,140"
+        ListBox Click, "ObjectIndex=1", "Coords=49,11"
+        call  Position_by_Text("CurrentFocus",sBookMark)
+        InputKeys "{DELETE}"
+        Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+        InputKeys "{ENTER}"
+        
+    else
+        SQALogMessage sqaFail, "Закладки нет!!!", "Закладка с именем ""+sBook+"" отсутствует!"
+    end if
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,145"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=19,64"
+    
+   
+End Sub

@@ -1,0 +1,181 @@
+// m3FileRegion 543F867602DA UtilityPack Class
+
+FORWARD ME_543F867602DA
+
+FORWARD ME_543F8693032B
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_543F86AA01FE
+ CONST UID '543F86AA01FE'
+ CONST Name 'rPosition'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_543F86AA01FE rPosition
+
+: ME_543F86B6035F
+ CONST UID '543F86B6035F'
+ CONST Name 'rSize'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_543F86B6035F rSize
+
+FORWARD ME_543F86C70321
+
+: ME_543F86E4027E
+ CONST UID '543F86E4027E'
+ CONST Name 'anOther'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543F8693032B // Tm3FileRegion
+ ;
+
+ @SELF
+; // ME_543F86E4027E anOther
+
+: ME_543F86D003C7
+ CONST UID '543F86D003C7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_543F86E4027E // anOther
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_543F86D003C7 DoIt
+
+: ME_543F86C70321
+ CONST UID '543F86C70321'
+ CONST Name 'EQ'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_543F86D003C7 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_543F86C70321 EQ
+
+FORWARD ME_543F86F900D9
+
+: ME_543F87180345
+ CONST UID '543F87180345'
+ CONST Name 'aPosition'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_543F87180345 aPosition
+
+: ME_543F8718036B
+ CONST UID '543F8718036B'
+ CONST Name 'aSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_543F8718036B aSize
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_543F870A03A2
+ CONST UID '543F870A03A2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_543F87180345 // aPosition
+ ME_543F8718036B // aSize
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_543F870A03A2 DoIt
+
+: ME_543F86F900D9
+ CONST UID '543F86F900D9'
+ CONST Name 'C'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_543F870A03A2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_543F86F900D9 C
+
+: ME_543F8693032B
+ CONST UID '543F8693032B'
+ CONST Name 'Tm3FileRegion'
+ CONST Class 'Class'
+ CONST Stereotype 'StaticObject'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_543F86AA01FE // rPosition
+ ME_543F86B6035F // rSize
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_543F86C70321 // EQ
+ ME_543F86F900D9 // C
+ ]
+ ; // Operations
+ CONST "not treat as record for XE4" 'undefined'
+
+ @SELF
+; // ME_543F8693032B Tm3FileRegion
+
+: ME_543F867602DA
+ CONST UID '543F867602DA'
+ CONST Name 'm3FileRegion'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_543F8693032B // Tm3FileRegion
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_543F867602DA m3FileRegion

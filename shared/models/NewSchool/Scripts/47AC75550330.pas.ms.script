@@ -1,0 +1,150 @@
+// k2Tags 47AC75550330 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47AC75550330
+
+FORWARD ME_47AC759800AF
+
+: ME_47AC75B1032A
+ CONST UID '47AC75B1032A'
+ CONST Name 'k2_tiComplexBase'
+ CONST Class class_Attribute
+ %SUMMARY 'база для указания сложной сортировки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC759800AF // ExtTags
+ ;
+ CONST Value 'High(Byte) + 1'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47AC75B1032A k2_tiComplexBase
+
+: ME_47AC759800AF
+ CONST UID '47AC759800AF'
+ CONST Name 'ExtTags'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'вспомогательные тэги' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47AC75550330 // k2Tags
+ ;
+ : Attributes
+   @ ( ME_47AC75B1032A // k2_tiComplexBase
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47AC759800AF ExtTags
+
+: ME_47C69EBC00A8
+ CONST UID '47C69EBC00A8'
+ CONST Name 'Tk2TagID'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47AC75550330 // k2Tags
+ ;
+
+ref; // ME_47C69EBC00A8 Tk2TagID
+
+FORWARD ME_47C68D850105
+
+: ME_47C68D980202
+ CONST UID '47C68D980202'
+ CONST Name 'k2_tiName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47C68D850105 // Tk2FontParam
+ ;
+ CONST Value 'k2_tiName'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47C68D980202 k2_tiName
+
+: ME_47C68DA70068
+ CONST UID '47C68DA70068'
+ CONST Name 'k2_tiIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47C68D850105 // Tk2FontParam
+ ;
+ CONST Value 'k2_tiIndex'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47C68DA70068 k2_tiIndex
+
+: ME_47C68D850105
+ CONST UID '47C68D850105'
+ CONST Name 'Tk2FontParam'
+ CONST Class class_Class
+ : Stereotype st_Range ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47AC75550330 // k2Tags
+ ;
+ : Inherits
+   @ ( ME_47C69EBC00A8 // Tk2TagID
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_47C68D980202 // k2_tiName
+ ME_47C68DA70068 // k2_tiIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47C68D850105 Tk2FontParam
+
+: ME_47AC75550330
+ CONST UID '47AC75550330'
+ CONST Name 'k2Tags'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Описание идентификаторов стандартных тегов и типов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Children
+   @ ( ME_47C69EBC00A8 // Tk2TagID
+ ME_47C68D850105 // Tk2FontParam
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_47AC759800AF // ExtTags
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ CONST "started" '05.05.1998 09:54'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2Tags.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47AC75550330.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47AC75550330.pas.ms.script.runner'
+
+ref; // ME_47AC75550330 k2Tags

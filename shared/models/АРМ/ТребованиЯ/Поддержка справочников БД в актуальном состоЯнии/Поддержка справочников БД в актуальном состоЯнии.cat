@@ -1,0 +1,558 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "Поддержка справочников БД в актуальном состоЯнии"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|АРМ,key:ARM,guid:483E8E7E00DC/Home/Модель проекта "АРМ"/Требования/Поддержка справочников БД в актуальном состоянии|4846A6ED01B1
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"2079755694930"))
+    quid       	"4846A6ED01B1"
+    stereotype 	"UseCases"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4846AA2D01E2"
+	    supplier   	"Logical View::АРМ::ТребованиЯ::Возможности управлениЯ обслуживанием клиентов"
+	    quidu      	"483E933D004A")
+	(object Visibility_Relationship
+	    quid       	"4846AA2F0374"
+	    supplier   	"Logical View::АРМ::ТребованиЯ::Обеспечение маркетинговой, ценовой и ассортиментной политики всей компании"
+	    quidu      	"483E94C600F9")
+	(object Visibility_Relationship
+	    quid       	"48DA0CDC008B"
+	    supplier   	"Logical View::АРМ::ТребованиЯ::Эргономика, сервис"
+	    quidu      	"4846A6B803BB")
+	(object Visibility_Relationship
+	    quid       	"4D836C620178"
+	    supplier   	"Logical View::АРМ::ТребованиЯ::Система патчей"
+	    quidu      	"4D83535600C0"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Поддержка системы патчей"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|АРМ,key:ARM,guid:483E8E7E00DC/Home/Модель проекта "АРМ"/Требования/Поддержка справочников БД в актуальном состоянии/Поддержка системы патчей|48D8EE5B01F9
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"2079757805126"))
+	    quid       	"48D8EE5B01F9"
+	    stereotype 	"UseCase"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"2156292378425")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4D83587600A3"
+		    stereotype 	"extend"
+		    supplier   	"Logical View::АРМ::ТребованиЯ::Поддержка справочников БД в актуальном состоЯнии::Различные выливки информации из БД в табличном формате CSV"
+		    quidu      	"4847B52B032E")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"2160180349484")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4D8367A60048"
+		    stereotype 	"extend"
+		    supplier   	"Logical View::АРМ::ТребованиЯ::Система патчей::Выполнение специфических запросов"
+		    quidu      	"48D3724301FF"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"48D8F37000FF"
+		    supplier   	"Logical View::АРМ::ТребованиЯ::Обеспечение маркетинговой, ценовой и ассортиментной политики всей компании::Соответствие ограничениям ассортиментной политики компании"
+		    quidu      	"48D799D2005F")
+		(object Realize_Relationship
+		    quid       	"48D8F3720308"
+		    supplier   	"Logical View::АРМ::ТребованиЯ::Обеспечение маркетинговой, ценовой и ассортиментной политики всей компании::Соответствие ограничениям специальных продуктов и услуг компании"
+		    quidu      	"48D799FC0386")
+		(object Realize_Relationship
+		    quid       	"48D8F374032D"
+		    supplier   	"Logical View::АРМ::ТребованиЯ::Обеспечение маркетинговой, ценовой и ассортиментной политики всей компании::Соответствие планам выхода версий продуктов Гарант"
+		    quidu      	"48D79A620227"))
+	    language   	"MDA Generator")
+	(object Class "Администратор"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"2079757806221"))
+	    quid       	"48D8F1CC00FA"
+	    stereotype 	"Actor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"2137461414591"))
+		    quid       	"48D8F2020217"
+		    supplier   	"Logical View::АРМ::ТребованиЯ::Поддержка справочников БД в актуальном состоЯнии::Поддержка системы патчей"
+		    quidu      	"48D8EE5B01F9"))
+	    language   	"MDA Generator")
+	(object Class "Различные выливки информации из БД в табличном формате CSV"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|АРМ,key:ARM,guid:483E8E7E00DC/Home/Модель проекта "АРМ"/Требования/Общие вопросы работы приложения/Экспорт клиент-комплектов|4847B52B032E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"2078263349464")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4847B52B032E"
+	    stereotype 	"UseCase"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"48D8F4A30223"
+		    supplier   	"Logical View::АРМ::ТребованиЯ::Возможности управлениЯ обслуживанием клиентов::Получение из базы информации в удобном виде (экспорт во внешнем формате)"
+		    quidu      	"48D8BB6E00A3")
+		(object Realize_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"2156809991891"))
+		    quid       	"4D835A7B02FB"
+		    supplier   	"Logical View::АРМ::ТребованиЯ::АвтоматизациЯ работы РП::Предоставление интерфейсов взаимодействия с внешними программами"
+		    quidu      	"48D363CF0085"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4846A6EF01BD"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::АРМ::ТребованиЯ::Поддержка справочников БД в актуальном состоЯнии::Поддержка системы патчей" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1023, 225)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1022, 367)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1504
+			justify    	0
+			label      	"Поддержка системы патчей")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    fill_color 	12510975
+		    quidu      	"48D8EE5B01F9"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::АРМ::ТребованиЯ::Поддержка справочников БД в актуальном состоЯнии::Администратор" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(252, 216)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(66, 219)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"Администратор")
+		    icon       	"Actor"
+		    icon_style 	"Decoration"
+		    fill_color 	16766935
+		    quidu      	"48D8F1CC00FA"
+		    width      	390
+		    height     	195
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48D8F2020217"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(447, 218)
+			(908, 221))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::АРМ::ТребованиЯ::Обеспечение маркетинговой, ценовой и ассортиментной политики всей компании::Соответствие ограничениям ассортиментной политики компании" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(3072, 141)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(2374, 113)
+			nlines     	1
+			max_width  	1396
+			justify    	0
+			label      	"Соответствие ограничениям ассортиментной политики компании")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(2374, 63)
+			anchor     	10
+			nlines     	1
+			max_width  	1396
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"48D799D2005F"
+		    width      	1414
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::АРМ::ТребованиЯ::Обеспечение маркетинговой, ценовой и ассортиментной политики всей компании::Соответствие ограничениям специальных продуктов и услуг компании" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(3087, 465)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(2382, 437)
+			nlines     	1
+			max_width  	1410
+			justify    	0
+			label      	"Соответствие ограничениям специальных продуктов и услуг компании")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(2382, 387)
+			anchor     	10
+			nlines     	1
+			max_width  	1410
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"48D799FC0386"
+		    width      	1428
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::АРМ::ТребованиЯ::Обеспечение маркетинговой, ценовой и ассортиментной политики всей компании::Соответствие планам выхода версий продуктов Гарант" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(3105, 834)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(2407, 806)
+			nlines     	1
+			max_width  	1396
+			justify    	0
+			label      	"Соответствие планам выхода версий продуктов Гарант")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(2407, 756)
+			anchor     	10
+			nlines     	1
+			max_width  	1396
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"48D79A620227"
+		    width      	1414
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @7
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48D8F37000FF"
+		    client     	@1
+		    supplier   	@4
+		    vertices   	(list Points
+			(1135, 218)
+			(2364, 169))
+		    line_style 	0)
+		(object RealizeView "" @8
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48D8F3720308"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(1135, 235)
+			(2372, 381))
+		    line_style 	0)
+		(object RealizeView "" @9
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48D8F374032D"
+		    client     	@1
+		    supplier   	@6
+		    vertices   	(list Points
+			(1288, 300)
+			(2802, 743))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::АРМ::ТребованиЯ::Возможности управлениЯ обслуживанием клиентов::Получение из базы информации в удобном виде (экспорт во внешнем формате)" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(3183, 1179)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(2399, 1151)
+			nlines     	1
+			max_width  	1568
+			justify    	0
+			label      	"Получение из базы информации в удобном виде (экспорт во внешнем формате)")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(2399, 1101)
+			anchor     	10
+			nlines     	1
+			max_width  	1568
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"48D8BB6E00A3"
+		    width      	1586
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::АРМ::ТребованиЯ::Система патчей::Выполнение специфических запросов" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1782, 1194)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1781, 1336)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1647
+			justify    	0
+			label      	"Выполнение специфических запросов")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48D3724301FF"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @12
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48D8F69E0325"
+		    client     	@11
+		    supplier   	@10
+		    vertices   	(list Points
+			(1894, 1190)
+			(2389, 1187))
+		    line_style 	0)
+		(object UsesView "" @13
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @14
+			Parent_View 	@13
+			location   	(1538, 689)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<extend>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4D8367A60048"
+		    client     	@1
+		    supplier   	@11
+		    vertices   	(list Points
+			(1154, 392)
+			(1732, 1132))
+		    line_style 	0)))))

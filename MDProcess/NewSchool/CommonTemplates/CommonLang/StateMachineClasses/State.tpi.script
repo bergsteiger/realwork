@@ -1,0 +1,472 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/StateMachineClasses/State.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::StateMachineClasses::State
+//
+// Состояние
+// ---
+// Соответствует элементу-сосотянию, определенному на диаграмме состояний, соответствие
+// определяется по совпадению имен. Абстрактное состояниеможет не соответствовать событию на
+// диаграмме состояний
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: State::Class
+implementation @ <<State>>
+//? Состояние
+//? Соответствует элементу-сосотянию, определенному на диаграмме состояний, соответствие определяется по совпадению имен. Абстрактное состояниеможет не соответствовать событию на диаграмме состояний
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_sm_state.gif
+//L code_sm_state
+// Параметры визуализации
+//$ C 248,225,232
+//$ l 249,100,145
+//$ f 249,100,145
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p is base:b=false ? Определяет, что данный элемент будет базовым для всех элементов - состояний в конкретной машине состояний
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{is base}"!="%S{!is base}"}%f_up_prefix(%S) *is base* = *%S{is base}* - Определяет, что данный элемент будет базовым для всех элементов - состояний в конкретной машине состояний
+ ?inherited
+ if ( ( %S get_up ( 'is base' ) ) %!= ( %S get_up_def ( 'is base' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is base* = *'
+  %S get_up ( 'is base' ) '* - Определяет, что данный элемент будет базовым для всех элементов - состояний в конкретной машине состояний'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа AbstractClass::Class
+// генерация списка базовых классов и реализуемых интерфейсов
+//%f _java_base_class_decl
+; // wiki_up_print
+
+: java_base_class_decl OBJECT IN %S
+//#UC START# *47173062030Dfor475F8CC801A5*
+//	%f_find_specific_base_state(%P,%S,"BASE_STATE")\
+ [%f] find_specific_base_state %( %P %, %S %, 'BASE_STATE' )% 
+//	[{}{[{"%{BASE_STATE}U"!=""&%{BASE_STATE}U!=%SU}{ extends ru.garant.shared.FSM.BaseState} extends %f_type(%{BASE_STATE})]}%f_java_base(%S)]
+ if NOT-EMPTY
+ begin
+  [%f] java_base %( %S )% 
+ end // if
+ NOP
+ else
+ begin
+  if ( ( ( get_global_var ( 'BASE_STATE' ) |U ) ) %!= '' AND 
+    ( ( ( get_global_var ( 'BASE_STATE' ) |U ) ) %!= ( %S |U )  ) ) then
+  begin
+   ' extends '
+   [%f] type %( ( get_global_var ( 'BASE_STATE' ) ) )% 
+  end // if
+  else
+  begin
+   ' extends ru.garant.shared.FSM.BaseState' 
+  end // else
+ end // else
+//#UC END# *47173062030Dfor475F8CC801A5*
+; // java_base_class_decl
+
+
+// перекрытие базового стереотипа AbstractClass::Class
+// генерация блока импорта серванта
+//%f _java_servant_import_self
+: java_servant_import_self OBJECT IN %S
+//#UC START# *4717306F0157for475F8CC801A5*
+//	%f_set_var(CORRSEPONDED_STATE,"")%P<{}{%AC=State&%AN=%{SELF}N}{%A}%f_set_var(CORRSEPONDED_STATE,A)>\
+ [%f] set_var %( 'CORRSEPONDED_STATE' %, '' )% %P
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |C ) %== 'State' AND 
+    ( ( %A |N ) %== ( ( get_global_var ( 'SELF' ) |N ) )  ) ) then
+   begin
+    [%f] set_var %( 'CORRSEPONDED_STATE' %, 'A' )% 
+    ++! l_Counter
+   end // if
+  end // for A
+
+ ) // bind
+ //	[{%S{is base}=false}import ru.garant.shared.FSM.IContext;
+ if ( ( %S get_up ( 'is base' ) ) %==  false ) then
+ begin
+  'import ru.garant.shared.FSM.IContext;'
+//	import ru.garant.shared.GCI.I18N.Messages;
+  'import ru.garant.shared.GCI.I18N.Messages;'
+//	][{"%{CORRSEPONDED_STATE}U"!=""}import %f_type(%{CORRSEPONDED_STATE}%P%P)Impl;]
+ end // if
+ if ( ( ( get_global_var ( 'CORRSEPONDED_STATE' ) |U ) ) %!= '' ) then
+ begin
+  'import '
+  [%f] type %( ( get_global_var ( 'CORRSEPONDED_STATE' )  ->P ->P  ) )% 'Impl;' 
+ end // if
+//#UC END# *4717306F0157for475F8CC801A5*
+; // java_servant_import_self
+
+
+// перекрытие базового стереотипа AbstractClass::Class
+// генерация специфичсекого содержимого
+//%f _servant_content_java
+: servant_content_java OBJECT IN %S
+//#UC START# *47173078008Cfor475F8CC801A5*
+//	[{%Sa!=abstract}\n\
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  #13#10
+//	#	public static %SN make () {
+  out_indent '	public static '
+  %S |N ' make () {'
+//	#		return new %SN ();
+  out_indent '		return new '
+  %S |N ' ();'
+//	#	}
+  out_indent '	}'
+//	#	
+  out_indent '	'
+//	#	protected %SN () {
+  out_indent '	protected '
+  %S |N ' () {'
+//	#		%U[{_CTOR_%f_to_upper(%SN)}
+  out_indent '		'
+  %Usersection (
+   '_CTOR_'
+   [%f] to_upper %( %S |N )% 
+  )
+  (
+   #13#10
+
+//	#		]
+   out_indent '		' 
+  ) // Usersection
+ //	#	}
+  out_indent '	}'
+//	#	
+  out_indent '	'
+//	]%f_set_var(CORRSEPONDED_STATE,"")%P<{}{%AC=State&%AN=%{SELF}N}{%A}%f_set_var(CORRSEPONDED_STATE,A)>\
+ end // if
+ [%f] set_var %( 'CORRSEPONDED_STATE' %, '' )% %P
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |C ) %== 'State' AND 
+    ( ( %A |N ) %== ( ( get_global_var ( 'SELF' ) |N ) )  ) ) then
+   begin
+    [%f] set_var %( 'CORRSEPONDED_STATE' %, 'A' )% 
+    ++! l_Counter
+   end // if
+  end // for A
+
+ ) // bind
+ //	
+//	#	public[{%Sa=abstract} abstract] String getName ()[{%Sa!=abstract}{;} \{
+ out_indent '	public'
+ if ( ( %S |a ) %== 'abstract' ) then
+ begin
+  ' abstract' 
+ end // if
+ ' String getName ()'
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  ' {'
+//	#		return ru.garant.shared.GCI.I18N.Messages.Factory.messages ().get (
+  out_indent '		return ru.garant.shared.GCI.I18N.Messages.Factory.messages ().get ('
+//	#			"[{}{<{}{}{r}%PN.>}%{CORRSEPONDED_STATE}<{}{}{r}%PN.>]%SN"
+  out_indent '			"'
+  if NOT-EMPTY
+  begin
+   ( get_global_var ( 'CORRSEPONDED_STATE' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for downto %S%P
+    begin
+     OBJECT IN %P
+     if true then
+     begin
+      %P |N '.' 
+      ++! l_Counter
+     end // if
+    end // for P
+
+   ) // bind
+  end // if
+  NOP
+  else
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for downto %S%P
+   begin
+    OBJECT IN %P
+    if true then
+    begin
+     %P |N '.' 
+     ++! l_Counter
+    end // if
+   end // for P
+  end // else
+  %S |N 
+//	#		);
+  out_indent '		);'
+//	#	}][{"%{CORRSEPONDED_STATE}U"!=""}
+  out_indent '	}' 
+ end // if
+ else
+ begin
+  ';' 
+ end // else
+ if ( ( ( get_global_var ( 'CORRSEPONDED_STATE' ) |U ) ) %!= '' ) then
+ begin
+  #13#10
+
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	[{%{CORRSEPONDED_STATE}<{}{%CC=Action&%CK=entry}{C}>!=0}\
+   if ( ( ( get_global_var ( 'CORRSEPONDED_STATE' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Action' AND 
+       ( ( %C |K ) %== 'entry'  ) ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for C
+     l_Counter
+
+    ) // bind
+)     %!= 0 ) then
+   begin
+//	#	public void postEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {
+    out_indent '	public void postEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {'
+//	#		%P%PNImpl context = (%P%PNImpl)conn;
+    out_indent '		'
+    %P ->P |N  'Impl context = ('
+    %P ->P |N  'Impl)conn;'
+//	%{CORRSEPONDED_STATE}<{}{%CC=Action&%CK=entry}#		try {
+    ( get_global_var ( 'CORRSEPONDED_STATE' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Action' AND 
+       ( ( %C |K ) %== 'entry'  ) ) then
+      begin
+       out_indent '		try {'
+//	#			context.%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+       out_indent '			context.'
+       [%f] to_java %( 'post_'
+       [%f] to_omg %( %C ->P |N  )% '_'
+       %C |N )% ' (event);'
+//	#		} catch (Throwable ex) {
+       out_indent '		} catch (Throwable ex) {'
+//	#			Logs.LOG_SEX (ex);
+       out_indent '			Logs.LOG_SEX (ex);'
+//	#		}
+       out_indent '		}'
+//	>#	}
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+    out_indent '	}'
+//	][{%{CORRSEPONDED_STATE}<{}{%CC=Action&%CK=exit}{C}>!=0}\
+   end // if
+   if ( ( ( get_global_var ( 'CORRSEPONDED_STATE' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Action' AND 
+       ( ( %C |K ) %== 'exit'  ) ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for C
+     l_Counter
+
+    ) // bind
+)     %!= 0 ) then
+   begin
+//	#	public void postExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {
+    out_indent '	public void postExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {'
+//	#		%P%PNImpl context = (%P%PNImpl)conn;
+    out_indent '		'
+    %P ->P |N  'Impl context = ('
+    %P ->P |N  'Impl)conn;'
+//	%{CORRSEPONDED_STATE}<{}{%CC=Action&%CK=exit}#		try {
+    ( get_global_var ( 'CORRSEPONDED_STATE' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Action' AND 
+       ( ( %C |K ) %== 'exit'  ) ) then
+      begin
+       out_indent '		try {'
+//	#			context.%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+       out_indent '			context.'
+       [%f] to_java %( 'post_'
+       [%f] to_omg %( %C ->P |N  )% '_'
+       %C |N )% ' (event);'
+//	#		} catch (Throwable ex) {
+       out_indent '		} catch (Throwable ex) {'
+//	#			Logs.LOG_SEX (ex);
+       out_indent '			Logs.LOG_SEX (ex);'
+//	#		}
+       out_indent '		}'
+//	>#	}
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+    out_indent '	}'
+//	][{%{CORRSEPONDED_STATE}K=Final|%{CORRSEPONDED_STATE}K=Initial}\
+   end // if
+   if ( ( ( get_global_var ( 'CORRSEPONDED_STATE' ) |K ) ) %== 'Final' OR 
+     ( ( ( get_global_var ( 'CORRSEPONDED_STATE' ) |K ) ) %== 'Initial'  ) ) then
+   begin
+//	#	public ru.garant.shared.FSM.StateType getType () {
+    out_indent '	public ru.garant.shared.FSM.StateType getType () {'
+//	#		return ru.garant.shared.FSM.StateType.ST_%f_to_upper(%{CORRSEPONDED_STATE}K);
+    out_indent '		return ru.garant.shared.FSM.StateType.ST_'
+    [%f] to_upper %( ( get_global_var ( 'CORRSEPONDED_STATE' ) |K ) )% ';'
+//	#	}
+    out_indent '	}'
+//	]
+   end // if
+//	#	public void validate (final IContext conn) throws ru.garant.shared.FSM.ValidationFailed {
+   out_indent '	public void validate (final IContext conn) throws ru.garant.shared.FSM.ValidationFailed {'
+//	#		%{CORRSEPONDED_STATE}%P%PNImpl context = (%{CORRSEPONDED_STATE}%P%PNImpl)conn;
+   out_indent '		'
+   ( get_global_var ( 'CORRSEPONDED_STATE' )  ->P ->P |N  ) 'Impl context = ('
+   ( get_global_var ( 'CORRSEPONDED_STATE' )  ->P ->P |N  ) 'Impl)conn;'
+//	#		context.validate%{SELF}N ();
+   out_indent '		context.validate'
+   ( get_global_var ( 'SELF' ) |N ) ' ();'
+//	#	}
+   out_indent '	}'
+//	
+   #13#10
+
+//	#	public void preEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreEnterFailed {
+   out_indent '	public void preEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreEnterFailed {'
+//	#		%{CORRSEPONDED_STATE}%P%PNImpl context = (%{CORRSEPONDED_STATE}%P%PNImpl)conn;
+   out_indent '		'
+   ( get_global_var ( 'CORRSEPONDED_STATE' )  ->P ->P |N  ) 'Impl context = ('
+   ( get_global_var ( 'CORRSEPONDED_STATE' )  ->P ->P |N  ) 'Impl)conn;'
+//	#		context.preEnterAction%{SELF}N (event);
+   out_indent '		context.preEnterAction'
+   ( get_global_var ( 'SELF' ) |N ) ' (event);'
+//	#	}
+   out_indent '	}'
+//		
+   '	'
+//	#	public void preExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreExitFailed {
+   out_indent '	public void preExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreExitFailed {'
+//	#		%{CORRSEPONDED_STATE}%P%PNImpl context = (%{CORRSEPONDED_STATE}%P%PNImpl)conn;
+   out_indent '		'
+   ( get_global_var ( 'CORRSEPONDED_STATE' )  ->P ->P |N  ) 'Impl context = ('
+   ( get_global_var ( 'CORRSEPONDED_STATE' )  ->P ->P |N  ) 'Impl)conn;'
+//	#		context.preExitAction%{SELF}N (event);
+   out_indent '		context.preExitAction'
+   ( get_global_var ( 'SELF' ) |N ) ' (event);'
+//	#	}
+   out_indent '	}'
+//	>
+   '>'
+//	]]
+  end // if
+  NOP
+ end // if
+//#UC END# *47173078008Cfor475F8CC801A5*
+; // servant_content_java
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for475F8CC801A5*
+//c           {}
+//r {""=""}:  {}
+//#UC END# *4704C0E30186for475F8CC801A5*
+; // constraint
+
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor475F8CC801A5*
+//O []
+//#UC END# *470321C1038Afor475F8CC801A5*
+; // fctr.java
+
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for475F8CC801A5*
+//= SimpleClass::Class;java
+%call-other-gen ( 'SimpleClass' 'java' )
+//C /sm/%PN
+//#UC END# *470321950119for475F8CC801A5*
+; // java
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+//~ State::Class::impurity value::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<State>>
+

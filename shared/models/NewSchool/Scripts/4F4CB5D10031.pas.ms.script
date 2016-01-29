@@ -1,0 +1,247 @@
+// Tm3EndingReplaceList 4F4CB5D10031 SimpleClass Class
+
+FORWARD ME_4F4CB5D10031
+
+FORWARD ME_5089077D0042
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_50890792030B
+ CONST UID '50890792030B'
+ CONST Name 'cNoTrunc'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value 'High(Byte)'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_50890792030B cNoTrunc
+
+: ME_5089077D0042
+ CONST UID '5089077D0042'
+ CONST Name 'Const'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_50890792030B // cNoTrunc
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_5089077D0042 Const
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+FORWARD ME_508E493C03D7
+
+: ME_508E4E3F0134
+ CONST UID '508E4E3F0134'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_482C48430205 // Char
+ ;
+
+ @SELF
+; // ME_508E4E3F0134 
+
+: ME_508E493C03D7
+ CONST UID '508E493C03D7'
+ CONST Name 'TByteArrayOfChar'
+ CONST Class 'Class'
+ CONST Stereotype 'Vector'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_476130E5023C // Byte
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_508E4E3F0134 // 
+ ]
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ @SELF
+; // ME_508E493C03D7 TByteArrayOfChar
+
+INCLUDE '47B47E230134.pas.ms.script'
+
+INCLUDE '4F4CB5140310.pas.ms.script'
+
+: ME_508E49BC03AF
+ CONST UID '508E49BC03AF'
+ CONST Name 'cBuff'
+ CONST Class 'Attribute'
+ CONST Stereotype 'static'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_508E493C03D7 // TByteArrayOfChar
+ ;
+
+ @SELF
+; // ME_508E49BC03AF cBuff
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4F4CB60E009F
+ CONST UID '4F4CB60E009F'
+ CONST Name 'FindDataType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+
+ @SELF
+; // ME_4F4CB60E009F FindDataType
+
+FORWARD ME_5089072C0220
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_5089073B01EC
+ CONST UID '5089073B01EC'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E150FF028A // TStream
+ ;
+
+ @SELF
+; // ME_5089073B01EC aStream
+
+: ME_5089073703A9
+ CONST UID '5089073703A9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5089073B01EC // aStream
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5089073703A9 DoIt
+
+: ME_5089072C0220
+ CONST UID '5089072C0220'
+ CONST Name 'Load'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5089073703A9 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5089072C0220 Load
+
+FORWARD ME_5089074500A3
+
+: ME_5089076402B2
+ CONST UID '5089076402B2'
+ CONST Name 'aCheckStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+
+ @SELF
+; // ME_5089076402B2 aCheckStr
+
+: ME_508907570039
+ CONST UID '508907570039'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5089076402B2 // aCheckStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_508907570039 DoIt
+
+: ME_5089074500A3
+ CONST UID '5089074500A3'
+ CONST Name 'MakeNorm'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_508907570039 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5089074500A3 MakeNorm
+
+: ME_4F4CB5D10031
+ CONST UID '4F4CB5D10031'
+ CONST Name 'Tm3EndingReplaceList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B47E230134 // l3Searcher
+ ME_4F4CB5140310 // Tm3EndingReplaceListPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_508E49BC03AF // cBuff
+ ME_4F4CB60E009F // FindDataType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5089072C0220 // Load
+ ME_5089074500A3 // MakeNorm
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_47B9BAFD01F4 // CompareItemWithData
+ ]
+ ; // Overridden
+ : Children
+   [ ME_508E493C03D7 // TByteArrayOfChar
+ ]
+ ; // Children
+ : Constants
+   [ ME_5089077D0042 // Const
+ ]
+ ; // Constants
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F4CB5D10031 Tm3EndingReplaceList

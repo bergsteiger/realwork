@@ -1,0 +1,126 @@
+// TtfwProcedure 4F37B27502EE SimpleClass Class
+
+FORWARD ME_4F37B27502EE
+
+FORWARD ME_55915A27028A
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55915A2F01A7
+ CONST UID '55915A2F01A7'
+ CONST Name 'cCaller'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Caller'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_55915A2F01A7 cCaller
+
+: ME_55915A27028A
+ CONST UID '55915A27028A'
+ CONST Name 'Inner'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_55915A2F01A7 // cCaller
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_55915A27028A Inner
+
+INCLUDE '4DB9B6D20168.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+FORWARD ME_4F3FF55403AB
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4F3FF5710220
+ CONST UID '4F3FF5710220'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A61D0B0256 // Tl3CStringArray
+ ;
+
+ @SELF
+; // ME_4F3FF5710220 DoIt
+
+: ME_4F3FF55403AB
+ CONST UID '4F3FF55403AB'
+ CONST Name 'AddedParameters'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F3FF5710220 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F3FF55403AB AddedParameters
+
+: ME_570977D7CB8F
+ CONST UID '570977D7CB8F'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwProcedure' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_570977D7CB8F Ini_Reg_Class
+
+: ME_4F37B27502EE
+ CONST UID '4F37B27502EE'
+ CONST Name 'TtfwProcedure'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4DB9B6D20168 // TtfwNewWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4F3FF55403AB // AddedParameters
+ ME_570977D7CB8F // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DB6C99F026E // EndBracket
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DBAEE0D028D // CompiledWordClass
+ ME_4F219629036A // FinishDefinitionOfNewWord
+ ME_4F21A4F60049 // FillCompiledWord
+ ]
+ ; // Overridden
+ : Constants
+   [ ME_55915A27028A // Inner
+ ]
+ ; // Constants
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F37B27502EE TtfwProcedure

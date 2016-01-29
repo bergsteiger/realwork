@@ -1,0 +1,803 @@
+// MoveMouseByPara 4F954EC9038E ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F954EC9038E
+
+FORWARD ME_54F06F760196
+
+: ME_54F06F820231
+ CONST UID '54F06F820231'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F06F760196 // kwParaCoordsToScreenUses
+ ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_54F06F820231 
+
+: ME_54F06F760196
+ CONST UID '54F06F760196'
+ CONST Name 'kwParaCoordsToScreenUses'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F954EC9038E // MoveMouseByPara
+ ;
+ : Dependencies
+   @ ( ME_54F06F820231 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas'
+ CONST extprop:pas:TypeName '_kwParaCoordsToScreenUses_'
+
+ref; // ME_54F06F760196 kwParaCoordsToScreenUses
+
+FORWARD ME_4F955027033B
+
+: ME_2242BFE67A73
+ CONST UID '2242BFE67A73'
+ CONST Name 'TnevControlFriend'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Друг для TnevControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ : Inherits
+   @ ( WL 'ME_48E0E5C1032A' '48E0E52B00D7.pas.ms.script' // TnevControl
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ref; // ME_2242BFE67A73 TnevControlFriend
+
+: ME_4F956C040018
+ CONST UID '4F956C040018'
+ CONST Name 'f_Point'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_4F956C040018 f_Point
+
+: ME_5263CB14A317
+ CONST UID '5263CB14A317'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwParaCoordsToScreen' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_5263CB14A317 Ini_Reg_Class
+
+: ME_4F9575F80222
+ CONST UID '4F9575F80222'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_4F9575F80222 
+
+: ME_54F084E3031F
+ CONST UID '54F084E3031F'
+ CONST Class class_Dependency
+ : Stereotype st_friend::Dependency ;
+ : Parent ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ : Target WL 'ME_48E0E5C1032A' '48E0E52B00D7.pas.ms.script' // TnevControl
+ ;
+
+ref; // ME_54F084E3031F 
+
+: ME_4F4CB81200CA_ME_4F955027033B
+ CONST UID '4F4CB81200CA'
+ CONST Name 'DoWithEditor'
+ : Original WL 'ME_4F4CB81200CA' '4F4CB50403CC.pas.ms.script' // DoWithEditor
+ ;
+ : Implementor ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ref; // ME_4F4CB81200CA_ME_4F955027033B DoWithEditor
+
+: ME_4BF4E6A00093_ME_4F955027033B
+ CONST UID '4BF4E6A00093'
+ CONST Name 'GetInnerPara'
+ : Original WL 'ME_4BF4E6A00093' '4C500D470030.pas.ms.script' // GetInnerPara
+ ;
+ : Implementor ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ref; // ME_4BF4E6A00093_ME_4F955027033B GetInnerPara
+
+: ME_4F955027033B
+ CONST UID '4F955027033B'
+ CONST Name 'TkwParaCoordsToScreen'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F954EC9038E // MoveMouseByPara
+ ;
+ : Inherits
+   @ ( WL 'ME_4F4CB625027A' '4F4CB50403CC.pas.ms.script' // TkwEditorFromStackWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4CED0194038A' '4C500D470030.pas.ms.script' // Para2Point
+ ME_54F06F760196 // kwParaCoordsToScreenUses
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F956C040018 // f_Point
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5263CB14A317 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4F4CB81200CA_ME_4F955027033B // DoWithEditor
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4BF4E6A00093_ME_4F955027033B // GetInnerPara
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_2242BFE67A73 // TnevControlFriend
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4F9575F80222 // 
+ ME_54F084E3031F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreen.pas'
+
+ref; // ME_4F955027033B TkwParaCoordsToScreen
+
+FORWARD ME_4F95434701ED
+
+: ME_9B66F9B16876
+ CONST UID '9B66F9B16876'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_editor_ParaMiddleCoordsToScreen' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
+ ;
+
+ref; // ME_9B66F9B16876 Ini_Reg
+
+: ME_4C3C927B027E_ME_4F95434701ED
+ CONST UID '4C3C927B027E'
+ CONST Name 'GetPoint'
+ : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
+ ;
+ : Implementor ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
+ ;
+ref; // ME_4C3C927B027E_ME_4F95434701ED GetPoint
+
+: ME_4DB0614603C8_ME_4F95434701ED
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
+ ;
+ref; // ME_4DB0614603C8_ME_4F95434701ED GetWordNameForRegister
+
+: ME_4F95434701ED
+ CONST UID '4F95434701ED'
+ CONST Name 'pop_editor_ParaMiddleCoordsToScreen'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F954EC9038E // MoveMouseByPara
+ ;
+ : Inherits
+   @ ( ME_4F955027033B // TkwParaCoordsToScreen
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_9B66F9B16876 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C3C927B027E_ME_4F95434701ED // GetPoint
+ ME_4DB0614603C8_ME_4F95434701ED // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorParaMiddleCoordsToScreen.pas'
+ CONST extprop:pas:TypeName 'TkwPopEditorParaMiddleCoordsToScreen'
+
+ref; // ME_4F95434701ED pop_editor_ParaMiddleCoordsToScreen
+
+FORWARD ME_4F954F670262
+
+FORWARD ME_4EEB66D703A9
+
+: ME_4F954F7D0178
+ CONST UID '4F954F7D0178'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ : Target ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
+ ;
+
+ref; // ME_4F954F7D0178 
+
+FORWARD ME_4F265392010B
+
+: ME_4F954F8103BF
+ CONST UID '4F954F8103BF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ : Target ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+
+ref; // ME_4F954F8103BF 
+
+: ME_4F954F8403DC
+ CONST UID '4F954F8403DC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ : Target ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
+ ;
+
+ref; // ME_4F954F8403DC 
+
+FORWARD ME_4FABE1110175
+
+: ME_4FABE14F0392
+ CONST UID '4FABE14F0392'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ : Target ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+
+ref; // ME_4FABE14F0392 
+
+: ME_54F06F45006B
+ CONST UID '54F06F45006B'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ : Target WL 'ME_4B28D63A00EC' '4829D7D50156.pas.ms.script' // TevCustomEditorWindowPrim
+ ;
+
+ref; // ME_54F06F45006B 
+
+: ME_C6EB12118142
+ CONST UID 'C6EB12118142'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_C6EB12118142 
+
+: ME_4F954F670262
+ CONST UID '4F954F670262'
+ CONST Name 'EditorParaCoordsToScreenPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F954EC9038E // MoveMouseByPara
+ ;
+ : Dependencies
+   @ ( ME_4F954F7D0178 // 
+ ME_4F954F8103BF // 
+ ME_4F954F8403DC // 
+ ME_4FABE14F0392 // 
+ ME_54F06F45006B // 
+ ME_C6EB12118142 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\EditorParaCoordsToScreenPack.pas'
+
+ref; // ME_4F954F670262 EditorParaCoordsToScreenPack
+
+: ME_8B747B3BE5E1
+ CONST UID '8B747B3BE5E1'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_editor_ParaCoordsToScreen' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
+ ;
+
+ref; // ME_8B747B3BE5E1 Ini_Reg
+
+: ME_4C3C927B027E_ME_4EEB66D703A9
+ CONST UID '4C3C927B027E'
+ CONST Name 'GetPoint'
+ : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
+ ;
+ : Implementor ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
+ ;
+ref; // ME_4C3C927B027E_ME_4EEB66D703A9 GetPoint
+
+: ME_4DB0614603C8_ME_4EEB66D703A9
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
+ ;
+ref; // ME_4DB0614603C8_ME_4EEB66D703A9 GetWordNameForRegister
+
+: ME_4EEB66D703A9
+ CONST UID '4EEB66D703A9'
+ CONST Name 'pop_editor_ParaCoordsToScreen'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F954EC9038E // MoveMouseByPara
+ ;
+ : Inherits
+   @ ( ME_4F955027033B // TkwParaCoordsToScreen
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_8B747B3BE5E1 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C3C927B027E_ME_4EEB66D703A9 // GetPoint
+ ME_4DB0614603C8_ME_4EEB66D703A9 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "author" 'Костицын М.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '16.12.2011'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorParaCoordsToScreen.pas'
+ CONST extprop:pas:TypeName 'TkwPopEditorParaCoordsToScreen'
+
+ref; // ME_4EEB66D703A9 pop_editor_ParaCoordsToScreen
+
+: ME_C20AEBF4E607
+ CONST UID 'C20AEBF4E607'
+ CONST Name 'TnevControlFriend'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Друг для TnevControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ : Inherits
+   @ ( WL 'ME_48E0E5C1032A' '48E0E52B00D7.pas.ms.script' // TnevControl
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ref; // ME_C20AEBF4E607 TnevControlFriend
+
+: ME_4FABEA040112
+ CONST UID '4FABEA040112'
+ CONST Name 'f_Editor'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_4FABEA040112 f_Editor
+
+: ME_03B3235BCE84
+ CONST UID '03B3235BCE84'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_editor_CursorCoordsToScreen' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+
+ref; // ME_03B3235BCE84 Ini_Reg
+
+: ME_54F06F0E03B0
+ CONST UID '54F06F0E03B0'
+ CONST Class class_Dependency
+ : Stereotype st_friend::Dependency ;
+ : Parent ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ : Target WL 'ME_48E0E5C1032A' '48E0E52B00D7.pas.ms.script' // TnevControl
+ ;
+
+ref; // ME_54F06F0E03B0 
+
+: ME_479731C50290_ME_4FABE1110175
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ref; // ME_479731C50290_ME_4FABE1110175 Cleanup
+
+: ME_4C3C927B027E_ME_4FABE1110175
+ CONST UID '4C3C927B027E'
+ CONST Name 'GetPoint'
+ : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
+ ;
+ : Implementor ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ref; // ME_4C3C927B027E_ME_4FABE1110175 GetPoint
+
+: ME_4DB0614603C8_ME_4FABE1110175
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ref; // ME_4DB0614603C8_ME_4FABE1110175 GetWordNameForRegister
+
+: ME_4F4CB81200CA_ME_4FABE1110175
+ CONST UID '4F4CB81200CA'
+ CONST Name 'DoWithEditor'
+ : Original WL 'ME_4F4CB81200CA' '4F4CB50403CC.pas.ms.script' // DoWithEditor
+ ;
+ : Implementor ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ref; // ME_4F4CB81200CA_ME_4FABE1110175 DoWithEditor
+
+: ME_4FABE1110175
+ CONST UID '4FABE1110175'
+ CONST Name 'pop_editor_CursorCoordsToScreen'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F954EC9038E // MoveMouseByPara
+ ;
+ : Inherits
+   @ ( ME_4F955027033B // TkwParaCoordsToScreen
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4FABEA040112 // f_Editor
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_03B3235BCE84 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4FABE1110175 // Cleanup
+ ME_4C3C927B027E_ME_4FABE1110175 // GetPoint
+ ME_4DB0614603C8_ME_4FABE1110175 // GetWordNameForRegister
+ ME_4F4CB81200CA_ME_4FABE1110175 // DoWithEditor
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_C20AEBF4E607 // TnevControlFriend
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_54F06F0E03B0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCursorCoordsToScreen.pas'
+ CONST extprop:pas:TypeName 'TkwPopEditorCursorCoordsToScreen'
+
+ref; // ME_4FABE1110175 pop_editor_CursorCoordsToScreen
+
+: ME_ECEAEC4170FC
+ CONST UID 'ECEAEC4170FC'
+ CONST Name 'TnevControlFriend'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Друг для TnevControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ : Inherits
+   @ ( WL 'ME_48E0E5C1032A' '48E0E52B00D7.pas.ms.script' // TnevControl
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ref; // ME_ECEAEC4170FC TnevControlFriend
+
+: ME_4F265AF301A4
+ CONST UID '4F265AF301A4'
+ CONST Name 'f_Editor'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_4F265AF301A4 f_Editor
+
+: ME_9EC730D2EB44
+ CONST UID '9EC730D2EB44'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_editor_ParaEndCoordsToScreen' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+
+ref; // ME_9EC730D2EB44 Ini_Reg
+
+: ME_4F268AA003AE
+ CONST UID '4F268AA003AE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ : Target WL 'ME_47ECAB310336' '47ECAB0B0265.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_4F268AA003AE 
+
+: ME_4F268AAC036C
+ CONST UID '4F268AAC036C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ : Target WL 'ME_48453A750156' '48453A40017C.pas.ms.script' // Operations
+ ;
+
+ref; // ME_4F268AAC036C 
+
+: ME_54F06F250171
+ CONST UID '54F06F250171'
+ CONST Class class_Dependency
+ : Stereotype st_friend::Dependency ;
+ : Parent ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ : Target WL 'ME_48E0E5C1032A' '48E0E52B00D7.pas.ms.script' // TnevControl
+ ;
+
+ref; // ME_54F06F250171 
+
+: ME_479731C50290_ME_4F265392010B
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ref; // ME_479731C50290_ME_4F265392010B Cleanup
+
+: ME_4C3C927B027E_ME_4F265392010B
+ CONST UID '4C3C927B027E'
+ CONST Name 'GetPoint'
+ : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
+ ;
+ : Implementor ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ref; // ME_4C3C927B027E_ME_4F265392010B GetPoint
+
+: ME_4DB0614603C8_ME_4F265392010B
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ref; // ME_4DB0614603C8_ME_4F265392010B GetWordNameForRegister
+
+: ME_4F4CB81200CA_ME_4F265392010B
+ CONST UID '4F4CB81200CA'
+ CONST Name 'DoWithEditor'
+ : Original WL 'ME_4F4CB81200CA' '4F4CB50403CC.pas.ms.script' // DoWithEditor
+ ;
+ : Implementor ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ;
+ref; // ME_4F4CB81200CA_ME_4F265392010B DoWithEditor
+
+: ME_4F265392010B
+ CONST UID '4F265392010B'
+ CONST Name 'pop_editor_ParaEndCoordsToScreen'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F954EC9038E // MoveMouseByPara
+ ;
+ : Inherits
+   @ ( ME_4F955027033B // TkwParaCoordsToScreen
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F265AF301A4 // f_Editor
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_9EC730D2EB44 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4F265392010B // Cleanup
+ ME_4C3C927B027E_ME_4F265392010B // GetPoint
+ ME_4DB0614603C8_ME_4F265392010B // GetWordNameForRegister
+ ME_4F4CB81200CA_ME_4F265392010B // DoWithEditor
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_ECEAEC4170FC // TnevControlFriend
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4F268AA003AE // 
+ ME_4F268AAC036C // 
+ ME_54F06F250171 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorParaEndCoordsToScreen.pas'
+ CONST extprop:pas:TypeName 'TkwPopEditorParaEndCoordsToScreen'
+
+ref; // ME_4F265392010B pop_editor_ParaEndCoordsToScreen
+
+: ME_4F954EC9038E
+ CONST UID '4F954EC9038E'
+ CONST Name 'MoveMouseByPara'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54ECA252008F' '54ECA252008F.pas.ms.script' // ScriptEngine$Everest
+ ;
+ : Children
+   @ ( ME_54F06F760196 // kwParaCoordsToScreenUses
+ ME_4F955027033B // TkwParaCoordsToScreen
+ ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
+ ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
+ ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47ECAB0B0265' '47ECAB0B0265.pas.ms.script' // evMsgCode
+ WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
+ WL 'ME_48E0E52B00D7' '48E0E52B00D7.pas.ms.script' // CoreControls
+ WL 'ME_4C500D470030' '4C500D470030.pas.ms.script' // MixIns
+ WL 'ME_4F4CB50403CC' '4F4CB50403CC.pas.ms.script' // EditorFromStackKeyWords
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F954EC9038E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F954EC9038E.pas.ms.script.runner'
+
+ref; // ME_4F954EC9038E MoveMouseByPara

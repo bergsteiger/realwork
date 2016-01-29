@@ -1,0 +1,57 @@
+
+Sub Main
+    Dim Result As Integer
+
+    'Initially Recorded: 24.06.2002  11:18:31
+    'Script Name: new_client_special
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 38
+    
+    Window SetContext, "Caption=Внесение информации о новом клиенте", ""
+    InputKeys "Этот клиент имеет запятую {(},{)}, точку с заяптой{(};{)}, двоет"
+    InputKeys "очие {(}:{)}, кавычки{(} ""{)}б процент {(}{%}{)} и в.зн !вва"
+    InputKeys "{BKSP},{BKSP}?{TAB}{TAB}{DOWN}{TAB}{DOWN}{TAB}{TAB}12{TAB}123456"
+    InputKeys "789 ""rfdxrb"" {(}скобки{)} ;т-с-з""{BKSP},;{BKSP}{BKSP};{LEFT}"
+    InputKeys "{LEFT}{LEFT}{LEFT}{LEFT}{LEFT} {END}{LEFT} {END} ?{TAB}{DOWN}"
+    InputKeys "{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 21
+    CheckBox Click, "ObjectIndex=1"
+    PushButton Click, "ObjectIndex=3"
+    
+    Window SetContext, "Caption=Редактирование представителя клиента", ""
+    InputKeys "Я в кавычках ""№{BKSP}Я""{TAB}{(}В скобках{)}{TAB};в т-с-з4;"
+    InputKeys "{TAB}{TAB}{TAB}{TAB}{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    PushButton Click, "ObjectIndex=5"
+    
+    Window SetContext, "Caption=Добавление нового телефона", ""
+    InputKeys "32-1{TAB}2-23432423423{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    InputKeys "{TAB}{TAB}email;@email{TAB}всякая лабуда{TAB}{RIGHT}{TAB}{TAB}"
+    InputKeys "{TAB}{TAB}{TAB}Нчиего дополнительного Только в кавычках Э{BKSP}"
+    InputKeys """ytjrnmjnekn""{TAB}{DOWN}{TAB}{DOWN}2345{TAB}йцкцукцукц D rfЭ"
+    InputKeys "{BKSP}""d в кчасвычках""{TAB}"
+    PushButton Click, "ObjectIndex=3"
+    
+    Window SetContext, "Caption=Редактор банков", ""
+    PushButton Click, "Text=Добавить"
+    
+    Window SetContext, "Caption=Добавление информации о новом банке", ""
+    InputKeys "Банка в @{BKSP}""Кавычках""{TAB}с т-с-з;в кавычках""много текста"
+    InputKeys """{TAB}66666666666666666666666666666666{TAB}11111111111111111111"
+    InputKeys "1{ENTER}"
+    
+    Window SetContext, "Caption=Редактор банков", ""
+    InputKeys "{TAB}{TAB} "
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    InputKeys "{TAB}6666666666666666666666{TAB}6666666666666666666{TAB}15267"
+    InputKeys "{TAB}88888888888888888888888888888{TAB}{RIGHT}{TAB}ax222{TAB}222"
+    InputKeys "22"
+    MenuIDSelect 21
+End Sub

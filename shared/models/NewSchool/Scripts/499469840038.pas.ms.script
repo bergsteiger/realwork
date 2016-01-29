@@ -1,0 +1,153 @@
+// vcmFormDispatcherInterfaces 499469840038 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499469840038
+
+FORWARD ME_49525BDD02FE
+
+: ME_4992FBD101B2
+ CONST UID '4992FBD101B2'
+ CONST Name 'StartNewMainForm'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается перед созданием главной формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49525BDD02FE // IvcmFormDispatcherListener
+ ;
+
+ref; // ME_4992FBD101B2 StartNewMainForm
+
+: ME_49525BDD02FE
+ CONST UID '49525BDD02FE'
+ CONST GUID 'BABDE672-E93F-47FE-977B-BA11D6250821'
+ CONST Name 'IvcmFormDispatcherListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499469840038 // vcmFormDispatcherInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4992FBD101B2 // StartNewMainForm
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_49525BDD02FE IvcmFormDispatcherListener
+
+FORWARD ME_4992FBE702BE
+
+: ME_4992FC390349
+ CONST UID '4992FC390349'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49525BDD02FE // IvcmFormDispatcherListener
+ ;
+
+ref; // ME_4992FC390349 aListener
+
+: ME_4992FC34014C
+ CONST UID '4992FC34014C'
+ CONST Name 'AddListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4992FBE702BE // IvcmFormDispatcherNotify
+ ;
+ : Parameters
+   @ ( ME_4992FC390349 // aListener
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4992FC34014C AddListener
+
+: ME_4992FC4402F2
+ CONST UID '4992FC4402F2'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49525BDD02FE // IvcmFormDispatcherListener
+ ;
+
+ref; // ME_4992FC4402F2 aListener
+
+: ME_4992FC420063
+ CONST UID '4992FC420063'
+ CONST Name 'RemoveListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4992FBE702BE // IvcmFormDispatcherNotify
+ ;
+ : Parameters
+   @ ( ME_4992FC4402F2 // aListener
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4992FC420063 RemoveListener
+
+: ME_4992FBE702BE
+ CONST UID '4992FBE702BE'
+ CONST GUID 'B91EBDC9-90C1-4165-BD33-8EB57BA4DACA'
+ CONST Name 'IvcmFormDispatcherNotify'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Уведомляет о событиях диспетчера форм' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499469840038 // vcmFormDispatcherInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4992FC34014C // AddListener
+ ME_4992FC420063 // RemoveListener
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4992FBE702BE IvcmFormDispatcherNotify
+
+: ME_499469840038
+ CONST UID '499469840038'
+ CONST Name 'vcmFormDispatcherInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для работы с диспетчером форм' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_49525BDD02FE // IvcmFormDispatcherListener
+ ME_4992FBE702BE // IvcmFormDispatcherNotify
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '12.02.2009 21:25'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmFormDispatcherInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499469840038.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499469840038.pas.ms.script.runner'
+
+ref; // ME_499469840038 vcmFormDispatcherInterfaces

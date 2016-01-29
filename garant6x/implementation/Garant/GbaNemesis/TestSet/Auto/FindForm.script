@@ -1,0 +1,21 @@
+Тест TestFindForm
+
+ "Открываем Конституцию"
+ "Установить фокус в документ"
+
+ VAR l_Form
+ 0 >>> l_Form
+ 
+ тип_формы::dftDocument Форма_документа vcm:FindForm ?ASSURE 'Форма не найдена!'
+ >>> l_Form
+ class::TvcmForm l_Form pop:object:Inherits ?ASSURE 'Класс формы не имеет отношения к TvcmForm!'
+ class::TExTextForm l_Form pop:object:Inherits ?ASSURE 'Класс формы не имеет отношения к TExTextForm!'
+ l_Form "Напечатать иерархию вложенности контролов"
+ 
+ тип_формы::lftUserCR1 "Форма списка" vcm:FindForm ?ASSURE 'Форма списка не найдена!'
+ >>> l_Form
+ class::TvcmForm l_Form pop:object:Inherits ?ASSURE 'Класс формы списка не имеет отношения к TvcmForm!'
+ l_Form "Напечатать иерархию вложенности контролов"
+; 
+
+TestFindForm

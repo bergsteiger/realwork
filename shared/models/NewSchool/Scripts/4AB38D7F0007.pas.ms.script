@@ -1,0 +1,120 @@
+// m4DictTypes 4AB38D7F0007 UtilityPack Class
+
+FORWARD ME_4AB38D7F0007
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4AB38D9A0062
+ CONST UID '4AB38D9A0062'
+ CONST Name 'Tm4DictItemID'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ %SUMMARY 'Идентификатор элемента словаря' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_46A606AC03B2 // Integer
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_4AB38D9A0062 Tm4DictItemID
+
+: ME_4AB38B45023C
+ CONST UID '4AB38B45023C'
+ CONST Name 'Tm4WordID'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ %SUMMARY 'Буква в строке' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_46A606AC03B2 // Integer
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_4AB38B45023C Tm4WordID
+
+FORWARD ME_4ABA246700B4
+
+: ME_4ABA24A103E6
+ CONST UID '4ABA24A103E6'
+ CONST Name 'rID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4AB38D9A0062 // Tm4DictItemID
+ ;
+
+ @SELF
+; // ME_4ABA24A103E6 rID
+
+: ME_4ABA24AC017E
+ CONST UID '4ABA24AC017E'
+ CONST Name 'rDictionaryID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4ABA24AC017E rDictionaryID
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4ABA24E701F2
+ CONST UID '4ABA24E701F2'
+ CONST Name 'C'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4ABA24E701F2 C
+
+: ME_4ABA246700B4
+ CONST UID '4ABA246700B4'
+ CONST Name 'Tm4DictItemAddr'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_4ABA24A103E6 // rID
+ ME_4ABA24AC017E // rDictionaryID
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4ABA24E701F2 // C
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ABA246700B4 Tm4DictItemAddr
+
+: ME_4AB38D7F0007
+ CONST UID '4AB38D7F0007'
+ CONST Name 'm4DictTypes'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4AB38D9A0062 // Tm4DictItemID
+ ME_4AB38B45023C // Tm4WordID
+ ME_4ABA246700B4 // Tm4DictItemAddr
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '18.09.2009 17:40'
+
+ @SELF
+; // ME_4AB38D7F0007 m4DictTypes

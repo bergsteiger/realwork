@@ -1,0 +1,25 @@
+'$Include "sqautil.sbh"
+
+Sub Main
+    Dim Result As Long
+    Dim ClientName As String
+    Dim Value As String
+    Dim Datapool as Long
+    Datapool = SQADatapoolOpen("ARM_Report")
+    Result = SQADatapoolValue(Datapool,1,ClientName$)
+    SQADatapoolClose(Datapool)
+
+    'Initially Recorded: 21.06.2002  20:31:07
+    'Script Name: positioning_client
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    InputKeys "{DOWN}"
+    MenuIDSelect 31
+    
+    Window SetContext, "Caption=Контекстный поиск", ""
+    InputKeys "Name1"
+    PushButton Click, "ObjectIndex=4"
+    PushButton Click, "ObjectIndex=3"
+    PushButton Click, "Text=Принять"
+
+End Sub

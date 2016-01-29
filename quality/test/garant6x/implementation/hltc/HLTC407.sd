@@ -1,0 +1,113 @@
+//////////////////////////////////////////////////////////////////////////////
+//  HLTC407: Новости онлайн
+//////////////////////////////////////////////////////////////////////////////
+
+uses Main, SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork, Installer, HTMLWork, commonEventHandlers;
+
+{
+  HLTC407.1: Можно вызвать из следующих мест системы:
+    HLTC407.1.1: Кнопка в Основном меню
+    HLTC407.1.2: Панель задач, раздел Путеводитель (доступен при вызове из любых мест системы)
+    HLTC407.1.3: Главное меню - Помощь - Гарант в Интернет
+      Разные пункты вызывают соответствующие разделы сайта
+}
+function HLTC407_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, i;
+begin
+  try
+    Result := true;
+    for i := 1 to 3 do
+    begin
+      w := GoToInternetAgent(IntToStr(i), true);
+      if not IsExists(w) then
+        Raise('Не получилось открыть "Новости онлайн" через способ "№' + IntToStr(i) + '"');
+      GoToMainMenu;
+    end;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  CloseF1Shell;
+end;
+
+{
+  HLTC407.4: Проверить, что «Новости онлайн» можно отключить в ini-файле опцией -DisableInternetAgent=1. При этом не должно появляться кнопки, вызывающей новости, и все ссылки из раздела меню "Гарант в интернет" должны открываться стандартным броузером.
+}
+function HLTC407_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC407_4';
+begin
+  try
+    Result := true;
+    CloseF1Shell;
+    if not SetValueToGarantINI('F1Server Params', '-DisableInternetAgent', '1', true) then
+      Raise('Не получилось создать параметр "[F1Server Params]\-DisableInternetAgent"="1"');
+    if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+    if GoToInternetAgent('КНОПКА В ОМ') then
+      Raise('Получилось открыть "Новости онлайн" через кнопку в ОМ');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  CloseF1Shell;
+end;
+
+{
+  HLTC407.7: Контекстное меню не должно быть доступно
+}
+function HLTC407_7_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w;
+begin
+  try
+    Result := true;
+    
+    w := GoToInternetAgent('', true);
+    if not IsExists(w) then
+      Raise('Не получилось открыть "Новости онлайн"');
+
+    w.Keys('[Apps]');
+    if IsPopupMenuExists then
+    begin
+      Result := ErrorResult('Попап-меню открылось после нажатия "Apps" на клавиатуре');
+      ClosePopupMenu(nil);
+    end;
+
+    w.ClickR;
+    if IsPopupMenuExists then
+    begin
+      Result := ErrorResult('Попап-меню открылось после нажатия правой кнопки мыши');
+      ClosePopupMenu(nil);
+    end;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  CloseF1Shell;
+end;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests407;
+var 
+  i, p, w : oleVariant;
+begin
+//  HLTC407_1_Execute(p);
+//  HLTC407_4_Execute(p);
+//  HLTC407_7_Execute(p);
+///////////////////////////////////////
+//  HLTC407_1_1_Execute(p);
+  HLTC407_7_Execute(p);    
+    
+    
+    
+    
+    
+    
+end;

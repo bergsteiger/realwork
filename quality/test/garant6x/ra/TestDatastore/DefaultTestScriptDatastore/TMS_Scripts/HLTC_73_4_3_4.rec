@@ -1,0 +1,33 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 73.4.3.4 ***
+
+'Начальное состояние:
+'Список полученный по первой ветке классификатора
+'Преавй элемент списка выделен
+Sub Main
+    Dim Result As Integer
+
+    Call NeedState (ST_FIRST_BRANCH)
+    CUR_STATE = ST_NONE_STANDART
+    
+'Пререходим на 7-ой элемент списка: "Документ 2001"
+  DelayFor (3000) 'Ждем загрузки списка
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+  InputKeys "{APPS}" 'Открываем элемент списка через конт.меню в нововм окне
+  Window SetContext, "CurrentWindow", ""
+  InputKeys "{Down}{Down}{Down}{Down}{Down}{Down}{Down}{Down}{Down}{Down}{Down}"
+  InputKeys "{Enter}"
+  DelayFor (5000) 'Ждем появления нового окна
+'Сравниваем 1 скрин документа
+  Window SetContext, "Caption=ГАРАНТ 6 - Текст документа : документ 2001", ""
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=Doc2002")
+  Window CloseWin, "", ""
+
+'Возвращаемся в "старое" окно и с исходным список и ставим курсор на 1-ый элемент
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  InputKeys "{HOME}"
+  CUR_STATE = ST_FIRST_BRANCH
+End Sub

@@ -1,0 +1,2324 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//Модуль содержит общие ф-ии для скриптов измерения производительности и устойивости// 
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+uses MenuWork, States, common, RunPrograms, FoldersWork, SettingsWork,
+		 DocumentWork, FileWork, ListWork, Clicks, SearchWork;
+     
+const IS_REPORT = true;     
+
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////// Вспомогательные функции ////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+function OpenDocsInExtractionsEx(const inFileName : String; var lastNumber : OleVariant; const numCycles : integer = 50; const isSearch : boolean = true) : integer; forward;
+function SearchByType(const inFileName : String; var lastNumber : OleVariant; const buildList : boolean = true) : boolean; forward;
+function SearchByPart(const inFileName : String; var lastNumber : OleVariant; const buildList : boolean = true) : boolean; forward;
+function GetDocEditions (docNum: OleVariant): OleVariant; forward;
+
+// добавляет запись в файл, предваряет ее временем и датой
+procedure AppendFileWithTime(
+  const fileName : String;
+  const msg : String;
+  const header : String = ''
+); 
+var tmpStr : String;
+begin
+  try
+    if fileName <> '' then
+    begin
+      Utilities.DateTimeToString(tmpStr, 'dd-mm-yyyy hh:nn:ss' , Utilities.Now);
+      AppendFile(fileName, tmpStr + ';' + msg, header);
+    end;  
+  except
+    Log.Warning('Exception в AppendFileWithTime: ', ExceptionMessage);
+  end;
+end;
+
+
+{
+  Создает список номеров документов
+}
+function CreateDocNumberList (fName: String) : OleVariant;
+var
+  FileVar, s : OleVariant;
+  strCount;
+  numArray: array [0..0]  of OleVariant;
+begin
+  strCount := 0;
+  AssignFile(FileVar, scriptFile); //Определяем кол-во строк в файле
+  Reset(FileVar);
+  while not Eof(FileVar) do
+  begin
+    Readln(FileVar, s);
+    strCount := strCount + 1;
+  end;
+  VarArrayRedim (numArray, strCount);
+  FillArrayFromFile (numArray, fName);
+  Result := numArray;
+  CloseFile(FileVar);
+end;
+
+{
+  Получние следующей строки из файла
+}
+function GetNextLine(
+  fileName: String;
+  var lastLine: OleVariant
+) : String;
+var
+  fileVar, s : OleVariant;
+  i;
+begin
+  try
+    Result := '';
+    AssignFile(fileVar, fileName); //Определяем кол-во строк в файле
+    Reset(fileVar);
+    for i := 1 to lastLine do
+    begin
+      if NOT Eof(fileVar) then
+        ReadLn(fileVar, s)
+      else
+      begin
+        Log.Message('Достигнут конец файла, читается сначала!');
+        Reset(fileVar);
+        ReadLn(fileVar, s);
+        lastLine := 1;
+        break;
+      end;
+    end;
+    CloseFile(fileVar);
+    lastLine := lastLine + 1;
+    Result := s;    
+  except
+    try CloseFile(fileVar); except end;
+    Result := '';
+    Log.Message('GetNextLine: ' + ExceptionMessage, 'fileName: "' + VarToStr(fileName) + '";' , 4);
+  end;
+end;
+
+{
+  ???
+}
+procedure Report(const msg : String; const strEx : String = '');
+begin
+	if IS_REPORT then Log.Message( msg, strEx );
+end;
+{
+  ???
+}
+procedure GenerateFileWithNumbers( const inFile, outFile : String );
+	const
+  		PATTERN = '(\d{3,})\.';
+		SUBSTITUTESTRING = '$1';
+	var
+  		inBuf, outBuf, tempStr : String;            
+		isFounded : boolean;
+		fHandle : Integer;
+begin
+	// читаем исходные данные
+	inBuf := GetFileBody(inFile);
+  outBuf := '';
+  if inBuf = '' then Raise('Входной файл ' + inFile + ' отсутствует либо пуст!');
+  if NOT Utilities.FileExists(outFile) then
+  	fHandle := Utilities.FileCreate(outFile)
+  else
+  begin
+	  fHandle := Utilities.FileOpen(outFile, fmOpenWrite OR fmShareDenyWrite );
+	  if fHandle = -1 then
+  		Raise('Не удалось открыть выходной файл ' + outFile + '!');
+  end;
+  // иницилизация движка поиска
+  RegExpr.Expression := PATTERN;
+  RegExpr.Compile;
+  if RegExpr.LastError <> 0 then
+  begin
+    Raise('Ошибка при инициализации движка регулярных выражений!');
+    exit;
+  end;
+  // поиск
+  isFounded := RegExpr.Exec(inBuf);
+  while isFounded do
+  begin
+  	//outBuf := outBuf + RegExpr.Substitute(SUBSTITUTESTRING) + EndOfLine;
+    tempStr := RegExpr.Substitute(SUBSTITUTESTRING) + EndOfLine;
+    Utilities.FileWrite(fHandle, tempStr, Length(tempStr));
+    isFounded := RegExpr.ExecNext;
+  end;
+  Utilities.FileClose(fHandle);
+end;
+{
+  ???
+}
+// переформатирует файл с деревьями аттрибутов, записывает только детей
+procedure ReformatFile( const inFileName, outFileName : String; const onlyLeafs : boolean = true );
+	var tmpArr, inFile, outFile, tmp : OleVariant;
+  		str, tmpStr : String;		
+      i, j, level, childsCount : integer;
+begin
+	// открываем входной и выходной файлы
+  if NOT Utilities.FileExists(inFileName) then Raise('Входной файл ' + inFileName + ' отсутствует!');
+  AssignFile(inFile, inFileName);
+  Reset(inFile);
+  if NOT Utilities.FileExists(outFileName) then Utilities.FileClose(Utilities.FileCreate(outFileName));
+  AssignFile(outFile, outFileName);
+  Rewrite(outFile);
+  //
+  tmpArr := CreateVariantArray(1, 32);
+  while NOT Eof(inFile) do
+  begin
+  	// читаем строку
+  	Readln(inFile, tmp); str := tmp;
+    if (Pos('=', str) = 0 ) then continue;
+    // читаем колонку oc
+    	// ищем 3й символ '|'
+    j := 1;
+    for i := 1 to 3 do
+    	j := PosN('|', str, j) + 1;
+      // читаем число после него
+    tmpStr := '';
+    for i := j+1 to j+6 do
+    	if str[i] <> ' ' then tmpStr := tmpStr + str[i]
+      								 else break;
+    childsCount := StrToInt(tmpStr);
+    str := Utilities.AnsiStrRScan(str, '|');
+    // определяем уровень
+    level := (PosAnyChar('0123456789', str) - 1 ) div 2;
+    tmpArr[level] := Copy( Utilities.AnsiStrRScan(str, '=') , 2, 8000);
+    // пишем результат в файл
+    if (onlyLeafs = false) OR ((onlyLeafs = true) AND (childsCount = 0)) then
+    begin
+    	tmpStr := '';
+	    for i := 1 to level do 
+  	  	tmpStr := tmpStr + tmpArr[i] + ' ';
+      if tmpStr[Length(tmpStr)] = ' ' then Delete(tmpStr, Length(tmpStr), 1);
+    	Writeln(outFile, tmpStr);
+    end;
+  end;
+  CloseFile(inFile);
+  CloseFile(outFile);  
+end;
+{
+  Проходит по списку. Переходит на следующий элемент. Если текущий элемент был
+  последним, то говорит false, иначе true.
+}
+function WalkByList(const listWnd : OleVariant; const expand : boolean = false) : boolean;
+var currName, tmpStr : String;
+begin
+	listWnd.SetFocus;
+  currName := common.GetWindowText(listWnd.Handle);
+  // открываем следующий элемент
+  if expand then
+  begin
+  	// пытаемся развернуть элемент
+   	Sys.Keys('[Right]');
+    // развернулся?
+    if common.GetWindowText(listWnd.Handle) = currName then // нет
+    	Sys.Keys('[Down]');
+{   // проверяем, есть ли у элемента плюсик
+  	Sys.Keys('[Apps]');
+    tmpStr := GetMenuItemPathByPath( listWnd.PopupMenu.Items, 'Развернуть элемент', true, true );
+    Sys.Keys('[Esc]');
+    if tmpStr <> '' then // плюсик есть, продолжаем
+    	Sys.Keys('[Right]')
+    else
+    	Sys.Keys('[Down]');}
+  end
+  else
+	  Sys.Keys('[Down]');
+  // проверям, что элемент был не последним
+  Result := GetWindowText(listWnd.Handle) <> currName;
+end;
+
+
+function DoSearchSimple(const field, value : String; const buildList : boolean = false; const needNewPPR : boolean = true) : String;
+  var 
+    p, w, w1 : OleVariant;
+    warningMsg : String;
+begin
+  try
+  	p := Sys.Process('F1Shell');
+    w := GetMainWIndow;
+    w.Activate;
+  	Result := '';
+  	// позиционируемся в ППР на указанном поле
+    
+    SearchInPPR(
+      [
+    	  CARD_PPR, ([ ([
+    	  field, ([
+    		value]) ]) ])
+      ]
+    );
+  	
+    Result := WaitForConfirmationWindow(Options.Run.Timeout div 10, Choose(buildList, 'Да', 'Нет'));
+    // проверям, может ничего не нашлось
+    warningMsg := WaitForWarningWindow(0);
+    if warningMsg <> '' then
+    begin
+    	Log.Warning('Появилось окно "Предупреждение", в котором написано: "' + warningMsg + '"');
+      Result := '';
+    end;
+  except
+    Log.Message('DocumentsOpen: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;  
+  end;   
+end;
+
+// ждем окошко с сообщением с указанным заголовком и строкой в сообщении
+// говорит, было ли окошко. Пишет в лог что за окошко, если неизвестное, то делает скриншот.
+function IsErrorWindowExists(const caption, subString : String; waitTimeOut : integer = -1) : boolean;
+var p, w1 : OleVariant;
+begin
+  if waitTimeOut = -1 then waitTimeOut := Options.Run.Timeout div 20;
+  Result := false;
+  p := GetF1ShellProcess;
+  w1 := p.WaitWindow('TMessageForm', caption, -1, waitTimeOut);
+  if w1.Exists then
+  begin
+    if StringCompare(subString, w1.Message.Caption) then
+      Log.Warning('Появилось окно "' + w1.Caption + '", в котором написано: "' + w1.Message.Caption + '"')
+    else
+    begin
+      Log.Error('Появилось неизвестное окно "' + w1.Caption + '"!');
+      Log.Picture(w1, 'Скриншот неизвестного окна "' + w1.Caption + '"!');
+    end;
+    w1.OK.Click;
+    Result := true;  
+  end;
+end;
+
+{
+  производит поиск в ППР и говорит, появился ли непустой список
+}
+function DoSearch( 
+  const field, value : String // поле и значение
+  ; const buildList : boolean = true // строить ли список (если будет соответствующее окошко)
+  ; const isSaveToFolder : boolean = false // записывать ли запрос (и список, если есть) в папки со случаным именем
+  ; const needNewPPR : boolean = true // открывать ли новую карточку, или использовать уже открытую
+  ; const logFileName : String = '') : boolean;
+var p, w, w1, pprCardData : OleVariant;
+    i : integer;
+    tempStr : String;
+    isPIFounded : boolean;
+begin
+	p := GetF1ShellProcess;
+  w := GetMainWindow;
+  w.Activate;
+	Result := false;
+  
+  pprCardData :=
+    [
+     	CARD_PPR, ([ ([
+     	  field, ([
+    		value]) ]) ])  
+    ]; 
+  
+  FillPPRCard(pprCardData, 'IsOpenNewCard:=' + VarConvert(needNewPPR, varOleStr) );
+  
+  // сохраням объект в папки, если надо
+  if isSaveToFolder then 
+  begin
+    DateTimeToString(tempStr, 'yyyymmddhhnnsszzz' , Utilities.Now);
+    SimpleSaveToFolders( 'запрос ' + tempStr );
+  end;
+
+	SearchInPPR('', 'IsFillCard:=false');
+
+  //
+  AppendFileWithTime(logFileName, CompName + ';DoSearch;Считаем, что поиск окончен.');
+  DoScreenShot('DoSearch. Поиск вроде бы успешно окончен.');
+  if buildList then
+  begin
+    w1 := GetList;
+    Report('Должен построиться список.'); 
+    DoScreenShot('DoSearch. Ждем список.');
+    AppendFileWithTime(logFileName, CompName + ';DoSearch;Ждем список.');
+    // построилось ченить? 
+    if NOT IsExists(w1) then
+    begin
+      if NOT IsErrorWindowExists('Предупреждение*', '*отсутствует информация*отвечающая*запросу*') then
+  	  	Log.Error('Список не открылся по неизвестной причине!');
+      AppendFileWithTime(logFileName, CompName + ';DoSearch;Список не нашли.');  
+      Exit;  
+    end
+    else
+    begin
+      Report('Найдено окно списка.'); 
+      DoScreenShot('DoSearch. Найдено окно списка.');
+      AppendFileWithTime(logFileName, CompName + ';DoSearch;Нашли список.');
+    end;
+  	// проверяем, что список не пустой
+   	w1.SetFocus;
+    Sys.Keys('[Home]');
+    Result := common.GetWindowText(w1.Handle) <> '';
+    if Result then
+    begin
+      DoScreenShot('DoSearch. Найден непустой список.');
+      AppendFileWithTime(logFileName, CompName + ';DoSearch;Нашли непустой список.');
+      Log.Message('Нашли непустой список.', 'В статусной строке написано: "' + common.GetWindowText(w.StatusBar.Handle) + '". ' + EndOfLine + 'Заголовок окна оболочки: "' + w.WndCaption + '".');
+      // сохраням объект в папки, если надо 
+      if isSaveToFolder then 
+      begin
+        DateTimeToString(tempStr, 'yyyymmddhhnnsszzz' , Utilities.Now);
+        SimpleSaveToFolders( 'список ' + tempStr );
+      end;
+    end;
+  end
+  else
+  begin
+  	Result := true;
+    AppendFileWithTime(logFileName, CompName + ';DoSearch;Список не строили, поиск завершен.');    
+    DoScreenShot('DoSearch. Список не строили, поиск завершен.');   
+  end;
+end;
+
+{
+  ???
+}
+function CheckFileAvail(const fileName : String) : String;
+var fHandle : integer; 	
+		oldFormat, path, ext : String;
+begin
+	fHandle := FileOpen(fileName, fmOpenWrite );
+  Result := fileName;
+  if fHandle = -1 then
+  begin
+  	oldFormat := Utilities.LongTimeFormat;
+	  Utilities.LongTimeFormat := 'hh.nn.ss';
+    path := '';
+    if AnsiStrRScan(fileName, '\') <> '' then
+	    path := Copy(fileName,1, Pos(AnsiStrRScan(fileName, '\'), fileName));
+    ext := ExtractFileExt(fileName);
+  	Result := path + DateToStr(Date) + '-' + TimeToStr(Time) + ext;
+		Utilities.LongTimeFormat := oldFormat;      
+  end
+  else
+  	FileClose(fHandle);
+end;
+{
+  вспомогательная функция, для записи значений в файл
+}
+procedure LogMemRecord(const logFile : OleVariant; const mem, virtMem : integer; const addPre : String = ''; const addPost : String = '');
+begin
+	if addPre <> '' then Writeln(logFile, addPre);
+	Writeln(logFile, 'Потребление памяти: ' + IntToStr(mem) + ' Kb, виртуальной: ' + IntToStr(virtMem) + ' Kb.');
+	if addPost <> '' then Writeln(logFile, addPost);
+  Flush(logFile);
+end;
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////// Собственно тесты  ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+{
+  Пустя процедура - просто пока визуально отделяет код тестовый функций
+  в Code Explorer-e
+}
+procedure SIMPLE_TESTS;
+begin
+end;
+{
+  Фильтрация списка
+}
+function FilterList (const fName: String; var lastString): Boolean;
+const
+  mPrefix = 'Правовой навигатор\Документы\';
+  filterName1 = 'Действующие';
+  filterName2 = 'Формы документов';
+var
+  p, w;
+  mWin;
+  mPath;
+begin
+  try
+    Result := False;
+    mPath := GetNextLine (fName, lastString);
+    if mPath <> '' then
+    begin
+      //SearchByPart (fName, lastString);
+      PositionMenuTab (mPrefix + mPath);
+      Sys.Keys ('[Enter]');
+      mWin := OpenFilterTabEx;
+      if mWin.Exists then
+      begin
+        if Position_Internal (mWin, filterName1) then;
+        Sys.Keys ('[Apps]');
+        ClickByPopupMenuItem (mWin.Popupmenu.Items, 'Применить фильтр');
+        if (WaitForWarningWindow <> '') then
+          Log.Message ('Фильту '+filterName1+' не соотвествует ни один документ списка');
+        Sys.Keys ('[Home]');
+        Position_Internal (mWin, filterName2);
+        Sys.Keys ('[Apps]');
+        ClickByPopupMenuItem (mWin.Popupmenu.Items, 'Применить фильтр');        
+        if (WaitForWarningWindow <> '') then
+          Log.Message ('Фильту '+filterName2+' не соотвествует ни один документ списка');        
+        Result := True;
+      end;
+    end;
+    if not Result then
+      raise ('Не удалось выполнить фильтрацию списка');
+  except
+    Log.Error ('FilterList: ' + ExceptionMessage);
+    //raise (ExceptionMessage); //medit
+  end;
+end;
+{
+  Получение редакций документа
+}
+function GetDocRedactions (const inFileName : String; var lastNumber : OleVariant): Boolean;
+var
+  docNum;
+begin
+	try
+    docNum := StrToInt( GetNextLine (inFileName, lastNumber) );
+    GetDocEditions (docNum);
+  except
+  	Log.Error ('GetDocRedactions: ' + ExceptionMessage);
+  end;
+end;
+{
+  Сохранение в папки и восстановление (<запросы>, списки, закладки)
+}
+function PPRSaveRestore (const inFileName : String; var lastNumber : OleVariant): Boolean;
+const
+  windowCaption = 'ГАРАНТ Платформа F1 Турбо - Поиск по реквизитам';
+  mLabel = 'запрос';
+var
+  p, w;
+  searchLine;
+  str;
+  idx;
+  mPPR;
+begin
+  Result := False;
+  searchLine := GetNextLine (inFileName, lastNumber);
+  if not ( searchLine = '' ) then
+  begin
+    //if GoToPPR then
+      if PositionInPPR('Тип', False) then
+      begin
+        Sys.Keys (searchLine);
+        Sys.Keys ('[Enter]');
+        if SimpleSaveToFolders (mLabel) then
+        begin
+          //GoToMainMenu; //medit
+          p := Sys.Process('F1Shell');
+          w := p.Window('TnsMainWindow', '*');
+          w.Activate;
+          Sys.Keys ('^[Del]'); //eof medit         
+          OpenObjectFromFolder ('Мои документы\'+mLabel);
+          PressKeyNCount('[Tab]', 4);
+          Sys.Keys ('[Home]');
+          Sys.Keys ('![End]');
+          Sys.Keys ('^c');
+          if DeleteObjectFromFolder ('Мои документы\'+mLabel) then
+          begin
+            idx := Pos (' ', searchLine);
+            searchLine := Copy (searchLine, 1, idx);
+            if ( StringCompare ( (searchLine+'*'), Utilities.StringReplace(Sys.Clipboard, '\', ' ', 1) ) )then
+            begin
+              mPPR := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+              mPPR.SetFocus;
+              Sys.Keys ('^[Del]');
+              Result := True;
+            end;
+          end;
+        end;
+      end;
+  end
+  else
+    Log.Message ('Не могу получить строку поиска');
+end;
+{
+  Загрузка восстановление списка
+}
+function ListSaveRestore (const inFileName : String; var lastNumber : OleVariant): Boolean;
+const
+  mLabel = 'список';
+  mCaption = 'ГАРАНТ Платформа F1 Турбо - ';
+  mPrefix = 'Правовой навигатор\Документы\';
+
+var
+  mList;
+  p, w;
+  mFirstItemName;
+  mLastItemName;
+  mPath;
+begin
+  try
+    Result := False;
+    //SearchByType (inFileName , lastNumber); //medit
+    mList := GetList; // определяем не открыт ли уже список
+    if not (mList.Exists and mList.Visible) then
+    begin  // если не открыт, то переходим по рубрикатору
+      mPath := GetNextLine (inFileName, lastNumber);
+      if mPath <> '' then
+      begin
+        PositionMenuTab (mPrefix + mPath);
+        Sys.Keys ('[Enter]');
+        mList := GetList;
+        if not mList.Exists and mList.Visible then
+          raise ('Не получен список переходом по рубрикатору');
+      end;
+    end;
+    mList.SetFocus;
+    Sys.Keys ('[Home]');
+    mFirstItemName := common.GetWindowText (mList.Handle);
+    Sys.Keys('[End]');
+    mLastItemName := common.GetWindowText (mList.Handle);
+    if SimpleSaveToFolders (mLabel) then
+    begin
+      //GoToMainMenu;
+      if OpenObjectFromFolder ('Мои документы\'+mLabel) then
+      begin
+        if DeleteObjectFromFolder ('Мои документы\'+mLabel) then
+        begin
+          p := Sys.Process('F1Shell');
+          w := p.Window('TnsMainWindow', '*');
+          w.Activate;
+          if w.WndCaption = (mCaption + mLabel) then
+          begin
+            mList := GetList;
+            if mList.Exists then
+            begin
+              mList.SetFocus;
+              Sys.Keys ('[Home]');
+              if mFirstItemName = common.GetWindowText (mList.Handle) then
+              begin
+                Sys.Keys ('[End]');
+                if mLastItemName = common.GetWindowText (mList.Handle) then
+                begin
+                  Result := True;
+                end;
+              end;
+            end;
+          end;
+        end;
+      end;
+    end;
+  except
+    Log.Error ('ListSaveRestore: ' + ExceptionMessage);
+    raise (ExceptionMessage);  
+  end;
+end;
+{
+  Загрузка восстановление документа
+}
+function DocSaveRestore (const inFileName : String; var lastNumber : OleVariant): Boolean;
+const
+  mLabel = 'документ';
+var
+  mList;
+  p, w;
+  mCaption;
+  docNum;
+  mEditor;
+begin
+  Result := False;
+  docNum := StrToInt( GetNextLine (inFileName, lastNumber) );
+  OpenDocByNumberEx (docNum, False);
+  p := Sys.Process('F1Shell');
+  w := p.Window('TnsMainWindow', '*');
+  w.Activate;
+  mEditor := GetEditor;
+  if mEditor.Exists then
+  begin
+    mEditor.SetFocus;
+    mCaption := w.WndCaption;
+    if SimpleSaveToFolders (mLabel) then
+    begin
+      //GoToMainMenu; //medit
+      if OpenObjectFromFolder ('Мои документы\'+mLabel) then
+      begin
+        if DeleteObjectFromFolder ('Мои документы\'+mLabel) then
+          if w.WndCaption = mCaption then
+            Result := True;
+      end;
+    end;
+  end;
+end;
+
+// производит поиск по аттрибуту Тип
+function SearchByType(const inFileName : String; var lastNumber : OleVariant; const buildList : boolean = true) : boolean;
+var value : String;
+begin
+	Result := false;
+  value := GetNextLine(inFileName, lastNumber);
+  if value <> '' then
+		Result := DoSearch('Тип', value, buildList)
+  else
+  	Log.Warning('Функция GetNextLine с параметрами ' + inFileName + ', ' + VarToStr(lastNumber) + ' вернула пустую строку!');
+end;
+
+// производит поиск по аттрибуту Раздел/Тема
+function SearchByPart(const inFileName : String; var lastNumber : OleVariant; const buildList : boolean = true) : boolean;
+var value : String;
+begin
+	Result := false;
+  value := GetNextLine(inFileName, lastNumber);
+  if value <> '' then
+		Result := DoSearch('Раздел/Тема', value, buildList)
+  else
+  	Log.Warning('Функция GetNextLine с параметрами ' + inFileName + ', ' + VarToStr(lastNumber) + ' вернула пустую строку!'); 
+end;
+
+// открывает документы в извлечениях. Поиск по Раздел/Тема
+function OpenDocsInExtractions(const inFileName : String; var lastNumber : OleVariant) : integer;
+	var p, w, w1 : OleVariant;
+  		str, currName, oldName, tmpStr : String;
+      docAll : integer;
+begin    
+	docAll := 0;
+  Result := 0;
+	p := Sys.Process('F1Shell');
+  w := p.nsMainWindow;
+  w.Activate;
+  // делаем поиск
+  if SearchByPart(inFileName, lastNumber) then
+  begin
+    // вроде построили, ищем элемент с вхождениями
+    Report('Построили список.');
+    w1 := GetList;
+    if w1.Exists then
+    begin
+      w1.SetFocus;
+      Sys.Keys('[Home]');
+      currName := common.GetWindowText(w1.Handle);
+      oldName := '';
+      // пробегаем по списку
+      while currName <> oldName do
+      begin
+      	docAll := docAll + 1;
+      	// проверяем, есть ли у элемента плюсик
+      	Sys.Keys('[Apps]');
+        tmpStr := GetMenuItemPathByPath( w1.PopupMenu.Items, 'Развернуть элемент', true, true );
+        Sys.Keys('[Esc]');
+        if tmpStr <> '' then 
+        begin // плюсик есть, продолжаем
+        	Log.Message('Начали открывать документ ' + currName);
+// The following line was changed by TestComplete:
+//         	SetButtonState(w1.ParentObject.tbefListTop.btopOpenExtraction, true);
+        	SetButtonState(w1.Parent.tbefListTop.btopOpenExtraction, true);
+          Sys.Keys('[Enter]');
+// The following line was changed by TestComplete:
+//           Sys.Delay(Options.Run.Timeout div 6); // ждем пока загрузится документ
+          Delay(Options.Run.Timeout div 6); // ждем пока загрузится документ
+          // теперь проверяем, загрузился ли он
+          w1 := w.WaitWindow('TTextForm', '', -1, Options.Run.Timeout div 6 ).WaitWindow('TvcmToolbar', 'Текст', -1, Options.Run.Timeout div 6);
+          if w1.Exists then
+          begin
+    	      if w1.btopToMsWord.Enabled then // вроде бы загрузился
+            begin
+            	SetButtonState(w1.btopShowFullText, true); // принудительно включаем режим "В извлечениях" если он не включен, а то щас глючит и непонятно что проверяем...
+            	Result := Result + 1;
+              Log.Message('Документ вроде бы успешно загрузился');
+            end;
+          end
+          else
+          begin
+          	Log.Warning('Документ не загрузился');
+          end;
+          // возвращаемся в список
+          Sys.Keys('~[Left]'); // предполагаем, что вернулись на тот элемент с которого уходили, а то будем крутить до бесконечности
+          w1 := GetList; //w.WaitWindow('TefList', '', -1, Options.Run.Timeout div 6).WaitWindow('TeeTreeView', '', -1, Options.Run.Timeout div 6);
+          if NOT w1.Exists then
+          begin
+          	Log.Error('Не удалось вернуться в список!');
+            Exit;
+          end;
+        end;
+        // выбираем следующий элемент списка
+        w1.SetFocus;
+      	oldName := currName;
+        Sys.Keys('[Down]');
+    		currName := common.GetWindowText(w1.Handle);    
+      end;
+      if currName = oldName then
+      	Log.Message('Обход списка завершен. Всего документов в списке: ' + IntToStr(docAll) + ', из них с вхождениями: ' + IntToStr(Result));
+    end
+    else
+    	Log.Error('Окно списка не найдено!');
+  end
+  else
+  	Log.Warning('Ошибка при проведении поиска!');
+end;
+
+// фильтрует список, полученный поиском по Раздел/Тема
+function FiltrateList(const inFileName : String; var lastNumber : OleVariant) : boolean;
+	var value : String;
+  		p, w, w1 : OleVariant;
+begin
+	p := Sys.Process('F1Shell');
+  w := p.nsMainWindow;
+  w.Activate;
+	// открываем список
+  Result := SearchByPart(inFileName, lastNumber);
+  // теперь должен быть открыт список и мы его начинаем фильтровать  
+  if Result then
+  begin
+  	w1 := GetList;
+    if w1.Exists then // список есть!
+    begin
+			value := Trim(AnsiStrRScan(Trim(value), ' '));
+// The following line was changed by TestComplete:
+//       w1.ParentObject.tbefListTop.btopEdit.SetFocus;
+      w1.Parent.tbefListTop.btopEdit.SetFocus;
+      Sys.Keys(value);
+    end;
+  end;
+end;
+
+// навигация по рубрикатору, необходимо пихать файл с темами
+// выдает true если удалось найти рубрикатор
+function NavigationByRubricator(const inFileName : String; var lastNumber : OleVariant) : boolean;
+	var value, currName, oldName : String;
+  		p, w, w1 : OleVariant;
+begin
+	p := Sys.Process('F1Shell');
+  w := p.nsMainWindow;
+  w.Activate;
+	Result := false;
+  // получили строку из файла
+  value := GetNextLine(inFileName, lastNumber);
+  if value = '' then
+  begin
+  	Log.Warning('Функция GetNextLine с параметрами ' + inFileName + ', ' + VarToStr(lastNumber) + ' вернула пустую строку!');
+    Exit;
+  end;
+  // пытаемся навигировать по рубрикатору
+  w1 := OpenMenuTab; // открываем вкладку Меню
+  if w1.Exists then
+  begin
+  	// вставляем строку в поле фильтра
+// The following line was changed by TestComplete:
+//     w1.ParentObject.tben_NavigatorTop.btopEdit.SetFocus;
+    w1.Parent.tben_NavigatorTop.btopEdit.SetFocus;
+    Sys.Clipboard := Trim(value);
+    Sys.Keys('^v');
+    w1.SetFocus;
+    currName := common.GetWindowText(w1.Handle);
+    oldName := '';
+    // проходим получившийся список
+    while currName <> oldName do
+    begin
+      Sys.Keys('[Enter]');
+      // здесь должен открываться плоский рубрикатор
+      w1.SetFocus;
+      Sys.Keys('[Right]');
+      oldName := currName;
+      currName := common.GetWindowText(w1.Handle);
+    end;
+    // прибиваем надпись в поле фильтра
+// The following line was changed by TestComplete:
+//     w1.ParentObject.tben_NavigatorTop.btopEdit.SetFocus;
+    w1.Parent.tben_NavigatorTop.btopEdit.SetFocus;
+    Sys.Keys('[Home]![End][Del]');
+    Result := true;
+  end;    
+end;
+
+// производит синхронный просмотр. передавать Раздел/Тема
+function SynchroView(const inFileName : String; var lastNumber : OleVariant) : boolean;
+var p, w, w1 : OleVariant;
+begin
+	p := Sys.Process('F1Shell');
+  w := p.nsMainWindow;
+  w.Activate;
+	Result := false;
+  // получаем список, в данном случае переходом по рубрикатору
+  Result := NavigationByRubricator(inFileName, lastNumber);
+  // список должен быть открыт
+  if Result then
+  begin
+  	Result := false;
+  	w1 := GetList;
+    if w1.Exists then
+    begin
+	    // переключаемся в режим синхронного просмотра
+	    if ActivatePage('Синхронный просмотр', w.ParentForm.ChildForm.ChildZone) then
+	    begin
+	    	Result := true; // перешли в синхронный просмотр
+        // обходим список
+				while WalkByList(w1, true) do
+// The following line was changed by TestComplete:
+//         	Sys.Delay(Options.Run.Timeout div 15); // ждем немного, чтобы дать возможность документу подгрузиться
+        	Delay(Options.Run.Timeout div 15); // ждем немного, чтобы дать возможность документу подгрузиться
+	    end
+      else
+      	Log.Error('Не удалось открыть вкладку "Синхронный просмотр"!');
+    end
+    else
+    	Log.Warning('Список не найден. Возможно был открыт список из одного документа и произошел автоматический переход к просмотру документа.');
+  end;
+end;
+
+
+// производит синхронный просмотр. передавать Раздел/Тема
+function SynchroViewEx(const inFileName : String; var lastNumber : OleVariant) : boolean;
+var p, w, w1 : OleVariant;
+begin
+	p := Sys.Process('F1Shell');
+  w := p.nsMainWindow;
+  w.Activate;
+	Result := false;
+  // ищем список
+  w1 := GetList;
+  Result := w1.Exists;
+  if NOT Result then // если списка нет, то строим его
+    if NavigationByRubricator(inFileName, lastNumber) then
+    begin
+      w1 := GetList;
+		  Result := w1.Exists;
+    end;
+  // теперь список должен быть открыт
+  if Result then
+  begin
+  	Result := false;
+  	w1 := GetList;
+    if w1.Exists then
+    begin
+    	w1.SetFocus;
+      Sys.Keys('[Home]');
+	    // переключаемся в режим синхронного просмотра
+	    if ActivatePage('Синхронный просмотр', w.ParentForm.ChildForm.ChildZone) then
+	    begin
+	    	Result := true; // перешли в синхронный просмотр
+// The following line was changed by TestComplete:
+//         w1.ParentObject.fcSynchroView.Window('TvcmDockPanel').Window('TToolBar').TvcmDockPanelButton.Click; // закрываем вкладку
+        w1.Parent.fcSynchroView.Window('TvcmDockPanel').Window('TToolBar').TvcmDockPanelButton.Click; // закрываем вкладку
+      end
+      else
+      	Log.Error('Не удалось открыть вкладку "Синхронный просмотр"!');
+    end
+    else
+    	Log.Warning('Список не найден. Возможно был открыт список из одного документа и произошел автоматический переход к просмотру документа.');
+  end;
+end;
+
+// тестирование утечек памяти при открытии документов
+procedure MemoryUseTest_DocsOpen(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Открытие документов.';  // описание действия 
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_DOC_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		OpenDocByNumber(StrToInt( GetNextLine (STRING_DOC_FILE, currLine)), false, false);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при поисках по ТИПу
+procedure MemoryUseTest_SearchByType(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Поиск в ППР по полю "Тип".';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_TYPE_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		SearchByType(STRING_TYPE_FILE , currLine, false);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при поисках по Раздел/Тема
+procedure MemoryUseTest_SearchByPart(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Поиск в ППР по полю "Раздел/Тема".';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_PART_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName); 
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		SearchByPart(STRING_PART_FILE , currLine, false);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при Получение документа в извлечениях
+procedure MemoryUseTest_OpenDocsInExtractions(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Получение документа в извлечениях.';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_PART_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  //for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		//OpenDocsInExtractions (STRING_PART_FILE, currLine);
+    OpenDocsInExtractionsEx(STRING_PART_FILE, currLine, NUM_CYCLES, false);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при получениее документа в Редакциях
+procedure MemoryUseTest_GetDocRedactions(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Получение редакций документа.';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_EDIS_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		GetDocRedactions (STRING_EDIS_FILE, currLine);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при Фильтрация списков запросами 
+procedure MemoryUseTest_FilterList(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Фильтрация списков запросами.';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_PART_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		FilterList(STRING_PART_FILE, currLine);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при Котекстная фильтрация списка 
+procedure MemoryUseTest_FiltrateList(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Котекстная фильтрация списка.';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_PART_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		FiltrateList(STRING_PART_FILE, currLine);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при Сохранение в папки и восставноление
+procedure MemoryUseTest_FoldersSaveRestore(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Сохранение в папки и восстановление.';  // описание действия
+var
+	p, w, logFile, oldLine, currLine, currLine1 : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_DOC_LINE;
+  currLine1 := GL_STRING_TYPE_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		DocSaveRestore (STRING_DOC_FILE, currLine);
+    PPRSaveRestore (STRING_TYPE_FILE , currLine1);
+    ListSaveRestore (STRING_TYPE_FILE , currLine1);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при Навигация по рубрикатору 
+procedure MemoryUseTest_NavigationByRubricator(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Навигация по рубрикатору.';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_PART_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		NavigationByRubricator (STRING_PART_FILE, currLine);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+
+// тестирование утечек памяти при Синхронный просмотр 
+procedure MemoryUseTest_SynchroView(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Синхронный просмотр.';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+	currLine := GL_STRING_PART_LINE;
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		SynchroView(STRING_PART_FILE, currLine);
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+{
+  Просмотр редакций документа
+}
+function GetDocEditions (docNum: OleVariant): OleVariant;
+var
+  docText;
+  i;
+  p, w;
+  haveRedactionFlag;
+begin
+  Result := False;
+  haveRedactionFlag := False;
+  if OpenDocByNumberEx (docNum, False) then
+  begin
+    docText := GetEditor;
+    if docText.Exists then
+    begin
+      docText.SetFocus;
+      p := Sys.Process('F1Shell');
+      w := p.WaitWindow ('TnsMainWindow', '*');
+      w.Activate;
+      //myFix
+      {
+      while w.MainMenu.Items[4].SubMenu.Items[18].Enabled do
+      begin
+        //myFix
+        Log.Message ('Ждем 2 сек.');
+        Sys.Delay ('2000');
+        Log.Message ('Дождались');
+        //EOF myFix
+        Log.Message ('-> Открываем через меню будущую редакцию');        
+        w.MainMenu.Click('[4|18]');
+        haveRedactionFlag := True;
+        //myFix
+        Log.Message ('Ждем 2 сек.');
+        Sys.Delay ('2000');
+        Log.Message ('Дождались');
+        //EOF myFix
+      end;
+      }
+      //EOF myFix 
+      while w.MainMenu.Items[4].SubMenu.Items[16].Enabled do
+      begin
+        //myFix
+        Log.Message ('Ждем 2 сек.');
+// The following line was changed by TestComplete:
+//         Sys.Delay ('2000');
+        Delay ('2000');
+        Log.Message ('Дождались');
+        //EOF myFix
+        Log.Message ('<- Открываем через меню предыдущую редакцию');
+        w.MainMenu.Click('[4|16]');
+        haveRedactionFlag := True;
+        //myFix
+        Log.Message ('Ждем 2 сек.');
+// The following line was changed by TestComplete:
+//         Sys.Delay ('2000');
+        Delay ('2000');
+        Log.Message ('Дождались');
+        //EOF myFix
+      end;
+      //EOF myFix
+      Result := TRUE;
+      if not haveRedactionFlag then
+        Log.Warning ('Не найдено ни одной редакции');
+    end;
+  end;
+end;
+
+// меряет время контекстного поиска указанного котекста в указанном документе
+procedure Perfomance_ContextSearch(const logFileName : String);
+const 
+	DOC_NUMBER = 10064072; // документ который открываем
+  CONTEXT = 'прецессия'; // контекст, не должен встречаться в документе
+var
+	p, w, w1, logFile : OleVariant;
+  searchTime : integer;
+  tmpStr : OleVariant;
+begin
+  // начинаем тест
+  CloseF1Shell(5, Options.Run.Timeout div 6);
+  if StartF1Shell then
+  begin
+  	LoginAnyhow('timetest', 'timetest');
+  	p := Sys.Process('F1Shell');
+    if NOT p.Exists then
+    begin
+    	Log.Error('Не найден процесс F1Shell');
+      Exit;
+    end;
+  	// открываем лог-файл, если нет, то создаем
+    if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName); 
+    if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+    AssignFile(logFile, logFileName);
+    Append(logFile);
+    // пишем заголовок в лог
+    Writeln(logFile, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+    tmpStr := 'Меряем скорость поиска контекста "' + CONTEXT + '" в документе номер ' + IntToStr(DOC_NUMBER);
+    Flush(logFile);    
+    Writeln(logFile, tmpStr);
+    Flush(logFile);
+    // тестим
+    OpenDocByNumber(DOC_NUMBER);	
+// The following line was changed by TestComplete:
+//     Sys.Delay(Options.Run.Timeout div 6);
+    Delay(Options.Run.Timeout div 6);
+    Sys.Keys('^f');
+    Sys.Keys(CONTEXT);
+    searchTime := Win32API.GetTickCount;
+    Sys.Keys('[Enter]');
+    // ждем окно
+    w1 := p.WaitWindow('TMessageForm', 'Информация', -1, Options.Run.Timeout);
+    if w1.Exists then
+    begin
+      searchTime := Win32API.GetTickCount - searchTime;
+      Writeln(logFile, 'Поиск занял ' + IntToStr(searchTime) + ' мсек.');
+      w1.OK.Click;
+    end
+    else
+    	Writeln(logFile, 'Окно не дождались или что-то нашли. Результаты будут некорректны!!!');
+    // конец  
+    Writeln(logFile, '=============== Тест закончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+    Writeln(logFile, '');
+    CloseFile(logFile);
+  end;
+end;
+
+// открывает документ в извлечениях в синхронном указанное количество раз. Поиск по Раздел/Тема
+function OpenDocsInExtractionsEx(
+		const inFileName : String;
+  	var lastNumber : OleVariant;
+	  const numCycles : integer = 50;
+	  const isSearch : boolean = true) : integer;
+	var p, w, w1 : OleVariant;
+  		str, currName, oldName, tmpStr : String;
+      docAll, i : integer;
+begin    
+	docAll := 0;
+  Result := 0;
+	p := Sys.Process('F1Shell');
+  w := p.nsMainWindow;
+  w.Activate;
+  // делаем поиск или не делаем
+  if isSearch then
+	  if NOT SearchByPart(inFileName, lastNumber) then
+	  begin
+	  	Log.Warning('Ошибка при проведении поиска!');
+	    Exit;
+	  end;
+
+  // вроде есть список, ищем элемент с вхождениями
+  w1 := GetList;
+  if w1.Exists then
+  begin
+    w1.SetFocus;
+    currName := common.GetWindowText(w1.Handle);
+    oldName := '';
+    // пробегаем по списку
+
+    while currName <> oldName do
+    begin
+    	docAll := docAll + 1;
+    	// проверяем, есть ли у элемента плюсик
+    	Sys.Keys('[Apps]');
+      tmpStr := GetMenuItemPathByPath( w1.PopupMenu.Items, 'Развернуть элемент', true, true );
+      Sys.Keys('[Esc]');
+      if tmpStr <> '' then 
+      begin // плюсик есть, продолжаем
+      	if numCycles >=1 then Log.Message('Начали открывать документ ' + currName);
+// The following line was changed by TestComplete:
+//         SetButtonState(w1.ParentObject.tbefListTop.btopOpenExtraction, true);          
+        SetButtonState(w1.Parent.tbefListTop.btopOpenExtraction, true);          
+        for i := 1 to numCycles do
+        begin	
+        	// открываем документ
+        	Sys.Keys('[Enter]');
+          // теперь проверяем, загрузился ли документ
+          w1 := w.WaitWindow('TTextForm', '', -1, Options.Run.Timeout div 6 ).WaitWindow('TvcmToolbar', 'Текст', -1, Options.Run.Timeout div 6);
+          if w1.Exists then
+          begin
+    	      if w1.btopToMsWord.Enabled then // вроде бы загрузился
+            begin
+            	SetButtonState(w1.btopShowFullText, true); // принудительно включаем режим "В извлечениях" если он не включен, а то щас глючит и непонятно что проверяем...
+// The following line was changed by TestComplete:
+//               Sys.Delay(Options.Run.Timeout div 15);
+              Delay(Options.Run.Timeout div 15);
+              Log.Message('Документ вроде бы успешно загрузился');
+            end;
+          end
+          else
+          begin
+          	Log.Warning('Документ не загрузился');
+            Exit;
+          end;
+					// обратно в список
+        	Sys.Keys('[Esc]');
+          // проверяем, есть ли список
+          w1 := GetList;
+          if NOT w1.Exists then
+          begin
+          	Log.Error('Не удалось вернуться в список!');
+            Exit;
+          end;
+        end;
+        break;
+      end;
+      // выбираем следующий элемент списка
+      w1.SetFocus;
+    	oldName := currName;
+      Sys.Keys('[Down]');
+  		currName := common.GetWindowText(w1.Handle);    
+    end;
+    if currName = oldName then
+    	Log.Message('Обход списка завершен. Всего документов в списке: ' + IntToStr(docAll) + ', из них с вхождениями: ' + IntToStr(Result));
+  end
+  else
+  	Log.Error('Окно списка не найдено!');
+end;
+
+// разворачивает карточку ППР
+function ExpandPPR : boolean;
+var p, w, w1 : OleVariant;
+		b1, b2, b3 : boolean;
+begin
+	p := Sys.Process('F1Shell');
+  w := p.nsMainWindow;
+  w.Activate;
+  Result := false;
+	if GoToPPR then
+  begin	
+  	// проверяем раскрыты ли элементы и раскрываем если нет
+    b1 := PositionInPPR('Тип'); 
+    if NOT b1 then
+    begin
+    	GoToPPR; 
+   	  w.ParentForm.Window('TcfSaveLoad').Window('TenQueryCard').Click(305, 207);
+    end;
+    b2 := PositionInPPR('Регистрационный номер');
+    if NOT b2 then
+    begin
+    	GoToPPR;
+   	  w.ParentForm.Window('TcfSaveLoad').Window('TenQueryCard').Click(305, 393); 
+    end;
+    b3 := PositionInPPR('Значимость');
+    if NOT b3 then
+    begin
+    	GoToPPR;
+   	  w.ParentForm.Window('TcfSaveLoad').Window('TenQueryCard').Editor.Click(305, 536);
+    end;
+    // проверяем
+    Result := b1 AND b2 AND b3;
+    if NOT Result then
+	    Result := PositionInPPR('Значимость') AND PositionInPPR('Регистрационный номер') AND PositionInPPR('Тип');
+    if Result then GoToPPR;
+  end
+  else
+  	Log.Error('Не могу открыть карточку ППР.');
+end;
+
+// измерение утечек памяти при переходе в карточку ППР
+procedure MemoryUseTest_GoToPPR(logFileName : String; const NUM_CYCLES : integer = 10);
+const
+{1}	DESC = 'Переход в карточку ППР (по нажатию F7).';  // описание действия
+var
+	p, w, logFile, oldLine, currLine : OleVariant;
+  cycle, oldMem, oldVM : integer;
+begin
+{2}// инициализируем переменную константой
+  //
+	p := Sys.Process('F1Shell');
+  if NOT p.Exists then
+  begin
+  	Log.Error('Не найден процесс F1Shell');
+    Exit;
+  end;
+	// открываем лог-файл, если нет, то создаем
+  if FileExists(logFileName) then logFileName := CheckFileAvail(logFileName);
+  if NOT Utilities.FileExists(logFileName) then Utilities.FileClose(Utilities.FileCreate(logFileName));
+  AssignFile(logFile, logFileName);
+  Append(logFile);
+  // пишем заголовок в лог
+  oldMem := p.MemUsage;
+  oldVM := p.VMSize;
+  LogMemRecord(logFile, oldMem, oldVM, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============', 'Что делаем: ' + DESC);
+  // начинаем тест
+  for cycle := 1 to NUM_CYCLES do
+  begin 
+{3} // действие, которое меряется
+		GoToPPR;
+  end;	                   
+  LogMemRecord(logFile, p.MemUsage, p.VMSize, 'Действие выполнили ' + IntToStr(NUM_CYCLES) + ' раз.' );
+  // завершение
+  Writeln(logFile, 'Прирост памяти: ' + IntToStr(p.MemUsage - oldMem) + ' Kb, виртуальной: ' + IntToStr(p.VMSize - oldVM) + ' Kb.');
+  Writeln(logFile, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============');
+  Writeln(logFile, '');
+  CloseFile(logFile);
+end;
+{
+ Делает то же саоме что и OpenDocsInExtractionsEx, но список получает переходом по рубрикатору.
+ Открывает документ в извлечениях в синхронном указанное количество раз. Поиск по Раздел/Тема.
+}
+function OpenDocsInExtractionsEx2(
+		const inFileName : String;
+  	var lastNumber : OleVariant;
+	  const numCycles : integer = 50;
+	  const isSearch : boolean = true) : integer;
+const
+  mPrefix = 'Правовой навигатор\Документы\';
+var
+  p, w, w1 : OleVariant;
+  str, currName, oldName, tmpStr, mPath : String;
+  docAll, i : integer;
+begin    
+  try
+  	docAll := 0;
+    Result := 0;
+  	p := Sys.Process('F1Shell');
+    w := p.nsMainWindow;
+    w.Activate;
+    // делаем поиск или не делаем
+    
+    if isSearch then
+    begin
+      mPath := GetNextLine (inFileName, lastNumber);
+      if not (mPath <> '') then
+        raise ('Из файла прочитана пустая строка');
+      PositionMenuTab (mPrefix + mPath);
+      Sys.Keys ('[Enter]');
+    end;
+    {medit  
+  	  if NOT SearchByPart(inFileName, lastNumber) then
+  	  begin
+  	  	Log.Warning('Ошибка при проведении поиска!');
+  	    Exit;
+  	  end;
+    medit }
+    // вроде есть список, ищем элемент с вхождениями
+    w1 := GetList;
+    if w1.Exists then
+    begin
+      w1.SetFocus;
+      currName := common.GetWindowText(w1.Handle);
+      oldName := '';
+      // пробегаем по списку
+      while currName <> oldName do
+      begin
+      	docAll := docAll + 1;
+      	// проверяем, есть ли у элемента плюсик
+      	Sys.Keys('[Apps]');
+        tmpStr := GetMenuItemPathByPath( w1.PopupMenu.Items, 'Развернуть элемент', true, true );
+        Sys.Keys('[Esc]');
+        if tmpStr <> '' then 
+        begin // плюсик есть, продолжаем
+        	if numCycles >=1 then Log.Message('Начали открывать документ ' + currName);
+// The following line was changed by TestComplete:
+//           SetButtonState(w1.ParentObject.tbefListTop.btopOpenExtraction, true);          
+          SetButtonState(w1.Parent.tbefListTop.btopOpenExtraction, true);          
+          for i := 1 to numCycles do
+          begin	
+          	// открываем документ
+          	Sys.Keys('[Enter]');
+            // теперь проверяем, загрузился ли документ
+            w1 := w.WaitWindow('TTextForm', '', -1, Options.Run.Timeout div 6 ).WaitWindow('TvcmToolbar', 'Текст', -1, Options.Run.Timeout div 6);
+            if w1.Exists then
+            begin
+      	      if w1.btopToMsWord.Enabled then // вроде бы загрузился
+              begin
+              	SetButtonState(w1.btopShowFullText, true); // принудительно включаем режим "В извлечениях" если он не включен, а то щас глючит и непонятно что проверяем...
+// The following line was changed by TestComplete:
+//                 Sys.Delay(Options.Run.Timeout div 15);
+                Delay(Options.Run.Timeout div 15);
+                Log.Message('Документ вроде бы успешно загрузился');
+              end;
+            end
+            else
+            begin
+            	Log.Warning('Документ не загрузился');
+              Exit;
+            end;
+  					// обратно в список
+          	Sys.Keys('[Esc]');
+            // проверяем, есть ли список
+            w1 := GetList;
+            if NOT w1.Exists then
+            begin
+            	Log.Error('Не удалось вернуться в список!');
+              Exit;
+            end;
+          end;
+          break;
+        end;
+        // выбираем следующий элемент списка
+        w1.SetFocus;
+      	oldName := currName;
+        Sys.Keys('[Down]');
+    		currName := common.GetWindowText(w1.Handle);    
+      end;
+      if currName = oldName then
+      	Log.Message('Обход списка завершен. Всего документов в списке: ' + IntToStr(docAll) + ', из них с вхождениями: ' + IntToStr(Result));
+    end
+    else
+    	Log.Error('Окно списка не найдено!');
+  except
+    Log.Error ('OpenDocsInExtractionsEx2: ' + ExceptionMessage);
+    //raise (ExceptionMessage); //medit
+  end;
+end;
+
+{
+	Проверяет наличие окна с сообщением, что пользователь
+  уже работает в системе
+}
+function CheckLoginDuplicate : Boolean;
+var
+	p, w;
+begin
+try
+	Result := False;
+	p := Sys.WaitProcess ('F1Shell', 1000);
+  // если процесс найден - ок
+  if p.Exists then
+  begin
+   log.message ('CheckLoginDuplicate: F1Shell.Exists');
+   w := p.WaitWindow('TMessageForm', 'Ошибка', -1, Options.Run.Timeout div 10);
+
+   if w.Exists then
+   begin
+   	 log.warning ('CheckLoginDuplicate: найдено сообщение о повторном логине');
+     //AppendFile (logFileName, 'CheckLoginDuplicate: найдено сообщение о повторном логине');
+     w.Activate;
+     log.message ('CheckLoginDuplicate: закрываем сообщение');
+     w.Window('TButton', 'OK').Click;// Sys.Keys ('[Enter]'); // myedit
+     w := p.WaitWindow('TnsLoginForm', 'Вход в систему ГАРАНТ', -1, Options.Run.Timeout div 10);
+     if w.Exists then
+     begin
+       log.message ('CheckLoginDuplicate: найдено окно регистраци');
+   		 w.Activate;
+       log.message ('CheckLoginDuplicate: жмем Сancel в окне регистраци');
+   		 w.Window('TElPopupButton', 'Cancel').Click(21, 11);
+// The following line was changed by TestComplete:
+//        Sys.Delay (3000);
+       Delay (3000);
+       p := Sys.WaitProcess ('F1Shell', 1000);
+       if p.Exists then
+       	raise ('!!! процесс <F1Shell> не выгружен из памяти');
+       log.message ('CheckLoginDuplicate: Ждем 2 мин. автоотключения пользователя');
+// The following line was changed by TestComplete:
+//        Sys.Delay (120000);
+       Delay (120000);
+       log.message ('CheckLoginDuplicate: еще раз запускаем оболочку');
+       StartF1Shell;
+       log.message ('CheckLoginDuplicate: ждем 20 сек. появления основного окна');
+// The following line was changed by TestComplete:
+//        Sys.Delay (20000);
+       Delay (20000);
+       log.message ('CheckLoginDuplicate: ищем основное окно');
+       p := Sys.WaitProcess ('F1Shell', 1000);
+       if p.Exists then
+       begin
+       	w := p.WaitWindow('TnsMainWindow', '*', -1, Options.Run.Timeout div 10);
+         if w.Exists then
+         begin
+          	log.message ('CheckLoginDuplicate: система перезапущена');
+            Result := True;
+         end
+         else
+         	raise ('CheckLoginDuplicate: Основное окно после перезапуска не найдено');
+       end
+       else
+       	raise ('CheckLoginDuplicate: Не найден процесс <F1Shell> после перезапуска');
+     end;
+   end
+   // если не найдено сообщение о повторной регистрации
+   else
+   	log.message ('CheckLoginDuplicate: Окно о повторном логине не найдено');
+  end
+  // если процесс не найден - оболочка не запустилась
+  else
+  	raise ('CheckLoginDuplicate: процесс <F1Shell> после запуска системы не найден');
+except
+	Log.Error ('CheckLoginDuplicate: ' + ExceptionMessage);
+  raise (ExceptionMessage);
+end;
+end;
+
+///////////////////////////////////////////////////////////////////
+//  еще скрипты
+
+// возвращает (ну, по крайней мере, пытается) использование памяти процессом на удаленном компьтере
+//function GetRemoteMem(
+//  const computer : String;
+//  const user : String;
+//  const password : String;
+//  process : String;
+//  var mem : integer;
+//  var vmem : integer
+//) : OleVariant;
+//  var 
+//    cmdStr, tempFileName, buf, proc, pathToPsList : String;
+//    bool : boolean;
+//    i, j : integer;
+//    arr, arrLines, p : OleVariant;
+//begin
+//  try
+//    Result := false;
+//    tempFileName := 'c:\lhklyughftyughgf.txt';
+//    pathToPsList := GetPathTo(PATH_TO_PSTOOLS) + 'pslist.exe';
+//    //
+//    Utilities.DeleteFile(tempFileName);
+//    // обрабатываем строку с процессом
+//    if process[Length(process)] = '*' then
+//      proc := Copy(process, 1, Length(process) - 1 )
+//    else
+//    begin
+//      proc := process;
+//      process := process + ' *';
+//    end;  
+//    // формируем командную строку  
+//    cmdStr := pathToPsList + ' -m \\' + computer + ' -u "' + user + '" -p "' + password + '" ' + proc + ' > ' + tempFileName;
+//    // пускаем pslist
+//    bool := Win32API.WinExec( 'cmd.exe /D /C "' + cmdStr + '"' , Win32API.SW_HIDE) >= 32; // WinExec возвращает число меньше 32 если возникла ошибка при запуске.
+//    if bool then p := Sys.WaitProcess('pslist', Options.Run.Timeout div 30);
+//    // ждем появления непустого файла с результатами
+//    for i := 1 to 500 do
+//      if FileWork.GetFileSize(tempFileName) > 0 then
+//        break
+//      else
+//        Delay(200);
+//  	if NOT bool then // какой-то баг при запуске
+//    begin
+//  		Log.Error('Ошибка запуска ' + cmdStr );
+//      Exit;
+//    end;
+//    // читаем результат
+//    buf := GetFileBody(tempFileName);
+//    if buf = '' then
+//    begin
+//  		Log.Warning('Файл пустой!');
+//      Exit;
+//    end
+//    else
+//      Utilities.DeleteFile(tempFileName);
+//    // если не найден процесс...
+//    if StringCompare('*process*' + process + '*not found*', buf)  then
+//    begin
+//  		Log.Warning('Похоже, что указанный процесс не найден!');
+//      mem := 0; vmem := 0;
+//      Exit;
+//    end;
+//    // если не получили инфу
+//    if StringCompare('*Failed*to*take*process*snapshot*', buf)  then
+//    begin
+//  		Log.Warning('Не удалось получить информацию с сервера!');
+//      mem := 0; vmem := 0;
+//      Exit;
+//    end;
+//    // парсим результат
+//    arrLines := String2Array(buf, EndOfLine);
+//    if IsArray(arrLines) then
+//      for i := VarArrayLowBound(arrLines,1) to VarArrayHighBound(arrLines,1) do
+//        if StringCompare(process, arrLines[i]) then
+//        begin
+//          for j := 1 to 10 do
+//            arrLines[i] := Utilities.StringReplace(arrLines[i], '  ', ' ', 1); // сводим все множественные пробелы до одного
+//          arrLines[i] := Utilities.StringReplace(arrLines[i], ' ', ';', 1);  
+//          arr := String2Array(arrLines[i], ';');
+//          // возвращаем результат
+//          try
+//            mem := VarToInteger( arr[ VarArrayLowBound(arr,1) + 3 ] );
+//            vmem := VarToInteger( arr[ VarArrayLowBound(arr,1) + 4 ] );          
+//            Result := (mem <> 0) OR (vmem <> 0);
+//          except
+//            mem := -1;vmem := -1;
+//          end;
+//          break;
+//        end;
+//  except
+//    Log.Message('GetRemoteMem: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+//    Raise;  
+//  end;       
+//end;
+
+
+// оставлена для совместимости
+function GetRemoteMem(
+  const computer : String;
+  const user : String;
+  const password : String;
+  process : String;
+  var mem : integer;
+  var vmem : integer
+) : OleVariant;
+  var 
+    procObj : OleVariant;
+begin
+  try
+    procObj := RemoteGetProcessObject(computer, user, password, process + '.exe');
+
+    if NOT IsEmpty(procObj) then
+    begin
+      mem := VarToInteger(procObj.Item('PrivatePageCount').ToString().OleValue) div 1024;
+      vmem := VarToInteger(procObj.Item('VirtualSize').ToString().OleValue) div 1024;
+      Result := true;
+    end
+    else
+    begin
+      mem := -1;
+      vmem := -1;
+      Result := false;
+    end;
+     
+  except
+    Log.Message('GetRemoteMem: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;  
+  end;       
+end;
+
+// отдает память процесса, если находит объект, то объекта, если нет, то по pslist  
+procedure GetProcessMem(
+  const proc : OleVariant;
+  const psListParams : String;
+  var Mem, VMem : integer // отдает PrivateBytes и VirtualSize
+);
+var
+   psParams : OleVariant;
+   j : integer;
+   procObj : OleVariant;
+begin
+  Mem := 0;
+  VMem := 0;                                       
+  
+  if proc.Exists then
+    procObj := RemoteGetProcessObject('','','', ExtractFileName(proc.Path) )
+  else
+  begin
+    psParams := String2Array(psListParams, ';');
+    if (VarArrayHighBound(psParams, 1) - VarArrayLowBound(psParams, 1) + 1) <> 5 then 
+      Raise('Неверно указаны параметры');
+    j := VarArrayLowBound(psParams, 1);  
+    procObj := RemoteGetProcessObject(psParams[j+1], psParams[j+2], psParams[j+3], psParams[j+4] + '.exe');
+  end;
+  
+  if NOT IsEmpty(procObj) then
+  begin
+    Mem := VarToInteger(procObj.Item('PrivatePageCount').ToString().OleValue) div 1024;
+    VMem := VarToInteger(procObj.Item('VirtualSize').ToString().OleValue) div 1024;
+  end;  
+end;
+
+// делает поиски по ППР
+procedure TestSearch(
+  const inFileName : String
+  ; const logFileName : String
+  ; const numCycles : integer
+  ; const goToPPRByHistory : boolean = false
+  ; maxRunTime : integer = 8640000
+  ; psListParams : String = ''
+);
+  const
+    CSV_HEADER = 'Номер итерации;Private Memory клиента (Кб);Virtual Size клиента (Кб);Private Memory сервера (Кб);Virtual Size сервера (Кб);Количество элементов в списке';
+  var
+    p, w, pServ : OleVariant;
+		searchStr, csvReportStr, reportStr, txtLogFileName, csvLogFileName : String;
+		i, currLine, servMem, servVMem : integer;
+begin
+  try
+    if logFileName <> '' then
+    begin
+      txtLogFileName := logFileName + '.log.txt';
+      csvLogFileName := logFileName + '.log.csv';    
+    end;
+    maxRunTime := maxRunTime + Win32API.GetTickCount;
+  	currLine := 1;
+    p := GetF1ShellProcess;
+    w := GetMainWindow;
+    pServ := Sys.WaitProcess('F1Server');
+    if NOT IsExists(p) then Raise('Не найдена оболочка!');
+    // начали
+    if logFileName <> '' then AppendFile(txtLogFileName, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============' + EndOfLine);
+    if NOT goToPPRByHistory then GoToPPR;
+  
+    // формируем отчет и пишем его в файл
+    reportStr := 'Начало. Время: ' + TimeToStr(Time) + EndOfLine + 'Получили список. В статусной строке написано : "' + common.GetWindowText(  GetFromMainWindow('СТАТУСБАР').Handle) + '". Заголовок окна оболочки: "' + w.WndCaption + '"' + EndOfLine + 'Потребление памяти оболочкой: ' + IntToStr(p.MemUsage) + ' Кб, виртуальной: ' +IntToStr(p.VMSize) + 'Кб';
+    csvReportStr := 'Начало;' + IntToStr(p.MemUsage) + ';' +IntToStr(p.VMSize);
+    GetProcessMem(pServ, psListParams, servMem, servVMem);
+    if ( servMem <> 0 ) AND ( servVMem <> 0 ) then // если сервер найден, то формируем отчет и для него
+    begin
+      reportStr := reportStr + EndOfLine + 'Потребление памяти сервером: ' + IntToStr(servMem) + ' Kb, виртуальной: ' + IntToStr(servVMem) + ' Kb.' + EndOfLine;
+      csvReportStr := csvReportStr + ';' + IntToStr(servMem) + ';' + IntToStr(servVMem);
+    end;
+    AppendFile(txtLogFileName, reportStr);
+    AppendFile(csvLogFileName, csvReportStr, CSV_HEADER);
+    //
+  	for i := 1 to numCycles do
+    begin    
+      if Win32API.GetTickCount > maxRunTime then
+      begin
+        AppendFile(txtLogFileName, 'Истек таймаут!');
+        break;
+      end;
+    
+      // получаем контекст для поиска
+    	searchStr := GetNextLine(inFileName, currLine);
+      // вбиваем контекст в ППР и делаем поиск
+        // если карточка должны получаться по истории, то первый раз мы по истории назад не переходим (типа считаем, что карточка уже открыта)
+      if (goToPPRByHistory) AND (i <> 1) then
+        GoByHistory('Назад');
+    
+      if NOT DoSearch(FD_WORDS_IN_TEXT, searchStr, true, false,  NOT(goToPPRByHistory) ) then
+      begin
+        AppendFile(txtLogFileName, 'Итерация номер ' + IntToStr(i) + '. Время: ' + TimeToStr(Time) + EndOfLine + 'Список не найден. Возможные причины: Ничего не нашли / провалились в документ / контекст не был принят оболочкой.' + EndOfLine);
+        AppendFile(csvLogFileName, IntToStr(i) + ';;;;;', CSV_HEADER);
+        Log.Warning('Не могу получить список.', 'Возможные причины: ничего не нашли; провалились в документ; контекст не был принят оболочкой.');
+        continue;
+      end;
+      // формируем отчет и пишем его в файл
+      reportStr := 'Итерация номер ' + IntToStr(i) + '. Время: ' + TimeToStr(Time) + EndOfLine + 'Получили список. В статусной строке написано : "' + common.GetWindowText( GetFromMainWindow('СТАТУСБАР').Handle) + EndOfLine + '". Заголовок окна оболочки: "' + w.WndCaption + '"' + EndOfLine + 'Потребление памяти оболочкой: ' + IntToStr(p.MemUsage) + ' Кб, виртуальной: ' +IntToStr(p.VMSize) + 'Кб';
+      csvReportStr :=  IntToStr(i) + ';' + IntToStr(p.MemUsage) + ';' +IntToStr(p.VMSize);
+      GetProcessMem(pServ, psListParams, servMem, servVMem);
+      if ( servMem <> 0 ) AND ( servVMem <> 0 ) then // если сервер найден, то формируем отчет и для него
+      begin
+        reportStr := reportStr + EndOfLine + 'Потребление памяти сервером: ' + IntToStr(servMem) + ' Kb, виртуальной: ' + IntToStr(servVMem) + ' Kb.' + EndOfLine;
+        csvReportStr := csvReportStr + ';' + IntToStr(servMem) + ';' + IntToStr(servVMem);
+      end;
+      AppendFile(txtLogFileName, reportStr); 
+      AppendFile(csvLogFileName, csvReportStr + ';' + GetSubStr(common.GetWindowText( GetFromMainWindow('СТАТУСБАР').Handle), 'из ', ' '), CSV_HEADER);
+    end;
+  
+    if logFileName <> '' then AppendFile(txtLogFileName, EndOfLine + '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============' + EndOfLine);
+  except
+    Log.Message('TestSearch: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;  
+  end;   
+end;
+
+// открывает списки по рубрикатору
+procedure ListOpen(
+  const logFileName : String
+  ; const numCycles : integer
+  ; const timeDelay : integer = 0
+  ; maxRunTime : integer = 8640000
+  ; psListParams : String = ''
+);
+  const
+    CSV_HEADER = 'Номер итерации;Private Memory клиента (Кб);Virtual Size клиента (Кб);Private Memory сервера (Кб);Virtual Size сервера (Кб);Количество элементов в списке';
+  var 
+    p, w, w1, w2, pServ : OleVariant;
+  	reportStr, csvReportStr, menuPath, tmpStr, wndCaption, wndCaptionOld, elemName, ignoreFileName, ignoreString, txtLogFileName, csvLogFileName : String;
+  	i, currLine, servMem, servVMem : integer;
+begin 
+  try
+    if logFileName <> '' then
+    begin
+      txtLogFileName := logFileName + '.log.txt';
+      csvLogFileName := logFileName + '.log.csv';    
+    end;
+    ignoreFileName := Utilities.ExtractFilePath(logFileName) + 'ListOpen.ignore';
+    ignoreString := GetFileBody(ignoreFileName);
+    //
+    maxRunTime := maxRunTime + Win32API.GetTickCount;
+  	p := GetF1ShellProcess;
+    pServ := Sys.WaitProcess('F1Server');
+  	if NOT p.Exists then Raise('Не найдена оболочка!');  
+    w := GetMainWIndow;
+    w.Activate;	
+    if logFileName <> '' then AppendFile(txtLogFileName, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============' + EndOfLine);
+  
+    // открываем рубрикатор
+    w1 := OpenMenuTab;
+    if NOT Position_Internal(w1, 'Правовой навигатор\*', '\', true) then
+      Raise('Не могу спозиционироваться на Правовом навигаторе');
+    	
+    //
+    for i := 1 to numCycles do
+    begin
+      // проверка таймаута
+      if Win32API.GetTickCount > maxRunTime then
+      begin
+        AppendFile(txtLogFileName, 'Истек таймаут!');
+        break;
+      end;
+      //
+      if NOT w1.Visible then
+  	    w1 := OpenMenuTab(false); 
+      // запоминаем заголовок окна и элемент списка  
+      elemName := common.GetWindowText(w1.Handle);  
+      wndCaptionOld := w.WndCaption;
+      wndCaptionOld := Copy(wndCaptionOld, Pos('-', wndCaptionOld) + 2, 8192);
+      // проверяем, не в игноре ли этот элемент
+     	if ( Pos(';' + wndCaptionOld + ';' + elemName + ';', ignoreString) <> 0 ) then
+      begin
+        Sys.Keys('[Down]');
+        continue;
+      end;
+      //
+      reportStr := 'Итерация номер ' + IntToStr(i) + '. Время: ' + TimeToStr(Time) + EndOfLine + 'Открываемый элемент "' + common.GetWindowText(w1.Handle) + '"' + EndOfLine;
+      
+      // разворачиваем текущий элемент
+      if NOT IsCurrentNodeExpanded(w1) then
+        w1.Keys(KEY_EXPAND_FOLDER);                     
+      // открываем текущий элемент            
+      w1.Keys('[Enter]'); 
+      
+      {      
+      Sys.Keys('[Apps]');
+      if IsPopupMenuItemExists(w1, 'Развернуть') then
+      begin // можно (это папка)
+        ClickByPopupMenuItem(w1, 'Развернуть');
+        w1.SetFocus;
+        Sys.Keys('[Enter]');   
+        reportStr := reportStr + 'Открыли папку.' + EndOfLine ;  
+      end
+      else // нельзя (это список)
+      begin
+        ClickByPopupMenuItem(w1, 'Открыть');
+        reportStr := reportStr + 'Открыли список.' + EndOfLine ;
+      end;}
+    
+      // проверяем, не провалились ли в документ и если да, то пишем элемент в игнор-лог     
+
+      Delay(timeDelay); 
+      wndCaption := w.WndCaption;      
+      if ( Pos('- Текст', wndCaption) <> 0 ) then
+        AppendFile( ignoreFileName, ';' + wndCaptionOld + ';' + elemName + ';');
+    
+      // если открыли список, то переводим фокус в него, чтобы в статусной строке появилась инфа о списке
+      if ( Pos('- Тематика', wndCaption) <> 0 ) then
+      begin
+        w2 := GetList;
+        if w2.Exists then w2.SetFocus;
+      end; 
+      // формируем и пишем в лог
+      reportStr := reportStr + 'Заголовок окна: ' + wndCaption + EndOfLine;
+      reportStr := reportStr + 'Потребление памяти: ' + IntToStr(p.MemUsage) + ' Kb, виртуальной: ' + IntToStr(p.VMSize) + ' Kb.' + EndOfLine;    
+      csvReportStr := IntToStr(i) + ';' + IntToStr(p.MemUsage) + ';' + IntToStr(p.VMSize);
+      GetProcessMem(pServ, psListParams, servMem, servVMem);
+      if ( servMem <> 0 ) AND ( servVMem <> 0 ) then // если сервер найден, то формируем отчет и для него
+      begin
+        reportStr := reportStr + 'Потребление памяти сервером: ' + IntToStr(servMem) + ' Kb, виртуальной: ' + IntToStr(servVMem) + ' Kb.' + EndOfLine;
+        csvReportStr := csvReportStr + ';' + IntToStr(servMem) + ';' + IntToStr(servVMem);
+      end;
+      if logFileName <> '' then
+      begin
+      	AppendFile(txtLogFileName, reportStr); 
+        AppendFile(csvLogFileName, csvReportStr  + ';' + GetSubStr(common.GetWindowText( GetFromMainWindow('СТАТУСБАР').Handle), 'из ', ' '), CSV_HEADER); 
+      end;
+      
+      // идем дальше
+      if (NOT w1.Visible) OR (Pos('- Текст', wndCaption) <> 0)  then // если провалились в документ
+  	    w1 := OpenMenuTab(false); // то открываем вкладку
+      w1.SetFocus;
+      Sys.Keys('[Down]');
+    
+    	// если вышли из рубрикатора
+      tmpStr := common.GetWindowText(w1.Handle);
+    	if (tmpStr = 'Справочная информация') OR (tmpStr = 'ПРАЙМ') then break;  
+    end;
+    if logFileName <> '' then AppendFile(txtLogFileName, EndOfLine + '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============' + EndOfLine);
+  except
+    Log.Message('ListOpen: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;  
+  end;     
+end;
+
+// открывает документы по списку по пустой карточке ППР
+procedure DocumentsOpen(
+  const logFileName : String
+  ; numCycles : integer
+  ; const openDelay : integer = 2000
+  ; const PsListParams : String = ''
+  ; maxRunTime : integer = 8640000
+  ; keysToPressInDoc : String = ''
+);
+  const
+    CSV_HEADER = 'Открыто документов;Private Memory клиента (Кб);Virtual Size клиента (Кб);Private Memory сервера (Кб);Virtual Size сервера (Кб)';
+  var 
+    p, w, w1, pServ, psParams : OleVariant;
+  	reportStr, menuPath, tmpStr, csvReportStr, txtLogFileName, csvLogFileName : String;
+  	i, currLine, j, servMem, servVMem : integer;
+begin
+  try
+    if logFileName <> '' then
+    begin
+      txtLogFileName := logFileName + '.log.txt';
+      csvLogFileName := logFileName + '.log.csv';    
+    end;
+    maxRunTime := maxRunTime + Win32API.GetTickCount;
+    
+    // начальная инициализация
+    p := GetF1ShellProcess;
+    w := GetMainWIndow;
+    w.Activate;
+    if logFileName <> '' then 
+      AppendFile(txtLogFileName, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============' + EndOfLine);
+    if psListParams = '' then
+      pServ := Sys.Process('F1Server')
+    else
+    begin
+      psParams := String2Array(psListParams, ';');
+      if (VarArrayHighBound(psParams, 1) - VarArrayLowBound(psParams, 1) + 1) <> 5 then 
+        Raise('Неверно указаны параметры для psList');
+    end;
+    // строим список
+    GetListOfAllDocuments;
+    // ищем список
+  	w1 := GetList;
+    if IsExists(w1) then
+    begin
+    	w1.SetFocus;
+      Sys.Keys('[Enter]'); // входим в документ
+      for i := 1 to numCycles do
+      begin
+        // проверка таймаута
+        if Win32API.GetTickCount > maxRunTime then
+        begin
+          AppendFile(txtLogFileName, 'Истек таймаут!');
+          break;
+        end;
+        //
+      	Sys.Keys('^[Right]');
+        Delay(openDelay);
+        if (keysToPressInDoc <> '') then 
+          Sys.Keys(keysToPressInDoc);
+      
+        // формируем отчеты
+        if (PsListParams <> '') then
+        begin
+          j := VarArrayLowBound(psParams, 1);
+          GetRemoteMem(psParams[j+1], psParams[j+2], psParams[j+3], psParams[j+4], servMem, servVMem );
+        end     
+        else
+        begin
+          servMem := pServ.MemUsage;
+          servVMem := pServ.VMSize;
+        end;
+        reportStr := 'Итерация номер ' + IntToStr(i) + '. Время: ' + TimeToStr(Time) + EndOfLine + 'Потребление памяти клиентом: ' + IntToStr(p.MemUsage) + ' Kb, виртуальной: ' + IntToStr(p.VMSize) + ' Kb.' + EndOfLine;
+        csvReportStr := IntToStr(i) + ';' + IntToStr(p.MemUsage) + ';' + IntToStr(p.VMSize);
+        if ( PsListParams <> '' ) OR ( pServ.Exists ) then
+        begin
+          reportStr := reportStr + 'Потребление памяти сервером: ' + IntToStr(servMem) + ' Kb, виртуальной: ' + IntToStr(servVMem) + ' Kb.' + EndOfLine;
+          csvReportStr := csvReportStr + ';' + IntToStr(servMem) + ';' + IntToStr(servVMem);
+        end;
+        if logFileName <> '' then
+        begin
+          AppendFile(txtLogFileName, reportStr);
+          AppendFile(csvLogFileName, csvReportStr, CSV_HEADER);
+        end;
+      end;
+    end
+    else
+      Raise('Список не найден!');
+    if logFileName <> '' then AppendFile(txtLogFileName, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============' + EndOfLine);
+  except
+    Log.Message('DocumentsOpen: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;  
+  end;  
+end;
+
+// пробегает вниз по списку по пустой карточке ППР
+procedure ListDown(const logFileName : String; numCycles : integer = -1; const timeDelay : integer = 0);
+var p, w, w1, pServ : OleVariant;
+		reportStr, menuPath, tmpStr, csvReportStr : String;
+		i, currLine, j : integer;
+begin
+  // начальная инициализация
+  p := Sys.Process('F1Shell');
+  if NOT p.Exists then Raise('Не найдена оболочка!');  
+  w := p.nsMainWindow;
+  w.Activate;
+  if logFileName <> '' then 
+  begin
+    AppendFile(logFileName, '=============== Тест запущен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============' + EndOfLine);
+    //AppendFile(logFileName + '.csv', 'Номер итерации;Память клиента (Кб);Виртуальная память клиента (Кб);Память сервера (Кб);Виртуальная память сервера (Кб)');
+  end;
+  pServ := Sys.Process('F1Server');
+  // строим список
+  tmpStr := DoSearchSimple('Слова в тексте', '', true);
+  if tmpStr <> '' then
+  begin
+    if numCycles = -1 then // если количество -1, то читаем весь список до конца
+    begin
+      j := Pos(' ', tmpStr) + 1;
+      tmpStr := Copy(tmpStr, j, PosN(' ', tmpStr, j+1) - j );
+      numCycles := StrToInt(tmpStr);
+    end;
+    // ищем список
+  	w1 := GetList;
+    if w1.Exists then
+    begin
+    	w1.SetFocus;
+      for i := 1 to numCycles do
+      begin
+          Sys.Keys('[Down]'); // жмем вниз
+        // формируем и пишем отчет
+          reportStr := 'Итерация номер ' + IntToStr(i) + EndOfLine + 'Потребление памяти клиентом: ' + IntToStr(p.MemUsage) + ' Kb, виртуальной: ' + IntToStr(p.VMSize) + ' Kb.' + EndOfLine;
+          csvReportStr := IntToStr(i) + ';' + IntToStr(p.MemUsage) + ';' + IntToStr(p.VMSize);
+          if pServ.Exists then
+          begin
+            reportStr := reportStr + 'Потребление памяти сервером: ' + IntToStr(pServ.MemUsage) + ' Kb, виртуальной: ' + IntToStr(pServ.VMSize) + ' Kb.' + EndOfLine;
+            csvReportStr := csvReportStr + ';' + IntToStr(pServ.MemUsage) + ';' + IntToStr(pServ.VMSize);
+          end;
+          if logFileName <> '' then
+          begin
+            AppendFile(logFileName, reportStr);
+            AppendFile(logFileName + '.csv', csvReportStr);
+          end;
+        Delay(timeDelay);
+      end;
+    end;
+  end;
+  if logFileName <> '' then AppendFile(logFileName, '=============== Тест окончен ' + DateToStr(Date) + ' в ' + TimeToStr(Time) + ' ===============' + EndOfLine);
+end;
+
+{
+  Временная ф-ия 
+}
+procedure ggg;
+var w : OleVariant;
+begin
+  w := Sys.Process('f1shell').TMessageForm_1.OK;
+  Win32API.SendMessage(w.Handle, 513, 1, 852005);
+  Win32API.SendMessage(w.Handle, 514, 1, 852005);
+end;

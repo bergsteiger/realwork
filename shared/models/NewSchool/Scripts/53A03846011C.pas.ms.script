@@ -1,0 +1,35 @@
+// l3CriticalSectionHolder 53A03846011C Impurity Class
+
+INCLUDE '54B6852C0241.pas.ms.script'
+
+INCLUDE '4A5CB93700CF.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_53A03846011C
+ CONST UID '53A03846011C'
+ CONST Name 'l3CriticalSectionHolder'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4A5CB93700CF // Ml3Unknown
+ ]
+ ; // Implements
+ : Overridden
+   [ ME_52BC2B9401F3 // AfterDestroyCalled
+ ME_53AC02B602E3 // InitAfterAlloc
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53A03846011C l3CriticalSectionHolder

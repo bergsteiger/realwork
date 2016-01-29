@@ -1,0 +1,1152 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "IndexIO"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/PersistentBDBAdapter/IndexIO|4A44AFE203E3
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"4A44AFE203E3"
+    documentation 	"Реализация индекса"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4A44B03101DE"
+	    supplier   	"Logical View::Storage::PersistentBDBAdapter::dataBaseIO"
+	    quidu      	"4A44AFF90370")
+	(object Visibility_Relationship
+	    quid       	"4A44B042027E"
+	    supplier   	"Logical View::Storage::BerkeleyDB::Berkeley"
+	    quidu      	"473725CD0005")
+	(object Visibility_Relationship
+	    quid       	"4A8A8A3D0091"
+	    supplier   	"Logical View::Storage::CoreUSF::Root_i"
+	    quidu      	"4929CB04031E")
+	(object Visibility_Relationship
+	    quid       	"4A8A8B000287"
+	    supplier   	"Logical View::Storage::SEA::IndexAPI"
+	    quidu      	"47164681030F"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "FixedIndex_i"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/Storage/PersistentBDBAdapter/impl/IndexIO/FixedIndex_i.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.h)"
+		    value      	"w:/Storage/PersistentBDBAdapter/impl/IndexIO/FixedIndex_i_factory.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/Storage/PersistentBDBAdapter/impl/IndexIO/FixedIndex_i.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.cpp)"
+		    value      	"w:/Storage/PersistentBDBAdapter/impl/IndexIO/FixedIndex_i_factory.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A44B098031B_DESTR_BODY*"
+		    value      	(value Text 
+|//#UC START# *4A44B098031B_DESTR_BODY*¤	LOG_I (("%s (): m_config.name = %s", GDS_CURRENT_FUNCTION, m_config.name));¤	FixedIndexBase::close ();¤	m_db->close(0);¤	//#UC END# *4A44B098031B_DESTR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/PersistentBDBAdapter/IndexIO/FixedIndex_i|4A44B098031B
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"factory priority"
+		    value      	"0")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A44B098031B_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4A44B098031B_CUSTOM_INCLUDES*¤int my_bt_compare (DB *db, const DBT *dbt1, const DBT *dbt2) {¤	assert (dbt1->size == sizeof (SEA::IndexAPI::Key));¤	assert (dbt2->size == sizeof (SEA::IndexAPI::Key));¤	if ( (*((SEA::IndexAPI::Key*) dbt1->data)) < (*((SEA::IndexAPI::Key*) dbt2->data))) {¤		return -1;¤	}¤	if ( (*((SEA::IndexAPI::Key*) dbt1->data)) > (*((SEA::IndexAPI::Key*) dbt2->data))) {¤		return 1;¤	}¤	return 0;¤}¤//#UC END# *4A44B098031B_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A44B098031B*"
+		    value      	"//#UC START# *4A44B098031B*¤//#UC END# *4A44B098031B*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4A44B098031B_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4A44B098031B_CUSTOM_INCLUDES*¤//#UC END# *4A44B098031B_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4A44B098031B*"
+		    value      	"//#UC START# *4A44B098031B*¤//#UC END# *4A44B098031B*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedOverload"
+		    value      	"4A8A78DE01ED,4A8A79980018,4A8AADB903BB")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include"))
+	    quid       	"4A44B098031B"
+	    documentation 	"Реализация индекса"
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A8A8636010D"
+		    supplier   	"Logical View::Storage::CoreUSF::Root_i::FixedIndexBase"
+		    quidu      	"4A8A76E9034C"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A4B100E01A8"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::Storage::PersistentBDBAdapter::dataBaseIO::LocalDB"
+		    quidu      	"4A44B2C703DD")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A4B13DF03A2"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::Storage::PersistentBDBAdapter::IndexIO::IndexParams"
+		    quidu      	"4A4B13AB034A"))
+	    operations 	(list Operations
+		(object Operation "load_last_key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4A6ECD4C0218*"
+			    value      	(value Text 
+|//#UC START# *4A6ECD4C0218*¤	Dbc* dbc = NULL;¤	int ret = 0;¤	ret = m_db->cursor(0 ,&dbc, 0);¤	std::vector<unsigned char> data_vector(sizeof(SEA::IndexAPI::Key),0);¤¤	Dbt last_key(&data_vector[0], sizeof(SEA::IndexAPI::Key));¤	last_key.set_flags(DB_DBT_USERMEM);¤	last_key.set_ulen(sizeof(SEA::IndexAPI::Key));¤	Dbt user_data;¤¤	ret = dbc->get(&last_key, &user_data, DB_LAST);¤	if(ret) {¤		LOG_E (("BERKELEY %s : Can't get last key - error code <%d>", GDS_CURRENT_FUNCTION, ret));¤		throw SEA::DatabaseAPI::IOError();¤	}¤	m_last_key = *((SEA::IndexAPI::Key*)last_key.get_data());¤	dbc->close();¤	//#UC END# *4A6ECD4C0218*
+			    )))
+		    quid       	"4A6ECD4C0218"
+		    documentation 	"Загружает последний добавленный в индекс ключ."
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "IndexParams"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/Storage/PersistentBDBAdapter/impl/IndexIO/IndexParams.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/Storage/PersistentBDBAdapter/impl/IndexIO/IndexParams.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/PersistentBDBAdapter/IndexIO/IndexParams|4A4B13AB034A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4A4B13AB034A"
+	    documentation 	"Параметры индекса"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "page_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A6117003E"))
+		    quid       	"4A4B13C101DF"
+		    documentation 	"Размер страницы для Berkeley"
+		    type       	"unsigned integer"
+		    quidu      	"450A6117003E"
+		    initv      	"65536"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"4A44B19B02C3"
+	    roles      	(list role_list
+		(object Role "db"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A44B19B03BC"
+		    documentation 	"Указатель на Б.Д,"
+		    label      	"db"
+		    supplier   	"Logical View::Storage::BerkeleyDB::Berkeley::Db"
+		    quidu      	"4737262602A2"
+		    Containment 	"By Reference"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"4A44B19B03BE"
+		    supplier   	"Logical View::Storage::PersistentBDBAdapter::IndexIO::FixedIndex_i"
+		    quidu      	"4A44B098031B"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    quid       	"4A44B1B703BE"
+	    roles      	(list role_list
+		(object Role "dbc"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A44B1B8014D"
+		    documentation 	"Указатель на курсор Б.Д."
+		    label      	"dbc"
+		    supplier   	"Logical View::Storage::BerkeleyDB::Berkeley::Dbc"
+		    quidu      	"4A44B0F0028D"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$3"
+		    quid       	"4A44B1B8014F"
+		    supplier   	"Logical View::Storage::PersistentBDBAdapter::IndexIO::FixedIndex_i"
+		    quidu      	"4A44B098031B")))
+	(object Association "$UNNAMED$4"
+	    quid       	"4A519FA602CF"
+	    roles      	(list role_list
+		(object Role "config"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A519FA70128"
+		    documentation 	"Конфигурация индекса"
+		    label      	"config"
+		    supplier   	"Logical View::Storage::SEA::IndexAPI::IndexConfig"
+		    quidu      	"471C5DE702C0"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"4A519FA70147"
+		    supplier   	"Logical View::Storage::PersistentBDBAdapter::IndexIO::FixedIndex_i"
+		    quidu      	"4A44B098031B"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$6"
+	    quid       	"4A6EB1580394"
+	    roles      	(list role_list
+		(object Role "last_key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A6EB159022C"
+		    documentation 	"Последний добавленный в базу ключ."
+		    label      	"last_key"
+		    supplier   	"Logical View::Storage::SEA::IndexAPI::Key"
+		    quidu      	"4718A24201E2"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$7"
+		    quid       	"4A6EB1590236"
+		    supplier   	"Logical View::Storage::PersistentBDBAdapter::IndexIO::FixedIndex_i"
+		    quidu      	"4A44B098031B"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4A44B08C01D9"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::PersistentBDBAdapter::dataBaseIO::LocalDB" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1362, 486)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1185, 458)
+			nlines     	1
+			max_width  	354
+			justify    	0
+			label      	"LocalDB")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1185, 408)
+			anchor     	10
+			nlines     	1
+			max_width  	354
+			justify    	0
+			label      	"<<LocalInterface>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4A44B2C703DD"
+		    width      	372
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::PersistentBDBAdapter::IndexIO::IndexParams" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(678, 1497)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(310, 1463)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	736
+			justify    	0
+			label      	"• IndexParams")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(310, 1413)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	736
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"4A4B13AB034A"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(310, 1524)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	1
+			max_width  	737
+			justify    	1)
+		    width      	754
+		    height     	192
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BerkeleyDB::Berkeley::Db" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1293, 967)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1128, 939)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"• Db")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1128, 889)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4737262602A2"
+		    width      	348
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BerkeleyDB::Berkeley::Dbc" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1296, 1269)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1131, 1241)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"• Dbc")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1131, 1191)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4A44B0F0028D"
+		    width      	348
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::SEA::IndexAPI::IndexConfig" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1308, 1590)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	2313060
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1142, 1562)
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"• IndexConfig")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1142, 1512)
+			anchor     	10
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    line_color 	2313060
+		    fill_color 	16777215
+		    quidu      	"471C5DE702C0"
+		    width      	350
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::SEA::IndexAPI::Key" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1737, 1587)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	2313060
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1615, 1560)
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"Key")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1615, 1510)
+			anchor     	10
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	2313060
+		    fill_color 	16777215
+		    quidu      	"4718A24201E2"
+		    width      	262
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::PersistentBDBAdapter::IndexIO::FixedIndex_i" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(678, 966)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(424, 907)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	508
+			justify    	0
+			label      	"• FixedIndex_i")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(424, 857)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	508
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4A44B098031B"
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(424, 968)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	512
+			justify    	1)
+		    width      	526
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @8
+		    location   	(1029, 966)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A44B19B02C3"
+		    roleview_list 	(list RoleViews
+			(object RoleView "db" @9
+			    Parent_View 	@8
+			    location   	(351, 0)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @10
+				Parent_View 	@9
+				location   	(1099, 925)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	80
+				justify    	0
+				label      	"-db"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A44B19B03BC"
+			    client     	@8
+			    supplier   	@3
+			    vertices   	(list Points
+				(1029, 966)
+				(1118, 966))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$1" @11
+			    Parent_View 	@8
+			    location   	(351, 0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A44B19B03BE"
+			    client     	@8
+			    supplier   	@7
+			    vertices   	(list Points
+				(1029, 966)
+				(941, 966))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$2" @12
+		    location   	(1023, 1135)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A44B1B703BE"
+		    roleview_list 	(list RoleViews
+			(object RoleView "dbc" @13
+			    Parent_View 	@12
+			    location   	(345, 169)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @14
+				Parent_View 	@13
+				location   	(1119, 1136)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	106
+				justify    	0
+				label      	"-dbc"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A44B1B8014D"
+			    client     	@12
+			    supplier   	@4
+			    vertices   	(list Points
+				(1023, 1135)
+				(1121, 1182))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$3" @15
+			    Parent_View 	@12
+			    location   	(345, 169)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A44B1B8014F"
+			    client     	@12
+			    supplier   	@7
+			    vertices   	(list Points
+				(1023, 1135)
+				(927, 1087))
+			    line_style 	0)))
+		(object UsesView "" @16
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @17
+			Parent_View 	@16
+			location   	(991, 616)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.526223
+			height     	106
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A4B100E01A8"
+		    client     	@7
+		    supplier   	@1
+		    vertices   	(list Points
+			(851, 844)
+			(1233, 576))
+		    line_style 	0)
+		(object UsesView "" @18
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @19
+			Parent_View 	@18
+			location   	(798, 1244)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A4B13DF03A2"
+		    client     	@7
+		    supplier   	@2
+		    vertices   	(list Points
+			(678, 1087)
+			(678, 1400))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$4" @20
+		    location   	(1008, 1293)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A519FA602CF"
+		    roleview_list 	(list RoleViews
+			(object RoleView "config" @21
+			    Parent_View 	@20
+			    location   	(330, 327)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @22
+				Parent_View 	@21
+				location   	(1145, 1488)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	144
+				justify    	0
+				label      	"-config"
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A519FA70128"
+			    client     	@20
+			    supplier   	@5
+			    vertices   	(list Points
+				(1008, 1293)
+				(1217, 1499))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$5" @23
+			    Parent_View 	@20
+			    location   	(330, 327)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A519FA70147"
+			    client     	@20
+			    supplier   	@7
+			    vertices   	(list Points
+				(1008, 1293)
+				(800, 1087))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$6" @24
+		    location   	(1245, 1298)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A6EB1580394"
+		    roleview_list 	(list RoleViews
+			(object RoleView "last_key" @25
+			    Parent_View 	@24
+			    location   	(567, 332)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @26
+				Parent_View 	@25
+				location   	(1553, 1431)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	183
+				justify    	0
+				label      	"-last_key"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A6EB159022C"
+			    client     	@24
+			    supplier   	@6
+			    vertices   	(list Points
+				(1245, 1298)
+				(1605, 1508))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$7" @27
+			    Parent_View 	@24
+			    location   	(567, 332)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A6EB1590236"
+			    client     	@24
+			    supplier   	@7
+			    vertices   	(list Points
+				(1245, 1298)
+				(885, 1087))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Storage::CoreUSF::Root_i::FixedIndexBase" @28
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(678, 489)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@28
+			location   	(518, 457)
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"FixedIndexBase")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@28
+			location   	(518, 407)
+			anchor     	10
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"4A8A76E9034C"
+		    width      	338
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @29
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A8A8636010D"
+		    client     	@7
+		    supplier   	@28
+		    vertices   	(list Points
+			(678, 844)
+			(678, 583))
+		    line_style 	0)))))

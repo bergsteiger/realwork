@@ -1,0 +1,99 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDPSpecific/ConfluenceTemplate/Plugins/KServletPlugin.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::MDPSpecific::ConfluenceTemplate::Plugins::KServletPlugin
+//
+// Плагин-сервлет
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: KServletPlugin::Class
+? Плагин-сервлет
+= ClassPluginBase::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+a raf
+/ - тип абстракции
+Y code_cplugin.gif
+L code_cplugin
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p url-pattern:s ? ссылка для запуска экшена
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{url-pattern}"!="%S{!url-pattern}"}%f_up_prefix(%S) *url-pattern* = *%S{url-pattern}* - ссылка для запуска экшена
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация иерархии наследования конкретного плагина
+%f _java_base_class_decl
+//#UC START# *4704D85102BFfor470499B50213*
+	[{%Gx=false}{%f_java_base(%S)} extends HttpServlet[{%Rx=true} implements <{, }{}%RN>]]
+//#UC END# *4704D85102BFfor470499B50213*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация импорта классов необходимых конкретному плагину
+%f _java_servant_import_self
+//#UC START# *4704D854007Dfor470499B50213*
+	import javax.servlet.http.HttpServlet;
+	import javax.servlet.http.HttpServletRequest;
+	import javax.servlet.http.HttpServletResponse;
+	import javax.servlet.ServletException;
+	import javax.servlet.ServletConfig;
+	import java.io.IOException;
+//#UC END# *4704D854007Dfor470499B50213*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация специфического контента (методы, операции) плагина
+%f _servant_content_java
+//#UC START# *4704D85602FDfor470499B50213*
+	[{%Gx=false}#	public void init(ServletConfig servletConfig) throws ServletException {
+	#		%U[{_INIT_IMPLEMETATION}
+	#		]
+	#	}
+	
+	#	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	#		%U[{_SERVICE_IMPLEMETATION}
+	#		]
+	#	}]
+//#UC END# *4704D85602FDfor470499B50213*
+
+// перекрытие базового стереотипа KPluginBase::Class
+// генерация дополнительных свойств в описании плагина
+%f _additional_plugin_xml_properties
+//#UC START# *4CC6B14F0236for470499B50213*
+	\t	\<url-pattern\>%S{url-pattern}\</url-pattern\>
+//#UC END# *4CC6B14F0236for470499B50213*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470499B50213*
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+r {<{}{%gS!=%SS}{C}>!=0&<{}{%gS=%SS}{C}>=0}: {%SS должен напрямую или опосредованно наследоваться от %SS}
+r {%Sa!=abstract&"%S{url-pattern}"=""}:                    {%SS должен определять "url-pattern"}
+//#UC END# *4704C0E30186for470499B50213*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

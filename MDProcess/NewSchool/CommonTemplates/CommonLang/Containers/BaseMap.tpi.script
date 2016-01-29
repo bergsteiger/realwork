@@ -1,0 +1,282 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/BaseMap.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::BaseMap
+//
+// базовый стереотип для различных карт
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: BaseMap::Class
+implementation @ <<BaseMap>>
+//? базовый стереотип для различных карт
+//= BaseContainer::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_map.gif
+//L code_map
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F01FA031C*
+//c                           {}
+//r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+//r "<{}{"%CS"="compare"}{C}>"!="1"&"<{}{"%CS"="compare"}{C}>"!="0": {%SS can provide only one Compare type (by \<\<compare\>\> link)}
+//r "<{}{"%CS"=""&"%C%Cx"="true"}{C}>"!="1": {%SS must provide one Key type (by subkey in Data type link)}
+//r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+//r "<{}{"%CS"=""&"%C%Cl"="agr"&"%t_has_less(%C%C%T)"="false"&%f_is_foreign_target(%C)=true}{%CC}>"!="0"&"<{}{"%CS"="compare"}{C}>"="0": {%SS with agrigaited foreign Key type must provide Compare type %CN %C%CN %C%C%TN}
+//r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+//#UC END# *4704C0E30186for470F01FA031C*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: BaseMap::Class::allocator::Attribute
+end. // <<BaseMap>>
+
+implementation @ :: <<BaseMap>> <<allocator>> ;
+//? Аллокатор элементов контейнера
+// Параметры стереотипа
+//Y code_allocator.gif
+//L code_allocator
+//l l
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: BaseMap::Class::Attribute
+; // st_space_key
+
+end. // :: <<BaseMap>> <<allocator>> ;
+
+implementation @ :: <<BaseMap>> <<Attribute>> ;
+//= BaseContainer::Class::Attribute
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4BFA518A001D*
+//#UC END# *46E6D4BB0339for4BFA518A001D*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4BFA518A001D*
+//#UC END# *470F1571031Cfor4BFA518A001D*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4BFA518A001D*
+//#UC END# *470F15B800CBfor4BFA518A001D*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4BFA518A001D*
+//#UC END# *477398E501C0for4BFA518A001D*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4BFA518A001D*
+//#UC END# *55B8D28B0157for4BFA518A001D*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4BFA518A001D*
+//#UC END# *55B8D2F80145for4BFA518A001D*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4BFA518A001D*
+//#UC END# *55B8DD9C0301for4BFA518A001D*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4BFA518A001D*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4BFA518A001D*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4BFA518A001D*
+//#UC END# *4705CBD6003Efor4BFA518A001D*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4BFA518A001D*
+//#UC END# *470484D50138for4BFA518A001D*
+; // wiki_up_add_gen
+
+
+// Вложенные стереотипы
+//: BaseMap::Class::Attribute::Attribute
+end. // :: <<BaseMap>> <<Attribute>> ;
+
+implementation @ :: <<BaseMap>> <<Attribute>> ;
+//? тип ключа, по которому хранятся данные в мапе
+// Параметры стереотипа
+//Y code_attr_key.gif
+//L code_attr_key
+//T 
+// - может не иметь "цели" (типа/результата)
+//A const
+// - стереотипы "цели" (типа/результата)
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F0428034B*
+//#UC END# *46E6D4BB0339for470F0428034B*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F0428034B*
+//#UC END# *470F1571031Cfor470F0428034B*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F0428034B*
+//#UC END# *470F15B800CBfor470F0428034B*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470F0428034B*
+//#UC END# *477398E501C0for470F0428034B*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for470F0428034B*
+//#UC END# *55B8D28B0157for470F0428034B*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for470F0428034B*
+//#UC END# *55B8D2F80145for470F0428034B*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for470F0428034B*
+//#UC END# *55B8DD9C0301for470F0428034B*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<BaseMap>> <<Attribute>> ;
+

@@ -1,0 +1,40 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/BasicTests/RefcountTest/RecountNone.cpp"
+// генератор файлов реализации C++ (.cpp)
+// Generated from UML model, root element: <<SimpleClass::Class>> TestModel::BasicTests::RefcountTest::RecountNone
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "shared/Core/sys/std_inc.h"
+#include "TestModel/BasicTests/RefcountTest/RecountNone.h"
+
+namespace BasicTests {
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// constructors and destructor
+
+RecountNone::~RecountNone () {
+	//#UC START# *49C8B1F7010A_DESTR_BODY*
+	//#UC END# *49C8B1F7010A_DESTR_BODY*
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// self implementation
+
+void RecountNone::prepare_to_visualize () const {
+	//#UC START# *49C8B1F7010A_PREPARE_TO_VISUALIZE3_TEST*
+	//sdgsdgsdg
+	//sdgsdgsdg
+	//#UC END# *49C8B1F7010A_PREPARE_TO_VISUALIZE3_TEST*
+	
+	myViewIsInitialized = true;
+}
+
+} // namespace BasicTests
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

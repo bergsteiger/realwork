@@ -1,0 +1,78 @@
+C
+B
+A
+ListTest
+TkwCompiledMain
+TkwCompiledMain
+ListTest
+A
+B
+C
+VOID Test ListTest
+ : A
+  : B
+   : C
+    : D
+    ; // : D
+    
+   ; // : C
+   
+  ; // : B
+  
+ ; // : A
+ 
+ ARRAY FUNCTION LIST
+  ^ IN aFunctor
+  OBJECT IN anObject
+  OBJECT VAR l_Element
+  anObject
+  l_Element
+  pop:Word:SetValuePrim
+  [
+   true
+   BEGIN
+    (
+     l_Element
+     aFunctor
+     DO
+    )
+    l_Element
+    pop:Word:SetValue
+    if
+     (
+      l_Element
+      IsNil
+     )
+    then
+     BREAK
+    l_Element
+   END
+   WHILEDO
+  ]
+  Result
+  pop:Word:SetValuePrim
+ ; // ARRAY FUNCTION LIST
+ 
+ A :: 'B' :: 'C' :: 'D' |^@
+ LIST
+ %P
+ (
+  |N
+  .
+ )
+ SWAP
+ Array:Iterate
+ A :: 'B' :: 'C' :: 'D' |^@
+ LIST
+ %P
+ Array:Reverted
+ (
+  |N
+  .
+ )
+ SWAP
+ Array:Iterate
+ ListTest
+ DumpElement
+; // VOID Test ListTest
+

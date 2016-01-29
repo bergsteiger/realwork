@@ -1,0 +1,127 @@
+<<Library>> Internet
+ %UID '483E96C10305'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '561F9F7D02A7' /* ScriptEngine */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "is namespace" true
+  %upv "vendor" '/external/NotFinished/Borland/Delphi'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> XMLIntf
+   %UID '483E97460331'
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %CHILDREN
+    
+     <<Facet>> IXMLNode
+      %UID '483E97620058'
+     ; // IXMLNode
+     <<Facet>> IXMLNodeList
+      %UID '483E976B0393'
+     ; // IXMLNodeList
+     <<Facet>> IXMLDocument
+      %UID '483E978A0380'
+     ; // IXMLDocument
+   ; // %CHILDREN
+  ; // XMLIntf
+  <<Unit>> XML
+   %UID '483E97C402FD'
+   %DEPENDS
+    U$ '483E97460331' /* XMLIntf */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '483E96C10305' /* Internet */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> XMLDoc
+      %UID '483E9810029D'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TXMLDocument
+         %UID '483E98560141'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TXMLDocument
+      ; // %CHILDREN
+     ; // XMLDoc
+   ; // %CHILDREN
+  ; // XML
+  <<Unit>> Web
+   %UID '49EC9CDD0093'
+   %DEPENDS
+    U$ '4799D29F033F' /* Implementation */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> shdocvw
+      %UID '49EC9CF0030B'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TWebBrowser
+         %UID '49EC9D0E00F0'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49EEFABF023A' /* TOleControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "0A0028BD5E33"
+            %UID '0A0028BD5E33'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 0A0028BD5E33
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '4B91F18CB75A'
+            %SUMMARY 'Регистрация TWebBrowser' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TWebBrowser
+      ; // %CHILDREN
+     ; // shdocvw
+   ; // %CHILDREN
+  ; // Web
+ ; // %CHILDREN
+; // Internet

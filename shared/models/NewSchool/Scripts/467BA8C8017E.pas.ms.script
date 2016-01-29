@@ -1,0 +1,3812 @@
+// afwControl 467BA8C8017E Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_467BA8C8017E
+
+FORWARD ME_48BC1AC0027C
+
+: ME_6C9CF7A849D4
+ CONST UID '6C9CF7A849D4'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwControlPrim' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BC1AC0027C // TafwControlPrim
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_6C9CF7A849D4 Ini_Reg_Class
+
+: ME_48BC1DD8013E
+ CONST UID '48BC1DD8013E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BC1AC0027C // TafwControlPrim
+ ;
+ : Target WL 'ME_478CF30500C1' '4AB0997B00A2.pas.ms.script' // Classes
+ ;
+
+ref; // ME_48BC1DD8013E 
+
+: ME_5601CA0C6D5C
+ CONST UID '5601CA0C6D5C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BC1AC0027C // TafwControlPrim
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_5601CA0C6D5C 
+
+: ME_48BC1AC0027C
+ CONST UID '48BC1AC0027C'
+ CONST Name 'TafwControlPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( WL 'ME_475410380119' '4754101B004F.pas.ms.script' // TOvcBase
+ WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_6C9CF7A849D4 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_48BC1DD8013E // 
+ ME_5601CA0C6D5C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwControlPrim.pas'
+
+ref; // ME_48BC1AC0027C TafwControlPrim
+
+FORWARD ME_48BD1ABE023D
+
+: ME_48BD1B2A0096
+ CONST UID '48BD1B2A0096'
+ CONST Name 'f_Tools'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1ABE023D // afwToolOwner
+ ;
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ ;
+
+ref; // ME_48BD1B2A0096 f_Tools
+
+: ME_48BD1B31032C
+ CONST UID '48BD1B31032C'
+ CONST Name 'Cleanup'
+ CONST Class class_Operation
+ : Stereotype st_override::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1ABE023D // afwToolOwner
+ ;
+ CONST "is static" false
+
+ref; // ME_48BD1B31032C Cleanup
+
+: ME_48BD1CC50335
+ CONST UID '48BD1CC50335'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1ABE023D // afwToolOwner
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_48BD1CC50335 
+
+: ME_46A5D45903CC_ME_48BD1ABE023D
+ CONST UID '46A5D45903CC'
+ CONST Name 'AddTool'
+ : Original WL 'ME_46A5D45903CC' '4677FBA70343.pas.ms.script' // AddTool
+ ;
+ : Implementor ME_48BD1ABE023D // afwToolOwner
+ ;
+ref; // ME_46A5D45903CC_ME_48BD1ABE023D AddTool
+
+: ME_46A5D47201FC_ME_48BD1ABE023D
+ CONST UID '46A5D47201FC'
+ CONST Name 'RemoveTool'
+ : Original WL 'ME_46A5D47201FC' '4677FBA70343.pas.ms.script' // RemoveTool
+ ;
+ : Implementor ME_48BD1ABE023D // afwToolOwner
+ ;
+ref; // ME_46A5D47201FC_ME_48BD1ABE023D RemoveTool
+
+: ME_48BD1ABE023D
+ CONST UID '48BD1ABE023D'
+ CONST Name 'afwToolOwner'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Implements
+   @ ( WL 'ME_467D37E40254' '4677FBA70343.pas.ms.script' // Il3ToolOwner
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_48BD1B2A0096 // f_Tools
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_48BD1B31032C // Cleanup
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46A5D45903CC_ME_48BD1ABE023D // AddTool
+ ME_46A5D47201FC_ME_48BD1ABE023D // RemoveTool
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_48BD1CC50335 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas'
+ CONST extprop:pas:TypeName '_afwToolOwner_'
+
+ref; // ME_48BD1ABE023D afwToolOwner
+
+FORWARD ME_48BD1975029B
+
+: ME_48BD5B80018D
+ CONST UID '48BD5B80018D'
+ CONST Name 'fUpdateCount'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48BD5B80018D fUpdateCount
+
+: ME_48BD5C64011D
+ CONST UID '48BD5C64011D'
+ CONST Name 'fStopChangeNotify'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48BD5C64011D fStopChangeNotify
+
+: ME_48BD5C8001A9
+ CONST UID '48BD5C8001A9'
+ CONST Name 'fUpdateNeed'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48BD5C8001A9 fUpdateNeed
+
+: ME_48BD5F5200FB
+ CONST UID '48BD5F5200FB'
+ CONST Name 'fDoChangedCount'
+ CONST Class class_Attribute
+ %SUMMARY 'флаг, используемый для разрешения коллизий вложенных вызовов DoChanged' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48BD5F5200FB fDoChangedCount
+
+: ME_48BFA03303BC
+ CONST UID '48BFA03303BC'
+ CONST Name 'DragImageList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48BFA01B02E1' '4799D29F033F.pas.ms.script' // TDragImageList
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_48BFA03303BC DragImageList
+
+: ME_48BFA3240151
+ CONST UID '48BFA3240151'
+ CONST Name 'InDrop'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_48BFA3240151 InDrop
+
+: ME_48C67F3E0017
+ CONST UID '48C67F3E0017'
+ CONST Name 'f_SetDragDrop'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48C67F3E0017 f_SetDragDrop
+
+: ME_48C685CA02BA
+ CONST UID '48C685CA02BA'
+ CONST Name 'IsActiveDropSource'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_48C685CA02BA IsActiveDropSource
+
+: ME_48C68AFF011D
+ CONST UID '48C68AFF011D'
+ CONST Name 'f_Canvas'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48C68AA40296' '473C3BEE0334.pas.ms.script' // Tl3WinControlCanvas
+ ;
+
+ref; // ME_48C68AFF011D f_Canvas
+
+: ME_48C6B5BB03B4
+ CONST UID '48C6B5BB03B4'
+ CONST Name 'Canvas'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48C68AA40296' '473C3BEE0334.pas.ms.script' // Tl3WinControlCanvas
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_48C6B5BB03B4 Canvas
+
+: ME_48C6B85801F8
+ CONST UID '48C6B85801F8'
+ CONST Name 'DrawSpecial'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_48C6B85801F8 DrawSpecial
+
+: ME_48C6BB3F027E
+ CONST UID '48C6BB3F027E'
+ CONST Name 'OnDrawSpecialChange'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_48C6BB3F027E OnDrawSpecialChange
+
+: ME_48C6C02900F7
+ CONST UID '48C6C02900F7'
+ CONST Name 'f_PaintCount'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48C6C02900F7 f_PaintCount
+
+: ME_48C78DC303A9
+ CONST UID '48C78DC303A9'
+ CONST Name 'BorderStyle'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'стиль рамки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_482B17100178' '4799D29F033F.pas.ms.script' // TBorderStyle
+ ;
+ CONST Value 'bsNone'
+ : ValueType WL 'ME_482B17100178' '4799D29F033F.pas.ms.script' // TBorderStyle
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_48C78DC303A9 BorderStyle
+
+: ME_48C79014036C
+ CONST UID '48C79014036C'
+ CONST Name 'ScrollStyle'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'какие ScrollBar''ы нужны' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48C78D6601CC' '4799D29F033F.pas.ms.script' // TScrollStyle
+ ;
+ CONST Value 'ssNone'
+ : ValueType WL 'ME_48C78D6601CC' '4799D29F033F.pas.ms.script' // TScrollStyle
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_48C79014036C ScrollStyle
+
+: ME_48C7AF750015
+ CONST UID '48C7AF750015'
+ CONST Name 'InPopup'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_48C7AF750015 InPopup
+
+: ME_48C7CDAB00B5
+ CONST UID '48C7CDAB00B5'
+ CONST Name 'f_LastHint'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_48C7CDAB00B5 f_LastHint
+
+: ME_48C7CDB30369
+ CONST UID '48C7CDB30369'
+ CONST Name 'f_LastHintPt'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A1052001B2' '4677FBA70343.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_48C7CDB30369 f_LastHintPt
+
+: ME_339F24636F52
+ CONST UID '339F24636F52'
+ CONST Name 'f_DragImageList'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DragImageList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48BFA01B02E1' '4799D29F033F.pas.ms.script' // TDragImageList
+ ;
+
+ref; // ME_339F24636F52 f_DragImageList
+
+: ME_420DBEFE22EB
+ CONST UID '420DBEFE22EB'
+ CONST Name 'f_InDrop'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства InDrop' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_420DBEFE22EB f_InDrop
+
+: ME_7E1044E5787D
+ CONST UID '7E1044E5787D'
+ CONST Name 'f_IsActiveDropSource'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства IsActiveDropSource' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_7E1044E5787D f_IsActiveDropSource
+
+: ME_27D199D2111E
+ CONST UID '27D199D2111E'
+ CONST Name 'f_DrawSpecial'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DrawSpecial' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_27D199D2111E f_DrawSpecial
+
+: ME_5A26AACEF630
+ CONST UID '5A26AACEF630'
+ CONST Name 'f_OnDrawSpecialChange'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnDrawSpecialChange' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_5A26AACEF630 f_OnDrawSpecialChange
+
+: ME_5656E18644C5
+ CONST UID '5656E18644C5'
+ CONST Name 'f_BorderStyle'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства BorderStyle' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_482B17100178' '4799D29F033F.pas.ms.script' // TBorderStyle
+ ;
+
+ref; // ME_5656E18644C5 f_BorderStyle
+
+: ME_2CAE4C88A493
+ CONST UID '2CAE4C88A493'
+ CONST Name 'f_ScrollStyle'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ScrollStyle' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48C78D6601CC' '4799D29F033F.pas.ms.script' // TScrollStyle
+ ;
+
+ref; // ME_2CAE4C88A493 f_ScrollStyle
+
+: ME_C1388C9102B0
+ CONST UID 'C1388C9102B0'
+ CONST Name 'f_InPopup'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства InPopup' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_C1388C9102B0 f_InPopup
+
+: ME_48BD1E3C03B5
+ CONST UID '48BD1E3C03B5'
+ CONST Name 'GetCommands'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_475FEDD003AD' '473C569D0287.pas.ms.script' // TafwCommands
+ ;
+
+ref; // ME_48BD1E3C03B5 GetCommands
+
+: ME_48BD21E60240
+ CONST UID '48BD21E60240'
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_48BD21E60240 aMessage
+
+: ME_48BD21E60262
+ CONST UID '48BD21E60262'
+ CONST Name 'aTime'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_48BD21E60262 aTime
+
+: ME_48BD21CE01C0
+ CONST UID '48BD21CE01C0'
+ CONST Name 'ProcessMessage'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48BD21E60240 // aMessage
+ ME_48BD21E60262 // aTime
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48BD21CE01C0 ProcessMessage
+
+: ME_48BD22F40041
+ CONST UID '48BD22F40041'
+ CONST Name 'Cmd'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476A8035027F' '4677FBA70343.pas.ms.script' // Tl3OperationCode
+ ;
+
+ref; // ME_48BD22F40041 Cmd
+
+: ME_48BD22F40065
+ CONST UID '48BD22F40065'
+ CONST Name 'aForce'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48BD22F40065 aForce
+
+: ME_48BD22F40088
+ CONST UID '48BD22F40088'
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48BD22F40088 aCount
+
+: ME_48BD22E601F2
+ CONST UID '48BD22E601F2'
+ CONST Name 'DoProcessCommand'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48BD22F40041 // Cmd
+ ME_48BD22F40065 // aForce
+ ME_48BD22F40088 // aCount
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48BD22E601F2 DoProcessCommand
+
+: ME_48BD5F73035B
+ CONST UID '48BD5F73035B'
+ CONST Name 'DoChanging'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48BD5F73035B DoChanging
+
+: ME_48BD5F8303C4
+ CONST UID '48BD5F8303C4'
+ CONST Name 'DoChanged'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48BD5F8303C4 DoChanged
+
+: ME_48BD624A0306
+ CONST UID '48BD624A0306'
+ CONST Name 'IsInChange'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48BD624A0306 IsInChange
+
+: ME_48BD632F0215
+ CONST UID '48BD632F0215'
+ CONST Name 'ChangeNotifyOff'
+ CONST Class class_Operation
+ %SUMMARY 'заблокировать нотификацию об изменении хранилища.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48BD632F0215 ChangeNotifyOff
+
+: ME_48BD635602B4
+ CONST UID '48BD635602B4'
+ CONST Name 'aChange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48BD635602B4 aChange
+
+: ME_48BD634C0086
+ CONST UID '48BD634C0086'
+ CONST Name 'ChangeNotifyOn'
+ CONST Class class_Operation
+ %SUMMARY 'разблокировать нотификацию об изменении хранилища.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48BD635602B4 // aChange
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48BD634C0086 ChangeNotifyOn
+
+: ME_48BF9F4E0119
+ CONST UID '48BF9F4E0119'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A1052001B2' '4677FBA70343.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_48BF9F4E0119 aPoint
+
+: ME_48BF9F4802D3
+ CONST UID '48BF9F4802D3'
+ CONST Name 'UpdateDragImage'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48BF9F4E0119 // aPoint
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48BF9F4802D3 UpdateDragImage
+
+: ME_48BFA14101F6
+ CONST UID '48BFA14101F6'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
+ ;
+
+ref; // ME_48BFA14101F6 aData
+
+: ME_48BFA1410235
+ CONST UID '48BFA1410235'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A1052001B2' '4677FBA70343.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_48BFA1410235 aPoint
+
+: ME_48BFA1300211
+ CONST UID '48BFA1300211'
+ CONST Name 'DoDoDragOver'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48BFA14101F6 // aData
+ ME_48BFA1410235 // aPoint
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48BFA1300211 DoDoDragOver
+
+: ME_48BFB42C002A
+ CONST UID '48BFB42C002A'
+ CONST Name 'DoGetAcceptableFormats'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A449C50391' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormats
+ ;
+
+ref; // ME_48BFB42C002A DoGetAcceptableFormats
+
+: ME_48BFB6EA01AD
+ CONST UID '48BFB6EA01AD'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_48BFB6EA01AD aFormat
+
+: ME_48BFB6EA0209
+ CONST UID '48BFB6EA0209'
+ CONST Name 'aMedium'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5B1570253' '4677FBA70343.pas.ms.script' // Tl3StoragePlace
+ ;
+
+ref; // ME_48BFB6EA0209 aMedium
+
+: ME_48BFB6EA026B
+ CONST UID '48BFB6EA026B'
+ CONST Name 'dwEffect'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48BFB6EA026B dwEffect
+
+: ME_48BFB6D800B3
+ CONST UID '48BFB6D800B3'
+ CONST Name 'DoDoDrop'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48BFB6EA01AD // aFormat
+ ME_48BFB6EA0209 // aMedium
+ ME_48BFB6EA026B // dwEffect
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48BFB6D800B3 DoDoDrop
+
+: ME_48BFB771026B
+ CONST UID '48BFB771026B'
+ CONST Name 'aKeys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48BFB771026B aKeys
+
+: ME_48BFB75F01ED
+ CONST UID '48BFB75F01ED'
+ CONST Name 'DoKeys2Effect'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_48BFB771026B // aKeys
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48BFB75F01ED DoKeys2Effect
+
+: ME_48BFBC8002CB
+ CONST UID '48BFBC8002CB'
+ CONST Name 'DoDoDragLeave'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48BFBC8002CB DoDoDragLeave
+
+: ME_48BFC48C0299
+ CONST UID '48BFC48C0299'
+ CONST Name 'WhatUpdate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A1022002A8' '467823B7002C.pas.ms.script' // TafwScrollBars
+ ;
+
+ref; // ME_48BFC48C0299 WhatUpdate
+
+: ME_48BFC47D00F4
+ CONST UID '48BFC47D00F4'
+ CONST Name 'DoUpdateScrollRange'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48BFC48C0299 // WhatUpdate
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48BFC47D00F4 DoUpdateScrollRange
+
+: ME_48C67F6500BD
+ CONST UID '48C67F6500BD'
+ CONST Name 'RevokeDragDrop'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48C67F6500BD RevokeDragDrop
+
+: ME_48C67F8202F9
+ CONST UID '48C67F8202F9'
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_48C67F18015C' '476F78840219.pas.ms.script' // TWMDestroy
+ ;
+
+ref; // ME_48C67F8202F9 Message
+
+: ME_48C67F7C0343
+ CONST UID '48C67F7C0343'
+ CONST Name 'WMDestroy'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C67F8202F9 // Message
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "Message ID" 'WM_DESTROY'
+
+ref; // ME_48C67F7C0343 WMDestroy
+
+: ME_48C6860F0199
+ CONST UID '48C6860F0199'
+ CONST Name 'aDataObject'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
+ ;
+
+ref; // ME_48C6860F0199 aDataObject
+
+: ME_48C6860F0208
+ CONST UID '48C6860F0208'
+ CONST Name 'anEffect'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48C6860F0208 anEffect
+
+: ME_48C6860F027C
+ CONST UID '48C6860F027C'
+ CONST Name 'theEffect'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48C6860F027C theEffect
+
+: ME_48C685E600A1
+ CONST UID '48C685E600A1'
+ CONST Name 'DoDragDrop'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_48C6860F0199 // aDataObject
+ ME_48C6860F0208 // anEffect
+ ME_48C6860F027C // theEffect
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C685E600A1 DoDragDrop
+
+: ME_48C68B0D0146
+ CONST UID '48C68B0D0146'
+ CONST Name 'FreeCanvas'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48C68B0D0146 FreeCanvas
+
+: ME_48C6B7E80104
+ CONST UID '48C6B7E80104'
+ CONST Name 'GetCaret'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_4728CC880316' '4677FBA70343.pas.ms.script' // Il3Caret
+ ;
+
+ref; // ME_48C6B7E80104 GetCaret
+
+: ME_48C6B8170109
+ CONST UID '48C6B8170109'
+ CONST Name 'aSubTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_48C6B8170109 aSubTarget
+
+: ME_48C6B817018C
+ CONST UID '48C6B817018C'
+ CONST Name 'Canvas'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_48C6B817018C Canvas
+
+: ME_48C6B8170212
+ CONST UID '48C6B8170212'
+ CONST Name 'R'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
+ ;
+
+ref; // ME_48C6B8170212 R
+
+: ME_48C6B8170295
+ CONST UID '48C6B8170295'
+ CONST Name 'SubType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+
+ref; // ME_48C6B8170295 SubType
+
+: ME_48C6B817031B
+ CONST UID '48C6B817031B'
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_48C6B817031B aSub
+
+: ME_48C6B7FF01F8
+ CONST UID '48C6B7FF01F8'
+ CONST Name 'DoDrawSub'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C6B8170109 // aSubTarget
+ ME_48C6B817018C // Canvas
+ ME_48C6B8170212 // R
+ ME_48C6B8170295 // SubType
+ ME_48C6B817031B // aSub
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C6B7FF01F8 DoDrawSub
+
+: ME_48C6B83200DE
+ CONST UID '48C6B83200DE'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_48C6B83200DE Sender
+
+: ME_48C6B82C028B
+ CONST UID '48C6B82C028B'
+ CONST Name 'DoDrawSpecialChange'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C6B83200DE // Sender
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C6B82C028B DoDrawSpecialChange
+
+: ME_48C6C04402AA
+ CONST UID '48C6C04402AA'
+ CONST Name 'CN'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_48C6C04402AA CN
+
+: ME_48C6C044025E
+ CONST UID '48C6C044025E'
+ CONST Name 'Paint'
+ CONST Class class_Operation
+ %SUMMARY 'процедура рисования внешнего вида управляющего элемента' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C6C04402AA // CN
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C6C044025E Paint
+
+: ME_48C6C421015B
+ CONST UID '48C6C421015B'
+ CONST Name 'InUpdating'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48C6C421015B InUpdating
+
+: ME_48C7AFA403E2
+ CONST UID '48C7AFA403E2'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A1052001B2' '4677FBA70343.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_48C7AFA403E2 aPoint
+
+: ME_48C7AF9D0203
+ CONST UID '48C7AF9D0203'
+ CONST Name 'ShowMenu'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C7AFA403E2 // aPoint
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7AF9D0203 ShowMenu
+
+: ME_48C7AFAA014B
+ CONST UID '48C7AFAA014B'
+ CONST Name 'ShowMenu'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48C7AFAA014B ShowMenu
+
+: ME_48C7B8170017
+ CONST UID '48C7B8170017'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_48C7B8170017 Msg
+
+: ME_48C7B81100B7
+ CONST UID '48C7B81100B7'
+ CONST Name 'CMCOLORCHANGED'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C7B8170017 // Msg
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "Message ID" 'CM_COLORCHANGED'
+
+ref; // ME_48C7B81100B7 CMCOLORCHANGED
+
+: ME_48C7B8290256
+ CONST UID '48C7B8290256'
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_48C7B8290256 Message
+
+: ME_48C7B821034E
+ CONST UID '48C7B821034E'
+ CONST Name 'CMCtl3DChanged'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C7B8290256 // Message
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "Message ID" 'CM_CTL3DCHANGED'
+
+ref; // ME_48C7B821034E CMCtl3DChanged
+
+: ME_48C7BA14032D
+ CONST UID '48C7BA14032D'
+ CONST Name 'Bevel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48C7B9BC037B' '4799D29F033F.pas.ms.script' // TBevelCut
+ ;
+
+ref; // ME_48C7BA14032D Bevel
+
+: ME_48C7BA1403CC
+ CONST UID '48C7BA1403CC'
+ CONST Name 'TopColor'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A44A9E0112' '4677FBA70343.pas.ms.script' // Tl3Color
+ ;
+
+ref; // ME_48C7BA1403CC TopColor
+
+: ME_48C7BA15007C
+ CONST UID '48C7BA15007C'
+ CONST Name 'BottomColor'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A44A9E0112' '4677FBA70343.pas.ms.script' // Tl3Color
+ ;
+
+ref; // ME_48C7BA15007C BottomColor
+
+: ME_48C7B9F200D9
+ CONST UID '48C7B9F200D9'
+ CONST Name 'AdjustColors'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C7BA14032D // Bevel
+ ME_48C7BA1403CC // TopColor
+ ME_48C7BA15007C // BottomColor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7B9F200D9 AdjustColors
+
+: ME_48C7BB490341
+ CONST UID '48C7BB490341'
+ CONST Name 'DataCodePage'
+ CONST Class class_Operation
+ %SUMMARY 'Кодировка данных в том месте, куда происходит вставка' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48C7BB490341 DataCodePage
+
+: ME_48C7BD8702AD
+ CONST UID '48C7BD8702AD'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_48C7BD8702AD aFormat
+
+: ME_48C7BD870360
+ CONST UID '48C7BD870360'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
+ ;
+
+ref; // ME_48C7BD870360 aData
+
+: ME_48C7BD7B0257
+ CONST UID '48C7BD7B0257'
+ CONST Name 'DropFormattedData'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48C7BD8702AD // aFormat
+ ME_48C7BD870360 // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7BD7B0257 DropFormattedData
+
+: ME_48C7BEE4038C
+ CONST UID '48C7BEE4038C'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
+ ;
+
+ref; // ME_48C7BEE4038C aData
+
+: ME_48C7BEDC01A7
+ CONST UID '48C7BEDC01A7'
+ CONST Name 'GetAcceptableFormatsFor'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A449C50391' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormats
+ ;
+ : Parameters
+   @ ( ME_48C7BEE4038C // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7BEDC01A7 GetAcceptableFormatsFor
+
+: ME_48C7BFBF0287
+ CONST UID '48C7BFBF0287'
+ CONST Name 'aCommands'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478D048D01CC' '4AB0C3C60310.pas.ms.script' // array of AnsiString
+ ;
+
+ref; // ME_48C7BFBF0287 aCommands
+
+: ME_48C7BFBF033D
+ CONST UID '48C7BFBF033D'
+ CONST Name 'theCommands'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_475FEDD003AD' '473C569D0287.pas.ms.script' // TafwCommands
+ ;
+
+ref; // ME_48C7BFBF033D theCommands
+
+: ME_48C7BFA30058
+ CONST UID '48C7BFA30058'
+ CONST Name 'SetCommands'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_48C7BFBF0287 // aCommands
+ ME_48C7BFBF033D // theCommands
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7BFA30058 SetCommands
+
+: ME_48C7C1670304
+ CONST UID '48C7C1670304'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_48C7C1670304 aFormat
+
+: ME_48C7C16703BE
+ CONST UID '48C7C16703BE'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
+ ;
+
+ref; // ME_48C7C16703BE aData
+
+: ME_48C7C15B012E
+ CONST UID '48C7C15B012E'
+ CONST Name 'PasteFromClipboard'
+ CONST Class class_Operation
+ %SUMMARY 'вставить текст из буфера обмена в формате aFormat' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48C7C1670304 // aFormat
+ ME_48C7C16703BE // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7C15B012E PasteFromClipboard
+
+: ME_48C7C1A2010C
+ CONST UID '48C7C1A2010C'
+ CONST Name 'Paste'
+ CONST Class class_Operation
+ %SUMMARY 'вставить из буфера обмена.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48C7C1A2010C Paste
+
+: ME_48C7C4AC021D
+ CONST UID '48C7C4AC021D'
+ CONST Name 'IID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF8F202C7' '478CF8070260.pas.ms.script' // Tl3GUID
+ ;
+
+ref; // ME_48C7C4AC021D IID
+
+: ME_48C7C4AC02E2
+ CONST UID '48C7C4AC02E2'
+ CONST Name 'Obj'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+
+ref; // ME_48C7C4AC02E2 Obj
+
+: ME_48C7C4990287
+ CONST UID '48C7C4990287'
+ CONST Name 'COMQueryInterface'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_49427DEE015B' '478CF8070260.pas.ms.script' // Tl3HResult
+ ;
+ : Parameters
+   @ ( ME_48C7C4AC021D // IID
+ ME_48C7C4AC02E2 // Obj
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7C4990287 COMQueryInterface
+
+: ME_48C7CD7103B1
+ CONST UID '48C7CD7103B1'
+ CONST Name 'CancelHint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48C7CD7103B1 CancelHint
+
+: ME_4AB0D63C0134
+ CONST UID '4AB0D63C0134'
+ CONST Name 'aPt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A1052001B2' '4677FBA70343.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_4AB0D63C0134 aPt
+
+: ME_48C7CD7F00EE
+ CONST UID '48C7CD7F00EE'
+ CONST Name 'ActivateHint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_4AB0D63C0134 // aPt
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7CD7F00EE ActivateHint
+
+: ME_48C7CD920267
+ CONST UID '48C7CD920267'
+ CONST Name 'ActivateHint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_48C7CD920267 ActivateHint
+
+: ME_4B05241502C5
+ CONST UID '4B05241502C5'
+ CONST Name 'DoMenuUnlockedFixUp'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_4B05241502C5 DoMenuUnlockedFixUp
+
+: ME_4B0524AF024C
+ CONST UID '4B0524AF024C'
+ CONST Name 'IsMenuLocked'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4B0524AF024C IsMenuLocked
+
+: ME_4D3974AB02E5
+ CONST UID '4D3974AB02E5'
+ CONST Name 'DoAfterCreateCanvas'
+ CONST Class class_Operation
+ %SUMMARY 'Вызыввается после создания канвы для установки, например, Zoom''а в наследниках.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+
+ref; // ME_4D3974AB02E5 DoAfterCreateCanvas
+
+: ME_4D8B85AF00ED
+ CONST UID '4D8B85AF00ED'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_48E22C5E0073' '476F78840219.pas.ms.script' // TWMSetFocus
+ ;
+
+ref; // ME_4D8B85AF00ED Msg
+
+: ME_4D8B85A10073
+ CONST UID '4D8B85A10073'
+ CONST Name 'WMSetFocus'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_4D8B85AF00ED // Msg
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "Message ID" 'WM_SETFOCUS'
+
+ref; // ME_4D8B85A10073 WMSetFocus
+
+: ME_4D8B85CF026C
+ CONST UID '4D8B85CF026C'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_48E22C340122' '476F78840219.pas.ms.script' // TWMKillFocus
+ ;
+
+ref; // ME_4D8B85CF026C Msg
+
+: ME_4D8B85C3018D
+ CONST UID '4D8B85C3018D'
+ CONST Name 'WMKillFocus'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Parameters
+   @ ( ME_4D8B85CF026C // Msg
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "Message ID" 'WM_KILLFOCUS'
+
+ref; // ME_4D8B85C3018D WMKillFocus
+
+: ME_29A966BC4F9F
+ CONST UID '29A966BC4F9F'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwBaseControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_29A966BC4F9F Ini_Reg_Class
+
+: ME_48BD253E02B0
+ CONST UID '48BD253E02B0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48BD24F800DF' '48BD24D4011D.pas.ms.script' // Operations
+ ;
+
+ref; // ME_48BD253E02B0 
+
+: ME_48BD60930207
+ CONST UID '48BD60930207'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_4872576702D1' '4678193C009C.pas.ms.script' // EDoChangedAlreadyDone
+ ;
+
+ref; // ME_48BD60930207 
+
+: ME_48BFA2D5002F
+ CONST UID '48BFA2D5002F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_4872576702D1' '4678193C009C.pas.ms.script' // EDoChangedAlreadyDone
+ ;
+
+ref; // ME_48BFA2D5002F 
+
+: ME_48BFA2DB0159
+ CONST UID '48BFA2DB0159'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48BD24F800DF' '48BD24D4011D.pas.ms.script' // Operations
+ ;
+
+ref; // ME_48BFA2DB0159 
+
+: ME_48BFA30C00CA
+ CONST UID '48BFA30C00CA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_47D15062022A' '473C3BEE0334.pas.ms.script' // Tl3Bitmap
+ ;
+
+ref; // ME_48BFA30C00CA 
+
+: ME_48BFA35A02BC
+ CONST UID '48BFA35A02BC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_48BFA35A02BC 
+
+: ME_48C681600091
+ CONST UID '48C681600091'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48C6811302CB' '47913B47006E.pas.ms.script' // l3SysUtils
+ ;
+
+ref; // ME_48C681600091 
+
+: ME_48C682C70278
+ CONST UID '48C682C70278'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48C6827900D7' '4B8936150120.pas.ms.script' // Tl3DropTarget
+ ;
+
+ref; // ME_48C682C70278 
+
+: ME_48C6875F00AF
+ CONST UID '48C6875F00AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_48C68724011E' '4B8936150120.pas.ms.script' // Tl3DropSource
+ ;
+
+ref; // ME_48C6875F00AF 
+
+: ME_48C6B5E1001C
+ CONST UID '48C6B5E1001C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_48C6B5E1001C 
+
+: ME_48C6C90F0112
+ CONST UID '48C6C90F0112'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_48C6C90F0112 
+
+: ME_48C796FC0290
+ CONST UID '48C796FC0290'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_47E1227902E1' '47877A6F000A.pas.ms.script' // afwVCL
+ ;
+
+ref; // ME_48C796FC0290 
+
+: ME_48C7BB910174
+ CONST UID '48C7BB910174'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_4804ABA703CA' '55C4AEC801CA.pas.ms.script' // Colors$1
+ ;
+
+ref; // ME_48C7BB910174 
+
+: ME_48C7BBA2008A
+ CONST UID '48C7BBA2008A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_48C7BBA2008A 
+
+FORWARD ME_48C7C8A9035E
+
+: ME_48C7C882039F
+ CONST UID '48C7C882039F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target ME_48C7C8A9035E // TafwHintManager
+ ;
+
+ref; // ME_48C7C882039F 
+
+: ME_4C1A33B600B5
+ CONST UID '4C1A33B600B5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_4C1A312002E3' '47E3C64F037E.pas.ms.script' // CheckWasExceptionInFreeInOwner
+ ;
+
+ref; // ME_4C1A33B600B5 
+
+: ME_4FAE8FE70021
+ CONST UID '4FAE8FE70021'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_4FAE801F00D4' '473C3BEE0334.pas.ms.script' // Tl3CustomControlCanvas
+ ;
+
+ref; // ME_4FAE8FE70021 
+
+: ME_EAFA2921CE62
+ CONST UID 'EAFA2921CE62'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BD1975029B // TafwBaseControl
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_EAFA2921CE62 
+
+: ME_46A5B20202BD_ME_48BD1975029B
+ CONST UID '46A5B20202BD'
+ CONST Name 'GetAcceptableFormats'
+ : Original WL 'ME_46A5B20202BD' '4677FBA70343.pas.ms.script' // GetAcceptableFormats
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_46A5B20202BD_ME_48BD1975029B GetAcceptableFormats
+
+: ME_46A5B27A01C5_ME_48BD1975029B
+ CONST UID '46A5B27A01C5'
+ CONST Name 'DoDrop'
+ : Original WL 'ME_46A5B27A01C5' '4677FBA70343.pas.ms.script' // DoDrop
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_46A5B27A01C5_ME_48BD1975029B DoDrop
+
+: ME_46A5B330031B_ME_48BD1975029B
+ CONST UID '46A5B330031B'
+ CONST Name 'DoDragOver'
+ : Original WL 'ME_46A5B330031B' '4677FBA70343.pas.ms.script' // DoDragOver
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_46A5B330031B_ME_48BD1975029B DoDragOver
+
+: ME_46A5B35A0249_ME_48BD1975029B
+ CONST UID '46A5B35A0249'
+ CONST Name 'DoDragEnter'
+ : Original WL 'ME_46A5B35A0249' '4677FBA70343.pas.ms.script' // DoDragEnter
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_46A5B35A0249_ME_48BD1975029B DoDragEnter
+
+: ME_46A5B3750107_ME_48BD1975029B
+ CONST UID '46A5B3750107'
+ CONST Name 'DoDragLeave'
+ : Original WL 'ME_46A5B3750107' '4677FBA70343.pas.ms.script' // DoDragLeave
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_46A5B3750107_ME_48BD1975029B DoDragLeave
+
+: ME_46A5B38701B8_ME_48BD1975029B
+ CONST UID '46A5B38701B8'
+ CONST Name 'Keys2Effect'
+ : Original WL 'ME_46A5B38701B8' '4677FBA70343.pas.ms.script' // Keys2Effect
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_46A5B38701B8_ME_48BD1975029B Keys2Effect
+
+: ME_476F76A90267_ME_48BD1975029B
+ CONST UID '476F76A90267'
+ CONST Name 'ProcessCommand'
+ : Original WL 'ME_476F76A90267' '467C0CAA02AB.pas.ms.script' // ProcessCommand
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_476F76A90267_ME_48BD1975029B ProcessCommand
+
+: ME_47D64DFA00B3_ME_48BD1975029B
+ CONST UID '47D64DFA00B3'
+ CONST Name 'UpdateScrollRange'
+ : Original WL 'ME_47D64DFA00B3' '467823B7002C.pas.ms.script' // UpdateScrollRange
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_47D64DFA00B3_ME_48BD1975029B UpdateScrollRange
+
+: ME_4A5CBFFE0157_ME_48BD1975029B
+ CONST UID '4A5CBFFE0157'
+ CONST Name 'Changing'
+ : Original WL 'ME_4A5CBFFE0157' '47D810610398.pas.ms.script' // Changing
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_4A5CBFFE0157_ME_48BD1975029B Changing
+
+: ME_4A5CC00B03D5_ME_48BD1975029B
+ CONST UID '4A5CC00B03D5'
+ CONST Name 'Changed'
+ : Original WL 'ME_4A5CC00B03D5' '47D810610398.pas.ms.script' // Changed
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_4A5CC00B03D5_ME_48BD1975029B Changed
+
+: ME_4B052245037A_ME_48BD1975029B
+ CONST UID '4B052245037A'
+ CONST Name 'MenuUnlockedFixUp'
+ : Original WL 'ME_4B052245037A' '467823B7002C.pas.ms.script' // MenuUnlockedFixUp
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_4B052245037A_ME_48BD1975029B MenuUnlockedFixUp
+
+: ME_4CADECFB0114_ME_48BD1975029B
+ CONST UID '4CADECFB0114'
+ CONST Name 'IsA'
+ : Original WL 'ME_4CADECFB0114' '467823B7002C.pas.ms.script' // IsA
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_4CADECFB0114_ME_48BD1975029B IsA
+
+: ME_479731C50290_ME_48BD1975029B
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_479731C50290_ME_48BD1975029B Cleanup
+
+: ME_47D1602000C6_ME_48BD1975029B
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_47D1602000C6_ME_48BD1975029B Create
+
+: ME_47D160620295_ME_48BD1975029B
+ CONST UID '47D160620295'
+ CONST Name 'QueryInterface'
+ : Original WL 'ME_47D160620295' '4AB0997B00A2.pas.ms.script' // QueryInterface
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ CONST "calling conventions" 'stdcall'
+ref; // ME_47D160620295_ME_48BD1975029B QueryInterface
+
+: ME_47E136A80191_ME_48BD1975029B
+ CONST UID '47E136A80191'
+ CONST Name 'WndProc'
+ : Original WL 'ME_47E136A80191' '4799D29F033F.pas.ms.script' // WndProc
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_47E136A80191_ME_48BD1975029B WndProc
+
+: ME_48C67EB000EE_ME_48BD1975029B
+ CONST UID '48C67EB000EE'
+ CONST Name 'CreateWindowHandle'
+ : Original WL 'ME_48C67EB000EE' '4799D29F033F.pas.ms.script' // CreateWindowHandle
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_48C67EB000EE_ME_48BD1975029B CreateWindowHandle
+
+: ME_48C67EDF01C8_ME_48BD1975029B
+ CONST UID '48C67EDF01C8'
+ CONST Name 'DestroyWindowHandle'
+ : Original WL 'ME_48C67EDF01C8' '4799D29F033F.pas.ms.script' // DestroyWindowHandle
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_48C67EDF01C8_ME_48BD1975029B DestroyWindowHandle
+
+: ME_48C6BFF80313_ME_48BD1975029B
+ CONST UID '48C6BFF80313'
+ CONST Name 'PaintWindow'
+ : Original WL 'ME_48C6BFF80313' '4799D29F033F.pas.ms.script' // PaintWindow
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_48C6BFF80313_ME_48BD1975029B PaintWindow
+
+: ME_48C6CC4A0395_ME_48BD1975029B
+ CONST UID '48C6CC4A0395'
+ CONST Name 'Invalidate'
+ : Original WL 'ME_48C6CC4A0395' '4799D29F033F.pas.ms.script' // Invalidate
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_48C6CC4A0395_ME_48BD1975029B Invalidate
+
+: ME_48C7925A02E5_ME_48BD1975029B
+ CONST UID '48C7925A02E5'
+ CONST Name 'CreateParams'
+ : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ref; // ME_48C7925A02E5_ME_48BD1975029B CreateParams
+
+: ME_49CB9A6403B5_ME_48BD1975029B
+ CONST UID '49CB9A6403B5'
+ CONST Name 'LockPainting'
+ : Original WL 'ME_49CB9A6403B5' '4799D29F033F.pas.ms.script' // LockPainting
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ CONST "ifdef" 'l3HackedVCL'
+ref; // ME_49CB9A6403B5_ME_48BD1975029B LockPainting
+
+: ME_4D5D1505007A_ME_48BD1975029B
+ CONST UID '4D5D1505007A'
+ CONST Name 'SelectNext'
+ : Original WL 'ME_4D5D1505007A' '4799D29F033F.pas.ms.script' // SelectNext
+ ;
+ : Implementor ME_48BD1975029B // TafwBaseControl
+ ;
+ CONST "ifdef" 'l3HackedVCL'
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_4D5D1505007A_ME_48BD1975029B SelectNext
+
+: ME_48BD1975029B
+ CONST UID '48BD1975029B'
+ CONST Name 'TafwBaseControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализует интерфейс IUnknown и подсчет количества ссылок. Также предоставляет свойство Canvas для реализации процедуры рисования - Paint. Предоставляет реализацию интерфейсов для поддержки drag and drop' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_48BC1AC0027C // TafwControlPrim
+ ME_48BD1ABE023D // afwToolOwner
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_467D37430253' '467C0CAA02AB.pas.ms.script' // Il3CommandTarget
+ WL 'ME_467D378E00D4' '4677FBA70343.pas.ms.script' // Il3DropTarget
+ WL 'ME_467D37BB03BE' '4677FBA70343.pas.ms.script' // Il3ChangeRecipient
+ WL 'ME_47D64DC70132' '467823B7002C.pas.ms.script' // IafwControl
+ WL 'ME_4B05222202F7' '467823B7002C.pas.ms.script' // IafwMenuUnlockedPostBuild
+ WL 'ME_4DA7235700F3' '47EA4BB502F9.pas.ms.script' // afwVGSceneUpdater
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_48BD5B80018D // fUpdateCount
+ ME_48BD5C64011D // fStopChangeNotify
+ ME_48BD5C8001A9 // fUpdateNeed
+ ME_48BD5F5200FB // fDoChangedCount
+ ME_48BFA03303BC // DragImageList
+ ME_48BFA3240151 // InDrop
+ ME_48C67F3E0017 // f_SetDragDrop
+ ME_48C685CA02BA // IsActiveDropSource
+ ME_48C68AFF011D // f_Canvas
+ ME_48C6B5BB03B4 // Canvas
+ ME_48C6B85801F8 // DrawSpecial
+ ME_48C6BB3F027E // OnDrawSpecialChange
+ ME_48C6C02900F7 // f_PaintCount
+ ME_48C78DC303A9 // BorderStyle
+ ME_48C79014036C // ScrollStyle
+ ME_48C7AF750015 // InPopup
+ ME_48C7CDAB00B5 // f_LastHint
+ ME_48C7CDB30369 // f_LastHintPt
+ ME_339F24636F52 // f_DragImageList
+ ME_420DBEFE22EB // f_InDrop
+ ME_7E1044E5787D // f_IsActiveDropSource
+ ME_27D199D2111E // f_DrawSpecial
+ ME_5A26AACEF630 // f_OnDrawSpecialChange
+ ME_5656E18644C5 // f_BorderStyle
+ ME_2CAE4C88A493 // f_ScrollStyle
+ ME_C1388C9102B0 // f_InPopup
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_48BD1E3C03B5 // GetCommands
+ ME_48BD21CE01C0 // ProcessMessage
+ ME_48BD22E601F2 // DoProcessCommand
+ ME_48BD5F73035B // DoChanging
+ ME_48BD5F8303C4 // DoChanged
+ ME_48BD624A0306 // IsInChange
+ ME_48BD632F0215 // ChangeNotifyOff
+ ME_48BD634C0086 // ChangeNotifyOn
+ ME_48BF9F4802D3 // UpdateDragImage
+ ME_48BFA1300211 // DoDoDragOver
+ ME_48BFB42C002A // DoGetAcceptableFormats
+ ME_48BFB6D800B3 // DoDoDrop
+ ME_48BFB75F01ED // DoKeys2Effect
+ ME_48BFBC8002CB // DoDoDragLeave
+ ME_48BFC47D00F4 // DoUpdateScrollRange
+ ME_48C67F6500BD // RevokeDragDrop
+ ME_48C67F7C0343 // WMDestroy
+ ME_48C685E600A1 // DoDragDrop
+ ME_48C68B0D0146 // FreeCanvas
+ ME_48C6B7E80104 // GetCaret
+ ME_48C6B7FF01F8 // DoDrawSub
+ ME_48C6B82C028B // DoDrawSpecialChange
+ ME_48C6C044025E // Paint
+ ME_48C6C421015B // InUpdating
+ ME_48C7AF9D0203 // ShowMenu
+ ME_48C7AFAA014B // ShowMenu
+ ME_48C7B81100B7 // CMCOLORCHANGED
+ ME_48C7B821034E // CMCtl3DChanged
+ ME_48C7B9F200D9 // AdjustColors
+ ME_48C7BB490341 // DataCodePage
+ ME_48C7BD7B0257 // DropFormattedData
+ ME_48C7BEDC01A7 // GetAcceptableFormatsFor
+ ME_48C7BFA30058 // SetCommands
+ ME_48C7C15B012E // PasteFromClipboard
+ ME_48C7C1A2010C // Paste
+ ME_48C7C4990287 // COMQueryInterface
+ ME_48C7CD7103B1 // CancelHint
+ ME_48C7CD7F00EE // ActivateHint
+ ME_48C7CD920267 // ActivateHint
+ ME_4B05241502C5 // DoMenuUnlockedFixUp
+ ME_4B0524AF024C // IsMenuLocked
+ ME_4D3974AB02E5 // DoAfterCreateCanvas
+ ME_4D8B85A10073 // WMSetFocus
+ ME_4D8B85C3018D // WMKillFocus
+ ME_29A966BC4F9F // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46A5B20202BD_ME_48BD1975029B // GetAcceptableFormats
+ ME_46A5B27A01C5_ME_48BD1975029B // DoDrop
+ ME_46A5B330031B_ME_48BD1975029B // DoDragOver
+ ME_46A5B35A0249_ME_48BD1975029B // DoDragEnter
+ ME_46A5B3750107_ME_48BD1975029B // DoDragLeave
+ ME_46A5B38701B8_ME_48BD1975029B // Keys2Effect
+ ME_476F76A90267_ME_48BD1975029B // ProcessCommand
+ ME_47D64DFA00B3_ME_48BD1975029B // UpdateScrollRange
+ ME_4A5CBFFE0157_ME_48BD1975029B // Changing
+ ME_4A5CC00B03D5_ME_48BD1975029B // Changed
+ ME_4B052245037A_ME_48BD1975029B // MenuUnlockedFixUp
+ ME_4CADECFB0114_ME_48BD1975029B // IsA
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_48BD1975029B // Cleanup
+ ME_47D1602000C6_ME_48BD1975029B // Create
+ ME_47D160620295_ME_48BD1975029B // QueryInterface
+ ME_47E136A80191_ME_48BD1975029B // WndProc
+ ME_48C67EB000EE_ME_48BD1975029B // CreateWindowHandle
+ ME_48C67EDF01C8_ME_48BD1975029B // DestroyWindowHandle
+ ME_48C6BFF80313_ME_48BD1975029B // PaintWindow
+ ME_48C6CC4A0395_ME_48BD1975029B // Invalidate
+ ME_48C7925A02E5_ME_48BD1975029B // CreateParams
+ ME_49CB9A6403B5_ME_48BD1975029B // LockPainting
+ ME_4D5D1505007A_ME_48BD1975029B // SelectNext
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_48BD253E02B0 // 
+ ME_48BD60930207 // 
+ ME_48BFA2D5002F // 
+ ME_48BFA2DB0159 // 
+ ME_48BFA30C00CA // 
+ ME_48BFA35A02BC // 
+ ME_48C681600091 // 
+ ME_48C682C70278 // 
+ ME_48C6875F00AF // 
+ ME_48C6B5E1001C // 
+ ME_48C6C90F0112 // 
+ ME_48C796FC0290 // 
+ ME_48C7BB910174 // 
+ ME_48C7BBA2008A // 
+ ME_48C7C882039F // 
+ ME_4C1A33B600B5 // 
+ ME_4FAE8FE70021 // 
+ ME_EAFA2921CE62 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '01.09.2008'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwBaseControl.pas'
+
+ref; // ME_48BD1975029B TafwBaseControl
+
+FORWARD ME_467BA96E003C
+
+: ME_47F736419A4E
+ CONST UID '47F736419A4E'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_467BA96E003C // TafwControl
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_47F736419A4E Ini_Reg_Class
+
+: ME_748CA36FFCC3
+ CONST UID '748CA36FFCC3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_467BA96E003C // TafwControl
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_748CA36FFCC3 
+
+: ME_467BA96E003C
+ CONST UID '467BA96E003C'
+ CONST Name 'TafwControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый класс для управляющих элементов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_48BD1975029B // TafwBaseControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_47F736419A4E // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_748CA36FFCC3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '23.12.1998 12:47'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwControl.pas'
+
+ref; // ME_467BA96E003C TafwControl
+
+FORWARD ME_48BBD30803C5
+
+: ME_48BBF0D70131
+ CONST UID '48BBF0D70131'
+ CONST Name 'CCaption'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Target WL 'ME_4683C9110178' '467823B7002C.pas.ms.script' // IafwCString
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_48BBF0D70131 CCaption
+
+: ME_48BBF34A018A
+ CONST UID '48BBF34A018A'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Target WL 'ME_46A616080197' '4677FBA70343.pas.ms.script' // Tl3DString
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_48BBF34A018A Caption
+
+: ME_0CE7EA8FE65C
+ CONST UID '0CE7EA8FE65C'
+ CONST Name 'f_CCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства CCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Target WL 'ME_4683C9110178' '467823B7002C.pas.ms.script' // IafwCString
+ ;
+
+ref; // ME_0CE7EA8FE65C f_CCaption
+
+: ME_48BBE8D40192
+ CONST UID '48BBE8D40192'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_48BBE8D40192 Msg
+
+: ME_48BBE8CB00B3
+ CONST UID '48BBE8CB00B3'
+ CONST Name 'WMGetText'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Parameters
+   @ ( ME_48BBE8D40192 // Msg
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "Message ID" 'WM_GetText'
+
+ref; // ME_48BBE8CB00B3 WMGetText
+
+: ME_48BBE8E40163
+ CONST UID '48BBE8E40163'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_48BBE8E40163 Msg
+
+: ME_48BBE8DD0385
+ CONST UID '48BBE8DD0385'
+ CONST Name 'WMGetTextLength'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Parameters
+   @ ( ME_48BBE8E40163 // Msg
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "Message ID" 'WM_GetTextLength'
+
+ref; // ME_48BBE8DD0385 WMGetTextLength
+
+: ME_48BBE90B02EB
+ CONST UID '48BBE90B02EB'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_48BBE90B02EB Msg
+
+: ME_48BBE90600CF
+ CONST UID '48BBE90600CF'
+ CONST Name 'WMSetText'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Parameters
+   @ ( ME_48BBE90B02EB // Msg
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "Message ID" 'WM_SetText'
+
+ref; // ME_48BBE90600CF WMSetText
+
+: ME_37456772E5FC
+ CONST UID '37456772E5FC'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwTextControlPrim' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_37456772E5FC Ini_Reg_Class
+
+: ME_48BBEED900FF
+ CONST UID '48BBEED900FF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_48BBEED900FF 
+
+: ME_48BBEF3F0268
+ CONST UID '48BBEF3F0268'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_48BBEF3F0268 
+
+: ME_48BBF5080003
+ CONST UID '48BBF5080003'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_48BBF5080003 
+
+: ME_E5300ACDCFDC
+ CONST UID 'E5300ACDCFDC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_E5300ACDCFDC 
+
+: ME_479731C50290_ME_48BBD30803C5
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ref; // ME_479731C50290_ME_48BBD30803C5 Cleanup
+
+: ME_5000565C019C_ME_48BBD30803C5
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ref; // ME_5000565C019C_ME_48BBD30803C5 ClearFields
+
+: ME_48BBD30803C5
+ CONST UID '48BBD30803C5'
+ CONST Name 'TafwTextControlPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_467BA96E003C // TafwControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_48BBF0D70131 // CCaption
+ ME_48BBF34A018A // Caption
+ ME_0CE7EA8FE65C // f_CCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_48BBE8CB00B3 // WMGetText
+ ME_48BBE8DD0385 // WMGetTextLength
+ ME_48BBE90600CF // WMSetText
+ ME_37456772E5FC // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_48BBD30803C5 // Cleanup
+ ME_5000565C019C_ME_48BBD30803C5 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_48BBEED900FF // 
+ ME_48BBEF3F0268 // 
+ ME_48BBF5080003 // 
+ ME_E5300ACDCFDC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwTextControlPrim.pas'
+
+ref; // ME_48BBD30803C5 TafwTextControlPrim
+
+FORWARD ME_48BBF1470238
+
+: ME_48BBF5D90196
+ CONST UID '48BBF5D90196'
+ CONST Name 'THackLink'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BBF1470238 // TafwTextControl
+ ;
+ : Inherits
+   @ ( WL 'ME_48BBF59C024E' '4799D29F033F.pas.ms.script' // TControlActionLink
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_48BBF5D90196 THackLink
+
+: ME_48BBF3DD019D
+ CONST UID '48BBF3DD019D'
+ CONST Name 'CaptionStored'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBF1470238 // TafwTextControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48BBF3DD019D CaptionStored
+
+: ME_C3BA97920A2D
+ CONST UID 'C3BA97920A2D'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwTextControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBF1470238 // TafwTextControl
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_C3BA97920A2D Ini_Reg_Class
+
+: ME_48BBF6A802F6
+ CONST UID '48BBF6A802F6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBF1470238 // TafwTextControl
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_48BBF6A802F6 
+
+: ME_AC330947619A
+ CONST UID 'AC330947619A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBF1470238 // TafwTextControl
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_AC330947619A 
+
+: ME_473DAC05025F_ME_48BBF1470238
+ CONST UID '473DAC05025F'
+ CONST Name 'CCaption'
+ : Original WL 'ME_473DAC05025F' '467823B7002C.pas.ms.script' // CCaption
+ ;
+ : Implementor ME_48BBF1470238 // TafwTextControl
+ ;
+ CONST "pm" true
+ref; // ME_473DAC05025F_ME_48BBF1470238 CCaption
+
+: ME_48BBF1470238
+ CONST UID '48BBF1470238'
+ CONST Name 'TafwTextControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_48BBD30803C5 // TafwTextControlPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_473DABFA029F' '467823B7002C.pas.ms.script' // IafwTextControl
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_48BBF3DD019D // CaptionStored
+ ME_C3BA97920A2D // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_473DAC05025F_ME_48BBF1470238 // CCaption
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_48BBF5D90196 // THackLink
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_48BBF6A802F6 // 
+ ME_AC330947619A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwTextControl.pas'
+
+ref; // ME_48BBF1470238 TafwTextControl
+
+FORWARD ME_48BBD3480266
+
+: ME_48BBD37B034F
+ CONST UID '48BBD37B034F'
+ CONST Name 'DoPaint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48BBD3480266 // TafwCustomCommonTextControlPrim
+ ;
+
+ref; // ME_48BBD37B034F DoPaint
+
+: ME_17A34EAF91CE
+ CONST UID '17A34EAF91CE'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwCustomCommonTextControlPrim' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBD3480266 // TafwCustomCommonTextControlPrim
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_17A34EAF91CE Ini_Reg_Class
+
+: ME_218361511503
+ CONST UID '218361511503'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBD3480266 // TafwCustomCommonTextControlPrim
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_218361511503 
+
+: ME_48C6C044025E_ME_48BBD3480266
+ CONST UID '48C6C044025E'
+ CONST Name 'Paint'
+ : Original ME_48C6C044025E // Paint
+ ;
+ : Implementor ME_48BBD3480266 // TafwCustomCommonTextControlPrim
+ ;
+ref; // ME_48C6C044025E_ME_48BBD3480266 Paint
+
+: ME_48BBD3480266
+ CONST UID '48BBD3480266'
+ CONST Name 'TafwCustomCommonTextControlPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_48BBF1470238 // TafwTextControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_48BBD37B034F // DoPaint
+ ME_17A34EAF91CE // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_48C6C044025E_ME_48BBD3480266 // Paint
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_218361511503 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonTextControlPrim.pas'
+
+ref; // ME_48BBD3480266 TafwCustomCommonTextControlPrim
+
+FORWARD ME_48BBE35E039F
+
+: ME_48BBE38D0061
+ CONST UID '48BBE38D0061'
+ CONST Name 'DoPaint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48BBE35E039F // TafwCustomCommonControlPrim
+ ;
+
+ref; // ME_48BBE38D0061 DoPaint
+
+: ME_8AFC68078E64
+ CONST UID '8AFC68078E64'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwCustomCommonControlPrim' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBE35E039F // TafwCustomCommonControlPrim
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_8AFC68078E64 Ini_Reg_Class
+
+: ME_8B965DC98066
+ CONST UID '8B965DC98066'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBE35E039F // TafwCustomCommonControlPrim
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_8B965DC98066 
+
+: ME_48C6C044025E_ME_48BBE35E039F
+ CONST UID '48C6C044025E'
+ CONST Name 'Paint'
+ : Original ME_48C6C044025E // Paint
+ ;
+ : Implementor ME_48BBE35E039F // TafwCustomCommonControlPrim
+ ;
+ref; // ME_48C6C044025E_ME_48BBE35E039F Paint
+
+: ME_48BBE35E039F
+ CONST UID '48BBE35E039F'
+ CONST Name 'TafwCustomCommonControlPrim'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_467BA96E003C // TafwControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_48BBE38D0061 // DoPaint
+ ME_8AFC68078E64 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_48C6C044025E_ME_48BBE35E039F // Paint
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_8B965DC98066 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControlPrim.pas'
+
+ref; // ME_48BBE35E039F TafwCustomCommonControlPrim
+
+FORWARD ME_47E1382301A5
+
+: ME_47E139140155
+ CONST UID '47E139140155'
+ CONST Name 'aPt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
+ ;
+
+ref; // ME_47E139140155 aPt
+
+: ME_47E13914016D
+ CONST UID '47E13914016D'
+ CONST Name 'aButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CDD0000B' '4677FBA70343.pas.ms.script' // Tl3MouseButton
+ ;
+
+ref; // ME_47E13914016D aButton
+
+: ME_47E139140186
+ CONST UID '47E139140186'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CDEF038A' '4677FBA70343.pas.ms.script' // Tl3MouseAction
+ ;
+
+ref; // ME_47E139140186 anAction
+
+: ME_47E13914019F
+ CONST UID '47E13914019F'
+ CONST Name 'aKeys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728CE680258' '4AB0997B00A2.pas.ms.script' // TShiftState
+ ;
+
+ref; // ME_47E13914019F aKeys
+
+: ME_47E138F90081
+ CONST UID '47E138F90081'
+ CONST Name 'MouseAction'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47E1382301A5 // TafwInputControl
+ ;
+ : Target WL 'ME_4728CE2502E8' '467C0CAA02AB.pas.ms.script' // Tl3MouseResult
+ ;
+ : Parameters
+   @ ( ME_47E139140155 // aPt
+ ME_47E13914016D // aButton
+ ME_47E139140186 // anAction
+ ME_47E13914019F // aKeys
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47E138F90081 MouseAction
+
+: ME_5DB6EA9DA481
+ CONST UID '5DB6EA9DA481'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwInputControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_47E1382301A5 // TafwInputControl
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_5DB6EA9DA481 Ini_Reg_Class
+
+: ME_47E13C8C026C
+ CONST UID '47E13C8C026C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47E1382301A5 // TafwInputControl
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_47E13C8C026C 
+
+: ME_758A4E4902CB
+ CONST UID '758A4E4902CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47E1382301A5 // TafwInputControl
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_758A4E4902CB 
+
+: ME_47E136A80191_ME_47E1382301A5
+ CONST UID '47E136A80191'
+ CONST Name 'WndProc'
+ : Original WL 'ME_47E136A80191' '4799D29F033F.pas.ms.script' // WndProc
+ ;
+ : Implementor ME_47E1382301A5 // TafwInputControl
+ ;
+ref; // ME_47E136A80191_ME_47E1382301A5 WndProc
+
+: ME_47E1382301A5
+ CONST UID '47E1382301A5'
+ CONST Name 'TafwInputControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_467BA96E003C // TafwControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_47E138F90081 // MouseAction
+ ME_5DB6EA9DA481 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47E136A80191_ME_47E1382301A5 // WndProc
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_47E13C8C026C // 
+ ME_758A4E4902CB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.09.1999 10:18'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwInputControl.pas'
+
+ref; // ME_47E1382301A5 TafwInputControl
+
+FORWARD ME_48BBE37E00A2
+
+: ME_48BBE3AD0304
+ CONST UID '48BBE3AD0304'
+ CONST Name 'Canvas'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+ : Target WL 'ME_46A46A030333' '556F09AA036E.pas.ms.script' // TCanvas
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_48BBE3AD0304 Canvas
+
+: ME_48BBE3C40283
+ CONST UID '48BBE3C40283'
+ CONST Name 'Paint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+
+ref; // ME_48BBE3C40283 Paint
+
+: ME_72FB9204DBAD
+ CONST UID '72FB9204DBAD'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwCustomCommonControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_72FB9204DBAD Ini_Reg_Class
+
+: ME_3B3AB8C114BC
+ CONST UID '3B3AB8C114BC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_3B3AB8C114BC 
+
+: ME_48BBE38D0061_ME_48BBE37E00A2
+ CONST UID '48BBE38D0061'
+ CONST Name 'DoPaint'
+ : Original ME_48BBE38D0061 // DoPaint
+ ;
+ : Implementor ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+ref; // ME_48BBE38D0061_ME_48BBE37E00A2 DoPaint
+
+: ME_48BBE37E00A2
+ CONST UID '48BBE37E00A2'
+ CONST Name 'TafwCustomCommonControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_48BBE35E039F // TafwCustomCommonControlPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_48BBE3AD0304 // Canvas
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_48BBE3C40283 // Paint
+ ME_72FB9204DBAD // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_48BBE38D0061_ME_48BBE37E00A2 // DoPaint
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_3B3AB8C114BC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControl.pas'
+
+ref; // ME_48BBE37E00A2 TafwCustomCommonControl
+
+FORWARD ME_48BBD6550261
+
+: ME_48BBD6680379
+ CONST UID '48BBD6680379'
+ CONST Name 'Canvas'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_48BBD6550261 // TafwCustomCommonTextControl
+ ;
+ : Target WL 'ME_46A46A030333' '556F09AA036E.pas.ms.script' // TCanvas
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_48BBD6680379 Canvas
+
+: ME_48BBD6AB0328
+ CONST UID '48BBD6AB0328'
+ CONST Name 'Paint'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_48BBD6550261 // TafwCustomCommonTextControl
+ ;
+
+ref; // ME_48BBD6AB0328 Paint
+
+: ME_145EB5D6F749
+ CONST UID '145EB5D6F749'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TafwCustomCommonTextControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48BBD6550261 // TafwCustomCommonTextControl
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_145EB5D6F749 Ini_Reg_Class
+
+: ME_9E512DA8D933
+ CONST UID '9E512DA8D933'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48BBD6550261 // TafwCustomCommonTextControl
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_9E512DA8D933 
+
+: ME_48BBD37B034F_ME_48BBD6550261
+ CONST UID '48BBD37B034F'
+ CONST Name 'DoPaint'
+ : Original ME_48BBD37B034F // DoPaint
+ ;
+ : Implementor ME_48BBD6550261 // TafwCustomCommonTextControl
+ ;
+ref; // ME_48BBD37B034F_ME_48BBD6550261 DoPaint
+
+: ME_48BBD6550261
+ CONST UID '48BBD6550261'
+ CONST Name 'TafwCustomCommonTextControl'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( ME_48BBD3480266 // TafwCustomCommonTextControlPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_48BBD6680379 // Canvas
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_48BBD6AB0328 // Paint
+ ME_145EB5D6F749 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_48BBD37B034F_ME_48BBD6550261 // DoPaint
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_9E512DA8D933 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonTextControl.pas'
+
+ref; // ME_48BBD6550261 TafwCustomCommonTextControl
+
+FORWARD ME_48C7C9B6013C
+
+: ME_48C7CB0B001E
+ CONST UID '48C7CB0B001E'
+ CONST Name 'FHandle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_46A5DB130102' '4677FBA70343.pas.ms.script' // hWnd
+ ;
+
+ref; // ME_48C7CB0B001E FHandle
+
+: ME_48C7CB17025B
+ CONST UID '48C7CB17025B'
+ CONST Name 'FBiDiMode'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_47E12513030E' '4AB0997B00A2.pas.ms.script' // TBiDiMode
+ ;
+
+ref; // ME_48C7CB17025B FBiDiMode
+
+: ME_48C7CB200056
+ CONST UID '48C7CB200056'
+ CONST Name 'FBiDiKeyboard'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_48C7CB200056 FBiDiKeyboard
+
+: ME_48C7CB2902D0
+ CONST UID '48C7CB2902D0'
+ CONST Name 'FNonBiDiKeyboard'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_48C7CB2902D0 FNonBiDiKeyboard
+
+: ME_48C7CB3D0269
+ CONST UID '48C7CB3D0269'
+ CONST Name 'FObjectInstance'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_48C7CB3D0269 FObjectInstance
+
+: ME_48C7CB4601C4
+ CONST UID '48C7CB4601C4'
+ CONST Name 'FMainForm'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_47880CB7004F' '4799D29F033F.pas.ms.script' // TForm$Stub
+ ;
+
+ref; // ME_48C7CB4601C4 FMainForm
+
+: ME_48C7CB500093
+ CONST UID '48C7CB500093'
+ CONST Name 'FMouseControl'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_48C7CB500093 FMouseControl
+
+: ME_48C7CB58026B
+ CONST UID '48C7CB58026B'
+ CONST Name 'FHelpSystem'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_48C7CB58026B FHelpSystem
+
+: ME_48C7CB61017B
+ CONST UID '48C7CB61017B'
+ CONST Name 'FHelpFile'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_48C7CB61017B FHelpFile
+
+: ME_48C7CB6F0229
+ CONST UID '48C7CB6F0229'
+ CONST Name 'FHint'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_48C7CB6F0229 FHint
+
+: ME_48C7CB7A02E6
+ CONST UID '48C7CB7A02E6'
+ CONST Name 'FHintActive'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48C7CB7A02E6 FHintActive
+
+: ME_48C7CB840202
+ CONST UID '48C7CB840202'
+ CONST Name 'FUpdateFormatSettings'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48C7CB840202 FUpdateFormatSettings
+
+: ME_48C7CB8D0083
+ CONST UID '48C7CB8D0083'
+ CONST Name 'FUpdateMetricSettings'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48C7CB8D0083 FUpdateMetricSettings
+
+: ME_48C7CB9A02C1
+ CONST UID '48C7CB9A02C1'
+ CONST Name 'FShowMainForm'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48C7CB9A02C1 FShowMainForm
+
+: ME_48C7CBA303DF
+ CONST UID '48C7CBA303DF'
+ CONST Name 'FHintColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_48C7CBA303DF FHintColor
+
+: ME_48C7CBAD0139
+ CONST UID '48C7CBAD0139'
+ CONST Name 'FHintControl'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C9B6013C // THackApplication
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_48C7CBAD0139 FHintControl
+
+: ME_48C7C9B6013C
+ CONST UID '48C7C9B6013C'
+ CONST Name 'THackApplication'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48C7C8A9035E // TafwHintManager
+ ;
+ : Inherits
+   @ ( WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_48C7CB0B001E // FHandle
+ ME_48C7CB17025B // FBiDiMode
+ ME_48C7CB200056 // FBiDiKeyboard
+ ME_48C7CB2902D0 // FNonBiDiKeyboard
+ ME_48C7CB3D0269 // FObjectInstance
+ ME_48C7CB4601C4 // FMainForm
+ ME_48C7CB500093 // FMouseControl
+ ME_48C7CB58026B // FHelpSystem
+ ME_48C7CB61017B // FHelpFile
+ ME_48C7CB6F0229 // FHint
+ ME_48C7CB7A02E6 // FHintActive
+ ME_48C7CB840202 // FUpdateFormatSettings
+ ME_48C7CB8D0083 // FUpdateMetricSettings
+ ME_48C7CB9A02C1 // FShowMainForm
+ ME_48C7CBA303DF // FHintColor
+ ME_48C7CBAD0139 // FHintControl
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_48C7C9B6013C THackApplication
+
+: ME_48C7C92F0172
+ CONST UID '48C7C92F0172'
+ CONST Name 'f_HintPos'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C8A9035E // TafwHintManager
+ ;
+ : Target WL 'ME_46A1052001B2' '4677FBA70343.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_48C7C92F0172 f_HintPos
+
+: ME_48C7C992028B
+ CONST UID '48C7C992028B'
+ CONST Name 'f_Timer'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48C7C8A9035E // TafwHintManager
+ ;
+ : Target WL 'ME_48C7C96E0135' '4799D29F033F.pas.ms.script' // TTimer
+ ;
+
+ref; // ME_48C7C992028B f_Timer
+
+: ME_48C7C90D016B
+ CONST UID '48C7C90D016B'
+ CONST Name 'aPt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A1052001B2' '4677FBA70343.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_48C7C90D016B aPt
+
+: ME_48C7C90900F9
+ CONST UID '48C7C90900F9'
+ CONST Name 'ActivateHint'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48C7C8A9035E // TafwHintManager
+ ;
+ : Parameters
+   @ ( ME_48C7C90D016B // aPt
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7C90900F9 ActivateHint
+
+: ME_48C7C91600A7
+ CONST UID '48C7C91600A7'
+ CONST Name 'CancelHint'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48C7C8A9035E // TafwHintManager
+ ;
+
+ref; // ME_48C7C91600A7 CancelHint
+
+: ME_48C7C925011C
+ CONST UID '48C7C925011C'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_48C7C925011C Sender
+
+: ME_48C7C9210123
+ CONST UID '48C7C9210123'
+ CONST Name 'TimerProc'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_48C7C8A9035E // TafwHintManager
+ ;
+ : Parameters
+   @ ( ME_48C7C925011C // Sender
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48C7C9210123 TimerProc
+
+: ME_A2B4C396DDB5
+ CONST UID 'A2B4C396DDB5'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48C7C8A9035E // TafwHintManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_A2B4C396DDB5 Exists
+
+: ME_48C7CCA801ED
+ CONST UID '48C7CCA801ED'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48C7C8A9035E // TafwHintManager
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_48C7CCA801ED 
+
+: ME_479731C50290_ME_48C7C8A9035E
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_48C7C8A9035E // TafwHintManager
+ ;
+ref; // ME_479731C50290_ME_48C7C8A9035E Cleanup
+
+: ME_47A042E100E2_ME_48C7C8A9035E
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_48C7C8A9035E // TafwHintManager
+ ;
+ref; // ME_47A042E100E2_ME_48C7C8A9035E InitFields
+
+: ME_48C7C8A9035E
+ CONST UID '48C7C8A9035E'
+ CONST Name 'TafwHintManager'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BA8C8017E // afwControl
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_48C7C92F0172 // f_HintPos
+ ME_48C7C992028B // f_Timer
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_48C7C90900F9 // ActivateHint
+ ME_48C7C91600A7 // CancelHint
+ ME_48C7C9210123 // TimerProc
+ ME_A2B4C396DDB5 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_48C7C8A9035E // Cleanup
+ ME_47A042E100E2_ME_48C7C8A9035E // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_48C7C9B6013C // THackApplication
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_48C7CCA801ED // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwHintManager.pas'
+
+ref; // ME_48C7C8A9035E TafwHintManager
+
+: ME_467BA8C8017E
+ CONST UID '467BA8C8017E'
+ CONST Name 'afwControl'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ %SUMMARY 'Реализация базовых классов для управляющих элементов и панелей.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ ;
+ : Children
+   @ ( ME_48BC1AC0027C // TafwControlPrim
+ ME_48BD1ABE023D // afwToolOwner
+ ME_48BD1975029B // TafwBaseControl
+ ME_467BA96E003C // TafwControl
+ ME_48BBD30803C5 // TafwTextControlPrim
+ ME_48BBF1470238 // TafwTextControl
+ ME_48BBD3480266 // TafwCustomCommonTextControlPrim
+ ME_48BBE35E039F // TafwCustomCommonControlPrim
+ ME_47E1382301A5 // TafwInputControl
+ ME_48BBE37E00A2 // TafwCustomCommonControl
+ ME_48BBD6550261 // TafwCustomCommonTextControl
+ ME_48C7C8A9035E // TafwHintManager
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
+ WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
+ WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
+ WL 'ME_473C569D0287' '473C569D0287.pas.ms.script' // afwTypes
+ WL 'ME_4754101B004F' '4754101B004F.pas.ms.script' // OvcBase
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47877A6F000A' '47877A6F000A.pas.ms.script' // Visual
+ WL 'ME_478CF8070260' '478CF8070260.pas.ms.script' // l3IID
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47E3C64F037E' '47E3C64F037E.pas.ms.script' // Operations
+ WL 'ME_47EA4BB502F9' '47EA4BB502F9.pas.ms.script' // afwMixIns
+ WL 'ME_48BD24D4011D' '48BD24D4011D.pas.ms.script' // l3Operations
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4B8936150120' '4B8936150120.pas.ms.script' // Drag And Drop
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "path prefix" '/implementation/Visual'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\467BA8C8017E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\467BA8C8017E.pas.ms.script.runner'
+
+ref; // ME_467BA8C8017E afwControl

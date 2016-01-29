@@ -1,0 +1,35 @@
+# SSL addresses are usual MT_DORB addresses prefixed by 'ssl:', e.g.
+#  ssl:inet:0.0:0
+
+# SSL options:
+#  -ORBSSLcert <certificate file>
+#    .pem file that holds your certificate, defaults to default.pem.
+#  -ORBSSLkey <key file>
+#    .pem file that holds your key pair, defaults to same file as the
+#    certificate file.
+#  -ORBSSLcipher <colon separated list of preferred ciphers>
+#    cipher(s) that can be used, eg:
+#    NULL-MD5     RC4-MD5      EXP-RC4-MD5
+#    IDEA-CBC-MD5 RC2-CBC-MD5  EXP-RC2-CBC-MD5
+#    DES-CBC-MD5  DES-CBC-SHA  DES-CBC3-MD5
+#    DES-CBC3-SHA DES-CFB-M1
+#  -ORBSSLverify <verify depth>
+#    if specified the peer must supply a valid certificate, otherwise the
+#    connection setup will fail. <verify depth> specifies how many
+#    hops of the chain of certification authorities should be checked.
+#    by default the validity of the peer's certificate is not checked.
+#  -ORBSSLCAfile <CA filename>
+#    .pem file that holds certificates of CA's
+#  -ORBSSLCApath <CA pathname>
+#    directory that contains .pem files holding certificates of CA's,
+#    defaults to /usr/local/ssl/certs.
+#
+# the standard OpenSSL environment variables work as well, but the -ORBSSL*
+# options override them
+#
+# the server key file with the servers private key is created by
+#   openssl genrsa -out s_key.pem
+# a self signed certificate for for server is created by
+#   openssl req -days 1000 -new -x509 -key s_key.pem -out s_cert.pem
+# the client key and certificate are created analogous.
+# see the OpenSSL documentation for details.

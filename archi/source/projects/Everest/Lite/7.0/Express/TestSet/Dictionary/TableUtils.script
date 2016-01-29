@@ -1,0 +1,114 @@
+// TableUtils.script
+// Вспомогательные процедуры работы с таблицами
+
+USES
+ axiom:Control
+ axiom:Editor
+ axiom:push
+ axiom:Form
+ axiom:Para
+ axiom:ComboBox
+ axiom:EVD
+ 
+	EVDSchema.script
+	ArchiSystem.script
+    EverestControls.script
+;
+
+: "Вставить простую таблицу и выделить ячейку"
+ OBJECT VAR l_Editor
+ focused:control:push >>> l_Editor
+ 3 3 l_Editor pop:editor:InsertTable
+ 1 1 l_Editor pop:editor:SelectCellByMouse  
+ ProcessMessages
+;
+
+: "Изменить размер с клавишей" IN aKey
+  450 aKey 2 1 focused:control:push pop:editor:ResizeTableColumnEX
+  ProcessMessages
+;
+
+: "Изменить размер"
+  450 2 1 focused:control:push pop:editor:ResizeTableColumn
+  ProcessMessages
+;
+
+: "Изменить SBS"
+ -450 0 0 focused:control:push pop:editor:ResizeTableColumn
+;
+
+PROCEDURE "Объединить ячейки"
+	'acMergeCells' arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+PROCEDURE "Выравнивание по запятой"
+	'acAlignWithSeparator' arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+PROCEDURE "Выделить колонку" INTEGER IN aColID
+	aColID focused:control:push pop:editor:SelectColumn 
+;
+
+PROCEDURE "Объединить таблицы"
+	'acMergeTables' arMainActionList push:MainForm pop:form:ExecuteAction
+;
+PROCEDURE "Удалить строку"	
+	'acDeleteRow' arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+PROCEDURE "Удалить колонку"	
+	'acDeleteColumn' arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+: "Удерживая клавишу, уменьшаем размер ячейки в строке" IN aKey INTEGER IN aCol INTEGER IN aRow
+  -450 aKey aCol aRow focused:control:push pop:editor:ResizeTableColumnEX
+  ProcessMessages
+;
+
+: "Удерживая клавишу, увеличиваем размер ячейки в строке" IN aKey INTEGER IN aCol INTEGER IN aRow
+  450 aKey aCol aRow focused:control:push pop:editor:ResizeTableColumnEX
+  ProcessMessages
+;
+
+PROCEDURE "Вставить колонку"	
+	'acInsertColumn' arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+PROCEDURE "Нажимаем на кнопку 'выравнивание по верху'"
+     "Контрол по имени {('btTop')}- в стек" pop:Control:Click	
+;
+
+PROCEDURE "Нажимаем на кнопку 'выравнивание по центру'"
+     "Контрол по имени {('btVCenter')}- в стек" pop:Control:Click	
+;
+
+PROCEDURE "Убедиться, что фокус в таблице" OBJECT IN anEditor
+  evd::id_Table anEditor pop:Editor:PushParaFromCursor 3 раза ( Para:GetParent ) Para:Type:Inherits 'Курсор не в таблице' ASSERTS
+ ;
+
+PROCEDURE "Выделить таблицу" OBJECT IN anEditor
+	anEditor pop:editor:SelectTable 
+;
+
+PROCEDURE "Удалить колонку номер" IN aColID
+	"Выделить колонку {(aColID)}"
+	"Удалить колонку"
+	"Обработать сообщения"
+;
+
+PROCEDURE "Открыть модальное окно Таблицы - Границы"
+	'acBordersAndShade' arEditorWindowActionList focused:control:push pop:Control:GetParentForm pop:form:ExecuteAction
+;
+ 
+PROCEDURE "Выставить комбобоксу 'Применить к' значение " INTEGER IN aType
+	aType "Контрол по имени {('cbApplyTo')}- в стек" pop:ComboBox:SetItemIndex
+;
+
+PROCEDURE "Выставить комбобоксу 'Применить к' значение 'таблице' и нажать ОК"
+	"Выставить комбобоксу 'Применить к' значение {(3)}"	
+	"Контрол по имени {(acTableConvParamDialogBTOk)}- в стек" pop:Control:Click
+;
+
+PROCEDURE "Вставить простую таблицу"
+	3 3 focused:control:push pop:editor:InsertTable
+;

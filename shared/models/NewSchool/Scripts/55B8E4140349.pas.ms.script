@@ -1,0 +1,175 @@
+// ContainedActionsWordspack 55B8E4140349 ScriptKeywordsPack Class
+
+FORWARD ME_55B8E4140349
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_87D5D18D9F8E
+
+: ME_DD4A8FDB5015
+ CONST UID 'DD4A8FDB5015'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_DD4A8FDB5015 aCtx
+
+INCLUDE '47E76250004C.pas.ms.script'
+
+: ME_DD4A8FDB5016
+ CONST UID 'DD4A8FDB5016'
+ CONST Name 'aContainedAction'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E76278025E // TContainedAction
+ ;
+
+ @SELF
+; // ME_DD4A8FDB5016 aContainedAction
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_AFC4E3ACD81B
+ CONST UID 'AFC4E3ACD81B'
+ CONST Name 'Execute'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:ContainedAction:Execute' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_DD4A8FDB5015 // aCtx
+ ME_DD4A8FDB5016 // aContainedAction
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_AFC4E3ACD81B Execute
+
+: ME_76BD8F2F6370
+ CONST UID '76BD8F2F6370'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_ContainedAction_Execute' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_76BD8F2F6370 Ini_Reg
+
+: ME_87D5D18D9F8E
+ CONST UID '87D5D18D9F8E'
+ CONST Name 'pop_ContainedAction_Execute'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:ContainedAction:Execute'#13#10'*Пример:*'#13#10'{code}'#13#10' aContainedAction pop:ContainedAction:Execute'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_AFC4E3ACD81B // Execute
+ ME_76BD8F2F6370 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:ContainedAction:Execute'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_87D5D18D9F8E pop_ContainedAction_Execute
+
+: ME_55B8E49D01F4
+ CONST UID '55B8E49D01F4'
+ CONST Name 'Execute'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55B8E49D01F4 Execute
+
+: ME_08136D438BDD
+ CONST UID '08136D438BDD'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_08136D438BDD Reg_TtfwContext
+
+: ME_F6FBF04585C9
+ CONST UID 'F6FBF04585C9'
+ CONST Name 'Reg_TContainedAction'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TContainedAction' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F6FBF04585C9 Reg_TContainedAction
+
+: ME_55B8E4140349
+ CONST UID '55B8E4140349'
+ CONST Name 'ContainedActionsWordspack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_47E76278025E // TContainedAction
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_55B8E49D01F4 // Execute
+ ME_08136D438BDD // Reg_TtfwContext
+ ME_F6FBF04585C9 // Reg_TContainedAction
+ ]
+ ; // Operations
+ : Children
+   [ ME_87D5D18D9F8E // pop_ContainedAction_Execute
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_55B8E4140349 ContainedActionsWordspack

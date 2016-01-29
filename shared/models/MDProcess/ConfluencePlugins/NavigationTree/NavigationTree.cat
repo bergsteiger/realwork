@@ -1,0 +1,312 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "NavigationTree"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/NavigationTree|4863902B0019
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19027401302"))
+    quid       	"4863902B0019"
+    documentation 	"содержит интерфейсы для работы с деревом из browse space"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "NavigationTreePositionHolder"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4863908F035E_486391F00259_486391A0023F_BODY*"
+		    value      	(value Text 
+|//#UC START# *4863908F035E_486391F00259_486391A0023F_BODY*¤		//#UC END# *4863908F035E_486391F00259_486391A0023F_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/NavigationTree/NavigationTreePositionHolder|4863908F035E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/NavigationTree/NavigationTreePositionHolder.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/NavigationTree/NavigationTreePositionHolderFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038597970"))
+	    quid       	"4863908F035E"
+	    documentation 	"сохраняет в сессии и возвращает для каждого пользователя и каждого спейса последний открытый элемент в дереве навигации"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get_last_opened_node"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4863911B0135_486391A0023F*"
+			    value      	(value Text 
+|//#UC START# *4863911B0135_486391A0023F*¤		Long result = getPositionMap(userName, spaceKey).get(spaceKey);¤		return result != null ? result.longValue() : 0;¤		//#UC END# *4863911B0135_486391A0023F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011192897"))
+		    quid       	"4863911B0135"
+		    documentation 	" получить последний элемент открытого узла дерева"
+		    parameters 	(list Parameters
+			(object Parameter "user_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011193211"))
+			    quid       	"4863915901D7"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "space_key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011193587"))
+			    quid       	"4863915901F6"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "set_last_opened_node"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4863915E0081_486391A0023F*"
+			    value      	(value Text 
+|//#UC START# *4863915E0081_486391A0023F*¤		getPositionMap(userName, spaceKey).put(spaceKey, pageId);¤		//#UC END# *4863915E0081_486391A0023F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011194012"))
+		    quid       	"4863915E0081"
+		    documentation 	"документация отсутствует"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011194342"))
+			    quid       	"4863918B030C"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "user_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011194698"))
+			    quid       	"4863918B032F"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "space_key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011195054"))
+			    quid       	"4863918B0354"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*486391F00259_486391F00259_486391A0023F_BODY*"
+			    value      	(value Text 
+|//#UC START# *486391F00259_486391F00259_486391A0023F_BODY*¤		//#UC END# *486391F00259_486391F00259_486391A0023F_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011195481"))
+		    quid       	"486391F00259"
+		    documentation 	"документация отсутствует"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"486390580365"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::NavigationTree::NavigationTreePositionHolder" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1008, 288)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(159, 185)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1698
+			justify    	0
+			label      	"• NavigationTreePositionHolder")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(159, 135)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1698
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4863908F035E"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(159, 246)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	1739
+			justify    	1)
+		    width      	1716
+		    height     	330
+		    annotation 	8
+		    autoResize 	TRUE)))))

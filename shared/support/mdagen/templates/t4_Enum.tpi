@@ -1,0 +1,97 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Enum
+//////////////////////////////////////////////////////////////////////////////////
+
+: Enum::Class
+? Множество
+? Значения множества определяются именами его атрибутов (без указания типа)
+< *::Category,*::Class
+$ S
+$ C 240,230,210
+$ l 100,75,35
+$ f 100,75,35
+
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+Y t4_enum.gif
+%t _constraint
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+r {%M{force usage}=false&%ax=false&%S{force usage}=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ idl
+	<#%FF
+	>%f_docs(%S)\
+	#enum %SN {
+	#	<{\n#\t, }%CN[ // %CD]>
+	#};
+
++ h
+	%f_docs(%S)\
+	#enum %SN {
+	#	<{\n#\t, }%CN[ // %CD]>
+	#};
+
++ pas
+	%f_docs(%S)\
+	#P%SN = ^T%SN;
+	#T%SN = (
+	#	<{\n#\t, }%CN[ // %CD]>
+	#);
+
+# MDAGen/GTS/Enum_class_intf_pas
+
++ java
+S class %SN;
+O [{%f_is_server_type(%S)=false}%SN.java]
+	%f_output_constraint(%S)\
+	[{%f_is_server_type(%S)=false}\
+# t0_header
+	package %f_dump_java_package(%S);
+	
+	%t_visibility(%S,"%XU")%t_abstract_type(%S)class %SN {
+	
+		private int _value;
+	
+	<{\n}	public final static int _%CN = %Cn;>
+	
+	<{\n}	public final static %SN %CN = new %SN (_%CN);[ // %CD]>
+	
+		protected %SN (final int _value) {
+			this._value = _value;
+		}
+	
+		public int value () {
+			return _value;
+		}
+	
+		public static %SN from_int (final int _value) throws java.lang.Exception {
+			switch (_value) {
+				<{\n\t\t\t}{}case %Cn: return %CN;>
+				default: throw new java.lang.Exception ("Bad param");
+			}
+		}
+	
+		public java.lang.String toString () {
+			switch (_value) {
+				<{\n\t\t\t}{}case %Cn: return "%CN";>
+				default: return "Bad param";
+			}
+		}
+	
+	} // %SN
+# t0_footer
+	]
+//////////////////////////////////////////////////////////////////////////////////
+: Enum::Class::Attribute
+l a
+v +
+T
+Y t5_attr.gif
+
+%t _constraint
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}

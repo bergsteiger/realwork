@@ -1,0 +1,376 @@
+// ItfwKeywordFinderWordsPack 559BCED301F0 ScriptKeywordsPack Class
+
+FORWARD ME_559BCED301F0
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_D73628563892
+
+: ME_F3DF268C4283
+ CONST UID 'F3DF268C4283'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_F3DF268C4283 aCtx
+
+: ME_F3DF268C4284
+ CONST UID 'F3DF268C4284'
+ CONST Name 'aKeywordFinder'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559D5D4400D3 // TtfwKeywordFinder
+ ;
+
+ @SELF
+; // ME_F3DF268C4284 aKeywordFinder
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_F3DF268C4285
+ CONST UID 'F3DF268C4285'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_F3DF268C4285 aName
+
+: ME_4BB40DD9D18E
+ CONST UID '4BB40DD9D18E'
+ CONST Name 'KeywordByName'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:KeywordFinder:KeywordByName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DAEF23D00EE // TtfwKeyWord
+ ;
+ : Parameters
+   [ ME_F3DF268C4283 // aCtx
+ ME_F3DF268C4284 // aKeywordFinder
+ ME_F3DF268C4285 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4BB40DD9D18E KeywordByName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_A9FA2B76CC2F
+ CONST UID 'A9FA2B76CC2F'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_KeywordFinder_KeywordByName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_A9FA2B76CC2F Ini_Reg
+
+: ME_D73628563892
+ CONST UID 'D73628563892'
+ CONST Name 'pop_KeywordFinder_KeywordByName'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:KeywordFinder:KeywordByName'#13#10'*Тип результата:* TtfwKeyWord'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TtfwKeyWord'#13#10' aName aKeywordFinder pop:KeywordFinder:KeywordByName >>> l_TtfwKeyWord'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4BB40DD9D18E // KeywordByName
+ ME_A9FA2B76CC2F // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:KeywordFinder:KeywordByName'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_D73628563892 pop_KeywordFinder_KeywordByName
+
+INCLUDE '5619169603BE.pas.ms.script'
+
+FORWARD ME_F60851FE16E3
+
+: ME_0DEB8ADE2EB1
+ CONST UID '0DEB8ADE2EB1'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_0DEB8ADE2EB1 aCtx
+
+: ME_0DEB8ADE2EB2
+ CONST UID '0DEB8ADE2EB2'
+ CONST Name 'aKeywordFinder'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559D5D4400D3 // TtfwKeywordFinder
+ ;
+
+ @SELF
+; // ME_0DEB8ADE2EB2 aKeywordFinder
+
+: ME_3D8B4028DC71
+ CONST UID '3D8B4028DC71'
+ CONST Name 'ParentFinder'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:KeywordFinder:ParentFinder' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_559D5D4400D3 // TtfwKeywordFinder
+ ;
+ : Parameters
+   [ ME_0DEB8ADE2EB1 // aCtx
+ ME_0DEB8ADE2EB2 // aKeywordFinder
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_3D8B4028DC71 ParentFinder
+
+: ME_9E896945B136
+ CONST UID '9E896945B136'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_KeywordFinder_ParentFinder' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9E896945B136 Ini_Reg
+
+: ME_F60851FE16E3
+ CONST UID 'F60851FE16E3'
+ CONST Name 'pop_KeywordFinder_ParentFinder'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:KeywordFinder:ParentFinder'#13#10'*Тип результата:* TtfwKeywordFinder'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TtfwKeywordFinder'#13#10' aKeywordFinder pop:KeywordFinder:ParentFinder >>> l_TtfwKeywordFinder'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_3D8B4028DC71 // ParentFinder
+ ME_9E896945B136 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:KeywordFinder:ParentFinder'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_F60851FE16E3 pop_KeywordFinder_ParentFinder
+
+: ME_559BCF500182
+ CONST UID '559BCF500182'
+ CONST Name 'ParentFinder'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_559D5D4400D3 // TtfwKeywordFinder
+ ;
+ CONST "mapped" false
+
+ @SELF
+; // ME_559BCF500182 ParentFinder
+
+: ME_559BCF230376
+ CONST UID '559BCF230376'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_559BCF230376 aName
+
+: ME_559BCEFC0315
+ CONST UID '559BCEFC0315'
+ CONST Name 'KeywordByName'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DAEF23D00EE // TtfwKeyWord
+ ;
+ : Parameters
+   [ ME_559BCF230376 // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_559BCEFC0315 KeywordByName
+
+: ME_4DFEE1DE515C
+ CONST UID '4DFEE1DE515C'
+ CONST Name 'ParentFinder'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_559D5D4400D3 // TtfwKeywordFinder
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" false
+
+ @SELF
+; // ME_4DFEE1DE515C ParentFinder
+
+: ME_2130F8D3CB77
+ CONST UID '2130F8D3CB77'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2130F8D3CB77 Reg_TtfwContext
+
+: ME_7F2C0E95B610
+ CONST UID '7F2C0E95B610'
+ CONST Name 'Reg_TtfwKeywordFinder'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwKeywordFinder' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_7F2C0E95B610 Reg_TtfwKeywordFinder
+
+: ME_CFF47C15C59B
+ CONST UID 'CFF47C15C59B'
+ CONST Name 'Reg_Il3CString'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Il3CString' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CFF47C15C59B Reg_Il3CString
+
+: ME_9F2114394B9B
+ CONST UID '9F2114394B9B'
+ CONST Name 'Reg_TtfwKeyWord'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwKeyWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9F2114394B9B Reg_TtfwKeyWord
+
+: ME_559BCED301F0
+ CONST UID '559BCED301F0'
+ CONST Name 'ItfwKeywordFinderWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_559D5D4400D3 // TtfwKeywordFinder
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_559BCF500182 // ParentFinder
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_559BCEFC0315 // KeywordByName
+ ME_4DFEE1DE515C // ParentFinder
+ ME_2130F8D3CB77 // Reg_TtfwContext
+ ME_7F2C0E95B610 // Reg_TtfwKeywordFinder
+ ME_CFF47C15C59B // Reg_Il3CString
+ ME_9F2114394B9B // Reg_TtfwKeyWord
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Children
+   [ ME_D73628563892 // pop_KeywordFinder_KeywordByName
+ ME_F60851FE16E3 // pop_KeywordFinder_ParentFinder
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_559BCED301F0 ItfwKeywordFinderWordsPack

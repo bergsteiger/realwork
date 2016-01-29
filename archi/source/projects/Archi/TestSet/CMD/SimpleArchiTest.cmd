@@ -1,0 +1,1 @@
+call RunArchiTest.cmd > a.log

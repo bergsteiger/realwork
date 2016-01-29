@@ -1,0 +1,52 @@
+F1 Интерфейсные элементы : VCMUseCases - Украшательства для F1
+version: 238
+MainMenu : VCMUseCase - [$71860587]
+ MainMenu$UC : VCMUseCaseRealization - Основное меню
+ MainMenu : VCMControllers - Основное меню
+  MainMenuTrees : Unit - 
+   TsmTree : SimpleClass - 
+   TsmLawNewsTree : SimpleClass - Дерево "Изменения в законодательстве" для простого основного меню
+   TsmNewSchoolReferencesTree : SimpleClass - 
+   TsmChangeableTree : SimpleClass - 
+ View : VCMViews - Представление
+  MainMenu : VCMModule - Основное меню
+   MainMenuWithBaseSearchSupport : VCMForm - Основное меню с поддержкой базового поиска
+   PrimLegalMainMenu : VCMForm - 
+   PrimMainMenuNew : VCMContainer - 
+   MainMenu$FP : VCMFormsPack - 
+   TnsMainMenuFormGUIDFactory : SimpleClass - Фабрика GUID'ов для ОМ
+http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330698414#comment-330698414
+   MainMenuChangeableMainMenuTypeSettingRes : UtilityPack - Ресурсы для настройки "Тип изменяемой части основного меню"
+   TstMainMenuChangeableMainMenuTypeItem : SimpleClass - Визуализатор для настройки "Тип изменяемой части основного меню"
+DayTips : VCMUseCase - [$83036257]
+ Tips : VCMUseCaseRealization - Совет дня
+ DayTips : VCMControllers - Работа с советами дня
+  DayTipsInterfaces : Interfaces - Интерфейсы работы с советами дня
+   InsStartupTips : Facet - 
+  DayTipsData : Unit - Структуры данных для Советов дня
+   TnsTipsTree : SimpleClass - 
+  DayTips : ControllerUnit - Работа с советами дня
+   TdsTipsDocument : ViewAreaControllerImp - 
+   TdsTips : ViewAreaControllerImp - Список советов дня
+   TsdsTips : UseCaseControllerImp - Бизнес объект сборки "Совет дня"
+   TnsStartupTips : SimpleClass - Советик дня
+   TdeTips : SimpleClass - 
+   TnsTipsDocumentContainer : SimpleClass - Контейнер документа для советов дня
+ View : VCMViews - Представление
+  DayTips : VCMModule - Советы дня
+   PrimStartupTips : VCMForm - Совет дня
+   DayTips : VCMFormsPack - 
+   Tkw_Tips_opShowDayTips : ScriptKeyword - Слово словаря для вызова операции модуля Tips.ShowDayTips (Совет дня)
+NewInterface2010 : VCMSubsystem - Новый интерфейс
+ Skins : VCMViews - "Скины"
+  Core : VCMForms - Базовые элементы для поддержки скинов
+   RegionableForm : VCMForm - Форма с поддержкой региона
+   SkinnedForm : VCMForm - Форма с поддержкой скинов
+  BaseSearch : VCMForms - Базовый поиск
+   BaseSearch2010 : VCMForm - 
+DocumentListFromFile : VCMUseCase - {RequestLink:195757811}.
+ DocumentListFromFile : VCMUseCaseRealization - Список документов из файла
+ View : VCMViews - 
+  DocumentListFromFile : VCMModule - 
+   PrimDocumentListFromFile : VCMFormsPack - Список документов из файла
+   Tkw_DocumentListFromFile_opOpenDocumentListFromFile : ScriptKeyword - Слово словаря для вызова операции модуля DocumentListFromFile.OpenDocumentListFromFile (Список документов из файла Открыть список документов из файла)

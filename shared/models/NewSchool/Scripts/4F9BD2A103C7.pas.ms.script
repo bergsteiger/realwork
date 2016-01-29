@@ -1,0 +1,53 @@
+// TPl3StringIDExList 4F9BD2A103C7 SimpleClass Class
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '4B71611400B3.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_4F9BD2A103C7
+
+INCLUDE '4B3B36EC03B2.pas.ms.script'
+
+: ME_4F9BD2D8032F
+ CONST UID '4F9BD2D8032F'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_4B3B49B40262 // Pl3StringIDEx
+ ;
+
+ @SELF
+; // ME_4F9BD2D8032F ItemType
+
+: ME_4F9BD2A103C7
+ CONST UID '4F9BD2A103C7'
+ CONST Name 'TPl3StringIDExList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ME_4B71611400B3 // l3AtomicListPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4F9BD2D8032F // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F9BD2A103C7 TPl3StringIDExList

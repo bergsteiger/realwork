@@ -1,0 +1,211 @@
+// CustomAutoTestsSuite 4DC24CA4037E UtilityPack Class
+
+FORWARD ME_4DC24CA4037E
+
+INCLUDE '4B2A0DCE03A9.pas.ms.script'
+
+FORWARD ME_4DC40A7E00C8
+
+FORWARD ME_4EA50B95037D
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4EA50BF00299
+ CONST UID '4EA50BF00299'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4EA50BF00299 DoIt
+
+: ME_4EA50B95037D
+ CONST UID '4EA50B95037D'
+ CONST Name 'GetDataFolder'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Возвращает папку с данными для создания тестов.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4EA50BF00299 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4EA50B95037D GetDataFolder
+
+FORWARD ME_4EA50C04021B
+
+: ME_4EA50C2100BF
+ CONST UID '4EA50C2100BF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4EA50C2100BF DoIt
+
+: ME_4EA50C04021B
+ CONST UID '4EA50C04021B'
+ CONST Name 'GetExt'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4EA50C2100BF // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4EA50C04021B GetExt
+
+FORWARD ME_506D80B002A6
+
+: ME_506D816E00C1
+ CONST UID '506D816E00C1'
+ CONST Name 'aDirName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_506D816E00C1 aDirName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_506D81590085
+ CONST UID '506D81590085'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_506D816E00C1 // aDirName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_506D81590085 DoIt
+
+: ME_506D80B002A6
+ CONST UID '506D80B002A6'
+ CONST Name 'CheckExists'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_506D81590085 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_506D80B002A6 CheckExists
+
+FORWARD ME_506D8174020F
+
+: ME_506D818E03C9
+ CONST UID '506D818E03C9'
+ CONST Name 'aTestName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_506D818E03C9 aTestName
+
+: ME_506D81890103
+ CONST UID '506D81890103'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_506D818E03C9 // aTestName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_506D81890103 DoIt
+
+: ME_506D8174020F
+ CONST UID '506D8174020F'
+ CONST Name 'Try2FindTest'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_506D81890103 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_506D8174020F Try2FindTest
+
+: ME_4DC40A7E00C8
+ CONST UID '4DC40A7E00C8'
+ CONST Name 'TCustomAutoTestSuite'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DC24566022C // TTestSuite
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4EA50B95037D // GetDataFolder
+ ME_4EA50C04021B // GetExt
+ ME_506D80B002A6 // CheckExists
+ ME_506D8174020F // Try2FindTest
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DC38C96018E // AddTests
+ ME_4DCCD004030E // DoHasScriptChildren
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4DC40A7E00C8 TCustomAutoTestSuite
+
+: ME_4DC24CA4037E
+ CONST UID '4DC24CA4037E'
+ CONST Name 'CustomAutoTestsSuite'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_4DC24CA4037E CustomAutoTestsSuite

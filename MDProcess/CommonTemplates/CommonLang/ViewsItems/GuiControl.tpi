@@ -1,0 +1,127 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ViewsItems/GuiControl.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ViewsItems::GuiControl
+//
+// Визуальный элемент управления
+// ---
+// Базовый стереотип для всех стереотипов описывающих элементы управления
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: GuiControl::Class
+? Визуальный элемент управления
+? Базовый стереотип для всех стереотипов описывающих элементы управления
+= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_gui_control.gif
+L code_gui_control
+// Параметры визуализации
+$ C 255,185,235
+$ l 240,10,200
+$ f 240,10,200
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p base wnd class:s=CWnd ? определяет базовый класс окна, от которого будет отнаследован элемент
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{base wnd class}"!="%S{!base wnd class}"}%f_up_prefix(%S) *base wnd class* = *%S{base wnd class}* - определяет базовый класс окна, от которого будет отнаследован элемент
+	]
+
+// возвращает базовый класс окна (диалог, список т.д)
+%f _get_wnd_class
+//#UC START# *4714440600BBfor47143E02006D*
+	[{}{CWnd}{%S{base wnd class}}]
+//#UC END# *4714440600BBfor47143E02006D*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа AbstractClass::Class
+// определение специфических данных стереотипа
+%f _auto_self_data_h
+//#UC START# *471728BC0232for47143E02006D*
+//#UC END# *471728BC0232for47143E02006D*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// реализация специфических методов стереотипа
+%f _auto_self_methods_cpp
+//#UC START# *471728BE01B5for47143E02006D*
+	[%S%f_refcount_methods_cpp()
+	]BEGIN_MESSAGE_MAP(%f_type(%S), %f_base_dlg_class(%S))
+		%U[{_MESSAGE_MAP}
+		]
+	END_MESSAGE_MAP()
+	
+	[{%Sa!=abstract}IMPLEMENT_DYNAMIC(%SN, %f_base_dlg_class(%S))
+	]
+//#UC END# *471728BE01B5for47143E02006D*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// определение специфических методов стереотипа
+%f _auto_self_methods_h
+//#UC START# *471728C000FAfor47143E02006D*
+	[%S%f_refcount_methods_h()
+	]#	DECLARE_MESSAGE_MAP()
+	
+	[{%Sa!=abstract}#	DECLARE_DYNAMIC(%SN)
+	]
+//#UC END# *471728C000FAfor47143E02006D*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// выводит список наследования
+%f _base_class_decl
+//#UC START# *471728C103A9for47143E02006D*
+	: [{}{public %S%f_get_wnd_class()}<{, }{%GS=%SS}public %f_type(%G)>]<{}{%GS!=%SS}, public %f_type(%G)> 
+//#UC END# *471728C103A9for47143E02006D*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// выводит forward-определение
+%f _self_forward
+//#UC START# *471728C60280for47143E02006D*
+//#UC END# *471728C60280for47143E02006D*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// выводит специфические include
+%f _specific_include
+//#UC START# *471728C803B9for47143E02006D*
+	\#include "shared/Core/fix/win_afx.h"
+/	\#include %f_dump_include_path(%P%PL,%P%P)
+	[{%S{resizeable}=true}\#include "shared/WinGUI/Controls/ETSLayout.h"
+	][%P%P<{}{%aM=ComTarget::Category}{Sp}\#include %f_dump_include_path(%f_with_gen_id(h,%aL),%a)>][
+	%P<{}{%CS=Resource}\#include %f_dump_include_path(%CL,%C)>]
+//#UC END# *471728C803B9for47143E02006D*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+%f _pas_IntfUses
+//#UC START# *4948F2EE0334for47143E02006D*
+	%S%[inherited]\
+	[{<{}{%CS=message&%f_substr_from_begin(%C{Message ID},3)=CM_}{C}>!=0}%f_pas_PutToUses("Controls")]
+//#UC END# *4948F2EE0334for47143E02006D*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47143E02006D*
+c                                                   {}
+r {<{}{%GS=%SS}{%GC}>!=0&<{}{%GS=%SS}{%GC}>!=1}:    {%SS может наследоваться только от одного %SS}
+//#UC END# *4704C0E30186for47143E02006D*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

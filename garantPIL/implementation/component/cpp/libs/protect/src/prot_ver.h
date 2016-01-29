@@ -1,0 +1,4 @@
+#ifndef PROTECT_VERSION
+#define PROTECT_VERSION 1
+
+#endif	//PROTECT_VERSION

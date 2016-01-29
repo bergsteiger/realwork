@@ -1,0 +1,42 @@
+// Internet 483E96C10305 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_483E96C10305
+ CONST UID '483E96C10305'
+ CONST Name 'Internet'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ ;
+ : Children
+   @ ( WL 'ME_483E97460331' '483E97460331.pas.ms.script' // XMLIntf
+ WL 'ME_483E97C402FD' '483E97C402FD.pas.ms.script' // XML
+ WL 'ME_49EC9CDD0093' '49EC9CDD0093.pas.ms.script' // Web
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "is namespace" true
+ CONST "vendor" '/external/NotFinished/Borland/Delphi'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Core\Internet\Internet.model.script'
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Internet\Internet_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\483E96C10305.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\483E96C10305.pas.ms.script.runner'
+
+ref; // ME_483E96C10305 Internet

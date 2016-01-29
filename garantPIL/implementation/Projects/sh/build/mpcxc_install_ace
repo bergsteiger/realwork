@@ -1,0 +1,50 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_install_ace <path_to_install> <path_to_scripts> <path_to_ace> <path_to_ace_config>"
+exit
+fi
+
+echo "mpcxc_install_ace ..."
+
+# name input parameters
+
+path_to_install=$1
+path_to_scripts=$2
+path_to_ace=$3
+path_to_ace_config=$4
+
+export MPCXC_ROOT=$path_to_install
+export MPCXC_SH=$path_to_scripts
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path # switch to new cvs scripts
+
+# make ACE ready to use
+
+future_config_path=$MPCXC_ROOT/src/shared/support/mpc/make/TAOACE
+
+rm -rf $MPCXC_ROOT/src/ace
+cp -Rf $path_to_ace $MPCXC_ROOT/src
+
+find $MPCXC_ROOT/src/ace -type d -exec chmod 755 {} \;
+find $MPCXC_ROOT/src/ace -type f -exec chmod 644 {} \;
+
+find $path_to_ace_config -type f -name "*.mpb" -exec cp -f {} $future_config_path \;
+
+find $future_config_path -type d -exec chmod 755 {} \;
+find $future_config_path -type f -exec chmod 644 {} \;
+
+$MPCXC_SH/update_cvs shared/support/mpc/make/TAOACE
+
+export MPCXC_CONFIG=$future_config_path # switch to new cvs ace
+
+rm -f $MPCXC_ROOT/src/ace/config.h
+short_system_name=`uname -s`
+cp $MPCXC_CONFIG/config.h.$short_system_name.txt $MPCXC_ROOT/src/ace/config.h
+
+$MPCXC_SH/fix_config_mpb_mpc $MPCXC_CONFIG
+$MPCXC_SH/fix_config_mpb_mpc $MPCXC_ROOT/src/ace
+
+echo "You may run mpcxc_full_rebuild_ace."
+
+echo "end."

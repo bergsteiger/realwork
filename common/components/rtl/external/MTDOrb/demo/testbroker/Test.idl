@@ -1,0 +1,45 @@
+	interface TestIntf;
+	
+	struct TestStruct {
+		long value_long;
+		string value_string;
+	};
+
+	enum TestEnum {
+		te_Valie1,
+		te_Value2
+	};
+
+	typedef sequence<octet> TestOctetSeq;
+
+	exception TestException {
+		string message;
+	};
+
+	interface TestIntfFactory {
+		TestIntf create_test_intf();
+	};
+
+	interface TestIntf {
+		short check_short(in short value_in, inout short value_inout, out short value_out);
+		long check_long(in long value_in, inout long value_inout, out long value_out);
+		unsigned short check_unsigned_short(in unsigned short value_in, inout unsigned short value_inout, out unsigned short value_out);
+		unsigned long check_unsigned_long(in unsigned long value_in, inout unsigned long value_inout, out unsigned long value_out);
+		float check_float(in float value_in, inout float value_inout, out float value_out);
+		double check_double(in double value_in, inout double value_inout, out double value_out);
+		boolean check_boolean(in boolean value_in, inout boolean value_inout, out boolean value_out);
+		char check_char(in char value_in, inout char value_inout, out char value_out);
+		octet check_octet(in octet value_in, inout octet value_inout, out octet value_out);
+		string check_string(in string value_in, inout string value_inout, out string value_out);
+		long long check_longlong(in long long value_in, inout long long value_inout, out long long value_out);
+		unsigned long long check_unsigned_longlong(in unsigned long long value_in, inout unsigned long long value_inout, out unsigned long long value_out);
+		wchar check_wchar(in wchar value_in, inout wchar value_inout, out wchar value_out);
+		wstring check_wstring(in wstring value_in, inout wstring value_inout, out wstring value_out);
+		TestOctetSeq check_octet_seq(in TestOctetSeq value_in, inout TestOctetSeq value_inout, out TestOctetSeq value_out);
+		TestStruct check_struct(in TestStruct value_in, inout TestStruct value_inout, out TestStruct value_out);
+		TestEnum check_enum(in TestEnum value_in, inout TestEnum value_inout, out TestEnum value_out);
+		TestIntf check_obj(in TestIntf value_in, inout TestIntf value_inout, out TestIntf value_out);
+		void check_exception(in string mes)
+			raises (TestException);
+		void deactivate();
+	};

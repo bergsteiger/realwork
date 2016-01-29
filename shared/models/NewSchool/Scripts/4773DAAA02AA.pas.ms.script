@@ -1,0 +1,55 @@
+// Tl3ObjectRefList1 4773DAAA02AA SimpleClass Class
+
+INCLUDE '47B57B9E0050.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_4773DAAA02AA
+
+INCLUDE '47879856035F.pas.ms.script'
+
+: ME_47A75355020F
+ CONST UID '47A75355020F'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'ref'
+ : Target ME_47879856035F // Tl3_Base
+ ;
+
+ @SELF
+; // ME_47A75355020F ItemType
+
+: ME_4773DAAA02AA
+ CONST UID '4773DAAA02AA'
+ CONST Name 'Tl3ObjectRefList1'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Список ссылок на объекты.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B57B9E0050 // l3ObjectRefList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_47A75355020F // ItemType
+ ]
+ ; // Attributes
+ : Overridden
+   [ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4773DAAA02AA Tl3ObjectRefList1

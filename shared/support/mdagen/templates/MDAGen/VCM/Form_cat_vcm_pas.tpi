@@ -1,0 +1,34 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _vcm_pas_IsForm
+/ override
+//#UC START# *46B77136032FIsForm*
+	true
+//#UC END# *46B77136032FIsForm*
+
++ vcm.pas
+/ Генератор VCM.
+//#UC START# *46B77136032F*
+O %SN_frm.inc
+	\{$IfNDef _%SN_Declared\}
+	\{$Define _%SN_Declared\}
+	// Форма VCM
+	// %SN - "%SD"
+	procedure InitEntities;
+	  override;
+	  {-}\
+	[\n<{\n}{%C%f_vcm_pas_IsFormBody()=true}%C%f_vcm_pas_GetOperationHandlersInterface()>]
+	\{$Else   _%SN_Declared\}
+	procedure T%SN.InitEntities;
+	  //override;
+	  {-}
+	begin
+	 inherited;
+	 with (Entities.Entities As IvcmOperationsPublisher) do
+	 begin
+	 <{%C%f_vcm_pas_IsFormBody()=true}%C%f_vcm_pas_GetPublishEntityCode()>
+	 end;//Entities.Entities As IvcmOperationsPublisher
+	end;\
+	[\n\n<{\n}{%C%f_vcm_pas_IsFormBody()=true}%C%f_vcm_pas_GetOperationHandlersImplementation("T%SN")>]
+	\{$EndIf  _%SN_Declared\}
+//#UC END# *46B77136032F*

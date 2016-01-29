@@ -1,0 +1,2669 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ParamsImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/Core/ParamsImpl|483273600059
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16657593389"))
+    quid       	"483273600059"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"483273690377"
+	    supplier   	"Logical View::shared::Core::Params"
+	    quidu      	"4832733A0083")
+	(object Visibility_Relationship
+	    quid       	"4833B2F2038C"
+	    supplier   	"Logical View::shared::Core::os"
+	    quidu      	"4500347B000F")
+	(object Visibility_Relationship
+	    quid       	"4833B3210347"
+	    supplier   	"Logical View::shared::Core::fix"
+	    quidu      	"45000B1A01F4")
+	(object Visibility_Relationship
+	    quid       	"48F57E38010C"
+	    supplier   	"Logical View::shared::Core::ParamsHelper"
+	    quidu      	"4833E2F90002")
+	(object Visibility_Relationship
+	    quid       	"4905AC4A0258"
+	    supplier   	"Logical View::shared::Core::ParamsCore"
+	    quidu      	"4905AB9701EB"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ParamManagerImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/Core/ParamsImpl/ParamManagerImpl|48327B8A0355
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/impl/ParamsImpl/ParamManagerImpl.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.cpp)"
+		    value      	"w:/shared/Core/impl/ParamsImpl/ParamManagerImpl_factory.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.h)"
+		    value      	"w:/shared/Core/impl/ParamsImpl/ParamManagerImpl_factory.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/Core/impl/ParamsImpl/ParamManagerImpl.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*48327B8A0355_DESTR_BODY*"
+		    value      	(value Text 
+|//#UC START# *48327B8A0355_DESTR_BODY*¤	ValuesMap::const_iterator run_after = m_map.find (boost::algorithm::to_upper_copy (std::string (RUN_PARAM)));¤	if (m_map.end () != run_after) {¤		ValuesMap::const_iterator args_line = m_map.find (boost::algorithm::to_upper_copy (std::string (RUN_ARGS)));¤		if (m_map.end () == args_line || args_line->second.data.empty ()) {¤			const char* file = run_after->second.data.c_str ();¤			char* args [] = {const_cast <char*> (file), 0}; // GARANT_STDC¤			ACE_OS::execvp (file, args);¤		} else {¤			int i;¤			ACE_ARGV arg_for_parsing (args_line->second.data.c_str ());¤			char** arg = new char*[arg_for_parsing.argc ()+2];¤			std::string s = this->convert_string_to_in_quotes (run_after->second.data);¤			arg[0] = new char[s.length ()+1];¤			strcpy (arg[0], s.c_str ()); ¤			arg[0][s.length ()] = 0;¤			for (i = 0; i < arg_for_parsing.argc (); i++) {¤				std::string s = this->convert_string_to_in_quotes (std::string(arg_for_parsing.argv ()[i]));¤				arg[i+1] = new char[s.length ()+1];¤				strcpy (arg[i+1], s.c_str ()); ¤				arg[i+1][s.length ()] = 0;¤			}¤			arg[arg_for_parsing.argc ()+1] = 0;¤			ACE_OS::execvp (run_after->second.data.c_str (), arg);¤			for (i = 0; i < arg_for_parsing.argc ()+1; i++) {¤				delete[] arg[i];¤			}¤			delete[] arg;¤		}¤	}¤	//#UC END# *48327B8A0355_DESTR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NESTED GENERATED FILES (cpp)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need unsorted less"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/Core/ParamsImpl/ParamManagerImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/Core/ParamsImpl/ParamManagerImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48327B8A0355_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *48327B8A0355_CUSTOM_IMPORT*¤//#UC END# *48327B8A0355_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48327B8A0355_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *48327B8A0355_CUSTOM_CLASS_DEFINITION*¤//#UC END# *48327B8A0355_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48327B8A0355_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *48327B8A0355_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *48327B8A0355_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16657605650"))
+	    quid       	"48327B8A0355"
+	    documentation 	"реализация менеджера"
+	    stereotype 	"Servant"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657624805"))
+		    quid       	"4833B2FF02BF"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::Core::os::RegistryHelper"
+		    quidu      	"4500351F0119")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657625190"))
+		    quid       	"4833B31801E8"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::Core::fix::mpcxc"
+		    quidu      	"45011F4F00FA")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657625577"))
+		    quid       	"4833BFAD02BD"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::boost::algorithm::case_conv"
+		    quidu      	"4833BD2A02B6")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657625964"))
+		    quid       	"4833C4A9024D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::ace::Args::ACE_ARGV"
+		    quidu      	"4833C47603BC")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657626335"))
+		    quid       	"48F57EE30223"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::Core::ParamsHelper::ParamConvert"
+		    quidu      	"4833E32102FC"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"48327BA701E7"
+		    supplier   	"Logical View::shared::Core::Params::ParamManager"
+		    quidu      	"483273860069"))
+	    operations 	(list Operations
+		(object Operation "is_recognized_param"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*48327BB901B8*"
+			    value      	(value Text 
+|//#UC START# *48327BB901B8*¤	bool ret = false;¤	if ('\x2D' == key[0]) {¤		ret = true;¤	} else if ('\x96' == key[0]) {¤		// param not correct, but continue¤		key[0] = '\x2D';¤		ret = true;¤	}¤	if (true == ret) {¤		//test for negative number¤		for (unsigned int i = 1; i < key.size (); i++) {¤			if ('.' != key[i] && ('0' > key[i] || '9' < key[i])) {¤				return true;¤			}¤		}¤		return false;¤	}¤	return false;¤	//#UC END# *48327BB901B8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48327BB901B8*"
+			    value      	(value Text 
+|//#UC START# *48327BB901B8*¤		boolean ret = false;¤		¤		if ((char)0x2D == key.charAt(0)) {¤			ret = true;¤		} else if ((char)0x96 == key.charAt(0)) {¤			key.setCharAt(0, (char)0x2D);¤			¤			ret = true;¤		}¤		if (ret == true) {¤			//test for negative number¤			for (int i = 1; i < key.length(); ++i) {¤				if ('.' != key.charAt(i) && ('0' > key.charAt(i) || '9' < key.charAt(i))) {¤					return true;¤				}¤			}¤			return false;¤		}¤		return false;¤		//#UC END# *48327BB901B8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657618521"))
+		    quid       	"48327BB901B8"
+		    documentation 	"опряделяет задан ли параметр в правильном формате"
+		    parameters 	(list Parameters
+			(object Parameter "inout key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657618823"))
+			    quid       	"4833C4DD0197"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "parse_command_line"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4833AB1602B9*"
+			    value      	(value Text 
+|//#UC START# *4833AB1602B9*¤	ParamArgs::size_type i = 0;¤	while (i < args.size ()) {¤		std::string param = args[i];¤		if (true == this->is_recognized_param (param)) {			¤			ParamArgs::size_type next = i+1;¤			if (next < args.size ()) {¤				std::string next_arg = args[next];¤				if (RUN_ARGS == boost::algorithm::to_upper_copy (param)) {					¤					for (unsigned long i1 = 0; i1 < next_arg.length (); i1++) { // GARANT_FORSCOPING¤							if ('\'' == next_arg[i1]) {¤								next_arg[i1] = '\"';¤						}	¤					}¤					m_map[boost::algorithm::to_upper_copy (param)] = KeyInfo (next_arg, COMMAND_LINE, "");¤					i++;¤				} else if (false == this->is_recognized_param (next_arg)) {¤					m_map[boost::algorithm::to_upper_copy (param)] = KeyInfo (args[next], COMMAND_LINE, "");¤					i++;¤				} else {¤					// value not defined¤					m_map[boost::algorithm::to_upper_copy (param)] = KeyInfo ("", COMMAND_LINE, "");¤				}¤			} else {¤				m_map[boost::algorithm::to_upper_copy (param)] = KeyInfo ("", COMMAND_LINE, "");¤			}¤		}¤		i++;¤	}¤	//#UC END# *4833AB1602B9*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833AB1602B9*"
+			    value      	(value Text 
+|//#UC START# *4833AB1602B9*¤		int i = 0;¤		while (i < args.size()) {¤			StringBuilder param = new StringBuilder (args.get(i));¤			if (true == this.isRecognizedParam(param)) {			¤				int next = i+1;¤				if (next < args.size ()) {¤					StringBuilder nextArg = new StringBuilder (args.get(next));¤					if (RUN_ARGS.compareToIgnoreCase(param.toString()) == 0) {¤						for (int i1 = 0; i1 < nextArg.length (); i1++) {¤								if ('\'' == nextArg.charAt(i1)) {¤									nextArg.setCharAt(i1, '\"');¤							}	¤						}¤						map_.put(¤								param.toString().toUpperCase()¤								, new KeyInfo (¤									nextArg.toString()¤									, ReadFrom.COMMAND_LINE¤									, ""¤								)¤						);¤						i++;¤					} else if (false == this.isRecognizedParam(nextArg)) {¤						map_.put(¤								param.toString().toUpperCase()¤								, new KeyInfo (¤									args.get(next).toUpperCase()¤									, ReadFrom.COMMAND_LINE¤									, ""¤								)¤						);¤						i++;¤					} else {¤						// value not defined¤						map_.put(¤								param.toString().toUpperCase()¤								, new KeyInfo (¤									""¤									, ReadFrom.COMMAND_LINE¤									, ""¤								)¤						);						¤					}¤				} else {¤					map_.put(¤							param.toString().toUpperCase()¤							, new KeyInfo (¤								""¤								, ReadFrom.COMMAND_LINE¤								, ""¤							)¤					);¤				}¤			}¤			i++;¤		}¤		//#UC END# *4833AB1602B9*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657619265"))
+		    quid       	"4833AB1602B9"
+		    documentation 	"парсит командную строку, находит в ней пары ключ-значение и записывает в мапу"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "args"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"483273D50369")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657619574"))
+			    quid       	"4833C764004A"
+			    type       	"ParamArgs"
+			    quidu      	"483273D50369"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "parse_registry"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"470652F6030D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4833AB580143*"
+			    value      	(value Text 
+|//#UC START# *4833AB580143*¤	RegistryHelper::Key key;¤	std::string sub;¤	if (RegistryHelper::parse_registry_path (subkey, key, sub)) {¤		RegistryHelper::KeysArray keys;¤		if (false == RegistryHelper::get_keys_array (key, sub.c_str (), keys)) {¤			throw DataNotCorrect ();¤		}¤		for (std::size_t i = 0; i < keys.size (); i++) {¤			if (m_map.end () != m_map.find (boost::algorithm::to_upper_copy (keys[i].name))) {¤				continue;¤			}¤			if (true == this->is_recognized_param (keys[i].name)) {¤				m_map[boost::algorithm::to_upper_copy (keys[i].name)] = KeyInfo (keys[i].value, REGISTRY, "") ;¤			}¤		}¤	} else {¤		throw DataNotCorrect ();¤	}¤	//#UC END# *4833AB580143*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833AB580143*"
+			    value      	(value Text 
+|//#UC START# *4833AB580143*¤		throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();¤		//#UC END# *4833AB580143*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657619992"))
+		    quid       	"4833AB580143"
+		    documentation 	"парсит ветку реестра, по ключу subkey, находит пары ключ-значение и записывает в мапу"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "subkey"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657620299"))
+			    quid       	"4833AB8E00D4"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "parse_config_file"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"470652F6030D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4833AB980020*"
+			    value      	(value Text 
+|//#UC START# *4833AB980020*¤	const size_t buffer_size = 2048;¤	char buffer [buffer_size];¤¤	size_t readed_bytes = MPCXC_GetPrivateProfileString (¤		section.c_str () // points to section name¤		, 0                         // points to key name¤		, ""                        // points to default string¤		, buffer                    // points to destination buffer¤		, buffer_size               // size of destination buffer¤		, file.c_str ()       // points to initialization filename¤	);¤¤	if (!readed_bytes) {¤		throw DataNotCorrect ();¤	}¤¤	if (readed_bytes == buffer_size - 2) {¤		throw DataNotCorrect ();¤	}¤	//¤	ReadFrom from = CONFIG_FILE;¤	static const char* READ_ONLY_PREFIX= "R/O";¤	static const std::string::size_type PREFIX_LEN = strlen (READ_ONLY_PREFIX);¤	if (PREFIX_LEN < section.length ()¤			&& READ_ONLY_PREFIX == section.substr (section.length () - PREFIX_LEN, PREFIX_LEN)¤		)¤	{¤		from = READ_ONLY_SECTION_IN_CONFIG_FILE;¤	}¤	const char* ptr = buffer;¤	while (strcmp (ptr, "")) {¤		std::string key = ptr;¤¤		if (true == this->is_recognized_param (key)) {¤			ValuesMap::iterator it = m_map.find (boost::algorithm::to_upper_copy (key));¤			if ((ADDITIONAL_CONFIG_SECTION_KEY == key) || (m_map.end () == it)) {¤				m_map[boost::algorithm::to_upper_copy (key)] = KeyInfo (get_key_value (file, section, key), from, section);¤			} else if ((m_map.end () != it) && (CONFIG_FILE == from) && (COMMAND_LINE == it->second.from)) {¤				it->second.from = from;¤				it->second.section = section;¤			}¤		}¤		ptr += strlen (ptr) + 1;¤	}¤	ValuesMap::iterator it = m_map.find (boost::algorithm::to_upper_copy (std::string (ADDITIONAL_CONFIG_SECTION_KEY)));¤	if (m_map.end () != it) {¤		std::string additional_section = it->second.data;¤		m_map.erase (it);¤		this->parse_config_file (file, additional_section);¤	}¤	//#UC END# *4833AB980020*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833AB980020*"
+			    value      	(value Text 
+|//#UC START# *4833AB980020*¤		org.ini4j.Ini ini;¤		try {¤			ini = new org.ini4j.Ini (new java.io.FileReader (file));¤		} catch (org.ini4j.InvalidIniFormatException e) {¤			// TODO Auto-generated catch block¤			throw new DataNotCorrect (e);¤		} catch (java.io.FileNotFoundException e) {¤			// TODO Auto-generated catch block¤			throw new DataNotCorrect (e);¤		} catch (java.io.IOException e) {¤			// TODO Auto-generated catch block¤			throw new DataNotCorrect (e);¤		} ¤		ReadFrom from = ReadFrom.CONFIG_FILE;¤		final String READ_ONLY_PREFIX= "R/O";¤				¤		if (section.endsWith(READ_ONLY_PREFIX)) {¤			from = ReadFrom.READ_ONLY_SECTION_IN_CONFIG_FILE;¤		}¤		for(String key : ini.get(section).keySet()) {¤			StringBuilder str = new StringBuilder (key);¤			if (this.isRecognizedParam(str)) {¤				KeyInfo info =  this.map_.get (str.toString().toUpperCase());¤				if (¤					ADDITIONAL_CONFIG_SECTION_KEY.compareToIgnoreCase(str.toString()) == 0¤					|| info == null¤				) {¤					this.map_.put(¤						str.toString().toUpperCase()¤						, new KeyInfo (¤							ini.get(section).fetch(key)¤							, from¤							, section¤						)¤					);¤				} else if (¤					info != null ¤					&& from == ReadFrom.CONFIG_FILE ¤					&& info.from_ == ReadFrom.COMMAND_LINE¤				) {¤					info.setFrom(from);¤					info.setSection(section);¤				}¤			}¤		}¤		KeyInfo addSectionInfo = this.map_.get(ADDITIONAL_CONFIG_SECTION_KEY.toUpperCase());¤		if (addSectionInfo != null) {¤			String additionalSection = addSectionInfo.getData();¤			this.map_.remove(ADDITIONAL_CONFIG_SECTION_KEY.toUpperCase());¤			¤			this.parseConfigFile(file, additionalSection);¤		}¤		//#UC END# *4833AB980020*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657620722"))
+		    quid       	"4833AB980020"
+		    documentation 	"парсит секцию section в конфигурационном файле, находит пары ключ-значение и записывает в мапу"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "file"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657621049"))
+			    quid       	"4833ABD201B9"
+			    type       	"a-string"
+			    quidu      	"452257A0036F")
+			(object Parameter "section"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657621428"))
+			    quid       	"4833ABD201E8"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "get_key_value"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"470652F6030D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4833ABFF0121*"
+			    value      	(value Text 
+|//#UC START# *4833ABFF0121*¤	const size_t buffer_size = 2048;¤	char buffer [buffer_size];¤¤	size_t readed_bytes = MPCXC_GetPrivateProfileString (¤		section.c_str () // points to section name¤		, key.c_str ()              // points to key name¤		, ""                        // points to default string¤		, buffer                    // points to destination buffer¤		, buffer_size               // size of destination buffer¤		, file.c_str ()       // points to initialization filename¤	);¤¤	if (readed_bytes == buffer_size - 1) {¤		//LOG_E (("GCMManager_i::get_ini_key: There is too big value in ini file, for key %s!", key.c_str ()));¤		throw DataNotCorrect ();¤	}¤	return buffer;¤	//#UC END# *4833ABFF0121*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833ABFF0121*"
+			    value      	(value Text 
+|//#UC START# *4833ABFF0121*¤		org.ini4j.Ini ini;¤		try {¤			ini = new org.ini4j.Ini (new java.io.FileReader (file));¤		} catch (org.ini4j.InvalidIniFormatException e) {¤			// TODO Auto-generated catch block¤			throw new DataNotCorrect (e);¤		} catch (java.io.FileNotFoundException e) {¤			// TODO Auto-generated catch block¤			throw new DataNotCorrect (e);¤		} catch (java.io.IOException e) {¤			// TODO Auto-generated catch block¤			throw new DataNotCorrect (e);¤		}¤		String res = "";¤		org.ini4j.Ini.Section sec = ini.get(section);¤		if (sec != null) {¤			res = sec.fetch(key);¤		}¤		return res;¤		//#UC END# *4833ABFF0121*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657621843"))
+		    quid       	"4833ABFF0121"
+		    documentation 	"возвращает значение по ключу в секции section конфигурационного файла"
+		    parameters 	(list Parameters
+			(object Parameter "file"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657622142"))
+			    quid       	"4833AC3A0027"
+			    type       	"a-string"
+			    quidu      	"452257A0036F")
+			(object Parameter "section"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657622497"))
+			    quid       	"4833AC3A004F"
+			    type       	"a-string"
+			    quidu      	"452257A0036F")
+			(object Parameter "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657622888"))
+			    quid       	"4833AC3A0077"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"a-string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"452257A0036F")
+		(object Operation "convert_string_to_in_quotes"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4833ACC10049*"
+			    value      	(value Text 
+|//#UC START# *4833ACC10049*¤	if (std::string::npos == str.find (' ') && std::string::npos == str.find ('\'')) {¤		return str;¤	}¤	char buf[1024];¤	sprintf (buf, "\"%s\"\0", str.c_str ());¤	return buf;¤	//#UC END# *4833ACC10049*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833ACC10049*"
+			    value      	(value Text 
+|//#UC START# *4833ACC10049*¤		if (str.contains(" ")) {¤			return str;¤		}¤		return "\"" + str + "\"";¤		//#UC END# *4833ACC10049*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657623312"))
+		    quid       	"4833ACC10049"
+		    documentation 	
+|"заворчивает" строку в кавычки, если в ней есть пробелы
+		    
+		    parameters 	(list Parameters
+			(object Parameter "str"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657623618"))
+			    quid       	"4833ACE30151"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"a-string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"452257A0036F")
+		(object Operation "substitute_environment_variables"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4833ACEB0287*"
+			    value      	(value Text 
+|//#UC START# *4833ACEB0287*¤	std::string::size_type start = str.find ('%');¤	while (std::string::npos != start) {¤		std::string::size_type end = str.find ('%', start+1);¤		if (std::string::npos == end) {¤			break;¤		}¤		std::string var = str.substr (start+1, end-start-1);¤		char* env = getenv (var.c_str ());¤		if (0 != env) {¤			str.replace (start, end-start+1, env);¤		}¤		start = str.find ('%', start+1);¤	}¤	//#UC END# *4833ACEB0287*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833ACEB0287*"
+			    value      	(value Text 
+|//#UC START# *4833ACEB0287*¤		int start = str.indexOf("%");¤		while (start != -1) {¤			int end = str.indexOf("%", start + 1);¤			if (end == -1) {¤				break;¤			}¤			String var = str.substring(start + 1, end);¤			String env = System.getenv(var);¤			if (env != null && env.length() != 0) {¤				str.replace(start, end + 1, env);¤			} else {¤				assert(false);¤				break;¤			}¤			¤			start = str.indexOf("%");¤		}¤		//#UC END# *4833ACEB0287*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657624056"))
+		    quid       	"4833ACEB0287"
+		    documentation 	"если str - являеся переменной окружения, то она заменяется значением этой переменной окружения"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "inout str"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657624362"))
+			    quid       	"4833AD3602EC"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "ReadFrom"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16662184085"))
+		    quid       	"48327C1C0037"
+		    documentation 	"откуда прочитан параметр"
+		    stereotype 	"Enum"
+		    exportControl 	"Private"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "COMMAND_LINE"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657606575"))
+			    quid       	"48327C350209"
+			    documentation 	"из командной строки"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "REGISTRY"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657606989"))
+			    quid       	"48327C4701B1"
+			    documentation 	"из реестра"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "CONFIG_FILE"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657607412"))
+			    quid       	"48327C530174"
+			    documentation 	"из файла конфигурации"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "READ_ONLY_SECTION_IN_CONFIG_FILE"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657607802"))
+			    quid       	"48327C6D009F"
+			    documentation 	"из RO секции файла настроек"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "TEMP"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657608195"))
+			    quid       	"4833C5DF01FC"
+			    documentation 	"временная переменная"
+			    exportControl 	"Public"
+			    Containment 	"By Value")))
+		(object Class "KeyInfo"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833A9C301E5_4833B54802B1_CTOR_BODY*"
+			    value      	(value Text 
+|//#UC START# *4833A9C301E5_4833B54802B1_CTOR_BODY*¤			this.data_ = new String ("");¤			this.from_ = ReadFrom.COMMAND_LINE;¤			this.section_ = new String ("");¤			//#UC END# *4833A9C301E5_4833B54802B1_CTOR_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833A9C301E5_4833B559039C_CTOR_BODY*"
+			    value      	(value Text 
+|//#UC START# *4833A9C301E5_4833B559039C_CTOR_BODY*¤			this.data_ = value;¤			this.from_ = fr;¤			this.section_ = sect;¤			¤			StringBuilder data = new StringBuilder (this.data_);¤			ParamManagerImpl.substituteEnvironmentVariables(data);¤			this.data_ = data.toString();¤			//#UC END# *4833A9C301E5_4833B559039C_CTOR_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/Core/ParamsImpl/ParamManagerImpl/KeyInfo|4833A9C301E5
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16662188708"))
+		    quid       	"4833A9C301E5"
+		    documentation 	"информация о параметре"
+		    stereotype 	"Struct"
+		    exportControl 	"Private"
+		    operations 	(list Operations
+			(object Operation "def"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"cpp:*4833B54802B1_INIT_CTOR_BASE_INIT*"
+				    value      	(value Text 
+|//#UC START# *4833B54802B1_INIT_CTOR_BASE_INIT*¤: data (""), from (COMMAND_LINE), section ("")¤//#UC END# *4833B54802B1_INIT_CTOR_BASE_INIT*
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"cpp:*4833B54802B1_CTOR_BODY*"
+				    value      	(value Text 
+|//#UC START# *4833B54802B1_CTOR_BODY*¤	//#UC END# *4833B54802B1_CTOR_BODY*
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657610587"))
+			    quid       	"4833B54802B1"
+			    documentation 	"конструктор по-умолчанию"
+			    stereotype 	"ctor"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0)
+			(object Operation "ctor"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"cpp:*4833B559039C_INIT_CTOR_BASE_INIT*"
+				    value      	"//#UC START# *4833B559039C_INIT_CTOR_BASE_INIT*¤: data (value), from (fr), section (sect)¤//#UC END# *4833B559039C_INIT_CTOR_BASE_INIT*")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"cpp:*4833B559039C_CTOR_BODY*"
+				    value      	(value Text 
+|//#UC START# *4833B559039C_CTOR_BODY*¤	ParamManagerImpl::substitute_environment_variables (data);¤	//#UC END# *4833B559039C_CTOR_BODY*
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657610972"))
+			    quid       	"4833B559039C"
+			    documentation 	"конструктор для инициализации полей"
+			    stereotype 	"ctor"
+			    parameters 	(list Parameters
+				(object Parameter "value"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ResolvedTypeGuid"
+					    value      	"452257A0036F")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ElementCreationOrder"
+					    value      	"16657611336"))
+				    quid       	"4833B5890250"
+				    type       	"a-string"
+				    quidu      	"452257A0036F")
+				(object Parameter "fr"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ResolvedTypeGuid"
+					    value      	"48327C1C0037")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ElementCreationOrder"
+					    value      	"16657611748"))
+				    quid       	"4833B589027C"
+				    type       	"ReadFrom"
+				    quidu      	"48327C1C0037")
+				(object Parameter "sect"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ResolvedTypeGuid"
+					    value      	"452257A0036F")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ElementCreationOrder"
+					    value      	"16657612148"))
+				    quid       	"4833B58902A9"
+				    type       	"a-string"
+				    quidu      	"452257A0036F"))
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "data"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657609318"))
+			    quid       	"4833A9DC015C"
+			    documentation 	"значение параметра"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "section"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657609721"))
+			    quid       	"4833AA05038F"
+			    documentation 	"секция, в которой был найден параметр"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"
+			    exportControl 	"Public"
+			    Containment 	"By Value")))
+		(object Class "ValuesMap"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16662194137"))
+		    quid       	"4833AAC901FD"
+		    documentation 	"мапа хранящая инормацию о параметре"
+		    stereotype 	"Map"
+		    exportControl 	"Private")
+		(object Class "ParamConstants"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657614399"))
+		    quid       	"4833AF3C00A5"
+		    documentation 	"блок констант для работы с ParamManager'ом"
+		    stereotype 	"Constants"
+		    exportControl 	"Private"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "RUN_PARAM"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657614699"))
+			    quid       	"4833AF6A020F"
+			    documentation 	
+|имя ключа, используемого для указания того, что при завершении нужно выполнить какую-нить программу.
+|P.S: совершенно не понятно почему этот параметр нужен ParamManager'у
+			    
+			    type       	"string"
+			    quidu      	"3DBFFE240068"
+			    initv      	"-RUN"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "RUN_ARGS"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657615129"))
+			    quid       	"4833AF970254"
+			    documentation 	
+|имя ключ для задания параметров запуска стороннего приложения, еоторое запускается при завершении работы.
+|P.S: также совершненно не понятно какое это отношенеи имеет к ParamManager'у
+			    
+			    type       	"string"
+			    quidu      	"3DBFFE240068"
+			    initv      	"-RUNARGS"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "ADDITIONAL_CONFIG_SECTION_KEY"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657615525"))
+			    quid       	"4833AFAF001A"
+			    documentation 	"ключ в настройках, значение по которому указывает на дополнительную секцию из которой нужно прочитать параметры."
+			    type       	"string"
+			    quidu      	"3DBFFE240068"
+			    initv      	"-GPMAdditionalSection"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "CONFIG_SECTION_KEY_TEMPLATE"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657615936"))
+			    quid       	"4833AFF4018C"
+			    documentation 	"шаблон для формирования имени ключа, определяющего секцию в файле настроек."
+			    type       	"string"
+			    quidu      	"3DBFFE240068"
+			    initv      	"-GPM%sConfigSection\\0"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "CONFIG_FILE_KEY"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657616327"))
+			    quid       	"4833B006030F"
+			    documentation 	"ключ, по которому задается путь к файлу настроек"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"
+			    initv      	"-GCMConfigFile"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "REGISTRY_SECTION_KEY"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657616710"))
+			    quid       	"4833B038035F"
+			    documentation 	"ключ по которому задаётся секция в реестре"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"
+			    initv      	"-GPMRegistrySection"
+			    exportControl 	"Public"
+			    Containment 	"By Value")))))
+	(object Association "$UNNAMED$0"
+	    quid       	"4833A9EE0025"
+	    roles      	(list role_list
+		(object Role "from"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657610143"))
+		    quid       	"4833A9EF0198"
+		    documentation 	"откуда парамтер прочитан"
+		    label      	"from"
+		    supplier   	"Logical View::shared::Core::ParamsImpl::ParamManagerImpl::ReadFrom"
+		    quidu      	"48327C1C0037"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"4833A9EF019B"
+		    supplier   	"Logical View::shared::Core::ParamsImpl::ParamManagerImpl::KeyInfo"
+		    quidu      	"4833A9C301E5"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    quid       	"4833AAF4006A"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$3"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657613333"))
+		    quid       	"4833AAF402E6"
+		    supplier   	"Logical View::shared::Core::ParamsImpl::ParamManagerImpl::KeyInfo"
+		    quidu      	"4833A9C301E5"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657613658"))
+			    quid       	"4833AAF803E6"
+			    type       	"a-string"
+			    exportControl 	"Public"
+			    Containment 	"By Value"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$4"
+		    quid       	"4833AAF402E8"
+		    supplier   	"Logical View::shared::Core::ParamsImpl::ParamManagerImpl::ValuesMap"
+		    quidu      	"4833AAC901FD"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$5"
+	    quid       	"4833AD6000A4"
+	    roles      	(list role_list
+		(object Role "orb_init_command_line"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833AD6002A3_INIT_orb_init_command_line*"
+			    value      	(value Text 
+|//#UC START# *4833AD6002A3_INIT_orb_init_command_line*¤		return new java.util.Vector<String> ();¤		//#UC END# *4833AD6002A3_INIT_orb_init_command_line*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657617357"))
+		    quid       	"4833AD6002A3"
+		    documentation 	"список параметров для инициализации ORB'а"
+		    label      	"orb_init_command_line"
+		    supplier   	"Logical View::shared::Core::ParamsCore::ParamArgs"
+		    quidu      	"483273D50369"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$6"
+		    quid       	"4833AD6002A6"
+		    supplier   	"Logical View::shared::Core::ParamsImpl::ParamManagerImpl"
+		    quidu      	"48327B8A0355"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$7"
+	    quid       	"4833AD7B0035"
+	    roles      	(list role_list
+		(object Role "sbe_init_command_line"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833AD7C0022_INIT_sbe_init_command_line*"
+			    value      	(value Text 
+|//#UC START# *4833AD7C0022_INIT_sbe_init_command_line*¤		return new java.util.Vector<String> ();¤		//#UC END# *4833AD7C0022_INIT_sbe_init_command_line*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657617751"))
+		    quid       	"4833AD7C0022"
+		    documentation 	"список параметров для инициализации подсистемы Smart Backend"
+		    label      	"sbe_init_command_line"
+		    supplier   	"Logical View::shared::Core::ParamsCore::ParamArgs"
+		    quidu      	"483273D50369"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$8"
+		    quid       	"4833AD7C0025"
+		    supplier   	"Logical View::shared::Core::ParamsImpl::ParamManagerImpl"
+		    quidu      	"48327B8A0355"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$9"
+	    quid       	"4833C05A02B6"
+	    roles      	(list role_list
+		(object Role "map"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4833C05B0064_INIT_map*"
+			    value      	(value Text 
+|//#UC START# *4833C05B0064_INIT_map*¤		return new java.util.TreeMap<String, KeyInfo> ();¤		//#UC END# *4833C05B0064_INIT_map*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657618124"))
+		    quid       	"4833C05B0064"
+		    documentation 	"хранилище параметров"
+		    label      	"map"
+		    supplier   	"Logical View::shared::Core::ParamsImpl::ParamManagerImpl::ValuesMap"
+		    quidu      	"4833AAC901FD"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$10"
+		    quid       	"4833C05B0068"
+		    supplier   	"Logical View::shared::Core::ParamsImpl::ParamManagerImpl"
+		    quidu      	"48327B8A0355"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48327B730323"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	119
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::Core::Params::ParamManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(786, 576)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(597, 548)
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"• ParamManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(597, 498)
+			anchor     	10
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"483273860069"
+		    width      	396
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::os::RegistryHelper" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1923, 543)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1730, 515)
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"• RegistryHelper")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1730, 465)
+			anchor     	10
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"4500351F0119"
+		    width      	404
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::fix::mpcxc" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1887, 819)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1737, 791)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• mpcxc")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1737, 741)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"45011F4F00FA"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::boost::algorithm::case_conv" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1899, 1092)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1746, 1064)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"• case_conv")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1746, 1014)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4833BD2A02B6"
+		    width      	324
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::ParamsCore::ParamArgs" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(963, 1800)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6572835
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(826, 1772)
+			nlines     	1
+			max_width  	274
+			justify    	0
+			label      	"ParamArgs")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(826, 1722)
+			anchor     	10
+			nlines     	1
+			max_width  	274
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    line_color 	6572835
+		    fill_color 	16777215
+		    quidu      	"483273D50369"
+		    width      	292
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::ParamsImpl::ParamManagerImpl::ValuesMap" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(270, 1818)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6572835
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(75, 1790)
+			nlines     	1
+			max_width  	390
+			justify    	0
+			label      	"ValuesMap")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(75, 1740)
+			anchor     	10
+			nlines     	1
+			max_width  	390
+			justify    	0
+			label      	"<<Map>>")
+		    icon_style 	"Label"
+		    line_color 	6572835
+		    fill_color 	16777215
+		    quidu      	"4833AAC901FD"
+		    width      	408
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::ParamsImpl::ParamManagerImpl" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(786, 1080)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(117, 871)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1338
+			justify    	0
+			label      	"• ParamManagerImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(117, 821)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1338
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12842435
+		    quidu      	"48327B8A0355"
+		    width      	1356
+		    height     	542
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @8
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48327BA701E7"
+		    client     	@7
+		    supplier   	@1
+		    vertices   	(list Points
+			(786, 808)
+			(786, 666))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$5" @9
+		    location   	(1038, 1530)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4833AD6000A4"
+		    roleview_list 	(list RoleViews
+			(object RoleView "orb_init_command_line" @10
+			    Parent_View 	@9
+			    location   	(282, 861)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @11
+				Parent_View 	@10
+				location   	(717, 1473)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	442
+				justify    	0
+				label      	"-orb_init_command_line"
+				pctDist    	-0.316667
+				height     	321
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833AD6002A3"
+			    client     	@9
+			    supplier   	@5
+			    vertices   	(list Points
+				(1038, 1530)
+				(1038, 1710))
+			    line_style 	3
+			    origin_attachment 	(1038, 1530)
+			    terminal_attachment 	(1038, 1710))
+			(object RoleView "$UNNAMED$6" @12
+			    Parent_View 	@9
+			    location   	(282, 861)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833AD6002A6"
+			    client     	@9
+			    supplier   	@7
+			    vertices   	(list Points
+				(1038, 1530)
+				(1038, 1350))
+			    line_style 	3
+			    origin_attachment 	(1038, 1530)
+			    terminal_attachment 	(1038, 1350))))
+		(object AssociationViewNew "$UNNAMED$7" @13
+		    location   	(878, 1530)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4833AD7B0035"
+		    roleview_list 	(list RoleViews
+			(object RoleView "sbe_init_command_line" @14
+			    Parent_View 	@13
+			    location   	(122, 861)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @15
+				Parent_View 	@14
+				location   	(1128, 1636)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"-sbe_init_command_line"
+				pctDist    	0.588889
+				height     	250
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833AD7C0022"
+			    client     	@13
+			    supplier   	@5
+			    vertices   	(list Points
+				(878, 1530)
+				(878, 1710))
+			    line_style 	3
+			    origin_attachment 	(878, 1530)
+			    terminal_attachment 	(878, 1710))
+			(object RoleView "$UNNAMED$8" @16
+			    Parent_View 	@13
+			    location   	(122, 861)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833AD7C0025"
+			    client     	@13
+			    supplier   	@7
+			    vertices   	(list Points
+				(878, 1530)
+				(878, 1350))
+			    line_style 	3
+			    origin_attachment 	(878, 1530)
+			    terminal_attachment 	(878, 1350))))
+		(object UsesView "" @17
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @18
+			Parent_View 	@17
+			location   	(1572, 635)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.653965
+			height     	65
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"4833B2FF02BF"
+		    client     	@7
+		    supplier   	@2
+		    vertices   	(list Points
+			(1357, 808)
+			(1728, 633))
+		    line_style 	0)
+		(object UsesView "" @19
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @20
+			Parent_View 	@19
+			location   	(1568, 771)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"4833B31801E8"
+		    client     	@7
+		    supplier   	@3
+		    vertices   	(list Points
+			(1464, 918)
+			(1727, 855))
+		    line_style 	0)
+		(object UsesView "" @21
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @22
+			Parent_View 	@21
+			location   	(1601, 968)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"4833BFAD02BD"
+		    client     	@7
+		    supplier   	@4
+		    vertices   	(list Points
+			(1464, 1086)
+			(1736, 1089))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$9" @23
+		    location   	(291, 1539)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4833C05A02B6"
+		    roleview_list 	(list RoleViews
+			(object RoleView "map" @24
+			    Parent_View 	@23
+			    location   	(-465, 870)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @25
+				Parent_View 	@24
+				location   	(355, 1587)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	108
+				justify    	0
+				label      	"-map"
+				pctDist    	0.253676
+				height     	64
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833C05B0064"
+			    client     	@23
+			    supplier   	@6
+			    vertices   	(list Points
+				(291, 1539)
+				(291, 1728))
+			    line_style 	3
+			    origin_attachment 	(291, 1539)
+			    terminal_attachment 	(291, 1728))
+			(object RoleView "$UNNAMED$10" @26
+			    Parent_View 	@23
+			    location   	(-465, 870)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833C05B0068"
+			    client     	@23
+			    supplier   	@7
+			    vertices   	(list Points
+				(291, 1539)
+				(291, 1351))
+			    line_style 	3
+			    origin_attachment 	(291, 1539)
+			    terminal_attachment 	(291, 1351))))
+		(object ClassView "Class" "Logical View::external::ace::Args::ACE_ARGV" @27
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1917, 1329)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@27
+			location   	(1740, 1301)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	354
+			justify    	0
+			label      	"• ACE_ARGV")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@27
+			location   	(1740, 1251)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	354
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4833C47603BC"
+		    width      	372
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @28
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @29
+			Parent_View 	@28
+			location   	(1625, 1183)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.547495
+			height     	80
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"4833C4A9024D"
+		    client     	@7
+		    supplier   	@27
+		    vertices   	(list Points
+			(1464, 1228)
+			(1730, 1287))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::Core::ParamsHelper::ParamConvert" @30
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1923, 1659)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@30
+			location   	(1754, 1631)
+			nlines     	1
+			max_width  	338
+			justify    	0
+			label      	"• ParamConvert")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@30
+			location   	(1754, 1581)
+			anchor     	10
+			nlines     	1
+			max_width  	338
+			justify    	0
+			label      	"<<UtilityClass>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"4833E32102FC"
+		    width      	356
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @31
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @32
+			Parent_View 	@31
+			location   	(1587, 1353)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"48F57EE30223"
+		    client     	@7
+		    supplier   	@30
+		    vertices   	(list Points
+			(1320, 1351)
+			(1745, 1568))
+		    line_style 	0)
+		(object Label @33
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"4833AAC901FD"))
+		    location   	(72, 1869)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"48327B8A0355")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48327C130392"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::Core::ParamsImpl::ParamManagerImpl::ParamConstants" @34
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1803, 513)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@34
+			location   	(1112, 331)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1382
+			justify    	0
+			label      	"ParamConstants")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@34
+			location   	(1112, 281)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1382
+			justify    	0
+			label      	"<<Constants>>")
+		    icon_style 	"Label"
+		    fill_color 	16119285
+		    quidu      	"4833AF3C00A5"
+		    width      	1400
+		    height     	488
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object Label @35
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"4833AF3C00A5"))
+		    location   	(1110, 720)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object ClassView "Class" "Logical View::shared::Core::ParamsImpl::ParamManagerImpl::ReadFrom" @36
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(633, 453)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@36
+			location   	(218, 296)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	830
+			justify    	0
+			label      	"ReadFrom")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@36
+			location   	(218, 246)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	830
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"48327C1C0037"
+		    width      	848
+		    height     	438
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::ParamsImpl::ParamManagerImpl::KeyInfo" @37
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(651, 1023)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@37
+			location   	(88, 866)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1126
+			justify    	0
+			label      	"KeyInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@37
+			location   	(88, 816)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1126
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"4833A9C301E5"
+		    width      	1144
+		    height     	438
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @38
+		    location   	(641, 737)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4833A9EE0025"
+		    roleview_list 	(list RoleViews
+			(object RoleView "from" @39
+			    Parent_View 	@38
+			    location   	(272, -298)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @40
+				Parent_View 	@39
+				location   	(573, 736)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	116
+				justify    	0
+				label      	"+from"
+				pctDist    	0.043478
+				height     	69
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833A9EF0198"
+			    client     	@38
+			    supplier   	@36
+			    vertices   	(list Points
+				(641, 737)
+				(639, 672))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$1" @41
+			    Parent_View 	@38
+			    location   	(272, -298)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833A9EF019B"
+			    client     	@38
+			    supplier   	@37
+			    vertices   	(list Points
+				(641, 737)
+				(642, 803))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::shared::Core::ParamsImpl::ParamManagerImpl::ValuesMap" @42
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(672, 1638)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@42
+			location   	(477, 1585)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	390
+			justify    	0
+			label      	"ValuesMap")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@42
+			location   	(477, 1535)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	390
+			justify    	0
+			label      	"<<Map>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4833AAC901FD"
+		    width      	408
+		    height     	230
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$2" @43
+		    location   	(662, 1382)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4833AAF4006A"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$3" @44
+			    Parent_View 	@43
+			    location   	(50, -256)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833AAF402E6"
+			    client     	@43
+			    supplier   	@37
+			    vertices   	(list Points
+				(662, 1382)
+				(656, 1242))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$4" @45
+			    Parent_View 	@43
+			    location   	(50, -256)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4833AAF402E8"
+			    client     	@43
+			    supplier   	@42
+			    vertices   	(list Points
+				(662, 1382)
+				(667, 1522))
+			    line_style 	0
+			    label      	(object SegLabel @46
+				Parent_View 	@45
+				location   	(666, 1482)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	241
+				justify    	0
+				label      	"key : a-string"
+				pctDist    	0.900000
+				height     	12
+				orientation 	1))))
+		(object Label @47
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"48327C1C0037"))
+		    location   	(213, 633)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object Label @48
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"4833A9C301E5"))
+		    location   	(84, 1203)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")))))

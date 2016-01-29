@@ -1,0 +1,383 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ModelItemDB"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/MDGenSupport/ModelItemDB/ModelItemTableFactoryManager.java::465D21BA032C")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/MDGenSupport/ModelItemDB/ModelItemTable.java::465D21BA032C")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDGenSupport/ModelItemDB/ModelItemTable|465D21BA032C::465D21BA032C;MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта/MDGenSupport/ModelItemDB/ModelItemTable|465D21BA032C::465D21BA032C
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDGenSupport/ModelItemDB|465D21580119
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19033431038"))
+    quid       	"465D21580119"
+    documentation 	"ответсвенности для работы с таблицой элемент модели в страницу"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ModelItemTable"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/MDGenSupport/ModelItemDB/ModelItemTableFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/MDGenSupport/ModelItemDB/ModelItemTable.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*465D21BA032C_465D23BD0261_465D2393035B_BODY*"
+		    value      	(value Text 
+|//#UC START# *465D21BA032C_465D23BD0261_465D2393035B_BODY*¤		//#UC END# *465D21BA032C_465D23BD0261_465D2393035B_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDGenSupport/ModelItemDB/ModelItemTable|465D21BA032C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038429173"))
+	    quid       	"465D21BA032C"
+	    documentation 	"инкапсулирует таблицу из двух полей: guid элемента на модели  (тип стринг) и id соответствующей страницы (тип лонг). "
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get_page_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*465D226102BF_465D2393035B*"
+			    value      	(value Text 
+|//#UC START# *465D226102BF_465D2393035B*¤		if (guid == null) {¤			return 0;¤		}¤		try {¤			ArtefactDAO artefact = ArtefactDAO.get(guid);¤			if (artefact != null) {¤				return artefact.getId();¤			}¤		} catch (HibernateException ex) {¤			Logs.LOG_E("ERROR! " + ex);¤		}¤		return 0;¤		//#UC END# *465D226102BF_465D2393035B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016636411"))
+		    quid       	"465D226102BF"
+		    documentation 	"позволяет по guid получить ID соответствующей страницы"
+		    parameters 	(list Parameters
+			(object Parameter "guid"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016636781"))
+			    quid       	"465D279F0128"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "get_page_guid"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*465D2280037A_465D2393035B*"
+			    value      	(value Text 
+|//#UC START# *465D2280037A_465D2393035B*¤		try {¤			ArtefactDAO artefact = (ArtefactDAO) getSession().get(ArtefactDAO.class, pageId);¤			if (artefact != null) {¤				return artefact.getGuid();¤			}¤		} catch (HibernateException ex) {¤			Logs.LOG_E("ERROR! " + ex);¤		}¤		return null;¤		//#UC END# *465D2280037A_465D2393035B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016637215"))
+		    quid       	"465D2280037A"
+		    documentation 	"позволяет по ID страницы получить guid соответствующего элемента с модели"
+		    parameters 	(list Parameters
+			(object Parameter "page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016637549"))
+			    quid       	"465D2788006D"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "add_page_record"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*465D229B0242_465D2393035B*"
+			    value      	(value Text 
+|//#UC START# *465D229B0242_465D2393035B*¤		try {¤			ArtefactDAO artefact = ArtefactDAO.make(pageId, guid);¤			getSession().save(artefact);¤		} catch (HibernateException ex) {¤			Logs.LOG_W("ERROR! " + ex);¤		}¤		//#UC END# *465D229B0242_465D2393035B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016637979"))
+		    quid       	"465D229B0242"
+		    documentation 	"добавляет в таблицу запись: guid элемента и ID страницы ему соответствующей"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "guid"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016638294"))
+			    quid       	"465D265C00BB"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016638677"))
+			    quid       	"465D265C00FA"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "delete_page_record"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*465D233702BF_465D2393035B*"
+			    value      	(value Text 
+|//#UC START# *465D233702BF_465D2393035B*¤		try {¤			ArtefactDAO artefact = ArtefactDAO.get(guid);¤			if (artefact != null) {¤				getSession().delete(artefact);¤			}¤		} catch (HibernateException ex) {¤			Logs.LOG_W("ERROR! " + ex);¤		}¤		//#UC END# *465D233702BF_465D2393035B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016639104"))
+		    quid       	"465D233702BF"
+		    documentation 	"удаляет запись для элемента с заданным guid-ом"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "guid"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19016639426"))
+			    quid       	"465D275F0251"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*465D23BD0261_465D23BD0261_465D2393035B_BODY*"
+			    value      	(value Text 
+|//#UC START# *465D23BD0261_465D23BD0261_465D2393035B_BODY*¤		//#UC END# *465D23BD0261_465D23BD0261_465D2393035B_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016639902"))
+		    quid       	"465D23BD0261"
+		    documentation 	"получить кэшированый экземпляр объекта"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"465D21AD0177"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::MDGenSupport::ModelItemDB::ModelItemTable" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"699")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"564")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"1142")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"412"))
+		    location   	(699, 564)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(137, 414)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1124
+			justify    	0
+			label      	"ModelItemTable")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(137, 364)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1124
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"465D21BA032C"
+		    width      	1142
+		    height     	424
+		    annotation 	8
+		    autoResize 	TRUE)))))

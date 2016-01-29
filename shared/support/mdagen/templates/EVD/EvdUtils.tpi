@@ -1,0 +1,169 @@
+f _evd_Ak2
+/ - префикс переменной, содержащей ссылку на определяемый тег
+	Ak2
+
+f _evd_TagVar
+/ - имя переменной со ссылкой на определяемый тег
+	%f_evd_Ak2(%S)%f_to_borland(%SN)
+
+t _evd_CheckTagID
+c {}
+r {%SN=Object}: {ObjectWithHandle}
+r {true}: {%SN}
+
+f _evd_TagID
+/ - возвращает идентификатор тега по его имени
+	k2_id%t_evd_CheckTagID(%S)
+
+t _evd_CheckAttrID
+c {}
+r {true}: {%SN}
+
+f _evd_AttrID
+/ - возвращает идентификатор атрибута по его имени
+	k2_ti%t_evd_CheckAttrID(%S)
+
+f _evd_DefineSimple
+/ - определяет атомарный тег
+	.InheriteType(%f_evd_TagID(%S), <{, }%f_evd_TagVar(%G)>, '%SD')
+
+t _evd_DefineAtom
+/ - определяет атомарный тег
+c {}
+r {%SN=IUnknown}: {\[%f_evd_TagID(%S)\]}
+/ - это предопределенный тип - его не надо определять
+r {%SN=RawData}: {\[%f_evd_TagID(%S)\]}
+/ - это предопределенный тип - его не надо определять
+r {true}: {%f_evd_DefineSimple(%S)}
+
+t _evd_DefineStruct
+/ - определяет тег-структуру
+c {}
+r {true}: {.DefineType(%f_evd_TagID(%S), '%SD')}
+/r {true}: {%f_evd_DefineSimple(%S)}
+
+t _evd_DefineList
+/ - определяет тег-список
+c {}
+r {true}: {.InheriteType(%f_evd_TagID(%S), \[Ak2OList, <{, }%f_evd_TagVar(%G)>\], '%SD')}
+/r {true}: {%f_evd_DefineSimple(%S)}
+
+t _evd_DefineSingleParentTag
+/ - выводит определение тега, который наследуется только от одного предка
+c {}
+r {%GS=EvdStruct}: {.InheriteType(%f_evd_TagID(%S), \[%f_evd_TagVar("Tag"), <{, }%f_evd_TagVar(%G)>\], '%SD')}
+/ - наследуемся только от структуры - надо не забыть в родителях указать тег
+r {true}: {%f_evd_DefineSimple(%S)}
+/ - наследуемся не от структуры - список родителей трогать не нужно
+
+t _evd_DefineTag1
+/ - выводит определение тега
+c {}
+r {%SN=Tag}: {\[%f_evd_TagID(%S)\]}
+/ - это предопределенный тип - его не надо определять
+r {%Gx=false}: {.InheriteType(%f_evd_TagID(%S), %f_evd_TagVar("Tag"), '%SD')}
+/ - родителей нет - наследуемся от тега
+r {<{}{}{%GC}>=1}: {%t_evd_DefineSingleParentTag(%S)}
+/ - один родитель
+r {true}: {.InheriteType(%f_evd_TagID(%S), \[<{, }%f_evd_TagVar(%G)>\], '%SD')}
+/ - несколько родителей
+
+t _evd_DefineTag
+/ - выводит определение тега
+c {}
+r {true}: {%t_evd_DefineTag1(%S)}
+
+t _evd_DefineEnumAttr
+/ - определяет атрибут перечислимого типа
+c {}
+r {true}: {%f_evd_TagVar(%P).DefineEnumProperty(%f_evd_AttrID(%S), TypeInfo(%TN), '%SD')}
+
+t _evd_DefineArrayAttr
+/ - определяет атрибут векторного типа
+c {}
+r {%SN=Children}: {%f_evd_TagVar(%P).DefineChildren(%f_evd_TagVar(%T))}
+r {true}: {%f_evd_TagVar(%P).DefineArrayProperty(%f_evd_AttrID(%S), %f_evd_TagVar(%T), '%SD')}
+
+t _evd_RealDefineAttr
+/ - определяет атрибут тега
+c {}
+r {%TS=Enum}: {%t_evd_DefineEnumAttr(%S)}
+r {%SS=vector}: {%t_evd_DefineArrayAttr(%S)}
+r {%SS=child}: {%f_evd_TagVar(%P).ArrayProp\[k2_tiChildren\].ChildType := %f_evd_TagVar(%TN)}
+r {%SS=defaultchild}: {%f_evd_TagVar(%P).ArrayProp\[k2_tiChildren\].DefaultChildType := %f_evd_TagVar(%TN)}
+r {%Cx=true}: {%t_evd_DefineArrayAttr(%S)}
+r {%TN=void}: {%f_evd_TagVar(%P).DefineProperty(%f_evd_AttrID(%S), '%SD')}
+r {%TS=Facet}: {%f_evd_TagVar(%P).DefineProperty(%f_evd_AttrID(%S), %TN, '%SD')}
+r {true}: {%f_evd_TagVar(%P).DefineProperty(%f_evd_AttrID(%S), %f_evd_TagVar(%T), '%SD')}
+
+f _evd_ConditionalDefineAttr
+/ - определяет атрибут тега в зависимости от компилируемой версии
+	{$IfNDef evFormatOnDraw}\n#%t_evd_RealDefineAttr(%S)\n#{$EndIf  evFormatOnDraw}
+
+t _evd_DefineAttr1
+/ - определяет атрибут тега
+c {}
+r {%SN=LimitWidth}: {%f_evd_ConditionalDefineAttr(%S)}
+r {%SN=DeltaX}: {%f_evd_ConditionalDefineAttr(%S)}
+r {%SN=Formatted}: {%f_evd_ConditionalDefineAttr(%S)}
+r {%SN=Map}: {%f_evd_ConditionalDefineAttr(%S)}
+r {true}: {%t_evd_RealDefineAttr(%S)}
+
+t _evd_DefineAttr
+/ - определяет атрибут тега
+c {}
+r {true}: {#%t_evd_DefineAttr1(%S)}
+/r {true}: {%f_str_split(%t_evd_DefineAttr1(%S),#)}
+
+f _evd_GetAttrs
+/ - возвращает массив атрибутов - через запятую и в квадратных скобках
+	<{, }{%CC=Attribute}%f_evd_AttrID(%C)>
+
+f _evd_UsingSep
+/ - возвращает перевод строки - если в зависимых элементов есть хотя бы один элемент с заданным стереотипом
+	[{<{}{%LS=%1N}{C}>!=0}\n]
+
+f _evd_Sep
+/ - возвращает перевод строки - если в массиве детей есть хотя бы один элемент с заданным классом
+	[{<{}{%CC=%1N}{C}>!=0}\n]
+
+f _evd_AttrSep
+/ - возвращает перевод строки - если в массиве детей есть хотя бы один атрибут
+	%f_evd_Sep(%S,"Attribute")
+
+f _evd_OpSep
+/ - возвращает перевод строки - если в массиве детей есть хотя бы один мктод
+	%f_evd_Sep(%S,"Operation")
+
+f _evd_CallMethods
+/ - оформляет вызов метода, с передачей ему всех атрибутов - как списка тегов
+	%f_evd_OpSep(%S)<{\n}{%CC=Operation}#%f_str_split(%1N.%CN(\[%f_evd_GetAttrs(%S)\]),#);>
+
+t _evd_CallModifier
+/ - оформляет вызов всех методов модификатора
+c {}
+r {true}: {%f_evd_CallMethods(%T,"%f_evd_TagVar(%P)")}
+
+f _evd_CallModifiers
+/ - оформляет вызов всех методов модификатора по связи со стереотипом call
+	<{}{%CS=call}%t_evd_CallModifier(%C)>
+
+f _evd_PreCallModifiers
+/ - оформляет вызов всех методов модификатора по связи со стереотипом precall
+	<{}{%CS=precall}%t_evd_CallModifier(%C)>
+
+f _evd_OutAttrs
+/ - оформляет определение атрибутов тега
+	%f_evd_AttrSep(%S)<{\n}%CX>
+
+f _evd_FactoryName
+	%SNInterfaceFactory
+
+f _evd_OutFactories
+	%f_evd_UsingSep(%S,"EvdFactory")<{\n}{%LS=EvdFactory}#%f_evd_TagVar(%S).InterfaceFactoryType := %f_evd_FactoryName(%L);>
+
+f _evd_OutTagClasses
+	%f_evd_UsingSep(%S,"EvdTagClass")<{\n}{%LS=EvdTagClass}#%f_evd_TagVar(%S).AtomClass := %LN;>
+
+f _evd_SchemaName
+	%SN_schema

@@ -1,0 +1,1227 @@
+// nevRealTools 49D2080D020C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49D2080D020C
+
+: ME_49D20910019D
+ CONST UID '49D20910019D'
+ CONST Name 'InevBaseTool'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый инструмент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49D2080D020C // nevRealTools
+ ;
+ : Inherits
+   @ ( WL 'ME_47C52228029C' '47C5207602D1.pas.ms.script' // InevBase
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "is default ancestor" true
+
+ref; // ME_49D20910019D InevBaseTool
+
+FORWARD ME_47C697030322
+
+FORWARD ME_47FA2B4E0022
+
+: ME_4A4B25E203AA
+ CONST UID '4A4B25E203AA'
+ CONST Name 'rView'
+ CONST Class class_Attribute
+ %SUMMARY 'Область вывода' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_47FA2B4E0022 // TnevShapeArea
+ ;
+ : Target WL 'ME_4A4B231403B6' '47C5207602D1.pas.ms.script' // HnevView
+ ;
+
+ref; // ME_4A4B25E203AA rView
+
+: ME_4A4B260902ED
+ CONST UID '4A4B260902ED'
+ CONST Name 'rCanvas'
+ CONST Class class_Attribute
+ %SUMMARY 'Канва для рисования' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_47FA2B4E0022 // TnevShapeArea
+ ;
+ : Target WL 'ME_4A4479E503D5' '467C0CAA02AB.pas.ms.script' // Hl3Canvas
+ ;
+
+ref; // ME_4A4B260902ED rCanvas
+
+: ME_4A585DF90027
+ CONST UID '4A585DF90027'
+ CONST Name 'rNeedBottom'
+ CONST Class class_Attribute
+ %SUMMARY 'Нужно ли вычислять rBottom' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_47FA2B4E0022 // TnevShapeArea
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A585DF90027 rNeedBottom
+
+: ME_47FA2B4E0022
+ CONST UID '47FA2B4E0022'
+ CONST Name 'TnevShapeArea'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Область вывода' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C697030322 // InevDrawingShape
+ ;
+ : Attributes
+   @ ( ME_4A4B25E203AA // rView
+ ME_4A4B260902ED // rCanvas
+ ME_4A585DF90027 // rNeedBottom
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_47FA2B4E0022 TnevShapeArea
+
+FORWARD ME_47FA3B72006E
+
+: ME_47FA3B9D02B6
+ CONST UID '47FA3B9D02B6'
+ CONST Name 'rMap'
+ CONST Class class_Attribute
+ %SUMMARY 'Карта форматирования.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47FA3B72006E // TnevShapeInfo
+ ;
+ : Target WL 'ME_47C5B63D033A' '47C5207602D1.pas.ms.script' // InevMap
+ ;
+
+ref; // ME_47FA3B9D02B6 rMap
+
+: ME_47FA3BAE00E1
+ CONST UID '47FA3BAE00E1'
+ CONST Name 'rBottom'
+ CONST Class class_Attribute
+ %SUMMARY 'Точка указывающая за последний отрисованный элемент объекта.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47FA3B72006E // TnevShapeInfo
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_47FA3BAE00E1 rBottom
+
+: ME_4A81105300A7
+ CONST UID '4A81105300A7'
+ CONST Name 'rCalculatedHeight'
+ CONST Class class_Attribute
+ %SUMMARY 'Посчтианная высота оставшейся части таблицы, для использования на следующих страницах.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47FA3B72006E // TnevShapeInfo
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A81105300A7 rCalculatedHeight
+
+: ME_4CD803E902A5
+ CONST UID '4CD803E902A5'
+ CONST Name 'rCellBottom'
+ CONST Class class_Attribute
+ %SUMMARY 'Продолжение объедиенной ячейки (если есть).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47FA3B72006E // TnevShapeInfo
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_4CD803E902A5 rCellBottom
+
+: ME_47FA3B72006E
+ CONST UID '47FA3B72006E'
+ CONST Name 'TnevShapeInfo'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация об отрисованном объекте.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C697030322 // InevDrawingShape
+ ;
+ : Attributes
+   @ ( ME_47FA3B9D02B6 // rMap
+ ME_47FA3BAE00E1 // rBottom
+ ME_4A81105300A7 // rCalculatedHeight
+ ME_4CD803E902A5 // rCellBottom
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_47FA3B72006E TnevShapeInfo
+
+FORWARD ME_47FA29CC0055
+
+: ME_47FA29EA0357
+ CONST UID '47FA29EA0357'
+ CONST Name 'rTop'
+ CONST Class class_Attribute
+ %SUMMARY 'Точка начала отображения.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47FA29CC0055 // TnevShapePoints
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_47FA29EA0357 rTop
+
+: ME_47FA2A060311
+ CONST UID '47FA2A060311'
+ CONST Name 'rCaret'
+ CONST Class class_Attribute
+ %SUMMARY 'Точка, в которой надо рисовать каретку.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47FA29CC0055 // TnevShapePoints
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_47FA2A060311 rCaret
+
+: ME_47FA2A2502DA
+ CONST UID '47FA2A2502DA'
+ CONST Name 'rSelection'
+ CONST Class class_Attribute
+ %SUMMARY 'Выделенные участки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47FA29CC0055 // TnevShapePoints
+ ;
+ : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
+ ;
+
+ref; // ME_47FA2A2502DA rSelection
+
+: ME_4A8110740323
+ CONST UID '4A8110740323'
+ CONST Name 'rPrevHeight'
+ CONST Class class_Attribute
+ %SUMMARY 'Высота оставшейся части таблицы, вычисленная на при печати предыдущих страниц.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47FA29CC0055 // TnevShapePoints
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A8110740323 rPrevHeight
+
+: ME_4AEC2EAA0080
+ CONST UID '4AEC2EAA0080'
+ CONST Name 'rRealTop'
+ CONST Class class_Attribute
+ %SUMMARY 'Точка, которая реально отрисовывается в этом месте (начало объедиения).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47FA29CC0055 // TnevShapePoints
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_4AEC2EAA0080 rRealTop
+
+: ME_4AEC2ED40350
+ CONST UID '4AEC2ED40350'
+ CONST Name 'rFake'
+ CONST Class class_Attribute
+ %SUMMARY 'Фейковая точка.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47FA29CC0055 // TnevShapePoints
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AEC2ED40350 rFake
+
+: ME_4BBB0CF90297
+ CONST UID '4BBB0CF90297'
+ CONST Name 'rCheckCaret'
+ CONST Class class_Attribute
+ %SUMMARY 'Каретка для проверки в дочерних' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47FA29CC0055 // TnevShapePoints
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_4BBB0CF90297 rCheckCaret
+
+: ME_4BC5AAD50074
+ CONST UID '4BC5AAD50074'
+ CONST Name 'rCheckSelection'
+ CONST Class class_Attribute
+ %SUMMARY 'Выделение для проверки дочерними.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47FA29CC0055 // TnevShapePoints
+ ;
+ : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
+ ;
+
+ref; // ME_4BC5AAD50074 rCheckSelection
+
+: ME_47FA29CC0055
+ CONST UID '47FA29CC0055'
+ CONST Name 'TnevShapePoints'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Данные для отображения.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C697030322 // InevDrawingShape
+ ;
+ : Attributes
+   @ ( ME_47FA29EA0357 // rTop
+ ME_47FA2A060311 // rCaret
+ ME_47FA2A2502DA // rSelection
+ ME_4A8110740323 // rPrevHeight
+ ME_4AEC2EAA0080 // rRealTop
+ ME_4AEC2ED40350 // rFake
+ ME_4BBB0CF90297 // rCheckCaret
+ ME_4BC5AAD50074 // rCheckSelection
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_47FA29CC0055 TnevShapePoints
+
+FORWARD ME_4A4B3579038F
+
+: ME_4A4B359D0072
+ CONST UID '4A4B359D0072'
+ CONST Name 'Init'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4B3579038F // TnevShapeAreaEx
+ ;
+
+ref; // ME_4A4B359D0072 Init
+
+: ME_4A4B35A1004C
+ CONST UID '4A4B35A1004C'
+ CONST Name 'Init'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4B3579038F // TnevShapeAreaEx
+ ;
+
+ref; // ME_4A4B35A1004C Init
+
+: ME_4A4B35A400CE
+ CONST UID '4A4B35A400CE'
+ CONST Name 'Free'
+ CONST Class class_Operation
+ %SUMMARY 'Освобождает запись' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4B3579038F // TnevShapeAreaEx
+ ;
+
+ref; // ME_4A4B35A400CE Free
+
+: ME_4A4DD45400DE
+ CONST UID '4A4DD45400DE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4B3579038F // TnevShapeAreaEx
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4A4DD45400DE 
+
+: ME_4A4B3579038F
+ CONST UID '4A4B3579038F'
+ CONST Name 'TnevShapeAreaEx'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C697030322 // InevDrawingShape
+ ;
+ : Inherits
+   @ ( ME_47FA2B4E0022 // TnevShapeArea
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4A4B359D0072 // Init
+ ME_4A4B35A1004C // Init
+ ME_4A4B35A400CE // Free
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4A4DD45400DE // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_4A4B3579038F TnevShapeAreaEx
+
+: ME_4A4B3696016B
+ CONST UID '4A4B3696016B'
+ CONST Name 'PnevShapeArea'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Указатель на область вывода' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C697030322 // InevDrawingShape
+ ;
+ : Inherits
+   @ ( ME_47FA2B4E0022 // TnevShapeArea
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_4A4B3696016B PnevShapeArea
+
+: ME_47FA4B7A0114
+ CONST UID '47FA4B7A0114'
+ CONST Name 'anArea'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47FA2B4E0022 // TnevShapeArea
+ ;
+
+ref; // ME_47FA4B7A0114 anArea
+
+: ME_47FA4B7A0145
+ CONST UID '47FA4B7A0145'
+ CONST Name 'aPoints'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47FA29CC0055 // TnevShapePoints
+ ;
+
+ref; // ME_47FA4B7A0145 aPoints
+
+: ME_47FA4B7A0176
+ CONST UID '47FA4B7A0176'
+ CONST Name 'theInfo'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_47FA3B72006E // TnevShapeInfo
+ ;
+
+ref; // ME_47FA4B7A0176 theInfo
+
+: ME_47C6972A036C
+ CONST UID '47C6972A036C'
+ CONST Name 'Draw'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47C697030322 // InevDrawingShape
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_47FA4B7A0114 // anArea
+ ME_47FA4B7A0145 // aPoints
+ ME_47FA4B7A0176 // theInfo
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47C6972A036C Draw
+
+: ME_4E25BC360220_ME_47C697030322
+ CONST UID '4E25BC360220'
+ CONST Name 'Obj'
+ : Original WL 'ME_4E25BC360220' '47C5207602D1.pas.ms.script' // Obj
+ ;
+ : Implementor ME_47C697030322 // InevDrawingShape
+ ;
+ CONST "pm" false
+ref; // ME_4E25BC360220_ME_47C697030322 Obj
+
+: ME_47C697030322
+ CONST UID '47C697030322'
+ CONST GUID '7EB9B9FF-B988-4F9B-9D6F-13730A7BDD39'
+ CONST Name 'InevDrawingShape'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Визуально отображаемый объект умеющий себя рисовать.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49D2080D020C // nevRealTools
+ ;
+ : Inherits
+   @ ( WL 'ME_4E25BC1903C9' '47C5207602D1.pas.ms.script' // InevTool
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_47C6972A036C // Draw
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4E25BC360220_ME_47C697030322 // Obj
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_47FA2B4E0022 // TnevShapeArea
+ ME_47FA3B72006E // TnevShapeInfo
+ ME_47FA29CC0055 // TnevShapePoints
+ ME_4A4B3579038F // TnevShapeAreaEx
+ ME_4A4B3696016B // PnevShapeArea
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_47C697030322 InevDrawingShape
+
+FORWARD ME_47C7DC2801FB
+
+FORWARD ME_47C7DBE0022A
+
+: ME_47C7DBEB037E
+ CONST UID '47C7DBEB037E'
+ CONST Name 'ev_pmUsial'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47C7DBE0022A // TevParaMarkStyle
+ ;
+
+ref; // ME_47C7DBEB037E ev_pmUsial
+
+: ME_47C7DBF10070
+ CONST UID '47C7DBF10070'
+ CONST Name 'ev_pmCell'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47C7DBE0022A // TevParaMarkStyle
+ ;
+
+ref; // ME_47C7DBF10070 ev_pmCell
+
+: ME_47C7DBE0022A
+ CONST UID '47C7DBE0022A'
+ CONST Name 'TevParaMarkStyle'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Стиль рисования конца параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Attributes
+   @ ( ME_47C7DBEB037E // ev_pmUsial
+ ME_47C7DBF10070 // ev_pmCell
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_47C7DBE0022A TevParaMarkStyle
+
+FORWARD ME_47C7DE24022A
+
+: ME_4FD8737B0265
+ CONST UID '4FD8737B0265'
+ CONST Name 'aChildMap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B63D033A' '47C5207602D1.pas.ms.script' // InevMap
+ ;
+
+ref; // ME_4FD8737B0265 aChildMap
+
+: ME_4FD8737B02A4
+ CONST UID '4FD8737B02A4'
+ CONST Name 'aSelection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FD8737B02A4 aSelection
+
+: ME_47C7DE3200E4
+ CONST UID '47C7DE3200E4'
+ CONST Name 'RemeberSelPart'
+ CONST Class class_Operation
+ %SUMMARY 'Запомнить прямоугольник для отрисовки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47C7DE24022A // InevPaintersHolder
+ ;
+ : Parameters
+   @ ( ME_4FD8737B0265 // aChildMap
+ ME_4FD8737B02A4 // aSelection
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47C7DE3200E4 RemeberSelPart
+
+: ME_47C7DE47009D
+ CONST UID '47C7DE47009D'
+ CONST Name 'aHeight'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47C7DE47009D aHeight
+
+: ME_47C7DE42020F
+ CONST UID '47C7DE42020F'
+ CONST Name 'SetHeight'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47C7DE24022A // InevPaintersHolder
+ ;
+ : Parameters
+   @ ( ME_47C7DE47009D // aHeight
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47C7DE42020F SetHeight
+
+: ME_47C7DE24022A
+ CONST UID '47C7DE24022A'
+ CONST GUID '98A8C324-A25A-412A-8028-FF614D4C7756'
+ CONST Name 'InevPaintersHolder'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для поддержки отложенного рисования. [$89096971]. [$89096991]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Operations
+   @ ( ME_47C7DE3200E4 // RemeberSelPart
+ ME_47C7DE42020F // SetHeight
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47C7DE24022A InevPaintersHolder
+
+FORWARD ME_4ABB4BC20136
+
+: ME_4ABB4C1901AC
+ CONST UID '4ABB4C1901AC'
+ CONST Name 'nev_None'
+ CONST Class class_Attribute
+ %SUMMARY 'не проверять' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ABB4BC20136 // TnevCheckType
+ ;
+
+ref; // ME_4ABB4C1901AC nev_None
+
+: ME_4ABB4C4003C6
+ CONST UID '4ABB4C4003C6'
+ CONST Name 'nev_CheckOnly'
+ CONST Class class_Attribute
+ %SUMMARY 'только проверка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ABB4BC20136 // TnevCheckType
+ ;
+
+ref; // ME_4ABB4C4003C6 nev_CheckOnly
+
+: ME_4ABB4C520350
+ CONST UID '4ABB4C520350'
+ CONST Name 'nev_NeedAdd'
+ CONST Class class_Attribute
+ %SUMMARY 'проверить и добавить новое значение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ABB4BC20136 // TnevCheckType
+ ;
+
+ref; // ME_4ABB4C520350 nev_NeedAdd
+
+: ME_4ABB4BC20136
+ CONST UID '4ABB4BC20136'
+ CONST Name 'TnevCheckType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'вид проверки отрисованности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Attributes
+   @ ( ME_4ABB4C1901AC // nev_None
+ ME_4ABB4C4003C6 // nev_CheckOnly
+ ME_4ABB4C520350 // nev_NeedAdd
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4ABB4BC20136 TnevCheckType
+
+FORWARD ME_49CB6B81028D
+
+: ME_53550F3C028F
+ CONST UID '53550F3C028F'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_53550F3C028F aPara
+
+: ME_4ABB4C8E00D0
+ CONST UID '4ABB4C8E00D0'
+ CONST Name 'aCheckType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4ABB4BC20136 // TnevCheckType
+ ;
+ CONST Value 'nev_None'
+ : ValueType ME_4ABB4BC20136 // TnevCheckType
+ ;
+
+ref; // ME_4ABB4C8E00D0 aCheckType
+
+: ME_49CB6BE30032
+ CONST UID '49CB6BE30032'
+ CONST Name 'CheckCell'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49CB6B81028D // IevTablePainter
+ ;
+ : Parameters
+   @ ( ME_53550F3C028F // aPara
+ ME_4ABB4C8E00D0 // aCheckType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_49CB6BE30032 CheckCell
+
+: ME_49CB6C1A02DF
+ CONST UID '49CB6C1A02DF'
+ CONST Name 'CalcOffset'
+ CONST Class class_Operation
+ %SUMMARY 'Пересчитать смещение для следующей ячейки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49CB6B81028D // IevTablePainter
+ ;
+
+ref; // ME_49CB6C1A02DF CalcOffset
+
+: ME_53550F470067
+ CONST UID '53550F470067'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_53550F470067 aPara
+
+: ME_4C458F0A020B
+ CONST UID '4C458F0A020B'
+ CONST Name 'anPID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C458F0A020B anPID
+
+: ME_4C458F0A0230
+ CONST UID '4C458F0A0230'
+ CONST Name 'aForLines'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C458F0A0230 aForLines
+
+: ME_49CB6C2E02E2
+ CONST UID '49CB6C2E02E2'
+ CONST Name 'WasPainted'
+ CONST Class class_Operation
+ %SUMMARY 'Проверка была ли отрисована начальная ячейка объединения.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49CB6B81028D // IevTablePainter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_53550F470067 // aPara
+ ME_4C458F0A020B // anPID
+ ME_4C458F0A0230 // aForLines
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_49CB6C2E02E2 WasPainted
+
+: ME_52B2EF99032C
+ CONST UID '52B2EF99032C'
+ CONST Name 'HasOwnStyle'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49CB6B81028D // IevTablePainter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52B2EF99032C HasOwnStyle
+
+: ME_49CB6B81028D
+ CONST UID '49CB6B81028D'
+ CONST GUID '1F693F22-31C3-49CE-BDCE-7E9001DC432C'
+ CONST Name 'IevTablePainter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс инструмента рисования таблицы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Operations
+   @ ( ME_49CB6BE30032 // CheckCell
+ ME_49CB6C1A02DF // CalcOffset
+ ME_49CB6C2E02E2 // WasPainted
+ ME_52B2EF99032C // HasOwnStyle
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_49CB6B81028D IevTablePainter
+
+FORWARD ME_4C774E380004
+
+: ME_4C774EBC0242
+ CONST UID '4C774EBC0242'
+ CONST Name 'aFI'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_480F377B0271' '4678209200A6.pas.ms.script' // TnevFormatInfoPrim
+ ;
+
+ref; // ME_4C774EBC0242 aFI
+
+: ME_4C774EBC0286
+ CONST UID '4C774EBC0286'
+ CONST Name 'aCanvas'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_4C774EBC0286 aCanvas
+
+: ME_4C774E7D01CD
+ CONST UID '4C774E7D01CD'
+ CONST Name 'CheckChildren'
+ CONST Class class_Operation
+ %SUMMARY '[$219123966]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C774E380004 // IevTableRowPainter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4C774EBC0242 // aFI
+ ME_4C774EBC0286 // aCanvas
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C774E7D01CD CheckChildren
+
+: ME_4D9AF0DB039C
+ CONST UID '4D9AF0DB039C'
+ CONST Name 'aDelta'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D9AF0DB039C aDelta
+
+: ME_4D9AF0D00093
+ CONST UID '4D9AF0D00093'
+ CONST Name 'CorrectTopDelta'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C774E380004 // IevTableRowPainter
+ ;
+ : Parameters
+   @ ( ME_4D9AF0DB039C // aDelta
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D9AF0D00093 CorrectTopDelta
+
+: ME_4D9AFB1202F9
+ CONST UID '4D9AFB1202F9'
+ CONST Name 'IsTopAnchorAtStart'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C774E380004 // IevTableRowPainter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4D9AFB1202F9 IsTopAnchorAtStart
+
+: ME_50A2210D0105
+ CONST UID '50A2210D0105'
+ CONST Name 'GetTopAnchor4Row'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает указатель на строку из View.TopAnchor' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C774E380004 // IevTableRowPainter
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_50A2210D0105 GetTopAnchor4Row
+
+: ME_4C774E380004
+ CONST UID '4C774E380004'
+ CONST GUID 'DF548913-37DF-44B8-8C6A-67A83D991141'
+ CONST Name 'IevTableRowPainter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс инструмента рисования строки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Operations
+   @ ( ME_4C774E7D01CD // CheckChildren
+ ME_4D9AF0D00093 // CorrectTopDelta
+ ME_4D9AFB1202F9 // IsTopAnchorAtStart
+ ME_50A2210D0105 // GetTopAnchor4Row
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4C774E380004 IevTableRowPainter
+
+: ME_47C7DD07029E
+ CONST UID '47C7DD07029E'
+ CONST Name 'CurrentBlock'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
+ ;
+ CONST "pm" true
+
+ref; // ME_47C7DD07029E CurrentBlock
+
+: ME_47C7DD2E007F
+ CONST UID '47C7DD2E007F'
+ CONST Name 'DrawingTopmostChild'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'рисуется самый верхний ребенок?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_47C7DD2E007F DrawingTopmostChild
+
+: ME_47C7DD4500A5
+ CONST UID '47C7DD4500A5'
+ CONST Name 'DrawingLastChild'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'рисуется самый последний ребенок?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_47C7DD4500A5 DrawingLastChild
+
+: ME_47C7DDD702A7
+ CONST UID '47C7DDD702A7'
+ CONST Name 'ParaMarkStyle'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Стиль рисования конца параграфа.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target ME_47C7DBE0022A // TevParaMarkStyle
+ ;
+ CONST "pm" true
+
+ref; // ME_47C7DDD702A7 ParaMarkStyle
+
+: ME_47C7DCB10302
+ CONST UID '47C7DCB10302'
+ CONST Name 'ParentPainter'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'инструмент для рисования объекта более верхнего уровня.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target ME_47C7DC2801FB // IevPainter
+ ;
+ CONST "pm" true
+
+ref; // ME_47C7DCB10302 ParentPainter
+
+: ME_49DB945D01A4
+ CONST UID '49DB945D01A4'
+ CONST Name 'PaintersHolder'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target ME_47C7DE24022A // InevPaintersHolder
+ ;
+ CONST "pm" false
+
+ref; // ME_49DB945D01A4 PaintersHolder
+
+: ME_49DCA7D10326
+ CONST UID '49DCA7D10326'
+ CONST Name 'TablePainter'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target ME_49CB6B81028D // IevTablePainter
+ ;
+ CONST "pm" false
+
+ref; // ME_49DCA7D10326 TablePainter
+
+: ME_4C774ECF0308
+ CONST UID '4C774ECF0308'
+ CONST Name 'TableRowPainter'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Инструмент для рисования строки таблицы (доступен только при отрисовке строки).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target ME_4C774E380004 // IevTableRowPainter
+ ;
+ CONST "pm" false
+
+ref; // ME_4C774ECF0308 TableRowPainter
+
+: ME_50A5EF2400BF
+ CONST UID '50A5EF2400BF'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_50A5EF2400BF aPara
+
+: ME_50A5EEEA0040
+ CONST UID '50A5EEEA0040'
+ CONST Name 'IsSelectedOneWholePara'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47C7DC2801FB // IevPainter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_50A5EF2400BF // aPara
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_50A5EEEA0040 IsSelectedOneWholePara
+
+: ME_47C6972A036C_ME_47C7DC2801FB
+ CONST UID '47C6972A036C'
+ CONST Name 'Draw'
+ : Original ME_47C6972A036C // Draw
+ ;
+ : Implementor ME_47C7DC2801FB // IevPainter
+ ;
+ref; // ME_47C6972A036C_ME_47C7DC2801FB Draw
+
+: ME_4E25BC360220_ME_47C7DC2801FB
+ CONST UID '4E25BC360220'
+ CONST Name 'Obj'
+ : Original WL 'ME_4E25BC360220' '47C5207602D1.pas.ms.script' // Obj
+ ;
+ : Implementor ME_47C7DC2801FB // IevPainter
+ ;
+ CONST "pm" false
+ref; // ME_4E25BC360220_ME_47C7DC2801FB Obj
+
+: ME_47C7DC2801FB
+ CONST UID '47C7DC2801FB'
+ CONST GUID '60FC0B5C-FC01-47F4-9FAB-9AE04B1520DE'
+ CONST Name 'IevPainter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс инструментов для рисования объектов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49D2080D020C // nevRealTools
+ ;
+ : Inherits
+   @ ( ME_47C697030322 // InevDrawingShape
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_47C7DD07029E // CurrentBlock
+ ME_47C7DD2E007F // DrawingTopmostChild
+ ME_47C7DD4500A5 // DrawingLastChild
+ ME_47C7DDD702A7 // ParaMarkStyle
+ ME_47C7DCB10302 // ParentPainter
+ ME_49DB945D01A4 // PaintersHolder
+ ME_49DCA7D10326 // TablePainter
+ ME_4C774ECF0308 // TableRowPainter
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_50A5EEEA0040 // IsSelectedOneWholePara
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47C6972A036C_ME_47C7DC2801FB // Draw
+ ME_4E25BC360220_ME_47C7DC2801FB // Obj
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_47C7DBE0022A // TevParaMarkStyle
+ ME_47C7DE24022A // InevPaintersHolder
+ ME_4ABB4BC20136 // TnevCheckType
+ ME_49CB6B81028D // IevTablePainter
+ ME_4C774E380004 // IevTableRowPainter
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_47C7DC2801FB IevPainter
+
+: ME_49D2080D020C
+ CONST UID '49D2080D020C'
+ CONST Name 'nevRealTools'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Реальные инструменты для работы с EVD документами (в отличии от nevTools - куда свалено всё подряд). Инструмент получается методом QT, и ТОЛЬКО им' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_49D20910019D // InevBaseTool
+ ME_47C697030322 // InevDrawingShape
+ ME_47C7DC2801FB // IevPainter
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "defines" 'nevDefine.inc'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "path prefix" '/new'
+ CONST "started" '31.03.2009 16:12'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevRealTools.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49D2080D020C.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49D2080D020C.pas.ms.script.runner'
+
+ref; // ME_49D2080D020C nevRealTools

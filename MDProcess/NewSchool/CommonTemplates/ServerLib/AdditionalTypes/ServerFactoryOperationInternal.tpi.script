@@ -1,0 +1,58 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/ServerLib/AdditionalTypes/ServerFactoryOperationInternal.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAAbstractClass::Class>> MDProcess$Templates::CommonTemplates::ServerLib::AdditionalTypes::ServerFactoryOperationInternal
+//
+// внутренняя операция, предназначенена для добавления серверным фабрикам (и ремуверам)
+// дополнительной функциональности
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ServerFactoryOperationInternal::Class*
+implementation @ <<ServerFactoryOperationInternal>>
+//? внутренняя операция, предназначенена для добавления серверным фабрикам (и ремуверам) дополнительной функциональности
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#i
+// - типы видимости
+//Y srv_factory_internal.gif
+//L srv_factory_internal
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// возвращает true, если фабрика (или ремуверы) являются экспортируемыми, т.е объявлены в IDL-
+// интерфейсе фабрики. Неэкспортируемыми являются фабрики (ремуверы), у которых явно выставленно
+// свойство exported в false или имеют не публичную видимость
+//%f _is_exported
+; // st_space_key
+
+: is_exported OBJECT IN %S
+//#UC START# *4AE7EAB00369for4AE7EA60000B*
+//	[{%SV=PublicAccess}{false}true]
+ if ( ( %S |V ) %== 'PublicAccess' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4AE7EAB00369for4AE7EA60000B*
+; // is_exported
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ServerFactoryOperationInternal>>
+

@@ -1,0 +1,924 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "interceptors"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/shared/CoreSrv/ClientSecurity.cpp::45E58F48007D,w:/shared/CoreSrv/ServerSecurity.cpp::45E594460261")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/shared/CoreSrv/ClientSecurity.h::45E58F48007D,w:/shared/CoreSrv/ServerSecurity.h::45E594460261")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors|45E57F0B036B
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors/ClientSecurity|45E58F48007D::45E58F48007D;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors/ServerSecurity|45E594460261::45E594460261;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors/ClientSecurity|45E58F48007D::45E58F48007D;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors/ServerSecurity|45E594460261::45E594460261;Shared (java/c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors/ClientSecurity|45E58F48007D::45E58F48007D;Shared (java/c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors/ServerSecurity|45E594460261::45E594460261
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/shared/java/src/java/ru/garant/shared/CoreSrv/ClientSecurity.java::45E58F48007D,w:/shared/java/src/java/ru/garant/shared/CoreSrv/ServerSecurity.java::45E594460261")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16658924170"))
+    quid       	"45E57F0B036B"
+    documentation 	"интерцепторы для обеспечения передачи контекста сессии"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"45E6908700AB"
+	    supplier   	"Logical View::shared::CoreSrv::Security"
+	    quidu      	"45E870E2037A")
+	(object Visibility_Relationship
+	    quid       	"45E6B9D801B5"
+	    supplier   	"Logical View::shared::CoreSrv::SecuritySrv"
+	    quidu      	"45E87116001F"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ClientSecurity"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/CoreSrv/ClientSecurity.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/CoreSrv/ClientSecurity.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E58F48007D_DESTROY*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_DESTROY*¤	//#UC END# *45E58F48007D_DESTROY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E58F48007D_SEND_R*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_SEND_R*¤		SecuritySrv::Token tk;¤		tk.sid = 0;¤		tk.uid = 0;¤		try {¤			tk.sid = SessionFactory::get().get_context_sid ();			¤			if (tk.sid == 0) {¤				tk.sid = SessionFactory::get().get_self_sid ();¤				tk.uid = SessionFactory::get().get_self_uid ();¤			} else {¤				tk.uid = SessionFactory::get().get_context_uid ();¤			}¤		} catch (...) {¤		}¤¤		IOP::ServiceContext service_context;¤		service_context.context_id = ISID_SERVER_SECURITY;¤		service_context.context_data.replace (sizeof (SecuritySrv::Token), sizeof (SecuritySrv::Token), (CORBA::Octet*)&tk, 0);¤		ri->add_request_service_context (service_context, false);¤	//#UC END# *45E58F48007D_SEND_R*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E58F48007D_SEND_P*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_SEND_P*¤	//#UC END# *45E58F48007D_SEND_P*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E58F48007D_RECEIVE_R*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_RECEIVE_R*¤	try {¤		CORBA::Any_var data = ri->get_slot (CurrentSlotAccessor::get_current_token_slot_id ());¤		LibHomeFactory::get().get_orb_facet().get_pi_current ().set_slot (CurrentSlotAccessor::get_current_token_slot_id (), *data);¤	} CATCH_AND_LOG ("...");¤	//#UC END# *45E58F48007D_RECEIVE_R*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E58F48007D_RECEIVE_E*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_RECEIVE_E*¤	try {¤		CORBA::Any_var data = ri->get_slot (CurrentSlotAccessor::get_current_token_slot_id ());¤		LibHomeFactory::get().get_orb_facet().get_pi_current ().set_slot (CurrentSlotAccessor::get_current_token_slot_id (), *data);¤	} CATCH_AND_LOG ("...");¤	//#UC END# *45E58F48007D_RECEIVE_E*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E58F48007D_RECEIVE_O*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_RECEIVE_O*¤	try {¤		CORBA::Any_var data = ri->get_slot (CurrentSlotAccessor::get_current_token_slot_id ());¤		LibHomeFactory::get().get_orb_facet().get_pi_current ().set_slot (CurrentSlotAccessor::get_current_token_slot_id (), *data);¤	} CATCH_AND_LOG ("...");¤	//#UC END# *45E58F48007D_RECEIVE_O*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E58F48007D_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *45E58F48007D_CUSTOM_INCLUDES*¤//#UC END# *45E58F48007D_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E58F48007D_DESTROY*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_DESTROY*¤		//#UC END# *45E58F48007D_DESTROY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E58F48007D_SEND_R*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_SEND_R*¤		ru.garant.shared.CoreSrv.SecuritySrv.Token tok = new ru.garant.shared.CoreSrv.SecuritySrv.Token ();¤		tok.sid = 0;¤		tok.uid = 0;¤		try {¤			org.omg.CORBA.Any any = requestInfo.get_slot(ru.garant.shared.CoreSrv.LibHomeFactory.CurrentSlotAccessor.getCurrentTokenSlotId());¤			tok = ru.garant.shared.CoreSrv.SecuritySrv.TokenHelper.extract(any);¤			if (tok.sid == 0) {¤				tok.sid = ru.garant.shared.CoreSrv.Session.Factory.get().getSelfSid();¤				tok.uid = ru.garant.shared.CoreSrv.Session.Factory.get().getSelfUid();¤			}¤		} catch (Throwable e) {¤		}¤¤		org.omg.IOP.ServiceContext service_context = new org.omg.IOP.ServiceContext ();¤		service_context.context_id = (int)ISID_SERVER_SECURITY;¤		java.nio.ByteBuffer bb = java.nio.ByteBuffer.allocate(8);¤		bb.order(java.nio.ByteOrder.LITTLE_ENDIAN);¤		bb.putInt(tok.sid);¤		bb.putInt(tok.uid);¤		service_context.context_data = bb.array();¤		requestInfo.add_request_service_context(service_context, false);¤		//#UC END# *45E58F48007D_SEND_R*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E58F48007D_SEND_P*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_SEND_P*¤		//#UC END# *45E58F48007D_SEND_P*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E58F48007D_RECEIVE_R*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_RECEIVE_R*¤		try {¤			org.omg.CORBA.Any any = requestInfo.get_slot(ru.garant.shared.CoreSrv.LibHomeFactory.CurrentSlotAccessor.getCurrentTokenSlotId());¤			ru.garant.shared.CoreSrv.LibHomeFactory.get().getOrbFacet().getPiCurrent().set_slot(¤					ru.garant.shared.CoreSrv.LibHomeFactory.CurrentSlotAccessor.getCurrentTokenSlotId(), any¤				);¤		} catch (Throwable e) {¤		}¤		//#UC END# *45E58F48007D_RECEIVE_R*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E58F48007D_RECEIVE_E*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_RECEIVE_E*¤		try {¤			org.omg.CORBA.Any any = requestInfo.get_slot(ru.garant.shared.CoreSrv.LibHomeFactory.CurrentSlotAccessor.getCurrentTokenSlotId());¤			ru.garant.shared.CoreSrv.LibHomeFactory.get().getOrbFacet().getPiCurrent().set_slot(¤					ru.garant.shared.CoreSrv.LibHomeFactory.CurrentSlotAccessor.getCurrentTokenSlotId(), any¤				);¤		} catch (Throwable e) {¤		}¤		//#UC END# *45E58F48007D_RECEIVE_E*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E58F48007D_RECEIVE_O*"
+		    value      	(value Text 
+|//#UC START# *45E58F48007D_RECEIVE_O*¤		try {¤			org.omg.CORBA.Any any = requestInfo.get_slot(ru.garant.shared.CoreSrv.LibHomeFactory.CurrentSlotAccessor.getCurrentTokenSlotId());¤			ru.garant.shared.CoreSrv.LibHomeFactory.get().getOrbFacet().getPiCurrent().set_slot(¤					ru.garant.shared.CoreSrv.LibHomeFactory.CurrentSlotAccessor.getCurrentTokenSlotId(), any¤				);¤		} catch (Throwable e) {¤		}¤		//#UC END# *45E58F48007D_RECEIVE_O*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors/ClientSecurity|45E58F48007D
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/CoreSrv/ClientSecurity.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16658937270"))
+	    quid       	"45E58F48007D"
+	    documentation 	"Клиентский интерцептор для передачи контекста сессии. Передает на сервер объект Токен с данными безопасности."
+	    stereotype 	"ClientInterceptor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16658937631"))
+		    quid       	"45E696B20261"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::CoreSrv::Security::Session"
+		    quidu      	"45E2AB200236")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16658938000"))
+		    quid       	"45E6F2C0004E"
+		    stereotype 	"connect"
+		    supplier   	"Logical View::shared::CoreSrv::interceptors::ServerSecurity"
+		    quidu      	"45E594460261")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16658938364"))
+		    quid       	"45F55AF80167"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::CoreSrv::SecuritySrv::Token"
+		    quidu      	"45E6946000FA"))
+	    language   	"MDA Generator")
+	(object Class "ServerSecurity"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/CoreSrv/ServerSecurity.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/CoreSrv/ServerSecurity.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E594460261_DESTROY*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_DESTROY*¤	//#UC END# *45E594460261_DESTROY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E594460261_RECEIVE_RSC*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_RECEIVE_RSC*¤	CORBA::Any data;¤	try {¤		IOP::ServiceContext_var service_context = ri->get_request_service_context (ISID_SERVER_SECURITY);¤		const SecuritySrv::Token* token = (const CoreSrv::SecuritySrv::Token*)service_context->context_data.get_buffer ();¤¤		data <<= *token;¤¤		ri->set_slot (CurrentSlotAccessor::get_current_token_slot_id (), data);¤¤	} CATCH_AND_LOG ("while work with Current")¤	//#UC END# *45E594460261_RECEIVE_RSC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E594460261_RECEIVE_R*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_RECEIVE_R*¤	//#UC END# *45E594460261_RECEIVE_R*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E594460261_SEND_R*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_SEND_R*¤	//#UC END# *45E594460261_SEND_R*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E594460261_SEND_E*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_SEND_E*¤	//#UC END# *45E594460261_SEND_E*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E594460261_SEND_O*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_SEND_O*¤	//#UC END# *45E594460261_SEND_O*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E594460261_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *45E594460261_CUSTOM_INCLUDES*¤//#UC END# *45E594460261_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E594460261_DESTROY*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_DESTROY*¤		//#UC END# *45E594460261_DESTROY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E594460261_RECEIVE_RSC*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_RECEIVE_RSC*¤		try {¤			org.omg.IOP.ServiceContext serviceContext = requestInfo.get_request_service_context((int)ISID_SERVER_SECURITY);¤			java.nio.ByteBuffer bb = java.nio.ByteBuffer.wrap(serviceContext.context_data);¤			bb.order(java.nio.ByteOrder.LITTLE_ENDIAN);¤			ru.garant.shared.CoreSrv.SecuritySrv.Token tok = new ru.garant.shared.CoreSrv.SecuritySrv.Token ();¤			tok.sid = bb.getInt();¤			tok.uid = bb.getInt();¤			//org.omg.CORBA.Any any = org.omg.CORBA.ORB.init().create_any();¤			org.omg.CORBA.Any any = ru.garant.shared.CoreSrv.LibHomeFactory.get().getOrbFacet().getMainOrb().create_any();¤			ru.garant.shared.CoreSrv.SecuritySrv.TokenHelper.insert(any, tok);¤			try {¤				requestInfo.set_slot(ru.garant.shared.CoreSrv.LibHomeFactory.CurrentSlotAccessor.getCurrentTokenSlotId(), any);¤			} catch (org.omg.PortableInterceptor.InvalidSlot e) {¤				Logs.LOG_SEX(e);¤			}¤		} catch (Throwable e) {¤			Logs.LOG_E("catch " + e + " while receive_request_service_contexts");¤		}¤		//#UC END# *45E594460261_RECEIVE_RSC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E594460261_RECEIVE_R*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_RECEIVE_R*¤		try {¤			Logs.LOG_D("Interceptor::receive_request [" + requestInfo.operation() + "]");¤			ru.garant.shared.CoreSrv.Session.Factory.get().startUserRequest(ru.garant.shared.CoreSrv.Session.Factory.get().getContextUid());¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			// TODO Auto-generated catch block¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *45E594460261_RECEIVE_R*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E594460261_SEND_R*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_SEND_R*¤		try {¤			ru.garant.shared.CoreSrv.Session.Factory.get().finishUserRequest(ru.garant.shared.CoreSrv.Session.Factory.get().getContextUid());¤			Logs.LOG_D("Interceptor::send_reply [" + requestInfo.operation() + "]");¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			// TODO Auto-generated catch block¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *45E594460261_SEND_R*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E594460261_SEND_E*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_SEND_E*¤		try {¤			ru.garant.shared.CoreSrv.Session.Factory.get().finishUserRequest(ru.garant.shared.CoreSrv.Session.Factory.get().getContextUid());¤			Logs.LOG_D("Interceptor::send_exception [" + requestInfo.operation() + "]");¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			// TODO Auto-generated catch block¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *45E594460261_SEND_E*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45E594460261_SEND_O*"
+		    value      	(value Text 
+|//#UC START# *45E594460261_SEND_O*¤		try {¤			ru.garant.shared.CoreSrv.Session.Factory.get().finishUserRequest(ru.garant.shared.CoreSrv.Session.Factory.get().getContextUid());¤			Logs.LOG_D("Interceptor::send_other [" + requestInfo.operation() + "]");¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			// TODO Auto-generated catch block¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *45E594460261_SEND_O*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/CoreSrv/interceptors/ServerSecurity|45E594460261
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/CoreSrv/ServerSecurity.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16663229028"))
+	    quid       	"45E594460261"
+	    documentation 	"Серверной интерцептор для получения контекста сессии. Принимает от клиента  объект Токен с данными безопасности."
+	    stereotype 	"ServerInterceptor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16658939313"))
+		    quid       	"45F55D99033C"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::CoreSrv::SecuritySrv::Token"
+		    quidu      	"45E6946000FA"))
+	    language   	"MDA Generator")
+	(object Class "CurrentToken"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16658939843"))
+	    quid       	"45E6B98B001F"
+	    documentation 	"Слот в PICurrent-е для хранения Токена безопасности."
+	    stereotype 	"CurrentSlot"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"45E6B9B700DA"
+		    supplier   	"Logical View::shared::CoreSrv::SecuritySrv::Token"
+		    quidu      	"45E6946000FA"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"45E57F10007D"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	319
+	    origin_y   	22
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::CoreSrv::interceptors::ClientSecurity" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"620")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"806")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"432")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(620, 806)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(413, 778)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	414
+			justify    	0
+			label      	"ClientSecurity")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(413, 728)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	411
+			justify    	0
+			label      	"<<ClientInterceptor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"45E58F48007D"
+		    width      	432
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::CoreSrv::interceptors::ServerSecurity" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1426")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"806")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"458")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(1426, 806)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1206, 778)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	440
+			justify    	0
+			label      	"ServerSecurity")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1206, 728)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	437
+			justify    	0
+			label      	"<<ServerInterceptor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"45E594460261"
+		    width      	458
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::CoreSrv::Security::Session" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"621")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"342")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"290")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(621, 342)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(492, 314)
+			nlines     	1
+			max_width  	258
+			justify    	0
+			label      	"• Session")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(492, 264)
+			anchor     	10
+			nlines     	1
+			max_width  	258
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"45E2AB200236"
+		    width      	276
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @4
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"620,715;620,432"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @5
+			Parent_View 	@4
+			location   	(501, 573)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"45E696B20261"
+		    client     	@1
+		    supplier   	@3
+		    vertices   	(list Points
+			(620, 715)
+			(620, 432))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::CoreSrv::interceptors::CurrentToken" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"528")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"1179")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"350")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"166"))
+		    location   	(528, 1179)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(375, 1150)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"CurrentToken")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(375, 1100)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	303
+			justify    	0
+			label      	"<<CurrentSlot>>")
+		    icon_style 	"Label"
+		    fill_color 	16768180
+		    quidu      	"45E6B98B001F"
+		    width      	324
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @7
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"836,806;1196,806"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @8
+			Parent_View 	@7
+			location   	(1016, 751)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<connect>>"
+			pctDist    	0.503896
+			height     	56
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"45E6F2C0004E"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(836, 806)
+			(1196, 806))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::CoreSrv::SecuritySrv::Token" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1085")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"1178")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"366")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(1086, 1179)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	2313060
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(955, 1151)
+			nlines     	1
+			max_width  	262
+			justify    	0
+			label      	"Token")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(955, 1101)
+			anchor     	10
+			nlines     	1
+			max_width  	262
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    line_color 	2313060
+		    fill_color 	16777215
+		    quidu      	"45E6946000FA"
+		    width      	280
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @10
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"703,1178;944,1178"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45E6B9B700DA"
+		    client     	@6
+		    supplier   	@9
+		    vertices   	(list Points
+			(690, 1179)
+			(945, 1179))
+		    line_style 	0)
+		(object UsesView "" @11
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"732,896;972,1087"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @12
+			Parent_View 	@11
+			location   	(929, 993)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.694891
+			height     	47
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"45F55AF80167"
+		    client     	@1
+		    supplier   	@9
+		    vertices   	(list Points
+			(732, 896)
+			(974, 1088))
+		    line_style 	0)
+		(object UsesView "" @13
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"1342,896;1166,1087"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @14
+			Parent_View 	@13
+			location   	(1342, 1011)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.328224
+			height     	77
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"45F55D99033C"
+		    client     	@2
+		    supplier   	@9
+		    vertices   	(list Points
+			(1343, 896)
+			(1166, 1088))
+		    line_style 	0)))))

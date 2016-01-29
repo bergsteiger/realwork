@@ -1,0 +1,350 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/Facet.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::Facet
+//
+// Фасет
+// ---
+// Фасетный интерфейс представлет из себя простой набор абстрактных "ответственнойстей", без
+// определения способа получения этого набора.
+// Фактически фасетный интерфейс выступает в роли дополнительного абстрактного интерфейса без
+// фабрик.
+// Фасетный интерфейс реализуется как дополнительный интерфейс(ы) любым сервантом (реализующим
+// какой либо обычный интерфейс) или даже СимплКлассом. Кроме того фасетные интерфейсы могут быть
+// определены в любом модуле, а не только интерфейсном.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Facet::Class
+implementation @ <<Facet>>
+//? Фасет
+//? Фасетный интерфейс представлет из себя простой набор абстрактных "ответственнойстей", без определения способа получения этого набора.
+//? Фактически фасетный интерфейс выступает в роли дополнительного абстрактного интерфейса без фабрик.
+//? Фасетный интерфейс реализуется как дополнительный интерфейс(ы) любым сервантом (реализующим какой либо обычный интерфейс) или даже СимплКлассом. Кроме того фасетные интерфейсы могут быть определены в любом модуле, а не только интерфейсном.
+//> Facet::Class
+//> Iterator::Class
+
+//= AbstractFacet::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p no_root_class:b=false ? Есть ли рутовый класс в иерархии наследования - при включенном свойство, фасет не будет наследоваться от IObject
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{no_root_class}"!="%S{!no_root_class}"}%f_up_prefix(%S) *no_root_class* = *%S{no_root_class}* - Есть ли рутовый класс в иерархии наследования - при включенном свойство, фасет не будет наследоваться от IObject
+ ?inherited
+ if ( ( %S get_up ( 'no_root_class' ) ) %!= ( %S get_up_def ( 'no_root_class' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *no_root_class* = *'
+  %S get_up ( 'no_root_class' ) '* - Есть ли рутовый класс в иерархии наследования - при включенном свойство, фасет не будет наследоваться от IObject'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Facet::Class::impurity value::Attribute
+; // wiki_up_print
+
+end. // <<Facet>>
+
+implementation @ :: <<Facet>> <<"impurity value">> ;
+//? значение примеси
+//= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+//v -
+// - типы видимости
+//a a
+// - тип абстракции
+//Y code_impurity_value.gif
+//L code_impurity_value
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47D80D1E0359*
+//#UC END# *46E6D4BB0339for47D80D1E0359*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47D80D1E0359*
+//#UC END# *47022C88029Ffor47D80D1E0359*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47D80D1E0359*
+//#UC END# *47022CB8034Bfor47D80D1E0359*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47D80D1E0359*
+//#UC END# *47022CCF00EAfor47D80D1E0359*
+; // i.h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47D80D1E0359*
+//#UC END# *470321950119for47D80D1E0359*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47D80D1E0359*
+//#UC END# *470321C1038Afor47D80D1E0359*
+; // fctr.java
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47D80D1E0359*
+//#UC END# *470F1571031Cfor47D80D1E0359*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47D80D1E0359*
+//#UC END# *470F15B800CBfor47D80D1E0359*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47D80D1E0359*
+//#UC END# *477398E501C0for47D80D1E0359*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for47D80D1E0359*
+//#UC END# *55B8D28B0157for47D80D1E0359*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for47D80D1E0359*
+//#UC END# *55B8D2F80145for47D80D1E0359*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for47D80D1E0359*
+//#UC END# *55B8DD9C0301for47D80D1E0359*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47D80D1E0359*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for47D80D1E0359*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47D80D1E0359*
+//#UC END# *4705CBD6003Efor47D80D1E0359*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for47D80D1E0359*
+//#UC END# *470484D50138for47D80D1E0359*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это свойство.
+//%f _IsProp
+: IsProp OBJECT IN %S
+//#UC START# *493D2D510282for47D80D1E0359*
+//	false
+ false
+//#UC END# *493D2D510282for47D80D1E0359*
+; // IsProp
+
+
+//: Facet::Class::injects::ClassDependency
+end. // :: <<Facet>> <<"impurity value">> ;
+
+implementation @ :: <<Facet>> <<injects>> ;
+//? Внедрение зависимости
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for55BF3FB50305*
+//#UC END# *46E6D4BB0339for55BF3FB50305*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor55BF3FB50305*
+//#UC END# *470F1571031Cfor55BF3FB50305*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor55BF3FB50305*
+//#UC END# *470F15B800CBfor55BF3FB50305*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for55BF3FB50305*
+//#UC END# *477398E501C0for55BF3FB50305*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for55BF3FB50305*
+//#UC END# *55B8D28B0157for55BF3FB50305*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for55BF3FB50305*
+//#UC END# *55B8D2F80145for55BF3FB50305*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for55BF3FB50305*
+//#UC END# *55B8DD9C0301for55BF3FB50305*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for55BF3FB50305*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for55BF3FB50305*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor55BF3FB50305*
+//#UC END# *4705CBD6003Efor55BF3FB50305*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for55BF3FB50305*
+//#UC END# *470484D50138for55BF3FB50305*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Facet>> <<injects>> ;
+

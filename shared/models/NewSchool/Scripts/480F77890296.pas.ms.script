@@ -1,0 +1,92 @@
+// evTextParaConst 480F77890296 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480F77890296
+
+FORWARD ME_480F77D40153
+
+: ME_480F77DE0366
+ CONST UID '480F77DE0366'
+ CONST Name 'evHyphenWidth'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_480F77D40153 // TextParaConst
+ ;
+ CONST Value 'l3Inch div 32'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_480F77DE0366 evHyphenWidth
+
+: ME_55D4508802C8
+ CONST UID '55D4508802C8'
+ CONST Name 'cnPlusIconSpace'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_480F77D40153 // TextParaConst
+ ;
+ CONST Value 270
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55D4508802C8 cnPlusIconSpace
+
+: ME_480F77D40153
+ CONST UID '480F77D40153'
+ CONST Name 'TextParaConst'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_480F77890296 // evTextParaConst
+ ;
+ : Attributes
+   @ ( ME_480F77DE0366 // evHyphenWidth
+ ME_55D4508802C8 // cnPlusIconSpace
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_480F77D40153 TextParaConst
+
+: ME_480F77890296
+ CONST UID '480F77890296'
+ CONST Name 'evTextParaConst'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Constants
+   @ ( ME_480F77D40153 // TextParaConst
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '24.12.2002 17:18'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaConst.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\480F77890296.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\480F77890296.pas.ms.script.runner'
+
+ref; // ME_480F77890296 evTextParaConst

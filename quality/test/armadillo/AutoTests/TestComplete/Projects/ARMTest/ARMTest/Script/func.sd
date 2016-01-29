@@ -1,0 +1,135 @@
+{
+  TYPE:
+  DESC: проверяет, является ли указанная сущность объекта его свойством (именно свойством, а не методом)
+  RESULT:
+  REMARK:
+}
+
+function IsPropertySupported(
+  const obj : OleVariant,
+  propName : String
+): boolean;
+  const
+    FUNCTION_NAME = 'IsPropertySupported';
+  var 
+    objPropIter;    
+begin
+  try
+    Result := false;
+    propName := AnsiUpperCase(propName);
+    //
+    objPropIter := EnumProperties(obj);
+    while (objPropIter.HasNext() AND (NOT Result)) do                                                                                                                                                                   
+      Result := (AnsiUpperCase(objPropIter.Next().Name) = propName);                                                            
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE: Работа с окнами
+  DESC: посылает окну сообщение WM_TEXT и возвращает ответ
+}
+function GetWindowText(
+  wndHandle : integer; // Handle окна
+  const BufferSize: integer = 1024 // размер буффера, в который получается ответ
+): String;
+var
+  Def_DLL, Lib, LpStr;
+begin
+  try
+    // если передали окно
+    if (VarType(wndHandle) = varDispatch) AND IsSupported(wndHandle, 'Handle') then
+      wndHandle := wndHandle.Handle;     
+    { Defines the dll type }
+    Def_DLL := DLL.DefineDLL('USER32');
+    { Registers the function type in TestComplete }
+    Def_DLL.DefineProc('SendMessageA',   { function name }
+                      vt_i4,       { handle }
+                      vt_ui4,       { msg }
+
+                      vt_i4,       { the string length }
+                      vt_i4,   { text buffer }
+                      vt_i4        { result type }
+                      );   
+    LpStr := DLL.New('LPSTR', BufferSize);
+    Lib := DLL.Load('USER32');
+
+    Lib.SendMessageA(wndHandle, 13, BufferSize, LpStr);
+    Result := LpStr.Text;      
+  except
+    Log.Message('GetWindowText: ' + ExceptionMessage, '',  pmNormal);
+  end;
+end;
+
+{
+  TYPE: Общие
+  DESC: Проверяет, есть ли объект
+  RESULT:
+  REMARK:
+}
+{function IsExists(
+  const obj : OleVariant // объект
+) : boolean;
+begin
+  try
+    try
+      Result := (VarType(obj) <> varEmpty) AND IsSupported(obj, 'Exists') AND GetValue(obj, 'Exists');
+    except
+      Result := (VarType(obj) <> varEmpty) AND IsPropertySupported(obj, 'Exists') AND GetValue(obj, 'Exists');
+    end;   
+  except
+    Log.Message('IsExists: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;    
+end;} 
+
+function IsExists(
+  const obj : OleVariant // объект
+) : boolean;
+begin
+  try
+    try
+      Result := (VarType(obj) <> varEmpty) AND IsSupported(obj, 'Exists') AND GetValue(obj, 'Exists');
+    except
+      Result := (VarType(obj) <> varEmpty) AND IsPropertySupported(obj, 'Exists') AND GetValue(obj, 'Exists');
+    end;   
+  except
+    Log.Message('IsExists: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;    
+end;
+
+{
+  TYPE: Общие
+  DESC:  Сравнение объектов. Равны только тогда, когда совпадают типы и значения
+  RESULT:
+  REMARK: Можно сравнивать разные объекты, например string и integer. Ошибки не будет
+}
+function IsEqual(
+  const var1 : OleVariant;
+  const var2 : OleVariant
+) : boolean;
+begin
+  Result := (VarType(var1) = VarType(var2)) AND (var1 = var2);
+end;
+
+
+{
+измеряем максимально допустимое количество символов в поле
+передаём поле, очищает поле, забивает его еденицами до предела и возвращает количество едениц  
+}
+function ObjLength(const obj : OleVariant) : int;
+var
+  OldLength;
+begin
+  obj.Keys('[Home]![End][Del]');
+  repeat 
+    OldLength := Length(obj.wText);
+    obj.Keys('1');
+  until OldLength = Length(obj.wText);
+  Result := Length(obj.wText);  
+end;                             
+
+ 

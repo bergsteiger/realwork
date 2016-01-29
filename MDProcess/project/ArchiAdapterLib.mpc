@@ -1,0 +1,91 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/ArchiAdapterLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::ArchiAdapterLib
+//
+// ArchiAdapterLib
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (ArchiAdapterLib) : project_generic_core_corba {
+	sharedname = ArchiAdapterLib
+	staticname = ArchiAdapterLib
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../
+
+	after += GCI
+	libs  += GCI
+
+	after += ArchiGate_cs
+	libs  += ArchiGate_cs
+
+	Header_Files {
+		Std_Headers {
+			./../ArchiAdapterLib/LibHome.h
+		}
+	
+		Gardocs {
+			./../ArchiAdapterLib/Gardocs/Gardocs.h
+			./../ArchiAdapterLib/Gardocs/GardocsFactories.h
+		}
+	
+		GardocsImpl {
+			./../ArchiAdapterLib/impl/GardocsImpl/ArchiEventsListenerImpl.h
+			./../ArchiAdapterLib/impl/GardocsImpl/ArchiEventsListenerImpl_factory.h
+			./../ArchiAdapterLib/impl/GardocsImpl/DataConverter.h
+			./../ArchiAdapterLib/impl/GardocsImpl/GardocGetterImpl.h
+			./../ArchiAdapterLib/impl/GardocsImpl/GardocGetterImpl_factory.h
+			./../ArchiAdapterLib/impl/GardocsImpl/RemoteBigFileAsStream.h
+			./../ArchiAdapterLib/impl/GardocsImpl/Searcher2Impl.h
+			./../ArchiAdapterLib/impl/GardocsImpl/Searcher2Impl_factory.h
+			./../ArchiAdapterLib/impl/GardocsImpl/SearcherImpl.h
+			./../ArchiAdapterLib/impl/GardocsImpl/SearcherImpl_factory.h
+			./../ArchiAdapterLib/impl/GardocsImpl/UtilsImpl.h
+			./../ArchiAdapterLib/impl/GardocsImpl/UtilsImpl_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Gardocs {
+		}
+	
+		GardocsImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../ArchiAdapterLib/LibHome.cpp
+		}
+	
+		Gardocs {
+			./../ArchiAdapterLib/Gardocs/Gardocs.cpp
+			./../ArchiAdapterLib/Gardocs/GardocsFactories.cpp
+		}
+	
+		GardocsImpl {
+			./../ArchiAdapterLib/impl/GardocsImpl/ArchiEventsListenerImpl.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/ArchiEventsListenerImpl_factory.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/DataConverter.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/GardocGetterImpl.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/GardocGetterImpl_factory.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/RemoteBigFileAsStream.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/Searcher2Impl.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/Searcher2Impl_factory.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/SearcherImpl.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/SearcherImpl_factory.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/UtilsImpl.cpp
+			./../ArchiAdapterLib/impl/GardocsImpl/UtilsImpl_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

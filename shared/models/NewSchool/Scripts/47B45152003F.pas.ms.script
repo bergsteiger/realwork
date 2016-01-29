@@ -1,0 +1,1189 @@
+// l3Items 47B45152003F Impurity Class
+
+FORWARD ME_47B45152003F
+
+INCLUDE '47A1B1500302.pas.ms.script'
+
+: ME_47BEB6660288
+ CONST UID '47BEB6660288'
+ CONST Name 'PFindItemType'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47A1B1500302 // ItemType
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_47BEB6660288 PFindItemType
+
+FORWARD ME_47B9C1A80342
+
+: ME_47B9C1D10041
+ CONST UID '47B9C1D10041'
+ CONST Name 'rA'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47BEB6660288 // PFindItemType
+ ;
+
+ @SELF
+; // ME_47B9C1D10041 rA
+
+: ME_47B9C1DF0156
+ CONST UID '47B9C1DF0156'
+ CONST Name 'rB'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47BEB6660288 // PFindItemType
+ ;
+
+ @SELF
+; // ME_47B9C1DF0156 rB
+
+INCLUDE '4678193C009C.pas.ms.script'
+
+: ME_47B9C1EA00EA
+ CONST UID '47B9C1EA00EA'
+ CONST Name 'rSortIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476F958501F2 // Tl3SortIndex
+ ;
+ CONST "ifdef" 'l3Items_HasCustomSort'
+
+ @SELF
+; // ME_47B9C1EA00EA rSortIndex
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47B9C1FB0141
+ CONST UID '47B9C1FB0141'
+ CONST Name 'rList'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4807745602C8 // TObject
+ ;
+ CONST "ifdef" 'l3Items_CompareItemsRec_NeedsRList'
+
+ @SELF
+; // ME_47B9C1FB0141 rList
+
+: ME_47B9C1A80342
+ CONST UID '47B9C1A80342'
+ CONST Name 'CompareItemsRec'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ %SUMMARY 'Данные для сравнения элементов списка.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_47B9C1D10041 // rA
+ ME_47B9C1DF0156 // rB
+ ME_47B9C1EA00EA // rSortIndex
+ ME_47B9C1FB0141 // rList
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_47B9C1A80342 CompareItemsRec
+
+: ME_4DF0F8E70108
+ CONST UID '4DF0F8E70108'
+ CONST Name 'l3Items_NoChanging'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "ifdef" 'l3Items_IsProto'
+ CONST "ifndef" 'l3Items_HasChanging'
+
+ @SELF
+; // ME_4DF0F8E70108 l3Items_NoChanging
+
+: ME_4DF0F9010038
+ CONST UID '4DF0F9010038'
+ CONST Name 'l3Items_NoOwner'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "ifdef" 'l3Items_IsProto'
+
+ @SELF
+; // ME_4DF0F9010038 l3Items_NoOwner
+
+INCLUDE '47B3245E0148.pas.ms.script'
+
+INCLUDE '47B47E230134.pas.ms.script'
+
+INCLUDE '47B5942000E2.pas.ms.script'
+
+: ME_47B5947703B3
+ CONST UID '47B5947703B3'
+ CONST Name 'f_Data'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47B5942000E2 // DataType
+ ;
+
+ @SELF
+; // ME_47B5947703B3 f_Data
+
+: ME_47B5982200F8
+ CONST UID '47B5982200F8'
+ CONST Name 'Capacity'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ %SUMMARY 'мощность списка, может быть больше _Count.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_47B5982200F8 Capacity
+
+: ME_47B97BE20318
+ CONST UID '47B97BE20318'
+ CONST Name 'Lo'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_47B97BE20318 Lo
+
+: ME_47B9BBE10063
+ CONST UID '47B9BBE10063'
+ CONST Name 'FindDataType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'ref'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47B9BBE10063 FindDataType
+
+: ME_47BEE088001A
+ CONST UID '47BEE088001A'
+ CONST Name 'Count'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ %SUMMARY 'Число элементов.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_47BEE088001A Count
+
+: ME_47B5945C00C0
+ CONST UID '47B5945C00C0'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity param'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47B5942000E2 // DataType
+ ;
+
+ @SELF
+; // ME_47B5945C00C0 
+
+: ME_FD0A4834F08B
+ CONST UID 'FD0A4834F08B'
+ CONST Name 'f_Count'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Count' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_FD0A4834F08B f_Count
+
+: ME_47B486D50032
+ CONST UID '47B486D50032'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B486D50032 Index
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_47B486CB037A
+ CONST UID '47B486CB037A'
+ CONST Name 'Delete'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'удалить элемент с индексом Index.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47B486D50032 // Index
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B486CB037A Delete
+
+: ME_47B489670391
+ CONST UID '47B489670391'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B489670391 Index
+
+: ME_47B4895F01BE
+ CONST UID '47B4895F01BE'
+ CONST Name 'DoDelete'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Удаляет элемент с индексом Index. Не проверяет валидность индекса.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47B489670391 // Index
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B4895F01BE DoDelete
+
+: ME_47B48A6503D5
+ CONST UID '47B48A6503D5'
+ CONST Name 'Dst'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B48A6503D5 Dst
+
+: ME_47B48A66001E
+ CONST UID '47B48A66001E'
+ CONST Name 'Src'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B48A66001E Src
+
+: ME_47B48A66004F
+ CONST UID '47B48A66004F'
+ CONST Name 'aSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_47B48A66004F aSize
+
+: ME_47BAF18D02D3
+ CONST UID '47BAF18D02D3'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B45152003F // l3Items
+ ;
+
+ @SELF
+; // ME_47BAF18D02D3 aList
+
+: ME_47B48A510176
+ CONST UID '47B48A510176'
+ CONST Name 'MoveItems'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ %SUMMARY 'Передвигает кусок памяти.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_47B48A6503D5 // Dst
+ ME_47B48A66001E // Src
+ ME_47B48A66004F // aSize
+ ME_47BAF18D02D3 // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B48A510176 MoveItems
+
+: ME_47B49B310220
+ CONST UID '47B49B310220'
+ CONST Name 'aPlace'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47B49B310220 aPlace
+
+: ME_47B49B310255
+ CONST UID '47B49B310255'
+ CONST Name 'anItem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47B49B310255 anItem
+
+: ME_47B49B1D033E
+ CONST UID '47B49B1D033E'
+ CONST Name 'FillSlot'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Заполняет место элемента его значением.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47B49B310220 // aPlace
+ ME_47B49B310255 // anItem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B49B1D033E FillSlot
+
+: ME_47B49EE5023D
+ CONST UID '47B49EE5023D'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B49EE5023D anIndex
+
+: ME_47B49EE50274
+ CONST UID '47B49EE50274'
+ CONST Name 'aData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47B49EE50274 aData
+
+: ME_47B49EC50034
+ CONST UID '47B49EC50034'
+ CONST Name 'DirectInsert'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Непосредственное удаление элемента. Без проверки валидности индекса.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47B49EE5023D // anIndex
+ ME_47B49EE50274 // aData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B49EC50034 DirectInsert
+
+: ME_47B4A01200C9
+ CONST UID '47B4A01200C9'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B4A01200C9 anIndex
+
+: ME_47B49FF70034
+ CONST UID '47B49FF70034'
+ CONST Name 'CheckSetItem'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Проверяет валидность индекса при вставке.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47B4A01200C9 // anIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B49FF70034 CheckSetItem
+
+: ME_47BEDAED021E
+ CONST UID '47BEDAED021E'
+ CONST Name 'NewCapacity'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47BEDAED021E NewCapacity
+
+: ME_47BEDAED02A3
+ CONST UID '47BEDAED02A3'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B45152003F // l3Items
+ ;
+
+ @SELF
+; // ME_47BEDAED02A3 aList
+
+: ME_47B5976F024E
+ CONST UID '47B5976F024E'
+ CONST Name 'ReAllocList'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ %SUMMARY 'изменяет мощность списка.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_47BEDAED021E // NewCapacity
+ ME_47BEDAED02A3 // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B5976F024E ReAllocList
+
+: ME_47BED88A003A
+ CONST UID '47BED88A003A'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B45152003F // l3Items
+ ;
+
+ @SELF
+; // ME_47BED88A003A aList
+
+: ME_47B5984B019D
+ CONST UID '47B5984B019D'
+ CONST Name 'GetCapacity'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BED88A003A // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B5984B019D GetCapacity
+
+: ME_47B5A5B00230
+ CONST UID '47B5A5B00230'
+ CONST Name 'BeforeAddToCache'
+ CONST Class 'Operation'
+ CONST Stereotype 'override'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST "is static" false
+
+ @SELF
+; // ME_47B5A5B00230 BeforeAddToCache
+
+: ME_47B5A5BF00D1
+ CONST UID '47B5A5BF00D1'
+ CONST Name 'Release'
+ CONST Class 'Operation'
+ CONST Stereotype 'override'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST "is static" false
+
+ @SELF
+; // ME_47B5A5BF00D1 Release
+
+: ME_47B5B7C80374
+ CONST UID '47B5B7C80374'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B5B7C80374 Index
+
+: ME_47B5B7B6011A
+ CONST UID '47B5B7B6011A'
+ CONST Name 'CheckIndex'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'проверяет валидность индекса и поднимает исключение, если он неправильный.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47B5B7C80374 // Index
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B5B7B6011A CheckIndex
+
+: ME_47B5BDD000D6
+ CONST UID '47B5BDD000D6'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B5BDD000D6 anIndex
+
+: ME_47B5BDCD035D
+ CONST UID '47B5BDCD035D'
+ CONST Name 'ItemSlot'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_47B9A14B0217 // PItemType
+ ;
+ : Parameters
+   [ ME_47B5BDD000D6 // anIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B5BDCD035D ItemSlot
+
+: ME_47BB04EA01C3
+ CONST UID '47BB04EA01C3'
+ CONST Name 'A'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47BB04EA01C3 A
+
+: ME_47BB04EA0235
+ CONST UID '47BB04EA0235'
+ CONST Name 'B'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47BB04EA0235 B
+
+: ME_47BEC81701C4
+ CONST UID '47BEC81701C4'
+ CONST Name 'anItems'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B45152003F // l3Items
+ ;
+ CONST "ifdef" 'l3Items_FillItem_NeedsList'
+
+ @SELF
+; // ME_47BEC81701C4 anItems
+
+: ME_47B5C4080270
+ CONST UID '47B5C4080270'
+ CONST Name 'DoExchange'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ %SUMMARY 'Меняет элементы списка местами. Без всяких проверок.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_47BB04EA01C3 // A
+ ME_47BB04EA0235 // B
+ ME_47BEC81701C4 // anItems
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B5C4080270 DoExchange
+
+: ME_47B935D00130
+ CONST UID '47B935D00130'
+ CONST Name 'aPlace'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47B935D00130 aPlace
+
+: ME_47B935D00192
+ CONST UID '47B935D00192'
+ CONST Name 'anItem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47B935D00192 anItem
+
+: ME_47BEDD5B02E5
+ CONST UID '47BEDD5B02E5'
+ CONST Name 'anItems'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B45152003F // l3Items
+ ;
+ CONST "ifdef" 'l3Items_FillItem_NeedsList'
+
+ @SELF
+; // ME_47BEDD5B02E5 anItems
+
+: ME_47B935AF0066
+ CONST UID '47B935AF0066'
+ CONST Name 'FillItem'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ %SUMMARY 'Заполняет элемент списка.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_47B935D00130 // aPlace
+ ME_47B935D00192 // anItem
+ ME_47BEDD5B02E5 // anItems
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B935AF0066 FillItem
+
+: ME_47B9480200F7
+ CONST UID '47B9480200F7'
+ CONST Name 'aPlace'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47B9480200F7 aPlace
+
+: ME_47B947FD009A
+ CONST UID '47B947FD009A'
+ CONST Name 'FreeSlot'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47B9480200F7 // aPlace
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B947FD009A FreeSlot
+
+: ME_4B87F92F0096
+ CONST UID '4B87F92F0096'
+ CONST Name 'aPlace'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_4B87F92F0096 aPlace
+
+: ME_4B87F92F0170
+ CONST UID '4B87F92F0170'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B45152003F // l3Items
+ ;
+ CONST "ifdef" 'l3Items_FreeItem_NeedsList'
+
+ @SELF
+; // ME_4B87F92F0170 aList
+
+: ME_47B94A5C006E
+ CONST UID '47B94A5C006E'
+ CONST Name 'FreeItem'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ %SUMMARY 'Очищает элемент списка' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_4B87F92F0096 // aPlace
+ ME_4B87F92F0170 // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B94A5C006E FreeItem
+
+: ME_47B975B501BE
+ CONST UID '47B975B501BE'
+ CONST Name 'aTargetSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+
+ @SELF
+; // ME_47B975B501BE aTargetSize
+
+: ME_47B975AF02ED
+ CONST UID '47B975AF02ED'
+ CONST Name 'ExpandSize'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+ : Parameters
+   [ ME_47B975B501BE // aTargetSize
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B975AF02ED ExpandSize
+
+: ME_47B97B0A0268
+ CONST UID '47B97B0A0268'
+ CONST Name 'GetEmpty'
+ CONST Class 'Operation'
+ CONST Stereotype 'override'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST "is static" false
+
+ @SELF
+; // ME_47B97B0A0268 GetEmpty
+
+: ME_47B9C44A0322
+ CONST UID '47B9C44A0322'
+ CONST Name 'CI'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B9C1A80342 // CompareItemsRec
+ ;
+
+ @SELF
+; // ME_47B9C44A0322 CI
+
+: ME_47B99D4503A2
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ %SUMMARY 'Сравнивает два существующих элемента.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47B9C44A0322 // CI
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B99D4503A2 CompareExistingItems
+
+: ME_47BB020A0298
+ CONST UID '47BB020A0298'
+ CONST Name 'I1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+
+ @SELF
+; // ME_47BB020A0298 I1
+
+: ME_47BB020A0316
+ CONST UID '47BB020A0316'
+ CONST Name 'I2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+
+ @SELF
+; // ME_47BB020A0316 I2
+
+: ME_47BB01F000D3
+ CONST UID '47BB01F000D3'
+ CONST Name 'Exchange'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Меняет элементы списка местами. Проверяет валидность индекса.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47BB020A0298 // I1
+ ME_47BB020A0316 // I2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BB01F000D3 Exchange
+
+: ME_47BEDF37029E
+ CONST UID '47BEDF37029E'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47BEDF37029E anIndex
+
+: ME_47BEDF370327
+ CONST UID '47BEDF370327'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B45152003F // l3Items
+ ;
+
+ @SELF
+; // ME_47BEDF370327 aList
+
+: ME_47BEDF2A02EA
+ CONST UID '47BEDF2A02EA'
+ CONST Name 'GetItemSlot'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_47B9A14B0217 // PItemType
+ ;
+ : Parameters
+   [ ME_47BEDF37029E // anIndex
+ ME_47BEDF370327 // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BEDF2A02EA GetItemSlot
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_47BEED18012D
+ CONST UID '47BEED18012D'
+ CONST Name 'I1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767A382039E // Tl3Index
+ ;
+
+ @SELF
+; // ME_47BEED18012D I1
+
+: ME_47BEED1801B8
+ CONST UID '47BEED1801B8'
+ CONST Name 'I2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767A382039E // Tl3Index
+ ;
+
+ @SELF
+; // ME_47BEED1801B8 I2
+
+: ME_47BEED180243
+ CONST UID '47BEED180243'
+ CONST Name 'Action'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_469FA03900D4 // Tl3IteratorAction
+ ;
+
+ @SELF
+; // ME_47BEED180243 Action
+
+: ME_47BEED100067
+ CONST UID '47BEED100067'
+ CONST Name 'IterateF'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BEED18012D // I1
+ ME_47BEED1801B8 // I2
+ ME_47BEED180243 // Action
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BEED100067 IterateF
+
+: ME_47BEED4200EA
+ CONST UID '47BEED4200EA'
+ CONST Name 'Action'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_469FA03900D4 // Tl3IteratorAction
+ ;
+
+ @SELF
+; // ME_47BEED4200EA Action
+
+: ME_47BEED3D038B
+ CONST UID '47BEED3D038B'
+ CONST Name 'IterateAllF'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BEED4200EA // Action
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BEED3D038B IterateAllF
+
+: ME_4B87FD3B00C9
+ CONST UID '4B87FD3B00C9'
+ CONST Name 'aPlace'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_4B87FD3B00C9 aPlace
+
+: ME_4B87FCF8038B
+ CONST UID '4B87FCF8038B'
+ CONST Name 'BeforeFreeItem'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Нотификация потомкам об освобождении элемента списка' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4B87FD3B00C9 // aPlace
+ ]
+ ; // Parameters
+ CONST "ifdef" 'l3Items_NeedsBeforeFreeItem'
+
+ @SELF
+; // ME_4B87FCF8038B BeforeFreeItem
+
+: ME_47B45152003F
+ CONST UID '47B45152003F'
+ CONST Name 'l3Items'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY 'Список' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_47B3245E0148 // l3Sortable
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B47E230134 // l3Searcher
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_47B5947703B3 // f_Data
+ ME_47B5982200F8 // Capacity
+ ME_47B97BE20318 // Lo
+ ME_47B9BBE10063 // FindDataType
+ ME_47BEE088001A // Count
+ ME_47B5945C00C0 // 
+ ME_FD0A4834F08B // f_Count
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_47B486CB037A // Delete
+ ME_47B4895F01BE // DoDelete
+ ME_47B48A510176 // MoveItems
+ ME_47B49B1D033E // FillSlot
+ ME_47B49EC50034 // DirectInsert
+ ME_47B49FF70034 // CheckSetItem
+ ME_47B5976F024E // ReAllocList
+ ME_47B5984B019D // GetCapacity
+ ME_47B5A5B00230 // BeforeAddToCache
+ ME_47B5A5BF00D1 // Release
+ ME_47B5B7B6011A // CheckIndex
+ ME_47B5BDCD035D // ItemSlot
+ ME_47B5C4080270 // DoExchange
+ ME_47B935AF0066 // FillItem
+ ME_47B947FD009A // FreeSlot
+ ME_47B94A5C006E // FreeItem
+ ME_47B975AF02ED // ExpandSize
+ ME_47B97B0A0268 // GetEmpty
+ ME_47B99D4503A2 // CompareExistingItems
+ ME_47BB01F000D3 // Exchange
+ ME_47BEDF2A02EA // GetItemSlot
+ ME_47BEED100067 // IterateF
+ ME_47BEED3D038B // IterateAllF
+ ME_4B87FCF8038B // BeforeFreeItem
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47B5B5F1038E // DoCompareItems
+ ME_47B5B88203A7 // Swap
+ ME_47B9BAFD01F4 // CompareItemWithData
+ ]
+ ; // Implemented
+ : Children
+   [ ME_47BEB6660288 // PFindItemType
+ ME_47B9C1A80342 // CompareItemsRec
+ ME_4DF0F8E70108 // l3Items_NoChanging
+ ME_4DF0F9010038 // l3Items_NoOwner
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47B45152003F l3Items

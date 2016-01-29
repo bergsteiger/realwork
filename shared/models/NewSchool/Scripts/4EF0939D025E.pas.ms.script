@@ -1,0 +1,54 @@
+// mouse_SetCursorPosition 4EF0939D025E ScriptKeyword Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4EF0939D025E
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_3D163EA60050
+ CONST UID '3D163EA60050'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация mouse_SetCursorPosition' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3D163EA60050 Ini_Reg
+
+: ME_4EF0939D025E
+ CONST UID '4EF0939D025E'
+ CONST Name 'mouse_SetCursorPosition'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_3D163EA60050 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4EF0939D025E mouse_SetCursorPosition

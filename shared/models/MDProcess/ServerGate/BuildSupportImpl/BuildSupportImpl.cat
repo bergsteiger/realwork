@@ -1,0 +1,1980 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "BuildSupportImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"Java|wiki|Äîêóìåíòàöèÿ")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ServerGate/BuildSupportImpl|4A03A9B600C3
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19014866884"))
+    quid       	"4A03A9B600C3"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4A03A9D000C3"
+	    supplier   	"Logical View::MDProcess::ServerGate::BuildSupport"
+	    quidu      	"4A03A9150140")
+	(object Visibility_Relationship
+	    quid       	"4A03AA5D03C1"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.spaces"
+	    quidu      	"4644047C034A")
+	(object Visibility_Relationship
+	    quid       	"48DA0A2A0170"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Requests"
+	    quidu      	"4741A5C102D5")
+	(object Visibility_Relationship
+	    quid       	"47E36E5D0273"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Releases"
+	    quidu      	"47721A5A00FA")
+	(object Visibility_Relationship
+	    quid       	"47E3CE9900CF"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Builds"
+	    quidu      	"47E3C94B02F2")
+	(object Visibility_Relationship
+	    quid       	"4A03AADA024A"
+	    supplier   	"Logical View::MDProcess::ServerGate::Comm"
+	    quidu      	"47EA42FC01EC")
+	(object Visibility_Relationship
+	    quid       	"46446CA50280"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages"
+	    quidu      	"4614919300FA")
+	(object Visibility_Relationship
+	    quid       	"4908421F0086"
+	    supplier   	"Logical View::shared::ConfluenceCore::Helpers"
+	    quidu      	"46148D060128"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "BuildManagerImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ServerGate/BuildSupportImpl/BuildManagerImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ServerGate/BuildSupportImpl/BuildManagerImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47DF9239028C_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *47DF9239028C_CUSTOM_IMPORT*¤import ru.garant.MDProcess.CodeRepository.Information.Changeset;¤import ru.garant.MDProcess.CodeRepository.Information.History;¤import ru.garant.MDProcess.CodeRepositoryView.KRenderers.RequestHistory;¤¤import ru.garant.MDProcess.ConfluenceMDChange.BuildsImpl.LabelConstants;¤import ru.garant.MDProcess.ServerGate.Comm.BuildListnerFactory;¤import ru.garant.MDProcess.ConfluenceMDChange.Builds.BuildManager;¤¤import ru.garant.shared.GCI.I18N.Messages;¤¤import java.util.*;¤¤import org.apache.commons.collections.CollectionUtils;¤//#UC END# *47DF9239028C_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47DF9239028C_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *47DF9239028C_CUSTOM_CLASS_DEFINITION*¤//#UC END# *47DF9239028C_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47D68D3A01D5_47D7E63902BE_47DF9239028C_BODY*"
+		    value      	(value Text 
+|//#UC START# *47D68D3A01D5_47D7E63902BE_47DF9239028C_BODY*¤		//#UC END# *47D68D3A01D5_47D7E63902BE_47DF9239028C_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47D68D600074_47DF9239028C*"
+		    value      	(value Text 
+|//#UC START# *47D68D600074_47DF9239028C*¤		try {¤			Page buildPage = PageFactory.get(buildName);¤			//New Storage,key:NST,guid:4715CB5403D7/Home/¤			//"~zakharov,key:~zakharov,guid:~zakharov/Home/Test builds/";¤			String pagePath = "MDP,key:MDP,guid:MDP/Home/";¤			pagePath += projectName;¤			pagePath += "/";¤			pagePath += buildName;¤			Logs.LOG_D("BuildImpl::make: page_path=" + pagePath);¤			buildPage.set_path(pagePath);¤¤			String pageText = "Build: ";¤			pageText += eventName;¤			buildPage.set_generated_text(pageText);¤¤			buildPage.prepare_for_commit();¤			buildPage.commit_all_changes(false);¤		} catch (Exception e) {¤			Logs.LOG_E("BuildImpl::make: " + e);¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *47D68D600074_47DF9239028C*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47DF9239028C_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *47DF9239028C_CUSTOM_METHODS_AND_DATA*¤	static class SortingRequestsByImportance{¤		public SortingRequestsByImportance () {¤		}¤¤		private Map<String, List<Request>> sortRequestsByType_ = initRequests();¤		¤		private Map<String, List<Request>> initRequests () {¤			return null;¤		}¤		¤		public Map<String, List<Request>> getSortRequestsByType(){¤			return sortRequestsByType_;¤		}¤		¤		public void setSortRequestsByType(Map<String, List<Request>> sortRequestsByType){¤			sortRequestsByType_ = sortRequestsByType;¤		}¤	}¤	//#UC END# *47DF9239028C_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ServerGate/BuildSupportImpl/BuildManagerImpl|47DF9239028C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19014877098"))
+	    quid       	"47DF9239028C"
+	    documentation 	"Ðåàëèçàöèÿ èíòåðôåéñà ìåíåäæåðà ñáîðêè. Ñîçäàåò ñòðàíèöó ñáîðêè, âûñòàâëÿåò åé ñîîòâåòñòâóþùèå ëåéáëû è íàïîëíÿåò ññûëêàìè íà çàïðîñû, çàêðûòûå â ýòîé ñáîðêå."
+	    stereotype 	"Servant"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014883457"))
+		    quid       	"47E3691A009D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.spaces::Space"
+		    quidu      	"47A0689B0158")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014883839"))
+		    quid       	"47E36DD900EE"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Releases::Release"
+		    quidu      	"47721AAD0358")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014884214"))
+		    quid       	"47E36DEB0312"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Releases::ReleaseList"
+		    quidu      	"47721FC90339")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014884618"))
+		    quid       	"47E3CE5F0395"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Builds::Build"
+		    quidu      	"47E3C97D02BD")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014884989"))
+		    quid       	"47E3CE6802E4"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Builds::BuildManager"
+		    quidu      	"47E3C98D018F")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014885389"))
+		    quid       	"47EB9CBC0009"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ServerGate::Comm::BuildListner"
+		    quidu      	"47EA43D801F0")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014885782"))
+		    quid       	"48DA096D00BD"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Releases::ReleaseLifeCycle"
+		    quidu      	"478DA1740277")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014886164"))
+		    quid       	"48DA09A0002A"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Releases::ReleaseManager"
+		    quidu      	"47721AC50272")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014886600"))
+		    quid       	"48DA0A020270"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Requests::RequestManager"
+		    quidu      	"48D0B9CA0007")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014886974"))
+		    quid       	"48DA0A0700C3"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::Requests::Request"
+		    quidu      	"48CE4BC90330")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014887386"))
+		    quid       	"4908423003E6"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::Page"
+		    quidu      	"461492D402CE")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014887759"))
+		    quid       	"4908423C0197"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::ConfluenceCore::Helpers::ContainerManager"
+		    quidu      	"46148D98008C")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014888134"))
+		    quid       	"49084287039D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.spaces::SpaceManager"
+		    quidu      	"464404A802EC")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014888567"))
+		    quid       	"490842BC012E"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::PageManager"
+		    quidu      	"461492B70119"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"47DF92910081"
+		    supplier   	"Logical View::MDProcess::ServerGate::BuildSupport::BuildManager"
+		    quidu      	"47D68D3A01D5"))
+	    operations 	(list Operations
+		(object Operation "find_space"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E368D30106*"
+			    value      	(value Text 
+|//#UC START# *47E368D30106*¤		SpaceManager sm = ContainerManager.Factory.get().getSpaceManager();¤		// now we suppose that 'projectName' is space key¤		return sm.getSpace(projectName);¤		//#UC END# *47E368D30106*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47A0689B0158")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014877415"))
+		    quid       	"47E368D30106"
+		    documentation 	"Íàéòè ñïåéñ ïðîåêòà ñáîðêè."
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "project_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014877763"))
+			    quid       	"47E368EE00AD"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"Space"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"47A0689B0158")
+		(object Operation "get_release_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E36D3E00F1*"
+			    value      	(value Text 
+|//#UC START# *47E36D3E00F1*¤		class NeedForBuild {¤			String branchName_;¤			NeedForBuild (final String branchName) {¤				branchName_ = branchName;¤			}¤			boolean yes (Release rel) {¤				if (!rel.getNeedForBuilds()) {¤					return false;¤				}¤				if (rel.getBranch() != null && rel.getBranch().length() > 0) {¤					return rel.getBranch().equals(branchName_);¤				} else {¤					return "0".equals(branchName_); ¤				}¤			}¤			¤		}¤		NeedForBuild needForBuild = new NeedForBuild(branchName);¤¤		String spaceKey = findSpace(projectName).getKey();¤		ReleaseManager rm = ReleaseManager.Factory.get();¤		¤		List<Release> resList = new ArrayList<Release>();¤¤		// add active releases¤		for (Release rel : rm.getReleasesBySpace(spaceKey, ReleaseLifeCycle.ST_IMPLEMENTATION.getId())) {¤			if (needForBuild.yes(rel)) {¤				resList.add(rel);¤			}¤		}¤¤		// add releases which are closed but without a final build¤		List<Release> relList = rm.getReleasesBySpace(spaceKey, ReleaseLifeCycle.ST_CLOSED.getId());¤		relList.addAll(rm.getReleasesBySpace(spaceKey, ReleaseLifeCycle.ST_DEPLOYED.getId()));¤		for (Release rel : relList) {¤			if (rel.getBuildPageId() == 0 && needForBuild.yes(rel)) {¤				if (rel.hasRequestsWithoutBuild()) {¤					resList.add(rel);¤				}¤			}¤		}¤¤		return resList;¤		//#UC END# *47E36D3E00F1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47721FC90339")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014878191"))
+		    quid       	"47E36D3E00F1"
+		    documentation 	"Ïîëó÷åíèå ñïèñêà âûïóñêîâ ïî èìåíè ïðîåêòà è äëÿ óêàçàííîé âåòêè CVS."
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "project_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014878517"))
+			    quid       	"47E36D660100"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "branch_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014878884"))
+			    quid       	"47E36D660148"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"ReleaseList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"47721FC90339")
+		(object Operation "make_content"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47E7B8DC01BA*"
+			    value      	(value Text 
+|//#UC START# *47E7B8DC01BA*¤		final Messages messages = Messages.Factory.messages();¤		String res = messages.get("buildimpl.tag.name") + " CVS: *" + tagName + "*\n";¤		if (eventName.compareToIgnoreCase(LabelConstants.START_BUILD_LABEL) == 0) {¤			return res + "h3. " + messages.get("buildimpl.execute.build");¤		} else if (eventName.compareToIgnoreCase(LabelConstants.FAILURE_BUILD_LABEL) == 0) {¤			return res + "h3. " + messages.get("buildimpl.build.failed.completed");¤		} else if (eventName.compareToIgnoreCase(LabelConstants.DONE_BUILD_LABEL) == 0) {¤			res += "{NextPrevBuilds}\n";¤			List<Long> requestIdList = BuildManager.Factory.get().findClosedRequests(build);¤			if (requestIdList.isEmpty()) {¤				return res + "h3. " + messages.get("buildimpl.in.this.build.no.closed.requests");¤			}¤			res += "h3. " + messages.get("buildimpl.requests.realized.in.this.build") + ":\n\n";¤//ñîðòèðîâêà ñíà÷àëà ïî âàæíîñòè, ïîòîì ïî òèïó çàïðîñîâ¤			List<Request> listRequest = null;¤			Map<String, List<Request>> sortRequestsByType = null;¤			SortingRequestsByImportance sortRequestsByImportance = new SortingRequestsByImportance(); ¤			Map<Integer, SortingRequestsByImportance> sortingRequests = new HashMap<Integer, SortingRequestsByImportance>();¤			for (Long requestId : requestIdList) {¤				Request request = RequestManager.Factory.get().getRequest(requestId);¤				if(sortingRequests.containsKey(request.getImportance().getId())){¤					sortRequestsByImportance = sortingRequests.get(request.getImportance().getId());¤					sortRequestsByType = sortRequestsByImportance.getSortRequestsByType();¤					listRequest = sortRequestsByType.get(request.getType().getLabel());¤				}else{¤					sortRequestsByImportance = new SortingRequestsByImportance(); ¤					sortRequestsByType = null;¤					listRequest = null;¤				}¤				if(sortRequestsByType == null){¤					sortRequestsByType = new HashMap<String, List<Request>>();¤				}¤				if(listRequest == null){¤					listRequest = new ArrayList<Request>();¤				}¤				listRequest.add(request);¤				sortRequestsByType.put(request.getType().getLabel(), listRequest);¤				sortRequestsByImportance.setSortRequestsByType(sortRequestsByType);¤				sortingRequests.put(request.getImportance().getId(), sortRequestsByImportance); ¤			}¤//âûâîä îòñîðòèðîâàííîé ñòðóêòóðû çàïðîñîâ¤			Set<Integer> keysImportant  = sortingRequests.keySet();¤			for(Integer keyImportant : keysImportant)¤			{¤				SortingRequestsByImportance requestByImportance = sortingRequests.get(keyImportant);¤				Set<String> keysType = requestByImportance.getSortRequestsByType().keySet(); ¤				for(String keyType : keysType){¤					List<Request> listRequestByType = requestByImportance.getSortRequestsByType().get(keyType);¤					for(Request request : listRequestByType){¤						res += "{Requestlink:" + request.getPage().getId() + "}\n";¤						try {¤							request.setBuild(build.getId());¤							request.commit();¤						} catch (Exception e) {¤							Logs.LOG_W("BuildImpl::makeContent: can not save request state: " + e);¤						}¤					}¤				}¤			}¤			return res;¤		}¤		return "";¤		//#UC END# *47E7B8DC01BA*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014879305"))
+		    quid       	"47E7B8DC01BA"
+		    documentation 	"Ñîçäàíèå ñòðàíèöû ñáîðêè."
+		    parameters 	(list Parameters
+			(object Parameter "event_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014879650"))
+			    quid       	"4847FDB801E0"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "build"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47E3C97D02BD")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014880018"))
+			    quid       	"4847FDB801E9"
+			    type       	"Builds::Build")
+			(object Parameter "tag_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014880378"))
+			    quid       	"4847FDB801F3"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "create_build_listner"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47ECF88903BA*"
+			    value      	(value Text 
+|//#UC START# *47ECF88903BA*¤		try {¤			return (eventName.compareTo(LabelConstants.DONE_BUILD_LABEL) == 0)¤				? BuildListnerFactory.get() : null;¤		} catch (Exception e) {¤			Logs.LOG_E("BuildImpl::createBuildListner: " + e);¤			Logs.LOG_SEX(e);¤			return null;¤		}¤		//#UC END# *47ECF88903BA*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47EA43D801F0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014880839"))
+		    quid       	"47ECF88903BA"
+		    documentation 	"Ñîçäàíèå ýêçåìïëÿðà BuildListner."
+		    parameters 	(list Parameters
+			(object Parameter "event_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014881141"))
+			    quid       	"47ECF89F03E5"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"BuildListner"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"47EA43D801F0")
+		(object Operation "notify_about_build"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*480345FB002F*"
+			    value      	(value Text 
+|//#UC START# *480345FB002F*¤		try {¤			if (buildListner != null) {¤				buildListner.build_success(¤					ru.garant.MDProcess.ServerGate.Contents.KPageFactory.get(build.getId())¤					, buildPath¤					, isHasCommits¤				);¤			}¤		} catch (Exception e) {¤			Logs.LOG_E("BuildImpl::notifyAboutBuild: " + e);¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *480345FB002F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014881580"))
+		    quid       	"480345FB002F"
+		    documentation 	"Óâåäîìëåíèå îá óäà÷íîì çàâåðøåíèè ñáîðêè."
+		    parameters 	(list Parameters
+			(object Parameter "build_listner"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47EA43D801F0")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014881893"))
+			    quid       	"4BB497F3002D"
+			    type       	"BuildListner"
+			    quidu      	"47EA43D801F0")
+			(object Parameter "build"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47E3C97D02BD")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014882245"))
+			    quid       	"4BB497F30062"
+			    type       	"Builds::Build")
+			(object Parameter "build_path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014882622"))
+			    quid       	"4BB497F30097"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "is_has_commits"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014882973"))
+			    quid       	"4BB497F300CE"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4A03A9E50392"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	4546
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ServerGate::BuildSupport::BuildManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1173, 4227)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(988, 4199)
+			nlines     	1
+			max_width  	370
+			justify    	0
+			label      	"• BuildManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(988, 4149)
+			anchor     	10
+			nlines     	1
+			max_width  	370
+			justify    	0
+			label      	"<<ServerInterface>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47D68D3A01D5"
+		    width      	388
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ServerGate::BuildSupportImpl::BuildManagerImpl" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1035, 4866)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(9, 4716)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	2052
+			justify    	0
+			label      	"• BuildManagerImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(9, 4666)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	2052
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"47DF9239028C"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(9, 4777)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	2093
+			justify    	1)
+		    width      	2070
+		    height     	424
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.spaces::Space" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(783, 5436)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(497, 5408)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	572
+			justify    	0
+			label      	"• Space")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(497, 5358)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	572
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"47A0689B0158"
+		    width      	590
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Builds::Build" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(810, 4227)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(682, 4199)
+			nlines     	1
+			max_width  	256
+			justify    	0
+			label      	"• Build")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(682, 4149)
+			anchor     	10
+			nlines     	1
+			max_width  	253
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47E3C97D02BD"
+		    width      	274
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Builds::BuildManager" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(477, 4227)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(304, 4199)
+			nlines     	1
+			max_width  	346
+			justify    	0
+			label      	"• BuildManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(304, 4149)
+			anchor     	10
+			nlines     	1
+			max_width  	346
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47E3C98D018F"
+		    width      	364
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Releases::ReleaseList" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1251, 5442)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6572835
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1127, 5414)
+			nlines     	1
+			max_width  	248
+			justify    	0
+			label      	"ReleaseList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1127, 5364)
+			anchor     	10
+			nlines     	1
+			max_width  	248
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    line_color 	6572835
+		    fill_color 	16777215
+		    quidu      	"47721FC90339"
+		    width      	266
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ServerGate::Comm::BuildListner" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1905, 4230)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1720, 4202)
+			nlines     	1
+			max_width  	370
+			justify    	0
+			label      	"• BuildListner")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1720, 4152)
+			anchor     	10
+			nlines     	1
+			max_width  	370
+			justify    	0
+			label      	"<<ServerInterface>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47EA43D801F0"
+		    width      	388
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Releases::ReleaseLifeCycle" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(252, 5436)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	9528569
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(72, 5408)
+			nlines     	1
+			max_width  	360
+			justify    	0
+			label      	"ReleaseLifeCycle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(72, 5358)
+			anchor     	10
+			nlines     	1
+			max_width  	360
+			justify    	0
+			label      	"<<StateMachine>>")
+		    icon_style 	"Label"
+		    line_color 	9528569
+		    fill_color 	16777215
+		    quidu      	"478DA1740277"
+		    width      	378
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Releases::ReleaseManager" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2355, 4239)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(2150, 4211)
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"• ReleaseManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(2150, 4161)
+			anchor     	10
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47721AC50272"
+		    width      	428
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::RequestManager" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1608, 5442)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(1409, 5414)
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"• RequestManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(1409, 5364)
+			anchor     	10
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"48D0B9CA0007"
+		    width      	416
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::Request" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2004, 5442)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1871, 5414)
+			nlines     	1
+			max_width  	266
+			justify    	0
+			label      	"• Request")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(1871, 5364)
+			anchor     	10
+			nlines     	1
+			max_width  	266
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"48CE4BC90330"
+		    width      	284
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::Page" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2418, 4545)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(2137, 4517)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	562
+			justify    	0
+			label      	"• Page")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(2137, 4467)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	562
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"461492D402CE"
+		    width      	580
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Releases::Release" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1533, 4230)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(1397, 4198)
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"• Release")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(1397, 4148)
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47721AAD0358"
+		    width      	290
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.spaces::SpaceManager" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2433, 4824)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(2147, 4796)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	572
+			justify    	0
+			label      	"• SpaceManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(2147, 4746)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	572
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"464404A802EC"
+		    width      	590
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::PageManager" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2433, 5064)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(2152, 5036)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	562
+			justify    	0
+			label      	"• PageManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(2152, 4986)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	562
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"461492B70119"
+		    width      	580
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::Helpers::ContainerManager" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2391, 5433)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(2183, 5405)
+			nlines     	1
+			max_width  	416
+			justify    	0
+			label      	"• ContainerManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(2183, 5355)
+			anchor     	10
+			nlines     	1
+			max_width  	416
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"46148D98008C"
+		    width      	434
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @17
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"47DF92910081"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(1079, 4653)
+			(1151, 4317))
+		    line_style 	0)
+		(object UsesView "" @18
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @19
+			Parent_View 	@18
+			location   	(991, 5261)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"47E3691A009D"
+		    client     	@2
+		    supplier   	@3
+		    vertices   	(list Points
+			(940, 5078)
+			(822, 5345))
+		    line_style 	0)
+		(object UsesView "" @20
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @21
+			Parent_View 	@20
+			location   	(788, 4525)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"47E3CE5F0395"
+		    client     	@2
+		    supplier   	@4
+		    vertices   	(list Points
+			(959, 4653)
+			(841, 4317))
+		    line_style 	0)
+		(object UsesView "" @22
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @23
+			Parent_View 	@22
+			location   	(612, 4564)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"47E3CE6802E4"
+		    client     	@2
+		    supplier   	@5
+		    vertices   	(list Points
+			(848, 4653)
+			(555, 4317))
+		    line_style 	0)
+		(object UsesView "" @24
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @25
+			Parent_View 	@24
+			location   	(1206, 5204)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.513873
+			height     	43
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"47E36DEB0312"
+		    client     	@2
+		    supplier   	@6
+		    vertices   	(list Points
+			(1114, 5078)
+			(1216, 5351))
+		    line_style 	0)
+		(object UsesView "" @26
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @27
+			Parent_View 	@26
+			location   	(1481, 4391)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"47EB9CBC0009"
+		    client     	@2
+		    supplier   	@7
+		    vertices   	(list Points
+			(1323, 4653)
+			(1780, 4320))
+		    line_style 	0)
+		(object UsesView "" @28
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @29
+			Parent_View 	@28
+			location   	(315, 5265)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.999141
+			height     	100
+			orientation 	1)
+		    line_color 	3947680
+		    quidu      	"48DA096D00BD"
+		    client     	@2
+		    supplier   	@8
+		    vertices   	(list Points
+			(741, 5078)
+			(373, 5345))
+		    line_style 	0)
+		(object UsesView "" @30
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @31
+			Parent_View 	@30
+			location   	(1750, 4433)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.451783
+			height     	83
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"48DA09A0002A"
+		    client     	@2
+		    supplier   	@9
+		    vertices   	(list Points
+			(1478, 4653)
+			(2160, 4329))
+		    line_style 	0)
+		(object UsesView "" @32
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @33
+			Parent_View 	@32
+			location   	(1465, 5265)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.748965
+			height     	24
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"48DA0A020270"
+		    client     	@2
+		    supplier   	@10
+		    vertices   	(list Points
+			(1245, 5078)
+			(1517, 5351))
+		    line_style 	0)
+		(object UsesView "" @34
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @35
+			Parent_View 	@34
+			location   	(1932, 5253)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	1.014382
+			height     	127
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"48DA0A0700C3"
+		    client     	@2
+		    supplier   	@11
+		    vertices   	(list Points
+			(1392, 5078)
+			(1861, 5357))
+		    line_style 	0)
+		(object UsesView "" @36
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @37
+			Parent_View 	@36
+			location   	(2022, 4549)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.521666
+			height     	85
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"4908423003E6"
+		    client     	@2
+		    supplier   	@12
+		    vertices   	(list Points
+			(1945, 4653)
+			(2127, 4611))
+		    line_style 	0)
+		(object UsesView "" @38
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @39
+			Parent_View 	@38
+			location   	(1236, 4416)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"47E36DD900EE"
+		    client     	@2
+		    supplier   	@13
+		    vertices   	(list Points
+			(1200, 4653)
+			(1458, 4324))
+		    line_style 	0)
+		(object UsesView "" @40
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @41
+			Parent_View 	@40
+			location   	(2099, 4714)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"49084287039D"
+		    client     	@2
+		    supplier   	@14
+		    vertices   	(list Points
+			(2070, 4834)
+			(2137, 4831))
+		    line_style 	0)
+		(object UsesView "" @42
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @43
+			Parent_View 	@42
+			location   	(2124, 4898)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"490842BC012E"
+		    client     	@2
+		    supplier   	@15
+		    vertices   	(list Points
+			(2070, 5011)
+			(2142, 5022))
+		    line_style 	0)
+		(object UsesView "" @44
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @45
+			Parent_View 	@44
+			location   	(1905, 5100)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"4908423C0197"
+		    client     	@2
+		    supplier   	@16
+		    vertices   	(list Points
+			(1543, 5078)
+			(2175, 5342))
+		    line_style 	0)))))

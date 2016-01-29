@@ -1,0 +1,146 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		ru.garant.extensions.properties.version
+		ru.garant.extensions.properties.wixLibRoot
+
+		ru.garant.extensions.scriptdefs.removeFile
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.buildWixTarget"
+	language = "javascript"
+>
+	<attribute name = "wix.target.codepage"/>
+	<attribute name = "wix.target.language"/>
+	<attribute name = "wix.target.project.name"/>
+	<attribute name = "wix.target.root.dir"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_wixTargetCodepage = (
+				attributes.get ("wix.target.codepage")
+			);
+
+			var a_wixTargetLanguage = (
+				attributes.get ("wix.target.language")
+			);
+
+			var a_wixTargetProjectName = (
+				attributes.get ("wix.target.project.name")
+			);
+
+			var a_wixTargetRootDir = (
+				attributes.get ("wix.target.root.dir")
+			);
+
+			if (a_wixTargetRootDir != null) {
+				var l_wixTargetRootDirFile = new File (a_wixTargetRootDir);
+				var l_wixTargetRootDirPath = l_wixTargetRootDirFile.getPath ();
+
+				a_wixTargetRootDir = l_wixTargetRootDirPath;
+			}
+
+			var l_wixTargetFile = new File (a_wixTargetRootDir, a_wixTargetProjectName);
+			var l_wixTargetPath = l_wixTargetFile.getPath ();
+
+			project.log (
+				(
+					"\t"
+					+ "Build installer `"+ l_wixTargetPath+ ".wxs`"
+				)
+				, project.MSG_INFO
+			);
+
+			{
+				var l_execTask = project.createTask ("exec"); {
+					l_execTask.setDir (new File (a_wixTargetRootDir));
+					l_execTask.setExecutable ("candle.exe");
+					l_execTask.setFailIfExecutionFails (true);
+					l_execTask.setFailonerror (true);
+					l_execTask.setLogError (true);
+
+					var l_wixInput  = l_wixTargetPath+ ".wxs";
+					var l_wixOutput = l_wixTargetPath+ ".wixobj";
+
+					var l_wixLocaleCodePage = a_wixTargetCodepage;
+					var l_wixLocaleLanguage = a_wixTargetLanguage;
+					var l_wixProductVersion = project.getProperty ("ru.garant.extensions.properties.version");
+
+					var l_execTaskArg = l_execTask.createArg (); {
+						l_execTaskArg.setLine (
+							"\""+ l_wixInput+ "\""
+							+ " -nologo"
+                    	    + " -out \""+ l_wixOutput+ "\""
+	                        + " -dLocaleCodePage=\""+ l_wixLocaleCodePage+ "\""
+	                        + " -dLocaleLanguage=\""+ l_wixLocaleLanguage+ "\""
+	                        + " -dProductVersion=\""+ l_wixProductVersion+ "\""
+						);
+					}
+
+					l_execTask.reconfigure ();
+				}
+
+				l_execTask.execute ();
+			} {
+				var l_execTask = project.createTask ("exec"); {
+					l_execTask.setDir (new File (a_wixTargetRootDir));
+					l_execTask.setExecutable ("light.exe");
+					l_execTask.setFailIfExecutionFails (true);
+					l_execTask.setFailonerror (true);
+					l_execTask.setLogError (true);
+
+					var l_wixLibRoot = project.getProperty ("ru.garant.extensions.properties.wixLibRoot");
+
+					var l_wixLibrary = l_wixLibRoot+ "/wixui.wixlib";
+
+					var l_wixLibraryLocale = l_wixLibRoot+ "/wixui_"+ a_wixTargetLanguage+ ".wxl";
+					var l_wixProjectLocale = l_wixTargetPath+ "_"+ a_wixTargetLanguage+ ".wxl";
+
+					var l_wixInput  = l_wixTargetPath+ ".wixobj";
+					var l_wixOutput = l_wixTargetPath+ "_"+ a_wixTargetLanguage+ ".msi";
+
+					var l_execTaskArg = l_execTask.createArg (); {
+						l_execTaskArg.setLine (
+							"\""+ l_wixInput+ "\""
+							+ " -nologo"
+                    	    + " -out \""+ l_wixOutput+ "\""
+							+ " \""+ l_wixLibrary+ "\""
+							+ " -loc \""+ l_wixLibraryLocale+ "\""
+							+ " -loc \""+ l_wixProjectLocale+ "\""
+						);
+					}
+
+					l_execTask.reconfigure ();
+				}
+
+				l_execTask.execute ();
+			} {
+				var l_removeFileTask = project.createTask ("ru.garant.extensions.scriptdefs.removeFile"); {
+					var l_runtimeConfigurableWrapper = l_removeFileTask.getRuntimeConfigurableWrapper (); {
+						var l_fileName = l_wixTargetPath+ ".wixobj";
+
+						l_runtimeConfigurableWrapper.setAttribute ("file.name", l_fileName);
+					}
+
+					l_removeFileTask.reconfigure ();
+				}
+
+				l_removeFileTask.execute ();
+			}
+		}
+	]]>
+</scriptdef>

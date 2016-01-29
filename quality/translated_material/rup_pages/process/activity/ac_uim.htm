@@ -1,0 +1,623 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Activity: Model the User Interface</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<a href="_ac_arcan.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+<h2 class="banner"><a name="Top"></a>Активность: Смоделировать пользовательский интерфейс</h2>
+<h2 class="banner"><a name="Top"></a>Activity: Model the User-Interface</h2>
+<div align="center"><center>
+
+<table border="1" cellspacing="0" cellpadding="2" width="85%">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель<br>Purpose</font></strong></small>
+    <ul>
+      <li>Создать модель пользовательского интерфейса, которая обладает необходимыми удобством и практичностью.</li>
+      <li>To build a model of the user interface that supports the reasoning
+        about, and the enhancement of, its usability.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Шаги<br>Steps</font></strong></small>
+    <p>Для каждого прецедента, основываясь на перспективе практичности в текущей итерации, проведите шаги:
+	<p>For each use case prioritized to be considered from a usability perspective in the current iteration, take the following steps:
+    <ul>
+      <li><a href="#Describe the Characteristics of Related Actors">Описать характеристики
+        связанных актеров</a></li>
+      <li><a href="#Create a Use-Case Storyboard">Создать раскадровку прецедента</a></li>
+      <li><a href="#Describe the Flow of Events - Storyboard">Описать поток событий - Раскадровку</a></li>
+      <li><a href="#Capture Usability Requirements on the Use-Case Storyboard">Установить требования практичности на раскадровке прецедента</a></li>
+      <li><a href="#Find Boundary Classes Needed by the Use-Case Storyboard">Выделить граничные классы, участвующие в раскадровке прецедента</a></li>
+      <li><a href="#Describe Interactions Between Boundary Objects and Actors">Описать взаимодействия между граничными классами и актерами</a></li>
+      <li><a href="#Complement the Diagrams of the Use-Case Storyboard">Дополнить диаграммы раскадровки прецедента</a></li>
+      <li><a href="#Refer to the User-Interface Prototype from the Use-Case Storyboard">Сослаться от раскадровки прецедента к прототипу пользовательского интерфейса</a></li>
+      <p>
+      <li><a href="#Describe the Characteristics of Related Actors">Describe the
+        Characteristics of Related Actors</a></li>
+      <li><a href="#Create a Use-Case Storyboard">Create a Use-Case Storyboard</a></li>
+      <li><a href="#Describe the Flow of Events - Storyboard">Describe the Flow
+        of Events - Storyboard</a></li>
+      <li><a href="#Capture Usability Requirements on the Use-Case Storyboard">Capture
+        Usability Requirements on the Use-Case Storyboard</a></li>
+      <li><a href="#Find Boundary Classes Needed by the Use-Case Storyboard">Find
+        Boundary Classes Needed by the Use-Case Storyboard</a></li>
+      <li><a href="#Describe Interactions Between Boundary Objects and Actors">Describe
+        Interactions Between Boundary Objects and Actors</a></li>
+      <li><a href="#Complement the Diagrams of the Use-Case Storyboard">Complement
+        the Diagrams of the Use-Case Storyboard</a></li>
+      <li><a href="#Refer to the User-Interface Prototype from the Use-Case Storyboard">Refer
+        to the User-Interface Prototype from the Use-Case Storyboard</a></li>
+    </ul>
+    <p>Для выявленных граничных классов проведите следующие шаги:
+    <p>For the identified boundary classes, take the following steps:
+    <ul>
+      <li><a href="#Describe Responsibilities of Boundary Classes">Описать ответственности граничных классов</a></li>
+      <li><a href="#Describe Attributes of Boundary Classes">Описать атрибуты граничных классов</a></li>
+      <li><a href="#Describe Relationships between Boundary Classes">Описать связи между граничными классами</a></li>
+      <li><a href="#Describe Usability Requirements on Boundary Classes">Описать требования практичности на граничных классах</a></li>
+      <li><a href="#Present the Boundary Classes in Global Class Diagrams">На глобальных диаграммах классов показать граничные классы</a></li>
+      <li><a href="#Evaluate Your Results">Оценить результаты</a></li>
+      <p>
+      <li><a href="#Describe Responsibilities of Boundary Classes">Describe Responsibilities of Boundary Classes</a></li>
+      <li><a href="#Describe Attributes of Boundary Classes">Describe Attributes
+        of Boundary Classes</a></li>
+      <li><a href="#Describe Relationships between Boundary Classes">Describe
+        Relationships between Boundary Classes</a></li>
+      <li><a href="#Describe Usability Requirements on Boundary Classes">Describe
+        Usability Requirements on Boundary Classes</a></li>
+      <li><a href="#Present the Boundary Classes in Global Class Diagrams">Present
+        the Boundary Classes in Global Class Diagrams</a></li>
+      <li><a href="#Evaluate Your Results">Evaluate Your Results</a></li>
+    </ul>
+    <p>Примечание: эти шаги представлены в логичном порядке, но вы можете его изменить или проводить несколько одновременно.
+    Также, некоторые шаги могут быть пропущены, в зависимости от сложности конкретного пользовательского интерфейса.
+    <p>Note: these steps are presented in a logical order, but you may have to
+    alternate between them, or perform some of them in parallel. Also, some
+    steps are optional depending on the complexity of the specific user
+    interface under consideration.</td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Входящие артефакты<br>Input
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><a href="../artifact/ar_uc.htm">Прецеденты</a></li>
+      <li><a href="../artifact/ar_actor.htm">Актеры</a></li>
+      <li><a href="../artifact/ar_sspec.htm">Дополнительные спецификации</a></li>
+      <li><a href="../artifact/ar_vsion.htm">Видение</a></li>
+      <li><a href="../artifact/ar_stnds.htm">Запросы Участников</a></li>
+      <li><a href="../artifact/ar_uigls.htm">Инструкция пользовательского интерфейса</a></li>
+      <p>
+      <li><a href="../artifact/ar_uc.htm">Use Cases</a></li>
+      <li><a href="../artifact/ar_actor.htm">Actors</a></li>
+      <li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+      <li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+      <li><a href="../artifact/ar_stnds.htm">Stakeholder Requests</a></li>
+      <li><a href="../artifact/ar_uigls.htm">User-Interface Guidelines</a></li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты<p>Resulting
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><a href="../artifact/ar_ucstb.htm">Раскадровки прецедентов</a>, описанные
+        с диаграммами граничных классов, диаграммами взаимодействий, и потоком событий - раскадровкой</li>
+      <li><a href="../artifact/ar_actor.htm">Актеры</a>, охарактеризованные с точки зрения практичности.</li>
+      <li><a href="../artifact/ar_bcls.htm">Граничные классы</a>, представляющие окна в пользовательском интерфейсе</li>
+      <p>
+      <li><a href="../artifact/ar_ucstb.htm">Use-Storyboards</a>, described
+        with boundary-class diagrams, interaction diagrams, and flow of events -
+        storyboard</li>
+      <li><a href="../artifact/ar_actor.htm">Actors</a>, characterized from a
+        usability perspective</li>
+      <li><a href="../artifact/ar_bcls.htm">Boundary Classes</a>, representing
+        windows in the user interface</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль<br>Role:</small>
+    </font></strong><a href="../workers/wk_uides.htm">Проектировщик пользовательского интерфейса<br>User-interface designer</a></td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Дополнительная информация:<br>More
+    information:</small></font></strong>
+	<p>См. [<a href="../referenc.htm#CON99">CON99</a>], где очень полно описывается проектирование, с фокусом на практичности.
+	<br>See [<a href="../referenc.htm#CON99">CON99</a>] for a very complete coverage of creating designs which focus specifically on
+    usability.</td>
+  </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p><table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+<tr>
+<td valign="top" colspan="2" bordercolor="#808080"><small><font face="Arial"><strong>Детали потока работ:</strong></font></small><ul>
+<li><b><a href="../workflow/ovu_req.htm">Поток работ: Требования</a></b></li><ul>
+<li><a href="../workflow/requirem/wfs_refs.htm">Уточнить задание системы</a></li>
+</ul>
+</ul>
+<small><font face="Arial"><strong>Workflow Details:</strong></font></small><ul>
+<li><b><a href="../workflow/ovu_req.htm">Core Workflow: Requirements</a></b></li><ul>
+<li><a href="../workflow/requirem/wfs_refs.htm">Refine the System Definition</a></li>
+</ul>
+</ul>
+</td>
+</tr>
+</table>
+<!-- Linked to Workflow End -->
+</center></div>
+
+<h3><br><a name="Describe the Characteristics of Related Actors"></a>Описать характеристики связанных актеров<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Describe the Characteristics of Related Actors"></a>Describe the Characteristics of Related Actors <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Описание характеристик актеров-людей связано с прецедентом.
+Сосредоточьтесь на описании первичного актера прецедента, так как он вовлечен в большую часть взаимодействий.
+Эта информация важна для шагов, описанных ниже.
+<p>Describe the characteristics of the (human) actors related to the use case.
+Focus on describing the primary actor of the use case since the major part of
+the interaction involves this actor. This information is important for the
+subsequent steps below.</p>
+<br>
+<p>Обратитесь к <a href="../modguide/md_actor.htm#Actor Characteristics">Руководство: Актер, Характеристики</a> для деталей.</p>
+<p>Refer to <a href="../modguide/md_actor.htm#Actor Characteristics">Guidelines: Actor, Characteristics</a> for details.</p>
+
+<h3><a name="Create a Use-Case Storyboard"></a>Создать раскадровку прецедента <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Create a Use-Case Storyboard"></a>Create a Use-Case Storyboard <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Начните с создания раскадровки прецедента и установите зависимость между двумя.
+dependency between the two. Раскадровка прецедента обладает различными свойствами, такими как
+текстовые поля и диаграммы, которые описывают аспекты удобства прецедента.
+<br>
+<p>Start by creating a use-case storyboard for the use case, and assign a trace
+dependency between the two. The use-case storyboard has various properties, such
+as text fields and diagrams, that describe the usability aspects of the use
+case.</p>
+<p align="center"><img src="images/stb_trac.gif" alt="stb_trac.GIF (2705 bytes)" width="279" height="83"></p>
+<p class="picturetext">Раскадровка прецедента в модели анализа может быть связана с 
+прецедентом Модели прецедентов.</p><br>
+<p>A use-case storyboard in the analysis model can be traced
+to a use case in the use-case model.</p>
+<br>
+<p>См. <a href="../modguide/md_ucstb.htm">Руководство: Раскадровка прецедента</a>
+для дополнений.</p>
+<p>Refer to <a href="../modguide/md_ucstb.htm">Guidelines: Use-Case Storyboard</a>
+for details.</p>
+
+<h3><a name="Describe the Flow of Events - Storyboard"></a>
+Описать поток событий - Раскадровку <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Describe the Flow of Events - Storyboard"></a>Describe the Flow of
+Events - Storyboard <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Пошаговое описание каждого прецедента, которое является входящим артефактов в эту активность, должно быть уточнено
+и сосредоточено на вопросах удобства; это усовершенствование фиксируется в свойстве Поток Событий - Раскадровка раскадровки прецедента.</p>
+<p>The step-by-step description of each use case that is input to this activity
+need to be refined and focused on usability issues; this refinement is captured
+in the Flow of Events - Storyboard property of the use-case storyboard.</p>
+<br>
+<p>Начиная с создания начального очертания Потока Событий - Раскадровки, используя краткие
+описания действий, получите понимание прецедента.</p>
+<p>Start by creating an initial outline of the Flow of Events - Storyboard using
+brief action statements, to acquire an understanding of the use case.</p>
+<br>
+<p>Затем дополните Потока Событий - Раскадровку с желаемым управлением, средними значениями и объемами объектов, и средними
+действиями,используемыми в различных частям потока событий.
+<p>Then complement the Flow of Events - Storyboard with desired guidance,
+average values and volumes of objects, and average action usages for the
+different parts of the flow of events.</p>
+<br>
+<p>См. <a href="../modguide/md_ucstb.htm#Describing the Flow of Events - Storyboard">Руководство:
+Раскадровка прецедента, Описание потока событий</a> для дополнительной информации.</p>
+<p>Refer to <a href="../modguide/md_ucstb.htm#Describing the Flow of Events - Storyboard">Guidelines:
+Use-Case Storyboard, Describing the flow of Events</a> for details.</p>
+
+<h3><a name="Capture Usability Requirements on the Use-Case Storyboard"></a>Установить требования практичности на раскадровке прецедента
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Capture Usability Requirements on the Use-Case Storyboard"></a>Capture
+Usability Requirements on the Use-Case Storyboard <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Установите требования практичности на раскадровке прецедента, определив каким должно быть удобство интерфейса.</p>
+<p>Capture the usability requirements on the use-case storyboard, defining how
+high the usability of the user interface must be.</p>
+<br>
+<p>См. <a href="../modguide/md_ucstb.htm#Capturing Usability Requirements on the Use-Case Storyboard">Руководство: Раскадровка прецедента, Фиксация требований практичности</a> для доп. информации.</p>
+<p>Refer to <a href="../modguide/md_ucstb.htm#Capturing Usability Requirements on the Use-Case Storyboard">Guidelines: Use-Case
+Storyboard, Capturing Usability Requirements</a> for details.</p>
+
+<h3><a name="Find Boundary Classes Needed by the Use-Case Storyboard"></a>Выделить граничные классы, участвующие в раскадровке прецедента <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Find Boundary Classes Needed by the Use-Case Storyboard"></a>Find Boundary Classes Needed by the Use-Case Storyboard <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>В этом шаге мы определяем центральные и примитивные граничные классы, обеспечивающие пользовательский интерфейс прецедента.</p>
+<p>In this step we identify the central and primitive boundary classes needed to
+provide the user interface of the use case.</p>
+
+<h4>Определить центральные граничные классы</h4>
+<h4>Identify Central Boundary Classes</h4>
+<p>Основное окно, в котором работает пользователь, представляет один ценральный граничный класс. Если уже такой класс существует,
+продумайте возможность его вторичного использования. Это связано с тем, что всегда следует стремиться минимизировать количество
+первичных окон, в которых работает пользователь. Однако следует достигнуть компромиса между перегруженностью окон и их количеством.</p>
+<p>Identify one central boundary class representing the primary window with
+which the actor is interacting. If such a class already exists, consider reusing
+it. This is because you should strive to minimize the number of primary windows
+a particular actor needs to interact with. However, you will, of course, have to
+compromise; primary windows should not be too complex or cluttered.</p>
+<br>
+<p>Центральные граничные классы часто включают в себя примитивные граничные классы
+(см. ниже).</p>
+<p>These central boundary classes are often aggregates of more primitive
+boundary classes (see below).</p>
+
+<h5>Пример центрального граничного класса:</h5>
+<h5>Examples of Central Boundary Classes:</h5>
+<p class="example">В почтовом клиенте центральным граничным классом является Mail Box. Для дополнительной информации обращайтесь: <a href="../modguide/md_bcls.htm">Руководство:
+Граничный класс</a>.</p>
+<p class="example">The central boundary class identified in a document editor is
+Document. For details, refer to <a href="../modguide/md_bcls.htm">Guidelines:
+Boundary Class</a>.</p>
+
+<h4>Определить примитивные граничные классы</h4>
+<h4>Identify Primitive Boundary Classes</h4>
+<p>Детально исследуйте поток событий - раскадровку, и все описания прецедентов. 
+Ищите информацию, интересующую пользователя и информацию, которую нужно показывать или которой нужно управлять
+посредством пользовательского интерфейса.</p>
+<p>Study the flow of events - storyboard in detail, and any other use-case
+descriptions at hand. Look for information interesting to the user, and
+information that needs to be visible and managed in the user interface.</p>
+<br>
+<p>Рассмотрите все объекты бизнес-сущности или термины (особенно существительные), содержащиеся в Глоссарии.
+Также рассмотрите все существующие сущности. Это путь к пониманию того, какая информация
+используется системой, а поэтому интересна и пользователю.</p>
+<p>Consider any business entity objects, or terms (especially nouns) in a
+glossary. Also consider entity objects if they exist. These are ways of gaining
+an understanding of what information is manipulated by the system and is thereby
+also interesting to the user.</p>
+<br>
+<p>Затем создайте один граничный класс для каждого логического объекта, которым через пользовательский интерфейс
+управляет актер. Когда это будете делать, всегда рассматривайте возможность вторичного использования уже выделенных граничных
+классов. Результатом этого шага будет являться подготовка к построению объектно-ориентированного интерфейса.</p>
+<p>Then, create one boundary class for each logical object manipulated by the
+actor via the user interface. When doing this, always consider reusing already
+existing boundary classes. The result of this step will prepare for the building
+of an object-oriented user interface.</p>
+
+<h5>Примеры примитивных граничных классов:</h5>
+<h5>Examples of Primitive Boundary Classes:</h5>
+<p class="example">Среди примитивных граничных классов в почтовом клиенте есть Почтовое вложение (Attachment).
+Для дополнительной информации см. <a href="../modguide/md_bcls.htm">Руководство: Граничные классы</a>.</p>
+<p class="example">The primitive boundary classes identified in a mail
+application include Mail Message Attachment. For details, refer to <a href="../modguide/md_bcls.htm">Guidelines:
+Boundary Class</a>.</p>
+<br>
+<p class="example">В документе примитивными граничными классами будут  ссылка и параграф
+Для дополнительной информации см. <a href="../modguide/md_bcls.htm">Руководство: Граничные классы</a>.</p>
+<p class="example">The primitive boundary classes identified in a document
+editor include Paragraph and Footnote. For details, refer to <a href="../modguide/md_bcls.htm">Guidelines:
+Boundary Class</a>.</p>
+
+<h4>Принципы определения граничных классов</h4>
+<h4>Outline the Identified Boundary Classes</h4>
+<p>Опишите явные вещи о граничных классах. Здесь зачастую возможно выделить большинство их атрибутов, агрегации,
+ассоциации и часть ответственностей. Помните, что центральные граничные классы часто являются совокупностями
+более примитивных граничных классов.</p>
+<p>Describe obvious things about the boundary classes. At this stage, it is
+often possible to outline most of their attributes, aggregations, associations,
+and also some of their responsibilities. Recall that central boundary classes
+are often aggregations of more primitive boundary classes.</p>
+<br>
+<p>Каждый класс будет уточнен и детально описан в следующих шагах. В них указаны и примеры.</p>
+<p>Each class will be refined and described in detail in the steps below; please
+refer to the steps below for examples.</p>
+
+<h4>Отношения граничных классов и раскадровки прецедента</h4>
+<h4>Relate the Boundary Classes to the Use-Case Storyboard</h4>
+<p>Граничные классы, участвующиев раскадровке прецедента должны иметь связи с ней. Это производится путем фиксации классов
+на диаграмме классов, включая их взаимосвязи, прикрепленные к раскадровкам прецедентов.</p>
+<p>The boundary classes participating in a use-case storyboard need to be
+related to it. This is done by capturing the classes in class diagrams,
+including their relationships, attached to the use-case storyboards.</p>
+<br>
+<p>См. <a href="../modguide/md_ucstb.htm#Creating Boundary Class Diagrams">Руководство: Раскадровка прецедента, Создание диаграмм граничных классов</a></p>
+<p>Refer to <a href="../modguide/md_ucstb.htm#Creating Boundary Class Diagrams">Guidelines: Use-Case Storyboard, Creating Boundary Class Diagrams</a> for details.</p>
+
+<h3><a name="Describe Interactions Between Boundary Objects and Actors"></a>Описать взаимодействия между граничными классами и актерами
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Describe Interactions Between Boundary Objects and Actors"></a>Describe
+Interactions Between Boundary Objects and Actors <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Этот шаг может не проводиться, если последовательность взаимодействия 
+(например, последовательность появления окон и пути навигации) необходимо показать на диаграммах
+взаимодействий.</p>
+<p>This step is optional and is done if the interaction sequence (e.g., flow of
+windows and navigation paths) needs to be captured formally in an interaction
+diagram.</p>
+<br>
+<p>Пройдите через поток событий прецедента (более точно - через набор рассматриваемых прецедентов в текущей итерации),
+выявляя граничные объекты, предназначенные для реализации визуального поведения прецедента.
+Заметьте, что эти граничные объекты являются экземплярами граничных классов, найденных на 
+предыдущем шаге (Выделить граничные классы, участвующие в раскадровке прецедента).
+Проиллюстрируйте взаимодействия между граничными объектами путем создания кооперативных диаграмм.</p>
+<p>Step through the flow of events of the use case (or more precisely, the
+subset of the use case under consideration in the current iteration),
+identifying the boundary objects responsible for the visible behavior of the use
+case. Note that these boundary objects are instances of the boundary classes as
+found in the previous step (Find Boundary Classes Needed by the Use-Case
+Storyboard). Illustrate the interactions between the participating boundary
+objects by creating one or more collaboration diagrams.</p>
+<br>
+<p>Кооперативные диаграммы также должны показывать и взаимодействие между системой и ее актерами.
+Поток событий обычно начинается, когда один из актеров запрашивает что-либо у системы, вызывая прецедент.</p>
+<p>The collaboration diagram should also show interactions between the system
+and its actors. The flow of events usually begins when one of the actors
+requests something from the system, since an actor always invokes the use case.</p>
+<br>
+<p>Проиллюстрируйте взаимодействие между объектами путем создания связей между ними; кратко поясните эти связи, укажите цель
+вызова объекта, то есть что хочется достичь во взаимодействии с вызываемым объектом.
+Illustrate the interactions between objects by creating links between them;
+annotate the links with a short description of the intent of the invoking
+object, i.e. what it wants to achieve in the interaction with the invoked
+object. Эти &quot;цели&quot; будут затем введены в ответственности на каждом связанном
+граничном классе, как описано в следующем шаге (Описать ответственности граничных классов).</p>
+<p>Illustrate the interactions between objects by creating links between them;
+annotate the links with a short description of the intent of the invoking
+object, i.e. what it wants to achieve in the interaction with the invoked
+object. These &quot;intents&quot; will then be integrated into responsibilities
+on each corresponding boundary class, as described in the following step
+(Describe Responsibilities of Boundary Classes).</p>
+<br>
+<p>См.<a href="../modguide/md_ucstb.htm#Creating Boundary Object Interaction Diagrams">Руководство: Раскадровка прецедента, Создание диаграмм взаимодействия граничных объектов</a>.</p>
+<p>Refer to <a href="../modguide/md_ucstb.htm#Creating Boundary Object Interaction Diagrams">Guidelines: Use-Case
+Storyboard, Creating Boundary Object Interaction Diagrams</a> for details.</p>
+
+<h3><a name="Complement the Diagrams of the Use-Case Storyboard"></a>Дополнить диаграммы раскадровки прецедента <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Complement the Diagrams of the Use-Case Storyboard"></a>Complement
+the Diagrams of the Use-Case Storyboard <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Этот шаг может не проводиться, если диаграммы и описания (созданные выше) 
+нуждаются в дополнениях и дальнейшем освещении с
+ссылками к уже существующему прототипу пользовательского интерфейса.</p>
+<p>This step is optional and is done if the diagrams and descriptions (as
+created above) need to be complemented and further clarified with references to
+an already existing user-interface prototype (if any).</p>
+<br>
+<p>См. <a href="../modguide/md_ucstb.htm#Complementing the Diagrams of a Use-Case Storyboard">
+Инструкция: Раскадровка прецедента, дополнение диаграмм</a>.</p>
+<p>Refer to <a href="../modguide/md_ucstb.htm#Complementing the Diagrams of a Use-Case Storyboard">Guidelines: Use-Case
+Storyboard, Complementing the Diagrams</a> for details.</p>
+
+<h3><a name="Refer to the User-Interface Prototype from the Use-Case Storyboard"></a>Сослаться от раскадровки прецедента к прототипу пользовательского интерфейса <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Refer to the User-Interface Prototype from the Use-Case Storyboard"></a>Refer
+to the User-Interface Prototype from the Use-Case Storyboard <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Этот шаг может не проводиться, если диаграммы и описания (созданные выше)
+нуждаются в дополнениях и дальнейшем освещении с
+ссылками к уже существующему прототипу пользовательского интерфейса.</p>
+<p>This step is optional and is done if the diagrams and descriptions (as
+created above) need to be complemented and further clarified with references to
+an already existing user-interface prototype (if any).</p>
+<br>
+<p>См. <a href="../modguide/md_ucstb.htm#Referring to the User-Interface Prototype from the Use-Case Storyboard">
+Инструкция: Раскадровка прецедента, ссылки к прототипу пользовательского интерфейса</a>.</p>
+<p>Refer to <a href="../modguide/md_ucstb.htm#Referring to the User-Interface Prototype from the Use-Case Storyboard">Guidelines:
+Use-Case Storyboard, Referring to the User-Interface Prototype</a> for details.</p>
+
+<h3><a name="Describe Responsibilities of Boundary Classes"></a>
+Описать ответственности граничных классов <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Describe Responsibilities of Boundary Classes"></a>Describe
+Responsibilities of Boundary Classes <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Подход к этому шагу тот же самый, что был в разделе &quot;Описать ответственности&quot;
+в <a href="ac_ucana.htm">Активности: Провести анализ прецедента</a>. Разница лишь в том, что потребности извлекаются
+из раскадровок прецедентов, а не из реализаций.</p>
+<p>The approach to follow in this step is similar to the one presented in the
+section &quot;Describe Responsibilities&quot; as described in the <a href="ac_ucana.htm">Activity:
+Use-Case Analysis</a>. The only difference is that the demands are extracted
+from use-case storyboards instead of use-case realizations.</p>
+<br>
+<p>Заметьте, что ответственность - это текстовое описание связанного набора поведений, обеспечиваемых классом.
+Ответственности граничных классов могут рассматриваться как высокоуровневые описания операций,
+обеспечиваемых пользовательским интерфейсом.</p>
+<p>Note that a responsibility is a textual description of a cohesive subset of
+the behavior provided by a class. Given this, the responsibilities of boundary
+classes can be considered as high-level descriptions of the operations provided
+by the user interface and its windows.</p>
+<br>
+<p>Примеры находятся в разделе &quot;Примеры ответственностей граничных классов&quot; в
+<a href="../modguide/md_bcls.htm">Инструкции: Граничный Класс</a>.</p>
+<p>For examples, refer to section &quot;Examples of Boundary Class
+Responsibilities&quot; in <a href="../modguide/md_bcls.htm">Guideline: Boundary
+Class</a>.</p>
+
+<h3><a name="Describe Attributes of Boundary Classes"></a>Описать атрибуты граничных классов <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Describe Attributes of Boundary Classes"></a>Describe Attributes of
+Boundary Classes <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Подход к этому шагу тот же самый, что был в разделе
+&quot;Описать атрибуты и ассоциации&quot; в <a href="ac_ucana.htm">Активности: Провести анализ прецедента</a>.</p>
+<p>The approach to follow in this step is similar to the one presented in the
+section &quot;Describe Attributes and Associations&quot; as described in the <a href="ac_ucana.htm">Activity:
+Use-Case Analysis</a>.</p>
+<br>
+<p>Заметьте, что атрибуты и их типы должны быть концептуальными и служить
+высокоуровневыми описаниями свойств объектов (таких как окна) в пользовательском интерфейсе. 
+Также эти атрибуты могут стать классами сами по себе, когда будет проектироваться и реализовываться пользовательский
+интерфейс.</p>
+<p>Note that the attributes and their types should be conceptual, and serve as
+high-level descriptions of the properties of objects (such as windows) in the
+user interface. Also, these attributes may become classes themselves when the
+user interfaces is designed and implemented.</p>
+<br>
+<p>Примеры см. в разделе &quot;Примеры атрибутов граничных классов&quot; в 
+<a href="../modguide/md_bcls.htm">Инструкции: Граничный Класс</a>.</p>
+<p>For examples, refer to section &quot;Examples of Boundary Class
+Attributes&quot; in <a href="../modguide/md_bcls.htm">Guidelines: Boundary Class</a>.</p>
+
+<h3><a name="Describe Relationships between Boundary Classes"></a>Описать связи между граничными классами <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Describe Relationships between Boundary Classes"></a>Describe
+Relationships between Boundary Classes <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>На этом шаге задаются агрегации, ассоциации и обобщения между граничными классами.
+<p>In this step, we define aggregations, associations, and generalizations
+between boundary classes.</p>
+<h4>Агрегации и ассоциации</h4>
+<h4>Aggregations and Associations</h4>
+<p>Подход к этому шагу тот же, что и в разделе &quot;Описать Атрибуты и Ассоциации&quot; <a href="ac_ucana.htm">Активности: Провести анализ прецедента</a>.</p>
+<p>The approach to follow in this step is similar to the one presented in the
+section &quot;Describe Attributes and Associations&quot; as described in the <a href="ac_ucana.htm">Activity:
+Use-Case Analysis</a>.</p>
+<h4>Обобщения</h4>
+<h4>Generalizations</h4>
+<p>Примеры находятся в разделе &quot;Инструкции: Отношения Граничных Классов&quot; в 
+<a href="../modguide/md_bcls.htm">Инструкции: Граничный Класс</a>.</p>
+<p>For examples, refer to section &quot;Examples of Boundary Class
+Relationships&quot; in <a href="../modguide/md_bcls.htm">Guidelines: Boundary
+Class</a>.</p>
+<h3><a name="Describe Usability Requirements on Boundary Classes"></a>Описать требования практичности на граничных классах <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Describe Usability Requirements on Boundary Classes"></a>Describe
+Usability Requirements on Boundary Classes <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Большинство требований удобства/практичности на раскадровке прецедента должны распределяться
+на существующие граничные классы и уточняться в классах, если необходимо.</p>
+<p>Most of the usability requirements on the use-case storyboard should be
+distributed onto the participating boundary classes, and be refined on the
+classes, if necessary.</p>
+<br>
+<p>Примеры в разделе &quot;Примеры специальных требований на граничных классах&quot; в
+<a href="../modguide/md_bcls.htm">Инструкции: Граничный класс</a>.</p>
+<p>For examples, refer to section &quot;Examples of Special Requirements on
+Boundary Classes&quot; in <a href="../modguide/md_bcls.htm">Guidelines: Boundary
+Class</a>.</p>
+
+<h3><a name="Present the Boundary Classes in Global Class Diagrams"></a>На глобальных диаграммах классов показать граничные классы
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Present the Boundary Classes in Global Class Diagrams"></a>Present
+the Boundary Classes in Global Class Diagrams <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Заметьте, что диаграммы классов, созданные на шаге 
+<a href="#Find Boundary Classes Needed by the Use-Case Storyboard">Выделить граничные классы, участвующие в раскадровке прецедента</a> являются локальными
+к раскадровкам прецедентов. Однако, в некоторых случаях нужно представить граничные классы в
+&quot;глобальных&quot; диаграммах классов, которые не локальны ко всем раскадровкам прецедентов; 
+например, когда используется как входные данные в активность прототипирования пользовательского интерфейса.
+Например, такие диаграммы классов могут включать:
+<p>Note that the class diagrams as created in the step <a href="#Find Boundary Classes Needed by the Use-Case Storyboard">Find
+Boundary Classes Needed by the Use-Case Storyboard</a> above are local to the
+use-case storyboard. However, in some cases it is of value to present the
+boundary classes in &quot;global&quot; class diagrams that are not local to any
+use-case storyboard; for example, when used as input to the user-interface
+prototyping activity. For example, such class diagrams can include the
+following:
+<ul>
+  <li>Самые важные граничные классы и их взаимосвязи. Диаграммы этого типа могут служить итогом модели и сильно помогать
+    например, при ее обзоре или установлении приоритетов текущей итерации.</li>
+  <li>Граничные классы, вместе задающие пользовательских интерфейс.</li>
+  <li>Важные, или глубокие, иерархии  агрегаций граничных классов.</li>
+  <li>Ассоциации между граничными классами в различных иерархиях агрегации.</li>
+  <li>Иерархии наследования граничных классов.</li>
+  <p>
+  <li>The most important boundary classes and their relationships. Diagrams of
+    this type can function as a summary of the model, and can be of great help
+    in, for example, a review of the model, or in a prioritization of which
+    parts of the model will be focused upon in the current iteration.</li>
+  <li>Boundary classes that together constitute a specific user interface.</li>
+  <li>Important, or deep, aggregation hierarchies of boundary classes.</li>
+  <li>Associations between boundary classes in different aggregation
+    hierarchies.</li>
+  <li>Generalization hierarchies of boundary classes.</li>
+</ul>
+
+<h3><a name="Evaluate Your Results"></a>Оценить результаты <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h3><a name="Evaluate Your Results"></a>Evaluate Your Results <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Раскадровки прецедентов должны оцениваться, чтобы проверить, что работа идет в нужном направлении.
+Контрольные вопросы по граничным классам см. в разделе &quot;Критерии хорошего качества граничных классов и
+их ответственностей&quot; в <a href="../modguide/md_bcls.htm">Инструкции: Граничный Класс</a>.</p>
+<p>The use-case storyboards should be evaluated to verify that the work is
+headed in the right direction. For check points on boundary classes, refer to section &quot;Goodness
+Criteria on Boundary Classes and their Relationships&quot; in <a href="../modguide/md_bcls.htm">Guidelines:
+Boundary Class</a>.</p>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+<p><img src="../../images/rup1.gif" border="0" alt="Display Rational Unified Process using frames" name="Home" border="0" width="20" height="110"></a></p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; <img border="0" src="../../_borders/rupversion.gif" width="63" height="7"></small></small></font>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

@@ -1,0 +1,780 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Проблемы взаимного использованиЯ"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования|486B6BFF01F2
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"486B6BFF01F2"
+    documentation 	"Группа примеров в которых разные хранимые объекты используют друг друга что вызывает некоторые сложности с т.з. реализации"
+    stereotype 	"Problems"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Нарушение валидности ссылки"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Нарушение валидности ссылки|4858EA3D00EC
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4858EA3D00EC"
+	    documentation 	
+|БЛ (бизнесс логика) может требовать что бы если Контейнер имеет ссылку на агрегат, то эта ссылка всегда должна быть валидной и не может быть разрушена без ведома Контейнера. Если фреймворок не гарантирует валидность такой связи, то может нарушаться логическая целостность данных.
+|
+	    
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Конфликт владения Агрегатом"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Конфликт владения Агрегатом|4858EDD103CA
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4858EDD103CA"
+	    documentation 	
+|Если фреймворк позволит нескольким контейнерам владеть ЖЦ одного Агрегата, то возможна ситуация конфликта владения - когда один Контейнер *обязан* (согласно БЛ) удалить из БД свой агрегат, но при этом его держит другой Контейнер.
+|
+	    
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Провисшие объекты"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Провисшие объекты|485A580901B4
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"485A580901B4"
+	    documentation 	"Агригируемые объекты могут жить самостоятельно, а могу зависить от своих контенйеров (одного или нескольких) в втором случае если фремворк не обеспечивает их автоматичексое удаление (из БД), то они могут физически подвисать в БД, и со временем занять все ее свободное место."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Логически потерянные агрегаты"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Логически потерянные агрегаты|485A5DD102B7
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"485A5DD102B7"
+	    documentation 	"Если объект Контейнер и объект Агрегат в рамках конкретной БЛ не могут существовать не зависимо, то необходимо при удалении (из БД) Контейнера *гарантированно* удалять и Агрегат, если фреймворк не обеспечивает такой гарантии, то могут появиться логически провисшие (а со временем может и физически) Агрегаты."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Созданный объект может оказаться невалидным"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Созданный объект может оказаться невалидным|485A62F103B7
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"485A62F103B7"
+	    documentation 	"Логика хранимого объекта может быть такова что некоторые его связи должны быть установленны сразу, при его создании, иначе он может оказатья не валидным."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Излишний контроль связей"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Излишний контроль связей|485B5C9401A9
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"485B5C9401A9"
+	    documentation 	"При реализации группы возможностей гарантирующих устойчивость связи, нужно не забыть о том что нам по прежнему необходима самая обычная связь - ни чего не гарантирующая и ни кому ни чего не предписывающая (запрещающая). Т.е. связь которая может стать не валидной в любой момент."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Дублирование однотипных связей"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Дублирование однотипных связей|485BB7EA0205
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"485BB7EA0205"
+	    documentation 	"Без выделенного способа определить множественность связи, возможна ситуация дулирования однотипных связей. Более того когда заоанее не известно максимальнок кол-во связей одного типа, то в терминах одиночных связей это вобще не возможно выразить."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Разрушение полиморфности ссылок"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Разрушение полиморфности ссылок|47A82E860163
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"47A82E860163"
+	    documentation 	"Ссылка на другуо хранимый объект может содержать как экземпляр того типа который указан, так и (согласно правилу полиморфности) любого типа производного от него. Однако без поддержки со стороный фремворка возможно ситуация когда при повторной загрузке сохраненного объекта, его агрегат по ссылки усечется до базового типа, что не сомненно приведет к проблемам."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Не персистентность ссылок"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Не персистентность ссылок|47A82BEF028B
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"47A82BEF028B"
+	    documentation 	"При удалении *из памяти* персистентного объекта все его связи с другими персистентными объектами разрушаются, соответственно при его восстановлении топология связей будет другой."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Неотличимость удаленной ссылки от неустановленной"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Неотличимость удаленной ссылки от неустановленной|486CD2410309
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"486CD2410309"
+	    documentation 	"Есть две ситуации которые без должной поддержки со стороны фреймворка не возможно отличить, что однако может требоваться с т.з. БЛ. Первая, это удаление объекта агрегата не из контейнера - в этом случае очевидно ссылка с т.з. ЯП обнулиться (не возвращать же мусор при обращение к которому будет AV). Вторая это просто не установленная связь, т.е. связь у которой нет и не было агрегата (цели связи)."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Потеря ссылок на не персистентные объекты"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Проблемы взаимного использования/Потеря ссылок на не персистентные объекты|488CBDC80330
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"488CBDC80330"
+	    documentation 	"Хранимый объект может ссылаться на другой *нехранимый* объект, но обладающий персистентной идентичностью, такия связи не должны теряться"
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"486B6C6200D6"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	222
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Нарушение валидности ссылки" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(666, 924)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(344, 903)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	644
+			justify    	0
+			label      	"Нарушение валидности ссылки")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(344, 853)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	644
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4858EA3D00EC"
+		    width      	662
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Конфликт владения Агрегатом" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2532, 930)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(2209, 909)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	646
+			justify    	0
+			label      	"Конфликт владения Агрегатом")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(2209, 859)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	646
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4858EDD103CA"
+		    width      	664
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Провисшие объекты" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1245, 930)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1028, 909)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	434
+			justify    	0
+			label      	"Провисшие объекты")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1028, 859)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	434
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"485A580901B4"
+		    width      	452
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Логически потерянные агрегаты" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1839, 930)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1502, 909)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	674
+			justify    	0
+			label      	"Логически потерянные агрегаты")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1502, 859)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	674
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"485A5DD102B7"
+		    width      	692
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Созданный объект может оказаться невалидным" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(909, 1230)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(426, 1209)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	966
+			justify    	0
+			label      	"Созданный объект может оказаться невалидным")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(426, 1159)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	966
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"485A62F103B7"
+		    width      	984
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Излишний контроль связей" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2475, 1230)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(2196, 1209)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	558
+			justify    	0
+			label      	"Излишний контроль связей")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(2196, 1159)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	558
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"485B5C9401A9"
+		    width      	576
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Дублирование однотипных связей" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1794, 1233)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1435, 1212)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	718
+			justify    	0
+			label      	"Дублирование однотипных связей")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1435, 1162)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	718
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"485BB7EA0205"
+		    width      	736
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Разрушение полиморфности ссылок" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1473, 366)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1102, 345)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	742
+			justify    	0
+			label      	"Разрушение полиморфности ссылок")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1102, 295)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	742
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"47A82E860163"
+		    width      	760
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Не персистентность ссылок" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1449, 174)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(1154, 153)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	590
+			justify    	0
+			label      	"Не персистентность ссылок")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(1154, 103)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	590
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"47A82BEF028B"
+		    width      	608
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Неотличимость удаленной ссылки от неустановленной" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1557, 1485)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(989, 1464)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1136
+			justify    	0
+			label      	"Неотличимость удаленной ссылки от неустановленной")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(989, 1414)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1136
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"486CD2410309"
+		    width      	1154
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы взаимного использованиЯ::Потеря ссылок на не персистентные объекты" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1482, 543)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1012, 522)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	940
+			justify    	0
+			label      	"Потеря ссылок на не персистентные объекты")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(1012, 472)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	940
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"488CBDC80330"
+		    width      	958
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)))))

@@ -1,0 +1,1272 @@
+<<Library>> "DUnit Script Support"
+ %UID '5130499D0080'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'dsDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifdef" 'nsTest'
+  %upv "ifndef" 'NoScripts'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ScriptKeywords>> "DUnit Keywords"
+   %UID '51304A0E0192'
+   %DEPENDS
+    U$ '4767743E00E5' /* TypInfo */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4DAEEA14018A' /* "Scripting Axiomatics" */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4F3E3F5F0160' /* PrimitiveWords */
+    U$ '51309A4A02FB' /* "Tests Res Common" */
+    U$ '5527F81C020E' /* TypesRegistration */
+    U$ '55B7A3160128' /* ScriptedAxiomatics */
+    U$ '55BA28CE0290' /* tfwScriptingTypes */
+    U$ '55CCADD2013D' /* ClassLikeMapping */
+   ; // %DEPENDS
+   %META
+    %upv "ifdef" 'nsTest'
+    %upv "ifndef" 'NoScripts,NoVCL'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ScriptKeywordsPack>> kwKeyWordsPack
+      %UID '51304A1F02AD'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" true
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B2A0D4A006F' /* DUnit */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DA30F0F02C1' /* TGUITestRunner */
+      ; // %INHERITS
+      %LINKS
+        <<uses>> "55C9F20E0220"
+         %UID '55C9F20E0220'
+         %TARGET U$ '55C9F202036D' /* ITestWordsPack */
+        ; // 55C9F20E0220
+        <<uses>> "55C9F3970123"
+         %UID '55C9F3970123'
+         %TARGET U$ '55C9F3800372' /* TTreeNodeForTestsWordsPack */
+        ; // 55C9F3970123
+        <<uses>> "55C9F3E702CD"
+         %UID '55C9F3E702CD'
+         %TARGET U$ '51349B6001D3' /* TestForm4Scripts */
+        ; // 55C9F3E702CD
+        <<uses>> "55C9F5070034"
+         %UID '55C9F5070034'
+         %TARGET U$ '4D189B760354' /* DeleteEtalons */
+        ; // 55C9F5070034
+        SUMMONED <<uses>> "8685DF90C117"
+         %UID '8685DF90C117'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // 8685DF90C117
+        SUMMONED <<injects>> "8EE038A72456"
+         %UID '8EE038A72456'
+         %TARGET U$ '4DA30F0F02C1' /* TGUITestRunner */
+        ; // 8EE038A72456
+        SUMMONED <<uses>> "41AB55D9E289"
+         %UID '41AB55D9E289'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // 41AB55D9E289
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<creator>> push_DUnitForm
+         %UID '55C9F42D0261'
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+        ; // push_DUnitForm
+        PRIVATE FINAL <<keyword>> NodeToTest
+         %UID '55C9F44A003C'
+         %TARGET U$ '4B2F420202F4' /* ITest */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '4B2A0D4A006F' /* DUnit */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '55C9F470017F'
+            %TARGET U$ '512F3FCB02F3' /* TTreeNode */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // NodeToTest
+        FINAL <<globalkeyword>> DeleteEtalons
+         %UID '55C9F4AC003F'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aName
+            %UID '55C9F4FB0043'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aName
+           <<in>> aSubFolder
+            %UID '55C9F4FB007F'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aSubFolder
+           <<in>> anIsScript
+            %UID '55C9F4FB00B1'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // anIsScript
+         ; // %PARAMETERS
+        ; // DeleteEtalons
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID '682B119263FD'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TGUITestRunner
+         %UID '4B94078A2BBC'
+         %SUMMARY 'Регистрация типа TGUITestRunner' ;
+        ; // Reg_TGUITestRunner
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TTreeNode
+         %UID '49AAD63B2BC1'
+         %SUMMARY 'Регистрация типа TTreeNode' ;
+        ; // Reg_TTreeNode
+        SUMMONED PRIVATE FINAL <<ini>> Reg_ITest
+         %UID 'F25BED7E1C6A'
+         %SUMMARY 'Регистрация типа ITest' ;
+        ; // Reg_ITest
+        SUMMONED PRIVATE FINAL <<ini>> Reg_String
+         %UID 'FD3060D58BC2'
+         %SUMMARY 'Регистрация типа String' ;
+        ; // Reg_String
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Boolean
+         %UID '9586DF52EAAE'
+         %SUMMARY 'Регистрация типа Boolean' ;
+        ; // Reg_Boolean
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<SimpleClass>> TkwKeyWordsPackResNameGetter
+         %UID '56D015564877'
+         %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55B7A33101AF' /* TtfwAxiomaticsResNameGetter */
+         ; // %INHERITS
+         %REALIZES
+          U$ '55B7A3AF0359' /* ResName */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> RegAxiom
+            %UID 'F9AE119BF2CD'
+            %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+           ; // RegAxiom
+         ; // %OPERATIONS
+        ; // TkwKeyWordsPackResNameGetter
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "GUITestRunner_push_DUnitForm"
+         %UID '0200DD1E29D8'
+         %SUMMARY 'Слово скрипта GUITestRunner:push:DUnitForm'#13#10'*Тип результата:* TGUITestRunner'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TGUITestRunner'#13#10' GUITestRunner:push:DUnitForm >>> l_TGUITestRunner'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'GUITestRunner:push:DUnitForm'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4B2A0D4A006F' /* DUnit */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "A111D25910A7"
+            %UID 'A111D25910A7'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // A111D25910A7
+           SUMMONED <<uses>> "B56047D5CBF8"
+            %UID 'B56047D5CBF8'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // B56047D5CBF8
+           SUMMONED <<uses>> "C751D6A6B73A"
+            %UID 'C751D6A6B73A'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // C751D6A6B73A
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> push_DUnitForm
+            %UID '8CDAC59949AC'
+            %SUMMARY 'Реализация слова скрипта GUITestRunner:push:DUnitForm' ;
+            %TARGET U$ '4DA30F0F02C1' /* TGUITestRunner */
+            %TOBEINCLUDED
+             U$ '4B2A0D4A006F' /* DUnit */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'D4C32E2BEA58'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+            ; // %PARAMETERS
+           ; // push_DUnitForm
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'E82DB32DDCEF'
+            %SUMMARY 'Регистрация GUITestRunner_push_DUnitForm' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "GUITestRunner_push_DUnitForm"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_GUITestRunner_NodeToTest"
+         %UID 'D7892D333B1E'
+         %SUMMARY 'Слово скрипта pop:GUITestRunner:NodeToTest'#13#10'*Тип результата:* ITest'#13#10'*Пример:*'#13#10'{code}'#13#10'INTERFACE VAR l_ITest'#13#10' aNode aGUITestRunner pop:GUITestRunner:NodeToTest >>> l_ITest'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:GUITestRunner:NodeToTest'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '4B2A0D4A006F' /* DUnit */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "20C6667AC9D2"
+            %UID '20C6667AC9D2'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 20C6667AC9D2
+           SUMMONED <<uses>> "B3A9E77D3E14"
+            %UID 'B3A9E77D3E14'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // B3A9E77D3E14
+           SUMMONED <<uses>> "E4B530F64BC7"
+            %UID 'E4B530F64BC7'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // E4B530F64BC7
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> NodeToTest
+            %UID '03113FE401D9'
+            %SUMMARY 'Реализация слова скрипта pop:GUITestRunner:NodeToTest' ;
+            %TARGET U$ '4B2F420202F4' /* ITest */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '4B2A0D4A006F' /* DUnit */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '3741F056079F'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aGUITestRunner
+               %UID '3741F05607A0'
+               %TARGET U$ '4DA30F0F02C1' /* TGUITestRunner */
+               %TOBEINCLUDED
+                U$ '4B2A0D4A006F' /* DUnit */
+               ; // %TOBEINCLUDED
+              ; // aGUITestRunner
+              SUMMONED <<in>> aNode
+               %UID '3741F05607A1'
+               %TARGET U$ '512F3FCB02F3' /* TTreeNode */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // aNode
+            ; // %PARAMETERS
+           ; // NodeToTest
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '338E9E5A2B43'
+            %SUMMARY 'Регистрация pop_GUITestRunner_NodeToTest' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_GUITestRunner_NodeToTest"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "DeleteEtalons"
+         %UID '6F1D31444115'
+         %SUMMARY 'Слово скрипта DeleteEtalons'#13#10'*Пример:*'#13#10'{code}'#13#10' anIsScript aSubFolder aName DeleteEtalons'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'DeleteEtalons'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "CFE5F45D9F3E"
+            %UID 'CFE5F45D9F3E'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // CFE5F45D9F3E
+           SUMMONED <<uses>> "F744CA244199"
+            %UID 'F744CA244199'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // F744CA244199
+           SUMMONED <<uses>> "7515D1893489"
+            %UID '7515D1893489'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 7515D1893489
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DeleteEtalons
+            %UID '32E2191A0272'
+            %SUMMARY 'Реализация слова скрипта DeleteEtalons' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'AE9AF9CFD549'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aName
+               %UID 'AE9AF9CFD54A'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aName
+              SUMMONED <<in>> aSubFolder
+               %UID 'AE9AF9CFD54B'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSubFolder
+              SUMMONED <<in>> anIsScript
+               %UID 'AE9AF9CFD54C'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIsScript
+            ; // %PARAMETERS
+           ; // DeleteEtalons
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '776F42C21727'
+            %SUMMARY 'Регистрация DeleteEtalons' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "DeleteEtalons"
+      ; // %CHILDREN
+     ; // kwKeyWordsPack
+     FINAL <<ScriptKeywordsPack>> ITestWordsPack
+      %UID '55C9F202036D'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" true
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B2A0D4A006F' /* DUnit */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B2F420202F4' /* ITest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DCCCFF001A4' /* HasScriptChildren */
+       U$ '4DDE1E8702D3' /* RunTest */
+       U$ '4F9A4FBF00C0' /* GetSubFolder */
+       U$ '51B1DD5F0080' /* ClearEtalons */
+      ; // %REALIZES
+      %LINKS
+        SUMMONED <<uses>> "3B85164C4892"
+         %UID '3B85164C4892'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // 3B85164C4892
+        SUMMONED <<injects>> "3984CD50E7EE"
+         %UID '3984CD50E7EE'
+         %TARGET U$ '4B2F420202F4' /* ITest */
+        ; // 3984CD50E7EE
+        SUMMONED <<uses>> "598F0F9011EC"
+         %UID '598F0F9011EC'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // 598F0F9011EC
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE FINAL <<readonly>> Name
+         %UID '55C9F2540030'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Name
+        PRIVATE FINAL <<readonly>> Enabled
+         %UID '55C9F270032E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Enabled
+        PRIVATE FINAL <<readonly>> SubFolder
+         %UID '55C9F29F0029'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // SubFolder
+        PRIVATE FINAL <<readonly>> HasScriptChildren
+         %UID '55C9F2CB0025'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // HasScriptChildren
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<globalkeyword>> test_ShouldStop
+         %UID '55C9F3150354'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // test_ShouldStop
+        SUMMONED FINAL <<keyword>> Name$890E66847F95
+         %UID '890E66847F95'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Name$890E66847F95
+        SUMMONED FINAL <<keyword>> Enabled$671F5DFD3F6B
+         %UID '671F5DFD3F6B'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Enabled$671F5DFD3F6B
+        SUMMONED FINAL <<keyword>> SubFolder$024726117628
+         %UID '024726117628'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // SubFolder$024726117628
+        SUMMONED FINAL <<keyword>> HasScriptChildren$84C657DDF46F
+         %UID '84C657DDF46F'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // HasScriptChildren$84C657DDF46F
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID '6734A732E06A'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_ITest
+         %UID 'AC5B4866E7C0'
+         %SUMMARY 'Регистрация типа ITest' ;
+        ; // Reg_ITest
+        SUMMONED PRIVATE FINAL <<ini>> Reg_String
+         %UID 'D4800634CA93'
+         %SUMMARY 'Регистрация типа String' ;
+        ; // Reg_String
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Boolean
+         %UID 'F4DF423DC3DA'
+         %SUMMARY 'Регистрация типа Boolean' ;
+        ; // Reg_Boolean
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<SimpleClass>> TITestWordsPackResNameGetter
+         %UID '5BD9647988E7'
+         %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55B7A33101AF' /* TtfwAxiomaticsResNameGetter */
+         ; // %INHERITS
+         %REALIZES
+          U$ '55B7A3AF0359' /* ResName */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> RegAxiom
+            %UID '4A9E4C6A2A60'
+            %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+           ; // RegAxiom
+         ; // %OPERATIONS
+        ; // TITestWordsPackResNameGetter
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_Test_Name"
+         %UID 'E6DE6CAD7EFE'
+         %SUMMARY 'Слово скрипта pop:Test:Name'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aTest pop:Test:Name >>> l_String'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:Test:Name'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A0D4A006F' /* DUnit */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "C6CD503651A0"
+            %UID 'C6CD503651A0'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // C6CD503651A0
+           SUMMONED <<uses>> "DD4C1880FF2A"
+            %UID 'DD4C1880FF2A'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // DD4C1880FF2A
+           SUMMONED <<uses>> "17927931459D"
+            %UID '17927931459D'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 17927931459D
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> Name
+            %UID '088392F066BE'
+            %SUMMARY 'Реализация слова скрипта pop:Test:Name' ;
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A0D4A006F' /* DUnit */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'AEB8AEB6DDBE'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTest
+               %UID 'AEB8AEB6DDBF'
+               %TARGET U$ '4B2F420202F4' /* ITest */
+               %TOBEINCLUDED
+                U$ '4B2A0D4A006F' /* DUnit */
+               ; // %TOBEINCLUDED
+              ; // aTest
+            ; // %PARAMETERS
+           ; // Name
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '9F4AC422D015'
+            %SUMMARY 'Регистрация pop_Test_Name' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_Test_Name"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_Test_Enabled"
+         %UID '1CEB5B8AA2E5'
+         %SUMMARY 'Слово скрипта pop:Test:Enabled'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aTest pop:Test:Enabled >>> l_Boolean'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:Test:Enabled'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A0D4A006F' /* DUnit */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "39E25E0BB986"
+            %UID '39E25E0BB986'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 39E25E0BB986
+           SUMMONED <<uses>> "F3A433417406"
+            %UID 'F3A433417406'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // F3A433417406
+           SUMMONED <<uses>> "D974783FA41C"
+            %UID 'D974783FA41C'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // D974783FA41C
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> Enabled
+            %UID 'D72537763731'
+            %SUMMARY 'Реализация слова скрипта pop:Test:Enabled' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A0D4A006F' /* DUnit */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'C0D1E6C2047B'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTest
+               %UID 'C0D1E6C2047C'
+               %TARGET U$ '4B2F420202F4' /* ITest */
+               %TOBEINCLUDED
+                U$ '4B2A0D4A006F' /* DUnit */
+               ; // %TOBEINCLUDED
+              ; // aTest
+            ; // %PARAMETERS
+           ; // Enabled
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '68CA5EB93797'
+            %SUMMARY 'Регистрация pop_Test_Enabled' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_Test_Enabled"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_Test_SubFolder"
+         %UID '4638C704D78B'
+         %SUMMARY 'Слово скрипта pop:Test:SubFolder'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aTest pop:Test:SubFolder >>> l_String'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:Test:SubFolder'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A0D4A006F' /* DUnit */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "A63F3192B92A"
+            %UID 'A63F3192B92A'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // A63F3192B92A
+           SUMMONED <<uses>> "85858BC1FB13"
+            %UID '85858BC1FB13'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 85858BC1FB13
+           SUMMONED <<uses>> "811D347D64AA"
+            %UID '811D347D64AA'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 811D347D64AA
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> SubFolder
+            %UID 'DA47640487D6'
+            %SUMMARY 'Реализация слова скрипта pop:Test:SubFolder' ;
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A0D4A006F' /* DUnit */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'E08481D1AB80'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTest
+               %UID 'E08481D1AB81'
+               %TARGET U$ '4B2F420202F4' /* ITest */
+               %TOBEINCLUDED
+                U$ '4B2A0D4A006F' /* DUnit */
+               ; // %TOBEINCLUDED
+              ; // aTest
+            ; // %PARAMETERS
+           ; // SubFolder
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '4611E597E378'
+            %SUMMARY 'Регистрация pop_Test_SubFolder' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_Test_SubFolder"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_Test_HasScriptChildren"
+         %UID '719F0EEEAFD0'
+         %SUMMARY 'Слово скрипта pop:Test:HasScriptChildren'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aTest pop:Test:HasScriptChildren >>> l_Boolean'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:Test:HasScriptChildren'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A0D4A006F' /* DUnit */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "504922B61F8A"
+            %UID '504922B61F8A'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 504922B61F8A
+           SUMMONED <<uses>> "8F4FEB51FB00"
+            %UID '8F4FEB51FB00'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 8F4FEB51FB00
+           SUMMONED <<uses>> "13F6A401C8F8"
+            %UID '13F6A401C8F8'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 13F6A401C8F8
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> HasScriptChildren
+            %UID 'DC8D3C4D047E'
+            %SUMMARY 'Реализация слова скрипта pop:Test:HasScriptChildren' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A0D4A006F' /* DUnit */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '4BD37740FDDF'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTest
+               %UID '4BD37740FDE0'
+               %TARGET U$ '4B2F420202F4' /* ITest */
+               %TOBEINCLUDED
+                U$ '4B2A0D4A006F' /* DUnit */
+               ; // %TOBEINCLUDED
+              ; // aTest
+            ; // %PARAMETERS
+           ; // HasScriptChildren
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '26A9EB53D5AB'
+            %SUMMARY 'Регистрация pop_Test_HasScriptChildren' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_Test_HasScriptChildren"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "test_ShouldStop"
+         %UID 'AFCC4A8F1DF4'
+         %SUMMARY 'Слово скрипта test:ShouldStop'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' test:ShouldStop >>> l_Boolean'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'test:ShouldStop'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "C30CBD243D89"
+            %UID 'C30CBD243D89'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // C30CBD243D89
+           SUMMONED <<uses>> "81235410BF28"
+            %UID '81235410BF28'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 81235410BF28
+           SUMMONED <<uses>> "7DB8E00E6A9B"
+            %UID '7DB8E00E6A9B'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 7DB8E00E6A9B
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> test_ShouldStop
+            %UID '4E0E008C1CF6'
+            %SUMMARY 'Реализация слова скрипта test:ShouldStop' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'D3770FD58952'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+            ; // %PARAMETERS
+           ; // test_ShouldStop
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '071FDAD0E9DA'
+            %SUMMARY 'Регистрация test_ShouldStop' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "test_ShouldStop"
+      ; // %CHILDREN
+     ; // ITestWordsPack
+     FINAL <<ScriptKeywordsPack>> TTreeNodeForTestsWordsPack
+      %UID '55C9F3800372'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" true
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '512F3FCB02F3' /* TTreeNode */
+      ; // %IMPLEMENTS
+      %LINKS
+        <<uses>> "55C9F97C0252"
+         %UID '55C9F97C0252'
+         %TARGET U$ '5136F4820266' /* IsNodeFolder */
+        ; // 55C9F97C0252
+        SUMMONED <<uses>> "A8D47B9370E0"
+         %UID 'A8D47B9370E0'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // A8D47B9370E0
+        SUMMONED <<uses>> "94D1EB8F6FCA"
+         %UID '94D1EB8F6FCA'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // 94D1EB8F6FCA
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<keyword>> IsNodeFolder
+         %UID '55C9F3B6011B'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsNodeFolder
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID '9DA2A81A7682'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TTreeNode
+         %UID 'DF954D529831'
+         %SUMMARY 'Регистрация типа TTreeNode' ;
+        ; // Reg_TTreeNode
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Boolean
+         %UID '27B7FBF632F6'
+         %SUMMARY 'Регистрация типа Boolean' ;
+        ; // Reg_Boolean
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<SimpleClass>> TTTreeNodeForTestsWordsPackResNameGetter
+         %UID 'CE36BAE2E068'
+         %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55B7A33101AF' /* TtfwAxiomaticsResNameGetter */
+         ; // %INHERITS
+         %REALIZES
+          U$ '55B7A3AF0359' /* ResName */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> RegAxiom
+            %UID 'A507A250637C'
+            %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+           ; // RegAxiom
+         ; // %OPERATIONS
+        ; // TTTreeNodeForTestsWordsPackResNameGetter
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_TreeNode_IsNodeFolder"
+         %UID '565CDF98FF94'
+         %SUMMARY 'Слово скрипта pop:TreeNode:IsNodeFolder'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aTreeNode pop:TreeNode:IsNodeFolder >>> l_Boolean'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:TreeNode:IsNodeFolder'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "A4E0EC30A14B"
+            %UID 'A4E0EC30A14B'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // A4E0EC30A14B
+           SUMMONED <<uses>> "987BBD2A6B08"
+            %UID '987BBD2A6B08'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 987BBD2A6B08
+           SUMMONED <<uses>> "556CD2C755AD"
+            %UID '556CD2C755AD'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 556CD2C755AD
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> IsNodeFolder
+            %UID 'B5879A320542'
+            %SUMMARY 'Реализация слова скрипта pop:TreeNode:IsNodeFolder' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '31AE375F25A0'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTreeNode
+               %UID '31AE375F25A1'
+               %TARGET U$ '512F3FCB02F3' /* TTreeNode */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // aTreeNode
+            ; // %PARAMETERS
+           ; // IsNodeFolder
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '115A0831D730'
+            %SUMMARY 'Регистрация pop_TreeNode_IsNodeFolder' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_TreeNode_IsNodeFolder"
+      ; // %CHILDREN
+     ; // TTreeNodeForTestsWordsPack
+   ; // %CHILDREN
+  ; // "DUnit Keywords"
+  <<Unit>> DUnitKeyWordsSupport
+   %UID '5130776E01BE'
+   %DEPENDS
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4DC246E40002' /* AutoTests */
+    U$ '51304A0E0192' /* "DUnit Keywords" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+    U$ '5130499D0080' /* "DUnit Script Support" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TAutoTestSuiteWithDUnitSupport
+      %UID '51307830007E'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DC40A7E00C8' /* TCustomAutoTestSuite */
+      ; // %INHERITS
+      %LINKS
+        <<uses>> "5130789403E4"
+         %UID '5130789403E4'
+         %TARGET U$ '51304A1F02AD' /* kwKeyWordsPack */
+        ; // 5130789403E4
+      ; // %LINKS
+     ; // TAutoTestSuiteWithDUnitSupport
+     <<SimpleClass>> TAutoTestsSuite
+      %UID '4DC24756009A'
+      %SUMMARY 'Поддержка тестов-скриптов' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '5130499D0080' /* "DUnit Script Support" */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '51307830007E' /* TAutoTestSuiteWithDUnitSupport */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4F9A4FD70148' /* DoGetSubFolder */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4E297BDC02DD"
+         %UID '4E297BDC02DD'
+         %TARGET U$ '4E297BC401BE' /* TDailyAutoTest */
+        ; // 4E297BDC02DD
+        <<uses>> "4EA66EA40392"
+         %UID '4EA66EA40392'
+         %TARGET U$ '4EA66E6C038E' /* RegisterTest */
+        ; // 4EA66EA40392
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<static>> Register
+         %UID '4DC40BF302B4'
+        ; // Register
+      ; // %OPERATIONS
+     ; // TAutoTestsSuite
+     ABSTRACT <<SimpleClass>> TDailyAutoTest
+      %UID '4E297BC401BE'
+      %SUMMARY 'Автотест с поддержкой создаваемых форм.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DC247C80356' /* TAutoTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DB03121022B' /* ResolveScriptFilePath */
+       U$ '4DC395670274' /* IsScript */
+       U$ '4DC399CA00BC' /* Create */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4E36909200B9"
+         %UID '4E36909200B9'
+         %TARGET U$ '4DDA4CFE00E8' /* ExtractFilePath */
+        ; // 4E36909200B9
+      ; // %LINKS
+     ; // TDailyAutoTest
+   ; // %CHILDREN
+  ; // DUnitKeyWordsSupport
+ ; // %CHILDREN
+; // "DUnit Script Support"

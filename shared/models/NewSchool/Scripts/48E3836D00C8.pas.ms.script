@@ -1,0 +1,4838 @@
+// evEditorInterfaces 48E3836D00C8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E3836D00C8
+
+FORWARD ME_4BBC61DD0368
+
+: ME_4BBC620E004E
+ CONST UID '4BBC620E004E'
+ CONST Name 'Styles'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'список стилей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC61DD0368 // IedStyle
+ ;
+ : Target WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC620E004E Styles
+
+: ME_4BBC627B0232
+ CONST UID '4BBC627B0232'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Имя стиля' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC61DD0368 // IedStyle
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC627B0232 Name
+
+: ME_4BBC62A00029
+ CONST UID '4BBC62A00029'
+ CONST Name 'ID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'идентификатор стиля' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC61DD0368 // IedStyle
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC62A00029 ID
+
+FORWARD ME_5534CB7003C6
+
+: ME_5534CB8801A0
+ CONST UID '5534CB8801A0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5534CB7003C6 // GetStylesForBlock
+ ;
+ : Target WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
+ ;
+
+ref; // ME_5534CB8801A0 DoIt
+
+: ME_5534CB7003C6
+ CONST UID '5534CB7003C6'
+ CONST Name 'GetStylesForBlock'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC61DD0368 // IedStyle
+ ;
+ : Operations
+   @ ( ME_5534CB8801A0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5534CB7003C6 GetStylesForBlock
+
+: ME_4BBC61DD0368
+ CONST UID '4BBC61DD0368'
+ CONST GUID '821B4AA6-AAAB-40F8-8F95-E102524FD18D'
+ CONST Name 'IedStyle'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Стиль параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC620E004E // Styles
+ ME_4BBC627B0232 // Name
+ ME_4BBC62A00029 // ID
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5534CB7003C6 // GetStylesForBlock
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4BBC61DD0368 IedStyle
+
+FORWARD ME_4BBC803F0288
+
+: ME_4BBC8058018D
+ CONST UID '4BBC8058018D'
+ CONST Name 'Undefined'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ref; // ME_4BBC8058018D Undefined
+
+: ME_4BBC806100AA
+ CONST UID '4BBC806100AA'
+ CONST Name 'Left'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ref; // ME_4BBC806100AA Left
+
+: ME_4BBC80690220
+ CONST UID '4BBC80690220'
+ CONST Name 'Right'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ref; // ME_4BBC80690220 Right
+
+: ME_4BBC8071029C
+ CONST UID '4BBC8071029C'
+ CONST Name 'Center'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ref; // ME_4BBC8071029C Center
+
+: ME_4BBC807A001C
+ CONST UID '4BBC807A001C'
+ CONST Name 'Justify'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ref; // ME_4BBC807A001C Justify
+
+: ME_4BBC80820257
+ CONST UID '4BBC80820257'
+ CONST Name 'Preformatted'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ref; // ME_4BBC80820257 Preformatted
+
+: ME_4BBC803F0288
+ CONST UID '4BBC803F0288'
+ CONST Name 'TedHorizontalAligment'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выравнивание параграфа по горизонтали' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC8058018D // Undefined
+ ME_4BBC806100AA // Left
+ ME_4BBC80690220 // Right
+ ME_4BBC8071029C // Center
+ ME_4BBC807A001C // Justify
+ ME_4BBC80820257 // Preformatted
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'hal'
+ CONST "elements prefix" 'ed'
+ CONST extprop:pas:ElementPrefixBase 'ed'
+ CONST extprop:pas:ElementPrefix 'ed_hal'
+
+ref; // ME_4BBC803F0288 TedHorizontalAligment
+
+FORWARD ME_4BBC4CD100F8
+
+: ME_4BBC61A40199
+ CONST UID '4BBC61A40199'
+ CONST Name 'rStartRow'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4BBC4CD100F8 // TedRangeIndexes
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBC61A40199 rStartRow
+
+: ME_4BBC61B400AC
+ CONST UID '4BBC61B400AC'
+ CONST Name 'rFinishRow'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4BBC4CD100F8 // TedRangeIndexes
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBC61B400AC rFinishRow
+
+: ME_4BBC61BD01F2
+ CONST UID '4BBC61BD01F2'
+ CONST Name 'rStartCell'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4BBC4CD100F8 // TedRangeIndexes
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBC61BD01F2 rStartCell
+
+: ME_4BBC61C501C3
+ CONST UID '4BBC61C501C3'
+ CONST Name 'rFinishCell'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4BBC4CD100F8 // TedRangeIndexes
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBC61C501C3 rFinishCell
+
+: ME_4BBC4CD100F8
+ CONST UID '4BBC4CD100F8'
+ CONST Name 'TedRangeIndexes'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC61A40199 // rStartRow
+ ME_4BBC61B400AC // rFinishRow
+ ME_4BBC61BD01F2 // rStartCell
+ ME_4BBC61C501C3 // rFinishCell
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4BBC4CD100F8 TedRangeIndexes
+
+FORWARD ME_4BBC80A101EF
+
+: ME_4BBC80B8018B
+ CONST UID '4BBC80B8018B'
+ CONST Name 'HorizontalAligment'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Тип выравнивания параграфа по горизонтали' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ : Target ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC80B8018B HorizontalAligment
+
+: ME_4BBC8106012C
+ CONST UID '4BBC8106012C'
+ CONST Name 'HasDecimalAligment'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Есть ли у параграфа выравнивание по разделителю' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC8106012C HasDecimalAligment
+
+: ME_4BBC811E00EC
+ CONST UID '4BBC811E00EC'
+ CONST Name 'Visible'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'виден параграф или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC811E00EC Visible
+
+: ME_4BBC813303A8
+ CONST UID '4BBC813303A8'
+ CONST Name 'FirstIndent'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'отступ первой строки параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC813303A8 FirstIndent
+
+: ME_4BBC814E00FA
+ CONST UID '4BBC814E00FA'
+ CONST Name 'LeftIndent'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'левый отступ параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC814E00FA LeftIndent
+
+: ME_4BBC816603A6
+ CONST UID '4BBC816603A6'
+ CONST Name 'Bullet'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'тип списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC816603A6 Bullet
+
+: ME_4BBC80A101EF
+ CONST UID '4BBC80A101EF'
+ CONST GUID '1126D058-B6AE-4C8A-BB07-E83D175D379C'
+ CONST Name 'IedParagraphFormatting'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Форматирование параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC80B8018B // HorizontalAligment
+ ME_4BBC8106012C // HasDecimalAligment
+ ME_4BBC811E00EC // Visible
+ ME_4BBC813303A8 // FirstIndent
+ ME_4BBC814E00FA // LeftIndent
+ ME_4BBC816603A6 // Bullet
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4BBC80A101EF IedParagraphFormatting
+
+FORWARD ME_4BBC818A01EA
+
+: ME_4BBC81A00322
+ CONST UID '4BBC81A00322'
+ CONST Name 'Single'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC81A00322 Single
+
+: ME_4BBC81A80396
+ CONST UID '4BBC81A80396'
+ CONST Name 'DashSmall'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC81A80396 DashSmall
+
+: ME_4BBC81B10075
+ CONST UID '4BBC81B10075'
+ CONST Name 'DotDash'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC81B10075 DotDash
+
+: ME_4BBC81B902B6
+ CONST UID '4BBC81B902B6'
+ CONST Name 'DotDotDash'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC81B902B6 DotDotDash
+
+: ME_4BBC81C1026D
+ CONST UID '4BBC81C1026D'
+ CONST Name 'Triple'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC81C1026D Triple
+
+: ME_4BBC81F302FD
+ CONST UID '4BBC81F302FD'
+ CONST Name 'ThickThinSmall'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC81F302FD ThickThinSmall
+
+: ME_4BBC81FD03E4
+ CONST UID '4BBC81FD03E4'
+ CONST Name 'ThinThickSmall'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC81FD03E4 ThinThickSmall
+
+: ME_4BBC82080287
+ CONST UID '4BBC82080287'
+ CONST Name 'ThinThickThinSmall'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC82080287 ThinThickThinSmall
+
+: ME_4BBC82110117
+ CONST UID '4BBC82110117'
+ CONST Name 'ThickThinMedium'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC82110117 ThickThinMedium
+
+: ME_4BBC823E0215
+ CONST UID '4BBC823E0215'
+ CONST Name 'ThinThickMedium'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC823E0215 ThinThickMedium
+
+: ME_4BBC824702CD
+ CONST UID '4BBC824702CD'
+ CONST Name 'ThinThickThinMedium'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC824702CD ThinThickThinMedium
+
+: ME_4BBC82520033
+ CONST UID '4BBC82520033'
+ CONST Name 'ThickThinLarge'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC82520033 ThickThinLarge
+
+: ME_4BBC82590359
+ CONST UID '4BBC82590359'
+ CONST Name 'ThinThickLarge'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC82590359 ThinThickLarge
+
+: ME_4BBC82630189
+ CONST UID '4BBC82630189'
+ CONST Name 'ThinThickThinLarge'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC82630189 ThinThickThinLarge
+
+: ME_4BBC826B018D
+ CONST UID '4BBC826B018D'
+ CONST Name 'BlackGray'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC826B018D BlackGray
+
+: ME_4BBC82730269
+ CONST UID '4BBC82730269'
+ CONST Name 'GrayBlack'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC82730269 GrayBlack
+
+: ME_4BBC827C02D5
+ CONST UID '4BBC827C02D5'
+ CONST Name 'GrayBlackGray'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC827C02D5 GrayBlackGray
+
+: ME_4BBC828601D2
+ CONST UID '4BBC828601D2'
+ CONST Name 'Wavy'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC828601D2 Wavy
+
+: ME_4BBC828F0136
+ CONST UID '4BBC828F0136'
+ CONST Name 'DoubleWavy'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC828F0136 DoubleWavy
+
+: ME_4BBC82970062
+ CONST UID '4BBC82970062'
+ CONST Name 'Striped'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC82970062 Striped
+
+: ME_4BBC82A00305
+ CONST UID '4BBC82A00305'
+ CONST Name 'Emboss'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC82A00305 Emboss
+
+: ME_4BBC83110109
+ CONST UID '4BBC83110109'
+ CONST Name 'Engrave'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC83110109 Engrave
+
+: ME_4BBC83190183
+ CONST UID '4BBC83190183'
+ CONST Name 'Undefined'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ref; // ME_4BBC83190183 Undefined
+
+: ME_4BBC818A01EA
+ CONST UID '4BBC818A01EA'
+ CONST Name 'TedLineStyle'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC81A00322 // Single
+ ME_4BBC81A80396 // DashSmall
+ ME_4BBC81B10075 // DotDash
+ ME_4BBC81B902B6 // DotDotDash
+ ME_4BBC81C1026D // Triple
+ ME_4BBC81F302FD // ThickThinSmall
+ ME_4BBC81FD03E4 // ThinThickSmall
+ ME_4BBC82080287 // ThinThickThinSmall
+ ME_4BBC82110117 // ThickThinMedium
+ ME_4BBC823E0215 // ThinThickMedium
+ ME_4BBC824702CD // ThinThickThinMedium
+ ME_4BBC82520033 // ThickThinLarge
+ ME_4BBC82590359 // ThinThickLarge
+ ME_4BBC82630189 // ThinThickThinLarge
+ ME_4BBC826B018D // BlackGray
+ ME_4BBC82730269 // GrayBlack
+ ME_4BBC827C02D5 // GrayBlackGray
+ ME_4BBC828601D2 // Wavy
+ ME_4BBC828F0136 // DoubleWavy
+ ME_4BBC82970062 // Striped
+ ME_4BBC82A00305 // Emboss
+ ME_4BBC83110109 // Engrave
+ ME_4BBC83190183 // Undefined
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'ls'
+ CONST "elements prefix" 'ed'
+ CONST extprop:pas:ElementPrefixBase 'ed'
+ CONST extprop:pas:ElementPrefix 'ed_ls'
+
+ref; // ME_4BBC818A01EA TedLineStyle
+
+FORWARD ME_4BBC840D036C
+
+: ME_4BBC84B001E0
+ CONST UID '4BBC84B001E0'
+ CONST Name 'PIedFramePart'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BBC840D036C // IedFramePart
+ ;
+ : Inherits
+   @ ( ME_4BBC840D036C // IedFramePart
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_4BBC84B001E0 PIedFramePart
+
+: ME_4BBC8428039B
+ CONST UID '4BBC8428039B'
+ CONST Name 'Style'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'стиль линии рамки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC840D036C // IedFramePart
+ ;
+ : Target ME_4BBC818A01EA // TedLineStyle
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBC8428039B Style
+
+: ME_4BBC8476015A
+ CONST UID '4BBC8476015A'
+ CONST Name 'Visible'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'видимость рамки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC840D036C // IedFramePart
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBC8476015A Visible
+
+: ME_4BBC84840004
+ CONST UID '4BBC84840004'
+ CONST Name 'Color'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'цвет рамки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC840D036C // IedFramePart
+ ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBC84840004 Color
+
+: ME_4BBC84970173
+ CONST UID '4BBC84970173'
+ CONST Name 'Width'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'ширина рамки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC840D036C // IedFramePart
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBC84970173 Width
+
+: ME_4BBC840D036C
+ CONST UID '4BBC840D036C'
+ CONST GUID '9142283A-2C6A-47CB-9932-4E122FE28663'
+ CONST Name 'IedFramePart'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Часть рамки вокруг объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC8428039B // Style
+ ME_4BBC8476015A // Visible
+ ME_4BBC84840004 // Color
+ ME_4BBC84970173 // Width
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4BBC84B001E0 // PIedFramePart
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_4BBC840D036C IedFramePart
+
+FORWARD ME_4BBC84CF0094
+
+: ME_4BBC84E30279
+ CONST UID '4BBC84E30279'
+ CONST Name 'Up'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ref; // ME_4BBC84E30279 Up
+
+: ME_4BBC84EA00CC
+ CONST UID '4BBC84EA00CC'
+ CONST Name 'Down'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ref; // ME_4BBC84EA00CC Down
+
+: ME_4BBC84F1027E
+ CONST UID '4BBC84F1027E'
+ CONST Name 'Left'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ref; // ME_4BBC84F1027E Left
+
+: ME_4BBC84F901FB
+ CONST UID '4BBC84F901FB'
+ CONST Name 'Right'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ref; // ME_4BBC84F901FB Right
+
+: ME_4BBC85010384
+ CONST UID '4BBC85010384'
+ CONST Name 'Vert'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ref; // ME_4BBC85010384 Vert
+
+: ME_4BBC850B0219
+ CONST UID '4BBC850B0219'
+ CONST Name 'Horz'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ref; // ME_4BBC850B0219 Horz
+
+: ME_4BBC84CF0094
+ CONST UID '4BBC84CF0094'
+ CONST Name 'TedFramePartIndex'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Индекс части рамки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC84E30279 // Up
+ ME_4BBC84EA00CC // Down
+ ME_4BBC84F1027E // Left
+ ME_4BBC84F901FB // Right
+ ME_4BBC85010384 // Vert
+ ME_4BBC850B0219 // Horz
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'fpi'
+ CONST "elements prefix" 'ed'
+ CONST extprop:pas:ElementPrefixBase 'ed'
+ CONST extprop:pas:ElementPrefix 'ed_fpi'
+
+ref; // ME_4BBC84CF0094 TedFramePartIndex
+
+FORWARD ME_4BBC89390312
+
+FORWARD ME_4BBC894E036B
+
+: ME_4BBC89670083
+ CONST UID '4BBC89670083'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC894E036B // FramePart
+ ;
+ : Target ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ref; // ME_4BBC89670083 anIndex
+
+: ME_4BBC894E036B
+ CONST UID '4BBC894E036B'
+ CONST Name 'FramePart'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'части рамки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC89390312 // IedFrame
+ ;
+ : Target ME_4BBC840D036C // IedFramePart
+ ;
+ : Attributes
+   @ ( ME_4BBC89670083 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is default" true
+ CONST "pm" false
+
+ref; // ME_4BBC894E036B FramePart
+
+: ME_4BBC89390312
+ CONST UID '4BBC89390312'
+ CONST GUID 'BC8E5422-C4E6-41ED-A5AD-4485D6CE85C2'
+ CONST Name 'IedFrame'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Рамка вокруг объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC894E036B // FramePart
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4BBC89390312 IedFrame
+
+FORWARD ME_4BBC8546036C
+
+: ME_4BBC854F027A
+ CONST UID '4BBC854F027A'
+ CONST Name 'First'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ CONST Value 'Up'
+ : ValueType ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4BBC854F027A First
+
+: ME_4BBC858003C7
+ CONST UID '4BBC858003C7'
+ CONST Name 'Last'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ CONST Value 'Right'
+ : ValueType ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4BBC858003C7 Last
+
+: ME_4BBC8546036C
+ CONST UID '4BBC8546036C'
+ CONST Name 'TedNeighbourIndex'
+ CONST Class class_Class
+ : Stereotype st_Range ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC84CF0094 // TedFramePartIndex
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBC854F027A // First
+ ME_4BBC858003C7 // Last
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'fpi'
+ CONST "elements prefix" 'ed'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'ed'
+ CONST extprop:pas:ElementPrefix 'ed_fpi'
+
+ref; // ME_4BBC8546036C TedNeighbourIndex
+
+: ME_4BBC853502EF
+ CONST UID '4BBC853502EF'
+ CONST Name 'TedFramePartIndexes'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC84CF0094 // TedFramePartIndex
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4BBC853502EF TedFramePartIndexes
+
+FORWARD ME_4BBC898C0320
+
+: ME_4BBF42BF004D_ME_4BBC898C0320
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC898C0320 // IedProcessorObject
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC898C0320 Processor
+
+: ME_4BBC898C0320
+ CONST UID '4BBC898C0320'
+ CONST GUID '231B734F-E6ED-4B52-9B15-D06DD96CAE6C'
+ CONST Name 'IedProcessorObject'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Implements
+   @ ( WL 'ME_4BBF4290001A' '4BC83B8301E5.pas.ms.script' // Mk2ProcessorHolder
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC898C0320 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC898C0320 IedProcessorObject
+
+: ME_4BBC85940221
+ CONST UID '4BBC85940221'
+ CONST Name 'edGridFrame'
+ CONST Class class_Class
+ : Stereotype st_SetConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC84CF0094 // TedFramePartIndex
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "spell names" false
+
+ref; // ME_4BBC85940221 edGridFrame
+
+: ME_4BBC85A10217
+ CONST UID '4BBC85A10217'
+ CONST Name 'edBoxFrame'
+ CONST Class class_Class
+ : Stereotype st_SetConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC8546036C // TedNeighbourIndex
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "spell names" false
+
+ref; // ME_4BBC85A10217 edBoxFrame
+
+FORWARD ME_4BBC85C1026E
+
+: ME_4BBC85C802E9
+ CONST UID '4BBC85C802E9'
+ CONST Name 'edNoneFrame'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC85C1026E // Frame
+ ;
+ CONST Value '[]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4BBC85C802E9 edNoneFrame
+
+: ME_4BBC85C1026E
+ CONST UID '4BBC85C1026E'
+ CONST Name 'Frame'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBC85C802E9 // edNoneFrame
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4BBC85C1026E Frame
+
+FORWARD ME_4BBC89CE035C
+
+: ME_4BBF42BF004D_ME_4BBC89CE035C
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC89CE035C // IedEditableObject
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC89CE035C Processor
+
+: ME_4BBC89CE035C
+ CONST UID '4BBC89CE035C'
+ CONST GUID '3D9193F4-9BA4-4C21-B9A4-444DCC0A605B'
+ CONST Name 'IedEditableObject'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC898C0320 // IedProcessorObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC89CE035C // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC89CE035C IedEditableObject
+
+FORWARD ME_4BBC89E20058
+
+: ME_4BBC89F8009C
+ CONST UID '4BBC89F8009C'
+ CONST Name 'Frame'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'рамка вокруг объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC89E20058 // IedFramedObject
+ ;
+ : Target ME_4BBC89390312 // IedFrame
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBC89F8009C Frame
+
+: ME_4BBF42BF004D_ME_4BBC89E20058
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC89E20058 // IedFramedObject
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC89E20058 Processor
+
+: ME_4BBC89E20058
+ CONST UID '4BBC89E20058'
+ CONST GUID '19CCAA1B-ADF7-4200-B323-9DA865F6BC87'
+ CONST Name 'IedFramedObject'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс представляющий объект с рамкой' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC89CE035C // IedEditableObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBC89F8009C // Frame
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC89E20058 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC89E20058 IedFramedObject
+
+FORWARD ME_4BBC8A230393
+
+: ME_4BBC89F8009C_ME_4BBC8A230393
+ CONST UID '4BBC89F8009C'
+ CONST Name 'Frame'
+ : Original ME_4BBC89F8009C // Frame
+ ;
+ : Implementor ME_4BBC8A230393 // IedParagraph
+ ;
+ CONST "pm" false
+ref; // ME_4BBC89F8009C_ME_4BBC8A230393 Frame
+
+: ME_4BBF42BF004D_ME_4BBC8A230393
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC8A230393 // IedParagraph
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC8A230393 Processor
+
+: ME_4BBC8A230393
+ CONST UID '4BBC8A230393'
+ CONST GUID 'F713F3A6-2C9A-4939-A0B1-36A6DBFFCD44'
+ CONST Name 'IedParagraph'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфес для параграфов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC89E20058 // IedFramedObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4BBC89F8009C_ME_4BBC8A230393 // Frame
+ ME_4BBF42BF004D_ME_4BBC8A230393 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC8A230393 IedParagraph
+
+FORWARD ME_4BBC8A3903BE
+
+: ME_4BBC8A550171
+ CONST UID '4BBC8A550171'
+ CONST Name 'Style'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'стиль, примененный к параграфу' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+ : Target ME_4BBC61DD0368 // IedStyle
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC8A550171 Style
+
+: ME_4BBC8A8003B8
+ CONST UID '4BBC8A8003B8'
+ CONST Name 'PrintFontSize'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'размер шрифта для печати' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC8A8003B8 PrintFontSize
+
+: ME_4BBC89F8009C_ME_4BBC8A3903BE
+ CONST UID '4BBC89F8009C'
+ CONST Name 'Frame'
+ : Original ME_4BBC89F8009C // Frame
+ ;
+ : Implementor ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+ CONST "pm" false
+ref; // ME_4BBC89F8009C_ME_4BBC8A3903BE Frame
+
+: ME_4BBF42BF004D_ME_4BBC8A3903BE
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC8A3903BE Processor
+
+: ME_4BBC8A3903BE
+ CONST UID '4BBC8A3903BE'
+ CONST GUID 'E56125B8-F4AE-48DB-9E28-6F56D45562A4'
+ CONST Name 'IedLeafParagraph'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Листьевой параграф' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC8A230393 // IedParagraph
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBC8A550171 // Style
+ ME_4BBC8A8003B8 // PrintFontSize
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4BBC89F8009C_ME_4BBC8A3903BE // Frame
+ ME_4BBF42BF004D_ME_4BBC8A3903BE // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC8A3903BE IedLeafParagraph
+
+FORWARD ME_4B547F7801F3
+
+: ME_4BBC8ACD0034
+ CONST UID '4BBC8ACD0034'
+ CONST Name 'Formatting'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'оформление параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B547F7801F3 // IedTextParagraph
+ ;
+ : Target ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC8ACD0034 Formatting
+
+: ME_4BBC8B1C00A7
+ CONST UID '4BBC8B1C00A7'
+ CONST Name 'Font'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'шрифт параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B547F7801F3 // IedTextParagraph
+ ;
+ : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC8B1C00A7 Font
+
+: ME_4BBC89F8009C_ME_4B547F7801F3
+ CONST UID '4BBC89F8009C'
+ CONST Name 'Frame'
+ : Original ME_4BBC89F8009C // Frame
+ ;
+ : Implementor ME_4B547F7801F3 // IedTextParagraph
+ ;
+ CONST "pm" false
+ref; // ME_4BBC89F8009C_ME_4B547F7801F3 Frame
+
+: ME_4BBC8A550171_ME_4B547F7801F3
+ CONST UID '4BBC8A550171'
+ CONST Name 'Style'
+ : Original ME_4BBC8A550171 // Style
+ ;
+ : Implementor ME_4B547F7801F3 // IedTextParagraph
+ ;
+ CONST "pm" true
+ref; // ME_4BBC8A550171_ME_4B547F7801F3 Style
+
+: ME_4BBC8A8003B8_ME_4B547F7801F3
+ CONST UID '4BBC8A8003B8'
+ CONST Name 'PrintFontSize'
+ : Original ME_4BBC8A8003B8 // PrintFontSize
+ ;
+ : Implementor ME_4B547F7801F3 // IedTextParagraph
+ ;
+ CONST "pm" true
+ref; // ME_4BBC8A8003B8_ME_4B547F7801F3 PrintFontSize
+
+: ME_4BBF42BF004D_ME_4B547F7801F3
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4B547F7801F3 // IedTextParagraph
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4B547F7801F3 Processor
+
+: ME_4B547F7801F3
+ CONST UID '4B547F7801F3'
+ CONST GUID 'B5399F1F-CF3D-4AA3-85EF-D67C38E33202'
+ CONST Name 'IedTextParagraph'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC8A3903BE // IedLeafParagraph
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBC8ACD0034 // Formatting
+ ME_4BBC8B1C00A7 // Font
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4BBC89F8009C_ME_4B547F7801F3 // Frame
+ ME_4BBC8A550171_ME_4B547F7801F3 // Style
+ ME_4BBC8A8003B8_ME_4B547F7801F3 // PrintFontSize
+ ME_4BBF42BF004D_ME_4B547F7801F3 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4B547F7801F3 IedTextParagraph
+
+FORWARD ME_4FC5C77503C7
+
+: ME_4FC5C7960144
+ CONST UID '4FC5C7960144'
+ CONST Name 'ed_Null'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_4FC5C7960144 ed_Null
+
+: ME_4FC5C7AB01F7
+ CONST UID '4FC5C7AB01F7'
+ CONST Name 'ed_NumericCels'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_4FC5C7AB01F7 ed_NumericCels
+
+: ME_4FC5C85A01D1
+ CONST UID '4FC5C85A01D1'
+ CONST Name 'ed_SingleCell'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_4FC5C85A01D1 ed_SingleCell
+
+: ME_4FC5DE67022A
+ CONST UID '4FC5DE67022A'
+ CONST Name 'ed_SimpleCells'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_4FC5DE67022A ed_SimpleCells
+
+: ME_4FC764190397
+ CONST UID '4FC764190397'
+ CONST Name 'ed_PsevdoSingleCells'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_4FC764190397 ed_PsevdoSingleCells
+
+: ME_5076B4CB017E
+ CONST UID '5076B4CB017E'
+ CONST Name 'ed_SimpleWithoutEmpty'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_5076B4CB017E ed_SimpleWithoutEmpty
+
+: ME_5076B6670345
+ CONST UID '5076B6670345'
+ CONST Name 'ev_FormCells'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_5076B6670345 ev_FormCells
+
+: ME_51126172016E
+ CONST UID '51126172016E'
+ CONST Name 'ed_HasHeadCells'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_51126172016E ed_HasHeadCells
+
+: ME_5114BFE203AA
+ CONST UID '5114BFE203AA'
+ CONST Name 'ed_EmptyWithContnueCells'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_5114BFE203AA ed_EmptyWithContnueCells
+
+: ME_5114C12B01F1
+ CONST UID '5114C12B01F1'
+ CONST Name 'ed_HasMergedCell'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_5114C12B01F1 ed_HasMergedCell
+
+: ME_5152D5720169
+ CONST UID '5152D5720169'
+ CONST Name 'ed_SimpleEmptyCells'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_5152D5720169 ed_SimpleEmptyCells
+
+: ME_51598BF00280
+ CONST UID '51598BF00280'
+ CONST Name 'ed_ChessTableRow'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_51598BF00280 ed_ChessTableRow
+
+: ME_4FC5C77503C7
+ CONST UID '4FC5C77503C7'
+ CONST Name 'TedRowType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4FC5C7960144 // ed_Null
+ ME_4FC5C7AB01F7 // ed_NumericCels
+ ME_4FC5C85A01D1 // ed_SingleCell
+ ME_4FC5DE67022A // ed_SimpleCells
+ ME_4FC764190397 // ed_PsevdoSingleCells
+ ME_5076B4CB017E // ed_SimpleWithoutEmpty
+ ME_5076B6670345 // ev_FormCells
+ ME_51126172016E // ed_HasHeadCells
+ ME_5114BFE203AA // ed_EmptyWithContnueCells
+ ME_5114C12B01F1 // ed_HasMergedCell
+ ME_5152D5720169 // ed_SimpleEmptyCells
+ ME_51598BF00280 // ed_ChessTableRow
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4FC5C77503C7 TedRowType
+
+FORWARD ME_511203F50077
+
+: ME_511204000382
+ CONST UID '511204000382'
+ CONST Name 'ed_None'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_511204000382 ed_None
+
+: ME_5112040D03C9
+ CONST UID '5112040D03C9'
+ CONST Name 'ed_Integer'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_5112040D03C9 ed_Integer
+
+: ME_5112041600A2
+ CONST UID '5112041600A2'
+ CONST Name 'ed_Number'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_5112041600A2 ed_Number
+
+: ME_5112041D0361
+ CONST UID '5112041D0361'
+ CONST Name 'ed_Empty'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_5112041D0361 ed_Empty
+
+: ME_511204220219
+ CONST UID '511204220219'
+ CONST Name 'ed_Text'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_511204220219 ed_Text
+
+: ME_5112043402DC
+ CONST UID '5112043402DC'
+ CONST Name 'ed_Float'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_5112043402DC ed_Float
+
+: ME_5112043E0022
+ CONST UID '5112043E0022'
+ CONST Name 'ed_HasFormLine'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_5112043E0022 ed_HasFormLine
+
+: ME_5118CBB50167
+ CONST UID '5118CBB50167'
+ CONST Name 'ed_NeedDelete'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_5118CBB50167 ed_NeedDelete
+
+: ME_5118CBC9027F
+ CONST UID '5118CBC9027F'
+ CONST Name 'ed_NeedMakeContinue'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_5118CBC9027F ed_NeedMakeContinue
+
+: ME_515A70D701ED
+ CONST UID '515A70D701ED'
+ CONST Name 'ed_SmallText'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_515A70D701ED ed_SmallText
+
+: ME_52F1EA8801CA
+ CONST UID '52F1EA8801CA'
+ CONST Name 'ed_EmptyAndNotFramed'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_52F1EA8801CA ed_EmptyAndNotFramed
+
+: ME_511203F50077
+ CONST UID '511203F50077'
+ CONST Name 'TedCellType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Классификация содержимого ячейки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_511204000382 // ed_None
+ ME_5112040D03C9 // ed_Integer
+ ME_5112041600A2 // ed_Number
+ ME_5112041D0361 // ed_Empty
+ ME_511204220219 // ed_Text
+ ME_5112043402DC // ed_Float
+ ME_5112043E0022 // ed_HasFormLine
+ ME_5118CBB50167 // ed_NeedDelete
+ ME_5118CBC9027F // ed_NeedMakeContinue
+ ME_515A70D701ED // ed_SmallText
+ ME_52F1EA8801CA // ed_EmptyAndNotFramed
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_511203F50077 TedCellType
+
+FORWARD ME_4BBC910E0391
+
+FORWARD ME_4BBC90130064
+
+: ME_4BBC91340257
+ CONST UID '4BBC91340257'
+ CONST Name 'Table'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'таблица к которой принадлежит ячейка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target ME_4BBC910E0391 // IedTable
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC91340257 Table
+
+FORWARD ME_4BBC914B03C3
+
+: ME_4BBC91640022
+ CONST UID '4BBC91640022'
+ CONST Name 'aNeighbour'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC914B03C3 // Neighbour
+ ;
+ : Target ME_4BBC8546036C // TedNeighbourIndex
+ ;
+
+ref; // ME_4BBC91640022 aNeighbour
+
+: ME_4BBC914B03C3
+ CONST UID '4BBC914B03C3'
+ CONST Name 'Neighbour'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'соседи ячейки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target ME_4BBC90130064 // IedCell
+ ;
+ : Attributes
+   @ ( ME_4BBC91640022 // aNeighbour
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" true
+
+ref; // ME_4BBC914B03C3 Neighbour
+
+: ME_4BBC91960248
+ CONST UID '4BBC91960248'
+ CONST Name 'Width'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'ширина ячейки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC91960248 Width
+
+: ME_4BBC91DF0370
+ CONST UID '4BBC91DF0370'
+ CONST Name 'VerticalAligment'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'выравнивание содержимого ячейки по вертикали' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_467BC89800B9' '469D0AC7005E.pas.ms.script' // VerticalAligment
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC91DF0370 VerticalAligment
+
+: ME_4F290E34016D
+ CONST UID '4F290E34016D'
+ CONST Name 'MergeStatus'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_468E49730365' '469D0AC7005E.pas.ms.script' // MergeStatus
+ ;
+ CONST "pm" true
+
+ref; // ME_4F290E34016D MergeStatus
+
+FORWARD ME_5112045801FF
+
+: ME_511204600331
+ CONST UID '511204600331'
+ CONST Name 'GetCellType'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5112045801FF // GetCellType
+ ;
+ : Target ME_511203F50077 // TedCellType
+ ;
+
+ref; // ME_511204600331 GetCellType
+
+: ME_5112045801FF
+ CONST UID '5112045801FF'
+ CONST Name 'GetCellType'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возвращает тип содержимого ячейки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Operations
+   @ ( ME_511204600331 // GetCellType
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5112045801FF GetCellType
+
+FORWARD ME_511B2BEC02F0
+
+: ME_511B2F1E018B
+ CONST UID '511B2F1E018B'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_511B2F1E018B anOp
+
+: ME_511B2C0603A6
+ CONST UID '511B2C0603A6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_511B2BEC02F0 // MakeCellContinue
+ ;
+ : Parameters
+   @ ( ME_511B2F1E018B // anOp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_511B2C0603A6 DoIt
+
+: ME_511B2BEC02F0
+ CONST UID '511B2BEC02F0'
+ CONST Name 'MakeCellContinue'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выставить тип ячейке (ev_msContinue) и очистить её содержимое.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Operations
+   @ ( ME_511B2C0603A6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_511B2BEC02F0 MakeCellContinue
+
+FORWARD ME_511B2C39034C
+
+: ME_511B2C440002
+ CONST UID '511B2C440002'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_511B2C39034C // CalcHeadCellHeghtInRow
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_511B2C440002 DoIt
+
+: ME_511B2C39034C
+ CONST UID '511B2C39034C'
+ CONST Name 'CalcHeadCellHeghtInRow'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Посчитать сколько занимает строк объедиенная ячейка.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Operations
+   @ ( ME_511B2C440002 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_511B2C39034C CalcHeadCellHeghtInRow
+
+FORWARD ME_512CB1DC00D1
+
+: ME_512CB2250393
+ CONST UID '512CB2250393'
+ CONST Name 'aNewWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_512CB2250393 aNewWidth
+
+: ME_512CB22000FC
+ CONST UID '512CB22000FC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_512CB1DC00D1 // UpdateWidth
+ ;
+ : Parameters
+   @ ( ME_512CB2250393 // aNewWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_512CB22000FC DoIt
+
+: ME_512CB1DC00D1
+ CONST UID '512CB1DC00D1'
+ CONST Name 'UpdateWidth'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Operations
+   @ ( ME_512CB22000FC // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_512CB1DC00D1 UpdateWidth
+
+: ME_4BBC9038028D
+ CONST UID '4BBC9038028D'
+ CONST Name 'aNewWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBC9038028D aNewWidth
+
+: ME_4BBC90300154
+ CONST UID '4BBC90300154'
+ CONST Name 'UpdateWidthAndCheckHead'
+ CONST Class class_Operation
+ %SUMMARY 'изменяет ширину ячейки, в том числе и объединенных' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Parameters
+   @ ( ME_4BBC9038028D // aNewWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBC90300154 UpdateWidthAndCheckHead
+
+: ME_4BBC90800314
+ CONST UID '4BBC90800314'
+ CONST Name 'aNeighbour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ CONST Value 'Right'
+ : ValueType ME_4BBC8546036C // TedNeighbourIndex
+ ;
+
+ref; // ME_4BBC90800314 aNeighbour
+
+: ME_4BBC906D00E8
+ CONST UID '4BBC906D00E8'
+ CONST Name 'Merge'
+ CONST Class class_Operation
+ %SUMMARY 'объединяет ячейку с соседом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBC90800314 // aNeighbour
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBC906D00E8 Merge
+
+: ME_4BBC909D0116
+ CONST UID '4BBC909D0116'
+ CONST Name 'aColNum'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 2
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBC909D0116 aColNum
+
+: ME_4BBC909D0145
+ CONST UID '4BBC909D0145'
+ CONST Name 'aRowNum'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 1
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBC909D0145 aRowNum
+
+: ME_4BBC908A0312
+ CONST UID '4BBC908A0312'
+ CONST Name 'Split'
+ CONST Class class_Operation
+ %SUMMARY 'разбивает ячейку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBC909D0116 // aColNum
+ ME_4BBC909D0145 // aRowNum
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBC908A0312 Split
+
+: ME_4BBC90AE00C5
+ CONST UID '4BBC90AE00C5'
+ CONST Name 'anOrientation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A47DE80309' '4677FBA70343.pas.ms.script' // Tl3Orientation1
+ ;
+
+ref; // ME_4BBC90AE00C5 anOrientation
+
+: ME_4BBC90A5006F
+ CONST UID '4BBC90A5006F'
+ CONST Name 'Split'
+ CONST Class class_Operation
+ %SUMMARY 'разбивает ячейку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBC90AE00C5 // anOrientation
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBC90A5006F Split
+
+: ME_4BBC90B601A3
+ CONST UID '4BBC90B601A3'
+ CONST Name 'IsFirst'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает - первая ли это ячейка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBC90B601A3 IsFirst
+
+: ME_4BBC90CB0396
+ CONST UID '4BBC90CB0396'
+ CONST Name 'IsLast'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает - последняя ли это ячейка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBC90CB0396 IsLast
+
+: ME_4BBC90DE010C
+ CONST UID '4BBC90DE010C'
+ CONST Name 'IsBottom'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает - самая ли ячейка нижняя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBC90DE010C IsBottom
+
+: ME_511B2F3E019D
+ CONST UID '511B2F3E019D'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_511B2F3E019D anOp
+
+: ME_511B2F3E01CB
+ CONST UID '511B2F3E01CB'
+ CONST Name 'anInMerge'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_511B2F3E01CB anInMerge
+
+: ME_4BBC90F1002D
+ CONST UID '4BBC90F1002D'
+ CONST Name 'Delete'
+ CONST Class class_Operation
+ %SUMMARY 'удаляет ячейку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_511B2F3E019D // anOp
+ ME_511B2F3E01CB // anInMerge
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBC90F1002D Delete
+
+: ME_4FA4EEDF0370
+ CONST UID '4FA4EEDF0370'
+ CONST Name 'TextAsInteger'
+ CONST Class class_Operation
+ %SUMMARY 'Пытается преобразовать текст в ячейке к целому числу.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4FA4EEDF0370 TextAsInteger
+
+: ME_4FC728DF02A2
+ CONST UID '4FC728DF02A2'
+ CONST Name 'GetFirstLineText'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает первую строку ячейки. Использыется для тестов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4FC728DF02A2 GetFirstLineText
+
+: ME_4FC764D402BF
+ CONST UID '4FC764D402BF'
+ CONST Name 'IsEmptyCell'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC764D402BF IsEmptyCell
+
+: ME_502CAE3301E7
+ CONST UID '502CAE3301E7'
+ CONST Name 'IsFrameEmpty'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC90130064 // IedCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_502CAE3301E7 IsFrameEmpty
+
+: ME_4A42196C01CE_ME_4BBC90130064
+ CONST UID '4A42196C01CE'
+ CONST Name 'AsObject'
+ : Original WL 'ME_4A42196C01CE' '47913B47006E.pas.ms.script' // AsObject
+ ;
+ : Implementor ME_4BBC90130064 // IedCell
+ ;
+ref; // ME_4A42196C01CE_ME_4BBC90130064 AsObject
+
+: ME_4BBC89F8009C_ME_4BBC90130064
+ CONST UID '4BBC89F8009C'
+ CONST Name 'Frame'
+ : Original ME_4BBC89F8009C // Frame
+ ;
+ : Implementor ME_4BBC90130064 // IedCell
+ ;
+ CONST "pm" false
+ref; // ME_4BBC89F8009C_ME_4BBC90130064 Frame
+
+: ME_4BBF42BF004D_ME_4BBC90130064
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC90130064 // IedCell
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC90130064 Processor
+
+: ME_4BBC90130064
+ CONST UID '4BBC90130064'
+ CONST GUID '2E56A71D-AC99-4F61-B5EB-4EE95B33798E'
+ CONST Name 'IedCell'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс представляющий ячейку таблицы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC89E20058 // IedFramedObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_5346BD1D0373' '47913B47006E.pas.ms.script' // Ml3TagBox
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4BBC91340257 // Table
+ ME_4BBC914B03C3 // Neighbour
+ ME_4BBC91960248 // Width
+ ME_4BBC91DF0370 // VerticalAligment
+ ME_4F290E34016D // MergeStatus
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5112045801FF // GetCellType
+ ME_511B2BEC02F0 // MakeCellContinue
+ ME_511B2C39034C // CalcHeadCellHeghtInRow
+ ME_512CB1DC00D1 // UpdateWidth
+ ME_4BBC90300154 // UpdateWidthAndCheckHead
+ ME_4BBC906D00E8 // Merge
+ ME_4BBC908A0312 // Split
+ ME_4BBC90A5006F // Split
+ ME_4BBC90B601A3 // IsFirst
+ ME_4BBC90CB0396 // IsLast
+ ME_4BBC90DE010C // IsBottom
+ ME_4BBC90F1002D // Delete
+ ME_4FA4EEDF0370 // TextAsInteger
+ ME_4FC728DF02A2 // GetFirstLineText
+ ME_4FC764D402BF // IsEmptyCell
+ ME_502CAE3301E7 // IsFrameEmpty
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4A42196C01CE_ME_4BBC90130064 // AsObject
+ ME_4BBC89F8009C_ME_4BBC90130064 // Frame
+ ME_4BBF42BF004D_ME_4BBC90130064 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+ : Forwarded
+   @ ( ME_4BBC910E0391 // IedTable
+ ) .SequenceCode.It
+ ; // Forwarded
+
+ref; // ME_4BBC90130064 IedCell
+
+FORWARD ME_4BBC95440333
+
+FORWARD ME_4BBC958A01C3
+
+FORWARD ME_4BBC95BF001F
+
+FORWARD ME_4BBC961903CD
+
+: ME_4BBCB0470309
+ CONST UID '4BBCB0470309'
+ CONST Name 'Cell'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'текущая ячейка таблицы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target ME_4BBC90130064 // IedCell
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBCB0470309 Cell
+
+: ME_4BBCB05B0293
+ CONST UID '4BBCB05B0293'
+ CONST Name 'Cells'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'диапазон ячеек таблицы для выделения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target ME_4BBC961903CD // IedCells
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBCB05B0293 Cells
+
+: ME_4BBCB07702A8
+ CONST UID '4BBCB07702A8'
+ CONST Name 'Column'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'текущая колонка таблицы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target ME_4BBC958A01C3 // IedColumn
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBCB07702A8 Column
+
+: ME_4BBCB0890007
+ CONST UID '4BBCB0890007'
+ CONST Name 'ColumnsIterator'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target ME_4BBC95BF001F // IedColumnsIterator
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBCB0890007 ColumnsIterator
+
+: ME_4BBCB0A0014A
+ CONST UID '4BBCB0A0014A'
+ CONST Name 'RowsIterator'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target ME_4BBC95440333 // IedRowsIterator
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCB0A0014A RowsIterator
+
+: ME_4BBCB0BE004E
+ CONST UID '4BBCB0BE004E'
+ CONST Name 'OldNSRC'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCB0BE004E OldNSRC
+
+FORWARD ME_4FC49AA30122
+
+: ME_5342B7C902F2
+ CONST UID '5342B7C902F2'
+ CONST Name 'aRow'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_533D316E00BF' '4678137501EA.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5342B7C902F2 aRow
+
+: ME_5342B7C90343
+ CONST UID '5342B7C90343'
+ CONST Name 'aCell'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_5342B7C90343 aCell
+
+: ME_4FC49AB602E7
+ CONST UID '4FC49AB602E7'
+ CONST Name 'aTagIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_4FC49AB602E7 aTagIndex
+
+: ME_5342B7C903AD
+ CONST UID '5342B7C903AD'
+ CONST Name 'aLocation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B50E0118' '47C5207602D1.pas.ms.script' // InevLocation
+ ;
+
+ref; // ME_5342B7C903AD aLocation
+
+: ME_4FC49AB60354
+ CONST UID '4FC49AB60354'
+ CONST Name 'anInitNeighbours'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4FC49AB60354 anInitNeighbours
+
+: ME_4FC49AAE01A4
+ CONST UID '4FC49AAE01A4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC49AA30122 // GetTagCell
+ ;
+ : Target ME_4BBC90130064 // IedCell
+ ;
+ : Parameters
+   @ ( ME_5342B7C902F2 // aRow
+ ME_5342B7C90343 // aCell
+ ME_4FC49AB602E7 // aTagIndex
+ ME_5342B7C903AD // aLocation
+ ME_4FC49AB60354 // anInitNeighbours
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4FC49AAE01A4 DoIt
+
+: ME_4FC49AA30122
+ CONST UID '4FC49AA30122'
+ CONST Name 'GetTagCell'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Времянка до переноса на модель evParaUtilClasses на модель.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Operations
+   @ ( ME_4FC49AAE01A4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC49AA30122 GetTagCell
+
+FORWARD ME_50DD7CA901AD
+
+: ME_50DD7CB203A7
+ CONST UID '50DD7CB203A7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_50DD7CA901AD // GetTag
+ ;
+ : Target WL 'ME_533D316E00BF' '4678137501EA.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_50DD7CB203A7 DoIt
+
+: ME_50DD7CA901AD
+ CONST UID '50DD7CA901AD'
+ CONST Name 'GetTag'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Operations
+   @ ( ME_50DD7CB203A7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_50DD7CA901AD GetTag
+
+: ME_4BBCAF850333
+ CONST UID '4BBCAF850333'
+ CONST Name 'NumRows'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_4BBCAF850333 NumRows
+
+: ME_4BBCAF7B0203
+ CONST UID '4BBCAF7B0203'
+ CONST Name 'InsertRows'
+ CONST Class class_Operation
+ %SUMMARY 'втавляет NumRows строк в текущее место таблицы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBCAF850333 // NumRows
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCAF7B0203 InsertRows
+
+: ME_4FCE121E032D
+ CONST UID '4FCE121E032D'
+ CONST Name 'anIndicator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47DA7D6003B8' '4678209200A6.pas.ms.script' // InevProgress
+ ;
+
+ref; // ME_4FCE121E032D anIndicator
+
+: ME_4BBCAF9600F1
+ CONST UID '4BBCAF9600F1'
+ CONST Name 'Split'
+ CONST Class class_Operation
+ %SUMMARY 'разделяет таблицу на две, в текущем месте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4FCE121E032D // anIndicator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCAF9600F1 Split
+
+: ME_4F6C329C0347
+ CONST UID '4F6C329C0347'
+ CONST Name 'anIndicator'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47DA7D6003B8' '4678209200A6.pas.ms.script' // InevProgress
+ ;
+
+ref; // ME_4F6C329C0347 anIndicator
+
+: ME_4BBCAFA802FB
+ CONST UID '4BBCAFA802FB'
+ CONST Name 'Merge'
+ CONST Class class_Operation
+ %SUMMARY 'объединяет таблицу со следующей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F6C329C0347 // anIndicator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCAFA802FB Merge
+
+: ME_4BBCAFBC0333
+ CONST UID '4BBCAFBC0333'
+ CONST Name 'FirstRowID'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает номер первой выделенной строки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_4BBCAFBC0333 FirstRowID
+
+: ME_4BBCAFD10171
+ CONST UID '4BBCAFD10171'
+ CONST Name 'Delete'
+ CONST Class class_Operation
+ %SUMMARY 'удаляет таблицу' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBCAFD10171 Delete
+
+: ME_4BBCAFFE0032
+ CONST UID '4BBCAFFE0032'
+ CONST Name 'RowCount'
+ CONST Class class_Operation
+ %SUMMARY 'возварщает количество строк в таблице' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC910E0391 // IedTable
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBCAFFE0032 RowCount
+
+: ME_4BBC89F8009C_ME_4BBC910E0391
+ CONST UID '4BBC89F8009C'
+ CONST Name 'Frame'
+ : Original ME_4BBC89F8009C // Frame
+ ;
+ : Implementor ME_4BBC910E0391 // IedTable
+ ;
+ CONST "pm" false
+ref; // ME_4BBC89F8009C_ME_4BBC910E0391 Frame
+
+: ME_4BBF42BF004D_ME_4BBC910E0391
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC910E0391 // IedTable
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC910E0391 Processor
+
+: ME_4BBC910E0391
+ CONST UID '4BBC910E0391'
+ CONST GUID '310438B0-F1B6-4FC8-AEA9-1C2F3160482B'
+ CONST Name 'IedTable'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс представляющий таблицу' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC89E20058 // IedFramedObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBCB0470309 // Cell
+ ME_4BBCB05B0293 // Cells
+ ME_4BBCB07702A8 // Column
+ ME_4BBCB0890007 // ColumnsIterator
+ ME_4BBCB0A0014A // RowsIterator
+ ME_4BBCB0BE004E // OldNSRC
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4FC49AA30122 // GetTagCell
+ ME_50DD7CA901AD // GetTag
+ ME_4BBCAF7B0203 // InsertRows
+ ME_4BBCAF9600F1 // Split
+ ME_4BBCAFA802FB // Merge
+ ME_4BBCAFBC0333 // FirstRowID
+ ME_4BBCAFD10171 // Delete
+ ME_4BBCAFFE0032 // RowCount
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BBC89F8009C_ME_4BBC910E0391 // Frame
+ ME_4BBF42BF004D_ME_4BBC910E0391 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+ : Injected
+   @ ( WL 'ME_E5024085DB14' '4F4CB50403CC.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ : Forwarded
+   @ ( ME_4BBC95440333 // IedRowsIterator
+ ME_4BBC958A01C3 // IedColumn
+ ME_4BBC95BF001F // IedColumnsIterator
+ ME_4BBC961903CD // IedCells
+ ) .SequenceCode.It
+ ; // Forwarded
+
+ref; // ME_4BBC910E0391 IedTable
+
+FORWARD ME_4BBC920100CB
+
+: ME_4BBC922F02BE
+ CONST UID '4BBC922F02BE'
+ CONST Name 'aNeedNeighbours'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBC922F02BE aNeedNeighbours
+
+: ME_4BBC922302CA
+ CONST UID '4BBC922302CA'
+ CONST Name 'Last'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает последнюю ячейку и начинает перебор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC920100CB // IedBackCellsIterator
+ ;
+ : Target ME_4BBC90130064 // IedCell
+ ;
+ : Parameters
+   @ ( ME_4BBC922F02BE // aNeedNeighbours
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBC922302CA Last
+
+: ME_4BBC92390009
+ CONST UID '4BBC92390009'
+ CONST Name 'Prev'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает предыдущую ячейку или nil, если перебор закончен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC920100CB // IedBackCellsIterator
+ ;
+ : Target ME_4BBC90130064 // IedCell
+ ;
+
+ref; // ME_4BBC92390009 Prev
+
+: ME_4BBF42BF004D_ME_4BBC920100CB
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC920100CB // IedBackCellsIterator
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC920100CB Processor
+
+: ME_4BBC920100CB
+ CONST UID '4BBC920100CB'
+ CONST GUID 'AC012527-AACB-4848-885E-AEF71CADE91D'
+ CONST Name 'IedBackCellsIterator'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, обеспечивающий обратный перебор ячеек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC898C0320 // IedProcessorObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4BBC922302CA // Last
+ ME_4BBC92390009 // Prev
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC920100CB // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC920100CB IedBackCellsIterator
+
+FORWARD ME_4BBC93F50176
+
+: ME_4BBC9430038B
+ CONST UID '4BBC9430038B'
+ CONST Name 'BackIterator'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC93F50176 // IedCellsIterator
+ ;
+ : Target ME_4BBC920100CB // IedBackCellsIterator
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC9430038B BackIterator
+
+: ME_4BBC9454000D
+ CONST UID '4BBC9454000D'
+ CONST Name 'aNeedNeighbours'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBC9454000D aNeedNeighbours
+
+: ME_4BBC944C0195
+ CONST UID '4BBC944C0195'
+ CONST Name 'First'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает первую ячейку и начинает перебор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC93F50176 // IedCellsIterator
+ ;
+ : Target ME_4BBC90130064 // IedCell
+ ;
+ : Parameters
+   @ ( ME_4BBC9454000D // aNeedNeighbours
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBC944C0195 First
+
+: ME_4BBC94640082
+ CONST UID '4BBC94640082'
+ CONST Name 'Next'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает следующую ячейку или nil, если перебор закончен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC93F50176 // IedCellsIterator
+ ;
+ : Target ME_4BBC90130064 // IedCell
+ ;
+
+ref; // ME_4BBC94640082 Next
+
+: ME_4BBC947B0399
+ CONST UID '4BBC947B0399'
+ CONST Name 'CellsCount'
+ CONST Class class_Operation
+ %SUMMARY 'Количество ячеек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC93F50176 // IedCellsIterator
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BBC947B0399 CellsCount
+
+: ME_4BBF42BF004D_ME_4BBC93F50176
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC93F50176 // IedCellsIterator
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC93F50176 Processor
+
+: ME_4BBC93F50176
+ CONST UID '4BBC93F50176'
+ CONST GUID 'D1687D4A-F58E-46BA-88AB-4D62B21EEB1A'
+ CONST Name 'IedCellsIterator'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, обеспечивающий перебор ячеек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC898C0320 // IedProcessorObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBC9430038B // BackIterator
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4BBC944C0195 // First
+ ME_4BBC94640082 // Next
+ ME_4BBC947B0399 // CellsCount
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC93F50176 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC93F50176 IedCellsIterator
+
+FORWARD ME_4BBC94B70059
+
+: ME_4BBC94CF038F
+ CONST UID '4BBC94CF038F'
+ CONST Name 'Table'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'таблица, которой принадлежит строка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC94B70059 // IedRow
+ ;
+ : Target ME_4BBC910E0391 // IedTable
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC94CF038F Table
+
+: ME_4BBC94F0016E
+ CONST UID '4BBC94F0016E'
+ CONST Name 'CellsIterator'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC94B70059 // IedRow
+ ;
+ : Target ME_4BBC93F50176 // IedCellsIterator
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC94F0016E CellsIterator
+
+FORWARD ME_4FC49F620379
+
+: ME_4FC49F6D0082
+ CONST UID '4FC49F6D0082'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FC49F620379 // AnalizeRowCells
+ ;
+ : Target ME_4FC5C77503C7 // TedRowType
+ ;
+
+ref; // ME_4FC49F6D0082 DoIt
+
+: ME_4FC49F620379
+ CONST UID '4FC49F620379'
+ CONST Name 'AnalizeRowCells'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC94B70059 // IedRow
+ ;
+ : Operations
+   @ ( ME_4FC49F6D0082 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4FC49F620379 AnalizeRowCells
+
+: ME_4BBF42BF004D_ME_4BBC94B70059
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC94B70059 // IedRow
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC94B70059 Processor
+
+: ME_4BBC94B70059
+ CONST UID '4BBC94B70059'
+ CONST GUID '60F7CDBC-9E6C-4F05-900E-0CC7F8C8FD38'
+ CONST Name 'IedRow'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Строка таблиц' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC89CE035C // IedEditableObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBC94CF038F // Table
+ ME_4BBC94F0016E // CellsIterator
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4FC49F620379 // AnalizeRowCells
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC94B70059 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC94B70059 IedRow
+
+: ME_4BBC95580242
+ CONST UID '4BBC95580242'
+ CONST Name 'First'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает первую строку и начинает перебор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC95440333 // IedRowsIterator
+ ;
+ : Target ME_4BBC94B70059 // IedRow
+ ;
+
+ref; // ME_4BBC95580242 First
+
+: ME_4BBC956B02B6
+ CONST UID '4BBC956B02B6'
+ CONST Name 'Next'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает следующую строку или nil, если перебор закончен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC95440333 // IedRowsIterator
+ ;
+ : Target ME_4BBC94B70059 // IedRow
+ ;
+
+ref; // ME_4BBC956B02B6 Next
+
+: ME_4BBF42BF004D_ME_4BBC95440333
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC95440333 // IedRowsIterator
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC95440333 Processor
+
+: ME_4BBC95440333
+ CONST UID '4BBC95440333'
+ CONST GUID '13948C52-C4D8-416A-8E30-B119F8218412'
+ CONST Name 'IedRowsIterator'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, обеспечивающий перебор строк таблицы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC898C0320 // IedProcessorObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4BBC95580242 // First
+ ME_4BBC956B02B6 // Next
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC95440333 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC95440333 IedRowsIterator
+
+: ME_4BBCAEC2034D
+ CONST UID '4BBCAEC2034D'
+ CONST Name 'CellsIterator'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'итератор ячеек колонки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC958A01C3 // IedColumn
+ ;
+ : Target ME_4BBC93F50176 // IedCellsIterator
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCAEC2034D CellsIterator
+
+: ME_4BBCAEF3001D
+ CONST UID '4BBCAEF3001D'
+ CONST Name 'Width'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'ширина колонки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC958A01C3 // IedColumn
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCAEF3001D Width
+
+: ME_4BBCAF08019B
+ CONST UID '4BBCAF08019B'
+ CONST Name 'ID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'номер колонки по порядку от левого края таблицы (начиная с 0)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC958A01C3 // IedColumn
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCAF08019B ID
+
+: ME_4BBF42BF004D_ME_4BBC958A01C3
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC958A01C3 // IedColumn
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC958A01C3 Processor
+
+: ME_4BBC958A01C3
+ CONST UID '4BBC958A01C3'
+ CONST GUID '8D87847B-CBCA-4E7E-84A5-ED2E50A16ADB'
+ CONST Name 'IedColumn'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс представляющий колонку таблицы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC89CE035C // IedEditableObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBCAEC2034D // CellsIterator
+ ME_4BBCAEF3001D // Width
+ ME_4BBCAF08019B // ID
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC958A01C3 // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC958A01C3 IedColumn
+
+FORWARD ME_4BBCB1060196
+
+: ME_4BBCB11B0108
+ CONST UID '4BBCB11B0108'
+ CONST Name 'Word'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBCB1060196 // TedRangePart
+ ;
+
+ref; // ME_4BBCB11B0108 Word
+
+: ME_4BBCB1240017
+ CONST UID '4BBCB1240017'
+ CONST Name 'ToLeftWord'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBCB1060196 // TedRangePart
+ ;
+
+ref; // ME_4BBCB1240017 ToLeftWord
+
+: ME_4BBCB12F02A4
+ CONST UID '4BBCB12F02A4'
+ CONST Name 'ToWordFinish'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBCB1060196 // TedRangePart
+ ;
+
+ref; // ME_4BBCB12F02A4 ToWordFinish
+
+: ME_4BBCB138023F
+ CONST UID '4BBCB138023F'
+ CONST Name 'ToRightWord'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBCB1060196 // TedRangePart
+ ;
+
+ref; // ME_4BBCB138023F ToRightWord
+
+: ME_4BBCB1430064
+ CONST UID '4BBCB1430064'
+ CONST Name 'WholeWordRight'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBCB1060196 // TedRangePart
+ ;
+
+ref; // ME_4BBCB1430064 WholeWordRight
+
+: ME_4BBCB1060196
+ CONST UID '4BBCB1060196'
+ CONST Name 'TedRangePart'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBCB11B0108 // Word
+ ME_4BBCB1240017 // ToLeftWord
+ ME_4BBCB12F02A4 // ToWordFinish
+ ME_4BBCB138023F // ToRightWord
+ ME_4BBCB1430064 // WholeWordRight
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'rp'
+ CONST "elements prefix" 'ed'
+ CONST extprop:pas:ElementPrefixBase 'ed'
+ CONST extprop:pas:ElementPrefix 'ed_rp'
+
+ref; // ME_4BBCB1060196 TedRangePart
+
+: ME_4BBC95D40132
+ CONST UID '4BBC95D40132'
+ CONST Name 'First'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает первый столбец и начинает перебор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC95BF001F // IedColumnsIterator
+ ;
+ : Target ME_4BBC958A01C3 // IedColumn
+ ;
+
+ref; // ME_4BBC95D40132 First
+
+: ME_4BBC95E6029D
+ CONST UID '4BBC95E6029D'
+ CONST Name 'Next'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает следующий столбец или nil, если перебор закончен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC95BF001F // IedColumnsIterator
+ ;
+ : Target ME_4BBC958A01C3 // IedColumn
+ ;
+
+ref; // ME_4BBC95E6029D Next
+
+: ME_4BBF42BF004D_ME_4BBC95BF001F
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC95BF001F // IedColumnsIterator
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC95BF001F Processor
+
+: ME_4BBC95BF001F
+ CONST UID '4BBC95BF001F'
+ CONST GUID '4CB6AB7D-9813-4ED9-A207-5789E8645932'
+ CONST Name 'IedColumnsIterator'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, обеспечивающий перебор столбцов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC898C0320 // IedProcessorObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4BBC95D40132 // First
+ ME_4BBC95E6029D // Next
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BBF42BF004D_ME_4BBC95BF001F // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4BBC95BF001F IedColumnsIterator
+
+FORWARD ME_4BBC96360015
+
+: ME_4BBC966A02BA
+ CONST UID '4BBC966A02BA'
+ CONST Name 'All'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+
+ref; // ME_4BBC966A02BA All
+
+: ME_4BBC967303B5
+ CONST UID '4BBC967303B5'
+ CONST Name 'Horz'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+
+ref; // ME_4BBC967303B5 Horz
+
+: ME_4BBC967B0390
+ CONST UID '4BBC967B0390'
+ CONST Name 'Vert'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+
+ref; // ME_4BBC967B0390 Vert
+
+: ME_4BBC96360015
+ CONST UID '4BBC96360015'
+ CONST Name 'TedMergeAlgorythm'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BBC961903CD // IedCells
+ ;
+ : Attributes
+   @ ( ME_4BBC966A02BA // All
+ ME_4BBC967303B5 // Horz
+ ME_4BBC967B0390 // Vert
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'ma'
+ CONST "elements prefix" 'ed'
+ CONST extprop:pas:ElementPrefixBase 'ed'
+ CONST extprop:pas:ElementPrefix 'ed_ma'
+
+ref; // ME_4BBC96360015 TedMergeAlgorythm
+
+: ME_4BBC9D99015E
+ CONST UID '4BBC9D99015E'
+ CONST Name 'TableRange'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'диапазон выделения в таблице' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC961903CD // IedCells
+ ;
+ : Target WL 'ME_47C7DB3E03C1' '47C5207602D1.pas.ms.script' // IevTableRange
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC9D99015E TableRange
+
+: ME_4BBC9DB602BA
+ CONST UID '4BBC9DB602BA'
+ CONST Name 'Table'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'таблица, к которому принадлежит данный диапазон ячеек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC961903CD // IedCells
+ ;
+ : Target ME_4BBC910E0391 // IedTable
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC9DB602BA Table
+
+: ME_4BBC9DEE0322
+ CONST UID '4BBC9DEE0322'
+ CONST Name 'VerticalAligment'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'выравнивание содержимого ячейки по вертикали' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBC961903CD // IedCells
+ ;
+ : Target WL 'ME_467BC89800B9' '469D0AC7005E.pas.ms.script' // VerticalAligment
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBC9DEE0322 VerticalAligment
+
+: ME_4BFCC3740001
+ CONST UID '4BFCC3740001'
+ CONST Name 'aMergeAlg'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+ CONST Value 'All'
+ : ValueType ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+
+ref; // ME_4BFCC3740001 aMergeAlg
+
+: ME_4BBC978B0203
+ CONST UID '4BBC978B0203'
+ CONST Name 'Merge'
+ CONST Class class_Operation
+ %SUMMARY 'объединить ячейки в диапазоне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC961903CD // IedCells
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BFCC3740001 // aMergeAlg
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBC978B0203 Merge
+
+: ME_4BFCC6860038
+ CONST UID '4BFCC6860038'
+ CONST Name 'Translate2Text'
+ CONST Class class_Operation
+ %SUMMARY 'преобразуем диапазон ячеек в текст.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BBC961903CD // IedCells
+ ;
+
+ref; // ME_4BFCC6860038 Translate2Text
+
+: ME_4BBC89F8009C_ME_4BBC961903CD
+ CONST UID '4BBC89F8009C'
+ CONST Name 'Frame'
+ : Original ME_4BBC89F8009C // Frame
+ ;
+ : Implementor ME_4BBC961903CD // IedCells
+ ;
+ CONST "pm" false
+ref; // ME_4BBC89F8009C_ME_4BBC961903CD Frame
+
+: ME_4BBF42BF004D_ME_4BBC961903CD
+ CONST UID '4BBF42BF004D'
+ CONST Name 'Processor'
+ : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4BBC961903CD // IedCells
+ ;
+ CONST "pm" false
+ref; // ME_4BBF42BF004D_ME_4BBC961903CD Processor
+
+: ME_4BBC961903CD
+ CONST UID '4BBC961903CD'
+ CONST GUID 'FD5C09F4-6DF7-472B-B7B7-4F07CDD1095E'
+ CONST Name 'IedCells'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейc представляющий диапазон ячеек таблицы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC89E20058 // IedFramedObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBC9D99015E // TableRange
+ ME_4BBC9DB602BA // Table
+ ME_4BBC9DEE0322 // VerticalAligment
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4BBC978B0203 // Merge
+ ME_4BFCC6860038 // Translate2Text
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4BBC89F8009C_ME_4BBC961903CD // Frame
+ ME_4BBF42BF004D_ME_4BBC961903CD // Processor
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_4BBC96360015 // TedMergeAlgorythm
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_4BBC961903CD IedCells
+
+FORWARD ME_4BBCB47D03AB
+
+: ME_4BBCB49801F5
+ CONST UID '4BBCB49801F5'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4BBCB47D03AB // TevCellNeighbours
+ ;
+ : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
+ ;
+
+ref; // ME_4BBCB49801F5 
+
+: ME_4BBCB47D03AB
+ CONST UID '4BBCB47D03AB'
+ CONST Name 'TevCellNeighbours'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Inherits
+   @ ( ME_4BBC8546036C // TedNeighbourIndex
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BBCB49801F5 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_4BBCB47D03AB TevCellNeighbours
+
+FORWARD ME_48E38399034C
+
+FORWARD ME_6BDD1FD9EE50
+
+: ME_F3276BB9BA3F
+ CONST UID 'F3276BB9BA3F'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+
+ref; // ME_F3276BB9BA3F anItem
+
+: ME_E0B9B681F94C
+ CONST UID 'E0B9B681F94C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Тип подитеративной функции для IedRange.IterateLeafParagraphs' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_6BDD1FD9EE50 // IedRange_IterateLeafParagraphs_Action
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_F3276BB9BA3F // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_E0B9B681F94C DoIt
+
+: ME_6BDD1FD9EE50
+ CONST UID '6BDD1FD9EE50'
+ CONST Name 'IedRange_IterateLeafParagraphs_Action'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип подитеративной функции для IedRange.IterateLeafParagraphs' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Operations
+   @ ( ME_E0B9B681F94C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" false
+
+ref; // ME_6BDD1FD9EE50 IedRange_IterateLeafParagraphs_Action
+
+: ME_4BBCB16B01A8
+ CONST UID '4BBCB16B01A8'
+ CONST Name 'Paragraph'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'получает абстрактный параграф в диапазоне, если он в него входит' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target ME_4BBC8A230393 // IedParagraph
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBCB16B01A8 Paragraph
+
+: ME_4BBCB17D02BC
+ CONST UID '4BBCB17D02BC'
+ CONST Name 'Table'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'получает таблицу в диапазоне, если она в него входит' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target ME_4BBC910E0391 // IedTable
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBCB17D02BC Table
+
+: ME_4BBCB1E00074
+ CONST UID '4BBCB1E00074'
+ CONST Name 'Hyperlink'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'получает гиперссылку в диапазоне, если она в него входит' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+ CONST "pm" false
+
+ref; // ME_4BBCB1E00074 Hyperlink
+
+: ME_4BBCB211030A
+ CONST UID '4BBCB211030A'
+ CONST Name 'Collapsed'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'выделение или точка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCB211030A Collapsed
+
+: ME_4BBCB22F02D6
+ CONST UID '4BBCB22F02D6'
+ CONST Name 'TextParagraph'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY '"текстовый" параграф в выделении' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target ME_4B547F7801F3 // IedTextParagraph
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCB22F02D6 TextParagraph
+
+FORWARD ME_4BBCB24A0106
+
+: ME_4BBCB263027C
+ CONST UID '4BBCB263027C'
+ CONST Name 'aPart'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BBCB24A0106 // Part
+ ;
+ : Target ME_4BBCB1060196 // TedRangePart
+ ;
+
+ref; // ME_4BBCB263027C aPart
+
+: ME_4BBCB24A0106
+ CONST UID '4BBCB24A0106'
+ CONST Name 'Part'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'часть выделения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target ME_48E38399034C // IedRange
+ ;
+ : Attributes
+   @ ( ME_4BBCB263027C // aPart
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" true
+
+ref; // ME_4BBCB24A0106 Part
+
+: ME_4BBCB28E02E6
+ CONST UID '4BBCB28E02E6'
+ CONST Name 'Document'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_47C6B7BE0395' '47C5207602D1.pas.ms.script' // IevDocument
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCB28E02E6 Document
+
+FORWARD ME_4BBDD4900292
+
+: ME_4BBDD4E20330
+ CONST UID '4BBDD4E20330'
+ CONST Name 'aProgress'
+ CONST Class class_Attribute
+ : Stereotype st_in::Attribute ;
+ %SUMMARY 'Индикатор прогресса' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4BBDD4900292 // IterateLeafParagraphs
+ ;
+ : Target WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
+ ;
+
+ref; // ME_4BBDD4E20330 aProgress
+
+: ME_4BBDD4F403D2
+ CONST UID '4BBDD4F403D2'
+ CONST Name 'anOpCode'
+ CONST Class class_Attribute
+ : Stereotype st_in::Attribute ;
+ %SUMMARY 'Идентификатор операции' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4BBDD4900292 // IterateLeafParagraphs
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST Value 1
+ : ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_4BBDD4F403D2 anOpCode
+
+: ME_4BBDD4A600D7
+ CONST UID '4BBDD4A600D7'
+ CONST Class class_Attribute
+ : Stereotype st_element_type::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4BBDD4900292 // IterateLeafParagraphs
+ ;
+ : Target ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+
+ref; // ME_4BBDD4A600D7 
+
+: ME_777C6C653BE9
+ CONST UID '777C6C653BE9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BBDD4900292 // IterateLeafParagraphs
+ ;
+ : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
+ ;
+
+ref; // ME_777C6C653BE9 
+
+: ME_4BBDD4900292
+ CONST UID '4BBDD4900292'
+ CONST Name 'IterateLeafParagraphs'
+ CONST Class class_Class
+ : Stereotype st_Iterator ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'перебирает все листьевые параграфы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Attributes
+   @ ( ME_4BBDD4E20330 // aProgress
+ ME_4BBDD4F403D2 // anOpCode
+ ME_4BBDD4A600D7 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_777C6C653BE9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs index" false
+ CONST "needs result" false
+ CONST extprop:pas:TypeName 'IedRange_IterateLeafParagraphs_Action'
+
+ref; // ME_4BBDD4900292 IterateLeafParagraphs
+
+: ME_4BBCB2AD02B2
+ CONST UID '4BBCB2AD02B2'
+ CONST Name 'ContainsOneLeaf'
+ CONST Class class_Operation
+ %SUMMARY 'проверяет содержит ли диапазон только один листьевой параграф' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBCB2AD02B2 ContainsOneLeaf
+
+: ME_4BBCB2CB030C
+ CONST UID '4BBCB2CB030C'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+ CONST Value 'cf_Text'
+ : ValueType WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_4BBCB2CB030C aFormat
+
+: ME_4BBCB2C003AE
+ CONST UID '4BBCB2C003AE'
+ CONST Name 'AsString'
+ CONST Class class_Operation
+ %SUMMARY 'получает текст в диапазоне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_4BBCB2CB030C // aFormat
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCB2C003AE AsString
+
+: ME_4BBCB3400051
+ CONST UID '4BBCB3400051'
+ CONST Name 'aMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C6926702A2' '47C5207602D1.pas.ms.script' // TevClearMode
+ ;
+ CONST Value 'ev_cmKeepOne'
+ : ValueType WL 'ME_47C6926702A2' '47C5207602D1.pas.ms.script' // TevClearMode
+ ;
+
+ref; // ME_4BBCB3400051 aMode
+
+: ME_4BBCB3350175
+ CONST UID '4BBCB3350175'
+ CONST Name 'Delete'
+ CONST Class class_Operation
+ %SUMMARY 'удаляет содержимое диапазона' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBCB3400051 // aMode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCB3350175 Delete
+
+: ME_4BBCB365013B
+ CONST UID '4BBCB365013B'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_4BBCB365013B aFormat
+
+: ME_4BBCB3650199
+ CONST UID '4BBCB3650199'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
+ ;
+
+ref; // ME_4BBCB3650199 aData
+
+: ME_4BBCB36501F7
+ CONST UID '4BBCB36501F7'
+ CONST Name 'aNeedClearOld'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBCB36501F7 aNeedClearOld
+
+: ME_4BBCB34C003A
+ CONST UID '4BBCB34C003A'
+ CONST Name 'InsertData'
+ CONST Class class_Operation
+ %SUMMARY 'вставить данные из памяти в формате aFormat' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBCB365013B // aFormat
+ ME_4BBCB3650199 // aData
+ ME_4BBCB36501F7 // aNeedClearOld
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCB34C003A InsertData
+
+: ME_4BBCB38100C4
+ CONST UID '4BBCB38100C4'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C6AE9001D5' '47C5207602D1.pas.ms.script' // InevTagReader
+ ;
+
+ref; // ME_4BBCB38100C4 aTextSource
+
+: ME_4BBCB3810125
+ CONST UID '4BBCB3810125'
+ CONST Name 'aFilters'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47CC38040095' '4678209200A6.pas.ms.script' // InevTagGenerator
+ ;
+
+ref; // ME_4BBCB3810125 aFilters
+
+: ME_4BBCB36D03B8
+ CONST UID '4BBCB36D03B8'
+ CONST Name 'InsertFrom'
+ CONST Class class_Operation
+ %SUMMARY 'вставить данные из другого источника текста' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Parameters
+   @ ( ME_4BBCB38100C4 // aTextSource
+ ME_4BBCB3810125 // aFilters
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCB36D03B8 InsertFrom
+
+: ME_4BBCB3A901A1
+ CONST UID '4BBCB3A901A1'
+ CONST Name 'aSt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A455F7018F' '4677FBA70343.pas.ms.script' // Tl3PCharLenPrim
+ ;
+
+ref; // ME_4BBCB3A901A1 aSt
+
+: ME_4BBCB3A9020A
+ CONST UID '4BBCB3A9020A'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+ CONST Value 'cf_Text'
+ : ValueType WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_4BBCB3A9020A aFormat
+
+: ME_4BBCB38B00C2
+ CONST UID '4BBCB38B00C2'
+ CONST Name 'InsertString'
+ CONST Class class_Operation
+ %SUMMARY 'вставить строку aSt в текущую позицию курсора.'#13#10'         |* Пример использования метода InsertString.'#13#10'          !begin'#13#10'          ! CurrentEditor.Range.InsertString(l3PCharLen(''Hello world!'', -1, CP_ANSI));'#13#10'          ! // - в текущую позицию курсора вставляется строка ''Hello word!'' в кодировке CP_ANSI.'#13#10'          !end;'#13#10'         |*' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBCB3A901A1 // aSt
+ ME_4BBCB3A9020A // aFormat
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCB38B00C2 InsertString
+
+: ME_4BBCB3C602AE
+ CONST UID '4BBCB3C602AE'
+ CONST Name 'aSt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4BBCB3C602AE aSt
+
+: ME_4BBCB3C60315
+ CONST UID '4BBCB3C60315'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+ CONST Value 'cf_Text'
+ : ValueType WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_4BBCB3C60315 aFormat
+
+: ME_4BBCB3B2009F
+ CONST UID '4BBCB3B2009F'
+ CONST Name 'InsertString'
+ CONST Class class_Operation
+ %SUMMARY 'вставить строку aSt в текущую позицию курсора.'#13#10'         |* Пример использования метода InsertString.'#13#10'          !begin'#13#10'          ! CurrentEditor.Range.InsertString(''Hello world!'');'#13#10'          ! // - в текущую позицию курсора вставляется строка ''Hello word!'' в кодировке CP_ANSI.'#13#10'          !end;'#13#10'         |*' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBCB3C602AE // aSt
+ ME_4BBCB3C60315 // aFormat
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCB3B2009F InsertString
+
+: ME_4BBCB3D20184
+ CONST UID '4BBCB3D20184'
+ CONST Name 'InsertParaBreak'
+ CONST Class class_Operation
+ %SUMMARY 'вставляет разрыв параграфов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBCB3D20184 InsertParaBreak
+
+: ME_4BBCB3EB003D
+ CONST UID '4BBCB3EB003D'
+ CONST Name 'DeleteChar'
+ CONST Class class_Operation
+ %SUMMARY 'удаляет текущий символ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBCB3EB003D DeleteChar
+
+: ME_4BBCB42500CB
+ CONST UID '4BBCB42500CB'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_4BBCB42500CB aFormat
+
+: ME_4BBCB425013D
+ CONST UID '4BBCB425013D'
+ CONST Name 'outPool'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+
+ref; // ME_4BBCB425013D outPool
+
+: ME_4BBCB42501B0
+ CONST UID '4BBCB42501B0'
+ CONST Name 'aFilters'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47CC38040095' '4678209200A6.pas.ms.script' // InevTagGenerator
+ ;
+
+ref; // ME_4BBCB42501B0 aFilters
+
+: ME_4BBCB4250221
+ CONST UID '4BBCB4250221'
+ CONST Name 'anInternal'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBCB4250221 anInternal
+
+: ME_4BBCB42502AC
+ CONST UID '4BBCB42502AC'
+ CONST Name 'ChildrenOnly'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BBCB42502AC ChildrenOnly
+
+: ME_4BBCB3FE033D
+ CONST UID '4BBCB3FE033D'
+ CONST Name 'Save'
+ CONST Class class_Operation
+ %SUMMARY 'сохранить выделение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BBCB42500CB // aFormat
+ ME_4BBCB425013D // outPool
+ ME_4BBCB42501B0 // aFilters
+ ME_4BBCB4250221 // anInternal
+ ME_4BBCB42502AC // ChildrenOnly
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BBCB3FE033D Save
+
+: ME_C7F873D6A21D
+ CONST UID 'C7F873D6A21D'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
+ ;
+
+ref; // ME_C7F873D6A21D anAction
+
+: ME_D5CE63D07241
+ CONST UID 'D5CE63D07241'
+ CONST Name 'L2_IedRange_IterateLeafParagraphs_Action'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IedRange.IterateLeafParagraphs' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48E38399034C // IedRange
+ ;
+ : Target ME_6BDD1FD9EE50 // IedRange_IterateLeafParagraphs_Action
+ ;
+ : Parameters
+   @ ( ME_C7F873D6A21D // anAction
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_D5CE63D07241 L2_IedRange_IterateLeafParagraphs_Action
+
+: ME_48E38399034C
+ CONST UID '48E38399034C'
+ CONST GUID 'A3735617-00AF-44F5-9D1A-1AEB1E5242C7'
+ CONST Name 'IedRange'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Диапазон выделения параграфов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBCB16B01A8 // Paragraph
+ ME_4BBCB17D02BC // Table
+ ME_4BBCB1E00074 // Hyperlink
+ ME_4BBCB211030A // Collapsed
+ ME_4BBCB22F02D6 // TextParagraph
+ ME_4BBCB24A0106 // Part
+ ME_4BBCB28E02E6 // Document
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4BBDD4900292 // IterateLeafParagraphs
+ ME_4BBCB2AD02B2 // ContainsOneLeaf
+ ME_4BBCB2C003AE // AsString
+ ME_4BBCB3350175 // Delete
+ ME_4BBCB34C003A // InsertData
+ ME_4BBCB36D03B8 // InsertFrom
+ ME_4BBCB38B00C2 // InsertString
+ ME_4BBCB3B2009F // InsertString
+ ME_4BBCB3D20184 // InsertParaBreak
+ ME_4BBCB3EB003D // DeleteChar
+ ME_4BBCB3FE033D // Save
+ ME_D5CE63D07241 // L2_IedRange_IterateLeafParagraphs_Action
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_6BDD1FD9EE50 // IedRange_IterateLeafParagraphs_Action
+ ) .SequenceCode.It
+ ; // Children
+ : Injected
+   @ ( WL 'ME_8D26E625F960' '4F4CB50403CC.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+
+ref; // ME_48E38399034C IedRange
+
+FORWARD ME_4FC76BD6005C
+
+: ME_4FC76C2E0162
+ CONST UID '4FC76C2E0162'
+ CONST Name 'edSingleCell'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC76BD6005C // RowTypeSets
+ ;
+ CONST Value '[ed_PsevdoSingleCells, ed_SingleCell]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4FC76C2E0162 edSingleCell
+
+: ME_4FC76C6E01C1
+ CONST UID '4FC76C6E01C1'
+ CONST Name 'edAllowCellInHeadRow'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FC76BD6005C // RowTypeSets
+ ;
+ CONST Value '[ed_HasMergedCell, ed_SimpleCells, ed_SimpleWithoutEmpty]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4FC76C6E01C1 edAllowCellInHeadRow
+
+: ME_4FC76BD6005C
+ CONST UID '4FC76BD6005C'
+ CONST Name 'RowTypeSets'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4FC76C2E0162 // edSingleCell
+ ME_4FC76C6E01C1 // edAllowCellInHeadRow
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4FC76BD6005C RowTypeSets
+
+FORWARD ME_4BBCB43D018B
+
+: ME_4BBCB44C0364
+ CONST UID '4BBCB44C0364'
+ CONST Name 'Range'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBCB43D018B // IedRangeSource
+ ;
+ : Target ME_48E38399034C // IedRange
+ ;
+ CONST "pm" true
+
+ref; // ME_4BBCB44C0364 Range
+
+: ME_4F44AA1C00B4
+ CONST UID '4F44AA1C00B4'
+ CONST Name 'Cursor'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BBCB43D018B // IedRangeSource
+ ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+ CONST "pm" true
+
+ref; // ME_4F44AA1C00B4 Cursor
+
+: ME_4BBCB43D018B
+ CONST UID '4BBCB43D018B'
+ CONST GUID '0AA44E80-5CF7-4AB2-8298-6837804D9321'
+ CONST Name 'IedRangeSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Источник диапазона выделения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_4BBCB44C0364 // Range
+ ME_4F44AA1C00B4 // Cursor
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4BBCB43D018B IedRangeSource
+
+FORWARD ME_5076AAD90277
+
+: ME_5076AB0A0209
+ CONST UID '5076AB0A0209'
+ CONST Name 'ed_tsNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5076AAD90277 // TedTabelType
+ ;
+
+ref; // ME_5076AB0A0209 ed_tsNone
+
+: ME_5076AB1D0313
+ CONST UID '5076AB1D0313'
+ CONST Name 'ed_tsWithHeader'
+ CONST Class class_Attribute
+ %SUMMARY 'Таблица с заголовоком.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5076AAD90277 // TedTabelType
+ ;
+
+ref; // ME_5076AB1D0313 ed_tsWithHeader
+
+: ME_5076AB450082
+ CONST UID '5076AB450082'
+ CONST Name 'ed_tsForm'
+ CONST Class class_Attribute
+ %SUMMARY 'Таблица - форма.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5076AAD90277 // TedTabelType
+ ;
+
+ref; // ME_5076AB450082 ed_tsForm
+
+: ME_51598C0002D3
+ CONST UID '51598C0002D3'
+ CONST Name 'ed_tsChessTable'
+ CONST Class class_Attribute
+ %SUMMARY 'Таблица - "шахматка".' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5076AAD90277 // TedTabelType
+ ;
+
+ref; // ME_51598C0002D3 ed_tsChessTable
+
+: ME_5076AAD90277
+ CONST UID '5076AAD90277'
+ CONST Name 'TedTabelType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип таблицы - попытка заточить выравнивание для таблиц определенного вида.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_5076AB0A0209 // ed_tsNone
+ ME_5076AB1D0313 // ed_tsWithHeader
+ ME_5076AB450082 // ed_tsForm
+ ME_51598C0002D3 // ed_tsChessTable
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_5076AAD90277 TedTabelType
+
+FORWARD ME_51594428017F
+
+: ME_515944E8022D
+ CONST UID '515944E8022D'
+ CONST Name 'ed_bcNonEqual'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51594428017F // TedBoundaryCorrespondence
+ ;
+
+ref; // ME_515944E8022D ed_bcNonEqual
+
+: ME_515944FE0096
+ CONST UID '515944FE0096'
+ CONST Name 'ed_bcRightEqual'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51594428017F // TedBoundaryCorrespondence
+ ;
+
+ref; // ME_515944FE0096 ed_bcRightEqual
+
+: ME_5159451A0153
+ CONST UID '5159451A0153'
+ CONST Name 'ed_bcLeftEqual'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51594428017F // TedBoundaryCorrespondence
+ ;
+
+ref; // ME_5159451A0153 ed_bcLeftEqual
+
+: ME_515945B000FD
+ CONST UID '515945B000FD'
+ CONST Name 'ed_bcEqual'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51594428017F // TedBoundaryCorrespondence
+ ;
+
+ref; // ME_515945B000FD ed_bcEqual
+
+: ME_51594428017F
+ CONST UID '51594428017F'
+ CONST Name 'TedBoundaryCorrespondence'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ : Attributes
+   @ ( ME_515944E8022D // ed_bcNonEqual
+ ME_515944FE0096 // ed_bcRightEqual
+ ME_5159451A0153 // ed_bcLeftEqual
+ ME_515945B000FD // ed_bcEqual
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_51594428017F TedBoundaryCorrespondence
+
+: ME_48E3836D00C8
+ CONST UID '48E3836D00C8'
+ CONST Name 'evEditorInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Модуль, описывающий работу с текстом на уровне "окна" редактора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4BBC61DD0368 // IedStyle
+ ME_4BBC803F0288 // TedHorizontalAligment
+ ME_4BBC4CD100F8 // TedRangeIndexes
+ ME_4BBC80A101EF // IedParagraphFormatting
+ ME_4BBC818A01EA // TedLineStyle
+ ME_4BBC840D036C // IedFramePart
+ ME_4BBC84CF0094 // TedFramePartIndex
+ ME_4BBC89390312 // IedFrame
+ ME_4BBC8546036C // TedNeighbourIndex
+ ME_4BBC853502EF // TedFramePartIndexes
+ ME_4BBC898C0320 // IedProcessorObject
+ ME_4BBC85940221 // edGridFrame
+ ME_4BBC85A10217 // edBoxFrame
+ ME_4BBC89CE035C // IedEditableObject
+ ME_4BBC89E20058 // IedFramedObject
+ ME_4BBC8A230393 // IedParagraph
+ ME_4BBC8A3903BE // IedLeafParagraph
+ ME_4B547F7801F3 // IedTextParagraph
+ ME_4FC5C77503C7 // TedRowType
+ ME_511203F50077 // TedCellType
+ ME_4BBC90130064 // IedCell
+ ME_4BBC910E0391 // IedTable
+ ME_4BBC920100CB // IedBackCellsIterator
+ ME_4BBC93F50176 // IedCellsIterator
+ ME_4BBC94B70059 // IedRow
+ ME_4BBC95440333 // IedRowsIterator
+ ME_4BBC958A01C3 // IedColumn
+ ME_4BBCB1060196 // TedRangePart
+ ME_4BBC95BF001F // IedColumnsIterator
+ ME_4BBC961903CD // IedCells
+ ME_4BBCB47D03AB // TevCellNeighbours
+ ME_48E38399034C // IedRange
+ ME_4BBCB43D018B // IedRangeSource
+ ME_5076AAD90277 // TedTabelType
+ ME_51594428017F // TedBoundaryCorrespondence
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_4BBC85C1026E // Frame
+ ME_4FC76BD6005C // RowTypeSets
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_4A251D6E00BD' '4A251D6E00BD.pas.ms.script' // nevNavigation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4BC83B8301E5' '4BC83B8301E5.pas.ms.script' // k2PureMixIns
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '03.05.2000 16:19'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evEditorInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\48E3836D00C8.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48E3836D00C8.pas.ms.script.runner'
+
+ref; // ME_48E3836D00C8 evEditorInterfaces

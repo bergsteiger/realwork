@@ -1,0 +1,185 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/GCL.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> shared::GCL
+//
+// Garant Common Library - рутовый каталог общих библиотечных функций
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (GCL) : project_generic_core {
+	sharedname = GCL
+	staticname = GCL
+
+	includes += ../../
+
+	//#UC START# *44FEB5D501E5_CUSTOM_DEPENDENCES*
+	Header_Files {
+		alg {
+			./../GCL/alg/iterable.h
+			./../GCL/alg/set_operations.h
+			./../GCL/alg/comparators.h
+		}
+
+		conditional (vc12, vc15) {
+			./../GCL/alg/experimental.h
+		}
+		os {
+			./../GCL/os/GetSID.h
+		}
+		str {
+			./../GCL/str/rot13_hash.h
+		}
+
+	}
+
+	Source_Files {
+		conditional (vc12, vc15) {
+			./../GCL/alg/experimental.cpp
+		}
+		os {
+			./../GCL/os/GetSID.cpp
+		}
+		str {
+			./../GCL/str/rot13_hash.cpp
+		}
+
+	}
+	//#UC END# *44FEB5D501E5_CUSTOM_DEPENDENCES*
+
+	Header_Files {
+		Std_Headers {
+			./../GCL/LibHome.h
+		}
+	
+		alg {
+			./../GCL/alg/CycleChecker.h
+			./../GCL/alg/container_op.h
+			./../GCL/alg/cryptography.h
+			./../GCL/alg/loki_extension.h
+			./../GCL/alg/sorting.h
+		}
+	
+		data {
+			./../GCL/data/Buffer.h
+			./../GCL/data/DirectMap.h
+			./../GCL/data/OnDemandFile.h
+			./../GCL/data/OrphanStr.h
+			./../GCL/data/PackedStrStream.h
+			./../GCL/data/StaticNode.h
+			./../GCL/data/StaticNodeIterator.h
+			./../GCL/data/StaticNodeMng.h
+			./../GCL/data/StaticNodeStub.h
+			./../GCL/data/StaticNodeStubBase.h
+			./../GCL/data/Tree.h
+			./../GCL/data/std_defs.h
+		}
+	
+		math {
+			./../GCL/math/NumericTraits.h
+			./../GCL/math/unbounded_ops.h
+		}
+	
+		mt {
+			./../GCL/mt/ContextThreadPriority.h
+			./../GCL/mt/ResourcePool.h
+		}
+	
+		network {
+			./../GCL/network/common_network_operations.h
+			./../GCL/network/smtp_service.h
+		}
+	
+		os {
+			./../GCL/os/DllLoader.h
+			./../GCL/os/FileOp.h
+			./../GCL/os/dir_op.h
+			./../GCL/os/disk_op.h
+		}
+	
+		str {
+			./../GCL/str/base64_encoder.h
+			./../GCL/str/str_conv.h
+			./../GCL/str/str_op.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		alg {
+			./../GCL/alg/container_op.i.h
+			./../GCL/alg/sorting.i.h
+		}
+	
+		data {
+			./../GCL/data/DirectMap.i.h
+			./../GCL/data/StaticNodeStub.i.h
+			./../GCL/data/Tree.i.h
+		}
+	
+		math {
+			./../GCL/math/NumericTraits.i.h
+			./../GCL/math/unbounded_ops.i.h
+		}
+	
+		mt {
+			./../GCL/mt/ResourcePool.i.h
+		}
+	
+		network {
+		}
+	
+		os {
+		}
+	
+		str {
+			./../GCL/str/str_conv.i.h
+			./../GCL/str/str_op.i.h
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../GCL/LibHome.cpp
+		}
+	
+		alg {
+			./../GCL/alg/cryptography.cpp
+		}
+	
+		data {
+			./../GCL/data/StaticNode.cpp
+			./../GCL/data/StaticNodeIterator.cpp
+			./../GCL/data/StaticNodeStubBase.cpp
+		}
+	
+		math {
+		}
+	
+		mt {
+			./../GCL/mt/ContextThreadPriority.cpp
+		}
+	
+		network {
+			./../GCL/network/common_network_operations.cpp
+			./../GCL/network/smtp_service.cpp
+		}
+	
+		os {
+			./../GCL/os/FileOp.cpp
+			./../GCL/os/dir_op.cpp
+			./../GCL/os/disk_op.cpp
+		}
+	
+		str {
+			./../GCL/str/base64_encoder.cpp
+			./../GCL/str/str_conv.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

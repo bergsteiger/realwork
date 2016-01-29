@@ -1,0 +1,59 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+   'Window SetContext, "Caption={ГАРАНТ*}", ""
+     
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   MenuIDSelect 104
+   ListView Click, "ObjectIndex=1;\;ItemText=Гарант 5.х", ""
+   InputKeys "{F7}"
+   'EditBox Click, "ObjectIndex=6", ""
+    Window Click, "Caption={ГАРАНТ*}", "Coords=450,90"
+   
+   InputKeys "График {(}Форма документа{)}{ENTER}"
+   'EditBox Click, "ObjectIndex=4", ""
+   Window Click, "Caption={ГАРАНТ*}", "Coords=250,190"
+   InputKeys "{HOME}20012001"
+   call Click_FindSaveAs
+    
+    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+    
+    InputKeys "{END}+{HOME}Запрос 5x"
+    ToolBar Click, "Text=Выбор действия", "Coords=33,6"
+   
+   Dim QueryName$
+   QueryName="Запрос 5x"
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   MenuIDSelect 12
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=7,140"
+'   GenericObject Click, "Class=TvcmToolbar;ClassIndex=5", "Coords=15,14"
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   ListBox Click, "ObjectIndex=1", "Coords=36,13"
+   if Position_by_Text("CurrentFocus",QueryName)<>0 then
+        SQALogMessage sqaPass, "Элемент создался", "Элемент с именем """+QueryName+""" создался"
+        InputKeys "{DELETE}"
+        Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+        InputKeys "{ENTER}"
+          
+   else
+        SQALogMessage sqaFail, "Элемент не создался", "Элемент с именем """+QueryName+""" не создался"
+   end if
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   'GenericObject Click, "Class=TvcmToolbar;ClassIndex=5", "Coords=15,14"
+   'Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   'Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   MenuIDSelect 12
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,36"
+   
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=13,226"
+    ListView Click, "ObjectIndex=1;\;ItemText=Стандартная", ""
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Toolbar Click, "ObjectIndex=1;\;ItemIndex=0", ""
+   
+End Sub

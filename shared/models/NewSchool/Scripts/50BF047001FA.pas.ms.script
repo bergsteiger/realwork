@@ -1,0 +1,242 @@
+// seThreadSupport 50BF047001FA UtilityPack Class
+
+FORWARD ME_50BF047001FA
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+FORWARD ME_4FFFDE6C016C
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_4FFFF64D01AE
+ CONST UID '4FFFF64D01AE'
+ CONST Name 'f_Context'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_4FFFF64D01AE f_Context
+
+: ME_4FFFF887007C
+ CONST UID '4FFFF887007C'
+ CONST Name 'f_Word'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_4FFFF887007C f_Word
+
+: ME_4FFFDE6C016C
+ CONST UID '4FFFDE6C016C'
+ CONST Name 'TWordThread'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4FFFDF4601F9 // TThread
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4FFFF64D01AE // f_Context
+ ME_4FFFF887007C // f_Word
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_4FFFDF740099 // Execute
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_48077504027E // Destroy
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4FFFDE6C016C TWordThread
+
+INCLUDE '47B57B7800A7.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+FORWARD ME_50BF049002DB
+
+: ME_50BF07020290
+ CONST UID '50BF07020290'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_4FFFDE6C016C // TWordThread
+ ;
+
+ @SELF
+; // ME_50BF07020290 ItemType
+
+FORWARD ME_50BF1C6D0267
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_50BF1C800223
+ CONST UID '50BF1C800223'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_50BF1C800223 DoIt
+
+: ME_50BF1C6D0267
+ CONST UID '50BF1C6D0267'
+ CONST Name 'WaitForAllThreads'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_50BF1C800223 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_50BF1C6D0267 WaitForAllThreads
+
+FORWARD ME_50BF1E9C001F
+
+: ME_50BF1EFF017E
+ CONST UID '50BF1EFF017E'
+ CONST Name 'aContext'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_50BF1EFF017E aContext
+
+: ME_50BF1EFF019E
+ CONST UID '50BF1EFF019E'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_50BF1EFF019E aWord
+
+: ME_50BF1ED30035
+ CONST UID '50BF1ED30035'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_50BF1EFF017E // aContext
+ ME_50BF1EFF019E // aWord
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_50BF1ED30035 DoIt
+
+: ME_50BF1E9C001F
+ CONST UID '50BF1E9C001F'
+ CONST Name 'AddAndResumeThread'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_50BF1ED30035 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_50BF1E9C001F AddAndResumeThread
+
+: ME_622D329D6051
+ CONST UID '622D329D6051'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_622D329D6051 Exists
+
+: ME_50BF049002DB
+ CONST UID '50BF049002DB'
+ CONST Name 'TseWorkThreadList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B57B7800A7 // l3ObjectPtrList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_50BF07020290 // ItemType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_50BF1C6D0267 // WaitForAllThreads
+ ME_50BF1E9C001F // AddAndResumeThread
+ ME_622D329D6051 // Exists
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_50BF049002DB TseWorkThreadList
+
+: ME_50BF047001FA
+ CONST UID '50BF047001FA'
+ CONST Name 'seThreadSupport'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4FFFDE6C016C // TWordThread
+ ME_50BF049002DB // TseWorkThreadList
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_50BF047001FA seThreadSupport

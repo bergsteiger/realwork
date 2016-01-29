@@ -1,0 +1,61 @@
+uses
+  func,
+  Maps,
+  Clicks,
+  Search,
+  Menu,
+  make,
+  common,
+  UnexpectedWindow,
+  other;
+  
+  
+// мериет время, пока почему то тока в секундах %) 
+  
+function TimeMeasure(
+  FirstTime,                    {сюда шлют заранее сделанный now}
+  TypeOfAnswer : string = 's')  {в чём возвращаем результат} 
+  : integer;  
+var h, m, s, ms, n, measure;
+begin
+  try
+    FirstTime := now - FirstTime;
+    DecodeTime(FirstTime, h, m, s, ms);
+    Case TypeOfAnswer of
+      'ms', 'msec'   : n := 1;
+      's', 'sec'     : n := 2;
+      'm', 'min'     : n := 3;
+      'h', 'hour'    : n := 4;
+    else Raise('не верный параметр ' + TypeOfAnswer);
+    end;
+          
+    if n <= 4 then measure := h ;
+    if n <= 3 then measure := measure * 60 + m ;
+    if n <= 2 then measure := measure * 60 + s ;
+    if n <= 1 then measure := measure * 1000 + ms ;
+    
+    Result := measure;
+    
+//    Result := h * 3600 + m * 60 + s + ms/1000;          
+
+// ms := 0; 
+// s := 0;  
+// m := 0;  
+// h := 0;  
+ 
+  except
+    Log.Error(ExceptionMessage);  
+  end;  
+end;
+
+procedure test ;
+var n, obj;
+begin
+  obj := HISUtils.StopWatch;
+  n := now;
+  obj.start;
+  delay(5000);  
+  log.message(TimeMeasure(n));
+  obj.stop;
+  log.message(obj.tostring);
+end;

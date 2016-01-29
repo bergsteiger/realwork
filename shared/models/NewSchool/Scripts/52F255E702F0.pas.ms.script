@@ -1,0 +1,153 @@
+// TGUIAppTester 52F255E702F0 SimpleClass Class
+
+FORWARD ME_52F255E702F0
+
+FORWARD ME_52F264E400E6
+
+INCLUDE '4B2A6D4303A9.pas.ms.script'
+
+: ME_52F264F70116
+ CONST UID '52F264F70116'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4B7AAF1203B4 // RTestResultsPlace
+ ;
+
+ @SELF
+; // ME_52F264F70116 
+
+: ME_52F264E400E6
+ CONST UID '52F264E400E6'
+ CONST Name 'TResultsPlaces'
+ CONST Class 'Class'
+ CONST Stereotype 'Vector'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_52F264F70116 // 
+ ]
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ @SELF
+; // ME_52F264E400E6 TResultsPlaces
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '52F21A610247.pas.ms.script'
+
+FORWARD ME_52F264840382
+
+: ME_52F26508019F
+ CONST UID '52F26508019F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_52F264E400E6 // TResultsPlaces
+ ;
+
+ @SELF
+; // ME_52F26508019F DoIt
+
+: ME_52F264840382
+ CONST UID '52F264840382'
+ CONST Name 'GetResultsPlaces'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_52F26508019F // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_52F264840382 GetResultsPlaces
+
+FORWARD ME_52F2651C00F4
+
+: ME_52F2656802BD
+ CONST UID '52F2656802BD'
+ CONST Name 'aPlaces'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B7AAF5C0096 // array of RTestResultsPlace
+ ;
+
+ @SELF
+; // ME_52F2656802BD aPlaces
+
+: ME_52F2654F009A
+ CONST UID '52F2654F009A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_52F264E400E6 // TResultsPlaces
+ ;
+ : Parameters
+   [ ME_52F2656802BD // aPlaces
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_52F2654F009A DoIt
+
+: ME_52F2651C00F4
+ CONST UID '52F2651C00F4'
+ CONST Name 'MakeResults'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52F2654F009A // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_52F2651C00F4 MakeResults
+
+: ME_52F255E702F0
+ CONST UID '52F255E702F0'
+ CONST Name 'TGUIAppTester'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ME_52F21A610247 // GUIAppTester
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_52F264840382 // GetResultsPlaces
+ ME_52F2651C00F4 // MakeResults
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4F79BCC902C5 // CalcBatchMode
+ ]
+ ; // Implemented
+ : Children
+   [ ME_52F264E400E6 // TResultsPlaces
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52F255E702F0 TGUIAppTester

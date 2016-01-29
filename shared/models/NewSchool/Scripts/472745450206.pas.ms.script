@@ -1,0 +1,98 @@
+// l3Units 472745450206 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_472745450206
+
+: ME_4727456300E7
+ CONST UID '4727456300E7'
+ CONST Name 'Tl3Point'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Точка с координатами в дюймах (мировые координаты).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_472745450206 // l3Units
+ ;
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_4727456300E7 Tl3Point
+
+: ME_47289677028A
+ CONST UID '47289677028A'
+ CONST Name 'Tl3SPoint'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Точка с координатами в пикселях (на экране).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_472745450206 // l3Units
+ ;
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_47289677028A Tl3SPoint
+
+: ME_4728974E009E
+ CONST UID '4728974E009E'
+ CONST Name 'Tl3Rect'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прямоугольник с координатами в дюймах (мировые координаты).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_472745450206 // l3Units
+ ;
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_4728974E009E Tl3Rect
+
+: ME_4728976B0154
+ CONST UID '4728976B0154'
+ CONST Name 'Tl3SRect'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прямоугольник с координатами в пикселях (на экране).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_472745450206 // l3Units
+ ;
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_4728976B0154 Tl3SRect
+
+: ME_472745450206
+ CONST UID '472745450206'
+ CONST Name 'l3Units'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Модуль описывающий работу с различными единицами измерения.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ ;
+ : Children
+   @ ( ME_4727456300E7 // Tl3Point
+ ME_47289677028A // Tl3SPoint
+ ME_4728974E009E // Tl3Rect
+ ME_4728976B0154 // Tl3SRect
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Units.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\472745450206.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\472745450206.pas.ms.script.runner'
+
+ref; // ME_472745450206 l3Units

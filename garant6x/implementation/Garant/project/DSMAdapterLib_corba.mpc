@@ -1,0 +1,66 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/DSMAdapterLib_corba.mpc"
+// Additional MPC (mpc)
+// Generated from UML model, root element: <<Library::Category>> garant6x::DSMAdapterLib
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (DSMAdapterLib_corba) : project_generic_core_corba {
+	sharedname = DSMAdapterLib_corba
+	staticname = DSMAdapterLib_corba
+
+	after += CoreSrvC_corba
+	libs  += CoreSrvC_corba
+
+	includes += w:/
+
+	after += GCI
+	libs  += GCI
+
+	Header_Files {
+		Std_Headers {
+			./../DSMAdapterLib/LibHome.h
+		}
+	
+		DSMInterfaces {
+			./../DSMAdapterLib/DSMInterfaces/DSMInterfaces.h
+			./../DSMAdapterLib/DSMInterfaces/DSMInterfacesFactories.h
+		}
+	
+		DSMInterfaces_i {
+			./../DSMAdapterLib/impl/DSMInterfaces_i/Registrator_i.h
+			./../DSMAdapterLib/impl/DSMInterfaces_i/Registrator_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		DSMInterfaces {
+		}
+	
+		DSMInterfaces_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../DSMAdapterLib/LibHome.cpp
+		}
+	
+		DSMInterfaces {
+			./../DSMAdapterLib/DSMInterfaces/DSMInterfaces.cpp
+			./../DSMAdapterLib/DSMInterfaces/DSMInterfacesFactories.cpp
+		}
+	
+		DSMInterfaces_i {
+			./../DSMAdapterLib/impl/DSMInterfaces_i/Registrator_i.cpp
+			./../DSMAdapterLib/impl/DSMInterfaces_i/Registrator_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

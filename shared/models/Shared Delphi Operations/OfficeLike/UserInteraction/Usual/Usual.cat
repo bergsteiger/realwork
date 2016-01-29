@@ -1,0 +1,2845 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Usual"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Usual|494F898C013E"))
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"author"
+	    value      	"Ëþëèí À.Â.")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"debug tie log"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"need UC"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"no hands"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"weak"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (intf.pas)"
+	    value      	"w:/common/components/gui/Garant/VCM/UserInteraction/OfficeLike_Usual_Controls.pas")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (intf.pas)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"13039537082")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/494F898C013E.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file"))
+    quid       	"494F898C013E"
+    documentation 	
+|"Îáû÷íûå" îïåðàöèè
+    
+    stereotype 	"VCMControls"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Edit"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Usual/Edit|494F89AA0017"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"8C4E8A26-EE53-4DB5-860C-6DD344A4CD3C")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13039983792"))
+	    quid       	"494F89AA0017"
+	    documentation 	"Ïðàâêà"
+	    stereotype 	"VCMOperations"
+	    operations 	(list Operations
+		(object Operation "Delete"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49480F0901B9exec_var*"
+			    value      	"//#UC START# *494F89C30197_49480F0901B9exec_var*¤var¤ l_CurrentNode: Il3SimpleNode;¤ l_ErrList: IadminUserNodeList;¤ l_Failed: Boolean;¤//#UC END# *494F89C30197_49480F0901B9exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49480F0901B9exec_impl*"
+			    value      	"//#UC START# *494F89C30197_49480F0901B9exec_impl*¤ if aParams.Control = trUserList then¤ begin¤  if IsApplyMultiOperations then¤  begin¤   if Ask(qr_DeleteUsers, [trUserList.TreeStruct.SelectCount]) then¤   begin¤    ViewArea.DeleteUsers(trUserList.TreeStruct, l_ErrList);¤    if (l_ErrList.Count > 0) then¤    begin¤     if Ask(qr_UsersDeleteFailed) then¤      SelectFailed(l_ErrList);¤    end¤    else¤     Say(inf_UsersDeleted);¤   end;¤  end¤  else¤  begin¤   l_CurrentNode := trUserList.GetCurrentNode;¤   if Assigned(l_CurrentNode) and Ask(qr_DeleteUser, [l3CStr(l_CurrentNode)]) then¤   begin¤    // Ïîêà âèñåë äèàëîã ñ âîïðîñîì óäàëÿòü èëè íåò - ïîëüçîâàòåëü ìîã çàëîãèíèòüñÿ,¤    // è ýòî íå ïîâîä ïàäàòü.¤    // http://mdp.garant.ru/pages/viewpage.action?pageId=508180160¤    if (ViewArea.GetUserState(l_CurrentNode) = []) then¤    begin¤     ViewArea.DeleteUser(l_CurrentNode, l_Failed);¤     if l_Failed then¤      vcmSay(str_FailedToDeleteUser, [l3CStr(l_CurrentNode)]);¤    end¤    else¤     vcmSay(str_CannotDeleteActiveUser, [l3CStr(l_CurrentNode)]);¤   end;¤  end;¤ end¤ else¤  aParams.CallControl;¤//#UC END# *494F89C30197_49480F0901B9exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49480F0901B9_var*"
+			    value      	"//#UC START# *494F89C30197_49480F0901B9_var*¤//#UC END# *494F89C30197_49480F0901B9_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49480F0901B9_impl*"
+			    value      	"//#UC START# *494F89C30197_49480F0901B9_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_49480F0901B9_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49480F0901B9test_var*"
+			    value      	"//#UC START# *494F89C30197_49480F0901B9test_var*¤var¤ l_Node: Il3SimpleNode;¤//#UC END# *494F89C30197_49480F0901B9test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49480F0901B9test_impl*"
+			    value      	"//#UC START# *494F89C30197_49480F0901B9test_impl*¤ if aParams.Control = trUserList then¤ begin¤  l_Node := trUserList.GetCurrentNode;¤  aParams.Op.Flag[vcm_ofEnabled] := IsApplyMultiOperations or¤                                    (Assigned(l_Node) and (ViewArea.GetUserState(l_Node)=[]));¤ end¤ else¤  if not aParams.CallControl then¤   aParams.Op.Flag[vcm_ofEnabled] := False;¤//#UC END# *494F89C30197_49480F0901B9test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC75B5022Ctest_var*"
+			    value      	"//#UC START# *494F89C30197_49EC75B5022Ctest_var*¤//#UC END# *494F89C30197_49EC75B5022Ctest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC75B5022Ctest_impl*"
+			    value      	"//#UC START# *494F89C30197_49EC75B5022Ctest_impl*¤ if aParams.Control = GroupsTree then¤  aParams.Op.Flag[vcm_ofEnabled] := IsCurrentUsual¤ else¤  if not aParams.CallControl then¤   aParams.Op.Flag[vcm_ofEnabled] := False;¤//#UC END# *494F89C30197_49EC75B5022Ctest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC75B5022Cexec_var*"
+			    value      	"//#UC START# *494F89C30197_49EC75B5022Cexec_var*¤var¤ l_CurrentNode: Il3SimpleNode;¤ l_HasUsers: Boolean;¤//#UC END# *494F89C30197_49EC75B5022Cexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC75B5022Cexec_impl*"
+			    value      	"//#UC START# *494F89C30197_49EC75B5022Cexec_impl*¤ if aParams.Control = GroupsTree then¤ begin¤  l_CurrentNode := GroupsTree.GetCurrentNode;¤  l_HasUsers := ViewArea.HasUsers(l_CurrentNode);¤  if l_HasUsers and not Ask(qr_DeleteNotEmptyGroup) then¤   Exit;¤  if not l_HasUsers and not Ask(qr_DeleteGroup, [l3CStr(l_CurrentNode)]) then¤   Exit;¤  ViewArea.DeleteGroup(l_CurrentNode);¤ end¤ else¤  aParams.CallControl;¤//#UC END# *494F89C30197_49EC75B5022Cexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC746B01E5test_var*"
+			    value      	"//#UC START# *494F89C30197_49EC746B01E5test_var*¤//#UC END# *494F89C30197_49EC746B01E5test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC746B01E5test_impl*"
+			    value      	"//#UC START# *494F89C30197_49EC746B01E5test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_DELETE) AND OLECMDF_ENABLED) <> 0);¤//#UC END# *494F89C30197_49EC746B01E5test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC746B01E5exec_var*"
+			    value      	"//#UC START# *494F89C30197_49EC746B01E5exec_var*¤//#UC END# *494F89C30197_49EC746B01E5exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC746B01E5exec_impl*"
+			    value      	"//#UC START# *494F89C30197_49EC746B01E5exec_impl*¤ f_Browser.ExecWB(OLECMDID_DELETE, OLECMDEXECOPT_DODEFAULT);¤//#UC END# *494F89C30197_49EC746B01E5exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD6D6EA0075test_var*"
+			    value      	"//#UC START# *494F89C30197_4BD6D6EA0075test_var*¤//#UC END# *494F89C30197_4BD6D6EA0075test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD6D6EA0075test_impl*"
+			    value      	"//#UC START# *494F89C30197_4BD6D6EA0075test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := JournalTree.TreeView.Current >= 0;¤//#UC END# *494F89C30197_4BD6D6EA0075test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD6D6EA0075exec_var*"
+			    value      	"//#UC START# *494F89C30197_4BD6D6EA0075exec_var*¤//#UC END# *494F89C30197_4BD6D6EA0075exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD6D6EA0075exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4BD6D6EA0075exec_impl*¤ TdmStdRes.MakeWorkJournal.Delete(JournalTree.GetCurrentNode);¤//#UC END# *494F89C30197_4BD6D6EA0075exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C443A570168test_var*"
+			    value      	"//#UC START# *494F89C30197_4C443A570168test_var*¤//#UC END# *494F89C30197_4C443A570168test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C443A570168test_impl*"
+			    value      	"//#UC START# *494F89C30197_4C443A570168test_impl*¤ if (aParams.Control = AttributeTree) then¤  aParams.Op.Flag[vcm_ofVisible] := False¤ else¤ if not aParams.CallControl then¤  aParams.Op.Flag[vcm_ofEnabled] := False;¤//#UC END# *494F89C30197_4C443A570168test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C443A570168exec_var*"
+			    value      	"//#UC START# *494F89C30197_4C443A570168exec_var*¤var¤ l_Current: INodeBase;¤//#UC END# *494F89C30197_4C443A570168exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C443A570168exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4C443A570168exec_impl*¤ if (aParams.Control = AttributeTree) then¤ begin¤  with AttributeTree do¤  begin¤   if (TreeStruct.SelectCount > 1) then¤   begin¤    DropSelectedOperation;¤   end//TreeStruct.SelectCount > 1¤   else¤   if Supports(GetCurrentNode, INodeBase, l_Current) then¤   begin¤    FormLogicOperation(l_Current, loNone);¤    if Current + 1 < TreeStruct.CountView then¤     Current := Current + 1;¤   end//Supports(GetCurrentNode, INodeBase, l_Current)¤   else¤    Exit;¤   Invalidate;¤   InvalidateOtherTree;¤  end;//with AttributeTree¤ end//aParams.Control = AttributeTree¤ else¤  aParams.CallControl;¤//#UC END# *494F89C30197_4C443A570168exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C46AA3401DBtest_var*"
+			    value      	"//#UC START# *494F89C30197_4C46AA3401DBtest_var*¤//#UC END# *494F89C30197_4C46AA3401DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C46AA3401DBtest_impl*"
+			    value      	"//#UC START# *494F89C30197_4C46AA3401DBtest_impl*¤ SelectionOpsTest(aParams);¤//#UC END# *494F89C30197_4C46AA3401DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C46AA3401DBexec_var*"
+			    value      	"//#UC START# *494F89C30197_4C46AA3401DBexec_var*¤//#UC END# *494F89C30197_4C46AA3401DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C46AA3401DBexec_impl*"
+			    value      	"//#UC START# *494F89C30197_4C46AA3401DBexec_impl*¤ if aParams.Control = tvList then¤  DeleteSelectionFromList¤ else¤  aParams.CallControl;¤//#UC END# *494F89C30197_4C46AA3401DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"ShowInContextMenu"
+			    value      	"undefined")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"ShowInToolbar"
+			    value      	"undefined")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"has states"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is FormActivate"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is query"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"no prefix"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49480F0901B9getstate_var*"
+			    value      	"//#UC START# *494F89C30197_49480F0901B9getstate_var*¤//#UC END# *494F89C30197_49480F0901B9getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49480F0901B9getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_49480F0901B9getstate_impl*¤ //if aParams.Control = trUserList then¤ begin¤  if IsApplyMultiOperations then¤   State := st_user_Edit_Delete_MultiUsers¤  else¤   State := st_user_Edit_Delete_User;¤ end;  ¤//#UC END# *494F89C30197_49480F0901B9getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC75B5022Cgetstate_var*"
+			    value      	"//#UC START# *494F89C30197_49EC75B5022Cgetstate_var*¤//#UC END# *494F89C30197_49EC75B5022Cgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC75B5022Cgetstate_impl*"
+			    value      	"//#UC START# *494F89C30197_49EC75B5022Cgetstate_impl*¤ State := st_user_Edit_Delete_Group;¤//#UC END# *494F89C30197_49EC75B5022Cgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD6D6EA0075getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4BD6D6EA0075getstate_var*¤//#UC END# *494F89C30197_4BD6D6EA0075getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD6D6EA0075getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4BD6D6EA0075getstate_impl*¤ // - íè÷åãî íå äåëàåì¤//#UC END# *494F89C30197_4BD6D6EA0075getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C46AA3401DBgetstate_var*"
+			    value      	"//#UC START# *494F89C30197_4C46AA3401DBgetstate_var*¤//#UC END# *494F89C30197_4C46AA3401DBgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C46AA3401DBgetstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4C46AA3401DBgetstate_impl*¤ // - íè÷åãî íå äåëàåì¤//#UC END# *494F89C30197_4C46AA3401DBgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C44149E023Fgetstate_var*"
+			    value      	"//#UC START# *494F89C30197_4C44149E023Fgetstate_var*¤//#UC END# *494F89C30197_4C44149E023Fgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C44149E023Fgetstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4C44149E023Fgetstate_impl*¤ // - íè÷åãî íå äåëàåì ¤//#UC END# *494F89C30197_4C44149E023Fgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC746B01E5getstate_var*"
+			    value      	"//#UC START# *494F89C30197_49EC746B01E5getstate_var*¤//#UC END# *494F89C30197_49EC746B01E5getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_49EC746B01E5getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_49EC746B01E5getstate_impl*¤ // - íè÷åãî íå äåëàåì¤//#UC END# *494F89C30197_49EC746B01E5getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AB9E69C0243test_var*"
+			    value      	"//#UC START# *494F89C30197_4AB9E69C0243test_var*¤//#UC END# *494F89C30197_4AB9E69C0243test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AB9E69C0243test_impl*"
+			    value      	"//#UC START# *494F89C30197_4AB9E69C0243test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AB9E69C0243test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AB9E69C0243getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4AB9E69C0243getstate_var*¤//#UC END# *494F89C30197_4AB9E69C0243getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AB9E69C0243getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4AB9E69C0243getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AB9E69C0243getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AB9E69C0243exec_var*"
+			    value      	"//#UC START# *494F89C30197_4AB9E69C0243exec_var*¤//#UC END# *494F89C30197_4AB9E69C0243exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AB9E69C0243exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4AB9E69C0243exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AB9E69C0243exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2D80364test_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2D80364test_var*¤//#UC END# *494F89C30197_4ABCD2D80364test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2D80364test_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2D80364test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD2D80364test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2D80364getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2D80364getstate_var*¤//#UC END# *494F89C30197_4ABCD2D80364getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2D80364getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2D80364getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD2D80364getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2D80364exec_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2D80364exec_var*¤//#UC END# *494F89C30197_4ABCD2D80364exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2D80364exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2D80364exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD2D80364exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD29401B2test_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD29401B2test_var*¤//#UC END# *494F89C30197_4ABCD29401B2test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD29401B2test_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD29401B2test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD29401B2test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD29401B2getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD29401B2getstate_var*¤//#UC END# *494F89C30197_4ABCD29401B2getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD29401B2getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD29401B2getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD29401B2getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD29401B2exec_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD29401B2exec_var*¤//#UC END# *494F89C30197_4ABCD29401B2exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD29401B2exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD29401B2exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD29401B2exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C443A570168getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4C443A570168getstate_var*¤//#UC END# *494F89C30197_4C443A570168getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C443A570168getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4C443A570168getstate_impl*¤ // - íè÷åãî íå äåëàåì¤//#UC END# *494F89C30197_4C443A570168getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2BC0302test_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2BC0302test_var*¤//#UC END# *494F89C30197_4ABCD2BC0302test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2BC0302test_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2BC0302test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD2BC0302test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2BC0302getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2BC0302getstate_var*¤//#UC END# *494F89C30197_4ABCD2BC0302getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2BC0302getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2BC0302getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD2BC0302getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2BC0302exec_var*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2BC0302exec_var*¤//#UC END# *494F89C30197_4ABCD2BC0302exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABCD2BC0302exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABCD2BC0302exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABCD2BC0302exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971D00157test_var*"
+			    value      	"//#UC START# *494F89C30197_4A6971D00157test_var*¤//#UC END# *494F89C30197_4A6971D00157test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971D00157test_impl*"
+			    value      	"//#UC START# *494F89C30197_4A6971D00157test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A6971D00157test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971D00157getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4A6971D00157getstate_var*¤//#UC END# *494F89C30197_4A6971D00157getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971D00157getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4A6971D00157getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A6971D00157getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971D00157exec_var*"
+			    value      	"//#UC START# *494F89C30197_4A6971D00157exec_var*¤//#UC END# *494F89C30197_4A6971D00157exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971D00157exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4A6971D00157exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A6971D00157exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9CEA5001CFtest_var*"
+			    value      	"//#UC START# *494F89C30197_4A9CEA5001CFtest_var*¤//#UC END# *494F89C30197_4A9CEA5001CFtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9CEA5001CFtest_impl*"
+			    value      	"//#UC START# *494F89C30197_4A9CEA5001CFtest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A9CEA5001CFtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9CEA5001CFgetstate_var*"
+			    value      	"//#UC START# *494F89C30197_4A9CEA5001CFgetstate_var*¤//#UC END# *494F89C30197_4A9CEA5001CFgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9CEA5001CFgetstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4A9CEA5001CFgetstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A9CEA5001CFgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9CEA5001CFexec_var*"
+			    value      	"//#UC START# *494F89C30197_4A9CEA5001CFexec_var*¤//#UC END# *494F89C30197_4A9CEA5001CFexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9CEA5001CFexec_impl*"
+			    value      	"//#UC START# *494F89C30197_4A9CEA5001CFexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A9CEA5001CFexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9D51C4026Ftest_var*"
+			    value      	"//#UC START# *494F89C30197_4A9D51C4026Ftest_var*¤//#UC END# *494F89C30197_4A9D51C4026Ftest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9D51C4026Ftest_impl*"
+			    value      	"//#UC START# *494F89C30197_4A9D51C4026Ftest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A9D51C4026Ftest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9D51C4026Fgetstate_var*"
+			    value      	"//#UC START# *494F89C30197_4A9D51C4026Fgetstate_var*¤//#UC END# *494F89C30197_4A9D51C4026Fgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9D51C4026Fgetstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4A9D51C4026Fgetstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A9D51C4026Fgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9D51C4026Fexec_var*"
+			    value      	"//#UC START# *494F89C30197_4A9D51C4026Fexec_var*¤//#UC END# *494F89C30197_4A9D51C4026Fexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A9D51C4026Fexec_impl*"
+			    value      	"//#UC START# *494F89C30197_4A9D51C4026Fexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A9D51C4026Fexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB22002AAtest_var*"
+			    value      	"//#UC START# *494F89C30197_4ABBB22002AAtest_var*¤//#UC END# *494F89C30197_4ABBB22002AAtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB22002AAtest_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABBB22002AAtest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABBB22002AAtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB22002AAgetstate_var*"
+			    value      	"//#UC START# *494F89C30197_4ABBB22002AAgetstate_var*¤//#UC END# *494F89C30197_4ABBB22002AAgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB22002AAgetstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABBB22002AAgetstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABBB22002AAgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB22002AAexec_var*"
+			    value      	"//#UC START# *494F89C30197_4ABBB22002AAexec_var*¤//#UC END# *494F89C30197_4ABBB22002AAexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB22002AAexec_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABBB22002AAexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABBB22002AAexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB23903D8test_var*"
+			    value      	"//#UC START# *494F89C30197_4ABBB23903D8test_var*¤//#UC END# *494F89C30197_4ABBB23903D8test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB23903D8test_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABBB23903D8test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABBB23903D8test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB23903D8getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4ABBB23903D8getstate_var*¤//#UC END# *494F89C30197_4ABBB23903D8getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB23903D8getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABBB23903D8getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABBB23903D8getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB23903D8exec_var*"
+			    value      	"//#UC START# *494F89C30197_4ABBB23903D8exec_var*¤//#UC END# *494F89C30197_4ABBB23903D8exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4ABBB23903D8exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4ABBB23903D8exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4ABBB23903D8exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AAF51FC0061test_var*"
+			    value      	"//#UC START# *494F89C30197_4AAF51FC0061test_var*¤//#UC END# *494F89C30197_4AAF51FC0061test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AAF51FC0061test_impl*"
+			    value      	"//#UC START# *494F89C30197_4AAF51FC0061test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AAF51FC0061test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AAF51FC0061getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4AAF51FC0061getstate_var*¤//#UC END# *494F89C30197_4AAF51FC0061getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AAF51FC0061getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4AAF51FC0061getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AAF51FC0061getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AAF51FC0061exec_var*"
+			    value      	"//#UC START# *494F89C30197_4AAF51FC0061exec_var*¤//#UC END# *494F89C30197_4AAF51FC0061exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AAF51FC0061exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4AAF51FC0061exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AAF51FC0061exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA9393C0164test_var*"
+			    value      	"//#UC START# *494F89C30197_4AA9393C0164test_var*¤//#UC END# *494F89C30197_4AA9393C0164test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA9393C0164test_impl*"
+			    value      	"//#UC START# *494F89C30197_4AA9393C0164test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AA9393C0164test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA9393C0164getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4AA9393C0164getstate_var*¤//#UC END# *494F89C30197_4AA9393C0164getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA9393C0164getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4AA9393C0164getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AA9393C0164getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA9393C0164exec_var*"
+			    value      	"//#UC START# *494F89C30197_4AA9393C0164exec_var*¤//#UC END# *494F89C30197_4AA9393C0164exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA9393C0164exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4AA9393C0164exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AA9393C0164exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971E802F5test_var*"
+			    value      	"//#UC START# *494F89C30197_4A6971E802F5test_var*¤//#UC END# *494F89C30197_4A6971E802F5test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971E802F5test_impl*"
+			    value      	"//#UC START# *494F89C30197_4A6971E802F5test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A6971E802F5test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971E802F5getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4A6971E802F5getstate_var*¤//#UC END# *494F89C30197_4A6971E802F5getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971E802F5getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4A6971E802F5getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A6971E802F5getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971E802F5exec_var*"
+			    value      	"//#UC START# *494F89C30197_4A6971E802F5exec_var*¤//#UC END# *494F89C30197_4A6971E802F5exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4A6971E802F5exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4A6971E802F5exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4A6971E802F5exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13040015373")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD7279101C5test_var*"
+			    value      	"//#UC START# *494F89C30197_4BD7279101C5test_var*¤var¤ l_Conf : InsConfigNode;¤//#UC END# *494F89C30197_4BD7279101C5test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD7279101C5test_impl*"
+			    value      	"//#UC START# *494F89C30197_4BD7279101C5test_impl*¤ if Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, l_Conf) then¤ try¤  with aParams do¤  begin¤   Op.Hint := vcmFmt(str_DeleteConfigConfirmHint, [l_Conf.Config.ConfigName]);¤   Op.Flag[vcm_ofEnabled] := not l_Conf.Config.IsActive and¤    not l_Conf.Config.IsPredefined;¤  end;//with aParams¤ finally¤  l_Conf := nil;¤ end;//try..finally¤//#UC END# *494F89C30197_4BD7279101C5test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD7279101C5getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4BD7279101C5getstate_var*¤//#UC END# *494F89C30197_4BD7279101C5getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD7279101C5getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4BD7279101C5getstate_impl*¤ inherited;¤//#UC END# *494F89C30197_4BD7279101C5getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD7279101C5exec_var*"
+			    value      	"//#UC START# *494F89C30197_4BD7279101C5exec_var*¤var¤ l_ConfNode : InsConfigNode;¤//#UC END# *494F89C30197_4BD7279101C5exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4BD7279101C5exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4BD7279101C5exec_impl*¤ if Assigned(tvConfs.TreeView.CurrentNode) and¤  Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, l_ConfNode) then¤ try¤  if Ask(qr_ConfigurationDelete, [l_ConfNode.Config.ConfigName]) then¤  try¤   ConfigurationList.DeleteConfig(l_ConfNode);¤   { Çàêðîåì ôîðìó åñëè îíà áûëà îòêðûòà }¤   Aggregate.Operation(TdmStdRes.opcode_Result_Cancel);¤  except¤   on EConfigurationIsActiveNow do¤    Say(err_ActiveConfigurationCannotDelete);¤  end;¤ finally¤  l_ConfNode := nil;¤ end;¤//#UC END# *494F89C30197_4BD7279101C5exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C84D11E01E2test_var*"
+			    value      	"//#UC START# *494F89C30197_4C84D11E01E2test_var*¤//#UC END# *494F89C30197_4C84D11E01E2test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C84D11E01E2test_impl*"
+			    value      	"//#UC START# *494F89C30197_4C84D11E01E2test_impl*¤ if aParams.Control = trContactList then¤  aParams.Op.Flag[vcm_ofEnabled] := not AddingContact and (trContactList.GetCurrentNode <> nil)¤ else¤  if not aParams.CallControl then¤   aParams.Op.Flag[vcm_ofEnabled] := False;¤//#UC END# *494F89C30197_4C84D11E01E2test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C84D11E01E2getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4C84D11E01E2getstate_var*¤//#UC END# *494F89C30197_4C84D11E01E2getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C84D11E01E2getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4C84D11E01E2getstate_impl*¤ if trContactList.Focused then¤  State := st_user_Edit_Delete_Contact¤ else¤  State := vcm_DefaultOperationState;¤//#UC END# *494F89C30197_4C84D11E01E2getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C84D11E01E2exec_var*"
+			    value      	"//#UC START# *494F89C30197_4C84D11E01E2exec_var*¤//#UC END# *494F89C30197_4C84D11E01E2exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4C84D11E01E2exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4C84D11E01E2exec_impl*¤ if aParams.Control = trContactList then¤ begin¤  if trContactList.GetCurrentNode <> nil then¤   TdmStdRes.MakeChatDispatcher.DeleteUser(trContactList.GetCurrentNode);¤ end¤ else¤  aParams.CallControl;¤//#UC END# *494F89C30197_4C84D11E01E2exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA68CCA0001test_var*"
+			    value      	"//#UC START# *494F89C30197_4AA68CCA0001test_var*¤//#UC END# *494F89C30197_4AA68CCA0001test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA68CCA0001test_impl*"
+			    value      	"//#UC START# *494F89C30197_4AA68CCA0001test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AA68CCA0001test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA68CCA0001getstate_var*"
+			    value      	"//#UC START# *494F89C30197_4AA68CCA0001getstate_var*¤//#UC END# *494F89C30197_4AA68CCA0001getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA68CCA0001getstate_impl*"
+			    value      	"//#UC START# *494F89C30197_4AA68CCA0001getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AA68CCA0001getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA68CCA0001exec_var*"
+			    value      	"//#UC START# *494F89C30197_4AA68CCA0001exec_var*¤//#UC END# *494F89C30197_4AA68CCA0001exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*494F89C30197_4AA68CCA0001exec_impl*"
+			    value      	"//#UC START# *494F89C30197_4AA68CCA0001exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *494F89C30197_4AA68CCA0001exec_impl*"))
+		    quid       	"494F89C30197"
+		    documentation 	"Óäàëèòü"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Delete"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Usual/Edit/Delete|4C7D0CC90052"))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A811C620210test_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4A811C620210test_var*¤//#UC END# *4C7D0CC90052_4A811C620210test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A811C620210test_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4A811C620210test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4A811C620210test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A811C620210getstate_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4A811C620210getstate_var*¤//#UC END# *4C7D0CC90052_4A811C620210getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A811C620210getstate_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4A811C620210getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4A811C620210getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A811C620210exec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4A811C620210exec_var*¤//#UC END# *4C7D0CC90052_4A811C620210exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A811C620210exec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4A811C620210exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4A811C620210exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A8921960298test_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4A8921960298test_var*¤//#UC END# *4C7D0CC90052_4A8921960298test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A8921960298test_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4A8921960298test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4A8921960298test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A8921960298getstate_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4A8921960298getstate_var*¤//#UC END# *4C7D0CC90052_4A8921960298getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A8921960298getstate_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4A8921960298getstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4A8921960298getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A8921960298exec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4A8921960298exec_var*¤//#UC END# *4C7D0CC90052_4A8921960298exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4A8921960298exec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4A8921960298exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4A8921960298exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AB8D885020Ftest_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4AB8D885020Ftest_var*¤//#UC END# *4C7D0CC90052_4AB8D885020Ftest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AB8D885020Ftest_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4AB8D885020Ftest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4AB8D885020Ftest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AB8D885020Fgetstate_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4AB8D885020Fgetstate_var*¤//#UC END# *4C7D0CC90052_4AB8D885020Fgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AB8D885020Fgetstate_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4AB8D885020Fgetstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4AB8D885020Fgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AB8D885020Fexec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4AB8D885020Fexec_var*¤//#UC END# *4C7D0CC90052_4AB8D885020Fexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AB8D885020Fexec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4AB8D885020Fexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4AB8D885020Fexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E4A45018Ftest_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E4A45018Ftest_var*¤//#UC END# *4C7D0CC90052_4C7E4A45018Ftest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E4A45018Ftest_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E4A45018Ftest_impl*¤ enControlCenterNullListTest(aParams);¤//#UC END# *4C7D0CC90052_4C7E4A45018Ftest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E4A45018Fgetstate_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E4A45018Fgetstate_var*¤//#UC END# *4C7D0CC90052_4C7E4A45018Fgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E4A45018Fgetstate_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E4A45018Fgetstate_impl*¤ State := st_user_Edit_Delete_Controlled;¤//#UC END# *4C7D0CC90052_4C7E4A45018Fgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E4A45018Fexec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E4A45018Fexec_var*¤var¤ l_Node: IeeNode;¤ l_Desision: Boolean;¤ l_List: InsControlledList;¤//#UC END# *4C7D0CC90052_4C7E4A45018Fexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E4A45018Fexec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E4A45018Fexec_impl*¤ with UnderControlList.TreeView.Tree do¤ begin¤  if (SelectedCount > 0) then¤  begin¤   if (SelectedCount > 1) then¤    l_Desision := Ask(qr_RemoveControlStatus)¤   else¤    l_Desision := Ask(qr_RemoveDocumentFromControl);¤¤   if l_Desision then¤   begin¤    Changing;¤    try¤     repeat¤      l_Node := GetNextSelected(Root);¤      if Assigned(l_Node) then¤       l_Node.Delete¤      else¤       break;¤     until false;¤¤     if Supports(UserFoldersTree.ControlledObj, InsControlledList, l_List) then¤      l_List.AddFakeNode;¤    finally¤     Changed;¤    end;//try..finally¤   end;¤  end¤ end;¤//#UC END# *4C7D0CC90052_4C7E4A45018Fexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E651B0179test_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E651B0179test_var*¤//#UC END# *4C7D0CC90052_4C7E651B0179test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E651B0179test_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E651B0179test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := (dsFoldersTree <> nil) and dsFoldersTree.CanDelete(FoldersTree.GetCurrentNode);¤//#UC END# *4C7D0CC90052_4C7E651B0179test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E651B0179exec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E651B0179exec_var*¤//#UC END# *4C7D0CC90052_4C7E651B0179exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7E651B0179exec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7E651B0179exec_impl*¤ FolderElement_InternalDelete_Execute(nil);¤//#UC END# *4C7D0CC90052_4C7E651B0179exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7F5A5800CDtest_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7F5A5800CDtest_var*¤//#UC END# *4C7D0CC90052_4C7F5A5800CDtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7F5A5800CDtest_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7F5A5800CDtest_impl*¤ Filter_Edit_Test(aParams);¤//#UC END# *4C7D0CC90052_4C7F5A5800CDtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7F5A5800CDexec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7F5A5800CDexec_var*¤var¤ l_CurNode: Il3Node;¤ l_ConfirmationResult: Boolean;¤ l_Node: InsFilterNode;¤//#UC END# *4C7D0CC90052_4C7F5A5800CDexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C7F5A5800CDexec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C7F5A5800CDexec_impl*¤ with FiltersList do¤ begin¤  l_CurNode := CurrentCNode;¤  try¤   if Supports(l_CurNode, InsFilterNode, l_Node) and l_Node.CanModify then¤   begin¤    l_ConfirmationResult := Ask(qr_DeleteFilter, [l3CStr(l_CurNode)]);¤    if l_ConfirmationResult then¤    begin¤     //ChangeActiveStatus(FiltersList, l_CurNode, False);  óáðàíî. ÑÌ: http://mdp.garant.ru/pages/viewpage.action?pageId=450293671¤     l_CurNode := nil;¤     l_Node.MarkToDelete;¤    end;//l_ConfirmationResult¤   end;¤  finally¤   l_CurNode := nil;¤  end;//try..finally¤ end;//with FiltersList¤//#UC END# *4C7D0CC90052_4C7F5A5800CDexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AAF487F03BCtest_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4AAF487F03BCtest_var*¤//#UC END# *4C7D0CC90052_4AAF487F03BCtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AAF487F03BCtest_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4AAF487F03BCtest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4AAF487F03BCtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AAF487F03BCgetstate_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4AAF487F03BCgetstate_var*¤//#UC END# *4C7D0CC90052_4AAF487F03BCgetstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AAF487F03BCgetstate_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4AAF487F03BCgetstate_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4AAF487F03BCgetstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AAF487F03BCexec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4AAF487F03BCexec_var*¤//#UC END# *4C7D0CC90052_4AAF487F03BCexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4AAF487F03BCexec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4AAF487F03BCexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *4C7D0CC90052_4AAF487F03BCexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C84D11E01E2test_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C84D11E01E2test_var*¤//#UC END# *4C7D0CC90052_4C84D11E01E2test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C84D11E01E2test_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C84D11E01E2test_impl*¤ if aParams.Control = trContactList then¤  aParams.Op.Flag[vcm_ofEnabled] := not AddingContact and (trContactList.GetCurrentNode <> nil)¤ else¤  if not aParams.CallControl then¤   aParams.Op.Flag[vcm_ofEnabled] := False;¤//#UC END# *4C7D0CC90052_4C84D11E01E2test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C84D11E01E2getstate_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_var*¤//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C84D11E01E2getstate_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_impl*¤ if trContactList.Focused then¤  State := st_user_Edit_Delete_Contact¤ else¤  State := vcm_DefaultOperationState;¤//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C84D11E01E2exec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C84D11E01E2exec_var*¤//#UC END# *4C7D0CC90052_4C84D11E01E2exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C84D11E01E2exec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C84D11E01E2exec_impl*¤ if aParams.Control = trContactList then¤ begin¤  if trContactList.GetCurrentNode <> nil then¤   TdmStdRes.MakeChatDispatcher.DeleteUser(trContactList.GetCurrentNode);¤ end¤ else¤  aParams.CallControl;¤//#UC END# *4C7D0CC90052_4C84D11E01E2exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C878FA60351test_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C878FA60351test_var*¤//#UC END# *4C7D0CC90052_4C878FA60351test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C878FA60351test_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C878FA60351test_impl*¤ if (aParams.Control = ContentsTree) then¤  aParams.Op.Flag[vcm_ofEnabled] := ContentItemType in [cltBookmark, cltUserComment]¤ else¤ if (aParams.Control = lstBookmarks) OR (aParams.Control = lstComments) then¤  aParams.Op.Flag[vcm_ofEnabled] := true¤ else¤  aParams.CallControl;¤//#UC END# *4C7D0CC90052_4C878FA60351test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C878FA60351getstate_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C878FA60351getstate_var*¤//#UC END# *4C7D0CC90052_4C878FA60351getstate_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C878FA60351getstate_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C878FA60351getstate_impl*¤//#UC END# *4C7D0CC90052_4C878FA60351getstate_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C878FA60351exec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C878FA60351exec_var*¤var¤ l_Sub    : IevSub;¤ l_Para   : InevPara;¤ l_ParaID : Integer;¤ l_D : TBookmark2;¤//#UC END# *4C7D0CC90052_4C878FA60351exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C878FA60351exec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C878FA60351exec_impl*¤ if (aParams.Control = ContentsTree) then¤ begin¤  if (ContentsTree.TreeView.Current >= 0) and¤     Supports(ContentsTree.TreeView.CurrentNode, IevSub, l_Sub) then¤   try¤    case l_Sub.LayerID of¤     Ord(ev_sbtBookmark):¤     begin¤      case nsDeleteBookmark(l_Sub.ID, BaseContents.Adornments) of¤  //   Òåïåðü íå íóæíî, ò.ê. çàêëàäêà óäàëÿåòñÿ ó âñåõ äîêóìåíòîâ â êýøå ÷åðåç íîòèôèêàöèþ.¤  //     drOk: l_Sub.Delete;¤       drDenied: Say(err_CanNotDeleteBookmark);¤      end;//case DeleteBookmark(l_Sub.ID) of¤     end;//ev_sbtBookmark¤     Ord(ev_sbtMark):¤      if l_Sub.Para.QT(InevPara, l_Para) then¤       l_Para.Edit.Delete(false);¤    end;//case l_Sub.LayerID¤   finally¤    l_Sub := nil;¤   end;//try..finally¤ end//aParams.Control = ContentsTree¤ else¤ if (aParams.Control = lstComments) then¤ begin¤  if (BaseContents <> nil) then¤   with BaseContents do¤   if (lstComments.Current < Comments.Count) then¤    begin¤     l_ParaID := Comments.Items[lstComments.Current];¤     Adornments.As_InevCommentTextProvider.DeleteCommentByParaID(l_ParaID);¤    end;//lstComments.Current < Comments.Count¤ end//aParams.Control = lstComments¤ else¤ if (aParams.Control = lstBookmarks) then¤ begin¤  if (BaseContents <> nil) then¤   with BaseContents do¤   if (lstBookmarks.Current < Bookmarks.Count) then¤    begin¤     Bookmarks.pm_GetItem(lstBookmarks.Current, l_D);¤     case nsDeleteBookmark(l_D.rParaID, Adornments) of¤ //   Òåïåðü íå íóæíî, ò.ê. çàêëàäêà óäàëÿåòñÿ ó âñåõ äîêóìåíòîâ â êýøå ÷åðåç íîòèôèêàöèþ.¤ //     drOk: l_Sub.Delete;¤      drDenied: Say(err_CanNotDeleteBookmark);¤     end;//case DeleteBookmark(l_D.rParaID) of¤    end;//lstBookmarks.Current < Bookmarks.Count¤ end//aParams.Control = lstBookmarks¤ else¤  aParams.CallControl;¤//#UC END# *4C7D0CC90052_4C878FA60351exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C87B3A50387test_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C87B3A50387test_var*¤var¤ l_Node   : INodeBase;¤ l_l3Node : Il3SimpleNode;¤//#UC END# *4C7D0CC90052_4C87B3A50387test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C87B3A50387test_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C87B3A50387test_impl*¤ l_l3Node := SelectedTree.GetCurrentNode;¤ try¤  if Supports(l_l3Node, INodeBase, l_Node) then¤   try¤    aParams.Op.Flag[vcm_ofEnabled] := True¤   finally¤    l_Node := nil;¤   end¤  else¤   aParams.Op.Flag[vcm_ofEnabled] := False;¤ finally¤  l_l3Node := nil;¤ end;¤//#UC END# *4C7D0CC90052_4C87B3A50387test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C87B3A50387exec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C87B3A50387exec_var*¤var¤ l_l3Node: Il3Node;¤ l_Node: INodeBase;¤¤ function DeleteNode(const aNode: Il3SimpleNode): Boolean;¤ var¤  l_NodeBase: INodeBase;¤ begin¤  Result := False;¤  if not aNode.HasChild and¤     Supports(aNode, INodeBase, l_NodeBase) then¤   op_AttributeTree_DropLogicSelection.Call(Aggregate, l_NodeBase);¤ end;¤¤//#UC END# *4C7D0CC90052_4C87B3A50387exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C87B3A50387exec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C87B3A50387exec_impl*¤ if (SelectedTree.Current >= 0) then¤ begin¤  l_l3Node := SelectedTree.CurrentCNode;¤  if (l_l3Node <> nil) then¤  begin¤   SelectedTree.Changing;¤   try¤    if (Aggregate <> nil) and¤       Supports(l_l3Node, INodeBase, l_Node) then¤    begin¤     if l_l3Node.HasChild then¤      l_l3Node.IterateF(l3L2NA(@DeleteNode))¤     else¤      op_AttributeTree_DropLogicSelection.Call(Aggregate, l_Node);¤     DeleteElement(l_l3Node, True);¤    end;¤   finally¤    SelectedTree.Changed;¤   end;//try..finally¤  end;//l_l3Node <> nil¤ end;//SelectedTree.Current >= 0¤//#UC END# *4C7D0CC90052_4C87B3A50387exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C87C62302CFtest_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C87C62302CFtest_var*¤var¤ l_Req: IqaReq; ¤¤ function lp_CheckPanel: Boolean;¤ begin//lp_CheckPanel¤  aParams.Op.Flag[vcm_ofEnabled] := (evIsFieldSet(f_MgrSearch.GetCurrentField, true) or¤   (l_Req.EditorReq.FieldsCount > 1));¤  Result := True;¤ end;//lp_CheckPanel¤¤ function lp_CheckDatePanel : Boolean;¤ begin¤  Result := Supports(l_Req, IqaDateReq);¤  if Result then¤   aParams.Op.Flag[vcm_ofEnabled] := evIsSomeFieldFilled(f_MgrSearch.GetCurrentField.Req, true);¤ end;¤¤ function lp_CheckPhonePanel : Boolean;¤ var¤  l_PhoneReq : IqaPhoneReq;¤ begin¤  Result := Supports(l_Req, IqaPhoneReq, l_PhoneReq);¤  if Result then¤   aParams.Op.Flag[vcm_ofEnabled] := not l3IsNil(l_PhoneReq.Code) or¤    not l3IsNil(l_PhoneReq.Number);¤ end;¤¤ function lp_CheckMemoPanel : Boolean;¤ var¤  l_Button  : IevEditorControlButton;¤ begin¤  Result := l_Req.EditorReq.FirstField.ControlType in evSimpleEditors;¤  if Result then¤  begin¤   l_Button := f_MgrSearch.GetCurrentField.FindButton(ev_btDelete);¤   if (l_Button <> nil) then¤    aParams.Op.Flag[vcm_ofEnabled] := l_Button.Visible¤   else¤    aParams.Op.Flag[vcm_ofEnabled] := not l_Req.EditorReq.FirstField.IsFieldEmpty;¤  end;//Result¤ end;¤¤//#UC END# *4C7D0CC90052_4C87C62302CFtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C87C62302CFtest_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C87C62302CFtest_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := False;¤ if Assigned(f_MgrSearch) then¤ begin¤  l_Req := f_MgrSearch.GetCurrentReq;¤  if l_Req <> nil then¤   (* Àòðèáóòîâ âûáîð äèàïàçîíà äàò *)¤   if not lp_CheckDatePanel then¤   (* Òåëåôîí *)¤    if not lp_CheckPhonePanel then¤    (* Ïàíåëü ñòðîêîâûé àòðèáóò *)¤     if not lp_CheckMemoPanel then¤     (* Ñëîâàðíûé àòðèáóò *)¤      lp_CheckPanel;¤ end;//if Assigned(f_MgrSearch) then   ¤//#UC END# *4C7D0CC90052_4C87C62302CFtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C87C62302CFexec_var*"
+			    value      	"//#UC START# *4C7D0CC90052_4C87C62302CFexec_var*¤//#UC END# *4C7D0CC90052_4C87C62302CFexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4C7D0CC90052_4C87C62302CFexec_impl*"
+			    value      	"//#UC START# *4C7D0CC90052_4C87C62302CFexec_impl*¤ if Assigned(f_MgrSearch) then¤  f_MgrSearch.DeleteValue(Editor.View);¤//#UC END# *4C7D0CC90052_4C87C62302CFexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13039989764"))
+		    quid       	"4C7D0CC90052"
+		    documentation 	"Óäàëèòü"
+		    stereotype 	"VCMOperation"
+		    abstract   	TRUE
+		    nestedClasses 	(list nestedClasses
+			(object Class "Controlled"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"final")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"WikiPageID (wiki)"
+				    value      	(value Text 
+|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Ìîäåëü ïðîåêòà "Shared Delphi Operations"/OfficeLike/UserInteraction/Usual/Edit/Delete/Controlled|4C7D0CDB0298
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"SourceType (wiki)"
+				    value      	"wiki")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13039990841")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Checked"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Enabled"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Visible"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"finished"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"ifndef"
+				    value      	"Admin,Monitorings"))
+			    quid       	"4C7D0CDB0298"
+			    documentation 	"Ñíÿòü ñ êîíòðîëÿ"
+			    stereotype 	"VCMOperationState")
+			(object Class "User"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"final")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Checked"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Enabled"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"ImageIndex"
+				    value      	"149")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Visible"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"finished"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"WikiPageID (wiki)"
+				    value      	(value Text 
+|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Ìîäåëü ïðîåêòà "Shared Delphi Operations"/OfficeLike/UserInteraction/Usual/Edit/Delete/User|4C7D0CEC0160
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"SourceType (wiki)"
+				    value      	"wiki")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13040000396")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"ifdef"
+				    value      	"Admin"))
+			    quid       	"4C7D0CEC0160"
+			    documentation 	"Óäàëèòü ïîëüçîâàòåëÿ"
+			    stereotype 	"VCMOperationState")
+			(object Class "MultiUsers"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"final")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Checked"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Enabled"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"ImageIndex"
+				    value      	"149")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Visible"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"finished"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"WikiPageID (wiki)"
+				    value      	(value Text 
+|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Ìîäåëü ïðîåêòà "Shared Delphi Operations"/OfficeLike/UserInteraction/Usual/Edit/Delete/MultiUsers|4C7D0D02005D
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"SourceType (wiki)"
+				    value      	"wiki")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13040002838")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"ifdef"
+				    value      	"Admin"))
+			    quid       	"4C7D0D02005D"
+			    documentation 	"Óäàëèòü âûäåëåííûõ ïîëüçîâàòåëåé"
+			    stereotype 	"VCMOperationState")
+			(object Class "Group"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"final")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Checked"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Enabled"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"ImageIndex"
+				    value      	"193")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Visible"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"finished"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"WikiPageID (wiki)"
+				    value      	(value Text 
+|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Ìîäåëü ïðîåêòà "Shared Delphi Operations"/OfficeLike/UserInteraction/Usual/Edit/Delete/Group|4C7D0D160126
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"SourceType (wiki)"
+				    value      	"wiki")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13040010512")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"ifdef"
+				    value      	"Admin"))
+			    quid       	"4C7D0D160126"
+			    documentation 	"Óäàëèòü ãðóïïó"
+			    stereotype 	"VCMOperationState")
+			(object Class "Contact"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"final")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"WikiPageID (wiki)"
+				    value      	(value Text 
+|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Ìîäåëü ïðîåêòà "Shared Delphi Operations"/OfficeLike/UserInteraction/Usual/Edit/Delete/Contact|4C7D0D2C028F
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"SourceType (wiki)"
+				    value      	"wiki")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"13040012130")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Checked"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Enabled"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"Visible"
+				    value      	"undefined")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"finished"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"ifndef"
+				    value      	"Admin,Monitorings"))
+			    quid       	"4C7D0D2C028F"
+			    documentation 	"Óäàëèòü ïîëüçîâàòåëÿ"
+			    stereotype 	"VCMOperationState")))))
+	(object Class "File"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Usual/File|49521D8203A0"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"573ECB0F-AA41-4D60-8771-E56B0E314D4D")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13040017071"))
+	    quid       	"49521D8203A0"
+	    documentation 	"Ôàéë"
+	    stereotype 	"VCMOperations"
+	    operations 	(list Operations
+		(object Operation "Print"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_495118ED00F6test_var*"
+			    value      	"//#UC START# *49521D8E0295_495118ED00F6test_var*¤//#UC END# *49521D8E0295_495118ED00F6test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_495118ED00F6test_impl*"
+			    value      	"//#UC START# *49521D8E0295_495118ED00F6test_impl*¤ aParams.CallControl;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := Printer.Printers.Count > 0;¤ nsDisableOperationInTrialMode(aParams);¤//#UC END# *49521D8E0295_495118ED00F6test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_495118ED00F6exec_var*"
+			    value      	"//#UC START# *49521D8E0295_495118ED00F6exec_var*¤var¤ l_Preview: IafwComplexDocumentPreview;¤//#UC END# *49521D8E0295_495118ED00F6exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_495118ED00F6exec_impl*"
+			    value      	"//#UC START# *49521D8E0295_495118ED00F6exec_impl*¤ l_Preview := Text.Preview;¤ try¤  l_Preview.Print;¤ finally¤  l_Preview := nil;¤ end;¤//#UC END# *49521D8E0295_495118ED00F6exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_49EC746B01E5test_var*"
+			    value      	"//#UC START# *49521D8E0295_49EC746B01E5test_var*¤//#UC END# *49521D8E0295_49EC746B01E5test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_49EC746B01E5test_impl*"
+			    value      	"//#UC START# *49521D8E0295_49EC746B01E5test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINT) AND OLECMDF_ENABLED) <> 0);¤//#UC END# *49521D8E0295_49EC746B01E5test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_49EC746B01E5exec_var*"
+			    value      	"//#UC START# *49521D8E0295_49EC746B01E5exec_var*¤//#UC END# *49521D8E0295_49EC746B01E5exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_49EC746B01E5exec_impl*"
+			    value      	"//#UC START# *49521D8E0295_49EC746B01E5exec_impl*¤ f_Browser.ExecWB(OLECMDID_PRINT, OLECMDEXECOPT_DONTPROMPTUSER);¤//#UC END# *49521D8E0295_49EC746B01E5exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AAF6F4E010Etest_var*"
+			    value      	"//#UC START# *49521D8E0295_4AAF6F4E010Etest_var*¤//#UC END# *49521D8E0295_4AAF6F4E010Etest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AAF6F4E010Etest_impl*"
+			    value      	"//#UC START# *49521D8E0295_4AAF6F4E010Etest_impl*¤ aParams.CallControl;¤ if not IsReady then¤  aParams.Op.Flag[vcm_ofEnabled] := false;¤ {$If not defined(Admin) AND not defined(Monitorings)} ¤ nsDisableOperationInTrialMode(aParams);¤ {$IfEnd} //not Admin AND not Monitorings¤//#UC END# *49521D8E0295_4AAF6F4E010Etest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AAF6F4E010Eexec_var*"
+			    value      	"//#UC START# *49521D8E0295_4AAF6F4E010Eexec_var*¤//#UC END# *49521D8E0295_4AAF6F4E010Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AAF6F4E010Eexec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4AAF6F4E010Eexec_impl*¤ aParams.CallControl;¤//#UC END# *49521D8E0295_4AAF6F4E010Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AE1A69E0156test_var*"
+			    value      	"//#UC START# *49521D8E0295_4AE1A69E0156test_var*¤//#UC END# *49521D8E0295_4AE1A69E0156test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AE1A69E0156test_impl*"
+			    value      	"//#UC START# *49521D8E0295_4AE1A69E0156test_impl*¤ aParams.CallControl;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := Printer.Printers.Count > 0;¤ nsDisableOperationInTrialMode(aParams);¤//#UC END# *49521D8E0295_4AE1A69E0156test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AE1A69E0156exec_var*"
+			    value      	"//#UC START# *49521D8E0295_4AE1A69E0156exec_var*¤var¤ l_Preview: IafwComplexDocumentPreview;¤//#UC END# *49521D8E0295_4AE1A69E0156exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AE1A69E0156exec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4AE1A69E0156exec_impl*¤ l_Preview := MakePreview;¤ try¤  l_Preview.Print;¤ finally¤  l_Preview := nil;¤ end;//try..finally¤//#UC END# *49521D8E0295_4AE1A69E0156exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AA9393C0164test_var*"
+			    value      	"//#UC START# *49521D8E0295_4AA9393C0164test_var*¤//#UC END# *49521D8E0295_4AA9393C0164test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AA9393C0164test_impl*"
+			    value      	"//#UC START# *49521D8E0295_4AA9393C0164test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *49521D8E0295_4AA9393C0164test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AA9393C0164exec_var*"
+			    value      	"//#UC START# *49521D8E0295_4AA9393C0164exec_var*¤//#UC END# *49521D8E0295_4AA9393C0164exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4AA9393C0164exec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4AA9393C0164exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *49521D8E0295_4AA9393C0164exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C46AA3401DBtest_var*"
+			    value      	"//#UC START# *49521D8E0295_4C46AA3401DBtest_var*¤//#UC END# *49521D8E0295_4C46AA3401DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C46AA3401DBtest_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C46AA3401DBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *49521D8E0295_4C46AA3401DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C46AA3401DBexec_var*"
+			    value      	"//#UC START# *49521D8E0295_4C46AA3401DBexec_var*¤var¤ l_Preview : IafwComplexDocumentPreview;¤//#UC END# *49521D8E0295_4C46AA3401DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C46AA3401DBexec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C46AA3401DBexec_impl*¤ l_Preview := MakePreview(False);¤ if (l_Preview <> nil) then¤ begin¤  l_Preview.Print;¤ end;//if (l_Preview <> nil) then¤//#UC END# *49521D8E0295_4C46AA3401DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_497EE4EB00CBtest_var*"
+			    value      	"//#UC START# *49521D8E0295_497EE4EB00CBtest_var*¤//#UC END# *49521D8E0295_497EE4EB00CBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_497EE4EB00CBtest_impl*"
+			    value      	"//#UC START# *49521D8E0295_497EE4EB00CBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *49521D8E0295_497EE4EB00CBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_497EE4EB00CBexec_var*"
+			    value      	"//#UC START# *49521D8E0295_497EE4EB00CBexec_var*¤var¤ l_Preview : IafwComplexDocumentPreview;¤//#UC END# *49521D8E0295_497EE4EB00CBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_497EE4EB00CBexec_impl*"
+			    value      	"//#UC START# *49521D8E0295_497EE4EB00CBexec_impl*¤ l_Preview := MakePreview(False);¤ if (l_Preview <> nil) then¤  l_Preview.Print;¤//#UC END# *49521D8E0295_497EE4EB00CBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C7F738D033Eexec_var*"
+			    value      	"//#UC START# *49521D8E0295_4C7F738D033Eexec_var*¤var¤ l_Preview : IafwComplexDocumentPreview;¤//#UC END# *49521D8E0295_4C7F738D033Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C7F738D033Eexec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C7F738D033Eexec_impl*¤ l_Preview := MakePreview;¤ if (l_Preview <> nil) then¤  l_Preview.Print;¤//#UC END# *49521D8E0295_4C7F738D033Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C8647C8024Etest_var*"
+			    value      	"//#UC START# *49521D8E0295_4C8647C8024Etest_var*¤//#UC END# *49521D8E0295_4C8647C8024Etest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C8647C8024Etest_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C8647C8024Etest_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and HasTree;¤//#UC END# *49521D8E0295_4C8647C8024Etest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C8647C8024Eexec_var*"
+			    value      	"//#UC START# *49521D8E0295_4C8647C8024Eexec_var*¤var¤ l_Preview : IafwDocumentPreview;¤//#UC END# *49521D8E0295_4C8647C8024Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C8647C8024Eexec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C8647C8024Eexec_impl*¤ l_Preview := MakePreview;¤ if (l_Preview <> nil) then¤  l_Preview.Print;¤//#UC END# *49521D8E0295_4C8647C8024Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C8768010125test_var*"
+			    value      	"//#UC START# *49521D8E0295_4C8768010125test_var*¤//#UC END# *49521D8E0295_4C8768010125test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C8768010125test_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C8768010125test_impl*¤ nsDisableOperationInTrialMode(aParams);¤//#UC END# *49521D8E0295_4C8768010125test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C8768010125exec_var*"
+			    value      	"//#UC START# *49521D8E0295_4C8768010125exec_var*¤var¤ l_Preview : IafwDocumentPreview;¤//#UC END# *49521D8E0295_4C8768010125exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C8768010125exec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C8768010125exec_impl*¤ l_Preview := MakePreview;¤ if (l_Preview <> nil) then¤  l_Preview.Print;¤//#UC END# *49521D8E0295_4C8768010125exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C878FA60351test_var*"
+			    value      	"//#UC START# *49521D8E0295_4C878FA60351test_var*¤//#UC END# *49521D8E0295_4C878FA60351test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C878FA60351test_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C878FA60351test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := CanPrint;¤//#UC END# *49521D8E0295_4C878FA60351test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C878FA60351exec_var*"
+			    value      	"//#UC START# *49521D8E0295_4C878FA60351exec_var*¤//#UC END# *49521D8E0295_4C878FA60351exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C878FA60351exec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C878FA60351exec_impl*¤ if (afw.Application <> nil) and (afw.Application.PrintManager <> nil) then¤  MakePreview.Print;¤//#UC END# *49521D8E0295_4C878FA60351exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C87C62302CFtest_var*"
+			    value      	"//#UC START# *49521D8E0295_4C87C62302CFtest_var*¤//#UC END# *49521D8E0295_4C87C62302CFtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C87C62302CFtest_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C87C62302CFtest_impl*¤ File_PrintPreview_Test(aParams);¤ {$IFDEF Monitorings}¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  if (afw.Application = nil) OR (afw.Application.PrintManager = nil) OR¤     not afw.Application.PrintManager.CanPrint then¤   aParams.Op.Flag[vcm_ofEnabled] := false;¤ {$ENDIF Monitorings}¤//#UC END# *49521D8E0295_4C87C62302CFtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C87C62302CFexec_var*"
+			    value      	"//#UC START# *49521D8E0295_4C87C62302CFexec_var*¤//#UC END# *49521D8E0295_4C87C62302CFexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C87C62302CFexec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C87C62302CFexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *49521D8E0295_4C87C62302CFexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C88CB3E009Cexec_var*"
+			    value      	"//#UC START# *49521D8E0295_4C88CB3E009Cexec_var*¤var¤ l_Preview : IafwComplexDocumentPreview;¤//#UC END# *49521D8E0295_4C88CB3E009Cexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C88CB3E009Cexec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C88CB3E009Cexec_impl*¤ l_Preview := MakePreview;¤ if (l_Preview <> nil) then¤  l_Preview.Print;¤//#UC END# *49521D8E0295_4C88CB3E009Cexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13040021924")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4CDABAD0032Etest_var*"
+			    value      	"//#UC START# *49521D8E0295_4CDABAD0032Etest_var*¤//#UC END# *49521D8E0295_4CDABAD0032Etest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4CDABAD0032Etest_impl*"
+			    value      	"//#UC START# *49521D8E0295_4CDABAD0032Etest_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := Self.CanPrint;¤//#UC END# *49521D8E0295_4CDABAD0032Etest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4CDABAD0032Eexec_var*"
+			    value      	"//#UC START# *49521D8E0295_4CDABAD0032Eexec_var*¤//#UC END# *49521D8E0295_4CDABAD0032Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4CDABAD0032Eexec_impl*"
+			    value      	"//#UC START# *49521D8E0295_4CDABAD0032Eexec_impl*¤ DoPrintExecute(aParams);¤//#UC END# *49521D8E0295_4CDABAD0032Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C88CB3E009Ctest_var*"
+			    value      	"//#UC START# *49521D8E0295_4C88CB3E009Ctest_var*¤//#UC END# *49521D8E0295_4C88CB3E009Ctest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*49521D8E0295_4C88CB3E009Ctest_impl*"
+			    value      	"//#UC START# *49521D8E0295_4C88CB3E009Ctest_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := False;¤//#UC END# *49521D8E0295_4C88CB3E009Ctest_impl*"))
+		    quid       	"49521D8E0295"
+		    documentation 	"Ïå÷àòü"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "PrintDialog"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_495118ED00F6test_var*"
+			    value      	"//#UC START# *495220DE0298_495118ED00F6test_var*¤//#UC END# *495220DE0298_495118ED00F6test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_495118ED00F6test_impl*"
+			    value      	"//#UC START# *495220DE0298_495118ED00F6test_impl*¤ aParams.CallControl;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;¤//#UC END# *495220DE0298_495118ED00F6test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_495118ED00F6exec_var*"
+			    value      	"//#UC START# *495220DE0298_495118ED00F6exec_var*¤//#UC END# *495220DE0298_495118ED00F6exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_495118ED00F6exec_impl*"
+			    value      	"//#UC START# *495220DE0298_495118ED00F6exec_impl*¤ DocumentPrint(True);¤//#UC END# *495220DE0298_495118ED00F6exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_49EC746B01E5test_var*"
+			    value      	"//#UC START# *495220DE0298_49EC746B01E5test_var*¤//#UC END# *495220DE0298_49EC746B01E5test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_49EC746B01E5test_impl*"
+			    value      	"//#UC START# *495220DE0298_49EC746B01E5test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINT) AND OLECMDF_ENABLED) <> 0);¤//#UC END# *495220DE0298_49EC746B01E5test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_49EC746B01E5exec_var*"
+			    value      	"//#UC START# *495220DE0298_49EC746B01E5exec_var*¤//#UC END# *495220DE0298_49EC746B01E5exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_49EC746B01E5exec_impl*"
+			    value      	"//#UC START# *495220DE0298_49EC746B01E5exec_impl*¤ f_Browser.ExecWB(OLECMDID_PRINT, OLECMDEXECOPT_PROMPTUSER);¤//#UC END# *495220DE0298_49EC746B01E5exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4AAF6F4E010Etest_var*"
+			    value      	"//#UC START# *495220DE0298_4AAF6F4E010Etest_var*¤//#UC END# *495220DE0298_4AAF6F4E010Etest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4AAF6F4E010Etest_impl*"
+			    value      	"//#UC START# *495220DE0298_4AAF6F4E010Etest_impl*¤ aParams.CallControl;¤ if not IsReady then¤  aParams.Op.Flag[vcm_ofEnabled] := false;¤ {$If not defined(Admin) AND not defined(Monitorings)} ¤ nsDisableOperationInTrialMode(aParams);¤ {$IfEnd} //not Admin AND not Monitorings¤//#UC END# *495220DE0298_4AAF6F4E010Etest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4AAF6F4E010Eexec_var*"
+			    value      	"//#UC START# *495220DE0298_4AAF6F4E010Eexec_var*¤//#UC END# *495220DE0298_4AAF6F4E010Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4AAF6F4E010Eexec_impl*"
+			    value      	"//#UC START# *495220DE0298_4AAF6F4E010Eexec_impl*¤ aParams.CallControl;¤//#UC END# *495220DE0298_4AAF6F4E010Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4AE1A69E0156test_var*"
+			    value      	"//#UC START# *495220DE0298_4AE1A69E0156test_var*¤//#UC END# *495220DE0298_4AE1A69E0156test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4AE1A69E0156test_impl*"
+			    value      	"//#UC START# *495220DE0298_4AE1A69E0156test_impl*¤ aParams.CallControl;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;¤//#UC END# *495220DE0298_4AE1A69E0156test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4AE1A69E0156exec_var*"
+			    value      	"//#UC START# *495220DE0298_4AE1A69E0156exec_var*¤//#UC END# *495220DE0298_4AE1A69E0156exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4AE1A69E0156exec_impl*"
+			    value      	"//#UC START# *495220DE0298_4AE1A69E0156exec_impl*¤ DocumentPrint(True);¤//#UC END# *495220DE0298_4AE1A69E0156exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_497EBA4301CAtest_var*"
+			    value      	"//#UC START# *495220DE0298_497EBA4301CAtest_var*¤//#UC END# *495220DE0298_497EBA4301CAtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_497EBA4301CAtest_impl*"
+			    value      	"//#UC START# *495220DE0298_497EBA4301CAtest_impl*¤ File_PrintPreview_Test(aParams);¤ {$IFNDEF Admin}¤ if UserType = utqcPostingOrder then¤  if aParams.Op.Flag[vcm_ofEnabled] then¤   if (afw.Application = nil) OR (afw.Application.PrintManager = nil) OR¤      not afw.Application.PrintManager.CanPrint then¤    aParams.Op.Flag[vcm_ofEnabled] := false;¤ {$ENDIF Admin}¤//#UC END# *495220DE0298_497EBA4301CAtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_497EBA4301CAexec_var*"
+			    value      	"//#UC START# *495220DE0298_497EBA4301CAexec_var*¤//#UC END# *495220DE0298_497EBA4301CAexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_497EBA4301CAexec_impl*"
+			    value      	"//#UC START# *495220DE0298_497EBA4301CAexec_impl*¤ {$IFNDEF Admin}¤ if CheckQuery then¤  if (afw.Application <> nil) and (afw.Application.PrintManager <> nil) then¤   afw.Application.PrintManager.PrintDialog(MakePreview);¤ {$ENDIF Admin}¤//#UC END# *495220DE0298_497EBA4301CAexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C46AA3401DBtest_var*"
+			    value      	"//#UC START# *495220DE0298_4C46AA3401DBtest_var*¤//#UC END# *495220DE0298_4C46AA3401DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C46AA3401DBtest_impl*"
+			    value      	"//#UC START# *495220DE0298_4C46AA3401DBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *495220DE0298_4C46AA3401DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C46AA3401DBexec_var*"
+			    value      	"//#UC START# *495220DE0298_4C46AA3401DBexec_var*¤var¤ l_Preview : IafwComplexDocumentPreview;¤//#UC END# *495220DE0298_4C46AA3401DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C46AA3401DBexec_impl*"
+			    value      	"//#UC START# *495220DE0298_4C46AA3401DBexec_impl*¤ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then¤ begin¤  l_Preview := MakePreview(True);¤  with l_Preview do¤  begin¤   if (ContentKind = afw_pckSelection) then¤    case MessageDlg(str_ListPrintSelectedConfirmation) of¤     -1:¤      ;¤     -2:¤      ContentKind := afw_pckDocument;¤     mrCancel:¤      Exit;¤    end;//MessageDlg(str_DocumentPrintSelectedConfirmation)¤  end;//with l_Preview¤  afw.Application.PrintManager.PrintDialog(l_Preview);¤  // Ðåãèñòðèðóåì ñîáûòèå ïå÷àòè, áåç ãàðàíòèé, ÷òî ïå÷àòü äåéñòâèòåëüíî áûëà¤  // âûïîëíåíà. Ò.ê. ïîëüçîâàòåëü â äèàëîãå ìîã íàæàòü êíîïêó îòìåíà:¤ end;//if (afw.Application <> nil)...¤//#UC END# *495220DE0298_4C46AA3401DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_497EE4EB00CBtest_var*"
+			    value      	"//#UC START# *495220DE0298_497EE4EB00CBtest_var*¤//#UC END# *495220DE0298_497EE4EB00CBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_497EE4EB00CBtest_impl*"
+			    value      	"//#UC START# *495220DE0298_497EE4EB00CBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *495220DE0298_497EE4EB00CBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_497EE4EB00CBexec_var*"
+			    value      	"//#UC START# *495220DE0298_497EE4EB00CBexec_var*¤var¤ l_Preview : IafwComplexDocumentPreview;¤//#UC END# *495220DE0298_497EE4EB00CBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_497EE4EB00CBexec_impl*"
+			    value      	"//#UC START# *495220DE0298_497EE4EB00CBexec_impl*¤ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then¤ begin¤  l_Preview := MakePreview(True);¤  with l_Preview do¤  begin¤   if (ContentKind = afw_pckSelection) then¤    case MessageDlg(str_ListPrintSelectedConfirmation) of¤     -1:¤      ;¤     -2:¤      ContentKind := afw_pckDocument;¤     mrCancel:¤      Exit;¤    end;//MessageDlg(str_DocumentPrintSelectedConfirmation)¤  end;//with l_Preview¤  afw.Application.PrintManager.PrintDialog(l_Preview);¤ end;//if (afw.Application <> nil)...¤//#UC END# *495220DE0298_497EE4EB00CBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C7F738D033Eexec_var*"
+			    value      	"//#UC START# *495220DE0298_4C7F738D033Eexec_var*¤//#UC END# *495220DE0298_4C7F738D033Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C7F738D033Eexec_impl*"
+			    value      	"//#UC START# *495220DE0298_4C7F738D033Eexec_impl*¤ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then¤  afw.Application.PrintManager.PrintDialog(MakePreview);¤//#UC END# *495220DE0298_4C7F738D033Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C8647C8024Etest_var*"
+			    value      	"//#UC START# *495220DE0298_4C8647C8024Etest_var*¤//#UC END# *495220DE0298_4C8647C8024Etest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C8647C8024Etest_impl*"
+			    value      	"//#UC START# *495220DE0298_4C8647C8024Etest_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and HasTree;¤//#UC END# *495220DE0298_4C8647C8024Etest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C8647C8024Eexec_var*"
+			    value      	"//#UC START# *495220DE0298_4C8647C8024Eexec_var*¤//#UC END# *495220DE0298_4C8647C8024Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C8647C8024Eexec_impl*"
+			    value      	"//#UC START# *495220DE0298_4C8647C8024Eexec_impl*¤ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then¤  afw.Application.PrintManager.PrintDialog(MakePreview);¤//#UC END# *495220DE0298_4C8647C8024Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C8768010125test_var*"
+			    value      	"//#UC START# *495220DE0298_4C8768010125test_var*¤//#UC END# *495220DE0298_4C8768010125test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C8768010125test_impl*"
+			    value      	"//#UC START# *495220DE0298_4C8768010125test_impl*¤ nsDisableOperationInTrialMode(aParams);¤//#UC END# *495220DE0298_4C8768010125test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C8768010125exec_var*"
+			    value      	"//#UC START# *495220DE0298_4C8768010125exec_var*¤//#UC END# *495220DE0298_4C8768010125exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C8768010125exec_impl*"
+			    value      	"//#UC START# *495220DE0298_4C8768010125exec_impl*¤ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then¤  afw.Application.PrintManager.PrintDialog(MakePreview);¤//#UC END# *495220DE0298_4C8768010125exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C878FA60351test_var*"
+			    value      	"//#UC START# *495220DE0298_4C878FA60351test_var*¤//#UC END# *495220DE0298_4C878FA60351test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C878FA60351test_impl*"
+			    value      	"//#UC START# *495220DE0298_4C878FA60351test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := CanPrint;¤//#UC END# *495220DE0298_4C878FA60351test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C878FA60351exec_var*"
+			    value      	"//#UC START# *495220DE0298_4C878FA60351exec_var*¤//#UC END# *495220DE0298_4C878FA60351exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C878FA60351exec_impl*"
+			    value      	"//#UC START# *495220DE0298_4C878FA60351exec_impl*¤ if (afw.Application <> nil) and (afw.Application.PrintManager <> nil) then¤  afw.Application.PrintManager.PrintDialog(MakePreview);¤//#UC END# *495220DE0298_4C878FA60351exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C88CB3E009Cexec_var*"
+			    value      	"//#UC START# *495220DE0298_4C88CB3E009Cexec_var*¤//#UC END# *495220DE0298_4C88CB3E009Cexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4C88CB3E009Cexec_impl*"
+			    value      	"//#UC START# *495220DE0298_4C88CB3E009Cexec_impl*¤ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then¤  afw.Application.PrintManager.PrintDialog(MakePreview);¤//#UC END# *495220DE0298_4C88CB3E009Cexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13040023122")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4CDABAD0032Etest_var*"
+			    value      	"//#UC START# *495220DE0298_4CDABAD0032Etest_var*¤//#UC END# *495220DE0298_4CDABAD0032Etest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4CDABAD0032Etest_impl*"
+			    value      	"//#UC START# *495220DE0298_4CDABAD0032Etest_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := Self.CanPrint;¤//#UC END# *495220DE0298_4CDABAD0032Etest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4CDABAD0032Eexec_var*"
+			    value      	"//#UC START# *495220DE0298_4CDABAD0032Eexec_var*¤var¤ l_Preview : IafwDocumentPreview;¤//#UC END# *495220DE0298_4CDABAD0032Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220DE0298_4CDABAD0032Eexec_impl*"
+			    value      	"//#UC START# *495220DE0298_4CDABAD0032Eexec_impl*¤ l_Preview := Preview;¤ if (l_Preview <> nil) then¤  afw.Application.PrintManager.PrintDialog(l_Preview);¤//#UC END# *495220DE0298_4CDABAD0032Eexec_impl*"))
+		    quid       	"495220DE0298"
+		    documentation 	"Ïå÷àòü..."
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "PrintPreview"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_495118ED00F6test_var*"
+			    value      	"//#UC START# *495220F2033A_495118ED00F6test_var*¤//#UC END# *495220F2033A_495118ED00F6test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_495118ED00F6test_impl*"
+			    value      	"//#UC START# *495220F2033A_495118ED00F6test_impl*¤ aParams.CallControl;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := Printer.Printers.Count > 0;¤//#UC END# *495220F2033A_495118ED00F6test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_495118ED00F6exec_var*"
+			    value      	"//#UC START# *495220F2033A_495118ED00F6exec_var*¤//#UC END# *495220F2033A_495118ED00F6exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_495118ED00F6exec_impl*"
+			    value      	"//#UC START# *495220F2033A_495118ED00F6exec_impl*¤ EventManager.AddEvent(ns_evDocumentPrintPreview,¤  nsMakeEventDataIterator.AddData(nsMakeEventData(Document)));¤ aParams.CallControl;¤//#UC END# *495220F2033A_495118ED00F6exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_49EC746B01E5test_var*"
+			    value      	"//#UC START# *495220F2033A_49EC746B01E5test_var*¤//#UC END# *495220F2033A_49EC746B01E5test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_49EC746B01E5test_impl*"
+			    value      	"//#UC START# *495220F2033A_49EC746B01E5test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINTPREVIEW) AND OLECMDF_ENABLED) <> 0);¤//#UC END# *495220F2033A_49EC746B01E5test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_49EC746B01E5exec_var*"
+			    value      	"//#UC START# *495220F2033A_49EC746B01E5exec_var*¤//#UC END# *495220F2033A_49EC746B01E5exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_49EC746B01E5exec_impl*"
+			    value      	"//#UC START# *495220F2033A_49EC746B01E5exec_impl*¤ f_Browser.ExecWB(OLECMDID_PRINTPREVIEW, OLECMDEXECOPT_DODEFAULT);¤//#UC END# *495220F2033A_49EC746B01E5exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4AAF6F8100DBtest_var*"
+			    value      	"//#UC START# *495220F2033A_4AAF6F8100DBtest_var*¤//#UC END# *495220F2033A_4AAF6F8100DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4AAF6F8100DBtest_impl*"
+			    value      	"//#UC START# *495220F2033A_4AAF6F8100DBtest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495220F2033A_4AAF6F8100DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4AAF6F8100DBexec_var*"
+			    value      	"//#UC START# *495220F2033A_4AAF6F8100DBexec_var*¤//#UC END# *495220F2033A_4AAF6F8100DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4AAF6F8100DBexec_impl*"
+			    value      	"//#UC START# *495220F2033A_4AAF6F8100DBexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495220F2033A_4AAF6F8100DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4AE1A69E0156test_var*"
+			    value      	"//#UC START# *495220F2033A_4AE1A69E0156test_var*¤//#UC END# *495220F2033A_4AE1A69E0156test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4AE1A69E0156test_impl*"
+			    value      	"//#UC START# *495220F2033A_4AE1A69E0156test_impl*¤ aParams.CallControl;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;¤ if aParams.Op.Flag[vcm_ofEnabled] then¤  aParams.Op.Flag[vcm_ofEnabled] := Printer.Printers.Count > 0;¤//#UC END# *495220F2033A_4AE1A69E0156test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4AE1A69E0156exec_var*"
+			    value      	"//#UC START# *495220F2033A_4AE1A69E0156exec_var*¤//#UC END# *495220F2033A_4AE1A69E0156exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4AE1A69E0156exec_impl*"
+			    value      	"//#UC START# *495220F2033A_4AE1A69E0156exec_impl*¤ TnsDocumentPrintPreviewEvent.Log(DocumentForExport);¤ aParams.CallControl;¤//#UC END# *495220F2033A_4AE1A69E0156exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_497EBA4301CAtest_var*"
+			    value      	"//#UC START# *495220F2033A_497EBA4301CAtest_var*¤//#UC END# *495220F2033A_497EBA4301CAtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_497EBA4301CAtest_impl*"
+			    value      	"//#UC START# *495220F2033A_497EBA4301CAtest_impl*¤ {$IFNDEF Admin}¤ if UserType = utqcPostingOrder then¤ begin¤  if aParams.Op.Flag[vcm_ofEnabled] then¤   aParams.Op.Flag[vcm_ofEnabled] := (UserType = utqcPostingOrder) and¤    (Printer.Printers.Count > 0);¤ end¤ else¤  aParams.Op.Flag[vcm_ofEnabled] := False;¤ {$ELSE Admin}¤ aParams.Op.Flag[vcm_ofEnabled] := False;¤ {$ENDIF Admin}¤//#UC END# *495220F2033A_497EBA4301CAtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_497EBA4301CAexec_var*"
+			    value      	"//#UC START# *495220F2033A_497EBA4301CAexec_var*¤//#UC END# *495220F2033A_497EBA4301CAexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_497EBA4301CAexec_impl*"
+			    value      	"//#UC START# *495220F2033A_497EBA4301CAexec_impl*¤ {$IFNDEF Admin}¤ if CheckQuery then¤  if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then¤  begin¤   TnsPostingsTreeSingle.Instance.OldModifed := f_MgrSearch.Modified;¤   afw.Application.PrintManager.ShowPreview(MakePreview);¤  end;¤ {$ENDIF Admin}¤//#UC END# *495220F2033A_497EBA4301CAexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C46AA3401DBtest_var*"
+			    value      	"//#UC START# *495220F2033A_4C46AA3401DBtest_var*¤//#UC END# *495220F2033A_4C46AA3401DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C46AA3401DBtest_impl*"
+			    value      	"//#UC START# *495220F2033A_4C46AA3401DBtest_impl*¤ ListopPrintTest(aParams);¤//#UC END# *495220F2033A_4C46AA3401DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C46AA3401DBexec_var*"
+			    value      	"//#UC START# *495220F2033A_4C46AA3401DBexec_var*¤var¤ l_Preview: IafwComplexDocumentPreview;¤//#UC END# *495220F2033A_4C46AA3401DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C46AA3401DBexec_impl*"
+			    value      	"//#UC START# *495220F2033A_4C46AA3401DBexec_impl*¤ l_Preview := MakePreview(False);¤ if dsList <> nil then¤  TnsListPrintPreviewEvent.Log(dsList.List, ApproxExportCount(l_Preview.ContentKind =  afw_pckSelection), l_Preview.ContentKind =  afw_pckSelection);¤ TdmStdRes.MakePreview(l_Preview);¤//#UC END# *495220F2033A_4C46AA3401DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_497EE4EB00CBtest_var*"
+			    value      	"//#UC START# *495220F2033A_497EE4EB00CBtest_var*¤//#UC END# *495220F2033A_497EE4EB00CBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_497EE4EB00CBtest_impl*"
+			    value      	"//#UC START# *495220F2033A_497EE4EB00CBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *495220F2033A_497EE4EB00CBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_497EE4EB00CBexec_var*"
+			    value      	"//#UC START# *495220F2033A_497EE4EB00CBexec_var*¤//#UC END# *495220F2033A_497EE4EB00CBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_497EE4EB00CBexec_impl*"
+			    value      	"//#UC START# *495220F2033A_497EE4EB00CBexec_impl*¤ TdmStdRes.MakePreview(MakePreview(false));¤//#UC END# *495220F2033A_497EE4EB00CBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C7F738D033Eexec_var*"
+			    value      	"//#UC START# *495220F2033A_4C7F738D033Eexec_var*¤//#UC END# *495220F2033A_4C7F738D033Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C7F738D033Eexec_impl*"
+			    value      	"//#UC START# *495220F2033A_4C7F738D033Eexec_impl*¤ TdmStdRes.MakePreview(MakePreview);¤//#UC END# *495220F2033A_4C7F738D033Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C8647C8024Etest_var*"
+			    value      	"//#UC START# *495220F2033A_4C8647C8024Etest_var*¤//#UC END# *495220F2033A_4C8647C8024Etest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C8647C8024Etest_impl*"
+			    value      	"//#UC START# *495220F2033A_4C8647C8024Etest_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and (Printer.Printers.Count > 0) AND HasTree;¤//#UC END# *495220F2033A_4C8647C8024Etest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C8647C8024Eexec_var*"
+			    value      	"//#UC START# *495220F2033A_4C8647C8024Eexec_var*¤//#UC END# *495220F2033A_4C8647C8024Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C8647C8024Eexec_impl*"
+			    value      	"//#UC START# *495220F2033A_4C8647C8024Eexec_impl*¤ TdmStdRes.MakePreview(MakePreview);¤//#UC END# *495220F2033A_4C8647C8024Eexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C8768010125test_var*"
+			    value      	"//#UC START# *495220F2033A_4C8768010125test_var*¤//#UC END# *495220F2033A_4C8768010125test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C8768010125test_impl*"
+			    value      	"//#UC START# *495220F2033A_4C8768010125test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495220F2033A_4C8768010125test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C8768010125exec_var*"
+			    value      	"//#UC START# *495220F2033A_4C8768010125exec_var*¤//#UC END# *495220F2033A_4C8768010125exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C8768010125exec_impl*"
+			    value      	"//#UC START# *495220F2033A_4C8768010125exec_impl*¤ TdmStdRes.MakePreview(MakePreview);¤//#UC END# *495220F2033A_4C8768010125exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C878FA60351test_var*"
+			    value      	"//#UC START# *495220F2033A_4C878FA60351test_var*¤//#UC END# *495220F2033A_4C878FA60351test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C878FA60351test_impl*"
+			    value      	"//#UC START# *495220F2033A_4C878FA60351test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := CanPreview;¤//#UC END# *495220F2033A_4C878FA60351test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C878FA60351exec_var*"
+			    value      	"//#UC START# *495220F2033A_4C878FA60351exec_var*¤//#UC END# *495220F2033A_4C878FA60351exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C878FA60351exec_impl*"
+			    value      	"//#UC START# *495220F2033A_4C878FA60351exec_impl*¤ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then¤  afw.Application.PrintManager.ShowPreview(MakePreview);¤//#UC END# *495220F2033A_4C878FA60351exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C88CB3E009Cexec_var*"
+			    value      	"//#UC START# *495220F2033A_4C88CB3E009Cexec_var*¤//#UC END# *495220F2033A_4C88CB3E009Cexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4C88CB3E009Cexec_impl*"
+			    value      	"//#UC START# *495220F2033A_4C88CB3E009Cexec_impl*¤ TdmStdRes.MakePreview(MakePreview);¤//#UC END# *495220F2033A_4C88CB3E009Cexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13040024158")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4CDABAD0032Etest_var*"
+			    value      	"//#UC START# *495220F2033A_4CDABAD0032Etest_var*¤//#UC END# *495220F2033A_4CDABAD0032Etest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4CDABAD0032Etest_impl*"
+			    value      	"//#UC START# *495220F2033A_4CDABAD0032Etest_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := Self.CanPrint;¤//#UC END# *495220F2033A_4CDABAD0032Etest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4CDABAD0032Eexec_var*"
+			    value      	"//#UC START# *495220F2033A_4CDABAD0032Eexec_var*¤//#UC END# *495220F2033A_4CDABAD0032Eexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495220F2033A_4CDABAD0032Eexec_impl*"
+			    value      	"//#UC START# *495220F2033A_4CDABAD0032Eexec_impl*¤ DoPreviewExecute(aParams);¤//#UC END# *495220F2033A_4CDABAD0032Eexec_impl*"))
+		    quid       	"495220F2033A"
+		    documentation 	"Ïðåäâàðèòåëüíûé ïðîñìîòð"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "Save"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_495118ED00F6test_var*"
+			    value      	"//#UC START# *495235F401C0_495118ED00F6test_var*¤//#UC END# *495235F401C0_495118ED00F6test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_495118ED00F6test_impl*"
+			    value      	"//#UC START# *495235F401C0_495118ED00F6test_impl*¤ NotEmptyDocumentWithTrialModeTest(aParams);¤//#UC END# *495235F401C0_495118ED00F6test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_495118ED00F6exec_var*"
+			    value      	"//#UC START# *495235F401C0_495118ED00F6exec_var*¤//#UC END# *495235F401C0_495118ED00F6exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_495118ED00F6exec_impl*"
+			    value      	"//#UC START# *495235F401C0_495118ED00F6exec_impl*¤ DocumentExport(ekDisk, Text.HasSelection);¤//#UC END# *495235F401C0_495118ED00F6exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_49EC746B01E5test_var*"
+			    value      	"//#UC START# *495235F401C0_49EC746B01E5test_var*¤//#UC END# *495235F401C0_49EC746B01E5test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_49EC746B01E5test_impl*"
+			    value      	"//#UC START# *495235F401C0_49EC746B01E5test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_SAVEAS) AND OLECMDF_ENABLED) <> 0);¤//#UC END# *495235F401C0_49EC746B01E5test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_49EC746B01E5exec_var*"
+			    value      	"//#UC START# *495235F401C0_49EC746B01E5exec_var*¤//#UC END# *495235F401C0_49EC746B01E5exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_49EC746B01E5exec_impl*"
+			    value      	"//#UC START# *495235F401C0_49EC746B01E5exec_impl*¤ f_Browser.ExecWB(OLECMDID_SAVEAS, OLECMDEXECOPT_PROMPTUSER);¤//#UC END# *495235F401C0_49EC746B01E5exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AAF6F8100DBtest_var*"
+			    value      	"//#UC START# *495235F401C0_4AAF6F8100DBtest_var*¤//#UC END# *495235F401C0_4AAF6F8100DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AAF6F8100DBtest_impl*"
+			    value      	"//#UC START# *495235F401C0_4AAF6F8100DBtest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AAF6F8100DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AAF6F8100DBexec_var*"
+			    value      	"//#UC START# *495235F401C0_4AAF6F8100DBexec_var*¤//#UC END# *495235F401C0_4AAF6F8100DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AAF6F8100DBexec_impl*"
+			    value      	"//#UC START# *495235F401C0_4AAF6F8100DBexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AAF6F8100DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AE1A69E0156test_var*"
+			    value      	"//#UC START# *495235F401C0_4AE1A69E0156test_var*¤//#UC END# *495235F401C0_4AE1A69E0156test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AE1A69E0156test_impl*"
+			    value      	"//#UC START# *495235F401C0_4AE1A69E0156test_impl*¤ NotEmptyDocumentWithTrialModeTest(aParams);¤//#UC END# *495235F401C0_4AE1A69E0156test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AE1A69E0156exec_var*"
+			    value      	"//#UC START# *495235F401C0_4AE1A69E0156exec_var*¤//#UC END# *495235F401C0_4AE1A69E0156exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AE1A69E0156exec_impl*"
+			    value      	"//#UC START# *495235F401C0_4AE1A69E0156exec_impl*¤ DocumentExport(ekDisk, Text.HasSelection);¤//#UC END# *495235F401C0_4AE1A69E0156exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AA9393C0164test_var*"
+			    value      	"//#UC START# *495235F401C0_4AA9393C0164test_var*¤//#UC END# *495235F401C0_4AA9393C0164test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AA9393C0164test_impl*"
+			    value      	"//#UC START# *495235F401C0_4AA9393C0164test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AA9393C0164test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AA9393C0164exec_var*"
+			    value      	"//#UC START# *495235F401C0_4AA9393C0164exec_var*¤//#UC END# *495235F401C0_4AA9393C0164exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AA9393C0164exec_impl*"
+			    value      	"//#UC START# *495235F401C0_4AA9393C0164exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AA9393C0164exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C46AA3401DBtest_var*"
+			    value      	"//#UC START# *495235F401C0_4C46AA3401DBtest_var*¤//#UC END# *495235F401C0_4C46AA3401DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C46AA3401DBtest_impl*"
+			    value      	"//#UC START# *495235F401C0_4C46AA3401DBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *495235F401C0_4C46AA3401DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C46AA3401DBexec_var*"
+			    value      	"//#UC START# *495235F401C0_4C46AA3401DBexec_var*¤//#UC END# *495235F401C0_4C46AA3401DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C46AA3401DBexec_impl*"
+			    value      	"//#UC START# *495235F401C0_4C46AA3401DBexec_impl*¤ SaveList(True);¤//#UC END# *495235F401C0_4C46AA3401DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_497EE4EB00CBtest_var*"
+			    value      	"//#UC START# *495235F401C0_497EE4EB00CBtest_var*¤//#UC END# *495235F401C0_497EE4EB00CBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_497EE4EB00CBtest_impl*"
+			    value      	"//#UC START# *495235F401C0_497EE4EB00CBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *495235F401C0_497EE4EB00CBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_497EE4EB00CBexec_var*"
+			    value      	"//#UC START# *495235F401C0_497EE4EB00CBexec_var*¤//#UC END# *495235F401C0_497EE4EB00CBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_497EE4EB00CBexec_impl*"
+			    value      	"//#UC START# *495235F401C0_497EE4EB00CBexec_impl*¤ ListExport(ekDisk, HasSelection);¤//#UC END# *495235F401C0_497EE4EB00CBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AB1355B01EAtest_var*"
+			    value      	"//#UC START# *495235F401C0_4AB1355B01EAtest_var*¤//#UC END# *495235F401C0_4AB1355B01EAtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AB1355B01EAtest_impl*"
+			    value      	"//#UC START# *495235F401C0_4AB1355B01EAtest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AB1355B01EAtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AB1355B01EAexec_var*"
+			    value      	"//#UC START# *495235F401C0_4AB1355B01EAexec_var*¤//#UC END# *495235F401C0_4AB1355B01EAexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AB1355B01EAexec_impl*"
+			    value      	"//#UC START# *495235F401C0_4AB1355B01EAexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AB1355B01EAexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AB1357D0253test_var*"
+			    value      	"//#UC START# *495235F401C0_4AB1357D0253test_var*¤//#UC END# *495235F401C0_4AB1357D0253test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AB1357D0253test_impl*"
+			    value      	"//#UC START# *495235F401C0_4AB1357D0253test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AB1357D0253test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AB1357D0253exec_var*"
+			    value      	"//#UC START# *495235F401C0_4AB1357D0253exec_var*¤//#UC END# *495235F401C0_4AB1357D0253exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AB1357D0253exec_impl*"
+			    value      	"//#UC START# *495235F401C0_4AB1357D0253exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AB1357D0253exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C8768010125test_var*"
+			    value      	"//#UC START# *495235F401C0_4C8768010125test_var*¤//#UC END# *495235F401C0_4C8768010125test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C8768010125test_impl*"
+			    value      	"//#UC START# *495235F401C0_4C8768010125test_impl*¤ nsDisableOperationInTrialMode(aParams);¤//#UC END# *495235F401C0_4C8768010125test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C8768010125exec_var*"
+			    value      	"//#UC START# *495235F401C0_4C8768010125exec_var*¤var¤ l_FileExt: string;¤//#UC END# *495235F401C0_4C8768010125exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C8768010125exec_impl*"
+			    value      	"//#UC START# *495235F401C0_4C8768010125exec_impl*¤ with GetSaveDialog do¤ begin¤  l_FileExt := ExtractFileExt(FileName);¤¤  if ((StrIComp(PChar(l_FileExt), '.bmp') = 0) or¤      (StrIComp(PChar(l_FileExt), '.jpg') = 0) or¤      (StrIComp(PChar(l_FileExt), '.gif') = 0))¤  then¤   FileName := ChangeFileExt(FileName, ''); // cleanup file extension¤¤  if Execute then¤  try¤   case FilterIndex of¤    1: ieIO.SaveToFileBMP(ChangeFileExt(FileName, '.bmp'));¤    2: ieIO.SaveToFileJpeg(ChangeFileExt(FileName, '.jpg'));¤    3: ieIO.SaveToFileGif(ChangeFileExt(FileName, '.gif'));¤   end;¤  except¤   on EFCreateError do¤   begin¤    if Windows.GetLastError = ERROR_ACCESS_DENIED then¤     Say(err_CannotCreateFile, [ExtractFileName(FileName)])¤    else¤     raise;¤   end;//on EFCreateError do¤  end;{try..except}¤ end;//with GetSaveDialog do¤//#UC END# *495235F401C0_4C8768010125exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4A9D51C4026Ftest_var*"
+			    value      	"//#UC START# *495235F401C0_4A9D51C4026Ftest_var*¤//#UC END# *495235F401C0_4A9D51C4026Ftest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4A9D51C4026Ftest_impl*"
+			    value      	"//#UC START# *495235F401C0_4A9D51C4026Ftest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4A9D51C4026Ftest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4A9D51C4026Fexec_var*"
+			    value      	"//#UC START# *495235F401C0_4A9D51C4026Fexec_var*¤//#UC END# *495235F401C0_4A9D51C4026Fexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4A9D51C4026Fexec_impl*"
+			    value      	"//#UC START# *495235F401C0_4A9D51C4026Fexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4A9D51C4026Fexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C87C62302CFtest_var*"
+			    value      	"//#UC START# *495235F401C0_4C87C62302CFtest_var*¤//#UC END# *495235F401C0_4C87C62302CFtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C87C62302CFtest_impl*"
+			    value      	"//#UC START# *495235F401C0_4C87C62302CFtest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4C87C62302CFtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C87C62302CFexec_var*"
+			    value      	"//#UC START# *495235F401C0_4C87C62302CFexec_var*¤//#UC END# *495235F401C0_4C87C62302CFexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4C87C62302CFexec_impl*"
+			    value      	"//#UC START# *495235F401C0_4C87C62302CFexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4C87C62302CFexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4A9BF56C0166test_var*"
+			    value      	"//#UC START# *495235F401C0_4A9BF56C0166test_var*¤//#UC END# *495235F401C0_4A9BF56C0166test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4A9BF56C0166test_impl*"
+			    value      	"//#UC START# *495235F401C0_4A9BF56C0166test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4A9BF56C0166test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4A9BF56C0166exec_var*"
+			    value      	"//#UC START# *495235F401C0_4A9BF56C0166exec_var*¤//#UC END# *495235F401C0_4A9BF56C0166exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4A9BF56C0166exec_impl*"
+			    value      	"//#UC START# *495235F401C0_4A9BF56C0166exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4A9BF56C0166exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AAF86650309test_var*"
+			    value      	"//#UC START# *495235F401C0_4AAF86650309test_var*¤//#UC END# *495235F401C0_4AAF86650309test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AAF86650309test_impl*"
+			    value      	"//#UC START# *495235F401C0_4AAF86650309test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AAF86650309test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AAF86650309exec_var*"
+			    value      	"//#UC START# *495235F401C0_4AAF86650309exec_var*¤//#UC END# *495235F401C0_4AAF86650309exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4AAF86650309exec_impl*"
+			    value      	"//#UC START# *495235F401C0_4AAF86650309exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4AAF86650309exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13040025181")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_497EDE780363test_var*"
+			    value      	"//#UC START# *495235F401C0_497EDE780363test_var*¤//#UC END# *495235F401C0_497EDE780363test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_497EDE780363test_impl*"
+			    value      	"//#UC START# *495235F401C0_497EDE780363test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := false;¤//#UC END# *495235F401C0_497EDE780363test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_497EDE780363exec_var*"
+			    value      	"//#UC START# *495235F401C0_497EDE780363exec_var*¤//#UC END# *495235F401C0_497EDE780363exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_497EDE780363exec_impl*"
+			    value      	"//#UC START# *495235F401C0_497EDE780363exec_impl*¤ Assert(false);¤//#UC END# *495235F401C0_497EDE780363exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4EA58A3903B4test_var*"
+			    value      	"//#UC START# *495235F401C0_4EA58A3903B4test_var*¤//#UC END# *495235F401C0_4EA58A3903B4test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4EA58A3903B4test_impl*"
+			    value      	"//#UC START# *495235F401C0_4EA58A3903B4test_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4EA58A3903B4test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4EA58A3903B4exec_var*"
+			    value      	"//#UC START# *495235F401C0_4EA58A3903B4exec_var*¤//#UC END# *495235F401C0_4EA58A3903B4exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495235F401C0_4EA58A3903B4exec_impl*"
+			    value      	"//#UC START# *495235F401C0_4EA58A3903B4exec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495235F401C0_4EA58A3903B4exec_impl*"))
+		    quid       	"495235F401C0"
+		    documentation 	"Ñîõðàíèòü"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "Common"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"7A22D5E9-1A0D-4D6A-9C78-D4DE151D47C6")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Usual/Common|4A8ED77F0142"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13040026428"))
+	    quid       	"4A8ED77F0142"
+	    documentation 	"Ôàéë"
+	    stereotype 	"VCMOperations"
+	    operations 	(list Operations
+		(object Operation "Exit"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"has states"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is FormActivate"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is query"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"no prefix"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDD377028F_4ADDD3030251test_var*"
+			    value      	"//#UC START# *4ADDD377028F_4ADDD3030251test_var*¤//#UC END# *4ADDD377028F_4ADDD3030251test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDD377028F_4ADDD3030251test_impl*"
+			    value      	"//#UC START# *4ADDD377028F_4ADDD3030251test_impl*¤ // - íè÷åãî íå äåëàåì¤//#UC END# *4ADDD377028F_4ADDD3030251test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDD377028F_4ADDD3030251exec_var*"
+			    value      	"//#UC START# *4ADDD377028F_4ADDD3030251exec_var*¤//#UC END# *4ADDD377028F_4ADDD3030251exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDD377028F_4ADDD3030251exec_impl*"
+			    value      	"//#UC START# *4ADDD377028F_4ADDD3030251exec_impl*¤ if not NeedTerminateOnExit then¤ begin¤  if AskMayExit then¤   DoExitApplication;¤ end//not NeedTerminateOnExit¤ else¤  TerminateProcess(GetCurrentProcess, 255);¤//#UC END# *4ADDD377028F_4ADDD3030251exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13040027714"))
+		    quid       	"4ADDD377028F"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "History"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"3DD86EB3-4C41-4431-9F5B-B12D18423A9B")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Ìîäåëü ïðîåêòà "Shared Delphi Operations"/OfficeLike/UserInteraction/Usual/History|4ADDDC4C0255
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13040029003"))
+	    quid       	"4ADDDC4C0255"
+	    documentation 	"Èñòîðèÿ"
+	    stereotype 	"VCMOperations"
+	    operations 	(list Operations
+		(object Operation "Back"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC550118_4958D2EA00CCtest_var*"
+			    value      	"//#UC START# *4ADDDC550118_4958D2EA00CCtest_var*¤//#UC END# *4ADDDC550118_4958D2EA00CCtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC550118_4958D2EA00CCtest_impl*"
+			    value      	"//#UC START# *4ADDDC550118_4958D2EA00CCtest_impl*¤ inherited;¤//#UC END# *4ADDDC550118_4958D2EA00CCtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC550118_4958D2EA00CCexec_var*"
+			    value      	"//#UC START# *4ADDDC550118_4958D2EA00CCexec_var*¤//#UC END# *4ADDDC550118_4958D2EA00CCexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC550118_4958D2EA00CCexec_impl*"
+			    value      	"//#UC START# *4ADDDC550118_4958D2EA00CCexec_impl*¤ inherited;¤ TnsBackEvent.Log;¤//#UC END# *4ADDDC550118_4958D2EA00CCexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC550118_4ADDD3030251test_var*"
+			    value      	"//#UC START# *4ADDDC550118_4ADDD3030251test_var*¤var¤ l_History: IvcmHistory;¤//#UC END# *4ADDDC550118_4ADDD3030251test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC550118_4ADDD3030251test_impl*"
+			    value      	"//#UC START# *4ADDDC550118_4ADDD3030251test_impl*¤ l_History := Self.History;¤ aParams.Op.Flag[vcm_ofEnabled] := l_History.CanBack;¤ l_History.GetBackStrings(aParams);¤//#UC END# *4ADDDC550118_4ADDD3030251test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC550118_4ADDD3030251exec_var*"
+			    value      	"//#UC START# *4ADDDC550118_4ADDD3030251exec_var*¤//#UC END# *4ADDDC550118_4ADDD3030251exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC550118_4ADDD3030251exec_impl*"
+			    value      	"//#UC START# *4ADDDC550118_4ADDD3030251exec_impl*¤ DoBack(aParams);¤//#UC END# *4ADDDC550118_4ADDD3030251exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13040030253"))
+		    quid       	"4ADDDC550118"
+		    documentation 	"Íàçàä"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "Forward"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC630097_4958D2EA00CCtest_var*"
+			    value      	"//#UC START# *4ADDDC630097_4958D2EA00CCtest_var*¤//#UC END# *4ADDDC630097_4958D2EA00CCtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC630097_4958D2EA00CCtest_impl*"
+			    value      	"//#UC START# *4ADDDC630097_4958D2EA00CCtest_impl*¤ inherited;¤//#UC END# *4ADDDC630097_4958D2EA00CCtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC630097_4958D2EA00CCexec_var*"
+			    value      	"//#UC START# *4ADDDC630097_4958D2EA00CCexec_var*¤//#UC END# *4ADDDC630097_4958D2EA00CCexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC630097_4958D2EA00CCexec_impl*"
+			    value      	"//#UC START# *4ADDDC630097_4958D2EA00CCexec_impl*¤ inherited;¤ TnsForwardEvent.Log;¤//#UC END# *4ADDDC630097_4958D2EA00CCexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC630097_4ADDD3030251test_var*"
+			    value      	"//#UC START# *4ADDDC630097_4ADDD3030251test_var*¤var¤ l_History: IvcmHistory;¤//#UC END# *4ADDDC630097_4ADDD3030251test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC630097_4ADDD3030251test_impl*"
+			    value      	"//#UC START# *4ADDDC630097_4ADDD3030251test_impl*¤ l_History := Self.History;¤ aParams.Op.Flag[vcm_ofEnabled] := l_History.CanForward;¤ l_History.GetForwardStrings(aParams);¤//#UC END# *4ADDDC630097_4ADDD3030251test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC630097_4ADDD3030251exec_var*"
+			    value      	"//#UC START# *4ADDDC630097_4ADDD3030251exec_var*¤//#UC END# *4ADDDC630097_4ADDD3030251exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4ADDDC630097_4ADDD3030251exec_impl*"
+			    value      	"//#UC START# *4ADDDC630097_4ADDD3030251exec_impl*¤ DoForward(aParams);¤//#UC END# *4ADDDC630097_4ADDD3030251exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13040031394"))
+		    quid       	"4ADDDC630097"
+		    documentation 	"Âïåð¸ä"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"494F89A6011B"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::Edit" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(264, 165)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(60, 137)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	408
+			justify    	0
+			label      	"Edit")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(60, 87)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	405
+			justify    	0
+			label      	"<<VCMOperations>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	16777152
+		    quidu      	"494F89AA0017"
+		    width      	426
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::File" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(264, 480)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(60, 377)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	408
+			justify    	0
+			label      	"File")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(60, 327)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	405
+			justify    	0
+			label      	"<<VCMOperations>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"49521D8203A0"
+		    width      	426
+		    height     	330
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::Common" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(264, 858)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(54, 830)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	420
+			justify    	0
+			label      	"Common")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(54, 780)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	418
+			justify    	0
+			label      	"<<VCMOperations>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4A8ED77F0142"
+		    width      	438
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::History" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(270, 1167)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(65, 1111)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"History")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(65, 1061)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	407
+			justify    	0
+			label      	"<<VCMOperations>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4ADDDC4C0255"
+		    width      	428
+		    height     	236
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"494F89AA0017")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4C7D0CC00055"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::Edit::Delete" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(294, 177)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(93, 145)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"Delete")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(93, 95)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	399
+			justify    	0
+			label      	"<<VCMOperation>>")
+		    icon_style 	"Label"
+		    fill_color 	10025880
+		    quidu      	"4C7D0CC90052"
+		    width      	420
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"4C7D0CC90052")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4C7D0CD203CC"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::Edit::Delete::Controlled" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(339, 186)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(89, 154)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	500
+			justify    	0
+			label      	"Controlled")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(89, 104)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	497
+			justify    	0
+			label      	"<<VCMOperationState>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4C7D0CDB0298"
+		    width      	518
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::Edit::Delete::User" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(351, 498)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(101, 466)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	500
+			justify    	0
+			label      	"User")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(101, 416)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	497
+			justify    	0
+			label      	"<<VCMOperationState>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4C7D0CEC0160"
+		    width      	518
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::Edit::Delete::MultiUsers" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(351, 777)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(101, 745)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	500
+			justify    	0
+			label      	"MultiUsers")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(101, 695)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	497
+			justify    	0
+			label      	"<<VCMOperationState>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4C7D0D02005D"
+		    width      	518
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::Edit::Delete::Group" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(357, 1092)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(107, 1060)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	500
+			justify    	0
+			label      	"Group")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(107, 1010)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	497
+			justify    	0
+			label      	"<<VCMOperationState>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4C7D0D160126"
+		    width      	518
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::Edit::Delete::Contact" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(363, 1386)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(113, 1354)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	500
+			justify    	0
+			label      	"Contact")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(113, 1304)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	497
+			justify    	0
+			label      	"<<VCMOperationState>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4C7D0D2C028F"
+		    width      	518
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)))))

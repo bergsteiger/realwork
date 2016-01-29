@@ -1,0 +1,176 @@
+// l3CriticalSectionHolderPrim 54B6852C0241 Impurity Class
+
+FORWARD ME_54B6852C0241
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_54B685BC0260
+ CONST UID '54B685BC0260'
+ CONST Name 'f_LockCount'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54B685BC0260 f_LockCount
+
+INCLUDE '48078324039E.pas.ms.script'
+
+: ME_54B6858B03AC
+ CONST UID '54B6858B03AC'
+ CONST Name 'f_CS'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_4807833801D7 // TCriticalSection
+ ;
+
+ @SELF
+; // ME_54B6858B03AC f_CS
+
+FORWARD ME_53A039050219
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_53A0390E0061
+ CONST UID '53A0390E0061'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_53A0390E0061 DoIt
+
+: ME_53A039050219
+ CONST UID '53A039050219'
+ CONST Name 'Lock'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53A0390E0061 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53A039050219 Lock
+
+FORWARD ME_53A039150130
+
+: ME_53A0391F034A
+ CONST UID '53A0391F034A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_53A0391F034A DoIt
+
+: ME_53A039150130
+ CONST UID '53A039150130'
+ CONST Name 'Unlock'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53A0391F034A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53A039150130 Unlock
+
+FORWARD ME_54B6860D01ED
+
+: ME_54B6861B03D9
+ CONST UID '54B6861B03D9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54B6861B03D9 DoIt
+
+: ME_54B6860D01ED
+ CONST UID '54B6860D01ED'
+ CONST Name 'CreateCS'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B6861B03D9 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B6860D01ED CreateCS
+
+FORWARD ME_54B686270035
+
+: ME_54B6862F00BA
+ CONST UID '54B6862F00BA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54B6862F00BA DoIt
+
+: ME_54B686270035
+ CONST UID '54B686270035'
+ CONST Name 'FreeCS'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B6862F00BA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B686270035 FreeCS
+
+: ME_54B6852C0241
+ CONST UID '54B6852C0241'
+ CONST Name 'l3CriticalSectionHolderPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_54B685BC0260 // f_LockCount
+ ME_54B6858B03AC // f_CS
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_53A039050219 // Lock
+ ME_53A039150130 // Unlock
+ ME_54B6860D01ED // CreateCS
+ ME_54B686270035 // FreeCS
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54B6852C0241 l3CriticalSectionHolderPrim

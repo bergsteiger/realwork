@@ -1,0 +1,21 @@
+USES	
+	QuickTestsUtils.script
+;
+
+ PROCEDURE "Выставить уровень оглавления в 1"
+    "Контрол по имени {(acContents6SpinEdit)}" pop:SpinEdit:Value    := 1
+	"Контрол по имени {(acContentsEditDlgBtnOK)}" pop:Control:Click
+; 
+
+CONST cnChangedNodeID 1
+CONST cnChangedSubID 0
+
+Тест TK522096709
+	Параметры: ( "Документ с оглавлением" "Дерево оглавления" "Эталон для дерева оглавления" )
+	Выполнить (				
+		"развернуть узел {(cnChangedNodeID)}"
+		@ ( cnChangedSubID редактор:установить_оглавление ) MODAL "Выставить уровень оглавления в 1"	
+	)		
+;
+
+TK522096709

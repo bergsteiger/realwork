@@ -1,0 +1,1050 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/ServerLib/AdditionalTypes/ServerEvent.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::ServerLib::AdditionalTypes::ServerEvent
+//
+// Серверное событие
+// ---
+// Определяет тип нотификаций, которыми могут обмениваться объекты в системе. Событие может
+// содержать данные.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ServerEvent::Class
+? Серверное событие
+? Определяет тип нотификаций, которыми могут обмениваться объекты в системе. Событие может содержать данные.
+= Struct::Class
+= C++ Фабрики::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[Struct::Class]f_wiki_up_print()
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for47FC8DC20143*
+	const long %SNEventManager::ET_TO_ALL = ACE_ES_EVENT_UNDEFINED + 1;
+	const long %SNEventManager::ET_TO_ONE = ACE_ES_EVENT_UNDEFINED + 2;
+	
+	%SNEventManager::FireParams_::FireParams_ (%SNEventManager::%SNConsumer* self_, %t_arg(%S,"in") event_)
+		: self(%SNEventManager::%SNConsumer::_duplicate(self_)), event (event_) {
+	}
+	
+	%SNEventManager::SendNotifyParams_::SendNotifyParams_ (const %SNEventManager::%SNSupplier* self_, %t_arg(%S,"in") event_)
+		: self(%SNEventManager::%SNConsumer::_duplicate(self_)), event (event_) {
+	}
+	
+	%SNEventManager::SendPersonalNotifyParams_::SendPersonalNotifyParams_ (
+		const %SNEventManager::%SNSupplier* self_, %t_arg(%S,"in") event_, const long id_
+	)	: self(%SNEventManager::%SNConsumer::_duplicate(self_)), event (event_), id (id_) {
+	}
+	
+	void %SNEventManager::%SNConsumer::thr_fire_ (void* arg) {
+		try {
+			Core::Aptr\<FireParams_\> arg_ (reinterpret_cast\<FireParams_*\>(arg));
+			arg_-\>self-\>fire_ (arg_-\>event);
+		} CATCH_AND_LOG ("while execute %SNConsumer::execute oneway function");
+	}
+	
+	/*oneway*/ Core::ThreadHandle %SNEventManager::%SNConsumer::fire (%t_arg(%S,"in") event) {
+		Core::Aptr\<FireParams_\> arg = new FireParams_ (this, event);
+		Core::ThreadHandle ret = Core::ThreadPoolFactory::def().spawn_thread (
+			reinterpret_cast\<ACE_THR_FUNC\> (%SNConsumer::thr_fire_), arg.in ()
+		);
+		if (ret == 0) {
+			throw; //CantSpawnThread ();
+		} else {
+			arg.forget ();
+		}
+		return ret;
+	}
+	
+	%SNEventManager::%SNListener::%SNListener (RtecEventChannelAdmin::ConsumerAdmin* consumer_admin) {
+		ACE_ConsumerQOS_Factory qos;
+		qos.start_disjunction_group (1);
+		qos.insert_type (%SNEventManager::ET_TO_ALL, 0);
+		
+		GUARD (m_consumer_mutex);
+		if (consumer_admin != 0) {
+			try {
+				RtecEventComm::PushConsumer_var push_consumer = this-\>_this ();
+				m_proxy_supplier = consumer_admin-\>obtain_push_supplier ();
+				m_proxy_supplier-\>connect_push_consumer (push_consumer.in (), qos.get_ConsumerQOS ());
+			} catch (CORBA::Exception& ex) {
+				LOG_CEX ((ex, "in %SNListener::%SNListener () catched"));
+			}
+		}
+	}
+	
+	%SNEventManager::%SNListener::%SNListener (RtecEventChannelAdmin::ConsumerAdmin* consumer_admin, const long personal_id) {
+		ACE_ConsumerQOS_Factory qos;
+		qos.start_disjunction_group (1);
+		qos.insert (ACE_ES_EVENT_SOURCE_ANY+personal_id, %SNEventManager::ET_TO_ONE, 0);
+		
+		GUARD (m_consumer_mutex);
+		if (consumer_admin != 0) {
+			try {
+				RtecEventComm::PushConsumer_var push_consumer = this-\>_this ();
+				m_proxy_supplier = consumer_admin-\>obtain_push_supplier ();
+				m_proxy_supplier-\>connect_push_consumer (push_consumer.in (), qos.get_ConsumerQOS ());
+			} catch (CORBA::Exception& ex) {
+				LOG_CEX ((ex, "in %SNListener::%SNListener () catched"));
+			}
+		}
+	}
+	
+	void %SNEventManager::%SNListener::add_consumer (const %SNEventManager::%SNConsumer* consumer) {
+		GUARD(m_consumer_mutex);
+		m_consumers.insert (const_cast\<%SNEventManager::%SNConsumer*\> (consumer));
+	}
+	
+	void %SNEventManager::%SNListener::remove_consumer (const %SNEventManager::%SNConsumer* consumer) {
+		GUARD(m_consumer_mutex);
+		m_consumers.erase (const_cast\<%SNEventManager::%SNConsumer*\> (consumer));
+	}
+	
+	void %SNEventManager::%SNListener::push (const RtecEventComm::EventSet& events) 
+		throw (CORBA::SystemException)
+	{
+		std::vector\<%SNConsumer_var\> consumers_set_snap;
+		unsigned int i = 0;
+		{
+			GUARD (m_consumer_mutex);
+			consumers_set_snap.resize (m_consumers.size ());
+			for (ConsumersSet::iterator it = m_consumers.begin (); it != m_consumers.end (); it++) {
+				consumers_set_snap\[i\] = Core::IObject::_duplicate (*it);
+				i++;
+			}
+		}
+	
+		const %f_type(%S)* event;
+		if (events \[0\].data.any_value \>\>= event) {
+			std::vector\<%SNConsumer_var\>::iterator it = consumers_set_snap.begin ();
+			std::vector\<%SNConsumer_var\>::iterator it_end = consumers_set_snap.end ();
+			for (; it != it_end; ++it) {
+				(*it)-\>fire (*event); //вызываем call-back на реальном подписчике.
+			}
+		}
+	}
+	
+	void %SNEventManager::%SNListener::deactivate () {
+		try {
+			GUARD (m_consumer_mutex);
+			
+			m_consumers.clear ();
+			
+			if (!CORBA::is_nil (m_proxy_supplier)) {
+				try {
+					try {
+						m_proxy_supplier-\>disconnect_push_supplier ();
+					} catch (CORBA::TRANSIENT&) {
+						// "гасим" исключение,
+						// если сервер уже недоступен
+					} catch (PortableServer::POA::ObjectNotActive&) {
+						throw; // объект уже деактивирован
+									// и его не нужно деактивировать нам самим
+					} catch (CORBA::Exception& ex) {
+						LOG_CEX ((ex, "in %SNListener::disconnect_and_deactivate () catched"));
+						GDS_ASSERT (false);
+					}
+					
+					PortableServer::ObjectId_var object_id = LibHomeFactory::get ().get_orb_facet ().get_root_poa ().servant_to_id (this);
+					LibHomeFactory::get ().get_orb_facet ().get_root_poa ().deactivate_object (object_id);
+				} catch (PortableServer::POA::ObjectNotActive&) {
+					// "гасим" исключение,
+					// если объект не был активирован
+					// или уже был деактивирован
+				} catch (CORBA::Exception& ex) {
+					LOG_CEX ((ex, "in %SNListener::deactivate () catched"));
+					GDS_ASSERT (false);
+				}
+				
+				m_proxy_supplier = 0;
+			}
+		} catch (...) {
+			GDS_ASSERT_MSG (false, ("%SNListener::deactivate (): unknown exception catched"));
+		}
+	}
+	
+	void %SNEventManager::%SNListener::disconnect_push_consumer () throw (CORBA::SystemException) {
+	}
+	
+	%SNEventManager::%SNSupplier::%SNSupplier (RtecEventChannelAdmin::SupplierAdmin* supplier_admin) {
+		if (supplier_admin != 0) {
+			try {
+				RtecEventComm::PushSupplier_var push_supplier = this-\>_this ();
+	
+				ACE_SupplierQOS_Factory qos;
+				qos.insert (ACE_ES_EVENT_SOURCE_ANY, %SNEventManager::ET_TO_ALL, 0, 1);
+				qos.insert (ACE_ES_EVENT_SOURCE_ANY, %SNEventManager::ET_TO_ONE, 0, 1);
+	
+				m_proxy_consumer = supplier_admin-\>obtain_push_consumer ();
+				m_proxy_consumer-\>connect_push_supplier (push_supplier.in (), qos.get_SupplierQOS ());
+			} catch (CORBA::Exception& ex) {
+				LOG_CEX ((ex, "in %SNSupplier::%SNSupplier () catched"));
+			}
+		}
+	}
+	
+	%SNEventManager::%SNSupplier::~%SNSupplier () {
+	}
+	
+	/*oneway*/ Core::ThreadHandle %SNEventManager::%SNSupplier::send_notify (%t_arg(%S,"in") event) const {
+		
+		Core::Aptr\<SendNotifyParams_\> arg = new SendNotifyParams_ (this, event);
+		Core::ThreadHandle ret = Core::ThreadPoolFactory::def().spawn_thread (
+			reinterpret_cast\<ACE_THR_FUNC\> (%SNEventManager::%SNSupplier::thr_send_notify_), arg.in ()
+		);
+		if (ret == 0) {
+			throw; //CantSpawnThread ();
+		} else {
+			arg.forget ();
+		}
+		return ret;
+	}
+	
+	/*oneway*/ Core::ThreadHandle %SNEventManager::%SNSupplier::send_personal_notify (
+		%t_arg(%S,"in") event
+		, const long personal_id
+	) const {
+		
+		Core::Aptr\<SendPersonalNotifyParams_\> arg = new SendPersonalNotifyParams_ (this, event, personal_id);
+		Core::ThreadHandle ret = Core::ThreadPoolFactory::def().spawn_thread (
+			reinterpret_cast\<ACE_THR_FUNC\> (%SNEventManager::%SNSupplier::thr_send_personal_notify_), arg.in ()
+		);
+		if (ret == 0) {
+			throw; //CantSpawnThread ();
+		} else {
+			arg.forget ();
+		}
+		return ret;
+	}
+	
+	void %SNEventManager::%SNSupplier::thr_send_notify_ (void* arg) {
+		try {
+			Core::Aptr\<SendNotifyParams_\> arg_ (reinterpret_cast\<SendNotifyParams_*\>(arg));
+			arg_-\>self-\>send_notify_ (arg_-\>event);
+		} CATCH_AND_LOG("while execute %SNSupplier::thr_send_notify_ function");
+	}
+	
+	void %SNEventManager::%SNSupplier::thr_send_personal_notify_ (void* arg) {
+		try {
+			Core::Aptr\<SendPersonalNotifyParams_\> arg_ (reinterpret_cast\<SendPersonalNotifyParams_*\>(arg));
+			arg_-\>self-\>send_personal_notify_ (arg_-\>event, arg_-\>id);
+		} CATCH_AND_LOG("while execute %SNSupplier::thr_send_personal_notify_ function");
+	}
+	
+	void %SNEventManager::%SNSupplier::send_notify_ (%t_arg(%S,"in") event) const {
+		if (!CORBA::is_nil (m_proxy_consumer)) {
+			RtecEventComm::EventSet events (1);
+			events.length (1);
+	
+			RtecEventComm::Event& event_0 = events \[0\];
+			event_0.header.source = ACE_ES_EVENT_SOURCE_ANY;
+			event_0.header.type = %SNEventManager::ET_TO_ALL;
+			event_0.data.any_value \<\<= event;
+			{ // Fix UMR for collocated calls
+				event_0.header.ttl = 1;
+				event_0.header.creation_time = ORBSVCS_Time::zero ();
+	\#if !defined (TAO_LACKS_EVENT_CHANNEL_TIMESTAMPS)
+				event_0.header.ec_recv_time = ORBSVCS_Time::zero ();
+				event_0.header.ec_send_time = ORBSVCS_Time::zero ();
+	\#endif
+				event_0.data.pad1 = 0;
+			} // Fix UMR for collocated calls
+	
+			m_proxy_consumer-\>push (events);
+		}
+	}
+	
+	void %SNEventManager::%SNSupplier::send_personal_notify_ (%t_arg(%S,"in") event, const long personal_id) const {
+		if (!CORBA::is_nil (m_proxy_consumer)) {
+			RtecEventComm::EventSet events (1);
+			events.length (1);
+	
+			RtecEventComm::Event& event_0 = events \[0\];
+			event_0.header.source = ACE_ES_EVENT_SOURCE_ANY + personal_id;
+			event_0.header.type = %SNEventManager::ET_TO_ONE;
+			event_0.data.any_value \<\<= event;
+			{ // Fix UMR for collocated calls
+				event_0.header.ttl = 1;
+				event_0.header.creation_time = ORBSVCS_Time::zero ();
+	\#if !defined (TAO_LACKS_EVENT_CHANNEL_TIMESTAMPS)
+				event_0.header.ec_recv_time = ORBSVCS_Time::zero ();
+				event_0.header.ec_send_time = ORBSVCS_Time::zero ();
+	\#endif
+				event_0.data.pad1 = 0;
+			} // Fix UMR for collocated calls
+	
+			m_proxy_consumer-\>push (events);
+		}
+	}
+	
+	void %SNEventManager::%SNSupplier::disconnect_push_supplier () throw (CORBA::SystemException) {
+	}
+	
+	void %SNEventManager::%SNSupplier::disconnect_and_deactivate () {
+		try {
+			if (!CORBA::is_nil (m_proxy_consumer)) {
+				try {
+					try {
+						m_proxy_consumer-\>disconnect_push_consumer ();
+					} catch (CORBA::TRANSIENT&) {
+						// "гасим" исключение,
+						// если сервер уже недоступен
+					} catch (PortableServer::POA::ObjectNotActive&) {
+						throw; // объект уже деактивирован
+					       // и его не нужно деактивировать нам самим
+					} catch (CORBA::Exception& ex) {
+						LOG_CEX ((ex, "in %SNEventManager::%SNSupplier::disconnect_and_deactivate () catched"));
+						GDS_ASSERT (false);
+					}				
+					PortableServer::ObjectId_var object_id = LibHomeFactory::get ().get_orb_facet ().get_root_poa ().servant_to_id (this);
+					LibHomeFactory::get ().get_orb_facet ().get_root_poa ().deactivate_object (object_id);
+					
+				} catch (PortableServer::POA::ObjectNotActive&) {
+					// "гасим" исключение,
+					// если объект не был активирован
+					// или уже был деактивирован
+				} catch (CORBA::Exception& ex) {
+					LOG_CEX ((ex, "in %SNEventManager::%SNSupplier::disconnect_and_deactivate () catched"));
+					GDS_ASSERT (false);
+				}
+				m_proxy_consumer = 0;
+			}
+		} catch (...) {
+			GDS_ASSERT_MSG (false, ("%SNEventManager::%SNSupplier::disconnect_and_deactivate (): unknown exception catched"));
+		}
+	}
+	
+	%SNEventManager& %SNEventManager::instance () {
+		return *Singleton::instance ();
+	}
+	
+	%SNEventManager::%SNEventManager () {
+		try {
+			//получаем менеджер каналов
+			CoreSrv::EventComm::EventChannelManager& ecm = CoreSrv::EventComm::EventChannelManagerFactory::get ();
+			
+			//инициируем создание канала
+			ecm.create_channel ("%f_full_name(%S)");
+			
+			//пытаемся получить созданый канал из NS
+			CORBA::Object_var obj = CoreSrv::resolve_path (&LibHomeFactory::get ().get_orb_facet ().get_ns_root (), "%f_full_name(%S)");
+			RtecEventChannelAdmin::EventChannel_var ec = RtecEventChannelAdmin::EventChannel::_narrow (obj.in ());
+			
+			if (CORBA::is_nil (ec.in ()) == false) {
+				m_consumer_adm = ec-\>for_consumers ();
+				m_supplier_adm = ec-\>for_suppliers ();
+				
+				m_rte_supplier = new %SNSupplier (m_supplier_adm.in ());
+			}
+		} CATCH_AND_LOG("in %SNEventManager::%SNEventManager ()");
+	}
+	
+	void %SNEventManager::subscribe_for_common (const %SNEventManager::%SNConsumer* consumer) {
+		if (CORBA::is_nil (m_consumer_adm.in ())) {
+			//throw NotInitialized;
+		} else {
+			GUARD (m_subscribe_event_mutex);
+			if (m_rte_common_listener.is_nil ()) {
+				m_rte_common_listener = new %SNListener (m_consumer_adm.in ());
+			}
+			
+			m_rte_common_listener-\>add_consumer (consumer);
+		}
+	}
+	
+	void %SNEventManager::subscribe_for_personal (const %SNEventManager::%SNConsumer* consumer, const long personal_id) {
+		if (CORBA::is_nil (m_consumer_adm.in ())) {
+			//throw NotInitialized;
+		} else {
+			GUARD (m_subscribe_event_mutex);
+			%SNListener::Box& el = m_personal_rte_listeners\[personal_id\];
+			if (el.is_nil ()) {
+				el = new %SNListener (m_consumer_adm.in (), personal_id);
+			}
+			m_consumers\[consumer\] = personal_id;
+			el-\>add_consumer (consumer);
+		}
+	}
+	
+	void %SNEventManager::unsubscribe (const %SNEventManager::%SNConsumer* consumer) {
+		GUARD (m_subscribe_event_mutex);
+		if (!m_rte_common_listener.is_nil ()) {
+			//пытаемся отписать подписчика от общих сообщений
+			m_rte_common_listener-\>remove_consumer (consumer);
+		}
+		//пытаемся отписать подписчика от персональных сообщений
+		ConsumersMap::iterator it = m_consumers.find (consumer);
+		if (it != m_consumers.end ()) {
+			long personal_id = it-\>second;
+			m_consumers.erase (it);
+			
+			PersonalListeners::iterator listener_it = m_personal_rte_listeners.find (personal_id);
+			if (
+				listener_it != m_personal_rte_listeners.end ()
+				&& listener_it-\>second.is_nil () == false
+			) {
+				listener_it-\>second-\>remove_consumer (consumer);
+			}
+		}
+	}
+	
+	void %SNEventManager::send_notify (%t_arg(%S,"in") event) const {
+		if (m_rte_supplier.is_nil ()) {
+			//throw Core::EventServiceNotInitialized ();
+		} else {
+			m_rte_supplier-\>send_notify (event);
+		}
+	}
+	
+	void %SNEventManager::send_personal_notify (%t_arg(%S,"in") event, const long personal_id) const {
+		if (m_rte_supplier.is_nil ()) {
+			//throw Core::EventServiceNotInitialized ();
+		} else {
+			m_rte_supplier-\>send_personal_notify (event, personal_id);
+		}
+	}
+	
+//#UC END# *4705C54B01F4for47FC8DC20143*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for47FC8DC20143*
+	class %SNEventManager {
+	public:
+		//интерфейс подписчика
+		class %SNConsumer: virtual public ::Core::IObject {
+		public:
+			/*oneway*/ Core::ThreadHandle fire (%t_arg(%S,"in") event);
+		
+		protected:
+			virtual void fire_ (%t_arg(%S,"in") event) = 0;
+		
+		// oneway methods impl
+		private:
+			static void thr_fire_ (void* arg);
+		};
+		typedef Core::Var\<%SNConsumer\> %SNConsumer_var;
+		
+		template\<class RealConsumerType\>
+		class %SNConsumerImpl :
+			virtual public %SNConsumer
+			, virtual public Core::RefCountObjectBase
+		{
+			SET_OBJECT_COUNTER (%SNConsumerImpl)
+		public:
+			%SNConsumerImpl (RealConsumerType* real_consumer)
+				: m_real_consumer (real_consumer)
+			{
+			}
+		
+			~%SNConsumerImpl () {
+				%SNEventManager::instance ().unsubscribe (this);
+			}
+		private:
+			virtual void fire_ (%t_arg(%S,"in") event) {
+				m_real_consumer-\>fire (event);
+			}
+		
+		private:
+			RealConsumerType* m_real_consumer;
+		};
+	
+	public:
+		static %SNEventManager& instance ();
+	public:
+		//подписаться на общие нотификации
+		void subscribe_for_common (const %SNConsumer* consumer);
+		
+		//подписаться на персональные нотификации
+		void subscribe_for_personal (const %SNConsumer* consumer, const long personal_id);
+		
+		//отписаться от нотификаций
+		void unsubscribe (const %SNConsumer* consumer);
+		
+		//послать сообщение всем подписчикам
+		void send_notify (%t_arg(%S,"in") event) const;
+		
+		//послать сообщение персональным подписчикам
+		void send_personal_notify (%t_arg(%S,"in") event, const long personal_id) const;
+		
+	protected:
+		%SNEventManager ();
+		
+	private:
+		typedef ACE_Singleton \<%SNEventManager, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+		friend class ACE_Singleton \<%SNEventManager, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	
+		// Наследник от корбовского получателя сообщений. При получении собщений
+		// корбой дергается метод push_event.
+		class %SNListener :
+			virtual public POA_RtecEventComm::PushConsumer
+			, virtual public ::CoreSrv::RefCountServantBase
+		{
+			SET_OBJECT_COUNTER (%SNListener)
+		
+		public:
+			// нужно для специальной деинициализации корбовского объекта
+			struct BoxDeallocator {
+				static void destroy (%SNListener* content) {
+					content-\>deactivate ();
+					content-\>_remove_ref ();
+				}
+			};
+			typedef ::Core::Box\<%SNListener, BoxDeallocator, true\> Box;
+			
+			//создать корба-слушателя, который слушает все сообщения (ET_TO_ALL)
+			%SNListener (RtecEventChannelAdmin::ConsumerAdmin* consumer_admin);
+			
+			//создать корба-слушателя, который слушает персональные сообщения (ET_TO_ONE)
+			%SNListener (RtecEventChannelAdmin::ConsumerAdmin* consumer_admin, const long personal_id);
+			
+			void add_consumer (const %SNConsumer* consumer);
+			
+			void remove_consumer (const %SNConsumer* consumer);
+		
+		private:
+			void push (const RtecEventComm::EventSet& events) throw (CORBA::SystemException);
+			
+			void deactivate ();
+			
+			void disconnect_push_consumer () throw (CORBA::SystemException);
+		
+		private:
+			Core::Mutex m_consumer_mutex;
+			
+			typedef boost::unordered_set\<%SNConsumer*\> ConsumersSet;
+			ConsumersSet m_consumers;
+			
+			RtecEventChannelAdmin::ProxyPushSupplier_var m_proxy_supplier;
+		};
+		
+		//имплементация корбовского поставщика событий PushSupplier-а
+		class %SNSupplier :
+			virtual public POA_RtecEventComm::PushSupplier
+			, virtual public ::CoreSrv::RefCountServantBase
+		{
+			SET_OBJECT_COUNTER (%SNSupplier)
+		public:
+			// Корбовский поставщик событий, бокс нужен для выполнения специальной
+			// деинициализации.
+			struct BoxDeallocator {
+				static void destroy (%SNSupplier* content) {
+					content-\>disconnect_and_deactivate ();
+					content-\>_remove_ref ();
+				}
+			};
+			typedef ::Core::Box\<%SNSupplier, BoxDeallocator, true\> Box;
+		
+		public:
+			// создает корбовского поставщика событий
+			%SNSupplier (RtecEventChannelAdmin::SupplierAdmin* supplier_admin);
+			
+			virtual ~%SNSupplier ();
+		
+			// послать общее сообщение
+			/*oneway*/ Core::ThreadHandle send_notify (%t_arg(%S,"in") event) const;
+			
+			// послать персональное сообщение
+			/*oneway*/ Core::ThreadHandle send_personal_notify (%t_arg(%S,"in") event, const long personal_id) const;
+		
+		private:
+			RtecEventChannelAdmin::ProxyPushConsumer_var m_proxy_consumer;
+		
+		//////////////////////////////////////////////////////////////////////////////////////////
+		// oneway methods impl
+		private:
+			static void thr_send_notify_ (void* arg);
+			
+			static void thr_send_personal_notify_ (void* arg);
+			
+			void send_notify_ (%t_arg(%S,"in") event) const;
+			
+			void send_personal_notify_ (%t_arg(%S,"in") event, const long personal_id) const;
+		
+			void disconnect_push_supplier () throw (CORBA::SystemException);
+		
+			void disconnect_and_deactivate ();
+	
+		}; // class %SNSupplier
+		typedef Core::Var\<%SNSupplier\> %SNSupplier_var;
+		typedef Core::Var\<const %SNSupplier\> %SNSupplier_cvar;
+		
+		struct FireParams_ {
+			%SNConsumer_var self;
+			%f_type(%S) event;
+			
+			FireParams_ (%SNConsumer* consumer, %t_arg(%S,"in") event_);
+		};
+		
+		struct SendNotifyParams_ {
+			%SNSupplier_cvar self;
+			%f_type(%S) event;
+			
+			SendNotifyParams_ (const %SNSupplier* self_, %t_arg(%S,"in") event_);
+		};
+		
+		struct SendPersonalNotifyParams_ {
+			%SNSupplier_cvar self;
+			%f_type(%S) event;
+			const long id;
+			
+			SendPersonalNotifyParams_ (const %SNSupplier* self_, %t_arg(%S,"in") event_, const long id_);
+		};
+	private:
+		static const long ET_TO_ALL; // тип сообщения, означающий что данное сообщение должно быть разослано всем - нужно для фильтра, рассылающего сообщения
+		static const long ET_TO_ONE; //тип сообщения, означающий что данное сообщение должно быть разослано только получателю с указнным при подписке ID
+	private:
+		Core::Mutex m_subscribe_event_mutex;
+		
+		RtecEventChannelAdmin::ConsumerAdmin_var m_consumer_adm;
+		RtecEventChannelAdmin::SupplierAdmin_var m_supplier_adm;
+		
+		%SNSupplier::Box m_rte_supplier;
+		%SNListener::Box m_rte_common_listener; //слушатель общих сообщений
+		
+		typedef std::map\<long, %SNListener::Box\> PersonalListeners;
+		PersonalListeners m_personal_rte_listeners; //слушатели персональных сообщений
+		
+		typedef std::map\<const %SNConsumer*, long\> ConsumersMap; //вспомогательная мапа для поиска слушаетелей с которыми связан подписчик
+		ConsumersMap m_consumers;
+	};
+//#UC END# *4705C5490109for47FC8DC20143*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor47FC8DC20143*
+O %SNEventManager.java
+	%f_header(%S)
+	package %f_dump_java_package(%S);
+	
+	import ru.garant.shared.Core.Logs;
+	import ru.garant.shared.CoreSrv.EventComm.ES_EVENT_ANY;
+	import ru.garant.shared.CoreSrv.EventComm.ES_EVENT_SOURCE_ANY;
+	import ru.garant.shared.CoreSrv.EventComm.ES_EVENT_UNDEFINED;
+	import ru.garant.shared.CoreSrv.ConsumerQOSFactory;
+	import ru.garant.shared.CoreSrv.SupplierQOSFactory;
+	
+	public class %SNEventManager {
+		
+		private static %SNEventManager sINSTANCE = null;
+		
+		private static final int ET_TO_ALL = 16 + 1; // тип сообщения, означающий что данное сообщение должно быть разослано всем - нужно для фильтра, рассылающего сообщения (16 - magic number from TAO RTE implementing)
+		private static final int ET_TO_ONE = 16 + 2; //тип сообщения, означающий что данное сообщение должно быть разослано только получателю с указнным при подписке ID (16 - magic number from TAO RTE implementing)
+		
+		private Boolean subscribeMutex_ = new Boolean (true);
+		
+		RtecEventChannelAdmin.ConsumerAdmin consumerAdm_;
+		RtecEventChannelAdmin.SupplierAdmin supplierAdm_;
+		
+		%SNSupplier rteSupplier_;
+		%SNListener rteCommonListener_; //слушатель общих сообщений
+		
+		//слушатели персональных сообщений
+		private java.util.Map\<Integer, %SNListener\> personalRteListeners_ = new java.util.TreeMap\<Integer, %SNListener\> ();
+		
+		//вспомогательная мапа для поиска слушаетелей с которыми связан подписчик
+		private java.util.Map\<%SNConsumer, Integer\> consumers_ = new java.util.HashMap\<%SNConsumer, Integer\> ();
+		
+		
+		//интерфейс подписчика
+		public static interface %SNConsumer {
+			/*oneway*/ public void fire (final %f_type(%S) event);
+		}
+		
+		public static %SNEventManager instance () {
+			if (sINSTANCE == null) {
+				synchronized (%SNEventManager.class) {
+					if (sINSTANCE == null) {
+						sINSTANCE = new %SNEventManager ();
+					}
+				}
+			}
+			
+			return sINSTANCE;
+		}
+		
+		//подписаться на общие нотификации
+		public final void subscribeForCommon (final %SNConsumer consumer) {
+			if (consumerAdm_ == null) {
+				//throw NotInitialized;
+			} else {
+				synchronized(subscribeMutex_) {
+					if (rteCommonListener_ == null) {
+						rteCommonListener_ = new %SNListener (consumerAdm_);
+					}
+					
+					rteCommonListener_.addConsumer (consumer);
+				}
+			}
+		}
+		
+		//подписаться на персональные нотификации
+		public final void subscribeForPersonal (final %SNConsumer consumer, int personalId) {
+			if (consumerAdm_ == null) {
+				//throw NotInitialized;
+			} else {
+				synchronized(subscribeMutex_) {
+					%SNListener el = personalRteListeners_.get (personalId);
+					if (el == null) {
+						el = new %SNListener (consumerAdm_, personalId);
+						personalRteListeners_.put (personalId, el);
+					}
+					consumers_.put (consumer, new Integer (personalId));
+					el.addConsumer (consumer);
+				}
+			}
+		}
+		
+		//отписаться от нотификаций
+		public final void unsubscribe (final %SNConsumer consumer) {
+			synchronized (subscribeMutex_) {
+				if (rteCommonListener_ != null) {
+					rteCommonListener_.removeConsumer (consumer);
+				}
+				//пытаемся отписать подписчика от персональных сообщений
+				Integer personalId = consumers_.get (consumer);
+				if (personalId != null) {
+					consumers_.remove (personalId);
+					
+					%SNListener listener = personalRteListeners_.get (personalId);
+					if (listener != null) {
+						listener.removeConsumer (consumer);
+					}
+				}
+			}
+		}
+		
+		//послать сообщение всем подписчикам
+		public final void sendNotify (%t_arg(%S,"in") event) {
+			if (rteSupplier_ == null) {
+				//throw Core::EventServiceNotInitialized ();
+			} else {
+				rteSupplier_.sendNotify (event);
+			}
+		}
+		
+		//послать сообщение персональным подписчикам
+		public final void sendPersonalNotify (%t_arg(%S,"in") event, int personalId) {
+			if (rteSupplier_ == null) {
+				//throw Core::EventServiceNotInitialized ();
+			} else {
+				rteSupplier_.sendPersonalNotify (event, personalId);
+			}
+		}
+		
+		private %SNEventManager () {
+			try {
+				//получаем менеджер каналов
+				ru.garant.shared.CoreSrv.EventComm.EventChannelManager ecm = ru.garant.shared.CoreSrv.EventComm.EventChannelManagerFactory.get ();
+				
+				//инициируем создание канала
+				ecm.create_channel ("%f_full_name(%S)");
+				
+				//пытаемся получить созданый канал из NS
+				org.omg.CORBA.Object obj = ru.garant.shared.CoreSrv.cos_naming_op.resolvePath (
+					<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHome>.get().getOrbFacet().getNsRoot ()
+					, "%f_full_name(%S)"
+				);
+				RtecEventChannelAdmin.EventChannel ec = RtecEventChannelAdmin.EventChannelHelper.narrow (obj);
+				
+				if (ec != null) {
+					consumerAdm_ = ec.for_consumers ();
+					supplierAdm_ = ec.for_suppliers ();
+					
+					rteSupplier_ = new MyMessageSupplier (supplierAdm_);
+				}
+			} catch (Throwable ex) {
+				Logs.LOG_SEX (ex);
+			}
+		}
+		
+		// Наследник от корбовского получателя сообщений. При получении собщений
+		// корбой дергается метод push_event.
+		private class %SNListener extends RtecEventComm.PushConsumerPOA {
+			
+			private java.util.Set\<%SNConsumer\> consumers_ = new java.util.HashSet\<%SNConsumer\> ();
+			private RtecEventChannelAdmin.ProxyPushSupplier proxySupplier_ = null;
+			
+			//RtecEventComm.PushConsumer's methods impl
+			public void push (RtecEventComm.Event\[\] events) throws org.omg.CORBA.SystemException {
+				
+				java.util.ArrayList\<%SNConsumer\> consumersSetSnap;
+				synchronized (consumers_) {
+					consumersSetSnap = new java.util.ArrayList\<%SNConsumer\> (this.consumers_);
+				}
+			
+				%f_type(%S) event = %f_type(%S)Helper.extract (events \[0\].data.any_value);
+				if (event != null) {
+					for (%SNConsumer consumer : consumersSetSnap) {
+						consumer.fire (event); //вызываем call-back на реальном подписчике.
+					}
+				}
+			}
+			
+			void deactivate () {
+				try {
+					synchronized (consumers_) {
+						
+						consumers_.clear ();
+						
+						if (proxySupplier_ != null) {
+							try {
+								try {
+									proxySupplier_.disconnect_push_supplier ();
+								} catch (org.omg.CORBA.TRANSIENT ex) {
+									// "гасим" исключение,
+									// если сервер уже недоступен
+								} catch (org.omg.CORBA.SystemException ex) {
+									Logs.LOG_SEX (ex);
+									assert (false);
+								}
+								
+								byte\[\] objectId = <{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().servant_to_id (this);
+								<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().deactivate_object (objectId);
+							} catch (org.omg.PortableServer.POAPackage.ObjectNotActive ex) {
+								// "гасим" исключение,
+								// если объект не был активирован
+								// или уже был деактивирован
+							} catch (org.omg.CORBA.SystemException ex) {
+								Logs.LOG_SEX (ex);
+								assert (false);
+							}
+							
+							proxySupplier_ = null;
+						}
+					}
+				} catch (Throwable ex) {
+					Logs.LOG_E ("%SNListener::deactivate (): unknown exception catched");
+					Logs.LOG_SEX (ex);
+				}
+			}
+			
+			public void disconnect_push_consumer () throws org.omg.CORBA.SystemException {
+			}
+			
+			//создать корба-слушателя, который слушает все сообщения (ET_TO_ALL)
+			%SNListener (RtecEventChannelAdmin.ConsumerAdmin consumerAdmin) {
+				ConsumerQOSFactory qosFactory = new ConsumerQOSFactory ();
+				qosFactory.startDisjunctionGroup(1);
+				qosFactory.insertType(ET_TO_ALL, 0);
+				
+				if (consumerAdmin != null) {
+					try {
+						org.omg.CORBA.Object obj = <{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().servant_to_reference(this);
+						RtecEventComm.PushConsumer pushConsumer = RtecEventComm.PushConsumerHelper.narrow (obj);
+						proxySupplier_ = consumerAdmin.obtain_push_supplier ();
+						proxySupplier_.connect_push_consumer (pushConsumer, qosFactory.getQos());
+					} catch (org.omg.CORBA.UserException ex) {
+						Logs.LOG_SEX (ex);
+					}
+				}
+			}
+			
+			//создать корба-слушателя, который слушает персональные сообщения (ET_TO_ONE)
+			%SNListener (RtecEventChannelAdmin.ConsumerAdmin consumerAdmin, int personalId) {
+				ConsumerQOSFactory qosFactory = new ConsumerQOSFactory ();
+				qosFactory.startDisjunctionGroup(1);
+				qosFactory.insert (
+					ES_EVENT_SOURCE_ANY.value + personalId
+					, ET_TO_ONE
+					, 0
+				);
+				
+				if (consumerAdmin != null) {
+					try {
+						org.omg.CORBA.Object obj = <{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().servant_to_reference(this);
+						RtecEventComm.PushConsumer pushConsumer = RtecEventComm.PushConsumerHelper.narrow (obj);
+						proxySupplier_ = consumerAdmin.obtain_push_supplier ();
+						proxySupplier_.connect_push_consumer (pushConsumer, qosFactory.getQos());
+					} catch (org.omg.CORBA.UserException ex) {
+						Logs.LOG_SEX (ex);
+					}
+				}
+			}
+			
+			final void addConsumer (final %SNConsumer consumer) {
+				synchronized (consumers_) {
+					consumers_.add (consumer);
+				}
+			}
+			
+			final void removeConsumer (final %SNConsumer consumer) {
+				synchronized (consumers_) {
+					consumers_.remove (consumer);
+				}
+			}
+		}; //%SNListener
+		
+		//имплементация корбовского поставщика событий PushSupplier-а
+		class %SNSupplier extends RtecEventComm.PushSupplierPOA {
+			
+			private RtecEventChannelAdmin.ProxyPushConsumer proxyConsumer_ = null;
+			
+			//RtecEventComm.PushSupplier's methods impl
+			public void disconnect_push_supplier () throws org.omg.CORBA.SystemException {
+			}
+		
+			public void disconnect_and_deactivate () {
+				try {
+					if (proxyConsumer_ != null) {
+						try {
+							try {
+								proxyConsumer_.disconnect_push_consumer ();
+							} catch (org.omg.CORBA.TRANSIENT ex) {
+								// "гасим" исключение,
+								// если сервер уже недоступен
+							} catch (org.omg.CORBA.SystemException ex) {
+								Logs.LOG_SEX (ex);
+								assert (false);
+							}
+							byte\[\] objectId = <{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().servant_to_id (this);
+								<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().deactivate_object (objectId);
+						} catch (org.omg.PortableServer.POAPackage.ObjectNotActive ex) {
+							// "гасим" исключение,
+							// если объект не был активирован
+							// или уже был деактивирован
+						} catch (org.omg.CORBA.SystemException ex) {
+							Logs.LOG_SEX (ex);
+							assert (false);
+						}
+						
+						proxyConsumer_ = null;
+					}
+				} catch (Throwable ex) {
+					Logs.LOG_E ("%SNSupplier::disconnect_and_deactivate (): unknown exception catched");
+					Logs.LOG_SEX (ex);
+				}
+			}
+			
+			// создает корбовского поставщика событий
+			%SNSupplier (RtecEventChannelAdmin.SupplierAdmin supplierAdmin) {
+				if (supplierAdmin != null) {
+					try {
+						org.omg.CORBA.Object obj = <{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getRootPoa().servant_to_reference(this);
+						RtecEventComm.PushSupplier pushSupplier = RtecEventComm.PushSupplierHelper.narrow (obj);
+						
+						SupplierQOSFactory qos = new SupplierQOSFactory ();
+						qos.insert (ES_EVENT_SOURCE_ANY.value, ET_TO_ALL, 0, 1);
+						qos.insert (ES_EVENT_SOURCE_ANY.value, ET_TO_ONE, 0, 1);
+						
+						proxyConsumer_ = supplierAdmin.obtain_push_consumer ();
+						proxyConsumer_.connect_push_supplier (pushSupplier, qos.getQos ());
+					} catch (Throwable ex) {
+						Logs.LOG_SEX (ex);
+					}
+				}
+			}
+			
+			// послать общее сообщение
+			/*oneway*/ final void sendNotify (final %f_type(%S) event) {
+				Runnable eval = new Runnable () {
+					public void run() {
+						sendNotifyImpl (event);
+					}
+				};
+				ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ().execute (eval);
+			}
+			
+			// послать персональное сообщение
+			/*oneway*/ final void sendPersonalNotify (final %f_type(%S) event, final int personalId) {
+				Runnable eval = new Runnable () {
+					public void run() {
+						sendPersonalNotifyImpl (event, personalId);
+					}
+				};
+				ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ().execute (eval);
+			}
+			
+		//////////////////////////////////////////////////////////////////////////////////////////
+		// oneway methods impl
+			private final void sendNotifyImpl (%t_arg(%S,"in") event) {
+				if (proxyConsumer_ != null) {
+					RtecEventComm.Event\[\] events = new RtecEventComm.Event\[1\];
+					
+					RtecEventComm.Event event_0 = new RtecEventComm.Event (
+						new RtecEventComm.EventHeader ()
+						, new Rtec.RtecEventData ()
+					);
+					
+					event_0.header.source = 0;
+					event_0.header.type = %SNEventManager.ET_TO_ALL;
+					
+					event_0.data.any_value = <{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getMainOrb().create_any ();
+					%f_type(%S)Helper.insert (event_0.data.any_value, event);
+					
+					event_0.data.payload = new byte\[0\];
+					
+					{ // Fix UMR for collocated calls
+						event_0.header.ttl = 1;
+						event_0.header.creation_time = 0;
+						
+						event_0.header.ec_recv_time = 0;
+						event_0.header.ec_send_time = 0;
+						
+						event_0.data.pad1 = 0;
+					} // Fix UMR for collocated calls
+					
+					events\[0\] = event_0;
+					proxyConsumer_.push (events);
+				}
+			}
+			
+			private final void sendPersonalNotifyImpl (%t_arg(%S,"in") event, int personalId) {
+				if (proxyConsumer_ != null) {
+					RtecEventComm.Event\[\] events = new RtecEventComm.Event\[1\];
+					
+					RtecEventComm.Event event_0 = new RtecEventComm.Event (
+						new RtecEventComm.EventHeader ()
+						, new Rtec.RtecEventData ()
+					);
+					
+					event_0.header.source = 0 + personalId;
+					event_0.header.type = %SNEventManager.ET_TO_ONE;
+					
+					event_0.data.any_value = <{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHomeFactory>.get().getOrbFacet().getMainOrb().create_any ();
+					%f_type(%S)Helper.insert (event_0.data.any_value, event);
+					
+					event_0.data.payload = new byte\[0\];
+					
+					{ // Fix UMR for collocated calls
+						event_0.header.ttl = 1;
+						event_0.header.creation_time = 0;
+						
+						event_0.header.ec_recv_time = 0;
+						event_0.header.ec_send_time = 0;
+						
+						event_0.data.pad1 = 0;
+					} // Fix UMR for collocated calls
+					
+					events\[0\] = event_0;
+					proxyConsumer_.push (events);
+				}
+			}
+		}; // class %SNSupplier
+		
+	};
+	%f_footer(%S)
+//#UC END# *470321C1038Afor47FC8DC20143*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

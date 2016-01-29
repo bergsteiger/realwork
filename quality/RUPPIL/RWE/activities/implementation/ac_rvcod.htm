@@ -1,0 +1,241 @@
+
+<html>
+
+<head>
+<title>Activity: Review Code</title>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<h2 class="banner"><a name="Top"></a><a name="XE_code__reviewing"></a>Activity:
+Review Code</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>To verify the source code.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Steps</font></strong></small>
+    <ul>
+      <li><a href="#Checkpoints for Source Code">Establish Checkpoints for Source Code</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Input
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><a href="../artifact/ar_comp.htm">Component</a>, compiled source code</li>
+      <li><a href="../artifact/ar_prggl.htm">Programming Guidelines</a></li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Resulting
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><a href="../artifact/ar_rvrec.htm">Review Record</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Role:</small>
+    </font></strong><a href="../workers/wk_codrv.htm">Code Reviewer</a></td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><font face="Arial"><strong><small>Guidelines:</small></strong></font><strong>
+    </strong><a href="../workguid/wg_rview.htm">Reviews</a></td>
+  </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p><table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+<tr>
+<td valign="top" colspan="2" bordercolor="#808080"><small><font face="Arial"><strong>Workflow Details:</strong></font></small><ul>
+<li><b><a href="../workflow/ovu_impl.htm">Core Workflow: Implementation</a></b></li><ul>
+<li><a href="../workflow/implemen/wfs_implc.htm">Implement Components</a></li>
+</ul>
+</ul>
+</td>
+</tr>
+</table>
+<!-- Linked to Workflow End -->
+</center></div>
+
+<p>When you are building high-quality software, reviewing the source code is a
+complement to other quality mechanisms, such as compiling, integrating and
+testing. Before you review code, compile it, and use tools, such as code-rule
+checkers, to catch as many errors as possible. Additional errors may also be
+detected and eliminated prior to code review if the code is executed using
+run-time error detection tools.</p>
+<p>The benefits of reviewing code are:
+<ul>
+  <li>To enforce and encourage a common coding style for the project. Code
+    reviewing is an effective way for members follow the Programming Guidelines.
+    To ensure this, it is more important to review results from all authors and
+    implementers, than to review all source code files.</li>
+  <li>To find errors that automated tests do not find. Code reviews catch
+    different errors to those of testing.</li>
+  <li>To share knowledge between individuals, and to transfer knowledge from the
+    more experienced individuals to the less experienced individuals.</li>
+</ul>
+<p>There are several techniques that can be used to review code. Use one of the
+following:
+<ul>
+  <li><strong>Inspection</strong>. A formal evaluation technique in which the
+    code is examined in detail. Inspections are considered to be the most
+    productive review technique, however it requires training, and preparation.</li>
+  <li><strong>Walkthrough</strong>. An evaluation technique where the author of
+    the code, leads one or more reviewers through the code. The reviewers ask
+    questions, and make comments regarding technique, style, possible error,
+    violation of coding standards, and so on.</li>
+  <li><strong>Code reading</strong>. One or two persons read the code. When the
+    reviewers are ready, they can meet and present their comments and questions.
+    The meeting can be omitted, however, and reviewers can give their comments
+    and questions to the author in written form instead. Code reading is
+    recommended to verify small modifications, and as a &quot;sanity
+    check.&quot;</li>
+</ul>
+<p>See also <a href="../workguid/wg_rview.htm">Guidelines: Reviews</a>.</p>
+<h3><a name="Checkpoints for Source Code"></a>Establish Checkpoints for Source Code <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>This section gives some general check-points for reviewing code, just as
+examples of what to look for in a review. The Programming Guidelines should be
+the main source of information for code quality.</p>
+<p><strong>General</strong>
+<ul>
+  <li>Does the code follow the Programming Guidelines?</li>
+  <li>Is the code self-documenting? Is it possible to understand the code from
+    reading it?</li>
+  <li>Have all errors detected by code-rule checking, and / or run-time error
+    detection tools been addressed?</li>
+</ul>
+<p><strong>Commenting</strong>
+<ul>
+  <li>Are comments up to date?</li>
+  <li>Are comments clear and correct?</li>
+  <li>Are the comments easy to modify, if the code is changed?</li>
+  <li>Do the comments focus on explaining <i>why</i>, and not <i>how</i>?</li>
+  <li>Are all surprises, exceptional cases, and work-around errors commented?</li>
+  <li>Is the purpose of each operation commented?</li>
+  <li>Are other relevant facts about each operation commented?</li>
+</ul>
+<p><strong>Source code</strong>
+<ul>
+  <li>Does each operation have a name that describe what the operation does?</li>
+  <li>Do the parameters have descriptive names?</li>
+  <li>Is the normal path through each operation, clearly distinguishable from
+    other exceptional paths?</li>
+  <li>Is the operation too long, and can it be simplified by extracting related
+    statements into private operations?</li>
+  <li>Is the operation too long, and can it be simplified by reducing the number
+    of decision points? A decision point is a statement where the code can take
+    different paths, for example, <i>if</i>-, <i>else</i>-, <i>and</i>-, <i>while</i>-,
+    and <i>case</i>-statements.</li>
+  <li>Is nesting of loops minimized?</li>
+  <li>Are the variables well named?</li>
+  <li>Is the code straightforward, and does it avoid &quot;clever&quot;
+    solutions?</li>
+</ul>
+&nbsp;<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+<p><img src="../../images/rup1.gif" border="0" alt="Display Rational Unified Process using frames" name="Home" border="0" width="20" height="110"></a></p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; <img border="0" src="../../_borders/rupversion.gif" width="63" height="7"></small></small></font>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

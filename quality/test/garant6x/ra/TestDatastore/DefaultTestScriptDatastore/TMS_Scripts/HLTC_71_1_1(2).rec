@@ -1,0 +1,54 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейсов № 71.1.1 и 71.1.2 ***
+Sub Main
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+  Dim Result As Integer
+  Dim value$
+
+    'Initially Recorded: 09.02.2004  12:30:18
+    'Script Name: HLTC_71_1_1
+  Call NeedState (ST_MAIN_MENU)
+  CUR_STATE = ST_NONE_STANDART
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Правовой навигатор \ Судебная и арбитражная практика
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=100,12"
+  GenericObject Click, "Text=Судебная и арбитражная практика", "Coords=138,11"
+  
+'Переводим фокус на закладку навигатора "Судебная и арбитражная практика"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+  
+'Раскрываем элемент "Основы государственно-правового устройства" и переходим на первый
+'лист "Основы конституционного строя"
+  InputKeys "{DOWN}{Num+}{DOWN}"
+  
+'Сравниваем название данного листа
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Права и свободы человека и гражданина, гражданство", value)
+  
+'Сворачиваем узел "Основы государственно-правового устройства"
+  InputKeys "{UP}{Num+}"
+  
+'Прехдоим на первый лист узла "Законодательство об отдельных видах деятельности"
+  InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{Num+}{DOWN}"
+  
+'Сравниваем название данного листа  
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Топливно-энергетический комплекс", value)
+  
+'Прехдоим на первый лист последнего узла "Международное право, международные отношения"
+  InputKeys "{UP}{Num+}{END}{Num+}{DOWN}"
+  
+'Сравниваем название данного листа
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Общие вопросы", value)
+  
+'Сворачиваем последний узел и проверяем его название
+  InputKeys "{UP}{Num+}"
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Международное право, международные отношения", value)
+End Sub

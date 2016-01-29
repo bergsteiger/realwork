@@ -1,0 +1,1505 @@
+//////////////////////////////////////////////////////////////////////////////
+//Набор функций для проверки HLTC245: Установка данных (DataSetup)  //////////
+//////////////////////////////////////////////////////////////////////////////
+
+uses common, States, RunPrograms, SettingsWork, Clicks, MenuWork, FileWork,
+		 DocumentWork, SearchWork, FoldersWork, ListWork;
+////////////////////////////////////////////////////////////////////////////////
+procedure _____CONST;begin;end;
+////////////////////////////////////////////////////////////////////////////////
+const
+  //состояния F1DataSetup
+  F1DS_NO_EXISTS_STATE = 'Мастер установки данных завершил работу или не запущен';
+  F1DS_UNKNOW_STATE = 'Неизвестное состояние F1DataSetup, но процесс запущен.';  
+  F1DS_CURRENT_STATE = 'Текущее состояние.';  
+
+  F1DS_LOGIN_AUTHORIZATION_STATE = 'Введите имя, которое будет идентифицировать вас*';
+  F1DS_SEARCH_COMPLECTS_STATE = 'Идёт поиск комплектов на дистрибутиве ...';
+  F1DS_CHOOSE_STATE = 'Выбор клиента и продукта';
+  F1DS_AUTHORIZATION_STATE = 'Авторизация установки*';
+  F1DS_PREPAIRED_STATE = 'Подготовка операции*';    
+  F1DS_MASTER_READY_STATE = 'Мастер установки данных готов выполнить обновление*';
+  F1DS_READY_TO_UNPACK_STATE = 'Готов к распаковке';
+  F1DS_COPYING_STATE = 'Копируется файл*';
+  F1DS_ALL_DONE_STATE = 'Комплект корректно установлен';
+
+  //индексы состояний
+  F1DS_MIN_INDEX_STATE = 1;//F1DS_NO_EXISTS_STATE не участвует в поиске  
+  F1DS_MAX_INDEX_STATE = 9;
+  F1DS_UNKNOW_INDEX = 256;    
+  F1DS_CURRENT_INDEX = -1;
+
+  //таймауты
+  TIME_TO_WAIT_F1DATASETUPPROCESS = 5000;
+  TIME_TO_WAIT_FOR_AUTHLOGIN = 120000;
+  TIME_TO_WAIT_ENDOFCOPY = 30000;
+
+  //идентификаторы путей дистрибутива к базам
+  F1DS_BASE_COMMON_TESTBASE = 1;
+  F1DS_BASE_KS_TESTBASE = 2;
+  F1DS_BASE_FS_TESTBASE = 3;
+  F1DS_BASE_DESKTOP_TESTBASE = 4;
+  //идентификаторы базы: 14-й c конца байт в bases.org определял тип комплекта: 01 - локальный, 02 - сетевой, 03 - однопользовательский.
+  F1DS_QRG_AUTO = 255;
+  F1DS_QRG_LOCAL = 1;
+  F1DS_QRG_NET = 2;
+  F1DS_QRG_SINGLE = 3;
+  //команды для закрытия/прибивания установщика
+  F1DS_CMD_CLOSE = 1;
+  F1DS_CMD_KILL = 2;
+  //Биты ошибок в результате функции ExecuteF1DataSetupDialog  
+  F1DS_EX_DIALOG_NO_ERROR = 0;  
+  F1DS_EX_DIALOG_ERROR = 1;
+  F1DS_EX_DIALOG_LOG_ERROR = 2;
+  F1DS_EX_DIALOG_COPY_ERROR = 4;
+  F1DS_EX_DIALOG_NO_DISCONNECT_MESSAGE_ERROR = 8;    
+  //путь к логу относительно каталога с garant.exe
+  F1DS_LOGFILE = '\logs\datasetup.log';
+  F1DS_CRY_LOGFILENAME = '\logs\datasetup\datasetup-*.cry';
+  //имена комплектов
+  F1DS_BASENAME_KS = 'ГАРАНТ-Мастер аэро(коммерч. к-с многоп.)*';
+  F1DS_BASENAME_FS = 'ГАРАНТ-Мастер аэро(коммерч. ф-с 2-польз.)*';
+  F1DS_BASENAME_DESKTOP = 'ГАРАНТ-Мастер аэро(коммерч. десктоп лок.)*';
+  //Каталоги с базами
+  //Общий каталог с базами (обновляется вручную)
+  F1DS_BASEPATH_TESTBASE = '\\builds-store.garant.ru\garant-nemesis\deployment\data\7.12\_datasetup\testbase\';
+  F1DS_BASEPATH_KS_TESTBASE = F1DS_BASEPATH_TESTBASE;
+  F1DS_BASEPATH_FS_TESTBASE = F1DS_BASEPATH_TESTBASE;
+  F1DS_BASEPATH_DESKTOP_TESTBASE = F1DS_BASEPATH_TESTBASE;
+  
+//forward declations////////////////////////////////////////////////////////////
+function ExecuteF1DataSetupDialog(
+  const begin_state: OleVariant = F1DS_NO_EXISTS_STATE; 
+  const end_state : OleVariant = F1DS_ALL_DONE_STATE;  
+  const paramString : String = '' // параметры
+) : integer; forward;
+////////////////////////////////////////////////////////////////////////////////
+procedure _____STATES;begin;end;
+    
+function F1DS_StatesArray(
+  i : integer
+) : string;
+begin
+  result := F1DS_UNKNOW_STATE;
+  case i of
+    F1DS_CURRENT_INDEX: result := F1DS_CURRENT_STATE;
+    0: result := F1DS_NO_EXISTS_STATE;
+    1: result := F1DS_LOGIN_AUTHORIZATION_STATE;
+    2: result := F1DS_SEARCH_COMPLECTS_STATE;
+    3: result := F1DS_CHOOSE_STATE;
+    4: result := F1DS_AUTHORIZATION_STATE;
+    5: result := F1DS_PREPAIRED_STATE;    
+    6: result := F1DS_MASTER_READY_STATE;
+    7: result := F1DS_READY_TO_UNPACK_STATE;
+    8: result := F1DS_COPYING_STATE;
+    9: result := F1DS_ALL_DONE_STATE;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function F1DS_GetIndexOfState(
+  stateElement: String
+) : integer;
+  var i: integer;
+begin
+  result := F1DS_UNKNOW_INDEX;
+  case stateElement of
+    F1DS_CURRENT_STATE: result := F1DS_CURRENT_INDEX;    
+    F1DS_NO_EXISTS_STATE: result := 0;
+    F1DS_LOGIN_AUTHORIZATION_STATE: result := 1;     
+    F1DS_SEARCH_COMPLECTS_STATE: result := 2;
+    F1DS_CHOOSE_STATE: result := 3;
+    F1DS_AUTHORIZATION_STATE: result := 4;
+    F1DS_PREPAIRED_STATE: result := 5;
+    F1DS_MASTER_READY_STATE: result := 6;
+    F1DS_READY_TO_UNPACK_STATE: result := 7;
+    F1DS_COPYING_STATE: result := 8;
+    F1DS_ALL_DONE_STATE: result := 9;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function F1DS_GetVarNameOfState(
+  stateElement: String
+) : integer;
+  var i: integer;
+begin
+  result := F1DS_UNKNOW_INDEX;
+  case stateElement of
+    F1DS_CURRENT_STATE: result := 'F1DS_CURRENT_STATE';
+    F1DS_NO_EXISTS_STATE: result := 'F1DS_NO_EXISTS_STATE';
+    F1DS_LOGIN_AUTHORIZATION_STATE: result := 'F1DS_LOGIN_AUTHORIZATION_STATE';     
+    F1DS_SEARCH_COMPLECTS_STATE: result := 'F1DS_SEARCH_COMPLECTS_STATE';
+    F1DS_CHOOSE_STATE: result := 'F1DS_CHOOSE_STATE';
+    F1DS_AUTHORIZATION_STATE: result := 'F1DS_AUTHORIZATION_STATE';
+    F1DS_PREPAIRED_STATE: result := 'F1DS_PREPAIRED_STATE';
+    F1DS_MASTER_READY_STATE: result := 'F1DS_MASTER_READY_STATE';
+    F1DS_READY_TO_UNPACK_STATE: result := 'F1DS_READY_TO_UNPACK_STATE';
+    F1DS_COPYING_STATE: result := 'F1DS_COPYING_STATE';
+    F1DS_ALL_DONE_STATE: result := 'F1DS_ALL_DONE_STATE';
+  end;
+end;
+
+procedure _____PUBLIC;begin;end;
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function IsValidF1DataSetupProcess(
+  prc: OleVariant
+): boolean;
+begin
+  Result := (VarType(prc) = varDispatch) AND IsSupported(prc, 'Exists') AND prc.Exists;  
+end;
+
+{
+  TYPE: Общие
+  DESC: Возвращает процесс DataSetup
+  RESULT:
+  REMARK: В случае неудачи выбрасывает исключение EX_CANNOT_FIND_F1DATASETUP_STARTER_PROCESS
+}
+function GetF1DataSetupStarterProcess(
+  const timeOut : integer = TIME_TO_WAIT_F1DATASETUPPROCESS div 10; // таймаут
+  const searchesCount : integer = 2; // столько раз ищем процесс
+  const isRaiseException : boolean = false
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetF1DataSetupStarterProcess';
+  var 
+    i, timeElapsed, timeToWait, startTime : integer;  
+    cacheKey : OleVariant;
+begin
+  try
+    cacheKey := FUNCTION_NAME + 'DataSetupProcess';
+    if NOT Cache_Check(nil, cacheKey, Result) then
+    begin
+      if searchesCount < 1 then searchesCount := 1;
+      Result := NonExObj;
+      
+      for i := 1 to searchesCount do
+      begin
+        timeToWait := timeOut div searchesCount;
+        timeElapsed := Win32API.GetTickCount;
+        Sys.Refresh;
+        Result := Sys.WaitProcess(F1DATASETUP_STARTER_PROCESS_NAME, timeToWait);
+
+        timeElapsed := Win32API.GetTickCount - timeElapsed;
+        timeToWait := timeToWait - timeElapsed;
+               
+        if IsValidF1DataSetupProcess(Result) then break;
+        
+        if timeToWait > 0 then
+        begin
+          startTime := Win32API.GetTickCount;
+          while ( timeToWait > Win32API.GetTickCount - startTime ) AND (NOT IsValidF1DataSetupProcess(Sys.WaitProcess(F1DATASETUP_STARTER_PROCESS_NAME, timeToWait)) ) do
+            Delay(300);
+        end;
+      end;
+      
+      if NOT IsValidF1DataSetupProcess(Sys.WaitProcess(F1DATASETUP_STARTER_PROCESS_NAME, timeToWait)) then
+        Result := NonExObj
+      else      
+        Result := Cache_Put(nil, cacheKey, Result);
+    end;
+       
+    if NOT IsValidF1DataSetupProcess(Result) then
+      if isRaiseException then 
+        Raise(EX_CANNOT_FIND_F1DATASETUP_STARTER_PROCESS)
+      else
+        Result := NonExObj;          
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetFromF1DataSetupStarter(
+  whatToGet : String;
+  params : String = ''  
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetFromF1DataSetupStarter';
+  var 
+    wnd, cacheKey, parent, params_timeDiv4: OleVariant;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);
+    parent := GetF1DataSetupStarterProcess(TIME_TO_WAIT_F1DATASETUPPROCESS, 2, true);
+    if not IsExists(parent) then
+      Raise('Процесс "' + F1DATASETUP_STARTER_PROCESS_NAME + '" не найден!');    
+    cacheKey := FUNCTION_NAME + whatToGet;
+    params_timeDiv4 := params + ';TIMEOUT:=' + IntToStr(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);    
+    params := params + ';TIMEOUT:=' + IntToStr(TIME_TO_WAIT_F1DATASETUPPROCESS);
+    if NOT Cache_Check(parent, cacheKey , Result ) then
+    begin
+      case whatToGet of
+        'ОКНО "СТАТУС УСТАНОВКИ"' :
+          Result := FindWindowByPath(parent,
+                              'WNDCLASS:=Static;WNDCAPTION:=Сохранить статус установки*;Visible:=true;MAXDEPTH:=2|WNDCLASS:=#32770;IsAddCheckInfo:=true;Visible:=true;WNDCAPTION:=Обновление системы ГАРАНТ;MAXDEPTH:=-1', true, params );
+        'КНОПКА "ДА" ОКНА "СТАТУС УСТАНОВКИ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetupStarter('ОКНО "СТАТУС УСТАНОВКИ"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=1', true, params);
+        'КНОПКА "НЕТ" ОКНА "СТАТУС УСТАНОВКИ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetupStarter('ОКНО "СТАТУС УСТАНОВКИ"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=2', true, params);
+      else
+        Raise('Параметр не распознан!');   
+      end;
+      Result := Cache_Put(parent, cacheKey, Result);
+    end;
+
+    if IsExists(Result) AND (NOT Result.Visible) then
+    begin
+      Log.Warning(FUNCTION_NAME + ': Объект существует, но НЕ виден! Возвращаем несуществующий объект.',
+                 'whatToGet: "' + whatToGet + '".' + EndOfLine +
+                 'FullName: "' + Result.FullName + '"',
+                 pmNormal, GetLogAttr('YELLOW'));
+      Result := NonExObj;
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'whatToGet: "' + whatToGet + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Общие
+  DESC: Возвращает процесс F1DataSetup
+  RESULT:
+  REMARK: В случае неудачи выбрасывает исключение EX_CANNOT_FIND_F1DATASETUP_PROCESS
+}
+function GetF1DataSetupProcess(
+  const timeOut : integer = TIME_TO_WAIT_F1DATASETUPPROCESS div 10; // таймаут
+  const searchesCount : integer = 2; // столько раз ищем процесс
+  const isRaiseException : boolean = false
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetF1DataSetupProcess';
+  var 
+    i, timeElapsed, timeToWait, startTime : integer;  
+    cacheKey : OleVariant;
+begin
+  try
+    cacheKey := FUNCTION_NAME + 'F1DataSetupProcess';
+    if NOT Cache_Check(nil, cacheKey, Result) then
+    begin
+      if searchesCount < 1 then searchesCount := 1;
+      Result := NonExObj;
+      
+      for i := 1 to searchesCount do
+      begin
+        timeToWait := timeOut div searchesCount;
+        timeElapsed := Win32API.GetTickCount;
+        Sys.Refresh;
+        Result := Sys.WaitProcess(F1DATASETUP_PROCESS_NAME, timeToWait);
+
+        timeElapsed := Win32API.GetTickCount - timeElapsed;
+        timeToWait := timeToWait - timeElapsed;
+               
+        if IsValidF1DataSetupProcess(Result) then break;
+        
+        if timeToWait > 0 then
+        begin
+          startTime := Win32API.GetTickCount;
+          while ( timeToWait > Win32API.GetTickCount - startTime ) AND (NOT IsValidF1DataSetupProcess(Sys.WaitProcess(F1DATASETUP_PROCESS_NAME, timeToWait)) ) do
+            Delay(300);
+        end;
+      end;
+      
+      if NOT IsValidF1DataSetupProcess(Sys.WaitProcess(F1DATASETUP_PROCESS_NAME, timeToWait)) then
+        Result := NonExObj
+      else      
+        Result := Cache_Put(nil, cacheKey, Result);
+    end;
+       
+    if NOT IsValidF1DataSetupProcess(Result) then
+      if isRaiseException then 
+        Raise(EX_CANNOT_FIND_F1DATASETUP_PROCESS)
+      else
+        Result := NonExObj;          
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetFromF1DataSetup(
+  whatToGet : String;
+  params : String = ''  
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetFromF1DataSetup';
+  var 
+    wnd, cacheKey, parent, params_timeDiv4: OleVariant;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);
+    parent := GetF1DataSetupProcess(TIME_TO_WAIT_F1DATASETUPPROCESS div 10, 2, true);
+    if not IsExists(parent) then
+      Raise('Процесс "' + F1DATASETUP_PROCESS_NAME + '" не найден!');    
+    cacheKey := FUNCTION_NAME + whatToGet;
+    params_timeDiv4 := params + ';TIMEOUT:=' + IntToStr(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);    
+    params := params + ';TIMEOUT:=' + IntToStr(TIME_TO_WAIT_F1DATASETUPPROCESS);
+    if NOT Cache_Check(parent, cacheKey , Result) then
+    begin
+      case whatToGet of
+        'ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"' :
+          Result := FindWindowByPath(parent,
+                              //'WNDCLASS:=Button;WN  DCAPTION:=&Справка;Visible:=true;IsAddCheckInfo:=true;MAXDEPTH:=2|WNDCAPTION:=Мастер установки данных*;IsAddCheckInfo:=true;Visible:=true;MAXDEPTH:=-1', true, params );
+                              'WNDCAPTION:=Мастер установки данных*;IsAddCheckInfo:=true;Visible:=true', true, params );
+        'ПОЛЕ ВВОДА "ОТЗЫВ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'Visible:=true;IsAddCheckInfo:=true;WNDCLASS:=Edit', true, params);
+        'НАДПИСЬ СОСТОЯНИЯ' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Static;Visible:=true;IsAddCheckInfo:=true;Index:=1', true, params_timeDiv4);
+        'НАДПИСЬ СОСТОЯНИЯ "МАСТЕР..."' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params), 
+                               'WNDCLASS:=Static;Visible:=true;IsAddCheckInfo:=true;Index:=4;WNDCAPTION:=Мастер*', true, params_timeDiv4);
+        'НАДПИСЬ "ПАРОЛЬ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Static;Visible:=true;IsAddCheckInfo:=true;WNDCAPTION:=Пароль: *', true, params);
+        'НАДПИСЬ "БУДЕТ УСТАНОВЛЕН"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Static;Visible:=true;IsAddCheckInfo:=true;WNDCAPTION:=Будет установлен*', true, params);
+        'НАДПИСЬ "НА ДИСКЕ СВОБОДНО"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Static;Visible:=true;IsAddCheckInfo:=true;WNDCAPTION:=На диске свободно:*', true, params);
+        'КНОПКА "ДАЛЕЕ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Button;Visible:=true;IsAddCheckInfo:=true;WNDCAPTION:=&Далее >', true, params);
+        'КНОПКА "ОТМЕНА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Button;Visible:=true;IsAddCheckInfo:=true;WNDCAPTION:=&Отмена', true, params);
+        'КНОПКА "СПРАВКА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Button;Visible:=true;IsAddCheckInfo:=true;WNDCAPTION:=&Справка', true, params);
+        'РАДИОКНОПКА "ДА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Button;Visible:=true;WNDCAPTION:=Да;Index:=5', true, params);
+        'РАДИОКНОПКА "НЕТ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Button;Visible:=true;WNDCAPTION:=Нет;Index:=4', true, params);
+        'КНОПКА "ВЫХОД"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                               'WNDCLASS:=Button;Visible:=true;WNDCAPTION:=Выход', true, params);
+        'ФОРМА ОКНА СПРАВКИ' :
+          Result := FindWindowByPath(
+            parent, 'WNDCLASS:=HH Parent;WNDCAPTION:=Установка и обновление', true, params );
+
+        'ФОРМА "ОБЗОР ПАПОК"' :
+          Result := FindWindowByPath(
+            parent, 'WNDCLASS:=SysTreeView32;WNDCAPTION:=*;Visible:=true;MAXDEPTH:=3|WNDCLASS:=#32770;IsAddCheckInfo:=true;Visible:=true;MAXDEPTH:=-2', true, params );
+
+        'ОКНО "ВЫБОР КЛИЕНТА И ПРОДУКТА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params), 
+            'WNDCLASS:=SysTreeView32;WNDCAPTION:=Tree1;Visible:=true;IsAddCheckInfo:=true', true, params );
+
+        'ОКНО "ОШИБКА ЧТЕНИЯ ФАЙЛА"' :
+          Result := FindWindowByPath(GetFromF1DataSetup('ФОРМА "МАСТЕР УСТАНОВКИ ДАННЫХ"', params),
+                                     'WNDCAPTION:=Ошибка чтения файла*', false, params_timeDiv4);
+        'КНОПКА "ПОВТОР" ОКНА "ОШИБКА ЧТЕНИЯ ФАЙЛА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ОШИБКА ЧТЕНИЯ ФАЙЛА"', params_timeDiv4),
+                              'WNDCLASS:=Button;INDEX:=1', true, params_timeDiv4);
+        'КНОПКА "ОТМЕНА" ОКНА "ОШИБКА ЧТЕНИЯ ФАЙЛА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ОШИБКА ЧТЕНИЯ ФАЙЛА"', params_timeDiv4),
+                              'WNDCLASS:=Button;INDEX:=2', true, params_timeDiv4);
+        //
+        'ОКНО "ОШИБКА ВВОДА"' :
+          Result := FindWindowByPath(parent, 'WNDCAPTION:=Ошибка ввода. Повторите ещё раз.', true, params_timeDiv4);
+        'КНОПКА "OK" ОКНА "ОШИБКА ВВОДА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ОШИБКА ВВОДА"', params_timeDiv4),
+                              'WNDCLASS:=Button;Visible:=true;Index:=1', true, params_timeDiv4);
+        //
+        'ОКНО "КРИТИЧЕСКАЯ ОШИБКА"' :
+          Result := FindWindowByPath(parent, 'WNDCAPTION:=Критическая ошибка. Повторите установку ещё раз.', true, params_timeDiv4);
+        'КНОПКА "OK" ОКНА "КРИТИЧЕСКАЯ ОШИБКА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "КРИТИЧЕСКАЯ ОШИБКА"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=1', true, params);
+        //
+        'ОКНО "ВНИМАНИЕ"' :
+          Result := FindWindowByPath(parent, 'WNDCAPTION:=Внимание !', true, params);
+        'КНОПКА "ОБЗОР" ОКНА "ВНИМАНИЕ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ВНИМАНИЕ"', params),
+                              'WNDCLASS:=Button;Visible:=true;WNDCAPTION:=&Обзор', true, params);
+        'КНОПКА "ОТМЕНА" ОКНА "ВНИМАНИЕ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ВНИМАНИЕ"', params),
+                              'WNDCLASS:=Button;Visible:=true;WNDCAPTION:=&Отмена', true, params);
+        //
+        'ОКНО "ОТМЕНА УСТАНОВКИ"' :
+          Result := FindWindowByPath(parent, 'WNDCAPTION:=Отмена установки', true, params);
+        'КНОПКА "ДА" ОКНА "ОТМЕНА УСТАНОВКИ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ОТМЕНА УСТАНОВКИ"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=1', true, params);
+        'КНОПКА "НЕТ" ОКНА "ОТМЕНА УСТАНОВКИ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ОТМЕНА УСТАНОВКИ"', params),
+                              'WNDCLASS:=Button;Index:=2', true, params);
+         //Окно вопроса "Распаковать данные в процессе установки ?"
+        'ОКНО "РАСПАКОВАТЬ ДАННЫЕ"' :
+          Result := FindWindowByPath(parent, 
+                              'WNDCLASS:=Static;WNDCAPTION:=*Распаковать данные в процессе установки ?*;MAXDEPTH:=2|WNDCLASS:=#32770;WNDCAPTION:=Мастер установки данных;IsAddCheckInfo:=true;Visible:=true;MAXDEPTH:=-1', true, params );
+        'КНОПКА "ДА" ОКНА "РАСПАКОВАТЬ ДАННЫЕ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "РАСПАКОВАТЬ ДАННЫЕ"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=1', true, params);
+        'КНОПКА "НЕТ" ОКНА "РАСПАКОВАТЬ ДАННЫЕ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "РАСПАКОВАТЬ ДАННЫЕ"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=2', true, params);
+        //
+        'ОКНО "ВСТАВЬТЕ ДИСК С ФАЙЛОМ"' :
+          Result := FindWindowByPath(parent, 
+                              'WNDCLASS:=Static;WNDCAPTION:=Вставьте диск с файлом*;Visible:=true;MAXDEPTH:=2|WNDCLASS:=#32770;IsAddCheckInfo:=true;Visible:=true;WNDCAPTION:=Мастер установки данных;MAXDEPTH:=-1', true, params );
+        'КНОПКА "OK" ОКНА "ВСТАВЬТЕ ДИСК С ФАЙЛОМ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ВСТАВЬТЕ ДИСК С ФАЙЛОМ"', params),
+                              'WNDCLASS:=Button;Index:=1', true, params);
+        'КНОПКА "ОТМЕНА" ОКНА "ВСТАВЬТЕ ДИСК С ФАЙЛОМ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "ВСТАВЬТЕ ДИСК С ФАЙЛОМ"', params),
+                              'WNDCLASS:=Button;Index:=2', true, params);
+        //
+        'ОКНО "АВТОРИЗАЦИЯ"' :
+          Result := FindWindowByPath(parent, 
+                              'WNDCAPTION:=Авторизация', true, params );
+        'КНОПКА "OK" ОКНА "АВТОРИЗАЦИЯ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "АВТОРИЗАЦИЯ"', params),
+                              'WNDCLASS:=Button;Index:=1', true, params);
+        //
+        'ОКНО "СТАТУС УСТАНОВКИ"' :
+          Result := FindWindowByPath(parent,
+                              'WNDCLASS:=Static;WNDCAPTION:=Сохранить статус установки*;Visible:=true;MAXDEPTH:=2|WNDCLASS:=#32770;IsAddCheckInfo:=true;Visible:=true;WNDCAPTION:=Обновление системы ГАРАНТ;MAXDEPTH:=-1', true, params );
+        'КНОПКА "ДА" ОКНА "СТАТУС УСТАНОВКИ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "СТАТУС УСТАНОВКИ"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=1', true, params);
+        'КНОПКА "НЕТ" ОКНА "СТАТУС УСТАНОВКИ"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "СТАТУС УСТАНОВКИ"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=2', true, params);
+        //
+        'ОКНО "НЕСООТВЕТСТВИЕ ВЕРСИИ КОМПЛЕКТА"' :
+          Result := FindWindowByPath(parent,
+                              'WNDCLASS:=Static;WNDCAPTION:=Устанавлив*данные*не*соответствуют*типу*версии*;Visible:=true;MAXDEPTH:=2|WNDCLASS:=#32770;IsAddCheckInfo:=true;Visible:=true;MAXDEPTH:=-1', true, params );
+        'КНОПКА "ДА" ОКНА "НЕСООТВЕТСТВИЕ ВЕРСИИ КОМПЛЕКТА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "НЕСООТВЕТСТВИЕ ВЕРСИИ КОМПЛЕКТА"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=1', true, params);
+        'КНОПКА "НЕТ" ОКНА "НЕСООТВЕТСТВИЕ ВЕРСИИ КОМПЛЕКТА"' :
+          Result := FindWindowByPath(
+            GetFromF1DataSetup('ОКНО "НЕСООТВЕТСТВИЕ ВЕРСИИ КОМПЛЕКТА"', params),
+                              'WNDCLASS:=Button;Visible:=true;Index:=2', true, params);
+      else
+        Raise('Параметр не распознан!');   
+      end;
+      if whatToGet <> 'ОКНО "ОШИБКА ЧТЕНИЯ ФАЙЛА"' then
+        Result := Cache_Put(parent, cacheKey, Result );
+    end;
+
+    {
+    if IsExists(Result) AND (NOT Result.Visible) then
+    begin
+      Log.Warning(FUNCTION_NAME + ': Объект существует, но НЕ виден! Возвращаем несуществующий объект.',
+                 'whatToGet: "' + whatToGet + '".' + EndOfLine +
+                 'FullName: "' + Result.FullName + '"',
+                 pmNormal, GetLogAttr('YELLOW'));
+      Result := NonExObj;
+    end;
+    }
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'whatToGet: "' + whatToGet + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetCurrentStateFromF1DataSetup: string;
+  const
+    FUNCTION_NAME = 'GetCurrentStateFromF1DataSetup';
+  var 
+    wlabel: OleVariant;
+    wlabel_caption: String;
+    i, j: integer;
+begin
+  try
+    Result := F1DS_UNKNOW_STATE;
+    Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);    
+    for i:=1 to 3 do //3 попытки получить нормальное состояние, если Result := F1DS_UNKNOW_STATE;  
+    begin
+      if not IsExists(GetF1DataSetupProcess) then
+      begin 
+  //      Log.Message(FUNCTION_NAME + ': Процесс "' + F1DATASETUP_PROCESS_NAME + '" не найден!');
+        Result := F1DS_NO_EXISTS_STATE;  
+        exit;
+      end;
+      
+      wlabel := GetFromF1DataSetup('НАДПИСЬ СОСТОЯНИЯ');
+      if IsExists(wlabel) and (wlabel.WndCaption = '') then
+        wlabel := GetFromF1DataSetup('НАДПИСЬ СОСТОЯНИЯ "МАСТЕР..."');            
+      if not IsExists(wlabel) then
+      begin
+        if IsExists(GetFromF1DataSetup('ОКНО "АВТОРИЗАЦИЯ"')) then
+        begin 
+          Result := F1DS_LOGIN_AUTHORIZATION_STATE;
+          exit;        
+        end
+        else
+          if (i > 3) then
+            Raise('Невозможно определить состояние МАСТЕРА УСТАНОВКИ ДАННЫХ. Не найдена "НАДПИСЬ СОСТОЯНИЯ".')
+          else
+          begin 
+            Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);
+            Continue;          
+          end;
+      end
+      else
+        wlabel_caption := wlabel.WndCaption;
+        
+      if StringCompare(F1DS_PREPAIRED_STATE, wlabel_caption) then
+        Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 2); 
+
+      for i := F1DS_MIN_INDEX_STATE to F1DS_MAX_INDEX_STATE do
+      begin
+        if StringCompare(F1DS_StatesArray(i), wlabel_caption) then
+        begin
+          Result := F1DS_StatesArray(i);
+          case Result of
+            F1DS_PREPAIRED_STATE:
+            begin
+              Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);
+              if not (IsExists(GetFromF1DataSetup('НАДПИСЬ "ПАРОЛЬ"'))
+                      or IsExists(GetFromF1DataSetup('ОКНО "КРИТИЧЕСКАЯ ОШИБКА"'))) then
+                Result := F1DS_READY_TO_UNPACK_STATE;
+            end;
+          end;        
+          break;        
+        end;
+      end;
+      if (Result <> F1DS_UNKNOW_STATE) then
+        break
+      else
+        Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 3);
+    end;      
+  except
+    Result := F1DS_UNKNOW_STATE;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: Получение отзыва для текущего устанавливаемого комплекта БД. 
+  RESULT: Отзыв, либо '' если отзыв не получен.
+  REMARK: Установщик должен находиться в состоянии F1DS_AUTHORIZATION_STATE (Авторизация установки).  
+}
+function GetPasswordFromF1DataSetup: string;
+  const
+    FUNCTION_NAME = 'GetPasswordFromF1DataSetup';
+    PASS_REPLY_FILE = 'pass_reply.txt';
+    REPLY_GENERATOR_EXEFILE = 'ds_keygen74.bat';
+  var
+    i: integer;    
+    curr_state, f1password, fileKeyGeneratorName;
+begin 
+  try
+  	Result := '';
+    curr_state := GetCurrentStateFromF1DataSetup;
+    if curr_state <> F1DS_AUTHORIZATION_STATE then
+      Raise('Мастер установки данных не в состоянии "Авторизация установки". Текущее состояние "' + curr_state + '"');
+    if not IsExists(GetFromF1DataSetup('НАДПИСЬ "ПАРОЛЬ"')) then
+      Raise('Не удалось получить пароль, "НАДПИСЬ "ПАРОЛЬ" не найдена!');    
+
+    f1password := GetSubStr(GetFromF1DataSetup('НАДПИСЬ "ПАРОЛЬ"').WndCaption, 'Пароль:', #10#10);
+    f1password := StringReplace(f1password, ' ', '', 1);
+    //удаляем первые 12 символов в связи с http://mdp.garant.ru/pages/viewpage.action?pageId=604018835&focusedCommentId=604902444#comment-604902444
+    Delete(f1password, 1, 12);     
+    Log.Message(FUNCTION_NAME + ': Получен пароль: ' + f1password);
+    
+    fileKeyGeneratorName := GetPathTo(PATH_TO_GARANTUTILS) + REPLY_GENERATOR_EXEFILE; 
+    if not FileExists(fileKeyGeneratorName) then
+      Raise('Не найден "' + fileKeyGeneratorName + '" для получения отзыва!');
+    if Win32API.WinExec('cmd.exe /D /C ""' + fileKeyGeneratorName + '" ' + f1password + ' > "' + GetF1Directory + '\' + PASS_REPLY_FILE + '""', Win32API.SW_HIDE) <= 31 then
+      Raise('Возникла ошибка при запуске "' + fileKeyGeneratorName + '"');
+
+    i := 0;
+    repeat
+      Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);
+      inc(i);
+    until (FileWork.GetFileSize(GetF1Directory + '\' + PASS_REPLY_FILE) > 0) or (i > 8);
+    
+    Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 12);    
+    //f1password := GetSubStr(GetFileBody(GetF1Directory + '\' + PASS_REPLY_FILE), 'Responce:'#9#9, #13#10);
+    f1password := GetSubStr(GetFileBody(GetF1Directory + '\' + PASS_REPLY_FILE), '', #13#10);
+    if f1password = '' then
+    begin
+      Log.Warning(FUNCTION_NAME + ': Содержимое ответа от "' + REPLY_GENERATOR_EXEFILE + '": ' + f1password);      
+      Raise('Отзыв не получен. Возникла ошибка при получении отзыва из файла "' + PASS_REPLY_FILE + '".');     
+    end;
+    Log.Message(FUNCTION_NAME + ': Получен отзыв: ' + f1password);
+    Result := f1password;
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': Отзыв не получен! ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Процедура для запуска установщика данных datasetup.exe
+  RESULT:
+  REMARK: Можно указать путь к каталогу, где лежит datasetup.exe
+}
+function StartF1DataSetup(
+  path : String = ''; // путь к каталогу, где лежит datasetup.exe
+  attemptsCount : integer = 1 // количество попыток запуска  
+) : Boolean;
+  const
+    FUNCTION_NAME = 'StartF1DataSetup';
+  var 
+    pathToGarant : String;
+    oldAttemptsCount : integer;
+begin
+  try
+    oldAttemptsCount := attemptsCount;
+    Result := false;
+    if path = '' then path := GetF1Directory;
+    path := Utilities.IncludeTrailingBackslash(path);
+    // проверяем, на доступность файла
+    pathToGarant := path + 'datasetup.exe';
+    if not Utilities.FileExists(pathToGarant) then
+      Raise('Файл "' + pathToGarant + '" не найден!');
+    
+    // отключаем получение пароля через интернет
+    if not SetValueToGarantINI('F1DataSetup Params', '-DSHost', 'null.garant.ru') then
+      Raise('Не получилось отключить получение пароля через интернет!');      
+
+    // запускаем
+    repeat
+      Win32API.WinExec('"' + pathToGarant + '"', Win32API.SW_SHOWNORMAL);
+      try
+        Result := IsExists(GetF1DataSetupProcess);
+      except
+        Result := false;
+        Log.Warning(FUNCTION_NAME + ': Ошибка при определении существования процесса "' + F1DATASETUP_PROCESS_NAME + '"!' );        
+        if (attemptsCount <= 1) then 
+          CommonExceptionHandler
+        else
+        begin
+          Sys.WaitProcess(F1DATASETUP_PROCESS_NAME, 1000).Terminate;
+          Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 24);
+          Log.Message(FUNCTION_NAME + ': Пробуем еще раз.');
+        end;    
+      end;
+      attemptsCount := attemptsCount - 1;
+    until (attemptsCount < 1) OR Result;
+    Log.Message(FUNCTION_NAME + ': DataSetup.exe успешно запущен!');
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'path: "' + path + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Завершение работы F1DataSetup
+  DESC: Процедура для закрытия или прибивания F1DataSetup
+  RESULT:
+  REMARK:
+}
+function CloseF1DataSetup(
+  doKillProcess: integer = F1DS_CMD_CLOSE;
+  doCloseStatusSaving: boolean = true
+) : Boolean;
+  const
+    FUNCTION_NAME = 'CloseF1DataSetup';
+  var
+    wnd: OleVariant;
+    i: integer;
+begin
+  try
+    Result := false;
+    if doKillProcess = F1DS_CMD_KILL then
+    begin
+      if (Win32API.WinExec('"' + GetPSToolsPath + 'pskill.exe" ' + F1DATASETUP_PROCESS_NAME, Win32API.SW_HIDE) >= 32) then
+        Log.Message(FUNCTION_NAME + ': Успешно запустили pskill на "' + F1DATASETUP_PROCESS_NAME + '".')
+      else
+        Log.Message(FUNCTION_NAME + ': Не удалось запустить pskill на "' + F1DATASETUP_PROCESS_NAME + '".');
+    end
+    else
+    if IsExists(GetF1DataSetupProcess) then
+    begin 
+      i := 0;
+      repeat
+        wnd := GetFromF1DataSetup('КНОПКА "ОТМЕНА"');
+        if IsExists(wnd) then
+          wnd.Click;
+        inc(i);          
+      until (IsExists(GetFromF1DataSetup('КНОПКА "ДА" ОКНА "ОТМЕНА УСТАНОВКИ"'))) or (i > 3);
+      //
+      wnd := GetFromF1DataSetup('КНОПКА "ДА" ОКНА "ОТМЕНА УСТАНОВКИ"');
+      if IsExists(wnd) then
+        wnd.Click
+      else
+        Raise('Не получилось кликнуть по "КНОПКА "ДА" ОКНА "ОТМЕНА УСТАНОВКИ" для закрытия "' + F1DATASETUP_PROCESS_NAME + '"');
+    end; 
+    //
+    if doCloseStatusSaving then
+    begin
+      wnd := GetFromF1DataSetupStarter('КНОПКА "НЕТ" ОКНА "СТАТУС УСТАНОВКИ"');
+      if IsExists(wnd) then wnd.Click;
+    end;
+    
+    Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 3);
+    Result := not IsExists(GetF1DataSetupProcess);
+    if Result then
+      Log.Message(FUNCTION_NAME + ': "' + F1DATASETUP_PROCESS_NAME + '" не существует.')
+    else
+      Raise('Процесс "' + F1DATASETUP_PROCESS_NAME + '" существет. DataSetup.exe видимо подвис и остался в памяти.');    
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+procedure _____PRIVATE;begin;end;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function SetProductByName(complectName: String): boolean;
+const
+  FUNCTION_NAME = 'SetProductByName';
+var 
+  w, w1, str;  
+begin
+  try
+    w := GetFromF1DataSetup('ОКНО "ВЫБОР КЛИЕНТА И ПРОДУКТА"');
+    if not IsExists(w) then
+      Raise('ОКНО "ВЫБОР КЛИЕНТА И ПРОДУКТА" не найдено!');
+    
+    w.Keys('[Home][Right][Home]');
+    str := w.wSelection;
+    w.SelectItem(str + '|' + complectName);
+    w.ClickItem(str + '|' + complectName);        
+
+    w1 := GetFromF1DataSetup('НАДПИСЬ "БУДЕТ УСТАНОВЛЕН"');
+    if not IsExists(w1) then
+      Raise('НАДПИСЬ "БУДЕТ УСТАНОВЛЕН" не найдена');
+    Result := (w.wSelection <> str) and StringCompare('*' + complectName + '*', w1.WndCaption);
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+function GetGCMActiveDataPath: string;
+begin
+  Result := GetValueFromGarantINI('F1Server Params', '-GCMActiveDataPath');
+end;
+
+function GetActiveGCMDataPath: string;
+begin
+  Result := GetValueFromGarantINI('F1Server Params', '-GCMDataPath' + GetGCMActiveDataPath);
+end;
+
+function GetDSDataPath: string;
+begin
+  Result := GetValueFromGarantINI('F1DataSetup Params', '-DSDataPath');
+  Result := StringReplace(Result, '"', '', 1);  
+end;
+
+function SetDSDataPath(value: string): boolean;
+begin
+  Result := SetValueToGarantINI('F1DataSetup Params', '-DSDataPath', value);
+end;
+
+{
+  TYPE: Мастер установки данных 
+  DESC: Проверяет что файл защиты data.org существует и в нем прописано то что ожидалось
+  RESULT: 
+  REMARK: 
+}
+function CheckBasesOrg(const activeDataPath: string; const complectType: integer = F1DS_QRG_AUTO): boolean;
+const
+  FUNCTION_NAME = 'CheckBasesOrg';
+var 
+  sr: TSearchRec;
+  f: OleVariant;
+  size: longint;
+  typeFromOrgFile, aComplectType: Variant;
+begin
+  try
+    Result := false;
+    sr := Utilities.TSearchRec;
+    if not (Utilities.FindFirst(activeDataPath + 'data.org', faAnyFile, sr) = 0) then
+      Raise('Файл "data.org" не найден в каталоге установленного комплекта!');
+
+    size := sr.Size;
+    Utilities.FindClose(sr);
+  
+    f := Utilities.FileOpen(activeDataPath + 'data.org', fmOpenRead or fmShareDenyNone);
+    if f = -1 then 
+      Raise('Не получилось открыть файл "data.org" в каталоге установленного комплекта!');
+  
+    Utilities.FileSeek(f, size-14, 0);
+    Utilities.FileRead(f, typeFromOrgFile, 1);
+    Utilities.FileClose(f);
+    
+    if (complectType = F1DS_QRG_AUTO) then
+    begin
+      if GetProductType = PT_SERVER then 
+        aComplectType := F1DS_QRG_NET
+      else
+      if GetProductType = PT_FILESERVER then
+        aComplectType := F1DS_QRG_SINGLE
+      else
+      if GetProductType = PT_DESKTOP then
+        aComplectType := F1DS_QRG_LOCAL;
+    end
+    else
+      aComplectType := complectType;
+  
+    Result := Ord(typeFromOrgFile) = aComplectType;
+    if not Result then
+      Raise('Тип комплекта не совпадает, получен "' + IntToStr(Ord(typeFromOrgFile)) + '", требуется "' + IntToStr(aComplectType) + '".');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Мастер установки данных 
+  DESC: Проверяет наличие файла лога
+  RESULT: 
+  REMARK: 
+}
+function IsExistsF1DataSetup_Log(const logPath: string = ''): boolean;
+const
+  FUNCTION_NAME = 'IsExistsF1DataSetup_Log';
+begin
+  try
+    Result := false;
+    if logPath = '' then 
+      logPath := GetF1Directory + F1DS_LOGFILE;
+    Result := FileExists(logPath);
+    if not Result then
+      Raise('Файл лога "' + logPath + '" не найден!');
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Мастер установки данных 
+  DESC: Проверяет наличие файла лога
+  RESULT: 
+  REMARK: 
+}
+function IsExistsF1DataSetup_Cry_Log(const logPath: string = ''): boolean;
+const
+  FUNCTION_NAME = 'IsExistsF1DataSetup_Cry_Log';
+var
+  sr: TSearchRec;
+begin
+  try
+    Result := false;
+    if logPath = '' then 
+      logPath := GetF1Directory + F1DS_CRY_LOGFILENAME;
+    sr := Utilities.TSearchRec();
+    Result := Utilities.FindFirst(logPath, faAnyFile, sr) = 0;
+    Utilities.FindClose(sr);    
+    if not Result then
+      Raise('Не найден ни один файл пакованного лога "' + logPath + '"!');
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Мастер установки данных 
+  DESC: Проверяет правильность формирования лога
+  RESULT: 
+  REMARK: Запускать после установки данных, перед нажатием на кнопку ВЫХОД в установщике данных
+}
+function CheckF1DataSetup_Log(const logPath: string = ''; const distributiveDataPath: string = ''): boolean;
+const
+  FUNCTION_NAME = 'CheckF1DataSetup_Log';
+var 
+  i, stringFromLog, logStrings: OleVariant;
+  tmp_String;
+begin
+  try
+    Result := true;
+    if logPath = '' then 
+      logPath := GetF1Directory + F1DS_LOGFILE;      
+    if not FileExists(logPath) then
+      Raise('Файл лога F1DataSetup "' + logPath + '" не найден!');
+    //
+    stringFromLog := ProcessingLogForErrors(
+                                             [
+                                              'Ошибка',
+                                              'ошибка',
+                                              'ERROR',
+                                              'ASSERT',
+                                              'CORBA_EX',
+                                              'UNKNOWN_EX'
+                                             ], 
+                                             [
+                                              'Ошибка в ответе сервера',
+                                              'При отправке/получении пароля произошла ошибка'
+                                             ], 'InFileName:=' + logPath);
+    if stringFromLog <> '' then
+      Result := ErrorResult('Лог F1DataSetup содержит ошибки: ' + EndOfLine + stringFromLog);
+    //
+    logStrings := 
+    [
+      '*Пущен:*F1DataSetup.run*',
+      '*Дата:*Время:*Инициализация и регистрация компонент*',
+      '*Первоначально данные ищем в каталоге*', 
+      '*Дата:*Время:*Вызываем start_components*',
+      '*Дата:*Время:*Показано сообщение: Подготовка операции ...*',
+      '*Дата:*Время:*Показано сообщение: Идёт поиск комплектов на дистрибутиве ...*',
+      '*Дата:*Время:*Показано сообщение: Подготовка операции ...*',
+      '*Дата:*Время:*Показано сообщение: Выбор комплекта*',
+      '*Дата:*Время:*Показано сообщение: Выбор клиента и продукта*',
+      '*Данные ищем в каталоге*',
+      '*Для установки выбран*',
+      '*Дата:*Время:*Показано сообщение: Подготовка операции ...*',
+      '*Дата:*Время:*Показано сообщение: Авторизация установки*',
+      '*Авторизация будет проходить на сервере*',
+      '*Отправляем пароль*',
+      '*Для установки выбран*',
+      '*Дата:*Время:*Показано сообщение: Подготовка операции ...*',
+      '*Пользователь выбрал:*пользователей на время процесса обновления*',
+      '*База устанавливается в*',
+      '*Дата:*Время:*Задан вопрос: Распаковать данные в процессе установки ?*',
+      '*На диске свободно:*',
+      '*Примечание: Пакетное пополнение к упакованной базе неприменимо.*',
+      '*Пользователь ответил:*',
+      '*Дата:*Время:*Показано сообщение: Копируется файл data.*',
+      '*Дата:*Время:*Показано сообщение: Комплект корректно установлен*',
+      '*Дата:*Время*Начали ожидание переключения на новую базу*',
+      '*Дата:*Время:*Завершили ожидание переключения на новую базу*'
+    ];
+    stringFromLog := GetFileBody(logPath);
+  	for i := VarArrayLowBound(logStrings, 1) to VarArrayHighBound(logStrings,1) do
+      if not StringCompare(logStrings[i], stringFromLog) then
+        Result := ErrorResult('Отсутствует строка лога F1DataSetup: "' + logStrings[i] + '"');
+    
+    if not Result then
+      BuiltIn.CopyFiles(logPath, Utilities.ExtractFilePath(logPath) + 'datasetup(' + Utilities.FormatDateTime('yyyy-mm-dd hh-nn-ss', Utilities.Now) + ').log', false)
+    else
+      Log.Message(FUNCTION_NAME + ': Ошибок в логе не замечено.');
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Мастер установки данных 
+  DESC: Проверяет правильность формирования лога
+  RESULT: 
+  REMARK: 
+}
+function DeleteF1DataSetup_Log(const logPath: string = ''): boolean;
+const
+  FUNCTION_NAME = 'DeleteF1DataSetup_Log';
+begin
+  try
+    Result := false;
+    if logPath = '' then 
+      logPath := GetF1Directory + F1DS_LOGFILE;      
+    if FileExists(logPath) then
+      Raise('Файл лога "' + logPath + '" не найден!');
+    Result := DeleteFile(logPath);
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Мастер установки данных 
+  DESC: Проверяет, что по переданному пути находится база как минимум из 9 файлов c именем data
+  RESULT: 
+  REMARK: 
+}
+function CheckInstalledBaseFileNames(const activeDataPath, distributiveDataPath: string): boolean;
+const
+  FUNCTION_NAME = 'CheckInstalledBaseFileNames';
+var
+  i, databaseFiles: OleVariant;   
+begin
+  try
+    Result := true;
+    databaseFiles := [
+                      'data.key',
+                      'data.ndt',
+                      'data.org',
+                      'data.str',
+                      'data.0ey',
+                      'data.1ey',
+                      'data.2ey',
+                      'data.3ey',
+                      'data.4tr',
+                      'data.5ey', 
+                      'data.6tr',
+                      'data.7tr',
+                      'data.8tr',
+                      'data.9tr'
+                     ];
+    Log.Message(FUNCTION_NAME + ': Путь к установленной базе: ' + activeDataPath); 
+    for i := VarArrayLowBound(databaseFiles, 1) to VarArrayHighBound(databaseFiles,1) do
+      if not Utilities.FileExists(activeDataPath + databaseFiles[i]) then
+        Result := ErrorResult(FUNCTION_NAME + ': Файл "' + databaseFiles[i] + '" не найден в каталоге с установленной базой!');
+    //        
+    if Utilities.FileExists(distributiveDataPath+'data\dealer.inf') then
+    begin 
+      if not Files.Compare(distributiveDataPath+'data\dealer.inf', activeDataPath + 'dealer.inf', 0) then
+        Result := ErrorResult(FUNCTION_NAME + ': Файл "dealer.inf" отличается от дистрибутивного после установки базы!');    
+    end
+    else
+      Result := ErrorResult(FUNCTION_NAME + ': Не найден файл "dealer.inf".');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Мастер установки данных 
+  DESC: Возвращает путь к дистрибутивам БД
+  RESULT: 
+  REMARK: 
+}
+function GetDistributiveDataPath(const distributiveDataPathID: OleVariant = F1DS_BASE_COMMON_TESTBASE): string;
+const
+  FUNCTION_NAME = 'GetDistributiveDataPath';
+var
+  driveName;
+begin
+  try
+    Result := '';
+    case distributiveDataPathID of
+      F1DS_BASE_COMMON_TESTBASE:
+        driveName := MappedDrive('MAP PATH AS ANY DRIVE', 'Path:=' + F1DS_BASEPATH_TESTBASE);
+      F1DS_BASE_KS_TESTBASE:
+        driveName := MappedDrive('MAP PATH AS ANY DRIVE', 'Path:=' + F1DS_BASEPATH_KS_TESTBASE);
+      F1DS_BASE_FS_TESTBASE:
+        driveName := MappedDrive('MAP PATH AS ANY DRIVE', 'Path:=' + F1DS_BASEPATH_FS_TESTBASE);
+      F1DS_BASE_DESKTOP_TESTBASE:
+        driveName := MappedDrive('MAP PATH AS ANY DRIVE', 'Path:=' + F1DS_BASEPATH_DESKTOP_TESTBASE);
+      else
+        Raise('Обнаружен неизвестный тип базы: ' + VarToString(distributiveDataPathID));
+    end;
+
+    if driveName = '' then
+      Raise('Не получилось примаппить сетевой диск, путь: ' + VarToString(distributiveDataPathID));
+    Result := Utilities.IncludeTrailingBackslash(driveName + '\GARANT');
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Мастер установки данных 
+  DESC: 
+  RESULT: 
+  REMARK: 
+}
+function PathToBaseFromGarantIniIfValid: string;
+  const
+    FUNCTION_NAME = 'PathToBaseFromGarantIniIfValid';
+  var
+    searchRec: TSearchRec;
+begin
+  try
+    Result := '';
+    searchRec := TSearchRec; // This line is necessary !!!
+    Result := GetDSDataPath;
+    if Utilities.FindFirst(Utilities.IncludeTrailingBackslash(Result) + 'DATA\*.str', faAnyFile, searchRec) <> 0 then
+      Raise('База в garant.ini невалидная, путь: "' + Result + '", должен открыться диалог выбора каталога с базой.');
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+  
+//Мастер установки данных 
+//Выбрасывает исключение, в случае ошибки
+procedure ClickByF1DataSetupButton(but_name: string; click_type: integer = 0);
+  var
+    x, y, w_ds, wnd: OleVariant;
+begin 
+  wnd := GetFromF1DataSetup(but_name);        
+  if not IsExists(wnd) then
+    Raise('Не найдена ' + but_name);
+
+  x := wnd.ScreenLeft + wnd.Width div 2;
+  y := wnd.ScreenTop + wnd.Height div 2;
+
+  case click_type of
+    0: wnd.Click;
+    1: 
+    begin
+      // можно использовать вместо wnd.Click, чтобы не было "The '&Справка' window is invisible and thus cannot be activated."
+      LLPlayer.MouseDown(MK_LBUTTON, x, y, 0);
+      Delay(10);
+      LLPlayer.MouseUp(MK_LBUTTON, x, y, 0);    
+    end;
+    2: 
+    begin
+      wnd.SetFocus;
+      wnd.Keys('[Enter]');
+    end;
+    10: wnd.ClickR;
+    11: 
+    begin
+      LLPlayer.MouseDown(MK_RBUTTON, x, y, 0);
+      Delay(10);
+      LLPlayer.MouseUp(MK_RBUTTON, x, y, 0);    
+    end;
+    20: wnd.ClickM;
+    21: 
+    begin
+      LLPlayer.MouseDown(MK_MBUTTON, x, y, 0);
+      Delay(10);
+      LLPlayer.MouseUp(MK_MBUTTON, x, y, 0);    
+    end;
+  else
+    Raise('Неизвестный тип клика: ' + IntToStr(click_type));
+  end;
+  Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 5);  
+end;
+
+//
+function ExecuteChooseStateIfBaseIsValid(
+  end_state: OleVariant;  
+  paramString: String
+): integer;
+  var attemptsCount: integer;
+begin 
+  if PathToBaseFromGarantIniIfValid = '' then
+    Result := ExecuteF1DataSetupDialog(F1DS_SEARCH_COMPLECTS_STATE, end_state, paramString)
+  else
+  begin
+    attemptsCount := 0; 
+    repeat
+      Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);
+      attemptsCount := attemptsCount + 1;
+    until (attemptsCount > 8) OR (GetCurrentStateFromF1DataSetup = F1DS_CHOOSE_STATE);
+    Result := ExecuteF1DataSetupDialog(F1DS_CHOOSE_STATE, end_state, paramString);            
+  end;
+end;
+
+
+
+
+procedure _____MAIN;begin;end;
+{
+  TYPE: 
+  DESC: 
+  RESULT: Состояние мастера, после завершения работы фукции
+  REMARK:
+    Для действия с текущего состояния begin_state = F1DS_CURRENT_STATE. 
+    Доп параметры:
+      IsForcedAuth: boolean; // принудительно обходить логин (если datasetup был прибит), (по умолчанию: false) 
+      TimeoutToWaitLogin: string; // время в мсек, задержка перед нажатием Далее, если уч. запись ADMIN занята. Ждать время по умолчанию 120сек.
+      PasswordReply: string; // отзыв на пароль, если не задан - получается автоматически через утилиту
+      IsDisconnectUser: boolean;  // отключать / не отключать юзеров при обновлении (по умолчанию: false)
+      IsCheckDisconnectMessage: boolean; // проверять ли сообщение об отключении пользователей на оболочке. (по умолчанию: false)
+      IsBaseIsPacked: boolean;  // пакованная ли база, (по умолчанию: true)      
+      IsUnpackData: boolean;  // распаковывать ли данные (по умолчанию: false)
+      IsCheckLog: boolean; // проверять ли лог перед закрытием диалога программы (по умолчанию: false)
+      IsCloseAfterComplete: boolean;  // закрывать мастер после обновления (последний экран) (по умолчанию: false)
+}
+function ExecuteF1DataSetupDialog(
+  begin_state: OleVariant = F1DS_NO_EXISTS_STATE; 
+  const end_state : OleVariant = F1DS_ALL_DONE_STATE;  
+  const paramString : String = '' // параметры
+) : integer;
+  const
+    FUNCTION_NAME = 'ExecuteF1DataSetupDialog';
+  var 
+    i, i_count, res, productname, startTime: integer;
+		curr_state, tmp_state, wnd, wnd1Exists, wnd2Exists, paramList;
+    pathToBase, passwordReply;
+begin
+  try
+    Result := F1DS_EX_DIALOG_NO_ERROR;
+    paramList := ParseParamString(paramString);
+    //
+    if (F1DS_GetIndexOfState(begin_state) > F1DS_GetIndexOfState(end_state)) then
+      Raise('Индекс [' + IntToStr(F1DS_GetIndexOfState(begin_state)) + '] заданного начального состояния "' + F1DS_GetVarNameOfState(begin_state) + '" больше конечного [' + IntToStr(F1DS_GetIndexOfState(end_state)) + '] "' + F1DS_GetVarNameOfState(end_state) + '". Продолжение невозможно!');
+    curr_state := GetCurrentStateFromF1DataSetup;
+    if begin_state = F1DS_CURRENT_STATE then 
+      begin_state := curr_state; 
+    if curr_state <> begin_state then
+      Raise('Заданное начальное состояние [' + IntToStr(F1DS_GetIndexOfState(begin_state)) + '] "' + F1DS_GetVarNameOfState(begin_state) + '" отличается от текущего [' + IntToStr(F1DS_GetIndexOfState(curr_state)) + '] "' + F1DS_GetVarNameOfState(curr_state) + '". Продолжение невозможно!');    
+    //
+    if (curr_state = end_state) and (end_state <> F1DS_ALL_DONE_STATE) then
+      Log.Message(FUNCTION_NAME + ': ДОСТИГЛИ конечного состояния: "' + end_state + '"', '', pmNormal, GetLogAttr('YELLOW'))
+    else
+    begin 
+      Log.Message(FUNCTION_NAME + ': Находимся в состоянии "' + curr_state + '"', '', pmNormal, GetLogAttr('YELLOW'));    
+      case begin_state of
+        F1DS_NO_EXISTS_STATE:
+        begin
+          if not StartF1DataSetup then
+            Raise('Не получилось запустить "Мастер установки данных".');
+          if IsExists(GetFromF1DataSetup('ОКНО "АВТОРИЗАЦИЯ"')) and (VarToBool( GetParam(paramList, 'IsForcedAuth', 'false') )) then
+            Result := Result or ExecuteF1DataSetupDialog(F1DS_LOGIN_AUTHORIZATION_STATE, end_state, paramString)
+          else
+            Result := Result or ExecuteChooseStateIfBaseIsValid(end_state, paramString);
+          exit;
+        end;
+        F1DS_LOGIN_AUTHORIZATION_STATE:
+        begin
+          ClickByF1DataSetupButton('КНОПКА "OK" ОКНА "АВТОРИЗАЦИЯ"'); 
+          Delay( StrToInt(GetParam(paramList, 'TimeoutToWaitLogin', IntToStr(TIME_TO_WAIT_FOR_AUTHLOGIN))) );
+          ClickByF1DataSetupButton('КНОПКА "ДАЛЕЕ"');
+          Result := Result or ExecuteChooseStateIfBaseIsValid(end_state, paramString);
+          exit;
+        end;    
+        F1DS_SEARCH_COMPLECTS_STATE:
+        begin
+          pathToBase := GetParam(paramList, 'PathToBase', GetDistributiveDataPath);
+          if not DirectoryExists(pathToBase) then
+            Raise('Каталог "' + pathToBase + '" не существует.');
+          ClickByF1DataSetupButton('КНОПКА "ОБЗОР" ОКНА "ВНИМАНИЕ"');
+          if not SelectPathInTreeView(GetFromF1DataSetup('ФОРМА "ОБЗОР ПАПОК"'), ExcludeTrailingBackslash(pathToBase), 'IsCloseDialog:=true') then
+            Raise('Не получилось правильно выбрать путь к БД, "' + pathToBase + '"');
+          Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 3);
+          Log.Message(FUNCTION_NAME + ': Открываем для установки дистрибутив БД из "' + pathToBase + '"');          
+          if IsExists(GetFromF1DataSetup('ОКНО "ВСТАВЬТЕ ДИСК С ФАЙЛОМ"')) then
+            Raise('Открываемый дистрибутив испорчен или не полон!');          
+          Result := Result or ExecuteF1DataSetupDialog(F1DS_CHOOSE_STATE, end_state, paramString);
+          exit;
+        end;
+        F1DS_CHOOSE_STATE:
+        begin
+          productname := '';
+          if GetProductType = PT_SERVER then 
+            productname := F1DS_BASENAME_KS
+          else
+          if GetProductType = PT_FILESERVER then
+            productname := F1DS_BASENAME_FS
+          else
+          if GetProductType = PT_DESKTOP then
+            productname := F1DS_BASENAME_DESKTOP;
+          if (productname = '') or (not SetProductByName(productname)) then
+            Raise('Не получилось выбрать нужный комплект по имени "' + productname + '"');
+
+          ClickByF1DataSetupButton('КНОПКА "ДАЛЕЕ"');
+          
+          if IsExists(GetFromF1DataSetup('ОКНО "НЕСООТВЕТСТВИЕ ВЕРСИИ КОМПЛЕКТА"')) then
+          begin
+            ClickByF1DataSetupButton('КНОПКА "ДА" ОКНА "НЕСООТВЕТСТВИЕ ВЕРСИИ КОМПЛЕКТА"');
+            Raise('Возникло сообщение о несоответствии устанавливаемой версии. Продолжение невозможно!');
+          end;                      
+          Result := Result or ExecuteF1DataSetupDialog(F1DS_AUTHORIZATION_STATE, end_state, paramString);
+          exit;
+        end;
+        F1DS_AUTHORIZATION_STATE:
+        begin
+          passwordReply := GetParam(paramList, 'PasswordReply', '');
+          if passwordReply ='' then  
+            passwordReply := GetPasswordFromF1DataSetup;          
+          if passwordReply = '' then 
+            Raise('Отзыв не получен или не задан. Продолжение установки БД невозможно!');           
+          wnd := GetFromF1DataSetup('ПОЛЕ ВВОДА "ОТЗЫВ"');
+          if not IsExists(wnd) then
+            Raise('Не найдена ПОЛЕ ВВОДА "ОТЗЫВ"');
+          wnd.Keys(passwordReply);
+          //
+          Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);
+          if not IsExists(GetFromF1DataSetup('КНОПКА "ДАЛЕЕ"')) then
+            Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 2);                      
+          ClickByF1DataSetupButton('КНОПКА "ДАЛЕЕ"');
+          
+          Delay(TIME_TO_WAIT_F1DATASETUPPROCESS);
+          
+          wnd1Exists := IsExists(GetFromF1DataSetup('ОКНО "ОШИБКА ВВОДА"'));
+          wnd2Exists := IsExists(GetFromF1DataSetup('ОКНО "КРИТИЧЕСКАЯ ОШИБКА"'));          
+          tmp_state := GetCurrentStateFromF1DataSetup;
+          if (tmp_state = F1DS_PREPAIRED_STATE) and (tmp_state = end_state) then
+          begin
+            Result := Result or ExecuteF1DataSetupDialog(F1DS_PREPAIRED_STATE, end_state, paramString);
+            exit;
+          end;
+          if wnd1Exists then
+            Raise('Отзыв не верный! Обнаружено окно с ошибкой о неправильном отзыве!');          
+          if wnd2Exists then
+            Raise('Отзыв не верный! Обнаружено окно с КРИТИЧЕСКОЙ ошибкой о неправильном отзыве!');
+          if tmp_state = F1DS_READY_TO_UNPACK_STATE then
+            Raise('Не обнаружено окно с вопросом об отключении пользователей. Видимо не один клиент не запушен!');          
+          Result := Result or ExecuteF1DataSetupDialog(F1DS_MASTER_READY_STATE, end_state, paramString);
+          exit;
+        end;
+        F1DS_PREPAIRED_STATE:
+        begin
+/////////////////////////////////////////////////////////////////
+          exit;        
+        end;    
+        F1DS_MASTER_READY_STATE:
+        begin
+          if VarToBool( GetParam(paramList, 'IsDisconnectUser', 'false') ) then
+            ClickByF1DataSetupButton('РАДИОКНОПКА "ДА"')
+          else
+            ClickByF1DataSetupButton('РАДИОКНОПКА "НЕТ"');
+          ClickByF1DataSetupButton('КНОПКА "ДАЛЕЕ"');
+          
+          // для ФС-версии увеличиваем время в 2 раза больше
+          if GetProductType = PT_FILESERVER then 
+            i_count := 16
+          else
+            i_count := 8;
+          repeat
+            Delay(TIME_TO_WAIT_F1DATASETUPPROCESS);
+            dec(i_count);
+            if i_count <= 0 then
+              Raise('После ответа на вопрос "Отключать пользователей?" не смогли перейти к состоянию F1DS_READY_TO_UNPACK_STATE (' + F1DS_READY_TO_UNPACK_STATE + ')');
+          until (GetCurrentStateFromF1DataSetup = F1DS_READY_TO_UNPACK_STATE);
+                      
+          Result := Result or ExecuteF1DataSetupDialog(F1DS_READY_TO_UNPACK_STATE, end_state, paramString);
+          exit;
+        end;
+        F1DS_READY_TO_UNPACK_STATE:
+        begin
+          if VarToBool( GetParam(paramList, 'IsBaseIsPacked', 'true') ) then
+          begin 
+            if VarToBool( GetParam(paramList, 'IsUnpackData', 'false') ) then
+              ClickByF1DataSetupButton('КНОПКА "ДА" ОКНА "РАСПАКОВАТЬ ДАННЫЕ"')
+            else
+              ClickByF1DataSetupButton('КНОПКА "НЕТ" ОКНА "РАСПАКОВАТЬ ДАННЫЕ"');
+          end;
+          
+          i_count := 0;
+          repeat
+            Delay(TIME_TO_WAIT_F1DATASETUPPROCESS);
+            inc(i_count);
+            if i_count >= 7 then
+              Raise('После ответа на вопрос "Распаковать данные?" не смогли перейти к состоянию F1DS_COPYING_STATE (' + F1DS_COPYING_STATE + ')');
+          until (GetCurrentStateFromF1DataSetup = F1DS_COPYING_STATE);
+
+          Result := Result or ExecuteF1DataSetupDialog(F1DS_COPYING_STATE, end_state, paramString);
+          exit;
+        end;
+        F1DS_COPYING_STATE:
+        begin
+          if VarToBool( GetParam(paramList, 'IsDisconnectUser', 'false') ) and 
+             VarToBool( GetParam(paramList, 'IsCheckDisconnectMessage', 'false') ) and
+             (not IsExists(GetFromShell('ОКНО "ИНФОРМАЦИЯ ОБ ОБНОВЛЕНИИ"', -1, 'IsThrowException:=false'))) then
+               Result := Result or F1DS_EX_DIALOG_NO_DISCONNECT_MESSAGE_ERROR;
+
+          startTime := Win32API.GetTickCount;
+          repeat
+            Delay(TIME_TO_WAIT_F1DATASETUPPROCESS div 4);
+            if IsExists(GetFromF1DataSetup('ОКНО "ОШИБКА ЧТЕНИЯ ФАЙЛА"')) then
+            begin
+              Result := Result or F1DS_EX_DIALOG_COPY_ERROR; 
+              Raise('Ошибка при копировании данных!');
+            end;
+            // считаем что за 15 мин база должна установиться
+            if (Win32API.GetTickCount - startTime > 15*60*1000) then
+              Raise('Операция копирования данных заняла более 15 мин, считаем это ошибкой в следствии зависания системы!');
+          until (GetCurrentStateFromF1DataSetup = F1DS_ALL_DONE_STATE) or (not IsExists(GetF1DataSetupProcess));
+          
+          Delay(TIME_TO_WAIT_ENDOFCOPY);
+          Result := Result or ExecuteF1DataSetupDialog(F1DS_ALL_DONE_STATE, F1DS_ALL_DONE_STATE, paramString);
+          exit;
+        end;
+        F1DS_ALL_DONE_STATE:
+        begin
+          if VarToBool(GetParam(paramList, 'IsCheckLog', 'false')) and 
+             (not CheckF1DataSetup_Log('', GetParam(paramList, 'PathToBase', GetDistributiveDataPath))) then
+            Result := Result or F1DS_EX_DIALOG_LOG_ERROR;          
+          if VarToBool(GetParam(paramList, 'IsCloseAfterComplete', 'false')) then
+          begin
+            ClickByF1DataSetupButton('КНОПКА "ВЫХОД"');
+            Result := Result or ExecuteF1DataSetupDialog(F1DS_NO_EXISTS_STATE, F1DS_NO_EXISTS_STATE, paramString);
+          end;
+          Log.Message(FUNCTION_NAME + ': Установка базы завершена!');
+          exit;
+        end;   
+      end;
+    end;           
+    //
+  except
+    Result := Result or F1DS_EX_DIALOG_ERROR;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;

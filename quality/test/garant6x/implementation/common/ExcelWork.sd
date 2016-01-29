@@ -1,0 +1,178 @@
+{
+  За основу взят демо-пример
+}
+
+uses common;
+
+var
+  MsExcel: OleVariant;
+
+// Move the selection to the first cell  
+procedure MoveToStart; 
+begin
+  MsExcel.Cells(1,1).Activate;
+end;
+
+// Returns the number of header rows in the table 
+function TitleRowCount : Integer;
+begin
+  MoveToStart;
+  Result := MsExcel.ActiveCell.CurrentRegion.ListHeaderRows;
+end;
+
+
+// Returns the number of rows in the table
+function RowCount: Integer;
+begin
+  MoveToStart;
+  Result := MSExcel.ActiveCell.CurrentRegion.Rows.Count - TitleRowCount;
+end;
+
+// Returns the number of columns in the table 
+function ColumnCount: Integer;
+begin
+  MoveToStart;
+  Result := MsExcel.ActiveCell.CurrentRegion.Columns.Count;
+end;
+
+// Returns column index by column name
+function ColumnByName(
+  ColumnName
+): Integer;
+var
+  ObjSheet, i;
+begin
+  Result := -1;
+  if TitleRowCount <> 1 then
+    Exit;
+  ObjSheet := MsExcel.ActiveSheet;
+  for i := 1 to ColumnCount do
+    if StringCompare(ColumnName, ObjSheet.Cells[1, i].Value) then
+	begin
+	  Result := i;
+	  Exit;
+	end;  
+end;
+
+function DrawChartByExcel(
+  const csvFileName : String; // путь к csv-файлу (он будет открываться)
+  const xlsFileName : String; // путь к xls-файлу (в него будем сохранять)
+  const chartTitle : String; // заголовок графика
+  const columnNames : String; // заголовки колонок, разделенных точкой с запятой (по ним будет строится график)
+  const categoryColName : String = ''; // заголовок колонки, данные которой ставятся в ось Х
+  const compsWithExcel : String = '' // список компов с экселом
+);
+  var chart, workBook, dataSheet, series, arrColumnNames, range : OleVariant;
+      i, colN, catColN, nTitleRowCount, nRowCount, nFirstDataRow, minValue, maxValue : integer;
+      arr : OleVariant;
+begin
+  try
+    // находим и запускаем Excel
+    arr := String2Array(compsWithExcel, ';');
+    for i := VarArrayLowBound(arr,1) to VarArrayHighBound(arr,1) do
+    begin
+      try
+        if arr[i] = '' then
+          msExcel := Sys.OleObject('Excel.Application')
+        else
+          //msExcel := NetworkSuite.GetRemoteOleObject(arr[i], 'Excel.Application');
+          msExcel := Sys.OleObject('{00020812-0000-0000-C000-000000000046}', arr[i]);
+      except 
+        if i = VarArrayHighBound(arr,1) then
+          Raise('Unable to initialize MS Excel. Because of: "' + ExceptionMessage + '"')
+        else
+          continue;  
+      end;
+      break;
+    end;
+    // открываем файл
+    msExcel.Workbooks.Close;
+    workBook:= msExcel.Workbooks.Open(csvFileName);
+    dataSheet := workBook.ActiveSheet;
+    msExcel.Application.WindowState := -4137; { xlMaximized } // какого-то хрена не работают константы
+    //////// msExcel.Visible := True;
+    // меняем имя листа с данными
+    dataSheet.Name := 'Данные';
+    // запоминаем количество строк
+    nTitleRowCount := TitleRowCount;
+    nRowCount := RowCount;
+    nFirstDataRow := nTitleRowCount + 1;
+    // создаем график и задаем его параметры
+    chart := msExcel.Charts.Add;
+    chart.ChartType := 4; { xlLine } 
+    chart.Name := 'График';
+    chart.HasTitle := true;
+    chart.ChartTitle.Characters.Text := chartTitle;
+    // активируем лист с данными   
+    msExcel.Sheets(dataSheet.Name).Select;
+    // удаляем все данные из графика
+    for i := 1 to chart.SeriesCollection.Count do chart.SeriesCollection.Item(i).Delete;
+    //
+    catColN := ColumnByName(categoryColName);
+    // заполняем данные графика
+    arrColumnNames := String2Array(columnNames, ';');
+    if IsArray(arrColumnNames) then
+      for i := VarArrayLowBound(arrColumnNames,1) to VarArrayHighBound(arrColumnNames,1) do
+      begin
+        if (arrColumnNames[i] = '') then continue;
+        colN := ColumnByName(arrColumnNames[i]);
+        if colN <> -1 then
+        begin
+          series := chart.SeriesCollection.NewSeries;
+          series.Values := '=' + dataSheet.Name + '!R' + IntToStr(nFirstDataRow) + 'C' + IntToStr(colN) + ':R'+IntToStr( nRowCount + nTitleRowCount) +'C' + IntToStr(colN);
+          if catColN <> -1 then
+            series.XValues := '=' + dataSheet.Name + '!R' + IntToStr(nFirstDataRow) + 'C' + IntToStr(catColN) + ':R'+IntToStr( nRowCount + nTitleRowCount) + 'C' + IntToStr(catColN);
+          series.Name := '=' + dataSheet.Name + '!R1' + 'C' + IntToStr(colN);
+          series.Border.Weight := -4138; { xlMedium }
+        end;
+      end; 
+    // активируем график, устанавливаем его размеры и параметры
+    msExcel.Sheets(chart.Name).Select;
+      // определяем минимальное и максимальное значение
+    minValue := msExcel.WorksheetFunction.Min( chart.SeriesCollection.Item(1).Values );
+    maxValue := msExcel.WorksheetFunction.Max( chart.SeriesCollection.Item(1).Values );
+    for i := 2 to chart.SeriesCollection.Count do
+    begin
+      minValue := msExcel.WorksheetFunction.Min(minValue, chart.SeriesCollection.Item(i).Values );
+      maxValue := msExcel.WorksheetFunction.Max(maxValue, chart.SeriesCollection.Item(i).Values );      
+    end;  
+      // и выставляем границы
+    chart.Axes(2 { xlValue }).MaximumScale := maxValue + ((maxValue-minValue)*0.07) div 1;
+    chart.Axes(2 { xlValue }).MinimumScale := minValue - ((maxValue-minValue)*0.07) div 1;
+    chart.Axes(2 { xlValue }).MajorUnit := 2048;    
+    //
+    chart.PlotArea.Left := chart.ChartArea.Left;    
+    chart.PlotArea.Width := chart.ChartArea.Width;
+    chart.PlotArea.Top := 15;
+    chart.PlotArea.Height := chart.ChartArea.Height;    
+    chart.Legend.Left := 200;
+    chart.Legend.Top := 200;
+    chart.Legend.Height := 1.3 * chart.Legend.Height;
+    chart.Legend.Width := 1.3 * chart.Legend.Width;
+    //chart.PlotArea.Interior.ColorIndex := 34; // нежноголубой цвет
+    chart.ChartTitle.Top := 1;
+    // сохраняем файл в xls и закрываем Excel
+    workBook.SaveAs(xlsFileName, -4143 { xlWorkBookNormal }, '', '', false, false);
+    msExcel.Workbooks.Close;
+  except
+    Log.Message('DrawChartByExcel: ' + ExceptionMessage, 'csvFileName: "' + VarToStr(csvFileName) + '"; ' + EndOfLine + 'xlsFileName: "' + VarToStr(xlsFileName) + '"; ' + EndOfLine + 'chartTitle: "' + VarToStr(chartTitle) + '"; ' + EndOfLine + 'columnNames: "' + VarToStr(columnNames) + '"; ' + EndOfLine + 'categoryColName: "' + VarToStr(categoryColName) + '"; ' + EndOfLine + 'compsWithExcel: "' + VarToStr(compsWithExcel) + '"' , 4);
+    Result := false;
+  end;               
+end;
+
+function temporary;
+  var p, w : OleVariant;
+begin
+  try
+    DrawChartByExcel(
+      '\\developer.garant.ru\public\4ushakov\daily_logs\_working\открытие_документов.log.csv',
+      '\\developer.garant.ru\public\4ushakov\daily_logs\_working\открытие_документов.xls',
+      'dasdas',
+      'Память клиента (Кб);Память сервера (Кб)',
+      'Открыто документов',
+      ';ushakov.garant.ru');
+  except
+    Log.Message('' + ExceptionMessage, '' , 4);
+  end;               
+end;
+

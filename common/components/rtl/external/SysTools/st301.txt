@@ -1,0 +1,91 @@
+This file summarizes changes made between SysTools versions 3.00 and
+3.01.  It is of interest primarily to users who have upgraded from a
+previous version.
+
+Bugs fixed
+==============================================================================
+StAstro
+  - RiseSetPrim routine handled high latitudes poorly
+StBase
+  - WideString consts cause invisible breakpoints to be hit when shutting 
+    down an application in D3.
+StBarPN
+  - Setting PostalCode to empty string caused AV
+StColl
+  - Added line inadvertantly removed when cleaning up files for 3.00 release.
+StNet
+  - The value for the password in AddUser was not converted to Unicode.
+  - The UF_SCRIPT flag needs to be set for Windows NT 4.
+  - The value for the password in AddUser was not converted to Unicode.
+StNetApi 
+  - The value for the password in AddUser was not converted to Unicode.
+StRegEx
+  - Won't compile with typed @ operator
+StRegEx
+  - AV when using .+ combination in match/select pattern
+StRegEx
+  - Replace did not properly "backtrack" for matching
+StRegIni
+  - var parameter not being set on return
+StShlCtl  
+  - Problem when searching for TStShellListView items by the item's caption.
+  - TStShellListView not properly updating when a file filter is in effect 
+    and a shell event occurs.
+  - TStShellListView.AddFolder working incorrectly when a file filter is 
+    in effect.
+  - AV when trying to add a folder and the parent folder is read-only.
+  - When TStShellListView.OpenDialogMode is True, double-clicking on Network 
+    Neighborhood didn't have any effect (the folder was not opened).
+  - AV in TStShellListView when changing any property that resulted in the 
+    window handle being destroyed and recreated.
+  - TStShellTreeView view reset to default when changing a property that 
+    resulted in the window handle being destroyed and recreated.
+  - AV in TStShellListView at design time when ViewStyle is vsReport and 
+    the SpecialRootFolder property is changed.
+  - AV in TStShellListView at design time when ViewStyle is vsReport and 
+    the RootFolder property is changed.
+  - AV in TStShellTreeView at design time when clearing the ListView property.
+  - AV at runtime in TStShellListView when the TreeView property is set and 
+    then cleared at design time.
+  - When dragging in the list view, dragging over the folder itself should 
+    result in the "no drop" cursor.
+  - TStShellTreeView doesn't allow expansion of a folder when the folder 
+    contains files and toShowFiles is in Options.
+  - AVs on some operating systems when operating on large numbers of files 
+    (move, delete, and so on).
+  - AVs on some operating systems when processing shell notifications.
+StStrL  
+  - Wrong type in Str2Real declaration
+StStrS/L
+  - StrWithin did not search for indicated string
+StStrX
+  - ReplaceStringAll handled last replacement incorrectly
+
+
+Enhancements
+=============================================================================
+
+StNet
+  - If a user could not be created with 'AddUser' an exception is now raised.
+StRegEx
+  - Added ReplaceString function
+StSpawn
+  - Changed default TimeOut to 0 to avoid confusion
+StShlCtl
+  - Items on network drives show "Printers on remotename" rather than 
+    just "Printers".
+StShlCtl
+  - When dragging over tree view nodes, a pause specified by the ExpandInterval
+    property will expand a node if it is not already expanded.
+  - Added OnItemDblClick event handler to TStShellListView.
+  - Added the ability to set the "Start In" folder for TStShellTreeView.
+  - Added MaxNotifications property to TStCustomShellNotification, 
+    TStShellTreeView, and TStShellListView
+StShlDD
+  - Very slow performance when dragging a large number of files or folders 
+    (500 or more, for example) in TStShellTreeView and TStShellListView.
+StStrX
+  - Added CopyRightAbsX method
+StUtils
+  - EnumerateFiles fails to enumerate files in folders with the System or 
+    Hidden attribute set.

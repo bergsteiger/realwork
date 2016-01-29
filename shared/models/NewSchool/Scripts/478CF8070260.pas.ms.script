@@ -1,0 +1,457 @@
+// l3IID 478CF8070260 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_478CF8070260
+
+FORWARD ME_478CF883039E
+
+: ME_478CF895004F
+ CONST UID '478CF895004F'
+ CONST Name 'IID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_478CF883039E // Tl3_IID
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_478CF895004F IID
+
+: ME_478CF883039E
+ CONST UID '478CF883039E'
+ CONST Name 'Tl3_IID'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_478CF8070260 // l3IID
+ ;
+ : Attributes
+   @ ( ME_478CF895004F // IID
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "not treat as record for XE4" true
+ CONST "packed" true
+
+ref; // ME_478CF883039E Tl3_IID
+
+FORWARD ME_478CF8A20368
+
+: ME_478CF8B1002E
+ CONST UID '478CF8B1002E'
+ CONST Name 'EQ'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_478CF8A20368 // Tl3IID
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_478CF8B1002E EQ
+
+: ME_478CF8A20368
+ CONST UID '478CF8A20368'
+ CONST Name 'Tl3IID'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_478CF8070260 // l3IID
+ ;
+ : Inherits
+   @ ( ME_478CF883039E // Tl3_IID
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_478CF8B1002E // EQ
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "not treat as record for XE4" true
+ CONST "packed" true
+
+ref; // ME_478CF8A20368 Tl3IID
+
+FORWARD ME_478CF8C200EB
+
+: ME_478CF8DD01EB
+ CONST UID '478CF8DD01EB'
+ CONST Name 'IID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_478CF8C200EB // Tl3_GUID
+ ;
+ : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
+ ;
+
+ref; // ME_478CF8DD01EB IID
+
+: ME_478CF8C200EB
+ CONST UID '478CF8C200EB'
+ CONST Name 'Tl3_GUID'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Объект-обертка вокруг GUID (без методов).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_478CF8070260 // l3IID
+ ;
+ : Attributes
+   @ ( ME_478CF8DD01EB // IID
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "not treat as record for XE4" true
+ CONST "packed" true
+
+ref; // ME_478CF8C200EB Tl3_GUID
+
+FORWARD ME_478CF97C01EB
+
+: ME_478CF99202E5
+ CONST UID '478CF99202E5'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_478CF97C01EB // array of TGUID
+ ;
+ : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
+ ;
+
+ref; // ME_478CF99202E5 
+
+: ME_478CF97C01EB
+ CONST UID '478CF97C01EB'
+ CONST Name 'array of TGUID'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список GUID''ов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_478CF8070260 // l3IID
+ ;
+ : Attributes
+   @ ( ME_478CF99202E5 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'open'
+
+ref; // ME_478CF97C01EB array of TGUID
+
+FORWARD ME_478CF8F202C7
+
+: ME_478CF90801FE
+ CONST UID '478CF90801FE'
+ CONST Name 'EQ'
+ CONST Class class_Operation
+ %SUMMARY 'сравнить совпадение GUID''ов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_478CF8F202C7 // Tl3GUID
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_478CF90801FE EQ
+
+: ME_478CF919003A
+ CONST UID '478CF919003A'
+ CONST Name 'EQ'
+ CONST Class class_Operation
+ %SUMMARY 'сравнить совпадение GUID''ов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_478CF8F202C7 // Tl3GUID
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_478CF919003A EQ
+
+: ME_478CF9A1010D
+ CONST UID '478CF9A1010D'
+ CONST Name 'SomeOf'
+ CONST Class class_Operation
+ %SUMMARY 'идентификатор один из GUIDs?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_478CF8F202C7 // Tl3GUID
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_478CF9A1010D SomeOf
+
+: ME_4942795A0282
+ CONST UID '4942795A0282'
+ CONST Name 'C'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_478CF8F202C7 // Tl3GUID
+ ;
+
+ref; // ME_4942795A0282 C
+
+: ME_478CF8F202C7
+ CONST UID '478CF8F202C7'
+ CONST Name 'Tl3GUID'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Объект-обертка вокруг GUID.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_478CF8070260 // l3IID
+ ;
+ : Inherits
+   @ ( ME_478CF8C200EB // Tl3_GUID
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_478CF90801FE // EQ
+ ME_478CF919003A // EQ
+ ME_478CF9A1010D // SomeOf
+ ME_4942795A0282 // C
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "not treat as record for XE4" true
+ CONST "packed" true
+
+ref; // ME_478CF8F202C7 Tl3GUID
+
+FORWARD ME_49427DEE015B
+
+: ME_49427E18023D
+ CONST UID '49427E18023D'
+ CONST Name 'f_Res'
+ CONST Class class_Attribute
+ %SUMMARY 'Собственно код результата' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_49427DEE015B // Tl3HResult
+ ;
+ : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
+ ;
+
+ref; // ME_49427E18023D f_Res
+
+: ME_49427EB903DB
+ CONST UID '49427EB903DB'
+ CONST Name 'Ok'
+ CONST Class class_Operation
+ %SUMMARY 'Результат успешен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49427DEE015B // Tl3HResult
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49427EB903DB Ok
+
+: ME_49427ED200F2
+ CONST UID '49427ED200F2'
+ CONST Name 'Fail'
+ CONST Class class_Operation
+ %SUMMARY 'Результат неуспешен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49427DEE015B // Tl3HResult
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49427ED200F2 Fail
+
+: ME_49427EEF0016
+ CONST UID '49427EEF0016'
+ CONST Name 'C'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49427DEE015B // Tl3HResult
+ ;
+
+ref; // ME_49427EEF0016 C
+
+: ME_49427F5D038D
+ CONST UID '49427F5D038D'
+ CONST Name 'SetOk'
+ CONST Class class_Operation
+ %SUMMARY 'Установить в S_Ok' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49427DEE015B // Tl3HResult
+ ;
+
+ref; // ME_49427F5D038D SetOk
+
+: ME_49427F6D03CB
+ CONST UID '49427F6D03CB'
+ CONST Name 'SetNoInterface'
+ CONST Class class_Operation
+ %SUMMARY 'Установить в E_NoInterface' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49427DEE015B // Tl3HResult
+ ;
+
+ref; // ME_49427F6D03CB SetNoInterface
+
+: ME_494283D90043
+ CONST UID '494283D90043'
+ CONST Name 'Res'
+ CONST Class class_Operation
+ %SUMMARY 'Собственно результат' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49427DEE015B // Tl3HResult
+ ;
+ : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
+ ;
+
+ref; // ME_494283D90043 Res
+
+: ME_49427DEE015B
+ CONST UID '49427DEE015B'
+ CONST Name 'Tl3HResult'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Результат COM-операции' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_478CF8070260 // l3IID
+ ;
+ : Attributes
+   @ ( ME_49427E18023D // f_Res
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_49427EB903DB // Ok
+ ME_49427ED200F2 // Fail
+ ME_49427EEF0016 // C
+ ME_49427F5D038D // SetOk
+ ME_49427F6D03CB // SetNoInterface
+ ME_494283D90043 // Res
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_49427DEE015B Tl3HResult
+
+FORWARD ME_53CE6449012F
+
+: ME_53CE646D021D
+ CONST UID '53CE646D021D'
+ CONST Name 'ev_iidCursor'
+ CONST Class class_Attribute
+ %SUMMARY 'курсор объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CE6449012F // OldGUIDS
+ ;
+ : Target ME_478CF8A20368 // Tl3IID
+ ;
+ CONST Value '(IID: 0)'
+ : ValueType ME_478CF8A20368 // Tl3IID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53CE646D021D ev_iidCursor
+
+: ME_53CE648603B9
+ CONST UID '53CE648603B9'
+ CONST Name 'ev_iidBlock'
+ CONST Class class_Attribute
+ %SUMMARY 'выделение части объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CE6449012F // OldGUIDS
+ ;
+ : Target ME_478CF8A20368 // Tl3IID
+ ;
+ CONST Value '(IID: 1)'
+ : ValueType ME_478CF8A20368 // Tl3IID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53CE648603B9 ev_iidBlock
+
+: ME_53CE6449012F
+ CONST UID '53CE6449012F'
+ CONST Name 'OldGUIDS'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_478CF8070260 // l3IID
+ ;
+ : Attributes
+   @ ( ME_53CE646D021D // ev_iidCursor
+ ME_53CE648603B9 // ev_iidBlock
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_53CE6449012F OldGUIDS
+
+: ME_478CF8070260
+ CONST UID '478CF8070260'
+ CONST Name 'l3IID'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Объект-обертка вокруг GUID' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ ;
+ : Children
+   @ ( ME_478CF883039E // Tl3_IID
+ ME_478CF8A20368 // Tl3IID
+ ME_478CF8C200EB // Tl3_GUID
+ ME_478CF97C01EB // array of TGUID
+ ME_478CF8F202C7 // Tl3GUID
+ ME_49427DEE015B // Tl3HResult
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_53CE6449012F // OldGUIDS
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "author" 'Люлин А.В. ©'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '23.09.1999 14:32'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3IID.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\478CF8070260.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\478CF8070260.pas.ms.script.runner'
+
+ref; // ME_478CF8070260 l3IID

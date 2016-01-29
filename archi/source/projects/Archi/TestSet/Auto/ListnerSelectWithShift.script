@@ -1,0 +1,18 @@
+USES
+	QuickTestsUtils.script
+;
+
+Тест ListnerSelectWithShift
+	Параметры: ( "Документ Конституция" 
+				 "Работа с атрибутами" 
+				 "Курсор вниз на {(13)}строк" 
+				 "Эталон выделенного пункта в списке"	
+				)
+	Выполнить (		 		 
+		 INTEGER VAR l_Finish
+		 focused:control:push pop:Lister:Current 7 + >>> l_Finish
+		 l_Finish focused:control:push pop:Lister:SelectWithShift 		 		
+	)
+;
+
+ListnerSelectWithShift

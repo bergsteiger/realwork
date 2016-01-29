@@ -1,0 +1,115 @@
+// TkwWordPtrWorker 4F37ADFF0150 SimpleClass Class
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_4F37ADFF0150
+
+: ME_4F37AE650242
+ CONST UID '4F37AE650242'
+ CONST Name 'f_Word'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_4F37AE650242 f_Word
+
+FORWARD ME_4F37AE8B03CE
+
+: ME_4F37AE9F038F
+ CONST UID '4F37AE9F038F'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_4F37AE9F038F aWord
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4F37AE97001D
+ CONST UID '4F37AE97001D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F37AE9F038F // aWord
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F37AE97001D DoIt
+
+: ME_4F37AE8B03CE
+ CONST UID '4F37AE8B03CE'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F37AE97001D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F37AE8B03CE Create
+
+: ME_CF1744ADC9EA
+ CONST UID 'CF1744ADC9EA'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwWordPtrWorker' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_CF1744ADC9EA Ini_Reg_Class
+
+: ME_4F37ADFF0150
+ CONST UID '4F37ADFF0150'
+ CONST Name 'TkwWordPtrWorker'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4DAEED140007 // TtfwWord
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4F37AE650242 // f_Word
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4F37AE8B03CE // Create
+ ME_CF1744ADC9EA // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '12.02.2012 16:18'
+
+ @SELF
+; // ME_4F37ADFF0150 TkwWordPtrWorker

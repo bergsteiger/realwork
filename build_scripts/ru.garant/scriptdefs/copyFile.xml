@@ -1,0 +1,65 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.copyFile"
+	language = "javascript"
+>
+	<attribute name = "file"/>
+	<attribute name = "to.file"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_file = (
+				attributes.get ("file")
+			);
+
+			if (a_file != null) {
+				var l_fileFile = new File (a_file);
+				var l_filePath = l_fileFile.getPath ();
+
+				a_file = l_filePath;
+			}
+
+			var a_toFile = (
+				attributes.get ("to.file")
+			);
+
+			if (a_toFile != null) {
+				var l_toFileFile = new File (a_toFile);
+				var l_toFilePath = l_toFileFile.getPath ();
+
+				a_toFile = l_toFilePath;
+			}
+
+			var l_copyTask = project.createTask ("copy"); {
+				l_copyTask.setFailOnError (true);
+				l_copyTask.setFile (new File (a_file));
+				l_copyTask.setOverwrite (true);
+				l_copyTask.setPreserveLastModified (true);
+				l_copyTask.setTofile (new File (a_toFile));
+				l_copyTask.setVerbose (true);
+
+				l_copyTask.reconfigure ();
+			}
+
+			l_copyTask.execute ();
+		}
+	]]>
+</scriptdef>

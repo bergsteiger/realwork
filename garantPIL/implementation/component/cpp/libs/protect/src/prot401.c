@@ -1,0 +1,820 @@
+/*
+        Garant 4.X Protection. MAIN MODULE
+        Version 3.01
+        Copyright (C) 1997 Garant-Service. All Rights Reserved.
+
+        FILE:     PROT401.C
+        AUTHOR:   Vadim Ivanov
+        CREATED:  September, 1997
+        MODIFIED: October 22, 1997
+*/
+
+#include <stdlib.h>
+#include <string.h>
+#include <io.h>
+#ifndef _WINDOWS
+	#include <dir.h>
+#else
+	#define MAXPATH	256
+#endif //_WINDOWS
+#include <fcntl.h>
+#include <sys/stat.h>
+
+/*#ifdef _WINDOWS
+#include <windows.h>
+#ifdef _MSC_VER
+#error cygwin32 is not same mfc
+#endif
+#else
+#include "typedef.h"
+#endif*/
+
+#include "prot401.h"
+
+#include	"prot_ver.h"
+
+#define MAX_DRIVE 3
+#define MAX_DIR   66
+#define MAX_FNAME 9
+#define MAX_EXT   5
+
+char pathBasesOrigin [256] = "";
+
+unsigned long  XOR_KEY = 1;
+unsigned short SegF000;
+
+static WORD GetFileComplectSize (HFILE file);
+
+///////////////////////////////////////////////////////////////////////////
+
+#if !defined(WIN32) && !defined(_WIN32) && !defined(__WIN32__) && !defined(__CYGWIN32__)
+void GetSelectors(void)
+{
+#ifdef _WINDOWS
+		  // determine selectors
+		  HINSTANCE hModKernel = LoadLibrary ( "KERNEL" );
+		  SegF000 = LOWORD ( GetProcAddress ( hModKernel, "__F000H" ) );
+		  FreeLibrary ( hModKernel );
+#else
+ _asm  {
+			pusha
+			mov     ax,0x0002
+			mov     bx,0xF000
+			int     0x31
+			mov     [SegF000],ax
+			popa
+					  }
+#endif
+}
+#endif
+
+
+
+////////////////////////////////////////////////////////////////////////////
+void GetSegments (void)
+{
+		  SegF000 = 0xF000;
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+unsigned short BiosDateSum (void)
+{
+	#define BIOSDATE_SIZE 8   /* MM/DD/YY */
+
+	unsigned short Res;
+
+#if defined (WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__CYGWIN32__)
+	// Win32 implementation
+	BYTE buffer[BIOSDATE_SIZE+1];
+	int i;
+	long result;
+	HKEY hKey;
+	long size;
+	unsigned long lpType;
+	OSVERSIONINFO ver;
+
+	/* detect Windows NT */
+	memset(&ver, 0, sizeof(ver));
+	ver.dwOSVersionInfoSize = sizeof(ver);
+	if (!GetVersionEx(&ver)) {
+		return PROT401_ERR_GET_VERSION_EX_FAILED;
+	}
+
+	if (ver.dwPlatformId != VER_PLATFORM_WIN32_NT) {
+		/* Win95, Win98 implementation (direct memory access) */
+		memcpy (&buffer, (void*)0xFFFF5, BIOSDATE_SIZE);
+	} else {
+		/* Windows NT implementation (read from regisrty) */
+		result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, "HARDWARE\\DESCRIPTION\\System", 0, KEY_QUERY_VALUE, &hKey);
+		if (result != ERROR_SUCCESS) {
+			return PROT401_ERR_READ_REGISTRY_PROBLEM;
+		}
+		size   = BIOSDATE_SIZE+1;
+		lpType = REG_SZ;
+		result = RegQueryValueEx(hKey, "SystemBiosDate", 0, (LPDWORD)&lpType, (LPBYTE)&buffer, (LPDWORD)&size);
+		if (result != ERROR_SUCCESS) {
+			return PROT401_ERR_READ_REGISTRY_PROBLEM;
+		}
+		RegCloseKey(hKey);
+	}
+	Res = 0;
+	for (i=0; i<8; i++) {
+		Res += (BYTE)buffer[i];			
+	}
+
+#else
+_asm  {
+        pusha
+        mov   ax,SegF000
+        mov     es,ax
+        mov     di,0FFF5h
+        xor     ax,ax
+        xor     dx,dx
+        mov     cx,8
+                }
+Again:
+_asm  {
+        mov     dl,byte ptr es:[di]
+        add     ax,dx
+        inc     di
+        loop    Again
+        mov     [Res],ax
+        popa
+                }
+#endif
+
+	return Res;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////
+void XorData (char * buf, unsigned len)
+{
+        unsigned Key = 30;
+        unsigned i;
+
+        for ( i=0; i<len; ++i ) {
+          buf[i] ^= Key;
+          Key += 2;
+          if ( Key > 250 )
+                 Key = 1;
+         }
+}
+
+////////////////////////////////////////////////////////////////////////////
+unsigned short GetComputerID (void)
+{
+        return BiosDateSum ();
+}
+
+//////////////////////////////////////////////////////////////////////////
+long GetFSize ( const char *PathToFile )
+{
+        HFILE input_file;
+        long SizeOfFile;
+
+        if ((input_file = open ( PathToFile,  O_RDONLY | O_BINARY )) == (-1) )
+          return (-1);
+
+        SizeOfFile = filelength ( input_file );
+        close ( input_file );
+
+        return SizeOfFile;
+}
+
+///////////////////////////////////////////////////////////////////////////
+int WriteUserInfo ( const char * regOrg, const char * regNum )
+{
+        HFILE file;
+        char aOrg [SIZE_PROT_REGFIELD],
+                  aNum [SIZE_PROT_REGFIELD];
+
+        if ((file = open ( pathBasesOrigin, O_WRONLY | O_BINARY )) == (-1)
+        &&  (file = open ( pathBasesOrigin, O_WRONLY | O_BINARY | O_CREAT, S_IWRITE )) == (-1))
+          return ERROR_BasesOrg_Access_Denied;
+
+        strcpy ( aOrg, regOrg );
+        strcpy ( aNum, regNum );
+
+        lseek   ( file, 0,    SEEK_SET           );
+        XorData ( aOrg,       SIZE_PROT_REGFIELD );
+        write   ( file, aOrg, SIZE_PROT_REGFIELD );
+
+        XorData ( aNum,       SIZE_PROT_REGFIELD );
+        write   ( file, aNum, SIZE_PROT_REGFIELD );
+
+        close ( file );
+        return 1;
+}
+
+///////////////////////////////////////////////////////////////////////////
+int ReadUserInfo ( char * regOrg, char * regNum )
+{
+        HFILE file;
+        if ((file = open ( pathBasesOrigin,  O_RDONLY | O_BINARY )) == (-1) )
+          return ERROR_BasesOrg_Not_Found;
+
+        lseek   ( file,   0,      SEEK_SET           );
+        read    ( file,   regOrg, SIZE_PROT_REGFIELD );
+        XorData ( regOrg,         SIZE_PROT_REGFIELD );
+
+        read    ( file,   regNum, SIZE_PROT_REGFIELD );
+        XorData ( regNum,         SIZE_PROT_REGFIELD );
+
+        close ( file );
+        return 1;
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+int EnumProtInfo ( char* enumNDT )
+{
+        HFILE file;
+        long fileSize;
+        int i, recCount, recFound;
+        long offProtInfo;
+
+        if ((file = open ( pathBasesOrigin,  O_RDONLY | O_BINARY )) == (-1) )
+                return 0; // nothing to enumerate
+
+        if ((fileSize = filelength ( file )) <= SIZE_PROT_USERINFO ) {
+                close(file);
+                return 0; // nothing to enumerate
+        }
+
+        offProtInfo = GetFileComplectSize(file) + SIZE_PROT_USERINFO;
+        lseek (file, offProtInfo, SEEK_SET);
+        recCount = ( (int)((fileSize-offProtInfo) / sizeof(struct PROTINFO)) );
+
+        recFound = !strlen(enumNDT);
+        for (i=0; i<recCount; i++)
+        {
+                struct PROTINFO P_I;
+
+                read    ( file, (char*)&P_I, sizeof(struct PROTINFO) );
+
+                if( stricmp ( "PRIMARY", P_I.NDT_fName ) == 0 )
+                {
+                        continue;
+                }
+                else
+                if( recFound )
+                {
+                        strcpy( enumNDT, P_I.NDT_fName );
+                        break;
+                }
+                else
+                if ( stricmp ( enumNDT, P_I.NDT_fName ) ==0 )
+                {
+                        recFound = 1;
+                        continue;
+                }
+                else;
+        }
+
+        close (file);
+        return (i<recCount);
+}
+
+////////////////////////////////////////////////////////////////////////////
+int ReadProtInfo ( struct PROTINFO * P_I, const char * pathNDT )
+{
+        HFILE file;
+        long fileSize;
+        int i,recCount;
+        char nameNDT [MAX_FNAME];
+        long offProtInfo;
+
+	char aPName[ SIZE_PROT_RECORDID + 1 ];
+	char ndtName[ SIZE_PROT_RECORDID + 1 ];
+
+        if ((file = open ( pathBasesOrigin,  O_RDONLY | O_BINARY )) == (-1) )
+                return ERROR_BasesOrg_Not_Found;
+
+         if ((fileSize = filelength ( file )) <= SIZE_PROT_USERINFO ) {
+                close(file);
+                return ERROR_Wrong_Size_Of_BasesOrg;
+         }
+
+         if(stricmp(pathNDT,"PRIMARY") != 0)
+         {
+                char drive [MAX_DRIVE];
+                char dir   [MAX_DIR];
+                char ext   [MAX_EXT];
+
+                _splitpath(pathNDT, drive, dir, nameNDT, ext);
+         }
+         else
+                strcpy(nameNDT,pathNDT);
+
+         offProtInfo = GetFileComplectSize(file) + SIZE_PROT_USERINFO;
+         lseek (file, offProtInfo, SEEK_SET);
+         recCount = ( (int)((fileSize-offProtInfo) / sizeof(struct PROTINFO)) );
+
+         for (i=0; i<recCount; i++)
+         {
+                read ( file, (char*)P_I, sizeof(struct PROTINFO) );
+
+		memcpy( aPName, P_I->NDT_fName, SIZE_PROT_RECORDID + 1 );
+		aPName[ SIZE_PROT_RECORDID ] = '\0';
+		
+		memcpy( ndtName, nameNDT, SIZE_PROT_RECORDID + 1 );
+		ndtName[ SIZE_PROT_RECORDID ] = '\0';
+
+                if ( stricmp( aPName, ndtName ) == 0 )
+                {
+                        break;
+                }
+         }
+
+         close (file);
+         return (i < recCount);
+}
+
+////////////////////////////////////////////////////////////////////////////
+int WriteProtInfo ( const struct PROTINFO * P_I )
+{
+        HFILE file;
+        long fileSize;
+        long i,recCount;
+        long offProtInfo;
+        long FileOfs = 0;
+
+	char aPName[ SIZE_PROT_RECORDID + 1 ];
+	char fName[ SIZE_PROT_RECORDID + 1 ];
+
+        if ( (file = open ( pathBasesOrigin,  O_RDWR | O_BINARY, S_IWRITE )) == (-1) )
+          return ERROR_BasesOrg_Not_Found;
+
+        if ( (fileSize = filelength ( file )) < SIZE_PROT_USERINFO ) {
+          close(file);
+          return ERROR_Wrong_Size_Of_BasesOrg;
+        }
+
+        offProtInfo = GetFileComplectSize(file) + SIZE_PROT_USERINFO;
+        lseek (file, offProtInfo, SEEK_SET);
+        recCount = ( (int)((fileSize-offProtInfo) / sizeof(struct PROTINFO)) );
+
+         for (i=0; i<recCount; i++)
+         {
+		struct PROTINFO FileProtInfo;
+
+                read( file, &FileProtInfo, sizeof(struct PROTINFO) );
+
+		memcpy( aPName, P_I->NDT_fName, SIZE_PROT_RECORDID + 1 );
+		aPName[ SIZE_PROT_RECORDID ] = '\0';
+		
+		memcpy( fName, FileProtInfo.NDT_fName, SIZE_PROT_RECORDID + 1 );
+		fName[ SIZE_PROT_RECORDID ] = '\0';
+
+                  if ( stricmp ( aPName, fName ) == 0 )
+                  {
+                          FileOfs = tell(file) - sizeof(struct PROTINFO);
+                          break;
+                  }
+          }
+
+        // Write PROTINFO
+        if ( FileOfs != 0 )
+          lseek ( file, FileOfs, SEEK_SET );
+        else
+          lseek ( file, 0, SEEK_END );
+
+        write ( file, (char*)P_I, sizeof (struct PROTINFO) );
+
+        close ( file );
+        return 1;
+}
+
+////////////////////////////////////////////////////////////////////////////
+void GetProtInfo ( struct PROTINFO * P_I, const char * NDTPath, int Ver )
+{
+        char drive [MAX_DRIVE];
+        char dir   [MAX_DIR];
+        char Name  [MAX_FNAME];
+        char ext   [MAX_EXT];
+
+        char DrivePlusDir  [MAX_DRIVE + MAX_DIR];
+        char DrivePlusDir2 [MAX_DRIVE + MAX_DIR];
+
+        char STRPath [MAX_DRIVE + MAX_DIR + MAX_FNAME + MAX_EXT];
+        char KEYPath [MAX_DRIVE + MAX_DIR + MAX_FNAME + MAX_EXT];
+
+        _splitpath (NDTPath, drive, dir, Name, ext);
+
+        // Create Drive Plus Path
+        strcpy  ( DrivePlusDir, drive );
+        strcat  ( DrivePlusDir, dir   );
+        strcpy(DrivePlusDir2, DrivePlusDir);
+        *(strchr(DrivePlusDir2, '\0')-1) = '\0';
+
+        // Make Full Path to .STR file
+        strcpy ( STRPath, drive   );
+        strcat ( STRPath, dir     );
+        strcat ( STRPath, Name    );
+        strcpy ( KEYPath, STRPath );
+        strcat ( STRPath, ".STR"  );
+        strcat ( KEYPath, ".KEY"  );
+
+        P_I -> DATA_dir_DateTime = 0;
+
+        strcpy ( P_I -> NDT_fName, Name );
+
+        P_I -> STR_fSize = GetFSize ( STRPath );
+        P_I -> KEY_fSize = GetFSize ( KEYPath );
+        P_I -> NDT_fSize = GetFSize ( NDTPath );
+
+        P_I -> VerType   = Ver;
+
+        if ( ( (Ver&0x0FFF) == VERTYPE_LOCAL ) || ( (Ver&0x0FFF) == VERTYPE_DEMO ) )
+          P_I -> HardwareID = GetComputerID ();
+        else
+          P_I -> HardwareID = 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+unsigned CheckProtInfo ( const struct PROTINFO *FileData, const struct PROTINFO *RealData )
+{
+	char fName[ SIZE_PROT_RECORDID + 1 ];
+	char rName[ SIZE_PROT_RECORDID + 1 ];
+
+         unsigned short unRdOnly;
+         unsigned wCheckMask = 0;
+
+         unRdOnly = FileData -> VerType & VERTYPE_READONLY;
+
+	memcpy( fName, FileData->NDT_fName, SIZE_PROT_RECORDID + 1 );
+	fName[ SIZE_PROT_RECORDID ] = '\0';
+		
+	memcpy( rName, RealData->NDT_fName, SIZE_PROT_RECORDID + 1 );
+	rName[ SIZE_PROT_RECORDID ] = '\0';
+
+         if ( stricmp ( fName, rName ) != 0  ) wCheckMask|= PROTFAULT_NDT_fName;
+
+         if ( (unRdOnly == 0) && ( ( ( FileData->VerType&0x0FFF ) == VERTYPE_LOCAL ) || ( ( FileData->VerType&0x0FFF) == VERTYPE_DEMO ) ) )
+         {
+                if ( FileData -> HardwareID != RealData -> HardwareID )
+                	wCheckMask|= PROTFAULT_HardwareID;
+         }
+
+         if ( FileData -> STR_fSize != RealData -> STR_fSize ) wCheckMask|= PROTFAULT_STR_fSize;
+         if ( FileData -> KEY_fSize != RealData -> KEY_fSize ) wCheckMask|= PROTFAULT_KEY_fSize;
+         if ( FileData -> NDT_fSize != RealData -> NDT_fSize ) wCheckMask|= PROTFAULT_NDT_fSize;
+         if ( FileData -> VerType   != RealData -> VerType   ) wCheckMask|= PROTFAULT_VerType;
+
+         return wCheckMask;
+}
+
+
+///////////////// C O M P L E C T   R O U T I N E S ////////////////////////
+
+int write_insert ( HFILE src_handle,        // handle of source file
+                        void *inserted_buf,      // inserted buffer
+                        WORD inserted_buf_len,   // length of inserted buffer
+                        long srcfile_ofs)        // where to place inserted buffer
+                                                 //   (from beginning of file)
+{
+
+/*
+        Return:  ( 1) - success
+                 (-1) - can't create temporary file
+                 (-2) - file_ofs is out of file
+*/
+
+	//#define TmpFileName     "TmpFile.$1$"
+	#define LOCAL_BUF_SIZE  512
+
+	HFILE src,dest;
+	WORD Big, Small, i;
+	long SourceFileSize, TmpFileSize;
+	char local_buf[LOCAL_BUF_SIZE];
+
+	char	TmpFileName[ MAXPATH ];
+	strcpy( TmpFileName, pathBasesOrigin );
+	TmpFileName[ strlen( pathBasesOrigin ) - 1 ] = '$';
+
+        src  = src_handle;
+        SourceFileSize = filelength(src);
+
+        if (SourceFileSize < srcfile_ofs) {
+          return (-2);
+        }
+
+        ///// create backup file with tail /////
+        TmpFileSize = SourceFileSize - srcfile_ofs;
+
+        Big   = (WORD)(TmpFileSize / LOCAL_BUF_SIZE    );
+        Small = (WORD)(TmpFileSize - LOCAL_BUF_SIZE*Big);
+
+        dest = open(TmpFileName, O_WRONLY | O_CREAT | O_TRUNC | O_BINARY, S_IREAD | S_IWRITE);
+
+        if ( dest == (-1) ) {
+          return (-1);
+        }
+
+        lseek (src, srcfile_ofs, SEEK_SET);
+
+        if (Big>0) {
+          for ( i=1; i<=Big; i++ ) {
+                 read  (src,  local_buf, LOCAL_BUF_SIZE);
+                 write (dest, local_buf, LOCAL_BUF_SIZE);
+          }
+        }
+
+        if (Small>0) {
+          read  (src,  local_buf, Small);
+          write (dest, local_buf, Small);
+        }
+
+        close(dest);
+
+        /////// write inserted_buf ///////
+        src = src_handle;
+        lseek (src, srcfile_ofs, SEEK_SET);
+        write (src, inserted_buf, inserted_buf_len);
+
+        /////// write saved tail ///////
+        src  = open(TmpFileName, O_RDONLY | O_BINARY );
+        dest = src_handle;
+
+        if (Big>0) {
+          for ( i=1; i<=Big; i++ ) {
+                 read  (src,  local_buf, LOCAL_BUF_SIZE);
+                 write (dest, local_buf, LOCAL_BUF_SIZE);
+          }
+        }
+
+        if (Small>0) {
+          read  (src,  local_buf, Small);
+          write (dest, local_buf, Small);
+        }
+
+        close  (src);                     // close temporary file
+        unlink (TmpFileName);     // unlink temporary file
+
+        return 1;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+int DeleteBlockFromFile ( int src_handle,          // handle of source file
+                          long block_ofs,          // offset of block in file
+                          long block_len)          // length of file
+
+{
+        //#define TmpFileName     "TmpFile.$1$"
+        #define LOCAL_BUF_SIZE  512
+
+        HFILE src,dest;
+        WORD Big, Small, i;
+        long SourceFileSize, TmpFileSize;
+        char local_buf[LOCAL_BUF_SIZE];
+
+	char	TmpFileName[ MAXPATH ];
+	strcpy( TmpFileName, pathBasesOrigin );
+	TmpFileName[ strlen( pathBasesOrigin ) - 1 ] = '$';
+
+        // --------------------
+        src  = src_handle;
+        SourceFileSize = filelength(src);
+
+        // check source size
+        if (SourceFileSize < block_ofs + block_len ) {
+          return (-2);
+        }
+
+        // stage #1 - save tail behind block
+        TmpFileSize = SourceFileSize - block_ofs - block_len;
+
+        Big   = (WORD)(TmpFileSize / LOCAL_BUF_SIZE    );
+        Small = (WORD)(TmpFileSize - LOCAL_BUF_SIZE*Big);
+
+        dest = open(TmpFileName, O_WRONLY | O_CREAT | O_TRUNC | O_BINARY, S_IREAD | S_IWRITE);
+
+        lseek (src, block_ofs + block_len, SEEK_SET);
+
+        if ( dest == (-1) ) {
+          return (-1);
+        }
+
+        if (Big>0) {
+          for ( i=1; i<=Big; i++ ) {
+                 read  (src,  local_buf, LOCAL_BUF_SIZE);
+                 write (dest, local_buf, LOCAL_BUF_SIZE);
+          }
+        }
+
+        if (Small>0) {
+          read  (src,  local_buf, Small);
+          write (dest, local_buf, Small);
+        }
+
+        close(dest);
+
+        // stage #2 - truncate source file
+        src = src_handle;
+        chsize (src, block_ofs);
+
+        // stage #3 - write saved tail
+        src  = open ( TmpFileName, O_RDONLY | O_BINARY );
+        dest = src_handle;
+        lseek (dest, block_ofs, SEEK_SET);
+
+        if (Big>0) {
+          for ( i=1; i<=Big; i++ ) {
+                 read  (src,  local_buf, LOCAL_BUF_SIZE);
+                 write (dest, local_buf, LOCAL_BUF_SIZE);
+          }
+        }
+
+        if (Small>0) {
+          read  (src,  local_buf, Small);
+          write (dest, local_buf, Small);
+        }
+
+        close(src);
+
+        unlink (TmpFileName);
+        return 1;
+}
+
+////////////////////////////////////////////////////////////////////////////
+int WriteComplectInfo ( const struct COMPLECTINFO * C_I )
+{
+        HFILE file;
+        WORD file_compl_size = 0;   // size of Complect in "BASES.ORG"
+        WORD new_compl_size = 0;    // size of new Complect
+
+        if ( (file = open ( pathBasesOrigin,  O_RDWR | O_BINARY, S_IWRITE )) == (-1) )
+          return ERROR_BasesOrg_Not_Found;
+
+        if ( filelength(file) < SIZE_PROT_USERINFO ) {
+          close(file);
+          return ERROR_Wrong_Size_Of_BasesOrg;
+        }
+
+        file_compl_size = GetFileComplectSize(file);
+
+        // if complect in "BASES.ORG" found - delete it
+        if (file_compl_size != 0) {
+          DeleteBlockFromFile ( file, SIZE_PROT_USERINFO, file_compl_size );
+        }
+
+        // calculate size of new complect
+        new_compl_size =  sizeof(C_I->StructID) +
+                          sizeof(C_I->ComplectCount) +
+                          sizeof(C_I->ComplectName) +
+                          sizeof(C_I->ComplectWeight) +
+                          sizeof(C_I->ComplectSet) +
+                          SIZE_COMPLECT_NAME * C_I->ComplectCount;
+
+        // write new complect in "BASES.ORG"
+        write_insert ( file, (char*)C_I, new_compl_size, SIZE_PROT_USERINFO );
+
+        close ( file );
+        return 1;
+}
+
+////////////////////////////////////////////////////////////////////////////
+int ReadComplectInfo ( struct COMPLECTINFO * C_I )
+{
+        HFILE file;
+        WORD complSize;
+
+        if ((file = open ( pathBasesOrigin,  O_RDONLY | O_BINARY )) == (-1) )
+                return ERROR_BasesOrg_Not_Found;
+
+        if ( filelength(file) <= SIZE_PROT_USERINFO ) {
+                close(file);
+                return ERROR_Wrong_Size_Of_BasesOrg;
+        }
+
+        complSize = GetFileComplectSize(file);
+
+        if (complSize == 0) {
+          close(file);
+          return ERROR_Complect_Not_Found;
+        }
+
+        // read complect
+        lseek (file, SIZE_PROT_USERINFO, SEEK_SET);
+        read  (file, (char*)C_I, complSize);
+        close (file);
+
+        return 1;
+}
+
+
+/////////////////////////////////////////////////////////////////////////
+static WORD GetFileComplectSize (HFILE filehandle)
+{
+        WORD id;
+        WORD compl_size = 0;
+        BOOL isComplectInfo;
+        char intSize[4];
+
+
+        // set complect size to zero (no complect)
+        compl_size = 0;
+
+        // detect complect
+        lseek(filehandle, SIZE_PROT_USERINFO, SEEK_SET);
+        read (filehandle, (char*)&id, sizeof(id));
+        isComplectInfo = (id == PROT_COMPL_STRUCT_ID);
+        if (isComplectInfo == FALSE) {
+          return (0);
+        }
+
+        // determine complect size
+        lseek(filehandle, (SIZE_PROT_USERINFO + 2l), SEEK_SET);
+        memset(intSize, 0, sizeof(intSize));
+        read(filehandle, intSize, sizeof(intSize));
+        compl_size = sizeof(WORD)*3 +
+                                         sizeof(short) +
+                                         SIZE_COMPLECT_NAME*(1 + *((short *)(intSize)));
+
+        return compl_size;
+}
+
+
+void GM_GetProtInfo ( struct GM_PROTINFO * P_I, const char * GDBPath, int Ver )
+{
+        char drive [MAX_DRIVE];
+        char dir   [MAX_DIR];
+        char Name  [MAX_FNAME];
+        char ext   [MAX_EXT];
+
+        char DrivePlusDir  [MAX_DRIVE + MAX_DIR];
+        char DrivePlusDir2 [MAX_DRIVE + MAX_DIR];
+
+        _splitpath (GDBPath, drive, dir, Name, ext);
+
+        // Create Drive Plus Path
+        strcpy  ( DrivePlusDir, drive );
+        strcat  ( DrivePlusDir, dir   );
+        strcpy(DrivePlusDir2, DrivePlusDir);
+        *(strchr(DrivePlusDir2, '\0')-1) = '\0';
+
+        // Make Full Path to .STR file
+
+        P_I -> DATA_dir_DateTime = 0;
+
+        strcpy ( P_I -> GDB_fName, Name );
+
+        P_I -> GDB_fSize = GetFSize ( GDBPath );
+
+        P_I -> VerType   = Ver;
+
+        if ( (Ver&0x0FFF) == VERTYPE_LOCAL )
+          P_I -> HardwareID = GetComputerID ();
+        else
+          P_I -> HardwareID = 0;
+}
+
+int GM_WriteProtInfo ( const struct GM_PROTINFO * P_I )
+{
+        HFILE file;
+        long fileSize;
+        long i,recCount;
+        long offProtInfo;
+        long FileOfs = 0;
+
+        if ( (file = open ( pathBasesOrigin,  O_RDWR | O_BINARY, S_IWRITE )) == (-1) )
+          return ERROR_BasesOrg_Not_Found;
+
+        if ( (fileSize = filelength ( file )) < SIZE_PROT_USERINFO ) {
+          close(file);
+          return ERROR_Wrong_Size_Of_BasesOrg;
+        }
+
+        offProtInfo = GetFileComplectSize(file) + SIZE_PROT_USERINFO;
+        lseek (file, offProtInfo, SEEK_SET);
+        recCount = ( (int)((fileSize-offProtInfo) / sizeof(struct GM_PROTINFO)) );
+
+         for (i=0; i<recCount; i++)
+         {
+                        struct GM_PROTINFO FileProtInfo;
+
+                  read( file, &FileProtInfo, sizeof(struct GM_PROTINFO) );
+                  if ( stricmp (P_I->GDB_fName, FileProtInfo.GDB_fName) == 0 )
+                  {
+                          FileOfs = tell(file) - sizeof(struct GM_PROTINFO);
+                          break;
+                  }
+          }
+
+        // Write PROTINFO
+        if ( FileOfs != 0 )
+          lseek ( file, FileOfs, SEEK_SET );
+        else
+          lseek ( file, 0, SEEK_END );
+
+        write ( file, (char*)P_I, sizeof (struct GM_PROTINFO) );
+
+        close ( file );
+        return 1;
+}
+
+

@@ -1,0 +1,1257 @@
+garant6x_test : Project - Тесты для адаптера F1
+version: 380
+AdapterTest : Library - Тесты адаптера.
+ MixIns : Unit - Примеси.
+  ObjectListElement : ImpurityParamType - Тип объекта в списке.
+  atTypedObjectList : Impurity - Типизированный список объектов.
+    : impurity param - 
+   Items : property - 
+   First : readonly - 
+   Last : readonly - 
+   Add - 
+   Extract - 
+   Remove - 
+   IndexOf - 
+   Insert - 
+  InterfaceListElement : ImpurityParamType - 
+  atTypedInterfaceList : Impurity - 
+   First : readonly - 
+   Items : property - 
+    : impurity param - 
+   Last : readonly - 
+   Add - 
+   Delete - 
+   Remove - 
+   IndexOf - 
+   Insert - 
+ atInterfaces : Interfaces - Интерфейсы.
+  IatNotification : Facet - 
+   GetData - 
+  IatListener : Facet - 
+   StartListen - 
+   StopListen - 
+   StopListen - 
+   Fire - 
+  IatNotifier : Facet - 
+   StartNotify - 
+   StopNotify - 
+   StopNotify - 
+   Trigger - 
+  IatNotifyRepeater : Facet - 
+   AsListener - 
+   AsNotifier - 
+  IatLogger : Facet - 
+   Info - 
+   Warning - 
+   Error - 
+   Exception - 
+   Info - 
+   Warning - 
+   Error - 
+ CoreObjects : Unit - Базовые объекты.
+  TatStringListWithOwn : SimpleClass - 
+   OwnsObjects : property - 
+   Create : ctor - 
+   f_OwnsObjects - Поле для свойства OwnsObjects
+  NamedParameter : ImpurityParamType - 
+  atNamedParametersList : Impurity - 
+   EParameterNotExists : Exception - 
+   CNamedParameter : Typedef - 
+   Count : readonly - 
+   ParamType : readonly - 
+    : impurity param - 
+   f_Parameters - 
+   ParamByName : readonly - 
+   ParamByIndex : readonly - 
+   destroy : override - 
+   Add - 
+   Create : ctor - 
+   AddAlias : chg - 
+    : uses - 
+  TatNotification : SimpleClass - 
+   f_Data - 
+   Create : ctor - 
+  TatListener : SimpleClass - 
+   f_Notifiers - 
+   f_CS - 
+   IsListen - 
+   Create : ctor - 
+   DoFire - 
+    : uses - 
+  TatNotifier : SimpleClass - 
+   f_Listeners - 
+   f_MREWS - 
+   IsNotify - 
+   Create : ctor - 
+  TatDelegateListener : SimpleClass - 
+   TatDelegateListenerProc : Function - 
+   TatDelegateListenerProcOfObject : Function - 
+   f_FireProc - 
+   f_FireProcOfObject - 
+   Create : ctor - 
+   Create : ctor - 
+  TatParameter : SimpleClass - 
+   ECanNotCast : Exception - 
+   Values : Constants - 
+   EHasNotSet : Exception - 
+   f_Data - 
+   IsSet : readonly - 
+   AsStr : property - 
+   AsInt : property - 
+   AsBool : property - 
+   IsDefaultSet : readonly - 
+   f_DefaultValue - 
+   Value : property - 
+   Create : ctor - 
+   Create : ctor - 
+    : uses - 
+   f_IsSet - Поле для свойства IsSet
+  TatNamedParameter : SimpleClass - 
+   Name : readonly - 
+   Description : readonly - 
+   Create : ctor - 
+   Create : ctor - 
+   Create : ctor - 
+   f_Name - Поле для свойства Name
+   f_Description - Поле для свойства Description
+  TatCommandLineParameter : SimpleClass - 
+   TCLPType : Enum - тип параметра командной строки
+   ParamType : readonly - 
+   IsRequired : readonly - 
+   Create : ctor - 
+   f_ParamType - Поле для свойства ParamType
+  TatCommandLineParametersList : SimpleClass - 
+   NamedParameter : impurity value - 
+  TatCommandLine : SimpleClass - 
+   f_Delimiter - 
+   f_ParamList - 
+   Parameters : readonly - 
+   Parse - 
+   InitParamList - 
+   Create : ctor - 
+   PrintUsageInfo - 
+   IsAllRequiredSet - 
+    : uses - 
+  atLogger : UtilityPack - 
+   TatLogger : SimpleClass - 
+   TatLoggerStub : SimpleClass - 
+   TatConsoleLogger : SimpleClass - 
+   TatFileLogger : SimpleClass - 
+   Logger - 
+   DbgLogger - 
+   Ini : ini - 
+   Fini : fini - 
+  TatSharedBuffer : SimpleClass - Класс для создания буфера памяти, общего для нескольких процессов на одной машине.
+   f_FileMapping - 
+   f_MappingAddress - 
+   Value : readonly - Указатель на буфер.
+   Size : readonly - Размер буфера.
+   Create : ctor - 
+    : uses - 
+    : uses - 
+   f_Size - Поле для свойства Size
+  TatNamedMutex : SimpleClass - Обертка вокруг виндового мьютекса
+   f_MutexHandle - 
+   Create : ctor - 
+   Acquire - 
+   Release - 
+    : uses - 
+    : uses - 
+  TatSynchroPoint : SimpleClass - "Точка синхронизации". Для синхронизации типа "дойти до определенного места и ждать пока все не достигнут этого места".
+   TSyncData : Struct - 
+   PSyncData : Typedef - 
+   f_Mutex - 
+   f_SharedBuf - 
+   f_SyncData - 
+   f_ContinueEvent - 
+   Create : ctor - 
+   Synchronize : chg - Функция возвращает управление либо после успешной синхронизации (когда все дошли до вызова Synchronize), либо по истечении таймаута. В первом случае резельтат - true, во втором - false.
+   Register : chg - 
+   Unregister : chg - 
+   ContinueIfSynchronized : chg - 
+    : uses - 
+  TatFileBasedSemaphore : SimpleClass - Обеспечивает функциональность в стиле семафора. Работает на файлах.
+   WaitConsts : Constants - 
+   f_FileName - 
+   f_MaxEnteredCount - 
+   f_LocksCount - 
+   f_WriteHandle - 
+   f_ReadHandle - 
+   f_IsEntered - 
+   Create : ctor - 
+   Enter : chg - 
+   Leave : chg - 
+   LockForWrite : chg - 
+   UnlockForWrite : chg - 
+   GetCurrEnteredCount - 
+   SetCurrEnteredCount : chg - 
+   OpenFile : chg - 
+   OpenForRead : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatLockFile : SimpleClass - 
+   f_WriteHandle - 
+   f_ReadHandle - 
+   FileName : readonly - 
+   f_LocksCount - 
+   Create : vctor - 
+   Acquire : chg - 
+   Release : chg - 
+   Initialize : chg - 
+   OpenForRead : chg - 
+   OpenFile : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_FileName - Поле для свойства FileName
+  EnumType : ImpurityParamType - 
+  FirstType : ImpurityParamType - 
+  TatFileIterator : SimpleClass - 
+   TatFileIteratorBase : SimpleClass - 
+   TatSimpleFileIterator : SimpleClass - 
+   f_Attrs - 
+   f_InFolderIterators - 
+   f_Mask - 
+   Current : readonly - 
+   Create : ctor - 
+   IsOnGoodFile - 
+  TatBits : SimpleClass - 
+   Consts : Constants - 
+   Size : property - 
+   f_Bits - 
+   Bits : property - 
+   GetBitFrom : chg - 
+   GetBufSize - 
+   GetLastSetBit - 
+   GetRandomOpenBit - 
+   Reset : chg - 
+   SaveToFile - 
+   LoadFromFile : chg - 
+    : uses - 
+    : uses - 
+   f_Size - Поле для свойства Size
+  TatFileInitializer : SimpleClass - 
+   FileName : readonly - 
+   Handle : readonly - 
+   f_GuardFile - 
+   Stream : readonly - 
+   DupHandle - 
+   TryInit - 
+   FinishInit : chg - 
+   Create : ctor - 
+    : uses - 
+   f_FileName - Поле для свойства FileName
+   f_Handle - Поле для свойства Handle
+   f_Stream - Поле для свойства Stream
+  TatStringsFromFile : SimpleClass - 
+   SFFHeader : Struct - 
+   PSFFHeader : Typedef - 
+   f_PIndex - 
+   f_DataFileName - 
+   Count : readonly - 
+   f_PData - 
+   f_PFileHeader - 
+   f_StringFile - 
+   f_DataFile - 
+   f_DataFileMapping - 
+   Strings : readonly - 
+   SetPointers : chg - 
+   CloseDataFile : chg - 
+   InitDataFile : chg - 
+   Create : ctor - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatStringProvider : SimpleClass - 
+   Random : property - 
+   Looped : property - 
+   AcquireNext : chg - 
+   Reset : chg - 
+   f_Random - Поле для свойства Random
+   f_Looped - Поле для свойства Looped
+  TatStringFileReader : SimpleClass - 
+   f_StringsUsage - 
+   f_Strings - 
+   Create : vctor - 
+    : uses - 
+  TatSyncedStringFileReader : SimpleClass - 
+   f_LockFile - 
+   f_SyncFile - 
+   Create : vctor - 
+    : uses - 
+  TatConstStringProvider : SimpleClass - 
+   f_Acquired - 
+   f_String - 
+   Create : vctor - 
+  SecondType : ImpurityParamType - 
+  atConverter : Impurity - 
+   Synonyms : Struct - 
+   ConvertMap : Vector - 
+   EConvertError : Exception - 
+   array of Synonyms : Vector - 
+   f_ConvertMap - 
+    : impurity param - 
+    : impurity param - 
+   FirstToSecond - 
+   SecondToFirst - 
+   InitConvertMap : chg - 
+   Error1st - 
+   Error2nd - 
+   Create : ctor - 
+   InitConvertMap : chg - 
+    : uses - 
+  MatConverter : MixInMirror - 
+  atStringConverterImp : Impurity - 
+   ToValue - 
+   ToName - 
+   ToValueCI - 
+    : uses - 
+  atEnumToEnumConverter : Impurity - 
+   FirstToSecond - 
+   SecondToFirst - 
+  TatStringToStringConverterBase : SimpleClass - 
+   FirstType : impurity value - 
+   SecondType : impurity value - 
+   FirstToSecondCI - 
+   SecondToFirstCI - 
+  BitMaskType : ImpurityParamType - 
+  BitMaskValueType : ImpurityParamType - 
+  atBitMaskConverter : Impurity - 
+   array of _BitMaskValueType_ : Vector - 
+   TBitMaskValues : Typedef - 
+   SecondType : impurity value - 
+   FirstType : impurity value - 
+   ToValues - 
+   ToMask - 
+  atStringConverter : Impurity - 
+   FirstType : impurity value - 
+  TatStringToBitMaskConverterBase : SimpleClass - 
+   BitMaskValueType : impurity value - 
+   BitMaskType : impurity value - 
+   ToMaskCI - 
+   ToValues - 
+  atEnumConverter : Impurity - 
+    : impurity param - 
+   SecondType : impurity value - 
+   ToName - 
+ Common : Unit - 
+  atCommon : UtilityPack - 
+   GetRandomStr - 
+   GetTimeStamp - 
+   Less - 
+   ReadStream - 
+    : uses - 
+  atCRC32 : UtilityPack - Расчет контрольной суммы CRC32
+   array of Longword : Vector - 
+   CRC32Table - 
+   Init : ini - 
+   InitCRC32Table - 
+   ComputeCRC32 - 
+   UpdateCRC32 - 
+ EvdHelpers : Unit - 
+  TatBaseEvdHelper : SimpleClass - 
+   Generate : chg - 
+   DoGenerate : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatUserComment : SimpleClass - 
+   IatUserComment : Facet - 
+   f_CommentText - 
+   Make : factory - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatChatMessage : SimpleClass - 
+   IatChatMessage : Facet - 
+   f_ChatMessage - 
+   Make : factory - 
+    : uses - 
+    : uses - 
+ InteropWithL3 : Unit - 
+  TatWordOrderConverter : SimpleClass - 
+   FirstType : impurity value - 
+   SecondType : impurity value - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatWordPositionConverter : SimpleClass - 
+   FirstType : impurity value - 
+   SecondType : impurity value - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatTreeLevelConverter : SimpleClass - 
+   FirstType : impurity value - 
+   SecondType : impurity value - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+ AdapterHelpers : Unit - 
+  TatNodeHelper : SimpleClass - 
+   TatNodeCallBackProcOfObj : Function - 
+   TatNodeCallbacks : SimpleClass - 
+   TatNodeMatchFuncOfObj : Function - 
+   TatNodeMatchFuncs : SimpleClass - 
+   array of Variant : Vector - 
+   TatTreeTagConverter : SimpleClass - конвертация между адаптерныи именем дерева  и тем как оно пишется в логе сервера
+   LoadNodesPriv : static - 
+   LoadNodesThrough : static - 
+   GetCaption : static - 
+   LoadNodes : static - 
+   FindNodeByPath : static - 
+   CountNodes : static - 
+   FindNode : static - 
+   GetCaption : static - 
+   GetCaption : static - 
+   FindNodeByPath : static - 
+   GetPath : static - Возвращает текстовый путь (по Caption'ам) к ноде
+   GetNext : static - 
+    : uses - 
+    : uses - 
+  TatFoldersHelper : SimpleClass - 
+   IatFoldersNodeMatcher : Facet - 
+   TatFolderNodeMatcherBase : SimpleClass - 
+   TatAnyMatcher : SimpleClass - 
+   TatMatchMethod : Enum - Как выполняем проверку "а эту ли закладку нам нужно удалять"
+   IatNameMatcher : Facet - 
+   TatNameMatcher : SimpleClass - 
+   TatFolderMatcher : SimpleClass - 
+   TatBookmarkMatcher : SimpleClass - 
+   TatListMatcher : SimpleClass - 
+   IatFoldersNodeCallback : Facet - 
+   TatQueryMatcher : SimpleClass - 
+   GetMyDocuments : static - 
+   IterateAllChildFoldersNode : static - Проходит по элементам в папках. Соответствует ли элемент - определяется путем вызова метода IsMatch на IatFoldersNodeMatcher.
+Возвращает количество просмотренных элементов.
+   AddToMyDocuments : static - 
+   CreateFolder : static - Добавляет к указанной ноде дочернюю папку.
+   AddToFolder : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  EntityInterface : ImpurityParamType - 
+  TatChatWorker : SimpleClass - 
+   TatChatConversation : SimpleClass - 
+   TatChatListenerFireFunction : Function - 
+   IatChatListener : Facet - 
+   TatChatListener : SimpleClass - 
+   ConversationsCount : readonly - 
+   UIDsWithUnreadedMessages : readonly - 
+   ChatManager : readonly - 
+   ConversationByIndex : readonly - 
+   f_Conversations - 
+   f_ChatListener - 
+   ConversationByUID : readonly - 
+   f_UidsWithUnreadedMessages - 
+   f_UWUMCS - 
+   f_NotifyCS - 
+   Create : ctor - 
+   StartConversation : chg - 
+   FinishConversation : chg - 
+   OnChatNotification : chg - 
+   GetContactListUIDs - 
+   AddUser : chg - 
+   DeleteUser : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_ChatManager - Поле для свойства ChatManager
+  TatStringHelper : SimpleClass - 
+   AStr2DStr : static - 
+   DStr2AStr : static - 
+    : uses - 
+    : uses - 
+  atEntity : Impurity - 
+    : impurity param - 
+   Entity : readonly - 
+   IsItMe : static - 
+   Create : vctor - 
+   Create : vctor - 
+   Create : vctor - 
+    : uses - 
+    : uses - 
+   f_Entity - Поле для свойства Entity
+  atEntityWithName : Impurity - 
+   Name : readonly - 
+  TatQuery : SimpleClass - Вспомогательная обертка для Query
+   NodeNames : Constants - 
+   AttributeNames : Constants - 
+   Constants : Constants - 
+   Query : readonly - 
+   QueryType : readonly - 
+   Empty : readonly - 
+   EntityInterface : impurity value - 
+   CreateByType : vctor - 
+   ClearAttribute : chg - 
+   SaveNodeAttribute : chg - 
+   SaveContextAttribute : chg - 
+   SavePhoneAttribute : chg - 
+   SaveDateAttribute : chg - 
+   CreateFromXML : vctor - 
+   ExportAsXML : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  GblAdapter : UtilityPack - Заглушка, чтобы можно было делать uses к обвязке для dll
+   IGblAdapterDll : Facet - 
+  atGblAdapterWorker : UtilityPack - 
+   TatNotifierFacade : SimpleClass - 
+   TatLoggedAs : Enum - 
+   TatGblAdapterWorker : SimpleClass - 
+   UserName : Constants - 
+   TatControlledChangeNotifier : SimpleClass - 
+   gbl_AdapterWorkerInstance - 
+   Fini : fini - 
+   Ini : ini - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatUserListHelper : SimpleClass - 
+   TatArrayOfUID : Vector - 
+   TatBaseNB2AoUHlpr : SimpleClass - 
+   TatNB2AoUHlpr : SimpleClass - 
+   TatNB2AoUByNameHlpr : SimpleClass - 
+   UserTree2TatArrayOfUID : static - 
+   GetFilteredUserTree : static - 
+   GetAdapterTestUIDs : static - 
+   GetOnlyAdapterTestUIDs : static - 
+   GetMyUID : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatUserJournalHelper : SimpleClass - 
+   TatJournalBookmark : SimpleClass - 
+   AddBookmark : static - 
+   AddQuery : static - 
+   Clear : static - 
+   ReadAll : static - 
+   ReadHistory : static - 
+   ReadJournalNode : static - 
+   ReadJournalBookmark : static - 
+   ReadJournalQuery : static - 
+   UserJournal : static - 
+   GetElements : static - 
+   GetQueryHistory : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatDocumentHelper : SimpleClass - 
+   TatDTPIterator : SimpleClass - 
+   TatDTPParaIterator : SimpleClass - 
+   array of TEntryPoint : Vector - 
+   TEntryPointArr : Typedef - 
+   array of TParaID : Vector - 
+   TParaIDArr : Typedef - 
+   TatDocReader : SimpleClass - 
+   TatBookmark : SimpleClass - 
+   GetParaIDArray : static - 
+   IsParaType : static - 
+   GetParaEPArray : static - 
+   ReadPara : static - 
+   FindPara : static - 
+   ReadChildBookmarks : static - 
+   ReadChildComment : static - 
+   GetEPByNIP : static - 
+   ReadParaText : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatListHelper : SimpleClass - 
+   SortOrderNames : Constants - 
+   SortTypeNames : Constants - 
+   TatList : SimpleClass - 
+   ST2Str : static - 
+   Str2ST : static - 
+   SO2Str : static - 
+   Str2SO : static - 
+   IsCanBeSortedBy : static - 
+   LoadList : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatQueryTypeConverter : SimpleClass - 
+   EnumType : impurity value - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatQueryLogicOperationConverter : SimpleClass - 
+   EnumType : impurity value - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatNonATQueryLogicOperationConverter : SimpleClass - 
+   SecondType : impurity value - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatSettingsHelper : SimpleClass - 
+   TatTreeTagToSettingIDConverter : SimpleClass - конвертация между идентификатором адаптерного дерева и названием настройки в которой сохранены параметры контекстного фильтра для этого дерева (в оболочке Настройка конфигурации/Контекстная фильтрация)
+   GetContextFilterParamsFromSettings : static - 
+   GetContextFilterParamsByTreeTag : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatFilterHelper : SimpleClass - 
+   ContextFilterParams : Struct - 
+   Consts : Constants - 
+   TatContextFilter : SimpleClass - 
+    : uses - 
+    : uses - 
+  TatControlStatusConverter : SimpleClass - 
+    : uses - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatListEntryInfo : SimpleClass - 
+   EntityInterface : impurity value - 
+   Document : readonly - 
+   PID : readonly - 
+  TatNewConsultation : SimpleClass - Работа с новой консультацией
+   f_Query - 
+   UserName : property - 
+   CityCode : property - 
+   PhoneNumber : property - 
+   QuestionText : property - 
+   EMail : property - 
+   Create : ctor - 
+   Send : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_UserName - Поле для свойства UserName
+   f_CityCode - Поле для свойства CityCode
+   f_PhoneNumber - Поле для свойства PhoneNumber
+   f_QuestionText - Поле для свойства QuestionText
+   f_EMail - Поле для свойства EMail
+  TatListNodeTypeConverter : SimpleClass - 
+   EnumType : impurity value - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatPositionTypeConverter : SimpleClass - 
+   EnumType : impurity value - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatComparableList : SimpleClass - 
+   TatListElement : SimpleClass - 
+   TatElementsList : SimpleClass - 
+   f_Elements - 
+   Create : ctor - 
+   Create : ctor - 
+   Create : ctor - 
+   IsEqual - 
+   SaveToFile - 
+   OnListNode : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+ OperationsFramework : Unit - 
+  HistoryStoredObject : ImpurityParamType - 
+  atObjectHistory : Impurity - 
+   HistoryLength : property - 
+   InterfaceListElement : impurity value - 
+    : impurity param - 
+   Current : readonly - 
+   AddToHistory : chg - 
+   TrimHistory : chg - 
+   f_HistoryLength - Поле для свойства HistoryLength
+  TatOperationParameter : SimpleClass - 
+   IsRequired : readonly - 
+    : uses - 
+    : uses - 
+  TatOperationParametersList : SimpleClass - 
+   NamedParameter : impurity value - 
+  TatDocumentHistory : SimpleClass - 
+   HistoryStoredObject : impurity value - 
+  TatListHistory : SimpleClass - 
+   HistoryStoredObject : impurity value - 
+  TatUserWorkContext : SimpleClass - 
+   DocHistoryLength : property - 
+   ListHistoryLength : property - 
+   CurrDoc : readonly - Текущий (последний в истории) документ. Например, операция открытия документа его устанавливает. Сюда мы устанавливаем закладку, добавляем комментарии и вообще когда нам понадобится документ мы его берем отсюда.
+   CurrList : readonly - Текущий (последний в истории) список. Если какая-то операция получает список, то она его ложит сюда, чтобы те операции которым нужен список пользовались.
+   f_DocumentHistory - 
+   f_ListHistory - 
+   CurrFolder : property - Текущая папка. Например, операция создания папки будет ее устанавливать, а операция сохранения закладки сможет туда сохранить закладку.
+   Create : ctor - 
+   AddDocToHistory - 
+   Clear - 
+   AddListToHistory : chg - 
+    : uses - 
+   f_CurrFolder - Поле для свойства CurrFolder
+  TatExecutionContext : SimpleClass - 
+   TatLoginData : Struct - 
+   MinDelay : property - 
+   MaxDelay : property - 
+   UserWorkContext : readonly - Рабочий контекст пользователя. Текущие документ, список, папка и т.п. вещи.
+   F_LoginData - 
+   GblAdapterWorker : readonly - 
+   Create : ctor - 
+    : uses - 
+   f_MinDelay - Поле для свойства MinDelay
+   f_MaxDelay - Поле для свойства MaxDelay
+   f_UserWorkContext - Поле для свойства UserWorkContext
+  TatOperationEnv : SimpleClass - 
+   EnvVarNames : Constants - 
+   EnvVar : property - 
+   f_VarList - 
+   ExpandString - 
+   Create : ctor - 
+    : uses - 
+    : uses - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TatScenario : SimpleClass - 
+   f_IsAlwaysRun - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  atOperationFactory : UtilityPack - 
+   TatOperationFactory : SimpleClass - 
+   TatClassContainer : SimpleClass - 
+   OperationFactory - 
+   Ini : ini - 
+   Fini : fini - 
+  atOperationBase : UtilityPack - 
+   TatOperationBase : SimpleClass - 
+   TatOperationsList : SimpleClass - 
+   CTatOperationBase : Typedef - 
+  TatXMLScenarioGenerator : SimpleClass - 
+   EInvalidXMLScenario : Exception - 
+   f_Scenario - 
+   FillScenario : chg - 
+   FillOperationParameters : chg - 
+   ParseXMLDoc : chg - 
+   ParseOperationNode : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatScenarioPlayer : SimpleClass - 
+   f_Scenario - 
+   F_ExecutionContext - 
+   Create : ctor - 
+   Execute - 
+    : uses - 
+ SearchHelpers : Unit - 
+  atQueryExecutor : UtilityPack - 
+   TatQueryExecutor : SimpleClass - 
+   IatProgressIndicator : Facet - 
+   TatProgressIndicator : SimpleClass - Класс, реализующий интерфейс IQueryexecuteProgressIndicator. Для передачи в метод Query:Execute
+  TatSearchHelperBase : SimpleClass - 
+   f_Query - 
+   f_Search - 
+   Create : vctor - 
+   Execute - Выполняет поиск.
+Возвращает true если результат поиска содержит хотя бы один документ.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatSearchHelper : SimpleClass - 
+   List : readonly - 
+   Create : vctor - 
+   ExecuteAndBuildList - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_List - Поле для свойства List
+  TatBaseSearchHelper : SimpleClass - Класс, для проведения базового поиска
+   EUnknownInfoKind : Exception - 
+   Context : property - Контекст, который будем искать
+   InfoKind : property - Тип информации, которую будем искать
+   InvalidWords : readonly - Строка со словами из запроса, которые нельзя использовать
+   CorrectedContext : readonly - Скорректированный контекст
+   IsShortList : property - 
+   CheckContext : chg - проверяет контекст на валидность
+   Create : vctor - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_Context - Поле для свойства Context
+   f_InfoKind - Поле для свойства InfoKind
+   f_InvalidWords - Поле для свойства InvalidWords
+   f_CorrectedContext - Поле для свойства CorrectedContext
+   f_IsShortList - Поле для свойства IsShortList
+ Operations : Unit - 
+  TatLoginOperation : SimpleClass - 
+    : uses - 
+  TatLogoutOperation : SimpleClass - 
+  TatGuestLoginOperation : SimpleClass - 
+    : uses - 
+  TatSleepOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+  TatLoadDocumentsByIDFromListOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatSetBookmarkOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatDeleteCommentOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  MatOperationBase : MixInMirror - 
+  FoldersNodeMatcher : ImpurityParamType - 
+  TatSetCommentOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatCreateFoldersOperation : SimpleClass - Создает папки.
+   f_TotalFoldersAdded - Столько папок всего уже создано.
+   f_MaxFoldersCount - Столько всего надо создать папок
+   f_NamePrefix - 
+   CreateAsNTree : chg - Создает дерево папок - в корне создает aN папок, в каждой папке еще aN и т.д., пока в общей сложности не создастся aMaxFoldersCount папок.
+Если хотим все папки на одном уровне, то, очевидно, надо чтобы aN >= aMaxFoldersCount.
+   FolderHasBeenAdded : chg - Метод вызывается при добавлении папки.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  atProcessFoldersObjectOperation : Impurity - 
+   f_Matcher - 
+   f_ProcessedObjects - 
+    : impurity param - 
+   InitMatcher - 
+    : uses - 
+    : uses - 
+    : uses - 
+  atProcessNamedFoldersObjectOperation : Impurity - 
+  atDeleteFoldersObjectAddon : Impurity - 
+  TatSaveListToFolderOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatDeleteBookmarkOperation : SimpleClass - 
+   FoldersNodeMatcher : impurity value - 
+  TatDeleteAllOperation : SimpleClass - 
+   FoldersNodeMatcher : impurity value - 
+  TatDeleteListOperation : SimpleClass - 
+   FoldersNodeMatcher : impurity value - 
+  TatOpenDocumentsFromListOperation : SimpleClass - Открывает документы из списка документов
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatCycleOperation : SimpleClass - Пустая операция. Нужна чтобы циклически исполнять вложенные операции.
+  TatAbortOperation : SimpleClass - Немедленное прерывание работы теста
+    : uses - 
+  TatOpenRedactionsOperation : SimpleClass - 
+   f_LoadDocumentByIDFromListOperation - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatSynchroPointOperation : SimpleClass - 
+   f_SynchroPoint - 
+    : uses - 
+    : uses - 
+  TatGetCRListFromDocumentOperation : SimpleClass - Получает у текущего документа список корреспондентов/респондентов заданной типизации
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatSortListOperation : SimpleClass - Сортирует текущий список документов
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatSemaphoreOperation : SimpleClass - Обеспечивает выполнение вложенных операций одновременно не более чем заданному количеству клиентов
+    : uses - 
+    : uses - 
+    : uses - 
+  TatPauseOperation : SimpleClass - Приостанавливает выполнение до нажатия пользователем Enter
+    : uses - 
+  TatSendConsultationOperation : SimpleClass - Создает и посылает новую консультацию
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  atOperationImpl : UtilityPack - Регистрирует в фабрике операции.
+   Ini : ini - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatTestChatOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatOpenListByRubricatorOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatCompareRedactionsOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatIterateUserJournalOperation : SimpleClass - 
+   OnQuery : chg - 
+   OnBookmark : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatClearUserJournalOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+  TatDeleteFoldersOperation : SimpleClass - 
+   FoldersNodeMatcher : impurity value - 
+  ObjectType : ImpurityParamType - 
+  atOpenFoldersObjectAddon : Impurity - 
+   ParametersNames : Constants - 
+   f_IsEmulateOpening - 
+    : impurity param - 
+   OnFoldersObject : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatOpenSavedBookmarkOperation : SimpleClass - 
+   FoldersNodeMatcher : impurity value - 
+   ObjectType : impurity value - 
+    : uses - 
+    : uses - 
+    : uses - 
+  atHasStringParamAddOn : Impurity - 
+   f_Strings - 
+   OnString : chg - 
+   InitStringList : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatOpenSavedListOperation : SimpleClass - 
+   FoldersNodeMatcher : impurity value - 
+   ObjectType : impurity value - 
+    : uses - 
+  atExecutesQueryAddOn : Impurity - 
+   ExecuteQuery : chg - 
+   ExecuteQuery : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatLoginFromListOperation : SimpleClass - 
+   f_LockFile - 
+   f_IsLoop - 
+   f_UsedFN - 
+   f_FreeFN - 
+   f_LPStr - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatExecuteUserJournalOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  atSaveQueryToXMLAddon : Impurity - 
+   f_FilePathPrefix - 
+   SaveQuery : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatSaveJournalQueryToXMLOperation : SimpleClass - 
+  TatSaveFoldersQueryToXMLOperation : SimpleClass - 
+   FoldersNodeMatcher : impurity value - 
+   ObjectType : impurity value - 
+  atIterateThroughFilesAddOn : Impurity - 
+   f_FileList - 
+   InitFileList : chg - 
+   OnFile : chg - 
+   IterateThroughFiles : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatAddLastQueryToJournalOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatExecuteQueryFromXMLOperation : SimpleClass - 
+   f_IsIgnoreImportErrors - 
+   f_IsCallChildsOnEmptyResult - 
+   f_ImportErrors - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatExecuteSavedQueryOperation : SimpleClass - 
+   FoldersNodeMatcher : impurity value - 
+   ObjectType : impurity value - 
+    : uses - 
+    : uses - 
+  TatBaseSearchOperation : SimpleClass - 
+   f_SearchNumber - 
+   f_BaseSearchHelper - 
+    : uses - 
+    : uses - 
+  TatFiltrateTreeOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatDumpTreeOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatContextSearchInDocumentOperation : SimpleClass - 
+   f_IsLogFoundContexts - 
+   f_DTP - 
+   f_StartParas - 
+   f_ParasText - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatDocumentUnderControlOperation : SimpleClass - 
+   OpType : Enum - 
+   TatOpTypeConverter : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatIterateDocumentsUnderControlOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatJurQueryTestOperation : SimpleClass - 
+   f_ImportErrors - 
+   f_Errors - 
+   f_ResultsDir - 
+   f_IsInternalNumbers - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatSaveListToFileOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TatCompareSavedListOperation : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Runner : Unit - 
+  TatAdapterTestCommandLine : SimpleClass - Для  разбора командной строки тестов
+   CLP : Constants - 
+    : uses - 
+  TatAdapterTest : SimpleClass - Класс, через который пускается приложение
+   ECantCreateScenario : Exception - 
+   f_UserName - имя пользователя
+   f_Password - пароль пользователя
+   f_CommandLine - 
+   f_Scenario - выполняемый сценарий (последовательность операций)
+   Init : chg - 
+   CreateScenario : chg - 
+   PlayScenario : chg - 
+   Start : chg - 
+   Create : ctor - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+AdapterTest$Target : ExeTarget - Консольные тесты адаптера
+ TRunner : SimpleClass - 
+  Run : method - 
+   DoIt - 
+   : uses - 
+   : uses - 
+   : uses - 
+   : uses - 

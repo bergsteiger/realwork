@@ -1,0 +1,826 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ContainersLibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/RandomAccess/ContainersLibSupport|49CB8EA30281
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"49CB8EA30281"
+    documentation 	"ContainersLibSupport"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49CB8EF102B0"
+	    supplier   	"Logical View::TestRandomAccess::RandomAccess::Containers"
+	    quidu      	"49CB8C6000D9")
+	(object Visibility_Relationship
+	    quid       	"49CCB7EF009E"
+	    supplier   	"Logical View::shared::GCL::math"
+	    quidu      	"45018D5E036B")
+	(object Visibility_Relationship
+	    quid       	"49D0B09D03A4"
+	    supplier   	"Logical View::shared::GCI::ResourceInfo"
+	    quidu      	"49990AA703BF"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "EntryPoint"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"W:/labs/TestRandomAccess/RandomAccess/EntryPoint.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/RandomAccess/ContainersLibSupport/EntryPoint|49CB8ED403B8
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"W:/labs/TestRandomAccess/RandomAccess/EntryPoint.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8ED403B8*"
+		    value      	(value Text 
+|//#UC START# *49CB8ED403B8*¤		LOG_D (("Hello world, this is EntryPoint!"));¤		test_as_in_settings ();¤		//#UC END# *49CB8ED403B8*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8ED403B8_FINI*"
+		    value      	(value Text 
+|//#UC START# *49CB8ED403B8_FINI*¤	//#UC END# *49CB8ED403B8_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8ED403B8_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *49CB8ED403B8_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *49CB8ED403B8_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8ED403B8_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *49CB8ED403B8_CUSTOM_INCLUDES*¤#include "shared/Core/GDS/StopWatch.h"¤#include "shared/GCI/MMap/MMap.h"¤//#UC END# *49CB8ED403B8_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8ED403B8_CUSTOM_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8ED403B8_CUSTOM_BODY*¤const unsigned long MAX_ELEM_SIZE = 65536;¤¤typedef Containers::Offset64 (*FuncOffset) (unsigned long i, unsigned long n);¤¤void test_set_value (Containers::Vector* vec, FuncOffset fo, unsigned long vec_sz, unsigned long elem_sz) {¤	LOG_I (("%s (): vec_sz = %u, elem_sz = %u", GDS_CURRENT_FUNCTION, vec_sz, elem_sz));¤	GDS_ASSERT (elem_sz <= MAX_ELEM_SIZE);¤	::Core::GDS::HiResCounter timer;¤	double sec1 = timer.get_seconds ();¤	char buf [MAX_ELEM_SIZE];¤	std::string fkey = TestSettings::get_factory_key ();¤	std::string::size_type fkey_size = fkey.size ();¤	GDS_ASSERT (fkey_size > 0);¤	for (unsigned long i = 0; i < vec_sz; ++i) {¤		if ((i % (vec_sz / 100)) == 0) {¤			LOG_I (("%s (): i = %u", GDS_CURRENT_FUNCTION, i));¤		}¤		for (unsigned long j = 0; j < elem_sz; ++j) {¤			buf [j] = (char) GCL::long_rand (256) ^ fkey [j % fkey_size];¤		}¤		vec->set_value (fo (i, vec_sz), buf);¤	}¤	double sec2 = timer.get_seconds ();¤	LOG_I (("%s (): vec_sz = %d elems, elem_sz = %Q bytes, duration = %6.6f sec, throughput = %6.6f elem/sec", GDS_CURRENT_FUNCTION, vec_sz, vec->get_element_size (), sec2-sec1, double (vec_sz)/(sec2-sec1)));¤}¤¤void test_get_value (Containers::Vector* vec, FuncOffset fo, unsigned long vec_sz, unsigned long elem_sz) {¤	LOG_I (("%s (): vec_sz = %u, elem_sz = %u", GDS_CURRENT_FUNCTION, vec_sz, elem_sz));¤	unsigned long load_count = TestSettings::get_load_size();¤	LOG_I (("%s (): load_count = %u", GDS_CURRENT_FUNCTION, load_count));¤	GDS_ASSERT (elem_sz <= MAX_ELEM_SIZE);¤	::Core::GDS::HiResCounter timer;¤	double sec1 = timer.get_seconds ();¤	char buf [MAX_ELEM_SIZE];¤	std::string fkey = TestSettings::get_factory_key ();¤	std::string::size_type fkey_size = fkey.size ();¤	GDS_ASSERT (fkey_size > 0);¤	for (unsigned long i = 0; i < load_count; ++i) {¤		if ((i % (load_count / 100)) == 0) {¤			LOG_I (("%s (): i = %u", GDS_CURRENT_FUNCTION, i));¤		}¤		for (unsigned long j = 0; j < elem_sz; ++j) {¤			buf [j] = (char) GCL::long_rand (256) ^ fkey [j % fkey_size];¤		}¤		vec->get_value (fo (i, vec_sz), buf);¤	}¤	double sec2 = timer.get_seconds ();¤	LOG_I (("%s (): vec_sz = %d elems, elem_sz = %Q bytes, duration = %6.6f sec, throughput = %6.6f elem/sec", GDS_CURRENT_FUNCTION, vec_sz, vec->get_element_size (), sec2-sec1, double (load_count)/(sec2-sec1)));¤}¤¤Containers::Offset64 seq_offset (unsigned long i, unsigned long n) {¤	GDS_ASSERT (i < n);¤	return (Containers::Offset64) i;¤}¤¤¤Containers::Offset64 rnd_offset (unsigned long i, unsigned long n) {¤	ACE_UINT64 val = ::GCL::long_rand ((ACE_UINT64) n);¤	GDS_ASSERT (val < n);¤	return (Containers::Offset64) val;¤}¤¤static ACE_UINT64 val3 = 0;¤static unsigned long val3cnt = 0;¤static unsigned long VAL3PERIOD = 100000;¤static std::vector <unsigned long> vec3;¤¤Containers::Offset64 rnd_offset3 (unsigned long i, unsigned long n) {¤	if ((val3cnt % VAL3PERIOD) == 0) {¤		val3cnt = 0;¤		vec3.clear ();¤		for (unsigned long k = 0; k < VAL3PERIOD; ++k) {¤			ACE_UINT64 val3 = ::GCL::long_rand ((ACE_UINT64) n);¤			GDS_ASSERT (val3 < n);¤			vec3.push_back ((unsigned long) val3);¤		}¤		std::sort (vec3.begin (), vec3.end ());¤	}¤	Containers::Offset64 result = (Containers::Offset64) vec3 [val3cnt];¤	++val3cnt;¤	return result;¤}¤¤Containers::Offset64 rnd_offset_sparse64 (unsigned long i, unsigned long n) {¤	ACE_UINT64 val = ::GCL::long_rand ((ACE_UINT64) -1);¤	//if ((i % 1000) == 0) {¤	//	LOG_I (("%s (): i = %u, val = %Q", GDS_CURRENT_FUNCTION, i, val));¤	//}¤	return (Containers::Offset64) val;¤}¤¤/*¤static size_t* my_permutation_buffer = 0;¤¤void init_my_permutation_buffer (unsigned long n) {¤	my_permutation_buffer = new size_t [n];¤	for (unsigned long i = 0; i < n; ++i) {¤		my_permutation_buffer [i] = i;¤	}¤	for (unsigned long i = 0; i < 10*n; ++i) {¤		unsigned long rnd_pos = (unsigned long) ::GCL::long_rand (n);¤		size_t tmp = my_permutation_buffer [0];¤		my_permutation_buffer [0] = my_permutation_buffer [rnd_pos];¤		my_permutation_buffer [rnd_pos] = tmp;¤	}¤}¤¤void fini_my_permutation_buffer () {¤	delete [] my_permutation_buffer;¤	my_permutation_buffer = 0;¤}¤¤¤Containers::Offset64 rnd_offset (unsigned long i, unsigned long n) {¤	GDS_ASSERT (i < n);¤	size_t val = my_permutation_buffer [i] + 1;¤	if ((val + 1) >= n) {¤		return 1;¤	}¤	return (Containers::Offset64) val;¤}¤*/¤¤void test_create_sequential (const char* file_name, unsigned long vec_sz, unsigned long elem_sz, const char* key) {¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	Containers::Vector_var vec = Containers::VectorFactory::create (file_name, vec_sz, elem_sz, key);¤	test_set_value (vec.inout (), seq_offset, vec_sz, elem_sz);¤}¤¤void test_create_random (const char* file_name, unsigned long vec_sz, unsigned long elem_sz, const char* key) {¤	/*¤	for (unsigned long i = 0; i < 1000; ++i) {¤		LOG_I (("i = %u, rnd_offset3 = %Q", i, (ACE_UINT64) rnd_offset3 (i, 1000000)));¤	}¤	return;¤	*/¤	std::string rnd_seq = TestSettings::get_rnd_seq ();¤	unsigned long rnd_seq_period = TestSettings::get_rnd_seq_period ();¤	LOG_I (("%s (rnd_seq = %s): rnd_seq_period = %u", GDS_CURRENT_FUNCTION, rnd_seq.c_str (), rnd_seq_period));¤	VAL3PERIOD = rnd_seq_period;¤	Containers::Offset64 vec_sz_64 = vec_sz;¤	Containers::Vector_var vec = Containers::VectorFactory::create (file_name, vec_sz_64, elem_sz, key);¤	if (rnd_seq == "rnd_offset3") {¤		LOG_I (("%s (): usning rnd_offset3", GDS_CURRENT_FUNCTION));¤		test_set_value (vec.inout (), rnd_offset3, vec_sz, elem_sz);¤	} else {¤		LOG_I (("%s (): usning rnd_offset, rnd_seq_period not used", GDS_CURRENT_FUNCTION));¤		test_set_value (vec.inout (), rnd_offset, vec_sz, elem_sz);¤	}¤	//fini_my_permutation_buffer ();¤}¤¤void test_create_random_sparse64 (const char* file_name, unsigned long vec_sz, unsigned long elem_sz, const char* key) {¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	Containers::Offset64 vec_sz_64 = vec_sz;¤	Containers::Vector_var vec = Containers::VectorFactory::create (file_name, vec_sz_64, elem_sz, key);¤	//LOG_I (("%s (): init_my_permutation_buffer ()", GDS_CURRENT_FUNCTION));¤	//init_my_permutation_buffer (vec_sz);¤	//LOG_I (("done."));¤	test_set_value (vec.inout (), rnd_offset_sparse64, vec_sz, elem_sz);¤	//fini_my_permutation_buffer ();¤}¤¤void test_update_random (const char* file_name, unsigned long vec_sz, unsigned long elem_sz, const char* key) {¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	Containers::Offset64 vec_sz_64 = vec_sz;¤	Containers::Vector_var vec = Containers::VectorFactory::open (file_name, vec_sz_64, elem_sz, key);¤	LOG_I (("%s (): init_my_permutation_buffer ()", GDS_CURRENT_FUNCTION));¤	//init_my_permutation_buffer (vec_sz);¤	LOG_I (("done."));¤	test_set_value (vec.inout (), rnd_offset, vec_sz, elem_sz);¤	//fini_my_permutation_buffer ();¤}¤¤void test_load_random (const char* file_name, unsigned long vec_sz, unsigned long elem_sz, const char* key) {¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	Containers::Offset64 vec_sz_64 = vec_sz;¤	Containers::Vector_var vec = Containers::VectorFactory::open (file_name, vec_sz_64, elem_sz, key);¤	LOG_I (("%s (): init_my_permutation_buffer ()", GDS_CURRENT_FUNCTION));¤	//init_my_permutation_buffer (vec_sz);¤	LOG_I (("done."));¤	test_get_value (vec.inout (), rnd_offset, vec_sz, elem_sz);¤	//fini_my_permutation_buffer ();¤}¤¤void test_as_in_settings () {¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	std::string settings_file_name = TestSettings::get_file_name ();¤	unsigned long settings_vector_size = TestSettings::get_vector_size ();¤	unsigned long settings_element_size = TestSettings::get_element_size ();¤	unsigned long settings_test = TestSettings::get_test ();¤	std::string settings_key = TestSettings::get_factory_key ();¤¤	GDS_ASSERT (settings_element_size <= MAX_ELEM_SIZE);¤¤	switch (settings_test) {¤		case 0: test_create_sequential (settings_file_name.c_str (), settings_vector_size, settings_element_size, settings_key.c_str ()); break;¤		case 1: test_create_random (settings_file_name.c_str (), settings_vector_size, settings_element_size, settings_key.c_str ()); break;¤		case 2: test_load_random (settings_file_name.c_str (), settings_vector_size, settings_element_size, settings_key.c_str ()); break;¤		case 3: test_update_random (settings_file_name.c_str (), settings_vector_size, settings_element_size, settings_key.c_str ()); break;¤		case 4: test_create_random_sparse64 (settings_file_name.c_str (), settings_vector_size, settings_element_size, settings_key.c_str ()); break;¤	}¤¤	GCI::ResourceInfo::ProcessMemoryData myinfo = GCI::ResourceInfo::ProcessMemoryInfoFactory::get ().get_memory_info ();¤	LOG_I (("%s (): phys_memory_used = %4.4f Megabytes", GDS_CURRENT_FUNCTION, double (myinfo.max_usage) / 1024.0 / 1024.0));¤}¤//#UC END# *49CB8ED403B8_CUSTOM_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49CB8ED403B8_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *49CB8ED403B8_CUSTOM_INCLUDES*¤//#UC END# *49CB8ED403B8_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49CB8ED403B8*"
+		    value      	"//#UC START# *49CB8ED403B8*¤//#UC END# *49CB8ED403B8*"))
+	    quid       	"49CB8ED403B8"
+	    documentation 	"EntryPoint"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49CB8EFD000D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestRandomAccess::RandomAccess::Containers::Vector"
+		    quidu      	"49CB8C940353")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49CB92C30096"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestRandomAccess::RandomAccess::ContainersLibSupport::TestSettings"
+		    quidu      	"49CB91C80246")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49CCB80E03B7"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCL::math::long_rand"
+		    quidu      	"45018DA0002E")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49D0B0D300EB"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCI::ResourceInfo::ProcessMemoryInfo"
+		    quidu      	"46DBF5D002FD"))
+	    language   	"MDA Generator")
+	(object Class "TestSettings"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"W:/labs/TestRandomAccess/RandomAccess/TestSettings.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"W:/labs/TestRandomAccess/RandomAccess/TestSettings.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/RandomAccess/ContainersLibSupport/TestSettings|49CB91C80246
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49CB91C80246"
+	    documentation 	"TestSettings"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "vector_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"49CB91D903D0"
+		    documentation 	"vector_size"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "element_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"49CB91F702A7"
+		    documentation 	"element_size"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "file_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"49CB920C0340"
+		    documentation 	"file_name"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "test"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"49CB92300326"
+		    documentation 	
+|0 = ïîñëåäîâàòåëüíîå ñîçäàíèå/îáíîâëåíèå
+|1 = ñëó÷àéíîå ñîçäàíèå/îáíîâëåíèå
+|2 = ñëó÷àéíîå ÷òåíèå
+|3 = ñëó÷àéíîå ÷òåíèå read-only
+|
+		    
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "factory_key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"49CCBC2902DC"
+		    documentation 	"êàêàÿ èìïëåìåíòàöèÿ âåêòðà áóäåò èñïîëüçîâàíà - stxxl, mmap èëè åùå ÷òî"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "rnd_seq"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4AD594CF0321"
+		    documentation 	"(ñëó÷àéíàÿ) ïîñëåäîâàòåëüíîñòü äëÿ òåñòà"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    initv      	"rnd_offset3"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "rnd_seq_period"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"4AD595D60321"
+		    documentation 	"ïåðèîä (ñîðòèðîâêè ñëó÷àéíîé) ïîñëåäîâàòåëüíîñòè"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"100000"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "load_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"4B0A7867029F"
+		    documentation 	"Êîëè÷åñòâî çàãðóæàåìûõ ýëåìåíòîâ."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"49CB8ECB0212"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	289
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::TestRandomAccess::RandomAccess::ContainersLibSupport::EntryPoint" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(363, 759)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(204, 729)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"• EntryPoint")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(204, 679)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49CB8ED403B8"
+		    width      	336
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::TestRandomAccess::RandomAccess::Containers::Vector" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1083, 759)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(955, 731)
+			nlines     	1
+			max_width  	256
+			justify    	0
+			label      	"Vector")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(955, 681)
+			anchor     	10
+			nlines     	1
+			max_width  	253
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49CB8C940353"
+		    width      	274
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(738, 715)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49CB8EFD000D"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(531, 759)
+			(945, 759))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::TestRandomAccess::RandomAccess::ContainersLibSupport::TestSettings" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1062, 1185)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(660, 976)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	804
+			justify    	0
+			label      	"• TestSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(660, 926)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	804
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"49CB91C80246"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(660, 1037)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	8
+			max_width  	800
+			justify    	1)
+		    width      	822
+		    height     	542
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(628, 841)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.578412
+			height     	68
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49CB92C30096"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(515, 851)
+			(650, 933))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GCL::math::long_rand" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(363, 1224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(213, 1196)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• long_rand")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(213, 1146)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"45018DA0002E"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(483, 992)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49CCB80E03B7"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(363, 851)
+			(363, 1133))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GCI::ResourceInfo::ProcessMemoryInfo" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(978, 339)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(752, 311)
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"• ProcessMemoryInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(752, 261)
+			anchor     	10
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"46DBF5D002FD"
+		    width      	470
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @12
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @13
+			Parent_View 	@12
+			location   	(603, 513)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.413659
+			height     	67
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49D0B0D300EB"
+		    client     	@1
+		    supplier   	@11
+		    vertices   	(list Points
+			(497, 666)
+			(844, 429))
+		    line_style 	0)))))

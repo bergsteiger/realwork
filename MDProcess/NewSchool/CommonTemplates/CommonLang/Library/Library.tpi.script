@@ -1,0 +1,2968 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Library/Library.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Library::Library
+//
+// Библиотека
+// ---
+// Определяет элемент линковки, содержащий все вложенные типы и интерфесы (разбитые на юниты) и их
+// закрытую реализацию
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Library::Category
+implementation @ <<Library>>
+//? Библиотека
+//? Определяет элемент линковки, содержащий все вложенные типы и интерфесы (разбитые на юниты) и их закрытую реализацию
+//> LibSupport::Category
+//> Views::Category
+//> Impl::Category
+//> ComInterfaces::Category
+//> Interfaces::Category
+//> Unit::Category
+
+//= LibraryGenerator::MDAGenerator
+//= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_library.gif
+//L code_library
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 170,225,245
+//$ l 10,100,195
+//$ f 10,100,195
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+//p gui=tie|rtl|gui|prj ? Тип библиотеки --- tie - библиотека с реализацией на C++, используемая в Delphi rtl - утилитная библиотека gui - библиотека представления prj - библиотека специфичная для проекта
+//p native name:s ? определяет MPC-имя для внешней (native) библиотеки
+//p native lib path:s ? определяет путь где находится внешняя (native) библиотека
+//p native includes path:s ? определяет путь где находится нужно искать дополнительные файлы внешней (native) библиотеки
+//p exec mode=concluded|idle ? определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+//p vendor:s=/Garant ? определяет префикс разработчика
+//p defines:s ? определяет файл с условиями компиляции
+//p is namespace:b=true ? определяет является ли модуль неймспейсом
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Трансформаторы стереотипа
+
+// нужно ли запускать выполенение LibHome
+//%t _need_to_execute
+<<transformator>> need_to_execute OBJECT IN %S
+//#UC START# *47037023006Dfor470361CD0148*
+//c                          {}
+//r {server/stand alone}:    {true}
+//r {both}:                  {true}
+//r {""=""}:                 {false}
+//#UC END# *47037023006Dfor470361CD0148*
+; // need_to_execute
+
+
+
+// нужно ли регистрировать LibHome
+//%t _need_to_reg
+<<transformator>> need_to_reg OBJECT IN %S
+//#UC START# *4703704402DEfor470361CD0148*
+//c           {}
+//r {""=""}:  {true}
+//#UC END# *4703704402DEfor470361CD0148*
+; // need_to_reg
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+ ?inherited
+ if ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '* - явно включает генерацию дополнительных секций Юзер-Кода'
+//	][{"%S{gui}"!="%S{!gui}"}%f_up_prefix(%S) *gui* = *%S{gui}* - Тип библиотеки --- tie - библиотека с реализацией на C++, используемая в Delphi rtl - утилитная библиотека gui - библиотека представления prj - библиотека специфичная для проекта
+ end // if
+ if ( ( %S get_up ( 'gui' ) ) %!= ( %S get_up_def ( 'gui' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *gui* = *'
+  %S get_up ( 'gui' ) '* - Тип библиотеки --- tie - библиотека с реализацией на C++, используемая в Delphi rtl - утилитная библиотека gui - библиотека представления prj - библиотека специфичная для проекта'
+//	][{"%S{native name}"!="%S{!native name}"}%f_up_prefix(%S) *native name* = *%S{native name}* - определяет MPC-имя для внешней (native) библиотеки
+ end // if
+ if ( ( %S get_up ( 'native name' ) ) %!= ( %S get_up_def ( 'native name' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *native name* = *'
+  %S get_up ( 'native name' ) '* - определяет MPC-имя для внешней (native) библиотеки'
+//	][{"%S{native lib path}"!="%S{!native lib path}"}%f_up_prefix(%S) *native lib path* = *%S{native lib path}* - определяет путь где находится внешняя (native) библиотека
+ end // if
+ if ( ( %S get_up ( 'native lib path' ) ) %!= ( %S get_up_def ( 'native lib path' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *native lib path* = *'
+  %S get_up ( 'native lib path' ) '* - определяет путь где находится внешняя (native) библиотека'
+//	][{"%S{native includes path}"!="%S{!native includes path}"}%f_up_prefix(%S) *native includes path* = *%S{native includes path}* - определяет путь где находится нужно искать дополнительные файлы внешней (native) библиотеки
+ end // if
+ if ( ( %S get_up ( 'native includes path' ) ) %!= ( %S get_up_def ( 'native includes path' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *native includes path* = *'
+  %S get_up ( 'native includes path' ) '* - определяет путь где находится нужно искать дополнительные файлы внешней (native) библиотеки'
+//	][{"%S{exec mode}"!="%S{!exec mode}"}%f_up_prefix(%S) *exec mode* = *%S{exec mode}* - определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+ end // if
+ if ( ( %S get_up ( 'exec mode' ) ) %!= ( %S get_up_def ( 'exec mode' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *exec mode* = *'
+  %S get_up ( 'exec mode' ) '* - определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.'
+//	][{"%S{vendor}"!="%S{!vendor}"}%f_up_prefix(%S) *vendor* = *%S{vendor}* - определяет префикс разработчика
+ end // if
+ if ( ( %S get_up ( 'vendor' ) ) %!= ( %S get_up_def ( 'vendor' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *vendor* = *'
+  %S get_up ( 'vendor' ) '* - определяет префикс разработчика'
+//	][{"%S{defines}"!="%S{!defines}"}%f_up_prefix(%S) *defines* = *%S{defines}* - определяет файл с условиями компиляции
+ end // if
+ if ( ( %S get_up ( 'defines' ) ) %!= ( %S get_up_def ( 'defines' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *defines* = *'
+  %S get_up ( 'defines' ) '* - определяет файл с условиями компиляции'
+//	][{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли модуль неймспейсом
+ end // if
+ if ( ( %S get_up ( 'is namespace' ) ) %!= ( %S get_up_def ( 'is namespace' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is namespace* = *'
+  %S get_up ( 'is namespace' ) '* - определяет является ли модуль неймспейсом'
+//	]
+ end // if
+
+// подключает заколовок LibHome
+//%f _include_base_libhome
+; // wiki_up_print
+
+: include_base_libhome OBJECT IN %S
+//#UC START# *47036D3D00ABfor470361CD0148*
+//	[{%X{lid}=cpp}{import ru.garant.shared.Core.Root_i.StdLibHomeBase;}\#include "shared/Core/impl/Root_i/StdLibHomeBase.h"]
+ if ( ( %X get_up ( 'lid' ) ) %== 'cpp' ) then
+ begin
+  '#include "shared/Core/impl/Root_i/StdLibHomeBase.h' 
+ end // if
+ else
+ begin
+  'import ru.garant.shared.Core.Root_i.StdLibHomeBase;' 
+ end // else
+//#UC END# *47036D3D00ABfor470361CD0148*
+; // include_base_libhome
+
+
+// возвращает базовый класс LibHome, от которого должна наследоваться библиотека
+//%f _base_libhome
+: base_libhome OBJECT IN %S
+//#UC START# *47036DD50128for470361CD0148*
+//	[{%X{lid}=cpp}{extends ru.garant.shared.Core.Root_i.StdLibHomeBase}virtual public Core::Root_i::StdLibHomeBase]
+ if ( ( %X get_up ( 'lid' ) ) %== 'cpp' ) then
+ begin
+  'virtual public Core::Root_i::StdLibHomeBase' 
+ end // if
+ else
+ begin
+  'extends ru.garant.shared.Core.Root_i.StdLibHomeBase' 
+ end // else
+//#UC END# *47036DD50128for470361CD0148*
+; // base_libhome
+
+
+// возвращает namespace к LibHome
+//%f _libhome
+: libhome OBJECT IN %S
+//#UC START# *47036E60006Dfor470361CD0148*
+//	[{%X{lid}=cpp}{ru.garant.shared.Core.Root.LibHome}Core::Root::LibHome]
+ if ( ( %X get_up ( 'lid' ) ) %== 'cpp' ) then
+ begin
+  'Core::Root::LibHome' 
+ end // if
+ else
+ begin
+  'ru.garant.shared.Core.Root.LibHome' 
+ end // else
+//#UC END# *47036E60006Dfor470361CD0148*
+; // libhome
+
+
+// префикс перед именем LibHome
+//%f _name_prefix
+: name_prefix OBJECT IN %S
+//#UC START# *47036F0403A9for470361CD0148*
+//#UC END# *47036F0403A9for470361CD0148*
+; // name_prefix
+
+
+// дампит код реализации интерцепоторов
+//%f _interceptor_cpp
+: interceptor_cpp OBJECT IN %S
+//#UC START# *47036F1D0280for470361CD0148*
+//#UC END# *47036F1D0280for470361CD0148*
+; // interceptor_cpp
+
+
+// дампит код определения интерцепоторов
+//%f _interceptor_h
+: interceptor_h OBJECT IN %S
+//#UC START# *47036F3A01B5for470361CD0148*
+//#UC END# *47036F3A01B5for470361CD0148*
+; // interceptor_h
+
+
+// дампит код интерцепторов на java
+//%f _interceptor_java
+: interceptor_java OBJECT IN %S
+//#UC START# *47036F9A03B9for470361CD0148*
+//#UC END# *47036F9A03B9for470361CD0148*
+; // interceptor_java
+
+
+// дампит определение собственных методов LibHome
+//%f _self_methods_h
+: self_methods_h OBJECT IN %S
+//#UC START# *47036FC002AFfor470361CD0148*
+//#UC END# *47036FC002AFfor470361CD0148*
+; // self_methods_h
+
+
+// дампит реализацию собственных методов LibHome
+//%f _self_methods_cpp
+: self_methods_cpp OBJECT IN %S
+//#UC START# *47036FDC0280for470361CD0148*
+//#UC END# *47036FDC0280for470361CD0148*
+; // self_methods_cpp
+
+
+// дампит реализация собственных методов на java
+//%f _self_methods_java
+: self_methods_java OBJECT IN %S
+//#UC START# *47036FED0128for470361CD0148*
+//#UC END# *47036FED0128for470361CD0148*
+; // self_methods_java
+
+
+// дампит дополнительные инклюды
+//%f _add_cpp_inc
+: add_cpp_inc OBJECT IN %S
+//#UC START# *470370AC0261for470361CD0148*
+//	[{%XU=cpp|%XU=h}[<{}{%C#f_IsInterfaces()=true|%CS=ServerInterfaces}%C<{}{%CS=Settings}\#include "%f_with_gen_id(h,%CL)"
+ if ( ( %X |U ) %== 'cpp' OR 
+   ( ( %X |U ) %== 'h'  ) ) then
+ begin
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f IsInterfaces %( )% ) %==  true OR 
+     ( ( %C |S ) %== 'ServerInterfaces'  ) ) then
+    begin
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'Settings' ) then
+       begin
+        '#include "'
+        [%f] with_gen_id %( 'h' %, %C |L )% 
+//	>>]]
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+//#UC END# *470370AC0261for470361CD0148*
+; // add_cpp_inc
+
+
+// дампит код установки метода запуска LibHome
+//%f _set_exec_mode
+: set_exec_mode OBJECT IN %S
+//#UC START# *470370E200ABfor470361CD0148*
+//	[{%S{exec mode}=idle}[{%X{lid}!=java}{			this.setRequestedStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_IDLE);}	this-\>requested_status (Core::Root::ES_IDLE);]
+ if ( ( %S get_up ( 'exec mode' ) ) %== 'idle' ) then
+ begin
+  if ( ( %X get_up ( 'lid' ) ) %!= 'java' ) then
+  begin
+   '	this->requested_status (Core::Root::ES_IDLE);' 
+  end // if
+  else
+  begin
+   '			this.setRequestedStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_IDLE);' 
+  end // else
+//	]
+ end // if
+//#UC END# *470370E200ABfor470361CD0148*
+; // set_exec_mode
+
+
+// генерация методов для работы с параметрами: вывод использования, проверка, что обязательные
+// параметры заданы
+//%f _params_methods_h
+: params_methods_h OBJECT IN %S
+//#UC START# *492A99DD0033for470361CD0148*
+//		void print_usage () const;[{%f_need_check_params(%S)=true}
+ '	void print_usage () const;'
+ if ( ( [%f] need_check_params %( %S )% ) %==  true ) then
+ begin
+  #13#10
+
+//		
+  '	'
+//		bool check_params () const;]
+  '	bool check_params () const;' 
+ end // if
+//#UC END# *492A99DD0033for470361CD0148*
+; // params_methods_h
+
+
+// генерация методов для работы с параметрами: вывод использования, проверка, что обязательные
+// параметры заданы
+//%f _params_methods_cpp
+: params_methods_cpp OBJECT IN %S
+//#UC START# *492A9A2101AAfor470361CD0148*
+//	void %S%f_name_prefix()LibHomeImpl::print_usage () const {
+ 'void '
+ %S %f name_prefix %( )% 'LibHomeImpl::print_usage () const {'
+//	<{}{"%AM"="Settings::Class"}{%A}[%A<{}{%CC=Attribute}{%C}[%C%f_print_usage()
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Settings::Class' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    %A
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Attribute' ) then
+      begin
+       if NOT-EMPTY
+       begin
+        %C %f print_usage %( )% 
+//	]>]>
+       end // if
+       NOP
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+    end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for A
+//	}
+ '}'
+//	[{%f_need_check_params(%S)=true}
+ if ( ( [%f] need_check_params %( %S )% ) %==  true ) then
+ begin
+  #13#10
+
+//	bool %S%f_name_prefix()LibHomeImpl::check_params () const {
+  'bool '
+  %S %f name_prefix %( )% 'LibHomeImpl::check_params () const {'
+//	%f_set_var(IS_FIRST,"true")\
+  [%f] set_var %( 'IS_FIRST' %, true )% 
+//	<{}{"%AM"="Settings::Class"}[%A<{}{%CC=Attribute}{%C}[\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'Settings::Class' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %A
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |C ) %== 'Attribute' ) then
+       begin
+        if NOT-EMPTY
+        begin
+//		[{%{IS_FIRST}N=true}{res &}%f_set_var(IS_FIRST,"false")bool res ]= check_param\<%t_spec_check_param(%C)\> ("-%CN", [{%C{is_required}=true}{false}true]);
+         '	'
+         if ( ( ( get_global_var ( 'IS_FIRST' ) |N ) ) %==  true ) then
+         begin
+          [%f] set_var %( 'IS_FIRST' %, false )% 'bool res ' 
+         end // if
+         else
+         begin
+          'res &' 
+         end // else
+         '= check_param<'
+         [%t] spec_check_param %( %C )% '> ("-'
+         %C |N ', '
+         if ( ( %C get_up ( 'is_required' ) ) %==  true ) then
+         begin
+           true 
+         end // if
+         else
+         begin
+           false 
+         end // else
+         ');'
+//	]>]>
+        end // if
+        NOP
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+     end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for A
+//		return res;
+  '	return res;'
+//	}]
+  '}' 
+ end // if
+
+//t _spec_check_param
+; // params_methods_cpp
+
+end. // <<Library>>
+
+<<transformator>> spec_check_param OBJECT IN %S
+//c                                     {}
+//r {%TS=UMLPrimitive&%TN=boolean}:     {unsigned long}
+//r {%f_is_string(%T)=true}:            {std::string}
+//r {""=""}:                            {%t_ret(%T,"in")}
+
+//%f _global_methods_cpp
+; // spec_check_param
+
+implementation @ <<Library>>
+: global_methods_cpp OBJECT IN %S
+//	[{%f_need_check_params(%S)=true}\
+ if ( ( [%f] need_check_params %( %S )% ) %==  true ) then
+ begin
+//		template \<typename T\>
+  '	template <typename T>'
+//		bool check_param (const char* key, bool is_requared) {
+  '	bool check_param (const char* key, bool is_requared) {'
+//			bool res = true;
+  '		bool res = true;'
+//			if (Core::ParamManagerFactory::get ().is_exist (key)) {
+  '		if (Core::ParamManagerFactory::get ().is_exist (key)) {'
+//				std::string value = Core::ParamManagerFactory::get ().get_string (key);
+  '			std::string value = Core::ParamManagerFactory::get ().get_string (key);'
+//				try {
+  '			try {'
+//					boost::lexical_cast\<T\> (value);
+  '				boost::lexical_cast<T> (value);'
+//				} catch (boost::bad_lexical_cast&) {
+  '			} catch (boost::bad_lexical_cast&) {'
+//					res = false;
+  '				res = false;'
+//					LOG_E (("Неверное значение параметра \%s: \%s", key, value.c_str ()));
+  '				LOG_E (("Неверное значение параметра %s: %s", key, value.c_str ()));'
+//				}
+  '			}'
+//			} else if (is_requared) {
+  '		} else if (is_requared) {'
+//				res = false;
+  '			res = false;'
+//				LOG_E(("Не задан обязательный параметр: \%s", key));
+  '			LOG_E(("Не задан обязательный параметр: %s", key));'
+//			}
+  '		}'
+//			
+  '		'
+//			return res;
+  '		return res;'
+//		}
+  '	}'
+//		
+  '	'
+//		template \<\>
+  '	template <>'
+//		bool check_param\<std::string\> (const char* key, bool is_requared) {
+  '	bool check_param<std::string> (const char* key, bool is_requared) {'
+//			if (is_requared && !Core::ParamManagerFactory::get ().is_exist (key)) {
+  '		if (is_requared && !Core::ParamManagerFactory::get ().is_exist (key)) {'
+//				LOG_E(("Не задан обязательный параметр \<\%s\>", key));
+  '			LOG_E(("Не задан обязательный параметр <%s>", key));'
+//				return false;
+  '			return false;'
+//			}
+  '		}'
+//			return true;
+  '		return true;'
+//		}%f_clear_list(ENUMS)
+  '	}'
+  [%f] clear_list %( 'ENUMS' )% 
+//		[<{}{%AM=Settings::Class}%A<{}{%CC=Attribute&%C%TS=Enum&%f_exists_in_list(ENUMS,"%C%TU")=false}{%C}%f_add_to_list(ENUMS,"%C%TU")
+  '	'
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |M ) %== 'Settings::Class' ) then
+    begin
+     %A
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |C ) %== 'Attribute' AND 
+        ( ( %C ->T |S  ) %== 'Enum'  ) AND 
+        ( ( [%f] exists_in_list %( 'ENUMS' %, %C ->T |U  )% ) %==  false  ) ) then
+       begin
+        [%f] add_to_list %( 'ENUMS' %, %C ->T |U  )% 
+//		template \<\>
+        '	template <>'
+//		bool check_param\<%f_type(%C%T)\> (const char* key, bool is_requared) {
+        '	bool check_param<'
+        [%f] type %( %C ->T  )% '> (const char* key, bool is_requared) {'
+//			bool res = true;
+        '		bool res = true;'
+//			if (Core::ParamManagerFactory::get ().is_exist (key)) {
+        '		if (Core::ParamManagerFactory::get ().is_exist (key)) {'
+//				res = false;
+        '			res = false;'
+//				std::string value = Core::ParamManagerFactory::get ().get_string (key);
+        '			std::string value = Core::ParamManagerFactory::get ().get_string (key);'
+//		%C%T<{}{%CC=Attribute}		res |= value == "%CN";
+        '	'
+        %C ->T
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%C
+         begin
+          OBJECT IN %C
+          if ( ( %C |C ) %== 'Attribute' ) then
+          begin
+           '		res |= value == "'
+           %C |N ';'
+//		>		if (!res) {
+           '	' 
+           ++! l_Counter
+          end // if
+         end // for C
+
+        ) // bind
+          '		if (!res) {'
+//					LOG_E (("Неверное значение параметра \%s: \%s", key, value.c_str ()));
+        '				LOG_E (("Неверное значение параметра %s: %s", key, value.c_str ()));'
+//				}
+        '			}'
+//			} else if (is_requared) {
+        '		} else if (is_requared) {'
+//				res = false;
+        '			res = false;'
+//				LOG_E(("Не задан обязательный параметр: \%s", key));
+        '			LOG_E(("Не задан обязательный параметр: %s", key));'
+//			}
+        '		}'
+//			return res;
+        '		return res;'
+//		}\
+        '	}'
+//	>>]]
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for A
+  end // if
+  NOP
+ end // if
+
+//f _dump_params_includes
+; // global_methods_cpp
+
+end. // <<Library>>
+
+: dump_params_includes OBJECT IN %S
+//	%f_clear_list(INCLUDES)\
+ [%f] clear_list %( 'INCLUDES' )% 
+//	<{}{%AM=Settings::Class}%A<{}{%CC=Attribute&%C%TS=Enum&%f_exists_in_list(INCLUDES,"%f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)")=false}{%C}%f_add_to_list(INCLUDES,"%C%TU")[\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Settings::Class' ) then
+  begin
+   %A
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' AND 
+      ( ( %C ->T |S  ) %== 'Enum'  ) AND 
+      ( ( [%f] exists_in_list %( 'INCLUDES' %, [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C ->T |W  )% %, %C ->T  )% )% ) %==  false  ) ) then
+     begin
+      [%f] add_to_list %( 'INCLUDES' %, %C ->T |U  )% if NOT-EMPTY
+      begin
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)
+       '#include '
+       [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C ->T |W  )% %, %C ->T  )% 
+//	]>>%f_clear_list(INCLUDES)
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for A
+ [%f] clear_list %( 'INCLUDES' )% 
+
+//f _need_check_params
+; // dump_params_includes
+
+: need_check_params OBJECT IN %S
+//	[{%S%f_need_dump_params_methods()=true&<{}{%AM=Settings::Class&%A<{}{%CC=Attribute&[{%f_is_string(%C%T)=false|%C{is_required}=true}{false}true]}{%CC}>!=0}{%AC}>!=0}{false}true]
+ if ( ( %S %f need_dump_params_methods %( )% ) %==  true AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'Settings::Class' AND 
+    ( ( %A
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' AND 
+      ( if ( ( [%f] is_string %( %C ->T  )% ) %==  false OR 
+       ( ( %C get_up ( 'is_required' ) ) %==  true  ) ) then
+     begin
+       true 
+     end // if
+     else
+     begin
+       false 
+     end // else
+ ) )      then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+ )    %!= 0  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _check_enum
+; // need_check_params
+
+: check_enum OBJECT IN %S
+//	
+//#UC END# *492A9A2101AAfor470361CD0148*
+; // check_enum
+
+
+// возвращает true, если нужно генерить методы для работы с параметрами...
+//%f _need_dump_params_methods
+implementation @ <<Library>>
+: need_dump_params_methods OBJECT IN %S
+//#UC START# *492A9D95027Cfor470361CD0148*
+//	[{<{}{%AM=Settings::Class&%A<{%CC=Attribute}{%CC}>!=0}{%AC}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'Settings::Class' AND 
+    ( ( %A
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) ) then
+     begin
+      if ( l_Counter >0 ) then ( %C |C '=Attribute' )
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ )    %!= 0  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *492A9D95027Cfor470361CD0148*
+; // need_dump_params_methods
+
+
+// Метод генерирует дополнительную декларацию.
+//%f _additional_declarations
+: additional_declarations OBJECT IN %S
+//#UC START# *492D3C81013Ffor470361CD0148*
+//#UC END# *492D3C81013Ffor470361CD0148*
+; // additional_declarations
+
+
+// Метод генерирует дополнительную реализацию.
+//%f _addition_definitions
+: addition_definitions OBJECT IN %S
+//#UC START# *492D4842032Cfor470361CD0148*
+//#UC END# *492D4842032Cfor470361CD0148*
+; // addition_definitions
+
+
+// Метод генерирует дополнительную реализацию.
+//%f _additional_def_java
+: additional_def_java OBJECT IN %S
+//#UC START# *492E98DB0075for470361CD0148*
+//#UC END# *492E98DB0075for470361CD0148*
+; // additional_def_java
+
+
+// Путь к библиотеке
+//%f _pas_LibPath
+: pas_LibPath OBJECT IN %S
+//#UC START# *494913390011for470361CD0148*
+//	[{%S{gui}=true}{[{%S{gui}=false}{[{%S{gui}!=prj&%PS!=VCMTestProject}[{%S{gui}=tie&"%XU"!="intf.pas"}{/%S{gui}}]]}/rtl]}/gui]\
+ if ( ( %S get_up ( 'gui' ) ) %==  true ) then
+ begin
+  '/gui' 
+ end // if
+ else
+ begin
+  if ( ( %S get_up ( 'gui' ) ) %==  false ) then
+  begin
+   '/rtl' 
+  end // if
+  else
+  begin
+   if ( ( %S get_up ( 'gui' ) ) %!= 'prj' AND 
+     ( ( %P |S ) %!= 'VCMTestProject'  ) ) then
+   begin
+    if ( ( %S get_up ( 'gui' ) ) %== 'tie' AND 
+      ( ( %X |U ) %!= 'intf.pas'  ) ) then
+    begin
+    end // if
+    else
+    begin
+     '/'
+     %S get_up ( 'gui' ) 
+    end // else
+   end // if
+  end // else
+ end // else
+//	%t_pas_VendorPrefix(%S)[/%S%f_pas_DecorLibName()]
+ [%t] pas_VendorPrefix %( %S )% if NOT-EMPTY
+ begin
+  '/'
+  %S %f pas_DecorLibName %( )% 
+ end // if
+ NOP
+//#UC END# *494913390011for470361CD0148*
+; // pas_LibPath
+
+
+// Имя файла библиотеки
+//%f _pas_LibUnitName
+: pas_LibUnitName OBJECT IN %S
+//#UC START# *4954DBDD00A3for470361CD0148*
+//	[{%P#f_IsVCMSubsystem()=true}%f_N(%P)_]%f_str_replace(%SN, ,_)_lib.info
+ if ( ( %P %?f IsVCMSubsystem %( )% ) %==  true ) then
+ begin
+  [%f] N %( %P )% '_' 
+ end // if
+ [%f] str_replace %( %S |N %, ' ' %, '_' )% '_lib.info'
+//#UC END# *4954DBDD00A3for470361CD0148*
+; // pas_LibUnitName
+
+
+// Деокрирует имя библиотеки
+//%f _pas_DecorLibName
+: pas_DecorLibName OBJECT IN %S
+//#UC START# *49997EB002BAfor470361CD0148*
+//	%f_str_replace(%f_N(%S), ,_)
+ [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% 
+//#UC END# *49997EB002BAfor470361CD0148*
+; // pas_DecorLibName
+
+
+// Проверка является ли библиотека базой данных
+//%f _check_db_data
+: check_db_data OBJECT IN %S
+//#UC START# *49B1081100FEfor470361CD0148*
+//	false
+ false
+//#UC END# *49B1081100FEfor470361CD0148*
+; // check_db_data
+
+
+// Перекрывается в переопределённом Library из PMM.
+//%f _additional_pre_declarations
+: additional_pre_declarations OBJECT IN %S
+//#UC START# *4A0AB21B0055for470361CD0148*
+//#UC END# *4A0AB21B0055for470361CD0148*
+; // additional_pre_declarations
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470361CD0148*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for470361CD0148*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470361CD0148*
+//#UC END# *4705CBD6003Efor470361CD0148*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for470361CD0148*
+//#UC END# *470484D50138for470361CD0148*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических cpp-шников (например хидере реализации хранения)
+//%f _specific_cpp_files_list
+: specific_cpp_files_list OBJECT IN %S
+//#UC START# *47EA208B0009for470361CD0148*
+//#UC END# *47EA208B0009for470361CD0148*
+; // specific_cpp_files_list
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических хидеров (например хидере реализации хранения)
+//%f _specific_h_files_list
+: specific_h_files_list OBJECT IN %S
+//#UC START# *47EA1ED00157for470361CD0148*
+//#UC END# *47EA1ED00157for470361CD0148*
+; // specific_h_files_list
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for470361CD0148*
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//P
+//C /%SN
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4705C54B01F4for470361CD0148*
+; // fctr.cpp
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for470361CD0148*
+//= fctr.cpp
+%call-other-gen ( 'fctr.cpp' )
+//#UC END# *4705C5490109for470361CD0148*
+; // fctr.h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470361CD0148*
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//P
+//C %S%f_pas_LibPath()
+//C /%SN
+//O %S%f_name_prefix()LibHome.cpp
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	[{%f_need_check_params(%S)=true}\
+ if ( ( [%f] need_check_params %( %S )% ) %==  true ) then
+ begin
+//	\#include "boost/lexical_cast.hpp"
+  '#include "boost/lexical_cast.hpp"'
+//	\#include "shared/Core/Params/Params.h"
+  '#include "shared/Core/Params/Params.h"'
+//	]\#include "[{%XU=cpp}{%f_with_gen_id(fctr.h,%SL)}%f_with_gen_id(h,%SL)]"
+ end // if
+ '#include "'
+ if ( ( %X |U ) %== 'cpp' ) then
+ begin
+  [%f] with_gen_id %( 'h' %, %S |L )% 
+ end // if
+ else
+ begin
+  [%f] with_gen_id %( 'fctr.h' %, %S |L )% 
+ end // else
+ '"'
+//	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Servant::Class' OR 
+   ( ( %A |M ) %== 'SrvServant::Class'  ) ) then
+  begin
+   if ( ( %S %t need_to_reg %( %A )% ) %==  true AND 
+     ( ( [%f] has_factory_methods %( %A )% ) %==  true  ) ) then
+   begin
+//	[\#include "%f_with_gen_id(fctr.h,%AL)"
+    if NOT-EMPTY
+    begin
+     '#include "'
+     [%f] with_gen_id %( 'fctr.h' %, %A |L )% 
+//	]]>[%f_dump_params_includes(%S)]<{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}\#include "%f_with_gen_id(h,%AL)"
+    end // if
+    NOP
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for A
+ if NOT-EMPTY
+ begin
+  [%f] dump_params_includes %( %S )% 
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |S ) %== 'LibExecutor' AND 
+   ( ( %S %t need_to_execute %( %A get_up ( 'type' ) )% ) %==  true  ) ) then
+  begin
+   '#include "'
+   [%f] with_gen_id %( 'h' %, %A |L )% 
+//	>%S%f_add_cpp_inc()[
+
+   ++! l_Counter
+  end // if
+ end // for A
+ %S %f add_cpp_inc %( )% if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	%SP[namespace %SN {
+ %S |P if NOT-EMPTY
+ begin
+  'namespace '
+  %S |N ' {'
+//	][
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	namespace {
+  'namespace {'
+//	%S%f_global_methods_cpp()
+  %S %f global_methods_cpp %( )% 
+//	} //namespace
+  '} //namespace'
+//	]
+ end // if
+ NOP
+//	%S%f_self_methods_cpp()\
+ %S %f self_methods_cpp %( )% 
+//	%S%f_interceptor_cpp()\
+ %S %f interceptor_cpp %( )% 
+//	%S%f_libhome()& %S%f_name_prefix()LibHomeFactory::get () {
+ %S %f libhome %( )% '& '
+ %S %f name_prefix %( )% 'LibHomeFactory::get () {'
+//		return %S%f_name_prefix()LibHomeImpl::Singleton::instance();
+ '	return '
+ %S %f name_prefix %( )% 'LibHomeImpl::Singleton::instance();'
+//	}
+ '}'
+//	
+//	%S%f_name_prefix()LibHomeImpl::%S%f_name_prefix()LibHomeImpl () {
+ %S %f name_prefix %( )% 'LibHomeImpl::'
+ %S %f name_prefix %( )% 'LibHomeImpl () {'
+//	%S%f_set_exec_mode()\
+ %S %f set_exec_mode %( )% 
+//	<{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}	this-\>get_executors ().insert (&%AN::get ());
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |S ) %== 'LibExecutor' AND 
+   ( ( %S %t need_to_execute %( %A get_up ( 'type' ) )% ) %==  true  ) ) then
+  begin
+   '	this->get_executors ().insert (&'
+   %A |N '::get ());'
+//	>}
+
+   ++! l_Counter
+  end // if
+ end // for A
+ '}'
+//	
+//	void %S%f_name_prefix()LibHomeImpl::registrate_all_factories () const {
+ 'void '
+ %S %f name_prefix %( )% 'LibHomeImpl::registrate_all_factories () const {'
+//		%U[{_ENVIRONMENTS_CONFIG}
+ '	'
+ %Usersection (
+  '_ENVIRONMENTS_CONFIG' 
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Servant::Class' OR 
+   ( ( %A |M ) %== 'SrvServant::Class'  ) ) then
+  begin
+   if ( ( %S %t need_to_reg %( %A )% ) %==  true AND 
+     ( ( [%f] has_factory_methods %( %A )% ) %==  true  ) ) then
+   begin
+    #13#10
+
+//	[	%A%f_open_ifdef()
+    if NOT-EMPTY
+    begin
+     '	'
+     %A %f open_ifdef %( )% 
+//	]	[{%A{Factory auto reg}=true}{%U[{_CUSTOM_REGISTRATE_FOR_%AU_%AN}\n	]}\{
+    end // if
+    NOP
+    '	'
+    if ( ( %A get_up ( 'Factory auto reg' ) ) %==  true ) then
+    begin
+     '{'
+//			%f_type(%A)_factory_var fctr = new %f_type(%A)_factory ();
+     '		'
+     [%f] type %( %A )% '_factory_var fctr = new '
+     [%f] type %( %A )% '_factory ();'
+//			fctr-\>registrate_me([{}{0}%A{factory priority}]);
+     '		fctr->registrate_me('
+     if NOT-EMPTY
+     begin
+      %A get_up ( 'factory priority' ) 
+     end // if
+     NOP
+     else
+     begin
+      0 
+     end // else
+     ');'
+//		\}][
+     '	}' 
+    end // if
+    else
+    begin
+     %Usersection (
+      '_CUSTOM_REGISTRATE_FOR_'
+      %A |U '_'
+      %A |N 
+     )
+     (
+      #13#10'	' 
+     ) // Usersection
+     end // else
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//		%A%f_close_ifdef()]
+     '	'
+     %A %f close_ifdef %( )% 
+    end // if
+    NOP
+//		]>
+    '	' 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for A
+//	}
+ '}'
+//		
+ '	'
+//	void %S%f_name_prefix()LibHomeImpl::finalize () {
+ 'void '
+ %S %f name_prefix %( )% 'LibHomeImpl::finalize () {'
+//	[<{}{%AM=Servant::Class}{r}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}[\
+//	%f_dump_all_fctr_mng_unreg(%A)
+//	]]>
+//	]\
+//	}[{%S%f_need_dump_params_methods()=true}
+ '}'
+ if ( ( %S %f need_dump_params_methods %( )% ) %==  true ) then
+ begin
+  #13#10
+
+//		
+  '	'
+//	%S%f_params_methods_cpp()]
+  %S %f params_methods_cpp %( )% 
+ end // if
+//	%S%f_addition_definitions()\
+ %S %f addition_definitions %( )% 
+//	[} // namespace %SN
+ if NOT-EMPTY
+ begin
+  '} // namespace '
+  %S |N 
+//	]%Sp<%CX>
+ end // if
+ NOP
+ %S |p 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//f _dump_all_fctr_mng_unreg
+; // cpp
+
+end. // <<Library>>
+
+: dump_all_fctr_mng_unreg OBJECT IN %S
+//	[{}{<%f_dump_all_fctr_mng_unreg(%G)>}<{\n}{%RS=Interface|%RS=ServerInterface}[{%RN!=LibHomeManager}	%f_type(%R)FactoryManager::unregister_all_factories ();]>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |S ) %== 'Interface' OR 
+    ( ( %R |S ) %== 'ServerInterface'  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    if ( ( %R |N ) %!= 'LibHomeManager' ) then
+    begin
+     '	'
+     [%f] type %( %R )% 'FactoryManager::unregister_all_factories ();' 
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_fctr_mng_unreg %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // else
+
+//#UC END# *47022CB8034Bfor470361CD0148*
+; // dump_all_fctr_mng_unreg
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+implementation @ <<Library>>
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470361CD0148*
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//P
+//C %S%f_pas_LibPath()
+//C /%SN
+//O %S%f_name_prefix()LibHome.h
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	%S%f_include_base_libhome()[
+ %S %f include_base_libhome %( )% if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	
+//	%SP[namespace %SN {
+ %S |P if NOT-EMPTY
+ begin
+  'namespace '
+  %S |N ' {'
+//	][
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_additional_pre_declarations()]
+  %S %f additional_pre_declarations %( )% 
+ end // if
+ NOP
+//	class %S%f_name_prefix()LibHomeFactory {
+ 'class '
+ %S %f name_prefix %( )% 'LibHomeFactory {'
+//	public:
+ 'public:'
+//		static %S%f_libhome()& get ();
+ '	static '
+ %S %f libhome %( )% '& get ();'
+//	};
+ '};'
+//	
+//	class %S%f_name_prefix()LibHomeImpl : %S%f_base_libhome() {
+ 'class '
+ %S %f name_prefix %( )% 'LibHomeImpl : '
+ %S %f base_libhome %( )% ' {'
+//		SET_OBJECT_COUNTER (%S%f_name_prefix()LibHomeImpl)
+ '	SET_OBJECT_COUNTER ('
+ %S %f name_prefix %( )% 'LibHomeImpl)'
+//	[%S%f_interceptor_h()
+ if NOT-EMPTY
+ begin
+  %S %f interceptor_h %( )% 
+//	
+  #13#10
+
+//	]%S%f_self_methods_h()
+ end // if
+ NOP
+ %S %f self_methods_h %( )% 
+//	
+//	private:
+ 'private:'
+//		friend class %S%f_name_prefix()LibHomeFactory;
+ '	friend class '
+ %S %f name_prefix %( )% 'LibHomeFactory;'
+//		
+ '	'
+//		REFCOUNT_SINGLETON(%S%f_name_prefix()LibHomeImpl)
+ '	REFCOUNT_SINGLETON('
+ %S %f name_prefix %( )% 'LibHomeImpl)'
+//		
+ '	'
+//		%S%f_name_prefix()LibHomeImpl ();
+ '	'
+ %S %f name_prefix %( )% 'LibHomeImpl ();'
+//	
+//		void registrate_all_factories () const;
+ '	void registrate_all_factories () const;'
+//		
+ '	'
+//		void finalize ();[{%S%f_need_dump_params_methods()=true}
+ '	void finalize ();'
+ if ( ( %S %f need_dump_params_methods %( )% ) %==  true ) then
+ begin
+  #13#10
+
+//		
+  '	'
+//	%S%f_params_methods_h()]
+  %S %f params_methods_h %( )% 
+ end // if
+//	};
+ '};'
+//	<{}{"%aM"="ComTarget::Category"|"%aM"="ExeTarget::Category"|"%aM"="AdapterTarget::Category"|"%aM"="AdapterTargetUnion::Category"}{%a}%f_add_to_list(TARGETS,a)>\
+//	<{}{%f_is_empty(TARGETS)=false}{W}[%f_pop_first_to_var(TARGETS,_TS_)%{_TS_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{}{%C}\
+//	[{%f_exists_in_list(LIBN,"%CN")=false}[{"%C%TN"!="string"}{std::string}%t_n(%C%T,"%X{lid}")]\
+//	 get_%f_to_omg(%CN());
+//	 
+//	void set_%f_to_omg(%CN([{"%C%TN"!="string"}{const std::string&}%t_arg(%C%T,"in")] value));
+//	
+//	]>>]>\
+//	%S%f_additional_declarations()\
+ %S %f additional_declarations %( )% 
+//	[} // namespace %SN
+ if NOT-EMPTY
+ begin
+  '} // namespace '
+  %S |N 
+//	]%Sp<%CX>
+ end // if
+ NOP
+ %S |p 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+//#UC END# *47022C88029Ffor470361CD0148*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor470361CD0148*
+//= fctr.cpp
+%call-other-gen ( 'fctr.cpp' )
+//#UC END# *47022CCF00EAfor470361CD0148*
+; // i.h
+
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генерация файла опрделений для регистрации COM DLL (.rgs)
+//+ com.rgs
+<<generator>> com.rgs OBJECT IN %S
+//#UC START# *470320E002CEfor470361CD0148*
+//P
+//C /%SN
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470320E002CEfor470361CD0148*
+; // com.rgs
+
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генератор ODL-файла спецификации COM-интерфейса (.odl)
+//+ odl
+<<generator>> odl OBJECT IN %S
+//#UC START# *47032097038Afor470361CD0148*
+//= fctr.cpp
+%call-other-gen ( 'fctr.cpp' )
+//#UC END# *47032097038Afor470361CD0148*
+; // odl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470361CD0148*
+//#UC END# *47022BBE0261for470361CD0148*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for470361CD0148*
+//#UC END# *47022C0F01E4for470361CD0148*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470361CD0148*
+//R  
+//P
+//C %S%f_pas_LibPath()
+//O %S%f_pas_LibUnitName()
+//	[{"%SO"!=""}%SN : %SS - %SD]
+ if ( ( %S |O ) %!= '' ) then
+ begin
+  %S |N ' : '
+  %S |S ' - '
+  %S |D 
+ end // if
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F1571031Cfor470361CD0148*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470361CD0148*
+//#UC END# *477398E501C0for470361CD0148*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for470361CD0148*
+//P
+//C %S%f_pas_LibPath()
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *55B8D28B0157for470361CD0148*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for470361CD0148*
+//P
+//C %S%f_pas_LibPath()
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *55B8D2F80145for470361CD0148*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for470361CD0148*
+//P
+//C %S%f_pas_LibPath()
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *55B8DD9C0301for470361CD0148*
+; // res.cmd.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470361CD0148*
+//P
+//C [{%S{is namespace}=true}/%SN]
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470321C1038Afor470361CD0148*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470361CD0148*
+//P
+//C [{%S{is namespace}=true}/%SN]
+//O %S%f_name_prefix()LibHomeFactory.java
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	package %f_dump_java_package(%S).%SN;
+ 'package '
+ [%f] dump_java_package %( %S )% '.'
+ %S |N ';'
+//	
+//	[%f_dump_std_java_imports(%S)
+ if NOT-EMPTY
+ begin
+  [%f] dump_std_java_imports %( %S )% 
+//	][%f_java_core_exceptions(%S)
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  [%f] java_core_exceptions %( %S )% 
+//	][%S%f_include_base_libhome()
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  %S %f include_base_libhome %( )% 
+//	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}\
+
+//	[%f_with_gen_id(java,%f_java_import(%A))
+
+//	]]>%S%f_add_java_inc()
+//	]
+ end // if
+ NOP
+//	public class %S%f_name_prefix()LibHomeFactory {
+ 'public class '
+ %S %f name_prefix %( )% 'LibHomeFactory {'
+//		public static %S%f_libhome() get () {
+ '	public static '
+ %S %f libhome %( )% ' get () {'
+//			return %S%f_name_prefix()LibHomeImpl.getInstace ();
+ '		return '
+ %S %f name_prefix %( )% 'LibHomeImpl.getInstace ();'
+//		}
+ '	}'
+//		
+ '	'
+//		private static class %S%f_name_prefix()LibHomeImpl %S%f_base_libhome() {
+ '	private static class '
+ %S %f name_prefix %( )% 'LibHomeImpl '
+ %S %f base_libhome %( )% ' {'
+//		[
+ '	'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//		%S%f_interceptor_java()
+  '	'
+  %S %f interceptor_java %( )% 
+//		]
+  '	' 
+ end // if
+ NOP
+//			private static %S%f_libhome() getInstace () {
+ '		private static '
+ %S %f libhome %( )% ' getInstace () {'
+//				return sInstance_;
+ '			return sInstance_;'
+//			}[
+ '		}'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//			
+  '		'
+//		%S%f_self_methods_java()]
+  '	'
+  %S %f self_methods_java %( )% 
+ end // if
+ NOP
+//		
+ '	'
+//			private %S%f_name_prefix()LibHomeImpl () {
+ '		private '
+ %S %f name_prefix %( )% 'LibHomeImpl () {'
+//	%S%f_set_exec_mode()\
+ %S %f set_exec_mode %( )% 
+//	<{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}			this.getExecutors ().add(%f_type(%A).get());
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |S ) %== 'LibExecutor' AND 
+   ( ( %S %t need_to_execute %( %A get_up ( 'type' ) )% ) %==  true  ) ) then
+  begin
+   '			this.getExecutors ().add('
+   [%f] type %( %A )% '.get());'
+//	>		}
+
+   ++! l_Counter
+  end // if
+ end // for A
+ '		}'
+//		
+ '	'
+//			public void registrateAllFactories () {
+ '		public void registrateAllFactories () {'
+//				%U[{_ENVIRONMENTS_CONFIG}
+ '			'
+ %Usersection (
+  '_ENVIRONMENTS_CONFIG' 
+ )
+ (
+  #13#10
+
+//				]
+  '			' 
+ ) // Usersection
+ //	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Servant::Class' OR 
+   ( ( %A |M ) %== 'SrvServant::Class'  ) ) then
+  begin
+   if ( ( %S %t need_to_reg %( %A )% ) %==  true AND 
+     ( ( [%f] has_factory_methods %( %A )% ) %==  true  ) ) then
+   begin
+    #13#10
+
+//	[{%A{Factory auto reg}=true}{			%U[{_CUSTOM_REGISTRATE_FOR_%AU_%AN}\n			]}\
+    if ( ( %A get_up ( 'Factory auto reg' ) ) %==  true ) then
+    begin
+//				try {
+     '			try {'
+//					%f_type(%A)FactoryImpl fctr = new %f_type(%A)FactoryImpl ();
+     '				'
+     [%f] type %( %A )% 'FactoryImpl fctr = new '
+     [%f] type %( %A )% 'FactoryImpl ();'
+//					fctr.registrateMe((short)[{}{0}%A{factory priority}]);
+     '				fctr.registrateMe((short)'
+     if NOT-EMPTY
+     begin
+      %A get_up ( 'factory priority' ) 
+     end // if
+     NOP
+     else
+     begin
+      0 
+     end // else
+     ');'
+//				} catch (DuplicatedFactoryKey ex) {
+     '			} catch (DuplicatedFactoryKey ex) {'
+//					Logs.LOG_SEX (ex);
+     '				Logs.LOG_SEX (ex);'
+//				}]
+     '			}' 
+    end // if
+    else
+    begin
+     '			'
+     %Usersection (
+      '_CUSTOM_REGISTRATE_FOR_'
+      %A |U '_'
+      %A |N 
+     )
+     (
+      #13#10'			' 
+     ) // Usersection
+     end // else
+//	]>
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for A
+//			}
+ '		}'
+//		
+ '	'
+//			public void finalize () {
+ '		public void finalize () {'
+//			}
+ '		}'
+//		
+ '	'
+//			private static %S%f_name_prefix()LibHomeImpl sInstance_ = new %S%f_name_prefix()LibHomeImpl ();
+ '		private static '
+ %S %f name_prefix %( )% 'LibHomeImpl sInstance_ = new '
+ %S %f name_prefix %( )% 'LibHomeImpl ();'
+//		<%CX>
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//		} // class %S%f_name_prefix()LibHomeImpl[
+ '	} // class '
+ %S %f name_prefix %( )% 'LibHomeImpl'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//		
+  '	'
+//		%S%f_additional_def_java()]
+  '	'
+  %S %f additional_def_java %( )% 
+ end // if
+ NOP
+//	} // class %S%f_name_prefix()LibHomeFactory
+ '} // class '
+ %S %f name_prefix %( )% 'LibHomeFactory'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//f _dump_all_fctr_mng_unreg_java
+; // java
+
+end. // <<Library>>
+
+: dump_all_fctr_mng_unreg_java OBJECT IN %S
+//	[{}{<%f_dump_all_fctr_mng_unreg_java(%G)>}<{\n}{%RS=Interface|%RS=ServerInterface}[{%RN!=LibHomeManager}%f_type(%R)FactoryManager.unregisterAllFactories ();]>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |S ) %== 'Interface' OR 
+    ( ( %R |S ) %== 'ServerInterface'  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    if ( ( %R |N ) %!= 'LibHomeManager' ) then
+    begin
+     [%f] type %( %R )% 'FactoryManager.unregisterAllFactories ();' 
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    [%f] dump_all_fctr_mng_unreg_java %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // else
+
+//#UC END# *470321950119for470361CD0148*
+; // dump_all_fctr_mng_unreg_java
+
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+implementation @ <<Library>>
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor470361CD0148*
+//= Requirements::Category;forth_structure
+%call-other-gen ( 'Requirements' 'forth_structure' )
+//#UC END# *4F368B80039Efor470361CD0148*
+; // forth_structure
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470361CD0148*
+//= fctr.cpp
+%call-other-gen ( 'fctr.cpp' )
+//#UC END# *47032ED002DEfor470361CD0148*
+; // dll.cpp
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470361CD0148*
+//= fctr.cpp
+%call-other-gen ( 'fctr.cpp' )
+//#UC END# *47032EC4032Cfor470361CD0148*
+; // dll.h
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470361CD0148*
+//P
+//C /%f_N(%S)
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F152700FAfor470361CD0148*
+; // pas
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер проектные файлы::MDAGenerator
+// MPC для TIE-обвязки (.mpc)
+//+ mpc.dll
+<<generator>> mpc.dll OBJECT IN %S
+//#UC START# *470F252801D4for470361CD0148*
+//P
+//C /%SN/targets
+//O %SN_tie.mpc
+//X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN_tie library
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	project (%SN_tie) : project_generic_core[{%f_use_server(%S)=true}_corba] {
+ 'project ('
+ %S |N '_tie) : project_generic_core'
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  '_corba' 
+ end // if
+ ' {'
+//		sharedname = %SN_tie
+ '	sharedname = '
+ %S |N '_tie'
+//		staticname = %SN_tie
+ '	staticname = '
+ %S |N '_tie'
+//		
+ '	'
+//		includes += %f_root_relative_path(%S)
+ '	includes += '
+ [%f] root_relative_path %( %S )% 
+//		
+ '	'
+//		after += %SN
+ '	after += '
+ %S |N 
+//		libs  += %SN
+ '	libs  += '
+ %S |N 
+//		
+ '	'
+//		Header_Files {
+ '	Header_Files {'
+//			Std_Headers {
+ '		Std_Headers {'
+//			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(dll.h,C)
+ '		'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'dll.h' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{"%CC"="Category"}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(dll.h,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'dll.h' %, 'C' )% 
+//			]%C<{}{}{%ASn}[	%f_normolized_path(dll.h,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'dll.h' %, 'A' )% 
+//			]>[{%S{need UC}=true}%U[{_%CN_Manual_Headers}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+   begin
+    %Usersection (
+     '_'
+     %C |N '_Manual_Headers' 
+    )
+    (
+     #13#10
+
+//			]
+     '		' 
+    ) // Usersection
+ //			]}
+    '		' 
+   end // if
+   '}'
+//		>[{%S{need UC}=true}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//			Rest_Headers {
+  '		Rest_Headers {'
+//			%U[{_Rest_Manual_Headers}
+  '		'
+  %Usersection (
+   '_Rest_Manual_Headers' 
+  )
+  (
+   #13#10
+
+//			]
+   '		' 
+  ) // Usersection
+ //			}]
+  '		}' 
+ end // if
+//		}
+ '	}'
+//	[{%S{need UC}=true}
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//		Inline_Files {
+  '	Inline_Files {'
+//			%U[{_Manual_Inlines}
+  '		'
+  %Usersection (
+   '_Manual_Inlines' 
+  )
+  (
+   #13#10
+
+//			]
+   '		' 
+  ) // Usersection
+ //		}
+  '	}'
+//	]
+ end // if
+//		Source_Files {
+ '	Source_Files {'
+//			Std_Sources {				
+ '		Std_Sources {				'
+//			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(dll.cpp,C)
+ '		'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'dll.cpp' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{"%CC"="Category"}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(dll.cpp,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'dll.cpp' %, 'C' )% 
+//			]%C<{}{}{%ASn}[	%f_normolized_path(dll.cpp,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'dll.cpp' %, 'A' )% 
+//			]>[{%S{need UC}=true}%U[{_%CN_Manual_Sources}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+   begin
+    %Usersection (
+     '_'
+     %C |N '_Manual_Sources' 
+    )
+    (
+     #13#10
+
+//			]
+     '		' 
+    ) // Usersection
+ //			]}
+    '		' 
+   end // if
+   '}'
+//		>[{%S{need UC}=true}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//			Rest_Sources {
+  '		Rest_Sources {'
+//			%U[{_Rest_Manual_Sources}
+  '		'
+  %Usersection (
+   '_Rest_Manual_Sources' 
+  )
+  (
+   #13#10
+
+//			]
+   '		' 
+  ) // Usersection
+ //			}]
+  '		}' 
+ end // if
+//		}
+ '	}'
+//	[{%S{need UC}=true}
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//		Resource_Files {
+  '	Resource_Files {'
+//		%U[{_RESOURCE_FILES}
+  '	'
+  %Usersection (
+   '_RESOURCE_FILES' 
+  )
+  (
+   #13#10
+
+//		]
+   '	' 
+  ) // Usersection
+ //		}]
+  '	}' 
+ end // if
+//	}
+ '}'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *470F252801D4for470361CD0148*
+; // mpc.dll
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470361CD0148*
+//C /%SN:%SU
+//O %SN
+//L code_library
+//S %SN
+
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	{info}Включает реализацию требований:%f_collect_req(%S)
+   '{info}Включает реализацию требований:'
+   [%f] collect_req %( %S )% 
+//	<{}{%f_exists_in_list(REQS,a)=true}* %f_k_link(%a)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%a
+   begin
+    OBJECT IN %a
+    if ( ( [%f] exists_in_list %( 'REQS' %, 'a' )% ) %==  true ) then
+    begin
+     '* '
+     [%f] k_link %( %a )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Использует модули:
+   '{info}Использует модули:'
+//	<{}{%DS!=Requirements}* %f_k_link(%D)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %D |S ) %!= 'Requirements' ) then
+    begin
+     '* '
+     [%f] k_link %( %D )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for D
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Используется из модулей:
+   '{info}Используется из модулей:'
+//	<{}{%aS!=Requirements&%t_target_ex(%a)!=true}{Sp}* %f_k_link(%a)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %!= 'Requirements' AND 
+     ( ( [%t] target_ex %( %a )% ) %!=  true  ) ) then
+    begin
+     '* '
+     [%f] k_link %( %a )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Включается в таргеты:
+   '{info}Включается в таргеты:'
+//	<{}{%aS!=Requirements&%t_target_ex(%a)=true}{Sp}* %f_k_link(%a)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %!= 'Requirements' AND 
+     ( ( [%t] target_ex %( %a )% ) %==  true  ) ) then
+    begin
+     '* '
+     [%f] k_link %( %a )% 
+//	>{info}][\
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+//	%f_k_common_elem_docs(%S)][{%mx=true&%Cx=true}
+   [%f] k_common_elem_docs %( %S )% 
+  end // if
+  NOP
+  if ( ( %m |x ) %==  true AND 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма модуля:_
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%m
+   begin
+    OBJECT IN %m
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( '----'#13#10 )
+     '_'
+     if ( ( %m |N ) %!= 'Main' ) then
+     begin
+      %m |N 
+     end // if
+     else
+     begin
+      'Основная' 
+     end // else
+     ' диаграмма модуля:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>]][
+
+     ++! l_Counter
+    end // if
+   end // for m
+  end // if
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав модуля[
+  'h2. Состав модуля'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Интерфейсные пакеты:_<{}{%C#f_wiki_interface_package()=true}{%CSn}
+   '_Интерфейсные пакеты:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f wiki_interface_package %( )% ) %==  true ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Утилитные пакеты:_<{}{%C#f_wiki_utility_package()=true}{%CSn}
+   '_Утилитные пакеты:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f wiki_utility_package %( )% ) %==  true ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Схемы данных:_<{}{%C#f_data_scheme_package()=true}{%CSn}
+   '_Схемы данных:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f data_scheme_package %( )% ) %==  true ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Пакеты реализации и вспомогательные пакеты:_<{}{%C#f_wiki_impl_or_support_package()=true}{%CSn}
+   '_Пакеты реализации и вспомогательные пакеты:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f wiki_impl_or_support_package %( )% ) %==  true ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for470361CD0148*
+; // wiki
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
+//+ mpc
+<<generator>> mpc OBJECT IN %S
+//#UC START# *47031E41002Efor470361CD0148*
+//P
+//O %SN.mpc
+//X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN library
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	project (%SN) : project_generic_core[{%f_use_server(%S)=true}_corba][{"<{}{%CM=ComInterfaces::Category}{C}>"!="0"}, project_compile_odl][{<{}{%AM=Grammar::Class}{%AC}>!=0}, project_compile_g] {
+ 'project ('
+ %S |N ') : project_generic_core'
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  '_corba' 
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |M ) %== 'ComInterfaces::Category' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  ', project_compile_odl' 
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'Grammar::Class' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0 ) then
+ begin
+  ', project_compile_g' 
+ end // if
+ ' {'
+//		sharedname = %SN
+ '	sharedname = '
+ %S |N 
+//		staticname = %SN
+ '	staticname = '
+ %S |N 
+//	[
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%f_mpc_all_includes(%S)
+  [%f] mpc_all_includes %( %S )% 
+//	%f_mpc_all_libpaths(%S)
+  [%f] mpc_all_libpaths %( %S )% 
+//	][{%f_use_server(%S)=true&%SN!=Core&%SN!=CoreSrv}
+ end // if
+ NOP
+ if ( ( [%f] use_server %( %S )% ) %==  true AND 
+   ( ( %S |N ) %!= 'Core'  ) AND 
+   ( ( %S |N ) %!= 'CoreSrv'  ) ) then
+ begin
+  #13#10
+
+//		after += CoreSrv_cs
+  '	after += CoreSrv_cs'
+//		libs  += CoreSrv_cs
+  '	libs  += CoreSrv_cs'
+//	]
+ end // if
+//	%f_library_mpc_base(%S)
+ [%f] library_mpc_base %( %S )% 
+//	}
+ '}'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47031E41002Efor470361CD0148*
+; // mpc
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Файлы ресурсов (rc)
+//+ rc
+<<generator>> rc OBJECT IN %S
+//#UC START# *471442BE033Cfor470361CD0148*
+//C /%SN
+//P
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *471442BE033Cfor470361CD0148*
+; // rc
+
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
+//+ build.xml
+<<generator>> build.xml OBJECT IN %S
+//#UC START# *47032262037Afor470361CD0148*
+//C /%SN
+//I <!--UC_BEGIN
+//i -->
+//J <!--UC_END
+//j -->
+//O build.xml
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	\<?xml version="1.0" encoding="windows-1251"?\>
+ '<?xml version="1.0" encoding="windows-1251"?>'
+//	\<project name="%SN" basedir="."\>
+ '<project name="'
+ %S |N '" basedir=".">'
+//		\<property environment="env"/\>
+ '	<property environment="env"/>'
+//		\<property name="build.dir" value="$\{env.JAVA_SOURCE_ROOT}/build/target"/\>
+ '	<property name="build.dir" value="${env.JAVA_SOURCE_ROOT}/build/target"/>'
+//		
+ '	'
+//		\<target name="idlcomp"/\>
+ '	<target name="idlcomp"/>'
+//		\<target name="gcomp"\>
+ '	<target name="gcomp">'
+//	%f_all_generators(%S)[{%f_exists_in_list(ALL_GENERATORS_ID,"g.java")=true}[<{}{"%f_with_gen_id(g.java,%Ao)"!=""}{%A}%f_gcomp_antlr(%A)
+ [%f] all_generators %( %S )% if ( ( [%f] exists_in_list %( 'ALL_GENERATORS_ID' %, 'g.java' )% ) %==  true ) then
+ begin
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( [%f] with_gen_id %( 'g.java' %, %A |o )% ) %!= '' ) then
+    begin
+     [%f] gcomp_antlr %( %A )% 
+//		>]]\
+     '	' 
+     ++! l_Counter
+    end // if
+   end // for A
+  end // if
+  NOP
+ end // if
+//		\</target\>
+ '	</target>'
+//		\<target name="makejar"\>
+ '	<target name="makejar">'
+//			\<mkdir dir="${build.dir}/jar"/\>
+ '		<mkdir dir="${build.dir}/jar"/>'
+//			\<jar destfile="${build.dir}/jar/%SN.jar"\>
+ '		<jar destfile="${build.dir}/jar/'
+ %S |N '.jar">'
+//				\<fileset dir ="${build.dir}/classes"\>
+ '			<fileset dir ="${build.dir}/classes">'
+//					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+ '				<include name="'
+ [%f] str_replace %( [%f] dump_java_package %( %S )% %, '.' %, '/' )% '/'
+ %S |N '/"/>'
+//				\</fileset\>[
+ '			</fileset>'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%f_dump_file_set_dir(%S)]
+  [%f] dump_file_set_dir %( %S )% 
+ end // if
+ NOP
+//			\</jar\>
+ '		</jar>'
+//		\</target\>
+ '	</target>'
+//		<%CX>
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	\</project\>
+ '</project>'
+
+//f _dump_file_set_dir
+; // build.xml
+
+end. // <<Library>>
+
+: dump_file_set_dir OBJECT IN %S
+//	%f_set_var(SELF,S)%f_clear_list(DIRS)\
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] clear_list %( 'DIRS' )% 
+//	[{<{}{"%f_with_gen_id(output.xml,%AO)"!=""}{%AC}>!=0}[{%f_exists_in_list(DIRS,"%f_with_gen_id(output.xml,%{SELF}R%{SELF}d)")=false}%f_add_to_list(DIRS,"%f_with_gen_id(output.xml,%{SELF}R%{SELF}d)")]]\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( [%f] with_gen_id %( 'output.xml' %, %A |O )% ) %!= '' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0 ) then
+ begin
+  if ( ( [%f] exists_in_list %( 'DIRS' %, [%f] with_gen_id %( 'output.xml' %, ( get_global_var ( 'SELF' ) |R ) ( get_global_var ( 'SELF' ) |d ) )% )% ) %==  false ) then
+  begin
+   [%f] add_to_list %( 'DIRS' %, [%f] with_gen_id %( 'output.xml' %, ( get_global_var ( 'SELF' ) |R ) ( get_global_var ( 'SELF' ) |d ) )% )% 
+  end // if
+ end // if
+//	[{<{}{"%f_with_gen_id(vm,%AO)"!=""}{%AC}>!=0}[{%f_exists_in_list(DIRS,"%f_with_gen_id(vm,%{SELF}R%{SELF}d)")=false}%f_add_to_list(DIRS,"%f_with_gen_id(vm,%{SELF}R%{SELF}d)")]]\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( [%f] with_gen_id %( 'vm' %, %A |O )% ) %!= '' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0 ) then
+ begin
+  if ( ( [%f] exists_in_list %( 'DIRS' %, [%f] with_gen_id %( 'vm' %, ( get_global_var ( 'SELF' ) |R ) ( get_global_var ( 'SELF' ) |d ) )% )% ) %==  false ) then
+  begin
+   [%f] add_to_list %( 'DIRS' %, [%f] with_gen_id %( 'vm' %, ( get_global_var ( 'SELF' ) |R ) ( get_global_var ( 'SELF' ) |d ) )% )% 
+  end // if
+ end // if
+//	[<{\n}{%f_is_empty(DIRS)=false}{W}%f_pop_last_to_var(DIRS,DIR)\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'DIRS' )% ) %==  false ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    [%f] pop_last_to_var %( 'DIRS' %, 'DIR' )% 
+//				\<fileset dir ="%f_cut_postfix(%{DIR}N,/%{SELF}N)"\>
+    '			<fileset dir ="'
+    [%f] cut_postfix %( ( get_global_var ( 'DIR' ) |N ) %, '/'
+    ( get_global_var ( 'SELF' ) |N ) )% '>'
+//					\<include name="%{SELF}N/*"/\>
+    '				<include name="'
+    ( get_global_var ( 'SELF' ) |N ) '/*"/>'
+//					\<include name="%{SELF}N/**/*"/\>
+    '				<include name="'
+    ( get_global_var ( 'SELF' ) |N ) '/**/*"/>'
+//				\</fileset\>>]
+    '			</fileset>' 
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+//#UC END# *47032262037Afor470361CD0148*
+; // dump_file_set_dir
+
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
+//+ output.xml
+implementation @ <<Library>>
+<<generator>> output.xml OBJECT IN %S
+//#UC START# *4703223D01A5for470361CD0148*
+//C /%SN
+//P
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4703223D01A5for470361CD0148*
+; // output.xml
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor470361CD0148*
+//P
+//C %S%f_pas_LibPath()
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *49F5795900ECfor470361CD0148*
+; // dfm
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for470361CD0148*
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A41A13D03D5for470361CD0148*
+; // spell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Library>>
+

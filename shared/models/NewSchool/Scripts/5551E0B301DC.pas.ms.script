@@ -1,0 +1,60 @@
+// TdaSelectFieldListPrim 5551E0B301DC SimpleClass Class
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47B9AF6E0228.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_5551E0B301DC
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+: ME_5551E0CB035B
+ CONST UID '5551E0CB035B'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_5551DC0F012D // IdaSelectField
+ ;
+
+ @SELF
+; // ME_5551E0CB035B ItemType
+
+: ME_5551E0B301DC
+ CONST UID '5551E0B301DC'
+ CONST Name 'TdaSelectFieldListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B9AF6E0228 // l3InterfaceRefListPrim
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5551E0CB035B // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5551E0B301DC TdaSelectFieldListPrim

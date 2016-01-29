@@ -1,0 +1,59 @@
+// TncsDeliveryResult 547582EC02E0 SimpleClass Class
+
+INCLUDE '5453986402AC.pas.ms.script'
+
+FORWARD ME_547582EC02E0
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_AD27C71E2468
+ CONST UID 'AD27C71E2468'
+ CONST Name 'TaskID'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_452257A0036F // a-string
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_AD27C71E2468 TaskID
+
+: ME_D70695E16D88
+ CONST UID 'D70695E16D88'
+ CONST Name 'ResultKind'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ CONST "pm" true
+
+ @SELF
+; // ME_D70695E16D88 ResultKind
+
+: ME_547582EC02E0
+ CONST UID '547582EC02E0'
+ CONST Name 'TncsDeliveryResult'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_544E079E0253 // TncsMessage
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_AD27C71E2468 // TaskID
+ ME_D70695E16D88 // ResultKind
+ ]
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_547582EC02E0 TncsDeliveryResult

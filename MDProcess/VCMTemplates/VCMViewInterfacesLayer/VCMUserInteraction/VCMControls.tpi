@@ -1,0 +1,117 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/VCMUserInteraction/VCMControls.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::VCMUserInteraction::VCMControls
+//
+// Управляющие элементы VCM
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: VCMControls::Category
+? Управляющие элементы VCM
+> !
+> VCMOperations::Class
+> VCMFacet::Class
+> Facet::Class
+> SimpleClass::Class
+> Struct::Class
+> Enum::Class
+> Typedef::Class
+> Vector::Class
+> VCMFormDefinition::Class
+> ScriptKeyword::Class
+
+= VCMInterfacesLike::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_vcm_controls.gif
+L code_vcm_controls
+// Параметры визуализации
+$ C 192,255,255
+$ l 64,224,208
+$ f 64,224,208
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+%f _pas_IntfUses
+//#UC START# *4948F2EE0334for494F7EF903BC*
+	%S%[inherited]\
+	%f_pas_PutToUses("vcmExternalInterfaces")
+//#UC END# *4948F2EE0334for494F7EF903BC*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+%f _pas_UnitName
+//#UC START# *4948065C01DFfor494F7EF903BC*
+	%f_set_var(PARENT_NAME,"%f_str_replace(%f_N(%P%P), ,_)")\
+	[{"%{PARENT_NAME}N"!="%f_N(%S)"}%{PARENT_NAME}N_]\
+	%f_N(%S)_Controls
+//#UC END# *4948065C01DFfor494F7EF903BC*
+
+// перекрытие базового стереотипа Interfaces::Category
+%f _pas_BeforeUnitImplementation
+//#UC START# *4A82C8F9037Cfor494F7EF903BC*
+	%S%[inherited]\
+	%f_clear_list(PUBLISHED_ENTITIES_LIST)\
+	%f_clear_list(PUBLISHED_OPERATIONS_LIST)\
+	[{<{}{%C#f_IsVCMOperations()=true}{C}>!=0}\
+	[\n%S%f_open_ifdef()]\
+	%f_pas_OpenConst(%S)\
+	[<{}{%C#f_IsVCMOperations()=true}\
+	[{%f_exists_in_list(PUBLISHED_ENTITIES_LIST,"%f_N(%C)")!=true}\
+	%f_add_to_list(PUBLISHED_ENTITIES_LIST,"%f_N(%C)")\
+	[{%f_N(%C)=%f_N(%C%G)}{\
+	 en_%f_N(%C) = '%f_N(%C)';\n\
+	 en_cap%f_N(%C) = '%f_str_replace(%CD,\n, )';\n\
+	}\
+	 en_%f_N(%C) = %f_pas_Unit(%C%G).en_%f_N(%C);\n\
+	 en_cap%f_N(%C) = %f_pas_Unit(%C%G).en_cap%f_N(%C);\n\
+	]\
+	]\
+	%C<{}{%C#f_IsVCMOperation()=true}\
+	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%C)")!=true}\
+	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%C)")\
+	 op_%f_N(%C) = '%f_N(%C)';\n\
+	 op_cap%f_N(%C) = '%CD';\n\
+	]\
+	>\
+	>\
+	]\
+
+	[
+	// Состояния операций:
+	<{}{%C#f_IsVCMOperations()=true}\
+	%C<{}{%C#f_IsVCMOperation()=true}\
+	%C<{}{%CS=VCMOperationState}\
+	[%C#f_open_ifdef()\n]\
+	var st_user_%f_N(%C%P%P)_%f_N(%C%P)_%f_N(%C) : TvcmOperationStateIndex = (rID : -1);\
+	\n  // [{}{%C%P%PN}%C%P%PD] -\> [{}{%C%PN}%C%PD] \<-\> [{}{%CN}%CD]\
+	[\n%C#f_close_ifdef()]\
+	\n\
+	>\
+	>\
+	>\
+	]\
+
+	[%S%f_close_ifdef()\n]\
+	]
+//#UC END# *4A82C8F9037Cfor494F7EF903BC*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

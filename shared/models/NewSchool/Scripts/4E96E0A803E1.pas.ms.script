@@ -1,0 +1,69 @@
+// AutolinkTypes 4E96E0A803E1 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E96E0A803E1
+
+FORWARD ME_4E96DEF500AA
+
+: ME_4E96DF22023F
+ CONST UID '4E96DF22023F'
+ CONST Name 'TddALDocRec'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E96DEF500AA // ddBaseAutoLinkDataSource
+ ;
+
+ref; // ME_4E96DF22023F TddALDocRec
+
+: ME_4E96DEF500AA
+ CONST UID '4E96DEF500AA'
+ CONST Name 'ddBaseAutoLinkDataSource'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E96E0A803E1 // AutolinkTypes
+ ;
+ : Children
+   @ ( ME_4E96DF22023F // TddALDocRec
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddBaseAutoLinkDataSource.pas'
+
+ref; // ME_4E96DEF500AA ddBaseAutoLinkDataSource
+
+: ME_4E96E0A803E1
+ CONST UID '4E96E0A803E1'
+ CONST Name 'AutolinkTypes'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ ;
+ : Children
+   @ ( ME_4E96DEF500AA // ddBaseAutoLinkDataSource
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E96E0A803E1.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E96E0A803E1.pas.ms.script.runner'
+
+ref; // ME_4E96E0A803E1 AutolinkTypes

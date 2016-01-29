@@ -1,0 +1,765 @@
+///////////////////////////////////////////////////////////////////////////////
+//	Модуль для работы с Админом                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+uses Clicks, common, RunPrograms, SettingsWork, MenuWork, FoldersWork, exceptions, States;
+
+function GetFromAdmin(whatToGet : string;  parent : OleVariant = nil;  mainWnd : OleVariant = nil) : OleVariant; forward;
+
+{
+  TYPE: Объекты оболочки/Текст документа  
+  DESC: Отдает объекты документа
+  RESULT:
+  REMARK: 
+}
+function GetFromAdmin(
+  whatToGet : string;
+  parent : OleVariant = nil;
+  mainWnd : OleVariant = nil
+) : OleVariant;
+  const 
+    FUNCTION_NAME = 'GetFromAdmin';
+  var arr : OleVariant;
+    cacheObj, cacheKey : OleVariant;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);
+    
+    if mainWnd = nil then
+      mainWnd := GetMainWindow;
+    
+    if (parent = nil) then
+    begin // вычисляем дефолтный parent
+      cacheKey := FUNCTION_NAME + 'DefaultParent';
+      if NOT Cache_Check(mainWnd, cacheKey, parent) then
+        parent := Cache_Put(mainWnd, cacheKey, FindWindowByPath( GetFromMainWindow('PARENT ZONE', '', mainWnd), 'WNDCLASS:=TcfAdminForm'));
+    end;
+
+    cacheKey := FUNCTION_NAME + whatToGet;
+    if NOT Cache_Check(parent, cacheKey, Result) then    
+    begin 
+      case whatToGet of
+        //Вспомогательный объект
+        'EFUSERLIST':
+          Result := FindWindowByPath(
+            parent,
+            'NAME:=BackgroundPanel;WNDCLASS:=TvtProportionalPanel|NAME:=TreeZone;WNDCLASS:=TvtPanel|NAME:=efUserList;WNDCLASS:=TefUserList'
+          );
+        'EFGROUPLIST':
+          Result := FindWindowByPath(
+            F1Admin_GetMainWindow,
+            'NAME:=LeftNavigator;WNDCLASS:=TnscNavigator;MAXDEPTH:=3|NAME:=efGroupList;WNDCLASS:=TefGroupList;MAXDEPTH:=5'
+          );   
+        'PNMAINDATA':
+          Result := FindWindowByPath(
+            parent,
+            'NAME:=BackgroundPanel;WNDCLASS:=TvtProportionalPanel|NAME:=PropertyZone;WNDCLASS:=TvtSizeablePanel|NAME:=efUserProperty;WNDCLASS:=TefUserProperty|NAME:=pnMainData;WNDCLASS:=TvtPanel'    
+          );    
+        //Основные объекты          
+        'ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ' :
+          Result := FindWindowByPath(
+            GetFromAdmin('efUserList', parent),
+            'NAME:=BackgroundPanel;WNDCLASS:=TvtPanel|NAME:=trUserList;WNDCLASS:=TeeTreeView'
+          );
+        'ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ' :
+          Result := FindWindowByPath(
+            GetFromAdmin('EFGROUPLIST'),
+            'NAME:=GroupsTree;WNDCLASS:=TeeTreeView;MAXDEPTH:=2'
+          );  
+        'ПОЛЕ "КОНТЕКСТНЫЙ ФИЛЬТР"' :
+          Result := FindWindowByPath(
+            GetFromAdmin('efUserList', parent),
+            'NAME:=BackgroundPanel;WNDCLASS:=TvtPanel|NAME:=ContextFilter;WNDCLASS:=TnscContextFilter|NAME:=InternalEditor;WNDCLASS:=TnscComboBox'
+          );
+        'КНОПКА "ВКЛЮЧИТЬ КОНТЕКСТНЫЙ ФИЛЬТР"' :
+          Result := FindWindowByPath(
+            GetFromAdmin('efUserList', parent),
+            'NAME:=BackgroundPanel;WNDCLASS:=TvtPanel|NAME:=ContextFilterButton;MAXDEPTH:=2'
+          );
+        'ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"' :
+          Result := FindWindowByPath(
+            GetFromAdmin('pnMainData', parent),
+            'NAME:=edLogin;WNDCLASS:=TnscEdit;MAXDEPTH:=2'
+          );          
+        'ПОЛЕ "ПАРОЛЬ"' :
+          Result := FindWindowByPath(
+            GetFromAdmin('pnMainData', parent),
+            'NAME:=edPassword;WNDCLASS:=TnscComboBoxWithPwdChar;MAXDEPTH:=2'
+          );
+        'ПОЛЕ "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ"' :
+          Result := FindWindowByPath(
+            GetFromAdmin('pnMainData', parent),
+            'NAME:=edConfirm;WNDCLASS:=TnscComboBoxWithPwdChar;MAXDEPTH:=2'
+          );
+        'ПОЛЕ "ФИО ПОЛЬЗОВАТЕЛЯ"' :
+        Result := FindWindowByPath(
+            GetFromAdmin('pnMainData', parent),
+            'NAME:=edUserName;WNDCLASS:=TnscEdit;MAXDEPTH:=2'
+          );
+        'ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"' :
+        Result := FindWindowByPath(
+            GetFromAdmin('pnMainData', parent),
+            'NAME:=edEmail;WNDCLASS:=TnscEdit;MAXDEPTH:=2'
+          );
+        'ЧЕКБОКС "ПРИВИЛЕГИРОВАННЫЙ ПОЛЬЗОВАТЕЛЬ"' :
+        Result := FindWindowByPath(
+            GetFromAdmin('pnMainData', parent),
+            'NAME:=edPrivilegedUser;WNDCLASS:=TvtCheckBox;WNDCAPTION:=Привилегированный пользователь;MAXDEPTH:=2'
+          );
+        'ЧЕКБОКС "РАЗРЕШЕНО ИСПОЛЬЗОВАНИЕ УСЛУГИ ПРАВОВОГО КОНСАЛТИНГА"' :
+        Result := FindWindowByPath(
+            GetFromAdmin('pnMainData', parent),
+            'NAME:=edBuyConsulting;WNDCLASS:=TvtCheckBox;MAXDEPTH:=2'
+          );
+        'КОМБОБОКС "ГРУППА"' :
+        Result := FindWindowByPath(
+            GetFromAdmin('pnMainData', parent),
+            'NAME:=edGroup;WNDCLASS:=TvtComboBoxQS;MAXDEPTH:=2'
+          );
+        'ВЕРХНИЙ ТУЛБАР', 'ТУЛБАР "ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ И ГРУПП"' :
+          Result := GetFromMainWindow('ТУЛБАР "ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ И ГРУПП"', '', mainWnd
+          );
+        'ТУЛБАР "ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ"' :
+          Result := FindWindowByPath(
+            GetFromAdmin('EFGROUPLIST'),
+            'NAME:=tbefGroupListTop;WNDCLASS:=TvcmToolbar;MAXDEPTH:=4'  
+          );  
+        'НИЖНИЙ ТУЛБАР', 'ТУЛБАР "СВОЙСТВО ПОЛЬЗОВАТЕЛЯ"':
+          Result := FindWindowByPath(
+            parent,
+            'NAME:=BottomDock;WNDCLASS:=TvcmDockDef;MAXDEPTH:=6|NAME:=tbefUserPropertyBottom;WNDCLASS:=TvcmToolbar'
+          );
+        'ГЛАВНОЕ МЕНЮ' :
+          Result := FindWindowByPath(mainWnd, 'NAME:=TMainMenu;VCLCLASS:=TMainMenu');
+        else
+          Raise('Параметр whatToGet = ' + whatToGet + 'не распознан');
+      end;
+                 
+    end;
+    
+    if NOT IsExists(Result) then
+      Raise(EX_CANNOT_FIND_WINDOW);           
+  except
+    Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, 'whatToGet: "' + whatToGet + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+DESK: Функция лигинится специфическим пользователем ADMIN
+}
+function LoginByAdmin(
+  user : string = 'ADMIN';
+  pswd : string = 'ADMIN'
+): boolean;
+var
+  userTreeWnd;
+begin
+try
+  if NOT LoginAdminUser(user, pswd) then 
+    Raise('Не удалось залогиниться в интерфейс администроатора пользователем "'+ user +'" и паролем "' + pswd + '"');
+    
+  //WaitForConfirmationWindow(Options.Run.Timeout div 10, 'Да', '*ADMIN*');
+    
+  userTreeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(userTreeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  result := true;   
+except
+  Log.Message('LoginByAdmin: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  Result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+DESK: Перелогиниваемся админом
+}
+function RestartF1ShellByAdmin (
+  user : string = 'ADMIN';
+  pswd : string = 'ADMIN';
+  countOfAttempts : integer = 6
+): boolean;
+begin
+try      
+  CloseF1Shell(countOfAttempts, Options.Run.Timeout div 6);  
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  Log.Message('Стартуем F1Admin.');
+  StartF1Admin ('', 3);
+  Log.Message('Логинимся в F1Admin.'); 
+  if NOT LoginByAdmin(user ,pswd) then Raise('Не удалось залогиниться Админом');
+  result := true;
+except
+  Log.Message( 'RestartF1ShellByAdmin: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+ 
+
+const
+  ADM_NAME = 'Регистрационное имя';
+  ADM_PWD = 'Пароль';
+  ADM_CONFIRM_PWD = 'Подтверждение пароля';
+  ADM_USER_FIO = 'ФИО Пользователя';
+  ADM_E_MAIL = 'Электронная почта';
+  ADM_PRIVILEGID = 'Привилегированный пользователь';
+  ADM_CONSULTING_ACCESS = 'Разрешено использование услуг правового консалтинга';
+  ADM_GROUP = 'Группа'; 
+  
+
+{
+DESK: Заполняются поля "Регистрационное имя", "Пароль" и т.д.
+REMARK: Если переданный параметр = '' тогда с этим полем не будет ничего делаться 
+}
+function FillUserDataInAdmin( 
+  paramString : string //строка параметров 
+) : boolean;
+var
+  paramList : string;
+  name : string;
+  pwd : string;
+  confirmPwd : string;
+  userFio : string;
+  mail : string;
+  group : string;
+  consultingAccess : string; 
+  i;
+  dataWnd;
+  keys;
+begin
+try
+  paramList := ParseParamString(paramString);
+   
+  name := GetParam(paramList, ADM_NAME, '' );
+  pwd := GetParam(paramList, ADM_PWD, '');
+  confirmPwd := GetParam(paramList, ADM_CONFIRM_PWD, '');
+  userFio := GetParam(paramList, ADM_USER_FIO, '');
+  mail := GetParam(paramList, ADM_E_MAIL, '');
+  consultingAccess := GetParam(paramList, 'ADM_CONSULTING_ACCESS', '' ); //разрешено \ запрещено
+  group := GetParam(paramList, ADM_GROUP, 'Все'); 
+  
+  for i := 0 to 5 do
+  begin
+    case i of
+      0: if name <> '' then
+         begin       
+           dataWnd := GetFromAdmin('ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"');
+           keys := name; 
+         end;  
+      1: if pwd <> '' then
+         begin       
+           dataWnd := GetFromAdmin('ПОЛЕ "ПАРОЛЬ"');
+           keys := pwd; 
+         end;
+      2: if confirmPwd <> '' then  
+         begin 
+           dataWnd := GetFromAdmin('ПОЛЕ "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ"');
+           keys := confirmPwd; 
+         end;
+      3: if userFio <> '' then 
+         begin 
+           dataWnd := GetFromAdmin('ПОЛЕ "ФИО ПОЛЬЗОВАТЕЛЯ"');
+           keys := userFio; 
+         end;      
+      4: if mail <> '' then 
+         begin 
+           dataWnd := GetFromAdmin('ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"');
+           keys := mail; 
+         end;
+      5: if consultingAccess <> '' then 
+         begin 
+           dataWnd := GetFromAdmin('ЧЕКБОКС "РАЗРЕШЕНО ИСПОЛЬЗОВАНИЕ УСЛУГИ ПРАВОВОГО КОНСАЛТИНГА"');
+           keys := consultingAccess; 
+         end;   
+    end;
+    
+    if keys <> '' then
+    begin
+      if i = 5 then
+      begin
+        if NOT IsExists(dataWnd) then Raise('Не удалось получить поле ввода');
+        dataWnd.SetFocus;
+        if keys = 'разрешено' then dataWnd.checked := true
+        else
+          if keys = 'запрещено' then dataWnd.checked := false
+          else
+            Raise('Передан неправильный параметр : ' + keys);
+        keys := '';
+      end
+      else//if i = 5
+      begin
+        if NOT IsExists(dataWnd) then Raise('Не удалось получить поле ввода');
+        dataWnd.SetFocus;
+        Sys.Keys('[Home]![End][Del]');    
+        PressKeyWithCheck([keys]);
+        keys := '';
+      end;        
+    end;//if keys <> '' 
+  end;//for
+  //Выбираем группу
+  dataWnd := GetFromAdmin('КОМБОБОКС "ГРУППА"');
+  if NOT IsExists(dataWnd) then Raise('Не удалось получить КОМБОБОКС "ГРУППА"');  
+  if dataWnd.Enabled then //для пользователя ADMIN этот комбобокс не трогаем, он задизейблен
+  begin  
+    if NOT SelectInCombobox(dataWnd, group) then  
+      Raise('Не удалось выбрать в комбобоксе группу: ' + group);
+  end;   
+  result := true;
+except
+  Log.Message('FillUserDataInAdmin: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  Result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+DESK: Считываются поля "Регистрационное имя", "Пароль" и т.д.
+}
+function ReadUserDataInAdmin( 
+ var paramList : string //список параметров 
+) : boolean;
+var
+ i : integer;
+ dataWnd;
+ editName;
+ dataWndArray; 
+begin
+try
+  dataWndArray :=[
+    (['ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"', ADM_NAME]),  
+    (['ПОЛЕ "ПАРОЛЬ"', ADM_PWD]),
+    (['ПОЛЕ "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ"', ADM_CONFIRM_PWD]),
+    (['ПОЛЕ "ФИО ПОЛЬЗОВАТЕЛЯ"', ADM_USER_FIO]),
+    (['ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"', ADM_E_MAIL]),
+    (['КОМБОБОКС "ГРУППА"', ADM_GROUP]),
+    (['ЧЕКБОКС "ПРИВИЛЕГИРОВАННЫЙ ПОЛЬЗОВАТЕЛЬ"', ADM_PRIVILEGID]),       
+    (['ЧЕКБОКС "РАЗРЕШЕНО ИСПОЛЬЗОВАНИЕ УСЛУГИ ПРАВОВОГО КОНСАЛТИНГА"', ADM_CONSULTING_ACCESS])    
+  ];
+  for i := VarArrayLowBound(dataWndArray,1) to VarArrayHighBound(dataWndArray,1) do
+  begin    
+    dataWnd := GetFromAdmin(dataWndArray[i][0]);    
+    if NOT IsExists(dataWnd) then Raise('Не удалось получить объект');
+    editName := dataWndArray[i][1];
+    
+    if (editName = ADM_PRIVILEGID) then
+    begin      
+      if dataWnd.Checked then
+        SetParam(paramList, editName, true)
+      else  
+        SetParam(paramList, editName, false);
+    end
+    else
+    if (editName = ADM_CONSULTING_ACCESS) then
+    begin
+      if dataWnd.Checked then
+        SetParam(paramList, editName, 'разрешено')
+      else  
+        SetParam(paramList, editName, 'запрещено');
+    end
+    else
+       SetParam(paramList, editName, common.GetWindowText(dataWnd.Handle));
+    
+  end;  
+
+  result := true;
+except
+  Log.Message('ReadUserDataInAdmin: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+{
+DESK: Созданние нового пользователя в Админе
+}
+function CreateNewUserInAdmin(
+  paramString : string
+) : boolean;
+var
+  treeWnd;
+  filterWnd;
+  button;
+  toolBarTop;
+  toolBarDown;
+  paramList;
+  name, userFio;
+begin
+try
+  paramList := ParseParamString(paramString);
+  name := GetParam(paramList, ADM_NAME, '' );
+  userFio := GetParam(paramList, ADM_USER_FIO, '');  
+  //Проверяем, если кнопка "Отмена " активна, значит кликаем на неё(это если вдруг редактировались данные какого либо из пользователей)
+  toolBarDown := GetFromAdmin('НИЖНИЙ ТУЛБАР');
+  if NOT IsExists(toolBarDown) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР');
+  button := GetToolbarObject(toolBarDown, 'BUTTON', 'Отмена');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "ОТМЕНА"');
+  if button.Enabled then button.Click;  
+  //Создаём нового пользователя
+  toolBarTop := GetFromAdmin('ВЕРХНИЙ ТУЛБАР'); 
+  if NOT ClickToolbarButton(toolBarTop, 'Создать нового пользователя') then
+    Raise('Не удалось кликнуть по кнопке "Создать нового пользователя"');
+  if NOT FillUserDataInAdmin(paramString) then
+    Raise('Не удалось заполнить все поля настроек для пользователя');
+  //Подтверждаем, кликая на "Сохранить"
+  if NOT ClickToolbarButton(toolBarDown, 'Создать') then
+    Raise('Не удалось кликнуть по кнопке "Создать", видимо потому, что не были заполнены обязательные поля при создании нового пользователя');
+  //Проверяем, что не возникло окна предупреждения
+  if StringCompare(
+    'Пользователь*уже зарегистрирован в системе!',
+     WaitForWarningWindow(Options.Run.Timeout div 60)
+  ) then
+  begin      
+    Log.Error('Не удалось создать нового пользователя "'+name+'", так как пользователь с таким именем уже существует!');    
+    Raise('Не удалось создать нового пользователя "'+name+'", так как пользователь с таким именем уже существует!');
+  end;  
+    
+  //Проверяем, что пользователь появился в списке пользователей(При этом на всякий случай отключаем контекстный фильтр)
+  filterWnd :=GetFromAdmin('КНОПКА "ВКЛЮЧИТЬ КОНТЕКСТНЫЙ ФИЛЬТР"'); 
+  if NOT IsExists(filterWnd) then Raise('Не удалось получить кнопку контекстного фильтра');
+  if filterWnd.Down then filterWnd.Click;
+    
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');     
+  if NOT Position_Internal(treeWnd, userFio + ' (' + name + ')', DELIM_CHAR, true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе в дереве пользователей');  
+  result := true;
+except
+  Log.Message('CreateNewUserInAdmin: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+DESK: 
+REMARK: 
+}
+function EditUserDataInAdmin(
+  user : string;
+  paramString : string = ''
+) : boolean;
+var
+  toolBarDown;
+  button;
+  treeWnd;    
+begin
+try  
+  //Проверяем, если кнопка "Отмена " активна, значит кликаем на неё(это если вдруг редактировались данные какого либо из пользователей)
+  toolBarDown := GetFromAdmin('НИЖНИЙ ТУЛБАР');
+  if NOT IsExists(toolBarDown) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР');
+  button := GetToolbarObject(toolBarDown, 'BUTTON', 'Отмена');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "ОТМЕНА"');
+  if button.Enabled then button.Click;  
+  //Позиционируемся в дереве на пользователя
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');    
+  if NOT Position_Internal(treeWnd, '* (' + user + ')', DELIM_CHAR, true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе" ' + user + '" в дереве пользователей');    
+  //заполняем данные    
+  if NOT FillUserDataInAdmin(paramString) then
+    Raise('Не удалось заполнить все поля настроек для пользователя');
+  //Подтверждаем, кликая на "Сохранить"
+  button := GetToolbarObject(toolBarDown, 'BUTTON', 'Сохранить');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Сохранить"');
+  if NOT button.Enabled then
+    Raise('Кнопка "Сохранить" не активна, считаем что невнесены изменения изменений или эти изменения не корректны');
+  if NOT ClickToolbarButton(toolBarDown, 'Сохранить') then
+    Raise('Не удалось кликнуть по кнопке "Сохранить"');
+  //Если никаких косяков не вылезло, считаем, что данные изменились успешно
+  result := true;
+except
+  Log.Message('EditUserDataInAdmin: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+DESK: 
+REMARK: 
+}
+function IsUserActiveInAdmin(
+  user : string;
+  paramString : string = ''
+) : boolean;
+var
+  toolBar, button, treeWnd;    
+begin
+try
+  Result := false;  
+  //Проверяем, если кнопка "Отмена " активна, значит кликаем на неё(это если вдруг редактировались данные какого либо из пользователей)
+  toolBar := GetFromAdmin('НИЖНИЙ ТУЛБАР');
+  if NOT IsExists(toolBar) then 
+    Raise('Не удалось получить НИЖНИЙ ТУЛБАР');
+  button := GetToolbarObject(toolBar, 'BUTTON', 'Отмена');
+  if NOT IsExists(button) then 
+    Raise('Не удалось получить кнопку "ОТМЕНА"');
+  if button.Enabled then 
+    button.Click;  
+
+  //Позиционируемся в дереве на пользователя
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then 
+    Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');    
+  if NOT Position_Internal(treeWnd, '*(' + user + ')', DELIM_CHAR, true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе "' + user + '" в дереве пользователей');
+
+  toolBar := GetFromAdmin('ВЕРХНИЙ ТУЛБАР');
+  if NOT IsExists(toolBar) then 
+    Raise('Не удалось получить ВЕРХНИЙ ТУЛБАР');
+  button := GetToolbarObject(toolBar, 'BUTTON', 'Отключить пользователя');
+  if NOT IsExists(button) then 
+    Raise('Не удалось получить кнопку "Отключить пользователя"');
+  
+  Result := button.Enabled;     
+except
+  Log.Message('IsUserActiveInAdmin: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  //Result := false;
+  CommonExceptionHandler;
+  Raise; // сделано специально, для обработки ошибок, когда невозможно получить результат  
+end;
+end;
+
+{
+DESK: Меняется пароль АДМИН-а
+
+}
+function ChangeAdminPswd(
+  pwd : string; //новый пароль
+  oldPswd : string = 'ADMIN';
+  isCloseF1ShellAfterChangePwd : boolean = true//Закрывать ли оболочку(интерфейс ADMIN-а) после изменения пароля ADMIN-а
+) : boolean;
+var
+  countOfAttempt;  
+begin
+try  
+  if NOT RestartF1ShellByAdmin('ADMIN', oldPswd) then Raise('Не удалось залогинится ADMIN-ом');
+  if NOT EditUserDataInAdmin('ADMIN', ADM_PWD + ':=' + pwd + ';' + ADM_CONFIRM_PWD + ':=' + pwd) then
+    Raise('Не удалось в интерфейск Администратора изменить информацию о пароле ADMIN-а');
+  if NOT RestartF1ShellByAdmin('ADMIN', pwd) then Raise('Не удалось залогинится под изменённым паролем ADMIN-а, значит он не изменился');
+  countOfAttempt := 3;
+  if isCloseF1ShellAfterChangePwd then
+  begin
+    CloseF1Shell(countOfAttempt, Options.Run.Timeout div 6);
+    CloseF1Admin(countOfAttempt, Options.Run.Timeout div 6);    
+  end;
+  result := true;  
+except
+  if isCloseF1ShellAfterChangePwd then CloseF1Shell;
+  Log.Message('ChangeAdminPswd: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;   
+end;
+end;
+
+
+
+{
+DESK: создаем новуюновую группу пользователей
+}
+function CreateNewGroup(
+  groupName : string = '' //имя группы  
+) : boolean;
+var  
+  groupToolBar;
+  p;
+  w;  
+begin  
+try
+  if (groupName = '') then groupName := 'НОВАЯ ГРУППА';
+  groupToolBar := GetFromAdmin('ТУЛБАР "ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ"'); 
+  if NOT IsExists(groupToolBar) then Raise('Не удалось получить ТУЛБАР "ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ"');
+  if NOT ClickToolBarButton(groupToolBar, 'Создать новую группу') then 
+    Raise('Не удалось кликнуть на тулбаре по кнопке: Создать новую группу');  
+  
+    
+  p := GetF1AdminProcess;
+  w := FindWindowByPath(p, 'NAME:=efGroupProperty;WNDCLASS:=TefGroupProperty;CAPTION:=Новая группа;TimeOut:=' + IntToStr(Options.Run.Timeout div 20), false);
+  if NOT IsExists(w) then Raise('Не получилось найти диалог создания новой группы!');
+  w.Activate;
+  Sys.Keys(groupName);
+  Sys.Keys('[Enter]');
+  //Проверяем, что НЕ появилось Предупреждение о уже существующей группе с заданным имененмименем
+  
+  if StringCompare(
+    'Группа*уже существует!',
+     WaitForWarningWindow(Options.Run.Timeout div 60)
+  ) then
+  begin      
+    Log.Error('Не удалось создать новую группу с именем "'+groupName+'", так как группа с таким именем уже существует!');
+    Sys.Keys('[Esc]');//закрываем диалог создания новой группы
+    Raise('Не удалось создать новую группу с именем "'+groupName+'", так как группа с таким именем уже существует!');
+  end;
+    
+  result := true;  
+except
+  Log.Message('CreateNewGroup: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;   
+end;
+end;
+
+
+{
+TYPE:
+DESC:  Редактируем имя группы
+RESULT: 
+REMARK:
+}
+function ChangeGroupName(
+  oldGroupName : string;// старое имя
+  newGroupName : string//новое имя
+) : boolean;
+var
+  groupTree;
+  p, w;
+  i;
+begin  
+try  
+  groupTree := GetFromAdmin('ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(groupTree) then Raise('Не удалось получить ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT Position_Internal(groupTree, oldGroupName, '\', true, 'IsPressHome := true') then  
+  begin
+    Log.Error('Не удалось спозиционироваться на группу :' + oldGroupName);
+    Raise('Не удалось спозиционироваться на группу :' + oldGroupName);
+  end;
+  Sys.Keys('[Apps]');      
+  if NOT ClickByPopupMenuItem(groupTree, 'Переименовать') then
+    Raise('Не удалось вызвать контекстную операцию "Переименовать"');
+  
+  p := GetF1AdminProcess;
+  w := FindWindowByPath(p, 'NAME:=efGroupProperty;WNDCLASS:=TefGroupProperty;CAPTION:=Переименовать группу;TimeOut:=' + IntToStr(Options.Run.Timeout div 20), false);
+  if NOT IsExists(w) then Raise('Не получилось найти диалог "Переименовать группу"!');
+  w.Activate;
+  Sys.Keys('[Home]' +  '![End]' + newGroupName);
+  Sys.Keys('[Enter]');
+  //Проверяем, что НЕ появилось Предупреждение о уже существующей группе с заданным имененмименем
+  
+  if StringCompare(
+    'Группа*уже существует!',
+     WaitForWarningWindow(Options.Run.Timeout div 60)
+  ) then
+  begin      
+    Log.Error('Не удалось переименовать группу "'+oldGroupName+'" в "' + newGroupName + '", так как группа с именем "' + newGroupName + '" уже существует!');
+    Sys.Keys('[Esc]');//закрываем диалог переименования группы
+    Raise('Не удалось переименовать группу "'+oldGroupName+'" в "' + newGroupName + '", так как группа с именем "' + newGroupName + '" уже существует!');
+  end;
+  result := true;  
+except
+  Log.Message('ChangeGroupName: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;   
+end;
+end;
+
+
+{
+TYPE:
+DESC:  Удаляем группу
+RESULT: 
+REMARK:
+}
+function DeleteGroup(
+  groupName : string
+) : boolean;
+var
+  groupTree;  
+begin  
+try  
+  groupTree := GetFromAdmin('ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(groupTree) then Raise('Не удалось получить ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT Position_Internal(groupTree, groupName, '\', true, 'IsPressHome := true') then  
+  begin
+    Log.Error('Не удалось спозиционироваться на группу :' + groupName);
+    Raise('Не удалось спозиционироваться на группу :' + groupName);
+  end;
+  Sys.Keys('[Apps]');      
+  if NOT ClickByPopupMenuItem(groupTree, 'Удалить группу') then
+    Raise('Не удалось вызвать контекстную операцию "Удалить группу"');    
+  if WaitForConfirmationWindow(Options.Run.Timeout div 6,'Да') = '' then  
+    Raise('Не обнаружили окна Предупреждения при удалении группы!');
+  result := true;  
+except
+  Log.Message('DeleteGroup: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;   
+end;
+end;
+
+{
+TYPE:
+DESC:  запрещаемменяем доступ к заданным инфолрмационным блокам для группы
+RESULT: 
+REMARK: 
+
+}
+function ChangeAccessToInfBlocks(
+  groupName : string; //имя группы
+  attributes;
+  isDisableForAll : boolean = false//если указана, тогда запрещаем доступ для всех пользователей, необращая внимание на массив attributes  
+) : boolean;
+var
+  groupTree;
+  groupToolBar;
+  attributeTree;
+  tb;
+  i;
+begin  
+try  
+  groupTree := GetFromAdmin('ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(groupTree) then Raise('Не удалось получить ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT Position_Internal(groupTree, groupName, '\', true, 'IsPressHome := true') then  
+  begin
+    Log.Error('Не удалось спозиционироваться на группу :' + groupName);
+    Raise('Не удалось спозиционироваться на группу :' + groupName);
+  end;
+  Sys.Keys('[Apps]');      
+  if NOT ClickByPopupMenuItem(groupTree, 'Изменить доступ к информационным блокам') then
+    Raise('Не удалось вызвать контекстную операцию "Изменить доступ к информационным блокам"');
+  attributeTree := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+  if NOT IsExists(attributeTree) then Raise('Не удалось получить ДЕРЕВО АТТРИБУТОВ');
+  
+  if isDisableForAll then// если надо запретить для Всех
+  begin
+    attributeTree.SetFocus;
+    Sys.Keys('^a');
+    Sys.Keys('[Apps]');
+    if NOT IsMenuItemChecked(attributeTree.QCPopupMenu,'КРОМЕ') then //Если не отмечено - отмечаем
+      ClickByPopupMenuItem(attributeTree, 'КРОМЕ')
+    else
+       ClosePopupMenu(attributeTree);  
+  end
+  else
+  begin
+    if NOT IsArray(attributes) then
+      Raise('Передано некорректное значение attributes');
+      
+    //Ставим галку для каждого аттрибута
+    for i := VarArrayLowBound(attributes, 1) to VarArrayHighBound(attributes, 1) do
+    begin  
+      if NOT Position_Internal(attributeTree, attributes[i], '\', true, 'IsPressHome := true') then    
+        Log.Error('Не удалось спозиционироваться на аттрибут :' + attributes[i])
+      else
+      begin
+        Sys.Keys('[Apps]');
+        if NOT IsMenuItemChecked(attributeTree.QCPopupMenu,'КРОМЕ') then //Если не отмечено - отмечаем
+          ClickByPopupMenuItem(attributeTree, 'КРОМЕ')
+        else
+          ClosePopupMenu(attributeTree);
+      end;       
+    end;
+  end;
+  tb := GetFromAttributeSelect('НИЖНИЙ ТУЛБАР');
+  if NOT IsExists(tb) then
+    Raise('Не удалось получить НИЖНИЙ ТУЛБАР');
+  if NOT ClickToolBarButton(tb, 'Ок') then
+    Raise('Не удалось кликнуть ОК на тулбаре');
+  
+  result := true;  
+except
+  Log.Message('ChangeAccessToInfBlocks: ' + ExceptionMessage,'',pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;   
+end;
+end;

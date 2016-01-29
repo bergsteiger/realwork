@@ -1,0 +1,34 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = gtRtlD5.bpl gtCompressionD5.bpl gtFiltersD5.bpl gtCryptD5.bpl \
+  gtFontD5.bpl
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+
+gtRtlD5.bpl: Rtl\gtRtlD5.dpk
+  $(DCC)
+
+gtCompressionD5.bpl: Compression\gtCompressionD5.dpk
+  $(DCC)
+
+gtFiltersD5.bpl: Filters\gtFiltersD5.dpk
+  $(DCC)
+
+gtCryptD5.bpl: PDFCrypt\gtCryptD5.dpk
+  $(DCC)
+
+gtFontD5.bpl: PDFFontProcessor\gtFontD5.dpk
+  $(DCC)
+
+

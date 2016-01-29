@@ -1,0 +1,44 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/ChatLibrary.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> shared::ChatLibrary
+//
+// библиотека обмена сообщениями
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (ChatLibrary) : project_generic_core_corba {
+	staticname = ChatLibrary
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += ChatLibrary_cs
+	libs  += ChatLibrary_cs
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	Header_Files {
+		Std_Headers {
+			./../ChatLibrary/ServerLibHome.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../ChatLibrary/ServerLibHome.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

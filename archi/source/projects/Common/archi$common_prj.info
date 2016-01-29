@@ -1,0 +1,161 @@
+archi$common : Project - Общие библиотеки Архивариуса и смежных проектов
+version: 126
+Meta : Library - 
+ Meta : Unit - 
+  D_Base : UtilityPack - 
+   TBaseDlg : SimpleClass - 
+Dialogs : Library - 
+ CommonDialogs : Unit - 
+  d_edMSub : UtilityPack - 
+   TNewSubDlg : SimpleClass - Диалог редакторования саба.
+  D_PicSizeEdit : UtilityPack - 
+   TPicSizeEditDlg : SimpleClass - 
+  ExprEditForm : UtilityPack - 
+   TExprEditor : SimpleClass - 
+  ddTableConvParamDlg : UtilityPack - 
+   TTableConvParamDialog : SimpleClass - 
+  D_TxSrch : UtilityPack - 
+   TTextSearchDlg : SimpleClass - 
+  D_spell : UtilityPack - 
+   TSpellCheckDlg : SimpleClass - 
+ Dialogs : ScriptKeywords - 
+  TTextSearchDlgWordsPack : ScriptKeywordsPack - 
+   Fake : keyword - Этот метод нужен лишь для того, чтобы зарегистировать диалог в скриптовой машине.
+    : uses - undefined
+    : injects - undefined
+   pop_TextSearchDlg_Fake : ScriptKeyword - Слово скрипта pop:TextSearchDlg:Fake
+{panel}Этот метод нужен лишь для того, чтобы зарегистировать диалог в скриптовой машине.{panel}
+*Пример:*
+{code}
+ aTextSearchDlg pop:TextSearchDlg:Fake
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TTextSearchDlg : ini - Регистрация типа TTextSearchDlg
+  TTableConvParamDialogWordsPack : ScriptKeywordsPack - 
+   Fake : keyword - 
+    : uses - undefined
+    : injects - undefined
+   pop_TableConvParamDialog_Fake : ScriptKeyword - Слово скрипта pop:TableConvParamDialog:Fake
+*Пример:*
+{code}
+ aTableConvParamDialog pop:TableConvParamDialog:Fake
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TTableConvParamDialog : ini - Регистрация типа TTableConvParamDialog
+  TNewSubDlgWordsPack : ScriptKeywordsPack - 
+   Fake : keyword - 
+    : uses - undefined
+    : injects - undefined
+   pop_NewSubDlg_Fake : ScriptKeyword - Слово скрипта pop:NewSubDlg:Fake
+*Пример:*
+{code}
+ aNewSubDlg pop:NewSubDlg:Fake
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TNewSubDlg : ini - Регистрация типа TNewSubDlg
+  TSpellCheckDlgWordsPack : ScriptKeywordsPack - 
+   Fake : keyword - 
+    : uses - undefined
+    : injects - undefined
+   pop_SpellCheckDlg_Fake : ScriptKeyword - Слово скрипта pop:SpellCheckDlg:Fake
+*Пример:*
+{code}
+ aSpellCheckDlg pop:SpellCheckDlg:Fake
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TSpellCheckDlg : ini - Регистрация типа TSpellCheckDlg
+  TPicSizeEditDlgWordsPack : ScriptKeywordsPack - 
+   Fake : keyword - 
+    : uses - undefined
+    : injects - undefined
+   pop_PicSizeEditDlg_Fake : ScriptKeyword - Слово скрипта pop:PicSizeEditDlg:Fake
+*Пример:*
+{code}
+ aPicSizeEditDlg pop:PicSizeEditDlg:Fake
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TPicSizeEditDlg : ini - Регистрация типа TPicSizeEditDlg
+  TExprEditorWordsPack : ScriptKeywordsPack - 
+   Fake : keyword - 
+    : uses - undefined
+    : injects - undefined
+   pop_ExprEditor_Fake : ScriptKeyword - Слово скрипта pop:ExprEditor:Fake
+*Пример:*
+{code}
+ aExprEditor pop:ExprEditor:Fake
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TExprEditor : ini - Регистрация типа TExprEditor
+Utils : Library - Общие базовые модули.
+ arConst : Interfaces - Общие константы.
+  ContentsTreeConst : Constants - 
+   nfContens - 
+ DataBaseUtils : Unit - Вспомогательные функции для работы с базой
+  arDBUtils : UtilityPack - 
+   arUnackBaseFromArchive : method - Распаковать базу данных в заданный каталог.
+   TestBaseConst : Constants - 
+   CreateTestBaseArchive : method - Создает testbase.zip в CVS на основе C:\Base\TestBase и удаляет предыдущий
+ arCommonTypes : Interfaces - Общие типы для Арчи и Эвереста.
+  TSubType : Enum - 
+   stSub - 
+   stBlock - 
+  IarCheckLeftOrRightBlock : Facet - 
+   HasAACBlock - 
+   SetBlockKind - 
+  IevClearPreviewLink : Facet - 
+   ClearPreview - 
+ EditorCommon : Unit - 
+  TevArchiLikeDocumentContainer : SimpleClass - 
+    : uses - 
+ Tools : Unit - 
+  evCommonUtils : UtilityPack - Процедуры общие для Эвереста и Арчи.
+   cnvDate2Text : method - 
+   evEditPicture : method - 
+   evEditFormula : method - 
+   evIsFormula : method - 
+   evIsPicture : method - 
+   evInsertFormula : method - 
+   evAlignCellsBoundary : method - 
+   evCopyWidthOfCells : method - 
+   evApplyWidthOfCells : method - 
+   evLinkTableFilters : method - 
+   evSetTableStyle : method - Выставляет стиль на таблицу.
+   TevSetSubParam : Struct - 
+   evSetSubPrim : method - 
+   TevSubEditParam : Struct - 
+   evSubNameEdit : method - Общий метод редактирования саба.
+   TevSubEditParamEX : Struct - 
+   evEditSubPrim : method - 
+   evSetStyleByName : method - 
+   evSetExpiredStyle : method - 
+   g_DisableMergeCellFilter - 
+    : uses - 
+  evTableConverter : UtilityPack - 
+   TddTextAndTableConverter : SimpleClass - 
+   ConvertText2Table : method - 
+    : uses - 
+  evCommonRes : UtilityPack - Общие ресурсы для Эвереста и Арчи.
+   DialogCaptions : LocalConst - 
+    : uses - undefined
+    : uses - undefined
+   LCImplDialogCaptions : Constants - Локализуемые строки DialogCaptions
+   Init_sidChangeSubToBlock : ini - Инициализация str_sidChangeSubToBlock
+   Init_sidNonValidSubNumber : ini - Инициализация str_sidNonValidSubNumber
+   Init_sidNonUniqSubNumberQst : ini - Инициализация str_sidNonUniqSubNumberQst
+   Init_sidNonUniqSubNumber : ini - Инициализация str_sidNonUniqSubNumber
+   Init_sidBlockAlreadyExists : ini - Инициализация str_sidBlockAlreadyExists
+   Init_sidIEmtyFormula : ini - Инициализация str_sidIEmtyFormula
+   Init_sidTableNotFound : ini - Инициализация str_sidTableNotFound
+   Init_sidNoTextSelection : ini - Инициализация str_sidNoTextSelection
+   Init_sidEWSpellCheckDone : ini - Инициализация str_sidEWSpellCheckDone
+   Init_sidSaveAsk : ini - Инициализация str_sidSaveAsk
+   Init_sidEmptyViborka : ini - Инициализация str_sidEmptyViborka
+  arTextUtils : UtilityPack - 
+   arMakeNameStr : method - 
+   GetNumberFromStr : method - 

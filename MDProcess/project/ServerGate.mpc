@@ -1,0 +1,42 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/ServerGate.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::ServerGate
+//
+// серверная библиотека для поддержки генерации в К
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (ServerGate) : project_generic_core_corba {
+	staticname = ServerGate
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	
+	Header_Files {
+		Std_Headers {
+			./../ServerGate/ServerLibHome.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../ServerGate/ServerLibHome.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

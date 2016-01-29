@@ -1,0 +1,67 @@
+// ShortcutEdit 54817D330211 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54817D330211
+
+: ME_549067A702BE
+ CONST UID '549067A702BE'
+ CONST Name 'TeeShortCutEdit'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54817D330211 // ShortcutEdit
+ ;
+ CONST "base wnd class" 'CWnd'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeShortCutEdit.pas'
+
+ref; // ME_549067A702BE TeeShortCutEdit
+
+: ME_54817D330211
+ CONST UID '54817D330211'
+ CONST Name 'ShortcutEdit'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
+ ;
+ : Children
+   @ ( ME_549067A702BE // TeeShortCutEdit
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467C182A01BE' '467C182A01BE.pas.ms.script' // k2TagTool
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_4912DD020283' '4912DD020283.pas.ms.script' // eeInterfaces
+ WL 'ME_4912E16B01B4' '4912E16B01B4.pas.ms.script' // Engine Core
+ WL 'ME_49523C640160' '49523C640160.pas.ms.script' // eeInterfacesEx
+ WL 'ME_4A251D6E00BD' '4A251D6E00BD.pas.ms.script' // nevNavigation
+ WL 'ME_4B893514021E' '4B893514021E.pas.ms.script' // Pretty Things
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifdef" 'Nemesis'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\54817D330211.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54817D330211.pas.ms.script.runner'
+
+ref; // ME_54817D330211 ShortcutEdit

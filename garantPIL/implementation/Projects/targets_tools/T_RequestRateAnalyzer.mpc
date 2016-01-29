@@ -1,0 +1,37 @@
+project (T_RequestRateAnalyzer) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_RequestRateAnalyzer {
+	exename = RequestRateAnalyzer
+	macros += MIN_MEM_CONTEXT
+
+	after += gkdb_gudll
+	libs += gkdb_gudll
+
+	after += ContextSearch
+	libs += ContextSearch
+
+	after += Morpho
+	libs += Morpho
+
+	after += DBExt
+	libs += DBExt
+
+	after += SearchAdapterLib
+	libs += SearchAdapterLib
+
+	after += cchlp1
+	libs += cchlp1
+
+	after += gctx_tools
+	libs += gctx_tools
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+
+	after += boost_thread
+	libs += boost_thread
+
+	after += boost_system
+	libs += boost_system
+}

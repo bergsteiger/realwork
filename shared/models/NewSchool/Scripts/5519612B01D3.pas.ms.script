@@ -1,0 +1,91 @@
+// TIterateableServiceProvider 5519612B01D3 SimpleClass Class
+
+FORWARD ME_5519612B01D3
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '5519611903CF.pas.ms.script'
+
+FORWARD ME_551961470035
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_B97944B34994
+ CONST UID 'B97944B34994'
+ CONST Name 'bind'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TIterateableServiceImpl' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B97944B34994 bind
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_C49CA6E28C7F
+ CONST UID 'C49CA6E28C7F'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_C49CA6E28C7F Exists
+
+: ME_551961470035
+ CONST UID '551961470035'
+ CONST Name 'TIterateableServiceImpl'
+ CONST Class 'Class'
+ CONST Stereotype 'ServiceImplementation'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_12F09FF9D80E // IIterateableService
+ ]
+ ; // Implements
+ : Operations
+   [ ME_B97944B34994 // bind
+ ME_C49CA6E28C7F // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_A44911B9A95D // IterateF
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_551961470035 TIterateableServiceImpl
+
+: ME_5519612B01D3
+ CONST UID '5519612B01D3'
+ CONST Name 'TIterateableServiceProvider'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Children
+   [ ME_551961470035 // TIterateableServiceImpl
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5519612B01D3 TIterateableServiceProvider

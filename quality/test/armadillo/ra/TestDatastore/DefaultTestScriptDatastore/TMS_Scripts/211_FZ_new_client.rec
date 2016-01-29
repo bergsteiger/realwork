@@ -1,0 +1,18 @@
+Sub Main
+    Dim Result,i As Long
+    Dim ClientName As String
+
+    for i=1 to 30
+        ClientName$ = "b"+str$(i)    
+    
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        GenericObject Click, "Text=Клиенты", "Coords=10,17"
+    
+        Window SetContext, "Caption=Внесение информации о новом клиенте", ""
+        InputKeys ClientName$+"{TAB}{TAB}{DOWN}{TAB}{DOWN}{TAB}{TAB}3"
+        InputKeys "{TAB}wr{TAB}{DOWN}{ENTER}"
+    
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect 14
+    next i
+End Sub

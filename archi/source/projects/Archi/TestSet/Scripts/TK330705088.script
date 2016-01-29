@@ -1,0 +1,27 @@
+USES
+	QuickTestsUtils.script 
+;
+
+PROCEDURE SpellNext BOOLEAN IN aLast
+ Если ( aLast ) то (
+	"Контрол по имени {(acCancelButtomInSpelCheckWindow)}" pop:Control:Click  
+ )
+ иначе 
+	(
+		"Контрол по имени {(acButtonReplaceInSpellCheckWindow)}" pop:Control:Click
+	)
+; 
+
+Тест TK330705088
+	Параметры: ( "Проверка EVD документа" "Размеры для отображения разрыва раздела" )
+	Выполнить ( 
+		 wait:Ok
+		 TRY
+		  @ ( "Проверка орфографии" ) MODAL SpellNext		    
+		 FINALLY
+		  waited:? ASSERT
+		 END  	
+	)	
+;
+
+TK330705088

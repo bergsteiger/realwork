@@ -1,0 +1,348 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Unicode"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCI/Unicode|4869FBFC02A4
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"C++ интерфейсы и реализация|CORBA IDL|Delphi интерфейсы и реализация|Дельфи-DLL Адаптер|Дельфи-DLL Адаптер проектные файлы|Документация")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16661719801"))
+    quid       	"4869FBFC02A4"
+    documentation 	"методы работы с Unicode"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"486A08230262"
+	    supplier   	"Logical View::shared::GCI::UnicodeHelper"
+	    quidu      	"4869FD4C0050"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Converters"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCI/Unicode/Converters|4869FC3401AE
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/GCI/Unicode/Converters.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/GCI/Unicode/Converters.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16661737598"))
+	    quid       	"4869FC3401AE"
+	    documentation 	"методы конвертации строк "
+	    stereotype 	"UtilityPack"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657008678"))
+		    quid       	"486B74250252"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCI::UnicodeHelper::ConverterHelper"
+		    quidu      	"4869FDE10378"))
+	    operations 	(list Operations
+		(object Operation "cp_to_utf16"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4869FCA503BC*"
+			    value      	(value Text 
+|//#UC START# *4869FCA503BC*¤	const size_t size = in.size () + 1;¤	Core::Aptr <wchar_t, Core::ArrayDeleteDestructor<wchar_t> > buffer (new wchar_t [size]);¤	std::mbstowcs (buffer.ptr (), in.c_str (), size);¤	buffer.ptr () [size - 1] = 0;¤																		 ¤	UnicodeHelper::ConverterHelper_var helper = UnicodeHelper::ConverterHelperFactory::make (); // using current locale¤	helper->add_specific (buffer.ptr ());¤	return std::wstring (buffer.in ());¤	//#UC END# *4869FCA503BC*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4869B190025F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657007162"))
+		    quid       	"4869FCA503BC"
+		    documentation 	"переводит строку в UTF-16, используя текущую локаль"
+		    parameters 	(list Parameters
+			(object Parameter "in"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657007476"))
+			    quid       	"4869FCA503BD"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"a-wstring"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4869B190025F")
+		(object Operation "utf16_to_cp"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4869FCAA0279*"
+			    value      	(value Text 
+|//#UC START# *4869FCAA0279*¤	UnicodeHelper::ConverterHelper_var helper = UnicodeHelper::ConverterHelperFactory::make (); // using current locale¤	std::wstring patched = helper->remove_specific (in);¤¤	const size_t size = patched.size () + 1;¤	Core::Aptr <char, Core::ArrayDeleteDestructor<char> > buffer (new char [size]);¤	std::wcstombs (buffer.ptr (), patched.c_str (), size);¤	buffer.ptr () [size - 1] = 0;¤	return std::string (buffer.in ());¤	//#UC END# *4869FCAA0279*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657007923"))
+		    quid       	"4869FCAA0279"
+		    documentation 	"переводит строку в однобайтовую кодировку, используя текущую локаль"
+		    parameters 	(list Parameters
+			(object Parameter "in"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4869B190025F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657008225"))
+			    quid       	"486A17BA0061"
+			    type       	"a-wstring"
+			    quidu      	"4869B190025F"))
+		    result     	"a-string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"452257A0036F"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"486A0A1703E3"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::GCI::Unicode::Converters" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(735, 525)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(385, 441)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	700
+			justify    	0
+			label      	"• Converters")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(385, 391)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	700
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"4869FC3401AE"
+		    width      	718
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::UnicodeHelper::ConverterHelper" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(477, 960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(279, 932)
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"• ConverterHelper")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(279, 882)
+			anchor     	10
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4869FDE10378"
+		    width      	414
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(691, 831)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"486B74250252"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(647, 671)
+			(530, 869))
+		    line_style 	0)))))

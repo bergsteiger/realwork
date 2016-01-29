@@ -1,0 +1,70 @@
+// l3LineArray 480F6F5C0125 UtilityPack Class
+
+FORWARD ME_480F6F5C0125
+
+: ME_480F6F870304
+ CONST UID '480F6F870304'
+ CONST Name 'TevLineArray'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '13.12.96'
+
+ @SELF
+; // ME_480F6F870304 TevLineArray
+
+: ME_529F119D0106
+ CONST UID '529F119D0106'
+ CONST Name 'TevLineInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "packed" true
+
+ @SELF
+; // ME_529F119D0106 TevLineInfo
+
+: ME_529F11A502D8
+ CONST UID '529F11A502D8'
+ CONST Name 'PevLineInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_529F119D0106 // TevLineInfo
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_529F11A502D8 PevLineInfo
+
+: ME_480F6F5C0125
+ CONST UID '480F6F5C0125'
+ CONST Name 'l3LineArray'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Информация о нарезке на строки.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_480F6F870304 // TevLineArray
+ ME_529F119D0106 // TevLineInfo
+ ME_529F11A502D8 // PevLineInfo
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '13.12.96'
+
+ @SELF
+; // ME_480F6F5C0125 l3LineArray

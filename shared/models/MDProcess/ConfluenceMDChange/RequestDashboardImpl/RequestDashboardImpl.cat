@@ -1,0 +1,2175 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "RequestDashboardImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl|47F0D65400F9
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"VisabilityType"
+	    value      	"ImplementationAccess")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19037158836"))
+    quid       	"47F0D65400F9"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"47F0D926006F"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboard"
+	    quidu      	"47F0D6300142")
+	(object Visibility_Relationship
+	    quid       	"4B34C54C0022"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::LabelSupport"
+	    quidu      	"475E85080396")
+	(object Visibility_Relationship
+	    quid       	"4B39C3FB0005"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::DashboardSupportTypes"
+	    quidu      	"4B39C20C02E0"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DefaultDashboardCacheManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/DefaultDashboardCacheManagerFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/DefaultDashboardCacheManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47F0D94F022C_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *47F0D94F022C_CUSTOM_IMPORT*¤import java.util.Arrays;¤import java.util.Collections;¤import java.util.Date;¤import java.util.HashMap;¤import java.util.HashSet;¤import java.util.Map;¤import java.util.Set;¤import java.util.concurrent.Callable;¤import java.util.concurrent.ExecutionException;¤import java.util.concurrent.Executor;¤import java.util.concurrent.ExecutorService;¤import java.util.concurrent.Executors;¤¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.google.common.cache.CacheBuilder;¤import com.google.common.cache.CacheLoader;¤import com.google.common.cache.LoadingCache;¤import com.google.common.util.concurrent.ListenableFuture;¤import com.google.common.util.concurrent.ListenableFutureTask;¤¤import ru.garant.shared.Core.Root.NoActiveFactory;¤import ru.garant.shared.CoreSrv.UserRequestInterceptor;¤import ru.garant.shared.ConfluenceCore.ConfluenceCoreImpl.URInterceptorSrv;¤import ru.garant.MDProcess.ConfluenceMDChange.Releases.ReleaseCompletionPercentStrategyType;¤import ru.garant.MDProcess.ConfluenceMDChange.RequestDashboardImpl.DefaultDashboardCacheManager.Cache.Box;¤¤import ru.garant.MDProcess.ConfluenceMDChange.RequestSearch.RequestSearchQueryData;¤import ru.garant.MDProcess.ConfluenceMDChange.RequestSearch.RequestSearchQueryType;¤import ru.garant.MDProcess.ConfluencePlugins.LabelSupport.LabelGroupName;¤import ru.garant.MDProcess.ConfluencePlugins.Search.LogicOperation;¤import ru.garant.MDProcess.ConfluencePlugins.Search.SearchException;¤import ru.garant.MDProcess.ConfluencePlugins.Search.SearchQuery;¤import ru.garant.MDProcess.ConfluencePlugins.Search.UnsupportedQueryDataException;¤import ru.garant.MDProcess.ConfluencePlugins.UserData.UserData;¤¤import ru.garant.MDProcess.ConfluenceMDChange.Releases.ReleaseCompletionPercentStrategy;¤¤//#UC END# *47F0D94F022C_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47F0D94F022C_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *47F0D94F022C_CUSTOM_CLASS_DEFINITION*¤//#UC END# *47F0D94F022C_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47F0D94F022C_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *47F0D94F022C_CUSTOM_METHODS_AND_DATA*¤	final public static ExecutorService sExecutor = Executors.newFixedThreadPool(2);¤¤	public static abstract class Cache<K, V> {¤		¤		static class Box<K> {¤			final K keySource;¤			final String key;¤			¤			Box(K keySource, String key) {¤				this.keySource = keySource;¤				this.key = key;¤			}¤			¤			@Override¤			public boolean equals(Object o) {¤	            if (this == o) return true;¤	            if (o == null || getClass() != o.getClass()) return false;¤¤	            @SuppressWarnings("unchecked")¤				final Box<K> box = (Box<K>) o;¤				¤				return key.equals(box.key);¤			}¤			@Override¤			public int hashCode() {¤				return key.hashCode();¤			}			¤		};¤		¤		final private Set<Box<K>> needToRefresh_;¤		final private LoadingCache<Box<K>, V> cache_;		¤		final UserRequestInterceptor uri_;¤		¤		public Cache (UserRequestInterceptor uri) {¤			uri_ = uri;¤			needToRefresh_ = Collections.synchronizedSet(new HashSet<Box<K>>());¤			cache_ = CacheBuilder.newBuilder()¤					.build(new CacheLoader<Box<K>, V>(){¤						@Override¤						public V load(Box<K> key) throws Exception {¤							return getValue(key.keySource);¤						}¤¤						@Override¤						public ListenableFuture<V> reload(final Box<K> key, V oldValue) throws Exception {¤							final int uid = UserTranslator.Factory.get().toUserId(AuthenticatedUserThreadLocal.getUser());¤							¤							ListenableFutureTask<V> task = ListenableFutureTask.create(new Callable<V>() {¤								@Override¤								public V call() throws Exception {¤									try {¤										uri_.start(uid);¤										return getValue(key.keySource);¤									} finally {¤										uri_.finish(uid);¤									}¤								}								¤							});¤							sExecutor.execute(task);¤							return task;¤						}						¤					});			¤		}¤		¤		public V get (K keySource) {¤			try {¤				final Box<K> key = new Box<K>(keySource, getKey(keySource));¤				if (needToRefresh_.contains(key)) {¤					needToRefresh_.remove(key);¤					¤					cache_.refresh(key);¤				}¤				¤				return cache_.get(key);¤			} catch (ExecutionException e) {¤				Logs.LOG_SEX(e);¤				throw new IllegalStateException (e.getMessage());¤			}¤		}¤¤		public void sync (K keySource) {¤			needToRefresh_.add(new Box<K>(keySource, getKey(keySource)));¤		}¤		¤		abstract protected String getKey (K key);¤¤		abstract protected V getValue (K key);		¤	}¤	¤¤	private static abstract class RequestCountCache extends Cache<String, Integer> {¤		public RequestCountCache(UserRequestInterceptor uri) {¤			super(uri);¤		}¤¤		protected String getKey (String key) {¤			return key;¤		}¤¤		protected Integer getValue (String key) {¤			try {¤				SearchQuery searchQuery = SearchQuery.Factory.make(createSearchData(key), Integer.MAX_VALUE);¤				return searchQuery.getCount();¤			}¤			catch (UnsupportedQueryDataException e) {¤				Logs.LOG_SEX(e);¤				return 0;¤			}¤			catch (SearchException e) {¤				Logs.LOG_SEX(e);¤				throw new RuntimeException(e);¤			}¤			catch (NoActiveFactory e) {¤				Logs.LOG_SEX(e);¤				throw new RuntimeException(e);¤			}¤		}¤¤		protected RequestSearchQueryData createSearchData (String key) {¤			RequestSearchQueryData searchData = RequestSearchQueryData.Factory.make();¤			searchData.setIgnorePermissions(true);¤			searchData.setSearchInPage(true);¤			searchData.setAuthorIsCreator(true);¤			searchData.setSpaces(Arrays.asList(key));¤			return searchData;¤		}¤	}¤¤	private static class AnalyseRequestCountCache extends RequestCountCache {¤		public AnalyseRequestCountCache(UserRequestInterceptor uri) {¤			super(uri);¤		}¤¤		protected RequestSearchQueryData createSearchData (String key) {¤			RequestSearchQueryData searchData = super.createSearchData(key);¤			searchData.addLabelGroup(LogicOperation.OR, LabelGroupName.ON_ANALYSE.toString());¤			return searchData;¤		}¤	}¤¤	private static class ActiveRequestCountCache extends RequestCountCache {¤		public ActiveRequestCountCache(UserRequestInterceptor uri) {¤			super(uri);¤		}¤¤		protected RequestSearchQueryData createSearchData (String key) {¤			RequestSearchQueryData searchData = super.createSearchData(key);¤			searchData.addLabelGroup(LogicOperation.OR, LabelGroupName.LIFE_CYCLE_STATE_ACTIVE.toString());¤			return searchData;¤		}¤	}¤¤	private static class ExpiredRequestCountCache extends RequestCountCache {¤		public ExpiredRequestCountCache(UserRequestInterceptor uri) {¤			super(uri);¤		}¤¤		protected RequestSearchQueryData createSearchData (String key) {¤			RequestSearchQueryData searchData = super.createSearchData(key);¤			searchData.addLabelGroup(LogicOperation.NOT_OR, LabelGroupName.LIFE_CYCLE_STATE_FINAL.toString());¤			searchData.setCompletionTime(new Date(1), new Date());¤			return searchData;¤		}¤	}¤	¤	private static class ExpiredInStateRequestCountCache extends RequestCountCache {¤		public ExpiredInStateRequestCountCache(UserRequestInterceptor uri) {¤			super(uri);¤		}¤¤		protected RequestSearchQueryData createSearchData (String key) {¤			RequestSearchQueryData searchData = super.createSearchData(key);¤			searchData.addLabelGroup(LogicOperation.NOT_OR, LabelGroupName.LIFE_CYCLE_STATE_FINAL.toString());¤			searchData.setRequestSearchQueryType(RequestSearchQueryType.HAS_IN_STATE_TIME_DEFICIT);¤			return searchData;¤		}¤	}¤	¤	private static class ReleaseCompletionPercentCache extends Cache<Release, Map<ReleaseCompletionPercentStrategyType, Integer>> {¤		public ReleaseCompletionPercentCache(UserRequestInterceptor uri) {¤			super(uri);¤		}¤¤		@Override¤		protected String getKey (Release release) {¤			return release.getPage().getIdAsString();¤		}¤¤		@Override¤		protected Map<ReleaseCompletionPercentStrategyType, Integer> getValue (Release release) {¤			Map<ReleaseCompletionPercentStrategyType, Integer> result = new HashMap<ReleaseCompletionPercentStrategyType, Integer>();¤			for (ReleaseCompletionPercentStrategyType type : ReleaseCompletionPercentStrategyType.values()) {¤				Integer value = ReleaseCompletionPercentStrategy.Factory.get(type).calculate(release);¤				result.put(type, value);¤			}¤			return result;¤		}¤	}¤	¤	private static class UserReleaseCompletionPercentStrategyTypeCache extends Cache<User, ReleaseCompletionPercentStrategyType> {¤		public UserReleaseCompletionPercentStrategyTypeCache(UserRequestInterceptor uri) {¤			super(uri);¤		}¤¤		@Override¤		protected String getKey (User key) {¤			return key.getName();¤		}¤¤		@Override¤		protected ReleaseCompletionPercentStrategyType getValue (User key) {¤			UserData ud;¤			try {¤				ud = UserData.Factory.get(key.getName(), "ReleaseCompletionPercentCalculationStrategy");¤				return ReleaseCompletionPercentStrategyType.valueOf((String) ud.getData());¤			} catch (Exception e) {¤				return ReleaseCompletionPercentStrategyType.COUNT;¤			}¤		}¤	}¤	¤	private static Cache<Release, Map<ReleaseCompletionPercentStrategyType, Integer>> releaseCompletionPercentCache = new ReleaseCompletionPercentCache(new URInterceptorSrv());¤	private static Cache<User, ReleaseCompletionPercentStrategyType> userReleaseCompletionPercentStrategyTypeCache = new UserReleaseCompletionPercentStrategyTypeCache(new URInterceptorSrv());¤	private static Cache<String, Integer> analyseRequestCountCache = new AnalyseRequestCountCache(new URInterceptorSrv());¤	private static Cache<String, Integer> activeRequestCountCache = new ActiveRequestCountCache(new URInterceptorSrv());¤	private static Cache<String, Integer> expiredRequestCountCache = new ExpiredRequestCountCache(new URInterceptorSrv());¤	private static Cache<String, Integer> expiredInStateRequestCountCache = new ExpiredInStateRequestCountCache(new URInterceptorSrv());¤¤	¤	//#UC END# *47F0D94F022C_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/DefaultDashboardCacheManager|47F0D94F022C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19016340189"))
+	    quid       	"47F0D94F022C"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"47F0D96100BB"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboard::DashboardCacheManager"
+		    quidu      	"47F0D6AB01B5"))
+	    language   	"MDA Generator")
+	(object Class "DashboardTasksContextBuilderS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/DashboardTasksContextBuilderS|4B34A6A20075
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/DashboardTasksContextBuilderS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/DashboardTasksContextBuilderSFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34A6A20075_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B34A6A20075_CUSTOM_IMPORT*¤¤import java.util.Arrays;¤import java.util.Collection;¤import java.util.LinkedHashMap;¤import java.util.Map;¤¤//#UC END# *4B34A6A20075_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34A6A20075_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B34A6A20075_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B34A6A20075_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34A6A20075_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B34A6A20075_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *4B34A6A20075_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19016340785"))
+	    quid       	"4B34A6A20075"
+	    documentation 	"àãðèãèðóåò ïîñòðîåíèå ðàçíûõ ñ÷åò÷èêîâ"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4B34B72D0194"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboard::DashboardTasksContextBuilder"
+		    quidu      	"4B34A3FA031D"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016341066"))
+		    quid       	"4B34A7A50206"
+		    stereotype 	"switch"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    initv      	"all"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ProjectTasksContextBuilderS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/ProjectTasksContextBuilderS|4B34A6D0024A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/ProjectTasksContextBuilderS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/ProjectTasksContextBuilderSFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34A6D0024A_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B34A6D0024A_CUSTOM_IMPORT*¤¤import java.util.Collections;¤import java.util.List;¤import java.util.Map;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤¤import com.atlassian.confluence.spaces.Space;¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardTask;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.OwnTaskRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.RequestSearchSupportTypes.RequestSearchQueryResultType;¤¤//#UC END# *4B34A6D0024A_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34A6D0024A_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B34A6D0024A_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B34A6D0024A_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34A6D0024A_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B34A6D0024A_CUSTOM_METHODS_AND_DATA*¤	¤	private static final String MY_PROJECT_SPACES_LIST_QUERY_KEY = "mdc.dashboardtasks.myProjectsRequestsSpaces";¤	¤	private static final String MY_PROJECT_REQUESTS_LIST_QUERY_KEY = "mdc.dashboardtasks.myProjectsRequests";¤	¤	private static final String NEW_MY_PROJECT_REQUESTS_LIST_QUERY_KEY = "mdc.dashboardtasks.myProjectsRequestsNew";¤	¤	protected String getMyProjectSpacesListQueryKey() {¤		return MY_PROJECT_SPACES_LIST_QUERY_KEY;¤	}¤	¤	protected String getMyProjectRequestsListQueryKey() {¤		return MY_PROJECT_REQUESTS_LIST_QUERY_KEY;¤	}¤	¤	protected String getNewMyProjectRequestsListQueryKey() {¤		return NEW_MY_PROJECT_REQUESTS_LIST_QUERY_KEY;¤	}¤	¤	protected Query getMyProjectSpacesListQuery() throws HibernateException {¤		return getSession().getNamedQuery(getMyProjectSpacesListQueryKey())¤				.setCacheable(true)¤				.setString("value", "<string>" + getUserName() + "</string>")¤				.setParameterList("values", getUserGroupsAsParameter());¤	}¤	¤	protected Query getMyProjectRequestsListQuery() throws HibernateException {¤		return getSession().getNamedQuery(getMyProjectRequestsListQueryKey())¤				.setCacheable(true)¤				.setParameterList("spaces", getSpaceKeys())¤				.setParameter("userName", getUserName());¤	}¤	¤	protected Query getNewMyProjectRequestsListQuery() throws HibernateException {¤		return getSketchQuery(getNewMyProjectRequestsListQueryKey())¤				.setParameterList("spaces", getSpaceKeys());¤	}¤	¤	@Override¤	protected String buildLink (int total) throws HibernateException {¤		OwnTaskRequest req = new OwnTaskRequest();¤		req.setSearchOnlyNew(false);¤		req.setSpaceKeys(getSpaceKeys());¤		return DashboardRequest.createQueryAction(req.createIdQuery(total));¤	}¤¤	@Override¤	protected List<DashboardTask> createDashboardTasks (SpaceRequestStatesIndicator spaceStates) throws HibernateException {¤		OwnTaskRequest taskRequest = new OwnTaskRequest();¤		taskRequest.setResultType(RequestSearchQueryResultType.COMMON);¤		return spaceStates.createDashboardTasks(getSpaceKeys(), taskRequest);¤	}¤¤	@Override¤	protected String getLinkContextKey () {¤		return "projectRequestsAction";¤	}¤¤	@Override¤	protected String getListContextKey () {¤		return "projectTaskList";¤	}¤¤	@Override¤	protected String getIsListEmptyContextKey () {¤		return "projectTaskListIsEmpty";¤	}¤	¤	@Override¤	protected List<Long> getNewRequestIds () throws HibernateException {¤		if (getSpaceKeys() != null && !getSpaceKeys().isEmpty()) {¤			return getNewMyProjectRequestsListQuery().list();¤		}¤		return Collections.emptyList();¤	}¤¤	@Override¤	protected List<Object[]> getRequests () throws HibernateException {¤		if (getSpaceKeys() != null && !getSpaceKeys().isEmpty()) {¤			return getMyProjectRequestsListQuery().list();¤		}¤		return Collections.emptyList();¤	}¤	¤	protected List<String> spaceKeys_;¤	¤	@Override¤	protected List<String> getSpaceKeys () throws HibernateException {¤		if(spaceKeys_ == null) {¤			spaceKeys_ = getMyProjectSpacesListQuery().list();¤		}¤		return spaceKeys_;¤	}¤	¤	@Override¤	protected AbstractSpaceIndicatorBuilder createSpaceIndicatorBuilder (Object[] request,¤			List<Long> newRequestIds) {¤		return new DummySpaceIndicatorBuilder(request, newRequestIds);¤	}¤¤	protected String convertToSpaceIdsString () throws HibernateException {¤		String ret = "";¤		for (String key : getSpaceKeys ()) {¤			if (ret.length() > 0) {¤				ret += ",";¤			}¤			Space s = ContainerManager.Factory.get().getSpaceManager().getSpace(key);¤			if (s != null) {¤				ret += s.getId();¤			}¤		}¤		return ret;¤	}¤	¤	@Override¤	protected boolean isGroupBySpace() {¤		return false;¤	}¤¤	@Override¤	protected Map<Long, Map<Byte, QueryResult>> doQuery() throws Exception {¤		String spaceIds = convertToSpaceIdsString ();¤		if (spaceIds == null || spaceIds.length() == 0) {¤			return null;¤		}¤		String q = String.format(¤			"SELECT r.state, r.spaceid, g.user_name, count(*)"¤				+ " FROM cache_dashboard_tasks r"¤				+ " LEFT OUTER JOIN gar_own_unread_doc_set g ON (g.entity_id = r.contentid AND g.user_name = '%s')"				¤				+ " WHERE r.spaceid IN (%s)"¤				+ " AND 0=(SELECT count(grp.id) FROM gar_restricted_page grp join gar_restricted_page_view_users pvu on grp.id=pvu.id where pvu.user_name='%s' and grp.page_id=r.contentid)"¤				+ " GROUP BY r.state, r.spaceid, g.user_name"¤			, getUserName()¤			, spaceIds¤			, getUserName()¤		);¤		return queryThis (q, isGroupBySpace());¤	}¤¤	@Override¤	protected boolean enabled () {¤		return getUserSettings().contains("ON_PROJECTS");¤	}¤	¤	@Override¤	protected AbstractDashboardTasksContextBuilderS createSpaceGroupedBuilder () {¤		return new ProjectSpaceGroupedTasksContextBuilderS();¤	}¤¤	@Override¤	protected boolean groupBySpaceEnabled () {¤		return groupBySpaceSettings().contains("GROUP_BY_SPACE_FOR_PROJECTS");¤	}¤	¤	/**¤	 *	Builds projects, grouped by spaces¤	 */¤	private static class ProjectSpaceGroupedTasksContextBuilderS extends ProjectTasksContextBuilderS {¤		¤		private static final String MY_PROJECT_REQUESTS_LIST_QUERY_KEY = "mdc.dashboardtasks.myProjectsRequests.spaceAware";¤		¤		@Override¤		protected String getMyProjectRequestsListQueryKey () {¤			return MY_PROJECT_REQUESTS_LIST_QUERY_KEY;¤		}¤¤		@Override¤		protected AbstractSpaceIndicatorBuilder createSpaceIndicatorBuilder (Object[] request,¤				List<Long> newRequestIds) {¤			return new SpaceIndicatorBuilder(request, newRequestIds);¤		}¤¤		@Override¤		protected boolean isGroupBySpace() {¤			return true;¤		}¤	}¤¤	//#UC END# *4B34A6D0024A_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedOverload"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19037160504"))
+	    quid       	"4B34A6D0024A"
+	    documentation 	
+|ñòðîèò ñïèñîê "Ïðîåêòû"
+	    
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4B34BCAE01F0"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::LifecycleTasksContextBuilderS"
+		    quidu      	"4B34BC83021B"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016342222"))
+		    quid       	"4B34A85D0112"
+		    documentation 	" "
+		    stereotype 	"switch"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    initv      	"project"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "AbstractDashboardTasksContextBuilderS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"abstract")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/AbstractDashboardTasksContextBuilderS|4B34B6A3011C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/AbstractDashboardTasksContextBuilderS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedImplement"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B6A3011C_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B34B6A3011C_CUSTOM_IMPORT*¤¤import java.sql.PreparedStatement;¤import java.sql.ResultSet;¤import java.sql.SQLException;¤import java.util.ArrayList;¤import java.util.Collection;¤import java.util.HashSet;¤import java.util.List;¤¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤import net.sf.hibernate.Session;¤¤import com.atlassian.confluence.pages.PageManager;¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.atlassian.user.Group;¤import com.atlassian.user.User;¤¤import java.util.Collections;¤¤import ru.garant.MDProcess.ConfluencePlugins.UserData.UserData;¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardTask;¤¤//#UC END# *4B34B6A3011C_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B6A3011C_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B34B6A3011C_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B34B6A3011C_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B6A3011C_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B34B6A3011C_CUSTOM_METHODS_AND_DATA*¤	¤	protected final Collection<String> getUserSettings () {¤		try {¤			return (Collection<String>) UserData.Factory.get(getUserName(), "DashboardMyProjectsTasks")¤					.getData();¤		} catch (Exception e) {¤			Logs.LOG_E("AbstractDashboardTasksContextBuilderS::getUserSettings: " + e);¤			return new HashSet<String>();¤		}¤	}¤	¤	protected Collection<String> groupBySpaceSettings () {¤		try {¤			return (Collection<String>) UserData.Factory.get(getUserName(), "DashboardGroupBySpaceForDifferentContent")¤					.getData();¤		}¤		catch (Exception e) {¤			Logs.LOG_E("AbstractDashboardTasksContextBuilderS::groupBySpace - can't get defaults - " + e);¤			return new HashSet<String>();¤		}¤	}¤	¤	protected abstract java.util.Map<String, java.lang.Object> doBuild();¤	¤	protected abstract boolean enabled();¤	¤	protected abstract boolean groupBySpaceEnabled();¤	¤	protected abstract AbstractDashboardTasksContextBuilderS createSpaceGroupedBuilder();¤	¤	// hibernate session¤	private Session session_ =  SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤	¤	// invisible task¤	protected static final DashboardTask EMPTY_DASHBOARD_TASK = new DashboardTask(null, null);¤	¤	protected Session getSession () {¤		return session_;¤	}¤	¤	protected final String getUserName () {¤		return getUser().getName();¤	}¤	¤	protected User getUser() {¤		return AuthenticatedUserThreadLocal.getUser();¤	}¤	¤	protected PageManager getPageManager() {¤		return ContainerManager.Factory.get().getPageManager();¤	}¤	¤	protected Query getNamedQuery (String queryName) throws HibernateException {¤		return getSession().getNamedQuery(queryName);¤	}¤	¤	/**¤	 * ¤	 * @param queryName¤	 * @return a hibernate query with userName set to the current user¤	 * @throws HibernateException¤	 */¤	protected Query getSketchQuery(String queryName) throws HibernateException {¤		return getSession().getNamedQuery(queryName)¤			.setCacheable(true)¤			.setString("userName", getUserName());¤	}¤	¤	/**¤	 * Sets EMPTY_DASHBOARD_TASK instead of null in the tasks list¤	 * @param tasks¤	 */¤	protected void fillEmptyDashboardTasks (List<DashboardTask> tasks) {¤		for (int i = 0; i < tasks.size(); i++) {¤			DashboardTask current = tasks.get(i);¤			if (current == null) {¤				tasks.set(i, EMPTY_DASHBOARD_TASK);¤			}¤		}¤	}¤	¤	private List<String> userGroups_;¤¤	/**¤	 * Caches and return groups for current user¤	 * @return ¤	 */¤	protected List<String> getUserGroups () {¤		if (userGroups_ == null) {¤			userGroups_ = new ArrayList<String>();¤			for(Group group : ContainerManager.Factory.get().getUserAccessor().getGroupsByUser(getUserName())) {¤				userGroups_.add(group.getName());¤			}¤		}¤		return userGroups_;¤	}¤¤	/**¤	 * ¤	 * @return groups for current users prepated to be used in hibernate queries¤	 */¤	protected List<String> getUserGroupsAsParameter () {¤		List<String> groups = getUserGroups();¤		for (int i = 0; i < groups.size(); i++) {¤			groups.set(i, "<string>" + groups.get(i) + "</string>");¤		}¤		return groups;¤	}¤	¤	protected static class MySqlQueryWrapper {¤¤		public void open (String query) throws HibernateException, SQLException {¤			Session session = org.springframework.orm.hibernate.SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), true);¤			ps_ = session.connection().prepareStatement(query);¤			rs_ = ps_.executeQuery();¤		}¤¤		public ResultSet rs () {¤			return rs_;¤		}¤¤		public void close() {¤			com.atlassian.core.db.JDBCUtils.close (rs_);¤			com.atlassian.core.db.JDBCUtils.close (ps_);¤		}¤		¤		private PreparedStatement ps_ = null;¤		private ResultSet rs_ = null;		¤	}	¤	//#UC END# *4B34B6A3011C_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033149122"))
+	    quid       	"4B34B6A3011C"
+	    documentation 	" "
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4B34B6B8020F"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboard::DashboardTasksContextBuilder"
+		    quidu      	"4B34A3FA031D"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "AssignedTasksContextBuilderS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/AssignedTasksContextBuilderS|4B34B9120069
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/AssignedTasksContextBuilderSFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/AssignedTasksContextBuilderS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B9120069_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B34B9120069_CUSTOM_IMPORT*¤¤import java.sql.SQLException;¤import java.util.*;¤¤import org.apache.commons.lang.StringUtils;¤¤import com.atlassian.confluence.pages.Page;¤import com.atlassian.confluence.spaces.Space;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤¤import ru.garant.MDProcess.ConfluenceMDChange.Releases.ReleaseLifeCycle;¤import ru.garant.MDProcess.ConfluenceMDChange.Releases.ReleaseManager;¤import ru.garant.MDProcess.ConfluenceMDChange.RequestSearch.RequestSearchQueryData;¤import ru.garant.MDProcess.ConfluenceMDChange.RequestSearch.RequestSearchQueryType;¤import ru.garant.MDProcess.ConfluenceMDChange.RequestSearchSupportTypes.RequestSearchQueryResultType;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.AbstractRequestLifeCycle;¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.AssignedTaskRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.GroupIndicator;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.InWorkTaskRequest;¤import ru.garant.MDProcess.ConfluencePlugins.LabelSupport.LabelGroupName;¤import ru.garant.MDProcess.ConfluencePlugins.Search.LogicOperation;¤import ru.garant.MDProcess.ConfluencePlugins.Search.SearchQuery;¤¤//#UC END# *4B34B9120069_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B9120069_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B34B9120069_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B34B9120069_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B9120069_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B34B9120069_CUSTOM_METHODS_AND_DATA*¤	¤	private static final String TOP_PRIORITY_LIST_QUERY_KEY = "mdc.dashboardtasks.assignedTopPriority";¤	¤	private static final String ASSIGNED_LIST_QUERY_KEY = "mdc.dashboardtasks.assigned";¤	¤	private static final String NEW_ASSIGNED_LIST_QUERY_KEY = "mdc.dashboardtasks.assignedNew";¤	¤	private static final String CAN_HAVE_ACTIVE_QUERY_KEY = "mdc.dashboardtasks.can.have.active";¤	¤	private static final int NEXT_TO_DEVELOP_PAGES_COUNT = 2;¤	¤	private static final long DUMMY_SPACE_ID = 0L;¤	¤	private static final Set<Byte> TOP_PRIORITY_LIST_STATES = new TreeSet<Byte> (Arrays.asList(new Byte[] {¤		AbstractRequestLifeCycle.ST_ASSIGNED.getSortValue()¤		, AbstractRequestLifeCycle.ST_PAUSE.getSortValue()¤	}));¤	¤	private static final long INPLEMENTATION_RELEASE_PRIORITY = ¤		ReleaseManager.Factory.get().getPriorityByState(ReleaseLifeCycle.ST_IMPLEMENTATION);¤	¤	protected String getTopPriorityListQueryKey() {¤		return TOP_PRIORITY_LIST_QUERY_KEY;¤	}¤	¤	protected String getAssignedListQueryKey() {¤		return ASSIGNED_LIST_QUERY_KEY;¤	}¤	¤	protected String getNewAssignedListQueryKey() {¤		return NEW_ASSIGNED_LIST_QUERY_KEY;¤	}¤	¤	protected String getCanHaveActiveQueryKey() {¤		return CAN_HAVE_ACTIVE_QUERY_KEY;¤	}¤	¤	protected List<Object[]> doAssignedListQuery () throws HibernateException, SQLException {¤		MySqlQueryWrapper msw = new MySqlQueryWrapper ();¤		List<Object[]> ret = new ArrayList<Object[]> ();¤		try {¤			msw.open (¤				"SELECT"¤				+ "	r.contentid, r.state, r.priority"¤				+ "	, r.importance, r.spaceid, r.releasepriority"¤				+ "	, g.user_name"¤				+ "	FROM cache_dashboard_tasks r"¤				+ "	LEFT OUTER JOIN gar_assigned_unread_doc_set g ON (g.entity_id = r.contentid AND g.user_name = r.login)"¤				+ "	WHERE r.login = '" + getUserName() + "'"¤				+ "	ORDER BY r.priority"¤			);¤			while (msw.rs().next()) {¤				Object [] ar = new Object[7];¤				ar[0] = msw.rs().getLong(1);¤				ar[1] = msw.rs().getByte(2);¤				ar[2] = msw.rs().getLong(3);¤				ar[3] = msw.rs().getByte(4);¤				ar[4] = msw.rs().getLong(5);¤				ar[5] = msw.rs().getLong(6);¤				ar[6] = msw.rs().getString(7);¤				ret.add(ar);¤			}¤			return ret;¤		} finally {¤			msw.close();¤		}		¤	}¤	¤	protected Query getCanHaveActiveQuery () throws HibernateException {¤		return getNamedQuery(getCanHaveActiveQueryKey()).setParameterList("values", getUserGroupsAsParameter());¤	}¤	¤	private String buildAssignedTaskRequest (int size) {¤		AssignedTaskRequest atr = new AssignedTaskRequest();¤		atr.setSearchOnlyNew(false);¤		atr.setSort(true);¤		atr.setWaitedOnly("false");¤		return DashboardRequest.createQueryAction(atr.createIdQuery(size));¤	}¤¤	private String buildAssignedWaitedTaskRequest (int size) {¤		AssignedTaskRequest atr = new AssignedTaskRequest();¤		atr.setSearchOnlyNew(false);¤		atr.setSort(true);¤		atr.setWaitedOnly("true");¤		return DashboardRequest.createQueryAction(atr.createIdQuery(size));¤	}¤	¤	private List<Page> buildNextAssignedTasks (List<Long> allTopPriorityList) {¤		List<Page> nextToDevelopPages = new ArrayList<Page>(NEXT_TO_DEVELOP_PAGES_COUNT);¤		for (int i = 0; i < allTopPriorityList.size() && i < NEXT_TO_DEVELOP_PAGES_COUNT; i++) {¤			nextToDevelopPages.add(getPageManager().getPage(allTopPriorityList.get(i)));¤		}¤		return nextToDevelopPages;¤	}¤	¤	protected void addSpaceImportances (¤			Map<Long, SpaceImportancesIndicator> importancesBySpace¤			, Byte importance¤			, boolean isRead¤			, Long spaceId¤	) {¤		SpaceImportancesIndicator importances = importancesBySpace.get(Long.valueOf(12));¤		if (importances == null) {¤			importances = new SpaceImportancesIndicator();¤			importancesBySpace.put(Long.valueOf(12), importances);¤		}¤		importances.inc(importance);¤		if (isRead == false) {¤			importances.incNew(importance);¤		}¤	}¤	¤	private Collection<Collection<DashboardTask>> buildAssignedDashboardTasks (¤			Map<Long, SpaceImportancesIndicator> importancesBySpace) {¤		Collection<Collection<DashboardTask>> result = new ArrayList<Collection<DashboardTask>>(¤				importancesBySpace.size());¤		for (SpaceImportancesIndicator spaceImportances : importancesBySpace.values()) {¤			List<DashboardTask> tasks = spaceImportances.createDashboardTasks();¤			if (!tasks.isEmpty()) {¤				fillEmptyDashboardTasks(tasks);¤				result.add(tasks);¤			} ¤		}¤		return result;¤	}¤	¤	@Override¤	protected Map<String, Object> doBuild () {¤		try {¤			Map<String, Object> result = new HashMap<String, Object>();¤			¤			if (((Integer) getCanHaveActiveQuery().uniqueResult()) <= 0) {¤				result.put("shouldShowInWorkTasks", false);¤			} else {¤				result.put("shouldShowInWorkTasks", true);¤			}¤			¤			List<Long> allTopPriorityList = new ArrayList<Long> ();¤			List<Object[]> allAssignedList = doAssignedListQuery();¤¤			int inWorkCount = 0;¤			Long activePage = null;¤			int waitedCount = 0;¤			Map<Long, SpaceImportancesIndicator> importancesBySpace = new TreeMap<Long, SpaceImportancesIndicator>();¤			Map<Long, SpaceRequestStatesIndicator> spaceIndicators = new TreeMap<Long, SpaceRequestStatesIndicator> ();¤			AssignedSpaceGroupedTasksContextBuilderS assignedBuilder = createSpaceGroupedBuilder ();¤			for (Object[] cur : allAssignedList) {¤				Long requestId = (Long) cur[0];¤				Byte state = (Byte) cur[1];¤				Long priority = (Long) cur[2];¤				Byte importance = (Byte) cur[3];¤				Long spaceId = (Long) cur[4];¤				Long releasepriority = (Long) cur[5];¤				boolean isRead = (cur[6] == null) ? true: false;¤				¤				if (¤					allTopPriorityList.size() < 2¤					&& releasepriority == INPLEMENTATION_RELEASE_PRIORITY¤					&& TOP_PRIORITY_LIST_STATES.contains(state)¤				) {¤					allTopPriorityList.add(requestId);¤				}				¤				¤				// switch by state¤				switch (state) {¤				case 4: // active¤					activePage = requestId;¤					inWorkCount++;¤					result.put("activeTask", getPageManager().getPage(activePage));¤					break;¤				case 5: // paused¤					inWorkCount++;¤					break;¤				case 9:  // waited¤				case 13: // waited for analyse¤					waitedCount++;¤					break;¤				}¤				if(getUserSettings().contains("ON_ASSIGNED")){¤					if (state != 9 && state != 13 && importance != 0) {¤						addSpaceImportances(¤								importancesBySpace¤								, importance¤								, isRead¤								, spaceId¤						);¤					}¤				}¤				if(getUserSettings().contains("ON_ASSIGNED_BY_STATE")){¤					Object[] requetstsProperties = new Object[2];¤					requetstsProperties[0] = requestId;¤					requetstsProperties[1] = state;¤¤					List<Long> newRequestIds = new ArrayList<Long>();¤					if(!isRead){¤						newRequestIds.add(requestId);¤					}¤					¤					if(groupBySpaceEnabled ()){¤						assignedBuilder.addSpaceStates(spaceIndicators, state, isRead, spaceId);¤					}¤					else{¤						createSpaceIndicatorBuilder(requetstsProperties, newRequestIds).add(spaceIndicators);¤					}	¤				}¤			}¤			¤			// íàçíà÷åííûå¤			int assignedCount = allAssignedList.size() - waitedCount;¤			if (assignedCount > 0) {¤				result.put("assignedTasksAction", buildAssignedTaskRequest(assignedCount));¤			}¤			¤			// íàçíà÷åííûå îòëîæåííûå¤			if(waitedCount > 0 && !getUserSettings().contains("ON_ASSIGNED_BY_STATE")) {¤				result.put("assignedWaitedTasksAction", buildAssignedWaitedTaskRequest(waitedCount));¤			}¤			¤			// â ðàáîòå¤			if (inWorkCount > 0) {¤				result.put("inWorkTasksAction", DashboardRequest¤						.createQueryAction(new InWorkTaskRequest().createIdQuery(inWorkCount)));¤			}¤			¤			// î÷åðåäü "â ðàáîòå"¤			List<Page> buildNextAssignedTasks = buildNextAssignedTasks(allTopPriorityList);¤			if (buildNextAssignedTasks != null && !buildNextAssignedTasks.isEmpty()) {¤				result.put("nextAssignedTasks", buildNextAssignedTasks);¤			}¤			¤			if(getUserSettings().contains("ON_ASSIGNED")){¤				result.put("assignedList", buildAssignedDashboardTasks(importancesBySpace));¤			}¤			¤			if(getUserSettings().contains("ON_ASSIGNED_BY_STATE")){¤				Collection<Collection<DashboardTask>> tasksList = buildLifeStateRequestsTasks(spaceIndicators);¤¤				result.put(getListContextKey(), tasksList);¤				result.put(getIsListEmptyContextKey(), allLifeStateRequestsTasksAreEmpty(tasksList));				¤			}¤¤			return result;¤		} catch (HibernateException e) {¤			Logs.LOG_E("TasksMacroPlugin::AssignedContextBuilder::createAssigned: " + e);¤			Logs.LOG_SEX(e);¤			throw new RuntimeException(e);¤		} catch (SQLException e) {¤			Logs.LOG_E("TasksMacroPlugin::AssignedContextBuilder::createAssigned: " + e);¤			Logs.LOG_SEX(e);¤			throw new RuntimeException(e);¤		}catch (Exception e) {¤			Logs.LOG_E("TasksMacroPlugin: " + e);¤			Logs.LOG_SEX(e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	@Override¤	protected boolean enabled () {¤		return getUserSettings().contains("ON_ASSIGNED") || getUserSettings().contains("ON_ASSIGNED_BY_STATE");¤	}¤¤	@Override¤	protected AssignedSpaceGroupedTasksContextBuilderS createSpaceGroupedBuilder () {¤		return new AssignedSpaceGroupedTasksContextBuilderS();¤	}¤¤¤	@Override¤	protected boolean groupBySpaceEnabled () {¤		return groupBySpaceSettings().contains("GROUP_BY_SPACE_FOR_ASSIGNED");¤	}¤	¤	private class AssignedSpaceGroupedTasksContextBuilderS extends AssignedTasksContextBuilderS {¤¤		private static final String ASSIGNED_LIST_QUERY_KEY = "mdc.dashboardtasks.assigned.spaceAware";¤		¤		@Override¤		protected String getAssignedListQueryKey () {¤			return ASSIGNED_LIST_QUERY_KEY;¤		}¤		¤		@Override¤		protected void addSpaceImportances (¤			Map<Long, SpaceImportancesIndicator> importancesBySpace¤			, Byte importance¤			, boolean isRead¤			, Long spaceId¤		) {¤			SpaceImportancesIndicator importances = importancesBySpace.get(spaceId);¤			if (importances == null) {¤				Space sp = ContainerManager.Factory.get().getSpaceManager().getSpace(spaceId);¤				importances = new SpaceImportancesIndicator(¤					spaceId¤					, sp.getName()¤					, sp.getKey()¤				);¤				importancesBySpace.put(spaceId, importances);¤			}¤			importances.inc(importance);¤			if (isRead == false) {¤				importances.incNew(importance);¤			}¤		}¤		¤		protected void addSpaceStates (¤				Map<Long, SpaceRequestStatesIndicator> requestStatesBySpace¤				, Byte state¤				, boolean isRead¤				, Long spaceId¤			) {¤			SpaceRequestStatesIndicator states = requestStatesBySpace.get(spaceId);¤				if (states == null) {¤					Space sp = ContainerManager.Factory.get().getSpaceManager().getSpace(spaceId);¤					states = new SpaceRequestStatesIndicator(¤						spaceId¤						, sp.getName()¤						, sp.getKey()¤					);¤					requestStatesBySpace.put(spaceId, states);¤				}¤				GroupIndicator groupIndicator = states.getGroupIndicator(state);¤				if(groupIndicator != null){¤					groupIndicator.incCount();¤					if (isRead == false) {¤						groupIndicator.incUnreadCount();¤					}¤				}¤			}¤¤	}¤¤	@Override¤	protected String getListContextKey() {¤		// TODO Auto-generated method stub¤		return "assignedByStateList";¤	}¤¤	@Override¤	protected String buildLink(int total) throws HibernateException {¤		// TODO Auto-generated method stub¤		return null;¤	}¤¤	@Override¤	protected List<DashboardTask> createDashboardTasks(¤			SpaceRequestStatesIndicator spaceStates) throws HibernateException {¤		// TODO Auto-generated method stub¤		AssignedTaskRequest taskRequest = new AssignedTaskRequest();¤		taskRequest.setSearchOnlyNew(false);¤		taskRequest.setSort(true);¤		return spaceStates.createDashboardTasks(getSpaceKeys(), taskRequest);¤	}¤¤	@Override¤	protected AbstractSpaceIndicatorBuilder createSpaceIndicatorBuilder(¤			Object[] request, List<Long> newRequestIds) {¤		// TODO Auto-generated method stub¤		return new DummySpaceIndicatorBuilder(request, newRequestIds);¤	}¤¤	@Override¤	protected Map<Long, Map<Byte, QueryResult>> doQuery() throws Exception {¤		// TODO Auto-generated method stub¤		if (StringUtils.isEmpty(getUserName())) {¤			return null;¤		}¤		String q = String.format(¤			"SELECT r.state, r.spaceid, g.user_name, count(*)"¤				+ " FROM cache_dashboard_tasks r"¤				+ " LEFT OUTER JOIN gar_own_unread_doc_set g ON (g.entity_id = r.contentid AND g.user_name = r.login)"¤				+ "	WHERE r.login = '%s'"¤				+ " GROUP BY r.state, r.spaceid, g.user_name"¤			, getUserName()¤		);¤		return queryThis (q, isGroupBySpace());¤	}¤¤	@Override¤	protected String getIsListEmptyContextKey() {¤		// TODO Auto-generated method stub¤		return "assignedByStateListIsEmpty";¤	}¤¤	@Override¤	protected String getLinkContextKey() {¤		// TODO Auto-generated method stub¤		return null;¤	}¤¤	@Override¤	protected List<Long> getNewRequestIds() throws HibernateException {¤		// TODO Auto-generated method stub¤		return getSketchQuery(createSpaceGroupedBuilder ().getNewAssignedListQueryKey()).list();¤	}¤¤	@Override¤	protected List<Object[]> getRequests() throws HibernateException {¤		// TODO Auto-generated method stub¤		return getSketchQuery(createSpaceGroupedBuilder ().getAssignedListQueryKey()).list();¤	}¤¤	@Override¤	protected List<String> getSpaceKeys() throws HibernateException {¤		// TODO Auto-generated method stub¤		return Collections.emptyList();¤	}¤¤	@Override¤	protected boolean isGroupBySpace() {¤		// TODO Auto-generated method stub¤		return false;¤	}	¤	//#UC END# *4B34B9120069_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedOverload"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19016343418"))
+	    quid       	"4B34B9120069"
+	    documentation 	
+|ãîòîâèò äàííûå äëÿ ñ÷åò÷èêà "íàçíà÷åííûå" è "â ðàáîòå"
+	    
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4C5295ED0238"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::LifecycleTasksContextBuilderS"
+		    quidu      	"4B34BC83021B"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016344136"))
+		    quid       	"4B3862E8023F"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceImportancesIndicator"
+		    quidu      	"4B38626C0260")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016344533"))
+		    quid       	"4B39CE2A02B4"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::DashboardSupportTypes::DashboardTask"
+		    quidu      	"474A957A023E"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016343720"))
+		    quid       	"4B34B94B0247"
+		    stereotype 	"switch"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    initv      	"assigned"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "OwnTasksContextBuilderS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/OwnTasksContextBuilderS|4B34B95F03C4
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/OwnTasksContextBuilderS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/OwnTasksContextBuilderSFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B95F03C4_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B34B95F03C4_CUSTOM_IMPORT*¤¤import java.util.*;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤¤import org.apache.commons.lang.StringUtils;¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardTask;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.OwnTaskRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.RequestSearchSupportTypes.RequestSearchQueryResultType;¤¤//#UC END# *4B34B95F03C4_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B95F03C4_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B34B95F03C4_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B34B95F03C4_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34B95F03C4_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B34B95F03C4_CUSTOM_METHODS_AND_DATA*¤	¤	private static final String MY_REQUESTS_LIST_QUERY_KEY = "mdc.dashboardtasks.myRequests";¤	¤	private static final String NEW_MY_REQUESTS_LIST_QUERY_KEY = "mdc.dashboardtasks.myRequestsNew";¤	¤	protected String getMyRequestsListQueryKey() {¤		return MY_REQUESTS_LIST_QUERY_KEY;¤	}¤	¤	protected String getNewMyRequestsListQueryKey() {¤		return NEW_MY_REQUESTS_LIST_QUERY_KEY;¤	}¤	¤	protected Query getMyRequestsListQuery () throws HibernateException {¤		return getSketchQuery(getMyRequestsListQueryKey());¤	}¤	¤	protected Query getNewMyRequestsListQuery() throws HibernateException {¤		return getSketchQuery(getNewMyRequestsListQueryKey());¤	}¤	¤	@Override¤	protected String getListContextKey () {¤		return "myTaskList";¤	}¤	¤	@Override¤	protected String getIsListEmptyContextKey () {¤		return "myTaskListIsEmpty";¤	}¤¤	@Override¤	protected List<Long> getNewRequestIds () throws HibernateException {¤		return getNewMyRequestsListQuery().list();¤	}¤¤	@Override¤	protected List<Object[]> getRequests () throws HibernateException {¤		return getMyRequestsListQuery().list();¤	}¤¤	@Override¤	protected List<String> getSpaceKeys () {¤		return Collections.emptyList();¤	}¤¤	@Override¤	protected String buildLink (int total) {¤		OwnTaskRequest req = new OwnTaskRequest();¤		req.setSearchOnlyNew(false);¤		req.setAuthor(getUserName());¤		req.setIgnorePermissions(true);¤		return DashboardRequest.createQueryAction(req.createIdQuery(total));¤	}¤¤	@Override¤	protected String getLinkContextKey () {¤		return "myRequestsAction";¤	}¤¤	@Override¤	protected List<DashboardTask> createDashboardTasks (SpaceRequestStatesIndicator spaceStates) {¤		OwnTaskRequest taskRequest = new OwnTaskRequest();¤		taskRequest.setAuthor(getUserName());¤		taskRequest.setIgnorePermissions(true);¤		taskRequest.setResultType(RequestSearchQueryResultType.COMMON);¤		¤		return spaceStates.createDashboardTasks(getSpaceKeys(),taskRequest);¤	}¤¤	@Override¤	protected AbstractSpaceIndicatorBuilder createSpaceIndicatorBuilder (Object[] request,¤			List<Long> newRequestIds) {¤		return new DummySpaceIndicatorBuilder(request, newRequestIds);¤	}¤¤	@Override¤	protected boolean isGroupBySpace() {¤		return false;¤	}¤¤	@Override¤	protected Map<Long, Map<Byte, QueryResult>> doQuery() throws Exception {¤		if (StringUtils.isEmpty(getUserName())) {¤			return null;¤		}¤		String q = String.format(¤			"SELECT r.state, r.spaceid, g.user_name, count(*)"¤				+ " FROM cache_dashboard_tasks r"¤				+ " LEFT OUTER JOIN gar_own_unread_doc_set g ON (g.entity_id = r.contentid AND g.user_name = r.creator)"¤				+ " WHERE r.creator = '%s'"¤				+ " GROUP BY r.state, r.spaceid, g.user_name, r.contentid"¤			, getUserName()¤		);¤		return queryThis (q, isGroupBySpace());¤	}¤¤	@Override¤	protected boolean enabled () {¤		return getUserSettings().contains("ON_MY");¤	}¤	¤	@Override¤	protected AbstractDashboardTasksContextBuilderS createSpaceGroupedBuilder () {¤		return new OwnSpaceGroupedTasksContextBuilderS();¤	}¤¤	@Override¤	protected boolean groupBySpaceEnabled () {¤		return groupBySpaceSettings().contains("GROUP_BY_SPACE_FOR_YOURS");¤	}	¤	¤	/**¤	 *	Builds 'my', grouped by spaces¤	 */¤	private static class OwnSpaceGroupedTasksContextBuilderS extends OwnTasksContextBuilderS {¤¤		private static final String MY_REQUESTS_LIST_QUERY_KEY = "mdc.dashboardtasks.myRequests.spaceAware";¤		¤		@Override¤		protected String getMyRequestsListQueryKey () {¤			return MY_REQUESTS_LIST_QUERY_KEY;¤		}¤		¤		@Override¤		protected AbstractSpaceIndicatorBuilder createSpaceIndicatorBuilder (Object[] request,¤				List<Long> newRequestIds) {¤			return new SpaceIndicatorBuilder(request, newRequestIds);¤		}¤¤		@Override¤		protected boolean isGroupBySpace() {¤			return true;¤		}¤	}¤	¤	//#UC END# *4B34B95F03C4_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedOverload"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19016345107"))
+	    quid       	"4B34B95F03C4"
+	    documentation 	
+|ãîòîâèò äàííûå äëÿ ñ÷åò÷èêà "Âàøè"
+	    
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4B34BCB000B0"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::LifecycleTasksContextBuilderS"
+		    quidu      	"4B34BC83021B"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016345820"))
+		    quid       	"4B39CD3D019A"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::DashboardSupportTypes::OwnTaskRequest"
+		    quidu      	"4760FA960337"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016345376"))
+		    quid       	"4B34B9830341"
+		    stereotype 	"switch"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    initv      	"own"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "LifecycleTasksContextBuilderS"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"abstract")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/LifecycleTasksContextBuilderS.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/LifecycleTasksContextBuilderS|4B34BC83021B
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedImplement"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34BC83021B_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B34BC83021B_CUSTOM_IMPORT*¤import ru.garant.MDProcess.ConfluenceMDChange.RequestDashboardImpl.AbstractDashboardTasksContextBuilderS.MySqlQueryWrapper;¤¤import java.sql.PreparedStatement;¤import java.sql.ResultSet;¤import java.util.ArrayList;¤import java.util.Collection;¤import java.util.Date;¤import java.util.HashMap;¤import java.util.List;¤import java.util.Map;¤import java.util.TreeMap;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Session;¤¤import com.atlassian.confluence.spaces.Space;¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.GroupIndicator;¤¤//#UC END# *4B34BC83021B_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34BC83021B_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B34BC83021B_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B34BC83021B_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B34BC83021B_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B34BC83021B_CUSTOM_METHODS_AND_DATA*¤	¤	/**¤	 * ¤	 * @return velocity context key for accessing indicator showing all indicators are empty¤	 */¤	protected abstract String getIsListEmptyContextKey();¤	¤	/**¤	 * ¤	 * @return a list of request fields which should be grouped by spaces and lifecycle states¤	 * @throws HibernateException¤	 */¤	protected abstract List<Object[]> getRequests() throws HibernateException;¤	¤	protected abstract List<Long> getNewRequestIds() throws HibernateException;¤	¤	/**¤	 * ¤	 * @return a list of space keys in which requests will be searched¤	 * @throws HibernateException¤	 */¤	protected abstract List<String> getSpaceKeys() throws HibernateException;¤	¤	/**¤	 * ¤	 * @return a key to use in velocity to get a list of DashboardTask to visualize¤	 */¤	protected abstract String getListContextKey();¤	¤	/**¤	 * ¤	 * @return a key to use in velocity to get a link for current request logic request group¤	 */¤	protected abstract String getLinkContextKey();¤	¤	/**¤	 * Creates a link to list current logic request group¤	 * @param total requests in group¤	 * @return¤	 * @throws HibernateException¤	 */¤	protected abstract String buildLink(int total) throws HibernateException;¤	¤	/**¤	 * Creates a list of DashboardTasks using SpaceRequestStatesIndicator.createDashboardTasks with¤	 * custom parameters¤	 * @param spaceStates¤	 * @return¤	 * @throws HibernateException¤	 */¤	protected abstract List<DashboardTask> createDashboardTasks(SpaceRequestStatesIndicator spaceStates) throws HibernateException;¤	¤	/**¤	 * Creates a buider for a current request¤	 * @param request¤	 * @param newRequestIds¤	 * @return¤	 */¤	protected abstract AbstractSpaceIndicatorBuilder createSpaceIndicatorBuilder(Object[] request, List<Long> newRequestIds);¤	¤	protected abstract Map<Long, Map<Byte, QueryResult>> doQuery () throws Exception; ¤	¤	protected abstract boolean isGroupBySpace  ();¤	¤	@Override¤	protected Map<String, Object> doBuild () {¤		Map<String, Object> ret = new HashMap<String, Object> ();			¤		try {¤			Map<Long, SpaceRequestStatesIndicator> spaceIndicators = new TreeMap<Long, SpaceRequestStatesIndicator> ();¤			¤			int total = processQueryResult (doQuery (), spaceIndicators);¤¤			Collection<Collection<DashboardTask>> tasksList = buildLifeStateRequestsTasks(spaceIndicators);¤			ret.put(getListContextKey(), tasksList);¤			ret.put(getLinkContextKey(), buildLink(total));¤			ret.put(getIsListEmptyContextKey(), allLifeStateRequestsTasksAreEmpty(tasksList));				¤		} catch (Exception e) {¤			Logs.LOG_E("TasksMacroPlugin: " + e);¤			Logs.LOG_SEX(e);¤			throw new RuntimeException(e);¤		}¤		return ret;			¤	}¤	¤	protected Collection<Collection<DashboardTask>> buildLifeStateRequestsTasks (¤			Map<Long, SpaceRequestStatesIndicator> requestStatesBySpace) throws HibernateException {¤		Collection<Collection<DashboardTask>> result = new ArrayList<Collection<DashboardTask>>(¤				requestStatesBySpace.size());¤		for (SpaceRequestStatesIndicator spaceStates : requestStatesBySpace.values()) {¤			List<DashboardTask> tasks = createDashboardTasks(spaceStates);¤			if (!tasks.isEmpty()) {¤				fillEmptyDashboardTasks(tasks);¤				result.add(tasks);¤			}¤		}¤		return result;¤	}¤	¤	protected boolean allLifeStateRequestsTasksAreEmpty (Collection<Collection<DashboardTask>> tasksList) {¤		for (Collection<DashboardTask> tasks : tasksList) {¤			for (DashboardTask task : tasks) {¤				if (task.getRequestCount() > 0) {¤					return false;¤				}¤			}¤		}¤		return true;¤	}¤	¤	protected int processQueryResult (Map<Long, Map<Byte, QueryResult>> qr, Map<Long, SpaceRequestStatesIndicator> spaceIndicators) {¤		int ret = 0;¤		if (qr == null) {¤			return ret;¤		}¤		¤		for (Long spaceId : qr.keySet()) {¤			Map<Byte, QueryResult> counterAndValue = qr.get(spaceId);¤			SpaceRequestStatesIndicator cur = spaceIndicators.get(spaceId);¤			if (cur == null) {¤				if (spaceId == DummySpaceIndicatorBuilder.DUMMY_SPACE_ID) {¤					cur = new SpaceRequestStatesIndicator ();¤				} else {¤					Space space = ContainerManager.Factory.get().getSpaceManager().getSpace(spaceId);¤					cur = new SpaceRequestStatesIndicator (space.getId(), space.getName(), space.getKey());¤				}¤				spaceIndicators.put(spaceId, cur);¤			}¤			for (Byte counter : counterAndValue.keySet()) {¤				QueryResult res = counterAndValue.get(counter);¤				GroupIndicator gi = cur.getGroupIndicator(counter);¤				gi.setUnreadCount(gi.getUnreadCount() + res.unreadCount);¤				gi.setCount(gi.getCount() + res.fullCount);¤				ret += res.fullCount;¤			}¤		}¤		return ret;¤	}¤	¤	protected Map<Long, Map<Byte, QueryResult>> queryThis (String q, boolean groupBySpace)  throws Exception {¤		long time = new Date().getTime();¤		boolean isGroupByContentid = q.matches("SELECT.+GROUP BY.+, r.contentid");¤		Map<Long, Map<Byte, QueryResult>> ret = new HashMap<Long, Map<Byte, QueryResult>> ();¤		MySqlQueryWrapper msw = new MySqlQueryWrapper ();¤		try {¤			msw.open(q);¤			while (msw.rs().next()) {¤				Long spaceId = Long.valueOf(DummySpaceIndicatorBuilder.DUMMY_SPACE_ID);¤				if (groupBySpace == true) {¤					spaceId = msw.rs().getLong(2);¤				}¤				Map<Byte, QueryResult> counterAndValue = ret.get(spaceId);¤				if (counterAndValue == null) {¤					counterAndValue = new HashMap<Byte, QueryResult> ();¤					ret.put(spaceId, counterAndValue);¤				}¤				QueryResult currentCount = counterAndValue.get(msw.rs().getByte(1));¤				if (currentCount == null) {¤					currentCount = new QueryResult ();¤					counterAndValue.put(msw.rs().getByte(1), currentCount);¤				}¤				int val = ((Long) msw.rs().getLong(4)).intValue();¤				currentCount.fullCount += (isGroupByContentid) ? 1: val;¤				if (msw.rs().getString(3) != null) {¤					currentCount.unreadCount += (isGroupByContentid) ? 1: val;¤				}¤			}¤	   	} finally {¤    		msw.close();¤    	} 		¤		Logs.LOG_W("queryThis = " + (new Date().getTime() - time) + "ms for: " + q);¤		return ret;¤	}¤	¤	protected static class QueryResult {¤		public int fullCount = 0;¤		public int unreadCount = 0;¤	}¤	¤	//#UC END# *4B34BC83021B_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedOverload"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033146297"))
+	    quid       	"4B34BC83021B"
+	    documentation 	"îáùèé ñåðâàíò äëÿ ñïèñêà ñ÷åò÷èêîâ ñîñòîÿíèé ÆÖ"
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4B34BCAC0220"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::AbstractDashboardTasksContextBuilderS"
+		    quidu      	"4B34B6A3011C"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016346915"))
+		    quid       	"4B3862EF0106"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceRequestStatesIndicator"
+		    quidu      	"4B3862AD00A4")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016347306"))
+		    quid       	"4B3869280323"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::DummySpaceIndicatorBuilder"
+		    quidu      	"4B3867E20190")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016347732"))
+		    quid       	"4B38692C01E3"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceIndicatorBuilder"
+		    quidu      	"4B3868950016")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016348109"))
+		    quid       	"4B39CE2E007C"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::DashboardSupportTypes::DashboardTask"
+		    quidu      	"474A957A023E"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "SpaceIndicator"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"abstract")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/SpaceIndicator.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/SpaceIndicator|4B386231021C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B386231021C_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B386231021C_CUSTOM_IMPORT*¤¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤¤import ru.garant.MDProcess.ConfluencePlugins.UserData.UserData;¤¤//#UC END# *4B386231021C_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B386231021C_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B386231021C_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B386231021C_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B386231021C_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B386231021C_CUSTOM_METHODS_AND_DATA*¤	¤	protected Long id_;¤	protected String name_;¤	protected String key_;¤	protected boolean spaceSet_ = false;¤¤	public SpaceIndicator() {¤	}¤¤	public SpaceIndicator(Long id, String name, String key) {¤		this.id_ = id;¤		this.name_ = name;¤		this.key_ = key;¤		this.spaceSet_ = true;¤	}¤	¤	protected String getUserName() {¤		return AuthenticatedUserThreadLocal.getUsername();¤	}¤	¤	private Boolean skipFinalIndicators_ = null;¤¤	protected boolean skipFinalIndicators () {¤		if (skipFinalIndicators_ == null) {¤			try {¤				skipFinalIndicators_ = UserData.Factory.get(getUserName(),¤					"DashboardFinalStateIndicators").getData().equals("VISIBLE_ONLY_HAVING_UNREAD");¤			} catch (Exception e) {¤				Logs.LOG_E("TasksMacroPlugin::filterFinalIndicators - can't get defaults - " + e);¤				skipFinalIndicators_ = true;¤			}¤		}¤		return skipFinalIndicators_;¤	}¤	¤	//#UC END# *4B386231021C_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033156167"))
+	    quid       	"4B386231021C"
+	    documentation 	"Ãðóïïà ïàðàìåòðîâ äëÿ îòîáðàæåíèÿ ñïåéñà â ñ÷åò÷èêàõ Çàäà÷"
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "SpaceImportancesIndicator"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/SpaceImportancesIndicator.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/SpaceImportancesIndicator|4B38626C0260
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B38626C0260_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B38626C0260_CUSTOM_IMPORT*¤¤import java.util.ArrayList;¤import java.util.Arrays;¤import java.util.List;¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.AssignedTaskRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardIndicator;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardTask;¤import ru.garant.MDProcess.ConfluencePlugins.LabelSupport.LabelGroup;¤import ru.garant.MDProcess.ConfluencePlugins.LabelSupport.LabelGroupName;¤¤//#UC END# *4B38626C0260_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B38626C0260_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B38626C0260_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B38626C0260_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B38626C0260_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B38626C0260_CUSTOM_METHODS_AND_DATA*¤	¤	public SpaceImportancesIndicator() {¤		super();¤	}¤¤	public SpaceImportancesIndicator(Long id, String name, String key) {¤		super(id, name, key);¤	}¤¤	private int[][] importances_ = new int[4][2];¤	¤	public List<DashboardTask> createDashboardTasks () {¤		List<DashboardTask> result = new ArrayList<DashboardTask>(4);¤		for (int i = 0; i < 4; i++) {¤			result.add(createDashboardTask(i));¤		}¤		if (!result.isEmpty() && name_ != null) {¤			result.add(createSpaceDashboardTask());¤		}¤		return result;¤	}¤¤	public void inc (byte importance) {¤		importances_[importance - 1][0]++;¤	}¤¤	public void incNew (byte importance) {¤		importances_[importance - 1][1]++;¤	}¤	¤	private int get (int index) {¤		return importances_[index][0];¤	}¤¤	private int getNew (int index) {¤		return importances_[index][1];¤	}¤	¤	private int getTotal () {¤		int result = 0;¤		for (int[] counters : importances_) {¤			result += counters[0];¤		}¤		return result;¤	}¤¤	private LabelGroupName getLabelGroupName (int index) {¤		switch (index) {¤		case 0:¤			return LabelGroupName.REQUEST_IMPORTANCE_CRITICAL;¤		case 1:¤			return LabelGroupName.REQUEST_IMPORTANCE_MAJOR;¤		case 2:¤			return LabelGroupName.REQUEST_IMPORTANCE_NORMAL;¤		case 3:¤			return LabelGroupName.REQUEST_IMPORTANCE_MINOR;¤		default:¤			throw new IndexOutOfBoundsException(¤					"TasksMacroPlugin::SpaceImportances::getLabelGroupName - index out of bounds");¤		}¤	}¤	¤	private DashboardTask createSpaceDashboardTask() {¤		AssignedTaskRequest atr = new AssignedTaskRequest();¤		atr.setSearchOnlyNew(false);¤		atr.setSort(true);¤		atr.setSpaceKeys(Arrays.asList(key_));¤		atr.setWaitedOnly("false");¤		¤		long queryId = atr.createIdQuery(getTotal());¤		String action = DashboardRequest.createQueryAction(queryId);¤		¤		DashboardIndicator indicator = new DashboardIndicator(action, null, null, name_, null);¤		return new DashboardTask(indicator, null);¤	}¤¤	private DashboardTask createDashboardTask (int index) {¤		int allCount = get(index);¤		if (allCount == 0) {¤			return null;¤		}¤		LabelGroupName labelGroupName = getLabelGroupName(index);¤		LabelGroup labelGroup = LabelGroup.Factory.get(labelGroupName.toString());¤¤		AssignedTaskRequest taskRequest = new AssignedTaskRequest();¤		taskRequest.setLifeCycleState(labelGroupName);¤		taskRequest.setSearchOnlyNew(false);¤		taskRequest.setSort(true);¤		taskRequest.setWaitedOnly("false");¤		if(spaceSet_) {¤			taskRequest.setSpaceKeys(Arrays.asList(key_));¤		}¤		long queryId = taskRequest.createIdQuery(-1);¤¤		taskRequest.setSearchOnlyNew(true);¤		int countNew = getNew(index);¤		long queryIdNew = taskRequest.createIdQuery(-1);¤¤		// ses: î÷åíü ãíóñíûé õàê, íàäî ïåðåäåëàòü - íóæíî äëÿ ñêîðåéøåãî¤		// çàïóñêà ìàêåòà "íîâûõ" çàïðîñîâ â òåñòðîâàíèå¤		// ñì. åùå îäíî òàêîå æå ìåñòî â äðóãîì ìåòîäå createDashboardTask¤		final String urlSuffixForRequestsProcessor = "&processor=new_assigned";¤¤		DashboardTask res = new DashboardTask(new DashboardIndicator(DashboardRequest¤				.createQueryAction(queryId), labelGroup.getLabels().get(0).getIconPath(), labelGroup¤				.getDescription(), String.valueOf(allCount), null),¤				(countNew > 0) ? new DashboardIndicator(DashboardRequest.createQueryAction(queryIdNew)¤						+ urlSuffixForRequestsProcessor, null, labelGroup.getDescription() + ", íîâûå",¤						String.valueOf(countNew), null) : null);¤		res.setRequestCount(allCount);¤		return res;¤	}¤	¤	//#UC END# *4B38626C0260_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033143885"))
+	    quid       	"4B38626C0260"
+	    documentation 	"Äëÿ îòîáðàæåíèå ñ÷åò÷èêîâ ñïåéñîâ â ãðóïïàõ, ãäå ñ÷åò÷èêè äåëÿòñÿ ïî âàæíîñòè"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4B3862CA0108"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceIndicator"
+		    quidu      	"4B386231021C"))
+	    language   	"MDA Generator")
+	(object Class "SpaceRequestStatesIndicator"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/SpaceRequestStatesIndicator|4B3862AD00A4
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/SpaceRequestStatesIndicator.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3862AD00A4_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B3862AD00A4_CUSTOM_IMPORT*¤¤import java.util.ArrayList;¤import java.util.Arrays;¤import java.util.List;¤import java.util.Map;¤import java.util.TreeMap;¤¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardIndicator;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.DashboardTask;¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.TaskRequest;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.AbstractRequestLifeCycle;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.RequestLifeCycle;¤import ru.garant.MDProcess.ConfluencePlugins.LabelSupport.LabelGroupName;¤import ru.garant.MDProcess.ContractChange.Entities.ContractRequestLifecycle;¤import ru.garant.MDProcess.DocCardChange.Entities.UVSStateMachine;¤import ru.garant.MDProcess.CaseAgreementChange.Entities.CaseLifeCycle;¤//#UC END# *4B3862AD00A4_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3862AD00A4_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B3862AD00A4_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B3862AD00A4_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3862AD00A4_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B3862AD00A4_CUSTOM_METHODS_AND_DATA*¤	¤	private List<GroupIndicator> groupIndicators_;¤	private Map<Byte, GroupIndicator> states_;¤	¤	public SpaceRequestStatesIndicator() {¤		super();¤		init();¤	}¤	¤	public SpaceRequestStatesIndicator(Long id, String name, String key) {¤		super(id, name, key);¤		init();¤	}¤	¤	private void init() {¤		groupIndicators_ = createLifeRequestStatesList();¤		states_ = createStatesMap(groupIndicators_);¤	}¤	¤	public GroupIndicator getGroupIndicator (Byte state) {¤		return states_.get(state);¤	}¤	¤	public List<DashboardTask> createDashboardTasks(List<String> spaceKeys, TaskRequest taskRequest) {¤		List<DashboardTask> result = new ArrayList<DashboardTask>();¤		if (skipFinalIndicators() && checkForFinalsOnly(groupIndicators_)) {¤			return result;¤		}¤		boolean flagNotEmptyArray = false;¤		for (GroupIndicator groupIndicator : groupIndicators_) {¤			boolean skipFinalIndicator = skipFinalIndicators() ¤					&& groupIndicator.getUnreadCount() == 0¤					&& isFinalState(groupIndicator.getGroupName());¤			DashboardTask dashboardTask = null;¤			if (!skipFinalIndicator && groupIndicator.getCount() > 0) {¤				if (spaceSet_) {¤					spaceKeys = Arrays.asList(key_);¤				}¤				dashboardTask = groupIndicator.createDashboardTask(spaceKeys, taskRequest);¤				flagNotEmptyArray = true;¤			}¤			result.add(dashboardTask);¤		}¤		if (spaceSet_ && !result.isEmpty() && flagNotEmptyArray) {¤			result.add(createSpaceDashboardTask(taskRequest));¤		} else {¤			// to keep equal cell number in my, project and management tables¤			result.add(null);¤		}¤		return result;¤	}¤	¤	private DashboardTask createSpaceDashboardTask (TaskRequest taskRequest) {¤		taskRequest.setSearchOnlyNew(false);¤		taskRequest.setLifeCycleState(LabelGroupName.UNDEFINED);¤		taskRequest.setSpaceKeys(Arrays.asList(key_));¤		long queryId = taskRequest.createIdQuery(getTotal());¤		String action = DashboardRequest.createQueryAction(queryId);¤		¤		DashboardIndicator indicator = new DashboardIndicator(action, null, null, name_, null);¤		return new DashboardTask(indicator, null);¤	}¤¤	private int getTotal () {¤		int result = 0;¤		for(GroupIndicator gi : groupIndicators_) {¤			result += gi.getCount();¤		}¤		return result;¤	}¤¤	private Map<Byte, GroupIndicator> createStatesMap (List<GroupIndicator> groupIndicatorList) {¤		Map<Byte, GroupIndicator> res = new TreeMap<Byte, GroupIndicator>();¤		for (GroupIndicator groupIndicator : groupIndicatorList) {¤			switch (groupIndicator.getGroupName()) {¤			case LIFE_CYCLE_STATE_ACCEPTANCE:¤				res.put(AbstractRequestLifeCycle.ST_ON_ACCEPT.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_ANALYSE:¤				res.put(RequestLifeCycle.ST_ON_ANALYSE.getSortValue(), groupIndicator);¤				res.put(RequestLifeCycle.ST_ON_ANALYSE_IN_OIT.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_SUSPENDED:¤				res.put(RequestLifeCycle.ST_WAITED_FROM_ANALYSE.getSortValue(), groupIndicator);¤				res.put(RequestLifeCycle.ST_WAITED.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_ASSIGNED:¤				res.put(AbstractRequestLifeCycle.ST_ASSIGNED.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_ACTIVE:¤				res.put(AbstractRequestLifeCycle.ST_ACTIVE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_PAUSED:¤				res.put(AbstractRequestLifeCycle.ST_PAUSE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_VERIFICATION:¤				res.put(RequestLifeCycle.ST_RE_TESTING.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_TESTING:¤				res.put(RequestLifeCycle.ST_ON_TEST.getSortValue(), groupIndicator);¤				res.put(RequestLifeCycle.ST_TESTING.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_REJECTED:¤				res.put(AbstractRequestLifeCycle.ST_DISCARDED.getSortValue(), groupIndicator);¤				res.put(RequestLifeCycle.ST_REPLAY.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_CLOSED:¤				res.put(AbstractRequestLifeCycle.ST_CLOSED.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_VISA:¤				res.put(ContractRequestLifecycle.ST_ON_VISA.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_APPROVE:¤				res.put(ContractRequestLifecycle.ST_ON_APPROVE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_FINAPPROVE:¤				res.put(ContractRequestLifecycle.ST_ON_FIN_APPROVE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_RETRY:¤				res.put(ContractRequestLifecycle.ST_ON_RETRY.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_SPECIFY:¤				res.put(ContractRequestLifecycle.ST_ON_SPECIFY.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_CANCELLED:¤				res.put(ContractRequestLifecycle.ST_CANCELLED.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_MINOR_VISA:¤				res.put(ContractRequestLifecycle.ST_ON_MINOR_VISA.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_MINOR_RETRY:¤				res.put(ContractRequestLifecycle.ST_ON_MINOR_RETRY.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_AUTHOR_APPROVE:¤				res.put(ContractRequestLifecycle.ST_ON_AUTHOR_APPROVE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_INTERNAL_VISA:¤				res.put(ContractRequestLifecycle.ST_ON_INTERNAL_VISA.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_CLOSED_AND_DEPLOYED:¤				res.put(RequestLifeCycle.ST_CLOSED_AND_DEPLOYED.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_WORK_GROUP_APPROVE:¤				res.put(CaseLifeCycle.ST_ON_WORK_GROUP_APPROVE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_RESOLUTION:¤				res.put(CaseLifeCycle.ST_ON_RESOLUTION.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_CC_APPROVE:¤				res.put(CaseLifeCycle.ST_ON_CC_APPROVE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_UVS_APPROVE:¤				res.put(CaseLifeCycle.ST_ON_UVS_APPROVE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_DIRECTOR_APPROVE:¤				res.put(CaseLifeCycle.ST_ON_DIRECTOR_APPROVE.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_WAITING_FROM_OGV:¤				res.put(UVSStateMachine.ST_WAITING_FROM_OGV.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_ON_ACCEPT_IN_UO:¤				res.put(UVSStateMachine.ST_ON_ACCEPT_IN_UO.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_TRANSFER_TO_UO:¤				res.put(UVSStateMachine.ST_TRANSFER_TO_UO.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_SUSPENDED_CASE:¤				res.put(CaseLifeCycle.ST_SUSPENDED.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_ON_ACCEPT_BY_UO_MANAGER:¤				res.put(UVSStateMachine.ST_ON_ACCEPT_BY_UO_MANAGER.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_MAKE_ANSWER:¤				res.put(UVSStateMachine.ST_MAKE_ANSWER.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_ON_ACCEPT_IN_RIB:¤				res.put(UVSStateMachine.ST_ON_ACCEPT_IN_RIB.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_MARKING_PAPER_COPY:¤				res.put(UVSStateMachine.ST_MARKING_PAPER_COPY.getSortValue(), groupIndicator);¤				break;¤			case LIFE_CYCLE_STATE_ANALYSE_REPEATS_DOCS:¤				res.put(UVSStateMachine.ST_ANALYSE_REPEATS_DOCS.getSortValue(), groupIndicator);¤				break;¤			default:¤				Logs.LOG_W("TasksMacroPlugin::SpaceRequestStatesIndicator::createStatesMap: unknown group name '" + groupIndicator.getGroupName() + "'");¤			}¤		}¤		return res;¤	}¤	¤	private java.util.List<GroupIndicator> createLifeRequestStatesList () {¤		return Arrays.asList(¤				new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_ACCEPTANCE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_ANALYSE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_SUSPENDED)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_ASSIGNED)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_ACTIVE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_PAUSED)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_VERIFICATION)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_TESTING)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_REJECTED)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_CLOSED)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_VISA)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_APPROVE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_FINAPPROVE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_RETRY)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_SPECIFY)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_CANCELLED)                     ¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_MINOR_VISA)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_MINOR_RETRY)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_AUTHOR_APPROVE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_INTERNAL_VISA)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_CLOSED_AND_DEPLOYED)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_WORK_GROUP_APPROVE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_RESOLUTION)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_CC_APPROVE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_UVS_APPROVE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_DIRECTOR_APPROVE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_WAITING_FROM_OGV)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_ON_ACCEPT_IN_UO)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_TRANSFER_TO_UO)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_ON_ACCEPT_BY_UO_MANAGER)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_SUSPENDED_CASE)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_MAKE_ANSWER)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_ON_ACCEPT_IN_RIB)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_MARKING_PAPER_COPY)¤				, new GroupIndicator(LabelGroupName.LIFE_CYCLE_STATE_ANALYSE_REPEATS_DOCS)¤		);¤	}¤	¤	/**¤	 * Checks weather all indicators in space concern requests in final states¤	 * If so no indicators should be visualized¤	 * @param groupIndicatorList¤	 * @return¤	 */¤	private final boolean checkForFinalsOnly (final java.util.List<GroupIndicator> groupIndicatorList) {¤		if (groupIndicatorList.size() > 2) {¤			return false;¤		}¤		for (GroupIndicator groupIndicator : groupIndicatorList) {¤			if (groupIndicator.getUnreadCount() > 0) {¤				return false;¤			}¤			if (!isFinalState(groupIndicator.getGroupName())) {¤				return false;¤			}¤		}¤		return true;¤	}¤	¤	private boolean isFinalState (LabelGroupName labelGroupName) {¤		switch (labelGroupName) {¤		case LIFE_CYCLE_STATE_REJECTED:¤		case LIFE_CYCLE_STATE_CLOSED:¤		case LIFE_CYCLE_STATE_CANCELLED:¤		case LIFE_CYCLE_STATE_FINAL:¤		case LIFE_CYCLE_STATE_CLOSED_AND_DEPLOYED:¤			return true;¤		default:¤			return false;¤		}¤	}¤	¤	//#UC END# *4B3862AD00A4_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033158489"))
+	    quid       	"4B3862AD00A4"
+	    documentation 	"Äëÿ îòîáðàæåíèå ñ÷åò÷èêîâ ñïåéñîâ â ãðóïïàõ, ãäå ñ÷åò÷èêè äåëÿòñÿ ïî ôàçàì çàïðîñà"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4B3862CC0268"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceIndicator"
+		    quidu      	"4B386231021C"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016350862"))
+		    quid       	"4B39BE0301E8"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::DashboardSupportTypes::GroupIndicator"
+		    quidu      	"478638CC02EC"))
+	    language   	"MDA Generator")
+	(object Class "AbstractSpaceIndicatorBuilder"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"abstract")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/AbstractSpaceIndicatorBuilder|4B38676C0027
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/AbstractSpaceIndicatorBuilder.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B38676C0027_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B38676C0027_CUSTOM_IMPORT*¤¤import java.util.List;¤import java.util.Map;¤¤//#UC END# *4B38676C0027_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B38676C0027_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B38676C0027_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B38676C0027_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B38676C0027_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B38676C0027_CUSTOM_METHODS_AND_DATA*¤	¤	/**¤	 * Information about a request object by fields¤	 * [0] - request id¤	 * [1] - group indicator id¤	 * [2] - space id¤	 * [3] - space name¤	 * [4] - space key¤	 */¤	protected Object[] request_;¤	¤	/**¤	 * ids of requests marked as new¤	 */¤	protected List<Long> newRequestIds_;¤¤	public AbstractSpaceIndicatorBuilder(Object[] request, List<Long> newRequestIds) {¤		request_ = request;¤		newRequestIds_ = newRequestIds;¤	}¤¤	/**¤	 * Puts SpaceRequestStatesIndicator object for a space, if it is absent.¤	 * Gets proper GroupIndicator and increments its count¤	 * @param spaceIndicators¤	 */¤	public abstract void add (Map<Long, SpaceRequestStatesIndicator> spaceIndicators);¤	¤	//#UC END# *4B38676C0027_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033160709"))
+	    quid       	"4B38676C0027"
+	    documentation 	"âñïîìîãàòåëüíûé êëàññ äëÿ íàïîëíåíèÿ èíäèêàòîðîâ\\ñ÷åò÷èêîâ êîíêðåòíîãî äëÿ ñïåéñà"
+	    stereotype 	"SimpleClass"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19016351913"))
+		    quid       	"4B386992006D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceRequestStatesIndicator"
+		    quidu      	"4B3862AD00A4"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "DummySpaceIndicatorBuilder"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/DummySpaceIndicatorBuilder|4B3867E20190
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/DummySpaceIndicatorBuilder.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3867E20190_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B3867E20190_CUSTOM_IMPORT*¤¤import java.util.Collections;¤import java.util.List;¤import java.util.Map;¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.GroupIndicator;¤¤//#UC END# *4B3867E20190_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3867E20190_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B3867E20190_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B3867E20190_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3867E20190_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B3867E20190_CUSTOM_METHODS_AND_DATA*¤	¤	public static final long DUMMY_SPACE_ID = 0L;¤	¤	public DummySpaceIndicatorBuilder(Object[] request, List<Long> newRequestIds) {¤		super(request, newRequestIds);¤	}¤¤	@Override¤	public void add (Map<Long, SpaceRequestStatesIndicator> spaceIndicators) {¤		SpaceRequestStatesIndicator spaceIndicator = spaceIndicators.get(DUMMY_SPACE_ID);¤		if (spaceIndicator == null) {¤			spaceIndicator = new SpaceRequestStatesIndicator();¤			spaceIndicators.put(DUMMY_SPACE_ID, spaceIndicator);¤		}¤¤		GroupIndicator groupIndicator = spaceIndicator.getGroupIndicator((Byte) request_[1]);¤		groupIndicator.incCount();¤		if (Collections.binarySearch(newRequestIds_, (Long) request_[0]) >= 0) {¤			groupIndicator.incUnreadCount();¤		}			¤	}¤	¤	//#UC END# *4B3867E20190_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033151372"))
+	    quid       	"4B3867E20190"
+	    documentation 	"Íóæåí äëÿ åäèíîîáðàçíîé îáðàáîêè ñèòóàöèè, êîãäà íåò ãðóïïèðîâêè ïî ñïåéñàì"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4B38688E0174"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::AbstractSpaceIndicatorBuilder"
+		    quidu      	"4B38676C0027"))
+	    language   	"MDA Generator")
+	(object Class "SpaceIndicatorBuilder"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluenceMDChange/RequestDashboardImpl/SpaceIndicatorBuilder.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluenceMDChange/RequestDashboardImpl/SpaceIndicatorBuilder|4B3868950016
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3868950016_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B3868950016_CUSTOM_IMPORT*¤¤import java.util.Collections;¤import java.util.List;¤import java.util.Map;¤¤import ru.garant.MDProcess.ConfluenceMDChange.DashboardSupportTypes.GroupIndicator;¤¤//#UC END# *4B3868950016_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3868950016_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B3868950016_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B3868950016_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B3868950016_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B3868950016_CUSTOM_METHODS_AND_DATA*¤	¤	public SpaceIndicatorBuilder(Object[] request, List<Long> newRequestIds) {¤		super(request, newRequestIds);¤	}¤¤	@Override¤	public void add (Map<Long, SpaceRequestStatesIndicator> spaceIndicators) {¤		Long spaceId = (Long) request_[2];¤		String spaceName = (String) request_[3];¤		String spaceKey = (String) request_[4];¤¤		SpaceRequestStatesIndicator spaceIndicator = spaceIndicators.get(spaceId);¤		if (spaceIndicator == null) {¤			spaceIndicator = new SpaceRequestStatesIndicator(spaceId, spaceName, spaceKey);¤			spaceIndicators.put(spaceId, spaceIndicator);¤		}¤¤		GroupIndicator groupIndicator = spaceIndicator.getGroupIndicator((Byte) request_[1]);¤		groupIndicator.incCount();¤		if (Collections.binarySearch(newRequestIds_, (Long) request_[0]) >= 0) {¤			groupIndicator.incUnreadCount();¤		}¤	}¤	¤	//#UC END# *4B3868950016_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033152495"))
+	    quid       	"4B3868950016"
+	    documentation 	"Ãðóïïèðóåò è íàïîëíÿåò ñ÷åò÷èêè â ðàìêàõ îäíîãî ñïåéñà"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4B3868B001EA"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::AbstractSpaceIndicatorBuilder"
+		    quidu      	"4B38676C0027"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"47F0D92801F6"
+	    title      	"Main"
+	    zoom       	70
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	496
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboard::DashboardCacheManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(543, 204)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(206, 172)
+			nlines     	1
+			max_width  	674
+			justify    	0
+			label      	"• DashboardCacheManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(206, 122)
+			anchor     	10
+			nlines     	1
+			max_width  	674
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47F0D6AB01B5"
+		    width      	692
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::DefaultDashboardCacheManager" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(537, 714)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(139, 685)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	796
+			justify    	0
+			label      	"DefaultDashboardCacheManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(139, 635)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	796
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"47F0D94F022C"
+		    width      	814
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"47F0D96100BB"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(537, 622)
+			(541, 298))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboard::DashboardTasksContextBuilder" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2718, 189)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(2334, 159)
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"DashboardTasksContextBuilder")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(2334, 105)
+			anchor     	10
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4B34A3FA031D"
+		    width      	786
+		    height     	194
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::DashboardTasksContextBuilderS" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1704, 684)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1304, 620)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	800
+			justify    	0
+			label      	"DashboardTasksContextBuilderS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1304, 570)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	800
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4B34A6A20075"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(1304, 685)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	615
+			justify    	1)
+		    width      	818
+		    height     	252
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::ProjectTasksContextBuilderS" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(4692, 1818)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(4338, 1750)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	708
+			justify    	0
+			label      	"ProjectTasksContextBuilderS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(4338, 1700)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	708
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4B34A6D0024A"
+		    compartment 	(object Compartment
+			Parent_View 	@6
+			location   	(4338, 1815)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	696
+			justify    	1)
+		    width      	726
+		    height     	260
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::AbstractDashboardTasksContextBuilderS" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2817, 630)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(2420, 594)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	794
+			justify    	0
+			label      	"AbstractDashboardTasksContextBuilderS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(2420, 544)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	794
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4B34B6A3011C"
+		    width      	812
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @8
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B34B6B8020F"
+		    client     	@7
+		    supplier   	@4
+		    vertices   	(list Points
+			(2794, 531)
+			(2739, 286))
+		    line_style 	0)
+		(object RealizeView "" @9
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B34B72D0194"
+		    client     	@5
+		    supplier   	@4
+		    vertices   	(list Points
+			(1742, 558)
+			(1742, 205)
+			(2325, 205))
+		    line_style 	3
+		    origin_attachment 	(1742, 558)
+		    terminal_attachment 	(2325, 205))
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::AssignedTasksContextBuilderS" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2385, 1260)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(2011, 1192)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	748
+			justify    	0
+			label      	"AssignedTasksContextBuilderS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(2011, 1142)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	748
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4B34B9120069"
+		    compartment 	(object Compartment
+			Parent_View 	@10
+			location   	(2011, 1257)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	737
+			justify    	1)
+		    width      	766
+		    height     	260
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::OwnTasksContextBuilderS" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3630, 1830)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(3303, 1762)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	654
+			justify    	0
+			label      	"OwnTasksContextBuilderS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(3303, 1712)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	654
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4B34B95F03C4"
+		    compartment 	(object Compartment
+			Parent_View 	@11
+			location   	(3303, 1827)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	646
+			justify    	1)
+		    width      	672
+		    height     	260
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::LifecycleTasksContextBuilderS" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3600, 1161)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(3301, 1125)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	598
+			justify    	0
+			label      	"LifecycleTasksContextBuilderS")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(3301, 1075)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	598
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4B34BC83021B"
+		    width      	616
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @13
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B34BCAC0220"
+		    client     	@12
+		    supplier   	@7
+		    vertices   	(list Points
+			(3455, 1062)
+			(2962, 728))
+		    line_style 	0)
+		(object InheritView "" @14
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B34BCAE01F0"
+		    client     	@6
+		    supplier   	@12
+		    vertices   	(list Points
+			(4477, 1687)
+			(3763, 1259))
+		    line_style 	0)
+		(object InheritView "" @15
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B34BCB000B0"
+		    client     	@11
+		    supplier   	@12
+		    vertices   	(list Points
+			(3623, 1699)
+			(3603, 1259))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceIndicator" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1026, 2184)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(866, 2148)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"SpaceIndicator")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(866, 2098)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	317
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4B386231021C"
+		    width      	338
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceImportancesIndicator" @17
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(615, 2496)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@17
+			location   	(355, 2460)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	520
+			justify    	0
+			label      	"SpaceImportancesIndicator")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@17
+			location   	(355, 2410)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	520
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4B38626C0260"
+		    width      	538
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceRequestStatesIndicator" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1434, 2478)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(1150, 2442)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	568
+			justify    	0
+			label      	"SpaceRequestStatesIndicator")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(1150, 2392)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	568
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4B3862AD00A4"
+		    width      	586
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @19
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B3862CA0108"
+		    client     	@17
+		    supplier   	@16
+		    vertices   	(list Points
+			(742, 2397)
+			(895, 2282))
+		    line_style 	0)
+		(object InheritView "" @20
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B3862CC0268"
+		    client     	@18
+		    supplier   	@16
+		    vertices   	(list Points
+			(1298, 2379)
+			(1164, 2282))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::AbstractSpaceIndicatorBuilder" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2496, 2706)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(2202, 2670)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	588
+			justify    	0
+			label      	"AbstractSpaceIndicatorBuilder")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(2202, 2620)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	588
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4B38676C0027"
+		    width      	606
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::DummySpaceIndicatorBuilder" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1788, 3162)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(1502, 3126)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	572
+			justify    	0
+			label      	"DummySpaceIndicatorBuilder")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@22
+			location   	(1502, 3076)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	572
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4B3867E20190"
+		    width      	590
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @23
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B38688E0174"
+		    client     	@22
+		    supplier   	@21
+		    vertices   	(list Points
+			(1938, 3063)
+			(2342, 2804))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestDashboardImpl::SpaceIndicatorBuilder" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2862, 3099)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(2650, 3063)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	424
+			justify    	0
+			label      	"SpaceIndicatorBuilder")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@24
+			location   	(2650, 3013)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	424
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4B3868950016"
+		    width      	442
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @25
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B3868B001EA"
+		    client     	@24
+		    supplier   	@21
+		    vertices   	(list Points
+			(2770, 3000)
+			(2587, 2804))
+		    line_style 	0)
+		(object UsesView "" @26
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @27
+			Parent_View 	@26
+			location   	(1913, 2446)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.663189
+			height     	133
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4B386992006D"
+		    client     	@21
+		    supplier   	@18
+		    vertices   	(list Points
+			(2192, 2640)
+			(1727, 2541))
+		    line_style 	0)
+		(object UsesView "" @28
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @29
+			Parent_View 	@28
+			location   	(2038, 2025)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.738550
+			height     	72
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4B3862EF0106"
+		    client     	@12
+		    supplier   	@18
+		    vertices   	(list Points
+			(3436, 1259)
+			(1592, 2379))
+		    line_style 	0)
+		(object UsesView "" @30
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @31
+			Parent_View 	@30
+			location   	(1797, 2833)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.918988
+			height     	108
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4B3869280323"
+		    client     	@12
+		    supplier   	@22
+		    vertices   	(list Points
+			(3451, 1259)
+			(2187, 2108)
+			(1824, 3063))
+		    line_style 	0)
+		(object UsesView "" @32
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @33
+			Parent_View 	@32
+			location   	(2978, 2492)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.755802
+			height     	137
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4B38692C01E3"
+		    client     	@12
+		    supplier   	@24
+		    vertices   	(list Points
+			(3472, 1259)
+			(2816, 1769)
+			(2858, 3000))
+		    line_style 	0)
+		(object UsesView "" @34
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @35
+			Parent_View 	@34
+			location   	(555, 1424)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.622668
+			height     	36
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4B3862E8023F"
+		    client     	@10
+		    supplier   	@17
+		    vertices   	(list Points
+			(2002, 1228)
+			(590, 1228)
+			(590, 2398))
+		    line_style 	3
+		    origin_attachment 	(2002, 1228)
+		    terminal_attachment 	(590, 2398))
+		(object InheritView "" @36
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4C5295ED0238"
+		    client     	@10
+		    supplier   	@12
+		    vertices   	(list Points
+			(2768, 1227)
+			(3291, 1185))
+		    line_style 	0)))))

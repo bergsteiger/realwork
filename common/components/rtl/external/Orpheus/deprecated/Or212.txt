@@ -1,0 +1,95 @@
+This file summarizes changes made between Orpheus versions 2.11 and
+2.12.  It is of interest primarily to users who have upgraded from a
+previous version.
+
+
+Bugs fixed
+---------------------------------------------------------------------
+OVCAE
+  - Focusing a disabled child error when Enabled Changed
+OVCBASE
+  - ValidateTheseEntryFields does not work properly
+OVCCKLB
+  - Multi-column TOvcCheckList item selection broken
+OVCCMDP0
+  - Can't clear wordstar commands from command table
+OVCDBED
+  - Undo clears editor contents
+OVCDBISE
+  - Bookmark improperly set for SQL databases
+OVCDBNF
+  - Painting problem when used in a TDBCtrlGrid
+  - Pressing function keys enters edit mode
+  - Validation performed even if btnCancel assigned
+OVCDBPF
+  - Painting problem when used in a TDBCtrlGrid
+  - Picture characters displayed at run-time
+  - Pressing function keys enters edit mode
+  - Validation performed even if btnCancel assigned
+OVCDBSF
+  - Painting problem when used in a TDBCtrlGrid
+  - Pressing function keys enters edit mode
+  - Validation performed even if btnCancel assigned
+OVCDBTBL
+  - Data not updated if another cell is clicked
+  - Exchanging columns does not freshen column information
+  - GPF during exit if using a glyph cell and a data module
+  - Invalid index exception in Columns editor
+  - Table ignored TField alignment attributes when cell not assigned
+  - Vertical scroll bar can't be disabled
+OVCEDIT
+  - Tab expansion problems (also applies to Lines[] property)
+OVCEF
+  - DB Time field displays blanks for a time of 00:00
+  - EM_GETSEL Params not handled properly in Win32
+  - Error colors not cleared when field is modified
+  - Field is validated even when disabled
+OVCMISC
+  - Resizing font in SF/PF/NF forced contents towards and off
+    bottom of control for non-Win95 control style.
+OVCNBK
+  - Control not focused with Alt-X command
+  - Setting the remaining enabled tab "enabled" causes GPF
+OVCNF
+  - Windows setting for decimal character not passed to Val prep-routine.
+OVCPF
+  - semi-literal characters (commas) not properly removed
+  - Windows setting for decimal character not passed to Val prep-routine.
+OVCSPLIT
+  - Cursor flash with splitter in a splitter
+  - Splitter is not inheritable
+OVCTABLE
+  - Inconsistent behavior between OnActiveCellMoving and saving data
+    from the active cell
+  - OnRowsChanged not fired when rows sized at runtime.
+OVCTCCBX
+  - ComboBox cell saved extra string for owner draw boxes
+OVCVIEWR
+  - FileViewer broken if line spanned a 4K boundary: rest of line is
+    lost (32-bit only)
+  - Line truncation at 64K offsets from end-of-file
+
+
+New Features/Enhancements
+---------------------------------------------------------------------
+
+OVCBASE
+  - Added AfterEnter and AfterExit events to the following
+    components: TOvcViewer, TOvcTextFileViewer, TOvcVirtualListbox,
+    TOvcSearchList, TOvcNotebook, TOvcDbColumnList, TOvcSimpleField,
+    TOvcPictureField, TOvcNumericField, TOvcCalendar, TOvcEditor,
+    TOvcTextFileEditor, TOvcDbCalendar, TOvcDbEditor, TOvcDbNumericField,
+    TOvcDbPictureField, TOvcDbSimpleField, and TOvcButtonHeader
+  - Added DelayNotify method and OnDelayNotify event
+  - Altered pre and post edit events to avoid Windows focus bug
+  - Changed type of the btnXxx properties to TWinControl
+OVCDBED
+  - Increased capacity to 16M (read removed 32K limit)
+OVCDBPLB
+  - Added ShowDateOrTime property
+OVCEDIT
+  - Added support for a Delete-to-Beginning of line command
+OVCEF+
+  - Added DisabledColors property
+OVCTIMER
+  - Added AddOneShot method

@@ -1,0 +1,97 @@
+using System;
+
+public class Stack
+{
+  private Node first = null;
+  public bool Empty {
+    get {
+      return (first == null);
+    }
+  }
+  public object Pop() {
+    if (first == null)
+      throw new Exception("Can't Pop from an empty Stack.");
+    else {
+      object temp = first.Value;
+      first = first.Next;
+      return temp;
+    }
+  }
+  public void Push(object o) {
+    first = new Node(o, first);
+  }
+  class Node
+  {
+    public Node Next;
+    public object Value;
+    public Node(object value): this(value, null) {}
+    public Node(object value, Node next) {
+      Next = next;
+      Value = value;
+    }
+  }
+}
+
+public class Console
+{
+  private static TextReader reader;
+  private static TextWriter writer;
+  private static TextWriter error;
+  public static TextReader In {
+    get {
+      if (reader == null) {
+        reader = new StreamReader(File.OpenStandardInput());
+      }
+      return reader;
+    }
+  }
+  public static TextWriter Out {
+    get {
+      if (writer == null) {
+        writer = new StreamWriter(File.OpenStandardOutput());
+      }
+      return writer;
+    }
+  }
+  public static TextWriter Error {
+    get {
+      if (error == null) {
+        error = new StreamWriter(File.OpenStandardError());
+      }
+      return error;
+    }
+  }
+}
+
+class BitArray
+{
+  int[] bits;
+  int length;
+  public BitArray(int length) {
+    if (length < 0) throw new ArgumentException();
+    bits = new int[((length - 1) >> 5) + 1];
+    this.length = length;
+  }
+  public int Length {
+    get { return length; }
+  }
+  public bool this[int index] {
+    get {
+      if (index < 0 || index >= length) {
+        throw new IndexOutOfRangeException();
+      }
+      return (bits[index >> 5] & 1 << index) != 0;
+    }
+    set {
+      if (index < 0 || index >= length) {
+        throw new IndexOutOfRangeException();
+      }
+      if (value) {
+        bits[index >> 5] |= 1 << index;
+      }
+      else {
+        bits[index >> 5] &= ~(1 << index);
+      }
+    }
+  }
+}

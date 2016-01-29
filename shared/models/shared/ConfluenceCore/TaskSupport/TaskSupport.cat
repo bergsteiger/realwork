@@ -1,0 +1,608 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "TaskSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/TaskSupport|4A83AEB70217
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16663578412"))
+    quid       	"4A83AEB70217"
+    documentation 	"ïîääåðæêà àñèíõðîííûõ task'îâ"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4B59414E0146"
+	    supplier   	"Logical View::external::JavaTypes::Lang"
+	    quidu      	"474D4C0101B0"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "PostProcessorTask"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"abstract")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/TaskSupport/PostProcessorTask.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A83AEE0035D_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A83AEE0035D_CUSTOM_IMPORT*¤¤import net.sf.hibernate.Session;¤import net.sf.hibernate.SessionFactory;¤¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤import org.springframework.transaction.TransactionStatus;¤import org.springframework.transaction.support.TransactionCallbackWithoutResult;¤import org.springframework.transaction.support.TransactionTemplate;¤¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤¤//#UC END# *4A83AEE0035D_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A83AEE0035D_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A83AEE0035D_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4A83AEE0035D_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A83AEE0035D_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A83AEE0035D_CUSTOM_METHODS_AND_DATA*¤	¤	public abstract void doRun();¤	¤	protected abstract boolean runInTransaction();¤	¤	public abstract boolean isInSingleThread();¤¤	protected Session getSession () {¤		final SessionFactory sf = ContainerManager.Factory.get().getSessionFactory();¤		Session session = SessionFactoryUtils.getSession(sf, true);¤		if (session.isOpen() == false) {¤			session = SessionFactoryUtils.getNewSession(sf);¤		}¤		return session;¤	}¤	¤	private TransactionTemplate createTransactionTemplate () {¤		return new TransactionTemplate(ContainerManager.Factory.get().getTransactionManager());¤	}¤	¤	//#UC END# *4A83AEE0035D_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/TaskSupport/PostProcessorTask|4A83AEE0035D
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16663581329"))
+	    quid       	"4A83AEE0035D"
+	    documentation 	"îñíîâà äëÿ ñîçäàíèÿ îòëîæåííûõ task'îâ"
+	    stereotype 	"SimpleClass"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4A83AF23039B"
+		    supplier   	"Logical View::external::JavaTypes::Lang::Runnable"
+		    quidu      	"4A1BDBF003D6"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "EmailSenderTask"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16536383756")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/TaskSupport/EmailSenderTask.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2DCE801AD_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4CB2DCE801AD_CUSTOM_IMPORT*¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤¤import java.util.ArrayList;¤import java.util.Arrays;¤import java.util.HashMap;¤import java.util.List;¤import java.util.Map;¤import java.util.TreeSet;¤¤import org.apache.commons.lang.StringUtils;¤¤import ru.garant.MDProcess.ConfluencePlugins.CommonVelocityContext.GlobalHelper;¤import ru.garant.MDProcess.DocCardChange.Entities.UVSQuery;¤import ru.garant.MDProcess.DocCardChange.Entities.UVSQueryManager;¤¤import com.atlassian.confluence.pages.Page;¤import com.atlassian.mail.Email;¤import com.atlassian.mail.MailException;¤import com.atlassian.mail.server.SMTPMailServer;¤¤import java.util.Iterator;¤import java.util.regex.Matcher;¤import java.util.regex.Pattern;¤¤import com.atlassian.user.Group;¤import com.atlassian.user.User;¤import com.atlassian.user.search.SearchResult;¤import com.atlassian.user.search.page.Pager;¤¤//#UC END# *4CB2DCE801AD_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2DCE801AD_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4CB2DCE801AD_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4CB2DCE801AD_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2DCE801AD_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4CB2DCE801AD_CUSTOM_METHODS_AND_DATA*¤	private List<PriorityEmail> emails_ = new ArrayList<PriorityEmail> ();¤	¤	public void addEmail(TreeSet<PriorityEmail> emails){¤		emails_.addAll(emails);¤	}¤	¤	@Override¤	public void doRun() {¤		// TODO Auto-generated method stub¤		Logs.LOG_D ("EmailSenderTask::doRun before filters emails_.size=" + emails_.size());¤		//TODO ôèëüòðàöèÿ¤		filtrateUsersWhichAreNotAMembersOfAnyGroup();¤		Logs.LOG_D ("EmailSenderTask::doRun after filtrateUsersWhichAreNotAMembersOfAnyGroup emails_.size=" + emails_.size());¤		createOneEmail();¤		Logs.LOG_D ("EmailSenderTask::doRun after createOneEmail emails_.size=" + emails_.size());¤		for (PriorityEmail pe: emails_) {¤			sendEmail(pe.email);¤		}¤	}¤¤	@Override¤	public boolean isInSingleThread() {¤		// TODO Auto-generated method stub¤		return emails_.size() <= 1;¤	}¤¤	@Override¤	protected boolean runInTransaction() {¤		// TODO Auto-generated method stub¤		return true;¤	}¤	¤	public void filtrateUsersWhichAreNotAMembersOfAnyGroup(){¤		List<PriorityEmail> removeEmails = new ArrayList<PriorityEmail> ();¤		for(PriorityEmail email : emails_){¤			//ïîëó÷àåì âñåõ ïîëüçîâàòåëåé ïî ìýéëó¤			String emailsAddressesString = email.email.getTo();¤			String[] emailsAdresses = StringUtils.split(emailsAddressesString, ",");¤			for(String emailsAdress : emailsAdresses){¤				SearchResult<User> searchresult = ContainerManager.Factory.get().getUserAccessor().getUsersByEmail(emailsAdress);¤				if(searchresult != null){¤					Pager pager = searchresult.pager();¤					//åñëè íå íàéäåíî íè îäíîãî ïîëüçîâàòåëÿ ïî ìýéëó, òî óäàëÿòü íè÷åãî íå íóæíî¤					if(searchresult.pager().isEmpty() == false){¤						boolean anyUserHasGroups = false;¤						//èùåì ïîëüçîâàòåëåé, ñîñòîÿùèõ õîòÿ áû â îäíîé ãðóïïå¤						for (Iterator iter = pager.iterator(); iter.hasNext();) {¤							User user = (User)iter.next();¤							List<Group> groups = ContainerManager.Factory.get().getUserAccessor().getGroupsByUser(user.getName());¤							if(groups.size() > 0){¤								anyUserHasGroups = true;¤								break;¤							}¤						}¤						//åñëè íåò òàêèõ, òî çàíîñèì ìýéë â ñïèñîê óäàëÿåìûõ¤						if(anyUserHasGroups == false){¤							if(emailsAdresses.length == 1){¤								removeEmails.add(email);¤							}else{¤								String toEmails = "";¤								for(String emailsAdressNew : StringUtils.split(email.email.getTo(), ",")){¤									if(emailsAdressNew.equals(emailsAdress) == false){¤										if(StringUtils.isNotEmpty(toEmails)){¤											toEmails += ",";¤										}¤										¤										toEmails += emailsAdressNew;¤									}¤								}¤								email.email.setTo(toEmails);¤							}¤						}¤					}¤				}¤			}¤		}¤		//óäàëÿåì ìýéëû, íà êîòîðûõ ïîëüçîâàòåëè áåç ãðóïï¤		emails_.removeAll(removeEmails);¤	}¤	¤	public List<PriorityEmail> getEmailsOnlyForJUnitTests(){¤		return emails_;¤	}¤	¤	public void createOneEmail(){¤		Map<String, PriorityEmail> newEmails = new HashMap<String, PriorityEmail> ();¤		RequestPriorityEmail requestPriorityEmail = null;¤		Logs.LOG_D ("EmailSenderTask::createOneEmail start");¤		for(PriorityEmail email : emails_){¤			String key = email.email.getTo() + " " + email.email.getSubject();¤			try {¤				if(email instanceof RequestPriorityEmail){¤					RequestPriorityEmail requestEmail = (RequestPriorityEmail)email;¤					if(newEmails.containsKey(key)){¤						requestPriorityEmail = (RequestPriorityEmail)newEmails.get(key);¤						String body = requestPriorityEmail.email.getBody();¤						long requestId = requestEmail.getRequestId();¤						Logs.LOG_D ("EmailSenderTask::createOneEmail before if(body.contains(SPECIAL_SYMBOL))");¤						if(body.contains(SPECIAL_SYMBOL)){¤							Logs.LOG_D ("EmailSenderTask::createOneEmail RequestPriorityEmail SPECIAL_SYMBOL containsKey key=" + key);¤							Logs.LOG_D ("EmailSenderTask::createOneEmail before ContainerManager.Factory.get().getPageManager().getPage");¤							if(UVSQueryManager.Factory.get().isRequest(requestId)){¤								UVSQuery uvsQuery = UVSQuery.Factory.get(requestId);¤								Page requestPage = ContainerManager.Factory.get().getPageManager().getPage(requestId);¤								Logs.LOG_D ("EmailSenderTask::createOneEmail amount UVSQuery.Factory.get(requestId)");¤								String docCardPageTitle = null;¤								if(uvsQuery.getDocCard() != null){¤									docCardPageTitle = uvsQuery.getDocCard().getPage().getTitle();¤								}¤								String pageAddress = ru.garant.MDProcess.ConfluencePlugins.CommonVelocityContext.GlobalHelper.getPageUrl(requestPage);¤								Logs.LOG_D ("EmailSenderTask::createOneEmail after ContainerManager.Factory.get().getPageManager().getPage");¤								String text = "<li>"+ "<a href=\"" + pageAddress + "\">" + requestPage.getTitle() + "</a>";¤								if(requestPage.getTitle().contains("DPOUVS") && docCardPageTitle != null){¤									text += "  (" + docCardPageTitle + ") ";¤								}¤								text += "</li>";¤								body = body.replace(SPECIAL_SYMBOL, text + SPECIAL_SYMBOL);¤								requestPriorityEmail.email.setBody(body);¤							}¤					    }else if(body.contains(SPECIAL_SYMBOL_FOR_DISPLAY_TOPIK)){¤							Logs.LOG_D ("EmailSenderTask::createOneEmail RequestPriorityEmail SPECIAL_SYMBOL_FOR_DISPLAY_TOPIK containsKey key=" + key);¤					    	Pattern pattern = Pattern.compile("<li>(.+)</li>");¤							Matcher m = pattern.matcher(requestEmail.email.getBody());¤							List<String> requestHrefs = new ArrayList<String>();¤							while (m.find()) {¤								String requestHref = (String)m.group(1);¤								requestHrefs.add(requestHref);¤							}¤							Logs.LOG_D ("EmailSenderTask::createOneEmail requestHrefs=" + requestHrefs);¤							for(String requestHref : requestHrefs){¤								String text = "<li>"+ requestHref + "</li>";¤								body = body.replace(SPECIAL_SYMBOL_FOR_DISPLAY_TOPIK, text + SPECIAL_SYMBOL_FOR_DISPLAY_TOPIK);¤								requestPriorityEmail.email.setBody(body);¤							}	¤						}else{¤							Logs.LOG_D ("EmailSenderTask::createOneEmail RequestPriorityEmail NO SPECIAL_SYMBOLS containsKey key=" + key);¤							requestPriorityEmail = requestEmail;¤							key = key + " " + requestId;¤						}¤					}else{¤						Logs.LOG_D ("EmailSenderTask::createOneEmail RequestPriorityEmail NOT containsKey key=" + key);¤						requestPriorityEmail = requestEmail;¤					}¤					newEmails.put(key, requestPriorityEmail);¤				}else if(email.email.getBody().startsWith("ÎÁÐÀÁÎÒÀÍÎ")){¤					Logs.LOG_D ("EmailSenderTask::createOneEmail rassilka");¤					newEmails.put(email.toString(), email);¤				}else{¤					Logs.LOG_D ("EmailSenderTask::createOneEmail NOT RequestPriorityEmail");¤					key += email.email.getBody();¤					newEmails.put(key, email);¤				}¤			} catch (Exception e) {¤				Logs.LOG_D("Catch exception for " + key);¤				Logs.LOG_SEX(e);¤			}¤			¤		}¤		¤		emails_ = new ArrayList<PriorityEmail> ();¤		for(PriorityEmail email : newEmails.values()){¤			emails_.add(email);¤		}	¤		Logs.LOG_D ("EmailSenderTask::createOneEmail end");¤	}¤¤	private final String SPECIAL_SYMBOL = "{0}"; ¤	private final String SPECIAL_SYMBOL_FOR_DISPLAY_TOPIK = "{1}"; ¤¤	private void sendEmail (Email mail) {¤		String body = mail.getBody(); ¤		if(body != null){¤			if(body.contains(SPECIAL_SYMBOL)){¤				mail.setBody(body.replace(SPECIAL_SYMBOL, ""));¤			}else if(body.contains(SPECIAL_SYMBOL_FOR_DISPLAY_TOPIK)){¤				mail.setBody(body.replace(SPECIAL_SYMBOL_FOR_DISPLAY_TOPIK, ""));¤			}¤		}¤		sendEmail(mail, getMailServer());¤	}¤	¤	private void sendEmail (Email mail, SMTPMailServer server) {¤		final String to = mail.getTo();¤		final String cc = mail.getCc();¤		final String bcc = mail.getBcc();¤		final String subj = mail.getSubject();¤		final String emailInfo = "an email to: '" + to + "'"¤				+ (StringUtils.isNotEmpty(cc) ? ", cc: '" + cc + "'" : "")¤				+ (StringUtils.isNotEmpty(bcc) ? ", bcc: '" + bcc + "'" : "")¤				+ (StringUtils.isNotEmpty(subj) ? " with subject: '" + subj + "'" : "'"); ¤		¤		Logs.LOG_D("CommonEmailGateway::sendEmail - sending " + emailInfo);¤		if (server == null) {¤			Logs.LOG_W("CommonEmailGateway::sendEmail - " + emailInfo¤					+ " wasn't sent successfully, because there is no configured email server");¤			// if no mail server configured send nothing¤			return;¤		}¤		if (!IsSendEmailInDebug(mail)) {¤			Logs.LOG_W("CommonEmailGateway::sendEmail - " + emailInfo¤					+ " wasn't sent successfully, because server is not mdp and it is not developer mail");¤			return;¤		}¤		try {¤			server.send(mail);¤			Logs.LOG_D("CommonEmailGateway::sendEmail - " + emailInfo + " was sent successfully");¤		} catch (MailException e) {¤			Logs.LOG_E("CommonEmailGateway::sendEmail - " + emailInfo + " wasn't sent successfully: " + e.getMessage());¤			Logs.LOG_SEX(e);¤		}¤	}¤	¤	private SMTPMailServer getMailServer () {¤		try {¤			return ContainerManager.Factory.get().getMailServerManager().getDefaultSMTPMailServer();¤		}¤		catch (com.atlassian.mail.MailException e) {¤			Logs.LOG_E("CommonEmailGateway::getMailServer: " + e);¤			return null;¤		}¤	}¤	¤	private boolean IsSendEmailInDebug(Email mail){¤		if(GlobalHelper.isMainServerMDP()){¤			return true;¤		}¤		for (String m : mail.getTo().split(", ")) {¤			if (!developersMails.contains(m)) {¤				return false;¤			}¤		}¤		return true;¤	}¤	¤	public boolean hasEmaislToSend() {¤		return emails_.size() > 0;¤	}¤	¤	static final List<String> developersMails = Arrays.asList("ses@garant.ru", "elenau@garant.ru");¤	//#UC END# *4CB2DCE801AD_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (c++),key:SHR,guid:45ED9AFC026A/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/TaskSupport/EmailSenderTask|4CB2DCE801AD
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4CB2DCE801AD"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4CB2DCF7013C"
+		    supplier   	"Logical View::shared::ConfluenceCore::TaskSupport::PostProcessorTask"
+		    quidu      	"4A83AEE0035D"))
+	    language   	"MDA Generator")
+	(object Class "PriorityEmail"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16944231894")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/TaskSupport/PriorityEmail.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2DE8000BA_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4CB2DE8000BA_CUSTOM_IMPORT*¤import com.atlassian.mail.Email;¤¤//#UC END# *4CB2DE8000BA_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2DE8000BA_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4CB2DE8000BA_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4CB2DE8000BA_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2DE8000BA_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4CB2DE8000BA_CUSTOM_METHODS_AND_DATA*¤	public byte priority = Byte.MAX_VALUE;¤	public Email email = null;¤	¤	public PriorityEmail(Email mail) {¤		this.email = mail;¤	}¤	¤	public PriorityEmail(Email mail, byte priority) {¤		this(mail);¤		this.priority = priority;¤	}¤	¤	public int compareTo (Object o) {¤		PriorityEmail pe = (PriorityEmail)o;¤		if (priority == pe.priority) {¤			return 0;¤		}¤		return priority > pe.priority ? 1 : -1;¤	}¤	//#UC END# *4CB2DE8000BA_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (c++),key:SHR,guid:45ED9AFC026A/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/TaskSupport/PriorityEmail|4CB2DE8000BA
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4CB2DE8000BA"
+	    stereotype 	"SimpleClass"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4CB2E0940322"
+		    supplier   	"Logical View::external::JavaTypes::Lang::Comparable"
+		    quidu      	"4784992D01F3"))
+	    language   	"MDA Generator")
+	(object Class "RequestPriorityEmail"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"18457328712")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/TaskSupport/RequestPriorityEmail.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2E46803B2_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4CB2E46803B2_CUSTOM_IMPORT*¤import com.atlassian.mail.Email;¤//#UC END# *4CB2E46803B2_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2E46803B2_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4CB2E46803B2_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4CB2E46803B2_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4CB2E46803B2_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4CB2E46803B2_CUSTOM_METHODS_AND_DATA*¤	public RequestPriorityEmail(Email mail, long requestId) {¤		super(mail);¤		setRequestId(requestId);¤		// TODO Auto-generated constructor stub¤	}¤¤	public RequestPriorityEmail(Email mail, byte priority, long requestId) {¤		super(mail, priority);¤		setRequestId(requestId);¤		// TODO Auto-generated constructor stub¤	}¤	¤	//#UC END# *4CB2E46803B2_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (c++),key:SHR,guid:45ED9AFC026A/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/TaskSupport/RequestPriorityEmail|4CB2E46803B2
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4CB2E46803B2"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4CB2E49003B3"
+		    supplier   	"Logical View::shared::ConfluenceCore::TaskSupport::PriorityEmail"
+		    quidu      	"4CB2DE8000BA"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "request_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"18491188997")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4CB2E48A030C_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4CB2E48A030C_GET_ACCESSOR*¤		return requestId_;¤		//#UC END# *4CB2E48A030C_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4CB2E48A030C_SET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4CB2E48A030C_SET_ACCESSOR*¤		requestId_ = requestId;¤		//#UC END# *4CB2E48A030C_SET_ACCESSOR*
+			    )))
+		    quid       	"4CB2E48A030C"
+		    stereotype 	"property"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4A83AEDB02FB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	423
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::TaskSupport::PostProcessorTask" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(939, 786)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(741, 756)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"PostProcessorTask")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(741, 706)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A83AEE0035D"
+		    width      	414
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::JavaTypes::Lang::Runnable" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(930, 237)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(790, 209)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"• Runnable")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(790, 159)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4A1BDBF003D6"
+		    width      	298
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A83AF23039B"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(936, 693)
+			(931, 327))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::TaskSupport::EmailSenderTask" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1464, 1125)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1290, 1095)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	348
+			justify    	0
+			label      	"EmailSenderTask")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1290, 1045)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	348
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4CB2DCE801AD"
+		    width      	366
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @5
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4CB2DCF7013C"
+		    client     	@4
+		    supplier   	@1
+		    vertices   	(list Points
+			(1321, 1032)
+			(1084, 878))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::TaskSupport::PriorityEmail" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(642, 1530)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(468, 1500)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	348
+			justify    	0
+			label      	"• PriorityEmail")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(468, 1450)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	348
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4CB2DE8000BA"
+		    width      	366
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::JavaTypes::Lang::Comparable" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(300, 1143)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(149, 1115)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	302
+			justify    	0
+			label      	"• Comparable")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(149, 1065)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	302
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4784992D01F3"
+		    width      	320
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @8
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4CB2E0940322"
+		    client     	@6
+		    supplier   	@7
+		    vertices   	(list Points
+			(559, 1437)
+			(379, 1233))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::TaskSupport::RequestPriorityEmail" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1590, 1662)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(1237, 1603)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	706
+			justify    	0
+			label      	"• RequestPriorityEmail")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(1237, 1553)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	706
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4CB2E46803B2"
+		    width      	724
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @10
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4CB2E49003B3"
+		    client     	@9
+		    supplier   	@6
+		    vertices   	(list Points
+			(1227, 1611)
+			(825, 1554))
+		    line_style 	0)))))

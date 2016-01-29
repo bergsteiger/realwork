@@ -1,0 +1,1 @@
+cmd.exe /V:ON /C _kill_adaptertest.bat %*

@@ -1,0 +1,647 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE ru.garant.extensions SYSTEM "../../ru.garant/extensions.dtd">
+
+<project
+	name = "scriptset.MDProcess"
+	basedir = "."
+	default = "default"
+>
+
+<!-- external uses { -->
+		&ru.garant.extensions.properties.cppBuildMaxCyclesCount;
+		&ru.garant.extensions.properties.cvsRoot;
+		&ru.garant.extensions.properties.cvsUpdateMaxCyclesCount;
+		&ru.garant.extensions.properties.externalMountPath;
+		&ru.garant.extensions.properties.externalMountRoot;
+		&ru.garant.extensions.properties.signDescription;
+		&ru.garant.extensions.properties.signDescriptionURL;
+		&ru.garant.extensions.properties.signSHA1;
+		&ru.garant.extensions.properties.signTargetMaxCyclesCount;
+		&ru.garant.extensions.properties.signTimestampServer;
+		&ru.garant.extensions.properties.wixLibRoot;
+		&ru.garant.extensions.properties.workRootDir;
+		&ru.garant.extensions.scriptdefs.buildCppTarget;
+		&ru.garant.extensions.scriptdefs.buildWixTarget;
+		&ru.garant.extensions.scriptdefs.cleanupCppBuilds;
+		&ru.garant.extensions.scriptdefs.cleanupAllFiles;
+		&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
+		&ru.garant.extensions.scriptdefs.copyFile;
+		&ru.garant.extensions.scriptdefs.copyDirToDir;
+		&ru.garant.extensions.scriptdefs.copyCppTarget;
+		&ru.garant.extensions.scriptdefs.createFile;
+		&ru.garant.extensions.scriptdefs.removeFile;
+		&ru.garant.extensions.scriptdefs.mountResource;
+		&ru.garant.extensions.scriptdefs.unmountResource;
+		&ru.garant.extensions.scriptdefs.setCvsTagByList;
+		&ru.garant.extensions.scriptdefs.updateCvsByList;
+		&ru.garant.extensions.scriptdefs.signTarget;
+<!-- } external uses -->
+
+<!-- properties { -->
+	<property
+		name = "properties.buildOutputMountPath"
+		value = "\\10.0.1.155\Garant-MDP"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot"
+		value = "N:"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot.deploymentCatalog"
+		value = "${properties.buildOutputMountRoot}/deployment"
+	/>
+
+	<property
+		name = "properties.buildRoot"
+		value = "${ru.garant.extensions.properties.workRootDir}/build"
+	/>
+
+	<property
+		name = "properties.buildSuccessFile"
+		value = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/!success"
+	/>
+
+	<property
+		name = "properties.cvsDirsetListForTagging"
+		value = "build_scripts,MDProcess,shared"
+	/>
+
+	<property
+		name = "properties.cvsDirsetListForUpdate"
+		value = "MDProcess,shared"
+	/>
+
+	<property
+		name = "properties.cvsRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+
+	<property
+		name = "properties.externalMountPath"
+		value = "${ru.garant.extensions.properties.externalMountPath}"
+	/>
+
+	<property
+		name = "properties.externalMountRoot"
+		value = "${ru.garant.extensions.properties.externalMountRoot}"
+	/>
+
+<!-- } properties -->
+
+<!-- conditions { -->
+	<condition property = "disable-buildCppTargets.winNT">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-buildCppTargets.winNT-garsock">
+		<isset property = "disable-buildCppTargets.winNT"/>
+	</condition>
+
+	<condition property = "disable-copyCppOtherFilesToDeploymentCatalog">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock">
+		<isset property = "disable-buildCppTargets.winNT-garsock"/>
+	</condition>
+
+	<condition property = "disable-copyWixTargetsToDeploymentCatalog">
+		<isset property = "disable-buildWixTargets"/>
+	</condition>
+<!-- } conditions -->
+
+<!-- targets { -->
+
+<!-- ********** TARGET buildCppTargets ********** -->
+	<target
+		name = "buildCppTargets"
+		depends = "copyCppTargetsToDeploymentCatalog.winNT-garsock,copyCppOtherFilesToDeploymentCatalog"
+		unless = "disable-buildCppTargets"
+	>
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF buildCppTargets -->
+	
+<!-- ********** TARGET copyCppTargetsToDeploymentCatalog.winNT-garsock ********** -->
+	<target
+		name = "copyCppTargetsToDeploymentCatalog.winNT-garsock"
+		depends = "buildCppTargets.winNT-garsock"
+		unless = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/bin/Release_Static/MDAGenerator.dll"
+			cpp.target.release.file = "${properties.buildRoot}/bin/Final_Static/MDAGenerator.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDAGenerator/MDAGenerator.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/bin/Release_Static/MakeBuild.exe"
+			cpp.target.release.file = "${properties.buildRoot}/bin/Final_Static/MakeBuild.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MakeBuild/MakeBuild.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/bin/Release_Static/KPageTool.exe"
+			cpp.target.release.file = "${properties.buildRoot}/bin/Final_Static/KPageTool.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/KPageTool/KPageTool.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/bin/Release_Static/MDPSupportServer.exe"
+			cpp.target.release.file = "${properties.buildRoot}/bin/Final_Static/MDPSupportServer.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDPSupportServer/MDPSupportServer.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/bin/Release_Static/BuildTestServer.exe"
+			cpp.target.release.file = "${properties.buildRoot}/bin/Final_Static/BuildTestServer.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/BuildTestServer/BuildTestServer.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/bin/Release_Static/SahiTestPerformer.exe"
+			cpp.target.release.file = "${properties.buildRoot}/bin/Final_Static/SahiTestPerformer.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/SahiTestPerformer/SahiTestPerformer.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF copyCppTargetsToDeploymentCatalog.winNT-garsock -->
+
+<!-- ********** TARGET buildCppTargets.winNT-garsock ********** -->
+	<target
+		name = "buildCppTargets.winNT-garsock"
+		depends = "updateCvs"
+		unless = "disable-buildCppTargets.winNT-garsock"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_MDAGenerator"
+			cpp.target.project.path = "MDProcess/project/MDProcess.sln"
+
+			cpp.target.default.config = "Release|Win32"
+			cpp.target.release.config = "Final|Win32"
+
+			cpp.target.root.dir = "${ru.garant.extensions.properties.workRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_MakeBuild"
+			cpp.target.project.path = "MDProcess/project/MDProcess.sln"
+
+			cpp.target.default.config = "Release|Win32"
+			cpp.target.release.config = "Final|Win32"
+
+			cpp.target.root.dir = "${ru.garant.extensions.properties.workRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_KPageTool"
+			cpp.target.project.path = "MDProcess/project/MDProcess.sln"
+
+			cpp.target.default.config = "Release|Win32"
+			cpp.target.release.config = "Final|Win32"
+
+			cpp.target.root.dir = "${ru.garant.extensions.properties.workRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_MDPSupportServer"
+			cpp.target.project.path = "MDProcess/project/MDProcess.sln"
+
+			cpp.target.default.config = "Release|Win32"
+			cpp.target.release.config = "Final|Win32"
+
+			cpp.target.root.dir = "${ru.garant.extensions.properties.workRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_BuildTestServer"
+			cpp.target.project.path = "MDProcess/project/MDProcess.sln"
+
+			cpp.target.default.config = "Release|Win32"
+			cpp.target.release.config = "Final|Win32"
+
+			cpp.target.root.dir = "${ru.garant.extensions.properties.workRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_SahiTestPerformer"
+			cpp.target.project.path = "MDProcess/project/MDProcess.sln"
+
+			cpp.target.default.config = "Release|Win32"
+			cpp.target.release.config = "Final|Win32"
+
+			cpp.target.root.dir = "${ru.garant.extensions.properties.workRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF buildCppTargets.winNT-garsock -->
+
+<!-- ********** TARGET buildWixTargets ********** -->
+	<target
+		name = "buildWixTargets"
+		depends = "signCppTargets"
+		unless = "disable-buildWixTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildWixTarget
+			wix.target.codepage = "1252"
+			wix.target.language = "en-us"
+			wix.target.project.name = "MDAGeneratorSetup"
+			wix.target.root.dir = "${ru.garant.extensions.properties.workRootDir}/MDProcess/MDAGeneratorSetup"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF buildWixTargets -->
+	
+<!-- ********** TARGET createSuccessFile ********** -->
+	<target
+		name = "createSuccessFile"
+    depends = "setCvsTag"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.createFile
+			file.name = "${properties.buildSuccessFile}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF buildWixTargets -->
+
+<!-- ********** TARGET copyCppOtherFilesToDeploymentCatalog ********** -->
+	<target
+		name = "copyCppOtherFilesToDeploymentCatalog"
+		depends = "updateCvs"
+		unless = "disable-copyCppOtherFilesToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/project/MDAGenerator.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDAGenerator/MDAGenerator.ini"
+		/>
+		
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/project/KPageTool.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/KPageTool/KPageTool.ini"
+		/>
+		
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/project/MDPSupportServer.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDPSupportServer/MDPSupportServer.ini"
+		/>
+		
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/project/BuildTestServer.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/BuildTestServer/BuildTestServer.ini"
+		/>
+		
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/project/SahiTestPerformer.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/SahiTestPerformer/SahiTestPerformer.ini"
+		/>
+		
+	
+	
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/MDAGenerator/other/MDAGeneratorStereotypes.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDAGenerator/MDAGeneratorStereotypes.ini"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/MDAGenerator/other/MDAGenerator.mnu"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDAGenerator/MDAGenerator.mnu"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/MDAGenerator/other/MDAGenerator.pty"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDAGenerator/MDAGenerator.pty"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/MDAGenerator/other/usecase.bmp"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDAGenerator/usecase.bmp"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/MDAGenerator/other/usecase.wmf"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDAGenerator/usecase.wmf"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/SahiTestPerformer/other/run.bat"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/SahiTestPerformer/run.bat"
+		/>
+
+		
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/MDProcess/MDAGenerator/other/images"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/images"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}//MDProcess/EVDTemplates"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/EVDTemplates"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}//MDProcess/DelphiSpecific"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/DelphiSpecific"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}//MDProcess/VCMTemplates"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/VCMTemplates"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}//MDProcess/F1Specific"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/F1Specific"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/MDProcess/CoreTemplates"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/CoreTemplates"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/MDProcess/MetaTemplate"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/MetaTemplate"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/MDProcess/CommonTemplates"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/CommonTemplates"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/MDProcess/DDT"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/DDT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/MDProcess/CommonWithMeta"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/CommonWithMeta"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/MDProcess/MDPSpecific"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/templates/MDPSpecific"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF copyCppOtherFilesToDeploymentCatalog -->
+
+<!-- ********** TARGET copyWixTargetsToDeploymentCatalog ********** -->
+	<target
+		name = "copyWixTargetsToDeploymentCatalog"
+		depends = "buildWixTargets"
+		unless = "disable-copyWixTargetsToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/MDProcess/MDAGeneratorSetup/MDAGeneratorSetup_en-us.msi"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/MDProcess/MDAGeneratorSetup.msi"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF copyWixTargetsToDeploymentCatalog -->
+
+<!-- ********** TARGET default ********** -->
+	<target
+		name = "default"
+		depends = "createSuccessFile,setCvsTag"
+	>
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF default -->
+
+<!-- ********** TARGET removeSuccessFile ********** -->
+	<target
+		name = "removeSuccessFile"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.removeFile
+			file.name = "${properties.buildSuccessFile}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF removeSuccessFile -->
+
+<!-- ********** TARGET setCvsTag ********** -->
+	<target
+		name = "setCvsTag"
+		depends = "removeSuccessFile,copyWixTargetsToDeploymentCatalog"
+		unless = "disable-setCvsTag"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.setCvsTagByList
+			cvs.dirset.list = "${properties.cvsDirsetListForTagging}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+
+			cvs.tag.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/!cvs_tag"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF setCvsTag -->
+
+<!-- ********** TARGET signCppTargets ********** -->
+	<target
+		name = "signCppTargets"
+		depends = "buildCppTargets"
+		unless = "disable-signCppTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "MDAGenerator.dll"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDAGenerator"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "MakeBuild.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MakeBuild"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "KPageTool.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/KPageTool"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "MDPSupportServer.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/MDPSupportServer"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "BuildTestServer.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/BuildTestServer"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "SahiTestPerformer.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/SahiTestPerformer"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF signCppTargets -->
+
+<!-- ********** TARGET updateCvs ********** -->
+	<target
+		name = "updateCvs"
+		unless = "disable-updateCvs"
+	>
+		<ru.garant.extensions.scriptdefs.updateCvsByList
+			cvs.dirset.list = "${properties.cvsDirsetListForUpdate}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF updateCvs -->
+
+<!-- } targets -->
+
+</project> <!-- // scriptset.MDProcess -->

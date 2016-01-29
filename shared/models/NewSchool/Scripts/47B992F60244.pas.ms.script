@@ -1,0 +1,35 @@
+// l3UnrefcountedList 47B992F60244 Impurity Class
+
+INCLUDE '47B594B50330.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+: ME_47B992F60244
+ CONST UID '47B992F60244'
+ CONST Name 'l3UnrefcountedList'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY 'Список элементов, которые не имеют понятия о подсчете ссылок' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_47B594B50330 // l3StandardTypedList
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B2C42A0163 // AssignItem
+ ME_47B935AF0066 // FillItem
+ ME_47B94A5C006E // FreeItem
+ ]
+ ; // Implemented
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47B992F60244 l3UnrefcountedList

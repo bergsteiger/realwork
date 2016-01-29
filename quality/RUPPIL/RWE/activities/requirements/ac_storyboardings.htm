@@ -1,0 +1,229 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Создать раскадровки прецедентов </title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="Top"></a>Активность: Создать раскадровки прецедентов </h2>
+<div align="center"><center>
+
+<table border="1" cellspacing="0" cellpadding="2" width="85%">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Показать взаимодействие пользователя с системой, рассматривая удобство работы.</li>
+      <li>Выделить граничные классы.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    
+<ul>
+      <li><a href="../../artifacts/environment/pa_ui.htm">Концепция пользовательского интерфейса</a></li>
+      <li><a href="../../artifacts/requirements/pa_vision.htm">Видение</a></li>
+      <li><a href="../../artifacts/requirements/pa_ucspec.htm">Спецификация прецедента</a></li>
+      <li><a href="../../artifacts/requirements/pa_supspec.htm">Дополнительные спецификации</a></li>
+</ul>
+
+
+    
+</td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    
+<ul>
+<li><a href="../../artifacts/requirements/pa_bdcl.htm">Граничный класс</a> (в рамках <a href="../../artifacts/analysisndesign/pa_anmod.htm">Модели анализа</a>)</li>
+<li><a href="../../artifacts/requirements/pa_ucstbd.htm">Раскадровка прецедентов</a></li>
+<li><a href="../../artifacts/requirements/pa_ucmod.htm">Модель прецедентов</a>, обновленная</li>
+</ul>
+
+
+    
+</td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_uides.htm">Проектировщик пользовательского интерфейса</a></td>
+  </tr>
+</table>
+</center></div>
+
+<p>Документ <a href="../../artifacts/requirements/pa_vision.htm">Видение</a> содержит описания актеров системы, их квалификацию, степень компьютерной
+образованности/подкованности.
+<p>На основании этой информации начинается проработка пользовательского интерфейса.
+<p>Если система строится на основе предыдущей версии или имеются аналогичные решения, они 
+рассматриваются Проектировщиком пользовательского интерфейса - в ряде случаев требуется сохранить
+удобную и привычную пользователям концепцию работы пользователя с системой.
+<p>При проведении данной работы следует опираться на <a href="../../artifacts/environment/pa_ui.htm">Концепцию пользовательского
+интерфейса</a>, разработанную в ходе <a href="ac_ui_concept.htm">Активности: Разработать концепцию пользовательского интерфейса</a>
+
+<h3><a name="Create a Use-Case Storyboard"></a>Создать раскадровки прецедентов<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>При описании Раскадровок прецедентов следует обратить основное внимание на аспекты удобства работы.</p>
+<p>Раскадровки создаются в отдельных тексовых файлах и связываются с прецедентами на модели 
+проекта в Rational Rose.</p>
+<p>К моменту начала создания раскадровок прецедентов, спецификации прецедентов должны быть полны и описывать все возможные варианты взаимодействия пользователя с системой.
+<p><a href="../../artifacts/requirements/pa_ucspec.htm">Пошаговое описание каждого прецедента</a> 
+и <a href="../../artifacts/requirements/pa_supspec.htm">Дополнительные спецификации</a> - основные входные данные для активности.
+Они уточняются и рассматриваются с точки зрения удобства, фиксируются в Потоке событий раскадровки прецедентов.
+<p>В ходе описания потока, укажите почему и как будет достигнута высокая степень удобства.
+<p>При создании раскадровок возможны изменения и уточнения <a href="../../artifacts/requirements/pa_ucmod.htm">Модели прецедентов</a>.
+
+<h3><a name="Find Boundary Classes Needed by the Use-Case Storyboard"></a>Выявите 
+Граничные классы <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4>Центральные граничные классы</h4>
+<p>Определите центральный граничный класс - основное окно программы с которым взаимодействует 
+актер. Так как на основное окно накладывается много ответственностей, важно не перегрузить
+и не сделать его излишне сложным.
+<p>Центральный граничный класс часто агрегирует часть примитивных граничных классов.
+<h4>Выявите примитивные граничные классы</h4>
+<p>Определите, какую информацию должен видеть пользователь, какой информацией необходимо управлять.
+<p>Создайте по одному граничному классу для каждого логического объекта, через который актер манипулирует
+системой. Если возможно, используйте уже выделенные граничные классы.
+<h4>Очертите граничные классы</h4>
+<p>Опишите очевидные вещи о граничном классе. Часто можно выделить их атрибуты, агрегации,
+связи и часть ответственностей. Помните, что центральный граничный класс может агрегировать 
+более примитивные.
+<p>Свяжите граничные классы и раскадровки прецедентов - в раскадровке прецедента сошлитесь на выявленные 
+граничные классы.
+<p>Один и тот же граничный класс может участвовать в нескольких прецедентах, пополняя список своих ответственностей 
+в зависимости от использования. Здесь нужно понимать, что не зависимо от того, в каком прецеденте используется граничный 
+класс, все его ответственности будут видны отовсюду, а не только в том прецеденте, где они используются. 
+Поэтому, при выявлении таких граничных классов, необходимо использовать механизм обобщения [generalization].
+
+<h3><a name="Describe Responsibilities of Boundary Classes"></a>Опишите ответственности граничных классов<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Задайте в текстовом виде описание ответственностей граничных классов. Оно должно быть на высоком 
+абстрактном уровне, который обеспечивает пользовательский интерфейс и его окна.</p>
+<p>Также задайте атрибуты граничных классов.
+<p>Покажите связи между граничными классами. Граничные классы могут быть связаны агрегациями, ассоциациями и наследованием. 
+
+<h3><a name="Present the Boundary Classes in Global Class Diagrams"></a>Укажите граничные классы на 
+Общей диаграмме классов проекта <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Укажите на диаграмме самые важные граничные классы и их связи. Это поможет при 
+обзоре модели или выделении прецедентов для ближайшей реализации.
+ 
+<h3><a name="Identify the Primary Windows"></a>Определите основные окна<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Фактически каждый граничный класс, агрегирующий несколько других граничных классов, может стать основным окном. Однако, важно соблюсти 
+требования минимизации количества основных окон и связанное с этим требование минимизации 
+количества окон, перегрузки окон отдельными контролами.
+<p>Главное окно - то, которое открывается после загрузки приложения. Обычно оно остается открытым столько 
+времени, сколько работает приложение. Главное окно является местом, где пользователь работает 
+большую часть времени, оно представляет собой основу пользовательского восприятия системы.
+<p>Когда главное окно определено, решите, будут ли граничные классы, которые агрегирует главное окно,
+самостоятельными окнами. В ряде случаев не все окна могут стать частью главного окна, в 
+силу ограничений экрана. Попытайтесь как минимум следующие граничные классы включить в состав 
+главного окна:
+<ul>
+  <li>Относящиеся к центральной пользовательской модели программы.</li>
+  <li>В которых пользователь проводит большую часть времени.</li>
+  <li>Которые позволяют начать выполнение прецедентов.</li>
+</ul>
+<h3><a name="Design the Visualization of the Primary Windows"></a>Проработайте концепцию основных окон <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Визуализация основных окон и главное окно программы - оказывает значительное 
+влияние на удобство работы с системой. Решите, какие атрибуты следует показывать, в этом может помочь 
+описание потока прецедента и раскадровки.
+<h3><a name="Design the Operations of the Primary Windows">Определить операции основных окон</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Ответственности граничных классов определяют операции, требующиеся представляющим их окнам.
+
+
+<p><font face="Arial">
+<a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+c 1987 - 2002 Отдел информационных технологий</small></small></a>
+</font></p>
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+<p>
+</body>
+
+</html>

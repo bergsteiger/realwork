@@ -1,0 +1,169 @@
+// Tl3Logger 540EE3000176 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_540EE3000176
+
+INCLUDE '540EE27400BE.pas.ms.script'
+
+: ME_540EE34B032A
+ CONST UID '540EE34B032A'
+ CONST Name 'f_Log'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_540EE27400BE // Tl3ExceptionsLogEx
+ ;
+
+ @SELF
+; // ME_540EE34B032A f_Log
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_540EF7BB038E
+ CONST UID '540EF7BB038E'
+ CONST Name 'f_EXEName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_540EF7BB038E f_EXEName
+
+FORWARD ME_540EE374018F
+
+: ME_540EE3860125
+ CONST UID '540EE3860125'
+ CONST Name 'aFileName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_540EE3860125 aFileName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_540EE37D01F5
+ CONST UID '540EE37D01F5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_540EE3860125 // aFileName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_540EE37D01F5 DoIt
+
+: ME_540EE374018F
+ CONST UID '540EE374018F'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_540EE37D01F5 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_540EE374018F Create
+
+FORWARD ME_540EF28B00BE
+
+: ME_540EF29F0250
+ CONST UID '540EF29F0250'
+ CONST Name 'aString'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_540EF29F0250 aString
+
+: ME_540EF298011B
+ CONST UID '540EF298011B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_540EF29F0250 // aString
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_540EF298011B DoIt
+
+: ME_540EF28B00BE
+ CONST UID '540EF28B00BE'
+ CONST Name 'ToLog'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_540EF298011B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_540EF28B00BE ToLog
+
+: ME_540EE3000176
+ CONST UID '540EE3000176'
+ CONST Name 'Tl3Logger'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_540EE34B032A // f_Log
+ ME_540EF7BB038E // f_EXEName
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_540EE374018F // Create
+ ME_540EF28B00BE // ToLog
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_479F2AFB0397 // Release
+ ME_479F2B3302C1 // BeforeAddToCache
+ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_540EE3000176 Tl3Logger

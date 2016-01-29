@@ -1,0 +1,546 @@
+//////////////////////////////////////////////////////////////////////////////////
+// SimpleClass
+//////////////////////////////////////////////////////////////////////////////////
+
+: SimpleClass::Class::uses::ClassDependency
+? Использование
+? Определяет что сервант (источник) использует указанный объект (цель) каким-либо образом (в том числе создает его через фабрики, есль цель-сервант).
+? НА основе данной связи будет сгенерированы пути включения файлов используемого объекта (для цели-серванта так же будет сгенерирована специальная фабрика возвращающая не интерфейс а сервант).
+%f _wiki_child_kind
+	uses
+
+: SimpleClass::Class::friend::ClassDependency
+? Друг
+? Определяет что класс (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+%f _wiki_child_kind
+	friend
+
+: SimpleClass::Class
+$ C 225,245,195
+$ l 40,195,10
+$ f 40,195,10
+
+? Простой класс
+? Абстроакция простого класса в терминах ООП
+? используется для опеределяения типов не являющихся ни интерфесйами, ни сервантами, ни структурами, ни производными от них, или патернами более высокого уровня (контейнеры, специализированные шаблоные типы и т.д.)
+? "Абстрактный" класс - не может быть создан (т.е. должен использоваться как примесь)
+? "Финальный" класс, напротив не может быть использован в качестве базового класса.
+< *::Category, TestInterface::Class, TestServant::Class, Interface::Class
+< Servant::Class, Valuetype::Class, UMLPrimitive::Class
+< Environment::Class, Iterator::Class, Const Iterator::Class, UtilityPack::Class
+< GuiControl::Class, Dialog::Class, PropertySheet::Class, PropertyPage::Class, ComInterface::Class, ComServant::Class
+< Actor::Class, UserNeeds::Class, Feature::Class, UseCase::Class
+< CServletPlugin::Class, CListenerPlugin::Class, CMacroPlugin::Class, CComponentPlugin::Class, CJobPlugin::Class, CTriggerPlugin::Class, CVelocityContextPlugin::Class, VM::Class, CXWorkPlugin::Class, CActionPlugin::Class, XPackage::Class, CSpringPlugin::Class, CExtractorPlugin::Class, CLifecyclePlugin::Class
+< EvdTag::Class
+< EvdStruct::Class
+< EvdAtom::Class
+< Event::Class
+< Resource::Class
+
+p no base class:b=false ? отключает генерацию наследования от UnsortedLessBase
+p singleton:b=false ? определяет что класс является синглетоном
+p Need unsorted less:b=false ? генерация перегруженного метода для определения идентичности объекта в несортированных контейнерах
+p Need ref count:b=false ? включает генерацию класса со счетчиком сылок (может быть только на базовом классе)
+p ifdef:s ? определяет условный признак компиляции
+p Need copy ctor:b=false ? включает генерацию копирующего конструктора
+p Need assign op:b=false ? включает генерацию оператора присваивания
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p non virtual base:b=false ? включает генерацию НЕ виртуального наследования
+p need dctor:b=false ? включает генерацию деструктора для финальных классов
+p need objcounter:b=true ? включает генерацию SET_OBJECT_COUNTER
+p debug log:b=false ? включает генерацию вывода в лог обращений ко всем методам серванта
+p local supervisor:b=false ? определяет что данный класс имет доуступ ко всем закрытым частям других классов своего пакета
+d 1
+W
+a raf
+v +#-
+L code_simple_class
+Y t4_simple_class.gif
+
+%f _wiki_up_print
+	[{%S{no base class}=true}* без наследования от UnsortedLessBase 
+	][{%S{singleton}=true}* реализован как синглетон
+	][{%S{Need ref count}=true}* с собственным счетчиком ссылок
+	][{%S{non virtual base}=true}* без виртуального наследования
+	][{%S{need objcounter}=false}* без контроля количества экземпляров
+	][{%S{local supervisor}=true}* является локальным супервизором (имет доуступ ко всем закрытым частям других классов своего пакета)
+	]
+
+%f _wiki_up_add_gen
+	[{%S{Need unsorted less}=true}* метод для определения идентичности объекта в несортированных контейнерах
+	][{%S{Need copy ctor}=true}* копирующий конструктор
+	][{%S{Need assign op}=true}* оператор присваивания
+	][{%S{need dctor}=true}* деструктор для финальных классов
+	]
+
+%f _base_class_decl
+	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%f_use_as_srv_type(%{SELF})=false}[:\n#\t<{\n	, }[{%S{non virtual base}!=true}virtual ]public %f_type(%R)%f_dump_parameterized_list(%R)>\
+	[{%Rx=true&%Gx=true|%Rx=true&%S{no base class}=false}\n#\t, ][{%Gx=false&%S{no base class}=false}[{%S{non virtual base}!=true}virtual ]public Core::[{%S{Need ref count}=true|<{}{%RS=Facet}{C}>!=0}{UnsortedLessBase}RefCountObjectBase]]\
+	<{\n#\t, }[{%S{non virtual base}!=true}virtual ]public %f_type(%G)%f_dump_parameterized_list(%G)>\n#]]\
+	[{%f_use_as_srv_type(%{SELF})=true}[:\n#\t<{\n	, }{%RS!=ServerFacet}virtual public [{%f_is_server_type(%{SERV})=false}{[{%f_use_as_srv_type(%R)=true}{%f_type(%R)%f_dump_parameterized_list(%R)}%f_dump_base_poa(%R)]}%f_type(%R)%f_dump_parameterized_list(%R)]>\
+	%f_set_var(FACET_COUNT,"<{}{%RS=ServerFacet}{C}>")[{%{FACET_COUNT}N!=0&%f_realize_more_than_one_facet(%{SERV})=true}[{<{}{%RS!=ServerFacet&%RS!=ServerInterface}{C}>!=0}\n\t, ]virtual public %f_dump_base_poa(%{SERV})Combine]\
+	[{%{FACET_COUNT}N!=0&%f_realize_more_than_one_facet(%{SERV})=false}[{<{}{%RS!=ServerFacet}{C}>!=0}\n\t, ]<{\n	, }{%RS=ServerFacet|%RS=ServerInterface}virtual public [{%f_use_as_srv_type(%{SERV})=false}{[{%f_use_as_srv_type(%R)=true}{%f_type(%R)%f_dump_parameterized_list(%R)}%f_dump_base_poa(%R)]}%f_type(%R)%f_dump_parameterized_list(%R)]>]\
+	[{"%Rx"="true"}\n\t, ][{"<{}{"%GM"="Simple::Class"}{C}>"="0"}\
+	virtual public [{%f_use_as_srv_type(%{SERV})=false}{::CoreSrv::RefCountServantBase}::Core::RefCountObjectBase][{"%Gx"="true"}\n\t, ]]]\n#]
+
+%f _self_forward
+	[{%t_refcounted(%S)=true&%SK!=ParameterizedClass}#class %SN;
+	#typedef Core::Var\<%SN\> %SN_var;
+	#typedef Core::Var\<const %SN\> %SN_cvar;
+	
+	]
+
+%f _specific_include
+	[{%f_use_as_srv_type(%{SELF})=true}<{}{}[{%f_use_as_srv_type(%{SERV})=true&%f_use_as_srv_type(%R)=true&%f_realize_more_than_one_facet(%{SERV})=false}\
+	\#include "%f_delsubstr_from_end(%RW,[{%Re=false}{3}2])S.h"
+	]>[{%f_use_as_srv_type(%{SERV})=true&%f_realize_more_than_one_facet(%{SERV})=true}\
+	%f_set_var(IDL_PATH,"%f_with_gen_id(idl,%PW)")[\#include "%f_str_replace(%{IDL_PATH}N,.idl,S.h)"
+	]]]
+
+%f _ctor_n_dctor_h
+	[{%f_pure_abstract(%S)!=true}#//////////////////////////////////////////////////////////////////////////////////////////
+	#// constructors and destructor
+	[{"%S{singleton}"="false"}[public:
+	<{}{"%CC"="Operation"&"%CS"="ctor"&"%CV"="PublicAccess"}{Sn}%CX
+	
+	>][#protected:
+	<{}{"%CC"="Operation"&"%CS"="ctor"&"%CV"!="PublicAccess"}{Sn}%CX
+	
+	>][{%S{Need copy ctor}=true}#	%SN (const %SN& copy);
+	
+	][{%S{Need assign op}=true}#	%SN& operator = (const %SN& copy);
+	
+	][%f_dump_cpp_derrived_constr_h(%S)][{%S{need dctor}=true|%Sa!=final}#public:
+	#	[{%Sa!=final}virtual ]~%SN ();
+	
+	]][{"%S{singleton}"="true"}#protected:
+	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+	
+	>[{%S{need dctor}=true|%Sa!=final}#	virtual ~%SN ();
+	
+	]]][{%f_pure_abstract(%S)=true}#// virtual void destructor
+	#public:
+	#	virtual ~%SN ()[{"%SK"!="ParameterizedClass"} {}];
+	]
+
+%f _ctor_n_dctor_cpp
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// constructors and destructor\
+	[<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+	
+	%CX>][
+	
+	%f_dump_cpp_derrived_constr_cpp(%S)][{%S{Need copy ctor}=true}
+	
+	%f_templ_header(%{SERV})%f_type(%S)::%SN (const %f_type(%S)& copy) 
+	%U[{_COPY_CTOR_BASE_INIT!cpp!}
+	]
+	{
+		%U[{_COPY_CTOR!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	}][{%S{Need assign op}=true}
+	
+	%f_templ_header(%{SERV})%f_type(%S)& %f_type(%S)::operator = (const %f_type(%S)& copy) {
+		%U[{_ASSIGN_OP!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+		return *this;
+	}]
+	[{%S{need dctor}=true|%Sa!=final}
+	%f_servant_cpp_destructor_cpp(%S)
+	]
+
+%f _auto_self_methods_cpp
+
+%f _auto_self_methods_h
+
+%f _auto_self_data_h
+
+//////////////////////////////////////////////////////////////////////////////////
+%t _constraint
+c                              {}
+r {<{}{%t_check_type(%R,"Facet::Class")=false&%t_check_type(%R,"ServerFacet::Class")=false&%RK!=ParameterizedClass}{C}>!=0&%t_check_type(%R,"StateMachine::Class")=false}: {%SS can implement Facet, StateMachine or ServerFacet only (for other use generalization)}
+r {<{}{%t_check_type(%R,"Facet::Class")=true|%t_check_type(%R,"ServerFacet::Class")=true}{C}>!=0&%S{no base calss}=true}: {%SS who implements any Facet must have base class (reset UP{no base class} to false)}
+r {%S{Need ref count}=true&%S{no base calss}=true}: {%SS with ref count must have base class (reset UP{no base class} to false)}
+r {"<{}{%t_simple_class(%G)!=true}{C%G}>"!="0"}: {%SS can generalize only other SimpleClass}
+r {"%S{singleton}"="true"&"%f_has_not_default_ctor(%S)"="true"}: {Singleton can't have not default constructor}
+r {"%Sa"="inline"&"%Gx"="true"}: {inline class can't have base class}
+r {"%Sa"="inline"&"%Zx"="true"}: {inline class can't be used as base class}
+r {<{}{%f_template_specify(%S,%G)=false}{C%G}>!=0|<{}{%f_template_specify(%S,%R)=false}{C%R}>!=0}: {%SS %SN must specify all arguments defined in base}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
+//////////////////////////////////////////////////////////////////////////////////
++ h
+F class %SN;
+S class %SN;
+O [{%t_nested_scope_def(%P)=false}%SN.h]
+	%f_output_constraint(%S)\
+	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%t_nested_scope_def(%P)=false}\
+# t0_h_header
+	%f_std_inc(%S)%f_set_var(SERV,S)
+	%f_includes_by_contents(%S)%f_include_factory_by_uses(%S)<\#include %f_dump_include_path(%wL,%w)
+	>%S%f_specific_include()[{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	][
+	// forward decls for defined friends
+	<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}%a%PP\t%a%PF
+	%a%Pp
+	>]
+	%SP
+	]<%WF
+	>[%f_dump_cpp_functors_h_fd(%S)
+	]%f_docs(%S)\
+	%S%f_self_forward()\
+	[{"%SK"="ParameterizedClass"}#template \<<{, }{"%CC"="Parameter"}%CX>\>%f_set_var(INST,S)
+	]#class %SN %S%f_base_class_decl(){
+	[{%Sa!=abstract&%S{need objcounter}!=false}#	SET_OBJECT_COUNTER (%SN)
+	][<{}{"%aC"="Dependency"&"%aS"="friend"}{Sp}#	friend class %f_type(%a%P); // defined friend
+	>][%P<{}{"%CU"!="%{SELF}U"&"%C{local supervisor}"="true"}#	friend class %f_type(%C);// local supervisor
+	>][{"%S{singleton}"="true"}
+	#	// singleton declaration
+	#	typedef ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+	#	friend class ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	#public:
+	#	static %SN* instance () {
+	#		return Singleton::instance();
+	#	}
+	][[{"<{}{"%CC"="Class"&%CS!=TemplateFunctions}{C}>"!="0"}
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// nested declorations[{"<{}{"%CC"="Class"&%CS!=TemplateFunctions}{C}>"!="0"}
+	%f_visibility_spec(%C)%f_set_var(PREV_C,C)]
+	<{}{"%CC"="Class"&%CS!=TemplateFunctions}\
+	[{%f_visibility_spec(%C)!=%f_visibility_spec(%{PREV_C})}#%f_visibility_spec(%C)\n]%CX%f_set_var(PREV_C,C)
+	
+	>]]%f_set_var(SELF,S)%f_set_var(SERV,S)[#//////////////////////////////////////////////////////////////////////////////////////////
+	#// static member methods and data
+	[#public:<{}{"%CS"="static"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][#protected:<{}{"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][#private:<{}{"%CS"="static"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]]%S%f_ctor_n_dctor_h()\
+	[#//////////////////////////////////////////////////////////////////////////////////////////
+	#// self methods
+	[%S%f_auto_self_methods_h()
+	][#public:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][#protected:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][#private:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]][
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// abstarct methods
+	[#public:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][#protected:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][#private:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]][
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// template methods
+	<{}{%CM=TemplateFunctions::Class}%CX
+	>
+	]%f_dump_cpp_functors_h(%S)[#//////////////////////////////////////////////////////////////////////////////////////////
+	#// self data
+	#private:[
+	%S%f_auto_self_data_h()
+	]<{}{"%CC"="Attribute"&"%CS"!="static"}{Sn}
+	%CX
+	>][#//////////////////////////////////////////////////////////////////////////////////////////
+	#// oneway methods impl
+	#private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_h(%C)
+	>
+	#protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_h(%C)
+	>
+	]%f_self_data_accessor(%S)\
+	[%f_dump_cpp_derrived_impl_h(%S)
+	][{%S{need UC}=true}
+	#%U[
+	#]
+	]#}; // class %SN[{%t_nested_scope_def(%P)=false}
+	
+	%Sp[
+	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+# t0_h_footer
+	]
+
+%f _servant_content
+
+%f _java_servant_import_self
+
+%f _servant_content_java
+
+%f _java_base_class_decl
+	[{%f_java_constraint(%G)=false}{< extends %GN>[ implements <{, }{%t_check_type(%R,"StateMachine::Class")=false}%f_type(%R)>[{<{}{%t_check_type(%R,"StateMachine::Class")=false}{%RC}>!=0}{[%f_dump_servant_sm_interfaces_list(%S)]}[, %f_dump_servant_sm_interfaces_list(%S)]]]}%f_error(Java class %SN can't extend more than one class)]
+
++ java
+/	%f_set_var(SELF,S)%f_set_var(SERVANT,S)%f_set_var(SERV,S)
+/= Servant::Class;java
+O [{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false}%SN.java]
+	%f_output_constraint(%S)\
+	[{%f_is_server_type(%S)=false}%f_set_var(SELF,S)%f_set_var(SERV,S)[{%t_nested_scope_def(%P)=false}\
+# t0_header
+	%f_set_var(SELF,S)%f_set_var(SERVANT,S)package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	%f_servant_import(%S)%f_includes_by_contents_java(%S)[%S%f_java_servant_import_self(%S)
+	]
+	%U[{_CUSTOM_IMPORT}
+	]
+	
+	%U[{_CUSTOM_CLASS_DEFINITION}
+	]
+	]#%t_visibility(%S,"%XU")[{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false}{static }]%t_abstract_type(%S)class %SN%S%f_java_base_class_decl(%S) {
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declorations
+	<{}{"%CC"="Class"&%CS!=TemplateFunctions}%CX
+	>][#	// static member methods and data
+	<{}{"%CS"="static"}{Sp}
+	%CX
+	>]%f_set_var(SELF,S)%f_set_var(SERV,S)[#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// constructors
+	[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}%f_dump_empty_ctor_java(%S)\n]}
+	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+	
+	>][#	%f_dump_cpp_servant_derrived_constr_java(%S)]
+	][#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self data
+	<{\n\n}{"%CC"="Attribute"&"%CS"!="static"&%f_can_dump_attr(%C%T)=true}%CX>
+	][
+	#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self data accessors
+	[<{}{"%CC"="Attribute"&"%CV"="PublicAccess"&%CS!=template}{Sn}
+	#	final public [{%CS=static}static ]%f_attr(%C) %f_to_borland(%CN) () {
+	#		return [{%CS=static}s_]%CN;
+	#	}[{"%C{Readonly accessor}"="false"}
+	
+	#	final public [{%CS=static}static ]void %f_to_borland(%CN) (final %f_attr(%C) %CN_) {
+	#		[{%CS=static}s_]%CN = %CN_;
+	#	}]
+	>][<{}{"%CC"="Attribute"&"%CV"="ProtectedAccess"&%CS!=template}{Sn}
+	#	final protected [{%CS=static}static ]%f_attr(%C) %f_to_borland(%CN) () {
+	#		return [{%CS=static}s_]%CN;
+	#	}[{"%C{Readonly accessor}"="false"}
+	
+	#	final protected [{%CS=static}static ]void %f_to_borland(%CN) (final %f_attr(%C) %CN_) {
+	#		[{%CS=static}s_]%CN = %CN_;
+	#	}]
+	>]][#	//////////////////////////////////////////////////////////////////////////////////////////
+	#	// self methods
+	<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"}{Sp}
+	%CX
+	>][%f_dump_java_derrived_impl(%S)
+	][#	%S%f_servant_content_java(%S)
+	]%f_shift_intend(1)%f_dump_servant_sm_java(%S)%f_shift_intend(-1)\
+	#	%U[{_CUSTOM_METHODS_AND_DATA}
+	#	]
+	
+	#} // class %SN][{%f_is_server_type(%S)=false}\
+	[{%t_nested_scope_def(%P)=false}
+# t0_footer
+	]]
++ cpp
+P
+S class %SN;
+O [{%f_need_cpp_file_for_servant(%S)=true}<{}{%t_nested_scope_def(%P)=true}{r}%PN_>%SN.cpp]
+	%f_output_constraint(%S)\
+	[{%f_need_cpp_file_for_servant(%S)=true}\
+# t0_header
+	
+	%f_simple_class_impl_body(%S)
+# t0_footer
+	]
+
++ i.h
+P
+S class %SN;
+O [{%f_need_inline_file(%S)=true}%SN.i.h]
+	%f_output_constraint(%S)\
+	[{%f_need_inline_file(%S)=true}\
+# t0_header
+	
+	[{"%SK"="ParameterizedClass"}%f_simple_class_impl_body(%S)]
+# t0_footer
+	]
+
++ idl
+F [{"%Sa"="abstract"}abstract ]interface %SN;
+	<#%FF
+	>%f_docs(%S)\
+	#[{"%Sa"="abstract"}abstract ]interface %SNCombine[: <{, }{%f_is_server_type(%R)=true}%f_type(%R)>] {
+	#};
+
+f _need_cpp_file_for_servant
+	[{"%SK"!="ParameterizedClass"&"%f_pure_abstract(%S)"!="true"}{false}true]
+
+f _pure_abstract
+	[{%Sa=abstract&<{}{%CC=Operation&%Ca!=abstract}{C}>=0&%Ox=false&%ox=false}{false}true]
+
+f _need_inline_file
+	[{"%S{need inline-file}"="true"|"%SK"="ParameterizedClass"}{false}true]
+
+f _simple_class_impl_body
+	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+	%f_std_inc(%S)
+	[{"%SK"!="ParameterizedClass"}\#include %f_dump_include_path(%f_with_gen_id(h,%SW),%S)
+	]%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+	><{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	][\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+	]>][// by \<\<friend\>\> dependencies
+	<{}{"%AS"="friend"&"%AC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>][{"%S{local supervisor}"="true"}// as local supervisor
+	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"|"%CM"="SimpleClass::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+	>][// local helpers
+	%P<{}{%C{local helper}=true}\#include %f_dump_include_path(%f_with_gen_id(h,%CW),%C)
+	>][{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	]
+	%SP[{%S{need UC}=true}
+	%U[
+	]
+	]][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested implementation<{}{"%CC"="Class"&%CS!=TemplateFunctions}[
+	%CX
+	]>]%f_set_var(SERV,S)%f_set_var(SELF,S)[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	<{}{"%CS"="static"}
+	%CX
+	>
+	][
+	%S%f_ctor_n_dctor_cpp()][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self implementation[
+	%S%f_auto_self_methods_cpp()
+	]<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"|"%CC"="Attribute"&"%CS"="cached"}{Sn}
+	
+	%CX>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+	>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// template methods implementation
+	<{}{"%CS"="TemplateFunctions"}{Sn}%CX
+	>]
+	%f_dump_cpp_derrived_impl_cpp(%S)%f_dump_cpp_functors_cpp(%S)
+	%Sp
+
+/f _simple_class_inline_only_body
+/	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+/	]
+/	]
+/	%SP[{%S{need UC}=true}
+/	%U[
+/	]
+/	][
+/	//////////////////////////////////////////////////////////////////////////////////////////
+/	// nested implementation<{}{"%CC"="Class"}[
+/	%CX
+/	]>%f_set_var(SELF,S)%f_set_var(SERV,S)][
+/	//////////////////////////////////////////////////////////////////////////////////////////
+/	// static member methods
+/	<{}{"%CS"="static"}[{%Ca=inline|%Sa=inline}
+/	%CX
+/	]>
+/	][{%Sa=inline}//////////////////////////////////////////////////////////////////////////////////////////
+/	// constructors and destructor\
+/	[<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+/	
+/	%CX>][{%S{Need copy ctor}=true}
+/	
+/	inline %SN::%SN (const %SN& copy) 
+/	%U[{_COPY_CTOR_BASE_INIT!cpp!}
+/	]
+/	{
+/		%U[{_COPY_CTOR!cpp!}
+/		]
+/	}
+/	][{%S{Need assign op}=true}
+/	inline %SN& %SN::operator = (const %SN& copy) {
+/		%U[{_ASSIGN_OP!cpp!}
+/		]
+/		return *this;
+/	}	
+/	][
+/	
+/	%f_servant_cpp_destructor_cpp(%S)
+/	]][
+/	//////////////////////////////////////////////////////////////////////////////////////////
+/	// self implementation<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"}{Sn}[{%Ca=inline|%Sa=inline}
+/	
+/	%CX]>]
+/	
+/	%Sp
+
+: SimpleClass::Class::Attribute
+= Servant::Class::Attribute
+v -+#
+l arl
+A const|ref|const,ref
+Y t5_attr.gif
+
+: SimpleClass::Class::Operation
+= Servant::Class::Operation
+
+: SimpleClass::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: SimpleClass::Class::Parameter
+= Servant::Class::Parameter
+
+: SimpleClass::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: SimpleClass::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+a raf
+
+: SimpleClass::Class::oneway,chg::Operation
+= SimpleClass::Class::oneway,chg::Operation
+
+: SimpleClass::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: SimpleClass::Class::static::Operation
+= Servant::Class::static::Operation
+
+: SimpleClass::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: SimpleClass::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: SimpleClass::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: SimpleClass::Class::template::Attribute
+= Servant::Class::template::Attribute

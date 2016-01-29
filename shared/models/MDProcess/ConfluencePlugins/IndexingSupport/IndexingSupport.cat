@@ -1,0 +1,1343 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "IndexingSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "MDProcess"/ConfluencePlugins/IndexingSupport|4A7151BC03C5
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19011521889"))
+    quid       	"4A7151BC03C5"
+    documentation 	"œ‡ÍÂÚ, ÒÓ‰ÂÊ‡˘ËÈ Ì‡¯Ë ‡Ò¯ËÂÌËˇ ËÌ‰ÂÍÒ‡ˆËË ÛÒÒÍÓ„Ó ˇÁ˚Í‡ ‚  "
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4A7156F10104"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.bonnie.analyzer"
+	    quidu      	"4A7156BD035A")
+	(object Visibility_Relationship
+	    quid       	"4A71584C00D0"
+	    supplier   	"Logical View::external::ConfluenceSupport::org.apache.lucene.analysis"
+	    quidu      	"4A71582D006D"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "GarRussianAnalyzer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "MDProcess"/ConfluencePlugins/IndexingSupport/GarRussianAnalyzer|4A714AA4011E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/IndexingSupport/GarRussianAnalyzer.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A714AA4011E_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A714AA4011E_CUSTOM_IMPORT*§§import java.io.Reader;§import java.util.HashSet;§import java.util.Map;§import java.util.Set;§§import org.apache.lucene.analysis.StopFilter;§import org.apache.lucene.analysis.TokenStream;§import org.apache.lucene.analysis.ru.RussianCharsets;§import org.apache.lucene.analysis.ru.RussianLowerCaseFilter;§import org.apache.lucene.analysis.ru.RussianStemFilter;§§§//#UC END# *4A714AA4011E_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A714AA4011E_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A714AA4011E_CUSTOM_CLASS_DEFINITION*§//#UC END# *4A714AA4011E_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A714AA4011E_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A714AA4011E_CUSTOM_METHODS_AND_DATA*§	§	// letters (currently unused letters are commented out)§    protected final static char A = 0;§    protected final static char B = 1;§    protected final static char V = 2;§    protected final static char G = 3;§    protected final static char D = 4;§    protected final static char E = 5;§    protected final static char ZH = 6;§    protected final static char Z = 7;§    protected final static char I = 8;§    protected final static char I_ = 9;§    protected final static char K = 10;§    protected final static char L = 11;§    protected final static char M = 12;§    protected final static char N = 13;§    protected final static char O = 14;§    protected final static char P = 15;§    protected final static char R = 16;§    protected final static char S = 17;§    protected final static char T = 18;§    protected final static char U = 19;§    protected final static char F = 20;§    protected final static char X = 21;§    protected final static char TS = 22;§    protected final static char CH = 23;§    protected final static char SH = 24;§    protected final static char SHCH = 25;§    //private final static char HARD = 26;§    protected final static char Y = 27;§    protected final static char SOFT = 28;§    protected final static char AE = 29;§    protected final static char IU = 30;§    protected final static char IA = 31;§§    /**§     * List of typical Russian stopwords.§     */§    private static char[][] RUSSIAN_STOP_WORDS = {§        {A},§        {B, E, Z},§        {B, O, L, E, E},§        {B, Y},§        {B, Y, L},§        {B, Y, L, A},§        {B, Y, L, I},§        {B, Y, L, O},§        {B, Y, T, SOFT},§        {V},§        {V, A, M},§        {V, A, S},§        {V, E, S, SOFT},§        {V, O},§        {V, O, T},§        {V, S, E},§        {V, S, E, G, O},§        {V, S, E, X},§        {V, Y},§        {G, D, E},§        {D, A},§        {D, A, ZH, E},§        {D, L, IA},§        {D, O},§        {E, G, O},§        {E, E},§        {E, I_,},§        {E, IU},§        {E, S, L, I},§        {E, S, T, SOFT},§        {E, SHCH, E},§        {ZH, E},§        {Z, A},§        {Z, D, E, S, SOFT},§        {I},§        {I, Z},§        {I, L, I},§        {I, M},§        {I, X},§        {K},§        {K, A, K},§        {K, O},§        {K, O, G, D, A},§        {K, T, O},§        {L, I},§        {L, I, B, O},§        {M, N, E},§        {M, O, ZH, E, T},§        {M, Y},§        {N, A},§        {N, A, D, O},§        {N, A, SH},§        {N, E},§        {N, E, G, O},§        {N, E, E},§        {N, E, T},§        {N, I},§        {N, I, X},§        {N, O},§        {N, U},§        {O},§        {O, B},§        {O, D, N, A, K, O},§        {O, N},§        {O, N, A},§        {O, N, I},§        {O, N, O},§        {O, T},§        {O, CH, E, N, SOFT},§        {P, O},§        {P, O, D},§        {P, R, I},§        {S},§        {S, O},§        {T, A, K},§        {T, A, K, ZH, E},§        {T, A, K, O, I_},§        {T, A, M},§        {T, E},§        {T, E, M},§        {T, O},§        {T, O, G, O},§        {T, O, ZH, E},§        {T, O, I_},§        {T, O, L, SOFT, K, O},§        {T, O, M},§        {T, Y},§        {U},§        {U, ZH, E},§        {X, O, T, IA},§        {CH, E, G, O},§        {CH, E, I_},§        {CH, E, M},§        {CH, T, O},§        {CH, T, O, B, Y},§        {CH, SOFT, E},§        {CH, SOFT, IA},§        {AE, T, A},§        {AE, T, I},§        {AE, T, O},§        {IA}§    };§§	/**§	 * Contains the stopwords used with the StopFilter.§	 */§	protected Set stopSet = new HashSet();§§	/**§	 * Charset for Russian letters. Represents encoding for 32 lowercase Russian§	 * letters. Predefined charsets can be taken from RussianCharSets class§	 */§	private char[] charset;§§	public GarRussianAnalyzer() {§		charset = RussianCharsets.UnicodeRussian;§		stopSet = StopFilter.makeStopSet(§				makeStopWords(RussianCharsets.UnicodeRussian));§	}§§	/**§	 * Builds an analyzer.§	 */§	public GarRussianAnalyzer(char[] charset) {§		this.charset = charset;§		stopSet = StopFilter.makeStopSet(makeStopWords(charset));§	}§§	/**§	 * Builds an analyzer with the given stop words.§	 */§	public GarRussianAnalyzer(char[] charset, String[] stopwords) {§		this.charset = charset;§		stopSet = StopFilter.makeStopSet(stopwords);§	}§§	// Takes russian stop words and translates them to a String array, using§	// the given charset§	protected String[] makeStopWords (char[] charset) {§		String[] res = new String[RUSSIAN_STOP_WORDS.length];§		for (int i = 0; i < res.length; i++) {§			char[] theStopWord = RUSSIAN_STOP_WORDS[i];§			// translate the word, using the charset§			StringBuffer theWord = new StringBuffer();§			for (int j = 0; j < theStopWord.length; j++) {§				theWord.append(charset[theStopWord[j]]);§			}§			res[i] = theWord.toString();§		}§		return res;§	}§§	/**§	 * Builds an analyzer with the given stop words.§	 * §	 * @todo create a Set version of this ctor§	 */§	public GarRussianAnalyzer(char[] charset, Map stopwords) {§		this.charset = charset;§		stopSet = new HashSet(stopwords.keySet());§	}§§	/**§	 * Creates a TokenStream which tokenizes all the text in the provided§	 * Reader.§	 * §	 * @return A TokenStream build from a RussianLetterTokenizer filtered with§	 *         RussianLowerCaseFilter, StopFilter, and RussianStemFilter§	 */§	public TokenStream tokenStream (String fieldName, Reader reader) {§		TokenStream result = new GarRussianLetterTokenizer(reader, charset);§		result = new RussianLowerCaseFilter(result, charset);§		result = new RussianStemFilter(result, charset);§		result = new StopFilter(result, stopSet);§		return result;§	}§	//#UC END# *4A714AA4011E_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039267277"))
+	    quid       	"4A714AA4011E"
+	    documentation 	"¿Ì‡ÎËÁ‡ÚÓ ÛÒÒÍÓ„Ó ÚÂÍÒÚ‡, ÍÓÚÓ˚Ï Ï˚ Á‡ÏÂÌˇÂÏ Â‡ÎËÁ‡ˆË˛  "
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A715F10027D"
+		    supplier   	"Logical View::external::ConfluenceSupport::org.apache.lucene.analysis::Analyzer"
+		    quidu      	"4A71583B0195"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011536314"))
+		    quid       	"4A714C140016"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarRussianLetterTokenizer"
+		    quidu      	"4A714BD4036A"))
+	    language   	"MDA Generator")
+	(object Class "GarRussianLetterTokenizer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "MDProcess"/ConfluencePlugins/IndexingSupport/GarRussianLetterTokenizer|4A714BD4036A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/IndexingSupport/GarRussianLetterTokenizer.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A714BD4036A_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A714BD4036A_CUSTOM_IMPORT*§§import java.io.Reader;§§//#UC END# *4A714BD4036A_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A714BD4036A_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A714BD4036A_CUSTOM_CLASS_DEFINITION*§//#UC END# *4A714BD4036A_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A714BD4036A_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A714BD4036A_CUSTOM_METHODS_AND_DATA*§	§	private char[] charset;§§	public GarRussianLetterTokenizer(Reader in, char[] charset) {§		super(in);§		this.charset = charset;§	}§§	protected boolean isTokenChar (char c) {§		if (Character.isLetter(c) || Character.isDigit(c) || c == '_')§			return true;§		for (int i = 0; i < this.charset.length; ++i) {§			if (c == this.charset[i])§				return true;§		}§		return false;§	}§	§	//#UC END# *4A714BD4036A_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039268727"))
+	    quid       	"4A714BD4036A"
+	    documentation 	"“ÓÍÂÌ‡ÈÁÂ ÛÒÒÍÓ„Ó ÚÂÍÒÚ‡, ‚ ÍÓÚÓÓÏ ÌÂ Ë„ÌÓËÛ˛ÚÒˇ ˆËÙ˚"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A716B2C02AB"
+		    supplier   	"Logical View::external::ConfluenceSupport::org.apache.lucene.analysis::CharTokenizer"
+		    quidu      	"4A716B1303A6"))
+	    language   	"MDA Generator")
+	(object Class "GarConfluenceLuceneAnalyzerFactory"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "MDProcess"/ConfluencePlugins/IndexingSupport/GarConfluenceLuceneAnalyzerFactory|4A7153F8034A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/IndexingSupport/GarConfluenceLuceneAnalyzerFactory.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A7153F8034A_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A7153F8034A_CUSTOM_IMPORT*§§import java.util.Arrays;§import java.util.List;§§import org.apache.lucene.analysis.Analyzer;§import org.apache.lucene.analysis.KeywordAnalyzer;§import org.apache.lucene.analysis.PerFieldAnalyzerWrapper;§§import com.atlassian.bonnie.search.BaseDocumentBuilder;§import com.atlassian.confluence.search.contentnames.lucene.LuceneContentNameSearcher;§import com.atlassian.confluence.search.didyoumean.lucene.UnstemmedEnglishAnalyzer;§import com.atlassian.confluence.search.didyoumean.lucene.extractor.WordExtractor;§import com.atlassian.confluence.search.lucene.ConfluenceAnalyzer;§import com.atlassian.confluence.search.lucene.DocumentFieldName;§import com.atlassian.confluence.search.lucene.analyzers.PersonalInformationLeadingNGramAnalyzer;§import com.atlassian.confluence.search.lucene.analyzers.PersonalInformationNGramAnalyzer;§import com.atlassian.confluence.search.lucene.extractor.PersonalInformationExtractor;§import com.atlassian.confluence.setup.settings.SettingsManager;§§//#UC END# *4A7153F8034A_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A7153F8034A_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A7153F8034A_CUSTOM_CLASS_DEFINITION*§//#UC END# *4A7153F8034A_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A7153F8034A_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A7153F8034A_CUSTOM_METHODS_AND_DATA*§	§	private final SettingsManager settingsManager;§	private final Analyzer unstemmedAnalyzer;§§	private Analyzer indexingAnalyzer;§	private Analyzer searchingAnalyzer;§§	private static List<String> KEYWORD_FIELDS = Arrays.asList(§	                BaseDocumentBuilder.FieldName.HANDLE, BaseDocumentBuilder.FieldName.CLASS_NAME,§					DocumentFieldName.SPACE_KEY, BaseDocumentBuilder.URL_PATH_FIELD,§					BaseDocumentBuilder.TYPE_FIELD,§					DocumentFieldName.SPACE_TYPE, DocumentFieldName.ATTACHMENT_OWNER_CONTENT_TYPE,§					"content-name-untokenized");§	private static final PersonalInformationLeadingNGramAnalyzer LEADING_NGRAM_ANALYZER = §		new PersonalInformationLeadingNGramAnalyzer();§	private static final PersonalInformationNGramAnalyzer NGRAM_ANALYZER = §		new PersonalInformationNGramAnalyzer();§§	public GarConfluenceLuceneAnalyzerFactory(SettingsManager settingsManager, Analyzer unstemmedAnalyzer) {§		this.settingsManager = settingsManager;§		this.unstemmedAnalyzer = unstemmedAnalyzer;§	}§§	public Analyzer createIndexingAnalyzer () {§		if (indexingAnalyzer == null) {§			GarConfluenceAnalyzer confluenceAnalyzer = new GarConfluenceAnalyzer(settingsManager);§§			PerFieldAnalyzerWrapper analyzer = new PerFieldAnalyzerWrapper(confluenceAnalyzer);§			analyzer.addAnalyzer("filename", new GarConfluenceFilenameAnalyzer(confluenceAnalyzer));§			analyzer.addAnalyzer(PersonalInformationExtractor.PERSONAL_INFO_START_NGRAMS_FIELD,§									LEADING_NGRAM_ANALYZER);§			analyzer.addAnalyzer(PersonalInformationExtractor.PERSONAL_INFO_NGRAMS_FIELD, NGRAM_ANALYZER);§			analyzer.addAnalyzer(WordExtractor.DID_YOU_MEAN_FIELD, new UnstemmedEnglishAnalyzer());§			analyzer.addAnalyzer(LuceneContentNameSearcher.CONTENT_NAME_UNSTEMMED_FIELD, unstemmedAnalyzer);§§			indexingAnalyzer = analyzer;§		}§§		return indexingAnalyzer;§	}§§	public Analyzer createAnalyzer () {§		if (searchingAnalyzer == null) {§			searchingAnalyzer = new PerFieldAnalyzerWrapper(new GarConfluenceAnalyzer(settingsManager));§§			final PerFieldAnalyzerWrapper perFieldAnalyzer = ((PerFieldAnalyzerWrapper) searchingAnalyzer);§§			// CONF-6714§			for (String fieldName : KEYWORD_FIELDS)§				perFieldAnalyzer.addAnalyzer(fieldName, new KeywordAnalyzer());§§			perFieldAnalyzer.addAnalyzer(PersonalInformationExtractor.PERSONAL_INFO_START_NGRAMS_FIELD,§											LEADING_NGRAM_ANALYZER);§			perFieldAnalyzer.addAnalyzer(PersonalInformationExtractor.PERSONAL_INFO_NGRAMS_FIELD,§											NGRAM_ANALYZER);§		}§§		return searchingAnalyzer;§	}§	§	//#UC END# *4A7153F8034A_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039264997"))
+	    quid       	"4A7153F8034A"
+	    documentation 	"«‡ÏÂÌ‡ Â‡ÎËÁ‡ˆËË  , ˜ÚÓ·˚ ÒÓÁ‰‡‚‡Î‡ Ì‡¯Ë ‡Ì‡ÎËÁ‡ÚÓ˚ ‚ÏÂÒÚÓ ÔÂ‰ÛÒÚ‡ÌÓ‚ÎÂÌÌ˚ı"
+	    stereotype 	"SimpleClass"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011537720"))
+		    quid       	"4A7158A30063"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarConfluenceAnalyzer"
+		    quidu      	"4A71586901AA")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011538096"))
+		    quid       	"4A7159CA016A"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarConfluenceFilenameAnalyzer"
+		    quidu      	"4A7159AF02FF")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011538452"))
+		    quid       	"4A7174960109"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarConfluenceUnstemmedAnalyzer"
+		    quidu      	"4A717484020F"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4A71571C0183"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.bonnie.analyzer::LuceneAnalyzerFactory"
+		    quidu      	"4A7156CD028A"))
+	    language   	"MDA Generator")
+	(object Class "GarConfluenceAnalyzer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "MDProcess"/ConfluencePlugins/IndexingSupport/GarConfluenceAnalyzer|4A71586901AA
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/IndexingSupport/GarConfluenceAnalyzer.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A71586901AA_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A71586901AA_CUSTOM_IMPORT*§§import java.io.Reader;§import java.util.HashMap;§import java.util.Map;§§import com.atlassian.confluence.search.lucene.CustomJapaneseAnalyzer;§import com.atlassian.confluence.search.lucene.EnglishAnalyzer;§import com.atlassian.confluence.setup.settings.Settings;§import com.atlassian.confluence.setup.settings.SettingsManager;§import org.apache.lucene.analysis.Analyzer;§import org.apache.lucene.analysis.SimpleAnalyzer;§import org.apache.lucene.analysis.TokenStream;§import org.apache.lucene.analysis.el.GreekAnalyzer;§import org.apache.lucene.analysis.cz.CzechAnalyzer;§import org.apache.lucene.analysis.br.BrazilianAnalyzer;§import org.apache.lucene.analysis.fr.FrenchAnalyzer;§import org.apache.lucene.analysis.cjk.CJKAnalyzer;§import org.apache.lucene.analysis.cn.ChineseAnalyzer;§import org.apache.lucene.analysis.de.GermanAnalyzer;§import org.apache.lucene.analysis.ru.RussianAnalyzer;§import org.apache.lucene.analysis.ru.RussianCharsets;§§//#UC END# *4A71586901AA_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A71586901AA_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A71586901AA_CUSTOM_CLASS_DEFINITION*§//#UC END# *4A71586901AA_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A71586901AA_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A71586901AA_CUSTOM_METHODS_AND_DATA*§	§	private SettingsManager settingsManager;§	public static final Map<String, Analyzer> analyzers = new HashMap<String, Analyzer>();§§	static {§		analyzers.put(Settings.ENGLISH, new EnglishAnalyzer());§		analyzers.put(Settings.RUSSIAN, new GarRussianAnalyzer(RussianCharsets.UnicodeRussian));§		analyzers.put(Settings.GERMAN, new GermanAnalyzer());§		analyzers.put(Settings.CHINESE, new ChineseAnalyzer());§		analyzers.put(Settings.CJK, new CJKAnalyzer());§		analyzers.put(Settings.CUSTOM_JAPANESE, new CustomJapaneseAnalyzer());§		analyzers.put(Settings.FRENCH, new FrenchAnalyzer());§		analyzers.put(Settings.BRAZILIAN, new BrazilianAnalyzer());§		analyzers.put(Settings.CZECH, new CzechAnalyzer());§		analyzers.put(Settings.GREEK, new GreekAnalyzer());§§	}§§	public static final Analyzer SIMPLE_ANALYZER = new SimpleAnalyzer();§§	public GarConfluenceAnalyzer(SettingsManager settingsManager) {§		this.settingsManager = settingsManager;§	}§§	/*§	 * Create a token stream for this analyzer.§	 */§	public final TokenStream tokenStream (String fieldname, Reader reader) {§		String indexingLanguage = settingsManager.getGlobalSettings().getIndexingLanguage();§§		if (analyzers.containsKey(indexingLanguage)) {§			Analyzer analyzer = analyzers.get(indexingLanguage);§			// Workaround CONF-12711 and LUCENE-1359. The FrenchAnalyzer breaks§			// the contract of tokenStream (for no apparent reason)§			if (analyzer instanceof FrenchAnalyzer && fieldname == null) {§				return analyzer.tokenStream("", reader);§			}§			return analyzer.tokenStream(fieldname, reader);§		} else§			return SIMPLE_ANALYZER.tokenStream(fieldname, reader);§	}§	§	//#UC END# *4A71586901AA_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039270109"))
+	    quid       	"4A71586901AA"
+	    documentation 	"Œ·ÂÚÍ‡, ‰ÂÎÂ„ËÛ˛˘‡ˇ ‚˚ÔÓÎÌÂÌËÂ ‚ÒÂı ÏÂÚÓ‰Ó‚ Ó‰ÌÓÏÛ ËÁ ÍÓÌÍÂÚÌ˚ı ‡Ì‡ÎËÁ‡ÚÓÓ‚"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A7158A60192"
+		    supplier   	"Logical View::external::ConfluenceSupport::org.apache.lucene.analysis::Analyzer"
+		    quidu      	"4A71583B0195"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011539444"))
+		    quid       	"4A71589F011C"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarRussianAnalyzer"
+		    quidu      	"4A714AA4011E"))
+	    language   	"MDA Generator")
+	(object Class "GarConfluenceFilenameAnalyzer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "MDProcess"/ConfluencePlugins/IndexingSupport/GarConfluenceFilenameAnalyzer|4A7159AF02FF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/IndexingSupport/GarConfluenceFilenameAnalyzer.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A7159AF02FF_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A7159AF02FF_CUSTOM_IMPORT*§§import java.io.Reader;§§import org.apache.lucene.analysis.LowerCaseFilter;§import org.apache.lucene.analysis.TokenStream;§import org.apache.lucene.analysis.standard.StandardTokenizer;§§import com.atlassian.confluence.search.lucene.filter.AnalyzerFilter;§import com.atlassian.confluence.search.lucene.filter.FilenameFilter;§§//#UC END# *4A7159AF02FF_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A7159AF02FF_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A7159AF02FF_CUSTOM_CLASS_DEFINITION*§//#UC END# *4A7159AF02FF_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A7159AF02FF_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A7159AF02FF_CUSTOM_METHODS_AND_DATA*§	§	private Analyzer confluenceAnalyzer;§§	public GarConfluenceFilenameAnalyzer(Analyzer confluenceAnalyzer) {§		this.confluenceAnalyzer = confluenceAnalyzer;§	}§§	public TokenStream tokenStream (String fieldName, Reader reader) {§		TokenStream result = new StandardTokenizer(org.apache.lucene.util.Version.LUCENE_29, reader);§		// todo: Add filter for CamelCase filenames.§		result = new FilenameFilter(result);§		result = new LowerCaseFilter(result);§		result = new AnalyzerFilter(result, fieldName, confluenceAnalyzer);§		return result;§	}§	§	//#UC END# *4A7159AF02FF_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027546842"))
+	    quid       	"4A7159AF02FF"
+	    documentation 	"«‡ÏÂÌ‡ ÒÓÓÚ‚ÂÚÒÚ‚Û˛˘ÂÏÛ ÍÎ‡ÒÒÛ  "
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A7159C8001B"
+		    supplier   	"Logical View::external::ConfluenceSupport::org.apache.lucene.analysis::Analyzer"
+		    quidu      	"4A71583B0195"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011540421"))
+		    quid       	"4A7159D2019A"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarConfluenceAnalyzer"
+		    quidu      	"4A71586901AA"))
+	    language   	"MDA Generator")
+	(object Class "GarConfluenceUnstemmedAnalyzer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "MDProcess"/ConfluencePlugins/IndexingSupport/GarConfluenceUnstemmedAnalyzer|4A717484020F
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/IndexingSupport/GarConfluenceUnstemmedAnalyzer.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A717484020F_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A717484020F_CUSTOM_IMPORT*§§import java.io.Reader;§import java.util.HashMap;§import java.util.Map;§§import org.apache.lucene.analysis.SimpleAnalyzer;§import org.apache.lucene.analysis.TokenStream;§§import com.atlassian.confluence.search.lucene.analyzers.unstemmed.CJKAnalyzer;§import com.atlassian.confluence.search.lucene.analyzers.unstemmed.ChineseAnalyzer;§import com.atlassian.confluence.search.lucene.analyzers.unstemmed.EuropeanAnalyzer;§import com.atlassian.confluence.search.lucene.analyzers.unstemmed.GreekAnalyzer;§import com.atlassian.confluence.search.lucene.analyzers.unstemmed.JapaneseAnalyzer;§import com.atlassian.confluence.setup.settings.Settings;§import com.atlassian.confluence.setup.settings.SettingsManager;§§//#UC END# *4A717484020F_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A717484020F_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A717484020F_CUSTOM_CLASS_DEFINITION*§//#UC END# *4A717484020F_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A717484020F_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A717484020F_CUSTOM_METHODS_AND_DATA*§	§	private SettingsManager settingsManager;§	public static final Map<String, Analyzer> analyzers = new HashMap<String, Analyzer>();§§	static {§		analyzers.put(Settings.ENGLISH, new EuropeanAnalyzer());§		analyzers.put(Settings.GERMAN, new EuropeanAnalyzer());§		analyzers.put(Settings.FRENCH, new EuropeanAnalyzer());§		analyzers.put(Settings.BRAZILIAN, new EuropeanAnalyzer());§		analyzers.put(Settings.CZECH, new EuropeanAnalyzer());§		analyzers.put(Settings.RUSSIAN, new GarRussianUnstemmedAnalyzer());§		analyzers.put(Settings.CHINESE, new ChineseAnalyzer());§		analyzers.put(Settings.CJK, new CJKAnalyzer());§		analyzers.put(Settings.CUSTOM_JAPANESE, new JapaneseAnalyzer());§		analyzers.put(Settings.GREEK, new GreekAnalyzer());§	}§§	public static final Analyzer SIMPLE_ANALYZER = new SimpleAnalyzer();§§	public GarConfluenceUnstemmedAnalyzer(SettingsManager settingsManager) {§		this.settingsManager = settingsManager;§	}§§	/*§	 * Create a token stream for this analyzer.§	 */§	public final TokenStream tokenStream (String fieldname, Reader reader) {§		String indexingLanguage = settingsManager.getGlobalSettings().getIndexingLanguage();§§		if (analyzers.containsKey(indexingLanguage)) {§			Analyzer analyzer = analyzers.get(indexingLanguage);§			return analyzer.tokenStream(fieldname, reader);§		} else§			return SIMPLE_ANALYZER.tokenStream(fieldname, reader);§	}§	§	//#UC END# *4A717484020F_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027547965"))
+	    quid       	"4A717484020F"
+	    documentation 	"«‡ÏÂÌ‡ ‡Ì‡ÎÓ„Ë˜ÌÓ„Ó ÍÎ‡ÒÒ‡ ËÁ  . Œ·ÂÚÍ‡, ‰ÂÎÂ„ËÛ˛˘‡ˇ ‚˚ÔÓÎÌÂÌËÂ ‚ÒÂı ÏÂÚÓ‰Ó‚ Ó‰ÌÓÏÛ ËÁ ÍÓÌÍÂÚÌ˚ı ‡Ì‡ÎËÁ‡ÚÓÓ‚"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A71749300CC"
+		    supplier   	"Logical View::external::ConfluenceSupport::org.apache.lucene.analysis::Analyzer"
+		    quidu      	"4A71583B0195"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011541463"))
+		    quid       	"4A71752A01AB"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarRussianUnstemmedAnalyzer"
+		    quidu      	"4A71750B020E"))
+	    language   	"MDA Generator")
+	(object Class "GarRussianUnstemmedAnalyzer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "MDProcess"/ConfluencePlugins/IndexingSupport/GarRussianUnstemmedAnalyzer|4A71750B020E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/IndexingSupport/GarRussianUnstemmedAnalyzer.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A71750B020E_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A71750B020E_CUSTOM_IMPORT*§§import java.io.Reader;§§import org.apache.lucene.analysis.ru.RussianCharsets;§import org.apache.lucene.analysis.ru.RussianLetterTokenizer;§import org.apache.lucene.analysis.ru.RussianLowerCaseFilter;§§import org.apache.lucene.analysis.TokenStream;§§//#UC END# *4A71750B020E_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A71750B020E_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A71750B020E_CUSTOM_CLASS_DEFINITION*§//#UC END# *4A71750B020E_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A71750B020E_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A71750B020E_CUSTOM_METHODS_AND_DATA*§	§	private char[] charset;§§	public GarRussianUnstemmedAnalyzer() {§		charset = RussianCharsets.UnicodeRussian;§	}§§	public GarRussianUnstemmedAnalyzer(char[] charset) {§		this.charset = charset;§	}§§	public TokenStream tokenStream (String fieldName, Reader reader) {§		TokenStream result = new RussianLetterTokenizer(reader, charset);§		result = new RussianLowerCaseFilter(result, charset);§		return result;§	}§	§	//#UC END# *4A71750B020E_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027554896"))
+	    quid       	"4A71750B020E"
+	    documentation 	"«‡ÏÂÌ‡ ‡Ì‡ÎÓ„Ë˜ÌÓ„Ó ÍÎ‡ÒÒ‡ ËÁ  "
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A71756F02BD"
+		    supplier   	"Logical View::external::ConfluenceSupport::org.apache.lucene.analysis::Analyzer"
+		    quidu      	"4A71583B0195"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4A715227009C"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarRussianLetterTokenizer" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(444, 2259)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(110, 2238)
+			nlines     	1
+			max_width  	668
+			justify    	0
+			label      	"GarRussianLetterTokenizer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(110, 2188)
+			anchor     	10
+			nlines     	1
+			max_width  	668
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"4A714BD4036A"
+		    width      	686
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarRussianAnalyzer" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(390, 1767)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(133, 1746)
+			nlines     	1
+			max_width  	514
+			justify    	0
+			label      	"GarRussianAnalyzer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(133, 1696)
+			anchor     	10
+			nlines     	1
+			max_width  	514
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"4A714AA4011E"
+		    width      	532
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(534, 1999)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A714C140016"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(397, 1850)
+			(434, 2175))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarConfluenceLuceneAnalyzerFactory" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1497, 507)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1128, 476)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	738
+			justify    	0
+			label      	"GarConfluenceLuceneAnalyzerFactory")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1128, 426)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	738
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A7153F8034A"
+		    width      	756
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.bonnie.analyzer::LuceneAnalyzerFactory" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(606, 144)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(309, 116)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	594
+			justify    	0
+			label      	"ï LuceneAnalyzerFactory")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(309, 66)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	594
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4A7156CD028A"
+		    width      	612
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @7
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A71571C0183"
+		    client     	@5
+		    supplier   	@6
+		    vertices   	(list Points
+			(1269, 413)
+			(828, 234))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::org.apache.lucene.analysis::Analyzer" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1956, 1107)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1726, 1079)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"ï Analyzer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1726, 1029)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4A71583B0195"
+		    width      	478
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarConfluenceAnalyzer" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(426, 1029)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(197, 998)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	458
+			justify    	0
+			label      	"GarConfluenceAnalyzer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(197, 948)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	458
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A71586901AA"
+		    width      	476
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @10
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @11
+			Parent_View 	@10
+			location   	(296, 1411)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.523478
+			height     	111
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4A71589F011C"
+		    client     	@9
+		    supplier   	@2
+		    vertices   	(list Points
+			(420, 1122)
+			(393, 1683))
+		    line_style 	0)
+		(object InheritView "" @12
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A7158A60192"
+		    client     	@9
+		    supplier   	@8
+		    vertices   	(list Points
+			(664, 1040)
+			(1716, 1094))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarConfluenceFilenameAnalyzer" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1302, 1725)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(986, 1694)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"GarConfluenceFilenameAnalyzer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(986, 1644)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A7159AF02FF"
+		    width      	650
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @14
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A7159C8001B"
+		    client     	@13
+		    supplier   	@8
+		    vertices   	(list Points
+			(1398, 1631)
+			(1858, 1197))
+		    line_style 	0)
+		(object UsesView "" @15
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @16
+			Parent_View 	@15
+			location   	(799, 1431)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.519885
+			height     	83
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A7159D2019A"
+		    client     	@13
+		    supplier   	@9
+		    vertices   	(list Points
+			(1184, 1631)
+			(542, 1122))
+		    line_style 	0)
+		(object InheritView "" @17
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A715F10027D"
+		    client     	@2
+		    supplier   	@8
+		    vertices   	(list Points
+			(586, 1683)
+			(1738, 1197))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::org.apache.lucene.analysis::CharTokenizer" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1431, 2256)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(1203, 2228)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	456
+			justify    	0
+			label      	"ï CharTokenizer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(1203, 2178)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	456
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4A716B1303A6"
+		    width      	474
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @19
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A716B2C02AB"
+		    client     	@1
+		    supplier   	@18
+		    vertices   	(list Points
+			(787, 2257)
+			(1193, 2256))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarConfluenceUnstemmedAnalyzer" @20
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3057, 1041)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(2718, 1010)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	678
+			justify    	0
+			label      	"GarConfluenceUnstemmedAnalyzer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@20
+			location   	(2718, 960)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	678
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A717484020F"
+		    width      	696
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @21
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A71749300CC"
+		    client     	@20
+		    supplier   	@8
+		    vertices   	(list Points
+			(2708, 1061)
+			(2195, 1092))
+		    line_style 	0)
+		(object UsesView "" @22
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @23
+			Parent_View 	@22
+			location   	(881, 739)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.575252
+			height     	60
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4A7158A30063"
+		    client     	@5
+		    supplier   	@9
+		    vertices   	(list Points
+			(1304, 600)
+			(614, 935))
+		    line_style 	0)
+		(object UsesView "" @24
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @25
+			Parent_View 	@24
+			location   	(1280, 1172)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.571368
+			height     	108
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4A7159CA016A"
+		    client     	@5
+		    supplier   	@13
+		    vertices   	(list Points
+			(1481, 600)
+			(1316, 1631))
+		    line_style 	0)
+		(object UsesView "" @26
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @27
+			Parent_View 	@26
+			location   	(2436, 768)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.636057
+			height     	56
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A7174960109"
+		    client     	@5
+		    supplier   	@20
+		    vertices   	(list Points
+			(1773, 600)
+			(2787, 947))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::IndexingSupport::GarRussianUnstemmedAnalyzer" @28
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2679, 1734)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@28
+			location   	(2364, 1703)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	630
+			justify    	0
+			label      	"GarRussianUnstemmedAnalyzer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@28
+			location   	(2364, 1653)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	630
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A71750B020E"
+		    width      	648
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @29
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @30
+			Parent_View 	@29
+			location   	(2971, 1444)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A71752A01AB"
+		    client     	@20
+		    supplier   	@28
+		    vertices   	(list Points
+			(3004, 1134)
+			(2728, 1640))
+		    line_style 	0)
+		(object InheritView "" @31
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A71756F02BD"
+		    client     	@28
+		    supplier   	@8
+		    vertices   	(list Points
+			(2570, 1640)
+			(2060, 1197))
+		    line_style 	0)))))

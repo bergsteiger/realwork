@@ -1,0 +1,48 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Box
+//////////////////////////////////////////////////////////////////////////////////
+
+: Box::Class
+? Контейнер со счетчиком
+? Контейнер с независимым счетчиком для заданного типа 
+? Абстракция уровня реализации. Тип Box'а определяется связью наследования.
+< *::Category, *::Class
+$ S
+$ s
+$ C 240,205,240
+$ l 120,40,120
+$ f 120,40,120
+
+p Need deallocator:b=false
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+v +#-
+Y t4_box.gif
+
+//////////////////////////////////////////////////////////////////////////////////
+%t _constraint
+c                           {}
+r "%t_refcounted(%G)"="true": {Box cant used on RefCounted objects (like Interfaces,  Servants, or SimplClass with RefCount)}
+r	"%Rx"="true":               {Box cant realize any other objects}
+r	"<{}{}{%GC}>"!="1":         {Box must generalize just one type (now is <{}{}{%GC}>)}
+r "<{}{%CS=deallocator}{C}>"!="1"&"<{}{%CS=deallocator}{C}>"!="0": {Box can specify only one dealocator}
+r <{}{%CS=deallocator}{C}>!=0&%S{Need deallocator}=true: {dealloctaor specified by model- remove UP{Need deallocator}}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
+//////////////////////////////////////////////////////////////////////////////////
++ wiki
+G %PU
+
++ h
+	%f_docs(%S)\
+	[{%S{Need deallocator}=true}struct %SNDeallocator {
+		static void destroy (%f_type(%G)* content) {
+		%U[
+			throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION); 
+		]
+		}
+	};
+	]#typedef ::Core::Box\<%f_type(%G)[{%S{Need deallocator}=true}, %SNDeallocator]<{}{%CS=deallocator}, %f_type(%C%T)>\> %SN;
+	
+//////////////////////////////////////////////////////////////////////////////////
+: Box::Class::deallocator::Attribute
+l l

@@ -1,0 +1,2042 @@
+//////////////////////////////////////////////////////////////////////////////
+//  Функции работы с файлами
+//////////////////////////////////////////////////////////////////////////////
+uses common, RunPrograms;
+
+function CheckFileExist(fileName): Boolean; forward;
+function ForceFirstLineInFile(const fileName : String; const firstLine : String) : boolean; forward;
+function ProcessingLogForErrors(arrayOfErrorWords: OleVariant = nil; arrayOfExceptionsWords: OleVariant = nil; const paramString: String = ''): string; forward;
+function GetFileBody(const fileName : String;  const fileOpenFlags : Integer = fmShareDenyNone) : String; forward;
+procedure WriteDelOperInLog( path : string; functionName : string); forward;
+
+{
+Возвращает true если существует файл по указанному пути
+}
+function CheckFileExist(fileName): Boolean;
+var
+  sr : TSearchRec; // or simply SearchRec;
+  fExist: Boolean;
+begin
+  fExist := false;
+  sr := TSearchRec;
+  if FindFirst(fileName, faAnyFile, sr) = 0 then
+    fExist := true;
+  Utilities.FindClose(sr);
+  Result := fExist;
+end;
+
+{
+  TYPE: Работа  с файлами
+  DESC: Добавление строки в конец файла, если файл отсутвует создается новый по указанному пути
+  RESULT:
+  REMARK:
+}
+procedure AppendFile(
+  const fileName : String; // имя файла
+  const str : String; // строка, которую дописываем
+  const header : String = '' // если не пустая, то перед записью удостоверяемся, что эта строка присутствует в файле первой, и если нет, то добавляем
+);
+  var
+    fileVar: OleVariant;
+begin
+  try
+    if NOT Utilities.FileExists(fileName) then BuiltIn.SaveStrToFile(fileName, '');
+    if (header <> '') then ForceFirstLineInFile(fileName, header);
+    AssignFile(fileVar, fileName);
+    Append(fileVar);
+    WriteLn(fileVar, str);
+    Flush(fileVar);
+    CloseFile(fileVar);
+  except
+    Log.Message('AppendFile: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    try CloseFile(fileVar); except end;
+    CommonExceptionHandler;  
+ end;
+end;
+
+
+// Удаляет файлы. Можно задавать маску. Стандартный del
+function DeleteFiles ( fileName : String; params : String = '/Q /F' ) : boolean;
+begin
+	if IsWin9x then
+  	Result := RunProcess('command.com', '/C del ' + fileName, 3600*1000)
+	else
+		Result := RunProcess('cmd.exe', '/D /C "del "' + fileName + '" ' + params +'"', -1); 
+end;
+
+{
+  TYPE:
+  DESC: Функция удаляет спецсимволы из строки text. Нобор символов задается в массиве symb.
+  RESULT:
+  REMARK: Используется в CompareGarantFiles.
+}
+function TrimEx(text: string): string;
+var 
+  i, symb;
+begin
+try
+  symb := [#10, #13];
+  for i := VarArrayLowBound(symb,1) to VarArrayHighBound(symb,1) do
+    text := StringReplace(text, symb[i], '', 1);
+  Result := text;
+except
+  Result := '';
+  Log.Error('TrimEx: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;             
+end;
+
+{
+  TYPE:
+  DESC: Сравнение файлов без спецсимволов.
+  RESULT:
+  REMARK: желательно, чтобы inFileName2 был файлом эталона для правильности 
+          результирующего сообщения
+}
+function CompareGarantFiles(inFileName1, inFileName2: string; paramString: string = ''): boolean;
+const
+  FUNCTION_NAME = 'CompareGarantFiles: ';
+var
+  inFile1, inFile2: text;
+  f1, f2, buf1, buf2: string;
+  isFile1Stores, isFile2Stores, isWriteFileToLog, paramList;
+  i, arrayOfNoNeedTag;
+begin
+try
+  paramList := ParseParamString(paramString);
+  isFile1Stores := VarToBool( GetParam(paramList, 'File1Stores', 'false') );
+  isFile2Stores := VarToBool( GetParam(paramList, 'File2Stores', 'true') );
+  isWriteFileToLog := VarToBool( GetParam(paramList, 'IsWriteFileToLog', 'true') );
+
+  if isFile1Stores then inFileName1 := Files.FileNameByName(inFileName1);
+  if isFile2Stores then inFileName2 := Files.FileNameByName(inFileName2);
+  
+  Log.Message(FUNCTION_NAME + 'Сравниваем два файла: "' + inFileName1 + '" и "' + inFileName2 + '"');
+  if FileExists(inFileName1) then
+    Log.File(inFileName1, FUNCTION_NAME + 'Исходный 1-ый файл')
+  else
+    Raise('Не найден 1-ый файл: "' + inFileName1 + '"');
+    
+  if FileExists(inFileName2) then    
+    Log.File(inFileName2, FUNCTION_NAME + 'Исходный 2-ой файл (эталон)')
+  else
+    Raise('Не найден 2-ой файл: "' + inFileName2 + '"');
+    
+  f1 := GetFileBody(inFileName1);
+  f2 := GetFileBody(inFileName2);
+
+  arrayOfNoNeedTag := [
+                        (['" id="', '">']), // sub для html 
+                        (['{\*\bkmkstart sub_', '}\']), // sub для rtf 
+                        (['{\*\bkmkend sub_', '}\']), 
+                        (['\paper', '\']), 
+                        (['\hyphpar1', '\']),
+                        (['\fs20', 'A']),
+                        (['="DictEntry"', '>']),
+                        (['\sa1', '\']),
+                        (['{\*\generator', '}']),
+                        ([#251#252#252#252#253#253#253#255#255#255, #33#249]), //for gif files                        
+                        (['<personification_key>', '</personification_key>']),
+                        (['<query comment=', '>'])
+                      ];
+  buf1 := TrimEx(f1);
+  buf2 := TrimEx(f2);  
+  for i := VarArrayLowBound(arrayOfNoNeedTag, 1) to VarArrayHighBound(arrayOfNoNeedTag, 1) do
+  begin 
+    buf1 := DeleteAllSubStr(buf1, arrayOfNoNeedTag[i][0], arrayOfNoNeedTag[i][1]);
+    buf2 := DeleteAllSubStr(buf2, arrayOfNoNeedTag[i][0], arrayOfNoNeedTag[i][1]);
+  end;
+                                                                   
+  Result := buf1 = buf2;
+  if not Result then
+  begin
+    Log.Warning(FUNCTION_NAME + 'Файлы отличаются.Длина после фильтрации (без спецсимволов) 1-ого: ' + IntToStr(Length(buf1)) + ', длина 2-ого: ' + IntToStr(Length(buf2)));
+    if isWriteFileToLog then
+    begin 
+      Log.Message(FUNCTION_NAME + 'Содержимое 1-ого Файла после фильтрации:');    
+      Log.Message(buf1);    
+      Log.Message(FUNCTION_NAME + 'Содержимое 2-ого Файла после фильтрации:');
+      Log.Message(buf2);
+    end;
+  end
+  else
+    Log.Message(FUNCTION_NAME + 'Файлы идентичны', '', pmNormal, GetLogAttr('GREEN'));
+except
+  Result := False;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+// Копирует папки и файлы. В общем стандартная xcopy
+function XCopy( src, dst : String; params : String = '/E /C /Y /R') : boolean;
+begin
+	RunProcess('xcopy', '"' + src + '" "' + dst + '" '+ params, 3600*1000 {-1});
+end; 
+
+//проверяем папки dir1 и dir2 на идентичность
+//Missing - набор файлов/папок через ';', которые надо пропускать
+function CompareDirectory(const dir1, dir2: string; const Missing: string): Boolean;
+var
+  i, j: Integer;
+  SearchRec1: TSearchRec;
+  res;
+  MissingArray;
+begin
+	res := true;
+  MissingArray := String2Array(Missing, ';');
+  SearchRec1 := TSearchRec; // This line is necessary !!!
+  i := FindFirst(dir1+'\*.*', faAnyFile,  SearchRec1);
+  while ((i = 0)) do
+  begin
+    if (SearchRec1.Attr <> faDirectory ) then
+    begin
+    	if (not FindElement(MissingArray, SearchRec1.Name)) then
+				res := res and Files.Compare(dir1+'\' + SearchRec1.Name, dir2+'\' + SearchRec1.Name);			
+    end
+    else
+    begin
+    	if ((SearchRec1.Name <> '.') and (SearchRec1.Name <> '..')) then
+      	if (not FindElement(MissingArray, SearchRec1.Name)) then
+    			res := res and CompareDirectory(dir1+'\' + SearchRec1.Name, dir2+'\' + SearchRec1.Name, Missing);
+    end;
+    i := FindNext(SearchRec1);
+  end;
+  Utilities.FindClose(SearchRec1);
+  Result := res;
+end;
+
+{
+  TYPE: Общие
+  DESC: Возвращает объем сбодного места на диске.
+  RESULT: Результат в байтах
+  REMARK: Формат результата - DOUBLE!!!
+          Можно передавать строку, учитывается только первая буква в пути.   
+}
+function GetDiskFreeSize(d_name: string): double;
+const
+  FUNCTION_NAME = 'GetDiskFreeSize';
+var
+  fso, drv; 
+begin 
+  try
+    Result := -1;
+    fso := Sys.OleObject('Scripting.FileSystemObject');
+    if d_name = '' then
+      Raise('Не задана имя диска.');  
+    drv := fso.GetDrive(d_name[1]);
+    Result := drv.AvailableSpace; 
+  except
+    Result := -1;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+// возвращает размер файла
+function GetFileSize(const fileName : String) : integer;
+var sr : TSearchRec;
+begin
+	Result := -1;
+	sr := TSearchRec; 
+	if Utilities.FindFirst( fileName, faAnyFile, sr) = 0 then
+		Result := sr.Size;
+	Utilities.FindClose(sr);
+end;       
+
+// читает содержимое файла, если файла нет или не открывается, то отдает пустую строку
+function GetFileBody(
+  const fileName : String;
+  const fileOpenFlags : Integer = fmShareDenyNone
+) : String;
+  const
+    FUNCTION_NAME = 'GetFileBody';
+  var
+    buf : OleVariant;
+    fileHandle : integer;
+begin
+  try
+    if Utilities.FileExists( fileName ) then
+    begin
+    	fileHandle := Utilities.FileOpen( fileName , fileOpenFlags OR fmOpenRead );
+      if fileHandle = -1 then
+      	Result := ''
+      else
+      begin
+      	Utilities.FileRead( fileHandle, buf, GetFileSize(fileName) );
+        Utilities.FileClose( fileHandle );
+        Result := buf;
+      end;	
+    end
+    else
+    	Result := '';
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;    
+end;
+
+function SetFileBody(
+  const fileName : String;
+  const value : String;
+  fileOpenFlags : Integer = fmShareDenyWrite;
+  const isCheckAfterWrite : Boolean = false
+) : Boolean;
+  const
+    FUNCTION_NAME = 'SetFileBody';
+  var    
+    readedBytes, writedBytes, fileHandle : integer;
+    buf : String;
+begin
+  try
+    Result := false;
+    if NOT Utilities.FileExists( fileName ) then
+    begin // если файла нет, то его создаем
+      fileHandle := Utilities.FileCreate(fileName);
+      if (fileHandle <> -1) then Utilities.FileClose( fileHandle );
+    end;
+    //
+    if isCheckAfterWrite then
+      fileOpenFlags := fileOpenFlags OR fmOpenReadWrite
+    else
+      fileOpenFlags := fileOpenFlags OR fmOpenWrite;        
+  	fileHandle := Utilities.FileOpen( fileName , fileOpenFlags);
+    if (fileHandle = -1) then
+    	Raise('Не получилось открыть файл')
+    else
+      try
+      	writedBytes := Utilities.FileWrite( fileHandle, value, Length(value) );
+        Win32API.SetEndOfFile( fileHandle );        
+        if (writedBytes = -1) then
+          Raise('Произошла ошибка при записи!')
+        else if (writedBytes < Length(value)) then
+          Raise( Format('Записано меньше (%d) чем надо(%d)!', [writedBytes, Length(value)]) );
+        // а теперь проверяем, записали ли то что хотели
+        if isCheckAfterWrite then
+        begin
+          Utilities.FileSeek(fileHandle, 0, 0);
+          readedBytes := Utilities.FileRead(fileHandle, buf, GetFileSize(fileName)); 
+          if (readedBytes <> writedBytes) then
+            Raise( Format('Прочитано не столько же (%d) сколько записано (%d)!!', [readedBytes, writedBytes]) );
+          if (buf <> value) then
+            Raise('То что прочитали и то что записали не совпадает!');
+        end;
+        Result := true;   
+      finally        
+        Utilities.FileClose( fileHandle );
+      end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,
+      DbgVarValueEx([isCheckAfterWrite, fileOpenFlags, fileName, value, buf, writedBytes, readedBytes, fileHandle], ['isCheckAfterWrite', 'fileOpenFlags', 'fileName', 'value', 'buf', 'writedBytes', 'readedBytes', 'fileHandle']),
+      pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;    
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function ForceFirstLineInFile(
+  const fileName : String;
+  const firstLine : String
+) : boolean;
+  var fileVar : OleVariant;
+      str : String;
+begin
+  try
+    Result := false;
+    if Utilities.FileExists(fileName) then
+    begin
+      AssignFile(fileVar, fileName);
+      Reset(fileVar);
+      Readln(fileVar, str);
+      CloseFile(fileVar);
+      Result := (str = firstLine);
+      if NOT Result then
+        BuiltIn.SaveStrToFile(fileName, firstLine + EndOfLine + GetFileBody(fileName));
+    end
+    else
+      AppendFile(fileName, firstLine);
+    { проверяем } 
+    if NOT Result then
+    begin  
+      AssignFile(fileVar, fileName);
+      Reset(fileVar);
+      Readln(fileVar, str);
+      CloseFile(fileVar);
+      Result := (str = firstLine);       
+    end;  
+  except
+    Log.Message('ForceFirstLineInFile: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    try CloseFile(fileVar); except end;
+    CommonExceptionHandler;
+  end;
+end;
+
+// Возвращает массив файлов, имена которых удовлетворяют маске. Обходит все подкаталоги.
+// maxDeep = 1 - означает обход каталога и файлов в подкаталогах, 0 - только каталог, и т.п.
+function GetFileList(
+  const path : String;
+  const mask : String;
+  const maxDeep : integer = 10000;
+  const relativePath : boolean = false;
+  const isAddEmptyFolders : boolean = false;
+  const isAddFolders : boolean = false
+  
+) : OleVariant;
+var
+  i: Integer;
+  SearchRec1: TSearchRec;
+  tmp : OleVariant;
+  isFirstLevel, isFolderAdded : boolean;
+begin
+  if path[1] = '?' then
+  begin
+    Delete(path, 1, 1);
+    isFirstLevel := false;
+  end
+  else
+  	isFirstLevel := true;
+  if path[Length(path)] = '\' then Delete(path, Length(path), 1);
+  SearchRec1 := TSearchRec; // This line is necessary !!!
+  i := FindFirst(path + '\*', faAnyFile,  SearchRec1);
+  while (i = 0) do
+  begin
+    if ((SearchRec1.Attr AND faDirectory) <> faDirectory) AND StringCompare(mask, SearchRec1.Name) then
+	   	AddToArray(Result, path + '\' + SearchRec1.Name)
+    else 
+    	if ((SearchRec1.Name <> '.') and (SearchRec1.Name <> '..')) then
+      begin
+        isFolderAdded := false;
+        if (isAddFolders) then
+        begin 
+          AddToArray(Result, path + '\' + SearchRec1.Name + '\');
+          isFolderAdded := true;
+        end;
+        if (maxDeep > 0) then
+        begin   
+      		tmp := GetFileList('?' + path + '\' + SearchRec1.Name, mask, maxDeep - 1, relativePath, isAddEmptyFolders);
+          if IsArray(tmp) then
+          begin          
+          	if IsArray(Result) then
+  	      		Result := AddArrays(Result, tmp )
+            else
+            	Result := tmp;
+          end
+          else 
+            if (isAddEmptyFolders) AND (NOT isFolderAdded) then
+              AddToArray(Result, path + '\' + SearchRec1.Name + '\');
+        end;       
+      end;
+    i := FindNext(SearchRec1);
+  end;
+  Utilities.FindClose(SearchRec1);
+  if isFirstLevel AND IsArray(Result) AND relativePath then
+  	for i := VarArrayLowBound(Result, 1) to VarArrayHighBound(Result, 1) do
+     Result[i] := Copy(Result[i], 2 + Length(path), 65536);
+end;
+
+// если src оканчивается на \, то копируем папку. Например, с:\1\2\ - будет скопирована папка 2
+// можно проверять изменение файла, путем сравнение размеров и переписывать только
+// отличающиеся файлы, в противном случае перезаписываются все.
+// Как встроенная, но встроенная что-то глючит.
+function CopyFilesExt(
+  src : String;
+  dst : String;
+  const excludeList : OleVariant = ''
+) : integer;
+var path, mask, srcFileName, dstFileName, tmp : String;
+		isCopyFolder, isDontCopy : boolean;
+    arrSrcFiles : OleVariant;
+    i, j : integer;
+begin
+	Result := 0;
+	// формируем маску и путь
+	mask := Utilities.AnsiStrRScan( src, '\' );
+  if mask <> '' then Delete(mask, 1, 1);
+  isCopyFolder := ( AnsiLastChar(src) = '\' );
+  path := Copy(src, 1, Length(src) - Length(mask) - 1);
+  //
+  if (AnsiLastChar(dst) = '\') then 
+    if isCopyFolder then
+      dst := dst + GetSubStr(Utilities.AnsiStrRScan( Copy(src, 1, Length(src)-1), '\'), '\', '')
+    else
+      Delete(dst, Length(dst), 1);
+  // получаем список файлов, которые надо скопировать
+  if isCopyFolder then
+		arrSrcFiles := GetFileList(src, '*', 65536, true, true)
+  else
+  	arrSrcFiles := GetFileList(path, mask, 0, true, true );
+  // копируем                   
+  if IsArray(arrSrcFiles) then
+  	for i := VarArrayLowBound(arrSrcFiles, 1) to VarArrayHighBound(arrSrcFiles, 1) do
+    begin
+      if (ExtractFileName(arrSrcFiles[i]) = '.') OR (ExtractFileName(arrSrcFiles[i]) = '..') then continue;
+      srcFileName := path + '\' + arrSrcFiles[i];
+      isDontCopy := false;
+      if IsArray(excludeList) then
+        for j := VarArrayLowBound(excludeList,1) to VarArrayHighBound(excludeList,1) do
+          if StringCompare(excludeList[j], srcFileName) then
+          begin
+            isDontCopy := true;
+            break;
+          end;
+      if isDontCopy then continue;
+    	     
+      dstFileName := dst + '\' + arrSrcFiles[i];
+      if AnsiLastChar(dstFileName) <> '\' then
+    	  Result := Result + BuiltIn.CopyFiles(srcFileName, dstFileName, false)
+      else
+      begin
+        if ForceDirectories(dstFileName) then Inc(Result);
+      end;  
+    end;
+end;
+
+{
+  Возвращает имя файла по указанному пути с текущей датой датой
+  например, если вызвать функцию с параметрами
+  GetLogFileName ('c:\logs', 'mylog'),
+  то получим результат 'c:\logs\mylog.2005.12.08'
+}
+function GetFileNameWithDate (const pathToLogDir, logFileName: String): String;
+var
+  strDay: String;
+  Year, Month, Day: Integer;
+begin
+  try
+    DecodeDate (Date, Year, Month, Day);
+    strDay := IntToStr (Day);
+    if Day < 10 then
+      strDay := '0' + strDay;
+    Result := pathToLogDir + '\' + logFileName + '.' + IntToStr(Year) +
+              IntToStr(Month) + strDay + '.log';
+  except
+    Log.Error ('GetLogFileName: ' + ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+{
+  Возвращает имя файла по указанному пути 
+  имя файла соотвествует текущей дате, т.е. %DATE%.log
+  например, если вызвать функцию с параметрами
+  GetLogFileName ('c:\logs', currentData),
+  то получим результат 'c:\logs\Пт 10.02.2006.log'
+}
+function GetFileNameWithDateEx (const pathToLogDir, logFileName: String): String;
+begin
+  try
+    Result := pathToLogDir + '\' + logFileName + '.log';
+  except
+    Log.Error ('GetLogFileNameEx: ' + ExceptionMessage);
+    CommonExceptionHandler;
+  end;  
+end;
+
+{
+  TYPE:
+  DESC: Удаляет файлы 
+  RESULT:
+  REMARK:
+}
+function DeleteFilesExt(
+  src : String
+) : integer;
+var 
+  path, mask, srcFileName : String;
+  arrSrcFiles : OleVariant;
+  i : integer;
+begin
+	Result := 0;
+  WriteDelOperInLog(src, 'DeleteFilesExt');
+	// формируем маску и путь
+	mask := Utilities.AnsiStrRScan( src, '\' );
+  if mask <> '' then Delete(mask, 1, 1);
+  path := Copy(src, 1, Length(src) - Length(mask) - 1);
+  // получаем список файлов
+ 	arrSrcFiles := GetFileList(path, mask, 0, true );
+  // удаляем
+  if IsArray(arrSrcFiles) then
+  	for i := VarArrayLowBound(arrSrcFiles, 1) to VarArrayHighBound(arrSrcFiles, 1) do
+    begin
+    	srcFileName := path + '\' + arrSrcFiles[i];     
+    	Result := Result + Choose( Utilities.DeleteFile(srcFileName), 1, 0);
+    end;
+end;
+
+// убеждается, что по указанному пути можно создать файл c указанным именем
+// если файл есть то проверяем возможность открыть его на запись
+// если указано, то удаляем файл
+// создает путь если его нет и есть соответствующие права
+function ForceFile(
+  path : String; // путь
+  fileName : String = ''; // имя файла, если пустое, то считается, что path содержит имя файла
+  const isDelFile : boolean = false // удалять ли файл, если он есть
+ ) : boolean;
+  var fHandle : integer;
+begin
+  if fileName = '' then
+  begin
+    fileName := Utilities.ExtractFileName(path);
+    path := Utilities.ExtractFilePath(path);   
+  end;  
+  path := Utilities.IncludeTrailingBackslash(path);
+  Result := Utilities.DirectoryExists(path);
+  if NOT Result then
+    Result := Utilities.ForceDirectories(path);
+  if Result then
+  begin
+    fileName := path + fileName;
+    if NOT Utilities.FileExists(fileName) then
+    begin
+      fHandle := Utilities.FileCreate(fileName);
+      Utilities.FileClose(fHandle);
+      Result := Utilities.DeleteFile(fileName);
+    end
+    else
+    begin
+      fHandle := Utilities.FileOpen(fileName, fmOpenWrite);
+      Result := fHandle <> -1;
+      if Result then
+        Utilities.FileClose(fHandle);
+      if isDelFile then
+        Utilities.DeleteFile(fileName);
+    end;    
+  end;  
+end;
+
+function RemoveFoldersExt( folder : String ) : boolean; forward; 
+
+{
+  TYPE: Работа с папками
+  DESC:Проверяет, пустая ли папка
+  RESULT: True - если папка пуста
+  REMARK:
+}
+function IsFolderEmpty(
+  folder : String
+) : boolean;
+var
+  i: Integer;
+  searchRec: TSearchRec;
+begin
+  try
+    folder := IncludeTrailingBackslash(folder);
+    
+    if NOT Utilities.DirectoryExists(folder) then
+      Raise('Папка не существует!');
+    
+    Result := true; 
+      
+    searchRec := TSearchRec; 
+    i := FindFirst(folder + '*', faAnyFile,  searchRec);
+    while (i = 0) do
+    begin
+      if (searchRec.Name <> '.') AND (searchRec.Name <> '..') then
+      begin 
+        Result := false;
+        break;
+      end;    
+      i := FindNext(searchRec);
+    end;
+    
+    Utilities.FindClose(searchRec);  
+  except
+    Log.Message('IsFolderEmpty: ' + ExceptionMessage, 'folder: ' + folder  , pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;  
+end;
+    
+{
+  TYPE: Работа с папками
+  DESC: Очищает папку, удаляя все ее содержимое. Оставляет саму папку.
+  RESULT: True - если папка пуста
+  REMARK:
+}
+function EmptyFolder(
+  folder : String
+) : boolean;
+var
+  i: Integer;
+  searchRec: TSearchRec;
+  currName : String;
+  fileObj;
+begin
+  try
+    if (folder = '') or (folder = '\') then Raise('В качестве путя удаляемой папки передан неправильный параметр: "' + folder + '"'); 
+    if NOT Utilities.DirectoryExists(folder) then Raise('Папка, которую хотим очистить, не существует:');
+    folder := IncludeTrailingBackslash(folder);
+    //Временная операция, для вывода в файл удаляемой папки
+    //WriteDelOperInLog(folder, 'EmptyFolder');
+    
+    searchRec := TSearchRec; 
+    i := FindFirst(folder + '*', faAnyFile,  searchRec);
+    while (i = 0) do
+    begin
+      if (searchRec.Name <> '.') AND (searchRec.Name <> '..') then
+      begin
+        currName := folder + searchRec.Name;
+        if ((searchRec.Attr AND faDirectory) = faDirectory ) then
+          RemoveFoldersExt(currName)
+        else 
+          Utilities.DeleteFile(currName);
+      end;
+      i := FindNext(searchRec);  
+    end;
+    Utilities.FindClose(searchRec);
+      
+    Result := IsFolderEmpty(folder);      
+  except
+    Log.Message('EmptyFolder: ' + ExceptionMessage, folder , pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;  
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Удаляет папку и все ее содержимое
+  RESULT: True - если после удаления папка не существует, иначе - else.
+  REMARK:
+}
+function RemoveFoldersExt(
+  folder : String
+) : boolean;
+const
+  FUNC_NAME = 'RemoveFoldersExt';
+var
+  i: Integer;
+  searchRec: TSearchRec;
+  currName : String;
+begin
+  try
+    Result := NOT Utilities.DirectoryExists(folder);  
+    if NOT Result then
+    begin
+      // используется для отладки
+      //try      
+      //  WriteDelOperInLog(folder, FUNC_NAME);
+      //except
+      //  Log.Error(FUNC_NAME + ': ' + ExceptionMessage + '. Случилась ошибка при сохранении старых логов!', '' ,pmNormal, GetLogAttr('EXCEPTION'));
+      //end;  
+
+      if EmptyFolder(folder) then
+        Utilities.RemoveDir(folder);
+      
+      // на случай, если первый вариант не отработал
+      if Utilities.DirectoryExists(folder) then
+      begin
+        aqFileSystem.DeleteFolder(folder, true);
+        aqFileSystem.DeleteFolder(ExcludeTrailingBackSlash(folder), true); // мало ли..
+      end;
+        
+      Result := NOT Utilities.DirectoryExists(folder);  
+    end;  
+  except
+    Log.Message(FUNC_NAME + ': ' + ExceptionMessage, '' ,pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;  
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function DeleteFileOrFolder(
+  const pathToObject : String
+): boolean;
+  const
+    FUNCTION_NAME = 'DeleteFileOrFolder';
+begin
+  try
+    if FileExists(pathToObject) then
+    begin // у нас файл
+      if NOT DeleteFile(pathToObject) then
+        Raise( Format('Не смогли удалить файл "%s"!', [pathToObject]) );
+    end  
+    else 
+    if DirectoryExists(ExcludeTrailingBackSlash(pathToObject)) then
+    begin // у нас папка
+      if NOT RemoveFoldersExt(ExcludeTrailingBackSlash(pathToObject)) then
+        Raise( Format('Не смогли удалить папку "%s"!', [ExcludeTrailingBackSlash(pathToObject)]) );
+    end;
+    //
+    Result := NOT( FileExists(pathToObject) OR DirectoryExists(ExcludeTrailingBackSlash(pathToObject)) );
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([ExcludeTrailingBackSlash(pathToObject)], ['pathToObject']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC: Мапит диски   
+  RESULT:
+  REMARK:
+    Операции:
+      'GET DRIVE BY PATH' - получить диск по пути
+        paramString: Path - сетевой путь
+        Result: имя диска или пустая строка
+      'GET PATH BY DRIVE' - получить путь, к которому примаплен диск
+        paramString: Drive - имя диска
+        Result: путь иди пустая строка          
+      'UNMAP DRIVE' - размапить диск
+        paramString: Drive - имя диска 
+        Result: true|false - размапили/нет
+      'MAP PATH AS DRIVE' - замапить указанный диск к указанному пути
+        paramString: Path - сетевой путь, Drive - имя диска, [UserName - имя пользователя, Password - пароль]
+        Result: true|false - замапили/нет        
+      'MAP PATH AS ANY DRIVE' - замапить указанный путь к первому свободному диску
+        paramString: Path - сетевой путь
+        Result: имя диска, под которым замапили или пустая строка        
+}
+function MappedDrive(
+  whatToDo : String;
+  paramString : String
+): OleVariant ;
+  const
+    FUNCTION_NAME = 'MappedDrive'; 
+  var
+    wshNet, paramList, drives, fso : OleVariant;
+    par_Path, par_Drive, par_UserName, par_Password, drive : String;
+    i : integer;       
+begin
+  try
+    wshNet := Sys.OleObject('WScript.Network');
+    
+    paramList := ParseParamString(paramString);
+    par_Path := ExcludeTrailingBackslash(GetParam(paramList, 'Path', ''));
+    par_Drive := GetParam(paramList, 'Drive', '');
+    par_UserName := GetParam(paramList, 'UserName', ''); 
+    par_Password := GetParam(paramList, 'Password', '');
+    
+    whatToDo := AnsiUpperCase(whatToDo);
+    
+    case whatToDo of
+      'GET DRIVE BY PATH' : // возвращает букву диска по пути
+        begin
+          if (par_Path = '') then Raise('Параметр Path должен быть передан!');
+          Result := '';
+          drives := wshNet.EnumNetworkDrives();
+          i := 1;
+          while (i <= drives.Length) do
+            if StringCompare( IncludeTrailingBackslash(par_Path), IncludeTrailingBackslash(drives.Item[i])) then
+            begin
+              Result := drives.Item[i-1];
+              break;
+            end
+            else
+              Inc(i, 2);
+        end; // 'GET DRIVE BY PATH'
+
+      'GET PATH BY DRIVE' : // возвращает путь по букве диска
+        begin
+          if (par_Drive = '') then Raise('Параметр Drive должен быть передан!');
+          Result := '';
+          drives := wshNet.EnumNetworkDrives();
+          i := 0;
+          while (i < drives.Length) do
+            if StringCompare( IncludeTrailingBackslash(par_Drive), IncludeTrailingBackslash(drives.Item[i])) then
+            begin
+              Result := drives.Item[i+1];
+              break;
+            end
+            else
+              Inc(i, 2);
+        end; //'GET PATH BY DRIVE'
+        
+      'UNMAP DRIVE' : // удаляет мапу диск-путь
+        begin
+          wshNet.RemoveNetworkDrive(par_Drive, true);
+          Result := (MappedDrive('GET PATH BY DRIVE', paramString) = '');
+        end; // 'UNMAP DRIVE'  
+        
+      'MAP PATH AS DRIVE' : // мапит путь к указанной букве диска
+        begin
+          if (par_Drive = '') then Raise('Параметр Drive должен быть передан!');
+          if (par_Path = '') then Raise('Параметр Path должен быть передан!');
+          
+          // проверяем, может уже примаплено так как надо
+          Result := StringCompare( MappedDrive('GET DRIVE BY PATH', paramString), par_Drive);
+          if NOT Result then
+          begin // мапим
+            try
+              if (par_UserName <> '') then 
+                wshNet.MapNetworkDrive(par_Drive, par_Path, false, par_UserName, par_Password)
+              else
+                wshNet.MapNetworkDrive(par_Drive, par_Path, false);
+            except
+              // гасим исключения. В связи с невозможность определения наличия диска в состоянии Unavailable
+            end;      
+            Result := StringCompare( MappedDrive('GET DRIVE BY PATH', paramString), par_Drive);
+          end;   
+        end; // 'MAP PATH AS DRIVE'
+         
+      'MAP PATH AS ANY DRIVE' : // мапит путь к той букве диска как получится
+        begin
+          if (par_Path = '') then Raise('Параметр Path должен быть передан!');
+          if (par_Drive <> '') then Raise('Параметр Drive не требуется для этой операции!');  
+          
+          // проверяем, может путь уже замаплен
+          Result := MappedDrive('GET DRIVE BY PATH', paramString);
+          
+          if (Result = '') then // мапим
+          begin
+            fso := Sys.OleObject('Scripting.FileSystemObject');
+            for i := Ord('Z') downto Ord('A') do
+            begin
+              drive := Chr(i) + ':';
+              if (NOT fso.DriveExists(drive)) AND MappedDrive('MAP PATH AS DRIVE', 'Drive:=' + drive + ';' + paramString) then
+              begin
+                Result := drive;
+                break;
+              end; //if NOT fso.DriveExists(drive)
+            end; //for i := Ord('A') to Ord('Z')
+          end; // if (Result = '')  
+        end; // 'MAP PATH AS ANY DRIVE'          
+    else
+      Raise('Неизвестное значение параметра whatToDo!');    
+    end;    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValue(whatToDo, 'WhatToDo') + DbgVarValue(paramString, 'ParamString'), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+
+function GetFilePathToLogFile(
+  logType: string = 'SERVER'
+): string;
+  const
+    FUNCTION_NAME = 'GetFilePathToLogFile';
+begin
+  try
+    Result := '';
+    case AnsiUpperCase(logType) of
+      'SERVER': Result := GetValueFromGarantINI('F1Server Params', 'SBELogFile'); 
+      'CLIENT': Result := GetValueFromGarantINI('F1Client Params', 'SBELogFile');
+      'SHELL': Result := IncludeTrailingBackslash(GetF1Directory) + 'APPS\F1Shell.log';
+    else
+      Raise('Тип лога "' + logType + '" не известен!');
+    end;
+    
+    if Pos('%', Result) <> 0 then
+      Result := Sys.OleObject('WScript.Shell').ExpandEnvironmentStrings(Result);
+  except
+    Result := '';
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;      
+
+{
+  TYPE: Лог
+  DESC: Обработка лог файла, поиск в нем строк с ошибками, ассертами и т.д.
+  RESULT:
+  REMARK: Для обработки записей последнего запуска сервера вызываем с параметром
+          ProcessingLogForErrors(nil, 'IsFromLastServerStart:=true')
+          IsAnalyseAllLogs - анализ лога сервера и клиента (если он есть)
+          IsFromLastServerStart - начинать анализ с последней записи SERVER_START
+          isFromLastLogPositionCounter - начинать анализ с последней сохраненной позиции 
+          LogPositionCounterName - какой счетчик строк использовать (по умолчанию серверный: 'SERVER')
+                                  'SERVER' - серверный
+                                  'CLIENT' - клиентский
+          isSaveLastPositionCounter - сохранять значение счетчика строк после анализа
+          isResetAllLastLogPositionCountersAndExit - сброс всех счеткиов в 0
+          isResetServerLogPositionCountersAndExit -
+          isAnalyzeByDifference - простой анализ на приращение лога (для консольного)
+          isDoServerLogContentBkup -
+          isResetServerLogContentBkup -
+}
+const 
+  LOG_COUNTER_NAME_SERVER = 'SERVER';
+  LOG_COUNTER_NAME_CLIENT = 'CLIENT';
+  LOG_COUNTER_NAME_SHELL = 'SHELL';
+var
+  gbl_logContentBkup; 
+  gbl_LastPositonInServerLog, gbl_LastPositonInClientLog, gbl_LastPositonInShellLog: integer;
+
+Function ProcessingLogForErrors(
+  arrayOfErrorWords: OleVariant = nil;
+  arrayOfExceptionsWords: OleVariant = nil;  
+  const paramString: String = ''  
+): string;
+var
+  paramList: OleVariant; 
+  fso, inFile, outFile;
+
+  res, isFromLastServerStart, isSaveToFile;
+  isFromLastLogPositionCounter, logPositionCounterName, isSaveLastPositionCounter, isLogWasChecked;
+  
+  errorsStrings, exceptionsStrings;
+  clientLogString, shellLogString;
+  outFileBuf, lineBuf, buf, inFileName, outFileName: string;
+
+  i, j, readCount, linePassCount: integer;
+begin
+try
+  try
+    Result := '';
+    isLogWasChecked := false;
+    // парсим параметры
+    paramList := ParseParamString(paramString);
+    isFromLastServerStart := VarToBool( GetParam(paramList, 'IsFromLastServerStart', 'false') );
+    isFromLastLogPositionCounter := VarToBool( GetParam(paramList, 'isFromLastLogPositionCounter', 'false') );
+    isSaveLastPositionCounter := VarToBool( GetParam(paramList, 'isSaveLastPositionCounter', 'true') );
+    isSaveToFile := VarToBool( GetParam(paramList, 'IsSaveToFile', 'false') );
+    
+    logPositionCounterName := GetParam(paramList, 'LogPositionCounterName', 'SERVER');
+    inFileName := GetParam(paramList, 'InFileName', GetFilePathToLogFile('SERVER'));
+    outFileName := GetParam(paramList, 'OutFileName', ExtractFilePath(inFileName) + 'f1errors.txt');
+    if VarToBool(GetParam(paramList, 'GetOutFileName', 'false')) then
+    begin
+      Result := outFileName;
+      Exit;
+    end;
+
+    if VarToBool(GetParam(paramList, 'isResetServerLogContentBkup', 'false')) then
+    begin
+      gbl_logContentBkup := '';
+      exit;
+    end;
+    if VarToBool(GetParam(paramList, 'isResetServerLogPositionCountersAndExit', 'false')) then
+    begin
+      gbl_LastPositonInServerLog := 0;
+      exit;
+    end;
+    if VarToBool(GetParam(paramList, 'isResetAllLastLogPositionCountersAndExit', 'false')) then
+    begin
+      gbl_LastPositonInServerLog := 0;
+      gbl_LastPositonInClientLog := 0;
+      gbl_LastPositonInShellLog := 0;
+      exit;
+    end;
+    if VarToBool(GetParam(paramList, 'isGetServerLogContentBkup', 'false')) then
+    begin
+      if (VarType(gbl_logContentBkup) <> varEmpty) and (gbl_logContentBkup <> '') then
+        Result := '////////////////////////////////Garant.log (from backup)////////////////////////////' + EndOfLine +
+                  gbl_logContentBkup +
+                  '////////////////////////////////End of extraction Garant.log (from backup)///////////////////////' + EndOfLine + EndOfLine
+      else
+        Result := '';  
+      exit;  
+    end;
+
+    if isSaveLastPositionCounter then
+    begin
+      if VarType(gbl_LastPositonInServerLog) = varEmpty then gbl_LastPositonInServerLog := 0;
+      if VarType(gbl_LastPositonInClientLog) = varEmpty then gbl_LastPositonInClientLog := 0;
+      if VarType(gbl_LastPositonInShellLog) = varEmpty then gbl_LastPositonInShellLog := 0;
+    end;
+    
+    if isFromLastLogPositionCounter then
+    begin
+      case logPositionCounterName of 
+        LOG_COUNTER_NAME_SERVER: linePassCount := gbl_LastPositonInServerLog;
+        LOG_COUNTER_NAME_CLIENT: linePassCount := gbl_LastPositonInClientLog;
+        LOG_COUNTER_NAME_SHELL: linePassCount := gbl_LastPositonInShellLog;
+      end; 
+    end;
+    
+    if not IsArray(arrayOfErrorWords) then
+      errorsStrings := [
+                        'ERROR',
+                        'CORBA_EX',
+                        'ASSERT',
+                        'ALERT',
+                        'UNKNOWN_EX',
+                        'STD_EX',
+                        'SYSTEM_EXCEPTION',
+                        'StorageInternalError',
+                        'can''t find external facet'
+                       ]  
+    else
+      errorsStrings := arrayOfErrorWords;
+
+    if not IsArray(arrayOfExceptionsWords) then
+      exceptionsStrings := [
+                            //удалить 'UserData::remove_comment: can''t remove comment' после исправления
+                            //http://mdp.garant.ru/pages/viewpage.action?pageId=482742917
+                            'UserData::remove_comment: can''t remove comment',  
+                            'IDL:garant.ru/GCD/CanNotFindData:1.0:',
+                            'Invalid open to future interval (not last interval)',
+                            'SecurityManager::set_access_rights: can''t change rights for ADMIN',
+                            'DocumentBase_i::load_index_data: find doc info is failed.',
+                            'UserManager::login:',
+                            'XMLSave_i::save_i: error while saving proxy info: -ConsultingClientProxyEnable option does not exists', 
+                            'XMLRestore_05_i::restore_i Can''t find -ConsultingTransportConfig file in configuration file',
+                            'NotInitialized (Сервис не проинициализирован (не запущен))',
+                            'IDL:omg.org/CORBA/TRANSIENT:1.0: void *__cdecl GslSessionHandlerClientServer::`anonymous-namespace''::keep_alive_proc(void *)',
+                            'IDL:omg.org/CosNaming/NamingContext/NotFound:1.0' //rykov: временная, пока нет нового СК 7.7
+                          ]
+    else
+      exceptionsStrings := arrayOfExceptionsWords;
+
+    if not FileExists(inFileName) then
+      Raise('Лог файл "' + inFileName + '" не найден!');
+                 
+    Log.Message('ProcessingLogForErrors: Проверяем лог "' + inFileName + '"', '' , pmNormal);
+    isLogWasChecked := true;
+    
+    //Читаем содержимое outFileName
+    if isSaveToFile then 
+      outFileBuf := GetFileBody(outFileName)
+    else
+      outFileBuf := ''; 
+  
+    fso := Sys.OleObject('Scripting.FileSystemObject');
+    inFile := fso.OpenTextFile(inFileName, 1 {forReading}, false);
+    buf := '';
+
+    //Если надо пропускаем строки, переходим к последней позиции в файле лога     
+    if isFromLastLogPositionCounter then
+    begin
+      while (not inFile.AtEndOfStream) and (linePassCount > 0) do
+      begin
+        lineBuf := inFile.ReadLine;
+        Dec(linePassCount);
+      end;      
+    end;
+    
+    if VarToBool(GetParam(paramList, 'isAnalyzeByDifference', 'false')) then
+    begin  
+      while (not inFile.AtEndOfStream) do
+      begin
+        lineBuf := inFile.ReadLine;
+        if (lineBuf <> '') then
+          buf := buf + '[' + IntToStr(inFile.Line) + ']: ' +  lineBuf + EndOfLine;
+      end;
+    end
+    else
+    begin
+      while (not inFile.AtEndOfStream) do
+      begin
+        lineBuf := inFile.ReadLine;
+        if (lineBuf <> '') then
+        begin                         
+          if isFromLastServerStart and (Pos('SERVER_START', lineBuf) <> 0) then buf := ''
+          else
+            for i := VarArrayLowBound(errorsStrings, 1) to VarArrayHighBound(errorsStrings, 1) do if Pos(errorsStrings[i], lineBuf) <> 0 then 
+            begin
+              res := true; for j := VarArrayLowBound(exceptionsStrings, 1) to VarArrayHighBound(exceptionsStrings, 1) do if Pos(exceptionsStrings[j], lineBuf) <> 0 then begin res := false; break; end;
+                         //одинаковые строки не пишем (если был перезапуск) 
+              if res and (Pos(lineBuf, outFileBuf) = 0) then buf := buf + '[' + IntToStr(inFile.Line) + ']: ' +  lineBuf + EndOfLine; break;
+            end;
+        end;
+      end;
+    end;
+
+    //Смотрим F1client.log, F1shell.log
+    if VarToBool(GetParam(paramList, 'IsAnalyseAllLogs', 'false')) then
+    begin
+      if buf <> '' then
+        buf := '////////////////////////////////Garant.log///////////////////////////////' + EndOfLine +
+               buf +
+               '////////////////////////////////End of extraction Garant.log/////////////' + EndOfLine + EndOfLine;
+
+      if GetProductType = PT_SERVER then
+      begin
+        clientLogString := ProcessingLogForErrors(nil, nil, 'isFromLastLogPositionCounter:=' + Choose(isFromLastLogPositionCounter, 'true', 'false') + ';isSaveLastPositionCounter:=' + Choose(isSaveLastPositionCounter, 'true', 'false') + ';LogPositionCounterName:=' + LOG_COUNTER_NAME_CLIENT + ';InFileName:=' + GetFilePathToLogFile('CLIENT'));
+        if clientLogString <> '' then
+          buf := buf + EndOfLine +
+                 '////////////////////////////////F1Client.log///////////////////////////////' + EndOfLine +
+                 clientLogString +
+                 '////////////////////////////////End of extraction F1Client.log/////////////' + EndOfLine + EndOfLine;
+      end;
+
+      if FileExists(GetFilePathToLogFile('SHELL')) then
+      begin
+        shellLogString := ProcessingLogForErrors(nil, nil, 'isAnalyzeByDifference:=true;isFromLastLogPositionCounter:=' + Choose(isFromLastLogPositionCounter, 'true', 'false') + ';isSaveLastPositionCounter:=' + Choose(isSaveLastPositionCounter, 'true', 'false') + ';LogPositionCounterName:='+ LOG_COUNTER_NAME_SHELL + ';InFileName:=' + GetFilePathToLogFile('SHELL'));
+        if shellLogString <> '' then
+          buf := buf + EndOfLine +
+                 '////////////////////////////////F1Shell.log///////////////////////////////' + EndOfLine +
+                 shellLogString +
+                 '////////////////////////////////End of extraction F1Shell.log/////////////' + EndOfLine + EndOfLine;
+      end;
+    end;
+
+    //Сохраняем счетчик строк 
+    if isFromLastLogPositionCounter and isSaveLastPositionCounter then
+    begin
+      case logPositionCounterName of 
+        LOG_COUNTER_NAME_SERVER: gbl_LastPositonInServerLog := inFile.Line;
+        LOG_COUNTER_NAME_CLIENT: gbl_LastPositonInClientLog := inFile.Line;
+        LOG_COUNTER_NAME_SHELL: gbl_LastPositonInShellLog := inFile.Line;
+      end; 
+    end;
+
+    if isSaveToFile then
+    begin
+      Log.Message('ProcessingLogForErrors: Сохраняем результаты проверки лога', '' , pmNormal);    
+      outFile := fso.OpenTextFile(outFileName, 8 {forAppending}, true);
+      outFile.write(buf);
+    end;
+    
+    if VarToBool(GetParam(paramList, 'isDoServerLogContentBkup', 'false')) then
+    begin
+      if VarType(gbl_logContentBkup) = varEmpty then gbl_logContentBkup := '';
+      gbl_logContentBkup := gbl_logContentBkup + buf; 
+    end;
+
+    Result := buf;
+    
+  finally
+    if isLogWasChecked then 
+      Log.Message('ProcessingLogForErrors: Проверка лога завершена "' + inFileName + '"', '', pmNormal, GetLogAttr('EXCEPTION'));
+    if IsSupported(inFile, 'Close') then inFile.Close;
+    if IsSupported(outFile, 'Close') then outFile.Close;
+  end;
+except
+  Result := '';
+  Log.Error('ProcessingLogForErrors: ' + ExceptionMessage, '' , pmNormal);
+  CommonExceptionHandler;
+end;
+
+end;
+
+{
+  TYPE: Лог
+  DESC: Поиск наличия переданной строки(строк) в лог файле. 
+  RESULT:
+  REMARK: Можно передавать как отдельные строки, так и одномерный массив из строк, например
+    [
+      '-LM_GARANT: SERVER_START', 
+      '-LM_GARANT: PRODUCT_TYPE [5]'
+    ]
+}
+function IsStringIncludeInLog(
+  tempStr: OleVariant;
+  const paramString: String = ''  
+): boolean;
+  const
+    FUNCTION_NAME = 'IsStringIncludeInLog';
+  var
+    paramList;
+    res, i, fso, inFile, inFileName, linesArrayFromLog;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    inFileName := GetParam(paramList, 'InFileName', GetFilePathToLogFile('SERVER'));
+
+    if not FileExists(inFileName) then
+      Raise('Файл "' + inFileName + '" не найден!');  
+    fso := Sys.OleObject('Scripting.FileSystemObject');
+    inFile := fso.OpenTextFile(inFileName, 1 {forReading}, false);
+    linesArrayFromLog := String2Array(inFile.ReadAll);
+    if IsSupported(inFile, 'Close') then inFile.Close;
+
+    if IsArray(tempStr) then
+    begin
+      Result := true;
+      for i := VarArrayLowBound(tempStr, 1) to VarArrayHighBound(tempStr, 1) do
+        if not FindElement(linesArrayFromLog, '*' + tempStr[i], true) then
+          Result := ErrorResult('Событие "' + tempStr[i] + '" не найдено в логе "' + inFileName + '"');
+    end
+    else
+      if VarType(tempStr) = varOleStr then
+      begin 
+        Result := FindElement(linesArrayFromLog, '*' + tempStr, true);
+        if not Result then
+          ErrorResult('Событие "' + tempStr + '" не найдено в логе "' + inFileName + '"');
+      end
+      else
+        Raise('Переданное значение неизвестного типа: "' + VarToString(VarType(tempStr)) + '"');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;  
+
+{
+  TYPE: Лог
+  DESC: Проверка наличия переданной подстроки в заданных N строках лог файла.  
+  RESULT:
+  REMARK: Поиск ведется с конца файла. 
+
+   В качестве параметра передается строка
+    [
+      '-LM_GARANT: SERVER_START'      
+    ]
+    
+   Параметр countStrInLog: 1 - поиск в последней строке лога, 2 - поиск в 2-х последних строках лога и так далее 
+}
+function IsStringIncludeInLogByNumber(
+  tempStr: OleVariant, 
+  countStrFromEndLog: integer = 1;// количество строк, по дефолту  1 - поиск в только последней строке лога,
+  const paramString: String = ''    
+ ): boolean;
+  const
+    FUNCTION_NAME = 'IsStringIncludeInLogByNumber';
+  var
+    paramList;
+    res, i, fso, inFile, inFileName, linesArrayFromLog, linesArrayFromEndStrLog;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    inFileName := GetParam(paramList, 'InFileName', GetFilePathToLogFile('SERVER'));
+
+    if not FileExists(inFileName) then
+      Raise('Файл "' + inFileName + '" не найден!');  
+    fso := Sys.OleObject('Scripting.FileSystemObject');
+    inFile := fso.OpenTextFile(inFileName, 1 {forReading}, false);
+    linesArrayFromLog := String2Array(inFile.ReadAll);
+    if IsSupported(inFile, 'Close') then inFile.Close;
+    //Генерим новый массив из последних countStrFromEndLog строк
+    for i:= 1 to countStrFromEndLog do    
+      AddToArray(linesArrayFromEndStrLog, linesArrayFromLog[ VarArrayHighBound(linesArrayFromLog, 1)-i]);
+
+    Result := FindElement(linesArrayFromEndStrLog, '*' + tempStr, true);
+    if NOT Result then
+      Log.Warning('Событие "' + tempStr + '" не найдено в заданных строках лог файла "' + inFileName + '"');
+    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;          
+
+{
+DESK: Функция пакует в zip архив нужный файл
+}
+function PackingFileByZip(
+  fileSource : string; //исходный файл( который надо запаковать), например c:\delta\delta.d03
+  fileArchive : string; //архивный файл( в который должен быть запакован исходный файл),например c:\delta\delta.zip
+  isDeleteFileSource : boolean = false;//удалять ли исходный файл после УСПЕШНОГО  создания архива(удаление происходит только в том случае, если файл корректно запоковался)
+  junkDirName : boolean = true; //использование для zip.exe параметра -j   
+  maxTimeOut : integer = 6000000//100 минут - время, которое отводится на ожидание с момента старта архивирования и до его завершения 
+) : boolean;
+var
+  pathToTempFileBat : string;
+  pathToTempFileRes : string;
+  timeOut : integer;
+  junk: string;
+begin
+try
+  Result := false;
+  if junkDirName then junk := '-j' else junk := '';   
+  pathToTempFileBat := GetTempDirectory + '~tempPaking.bat';
+  pathToTempFileRes := GetTempDirectory + '~tempPakingRes';
+  if FileExists(pathToTempFileBat) then  
+    if NOT DeleteFile(pathToTempFileBat) then 
+      Log.Warning('Не удалось удалить временный файл: ' + pathToTempFileBat);
+  if FileExists(pathToTempFileRes) then  
+    if NOT DeleteFile(pathToTempFileRes) then 
+      Log.Warning('Не удалось удалить временный файл: ' + pathToTempFileRes);        
+  SaveStrToFile(  
+    pathToTempFileBat,    
+    '"' + GetPathTo(PATH_TO_UTILS) + 'archivators\zip.exe" ' + junk + ' "' +fileArchive + '" "' + fileSource + '"' + endOfLine +
+    'echo %ERRORLEVEL% >' + pathToTempFileRes    
+  );
+  if NOT FileExists(pathToTempFileBat) then Raise('Не удалось сохранить в файл');
+  Win32Api.WinExec('"' + pathToTempFileBat + '"', Win32API.SW_SHOWMINNOACTIVE);
+  timeOut := Win32API.GetTickCount + maxTimeOut;
+  while Win32API.GetTickCount < timeOut do
+  begin
+    Delay(1000);
+    if FileExists(pathToTempFileRes) then  break;          
+  end;
+  Result := GetFileBody(pathToTempFileRes) = '0 ' + endOfLine;
+  if NOT Result then
+    Log.Error('По каким то причинам не удалось корректно создать архив');
+            
+  if NOT DeleteFile(pathToTempFileBat) then 
+    Log.Warning('Не удалось удалить временный файл: ' + pathToTempFileBat);    
+  if NOT DeleteFile(pathToTempFileRes) then 
+    Log.Warning('Не удалось удалить временный файл: ' + pathToTempFileRes);
+  if Result then             
+    if isDeleteFileSource then     
+      if NOT DeleteFile(fileSource) then Log.Warning('Не удалось удалить исходный файл : ' + fileSource);
+    
+except
+  Result := false;
+  Log.Message('PackingFileByZip: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));  
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: 
+  DESC: Выбирает путь в стандартном виндовом контроле выбора пути. 
+  RESULT:
+  REMARK: Путь должен начинаться с имени диска.  
+}
+function SelectPathInTreeView(
+  const wnd : OleVariant;
+  path : String;
+  const paramString : String = '' // параметры    
+) : boolean;
+  const
+    FUNCTION_NAME = 'SelectPathInTreeView';
+  var 
+    i, j : integer;
+    isCloseDialog : boolean; 
+		tmp, selection : String;
+    arr, paramList, w: OleVariant;
+    arrMyCompyterNames, preffix;
+begin
+  try
+  	Result := false;
+    paramList := ParseParamString(paramString);
+    isCloseDialog := VarToBool( GetParam(paramList, 'IsCloseDialog', 'false') );
+    if IsExists(wnd) then
+    begin
+      Delay(5000);
+      w := FindWindowByPath(wnd, 'WNDCLASS:=SysTreeView32;MAXDEPTH:=2');
+    end
+    else
+      Raise('Переданное окно не существует!');
+    if not (IsSupported(w, 'wRootItemCount') and (w.wRootItemCount <> 0)) then
+      Raise('Неправильное дерево "SysTreeView32", параметр "wRootItemCount" не существует или равен 0');
+    if not Utilities.DirectoryExists(path) then
+      Raise('Папка "' + path + '" не сушествует!');          
+    
+  	w.SetFocus;
+    Delay(1000);
+    Sys.Keys('[Home]');
+                                                                         
+    arrMyCompyterNames := ['My Computer', 'Мой компьютер', 'Computer', 'Компьютер'];
+    for i := 0 to w.wRootItemCount do 
+    	if i = w.wRootItemCount then
+      begin
+        for j := 0 to w.wItemCount do 
+    	    if j = w.wItemCount then
+         	  Raise('Не найден корневой элемент "Мой компьютер" в дереве "SysTreeView32"!')
+          else
+    		  if FindElement(arrMyCompyterNames, w.wItem[j], true) then
+          begin
+            preffix := '|[0]';
+            i := j;
+            break;          
+          end;
+        break;
+      end
+      else
+      begin
+  		  if (w.wRootItem[i] = '') and (w.wRootItem[0] = '') then
+          Raise('Существующий корневой элемент деререва "SysTreeView32" пуст, продолжение невозможно!');
+                  
+        if FindElement(arrMyCompyterNames, w.wRootItem[i], true) then
+        begin
+          preffix := '';
+          break;          
+        end;
+      end; 
+    w.ExpandItem(preffix + '|[' + IntToStr(i) + ']');
+    w.SelectItem(preffix + '|[' + IntToStr(i) + ']');
+    Delay(5000);
+    w.Refresh;
+    Log.Picture(w.Picture, 'Скриншот дерева "SysTreeView32" после выбора "Мой компьютер"', '',  pmNormal, GetLogAttr('SILVER'));    
+
+    tmp := Copy(path, 1, Pos(':', path));
+    if tmp = '' then Raise('Неверно задан путь! Не найдено имя диска!');
+    for j := 0 to w.wItemCount do 
+    	if j = w.wItemCount then
+        Raise('Диск ' + tmp + ' не найден в дереве!')
+      else
+  		  if StringCompare('*' + tmp + '*', w.wItem[j]) then 
+          break;
+          
+    Delete(path, 1, Length(tmp) + 1);
+    if path[Length(path)] = '\' then 
+      Delete(path, Length(path), 1);
+    selection := '|[' + IntToStr(i) + ']|[' + IntToStr(j) + ']';
+    if path <> '' then
+    begin
+      w.ExpandItem(preffix + selection);
+      w.SelectItem(preffix + selection);
+      arr := String2Array(path, '\');
+      if IsArray(arr) then
+      	for i := VarArrayLowBound(arr, 1) to VarArrayHighBound(arr,1) do
+        begin
+        	for j := 0 to w.wItemCount do 
+          	if j = w.wItemCount then
+              Raise('Элемент ' + arr[i] + ' не найден в дереве!')
+            else
+        		  if StringCompare(arr[i], w.wItem[j]) then 
+                break;
+          selection := selection + '|[' + IntToStr(j) + ']';
+          if (i <> VarArrayHighBound(arr,1)) then 
+            w.ExpandItem(preffix + selection);
+          w.SelectItem(preffix + selection);
+        end;
+    end
+    else
+    	w.SelectItem(preffix + selection);
+  	Result := StringCompare('*' + StringReplace(path, '\', '|', 1) + '*', w.wSelection);
+    
+    //TC antibug
+    w := FindWindowByPath(wnd, 'WNDCLASS:=SysTreeView32;MAXDEPTH:=2');
+    
+    if Result and isCloseDialog then
+      Sys.Keys('[Enter]')
+    else
+      if IsExists(w) then 
+        Sys.Keys('[Esc]');
+  except
+    Result := false;
+    if IsExists(w) then Sys.Keys('[Esc]');
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    paramString:
+}
+const
+  MFT_ERROR_PRIME_VALUE_EMPTY = 'Не задано значение*поля*';
+  MFT_ERROR_PRIME_EMAIL_INVALID = 'Ошибочный*почтовый*адрес*';  
+  MFT_INFO_PRIME_EXISTS = 'Рассылка*уже*существует*';
+  MFT_CONFIRM_ALREADY_SAVED = '*Запрос уже был сохранен.*';
+
+function SavePrimeCard(
+  const paramString : String = ''
+) : boolean;
+  var
+    paramList: OleVariant;
+    errorForms, mfData, knownForms : OleVariant;
+    isReturnMessageForm, res  : boolean;
+begin
+  try
+    errorForms := [
+      ([MFT_ERROR, MFT_ERROR_PRIME_VALUE_EMPTY, 'ОК']),
+      ([MFT_ERROR, MFT_ERROR_PRIME_EMAIL_INVALID, 'ОК']),
+      ([MFT_INFO, MFT_INFO_PRIME_EXISTS, 'ОК']),      
+      ([MFT_CONFIRMATION, MFT_CONFIRM_ALREADY_SAVED, 'Да'])
+    ];
+    knownForms := nil;
+  	Result := false;
+    //
+    paramList := ParseParamString(paramString);
+    isReturnMessageForm := VarToBool( GetParam(paramList, 'IsReturnMessageForm', 'false') );
+    //сохраняем
+    if not IsExists(F1Prime_GetFromMainWindow('КАРТОЧКА ЗАПРОСА')) then
+      Raise('Не найдена КЗ Прайм');
+    
+    if not ClickToolbarButton( F1Prime_GetFromMainWindow('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Сохранить' ) then 
+      Raise('Не получилось кликнуть по кнопке "Сохранить"');
+      
+    // ждем и обрабатываем сообщения
+    res := CheckForKnownMessageForms(errorForms, mfData, Options.Run.Timeout div 60 );
+    if isReturnMessageForm then 
+      Result := mfData 
+    else
+      if StringCompare(MFT_CONFIRM_ALREADY_SAVED, GetParam(mfData, WFMF_RES_MSGTEXT)) then
+        Result := true
+      else
+        Result := not res;
+
+    // выходим если форма известна либо она есть и сказано выходить на формах
+    //    if (not res) OR (isReturnMessageForm AND (GetParam(mfData, WFMF_RES_MSGTYPE)  <> MFT_NOT_FOUND) ) then Exit; 
+  except
+    Log.Message('SavePrimeCard: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function ExportPrimeCard(
+  const dirName : String;
+  const paramString : String = ''
+) : boolean;
+const
+  FUNCTION_NAME = 'ExportPrimeCard';
+var
+  paramList;
+begin
+  try
+  	Result := false;
+
+    paramList := ParseParamString(paramString);
+    //isReturnMessageForm := VarToBool( GetParam(paramList, 'IsReturnMessageForm', 'false') );
+
+    if not Position_Internal(F1Prime_GetFromMainWindow('СПИСОК РАССЫЛОК'), '*', DELIM_CHAR, true) then
+      Raise('Не найдена хотя бы одна рассылка. Экспорт не возможен!');
+    if not ClickToolbarButton(F1Prime_GetFromMainWindow('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"'), 'Экспортировать все*') then 
+      Raise('Не получилось вызвать диалог сохранения новостных лент');
+      
+    if not SelectPathInTreeView(F1Prime_GetFromMainWindow('ФОРМА "ОБЗОР ПАПОК"'), dirName, 'IsCloseDialog:=true') then
+      Raise('Не получилось выбрать путь к каталогу "' + dirName + '"');
+      
+    Result := true;
+  except
+    Log.Message('ExportPrimeCard: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+Записывает в лог операцию удаления файлов 
+}
+procedure WriteDelOperInLog(
+  path : string;
+  functionName : string 
+);
+const
+  DELLOGS_FOLDER = '\\strelka\c$\DelLogs';
+var
+  fileObj;
+  fileName;
+begin
+  fileName := Utilities.IncludeTrailingBackslash(DELLOGS_FOLDER) + COMPNAME + '___' + DateToStr(Utilities.Date) + '.log';
+
+  if NOT Utilities.DirectoryExists(DELLOGS_FOLDER) then
+    Utilities.CreateDir(DELLOGS_FOLDER);
+
+  AssignFile(fileObj, fileName);
+  if FileExists(fileName) then  
+    Append(fileObj)
+  else
+    Rewrite(fileObj);
+  if path = '' then path := 'null';
+  
+  write(fileObj, path + '   |   ' +  TimeToStr(Utilities.Time) + '    |    func:=' + functionName + endOfLine);
+  closeFile(fileObj);  
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function ReadTextFromFile(
+  const fileName : String
+): String;
+  const
+    FUNCTION_NAME = 'ReadTextFromFile';
+begin
+  try
+//    if FSO.FileExists(fileName) AND (FSO.GetFile(fileName).Size > 0) then
+//      Result := FSO.OpenTextFile(fileName, FSO_FOR_READING, false).ReadAll
+//    else
+//      Result := '';   
+    Result := GetFileBody(fileName);
+       
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function WriteTextToFile(
+  const fileName : String;
+  const text : String
+): Boolean;
+  const
+    FUNCTION_NAME = 'WriteTextToFile';
+    COUNT_TO_WRITE = 3;
+  var
+    i, fileText : integer;    
+begin
+  try
+    {for i := 1 to COUNT_TO_WRITE do
+    begin}
+      //FSO.OpenTextFile(fileName, FSO_FOR_WRITING, true).Write(text);
+      SetFileBody(fileName, text);
+      fileText := GetFileBody(fileName);
+      Result := ( fileText = text);
+{      if Result then break;
+    end;}
+    if NOT Result then
+      Raise('Содержимое файла после записи не равно заданному!');
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([fileName, text, fileText, i], ['fileName', 'text', 'fileText', 'i']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+procedure AppendTextToFile(  
+  const fileName : String;
+  const text : String
+);
+  const
+    FUNCTION_NAME = 'AppendTextToFile';
+begin
+  try
+    FSO.OpenTextFile(fileName, FSO_FOR_APPENDING, true).Write(text);
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+
+const
+  FHT_BY_NSDT = 1; // хэш считается по имени, размеру и дате последнего изменения файла (NSDT -> Name, Size, Date, Time)
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function ComputeFileHash(
+  const hashType : Integer;
+  const pathToFile : String
+) : String ;
+  const
+    FUNCTION_NAME = 'ComputeFileHash';
+  var
+    fsoFile : OleVariant;    
+begin
+  try
+    if NOT FSO.FileExists(pathToFile) then
+      Raise('Файл не существует!');
+    //
+    case hashType of
+      FHT_BY_NSDT :
+        begin
+          fsoFile := FSO.GetFile(pathToFile); 
+          Result := AnsiUpperCase(fsoFile.Name + VarToStr(fsoFile.Size) + ' ' + VarToStr(fsoFile.DateLastModified)); 
+        end; 
+    else
+      Raise( Format('Неивестный тип хеша (%d)!', [hashType]));
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([hashType, pathToFile], ['hashType', 'pathToFile']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+    Синхронизирует папки. Содержимое в целевой папке становится таким же как и в исходной
+  RESULT:
+  REMARK:
+}
+function OneWayFolderSync(
+  const srcFolder : String;
+  const dstFolder : String;
+  const paramString : String = '';
+  const srcExcludeArr : OleVariant = nil;
+  const dstExcludeArr : OleVariant = nil    
+) : Boolean;
+  const
+    IS_DEBUG = false;
+    FUNCTION_NAME = 'OneWayFolderSync';
+    MAX_DEEP = 10000;
+  var
+    paramList, tempArr : OleVariant;
+    p_HashType; 
+    srcFiles, dstFiles; // массивы путей файлов в исходной и целевой папке
+    toDelFiles, toCopyFiles, toSyncFiles; // массивы с файлами для удаления, копирования, синхронизации
+    i, j : integer;
+    isCopy : boolean;
+    toDelFile, toCopySrcFile, toCopyDstFile, toSyncSrcFile, toSyncDstFile  : String;
+    srcFileHash, dstFileHash;   
+begin
+  try
+    Result := false;
+    //
+    srcFolder := IncludeTrailingBackslash(srcFolder);
+    if NOT DirectoryExists(srcFolder) then Raise('Исходная папка не существует!');
+    dstFolder := IncludeTrailingBackslash(dstFolder);
+    if NOT DirectoryExists(dstFolder) then Raise('Целевая папка не существует!');
+    if NOT IsArray(srcExcludeArr) then srcExcludeArr := nil;
+    if NOT IsArray(dstExcludeArr) then dstExcludeArr := nil;
+    //
+    paramList := ParseParamString(paramString);
+    p_HashType := Evaluate( GetParam(paramList,
+      'HashType',
+      FHT_BY_NSDT ) );
+    
+    // получаем массивы имен файлов с путями относительно папок для целевой и исходной папок
+    srcFiles := GetFileList(srcFolder, '*', MAX_DEEP, true, true, true);          
+    if IsArray(srcFiles) then
+    begin
+      // исключаем из массива те, которые надо исключить
+      srcFiles := Subtraction(srcFiles, srcExcludeArr, CM_STRINGCOMPARE_SECOND_FIRST);
+      // приводим к верхнему регистру
+      for i := VarArrayLowBound(srcFiles, 1) to VarArrayHighBound(srcFiles, 1) do
+        srcFiles[i] := AnsiUpperCase(srcFiles[i]);
+    end;            
+    dstFiles := GetFileList(dstFolder, '*', MAX_DEEP, true, true, true);
+    if IsArray(dstFiles) then
+    begin
+      // исключаем из массива те, которые надо исключить
+      dstFiles := Subtraction(dstFiles, dstExcludeArr, CM_STRINGCOMPARE_SECOND_FIRST);
+      // приводим к верхнему регистру    
+      for i := VarArrayLowBound(dstFiles, 1) to VarArrayHighBound(dstFiles, 1) do
+        dstFiles[i] := AnsiUpperCase(dstFiles[i]);
+    end;    
+
+    if IS_DEBUG then
+      Log.Message('srcFiles, dstFiles', DbgVarValueEx([srcFiles, dstFiles], ['srcFiles', 'dstFiles']), LOG_PRIORITY_INTERNAL);            
+    
+    // функции арифметики над множествами предполагают, что если множество пустое, то оно равно nil, поэтому преобразуем не массивы в nil
+    if NOT IsArray(srcFiles) then srcFiles := nil;
+    if NOT IsArray(dstFiles) then dstFiles := nil;
+    // теперь определяем что и с какими файлами делать
+      // файлы для удаления - это те файлы, которые присутствуют в целевой папке, но отсутствуют в исходной
+    if IS_DEBUG then StartTimeMeasure('Subtraction(dstFiles, srcFiles)');
+    toDelFiles := Subtraction(dstFiles, srcFiles);
+    if IS_DEBUG then EndTimeMeasure('Subtraction(dstFiles, srcFiles)');
+      // файлы для копирования - это файлы, которые отсутствуют в целевой папке, но присутствуют в исходной
+    if IS_DEBUG then StartTimeMeasure('Subtraction(srcFiles, dstFiles)');  
+    toCopyFiles := Subtraction(srcFiles, dstFiles);
+    if IS_DEBUG then EndTimeMeasure('Subtraction(srcFiles, dstFiles)');
+      // файлы для синхронизации - которые присутствуют и там и там
+    if IS_DEBUG then StartTimeMeasure('Intersection(dstFiles, srcFiles)');  
+    toSyncFiles := Intersection(dstFiles, srcFiles);
+    if IS_DEBUG then EndTimeMeasure('Intersection(dstFiles, srcFiles)');
+
+    if IS_DEBUG then
+      Log.Message('Перед обработкой файлов для синхронизации. toDelFiles, toCopyFiles, toSyncFiles', DbgVarValueEx([toDelFiles, toCopyFiles, toSyncFiles], ['toDelFiles', 'toCopyFiles', 'toSyncFiles']), LOG_PRIORITY_INTERNAL);                
+    
+    // разбираемся с файлами для синхронизации
+    // те, которые не совпадают, надо будет удалить, а затем скопировать
+    if IsArray(toSyncFiles) then
+      for i := VarArrayLowBound(toSyncFiles, 1) to VarArrayHighBound(toSyncFiles, 1) do
+      begin
+        if (AnsiLastChar(toSyncFiles[i]) = '\') then continue; // папки пропускаем
+        toSyncSrcFile := srcFolder + toSyncFiles[i];
+        toSyncDstFile := dstFolder + toSyncFiles[i];
+        // считаем хэши файлов
+        srcFileHash := ComputeFileHash(p_HashType, toSyncSrcFile);
+        dstFileHash := ComputeFileHash(p_HashType, toSyncDstFile);
+        // сравниваем
+        if (srcFileHash <> dstFileHash) then
+        begin // если хэши не совпадают, то это файл надо удалить, а затем скопировать
+          AddToArray(toDelFiles, toSyncFiles[i]);
+          AddToArray(toCopyFiles, toSyncFiles[i]);
+        end;
+      end;    
+
+    if IS_DEBUG then
+      Log.Message('После обработки файлов для синхронизации. toDelFiles, toCopyFiles, toSyncFiles', DbgVarValueEx([toDelFiles, toCopyFiles, toSyncFiles], ['toDelFiles', 'toCopyFiles', 'toSyncFiles']), LOG_PRIORITY_INTERNAL);
+          
+    // удаляем файлы и папки, которые надо удалить
+    if IsArray(toDelFiles) then
+      for i := VarArrayLowBound(toDelFiles, 1) to VarArrayHighBound(toDelFiles, 1) do
+      begin
+        toDelFile := dstFolder + toDelFiles[i];
+        // 
+        if NOT DeleteFileOrFolder(toDelFile) then
+          Raise( Format('Не получилось удалить файл или папку "%s"!', [toDelFile]) );  
+      end;
+      
+    // копируем файлы и папки, которые надо скопировать (а если папка пустая, то создать ее)
+    if IsArray(toCopyFiles) then
+      for i := VarArrayLowBound(toCopyFiles, 1) to VarArrayHighBound(toCopyFiles, 1) do
+      begin
+        toCopySrcFile := srcFolder + toCopyFiles[i];
+        toCopyDstFile := dstFolder + toCopyFiles[i];
+        //
+        if (AnsiLastChar(toCopySrcFile) = '\') then
+        begin // это папка, ее просто создаем
+          if (NOT DirectoryExists(toCopyDstFile)) AND (NOT ForceDirectories(toCopyDstFile)) then
+            Raise( Format('Не удалось создать папку "%s"!', [toCopyDstFile]) );
+        end
+        else
+        begin // это файл, его копируем
+          if (CopyFiles(toCopySrcFile, toCopyDstFile ,false) <> 1) then
+            Raise( Format('Не удалось скопировать файл "%s" в "%s"!', [toCopySrcFile, toCopyDstFile]) );
+        end;        
+      end;
+    
+    Result := true;                                                       
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 
+      DbgVarValueEx([toDelFile, toCopySrcFile, toCopyDstFile, toSyncSrcFile, toSyncDstFile, srcFileHash, dstFileHash, i, toDelFiles, toCopyFiles, toSyncFiles, srcFiles, dstFiles, p_HashType, paramList, srcFolder, dstFolder, paramString], ['toDelFile', 'toCopySrcFile', 'toCopyDstFile', 'toSyncSrcFile', 'toSyncDstFile', 'srcFileHash', 'dstFileHash', 'i', 'toDelFiles', 'toCopyFiles', 'toSyncFiles', 'srcFiles', 'dstFiles', 'p_HashType', 'paramList', 'srcFolder', 'dstFolder', 'paramString']),
+      pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+procedure Test_OneWayFolderSync;
+  const
+    SRC_FOLDER_NAME = 'testSrcFolder';
+    DST_FOLDER_NAME = 'testDstFolder';
+    MAX_FILES_COUNT = 100;
+  var
+    rootFolder, srcFolder, dstFolder, checkType;
+    hashType, owsfParamString, i, j, k, isFoldersEquals, subFolder;
+begin
+  owsfParamString := 'HashType := FHT_BY_NSDT';
+  rootFolder := 'C:\TEMP';
+  //
+  rootFolder := IncludeTrailingBackslash(rootFolder);
+  if NOT DirectoryExists(rootFolder) then
+    Raise( Format('rootFolder (%s) не существует!', [rootFolder]) );
+  srcFolder := IncludeTrailingBackslash(rootFolder + SRC_FOLDER_NAME);
+  dstFolder := IncludeTrailingBackslash(rootFolder + DST_FOLDER_NAME);
+        
+  // Проверяем, как ведет себя на пустых папках
+  for i := 1 to 5 do
+  begin
+    RemoveFoldersExt(srcFolder);
+    RemoveFoldersExt(dstFolder);
+    ForceDirectories(srcFolder);
+    ForceDirectories(dstFolder);
+    
+    case i of 
+      1 : checkType := 'Проверка на пустых папках';
+      2 : 
+        begin
+          checkType := 'Исходная папка пустая, а целевая нет';
+          for j := 1 to MAX_FILES_COUNT do
+            WriteTextToFile(dstFolder + 'test_file_' + IntToStr(j), GetRandomString);
+        end;
+      3 : 
+        begin
+          checkType := 'Целевая папка пустая, а исходная нет';
+          for j := 1 to MAX_FILES_COUNT do
+            WriteTextToFile(srcFolder + 'test_file_' + IntToStr(j), GetRandomString);
+        end;
+      4 :
+        begin
+          checkType := 'Файлы есть и там и там';
+          // создаем кучку файлов
+          for j := 1 to MAX_FILES_COUNT do
+            WriteTextToFile(srcFolder + 'test_file_' + IntToStr(j), GetRandomString);
+          // копируем часть в папку назначение
+          for j := (MAX_FILES_COUNT div 3) to MAX_FILES_COUNT do
+            CopyFiles(srcFolder + 'test_file_' + IntToStr(j), dstFolder + 'test_file_' + IntToStr(j), false);
+          // часть удаляем их исходной папки
+          for j := (MAX_FILES_COUNT*2 div 3) to MAX_FILES_COUNT do
+            DeleteFile(srcFolder + 'test_file_' + IntToStr(j));
+          Delay(2000);
+          // модифицируем файлы в исходной папке
+          for j := (MAX_FILES_COUNT div 3) to (MAX_FILES_COUNT div 3) + 3 do
+            WriteTextToFile(srcFolder + 'test_file_' + IntToStr(j), GetRandomString);
+          // и в целевой  
+          for j := (MAX_FILES_COUNT*2 div 3) downto (MAX_FILES_COUNT*2 div 3) - 3  do
+            WriteTextToFile(srcFolder + 'test_file_' + IntToStr(j), GetRandomString);
+          // теперь у нас в обоих папках долны получится частично пересекающиеся множества файлов
+        end;
+
+      5 :
+        begin
+          checkType := 'Файлы и папки есть и там и там';
+          // создаем кучку файлов
+          for k := 1 to 4 do
+          begin
+            if (k = 1) then 
+              subFolder := ''
+            else
+            begin
+              subFolder := 'SubFolder_' + IntToStr(k) + '\';
+              ForceDirectories(srcFolder + subFolder);
+              ForceDirectories(dstFolder + subFolder);
+            end;
+            //            
+            for j := 1 to MAX_FILES_COUNT do
+              WriteTextToFile(srcFolder + subFolder + 'test_file_' + IntToStr(j), GetRandomString);
+            if (k = 4) then break;  
+            // копируем часть в папку назначение
+            for j := (MAX_FILES_COUNT div 3) to MAX_FILES_COUNT do
+              CopyFiles(srcFolder + subFolder +'test_file_' + IntToStr(j), dstFolder + subFolder + 'test_file_' + IntToStr(j), false);
+            // часть удаляем их исходной папки
+            for j := (MAX_FILES_COUNT*2 div 3) to MAX_FILES_COUNT do
+              DeleteFile(srcFolder + subFolder + 'test_file_' + IntToStr(j));
+            Delay(2000);
+            // модифицируем файлы в исходной папке
+            for j := (MAX_FILES_COUNT div 3) to (MAX_FILES_COUNT div 3) + 3 do
+              WriteTextToFile(srcFolder + subFolder + 'test_file_' + IntToStr(j), GetRandomString);
+            // и в целевой  
+            for j := (MAX_FILES_COUNT*2 div 3) downto (MAX_FILES_COUNT*2 div 3) - 3  do
+              WriteTextToFile(srcFolder + subFolder +'test_file_' + IntToStr(j), GetRandomString);
+          end;              
+        end;                
+    else
+      Raise( Format('Значение i = %d не поддерживается', [i]) );  
+    end;   
+          
+    try
+      try
+        Log.AppendFolder(checkType);
+        Log.Message( Format('OneWayFolderSync результат: %s' , [Bool2Str(OneWayFolderSync(srcFolder, dstFolder, owsfParamString))]) );
+        isFoldersEquals := CompareDirectory(srcFolder, dstFolder, '');
+        Log.Message( Format('CompareDirectory результат: %s', [Bool2Str(isFoldersEquals)]) );
+        if NOT isFoldersEquals then Log.Error('Папки не равны! Синхронизация не работает!');
+      finally
+        Log.PopLogFolder;
+      end;
+    except
+      Log.Error('Exception: ' + ExceptionMessage);
+    end;  
+  end;
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function DeleteExceptSpecified(
+  const rootFolder : String; // из этой папки будем удалять
+  const mask : String; // по этой маске будем выбирать объекты для удаления
+  const excludeArr : OleVariant // если имя объекта совпадет с заданными здесь, то удалять не будем  
+): boolean;
+  const
+    FUNCTION_NAME = 'DeleteExceptSpecified';
+  var
+    filesArr, fileToDel, i, j, isNeedSkip : OleVariant;    
+begin
+  try
+    Result := true;
+    //
+    if NOT DirectoryExists(rootFolder) then
+      Raise('rootFolder не существует!');
+    rootFolder := IncludeTrailingBackslash(rootFolder);
+    if NOT IsArray(excludeArr) then
+      Raise('excludeArr должен быть массивом!');  
+    // получаем список файлов (и папок)
+    filesArr := GetFileList(rootFolder, '*', 0, true, true, true);
+    if IsArray(filesArr) then
+      for i := VarArrayLowBound(filesArr, 1) to VarArrayHighBound(filesArr, 1) do
+      begin
+        fileToDel := ExcludeTrailingBackslash(filesArr[i]);
+        // проверяем, может нам надо пропустить файл (или папку)
+        isNeedSkip := false;
+        for j := VarArrayLowBound(excludeArr, 1) to VarArrayHighBound(excludeArr, 1) do
+          if StringCompare(fileToDel, excludeArr[j]) then
+          begin
+            isNeedSkip := true;
+            break;
+          end; 
+        if isNeedSkip then continue;
+        // удаляем   
+        fileToDel := rootFolder + fileToDel;
+        if NOT DeleteFileOrFolder(fileToDel) then
+          Raise( Format('Не можем удалить файл или папку "%s"!', [fileToDel]) );           
+      end;              
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,
+      DbgVarValueEx([filesArr, fileToDel, i, j, isNeedSkip, rootFolder, mask, excludeArr], ['filesArr', 'fileToDel', 'i', 'j', 'isNeedSkip', 'rootFolder', 'mask', 'excludeArr']),
+      pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;

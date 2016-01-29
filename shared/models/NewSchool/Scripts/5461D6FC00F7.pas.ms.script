@@ -1,0 +1,59 @@
+// TncsReplyDecsriptionList 5461D6FC00F7 SimpleClass Class
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_5461D6FC00F7
+
+INCLUDE '5461D6C30025.pas.ms.script'
+
+: ME_5461D7260382
+ CONST UID '5461D7260382'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_5461D6C30025 // TncsReplyDescription
+ ;
+
+ @SELF
+; // ME_5461D7260382 ItemType
+
+: ME_5461D6FC00F7
+ CONST UID '5461D6FC00F7'
+ CONST Name 'TncsReplyDecsriptionList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5461D7260382 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5461D6FC00F7 TncsReplyDecsriptionList

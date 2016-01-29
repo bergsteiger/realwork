@@ -1,0 +1,173 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Interface/SetOf.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Interface::SetOf
+//
+// Множество
+// ---
+// Декларация типа определяет производный тип - множество значений исходного. Исходный задаются как
+// базовый класс (связь наследования).
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: SetOf::Class
+implementation @ <<SetOf>>
+//? Множество
+//? Декларация типа определяет производный тип - множество значений исходного. Исходный задаются как базовый класс (связь наследования).
+//< *::Class,*::Category
+
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_setof.gif
+//L code_setof
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 240,205,240
+//$ l 120,40,120
+//$ f 120,40,120
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+ ?inherited
+ if ( ( %S get_up ( 'force usage' ) ) %!= ( %S get_up_def ( 'force usage' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force usage* = *'
+  %S get_up ( 'force usage' ) '* - явно определяет, что элемент будет кем-то использован (нужно для проверки)'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4721B1C60157*
+//c                               {}
+//r {<{}{}{%GC}>!=1}:             {%SS должен наследоваться точно от одного типа}
+//r {%f_is_used(%S)=false}:       {%SS ни кем не используется}
+//#UC END# *4704C0E30186for4721B1C60157*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет префикс элемента
+//%f _pas_ElementPrefix
+: pas_ElementPrefix OBJECT IN %S
+// параметры: anElement: void = %1
+//#UC START# *493D246701FEfor4721B1C60157*
+//#UC END# *493D246701FEfor4721B1C60157*
+; // pas_ElementPrefix
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4721B1C60157*
+//#UC END# *470F15B800CBfor4721B1C60157*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4721B1C60157*
+//R  
+//	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+ if ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+  [%f] add_to_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% 
+//	<{}{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%G)")!=true&%f_pas_IsSameUnit(%S%P,%G%P)=true}[%GX\n]>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %G )% )% ) %!=  true AND 
+    ( ( [%f] pas_IsSameUnit %( %S ->P  %, %G ->P  )% ) %==  true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %G |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for G
+//	%f_pas_OpenType(%S)\
+  [%f] pas_OpenType %( %S )% 
+//	#%f_pas_TypeName(%S) = set of %f_pas_TypeName(%G);\
+  out_indent [%f] pas_TypeName %( %S )% ' = set of '
+  [%f] pas_TypeName %( %G )% ';'
+//	[\n# \{* %SD \}]]
+  if NOT-EMPTY
+  begin
+   #13#10
+   out_indent ' {* '
+   %S |D ' }' 
+  end // if
+  NOP
+ end // if
+//#UC END# *470F1571031Cfor4721B1C60157*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4721B1C60157*
+//#UC END# *477398E501C0for4721B1C60157*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4721B1C60157*
+//G %PU
+//#UC END# *46E6D4BB0339for4721B1C60157*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<SetOf>>
+

@@ -1,0 +1,2365 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/ServerLib/High/ServerLibrary.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::ServerLib::High::ServerLibrary
+//
+// Cерверная библиотека
+// ---
+// Удаленная серверная компонента (библиотека)
+// Определляет генерацию распределенной сервеной компоненты.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ServerLibrary::Category
+implementation @ <<ServerLibrary>>
+//? Cерверная библиотека
+//? Удаленная серверная компонента (библиотека)
+//? Определляет генерацию распределенной сервеной компоненты.
+//> ServerInterfaces::Category
+
+//= Library::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_server_library.gif
+//L code_server_library
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 215,215,255
+//$ l 10,10,255
+//$ f 10,10,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p old gcm:b=false ? определяет, что модуль является частью старой модели
+//p exec mode=idle|concluded ? определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{old gcm}"!="%S{!old gcm}"}%f_up_prefix(%S) *old gcm* = *%S{old gcm}* - определяет, что модуль является частью старой модели
+ ?inherited
+ if ( ( %S get_up ( 'old gcm' ) ) %!= ( %S get_up_def ( 'old gcm' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *old gcm* = *'
+  %S get_up ( 'old gcm' ) '* - определяет, что модуль является частью старой модели'
+//	][{"%S{exec mode}"!="%S{!exec mode}"}%f_up_prefix(%S) *exec mode* = *%S{exec mode}* - определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+ end // if
+ if ( ( %S get_up ( 'exec mode' ) ) %!= ( %S get_up_def ( 'exec mode' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *exec mode* = *'
+  %S get_up ( 'exec mode' ) '* - определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Library::Category
+// дампит дополнительные инклюды
+//%f _add_cpp_inc
+; // wiki_up_print
+
+: add_cpp_inc OBJECT IN %S
+//#UC START# *470370AC0261for47037635038A*
+//	[{%XU=cpp}<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}\#include "%f_with_gen_id(h,%AL)"
+ if ( ( %X |U ) %== 'cpp' ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ClientInterceptor' OR 
+    ( ( %A |S ) %== 'ServerInterceptor'  ) ) then
+   begin
+    '#include "'
+    [%f] with_gen_id %( 'h' %, %A |L )% 
+//	><{}{%CS=ServerInterfaces}[\#include "%f_with_gen_id(fctr.h,%CL)"
+
+    ++! l_Counter
+   end // if
+  end // for A
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'ServerInterfaces' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '#include "'
+     [%f] with_gen_id %( 'fctr.h' %, %C |L )% 
+//	]>][{%XU=fctr.h|%XU=fctr.cpp}[<{}{%C#f_IsInterfaces()=true|%CS=ServerInterfaces}%C<{}{%CS=Settings}\#include "%f_with_gen_id(h,%CL)"
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ if ( ( %X |U ) %== 'fctr.h' OR 
+   ( ( %X |U ) %== 'fctr.cpp'  ) ) then
+ begin
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f IsInterfaces %( )% ) %==  true OR 
+     ( ( %C |S ) %== 'ServerInterfaces'  ) ) then
+    begin
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'Settings' ) then
+       begin
+        '#include "'
+        [%f] with_gen_id %( 'h' %, %C |L )% 
+//	>>]]
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+//#UC END# *470370AC0261for47037635038A*
+; // add_cpp_inc
+
+
+// перекрытие базового стереотипа Library::Category
+// Метод генерирует дополнительную реализацию.
+//%f _addition_definitions
+: addition_definitions OBJECT IN %S
+//#UC START# *492D4842032Cfor47037635038A*
+//	[{%XU=cpp&<{}{%AS=CurrentSlot}{%AC}>!=0}
+ if ( ( %X |U ) %== 'cpp' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  #13#10
+
+//	<{}{%AS=CurrentSlot}{%A}
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    #13#10
+
+//	PortableInterceptor::SlotId CurrentSlotAccessor::s_%f_to_omg(%AN)_slot_id = 0;>
+    'PortableInterceptor::SlotId CurrentSlotAccessor::s_'
+    [%f] to_omg %( %A |N )% '_slot_id = 0;' 
+    ++! l_Counter
+   end // if
+  end // for A
+//	
+  #13#10
+
+//	<{}{%AS=CurrentSlot}{%A}PortableInterceptor::SlotId CurrentSlotAccessor::get_%f_to_omg(%AN)_slot_id () {
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    'PortableInterceptor::SlotId CurrentSlotAccessor::get_'
+    [%f] to_omg %( %A |N )% '_slot_id () {'
+//		return CurrentSlotAccessor::s_%f_to_omg(%AN)_slot_id;
+    '	return CurrentSlotAccessor::s_'
+    [%f] to_omg %( %A |N )% '_slot_id;'
+//	}
+    '}'
+//	
+    #13#10
+
+//	void CurrentSlotAccessor::set_%f_to_omg(%AN)_slot_id (PortableInterceptor::SlotId allocated_slot) {
+    'void CurrentSlotAccessor::set_'
+    [%f] to_omg %( %A |N )% '_slot_id (PortableInterceptor::SlotId allocated_slot) {'
+//		CurrentSlotAccessor::s_%f_to_omg(%AN)_slot_id = allocated_slot;
+    '	CurrentSlotAccessor::s_'
+    [%f] to_omg %( %A |N )% '_slot_id = allocated_slot;'
+//	}>
+    '}' 
+    ++! l_Counter
+   end // if
+  end // for A
+//	%S%[Library::Category]\
+  call-inherited:: 'Library' SAME_NAME %( )%
+//	]
+ end // if
+//#UC END# *492D4842032Cfor47037635038A*
+; // addition_definitions
+
+
+// перекрытие базового стереотипа Library::Category
+// Метод генерирует дополнительную декларацию.
+//%f _additional_declarations
+: additional_declarations OBJECT IN %S
+//#UC START# *492D3C81013Ffor47037635038A*
+//	[{%XU=h&<{}{%AS=CurrentSlot}{%AC}>!=0}
+ if ( ( %X |U ) %== 'h' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  #13#10
+
+//	class CurrentSlotAccessor {
+  'class CurrentSlotAccessor {'
+//	public:<{}{%AS=CurrentSlot}
+  'public:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    #13#10
+
+//		static PortableInterceptor::SlotId get_%f_to_omg(%AN)_slot_id ();>
+    '	static PortableInterceptor::SlotId get_'
+    [%f] to_omg %( %A |N )% '_slot_id ();' 
+    ++! l_Counter
+   end // if
+  end // for A
+//	
+  #13#10
+
+//	private:
+  'private:'
+//		friend class LibHomeImpl;<{}{%AS=CurrentSlot}
+  '	friend class LibHomeImpl;'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    #13#10
+
+//		static void set_%f_to_omg(%AN)_slot_id (PortableInterceptor::SlotId allocated_slot);><{}{%AS=CurrentSlot}
+    '	static void set_'
+    [%f] to_omg %( %A |N )% '_slot_id (PortableInterceptor::SlotId allocated_slot);' 
+    ++! l_Counter
+   end // if
+  end // for A
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    #13#10
+
+//		static PortableInterceptor::SlotId s_%f_to_omg(%AN)_slot_id;>
+    '	static PortableInterceptor::SlotId s_'
+    [%f] to_omg %( %A |N )% '_slot_id;' 
+    ++! l_Counter
+   end // if
+  end // for A
+//	}; //CurrentSlotAccessor
+  '}; //CurrentSlotAccessor'
+//	
+  #13#10
+
+//	%S%[Library::Category]]
+  call-inherited:: 'Library' SAME_NAME %( )%
+ end // if
+//#UC END# *492D3C81013Ffor47037635038A*
+; // additional_declarations
+
+
+// перекрытие базового стереотипа Library::Category
+// Метод генерирует дополнительную реализацию.
+//%f _additional_def_java
+: additional_def_java OBJECT IN %S
+//#UC START# *492E98DB0075for47037635038A*
+//	[{%XU=java&<{}{%AS=CurrentSlot}{%AC}>!=0}\
+ if ( ( %X |U ) %== 'java' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+//	public static class CurrentSlotAccessor {
+  'public static class CurrentSlotAccessor {'
+//	<{}{%AS=CurrentSlot}{%A}		private static int s%f_to_borland(%AN)SlotId = 0;
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    '		private static int s'
+    [%f] to_borland %( %A |N )% 'SlotId = 0;'
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for A
+//	<{}{%AS=CurrentSlot}{%A}		public static int get%f_to_borland(%AN)SlotId () {
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    '		public static int get'
+    [%f] to_borland %( %A |N )% 'SlotId () {'
+//				return s%f_to_borland(%AN)SlotId;
+    '			return s'
+    [%f] to_borland %( %A |N )% 'SlotId;'
+//			}
+    '		}'
+//			
+    '		'
+//			private static void set%f_to_borland(%AN)SlotId (int alocatedSlot) {
+    '		private static void set'
+    [%f] to_borland %( %A |N )% 'SlotId (int alocatedSlot) {'
+//				s%f_to_borland(%AN)SlotId = alocatedSlot;
+    '			s'
+    [%f] to_borland %( %A |N )% 'SlotId = alocatedSlot;'
+//			}>
+    '		}' 
+    ++! l_Counter
+   end // if
+  end // for A
+//		} // CurrentSlotAccessor
+  '	} // CurrentSlotAccessor'
+//	%S%[Library::Category]]
+  call-inherited:: 'Library' SAME_NAME %( )%
+ end // if
+//#UC END# *492E98DB0075for47037635038A*
+; // additional_def_java
+
+
+// перекрытие базового стереотипа Library::Category
+// возвращает базовый класс LibHome, от которого должна наследоваться библиотека
+//%f _base_libhome
+: base_libhome OBJECT IN %S
+//#UC START# *47036DD50128for47037635038A*
+//	[{%X{lid}=cpp}{extends [{%XU=java}{ru.garant.shared.Core.Root_i.StdLibHomeBase}ru.garant.shared.CoreSrv.Root_i.CorbaLibHomeBase]}\
+ if ( ( %X get_up ( 'lid' ) ) %== 'cpp' ) then
+ begin
+//	virtual public [{%XU=h|%XU=cpp}{Core::Root_i::StdLibHomeBase}CoreSrv::Root_i::CorbaLibHomeBase]]
+  'virtual public '
+  if ( ( %X |U ) %== 'h' OR 
+    ( ( %X |U ) %== 'cpp'  ) ) then
+  begin
+   'CoreSrv::Root_i::CorbaLibHomeBase' 
+  end // if
+  else
+  begin
+   'Core::Root_i::StdLibHomeBase' 
+  end // else
+ end // if
+ else
+ begin
+  'extends '
+  if ( ( %X |U ) %== 'java' ) then
+  begin
+   'ru.garant.shared.CoreSrv.Root_i.CorbaLibHomeBase' 
+  end // if
+  else
+  begin
+   'ru.garant.shared.Core.Root_i.StdLibHomeBase' 
+  end // else
+ end // else
+//#UC END# *47036DD50128for47037635038A*
+; // base_libhome
+
+
+// перекрытие базового стереотипа Library::Category
+// подключает заколовок LibHome
+//%f _include_base_libhome
+: include_base_libhome OBJECT IN %S
+//#UC START# *47036D3D00ABfor47037635038A*
+//	[{%X{lid}=cpp}{import [{%XU=java}{ru.garant.shared.Core.Root_i.StdLibHomeBase}ru.garant.shared.CoreSrv.Root_i.CorbaLibHomeBase];}\
+ if ( ( %X get_up ( 'lid' ) ) %== 'cpp' ) then
+ begin
+//	\#include [{%XU=h|%XU=cpp}{"shared/Core/impl/Root_i/StdLibHomeBase.h"}"shared/CoreSrv/impl/Root_i/CorbaLibHomeBase.h"]]
+  '#include '
+  if ( ( %X |U ) %== 'h' OR 
+    ( ( %X |U ) %== 'cpp'  ) ) then
+  begin
+   'shared/CoreSrv/impl/Root_i/CorbaLibHomeBase.h' 
+  end // if
+  else
+  begin
+   'shared/Core/impl/Root_i/StdLibHomeBase.h' 
+  end // else
+ end // if
+ else
+ begin
+  'import '
+  if ( ( %X |U ) %== 'java' ) then
+  begin
+   'ru.garant.shared.CoreSrv.Root_i.CorbaLibHomeBase' 
+  end // if
+  else
+  begin
+   'ru.garant.shared.Core.Root_i.StdLibHomeBase' 
+  end // else
+  ';' 
+ end // else
+//#UC END# *47036D3D00ABfor47037635038A*
+; // include_base_libhome
+
+
+// перекрытие базового стереотипа Library::Category
+// дампит код реализации интерцепоторов
+//%f _interceptor_cpp
+: interceptor_cpp OBJECT IN %S
+//#UC START# *47036F1D0280for47037635038A*
+//	[{%XU=cpp&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}\
+ if ( ( %X |U ) %== 'cpp' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ServerInterceptor' OR 
+    ( ( %A |S ) %== 'ClientInterceptor'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+//	void LibHomeImpl::ORBInitializer::pre_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException) {
+  'void LibHomeImpl::ORBInitializer::pre_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException) {'
+//	<{}{%AS=ServerInterceptor}	{
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ServerInterceptor' ) then
+   begin
+    '	{'
+//			PortableInterceptor::ServerRequestInterceptor_var si = new %AN();
+    '		PortableInterceptor::ServerRequestInterceptor_var si = new '
+    %A |N '();'
+//			info-\>add_server_request_interceptor(si.in());
+    '		info->add_server_request_interceptor(si.in());'
+//		}
+    '	}'
+//	><{}{%AS=ClientInterceptor}	{
+
+    ++! l_Counter
+   end // if
+  end // for A
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ClientInterceptor' ) then
+   begin
+    '	{'
+//			PortableInterceptor::ClientRequestInterceptor_var ci = new %AN();
+    '		PortableInterceptor::ClientRequestInterceptor_var ci = new '
+    %A |N '();'
+//			info-\>add_client_request_interceptor(ci.in());
+    '		info->add_client_request_interceptor(ci.in());'
+//		}
+    '	}'
+//	><{}{%AS=CurrentSlot}
+
+    ++! l_Counter
+   end // if
+  end // for A
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    #13#10
+
+//		CurrentSlotAccessor::set_%f_to_omg(%AN)_slot_id (info-\>allocate_slot_id ());
+    '	CurrentSlotAccessor::set_'
+    [%f] to_omg %( %A |N )% '_slot_id (info->allocate_slot_id ());'
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for A
+//	}
+  '}'
+//	
+  #13#10
+
+//	void LibHomeImpl::ORBInitializer::post_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException) {
+  'void LibHomeImpl::ORBInitializer::post_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException) {'
+//	}
+  '}'
+//	
+  #13#10
+
+//	PortableInterceptor::ORBInitializer* LibHomeImpl::get_orb_initializer () const {
+  'PortableInterceptor::ORBInitializer* LibHomeImpl::get_orb_initializer () const {'
+//		return new ORBInitializer ();
+  '	return new ORBInitializer ();'
+//	}
+  '}'
+//	
+  #13#10
+
+//	]
+ end // if
+//#UC END# *47036F1D0280for47037635038A*
+; // interceptor_cpp
+
+
+// перекрытие базового стереотипа Library::Category
+// дампит код определения интерцепоторов
+//%f _interceptor_h
+: interceptor_h OBJECT IN %S
+//#UC START# *47036F3A01B5for47037635038A*
+//	[{%XU=h&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}
+ if ( ( %X |U ) %== 'h' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ServerInterceptor' OR 
+    ( ( %A |S ) %== 'ClientInterceptor'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  #13#10
+
+//		PortableInterceptor::ORBInitializer* get_orb_initializer () const;
+  '	PortableInterceptor::ORBInitializer* get_orb_initializer () const;'
+//	
+  #13#10
+
+//		class ORBInitializer: virtual public PortableInterceptor::ORBInitializer {
+  '	class ORBInitializer: virtual public PortableInterceptor::ORBInitializer {'
+//			void pre_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException);
+  '		void pre_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException);'
+//	
+  #13#10
+
+//			void post_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException);
+  '		void post_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException);'
+//		};
+  '	};'
+//	
+  #13#10
+
+//		friend class ORBInitializer;]
+  '	friend class ORBInitializer;' 
+ end // if
+//#UC END# *47036F3A01B5for47037635038A*
+; // interceptor_h
+
+
+// перекрытие базового стереотипа Library::Category
+// дампит код интерцепторов на java
+//%f _interceptor_java
+: interceptor_java OBJECT IN %S
+//#UC START# *47036F9A03B9for47037635038A*
+//	[{%XU=java&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}\
+ if ( ( %X |U ) %== 'java' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ServerInterceptor' OR 
+    ( ( %A |S ) %== 'ClientInterceptor'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+//		public static class ORBInitializer extends org.omg.CORBA.LocalObject implements org.omg.PortableInterceptor.ORBInitializer {
+  '	public static class ORBInitializer extends org.omg.CORBA.LocalObject implements org.omg.PortableInterceptor.ORBInitializer {'
+//				public void pre_init (org.omg.PortableInterceptor.ORBInitInfo info) {
+  '			public void pre_init (org.omg.PortableInterceptor.ORBInitInfo info) {'
+//		<{}{%AS=ServerInterceptor}
+  '	'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ServerInterceptor' ) then
+   begin
+    #13#10
+
+//					org.omg.PortableInterceptor.ServerRequestInterceptor si%f_to_borland(%AN) = new %f_type(%A) ();
+    '				org.omg.PortableInterceptor.ServerRequestInterceptor si'
+    [%f] to_borland %( %A |N )% ' = new '
+    [%f] type %( %A )% ' ();'
+//					try {
+    '				try {'
+//						info.add_server_request_interceptor(si%f_to_borland(%AN));
+    '					info.add_server_request_interceptor(si'
+    [%f] to_borland %( %A |N )% ');'
+//					} catch (org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName ex) {
+    '				} catch (org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName ex) {'
+//						Logs.LOG_SEX(ex);
+    '					Logs.LOG_SEX(ex);'
+//					}
+    '				}'
+//		><{}{%AS=ClientInterceptor}
+    '	' 
+    ++! l_Counter
+   end // if
+  end // for A
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ClientInterceptor' ) then
+   begin
+    #13#10
+
+//					org.omg.PortableInterceptor.ClientRequestInterceptor ci%f_to_borland(%AN) = new %f_type(%A) ();
+    '				org.omg.PortableInterceptor.ClientRequestInterceptor ci'
+    [%f] to_borland %( %A |N )% ' = new '
+    [%f] type %( %A )% ' ();'
+//		
+    '	'
+//					try {
+    '				try {'
+//						info.add_client_request_interceptor(ci%f_to_borland(%AN));
+    '					info.add_client_request_interceptor(ci'
+    [%f] to_borland %( %A |N )% ');'
+//					} catch (org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName ex) {
+    '				} catch (org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName ex) {'
+//						Logs.LOG_SEX(ex);
+    '					Logs.LOG_SEX(ex);'
+//					}
+    '				}'
+//		><{}{%AS=CurrentSlot}
+    '	' 
+    ++! l_Counter
+   end // if
+  end // for A
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'CurrentSlot' ) then
+   begin
+    #13#10
+
+//					CurrentSlotAccessor.set%f_to_borland(%AN)SlotId (info.allocate_slot_id ());
+    '				CurrentSlotAccessor.set'
+    [%f] to_borland %( %A |N )% 'SlotId (info.allocate_slot_id ());'
+//		>
+    '	' 
+    ++! l_Counter
+   end // if
+  end // for A
+//				}
+  '			}'
+//		
+  '	'
+//				public void post_init (org.omg.PortableInterceptor.ORBInitInfo info) {
+  '			public void post_init (org.omg.PortableInterceptor.ORBInitInfo info) {'
+//				}
+  '			}'
+//			}
+  '		}'
+//		
+  '	'
+//			public org.omg.PortableInterceptor.ORBInitializer getOrbInitializer () {
+  '		public org.omg.PortableInterceptor.ORBInitializer getOrbInitializer () {'
+//				return new ORBInitializer ();
+  '			return new ORBInitializer ();'
+//			}]
+  '		}' 
+ end // if
+//#UC END# *47036F9A03B9for47037635038A*
+; // interceptor_java
+
+
+// перекрытие базового стереотипа Library::Category
+// возвращает namespace к LibHome
+//%f _libhome
+: libhome OBJECT IN %S
+//#UC START# *47036E60006Dfor47037635038A*
+//	[{%X{lid}=cpp}{[{%XU=java}{ru.garant.shared.Core.Root.LibHome}ru.garant.shared.CoreSrv.Root.CorbaLibHome]}\
+ if ( ( %X get_up ( 'lid' ) ) %== 'cpp' ) then
+ begin
+//	[{%XU=h|%XU=cpp}{Core::Root::LibHome}CoreSrv::Root::CorbaLibHome]]
+  if ( ( %X |U ) %== 'h' OR 
+    ( ( %X |U ) %== 'cpp'  ) ) then
+  begin
+   'CoreSrv::Root::CorbaLibHome' 
+  end // if
+  else
+  begin
+   'Core::Root::LibHome' 
+  end // else
+ end // if
+ else
+ begin
+  if ( ( %X |U ) %== 'java' ) then
+  begin
+   'ru.garant.shared.CoreSrv.Root.CorbaLibHome' 
+  end // if
+  else
+  begin
+   'ru.garant.shared.Core.Root.LibHome' 
+  end // else
+ end // else
+//#UC END# *47036E60006Dfor47037635038A*
+; // libhome
+
+
+// перекрытие базового стереотипа Library::Category
+// префикс перед именем LibHome
+//%f _name_prefix
+: name_prefix OBJECT IN %S
+//#UC START# *47036F0403A9for47037635038A*
+//	[{%XU=fctr.h|%XU=fctr.cpp|%XU=fctr.java}Server]
+ if ( ( %X |U ) %== 'fctr.h' OR 
+   ( ( %X |U ) %== 'fctr.cpp'  ) OR 
+   ( ( %X |U ) %== 'fctr.java'  ) ) then
+ begin
+  'Server' 
+ end // if
+//#UC END# *47036F0403A9for47037635038A*
+; // name_prefix
+
+
+// перекрытие базового стереотипа Library::Category
+// возвращает true, если нужно генерить методы для работы с параметрами...
+//%f _need_dump_params_methods
+: need_dump_params_methods OBJECT IN %S
+//#UC START# *492A9D95027Cfor47037635038A*
+//	[{%XU=fctr.h|%XU=fctr.cpp}{false}[{<{}{%AM=Settings::Class&%A<{%CC=Attribute}{%CC}>!=0}{%AC}>!=0}{false}true]]
+ if ( ( %X |U ) %== 'fctr.h' OR 
+   ( ( %X |U ) %== 'fctr.cpp'  ) ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |M ) %== 'Settings::Class' AND 
+     ( ( %A
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) ) then
+      begin
+       if ( l_Counter >0 ) then ( %C |C '=Attribute' )
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ )     %!= 0  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for A
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *492A9D95027Cfor47037635038A*
+; // need_dump_params_methods
+
+
+// перекрытие базового стереотипа Library::Category
+// нужно ли запускать выполенение LibHome
+//%t _need_to_execute
+<<transformator>> need_to_execute OBJECT IN %S
+//#UC START# *47037023006Dfor47037635038A*
+//c                          {}
+//r {server/stand alone}:    {[{%XU=fctr.h|%XU=fctr.cpp|%XU=fctr.java}{false}true]}
+//r {both}:                  {true}
+//r {""=""}:                 {false}
+//#UC END# *47037023006Dfor47037635038A*
+; // need_to_execute
+
+
+// перекрытие базового стереотипа Library::Category
+// нужно ли регистрировать LibHome
+//%t _need_to_reg
+<<transformator>> need_to_reg OBJECT IN %S
+//#UC START# *4703704402DEfor47037635038A*
+//c            {}
+//r {""=""}:   {[{%XU=fctr.h|%XU=fctr.cpp|%XU=fctr.java}{false}true]}
+//#UC END# *4703704402DEfor47037635038A*
+; // need_to_reg
+
+
+// перекрытие базового стереотипа Library::Category
+// дампит реализацию собственных методов LibHome
+//%f _self_methods_cpp
+: self_methods_cpp OBJECT IN %S
+//#UC START# *47036FDC0280for47037635038A*
+//	[{%XU=cpp}void LibHomeImpl::publish_all_servers_factories () const {
+ if ( ( %X |U ) %== 'cpp' ) then
+ begin
+  'void LibHomeImpl::publish_all_servers_factories () const {'
+//	<{}{%AS=ServerInterface&%f_has_factory_methods(%A)=true}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ServerInterface' AND 
+    ( ( [%f] has_factory_methods %( %A )% ) %==  true  ) ) then
+   begin
+//		%f_type(%A)FactoryManager::publish_self ();
+    '	'
+    [%f] type %( %A )% 'FactoryManager::publish_self ();'
+//	>}
+
+    ++! l_Counter
+   end // if
+  end // for A
+  '}'
+//	
+  #13#10
+
+//	]
+ end // if
+//#UC END# *47036FDC0280for47037635038A*
+; // self_methods_cpp
+
+
+// перекрытие базового стереотипа Library::Category
+// дампит определение собственных методов LibHome
+//%f _self_methods_h
+: self_methods_h OBJECT IN %S
+//#UC START# *47036FC002AFfor47037635038A*
+//	[{%XU=h}
+ if ( ( %X |U ) %== 'h' ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	private:
+  'private:'
+//		void publish_all_servers_factories () const;]
+  '	void publish_all_servers_factories () const;' 
+ end // if
+//#UC END# *47036FC002AFfor47037635038A*
+; // self_methods_h
+
+
+// перекрытие базового стереотипа Library::Category
+// дампит реализация собственных методов на java
+//%f _self_methods_java
+: self_methods_java OBJECT IN %S
+//#UC START# *47036FED0128for47037635038A*
+//	[{%XU=java}\
+ if ( ( %X |U ) %== 'java' ) then
+ begin
+//		public void publishAllServersFactories () {
+  '	public void publishAllServersFactories () {'
+//	<{}{%AS=ServerInterface&%A<{}{%CS=factory|%CS=multi factory}{C}>!=0}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'ServerInterface' AND 
+    ( ( %A
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %== 'factory' OR 
+      ( ( %C |S ) %== 'multi factory'  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+ )    %!= 0  ) ) then
+   begin
+//				%f_type(%A)FactoryManager.publishSelf ();
+    '			'
+    [%f] type %( %A )% 'FactoryManager.publishSelf ();'
+//	>		}]
+
+    ++! l_Counter
+   end // if
+  end // for A
+  '		}' 
+ end // if
+//#UC END# *47036FED0128for47037635038A*
+; // self_methods_java
+
+
+// перекрытие базового стереотипа Library::Category
+// дампит код установки метода запуска LibHome
+//%f _set_exec_mode
+: set_exec_mode OBJECT IN %S
+//#UC START# *470370E200ABfor47037635038A*
+//	[{%S{exec mode}=idle&%XU=fctr.cpp}	this-\>set_requested_status (Core::Root::ES_IDLE);
+ if ( ( %S get_up ( 'exec mode' ) ) %== 'idle' AND 
+   ( ( %X |U ) %== 'fctr.cpp'  ) ) then
+ begin
+  '	this->set_requested_status (Core::Root::ES_IDLE);'
+//	][{%S{exec mode}=idle&%XU=fctr.java}		this.setRequestedStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_IDLE);
+ end // if
+ if ( ( %S get_up ( 'exec mode' ) ) %== 'idle' AND 
+   ( ( %X |U ) %== 'fctr.java'  ) ) then
+ begin
+  '		this.setRequestedStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_IDLE);'
+//	]
+ end // if
+//#UC END# *470370E200ABfor47037635038A*
+; // set_exec_mode
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// дополнительные файлы проектов (mpc)
+//+ mpc2
+<<generator>> mpc2 OBJECT IN %S
+//#UC START# *47031E850177for47037635038A*
+//P
+//O %SN.mpc
+//X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN library
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	project (%SN) : project_generic_core_corba[{<{}{%AM=Grammar::Class}{%AC}>!=0}, project_compile_g] {
+ 'project ('
+ %S |N ') : project_generic_core_corba'
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'Grammar::Class' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0 ) then
+ begin
+  ', project_compile_g' 
+ end // if
+ ' {'
+//		staticname = %SN
+ '	staticname = '
+ %S |N 
+//	
+//		includes += %f_root_relative_path(%S)
+ '	includes += '
+ [%f] root_relative_path %( %S )% 
+//	[{%SN!=Core&%SN!=CoreSrv}
+ if ( ( %S |N ) %!= 'Core' AND 
+   ( ( %S |N ) %!= 'CoreSrv'  ) ) then
+ begin
+  #13#10
+
+//		after += CoreSrv_cs
+  '	after += CoreSrv_cs'
+//		libs  += CoreSrv_cs
+  '	libs  += CoreSrv_cs'
+//	]
+ end // if
+//		after += %SN_cs
+ '	after += '
+ %S |N '_cs'
+//		libs  += %SN_cs
+ '	libs  += '
+ %S |N '_cs'
+//	
+//	[{"<{}{%DS!=Requirements}{%DC}>"!="0"}	%f_mpc_lib_dep(%S)]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if ( ( %D |S ) %!= 'Requirements' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for D
+  l_Counter
+  %!= 0 ) then
+ begin
+  '	'
+  [%f] mpc_lib_dep %( %S )% 
+ end // if
+//	[<{}{%C<{}{%AM=Grammar::Class}{%AC}>!=0}{%CSn}\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'Grammar::Class' ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for A
+    l_Counter
+
+   ) // bind
+ )    %!= 0 ) then
+   begin
+//		Grammar_Files (%CN) {
+    '	Grammar_Files ('
+    %C |N ') {'
+//	%C<{}{}{%ASn}[{"%f_normolized_path(g.cpp,A)"!=""}\
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%An
+     begin
+      OBJECT IN %A
+      if true then
+      begin
+       if ( ( [%f] normolized_path %( 'g.cpp' %, 'A' )% ) %!= '' ) then
+       begin
+//			gflags += -o %f_normolized_dir(g.cpp,A)%f_set_var(PATH,"%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,)")
+        '		gflags += -o '
+        [%f] normolized_dir %( 'g.cpp' %, 'A' )% [%f] set_var %( 'PATH' %, [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, )% )% 
+//			%f_normolized_path(g.cpp,A) \>\> %{PATH}NLexer.hpp %{PATH}NLexer.cpp %{PATH}NParser.hpp %{PATH}NParser.cpp
+        '		'
+        [%f] normolized_path %( 'g.cpp' %, 'A' )% ' >> '
+        ( get_global_var ( 'PATH' ) |N ) 'Lexer.hpp '
+        ( get_global_var ( 'PATH' ) |N ) 'Lexer.cpp '
+        ( get_global_var ( 'PATH' ) |N ) 'Parser.hpp '
+        ( get_global_var ( 'PATH' ) |N ) 'Parser.cpp'
+//	]>
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ //		}
+    '	}'
+//	>]	Header_Files {
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ '	Header_Files {'
+//			Std_Headers {
+ '		Std_Headers {'
+//			[	%f_normolized_path(fctr.h,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'fctr.h' %, 'S' )% 
+//			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+  '		' 
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'h' %, 'C' )% 
+//			][	%f_normolized_path(fctr.h,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.h' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{%CC=Category&%CS!=ServerInterfaces}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' AND 
+   ( ( %C |S ) %!= 'ServerInterfaces'  ) ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(h,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'h' %, 'C' )% 
+//			][	%f_normolized_path(fctr.h,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.h' %, 'C' )% 
+//			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(h,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %!= 'ClientInterceptor' AND 
+      ( ( %A |S ) %!= 'ServerInterceptor'  ) ) then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'h' %, 'A' )% 
+//			][	%f_normolized_path(fctr.h,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'fctr.h' %, 'A' )% 
+//			][	%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.hpp),%AN.,%ANParser.)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] str_replace %( [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, '.hpp' )% %, %A |N '.' %, %A |N 'Parser.' )% 
+//				%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.hpp),%AN.,%ANLexer.)
+       '			'
+       [%f] str_replace %( [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, '.hpp' )% %, %A |N '.' %, %A |N 'Lexer.' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	
+//		Inline_Files {
+ '	Inline_Files {'
+//			Std_Inlines {
+ '		Std_Inlines {'
+//			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(i.h,C)
+ '		'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'i.h' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{%CC=Category&%CS!=ServerInterfaces}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' AND 
+   ( ( %C |S ) %!= 'ServerInterfaces'  ) ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(i.h,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'i.h' %, 'C' )% 
+//			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(i.h,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %!= 'ClientInterceptor' AND 
+      ( ( %A |S ) %!= 'ServerInterceptor'  ) ) then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'i.h' %, 'A' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	
+//		Source_Files {
+ '	Source_Files {'
+//			Std_Sources {
+ '		Std_Sources {'
+//			[	%f_normolized_path(fctr.cpp,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'fctr.cpp' %, 'S' )% 
+//			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+  '		' 
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'cpp' %, 'C' )% 
+//			][	%f_normolized_path(fctr.cpp,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.cpp' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{%CC=Category&%CS!=ServerInterfaces}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' AND 
+   ( ( %C |S ) %!= 'ServerInterfaces'  ) ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(cpp,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'cpp' %, 'C' )% 
+//			][	%f_normolized_path(fctr.cpp,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.cpp' %, 'C' )% 
+//			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(cpp,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %!= 'ClientInterceptor' AND 
+      ( ( %A |S ) %!= 'ServerInterceptor'  ) ) then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'cpp' %, 'A' )% 
+//			][	%f_normolized_path(fctr.cpp,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'fctr.cpp' %, 'A' )% 
+//			][	%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.cpp),%AN.,%ANParser.)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] str_replace %( [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, '.cpp' )% %, %A |N '.' %, %A |N 'Parser.' )% 
+//				%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.cpp),%AN.,%ANLexer.)
+       '			'
+       [%f] str_replace %( [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, '.cpp' )% %, %A |N '.' %, %A |N 'Lexer.' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	}
+ '}'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47031E850177for47037635038A*
+; // mpc2
+
+
+// перекрытие базового стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47037635038A*
+//= Library::Category;cpp
+%call-other-gen ( 'Library' 'cpp' )
+//#UC END# *4705C54B01F4for47037635038A*
+; // fctr.cpp
+
+
+// перекрытие базового стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47037635038A*
+//= Library::Category;h
+%call-other-gen ( 'Library' 'h' )
+//#UC END# *4705C5490109for47037635038A*
+; // fctr.h
+
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for47037635038A*
+//S [{"%S{is namespace}"="true"}module %SN {\n]
+//s [{"%S{is namespace}"="true"}}; // module %SN\n]
+//P
+//C /%SN
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *47022BBE0261for47037635038A*
+; // idl
+
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for47037635038A*
+//= idl
+%call-other-gen ( 'idl' )
+//#UC END# *47022C0F01E4for47037635038A*
+; // idl_ami
+
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47037635038A*
+//= Library::Category;java
+%call-other-gen ( 'Library' 'java' )
+//#UC END# *470321C1038Afor47037635038A*
+; // fctr.java
+
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor47037635038A*
+//#UC END# *47032ED002DEfor47037635038A*
+; // dll.cpp
+
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor47037635038A*
+//#UC END# *47032EC4032Cfor47037635038A*
+; // dll.h
+
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor47037635038A*
+//#UC END# *470F152700FAfor47037635038A*
+; // pas
+
+
+// перекрытие базового стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
+//+ mpc
+<<generator>> mpc OBJECT IN %S
+//#UC START# *47031E41002Efor47037635038A*
+//P
+//O %SN_cs.mpc
+//X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN_cs library
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	project (%SN_cs) : project_generic_core_corba, project_compile_idl {
+ 'project ('
+ %S |N '_cs) : project_generic_core_corba, project_compile_idl {'
+//		staticname = %SN_cs
+ '	staticname = '
+ %S |N '_cs'
+//	
+//		includes += %f_root_relative_path(%S)
+ '	includes += '
+ [%f] root_relative_path %( %S )% 
+//	[{%SN!=Core&%SN!=CoreSrv}
+ if ( ( %S |N ) %!= 'Core' AND 
+   ( ( %S |N ) %!= 'CoreSrv'  ) ) then
+ begin
+  #13#10
+
+//		after += CoreSrv_cs
+  '	after += CoreSrv_cs'
+//		libs  += CoreSrv_cs
+  '	libs  += CoreSrv_cs'
+//	]
+ end // if
+//	][{"<{}{}{%DC}>"!="0"}	%f_mpc_lib_dep(%S)]
+ ']'
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if true then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for D
+  l_Counter
+  %!= 0 ) then
+ begin
+  '	'
+  [%f] mpc_lib_dep %( %S )% 
+ end // if
+//	[<{}{%f_need_mpc_idl(%C)=true}{Sn}\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_mpc_idl %( %C )% ) %==  true ) then
+   begin
+//		IDL_Files (%CN) {
+    '	IDL_Files ('
+    %C |N ') {'
+//	[{"%f_normolized_path(idl,C)"!=""}\
+    if ( ( [%f] normolized_path %( 'idl' %, 'C' )% ) %!= '' ) then
+    begin
+//			idlflags += -o %f_normolized_dir(idl,C)
+     '		idlflags += -o '
+     [%f] normolized_dir %( 'idl' %, 'C' )% 
+//			%f_normolized_path(idl,C)
+     '		'
+     [%f] normolized_path %( 'idl' %, 'C' )% 
+//	]%C<{}{}{%ASn}[{"%f_normolized_path(idl,C)"!=""}\
+    end // if
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%An
+     begin
+      OBJECT IN %A
+      if true then
+      begin
+       if ( ( [%f] normolized_path %( 'idl' %, 'C' )% ) %!= '' ) then
+       begin
+//			idlflags += -o %f_normolized_dir(idl,A)
+        '		idlflags += -o '
+        [%f] normolized_dir %( 'idl' %, 'A' )% 
+//			%f_normolized_path(idl,A)
+        '		'
+        [%f] normolized_path %( 'idl' %, 'A' )% 
+//	]>\
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ //		}
+    '	}'
+//	
+    #13#10
+
+//	>]	Header_Files {
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ '	Header_Files {'
+//			Std_Headers {
+ '		Std_Headers {'
+//			[	%f_normolized_path(h,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'h' %, 'S' )% 
+//			]}
+  '		' 
+ end // if
+ NOP
+ '}'
+//		<{}{%CM=ServerInterfaces::Category}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'ServerInterfaces::Category' ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(h,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'h' %, 'C' )% 
+//			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.h)
+    '		'
+    if NOT-EMPTY
+    begin
+     '	'
+     [%f] set_var %( 'IDL_PATH' %, [%f] normolized_path %( 'idl' %, 'C' )% )% [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'C.h' )% 
+//				%f_str_replace(%{IDL_PATH}N,.idl,S.h)
+     '			'
+     [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.h' )% 
+//			][	%f_normolized_path(fctr.h,C)
+     '		' 
+    end // if
+    NOP
+    if NOT-EMPTY
+    begin
+     '	'
+     [%f] normolized_path %( 'fctr.h' %, 'C' )% 
+//			]]}
+     '		' 
+    end // if
+    NOP
+   end // if
+   NOP
+   '}'
+//		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'Impl::Category' AND 
+   ( ( %C %f need_idl %( )% ) %==  true  ) ) then
+  begin
+   #13#10
+
+//			%CN {			
+   '		'
+   %C |N ' {			'
+//			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.h)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] set_var %( 'IDL_PATH' %, [%f] normolized_path %( 'idl' %, 'C' )% )% [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'C.h' )% 
+//				%f_str_replace(%{IDL_PATH}N,.idl,S.h)
+    '			'
+    [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.h' )% 
+//			]}
+    '		' 
+   end // if
+   NOP
+   '}'
+//		><{}{%CC=Category&%CS=LibSupport}{Sn}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' AND 
+   ( ( %C |S ) %== 'LibSupport'  ) ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			%C<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}{%ASn}[	%f_normolized_path(h,A)
+   '		'
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %== 'ClientInterceptor' OR 
+      ( ( %A |S ) %== 'ServerInterceptor'  ) ) then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'h' %, 'A' )% 
+//			][	%f_normolized_path(fctr.h,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'fctr.h' %, 'A' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	
+//		Inline_Files {
+ '	Inline_Files {'
+//			Std_Inlines {
+ '		Std_Inlines {'
+//			[	%f_normolized_path(i.h,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'i.h' %, 'S' )% 
+//			]}
+  '		' 
+ end // if
+ NOP
+ '}'
+//		<{}{%CM=ServerInterfaces::Category}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'ServerInterfaces::Category' ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(i.h,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'i.h' %, 'C' )% 
+//			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.inl)
+    '		'
+    if NOT-EMPTY
+    begin
+     '	'
+     [%f] set_var %( 'IDL_PATH' %, [%f] normolized_path %( 'idl' %, 'C' )% )% [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'C.inl' )% 
+//				%f_str_replace(%{IDL_PATH}N,.idl,S.inl)
+     '			'
+     [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.inl' )% 
+//			]]}
+     '		' 
+    end // if
+    NOP
+   end // if
+   NOP
+   '}'
+//		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'Impl::Category' AND 
+   ( ( %C %f need_idl %( )% ) %==  true  ) ) then
+  begin
+   #13#10
+
+//			%CN {			
+   '		'
+   %C |N ' {			'
+//			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.inl)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] set_var %( 'IDL_PATH' %, [%f] normolized_path %( 'idl' %, 'C' )% )% [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'C.inl' )% 
+//				%f_str_replace(%{IDL_PATH}N,.idl,S.inl)
+    '			'
+    [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.inl' )% 
+//			]}
+    '		' 
+   end // if
+   NOP
+   '}'
+//		><{}{%CC=Category&%CS=LibSupport}{Sn}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' AND 
+   ( ( %C |S ) %== 'LibSupport'  ) ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			%C<{}{%AS=ClientInterceptor}{%ASn}[	%f_normolized_path(i.h,A)
+   '		'
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %== 'ClientInterceptor' ) then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'i.h' %, 'A' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	
+//		Source_Files {
+ '	Source_Files {'
+//			Std_Sources {
+ '		Std_Sources {'
+//			[	%f_normolized_path(cpp,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'cpp' %, 'S' )% 
+//			]}
+  '		' 
+ end // if
+ NOP
+ '}'
+//		<{}{%CM=ServerInterfaces::Category}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'ServerInterfaces::Category' ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(cpp,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'cpp' %, 'C' )% 
+//			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.cpp)
+    '		'
+    if NOT-EMPTY
+    begin
+     '	'
+     [%f] set_var %( 'IDL_PATH' %, [%f] normolized_path %( 'idl' %, 'C' )% )% [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'C.cpp' )% 
+//				%f_str_replace(%{IDL_PATH}N,.idl,S.cpp)
+     '			'
+     [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.cpp' )% 
+//			][	%f_normolized_path(fctr.cpp,C)
+     '		' 
+    end // if
+    NOP
+    if NOT-EMPTY
+    begin
+     '	'
+     [%f] normolized_path %( 'fctr.cpp' %, 'C' )% 
+//			]]}
+     '		' 
+    end // if
+    NOP
+   end // if
+   NOP
+   '}'
+//		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'Impl::Category' AND 
+   ( ( %C %f need_idl %( )% ) %==  true  ) ) then
+  begin
+   #13#10
+
+//			%CN {			
+   '		'
+   %C |N ' {			'
+//			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.cpp)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] set_var %( 'IDL_PATH' %, [%f] normolized_path %( 'idl' %, 'C' )% )% [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'C.cpp' )% 
+//				%f_str_replace(%{IDL_PATH}N,.idl,S.cpp)
+    '			'
+    [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.cpp' )% 
+//			]}
+    '		' 
+   end // if
+   NOP
+   '}'
+//		><{}{%CC=Category&%CS=LibSupport}{Sn}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' AND 
+   ( ( %C |S ) %== 'LibSupport'  ) ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			%C<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}{%ASn}[	%f_normolized_path(cpp,A)
+   '		'
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %== 'ClientInterceptor' OR 
+      ( ( %A |S ) %== 'ServerInterceptor'  ) ) then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'cpp' %, 'A' )% 
+//			][	%f_normolized_path(fctr.cpp,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'fctr.cpp' %, 'A' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	}
+ '}'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47031E41002Efor47037635038A*
+; // mpc
+
+
+// перекрытие базового стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
+//+ build.xml
+<<generator>> build.xml OBJECT IN %S
+//#UC START# *47032262037Afor47037635038A*
+//C /%SN
+//I <!--UC_BEGIN
+//i -->
+//J <!--UC_END
+//j -->
+//O build.xml
+//	\<?xml version="1.0" encoding="windows-1251"?\>
+ '<?xml version="1.0" encoding="windows-1251"?>'
+//	\<project name="%SN" basedir="."\>
+ '<project name="'
+ %S |N '" basedir=".">'
+//		\<property environment="env"/\>
+ '	<property environment="env"/>'
+//		\<property name="build.dir" value="$\{env.JAVA_SOURCE_ROOT}/build/target"/\>
+ '	<property name="build.dir" value="${env.JAVA_SOURCE_ROOT}/build/target"/>'
+//		[{<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}
+ '	'
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_mpc_idl %( %C )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  #13#10
+
+//		\<target name="idlcomp"\>
+  '	<target name="idlcomp">'
+//			\<mkdir dir="${build.dir}/classes"/\>
+  '		<mkdir dir="${build.dir}/classes"/>'
+//	<{}{%f_need_mpc_idl(%C)=true}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] need_mpc_idl %( %C )% ) %==  true ) then
+   begin
+//	%f_idlcomp_jacidl(%C,%S)
+    [%f] idlcomp_jacidl %( %C %, %S )% 
+//	>	\</target\>]
+
+    ++! l_Counter
+   end // if
+  end // for C
+  '	</target>' 
+ end // if
+//		\<target name="gcomp"\>
+ '	<target name="gcomp">'
+//	[<{}{"%f_with_gen_id(g.java,%Ao)"!=""}{%A}%f_gcomp_antlr(%A)
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( [%f] with_gen_id %( 'g.java' %, %A |o )% ) %!= '' ) then
+   begin
+    [%f] gcomp_antlr %( %A )% 
+//		>]\
+    '	' 
+    ++! l_Counter
+   end // if
+  end // for A
+ end // if
+ NOP
+//		\</target\>
+ '	</target>'
+//		\<target name ="makejar"\>
+ '	<target name ="makejar">'
+//			\<mkdir dir="${build.dir}/jar"/\>[{%SN!=Core&%SN!=CoreSrv}
+ '		<mkdir dir="${build.dir}/jar"/>'
+ if ( ( %S |N ) %!= 'Core' AND 
+   ( ( %S |N ) %!= 'CoreSrv'  ) ) then
+ begin
+  #13#10
+
+//			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/\>
+  '		<ant antfile="${env.JAVA_SOURCE_ROOT}/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll=false />'
+//			]\<jar destfile="${build.dir}/jar/%SN.jar"\>
+  '		' 
+ end // if
+ '<jar destfile="${build.dir}/jar/'
+ %S |N '.jar">'
+//				\<fileset dir ="${build.dir}/classes"\>
+ '			<fileset dir ="${build.dir}/classes">'
+//					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+ '				<include name="'
+ [%f] str_replace %( [%f] dump_java_package %( %S )% %, '.' %, '/' )% '/'
+ %S |N '/"/>'
+//				\</fileset\>[{<{}{"%f_with_gen_id(output.xml,%AO)"!=""}{%AC}>!=0}
+ '			</fileset>'
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( [%f] with_gen_id %( 'output.xml' %, %A |O )% ) %!= '' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0 ) then
+ begin
+  #13#10
+
+//				\<fileset dir ="%f_with_gen_id(output.xml,$\{env.JAVA_SOURCE_ROOT}%Sd)"/\>]
+  '			<fileset dir ="'
+  [%f] with_gen_id %( 'output.xml' %, '${env.JAVA_SOURCE_ROOT}'
+  %S |d )% '/>' 
+ end // if
+//			\</jar\>
+ '		</jar>'
+//		\</target\>
+ '	</target>'
+//		<%CX>
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	\</project\>
+ '</project>'
+
+//f _idlcomp_idlj
+; // build.xml
+
+end. // <<ServerLibrary>>
+
+: idlcomp_idlj OBJECT IN %S
+//			\<exec executable="idlj"\>
+ '		<exec executable="idlj">'
+//				\<arg line="-i"/\>
+ '			<arg line="-i"/>'
+//				\<arg line="$\{env.JAVA_SOURCE_ROOT}"/\>
+ '			<arg line="${env.JAVA_SOURCE_ROOT}"/>'
+//	[{%1N!=Core&%1N!=CoreSrv}			\<arg line="-pkgPrefix"/\>
+ if ( ( %1 |N ) %!= 'Core' AND 
+   ( ( %1 |N ) %!= 'CoreSrv'  ) ) then
+ begin
+  '			<arg line="-pkgPrefix"/>'
+//				\<arg line="CoreSrv"/\>
+  '			<arg line="CoreSrv"/>'
+//				\<arg line="ru.garant.shared"/\>
+  '			<arg line="ru.garant.shared"/>'
+//	]			\<arg line="-pkgPrefix"/\>
+ end // if
+ '			<arg line="-pkgPrefix"/>'
+//				\<arg line="%1N"/\>
+ '			<arg line="'
+ %1 |N '"/>'
+//				\<arg line="ru.garant.%1%PN"/\>
+ '			<arg line="ru.garant.'
+ %1 ->P |N  '"/>'
+//				\<arg line="-td"/\>
+ '			<arg line="-td"/>'
+//				\<arg line="%f_with_gen_id(java,$\{env.JAVA_SOURCE_ROOT}/%1%PN/java/src/java)"/\>
+ '			<arg line="'
+ [%f] with_gen_id %( 'java' %, '${env.JAVA_SOURCE_ROOT}/'
+ %1 ->P |N  '/java/src/java' )% '"/>'
+//				\<arg line="-fall"/\>
+ '			<arg line="-fall"/>'
+//				\<arg line="%f_with_gen_id(idl,%So)"/\>
+ '			<arg line="'
+ [%f] with_gen_id %( 'idl' %, %S |o )% '"/>'
+//			\</exec\>
+ '		</exec>'
+
+//f _idlcomp_jacidl
+; // idlcomp_idlj
+
+: idlcomp_jacidl OBJECT IN %S
+//			\<exec executable="idl.bat"\>
+ '		<exec executable="idl.bat">'
+//				\<arg line="-I$\{env.JAVA_SOURCE_ROOT}/"/\>
+ '			<arg line="-I${env.JAVA_SOURCE_ROOT}/"/>'
+//				\<arg line="-d"/\>
+ '			<arg line="-d"/>'
+//				\<arg line="%f_with_gen_id(java,$\{env.JAVA_SOURCE_ROOT}/%1%PN/java/src/java)"/\>
+ '			<arg line="'
+ [%f] with_gen_id %( 'java' %, '${env.JAVA_SOURCE_ROOT}/'
+ %1 ->P |N  '/java/src/java' )% '"/>'
+//	[{%1N!=Core&%1N!=CoreSrv}			\<arg line="-i2jpackage"/\>
+ if ( ( %1 |N ) %!= 'Core' AND 
+   ( ( %1 |N ) %!= 'CoreSrv'  ) ) then
+ begin
+  '			<arg line="-i2jpackage"/>'
+//				\<arg line="CoreSrv:ru.garant.shared.CoreSrv"/\>
+  '			<arg line="CoreSrv:ru.garant.shared.CoreSrv"/>'
+//	]			\<arg line="-i2jpackage"/\>
+ end // if
+ '			<arg line="-i2jpackage"/>'
+//				\<arg line="%1N:ru.garant.%1%PN.%1N"/\>
+ '			<arg line="'
+ %1 |N ':ru.garant.'
+ %1 ->P |N  '.'
+ %1 |N '"/>'
+//				\<arg line="%f_with_gen_id(idl,%f_str_replace(%So,%SR,$\{env.JAVA_SOURCE_ROOT}))"/\>
+ '			<arg line="'
+ [%f] with_gen_id %( 'idl' %, [%f] str_replace %( %S |o %, %S |R %, '${env.JAVA_SOURCE_ROOT}' )% )% '"/>'
+//			\</exec\>
+ '		</exec>'
+
+//f _gcomp_antlr
+; // idlcomp_jacidl
+
+: gcomp_antlr OBJECT IN %S
+//			\<exec executable="X:/antlr/bin/antlr.bat"\>
+ '		<exec executable="X:/antlr/bin/antlr.bat">'
+//				\<arg line="-o"/\>
+ '			<arg line="-o"/>'
+//				\<arg line="%f_with_gen_id(java,%f_str_replace(%So,%SO,))"/\>
+ '			<arg line="'
+ [%f] with_gen_id %( 'java' %, [%f] str_replace %( %S |o %, %S |O %, )% )% '"/>'
+//				\<arg line="%f_with_gen_id(g.java,%So)"/\>
+ '			<arg line="'
+ [%f] with_gen_id %( 'g.java' %, %S |o )% '"/>'
+//			\</exec\>
+ '		</exec>'
+//#UC END# *47032262037Afor47037635038A*
+; // gcomp_antlr
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

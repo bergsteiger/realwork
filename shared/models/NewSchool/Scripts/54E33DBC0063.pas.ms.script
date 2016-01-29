@@ -1,0 +1,173 @@
+// TncsSynchroCompatibilityClientTransporter 54E33DBC0063 SimpleClass Class
+
+INCLUDE '54E339B500F7.pas.ms.script'
+
+FORWARD ME_54E33DBC0063
+
+INCLUDE '537F63590169.pas.ms.script'
+
+: ME_54E33E0F03C2
+ CONST UID '54E33E0F03C2'
+ CONST Name 'f_QueryID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_537F63760334 // TCsQueryId
+ ;
+
+ @SELF
+; // ME_54E33E0F03C2 f_QueryID
+
+FORWARD ME_54E33E1A00B4
+
+: ME_54E33E3F01E1
+ CONST UID '54E33E3F01E1'
+ CONST Name 'aQueryID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_537F63760334 // TCsQueryId
+ ;
+
+ @SELF
+; // ME_54E33E3F01E1 aQueryID
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54E33E3D00DB
+ CONST UID '54E33E3D00DB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54E33E3F01E1 // aQueryID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54E33E3D00DB DoIt
+
+: ME_54E33E1A00B4
+ CONST UID '54E33E1A00B4'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54E33E3D00DB // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54E33E1A00B4 Create
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+FORWARD ME_54E33E23020D
+
+: ME_BB58DAED819F
+ CONST UID 'BB58DAED819F'
+ CONST Name 'aQueryID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_537F63760334 // TCsQueryId
+ ;
+
+ @SELF
+; // ME_BB58DAED819F aQueryID
+
+: ME_0AF6782B7F05
+ CONST UID '0AF6782B7F05'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TncsSynchroCompatibilityClientTransporter.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5465A598039E // IncsClientTransporter
+ ;
+ : Parameters
+   [ ME_BB58DAED819F // aQueryID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_0AF6782B7F05 DoIt
+
+: ME_54E33E23020D
+ CONST UID '54E33E23020D'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_54E33E1A00B4 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5465A598039E // IncsClientTransporter
+ ]
+ ; // Implements
+ : Operations
+   [ ME_0AF6782B7F05 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_544A1FD802E9 // Connect
+ ME_544A1FF00062 // Disconnect
+ ME_5464B4E900DA // Send
+ ME_5464B52F02D5 // WaitForReply
+ ME_5465AB2B00CA // Connected
+ ME_546608F101DE // ClientID
+ ME_5486B96A0025 // Processing
+ ME_548FEF4F002E // SessionID
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_54E33E23020D Make
+
+: ME_54E33DBC0063
+ CONST UID '54E33DBC0063'
+ CONST Name 'TncsSynchroCompatibilityClientTransporter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54E339B500F7 // TncsSynchroClientTransporter
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_54E33E0F03C2 // f_QueryID
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54E33E1A00B4 // Create
+ ME_54E33E23020D // Make
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_54E33EA40163 // BeforeHandshake
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54E33DBC0063 TncsSynchroCompatibilityClientTransporter

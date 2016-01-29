@@ -1,0 +1,144 @@
+// Dispatcher 4DD4F6C40009 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DD4F6C40009
+
+FORWARD ME_4DD4F6EA03D9
+
+: ME_4DD4F6FB0012
+ CONST UID '4DD4F6FB0012'
+ CONST Name 'TevOperationDispatcher'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DD4F6EA03D9 // evDisp
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4DD4F6FB0012 TevOperationDispatcher
+
+FORWARD ME_4DD4F7060070
+
+: ME_4DD4F71E0262
+ CONST UID '4DD4F71E0262'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DD4F6EA03D9 // evDisp
+ ;
+ : Target ME_4DD4F7060070 // TevOperationDispatcherEx
+ ;
+
+ref; // ME_4DD4F71E0262 
+
+: ME_4DD4F6EA03D9
+ CONST UID '4DD4F6EA03D9'
+ CONST Name 'evDisp'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DD4F6C40009 // Dispatcher
+ ;
+ : Children
+   @ ( ME_4DD4F6FB0012 // TevOperationDispatcher
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4DD4F71E0262 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evDisp.pas'
+
+ref; // ME_4DD4F6EA03D9 evDisp
+
+: ME_5F1599FC00E3
+ CONST UID '5F1599FC00E3'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DD4F7060070 // TevOperationDispatcherEx
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5F1599FC00E3 Exists
+
+: ME_4DD4F7060070
+ CONST UID '4DD4F7060070'
+ CONST Name 'TevOperationDispatcherEx'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DD4F6C40009 // Dispatcher
+ ;
+ : Inherits
+   @ ( ME_4DD4F6FB0012 // TevOperationDispatcher
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_5F1599FC00E3 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '19.05.2011 14:55'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evOperationDispatcherEx.pas'
+
+ref; // ME_4DD4F7060070 TevOperationDispatcherEx
+
+: ME_4DD4F6C40009
+ CONST UID '4DD4F6C40009'
+ CONST Name 'Dispatcher'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4DD4F6EA03D9 // evDisp
+ ME_4DD4F7060070 // TevOperationDispatcherEx
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DD4F6C40009.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DD4F6C40009.pas.ms.script.runner'
+
+ref; // ME_4DD4F6C40009 Dispatcher

@@ -1,0 +1,83 @@
+// tfwDictionaryListIteratorPrim 55E9A6C303B7 Impurity Class
+
+FORWARD ME_55E9A6C303B7
+
+: ME_55E9A72901EA
+ CONST UID '55E9A72901EA'
+ CONST Name 'ListType'
+ CONST Class 'Class'
+ CONST Stereotype 'ImpurityParamType'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_55E9A72901EA ListType
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '55E9A65B0186.pas.ms.script'
+
+FORWARD ME_55AE64E00011
+
+: ME_55AE64E901CC
+ CONST UID '55AE64E901CC'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_55E9A72901EA // ListType
+ ;
+
+ @SELF
+; // ME_55AE64E901CC DoIt
+
+: ME_55AE64E00011
+ CONST UID '55AE64E00011'
+ CONST Name 'ListToIterate'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_55AE64E901CC // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55AE64E00011 ListToIterate
+
+: ME_55E9A6C303B7
+ CONST UID '55E9A6C303B7'
+ CONST Name 'tfwDictionaryListIteratorPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Implements
+   [ ME_4DCC12FC0125 // ItfwValueList
+ ME_55E9A65B0186 // MtfwIteratableParent
+ ]
+ ; // Implements
+ : Operations
+   [ ME_55AE64E00011 // ListToIterate
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_52E23B7A00EC // ForEach
+ ME_52E23BB102FA // ForEachBack
+ ME_55CDF40C03D4 // SetItem
+ ME_55E849210175 // ItemsCountInSlice
+ ]
+ ; // Implemented
+ : Children
+   [ ME_55E9A72901EA // ListType
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55E9A6C303B7 tfwDictionaryListIteratorPrim

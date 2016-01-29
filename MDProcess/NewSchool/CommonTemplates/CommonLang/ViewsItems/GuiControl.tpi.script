@@ -1,0 +1,314 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ViewsItems/GuiControl.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ViewsItems::GuiControl
+//
+// Визуальный элемент управления
+// ---
+// Базовый стереотип для всех стереотипов описывающих элементы управления
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: GuiControl::Class
+implementation @ <<GuiControl>>
+//? Визуальный элемент управления
+//? Базовый стереотип для всех стереотипов описывающих элементы управления
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_gui_control.gif
+//L code_gui_control
+// Параметры визуализации
+//$ C 255,185,235
+//$ l 240,10,200
+//$ f 240,10,200
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p base wnd class:s=CWnd ? определяет базовый класс окна, от которого будет отнаследован элемент
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{base wnd class}"!="%S{!base wnd class}"}%f_up_prefix(%S) *base wnd class* = *%S{base wnd class}* - определяет базовый класс окна, от которого будет отнаследован элемент
+ ?inherited
+ if ( ( %S get_up ( 'base wnd class' ) ) %!= ( %S get_up_def ( 'base wnd class' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *base wnd class* = *'
+  %S get_up ( 'base wnd class' ) '* - определяет базовый класс окна, от которого будет отнаследован элемент'
+//	]
+ end // if
+
+// возвращает базовый класс окна (диалог, список т.д)
+//%f _get_wnd_class
+; // wiki_up_print
+
+: get_wnd_class OBJECT IN %S
+//#UC START# *4714440600BBfor47143E02006D*
+//	[{}{CWnd}{%S{base wnd class}}]
+ if NOT-EMPTY
+ begin
+  '{'
+  %S get_up ( 'base wnd class' ) '}' 
+ end // if
+ NOP
+ else
+ begin
+  'CWnd' 
+ end // else
+//#UC END# *4714440600BBfor47143E02006D*
+; // get_wnd_class
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа AbstractClass::Class
+// определение специфических данных стереотипа
+//%f _auto_self_data_h
+: auto_self_data_h OBJECT IN %S
+//#UC START# *471728BC0232for47143E02006D*
+//#UC END# *471728BC0232for47143E02006D*
+; // auto_self_data_h
+
+
+// перекрытие базового стереотипа AbstractClass::Class
+// реализация специфических методов стереотипа
+//%f _auto_self_methods_cpp
+: auto_self_methods_cpp OBJECT IN %S
+//#UC START# *471728BE01B5for47143E02006D*
+//	[%S%f_refcount_methods_cpp()
+ if NOT-EMPTY
+ begin
+  %S %f refcount_methods_cpp %( )% 
+//	]BEGIN_MESSAGE_MAP(%f_type(%S), %f_base_dlg_class(%S))
+ end // if
+ NOP
+ 'BEGIN_MESSAGE_MAP('
+ [%f] type %( %S )% ', '
+ [%f] base_dlg_class %( %S )% ')'
+//		%U[{_MESSAGE_MAP}
+ '	'
+ %Usersection (
+  '_MESSAGE_MAP' 
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //	END_MESSAGE_MAP()
+ 'END_MESSAGE_MAP()'
+//	
+//	[{%Sa!=abstract}IMPLEMENT_DYNAMIC(%SN, %f_base_dlg_class(%S))
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  'IMPLEMENT_DYNAMIC('
+  %S |N ', '
+  [%f] base_dlg_class %( %S )% ')'
+//	]
+ end // if
+//#UC END# *471728BE01B5for47143E02006D*
+; // auto_self_methods_cpp
+
+
+// перекрытие базового стереотипа AbstractClass::Class
+// определение специфических методов стереотипа
+//%f _auto_self_methods_h
+: auto_self_methods_h OBJECT IN %S
+//#UC START# *471728C000FAfor47143E02006D*
+//	[%S%f_refcount_methods_h()
+ if NOT-EMPTY
+ begin
+  %S %f refcount_methods_h %( )% 
+//	]#	DECLARE_MESSAGE_MAP()
+ end // if
+ NOP
+ out_indent '	DECLARE_MESSAGE_MAP()'
+//	
+//	[{%Sa!=abstract}#	DECLARE_DYNAMIC(%SN)
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  out_indent '	DECLARE_DYNAMIC('
+  %S |N ')'
+//	]
+ end // if
+//#UC END# *471728C000FAfor47143E02006D*
+; // auto_self_methods_h
+
+
+// перекрытие базового стереотипа AbstractClass::Class
+// выводит список наследования
+//%f _base_class_decl
+: base_class_decl OBJECT IN %S
+//#UC START# *471728C103A9for47143E02006D*
+//	: [{}{public %S%f_get_wnd_class()}<{, }{%GS=%SS}public %f_type(%G)>]<{}{%GS!=%SS}, public %f_type(%G)> 
+ ': '
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |S ) %== ( %S |S ) ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    'public '
+    [%f] type %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+ else
+ begin
+  'public '
+  %S %f get_wnd_class %( )% 
+ end // else
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if ( ( %G |S ) %!= ( %S |S ) ) then
+  begin
+   ', public '
+   [%f] type %( %G )% 
+   ++! l_Counter
+  end // if
+ end // for G
+ ' '
+//#UC END# *471728C103A9for47143E02006D*
+; // base_class_decl
+
+
+// перекрытие базового стереотипа AbstractClass::Class
+// выводит forward-определение
+//%f _self_forward
+: self_forward OBJECT IN %S
+//#UC START# *471728C60280for47143E02006D*
+//#UC END# *471728C60280for47143E02006D*
+; // self_forward
+
+
+// перекрытие базового стереотипа AbstractClass::Class
+// выводит специфические include
+//%f _specific_include
+: specific_include OBJECT IN %S
+//#UC START# *471728C803B9for47143E02006D*
+//	\#include "shared/Core/fix/win_afx.h"
+ '#include "shared/Core/fix/win_afx.h"'
+//	\#include %f_dump_include_path(%P%PL,%P%P)
+//	[{%S{resizeable}=true}\#include "shared/WinGUI/Controls/ETSLayout.h"
+ if ( ( %S get_up ( 'resizeable' ) ) %==  true ) then
+ begin
+  '#include "shared/WinGUI/Controls/ETSLayout.h"'
+//	][%P%P<{}{%aM=ComTarget::Category}{Sp}\#include %f_dump_include_path(%f_with_gen_id(h,%aL),%a)>][
+ end // if
+ if NOT-EMPTY
+ begin
+  %P ->P
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |M ) %== 'ComTarget::Category' ) then
+    begin
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %a |L )% %, %a )% 
+     ++! l_Counter
+    end // if
+   end // for a
+
+  ) // bind
+   end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%P<{}{%CS=Resource}\#include %f_dump_include_path(%CL,%C)>]
+  %P
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'Resource' ) then
+    begin
+     '#include '
+     [%f] dump_include_path %( %C |L %, %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+  end // if
+ NOP
+//#UC END# *471728C803B9for47143E02006D*
+; // specific_include
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for47143E02006D*
+//	%S%[inherited]\
+ inherited
+//	[{<{}{%CS=message&%f_substr_from_begin(%C{Message ID},3)=CM_}{C}>!=0}%f_pas_PutToUses("Controls")]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'message' AND 
+    ( ( [%f] substr_from_begin %( %C get_up ( 'Message ID' ) %, 3 )% ) %== 'CM_'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  [%f] pas_PutToUses %( 'Controls' )% 
+ end // if
+//#UC END# *4948F2EE0334for47143E02006D*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47143E02006D*
+//c                                                   {}
+//r {<{}{%GS=%SS}{%GC}>!=0&<{}{%GS=%SS}{%GC}>!=1}:    {%SS может наследоваться только от одного %SS}
+//#UC END# *4704C0E30186for47143E02006D*
+; // constraint
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<GuiControl>>
+

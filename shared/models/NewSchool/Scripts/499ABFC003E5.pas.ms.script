@@ -1,0 +1,113 @@
+// Navigator 499ABFC003E5 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499ABFC003E5
+
+FORWARD ME_499ABFF4003B
+
+: ME_499AC00E001F
+ CONST UID '499AC00E001F'
+ CONST Name 'TabIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499ABFF4003B // TnscNavigatorPageControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_499AC00E001F TabIndex
+
+: ME_499AC95002D7
+ CONST UID '499AC95002D7'
+ CONST Name 'TabPosition'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499ABFF4003B // TnscNavigatorPageControl
+ ;
+ : Target WL 'ME_499ABF8400FF' '499ABF4F02A1.pas.ms.script' // TElTabPosition
+ ;
+
+ref; // ME_499AC95002D7 TabPosition
+
+: ME_499AC95A016A
+ CONST UID '499AC95A016A'
+ CONST Name 'ActivePage'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499ABFF4003B // TnscNavigatorPageControl
+ ;
+ : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
+
+ref; // ME_499AC95A016A ActivePage
+
+: ME_499ABFF4003B
+ CONST UID '499ABFF4003B'
+ CONST Name 'TnscNavigatorPageControl'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499ABFC003E5 // Navigator
+ ;
+ : Inherits
+   @ ( WL 'ME_499AC82A0380' '499ABF2A0338.pas.ms.script' // TnscNavigatorPageControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_499AC00E001F // TabIndex
+ ME_499AC95002D7 // TabPosition
+ ME_499AC95A016A // ActivePage
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscNavigatorPageControl_p.pas'
+
+ref; // ME_499ABFF4003B TnscNavigatorPageControl
+
+: ME_499ABFC003E5
+ CONST UID '499ABFC003E5'
+ CONST Name 'Navigator'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ %SUMMARY 'Тесты Навигатора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_499ABFAA038C' '499ABFAA038C.pas.ms.script' // NemesisTest
+ ;
+ : Children
+   @ ( ME_499ABFF4003B // TnscNavigatorPageControl
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_499ABF2A0338' '499ABF2A0338.pas.ms.script' // Navigator
+ WL 'ME_499ABF4F02A1' '499ABF4F02A1.pas.ms.script' // elClone
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499ABFC003E5.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499ABFC003E5.pas.ms.script.runner'
+
+ref; // ME_499ABFC003E5 Navigator

@@ -1,0 +1,34 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART    
+    call Goto_Spisok
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+'    ListBox Click, "ObjectIndex=5", "Coords=311,32"
+    ListBox Click, "ObjectIndex=5", "Coords=195,82"
+    
+    call Position_by_Text("CurrentFocus","Гражданский кодекс Российской Федепации",1)
+    InputKeys "{Num+}"
+    call Position_by_Text("CurrentFocus","Статья 1204")
+'    SQAGetProperty "CurrentFocus","Text",value
+    InputKeys "{Enter}"
+    DelayFor 10000
+    RichEdit Click, "ObjectIndex=1", "Coords=46,9"
+    
+    InputKeys "^+{RIGHT}"
+    
+    Window SetTestContext, "Caption={ГАРАНТ*}", ""
+'   Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=2", "VP=Second Level")
+    Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Second Level")
+    Window ResetTestContext, "", ""
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+'    call Goto_Spisok
+    
+    
+
+End Sub

@@ -1,0 +1,167 @@
+// Tl3ProcessingEnabledService 561CEB90011D Service Class
+
+FORWARD ME_561CEB90011D
+
+FORWARD ME_B1AE2A9747C4
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_ECCF31CF8A24
+ CONST UID 'ECCF31CF8A24'
+ CONST Name 'Enabled'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_ECCF31CF8A24 Enabled
+
+: ME_B1AE2A9747C4
+ CONST UID 'B1AE2A9747C4'
+ CONST Name 'Ml3ProcessingEnabledService'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3ProcessingEnabledService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_ECCF31CF8A24 // Enabled
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_B1AE2A9747C4 Ml3ProcessingEnabledService
+
+: ME_9FC6401FC34F
+ CONST UID '9FC6401FC34F'
+ CONST GUID '8EE372F2-5B4D-4BC3-8E60-D2DD5148EE09'
+ CONST Name 'Il3ProcessingEnabledService'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3ProcessingEnabledService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_B1AE2A9747C4 // Ml3ProcessingEnabledService
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_ECCF31CF8A24 // Enabled
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_9FC6401FC34F Il3ProcessingEnabledService
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_9744634201B3
+ CONST UID '9744634201B3'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3ProcessingEnabledService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_9FC6401FC34F // Il3ProcessingEnabledService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_9744634201B3 Alien
+
+: ME_5644D8D15FFA
+ CONST UID '5644D8D15FFA'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_9FC6401FC34F // Il3ProcessingEnabledService
+ ;
+
+ @SELF
+; // ME_5644D8D15FFA f_Alien
+
+: ME_561CEBC40218
+ CONST UID '561CEBC40218'
+ CONST Name 'Enabled'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_561CEBC40218 Enabled
+
+: ME_4BC7105A7DE4
+ CONST UID '4BC7105A7DE4'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4BC7105A7DE4 Exists
+
+: ME_561CEB90011D
+ CONST UID '561CEB90011D'
+ CONST Name 'Tl3ProcessingEnabledService'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_B1AE2A9747C4 // Ml3ProcessingEnabledService
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_9744634201B3 // Alien
+ ME_5644D8D15FFA // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_561CEBC40218 // Enabled
+ ME_4BC7105A7DE4 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_ECCF31CF8A24 // Enabled
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_B1AE2A9747C4 // Ml3ProcessingEnabledService
+ ME_9FC6401FC34F // Il3ProcessingEnabledService
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_561CEB90011D Tl3ProcessingEnabledService

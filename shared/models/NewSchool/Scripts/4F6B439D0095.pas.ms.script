@@ -1,0 +1,189 @@
+// System 4F6B439D0095 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B439D0095
+
+FORWARD ME_4C8A309F03AE
+
+: ME_4C8A30B60087
+ CONST UID '4C8A30B60087'
+ CONST Name 'OpenNewWindowByUser'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C8A309F03AE // Common$UI
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" true
+ CONST "LongProcess" true
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C8A30B60087 OpenNewWindowByUser
+
+: ME_4C8A30DB001D
+ CONST UID '4C8A30DB001D'
+ CONST Name 'GetWindowList'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C8A309F03AE // Common$UI
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C8A30DB001D GetWindowList
+
+: ME_4C8A30F30115
+ CONST UID '4C8A30F30115'
+ CONST Name 'CascadeWindows'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C8A309F03AE // Common$UI
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C8A30F30115 CascadeWindows
+
+: ME_4C8A3114001E
+ CONST UID '4C8A3114001E'
+ CONST Name 'TileWindowsHorizontal'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C8A309F03AE // Common$UI
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C8A3114001E TileWindowsHorizontal
+
+: ME_4C8A312F018D
+ CONST UID '4C8A312F018D'
+ CONST Name 'TileWindowsVertical'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C8A309F03AE // Common$UI
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C8A312F018D TileWindowsVertical
+
+: ME_4C8A31770143
+ CONST UID '4C8A31770143'
+ CONST Name 'CloseAllWindows'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C8A309F03AE // Common$UI
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C8A31770143 CloseAllWindows
+
+: ME_4C8A309F03AE
+ CONST UID '4C8A309F03AE'
+ CONST Name 'Common'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6B439D0095 // System
+ ;
+ : Children
+   @ ( ME_4C8A30B60087 // OpenNewWindowByUser
+ ME_4C8A30DB001D // GetWindowList
+ ME_4C8A30F30115 // CascadeWindows
+ ME_4C8A3114001E // TileWindowsHorizontal
+ ME_4C8A312F018D // TileWindowsVertical
+ ME_4C8A31770143 // CloseAllWindows
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_4C8A309F03AE Common$UI
+
+: ME_4F6B439D0095
+ CONST UID '4F6B439D0095'
+ CONST Name 'System'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
+ ;
+ : Children
+   @ ( ME_4C8A309F03AE // Common$UI
+ ) .SequenceCode.It
+ ; // Children
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_System_Controls.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6B439D0095.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6B439D0095.pas.ms.script.runner'
+
+ref; // ME_4F6B439D0095 System

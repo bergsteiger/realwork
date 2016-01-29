@@ -1,0 +1,426 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// ServerInterceptor
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ClientInterceptor::Class
+$ C 195,245,195
+$ l 10,195,10
+$ f 10,195,10
+
+? Клиентский интерцептор 
+< *::Category, Interface::Class, Servant::Class, Valuetype::Class, UMLPrimitive::Class
+< Environment::Class, Iterator::Class, Const Iterator::Class, UtilityPack::Class
+< GuiControl::Class, Dialog::Class, PropertySheet::Class, PropertyPage::Class, ComInterface::Class, ComServant::Class
+< Actor::Class, UserNeeds::Class, Feature::Class, UseCase::Class
+< EvdTag::Class
+< EvdStruct::Class
+< EvdAtom::Class
+d 1
+W
+D
+
+L code_interceptor
+Y t4_interceptor.gif
+
+%f _wiki_up_print
+%f _wiki_up_add_gen
+
+%t _constraint
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ h
+O %SN.h
+	%f_output_constraint(%S)\
+# t0_h_header
+	%f_std_inc(%S)
+	\#include [{%PS!=ServerLibrary}{"shared/CoreSrv/impl/Root_i/CorbaExecutorBase.h"}"shared/Core/impl/Root_i/ExecutorBase.h"]
+	%f_set_var(SELF,S)%f_set_var(SERV,S)[%f_includes_by_contents(%S)
+	]<\#include %f_dump_include_path(%wL,%w)
+	>[{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	]%SP
+	%f_docs(%S)
+	class %SN 
+		: virtual public PortableInterceptor::[{%SS=ClientInterceptor}{Server}Client]RequestInterceptor
+		, virtual public TAO_Local_RefCounted_Object
+	{
+/		friend class [{%SS=ServerInterceptor}Server]LibHome;
+	public:
+		[{%SS=ClientInterceptor}{Server}Client]Security () {
+		}
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declorations
+	protected:
+	<{}{"%CC"="Class"}
+	%CX
+	>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// additional static member methods
+	[protected:<{}{"%CS"="static"&"%CV"!="PrivateAccess"}{Sn}
+	%CX
+	>
+	][private:<{}{"%CS"="static"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]]
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// interceptor methods
+	private:
+		char* name() throw (CORBA::SystemException);	
+		
+		void destroy() throw (CORBA::SystemException);
+		
+	[{%SS=ClientInterceptor}	void send_request (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+		
+		void send_poll (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException);
+		
+		void receive_reply (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException);
+		
+		void receive_exception (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+		
+		void receive_other (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+	][{%SS=ServerInterceptor}	void receive_request_service_contexts(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+		
+		void receive_request(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+		
+		void send_reply(PortableInterceptor::ServerRequestInfo_ptr ri) throw (CORBA::SystemException);
+		
+		void send_exception(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+		
+		void send_other(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// additional self methods
+	[protected:
+	<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"&"%CV"!="PrivateAccess"}{Sn}
+	%CX
+	>
+	][private:
+	<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]][//////////////////////////////////////////////////////////////////////////////////////////
+	// addtional self data
+	private:<{}{"%CC"="Attribute"}{Sn}
+	%CX
+	>][%f_dump_cpp_derrived_impl_h(%S)
+	]
+	[{%S{need UC}=true}%U[
+	]
+	]}; // class %SN
+	
+	%Sp
+# t0_h_footer
+
++ cpp
+O %SN.cpp
+P
+	%f_output_constraint(%S)\
+# t0_header
+	%f_set_var(SELF,S)%f_set_var(SERV,S)
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	[\#include %f_dump_include_path(%f_with_gen_id(h,%PW),%P)
+	]<{}{}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]><{}{}{%W}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>]
+	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+	]
+	]%SP[{%S{need UC}=true}
+	%U[
+	]
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested implementation<{}{"%CC"="Class"}[
+	%CX
+	]>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	<{}{"%CS"="static"}
+	%CX
+	>
+	]
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// interceptor methods
+	%f_set_var(SLOT_ID,S)\
+	<{}{%CM=ClientInterceptor::Class::connect::ClassDependency}%C[%f_set_var(SLOT_ID,T)]>\
+	const IOP::ServiceId ISID_%f_to_upper(%f_to_omg(%{SLOT_ID}N)) = %f_string_hash(%f_full_name(%{SLOT_ID}N));
+	
+	char* %SN::name() throw (CORBA::SystemException) {
+		return CORBA::string_dup("%f_full_name(%S)");
+	}
+		
+	void %SN::destroy() throw (CORBA::SystemException) {
+		%U[{_DESTROY}
+		]
+	}
+	
+	[{%SS=ClientInterceptor}void %SN::send_request (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+		%U[{_SEND_R}
+		]
+	}
+	
+	void %SN::send_poll (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException) {
+		%U[{_SEND_P}
+		]
+	}
+	
+	void %SN::receive_reply (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException) {
+		%U[{_RECEIVE_R}
+		]
+	}
+	
+	void %SN::receive_exception (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+		%U[{_RECEIVE_E}
+		]
+	}
+	
+	void %SN::receive_other (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+		%U[{_RECEIVE_O}
+		]
+	}]\
+	[{%SS=ServerInterceptor}void %SN::receive_request_service_contexts(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+		%U[{_RECEIVE_RSC}
+		]
+	}
+		
+	void %SN::receive_request(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+		%U[{_RECEIVE_R}
+		]
+	}
+		
+	void %SN::send_reply(PortableInterceptor::ServerRequestInfo_ptr ri) throw (CORBA::SystemException) {
+		%U[{_SEND_R}
+		]
+	}
+		
+	void %SN::send_exception(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+		%U[{_SEND_E}
+		]
+	}
+		
+	void %SN::send_other(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+		%U[{_SEND_O}
+		]
+	}]
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self implementation<{}{"%CC"="Operation"&"%Ca"!="true"&"%CS"!="static"&"%CS"!="ctor"|"%CC"="Attribute"&"%CS"="cached"}{Sn}
+	
+	%CX>]
+	%f_dump_cpp_derrived_impl_cpp(%S)
+	%Sp
+# t0_footer
+
++ java
+O %SN.java
+	%f_output_constraint(%S)\
+# t0_header
+	package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	
+	%U[{_CUSTOM_INCLUDES}
+	]
+	
+	public class %SN
+		extends org.omg.CORBA.LocalObject
+		implements org.omg.PortableInterceptor.[{%SS=ClientInterceptor}{Server}Client]RequestInterceptor {
+	
+	%f_set_var(SLOT_ID,S)\
+	<{}{%CM=ClientInterceptor::Class::connect::ClassDependency}%C[%f_set_var(SLOT_ID,T)]>\
+		private final long ISID_%f_to_upper(%f_to_omg(%{SLOT_ID}N)) = %f_string_hash(%f_full_name(%{SLOT_ID}N))L;
+		private static final long serialVersionUID = %f_string_hash(%f_full_name(%{SLOT_ID}N))L;
+	
+		public %SN () {
+		}
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declorations	
+	<{}{"%CC"="Class"}
+	%CX
+	>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// additional static member methods
+	[<{}{"%CS"="static"}
+	%CX
+	>
+	]]
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// interceptor methods
+	
+		public String name() throws org.omg.CORBA.SystemException {
+			return new String ("%f_full_name(%S)");
+		}
+	
+		public void destroy() throws org.omg.CORBA.SystemException {
+			%U[{_DESTROY}
+			]
+		}
+	
+	[{%SS=ClientInterceptor}\
+		public void send_request (org.omg.PortableInterceptor.ClientRequestInfo ri)
+			 throws org.omg.PortableInterceptor.ForwardRequest
+			 , org.omg.CORBA.SystemException
+		{
+			%U[{_SEND_R}
+			]
+		}
+	
+		public void send_poll (org.omg.PortableInterceptor.ClientRequestInfo ri) 
+			throws org.omg.CORBA.SystemException
+		{
+			%U[{_SEND_P}
+			]
+		}
+	
+		public void receive_reply (org.omg.PortableInterceptor.ClientRequestInfo ri)
+			throws org.omg.CORBA.SystemException
+		{
+			%U[{_RECEIVE_R}
+			]
+		}
+	
+		public void receive_exception (org.omg.PortableInterceptor.ClientRequestInfo ri)
+			throws org.omg.PortableInterceptor.ForwardRequest
+			, org.omg.CORBA.SystemException
+		{
+			%U[{_RECEIVE_E}
+			]
+		}
+	
+		public void receive_other (org.omg.PortableInterceptor.ClientRequestInfo ri)
+			throws org.omg.PortableInterceptor.ForwardRequest
+			, org.omg.CORBA.SystemException
+		{
+			%U[{_RECEIVE_O}
+			]
+		}
+	][{%SS=ServerInterceptor}\
+		public void receive_request_service_contexts (org.omg.PortableInterceptor.ServerRequestInfo ri)
+			throws org.omg.PortableInterceptor.ForwardRequest
+			, org.omg.CORBA.SystemException
+		{
+			%U[{_RECEIVE_RSC}
+			]
+		}
+	
+		public void receive_request (org.omg.PortableInterceptor.ServerRequestInfo ri)
+			throws org.omg.PortableInterceptor.ForwardRequest
+			, org.omg.CORBA.SystemException
+		{
+			%U[{_RECEIVE_R}
+			]
+		}
+	
+		public void send_reply (org.omg.PortableInterceptor.ServerRequestInfo ri)
+			throws org.omg.CORBA.SystemException
+		{
+			%U[{_SEND_R}
+			]
+		}
+	
+		public void send_exception (org.omg.PortableInterceptor.ServerRequestInfo ri)
+			throws org.omg.PortableInterceptor.ForwardRequest
+			, org.omg.CORBA.SystemException
+		{
+			%U[{_SEND_E}
+			]
+		}
+	
+		public void send_other (org.omg.PortableInterceptor.ServerRequestInfo ri)
+			throws org.omg.PortableInterceptor.ForwardRequest
+			, org.omg.CORBA.SystemException
+		{
+			%U[{_SEND_O}
+			]
+		}
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// additional self methods
+	[<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"}
+	%CX
+	>
+	]][//////////////////////////////////////////////////////////////////////////////////////////
+	// addtional self data
+	<{}{"%CC"="Attribute"}
+	%CX
+	>][%f_dump_java_derrived_impl(%S)
+	]
+	[{%S{need UC}=true}%U[
+	]
+	]} // class %SN
+# t0_footer
+
+: ClientInterceptor::Class::Attribute
+= SimpleClass::Class::Attribute
+
+: ClientInterceptor::Class::Operation
+= SimpleClass::Class::Operation
+
+: ClientInterceptor::Class::Operation::Parameter
+= SimpleClass::Class::Operation::Parameter
+
+: ClientInterceptor::Class::uses::ClassDependency
+? Использование
+
+%f _wiki_child_kind
+	uses
+
+: ClientInterceptor::Class::connect::ClassDependency
+? Серверная пара
+? Определдляет парный интерцептор, который будет использовать тот же сервис-контекст для передачи данных
+
+%f _wiki_child_kind
+	uses
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+: ServerInterceptor::Class
+? Серверный интерцептор
+= ClientInterceptor::Class
+
+: ServerInterceptor::Class::Attribute
+= ClientInterceptor::Class::Attribute
+
+: ServerInterceptor::Class::Operation
+= ClientInterceptor::Class::Operation
+
+: ServerInterceptor::Class::Operation::Parameter
+= ClientInterceptor::Class::Operation::Parameter
+
+: ServerInterceptor::Class::uses::ClassDependency
+= ClientInterceptor::Class::uses::ClassDependency
+
+//////////////////////////////////////////////////////////////////////////////////
+// CurrentSlot
+//////////////////////////////////////////////////////////////////////////////////
+
+: CurrentSlot::Class
+? Слот в PICurrent
+? Аллоцирует под слот в PICurrent заданного типа, а определяет методы доступа к нему
+< *::Class, *::Category
+$ S
+$ s
+$ C 180,220,255
+$ l 5, 75, 155
+$ f 5, 75, 155
+v +
+
+%t _constraint
+c                              {}
+r {<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}:	{%SS не используется ни одним прецедентом}
+
++ h
++ cpp
++ idl
++ java

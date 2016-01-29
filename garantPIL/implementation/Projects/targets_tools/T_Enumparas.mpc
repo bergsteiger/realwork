@@ -1,0 +1,30 @@
+project (T_Enumparas) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_Enumparas {
+	exename = enumparas
+
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += BLOCKSINHERIT
+	macros += MIN_MEM_CONTEXT
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+
+	after += Morpho
+	libs += Morpho
+
+	after += cchlp1
+	after += cchlp2
+	after += gsscreen_enumparas
+	after += gkdb_gudll
+	after += gctx_enumparas
+	after += vcontrol_ggu
+
+	libs += cchlp1
+	libs += cchlp2
+	libs += gsscreen_enumparas
+	libs += gkdb_gudll
+	libs += gctx_enumparas
+	libs += vcontrol_ggu
+}

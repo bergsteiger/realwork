@@ -1,0 +1,290 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Thread_Manager"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"All")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NATIVE_PATHh"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16662012604"))
+    quid       	"45126CD8002D"
+    stereotype 	"Unit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ACE_Thread_Manager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/Thread_Manager.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16660368729"))
+	    quid       	"45126D450137"
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator")
+	(object Class "ACE_Message_Block"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/Message_Block.h")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need assign op"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need copy ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need ref count"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need unsorted less"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"ifdef"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no base class"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"non virtual base"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Refcount"
+		    value      	"self")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need objcounter"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no hands"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16662119608"))
+	    quid       	"45F04E4D0018"
+	    documentation 	
+|brief Stores messages for use throughout ACE (particularly in an ACE_Message_Queue).
+|
+|An ACE_Message_Block is modeled after the message data structures used in System V STREAMS.  Its purpose is to enable efficient manipulation of arbitrarily large messages without incurring much memory copying overhead.  Here are the main characteristics of an ACE_Message_Block:
+| - Contains a pointer to a reference-counted ACE_Data_Block, which in turn points to the actual data buffer.  This allows very flexible and efficient sharing of data by multiple ACE_Message_Block objects.
+| - One or more ACE_Message_Blocks can be linked to form a``fragment chain.''
+| - ACE_Message_Blocks can be linked together in a doubly linked fashion to form a queue of messages (this is how ACE_Message_Queue works).
+|
+	    
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator")
+	(object Class "ACE_Manual_Event"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/Manual_Event.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16660369774"))
+	    quid       	"45F053E80075"
+	    documentation 	"Specialization of Event mechanism which wakes up all waiting thread on <signal>.  All platforms support process-scope locking support.  However, only Win32 platforms support global naming and system-scope locking support."
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272"))
+	    quid       	"45126D420221"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::external::ace::Thread_Manager::ACE_Thread_Manager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(270, 120)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(51, 90)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	438
+			justify    	0
+			label      	"• ACE_Thread_Manager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(51, 40)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	438
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"45126D450137"
+		    width      	456
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ace::Thread_Manager::ACE_Message_Block" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(279, 434)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(65, 404)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"• ACE_Message_Block")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(65, 354)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"45F04E4D0018"
+		    width      	446
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ace::Thread_Manager::ACE_Manual_Event" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(291, 761)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(92, 731)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"• ACE_Manual_Event")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(92, 681)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"45F053E80075"
+		    width      	416
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)))))

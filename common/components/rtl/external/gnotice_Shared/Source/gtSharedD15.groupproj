@@ -1,0 +1,84 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{6CD18653-8353-4CBB-861D-6BCB9EF0FA30}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="Compression\gtCompressionD15.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Filters\gtFiltersD15.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="PDFCrypt\gtCryptD15.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="PDFFontProcessor\gtFontD15.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Rtl\gtRtlD15.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="gtCompressionD15">
+			<MSBuild Projects="Compression\gtCompressionD15.dproj"/>
+		</Target>
+		<Target Name="gtCompressionD15:Clean">
+			<MSBuild Projects="Compression\gtCompressionD15.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="gtCompressionD15:Make">
+			<MSBuild Projects="Compression\gtCompressionD15.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="gtFiltersD15">
+			<MSBuild Projects="Filters\gtFiltersD15.dproj"/>
+		</Target>
+		<Target Name="gtFiltersD15:Clean">
+			<MSBuild Projects="Filters\gtFiltersD15.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="gtFiltersD15:Make">
+			<MSBuild Projects="Filters\gtFiltersD15.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="gtCryptD15">
+			<MSBuild Projects="PDFCrypt\gtCryptD15.dproj"/>
+		</Target>
+		<Target Name="gtCryptD15:Clean">
+			<MSBuild Projects="PDFCrypt\gtCryptD15.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="gtCryptD15:Make">
+			<MSBuild Projects="PDFCrypt\gtCryptD15.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="gtFontD15">
+			<MSBuild Projects="PDFFontProcessor\gtFontD15.dproj"/>
+		</Target>
+		<Target Name="gtFontD15:Clean">
+			<MSBuild Projects="PDFFontProcessor\gtFontD15.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="gtFontD15:Make">
+			<MSBuild Projects="PDFFontProcessor\gtFontD15.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="gtRtlD15">
+			<MSBuild Projects="Rtl\gtRtlD15.dproj"/>
+		</Target>
+		<Target Name="gtRtlD15:Clean">
+			<MSBuild Projects="Rtl\gtRtlD15.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="gtRtlD15:Make">
+			<MSBuild Projects="Rtl\gtRtlD15.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="gtCompressionD15;gtFiltersD15;gtCryptD15;gtFontD15;gtRtlD15"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="gtCompressionD15:Clean;gtFiltersD15:Clean;gtCryptD15:Clean;gtFontD15:Clean;gtRtlD15:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="gtCompressionD15:Make;gtFiltersD15:Make;gtCryptD15:Make;gtFontD15:Make;gtRtlD15:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

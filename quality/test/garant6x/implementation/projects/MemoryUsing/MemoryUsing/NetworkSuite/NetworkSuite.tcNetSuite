@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="child list"/>
+		<Node name="settings">
+			<Node name="{67026d48-d2aa-4462-8044-55337e5296bd}">
+				<Prp name="type" type="I" value="5"/>
+				<Prp name="value" type="S" value=""/>
+			</Node>
+		</Node>
+		<Node name="variables">
+			<Node name="datav2"/>
+			<Prp name="key" type="S" value="{28083356-6BD8-44D9-814F-98D33143FC2A}"/>
+			<Prp name="version" type="I" value="2"/>
+		</Node>
+		<Prp name="signature" type="S" value="{342AA317-C8C7-4232-8A60-069723AAFC67}"/>
+		<Prp name="version" type="S" value="5.0"/>
+	</Node>
+</Nodes>

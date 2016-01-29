@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/BuildSupportLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::BuildSupportLib
+//
+// Библиотека поддержки работы со сборками в конфлюенсе, в частности из сборочного скрипта ant.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (BuildSupportLib) : project_generic_core_corba {
+	sharedname = BuildSupportLib
+	staticname = BuildSupportLib
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	Header_Files {
+		Std_Headers {
+			./../BuildSupportLib/LibHome.h
+		}
+	
+		LibSupport {
+			./../BuildSupportLib/Run.h
+			./../BuildSupportLib/RunSettings.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		LibSupport {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../BuildSupportLib/LibHome.cpp
+		}
+	
+		LibSupport {
+			./../BuildSupportLib/Run.cpp
+			./../BuildSupportLib/RunSettings.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

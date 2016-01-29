@@ -1,0 +1,607 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/ServerLib/High/ServerLibrary.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::ServerLib::High::ServerLibrary
+//
+// Cерверная библиотека
+// ---
+// Удаленная серверная компонента (библиотека)
+// Определляет генерацию распределенной сервеной компоненты.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ServerLibrary::Category
+? Cерверная библиотека
+? Удаленная серверная компонента (библиотека)
+? Определляет генерацию распределенной сервеной компоненты.
+> ServerInterfaces::Category
+
+= Library::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_server_library.gif
+L code_server_library
+D
+/ - запрещена форвард-декларация
+// Параметры визуализации
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p old gcm:b=false ? определяет, что модуль является частью старой модели
+p exec mode=idle|concluded ? определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{old gcm}"!="%S{!old gcm}"}%f_up_prefix(%S) *old gcm* = *%S{old gcm}* - определяет, что модуль является частью старой модели
+	][{"%S{exec mode}"!="%S{!exec mode}"}%f_up_prefix(%S) *exec mode* = *%S{exec mode}* - определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Library::Category
+// дампит дополнительные инклюды
+%f _add_cpp_inc
+//#UC START# *470370AC0261for47037635038A*
+	[{%XU=cpp}<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}\#include "%f_with_gen_id(h,%AL)"
+	><{}{%CS=ServerInterfaces}[\#include "%f_with_gen_id(fctr.h,%CL)"
+	]>][{%XU=fctr.h|%XU=fctr.cpp}[<{}{%C#f_IsInterfaces()=true|%CS=ServerInterfaces}%C<{}{%CS=Settings}\#include "%f_with_gen_id(h,%CL)"
+	>>]]
+//#UC END# *470370AC0261for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// Метод генерирует дополнительную реализацию.
+%f _addition_definitions
+//#UC START# *492D4842032Cfor47037635038A*
+	[{%XU=cpp&<{}{%AS=CurrentSlot}{%AC}>!=0}
+	<{}{%AS=CurrentSlot}{%A}
+	PortableInterceptor::SlotId CurrentSlotAccessor::s_%f_to_omg(%AN)_slot_id = 0;>
+	
+	<{}{%AS=CurrentSlot}{%A}PortableInterceptor::SlotId CurrentSlotAccessor::get_%f_to_omg(%AN)_slot_id () {
+		return CurrentSlotAccessor::s_%f_to_omg(%AN)_slot_id;
+	}
+	
+	void CurrentSlotAccessor::set_%f_to_omg(%AN)_slot_id (PortableInterceptor::SlotId allocated_slot) {
+		CurrentSlotAccessor::s_%f_to_omg(%AN)_slot_id = allocated_slot;
+	}>
+	%S%[Library::Category]\
+	]
+//#UC END# *492D4842032Cfor47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// Метод генерирует дополнительную декларацию.
+%f _additional_declarations
+//#UC START# *492D3C81013Ffor47037635038A*
+	[{%XU=h&<{}{%AS=CurrentSlot}{%AC}>!=0}
+	class CurrentSlotAccessor {
+	public:<{}{%AS=CurrentSlot}
+		static PortableInterceptor::SlotId get_%f_to_omg(%AN)_slot_id ();>
+	
+	private:
+		friend class LibHomeImpl;<{}{%AS=CurrentSlot}
+		static void set_%f_to_omg(%AN)_slot_id (PortableInterceptor::SlotId allocated_slot);><{}{%AS=CurrentSlot}
+		static PortableInterceptor::SlotId s_%f_to_omg(%AN)_slot_id;>
+	}; //CurrentSlotAccessor
+	
+	%S%[Library::Category]]
+//#UC END# *492D3C81013Ffor47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// Метод генерирует дополнительную реализацию.
+%f _additional_def_java
+//#UC START# *492E98DB0075for47037635038A*
+	[{%XU=java&<{}{%AS=CurrentSlot}{%AC}>!=0}\
+	public static class CurrentSlotAccessor {
+	<{}{%AS=CurrentSlot}{%A}		private static int s%f_to_borland(%AN)SlotId = 0;
+	>
+	<{}{%AS=CurrentSlot}{%A}		public static int get%f_to_borland(%AN)SlotId () {
+				return s%f_to_borland(%AN)SlotId;
+			}
+			
+			private static void set%f_to_borland(%AN)SlotId (int alocatedSlot) {
+				s%f_to_borland(%AN)SlotId = alocatedSlot;
+			}>
+		} // CurrentSlotAccessor
+	%S%[Library::Category]]
+//#UC END# *492E98DB0075for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// возвращает базовый класс LibHome, от которого должна наследоваться библиотека
+%f _base_libhome
+//#UC START# *47036DD50128for47037635038A*
+	[{%X{lid}=cpp}{extends [{%XU=java}{ru.garant.shared.Core.Root_i.StdLibHomeBase}ru.garant.shared.CoreSrv.Root_i.CorbaLibHomeBase]}\
+	virtual public [{%XU=h|%XU=cpp}{Core::Root_i::StdLibHomeBase}CoreSrv::Root_i::CorbaLibHomeBase]]
+//#UC END# *47036DD50128for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// подключает заколовок LibHome
+%f _include_base_libhome
+//#UC START# *47036D3D00ABfor47037635038A*
+	[{%X{lid}=cpp}{import [{%XU=java}{ru.garant.shared.Core.Root_i.StdLibHomeBase}ru.garant.shared.CoreSrv.Root_i.CorbaLibHomeBase];}\
+	\#include [{%XU=h|%XU=cpp}{"shared/Core/impl/Root_i/StdLibHomeBase.h"}"shared/CoreSrv/impl/Root_i/CorbaLibHomeBase.h"]]
+//#UC END# *47036D3D00ABfor47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// дампит код реализации интерцепоторов
+%f _interceptor_cpp
+//#UC START# *47036F1D0280for47037635038A*
+	[{%XU=cpp&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}\
+	void LibHomeImpl::ORBInitializer::pre_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException) {
+	<{}{%AS=ServerInterceptor}	{
+			PortableInterceptor::ServerRequestInterceptor_var si = new %AN();
+			info-\>add_server_request_interceptor(si.in());
+		}
+	><{}{%AS=ClientInterceptor}	{
+			PortableInterceptor::ClientRequestInterceptor_var ci = new %AN();
+			info-\>add_client_request_interceptor(ci.in());
+		}
+	><{}{%AS=CurrentSlot}
+		CurrentSlotAccessor::set_%f_to_omg(%AN)_slot_id (info-\>allocate_slot_id ());
+	>
+	}
+	
+	void LibHomeImpl::ORBInitializer::post_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException) {
+	}
+	
+	PortableInterceptor::ORBInitializer* LibHomeImpl::get_orb_initializer () const {
+		return new ORBInitializer ();
+	}
+	
+	]
+//#UC END# *47036F1D0280for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// дампит код определения интерцепоторов
+%f _interceptor_h
+//#UC START# *47036F3A01B5for47037635038A*
+	[{%XU=h&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}
+		PortableInterceptor::ORBInitializer* get_orb_initializer () const;
+	
+		class ORBInitializer: virtual public PortableInterceptor::ORBInitializer {
+			void pre_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException);
+	
+			void post_init(PortableInterceptor::ORBInitInfo_ptr info) throw (CORBA::SystemException);
+		};
+	
+		friend class ORBInitializer;]
+//#UC END# *47036F3A01B5for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// дампит код интерцепторов на java
+%f _interceptor_java
+//#UC START# *47036F9A03B9for47037635038A*
+	[{%XU=java&<{}{%AS=ServerInterceptor|%AS=ClientInterceptor}{C}>!=0}\
+		public static class ORBInitializer extends org.omg.CORBA.LocalObject implements org.omg.PortableInterceptor.ORBInitializer {
+				public void pre_init (org.omg.PortableInterceptor.ORBInitInfo info) {
+		<{}{%AS=ServerInterceptor}
+					org.omg.PortableInterceptor.ServerRequestInterceptor si%f_to_borland(%AN) = new %f_type(%A) ();
+					try {
+						info.add_server_request_interceptor(si%f_to_borland(%AN));
+					} catch (org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName ex) {
+						Logs.LOG_SEX(ex);
+					}
+		><{}{%AS=ClientInterceptor}
+					org.omg.PortableInterceptor.ClientRequestInterceptor ci%f_to_borland(%AN) = new %f_type(%A) ();
+		
+					try {
+						info.add_client_request_interceptor(ci%f_to_borland(%AN));
+					} catch (org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName ex) {
+						Logs.LOG_SEX(ex);
+					}
+		><{}{%AS=CurrentSlot}
+					CurrentSlotAccessor.set%f_to_borland(%AN)SlotId (info.allocate_slot_id ());
+		>
+				}
+		
+				public void post_init (org.omg.PortableInterceptor.ORBInitInfo info) {
+				}
+			}
+		
+			public org.omg.PortableInterceptor.ORBInitializer getOrbInitializer () {
+				return new ORBInitializer ();
+			}]
+//#UC END# *47036F9A03B9for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// возвращает namespace к LibHome
+%f _libhome
+//#UC START# *47036E60006Dfor47037635038A*
+	[{%X{lid}=cpp}{[{%XU=java}{ru.garant.shared.Core.Root.LibHome}ru.garant.shared.CoreSrv.Root.CorbaLibHome]}\
+	[{%XU=h|%XU=cpp}{Core::Root::LibHome}CoreSrv::Root::CorbaLibHome]]
+//#UC END# *47036E60006Dfor47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// префикс перед именем LibHome
+%f _name_prefix
+//#UC START# *47036F0403A9for47037635038A*
+	[{%XU=fctr.h|%XU=fctr.cpp|%XU=fctr.java}Server]
+//#UC END# *47036F0403A9for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// возвращает true, если нужно генерить методы для работы с параметрами...
+%f _need_dump_params_methods
+//#UC START# *492A9D95027Cfor47037635038A*
+	[{%XU=fctr.h|%XU=fctr.cpp}{false}[{<{}{%AM=Settings::Class&%A<{%CC=Attribute}{%CC}>!=0}{%AC}>!=0}{false}true]]
+//#UC END# *492A9D95027Cfor47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// нужно ли запускать выполенение LibHome
+%t _need_to_execute
+//#UC START# *47037023006Dfor47037635038A*
+c                          {}
+r {server/stand alone}:    {[{%XU=fctr.h|%XU=fctr.cpp|%XU=fctr.java}{false}true]}
+r {both}:                  {true}
+r {""=""}:                 {false}
+//#UC END# *47037023006Dfor47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// нужно ли регистрировать LibHome
+%t _need_to_reg
+//#UC START# *4703704402DEfor47037635038A*
+c            {}
+r {""=""}:   {[{%XU=fctr.h|%XU=fctr.cpp|%XU=fctr.java}{false}true]}
+//#UC END# *4703704402DEfor47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// дампит реализацию собственных методов LibHome
+%f _self_methods_cpp
+//#UC START# *47036FDC0280for47037635038A*
+	[{%XU=cpp}void LibHomeImpl::publish_all_servers_factories () const {
+	<{}{%AS=ServerInterface&%f_has_factory_methods(%A)=true}\
+		%f_type(%A)FactoryManager::publish_self ();
+	>}
+	
+	]
+//#UC END# *47036FDC0280for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// дампит определение собственных методов LibHome
+%f _self_methods_h
+//#UC START# *47036FC002AFfor47037635038A*
+	[{%XU=h}
+	
+	private:
+		void publish_all_servers_factories () const;]
+//#UC END# *47036FC002AFfor47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// дампит реализация собственных методов на java
+%f _self_methods_java
+//#UC START# *47036FED0128for47037635038A*
+	[{%XU=java}\
+		public void publishAllServersFactories () {
+	<{}{%AS=ServerInterface&%A<{}{%CS=factory|%CS=multi factory}{C}>!=0}\
+				%f_type(%A)FactoryManager.publishSelf ();
+	>		}]
+//#UC END# *47036FED0128for47037635038A*
+
+// перекрытие базового стереотипа Library::Category
+// дампит код установки метода запуска LibHome
+%f _set_exec_mode
+//#UC START# *470370E200ABfor47037635038A*
+	[{%S{exec mode}=idle&%XU=fctr.cpp}	this-\>set_requested_status (Core::Root::ES_IDLE);
+	][{%S{exec mode}=idle&%XU=fctr.java}		this.setRequestedStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_IDLE);
+	]
+//#UC END# *470370E200ABfor47037635038A*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for47037635038A*
+P
+O %SN.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN library
+	%f_header(%S)
+	project (%SN) : project_generic_core_corba[{<{}{%AM=Grammar::Class}{%AC}>!=0}, project_compile_g] {
+		staticname = %SN
+	
+		includes += %f_root_relative_path(%S)
+	[{%SN!=Core&%SN!=CoreSrv}
+		after += CoreSrv_cs
+		libs  += CoreSrv_cs
+	]
+		after += %SN_cs
+		libs  += %SN_cs
+	
+	[{"<{}{%DS!=Requirements}{%DC}>"!="0"}	%f_mpc_lib_dep(%S)]
+	[<{}{%C<{}{%AM=Grammar::Class}{%AC}>!=0}{%CSn}\
+		Grammar_Files (%CN) {
+	%C<{}{}{%ASn}[{"%f_normolized_path(g.cpp,A)"!=""}\
+			gflags += -o %f_normolized_dir(g.cpp,A)%f_set_var(PATH,"%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,)")
+			%f_normolized_path(g.cpp,A) \>\> %{PATH}NLexer.hpp %{PATH}NLexer.cpp %{PATH}NParser.hpp %{PATH}NParser.cpp
+	]>
+		}
+	>]	Header_Files {
+			Std_Headers {
+			[	%f_normolized_path(fctr.h,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]>}
+		<{}{%CC=Category&%CS!=ServerInterfaces}{Sn}
+			%CN {
+			[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(h,A)
+			][	%f_normolized_path(fctr.h,A)
+			][	%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.hpp),%AN.,%ANParser.)
+				%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.hpp),%AN.,%ANLexer.)
+			]>}
+		>}
+	
+		Inline_Files {
+			Std_Inlines {
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(i.h,C)
+			]>}
+		<{}{%CC=Category&%CS!=ServerInterfaces}{Sn}
+			%CN {
+			[	%f_normolized_path(i.h,C)
+			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(i.h,A)
+			]>}
+		>}
+	
+		Source_Files {
+			Std_Sources {
+			[	%f_normolized_path(fctr.cpp,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]>}
+		<{}{%CC=Category&%CS!=ServerInterfaces}{Sn}
+			%CN {
+			[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]%C<{}{%AS!=ClientInterceptor&%AS!=ServerInterceptor}{%ASn}[	%f_normolized_path(cpp,A)
+			][	%f_normolized_path(fctr.cpp,A)
+			][	%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.cpp),%AN.,%ANParser.)
+				%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.cpp),%AN.,%ANLexer.)
+			]>}
+		>}
+	}
+	%f_footer(%S)
+//#UC END# *47031E850177for47037635038A*
+
+// перекрытие базового стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for47037635038A*
+= Library::Category;cpp
+//#UC END# *4705C54B01F4for47037635038A*
+
+// перекрытие базового стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for47037635038A*
+= Library::Category;h
+//#UC END# *4705C5490109for47037635038A*
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for47037635038A*
+S [{"%S{is namespace}"="true"}module %SN {\n]
+s [{"%S{is namespace}"="true"}}; // module %SN\n]
+P
+C /%SN
+	<%CX>
+//#UC END# *47022BBE0261for47037635038A*
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for47037635038A*
+= idl
+//#UC END# *47022C0F01E4for47037635038A*
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor47037635038A*
+= Library::Category;java
+//#UC END# *470321C1038Afor47037635038A*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor47037635038A*
+//#UC END# *47032ED002DEfor47037635038A*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor47037635038A*
+//#UC END# *47032EC4032Cfor47037635038A*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor47037635038A*
+//#UC END# *470F152700FAfor47037635038A*
+
+// перекрытие базового стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor47037635038A*
+P
+O %SN_cs.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN_cs library
+	%f_header(%S)
+	project (%SN_cs) : project_generic_core_corba, project_compile_idl {
+		staticname = %SN_cs
+	
+		includes += %f_root_relative_path(%S)
+	[{%SN!=Core&%SN!=CoreSrv}
+		after += CoreSrv_cs
+		libs  += CoreSrv_cs
+	]
+	][{"<{}{}{%DC}>"!="0"}	%f_mpc_lib_dep(%S)]
+	[<{}{%f_need_mpc_idl(%C)=true}{Sn}\
+		IDL_Files (%CN) {
+	[{"%f_normolized_path(idl,C)"!=""}\
+			idlflags += -o %f_normolized_dir(idl,C)
+			%f_normolized_path(idl,C)
+	]%C<{}{}{%ASn}[{"%f_normolized_path(idl,C)"!=""}\
+			idlflags += -o %f_normolized_dir(idl,A)
+			%f_normolized_path(idl,A)
+	]>\
+		}
+	
+	>]	Header_Files {
+			Std_Headers {
+			[	%f_normolized_path(h,S)
+			]}
+		<{}{%CM=ServerInterfaces::Category}{Sn}
+			%CN {
+			[	%f_normolized_path(h,C)
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.h)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.h)
+			][	%f_normolized_path(fctr.h,C)
+			]]}
+		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+			%CN {			
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.h)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.h)
+			]}
+		><{}{%CC=Category&%CS=LibSupport}{Sn}
+			%CN {
+			%C<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}{%ASn}[	%f_normolized_path(h,A)
+			][	%f_normolized_path(fctr.h,A)
+			]>}
+		>}
+	
+		Inline_Files {
+			Std_Inlines {
+			[	%f_normolized_path(i.h,S)
+			]}
+		<{}{%CM=ServerInterfaces::Category}{Sn}
+			%CN {
+			[	%f_normolized_path(i.h,C)
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.inl)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.inl)
+			]]}
+		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+			%CN {			
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.inl)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.inl)
+			]}
+		><{}{%CC=Category&%CS=LibSupport}{Sn}
+			%CN {
+			%C<{}{%AS=ClientInterceptor}{%ASn}[	%f_normolized_path(i.h,A)
+			]>}
+		>}
+	
+		Source_Files {
+			Std_Sources {
+			[	%f_normolized_path(cpp,S)
+			]}
+		<{}{%CM=ServerInterfaces::Category}{Sn}
+			%CN {
+			[	%f_normolized_path(cpp,C)
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.cpp)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.cpp)
+			][	%f_normolized_path(fctr.cpp,C)
+			]]}
+		><{}{%CM=Impl::Category&%C%f_need_idl()=true}{Sn}
+			%CN {			
+			[	%f_set_var(IDL_PATH,"%f_normolized_path(idl,C)")%f_str_replace(%{IDL_PATH}N,.idl,C.cpp)
+				%f_str_replace(%{IDL_PATH}N,.idl,S.cpp)
+			]}
+		><{}{%CC=Category&%CS=LibSupport}{Sn}
+			%CN {
+			%C<{}{%AS=ClientInterceptor|%AS=ServerInterceptor}{%ASn}[	%f_normolized_path(cpp,A)
+			][	%f_normolized_path(fctr.cpp,A)
+			]>}
+		>}
+	}
+	%f_footer(%S)
+//#UC END# *47031E41002Efor47037635038A*
+
+// перекрытие базового стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor47037635038A*
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O build.xml
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<project name="%SN" basedir="."\>
+		\<property environment="env"/\>
+		\<property name="build.dir" value="$\{env.JAVA_SOURCE_ROOT}/build/target"/\>
+		[{<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}
+		\<target name="idlcomp"\>
+			\<mkdir dir="${build.dir}/classes"/\>
+	<{}{%f_need_mpc_idl(%C)=true}\
+	%f_idlcomp_jacidl(%C,%S)
+	>	\</target\>]
+		\<target name="gcomp"\>
+	[<{}{"%f_with_gen_id(g.java,%Ao)"!=""}{%A}%f_gcomp_antlr(%A)
+		>]\
+		\</target\>
+		\<target name ="makejar"\>
+			\<mkdir dir="${build.dir}/jar"/\>[{%SN!=Core&%SN!=CoreSrv}
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/\>
+			]\<jar destfile="${build.dir}/jar/%SN.jar"\>
+				\<fileset dir ="${build.dir}/classes"\>
+					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+				\</fileset\>[{<{}{"%f_with_gen_id(output.xml,%AO)"!=""}{%AC}>!=0}
+				\<fileset dir ="%f_with_gen_id(output.xml,$\{env.JAVA_SOURCE_ROOT}%Sd)"/\>]
+			\</jar\>
+		\</target\>
+		<%CX>
+	\</project\>
+
+f _idlcomp_idlj
+			\<exec executable="idlj"\>
+				\<arg line="-i"/\>
+				\<arg line="$\{env.JAVA_SOURCE_ROOT}"/\>
+	[{%1N!=Core&%1N!=CoreSrv}			\<arg line="-pkgPrefix"/\>
+				\<arg line="CoreSrv"/\>
+				\<arg line="ru.garant.shared"/\>
+	]			\<arg line="-pkgPrefix"/\>
+				\<arg line="%1N"/\>
+				\<arg line="ru.garant.%1%PN"/\>
+				\<arg line="-td"/\>
+				\<arg line="%f_with_gen_id(java,$\{env.JAVA_SOURCE_ROOT}/%1%PN/java/src/java)"/\>
+				\<arg line="-fall"/\>
+				\<arg line="%f_with_gen_id(idl,%So)"/\>
+			\</exec\>
+
+f _idlcomp_jacidl
+			\<exec executable="idl.bat"\>
+				\<arg line="-I$\{env.JAVA_SOURCE_ROOT}/"/\>
+				\<arg line="-d"/\>
+				\<arg line="%f_with_gen_id(java,$\{env.JAVA_SOURCE_ROOT}/%1%PN/java/src/java)"/\>
+	[{%1N!=Core&%1N!=CoreSrv}			\<arg line="-i2jpackage"/\>
+				\<arg line="CoreSrv:ru.garant.shared.CoreSrv"/\>
+	]			\<arg line="-i2jpackage"/\>
+				\<arg line="%1N:ru.garant.%1%PN.%1N"/\>
+				\<arg line="%f_with_gen_id(idl,%f_str_replace(%So,%SR,$\{env.JAVA_SOURCE_ROOT}))"/\>
+			\</exec\>
+
+f _gcomp_antlr
+			\<exec executable="X:/antlr/bin/antlr.bat"\>
+				\<arg line="-o"/\>
+				\<arg line="%f_with_gen_id(java,%f_str_replace(%So,%SO,))"/\>
+				\<arg line="%f_with_gen_id(g.java,%So)"/\>
+			\</exec\>
+//#UC END# *47032262037Afor47037635038A*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

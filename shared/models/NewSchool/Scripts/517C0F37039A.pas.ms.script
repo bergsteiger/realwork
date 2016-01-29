@@ -1,0 +1,176 @@
+// Rounded 517C0F37039A Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_517C0F37039A
+
+FORWARD ME_517C0F4B027C
+
+: ME_4CC847800383_ME_517C0F4B027C
+ CONST UID '4CC847800383'
+ CONST Name 'TuneRegion'
+ : Original WL 'ME_4CC847800383' '4CC81FAC02D6.pas.ms.script' // TuneRegion
+ ;
+ : Implementor ME_517C0F4B027C // RoundedControl
+ ;
+ref; // ME_4CC847800383_ME_517C0F4B027C TuneRegion
+
+: ME_517C0F4B027C
+ CONST UID '517C0F4B027C'
+ CONST Name 'RoundedControl'
+ CONST Class class_Class
+ : Stereotype st_GUIControlMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_517C0F37039A // Rounded
+ ;
+ : Inherits
+   @ ( WL 'ME_4CC81FB7008B' '4CC81FAC02D6.pas.ms.script' // RegionableControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4CC847800383_ME_517C0F4B027C // TuneRegion
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\RoundedControl.imp.pas'
+ CONST extprop:pas:TypeName '_RoundedControl_'
+
+ref; // ME_517C0F4B027C RoundedControl
+
+: ME_517C0F9C03C3
+ CONST UID '517C0F9C03C3'
+ CONST Name 'TRoundedButton'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_517C0F37039A // Rounded
+ ;
+ : Inherits
+   @ ( WL 'ME_4D5E5A3A0186' '4799D29F033F.pas.ms.script' // TButton
+ WL 'ME_51614065019A' '51612EBB02F5.pas.ms.script' // RefCounted
+ ME_517C0F4B027C // RoundedControl
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\RoundedButton.pas'
+
+ref; // ME_517C0F9C03C3 TRoundedButton
+
+FORWARD ME_517C102F03B5
+
+: ME_5F5599376D75
+ CONST UID '5F5599376D75'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TRoundedEdit' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_517C102F03B5 // TRoundedEdit
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_5F5599376D75 Ini_Reg_Class
+
+: ME_43A716C3A09A
+ CONST UID '43A716C3A09A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_517C102F03B5 // TRoundedEdit
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_43A716C3A09A 
+
+: ME_517C102F03B5
+ CONST UID '517C102F03B5'
+ CONST Name 'TRoundedEdit'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_517C0F37039A // Rounded
+ ;
+ : Inherits
+   @ ( WL 'ME_51614065019A' '51612EBB02F5.pas.ms.script' // RefCounted
+ ME_517C0F4B027C // RoundedControl
+ WL 'ME_517C0FF50380' '4799D29F033F.pas.ms.script' // TEdit
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_5F5599376D75 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_43A716C3A09A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\RoundedEdit.pas'
+
+ref; // ME_517C102F03B5 TRoundedEdit
+
+: ME_517C0F37039A
+ CONST UID '517C0F37039A'
+ CONST Name 'Rounded'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
+ ;
+ : Children
+   @ ( ME_517C0F4B027C // RoundedControl
+ ME_517C0F9C03C3 // TRoundedButton
+ ME_517C102F03B5 // TRoundedEdit
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4CC81FAC02D6' '4CC81FAC02D6.pas.ms.script' // Core
+ WL 'ME_51612EBB02F5' '51612EBB02F5.pas.ms.script' // Ref Counting
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\517C0F37039A.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\517C0F37039A.pas.ms.script.runner'
+
+ref; // ME_517C0F37039A Rounded

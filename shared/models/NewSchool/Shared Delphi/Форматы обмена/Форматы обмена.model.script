@@ -1,0 +1,153 @@
+<<Requirements>> "Форматы обмена"
+ %UID '4836C4E2003A'
+ %DEPENDS
+  U$ '4797632D0273' /* Everest */
+  U$ '4E36644A0023' /* "Стандартные компоненты" */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '4797632D0273' /* Everest */
+  U$ '4E36644A0023' /* "Стандартные компоненты" */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Problems>> "Нормальные таблицы в F1"
+   %UID '4836C52403BE'
+   %CHILDREN
+    
+     <<UserNeeds>> "Хочется иметь 'нормальные' таблицы в F1"
+      %UID '4836C57F028F'
+     ; // "Хочется иметь 'нормальные' таблицы в F1"
+   ; // %CHILDREN
+  ; // "Нормальные таблицы в F1"
+  <<Features>> "Компиляция из EVD"
+   %UID '4836C5510050'
+   %DEPENDS
+    U$ '4836C52403BE' /* "Нормальные таблицы в F1" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4836C4E2003A' /* "Форматы обмена" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Feature>> "Возможность выливки в формат NSRC+"
+      %UID '4836C5AB0180'
+      %TOBEINCLUDED
+       U$ '4836C4E2003A' /* "Форматы обмена" */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4836C57F028F' /* "Хочется иметь 'нормальные' таблицы в F1" */
+      ; // %IMPLEMENTS
+     ; // "Возможность выливки в формат NSRC+"
+   ; // %CHILDREN
+  ; // "Компиляция из EVD"
+  <<UseCases>> NSRC
+   %UID '4BBB34C600E6'
+   %SUMMARY 'Формат NSRC' ;
+  ; // NSRC
+  <<Features>> "Поддержка внешних форматов"
+   %UID '4AF4606D024A'
+   %DEPENDS
+    U$ '4836C52403BE' /* "Нормальные таблицы в F1" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4836C4E2003A' /* "Форматы обмена" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Feature>> "Экспорт таблиц в RTF"
+      %UID '4AF4609C0115'
+      %TOBEINCLUDED
+       U$ '4836C4E2003A' /* "Форматы обмена" */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4836C57F028F' /* "Хочется иметь 'нормальные' таблицы в F1" */
+      ; // %IMPLEMENTS
+     ; // "Экспорт таблиц в RTF"
+   ; // %CHILDREN
+  ; // "Поддержка внешних форматов"
+  <<UseCases>> RTF
+   %UID '4AF46057003D'
+   %DEPENDS
+    U$ '4AF4606D024A' /* "Поддержка внешних форматов" */
+    U$ '4E5CF70B01E2' /* "Требования к редактору Эверест" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4836C4E2003A' /* "Форматы обмена" */
+    U$ '4E36644A0023' /* "Стандартные компоненты" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<UseCase>> "Экспорт в Word"
+      %UID '4AF460C10310'
+      %TOBEINCLUDED
+       U$ '4836C4E2003A' /* "Форматы обмена" */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4AF4609C0115' /* "Экспорт таблиц в RTF" */
+      ; // %IMPLEMENTS
+      %LINKS
+        <<include>> "4E85C0B8028B"
+         %UID '4E85C0B8028B'
+         %TARGET U$ '4E85A4A500A5' /* "Экспорт документа в RTF" */
+        ; // 4E85C0B8028B
+      ; // %LINKS
+     ; // "Экспорт в Word"
+     <<Actor>> "Пользователь"
+      %UID '4AF460D90026'
+      %LINKS
+        <<Dependency>> "4AF460E70064"
+         %UID '4AF460E70064'
+         %TARGET U$ '4AF460C10310' /* "Экспорт в Word" */
+        ; // 4AF460E70064
+      ; // %LINKS
+     ; // "Пользователь"
+   ; // %CHILDREN
+  ; // RTF
+  <<UseCases>> "NSRC+"
+   %UID '4836C56901A6'
+   %DEPENDS
+    U$ '47ECACA70141' /* Generators */
+    U$ '4836C5510050' /* "Компиляция из EVD" */
+    U$ '4BBB34C600E6' /* NSRC */
+    U$ '4F266203018F' /* NSRC */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4797632D0273' /* Everest */
+    U$ '4836C4E2003A' /* "Форматы обмена" */
+    U$ '4E36644A0023' /* "Стандартные компоненты" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Actor>> "Пользователь"
+      %UID '4836C5D30245'
+      %LINKS
+        <<Dependency>> "4836C5F10309"
+         %UID '4836C5F10309'
+         %TARGET U$ '4836C5E303B9' /* "Выливка в формат NSRC+" */
+        ; // 4836C5F10309
+      ; // %LINKS
+     ; // "Пользователь"
+     <<UseCase>> "Выливка в формат NSRC+"
+      %UID '4836C5E303B9'
+      %DEPENDS
+       U$ '4836C450038D' /* TevSimpleTextPainter */
+       U$ '4836CFF1028E' /* TevNSRCPlusWriter */
+      ; // %DEPENDS
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4836C4E2003A' /* "Форматы обмена" */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4836C5AB0180' /* "Возможность выливки в формат NSRC+" */
+      ; // %IMPLEMENTS
+      %LINKS
+        <<include>> "4BBB350101D6"
+         %UID '4BBB350101D6'
+         %TARGET U$ '4BBB34EC029C' /* "Выливка в формат NSRC" */
+        ; // 4BBB350101D6
+      ; // %LINKS
+     ; // "Выливка в формат NSRC+"
+   ; // %CHILDREN
+  ; // "NSRC+"
+ ; // %CHILDREN
+; // "Форматы обмена"

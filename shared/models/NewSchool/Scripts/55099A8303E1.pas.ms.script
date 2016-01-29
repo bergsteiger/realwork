@@ -1,0 +1,165 @@
+// Tl3KeyboardLayoutService 55099A8303E1 Service Class
+
+FORWARD ME_55099A8303E1
+
+FORWARD ME_58FA1B19298C
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_747558CBA739
+ CONST UID '747558CBA739'
+ CONST Name 'TryActivateKeyboardLayout'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_747558CBA739 TryActivateKeyboardLayout
+
+: ME_58FA1B19298C
+ CONST UID '58FA1B19298C'
+ CONST Name 'Ml3KeyboardLayoutService'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3KeyboardLayoutService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_747558CBA739 // TryActivateKeyboardLayout
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_58FA1B19298C Ml3KeyboardLayoutService
+
+: ME_4C80517D75F5
+ CONST UID '4C80517D75F5'
+ CONST GUID 'B81FD1FC-A13C-4F60-A0D1-0D1F2E636216'
+ CONST Name 'Il3KeyboardLayoutService'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3KeyboardLayoutService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_58FA1B19298C // Ml3KeyboardLayoutService
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_747558CBA739 // TryActivateKeyboardLayout
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_4C80517D75F5 Il3KeyboardLayoutService
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_F14ED4D4867C
+ CONST UID 'F14ED4D4867C'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3KeyboardLayoutService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_4C80517D75F5 // Il3KeyboardLayoutService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_F14ED4D4867C Alien
+
+: ME_6F2A12F1DB29
+ CONST UID '6F2A12F1DB29'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4C80517D75F5 // Il3KeyboardLayoutService
+ ;
+
+ @SELF
+; // ME_6F2A12F1DB29 f_Alien
+
+: ME_55099AAA0207
+ CONST UID '55099AAA0207'
+ CONST Name 'TryActivateKeyboardLayout'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_55099AAA0207 TryActivateKeyboardLayout
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_927065CD0EB6
+ CONST UID '927065CD0EB6'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_927065CD0EB6 Exists
+
+: ME_55099A8303E1
+ CONST UID '55099A8303E1'
+ CONST Name 'Tl3KeyboardLayoutService'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_58FA1B19298C // Ml3KeyboardLayoutService
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_F14ED4D4867C // Alien
+ ME_6F2A12F1DB29 // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55099AAA0207 // TryActivateKeyboardLayout
+ ME_927065CD0EB6 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_747558CBA739 // TryActivateKeyboardLayout
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_58FA1B19298C // Ml3KeyboardLayoutService
+ ME_4C80517D75F5 // Il3KeyboardLayoutService
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55099A8303E1 Tl3KeyboardLayoutService

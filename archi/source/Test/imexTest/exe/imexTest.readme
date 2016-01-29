@@ -1,0 +1,9 @@
+Тестовый набор данных
+В базу залит один док GID#20033333, который содержит команду VINCLUDED
+если отремить строки 
+ //CheckDocuments := True;
+ //SameDocuments := sdrDelete;
+ //DeleteConditions := [dcIfNotVIncluded];
+в procedure TTestForm.TopicEvent (unit MainForm)
+можно проверить как работает dt_IFltr в режиме пропуска некоторых доков (K:264374454),
+правда при этом не зальются несколько справок из-за (K:264902833) 

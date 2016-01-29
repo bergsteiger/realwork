@@ -1,0 +1,190 @@
+// Tm3NewStorageStreamPrim 5448F0A40180 SimpleClass Class
+
+INCLUDE '54218C200328.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '5481CCCF0319.pas.ms.script'
+
+INCLUDE '4FA276650046.pas.ms.script'
+
+FORWARD ME_5448F0A40180
+
+INCLUDE '5411C54C0194.pas.ms.script'
+
+: ME_5448F1000143
+ CONST UID '5448F1000143'
+ CONST Name 'f_Block'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5411C58501E2 // Tm3StorageBlock
+ ;
+
+ @SELF
+; // ME_5448F1000143 f_Block
+
+INCLUDE '54084CDE023E.pas.ms.script'
+
+: ME_5448F13E01F2
+ CONST UID '5448F13E01F2'
+ CONST Name 'f_HeaderData'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_54084CDE023E // Tm3StoreHeaderDataPrim
+ ;
+
+ @SELF
+; // ME_5448F13E01F2 f_HeaderData
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5448F1560109
+ CONST UID '5448F1560109'
+ CONST Name 'f_Position'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_5448F1560109 f_Position
+
+FORWARD ME_5448F1A501FE
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5448F1B4000D
+ CONST UID '5448F1B4000D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5448F1B4000D DoIt
+
+: ME_5448F1A501FE
+ CONST UID '5448F1A501FE'
+ CONST Name 'MoveStreamPointer'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5448F1B4000D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5448F1A501FE MoveStreamPointer
+
+FORWARD ME_5448F1C80365
+
+INCLUDE '4720862F0238.pas.ms.script'
+
+: ME_5448F261035E
+ CONST UID '5448F261035E'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_5448F261035E anAccess
+
+: ME_5448F2610385
+ CONST UID '5448F2610385'
+ CONST Name 'aHeaderData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_54084CDE023E // Tm3StoreHeaderDataPrim
+ ;
+
+ @SELF
+; // ME_5448F2610385 aHeaderData
+
+: ME_5448F1F800C2
+ CONST UID '5448F1F800C2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5448F261035E // anAccess
+ ME_5448F2610385 // aHeaderData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5448F1F800C2 DoIt
+
+: ME_5448F1C80365
+ CONST UID '5448F1C80365'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5448F1F800C2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5448F1C80365 Create
+
+: ME_5448F0A40180
+ CONST UID '5448F0A40180'
+ CONST Name 'Tm3NewStorageStreamPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_54218C200328 // Tm3CommonStorageStream
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_5448F1000143 // f_Block
+ ME_5448F13E01F2 // f_HeaderData
+ ME_5448F1560109 // f_Position
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5448F1A501FE // MoveStreamPointer
+ ME_5448F1C80365 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_4FA27CF501C4 // DoRead
+ ME_4FA27D310344 // DoWrite
+ ME_4FA27D5302C5 // DoSeek
+ ME_4FA27DCD02B4 // DoSetSize
+ ME_4FA2802E0231 // DoGetSize
+ ME_5412FB880320 // DoGetName
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5448F0A40180 Tm3NewStorageStreamPrim

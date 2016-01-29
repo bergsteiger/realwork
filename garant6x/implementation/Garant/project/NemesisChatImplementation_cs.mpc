@@ -1,0 +1,44 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/NemesisChatImplementation_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> garant6x::NemesisChatImplementation
+//
+// реализация чата для немезис
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (NemesisChatImplementation_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = NemesisChatImplementation_cs
+
+	includes += ../../../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += ChatLibrary_cs
+	libs  += ChatLibrary_cs
+
+	after += IdlCompilationSet
+	libs  += IdlCompilationSet
+
+	Header_Files {
+		Std_Headers {
+			./../NemesisChatImplementation/LibHome.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../NemesisChatImplementation/LibHome.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

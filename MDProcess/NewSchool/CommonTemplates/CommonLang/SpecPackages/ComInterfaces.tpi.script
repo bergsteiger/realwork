@@ -1,0 +1,274 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/SpecPackages/ComInterfaces.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::SpecPackages::ComInterfaces
+//
+// Интерфейсный COM-пакет
+// ---
+// Содержит экспортируемые наружу COM-компоненты типы и интерфейсы. Может зависить только от других
+// интерфейсных пакетов (своей компоненты или чужой)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ComInterfaces::Category
+implementation @ <<ComInterfaces>>
+//? Интерфейсный COM-пакет
+//? Содержит экспортируемые наружу COM-компоненты типы и интерфейсы. Может зависить только от других интерфейсных пакетов (своей компоненты или чужой)
+//> ComInterface::Class
+
+//= InterfacePackageBase::Category
+//= COM::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_com_interfaces.gif
+//L code_com_interfaces
+//D
+// - запрещена форвард-декларация
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p is namespace:b=false ? определяет является ли модуль неймспейсом
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[InterfacePackageBase::Category]f_wiki_up_print()[{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли модуль неймспейсом
+ call-inherited:: 'InterfacePackageBase' wiki_up_print %( )%
+ if ( ( %S get_up ( 'is namespace' ) ) %!= ( %S get_up_def ( 'is namespace' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is namespace* = *'
+  %S get_up ( 'is namespace' ) '* - определяет является ли модуль неймспейсом'
+//	][{"%S{ifdef}"!="%S{!ifdef}"}%f_up_prefix(%S) *ifdef* = *%S{ifdef}* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+ end // if
+ if ( ( %S get_up ( 'ifdef' ) ) %!= ( %S get_up_def ( 'ifdef' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ifdef* = *'
+  %S get_up ( 'ifdef' ) '* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.'
+//	][{"%S{ifndef}"!="%S{!ifndef}"}%f_up_prefix(%S) *ifndef* = *%S{ifndef}* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+ end // if
+ if ( ( %S get_up ( 'ifndef' ) ) %!= ( %S get_up_def ( 'ifndef' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ifndef* = *'
+  %S get_up ( 'ifndef' ) '* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа WikiPackageImpl::Category
+// Определяет, что пакет должен генериться в документации в секцию "Интерфейсные пакеты"
+//%f _wiki_interface_package
+; // wiki_up_print
+
+: wiki_interface_package OBJECT IN %S
+//#UC START# *48578600008Dfor470488F50280*
+//	true
+ true
+//#UC END# *48578600008Dfor470488F50280*
+; // wiki_interface_package
+
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генерация файла опрделений для регистрации COM DLL (.rgs)
+//+ com.rgs
+<<generator>> com.rgs OBJECT IN %S
+//#UC START# *470320E002CEfor470488F50280*
+//C /%SN
+//O %SN.rgs
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	HKCR
+ 'HKCR'
+//	{<{\n}{%CM=ComInterface::Class}{%C}
+ '{'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'ComInterface::Class' ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+   #13#10
+
+//		%SN.%CN.1 = s '%CN Class'
+   '	'
+   %S |N '.'
+   %C |N '.1 = s '''
+   %C |N ' Class''
+//		{
+   '	{'
+//			CLSID = s '{%f_str_conv("%CG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s")99}'
+   '		CLSID = s ''{'
+   [%f] str_conv %( %C |G %, %8 |s '-'
+   %4 |s '-'
+   %4 |s '-'
+   %2 |s %2 |s '-'
+   %2 |s %2 |s %2 |s %2 |s %2 |s %2 |s %, %8 |s '-'
+   %4 |s '-'
+   %4 |s '-'
+   %2 |s %2 |s '-'
+   %2 |s %2 |s %2 |s %2 |s %2 |s )% 99 '}''
+//		}
+   '	}'
+//		%SN.%CN = s '%CN Class'
+   '	'
+   %S |N '.'
+   %C |N ' = s '''
+   %C |N ' Class''
+//		{
+   '	{'
+//			CLSID = s '{%f_str_conv("%CG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s")99}'
+   '		CLSID = s ''{'
+   [%f] str_conv %( %C |G %, %8 |s '-'
+   %4 |s '-'
+   %4 |s '-'
+   %2 |s %2 |s '-'
+   %2 |s %2 |s %2 |s %2 |s %2 |s %2 |s %, %8 |s '-'
+   %4 |s '-'
+   %4 |s '-'
+   %2 |s %2 |s '-'
+   %2 |s %2 |s %2 |s %2 |s %2 |s )% 99 '}''
+//			CurVer = s '%SN.%CN.1'
+   '		CurVer = s '''
+   %S |N '.'
+   %C |N '.1''
+//		}
+   '	}'
+//		NoRemove CLSID
+   '	NoRemove CLSID'
+//		{
+   '	{'
+//			ForceRemove {%f_str_conv("%CG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s")99} = s '%CN Class'
+   '		ForceRemove {'
+   [%f] str_conv %( %C |G %, %8 |s '-'
+   %4 |s '-'
+   %4 |s '-'
+   %2 |s %2 |s '-'
+   %2 |s %2 |s %2 |s %2 |s %2 |s %2 |s %, %8 |s '-'
+   %4 |s '-'
+   %4 |s '-'
+   %2 |s %2 |s '-'
+   %2 |s %2 |s %2 |s %2 |s %2 |s )% 99 '} = s '''
+   %C |N ' Class''
+//			{
+   '		{'
+//				ProgID = s '%SN.%CN.1'
+   '			ProgID = s '''
+   %S |N '.'
+   %C |N '.1''
+//				VersionIndependentProgID = s '%SN.%CN'
+   '			VersionIndependentProgID = s '''
+   %S |N '.'
+   %C |N '''
+//				ForceRemove 'Programmable'
+   '			ForceRemove 'Programmable''
+//				InprocServer32 = s '\%MODULE\%'
+   '			InprocServer32 = s ''%MODULE%''
+//				{
+   '			{'
+//					val ThreadingModel = s '%C{ThreadingModel}'
+   '				val ThreadingModel = s '''
+   %C get_up ( 'ThreadingModel' ) '''
+//				}
+   '			}'
+//				'TypeLib' = s '{%SG}'
+   '			''TypeLib'' = s ''{'
+   %S |G '}''
+//			}
+   '		}'
+//		}>
+   '	}' 
+   ++! l_Counter
+  end // if
+ end // for C
+//	}
+ '}'
+//#UC END# *470320E002CEfor470488F50280*
+; // com.rgs
+
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генератор ODL-файла спецификации COM-интерфейса (.odl)
+//+ odl
+<<generator>> odl OBJECT IN %S
+//#UC START# *47032097038Afor470488F50280*
+//C /%SN
+//O %SN.odl
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	import "oaidl.idl";
+ 'import "oaidl.idl";'
+//	\[
+ '['
+//		uuid (%SG)
+ '	uuid ('
+ %S |G ')'
+//		, version (1.0)
+ '	, version (1.0)'
+//		, helpstring ("%SNLib 1.0 Type Library")
+ '	, helpstring ("'
+ %S |N 'Lib 1.0 Type Library")'
+//	\]
+ ']'
+//	
+//	library %SNLib {
+ 'library '
+ %S |N 'Lib {'
+//		importlib ("stdole32.tlb");
+ '	importlib ("stdole32.tlb");'
+//		importlib ("stdole2.tlb");
+ '	importlib ("stdole2.tlb");'
+//		%U[{_CUSTOM_TLB}
+ '	'
+ %Usersection (
+  '_CUSTOM_TLB' 
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	};
+ '};'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47032097038Afor470488F50280*
+; // odl
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ComInterfaces>>
+

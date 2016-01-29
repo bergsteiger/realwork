@@ -1,0 +1,30 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/Core/sys/DebugHelper.h"
+// генератор заголовочных файлов C++ (.h)
+// Generated from UML model, root element: <<UtilityPack::Class>> shared::Core::sys::DebugHelper
+//
+// вспомогательные функции для отладки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef __SHARED_CORE_SYS_DEBUGHELPER_H__
+#define __SHARED_CORE_SYS_DEBUGHELPER_H__
+
+#include "ace/ACE.h"
+
+namespace Core {
+namespace DebugHelper {
+
+// дампит текущий стэк в лог
+void dump_stack ();
+
+
+} // namespace DebugHelper
+} // namespace Core
+
+
+#endif //__SHARED_CORE_SYS_DEBUGHELPER_H__
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

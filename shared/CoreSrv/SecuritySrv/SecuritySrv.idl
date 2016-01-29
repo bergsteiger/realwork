@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/CoreSrv/SecuritySrv/SecuritySrv.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> shared::CoreSrv::SecuritySrv
+//
+// сервисные распределенные интерфейсы подсистемы Безопасности
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___SECURITYSRV_IDL__
+#define ___SECURITYSRV_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#include "shared/CoreSrv/SecuritySrvComm/SecuritySrvComm.idl"
+#pragma prefix "garant.ru"
+
+module CoreSrv {
+
+module SecuritySrv {
+	// Информация об авторизации
+	struct Token {
+		// присвоенный идентификатор сессии
+		SessionID sid;
+		// идентификатор авторизированного пользователя
+		UserID uid;
+	};
+
+	// Распределенный интерфейс для удаленного доступа к методу авторизации
+	interface SessionManager {
+		// Авторизация и начало сессии. В случае успеха воззвращает авторазационные данные с не нулевым
+		// id сессии. Иначе исключение.
+		Token login (in string login, in string pswd)
+			raises (AccessDenied, AlreadyLogged);
+		// Завершение сессии.
+		oneway void logout ();
+		// сообщает менеджеру о том что текущая (от имиени которой сделан вызов) сессияи жива
+		oneway void keep_alive ();
+		// Добавдляет каллбек-интерфейс для слежения за сессиями
+		void add_session_interceptor (in SessionInterceptor sint);
+	};
+
+	// factory manager server interface for SessionManager
+	interface SessionManagerFactoryManagerSrv {
+		// возвращает системного менеджера сессий
+		SessionManager get ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module CoreSrv
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

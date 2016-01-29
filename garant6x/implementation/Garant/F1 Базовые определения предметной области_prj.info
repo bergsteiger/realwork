@@ -1,0 +1,627 @@
+F1 Базовые определения предметной области : VCMDomain - ГАРАНТ. Платформа F1. Объекты предметной области
+version: 1250
+LegalDomain : VCMSubsystem - "Предментая область"
+ Model : Library - Интерфейсные файлы проекта Немезис
+  bsTypes : Interfaces - Типы бизнес уровня. На самом деле БОЛЬШАЯ ПОМОЙКА. Новые типы добавлять сюда нельзя
+   TbsLanguage : Enum - Языки.
+   TlstCRType : Enum - Список типизированных корреспондентов/респондентов. CorrRespType = crt.
+   TbsSortOrder : Enum - Порядок сортировки списка.
+   TbsSortType : Enum - Тип сортировки.
+   TbsValidSortTypes : Enum - Доступные типы сортировки.
+   TbsListOpenFrom : Enum - - откуда был открыт список.
+   TbsListNodeType : Enum - - тип узла списка документов.
+   TbsSaveListKind : Enum - - тип сохранения списка.
+   TbsListType : Enum - Тип списка по крупному.
+   TbsConsultationStatus : Enum - 
+   TbsConsultationStatuses : SetOf - 
+   TbsWhatDoingIfOneDoc : Enum - 
+   TbsConsultationMark : Enum - 
+   TnsUserCRListId : Enum - 
+   TbsUserNodeType : Enum - 
+   Consultation : Constants - 
+   TbsUserCRList : Enum - 
+   TbsLanguages : SetOf - 
+   TbsObjectID : Typedef - 
+   TbsUserNodeTypes : SetOf - 
+   TbsNotification : Enum - 
+   TbsConsultationOperation : Enum - 
+   TbsConsultationOperations : SetOf - 
+  nsTypes : Unit - Типы используемые в оболочке
+   nsTypes : UtilityPack - 
+   bsTypesNew : UtilityPack - Типы бизнес уровня. Кусок от bsTypes. На самом деле БОЛЬШАЯ ПОМОЙКА. Новые типы добавлять сюда нельзя
+   nsTypesNew : UtilityPack - 
+  bsInterfaces : Interfaces - Интерфейсы бизнес уровня (ой ли?)
+   InsTreeDataListener : Facet - Слушатель событий данных дерева
+   InsDropListener : Facet - Слушатель события приёма данных объекта
+   InsInternalFilterableTree : Facet - Фильтруемое дерево.
+   InsUserFlagsFilter : Facet - 
+   InsGroupFilter : Facet - Фильтр на группу пользователей
+   InsCountryFilter : Facet - 
+   InsMedicFirmListFilters : Facet - 
+   InsAttributeTreeFilters : Facet - 
+   InsLayerFilter : Facet - 
+   InsLayeredTreeFilters : Facet - 
+   InsAdapterFilters : Facet - 
+   InsMedicFirmsTreeNotifyRecipient : Facet - Подписчик на нотификацию об изменении дерева фильтров
+   InsMedicFirmsTreeNotificationSource : Facet - 
+   InsContextFilterParamsInfo : Facet - 
+   InsRootInfo : Facet - Коллеги, это что?
+   InsUserSettingsListener : Facet - Слушатель событий пользовательских настроек
+   InsUserSettingsEditListener : Facet - Слушатель событий редактирования конфигураций
+   InsSettingsNotify : Facet - Уведомляет о событиях настроек проекта
+   InsSettings : Facet - Интерфейс замены настроек
+   InsConfigNotifyRecipient : Facet - Подписчик на нотификацию об изменении имени/хинта конфигурации
+   InsConfigNotificationSource : Facet - 
+   InsCRSimpleListTypeRootNodeListener : Facet - Слушатель событий дерева типов КР
+   IbsFrozenNode : Facet - Интерфейс для работы с замороженными узлами
+   IbsListTreeData : Facet - Данные дерева списка
+   IbsDocumentStreamWrapper : Facet - 
+   IbsCRSettingsConverter : Facet - 
+   IbsConsultationManager : Facet - Менеджер консультаций
+   InsUserFlagsFilters : Facet - 
+   IbsSelectedUsers : Facet - Выделенные пользователи
+   IbsUserTreeData : Facet - Данные для d&d пользователей в группы
+  AdminDomainInterfaces : Interfaces - Администрирование
+   EdsMaxLengthExceed : Exception - Превышена допустимая длинна строки
+   InsAdminInfo : Facet - Информация об администраторе
+   nsUserProperty : PureMixIn - 
+   InsUserProperty : Facet - 
+  SearchDomainInterfaces : Interfaces - Поиск
+   TLogicOperation : Enum - 
+   InsLogicOperation : Facet - 
+   TLogicOperationSet : SetOf - 
+   InsTaggedTreeInfo : Facet - 
+  LoggingInterfaces : Interfaces - Регистрация событий системы
+   InsDefferedEvent : Facet - 
+   InsEventHolder : Facet - 
+   InsCachedEventsProcessor : Facet - 
+  ConfigInterfaces : Interfaces - Настройки конфигурации
+   InsEditSettingsInfo : Facet - для передачи в диалоги редактирования конфигурации параметров с которой работают
+   InsStyleTableSettingsInfo : Facet - 
+   TnsPageMetrics : Enum - 
+   TnsMetricsIndex : Range - 
+   TnsMetrics : Vector - отступы
+   InsPageSettingsInfo : Facet - для передачи в диалоги редактирования конфигурации параметров с которой работают
+   InsConfigSettingsInfo : Facet - Настройки конфигурации
+   InsConfigNode : Facet - Контейнер для настроек. Дерево поскольку требуется для меню и списка конфигураций
+   InsDuplicateConfigNameChecker : Facet - Проверяльщик дублирования имени конфигурации
+   InsConfigurationList : Facet - Список конфигураций
+  ProfilersInterfaces : Interfaces - Профайлеры прецедентов
+   InsProfiler : Facet - Базовый интерфейс
+   IprDocument : Facet - Используется оболочкой для замеров времени открытия документа
+   IprQueryCard : Facet - Используется для замеров открытия карточки запросов
+   IprListAfterSearch : Facet - Открытие списка после поиска
+   IprMainMenu : Facet - Открытие основного меню
+   InsProfilersManager : Facet - Менеджер профайлеров
+  L10nInterfaces : Interfaces - Интерфейсы для локализации
+   InsStringValueMap : Typedef - 
+   InsSpetialStringValueMap : Facet - мапа "<число> %"-"строковое число" со строковым спец значением "Во весь экран"
+   InsStringsSource : Typedef - 
+   TnsValueMapID : Typedef - 
+   InsValueMap : Typedef - 
+   InsStringValueMapFactory : Typedef - 
+   InsStringValueMapManager : Typedef - 
+   InsIntegerValueMap : Typedef - 
+   InsIntegerValueMapFactory : Typedef - 
+   InsIntegerValueMapManager : Typedef - 
+  PreviewInterfaces : Interfaces - Интерфейсы Preview
+   TnsSuperPreviewKind : Enum - 
+   InsSuperComplexDocumentPreview : Facet - Суперкомлпексное превью для списка (текст списка и тексты документов)
+   InsTreeMultiDocumentPreviewContainer : Facet - 
+   InsTinyPreview : Facet - 
+  DocumentDomainInterfaces : Interfaces - Работа с документом
+   InsLinkedObjectDescription : Facet - Содержит информацию о картинке
+   InsLinkedObjectData : Facet - Содержит информацию о картинке и ее данные
+  DataAdapterInterfaces : Interfaces - Работа с адаптером
+   InsDataAdapterListener : Facet - Слушатель событий данных адаптера
+   TTMWarningType : Enum - 
+   InsTimeMachine : Facet - 
+  OldTreeInterfaces : Interfaces - Интерфейсы для работы со старыми деревьями
+   InsWrapperNode : Facet - описывает общее для объектов оберток адаптерных интерфейсов поведение
+  AdapterFacade : Interfaces - Фасадные определения типов адаптера
+   AdapterDate : Typedef - Тип дат адаптера
+ ExternalObjects : Library - 
+  Implementation : Unit - 
+   nsExternalObjectPrim : UtilityPack - Утилитный функции для сохранения в файлы.
+   nsExternalObjectModelPart : UtilityPack - 
+   TnsExternalObject : SimpleClass - 
+   nsBrowserInfo : UtilityPack - 
+   TnsDocumentStreamList : SimpleClass - 
+ Data : Library - Данные.
+  Сюда вынес все сообщения из StdRes с Choices : Unit - 
+   nsQuestionsWithChoices : UtilityPack - 
+   nsQuestions : UtilityPack - 
+  Common : Unit - Базовые структуры данных
+   bsConvert : UtilityPack - - утилиты конвертации типов бизнес уровня в адаптер и наоборот.
+   bsUtils : UtilityPack - Утилитные функции бизнес уровня.
+   DataAdapter : UtilityPack - Фасад для работы с адаптером
+   nsConst : UtilityPack - -
+   nsUtils : UtilityPack - 
+   GblAdapter : UtilityPack - Используется потому, что иначе никак не достучаться до EUnknownFactoryKey.
+   nsValueMaps : UtilityPack - 
+   nsValueMapsIDs : UtilityPack - 
+   DebugStr : UtilityPack - 
+   nsContextSearchParams : UtilityPack - 
+   bsConst : UtilityPack - Константы бизнес уровня.
+   nsManagers : UtilityPack - 
+   nsUserSettingsListener : Impurity - Слушатель изменения настроек пользователя
+   nsUserSettingsEditListener : Impurity - Слушатель событий редактирования конфигураций
+   nsOpenUtils : UtilityPack - 
+   nsNotifiers : UtilityPack - 
+   bsChangeRedationWorker : UtilityPack - 
+   nsENOIntegration : UtilityPack - 
+   nsIntegerValueMapFactory : UtilityPack - 
+   nsStringValueMapFactory : UtilityPack - 
+   nsFolders : UtilityPack - Для работы с моими документами.
+   nsVerifyValue : UtilityPack - 
+   nsStringValueMapFactoryRes : UtilityPack - 
+   nsLoginUtils : UtilityPack - 
+   nsAppTitleData : UtilityPack - 
+   TnsNotificationManager : SimpleClass - 
+   SystemStr : UtilityPack - 
+   nsStartupSupport : UtilityPack - 
+   TnsUnderControlNotificationManager : SimpleClass - 
+  Tree : Unit - Различные реализации деревьев
+   nsNodeNotifierPrim : Impurity - 
+   nsNodeNotifierBase : Impurity - 
+   nsNodeNotifierImplementation : Impurity - 
+   nsNodeNotifier : Impurity - 
+   nsRootManagerPrim : Impurity - 
+   nsRootManager : Impurity - 
+   TnsRootManager : SimpleClass - 
+   TnsINodeWrapBase : SimpleClass - Узел дерева. Служит фасадом к адаптерному узлу для наших визуальных элементов
+   TnsTreeStruct : SimpleClass - Дерево. Фасад к адаптерному дереву
+   TnsAdapterFilters : SimpleClass - Реализация фабрики адаптерных фильтров
+   nsContextFilterParamsConst : UtilityPack - Хранилище для параметров контекстной фильтрации;
+             Описание контекстных фильтров хранящихся в настройках.
+   TnsFilterableTreeStruct : SimpleClass - Фильтруемое дерево
+   TnsINodeWrap : SimpleClass - Реализация узла дерева с поддержкой информации о дочерних узлах
+   TnsDataResetTreeStruct : SimpleClass - Дерево, которое умеет обновляться при смене данных
+   TIl3ContextFilterParamsNotifierPtrList : SimpleClass - Список УКАЗАТЕЛЕЙ на Il3ContextFilterParamsNotifier
+   TnsContextFilterParams : SimpleClass - Реализация хранилищя для параметров контекстной фильтрации
+   TnsINodeRootWrap : SimpleClass - Базовый корневой узел
+   TnsINodeOneLevelRootWrap : SimpleClass - Корень одноуровневого дерева
+   TnsINodeOneLevelWrap : SimpleClass - Элемент одноуровневого дерево
+   TnsOneLevelTreeStruct : SimpleClass - Одноуровневое дерево
+   nsTreeUtils : UtilityPack - общие функции для работы с деревом
+   bsFrozenNode : UtilityPack - 
+  OldTree : Unit - Поддержка старых деревьев
+   TnsDataResetTree : SimpleClass - 
+   TnsPrimNode : SimpleClass - 
+   TnsPrimAdapterNode : SimpleClass - 
+   TnsPrimCacheableNode : SimpleClass - 
+   TnsBaseNode : SimpleClass - 
+   TnsWrapperNode : SimpleClass - 
+   TnsNewCachableNode : SimpleClass - 
+   nsNodes : UtilityPack - Узлы деревьев проекта.
+   TnsNewCachableNodeThatNeedKeepRoot : SimpleClass - 
+  Settings : Unit - Структуры данных для работы с настройками
+   TInsUserSettingsListenerPtrList : SimpleClass - Список указателей на InsUserSettingsListener
+   TInsUserSettingsEditListenerPtrList : SimpleClass - Список указателей на InsUserSettingsEditListener
+   TInsConfigNotifyRecipientPtrList : SimpleClass - Список УКАЗАТЕЛЕЙ на InsConfigNotifyRecipient
+   nsSettings : Impurity - 
+   TnsSettingsPrim : SimpleClass - 
+   TnsPrimeSettings : SimpleClass - 
+   TnsSettings : SimpleClass - 
+  Users$CommonForAdminAndF1 : Unit - 
+   TnsUserFlagsFilter : SimpleClass - 
+   TnsUserTreeStruct : SimpleClass - 
+   TnsUserFlagsFilters : SimpleClass - 
+   TnsGroupFilter : SimpleClass - Фильтр на группу
+   nsUserPropertyImpl : Impurity - 
+   TnsUserProperty : SimpleClass - 
+  Search : Unit - Структуры данных для поддержки поиска по реквизитам
+   nsTaggedTreeInfo : Impurity - Коллеги, это что?
+   TnsAttributeTreeFilters : SimpleClass - Коллеги, это что?
+   TnsAttributeTreeStruct : SimpleClass - Коллеги, а чем это от TnsAttrOneLevelStruct отличается?
+   TnsAttributeOneLevelTreeStruct : SimpleClass - Коллеги, это что?
+   TnsFirstLevelStruct : SimpleClass - Коллеги, это что?
+   TnsAttrBranchStruct : SimpleClass - Используется для отображения второго уровня дерева в Приемственной ППС (бывшая 5.х)
+   TnsAttributeTreeCacheNew : SimpleClass - Коллеги, это что?
+ List : VCMControllers - Абстрактные списки
+  SimpleListInterfaces : ControllerInterfaces - Интерфейсы "простого списка"
+   IdsSimpleListSynchroViewPrim : ViewAreaController - Спецификация синхронного просмотра для списка
+   IdsSimpleListSynchroView : ViewAreaController - Синхронный просмотр для списка
+   IdeFilter : Facet - 
+   IucpFilters : UseCaseController - Управляет открытием формы фильтров
+   IdsFilters : ViewAreaController - 
+  SimpleList : ControllerUnit - Простые списки
+   TdsFilters : ViewAreaControllerImp - БОФ формы фильтры
+   TdeFilter : SimpleClass - 
+ View$Prim : VCMViews - 
+  SearchRes : Unit - 
+   SearchRes : UtilityPack - 
+ View : VCMViews - 
+  DocumentNotifications : VCMControls - 
+   Comment : VCMFacet - 
+   Op_Comment_Changed : SimpleClass - Класс для вызова операции Comment.Changed
+ Tree : VCMControllers - Работа с древесными структурами
+  TreeInterfaces : ControllerInterfaces - Интерфейсы для работы с деревьями
+   InsContextFilter : PureMixIn - 
+   IdsSimpleTree : ViewAreaController - Бизнес объекта формы с деревом.
+  Tree : ControllerUnit - Пакет работы с деревом.
+   dsSimpleTree : ViewAreaControllerImp - Бизнес объект формы с деревом
+   nsContextFilter : Impurity - Контекстный фильтр
+   nsLogicOperationToFlags : UtilityPack - 
+ Search : VCMControllers - Поиск
+  SearchInterfaces : ControllerInterfaces - 
+   CurrentChangedListener : PureMixIn - Слушатель изменения текущей ноды
+   IbsCurrentChangedListener : Facet - Слушатель события смены текущего в дереве
+   IdeSearch : Facet - 
+   SelectedAttributes : PureMixIn - Выделенные атрибуты
+   IdsTagSimpleTree : ViewAreaController - Интерфейс бизнес объекта для словарных атрибутов
+   InsProgressIndicator : Facet - 
+   InsSelectedAttributesIterators : Facet - 
+   IbsSelectedAttributes : Facet - Выделенные атрибуты
+   IdsSituation : ViewAreaController - "Ситуация"
+   IdsAttributeSelect : ViewAreaController - бизнес объект формы cfAttributeSelect
+   IdsTreeAttributeSelect : ViewAreaController - Бизнес объекта формы "enTreeAttributeSelectForm"
+   IdsSelectedAttributes : ViewAreaController - 
+   IdeSelectedAttributes : Facet - 
+  nsQueryInterfaces : InternalInterfaces - Интерфейсы прецедента Поиск
+   IqaReq : Facet - Реквизит.
+   IqaReqAttribute : Facet - 
+   IqaDateReq : Facet - 
+   IqaDateReqDataHolder : Facet - 
+   IqaPhoneReq : Facet - 
+   TlgQueryType : Enum - Тип запроса на поиск
+   IqaHistory : Facet - интерфейс создан для сохранения TasMgrSearch в истории.
+   InsQueryContainer : Facet - Контейнер запроса
+   MqaMorphoReq : PureMixIn - 
+   TOnDateQuery : Function - 
+   InsQueryFormState : Facet - 
+   EqaException : SimpleClass - 
+   EqaRequiredValue : Exception - Не задан обязательный реквизит
+   EqaDuplicateValue : Exception - Дублирующееся значение ревизита
+   EqaInvalidValue : Exception - Неверное значение реквизита
+   EqaSilentAbort : Exception - 
+   EaqExceptionClass : Typedef - 
+   IqaMgrSearch : Facet - 
+   IqaMorphoReq : Facet - 
+ Components : Library - 
+  Tree$WithDnD : Views - 
+   TnscTreeViewWithAdapterDragDrop : GuiControl - 
+   TnsNodeStorable : SimpleClass - 
+   TnsNodeDataObject : SimpleClass - 
+   TnsEntitiesTreeDataObject : SimpleClass - 
+  DocumentHistory : Unit - 
+   TnscDocumentHistory : SimpleClass - 
+  DocumentListTree : Views - 
+   TnscDocumentListTreeView : GuiControl - 
+ f1DocumentTagsImplementation : Library - Реализация тегов документа
+  F1TagDataProviderInterface : Interfaces - Интерфейс для получения данных тега
+   Mf1SimpleTagDataProvider : PureMixIn - Источник данных для "простого" тега
+   Mf1CommentTagDataProvider : PureMixIn - 
+   TnsNodeState : Enum - 
+   TnsNodeStates : SetOf - 
+   If1TagWrap : Facet - 
+   Mf1ListTagDataProvider : PureMixIn - 
+   Mf1LeafTagDataProvider : PureMixIn - 
+   If1TagDataProvider : Facet - Источник данных тега
+   If1AtomChecker : Facet - 
+   If1ChildMaker : Facet - 
+   If1CommentSink : Facet - 
+   InsDocumentAdornments : Facet - 
+   If1EditionDocumentContainer : Facet - 
+  EVD Schema Tuning : Unit - 
+   TnsParaModifier : SimpleClass - 
+   TnsCommentModifier : SimpleClass - 
+  TagDataProviders : Unit - Источники данных тегов
+   f1TagDataProviderPrim : Impurity - Базовый источник данных тега
+   Mf1TagDataFromDTP : MixInMirror - 
+   nsParentedTagData : Impurity - 
+   Tf1DocumentTagDataFromDTP : SimpleClass - 
+   Tf1LeafTagDataFromDTP : SimpleClass - Поставщик данных о листьевом параграфе
+   Tf1ListTagDataFromDTP : SimpleClass - Поставщик данных о списке параграфов
+   f1TagDataProviderFactory : Impurity - 
+   Tf1TagDataFromDTPFactory : SimpleClass - 
+   f1TagDataFromDTP : UtilityPack - 
+   nsNativePara : Impurity - "Родной" параграф. Не представлен нодой из адаптерного дерева
+   StyleParser : Impurity - 
+   TnsNativeCommentPara : SimpleClass - 
+   TnsLeafParaDecorationsHolder : SimpleClass - 
+   TnsTagString : SimpleClass - Строка, представляющая строковый атрибут тега
+   nsString : UtilityPack - 
+   Tf1DocumentTagDataFromDTPHandle : SimpleClass - 
+   TnsStyleParser : SimpleClass - 
+  DocumentTagNodes : Unit - Ноды для реализации документа
+   TnsBaseTagNode : SimpleClass - Базовая реализация тега на уровне оболочки
+   TnsContentsNode : SimpleClass - Нода оглавления.
+   TnsContentsTagNode : SimpleClass - 
+   TnsHandledHode : SimpleClass - 
+   TnsContentsLeafParaNode : SimpleClass - 
+   TnsContentsSubNode : SimpleClass - 
+   TnsBookmarkNode : SimpleClass - 
+   TnsContentsBlockNode : SimpleClass - 
+   TnsRealBlockNode : SimpleClass - 
+   TnsContentsCommentNode : SimpleClass - 
+   TnsDocumentNode : SimpleClass - 
+   TnsContentsRoot : SimpleClass - Корень оглавления.
+   TnsTagNodePrimPrim : SimpleClass - 
+   TnsTagNodePrim : SimpleClass - Реализация тега, представляющего данные из адаптерной ноды
+   TnsParentedTagNode : SimpleClass - Тег над адаптерной нодой, представляющий ссылку на родителя
+   TnsParaListNodeModelPart : SimpleClass - 
+   TnsSubNode : SimpleClass - Тег, реализующий Sub.
+   TnsLeafParaNode : SimpleClass - Листьевой параграф
+   TnsTextParaNode : SimpleClass - Текстовый параграф.
+   TnsSectionBreakNode : SimpleClass - 
+   TnsBitmapParaNode : SimpleClass - Параграф с картинкой.
+   TnsParaListNode : SimpleClass - Список параграфов
+   TnsBlockNodePrim : SimpleClass - Базовый блок документа.
+   TnsDocumentTagNodePrim : SimpleClass - Базовая нода документа.
+   TnsBlockNode : SimpleClass - Блок документа.
+   Tf1AtomChecker : SimpleClass - 
+   TnsOwnedDocumentTagNodePrim : SimpleClass - 
+   nsTagNodeTools : UtilityPack - 
+   TnsDocumentTagNodeBase : SimpleClass - Базовая нода документа
+   TnsF1DocumentTagNode : SimpleClass - 
+   nsTagNodeToolsNew : UtilityPack - 
+   Tf1ChildMaker : SimpleClass - 
+   TnsCommentStorer : SimpleClass - 
+   TnsCommentMemoryStream : SimpleClass - 
+   TnsControlParaNode : SimpleClass - Параграф с контролом.
+   TnsReqRowNode : SimpleClass - Строка реквизита.
+   TnsReqCellNode : SimpleClass - Ячейка реквизита.
+  CustomStyle : Unit - 
+   TnsCustomStyleProcessor : ServiceImplementation - 
+ TabInterface : Library - 
+  TabbedInterfaceSupport : Unit - 
+   nsTabbedContainerUtils : UtilityPack - 
+   nsTabbedInterfaceTypes : UtilityPack - 
+   TabbedContainerRes : UtilityPack - 
+ Logging : Library - 
+  LoggingWrapperInterfaces : Interfaces - 
+   InsLogEventData : Facet - 
+   InsLogManager : Facet - 
+  LoggingTestService : Unit - 
+   TnsLoggingTestService : SimpleClass - 
+  LoggingWrapper : Unit - 
+   TnsLogEventData : SimpleClass - 
+   TnsLogManager : SimpleClass - 
+  Logging : Unit - 
+   nsLogEvent : Impurity - 
+   TInsDefferedEventList : SimpleClass - 
+   TnsPrimCachedEventsProcessor : SimpleClass - 
+   TnsCachedEventsProcessor : SimpleClass - 
+   TnsLogEvent : SimpleClass - 
+   TnsPrimCachedEvent : SimpleClass - 
+   TnsContextFilterEventDataList : SimpleClass - 
+   TnsContextFilterEventListener : SimpleClass - 
+   TnsCounterEvent : SimpleClass - 
+  LoggingWords : ScriptKeywords - 
+   LoggingWordsPack : ScriptKeywordsPack - 
+F1Test : TestLibrary - Сборник тестов для оболочки
+ TestUtils : Unit - Всяческие штучки для ГК, связанные с Адаптером
+  TestDocListUtils : UtilityPack - Утилиты ГК, для работы со списком документов.
+   GetLEIFromTTV - Коллеги, это что?
+   GetLEIFromNode - Коллеги, это что?
+   GetSubIDByParaID - возвращает номер саба по номеру параграфа
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ TestHelpers : Unit - Штучки для ГК не завязанные на адаптер
+  TMessageOnDesktop : SimpleClass - Коллеги, это что?
+   hDC - 
+   hFont - 
+   Create : ctor - 
+   DrawMessage - 
+    : uses - 
+    : uses - 
+  TestStringUtils : UtilityPack - Работа со строками
+   Split - 
+ Tree : TestUnit - Тесты для деревьев
+  TnsDocumentsList : TestClass - Обёртка для работы со списком документов
+   Position : readonly - 
+   PositionType : readonly - 
+   Relevance : readonly - 
+   DocNumber : readonly - 
+   GetSubID - 
+   NodeIndexByDocNumber - Коллеги, это что?
+   GoToNodeByIndex - Переходит на ноду по индексу (какому, видимому или абсолутному?)
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+SearchLite : VCMSubsystem - Зачатки поиска
+ Search : VCMControllers - 
+  Search : ControllerUnit - 
+   dsTagSimpleTree : ViewAreaControllerImp - Бизнес объекта для словарных атрибутов
+   CurrentChangedListener : Impurity - Шаблон необходим для реализация поведения получения слушателем
+уведомления об изменении текущего в дереве и рассылки такого же
+уведомления своим слушателям.
+   dsSituation : ViewAreaControllerImp - отложенное обновление представлений при перемещении по деревьям ППС 6.х (CQ: OIT5-28303)
+   TdsTreeAttributeSelect : ViewAreaControllerImp - бизнес объект формы выбранные атрибуты дерева
+   TnsSelectedAttributesIterators : SimpleClass - 
+   TdeSearch : SimpleClass - 
+ View : VCMViews - Представление
+  Strange : VCMControls - 
+   AttributeTree$Select : VCMFacet - AttributeTree
+   TnsQueryInfo : Struct - 
+   SearchParameters : VCMFacet - SearchParameters
+   AttributeTree$SaveToQuery : VCMFacet - 
+   Attribute : VCMFacet - 
+   Context : VCMFacet - 
+   AttributeTree : VCMFacet - 
+   AttributeTree$SetRoot : VCMFacet - 
+   AttributeTree$ChangeRoot : VCMFacet - 
+   ContextParams : VCMFacet - 
+   SelectedList : VCMFacet - 
+   Folder : VCMOperations - 
+   Result$ClearAll : VCMOperations - 
+   Selection : VCMOperations - 
+   IAttributeTree_ExternalCharPressed_Params : Facet - Параметры для операции AttributeTree.ExternalCharPressed
+   TAttributeTree_ExternalCharPressed_Params : SimpleClass - Реализация IAttributeTree_ExternalCharPressed_Params
+   Op_AttributeTree_ExternalCharPressed : SimpleClass - Класс для вызова операции AttributeTree.ExternalCharPressed
+   IAttributeTree_SetCurrent_Params : Facet - Параметры для операции AttributeTree.SetCurrent
+   TAttributeTree_SetCurrent_Params : SimpleClass - Реализация IAttributeTree_SetCurrent_Params
+   Op_AttributeTree_SetCurrent : SimpleClass - Класс для вызова операции AttributeTree.SetCurrent
+   IAttributeTree_DropAllLogicSelection_Params : Facet - Параметры для операции AttributeTree.DropAllLogicSelection
+   TAttributeTree_DropAllLogicSelection_Params : SimpleClass - Реализация IAttributeTree_DropAllLogicSelection_Params
+   Op_AttributeTree_DropAllLogicSelection : SimpleClass - Класс для вызова операции AttributeTree.DropAllLogicSelection
+   IAttributeTree_Invalidate_Params : Facet - Параметры для операции AttributeTree.Invalidate
+   TAttributeTree_Invalidate_Params : SimpleClass - Реализация IAttributeTree_Invalidate_Params
+   Op_AttributeTree_Invalidate : SimpleClass - Класс для вызова операции AttributeTree.Invalidate
+   IAttributeTree_DropLogicSelection_Params : Facet - Параметры для операции AttributeTree.DropLogicSelection
+   TAttributeTree_DropLogicSelection_Params : SimpleClass - Реализация IAttributeTree_DropLogicSelection_Params
+   Op_AttributeTree_DropLogicSelection : SimpleClass - Класс для вызова операции AttributeTree.DropLogicSelection
+   IAttributeTree_LoadQuery_Params : Facet - Параметры для операции AttributeTree.LoadQuery
+   TAttributeTree_LoadQuery_Params : SimpleClass - Реализация IAttributeTree_LoadQuery_Params
+   Op_AttributeTree_LoadQuery : SimpleClass - Класс для вызова операции AttributeTree.LoadQuery
+   IAttributeTree_SetOneLevelCurrent_Params : Facet - Параметры для операции AttributeTree.SetOneLevelCurrent
+   TAttributeTree_SetOneLevelCurrent_Params : SimpleClass - Реализация IAttributeTree_SetOneLevelCurrent_Params
+   Op_AttributeTree_SetOneLevelCurrent : SimpleClass - Класс для вызова операции AttributeTree.SetOneLevelCurrent
+   Op_AttributeTree_AddNodeIfEmpty : SimpleClass - Класс для вызова операции AttributeTree.AddNodeIfEmpty
+   ISearchParameters_IsQueryEmpty_Params : Facet - Параметры для операции SearchParameters.IsQueryEmpty
+   TSearchParameters_IsQueryEmpty_Params : SimpleClass - Реализация ISearchParameters_IsQueryEmpty_Params
+   Op_SearchParameters_IsQueryEmpty : SimpleClass - Класс для вызова операции SearchParameters.IsQueryEmpty
+   ISearchParameters_GetQuery_Params : Facet - Параметры для операции SearchParameters.GetQuery
+   TSearchParameters_GetQuery_Params : SimpleClass - Реализация ISearchParameters_GetQuery_Params
+   Op_SearchParameters_GetQuery : SimpleClass - Класс для вызова операции SearchParameters.GetQuery
+   ISearchParameters_IsQuerySaved_Params : Facet - Параметры для операции SearchParameters.IsQuerySaved
+   TSearchParameters_IsQuerySaved_Params : SimpleClass - Реализация ISearchParameters_IsQuerySaved_Params
+   Op_SearchParameters_IsQuerySaved : SimpleClass - Класс для вызова операции SearchParameters.IsQuerySaved
+   ISearchParameters_SetQuery_Params : Facet - Параметры для операции SearchParameters.SetQuery
+   TSearchParameters_SetQuery_Params : SimpleClass - Реализация ISearchParameters_SetQuery_Params
+   Op_SearchParameters_SetQuery : SimpleClass - Класс для вызова операции SearchParameters.SetQuery
+   Op_SearchParameters_ClearQuery : SimpleClass - Класс для вызова операции SearchParameters.ClearQuery
+   IAttributeTree_SaveToQuery_Params : Facet - Параметры для операции AttributeTree.SaveToQuery
+   TAttributeTree_SaveToQuery_Params : SimpleClass - Реализация IAttributeTree_SaveToQuery_Params
+   Op_AttributeTree_SaveToQuery : SimpleClass - Класс для вызова операции AttributeTree.SaveToQuery
+   IAttribute_DefaultAction_Params : Facet - Параметры для операции Attribute.DefaultAction
+   TAttribute_DefaultAction_Params : SimpleClass - Реализация IAttribute_DefaultAction_Params
+   Op_Attribute_DefaultAction : SimpleClass - Класс для вызова операции Attribute.DefaultAction
+   IContext_SetContext_Params : Facet - Параметры для операции Context.SetContext
+   TContext_SetContext_Params : SimpleClass - Реализация IContext_SetContext_Params
+   Op_Context_SetContext : SimpleClass - Класс для вызова операции Context.SetContext
+   IContext_SyncContextParams_Params : Facet - Параметры для операции Context.SyncContextParams
+   TContext_SyncContextParams_Params : SimpleClass - Реализация IContext_SyncContextParams_Params
+   Op_Context_SyncContextParams : SimpleClass - Класс для вызова операции Context.SyncContextParams
+   IAttributeTree_SetParent_Params : Facet - Параметры для операции AttributeTree.SetParent
+   TAttributeTree_SetParent_Params : SimpleClass - Реализация IAttributeTree_SetParent_Params
+   Op_AttributeTree_SetParent : SimpleClass - Класс для вызова операции AttributeTree.SetParent
+   IAttributeTree_ExtSetRoot_Params : Facet - Параметры для операции AttributeTree.ExtSetRoot
+   TAttributeTree_ExtSetRoot_Params : SimpleClass - Реализация IAttributeTree_ExtSetRoot_Params
+   Op_AttributeTree_ExtSetRoot : SimpleClass - Класс для вызова операции AttributeTree.ExtSetRoot
+   IAttributeTree_SetRoot_Params : Facet - Параметры для операции AttributeTree.SetRoot
+   TAttributeTree_SetRoot_Params : SimpleClass - Реализация IAttributeTree_SetRoot_Params
+   Op_AttributeTree_SetRoot : SimpleClass - Класс для вызова операции AttributeTree.SetRoot
+   IAttributeTree_ChangeRoot_Params : Facet - Параметры для операции AttributeTree.ChangeRoot
+   TAttributeTree_ChangeRoot_Params : SimpleClass - Реализация IAttributeTree_ChangeRoot_Params
+   Op_AttributeTree_ChangeRoot : SimpleClass - Класс для вызова операции AttributeTree.ChangeRoot
+   IContextParams_ContextChanged_Params : Facet - Параметры для операции ContextParams.ContextChanged
+   TContextParams_ContextChanged_Params : SimpleClass - Реализация IContextParams_ContextChanged_Params
+   Op_ContextParams_ContextChanged : SimpleClass - Класс для вызова операции ContextParams.ContextChanged
+   ISelectedList_RefreshValues_Params : Facet - Параметры для операции SelectedList.RefreshValues
+   TSelectedList_RefreshValues_Params : SimpleClass - Реализация ISelectedList_RefreshValues_Params
+   Op_SelectedList_RefreshValues : SimpleClass - Класс для вызова операции SelectedList.RefreshValues
+  FormDefinitions : VCMControls - 
+   TreeAttributeSelect : VCMFormDefinition - 
+   SelectedAttributes : VCMFormDefinition - 
+   AttributeSelect : VCMFormDefinition - 
+   Tkw_Form_TreeAttributeSelect_ID : ScriptKeyword - Слово словаря для идентификатора формы TreeAttributeSelect
+----
+*Пример использования*:
+{code}
+'aControl' форма::TreeAttributeSelect TryFocus ASSERT
+{code}
+   Tkw_Form_SelectedAttributes_ID : ScriptKeyword - Слово словаря для идентификатора формы SelectedAttributes
+----
+*Пример использования*:
+{code}
+'aControl' форма::SelectedAttributes TryFocus ASSERT
+{code}
+   Tkw_Form_AttributeSelect_ID : ScriptKeyword - Слово словаря для идентификатора формы AttributeSelect
+----
+*Пример использования*:
+{code}
+'aControl' форма::AttributeSelect TryFocus ASSERT
+{code}
+  LiteSearch : VCMModule - 
+   TreeAttribute : VCMForm - Форма выбора атрибутов
+   PrimTreeAttributeSelect : VCMForm - 
+   TnsNodeBaseList : SimpleClass - 
+   PrimAttributeSelect : VCMContainer - 
+   PrimTreeAttributeSelectOptions : VCMForm - 
+   PrimSelectedAttributes : VCMForm - 
+   nsTreeAttributeNodesNew : UtilityPack - 
+   nsQuery : UtilityPack - 
+   PrimAttributeSelectOptions : VCMContainer - 
+   PrimSelectedAttributesOptions : VCMForm - 
+   LiteSearch : VCMFormsPack - 
+   tasSaveLoadProxy : UtilityPack - 
+   TnsSelectedTreeStruct : SimpleClass - 
+   TnsQueryExecuteProgressIndicator : SimpleClass - 
+   LiteSearch$FP : VCMFormsPack - 
+F1 Application Template : VCMSubsystem - Базовая функциональность всех приложений F1 (Nemesis, Admin, Monitorigns)
+ View : VCMViews - Представление
+  PrimF1 : VCMApplication - Базовое приложение F1
+   PrimMain : VCMMainForm - Главная форма. Общая для всех приложений F1
+   InitDefaults : method - 
+   CanRun : method - 
+   GlobalInit : method - 
+   TnsUserOperationEvent : SimpleClass - 
+   Local : LocalConst - 
+   PrimMainOptions : VCMMainForm - 
+   NemesisTitle : LocalConst - 
+   RunOtherProcesses : static - 
+   DoGlobalInit : static - 
+   DoRun : static - 
+   OpenQuery : static - 
+   LogUserActivity : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+    : uses - undefined
+   LCImplLocal : Constants - Локализуемые строки Local
+   Init_ApplicationLoading : ini - Инициализация str_ApplicationLoading
+   Init_FullVersionMessage : ini - Инициализация str_FullVersionMessage
+   LCImplNemesisTitle : Constants - Локализуемые строки NemesisTitle
+   Init_NemesisTitle : ini - Инициализация str_NemesisTitle
+  InternalOperations : VCMControls - Внутренние операции. Кандидаты на превращение в фасеты
+   System : VCMFacet - Система
+   Help : VCMOperations - 
+   ISystem_InitShutdown_Params : Facet - Параметры для операции System.InitShutdown
+   TSystem_InitShutdown_Params : SimpleClass - Реализация ISystem_InitShutdown_Params
+   Op_System_InitShutdown : SimpleClass - Класс для вызова операции System.InitShutdown
+  Flashing : Unit - 
+   nsFlashWindow : UtilityPack - 
+  CommonNotifications : Unit - 
+   Tf1NotificationManager : SimpleClass - 
+  PrimCommon : VCMModule - 
+   PrimShutDown : VCMForm - Предупреждение
+   PrimLogin : VCMForm - Вход в систему ГАРАНТ
+   PrimLongProcess : VCMForm - Информация
+   PrimCommon : VCMFormsPack - 
+   RealCommon : VCMFormsPack - 
+   Logo : VCMForm - 
+   Tf1StartupCompletedService : Service - 
+   LogoKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы Logo

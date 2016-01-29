@@ -1,0 +1,120 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/SimpleClassSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::SimpleClassSupport
+//
+// вспомогательные функции для генерации SimpleClass
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// нужен ли cpp-шник
+f _need_cpp_file_for_servant
+//#UC START# *4717004202DE*
+	[{%f_need_inline_file(%S)!=true&"%f_pure_abstract(%S)"!="true"}{false}true]
+//#UC END# *4717004202DE*
+
+// нужен ли inl-файл
+f _need_inline_file
+//#UC START# *4717005201E4*
+	[{"%S{need inline-file}"="true"|"%SK"="ParameterizedClass"|%f_has_only_templates(%S)=true}{false}true]
+
+f _has_only_templates
+	[{<{}{%CS=TemplateFunctions&%CC=Class}{C}>!=0&<{}{%CS!=TemplateFunctions&%CC=Class}{C}>=0}{false}true]
+//#UC END# *4717005201E4*
+
+// генерация тела серванта
+f _simple_class_impl_body
+//#UC START# *4717005F0157*
+	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+	%f_std_inc(%S)
+	[{"%SK"!="ParameterizedClass"}\#include %f_dump_include_path(%f_with_gen_id(h,%SW),%S)
+	]%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+	><{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}{%A}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	][\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+	]>][// by \<\<friend\>\> dependencies
+	<{}{"%AS"="friend"&"%AC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>][{"%S{local supervisor}"="true"}// as local supervisor
+	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"|"%CM"="SimpleClass::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+	>][// local helpers
+	%P<{}{%C{local helper}=true}\#include %f_dump_include_path(%f_with_gen_id(h,%CW),%C)
+	>][{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	][
+	%S%f_open_ifdef()]
+	%SP[{%S{need UC}=true}
+	%U[
+	]
+	]][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested implementation<{}{"%CC"="Class"&%CS!=TemplateFunctions}[
+	%CX
+	]>]%f_set_var(SERV,S)%f_set_var(SELF,S)[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	<{}{"%CS"="static"|%t_is_static_accessor(%C)=true}[
+	%CX
+	]>
+	][
+	%S%f_ctor_n_dctor_cpp()][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self implementation[
+	%S%f_auto_self_methods_cpp()
+	]<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"|"%CC"="Attribute"&"%CS"="cached"}{Sn}
+	
+	%CX>]%f_self_data_accessor(%S)%f_static_data_accessor(%S)[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+	>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// template methods implementation
+	<{}{"%CS"="TemplateFunctions"}{Sn}%CX
+	>]
+	%f_dump_cpp_derrived_impl_cpp(%S)%f_dump_cpp_functors_cpp(%S)
+	%Sp
+//#UC END# *4717005F0157*
+
+// является ли класс чисто абстрактным
+f _pure_abstract
+//#UC START# *471700C70148*
+	[{%Sa=abstract&<{}{%CC=Operation&%Ca!=abstract}{C}>=0&%Ox=false&%ox=false&<{}{%f_is_property(%C)=true&%Ca!=abstract}{C}>=0}{false}true]
+//#UC END# *471700C70148*
+
+// нужен ли cpp-файл для UtilityPack
+f _need_cpp_file_for_utility_pack
+//#UC START# *471721E50213*
+	[{"%S{need impl-file}"="true"|"<{}{%t_has_impl(%C)=true}{C}>"!="0"}{false}true]
+//#UC END# *471721E50213*
+
+// Генерация асинхронных операций в java
+f _oneway_operation_impl_java
+//#UC START# *480828130316*
+	#//oneway implementation
+	#%t_visibility(%S,"XU") void %f_to_java(%SN) (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>] {
+	#	java.util.concurrent.Executor executor = ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ();
+	#	Runnable eval = new Runnable () {
+	#		public void run() {
+	#			%f_to_java(%SNImpl) (<{, }%f_to_java(%CN)>);
+	#		}
+	#	};
+	#	executor.execute(eval);
+	#}
+	
+	%f_docs(%S)\
+	#[{%SV!=PrivateAccess}{private}protected] %t_abstract_type(%S)%f_ret(%S) %f_to_java(%SNImpl) (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>][{%Sa!=abstract}{;} {
+	#	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}
+	#	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+	#	]
+	#}]
+//#UC END# *480828130316*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,96 @@
+// Parser 4C1B474600AD Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C1B474600AD
+
+FORWARD ME_4C1B475101C5
+
+: ME_4C1B47600258
+ CONST UID '4C1B47600258'
+ CONST Name 'Tl3CustomParser'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C1B475101C5 // l3Parser
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7725102DA' '47913B47006E.pas.ms.script' // Tl3ProtoPersistent
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4C1B47600258 Tl3CustomParser
+
+: ME_52EF740F00AE
+ CONST UID '52EF740F00AE'
+ CONST Name 'Tl3TokenType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C1B475101C5 // l3Parser
+ ;
+
+ref; // ME_52EF740F00AE Tl3TokenType
+
+: ME_4C1B475101C5
+ CONST UID '4C1B475101C5'
+ CONST Name 'l3Parser'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C1B474600AD // Parser
+ ;
+ : Children
+   @ ( ME_4C1B47600258 // Tl3CustomParser
+ ME_52EF740F00AE // Tl3TokenType
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Parser.pas'
+
+ref; // ME_4C1B475101C5 l3Parser
+
+: ME_4C1B474600AD
+ CONST UID '4C1B474600AD'
+ CONST Name 'Parser'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_4C1B475101C5 // l3Parser
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C1B474600AD.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C1B474600AD.pas.ms.script.runner'
+
+ref; // ME_4C1B474600AD Parser

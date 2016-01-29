@@ -1,0 +1,2328 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/FactoryMemory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::FactoryMemory
+//
+// Единая память для фабрик интерфейса
+// ---
+// Используется для указания фреймворку, что некоторые фабрики должны использовать единую "память"
+// для созданных ими объектов. Может быть вложен в интерфейс, и использован как тип фабричного
+// метода, что означает что данная фабрика будет использовать данную общую "память". Для
+// идентификации объектов можно указать тип единого ключа (с помощью атрибута), с помощью которого
+// будут идентифицироваться объекты внутри этой фабрики.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: FactoryMemory::Class
+implementation @ <<FactoryMemory>>
+//? Единая память для фабрик интерфейса
+//? Используется для указания фреймворку, что некоторые фабрики должны использовать единую "память" для созданных ими объектов. Может быть вложен в интерфейс, и использован как тип фабричного метода, что означает что данная фабрика будет использовать данную общую "память". Для идентификации объектов можно указать тип единого ключа (с помощью атрибута), с помощью которого будут идентифицироваться объекты внутри этой фабрики.
+//< *::Class,*::Category
+
+//= WithFactory::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_factory_memory.gif
+//L code_factory_memory
+// Параметры визуализации
+//$ C 130,170,200
+//$ l 10,100,220
+//$ f 10,100,220
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// выводит тип ключа используемого для идентификации объектов в общей "памяти"
+//%f _dump_factory_mem_key
+; // st_space_key
+
+: dump_factory_mem_key OBJECT IN %S
+//#UC START# *4753E98D0058for4753C0BC029E*
+//	[{%X{lid}=cpp}{%f_dump_factory_mem_key_java(%S)}%f_dump_factory_mem_key_cpp(%S)]
+ if ( ( %X get_up ( 'lid' ) ) %== 'cpp' ) then
+ begin
+  [%f] dump_factory_mem_key_cpp %( %S )% 
+ end // if
+ else
+ begin
+  [%f] dump_factory_mem_key_java %( %S )% 
+ end // else
+
+
+//f _dump_factory_mem_key_java
+; // dump_factory_mem_key
+
+end. // <<FactoryMemory>>
+
+: dump_factory_mem_key_java OBJECT IN %S
+//	[{<{}{%CS=common key}{%CC}>=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0 ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	#	public %S%f_factory_mem_key_name() (
+  out_indent '	public '
+  %S %f factory_mem_key_name %( )% ' ('
+//	#		<{, }{%CS=common key}%t_arg(%C%T,"in") %f_to_java(%CN)>
+  out_indent '		'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%t] arg %( %C ->T  %, 'in' )% ' '
+    [%f] to_java %( %C |N )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	#	) {
+  out_indent '	) {'
+//	[#		<{\n#		}{%CS=common key}%f_to_java(%CN_arg)_ = %f_to_java(%CN);>]
+  if NOT-EMPTY
+  begin
+   out_indent '		'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'common key' ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10
+     out_indent '		' )
+     [%f] to_java %( %C |N '_arg' )% '_ = '
+     [%f] to_java %( %C |N )% ';' 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	#	public %S%f_factory_mem_key_name() () {
+  out_indent '	public '
+  %S %f factory_mem_key_name %( )% ' () {'
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	[{%S%f_use_for_multi_factory()=true}#	protected %P%f_dump_switch_type() keyArg_;
+  if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+  begin
+   out_indent '	protected '
+   %P %f dump_switch_type %( )% ' keyArg_;'
+//	]
+  end // if
+//	#}
+  out_indent '}'
+//	}%f_collect_factory_for_mem(%S,"false")\
+  '}'
+  [%f] collect_factory_for_mem %( %S %, false )% 
+//	%f_pop_first_to_var(FACTORY_FOR_MEM,FACTORY)\
+  [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'FACTORY' )% 
+//	#public static class %S%f_factory_mem_key_name() {
+  out_indent 'public static class '
+  %S %f factory_mem_key_name %( )% ' {'
+//	%{FACTORY}<{}{"%CS"!="nokey"}#	[{%f_check_if_type(%C%T,"string")=false}{public String %CNArg_;}public %t_attr(%C%T,"agr") %f_to_java(%CN_arg)_;]
+  ( get_global_var ( 'FACTORY' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'nokey' ) then
+    begin
+     out_indent '	'
+     if ( ( [%f] check_if_type %( %C ->T  %, 'string' )% ) %==  false ) then
+     begin
+      'public '
+      [%t] attr %( %C ->T  %, 'agr' )% ' '
+      [%f] to_java %( %C |N '_arg' )% '_;' 
+     end // if
+     else
+     begin
+      'public String '
+      %C |N 'Arg_;' 
+     end // else
+//	>
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+//	#	public %S%f_factory_mem_key_name() (final %S%f_factory_mem_key_name() c) {
+  out_indent '	public '
+  %S %f factory_mem_key_name %( )% ' (final '
+  %S %f factory_mem_key_name %( )% ' c) {'
+//	[#		%{FACTORY}<{\n#		}{"%CS"!="nokey"}%f_to_java(%CN_arg)_ = c.%f_to_java(%CN_arg)_;>][{%S%f_use_for_multi_factory()=true}
+  if NOT-EMPTY
+  begin
+   out_indent '		'
+   ( get_global_var ( 'FACTORY' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %!= 'nokey' ) then
+     begin
+      if ( l_Counter >0 ) then ( #13#10
+      out_indent '		' )
+      [%f] to_java %( %C |N '_arg' )% '_ = c.'
+      [%f] to_java %( %C |N '_arg' )% '_;' 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+  end // if
+  NOP
+  if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+  begin
+   #13#10
+
+//	#		keyArg_ = c.keyArg_;]
+   out_indent '		keyArg_ = c.keyArg_;' 
+  end // if
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	#	public %S%f_factory_mem_key_name() (%{FACTORY}<{, }{"%CS"!="nokey"}%f_arg_full_decl(%C)>) {
+  out_indent '	public '
+  %S %f factory_mem_key_name %( )% ' ('
+  ( get_global_var ( 'FACTORY' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'nokey' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] arg_full_decl %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+  ') {'
+//	[#		%{FACTORY}<{\n#		}{"%CS"!="nokey"}%f_to_java(%CN_arg)_ = %f_to_java(%CN);>]
+  if NOT-EMPTY
+  begin
+   out_indent '		'
+   ( get_global_var ( 'FACTORY' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %!= 'nokey' ) then
+     begin
+      if ( l_Counter >0 ) then ( #13#10
+      out_indent '		' )
+      [%f] to_java %( %C |N '_arg' )% '_ = '
+      [%f] to_java %( %C |N )% ';' 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+  end // if
+  NOP
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	#	public %S%f_factory_mem_key_name() () {
+  out_indent '	public '
+  %S %f factory_mem_key_name %( )% ' () {'
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	[{%S%f_use_for_multi_factory()=true}#	protected %P%f_dump_switch_type() keyArg_;
+  if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+  begin
+   out_indent '	protected '
+   %P %f dump_switch_type %( )% ' keyArg_;'
+//	]
+  end // if
+//	#}]
+  out_indent '}' 
+ end // if
+ else
+ begin
+//	#public static class %S%f_factory_mem_key_name() {
+  out_indent 'public static class '
+  %S %f factory_mem_key_name %( )% ' {'
+//	<{}{%CS=common key}{%C}#	[{%f_check_if_type(%C%T,"string")=false}{public String %CNArg_;}public %t_attr(%C%T,"agr") %f_to_java(%CN_arg)_;]
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+    out_indent '	'
+    if ( ( [%f] check_if_type %( %C ->T  %, 'string' )% ) %==  false ) then
+    begin
+     'public '
+     [%t] attr %( %C ->T  %, 'agr' )% ' '
+     [%f] to_java %( %C |N '_arg' )% '_;' 
+    end // if
+    else
+    begin
+     'public String '
+     %C |N 'Arg_;' 
+    end // else
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	#	public %S%f_factory_mem_key_name() (final %S%f_factory_mem_key_name() c) {
+  out_indent '	public '
+  %S %f factory_mem_key_name %( )% ' (final '
+  %S %f factory_mem_key_name %( )% ' c) {'
+//	[#		<{\n#		}{%CS=common key}%f_to_java(%CN_arg)_ = c.%f_to_java(%CN_arg)_;>][{%S%f_use_for_multi_factory()=true}
+  if NOT-EMPTY
+  begin
+   out_indent '		'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'common key' ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10
+     out_indent '		' )
+     [%f] to_java %( %C |N '_arg' )% '_ = c.'
+     [%f] to_java %( %C |N '_arg' )% '_;' 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+  begin
+   #13#10
+
+//	#		keyArg_ = c.keyArg_;]
+   out_indent '		keyArg_ = c.keyArg_;' 
+  end // if
+//	#	}
+  out_indent '	' 
+ end // else
+//	
+//	#[{%Pa=abstract}public ]static class %S%f_factory_mem_key_name()Comparator implements java.util.Comparator\<%S%f_factory_mem_key_name()\> {
+ out_indent if ( ( %P |a ) %== 'abstract' ) then
+ begin
+  'public ' 
+ end // if
+ 'static class '
+ %S %f factory_mem_key_name %( )% 'Comparator implements java.util.Comparator<'
+ %S %f factory_mem_key_name %( )% '> {'
+//	#	public int compare (final %S%f_factory_mem_key_name() a, final %S%f_factory_mem_key_name() b) {
+ out_indent '	public int compare (final '
+ %S %f factory_mem_key_name %( )% ' a, final '
+ %S %f factory_mem_key_name %( )% ' b) {'
+//	[{<{}{%CS=common key}{%CC}>=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0 ) then
+ begin
+//	%{FACTORY}<{}{"%CS"!="nokey"}#		int %f_to_java(a_%CN_arg_hash) = %t_to_object_type(%C,"a.%f_to_java(%CN_arg)_").hashCode ();
+  ( get_global_var ( 'FACTORY' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'nokey' ) then
+    begin
+     out_indent '		int '
+     [%f] to_java %( 'a_'
+     %C |N '_arg_hash' )% ' = '
+     [%t] to_object_type %( %C %, 'a.'
+     [%f] to_java %( %C |N '_arg' )% '_' )% '.hashCode ();'
+//	#		int %f_to_java(b_%CN_arg_hash) = %t_to_object_type(%C,"b.%f_to_java(%CN_arg)_").hashCode ();
+     out_indent '		int '
+     [%f] to_java %( 'b_'
+     %C |N '_arg_hash' )% ' = '
+     [%t] to_object_type %( %C %, 'b.'
+     [%f] to_java %( %C |N '_arg' )% '_' )% '.hashCode ();'
+//	#		if (%f_to_java(a_%CN_arg_hash) \< %f_to_java(b_%CN_arg_hash)) {
+     out_indent '		if ('
+     [%f] to_java %( 'a_'
+     %C |N '_arg_hash' )% ' < '
+     [%f] to_java %( 'b_'
+     %C |N '_arg_hash' )% ') {'
+//	#			return 1;
+     out_indent '			return 1;'
+//	#		} else if (%f_to_java(a_%CN_arg_hash) \> %f_to_java(b_%CN_arg_hash)) {
+     out_indent '		} else if ('
+     [%f] to_java %( 'a_'
+     %C |N '_arg_hash' )% ' > '
+     [%f] to_java %( 'b_'
+     %C |N '_arg_hash' )% ') {'
+//	#			return -1;
+     out_indent '			return -1;'
+//	#		}
+     out_indent '		}'
+//	>][{%S%f_use_for_multi_factory()=true}
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+ end // if
+ else
+ begin
+//	<{}{%CS=common key}#		int %f_to_java(a_%CN_arg_hash) = %t_to_object_type(%C,"a.%f_to_java(%CN_arg)_").hashCode ();
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+    out_indent '		int '
+    [%f] to_java %( 'a_'
+    %C |N '_arg_hash' )% ' = '
+    [%t] to_object_type %( %C %, 'a.'
+    [%f] to_java %( %C |N '_arg' )% '_' )% '.hashCode ();'
+//	#		int %f_to_java(b_%CN_arg_hash) = %t_to_object_type(%C,"b.%f_to_java(%CN_arg)_").hashCode ();
+    out_indent '		int '
+    [%f] to_java %( 'b_'
+    %C |N '_arg_hash' )% ' = '
+    [%t] to_object_type %( %C %, 'b.'
+    [%f] to_java %( %C |N '_arg' )% '_' )% '.hashCode ();'
+//	#		if (%f_to_java(a_%CN_arg_hash) \< %f_to_java(b_%CN_arg_hash)) {
+    out_indent '		if ('
+    [%f] to_java %( 'a_'
+    %C |N '_arg_hash' )% ' < '
+    [%f] to_java %( 'b_'
+    %C |N '_arg_hash' )% ') {'
+//	#			return 1;
+    out_indent '			return 1;'
+//	#		} else if (%f_to_java(a_%CN_arg_hash) \> %f_to_java(b_%CN_arg_hash)) {
+    out_indent '		} else if ('
+    [%f] to_java %( 'a_'
+    %C |N '_arg_hash' )% ' > '
+    [%f] to_java %( 'b_'
+    %C |N '_arg_hash' )% ') {'
+//	#			return -1;
+    out_indent '			return -1;'
+//	#		}
+    out_indent '		}'
+//	>}\
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // else
+ if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+ begin
+  #13#10
+
+//	#		if (a.keyArg_.hashCode () \< b.keyArg_.hashCode ()) {
+  out_indent '		if (a.keyArg_.hashCode () < b.keyArg_.hashCode ()) {'
+//	#			return 1;
+  out_indent '			return 1;'
+//	#		} else if (a.keyArg_.hashCode () \> b.keyArg_.hashCode ()) {
+  out_indent '		} else if (a.keyArg_.hashCode () > b.keyArg_.hashCode ()) {'
+//	#			return -1;
+  out_indent '			return -1;'
+//	#		}]
+  out_indent '		}' 
+ end // if
+//	#		return 0;
+ out_indent '		return 0;'
+//	#	]
+ out_indent '	]'
+//	#	}
+ out_indent '	}'
+//	#}
+ out_indent '}'
+
+//f _dump_factory_mem_key_cpp
+; // dump_factory_mem_key_java
+
+: dump_factory_mem_key_cpp OBJECT IN %S
+//	[{<{}{%CS=common key}{%CC}>=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0 ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	#	%S%f_factory_mem_key_name() (<{, }{%CS=common key}%t_arg(%C%T,"in") %CN>)
+  out_indent '	'
+  %S %f factory_mem_key_name %( )% ' ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%t] arg %( %C ->T  %, 'in' )% ' '
+    %C |N 
+    ++! l_Counter
+   end // if
+  end // for C
+  ')'
+//	[#		 : <{, }{%CS=common key}%CN_arg (%CN)>]
+  if NOT-EMPTY
+  begin
+   out_indent '		 : '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'common key' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     %C |N '_arg ('
+     %C |N ')' 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	#	{
+  out_indent '	{'
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	#	%S%f_factory_mem_key_name() () {
+  out_indent '	'
+  %S %f factory_mem_key_name %( )% ' () {'
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	#	bool operator \< (const %S%f_factory_mem_key_name()& c) const {
+  out_indent '	bool operator < (const '
+  %S %f factory_mem_key_name %( )% '& c) const {'
+//	#		return [{}{false}<{ ? true : }{%CS=common key}%CN_arg \< c.%CN_arg>[{%S%f_use_for_multi_factory()=true}[{%f_have_nokey_params(%{FACTORY})=true} ? true : ]key_arg \< c.key_arg]];
+  out_indent '		return '
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'common key' ) then
+    begin
+     if ( l_Counter >0 ) then ( ' ? true : ' )
+     %C |N '_arg < c.'
+     %C |N '_arg' 
+     ++! l_Counter
+    end // if
+   end // for C
+   if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+   begin
+    if ( ( [%f] have_nokey_params %( ( get_global_var ( 'FACTORY' ) ) )% ) %==  true ) then
+    begin
+     ' ? true : ' 
+    end // if
+    'key_arg < c.key_arg' 
+   end // if
+  end // if
+  NOP
+  else
+  begin
+    false 
+  end // else
+  ';'
+//	#	}
+  out_indent '	}'
+//	[{%S%f_use_for_multi_factory()=true}
+  if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+  begin
+   #13#10
+
+//	#private:
+   out_indent 'private:'
+//	#	friend class %PNFactoryManager;
+   out_indent '	friend class '
+   %P |N 'FactoryManager;'
+//	#	%P%f_dump_switch_type() key_arg;]
+   out_indent '	'
+   %P %f dump_switch_type %( )% ' key_arg;' 
+  end // if
+//	#};
+  out_indent '};'
+//	}%f_collect_factory_for_mem(%S,"false")\
+  '}'
+  [%f] collect_factory_for_mem %( %S %, false )% 
+//	%f_pop_first_to_var(FACTORY_FOR_MEM,FACTORY)\
+  [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'FACTORY' )% 
+//	#struct %S%f_factory_mem_key_name() {
+  out_indent 'struct '
+  %S %f factory_mem_key_name %( )% ' {'
+//	[{"%{FACTORY}U"!=""}%{FACTORY}<{}{"%CS"!="nokey"}#	[{%f_check_if_type(%C%T,"string")=false}{std::string %CN_arg;}%t_attr(%C%T,"agr") %CN_arg;]
+  if ( ( ( get_global_var ( 'FACTORY' ) |U ) ) %!= '' ) then
+  begin
+   ( get_global_var ( 'FACTORY' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %!= 'nokey' ) then
+     begin
+      out_indent '	'
+      if ( ( [%f] check_if_type %( %C ->T  %, 'string' )% ) %==  false ) then
+      begin
+       [%t] attr %( %C ->T  %, 'agr' )% ' '
+       %C |N '_arg;' 
+      end // if
+      else
+      begin
+       'std::string '
+       %C |N '_arg;' 
+      end // else
+//	>
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+//	#	%S%f_factory_mem_key_name() (const %f_to_borland(%SNKeyID)& c)[
+   out_indent '	'
+   %S %f factory_mem_key_name %( )% ' (const '
+   [%f] to_borland %( %S |N 'KeyID' )% '& c)'
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	#		: %{FACTORY}<{\n#		, }{"%CS"!="nokey"}%CN_arg (c.%CN_arg>)[{%S%f_use_for_multi_factory()=true}\n#		, key_arg (c.key_arg)]]
+    out_indent '		: '
+    ( get_global_var ( 'FACTORY' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |S ) %!= 'nokey' ) then
+      begin
+       if ( l_Counter >0 ) then ( #13#10
+       out_indent '		, ' )
+       %C |N '_arg (c.'
+       %C |N '_arg' 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+    ')'
+    if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+    begin
+     #13#10
+     out_indent '		, key_arg (c.key_arg)' 
+    end // if
+   end // if
+   NOP
+//	#	{
+   out_indent '	{'
+//	#	}
+   out_indent '	}'
+//	
+   #13#10
+
+//	#	%S%f_factory_mem_key_name() (%{FACTORY}<{, }{"%CS"!="nokey"}%f_arg_full_decl(%C)>)[
+   out_indent '	'
+   %S %f factory_mem_key_name %( )% ' ('
+   ( get_global_var ( 'FACTORY' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %!= 'nokey' ) then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] arg_full_decl %( %C )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+   ')'
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	#		 : %{FACTORY}<{, }{"%CS"!="nokey"}%CN_arg (%CN)>]
+    out_indent '		 : '
+    ( get_global_var ( 'FACTORY' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |S ) %!= 'nokey' ) then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       %C |N '_arg ('
+       %C |N ')' 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+   end // if
+   NOP
+//	#	{
+   out_indent '	{'
+//	#	}
+   out_indent '	}'
+//	
+   #13#10
+
+//	#	%S%f_factory_mem_key_name() () {
+   out_indent '	'
+   %S %f factory_mem_key_name %( )% ' () {'
+//	#	}
+   out_indent '	}'
+//	
+   #13#10
+
+//	]#	bool operator \< (const %S%f_factory_mem_key_name()& c) const {
+  end // if
+  out_indent '	bool operator < (const '
+  %S %f factory_mem_key_name %( )% '& c) const {'
+//	#		return [{}{true}%{FACTORY}<{ ? true : }{"%CS"!="nokey"}%CN_arg \< c.%CN_arg>[{%S%f_use_for_multi_factory()=true}[{%f_have_nokey_params(%{FACTORY})=true} ? true : ]key_arg \< c.key_arg]];
+  out_indent '		return '
+  if NOT-EMPTY
+  begin
+   ( get_global_var ( 'FACTORY' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %!= 'nokey' ) then
+     begin
+      if ( l_Counter >0 ) then ( ' ? true : ' )
+      %C |N '_arg < c.'
+      %C |N '_arg' 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+   if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+   begin
+    if ( ( [%f] have_nokey_params %( ( get_global_var ( 'FACTORY' ) ) )% ) %==  true ) then
+    begin
+     ' ? true : ' 
+    end // if
+    'key_arg < c.key_arg' 
+   end // if
+  end // if
+  NOP
+  else
+  begin
+    true 
+  end // else
+  ';'
+//	#	}
+  out_indent '	}'
+//	[{%S%f_use_for_multi_factory()=true}
+  if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	#private:
+   out_indent 'private:'
+//	#	friend class %PNFactoryManager;
+   out_indent '	friend class '
+   %P |N 'FactoryManager;'
+//	#	%P%f_dump_switch_type() key_arg;
+   out_indent '	'
+   %P %f dump_switch_type %( )% ' key_arg;'
+//	]
+  end // if
+//	#};]
+  out_indent '};' 
+ end // if
+ else
+ begin
+//	#struct %S%f_factory_mem_key_name() {
+  out_indent 'struct '
+  %S %f factory_mem_key_name %( )% ' {'
+//	<{}{%CS=common key}{%C}#	[{%f_check_if_type(%C%T,"string")=false}{std::string %CN_arg;}%t_attr(%C%T,"agr") %CN_arg;]
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+    out_indent '	'
+    if ( ( [%f] check_if_type %( %C ->T  %, 'string' )% ) %==  false ) then
+    begin
+     [%t] attr %( %C ->T  %, 'agr' )% ' '
+     %C |N '_arg;' 
+    end // if
+    else
+    begin
+     'std::string '
+     %C |N '_arg;' 
+    end // else
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	
+  #13#10
+
+//	#	%S%f_factory_mem_key_name() (const %S%f_factory_mem_key_name()& c)
+  out_indent '	'
+  %S %f factory_mem_key_name %( )% ' (const '
+  %S %f factory_mem_key_name %( )% '& c)'
+//	[#		: <{\n#		, }{%CS=common key}%CN_arg (c.%CN_arg)>[{%S%f_use_for_multi_factory()=true}\n#		, key_arg (c.key_arg)]]
+  if NOT-EMPTY
+  begin
+   out_indent '		: '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'common key' ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10
+     out_indent '		, ' )
+     %C |N '_arg (c.'
+     %C |N '_arg)' 
+     ++! l_Counter
+    end // if
+   end // for C
+   if ( ( %S %f use_for_multi_factory %( )% ) %==  true ) then
+   begin
+    #13#10
+    out_indent '		, key_arg (c.key_arg)' 
+   end // if
+  end // if
+  NOP
+//	#	{
+  out_indent '	{'
+//	#	}
+  out_indent '	' 
+ end // else
+
+//f _have_nokey_params
+; // dump_factory_mem_key_cpp
+
+: have_nokey_params OBJECT IN %S
+//	[{<{}{"%CS"!="nokey"}{%CC}>=0}{true}false]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0 ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+
+//собираем фабрики используещие данную "память" в список
+//в качестве второго параметра функции передаём флаг нужно ли "собирать" фабрики без параметров
+//f _collect_factory_for_mem
+; // have_nokey_params
+
+: collect_factory_for_mem OBJECT IN %S
+//	%f_set_var(SELF,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% 
+//	%f_clear_list(FACTORY_FOR_MEM)\
+ [%f] clear_list %( 'FACTORY_FOR_MEM' )% 
+//	%f_set_var(ARG,1)\
+ [%f] set_var %( 'ARG' %, 1 )% 
+//	%P<{}{%f_is_factory(%C)=true}{%C}[{%C%TU=%{SELF}U&%f_exists_in_list(FACTORY_FOR_MEM,C)=false}[{%{ARG}N=true|%C<{}{"%CS"!="nokey"}{C}>!=0}%f_add_to_list(FACTORY_FOR_MEM,C)]\
+ %P
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %==  true ) then
+   begin
+    if ( ( %C ->T |U  ) %== ( ( get_global_var ( 'SELF' ) |U ) ) AND 
+      ( ( [%f] exists_in_list %( 'FACTORY_FOR_MEM' %, 'C' )% ) %==  false  ) ) then
+    begin
+     if ( ( ( get_global_var ( 'ARG' ) |N ) ) %==  true OR 
+       ( ( %C
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |S ) %!= 'nokey' ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for C
+       l_Counter
+
+      ) // bind
+ )       %!= 0  ) ) then
+     begin
+      [%f] add_to_list %( 'FACTORY_FOR_MEM' %, 'C' )% 
+     end // if
+//	]>%P<{}{"%ga"="abstract"}%g<{}{%f_is_factory(%C)=true}{%C}[{%C%TU=%{SELF}U&%f_exists_in_list(FACTORY_FOR_MEM,C)=false}[%{ARG}N=true|%C<{}{"%CS"!="nokey"}{C}>!=0}%f_add_to_list(FACTORY_FOR_MEM,C)]\
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+  %P
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if ( ( %g |a ) %== 'abstract' ) then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( [%f] is_factory %( %C )% ) %==  true ) then
+      begin
+       if ( ( %C ->T |U  ) %== ( ( get_global_var ( 'SELF' ) |U ) ) AND 
+         ( ( [%f] exists_in_list %( 'FACTORY_FOR_MEM' %, 'C' )% ) %==  false  ) ) then
+       begin
+        if NOT-EMPTY
+        begin
+         ( get_global_var ( 'ARG' ) |N ) '=true|'
+         %C
+         bind ( 
+          OBJECT VAR %S
+          INTEGER VAR l_Counter l_Counter := 0
+          for %S%C
+          begin
+           OBJECT IN %C
+           if ( ( %C |S ) %!= 'nokey' ) then
+           begin
+
+            ++! l_Counter
+           end // if
+          end // for C
+          l_Counter
+
+         ) // bind
+          '!=0}'
+         [%f] add_to_list %( 'FACTORY_FOR_MEM' %, 'C' )% 
+        end // if
+        NOP
+//	]>>
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+
+ ) // bind
+ 
+//выводит список параметров, которые используются для идентификации
+//объектов в данной общей пямяти
+//%f _dump_factory_mem_params
+; // collect_factory_for_mem
+
+implementation @ <<FactoryMemory>>
+: dump_factory_mem_params OBJECT IN %S
+//	[{<{}{%CS=common key}(%CC)>=0}{<{, }{%CS=common key}%t_arg(%C%T,"in") %CN>}\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+    '('
+    %C |C ')' 
+    ++! l_Counter
+   end // if
+  end // for C
+  %== 0 ) then
+ begin
+//	%f_collect_factory_for_mem(%S,"false")\
+  [%f] collect_factory_for_mem %( %S %, false )% 
+//	%f_pop_first_to_var(FACTORY_FOR_MEM,FACTORY)\
+  [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'FACTORY' )% 
+//	%{FACTORY}<{, }{%CS!=no key}%f_arg(%C) %CN>]
+  ( get_global_var ( 'FACTORY' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'no key' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] arg %( %C )% ' '
+     %C |N 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+ end // if
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%t] arg %( %C ->T  %, 'in' )% ' '
+    %C |N 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // else
+//	[{%TS=FactoryMemory&<{}{%CS=no key}{%CC}>!=0&%T<{}{%CS=common key}(%CC)>!=0}\
+//	%T<{, }{%CS=common key}%t_attr(%C%T,"in") %CN><{}{%CS!=no key}, %t_attr(%C%T,"in") %CN>]
+//#UC END# *4753E98D0058for4753C0BC029E*
+; // dump_factory_mem_params
+
+
+// Выводит имя ключа для идентификации объектов в общей памяти
+//%f _factory_mem_key_name
+: factory_mem_key_name OBJECT IN %S
+//#UC START# *4754F69C0002for4753C0BC029E*
+//	%f_to_borland(%SNKeyID)
+ [%f] to_borland %( %S |N 'KeyID' )% 
+
+//#UC END# *4754F69C0002for4753C0BC029E*
+; // factory_mem_key_name
+
+
+// Выводит имя трансформатора параметров фабрик, использующих данную общую память, в ключ
+// идентификации
+//%f _transfomator_name
+: transfomator_name OBJECT IN %S
+//#UC START# *4754F6DC0169for4753C0BC029E*
+//	%PN%SNTransformator
+ %P |N %S |N 'Transformator'
+//#UC END# *4754F6DC0169for4753C0BC029E*
+; // transfomator_name
+
+
+// Используется ли данная общая память в мульти-фабрике.
+//%f _use_for_multi_factory
+: use_for_multi_factory OBJECT IN %S
+//#UC START# *47577D78020Efor4753C0BC029E*
+//	%f_collect_factory_for_mem(%S,"true")\
+ [%f] collect_factory_for_mem %( %S %, true )% 
+//	[{"<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)[{%{CYCLE_ITEM}S=multi factory}%{CYCLE_ITEM}N]>"=""}{true}false]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'FACTORY_FOR_MEM' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'CYCLE_ITEM' )% if ( ( ( get_global_var ( 'CYCLE_ITEM' ) |S ) ) %== 'multi factory' ) then
+    begin
+     ( get_global_var ( 'CYCLE_ITEM' ) |N ) 
+    end // if
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+  %== '' ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *47577D78020Efor4753C0BC029E*
+; // use_for_multi_factory
+
+
+// используется ли данная общая память в синхро-фабриках
+//%f _use_for_synchro_factory
+: use_for_synchro_factory OBJECT IN %S
+//#UC START# *47722E760365for4753C0BC029E*
+//	%f_collect_factory_for_mem(%S,"true")\
+ [%f] collect_factory_for_mem %( %S %, true )% 
+//	%f_set_var(USE_IN_SYNCHRO,"false")\
+ [%f] set_var %( 'USE_IN_SYNCHRO' %, false )% 
+//	<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)[{%{CYCLE_ITEM}s=synchro}%f_set_var(USE_IN_SYNCHRO,"true")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'FACTORY_FOR_MEM' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'CYCLE_ITEM' )% if ( ( ( get_global_var ( 'CYCLE_ITEM' ) |s ) ) %== 'synchro' ) then
+   begin
+    [%f] set_var %( 'USE_IN_SYNCHRO' %, true )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%{USE_IN_SYNCHRO}N
+ ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) 
+//#UC END# *47722E760365for4753C0BC029E*
+; // use_for_synchro_factory
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4753C0BC029E*
+//c                                                                {}
+//r {<{}{%CS=common key}{%CC}>!=0&<{}{%CS=common key}{%CC}>!=1}:  {%SS может иметь не более одного ключа}
+//r "%f_check_equal_factory_parameters(%S)"!="":                   {Фабрики использующие %SS (%SN) в качестве общей памяти должны иметь одниковый список ключевых параметров \<%f_check_equal_factory_parameters(%S)\>}
+//r {%f_check_non_empty_factory_list(%S)=false}:                   {Должна быть хотя бы одна НЕ создающая фабрика, использующая данную общую память}
+//r {%f_check_synchro_use(%S)=false}:                              {Общая память, используемая в синхро-фабриках, не может использоваться в других типах фабрик}
+
+//проверяем, что фабрики использующие общий кэш определяют один набор параметров
+//f _check_equal_factory_parameters
+; // constraint
+
+end. // <<FactoryMemory>>
+
+: check_equal_factory_parameters OBJECT IN %S
+//	[{<{}{%CS=common key}{%CC}>=0}%f_collect_factory_for_mem(%S,"false")%f_set_var(FACTORY_ARG_STR,"")\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0 ) then
+ begin
+  [%f] collect_factory_for_mem %( %S %, false )% [%f] set_var %( 'FACTORY_ARG_STR' %, '' )% 
+//	<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_empty %( 'FACTORY_FOR_MEM' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'CYCLE_ITEM' )% 
+//	[{%{CYCLE_ITEM}%Cx=true}[{"%{FACTORY_ARG_STR}N"=""}{[{"%{FACTORY_ARG_STR}N"!="%f_dump_args(%{CYCLE_ITEM})"}%{CYCLE_ITEM}N, ]}\
+    if ( ( ( get_global_var ( 'CYCLE_ITEM' )  ->C |x ) ) %==  true ) then
+    begin
+     if ( ( ( get_global_var ( 'FACTORY_ARG_STR' ) |N ) ) %== '' ) then
+     begin
+//	%f_set_var(FACTORY_ARG_STR,"%f_dump_args(%{CYCLE_ITEM})")]]>%f_set_var(FACTORY_ARG_STR,"")]
+      [%f] set_var %( 'FACTORY_ARG_STR' %, [%f] dump_args %( ( get_global_var ( 'CYCLE_ITEM' ) ) )% )% 
+     end // if
+     else
+     begin
+      if ( ( ( get_global_var ( 'FACTORY_ARG_STR' ) |N ) ) %!= ( [%f] dump_args %( ( get_global_var ( 'CYCLE_ITEM' ) ) )% ) ) then
+      begin
+       ( get_global_var ( 'CYCLE_ITEM' ) |N ) ', ' 
+      end // if
+     end // else
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for C
+  [%f] set_var %( 'FACTORY_ARG_STR' %, '' )% 
+ end // if
+
+//f _dump_args
+; // check_equal_factory_parameters
+
+: dump_args OBJECT IN %S
+//	<{}{%CS!=nokey}{%C}%C%TU>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %!= 'nokey' ) then
+  begin
+   %C ->T |U  
+   ++! l_Counter
+  end // if
+ end // for C
+
+//проверяем, что есть хотя бы одна НЕ создающая фабрика использующия данную общую память
+//f _check_non_empty_factory_list
+; // dump_args
+
+: check_non_empty_factory_list OBJECT IN %S
+//	%f_collect_factory_for_mem(%S,"false")\
+ [%f] collect_factory_for_mem %( %S %, false )% 
+//	[{%f_is_empty(FACTORY_FOR_MEM)=false}{false}true]
+ if ( ( [%f] is_empty %( 'FACTORY_FOR_MEM' )% ) %==  false ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//проверяем, что если общая память используется для синхро-фабрик, то
+//она не может использоваться для других типов фабрик
+//f _check_synchro_use
+; // check_non_empty_factory_list
+
+: check_synchro_use OBJECT IN %S
+//	%f_collect_factory_for_mem(%S,"true")\
+ [%f] collect_factory_for_mem %( %S %, true )% 
+//	%f_set_var(USE_IN_SYNCHRO,"false")\
+ [%f] set_var %( 'USE_IN_SYNCHRO' %, false )% 
+//	%f_set_var(USE_IN_NOT_SYNCHRO,"false")\
+ [%f] set_var %( 'USE_IN_NOT_SYNCHRO' %, false )% 
+//	<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'FACTORY_FOR_MEM' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'CYCLE_ITEM' )% 
+//	[{%{CYCLE_ITEM}s=synchro}{%f_set_var(USE_IN_NOT_SYNCHRO,"true")}%f_set_var(USE_IN_SYNCHRO,"true")]>\
+   if ( ( ( get_global_var ( 'CYCLE_ITEM' ) |s ) ) %== 'synchro' ) then
+   begin
+    [%f] set_var %( 'USE_IN_SYNCHRO' %, true )% 
+   end // if
+   else
+   begin
+    [%f] set_var %( 'USE_IN_NOT_SYNCHRO' %, true )% 
+   end // else
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	[{%f_is_correct_use(%S)=true}{false}true]
+ if ( ( [%f] is_correct_use %( %S )% ) %==  true ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _is_correct_use
+; // check_synchro_use
+
+: is_correct_use OBJECT IN %S
+//	[{%{USE_IN_SYNCHRO}N=true&%{USE_IN_NOT_SYNCHRO}N=true}{true}false]
+ if ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  true AND 
+   ( ( ( get_global_var ( 'USE_IN_NOT_SYNCHRO' ) |N ) ) %==  true  ) ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *4704C0E30186for4753C0BC029E*
+; // is_correct_use
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+implementation @ <<FactoryMemory>>
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4753C0BC029E*
+//#UC END# *4705CBD6003Efor4753C0BC029E*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4753C0BC029E*
+//#UC END# *470484D50138for4753C0BC029E*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for4753C0BC029E*
+//	[{<{}{%CS=common key}{%CC}>!=0}%f_collect_factory_for_mem(%S)
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  [%f] collect_factory_for_mem %( %S )% 
+//	[<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%P
+   begin
+    OBJECT IN %P
+    if ( ( [%f] is_empty %( 'FACTORY_FOR_MEM' )% ) %==  false ) then
+    begin
+     [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'CYCLE_ITEM' )% 
+//	%PNFactoryManager::%S%f_factory_mem_key_name() %PNFactoryManager::%S%f_transfomator_name()::%{CYCLE_ITEM}N_to_id (%{CYCLE_ITEM}<{, }{%CS!=nokey}%f_arg_full_decl(%C)>)
+     %P |N 'FactoryManager::'
+     %S %f factory_mem_key_name %( )% ' '
+     %P |N 'FactoryManager::'
+     %S %f transfomator_name %( )% '::'
+     ( get_global_var ( 'CYCLE_ITEM' ) |N ) '_to_id ('
+     ( get_global_var ( 'CYCLE_ITEM' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %!= 'nokey' ) then
+       begin
+        if ( l_Counter >0 ) then ( ', ' )
+        [%f] arg_full_decl %( %C )% 
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+     ')'
+//		/*throw (Core::Root::ImpossibleConversion)*/
+     '	/*throw (Core::Root::ImpossibleConversion)*/'
+//	{
+     '{'
+//		%U[{FOR_%f_to_upper(%{CYCLE_ITEM}N_to_id)}
+     '	'
+     %Usersection (
+      'FOR_'
+      [%f] to_upper %( ( get_global_var ( 'CYCLE_ITEM' ) |N ) '_to_id' )% 
+     )
+     (
+      #13#10
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+      '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]
+      '	' 
+     ) // Usersection
+ //	}
+     '}'
+//	>
+
+     ++! l_Counter
+    end // if
+   end // for P
+//	]]
+  end // if
+  NOP
+ end // if
+//#UC END# *4705C54B01F4for4753C0BC029E*
+; // fctr.cpp
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for4753C0BC029E*
+//	%f_set_var(COMMON_MEM,S)\
+ [%f] set_var %( 'COMMON_MEM' %, 'S' )% 
+//	
+//	public:
+ 'public:'
+//	
+//	%S%f_dump_factory_mem_key()
+ %S %f dump_factory_mem_key %( )% 
+//	[{%Pa!=abstract}
+ if ( ( %P |a ) %!= 'abstract' ) then
+ begin
+  #13#10
+
+//	protected:
+  'protected:'
+//	%f_dump_common_mem_cache(%S)
+  [%f] dump_common_mem_cache %( %S )% 
+//	][{<{}{%CS=common key}{%CC}>!=0}%f_collect_factory_for_mem(%S)
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  [%f] collect_factory_for_mem %( %S )% 
+//	#class %S%f_transfomator_name() {
+  out_indent 'class '
+  %S %f transfomator_name %( )% ' {'
+//	[	public:
+  if NOT-EMPTY
+  begin
+   '	public:'
+//	<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)
+   INTEGER VAR l_Counter l_Counter := 0
+   while true
+   begin
+    if ( ( [%f] is_empty %( 'FACTORY_FOR_MEM' )% ) %==  false ) then
+    begin
+     [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'CYCLE_ITEM' )% 
+//	#	static %S%f_factory_mem_key_name() %{CYCLE_ITEM}N_to_id (%{CYCLE_ITEM}<{, }{%CS!=nokey}%f_arg_full_decl(%C)>)
+     out_indent '	static '
+     %S %f factory_mem_key_name %( )% ' '
+     ( get_global_var ( 'CYCLE_ITEM' ) |N ) '_to_id ('
+     ( get_global_var ( 'CYCLE_ITEM' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %!= 'nokey' ) then
+       begin
+        if ( l_Counter >0 ) then ( ', ' )
+        [%f] arg_full_decl %( %C )% 
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+     ')'
+//	#		/*throw (Core::Root::ImpossibleConversion)*/;
+     out_indent '		/*throw (Core::Root::ImpossibleConversion)*/;'
+//	>
+
+     ++! l_Counter
+    end // if
+    else
+     break
+   end // while
+//	#]\};]
+   out_indent 
+  end // if
+  NOP
+  '};' 
+ end // if
+//	
+
+//f _dump_common_mem_cache
+; // fctr.h
+
+end. // <<FactoryMemory>>
+
+: dump_common_mem_cache OBJECT IN %S
+//	#typedef std::map\<[%f_type(%P)FactoryManager::]%S%f_factory_mem_key_name(), [{%S%f_use_for_synchro_factory()=false}{%t_fctr_manager_cache_value(%{INT},"type","")}%t_fctr_manager_cache_value(%{INT},"var","")]\> %f_to_borland(%SNMap);
+ out_indent 'typedef std::map<'
+ if NOT-EMPTY
+ begin
+  [%f] type %( %P )% 'FactoryManager::' 
+ end // if
+ NOP
+ %S %f factory_mem_key_name %( )% ', '
+ if ( ( %S %f use_for_synchro_factory %( )% ) %==  false ) then
+ begin
+  [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'var"' %, '' )% 
+ end // if
+ else
+ begin
+  [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'type"' %, '' )% 
+ end // else
+ '> '
+ [%f] to_borland %( %S |N 'Map' )% ';'
+//	#typedef std::map\<[{%f_is_server_type(%{INT})=false}{CORBA::ULong}const %f_type(%{INT})*], %f_to_borland(%SNMap)::iterator\> %f_to_borland(%SNIndexMap);
+ out_indent 'typedef std::map<'
+ if ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  false ) then
+ begin
+  'const '
+  [%f] type %( ( get_global_var ( 'INT' ) ) )% '*' 
+ end // if
+ else
+ begin
+  'CORBA::ULong' 
+ end // else
+ ', '
+ [%f] to_borland %( %S |N 'Map' )% '::iterator> '
+ [%f] to_borland %( %S |N 'IndexMap' )% ';'
+//	#%f_to_borland(%SNMap) m_%f_to_omg(%SN);
+ out_indent [%f] to_borland %( %S |N 'Map' )% ' m_'
+ [%f] to_omg %( %S |N )% ';'
+//	#%f_to_borland(%SNIndexMap) m_%f_to_omg(%SN)_index;
+ out_indent [%f] to_borland %( %S |N 'IndexMap' )% ' m_'
+ [%f] to_omg %( %S |N )% '_index;'
+//	
+//	#Core::Mutex m_mutex_for_%f_to_omg(%SN);
+ out_indent 'Core::Mutex m_mutex_for_'
+ [%f] to_omg %( %S |N )% ';'
+//f _need_conversion_exception
+; // dump_common_mem_cache
+
+: need_conversion_exception OBJECT IN %S
+//	[{%TS=FactoryMemory&%T<{}{%CS=common key}{%CC}>!=0&<{}{%CS!=nokey}{%CC}>!=0}true]
+ if ( ( %T |S ) %== 'FactoryMemory' AND 
+   ( ( %T
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'common key' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+
+  ) // bind
+ )   %!= 0  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+//#UC END# *4705C5490109for4753C0BC029E*
+; // need_conversion_exception
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+implementation @ <<FactoryMemory>>
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4753C0BC029E*
+//#UC END# *47022CB8034Bfor4753C0BC029E*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4753C0BC029E*
+//#UC END# *47022C88029Ffor4753C0BC029E*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4753C0BC029E*
+//#UC END# *47022CCF00EAfor4753C0BC029E*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for4753C0BC029E*
+//#UC END# *47022BBE0261for4753C0BC029E*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for4753C0BC029E*
+//#UC END# *47022C0F01E4for4753C0BC029E*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4753C0BC029E*
+//#UC END# *470F15B800CBfor4753C0BC029E*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4753C0BC029E*
+//#UC END# *470F1571031Cfor4753C0BC029E*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4753C0BC029E*
+//#UC END# *477398E501C0for4753C0BC029E*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4753C0BC029E*
+//#UC END# *55B8D28B0157for4753C0BC029E*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4753C0BC029E*
+//#UC END# *55B8D2F80145for4753C0BC029E*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4753C0BC029E*
+//#UC END# *55B8DD9C0301for4753C0BC029E*
+; // res.cmd.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4753C0BC029E*
+//	%f_set_var(COMMON_MEM,S)\
+ [%f] set_var %( 'COMMON_MEM' %, 'S' )% 
+//	
+//	%S%f_dump_factory_mem_key()
+ %S %f dump_factory_mem_key %( )% 
+//	[{%Pa!=abstract}
+ if ( ( %P |a ) %!= 'abstract' ) then
+ begin
+  #13#10
+
+//	%f_dump_common_mem_cache_java(%S)
+  [%f] dump_common_mem_cache_java %( %S )% 
+//	][{<{}{%CS=common key}{%CC}>!=0}%f_collect_factory_for_mem(%S)
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'common key' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  [%f] collect_factory_for_mem %( %S )% 
+//	#public static class %S%f_transfomator_name() {
+  out_indent 'public static class '
+  %S %f transfomator_name %( )% ' {'
+//	[<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   while true
+   begin
+    if ( ( [%f] is_empty %( 'FACTORY_FOR_MEM' )% ) %==  false ) then
+    begin
+     [%f] pop_first_to_var %( 'FACTORY_FOR_MEM' %, 'CYCLE_ITEM' )% 
+//	#	public static %S%f_factory_mem_key_name() %f_to_java(%{CYCLE_ITEM}N_to_id) (%{CYCLE_ITEM}<{, }{%CS!=nokey}%f_arg_full_decl(%C)>)
+     out_indent '	public static '
+     %S %f factory_mem_key_name %( )% ' '
+     [%f] to_java %( ( get_global_var ( 'CYCLE_ITEM' ) |N ) '_to_id' )% ' ('
+     ( get_global_var ( 'CYCLE_ITEM' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %!= 'nokey' ) then
+       begin
+        if ( l_Counter >0 ) then ( ', ' )
+        [%f] arg_full_decl %( %C )% 
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+     ')'
+//	#		throws ru.garant.shared.Core.Root.ImpossibleConversion
+     out_indent '		throws ru.garant.shared.Core.Root.ImpossibleConversion'
+//	#	{
+     out_indent '	{'
+//	#		%U[{FOR_%f_to_upper(%{CYCLE_ITEM}N_to_id)}
+     out_indent '		'
+     %Usersection (
+      'FOR_'
+      [%f] to_upper %( ( get_global_var ( 'CYCLE_ITEM' ) |N ) '_to_id' )% 
+     )
+     (
+      #13#10
+
+//	#		throw new java.lang.RuntimeException ("Method \[%f_to_java(%{CYCLE_ITEM}N_to_id)\] not implemented");
+      out_indent '		throw new java.lang.RuntimeException ("Method ['
+      [%f] to_java %( ( get_global_var ( 'CYCLE_ITEM' ) |N ) '_to_id' )% '] not implemented");'
+//	#		]
+      out_indent '		' 
+     ) // Usersection
+ //	#	}
+     out_indent '	}'
+//	>
+
+     ++! l_Counter
+    end // if
+    else
+     break
+   end // while
+//	#]}]
+   out_indent 
+  end // if
+  NOP
+  '}' 
+ end // if
+
+//f _dump_common_mem_cache_java
+; // fctr.java
+
+end. // <<FactoryMemory>>
+
+: dump_common_mem_cache_java OBJECT IN %S
+//	#private java.util.Map\<%S%f_factory_mem_key_name(), [{%S%f_use_for_synchro_factory()=false}{%t_fctr_manager_cache_value(%{INT},"type","")}%t_fctr_manager_cache_value(%{INT},"var","")]\> %f_to_java(%SNMap)_ = 
+ out_indent 'private java.util.Map<'
+ %S %f factory_mem_key_name %( )% ', '
+ if ( ( %S %f use_for_synchro_factory %( )% ) %==  false ) then
+ begin
+  [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'var"' %, '' )% 
+ end // if
+ else
+ begin
+  [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'type"' %, '' )% 
+ end // else
+ '> '
+ [%f] to_java %( %S |N 'Map' )% '_ = '
+//	#	new java.util.TreeMap\<%S%f_factory_mem_key_name(), [{%S%f_use_for_synchro_factory()=false}{%t_fctr_manager_cache_value(%{INT},"type","")}%t_fctr_manager_cache_value(%{INT},"var","")]\> (new %S%f_factory_mem_key_name()Comparator ());
+ out_indent '	new java.util.TreeMap<'
+ %S %f factory_mem_key_name %( )% ', '
+ if ( ( %S %f use_for_synchro_factory %( )% ) %==  false ) then
+ begin
+  [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'var"' %, '' )% 
+ end // if
+ else
+ begin
+  [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'type"' %, '' )% 
+ end // else
+ '> (new '
+ %S %f factory_mem_key_name %( )% 'Comparator ());'
+//	#private [{%f_is_server_type(%{INT})=false}{java.util.Map\<Integer, %S%f_factory_mem_key_name()\> %f_to_java(%SNIndexMap)_ = 
+ out_indent 'private '
+ if ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  false ) then
+ begin
+  'java.util.Map<'
+  if ( ( %S %f use_for_synchro_factory %( )% ) %==  false ) then
+  begin
+   [%f] var %( %P )% 
+  end // if
+  else
+  begin
+   'Integer' 
+  end // else
+  ', '
+  %S %f factory_mem_key_name %( )% '> '
+  [%f] to_java %( %S |N 'IndexMap' )% '_ = '
+//	#	new java.util.IdentityHashMap\<[{%S%f_use_for_synchro_factory()=false}{Integer}%f_var(%P)], %S%f_factory_mem_key_name()\> ();]
+  out_indent '	new java.util.IdentityHashMap<'
+  if ( ( %S %f use_for_synchro_factory %( )% ) %==  false ) then
+  begin
+   [%f] var %( %P )% 
+  end // if
+  else
+  begin
+   'Integer' 
+  end // else
+  ', '
+  %S %f factory_mem_key_name %( )% '> ();' 
+ end // if
+ else
+ begin
+  'java.util.Map<Integer, '
+  %S %f factory_mem_key_name %( )% '> '
+  [%f] to_java %( %S |N 'IndexMap' )% '_ = '
+//	#	new java.util.TreeMap\<Integer, %S%f_factory_mem_key_name()\> ();
+  out_indent '	new java.util.TreeMap<Integer, '
+  %S %f factory_mem_key_name %( )% '> ();'
+//	}java.util.Map\<[{%S%f_use_for_synchro_factory()=false}{Integer}%f_var(%P)], %S%f_factory_mem_key_name()\> %f_to_java(%SNIndexMap)_ = 
+ end // else
+//#UC END# *470321C1038Afor4753C0BC029E*
+; // dump_common_mem_cache_java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+implementation @ <<FactoryMemory>>
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4753C0BC029E*
+//#UC END# *470321950119for4753C0BC029E*
+; // java
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor4753C0BC029E*
+//#UC END# *47032ED002DEfor4753C0BC029E*
+; // dll.cpp
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor4753C0BC029E*
+//#UC END# *47032EC4032Cfor4753C0BC029E*
+; // dll.h
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor4753C0BC029E*
+//#UC END# *470F152700FAfor4753C0BC029E*
+; // pas
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4753C0BC029E*
+//#UC END# *46E6D4BB0339for4753C0BC029E*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: FactoryMemory::Class::common key::Attribute
+end. // <<FactoryMemory>>
+
+implementation @ :: <<FactoryMemory>> <<"common key">> ;
+//? Тип единого ключа
+//? используется для идентификации объектов в общей "памяти", Дополнительно будут сгенерированы специальные функции преобразования параметров-ключей фабрик в этот единый ключ. По умолчанию, если единый ключ не задан, считается, что все фабрики имеют одинаковые параметры-ключи, и соотвественно, никакого преобразования не требуется.
+// Параметры стереотипа
+//Y code_attr.gif
+//L code_attr
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4753C0D40361*
+//#UC END# *46E6D4BB0339for4753C0D40361*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for4753C0D40361*
+//#UC END# *47022BBE0261for4753C0D40361*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for4753C0D40361*
+//#UC END# *47022C0F01E4for4753C0D40361*
+; // idl_ami
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4753C0D40361*
+//#UC END# *47022C88029Ffor4753C0D40361*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4753C0D40361*
+//#UC END# *47022CB8034Bfor4753C0D40361*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4753C0D40361*
+//#UC END# *47022CCF00EAfor4753C0D40361*
+; // i.h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4753C0D40361*
+//#UC END# *470321950119for4753C0D40361*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4753C0D40361*
+//#UC END# *470321C1038Afor4753C0D40361*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor4753C0D40361*
+//#UC END# *47032EC4032Cfor4753C0D40361*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor4753C0D40361*
+//#UC END# *47032ED002DEfor4753C0D40361*
+; // dll.cpp
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for4753C0D40361*
+//#UC END# *4705C5490109for4753C0D40361*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for4753C0D40361*
+//#UC END# *4705C54B01F4for4753C0D40361*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor4753C0D40361*
+//#UC END# *470F152700FAfor4753C0D40361*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4753C0D40361*
+//#UC END# *470F1571031Cfor4753C0D40361*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4753C0D40361*
+//#UC END# *470F15B800CBfor4753C0D40361*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4753C0D40361*
+//#UC END# *477398E501C0for4753C0D40361*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4753C0D40361*
+//#UC END# *55B8D28B0157for4753C0D40361*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4753C0D40361*
+//#UC END# *55B8D2F80145for4753C0D40361*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4753C0D40361*
+//#UC END# *55B8DD9C0301for4753C0D40361*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: FactoryMemory::Class::uses::ClassDependency
+; // st_space_key
+
+end. // :: <<FactoryMemory>> <<"common key">> ;
+
+implementation @ :: <<FactoryMemory>> <<uses>> ;
+//? Использование
+//? Определяет, что источник использует указанный объект (цель) каким-либо образом. Меожт использоваться при реализации трансформатора ключей фабрики в уникальный ключ, на основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+// Параметры стереотипа
+//Y code_dep_uses.gif
+//L code_dep_uses
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47577B900144*
+//#UC END# *46E6D4BB0339for47577B900144*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for47577B900144*
+//#UC END# *47022BBE0261for47577B900144*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for47577B900144*
+//#UC END# *47022C0F01E4for47577B900144*
+; // idl_ami
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47577B900144*
+//#UC END# *47022C88029Ffor47577B900144*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47577B900144*
+//#UC END# *47022CB8034Bfor47577B900144*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47577B900144*
+//#UC END# *47022CCF00EAfor47577B900144*
+; // i.h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47577B900144*
+//#UC END# *470321950119for47577B900144*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47577B900144*
+//#UC END# *470321C1038Afor47577B900144*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor47577B900144*
+//#UC END# *47032EC4032Cfor47577B900144*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor47577B900144*
+//#UC END# *47032ED002DEfor47577B900144*
+; // dll.cpp
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47577B900144*
+//#UC END# *4705C5490109for47577B900144*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47577B900144*
+//#UC END# *4705C54B01F4for47577B900144*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor47577B900144*
+//#UC END# *470F152700FAfor47577B900144*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47577B900144*
+//#UC END# *470F1571031Cfor47577B900144*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47577B900144*
+//#UC END# *470F15B800CBfor47577B900144*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47577B900144*
+//#UC END# *477398E501C0for47577B900144*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for47577B900144*
+//#UC END# *55B8D28B0157for47577B900144*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for47577B900144*
+//#UC END# *55B8D2F80145for47577B900144*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for47577B900144*
+//#UC END# *55B8DD9C0301for47577B900144*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<FactoryMemory>> <<uses>> ;
+

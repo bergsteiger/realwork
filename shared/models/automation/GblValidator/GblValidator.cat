@@ -1,0 +1,4079 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "GblValidator"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (idl)"
+	    value      	"W:/automation/validator/implementation/component/python/GblValidator.idl")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (idl_ami)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NATIVE_PATHidl_ami"
+	    value      	"/")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NATIVE_PATHidl"
+	    value      	"/garantPIL/implementation/component/cpp/External/GblValidator.idl")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (idl)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"21636816932"))
+    quid       	"440FFE7C00D8"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ConsultingUserID"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635055148"))
+	    quid       	"441000A4024B"
+	    documentation 	"идентификатор пользователя для консультаций"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "complect_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635055397"))
+		    quid       	"441000D90345"
+		    documentation 	
+|client_info из ядра
+|
+		    
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public")
+		(object ClassAttribute "magic"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635055737"))
+		    quid       	"441000F900A5"
+		    documentation 	
+|первое из трех чисел полученных деширфрацией пароля
+|
+		    
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public")
+		(object ClassAttribute "password"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1322652410136726")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4ED612FA0075"
+		    documentation 	"нерасшифрованный  пароль"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "Validator"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Use AMI:b"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"TODO"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Use AMI"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635056249"))
+	    quid       	"4410030D00E0"
+	    documentation 	
+|Верификатор пользователя
+|- проверяет переданный ID
+|- возвращает информацию о комплекте пользователя
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "validate_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"44100588032D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635056484"))
+		    quid       	"4410035D014D"
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"441000A4024B")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"21635056758"))
+			    quid       	"4410053D01C6"
+			    type       	"ConsultingUserID"
+			    quidu      	"441000A4024B"))
+		    result     	"ValidationResult"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"44100588032D")
+		(object Operation "get_user_info_ex"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"44100759009A")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635057122"))
+		    quid       	"441007220221"
+		    documentation 	
+|возвращает информацию о пользователе, его обслуживающей организации и имена блоков комплекта, соответсвующие переданным идентификаторам блоков
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"441000A4024B")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"21635057376"))
+			    quid       	"4410072D0260"
+			    type       	"ConsultingUserID"
+			    quidu      	"441000A4024B")
+			(object Parameter "block_list"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4427D0AC0124")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"21635057714"))
+			    quid       	"4427D18201FD"
+			    type       	"BlockIDList"
+			    quidu      	"4427D0AC0124"))
+		    result     	"UserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"44100759009A")
+		(object Operation "get_user_info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"44100759009A")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635058079"))
+		    quid       	"443CF9EF018D"
+		    documentation 	"возвращает информацию о пользователе, его обслуживающей организации и имена блоков комплекта"
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"441000A4024B")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"21635058341"))
+			    quid       	"443CF9F4019D"
+			    type       	"ConsultingUserID"
+			    quidu      	"441000A4024B"))
+		    result     	"UserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"44100759009A")
+		(object Operation "get_park_user_info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1322659338394648")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"44100759009A"))
+		    quid       	"4ED62E0A0154"
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1322659365902583")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4ED62D5B0252"))
+			    quid       	"4ED62E250368"
+			    type       	"ParkUserID"
+			    quidu      	"4ED62D5B0252"))
+		    result     	"UserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_offline_user_info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"44100759009A")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635058713"))
+		    quid       	"44D1E5B1034B"
+		    documentation 	"Получить информацию о пользователе, который обслуживается не через СК, а посредством оффлайн передачи данных."
+		    parameters 	(list Parameters
+			(object Parameter "card_number"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"44D1E57B0213")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"21635058966"))
+			    quid       	"44D2FF3A038A"
+			    type       	"CardNumber"
+			    quidu      	"44D1E57B0213")
+			(object Parameter "product_number"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"44D2FF59038A")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"21635059275"))
+			    quid       	"44D2FF3A03B9"
+			    type       	"ProductNumber"
+			    quidu      	"44D2FF59038A"))
+		    result     	"UserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"44100759009A")
+		(object Operation "validate_supermobile_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4BFCF690017F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635059666"))
+		    quid       	"4BFCF7130357"
+		    parameters 	(list Parameters
+			(object Parameter "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1348660403824000")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"5062ECB30338"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "client_info"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1348660403863001")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"5062ECB3035F"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"SuperMobileUserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4BFCF690017F")
+		(object Operation "validate_internet_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"2058161182219")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4E1561CA02D7"))
+		    quid       	"4E083A560163"
+		    parameters 	(list Parameters
+			(object Parameter "login"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"2058227588844")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4E083A980309"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "password"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"2058227636425")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4E083A980339"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"InternetUserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4E1561CA02D7")
+		(object Operation "internet_user_manage_password"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1549104679826")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2"))
+		    quid       	"4E25782E029F"
+		    parameters 	(list Parameters
+			(object Parameter "login"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1549164419906")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4E25786A01B8"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "password"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1549164471710")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4E25786A01EB"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "email"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1549164522899")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4E25786A021F"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "action"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1549164574744")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD7002C2"))
+			    quid       	"4E25786A0252"
+			    type       	"long"
+			    quidu      	"3DBFFD7002C2"))
+		    result     	"long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD7002C2")
+		(object Operation "validate_archiveonline_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1334822393392130")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4BFCF690017F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385"))
+		    quid       	"4F8FC5F90172"
+		    documentation 	"K358982067"
+		    parameters 	(list Parameters
+			(object Parameter "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1334822434463131")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4F8FC62201CF"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"SuperMobileUserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4BFCF690017F")
+		(object Operation "validate_constructor_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1378370726123778")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4BFCF690017F"))
+		    quid       	"522844A60059"
+		    parameters 	(list Parameters
+			(object Parameter "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1378370752600971")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"522844C00258"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"SuperMobileUserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4BFCF690017F")
+		(object Operation "get_user_prime"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1386748868561946")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"52A81B860367"))
+		    quid       	"52A81BC40217"
+		    documentation 	"получить список анкет ПРАЙМ"
+		    parameters 	(list Parameters
+			(object Parameter "client_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1386748943896293")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"52A81B860367"))
+			    quid       	"52A81C0F0380"
+			    type       	"UnicodeString"
+			    quidu      	"52A81B860367"))
+		    result     	"UnicodeString"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"52A81B860367")
+		(object Operation "set_user_prime"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1386748953425880")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"52A81B860367"))
+		    quid       	"52A81C19018E"
+		    documentation 	"сохранить анкету ПРАЙМ"
+		    parameters 	(list Parameters
+			(object Parameter "info"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1386749007352172")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"52A81B860367"))
+			    quid       	"52A81C4F0160"
+			    type       	"UnicodeString"
+			    quidu      	"52A81B860367"))
+		    result     	"UnicodeString"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"52A81B860367")
+		(object Operation "get_internet_user_info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1386849318087583")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"52A81B860367"))
+		    quid       	"52A9A426003B"
+		    documentation 	"получение информации о пользователе по FLASH'id"
+		    parameters 	(list Parameters
+			(object Parameter "login"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1386849391100055")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"52A81B860367"))
+			    quid       	"52A9A46F0064"
+			    type       	"UnicodeString"
+			    quidu      	"52A81B860367"))
+		    result     	"UnicodeString"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"52A81B860367")
+		(object Operation "delete_user_prime"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1389357605393530")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A61050251"))
+		    quid       	"52CFEA25015D"
+		    documentation 	"удалить анкету ПРАЙМ"
+		    parameters 	(list Parameters
+			(object Parameter "client_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1389357658893697")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"52A81B860367"))
+			    quid       	"52CFEA5A037D"
+			    type       	"UnicodeString"
+			    quidu      	"52A81B860367"))
+		    result     	"integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"450A61050251")
+		(object Operation "validate_miv_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1398350257478388")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"52A81B860367")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC,441009170385"))
+		    quid       	"535921B101BF"
+		    documentation 	"Валидация пользоваля МИВ для новой интернет версии"
+		    parameters 	(list Parameters
+			(object Parameter "options"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1398350304709951")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"52A81B860367"))
+			    quid       	"535921E002C5"
+			    type       	"UnicodeString"
+			    quidu      	"52A81B860367"))
+		    result     	"UnicodeString"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"52A81B860367")
+		(object Operation "update_users_activity"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1404987205518310")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"52A81B860367")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4458895A01DC"))
+		    quid       	"53BE674501E7"
+		    documentation 	"Обновление времени последней активности аккаунтов"
+		    parameters 	(list Parameters
+			(object Parameter "data"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1404987293705210")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"52A81B860367"))
+			    quid       	"53BE679D02C1"
+			    type       	"UnicodeString"
+			    quidu      	"52A81B860367"))
+		    result     	"UnicodeString"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"52A81B860367")
+		(object Operation "validate_internet_pda_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1405513205345959")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4E1561CA02D7"))
+		    quid       	"53C66DF50139"
+		    documentation 	"Валидация пользователей мобильной версии"
+		    parameters 	(list Parameters
+			(object Parameter "login"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1405513304618889")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"53C66E58026A"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "password"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1405513304669909")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"53C66E58029C"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "options"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1405513304718929")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"53C66E5802CE"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"InternetUserInfo"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4E1561CA02D7"))
+	    language   	"MDA Generator")
+	(object Class "ValidationResult"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635060442"))
+	    quid       	"44100588032D"
+	    documentation 	"результат проверки идентификатора пользователя"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "INVALID_ID"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635060679"))
+		    quid       	"441005A400EB"
+		    documentation 	"неизвестный идентификатор пользователя"
+		    exportControl 	"Public")
+		(object ClassAttribute "CONSULTING_AVAILABLE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635060990"))
+		    quid       	"441005C3002F"
+		    documentation 	"пользователю разрешена услуга получения консультации"
+		    exportControl 	"Public")
+		(object ClassAttribute "CONSULTING_NOT_AVAILABLE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635061297"))
+		    quid       	"44100640039A"
+		    documentation 	"пользователю НЕ разрешена услуга получения консультации"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "UserInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21639072081"))
+	    quid       	"44100759009A"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635062217"))
+		    quid       	"4410075E03C7"
+		    documentation 	"имя пользователя"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "cardnum"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635062535"))
+		    quid       	"4507BF57021A"
+		    documentation 	
+|Номер карточки пользователя, в формате
+|2X-5Y-7Z, например 77-00001-0001231
+		    
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "supplier_org"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635062845"))
+		    quid       	"4427CFB10377"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "supplier_city"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635063167"))
+		    quid       	"45AF63C200FB"
+		    documentation 	"город партнера"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "supplier_cardnum"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635063497"))
+		    quid       	"4507BF8D0314"
+		    documentation 	"Номер карточки обслуживающей организации (РП)"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "supplier_manager_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635063806"))
+		    quid       	"4427CFD5028D"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "supplier_manager_email"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635064112"))
+		    quid       	"4427D001000C"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "complect_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635064434"))
+		    quid       	"44D30A770399"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "complect_type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"44E05025009C")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635064738"))
+		    quid       	"44E0500D004E"
+		    type       	"ComplectType"
+		    quidu      	"44E05025009C"
+		    exportControl 	"Public")
+		(object ClassAttribute "complect_is_deleted"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635065054"))
+		    quid       	"4507C14A0353"
+		    documentation 	"признак удаленности комплекта"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public")
+		(object ClassAttribute "complect_trial_type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4507C2CD0036")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635065382"))
+		    quid       	"4507C155019D"
+		    documentation 	"Вид поставки"
+		    type       	"ComplectTrialType"
+		    quidu      	"4507C2CD0036"
+		    exportControl 	"Public")
+		(object ClassAttribute "complect_is_regular"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635065692"))
+		    quid       	"4507C2100101"
+		    documentation 	"Регулярность комплекта на первое число следующего месяца"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public")
+		(object ClassAttribute "complect_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635066003"))
+		    quid       	"45A375820354"
+		    documentation 	"идентификатор комплекта"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public")
+		(object ClassAttribute "consulting_type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635066331"))
+		    quid       	"464C2E7602AC"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public")
+		(object ClassAttribute "next_consulting_type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635066636"))
+		    quid       	"464C2E830329"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public")
+		(object ClassAttribute "magic_number"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635066949"))
+		    quid       	"4BF126D90357"
+		    documentation 	"поле для идентификации клиента, нужно для поддержки Гарант-Парка. (К213255599)"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "gpers_complect_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635067265"))
+		    quid       	"4BF131FC0164"
+		    documentation 	"поле для идентификации клиента, нужно для поддержки Гарант-Парка. (К213255599)"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "complect_version"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"680380368919")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4D9EABF501B6"
+		    documentation 	"версия комплекта"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "mgo_period"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1324371226542000")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"4EF04D1A0207"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "BlockNameList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21639052709"))
+	    quid       	"4410080900F7"
+	    documentation 	"список имен блоков комплекта "
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "InvalidUserId"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21639037252"))
+	    quid       	"441009170385"
+	    stereotype 	"Exception"
+	    language   	"MDA Generator")
+	(object Class "BlockIDList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635069673"))
+	    quid       	"4427D0AC0124"
+	    documentation 	"Идентификаторы блоков комплекта клиента"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "InternalError"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21639035470"))
+	    quid       	"4458895A01DC"
+	    documentation 	"возбуждается при возникновении внутренней ошибки на севере валидации"
+	    stereotype 	"Exception"
+	    language   	"MDA Generator")
+	(object Class "CardNumber"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635070841"))
+	    quid       	"44D1E57B0213"
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"44D1E5A1009C"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"))
+	    language   	"MDA Generator")
+	(object Class "ProductNumber"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635071237"))
+	    quid       	"44D2FF59038A"
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"44D2FF730222"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"))
+	    language   	"MDA Generator")
+	(object Class "ComplectType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635071616"))
+	    quid       	"44E05025009C"
+	    documentation 	"Задаёт тип сетёвости комплекта."
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "LOCAL_USER"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635071826"))
+		    quid       	"44E0515200BB"
+		    exportControl 	"Public")
+		(object ClassAttribute "NET_ONE_USER"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635072137"))
+		    quid       	"44E0516E029F"
+		    exportControl 	"Public")
+		(object ClassAttribute "NET_MULTIUSER"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635072469"))
+		    quid       	"44E051740196"
+		    exportControl 	"Public")
+		(object ClassAttribute "INTRANET"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635072777"))
+		    quid       	"4A8513CD036B"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "SKP"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635073086"))
+		    quid       	"4A8513D702C3"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "MOBILE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635073402"))
+		    quid       	"4A8513E2016B"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "SUPERMOBILE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635073705"))
+		    quid       	"4BFCF5B4031B"
+		    exportControl 	"Public")
+		(object ClassAttribute "WWW"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635074009"))
+		    quid       	"4BFCF5DC02AB"
+		    exportControl 	"Public")
+		(object ClassAttribute "INTERNET"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"2058267909485")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4E083AC10057"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ComplectTrialType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635074511"))
+	    quid       	"4507C2CD0036"
+	    documentation 	"Вид поставки комплекта"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "CTT_COMMERCIAL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635074721"))
+		    quid       	"4507C39C0343"
+		    documentation 	
+|Коммерческая
+|
+		    
+		    exportControl 	"Public")
+		(object ClassAttribute "CTT_NON_COMMERCIAL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635075025"))
+		    quid       	"4507C3CF0094"
+		    documentation 	"Некоммерческая "
+		    exportControl 	"Public")
+		(object ClassAttribute "CTT_TRIAL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635075350"))
+		    quid       	"4507C3E600E2"
+		    documentation 	"Ознакомительная"
+		    exportControl 	"Public")
+		(object ClassAttribute "CTT_DEMO"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635075655"))
+		    quid       	"4507C40701FB"
+		    documentation 	"Демо"
+		    exportControl 	"Public")
+		(object ClassAttribute "CTT_PRESENT"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635075965"))
+		    quid       	"4507C4090324"
+		    documentation 	"Презентационная"
+		    exportControl 	"Public")
+		(object ClassAttribute "CTT_INTERNAL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635076294"))
+		    quid       	"4507C41202A7"
+		    documentation 	"Внутренняя"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "Date"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21639054634"))
+	    quid       	"464C27C500B3"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "year"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD5402AE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635077072"))
+		    quid       	"464C28120130"
+		    type       	"short"
+		    quidu      	"3DBFFD5402AE"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "month"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD5402AE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635077380"))
+		    quid       	"464C28460391"
+		    type       	"short"
+		    quidu      	"3DBFFD5402AE"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "day"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD5402AE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635077687"))
+		    quid       	"464C2855012F"
+		    type       	"short"
+		    quidu      	"3DBFFD5402AE"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "SuperMobileUserInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"21635078195"))
+	    quid       	"4BFCF690017F"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "status"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635078503"))
+		    quid       	"4BFCF6A1021D"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "single_login"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1348660448003002")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2"))
+		    quid       	"5062ECDF03DF"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "login"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1378370683421571")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"5228447B019A"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "password"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1378370697685986")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"5228448902A1"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "COMPLECT_VERSION_77 : string = \"7.7\""
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"680426097598")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular"))
+	    quid       	"4D9EAC2300C3"
+	    stereotype 	"Constants"
+	    language   	"MDA Generator")
+	(object Class "PrimeInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"494663162760")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4E1561440370"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "InternetUserInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"494797019236")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4E1561CA02D7"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "service_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1341304725472000")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2"))
+		    quid       	"4FF2AF9501CD"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "stop_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1341304758164001")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4FF2AFB60099"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ParkUserID"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1322659163594351")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4ED62D5B0252"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "complect_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1322659181208104")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2"))
+		    quid       	"4ED62D6D00C6"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "magic"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1322659269429139")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2"))
+		    quid       	"4ED62DC5019E"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "UnicodeString"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1386748806872732")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular"))
+	    quid       	"52A81B860367"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"441008BD02F9"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635068783"))
+		    quid       	"441008BE004A"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"441008BE004C"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::BlockNameList"
+		    quidu      	"4410080900F7"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"4427D1610346"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$4"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635069949"))
+		    quid       	"4427D16200B6"
+		    supplier   	"Logical View::Primitives::long"
+		    quidu      	"3DBFFD7002C2"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"4427D16200C5"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::BlockIDList"
+		    quidu      	"4427D0AC0124"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$6"
+	    quid       	"4427D9E102A8"
+	    roles      	(list role_list
+		(object Role "block_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635067615"))
+		    quid       	"4427D9E2019E"
+		    label      	"block_list"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::BlockNameList"
+		    quidu      	"4410080900F7"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$7"
+		    quid       	"4427D9E201A0"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::UserInfo"
+		    quidu      	"44100759009A"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$8"
+	    quid       	"464C286E0267"
+	    roles      	(list role_list
+		(object Role "consulting_start_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635067946"))
+		    quid       	"464C286F0361"
+		    label      	"consulting_start_date"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::Date"
+		    quidu      	"464C27C500B3"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$9"
+		    quid       	"464C286F0371"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::UserInfo"
+		    quidu      	"44100759009A"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$10"
+	    quid       	"4BFF6D3D03CC"
+	    roles      	(list role_list
+		(object Role "user_info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635078837"))
+		    quid       	"4BFF6D3E0247"
+		    label      	"user_info"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::UserInfo"
+		    quidu      	"44100759009A"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$11"
+		    quid       	"4BFF6D3E024A"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::SuperMobileUserInfo"
+		    quidu      	"4BFCF690017F"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$12"
+	    quid       	"4BFF727B0327"
+	    roles      	(list role_list
+		(object Role "block_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"21635079212"))
+		    quid       	"4BFF727C0172"
+		    label      	"block_list"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$13"
+		    quid       	"4BFF727C0188"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::SuperMobileUserInfo"
+		    quidu      	"4BFCF690017F"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$14"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"494676941560"))
+	    quid       	"4E156152006A"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$15"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"494851366619"))
+		    quid       	"4E1561520282"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$16"
+		    quid       	"4E1561520290"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::PrimeInfo"
+		    quidu      	"4E1561440370"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$17"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"494817107797"))
+	    quid       	"4E1561DE00DD"
+	    roles      	(list role_list
+		(object Role "user_info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"494851368056"))
+		    quid       	"4E1561DE032A"
+		    label      	"user_info"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::SuperMobileUserInfo"
+		    quidu      	"4BFCF690017F"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$18"
+		    quid       	"4E1561DE032C"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::InternetUserInfo"
+		    quidu      	"4E1561CA02D7"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$19"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"494833507564"))
+	    quid       	"4E1561EE026C"
+	    roles      	(list role_list
+		(object Role "prime_info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"494851368864"))
+		    quid       	"4E1561EF00D1"
+		    label      	"prime_info"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::PrimeInfo"
+		    quidu      	"4E1561440370"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$20"
+		    quid       	"4E1561EF00D3"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::InternetUserInfo"
+		    quidu      	"4E1561CA02D7"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$21"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1386748828718953"))
+	    quid       	"52A81B9C0162"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$22"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1386749034871528"))
+		    quid       	"52A81B9C02C8"
+		    supplier   	"Logical View::Primitives::octet"
+		    quidu      	"3DBFFE500260"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$23"
+		    quid       	"52A81B9C02CC"
+		    supplier   	"Logical View::automation::validator::implementation::component::python::GblValidator::UnicodeString"
+		    quidu      	"52A81B860367"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"440FF8500259")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	"true"))
+	    quid       	"4410009A01AF"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	725
+	    origin_y   	1175
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::ConsultingUserID" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(512, 2400)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(321, 2316)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	382
+			justify    	0
+			label      	"ConsultingUserID")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(321, 2266)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	382
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"441000A4024B"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(321, 2377)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	390
+			justify    	1)
+		    width      	400
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::Validator" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2416, 3392)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1500, 2933)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1832
+			justify    	0
+			label      	"Validator")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1500, 2883)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1832
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4410030D00E0"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(1500, 2994)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	18
+			max_width  	1828
+			justify    	1)
+		    width      	1850
+		    height     	1042
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::ValidationResult" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1088, 2432)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(766, 2348)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	644
+			justify    	0
+			label      	"ValidationResult")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(766, 2298)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	644
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"44100588032D"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(766, 2409)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	653
+			justify    	1)
+		    width      	662
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::InvalidUserId" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(448, 2960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(306, 2931)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	284
+			justify    	0
+			label      	"InvalidUserId")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(306, 2881)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	281
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"441009170385"
+		    width      	302
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::long" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2736, 960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(2655, 921)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFD7002C2"
+		    height     	103
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::BlockIDList" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2320, 960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(2199, 931)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	242
+			justify    	0
+			label      	"BlockIDList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(2199, 881)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	242
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	16107765
+		    quidu      	"4427D0AC0124"
+		    width      	260
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$3" @7
+		    location   	(2547, 960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4427D1610346"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$4" @8
+			    Parent_View 	@7
+			    location   	(1422, 90)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4427D16200B6"
+			    client     	@7
+			    supplier   	@5
+			    vertices   	(list Points
+				(2547, 960)
+				(2645, 960))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$5" @9
+			    Parent_View 	@7
+			    location   	(1422, 90)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4427D16200C5"
+			    client     	@7
+			    supplier   	@6
+			    vertices   	(list Points
+				(2547, 960)
+				(2450, 960))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::InternalError" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(848, 2960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(706, 2931)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	284
+			justify    	0
+			label      	"InternalError")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(706, 2881)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	281
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"4458895A01DC"
+		    width      	302
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::CardNumber" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2800, 1904)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(2670, 1888)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	260
+			justify    	0
+			label      	"CardNumber")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(2670, 1838)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	260
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"44D1E57B0213"
+		    width      	278
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::ProductNumber" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2272, 1904)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(2114, 1888)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"ProductNumber")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(2114, 1838)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"44D2FF59038A"
+		    width      	334
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::ComplectType" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2368, 2480)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(2179, 2246)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"ComplectType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(2179, 2196)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"44E05025009C"
+		    compartment 	(object Compartment
+			Parent_View 	@13
+			location   	(2179, 2307)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	9
+			max_width  	384
+			justify    	1)
+		    width      	396
+		    height     	592
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::ComplectTrialType" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1744, 2512)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(1481, 2353)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	526
+			justify    	0
+			label      	"ComplectTrialType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(1481, 2303)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	526
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"4507C2CD0036"
+		    compartment 	(object Compartment
+			Parent_View 	@14
+			location   	(1481, 2414)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	534
+			justify    	1)
+		    width      	544
+		    height     	442
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @15
+		    location   	(1344, 336)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(353, 70)
+			fill_color 	13434879
+			nlines     	11
+			max_width  	1946
+			justify    	1
+			label      	
+|ИНСТРУКЦИЯ как взлетать со всем этим $@#^%
+|
+|1. снимаем сэтого пакета галку "native"
+|2. меняем этот пакет
+|3. генерим
+|4. ставим галку "native" обратно
+|
+|P.S. галка native нужна, чтобы в модели garantPIL сгенерировался правильный include-путь к idl'нику этого пакета
+			)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	2006
+		    height     	545)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::COMPLECT_VERSION_77 \\: string = \"7.7\"" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3472, 1632)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(3064, 1603)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	816
+			justify    	0
+			label      	
+|COMPLECT_VERSION_77 : string = "7.7"
+			)
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(3064, 1553)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	816
+			justify    	0
+			label      	"<<Constants>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"4D9EAC2300C3"
+		    width      	834
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::Date" @17
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1936, 1024)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@17
+			location   	(1791, 940)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	290
+			justify    	0
+			label      	"Date")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@17
+			location   	(1791, 890)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	290
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"464C27C500B3"
+		    width      	308
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::BlockNameList" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1952, 1312)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(1799, 1283)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"BlockNameList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(1799, 1233)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	16107765
+		    quidu      	"4410080900F7"
+		    width      	324
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::UserInfo" @19
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(688, 1264)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(304, 780)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"UserInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@19
+			location   	(304, 730)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44100759009A"
+		    compartment 	(object Compartment
+			Parent_View 	@19
+			location   	(304, 841)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	19
+			max_width  	781
+			justify    	1)
+		    width      	786
+		    height     	1092
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$8" @20
+		    location   	(1431, 1120)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"464C286E0267"
+		    roleview_list 	(list RoleViews
+			(object RoleView "consulting_start_date" @21
+			    Parent_View 	@20
+			    location   	(1026, 295)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @22
+				Parent_View 	@21
+				location   	(1429, 1025)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	413
+				justify    	0
+				label      	"+consulting_start_date"
+				pctDist    	0.040793
+				height     	95
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"464C286F0361"
+			    client     	@20
+			    supplier   	@17
+			    vertices   	(list Points
+				(1431, 1120)
+				(1781, 1053))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$9" @23
+			    Parent_View 	@20
+			    location   	(1026, 295)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"464C286F0371"
+			    client     	@20
+			    supplier   	@19
+			    vertices   	(list Points
+				(1431, 1120)
+				(1081, 1187))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$6" @24
+		    location   	(1435, 1291)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4427D9E102A8"
+		    roleview_list 	(list RoleViews
+			(object RoleView "block_list" @25
+			    Parent_View 	@24
+			    location   	(1090, 721)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @26
+				Parent_View 	@25
+				location   	(1561, 1258)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	198
+				justify    	0
+				label      	"+block_list"
+				pctDist    	0.353102
+				height     	39
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4427D9E2019E"
+			    client     	@24
+			    supplier   	@18
+			    vertices   	(list Points
+				(1435, 1291)
+				(1789, 1304))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$7" @27
+			    Parent_View 	@24
+			    location   	(1090, 721)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4427D9E201A0"
+			    client     	@24
+			    supplier   	@19
+			    vertices   	(list Points
+				(1435, 1291)
+				(1081, 1277))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Primitives::string" @28
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2416, 1584)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@28
+			location   	(2335, 1545)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"string")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE240068"
+		    height     	103
+		    autoResize 	TRUE)
+		(object InheritView "" @29
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44D1E5A1009C"
+		    client     	@11
+		    supplier   	@28
+		    vertices   	(list Points
+			(2706, 1825)
+			(2477, 1635))
+		    line_style 	0)
+		(object InheritView "" @30
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44D2FF730222"
+		    client     	@12
+		    supplier   	@28
+		    vertices   	(list Points
+			(2307, 1825)
+			(2392, 1635))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$0" @31
+		    location   	(2217, 1467)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"441008BD02F9"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @32
+			    Parent_View 	@31
+			    location   	(1197, 222)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"441008BE004A"
+			    client     	@31
+			    supplier   	@28
+			    vertices   	(list Points
+				(2217, 1467)
+				(2328, 1532))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @33
+			    Parent_View 	@31
+			    location   	(1197, 222)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"441008BE004C"
+			    client     	@31
+			    supplier   	@18
+			    vertices   	(list Points
+				(2217, 1467)
+				(2107, 1403))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::SuperMobileUserInfo" @34
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1536, 1728)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@34
+			location   	(1327, 1619)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	418
+			justify    	0
+			label      	"SuperMobileUserInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@34
+			location   	(1327, 1569)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	418
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"4BFCF690017F"
+		    compartment 	(object Compartment
+			Parent_View 	@34
+			location   	(1327, 1680)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	384
+			justify    	1)
+		    width      	436
+		    height     	342
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$10" @35
+		    location   	(1199, 1543)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4BFF6D3D03CC"
+		    roleview_list 	(list RoleViews
+			(object RoleView "user_info" @36
+			    Parent_View 	@35
+			    location   	(-337, -185)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @37
+				Parent_View 	@36
+				location   	(1206, 1530)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	186
+				justify    	0
+				label      	"+user_info"
+				pctDist    	0.018449
+				height     	16
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4BFF6D3E0247"
+			    client     	@35
+			    supplier   	@19
+			    vertices   	(list Points
+				(1199, 1543)
+				(1081, 1478))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$11" @38
+			    Parent_View 	@35
+			    location   	(-337, -185)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4BFF6D3E024A"
+			    client     	@35
+			    supplier   	@34
+			    vertices   	(list Points
+				(1199, 1543)
+				(1317, 1608))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$12" @39
+		    location   	(2039, 1645)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4BFF727B0327"
+		    roleview_list 	(list RoleViews
+			(object RoleView "block_list" @40
+			    Parent_View 	@39
+			    location   	(503, -83)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @41
+				Parent_View 	@40
+				location   	(2149, 1599)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	209
+				justify    	0
+				label      	"+block_list"
+				pctDist    	0.400798
+				height     	28
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4BFF727C0172"
+			    client     	@39
+			    supplier   	@28
+			    vertices   	(list Points
+				(2039, 1645)
+				(2325, 1598))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$13" @42
+			    Parent_View 	@39
+			    location   	(503, -83)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4BFF727C0188"
+			    client     	@39
+			    supplier   	@34
+			    vertices   	(list Points
+				(2039, 1645)
+				(1754, 1692))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::PrimeInfo" @43
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1632, 2048)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@43
+			location   	(1522, 2019)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	220
+			justify    	0
+			label      	"PrimeInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@43
+			location   	(1522, 1969)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	220
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	16107765
+		    quidu      	"4E1561440370"
+		    width      	238
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$14" @44
+		    location   	(2039, 1805)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4E156152006A"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$15" @45
+			    Parent_View 	@44
+			    location   	(-713, 509)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E1561520282"
+			    client     	@44
+			    supplier   	@28
+			    vertices   	(list Points
+				(2039, 1805)
+				(2328, 1635))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$16" @46
+			    Parent_View 	@44
+			    location   	(-713, 509)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E1561520290"
+			    client     	@44
+			    supplier   	@43
+			    vertices   	(list Points
+				(2039, 1805)
+				(1751, 1976))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::InternetUserInfo" @47
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(960, 2048)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@47
+			location   	(777, 1989)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	366
+			justify    	0
+			label      	"InternetUserInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@47
+			location   	(777, 1939)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	366
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"4E1561CA02D7"
+		    compartment 	(object Compartment
+			Parent_View 	@47
+			location   	(777, 2050)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	375
+			justify    	1)
+		    width      	384
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$17" @48
+		    location   	(1234, 1894)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4E1561DE00DD"
+		    roleview_list 	(list RoleViews
+			(object RoleView "user_info" @49
+			    Parent_View 	@48
+			    location   	(274, -154)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @50
+				Parent_View 	@49
+				location   	(1156, 1860)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	188
+				justify    	0
+				label      	"+user_info"
+				pctDist    	-0.577091
+				height     	68
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E1561DE032A"
+			    client     	@48
+			    supplier   	@34
+			    vertices   	(list Points
+				(1234, 1894)
+				(1317, 1846))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$18" @51
+			    Parent_View 	@48
+			    location   	(274, -154)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E1561DE032C"
+			    client     	@48
+			    supplier   	@47
+			    vertices   	(list Points
+				(1234, 1894)
+				(1152, 1938))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$19" @52
+		    location   	(1332, 2048)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4E1561EE026C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "prime_info" @53
+			    Parent_View 	@52
+			    location   	(372, 0)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @54
+				Parent_View 	@53
+				location   	(1357, 1993)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	220
+				justify    	0
+				label      	"+prime_info"
+				pctDist    	0.139175
+				height     	56
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E1561EF00D1"
+			    client     	@52
+			    supplier   	@43
+			    vertices   	(list Points
+				(1332, 2048)
+				(1512, 2048))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$20" @55
+			    Parent_View 	@52
+			    location   	(372, 0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E1561EF00D3"
+			    client     	@52
+			    supplier   	@47
+			    vertices   	(list Points
+				(1332, 2048)
+				(1152, 2048))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::ParkUserID" @56
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(512, 2672)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@56
+			location   	(322, 2613)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	380
+			justify    	0
+			label      	"ParkUserID")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@56
+			location   	(322, 2563)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	380
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"4ED62D5B0252"
+		    compartment 	(object Compartment
+			Parent_View 	@56
+			location   	(322, 2674)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	390
+			justify    	1)
+		    width      	398
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::octet" @57
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2944, 2128)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@57
+			location   	(2863, 2089)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"octet")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE500260"
+		    height     	103
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::automation::validator::implementation::component::python::GblValidator::UnicodeString" @58
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2944, 2512)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@58
+			location   	(2804, 2483)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"UnicodeString")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@58
+			location   	(2804, 2433)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	16107765
+		    quidu      	"52A81B860367"
+		    width      	298
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$21" @59
+		    location   	(2944, 2299)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"52A81B9C0162"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$22" @60
+			    Parent_View 	@59
+			    location   	(0, -213)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"52A81B9C02C8"
+			    client     	@59
+			    supplier   	@57
+			    vertices   	(list Points
+				(2944, 2299)
+				(2944, 2179))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$23" @61
+			    Parent_View 	@59
+			    location   	(0, -213)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"52A81B9C02CC"
+			    client     	@59
+			    supplier   	@58
+			    vertices   	(list Points
+				(2944, 2299)
+				(2944, 2420))
+			    line_style 	0)))))))

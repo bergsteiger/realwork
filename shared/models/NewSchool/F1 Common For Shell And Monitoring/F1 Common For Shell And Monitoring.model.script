@@ -1,0 +1,107 @@
+USES
+ 'w:\shared\models\NewSchool\garant6x\garant6x.model.script'
+ 'w:\shared\models\NewSchool\shared\shared.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi\Shared Delphi.model.script'
+ 'w:\shared\models\NewSchool\F1 Базовые определения предметной области\F1 Базовые определения предметной области.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Core\Shared Delphi Core.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Operations\Shared Delphi Operations.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi For F1\Shared Delphi For F1.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Low Level\Shared Delphi Low Level.model.script'
+ 'w:\shared\models\NewSchool\F1 Требования\F1 Требования.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Требования к низкоуровневым библиотекам\Shared Delphi Требования к низкоуровневым библиотекам.model.script'
+;
+
+ABSTRACT <<VCMUseCases>> "F1 Common For Shell And Monitoring"
+ %UID '4A856C6B0338'
+ %SUMMARY 'Общее для мониторинга и оболочки.'#13#10''#13#10'В идеале - надо растащить по правильным местам и грохнуть.' ;
+ %INCLUDES
+  'w:\shared\models\NewSchool\F1 Common For Shell And Monitoring\Search\Search.model.script' /* Search */
+  'w:\shared\models\NewSchool\F1 Common For Shell And Monitoring\PostingOrder\PostingOrder.model.script' /* PostingOrder */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '442BEDF00290' /* garant6x */
+  U$ '45ED6F0303D2' /* shared */
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '498B35810374' /* "F1 Базовые определения предметной области" */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '4A82FE48010A' /* "Shared Delphi Operations" */
+  U$ '4AB1071F01B0' /* "Shared Delphi For F1" */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4E366CA201C2' /* "F1 Требования" */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+ ; // %DEPENDS
+ %META
+  %upv "Full MDP" false
+  %upv "create project" true
+  %upv "defines" 'nsDefine.inc'
+  %upv "fix version" 0
+  %upv "full constraint" false
+  %upv "ifndef" 'Admin'
+  %upv "major version" 7
+  %upv "minor version" 12
+  %upv "package prefix" 'ru.garant'
+  %upv "root path suffix" '/implementation/Garant'
+  %upv "space key" 'NMS'
+  %upv "space name" 'Nemesis'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '442BEDF00290' /* garant6x */
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '45ED6F0303D2' /* shared */
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '493FAECB025F' /* Tree */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '4954C00703D0' /* OfficeLike */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '4954F58900E8' /* List */
+  U$ '4954FAA00232' /* Search */
+  U$ '4986ECDF01F4' /* View */
+  U$ '498B35810374' /* "F1 Базовые определения предметной области" */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '4A78010000B7' /* Search */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A82FE48010A' /* "Shared Delphi Operations" */
+  U$ '4A8567F2039C' /* SearchLite */
+  U$ '4A85683403A8' /* View */
+  U$ '4A9FD48B02A5' /* "F1 Application Template" */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4AA0050F0360' /* Search */
+  U$ '4AA9194D0280' /* View */
+  U$ '4AB1071F01B0' /* "Shared Delphi For F1" */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4CCEAB2A0005' /* QueryCardProcessing */
+  U$ '4D4927B5008B' /* VT$Core */
+  U$ '4DFA0A8A0307' /* Everest$Extensions */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4E366CA201C2' /* "F1 Требования" */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '4EEA091C01B4' /* View$Prim */
+  U$ '51DD5AB6022D' /* Components */
+  U$ '5257E836001C' /* View$Strange */
+  U$ '53BA5A5D03A0' /* TabInterface */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '54F9EC3900D6' /* ContextHistory */
+  U$ '550012C403C4' /* L3$AFW */
+  U$ '55B62380030A' /* Logging */
+ ; // %TOBEINCLUDED
+; // "F1 Common For Shell And Monitoring"

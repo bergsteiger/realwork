@@ -1,0 +1,94 @@
+uses
+  func,
+  Maps,
+  Clicks,
+  Search,
+  Menu,
+  make,
+  common,
+  UnexpectedWindow,
+  list,
+  measuring,
+  StartStop;
+  
+  // заказываю дистрибутивы
+  // делаем HowManyBases баз с разным количеством клиенов. в исходной базе должен быть заведён пользователь qc/22222
+procedure DoDistr;
+  var i, j, HowManyBases, istart, ifin, name,
+  TimeMin, TimeMax, TimeAve, Time; // для измерения времени
+begin
+  TimeMin := now;
+  TimeMax := 0;
+  TimeAve := 0;
+  HowManyBases := 12;       // скока делаем баз
+  ifin := 2500;                // номер последнего созданного клиента. равен нулю если база делается с нуля
+  for j := 12 to HowManyBases do
+    begin
+      istart := ifin+1;
+      case j of
+        1  : ifin := 1;
+        2  : ifin := 50;
+        3  : ifin := 100;
+        4  : ifin := 200;
+        5  : ifin := 300;
+        6  : ifin := 400;
+        7  : ifin := 500;
+        8  : ifin := 750;
+        9  : ifin := 1000;
+        10 : ifin := 1250;
+        11 : ifin := 1500;
+        12 : ifin := 3000;
+      else ifin := 1;
+      end;  
+      StartingARM;
+      
+      log.message('пуск!');
+      for i := istart to ifin do
+        begin
+          Time := now;
+          MakeClient('k-' + VarToStr(i));
+          ClickOnMainWindow('продукты у клиента');
+          MakeProduct;
+          ClickOnItemsList(GetFromMainWindow('Список продуктов'), 0);
+          ClickOnMainMenu('заказать дистрибутив');
+          Sys.Process('Armadillo').frmSales.pcCurrentProduct.ClickTab('Технические параметры');
+          Sys.Process('Armadillo').frmSales.pcCurrentProduct.tsProdTechParam.pTexnical1.gbCommonTechParams.cb_TransType.ClickItem('Курьер');
+          Sys.Process('Armadillo').frmSales.pcCurrentProduct.tsProdTechParam.pTexnical1.gbCommonTechParams.cb_DistrType.ClickItem('Персональный');
+          Sys.Process('Armadillo').frmSales.pcCurrentProduct.tsProdTechParam.pTexnical1.gbCommonTechParams.cb_Media.Keys('[Down][Enter]');
+    
+          Sys.Process('Armadillo').VCLObject('frmSales').VCLObject('btnInsertOrder').Click;
+          Time := TimeMeasure(Time);
+          if Time > TimeMax then TimeMax := Time;
+          if Time < TimeMin then TimeMin := Time; 
+          log.message('cоздан клиент номер ' + VarToStr(i) + ' за ' + VarToStr(Time) + ' секунд');
+          TimeAve := TimeAve + Time;                        // накапливаем общее время для получения среднего времини
+        end;
+
+      log.message(VarToStr(ifin) + ' заказов выполнено. TimeMin ' + VarToStr(TimeMin) + ' сек, TimeMax ' + VarToStr(TimeMax) + ' сек, TimeAve ' + VarToStr(TimeAve / (ifin - istart)) + ' сек');
+      CloseARM;
+      delay(5000);
+//      Win32API.WinExec('C:\Perl\bin\perl "C:\Program Files\Garant-Service\Armadillo\script\arm.pl" ' + VarToStr(ifin), Win32API.SW_SHOWMAXIMIZED);
+//      ShellExecute(nil, '', 'C:\Perl\bin\perl', '"C:\Program Files\Garant-Service\Armadillo\script\arm.pl" ' + VarToStr(ifin), 'C:\Program Files\Garant-Service\Armadillo\script', Win32API.SW_SHOWMAXIMIZED);
+      log.message('база с ' + VarToStr(ifin) + ' клиентов сделана');  
+      delay(30000);
+    end;
+end;
+
+procedure Test1;
+var h, m, s, ms, h2, m2, s2, ms2, time, time2;
+begin
+time := now;
+DecodeTime(time, h, m, s, ms);
+log.message(VarToStr(h) + '/' + VarToStr(m) + '/' + VarToStr(s) + '/' + VarToStr(ms));
+
+delay(65040);
+
+time2 := now;
+DecodeTime(time2, h2, m2, s2, ms2);
+log.message(VarToStr(h2) + '/' + VarToStr(m2) + '/' + VarToStr(s2) + '/' + VarToStr(ms2));
+
+time := time2 - time;
+DecodeTime(time, h, m, s, ms);
+log.message(VarToStr(h) + '/' + VarToStr(m) + '/' + VarToStr(s) + '/' + VarToStr(ms));
+
+end;

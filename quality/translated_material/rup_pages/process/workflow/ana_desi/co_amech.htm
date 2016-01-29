@@ -1,0 +1,365 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Promt98 Translation System-->
+<HTML>
+ 
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Windows-1251">
+<META HTTP-EQUIV="Translator" CONTENT="Promt98 Translation System">  
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+ 
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">  
+<meta name="ProgId" content="FrontPage.Editor.Document">  
+<title> Концепции: Механизмы Анализа</title> 
+<meta http-equiv="Content-Type" content="text/html">  
+  
+<meta name="Microsoft Border" content="rb">  </head> 
+<body>
+<a href="_co_amech.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<h2 class="banner"> <a name="Top"></a>Концепции: Механизмы Анализа</h2> 
+<p class="banner"> Concepts: Analysis Mechanisms</p> 
+<h5> Разделы</h5> 
+<p> Topics</p> 
+<ul>
+ 
+<li> <a href="#Introduction">Введение</a></li> 
+<li> <a href="#Examples of Analysis Mechanisms">Примеры Механизмов Анализа</a></li> 
+<li> <a href="#Describing Analysis Mechanisms">Описание Механизмов Анализа</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Examples of Analysis Mechanisms">Examples of Analysis Mechanisms</a></li>
+  <li><a href="#Describing Analysis Mechanisms">Describing Analysis Mechanisms</a></li>
+</ul>
+<p>&nbsp;</p>
+<h3> <a name="Introduction">Введение</a> в Механизмы Анализа<a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Introduction">Introduction</a> to Analysis Mechanisms&nbsp; <a href="#Top"></a> </p> 
+<font size="3">  
+<p>
+Механизм анализа представляет собой
+образец, являющийся общим решением общей проблемы.
+Механизмы анализа могут отображать образцы структуры, образцы поведения, или
+и то и другое. Они используются в процессе анализа
+для уменьшения его сложности, и повышения его
+согласованности,  обеспечивая разработчиков&nbsp;
+стенографическим представлением сложного поведения. Механизмы позволяют
+сосредоточить анализирующие усилия на переводе функциональных требований в концепции программного обеспечения без
+увязания в спецификации соответствующего сложного поведения, необходимого
+для поддержания функциональных
+возможностей, но не являющегося самым важным
+для них. Механизмы Анализа часто являются
+результатом создания одного или более
+экземпляров <b><a href="../../glossary.htm#architectural pattern">архитектурных
+образцов</a></b> или <b><a href="../../glossary.htm#analysis pattern">образцов анализа</a>.</b> &nbsp;
+</p>
+<p>An analysis mechanism represents a pattern that constitutes a common solution
+to a common problem. They may show patterns of structure, patterns of behavior,
+or both. They are used during analysis to reduce the complexity of analysis, and
+to improve its consistency by providing designers with a short-hand
+representation for complex behavior. Mechanisms allow the analysis effort to
+focus on translating the functional requirements into software concepts without
+bogging-down in the specification of relatively complex behavior needed to
+support the functionality but not central to it. Analysis mechanisms often
+result from the instantiation of one or more <b><a href="../../glossary.htm#architectural pattern">architectural</a>
+</b>or <b><a href="../../glossary.htm#analysis pattern">analysis
+patterns</a>.</b>&nbsp;
+</p>
+<p>
+Механизмы Анализа, прежде всего, используются
+для представления &quot;меток-заполнителей&quot;
+для сложной технологии на среднем и более низких
+уровнях архитектуры. Используя в архитектуре механизмы, как
+&quot;метки-заполнители&quot;,&nbsp; менее вероятно,
+что архитектурная работа будет отвлечена деталями поведения механизма. Как пример, потребность
+в наличии прецедентов диапазона сроков службы
+объекта, срока службы процесса, или
+закрытия и запуска системы определяет потребность в
+постоянстве объекта. Постоянство - особо сложный механизм, и в
+процессе анализа мы не хотим отвлекаться
+на детали того, как мы собираемся достигать постоянства. Это
+дает начало механизму анализа 'постоянства', который позволяет нам говорить
+о постоянных объектах и записывать требования, которые мы будем
+учитывать в механизме постоянства, не беспокоясь относительно того, что
+конкретно механизм постоянства будет делать или как
+он будет работать.
+</p>
+<p>Analysis mechanisms are primarily used to represent 'placeholders' for
+complex technology in the middle and lower layers of the architecture. By using
+the mechanisms as 'placeholders' in the architecture, the architecting effort is
+less likely to become distracted by the details of mechanism behavior. As an
+example, the need to have object lifetimes span use cases, process lifetimes, or
+system shutdown and start-up defines the need for object persistence.
+Persistence is a particularly complex mechanism, and during analysis we do not
+want to be distracted by the details of how we are going to achieve persistence.
+This gives rise to a 'persistence' analysis mechanism which allows us to speak
+of persistent objects and capture the requirements we will have on the
+persistence mechanism without worrying about what exactly the persistence
+mechanism will do or how it will work.
+</p>
+</font>  
+<p>
+<font size="3">Механизмы Анализа обычно, но не обязательно,
+не имеют отношения к области проблемы, но вместо этого
+согласуются с концепциями "информатики"; в результате,
+обычно они занимают средние и более низкие
+уровни архитектуры. Они обеспечивают определенные
+линии поведения по отношению к связанному с
+областью классу или компоненту, или
+согласуются с реализацией взаимодействия между классами
+и/или компонентами. Они могут быть
+реализованы в виде <a href="../../glossary.htm#framework"><b>структуры</b></a><a href="../../glossary.htm#framework"><b>.</b></a>
+Примеры включают механизмы для управления
+постоянством, связью между процессами,
+управления ошибкой или обработкой ошибки,
+оповещением, и обменом сообщений. &nbsp;</font>
+</p>
+<p>
+<font size="3">Analysis mechanisms are typically, but not necessarily,
+unrelated to the problem domain, but instead are &quot;computer science&quot;
+concepts; as a result they typically occupy the middle and lower layers of the
+architecture. They provide specific behaviors to a domain-related class or
+component, or correspond to the implementation of cooperation between classes
+and/or components. They may be implemented as a <a href="../../glossary.htm#framework"><b>framework</b></a>,
+Examples include mechanisms to handle persistence, inter-process communication,
+error or fault handling, notification, and messaging, to name a few.&nbsp;</font>
+</p>
+<p>
+<font size="3">Однако, с увеличением количества <a href="../../glossary.htm#analysis pattern"><b>образцов анализа</b></a> 
+установленных в различных областях, их
+частичная или полная реализация в механизмах анализа
+приведет к появлению этих механизмов на
+высших уровнях архитектуры.</font>
+</p>
+<p>
+<font size="3">However, as more <a href="../../glossary.htm#analysis pattern"><b>analysis
+patterns</b></a> are established in various domains, the partial or complete
+instantiation of these in analysis mechanisms will lead to these mechanisms
+appearing in the upper layers of the architecture.</font>
+</p>
+<h3> <a name="XE_analysis_mechanisms__examples_of"></a><a name="Examples of Analysis Mechanisms">Примеры Механизмов Анализа</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <font size="3">However, as more <a href="../../glossary.htm#analysis pattern"><b>analysis
+patterns</b></a> are established in various domains, the partial or complete
+instantiation of these in analysis mechanisms will lead to these mechanisms
+appearing in the upper layers of the architecture.</font> </p> 
+<ul>
+ 
+<li> <strong>Постоянство</strong><br>
+<br>
+Для всех классов, чье явление может стать постоянными, мы должны
+  определить: 
+<ul>
+ 
+<li> <b>Степень детализации</b>: Диапазон размера объектов
+  для поддержания его постоянным.</li> 
+<li> <b>Объем</b>: Число объектов для
+  поддержания постоянным.</li> 
+<li> <b>Продолжительность</b>: Как долго обычно объект должен
+  храниться.</li> 
+<li> <b>Механизм </b><b>Поиска</b>: Как
+  осуществляется поиск и уникальная
+  идентификация данного объекта?</li> 
+<li> <b>Частота Модернизации</b>: Являются ли
+  объекты более или менее постоянными; постоянно
+  ли&nbsp; они обновляются?</li> 
+<li> <b>Надежность</b>: Переживут ли объекты крушение
+  процесса; процессора; или всей системы?</li> 
+
+</ul>
+</li> 
+<br>
+  <li><strong>Persistency</strong><br>
+    <br>
+    For all classes whose instances may become persistent, we need to identify:
+    <ul>
+      <li><b>Granularity</b>: Range of size of the objects to keep persistent.</li>
+      <li><b>Volume</b>: Number of objects to keep persistent.</li>
+      <li><b>Duration</b>: How long does the object typically need to be kept.</li>
+      <li><b>Retrieval mechanism</b>: How is a given object uniquely identified
+        and retrieved?</li>
+      <li><b>Update frequency</b>: Are the objects more or less constant; are
+        they permanently updated?</li>
+      <li><b>Reliability</b>: Shall the objects survive a crash of the process;
+        the processor; or the whole system?</li>
+    </ul>
+  </li>
+<p>&nbsp;</p>
+<li> <strong>Связь Между процессами</strong><br>
+<br>
+Для всех элементов модели необходимых для
+  осуществления связи с объектами, компонентами или
+  выполняемыми услугами в других процессах или
+  потоках, мы должны выделить: 
+<ul>
+ 
+<li> <b>Время ожидания</b>: Как быстро должны процессы связываться
+  друг с другом?</li> 
+<li> <b>Синхронность</b>: Асинхронная связь</li> 
+<li> <b>Размер сообщения</b>: Спектр мог быть бы более соответствующим чем единичный номер.</li> 
+<li> Протокол, управление потоком, буферизация, и так далее.</li> 
+
+</ul>
+
+  <li><strong>Inter-process Communication</strong><br>
+    <br>
+    For all model elements which needs to communicate with objects, components
+    or services executing in other processes or threads, we need to identify:
+  <ul>
+  <li><b>Latency</b>: How fast must processes communicate with another?</li>
+  <li><b>Synchronicity</b>: Asynchronous communication</li>
+  <li><b>Size of message</b>: A spectrum might be more appropriate than a single
+    number.</li>
+  <li>Protocol, flow control, buffering, and so on.</li>
+  </ul>
+
+</ul>
+<p>
+Другие типичные механизмы включают:
+<p>
+Other typical mechanisms include: 
+<ul>
+ 
+<li> Маршрутизация Сообщений</li> 
+<li> Управление процессом и синхронизация</li> 
+<li> Управление Операциями</li> 
+<li> Обмен Информацией</li> 
+<li> Безопасность</li> 
+<li> Избыточность</li> 
+<li> Отчетность по Ошибкам</li> 
+<li> Преобразование Формата</li> 
+
+</ul>
+<ul>
+  <li>Message routing</li>
+  <li>Process control and synchronization</li>
+  <li>Transaction management</li>
+  <li>Information Exchange</li>
+  <li>Security</li>
+  <li>Redundancy</li>
+  <li>Error reporting</li>
+  <li>Format conversion</li>
+</ul>
+<p>&nbsp;</p>
+<h3> <a name="XE_analysis_mechanisms__describing"></a><a name="Describing Analysis Mechanisms">Описание Механизмов Анализа</a><a href="#Top"></a><img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Describing Analysis Mechanisms">Describing
+Analysis Mechanisms</a> </p> 
+<p>
+Процесс для описания механизмов анализа: 
+<p>
+The process for describing analysis mechanisms is: 
+<ol>
+ 
+<li> <strong>Внесите </strong><strong>все механизмы анализа в
+  список.</strong>  Один и тот же механизм анализа может появляться под несколькими различными
+  именами в различных реализациях
+  прецедентов, или у различных
+  разработчиков. Например, <strong>накопитель</strong>, <strong>постоянство</strong>, <strong>база данных</strong>, и
+  <b>архив данных</b> все могло бы относиться к механизму постоянства. Или <strong>связь между
+  процессами</strong>, <strong>прохождение&nbsp; сообщения</strong>, или
+  <strong>удаленный доступ </strong>могли бы относить к&nbsp;
+  механизму связи между процессами.<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp;
+    </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Collect all analysis mechanisms in a list<br>
+    <br>
+    </strong>The same analysis mechanism may appear under several different
+    names across different use-case realizations, or different designers. For
+    example, <strong>storage</strong>, <strong>persistency</strong>, <strong>database</strong>,
+    and <strong>repository</strong> might all refer to a persistency mechanism.
+    Or <strong>inter-process communication</strong>, <strong>message passing</strong>,
+    or <strong>remote invocation</strong> might all refer to and inter-process
+    communication mechanism.
+</li> 
+&nbsp;&nbsp;&nbsp;&nbsp; 
+<br>
+<li> <strong>Нарисуйте карту классов клиента для
+  механизмов анализа</strong></li> 
+<p align="center">
+<img src="images/ac_amech.gif" width="332" height="296"> 
+</p>
+<p class="picturetext">Определенные классы и
+компоненты подсистем&nbsp; должны быть
+отображены в определенных Механизмах Анализа: стрелки указывают, что класс использует механизм.
+Потребность в услугах нескольких механизмов
+не является редкостью для класса клиента.&nbsp;
+</p>
+<p class="picturetext">The classes and component subsystems identified need to
+  be mapped onto the identified Analysis Mechanisms: the arrows indicate that
+  the class utilizes the mechanism. It is not uncommon for a client class to
+  require the services of several mechanisms.
+</p>
+<li> <strong>Определите </strong><strong>Характеристики Механизмов Анализа</strong><br>
+  <br>
+  <strong>Identify Characteristics of the Analysis Mechanisms</strong>
+<br>
+  <br>
+Чтобы ориентироваться в диапазоне потенциальных проектов,
+  определите  ключевые характеристики
+  используемые для того, чтобы
+  квалифицировать каждый механизм анализа. Эти характеристики
+  частично являются характеристиками
+  функциональных возможностей, а частично
+  характеристиками размера и выполнения.&nbsp;<br>
+  <br>
+</li> 
+<p>
+    To discriminate across a range of potential designs, identify the key
+    characteristics used to qualify each analysis mechanism. These
+    characteristics are part functionality, and part size and performance.<br>
+</p>
+<li>  
+<p>
+<b>Модель использующая взаимодействия<br>
+</b>
+<b><br>
+Model Using Collaborations</b>
+</p>
+<p>
+<font size="3">После того как механизмы анализа
+определены и названы, они должны, в конечном счете, быть смоделированы
+с помощью взаимодействия&nbsp; &quot;общества классов&quot;
+(см. [<a href="../../referenc.htm#BOO98">BOO98</a>]), некоторые из
+которых непосредственно не представляют функциональные возможности
+приложений, но существуют только для их
+поддержки. Очень часто, эти &quot;классы поддержки&quot; расположены
+на средних или более низких уровнях
+иерархической архитектуры, таким образом обеспечивая
+общую службу поддержки для всех классов уровня
+приложений.<br>
+</font>
+<font size="3"><br>
+Having identified and named the analysis mechanisms, they
+    should, ultimately, be modeled through the collaboration of a 'society of
+    classes' (see [<a href="../../referenc.htm#BOO98">BOO98</a>]), some of which
+    do not directly deliver application functionality, but exist only to support
+    it. Very often, these 'support classes' are located in the middle or lower
+    layers of a layered architecture, thus providing a common support service to
+    all application level classes.</font>
+</p>
+<p>
+<font size="3">Если определенный механизм
+является достаточно общим, возможно существуют
+<a href="../../glossary.htm#pattern"><b>образцы</b></a>, по
+примеру которых можно создать механизм
+путем&nbsp; связывания существующих классов и
+реализуя новые, как требуется образцом.
+Произведенный таким образом механизм анализа
+будет абстрактным и будет требовать дальнейшей обработки
+в процессе проекта и реализации.</font>
+</p>
+<p>
+ &nbsp;<font size="3">If the identified mechanism is common enough, perhaps<a href="../../glossary.htm#pattern">
+    <b>patterns</b></a> exist from which the mechanism can be instantiated - by
+    binding existing classes and implementing new ones as required by the
+    pattern. An analysis mechanism so produced will be abstract, and require
+    further refinement through design and implementation.</font></li> 
+
+</ol>
+ &nbsp;<br>
+<br>
+<p><font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+
+</body>
+ 
+</HTML>

@@ -1,0 +1,1606 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/UtilityPack.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::UtilityPack
+//
+// Утилитный набор
+// ---
+// Набор утилитных функций и типов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UtilityPack::Class
+implementation @ <<UtilityPack>>
+//? Утилитный набор
+//? Набор утилитных функций и типов
+//= AbstractImplInclude::Class
+//= WikiImplClass::Class
+//= ClassBaseGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a f
+// - тип абстракции
+//Y code_utility_pack.gif
+//L code_utility_pack
+// Параметры визуализации
+//$ C 255,215,215
+//$ l 255,10,10
+//$ f 255,10,10
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p need impl-file:b=false ? явно включает генерацию файла реализации (cpp)
+//p need inline-file:b=false ? явно включает генерацию файла inline-реализации (i.h)
+//p is namespace:b=false ? определяет является ли модуль неймспейсом
+//p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+//p local helper:b=false ? указывает что данный набор явлется "локальным помошником" т.е. используется практически всеми другими элементам (рекомендуется использовать это свойство вместо явного указания большого кол-ва связей типа uses)
+//p weak:b=false ? определяет что модуль может шариться между динамичексими пакетами
+//p author:s ? автор
+//p started:s ? дата и время начала
+//p no hands:b=false ? предупреждение о том, что руками править нельзя (на время переходного периода)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{need impl-file}"!="%S{!need impl-file}"}%f_up_prefix(%S) *need impl-file* = *%S{need impl-file}* - явно включает генерацию файла реализации (cpp)
+ ?inherited
+ if ( ( %S get_up ( 'need impl-file' ) ) %!= ( %S get_up_def ( 'need impl-file' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need impl-file* = *'
+  %S get_up ( 'need impl-file' ) '* - явно включает генерацию файла реализации (cpp)'
+//	][{"%S{need inline-file}"!="%S{!need inline-file}"}%f_up_prefix(%S) *need inline-file* = *%S{need inline-file}* - явно включает генерацию файла inline-реализации (i.h)
+ end // if
+ if ( ( %S get_up ( 'need inline-file' ) ) %!= ( %S get_up_def ( 'need inline-file' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need inline-file* = *'
+  %S get_up ( 'need inline-file' ) '* - явно включает генерацию файла inline-реализации (i.h)'
+//	][{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли модуль неймспейсом
+ end // if
+ if ( ( %S get_up ( 'is namespace' ) ) %!= ( %S get_up_def ( 'is namespace' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is namespace* = *'
+  %S get_up ( 'is namespace' ) '* - определяет является ли модуль неймспейсом'
+//	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+ end // if
+ if ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '* - явно включает генерацию дополнительных секций Юзер-Кода'
+//	][{"%S{local helper}"!="%S{!local helper}"}%f_up_prefix(%S) *local helper* = *%S{local helper}* - указывает что данный набор явлется "локальным помошником" т.е. используется практически всеми другими элементам (рекомендуется использовать это свойство вместо явного указания большого кол-ва связей типа uses)
+ end // if
+ if ( ( %S get_up ( 'local helper' ) ) %!= ( %S get_up_def ( 'local helper' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *local helper* = *'
+  %S get_up ( 'local helper' ) '* - указывает что данный набор явлется "локальным помошником" т.е. используется практически всеми другими элементам (рекомендуется использовать это свойство вместо явного указания большого кол-ва связей типа uses)'
+//	][{"%S{weak}"!="%S{!weak}"}%f_up_prefix(%S) *weak* = *%S{weak}* - определяет что модуль может шариться между динамичексими пакетами
+ end // if
+ if ( ( %S get_up ( 'weak' ) ) %!= ( %S get_up_def ( 'weak' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *weak* = *'
+  %S get_up ( 'weak' ) '* - определяет что модуль может шариться между динамичексими пакетами'
+//	][{"%S{author}"!="%S{!author}"}%f_up_prefix(%S) *author* = *%S{author}* - автор
+ end // if
+ if ( ( %S get_up ( 'author' ) ) %!= ( %S get_up_def ( 'author' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *author* = *'
+  %S get_up ( 'author' ) '* - автор'
+//	][{"%S{started}"!="%S{!started}"}%f_up_prefix(%S) *started* = *%S{started}* - дата и время начала
+ end // if
+ if ( ( %S get_up ( 'started' ) ) %!= ( %S get_up_def ( 'started' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *started* = *'
+  %S get_up ( 'started' ) '* - дата и время начала'
+//	][{"%S{no hands}"!="%S{!no hands}"}%f_up_prefix(%S) *no hands* = *%S{no hands}* - предупреждение о том, что руками править нельзя (на время переходного периода)
+ end // if
+ if ( ( %S get_up ( 'no hands' ) ) %!= ( %S get_up_def ( 'no hands' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *no hands* = *'
+  %S get_up ( 'no hands' ) '* - предупреждение о том, что руками править нельзя (на время переходного периода)'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4713540402CE*
+//c                                  {}
+//r {%Cx=false&%S{need UC}=false}:   {%SS не содержит ни каких типов}
+//#UC END# *4704C0E30186for4713540402CE*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsUtilityPack
+: IsUtilityPack OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E7B630D000Dfor4713540402CE*
+//	true
+ true
+//#UC END# *4E7B630D000Dfor4713540402CE*
+; // IsUtilityPack
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor4713540402CE*
+//	%S%[inherited]\
+ inherited
+//	<{}{%aC=Dependency&%aS=injects}{Sg}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%ag
+ begin
+  OBJECT IN %a
+  if ( ( %a |C ) %== 'Dependency' AND 
+   ( ( %a |S ) %== 'injects'  ) ) then
+  begin
+
+//	[{"%f_pas_UnitName(%a%P)"=""&%a%P%P#f_IsUnitFileProducer()=true}{\
+//	%f_pas_PutToUses(%a%P)\
+   [%f] pas_PutToUses %( %a ->P  )% 
+//	}\
+
+//	%f_pas_PutToUses(%a%P%P)\
+
+//	]\
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for a
+//#UC END# *4948EB2601FAfor4713540402CE*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя владельца метода
+//%f _pas_MethodOwnerName
+: pas_MethodOwnerName OBJECT IN %S
+//#UC START# *49CB3C99034Bfor4713540402CE*
+//#UC END# *49CB3C99034Bfor4713540402CE*
+; // pas_MethodOwnerName
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4713540402CE*
+//#UC END# *470484D50138for4713540402CE*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4713540402CE*
+//? Файл реализации утилитного набора %SN
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//P
+//O [{%f_need_cpp_file_for_utility_pack(%S)=true}%SN.cpp]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_set_var(UTILITY_PACK,S)%f_set_var(SELF,S)%f_set_var(SERV,S)[{%f_need_cpp_file_for_utility_pack(%S)=true}\
+ [%f] set_var %( 'UTILITY_PACK' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% if ( ( [%f] need_cpp_file_for_utility_pack %( %S )% ) %==  true ) then
+ begin
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_std_inc(%S)
+  [%f] std_inc %( %S )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+//	<{}{"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%W
+  begin
+   OBJECT IN %W
+   if ( ( %W ->P |U  ) %!= ( %P |U ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %W |L )% %, %W )% 
+//	]>[// by \<\<uses\>\> dependencies
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for W
+  if NOT-EMPTY
+  begin
+   '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |S ) %== 'uses' AND 
+     ( ( %A |C ) %== 'Dependency'  ) AND 
+     ( if ( ( %A ->P |U  ) %== ( %S |U ) OR 
+      ( ( %A ->P |o  ) %== ''  ) ) then
+    begin
+      true 
+    end // if
+    %== true  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      '#include '
+      [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>][{%S{need UC}=true}
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for A
+  end // if
+  NOP
+  if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+  begin
+   #13#10
+
+//	%U[{_CUSTOM_INCLUDES}
+   %Usersection (
+    '_CUSTOM_INCLUDES' 
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	][
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+  %S |P if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+  begin
+   'namespace '
+   %S |N ' {'
+//	][{%S{need UC}=true}
+  end // if
+  if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+  begin
+   #13#10
+
+//	%U[
+   %Usersection (
+
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	][
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// private member declaration<{}{"%CV"="PrivateAccess"&"%CC"="Operation"|"%CV"="PrivateAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+   '// private member declaration'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |V ) %== 'PrivateAccess' AND 
+     ( ( %C |C ) %== 'Operation'  ) OR 
+     ( ( %C |V ) %== 'PrivateAccess'  ) AND 
+     ( ( %C |C ) %!= 'Operation'  ) AND 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	
+      #13#10
+
+//	%f_with_gen_id(h,%CX)%f_set_var(SELF,{UTILITY_PACK})%f_set_var(SERV,{UTILITY_PACK})]>
+      [%f] with_gen_id %( 'h' %, %C |X )% [%f] set_var %( 'SELF' %, '{UTILITY_PACK}' )% [%f] set_var %( 'SERV' %, '{UTILITY_PACK}' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// public member implementation<{}{"%CV"="PublicAccess"&"%CC"="Operation"|"%CV"="PublicAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+   '// public member implementation'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |V ) %== 'PublicAccess' AND 
+     ( ( %C |C ) %== 'Operation'  ) OR 
+     ( ( %C |V ) %== 'PublicAccess'  ) AND 
+     ( ( %C |C ) %!= 'Operation'  ) AND 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	
+      #13#10
+
+//	%CX%f_set_var(SELF,{UTILITY_PACK})%f_set_var(SERV,{UTILITY_PACK})]>
+      %C |X [%f] set_var %( 'SELF' %, '{UTILITY_PACK}' )% [%f] set_var %( 'SERV' %, '{UTILITY_PACK}' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// private member implementation<{}{"%CV"="PrivateAccess"&"%CC"="Operation"|"%CV"="PrivateAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+   '// private member implementation'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |V ) %== 'PrivateAccess' AND 
+     ( ( %C |C ) %== 'Operation'  ) OR 
+     ( ( %C |V ) %== 'PrivateAccess'  ) AND 
+     ( ( %C |C ) %!= 'Operation'  ) AND 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	
+      #13#10
+
+//	%CX%f_set_var(SELF,{UTILITY_PACK})%f_set_var(SERV,{UTILITY_PACK})]>
+      %C |X [%f] set_var %( 'SELF' %, '{UTILITY_PACK}' )% [%f] set_var %( 'SERV' %, '{UTILITY_PACK}' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// template member implementation<{}{%CS=TemplateFunctions}{Sn}[
+   '// template member implementation'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'TemplateFunctions' ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	%CX%f_set_var(SELF,{UTILITY_PACK})%f_set_var(SERV,{UTILITY_PACK})]>
+      %C |X [%f] set_var %( 'SELF' %, '{UTILITY_PACK}' )% [%f] set_var %( 'SERV' %, '{UTILITY_PACK}' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][{"%S{is namespace}"="true"}
+  end // if
+  NOP
+  if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+  begin
+   #13#10
+
+//	} // namespace %SN]
+   '} // namespace '
+   %S |N 
+  end // if
+//	%Sp
+  %S |p 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ end // if
+//#UC END# *47022CB8034Bfor4713540402CE*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4713540402CE*
+//? Файл декларации утилитного набора %SN[- %SD]
+//P
+//O %SN.h
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% // HACK for damned mpcxc
+
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%SN!=mpcxc&%SN!=PragmaWarningDisable}%f_std_inc(%S)
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% if ( ( %S |N ) %!= 'mpcxc' AND 
+   ( ( %S |N ) %!= 'PragmaWarningDisable'  ) ) then
+ begin
+  [%f] std_inc %( %S )% 
+//	]%f_includes_by_contents(%S)<{}{%CM=UtilityPack::Class::ClassDependency}{}[\#include %f_dump_include_path(%C%TL,%C%T)
+ end // if
+ [%f] includes_by_contents %( %S )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'UtilityPack::Class::ClassDependency' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '#include '
+    [%f] dump_include_path %( %C ->T |L  %, %C ->T  )% 
+//	]><\#include %f_dump_include_path(%wL,%w)
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%w
+ begin
+  OBJECT IN %w
+  if true then
+  begin
+   '#include '
+   [%f] dump_include_path %( %w |L %, %w )% 
+//	>[{%S{need UC}=true}
+
+   ++! l_Counter
+  end // if
+ end // for w
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//	%U[{_USER_INCLUDES}
+  %Usersection (
+   '_USER_INCLUDES' 
+  )
+  (
+   #13#10
+
+//	]
+
+  ) // Usersection
+ //	][
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+// HACK for damned mpcxc
+//	[{%SN!=mpcxc&%SN!=PragmaWarningDisable}%SP[{"%S{is namespace}"="true"}namespace %SN {
+ if ( ( %S |N ) %!= 'mpcxc' AND 
+   ( ( %S |N ) %!= 'PragmaWarningDisable'  ) ) then
+ begin
+  %S |P if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+  begin
+   'namespace '
+   %S |N ' {'
+//	]]
+  end // if
+ end // if
+//	<{}{%CV=PublicAccess}%f_set_var(SERV,S)[%CX
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %== 'PublicAccess' ) then
+  begin
+   [%f] set_var %( 'SERV' %, 'S' )% if NOT-EMPTY
+   begin
+    %C |X 
+//	
+    #13#10
+
+//	]>[{%S{need UC}=true}%U[{_USER_DEFINITION}
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  %Usersection (
+   '_USER_DEFINITION' 
+  )
+  (
+   #13#10
+
+//	]
+
+  ) // Usersection
+ //	]
+ end // if
+// HACK for damned mpcxc
+//	[{%SN!=mpcxc&%SN!=PragmaWarningDisable}[{"%S{is namespace}"="true"}} // namespace %SN
+ if ( ( %S |N ) %!= 'mpcxc' AND 
+   ( ( %S |N ) %!= 'PragmaWarningDisable'  ) ) then
+ begin
+  if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+  begin
+   '} // namespace '
+   %S |N 
+//	]%Sp][
+  end // if
+  %S |p 
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'i.h' %, %S |L )% %, %S )% 
+ end // if
+ NOP
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+//#UC END# *47022C88029Ffor4713540402CE*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4713540402CE*
+//? Файл inline реализации утилитного набора %SN
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//P
+//O [{%f_need_inline_file(%S)=true}%SN.i.h]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_need_inline_file(%S)=true}\
+ if ( ( [%f] need_inline_file %( %S )% ) %==  true ) then
+ begin
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)<{}{%CM=UtilityPack::Class::uses::ClassDependency}{}[\#include %f_dump_include_path(%f_with_gen_id(h,%C%TL),%C%T)
+  [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |M ) %== 'UtilityPack::Class::uses::ClassDependency' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C ->T |L  )% %, %C ->T  )% 
+//	]>[// by \<\<uses\>\> dependencies
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+  if NOT-EMPTY
+  begin
+   '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[{"%f_with_gen_id(h,%A%PO)"=""}\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |S ) %== 'uses' AND 
+     ( ( %A |C ) %== 'Dependency'  ) AND 
+     ( if ( ( %A ->P |U  ) %== ( %S |U ) OR 
+      ( ( %A ->P |o  ) %== ''  ) ) then
+    begin
+      true 
+    end // if
+    %== true  ) ) then
+    begin
+     if ( ( [%f] with_gen_id %( 'h' %, %A ->P |O  )% ) %== '' ) then
+     begin
+      '#include '
+      [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>][{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+     end // if
+
+     ++! l_Counter
+    end // if
+   end // for A
+  end // if
+  NOP
+  if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+  begin
+   %Usersection (
+    '_CUSTOM_INCLUDES' 
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	]
+  end // if
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+  %S |P if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+  begin
+   'namespace '
+   %S |N ' {'
+//	][{%S{need UC}=true}
+  end // if
+  if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+  begin
+   #13#10
+
+//	%U[
+   %Usersection (
+
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	][
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_open_ifdef()][
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// private member declaration<{}{"%CV"="PrivateAccess"&"%CC"!="Operation"}{Sn}[
+   '// private member declaration'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |V ) %== 'PrivateAccess' AND 
+     ( ( %C |C ) %!= 'Operation'  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	
+      #13#10
+
+//	%f_with_gen_id(h,%CX)]>
+      [%f] with_gen_id %( 'h' %, %C |X )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// public member implementation<{}{"%CV"="PublicAccess"&"%CC"!="Operation"}{Sn}[
+   '// public member implementation'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |V ) %== 'PublicAccess' AND 
+     ( ( %C |C ) %!= 'Operation'  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	
+      #13#10
+
+//	%CX]>
+      %C |X 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// private member implementation<{}{"%CV"="PrivateAccess"&"%CC"!="Operation"}{Sn}[
+   '// private member implementation'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |V ) %== 'PrivateAccess' AND 
+     ( ( %C |C ) %!= 'Operation'  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	
+      #13#10
+
+//	%CX]>
+      %C |X 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][{"%S{is namespace}"="true"}
+  end // if
+  NOP
+  if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+  begin
+   #13#10
+
+//	} // namespace %SN]
+   '} // namespace '
+   %S |N 
+  end // if
+//	%Sp
+  %S |p 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ end // if
+//#UC END# *47022CCF00EAfor4713540402CE*
+; // i.h
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4713540402CE*
+//	<{}{%CV!=PublicAccess&%CC=Class&"%f_pas_UnitFileName(%C)"=""}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %!= 'PublicAccess' AND 
+   ( ( %C |C ) %== 'Class'  ) AND 
+   ( ( [%f] pas_UnitFileName %( %C )% ) %== ''  ) ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	[{<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%C#f_NoForward()!=true&%CC=Operation}{+}%CX>!=0}\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %!= 'PublicAccess' AND 
+    ( ( %C |S ) %!= 'ini'  ) AND 
+    ( ( %C |S ) %!= 'fini'  ) AND 
+    ( ( %C %?f NoForward %( )% ) %!=  true  ) AND 
+    ( ( %C |C ) %== 'Operation'  ) ) then
+   begin
+    if ( l_Counter >0 ) then
+    begin
+     %C |X 
+    end
+    ++! l_Counter
+   end // if
+  end // for C
+  %!= 0 ) then
+ begin
+//	<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%C#f_NoForward()!=true&%CC=Operation}{+}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %!= 'PublicAccess' AND 
+    ( ( %C |S ) %!= 'ini'  ) AND 
+    ( ( %C |S ) %!= 'fini'  ) AND 
+    ( ( %C %?f NoForward %( )% ) %!=  true  ) AND 
+    ( ( %C |C ) %== 'Operation'  ) ) then
+   begin
+    if ( l_Counter >0 ) then
+    begin
+//	%f_pas_MethodSigImplementation(%C,%S) forward;>\
+     [%f] pas_MethodSigImplementation %( %C %, %S )% ' forward;' 
+    end
+    ++! l_Counter
+   end // if
+  end // for C
+//	]\
+ end // if
+//	<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%CC!=Class}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %!= 'PublicAccess' AND 
+   ( ( %C |S ) %!= 'ini'  ) AND 
+   ( ( %C |S ) %!= 'fini'  ) AND 
+   ( ( %C |C ) %!= 'Class'  ) ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%CV=PublicAccess&"%f_pas_UnitFileName(%C)"=""}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %== 'PublicAccess' AND 
+   ( ( [%f] pas_UnitFileName %( %C )% ) %== ''  ) ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%CS=ini}%CX>\
+//	<{}{%CS=fini}%CX>
+//	
+//#UC END# *470F15B800CBfor4713540402CE*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4713540402CE*
+//O [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)
+//P
+//	%S%f_pas_OutLikeUtilityPack()
+ %S %f pas_OutLikeUtilityPack %( )% 
+//#UC END# *470F1571031Cfor4713540402CE*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4713540402CE*
+//O %SN.java
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	package %f_dump_java_package(%S);
+ 'package '
+ [%f] dump_java_package %( %S )% ';'
+//	
+//	%f_dump_std_java_imports(%S)
+ [%f] dump_std_java_imports %( %S )% 
+//	
+//	[%f_java_dump_import_block(%S)
+ if NOT-EMPTY
+ begin
+  [%f] java_dump_import_block %( %S )% 
+//	]%f_includes_by_contents_java(%S)[{%S{need UC}=true}
+ end // if
+ NOP
+ [%f] includes_by_contents_java %( %S )% if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//	%U[{_USER_INCLUDES}
+  %Usersection (
+   '_USER_INCLUDES' 
+  )
+  (
+   #13#10
+
+//	]
+
+  ) // Usersection
+ //	]
+ end // if
+//	%t_visibility(%S,"%XU")%t_abstract_type(%S)class %SN {
+ [%t] visibility %( %S %, %X |U )% [%t] abstract_type %( %S )% 'class '
+ %S |N ' {'
+//	<{}{}{%C}%f_set_var(SERV,S)[%CX
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   [%f] set_var %( 'SERV' %, 'S' )% if NOT-EMPTY
+   begin
+    %C |X 
+//	
+    #13#10
+
+//	]>[{%S{need UC}=true}	%U[{_USER_DEFINITION}
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  '	'
+  %Usersection (
+   '_USER_DEFINITION' 
+  )
+  (
+   #13#10
+
+//		]
+   '	' 
+  ) // Usersection
+ //	]
+ end // if
+//	} // class %SN
+ '} // class '
+ %S |N 
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *470321950119for4713540402CE*
+; // java
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for4713540402CE*
+//	<%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%S%f_DoSpell()
+ %S %f DoSpell %( )% 
+//#UC END# *4A41A13D03D5for4713540402CE*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: UtilityPack::Class::Attribute
+end. // <<UtilityPack>>
+
+implementation @ :: <<UtilityPack>> <<Attribute>> ;
+//? Атрибут
+//= ClassBase::Class::Attribute
+
+// Параметры стереотипа
+//v +-
+// - типы видимости
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471354E9009C*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#%f_attr(%S) [{}{%f_to_omg(%TN)}%SN][ = %SI];[
+ end // if
+ NOP
+ out_indent [%f] attr %( %S )% ' '
+ if NOT-EMPTY
+ begin
+  %S |N 
+ end // if
+ NOP
+ else
+ begin
+  [%f] to_omg %( %T |N )% 
+ end // else
+ if NOT-EMPTY
+ begin
+  ' = '
+  %S |I 
+ end // if
+ NOP
+ ';'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47022C88029Ffor471354E9009C*
+; // h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for471354E9009C*
+//= ClassBase::Class::static::Attribute;java
+%call-other-gen ( 'ClassBase' 'static::Attribute' 'java' )
+//#UC END# *470321950119for471354E9009C*
+; // java
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor471354E9009C*
+//	[{%SV=PublicAccess}%f_pas_dump_Var(%S)]
+ if ( ( %S |V ) %== 'PublicAccess' ) then
+ begin
+  [%f] pas_dump_Var %( %S )% 
+ end // if
+//#UC END# *470F1571031Cfor471354E9009C*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor471354E9009C*
+//	[{%SV!=PublicAccess}%f_pas_dump_Var(%S)\n]
+ if ( ( %S |V ) %!= 'PublicAccess' ) then
+ begin
+  [%f] pas_dump_Var %( %S )% #13#10 
+ end // if
+//#UC END# *470F15B800CBfor471354E9009C*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: UtilityPack::Class::uses::ClassDependency
+; // st_space_key
+
+end. // :: <<UtilityPack>> <<Attribute>> ;
+
+implementation @ :: <<UtilityPack>> <<uses>> ;
+//? Использование
+//? Определяет что реализация утилитного набора (источник) использует указанный объект (цель) каким-либо образом. НА основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+//= UsesContainer::Class::uses::ClassDependency
+
+// Параметры стереотипа
+//Y code_dep_uses.gif
+//L code_dep_uses
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: UtilityPack::Class::ClassDependency
+; // st_space_key
+
+end. // :: <<UtilityPack>> <<uses>> ;
+
+implementation @ :: <<UtilityPack>> <<ClassDependency>> ;
+//? Зависимость
+//? Определяет что интерфейсная часть утилитного набора (источник) зависит от указанного объект (цель) каким-либо образом. НА основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+//= UtilityPack::Class::uses::ClassDependency
+
+// Параметры стереотипа
+//Y code_dep.gif
+//L code_dep
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: UtilityPack::Class::Operation
+; // st_space_key
+
+end. // :: <<UtilityPack>> <<ClassDependency>> ;
+
+implementation @ :: <<UtilityPack>> <<Operation>> ;
+//? Константный метод
+//= ClassBase::Class::Operation
+
+// Параметры стереотипа
+//v +-
+// - типы видимости
+//a f
+// - тип абстракции
+
+// Генераторы
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for471355720222*
+//= ClassBase::Class::static::Operation;java
+%call-other-gen ( 'ClassBase' 'static::Operation' 'java' )
+//#UC END# *470321950119for471355720222*
+; // java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassBase::Class::Operation
+// признак, что метод статический
+//%f _is_static
+; // st_space_key
+
+: is_static OBJECT IN %S
+//#UC START# *496AE51C03D5for471355720222*
+//	true
+ true
+//#UC END# *496AE51C03D5for471355720222*
+; // is_static
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471355720222*
+//	static_method
+ 'static_method'
+//#UC END# *4705CBD6003Efor471355720222*
+; // wiki_child_kind
+
+
+// Вложенные стереотипы
+//: UtilityPack::Class::Operation::Parameter
+end. // :: <<UtilityPack>> <<Operation>> ;
+
+implementation @ :: <<UtilityPack>> <<Operation>> ;
+//? параметр операции
+//= ClassBase::Class::Operation::Parameter
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for471355BD029F*
+//= ClassBase::Class::Operation::Parameter;wiki
+%call-other-gen ( 'ClassBase' 'Operation::Parameter' 'wiki' )
+//#UC END# *46E6D4BB0339for471355BD029F*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor471355BD029F*
+//#UC END# *470F1571031Cfor471355BD029F*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor471355BD029F*
+//#UC END# *470F15B800CBfor471355BD029F*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for471355BD029F*
+//#UC END# *477398E501C0for471355BD029F*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for471355BD029F*
+//#UC END# *55B8D28B0157for471355BD029F*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for471355BD029F*
+//#UC END# *55B8D2F80145for471355BD029F*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for471355BD029F*
+//#UC END# *55B8DD9C0301for471355BD029F*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471355BD029F*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for471355BD029F*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471355BD029F*
+//#UC END# *4705CBD6003Efor471355BD029F*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for471355BD029F*
+//#UC END# *470484D50138for471355BD029F*
+; // wiki_up_add_gen
+
+
+
+//: UtilityPack::Class::ini::Operation
+end. // :: <<UtilityPack>> <<Operation>> ;
+
+implementation @ :: <<UtilityPack>> <<ini>> ;
+//? Секция инициализации.
+//= UtilityPack::Class::Operation
+
+// Параметры стереотипа
+//v -
+// - типы видимости
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for478668780062*
+//#UC END# *46E6D4BB0339for478668780062*
+; // wiki
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor478668780062*
+//#UC END# *470321C1038Afor478668780062*
+; // fctr.java
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for478668780062*
+//#UC END# *477398E501C0for478668780062*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for478668780062*
+//#UC END# *55B8D28B0157for478668780062*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for478668780062*
+//#UC END# *55B8D2F80145for478668780062*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for478668780062*
+//#UC END# *55B8DD9C0301for478668780062*
+; // res.cmd.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor478668780062*
+//	%S%f_pas_OutIniFiniImpl()
+// - специально закомментировано
+//#UC END# *470F15B800CBfor478668780062*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+; // st_space_key
+
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for478668780062*
+//#UC END# *470484D50138for478668780062*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является секцией инициализации
+//%f _IsIni
+: IsIni OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B38844D0399for478668780062*
+//	true
+ true
+//#UC END# *4B38844D0399for478668780062*
+; // IsIni
+
+
+//: UtilityPack::Class::fini::Operation
+end. // :: <<UtilityPack>> <<ini>> ;
+
+implementation @ :: <<UtilityPack>> <<fini>> ;
+//? Секция финализации.
+//= UtilityPack::Class::Operation
+
+// Параметры стереотипа
+//v -
+// - типы видимости
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for478668A902B5*
+//#UC END# *46E6D4BB0339for478668A902B5*
+; // wiki
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor478668A902B5*
+//#UC END# *470321C1038Afor478668A902B5*
+; // fctr.java
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for478668A902B5*
+//#UC END# *477398E501C0for478668A902B5*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for478668A902B5*
+//#UC END# *55B8D28B0157for478668A902B5*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for478668A902B5*
+//#UC END# *55B8D2F80145for478668A902B5*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for478668A902B5*
+//#UC END# *55B8DD9C0301for478668A902B5*
+; // res.cmd.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor478668A902B5*
+//	%S%f_pas_OutIniFiniImpl()
+// - специально закомментировано
+//#UC END# *470F15B800CBfor478668A902B5*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+; // st_space_key
+
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for478668A902B5*
+//#UC END# *470484D50138for478668A902B5*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является секцией финализации
+//%f _IsFini
+: IsFini OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B388478009Ffor478668A902B5*
+//	true
+ true
+//#UC END# *4B388478009Ffor478668A902B5*
+; // IsFini
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<UtilityPack>> <<fini>> ;
+

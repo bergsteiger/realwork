@@ -1,0 +1,551 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "CommentImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"1384928262698514")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false"))
+    quid       	"528C540602B9"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"528C5417005D"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::Entities"
+	    quidu      	"4B1F6CD00087"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "CommentsCache"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1384928311727319")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/CommentImpl/CommentsCache.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C543702D7_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *528C543702D7_CUSTOM_IMPORT*¤import com.atlassian.confluence.core.ContentEntityObject;¤¤import com.google.common.cache.CacheBuilder;¤import com.google.common.cache.CacheLoader;¤import com.google.common.cache.LoadingCache;¤import com.google.common.cache.RemovalCause;¤import com.google.common.cache.RemovalListener;¤import com.google.common.cache.RemovalNotification;¤¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.GarantViewPageAction;¤//#UC END# *528C543702D7_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C543702D7_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *528C543702D7_CUSTOM_CLASS_DEFINITION*¤//#UC END# *528C543702D7_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C543702D7_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *528C543702D7_CUSTOM_METHODS_AND_DATA*¤    private static LoadingCache<Long, String> cacheComment_;¤¤    private LoadingCache<Long, String> getCacheComment(){¤ 		if(cacheComment_ == null){¤ 			synchronized(GarantViewPageAction.class){¤ 				if(cacheComment_ == null){¤ 					cacheComment_ = CacheBuilder.newBuilder()¤ 						.maximumSize(1000)¤ 						.removalListener(new RemovalListener<Long, String>() {¤ 					    	  public void onRemoval(RemovalNotification<Long, String> removal) {¤ 					    		  	RemovalCause rc = removal.getCause();¤ 					    		  	if(rc.equals(RemovalCause.EXPIRED) || rc.equals(RemovalCause.EXPLICIT)){¤ 					    		  		RealizeContentInFileOnDisk.Factory.get().remove(removal.getKey());¤ 					    		  	}¤ 					    	  }¤ 					    })¤ 						.build(new CacheLoader<Long, String>() {¤ 							@Override¤ 							public String load(Long ceoId) {¤ 								ContentEntityObject ceo = ContainerManager.Factory.get().getContentEntityManager().getById(ceoId);¤ 								return RealizeContentInFileOnDisk.Factory.get().add(ceo.getContent(), ceo);¤ 							}¤ 					});¤ 				}¤ 			}¤ 		}¤ 		return cacheComment_;¤    }¤    ¤	//#UC END# *528C543702D7_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/CommentImpl/CommentsCacheFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file"))
+	    quid       	"528C543702D7"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1384928332152489"))
+		    quid       	"528C544C0097"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::Entities::ContentEntityObjectCache"
+		    quidu      	"528C52A602DA"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "cache_option"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1384934129139052")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"528C6AF10082"
+		    stereotype 	"switch"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    initv      	"COMMENTS_CACHE"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "RealizeContentInFileOnDiskImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1384932387284402")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/CommentImpl/RealizeContentInFileOnDiskImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C6423011C_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *528C6423011C_CUSTOM_IMPORT*¤import java.io.*;¤¤import org.apache.commons.io.IOUtils;¤import org.apache.commons.lang.StringUtils;¤¤//#UC END# *528C6423011C_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C6423011C_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *528C6423011C_CUSTOM_CLASS_DEFINITION*¤//#UC END# *528C6423011C_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C6423011C_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *528C6423011C_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *528C6423011C_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/CommentImpl/RealizeContentInFileOnDiskImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file"))
+	    quid       	"528C6423011C"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1384932405672455"))
+		    quid       	"528C643502A0"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::Entities::RealizeContentInFileOnDisk"
+		    quidu      	"528C5B4A0089"))
+	    language   	"MDA Generator")
+	(object Class "CommentsNoCache"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1384934852911455")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/CommentImpl/CommentsNoCacheFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/CommentImpl/CommentsNoCache.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C6DC4038F_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *528C6DC4038F_CUSTOM_IMPORT*¤import com.atlassian.confluence.core.ContentEntityObject;¤¤import ru.garant.MDProcess.ConfluencePlugins.CommonVelocityContext.GlobalHelper;¤//#UC END# *528C6DC4038F_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C6DC4038F_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *528C6DC4038F_CUSTOM_CLASS_DEFINITION*¤//#UC END# *528C6DC4038F_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*528C6DC4038F_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *528C6DC4038F_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *528C6DC4038F_CUSTOM_METHODS_AND_DATA*
+		    )))
+	    quid       	"528C6DC4038F"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1384934879974005"))
+		    quid       	"528C6DDF03CC"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::Entities::ContentEntityObjectCache"
+		    quidu      	"528C52A602DA"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "cache_option"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1384934869146384")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"528C6DD5008A"
+		    stereotype 	"switch"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    initv      	"COMMENTS_NO_CACHE"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	"true"))
+	    quid       	"528C541800BE"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::CommentImpl::CommentsCache" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(627, 630)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(77, 571)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1100
+			justify    	0
+			label      	"CommentsCache")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(77, 521)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1100
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"528C543702D7"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(77, 632)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	1112
+			justify    	1)
+		    width      	1118
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::Entities::ContentEntityObjectCache" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1161, 234)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(898, 206)
+			nlines     	1
+			max_width  	526
+			justify    	0
+			label      	"ContentEntityObjectCache")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(898, 156)
+			anchor     	10
+			nlines     	1
+			max_width  	526
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"528C52A602DA"
+		    width      	544
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"528C544C0097"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(789, 508)
+			(1037, 324))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::Entities::RealizeContentInFileOnDisk" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2682, 156)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(2413, 128)
+			nlines     	1
+			max_width  	538
+			justify    	0
+			label      	"RealizeContentInFileOnDisk")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(2413, 78)
+			anchor     	10
+			nlines     	1
+			max_width  	538
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"528C5B4A0089"
+		    width      	556
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::CommentImpl::RealizeContentInFileOnDiskImpl" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2682, 489)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(2378, 460)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	608
+			justify    	0
+			label      	"RealizeContentInFileOnDiskImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(2378, 410)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	608
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"528C6423011C"
+		    width      	626
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @6
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"528C643502A0"
+		    client     	@5
+		    supplier   	@4
+		    vertices   	(list Points
+			(2682, 397)
+			(2682, 246))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::CommentImpl::CommentsNoCache" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1887, 804)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1297, 745)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1180
+			justify    	0
+			label      	"CommentsNoCache")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1297, 695)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1180
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"528C6DC4038F"
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(1297, 806)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	1193
+			justify    	1)
+		    width      	1198
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @8
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"528C6DDF03CC"
+		    client     	@7
+		    supplier   	@2
+		    vertices   	(list Points
+			(1732, 682)
+			(1275, 324))
+		    line_style 	0)))))

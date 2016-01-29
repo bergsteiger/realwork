@@ -1,0 +1,238 @@
+// ActionListWordsPack 55B8E44302B1 ScriptKeywordsPack Class
+
+FORWARD ME_55B8E44302B1
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_E7F049DA4A74
+
+: ME_FD5A43081D28
+ CONST UID 'FD5A43081D28'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_FD5A43081D28 aCtx
+
+INCLUDE '47E76250004C.pas.ms.script'
+
+: ME_FD5A43081D29
+ CONST UID 'FD5A43081D29'
+ CONST Name 'aActionList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4EF32DDB0235 // TActionList
+ ;
+
+ @SELF
+; // ME_FD5A43081D29 aActionList
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_FD5A43081D2A
+ CONST UID 'FD5A43081D2A'
+ CONST Name 'anActionName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_FD5A43081D2A anActionName
+
+: ME_1F5508BF0CF4
+ CONST UID '1F5508BF0CF4'
+ CONST Name 'FindAction'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:ActionList:FindAction' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_47E76278025E // TContainedAction
+ ;
+ : Parameters
+   [ ME_FD5A43081D28 // aCtx
+ ME_FD5A43081D29 // aActionList
+ ME_FD5A43081D2A // anActionName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_1F5508BF0CF4 FindAction
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_1C8E36378B19
+ CONST UID '1C8E36378B19'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_ActionList_FindAction' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_1C8E36378B19 Ini_Reg
+
+: ME_E7F049DA4A74
+ CONST UID 'E7F049DA4A74'
+ CONST Name 'pop_ActionList_FindAction'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:ActionList:FindAction'#13#10'*Тип результата:* TContainedAction'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TContainedAction'#13#10' anActionName aActionList pop:ActionList:FindAction >>> l_TContainedAction'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_1F5508BF0CF4 // FindAction
+ ME_1C8E36378B19 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:ActionList:FindAction'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_E7F049DA4A74 pop_ActionList_FindAction
+
+: ME_55B8E48103B1
+ CONST UID '55B8E48103B1'
+ CONST Name 'anActionName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55B8E48103B1 anActionName
+
+: ME_55B8E46F00AF
+ CONST UID '55B8E46F00AF'
+ CONST Name 'FindAction'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_47E76278025E // TContainedAction
+ ;
+ : Parameters
+   [ ME_55B8E48103B1 // anActionName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55B8E46F00AF FindAction
+
+: ME_B6D95DBA591D
+ CONST UID 'B6D95DBA591D'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B6D95DBA591D Reg_TtfwContext
+
+: ME_0ED95F5AE656
+ CONST UID '0ED95F5AE656'
+ CONST Name 'Reg_TActionList'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TActionList' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_0ED95F5AE656 Reg_TActionList
+
+: ME_1BD8A90C14A1
+ CONST UID '1BD8A90C14A1'
+ CONST Name 'Reg_String'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_1BD8A90C14A1 Reg_String
+
+: ME_7BE6D3C6C894
+ CONST UID '7BE6D3C6C894'
+ CONST Name 'Reg_TContainedAction'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TContainedAction' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_7BE6D3C6C894 Reg_TContainedAction
+
+: ME_55B8E44302B1
+ CONST UID '55B8E44302B1'
+ CONST Name 'ActionListWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4EF32DDB0235 // TActionList
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_55B8E46F00AF // FindAction
+ ME_B6D95DBA591D // Reg_TtfwContext
+ ME_0ED95F5AE656 // Reg_TActionList
+ ME_1BD8A90C14A1 // Reg_String
+ ME_7BE6D3C6C894 // Reg_TContainedAction
+ ]
+ ; // Operations
+ : Children
+   [ ME_E7F049DA4A74 // pop_ActionList_FindAction
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_55B8E44302B1 ActionListWordsPack

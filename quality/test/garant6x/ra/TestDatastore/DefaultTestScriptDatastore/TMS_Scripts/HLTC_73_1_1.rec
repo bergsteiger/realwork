@@ -1,0 +1,25 @@
+'$include "States.sbl"
+'$include "global.sbl"
+'*** Проверка тесткейса № 73.1.1 ***
+'Начальное состояние:
+'В принципе - любое т.к. документ открывается по номеру
+
+Sub Main
+    Dim Result As Integer
+  CUR_STATE = ST_NONE_STANDART    
+'Открываем по внутреннему номеру документ № 2002
+  OpenDocByNum (2002)
+  DelayFor (1500) 'Ждем открытия документа
+  
+'В документе сраниваем 2-а экрана текста
+  Window SetContext, "Caption={ГАРАНТ 6*}", ""
+  RichEdit Click, "ObjectIndex=1","Coords=10,10"
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=StartText")
+  'Window ResetTestContext, "", ""
+  
+  'Window SetContext, "Caption=ГАРАНТ 6 - Текст документа : документ 2002", ""
+  InputKeys "{PGDN}"
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=PgDnText")
+End Sub

@@ -1,0 +1,30 @@
+// -*- c++ -*-
+
+#include <mico/policy.idl>
+
+#pragma prefix "omg.org"
+
+module MICOPolicy {
+    const CORBA::PolicyType TRANSPORTPREF_POLICY_TYPE = 1000;
+  
+    interface TransportPrefPolicy : CORBA::Policy {
+	// TAG_INTERNET_IOP, ...
+	typedef unsigned long ProfileTag;
+	typedef sequence<ProfileTag> ProfileTagSeq;
+	
+	attribute ProfileTagSeq preferences;
+	readonly attribute ProfileTagSeq preferences_nocopy;
+    };
+};
+
+module BiDirPolicy {
+    typedef unsigned short BidirectionalPolicyValue;
+    const BidirectionalPolicyValue NORMAL = 0;
+    const BidirectionalPolicyValue BOTH = 1;
+
+    const CORBA::PolicyType BIDIRECTIONAL_POLICY_TYPE = 37;
+
+    interface BidirectionalPolicy : CORBA::Policy {
+	readonly attribute BidirectionalPolicyValue value;
+    };
+};

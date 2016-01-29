@@ -1,0 +1,237 @@
+<<Library>> WorkJournal
+ %UID '4A825D4902F1'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '521C9DA50125' /* "Application Resources" */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4E13416D0227' /* VCM$Visual */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> WorkJournalImpl
+   %UID '4A825D760190'
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '48F747EC0073' /* Common */
+    U$ '48FD8B2702F6' /* Tree */
+    U$ '4A7FF5F301B2' /* UserJournal */
+    U$ '4A825D5D0235' /* WorkJournalInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4D7A05A000C1' /* PrimWorkJournalInterfaces */
+    U$ '521C9DA50125' /* "Application Resources" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4A7C099B004F' /* View */
+    U$ '4A825D4902F1' /* WorkJournal */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4E13416D0227' /* VCM$Visual */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsWorkJournalListeners
+      %UID '4A83AC9D0128'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B57D630029' /* l3InterfacePtrList */
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+      ; // %INHERITS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4A83ACC6021F'
+         %TARGET U$ '4A83AA5202C1' /* InsWorkJournalListener */
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TnsWorkJournalListeners
+     <<SimpleClass>> TbsWorkJournalPrim
+      %UID '4A825E02010E'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A7C099B004F' /* View */
+       U$ '4A825D4902F1' /* WorkJournal */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4A825D920164' /* IbsWorkJournal */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4A825DBE0310' /* MakeTree */
+       U$ '4A825E760100' /* Clear */
+       U$ '4A82602103A2' /* AddQuery */
+       U$ '4A826038019A' /* AddBookMark */
+       U$ '4A8261F2003D' /* MakeQueryHistory */
+       U$ '4A82623302E1' /* MakeBookMarkHistory */
+       U$ '4A8277980075' /* Delete */
+       U$ '4A83AD4402AC' /* RegisterListener */
+       U$ '4A83AD6D02B9' /* UnRegisterListener */
+       U$ '4A83ADA701C0' /* NotifyJournalShrinked */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4A82611D0318"
+         %UID '4A82611D0318'
+         %TARGET U$ '4A8260EC0099' /* TnsJournalTreeStruct */
+        ; // 4A82611D0318
+        <<uses>> "4A82767A0145"
+         %UID '4A82767A0145'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4A82767A0145
+        <<uses>> "4A8287C0019F"
+         %UID '4A8287C0019F'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+        ; // 4A8287C0019F
+        <<uses>> "4A828C270010"
+         %UID '4A828C270010'
+         %TARGET U$ '4A7FFAFA023A' /* JournalObjectType */
+        ; // 4A828C270010
+        <<uses>> "4A828C2A0078"
+         %UID '4A828C2A0078'
+         %TARGET U$ '4A8001010232' /* BookmarkJournalType */
+        ; // 4A828C2A0078
+        <<uses>> "4A828FCC0091"
+         %UID '4A828FCC0091'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 4A828FCC0091
+        <<uses>> "4A82C5DC0363"
+         %UID '4A82C5DC0363'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 4A82C5DC0363
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Listeners
+         %UID '4A83ACF4003F'
+         %TARGET U$ '4A83AC9D0128' /* TnsWorkJournalListeners */
+         %TOBEINCLUDED
+          U$ '4A825D4902F1' /* WorkJournal */
+         ; // %TOBEINCLUDED
+        ; // f_Listeners
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<factory>> Make
+         %UID '4A82940E0297'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+        FINAL <<ctor>> Create
+         %UID '4A83AD2D030F'
+        ; // Create
+      ; // %OPERATIONS
+     ; // TbsWorkJournalPrim
+     <<SimpleClass>> TnsJournalTreeStruct
+      %UID '4A8260EC0099'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677FF4B0036' /* Data */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '468361010204' /* TnsDataResetTreeStruct */
+      ; // %INHERITS
+      %REALIZES
+       U$ '48FF64F60078' /* ReAqurieUnfilteredRoot */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4A8274F500E6"
+         %UID '4A8274F500E6'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4A8274F500E6
+      ; // %LINKS
+     ; // TnsJournalTreeStruct
+     <<SimpleClass>> TbsWorkJournal
+      %UID '4A825E1200F4'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4A7C099B004F' /* View */
+       U$ '4A825D4902F1' /* WorkJournal */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A825E02010E' /* TbsWorkJournalPrim */
+      ; // %INHERITS
+      %OPERATIONS
+        FINAL <<factory>> Make
+         %UID '4A82922D028D'
+         %TARGET U$ '4A825D920164' /* IbsWorkJournal */
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A7C099B004F' /* View */
+         ; // %TOBEINCLUDED
+        ; // Make
+        SUMMONED FINAL <<static>> Exists
+         %UID 'AF6A3311B63D'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TbsWorkJournal
+   ; // %CHILDREN
+  ; // WorkJournalImpl
+ ; // %CHILDREN
+; // WorkJournal

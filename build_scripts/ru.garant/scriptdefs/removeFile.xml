@@ -1,0 +1,49 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.removeFile"
+	language = "javascript"
+>
+	<attribute name = "file.name"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_fileName = (
+				attributes.get ("file.name")
+			);
+
+			if (a_fileName != null) {
+				var l_fileNameFile = new File (a_fileName);
+				var l_fileNamePath = l_fileNameFile.getPath ();
+
+				a_fileName = l_fileNamePath;
+			}
+
+			var l_deleteTask = project.createTask ("delete"); {
+				l_deleteTask.setFile (new File (a_fileName));
+				l_deleteTask.setQuiet (true);
+
+				l_deleteTask.reconfigure ();
+			}
+
+			l_deleteTask.execute ();
+		}
+	]]>
+</scriptdef>

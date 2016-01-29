@@ -1,0 +1,94 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDAAddinLib/Addin/Addin.odl"
+// генератор ODL-файла спецификации COM-интерфейса (.odl)
+// Generated from UML model, root element: <<ComInterfaces::Category>> MDProcess::MDAAddinLib::Addin
+//
+// пакет интерфейсов плагина к Rose
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import "oaidl.idl";
+[
+	uuid (F5934264-A768-461C-BA3D-F163E32AF46E)
+	, version (1.0)
+	, helpstring ("AddinLib 1.0 Type Library")
+]
+
+library AddinLib {
+	importlib ("stdole32.tlb");
+	importlib ("stdole2.tlb");
+	//#UC START# *456C158C0271_CUSTOM_TLB*
+	importlib ("X:\support\import\RationalRose.tlb");
+	//#UC END# *456C158C0271_CUSTOM_TLB*
+	[
+		object
+		, uuid (70D883FB-31CA-490C-BB42-3877B980BFB6)
+		, dual
+		, helpstring("IGeneration Interface")
+		, pointer_default(unique)
+	]
+	interface IGeneration : IDispatch {
+//#UC START# *456C160D029F*
+		[id(1), helpstring("method OnGenerate")] HRESULT OnGenerate([in] IDispatch* pRoseDisp);
+		[id(2), helpstring("method OnPropertySpecOpen")] HRESULT OnPropertySpecOpen([in] IRoseApplication *pRoseApp, [in] IRoseItem *pRoseItem, [out, retval] VARIANT_BOOL *result);
+		[id(3), helpstring("method OnActivate")] HRESULT OnActivate([in] IRoseApplication* app);
+		[id(4), helpstring("method OnDeactivate")] HRESULT OnDeactivate([in] IRoseApplication* app);
+		[id(5), helpstring("method OnMDAProperty")] HRESULT OnMDAProperty([in] IDispatch* pRoseDisp);
+		[id(6), helpstring("method OnSelectedContextMenuItem")] HRESULT OnSelectedContextMenuItem([in] IRoseApplication *pRoseApp, [in, string] const BSTR strInternalName, [out, retval] VARIANT_BOOL *result);
+		[id(7), helpstring("method OnSaveModel")] HRESULT OnSaveModel([in] IRoseApplication* app, [in] IRoseControllableUnit* unit, [in] BOOLEAN flag);
+		[id(8), helpstring("method OnNewModel")] HRESULT OnNewModel([in] IRoseApplication* app);
+		[id(9), helpstring("method OnOpenModel")] HRESULT OnOpenModel([in] IRoseApplication* app);
+		[id(10), helpstring("method OnNewModelElement")] HRESULT OnNewModelElement([in] IRoseApplication* app, [in] IRoseItem* item);
+		[id(11), helpstring("method OnModifiedModelElementEx")] HRESULT OnModifiedModelElementEx([in] IRoseApplication* app, [in] IRoseItem* item, [in] int reason, [in] VARIANT var);		
+		[id(12), helpstring("method OnDeletedModelElementEx")] HRESULT OnDeletedModelElementEx([in] IRoseApplication* app, [in] IRoseItem* item, [in] IRoseItem* par);
+		[id(13), helpstring("method OnViewReport")] HRESULT OnViewReport([in] IDispatch* pRoseDisp);
+		[id(14), helpstring("method OnAdvancedSearch")] HRESULT OnAdvancedSearch([in] IDispatch* pRoseDisp);
+		[id(15), helpstring("method OnAbout")] HRESULT OnAbout([in] IDispatch* pRoseDisp);
+		[id(16), helpstring("method OnCloseModel")] HRESULT OnCloseModel([in] IRoseApplication* app);
+		[id(17), helpstring("method OnEnableContextMenuItems")] HRESULT OnEnableContextMenuItems([in] IRoseApplication* app, [in] int intItemType, [out, retval] VARIANT_BOOL *result);
+		[id(18), helpstring("method OnColorizeAllDiagrams")] HRESULT OnColorizeAllDiagrams([in] IDispatch* pRoseDisp);
+		[id(19), helpstring("method OnSelectTemplate")] HRESULT OnSelectTemplate([in] IDispatch* pRoseDisp);
+		[id(20), helpstring("method OnMDASave")] HRESULT OnMDASave([in] IDispatch* pRoseDisp);
+		[id(21), helpstring("method OnModifiedModelElement")] HRESULT OnModifiedModelElement([in] IRoseApplication* app, [in] IRoseItem* item, [in] int reason);
+		[id(22), helpstring("method OnMDAGeneratorOptions")] HRESULT OnMDAGeneratorOptions([in] IDispatch* pRoseDisp);
+		[id(23), helpstring("method OnMDACleanModelProperties")] HRESULT OnMDACleanModelProperties([in] IDispatch* pRoseDisp);
+		[id(24), helpstring("method OnMDACustomWork")] HRESULT OnMDACustomWork([in] IDispatch* pRoseDisp);
+//#UC END# *456C160D029F*
+	};	
+	[
+		uuid (70D883FB-31CA-490C-BB42-3877B980BF99)
+		, helpstring ("CoIGeneration Class")
+	]
+	coclass CoIGeneration {
+		[default] interface IGeneration;
+	};
+	[
+		object
+		, uuid (F9FEFED3-D583-428E-9065-F57014CCEB49)
+		, dual
+		, helpstring("IModelExplorer Interface")
+		, pointer_default(unique)
+	]
+	interface IModelExplorer : IDispatch {
+//#UC START# *45B8B77C038A*		
+		[id(1), helpstring("method OnOpenModel")] HRESULT OnOpenModel([in] IRoseApplication* app);
+		[id(2), helpstring("method OnNewModelElement")] HRESULT OnNewModelElement([in] IRoseApplication* app, [in] IRoseElement* item);
+		[id(3), helpstring("method OnModifiedModelElementEx")] HRESULT OnModifiedModelElementEx([in] IRoseApplication* app, [in] IRoseItem* item, [in] int reason, [in] VARIANT var);
+		[id(4), helpstring("method OnDeletedModelElementEx")] HRESULT OnDeletedModelElementEx([in] IRoseApplication* app, [in] IRoseItem* item, [in] IRoseItem* par);
+		[id(5), helpstring("method Clear")] HRESULT Clear();
+		[id(6), helpstring("method remove")] HRESULT remove([in] IRoseElement* elem);
+//#UC END# *45B8B77C038A*
+	};	
+	[
+		uuid (F9FEFED3-D583-428E-9065-F57014CCEB99)
+		, helpstring ("CoIModelExplorer Class")
+	]
+	coclass CoIModelExplorer {
+		[default] interface IModelExplorer;
+	};
+
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

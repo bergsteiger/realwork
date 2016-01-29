@@ -1,0 +1,96 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/CommonAttribute.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAGenerator::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::CommonAttribute
+//
+// Общий генератор для атрибутов, предоставляет функциональость для определения является ли атрибут
+// статчиеским, нужно ли генерить ro/rw акцессоры и т.д
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: CommonAttribute::MDAGenerator*
+implementation @ <<CommonAttribute>>
+//? Общий генератор для атрибутов, предоставляет функциональость для определения является ли атрибут статчиеским, нужно ли генерить ro/rw акцессоры и т.д
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// возвращает true, если атрибут статический
+//%f _is_static
+; // st_space_key
+
+: is_static OBJECT IN %S
+//#UC START# *49782FAA0070for49782F520309*
+//	false
+ false
+//#UC END# *49782FAA0070for49782F520309*
+; // is_static
+
+
+// возвращает true, если нужен RO-акцессор
+//%f _need_ro_accessor
+: need_ro_accessor OBJECT IN %S
+//#UC START# *49782FB50256for49782F520309*
+//	false
+ false
+//#UC END# *49782FB50256for49782F520309*
+; // need_ro_accessor
+
+
+// Возвращает true, если нужен RW-акцессор
+//%f _need_rw_accessor
+: need_rw_accessor OBJECT IN %S
+//#UC START# *49782FBC0027for49782F520309*
+//	false
+ false
+//#UC END# *49782FBC0027for49782F520309*
+; // need_rw_accessor
+
+
+// выводит список аргументов для метода доступа к свойству, при этом если параметр convert_st =
+// true - выполняет преобразование стереотипа аргумента (если на свойстве дополнительно задано
+// свойство "force use const")
+//%f _accessor_args
+: accessor_args OBJECT IN %S
+// параметры: convert_st: boolean = %1
+//#UC START# *497862FE00DFfor49782F520309*
+//	%f_set_var(TYPE,"[{%S{force use const arg}=true&%1N=true}{read-write}read-only]")\
+ [%f] set_var %( 'TYPE' %, if ( ( %S get_up ( 'force use const arg' ) ) %==  true AND 
+   ( ( %1 |N ) %==  true  ) ) then
+ begin
+  'read-only' 
+ end // if
+ else
+ begin
+  'read-write' 
+ end // else
+)% //	<{, }{}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%Cs","%{TYPE}N")",%C) %t_language_style("%CN")>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%t] arg %( %C ->T  %, [%t] r_w_param_specificator %( %C |s %, ( get_global_var ( 'TYPE' ) |N ) )% %, %C )% ' '
+   [%t] language_style %( %C |N )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *497862FE00DFfor49782F520309*
+; // accessor_args
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<CommonAttribute>>
+

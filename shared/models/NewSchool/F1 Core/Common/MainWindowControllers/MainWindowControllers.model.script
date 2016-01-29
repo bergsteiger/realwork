@@ -1,0 +1,81 @@
+<<VCMControllers>> MainWindowControllers
+ %UID '4DC01054023C'
+ %DEPENDS
+  U$ '4680C57D01E9' /* Business */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4680C57D01E9' /* Business */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> MainWindowInterfaces
+   %UID '4DC00FC302B7'
+   %DEPENDS
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '4A9F98B901A5' /* BaseSearchInterfaces */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '03.05.2011 18:23'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<UseCaseController>> IsdsMainWindow
+      %UID '4DC0100200B7'
+      %SUMMARY 'Основное окно' ;
+      %TOBEINCLUDED
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49218BD80300' /* InsWarningGenerator */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '493E4F7E039B' /* Generate */
+      ; // %REALIZES
+      %CHILDREN
+       
+        ABSTRACT <<Area>> dsBaloonWarning
+         %UID '4DC010300124'
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "is reference" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4921869901CF' /* IdsWarning */
+         ; // %INHERITS
+         %REALIZES
+          U$ '492186B0008F' /* GenerateWarning */
+          U$ '492186D101E0' /* WarningContent */
+          U$ '4DF9D63B0360' /* DocInfo */
+          U$ '4EFC5A31016E' /* ForSynchroView */
+         ; // %REALIZES
+        ; // dsBaloonWarning
+      ; // %CHILDREN
+     ; // IsdsMainWindow
+   ; // %CHILDREN
+  ; // MainWindowInterfaces
+ ; // %CHILDREN
+; // MainWindowControllers

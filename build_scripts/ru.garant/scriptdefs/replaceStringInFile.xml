@@ -1,0 +1,100 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.replaceStringInFile"
+	language = "javascript"
+>
+	<attribute name = "input.file"/>
+	<attribute name = "output.file"/>
+	<attribute name = "regex.patern"/>
+	<attribute name = "replace.string"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importClass (
+				Packages.java.io.FileReader
+			);
+
+			importClass (
+				Packages.java.io.FileWriter
+			);
+
+			importClass (
+				Packages.java.nio.CharBuffer
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_inputFile = (
+				attributes.get ("input.file")
+			);
+
+			if (a_inputFile != null) {
+				var l_inputFile = new File (a_inputFile);
+				var l_inputPath = l_inputFile.getPath ();
+
+				a_inputFile = l_inputFile;
+			}
+
+			var a_outputFile = (
+				attributes.get ("output.file")
+			);
+
+			if (a_outputFile != null) {
+				var l_outputFile = new File (a_outputFile);
+				var l_outputPath = l_outputFile.getPath ();
+
+				a_outputFile = l_outputFile;
+			} else {
+				a_outputFile = a_inputFile;
+			}
+
+			var a_regexPatern = (
+				attributes.get ("regex.patern")
+			);
+
+			var a_replaceString = (
+				attributes.get ("replace.string")
+			);
+
+			var l_string = null; {
+				var l_inputFile = new File (a_inputFile);
+
+				var l_charBuffer = CharBuffer.allocate (l_inputFile.length ()); {
+					var l_fileReader = new FileReader (l_inputFile);
+
+					l_fileReader.read (l_charBuffer.array (), 0, l_charBuffer.length ());
+					l_fileReader.close ();
+				}
+
+				l_string = l_charBuffer.toString ();
+			}
+
+			l_string = l_string.replaceAll (a_regexPatern, a_replaceString);
+
+			var l_outputFile = new File (a_outputFile);
+
+			var l_fileWriter = new FileWriter (l_outputFile, false); {
+				l_fileWriter.write (l_string, 0, l_string.length ());
+				l_fileWriter.flush ();
+			}
+
+			l_fileWriter.close ();
+		}
+	]]>
+</scriptdef>

@@ -1,0 +1,76 @@
+// l3Notifier 47F07B3E02E4 Impurity Class
+
+INCLUDE '47F07AE10156.pas.ms.script'
+
+FORWARD ME_47F07B3E02E4
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47F08026027A
+ CONST UID '47F08026027A'
+ CONST Name 'aOperation'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47F08026027A aOperation
+
+: ME_47F0802602B4
+ CONST UID '47F0802602B4'
+ CONST Name 'aIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47F0802602B4 aIndex
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_47F08013024E
+ CONST UID '47F08013024E'
+ CONST Name 'CallNotify'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47F08026027A // aOperation
+ ME_47F0802602B4 // aIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47F08013024E CallNotify
+
+: ME_47F07B3E02E4
+ CONST UID '47F07B3E02E4'
+ CONST Name 'l3Notifier'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47F07AE10156 // l3NotifierBase
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_47F08013024E // CallNotify
+ ]
+ ; // Operations
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '31.03.2008 09:49'
+
+ @SELF
+; // ME_47F07B3E02E4 l3Notifier

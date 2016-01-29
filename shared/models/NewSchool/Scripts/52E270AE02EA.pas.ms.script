@@ -1,0 +1,345 @@
+// TtfwArrayView 52E270AE02EA SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '47D810610398.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_52E270AE02EA
+
+: ME_52E270ED00EF
+ CONST UID '52E270ED00EF'
+ CONST Name 'f_Other'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_52E270ED00EF f_Other
+
+FORWARD ME_52E2710E03D9
+
+: ME_52E2712903BD
+ CONST UID '52E2712903BD'
+ CONST Name 'anOther'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_52E2712903BD anOther
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_52E2711B01FF
+ CONST UID '52E2711B01FF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_52E2712903BD // anOther
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_52E2711B01FF DoIt
+
+: ME_52E2710E03D9
+ CONST UID '52E2710E03D9'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52E2711B01FF // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52E2710E03D9 Create
+
+FORWARD ME_52E27222008A
+
+: ME_7EA07E3507AB
+ CONST UID '7EA07E3507AB'
+ CONST Name 'anOther'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_7EA07E3507AB anOther
+
+: ME_F211EDC5C17C
+ CONST UID 'F211EDC5C17C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TtfwArrayView.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_7EA07E3507AB // anOther
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_F211EDC5C17C DoIt
+
+: ME_52E27222008A
+ CONST UID '52E27222008A'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_52E2710E03D9 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4DCC12FC0125 // ItfwValueList
+ ]
+ ; // Implements
+ : Operations
+   [ ME_F211EDC5C17C // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_52E27222008A Make
+
+FORWARD ME_52E666F6036E
+
+: ME_2D88BDB77D2E
+ CONST UID '2D88BDB77D2E'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52EA594400DD // TtfwWordPrim
+ ;
+
+ @SELF
+; // ME_2D88BDB77D2E aLambda
+
+: ME_1BDD71623CE1
+ CONST UID '1BDD71623CE1'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_1BDD71623CE1 aCtx
+
+: ME_97C5D4877A59
+ CONST UID '97C5D4877A59'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_2D88BDB77D2E // aLambda
+ ME_1BDD71623CE1 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_97C5D4877A59 DoIt
+
+: ME_52E666F6036E
+ CONST UID '52E666F6036E'
+ CONST Name 'DoForEachBack'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52E23BB102FA // ForEachBack
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_97C5D4877A59 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52E666F6036E DoForEachBack
+
+FORWARD ME_52E666E80335
+
+: ME_4ED03D8CF02A
+ CONST UID '4ED03D8CF02A'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52EA594400DD // TtfwWordPrim
+ ;
+
+ @SELF
+; // ME_4ED03D8CF02A aLambda
+
+: ME_C790860C7A89
+ CONST UID 'C790860C7A89'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_C790860C7A89 aCtx
+
+: ME_D60B6FE2B7E3
+ CONST UID 'D60B6FE2B7E3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4ED03D8CF02A // aLambda
+ ME_C790860C7A89 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_D60B6FE2B7E3 DoIt
+
+: ME_52E666E80335
+ CONST UID '52E666E80335'
+ CONST Name 'DoForEach'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52E23B7A00EC // ForEach
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_D60B6FE2B7E3 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52E666E80335 DoForEach
+
+FORWARD ME_55E84F5F00ED
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55E84F680257
+ CONST UID '55E84F680257'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_55E84F680257 DoIt
+
+: ME_55E84F5F00ED
+ CONST UID '55E84F5F00ED'
+ CONST Name 'GetItemsCountInSlice'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55E84F680257 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55E84F5F00ED GetItemsCountInSlice
+
+: ME_52E270AE02EA
+ CONST UID '52E270AE02EA'
+ CONST Name 'TtfwArrayView'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4DCC12FC0125 // ItfwValueList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_52E270ED00EF // f_Other
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_52E2710E03D9 // Create
+ ME_52E27222008A // Make
+ ME_52E666F6036E // DoForEachBack
+ ME_52E666E80335 // DoForEach
+ ME_55E84F5F00ED // GetItemsCountInSlice
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47D8233603DD // First
+ ME_47D823570315 // Last
+ ME_47D8248802AD // Items
+ ME_47E381E203D2 // Empty
+ ME_482955910076 // IndexOf
+ ME_482958A203D0 // Add
+ ME_4BB08B8902F2 // Count
+ ME_4F62FF5D0327 // Clear
+ ME_52E23B7A00EC // ForEach
+ ME_52E23BB102FA // ForEachBack
+ ME_55CDF40C03D4 // SetItem
+ ME_55E849210175 // ItemsCountInSlice
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A6FEE600FC // IsCacheable
+ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52E270AE02EA TtfwArrayView

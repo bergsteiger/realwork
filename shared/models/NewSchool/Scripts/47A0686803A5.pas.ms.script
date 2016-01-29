@@ -1,0 +1,171 @@
+// l3Filer 47A0686803A5 UtilityPack Class
+
+FORWARD ME_47A0686803A5
+
+INCLUDE '4754200F029E.pas.ms.script'
+
+FORWARD ME_47A0679D00E4
+
+FORWARD ME_555C888301B0
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_555C889A014B
+ CONST UID '555C889A014B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_555C889A014B DoIt
+
+: ME_555C888301B0
+ CONST UID '555C888301B0'
+ CONST Name 'DoOpen'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_555C889A014B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_555C888301B0 DoOpen
+
+FORWARD ME_555C88B703E7
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_0F66AE1F0DD6
+ CONST UID '0F66AE1F0DD6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода DoClose' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_0F66AE1F0DD6 DoIt
+
+: ME_555C88B703E7
+ CONST UID '555C88B703E7'
+ CONST Name 'DoClose'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_0F66AE1F0DD6 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_555C88B703E7 DoClose
+
+: ME_47A0679D00E4
+ CONST UID '47A0679D00E4'
+ CONST Name 'Tl3CustomFiler'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Реализация компонента-обертки вокруг потока.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4754200F029E // Tl3ProgressComponent
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_555C888301B0 // DoOpen
+ ME_555C88B703E7 // DoClose
+ ]
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '08.04.1997 18:33'
+
+ @SELF
+; // ME_47A0679D00E4 Tl3CustomFiler
+
+: ME_4B4F61AD01AA
+ CONST UID '4B4F61AD01AA'
+ CONST Name 'Tl3CustomDosFiler'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47A0679D00E4 // Tl3CustomFiler
+ ]
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4B4F61AD01AA Tl3CustomDosFiler
+
+: ME_4FAD03D001D2
+ CONST UID '4FAD03D001D2'
+ CONST Name 'Tl3NextTokenFlag'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4FAD03D001D2 Tl3NextTokenFlag
+
+: ME_53A05AFD02CC
+ CONST UID '53A05AFD02CC'
+ CONST Name 'Tl3DOSFiler'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4B4F61AD01AA // Tl3CustomDosFiler
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53A05AFD02CC Tl3DOSFiler
+
+: ME_47A0686803A5
+ CONST UID '47A0686803A5'
+ CONST Name 'l3Filer'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Реализация компонента-обертки вокруг потока.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_47A0679D00E4 // Tl3CustomFiler
+ ME_4B4F61AD01AA // Tl3CustomDosFiler
+ ME_4FAD03D001D2 // Tl3NextTokenFlag
+ ME_53A05AFD02CC // Tl3DOSFiler
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '08.04.1997 18:33'
+
+ @SELF
+; // ME_47A0686803A5 l3Filer

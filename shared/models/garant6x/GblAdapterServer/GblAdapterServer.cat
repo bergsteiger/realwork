@@ -1,0 +1,204 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "GblAdapterServer"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"old format"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AutoCounter"
+	    value      	"2")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"OS_GUID"
+	    value      	"97407115-E743-4A41-960E-086561C3869D")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (vi.rch)"
+	    value      	"w:/garant6x/implementation/Garant/GblAdapterServer/GblAdapterServer_vi.rch")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (vi.rc)"
+	    value      	"w:/garant6x/implementation/Garant/GblAdapterServer/GblAdapterServer_vi.rc")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (mpc)"
+	    value      	"w:/garant6x/implementation/Garant/project/T_GblAdapterServer.mpc")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/garant6x/implementation/Garant/GblAdapterServer/GblAdapterServer.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/garant6x/implementation/Garant/GblAdapterServer/GblAdapterServer.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*47397F650051_CUSTOM_INCLUDE*"
+	    value      	(value Text 
+|//#UC START# *47397F650051_CUSTOM_INCLUDE*¤#include "garantServer/src/Global/Core/Common/AssemblyInfo.h"¤GCM_ASSEMBLY_IS_LOCAL¤//#UC END# *47397F650051_CUSTOM_INCLUDE*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*47397F650051_LOAD_LOCALIZED_FILE*"
+	    value      	(value Text 
+|//#UC START# *47397F650051_LOAD_LOCALIZED_FILE*¤			GCI::I18N::MessagesFactory::messages ().open ("adapter.mo", locale);¤			GCI::I18N::MessagesFactory::messages ().open ("5xconverter.mo", locale);¤			GCI::I18N::MessagesFactory::messages ().open ("server.mo", locale);¤			//#UC END# *47397F650051_LOAD_LOCALIZED_FILE*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*47397F650051CUSTOM_CTOR_BODY*"
+	    value      	(value Text 
+|//#UC START# *47397F650051CUSTOM_CTOR_BODY*¤		//#UC END# *47397F650051CUSTOM_CTOR_BODY*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*47397F650051_OLDFORMAT_INIT_IMPL*"
+	    value      	(value Text 
+|//#UC START# *47397F650051_OLDFORMAT_INIT_IMPL*¤		¤		char ini_file[MAXPATHLEN];¤		GetModuleFileName (NULL, ini_file, MAXPATHLEN);¤		if (::strcmp (ini_file + ::strlen (ini_file) - sizeof(".exe"), ".exe")) {¤			::memcpy (ini_file + ::strlen (ini_file) - ::strlen(".exe"), ".ini", sizeof(".ini"));¤		} else {¤			::strcat (ini_file, ".ini");¤		}¤	¤		char* argv_[] = {¤			"Program"¤			, "-GCMConfigFile"¤			, ini_file¤		};¤		¤		//_INIT_HACKS_AND_BUGS¤		const Core::ParamManagerInitData* my_init_id = ?¤		const CORBA::ULong my_version_hack = ?¤		¤		try {¤			int argc_ = sizeof (argv_) / sizeof (argv_[0]);¤			Core::ParamManager::instance ()->init (argv_, argc_, *my_init_id);	¤			GCM::GCMManager_var gcm_manager = GCM::GCM_get_manager();¤			¤			gcm_manager->set_correct_server_version (my_version_hack); // damned hack!!!¤			¤			//TODO::REGISTER_COMPONENT¤¤			s_root = new OldFormatSimpleServer ();¤			¤			gcm_manager->register_local_component (s_root);¤			gcm_manager->start_components (false);	¤		} catch (...) {¤			LOG_E (("OldFormatSimpleServer::init (): can't get server component"));¤			throw OldFormatSimpleServer::CantFindServer ();¤		}¤		¤		//#UC END# *47397F650051_OLDFORMAT_INIT_IMPL*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*47397F650051_OLDFORMAT_DONE_IMPL*"
+	    value      	(value Text 
+|//#UC START# *47397F650051_OLDFORMAT_DONE_IMPL*¤¤		GCM::GCMManager_var gcm_manager = GCM::GCM_get_manager();¤		gcm_manager->stop_components ();¤		gcm_manager = GCM::GCMManager::_nil ();¤		//#UC END# *47397F650051_OLDFORMAT_DONE_IMPL*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*47397F650051COMPONENT_PROVIDE*"
+	    value      	(value Text 
+|//#UC START# *47397F650051COMPONENT_PROVIDE*¤		//#UC END# *47397F650051COMPONENT_PROVIDE*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*47397F650051_CUSTOM_IMPL*"
+	    value      	"//#UC START# *47397F650051_CUSTOM_IMPL*¤//#UC END# *47397F650051_CUSTOM_IMPL*")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"h:*47397F650051_CUSTOM_INCLUDE*"
+	    value      	"//#UC START# *47397F650051_CUSTOM_INCLUDE*¤//#UC END# *47397F650051_CUSTOM_INCLUDE*")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"h:*47397F650051_CUSTOM_IMPL*"
+	    value      	"//#UC START# *47397F650051_CUSTOM_IMPL*¤//#UC END# *47397F650051_CUSTOM_IMPL*")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*47397F650051_CUSTOM_DEPENDENSES*"
+	    value      	(value Text 
+|//#UC START# *47397F650051_CUSTOM_DEPENDENSES*¤	macros += _GCD_SERVER¤¤	after += zlib¤	libs  += zlib¤¤	after += cchlp1¤	libs  += cchlp1¤¤	after += delta1¤	libs  += delta1¤¤	after += evd¤	libs  += evd¤¤	after += endt¤	libs  += endt¤¤	after += gctx¤	libs  += gctx¤¤	after += gkdb_server¤	libs  += gkdb_server¤¤	after += Morpho¤	libs  += Morpho¤¤	after += SearchBase¤	libs  += SearchBase¤¤	after += gsscreen¤	libs  += gsscreen¤¤	after += GslSessionHandlerRegistrationC_corba¤	libs  += GslSessionHandlerRegistrationC_corba¤¤	after += GslSessionHandlerRegistrationS_corba¤	libs  += GslSessionHandlerRegistrationS_corba¤¤	after += GslSessionHandlerServerC_corba¤	libs  += GslSessionHandlerServerC_corba¤¤	after += GslSessionHandlerServerS_corba¤	libs  += GslSessionHandlerServerS_corba¤¤	after += CoreOld_corba_server¤	libs  += CoreOld_corba_server¤¤	after += GbaFoldersStorageS_corba¤	libs  += GbaFoldersStorageS_corba¤¤	after += GbaLegacyStorageS_corba¤	libs  += GbaLegacyStorageS_corba¤¤	after += GbaUnderControlStorageS_corba¤	libs  += GbaUnderControlStorageS_corba¤¤	after += GbaUserCommentsStorageS_corba¤	libs  += GbaUserCommentsStorageS_corba¤¤	after += GblFoldersS_corba¤	libs  += GblFoldersS_corba¤¤	after += GblUnderControlS_corba¤	libs  += GblUnderControlS_corba¤¤	after += GblUserCommentsS_corba¤	libs  += GblUserCommentsS_corba¤¤	after += GblConsultingC_corba¤	libs  += GblConsultingC_corba¤¤	after += GblIntegrationS_corba¤	libs  += GblIntegrationS_corba¤¤	after += GblNotifyS_corba¤	libs  += GblNotifyS_corba¤¤	after += GblXMLSaveS_corba¤	libs  += GblXMLSaveS_corba¤¤	after += GblXMLRestoreC_corba¤	libs  += GblXMLRestoreC_corba¤¤	after += GblXMLRestoreS_corba¤	libs  += GblXMLRestoreS_corba¤¤	after += GblLoggingC_corba¤	libs  += GblLoggingC_corba¤¤	after += GblPrimeS_corba¤	libs  += GblPrimeS_corba¤¤	after += GblSettingsS_corba¤	libs  += GblSettingsS_corba¤¤	after += GblLoggingS_corba¤	libs  += GblLoggingS_corba¤¤	after += GsaUserDataS_corba¤	libs  += GsaUserDataS_corba¤¤	after += GslDataPipeS_corba¤	libs  += GslDataPipeS_corba¤¤	after += GslHeartbeatManagerS_corba¤	libs  += GslHeartbeatManagerS_corba¤¤	after += GslHeartbeatManagerS_corba¤	libs  += GslHeartbeatManagerS_corba¤¤	after += GslSecurityS_corba¤	libs  += GslSecurityS_corba¤¤	after += GslServerManagerC_corba¤	libs  += GslServerManagerC_corba¤¤	after += GslServerManagerS_corba¤	libs  += GslServerManagerS_corba¤¤	after += GslUserManagerS_corba¤	libs  += GslUserManagerS_corba¤	¤	after += GblPilotS_corba¤	libs  += GblPilotS_corba¤	¤	¤	after += GblConsultingClientS_corba¤	libs  += GblConsultingClientS_corba¤¤	after += GblUserJournalS_corba¤	libs  += GblUserJournalS_corba¤¤	after += GblChatSupportS_corba¤	libs  += GblChatSupportS_corba¤¤	after += GblSearchMachineS_corba¤	libs  += GblSearchMachineS_corba¤¤	after += GslSessionIdentifierS_corba¤	libs  += GslSessionIdentifierS_corba¤¤¤	after += GblRemoteDocumentSupportS_corba¤	libs  += GblRemoteDocumentSupportS_corba¤¤¤	after += GblFiltersS_corba¤	libs  += GblFiltersS_corba¤¤	after += GslLicenseSettings¤	libs  += GslLicenseSettings¤¤	after += GslCURLHelper¤	libs  += GslCURLHelper¤¤	after += GslAuthenticatorS_corba¤	libs  += GslAuthenticatorS_corba¤¤	after += curl¤	libs  += curl¤¤	after += json¤	libs  += json¤¤	after += boost_thread¤	libs  += boost_thread¤¤	after += boost_system¤	libs += boost_system¤¤	Source_Files {¤		Version {¤			./../../../../garantServer/src/Business/GblPilot/Version/NemesisVersion.cpp¤		}¤	}¤	//#UC END# *47397F650051_CUSTOM_DEPENDENSES*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*47397F650051_RESOURCE_FILES*"
+	    value      	(value Text 
+|//#UC START# *47397F650051_RESOURCE_FILES*¤		//#UC END# *47397F650051_RESOURCE_FILES*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (dll.h)"
+	    value      	"w:/garant6x/implementation/Garant/GblAdapterServer/GblAdapterServer_tie.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (dll.cpp)"
+	    value      	"w:/garant6x/implementation/Garant/GblAdapterServer/GblAdapterServer_tie.cpp")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"load strategy"
+	    value      	"static")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Ìîäåëü ïðîåêòà "garant6x"/GblAdapterServer|47397F650051
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*47397F650051_DLL_TARGET*"
+	    value      	(value Text 
+|//#UC START# *47397F650051_DLL_TARGET*¤		//#UC END# *47397F650051_DLL_TARGET*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (s.reg)"
+	    value      	"w:/garant6x/implementation/Garant/project/GblAdapterServer_init_regestry.reg")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (vi.rc)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (vi.rch)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (s.reg)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (mpc)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (dll.h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (dll.cpp)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (cpp)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"intf.pas:*47397F650051exports*"
+	    value      	"//#UC START# *47397F650051exports*¤//#UC END# *47397F650051exports*")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (intf.pas)"
+	    value      	"w:/garant6x/implementation/Garant/GblAdapterServer/GblAdapterServer.dpr")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (intf.pas)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19790796878"))
+    quid       	"47397F650051"
+    stereotype 	"AdapterTarget"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"47397F8D035B"
+	    supplier   	"Logical View::garant6x::GblAdapterLib"
+	    quidu      	"456EA3D2031C")
+	(object Visibility_Relationship
+	    quid       	"474E95B403A0"
+	    supplier   	"Logical View::garant6x::GblAdapterLibDesktop"
+	    quidu      	"474E8E7E00E7"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list)
+    logical_presentations 	(list unit_reference_list))

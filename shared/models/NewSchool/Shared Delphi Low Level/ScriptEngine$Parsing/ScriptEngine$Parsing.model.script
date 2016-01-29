@@ -1,0 +1,1915 @@
+<<Library>> ScriptEngine$Parsing
+ %UID '55C1EE2F01B7'
+ %DEPENDS
+  U$ '4790D09A0378' /* L3 */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'seDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> CString
+   %UID '4F473F0902B2'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47BB24D30205' /* "Стандартные примеси" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TtfwCStringListPrim
+      %UID '4F473F4E01E5'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B9AF6E0228' /* l3InterfaceRefListPrim */
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B07CF403D0' /* IsSameItems */
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4F4745DD0295"
+         %UID '4F4745DD0295'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4F4745DD0295
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4F473FD603DD'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TtfwCStringListPrim
+     <<SimpleClass>> TtfwCStringList
+      %UID '4F473F370158'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B47E230134' /* l3Searcher */
+       U$ '4F473F4E01E5' /* TtfwCStringListPrim */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47B9BAFD01F4' /* CompareItemWithData */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4F4745B903B7"
+         %UID '4F4745B903B7'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4F4745B903B7
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> FindDataType
+         %UID '4F47400E03D2'
+         %TARGET U$ '46780D0003AF' /* Tl3WString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // FindDataType
+      ; // %ATTRIBUTES
+     ; // TtfwCStringList
+     <<SimpleClass>> TtfwCStringFactory
+      %UID '4F473F9402D8'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4F473F370158' /* TtfwCStringList */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4F47455900E4"
+         %UID '4F47455900E4'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4F47455900E4
+        <<uses>> "4F4D3884004D"
+         %UID '4F4D3884004D'
+         %TARGET U$ '4F4D38740342' /* TtfwCStringArraySing */
+        ; // 4F4D3884004D
+        <<uses>> "4F4D42E70139"
+         %UID '4F4D42E70139'
+         %TARGET U$ '4F4D42D9035C' /* TtfwCStringArraySing2 */
+        ; // 4F4D42E70139
+        <<uses>> "4F4D435B01F0"
+         %UID '4F4D435B01F0'
+         %TARGET U$ '4F4D4341022C' /* PWord */
+        ; // 4F4D435B01F0
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> C$1$4F47405B02FD
+         %UID '4F47405B02FD'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4F47406503B6
+            %UID '4F47406503B6'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '4F474078017C'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt$4F47406503B6
+         ; // %OPERATIONS
+        ; // C$1$4F47405B02FD
+        FINAL <<method>> C$2$4F47407D0052
+         %UID '4F47407D0052'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4F474088020E
+            %UID '4F474088020E'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '4F47409303C3'
+               %TARGET U$ '46780D0003AF' /* Tl3WString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt$4F474088020E
+         ; // %OPERATIONS
+        ; // C$2$4F47407D0052
+        FINAL <<method>> C$3$4F4740A802A8
+         %UID '4F4740A802A8'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4F4740B5022C
+            %UID '4F4740B5022C'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '4F4740D00188'
+               %TARGET U$ '47A8693601A1' /* Tl3PrimString */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt$4F4740B5022C
+         ; // %OPERATIONS
+        ; // C$3$4F4740A802A8
+        FINAL <<method>> C$Char$4F50782700AA
+         %UID '4F50782700AA'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4F50783400E4
+            %UID '4F50783400E4'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aChar
+               %UID '4F50783E00B4'
+               %TARGET U$ '482C48430205' /* Char */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aChar
+            ; // %PARAMETERS
+           ; // DoIt$4F50783400E4
+         ; // %OPERATIONS
+        ; // C$Char$4F50782700AA
+        FINAL <<method>> C$Cache$559F726001FC
+         %UID '559F726001FC'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$559F72750031
+            %UID '559F72750031'
+            %SUMMARY 'Возвращает кешированную копию строки. Например для обработки после Cat' ;
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '559F729C0034'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt$559F72750031
+         ; // %OPERATIONS
+        ; // C$Cache$559F726001FC
+        PRIVATE FINAL <<method>> CacheString
+         %UID '56011A85035E'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '56011A97015F'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> theIndex
+               %UID '56011AAC024C'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // theIndex
+              <<in>> aString
+               %UID '56011AAC026A'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CacheString
+        FINAL <<method>> Cat$56028D1B01AC
+         %UID '56028D1B01AC'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$56028D2500F8
+            %UID '56028D2500F8'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aA
+               %UID '56028D31037C'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aA
+              <<in>> aB
+               %UID '56028D3103B8'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aB
+            ; // %PARAMETERS
+           ; // DoIt$56028D2500F8
+         ; // %OPERATIONS
+        ; // Cat$56028D1B01AC
+        FINAL <<method>> Cat$Many$56028DB8038D
+         %UID '56028DB8038D'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$56028DD2010C
+            %UID '56028DD2010C'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStrings
+               %UID '56028DE00283'
+               %TARGET U$ '56028CF3004C' /* "array of Il3CString" */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aStrings
+            ; // %PARAMETERS
+           ; // DoIt$56028DD2010C
+         ; // %OPERATIONS
+        ; // Cat$Many$56028DB8038D
+        FINAL <<method>> ViewOf$56029758029D
+         %UID '56029758029D'
+         %META
+          %upv "force overload" true
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$5602976402C9
+            %UID '5602976402C9'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '5602977701B8'
+               %TARGET U$ '46780D0003AF' /* Tl3WString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt$5602976402C9
+         ; // %OPERATIONS
+        ; // ViewOf$56029758029D
+        FINAL <<method>> CatSep
+         %UID '5602A7F8015D'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5602A80201BB'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aA
+               %UID '5602A812026A'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aA
+              <<in>> aSep
+               %UID '5602A81202B0'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aSep
+              <<in>> aB
+               %UID '5602A812030A'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aB
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CatSep
+        SUMMONED FINAL <<static>> Exists
+         %UID '6C9A40E5B7F2'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE <<Constants>> Local
+         %UID '4F47434A03C1'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> cLimit
+            %UID '4F4743540335'
+            %VALUE 200
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cLimit
+         ; // %ATTRIBUTES
+        ; // Local
+      ; // %CHILDREN
+     ; // TtfwCStringFactory
+     <<SimpleClass>> TtfwCStringArray
+      %UID '4F4D384500A3'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B86890E0307' /* l3OpenArray */
+       U$ '4F473F370158' /* TtfwCStringList */
+      ; // %INHERITS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4F4D3E610203'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TtfwCStringArray
+     <<SimpleClass>> TtfwCStringArraySing
+      %UID '4F4D38740342'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4F4D384500A3' /* TtfwCStringArray */
+      ; // %INHERITS
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Exists
+         %UID 'FC2DA21A902B'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TtfwCStringArraySing
+     <<SimpleClass>> TtfwCStringArraySing2
+      %UID '4F4D42D9035C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4F4D384500A3' /* TtfwCStringArray */
+      ; // %INHERITS
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Exists
+         %UID 'DF4B27867616'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TtfwCStringArraySing2
+   ; // %CHILDREN
+  ; // CString
+  <<Interfaces>> tfwParserInterfaces
+   %UID '52EF72190220'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4C1B474600AD' /* Parser */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> ItfwParser
+      %UID '52EF723E02D9'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<facetmethod>> NextToken
+         %UID '52EF733F022F'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52EF734C019B'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // NextToken
+        ABSTRACT <<facetmethod>> TokenLongString
+         %UID '52EF735A02FF'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52EF736700E1'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TokenLongString
+        ABSTRACT <<facetmethod>> TokenInt
+         %UID '52EF739503A9'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52EF739C0151'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TokenInt
+        ABSTRACT <<facetmethod>> FileName
+         %UID '52EF73A9014A'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52EF73B100D9'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FileName
+        ABSTRACT <<facetmethod>> TokenType
+         %UID '52EF73DE037D'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52EF742B0230'
+            %TARGET U$ '52EF740F00AE' /* Tl3TokenType */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TokenType
+        ABSTRACT <<facetmethod>> SourceLine
+         %UID '52EF7C8E027A'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52EF7C960169'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SourceLine
+      ; // %OPERATIONS
+     ; // ItfwParser
+     <<Facet>> ItfwParserEx
+      %UID '5576DB30036A'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '52EF723E02D9' /* ItfwParser */
+      ; // %INHERITS
+      %REALIZES
+       U$ '52EF733F022F' /* NextToken */
+       U$ '52EF735A02FF' /* TokenLongString */
+       U$ '52EF739503A9' /* TokenInt */
+       U$ '52EF73A9014A' /* FileName */
+       U$ '52EF73DE037D' /* TokenType */
+       U$ '52EF7C8E027A' /* SourceLine */
+      ; // %REALIZES
+      %OPERATIONS
+        ABSTRACT <<facetmethod>> PushString
+         %UID '5576DB400397'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5576DB4A0182'
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '5576DB5403A7'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // PushString
+        ABSTRACT <<facetmethod>> PushSymbol
+         %UID '5576DB580131'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5576DB6200F3'
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '5576DB6401C6'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // PushSymbol
+        ABSTRACT <<facetmethod>> PushInt
+         %UID '5576DB6D02FE'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5576DB7A0041'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aValue
+               %UID '5576DB8101C6'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aValue
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // PushInt
+      ; // %OPERATIONS
+     ; // ItfwParserEx
+   ; // %CHILDREN
+  ; // tfwParserInterfaces
+  <<Unit>> Parser
+   %UID '4F4734A40270'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '476BE98C01B8' /* l3Chars */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4C1B474600AD' /* Parser */
+    U$ '4F473F0902B2' /* CString */
+    U$ '52EF72190220' /* tfwParserInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TtfwCachedTokens
+      %UID '52F1221701EB'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4F473F370158' /* TtfwCStringList */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47A6FEE600FC' /* IsCacheable */
+      ; // %OVERRIDES
+     ; // TtfwCachedTokens
+     ABSTRACT <<SimpleClass>> TtfwStreamFactory
+      %UID '52F4E6AA02BB'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "52F4E9000041"
+         %UID '52F4E9000041'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 52F4E9000041
+      ; // %LINKS
+      %ATTRIBUTES
+        PROTECTED <<Attribute>> f_Stream
+         %UID '52F4E88600DA'
+         %TARGET U$ '48F4748E0192' /* Tl3Stream */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Stream
+        PRIVATE <<Attribute>> f_FileName
+         %UID '52F4E91B0118'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_FileName
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> FileName
+         %UID '52F4E6D60067'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52F4E6DE0361'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FileName
+        ABSTRACT <<abstractmethod>> Stream
+         %UID '52F4E6E90067'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52F4E70E012F'
+            %TARGET U$ '48F4748E0192' /* Tl3Stream */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Stream
+        FINAL <<Constructor>> Create
+         %UID '52F4E94802D6'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52F4E94F026A'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFileName
+               %UID '52F4E9590090'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFileName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<method>> CloseStream
+         %UID '52F4F68C01E0'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52F4F69C009A'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CloseStream
+        ABSTRACT <<abstractmethod>> FileDateTime
+         %UID '55A649CC0040'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55A649D90208'
+            %TARGET U$ '47272C8B0128' /* TDateTime */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FileDateTime
+      ; // %OPERATIONS
+     ; // TtfwStreamFactory
+     <<SimpleClass>> TtfwParser
+      %UID '4F4735060149'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '52EF723E02D9' /* ItfwParser */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '52EF733F022F' /* NextToken */
+       U$ '52EF735A02FF' /* TokenLongString */
+       U$ '52EF739503A9' /* TokenInt */
+       U$ '52EF73A9014A' /* FileName */
+       U$ '52EF73DE037D' /* TokenType */
+       U$ '52EF7C8E027A' /* SourceLine */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+       U$ '47A6FEE600FC' /* IsCacheable */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "52EBDD6C0363"
+         %UID '52EBDD6C0363'
+         %TARGET U$ '47A082F101DB' /* "Ext Chars" */
+        ; // 52EBDD6C0363
+        <<uses>> "52EF970203B0"
+         %UID '52EF970203B0'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 52EF970203B0
+        <<uses>> "52EFA26D004B"
+         %UID '52EFA26D004B'
+         %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+        ; // 52EFA26D004B
+        <<uses>> "52EFA51601BF"
+         %UID '52EFA51601BF'
+         %TARGET U$ '4B57004201BD' /* l3FileUtils */
+        ; // 52EFA51601BF
+        <<uses>> "52EFA53403B6"
+         %UID '52EFA53403B6'
+         %TARGET U$ '4B5700C301E3' /* l3DateSt */
+        ; // 52EFA53403B6
+        <<uses>> "52EFB454000C"
+         %UID '52EFB454000C'
+         %TARGET U$ '4F473F9402D8' /* TtfwCStringFactory */
+        ; // 52EFB454000C
+        <<uses>> "52EFD31F02FC"
+         %UID '52EFD31F02FC'
+         %TARGET U$ '47A8693601A1' /* Tl3PrimString */
+        ; // 52EFD31F02FC
+        <<uses>> "52EFD5950390"
+         %UID '52EFD5950390'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 52EFD5950390
+        <<uses>> "52F0D4840183"
+         %UID '52F0D4840183'
+         %TARGET U$ '4773DED9004C' /* Tl3_String */
+        ; // 52F0D4840183
+        <<uses>> "52F4E7F00243"
+         %UID '52F4E7F00243'
+         %TARGET U$ '47A0679D00E4' /* Tl3CustomFiler */
+        ; // 52F4E7F00243
+        <<uses>> "55C20F8F02C3"
+         %UID '55C20F8F02C3'
+         %TARGET U$ '4B4F61AD01AA' /* Tl3CustomDosFiler */
+        ; // 55C20F8F02C3
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_CompiledCode
+         %UID '52EF96B101CA'
+         %TARGET U$ '47A0679D00E4' /* Tl3CustomFiler */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_CompiledCode
+        PRIVATE <<Attribute>> f_Token
+         %UID '52EFC3D60279'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_Token
+        PRIVATE <<Attribute>> f_SourceLine
+         %UID '52EFC4220210'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_SourceLine
+        PRIVATE <<Attribute>> f_TokenInt
+         %UID '52EFC42D0188'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_TokenInt
+        PRIVATE <<Attribute>> f_MyTokenType
+         %UID '52F0D11903A9'
+         %TARGET U$ '52EF740F00AE' /* Tl3TokenType */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_MyTokenType
+        PRIVATE <<Attribute>> f_CompiledCodeIsActual
+         %UID '52F0D14700A1'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CompiledCodeIsActual
+        PRIVATE <<Attribute>> f_CachedTokens
+         %UID '52F122390140'
+         %TARGET U$ '52F1221701EB' /* TtfwCachedTokens */
+         %TOBEINCLUDED
+          U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+         ; // %TOBEINCLUDED
+        ; // f_CachedTokens
+        PRIVATE <<Attribute>> f_CompiledCodeName
+         %UID '52F24887009A'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CompiledCodeName
+        PRIVATE <<Attribute>> f_Parser
+         %UID '52F38D8D03C4'
+         %TARGET U$ '4C1B47600258' /* Tl3CustomParser */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Parser
+        PRIVATE <<Attribute>> f_FileName
+         %UID '52F391CB02ED'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_FileName
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '52EF72FE00AB'
+         %TOBEINCLUDED
+          U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52EF7303036F'
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFiler
+               %UID '52EF7311030B'
+               %TARGET U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+               %TOBEINCLUDED
+                U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+               ; // %TOBEINCLUDED
+              ; // aFiler
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> MakePrim
+         %UID '52F397C1027F'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '52EF723E02D9' /* ItfwParser */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '52EF72FE00AB' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '52EF733F022F' /* NextToken */
+          U$ '52EF735A02FF' /* TokenLongString */
+          U$ '52EF739503A9' /* TokenInt */
+          U$ '52EF73A9014A' /* FileName */
+          U$ '52EF73DE037D' /* TokenType */
+          U$ '52EF7C8E027A' /* SourceLine */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'EF75368AED2B'
+            %SUMMARY 'Сигнатура фабрики TtfwParser.MakePrim' ;
+            %TARGET U$ '52EF723E02D9' /* ItfwParser */
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aFiler
+               %UID '8050A9852CEC'
+               %TARGET U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+               %TOBEINCLUDED
+                U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+               ; // %TOBEINCLUDED
+              ; // aFiler
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakePrim
+        FINAL <<method>> Make
+         %UID '5576CDB40223'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5576CDBD03CB'
+            %TARGET U$ '5576DB30036A' /* ItfwParserEx */
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFiler
+               %UID '5576CDD200BF'
+               %TARGET U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+               %TOBEINCLUDED
+                U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+               ; // %TOBEINCLUDED
+              ; // aFiler
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TtfwDecoratorParser
+         %UID '5576CD730375'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+          U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '52EF723E02D9' /* ItfwParser */
+          U$ '5576DB30036A' /* ItfwParserEx */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '49E7754802A9' /* Tl3ProtoObject */
+         ; // %INHERITS
+         %REALIZES
+          U$ '52EF733F022F' /* NextToken */
+          U$ '52EF735A02FF' /* TokenLongString */
+          U$ '52EF739503A9' /* TokenInt */
+          U$ '52EF73A9014A' /* FileName */
+          U$ '52EF73DE037D' /* TokenType */
+          U$ '52EF7C8E027A' /* SourceLine */
+          U$ '5576DB400397' /* PushString */
+          U$ '5576DB580131' /* PushSymbol */
+          U$ '5576DB6D02FE' /* PushInt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '479731C50290' /* Cleanup */
+          U$ '47A042E100E2' /* InitFields */
+          U$ '5000565C019C' /* ClearFields */
+         ; // %OVERRIDES
+         %LINKS
+           <<uses>> "559FD75602EE"
+            %UID '559FD75602EE'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 559FD75602EE
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_Parser
+            %UID '5576CDDF0342'
+            %TARGET U$ '52EF723E02D9' /* ItfwParser */
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+           ; // f_Parser
+           PRIVATE <<Attribute>> f_Tokens
+            %UID '5576DE5201F1'
+            %TARGET U$ '5576DE3A03D7' /* TtfwParserTokenList */
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+           ; // f_Tokens
+           PRIVATE <<Attribute>> f_Token
+            %UID '5576EBD40209'
+            %TARGET U$ '5576DC260338' /* TtfwParserToken */
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+           ; // f_Token
+           PRIVATE <<Attribute>> f_Filer
+            %UID '559FD73102AE'
+            %TARGET U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+           ; // f_Filer
+           PRIVATE <<Attribute>> f_IndexToPush
+            %UID '560E9FE400A1'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_IndexToPush
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<Constructor>> Create
+            %UID '5576CDF900F7'
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5576CE0000AA'
+               %TOBEINCLUDED
+                U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aFiler
+                  %UID '559FD77602A1'
+                  %TARGET U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+                  %TOBEINCLUDED
+                   U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+                  ; // %TOBEINCLUDED
+                 ; // aFiler
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Create
+           FINAL <<Factory>> Make
+            %UID '5576CE18038D'
+            %META
+             %upv "check nil" false
+             %upv "need AfterCreate" 'undefined'
+             %upv "need Aggregate" 'undefined'
+             %upv "need As" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+            %IMPLEMENTS
+             U$ '5576DB30036A' /* ItfwParserEx */
+            ; // %IMPLEMENTS
+            %INHERITS
+             U$ '5576CDF900F7' /* Create */
+            ; // %INHERITS
+            %REALIZES
+             U$ '52EF733F022F' /* NextToken */
+             U$ '52EF735A02FF' /* TokenLongString */
+             U$ '52EF739503A9' /* TokenInt */
+             U$ '52EF73A9014A' /* FileName */
+             U$ '52EF73DE037D' /* TokenType */
+             U$ '52EF7C8E027A' /* SourceLine */
+             U$ '5576DB400397' /* PushString */
+             U$ '5576DB580131' /* PushSymbol */
+             U$ '5576DB6D02FE' /* PushInt */
+            ; // %REALIZES
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<Operation>> DoIt
+               %UID '5A7DA3F42A47'
+               %SUMMARY 'Сигнатура фабрики TtfwDecoratorParser.Make' ;
+               %TARGET U$ '5576DB30036A' /* ItfwParserEx */
+               %TOBEINCLUDED
+                U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 SUMMONED <<in>> aFiler
+                  %UID '34DF8671BEFD'
+                  %TARGET U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+                  %TOBEINCLUDED
+                   U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+                  ; // %TOBEINCLUDED
+                 ; // aFiler
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Make
+           PRIVATE FINAL <<method>> CheckParser
+            %UID '559FD77C034D'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '559FD7860205'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CheckParser
+           PROTECTED FINAL <<method>> PushToken
+            %UID '560EA6680085'
+            %TOBEINCLUDED
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '560EA6760152'
+               %TOBEINCLUDED
+                U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aToken
+                  %UID '560EA67F028A'
+                  %TARGET U$ '5576DC260338' /* TtfwParserToken */
+                  %TOBEINCLUDED
+                   U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+                  ; // %TOBEINCLUDED
+                 ; // aToken
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // PushToken
+         ; // %OPERATIONS
+         %CHILDREN
+          
+           <<StaticObject>> TtfwParserToken
+            %UID '5576DC260338'
+            %META
+             %upv "not treat as record for XE4" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %ATTRIBUTES
+              FINAL <<Attribute>> rTokenType
+               %UID '5576DC5D0134'
+               %TARGET U$ '52EF740F00AE' /* Tl3TokenType */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // rTokenType
+              FINAL <<Attribute>> rInteger
+               %UID '5576DC7D0098'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // rInteger
+              FINAL <<Attribute>> rString
+               %UID '5576DC9A00FC'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // rString
+            ; // %ATTRIBUTES
+            %OPERATIONS
+              FINAL <<Constructor>> C$5576DCA60121
+               %UID '5576DCA60121'
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt$5576DCC60329
+                  %UID '5576DCC60329'
+                  %TOBEINCLUDED
+                   U$ '4790D09A0378' /* L3 */
+                   U$ '4E2F0E1B03BB' /* L3$Domain */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aString
+                     %UID '5576DCCB0014'
+                     %TARGET U$ '46780DA40383' /* Il3CString */
+                     %TOBEINCLUDED
+                      U$ '4E2F0E1B03BB' /* L3$Domain */
+                     ; // %TOBEINCLUDED
+                    ; // aString
+                    <<in>> aType
+                     %UID '5576DCCB0041'
+                     %TARGET U$ '52EF740F00AE' /* Tl3TokenType */
+                     %TOBEINCLUDED
+                      U$ '4790D09A0378' /* L3 */
+                     ; // %TOBEINCLUDED
+                    ; // aType
+                  ; // %PARAMETERS
+                 ; // DoIt$5576DCC60329
+               ; // %OPERATIONS
+              ; // C$5576DCA60121
+              FINAL <<Constructor>> C$Int$5576DCCE0203
+               %UID '5576DCCE0203'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt$5576DCD600FC
+                  %UID '5576DCD600FC'
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aValue
+                     %UID '5576DCDE01E4'
+                     %TARGET U$ '46A606AC03B2' /* Integer */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aValue
+                  ; // %PARAMETERS
+                 ; // DoIt$5576DCD600FC
+               ; // %OPERATIONS
+              ; // C$Int$5576DCCE0203
+              FINAL <<Constructor>> E
+               %UID '5576F2CD0101'
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt
+                  %UID '5576F2D302E0'
+                 ; // DoIt
+               ; // %OPERATIONS
+              ; // E
+            ; // %OPERATIONS
+           ; // TtfwParserToken
+           <<SimpleClass>> TtfwParserTokenList
+            %UID '5576DE3A03D7'
+            %META
+             %upv "needs InstanceR" 'undefined'
+             %upv "needs script" 'undefined'
+             %upv "no hands" false
+             %upv "register in scripts" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+             U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+             U$ '4B223ADC02BF' /* l3RecordListPrim */
+            ; // %INHERITS
+            %REALIZES
+             U$ '47B07CF403D0' /* IsSameItems */
+             U$ '47B2C42A0163' /* AssignItem */
+             U$ '47B99D4503A2' /* CompareExistingItems */
+            ; // %REALIZES
+            %ATTRIBUTES
+              PRIVATE ABSTRACT <<impurity_value>> ItemType
+               %UID '5576DE4502BA'
+               %TARGET U$ '5576DC260338' /* TtfwParserToken */
+               %TOBEINCLUDED
+                U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+               ; // %TOBEINCLUDED
+              ; // ItemType
+            ; // %ATTRIBUTES
+           ; // TtfwParserTokenList
+         ; // %CHILDREN
+        ; // TtfwDecoratorParser
+      ; // %CHILDREN
+     ; // TtfwParser
+     <<SimpleClass>> TtfwFileStreamFactory
+      %UID '52F4E85300D4'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+      ; // %INHERITS
+      %REALIZES
+       U$ '52F4E6E90067' /* Stream */
+       U$ '55A649CC0040' /* FileDateTime */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "52F4E8B002C1"
+         %UID '52F4E8B002C1'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 52F4E8B002C1
+        <<uses>> "52F4E8CA00D1"
+         %UID '52F4E8CA00D1'
+         %TARGET U$ '495230C40219' /* Tl3NamedTextStream */
+        ; // 52F4E8CA00D1
+        <<uses>> "52F4FA6D0061"
+         %UID '52F4FA6D0061'
+         %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+        ; // 52F4FA6D0061
+        <<uses>> "55A6506B027B"
+         %UID '55A6506B027B'
+         %TARGET U$ '4B57004201BD' /* l3FileUtils */
+        ; // 55A6506B027B
+      ; // %LINKS
+     ; // TtfwFileStreamFactory
+     <<SimpleClass>> TtfwCOMStreamFactory
+      %UID '52F4F1AA01E1'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+      ; // %INHERITS
+      %REALIZES
+       U$ '52F4E6E90067' /* Stream */
+       U$ '55A649CC0040' /* FileDateTime */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "52F4F1D10260"
+         %UID '52F4F1D10260'
+         %TARGET U$ '47A080670100' /* l3Stream */
+        ; // 52F4F1D10260
+        <<uses>> "52F4F9D3034A"
+         %UID '52F4F9D3034A'
+         %TARGET U$ '47E150FF028A' /* TStream */
+        ; // 52F4F9D3034A
+        <<uses>> "55A6514602A9"
+         %UID '55A6514602A9'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 55A6514602A9
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_COMStream
+         %UID '52F4F1F5021A'
+         %TARGET U$ '46A5B0060013' /* IStream */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_COMStream
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '52F4F21D036E'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52F4F22401EF'
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStream
+               %UID '52F4F2300041'
+               %TARGET U$ '46A5B0060013' /* IStream */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aStream
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+      ; // %OPERATIONS
+     ; // TtfwCOMStreamFactory
+     <<SimpleClass>> TtfwStringStreamFactory
+      %UID '52F4FAF80376'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+      ; // %INHERITS
+      %REALIZES
+       U$ '52F4E6E90067' /* Stream */
+       U$ '55A649CC0040' /* FileDateTime */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "52F4FB7A007F"
+         %UID '52F4FB7A007F'
+         %TARGET U$ '4DAEF5AA0084' /* Tl3StringStream */
+        ; // 52F4FB7A007F
+        <<uses>> "52F4FB8E0037"
+         %UID '52F4FB8E0037'
+         %TARGET U$ '4ADEE4F301E2' /* l3PCharLen */
+        ; // 52F4FB8E0037
+        <<uses>> "55A650C90237"
+         %UID '55A650C90237'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 55A650C90237
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_String
+         %UID '52F4FB470057'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_String
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '52F4FB4E00F6'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52F4FB530309'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '52F4FB5D02B0'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+      ; // %OPERATIONS
+     ; // TtfwStringStreamFactory
+     <<SimpleClass>> TtfwResourceStreamFactory
+      %UID '55795DB3008C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '52F4E6AA02BB' /* TtfwStreamFactory */
+      ; // %INHERITS
+      %REALIZES
+       U$ '52F4E6E90067' /* Stream */
+       U$ '55A649CC0040' /* FileDateTime */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "55795DE603DE"
+         %UID '55795DE603DE'
+         %TARGET U$ '55795D8E03BA' /* Tl3ResourceStream */
+        ; // 55795DE603DE
+        <<uses>> "55795E2F03B9"
+         %UID '55795E2F03B9'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 55795E2F03B9
+        <<uses>> "55795E44005A"
+         %UID '55795E44005A'
+         %TARGET U$ '483C378301CB' /* StrUtils */
+        ; // 55795E44005A
+        <<uses>> "557964C103A4"
+         %UID '557964C103A4'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 557964C103A4
+        <<uses>> "55A6508000A8"
+         %UID '55A6508000A8'
+         %TARGET U$ '4B57004201BD' /* l3FileUtils */
+        ; // 55A6508000A8
+        <<uses>> "55B1F239026A"
+         %UID '55B1F239026A'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 55B1F239026A
+        <<uses>> "55B1F24D032D"
+         %UID '55B1F24D032D'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+        ; // 55B1F24D032D
+        <<uses>> "55B1F26902B1"
+         %UID '55B1F26902B1'
+         %TARGET U$ '4F473F9402D8' /* TtfwCStringFactory */
+        ; // 55B1F26902B1
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_ResName
+         %UID '55796A940119'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_ResName
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '55795E000174'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55795E0D00A3'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aResName
+               %UID '55795E1D01A5'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aResName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+      ; // %OPERATIONS
+     ; // TtfwResourceStreamFactory
+     ABSTRACT <<SimpleClass>> TtfwKeyWordPrim
+      %UID '4FFEEC080367'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47A8693601A1' /* Tl3PrimString */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        FINAL <<readonly>> AsCStr
+         %UID '4FFEEFF702E5'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+          %upv "reads field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // AsCStr
+        SUMMONED PRIVATE <<Attribute>> f_AsCStr
+         %UID 'F5B7D2D5B34A'
+         %SUMMARY 'Поле для свойства AsCStr' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_AsCStr
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '55A6967900B3'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55A69680017B'
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aKeyword
+               %UID '55A6968703CF'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aKeyword
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+      ; // %OPERATIONS
+     ; // TtfwKeyWordPrim
+   ; // %CHILDREN
+  ; // Parser
+  <<Unit>> Tools
+   %UID '55C1F58400F6'
+   %DEPENDS
+    U$ '4678193C009C' /* l3Types */
+    U$ '4C1B474600AD' /* Parser */
+    U$ '4F4734A40270' /* Parser */
+    U$ '52EF72190220' /* tfwParserInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<SimpleClass>> TtfwCOMaker
+      %UID '55C1F59F001C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "55C1F5AB0306"
+         %UID '55C1F5AB0306'
+         %TARGET U$ '4F4735060149' /* TtfwParser */
+        ; // 55C1F5AB0306
+        <<uses>> "55C1F5B40343"
+         %UID '55C1F5B40343'
+         %TARGET U$ '52F4E85300D4' /* TtfwFileStreamFactory */
+        ; // 55C1F5B40343
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> Make
+         %UID '55C1F5C100CC'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "55C2040B0284"
+            %UID '55C2040B0284'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 55C2040B0284
+           <<uses>> "55C2053102E8"
+            %UID '55C2053102E8'
+            %TARGET U$ '4C1B475101C5' /* l3Parser */
+           ; // 55C2053102E8
+           <<uses>> "55C2056B02B2"
+            %UID '55C2056B02B2'
+            %TARGET U$ '52EF723E02D9' /* ItfwParser */
+           ; // 55C2056B02B2
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55C1F5D102FF'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFileName
+               %UID '55C1F5DB02B4'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFileName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TtfwCOMaker
+   ; // %CHILDREN
+  ; // Tools
+ ; // %CHILDREN
+; // ScriptEngine$Parsing

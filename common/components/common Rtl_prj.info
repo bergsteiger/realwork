@@ -1,0 +1,396 @@
+Shared Delphi Rtl : Project - 
+version: 34
+Rtl : Library - Системные библиотеки
+ Sys : Unit - 
+  System : UtilityPack - 
+   TObject : SimpleClass - 
+   TInterfacedObject : SimpleClass - 
+   Text : Struct - 
+   TObject$Stub : ObjStub - Базовый объект Delphi. Предок всех других классов
+   TClass : Typedef - Сылка на RTTI класса.
+   Variant : Struct - 
+   HResult : Typedef - 
+   hResult : Typedef - 
+   Longword : Typedef - 
+   WideString : Typedef - 
+   Integer : Typedef - 
+   Pointer : Typedef - 
+   Cardinal : Typedef - Беззнаковое 32-битное целое.
+   LongWord : Typedef - 
+   Boolean : Typedef - 
+   array [Boolean] of Integer : Vector - 
+   PBoolean : Typedef - 
+   Char : Typedef - 
+   ShortInt : Typedef - 
+   TDateTime : Typedef - дата/время
+   Double : Typedef - 
+   IUnknown : Typedef - Базовый интерфейс.
+   array of IUnknown : Vector - 
+   IDispatch : Facet - 
+   WordBool : Typedef - 
+   TGUID : Struct - GUID.
+   PGUID : Typedef - 
+   PLongint : Typedef - 
+   Int64 : Typedef - 64-битное целое.
+   byte : Typedef - байт
+   Byte : Typedef - байт
+   Word : Typedef - 
+   String : Typedef - Стандартный строковый тип Delphi.
+   PChar : Typedef - Нуль-терминированная строка.
+   AnsiString : Typedef - 
+   OleVariant : Struct - The OleVariant type exists on both the Windows and Linux platforms. The main difference between Variant and OleVariant is that Variant can contain data types that only the current application knows what to do with. OleVariant can only contain the data types defined as compatible with OLE Automation which means that the data types that can be passed between programs or across the network without worrying about whether the other end will know how to handle the data.
+
+When you assign a Variant that contains custom data (such as a Delphi string, or a one of the new custom variant types) to an OleVariant, the runtime library tries to convert the Variant into one of the OleVariant standard data types (such as a Delphi string converts to an OLE BSTR string). For example, if a variant containing an AnsiString is assigned to an OleVariant, the AnsiString becomes a WideString. The same is true when passing a Variant to an OleVariant function parameter.
+   array of AnsiString : Vector - открытый массив строк
+   MIUnknown : PureMixIn - 
+   SmallInt : Typedef - 
+   TResStringRec : Struct - 
+   PResStringRec : Typedef - 
+   array of PResStringRec : Vector - 
+   TVarRec : Struct - 
+   array of const : Vector - 
+   array of Integer : Vector - Открытый массив целых чисел.
+   TextFile : Enum - 
+   ANSIString : Typedef - 
+   single : Typedef - 
+   WideChar : Typedef - 
+   array of WideString : Vector - 
+   LongInt : Typedef - 
+   ByteBool : Typedef - 
+   LongBool : Typedef - 
+   PWideChar : Typedef - 
+   String$XE : Typedef - 
+   PChar$XE : Typedef - 
+   array of String$XE : Vector - 
+   Char$XE : Typedef - 
+   IUnknown$Def : Facet - Реальная реализация интерфейса IUnknown.
+   PANSIChar : Typedef - 
+   ShortString : Typedef - 
+   array of TClass : Vector - 
+   Single : Typedef - 
+   PAnsiChar : Typedef - 
+  Variants : UtilityPack - 
+   EVariantTypeCastError : Exception - 
+  SysUtils : UtilityPack - System Utilities Unit
+   TMultiReadExclusiveWriteSynchronizer : SimpleClass - TMultiReadExclusiveWriteSynchronizer protects memory in a multi-threaded application.
+   TFileName : Typedef - TFileName is a string that represents a file name.
+   Exception : Exception - Base Exception.
+   ExceptClass : Typedef - 
+   EOSError : Exception - 
+   TFormatSettings : Struct - TFormatSettings defines a thread-safe string formatting context.
+   TProcedure : Function - TProcedure is used as the type for generic procedures that do not have arguments.
+   EAbort : Exception - 
+   FreeAndNil : method - 
+   Supports : method - 
+   IntToStr : method - 
+   CompareStr : method - 
+   ANSISameText : method - 
+   StrToInt : method - 
+   ExtractFilePath : method - 
+   Format : method - 
+   ChangeFileExt : method - 
+   IsEqualGUID : method - 
+   FileExists : method - 
+   EAssertionFailed : Exception - 
+   GetClassName : method - 
+   Trim : method - 
+   AnsiStrLIComp : method - 
+   TSearchRec : Struct - TSearchRec defines file information searched for by FindFirst or FindNext.
+   RenameFile : method - 
+   DeleteFile : method - 
+   StrToIntDef : method - 
+   FormatDateTime : method - 
+   Sleep : method - 
+   EOutOfMemory : Exception - 
+   ForceDirectories : method - 
+   IntToHex : method - 
+   AllocMem : method - 
+   DecimalSeparator - 
+   Supports - 
+  MObject : MixInMirror - 
+ Types : Interfaces - 
+  TRect : Struct - Прямоугольник.
+  TPoint : Struct - Точка.
+  DWORD : Typedef - 
+  TSmallPoint : Struct - 
+  TSize : Struct - 
+ TypInfo : Interfaces - Методы для работы с RTTI.
+  TTypeInfo : Struct - Информация о типе.
+  PTypeInfo : Typedef - Информация о типе.
+  TTypeData : Struct - 
+  PTypeData : Typedef - 
+  GetObjectProp : Function - 
+  PPropInfo : Typedef - 
+ Messages : Interfaces - Сообщения Windows.
+  TMessage : Struct - Сообщение Windows.
+  TWMKeyDown : Struct - 
+  Msg Codes : Constants - 
+   WM_USER - 
+   WM_LBUTTONDBLCLK - 
+  TWMEraseBkGnd : Struct - 
+  TWMPaint : Struct - 
+  TWMGetDlgCode : Struct - 
+  TWMChar : Struct - 
+  TWMKey : Struct - 
+  TWMNCPaint : Struct - 
+  TWMDestroy : Struct - 
+  TWMKillFocus : Struct - 
+  TWMSetFocus : Struct - 
+  TWMMouseWheel : Struct - 
+  TWMActivate : Struct - 
+  TWMWindowPosChanged : Struct - 
+  TWMNCHitMessage : Struct - 
+  TWMNCMouseMove : Typedef - 
+  TWMMouseActivate : Struct - 
+  TWMSize : Struct - 
+  TWMEraseBkgnd : Struct - 
+  TWMActivateApp : Struct - 
+  TWMCopyData : Struct - 
+  TWMDisplayChange : Struct - 
+  TWMWindowPosChanging : Struct - 
+  TWMScroll : Struct - 
+  TWMHScroll : Typedef - 
+  TWMVScroll : Typedef - 
+  TWMNCCalcSize : Struct - 
+  TWMNCHitTest : Struct - 
+  TWMGetText : Struct - 
+  TWMGetTextLength : Struct - 
+  TWMMouse : Struct - 
+  TWMMouseMove : Typedef - 
+  TWMSysKeyDown : Typedef - 
+  TWMLButtonDblClk : Typedef - 
+  TWMLButtonDown : Typedef - 
+  TWMLButtonUp : Typedef - 
+  TWMMButtonDblClk : Typedef - 
+  TWMMButtonDown : Typedef - 
+  TWMMButtonUp : Typedef - 
+  TWMRButtonDblClk : Typedef - 
+  TWMRButtonDown : Typedef - 
+  TWMRButtonUp : Typedef - 
+  TWMSetCursor : Struct - 
+  TWMSysCommand : Struct - 
+  TWMNCLButtonDown : Typedef - 
+  TWMNCLButtonUp : Typedef - 
+  TWMNCActivate : Struct - 
+  TWMClose : Struct - 
+  TWMEnable : Struct - 
+  TWMShowWindow : Typedef - 
+ RTLConsts : Interfaces - 
+  Errors : Constants - 
+   SListIndexError - 
+ Win : Unit - 
+  Windows : UtilityPack - 
+   PLongint : Typedef - 
+   CodePages : Constants - 
+   hWnd : Typedef - 
+   HPALETTE : Typedef - 
+   HMETAFILE : Typedef - 
+   HFONT : Typedef - 
+   BOOL : Typedef - 
+   PInteger : Typedef - 
+   LPARAM : Typedef - 
+   WPARAM : Typedef - 
+   hRgn : Typedef - Регион.
+   HANDLE : Typedef - 
+   THandle : Typedef - 
+   HGLOBAL : Typedef - 
+   TMsg : Struct - 
+   hDC : Typedef - Контекст устройства вывода.
+   TPoint : Struct - Точка.
+   HHOOK : Typedef - 
+   TTextMetric : Struct - 
+   PTextMetric : Typedef - Указатель на TTextMetric.
+   TDeviceModeA : Struct - 
+   PDeviceModeA : Typedef - 
+   PDeviceMode : Typedef - 
+   Memory Manipulation : Constants - 
+   Key Codes : Constants - 
+   CharSets : Constants - 
+   Device Caps : Constants - 
+   DWORD : Typedef - 
+   TRTLCriticalSection : Struct - 
+   Timeouts : Constants - 
+   UINT : Typedef - 
+   LCID : Typedef - Идентификатор локали.
+   Chars : Constants - 
+   Clipboard Formats : Constants - 
+   CreateProcess : method - 
+   GetTickCount : method - 
+   SetFocus : method - 
+   SendMessage : method - 
+   IsWindowEnabled : method - 
+   GetFocus : method - 
+   CreateRoundRectRgn : method - 
+   ShowWindow : Constants - ShowWindow() Commands
+   HWND : Typedef - 
+   WinExec : method - 
+   TCWPStruct : Struct - 
+   PCWPStruct : Typedef - 
+   TInput : Struct - 
+   TCWPRetStruct : Struct - 
+   PCWPRetStruct : Typedef - 
+   TMouseHookStruct : Struct - 
+   PMouseHookStruct : Typedef - 
+   LRESULT : Typedef - 
+   WindowFromPoint : method - 
+   PostMessage : method - 
+   GetForegroundWindow : method - 
+   GetCurrentProcess : method - 
+   GetWindowThreadProcessId : method - 
+   TBlendFunction : Struct - 
+   GlobalLock : method - 
+   TScrollInfo : Struct - 
+   CopyRect : method - 
+   RGB : method - 
+   PMsg : Typedef - 
+   TEnhMetaHeader : Typedef - 
+   QueryPerformanceCounter : method - 
+   QueryPerformanceFrequency : method - 
+   TFileTime : Struct - 
+   TMetaHeader : Typedef - 
+   TSmallRect : Struct - 
+   PSmallRect : Typedef - 
+   HCURSOR : Typedef - 
+   Invalid Values : Constants - 
+   TerminateProcess - The TerminateProcess function terminates the specified process and all of its threads.
+   GetCurrentProcess - The GetCurrentProcess function returns a pseudohandle for the current process.
+  ShellAPI : UtilityPack - 
+   ShellExecute - 
+   DragQueryFile - 
+  ShlObj : UtilityPack - 
+   TDropFiles : Struct - 
+   PDropFiles : Typedef - 
+  UrlMon : UtilityPack - 
+   IPersistMoniker : Facet - 
+  MMSystem : UtilityPack - 
+  CommCtrl : UtilityPack - 
+  UxTheme : UtilityPack - 
+   HTHEME : Typedef - 
+  multimon : UtilityPack - 
+ ActiveX : Interfaces - ActiveX / OLE 2 Interface Unit.
+  IEnumFORMATETC : Facet - Итератор по данным внутри IDataObject.
+   Next - 
+   Skip - 
+   Reset - 
+   Clone - 
+  TStgMedium : Struct - 
+  IStream : Facet - Поток.
+  TFormatEtc : Struct - 
+  IAdviseSink : Facet - 
+  IDropSource : Facet - 
+  IDropTarget : Facet - 
+  IEnumStatData : Facet - 
+  IEnumFormatEtc : Typedef - 
+  PFormatEtc : Struct - 
+  TStatStg : Struct - 
+  IDataObject : Facet - Объект представляющий данные для буфера обмена или drag-and-drop.
+   GetData - 
+   GetDataHere - 
+   QueryGetData - 
+   GetCanonicalFormatEtc - 
+   SetData - 
+   EnumFormatEtc - 
+   DAdvise - 
+   DUnadvise - 
+   EnumDAdvise - 
+  IEnumStatStg : Facet - 
+  TCLSID : Struct - 
+  MCommonStorage : PureMixIn - 
+   DestroyElement : facetmethod - 
+   EnumElements : facetmethod - 
+   Stat : facetmethod - 
+  IStorage : Facet - Структурированное хранилище.
+  TIID : Struct - 
+  POleStr : Typedef - 
+  TSNB : Typedef - 
+ Common : Unit - 
+  StrUtils : UtilityPack - 
+   AnsiReplaceStr : method - 
+   AnsiStartsStr : method - 
+   AnsiStartsText : method - 
+   AnsiEndsStr : method - 
+   PosEx : method - 
+   AnsiContainsText : method - 
+   IfThen : method - 
+   LeftStr - Returns the substring of a specified length that appears at the start of a string.
+  Classes : UtilityPack - Реализация модуля Classes.
+   TFiler : SimpleClass - 
+   TPersistent : SimpleClass - 
+   TComponentName : Typedef - 
+   TWndMethod : Function - 
+   TBiDiMode : Enum - 
+   TSeekOrigin : Enum - TStream seek origins
+   TStrings : SimpleClass - TStrings is the base class for objects that represent a list of strings.
+   TOperation : Enum - 
+   TList : SimpleClass - TList stores an array of pointers.
+   TStringList : SimpleClass - TStringList maintains a list of strings.
+   TInterfaceList : SimpleClass - TInterfaceList represents a list of interfaces.
+   TDuplicates : Enum - 
+   TStreamAdapter : SimpleClass - TStreamAdapter implements the IStream interface on a TStream object.
+   TStream : SimpleClass - TStream is the base class type for stream objects that can read from or write to various kinds of storage media, such as disk files, dynamic memory, and so on
+   TCustomMemoryStream : SimpleClass - TCustomMemoryStream is an abstract base class used as the common ancestor for memory streams
+   TWriter : SimpleClass - 
+   TStream$Stub : ObjStub - Поток.
+   TPersistent$Stub : ObjStub - 
+   TComponent$Stub : ObjStub - 
+   TStrings$Stub : ObjStub - Список строк.
+   TInterfacedPersistent$Stub : ObjStub - TInterfacedPersistent is an ancestor for persistent objects that implement interfaces.
+   TThread$Stub : ObjStub - TThread is an abstract class that enables creation of separate threads of execution in an application.
+   TMemoryStream : SimpleClass - TMemoryStream is a stream that stores its data in dynamic memory.
+   TShiftState : Enum - 
+   TShortCut : Range - 
+   TAlignment : Enum - 
+   EListError : Exception - 
+   TNotifyEvent : Function - TNotifyEvent is used for events that do not require parameters.
+   EStreamError : Exception - 
+   EFCreateError : Exception - 
+   Rect : method - 
+   TComponent : SimpleClass - TComponent is the common ancestor of all component classes.
+   TDataModule : SimpleClass - 
+   TCollectionItem : SimpleClass - 
+   TCollection : SimpleClass - 
+   TCollectionItemClass : Typedef - 
+   TInterfacedPersistent : SimpleClass - TInterfacedPersistent is an ancestor for persistent objects that implement interfaces.
+   TBasicAction : SimpleClass - 
+   TOwnedCollection : SimpleClass - 
+   TThread : SimpleClass - 
+   THelpContext : Typedef - 
+   THelpType : Typedef - 
+   TBasicActionLink : SimpleClass - 
+   EParserError : Exception - 
+   EReadError : Exception - 
+   AllocateHWnd : method - 
+  SyncObjs : UtilityPack - 
+   TCriticalSection : SimpleClass - TCriticalSection allows a thread in a multi-threaded application to temporarily block other threads from accessing a block of code.
+   TSimpleEvent : SimpleClass - TSimpleEvent represents an unnamed manual event object.
+   TEvent : SimpleClass - TEvent represents an external event.
+  Math : UtilityPack - 
+   IfThen : method - 
+   Sign : method - 
+   InRange : method - 
+   Min : method - 
+   RandomRange - Returns a random integer from a specified range.
+  ComObj : UtilityPack - 
+   EOleError : Exception - EOleError is the exception class for low-level OLE errors
+   EOleSysError : Exception - EOleSysError is the exception class for errors specific to the OLE IDispatch interface
+   OleCheck : method - 
+  Contnrs : UtilityPack - 
+   TObjectList : SimpleClass - TObjectList maintains a list of (owned) objects.
+   TOrderedList : SimpleClass - TOrderedList maintains an array of pointers that must be accessed in serial order.
+   TStack : SimpleClass - TStack maintains a last-in first-out array of pointers.
+   TBucketList : SimpleClass - TBucketList is a simple hash table that stores pointers indexed by pointers.
+  DateUtils : UtilityPack - 
+   DateTimeConsts : Constants - 
+   MillisecondsBetween : method - 
+   IncDay : method - 
+   YearOf - 
+  MComponent : MixInMirror - 
+  HelpIntfs : UtilityPack - 
+  Masks : UtilityPack - 
+   EMaskException : Exception - 
+   TMask : SimpleClass - TMask allows the comparison of strings containing wildcards to a file mask.
+   MatchesMask - Indicates whether a file name conforms to the format specified by a filter string.
+  Registry : UtilityPack - 
+  MaskUtils : UtilityPack - 
+  Actions : UtilityPack - 
+   TCustomShortCutList : SimpleClass - 

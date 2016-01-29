@@ -1,0 +1,477 @@
+// eeEVDtoRTF 4B72B41502F5 UtilityPack Class
+
+FORWARD ME_4B72B41502F5
+
+FORWARD ME_4B72B44A0392
+
+: ME_4B72BA810390
+ CONST UID '4B72BA810390'
+ CONST Name 'Reader'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ CONST "IsResult" false
+
+ @SELF
+; // ME_4B72BA810390 Reader
+
+: ME_4B72BAC0031D
+ CONST UID '4B72BAC0031D'
+ CONST Name 'G'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ CONST "IsResult" false
+
+ @SELF
+; // ME_4B72BAC0031D G
+
+: ME_4B72BB600341
+ CONST UID '4B72BB600341'
+ CONST Name 'Writer'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ CONST "IsResult" false
+
+ @SELF
+; // ME_4B72BB600341 Writer
+
+: ME_4B72BC0E02DE
+ CONST UID '4B72BC0E02DE'
+ CONST Name 'Styles'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ CONST "IsResult" false
+
+ @SELF
+; // ME_4B72BC0E02DE Styles
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_530C9AE302ED
+ CONST UID '530C9AE302ED'
+ CONST Name 'aEVD'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_530C9AE302ED aEVD
+
+: ME_530C9AE30305
+ CONST UID '530C9AE30305'
+ CONST Name 'aRTF'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_530C9AE30305 aRTF
+
+INCLUDE '4678193C009C.pas.ms.script'
+
+: ME_530C9AE3034F
+ CONST UID '530C9AE3034F'
+ CONST Name 'Hidden'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47289B590038 // PLong
+ ;
+
+ @SELF
+; // ME_530C9AE3034F Hidden
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_530C9AE30368
+ CONST UID '530C9AE30368'
+ CONST Name 'HiddenCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_530C9AE30368 HiddenCount
+
+: ME_530C9AE30381
+ CONST UID '530C9AE30381'
+ CONST Name 'aHost'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4771179900D8 // PChar
+ ;
+
+ @SELF
+; // ME_530C9AE30381 aHost
+
+: ME_530C9AE3039B
+ CONST UID '530C9AE3039B'
+ CONST Name 'aNeedEliminateCommentDecor'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_530C9AE3039B aNeedEliminateCommentDecor
+
+: ME_4B72B47601D9
+ CONST UID '4B72B47601D9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_530C9AE302ED // aEVD
+ ME_530C9AE30305 // aRTF
+ ME_530C9AE3034F // Hidden
+ ME_530C9AE30368 // HiddenCount
+ ME_530C9AE30381 // aHost
+ ME_530C9AE3039B // aNeedEliminateCommentDecor
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4B72B47601D9 DoIt
+
+: ME_4B72B44A0392
+ CONST UID '4B72B44A0392'
+ CONST Name 'DoEVDtoRTF'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_4B72BA810390 // Reader
+ ME_4B72BAC0031D // G
+ ME_4B72BB600341 // Writer
+ ME_4B72BC0E02DE // Styles
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4B72B47601D9 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" false
+
+ @SELF
+; // ME_4B72B44A0392 DoEVDtoRTF
+
+FORWARD ME_530C8AA4024F
+
+: ME_530C9A3600F2
+ CONST UID '530C9A3600F2'
+ CONST Name 'aEVD'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_530C9A3600F2 aEVD
+
+: ME_530C9A360108
+ CONST UID '530C9A360108'
+ CONST Name 'aRTF'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_530C9A360108 aRTF
+
+: ME_530C9A36014E
+ CONST UID '530C9A36014E'
+ CONST Name 'Hidden'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47289B590038 // PLong
+ ;
+
+ @SELF
+; // ME_530C9A36014E Hidden
+
+: ME_530C9A360166
+ CONST UID '530C9A360166'
+ CONST Name 'HiddenCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_530C9A360166 HiddenCount
+
+: ME_530C9A36019A
+ CONST UID '530C9A36019A'
+ CONST Name 'aHost'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4771179900D8 // PChar
+ ;
+
+ @SELF
+; // ME_530C9A36019A aHost
+
+: ME_530C8ABF029E
+ CONST UID '530C8ABF029E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_530C9A3600F2 // aEVD
+ ME_530C9A360108 // aRTF
+ ME_530C9A36014E // Hidden
+ ME_530C9A360166 // HiddenCount
+ ME_530C9A36019A // aHost
+ ]
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ @SELF
+; // ME_530C8ABF029E DoIt
+
+: ME_530C8AA4024F
+ CONST UID '530C8AA4024F'
+ CONST Name 'EVDtoRTFWithoutCommentDecor'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_530C8ABF029E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_530C8AA4024F EVDtoRTFWithoutCommentDecor
+
+FORWARD ME_530C9AB60327
+
+: ME_530C9AC8017C
+ CONST UID '530C9AC8017C'
+ CONST Name 'aEVD'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_530C9AC8017C aEVD
+
+: ME_530C9AC80191
+ CONST UID '530C9AC80191'
+ CONST Name 'aRTF'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_530C9AC80191 aRTF
+
+: ME_530C9AC801CF
+ CONST UID '530C9AC801CF'
+ CONST Name 'Hidden'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47289B590038 // PLong
+ ;
+
+ @SELF
+; // ME_530C9AC801CF Hidden
+
+: ME_530C9AC801E5
+ CONST UID '530C9AC801E5'
+ CONST Name 'HiddenCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_530C9AC801E5 HiddenCount
+
+: ME_530C9AC801FA
+ CONST UID '530C9AC801FA'
+ CONST Name 'aHost'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4771179900D8 // PChar
+ ;
+
+ @SELF
+; // ME_530C9AC801FA aHost
+
+: ME_530C9AC302AF
+ CONST UID '530C9AC302AF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_530C9AC8017C // aEVD
+ ME_530C9AC80191 // aRTF
+ ME_530C9AC801CF // Hidden
+ ME_530C9AC801E5 // HiddenCount
+ ME_530C9AC801FA // aHost
+ ]
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ @SELF
+; // ME_530C9AC302AF DoIt
+
+: ME_530C9AB60327
+ CONST UID '530C9AB60327'
+ CONST Name 'EVDtoRTF'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_530C9AC302AF // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_530C9AB60327 EVDtoRTF
+
+FORWARD ME_53CD1F8A0194
+
+: ME_53CD1FB002C3
+ CONST UID '53CD1FB002C3'
+ CONST Name 'aStyleBuf'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4771179900D8 // PChar
+ ;
+
+ @SELF
+; // ME_53CD1FB002C3 aStyleBuf
+
+: ME_53CD1FB002FC
+ CONST UID '53CD1FB002FC'
+ CONST Name 'aStyleBufSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_53CD1FB002FC aStyleBufSize
+
+: ME_53CD1FA60396
+ CONST UID '53CD1FA60396'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_53CD1FB002C3 // aStyleBuf
+ ME_53CD1FB002FC // aStyleBufSize
+ ]
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ @SELF
+; // ME_53CD1FA60396 DoIt
+
+: ME_53CD1F8A0194
+ CONST UID '53CD1F8A0194'
+ CONST Name 'SetStyleTable'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53CD1FA60396 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53CD1F8A0194 SetStyleTable
+
+: ME_4B72B41502F5
+ CONST UID '4B72B41502F5'
+ CONST Name 'eeEVDtoRTF'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4B72B44A0392 // DoEVDtoRTF
+ ME_530C8AA4024F // EVDtoRTFWithoutCommentDecor
+ ME_530C9AB60327 // EVDtoRTF
+ ME_53CD1F8A0194 // SetStyleTable
+ ]
+ ; // Operations
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "no hands" true
+ CONST "started" '19.01.2009 12:11'
+
+ @SELF
+; // ME_4B72B41502F5 eeEVDtoRTF

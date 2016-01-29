@@ -1,0 +1,409 @@
+object LangDesigner: TLangDesigner
+  Left = 505
+  Top = 155
+  BorderIcons = [biSystemMenu, biMinimize]
+  Caption = 'Language Designer'
+  ClientHeight = 679
+  ClientWidth = 590
+  FormFactor.Width = 2199
+  FormFactor.Height = 1276
+  FormFactor.Devices = [dkDesktop]
+  OnCreate = FormCreate
+  Left = 505
+  Top = 155
+  DesignerMobile = False
+  DesignerWidth = 0
+  DesignerHeight = 0
+  DesignerDeviceName = ''
+  DesignerOrientation = 0
+  object ToolBar1: TToolBar
+    Align = alMostTop
+    Height = 32.000000000000000000
+    Padding.Left = 4.000000000000000000
+    Padding.Top = 4.000000000000000000
+    Padding.Right = 4.000000000000000000
+    Padding.Bottom = 4.000000000000000000
+    TabOrder = 1
+    Width = 590.000000000000000000
+    object layoutAdd: TLayout
+      Align = alClient
+      Height = 24.000000000000000000
+      Width = 582.000000000000000000
+      object btnAddLang: TButton
+        Align = alLeft
+        AutoTranslate = False
+        Height = 24.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Position.X = 290.000000000000000000
+        TabOrder = 0
+        Text = 'Add'
+        Width = 80.000000000000000000
+        OnClick = btnAddLangClick
+      end
+      object inputLang: TEdit
+        Align = alLeft
+        TabOrder = 1
+        Position.X = 180.000000000000000000
+        Width = 100.000000000000000000
+        Height = 24.000000000000000000
+      end
+      object HudLabel1: TLabel
+        Align = alLeft
+        AutoTranslate = False
+        Height = 24.000000000000000000
+        Text = 'Two letter language code:'
+        TextAlign = taTrailing
+        Width = 180.000000000000000000
+        WordWrap = False
+      end
+      object btnCancalAdd: TButton
+        Align = alLeft
+        AutoTranslate = False
+        Font.Size = 14.000000000000000000
+        Font.Style = [fsBold]
+        Height = 24.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Position.X = 400.000000000000000000
+        TabOrder = 2
+        Text = 'x'
+        Visible = False
+        Width = 29.000000000000000000
+        OnClick = btnCancalAddClick
+      end
+      object btnLoadTxt: TButton
+        Align = alLeft
+        AutoTranslate = False
+        Height = 24.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Position.X = 380.000000000000000000
+        TabOrder = 3
+        Text = 'From txt-file...'
+        Width = 117.000000000000000000
+        OnClick = btnLoadTxtClick
+      end
+    end
+    object layoutAddText: TLayout
+      Align = alClient
+      DesignVisible = False
+      Height = 24.000000000000000000
+      Visible = False
+      Width = 581.000000000000000000
+      object btnAddText: TButton
+        Align = alRight
+        AutoTranslate = False
+        Height = 24.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Position.X = 462.000000000000000000
+        TabOrder = 0
+        Text = 'Add'
+        Width = 80.000000000000000000
+        OnClick = btnAddTextClick
+      end
+      object inputAddText: TEdit
+        Align = alClient
+        TabOrder = 1
+        Width = 332.000000000000000000
+        Height = 24.000000000000000000
+      end
+      object TLabel
+        Align = alLeft
+        AutoTranslate = False
+        Height = 24.000000000000000000
+        Text = 'New original text:'
+        TextAlign = taTrailing
+        Width = 120.000000000000000000
+        WordWrap = False
+      end
+      object btnCancelAddText: TButton
+        Align = alRight
+        AutoTranslate = False
+        Font.Size = 14.000000000000000000
+        Font.Style = [fsBold]
+        Height = 24.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Position.X = 552.000000000000000000
+        TabOrder = 3
+        Text = 'x'
+        Width = 29.000000000000000000
+        OnClick = btnCancelAddTextClick
+      end
+    end
+    object layoutSelect: TLayout
+      Align = alClient
+      DesignVisible = False
+      Height = 24.000000000000000000
+      Width = 582.000000000000000000
+      object langList: TPopupBox
+        Align = alLeft
+        AutoTranslate = False
+        Height = 24.000000000000000000
+        ItemIndex = -1
+        Margins.Left = 10.000000000000000000
+        Position.X = 140.000000000000000000
+        TabOrder = 0
+        Width = 99.000000000000000000
+        OnChange = langListChange
+      end
+      object HudLabel2: TLabel
+        Align = alLeft
+        AutoTranslate = False
+        Height = 24.000000000000000000
+        Text = 'Select Language:'
+        TextAlign = taTrailing
+        Width = 130.000000000000000000
+      end
+      object btnAddNewLang: TButton
+        Align = alLeft
+        AutoTranslate = False
+        Height = 24.000000000000000000
+        Margins.Left = 20.000000000000000000
+        Position.X = 259.000000000000000000
+        TabOrder = 1
+        Text = 'Add Language...'
+        Width = 123.000000000000000000
+        OnClick = btnAddNewLangClick
+      end
+    end
+  end
+  object OriginalList: TListBox
+    Touch.InteractiveGestures = [igPan]
+    Align = alClient
+    Height = 616.000000000000000000
+    TabOrder = 0
+    Width = 540.000000000000000000
+    AlternatingRowBackground = True
+    ItemHeight = 26.000000000000000000
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    OnChange = OriginalListChange
+    object ListBoxHeader1: TListBoxHeader
+      Height = 24.000000000000000000
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 1.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 1.000000000000000000
+      Position.X = 1.000000000000000000
+      Position.Y = 1.000000000000000000
+      TabOrder = 0
+      Width = 538.000000000000000000
+      object Header1: THeader
+        Sides = [sdTop, sdLeft, sdBottom, sdRight]
+        Align = alClient
+        Height = 24.000000000000000000
+        TabOrder = 0
+        Width = 538.000000000000000000
+        OnResizeItem = Header1ResizeItem
+        object TextHeaderItem: THeaderItem
+          Height = 24.000000000000000000
+          TabOrder = 0
+          Text = 'Source'
+          Width = 297.000000000000000000
+        end
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = 'txt'
+    Filter = 'Text files|*.txt'
+    Left = 376
+    Top = 264
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = 'txt'
+    Filter = 'Text Files|*.txt'
+    Left = 448
+    Top = 264
+  end
+  object OpenDialog2: TOpenDialog
+    DefaultExt = 'lng'
+    Filter = 'Lang file|*.lng'
+    Left = 376
+    Top = 352
+  end
+  object SaveDialog2: TSaveDialog
+    DefaultExt = 'lng'
+    Filter = 'Lang file|*.lng'
+    Left = 448
+    Top = 352
+  end
+  object StatusBar1: TStatusBar
+    Align = alMostBottom
+    Height = 31.000000000000000000
+    Padding.Left = 3.000000000000000000
+    Padding.Top = 3.000000000000000000
+    Padding.Right = 3.000000000000000000
+    Padding.Bottom = 3.000000000000000000
+    Position.Y = 648.000000000000000000
+    ShowSizeGrip = False
+    Width = 590.000000000000000000
+    object btnCollect: TButton
+      Align = alLeft
+      AutoTranslate = False
+      Height = 25.000000000000000000
+      Margins.Left = 10.000000000000000000
+      Position.X = 13.000000000000000000
+      Position.Y = 3.000000000000000000
+      TabOrder = 0
+      Text = 'Scan for strings'
+      Width = 146.000000000000000000
+      OnClick = btnCollectClick
+    end
+    object btnCreateTemplate: TButton
+      Align = alLeft
+      AutoTranslate = False
+      Height = 25.000000000000000000
+      Margins.Left = 10.000000000000000000
+      Position.X = 169.000000000000000000
+      Position.Y = 3.000000000000000000
+      TabOrder = 1
+      Text = 'Create txt-file template...'
+      Width = 156.000000000000000000
+      OnClick = btnCreateTemplateClick
+    end
+    object btnLoadLng: TButton
+      Align = alLeft
+      AutoTranslate = False
+      Height = 25.000000000000000000
+      Margins.Left = 10.000000000000000000
+      Position.X = 335.000000000000000000
+      Position.Y = 3.000000000000000000
+      TabOrder = 2
+      Text = 'Load file...'
+      Width = 96.000000000000000000
+      OnClick = btnLoadLngClick
+    end
+    object btnSaveLng: TButton
+      Align = alLeft
+      AutoTranslate = False
+      Height = 25.000000000000000000
+      Margins.Left = 10.000000000000000000
+      Position.X = 441.000000000000000000
+      Position.Y = 3.000000000000000000
+      TabOrder = 3
+      Text = 'Save file...'
+      Width = 97.000000000000000000
+      OnClick = btnSaveLngClick
+    end
+  end
+  object Layout1: TLayout
+    Align = alMostRight
+    Height = 616.000000000000000000
+    Position.X = 540.000000000000000000
+    Position.Y = 32.000000000000000000
+    Width = 50.000000000000000000
+    object btnAddItem: TButton
+      AutoTranslate = False
+      Font.Size = 24.000000000000000000
+      Font.Style = [fsBold]
+      StyledSettings = [ssFamily, ssStyle, ssFontColor]
+      Height = 33.000000000000000000
+      Position.X = 13.000000000000000000
+      Position.Y = 16.000000000000000000
+      TabOrder = 0
+      Text = '+'
+      Width = 29.000000000000000000
+      OnClick = btnAddItemClick
+    end
+    object btnRemoveItem: TButton
+      AutoTranslate = False
+      Font.Size = 24.000000000000000000
+      Font.Style = [fsBold]
+      StyledSettings = [ssFamily, ssStyle, ssFontColor]
+      Height = 33.000000000000000000
+      Position.X = 13.000000000000000000
+      Position.Y = 56.000000000000000000
+      TabOrder = 1
+      Text = '-'
+      Width = 29.000000000000000000
+      OnClick = btnRemoveItemClick
+    end
+  end
+  object StyleBook1: TStyleBook
+    Resource.Strings = (
+      'object TStyleContainer'
+      '  object TLayout'
+      '    StyleName = '#39'langitem'#39
+      '    Height = 34.000000000000000000'
+      '    Position.X = 471.000000000000000000'
+      '    Position.Y = 550.000000000000000000'
+      '    Width = 530.000000000000000000'
+      '    object TText'
+      '      StyleName = '#39'text'#39
+      '      Align = alLeft'
+      '      Color = claBlack'
+      '      Height = 34.000000000000000000'
+      '      HitTest = False'
+      '      HorzTextAlign = taLeading'
+      '      Margins.Left = 5.000000000000000000'
+      '      Position.X = 5.000000000000000000'
+      '      Text = '#39'Text'#39
+      '      Trimming = ttCharacter'
+      '      Width = 174.000000000000000000'
+      '    end'
+      '    object TEdit'
+      '      StyleName = '#39'translate'#39
+      '      Align = alClient'
+      '      TabOrder = 1'
+      '      Width = 349.000000000000000000'
+      '      Height = 30.000000000000000000'
+      '      Margins.Top = 2.000000000000000000'
+      '      Margins.Right = 2.000000000000000000'
+      '      Margins.Bottom = 2.000000000000000000'
+      '    end'
+      '  end'
+      '  object TLayout'
+      '    StyleName = '#39'langtextbox'#39
+      '    DesignVisible = False'
+      '    Height = 24.000000000000000000'
+      '    Position.X = 690.000000000000000000'
+      '    Position.Y = 555.000000000000000000'
+      '    Width = 91.000000000000000000'
+      '    object TRectangle'
+      '      StyleName = '#39'background'#39
+      '      Align = alContents'
+      '      Fill.Color = x8DFFFFFF'
+      '      Locked = True'
+      '      Height = 24.000000000000000000'
+      '      HitTest = False'
+      '      Stroke.Kind = bkNone'
+      '      XRadius = 6.000000000000000000'
+      '      YRadius = 6.000000000000000000'
+      '      Width = 91.000000000000000000'
+      '      object TColorAnimation'
+      '        Duration = 0.200000002980232200'
+      '        PropertyName = '#39'Fill.Color'#39
+      '        StartValue = x8DFFFFFF'
+      '        StopValue = xA3FFFFFF'
+      '        Trigger = '#39'IsFocused=true'#39
+      '      end'
+      '      object TColorAnimation'
+      '        Duration = 0.200000002980232200'
+      '        PropertyName = '#39'Fill.Color'#39
+      '        StartValue = xA3FFFFFF'
+      '        StopValue = x8DFFFFFF'
+      '        Trigger = '#39'IsFocused=false'#39
+      '      end'
+      '    end'
+      '    object TContent'
+      '      StyleName = '#39'content'#39
+      '      Align = alContents'
+      '      Locked = True'
+      '      Height = 20.000000000000000000'
+      '      HitTest = False'
+      '      Margins.Left = 6.000000000000000000'
+      '      Margins.Top = 2.000000000000000000'
+      '      Margins.Right = 6.000000000000000000'
+      '      Margins.Bottom = 2.000000000000000000'
+      '      Width = 79.000000000000000000'
+      '    end'
+      '    object TBrushObject'
+      '      StyleName = '#39'foreground'#39
+      '      Brush.Color = xFF020202'
+      '    end'
+      '  end'
+      'end')
+    Left = 208
+    Top = 312
+  end
+end

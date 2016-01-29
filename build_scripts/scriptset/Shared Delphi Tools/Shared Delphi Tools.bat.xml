@@ -1,0 +1,383 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE ru.garant.extensions SYSTEM "../../ru.garant/extensions.dtd">
+
+<project
+	name = "scriptset.Shared Delphi Tools"
+	basedir = "."
+	default = "default"
+>
+
+<!-- external uses { -->
+		&ru.garant.extensions.properties.cppBuildMaxCyclesCount;
+		&ru.garant.extensions.properties.cvsRoot;
+		&ru.garant.extensions.properties.cvsUpdateMaxCyclesCount;
+		&ru.garant.extensions.properties.externalMountPath;
+		&ru.garant.extensions.properties.externalMountRoot;
+		&ru.garant.extensions.properties.signDescription;
+		&ru.garant.extensions.properties.signDescriptionURL;
+		&ru.garant.extensions.properties.signSHA1;
+		&ru.garant.extensions.properties.signTargetMaxCyclesCount;
+		&ru.garant.extensions.properties.signTimestampServer;
+		&ru.garant.extensions.properties.wixLibRoot;
+		&ru.garant.extensions.properties.workRootDir;
+		&ru.garant.extensions.scriptdefs.buildCppTarget;
+		&ru.garant.extensions.scriptdefs.buildWixTarget;
+		&ru.garant.extensions.scriptdefs.cleanupCppBuilds;
+		&ru.garant.extensions.scriptdefs.cleanupAllFiles;
+		&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
+		&ru.garant.extensions.scriptdefs.copyFile;
+		&ru.garant.extensions.scriptdefs.copyDirToDir;
+		&ru.garant.extensions.scriptdefs.copyCppTarget;
+		&ru.garant.extensions.scriptdefs.createFile;
+		&ru.garant.extensions.scriptdefs.removeFile;
+		&ru.garant.extensions.scriptdefs.mountResource;
+		&ru.garant.extensions.scriptdefs.unmountResource;
+		&ru.garant.extensions.scriptdefs.setCvsTagByList;
+		&ru.garant.extensions.scriptdefs.updateCvsByList;
+		&ru.garant.extensions.scriptdefs.signTarget;
+<!-- } external uses -->
+
+<!-- properties { -->
+	<property
+		name = "properties.buildOutputMountPath"
+		value = "\\10.0.1.155\Shared Delphi Tools"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot"
+		value = "N:"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot.deploymentCatalog"
+		value = "${properties.buildOutputMountRoot}/deployment"
+	/>
+
+	<property
+		name = "properties.buildRoot"
+		value = "${ru.garant.extensions.properties.workRootDir}/build"
+	/>
+
+	<property
+		name = "properties.buildSuccessFile"
+		value = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/!success"
+	/>
+
+	<property
+		name = "properties.cvsDirsetListForTagging"
+		value = "build_scripts,Shared Delphi Tools,shared"
+	/>
+
+	<property
+		name = "properties.cvsDirsetListForUpdate"
+		value = "Shared Delphi Tools,shared"
+	/>
+
+	<property
+		name = "properties.cvsRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+
+	<property
+		name = "properties.externalMountPath"
+		value = "${ru.garant.extensions.properties.externalMountPath}"
+	/>
+
+	<property
+		name = "properties.externalMountRoot"
+		value = "${ru.garant.extensions.properties.externalMountRoot}"
+	/>
+
+<!-- } properties -->
+
+<!-- conditions { -->
+	<condition property = "disable-buildCppTargets.winNT">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-buildCppTargets.winNT-garsock">
+		<isset property = "disable-buildCppTargets.winNT"/>
+	</condition>
+
+	<condition property = "disable-copyCppOtherFilesToDeploymentCatalog">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock">
+		<isset property = "disable-buildCppTargets.winNT-garsock"/>
+	</condition>
+
+	<condition property = "disable-copyWixTargetsToDeploymentCatalog">
+		<isset property = "disable-buildWixTargets"/>
+	</condition>
+<!-- } conditions -->
+
+<!-- targets { -->
+
+<!-- ********** TARGET buildCppTargets ********** -->
+	<target
+		name = "buildCppTargets"
+		depends = "copyCppTargetsToDeploymentCatalog.winNT-garsock,copyCppOtherFilesToDeploymentCatalog"
+		unless = "disable-buildCppTargets"
+	>
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF buildCppTargets -->
+	
+<!-- ********** TARGET copyCppTargetsToDeploymentCatalog.winNT-garsock ********** -->
+	<target
+		name = "copyCppTargetsToDeploymentCatalog.winNT-garsock"
+		depends = "buildCppTargets.winNT-garsock"
+		unless = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF copyCppTargetsToDeploymentCatalog.winNT-garsock -->
+
+<!-- ********** TARGET buildCppTargets.winNT-garsock ********** -->
+	<target
+		name = "buildCppTargets.winNT-garsock"
+		depends = "updateCvs"
+		unless = "disable-buildCppTargets.winNT-garsock"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF buildCppTargets.winNT-garsock -->
+
+<!-- ********** TARGET buildWixTargets ********** -->
+	<target
+		name = "buildWixTargets"
+		depends = "signCppTargets"
+		unless = "disable-buildWixTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF buildWixTargets -->
+	
+<!-- ********** TARGET createSuccessFile ********** -->
+	<target
+		name = "createSuccessFile"
+    depends = "setCvsTag"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.createFile
+			file.name = "${properties.buildSuccessFile}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF buildWixTargets -->
+
+<!-- ********** TARGET copyCppOtherFilesToDeploymentCatalog ********** -->
+	<target
+		name = "copyCppOtherFilesToDeploymentCatalog"
+		depends = "updateCvs"
+		unless = "disable-copyCppOtherFilesToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+	
+	
+		
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF copyCppOtherFilesToDeploymentCatalog -->
+
+<!-- ********** TARGET copyWixTargetsToDeploymentCatalog ********** -->
+	<target
+		name = "copyWixTargetsToDeploymentCatalog"
+		depends = "buildWixTargets"
+		unless = "disable-copyWixTargetsToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF copyWixTargetsToDeploymentCatalog -->
+
+<!-- ********** TARGET default ********** -->
+	<target
+		name = "default"
+		depends = "createSuccessFile,setCvsTag"
+	>
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF default -->
+
+<!-- ********** TARGET removeSuccessFile ********** -->
+	<target
+		name = "removeSuccessFile"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.removeFile
+			file.name = "${properties.buildSuccessFile}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF removeSuccessFile -->
+
+<!-- ********** TARGET setCvsTag ********** -->
+	<target
+		name = "setCvsTag"
+		depends = "removeSuccessFile,copyWixTargetsToDeploymentCatalog"
+		unless = "disable-setCvsTag"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.setCvsTagByList
+			cvs.dirset.list = "${properties.cvsDirsetListForTagging}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+
+			cvs.tag.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/!cvs_tag"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF setCvsTag -->
+
+<!-- ********** TARGET signCppTargets ********** -->
+	<target
+		name = "signCppTargets"
+		depends = "buildCppTargets"
+		unless = "disable-signCppTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF signCppTargets -->
+
+<!-- ********** TARGET updateCvs ********** -->
+	<target
+		name = "updateCvs"
+		unless = "disable-updateCvs"
+	>
+		<ru.garant.extensions.scriptdefs.updateCvsByList
+			cvs.dirset.list = "${properties.cvsDirsetListForUpdate}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target>
+<!-- END OF updateCvs -->
+
+<!-- } targets -->
+
+</project> <!-- // scriptset.MDProcess -->

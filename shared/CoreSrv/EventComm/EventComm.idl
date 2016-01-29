@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/CoreSrv/EventComm/EventComm.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> shared::CoreSrv::EventComm
+//
+// коммуникационные распределенные типы и интерфейсы для подсистемы Событий
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___EVENTCOMM_IDL__
+#define ___EVENTCOMM_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#pragma prefix "garant.ru"
+
+module CoreSrv {
+
+module EventComm {
+	// не удалось создать канал
+	exception CreateChannelFailed {
+	};
+
+	// Менеджер каналов событий, нужен для создания корбовских каналов событий и регистрации их в
+	// NameService. Экземпляр данного интерфейса должен быть создан и зарегестирован в NameService там
+	// же где и создаётся NameService.
+	interface EventChannelManager {
+		// Создаёт корбовский канал (если он не был создан до этого) и регестирует его в NameService
+		void create_channel (in string channel_name)
+			raises (CreateChannelFailed);
+	};
+
+	// factory manager server interface for EventChannelManager
+	interface EventChannelManagerFactoryManagerSrv {
+		// фабрика для получения менеджера
+		EventChannelManager get ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	// некоторые константы для работы с сервисом
+	// идентификатор тип события с которого должны начинаться пользовательские события
+	const long ES_EVENT_UNDEFINED = 16;
+	// любой тип события
+	const long ES_EVENT_ANY = 0;
+	// любой источник события
+	const long ES_EVENT_SOURCE_ANY = 0;
+	// идентифкатор группы в которой правила объединяются пол логическому ИЛИ.
+	const long ES_DISJUNCTION_DESIGNATOR = 9;
+};
+}; // module CoreSrv
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

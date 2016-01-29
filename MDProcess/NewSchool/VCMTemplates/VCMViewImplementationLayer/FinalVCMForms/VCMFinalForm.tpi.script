@@ -1,0 +1,77 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FinalVCMForms/VCMFinalForm.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FinalVCMForms::VCMFinalForm
+//
+// Финальная форма
+// ---
+// Форма, реально отображаемая пользователю. Такие формы группируются в пачки форм из которых
+// составляется приложение.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMFinalForm::Class
+implementation @ <<VCMFinalForm>>
+//? Финальная форма
+//? Форма, реально отображаемая пользователю. Такие формы группируются в пачки форм из которых составляется приложение.
+//= VCMForm::Class
+//= FormNamePrefixHolder::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v #+-
+// - типы видимости
+//a f
+// - тип абстракции
+// Параметры визуализации
+//$ C 228,135,213
+//$ l 194,10,241
+//$ f 194,10,241
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[VCMForm::Class]f_wiki_up_print()[{"%S{form name prefix}"!="%S{!form name prefix}"}%f_up_prefix(%S) *form name prefix* = *%S{form name prefix}* - Префикс имени формы. Для поддержки старых настроек
+ call-inherited:: 'VCMForm' wiki_up_print %( )%
+ if ( ( %S get_up ( 'form name prefix' ) ) %!= ( %S get_up_def ( 'form name prefix' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *form name prefix* = *'
+  %S get_up ( 'form name prefix' ) '* - Префикс имени формы. Для поддержки старых настроек'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа VCMForm::Class
+//%f _IsVCMFinalForm
+; // wiki_up_print
+
+: IsVCMFinalForm OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B5F28CD00A9for498B000A00E4*
+//	true
+ true
+//#UC END# *4B5F28CD00A9for498B000A00E4*
+; // IsVCMFinalForm
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMFinalForm>>
+

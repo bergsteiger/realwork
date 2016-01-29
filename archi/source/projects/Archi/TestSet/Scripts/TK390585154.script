@@ -1,0 +1,15 @@
+USES
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Выделить диапазон ячеек и объединить"
+	1 0 1 1 focused:control:push pop:editor:SelectCells
+	ed_maAll focused:control:push pop:editor:MergeCells
+;
+
+Тест TK336667714
+  	Параметры: ( "Курсор вниз на {(1)}строку" "Размеры для проверки отрисованного"  "Эталон отрисованного" ) 
+	Выполнить ( "Выделить диапазон ячеек и объединить" )
+;
+
+TK336667714

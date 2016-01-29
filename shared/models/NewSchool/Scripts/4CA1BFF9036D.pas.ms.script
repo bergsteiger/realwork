@@ -1,0 +1,63 @@
+// Contents_int 4CA1BFF9036D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA1BFF9036D
+
+: ME_4CA1C00E03B3
+ CONST UID '4CA1C00E03B3'
+ CONST GUID 'E2284957-394E-44C4-85EE-69FD82DD9D56'
+ CONST Name 'IServerGate_Contents_KPage'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CA1BFF9036D // Contents_int
+ ;
+
+ref; // ME_4CA1C00E03B3 IServerGate_Contents_KPage
+
+: ME_4CA1D48F0229
+ CONST UID '4CA1D48F0229'
+ CONST GUID '79180EA5-C291-4CB7-9000-29EFC7E58725'
+ CONST Name 'IServerGate_Contents_KPageFactoryManagerSrv'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CA1BFF9036D // Contents_int
+ ;
+
+ref; // ME_4CA1D48F0229 IServerGate_Contents_KPageFactoryManagerSrv
+
+: ME_4CA1BFF9036D
+ CONST UID '4CA1BFF9036D'
+ CONST Name 'Contents_int'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CA1BFBC0259' '4CA1BFBC0259.pas.ms.script' // ServerGate
+ ;
+ : Children
+   @ ( ME_4CA1C00E03B3 // IServerGate_Contents_KPage
+ ME_4CA1D48F0229 // IServerGate_Contents_KPageFactoryManagerSrv
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ServerGate\NOT_FINISHED_Contents_int.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA1BFF9036D.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA1BFF9036D.pas.ms.script.runner'
+
+ref; // ME_4CA1BFF9036D Contents_int

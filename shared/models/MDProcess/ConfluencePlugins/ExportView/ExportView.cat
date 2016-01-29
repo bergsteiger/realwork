@@ -1,0 +1,134 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "ExportView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/ExportView|495240370039
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (vm)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19027467204"))
+    quid       	"495240370039"
+    documentation 	"ñîäåðæèò øàáëîíû ðàçìåòêè äëÿ ñòðàíèö ýêñïîðòà èç Ê"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "exportpagefull"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/ExportView/exportpagefull|495249B70117
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/ExportView/exportpagefull.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*495249B70117_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*495249B70117_CUSTOM_CONTENT*¤¤#requireResource("legacy.confluence.web.resources:prototype")¤<script>¤function checkAll(){¤	checkAllCheckBoxes($$("input[name='contentToBeExported']"));¤}¤¤function clearAll(){¤	clearAllCheckBoxes($$("input[name='contentToBeExported']"));¤}¤</script>¤#macro (displayPageHierarchyWithCheckboxes $contentTree $checkboxName)¤    #foreach ($rootNode in $contentTree.getRootNodes())¤        #displayPageHierarchyWithCheckboxesHelper($rootNode $checkboxName)¤    #end¤#end¤¤#macro (displayPageHierarchyWithCheckboxesHelper $node $checkboxName)¤    <li style="list-style:none">¤        <input type="checkbox" name="$checkboxName" value="$node.getPage().getId()" checked="checked" style="vertical-align: middle" />¤        <label class="label">#contentLink2($node.getPage() false false)</label>¤        #foreach ($childNode in $node.children)¤            <ul style="list-style:none; margin: 0px">¤            #displayPageHierarchyWithCheckboxesHelper($childNode $checkboxName)¤            </ul>¤        #end¤    </li>¤#end¤¤<html>¤¤	<head>¤		<title>$garHelper.getText("title.export.page")</title>¤    </head>¤¤        <body>¤			<div style="margin: 0px 10px 0px 10px">¤                <p>¤                    $garHelper.getText("text.description.export.page", ["#contentLink2($action.page false false)"])¤                <p>¤¤                    #parse ( "/template/includes/actionerrors.vm" )¤¤                    #if ($actionErrors.size() == 0)¤                        <div align="center">¤		        #if (!$fieldErrors.isEmpty())¤		            #fielderror('content')¤  	                #end¤¤                            <table class="grid" width="100%">¤                                <form name="exportspaceform" method="POST" action="doexportpagepdffull.action?pageId=${pageId}">¤									<tr align="left">¤                                        <td colspan="2" class="infocell">¤                                            <b>1.</b> $garHelper.getText("select.output.type")¤                                        </td>¤                                    </tr>¤                                    <tr align="left">¤                                        <td align="right" valign="top"><b>$garHelper.getText("output-types")</b></td>¤                                        <td>¤                                    #tag( "Radio" "name='exportType'" "value=availableTypes[0].value" "list=availableTypes" "listKey=key" "listValue=value" "theme='notable'" "template='radiolist.vm'")¤                                        </td>¤                                    </tr>¤                                    #if( $action.spaceHasPages() )¤                                        <tr align="left">¤                                            <td colspan="2" class="infocell">¤                                                <b>2.</b> $garHelper.getText("select.export.pages")&nbsp;&nbsp;&nbsp;¤                                                <a href="javascript:checkAll();">$garHelper.getText("check-all")</a> -¤                                                <a href="javascript:clearAll();">$garHelper.getText("clear-all")</a>¤                                            </td>¤                                        </tr>¤                                        <tr align="left">¤                                            <td align="right"><b>$garHelper.getText("pages.to.be.exported")</b></td>¤                                            <td align="left">¤												<input type="hidden" id="filterId" name="filterIds" value=""/>¤												<input type="hidden" id="filterExclusiveId" name="filterIds" value=""/> 												¤												<script language="javascript">¤												function setCheckFilter(e, exclusive) {¤													if(exclusive == false) {¤														$('filterId').value = e;¤													} else {¤														$('filterExclusiveId').value == '' ? $('filterExclusiveId').value = e : $('filterExclusiveId').value = '';¤													}¤												}¤												</script>¤												¤												#set($filterWithHelpTooltip = false)¤												#set($filterPanel = $action.filter)¤												#set($filterCellStyle = "border: 0; padding:3px;")¤												#set($needToMark = true)¤												#parse ( "/ConfluencePlugins/PageView/selectpage-filter.vm" )											¤											</td>¤                                        </tr>¤										<tr>¤											<td></td>¤											<td>¤                                                <table width="100%" border="0">¤                                                    #displayPageHierarchyWithCheckboxes($contentTree 'contentToBeExported')¤                                                </table>¤                                            </td>¤										</tr>¤                                    #end¤¤                                    <tr>¤                                        <td colspan="2" align="center">¤                                            #tag ("Submit" "name='confirm'" "value='export.name'" "theme='notable'" )¤                                            #tag ("Submit" "name='cancel'" "value='cancel.name'" "theme='notable'" )¤                                        </td>¤                                    </tr>¤¤                                </form>¤                            </table>¤                        </div>¤                   #end¤				</div>¤        </body>¤</html>¤¤##UC_END*495249B70117_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039140861"))
+	    quid       	"495249B70117"
+	    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"495249B40154"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::ExportView::exportpagefull" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(609, 504)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(465, 475)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	288
+			justify    	0
+			label      	"exportpagefull")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(465, 425)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	288
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"495249B70117"
+		    width      	306
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)))))

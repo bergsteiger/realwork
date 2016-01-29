@@ -1,0 +1,750 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Interface/LocalConst.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Interface::LocalConst
+//
+// Локализуемые константы
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: LocalConst::Class
+implementation @ <<LocalConst>>
+//? Локализуемые константы
+//> Message::Class
+
+//= Constants::Class
+//= WikiImplClass::Class
+//= ValueMapper::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v -+
+// - типы видимости
+//a f
+// - тип абстракции
+// Параметры визуализации
+//$ C 192,255,255
+//$ l 104,131,139
+//$ f 104,131,139
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Constants::Class]f_wiki_up_print()[{"%S{Need mapping support}"!="%S{!Need mapping support}"}%f_up_prefix(%S) *Need mapping support* = *%S{Need mapping support}* - Нужно ли генерировать поддержку для мапинга значений
+ call-inherited:: 'Constants' wiki_up_print %( )%
+ if ( ( %S get_up ( 'Need mapping support' ) ) %!= ( %S get_up_def ( 'Need mapping support' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need mapping support* = *'
+  %S get_up ( 'Need mapping support' ) '* - Нужно ли генерировать поддержку для мапинга значений'
+//	][{"%S{Need map interface}"!="%S{!Need map interface}"}%f_up_prefix(%S) *Need map interface* = *%S{Need map interface}* - Нужна ли реализация интерфейса мапы
+ end // if
+ if ( ( %S get_up ( 'Need map interface' ) ) %!= ( %S get_up_def ( 'Need map interface' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need map interface* = *'
+  %S get_up ( 'Need map interface' ) '* - Нужна ли реализация интерфейса мапы'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4B386A11030E*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4B386A11030E*
+; // constraint
+
+
+// перекрытие базового стереотипа Constants::Class
+//%f _WikiGParam
+: WikiGParam OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4E09A34F0037for4B386A11030E*
+//	%SU
+ %S |U 
+//#UC END# *4E09A34F0037for4B386A11030E*
+; // WikiGParam
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4B386A11030E*
+//	%S%[inherited]\
+ inherited
+//	[{"%{Tl3StringIDEx}N"=""}%f_find_element(Tl3StringIDEx,Tl3StringIDEx)]\
+ if ( ( ( get_global_var ( 'Tl3StringIDEx' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( 'Tl3StringIDEx' %, 'Tl3StringIDEx' )% 
+ end // if
+//	[{"%{Tl3MessageID}N"=""}%f_find_element(Tl3MessageID,Tl3MessageID)]\
+ if ( ( ( get_global_var ( 'Tl3MessageID' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( 'Tl3MessageID' %, 'Tl3MessageID' )% 
+ end // if
+//	[{"%{Dialogs}N"=""}%f_find_element(4AB0EE02004E,Dialogs)]\
+ if ( ( ( get_global_var ( 'Dialogs' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( '4AB0EE02004E' %, 'Dialogs' )% 
+ end // if
+
+//	<{}{%C#f_IsMessage()=true}\
+//	%C<{}{%C#f_IsChoices()=true}\
+//	%C%f_DoSpell()>\
+//	>\
+
+//	%f_set_var(FOUND,"false")\
+ [%f] set_var %( 'FOUND' %, false )% 
+//	%f_set_var(PARENT,"")\
+ [%f] set_var %( 'PARENT' %, '' )% 
+//	<{}{%P#f_IsClassBase()=true|%P#f_IsUtilityPack()=true}{%P}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%P
+ begin
+  OBJECT IN %P
+  if ( ( %P %?f IsClassBase %( )% ) %==  true OR 
+   ( ( %P %?f IsUtilityPack %( )% ) %==  true  ) ) then
+  begin
+//	[{%{FOUND}N=false}\
+   if ( ( ( get_global_var ( 'FOUND' ) |N ) ) %==  false ) then
+   begin
+//	%f_set_var(FOUND,"true")\
+    [%f] set_var %( 'FOUND' %, true )% 
+//	%f_set_var(PARENT,P)\
+    [%f] set_var %( 'PARENT' %, 'P' )% 
+//	]\
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for P
+
+//	%{PARENT}%f_make_accessable(%{Tl3StringIDEx}U)\
+ ( get_global_var ( 'PARENT' ) %f make_accessable %( ( get_global_var ( 'Tl3StringIDEx' ) |U ) )% ) 
+//	%{PARENT}%f_make_accessable(%{Tl3MessageID}U)\
+ ( get_global_var ( 'PARENT' ) %f make_accessable %( ( get_global_var ( 'Tl3MessageID' ) |U ) )% ) 
+//	[{%{PARENT}C=Class}\
+ if ( ( ( get_global_var ( 'PARENT' ) |C ) ) %== 'Class' ) then
+ begin
+//	%f_addCDep(%{PARENT},%{Tl3StringIDEx})\
+  [%f] addCDep %( ( get_global_var ( 'PARENT' ) ) %, ( get_global_var ( 'Tl3StringIDEx' ) ) )% 
+//	%f_addCDep(%{PARENT},%{Tl3MessageID})\
+  [%f] addCDep %( ( get_global_var ( 'PARENT' ) ) %, ( get_global_var ( 'Tl3MessageID' ) ) )% 
+//	]\
+ end // if
+//	%{PARENT}%f_add_class(%SU_%{Tl3StringIDEx}U_LCImpl,Constants,LCImpl[{%S#f_IsChoices()=true}_%PN_]%SN,LocalConst_Inst)\
+ ( get_global_var ( 'PARENT' ) %f add_class %( %S |U '_'
+ ( get_global_var ( 'Tl3StringIDEx' ) |U ) '_LCImpl' %, 'Constants' %, 'LCImpl'
+ if ( ( %S %?f IsChoices %( )% ) %==  true ) then
+ begin
+  '_'
+  %P |N '_' 
+ end // if
+ %S |N %, 'LocalConst_Inst' )% ) 
+//	%{LocalConst_Inst}%f_set_visibility_type(%SV)\
+ ( get_global_var ( 'LocalConst_Inst' ) %f set_visibility_type %( %S |V )% ) 
+
+//	[{%S#f_IsChoices()=true}{\
+ if ( ( %S %?f IsChoices %( )% ) %==  true ) then
+ begin
+//	%{LocalConst_Inst}%f_set_documentation(Варианты выбора для диалога %PN)\
+  ( get_global_var ( 'LocalConst_Inst' ) %f set_documentation %( 'Варианты выбора для диалога '
+  %P |N )% ) 
+//	]\
+ end // if
+ else
+ begin
+//	%{LocalConst_Inst}%f_set_documentation(Локализуемые строки %SN)\
+  ( get_global_var ( 'LocalConst_Inst' ) %f set_documentation %( 'Локализуемые строки '
+  %S |N )% ) 
+//	}\
+ end // else
+
+//	%{LocalConst_Inst}%f_set_up(TreatAsVars,true)\
+ ( get_global_var ( 'LocalConst_Inst' ) %f set_up %( 'TreatAsVars' %, true )% ) 
+// - шаманство, чтобы превратить константы в переменные
+//	%{LocalConst_Inst}%f_set_up(ifdef,%S{ifdef})\
+ ( get_global_var ( 'LocalConst_Inst' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
+//	%{LocalConst_Inst}%f_set_up(ifndef,%S{ifndef})\
+ ( get_global_var ( 'LocalConst_Inst' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
+//	%{LocalConst_Inst}%f_set_up(children prefix,%S{children prefix})\
+ ( get_global_var ( 'LocalConst_Inst' ) %f set_up %( 'children prefix' %, %S get_up ( 'children prefix' ) )% ) 
+//	%{LocalConst_Inst}%f_set_up(elements prefix,str[_%S{elements prefix}])\
+ ( get_global_var ( 'LocalConst_Inst' ) %f set_up %( 'elements prefix' %, 'str'
+ if NOT-EMPTY
+ begin
+  '_'
+  %S get_up ( 'elements prefix' ) 
+ end // if
+ NOP
+)% ) 
+//	%f_set_var(WAS_USES_TO_DIALOGS,"false")\
+ [%f] set_var %( 'WAS_USES_TO_DIALOGS' %, false )% 
+
+//	<{}{}{%C}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+
+
+//	[{%C#f_IsMessage()=true}{\
+   if ( ( %C %?f IsMessage %( )% ) %==  true ) then
+   begin
+//	[{%{WAS_USES_TO_DIALOGS}N!=true}\
+    if ( ( ( get_global_var ( 'WAS_USES_TO_DIALOGS' ) |N ) ) %!=  true ) then
+    begin
+//	%{PARENT}%f_make_accessable(%{Dialogs}U)\
+     ( get_global_var ( 'PARENT' ) %f make_accessable %( ( get_global_var ( 'Dialogs' ) |U ) )% ) 
+//	%f_set_var(WAS_USES_TO_DIALOGS,"true")\
+     [%f] set_var %( 'WAS_USES_TO_DIALOGS' %, true )% 
+//	%f_addCDep(%{PARENT},%{Dialogs})\
+     [%f] addCDep %( ( get_global_var ( 'PARENT' ) ) %, ( get_global_var ( 'Dialogs' ) ) )% 
+//	]\
+    end // if
+//	%f_set_var(CONST_TYPE,{Tl3MessageID})\
+    [%f] set_var %( 'CONST_TYPE' %, '{Tl3MessageID}' )% 
+//	]\
+   end // if
+   else
+   begin
+//	%f_set_var(CONST_TYPE,{Tl3StringIDEx})\
+    [%f] set_var %( 'CONST_TYPE' %, '{Tl3StringIDEx}' )% 
+//	}\
+   end // else
+
+
+//	%{LocalConst_Inst}%f_add_attribute(%{LocalConst_Inst}U_%CU_Impl,,%C#f_AdditionalPrefix()%f_N(%C) :\
+   ( get_global_var ( 'LocalConst_Inst' ) %f add_attribute %( ( get_global_var ( 'LocalConst_Inst' ) |U ) '_'
+   %C |U '_Impl' %, '' %, %C %?f AdditionalPrefix %( )% [%f] N %( %C )% ' :'
+//	 %{CONST_TYPE}U = (rS : -1; rLocalized : false;\
+   ' '
+   ( get_global_var ( 'CONST_TYPE' ) |U ) ' = (rS : -1; rLocalized : false;'
+//	 rKey : '%C%f_pas_Prefix()%C#f_AdditionalPrefix()%f_N(%C)';\
+   ' rKey : '''
+   %C %f pas_Prefix %( )% %C %?f AdditionalPrefix %( )% [%f] N %( %C )% ''';'
+//	 rValue : \
+   ' rValue : '
+
+
+//	[{"%CD"=""|%C#f_CanUseDocAsValue()!=true}{\
+   if ( ( %C |D ) %== '' OR 
+     ( ( %C %?f CanUseDocAsValue %( )% ) %!=  true  ) ) then
+   begin
+//	[{"%C{Value}"=""}{\
+    if ( ( %C get_up ( 'Value' ) ) %== '' ) then
+    begin
+//	%C%VN\
+     %C ->V |N  
+//	]\
+    end // if
+    else
+    begin
+//	%C{Value}\
+     %C get_up ( 'Value' ) 
+//	}\
+    end // else
+//	]\
+   end // if
+   else
+   begin
+
+//                 ^ - ибо UserType'ы неправильно выливаются
+//	%CD\
+    %C |D 
+//	}\
+   end // else
+
+
+//	),Attr_Inst)\
+   ')' %, 'Attr_Inst' )% ) 
+
+//	%{Attr_Inst}%f_set_visibility_type(%CV)\
+   ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( %C |V )% ) 
+//	%{Attr_Inst}%f_set_documentation([{}{%C{Value}}[{}{%C%VN}%CD]])\
+   ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( if NOT-EMPTY
+   begin
+    if NOT-EMPTY
+    begin
+     %C |D 
+    end // if
+    NOP
+    else
+    begin
+     %C ->V |N  
+    end // else
+   end // if
+   NOP
+   else
+   begin
+    %C get_up ( 'Value' ) 
+   end // else
+)% ) //	%{Attr_Inst}%f_set_up(ifdef,%C{ifdef})\
+   ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
+//	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
+   ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
+//	%{PARENT}%f_add_operation(%CU_Init,ini,Init_%f_N(%{Attr_Inst}) (),Op_Instance)\
+   ( get_global_var ( 'PARENT' ) %f add_operation %( %C |U '_Init' %, 'ini' %, 'Init_'
+   [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% ' ()' %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Инициализация %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}))\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Инициализация '
+   ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+   ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+
+//	[{"%S{ifdef}"!=""}{\
+   if ( ( %S get_up ( 'ifdef' ) ) %!= '' ) then
+   begin
+//	[{"%C{ifdef}"!=""}{\
+    if ( ( %C get_up ( 'ifdef' ) ) %!= '' ) then
+    begin
+//	%f_set_var(IFDEF_VALUE,"%S{ifdef},%C{ifdef}")\
+     [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifdef' ) %, %C get_up ( 'ifdef' ) )% 
+//	]\
+    end // if
+    else
+    begin
+//	%f_set_var(IFDEF_VALUE,"%S{ifdef}")\
+     [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifdef' ) )% 
+//	}\
+    end // else
+//	]\
+   end // if
+   else
+   begin
+//	%f_set_var(IFDEF_VALUE,"%C{ifdef}")\
+    [%f] set_var %( 'IFDEF_VALUE' %, %C get_up ( 'ifdef' ) )% 
+//	}\
+   end // else
+
+
+//	%{Op_Instance}%f_set_up(ifdef,%{IFDEF_VALUE}N)\
+   ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifdef' %, ( get_global_var ( 'IFDEF_VALUE' ) |N ) )% ) 
+
+//	[{"%S{ifndef}"!=""}{\
+   if ( ( %S get_up ( 'ifndef' ) ) %!= '' ) then
+   begin
+//	[{"%C{ifndef}"!=""}{\
+    if ( ( %C get_up ( 'ifndef' ) ) %!= '' ) then
+    begin
+//	%f_set_var(IFDEF_VALUE,"%S{ifndef},%C{ifndef}")\
+     [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifndef' ) %, %C get_up ( 'ifndef' ) )% 
+//	]\
+    end // if
+    else
+    begin
+//	%f_set_var(IFDEF_VALUE,"%S{ifndef}")\
+     [%f] set_var %( 'IFDEF_VALUE' %, %S get_up ( 'ifndef' ) )% 
+//	}\
+    end // else
+//	]\
+   end // if
+   else
+   begin
+//	%f_set_var(IFDEF_VALUE,"%C{ifndef}")\
+    [%f] set_var %( 'IFDEF_VALUE' %, %C get_up ( 'ifndef' ) )% 
+//	}\
+   end // else
+
+
+//	%{Op_Instance}%f_set_up(ifndef,%{IFDEF_VALUE}N)\
+   ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifndef' %, ( get_global_var ( 'IFDEF_VALUE' ) |N ) )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	 %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}).Init;\
+   ' '
+   ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% '.Init;'
+//	%C%f_AdditionalInitCode("%{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst})")\
+   %C %f AdditionalInitCode %( ( get_global_var ( 'Attr_Inst' ) %f pas_Prefix %( )% ) [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% )% 
+//	)\
+)% ) //	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	[{%Gx=true}\
+ if ( ( %G |x ) %==  true ) then
+ begin
+//	%{PARENT}%f_add_class(%SU_%{CONST_TYPE}U_LCConstArr,ConstantArray,%SNMap,LocalConstArray_Inst)\
+  ( get_global_var ( 'PARENT' ) %f add_class %( %S |U '_'
+  ( get_global_var ( 'CONST_TYPE' ) |U ) '_LCConstArr' %, 'ConstantArray' %, %S |N 'Map' %, 'LocalConstArray_Inst' )% ) 
+//	[{"%{Pl3StringIDEx}N"=""}%f_find_element(Pl3StringIDEx,Pl3StringIDEx)]\
+  if ( ( ( get_global_var ( 'Pl3StringIDEx' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( 'Pl3StringIDEx' %, 'Pl3StringIDEx' )% 
+  end // if
+//	%f_addG(%{LocalConstArray_Inst},%{Pl3StringIDEx})\
+  [%f] addG %( ( get_global_var ( 'LocalConstArray_Inst' ) ) %, ( get_global_var ( 'Pl3StringIDEx' ) ) )% 
+//	%f_addR(%{LocalConstArray_Inst},%G)\
+  [%f] addR %( ( get_global_var ( 'LocalConstArray_Inst' ) ) %, %G )% 
+//	%{LocalConstArray_Inst}%f_set_up(ifdef,%S{ifdef})\
+  ( get_global_var ( 'LocalConstArray_Inst' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
+//	%{LocalConstArray_Inst}%f_set_up(ifndef,%S{ifndef})\
+  ( get_global_var ( 'LocalConstArray_Inst' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
+//	%{LocalConstArray_Inst}%f_set_visibility_type(%SV)\
+  ( get_global_var ( 'LocalConstArray_Inst' ) %f set_visibility_type %( %S |V )% ) 
+//	%{LocalConstArray_Inst}%f_set_documentation(Карта преобразования локализованных строк %SN)\
+  ( get_global_var ( 'LocalConstArray_Inst' ) %f set_documentation %( 'Карта преобразования локализованных строк '
+  %S |N )% ) 
+//	%{LocalConstArray_Inst}%f_set_up(Need mapping support,%S{Need mapping support})\
+  ( get_global_var ( 'LocalConstArray_Inst' ) %f set_up %( 'Need mapping support' %, %S get_up ( 'Need mapping support' ) )% ) 
+//	%{LocalConstArray_Inst}%f_set_up(Need map interface,%S{Need map interface})\
+  ( get_global_var ( 'LocalConstArray_Inst' ) %f set_up %( 'Need map interface' %, %S get_up ( 'Need map interface' ) )% ) 
+
+//	%{LocalConst_Inst}<{}{}{%C}\
+  ( get_global_var ( 'LocalConst_Inst' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+//	%{LocalConstArray_Inst}%f_add_attribute(%CU_Arr,,%f_N(%C) :\
+     ( get_global_var ( 'LocalConstArray_Inst' ) %f add_attribute %( %C |U '_Arr' %, '' %, [%f] N %( %C )% ' :'
+//	 %{Pl3StringIDEx}U = %{LocalConst_Inst}N::%CN,Attr_Inst)\
+     ' '
+     ( get_global_var ( 'Pl3StringIDEx' ) |U ) ' = '
+     ( get_global_var ( 'LocalConst_Inst' ) |N ) '::'
+     %C |N %, 'Attr_Inst' )% ) 
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+
+
+//	]
+ end // if
+
+//#UC END# *4B2A19E3038Bfor4B386A11030E*
+; // DoSpell
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4B386A11030E*
+//#UC END# *47022CCF00EAfor4B386A11030E*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for4B386A11030E*
+//#UC END# *47022C0F01E4for4B386A11030E*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4B386A11030E*
+//#UC END# *477398E501C0for4B386A11030E*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4B386A11030E*
+//#UC END# *55B8D28B0157for4B386A11030E*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4B386A11030E*
+//#UC END# *55B8D2F80145for4B386A11030E*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4B386A11030E*
+//#UC END# *55B8DD9C0301for4B386A11030E*
+; // res.cmd.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4B386A11030E*
+//#UC END# *470321C1038Afor4B386A11030E*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Генерация JavaScript::MDAGenerator
+// генератор JavaScript
+//+ js
+<<generator>> js OBJECT IN %S
+//#UC START# *477395290327for4B386A11030E*
+//#UC END# *477395290327for4B386A11030E*
+; // js
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor4B386A11030E*
+//#UC END# *47032ED002DEfor4B386A11030E*
+; // dll.cpp
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor4B386A11030E*
+//#UC END# *47032EC4032Cfor4B386A11030E*
+; // dll.h
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4B386A11030E*
+//#UC END# *470F1571031Cfor4B386A11030E*
+; // intf.pas
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for4B386A11030E*
+//	<%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%S%f_DoSpell()
+ %S %f DoSpell %( )% 
+//#UC END# *4A41A13D03D5for4B386A11030E*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: LocalConst::Class::Attribute
+end. // <<LocalConst>>
+
+implementation @ :: <<LocalConst>> <<Attribute>> ;
+//? Локализуемая константа
+//= Constants::Class::Attribute
+
+// Пользовательские свойства
+//p Value:text ? 
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4DC1281403A3*
+//#UC END# *46E6D4BB0339for4DC1281403A3*
+; // wiki
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for4DC1281403A3*
+//#UC END# *47022C0F01E4for4DC1281403A3*
+; // idl_ami
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4DC1281403A3*
+//#UC END# *470F1571031Cfor4DC1281403A3*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4DC1281403A3*
+//#UC END# *470F15B800CBfor4DC1281403A3*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4DC1281403A3*
+//#UC END# *477398E501C0for4DC1281403A3*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4DC1281403A3*
+//#UC END# *55B8D28B0157for4DC1281403A3*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4DC1281403A3*
+//#UC END# *55B8D2F80145for4DC1281403A3*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4DC1281403A3*
+//#UC END# *55B8DD9C0301for4DC1281403A3*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{Value}"!="%S{!Value}"}%f_up_prefix(%S) *Value* = *%S{Value}*
+ ?inherited
+ if ( ( %S get_up ( 'Value' ) ) %!= ( %S get_up_def ( 'Value' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Value* = *'
+  %S get_up ( 'Value' ) '*'
+//	]
+ end // if
+
+// Добавляет дополнительный код инициализации константы
+//%f _AdditionalInitCode
+; // wiki_up_print
+
+: AdditionalInitCode OBJECT IN %S
+// параметры: aConstName: a-string = %1
+// возвращаемый результат: a-string
+//#UC START# *4E09C0BD002Afor4DC1281403A3*
+//#UC END# *4E09C0BD002Afor4DC1281403A3*
+; // AdditionalInitCode
+
+
+//%f _AdditionalPrefix
+: AdditionalPrefix OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4E09B7A50370for4DC1281403A3*
+//#UC END# *4E09B7A50370for4DC1281403A3*
+; // AdditionalPrefix
+
+
+//%f _CanUseDocAsValue
+: CanUseDocAsValue OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E09CB3D02F1for4DC1281403A3*
+//	false
+ false
+//#UC END# *4E09CB3D02F1for4DC1281403A3*
+; // CanUseDocAsValue
+
+
+//%f _IsMessage
+: IsMessage OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E01C9BC0377for4DC1281403A3*
+//	false
+ false
+//#UC END# *4E01C9BC0377for4DC1281403A3*
+; // IsMessage
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4DC1281403A3*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4DC1281403A3*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4DC1281403A3*
+//#UC END# *470484D50138for4DC1281403A3*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<LocalConst>> <<Attribute>> ;
+

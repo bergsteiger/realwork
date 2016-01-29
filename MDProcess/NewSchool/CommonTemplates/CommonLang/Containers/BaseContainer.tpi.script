@@ -1,0 +1,299 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/BaseContainer.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::BaseContainer
+//
+// базовых стереотип для контейнеров
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: BaseContainer::Class
+implementation @ <<BaseContainer>>
+//? базовых стереотип для контейнеров
+//> Const Iterator::Class
+//> Iterator::Class
+
+//= ContainerGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+// Параметры визуализации
+//$ C 210,230,240
+//$ l 35,75,100
+//$ f 35,75,100
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+ ?inherited
+ if ( ( %S get_up ( 'force usage' ) ) %!= ( %S get_up_def ( 'force usage' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force usage* = *'
+  %S get_up ( 'force usage' ) '* - явно определяет, что элемент будет кем-то использован (нужно для проверки)'
+//	]
+ end // if
+
+// сгенерить определение контэйнера для C++
+//%f _dump_container_def_h
+; // wiki_up_print
+
+: dump_container_def_h OBJECT IN %S
+//#UC START# *49015EE401E1for470F07F9004E*
+//#UC END# *49015EE401E1for470F07F9004E*
+; // dump_container_def_h
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F07F9004E*
+//c                                                                       {}
+//r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&%S{force usage}=false}:      {%SS ни кем не используется}
+//r {<{}{%CC=Attribute&%CS!=static}{%CC}>=0}:                             {%SS должен определять тип данных}
+//#UC END# *4704C0E30186for470F07F9004E*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F07F9004E*
+//F %S%f_dump_container_def_h()
+//	[{%f_need_container_def(%S)=true}[#%S%f_open_ifdef()
+ if ( ( [%f] need_container_def %( %S )% ) %==  true ) then
+ begin
+  if NOT-EMPTY
+  begin
+   out_indent %S %f open_ifdef %( )% 
+//	]%SF[
+  end // if
+  NOP
+  %S |F if NOT-EMPTY
+  begin
+   #13#10
+
+//	#%S%f_close_ifdef()]]
+   out_indent %S %f close_ifdef %( )% 
+  end // if
+  NOP
+ end // if
+//#UC END# *47022C88029Ffor470F07F9004E*
+; // h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F07F9004E*
+//	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in IDL, need to write specific implementation")
+ [%f] error %( 
+ INTEGER VAR l_Counter l_Counter := 0
+ for downto %S%P
+ begin
+  OBJECT IN %P
+  if true then
+  begin
+   %P |N '::' 
+   ++! l_Counter
+  end // if
+ end // for P
+ %S |N ' - Cant''t use '
+ %B |M ' in IDL' %, ' need to write specific implementation' )% 
+//#UC END# *47022BBE0261for470F07F9004E*
+; // idl
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F07F9004E*
+//#UC END# *470F1571031Cfor470F07F9004E*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F07F9004E*
+//	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM in JAVA, need to write specific implementation")
+//#UC END# *470321950119for470F07F9004E*
+; // java
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F07F9004E*
+//#UC END# *47032ED002DEfor470F07F9004E*
+; // dll.cpp
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F07F9004E*
+//#UC END# *47032EC4032Cfor470F07F9004E*
+; // dll.h
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F07F9004E*
+//	%f_error("<{}{}{r}%PN::>%SN - Cant't use %BM directly in pascal/Delphi, need to write TIE-wrapper")
+ [%f] error %( 
+ INTEGER VAR l_Counter l_Counter := 0
+ for downto %S%P
+ begin
+  OBJECT IN %P
+  if true then
+  begin
+   %P |N '::' 
+   ++! l_Counter
+  end // if
+ end // for P
+ %S |N ' - Cant''t use '
+ %B |M ' directly in pascal/Delphi' %, ' need to write TIE-wrapper' )% 
+//#UC END# *470F152700FAfor470F07F9004E*
+; // pas
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F07F9004E*
+//G %PU
+//#UC END# *46E6D4BB0339for470F07F9004E*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: BaseContainer::Class::Attribute
+end. // <<BaseContainer>>
+
+implementation @ :: <<BaseContainer>> <<Attribute>> ;
+//? определяет тип данных контейнера
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_attr.gif
+//L code_attr
+//A const
+// - стереотипы "цели" (типа/результата)
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F0883001F*
+//#UC END# *46E6D4BB0339for470F0883001F*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F0883001F*
+//#UC END# *47022BBE0261for470F0883001F*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F0883001F*
+//#UC END# *47022C88029Ffor470F0883001F*
+; // h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F0883001F*
+//#UC END# *470321950119for470F0883001F*
+; // java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F0883001F*
+//#UC END# *47032EC4032Cfor470F0883001F*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F0883001F*
+//#UC END# *47032ED002DEfor470F0883001F*
+; // dll.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F0883001F*
+//#UC END# *470F152700FAfor470F0883001F*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F0883001F*
+//#UC END# *470F1571031Cfor470F0883001F*
+; // intf.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<BaseContainer>> <<Attribute>> ;
+

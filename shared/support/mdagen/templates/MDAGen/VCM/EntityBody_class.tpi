@@ -1,0 +1,39 @@
+//////////////////////////////////////////////////////////////////////////////////
+// VCMEntityBody
+//////////////////////////////////////////////////////////////////////////////////
+
+: VCMEntityBody::Class
+? Сущность
+? Сущность.
+
+= VCMClass::Class
+
+< *::Class, *::Category
+
+/ параметры визуализации
+$ S
+$ s
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+/ Генератор в wiki.
+= VCMClass::Class;wiki
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _vcm_pas_GetPublishEntityCode
+/ override
+//#UC START# *46B870D2023AGetPublishEntityCode*
+	 PublishEntity('%PN', nil);\
+	[\n  %P<{\n  }{%C%f_vcm_pas_IsOperation()=true}%C%f_vcm_pas_GetPublishEntityCode()>]
+//#UC END# *46B870D2023AGetPublishEntityCode*
+
+%f _vcm_pas_IsEntityBody
+/ override
+//#UC START# *46B870D2023AIsEntityBody*
+	true
+//#UC END# *46B870D2023AIsEntityBody*
+
++ vcm.pas
+/ Генератор в VCM.
+= VCMClass::Class;vcm.pas

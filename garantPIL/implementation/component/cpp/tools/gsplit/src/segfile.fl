@@ -1,0 +1,110 @@
+%option noyywrap
+%option nounput
+
+%x WNAME
+%x WNUM
+%x COMMENT
+
+NAME [a-zA-Z0-9_-]+[ \t]*:
+NUMBER [1-9][0-9]*
+SEPARATOR [, \t\r]
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <ctype.h>
+
+static int lines=0;
+
+static void on_name(void);
+static void on_errline(void);
+static void on_number(void);
+static void on_close_name(void);
+%}
+
+%%
+<INITIAL,COMMENT>\n	{ BEGIN(WNAME); lines++; }
+<INITIAL,WNAME>[#;]	BEGIN(COMMENT);
+<INITIAL,COMMENT><<EOF>>	return 0;
+<COMMENT>.	
+<INITIAL,WNAME>{NAME}	{ BEGIN(WNUM); on_name(); }
+<WNUM>{SEPARATOR}+	
+<WNUM>{NAME} { BEGIN(COMMENT); on_errline(); }
+<WNUM>{NUMBER} on_number();
+<WNUM>\n	{ BEGIN(WNAME); lines++; on_close_name(); }
+<WNAME><<EOF>>	return 0;
+<WNUM><<EOF>>	{ on_close_name(); return 0; }
+<WNUM>.	{ BEGIN(COMMENT); on_errline(); }
+%%
+
+#include "..\..\..\libs\mrglib\src\gdbapi.h"
+#include "..\..\..\libs\mrglib\src\log.h"
+#include "..\..\..\libs\mrglib\src\sets.h"
+
+static int seg_count;
+char *segname[32];
+set_st *segset;
+static set_st *cset;
+
+static void on_name(void)
+{
+	char *name, *s;
+
+	name = strdup(yytext);
+	// *strchr(name, ':') = '\0';
+	s = strchr(name, ':');
+	do
+		*s-- = '\0';
+	while (isspace((int)*s));
+	segname[seg_count] = name;
+}
+
+static void on_errline(void)
+{
+	fprintf(stderr, "Bad line %d in segment info file\n", lines+1);
+	flog("Bad line %d in segment info file\n", lines+1);
+	if(cset->count) on_close_name();
+}
+
+static void on_number(void)
+{
+	u_int16_t *pset;
+	
+	if(!(cset->count)) {
+		cset->set = malloc(64);
+	}
+	pset = (u_int16_t *)(cset->set);
+	pset[cset->count++] = atoi(yytext);
+}
+
+static void on_close_name(void)
+{
+	if(cset->count) {
+		//
+		seg_count++;
+		cset = segset+seg_count;
+	}
+}
+
+int get_seginfo(FILE *file_in)
+{
+	int i;
+	cmpfunc_ft segcmp;
+
+	if((segset = (set_st *)calloc(32, sizeof(set_st))) == NULL)
+		return 0;
+	cset = segset;
+	seg_count = 0;
+	segcmp = get_cmpfunc(DT_INT16);
+	yyin = file_in;
+	yylex();
+	for(i=0; i<seg_count; i++) {
+		segset[i].dtype = DT_INT16;
+		segset[i].reclen = 2;
+		segset[i].rcmp = segcmp;
+		if(segset[i].count > 1) qsort(segset[i].set, segset[i].count, 2, segcmp);
+	}
+	return seg_count;
+}
+

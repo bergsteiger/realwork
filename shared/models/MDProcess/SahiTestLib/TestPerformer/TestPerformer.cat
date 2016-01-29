@@ -1,0 +1,738 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "TestPerformer"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/SahiTestLib/TestPerformer|4C87946C02B0
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19023122870"))
+    quid       	"4C87946C02B0"
+    documentation 	"пакет с исполнителем тестов sahi"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4C88E374025E"
+	    supplier   	"Logical View::MDProcess::FilePublishLib::FilePublish"
+	    quidu      	"4C88DF2D0156")
+	(object Visibility_Relationship
+	    quid       	"4C9218BA01D0"
+	    supplier   	"Logical View::external::std::fstream"
+	    quidu      	"45C8A15001F4"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "TestExecutor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/SahiTestLib/TestPerformer/TestExecutor|4C87948E01DD
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/MDProcess/SahiTestLib/TestExecutor.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/MDProcess/SahiTestLib/TestExecutor.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4C87948E01DD*"
+		    value      	(value Text 
+|//#UC START# *4C87948E01DD*¤		LOG_I (("Hello world, this is TestExecutor!"));¤		std::string prefix_path = TestPlaceSettings::get_prefix_path ();¤		LOG_I (("%s (): prefix_path = %s", GDS_CURRENT_FUNCTION, prefix_path.c_str ()));¤		std::string prefix_path_win = prefix_path;¤		GCL::str_replace (prefix_path_win, "/", "\\");¤		std::string bat_file_path = SahiSettings::get_bat_file_path ();¤		std::string bat_file_path_win = bat_file_path;¤		GCL::str_replace (bat_file_path_win, "/", "\\");¤		std::string text_file_path = SahiSettings::get_text_file_path ();¤		std::string text_file_path_win = text_file_path;¤		GCL::str_replace (text_file_path_win, "/", "\\");¤		std::string bat_file_cmd = prefix_path_win + std::string ("\\") + bat_file_path_win + std::string (" ") + std::string (TestPlaceSettings::prefix_path_param_name ()) + std::string (" ") + prefix_path_win;¤		int res = ACE_OS::system (bat_file_cmd.c_str ());¤		if (res == -1) {¤			LOG_E ((¤				"%s (): can't bat_file_cmd = %s"¤				, GDS_CURRENT_FUNCTION¤				, bat_file_cmd.c_str ()¤			));¤		}¤		std::string abs_text_file_path_win = prefix_path_win + std::string ("\\") + text_file_path_win;¤		bool done = false;¤		while (!done) {¤			::Sleep (10000);¤			{ // stack frame for ifstream¤			ifstream ss (abs_text_file_path_win.c_str ());¤			if (ss) {¤				::Sleep (10000);¤				done = true;¤			}¤			} // end stack frame for ifstream¤		}¤		std::string str_page_id = prefix_path_win.substr (prefix_path_win.rfind ("\\") + 1);¤		FilePublishLib::FilePublish::PlainTextPublish_var file_pub = FilePublishLib::FilePublish::PlainTextPublishFactory::make ();¤		file_pub->post_as_functional_test (abs_text_file_path_win.c_str (), str_page_id);¤		//#UC END# *4C87948E01DD*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4C87948E01DD_FINI*"
+		    value      	(value Text 
+|//#UC START# *4C87948E01DD_FINI*¤	//#UC END# *4C87948E01DD_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4C87948E01DD_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *4C87948E01DD_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *4C87948E01DD_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039521447"))
+	    quid       	"4C87948E01DD"
+	    documentation 	"исполнитель тестов sahi - контролирует процесс выполнения тестов и публикует результаты стандартным способом"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19023166535"))
+		    quid       	"4C88E38B013F"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::FilePublishLib::FilePublish::PlainTextPublish"
+		    quidu      	"4C88E09A03B0")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19023166926"))
+		    quid       	"4C9215850044"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::SahiTestLib::TestPerformer::SahiSettings"
+		    quidu      	"4C92152F039C")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19023167319"))
+		    quid       	"4C9218C802D3"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::std::fstream::ifstream"
+		    quidu      	"45C8A1FC03B9")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19023167689"))
+		    quid       	"4C9349A701E1"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::SahiTestLib::TestPerformer::TestPlaceSettings"
+		    quidu      	"4C9228CA00FE"))
+	    language   	"MDA Generator")
+	(object Class "SahiSettings"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/MDProcess/SahiTestLib/SahiSettings.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/SahiTestLib/TestPerformer/SahiSettings|4C92152F039C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/MDProcess/SahiTestLib/SahiSettings.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19037244079"))
+	    quid       	"4C92152F039C"
+	    documentation 	"настройки тестов sahi"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "bat_file_path"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19023168615"))
+		    quid       	"4C9215520299"
+		    documentation 	"bat-файл запускающий тесты sahi"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "text_file_path"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19023169026"))
+		    quid       	"4C92171A0390"
+		    documentation 	"результаты тестов sahi в текстовом файле"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator")
+	(object Class "TestPlaceSettings"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/SahiTestLib/TestPerformer/TestPlaceSettings|4C9228CA00FE
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/MDProcess/SahiTestLib/TestPlaceSettings.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/MDProcess/SahiTestLib/TestPlaceSettings.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19037246144"))
+	    quid       	"4C9228CA00FE"
+	    documentation 	"где лежат результаты тестов"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "prefix_path"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19023169910"))
+		    quid       	"4C9228EC0376"
+		    documentation 	"корневой путь к папкам, где лежат результаты тестов в их первичном виде"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4C879486014E"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::SahiTestLib::TestPerformer::TestExecutor" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(555, 690)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(395, 661)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"TestExecutor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(395, 611)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4C87948E01DD"
+		    width      	338
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::FilePublishLib::FilePublish::PlainTextPublish" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(558, 246)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(391, 218)
+			nlines     	1
+			max_width  	334
+			justify    	0
+			label      	"PlainTextPublish")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(391, 168)
+			anchor     	10
+			nlines     	1
+			max_width  	334
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4C88E09A03B0"
+		    width      	352
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(437, 467)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4C88E38B013F"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(555, 598)
+			(557, 336))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::SahiTestLib::TestPerformer::SahiSettings" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1251, 693)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1017, 634)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	468
+			justify    	0
+			label      	"• SahiSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1017, 584)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	468
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"4C92152F039C"
+		    width      	486
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(852, 662)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.453002
+			height     	29
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4C9215850044"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(724, 690)
+			(1007, 691))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::external::std::fstream::ifstream" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(555, 1107)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(433, 1080)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"ifstream")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(433, 1030)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	241
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"45C8A1FC03B9"
+		    width      	262
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(675, 899)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4C9218C802D3"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(555, 781)
+			(555, 1017))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::SahiTestLib::TestPerformer::TestPlaceSettings" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1233, 1095)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1021, 1061)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	424
+			justify    	0
+			label      	"• TestPlaceSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(1021, 1011)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	424
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"4C9228CA00FE"
+		    width      	442
+		    height     	192
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @12
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @13
+			Parent_View 	@12
+			location   	(941, 869)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.579578
+			height     	44
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4C9349A701E1"
+		    client     	@1
+		    supplier   	@11
+		    vertices   	(list Points
+			(707, 781)
+			(1072, 998))
+		    line_style 	0)))))

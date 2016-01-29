@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/T_MDPSupportServer.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ExeTarget::Category>> MDProcess::MDPSupportServer
+//
+// Исполняемый модуль сервера залочек
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_MDPSupportServer) : project_generic_core_corba, project_subsystem_console, project_antlr {
+	exename = MDPSupportServer
+	
+	includes += ../../
+	
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += RosePackageLocking_cs
+	libs  += RosePackageLocking_cs
+	after += RosePackageLocking
+	libs  += RosePackageLocking
+	after += GCL
+	libs  += GCL
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+	after += Security
+	libs  += Security
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	
+	Header_Files {
+		Std_Headers {
+			
+		}
+	}
+	
+	Inline_Files {
+		Std_Inlines {
+			
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../MDPSupportServer/MDPSupportServer_main.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../MDPSupportServer/MDPSupportServer_vi.rc
+		./../MDPSupportServer/MDPSupportServer_vi.rch
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

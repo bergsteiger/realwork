@@ -1,0 +1,1 @@
+@..\bin\bcc32 -6 -O -I.\include -I..\include m0lzolib.c

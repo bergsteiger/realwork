@@ -1,0 +1,1171 @@
+// evQueryCardDropControlsInt 47CE9D27036D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CE9D27036D
+
+: ME_47CE9D9F019F
+ CONST UID '47CE9D9F019F'
+ CONST Name 'InevBase'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ : Inherits
+   @ ( WL 'ME_47C52228029C' '47C5207602D1.pas.ms.script' // InevBase
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "is default ancestor" true
+
+ref; // ME_47CE9D9F019F InevBase
+
+FORWARD ME_47CE9EBB0142
+
+: ME_47CE9F560359
+ CONST UID '47CE9F560359'
+ CONST Name 'Down'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Нажата ли кнопка в редакторе.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_47CE9F560359 Down
+
+: ME_47CE9FA402DC
+ CONST UID '47CE9FA402DC'
+ CONST Name 'Para'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+ CONST "pm" false
+
+ref; // ME_47CE9FA402DC Para
+
+: ME_47CE9ECA031E
+ CONST UID '47CE9ECA031E'
+ CONST Name 'AfterHideControl'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ref; // ME_47CE9ECA031E AfterHideControl
+
+: ME_47CE9ED103AA
+ CONST UID '47CE9ED103AA'
+ CONST Name 'EscPressed'
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик закрытия дерева по ESC.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ref; // ME_47CE9ED103AA EscPressed
+
+: ME_47CE9EE302A2
+ CONST UID '47CE9EE302A2'
+ CONST Name 'HideControl'
+ CONST Class class_Operation
+ %SUMMARY 'Прячет выпадающий контрол.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ref; // ME_47CE9EE302A2 HideControl
+
+: ME_47CE9EF90205
+ CONST UID '47CE9EF90205'
+ CONST Name 'aDown'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47CE9EF90205 aDown
+
+: ME_47CE9EF3009B
+ CONST UID '47CE9EF3009B'
+ CONST Name 'MouseWheel'
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик прокрутки колеса мыши.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_47CE9EF90205 // aDown
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CE9EF3009B MouseWheel
+
+: ME_48034AD302A2
+ CONST UID '48034AD302A2'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ ;
+
+ref; // ME_48034AD302A2 aView
+
+: ME_48034AD302D5
+ CONST UID '48034AD302D5'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
+ ;
+
+ref; // ME_48034AD302D5 Msg
+
+: ME_47CE9F040044
+ CONST UID '47CE9F040044'
+ CONST Name 'KeyDown'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48034AD302A2 // aView
+ ME_48034AD302D5 // Msg
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CE9F040044 KeyDown
+
+: ME_47CE9F4300B1
+ CONST UID '47CE9F4300B1'
+ CONST Name 'CloseTree'
+ CONST Class class_Operation
+ %SUMMARY 'Прячет дерево как по нажатию Esc - с посылкой сообщения редактору.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ref; // ME_47CE9F4300B1 CloseTree
+
+: ME_486C75750363
+ CONST UID '486C75750363'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ ;
+
+ref; // ME_486C75750363 aView
+
+: ME_49D9B92502EF
+ CONST UID '49D9B92502EF'
+ CONST Name 'aTextPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_49D9B92502EF aTextPara
+
+: ME_486C757503C1
+ CONST UID '486C757503C1'
+ CONST Name 'ByUser'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_486C757503C1 ByUser
+
+: ME_47CE9F82032D
+ CONST UID '47CE9F82032D'
+ CONST Name 'DropDown'
+ CONST Class class_Operation
+ %SUMMARY 'Реализует выпадение дерева или календаря.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_486C75750363 // aView
+ ME_49D9B92502EF // aTextPara
+ ME_486C757503C1 // ByUser
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CE9F82032D DropDown
+
+: ME_49D9B92F02DF
+ CONST UID '49D9B92F02DF'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
+ ;
+
+ref; // ME_49D9B92F02DF aNode
+
+: ME_48845FB30308
+ CONST UID '48845FB30308'
+ CONST Name 'DropDownCurrentChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CE9EBB0142 // IevDropControl
+ ;
+ : Parameters
+   @ ( ME_49D9B92F02DF // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48845FB30308 DropDownCurrentChanged
+
+: ME_47CE9EBB0142
+ CONST UID '47CE9EBB0142'
+ CONST GUID '5E113509-2D7B-4E1F-B96E-18C6C4A0ACC1'
+ CONST Name 'IevDropControl'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ : Attributes
+   @ ( ME_47CE9F560359 // Down
+ ME_47CE9FA402DC // Para
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_47CE9ECA031E // AfterHideControl
+ ME_47CE9ED103AA // EscPressed
+ ME_47CE9EE302A2 // HideControl
+ ME_47CE9EF3009B // MouseWheel
+ ME_47CE9F040044 // KeyDown
+ ME_47CE9F4300B1 // CloseTree
+ ME_47CE9F82032D // DropDown
+ ME_48845FB30308 // DropDownCurrentChanged
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47CE9EBB0142 IevDropControl
+
+FORWARD ME_47CEA0BB00FA
+
+: ME_47CEA0F901D9
+ CONST UID '47CEA0F901D9'
+ CONST Name 'IsList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CEA0BB00FA // IevDropCombo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_47CEA0F901D9 IsList
+
+: ME_47CEA0D10270
+ CONST UID '47CEA0D10270'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47CEA0D10270 anIndex
+
+: ME_47CEA0C8006E
+ CONST UID '47CEA0C8006E'
+ CONST Name 'GetNode'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает узел.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA0BB00FA // IevDropCombo
+ ;
+ : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
+ ;
+ : Parameters
+   @ ( ME_47CEA0D10270 // anIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA0C8006E GetNode
+
+: ME_4811C82C014A
+ CONST UID '4811C82C014A'
+ CONST Name 'Value'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
+ ;
+
+ref; // ME_4811C82C014A Value
+
+: ME_4811C82C016A
+ CONST UID '4811C82C016A'
+ CONST Name 'NeedHide'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4811C82C016A NeedHide
+
+: ME_47CEA0D903B6
+ CONST UID '47CEA0D903B6'
+ CONST Name 'ChooseNode'
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик выбора узла в дереве при его закрытии.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA0BB00FA // IevDropCombo
+ ;
+ : Parameters
+   @ ( ME_4811C82C014A // Value
+ ME_4811C82C016A // NeedHide
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA0D903B6 ChooseNode
+
+: ME_47CEA0BB00FA
+ CONST UID '47CEA0BB00FA'
+ CONST GUID '11B2B5C6-D288-41EF-AEA4-2E7971EADBA5'
+ CONST Name 'IevDropCombo'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ : Attributes
+   @ ( ME_47CEA0F901D9 // IsList
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_47CEA0C8006E // GetNode
+ ME_47CEA0D903B6 // ChooseNode
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47CEA0BB00FA IevDropCombo
+
+FORWARD ME_47CEA10A0216
+
+: ME_47CEA19F031D
+ CONST UID '47CEA19F031D'
+ CONST Name 'aDate'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Дата из контрола.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CEA10A0216 // IevDropCalendar
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+ CONST "pm" false
+
+ref; // ME_47CEA19F031D aDate
+
+: ME_47CEA1180370
+ CONST UID '47CEA1180370'
+ CONST Name 'Value'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+
+ref; // ME_47CEA1180370 Value
+
+: ME_47CEA11502B7
+ CONST UID '47CEA11502B7'
+ CONST Name 'ApplyDate'
+ CONST Class class_Operation
+ %SUMMARY 'Передаёт выбранную дату в календарь.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA10A0216 // IevDropCalendar
+ ;
+ : Parameters
+   @ ( ME_47CEA1180370 // Value
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA11502B7 ApplyDate
+
+: ME_47CEA18F0162
+ CONST UID '47CEA18F0162'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_47CEA18F0162 Sender
+
+: ME_47CEA18C01CD
+ CONST UID '47CEA18C01CD'
+ CONST Name 'ChooseDate'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA10A0216 // IevDropCalendar
+ ;
+ : Parameters
+   @ ( ME_47CEA18F0162 // Sender
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA18C01CD ChooseDate
+
+: ME_47CEA199005E
+ CONST UID '47CEA199005E'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_47CEA199005E Sender
+
+: ME_47CEA19600DE
+ CONST UID '47CEA19600DE'
+ CONST Name 'CancelDate'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA10A0216 // IevDropCalendar
+ ;
+ : Parameters
+   @ ( ME_47CEA199005E // Sender
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA19600DE CancelDate
+
+: ME_47CEA10A0216
+ CONST UID '47CEA10A0216'
+ CONST GUID 'D2B498FA-0D25-4054-906A-9927577F4636'
+ CONST Name 'IevDropCalendar'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ : Attributes
+   @ ( ME_47CEA19F031D // aDate
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_47CEA11502B7 // ApplyDate
+ ME_47CEA18C01CD // ChooseDate
+ ME_47CEA19600DE // CancelDate
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47CEA10A0216 IevDropCalendar
+
+FORWARD ME_47CEA1BD002F
+
+: ME_47CEA320015D
+ CONST UID '47CEA320015D'
+ CONST Name 'Tree'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_476BF1DD0075' '4678209200A6.pas.ms.script' // InevSimpleTree
+ ;
+ CONST "pm" false
+
+ref; // ME_47CEA320015D Tree
+
+: ME_47CEA337008E
+ CONST UID '47CEA337008E'
+ CONST Name 'Current'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_47CEA337008E Current
+
+: ME_47CEA3AC032E
+ CONST UID '47CEA3AC032E'
+ CONST Name 'ESCPressed'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Флаг, выставляемый для необходимости закрытия дерева без выбора узла.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_47CEA3AC032E ESCPressed
+
+: ME_486CAA020214
+ CONST UID '486CAA020214'
+ CONST Name 'DropTextStyle'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A107D600F2' '4677FBA70343.pas.ms.script' // Tl3StyleId
+ ;
+ CONST "pm" false
+
+ref; // ME_486CAA020214 DropTextStyle
+
+: ME_4884573F021D
+ CONST UID '4884573F021D'
+ CONST Name 'AllowEmptyCurrent'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4884573F021D AllowEmptyCurrent
+
+: ME_47CEA1CB02E7
+ CONST UID '47CEA1CB02E7'
+ CONST Name 'EditMask'
+ CONST Class class_Operation
+ %SUMMARY 'Шаблон маски.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_47CEA1CB02E7 EditMask
+
+: ME_47CEA1DF0057
+ CONST UID '47CEA1DF0057'
+ CONST Name 'DateFormat'
+ CONST Class class_Operation
+ %SUMMARY 'Формат даты.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_47CEA1DF0057 DateFormat
+
+: ME_47CEA20F030F
+ CONST UID '47CEA20F030F'
+ CONST Name 'ATreeDrop'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ref; // ME_47CEA20F030F ATreeDrop
+
+: ME_47CEA20F0349
+ CONST UID '47CEA20F0349'
+ CONST Name 'ATagWrap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_47CEA20F0349 ATagWrap
+
+: ME_47CEA2040056
+ CONST UID '47CEA2040056'
+ CONST Name 'SetDropTree'
+ CONST Class class_Operation
+ %SUMMARY 'Показывает/закрывает выпадающее дерево.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Parameters
+   @ ( ME_47CEA20F030F // ATreeDrop
+ ME_47CEA20F0349 // ATagWrap
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA2040056 SetDropTree
+
+: ME_47CEA2170217
+ CONST UID '47CEA2170217'
+ CONST Name 'IsDropTreeVisible'
+ CONST Class class_Operation
+ %SUMMARY 'Проверяет отображается ли окно календаря или дерева.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47CEA2170217 IsDropTreeVisible
+
+: ME_47CEA22D0306
+ CONST UID '47CEA22D0306'
+ CONST Name 'Value'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+
+ref; // ME_47CEA22D0306 Value
+
+: ME_47CEA22403D8
+ CONST UID '47CEA22403D8'
+ CONST Name 'ApplyDate'
+ CONST Class class_Operation
+ %SUMMARY 'Передаёт выбранную дату в календарь.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Parameters
+   @ ( ME_47CEA22D0306 // Value
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA22403D8 ApplyDate
+
+: ME_47CEA23A0292
+ CONST UID '47CEA23A0292'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
+ ;
+
+ref; // ME_47CEA23A0292 Sender
+
+: ME_47CEA2330343
+ CONST UID '47CEA2330343'
+ CONST Name 'ChooseDate'
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик выбора текущей даты.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Parameters
+   @ ( ME_47CEA23A0292 // Sender
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA2330343 ChooseDate
+
+: ME_486C7525000C
+ CONST UID '486C7525000C'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_486C7525000C aPoint
+
+: ME_486C7525006A
+ CONST UID '486C7525006A'
+ CONST Name 'AInvert'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_486C7525006A AInvert
+
+: ME_486C752500B8
+ CONST UID '486C752500B8'
+ CONST Name 'AWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_486C752500B8 AWidth
+
+: ME_486C75250116
+ CONST UID '486C75250116'
+ CONST Name 'ByUser'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_486C75250116 ByUser
+
+: ME_47CEA244025F
+ CONST UID '47CEA244025F'
+ CONST Name 'DoDrop'
+ CONST Class class_Operation
+ %SUMMARY 'Вываливает выпадающий контрол по указанным координатам.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Parameters
+   @ ( ME_486C7525000C // aPoint
+ ME_486C7525006A // AInvert
+ ME_486C752500B8 // AWidth
+ ME_486C75250116 // ByUser
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA244025F DoDrop
+
+: ME_47CEA6DE0110
+ CONST UID '47CEA6DE0110'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_47CEA6DE0110 aPoint
+
+: ME_47CEA6DE015F
+ CONST UID '47CEA6DE015F'
+ CONST Name 'AInvert'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47CEA6DE015F AInvert
+
+: ME_47CEA6DE01B0
+ CONST UID '47CEA6DE01B0'
+ CONST Name 'AWnd'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5DB130102' '4677FBA70343.pas.ms.script' // hWnd
+ ;
+
+ref; // ME_47CEA6DE01B0 AWnd
+
+: ME_47CEA6DE0208
+ CONST UID '47CEA6DE0208'
+ CONST Name 'AWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47CEA6DE0208 AWidth
+
+: ME_47CEA6DE0282
+ CONST UID '47CEA6DE0282'
+ CONST Name 'AHeight'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47CEA6DE0282 AHeight
+
+: ME_47CEA2640232
+ CONST UID '47CEA2640232'
+ CONST Name 'ShowControl'
+ CONST Class class_Operation
+ %SUMMARY 'Вывод контрола на экран.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Parameters
+   @ ( ME_47CEA6DE0110 // aPoint
+ ME_47CEA6DE015F // AInvert
+ ME_47CEA6DE01B0 // AWnd
+ ME_47CEA6DE0208 // AWidth
+ ME_47CEA6DE0282 // AHeight
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA2640232 ShowControl
+
+: ME_47CEA29002BE
+ CONST UID '47CEA29002BE'
+ CONST Name 'DropControlHeigth'
+ CONST Class class_Operation
+ %SUMMARY 'Высота выпадающего контрола.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47CEA29002BE DropControlHeigth
+
+: ME_47CEA2A800D9
+ CONST UID '47CEA2A800D9'
+ CONST Name 'NeedFocus'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47CEA2A800D9 NeedFocus
+
+: ME_47CEA2A102E2
+ CONST UID '47CEA2A102E2'
+ CONST Name 'HideControl'
+ CONST Class class_Operation
+ %SUMMARY 'Прячет выпадающий котрол.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Parameters
+   @ ( ME_47CEA2A800D9 // NeedFocus
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA2A102E2 HideControl
+
+: ME_47CEA2B801FF
+ CONST UID '47CEA2B801FF'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47CEA2B801FF anIndex
+
+: ME_47CEA2B20111
+ CONST UID '47CEA2B20111'
+ CONST Name 'GetDropTreeNode'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
+ ;
+ : Parameters
+   @ ( ME_47CEA2B801FF // anIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA2B20111 GetDropTreeNode
+
+: ME_47CEA2CE03D3
+ CONST UID '47CEA2CE03D3'
+ CONST Name 'aDropControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ref; // ME_47CEA2CE03D3 aDropControl
+
+: ME_47CEA2C30018
+ CONST UID '47CEA2C30018'
+ CONST Name 'CheckControl'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_47CEA2CE03D3 // aDropControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA2C30018 CheckControl
+
+: ME_47CEA2D50381
+ CONST UID '47CEA2D50381'
+ CONST Name 'GetControl'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает контрол.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_47756BD70222' '4799D29F033F.pas.ms.script' // TControl$Stub
+ ;
+
+ref; // ME_47CEA2D50381 GetControl
+
+: ME_4811C89500F2
+ CONST UID '4811C89500F2'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ ;
+
+ref; // ME_4811C89500F2 aView
+
+: ME_4811C8950171
+ CONST UID '4811C8950171'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47C7C9F8039E' '476F78840219.pas.ms.script' // TWMKeyDown
+ ;
+
+ref; // ME_4811C8950171 Msg
+
+: ME_4811C89501EE
+ CONST UID '4811C89501EE'
+ CONST Name 'aCurPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_533D31A90231' '4678209200A6.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_4811C89501EE aCurPara
+
+: ME_47CEA30603C8
+ CONST UID '47CEA30603C8'
+ CONST Name 'KeyDown'
+ CONST Class class_Operation
+ %SUMMARY 'Обработка нажатия на клавиатуру.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4811C89500F2 // aView
+ ME_4811C8950171 // Msg
+ ME_4811C89501EE // aCurPara
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA30603C8 KeyDown
+
+: ME_4811C8A201CF
+ CONST UID '4811C8A201CF'
+ CONST Name 'aRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BF2570274' '4678209200A6.pas.ms.script' // InevNode
+ ;
+
+ref; // ME_4811C8A201CF aRoot
+
+: ME_47CEA34501A1
+ CONST UID '47CEA34501A1'
+ CONST Name 'IsSameTreeRoot'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4811C8A201CF // aRoot
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CEA34501A1 IsSameTreeRoot
+
+: ME_47CEA381035A
+ CONST UID '47CEA381035A'
+ CONST Name 'DropControlChanging'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+
+ref; // ME_47CEA381035A DropControlChanging
+
+: ME_47CEA38803AE
+ CONST UID '47CEA38803AE'
+ CONST Name 'DropControlChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+
+ref; // ME_47CEA38803AE DropControlChanged
+
+: ME_47CEA39402F8
+ CONST UID '47CEA39402F8'
+ CONST Name 'GetCurrentNode'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
+ ;
+
+ref; // ME_47CEA39402F8 GetCurrentNode
+
+: ME_47CEA3A2030D
+ CONST UID '47CEA3A2030D'
+ CONST Name 'IsSimpleTree'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CEA1BD002F // IevDropContainer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47CEA3A2030D IsSimpleTree
+
+: ME_47CEA1BD002F
+ CONST UID '47CEA1BD002F'
+ CONST GUID '0E8CE655-459D-466F-BAF3-CFF3FFE2631A'
+ CONST Name 'IevDropContainer'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контейнер для выпадающих контролов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ : Attributes
+   @ ( ME_47CEA320015D // Tree
+ ME_47CEA337008E // Current
+ ME_47CEA3AC032E // ESCPressed
+ ME_486CAA020214 // DropTextStyle
+ ME_4884573F021D // AllowEmptyCurrent
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_47CEA1CB02E7 // EditMask
+ ME_47CEA1DF0057 // DateFormat
+ ME_47CEA2040056 // SetDropTree
+ ME_47CEA2170217 // IsDropTreeVisible
+ ME_47CEA22403D8 // ApplyDate
+ ME_47CEA2330343 // ChooseDate
+ ME_47CEA244025F // DoDrop
+ ME_47CEA2640232 // ShowControl
+ ME_47CEA29002BE // DropControlHeigth
+ ME_47CEA2A102E2 // HideControl
+ ME_47CEA2B20111 // GetDropTreeNode
+ ME_47CEA2C30018 // CheckControl
+ ME_47CEA2D50381 // GetControl
+ ME_47CEA30603C8 // KeyDown
+ ME_47CEA34501A1 // IsSameTreeRoot
+ ME_47CEA381035A // DropControlChanging
+ ME_47CEA38803AE // DropControlChanged
+ ME_47CEA39402F8 // GetCurrentNode
+ ME_47CEA3A2030D // IsSimpleTree
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47CEA1BD002F IevDropContainer
+
+: ME_47CE9D27036D
+ CONST UID '47CE9D27036D'
+ CONST Name 'evQueryCardDropControlsInt'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY '//Чтобы не было путаницы: IevDropControl (IevDropCombo, IevDropCalendar) - '#13#10'//внутренние интерфейсы, предназначеные исключительно для использования внутри'#13#10'//модели, IevEditorControlXXXX - внешние, для использования во внешнем '#13#10'//представлении.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_47CE9D9F019F // InevBase
+ ME_47CE9EBB0142 // IevDropControl
+ ME_47CEA0BB00FA // IevDropCombo
+ ME_47CEA10A0216 // IevDropCalendar
+ ME_47CEA1BD002F // IevDropContainer
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+ WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "path prefix" '/qf'
+ CONST "started" '28.09.1999 10:18'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\qf\evQueryCardDropControlsInt.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47CE9D27036D.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47CE9D27036D.pas.ms.script.runner'
+
+ref; // ME_47CE9D27036D evQueryCardDropControlsInt

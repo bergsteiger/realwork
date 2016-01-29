@@ -1,0 +1,176 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/T_GblAdapterClient.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<AdapterTarget::Category>> garant6x::GblAdapterClient
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_GblAdapterClient) : project_generic_core_corba, project_subsystem_windows {
+	sharedname = GblAdapterClient/GblAdapter
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += ChatLibrary_cs
+	libs  += ChatLibrary_cs
+	after += CoreOld_corba_client
+	libs  += CoreOld_corba_client
+	after += Defines_corba
+	libs  += Defines_corba
+	after += GCI
+	after += GCI_tie
+	libs  += GCI
+	libs  += GCI_tie
+	after += GCL
+	libs  += GCL
+	after += GSI
+	libs  += GSI
+	after += GblAdapterLib
+	after += GblAdapterLib_tie
+	libs  += GblAdapterLib
+	libs  += GblAdapterLib_tie
+	after += GblAdapterLibClient
+	libs  += GblAdapterLibClient
+	after += GblConsultingC_corba
+	libs  += GblConsultingC_corba
+	after += GblConsultingClientC_corba
+	libs  += GblConsultingClientC_corba
+	after += GblExternalSearchManagerC_corba
+	libs  += GblExternalSearchManagerC_corba
+	after += GblFiltersC_corba
+	libs  += GblFiltersC_corba
+	after += GblFoldersC_corba
+	libs  += GblFoldersC_corba
+	after += GblIntegrationC_corba
+	libs  += GblIntegrationC_corba
+	after += GblLoggingC_corba
+	libs  += GblLoggingC_corba
+	after += GblPilotC_corba
+	libs  += GblPilotC_corba
+	after += GblPrimeC_corba
+	libs  += GblPrimeC_corba
+	after += GblRemoteDocumentSupportC_corba
+	libs  += GblRemoteDocumentSupportC_corba
+	after += GblSearchMachineC_corba
+	libs  += GblSearchMachineC_corba
+	after += GblSettingsC_corba
+	libs  += GblSettingsC_corba
+	after += GblUnderControlC_corba
+	libs  += GblUnderControlC_corba
+	after += GblUserCommentsC_corba
+	libs  += GblUserCommentsC_corba
+	after += GblUserJournalC_corba
+	libs  += GblUserJournalC_corba
+	after += GblXMLSaveC_corba
+	libs  += GblXMLSaveC_corba
+	after += GslDataPipeC_corba
+	libs  += GslDataPipeC_corba
+	after += GslHeartbeatManagerC_corba
+	libs  += GslHeartbeatManagerC_corba
+	after += GslSecurityC_corba
+	libs  += GslSecurityC_corba
+	after += GslSessionHandlerClientS_corba
+	libs  += GslSessionHandlerClientS_corba
+	after += GslSessionIdentifierC_corba
+	libs  += GslSessionIdentifierC_corba
+	after += GslUserManagerC_corba
+	libs  += GslUserManagerC_corba
+	after += GslAuthenticatorC_corba
+	libs  += GslAuthenticatorC_corba
+	after += XercesHelpers
+	libs  += XercesHelpers
+	after += xerces-c
+	libs  += xerces-c
+
+	//#UC START# *4785DFB00230_CUSTOM_DEPENDENSES*
+	after += zlib
+	libs  += zlib
+
+	after += cchlp1
+	libs  += cchlp1
+
+	after += evd
+	libs  += evd
+
+	after += gctx
+	libs  += gctx
+
+	after += gkdb
+	libs  += gkdb
+	
+	Header_Files {
+		GblPilotS_corba {
+			./../../../../garantServer/src/Business/GblPilot/GblPilot_amiS.h
+			./../../../../garantServer/src/Business/GblPilot/GblDocList_amiS.h
+		}
+		GblConsultingClientS_corba {
+			./../../../../garantServer/src/Business/GblConsultingClient/GblConsultingClient_amiS.h
+		}
+	}
+
+
+	Inline_Files {
+		GblPilotS_corba {
+			./../../../../garantServer/src/Business/GblPilot/GblPilot_amiS.inl
+			./../../../../garantServer/src/Business/GblPilot/GblDocList_amiS.inl
+		}
+		GblConsultingClientS_corba {
+			./../../../../garantServer/src/Business/GblConsultingClient/GblConsultingClient_amiS.inl
+		}
+	}
+
+	Source_Files {
+		GblPilotS_corba {
+			./../../../../garantServer/src/Business/GblPilot/GblPilot_amiS.cpp
+			./../../../../garantServer/src/Business/GblPilot/GblDocList_amiS.cpp
+		}
+		GblConsultingClientS_corba {
+			./../../../../garantServer/src/Business/GblConsultingClient/GblConsultingClient_amiS.cpp
+		}
+		Version {
+			./../../../../garantServer/src/Business/GblPilot/Version/NemesisVersion.cpp
+		}
+	}
+
+	// SearchManager_ami
+	//after += GblPilotS_corba
+	//libs  += GblPilotS_corba
+	
+	//ConsultingClient_ami
+	//after += GblConsultingClientS_corba
+	//libs  += GblConsultingClientS_corba
+	//#UC END# *4785DFB00230_CUSTOM_DEPENDENSES*
+	includes += ../../../../
+
+	Header_Files {
+		Std_Headers {
+			./../GblAdapterClient/GblAdapterClient.h
+			./../GblAdapter/GblAdapter.h
+			./../GblAdapterClient/GblAdapterClient_tie.h
+			./../GblAdapter/GblAdapter_tie.h
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../GblAdapterClient/GblAdapterClient.cpp
+			./../GblAdapter/GblAdapter.cpp
+			./../GblAdapterClient/GblAdapterClient_tie.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../GblAdapterClient/GblAdapterClient_vi.rc
+		./../GblAdapterClient/GblAdapterClient_vi.rch
+		
+		//#UC START# *4785DFB00230_RESOURCE_FILES*
+		//#UC END# *4785DFB00230_RESOURCE_FILES*
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

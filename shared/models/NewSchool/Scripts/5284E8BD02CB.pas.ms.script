@@ -1,0 +1,78 @@
+// CodeBranchingPack 5284E8BD02CB ScriptKeywordsPack Class
+
+FORWARD ME_5284E8BD02CB
+
+INCLUDE '4DBAEF29031F.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4F51EC180118
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5E036D244A9D
+ CONST UID '5E036D244A9D'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация RULES' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5E036D244A9D Ini_Reg
+
+: ME_4F51EC180118
+ CONST UID '4F51EC180118'
+ CONST Name 'RULES'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Аналог CASE и трансформаторов в MDP. Если условие выполняется, то выполняется следующий за ним оператор и осуществляется выход' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4DBAEF29031F // TtfwBeginLikeWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5E036D244A9D // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DB6C99F026E // EndBracket
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DBAEE0D028D // CompiledWordClass
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F51EC180118 RULES
+
+: ME_5284E8BD02CB
+ CONST UID '5284E8BD02CB'
+ CONST Name 'CodeBranchingPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4F51EC180118 // RULES
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_5284E8BD02CB CodeBranchingPack

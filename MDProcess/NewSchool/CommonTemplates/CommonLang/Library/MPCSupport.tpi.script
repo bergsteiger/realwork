@@ -1,0 +1,1137 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ћодуль: "w:/MDProcess/CommonTemplates/CommonLang/Library/MPCSupport.tpi"
+// √енераци€ мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Library::MPCSupport
+//
+// набор вспомагательных функций дл€ генерации mpc/mwc
+//
+//
+// ¬се права принадлежат ќќќ Ќѕѕ "√арант-—ервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// дампит зависимости от библиотек
+//f _mpc_lib_dep
+: mpc_lib_dep OBJECT IN %S
+//#UC START# *470372D303D8*
+//	<{\n\t}{%De=false&%DS!=Requirements|"%D{native name}"!=""&%DS!=Requirements}after += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |e ) %==  false AND 
+   ( ( %D |S ) %!= 'Requirements'  ) OR 
+   ( ( %D get_up ( 'native name' ) ) %!= ''  ) AND 
+   ( ( %D |S ) %!= 'Requirements'  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10#9 )
+   'after += '
+   if ( ( %D |e ) %==  false ) then
+   begin
+    %D |N if ( ( %D |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     '_cs' 
+    end // if
+   end // if
+   else
+   begin
+    %D get_up ( 'native name' ) 
+   end // else
+//		libs  += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+   '	libs  += '
+   if ( ( %D |e ) %==  false ) then
+   begin
+    %D |N if ( ( %D |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     '_cs' 
+    end // if
+   end // if
+   else
+   begin
+    %D get_up ( 'native name' ) 
+   end // else
+//	[{%DS=ServerLibrary&%t_target(%S)=true}
+   if ( ( %D |S ) %== 'ServerLibrary' AND 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    #13#10
+
+//		after += %DN
+    '	after += '
+    %D |N 
+//		libs  += %DN
+    '	libs  += '
+    %D |N 
+//	]>
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for D
+//#UC END# *470372D303D8*
+; // mpc_lib_dep
+
+
+// дампит код mpc файла библиотеки
+//f _library_mpc_base
+: library_mpc_base OBJECT IN %S
+//#UC START# *47037358005D*
+//	%f_set_var(MPC_BASE,S)\
+ [%f] set_var %( 'MPC_BASE' %, 'S' )% 
+//		includes += %f_root_relative_path(%S)
+ '	includes += '
+ [%f] root_relative_path %( %S )% 
+//	[{%S{need UC}=true}
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//		%U[{_CUSTOM_DEPENDENCES}
+  '	'
+  %Usersection (
+   '_CUSTOM_DEPENDENCES' 
+  )
+  (
+   #13#10
+
+//		]]
+   '	' 
+  ) // Usersection
+  end // if
+//	[{"<{}{%DS!=Requirements}{%DC}>"!="0"}[	%f_mpc_lib_dep(%S)]]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if ( ( %D |S ) %!= 'Requirements' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for D
+  l_Counter
+  %!= 0 ) then
+ begin
+  if NOT-EMPTY
+  begin
+   '	'
+   [%f] mpc_lib_dep %( %S )% 
+  end // if
+  NOP
+ end // if
+//	[<{}{%C<{}{%AM=Grammar::Class}{%AC}>!=0}{%CSn}\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'Grammar::Class' ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for A
+    l_Counter
+
+   ) // bind
+ )    %!= 0 ) then
+   begin
+//		Grammar_Files (%CN) {
+    '	Grammar_Files ('
+    %C |N ') {'
+//	%C<{}{}{%ASn}[{"%f_normolized_path(g.cpp,A)"!=""}\
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%An
+     begin
+      OBJECT IN %A
+      if true then
+      begin
+       if ( ( [%f] normolized_path %( 'g.cpp' %, 'A' )% ) %!= '' ) then
+       begin
+//			gflags += -o %f_normolized_dir(g.cpp,A)%f_set_var(PATH,"%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,)")
+        '		gflags += -o '
+        [%f] normolized_dir %( 'g.cpp' %, 'A' )% [%f] set_var %( 'PATH' %, [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, )% )% 
+//			%f_normolized_path(g.cpp,A) \>\> %{PATH}NLexer.hpp %{PATH}NLexer.cpp %{PATH}NParser.hpp %{PATH}NParser.cpp
+        '		'
+        [%f] normolized_path %( 'g.cpp' %, 'A' )% ' >> '
+        ( get_global_var ( 'PATH' ) |N ) 'Lexer.hpp '
+        ( get_global_var ( 'PATH' ) |N ) 'Lexer.cpp '
+        ( get_global_var ( 'PATH' ) |N ) 'Parser.hpp '
+        ( get_global_var ( 'PATH' ) |N ) 'Parser.cpp'
+//	]>
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ //		}
+    '	}'
+//	>]	Header_Files {
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ '	Header_Files {'
+//			Std_Headers {
+ '		Std_Headers {'
+//			[	%f_normolized_path(fctr.h,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'fctr.h' %, 'S' )% 
+//			][	%f_normolized_path(h,S)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'h' %, 'S' )% 
+//			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+  '		' 
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'h' %, 'C' )% 
+//			][	%f_normolized_path(fctr.h,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.h' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{"%CC"="Category"}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(h,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'h' %, 'C' )% 
+//			][	%f_normolized_path(fctr.h,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.h' %, 'C' )% 
+//			][	%f_normolized_path(p.h,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'p.h' %, 'C' )% 
+//			]%C<{}{}{%ASn}[	%f_normolized_path(h,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'h' %, 'A' )% 
+//			][	%f_normolized_path(fctr.h,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'fctr.h' %, 'A' )% 
+//			][	%f_normolized_path(p.h,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'p.h' %, 'A' )% 
+//			][	%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.hpp),%AN.,%ANParser.)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] str_replace %( [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, '.hpp' )% %, %A |N '.' %, %A |N 'Parser.' )% 
+//				%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.hpp),%AN.,%ANLexer.)
+       '			'
+       [%f] str_replace %( [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, '.hpp' )% %, %A |N '.' %, %A |N 'Lexer.' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>[%{MPC_BASE}%f_specific_h_files_list()
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ if NOT-EMPTY
+ begin
+  ( get_global_var ( 'MPC_BASE' ) %f specific_h_files_list %( )% ) 
+//		]}
+  '	' 
+ end // if
+ NOP
+ '}'
+//	
+//		Inline_Files {
+ '	Inline_Files {'
+//			Std_Inlines {
+ '		Std_Inlines {'
+//			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(i.h,C)
+ '		'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'i.h' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{%CC=Category&%CS!=ServerInterface}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' AND 
+   ( ( %C |S ) %!= 'ServerInterface'  ) ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(i.h,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'i.h' %, 'C' )% 
+//			]%C<{}{}{%ASn}[	%f_normolized_path(i.h,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'i.h' %, 'A' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	
+//		Source_Files {
+ '	Source_Files {'
+//			Std_Sources {
+ '		Std_Sources {'
+//			[	%f_normolized_path(fctr.cpp,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'fctr.cpp' %, 'S' )% 
+//			][	%f_normolized_path(cpp,S)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'cpp' %, 'S' )% 
+//			][	%f_normolized_path(p.cpp,S)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'p.cpp' %, 'S' )% 
+//			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+  '		' 
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'cpp' %, 'C' )% 
+//			][	%f_normolized_path(fctr.cpp,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.cpp' %, 'C' )% 
+//			][	%f_normolized_path(p.cpp,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'p.cpp' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{"%CC"="Category"}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(cpp,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'cpp' %, 'C' )% 
+//			][	%f_normolized_path(p.cpp,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'p.cpp' %, 'C' )% 
+//			][	%f_normolized_path(fctr.cpp,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.cpp' %, 'C' )% 
+//			]%C<{}{}{%ASn}[	%f_normolized_path(cpp,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'cpp' %, 'A' )% 
+//			][	%f_normolized_path(fctr.cpp,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'fctr.cpp' %, 'A' )% 
+//			][	%f_normolized_path(p.cpp,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'p.cpp' %, 'A' )% 
+//			][	%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.cpp),%AN.,%ANParser.)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] str_replace %( [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, '.cpp' )% %, %A |N '.' %, %A |N 'Parser.' )% 
+//				%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.cpp),%AN.,%ANLexer.)
+       '			'
+       [%f] str_replace %( [%f] str_replace %( [%f] normolized_path %( 'g.cpp' %, 'A' )% %, '.cpp.g' %, '.cpp' )% %, %A |N '.' %, %A |N 'Lexer.' )% 
+//			]>}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    '}'
+//		>[%{MPC_BASE}%f_specific_cpp_files_list()
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ if NOT-EMPTY
+ begin
+  ( get_global_var ( 'MPC_BASE' ) %f specific_cpp_files_list %( )% ) 
+//		]}[{"<{}{%CM=ComInterfaces::Category}{C}>"!="0"}
+  '	' 
+ end // if
+ NOP
+ '}'
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |M ) %== 'ComInterfaces::Category' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  #13#10
+
+//		
+  '	'
+//		<{}{}{%CSn}%f_set_var(ODL_PATH,"%f_normolized_path(odl,C)")ODL_Files (%CN) {
+  '	'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    [%f] set_var %( 'ODL_PATH' %, [%f] normolized_path %( 'odl' %, 'C' )% )% 'ODL_Files ('
+    %C |N ') {'
+//			[%f_normolized_path(odl,C)
+    '		'
+    if NOT-EMPTY
+    begin
+     [%f] normolized_path %( 'odl' %, 'C' )% 
+//			]
+     '		' 
+    end // if
+    NOP
+//		}
+    '	}'
+//		>]
+    '	' 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+//#UC END# *47037358005D*
+; // library_mpc_base
+
+
+// генерим include ко всем LibHome библиотек от которых зависим (рекурсивно)
+//f _inc_all_dep
+: inc_all_dep OBJECT IN %S
+//#UC START# *470387C0004E*
+//	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}\#include "%f_delsubstr_from_begin(%Dd,1)/LibHome.h"
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |e ) %==  false AND 
+   ( ( %D get_up ( 'old gcm' ) ) %!=  true  ) AND 
+   ( ( %D |S ) %!= 'Requirements'  ) ) then
+  begin
+   '#include "'
+   [%f] delsubstr_from_begin %( %D |d %, 1 )% '/LibHome.h"'
+//	[{%DS=ServerLibrary&%t_target(%S)=true}\#include "%f_delsubstr_from_begin(%Dd,1)/ServerLibHome.h"
+   if ( ( %D |S ) %== 'ServerLibrary' AND 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    '#include "'
+    [%f] delsubstr_from_begin %( %D |d %, 1 )% '/ServerLibHome.h"'
+//	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_inc_all_dep(%D)]>
+   end // if
+   if ( ( %D |S ) %!= 'ServerLibrary' OR 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    [%f] inc_all_dep %( %D )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for D
+//#UC END# *470387C0004E*
+; // inc_all_dep
+
+
+// генерим код регистрации  всех LibHome библиотек от которых зависим (рекурсивно)
+//f _reg_all_dep
+: reg_all_dep OBJECT IN %S
+//#UC START# *470387F903C8*
+//	%f_clear_list(REG_ALL_DEP)\
+ [%f] clear_list %( 'REG_ALL_DEP' )% 
+//	%f_clear_list(REG_ALL_DEP_SERVER)\
+ [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% 
+//	%f_reg_all_dep_i(%S)\
+ [%f] reg_all_dep_i %( %S )% 
+//	%f_sort_list(REG_ALL_DEP,u)\
+ [%f] sort_list %( 'REG_ALL_DEP' %, 'u' )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,CYCLE_ITEM)\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'REG_ALL_DEP' %, 'CYCLE_ITEM' )% 
+//	[	%{CYCLE_ITEM}%f_open_ifdef()
+   if NOT-EMPTY
+   begin
+    '	'
+    ( get_global_var ( 'CYCLE_ITEM' ) %f open_ifdef %( )% ) 
+//	]		lhm.registrate_lib_home (&%{CYCLE_ITEM}N::LibHomeFactory::get ());[{%f_exists_in_list(REG_ALL_DEP_SERVER,{CYCLE_ITEM})=true}
+   end // if
+   NOP
+   '		lhm.registrate_lib_home (&'
+   ( get_global_var ( 'CYCLE_ITEM' ) |N ) '::LibHomeFactory::get ());'
+   if ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{CYCLE_ITEM}' )% ) %==  true ) then
+   begin
+    #13#10
+
+//			lhm.registrate_lib_home (&%{CYCLE_ITEM}N::ServerLibHomeFactory::get ());][
+    '		lhm.registrate_lib_home (&'
+    ( get_global_var ( 'CYCLE_ITEM' ) |N ) '::ServerLibHomeFactory::get ());' 
+   end // if
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//		%{CYCLE_ITEM}%f_close_ifdef()]
+    '	'
+    ( get_global_var ( 'CYCLE_ITEM' ) %f close_ifdef %( )% ) 
+   end // if
+   NOP
+//	]>%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)
+   ']' 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+ [%f] clear_list %( 'REG_ALL_DEP' )% [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% 
+
+//f _reg_all_dep_i
+; // reg_all_dep
+
+: reg_all_dep_i OBJECT IN %S
+//	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}[{%f_exists_in_list(REG_ALL_DEP,D)=false}%f_add_to_list(REG_ALL_DEP,D)]\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |e ) %==  false AND 
+   ( ( %D get_up ( 'old gcm' ) ) %!=  true  ) AND 
+   ( ( %D |S ) %!= 'Requirements'  ) ) then
+  begin
+   if ( ( [%f] exists_in_list %( 'REG_ALL_DEP' %, 'D' )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( 'REG_ALL_DEP' %, 'D' )% 
+   end // if
+//	[{%DS=ServerLibrary&%t_target(%S)=true}[{%f_exists_in_list(REG_ALL_DEP_SERVER,D)=false}%f_add_to_list(REG_ALL_DEP_SERVER,D)]\
+   if ( ( %D |S ) %== 'ServerLibrary' AND 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    if ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, 'D' )% ) %==  false ) then
+    begin
+     [%f] add_to_list %( 'REG_ALL_DEP_SERVER' %, 'D' )% 
+    end // if
+//	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_reg_all_dep_i(%D)]>
+   end // if
+   if ( ( %D |S ) %!= 'ServerLibrary' OR 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    [%f] reg_all_dep_i %( %D )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for D
+//#UC END# *470387F903C8*
+; // reg_all_dep_i
+
+
+// генерим дополнительные команды includes к бибилиотекам
+//f _mpc_all_includes
+: mpc_all_includes OBJECT IN %S
+//#UC START# *47038820034B*
+//	%f_clear_list(MPC_INLUDES)\
+ [%f] clear_list %( 'MPC_INLUDES' )% 
+//	%f_collect_mpc_all_includes(%S)\
+ [%f] collect_mpc_all_includes %( %S )% 
+//	%f_sort_list(MPC_INLUDES,n)\
+ [%f] sort_list %( 'MPC_INLUDES' %, 'n' )% 
+//	%f_unique_list(MPC_INLUDES)\
+ [%f] unique_list %( 'MPC_INLUDES' )% 
+//	<{}{%f_is_empty(MPC_INLUDES)=false}{W}%f_pop_first_to_var(MPC_INLUDES,_INC_)[	includes += %{_INC_}N
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'MPC_INLUDES' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'MPC_INLUDES' %, '_INC_' )% if NOT-EMPTY
+   begin
+    '	includes += '
+    ( get_global_var ( '_INC_' ) |N ) 
+//	]>%f_clear_list(MPC_INLUDES)
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+ [%f] clear_list %( 'MPC_INLUDES' )% 
+
+//f _collect_mpc_all_includes
+; // mpc_all_includes
+
+: collect_mpc_all_includes OBJECT IN %S
+//	<{}{%De=false&%DS!=Requirements|"%D{native includes path}"!=""&%DS!=Requirements}[{%De=true}%f_add_to_list(MPC_INLUDES,"%D{native includes path}")][{%DS!=ServerLibrary|%t_target(%S)=true}%f_collect_mpc_all_includes(%D,"zzz")]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |e ) %==  false AND 
+   ( ( %D |S ) %!= 'Requirements'  ) OR 
+   ( ( %D get_up ( 'native includes path' ) ) %!= ''  ) AND 
+   ( ( %D |S ) %!= 'Requirements'  ) ) then
+  begin
+   if ( ( %D |e ) %==  true ) then
+   begin
+    [%f] add_to_list %( 'MPC_INLUDES' %, %D get_up ( 'native includes path' ) )% 
+   end // if
+   if ( ( %D |S ) %!= 'ServerLibrary' OR 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    [%f] collect_mpc_all_includes %( %D %, 'zzz' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for D
+//#UC END# *47038820034B*
+; // collect_mpc_all_includes
+
+
+// генерим дополнительные путь к бибилиотекам (libpaths)
+//f _mpc_all_libpaths
+: mpc_all_libpaths OBJECT IN %S
+//#UC START# *4703882D008C*
+//	%f_clear_list(MPC_LIBPATH)\
+ [%f] clear_list %( 'MPC_LIBPATH' )% 
+//	%f_collect_mpc_all_libpaths(%S)\
+ [%f] collect_mpc_all_libpaths %( %S )% 
+//	%f_sort_list(MPC_LIBPATH,n)\
+ [%f] sort_list %( 'MPC_LIBPATH' %, 'n' )% 
+//	%f_unique_list(MPC_LIBPATH)\
+ [%f] unique_list %( 'MPC_LIBPATH' )% 
+//	<{}{%f_is_empty(MPC_LIBPATH)=false}{W}%f_pop_first_to_var(MPC_LIBPATH,_LIBPATH_)[	libpaths += %{_LIBPATH_}N
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'MPC_LIBPATH' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'MPC_LIBPATH' %, '_LIBPATH_' )% if NOT-EMPTY
+   begin
+    '	libpaths += '
+    ( get_global_var ( '_LIBPATH_' ) |N ) 
+//	]>%f_clear_list(MPC_LIBPATH)
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+ [%f] clear_list %( 'MPC_LIBPATH' )% 
+
+//f _collect_mpc_all_libpaths
+; // mpc_all_libpaths
+
+: collect_mpc_all_libpaths OBJECT IN %S
+//	<{}{%De=false&%DS!=Requirements|"%D{native lib path}"!=""&%DS!=Requirements}[{%De=true}%f_add_to_list(MPC_LIBPATH,"%D{native lib path}")][{%DS!=ServerLibrary|%t_target(%S)=true}%f_collect_mpc_all_libpaths(%D,"zzz")]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |e ) %==  false AND 
+   ( ( %D |S ) %!= 'Requirements'  ) OR 
+   ( ( %D get_up ( 'native lib path' ) ) %!= ''  ) AND 
+   ( ( %D |S ) %!= 'Requirements'  ) ) then
+  begin
+   if ( ( %D |e ) %==  true ) then
+   begin
+    [%f] add_to_list %( 'MPC_LIBPATH' %, %D get_up ( 'native lib path' ) )% 
+   end // if
+   if ( ( %D |S ) %!= 'ServerLibrary' OR 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    [%f] collect_mpc_all_libpaths %( %D %, 'zzz' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for D
+//#UC END# *4703882D008C*
+; // collect_mpc_all_libpaths
+
+
+// генерим зависимости от всех библиотек, от которых зависим (рекурсивно)
+//f _mpc_all_dep
+: mpc_all_dep OBJECT IN %S
+//#UC START# *47038859005D*
+//	<{}{%De=false&%DS!=Requirements|"%D{native name}"!=""&%DS!=Requirements}	after += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |e ) %==  false AND 
+   ( ( %D |S ) %!= 'Requirements'  ) OR 
+   ( ( %D get_up ( 'native name' ) ) %!= ''  ) AND 
+   ( ( %D |S ) %!= 'Requirements'  ) ) then
+  begin
+   '	after += '
+   if ( ( %D |e ) %==  false ) then
+   begin
+    %D |N if ( ( %D |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     '_cs' 
+    end // if
+   end // if
+   else
+   begin
+    %D get_up ( 'native name' ) 
+   end // else
+//		libs  += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]][
+   '	libs  += '
+   if ( ( %D |e ) %==  false ) then
+   begin
+    %D |N if ( ( %D |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     '_cs' 
+    end // if
+   end // if
+   else
+   begin
+    %D get_up ( 'native name' ) 
+   end // else
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//		lit_libs += %D{lit_libs}]
+    '	lit_libs += '
+    %D get_up ( 'lit_libs' ) 
+   end // if
+   NOP
+//	[{%DS=ServerLibrary&%t_target(%S)=true}	after += %DN
+   if ( ( %D |S ) %== 'ServerLibrary' AND 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    '	after += '
+    %D |N 
+//		libs  += %DN[
+    '	libs  += '
+    %D |N if NOT-EMPTY
+    begin
+     #13#10
+
+//		lit_libs += %D{lit_libs}]
+     '	lit_libs += '
+     %D get_up ( 'lit_libs' ) 
+    end // if
+    NOP
+//	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_mpc_all_dep(%D,"zzz")]>
+   end // if
+   if ( ( %D |S ) %!= 'ServerLibrary' OR 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    [%f] mpc_all_dep %( %D %, 'zzz' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for D
+
+//нужно ли линковатьс€ с библиотекой ANTLR
+//f _mpc_need_antrl_proj
+; // mpc_all_dep
+
+: mpc_need_antrl_proj OBJECT IN %S
+//	[{"%f_mpc_need_antrl_proj_impl(%S)"!=""}{false}true]
+ if ( ( [%f] mpc_need_antrl_proj_impl %( %S )% ) %!= '' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _mpc_need_antrl_proj_impl
+; // mpc_need_antrl_proj
+
+: mpc_need_antrl_proj_impl OBJECT IN %S
+//	<{}{%De=false&%DS!=Requirements|"%D{native name}"!=""&%DS!=Requirements}[{"%DM"!="ServerLibrary::Category"}[{%D<{}{%AM=Grammar::Class}{%AC}>!=0}.]]\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |e ) %==  false AND 
+   ( ( %D |S ) %!= 'Requirements'  ) OR 
+   ( ( %D get_up ( 'native name' ) ) %!= ''  ) AND 
+   ( ( %D |S ) %!= 'Requirements'  ) ) then
+  begin
+   if ( ( %D |M ) %!= 'ServerLibrary::Category' ) then
+   begin
+    if ( ( %D
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%A
+      begin
+       OBJECT IN %A
+       if ( ( %A |M ) %== 'Grammar::Class' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for A
+      l_Counter
+
+     ) // bind
+ )      %!= 0 ) then
+    begin
+     '.' 
+    end // if
+   end // if
+//	[{"%DM"="ServerLibrary::Category"&%t_target(%S)=true}[{%D<{}{%AM=Grammar::Class}{%AC}>!=0}.]]\
+   if ( ( %D |M ) %== 'ServerLibrary::Category' AND 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    if ( ( %D
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%A
+      begin
+       OBJECT IN %A
+       if ( ( %A |M ) %== 'Grammar::Class' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for A
+      l_Counter
+
+     ) // bind
+ )      %!= 0 ) then
+    begin
+     '.' 
+    end // if
+   end // if
+//	[{%DS!=ServerLibrary|%t_target(%S)=true}%f_mpc_need_antrl_proj_impl(%D,"zzz")]>
+   if ( ( %D |S ) %!= 'ServerLibrary' OR 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    [%f] mpc_need_antrl_proj_impl %( %D %, 'zzz' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for D
+//#UC END# *47038859005D*
+; // mpc_need_antrl_proj_impl
+
+
+// определ€ет содержат ли пакеты, ото которых зависит (рекурсивно) Self элементы со стереотип
+// Views, озвращает true, или false
+//f _contain_views
+: contain_views OBJECT IN %S
+//#UC START# *47046BEC03A9*
+//	[{"<%d<{}{%AS=Views}{C}>>"!="0"}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |S ) %== 'Views' ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for A
+     l_Counter
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47046BEC03A9*
+; // contain_views
+
+
+// нужно ли генерить в mpc-шник список idl-ей
+//f _need_mpc_idl
+: need_mpc_idl OBJECT IN %S
+//#UC START# *471604E5008C*
+//	[{%SM=ServerInterfaces::Category|%SM=Impl::Category}{false}[{%S%f_need_idl()=true}{false}true]]
+ if ( ( %S |M ) %== 'ServerInterfaces::Category' OR 
+   ( ( %S |M ) %== 'Impl::Category'  ) ) then
+ begin
+  if ( ( %S %f need_idl %( )% ) %==  true ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *471604E5008C*
+; // need_mpc_idl
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

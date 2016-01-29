@@ -1,0 +1,34 @@
+'$Include "global.sbl"
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=66,9"
+    GenericObject Click, "Text=Документы", "Coords=59,11"
+    ListBox Click, "ObjectIndex=4", "Coords=146,364"
+    ListBox Click, "ObjectIndex=4", "Coords=120,12"
+    InputKeys "{HOME}"
+    InputKeys "^a"
+    
+    InputKeys "{DELETE}"
+    InputKeys "^f"
+    Result = RegionVP (CompareImage, "", "VP=Disable;Coords=339,67,444,95")
+'    if SQAFindObject("\;Type=Window;Caption={ГАРАНТ*};\;Type=Window;Caption={Поиск контекста*}") = sqaSuccess then
+'    if SQAFindObject("Type=Window;Caption={Поиск контекста*}") = sqaSuccess then
+'    SQALogMessage sqaFail, "Ошибка! Найдено окно контекстного поиска", ""
+'    Window SetContext, "Type=Window;Caption={Поиск контекста*}",""  
+'    SQAGetProperty "Type=Window;Caption={Поиск контекста*}","Enabled",value 
+
+'    else
+'    SQALogMessage sqaPass, "Окно контекстного поиска не найдено", ""
+
+'    end if
+  
+    'проверяем
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+
+End Sub

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+echo "clean_bldlibs_only for MPCXC_ROOT = $MPCXC_ROOT ..."
+
+find $MPCXC_ROOT/bld/ -type f -name "lib*.a" -exec rm -f {} \;
+find $MPCXC_ROOT/bld/ -type f -name "lib*.so" -exec rm -f {} \;
+
+echo "end."

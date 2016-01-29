@@ -1,0 +1,127 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+'ставим закладки на первый, последний, серединный элемент в списке, а затем переходим 
+'по этим закладкм
+Sub Main
+    Dim FirstElem$,MiddleElem$,EndElem$
+    FirstElem="Первый элемент"
+    MiddleElem="Серединный элемент"
+    EndElem="Последний элемент"
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=89,13"
+    
+    GenericObject Click, "Text=Документы", "Coords=48,11"
+    ListBox Click, "ObjectIndex=4", "Coords=120,364"
+    ListBox Click, "ObjectIndex=4", "Coords=110,11"
+     
+    
+     
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=9,25"
+    InputKeys "{HOME}{APPS}"
+    Window SetContext, "CurrentWindow",""
+    for i=1 to 19
+        InputKeys "{DOWN}"
+    next i
+    InputKeys "{ENTER}"
+    'сохраняем закладку на первый элемент в папку Мои документы
+    call SaveDlg("Мои документы",FirstElem)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=9,25"
+    
+    for i=1 to 3
+       InputKeys "{DOWN}"
+       DelayFor 500
+    next i
+    InputKeys "{APPS}"
+    Window SetContext, "CurrentWindow",""
+    for i=1 to 22
+        InputKeys "{DOWN}"
+    next i
+    InputKeys "{ENTER}"
+    call SaveDlg("Мои документы",MiddleElem)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=9,25"
+    InputKeys "{END}"
+    DelayFor 3500
+    InputKeys "{APPS}"
+    Window SetContext, "CurrentWindow",""
+    for i=1 to 22
+        InputKeys "{DOWN}"
+    next i
+    InputKeys "{ENTER}"
+    call SaveDlg("Мои документы",EndElem)
+    '''''''''''''''''''
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,115"
+    ListBox Click, "ObjectIndex=1", "Coords=40,10"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    'переходим по сохранённым закладкам
+    call Position_Internal("CurrentFocus","Мои документы\"+FirstElem)
+    InputKeys "{ENTER}"
+    DelayFor 2000
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,115"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    RichEdit Click, "ObjectIndex=1","Coords=10,10"
+    InputKeys "^+{RIGHT}"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=FirstElem")
+    Window ResetTestContext, "", ""
+    '''''''''''''''''''''''''''''''''''''''''
+    '''''''''''''''''''
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,115"
+    ListBox Click, "ObjectIndex=1", "Coords=40,10"
+    'переходим по сохранённым закладкам
+    call Position_Internal("CurrentFocus","Мои документы\"+MiddleElem)
+    InputKeys "{ENTER}"
+    DelayFor 2000
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,115"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    RichEdit Click, "ObjectIndex=1","Coords=10,10"
+    InputKeys "^+{RIGHT}"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=MiddleElem")
+    Window ResetTestContext, "", ""
+    '''''''''''''''''''
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,115"
+    ListBox Click, "ObjectIndex=1", "Coords=40,10"
+    'переходим по сохранённым закладкам
+    call Position_Internal("CurrentFocus","Мои документы\"+EndElem)
+    InputKeys "{ENTER}"
+    DelayFor 2000
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,115"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    RichEdit Click, "ObjectIndex=1","Coords=10,10"
+    InputKeys "^+{RIGHT}"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=EndElem")
+    Window ResetTestContext, "", ""
+    
+'    '''''''''''''''''''''''''
+'    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+'    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    call DeleteFolder("Мои документы\"+FirstElem,1)
+    call DeleteFolder("Мои документы\"+MiddleElem,1)
+    call DeleteFolder("Мои документы\"+EndElem,1)
+    
+'    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+'    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,36"
+
+End Sub

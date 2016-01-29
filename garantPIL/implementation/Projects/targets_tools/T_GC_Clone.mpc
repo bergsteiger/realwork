@@ -1,0 +1,31 @@
+project (T_GC_Clone) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_GC_Clone {
+	exename = gc
+
+	macros += ONLY_NORM_INDEX
+	macros += STORE_FORM_N
+	macros += USE_CPP_ZIP
+	macros += OPT_PACK_MPCXC
+	macros += WINENCODE
+
+	macros += WITH_DBL_THREAD
+	macros += PL_REPLCTR_FUNC
+	macros += MAKE_HDD
+	macros += VERSION56
+	macros += VERSION61
+	macros += VERSION62
+	macros += VERSION63
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += BLOCKSINHERIT
+	macros += DOC_ONLY
+	macros -= INSTLL_CIB
+	macros += NEWNODOC
+	macros += FLUSH56
+	macros += OLD_SHORT_STR
+
+	after += Core
+	after += GCL
+	
+	libs += GCL
+	libs += Core
+}

@@ -1,0 +1,3059 @@
+<<TestLibrary>> TestFormsTest
+ %UID '4B30C5FF0172'
+ %SUMMARY 'Тесты форм' ;
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4ACDBBED0241' /* ImageEn */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4B30C4D400DF' /* TestForms */
+  U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+  U$ '4DFA0A8A0307' /* Everest$Extensions */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54ECA252008F' /* ScriptEngine$Everest */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant/Daily'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4ACDBBED0241' /* ImageEn */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4B30C4D400DF' /* TestForms */
+  U$ '4B30C6E3023C' /* Forms */
+  U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+  U$ '4DFA0A8A0307' /* Everest$Extensions */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54ECA252008F' /* ScriptEngine$Everest */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> MixIns
+   %UID '4BCE9EA0028A'
+   %SUMMARY 'Примеси' ;
+   %DEPENDS
+    U$ '4728A7020026' /* Types */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B30C5FF0172' /* TestFormsTest */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Impurity>> FormProducer
+      %UID '4BCE9EF8033F'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4BCE9F890019"
+         %UID '4BCE9F890019'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 4BCE9F890019
+        <<uses>> "4BCEA5AB0052"
+         %UID '4BCEA5AB0052'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4BCEA5AB0052
+        <<uses>> "4BCEAD7103DD"
+         %UID '4BCEAD7103DD'
+         %TARGET U$ '47E13C6B0341' /* Forms */
+        ; // 4BCEAD7103DD
+        <<uses>> "4C08D02C033F"
+         %UID '4C08D02C033F'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 4C08D02C033F
+      ; // %LINKS
+      %ATTRIBUTES
+        <<impurity_param>> FormClass
+         %UID '4BCE9F9102AA'
+         %TARGET U$ '4BCE9F17020A' /* FormClass */
+         %TOBEINCLUDED
+          U$ '4B30C5FF0172' /* TestFormsTest */
+         ; // %TOBEINCLUDED
+        ; // FormClass
+        PROTECTED <<Attribute>> f_FixedHeight
+         %UID '4C0E55EC033C'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_FixedHeight
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED FINAL <<method>> MakeForm
+         %UID '4BCE9FC203E4'
+         %TOBEINCLUDED
+          U$ '4B30C5FF0172' /* TestFormsTest */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4BCE9FF8020F"
+            %UID '4BCE9FF8020F'
+            %TARGET U$ '47F25BC801DB' /* vcmBase */
+           ; // 4BCE9FF8020F
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4BCE9FDE0103'
+            %TARGET U$ '4BCE9F17020A' /* FormClass */
+            %TOBEINCLUDED
+             U$ '4B30C5FF0172' /* TestFormsTest */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeForm
+        PROTECTED <<method>> MakeFormClass
+         %UID '4C9B2B7F0266'
+         %TOBEINCLUDED
+          U$ '4B30C5FF0172' /* TestFormsTest */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C9B2B8F02BA'
+            %TARGET U$ '4C9B2C6403B8' /* FormClassRef */
+            %TOBEINCLUDED
+             U$ '4B30C5FF0172' /* TestFormsTest */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeFormClass
+        PROTECTED <<Operation>> FormExtent
+         %UID '4C08CF700318'
+         %SUMMARY 'Размеры формы' ;
+         %TARGET U$ '4739AD110072' /* TPoint */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // FormExtent
+        PROTECTED <<Operation>> FormMade
+         %UID '4C08D61F0231'
+         %TOBEINCLUDED
+          U$ '4B30C5FF0172' /* TestFormsTest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4C08D62B0149'
+            %TARGET U$ '4BCE9F17020A' /* FormClass */
+            %TOBEINCLUDED
+             U$ '4B30C5FF0172' /* TestFormsTest */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // FormMade
+        PROTECTED <<Operation>> UseFormExtentAsClientSize
+         %UID '4DA2F7900393'
+         %SUMMARY 'Использовать заданные размеры формы как размеры клиентской области - размеры формы пересчитываются относительно этих ограничений.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // UseFormExtentAsClientSize
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        ABSTRACT <<ImpurityParamType>> FormClass
+         %UID '4BCE9F17020A'
+         %SUMMARY 'Класс формы' ;
+        ; // FormClass
+        <<Typedef>> FormClassRef
+         %UID '4C9B2C6403B8'
+         %META
+          %upv "isClassRef" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4B30C5FF0172' /* TestFormsTest */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4BCE9F17020A' /* FormClass */
+         ; // %INHERITS
+        ; // FormClassRef
+      ; // %CHILDREN
+     ; // FormProducer
+   ; // %CHILDREN
+  ; // MixIns
+  <<TestUnit>> Everest
+   %UID '4B30C89F035F'
+   %SUMMARY 'Тесты для Эвереста' ;
+   %DEPENDS
+    U$ '4678137501EA' /* k2Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '4678209200A6' /* nevBase */
+    U$ '467823B7002C' /* afwInterfaces */
+    U$ '467C0CAA02AB' /* l3InternalInterfaces */
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '472745450206' /* l3Units */
+    U$ '473C3BEE0334' /* l3Canvas */
+    U$ '474144E20301' /* Draw */
+    U$ '476BE0350329' /* Styles */
+    U$ '476F78840219' /* Messages */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4799EC9300AF' /* l3Defaults */
+    U$ '47BB24D30205' /* "Стандартные примеси" */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47C695A10172' /* evTypes */
+    U$ '47CD5C7602CD' /* evQueryCardInt */
+    U$ '47CEBC900123' /* qf */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47E3C64F037E' /* Operations */
+    U$ '47EA968D0155' /* Printing */
+    U$ '47ECA80B000D' /* Generators */
+    U$ '47ECAB0B0265' /* evMsgCode */
+    U$ '47ECB2870309' /* StyleTable */
+    U$ '47ECB8BD00A8' /* Generators */
+    U$ '47F1F38601A3' /* ParaUtils */
+    U$ '47F1F90A0391' /* Searchers */
+    U$ '4811D4EC0237' /* Views */
+    U$ '4829D7D50156' /* Editors */
+    U$ '48342A280198' /* elClone */
+    U$ '48453A40017C' /* evOp */
+    U$ '48492FC0029D' /* Standard */
+    U$ '48E3836D00C8' /* evEditorInterfaces */
+    U$ '4952683C007B' /* Editor */
+    U$ '49A58A1A03C4' /* k2PrimObjects */
+    U$ '4A4DE16302A2' /* k2Core */
+    U$ '4A7960CC03A4' /* " Panels" */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '4ACDBC26003C' /* Source */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B30C6E3023C' /* Forms */
+    U$ '4B30C72000B3' /* Everest */
+    U$ '4B30FC850092' /* VCM_TFW */
+    U$ '4B322E1F0000' /* Schemas */
+    U$ '4B324F930103' /* Filters */
+    U$ '4BCE9EA0028A' /* MixIns */
+    U$ '4DFA0AB5029C' /* QueryCardControlContainers */
+    U$ '4E1C0134031B' /* MixIns */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '55C4AEC801CA' /* Graphics */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+    U$ '467A8734039C' /* EVD */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '4ACDBBED0241' /* ImageEn */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B30C5FF0172' /* TestFormsTest */
+    U$ '4B30C6E3023C' /* Forms */
+    U$ '4DFA0A8A0307' /* Everest$Extensions */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '547CC9D40158' /* VT$Panels */
+    U$ '54ECA252008F' /* ScriptEngine$Everest */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<TestCase>> TTextViaEditorProcessorPrim
+      %UID '4BE047320379'
+      %SUMMARY 'Обработчик текста через редактор' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '4B2A10C40309' /* DUnitTuning */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4BCE9EF8033F' /* FormProducer */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4B30EEEB01EF' /* TVCMBaseTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C08D61F0231' /* FormMade */
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4C9B2B7F0266' /* MakeFormClass */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4BE047950290"
+         %UID '4BE047950290'
+         %TARGET U$ '4B30C7E800EE' /* TextLoad */
+        ; // 4BE047950290
+        <<uses>> "4BE047B0023C"
+         %UID '4BE047B0023C'
+         %TARGET U$ '4B322E2E0270' /* evdSchema */
+        ; // 4BE047B0023C
+        <<uses>> "4C9B31E00370"
+         %UID '4C9B31E00370'
+         %TARGET U$ '4C9B31190392' /* F1LikeTextLoad */
+        ; // 4C9B31E00370
+        <<uses>> "4CA094F101FC"
+         %UID '4CA094F101FC'
+         %TARGET U$ '4CA090120212' /* QFLikeTextLoad */
+        ; // 4CA094F101FC
+        <<uses>> "4D6CB7F70383"
+         %UID '4D6CB7F70383'
+         %TARGET U$ '4D6CB4B7035F' /* F1LikeFormWithBS */
+        ; // 4D6CB7F70383
+        SUMMONED <<uses>> "65D07E711236"
+         %UID '65D07E711236'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 65D07E711236
+      ; // %LINKS
+      %ATTRIBUTES
+        FINAL <<readonly>> ScrollCount
+         %UID '4C65361E038A'
+         %SUMMARY 'Количество прокруток до конца документа' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ScrollCount
+        PRIVATE ABSTRACT <<impurity_value>> FormClass
+         %UID '4BE047880288'
+         %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+        ; // FormClass
+        SUMMONED PRIVATE <<Attribute>> f_ScrollCount
+         %UID '585812CA3EAF'
+         %SUMMARY 'Поле для свойства ScrollCount' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_ScrollCount
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED FINAL <<method>> Load
+         %UID '4B32454100D9'
+         %SUMMARY 'Загружает документ в редактор указанной формы' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B323C9C0062"
+            %UID '4B323C9C0062'
+            %TARGET U$ '4857B5260267' /* Document */
+           ; // 4B323C9C0062
+           <<uses>> "4C1A31D10106"
+            %UID '4C1A31D10106'
+            %TARGET U$ '47E3C78502FB' /* Tk2OperationContainer */
+           ; // 4C1A31D10106
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B32454802A7'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4B3249190277'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+              <<in>> aFileName
+               %UID '4B3249190295'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFileName
+              <<in>> aStr
+               %UID '4B32491902B8'
+               %TARGET U$ '476136D3010B' /* String */
+               %VALUE '''Load'''
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStr
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Load
+        PROTECTED <<method>> Save
+         %UID '4BE12AEE0190'
+         %SUMMARY 'Сохраняет текст из редактора в стандартный выходной файл' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4BE12B470133"
+            %UID '4BE12B470133'
+            %TARGET U$ '483D7C55027A' /* TevdNativeWriter */
+           ; // 4BE12B470133
+           <<uses>> "4BE12B4A02F3"
+            %UID '4BE12B4A02F3'
+            %TARGET U$ '47A0679D00E4' /* Tl3CustomFiler */
+           ; // 4BE12B4A02F3
+           <<uses>> "4BE12B4D01C9"
+            %UID '4BE12B4D01C9'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 4BE12B4D01C9
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4BE12B1D0158'
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4BE12B220172'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Save
+        PROTECTED FINAL <<method>> Scroll
+         %UID '4B32450B0166'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B323E750154"
+            %UID '4B323E750154'
+            %TARGET U$ '48453A750156' /* Operations */
+           ; // 4B323E750154
+           <<uses>> "4B323E67004A"
+            %UID '4B323E67004A'
+            %TARGET U$ '467D37430253' /* Il3CommandTarget */
+           ; // 4B323E67004A
+           <<uses>> "4B55F35201AA"
+            %UID '4B55F35201AA'
+            %TARGET U$ '47E13C6B0341' /* Forms */
+           ; // 4B55F35201AA
+           <<uses>> "4B55F360032C"
+            %UID '4B55F360032C'
+            %TARGET U$ '48A41FF10094' /* Windows */
+           ; // 4B55F360032C
+           <<uses>> "4BEBFE4301E5"
+            %UID '4BEBFE4301E5'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+           ; // 4BEBFE4301E5
+           <<uses>> "4BEC01B00307"
+            %UID '4BEC01B00307'
+            %TARGET U$ '47ECBD5D03BB' /* "Msg Codes" */
+           ; // 4BEC01B00307
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B32451F005F'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4B32453A035A'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+              <<in>> aSubName
+               %UID '4B58919B0315'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSubName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Scroll
+        PROTECTED FINAL <<method>> ScrollBack
+         %UID '4BFBDAB2035D'
+         %SUMMARY 'Скроллирует текст в обратном направлении' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4BFBDB0001BB"
+            %UID '4BFBDB0001BB'
+            %TARGET U$ '48453A750156' /* Operations */
+           ; // 4BFBDB0001BB
+           <<uses>> "4BFBDB050023"
+            %UID '4BFBDB050023'
+            %TARGET U$ '467D37430253' /* Il3CommandTarget */
+           ; // 4BFBDB050023
+           <<uses>> "4BFBDB08010D"
+            %UID '4BFBDB08010D'
+            %TARGET U$ '47E13C6B0341' /* Forms */
+           ; // 4BFBDB08010D
+           <<uses>> "4BFBDB0B0203"
+            %UID '4BFBDB0B0203'
+            %TARGET U$ '48A41FF10094' /* Windows */
+           ; // 4BFBDB0B0203
+           <<uses>> "4BFBDB0E0264"
+            %UID '4BFBDB0E0264'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+           ; // 4BFBDB0E0264
+           <<uses>> "4BFBDB1102A0"
+            %UID '4BFBDB1102A0'
+            %TARGET U$ '47ECBD5D03BB' /* "Msg Codes" */
+           ; // 4BFBDB1102A0
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4BFBDAD30259'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4BFBDAD50389'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+              <<in>> aSubName
+               %UID '4BFBDAD503AD'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSubName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ScrollBack
+        PROTECTED FINAL <<method>> ScrollByWeel
+         %UID '4BFE3A4003B5'
+         %SUMMARY 'Прокрутить заданное число раз с помощью колеса мыши' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4BFE3B3701C2"
+            %UID '4BFE3B3701C2'
+            %TARGET U$ '467D37430253' /* Il3CommandTarget */
+           ; // 4BFE3B3701C2
+           <<uses>> "4BFE3C35010D"
+            %UID '4BFE3C35010D'
+            %TARGET U$ '48453A750156' /* Operations */
+           ; // 4BFE3C35010D
+           <<uses>> "4BFE3C4A01D4"
+            %UID '4BFE3C4A01D4'
+            %TARGET U$ '47E13C6B0341' /* Forms */
+           ; // 4BFE3C4A01D4
+           <<uses>> "4BFE3C63024F"
+            %UID '4BFE3C63024F'
+            %TARGET U$ '48A41FF10094' /* Windows */
+           ; // 4BFE3C63024F
+           <<uses>> "4BFE3C780171"
+            %UID '4BFE3C780171'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+           ; // 4BFE3C780171
+           <<uses>> "4BFE3C9103B5"
+            %UID '4BFE3C9103B5'
+            %TARGET U$ '47ECBD5D03BB' /* "Msg Codes" */
+           ; // 4BFE3C9103B5
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4BFE3AAC01FB'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4D6F99C000A8'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+              <<in>> aCount
+               %UID '4D6F99C000DC'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aCount
+              <<in>> aGoTop
+               %UID '4D6F99C00116'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %VALUE true
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aGoTop
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ScrollByWeel
+        PROTECTED FINAL <<method>> ScrollByLine
+         %UID '4C1B176A0067'
+         %SUMMARY 'Прокручивать построчно заданное число раз вверх или вниз' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4C1B18F60156"
+            %UID '4C1B18F60156'
+            %TARGET U$ '48453A750156' /* Operations */
+           ; // 4C1B18F60156
+           <<uses>> "4C1B1907029B"
+            %UID '4C1B1907029B'
+            %TARGET U$ '47E13C6B0341' /* Forms */
+           ; // 4C1B1907029B
+           <<uses>> "4C1B191D0179"
+            %UID '4C1B191D0179'
+            %TARGET U$ '48A41FF10094' /* Windows */
+           ; // 4C1B191D0179
+           <<uses>> "4C1B192B03D1"
+            %UID '4C1B192B03D1'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+           ; // 4C1B192B03D1
+           <<uses>> "4C1B19410372"
+            %UID '4C1B19410372'
+            %TARGET U$ '47ECBD5D03BB' /* "Msg Codes" */
+           ; // 4C1B19410372
+           <<uses>> "4C1B19620061"
+            %UID '4C1B19620061'
+            %TARGET U$ '467D37430253' /* Il3CommandTarget */
+           ; // 4C1B19620061
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C1B17B002BF'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4C9B28470242'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+              <<in>> aCount
+               %UID '4C455C010083'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aCount
+              <<in>> aUp
+               %UID '4C455C0100AF'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aUp
+              <<in>> aFromBottom
+               %UID '4C455C0100DC'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFromBottom
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ScrollByLine
+        PROTECTED FINAL <<method>> GotoDocumentBottom
+         %UID '4C46F482017F'
+         %SUMMARY 'Перейти в конец документа' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C46F4A7038D'
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4C46F4BC0272'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GotoDocumentBottom
+        PROTECTED FINAL <<method>> PageUp
+         %UID '4C46F88F039A'
+         %SUMMARY 'Перейти на страницу вверх' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C46F8D303CC'
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4C46F9E302AC'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // PageUp
+        PROTECTED FINAL <<method>> PageDown
+         %UID '4D6B8501002F'
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D6B852F0027'
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aForm
+               %UID '4D6B854C02E7'
+               %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+               %TOBEINCLUDED
+                U$ '4B30C6E3023C' /* Forms */
+               ; // %TOBEINCLUDED
+              ; // aForm
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // PageDown
+        PROTECTED BOOLEAN FUNCTION ScrollByPage
+         %UID '4BEBFE020080'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+        ; // ScrollByPage
+        PROTECTED <<Operation>> WebStyle
+         %UID '4C08CF4300BE'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // WebStyle
+        PROTECTED <<Operation>> SendKey
+         %UID '4C091B9A0305'
+         %SUMMARY 'Управлять ли окном реактора посредсвом посылки клавиш, а не вызова методов редактора' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // SendKey
+        PROTECTED <<Operation>> CheckTopAnchor
+         %UID '4C1F0A260192'
+         %SUMMARY 'проверить якорь начала отрисовки после окончания прокрутки' ;
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aView
+            %UID '4C9B283C03A7'
+            %TARGET U$ '47C5C49600CD' /* InevInputView */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aView
+         ; // %PARAMETERS
+        ; // CheckTopAnchor
+        PROTECTED <<Operation>> F1Like
+         %UID '4C9B31F6015E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // F1Like
+        PROTECTED <<Operation>> QFLike
+         %UID '4CA0947C03CE'
+         %SUMMARY 'Создать форму-редактор для работы с КЗ.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // QFLike
+        PROTECTED <<Operation>> DoBeforeLoad
+         %UID '4CA18D6B0088'
+         %SUMMARY 'Операции предшествующие загрузке документа' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4CA195E3030B'
+            %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // DoBeforeLoad
+        PROTECTED <<Operation>> AllowMultiSelect
+         %UID '4D3EE58C037C'
+         %SUMMARY 'Разершить мультивыделение.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // AllowMultiSelect
+        PROTECTED <<Operation>> WithBaseSearch
+         %UID '4D6CB8460086'
+         %SUMMARY 'Форма со строкой базового поиска.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // WithBaseSearch
+      ; // %OPERATIONS
+     ; // TTextViaEditorProcessorPrim
+     <<TestCase>> K204114253
+      %UID '4BCE9DB603BB'
+      %SUMMARY '[$204114253]' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4B2A10C40309' /* DUnitTuning */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4BCE9EF8033F' /* FormProducer */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4B30EEEB01EF' /* TVCMBaseTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4BCE9DBF00EE"
+         %UID '4BCE9DBF00EE'
+         %TARGET U$ '4BCE9D210265' /* elCustomEdit */
+        ; // 4BCE9DBF00EE
+        <<uses>> "4BCE9DE2003E"
+         %UID '4BCE9DE2003E'
+         %TARGET U$ '4B322E2E0270' /* evdSchema */
+        ; // 4BCE9DE2003E
+        SUMMONED <<uses>> "683BB327BA2B"
+         %UID '683BB327BA2B'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 683BB327BA2B
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> FormClass
+         %UID '4BCEA043008C'
+         %TARGET U$ '4BCE9D210265' /* elCustomEdit */
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+        ; // FormClass
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Test>> DoIt
+         %UID '4BCE9E6D027F'
+         %LINKS
+           <<uses>> "4BCEAC5A01A1"
+            %UID '4BCEAC5A01A1'
+            %TARGET U$ '4AA7888B0076' /* l3CStr */
+           ; // 4BCEAC5A01A1
+         ; // %LINKS
+        ; // DoIt
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE <<SimpleClass>> TelCustomEditHack
+         %UID '4BCEAB07027C'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '482ACC330173' /* TelCustomEdit */
+         ; // %INHERITS
+        ; // TelCustomEditHack
+      ; // %CHILDREN
+     ; // K204114253
+     <<TestCase>> TTextLoad
+      %UID '4B30C90601EB'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE047320379' /* TTextViaEditorProcessorPrim */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4BEBF07E0206"
+         %UID '4BEBF07E0206'
+         %TARGET U$ '4B30C7E800EE' /* TextLoad */
+        ; // 4BEBF07E0206
+        SUMMONED <<uses>> "B55A8DC28773"
+         %UID 'B55A8DC28773'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // B55A8DC28773
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Test>> LoadGK
+         %UID '4B30E6A60217'
+         %SUMMARY 'Загрузка ГК' ;
+        ; // LoadGK
+        FINAL <<Test>> LoadBigTableFromTextEVD
+         %UID '4B3248DC01E6'
+         %SUMMARY 'Загрузка боольшой таблицы из текстового EVD' ;
+         %LINKS
+           <<uses>> "4C1A14A500C9"
+            %UID '4C1A14A500C9'
+            %TARGET U$ '47AC6F0B025E' /* k2Base */
+           ; // 4C1A14A500C9
+         ; // %LINKS
+        ; // LoadBigTableFromTextEVD
+        FINAL <<Test>> K_172361288
+         %UID '4B32542D039D'
+         %SUMMARY 'Тест по мотивам {RequestLink:172361288}.' ;
+         %LINKS
+           <<uses>> "4B3254480231"
+            %UID '4B3254480231'
+            %TARGET U$ '4B324FA20278' /* TddSectionRepairFilter */
+           ; // 4B3254480231
+           <<uses>> "4B3258A102B9"
+            %UID '4B3258A102B9'
+            %TARGET U$ '47ECA82403AC' /* Tk2DocumentBuffer */
+           ; // 4B3258A102B9
+           <<uses>> "4B325B040363"
+            %UID '4B325B040363'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 4B325B040363
+           <<uses>> "4B325CCA03CF"
+            %UID '4B325CCA03CF'
+            %TARGET U$ '47ECAA5B0394' /* Tk2TagGenerator */
+           ; // 4B325CCA03CF
+           <<uses>> "4B325ED6032A"
+            %UID '4B325ED6032A'
+            %TARGET U$ '4678160E01BE' /* Ik2TagGenerator */
+           ; // 4B325ED6032A
+         ; // %LINKS
+        ; // K_172361288
+      ; // %OPERATIONS
+     ; // TTextLoad
+     ABSTRACT <<TestCase>> TTextEditorVisitorPrim
+      %UID '4BE418BB001F'
+      %SUMMARY 'Тест, работающий с текстом документа через редактор, но не изменяющий его' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '07.05.2010 17:42'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE047320379' /* TTextViaEditorProcessorPrim */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "D1FB63DEC15C"
+         %UID 'D1FB63DEC15C'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // D1FB63DEC15C
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED FINAL <<method>> VisitText
+         %UID '4BE4196E0367'
+         %SUMMARY 'Собственно процедура обработки текста' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4BFD2A8D0168"
+            %UID '4BFD2A8D0168'
+            %TARGET U$ '4773D64E036C' /* l3Base */
+           ; // 4BFD2A8D0168
+           <<uses>> "4DCCFC9E009D"
+            %UID '4DCCFC9E009D'
+            %TARGET U$ '47E3C78502FB' /* Tk2OperationContainer */
+           ; // 4DCCFC9E009D
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4BE4197F033A'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStr
+               %UID '4BE419880116'
+               %TARGET U$ '476136D3010B' /* String */
+               %VALUE '''Load'''
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStr
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // VisitText
+        PROTECTED ABSTRACT <<Operation>> DoVisit
+         %UID '4BE419AF0217'
+         %SUMMARY 'Обработать текст' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4BE419C00214'
+            %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // DoVisit
+        PROTECTED <<Operation>> TreatExceptionAsSuccess
+         %UID '4BFD1B5A0200'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // TreatExceptionAsSuccess
+      ; // %OPERATIONS
+     ; // TTextEditorVisitorPrim
+     ABSTRACT <<TestCase>> TTextEditorVisitor
+      %UID '4BE425C70228'
+      %SUMMARY 'Тест, работающий с текстом документа через редактор, но не изменяющий его' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '07.05.2010 18:55'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE418BB001F' /* TTextEditorVisitorPrim */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C07AB4A022B"
+         %UID '4C07AB4A022B'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4C07AB4A022B
+        <<uses>> "4C07AB4D0347"
+         %UID '4C07AB4D0347'
+         %TARGET U$ '480DB927035A' /* TevStyleInterface */
+        ; // 4C07AB4D0347
+        SUMMONED <<uses>> "A14369AE2CB2"
+         %UID 'A14369AE2CB2'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // A14369AE2CB2
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Test>> DoIt
+         %UID '4BE131BC038E'
+         %SUMMARY 'Собственно тело теста' ;
+        ; // DoIt
+        PROTECTED <<Operation>> GetNormalFontSize
+         %UID '4C07AC6F036D'
+         %SUMMARY 'Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // GetNormalFontSize
+        PROTECTED <<Operation>> MaxHeight
+         %UID '4C0E56F000A4'
+         %SUMMARY 'Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // MaxHeight
+      ; // %OPERATIONS
+     ; // TTextEditorVisitor
+     ABSTRACT <<TestCase>> TTextViaEditorProcessor
+      %UID '4BE111D30229'
+      %SUMMARY 'Обработчик текста через редактор' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE425C70228' /* TTextEditorVisitor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE419AF0217' /* DoVisit */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "B61996A805B7"
+         %UID 'B61996A805B7'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // B61996A805B7
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED <<method>> EtalonFileExtension
+         %UID '4D0769150130'
+         %SUMMARY 'Расширение эталонного файла' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D07693300DA'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EtalonFileExtension
+        PROTECTED <<method>> HeaderBegin
+         %UID '4D07693F0262'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D07695101D3'
+            %TARGET U$ '482C48430205' /* Char */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // HeaderBegin
+        PROTECTED ABSTRACT <<Operation>> Process
+         %UID '4BE13147032C'
+         %SUMMARY 'Собственно процесс обработки текста' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4BE1315B0159'
+            %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // Process
+      ; // %OPERATIONS
+     ; // TTextViaEditorProcessor
+     ABSTRACT <<TestCase>> TSearchAndReplacePrimTest
+      %UID '4C288B4D012F'
+      %SUMMARY 'Тест поиска/замены' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '28.06.2010 15:45'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE111D30229' /* TTextViaEditorProcessor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE13147032C' /* Process */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "5F091EAB4976"
+         %UID '5F091EAB4976'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 5F091EAB4976
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> Searcher
+         %UID '4C288BAA0058'
+         %TARGET U$ '47C693AA003A' /* IevSearcher */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+        ; // Searcher
+        PROTECTED ABSTRACT <<Operation>> Replacer
+         %UID '4C288BFC002C'
+         %TARGET U$ '47C693BF0118' /* IevReplacer */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+        ; // Replacer
+        PROTECTED ABSTRACT <<Operation>> Options
+         %UID '4C288CC60231'
+         %TARGET U$ '47C6CB5C0032' /* TevSearchOptionSet */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+        ; // Options
+      ; // %OPERATIONS
+     ; // TSearchAndReplacePrimTest
+     ABSTRACT <<TestCase>> TPreviewTestBefore235875079
+      %UID '4BE429BA0233'
+      %SUMMARY 'Тест построения Preview' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '07.05.2010 18:55'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790B4F00236' /* AFW */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '473D869A0282' /* IafwPreviewPanel */
+       U$ '4CA5CD47037B' /* InevShapesLogger */
+       U$ '4CB6E3800078' /* IafwPagesLogger */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4BE425C70228' /* TTextEditorVisitor */
+       U$ '4BE42D490361' /* l3CheckStamp */
+      ; // %INHERITS
+      %REALIZES
+       U$ '473D86B20150' /* SetCurrentPage */
+       U$ '473D86BD03D7' /* Invalidate */
+       U$ '473D86C60253' /* Done */
+       U$ '473D86D60152' /* PreviewCanvas */
+       U$ '473D86E601F5' /* Painted */
+       U$ '4BE419AF0217' /* DoVisit */
+       U$ '4CA5D0430096' /* OpenLog */
+       U$ '4CA5D0540033' /* CloseLog */
+       U$ '4CACAF4F008D' /* LogScreen */
+       U$ '4CB6E39A019E' /* LogPage */
+       U$ '4DDE0F5C0097' /* ShouldStop */
+       U$ '51ADB60602BB' /* IncCounterPageNumer */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4B30EEA10210' /* InitFields */
+       U$ '4B4F588B0241' /* FileForOutput */
+       U$ '4C07AC6F036D' /* GetNormalFontSize */
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4CA5DAD4014C' /* RaiseIfEtalonCreated */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C22012B0332"
+         %UID '4C22012B0332'
+         %TARGET U$ '4BEA8FE9008B' /* GetTickCount */
+        ; // 4C22012B0332
+        <<uses>> "4C221AAE021D"
+         %UID '4C221AAE021D'
+         %TARGET U$ '4C22137E025C' /* evHAFPainterEx */
+        ; // 4C221AAE021D
+        <<uses>> "4C2223690226"
+         %UID '4C2223690226'
+         %TARGET U$ '480DB927035A' /* TevStyleInterface */
+        ; // 4C2223690226
+        <<uses>> "4C22237903D6"
+         %UID '4C22237903D6'
+         %TARGET U$ '476BE0660328' /* Standard */
+        ; // 4C22237903D6
+        <<uses>> "4C222394007B"
+         %UID '4C222394007B'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4C222394007B
+        <<uses>> "4C2239840142"
+         %UID '4C2239840142'
+         %TARGET U$ '4C2238BC037D' /* TvtPreviewPanel */
+        ; // 4C2239840142
+        <<uses>> "4C2239BB029C"
+         %UID '4C2239BB029C'
+         %TARGET U$ '47E11FC3021E' /* Controls */
+        ; // 4C2239BB029C
+        <<uses>> "4C2239C2029B"
+         %UID '4C2239C2029B'
+         %TARGET U$ '47E13C6B0341' /* Forms */
+        ; // 4C2239C2029B
+        <<uses>> "4CA5E9A1028E"
+         %UID '4CA5E9A1028E'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4CA5E9A1028E
+        <<uses>> "4CB6FB4300F8"
+         %UID '4CB6FB4300F8'
+         %TARGET U$ '4C74ED51025F' /* Tl3FileStream */
+        ; // 4CB6FB4300F8
+        <<uses>> "4CB6FB5C014E"
+         %UID '4CB6FB5C014E'
+         %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+        ; // 4CB6FB5C014E
+        <<uses>> "4CB70C580250"
+         %UID '4CB70C580250'
+         %TARGET U$ '4ACDBE8801BE' /* TImageEnIO */
+        ; // 4CB70C580250
+        <<uses>> "4CB7140903D0"
+         %UID '4CB7140903D0'
+         %TARGET U$ '4B57004201BD' /* l3FileUtils */
+        ; // 4CB7140903D0
+        <<uses>> "4CB717E9025F"
+         %UID '4CB717E9025F'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 4CB717E9025F
+        <<uses>> "4CB720DB0021"
+         %UID '4CB720DB0021'
+         %TARGET U$ '47D15723038A' /* TBitmap */
+        ; // 4CB720DB0021
+        <<uses>> "4CB722DB0278"
+         %UID '4CB722DB0278'
+         %TARGET U$ '4CB722C101EB' /* Rect */
+        ; // 4CB722DB0278
+        <<uses>> "4CB805E60056"
+         %UID '4CB805E60056'
+         %TARGET U$ '4B2A6CEB0377' /* TKTestListener */
+        ; // 4CB805E60056
+        <<uses>> "4D1894890307"
+         %UID '4D1894890307'
+         %TARGET U$ '4D1893A20013' /* evPreviewForTestsTuning */
+        ; // 4D1894890307
+        <<uses>> "4E5BD07203E3"
+         %UID '4E5BD07203E3'
+         %TARGET U$ '4799ECBF00D6' /* Defaults */
+        ; // 4E5BD07203E3
+        <<uses>> "4E5BD3470184"
+         %UID '4E5BD3470184'
+         %TARGET U$ '4A4CB79A02C6' /* Tl3CanvasPrim */
+        ; // 4E5BD3470184
+        SUMMONED <<uses>> "644185217864"
+         %UID '644185217864'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 644185217864
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Done
+         %UID '4BE42FE1016A'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Done
+        PRIVATE <<Attribute>> f_Now
+         %UID '4C2200EA0199'
+         %SUMMARY 'Время начала теста' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Now
+        PROTECTED <<Attribute>> f_LogNumber
+         %UID '4CA5D14803A3'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_LogNumber
+        PROTECTED <<Attribute>> f_CurrentOutput
+         %UID '4CA5D3F602BA'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CurrentOutput
+        PRIVATE <<Attribute>> f_PageCount
+         %UID '51AD988600F9'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_PageCount
+        PRIVATE <<Attribute>> f_PrintedPageCount
+         %UID '51ADA06903CA'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_PrintedPageCount
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED FINAL <<method>> PageFileName
+         %UID '4CB808EF02E0'
+         %SUMMARY 'Имя файла для сохранения страницы' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIT
+            %UID '4CB80911034F'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aNumber
+               %UID '4CB80956005A'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNumber
+              <<in>> aWidthNumber
+               %UID '4CB809560093'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aWidthNumber
+              <<in>> aCounter
+               %UID '4CB8095600C1'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aCounter
+              <<in>> anEtalon
+               %UID '4CB8095600F2'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anEtalon
+            ; // %PARAMETERS
+           ; // DoIT
+         ; // %OPERATIONS
+        ; // PageFileName
+        PROTECTED <<method>> IsBefore235875079
+         %UID '4D18990C0329'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D1899240053'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsBefore235875079
+        PROTECTED <<method>> IsBefore278833302
+         %UID '4E5BD02E029C'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4E5BD03A0045'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsBefore278833302
+        PROTECTED <<method>> OnlyCheckPageCount
+         %UID '51AD98E70324'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51AD99010242'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OnlyCheckPageCount
+        PROTECTED <<Operation>> ReadColontituls
+         %UID '4C221AE002A2'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> theColontituls
+            %UID '4C221AED03D4'
+            %TARGET U$ '4C22153801DC' /* TevColontituls */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // theColontituls
+         ; // %PARAMETERS
+        ; // ReadColontituls
+        PROTECTED <<Operation>> GetHAFFontSize
+         %UID '4C2224D00159'
+         %SUMMARY 'Размер колонтитулов. 0 - по-умолчанию' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // GetHAFFontSize
+      ; // %OPERATIONS
+     ; // TPreviewTestBefore235875079
+     ABSTRACT <<TestCase>> TPrimScrollTest
+      %UID '4C9899150030'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '21.09.2010 15:43'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE425C70228' /* TTextEditorVisitor */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4C988C1B0246' /* NotForTerminalSession */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "007872D9F05E"
+         %UID '007872D9F05E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 007872D9F05E
+      ; // %LINKS
+     ; // TPrimScrollTest
+     ABSTRACT <<TestCase>> TScrollBackTest
+      %UID '4BFBDEA300F4'
+      %SUMMARY 'Тест скроллирования документа в обратную сторону' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '25.05.2010 18:29'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C9899150030' /* TPrimScrollTest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE419AF0217' /* DoVisit */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "2A8961F287A1"
+         %UID '2A8961F287A1'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 2A8961F287A1
+      ; // %LINKS
+     ; // TScrollBackTest
+     ABSTRACT <<TestCase>> ComplexScrollByLines
+      %UID '4C1B135F02B0'
+      %SUMMARY 'Тест вида - прокрутили на несколько строк вниз, а потом на несколько вверх.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE425C70228' /* TTextEditorVisitor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE419AF0217' /* DoVisit */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "10DD5C945EFB"
+         %UID '10DD5C945EFB'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 10DD5C945EFB
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> GetScrollLineCount2Down
+         %UID '4C1B13B6016B'
+         %SUMMARY 'количество строк для прокрутки вниз' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // GetScrollLineCount2Down
+        PROTECTED ABSTRACT <<Operation>> GetScrollLineCount2Up
+         %UID '4C1B140B002A'
+         %SUMMARY 'количество строк для прокрутки вверх' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // GetScrollLineCount2Up
+      ; // %OPERATIONS
+     ; // ComplexScrollByLines
+     ABSTRACT <<TestCase>> TSearchAndReplaceTest
+      %UID '4BE04F030356'
+      %SUMMARY 'Тест поиска/замены' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C288B4D012F' /* TSearchAndReplacePrimTest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4C288BAA0058' /* Searcher */
+       U$ '4C288BFC002C' /* Replacer */
+       U$ '4C288CC60231' /* Options */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4BE1317D01AC"
+         %UID '4BE1317D01AC'
+         %TARGET U$ '47F1F94201F6' /* evSearch */
+        ; // 4BE1317D01AC
+        <<uses>> "4BE13181000A"
+         %UID '4BE13181000A'
+         %TARGET U$ '47C6CB380359' /* TevSearchOption */
+        ; // 4BE13181000A
+        SUMMONED <<uses>> "2650224F9320"
+         %UID '2650224F9320'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 2650224F9320
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> StringForSearch
+         %UID '4BE051200169'
+         %SUMMARY 'Строка для поиска' ;
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // StringForSearch
+        PROTECTED ABSTRACT <<Operation>> StringForReplace
+         %UID '4BE0513800C9'
+         %SUMMARY 'Строка для замены' ;
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // StringForReplace
+      ; // %OPERATIONS
+     ; // TSearchAndReplaceTest
+     ABSTRACT <<TestCase>> TTwoEmptyParaForOneReplacerTest
+      %UID '4C31CC59002B'
+      %SUMMARY 'Тест замены двух пустых абзацев на один' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '05.07.2010 16:14'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C288B4D012F' /* TSearchAndReplacePrimTest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4C288BAA0058' /* Searcher */
+       U$ '4C288BFC002C' /* Replacer */
+       U$ '4C288CC60231' /* Options */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C31CC9E02CB"
+         %UID '4C31CC9E02CB'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4C31CC9E02CB
+        <<uses>> "4C31CCA30017"
+         %UID '4C31CCA30017'
+         %TARGET U$ '4C288FC900E9' /* TevRegExpMultipartSearcher */
+        ; // 4C31CCA30017
+        <<uses>> "4C31CCA7000F"
+         %UID '4C31CCA7000F'
+         %TARGET U$ '4C288FE9025C' /* TevTextReplacer */
+        ; // 4C31CCA7000F
+        SUMMONED <<uses>> "67D45DDECB46"
+         %UID '67D45DDECB46'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 67D45DDECB46
+      ; // %LINKS
+     ; // TTwoEmptyParaForOneReplacerTest
+     ABSTRACT <<TestCase>> TTableSelectTest
+      %UID '4C382CB00345'
+      %SUMMARY 'Базовый тест для работы с выделением таблицы' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE425C70228' /* TTextEditorVisitor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE419AF0217' /* DoVisit */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C382E430375"
+         %UID '4C382E430375'
+         %TARGET U$ '48453B7601F9' /* evCursorTools */
+        ; // 4C382E430375
+        <<uses>> "4C382E590203"
+         %UID '4C382E590203'
+         %TARGET U$ '48453A750156' /* Operations */
+        ; // 4C382E590203
+        SUMMONED <<uses>> "580CAAE46E8D"
+         %UID '580CAAE46E8D'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 580CAAE46E8D
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> GetTablePara
+         %UID '4C346D4B0351'
+         %SUMMARY 'Возвращает параграф с таблицей' ;
+         %TARGET U$ '47C6A6570369' /* InevParaList */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aDocument
+            %UID '4C9B257C00AB'
+            %TARGET U$ '47C6A6570369' /* InevParaList */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aDocument
+         ; // %PARAMETERS
+        ; // GetTablePara
+        PROTECTED <<Operation>> SelectColumn
+         %UID '4C382DC50185'
+         %SUMMARY 'Выделить колонку aColID' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> aColID
+            %UID '4C382FC701C9'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aColID
+         ; // %PARAMETERS
+        ; // SelectColumn
+      ; // %OPERATIONS
+     ; // TTableSelectTest
+     ABSTRACT <<TestCase>> TTwoSpaceForOneReplacerTest
+      %UID '4C3C4853033E'
+      %SUMMARY 'Тест замены одного пробела на один' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C288B4D012F' /* TSearchAndReplacePrimTest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4C288BAA0058' /* Searcher */
+       U$ '4C288BFC002C' /* Replacer */
+       U$ '4C288CC60231' /* Options */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C3C4C44031A"
+         %UID '4C3C4C44031A'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4C3C4C44031A
+        <<uses>> "4C3C4CDC008A"
+         %UID '4C3C4CDC008A'
+         %TARGET U$ '4C288FE9025C' /* TevTextReplacer */
+        ; // 4C3C4CDC008A
+        SUMMONED <<uses>> "CA79BD8E3866"
+         %UID 'CA79BD8E3866'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // CA79BD8E3866
+      ; // %LINKS
+     ; // TTwoSpaceForOneReplacerTest
+     ABSTRACT <<TestCase>> TChangeAllTablesTest
+      %UID '4C3FEB280134'
+      %SUMMARY 'Работа со всеми таблицами документа.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE111D30229' /* TTextViaEditorProcessor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE13147032C' /* Process */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C3FF3B00035"
+         %UID '4C3FF3B00035'
+         %TARGET U$ '47C695D90332' /* TevSelectTarget */
+        ; // 4C3FF3B00035
+        SUMMONED <<uses>> "45165F331B8E"
+         %UID '45165F331B8E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 45165F331B8E
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> ApplyEditorTool
+         %UID '4C3FF0DB0072'
+         %SUMMARY 'Вызов инструмента из редактора' ;
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aEditor
+            %UID '4C9B2575016E'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aEditor
+         ; // %PARAMETERS
+        ; // ApplyEditorTool
+      ; // %OPERATIONS
+     ; // TChangeAllTablesTest
+     ABSTRACT <<TestCase>> TOldNSRCFlagCnahge
+      %UID '4C3FEBB500B2'
+      %SUMMARY 'Изменить флаг "Выливать в псевдографику" во всех таблицах в документе.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C3FEB280134' /* TChangeAllTablesTest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4C3FF0DB0072' /* ApplyEditorTool */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "01F740F99A21"
+         %UID '01F740F99A21'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 01F740F99A21
+      ; // %LINKS
+     ; // TOldNSRCFlagCnahge
+     ABSTRACT <<TestCase>> TScrollBackByLineTest
+      %UID '4C45563D00F7'
+      %SUMMARY 'Прокрутка построчно снизу вверх' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C9899150030' /* TPrimScrollTest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE419AF0217' /* DoVisit */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "9392C6D9096E"
+         %UID '9392C6D9096E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 9392C6D9096E
+      ; // %LINKS
+     ; // TScrollBackByLineTest
+     ABSTRACT <<TestCase>> TScrollBackByLineWithCheckTopAnchoTest
+      %UID '4C46BB2A02BD'
+      %SUMMARY 'Тест прокрутки документа вверх с проверкой TopAnchor' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C45563D00F7' /* TScrollBackByLineTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4B2F40FD0088' /* Cleanup */
+       U$ '4C1F0A260192' /* CheckTopAnchor */
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "986E86DD4C4E"
+         %UID '986E86DD4C4E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 986E86DD4C4E
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_PrevTopAnchor
+         %UID '4C46BC2702DF'
+         %TARGET U$ '47C5B57E0390' /* InevBasePoint */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+        ; // f_PrevTopAnchor
+      ; // %ATTRIBUTES
+     ; // TScrollBackByLineWithCheckTopAnchoTest
+     ABSTRACT <<TestCase>> TDrawLineTest
+      %UID '4C46F52A0317'
+      %SUMMARY 'Тест рисования линии в документе' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE111D30229' /* TTextViaEditorProcessor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE13147032C' /* Process */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C46FBE40354"
+         %UID '4C46FBE40354'
+         %TARGET U$ '48453A750156' /* Operations */
+        ; // 4C46FBE40354
+        <<uses>> "4C47097B01C0"
+         %UID '4C47097B01C0'
+         %TARGET U$ '476BEF7B0378' /* InevOp */
+        ; // 4C47097B01C0
+        <<uses>> "4C470AD003CD"
+         %UID '4C470AD003CD'
+         %TARGET U$ '47ECAB310336' /* "Msg Codes" */
+        ; // 4C470AD003CD
+        SUMMONED <<uses>> "8690E30DB12C"
+         %UID '8690E30DB12C'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 8690E30DB12C
+      ; // %LINKS
+     ; // TDrawLineTest
+     ABSTRACT <<TestCase>> TPasteColumnTest
+      %UID '4C88AA1A00AB'
+      %SUMMARY 'Тест копирования и вставки из буфера колонки с объединенной ячейкой.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE111D30229' /* TTextViaEditorProcessor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE13147032C' /* Process */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C88B74000E3"
+         %UID '4C88B74000E3'
+         %TARGET U$ '48453B7601F9' /* evCursorTools */
+        ; // 4C88B74000E3
+        <<uses>> "4C88B9560039"
+         %UID '4C88B9560039'
+         %TARGET U$ '47C5BA5F017D' /* InevSelection */
+        ; // 4C88B9560039
+        <<uses>> "4C88DB4500B9"
+         %UID '4C88DB4500B9'
+         %TARGET U$ '47AAB5EC03C2' /* Tl3System */
+        ; // 4C88DB4500B9
+        SUMMONED <<uses>> "DBC33C52A01F"
+         %UID 'DBC33C52A01F'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // DBC33C52A01F
+      ; // %LINKS
+     ; // TPasteColumnTest
+     ABSTRACT <<TestCase>> TScrollTest
+      %UID '4BEBF13B0076'
+      %SUMMARY 'Тест скроллирования документа' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '13.05.2010 16:32'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C9899150030' /* TPrimScrollTest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE419AF0217' /* DoVisit */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C07AC6F036D' /* GetNormalFontSize */
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "D759DB3A0A54"
+         %UID 'D759DB3A0A54'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // D759DB3A0A54
+      ; // %LINKS
+     ; // TScrollTest
+     ABSTRACT <<TestCase>> TCommentAndScrollTest
+      %UID '4C9CA365006C'
+      %SUMMARY 'Тест для добавления и удаления комментария и последующего скроллирования.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE425C70228' /* TTextEditorVisitor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE419AF0217' /* DoVisit */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C1F0A260192' /* CheckTopAnchor */
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4C9B31F6015E' /* F1Like */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C9CA3B90276"
+         %UID '4C9CA3B90276'
+         %TARGET U$ '48453B7601F9' /* evCursorTools */
+        ; // 4C9CA3B90276
+        <<uses>> "4C9CA3BD0221"
+         %UID '4C9CA3BD0221'
+         %TARGET U$ '48453A750156' /* Operations */
+        ; // 4C9CA3BD0221
+        <<uses>> "4C9CA3DE0246"
+         %UID '4C9CA3DE0246'
+         %TARGET U$ '47C695D90332' /* TevSelectTarget */
+        ; // 4C9CA3DE0246
+        <<uses>> "4C9CA4040019"
+         %UID '4C9CA4040019'
+         %TARGET U$ '47AAB5EC03C2' /* Tl3System */
+        ; // 4C9CA4040019
+        <<uses>> "4C9CA4D30312"
+         %UID '4C9CA4D30312'
+         %TARGET U$ '4857C9C20131' /* CommentPara */
+        ; // 4C9CA4D30312
+        <<uses>> "4C9CA4FE01BB"
+         %UID '4C9CA4FE01BB'
+         %TARGET U$ '47C5B57E0390' /* InevBasePoint */
+        ; // 4C9CA4FE01BB
+        <<uses>> "4C9CA5330315"
+         %UID '4C9CA5330315'
+         %TARGET U$ '4952693000EA' /* TeeEditorExport */
+        ; // 4C9CA5330315
+        SUMMONED <<uses>> "D29D4BD8CF71"
+         %UID 'D29D4BD8CF71'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // D29D4BD8CF71
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED <<Operation>> MoveCursor4Insert
+         %UID '4CA2F33F01E5'
+         %SUMMARY 'Переместить курсор перед вставкой комментария.' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4CA2F39503CF'
+            %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // MoveCursor4Insert
+        PROTECTED <<Operation>> GetUserComment
+         %UID '4CA982110056'
+         %SUMMARY 'Получить пользовательский комментарий' ;
+         %TARGET U$ '47C5B57E0390' /* InevBasePoint */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aPoint
+            %UID '4E5BD58A011B'
+            %TARGET U$ '47C5B57E0390' /* InevBasePoint */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aPoint
+         ; // %PARAMETERS
+        ; // GetUserComment
+        PROTECTED <<Operation>> DoScroll
+         %UID '4CA982800281'
+         %SUMMARY 'Прокрутка текста в редакторе (если нужна).' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4CA982CC0299'
+            %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // DoScroll
+      ; // %OPERATIONS
+     ; // TCommentAndScrollTest
+     ABSTRACT <<TestCase>> TQueryCardAddAttributeTest
+      %UID '4CA099DB01B7'
+      %SUMMARY 'Тест добавления атрибута в КЗ.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE111D30229' /* TTextViaEditorProcessor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE13147032C' /* Process */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4CA0947C03CE' /* QFLike */
+       U$ '4CA18D6B0088' /* DoBeforeLoad */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CA17C270300"
+         %UID '4CA17C270300'
+         %TARGET U$ '47CD6F6D031D' /* IevQueryCard */
+        ; // 4CA17C270300
+        <<uses>> "4CA17C49016C"
+         %UID '4CA17C49016C'
+         %TARGET U$ '47D01F9801D8' /* TevControlContainerEX */
+        ; // 4CA17C49016C
+        <<uses>> "4CA17C670364"
+         %UID '4CA17C670364'
+         %TARGET U$ '48DB9DC1035C' /* TevQueryDocumentContainer */
+        ; // 4CA17C670364
+        <<uses>> "4CA18002006F"
+         %UID '4CA18002006F'
+         %TARGET U$ '4AA7888B0076' /* l3CStr */
+        ; // 4CA18002006F
+        <<uses>> "4CA180F9015F"
+         %UID '4CA180F9015F'
+         %TARGET U$ '47C6BA1C0055' /* InevQueryDocumentContainer */
+        ; // 4CA180F9015F
+        SUMMONED <<uses>> "2271B6F6EF7E"
+         %UID '2271B6F6EF7E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 2271B6F6EF7E
+      ; // %LINKS
+     ; // TQueryCardAddAttributeTest
+     ABSTRACT <<TestCase>> TCommentInTableAndScrollTest
+      %UID '4CA2F3AA0033'
+      %SUMMARY 'Тест вставки комметария в таблицу' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C9CA365006C' /* TCommentAndScrollTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C1F0A260192' /* CheckTopAnchor */
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4CA2F33F01E5' /* MoveCursor4Insert */
+       U$ '4CA982110056' /* GetUserComment */
+       U$ '4CA982800281' /* DoScroll */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CA2F78B0186"
+         %UID '4CA2F78B0186'
+         %TARGET U$ '48453A750156' /* Operations */
+        ; // 4CA2F78B0186
+        <<uses>> "4CA2FA40017D"
+         %UID '4CA2FA40017D'
+         %TARGET U$ '4857CD8D0093' /* TableCell */
+        ; // 4CA2FA40017D
+        <<uses>> "4CA2FD0B01D9"
+         %UID '4CA2FD0B01D9'
+         %TARGET U$ '4857D15D029B' /* SBSCell */
+        ; // 4CA2FD0B01D9
+        <<uses>> "4CA992F400C0"
+         %UID '4CA992F400C0'
+         %TARGET U$ '4857C9C20131' /* CommentPara */
+        ; // 4CA992F400C0
+        <<uses>> "53F2082201C6"
+         %UID '53F2082201C6'
+         %TARGET U$ '534572370056' /* Tl3Tag */
+        ; // 53F2082201C6
+        SUMMONED <<uses>> "E9A9C0799D16"
+         %UID 'E9A9C0799D16'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // E9A9C0799D16
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<method>> IsUserComment
+         %UID '4CA983690025'
+         %SUMMARY 'Проверяет указывает ли якорь на пользовательский комментарий.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA983AD019E'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> aView
+               %UID '4CA990A3021D'
+               %TARGET U$ '47C5C49600CD' /* InevInputView */
+               %TOBEINCLUDED
+                U$ '4797632D0273' /* Everest */
+               ; // %TOBEINCLUDED
+              ; // aView
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsUserComment
+      ; // %OPERATIONS
+     ; // TCommentInTableAndScrollTest
+     ABSTRACT <<TestCase>> TInsertRowTest
+      %UID '4CAAC9D601A2'
+      %SUMMARY 'Тест вставки строки' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE111D30229' /* TTextViaEditorProcessor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE13147032C' /* Process */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CAADE460066"
+         %UID '4CAADE460066'
+         %TARGET U$ '48453A750156' /* Operations */
+        ; // 4CAADE460066
+        SUMMONED <<uses>> "86AAE9D14D03"
+         %UID '86AAE9D14D03'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 86AAE9D14D03
+      ; // %LINKS
+     ; // TInsertRowTest
+     ABSTRACT <<TestCase>> TDrawTestPrim
+      %UID '4CAC405703AE'
+      %SUMMARY 'Базовый тест для отрисовки и сравнения.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+       U$ '54ECA252008F' /* ScriptEngine$Everest */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4E1C016B0011' /* DrawOutputSupport */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4BE425C70228' /* TTextEditorVisitor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE419AF0217' /* DoVisit */
+       U$ '4E1C0C6C026C' /* DoOpenLog */
+       U$ '4E1C0C8C0007' /* DoCloseLog */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4B4F588B0241' /* FileForOutput */
+       U$ '4C08CF4300BE' /* WebStyle */
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4CA5DAD4014C' /* RaiseIfEtalonCreated */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CAC52DB000E"
+         %UID '4CAC52DB000E'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4CAC52DB000E
+        SUMMONED <<uses>> "301537832BCC"
+         %UID '301537832BCC'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 301537832BCC
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Editor
+         %UID '4CADE91E011A'
+         %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+        ; // f_Editor
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> DoBeforeDrawing
+         %UID '4CAC45AE011E'
+         %SUMMARY 'Произвести какие-нибудь операции перед отрисовкой.' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4CAC45C60369'
+            %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // DoBeforeDrawing
+      ; // %OPERATIONS
+     ; // TDrawTestPrim
+     ABSTRACT <<TestCase>> TDeleteSectionBreakTest
+      %UID '4CAC461C016C'
+      %SUMMARY 'Тест на удаление раздела.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4CAC405703AE' /* TDrawTestPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4CAC45AE011E' /* DoBeforeDrawing */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CAC65F2009E"
+         %UID '4CAC65F2009E'
+         %TARGET U$ '48453B7601F9' /* evCursorTools */
+        ; // 4CAC65F2009E
+        SUMMONED <<uses>> "AB71A44747FD"
+         %UID 'AB71A44747FD'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // AB71A44747FD
+      ; // %LINKS
+     ; // TDeleteSectionBreakTest
+     ABSTRACT <<TestCase>> TTableToolsTestPrim
+      %UID '4CE38AD60265'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE111D30229' /* TTextViaEditorProcessor */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BE13147032C' /* Process */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "ED4FA1ACDB95"
+         %UID 'ED4FA1ACDB95'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // ED4FA1ACDB95
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> ApplyTools
+         %UID '4C345B580083'
+         %SUMMARY 'Вызвать инструмент для таблицы' ;
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aRange
+            %UID '4C9B291603BB'
+            %TARGET U$ '48E38399034C' /* IedRange */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aRange
+         ; // %PARAMETERS
+        ; // ApplyTools
+        PROTECTED ABSTRACT <<Operation>> CheckOperation
+         %UID '4C9999C50326'
+         %SUMMARY 'Проверка после применения инструмента.' ;
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4C999A50011F'
+            %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+           ; // aForm
+         ; // %PARAMETERS
+        ; // CheckOperation
+      ; // %OPERATIONS
+     ; // TTableToolsTestPrim
+     ABSTRACT <<TestCase>> TPreviewWithLinesTestBefore235875079
+      %UID '4D00D88F0282'
+      %SUMMARY 'Тест печати с логом отрисованных линий' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4D00C63C03E2' /* Il3FrameLinesLogger */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4BE429BA0233' /* TPreviewTestBefore235875079 */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4D00C91B03B2' /* OpenLinesLog */
+       U$ '4D00C9410153' /* CloseLinesLog */
+       U$ '4FA3D5A500A9' /* GetPrecision */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4BE419AF0217' /* DoVisit */
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4D00E03A0001"
+         %UID '4D00E03A0001'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4D00E03A0001
+        <<uses>> "4D00E4C702D9"
+         %UID '4D00E4C702D9'
+         %TARGET U$ '4D00B058024F' /* Tl3FrameLinesSpy */
+        ; // 4D00E4C702D9
+        <<uses>> "4D00FB8B0077"
+         %UID '4D00FB8B0077'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4D00FB8B0077
+        SUMMONED <<uses>> "81A7B4E19224"
+         %UID '81A7B4E19224'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 81A7B4E19224
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_CurrentLinesOutput
+         %UID '4D00F7C10283'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CurrentLinesOutput
+      ; // %ATTRIBUTES
+     ; // TPreviewWithLinesTestBefore235875079
+     ABSTRACT <<TestCase>> TPreviewTestBefore278833302
+      %UID '4D18986B03D0'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '27.12.2010 16:45'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BE429BA0233' /* TPreviewTestBefore235875079 */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4D18990C0329' /* IsBefore235875079 */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "5FEE80C60949"
+         %UID '5FEE80C60949'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 5FEE80C60949
+      ; // %LINKS
+     ; // TPreviewTestBefore278833302
+     ABSTRACT <<TestCase>> TPreviewWithLinesTest
+      %UID '4D1898CF02B1'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '27.12.2010 16:47'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4D00D88F0282' /* TPreviewWithLinesTestBefore235875079 */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4D18990C0329' /* IsBefore235875079 */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "6EF045E048A7"
+         %UID '6EF045E048A7'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 6EF045E048A7
+      ; // %LINKS
+     ; // TPreviewWithLinesTest
+     ABSTRACT <<TestCase>> TPreviewTest
+      %UID '4E5BD013008D'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4D18986B03D0' /* TPreviewTestBefore278833302 */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+       U$ '4E5BD02E029C' /* IsBefore278833302 */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "0B72BA06E038"
+         %UID '0B72BA06E038'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 0B72BA06E038
+      ; // %LINKS
+     ; // TPreviewTest
+     ABSTRACT <<TestCase>> TPageCountTest
+      %UID '51AD98A501F0'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B30C5FF0172' /* TestFormsTest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4E5BD013008D' /* TPreviewTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+       U$ '51AD98E70324' /* OnlyCheckPageCount */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "B48847CD9546"
+         %UID 'B48847CD9546'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // B48847CD9546
+      ; // %LINKS
+     ; // TPageCountTest
+   ; // %CHILDREN
+  ; // Everest
+  <<TestUnit>> OutlinerTests
+   %UID '4D46B4E403E0'
+   %DEPENDS
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B30C6E3023C' /* Forms */
+    U$ '4BCE9EA0028A' /* MixIns */
+    U$ '4D469729019F' /* Outliner */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B30C5FF0172' /* TestFormsTest */
+    U$ '4B30C6E3023C' /* Forms */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<TestCase>> OutlinerTest
+      %UID '4D46B552013B'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B2A10C40309' /* DUnitTuning */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4BCE9EF8033F' /* FormProducer */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4B2A11BC0255' /* TBaseTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "9A22A372C751"
+         %UID '9A22A372C751'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 9A22A372C751
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> FormClass
+         %UID '4D46B809022C'
+         %TARGET U$ '4D4697F30281' /* OutlinerForm */
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+        ; // FormClass
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Test>> "DoIt()"
+         %UID '4D46C7AE01E3'
+        ; // "DoIt()"
+        PROTECTED <<Operation>> Load
+         %UID '4D46E22801EB'
+         %SUMMARY 'Загрузить данные в дерево.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aForm
+            %UID '4D46E45F00C8'
+            %TARGET U$ '4D4697F30281' /* OutlinerForm */
+            %TOBEINCLUDED
+             U$ '4B30C6E3023C' /* Forms */
+            ; // %TOBEINCLUDED
+           ; // aForm
+           <<const>> aFileName
+            %UID '4D46E45F0100'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aFileName
+         ; // %PARAMETERS
+        ; // Load
+      ; // %OPERATIONS
+     ; // OutlinerTest
+   ; // %CHILDREN
+  ; // OutlinerTests
+  <<Unit>> AutoTestSupport
+   %UID '4E2955E50377'
+   %SUMMARY 'Поддержка создания форм для автотестов.' ;
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '48492FC0029D' /* Standard */
+    U$ '4AADF9450143' /* Visual */
+    U$ '4B30C6E3023C' /* Forms */
+    U$ '4B30C72000B3' /* Everest */
+    U$ '4B30FC850092' /* VCM_TFW */
+    U$ '4D469729019F' /* Outliner */
+   ; // %DEPENDS
+   %META
+    %upv "ifdef" 'nsTest'
+    %upv "ifndef" 'InsiderTest'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B30C6E3023C' /* Forms */
+    U$ '4E13416D0227' /* VCM$Visual */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Impurity>> FormUnits
+      %UID '509A43E800C8'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %LINKS
+        <<uses>> "509A443703A4"
+         %UID '509A443703A4'
+         %TARGET U$ '4D6CB4B7035F' /* F1LikeFormWithBS */
+        ; // 509A443703A4
+        <<uses>> "509A443F002D"
+         %UID '509A443F002D'
+         %TARGET U$ '4C9B31190392' /* F1LikeTextLoad */
+        ; // 509A443F002D
+        <<uses>> "509A444203DF"
+         %UID '509A444203DF'
+         %TARGET U$ '4CA090120212' /* QFLikeTextLoad */
+        ; // 509A444203DF
+        <<uses>> "509A444700B1"
+         %UID '509A444700B1'
+         %TARGET U$ '4B30C7E800EE' /* TextLoad */
+        ; // 509A444700B1
+        <<uses>> "509A445B0038"
+         %UID '509A445B0038'
+         %TARGET U$ '4AD89C420296' /* vcmMakeParams */
+        ; // 509A445B0038
+      ; // %LINKS
+     ; // FormUnits
+     <<Impurity>> LoadUnits
+      %UID '509B4CC20221'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %LINKS
+        <<uses>> "509B4D0502BE"
+         %UID '509B4D0502BE'
+         %TARGET U$ '4C9B20790302' /* PrimTextLoad */
+        ; // 509B4D0502BE
+        <<uses>> "509B506A0297"
+         %UID '509B506A0297'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 509B506A0297
+      ; // %LINKS
+     ; // LoadUnits
+   ; // %CHILDREN
+  ; // AutoTestSupport
+  <<TestUnit>> EmptyFormTests
+   %UID '51D528280220'
+   %SUMMARY 'Тесты с пустой формой.' ;
+   %DEPENDS
+    U$ '4AADF9450143' /* Visual */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B30C6E3023C' /* Forms */
+    U$ '4BCE9EA0028A' /* MixIns */
+    U$ '51D533840334' /* FormWithPanel */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B30C5FF0172' /* TestFormsTest */
+    U$ '4B30C6E3023C' /* Forms */
+    U$ '4E13416D0227' /* VCM$Visual */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<TestCase>> TEmptyFormTest
+      %UID '51D5285300B7'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+       U$ '4B30C5FF0172' /* TestFormsTest */
+       U$ '4B30C6E3023C' /* Forms */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4BCE9EF8033F' /* FormProducer */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4B2A11BC0255' /* TBaseTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "8D2FE9FD9177"
+         %UID '8D2FE9FD9177'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 8D2FE9FD9177
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> FormClass
+         %UID '51D5367102D3'
+         %TARGET U$ '51D534260378' /* FromWithPanel */
+         %TOBEINCLUDED
+          U$ '4B30C6E3023C' /* Forms */
+         ; // %TOBEINCLUDED
+        ; // FormClass
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Test>> DoIt
+         %UID '51D5290701CC'
+        ; // DoIt
+        PROTECTED <<method>> CheckControl
+         %UID '51D5464D033C'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51D546640045'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckControl
+      ; // %OPERATIONS
+     ; // TEmptyFormTest
+   ; // %CHILDREN
+  ; // EmptyFormTests
+ ; // %CHILDREN
+; // TestFormsTest

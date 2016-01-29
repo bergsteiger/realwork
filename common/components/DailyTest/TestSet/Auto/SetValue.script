@@ -1,0 +1,41 @@
+USES
+ Testing.ms.dict
+;
+
+ VOID IMMEDIATE OPERATOR >>>
+   /*{IN aValue}*/ // - слева должно быть значение
+   ^ IN aVar
+
+  %SUMMARY 'Присваивает значение aValue переменной aVar' ; 
+  aVar CompileRef
+  @ pop:Word:SetValue CompileValue
+ ; // >>>
+
+/*{ VOID : >>>
+   IN aValue
+   ^ IN aVar
+
+  %SUMMARY 'Присваивает значение aValue переменной aVar' ; 
+  aValue 
+  aVar 
+   pop:Word:GetRef 
+   // - убрано, т.к. http://mdp.garant.ru/pages/viewpage.action?pageId=600103362&focusedCommentId=605371522#comment-605371522
+   // Что-то всё-таки с GetRef - я сам себе не догоняю
+   // ВЕРНУЛ, потому, что переделал TkwObjRefParam.GetRef
+    pop:Word:SetValue
+ ; // >>>}*/
+ 
+Test&Dump SetValueTest 
+ VAR A
+ VAR B
+ VAR C
+ 1 >>> A
+ '3' >>> B
+ B >>> C
+ 
+ A .
+ B .
+ C .
+; // SetValueTest
+
+SetValueTest

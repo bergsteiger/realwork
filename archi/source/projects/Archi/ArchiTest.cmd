@@ -1,0 +1,1 @@
+start "" ArchiTest.exe -toK

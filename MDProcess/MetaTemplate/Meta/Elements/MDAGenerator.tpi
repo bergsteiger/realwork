@@ -1,0 +1,991 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/MDAGenerator.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::MDAGenerator
+//
+// Абстрактный генератор
+// ---
+// Формулирует абстрактный генератор, определяющий генераторы для всех наследников, и формирующий
+// иерархию генераторов объединяя их в связанные группы, посредствам связи "group". Генераторы с
+// установленным свойством "internal" просто объединяют несколько генераторов посредством
+// наследования, не создавая никаких иерархий и групп.
+// 
+// Атрибуты генератора (и всех его логических потомков) трактуются как пользовательские свойства.
+// 
+// Функции как методы (генераторы, функции и трансформаторы) стереотипа. Функции могут
+// перекрываться аналогично виртуальным функциям в обычных ЯП.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: MDAGenerator::Class
+? Абстрактный генератор
+? Формулирует абстрактный генератор, определяющий генераторы для всех наследников, и формирующий иерархию генераторов объединяя их в связанные группы, посредствам связи "group". Генераторы с установленным свойством "internal" просто объединяют несколько генераторов посредством наследования, не создавая никаких иерархий и групп.
+? 
+? Атрибуты генератора (и всех его логических потомков) трактуются как пользовательские свойства.
+? 
+? Функции как методы (генераторы, функции и трансформаторы) стереотипа. Функции могут перекрываться аналогично виртуальным функциям в обычных ЯП.
+< *::Class,*::Category
+
+= Мета-MDA::MDAGenerator
+= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +
+/ - типы видимости
+a a
+/ - тип абстракции
+Y code_mda_generator.gif
+L code_mda_generator
+// Параметры визуализации
+$ C 255,225,215
+$ l 250,115,75
+$ f 250,115,75
+d 1
+/ - может иметь унаследованную реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p has exception:s ? элемент может иметь исключения (s - SET, g - GET, a - SET и GET) по умолчанию - g. Для элементов с данным стереотипом будут доступны диалоги установки исключений
+p skip:b=false ? элемент будет/не будет пропущен (включая всех его потомков) из загрузки модели и кодогенерации.
+p abstraction type:s ? Возможные типы абстракции  а=abstract; r=regular; f=final;
+p visability type:s ? возможные типы видимости элемента + - public # - protected - - private i - implementation по умолчанию public
+p personal label:s ? лейбл идентифицирующий элемент и определяющий его визуальное представление (иконку) в wiki и в навигаторе Розы
+p internal:b=false ? Определяет, что генератор является внутренним и используется только для объединения других генераторов (через наследование). Для конкретных стереотипов этот признак означает, что стереотип не может быть использован при проектировании модели, т.е проектировщику он не будет доступен для выбора, но этот стереотип можно использовать для построения виртуальных элементов
+p no auto copy:b=false ? Не создавать копии вложенных стереотипов
+p make auto copies internal:b=false ? сделать все авто-копии внутренними (не доступными для проектировщика)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{has exception}"!="%S{!has exception}"}%f_up_prefix(%S) *has exception* = *%S{has exception}* - элемент может иметь исключения (s - SET, g - GET, a - SET и GET) по умолчанию - g. Для элементов с данным стереотипом будут доступны диалоги установки исключений
+	][{"%S{skip}"!="%S{!skip}"}%f_up_prefix(%S) *skip* = *%S{skip}* - элемент будет/не будет пропущен (включая всех его потомков) из загрузки модели и кодогенерации.
+	][{"%S{abstraction type}"!="%S{!abstraction type}"}%f_up_prefix(%S) *abstraction type* = *%S{abstraction type}* - Возможные типы абстракции  а=abstract; r=regular; f=final;
+	][{"%S{visability type}"!="%S{!visability type}"}%f_up_prefix(%S) *visability type* = *%S{visability type}* - возможные типы видимости элемента + - public # - protected - - private i - implementation по умолчанию public
+	][{"%S{personal label}"!="%S{!personal label}"}%f_up_prefix(%S) *personal label* = *%S{personal label}* - лейбл идентифицирующий элемент и определяющий его визуальное представление (иконку) в wiki и в навигаторе Розы
+	][{"%S{internal}"!="%S{!internal}"}%f_up_prefix(%S) *internal* = *%S{internal}* - Определяет, что генератор является внутренним и используется только для объединения других генераторов (через наследование). Для конкретных стереотипов этот признак означает, что стереотип не может быть использован при проектировании модели, т.е проектировщику он не будет доступен для выбора, но этот стереотип можно использовать для построения виртуальных элементов
+	][{"%S{no auto copy}"!="%S{!no auto copy}"}%f_up_prefix(%S) *no auto copy* = *%S{no auto copy}* - Не создавать копии вложенных стереотипов
+	][{"%S{make auto copies internal}"!="%S{!make auto copies internal}"}%f_up_prefix(%S) *make auto copies internal* = *%S{make auto copies internal}* - сделать все авто-копии внутренними (не доступными для проектировщика)
+	]
+
+// Генерирует полное имя стереотипа
+%f _st_name
+//#UC START# *46E2BB3103B9for46E1540F00AB*
+	%SN::%S%f_st_class_name()
+//#UC END# *46E2BB3103B9for46E1540F00AB*
+
+// Определяет необходимость создания описания стереотипа
+%f _need_st_define
+//#UC START# *46E2BB9400EAfor46E1540F00AB*
+/	[{<{}{%Ca!=abstract&%CS!=group}{C}>=0}{true}{false}]
+	true
+//#UC END# *46E2BB9400EAfor46E1540F00AB*
+
+// генерирует декларацию равенства для всех подстереотиппов, унаследованных от базовых стереотипов
+%f _sub_st_auto_copy
+//#UC START# *46E3EDE002DEfor46E1540F00AB*
+//	[{%SM=MDAClass::Class&%1M=MDAAttribute::Class}{\
+	[{""!=""}{\
+	[{%S{no auto copy}=true}{\
+	%f_set_var(FIRST_PARENT,1)\
+	%f_clear_list(SUB_STEREOTYPES)\
+	%f_set_var(IS_REDEFINITION,"%f_is_sub_redefinition_for(%{CONTEXT},%{FIRST_PARENT})")\
+	%f_sub_st_auto_copy_i(%1,"EXCLUDE_FOR_AUTO_COPY")\
+	%1<%f_sub_st_auto_copy_i(%g,"EXCLUDE_FOR_AUTO_COPY")>\
+	%1<%f_sub_st_auto_copy_i(%r,"EXCLUDE_FOR_AUTO_COPY")>\
+	%f_clear_list(SUB_STEREOTYPES)}\
+	]\
+	}\
+	]
+
+f _sub_st_auto_copy_i
+	%f_set_var(EXCLUDE_LIST_NAME,1)\
+	[<{}{%AC=Class&%AN!=generator}%f_set_var(ST_NAME,"%f_str_replace(%A%f_sub_st_name(%{FIRST_PARENT}),%{FIRST_PARENT}N,%{CONTEXT}N)")\
+	[{%{CONTEXT}<{}{%AC=Class&%A%f_sub_st_name(%{CONTEXT})=%{ST_NAME}N}{%AC}>=0}%f_set_var(SUB_ST_NAME,"%A%f_sub_st_name(%{CONTEXT})")\
+	[{%f_exists_in_list(%{EXCLUDE_LIST_NAME}N,"%{SUB_ST_NAME}N")=false}[{%f_exists_in_list(SUB_STEREOTYPES,"%{SUB_ST_NAME}N")=false}%f_add_to_list(SUB_STEREOTYPES,"%{SUB_ST_NAME}N")\
+	[{%Aa!=final&%Aa!=abstract|%A%PU=%{CONTEXT}U}\
+	: %{SUB_ST_NAME}N[{%{CONTEXT}%f_is_internal_auto_copy(%A)=true}*][{%{IS_REDEFINITION}N=true&%A<{}{%PU=%{FIRST_PARENT}U}{%PC}>=0} (redefinition)]
+	= %A%f_sub_st_name(%{FIRST_PARENT})
+	%U[{_OVERRIDE_%AU_FOR_%{CONTEXT}U}
+	]
+	
+	]]]]>]
+
+f _is_sub_redefinition_for
+	%f_clear_list(SELF_REDEF_BASES)\
+	%f_collect_base_of_redefinion(%S,"SELF_REDEF_BASES")\
+	[{%1<{}{%f_is_redefinition_for(%S,%R)=true&%f_exists_in_list(SELF_REDEF_BASES,R)=true}{%RC}>!=0}{false}true]\
+	%f_clear_list(SELF_REDEF_BASES)
+
+//собираем все базовые классы для всех элементов, которые переопределяет текущий в один список
+f _collect_base_of_redefinion
+	[{"%1N"=""}%f_error("_collect_base_of_redefinion: Не задан идентификатор списка!")]\
+	%f_set_var(LIST_ID,1)\
+	<{}{%f_is_redefinition_for(%S,%R)=true}%R<%G[%f_add_to_list(%{LIST_ID}N,S)]>>
+
+//#UC END# *46E3EDE002DEfor46E1540F00AB*
+
+// возвращает имя (идентификатор) класса стереотипа
+%f _st_class_name
+//#UC START# *46E7AE5B00A8for46E1540F00AB*
+	%SS
+//#UC END# *46E7AE5B00A8for46E1540F00AB*
+
+// выводит определение всех UP
+%f _define_up
+//#UC START# *46E7BDF301F1for46E1540F00AB*
+	[v %S{visability type}\n/ - типы видимости
+	][e %S{has exception}\n/ - возможность использовать исключения
+	][{%S{skip}=true}K \n/ - будет пропущен при загрузке модели
+	][a %S{abstraction type}\n/ - тип абстракции
+	][Y %S{personal label}.gif
+	][L %S{personal label}
+	]
+//#UC END# *46E7BDF301F1for46E1540F00AB*
+
+// Возвращает вид стереотипа : main, sub
+%f _st_kind
+//#UC START# *47130CC40213for46E1540F00AB*
+//#UC END# *47130CC40213for46E1540F00AB*
+
+// возвращает true, если элемент является переопределением уже существующего стереотипа
+%f _is_redefinition
+//#UC START# *4986D3AD00DAfor46E1540F00AB*
+	[{<{}{%f_is_redefinition_for(%S,%R)=true}{%RC}>!=0}{false}true]
+//#UC END# *4986D3AD00DAfor46E1540F00AB*
+
+// собирает в список <<list_id>> базовые стереотипы элемента
+%f _collect_base_stereotypes
+// параметры: list_id: a-string = %1
+//#UC START# *4986D3D1021Cfor46E1540F00AB*
+	[{"%1N"=""}%f_error("_collect_base_stereotypes: Не задан идентификатор списка")]\
+	%f_set_var(__BASE_ST_LIST_ID__,"%1N")\
+	<{}{%G%f_need_st_define()=true&%f_is_redefinitions_of_relations(%S,%G)=false}%f_add_to_list(%{__BASE_ST_LIST_ID__}N,G)>\
+	<{}{%R%f_need_st_define()=true&%f_is_redefinitions_of_relations(%S,%R)=false&%f_is_redefinition_for(%S,%R)=false}%f_add_to_list(%{__BASE_ST_LIST_ID__}N,R)>
+//#UC END# *4986D3D1021Cfor46E1540F00AB*
+
+// генерит список наследования для стереотипа
+%f _dump_inherit_list
+//#UC START# *4986D44803C1for46E1540F00AB*
+	%f_clear_list(BASE_LIST)\
+	%S%f_collect_base_stereotypes("BASE_LIST")\
+	%f_clear_list(MAIN_BASE)\
+/	<{, }{%CC=Dependency&"%CS"="main hierarchy"}%CC-%CS>
+	<{}{%f_is_empty(BASE_LIST)=false}{W}[%f_pop_first_to_var(BASE_LIST,BASE)= %{BASE}%f_st_name()
+	]>
+//#UC END# *4986D44803C1for46E1540F00AB*
+
+// Алгоритм формирования списка генераторов, которые должны быть определены на стереотипе.
+// Результат "складывается" в список с идентифкатором определяемым параметром list_id.
+%f _collect_generators
+// параметры: list_id: string = %1
+//#UC START# *499B91DB0171for46E1540F00AB*
+	[{"%1N"=""}%f_error("_collect_generators: Не задан идентификатор списка")]\
+	<{}{%CC=Operation&%CS=generator&%Ca!=abstract}[{%f_exists_in_list(%1N,C)=false}%f_add_to_list(%1N,C)]>\
+	<{}{%oC=Operation&%oS=generator}[{%f_exists_in_list(%1N,o)=false}%f_add_to_list(%1N,o)]>\
+	<{}{%OC=Operation&%OS=generator}[{%f_exists_in_list(%1N,O)=false}%f_add_to_list(%1N,O)]>
+//#UC END# *499B91DB0171for46E1540F00AB*
+
+// дампит стереотип, определяющий основную ветку наследования, этот стереотип используется для
+// разрешения неоднозначностей при вызове функций и трасформаторов, в случае множественного
+// наследования.
+%f _dump_main_hierarchy
+//#UC START# *49F970B601B4for46E1540F00AB*
+	<{}{%CC=Dependency&"%CS"="main hierarchy"}! %C%T%f_st_name()>
+//#UC END# *49F970B601B4for46E1540F00AB*
+
+// собирает в список с заданным идентификатором имена стереотипов (A::Class), которые НЕ должны
+// включаться в элемент
+%f _collect_exclude_for_auto_copy
+// параметры: list_id: string = %1
+//#UC START# *4AE5851A019Bfor46E1540F00AB*
+	[{"%1N"=""}%f_error("_collect_exclude_for_auto_copy: Не задан идентификатор списка")]\
+	%f_collect_exclude_for_auto_copy_i(%S,%1)\
+	%S<%f_collect_exclude_for_auto_copy_i(%g,%2)>\
+	%S<%f_collect_exclude_for_auto_copy_i(%r,%2)>
+
+f _collect_exclude_for_auto_copy_i
+	<{}{%CC=Dependency&%CS=exclude auto copy}%f_add_to_list(%1N,"%C%T%f_sub_st_name(%{CONTEXT})")>
+//#UC END# *4AE5851A019Bfor46E1540F00AB*
+
+// нужно ли помечать авто-копируемый элемент как внутренний
+%f _is_internal_auto_copy
+// параметры: copy: pointer = %1
+//#UC START# *4B21010C008Ffor46E1540F00AB*
+	[{%S{make auto copies internal}=true|%1{internal}=true}{false}true]
+//#UC END# *4B21010C008Ffor46E1540F00AB*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for46E1540F00AB*
+c                                                                            {}
+/r {<{}{%R%f_need_st_define()=true&%R%f_st_name()!=%S%f_st_name()}{C}>!=0}:   {%S%f_st_name() can realize only other defined %S%f_st_name()}
+/r {"%S{personal label}"=""&%f_is_include_anywhere(%S)=true&<{}{"%g{personal label}"!=""}{%rC}>=0&<{}{"%r{personal label}"!=""}{%rC}>=0}:                 {Не задан параметр personal label}
+r {%f_check_personal_label(%S)=false}:                                       {Не задан параметр personal label}
+
+f _check_sub_stereotype_uniqueness
+	%f_clear_list(INHERITED_SUB_ST)\
+	%f_clear_list(INHERITED_SUB_ST_NAMES)\
+	%f_set_var(CONTEXT,S)\
+	%f_collect_inherited_sub_st(%S,%{INHERITED_SUB_ST})\
+	[{"%{INHERITED_SUB_ST}<{}{}{%C}%{INHERITED_SUB_ST_NAMES}[{%f_exists_in_list(INHERITED_SUB_ST_NAMES,"%C%f_sub_st_name(%{CONTEXT})")=false}{.}%f_add_to_list("%C%f_sub_st_name(%{CONTEXT})")]>"=""}{\
+	false\
+	}\
+	true\
+	]
+
+f _is_include_anywhere
+	[{<{}{%aS=include&%aC=Dependency}{%aC}>!=0|%S%f_st_kind()=sub}{false}true]
+
+f _check_personal_label
+	[{"%S{personal label}"=""&%f_is_include_anywhere(%S)=true&<{}{"%g{personal label}"!=""}{%gC}>=0&<{}{"%r{personal label}"=""}{%rC}>=0}{true}false]
+
+f _check_personal_visualization
+	[{%f_is_visualization_exist(%S)=false&%f_is_include_anywhere(%S)=true&<{}{%f_is_visualization_exist(%g)=true}{%gC}>=0&<{}{%f_is_visualization_exist(%r)=true}{%rC}>=0}{true}false]
+
+f _is_visualization_exist
+	[{"%S{visualization bg color}"=""}{true}false]
+
+f _is_visualization_exist1
+	[{"%S{visualization bg color}"=""|"%S{visualization f-font color}"=""|"%S{visualization f-font color}"=""}{true}false]
+//#UC END# *4704C0E30186for46E1540F00AB*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor46E1540F00AB*
+//#UC END# *4705CBD6003Efor46E1540F00AB*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for46E1540F00AB*
+//#UC END# *470484D50138for46E1540F00AB*
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor46E1540F00AB*
+P
+//#UC END# *4F368B80039Efor46E1540F00AB*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for46E1540F00AB*
+C /%SN:%SU
+O %SN
+S %SN
+	%f_wiki_header(%S)
+	[h2. Модель[
+
+	{info}Используется в реализации прецедентов:
+	<{}{%aM=UseCase::Class}{Sg}* %f_k_link_wp(%a,%S)
+	>{info}][
+
+	{tip}Специализирует:
+	<* %f_k_link_wp(%G,%S)
+	>{tip}][
+
+	{info}Реализует генераторы:
+	<{}{%R%f_st_name()!=%S%f_st_name()}* %f_k_link_wp(%R,%S)
+	>{info}][
+	
+	{info}Перекрывает стереотипы:
+	<{}{%R%f_st_name()=%S%f_st_name()}* %f_k_link_wp(%R,%S)
+	>{info}][\
+	%f_k_common_elem_docs(%S)][
+	
+	_Специализирован:_
+	<* %f_k_link_wp(%Z,%S)
+	>][
+	
+	_Реализован:_
+	<* %f_k_link_wp(%L,%S)
+	>][
+	
+	_Может быть включен в:_
+	<{}{%aS=include}{Sp}* %f_k_link_wp(%a%P,%S)
+	>][
+	
+	_Может содержать:_
+	<{}{%CS=include&%CC=Dependency}* %f_k_link_wp(%C%T,%S)
+	>][{%mx=true&%Cx=true}
+	
+	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма слоя шаблонов:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]][
+	
+	h2. Состав элемента[
+	
+	_Вложенные стереотипы:_<{}{%CC=Class}
+	%f_k_type_dump(%C)>][
+	
+	_Генераторы:_<{}{%CC=Operation&%CS=generator}
+	%f_k_method_dump(%C)[
+	Идентификатор языка: %C{lang id}][
+	Заменитель для символа табулятора: %C{tab replace}]>][
+	
+	_Методы стереотипа:_<{}{%CC=Operation&%CS!=generator}
+	%f_k_method_dump(%C)>][
+	
+	_Реализует абстрактные методы_:<{}{%oC=Operation}
+	\# %f_k_link_wp(%o,%S)>][
+	
+	_Переопределяет методы_:<{}{%OC=Operation}
+	\# %f_k_link_wp(%O,%S)>][
+	
+	_Пользовательские свойства:_<{}{%CC=Attribute}
+	%f_k_attr_dump(%C)>][
+	
+	_Реализует абстрактные атрибуты_:<{}{%oC=Attribute}
+	\# %f_k_link_wp(%o,%S)>][
+	
+	_Переопределяет атрибуты:<{}{%OC=Attribute}
+	\# %f_k_link_wp(%O,%S)>]]<%CX>
+	%f_wiki_footer(%S)
+//#UC END# *46E6D4BB0339for46E1540F00AB*
+
+// реализация абстрактного стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E1540F00AB*
+P
+O [{%S%f_need_st_define()=true}%SN.tpi]
+	[{%S%f_need_st_define()=true}\
+	%f_header(%S)
+	
+	: %S%f_st_name()[{%S{internal}=true}*][{%S%f_is_redefinition()=true} (redefinition)]
+	[? %f_str_replace(%f_str_replace(%SD,\n---,),\n,\n? )
+	][%f_dump_include_constraint(%S)
+	][%S%f_dump_inherit_list()
+	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Основная ветка наследования
+	%S%f_dump_main_hierarchy()
+	
+	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Параметры стереотипа
+	%S%f_define_up()
+	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Пользовательские свойства
+	
+	<{}{%CC=Attribute}%CX
+	>
+	]%f_set_var(CONTEXT,S)[////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Генераторы
+	
+	<{\n}{%CC=Operation&%CS=generator&%Ca!=abstract}{}[%CX
+	]>
+	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Трансформаторы стереотипа
+	
+	<{\n}{%CC=Operation&%CS=transformator&%Ca!=abstract}{}[%CX
+	
+	]>][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Функции стереотипа
+	
+	[\%f _st_space_key
+	%f_set_var(SPACE_KEY,"%S{space key}")\
+	<{}{"%P{space key}"!=""&"%{SPACE_KEY}N"=""}{%Pr}%f_set_var(SPACE_KEY,"%P{space key}")>\
+		%{SPACE_KEY}N
+	
+	][%f_dump_wiki_up_print(%S)
+	
+	]<{\n}{%CC=Operation&"%CS"=""&%Ca!=abstract}{}[%CX
+	]>
+	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Унаследованная реализация
+	
+	<{}{%oS!=generator&%oC!=Class}{Sp}// реализация абстрактного стереотипа %o%P%f_st_name()
+	%oX
+	
+	><{}{%OS!=generator&%OC!=Class}{Sp}// перекрытие базового стереотипа %O%P%f_st_name()
+	%OX
+	
+	><{}{%oS=generator}{Sp}// реализация абстрактного стереотипа %o%P%f_st_name()
+	%oX
+	
+	><{}{%OS=generator}{Sp}// перекрытие базового стереотипа %O%P%f_st_name()
+	%OX
+	
+	>][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Вложенные стереотипы
+	
+	<{}{%CC=Class}%CX>]\
+	[////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Исключенные вложенные стереотипы
+	%S%f_dump_excluded_sub_stereotypes()]
+	%f_footer(%S)
+	]
+
+%f _dump_excluded_sub_stereotypes
+	%f_clear_list(INHERITED_SUB_ST)\
+	%f_set_var(CONTEXT,S)\
+	%f_clear_list(CONTEXT_BASES)\
+//
+	%f_clear_list(SUBSTEREOTYPES_NAMES)\
+	<{}{%CC=Class}%{SUBSTEREOTYPES_NAMES}%f_add_to_list("%C%f_st_name()")>\
+//
+	%f_collect_all_bases(%S,%{CONTEXT_BASES})\
+	%f_collect_inherited_sub_st(%S,%{INHERITED_SUB_ST},%S)\
+////
+	%f_sort_list(INHERITED_SUB_ST,"%f_extends_number_with_prefix("%f_get_position_in_list(%{CONTEXT_BASES},%P,"100")","3")")\
+////
+	%{INHERITED_SUB_ST}<{\n}{}{%C}%f_set_var(SUB_ST_PARENT,C%P)%C<{}{%f_kind_of(P,MDAMainStereotype::Class)=true}{%P}%f_set_var(SUB_ST_PARENT,P)>\
+	%f_set_var(CURRENT_SUB_ST_NAME,"%{CONTEXT}%f_make_st_name_for(%C)")\
+	[{%f_exists_in_list(SUBSTEREOTYPES_NAMES,"%{CURRENT_SUB_ST_NAME}N")=false}%{SUBSTEREOTYPES_NAMES}%f_add_to_list("%{CURRENT_SUB_ST_NAME}N")\
+	~ %{CURRENT_SUB_ST_NAME}N\
+//это хак, для того, чтобы автоматически скопировать подстереотипы, который наследуемый подстереотип наследует от своего базового подстереотипа (если такие есть)
+	%f_clear_list(INHERITED_SUB_SUB_ST)\
+	%f_collect_inherited_sub_st(%C,%{INHERITED_SUB_SUB_ST},%C)\
+	%f_sort_list(INHERITED_SUB_SUB_ST,"%f_extends_number_with_prefix("%f_get_position_in_list(%{CONTEXT_BASES},%P,"100")"0,"3")")\
+	%f_set_var(CURRENT_BASE,C)\
+	[
+	%{INHERITED_SUB_SUB_ST}<{\n}~ %f_str_replace(%C%f_st_name(),%C%P%f_st_name(),%{CONTEXT}%f_make_st_name_for(%{CURRENT_BASE}))>]]>
+
+//S - list
+//1 - arg
+//2 - 0 replacer
+f _get_position_in_list
+	[{}{[{}{0}%2N]}<{}{}{%C}[{%CU=%1U}%Cn]>]
+
+f _collect_all_bases
+	<{}{}{%R}[{%f_exists_in_list(%1N,R)=false}%1%f_add_to_list(R)%f_collect_all_bases(%R,%1)]>\
+	<{}{}{%G}[{%f_exists_in_list(%1N,G)=false}%1%f_add_to_list(G)%f_collect_all_bases(%G,%1)]>
+
+%f _make_st_name_for
+	%1%f_sub_st_name(%S)
+
+//требует установленной переменной CONTEXT
+f _collect_inherited_sub_st
+	<{}{%oC=Class}%f_collect_inherited_sub_st_impl(%o,%1,%2)>\
+	<{}{%OC=Class}%f_collect_inherited_sub_st_impl(%O,%1,%2)>
+
+f _collect_inherited_sub_st_impl
+	%f_set_var(ST_NAME,"%2%f_make_st_name_for(%S)")\
+	[{%2<{}{%AC=Class&%A%f_sub_st_name(%S)=%{ST_NAME}N}{%AC}>=0}%1%f_add_to_list(S)\
+/	%f_collect_inherited_sub_st(%S,%1)\
+	<{}{%CC=Class}%f_collect_inherited_sub_st_impl(%C,%1,%2)>]
+
+
+//проверяет, что %S переопределяет элемент, который наследуется от элемента, переопределяемого %1
+// A <---- B
+// ^       ^
+// |       |
+/  A'<-----B'
+//%f_is_redefinitions_of_relations(B',A) - вернёт true
+f _is_redefinitions_of_relations
+	%f_clear_list(SELF_REDEFS)\
+	%f_clear_list(1_REDEFS)\
+	%f_collect_redefinitions(%S,"SELF_REDEFS")\
+	%f_collect_redefinitions(%1,"1_REDEFS")\
+	[{"<{}{%f_is_empty(SELF_REDEFS)=false}{W}%f_pop_first_to_var(SELF_REDEFS,ITEM)\
+	%{ITEM}<{}{%f_exists_in_list(1_REDEFS,g)=true}{%g}.>>"!=""}{false}true]\
+	%f_clear_list(SELF_REDEFS)\
+	%f_clear_list(1_REDEFS)
+
+//собирает в один список все элементы, котоырй переопределяет данный
+f _collect_redefinitions
+	[{"%1N"=""}%f_error("_collect_redefinitions: Не задан идентифкатор списка!")]\
+	%f_set_var(__LIST_ID__,1)\
+	<{}{%f_is_redefinition_for(%S,%R)=true}%f_add_to_list(%{__LIST_ID__}N,R)>
+
+//возвращает true, если %S переопределяет %1
+f _is_redefinition_for
+	[{%1%f_need_st_define()=true&%1%f_st_name()=%S%f_st_name()}{false}true]
+
+f _dump_include_constraint
+	[{%S{inherite constraints}=false}\> !
+	][{}{[{%f_is_inherit_includes(%S)=false&%Sa!=abstract}\< *::Class,*::Category\n]}<{}{%CC=Dependency&%CS=include}\> %C%T%f_st_name()[{%C{internal}=true}*]
+	>]
+
+///проверяем, что стереотип уже наследует связь включения
+f _is_inherit_includes
+	[{%S{inherite constraints}=true&<{}{%g%f_need_st_define()=true&%g<{}{%CC=Dependency&%CS=include}{C}>!=0}{C}>!=0}{[{%S{inherite constraints}=true&<{}{%r%f_need_st_define()=true&%r<{}{%CC=Dependency&%CS=include}{C}>!=0}{C}>!=0}{false}true]}\
+	true]
+//#UC END# *46E28D830109for46E1540F00AB*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: MDAGenerator::Class::generator::Operation
+? генератор
+? определяет конкретный целевой генератор
+// Параметры стереотипа
+a ar
+/ - тип абстракции
+Y code_mda_op_generator.gif
+L code_mda_op_generator
+T 
+/ - может не иметь "цели" (типа/результата)
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+
+// Пользовательские свойства
+p encoding=default|utf8|koi8-r|cp866 ? Кодировка выходного файла, по-умолчанию cp1251
+p ifdef_suffix:s ? суффикс используемый при генерации деректив #ifdef
+p lang id:s ? идентификатор языка
+p newline replace:s ? Заменитель переноса строки. Если необходимо использовать специальные символы, то заменитель можно задать как последовательность кодов символов в шестнадцатиричном виде. Например заменитель 0D0A эквивалентен \n. Если не удалось распарсить последовательность, то заменителем будет просто строка, например: 0D123 так и останется 0D123. Вместо пробела следует использовать последовательность "\s".
+p tab replace:s ? задает строку заменитель для символа табулятора. Если задан, то в результирующем файле все табуляторы будут заменены на указанную строку. Вместо пробела следует использовать последовательность "\s".
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E3DB9001C5*
+	%f_docs(%S)\
+	+ %SN
+	[{"%S{tab replace}"!=""}R %f_str_replace(%S{tab replace},\\s,%f_space(%S))
+	][{"%S{newline replace}"!=""}N %f_str_replace(%S{newline replace},\\s,%f_space(%S))
+	][{"%S{encoding}"!=""&%S{encoding}!=default}c %S{encoding}
+	]%U[{for%{CONTEXT}U}
+	]
+//#UC END# *46E28D830109for46E3DB9001C5*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for46E3DB9001C5*
+//#UC END# *46E6D4BB0339for46E3DB9001C5*
+
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor46E3DB9001C5*
+P
+//#UC END# *4F368B80039Efor46E3DB9001C5*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{tab replace}"!="%S{!tab replace}"}%f_up_prefix(%S) *tab replace* = *%S{tab replace}* - задает строку заменитель для символа табулятора. Если задан, то в результирующем файле все табуляторы будут заменены на указанную строку. Вместо пробела следует использовать последовательность "\\s".
+	][{"%S{lang id}"!="%S{!lang id}"}%f_up_prefix(%S) *lang id* = *%S{lang id}* - идентификатор языка
+	][{"%S{ifdef_suffix}"!="%S{!ifdef_suffix}"}%f_up_prefix(%S) *ifdef_suffix* = *%S{ifdef_suffix}* - суффикс используемый при генерации деректив #ifdef
+	][{"%S{newline replace}"!="%S{!newline replace}"}%f_up_prefix(%S) *newline replace* = *%S{newline replace}* - Заменитель переноса строки. Если необходимо использовать специальные символы, то заменитель можно задать как последовательность кодов символов в шестнадцатиричном виде. Например заменитель 0D0A эквивалентен \\n. Если не удалось распарсить последовательность, то заменителем будет просто строка, например: 0D123 так и останется 0D123. Вместо пробела следует использовать последовательность "\\s".
+	][{"%S{encoding}"!="%S{!encoding}"}%f_up_prefix(%S) *encoding* = *%S{encoding}* - Кодировка выходного файла, по-умолчанию cp1251
+	]
+
+
+: MDAGenerator::Class::Operation
+? функция стереотипа
+? определяет пользовательскую функцию принадлежащую стереотипу
+// Параметры стереотипа
+a ar
+/ - тип абстракции
+Y code_mda_op_function.gif
+L code_mda_op_function
+T 
+/ - может не иметь "цели" (типа/результата)
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E3DB3B001F*
+	%f_docs(%S)\
+	\%f _%SN\
+//	%f_set_var(Count,"1")[
+//	// параметры: <{, }%CN: %C%TN = \%%{Count}N\
+//	%f_set_var(Count,"%f_evaluate(%{Count}N+1)")>]
+	[
+	// параметры: <{, }%CN: %C%TN = \%%Cn>]\
+	[{%TN!=void}
+	// возвращаемый результат: %TN]
+	%U[{for%{CONTEXT}U}
+	]
+//#UC END# *46E28D830109for46E3DB3B001F*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for46E3DB3B001F*
+//#UC END# *46E6D4BB0339for46E3DB3B001F*
+
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor46E3DB3B001F*
+P
+//#UC END# *4F368B80039Efor46E3DB3B001F*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::transformator::Operation
+? Трансформатор
+? Задает пользовательский трансформатор принадлежащий стереотипу
+// Параметры стереотипа
+a ar
+/ - тип абстракции
+Y code_mda_op_transformator.gif
+L code_mda_op_transformator
+T 
+/ - может не иметь "цели" (типа/результата)
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E3F93A0128*
+	%f_docs(%S)\
+	\%t _%SN
+	%U[{for%{CONTEXT}U}
+	c          {}
+	r {""=""}: {}
+	]
+//#UC END# *46E28D830109for46E3F93A0128*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for46E3F93A0128*
+//#UC END# *46E6D4BB0339for46E3F93A0128*
+
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor46E3F93A0128*
+P
+//#UC END# *4F368B80039Efor46E3F93A0128*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::UserProperty::Attribute
+? базовый класс для пользовательских свойств
+= Мета-MDA::MDAGenerator
+
+// Параметры стереотипа
+Y code_mda_attr_up.gif
+L code_mda_attr_up
+T 
+/ - может не иметь "цели" (типа/результата)
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+l a
+/ - возможные типы связи атрибута
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46EFD6DC0192*
+//#UC END# *46E28D830109for46EFD6DC0192*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for46EFD6DC0192*
+//#UC END# *46E6D4BB0339for46EFD6DC0192*
+
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor46EFD6DC0192*
+P
+//#UC END# *4F368B80039Efor46EFD6DC0192*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for46EFD6DC0192*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for46EFD6DC0192*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor46EFD6DC0192*
+//#UC END# *4705CBD6003Efor46EFD6DC0192*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for46EFD6DC0192*
+//#UC END# *470484D50138for46EFD6DC0192*
+
+: MDAGenerator::Class::bool::Attribute
+? UP-бинарное значение
+? Задает пользовательское свойство типа бинарное значение "on/off"
+= MDAGenerator::Class::UserProperty::Attribute
+
+// Параметры стереотипа
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E6B9A10135*
+	p %SN:b=[{%SI=true|%SI=1}{false}true] ? %f_str_replace(%SD,\n,%f_space(%S))
+//#UC END# *46E28D830109for46E6B9A10135*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::string::Attribute
+? UP-строка
+? Задает пользовательское свойство типа "строка"
+= MDAGenerator::Class::UserProperty::Attribute
+
+// Параметры стереотипа
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E6B9AC02FA*
+	p %SN:s[=%SI] ? %f_str_replace(%SD,\n,%f_space(%S))
+//#UC END# *46E28D830109for46E6B9AC02FA*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::include::ClassDependency
+? Разрешение использования
+? Связь разрешающая использование одного стереотипра (цель связи) внутри другого (рожитель связи).
+// Параметры стереотипа
+Y code_mda_dep_include.gif
+L code_mda_dep_include
+
+// Пользовательские свойства
+p internal:b=false ? определяет, что пользователь не может использовать стереотип, на который указывает (но можно использовать в суммонинге)
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E6CB280164*
+//#UC END# *46E28D830109for46E6CB280164*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for46E6CB280164*
+//#UC END# *46E6D4BB0339for46E6CB280164*
+
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor46E6CB280164*
+P
+//#UC END# *4F368B80039Efor46E6CB280164*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{internal}"!="%S{!internal}"}%f_up_prefix(%S) *internal* = *%S{internal}* - определяет, что пользователь не может использовать стереотип, на который указывает (но можно использовать в суммонинге)
+	]
+
+
+: MDAGenerator::Class::group::ClassDependency
+? Родительская группа
+? Определяет родительскую "группу" для генераторов
+// Параметры стереотипа
+Y code_mda_dep_group.gif
+L code_mda_dep_group
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E7DE3F03A6*
+//#UC END# *46E28D830109for46E7DE3F03A6*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for46E7DE3F03A6*
+//#UC END# *46E6D4BB0339for46E7DE3F03A6*
+
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor46E7DE3F03A6*
+P
+//#UC END# *4F368B80039Efor46E7DE3F03A6*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::list::Attribute
+? UP-список
+? Задает пользовательское свойство типа "список"
+= MDAGenerator::Class::UserProperty::Attribute
+
+// Параметры стереотипа
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E6B6890396*
+	p %SN=%SI ? %f_str_replace(%SD,\n,%f_space(%S))
+//#UC END# *46E28D830109for46E6B6890396*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::file::Attribute
+? UP-файл
+? Задает пользовательское свойство типа "имя файла" (с возможностьб выбора стандартными средствами)
+= MDAGenerator::Class::UserProperty::Attribute
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46FE5AA001E5*
+	p %SN:file=[=%SI] ? %f_str_replace(%SD,\n,%f_space(%S))
+//#UC END# *46E28D830109for46FE5AA001E5*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::color::Attribute
+? UP-цвет
+? Задает пользовательское свойство типа "цвет" в формате RGB (с возможностьб выбора стандартными средствами)
+= MDAGenerator::Class::UserProperty::Attribute
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46FE5AED032D*
+	p %SN:color[=%SI] ? %f_str_replace(%SD,\n,%f_space(%S))
+//#UC END# *46E28D830109for46FE5AED032D*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::tribool::Attribute
+? UP-булево значение с 3-мя состояними
+? Задает пользовательское свойство с тремя состояниями "true/false/undefined"
+= MDAGenerator::Class::UserProperty::Attribute
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for470E033101F4*
+	p %SN:tribool=[{%SI=true|%SI=1}{[{%SI=false|%SI=0}{undefined}false]}true] ? %f_str_replace(%SD,\n,%f_space(%S))
+//#UC END# *46E28D830109for470E033101F4*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::main hierarchy::ClassDependency
+? Основная ветка иерархии
+? цель данной связи определяет основного предка для стереотипа, этот основной элемент будет использоваться при разрешении неоднозначности при вызове метода на стереотипе-источнике
+// Параметры стереотипа
+Y code_mda_dep_main_hierarchy.gif
+L code_mda_dep_main_hierarchy
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for49F847A30327*
+//#UC END# *46E28D830109for49F847A30327*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for49F847A30327*
+//#UC END# *46E6D4BB0339for49F847A30327*
+
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor49F847A30327*
+P
+//#UC END# *4F368B80039Efor49F847A30327*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::exclude auto copy::ClassDependency
+? элементы, на которые указывают такие связи не копируется из родителя
+// Параметры стереотипа
+Y code_mda_dep.gif
+L code_mda_dep
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for4AE5844A0278*
+//#UC END# *46E28D830109for4AE5844A0278*
+
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4AE5844A0278*
+//#UC END# *46E6D4BB0339for4AE5844A0278*
+
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor4AE5844A0278*
+P
+//#UC END# *4F368B80039Efor4AE5844A0278*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: MDAGenerator::Class::text::Attribute
+? UP-текст
+? Задает пользовательское свойство типа "текст"
+= MDAGenerator::Class::UserProperty::Attribute
+
+// Генераторы
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for4D6CD5FA03E7*
+	p %SN:text[=%SI] ? %f_str_replace(%SD,\n,%f_space(%S))
+//#UC END# *46E28D830109for4D6CD5FA03E7*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

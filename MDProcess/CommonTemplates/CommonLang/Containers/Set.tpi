@@ -1,0 +1,244 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/Set.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::Set
+//
+// Сортированный контейнер уникальных элементов
+// ---
+// Абстракция уровня реализации. Ассоциативный контэйнер уникальных элементов. Элементы хранятся в
+// сортированном порядке. Тип данных определяется атрибутом без стереотипа.
+// Дополнительно могут быть указанны тип аллокатора данных и тип функтора-сравнения, как атрибуты
+// со стереотипами <<allocator>> и <<compare>> соотвественно.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Set::Class
+? Сортированный контейнер уникальных элементов
+? Абстракция уровня реализации. Ассоциативный контэйнер уникальных элементов. Элементы хранятся в сортированном порядке. Тип данных определяется атрибутом без стереотипа.
+? Дополнительно могут быть указанны тип аллокатора данных и тип функтора-сравнения, как атрибуты со стереотипами <<allocator>> и <<compare>> соотвественно.
+= Vector::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_set.gif
+L code_set
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа BaseContainer::Class
+// сгенерить определение контэйнера для C++
+%f _dump_container_def_h
+//#UC START# *49015EE401E1for470F08DC0157*
+	%f_dump_container_fwds_h(%S)\
+	%f_docs(%S)\
+	#typedef std::set \< %f_data_dump(%S)%f_comp_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+//#UC END# *49015EE401E1for470F08DC0157*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F08DC0157*
+c                           {}
+r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+r "<{}{"%CS"="compare"}{C}>"!="1"&"<{}{"%CS"="compare"}{C}>"!="0": {%SS can provide only one Compare type (by \<\<compare\>\> link)}
+r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+r "<{}{"%CS"=""&%t_struct_type(%C%T)=false&%t_has_less(%C%T)=false}{C}>"!="0"&"<{}{"%CS"="compare"}{C}>"!="1": {%SS of not atomic nor Struct types must provide one Compare type (by \<\<compare\>\> link)}
+r "<{}{"%CS"=""&"%Cl"="agr"&"%t_has_less(%C%T)"="false"&%f_is_foreign_target(%C)=true}{%CC}>"!="0"&"<{}{"%CS"="compare"}{C}>"="0": {%SS with agrigaited foreign Data type must provide Compare type}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+//#UC END# *4704C0E30186for470F08DC0157*
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F08DC0157*
+= BaseContainer::Class;idl
+//#UC END# *47022BBE0261for470F08DC0157*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470F08DC0157*
+P
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	%f_tie_container_refcount_base_cpp(%S)
+	
+	size_t __stdcall %SN_tie::get_count () const {
+		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::get_count"));
+		]return m_impl-\>size();
+	}
+	
+	void __stdcall %SN_tie::set_count (size_t count) {
+		GDS_ASSERT (0);
+	}
+	
+	void __stdcall %SN_tie::clear () {
+		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::clear"));
+		]m_impl-\>clear();
+	}
+	
+	void __stdcall %SN_tie::delete_item (size_t index) {
+		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::delete_item"));
+		]if ((size_t)index \< m_impl-\>size()) {
+			%SN::iterator f = m_impl-\>begin();
+			std::advance (f, index);
+			m_impl-\>erase(f);
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	[{%t_simple(%{CONT_TYPE})=true}%t_ret(%{CONT_TYPE},"const,cached") __stdcall %SN_tie::get_item (size_t index) {
+	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::get_item"));
+	]][{%t_simple(%{CONT_TYPE})=false}void __stdcall %SN_tie::get_item (size_t index, %t_arg(%{CONT_TYPE},"out") ret_) {
+	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::get_item"));
+	]]	if ((size_t)index \< m_impl-\>size()) {
+			%SN::iterator f = m_impl-\>begin();
+			std::advance (f, index);
+			[{%t_simple(%{CONT_TYPE})=true}		return [{<{}{"%CS"=""&%Cl=ref}{C}>!=0}*](*f);]\
+			[{%t_simple(%{CONT_TYPE})=false}[{%f_need_tie(%{CONT_TYPE})=true}{		ret_ = [{<{}{"%CS"=""&%Cl=ref}{C}>!=0}*](*f);}\
+			%f_type_tie(%{CONT_TYPE})::make_tie ((*f)[{%t_interface(%{CONT_TYPE})=true}.in()], [{%t_interface(%{CONT_TYPE})=true}{*ret_}ret_, true]);]]
+		} else {
+			throw Core::IndexOutOfBounds_tie ();
+		}
+	}
+	
+	size_t __stdcall %SN_tie::index_of (%t_arg(%{CONT_TYPE},"in") item) const {
+	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::index_of"));
+	][{%f_need_tie(%{CONT_TYPE})=true}{		%SN::iterator f = m_impl-\>find (item);}\
+			%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+			%f_type_tie(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+			%SN::iterator f = m_impl-\>find (item_);
+	]	if (f != m_impl-\>end()) {
+			return std::distance (m_impl-\>begin(), f);
+		} else {
+			return -1;
+		}
+	}
+	
+	size_t __stdcall %SN_tie::add (%t_arg(%{CONT_TYPE},"inout") item) {
+	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::add"));
+	][{%f_need_tie(%{CONT_TYPE})=true}{		return std::distance (m_impl-\>begin(), m_impl-\>insert (item).first);}\
+			%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+			%f_type_tie(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+			return std::distance (m_impl-\>begin(), m_impl-\>insert (item_).first);
+	]}
+	
+	bool __stdcall %SN_tie::find (%t_arg(%{CONT_TYPE},"inout") item, long& index) const {
+	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::find"));
+	][{%f_need_tie(%{CONT_TYPE})=true}{		%SN::iterator f = m_impl-\>find (item);}\
+			%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+			%f_type_tie(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+			%SN::iterator f = m_impl-\>find (item_);
+	]	if (f != m_impl-\>end()) {
+			index = std::distance (m_impl-\>begin(), f);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	void __stdcall %SN_tie::remove (%t_arg(%{CONT_TYPE},"in") item) {
+	[{%f_need_tie_log(%S)=true}	find(("%SN_tie::remove"));
+	][{%f_need_tie(%{CONT_TYPE})=true}{		m_impl-\>erase (item);}\
+			%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+			%f_type_tie(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+			m_impl-\>erase (item_);
+	]}
+//#UC END# *47032ED002DEfor470F08DC0157*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470F08DC0157*
+F class %SN_tie;
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	<%FF
+	
+	>class %SN_tie: public Core::TIEBase {
+		SET_OBJECT_COUNTER (%SN_tie)
+	protected:
+	%f_tie_container_refcount_base_h(%S)
+	
+	protected:
+		virtual size_t __stdcall get_count () const;
+		virtual void __stdcall set_count (size_t count);
+		virtual void __stdcall clear ();
+		virtual void __stdcall delete_item (size_t index);
+		[{%t_simple(%{CONT_TYPE})=true}virtual %t_ret(%{CONT_TYPE},"const,cached") __stdcall get_item (size_t index);
+		][{%t_simple(%{CONT_TYPE})=false}virtual void __stdcall get_item (size_t index, %t_arg(%{CONT_TYPE},"out") ret_);
+		]virtual size_t __stdcall index_of (%t_arg(%{CONT_TYPE},"in") item) const;
+		virtual size_t __stdcall add (%t_arg(%{CONT_TYPE},"in") item);
+		virtual bool __stdcall find (%t_arg(%{CONT_TYPE},"in") item, size_t& index ???) const;
+		virtual void __stdcall remove (%t_arg(%{CONT_TYPE},"in") item);
+	};
+//#UC END# *47032EC4032Cfor470F08DC0157*
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F08DC0157*
+F [%f_pas_OpenType(%S)\n]#I%SN = interface;\n#\{ - предварительное описание I%SN. \}\n\n
+	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+	I%SN = interface(IInterface)
+	\['{%SG}'\]
+	    function  pm_GetCount: Integer; stdcall;
+	    procedure pm_SetCount(aValue: Integer); stdcall;
+	      { - методы для доступа к свойству Count. }
+	    procedure Clear; stdcall;
+	      {* очистить список. }
+	    procedure Delete(anIndex: Integer); stdcall;
+	      {* удаляет элемент по индексу Index. }
+	    property Count: Integer
+	      read pm_GetCount
+	      write pm_SetCount;
+	       {* число элементов в хранилище. }
+	  // property methods
+	[{%t_simple(%{CONT_TYPE})=true}    function  pm_GetItem(anIndex: Integer): %f_type(%{CONT_TYPE}); stdcall;
+	][{%t_simple(%{CONT_TYPE})=false}    procedure  pm_GetItem(anIndex: Integer; out aRet: %f_type(%{CONT_TYPE})); stdcall;
+	]
+	      {-}
+	  // public methods
+	    function  IndexOf(anItem: %f_type(%{CONT_TYPE})): Integer; stdcall;
+	      {* - возвращает индекс элемента Item или -1 если он не входит в контенйер. }
+	    function  Add(const anItem: %f_type(%{CONT_TYPE})): Integer; stdcall;
+	      {* - добавляет элемент Item в контейнер }
+	    function  Find(const anItem: %f_type(%{CONT_TYPE});out theIndex: Integer;): Bool; stdcall;
+	      {* - ищет в контейнере элемент Item. }
+	    procedure Remove(const anItem: %f_type(%{CONT_TYPE})); stdcall;
+	      {* - удаляет элемент Item из контейнера. }[
+	[{%t_simple(%{CONT_TYPE})=true}  // public properties
+	    property  Items\[anIndex: Integer\]: %f_type(%{CONT_TYPE})
+	      read pm_GetItem
+	      write pm_SetItem;
+	      default;
+	      {* - элементы списка. }]]
+	end;//I%SN
+//#UC END# *470F152700FAfor470F08DC0157*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Set::Class::compare::Attribute
+? компаратор
+= Map::Class::compare::Attribute
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

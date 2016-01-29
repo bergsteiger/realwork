@@ -1,0 +1,58 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/FactoriesSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::FactoriesSupport
+//
+// набор вспомогательных  методов для генерации фабрик, менеджеров фабрик и т.п
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// для менеджера фабрик дампит реализацию конкретной фабрики, использующей общую память
+f _fctr_mng_mem_java
+//#UC START# *4757B58F02B9*
+	%f_set_var(USE_IN_SYNCHRO,"%T%f_use_for_synchro_factory()")\
+	#	synchronized (%f_to_java(%TNMap)_) {
+	[{<{}{"%CS"!="nokey"}{%CC}>!=0}#		%T%f_factory_mem_key_name() memKey = new %T%f_factory_mem_key_name() ([{%T%Cx=true}{<{, }{"%CS"!="nokey"}%f_to_java(%CN)>}%T%f_transfomator_name().%f_to_java(%SN_to_id) (<{, }{%CS!=nokey}%CN>)]);[
+	%S%f_init_factory_mem_key_java_impl()]
+	#		[{%{USE_IN_SYNCHRO}N=true}{%t_fctr_manager_cache_value(%{INT},"var",%S) res = %f_to_java(%TNMap)_.get (memKey);}%t_ret(%{INT})[{%1N=read-only}ConstWrapper] res = null;
+	#		[{%{USE_IN_SYNCHRO}N=false}{%t_fctr_manager_cache_value(%{INT},"type","")}%t_fctr_manager_cache_value(%{INT},"var","")] ref = %f_to_java(%TNMap)_.get (memKey);
+	#		if (ref != null) {
+	#			res = ref[.%f_cache_postfix(%S,"%1N")].get ();
+	#		}]
+	#		if (res == null[{%f_is_ro_fctr_exists(%S)=true&%{USE_IN_SYNCHRO}N=false} || res[.%f_cache_postfix(%S,"%1N")] == null]) {
+	%S%f_fctr_mng_factory_mem_java_impl(%S,"%1N")
+	#		}[{%f_is_ro_fctr_exists(%S)=true&%1N=read-write} else if (
+	#			[{%{USE_IN_SYNCHRO}N=true}{res != null
+	#			&& res[.%f_cache_postfix(%S,"read-only")] != null
+	#			&& res.isRoFirst == true}ref.isRoFirst == true
+	#			&& ref[.%f_cache_postfix(%S,"read-only")] != null
+	#			&& ref[.%f_cache_postfix(%S,"read-only")].get () != null]
+	#		) {
+	#			[{%{USE_IN_SYNCHRO}N=true}{res[.%f_cache_postfix(%S,"read-only")].upgrade_rw ();
+	#			res.isRoFirst = false;}ref[.%f_cache_postfix(%S,"read-only")].get ().upgrade_rw ();
+	#			ref.isRoFirst = false;]
+	#		}]
+	][{<{}{"%CS"!="nokey"}{%CC}>=0}#		%T%f_factory_mem_key_name() memKey = new %T%f_factory_mem_key_name() ();
+	#		%t_ret(%{INT})[{%1N=read-only}ConstWrapper] res = null;
+	%S%f_fctr_mng_factory_mem_create_impl(%S,"%1N")
+	]#		assert (res[{%{USE_IN_SYNCHRO}N=false}[.%f_cache_postfix(%S,"%1N")]] != null);
+	#		return [{%{INT}S!=ServerInterface}{%{INT}N[{%1N=read-only}ConstWrapper]._duplicate(res[{%{USE_IN_SYNCHRO}N=false}[.%f_cache_postfix(%S,"%1N")]])}res[{%{USE_IN_SYNCHRO}N=false}[.%f_cache_postfix(%S,"%1N")]]];
+	#	}
+	
+//#UC END# *4757B58F02B9*
+
+// определяет возможность использования типа в качестве селектора мульти-фабрики
+t _can_use_for_switch
+//#UC START# *47B56F110168*
+c                                  {}
+r "%SN"="void":                    {false}
+r {%f_is_string(%S)=true}:         {true}
+r "%SM"="Typedef::Class":          {[{%Gx=true}{true}%t_can_use_for_switch(%G)]}
+r ""="":                           {%t_simple(%S)}
+//#UC END# *47B56F110168*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

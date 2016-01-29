@@ -1,0 +1,204 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		ru.garant.extensions.properties.svnRoot
+		ru.garant.extensions.properties.svn_tag
+
+		ru.garant.extensions.scriptdefs.cleanupSvnByPath
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.setSvnTagByList"
+	language = "javascript"
+>
+	<attribute name = "svn.dirset.list"/>
+	<attribute name = "svn.root.dir"/>
+	<attribute name = "svn.tag.file"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importClass (
+				Packages.java.io.FileWriter
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_svnDirsetList = (
+				attributes.get ("svn.dirset.list")
+			);
+
+			var a_svnRootDir = (
+				attributes.get ("svn.root.dir")
+			);
+
+			if (a_svnRootDir != null) {
+				var l_svnRootDirFile = new File (a_svnRootDir);
+				var l_svnRootDirPath = l_svnRootDirFile.getPath ();
+
+				a_svnRootDir = l_svnRootDirPath;
+			}
+
+			var a_svnTagFile = (
+				attributes.get ("svn.tag.file")
+			);
+
+			if (a_svnTagFile != null) {
+				var l_svnTagFileFile = new File (a_svnTagFile);
+				var l_svnTagFilePath = l_svnTagFileFile.getPath ();
+
+				a_svnTagFile = l_svnTagFilePath;
+			}
+
+			var l_svnTag = project.getProperty ("ru.garant.extensions.properties.svn_tag");
+
+			if ((l_svnTag != null) && (!l_svnTag.isEmpty ())) {
+				if (l_svnTag.compareToIgnoreCase ("NONE") != 0) {
+					var l_svnRoot = project.getProperty ("ru.garant.extensions.properties.svnRoot");
+					var l_svnTag = l_svnTag.replace ("-", "/");
+
+					{
+						var l_execTask = project.createTask ("exec"); {
+							l_execTask.setExecutable ("svn.exe");
+							l_execTask.setFailIfExecutionFails (true);
+							l_execTask.setFailonerror (false);
+							l_execTask.setlogerror (false);
+							l_execTask.setOutput (new File ("nul"));
+
+							var l_execTaskArg = l_execTask.createArg (); {
+								l_execTaskArg.setLine (
+									"mkdir"
+									+ " --non-interactive"
+									+ " --file nul"
+									+ " --quiet"
+									+ " "+ l_svnRoot+ "/tags"
+									+ "/"+ l_svnTag
+								);
+							}
+
+							l_execTask.reconfigure ();
+						}
+
+						l_execTask.execute ();
+					}
+
+					var l_svnDirset = project.createDataType ("dirset"); {
+						l_svnDirset.setDir (new File (a_svnRootDir));
+						l_svnDirset.setIncludes (a_svnDirsetList);
+					}
+
+					var l_svnDirsetDirectoryScaner = l_svnDirset.getDirectoryScanner (project);
+					var l_svnDirsetIncludedDirectories = l_svnDirsetDirectoryScaner.getIncludedDirectories ();
+
+					for (
+						var l_svnDirsetIncludedDirectoriesIndex = 0
+						; (l_svnDirsetIncludedDirectoriesIndex < l_svnDirsetIncludedDirectories.length)
+						; ++l_svnDirsetIncludedDirectoriesIndex
+					) {
+						var l_svnDirsetItem = l_svnDirsetIncludedDirectories [l_svnDirsetIncludedDirectoriesIndex];
+						var l_svnDirectory = l_svnDirsetDirectoryScaner.getBasedir ()+ l_svnDirsetItem;
+
+						project.log (
+							(
+								"\t"
+								+ "Set tag `"+ l_svnTag+ "`"
+								+ " to svn catalog `"+ l_svnDirectory+ "`"
+							)
+							, project.MSG_INFO
+						);
+
+						{
+							var l_cleanupSvnByPath = project.createTask ("ru.garant.extensions.scriptdefs.cleanupSvnByPath"); {
+								var l_runtimeConfigurableWrapper = l_cleanupSvnByPath.getRuntimeConfigurableWrapper (); {
+									l_runtimeConfigurableWrapper.setAttribute ("svn.dir", l_svnDirectory);
+								}
+
+								l_cleanupSvnByPath.reconfigure ();
+							}
+
+							l_cleanupSvnByPath.execute ();
+						} {
+							var l_execTask = project.createTask ("exec"); {
+								l_execTask.setExecutable ("svn.exe");
+								l_execTask.setFailIfExecutionFails (true);
+								l_execTask.setFailonerror (false);
+								l_execTask.setLogError (false);
+								l_execTask.setOutput (new File ("nul"));
+
+								var l_execTaskArg = l_execTask.createArg (); {
+									l_execTaskArg.setLine (
+										"remove"
+										+ " --non-interactive"
+										+ " --file nul"
+										+ " --quiet"
+										+ " "+ l_svnRoot+ "/tags"
+										+ "/"+ l_svnTag
+										+ "/"+ l_svnDirsetItem
+									);
+								}
+
+								l_execTask.reconfigure ();
+							}
+
+							l_execTask.execute ();
+						} {
+							var l_execTask = project.createTask ("exec"); {
+								l_execTask.setDir (new File (l_svnDirectory));
+								l_execTask.setExecutable ("svn.exe");
+								l_execTask.setFailIfExecutionFails (true);
+								l_execTask.setFailonerror (true);
+								l_execTask.setLogError (true);
+
+								var l_execTaskArg = l_execTask.createArg (); {
+									l_execTaskArg.setLine (
+										"copy"
+										+ " --non-interactive"
+										+ " --file nul"
+										+ " --quiet"
+										+ " ."
+										+ " "+ l_svnRoot+ "/tags"
+										+ "/"+ l_svnTag
+										+ "/"+ l_svnDirsetItem
+									);
+								}
+
+								l_execTask.reconfigure ();
+							}
+
+							l_execTask.execute ();
+						}
+					}
+				}
+
+				project.log (
+					(
+						"\t"
+						+ "Update svn tag-file `"+ a_svnTagFile+ "`"
+					)
+					, project.MSG_INFO
+				);
+
+				var l_svnTagFileWriter = new FileWriter (new File (a_svnTagFile), false); {
+					l_svnTagFileWriter.write (
+						l_svnTag
+						+ "\n"
+					);
+
+					l_svnTagFileWriter.flush ();
+				}
+
+				l_svnTagFileWriter.close ();
+			}
+		}       
+	]]>
+</scriptdef>

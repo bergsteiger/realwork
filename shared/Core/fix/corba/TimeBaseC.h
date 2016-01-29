@@ -1,0 +1,8 @@
+#ifndef _TAO_IDL_______________GARANTPIL_IMPLEMENTATION_COMPONENT_CPP_GARANT_GLOBAL_CORE_TIMEBASEC_H_
+#define _TAO_IDL_______________GARANTPIL_IMPLEMENTATION_COMPONENT_CPP_GARANT_GLOBAL_CORE_TIMEBASEC_H_
+
+#include "orbsvcs/orbsvcs/TimeBaseC.h"
+
+#endif /* ifndef */
+
+

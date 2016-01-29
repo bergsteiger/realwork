@@ -1,0 +1,143 @@
+//////////////////////////////////////////////////////////////////////////////////
+// ComServant
+//////////////////////////////////////////////////////////////////////////////////
+
+: ComServant::Class
+= Servant::Class
+? COM-сервант
+? –еализаци€ COM-интерфейса
+p Is ActiveX:b=false ? флаг определ€ет €вл€етс€ ли COM-объект ActiveX контролом
+L code_com_servant
+Y t4_com_servant.gif 
+
+%f _wiki_up_print
+	[{%S{Is ActiveX}=true}* явл€етс€ ActiveX контролом
+	]
+
+%f _wiki_up_add_gen
+
+%t _constraint
+c                              {}
+r "%rx"="false": {%SS must implement at least one ComInterface}
+r {<{}{"%RM"!="ComInterface::Class"}{C}>!=0}: {%SS can implement ComInterfaces only (need to use generalization)}
+r {"<{}{"%GM"="ComInterface::Class"}{C}>"!="0"}: {%SS can't be inherited from ComInterface (need to use realization)}
+r <{}{}{%RC}>!=0&<{}{}{%RC}>!=1: {%SS can't directly implement more then one ComInterface}
+
+%f _base_class_decl
+	public ATL::CComObjectRootEx\<%t_thread_model(%R)\>
+		, public ATL::CComCoClass\<%SN, &CLSID_Co%RN\>
+		, public ISupportErrorInfo
+		, public ATL::IDispatchImpl\<%RN, &IID_%RN, &LIBID_%R%PNLib\>[{%S{Is ActiveX}=true}
+		, public ATL::CComControl\<%SN\>		
+		, public ATL::ISpecifyPropertyPagesImpl\<%SN\>
+		, public ATL::IPersistStreamInitImpl\<%SN\>
+		, public ATL::IOleControlImpl\<%SN\>
+		, public ATL::IOleObjectImpl\<%SN\>
+		, public ATL::IOleInPlaceActiveObjectImpl\<%SN\>
+		, public ATL::IViewObjectExImpl\<%SN\>
+		, public ATL::IOleInPlaceObjectWindowlessImpl\<%SN\>
+		, public ATL::IProvideClassInfo2Impl\<&CLSID_Co%RN, NULL\>		
+		, public ATL::IObjectSafetyImpl\<%SN, INTERFACESAFE_FOR_UNTRUSTED_CALLER\>][{"<{}{}{%GC}>"!="0"}\n\t, ]
+
+%f _self_forward
+
+%f _servant_content
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// ComServant declaration
+	public:
+		%U[{REGISTRY_RESOURCEID}
+		DECLARE_REGISTRY_RESOURCEID("%SU")
+		]
+		DECLARE_PROTECT_FINAL_CONSTRUCT()
+		
+		BEGIN_COM_MAP(%SN)
+			COM_INTERFACE_ENTRY(%RN)
+			COM_INTERFACE_ENTRY(IDispatch)
+			COM_INTERFACE_ENTRY(ISupportErrorInfo)[{%S{Is ActiveX}=true}
+			COM_INTERFACE_ENTRY(IViewObject)
+			COM_INTERFACE_ENTRY(IViewObject2)
+			COM_INTERFACE_ENTRY(IViewObjectEx)
+			COM_INTERFACE_ENTRY(ISpecifyPropertyPages)
+			COM_INTERFACE_ENTRY2(IOleWindow, IOleInPlaceObjectWindowless)
+			COM_INTERFACE_ENTRY(IOleInPlaceObject)
+			COM_INTERFACE_ENTRY(IOleInPlaceObjectWindowless)
+			COM_INTERFACE_ENTRY(IOleInPlaceActiveObject)
+			COM_INTERFACE_ENTRY(IOleControl)
+			COM_INTERFACE_ENTRY(IOleObject)
+			COM_INTERFACE_ENTRY(IPersistStreamInit)
+			COM_INTERFACE_ENTRY2(IPersist, IPersistStreamInit)
+			COM_INTERFACE_ENTRY(IProvideClassInfo)
+			COM_INTERFACE_ENTRY(IProvideClassInfo2)
+			COM_INTERFACE_ENTRY(IObjectSafety)
+			]
+		END_COM_MAP()
+		[{%S{Is ActiveX}=true}
+		BEGIN_PROP_MAP(%SN)
+			PROP_DATA_ENTRY("_cx", m_sizeExtent.cx, VT_UI4)
+			PROP_DATA_ENTRY("_cy", m_sizeExtent.cy, VT_UI4)
+		END_PROP_MAP()
+		
+		BEGIN_MSG_MAP(%SN)
+			%U[{MSG_MAP}
+			]
+		END_MSG_MAP()
+		]
+		// ISupportsErrorInfo
+		STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid) {
+			return S_FALSE;
+		}
+
+%f _h_includes
+	\#include "shared/Core/fix/win_afx.h"	
+	<\#include %f_dump_include_path(%wL,%w)
+	>%U[{_PRE_CUSTOM_INCLUDES}
+	]
+	%f_set_var(ODL_PATH,"%f_with_gen_id(odl,%R%PL)")\
+	[{"%{ODL_PATH}N"!=""}\#include %f_dump_include_path(%f_delsubstr_from_end(%{ODL_PATH}N,4)_i.h,%R%P)
+	]%P%P<{}{%aM=ComTarget::Category}{Sp}\#include %f_dump_include_path(%f_with_gen_id(h,%aL),%a)>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
+: ComServant::Class::Parameter
+= Servant::Class::Parameter
+
+: ComServant::Class::Operation
+= Servant::Class::Operation
+
+: ComServant::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: ComServant::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: ComServant::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: ComServant::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: ComServant::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: ComServant::Class::Attribute
+= Servant::Class::Attribute
+
+: ComServant::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: ComServant::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: ComServant::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: ComServant::Class::static::Operation
+= Servant::Class::static::Operation
+
+: ComServant::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: ComServant::Class::friend::ClassDependency
+= Servant::Class::friend::ClassDependency

@@ -1,0 +1,43 @@
+'$Include "global.sbl"
+Dim ListArray(1 to 8) as String
+Sub FillArray
+    ListArray(1)="Земельный кодекс Российской Федерации"
+    ListArray(2)="Программа действий Российской Федерации"
+    ListArray(3)="Протокол к Соглашению"
+    ListArray(4)="Федеральный закон от 26 мая 1997 г."
+    ListArray(5)="Воздушный кодекс РФ"
+    ListArray(6)="Федеральный закон от 23 июня 1995 г."
+    ListArray(7)="Соглашение об обеспечении"
+    ListArray(8)="Закон РСФСР"
+                   
+end sub
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    call FillArray
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=66,9"
+    GenericObject Click, "Text=Документы", "Coords=59,11"
+    ListBox Click, "ObjectIndex=4", "Coords=146,364"
+    ListBox Click, "ObjectIndex=4", "Coords=120,12"
+    InputKeys "{HOME}"
+    'сортировка по дате
+    ComboBox Click, "ObjectIndex=2", "Coords=125,8"
+    
+    Window SetContext, "Class=TSubTree", "Activate=0"
+    Window Click, "", "Coords=67,25"
+    Window SetContext, "Caption={ГАРАНТ*}", ""   
+    'call Click_ChangeDirection
+    ListBox Click, "ObjectIndex=5", "Coords=10,68"
+    
+    InputKeys "{HOME}"
+    Dim ItemCount%,i%
+    Dim CurrText$
+    SQAGetProperty "CurrentFocus","ItemCount",ItemCount
+    call CheckItemNames(ListArray,"{DOWN}",0,ItemCount,1)
+    'проверяем
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+
+End Sub

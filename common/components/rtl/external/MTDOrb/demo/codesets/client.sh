@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. conf.sh
+
+./Client -ORBBINDADDR $ADDR -ORBGIOPVERSION 1.1 -ORBNATIVECS "KOI8-R"

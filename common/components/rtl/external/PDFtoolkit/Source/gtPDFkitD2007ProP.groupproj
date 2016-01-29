@@ -1,0 +1,54 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{03bd8ffb-b5b2-4f1e-9ebd-58b15e16acea}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="..\PDFProcessor\Source\gtPDF32\gtPDF32D2007.dproj" />
+    <Projects Include="DCLgtPDFkitD2007ProP.dproj" />
+    <Projects Include="gtPDFkitD2007ProP.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="gtPDF32D2007">
+    <MSBuild Projects="..\PDFProcessor\Source\gtPDF32\gtPDF32D2007.dproj" Targets="" />
+  </Target>
+  <Target Name="gtPDF32D2007:Clean">
+    <MSBuild Projects="..\PDFProcessor\Source\gtPDF32\gtPDF32D2007.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="gtPDF32D2007:Make">
+    <MSBuild Projects="..\PDFProcessor\Source\gtPDF32\gtPDF32D2007.dproj" Targets="Make" />
+  </Target>
+  <Target Name="gtPDFkitD2007ProP">
+    <MSBuild Projects="gtPDFkitD2007ProP.dproj" Targets="" />
+  </Target>
+  <Target Name="gtPDFkitD2007ProP:Clean">
+    <MSBuild Projects="gtPDFkitD2007ProP.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="gtPDFkitD2007ProP:Make">
+    <MSBuild Projects="gtPDFkitD2007ProP.dproj" Targets="Make" />
+  </Target>
+  <Target Name="DCLgtPDFkitD2007ProP">
+    <MSBuild Projects="DCLgtPDFkitD2007ProP.dproj" Targets="" />
+  </Target>
+  <Target Name="DCLgtPDFkitD2007ProP:Clean">
+    <MSBuild Projects="DCLgtPDFkitD2007ProP.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="DCLgtPDFkitD2007ProP:Make">
+    <MSBuild Projects="DCLgtPDFkitD2007ProP.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="gtPDF32D2007;gtPDFkitD2007ProP;DCLgtPDFkitD2007ProP" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="gtPDF32D2007:Clean;gtPDFkitD2007ProP:Clean;DCLgtPDFkitD2007ProP:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="gtPDF32D2007:Make;gtPDFkitD2007ProP:Make;DCLgtPDFkitD2007ProP:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

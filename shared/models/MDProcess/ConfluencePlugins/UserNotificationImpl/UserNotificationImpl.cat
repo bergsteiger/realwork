@@ -1,0 +1,513 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "UserNotificationImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/UserNotificationImpl|48414BB80116
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19011131803"))
+    quid       	"48414BB80116"
+    documentation 	"ðåàëèçàöèÿ"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"48414BE20287"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification"
+	    quidu      	"48414B78012E")
+	(object Visibility_Relationship
+	    quid       	"48F5C5F90087"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO"
+	    quidu      	"47BC007801F0"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "UserNotificationManagerImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/UserNotificationImpl/UserNotificationManagerImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/UserNotificationImpl/UserNotificationManagerImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/UserNotificationImpl/UserNotificationManagerImpl|48415155036D
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48415155036D_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *48415155036D_CUSTOM_IMPORT*¤import ru.garant.shared.ConfluenceCore.PageSupport.GarPageManager;¤import com.atlassian.confluence.pages.CommentManager;¤import java.sql.PreparedStatement;¤import java.sql.ResultSet;¤import java.sql.Timestamp;¤import java.text.SimpleDateFormat;¤import java.util.*;¤¤import net.sf.hibernate.*;¤import net.sf.hibernate.expression.Expression;¤¤import org.apache.commons.collections.CollectionUtils;¤import org.apache.commons.collections.Predicate;¤import org.apache.commons.collections.Transformer;¤import org.apache.commons.collections.map.MultiValueMap;¤import org.apache.commons.lang.StringUtils;¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤import com.atlassian.confluence.core.ContentEntityObject;¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.atlassian.confluence.user.UserAccessor;¤import com.atlassian.user.User;¤¤import ru.garant.MDProcess.ConfluencePlugins.UserData.UserData;¤¤import ru.garant.MDProcess.ConfluencePlugins.CommonVelocityContext.GlobalHelper;¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.UnreadDiscussion;¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.UnreadDocument;¤import ru.garant.MDProcess.ConfluencePlugins.EmailNotification.EmailGateway;¤¤import ru.garant.MDProcess.ConfluencePlugins.EntityObjectToIdTransformer;¤import java.util.regex.Matcher;¤import java.util.regex.Pattern;¤¤//#UC END# *48415155036D_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48415155036D_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *48415155036D_CUSTOM_CLASS_DEFINITION*¤//#UC END# *48415155036D_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48415155036D_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *48415155036D_CUSTOM_METHODS_AND_DATA*¤	private UserWarningRequest getUserWarningRequestFromSet(java.util.Set<UserWarningRequest> userWarningNotifications, String user){¤		UserWarningRequest uwr = null;¤		if(userWarningNotifications != null) {¤			for(UserWarningRequest userWarningNotification : userWarningNotifications){¤				if(userWarningNotification.getUser().equals(user))¤					uwr = userWarningNotification; ¤			}¤		}¤		return uwr;¤	}¤	¤	private UserWarning doSaveOrUpdateNotificationMacro (UserWarning userWarning) throws HibernateException {¤		if (userWarning.getId() == -1) {¤			userWarning.setId(0);¤			userWarning.setId((Long) getSession().save(userWarning));¤		} else {¤			getSession().saveOrUpdate(userWarning);¤		}¤		return userWarning;¤	}¤	¤	private UserWarningRequest doSaveOrUpdateUserNotification (UserNotification notify, String user, short typeNotification, UserWarningRequest uwr, UserWarning parent) throws HibernateException {¤		boolean isNew;¤		UserWarningRequest uwrCopy = uwr;¤		if (typeNotification == SYSTEM_TYPE) {¤			ContentEntityObject ceo = notify.getWarningPlace();¤			Session session = getSession();¤			Query q = session.createQuery("from UserWarningRequest as uwr where uwr.user=\"" + user¤					+ "\" and uwr.warningPlace.id=" + ceo.getId() + " and uwr.parent.id=null");¤			List<UserWarningRequest> res = q.list();¤			if (res.size() == 0 || res.size() == 1) {¤				isNew = res.size() == 0;¤				uwrCopy = isNew ? new UserWarningRequest() : res.get(0);¤			} else {¤				Logs.LOG_E("UserNotificationManagerImpl::doSaveOrUpdateUserNotification - has more than one notify for this content and user");¤				return null;¤			}¤		} else if (uwr == null) {¤			isNew = true;¤			uwrCopy = new UserWarningRequest();¤		} else {¤			isNew = false;¤		}¤		¤		uwrCopy = trySaveOrUpdateUserNotification(notify, user, uwrCopy, isNew, parent);¤		return uwrCopy;¤	}¤	¤	private Collection<String> getUserSettings (String userName) {¤		try {¤			return (Collection<String>) UserData.Factory.get(userName, "NotifyParameters").getData();¤		} catch (Exception e) {¤			Logs.LOG_E("UserNotificationManagerImpl::getUserSettings - can't get defaults - " + e);¤			return new HashSet<String>();¤		}¤	}¤¤	private boolean shouldUserGetEmailNotifications (String user) {¤		return getUserSettings(user).contains("GET_ADDITIONAL_NOTIFY_FOR_EMAIL");¤	}¤¤	private void addNotificationForUser (UserWarningRequest uwr) {¤		UserAccessor ua = ContainerManager.Factory.get().getUserAccessor();¤		User user = ua.getUser(uwr.getUser());¤¤		if (shouldUserGetEmailNotifications(user.getName()) && !user.getEmail().equals("")) {¤			Comment com = null;¤			if (uwr.getWarningPlace() instanceof Comment) {¤				com = (Comment) uwr.getWarningPlace();¤			}¤			addNotificationEmailForUser((AbstractPage) uwr.getContent(), uwr.getTitle(), uwr.getUser(), uwr.getSender(), com);¤		}¤	}¤¤	private void addNotificationEmailForUser (AbstractPage page, String title, String user, String sender,¤			Comment focusedComment) {¤		try {¤			Email notificationEmail = createNotificationEmail(page, user, sender, focusedComment, title);¤			getEmailGateway().queueEmail(notificationEmail);¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			// do nothing: trying create an illegal email¤		}¤	}¤¤	private UserNotification createUserNotification (final UserWarningRequest uwr,¤			final UserWarningRequestTimeTask uwrtt) {¤		UserNotification result = new UserNotification(uwr.getTitle(), uwr.getContent(), uwr¤				.getWarningPlace(), uwr.getNeedMonitoring(), uwr.getId(), uwr.getSender(), uwr.getPostingDate());¤		if (uwrtt != null) {¤			result.setCycle(uwrtt.getCycle());¤			result.setStartDate(uwrtt.getStartDate());¤			result.setEndDate(uwrtt.getEndDate());¤			result.setLastSendDate(uwrtt.getLastSendDate());¤		}¤		return result;¤	}¤	¤	private UserWarningRequestTimeTask findUserWarningRequestTimeTask (List<UserWarningRequestTimeTask> uwtt,¤			long userWarningRequestId) {¤		final UserWarningRequestTimeTaskIdFinder finder = new UserWarningRequestTimeTaskIdFinder(¤				userWarningRequestId);¤		return (UserWarningRequestTimeTask) CollectionUtils.find(uwtt, finder);¤	}¤	¤	private static class UserWarningRequestTimeTaskIdFinder implements Predicate {¤		private long idToFind_;¤¤		public UserWarningRequestTimeTaskIdFinder(long idToFind) {¤			idToFind_ = idToFind;¤		}¤¤		public boolean evaluate (Object uwrObj) {¤			return ((UserWarningRequestTimeTask) uwrObj).getId() == idToFind_;¤		}¤	}¤	¤	private long getLastCommentModificationDate (UnreadDiscussion ud) {¤		Comment lastComment = ContainerManager.Factory.get().getCommentManager()¤				.getComment(ud.getLastCommentId());¤		if (lastComment != null) {¤			return lastComment.getLastModificationDate().getTime();¤		}¤		return -1;¤	}¤¤	private long getLastModificationDate(UserWarningRequest uwr) {¤		return uwr.getWarningPlace().getLastModificationDate().getTime();¤	}¤	¤	private UserWarningRequest trySaveOrUpdateUserNotification (UserNotification notify, String user, UserWarningRequest uwr,¤			boolean isNew, UserWarning parent) throws HibernateException {¤		uwr.setContent(notify.getContent());¤		uwr.setNeedMonitoring(true);¤		uwr.setTitle(notify.getTitle());¤		uwr.setWarningPlace(notify.getWarningPlace());¤		uwr.setUser(user);¤		uwr.setSender(AuthenticatedUserThreadLocal.getUsername());¤		uwr.setParent(parent);¤		uwr.setPostingDate(notify.getDate());¤		if (isNew) {¤			uwr.setId((Long)getSession().save(uwr));¤		} else {¤			getSession().saveOrUpdate(uwr);¤		}¤		¤		long now = new Date().getTime();¤		UserWarningRequestTimeTask timeTask = null;¤		if (UserWarningRequestTimeTask.isSending(notify.getCycle(), notify.getStartDate(), notify.getEndDate())) {¤			timeTask = tryToSaveOrUpdateUserWarningTimeTask(notify, uwr, isNew);¤		} else if (UserWarningRequestTimeTask.isEmpty(notify.getCycle(), notify.getStartDate(), notify.getEndDate())) {¤			List<UserWarningRequest> uwList = new LinkedList<UserWarningRequest>();¤			uwList.add(uwr);¤			deleteUserWarningRequestTimeTasks(uwList);¤		}¤		¤		if(user.equals(notify.getSender())){¤			user = "";¤		}	¤¤		if (timeTask != null) {¤			boolean shouldSendImmediately = true;¤			shouldSendImmediately = timeTask.isReady();¤			if (shouldSendImmediately) {¤				timeTask.setLastSendDate(now);¤			} else {¤				uwr.setNeedMonitoring(false);¤				getSession().saveOrUpdate(uwr);¤			}¤			if (shouldSendImmediately) {¤				addNotificationForUser(uwr);¤				resetReadStateForNotifications(notify.getContent(), notify.getWarningPlace(), user);¤			}¤		} else { ¤			if (isNew) {¤				addNotificationForUser(uwr);¤				resetReadStateForNotifications(notify.getContent(), notify.getWarningPlace(), user);¤			}¤		}¤		return uwr;¤	}¤¤	private UserWarningRequestTimeTask tryToSaveOrUpdateUserWarningTimeTask (UserNotification notify, UserWarningRequest uwr,¤			boolean isNew) throws HibernateException {¤		UserWarningRequestTimeTask uwrtt = null;¤		if (!isNew) {¤			uwrtt = getUserWarningRequestTimeTask(uwr.getId());¤		}¤		boolean isNewTimerTask = false;¤		if (uwrtt == null) {¤			uwrtt = new UserWarningRequestTimeTask();¤			isNewTimerTask = true;¤		}¤		uwrtt.setCycle(notify.getCycle());¤		uwrtt.setStartDate(notify.getStartDate());¤		uwrtt.setEndDate(notify.getEndDate());¤		uwrtt.setWarningRequest(uwr);¤		¤		if (isNewTimerTask) {¤			getSession().save(uwrtt);¤		} else {¤			uwrtt.setLastSendDate(0);¤			getSession().saveOrUpdate(uwrtt);¤		}¤		return uwrtt;¤	}¤	¤	private void resetReadStateForNotifications (ContentEntityObject content,¤			ContentEntityObject warningPlace, String nameToNotify) throws HibernateException {¤		resetReadStateForNotifications(content, warningPlace, Collections.singletonList(nameToNotify));¤	}¤	¤	private void resetReadStateForNotifications (ContentEntityObject content,¤			ContentEntityObject warningPlace, Iterable<String> namesToNotify) throws HibernateException {¤		if (warningPlace instanceof Comment) {¤			changeCommentReadState(content.getId(), (Comment) warningPlace, namesToNotify);¤		} else if (warningPlace instanceof AbstractPage) {¤			changeAbstractPageReadState(content.getId(), namesToNotify);¤		}¤	}¤	¤	private void changeAbstractPageReadState(long id, Iterable<String> namesToNotify) throws HibernateException {¤		UnreadDocument ud = getUnreadDocument(id);¤		ud.updateUsers(namesToNotify);¤	}¤	¤	private void changeCommentReadState(long id, Comment comment, Iterable<String> namesToNotify) throws HibernateException {¤		UnreadDiscussion ud = getUnreadDiscussion(id);¤		if(ud == null){¤			ud = new UnreadDiscussion(id);¤		}¤		for (String userName : namesToNotify) {¤			ud.setCommentForUser(userName, comment, getSession());¤		}¤	}¤	¤	private UnreadDiscussion getUnreadDiscussion (long id) throws HibernateException {¤		return (UnreadDiscussion) getSession().get(UnreadDiscussion.class, id);¤	}¤	¤	private UnreadDocument getUnreadDocument (long id) throws HibernateException {¤		return (UnreadDocument) getSession().get(UnreadDocument.class, id);¤	}¤	¤	private UserWarningRequestTimeTask getUserWarningRequestTimeTask (long warningRequestId)¤			throws HibernateException {¤		Query q = getSession().createQuery("from UserWarningRequestTimeTask as uwrtt "¤				+ "where uwrtt.warningRequest is not null and uwrtt.warningRequest.id = '" + warningRequestId + "'");¤		List<UserWarningRequestTimeTask> tasks = q.list();¤		return tasks.size() > 0 ? tasks.get(0) : null;¤	}¤	¤	private List<UserWarningRequestTimeTask> getUserWarningRequestTimeTasks (Collection<Long> warningRequestIds)¤			throws HibernateException {¤		if (CollectionUtils.isEmpty(warningRequestIds)) {¤			return Collections.emptyList();¤		}¤		Query q = getSession().createQuery("from UserWarningRequestTimeTask as uwrtt "¤				+ "where uwrtt.warningRequest is not null and uwrtt.warningRequest.id in (:uwrIds)");¤		q.setParameterList("uwrIds", warningRequestIds);¤		return q.list();¤	}¤	¤	private List<UserWarningRequestTimeTask> getActualUserWarningRequestTimeTasks(long now) throws HibernateException {¤		Query q = getSession().createQuery("from UserWarningRequestTimeTask as uwrtt " + ¤			"where uwrtt.startDate <= (:now) and (uwrtt.endDate >= (:now) or uwrtt.endDate = 0 or uwrtt.lastSendDate = 0)");¤		q.setLong("now", now);¤		return q.list();¤	}¤	¤	private void deleteUserWarningRequests (Collection<UserWarningRequest> uwrList) throws HibernateException {¤		if (CollectionUtils.isEmpty(uwrList)) {¤			return;¤		}¤¤		deleteUserWarningRequestTimeTasks(uwrList);¤		for (UserWarningRequest uwr : uwrList) {¤			getSession().delete(uwr);¤		}¤	}¤	¤	private void deleteUserWarning (Collection<UserWarningRequest> uwrList) throws HibernateException {¤		if(uwrList == null || uwrList.size() == 0)¤			return;¤		for(UserWarningRequest uwr : uwrList){¤			UserWarning uw = uwr.getParent();¤			if (uw != null && getMacrosNotifyParameters(uw.getId()) != null) {¤				getSession().delete(uw);¤			}¤		}¤	}¤¤	private void deleteUserWarningRequestTimeTasks (Collection<UserWarningRequest> uwrList)¤			throws HibernateException {¤		if(uwrList == null || uwrList.size() == 0)¤			return;¤		Collection<Long> uwrIds = CollectionUtils.collect(uwrList, new UserWarningRequestIdCollector());¤		if (CollectionUtils.isEmpty(uwrIds)) {¤			return;¤		}¤¤		for (UserWarningRequestTimeTask uwrtt : getUserWarningRequestTimeTasks(uwrIds)) {¤			uwrtt.setWarningRequest(null);¤			getSession().delete(uwrtt);¤		}¤¤	}¤	¤	private static class UserWarningRequestIdCollector implements Transformer {¤		public Object transform (Object uwObj) {¤			return ((UserWarningRequest) uwObj).getId();¤		}¤	}¤	¤	private Session session_;¤¤	private Session getSession () {¤		return getSession(false);¤	}¤¤	private Session getSession (boolean createNew) {¤		if (session_ == null) {¤			session_ = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(),¤														createNew);¤		}¤		return session_;¤	}¤	¤	private EmailGateway emailGateway_;¤¤	private EmailGateway getEmailGateway () {¤		if (emailGateway_ == null) {¤			emailGateway_ = EmailGateway.Factory.create();¤		}¤		return emailGateway_;¤	}¤	¤	private String getPersonalUserNotificationListForPuQuery(String user) {¤		String ret = "SELECT STRAIGHT_JOIN uwr.id, uwr.title, uwr.contentid, uwr.warning_place, uwrtt.start_date, uds.date, uds.lastCommentId, uds.lastCommentAuthor, ucomm.count, ucomm.firstComment, ucomm.firstCommentAuthor, ucomm.date, ucomm.id, uwr.postingDate, udocs.user_name, uwr.sender"¤			+ " FROM gar_user_warning_request as uwr";¤		ret += " LEFT JOIN unread_discussions_map udm ON (udm.entity_id = uwr.contentid AND udm.user_name = '" + user + "')"¤ 				+ " LEFT JOIN unread_discussions uds ON (uds.entity_id = uwr.contentid)"¤ 				+ " LEFT JOIN unread_comments ucomm ON (ucomm.id = udm.unread_comments_id)"¤ 				+ " LEFT JOIN unread_doc_set udocs ON (udocs.entity_id = uwr.contentid AND udocs.user_name = '" + user + "')"¤ 			;¤¤	 	ret += " LEFT JOIN gar_user_warning_request_time_task uwrtt ON (uwrtt.id = uwr.id)";¤	 	ret	+= " WHERE uwr.user=\"" + user + "\""¤ 			+ " and uwr.need_monitoring=true"; ¤ 		¤ 		return ret;¤	}¤	¤	private Matcher getMatcher(String name, String contentText){¤		Pattern p = Pattern.compile(getNotifyMacroStringForMatcher(name), Pattern.MULTILINE);¤		Matcher m = p.matcher(contentText);¤		return m;¤	}¤¤	private String getNotifyMacroStringForMatcher (final String name) {¤		return "\\{notify:.*?" + name + ".*?\\}";¤	}¤	¤	private Criteria hasNotificationForContentQuery (long contentId, String userName) {¤		Session session = getSession();¤		Criteria uwrQuery = session.createCriteria(UserWarningRequest.class);¤		uwrQuery.add(Expression.eq("user", userName));¤		uwrQuery.add(Expression.eq("warningPlace.id", contentId));¤		return uwrQuery;¤	}¤¤	private short SYSTEM_TYPE = 0;¤	//#UC END# *48415155036D_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19011176599"))
+	    quid       	"48415155036D"
+	    documentation 	"UserNotificationManagerImpl"
+	    stereotype 	"Servant"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011177004"))
+		    quid       	"48F5C616008C"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::UserWarningRequest"
+		    quidu      	"48463CC00132")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011177392"))
+		    quid       	"48F5C6180314"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::UserWarningRequestTimeTask"
+		    quidu      	"48F5A9670056")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011177820"))
+		    quid       	"491ACC0E00C5"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::UserWarning"
+		    quidu      	"491ACAED01D3"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4841516C01D2"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotificationService"
+		    quidu      	"48414BFC0288"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4841512402BA"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotificationService" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(870, 285)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(648, 257)
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"UserNotificationService")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(648, 207)
+			anchor     	10
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"48414BFC0288"
+		    width      	462
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotificationImpl::UserNotificationManagerImpl" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(867, 669)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(590, 640)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	554
+			justify    	0
+			label      	"UserNotificationManagerImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(590, 590)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	554
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"48415155036D"
+		    width      	572
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4841516C01D2"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(867, 577)
+			(869, 375))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::UserWarningRequest" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(525, 1209)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(278, 1181)
+			nlines     	1
+			max_width  	494
+			justify    	0
+			label      	"• UserWarningRequest")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(278, 1131)
+			anchor     	10
+			nlines     	1
+			max_width  	494
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"48463CC00132"
+		    width      	512
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::UserWarningRequestTimeTask" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1557, 1206)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1240, 1178)
+			nlines     	1
+			max_width  	634
+			justify    	0
+			label      	"• UserWarningRequestTimeTask")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1240, 1128)
+			anchor     	10
+			nlines     	1
+			max_width  	634
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"48F5A9670056"
+		    width      	652
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(794, 1003)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"48F5C616008C"
+		    client     	@2
+		    supplier   	@4
+		    vertices   	(list Points
+			(807, 760)
+			(579, 1118))
+		    line_style 	0)
+		(object UsesView "" @8
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @9
+			Parent_View 	@8
+			location   	(1287, 844)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"48F5C6180314"
+		    client     	@2
+		    supplier   	@5
+		    vertices   	(list Points
+			(985, 760)
+			(1441, 1115))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::UserWarning" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1956, 747)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(1735, 719)
+			nlines     	1
+			max_width  	442
+			justify    	0
+			label      	"• UserWarning")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(1735, 669)
+			anchor     	10
+			nlines     	1
+			max_width  	442
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"491ACAED01D3"
+		    width      	460
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @11
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @12
+			Parent_View 	@11
+			location   	(1430, 668)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.481822
+			height     	41
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"491ACC0E00C5"
+		    client     	@2
+		    supplier   	@10
+		    vertices   	(list Points
+			(1153, 688)
+			(1725, 729))
+		    line_style 	0)))))

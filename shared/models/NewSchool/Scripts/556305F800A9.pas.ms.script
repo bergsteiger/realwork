@@ -1,0 +1,104 @@
+// tfwOtherWordRunner 556305F800A9 Impurity Class
+
+FORWARD ME_556305F800A9
+
+FORWARD ME_5563064D0054
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_5563065F038E
+ CONST UID '5563065F038E'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_5563065F038E aCtx
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5563065A03A1
+ CONST UID '5563065A03A1'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5563065F038E // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5563065A03A1 DoIt
+
+: ME_5563064D0054
+ CONST UID '5563064D0054'
+ CONST Name 'RunOther'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5563065A03A1 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5563064D0054 RunOther
+
+FORWARD ME_55630CB40207
+
+INCLUDE '4DB9BB43017B.pas.ms.script'
+
+: ME_55630CC00089
+ CONST UID '55630CC00089'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DB9BB43017B // TtfwAnonimousWord
+ ;
+
+ @SELF
+; // ME_55630CC00089 DoIt
+
+: ME_55630CB40207
+ CONST UID '55630CB40207'
+ CONST Name 'GetWordToRun'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_55630CC00089 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55630CB40207 GetWordToRun
+
+: ME_556305F800A9
+ CONST UID '556305F800A9'
+ CONST Name 'tfwOtherWordRunner'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_5563064D0054 // RunOther
+ ME_55630CB40207 // GetWordToRun
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_556305F800A9 tfwOtherWordRunner

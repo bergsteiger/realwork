@@ -1,0 +1,199 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/MDASubStereotype.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::MDASubStereotype
+//
+// Абстрактный стереотип база для всех под-стереотипов
+// 
+// 
+// Финальные под-стереотипы не наследуются (не копируются) потомками
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: MDASubStereotype::Class
+? Абстрактный стереотип база для всех под-стереотипов
+? 
+? 
+? Финальные под-стереотипы не наследуются (не копируются) потомками
+= MDAGenerator::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+a rf
+/ - тип абстракции
+// Параметры визуализации
+$ C 225,255,225
+$ l 100,250,100
+$ f 100,250,100
+d 1
+/ - может иметь унаследованную реализацию
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p unstereotyped:b=false ? Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{unstereotyped}"!="%S{!unstereotyped}"}%f_up_prefix(%S) *unstereotyped* = *%S{unstereotyped}* - Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.
+	]
+
+// генерирует имя подстереотипа на основе (с перфиксов) переданного аргумента родителя
+%f _sub_st_name
+//#UC START# *46E7AE3F01E1for46E7ADBC0377*
+	%1%f_st_name()\
+////для под-стереотипов, вложенных в другой подстереотип генерим имя родителя
+	[{%PC=Class&%P%f_st_kind()=sub&%PU!=%1U}%f_sub_st_name_i(%P)]\
+	%f_sub_st_name_i(%S)
+
+////////ищем $ строчке
+f _sub_st_name_i
+	[{%S{unstereotyped}!=true}::%f_N(%S)]\
+	[::%S%f_st_class_name()]
+//#UC END# *46E7AE3F01E1for46E7ADBC0377*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// Алгоритм формирования списка генераторов, которые должны быть определены на стереотипе.
+// Результат "складывается" в список с идентифкатором определяемым параметром list_id.
+%f _collect_generators
+// параметры: list_id: string = %1
+//#UC START# *499B91DB0171for46E7ADBC0377*
+	[{"%1N"=""}%f_error("_collect_generators: Не задан идентификатор списка")]\
+	[{%f_need_collect_parent_generators(%S)=true}%P%f_collect_generators("%1N")\
+	%f_clear_list(%1N_ALREADY_DEFINED)\
+	%f_collect_defined_generators(%S,"%1N_ALREADY_DEFINED")\
+	<{}{%f_is_empty(%1N_ALREADY_DEFINED)=false}{W}[%f_pop_first_to_var(%1N_ALREADY_DEFINED,_GEN_)%f_remove_from_list(%1N,{_GEN_})]>\
+	]\
+	%S%[inherited]f_collect_generators("%1N")
+
+f _collect_defined_generators
+	<%R%f_collect_generators("%1N")%f_collect_defined_generators(%R,"%1N")>\
+	<%G%f_collect_generators("%1N")%f_collect_defined_generators(%G,"%1N")>
+
+//если стереотип наследуется от такого же стереотипа, то не собираем
+//генераторы его родителя, т.к в этом случае всё наследование идёт на смарку
+// - тело генераторов обнуляется
+f _need_collect_parent_generators
+	[{%Rx=false&%Gx=false}{[{%RS=%SS|%GS=%SS}{true}false]}true]
+//#UC END# *499B91DB0171for46E7ADBC0377*
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// возвращает true, если элемент является переопределением уже существующего стереотипа
+%f _is_redefinition
+//#UC START# *4986D3AD00DAfor46E7ADBC0377*
+	[{%S%[inherited]=false}{true}\
+	<{}{%PC=Class}%f_set_var(PARENT,P)>\
+	[{%{PARENT}%f_is_redefinition()=true}{false}\
+	%f_clear_list(PARENT_REDEFINITION_TARGTES)\
+	%{PARENT}<{}{%f_is_redefinition_for(%S,%R)=true}{%R}%{PARENT_REDEFINITION_TARGTES}%f_add_to_list(R)>\
+	[{"%{PARENT_REDEFINITION_TARGTES}<{}{}{%C}%C<{}{%CC=%{SELF}C&%C%f_st_name()=%{SELF}%f_st_name()}{%C}.>>"!=""}{false}true]]]
+
+/
+//#UC END# *4986D3AD00DAfor46E7ADBC0377*
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// Возвращает вид стереотипа : main, sub
+%f _st_kind
+//#UC START# *47130CC40213for46E7ADBC0377*
+	sub
+//#UC END# *47130CC40213for46E7ADBC0377*
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// Генерирует полное имя стереотипа
+%f _st_name
+//#UC START# *46E2BB3103B9for46E7ADBC0377*
+	%S%f_sub_st_name(%P)
+//#UC END# *46E2BB3103B9for46E7ADBC0377*
+
+// перекрытие базового стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
++ mda
+//#UC START# *46E28D830109for46E7ADBC0377*
+P
+O [{}]
+	%f_set_var(SELF,S)\
+	%f_set_var(SELF_ST_NAME,"%S%f_st_name()")\
+	: %{SELF_ST_NAME}N[{%S{internal}=true}*]\
+	[{%S%f_is_redefinition()=true} (redefinition)]\
+	\n\
+	[? %f_str_replace(%f_str_replace(%SD,\n---\n,\n),\n,\n? )
+	][%S%f_dump_inherit_list()
+	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Основная ветка наследования
+	%S%f_dump_main_hierarchy()
+	
+	][// Параметры стереотипа
+	%S%f_define_up()
+	][// Пользовательские свойства
+	<{}{%CC=Attribute}{Sn}%CX
+	>
+	]%f_set_var(CONTEXT,S)\
+	[// Генераторы
+//подстереотипы должны реализовывать генераторы, реализуемые родителем
+	%f_clear_list(GENERATORS)\
+	%S%f_collect_generators("GENERATORS")\
+	<{}{%f_is_empty(GENERATORS)=false}{W}%f_pop_first_to_var(GENERATORS,GEN)%{GEN}X
+	
+	>%f_clear_list(GENERATORS)][// Трансформаторы стереотипа
+	<{\n}{%CC=Operation&%CS=transformator&%Ca!=abstract}{Sn}%CX
+	
+	>][// Функции стереотипа
+	[\%f _st_space_key
+	%f_set_var(SPACE_KEY,"%S{space key}")\
+	<{}{"%P{space key}"!=""&"%{SPACE_KEY}N"=""}{%Pr}%f_set_var(SPACE_KEY,"%P{space key}")>\
+		%{SPACE_KEY}N
+	
+	]\
+	[%f_dump_wiki_up_print(%S)
+	
+	]<{\n}{%CC=Operation&"%CS"=""&%Ca!=abstract}{Sn}%CX
+	>
+	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Унаследованная реализация
+	
+	<{}{%oS!=generator&%oC!=Class}{Sp}// реализация абстрактного стереотипа %o%P%f_st_name()
+	%oX
+	
+	><{}{%OS!=generator&%OC!=Class}{Sp}// перекрытие базового стереотипа %O%P%f_st_name()
+	%OX
+	
+	>][// Вложенные стереотипы
+	<{}{%CC=Class}%CX
+	>][// Исключенные вложенные стереотипы
+	%S%f_dump_excluded_sub_stereotypes()
+	
+	]
+
+%f _make_st_name_for
+	%f_str_replace(%1%f_st_name(),%1%P%f_st_name(),%S%f_st_name())
+//#UC END# *46E28D830109for46E7ADBC0377*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+~ MDASubStereotype::Class::Operation
+~ MDASubStereotype::Class::transformator::Operation
+~ MDASubStereotype::Class::list::Attribute
+~ MDASubStereotype::Class::bool::Attribute
+~ MDASubStereotype::Class::string::Attribute
+~ MDASubStereotype::Class::file::Attribute
+~ MDASubStereotype::Class::color::Attribute
+~ MDASubStereotype::Class::tribool::Attribute
+~ MDASubStereotype::Class::main hierarchy::ClassDependency
+~ MDASubStereotype::Class::exclude auto copy::ClassDependency
+~ MDASubStereotype::Class::text::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

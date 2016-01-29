@@ -1,0 +1,2 @@
+{ nlines++ }
+END  { print nlines }

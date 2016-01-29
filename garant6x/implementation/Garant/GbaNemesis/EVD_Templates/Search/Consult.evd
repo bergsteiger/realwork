@@ -1,0 +1,196 @@
+%producer 'ЭВЕРЕСТ 1.2.0.1420' date '22.03.2011'
+%format version 0.140 revision date '18/06/2010' 
+: QueryCard = {
+ Subs = {
+  : = {
+   Handle = Sub
+   Children = 3
+   : = {
+    Handle = 1
+   }
+   : = {
+    Handle = 2
+   }
+  }
+ }
+ CardType = ev_qtConsultations
+ Children = 2
+ : ControlsBlock = {
+  Handle = 1
+  ShortName = 'Контактные данные'
+  Flat = False
+  : Table = {
+   Children = 4
+   : ReqRow = {
+    ReqID = 'AT_USER_NAME'
+    Required = True
+    Multy = False
+    Children = 2
+    : = {
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itRight
+      Text = 'ФИО пользователя'
+      Enabled = False
+     }
+    }
+    : = {
+     Width = 8080
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_USER_PHONE'
+    Required = True
+    Multy = False
+    Children = 4
+    : = {
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itRight
+      Text = 'Код города'
+      Enabled = False
+     }
+    }
+    : = {
+     Width = 1500
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itLeft
+      MaxTextLength = 10
+      Type = ev_ctPhoneEdit
+     }
+    }
+    : = {
+     Width = 2500
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itRight
+      Text = 'Контактный телефон'
+      Enabled = False
+     }
+    }
+    : = {
+     Width = 4080
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itLeft
+      MaxTextLength = 20
+      Type = ev_ctPhoneEdit
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_EMAIL'
+    Multy = False
+    Children = 2
+    : = {
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itRight
+      Text = 'E-mail'
+      Enabled = False
+     }
+    }
+    : = {
+     Width = 8080
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+   }
+   : ReqRow = {
+    Enabled = False
+    ReqID = 'AT_LAW_SUPPORT_DESCRIPTION'
+    ReqKind = ev_rkDescription
+    : = {
+     Width = 10080
+     VerticalAligment = ev_valCenter
+     : = {
+      Segments = {
+       : = {
+        Handle = Hyperlinks
+        : HyperLink = {
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         Start = 280
+         : = {
+          Type = 65545
+          DocID = 5
+         }
+        }
+       }
+      }
+      Justification = ev_itLeft
+      Text = 'Для обращения в службу Правовой поддержки онлайн заполните поля "ФИО пользователя" и "Контактный телефон" (включая код города), чтобы эксперт мог связаться с Вами для уточнения запроса.<10>Сроки подготовки ответа и дополнительная информация об условиях консультирования приведены в Правилах работы со службой Правовой поддержки онлайн.'
+      Type = ev_ctPictureLabel
+      StateIndex = 0
+      Flat = True
+      ImageIndex = 0
+     }
+    }
+   }
+  }
+ }
+ : ControlsBlock = {
+  Handle = 2
+  ShortName = 'Запрос в службу Правовой поддержки онлайн'
+  Flat = False
+  : Table = {
+   Children = 2
+   : ReqRow = {
+    ReqID = 'AT_LAW_SUPPORT_TEXT'
+    Required = True
+    : = {
+     Width = 10080
+     VerticalAligment = ev_valCenter
+     : = {
+      Justification = ev_itLeft
+      MaxTextLength = 6000
+      Type = ev_ctMemoEdit
+     }
+    }
+   }
+   : ReqRow = {
+    Enabled = False
+    ReqID = 'AT_CHECK_LAW_SUPPORT_AVAILABLE'
+    ReqKind = ev_rkDescription
+    : = {
+     Width = 10080
+     VerticalAligment = ev_valCenter
+     : = {
+      Segments = {
+       : = {
+        Handle = Hyperlinks
+        : HyperLink = {
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         : = {
+          Type = 65545
+          DocID = 7
+         }
+        }
+       }
+      }
+      Justification = ev_itLeft
+      Text = 'Проверить условия подключения к услуге Правовая поддержка онлайн'
+      Type = ev_ctPictureLabel
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,1 @@
+start "" "C:\Program Files\OpenOffice.org 3\program\swriter.exe" %1 %2

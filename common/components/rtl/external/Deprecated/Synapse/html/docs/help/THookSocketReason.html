@@ -1,0 +1,41 @@
+<Html><Head><Title>THookSocketReason</Title></Head><Body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+<!---1--->
+<font face="Arial">
+<P Align="left"><BIG><B>THookSocketReason</B></BIG><BR>
+</P><B>type </B>THookSocketReason = (HR_ResolvingBegin, HR_ResolvingEnd, HR_SocketCreate, HR_SocketClose, HR_Bind, HR_Connect, HR_CanRead, HR_CanWrite, HR_Listen, HR_Accept, HR_ReadCount, HR_WriteCount);<BR>
+<BR>
+<B>Unit</B><BR>
+
+<A href="blcksock.html">blcksock</A><BR>
+<BR>
+<B>Description</B><BR>
+Types of OnStatus events:<BR>
+<BR>
+HR_ResolvingBegin - Resolving is begin. Resolved IP and port is in parameter in format like: 'localhost.somewhere.com:25'.<BR>
+<BR>
+HR_ResolvingEnd - Resolving is done. Resolved IP and port is in parameter in format like: 'localhost.somewhere.com:25'. It is always same as in HR_ResolvingBegin!<BR>
+<BR>
+HR_SocketCreate - Socket created by CreateSocket method.<BR>
+<BR>
+HR_SocketClose - Socket closed by CloseSocket method.<BR>
+<BR>
+HR_Bind - Socket binded to IP and Port. Binded IP and Port is in parameter in format like: 'localhost.somewhere.com:25'.<BR>
+<BR>
+HR_Connect - Socket connected to IP and Port. Connected IP and Port is in parameter in format like: 'localhost.somewhere.com:25'.<BR>
+<BR>
+HR_CanRead - Called when CanRead method is used with True result.<BR>
+<BR>
+HR_CanWrite - Called when CanWrite method is used with True result.<BR>
+<BR>
+HR_Listen - Socket is swithed to Listen mode. (TCP socket)<BR>
+<BR>
+HR_Accept - Socket Accepting client connection. (TCP socket)<BR>
+<BR>
+HR_ReadCount - report count of bytes readed from socket. Number is in parameter string. If you need is in integer, you must use StrToInt function!<BR>
+<BR>
+HR_WriteCount - report count of bytes writed to socket. Number is in parameter string. If you need is in integer, you must use StrToInt function!<BR>
+<BR>
+<BR>
+<B>See also:</B><BR>
+<A href="THookSocketStatus.html">THookSocketStatus</A><BR>
+</font></Body></Html>

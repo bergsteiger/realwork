@@ -1,0 +1,269 @@
+// StoredValues 54F0735F0179 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F0735F0179
+
+FORWARD ME_4F49408A03C0
+
+: ME_4F49409F0363
+ CONST UID '4F49409F0363'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ : Target WL 'ME_4F493FAE01C7' '4DAF19F600C5.pas.ms.script' // TtfwStoredValue
+ ;
+
+ref; // ME_4F49409F0363 ItemType
+
+FORWARD ME_4F4947D50241
+
+: ME_4F4947E502AF
+ CONST UID '4F4947E502AF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4947D50241 // Create
+ ;
+
+ref; // ME_4F4947E502AF DoIt
+
+: ME_4F4947D50241
+ CONST UID '4F4947D50241'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ : Operations
+   @ ( ME_4F4947E502AF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F4947D50241 Create
+
+FORWARD ME_4F4947F30251
+
+: ME_84067E5C6B65
+ CONST UID '84067E5C6B65'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TtfwStoredValues.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4947F30251 // Make
+ ;
+ : Target WL 'ME_4F494729028E' '4DAF19F600C5.pas.ms.script' // ItfwStoredValues
+ ;
+
+ref; // ME_84067E5C6B65 DoIt
+
+: ME_4F4947F30251
+ CONST UID '4F4947F30251'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ : Inherits
+   @ ( ME_4F4947D50241 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4F494729028E' '4DAF19F600C5.pas.ms.script' // ItfwStoredValues
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_84067E5C6B65 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4F4947F30251 Make
+
+: ME_4F494F6D0304
+ CONST UID '4F494F6D0304'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ : Target WL 'ME_4DBB04B6014C' '54F079B5035C.pas.ms.script' // TkwCompiledVar
+ ;
+
+ref; // ME_4F494F6D0304 
+
+: ME_47B07CF403D0_ME_4F49408A03C0
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_4F49408A03C0 IsSameItems
+
+: ME_47B2C42A0163_ME_4F49408A03C0
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4F49408A03C0 AssignItem
+
+: ME_47B94A5C006E_ME_4F49408A03C0
+ CONST UID '47B94A5C006E'
+ CONST Name 'FreeItem'
+ : Original WL 'ME_47B94A5C006E' '47BB24D30205.pas.ms.script' // FreeItem
+ ;
+ : Implementor ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B94A5C006E_ME_4F49408A03C0 FreeItem
+
+: ME_47B99D4503A2_ME_4F49408A03C0
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_4F49408A03C0 CompareExistingItems
+
+: ME_4F494C0D009A_ME_4F49408A03C0
+ CONST UID '4F494C0D009A'
+ CONST Name 'Restore'
+ : Original WL 'ME_4F494C0D009A' '4DAF19F600C5.pas.ms.script' // Restore
+ ;
+ : Implementor ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F494C0D009A_ME_4F49408A03C0 Restore
+
+: ME_56012ACE02B2_ME_4F49408A03C0
+ CONST UID '56012ACE02B2'
+ CONST Name 'Grow'
+ : Original WL 'ME_56012ACE02B2' '4DAF19F600C5.pas.ms.script' // Grow
+ ;
+ : Implementor ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56012ACE02B2_ME_4F49408A03C0 Grow
+
+: ME_47A6FEE600FC_ME_4F49408A03C0
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_4F49408A03C0 IsCacheable
+
+: ME_4F49408A03C0
+ CONST UID '4F49408A03C0'
+ CONST Name 'TtfwStoredValues'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F0735F0179 // StoredValues
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4E5506F6007E' '47913B47006E.pas.ms.script' // l3RecordListPrimPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4F494729028E' '4DAF19F600C5.pas.ms.script' // ItfwStoredValues
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F49409F0363 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F4947D50241 // Create
+ ME_4F4947F30251 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_4F49408A03C0 // IsSameItems
+ ME_47B2C42A0163_ME_4F49408A03C0 // AssignItem
+ ME_47B94A5C006E_ME_4F49408A03C0 // FreeItem
+ ME_47B99D4503A2_ME_4F49408A03C0 // CompareExistingItems
+ ME_4F494C0D009A_ME_4F49408A03C0 // Restore
+ ME_56012ACE02B2_ME_4F49408A03C0 // Grow
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A6FEE600FC_ME_4F49408A03C0 // IsCacheable
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F494F6D0304 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
+
+ref; // ME_4F49408A03C0 TtfwStoredValues
+
+: ME_54F0735F0179
+ CONST UID '54F0735F0179'
+ CONST Name 'StoredValues'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ ;
+ : Children
+   @ ( ME_4F49408A03C0 // TtfwStoredValues
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F0735F0179.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F0735F0179.pas.ms.script.runner'
+
+ref; // ME_54F0735F0179 StoredValues

@@ -1,0 +1,72 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.copyDirToDir"
+	language = "javascript"
+>
+	<attribute name = "dir"/>
+	<attribute name = "to.dir"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_dir = (
+				attributes.get ("dir")
+			);
+
+			if (a_dir != null) {
+				var l_fileFile = new File (a_dir);
+				var l_filePath = l_fileFile.getPath ();
+
+				a_dir = l_filePath;
+			}
+
+			var a_toDir = (
+				attributes.get ("to.dir")
+			);
+
+			if (a_toDir != null) {
+				var l_toDirFile = new File (a_toDir);
+				var l_toDirPath = l_toDirFile.getPath ();
+
+				a_toDir = l_toDirPath;
+			}
+
+			var l_copyTask = project.createTask ("copy"); {
+				var l_fileSet = new FileSet (); {
+					l_fileSet.setCaseSensitive (false);
+					l_fileSet.setDefaultexcludes (true);
+					l_fileSet.setDir (new File (a_dir));
+					l_fileSet.setIncludes ("**/**");
+				}
+
+				l_copyTask.addFileset (l_fileSet);
+				l_copyTask.setFailOnError (true);
+				l_copyTask.setOverwrite (true);
+				l_copyTask.setPreserveLastModified (true);
+				l_copyTask.setTodir (new File (a_toDir));
+				l_copyTask.setVerbose (true);
+
+				l_copyTask.reconfigure ();
+			}
+
+			l_copyTask.execute ();
+		}
+	]]>
+</scriptdef>

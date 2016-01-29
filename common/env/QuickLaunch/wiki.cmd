@@ -1,0 +1,1 @@
+call ie.cmd "http://ru.wikipedia.org/wiki/%1"

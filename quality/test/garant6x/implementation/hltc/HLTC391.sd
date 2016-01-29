@@ -1,0 +1,1287 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////// HLTC 391: Ведение логов ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork, MDP;
+
+// Cобытия в логе для всех уровней лога
+const
+  HLTC391_LOGIN = 'HLTC391';
+  HLTC391_LIST = HLTC391_LOGIN + '_LIST'; 
+  HLTC391_LIST1 = HLTC391_LIST + '1';
+  HLTC391_LIST2 = HLTC391_LIST + '2';
+   
+  // Уровень 0 
+  EVENT_SERVER_START = '-LM_GARANT: SERVER_START ';
+  EVENT_SERVER_STOP = '-LM_GARANT: SERVER_STOP ';  
+  EVENT_LOGIN = '-LM_GARANT: LOGIN [' + HLTC391_LOGIN + '][*][*]';
+  EVENT_LOGOUT = '-LM_GARANT: USER_LOGOUT [' + HLTC391_LOGIN + '][*][*]';
+  EVENT_COMPLECT_INFO = '-LM_GARANT: COMPLECT_INFO [*][*][without compression][Это длинное РУССКОЕ имя для тестовой базы. Больше 75 символов. Кончается на Ы][24.5.2013][*][*]';
+  EVENT_CLIENT_INFO = '-LM_GARANT: CLIENT_INFO ';
+  EVENT_SERVER_SYSTEM_INFO = '-LM_GARANT: SERVER_SYSTEM_INFO [[Windows*][Build*][*][*][*][*][*][*][*]]';
+  EVENT_SERVER_VERSION = '-LM_GARANT: SERVER_VERSION [*][*][x*]';
+  
+  EVENT_LOGGING_LEVEL = '-LM_GARANT: LOGGING_LEVEL [*]'; 
+  EVENT_SERVER_BIDIRECTIONAL = '-LM_GARANT: SERVER_BIDIRECTIONAL [0]';  
+  EVENT_CLIENT_BIDIRECTIONAL = '-LM_GARANT: CLIENT_BIDIRECTIONAL [0]';  
+  EVENT_XML_RESTORE_START = '-LM_GARANT: XML_RESTORE_START ';  
+  EVENT_XML_RESTORE_DONE = '-LM_GARANT: XML_RESTORE_DONE ';
+  
+  EVENT_PSEUDO_LOGIN = '-LM_GARANT: PSEUDO_LOGIN [' + HLTC391_LOGIN + '][*][*]';
+  EVENT_PSEUDO_LOGOUT = '-LM_GARANT: PSEUDO_LOGOUT [' + HLTC391_LOGIN + '][*][*]';
+  EVENT_UPDATE_START = '-LM_GARANT: UPDATE_START [without logout][not strict]';
+  EVENT_UPDATE_FINISH = '-LM_GARANT: UPDATE_FINISH ';
+
+  EVENT_SEARCH = '-LM_GARANT: SEARCH [' + HLTC391_LOGIN + '][*]';
+  EVENT_SEARCH_DONE = '-LM_GARANT: SEARCH_DONE [' + HLTC391_LOGIN + '][*][0][0][0]'; 
+  EVENT_OPEN_LIST_FROM_SEARCH = '-LM_GARANT: OPEN_LIST_FROM_SEARCH [' + HLTC391_LOGIN + '][*]';
+  EVENT_OPEN_DOCUMENT_FROM_LIST = '-LM_GARANT: OPEN_DOCUMENT_FROM_LIST [' + HLTC391_LOGIN + '][10103000][0][][1][0]';
+  EVENT_OPEN_DOCUMENT_FROM_LINK = '-LM_GARANT: OPEN_DOCUMENT_FROM_LINK [' + HLTC391_LOGIN + '][10108000][278][]';
+  EVENT_OPEN_DOCUMENT_BY_NUMBER = '-LM_GARANT: OPEN_DOCUMENT_BY_NUMBER [' + HLTC391_LOGIN + '][10103000]';
+  EVENT_OPEN_DOCUMENT_FROM_FOLDERS = '-LM_GARANT: OPEN_DOCUMENT_FROM_FOLDERS [' + HLTC391_LOGIN + '][10103000][][1]';
+  EVENT_SEARCH_IN_LIST = '-LM_GARANT: SEARCH_IN_LIST [' + HLTC391_LOGIN + '][*]';
+  EVENT_PROFILE_COUNT = '-LM_GARANT: PROFILE_COUNT [*]';
+  EVENT_UNDERCONTROL_DOC_COUNT = '-LM_GARANT: UNDERCONTROL_DOC_COUNT [' + HLTC391_LOGIN + '][*]';
+  
+  EVENT_FORM_OPEN = '-LM_GARANT: FORM_OPEN [' + HLTC391_LOGIN + '][*]';  
+  EVENT_CLIENT_SYSTEM_INFO = '-LM_GARANT: CLIENT_SYSTEM_INFO [*][*][*][*][*][*][*][*]';
+  EVENT_OPEN_MAIN_MENU = '-LM_GARANT: OPEN_MAIN_MENU [' + HLTC391_LOGIN + ']';
+  EVENT_OPEN_DICTIONARY = '-LM_GARANT: OPEN_DICTIONARY [' + HLTC391_LOGIN + ']';  
+  EVENT_SEARCH_IN_DOCUMENT = '-LM_GARANT: SEARCH_IN_DOCUMENT [' + HLTC391_LOGIN + '][10103000][Конституция]';
+  EVENT_SEARCH_IN_DOCUMENT_DONE = '-LM_GARANT: SEARCH_IN_DOCUMENT_DONE [' + HLTC391_LOGIN + '][10103000][Конституция][257]';
+  EVENT_PRIMARY_MONITOR_RESOLUTION = '-LM_GARANT: PRIMARY_MONITOR_RESOLUTION [' + HLTC391_LOGIN + '][*][*]';  
+  EVENT_DPI = '-LM_GARANT: DPI [' + HLTC391_LOGIN + '][*]';
+  EVENT_FONT_SIZE = '-LM_GARANT: FONT_SIZE [' + HLTC391_LOGIN + '][*]';   
+  EVENT_OPEN_DOCUMENT_FROM_HISTORY = '-LM_GARANT: OPEN_DOCUMENT_FROM_HISTORY [' + HLTC391_LOGIN + '][10103000][][1]';  
+  EVENT_MY_DOCUMENTS_COUNT = '-LM_GARANT: MY_DOCUMENTS_COUNT [' + HLTC391_LOGIN + '][*][*][*]'; 
+  EVENT_ACTIVE_CONFIGURATION =  '-LM_GARANT: ACTIVE_CONFIGURATION [' + HLTC391_LOGIN + '][*]';
+
+  EVENT_LIST_FILTRATE = '-LM_GARANT: LIST_FILTRATE [' + HLTC391_LOGIN + '][Список всех документов]';
+  EVENT_ADD_TO_LIST = '-LM_GARANT: ADD_TO_LIST [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*]';
+  EVENT_DELETE_FROM_LIST = '-LM_GARANT: DELETE_FROM_LIST [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*]';
+  EVENT_DELETE_FROM_MY_DOCUMENTS = '-LM_GARANT: DELETE_FROM_MY_DOCUMENTS [' + HLTC391_LOGIN + '][*][' + HLTC391_LIST + '*][Мои документы]';  
+  EVENT_SAVE_LIST_TO_FOLDERS = '-LM_GARANT: SAVE_LIST_TO_FOLDERS [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*]';
+  EVENT_INTERSECT = '-LM_GARANT: INTERSECT [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*][' + HLTC391_LIST + '*]';
+  EVENT_MERGE = '-LM_GARANT: MERGE [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*][' + HLTC391_LIST + '*]';
+  EVENT_MINUS = '-LM_GARANT: MINUS [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*][' + HLTC391_LIST + '*]';
+  EVENT_GET_STRUCTURE = '-LM_GARANT: GET_STRUCTURE [' + HLTC391_LOGIN + '][10164072]';
+  EVENT_GET_CORRESPONDENT = '-LM_GARANT: GET_CORRESPONDENT [' + HLTC391_LOGIN + '][10164072][*]';
+  EVENT_GET_RESPONDENT = '-LM_GARANT: GET_RESPONDENT [' + HLTC391_LOGIN + '][10164072][*]';
+  EVENT_ADD_TO_CONTROL = '-LM_GARANT: ADD_TO_CONTROL [' + HLTC391_LOGIN + '][10164072]';
+  EVENT_INTERNET_IMAGE = '-LM_GARANT: INTERNET_IMAGE [' + HLTC391_LOGIN + '][6185115]';
+  EVENT_OPEN_RELATED = '-LM_GARANT: OPEN_RELATED [' + HLTC391_LOGIN + '][10164072]';
+  EVENT_OPEN_ANNOTATION = '-LM_GARANT: OPEN_ANNOTATION [' + HLTC391_LOGIN + '][10164072]';
+  EVENT_EXPORT_TO_FILE = '-LM_GARANT: EXPORT_TO_FILE [' + HLTC391_LOGIN + '][10103000]';
+  EVENT_LIST_EXPORT_TO_FILE = '-LM_GARANT: LIST_EXPORT_TO_FILE [' + HLTC391_LOGIN + '][*][*][0][0]';
+  EVENT_EXPORT_TO_WORD = '-LM_GARANT: EXPORT_TO_WORD [' + HLTC391_LOGIN + '][10164072]';
+   
+  EVENT_SAVE_DOC_TO_FOLDERS = '-LM_GARANT: SAVE_DOC_TO_FOLDERS [' + HLTC391_LOGIN + '][10164072]';
+  EVENT_LIST_PRINT_PREVIEW = '-LM_GARANT: LIST_PRINT_PREVIEW [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*]'; 
+  EVENT_LIST_SORT = '-LM_GARANT: LIST_SORT [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*][*][*]';
+  EVENT_LIST_REFERENCE_ACTIVATE = '-LM_GARANT: LIST_REFERENCE_ACTIVATE [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*]'; 
+  EVENT_SYNCHROVIEW_ACTIVATE = '-LM_GARANT: SYNCHROVIEW_ACTIVATE [' + HLTC391_LOGIN + '][' + HLTC391_LIST + '*]'; 
+
+  EVENT_OPEN_DOCUMENT_FROM_LIST_IN_EXTRACTION = '-LM_GARANT: OPEN_DOCUMENT_FROM_LIST_IN_EXTRACTION [' + HLTC391_LOGIN + '][название списка][показывать документ в извлечениях<0|1>]';
+
+  EVENT_TIME_MACHINE_ON = '-LM_GARANT: TIME_MACHINE_ON [' + HLTC391_LOGIN + '][102007][15.9.2004]';
+  EVENT_TIME_MACHINE_OFF = '-LM_GARANT: TIME_MACHINE_OFF [' + HLTC391_LOGIN + '][102007]';
+  EVENT_NEXT_DOCUMENT = '-LM_GARANT: NEXT_DOCUMENT [' + HLTC391_LOGIN + '][*][*]';
+  EVENT_PREV_DOCUMENT = '-LM_GARANT: PREV_DOCUMENT [' + HLTC391_LOGIN + '][*][*]'; 
+  EVENT_VIEW_DOCUMENT_EDITION_LIST = '-LM_GARANT: VIEW_DOCUMENT_EDITION_LIST [' + HLTC391_LOGIN + '][10164072]';
+  EVENT_VIEW_DOCUMENT_ATTRIBUTES = '-LM_GARANT: VIEW_DOCUMENT_ATTRIBUTES [' + HLTC391_LOGIN + '][10164072]'; 
+  EVENT_BACK = '-LM_GARANT: BACK [' + HLTC391_LOGIN + ']';
+  EVENT_FORWARD = '-LM_GARANT: FORWARD [' + HLTC391_LOGIN + ']'; 
+  EVENT_INC_FONT = '-LM_GARANT: INC_FONT [' + HLTC391_LOGIN + '][*]'; 
+  EVENT_DEC_FONT = '-LM_GARANT: DEC_FONT [' + HLTC391_LOGIN + '][*]';
+  EVENT_OPEN_NEWS_LINE = '-LM_GARANT: OPEN_NEWS_LINE [' + HLTC391_LOGIN + ']';
+
+  EVENT_OPEN_CONSULTATION = '-LM_GARANT: OPEN_CONSULTATION [' + HLTC391_LOGIN + ']';  
+  EVENT_SEND_REQUEST_TO_LEGAL_ADVISE = '-LM_GARANT: SEND_REQUEST_TO_LEGAL_ADVISE [' + HLTC391_LOGIN + ']';
+  EVENT_DELETE_CONSULTATION = '-LM_GARANT: DELETE_CONSULTATION [' + HLTC391_LOGIN + '][*][40]';
+  EVENT_CONSULTATIONS_COUNT = '-LM_GARANT: CONSULTATIONS_COUNT [' + HLTC391_LOGIN + '][*]';
+
+  EVENT_OPEN_MEDIC_FIRMS = '-LM_GARANT: OPEN_MEDIC_FIRMS [' + HLTC391_LOGIN + ']';
+  EVENT_OPEN_PHARM_FIRM_DOCUMENT = '-LM_GARANT: OPEN_PHARM_FIRM_DOCUMENT [' + HLTC391_LOGIN + '][52105045]';
+  EVENT_OPEN_MEDIC_DICTIONARY = '-LM_GARANT: OPEN_MEDIC_DICTIONARY [' + HLTC391_LOGIN + ']';
+  EVENT_OPEN_PHARM_DOCUMENT = '-LM_GARANT: OPEN_PHARM_DOCUMENT [' + HLTC391_LOGIN + '][51500004]';
+
+  EVENT_CONTEXT_FILTER_IN_TREE = '-LM_GARANT: CONTEXT_FILTER_IN_TREE [' + HLTC391_LOGIN + '][документ][Меню]';
+  EVENT_DOCUMENT_PRINT_PREVIEW = '-LM_GARANT: DOCUMENT_PRINT_PREVIEW [' + HLTC391_LOGIN + '][103333]';
+  EVENT_SEARCH_WITH_FILTER = '-LM_GARANT: SEARCH_WITH_FILTER [' + HLTC391_LOGIN + ']';
+  EVENT_VIEW_SAME_DOCUMENTS = '-LM_GARANT: VIEW_SAME_DOCUMENTS [' + HLTC391_LOGIN + '][158010][3]';
+  EVENT_SEND_BY_EMAIL = '-LM_GARANT: SEND_BY_EMAIL [' + HLTC391_LOGIN + '][номер документа]';
+
+  EVENT_USER_OPERATION = '-LM_GARANT: USER_OPERATION [' + HLTC391_LOGIN + '][*][*][*][*]';
+  EVENT_USE_BASE_SEARCH_EXAMPLE = '-LM_GARANT: USE_BASE_SEARCH_EXAMPLE [' + HLTC391_LOGIN + '][3]';
+
+  EVENT_PRODUCT_TYPE = '-LM_GARANT: PRODUCT_TYPE [5]';
+
+  // Уровень 50
+  EVENT_DOCLIST_SERVANT_CREATED = '-LM_GARANT: DOCLIST_SERVANT_CREATED [' + HLTC391_LOGIN + '][*][*][*]';
+  EVENT_DOCLIST_SERVANT_ERASED = '-LM_GARANT: DOCLIST_SERVANT_ERASED [' + HLTC391_LOGIN + '][*]';
+  EVENT_DOCLISTVIEW_CREATED = '-LM_GARANT: DOCLISTVIEW_SERVANT_CREATED [' + HLTC391_LOGIN + '][*][*]';
+  EVENT_DOCLISTVIEW_ERASED = '-LM_GARANT: DOCLISTVIEW_SERVANT_ERASED [' + HLTC391_LOGIN + '][*][*]';
+
+////////////////////////////////////////////////////////////////////////////////
+procedure _____CONST_FUNCS;begin;end;
+////////////////////////////////////////////////////////////////////////////////
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function SetXMLRestoreBackup(n: string): boolean;
+const
+  FUNCTION_NAME = 'SetXMLRestoreBackup';
+begin
+  try
+    Result := SetValueToGarantINI('F1Server Params', '-XMLRestoreBackup', VarToString(n), true);
+    if not Result then
+      Raise('Не получилось установить [F1Server Params].-XMLRestoreBackup в "' + VarToString(n) + '"');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function SetLoggingLevel(n: string): boolean;
+const
+  FUNCTION_NAME = 'SetLoggingLevel';
+begin
+  try
+    Result := SetValueToGarantINI('F1Server Params', '-LoggingLevel',  VarToString(n));    
+    if not Result then
+      Raise('Не получилось установить [F1Server Params].-LoggingLevel в "' + VarToString(n) + '"');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetLoggingLevel: string;
+const
+  FUNCTION_NAME = 'GetLoggingLevel';
+begin
+  try
+    Result := GetValueFromGarantINI('F1Server Params', '-LoggingLevel');
+  except
+    Result := '';
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+////////////// Функции создающие события для проверки их отражения в логе ////////////////
+////////////////////////////////////////////////////////////////////////////////
+procedure _____LOGGING_LEVEL_0;begin;end;
+////////////////////////////////////////////////////////////////////////////////
+{
+  HLTC391.1.5.1: Запуск сервера -LM_GARANT: SERVER_START      
+  HLTC391.1.5.3: Вход пользователя в систему -LM_GARANT: LOGIN [имя пользователя][идентификатор пользователя][номер сессии]
+  HLTC391.1.5.13: Информация о комплекте -LM_GARANT: COMPLECT_INFO [номер сегмента1]...[номер сегмента n][тип комплекта][сжатие]
+  HLTC391.1.5.14: Информация о клиенте -LM_GARANT: CLIENT_INFO [информация о клиенте]
+  HLTC391.1.5.15: Информация о железе сервера -LM_GARANT: SERVER_SYSTEM_INFO [ОС+версия][билд + сервис пак][тип процессора][количество процессоров (учитываются и количество ядер и гипертрединг)][всего физической памяти в MB][свободно физической памяти в MB][всего виртуальной памяти в MB][свободно виртуальной памяти в MB]
+  HLTC391.1.5.16: Уровень логирования -LM_GARANT: LOGGING_LEVEL [уровень логирования]
+  HLTC391.1.5.17: Значение параметра -GCMBiDirectional для сервера -LM_GARANT: SERVER_BIDIRECTIONAL [0|1]
+  HLTC391.1.5.18: Значение параметра -GCMBiDirectional для клиента -LM_GARANT: CLIENT_BIDIRECTIONAL [0|1]
+  HLTC391.1.5.19: Старт процесса заливки XML'ей -LM_GARANT: XML_RESTORE_START  
+  HLTC391.1.5.20: Успешное окончание процесса заливки XML'ей -LM_GARANT: XML_RESTORE_DONE
+  HLTC391.1.5.102: Тип установки -LM_GARANT: PRODUCT_TYPE [0-неизвестный тип|1-ДВД|2-мобильная|3-ФС|4-локальная|5-КС]
+  HLTC391.1.5.109: Информация о версии собранного сервера -LM_GARANT: SERVER_VERSION [версия сервера][версия интерфейсов модели][разрядность сборки]  
+}
+function HLTC391_SERVER_START(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_SERVER_START';
+begin
+  try
+    if not StartF1Server then
+      Raise('Не получилось запустить Сервер F1');
+    if not RestartF1Shell(3, Options.Run.Timeout div 3, HLTC391_LOGIN, HLTC391_LOGIN) then
+      Raise('Не получилось запустить оболочку');
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_SERVER_START,
+                EVENT_SERVER_BIDIRECTIONAL,
+                EVENT_CLIENT_BIDIRECTIONAL,
+                EVENT_LOGGING_LEVEL, 
+                EVENT_SERVER_SYSTEM_INFO,
+                EVENT_CLIENT_INFO,
+                EVENT_COMPLECT_INFO,     
+                EVENT_LOGIN,
+                EVENT_XML_RESTORE_START,  
+                EVENT_XML_RESTORE_DONE,
+                EVENT_PRODUCT_TYPE,
+                EVENT_SERVER_VERSION
+              ]);    
+  except
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise('Прерываем проверку, во время выполнения ' + FUNCTION_NAME + ' возникла критическая ошибка!');
+  end;
+end;      
+
+{
+  HLTC391.1.5.2: Остановка сервера -LM_GARANT: SERVER_STOP
+  HLTC391.1.5.5: Логаут пользователя -LM_GARANT: USER_LOGOUT [имя пользователя][идентификатор пользователя][номер сессии]
+  HLTC391.1.5.85: Пользовательские действия -LM_GARANT: USER_OPERATION [логин пользователя][количество вызовов горячих клавиш][количество выборов пунктов командного меню][количество выборов пунктов контекстного меню][количество вызовов с панели инструментов]
+  HLTC391.1.5.99: Колличество подстановок в панель БП текстов из примеров -LM_GARANT: USE_BASE_SEARCH_EXAMPLE [логин пользователя][колличество обращений]
+}
+function HLTC391_SERVER_STOP(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_SERVER_STOP';
+var i;
+begin
+  try
+    if not GoToMainMenu then
+      Raise('Не получилось открыть ОМ');
+    for i := 1 to 3 do
+      if not ClickOnExampleInBaseSearch then
+        Raise('Не получилось кликнуть по ссылке примеру БП');    
+
+    CloseF1Shell;
+    if not StopF1Server then
+      Raise('Не получилось остановить Сервер F1');
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_USER_OPERATION,
+                EVENT_USE_BASE_SEARCH_EXAMPLE,
+                EVENT_LOGOUT,
+                EVENT_SERVER_STOP
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;      
+
+{
+  HLTC391.1.5.4: Активный пользователь на момент окончания обновления -LM_GARANT: PSEUDO_LOGIN [логин пользователя][идентификатор пользователя][номер сессии]
+  HLTC391.1.5.6: Активный пользователь на момент начала обновления -LM_GARANT: PSEUDO_LOGOUT [логин пользователя][идентификатор пользователя][номер сессии]
+  HLTC391.1.5.9: Начало процесса обновления -LM_GARANT: UPDATE_START
+  HLTC391.1.5.11: Завершение процесса обновления -LM_GARANT: UPDATE_FINISH
+  
+  HLTC391.3.1: При опции -LoggingBackup = 0 включается режим усечения логов. В этом режиме никакого копирования логов в момент обновления не происходит. Логи пишутся непрерывно в один и тот же файл, который может быть ограничен по объему.   
+}
+function HLTC391_UPDATE(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_UPDATE';
+var tmpBase;  
+begin
+  try
+    tmpBase := GetDataBaseType('ACTIVE');
+    try
+      if not SwitchDatabase(DBT_OTHER, 'IsSwitchOnTheFly := true') then
+        Raise('Переключение базы не удалось!');
+      Result := IsStringIncludeInLog(
+                [
+                  EVENT_PSEUDO_LOGIN,
+                  EVENT_PSEUDO_LOGOUT,
+                  EVENT_UPDATE_START,
+                  EVENT_UPDATE_FINISH
+                ]);
+
+    finally
+      SwitchDataBase(tmpBase, 'IsSwitchOnTheFly:=true');
+    end;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;      
+
+{
+  HLTC391.1.5.29: Количество профилей в системе, включая системные -LM_GARANT: PROFILE_COUNT [количество профилей в системе, включая системные]
+  HLTC391.1.5.30: Количество документов на контроле пользователя -LM_GARANT: UNDERCONTROL_DOC_COUNT [логин пользователя][количество документов, поставленных на контроль]  
+}
+function HLTC391_PROFILE_COUNT_UNDERCONTROL_DOC_COUNT(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_PROFILE_COUNT_UNDERCONTROL_DOC_COUNT';
+begin
+  try
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_PROFILE_COUNT,
+                EVENT_UNDERCONTROL_DOC_COUNT
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.22: Поиск -LM_GARANT: SEARCH [логин пользователя, производящего поиск][текстовая расшифровка запроса]
+  HLTC391.1.5.23: Открытие списка после поиска -LM_GARANT: OPEN_LIST_FROM_SEARCH [логин пользователя][количество документов в открываемом списке]
+  HLTC391.1.5.103: Завершение поиска -LM_GARANT: SEARCH_DONE [логин пользователя] [найдено документов][найдено редакций][найдено вхождений][прерван ли поиск]
+}
+function HLTC391_SEARCH(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_SEARCH';
+begin
+  try
+    if not IsExists(GetListOfAllDocuments) then
+      Raise('Не получилось построить список всех документов!');           
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_SEARCH,
+                EVENT_OPEN_LIST_FROM_SEARCH,
+                EVENT_SEARCH_DONE
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.28: Допоиск в списке -LM_GARANT: SEARCH_IN_LIST [логин пользователя, производящего поиск][текстовая расшифровка запроса]  
+}
+function HLTC391_SEARCH_IN_LIST(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_SEARCH_IN_LIST';
+begin
+  try
+    if not IsExists(GetListOfAllDocuments) then
+      Raise('Не получилось построить список всех документов!');           
+    if not ClickByMainMenuItem('Анализ\Уточнить список') then
+      Raise('Не получилось кликнуть по пункту меню "Уточнить список"');
+    if not BaseSearchInList(GetList, 'Конституция', 'IsOpenWindow:=false') then
+      Raise('Не получилось уточнить список!');
+    Result := IsStringIncludeInLog(EVENT_SEARCH_IN_LIST);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.24: Открытие документа из списка -LM_GARANT: OPEN_DOCUMENT_FROM_LIST [логин пользователя][номер документа][порядковый номер документа в списке][релевантность документа]
+}
+function HLTC391_OPEN_DOCUMENT_FROM_LIST(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_OPEN_DOCUMENT_FROM_LIST';
+begin
+  try
+    if not IsExists(GetListOfAllDocuments) then
+      Raise('Не получилось построить список всех документов!');
+    try           
+      if not OpenDocFromList('Конституция*', GetList) then
+        Raise('Не открылся документ из списка!');
+    finally
+      CloseTabIfNeeded;
+    end;      
+
+    Result := IsStringIncludeInLog(EVENT_OPEN_DOCUMENT_FROM_LIST);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.25: Переход по гиперссылке -LM_GARANT: OPEN_DOCUMENT_FROM_LINK [логин пользователя][номер открываемого документа]
+}
+function HLTC391_OPEN_DOCUMENT_FROM_LINK(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_OPEN_DOCUMENT_FROM_LINK';
+begin
+  try
+    if not OpenDocByNumber(10003000) then
+      Raise('Не получилось открыть по номеру документ "10003000"');   
+    if not (ClickByHyperLink(GetEditor, 'федеральному закону.')) then
+      Raise('Не получилось кликнуть по ссылке "федеральному закону"');
+    Result := IsStringIncludeInLog(EVENT_OPEN_DOCUMENT_FROM_LINK);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.26: Открытие документа по номеру -LM_GARANT: OPEN_DOCUMENT_BY_NUMBER [логин пользователя][номер документа] 
+}
+function HLTC391_OPEN_DOCUMENT_BY_NUMBER(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_OPEN_DOCUMENT_BY_NUMBER';
+begin
+  try
+    if not OpenDocByNumber(10003000) then
+      Raise('Не получилось открыть по номеру документ "10003000"');
+    Result := IsStringIncludeInLog(EVENT_OPEN_DOCUMENT_BY_NUMBER);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.27: Открытие документа из папок -LM_GARANT: OPEN_DOCUMENT_FROM_FOLDERS [логин пользователя][номер документа]
+}
+function HLTC391_OPEN_DOCUMENT_FROM_FOLDERS(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_OPEN_DOCUMENT_FROM_FOLDERS';
+begin
+  try
+    if not OpenDocByNumber(10003000) then
+      Raise('Не получилось открыть по номеру документ "10003000"');
+    if not SimpleSaveToFolders(FUNCTION_NAME) then
+      Raise('Не удалось сохранить список в папку, список с таким именем уже существует');
+    if not OpenObjectFromFolder(MY_DOCS_PATH + FUNCTION_NAME) then
+      Raise('Из папок не открылся документ "' + FUNCTION_NAME + '"!');
+
+    Result := IsStringIncludeInLog(EVENT_OPEN_DOCUMENT_FROM_FOLDERS);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.32: Информация по железу клиента -LM_GARANT: CLIENT_SYSTEM_INFO [ОС+версия][билд + сервис пак][тип процессора][количество процессоров (учитываются и количество ядер и гипертрединг)][всего физической памяти в MB][свободно физической памяти в MB][всего виртуальной памяти в MB][свободно виртуальной памяти в MB]
+  HLTC391.1.5.33: Открытие основного меню -LM_GARANT: OPEN_MAIN_MENU [логин пользователя]
+  HLTC391.1.5.36: Разрешение экрана на основном мониторе -LM_GARANT: PRIMARY_MONITOR_RESOLUTION [логин пользователя][разрешение по горизонтали][разрешение по вертикали]
+  HLTC391.1.5.37: Размер шрифта Windows на клиенте -LM_GARANT: DPI [логин пользователя][размер системного шрифта Windows на компьютере-клиенте в DPI (в точках на дюйм)]
+  HLTC391.1.5.38: Размер основного шрифта оболочки -LM_GARANT: FONT_SIZE  [логин пользователя][размер основного шрифта (стиль «Текст») в системе ГАРАНТ (в пунктах)]
+  HLTC391.1.5.40: Открытие документа из последних открытых документов -LM_GARANT: OPEN_DOCUMENT_FROM_HISTORY [логин пользователя][номер документа]
+}
+function HLTC391_CLIENT_DPI_FONT_SIZE(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_CLIENT_DPI_FONT_SIZE';
+begin
+  try
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_CLIENT_SYSTEM_INFO,
+                EVENT_PRIMARY_MONITOR_RESOLUTION,
+                EVENT_DPI,
+                EVENT_FONT_SIZE,
+                EVENT_OPEN_MAIN_MENU
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.34: Открытие толкового словаря -LM_GARANT: OPEN_DICTIONARY [логин пользователя]
+}
+function HLTC391_OPEN_DICTIONARY(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_OPEN_DICTIONARY';
+begin
+  try
+    if not GoToDictionary then
+      Raise('Не получилось открыть ТС!');
+    Result := IsStringIncludeInLog(EVENT_OPEN_DICTIONARY);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.35: Контекстный поиск в документе -LM_GARANT: SEARCH_IN_DOCUMENT [логин пользователя][номер документа][контекст] 
+}
+function HLTC391_SEARCH_IN_DOCUMENT(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_SEARCH_IN_DOCUMENT';
+begin
+  try
+    if not OpenDocByNumber(10003000) then
+      Raise('Не получилось открыть по номеру документ "10003000"');
+    if not BaseSearchInDocument(GetEditor, 'Конституция') then
+      Raise('Не получилось провести поиск контекста в документе!');
+    Result := IsStringIncludeInLog([EVENT_SEARCH_IN_DOCUMENT, EVENT_SEARCH_IN_DOCUMENT_DONE]);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.40: Открытие документа из последних открытых документов -LM_GARANT: OPEN_DOCUMENT_FROM_HISTORY [логин пользователя][номер документа]
+}
+function HLTC391_OPEN_DOCUMENT_FROM_HISTORY(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_OPEN_DOCUMENT_FROM_HISTORY';
+begin
+  try
+    if not GoToMainMenu then
+      Raise('Не получилось открыть ОМ');
+    if not OpenObjectFromFolder('Конституция*', GetFromMainMenu('СПИСОК: ПОСЛЕДНИЕ ОТКРЫТЫЕ ДОКУМЕНТЫ')) then
+      Raise('Не получилось открыть ранее просмотренный документ "Конституция РФ" из Последних открытых документов');
+    Result := IsStringIncludeInLog(EVENT_OPEN_DOCUMENT_FROM_HISTORY);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.41: Количество сохраненных объектов в папке Мои документы (без учета папок) на момент первого обращения к папкам после логина -LM_GARANT: MY_DOCUMENTS_COUNT [логин пользователя][количество сохраненных закладок][количество сохраненных списков][количество сохраненных запросов]
+  HLTC391.1.5.87: Колличество консультаций в папке Мои документы на момент первого обращения к папкам после логина -LM_GARANT: CONSULTATIONS_COUNT [логин пользователя][колличество консультаций]
+}
+function HLTC391_MY_DOCUMENTS_COUNT(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_MY_DOCUMENTS_COUNT';
+begin
+  try
+    if not IsExists(OpenMyDocTab) then
+      Raise('Не получилось вкладку "Мои документы"');
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_CONSULTATIONS_COUNT,
+                EVENT_MY_DOCUMENTS_COUNT
+              ]);
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.42: Информация об активной конфигурации пользователя -LM_GARANT: ACTIVE_CONFIGURATION [логин пользователя][название активной конфигурации]
+}
+function HLTC391_ACTIVE_CONFIGURATION(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_ACTIVE_CONFIGURATION';
+begin
+  try
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_ACTIVE_CONFIGURATION
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.43: Фильтрация списка -LM_GARANT: LIST_FILTRATE [логин пользователя][название фильтруемого списка]
+}
+function HLTC391_LIST_FILTRATE(var  current_state: OleVariant): boolean;
+const 
+  FUNCTION_NAME = 'HLTC391_LIST_FILTRATE';
+  FILTERNAME = '*действующие*';
+begin
+  try
+    if not IsExists(GetListOfAllDocuments) then
+      Raise('Не получилось построить список всех документов');
+
+    if not OpenFilterTab then
+      Raise('Не получилось открыть список фильтров');
+
+    if not WorkWithFilters(GetFromList('СПИСОК ФИЛЬТРОВ'), 'set', '+' + FILTERNAME) then
+      Raise('Не получилось применить фильтр "' + FILTERNAME + '"');
+  
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_LIST_FILTRATE
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{      
+  HLTC391.1.5.44: Вставка документов в список -LM_GARANT: ADD_TO_LIST [логин пользователя][название списка]
+  HLTC391.1.5.45: Удаление документов из списка -LM_GARANT: DELETE_FROM_LIST [логин пользователя][название списка]
+  HLTC391.1.5.46: Сохранение списка в папки -LM_GARANT: SAVE_LIST_TO_FOLDERS [логин пользователя][название списка]
+  HLTC391.1.5.47: Пересечение списков -LM_GARANT: INTERSECT [логин пользователя][название списка1][название списка2]
+  HLTC391.1.5.48: Объединение списков -LM_GARANT: MERGE [логин пользователя][название списка1][название списка2]
+  HLTC391.1.5.49: Вычитание списков -LM_GARANT: MINUS [логин пользователя][название списка1][название списка2]
+  HLTC391.1.5.61: Предварительный просмотр печати списка -LM_GARANT: LIST_PRINT_PREVIEW [логин пользователя][название списка]
+  HLTC391.1.5.62: Сортировка списка -LM_GARANT: LIST_SORT [логин пользователя][название списка][направление сортировки<0|1>][тип сортировки<0|1|2|4>]
+  HLTC391.1.5.64: Каждое обращение к вкладке «Справка к списку» -LM_GARANT: LIST_REFERENCE_ACTIVATE [логин пользователя][название списка]
+  HLTC391.1.5.65: Каждое обращение к вкладке «Синхронный просмотр» -LM_GARANT: SYNCHROVIEW_ACTIVATE [логин пользователя][название списка]
+  HLTC391.1.5.97: Удаление контента из папок -LM_GARANT: DELETE_FROM_MY_DOCUMENTS [логин пользователя][тип удаляемого контента<0-Папка|1-Закладка|2-Список|3-Запрос|5-Список препаратов|6-Закладка на документ Инфарма>][имя удаляемого контента][имя родительской папки]
+}
+function HLTC391_LIST_WORKS(var  current_state: OleVariant): boolean;
+const 
+  FUNCTION_NAME = 'HLTC391_LIST_WORKS';
+var
+  res;
+begin
+  try
+    if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+      Raise('Не открылся список: "' + LIST_MAIN + '"');
+    if not SimpleSaveToFolders(HLTC391_LIST1) then
+      Raise('Не получилось сохранить список под именем: "' + HLTC391_LIST1 + '"');
+
+    if not OpenObjectFromFolder(LIST_LANG, OpenMenuTab) then
+      Raise('Не открылся список: "' + LIST_MAIN + '"');
+    if not SimpleSaveToFolders(HLTC391_LIST2) then
+      Raise('Не получилось сохранить список под именем: "' + HLTC391_LIST2 + '"');
+      
+    // +
+    if not OpenObjectFromFolder(MY_DOCS_PATH + HLTC391_LIST1) then
+      Result := ErrorResult('Не открылся список: "' + HLTC391_LIST1 + '"')
+    else
+      if not ListLogicalOperation('ДОПОЛНИТЬ', MY_DOCS_PATH + HLTC391_LIST2, nil) then
+        Result := ErrorResult('Не получилось выполнить лог. операцию "ДОПОЛНИТЬ"');
+
+    // -
+    if not OpenObjectFromFolder(MY_DOCS_PATH + HLTC391_LIST1) then
+      Result := ErrorResult('Не открылся список: "' + HLTC391_LIST1 + '"')
+    else
+      if not ListLogicalOperation('ВЫЧЕСТЬ', MY_DOCS_PATH + HLTC391_LIST2, nil) then
+        Result := ErrorResult('Не получилось выполнить лог. операцию "ВЫЧЕСТЬ"');
+
+    // *
+    if not OpenObjectFromFolder(MY_DOCS_PATH + HLTC391_LIST1) then
+      Result := ErrorResult('Не открылся список: "' + HLTC391_LIST1 + '"')
+    else
+      if not ListLogicalOperation('ПЕРЕСЕЧЬ', MY_DOCS_PATH + HLTC391_LIST2, nil) then
+        Result := ErrorResult('Не получилось выполнить лог. операцию "ПЕРЕСЕЧЬ"');
+
+    // preview    
+    if not OpenObjectFromFolder(MY_DOCS_PATH + HLTC391_LIST1) then
+      Result := ErrorResult('Не открылся список: "' + HLTC391_LIST1 + '"')
+    else
+    begin
+      if not (ClickByMainMenuItem('Файл\Предварительный просмотр') and IsCorrectPreview) then
+        Raise('Не получилось корректно открыть "Предварительный просмотр" для списка');
+      GoToMainMenu;
+    end;
+
+    // paste
+    if not OpenObjectFromFolder(MY_DOCS_PATH + HLTC391_LIST1) then
+      Result := ErrorResult('Не открылся список: "' + HLTC391_LIST1 + '"')
+    else
+    begin 
+      if CopyToClipboard(GetList, '', 'IsCleanClipboard:=false') = '' then
+        Result := ErrorResult('Не получилось скопировать документ из списка')
+      else
+      begin
+        GetList.Keys('[Down]');
+        if not PasteFromClipboard(GetList) then
+          Result := ErrorResult('Не получилось вставить документ в список');
+      end;
+    end;
+
+    if not SetSortParams(SORT_BY_PUBLICATION_DATE, SORT_ASCENDING) then
+    	Result := ErrorResult('Не получилось включить нужный тип сортировки');   
+
+    if not IsExists(OpenInList('СИНХРОННЫЙ ПРОСМОТР')) then
+      Result := ErrorResult('Не получилось открыть вкладку "СИНХРОННЫЙ ПРОСМОТР" для списка');
+    if not IsExists(OpenInList('СПРАВКА К СПИСКУ')) then
+      Result := ErrorResult('Не получилось открыть вкладку "СПРАВКА К СПИСКУ" для списка');
+              
+    if not DelWithConfirm(false, GetList) then
+      Result := ErrorResult('Не получилось удалить документ из списка.');
+    if not DeleteAllInMyDoc then
+      Result := ErrorResult('Не получилось очистить "Мои документы"');
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_ADD_TO_LIST,
+                EVENT_DELETE_FROM_LIST,
+                EVENT_SAVE_LIST_TO_FOLDERS,
+                EVENT_INTERSECT,
+                EVENT_MERGE,
+                EVENT_MINUS,
+                EVENT_DELETE_FROM_MY_DOCUMENTS,
+                EVENT_LIST_PRINT_PREVIEW,
+                EVENT_LIST_SORT,
+                EVENT_LIST_REFERENCE_ACTIVATE, 
+                EVENT_SYNCHROVIEW_ACTIVATE 
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.50: Получение структуры документа -LM_GARANT: GET_STRUCTURE [логин пользователя][номер документа]
+  HLTC391.1.5.51: Получение корреспондентов -LM_GARANT: GET_CORRESPONDENT [логин пользователя][номер документа][расшифровка детализации]
+  HLTC391.1.5.52: Получение респондентов -LM_GARANT: GET_RESPONDENT [логин пользователя][номер документа][расшифровка детализации]
+  HLTC391.1.5.53: Постановка документа на контроль -LM_GARANT: ADD_TO_CONTROL [логин пользователя][номер документа]
+  HLTC391.1.5.55: Получение справки -LM_GARANT: OPEN_RELATED [логин пользователя][номер документа]
+  HLTC391.1.5.56: Получение аннотации -LM_GARANT: OPEN_ANNOTATION [логин пользователя][номер документа]
+  HLTC391.1.5.59: Сохранение документа в папки -LM_GARANT: SAVE_DOC_TO_FOLDERS [логин пользователя][номер документа]
+  HLTC391.1.5.72: Каждое обращение к вкладке «Информация о документе» -LM_GARANT: VIEW_DOCUMENT_ATTRIBUTES [логин пользователя][номер документа]    
+}
+function HLTC391_DOC_STRUCTURE_WORKS(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_DOC_STRUCTURE_WORKS';
+begin
+  try
+    if not OpenDocByNumber(10064072) then
+      Raise('Не получилось открыть домент "ГК"');
+
+    if not IsExists(OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ')) then
+      Result := ErrorResult('Не получилось открыть вкладку "ССЫЛКИ НА ДОКУМЕНТ" в документе');
+
+    if not IsExists(OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА')) then
+      Result := ErrorResult('Не получилось открыть вкладку "ССЫЛКИ ИЗ ДОКУМЕНТА" в документе');
+
+    if not IsExists(OpenInDocument('СПРАВКА')) then
+      Result := ErrorResult('Не получилось открыть вкладку "СПРАВКА" в документе');
+
+    if not IsExists(OpenInDocument('АННОТАЦИЯ')) then
+      Result := ErrorResult('Не получилось открыть вкладку "АННОТАЦИЯ" в документе');
+
+    if not SimpleSaveToFolders(HLTC391_LOGIN + '_GK') then
+      Result := ErrorResult('Не получилось сохранить "ГК" в Мои документы');
+      
+    if not SetDocOnControlState then
+      Result := ErrorResult('Не получилось поставить на контроль "ГК"');    
+
+    if not IsExists(OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ')) then
+      Raise('Не получилось открыть Информацию о документе "ГК"');
+      
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_GET_STRUCTURE,
+                EVENT_GET_CORRESPONDENT,
+                EVENT_GET_RESPONDENT,
+                EVENT_ADD_TO_CONTROL,
+                EVENT_OPEN_RELATED,
+                EVENT_OPEN_ANNOTATION,
+                EVENT_SAVE_DOC_TO_FOLDERS,
+                EVENT_VIEW_DOCUMENT_ATTRIBUTES                 
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.81: Предварительный просмотр документа -LM_GARANT: DOCUMENT_PRINT_PREVIEW [логин пользователя][номер документа]
+}
+function HLTC391_DOCUMENT_PRINT_PREVIEW(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_DOCUMENT_PRINT_PREVIEW';
+begin
+  try
+    if not (OpenDocByNumber(3333) and ClickByMainMenuItem('Файл\Предварительный просмотр') and IsCorrectPreview) then
+      Raise('Не получилось корректно открыть "Предварительный просмотр" для Документа №3333');
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_DOCUMENT_PRINT_PREVIEW
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.82: Активация вкладки похожие документы -LM_GARANT: VIEW_SAME_DOCUMENTS [логин пользователя][номер документа][количество документов в списке]
+}
+function HLTC391_VIEW_SAME_DOCUMENTS(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_VIEW_SAME_DOCUMENTS';
+begin
+  try
+    if not (OpenDocByNumber(58010) and IsExists(OpenInDocument('ПОХОЖИЕ ДОКУМЕНТЫ'))) then
+      Raise('Не получилось корректно открыть "Похожие документы" в Документе №58010');
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_VIEW_SAME_DOCUMENTS
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.79: Использование контекстного фильтра в любом из объектов (фиксируем сам факт использования и объект) -LM_GARANT: CONTEXT_FILTER_IN_TREE [логин пользователя][контекст][название объекта фильтрации]  
+}
+function HLTC391_CONTEXT_FILTER_IN_TREE(var  current_state: OleVariant): boolean;
+const 
+  FUNCTION_NAME = 'HLTC391_CONTEXT_FILTER_IN_TREE';
+var 
+  w;
+begin
+  try
+    if not IsExists(OpenMenuTab) then
+      Raise('Вкладка навигатора Меню не найдена');      
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if not IsExists(w) then
+      Raise('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР" не найден на вкладке навигатора Меню');    
+    try
+      w.Keys('[End]![Home]документ');
+    finally
+      OpenMenuTab;
+      w.Keys('[End]![Home][Del]');
+    end;
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_CONTEXT_FILTER_IN_TREE
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.75: Увеличить размер шрифта -LM_GARANT: INC_FONT [логин пользователя][новый размер шрифта]
+  HLTC391.1.5.76: Уменьшить размер шрифта -LM_GARANT: DEC_FONT [логин пользователя][новый размер шрифта]
+}
+function HLTC391_FONT_WORKS(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_FONT_WORKS';
+begin
+  try
+    if not OpenDocByNumber(3333) then
+      Raise('Не получилось открыть Документ №3333');
+    if not ClickToolbarButton(GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Увелич*шрифт*') then
+      Raise('Не получилось кликнуть по кнопке "Увеличить шрифт"');
+    if not ClickToolbarButton(GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Уменьш*шрифт*') then
+      Raise('Не получилось кликнуть по кнопке "Уменьшить шрифт"');
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_INC_FONT,
+                EVENT_DEC_FONT
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.68: Переход к следующему документу списка из документа -LM_GARANT: NEXT_DOCUMENT [логин пользователя][название списка][номер документа]
+  HLTC391.1.5.69: Переход к предыдущему документу списка из документа -LM_GARANT: PREV_DOCUMENT [логин пользователя][название списка][номер документа]
+  HLTC391.1.5.73: Назад по истории -LM_GARANT: BACK [логин пользователя]
+  HLTC391.1.5.74: Вперед по истории -LM_GARANT: FORWARD [логин пользователя]
+}
+function HLTC391_NEXT_PREV_DOCUMENT(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_NEXT_PREV_DOCUMENT';
+begin
+  try
+    if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+      Raise('Не открылся список: "' + LIST_MAIN + '"');
+    try
+      if not OpenDocFromList('Конституция*', GetList) then
+        Raise('Не получилось открыть Конституцию РФ"');    
+
+      if not ClickStatusBarButton('СЛЕДУЮЩИЙ ДОКУМЕНТ В СПИСКЕ') then
+        Raise('Не получилось перейти к следующему документу в списке');
+      if not ClickStatusBarButton('ПРЕДЫДУЩИЙ ДОКУМЕНТ В СПИСКЕ') then
+        Raise('Не получилось перейти к предыдущему документу в списке');
+
+      if not GoByHistory('НАЗАД') then 
+        Raise('Не получилось вернуться "НАЗАД ПО ИСТОРИИ"');
+      if not GoByHistory('ВПЕРЕД') then 
+        Raise('Не получилось вернуться "ВПЕРЕД ПО ИСТОРИИ"');
+    finally
+      CloseTabIfNeeded;
+    end;
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_NEXT_DOCUMENT,
+                EVENT_PREV_DOCUMENT,
+                EVENT_BACK,
+                EVENT_FORWARD
+              ]);    
+  except
+    
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.66: Включение машины времени в документе -LM_GARANT: TIME_MACHINE_ON [логин пользователя][номер документа][дата]
+  HLTC391.1.5.67: Выключение машины времени в документе -LM_GARANT: TIME_MACHINE_OFF [логин пользователя][номер документа]
+}
+function HLTC391_TIME_MACHINE(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_TIME_MACHINE';
+begin
+  try
+    if not OpenDocByNumber(2007) then
+      Raise('Не получилось открыть Документ 2007');
+
+    if not OnTimeMachineOnFirstRedaction then
+      Raise('Не получилось включить МВ с начала действия текущей редакции');
+    if not OffTimeMachine then
+      Raise('Не получилось отключить МВ');
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_TIME_MACHINE_ON,
+                EVENT_TIME_MACHINE_OFF
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.54: Получение графического образа -LM_GARANT: INTERNET_IMAGE [логин пользователя][номер документа]
+}
+function HLTC391_INTERNET_IMAGE(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_INTERNET_IMAGE';
+begin
+  try
+    if not OpenDocByNumber(6085115) then
+      Raise('Не получилось открыть Документ 6085115');
+    if not ClickByHyperLink(GetEditor, 'Предисловие') then
+      Result := ErrorResult('Не получилось кликнуть по ссылке');  
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_INTERNET_IMAGE
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  HLTC391.1.5.57: Сохранение в файл -LM_GARANT: EXPORT_TO_FILE [логин пользователя][номер документа]
+  HLTC391.1.5.105: Сохранение списка в файл -LM_GARANT: LIST_EXPORT_TO_FILE [логин пользователя>][название списка][количество документов/выделенных элементов списка][0 - весь список|1 - выделенные документы][0 - названия документов|1 - тексты документов|2 - номера документов]
+}
+function HLTC391_EXPORT_TO_FILE(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_EXPORT_TO_FILE';
+begin
+  try
+    if not OpenDocByNumber(10003000) then
+      Raise('Не получилось открыть Документ 10003000');
+    if not SaveDocToFile(GetEditor, IncludeTrailingBackslash(GetTempDirectory) + FUNCTION_NAME) then
+      Raise('Не получилось сохранить файл "' + FUNCTION_NAME + '"');
+      
+    if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+      Raise('Не получилось открыть список "' + LIST_MAIN + '"');
+    if not SaveDocToFile(GetList, IncludeTrailingBackslash(GetTempDirectory) + FUNCTION_NAME) then
+      Raise('Не получилось сохранить файл "' + FUNCTION_NAME + '"');
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_EXPORT_TO_FILE,
+                EVENT_LIST_EXPORT_TO_FILE
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+ 
+{
+  HLTC391.1.5.71: Каждое обращение к вкладке "Список редакций" -LM_GARANT: VIEW_DOCUMENT_EDITION_LIST [логин пользователя][номер документа]
+  HLTC391.1.5.77: Вызов операции "Моя новостная лента" -LM_GARANT: OPEN_NEWS_LINE [логин пользователя]
+}    
+function HLTC391_OPEN_PAGES(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_OPEN_PAGES';
+begin
+  try
+    if not OpenDocByNumber(10064072) then
+      Raise('Не получилось открыть Документ 10064072');
+    if not IsExists(OpenEditionsTab) then
+      Raise('Не получилось открыть вкладку Список редакций');
+      
+    if not GoToPrime then
+      Raise('Не получилось открыть "ПРАЙМ. Моя новостная лента"');
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_VIEW_DOCUMENT_EDITION_LIST,
+                EVENT_OPEN_NEWS_LINE
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{ 
+  HLTC391.1.5.78: Вызов операции "Мои консультации" -LM_GARANT: OPEN_CONSULTATION [логин пользователя]
+  HLTC391.1.5.92: Запрос в службу правовой поддержки -LM_GARANT: SEND_REQUEST_TO_LEGAL_ADVISE [логин пользователя]
+  HLTC391.1.5.98: Удаление консультации -LM_GARANT: DELETE_CONSULTATION [логин пользователя][идентификатор консультации][статус консультации<1-Создана|2-Отправлена|4-Запрошена оплата|8-Получен ответ|16-Прочитана|32-Отправлена оценка|64-Оплата отклонена|128-Оплата подтверждена|256-Не прошла валидация|512-Не подтверждено получение ответа|1024-Не подверждено прочтение>]
+}
+function HLTC391_CONSULTATION(var  current_state: OleVariant): boolean;
+const FUNCTION_NAME = 'HLTC391_CONSULTATION';
+begin
+  try
+    if not GoToMyConsultation then
+      Raise('Не получилось открыть Мои консультации');
+
+    if not DeleteConsultation('*') then
+      Raise('Не получилось удалить встроенную консультацию');    
+
+    SendConsultation(
+      [
+    	  CARD_LAW_SUPPORT, ([([
+      	FD_USER_NAME, ([
+      		'1']) ]),([
+        FD_CITY_CODE, ([
+      		'1']) ]),([
+        FD_USER_PHONE, ([
+      		'1']) ]),([
+      	FD_USER_EMAIL, ([
+      		'1']) ]),([
+      	FD_LAW_SUPPORT_TEXT, ([
+      		'1']) ]) ])
+      ]);
+    
+    // на всякий случай, чтобы не мешали сообщения
+    WaitForWarningWindow(Options.Run.Timeout div 3);    
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_OPEN_CONSULTATION,
+                EVENT_SEND_REQUEST_TO_LEGAL_ADVISE,
+                EVENT_DELETE_CONSULTATION
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC391.1.5.93: Открытие списка фирм -LM_GARANT: OPEN_MEDIC_FIRMS [логин пользователя]      
+  HLTC391.1.5.95: Открытие описания фирмы-производителя -LM_GARANT: OPEN_PHARM_FIRM_DOCUMENT [логин пользователя][номер документа]
+  HLTC391.1.5.94: Открытие медицинского словаря -LM_GARANT: OPEN_MEDIC_DICTIONARY [логин пользователя]
+  HLTC391.1.5.96: Открытие описания препарата -LM_GARANT: OPEN_PHARM_DOCUMENT [логин пользователя][номер документа]
+}
+function HLTC391_INFARM(var  current_state: OleVariant): boolean;
+const 
+  FUNCTION_NAME = 'HLTC391_INFARM';
+var
+  w;
+begin
+  try
+    w := GoToInfarmListFirms('', true);
+    if not IsExists(w) then
+      Raise('Не получилось открыть Список фирм Инфарма');
+    if not OpenObjectFromFolder('3M Espe AG', w) then
+      Raise('Не получилось открыть фирму "3M Espe AG"');
+
+    w := GoToInfarmDictionary('', true);
+    if not IsExists(w) then
+      Raise('Не получилось открыть Медицинский словарь Инфарма');
+
+    w := GoToMedicalProducts('', true);   
+    if not IsExists(w) then 
+      Raise('Не получилось открыть список Лекарственные средства Инфарма');
+    try
+      if not OpenDocFromList('1-Хлорметилсилатран', w) then
+        Raise('Не получилось открыть фирму "1-Хлорметилсилатран"');
+    finally
+      CloseTabIfNeeded;
+    end;      
+
+    Result := IsStringIncludeInLog(
+              [
+                EVENT_OPEN_MEDIC_FIRMS,
+                EVENT_OPEN_PHARM_FIRM_DOCUMENT,
+                EVENT_OPEN_MEDIC_DICTIONARY,
+                EVENT_OPEN_PHARM_DOCUMENT
+              ]);    
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+function HLTC391_1_5_Execute(var  current_state: OleVariant): OleVariant;
+const FUNCTION_NAME = 'HLTC391_1_5_Execute';
+var
+  p, i, log_level, report, res;
+  arrScripts;
+  oTS;
+begin                                  
+try
+  try
+    log_level := StartupLoggingLevel('GET');
+    arrScripts := 
+    [ 
+      (['HLTC391_SERVER_START', 'HLTC391_1_5_1']),
+
+      (['HLTC391_PROFILE_COUNT_UNDERCONTROL_DOC_COUNT', 'HLTC391_1_5_2']),
+      (['HLTC391_CLIENT_DPI_FONT_SIZE', 'HLTC391_1_5_3']),
+      (['HLTC391_SEARCH_IN_DOCUMENT', 'HLTC391_1_5_4']),
+      (['HLTC391_OPEN_DOCUMENT_FROM_HISTORY', 'HLTC391_1_5_6']),
+      (['HLTC391_OPEN_DICTIONARY', 'HLTC391_1_5_7']),    
+      (['HLTC391_SEARCH', 'HLTC391_1_5_8']),
+      (['HLTC391_SEARCH_IN_LIST', 'HLTC391_1_5_9']),
+      (['HLTC391_OPEN_DOCUMENT_FROM_LIST', 'HLTC391_1_5_10']),
+      (['HLTC391_OPEN_DOCUMENT_FROM_LINK', 'HLTC391_1_5_11']),
+      (['HLTC391_OPEN_DOCUMENT_BY_NUMBER', 'HLTC391_1_5_12']),
+      (['HLTC391_OPEN_DOCUMENT_FROM_FOLDERS', 'HLTC391_1_5_13']),
+      (['HLTC391_MY_DOCUMENTS_COUNT', 'HLTC391_1_5_14']),
+      (['HLTC391_ACTIVE_CONFIGURATION', 'HLTC391_1_5_15']),
+      (['HLTC391_LIST_FILTRATE', 'HLTC391_1_5_16']),
+      (['HLTC391_LIST_WORKS', 'HLTC391_1_5_17']),
+      (['HLTC391_DOC_STRUCTURE_WORKS', 'HLTC391_1_5_18']),
+      (['HLTC391_DOCUMENT_PRINT_PREVIEW', 'HLTC391_1_5_19']),
+      (['HLTC391_FONT_WORKS', 'HLTC391_1_5_20']),
+      (['HLTC391_NEXT_PREV_DOCUMENT', 'HLTC391_1_5_21']),
+      (['HLTC391_TIME_MACHINE', 'HLTC391_1_5_22']),
+      (['HLTC391_INTERNET_IMAGE', 'HLTC391_1_5_23']),
+      (['HLTC391_EXPORT_TO_FILE', 'HLTC391_1_5_24']),
+      (['HLTC391_OPEN_PAGES', 'HLTC391_1_5_25']),
+      (['HLTC391_CONSULTATION', 'HLTC391_1_5_26']),
+      (['HLTC391_INFARM', 'HLTC391_1_5_27']),
+      (['HLTC391_VIEW_SAME_DOCUMENTS', 'HLTC391_1_5_28']),
+      (['HLTC391_CONTEXT_FILTER_IN_TREE', 'HLTC391_1_5_29']),
+      (['HLTC391_UPDATE', 'HLTC391_1_5_90']),
+      
+      (['HLTC391_SERVER_STOP', 'HLTC391_1_5_100'])
+    ];
+
+    CloseF1Shell;
+    if not StopF1Server then
+      Raise('Не получилось остановить Сервер F1');
+
+    for i := 1 to 3 do begin DeleteFile(GetFilePathToLogFile('SERVER')); Delay(1000); end;
+    if Utilities.FileExists(GetFilePathToLogFile('SERVER')) then
+      Raise('Файл ЛОГА не удален: "' + GetFilePathToLogFile('SERVER') + '"');
+  
+    SetValueToGarantINI('F1Server Params', '-LoggingBackup', '0');
+    StartupLoggingLevel('SET', 4);
+    SetXMLRestoreBackup(1);
+
+    report := '';
+    for i := VarArrayLowBound(arrScripts, 1) to VarArrayHighBound(arrScripts, 1) do
+    begin
+      Log.AppendFolder('Проверка действия: "' + arrScripts[i][0] + '"');
+      res := Runner.CallMethod('HLTC391.' + arrScripts[i][0]);
+      if not res then
+      begin              
+        Log.Error('"' + arrScripts[i][0] + '" не пройден');
+        report := report + arrScripts[i][0] + endOfLine;
+      end;
+      //Пишем в К, что скрипт выполнился успешно
+      oTS := GetTSByName(arrScripts[i][1]);
+      if VarType(oTS) = varDispatch then
+        RefreshScriptAndTracedHLTCs(oTS, res)
+      else
+        Log.Error('Скрипт ' + arrScripts[i][1] + ' не найден!');      
+      Log.PopLogFolder();    
+    end;
+  
+    Result := report = '';
+    if not Result then
+    begin
+      Log.Error('Список не выполнившихся скриптов:', report);
+      Log.File(GetFilePathToLogFile('SERVER'), 'Файл лога "' + GetFilePathToLogFile('SERVER') + '"');
+    end;
+  finally
+    StartupLoggingLevel('SET', log_level);
+    if not StartF1Server then
+      Raise('Не получилось запустить Сервер F1');
+  end;   
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;             
+end;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+procedure _____LOGGING_LEVEL_50;begin;end;
+////////////////////////////////////////////////////////////////////////////////
+{
+  HLTC391.1.6: Пятидесятый уровень лога.
+    Поиски - создание серванта списка. Изменение сортировки списка - создание его вью. Когда пользователь, работавший со списком, вышел из системы - список должен быть удалён.
+    Все операции со списками журналируются только для объектов, которые создаются из коллекции (буфера) размером больше 1000 байт.
+    
+  HLTC391.1.6.5: Создание серванта списка -LM_GARANT: DOCLIST_SERVANT_CREATED [логин пользователя][идентификатор списка][метод создания][размер]
+    Метод создания - collection (коллекция, полученная в результате поиска) или buffer (буфер - при восстановлении списка из папок).
+    Размер - размер в байтах коллекции или буфера из которых создаётся список.  
+  HLTC391.1.6.6: Удаление серванта списка -LM_GARANT: DOCLIST_SERVANT_ERASED [логин пользователя][идентификатор списка]
+  HLTC391.1.6.7: Создание вью списка документов -LM_GARANT: DOCLISTVIEW_CREATED [логин пользователя][идентификатор списка][идентификатор вью списка]
+  HLTC391.1.6.8: Удаление вью списка документов -LM_GARANT: DOCLISTVIEW_ERASED [логин пользователя][идентификатор списка][идентификатор вью списка]  
+}
+function HLTC391_1_6_Execute(var  current_state: OleVariant): boolean;
+var
+  i, log_level;
+begin
+  try
+    try
+      log_level := StartupLoggingLevel('GET');
+      CloseF1Shell;
+      for i := 1 to 3 do begin DeleteFile(GetFilePathToLogFile('SERVER')); Delay(1000); end;
+      if Utilities.FileExists(GetFilePathToLogFile('SERVER')) then
+        Raise('Файл ЛОГА не удален: "' + GetFilePathToLogFile('SERVER') + '"');
+
+      StartupLoggingLevel('SET', 50);
+      if not RestartF1Shell(3, Options.Run.Timeout div 3, HLTC391_LOGIN, HLTC391_LOGIN) then        
+        Raise('Не получилось запустить оболочку');
+    
+      if not IsExists(GetListOfAllDocuments) then
+        Raise('Не получилось построить список всех документов');
+      if not SetSortParams(SORT_BY_PUBLICATION_DATE) then
+        Raise('Не получилось включить сортировку "' + SORT_BY_PUBLICATION_DATE + '"');
+      CloseF1Shell;
+      Delay(Options.Run.Timeout div 3);
+          
+      Result := IsStringIncludeInLog(
+                [
+                  EVENT_DOCLIST_SERVANT_CREATED,
+                  EVENT_DOCLIST_SERVANT_ERASED,
+                  EVENT_DOCLISTVIEW_CREATED,
+                  EVENT_DOCLISTVIEW_ERASED
+                ]);
+      if not Result then
+        Log.File(GetFilePathToLogFile('SERVER'), 'Файл лога "' + GetFilePathToLogFile('SERVER') + '"');
+    finally
+      StartupLoggingLevel('SET', log_level);
+    end;   
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+procedure RunMyTests391;
+var i, p, w;
+begin
+//  HLTC391_1_5_Execute(p);
+//  HLTC391_1_6_Execute(p);
+///////////////////////////////////////////
+
+
+
+  
+    
+  
+
+
+
+end;

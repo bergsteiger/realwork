@@ -1,0 +1,65 @@
+// TExcludedTestsFolders 4C9386230151 SimpleClass Class
+
+INCLUDE '4773DCE302FF.pas.ms.script'
+
+FORWARD ME_4C9386230151
+
+FORWARD ME_4C938674023A
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4C93867E028A
+ CONST UID '4C93867E028A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4C93867E028A DoIt
+
+: ME_4C938674023A
+ CONST UID '4C938674023A'
+ CONST Name 'Exists'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4C93867E028A // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_4C938674023A Exists
+
+: ME_4C9386230151
+ CONST UID '4C9386230151'
+ CONST Name 'TExcludedTestsFolders'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Папки тестов исключаемые из запуска' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4773DCE302FF // Tl3StringList
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4C938674023A // Exists
+ ]
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '17.09.2010 19:16'
+
+ @SELF
+; // ME_4C9386230151 TExcludedTestsFolders

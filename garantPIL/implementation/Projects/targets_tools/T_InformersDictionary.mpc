@@ -1,0 +1,28 @@
+project (T_InformersDictionary) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_InformersDictionary {
+	exename = InformDict
+	macros += MIN_MEM_CONTEXT
+
+	after += ContextSearch
+	libs += ContextSearch
+
+	after += Morpho
+	libs += Morpho
+
+	after += SearchAdapterLib
+	libs  += SearchAdapterLib
+
+	after += gkdb_gudll
+	libs += gkdb_gudll
+
+	after += cchlp1
+	libs += cchlp1
+	
+	after += gctx_tools
+	libs += gctx_tools
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+}

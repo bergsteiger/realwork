@@ -1,0 +1,206 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Tests"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/labs/SimpleObjectTest/ContainersVsArrays/Tests/Tests.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (cpp)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/labs/SimpleObjectTest/ContainersVsArrays/Tests/TestsFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (fctr.cpp)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/labs/SimpleObjectTest/ContainersVsArrays/Tests/TestsFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (fctr.h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/labs/SimpleObjectTest/ContainersVsArrays/Tests/Tests.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Лаборатория,key:LAB,guid:4948FB1B0267/Home/Модель проекта "SimpleObjectTest"/ContainersVsArrays/Tests|49BA776B0045
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"49BA776B0045"
+    documentation 	"Тесты"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "VectorPassThrouParams"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49BA778D00E8_49BA77DE0142_49BA784B0160_BASE_INIT*"
+		    value      	"//#UC START# *49BA778D00E8_49BA77DE0142_49BA784B0160_BASE_INIT*¤//#UC END# *49BA778D00E8_49BA77DE0142_49BA784B0160_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49BA778D00E8_49BA77DE0142_49BA784B0160_BODY*"
+		    value      	(value Text 
+|//#UC START# *49BA778D00E8_49BA77DE0142_49BA784B0160_BODY*¤	//#UC END# *49BA778D00E8_49BA77DE0142_49BA784B0160_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Лаборатория,key:LAB,guid:4948FB1B0267/Home/Модель проекта "SimpleObjectTest"/ContainersVsArrays/Tests/VectorPassThrouParams|49BA778D00E8
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49BA778D00E8"
+	    documentation 	"Передача вектора через параметры"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49BA77DE0142"
+		    documentation 	"создать тест"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "run"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49BA77FF020B_49BA784B0160*"
+			    value      	(value Text 
+|//#UC START# *49BA77FF020B_49BA784B0160*¤	const unsigned ITERATION_COUNT = 1000*1000*50;¤	const unsigned ARRAY_SIZE = 20;¤¤	{¤		Core::GDS::StopWatch sw ("LongArray");¤		typedef long LongArray[ARRAY_SIZE];¤¤		for (unsigned i = 0; i < ITERATION_COUNT; i++) {¤			LongArray a;¤			a [0] = i;¤			TestFunc::test_func (a, ARRAY_SIZE);¤		}¤		¤	}¤¤	{¤		Core::GDS::StopWatch sw ("LongStdVector");¤		typedef std::vector<long> LongStdVector;¤¤		for (unsigned i = 0; i < ITERATION_COUNT; i++) {¤			LongStdVector v (ARRAY_SIZE);¤			v [0] = i;¤			TestFunc::test_func (v, ARRAY_SIZE);¤		}¤	}¤¤	{¤		Core::GDS::StopWatch sw ("LongStdStackVector");¤		typedef StackVector<long, ARRAY_SIZE> LongStdStackVector;¤¤		for (unsigned i = 0; i < ITERATION_COUNT; i++) {¤			LongStdStackVector v;¤			v [0] = i;¤			TestFunc::test_func (v, ARRAY_SIZE);¤		}¤	}¤¤	{¤		Core::GDS::StopWatch sw ("LongBoostVector");¤		typedef boost::array<long, ARRAY_SIZE> LongBoostVector;¤		for (unsigned i = 0; i < ITERATION_COUNT; i++) {¤			LongBoostVector v;¤			v [0] = i;¤			TestFunc::test_func (v, ARRAY_SIZE);¤		}¤	}¤	//#UC END# *49BA77FF020B_49BA784B0160*
+			    )))
+		    quid       	"49BA77FF020B"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"49BA77890151"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::SimpleObjectTest::ContainersVsArrays::Tests::VectorPassThrouParams" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(546, 309)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(310, 230)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	472
+			justify    	0
+			label      	"VectorPassThrouParams")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(310, 186)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	472
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"49BA778D00E8"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(310, 291)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	3
+			max_width  	418
+			justify    	1)
+		    width      	490
+		    height     	268
+		    annotation 	8
+		    autoResize 	TRUE)))))

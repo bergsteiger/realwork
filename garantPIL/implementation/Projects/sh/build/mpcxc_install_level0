@@ -1,0 +1,43 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_install_level0 <confirm>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT; see doc for details."
+exit
+fi
+
+if test "$MPCXC_MIRROR_HOME" = ""; then
+echo "You must export MPCXC_HOME; see doc for details."
+exit
+fi
+
+if test "$MPCXC_PATH_TO_ACE_WRAPPERS" = ""; then
+echo "You must export MPCXC_PATH_TO_ACE_WRAPPERS; see doc for details."
+exit
+fi
+
+echo "mpcxc_install_level0 ..."
+
+$MPCXC_MIRROR_HOME/build/mpcxc_install_image \
+$MPCXC_ROOT \
+$MPCXC_MIRROR_HOME/build \
+$MPCXC_MIRROR_HOME/MPC \
+$MPCXC_PATH_TO_ACE_WRAPPERS/ace \
+$MPCXC_PATH_TO_ACE_WRAPPERS/bin/MakeProjectCreator/config > $MPCXC_ROOT/install_level0.log 2>&1
+
+target=`$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/uname2target.rb`; taoace_target=$target
+
+if test "$target" = "" ; then
+echo "mpcxc_install_level0: FATAL: target platform = $taoace_target not supported."
+exit
+fi	  
+
+mkdir -p $MPCXC_ROOT/out/$target/lib
+mkdir -p $MPCXC_ROOT/out/$target/bin
+
+echo "You can run:"
+echo "mpcxc_{full|partial}_rebuild_{ace|mlma32ru|garant_tools}."

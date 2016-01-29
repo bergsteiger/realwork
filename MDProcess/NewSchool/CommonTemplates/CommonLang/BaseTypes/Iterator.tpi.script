@@ -1,0 +1,1229 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/Iterator.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::Iterator
+//
+// Итератор по контейнеру
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Iterator::Class
+implementation @ <<Iterator>>
+//? Итератор по контейнеру
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= UsesContainer::Class
+//= C++ интерфейсы и реализация::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//Y code_iterator.gif
+//L code_iterator
+// Параметры визуализации
+//$ C 210,230,240
+//$ l 35,75,100
+//$ f 35,75,100
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p force usage:b=false ? Проверка
+//p needs result:b=true ? Нужен ли результат выполнения итератора (для Delphi)
+//p needs index:b=true ? Нужен ли индекс подитеративной функции (для Delphi)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()[{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - Проверка
+ call-inherited:: 'Delphi интерфейсы и реализация' wiki_up_print %( )%
+ if ( ( %S get_up ( 'force usage' ) ) %!= ( %S get_up_def ( 'force usage' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force usage* = *'
+  %S get_up ( 'force usage' ) '* - Проверка'
+//	][{"%S{needs result}"!="%S{!needs result}"}%f_up_prefix(%S) *needs result* = *%S{needs result}* - Нужен ли результат выполнения итератора (для Delphi)
+ end // if
+ if ( ( %S get_up ( 'needs result' ) ) %!= ( %S get_up_def ( 'needs result' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *needs result* = *'
+  %S get_up ( 'needs result' ) '* - Нужен ли результат выполнения итератора (для Delphi)'
+//	][{"%S{needs index}"!="%S{!needs index}"}%f_up_prefix(%S) *needs index* = *%S{needs index}* - Нужен ли индекс подитеративной функции (для Delphi)
+ end // if
+ if ( ( %S get_up ( 'needs index' ) ) %!= ( %S get_up_def ( 'needs index' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *needs index* = *'
+  %S get_up ( 'needs index' ) '* - Нужен ли индекс подитеративной функции (для Delphi)'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F016F00CB*
+//c                {}
+//r {%ax=false&%S{force usage}=false}:   {%SS ни кем не используется}
+//#UC END# *4704C0E30186for470F016F00CB*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor470F016F00CB*
+//	%S%[inherited]\
+ inherited
+//	%S%f_IteratorSpell()
+ %S %f IteratorSpell %( )% 
+//#UC END# *4B2A19E3038Bfor470F016F00CB*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент может реализовываться классом
+//%f _IsClassImplementableElement
+: IsClassImplementableElement OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BA9EBAE0254for470F016F00CB*
+//	true
+ true
+//#UC END# *4BA9EBAE0254for470F016F00CB*
+; // IsClassImplementableElement
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является "внутренностью" класса, атрибутом или операцией
+//%f _IsClassInner
+: IsClassInner OBJECT IN %S
+//#UC START# *49CB3EE70382for470F016F00CB*
+//	true
+ true
+//#UC END# *49CB3EE70382for470F016F00CB*
+; // IsClassInner
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsIterator
+: IsIterator OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BA899E20317for470F016F00CB*
+//	true
+ true
+//#UC END# *4BA899E20317for470F016F00CB*
+; // IsIterator
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsMethod
+: IsMethod OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B2A29440092for470F016F00CB*
+//	true
+ true
+//#UC END# *4B2A29440092for470F016F00CB*
+; // IsMethod
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент переопределяет другой элемент
+//%f _IsOverride
+: IsOverride OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BAA5CAB02CFfor470F016F00CB*
+//@ %SU
+//	[{%Gx=true}{\
+ if ( ( %G |x ) %==  true ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	%S%[inherited]\
+  inherited
+//	}\
+ end // else
+//#UC END# *4BAA5CAB02CFfor470F016F00CB*
+; // IsOverride
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит ключевое слова типа абстракности
+// 
+// RealizeType = o|r|f
+// Modification = get|set|area|arearef
+//%f _pas_AbstractionKeyword
+: pas_AbstractionKeyword OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3
+//#UC START# *494BF05502ACfor470F016F00CB*
+//@ %SU_%1N_%2N_%3N
+//	[{%S%f_IsOverride()=true}{\
+ if ( ( %S %f IsOverride %( )% ) %==  true ) then
+ begin
+//	 override;\
+  ' override;'
+//	]
+ end // if
+ else
+ begin
+//	[{"%2N"!="o"}\
+  if ( ( %2 |N ) %!= 'o' ) then
+  begin
+//	[%f_delphi_overload(%S) ]\
+   if NOT-EMPTY
+   begin
+    [%f] delphi_overload %( %S )% ' ' 
+   end // if
+   NOP
+//	]\
+  end // if
+//	[{"%3N"!="f"}\
+  if ( ( %3 |N ) %!= 'f' ) then
+  begin
+
+
+//	[{"%2N"="r"}{\
+   if ( ( %2 |N ) %== 'r' ) then
+   begin
+//	[{%Zx=true} virtual;]\
+    if ( ( %Z |x ) %==  true ) then
+    begin
+     ' virtual;' 
+    end // if
+//	]\
+   end // if
+   else
+   begin
+//	[{"%2N"="o"} override;]\
+    if ( ( %2 |N ) %== 'o' ) then
+    begin
+     ' override;' 
+    end // if
+//	}\
+   end // else
+
+
+//	]\
+  end // if
+
+//	"%3N"!="f"
+//	}\
+ end // else
+//#UC END# *494BF05502ACfor470F016F00CB*
+; // pas_AbstractionKeyword
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for470F016F00CB*
+//	%S%[inherited]\
+ inherited
+//	[{%S%f_IsOverride()=true}\
+ if ( ( %S %f IsOverride %( )% ) %==  true ) then
+ begin
+//	%f_pas_Uses(%G)\
+  [%f] pas_Uses %( %G )% 
+//	]
+ end // if
+//#UC END# *4948F2EE0334for470F016F00CB*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+//%f _pas_MethodBodyPrim
+: pas_MethodBodyPrim OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for470F016F00CB*
+//	[{%S%f_IsOverride()=true}{\
+ if ( ( %S %f IsOverride %( )% ) %==  true ) then
+ begin
+//	%G%f_pas_MethodBodyPrim(%1,%2,%3,%4)\
+  %G %f pas_MethodBodyPrim %( %1 %, %2 %, %3 %, %4 )% 
+//	]
+ end // if
+ else
+ begin
+//	[{%2N=f}{\
+  if ( ( %2 |N ) %== 'f' ) then
+  begin
+//	%S%f_pas_IteratorBody()\
+   %S %f pas_IteratorBody %( )% 
+//	]\
+  end // if
+  else
+  begin
+//	%S%[inherited]f_pas_MethodBodyPrim(%1,%2,%3,%4)\
+   call-inherited pas_MethodBodyPrim %( %1 %, %2 %, %3 %, %4 )%
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *494BB3A201A2for470F016F00CB*
+; // pas_MethodBodyPrim
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+//%f _pas_MethodImplementation
+: pas_MethodImplementation OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for470F016F00CB*
+//	%S%f_pas_DoMethodImplementation(%1,%2,"",%4)\
+ %S %f pas_DoMethodImplementation %( %1 %, %2 %, '' %, %4 )% 
+//	[{"%2N"!="o"&%S#f_IsOverride()!=true&%f_substr_from_end(%f_N(%S),1)!=F}\
+ if ( ( %2 |N ) %!= 'o' AND 
+   ( ( %S %?f IsOverride %( )% ) %!=  true  ) AND 
+   ( ( [%f] substr_from_end %( [%f] N %( %S )% %, 1 )% ) %!= 'F'  ) ) then
+ begin
+//	%S%f_pas_DoMethodImplementation(%1,%2,"f")\
+  %S %f pas_DoMethodImplementation %( %1 %, %2 %, 'f' )% 
+//	]
+ end // if
+//#UC END# *494BEC7C03E5for470F016F00CB*
+; // pas_MethodImplementation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+//%f _pas_MethodInterface
+: pas_MethodInterface OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor470F016F00CB*
+//	%S%f_pas_DoMethodInterface(%1,%2,"")\
+ %S %f pas_DoMethodInterface %( %1 %, %2 %, '' )% 
+//	[{"%2N"!="o"&%S#f_IsOverride()!=true&%f_substr_from_end(%f_N(%S),1)!=F}\
+ if ( ( %2 |N ) %!= 'o' AND 
+   ( ( %S %?f IsOverride %( )% ) %!=  true  ) AND 
+   ( ( [%f] substr_from_end %( [%f] N %( %S )% %, 1 )% ) %!= 'F'  ) ) then
+ begin
+//	\n\
+  #13#10
+//	%S%f_pas_DoMethodInterface(%1,%2,"f")\
+  %S %f pas_DoMethodInterface %( %1 %, %2 %, 'f' )% 
+//	]
+ end // if
+//#UC END# *494BEC6A038Afor470F016F00CB*
+; // pas_MethodInterface
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ключевое слово метода
+//%f _pas_MethodKeyword
+: pas_MethodKeyword OBJECT IN %S
+// параметры: Modification: a-string = %1
+// возвращаемый результат: a-string
+//#UC START# *4BB0B1D202C2for470F016F00CB*
+//@ %SU_%1N
+//	[{%S%f_IsOverride()=true}{\
+ if ( ( %S %f IsOverride %( )% ) %==  true ) then
+ begin
+//	%G%f_pas_MethodKeyword(%1)\
+  %G %f pas_MethodKeyword %( %1 )% 
+//	]
+ end // if
+ else
+ begin
+//	\{iterator\} \
+  '{iterator} '
+//	[{%S{needs result}=true}{\
+  if ( ( %S get_up ( 'needs result' ) ) %==  true ) then
+  begin
+//	function\
+   'function'
+//	]\
+  end // if
+  else
+  begin
+//	procedure\
+   'procedure'
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4BB0B1D202C2for470F016F00CB*
+; // pas_MethodKeyword
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя метода
+//%f _pas_MethodName
+: pas_MethodName OBJECT IN %S
+// параметры: Modification: a-string = %1
+//#UC START# *494BD6C80075for470F016F00CB*
+//	[{%1N=f&%f_substr_from_end(%f_N(%S),1)=F}{\
+ if ( ( %1 |N ) %== 'f' AND 
+   ( ( [%f] substr_from_end %( [%f] N %( %S )% %, 1 )% ) %== 'F'  ) ) then
+ begin
+//	%S%f_pas_MethodName("")\
+  %S %f pas_MethodName %( '' )% 
+//	]
+ end // if
+ else
+ begin
+//	[{%S%f_IsOverride()=true}{\
+  if ( ( %S %f IsOverride %( )% ) %==  true ) then
+  begin
+//	%G%f_pas_MethodName(%1)\
+   %G %f pas_MethodName %( %1 )% 
+//	]\
+  end // if
+  else
+  begin
+//	%S%[inherited]f_pas_MethodName(%1)\
+   call-inherited pas_MethodName %( %1 )%
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *494BD6C80075for470F016F00CB*
+; // pas_MethodName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит параметры и результат метода
+//%f _pas_MethodParams
+: pas_MethodParams OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BE0CC0226for470F016F00CB*
+//	[{%S%f_IsOverride()=true}{\
+ if ( ( %S %f IsOverride %( )% ) %==  true ) then
+ begin
+//	%G%f_pas_MethodParams(%1)\
+  %G %f pas_MethodParams %( %1 )% 
+//	]
+ end // if
+ else
+ begin
+//	%S%f_pas_IteratorParams(%1)\
+  %S %f pas_IteratorParams %( %1 )% 
+//	}\
+ end // else
+//#UC END# *494BE0CC0226for470F016F00CB*
+; // pas_MethodParams
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for470F016F00CB*
+//	%f_pas_TypeName(%S%{Action})
+ [%f] pas_TypeName %( %S ( get_object_var ( 'Action' ) )  )% 
+//#UC END# *4947F8AD02A1for470F016F00CB*
+; // pas_TypeName
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F016F00CB*
+//#UC END# *47022CB8034Bfor470F016F00CB*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F016F00CB*
+//#UC END# *47022C88029Ffor470F016F00CB*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor470F016F00CB*
+//#UC END# *47022CCF00EAfor470F016F00CB*
+; // i.h
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F016F00CB*
+//	[{%S%f_IsOverride()=true}\
+ if ( ( %S %f IsOverride %( )% ) %==  true ) then
+ begin
+//	%S%f_pas_MethodImplementation(%P,"o")\
+  %S %f pas_MethodImplementation %( %P %, 'o' )% 
+//	]
+ end // if
+//#UC END# *470F15B800CBfor470F016F00CB*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F016F00CB*
+//	[{%S%f_IsOverride()=true}{\
+ if ( ( %S %f IsOverride %( )% ) %==  true ) then
+ begin
+//	%S%f_pas_MethodInterface(%P,"o")\
+  %S %f pas_MethodInterface %( %P %, 'o' )% 
+//	]
+ end // if
+ else
+ begin
+//	%S%f_pas_MethodInterface()\
+  %S %f pas_MethodInterface %( )% 
+//	}\
+ end // else
+//#UC END# *470F1571031Cfor470F016F00CB*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470F016F00CB*
+//#UC END# *477398E501C0for470F016F00CB*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for470F016F00CB*
+//#UC END# *55B8D28B0157for470F016F00CB*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for470F016F00CB*
+//#UC END# *55B8D2F80145for470F016F00CB*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for470F016F00CB*
+//#UC END# *55B8DD9C0301for470F016F00CB*
+; // res.cmd.pas
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Iterator::Class::element type::Attribute
+end. // <<Iterator>>
+
+implementation @ :: <<Iterator>> <<"element type">> ;
+//? Тип элемента
+//= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+//v -
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_attr.gif
+//L code_attr
+//l l
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4BAA2F1D02EA*
+//#UC END# *47022C88029Ffor4BAA2F1D02EA*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4BAA2F1D02EA*
+//#UC END# *47022CB8034Bfor4BAA2F1D02EA*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4BAA2F1D02EA*
+//#UC END# *47022CCF00EAfor4BAA2F1D02EA*
+; // i.h
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4BAA2F1D02EA*
+//#UC END# *470F1571031Cfor4BAA2F1D02EA*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4BAA2F1D02EA*
+//#UC END# *470F15B800CBfor4BAA2F1D02EA*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4BAA2F1D02EA*
+//#UC END# *477398E501C0for4BAA2F1D02EA*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4BAA2F1D02EA*
+//#UC END# *55B8D28B0157for4BAA2F1D02EA*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4BAA2F1D02EA*
+//#UC END# *55B8D2F80145for4BAA2F1D02EA*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4BAA2F1D02EA*
+//#UC END# *55B8DD9C0301for4BAA2F1D02EA*
+; // res.cmd.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4BAA2F1D02EA*
+//#UC END# *46E6D4BB0339for4BAA2F1D02EA*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4BAA2F1D02EA*
+//#UC END# *470321950119for4BAA2F1D02EA*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4BAA2F1D02EA*
+//#UC END# *470321C1038Afor4BAA2F1D02EA*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4BAA2F1D02EA*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4BAA2F1D02EA*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4BAA2F1D02EA*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4BAA2F1D02EA*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4BAA2F1D02EA*
+//#UC END# *470484D50138for4BAA2F1D02EA*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент не является параметром
+//%f _IsNotParam
+: IsNotParam OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4C766D140383for4BAA2F1D02EA*
+//	true
+ true
+//#UC END# *4C766D140383for4BAA2F1D02EA*
+; // IsNotParam
+
+
+//: Iterator::Class::in::Attribute
+end. // :: <<Iterator>> <<"element type">> ;
+
+implementation @ :: <<Iterator>> <<in>> ;
+//? Входной параметр
+//= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_attr.gif
+//L code_attr
+//l l
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4BAA436D03BD*
+//#UC END# *47022C88029Ffor4BAA436D03BD*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4BAA436D03BD*
+//#UC END# *47022CB8034Bfor4BAA436D03BD*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4BAA436D03BD*
+//#UC END# *47022CCF00EAfor4BAA436D03BD*
+; // i.h
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4BAA436D03BD*
+//#UC END# *470F1571031Cfor4BAA436D03BD*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4BAA436D03BD*
+//#UC END# *470F15B800CBfor4BAA436D03BD*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4BAA436D03BD*
+//#UC END# *477398E501C0for4BAA436D03BD*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4BAA436D03BD*
+//#UC END# *55B8D28B0157for4BAA436D03BD*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4BAA436D03BD*
+//#UC END# *55B8D2F80145for4BAA436D03BD*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4BAA436D03BD*
+//#UC END# *55B8DD9C0301for4BAA436D03BD*
+; // res.cmd.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4BAA436D03BD*
+//#UC END# *46E6D4BB0339for4BAA436D03BD*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4BAA436D03BD*
+//#UC END# *470321950119for4BAA436D03BD*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4BAA436D03BD*
+//#UC END# *470321C1038Afor4BAA436D03BD*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4BAA436D03BD*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4BAA436D03BD*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4BAA436D03BD*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4BAA436D03BD*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4BAA436D03BD*
+//#UC END# *470484D50138for4BAA436D03BD*
+; // wiki_up_add_gen
+
+
+//: Iterator::Class::index type::Attribute
+end. // :: <<Iterator>> <<in>> ;
+
+implementation @ :: <<Iterator>> <<"index type">> ;
+//? Тип индекса
+//= ClassBaseGenerator::MDAGenerator
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4BC3191F03A1*
+//#UC END# *47022C88029Ffor4BC3191F03A1*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4BC3191F03A1*
+//#UC END# *47022CB8034Bfor4BC3191F03A1*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4BC3191F03A1*
+//#UC END# *47022CCF00EAfor4BC3191F03A1*
+; // i.h
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4BC3191F03A1*
+//#UC END# *470F1571031Cfor4BC3191F03A1*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4BC3191F03A1*
+//#UC END# *470F15B800CBfor4BC3191F03A1*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4BC3191F03A1*
+//#UC END# *477398E501C0for4BC3191F03A1*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4BC3191F03A1*
+//#UC END# *55B8D28B0157for4BC3191F03A1*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4BC3191F03A1*
+//#UC END# *55B8D2F80145for4BC3191F03A1*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4BC3191F03A1*
+//#UC END# *55B8DD9C0301for4BC3191F03A1*
+; // res.cmd.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4BC3191F03A1*
+//#UC END# *46E6D4BB0339for4BC3191F03A1*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4BC3191F03A1*
+//#UC END# *470321950119for4BC3191F03A1*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4BC3191F03A1*
+//#UC END# *470321C1038Afor4BC3191F03A1*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4BC3191F03A1*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4BC3191F03A1*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4BC3191F03A1*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4BC3191F03A1*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4BC3191F03A1*
+//#UC END# *470484D50138for4BC3191F03A1*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент не является параметром
+//%f _IsNotParam
+: IsNotParam OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4C766D140383for4BC3191F03A1*
+//	true
+ true
+//#UC END# *4C766D140383for4BC3191F03A1*
+; // IsNotParam
+
+
+//: Iterator::Class::result type::Attribute
+end. // :: <<Iterator>> <<"index type">> ;
+
+implementation @ :: <<Iterator>> <<"result type">> ;
+//= ClassBaseGenerator::MDAGenerator
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor546C958701E5*
+//#UC END# *47022C88029Ffor546C958701E5*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor546C958701E5*
+//#UC END# *47022CB8034Bfor546C958701E5*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor546C958701E5*
+//#UC END# *47022CCF00EAfor546C958701E5*
+; // i.h
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor546C958701E5*
+//#UC END# *470F1571031Cfor546C958701E5*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor546C958701E5*
+//#UC END# *470F15B800CBfor546C958701E5*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for546C958701E5*
+//#UC END# *477398E501C0for546C958701E5*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for546C958701E5*
+//#UC END# *55B8D28B0157for546C958701E5*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for546C958701E5*
+//#UC END# *55B8D2F80145for546C958701E5*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for546C958701E5*
+//#UC END# *55B8DD9C0301for546C958701E5*
+; // res.cmd.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for546C958701E5*
+//#UC END# *46E6D4BB0339for546C958701E5*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for546C958701E5*
+//#UC END# *470321950119for546C958701E5*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor546C958701E5*
+//#UC END# *470321C1038Afor546C958701E5*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for546C958701E5*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for546C958701E5*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor546C958701E5*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor546C958701E5*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for546C958701E5*
+//#UC END# *470484D50138for546C958701E5*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент не является параметром
+//%f _IsNotParam
+: IsNotParam OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4C766D140383for546C958701E5*
+//	true
+ true
+//#UC END# *4C766D140383for546C958701E5*
+; // IsNotParam
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Iterator>> <<"result type">> ;
+

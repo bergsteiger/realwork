@@ -1,0 +1,76 @@
+//////////////////////////////////////////////////////////////////////////////////
+// EvdModifier
+//////////////////////////////////////////////////////////////////////////////////
+
+: EvdModifier::Class
+? Модификатор атрибутов тега
+? Определяет набор своств для вызова модификатора
+< *::Class,*::Category
+/$ S
+/$ s
+$ C 5,200,120
+$ l 5,190,100
+$ f 5,190,100
+
+v +
+a ra
+
+%t _constraint
+c                              {}
+r {%Gx=true}: {%SS не может ни от кого наследоваться. }
+/r {<{}{%GS!=UMLPrimitive&%GS!=EvdModifier&%GS!=Enum}{C}>!=0}: {%SS должен наследоваться от Атома, Перечисления или от примитивного типа}
+r {%Sa=abstract&%Zx=false}: {абстрактный Тэг должен быть специализирован}
+/r {%ax=false}: {%SS ни кем не используется}
+
+L code_evd_tag
+
+%f _wiki_up_print
+
+%f _wiki_up_add_gen
+
++ wiki
+= Servant::Class;wiki
+
+/+ evd.pas
+/	#%f_evd_TagVar(%S) := Result%t_evd_DefineAtom(%S);
+
+: EvdModifier::Class::Attribute
+v +
+l al
+? Атрибут который не будет модифицирован
+T
+/
+/p Stored:b=true ? определяет персистентность связи
+/p Default ? определяет значение атрибута по умолчанию
+/p NeedMarkModified:b=false ? Определяет - меняется ли модифицированность документа при изменении этого атрибута.
+/p EmptyMapping=-2 ? Определяет идентификатор вложенного тега от которого берется значение атрибута, если такового нет у родителя.
+/
+/%t _constraint
+/c                              {}
+/r {%TS!=UMLPrimitive&%TS!=EvdModifier&%TS!=Enum}: {Тэг может содержать только другие Тэги, Перечисления или примитивные типы}
+
+L code_attr
+
+%f _wiki_child_kind 
+	attr
+
+//////////////////////////////////////////////////////////////////////////////////
+: EvdModifier::Class::Operation
+? Метод модификатора, который будет вызван у описания тега
+T
+/e
+/A const|cached|const,cached
+a a
+/a raf
+v +
+/v -#+
+/m t
+/p debug log:b=false ? включает генерацию вывода в лог обращений данному методу
+L code_const_method
+
+/%t _constraint
+/c                                                                               {}
+/r {%Ss=cached&%SS!=chg&%SS!=oneway,chg&%SS!=static}: {const function cant return non const cached value}
+
+%f _wiki_child_kind
+	method

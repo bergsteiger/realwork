@@ -1,0 +1,420 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Servant
+//////////////////////////////////////////////////////////////////////////////////
+
+: TestServant::Class::uses::ClassDependency
+? Использование
+? Определяет что сервант (источник) использует указанный объект (цель) каким-либо образом (в том числе создает его через фабрики, есль цель - интерфейс).
+? НА основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+
+: TestServant::Class::friend::ClassDependency
+? Друг
+? Определяет что сервант (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+
+: TestServant::Class
+$ C 155,218,137
+? Реализация интерфейса теста
+? Класс реализации какого-либо интерфейса теста. Тоже что и обычный сервант
+< *::Category, Valuetype::Class, Interface::Class, Servant::Class, UMLPrimitive::Class
+< Iterator::Class, Const Iterator::Class
+< GuiControl::Class, Dialog::Class, PropertySheet::Class, PropertyPage::Class, ComInterface::Class, ComServant::Class
+< Actor::Class, UserNeeds::Class, Feature::Class, UseCase::Class
+< EvdTag::Class
+< EvdStruct::Class
+< EvdAtom::Class
+
+p Servant Pool=none|obj|mem ? определяет Пулл используемый для создания экземпляров серванта. obj - PoolObjectManager (объектный пулл - кеширует сами экземпляры объектов); mem - PoolMemoryManager (пул памяти - кеширует память под объекты)
+p singleton:b=false ? определяет что сервант является синглетоном
+p debug log:b=false ? включает генерацию вывода в лог обращений ко всем методам серванта
+p local supervisor:b=false ? определяет что данный сервант имет доуступ ко всем закрытым частям других классов своего пакета
+p Factory default impl:b=true ? включает генерацию дефолтной реализации фабричных методов - вызов напрямую перенаправляется в соответствующий конструктор серванта. При включенной данной опции наличее не дефолтных на моделе запрещенно, вместо этого все конструкторы будут генериться а основе сигнатуры фабричных методов.
+p Factory auto reg:b=true ? 
+p Factory key ? опеределяет строковый идентификатор для фабрики данного серванта (используется для МНОЖЕСТВЕННЫХ фабрик)
+p Check need break automatically:b=true ? Проверять необходимость прерывать выполнение теста автоматически (будет сгенерен соответствующий код)
+d 1
+a arf
+W
++ h
+F class %SN;
+O %SN.h
+# ../t0_h_header
+	%f_set_var(SELF,S)
+	%f_std_inc(%S)
+	[{"<{}{"%AM"="Set::Class"}{C}>"!="0"}\#include \<set\>
+	][{"<{}{"%AM"="Map::Class"|"%AM"="MultiMap::Class"}{C}>"!="0"}\#include \<map\>
+	][{"<{}{"%AM"="Vector::Class"}{C}>"!="0"}\#include \<vector\>
+	][{"<{}{"%AM"="HashMap::Class"}{C}>"!="0"}\#include \<hash_map\>
+	][{"%S{singleton}"="true"|"%S{Servant Pool}"="obj"}\#include "ace/Singleton.h"
+	][{"%S{Servant Pool}"="mem"}\#include "shared/Core/mng/PoolMemoryManager.h"
+	][{"%S{Servant Pool}"="obj"}\#include "shared/Core/mng/PoolObjectManager.h"
+	]<\#include %f_dump_include_path(%wL,%w)
+	>
+	\#include "GTF/GTFLib/impl/GTFImpl/TestBase.h"
+	%U[{_CUSTOM_INCLUDES}
+	]
+	[
+	// forward decls for defined friends
+	<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}%a%PP\t%a%PF
+	%a%Pp
+	>]
+	%SP
+	<%WF
+	>[{"%SK"!="ParameterizedClass"}class %SN; // self forward Var
+	typedef ::Core::Var\<%SN\> %SN_var;
+	typedef ::Core::Var\<const %SN\> %SN_cvar;
+	]
+	[{"%f_has_factory_methods(%S)"="true"}class %SN_factory;
+	
+	]%f_docs(%S)\
+	[{"%SK"="ParameterizedClass"}template \<<{, }{"%CC"="Parameter"}%CX>\>%f_set_var(INST,S)	
+	]class %SN:
+		<{\n	, }virtual public %f_type(%R)>[{"%Rx"="true"}\n\t, ][{"<{}{"%GM"="Servant::Class"}{C}>"="0"&"%SM"!="SimpleClass::Class"}virtual public GTFLib::GTFImpl::TestBase, virtual public ::Core::RefCountObjectBase[{"%Gx"="true"}\n\t, ]]<{\n\t, }virtual public %f_type(%G)[{"%GK"="ParameterizedClass"}\<%G<{, }{"%CC"="Parameter"}%f_set_var(TPL_ARG,C)%{INST}<{}{"%CN"="%{TPL_ARG}N"}[{"%C%TN"="void"}{%C%TN}%CN]>>\>]>
+	{
+		SET_OBJECT_COUNTER (%SN)
+	protected:
+		// implemented method from GTFLib::GTFInterfaces::ITest
+		// Метод, запускающий выполнение теста. Собственно в этом методе 
+		// и сосредоточена вся логика теста.
+		virtual void run (GTFLib::GTFInterfaces::ITestController* controller);
+
+		// Возвращает имя теста. Предполагалось, что все реализации интерфейса 
+		// ITest будут регистрироваться в фабрике по имени, возможно теперь 
+		// это не понадобится, т.к ввели сереотип multi factory.
+		virtual const GTFLib::GTFInterfaces::TestID get_name () const;
+	[{"%f_has_factory_methods(%S)"="true"}	friend class %SN_factory; // self factory
+	[protected:
+		// factories id
+		struct FactoriesID {
+	<%f_fctr_id(%R)%R<{}{"%ga"="abstract"}%f_fctr_id(%g)>><%g<%f_fctr_id(%R)%R<{}{"%ga"="abstract"}%f_fctr_id(%g)>>>	};
+	]][<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}	friend class %f_type(%a%P); // defined friend
+	>][%P<{}{"%CU"!="%{SELF}U"&"%C{local supervisor}"="true"}	friend class %f_type(%C);// local supervisor
+	>][{"%S{Servant Pool}"="mem"}
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// Memory Pool initialization
+	private:
+		typedef ::Core::PoolMemoryManager\<%SN\> Pool%SN;
+		void* operator new (size_t cs) {              
+			return Pool%SN::instance()-\>malloc(cs);
+		}
+		void operator delete (void* p) {
+			Pool%SN::instance()-\>free(p);
+		}
+	][{"%S{Servant Pool}"="obj"}
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// Object Pool initialization
+	private:
+		typedef ::Core::PoolObjectManager\<%SN\> Pool%SN;
+		friend class Pool%SN;
+		typedef ACE_Singleton \<Pool%SN, ACE_SYNCH_RECURSIVE_MUTEX\> Pool%SNSing;
+		
+		inline static %SN* make_object_ () {
+			return Pool%SNSing::instance()-\>new_obj();
+		}
+		
+		inline static void release_object_ (%SN* obj) {
+			Pool%SNSing::instance()-\>release_obj(obj);
+		}
+		
+		[{"%Sa"!="final"}virtual ]void init ();
+		
+		[{"%Sa"!="final"}virtual ]void done ();
+	][{"%S{singleton}"="true"}
+		// singleton declaration
+		typedef ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+		friend class ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declorations
+	protected:
+	<{}{"%CC"="Class"}
+	%CX
+	>
+	][//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	[public:<{}{"%CS"="static"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][protected:<{}{"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][private:<{}{"%CS"="static"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]]//////////////////////////////////////////////////////////////////////////////////////////
+	// constructors and destructor
+	[{"%Sa"!="final"}{private}protected]:[{"%S{Factory default impl}"="true"}
+	<%f_fctr_def_impl_h(%R)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_h(%g)>><%g<%f_fctr_def_impl_h(%R)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_h(%g)>>>\
+	][{"%S{Factory default impl}"="false"|"%rx"="false"}
+	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+	
+	>]#	virtual ~%SN ();
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self methods
+	[public:
+	<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][protected:
+	<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][private:
+	<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]][//////////////////////////////////////////////////////////////////////////////////////////
+	// self data
+	private:
+	<{\n\n}{"%CC"="Attribute"}{Sn}%CX>
+	]%f_self_data_accessor(%S)\
+	[%f_dump_cpp_derrived_impl_h(%S)
+	]	
+	//external attributes name
+	public:
+	<%f_set_var(CUR_R_TYPE,R)%R<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)[{"%f_use_type(%{CUR_R_TYPE},"external")"="true"}
+	[%f_dump_test_attr_doc(%{CUR_R_TYPE},"external")		
+	]\tstatic const char* %f_to_upper(%f_to_omg(%{CUR_TYPE}N));		
+	]>>>	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// TestCommonModelParams data accessors
+	protected:			
+	<%f_set_var(CUR_R_TYPE,R)%R<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)[{"%f_use_type(%{CUR_R_TYPE},"incoming")"="true"}
+		%t_ret(%{CUR_TYPE}) get_%f_to_omg(%{CUR_TYPE}N) ();
+	]>>><%f_set_var(CUR_R_TYPE,R)%R<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)[{"%f_use_type(%{CUR_R_TYPE},"outgoing")"="true"}
+		void set_%f_to_omg(%{CUR_TYPE}N) (%t_arg(%{CUR_TYPE},"inout") %f_to_omg(%{CUR_TYPE}N));
+	]>>>
+	%U[
+	]
+	}; // class %SN
+	
+	%Sp
+# ../t0_h_footer
+
++ cpp
+P
+O %SN.[{"%SK"!="ParameterizedClass"}{i.h}cpp]
+# ../t0_header
+	%f_set_var(SELF,S)
+	%f_std_inc(%S)
+	\#include \<boost/current_function.hpp\>
+	[{"%SK"!="ParameterizedClass"}\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	]<{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	][\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+	]>][{"%S{local supervisor}"="true"}%f_set_var(SELF,S)// as local supervisor
+	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+	>]<{}{"%PM"="TestSuite::Category"}\#include %f_dump_include_path(%f_with_gen_id(h,%PL),%P)>	//include for TestModelCommonParams
+	%U[{_CUSTOM_INCLUDES}
+	]
+	
+	%SP
+	%U[
+	]
+	
+	//external attributes name initialization
+	<%f_set_var(CUR_R_TYPE,R)%R<{}{"%PM"="TestSuite::Category"}%P<%I<{}{"%AM"!="TestInterface::Class"&"%AC"="Class"}%f_set_var(CUR_TYPE,A)[{"%f_use_type(%{CUR_R_TYPE},"external")"="true"}
+	const char* %{SELF}N::%f_to_upper(%f_to_omg(%{CUR_TYPE}N)) = "%{CUR_TYPE}N";			
+	]>>>>
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested implementation<{}{"%CC"="Class"}%CX>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	<{}{"%CS"="static"}
+	%CX
+	>
+	]
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// constructors and destructor[{"%S{Factory default impl}"="true"}<%f_fctr_def_impl_cpp(%R)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_cpp(%g)>><%g<%f_fctr_def_impl_cpp(%R)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_cpp(%g)>>>]\
+	[{"%S{Factory default impl}"="false"|"%rx"="false"}[<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+	
+	%CX>]][
+	
+	%f_servant_cpp_destructor_cpp(%S)
+	][{"%S{Servant Pool}"="obj"}
+	void %SN::init () {
+		%U[{_INIT_BODY}
+		]
+	}
+	
+	void %SN::done () {
+		%U[{_DONE_BODY}
+		]
+	}
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self implementation<{}{"%CC"="Operation"&"%CS"!="factory"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"}{Sn}
+	
+	%CX>]
+	
+	%f_dump_cpp_derrived_impl_cpp(%S)
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// implemented GTFLib::GTFInterfaces::ITest methods
+	void %SN::run (GTFLib::GTFInterfaces::ITestController* controller) {
+		
+		GDS_ASSERT (controller);
+		[{"%S{Check need break automatically}"="true"}if (!controller-\>should_stop ()) ]{
+			<%f_set_var(CUR_R_TYPE,R)%R<{}{"%PM"="TestSuite::Category"}%P<%I<{}{"%AM"!="TestInterface::Class"&"%AC"="Class"}%f_set_var(CUR_TYPE,A)[{"%f_use_type(%{CUR_R_TYPE},"external")"="true"}[{%f_check_if_type(%{CUR_TYPE}%G,"a-string")=true}%f_var(%{CUR_TYPE}) %f_to_omg(%{CUR_TYPE}N) = this-\>get_properties ().get_string (%f_to_upper(%f_to_omg(%{CUR_TYPE}N))[, "%f_initial_value(%{CUR_R_TYPE},"external")"]);
+			][{%f_check_if_type(%{CUR_TYPE}%G,"long")=true|%f_check_if_type(%s%T,"unsigned long")=true|%f_check_if_type(%s%T,"int")=true}%t_ret(%{CUR_TYPE}) %f_to_omg(%{CUR_TYPE}N) = (%t_ret(%{CUR_TYPE}))this-\>get_properties ().get_long (%f_to_upper(%f_to_omg(%{CUR_TYPE}N))[, %f_initial_value(%{CUR_R_TYPE},"external")]);
+			][{%f_check_if_type(%{CUR_TYPE}%G,"boolean")=true}%t_ret(%{CUR_TYPE}) %f_to_omg(%{CUR_TYPE}N) = (%t_ret(%{CUR_TYPE}))this-\>get_properties ().get_bool (%f_to_upper(%f_to_omg(%{CUR_TYPE}N))[, %f_initial_value(%{CUR_R_TYPE},"external")]);
+			]]>>
+			>>%U[{_CUSTOM_REALIZE}		
+			controller-\>send_notify_to_all (GTFLib::GTFInterfaces::NT_START_TEST, const_cast\<%SN*\> (this), BOOST_CURRENT_FUNCTION);
+			//TODO: some actions here
+			controller-\>send_notify_to_all (GTFLib::GTFInterfaces::NT_END_TEST, const_cast\<%SN*\> (this), BOOST_CURRENT_FUNCTION);
+			]		
+		}
+	}	
+	const GTFLib::GTFInterfaces::TestID %SN::get_name () const {
+		std::string ret ("%SN");
+		return ret;
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// TestCommonModelParams data accessors implementation
+	<%f_set_var(CUR_R_TYPE,R)%R<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)[{"%f_use_type(%{CUR_R_TYPE},"incoming")"="true"}
+		%t_ret(%{CUR_TYPE}) %{SERV}N::get_%f_to_omg(%{CUR_TYPE}N) () {
+			return TestModelCommonParamsSingleton::instance ()-\>get_%f_to_omg(%{CUR_TYPE}N) ();
+		}
+	]>>><%f_set_var(CUR_R_TYPE,R)%R<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)[{"%f_use_type(%{CUR_R_TYPE},"outgoing")"="true"}
+		void %{SERV}N::set_%f_to_omg(%{CUR_TYPE}N) (%t_arg(%{CUR_TYPE},"inout") %f_to_omg(%{CUR_TYPE}N)) {
+			return TestModelCommonParamsSingleton::instance ()-\>set_%f_to_omg(%{CUR_TYPE}N) (%f_to_omg(%{CUR_TYPE}N));
+		}
+	]>>>	
+	%Sp
+# ../t0_footer
+
++ fctr.h
+O %SN_factory.h
+# ../t0_h_header
+	%f_std_inc(%S)
+	\#include "GTF/GTFLib/GTFInterfaces/GTFInterfacesFactories.h"	
+	
+	<\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%RW),%R)
+	><%G<\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%RW),%R)
+	>>
+
+	%U[{_CUSTOM_INCLUDES}
+	]
+	
+	%SP	
+	class %SN_factory : virtual public ::Core::RefCountObjectBase, virtual public GTFLib::GTFInterfaces::ITestAbstractFactory {
+	public:
+		%SN_factory ();
+		
+		void registrate_me (Core::Root::FactoryPriority priority) /*throw (Core::Root::DuplicatedFactoryKey)*/;
+	
+	protected:
+		const char* %SN_factory::key () const;
+		virtual GTFLib::GTFInterfaces::ITest* create ();
+	<%f_set_var(INT,R)%f_dump_fctr_h(%R)%R<{}{"%ga"="abstract"}%f_dump_fctr_h(%g)>>\
+	<%g<%f_set_var(INT,R)%f_dump_fctr_h(%R)%R<{}{"%ga"="abstract"}%f_dump_fctr_h(%g)>>>
+	};
+	
+	typedef ::Core::Var\<%SN_factory\> %SN_factory_var;
+	%Sp
+# ../t0_h_footer
+	
+
++ fctr.cpp
+O %SN_factory.cpp
+# ../t0_header
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%R)
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+		
+	%U[{_CUSTOM_INCLUDES}
+	]
+	
+	%SP
+	%SN_factory::%SN_factory () {
+	}
+	
+	void %SN_factory::registrate_me (Core::Root::FactoryPriority priority) /*throw (Core::Root::DuplicatedFactoryKey)*/ {
+		GTFLib::GTFInterfaces::ITestFactoryManager::register_factory (this, 0);
+	}
+	
+	GTFLib::GTFInterfaces::ITest* %SN_factory::create () {
+		return new %SN ();
+	}
+	
+	const char* %SN_factory::key () const {
+		return "[{"%S{Factory key}"!=""}{%SN}%S{Factory key}]";
+	}%f_set_var(SERV,S)<%f_set_var(INT,R)%f_dump_fctr_cpp(%R)%R<{}{"%ga"="abstract"}%f_dump_fctr_cpp(%g)>>\
+	<%g<%f_set_var(INT,R)%f_dump_fctr_cpp(%R)%R<{}{"%ga"="abstract"}%f_dump_fctr_cpp(%g)>>>
+	
+	%Sp
+# ../t0_footer
+	
++ xml	
+	\t\<test name="%SN" %f_set_var(INT,R)%f_attr_to_xml(%R,"external") /\>\n
+
+: TestServant::Class::Parameter
+= Servant::Class::Parameter
+
+: TestServant::Class::Operation
+= Servant::Class::Operation
+
+: TestServant::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: TestServant::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: TestServant::Class::static::Operation
+= Servant::Class::static::Operation
+
+: TestServant::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: TestServant::Class::Attribute
+= Servant::Class::Attribute
+
+: TestServant::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: TestServant::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+f _testservant_cpp_attribute_h
+	%f_docs(%S)\
+	[{"%SS"!="writeonly"}	[{"%{SERV}a"!="final"|"%{SERV}M"="Interface::Class"}virtual ][{"%t_simple(%T)"="false"}const ]%f_iget_attr(%S) get_%SN () const[
+			/*throw (<{, }%E<%NN::>%EN>)*/];[{"%f_beaccessed(%S)"="true"}
+		[{"%{SERV}a"!="final"|"%{SERV}M"="Interface::Class"}virtual ]%f_iget_attr(%S) get_%SN ()[
+			/*throw (<{, }%E<%NN::>%EN>)*/];]][{"%SS"!="readonly"}
+		[{"%{SERV}a"!="final"|"%{SERV}M"="Interface::Class"}virtual ]void set_%SN (%f_iset_attr(%S) %SN)[
+			/*throw (<{, }%e<%NN::>%eN>)*/];]
+
+f _testservant_cpp_attribute_cpp
+	%f_docs(%S)\
+	[{"%SS"!="writeonly"}%f_templ_header(%{SERV})[{"%t_simple(%T)"="false"}const ]%f_iget_attr(%S) %{SERV}N%f_templ_footer(%{SERV})::get_%SN () const[
+		/*throw (<{, }%E<%NN::>%EN>)*/
+	] {%f_start_func_cpp(%S,"%{SERV}N::get_%SN const")%f_set_var(OP,S)
+		[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_GET]}
+		]}return m_%SN;]
+	}[{"%f_beaccessed(%S)"="true"}
+	
+	%f_templ_header(%{SERV})%f_iget_attr(%S) %{SERV}N%f_templ_footer(%{SERV})::get_%SN ()[
+		/*throw (<{, }%E<%NN::>%EN>)*/
+	] {%f_start_func_cpp(%S,"%{SERV}N::get_%SN")
+		return const_cast\<%f_iget_attr(%S)\>(((const %{SERV}N*)this)-\>get_%SN ());
+	}
+	]
+	][{"%SS"!="readonly"}%f_templ_header(%{SERV})void %{SERV}N%f_templ_footer(%{SERV})::set_%SN (%f_iset_attr(%S) %SN)[
+		/*throw (<{, }%e<%NN::>%eN>)*/
+	] {%f_start_func_cpp(%S,"%{SERV}N::set_%SN")
+		[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_SET]}
+		assert (0);
+		]}m_%SN = %SN;]
+	}]
+
+f _initial_value     
+	[<{}{"%CM"="TestInterface::Class::%1N::Attribute"&"%C%TU"="%{CUR_TYPE}U"}%f_init(%C)>]
+
+f _attr_to_xml
+	[<{ }{"%CM"="TestInterface::Class::%1N::Attribute"}%C%TN="%CI">]

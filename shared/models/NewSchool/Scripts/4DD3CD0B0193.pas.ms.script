@@ -1,0 +1,64 @@
+// Tl3GraphicContainerStack 4DD3CD0B0193 SimpleClass Class
+
+INCLUDE '4773DBBD000D.pas.ms.script'
+
+FORWARD ME_4DD3CD0B0193
+
+FORWARD ME_4DD3CE6A00B7
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4DD3CE73019D
+ CONST UID '4DD3CE73019D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4DD3CE73019D DoIt
+
+: ME_4DD3CE6A00B7
+ CONST UID '4DD3CE6A00B7'
+ CONST Name 'Exists'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4DD3CE73019D // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_4DD3CE6A00B7 Exists
+
+: ME_4DD3CD0B0193
+ CONST UID '4DD3CD0B0193'
+ CONST Name 'Tl3GraphicContainerStack'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4773DBBD000D // Tl3ObjectList
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4DD3CE6A00B7 // Exists
+ ]
+ ; // Operations
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '18.05.2011 17:43'
+
+ @SELF
+; // ME_4DD3CD0B0193 Tl3GraphicContainerStack

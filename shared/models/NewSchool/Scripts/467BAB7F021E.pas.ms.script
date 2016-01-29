@@ -1,0 +1,4329 @@
+// vcmExternalInterfaces 467BAB7F021E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_467BAB7F021E
+
+: ME_4683C8750015
+ CONST UID '4683C8750015'
+ CONST Name 'TvcmControlID'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип идентификатора управляющего элемента.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4683C8750015 TvcmControlID
+
+: ME_4683C8CE021C
+ CONST UID '4683C8CE021C'
+ CONST Name 'IvcmNode'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4683C8CE021C IvcmNode
+
+FORWARD ME_4683CBFD032D
+
+: ME_4683CC0E0269
+ CONST UID '4683CC0E0269'
+ CONST Name 'vcm_stContent'
+ CONST Class class_Attribute
+ %SUMMARY 'данные формы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CBFD032D // TvcmStateType
+ ;
+
+ref; // ME_4683CC0E0269 vcm_stContent
+
+: ME_4683CC21027A
+ CONST UID '4683CC21027A'
+ CONST Name 'vcm_stPosition'
+ CONST Class class_Attribute
+ %SUMMARY 'меняется только позиция в данных формы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CBFD032D // TvcmStateType
+ ;
+
+ref; // ME_4683CC21027A vcm_stPosition
+
+: ME_4683CBFD032D
+ CONST UID '4683CBFD032D'
+ CONST Name 'TvcmStateType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Определяет тип хранимой для формы информации в элементе истории.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683CC0E0269 // vcm_stContent
+ ME_4683CC21027A // vcm_stPosition
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683CBFD032D TvcmStateType
+
+: ME_4683C9AC03AC
+ CONST UID '4683C9AC03AC'
+ CONST Name 'IvcmCString'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Атомарная строка с поддержкой различных кодировок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4683C9110178' '467823B7002C.pas.ms.script' // IafwCString
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4683C9AC03AC IvcmCString
+
+FORWARD ME_4683CC350070
+
+: ME_4683CC4B03A7
+ CONST UID '4683CC4B03A7'
+ CONST Name 'vcm_otButton'
+ CONST Class class_Attribute
+ %SUMMARY 'Операция стандартного вида. Представляется как'#13#10'                       строка в меню и кнопка на панели инструментов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CC4B03A7 vcm_otButton
+
+: ME_4683CC6302A7
+ CONST UID '4683CC6302A7'
+ CONST Name 'vcm_otShortCut'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CC6302A7 vcm_otShortCut
+
+: ME_4683CC6E00EA
+ CONST UID '4683CC6E00EA'
+ CONST Name 'vcm_otTextButton'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CC6E00EA vcm_otTextButton
+
+: ME_4683CC7A0124
+ CONST UID '4683CC7A0124'
+ CONST Name 'vcm_otButtonCombo'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CC7A0124 vcm_otButtonCombo
+
+: ME_4683CC8902C0
+ CONST UID '4683CC8902C0'
+ CONST Name 'vcm_otButtonPopup'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CC8902C0 vcm_otButtonPopup
+
+: ME_4683CC970392
+ CONST UID '4683CC970392'
+ CONST Name 'vcm_otCheck'
+ CONST Class class_Attribute
+ %SUMMARY 'Операция с возможностью пометки. Отображается как'#13#10'                       строка с пометкой в меню.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CC970392 vcm_otCheck
+
+: ME_4683CCB40041
+ CONST UID '4683CCB40041'
+ CONST Name 'vcm_otRadio'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CCB40041 vcm_otRadio
+
+: ME_4683CCBD0333
+ CONST UID '4683CCBD0333'
+ CONST Name 'vcm_otEdit'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CCBD0333 vcm_otEdit
+
+: ME_4683CCC902C2
+ CONST UID '4683CCC902C2'
+ CONST Name 'vcm_otTyper'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CCC902C2 vcm_otTyper
+
+: ME_4683CCD3030C
+ CONST UID '4683CCD3030C'
+ CONST Name 'vcm_otCombo'
+ CONST Class class_Attribute
+ %SUMMARY 'Выпадающий список строк. В меню отображается как'#13#10'                       подменю, на панели инструментов - как выпадающий'#13#10'                       список строк.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CCD3030C vcm_otCombo
+
+: ME_4683CCFF01F7
+ CONST UID '4683CCFF01F7'
+ CONST Name 'vcm_otMenuButtonCombo'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CCFF01F7 vcm_otMenuButtonCombo
+
+: ME_4683CD0B01F4
+ CONST UID '4683CD0B01F4'
+ CONST Name 'vcm_otEditCombo'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CD0B01F4 vcm_otEditCombo
+
+: ME_4683CD14019D
+ CONST UID '4683CD14019D'
+ CONST Name 'vcm_otFontName'
+ CONST Class class_Attribute
+ %SUMMARY 'Выпадающий список имен шрифтов. В меню'#13#10'                       отображается как подменю, на панели инструментов -'#13#10'                       как выпадающий список строк.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CD14019D vcm_otFontName
+
+: ME_4683CD2600BD
+ CONST UID '4683CD2600BD'
+ CONST Name 'vcm_otFontSize'
+ CONST Class class_Attribute
+ %SUMMARY 'Выпадающий список размеров шрифтов. В меню'#13#10'                       отображается как подменю, на панели инструментов -'#13#10'                       как выпадающий список строк.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CD2600BD vcm_otFontSize
+
+: ME_4683CD350140
+ CONST UID '4683CD350140'
+ CONST Name 'vcm_otDate'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CD350140 vcm_otDate
+
+: ME_4683CD4001E6
+ CONST UID '4683CD4001E6'
+ CONST Name 'vcm_otInternal'
+ CONST Class class_Attribute
+ %SUMMARY 'Внутренняя операции сущности. Не отображается ни в меню, ни на панели инструментов. Кандидат на удаление' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CD4001E6 vcm_otInternal
+
+: ME_4683CD5D0379
+ CONST UID '4683CD5D0379'
+ CONST Name 'vcm_otHidden'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CC350070 // TvcmOperationType
+ ;
+
+ref; // ME_4683CD5D0379 vcm_otHidden
+
+: ME_4683CC350070
+ CONST UID '4683CC350070'
+ CONST Name 'TvcmOperationType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип представления операции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683CC4B03A7 // vcm_otButton
+ ME_4683CC6302A7 // vcm_otShortCut
+ ME_4683CC6E00EA // vcm_otTextButton
+ ME_4683CC7A0124 // vcm_otButtonCombo
+ ME_4683CC8902C0 // vcm_otButtonPopup
+ ME_4683CC970392 // vcm_otCheck
+ ME_4683CCB40041 // vcm_otRadio
+ ME_4683CCBD0333 // vcm_otEdit
+ ME_4683CCC902C2 // vcm_otTyper
+ ME_4683CCD3030C // vcm_otCombo
+ ME_4683CCFF01F7 // vcm_otMenuButtonCombo
+ ME_4683CD0B01F4 // vcm_otEditCombo
+ ME_4683CD14019D // vcm_otFontName
+ ME_4683CD2600BD // vcm_otFontSize
+ ME_4683CD350140 // vcm_otDate
+ ME_4683CD4001E6 // vcm_otInternal
+ ME_4683CD5D0379 // vcm_otHidden
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683CC350070 TvcmOperationType
+
+: ME_4683CDED0141
+ CONST UID '4683CDED0141'
+ CONST Name 'TvcmString'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "force usage" true
+
+ref; // ME_4683CDED0141 TvcmString
+
+FORWARD ME_467C166B007B
+
+: ME_4683E78A0135
+ CONST UID '4683E78A0135'
+ CONST Name 'theState'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
+ ;
+
+ref; // ME_4683E78A0135 theState
+
+: ME_4683E78A0186
+ CONST UID '4683E78A0186'
+ CONST Name 'aStateType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CBFD032D // TvcmStateType
+ ;
+
+ref; // ME_4683E78A0186 aStateType
+
+: ME_4683E75B01D8
+ CONST UID '4683E75B01D8'
+ CONST Name 'SaveState'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_467C166B007B // IvcmState
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_4683E78A0135 // theState
+ ME_4683E78A0186 // aStateType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4683E75B01D8 SaveState
+
+: ME_4683E7AE0047
+ CONST UID '4683E7AE0047'
+ CONST Name 'theState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
+ ;
+
+ref; // ME_4683E7AE0047 theState
+
+: ME_4683E7AE0097
+ CONST UID '4683E7AE0097'
+ CONST Name 'aStateType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CBFD032D // TvcmStateType
+ ;
+
+ref; // ME_4683E7AE0097 aStateType
+
+: ME_4683E79D0331
+ CONST UID '4683E79D0331'
+ CONST Name 'LoadState'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_467C166B007B // IvcmState
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_4683E7AE0047 // theState
+ ME_4683E7AE0097 // aStateType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4683E79D0331 LoadState
+
+: ME_467C166B007B
+ CONST UID '467C166B007B'
+ CONST GUID '16FBEE65-C63E-4EE1-849C-6C81E4F6B7D4'
+ CONST Name 'IvcmState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_4683E75B01D8 // SaveState
+ ME_4683E79D0331 // LoadState
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_467C166B007B IvcmState
+
+FORWARD ME_4683CE020336
+
+: ME_4683CE1C0026
+ CONST UID '4683CE1C0026'
+ CONST Name 'vcm_dsNotDone'
+ CONST Class class_Attribute
+ %SUMMARY 'не выполнено' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE1C0026 vcm_dsNotDone
+
+: ME_4683CE2901FB
+ CONST UID '4683CE2901FB'
+ CONST Name 'vcm_dsDisabled'
+ CONST Class class_Attribute
+ %SUMMARY 'операция запрещена (Disabled)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE2901FB vcm_dsDisabled
+
+: ME_4683CE380384
+ CONST UID '4683CE380384'
+ CONST Name 'vcm_dsInvalidParams'
+ CONST Class class_Attribute
+ %SUMMARY 'неверный набор параметров' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE380384 vcm_dsInvalidParams
+
+: ME_4683CE47037B
+ CONST UID '4683CE47037B'
+ CONST Name 'vcm_dsSkippedInTest'
+ CONST Class class_Attribute
+ %SUMMARY 'разрежен OnTest - сейчас такого нету' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE47037B vcm_dsSkippedInTest
+
+: ME_4683CE540239
+ CONST UID '4683CE540239'
+ CONST Name 'vcm_dsExcludedInUserType'
+ CONST Class class_Attribute
+ %SUMMARY 'запрещена в данном UserType''у' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE540239 vcm_dsExcludedInUserType
+
+: ME_4683CE6102A6
+ CONST UID '4683CE6102A6'
+ CONST Name 'vcm_dsNoAggregate'
+ CONST Class class_Attribute
+ %SUMMARY 'нет агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE6102A6 vcm_dsNoAggregate
+
+: ME_4683CE710263
+ CONST UID '4683CE710263'
+ CONST Name 'vcm_dsNoEntity'
+ CONST Class class_Attribute
+ %SUMMARY 'нет такой сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE710263 vcm_dsNoEntity
+
+: ME_4683CE7E0348
+ CONST UID '4683CE7E0348'
+ CONST Name 'vcm_dsFormInClose'
+ CONST Class class_Attribute
+ %SUMMARY 'форма закрывается' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE7E0348 vcm_dsFormInClose
+
+: ME_4683CE8C0077
+ CONST UID '4683CE8C0077'
+ CONST Name 'vcm_dsNullContainer'
+ CONST Class class_Attribute
+ %SUMMARY 'операция пришла псевдо-контейнеру' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE8C0077 vcm_dsNullContainer
+
+: ME_4683CE980197
+ CONST UID '4683CE980197'
+ CONST Name 'vcm_dsDone'
+ CONST Class class_Attribute
+ %SUMMARY 'операция выполнена' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CE020336 // TvcmDoneStatus
+ ;
+
+ref; // ME_4683CE980197 vcm_dsDone
+
+: ME_4683CE020336
+ CONST UID '4683CE020336'
+ CONST Name 'TvcmDoneStatus'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Статус выполнения операции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683CE1C0026 // vcm_dsNotDone
+ ME_4683CE2901FB // vcm_dsDisabled
+ ME_4683CE380384 // vcm_dsInvalidParams
+ ME_4683CE47037B // vcm_dsSkippedInTest
+ ME_4683CE540239 // vcm_dsExcludedInUserType
+ ME_4683CE6102A6 // vcm_dsNoAggregate
+ ME_4683CE710263 // vcm_dsNoEntity
+ ME_4683CE7E0348 // vcm_dsFormInClose
+ ME_4683CE8C0077 // vcm_dsNullContainer
+ ME_4683CE980197 // vcm_dsDone
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683CE020336 TvcmDoneStatus
+
+: ME_4683CF0601DB
+ CONST UID '4683CF0601DB'
+ CONST Name 'IvcmStrings'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список строк.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4683CEE9034C' '467823B7002C.pas.ms.script' // IafwStrings
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4683CF0601DB IvcmStrings
+
+FORWARD ME_4683CF3401F5
+
+: ME_4683CF4902C8
+ CONST UID '4683CF4902C8'
+ CONST Name 'rEnID'
+ CONST Class class_Attribute
+ %SUMMARY 'Сущность.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CF3401F5 // TvcmOPID
+ ;
+ : Target ME_4683C8750015 // TvcmControlID
+ ;
+
+ref; // ME_4683CF4902C8 rEnID
+
+: ME_4683CF62027E
+ CONST UID '4683CF62027E'
+ CONST Name 'rOpID'
+ CONST Class class_Attribute
+ %SUMMARY 'Операция.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CF3401F5 // TvcmOPID
+ ;
+ : Target ME_4683C8750015 // TvcmControlID
+ ;
+
+ref; // ME_4683CF62027E rOpID
+
+: ME_4683CF3401F5
+ CONST UID '4683CF3401F5'
+ CONST Name 'TvcmOPID'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор операции сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683CF4902C8 // rEnID
+ ME_4683CF62027E // rOpID
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683CF3401F5 TvcmOPID
+
+: ME_4683CEAD00CF
+ CONST UID '4683CEAD00CF'
+ CONST GUID '2F621927-A8BB-4C2D-95FB-5E4A3FF59633'
+ CONST Name 'IvcmBase'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфес. Введен для общности.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ CONST "is default ancestor" true
+
+ref; // ME_4683CEAD00CF IvcmBase
+
+FORWARD ME_4683CF84010A
+
+: ME_4683CF990146
+ CONST UID '4683CF990146'
+ CONST Name 'rMoID'
+ CONST Class class_Attribute
+ %SUMMARY 'Модуль.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CF84010A // TvcmMOPID
+ ;
+ : Target ME_4683C8750015 // TvcmControlID
+ ;
+
+ref; // ME_4683CF990146 rMoID
+
+: ME_4683CFAB03D7
+ CONST UID '4683CFAB03D7'
+ CONST Name 'rOpID'
+ CONST Class class_Attribute
+ %SUMMARY 'Операция' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CF84010A // TvcmMOPID
+ ;
+ : Target ME_4683C8750015 // TvcmControlID
+ ;
+
+ref; // ME_4683CFAB03D7 rOpID
+
+: ME_4683CF84010A
+ CONST UID '4683CF84010A'
+ CONST Name 'TvcmMOPID'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор операции модуля.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683CF990146 // rMoID
+ ME_4683CFAB03D7 // rOpID
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683CF84010A TvcmMOPID
+
+FORWARD ME_4683CFC50258
+
+: ME_4683CFCF01B2
+ CONST UID '4683CFCF01B2'
+ CONST Name 'vcm_okNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CFC50258 // TvcmOpKind
+ ;
+
+ref; // ME_4683CFCF01B2 vcm_okNone
+
+: ME_4683CFD80183
+ CONST UID '4683CFD80183'
+ CONST Name 'vcm_okModule'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CFC50258 // TvcmOpKind
+ ;
+
+ref; // ME_4683CFD80183 vcm_okModule
+
+: ME_4683CFE00333
+ CONST UID '4683CFE00333'
+ CONST Name 'vcm_okEntity'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683CFC50258 // TvcmOpKind
+ ;
+
+ref; // ME_4683CFE00333 vcm_okEntity
+
+: ME_4683CFC50258
+ CONST UID '4683CFC50258'
+ CONST Name 'TvcmOpKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683CFCF01B2 // vcm_okNone
+ ME_4683CFD80183 // vcm_okModule
+ ME_4683CFE00333 // vcm_okEntity
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683CFC50258 TvcmOpKind
+
+FORWARD ME_4683D016009C
+
+: ME_4683D0460394
+ CONST UID '4683D0460394'
+ CONST Name 'rMID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683D016009C // TvcmOpSelector
+ ;
+ : Target ME_4683CF84010A // TvcmMOPID
+ ;
+ CONST Value 'vcm_okModule'
+ : ValueType ME_4683CF84010A // TvcmMOPID
+ ;
+
+ref; // ME_4683D0460394 rMID
+
+: ME_4683D05F0278
+ CONST UID '4683D05F0278'
+ CONST Name 'rID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683D016009C // TvcmOpSelector
+ ;
+ : Target ME_4683CF3401F5 // TvcmOPID
+ ;
+ CONST Value 'vcm_okEntity'
+ : ValueType ME_4683CF3401F5 // TvcmOPID
+ ;
+
+ref; // ME_4683D05F0278 rID
+
+: ME_4683D016009C
+ CONST UID '4683D016009C'
+ CONST Name 'TvcmOpSelector'
+ CONST Class class_Class
+ : Stereotype st_Union ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683D0460394 // rMID
+ ME_4683D05F0278 // rID
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need less" false
+
+ref; // ME_4683D016009C TvcmOpSelector
+
+FORWARD ME_4683D1660352
+
+FORWARD ME_476A58160282
+
+: ME_476A58350253
+ CONST UID '476A58350253'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_476A58160282 // Op
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_476A58350253 anIndex
+
+: ME_476A58160282
+ CONST UID '476A58160282'
+ CONST Name 'Op'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D1660352 // IvcmItems
+ ;
+ : Target ME_4683D016009C // TvcmOpSelector
+ ;
+ : Attributes
+   @ ( ME_476A58350253 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" true
+
+ref; // ME_476A58160282 Op
+
+: ME_476946F802B5
+ CONST UID '476946F802B5'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683D016009C // TvcmOpSelector
+ ;
+
+ref; // ME_476946F802B5 anOp
+
+: ME_476946F802EB
+ CONST UID '476946F802EB'
+ CONST Name 'aCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST Value 'nil'
+ : ValueType ME_4683C9AC03AC // IvcmCString
+ ;
+
+ref; // ME_476946F802EB aCap
+
+: ME_47694717035F
+ CONST UID '47694717035F'
+ CONST Name 'anObj'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_47694717035F anObj
+
+: ME_4683D28C000C
+ CONST UID '4683D28C000C'
+ CONST Name 'AddOp'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683D1660352 // IvcmItems
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ : Parameters
+   @ ( ME_476946F802B5 // anOp
+ ME_476946F802EB // aCap
+ ME_47694717035F // anObj
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4683D28C000C AddOp
+
+: ME_476948420083
+ CONST UID '476948420083'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CF3401F5 // TvcmOPID
+ ;
+
+ref; // ME_476948420083 anOp
+
+: ME_4769484200B1
+ CONST UID '4769484200B1'
+ CONST Name 'aCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST Value 'nil'
+ : ValueType ME_4683C9AC03AC // IvcmCString
+ ;
+
+ref; // ME_4769484200B1 aCap
+
+: ME_4769484200DE
+ CONST UID '4769484200DE'
+ CONST Name 'anObj'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4769484200DE anObj
+
+: ME_4769482C0254
+ CONST UID '4769482C0254'
+ CONST Name 'AddOp'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683D1660352 // IvcmItems
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_476948420083 // anOp
+ ME_4769484200B1 // aCap
+ ME_4769484200DE // anObj
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4769482C0254 AddOp
+
+: ME_47694860003B
+ CONST UID '47694860003B'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CF84010A // TvcmMOPID
+ ;
+
+ref; // ME_47694860003B anOp
+
+: ME_47694860006B
+ CONST UID '47694860006B'
+ CONST Name 'aCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST Value 'nil'
+ : ValueType ME_4683C9AC03AC // IvcmCString
+ ;
+
+ref; // ME_47694860006B aCap
+
+: ME_47694860009B
+ CONST UID '47694860009B'
+ CONST Name 'anObj'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_47694860009B anObj
+
+: ME_47694850030A
+ CONST UID '47694850030A'
+ CONST Name 'AddOp'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683D1660352 // IvcmItems
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_47694860003B // anOp
+ ME_47694860006B // aCap
+ ME_47694860009B // anObj
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47694850030A AddOp
+
+: ME_46A4746A03AF_ME_4683D1660352
+ CONST UID '46A4746A03AF'
+ CONST Name 'Items'
+ : Original WL 'ME_46A4746A03AF' '4677FBA70343.pas.ms.script' // Items
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ CONST "pm" false
+ref; // ME_46A4746A03AF_ME_4683D1660352 Items
+
+: ME_46A475C4004F_ME_4683D1660352
+ CONST UID '46A475C4004F'
+ CONST Name 'Assign'
+ : Original WL 'ME_46A475C4004F' '4677FBA70343.pas.ms.script' // Assign
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A475C4004F_ME_4683D1660352 Assign
+
+: ME_46A475D701AB_ME_4683D1660352
+ CONST UID '46A475D701AB'
+ CONST Name 'Assign'
+ : Original WL 'ME_46A475D701AB' '4677FBA70343.pas.ms.script' // Assign
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A475D701AB_ME_4683D1660352 Assign
+
+: ME_46A476330239_ME_4683D1660352
+ CONST UID '46A476330239'
+ CONST Name 'Items'
+ : Original WL 'ME_46A476330239' '4677FBA70343.pas.ms.script' // Items
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ CONST "pm" false
+ref; // ME_46A476330239_ME_4683D1660352 Items
+
+: ME_46A4766202D7_ME_4683D1660352
+ CONST UID '46A4766202D7'
+ CONST Name 'EQ'
+ : Original WL 'ME_46A4766202D7' '4677FBA70343.pas.ms.script' // EQ
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4766202D7_ME_4683D1660352 EQ
+
+: ME_46A476780329_ME_4683D1660352
+ CONST UID '46A476780329'
+ CONST Name 'Add'
+ : Original WL 'ME_46A476780329' '4677FBA70343.pas.ms.script' // Add
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A476780329_ME_4683D1660352 Add
+
+: ME_46A476940116_ME_4683D1660352
+ CONST UID '46A476940116'
+ CONST Name 'Add'
+ : Original WL 'ME_46A476940116' '4677FBA70343.pas.ms.script' // Add
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A476940116_ME_4683D1660352 Add
+
+: ME_46A476BB0086_ME_4683D1660352
+ CONST UID '46A476BB0086'
+ CONST Name 'Add'
+ : Original WL 'ME_46A476BB0086' '4677FBA70343.pas.ms.script' // Add
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A476BB0086_ME_4683D1660352 Add
+
+: ME_46A477DB0365_ME_4683D1660352
+ CONST UID '46A477DB0365'
+ CONST Name 'AddObject'
+ : Original WL 'ME_46A477DB0365' '4677FBA70343.pas.ms.script' // AddObject
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A477DB0365_ME_4683D1660352 AddObject
+
+: ME_46A477FC036D_ME_4683D1660352
+ CONST UID '46A477FC036D'
+ CONST Name 'AddObject'
+ : Original WL 'ME_46A477FC036D' '4677FBA70343.pas.ms.script' // AddObject
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A477FC036D_ME_4683D1660352 AddObject
+
+: ME_46A4781E0285_ME_4683D1660352
+ CONST UID '46A4781E0285'
+ CONST Name 'Insert'
+ : Original WL 'ME_46A4781E0285' '4677FBA70343.pas.ms.script' // Insert
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4781E0285_ME_4683D1660352 Insert
+
+: ME_46A4784A001C_ME_4683D1660352
+ CONST UID '46A4784A001C'
+ CONST Name 'Insert'
+ : Original WL 'ME_46A4784A001C' '4677FBA70343.pas.ms.script' // Insert
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4784A001C_ME_4683D1660352 Insert
+
+: ME_46A4791301A1_ME_4683D1660352
+ CONST UID '46A4791301A1'
+ CONST Name 'BeginUpdate'
+ : Original WL 'ME_46A4791301A1' '4677FBA70343.pas.ms.script' // BeginUpdate
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4791301A1_ME_4683D1660352 BeginUpdate
+
+: ME_46A4791F01D1_ME_4683D1660352
+ CONST UID '46A4791F01D1'
+ CONST Name 'EndUpdate'
+ : Original WL 'ME_46A4791F01D1' '4677FBA70343.pas.ms.script' // EndUpdate
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4791F01D1_ME_4683D1660352 EndUpdate
+
+: ME_46A4792C014D_ME_4683D1660352
+ CONST UID '46A4792C014D'
+ CONST Name 'Clear'
+ : Original WL 'ME_46A4792C014D' '4677FBA70343.pas.ms.script' // Clear
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4792C014D_ME_4683D1660352 Clear
+
+: ME_46A4793D01C0_ME_4683D1660352
+ CONST UID '46A4793D01C0'
+ CONST Name 'Delete'
+ : Original WL 'ME_46A4793D01C0' '4677FBA70343.pas.ms.script' // Delete
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4793D01C0_ME_4683D1660352 Delete
+
+: ME_46A4795603B0_ME_4683D1660352
+ CONST UID '46A4795603B0'
+ CONST Name 'IndexOf'
+ : Original WL 'ME_46A4795603B0' '4677FBA70343.pas.ms.script' // IndexOf
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4795603B0_ME_4683D1660352 IndexOf
+
+: ME_46A4797400F7_ME_4683D1660352
+ CONST UID '46A4797400F7'
+ CONST Name 'IndexOf'
+ : Original WL 'ME_46A4797400F7' '4677FBA70343.pas.ms.script' // IndexOf
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A4797400F7_ME_4683D1660352 IndexOf
+
+: ME_46A479900075_ME_4683D1660352
+ CONST UID '46A479900075'
+ CONST Name 'IndexOf'
+ : Original WL 'ME_46A479900075' '4677FBA70343.pas.ms.script' // IndexOf
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ref; // ME_46A479900075_ME_4683D1660352 IndexOf
+
+: ME_46A479B2034F_ME_4683D1660352
+ CONST UID '46A479B2034F'
+ CONST Name 'Count'
+ : Original WL 'ME_46A479B2034F' '4677FBA70343.pas.ms.script' // Count
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ CONST "pm" false
+ref; // ME_46A479B2034F_ME_4683D1660352 Count
+
+: ME_46A479EC02F8_ME_4683D1660352
+ CONST UID '46A479EC02F8'
+ CONST Name 'Item'
+ : Original WL 'ME_46A479EC02F8' '4677FBA70343.pas.ms.script' // Item
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ CONST "pm" false
+ref; // ME_46A479EC02F8_ME_4683D1660352 Item
+
+: ME_46A47A5B035C_ME_4683D1660352
+ CONST UID '46A47A5B035C'
+ CONST Name 'ItemC'
+ : Original WL 'ME_46A47A5B035C' '4677FBA70343.pas.ms.script' // ItemC
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ CONST "is default" true
+ CONST "pm" false
+ref; // ME_46A47A5B035C_ME_4683D1660352 ItemC
+
+: ME_46A47AF8022B_ME_4683D1660352
+ CONST UID '46A47AF8022B'
+ CONST Name 'Objects'
+ : Original WL 'ME_46A47AF8022B' '4677FBA70343.pas.ms.script' // Objects
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ CONST "pm" false
+ref; // ME_46A47AF8022B_ME_4683D1660352 Objects
+
+: ME_46A47B1C0255_ME_4683D1660352
+ CONST UID '46A47B1C0255'
+ CONST Name 'Sorted'
+ : Original WL 'ME_46A47B1C0255' '4677FBA70343.pas.ms.script' // Sorted
+ ;
+ : Implementor ME_4683D1660352 // IvcmItems
+ ;
+ CONST "pm" true
+ref; // ME_46A47B1C0255_ME_4683D1660352 Sorted
+
+: ME_4683D1660352
+ CONST UID '4683D1660352'
+ CONST GUID 'EB667E06-C2AA-46F4-B112-5AA6A8E5D849'
+ CONST Name 'IvcmItems'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список элементов для выбора.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( ME_4683CF0601DB // IvcmStrings
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_476A58160282 // Op
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4683D28C000C // AddOp
+ ME_4769482C0254 // AddOp
+ ME_47694850030A // AddOp
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46A4746A03AF_ME_4683D1660352 // Items
+ ME_46A475C4004F_ME_4683D1660352 // Assign
+ ME_46A475D701AB_ME_4683D1660352 // Assign
+ ME_46A476330239_ME_4683D1660352 // Items
+ ME_46A4766202D7_ME_4683D1660352 // EQ
+ ME_46A476780329_ME_4683D1660352 // Add
+ ME_46A476940116_ME_4683D1660352 // Add
+ ME_46A476BB0086_ME_4683D1660352 // Add
+ ME_46A477DB0365_ME_4683D1660352 // AddObject
+ ME_46A477FC036D_ME_4683D1660352 // AddObject
+ ME_46A4781E0285_ME_4683D1660352 // Insert
+ ME_46A4784A001C_ME_4683D1660352 // Insert
+ ME_46A4791301A1_ME_4683D1660352 // BeginUpdate
+ ME_46A4791F01D1_ME_4683D1660352 // EndUpdate
+ ME_46A4792C014D_ME_4683D1660352 // Clear
+ ME_46A4793D01C0_ME_4683D1660352 // Delete
+ ME_46A4795603B0_ME_4683D1660352 // IndexOf
+ ME_46A4797400F7_ME_4683D1660352 // IndexOf
+ ME_46A479900075_ME_4683D1660352 // IndexOf
+ ME_46A479B2034F_ME_4683D1660352 // Count
+ ME_46A479EC02F8_ME_4683D1660352 // Item
+ ME_46A47A5B035C_ME_4683D1660352 // ItemC
+ ME_46A47AF8022B_ME_4683D1660352 // Objects
+ ME_46A47B1C0255_ME_4683D1660352 // Sorted
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4683D1660352 IvcmItems
+
+: ME_47F9C2600388
+ CONST UID '47F9C2600388'
+ CONST Name 'IvcmTree'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_47F9C2600388 IvcmTree
+
+: ME_4683D6BC0266
+ CONST UID '4683D6BC0266'
+ CONST Name 'IvcmFont'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Шрифт.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4683D6A002DE' '467823B7002C.pas.ms.script' // IafwFont
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4683D6BC0266 IvcmFont
+
+FORWARD ME_4683D6ED03C5
+
+: ME_4683D70D02EF
+ CONST UID '4683D70D02EF'
+ CONST Name 'vcm_ofEnabled'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683D6ED03C5 // TvcmOpFlag
+ ;
+
+ref; // ME_4683D70D02EF vcm_ofEnabled
+
+: ME_4683D715028C
+ CONST UID '4683D715028C'
+ CONST Name 'vcm_ofVisible'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683D6ED03C5 // TvcmOpFlag
+ ;
+
+ref; // ME_4683D715028C vcm_ofVisible
+
+: ME_4683D71D03D8
+ CONST UID '4683D71D03D8'
+ CONST Name 'vcm_ofChecked'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683D6ED03C5 // TvcmOpFlag
+ ;
+
+ref; // ME_4683D71D03D8 vcm_ofChecked
+
+: ME_4683D726004C
+ CONST UID '4683D726004C'
+ CONST Name 'vcm_ofDefault'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683D6ED03C5 // TvcmOpFlag
+ ;
+
+ref; // ME_4683D726004C vcm_ofDefault
+
+: ME_4683D6ED03C5
+ CONST UID '4683D6ED03C5'
+ CONST Name 'TvcmOpFlag'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Свойство операции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683D70D02EF // vcm_ofEnabled
+ ME_4683D715028C // vcm_ofVisible
+ ME_4683D71D03D8 // vcm_ofChecked
+ ME_4683D726004C // vcm_ofDefault
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683D6ED03C5 TvcmOpFlag
+
+FORWARD ME_4683D617036D
+
+: ME_476948E60097
+ CONST UID '476948E60097'
+ CONST Name 'PlainLevel'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683D617036D // IvcmNodes
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_476948E60097 PlainLevel
+
+: ME_47694900005D
+ CONST UID '47694900005D'
+ CONST Name 'ShowRoot'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683D617036D // IvcmNodes
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_47694900005D ShowRoot
+
+: ME_4683D67D025B
+ CONST UID '4683D67D025B'
+ CONST Name 'Current'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Текущая нода.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D617036D // IvcmNodes
+ ;
+ : Target ME_4683C8CE021C // IvcmNode
+ ;
+ CONST "pm" false
+
+ref; // ME_4683D67D025B Current
+
+: ME_47DF6F55013C
+ CONST UID '47DF6F55013C'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_ref
+ : Parent ME_4683D617036D // IvcmNodes
+ ;
+ : Target ME_4683C8CE021C // IvcmNode
+ ;
+
+ref; // ME_47DF6F55013C ItemType
+
+: ME_47F9C46D00CA
+ CONST UID '47F9C46D00CA'
+ CONST Name 'Tree'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D617036D // IvcmNodes
+ ;
+ : Target ME_47F9C2600388 // IvcmTree
+ ;
+ CONST "pm" false
+
+ref; // ME_47F9C46D00CA Tree
+
+: ME_47DF781300A5
+ CONST UID '47DF781300A5'
+ CONST Name 'Clear'
+ CONST Class class_Operation
+ %SUMMARY 'Очищает список.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683D617036D // IvcmNodes
+ ;
+
+ref; // ME_47DF781300A5 Clear
+
+: ME_47DF79F1030C
+ CONST UID '47DF79F1030C'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683C8CE021C // IvcmNode
+ ;
+
+ref; // ME_47DF79F1030C anItem
+
+: ME_47DF79DF01EF
+ CONST UID '47DF79DF01EF'
+ CONST Name 'Add'
+ CONST Class class_Operation
+ %SUMMARY 'Добавляет ноду в список.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683D617036D // IvcmNodes
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_47DF79F1030C // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47DF79DF01EF Add
+
+: ME_47D8233603DD_ME_4683D617036D
+ CONST UID '47D8233603DD'
+ CONST Name 'First'
+ : Original WL 'ME_47D8233603DD' '47D810610398.pas.ms.script' // First
+ ;
+ : Implementor ME_4683D617036D // IvcmNodes
+ ;
+ CONST "pm" true
+ref; // ME_47D8233603DD_ME_4683D617036D First
+
+: ME_47D823570315_ME_4683D617036D
+ CONST UID '47D823570315'
+ CONST Name 'Last'
+ : Original WL 'ME_47D823570315' '47D810610398.pas.ms.script' // Last
+ ;
+ : Implementor ME_4683D617036D // IvcmNodes
+ ;
+ CONST "pm" true
+ref; // ME_47D823570315_ME_4683D617036D Last
+
+: ME_47D8248802AD_ME_4683D617036D
+ CONST UID '47D8248802AD'
+ CONST Name 'Items'
+ : Original WL 'ME_47D8248802AD' '47D810610398.pas.ms.script' // Items
+ ;
+ : Implementor ME_4683D617036D // IvcmNodes
+ ;
+ CONST "is default" true
+ CONST "pm" true
+ref; // ME_47D8248802AD_ME_4683D617036D Items
+
+: ME_47E381E203D2_ME_4683D617036D
+ CONST UID '47E381E203D2'
+ CONST Name 'Empty'
+ : Original WL 'ME_47E381E203D2' '47D810610398.pas.ms.script' // Empty
+ ;
+ : Implementor ME_4683D617036D // IvcmNodes
+ ;
+ CONST "pm" true
+ref; // ME_47E381E203D2_ME_4683D617036D Empty
+
+: ME_4BB08B8902F2_ME_4683D617036D
+ CONST UID '4BB08B8902F2'
+ CONST Name 'Count'
+ : Original WL 'ME_4BB08B8902F2' '47D810610398.pas.ms.script' // Count
+ ;
+ : Implementor ME_4683D617036D // IvcmNodes
+ ;
+ CONST "pm" true
+ref; // ME_4BB08B8902F2_ME_4683D617036D Count
+
+: ME_4683D617036D
+ CONST UID '4683D617036D'
+ CONST GUID '087BD09D-2EBD-4305-9300-A7872C1B0AE9'
+ CONST Name 'IvcmNodes'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ноды для построения меню операции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Implements
+   @ ( WL 'ME_47D821AE00EF' '47D810610398.pas.ms.script' // Ml3List
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_476948E60097 // PlainLevel
+ ME_47694900005D // ShowRoot
+ ME_4683D67D025B // Current
+ ME_47DF6F55013C // ItemType
+ ME_47F9C46D00CA // Tree
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_47DF781300A5 // Clear
+ ME_47DF79DF01EF // Add
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47D8233603DD_ME_4683D617036D // First
+ ME_47D823570315_ME_4683D617036D // Last
+ ME_47D8248802AD_ME_4683D617036D // Items
+ ME_47E381E203D2_ME_4683D617036D // Empty
+ ME_4BB08B8902F2_ME_4683D617036D // Count
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4683D617036D IvcmNodes
+
+FORWARD ME_4683DF4D0237
+
+: ME_476A5C880011
+ CONST UID '476A5C880011'
+ CONST Name 'Control'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ;
+ : Target WL 'ME_477274350075' '46A5E026007E.pas.ms.script' // TComponent
+ ;
+ CONST "pm" false
+
+ref; // ME_476A5C880011 Control
+
+: ME_4683DFC50384
+ CONST UID '4683DFC50384'
+ CONST Name 'Target'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ;
+ : Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
+ ;
+ CONST "pm" false
+
+ref; // ME_4683DFC50384 Target
+
+: ME_4683DFDF0060
+ CONST UID '4683DFDF0060'
+ CONST Name 'OperationType'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'тип операции для которой эти операции сформированны.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ;
+ : Target ME_4683CC350070 // TvcmOperationType
+ ;
+ CONST "pm" true
+
+ref; // ME_4683DFDF0060 OperationType
+
+: ME_4683E0010178
+ CONST UID '4683E0010178'
+ CONST Name 'Done'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Признак обработанности списка параметров.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4683E0010178 Done
+
+: ME_4683E02900DF
+ CONST UID '4683E02900DF'
+ CONST Name 'DoneStatus'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Признак обработанности списка параметров.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ;
+ : Target ME_4683CE020336 // TvcmDoneStatus
+ ;
+ CONST "pm" false
+
+ref; // ME_4683E02900DF DoneStatus
+
+: ME_476A5CBD03A9
+ CONST UID '476A5CBD03A9'
+ CONST Name 'CallControl'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_476A5CBD03A9 CallControl
+
+: ME_4683DF4D0237
+ CONST UID '4683DF4D0237'
+ CONST GUID '3431206A-F8DC-4E11-A486-446A7AF873C2'
+ CONST Name 'IvcmBaseParamsPrim'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_476A5C880011 // Control
+ ME_4683DFC50384 // Target
+ ME_4683DFDF0060 // OperationType
+ ME_4683E0010178 // Done
+ ME_4683E02900DF // DoneStatus
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_476A5CBD03A9 // CallControl
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4683DF4D0237 IvcmBaseParamsPrim
+
+FORWARD ME_4683D7430328
+
+: ME_4683DBF4007C
+ CONST UID '4683DBF4007C'
+ CONST Name 'ImageIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" false
+
+ref; // ME_4683DBF4007C ImageIndex
+
+: ME_4683DC0802F2
+ CONST UID '4683DC0802F2'
+ CONST Name 'ShortCut'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" false
+
+ref; // ME_4683DC0802F2 ShortCut
+
+: ME_47696233006A
+ CONST UID '47696233006A'
+ CONST Name 'SelectedString'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" false
+
+ref; // ME_47696233006A SelectedString
+
+: ME_4683D79B00AE
+ CONST UID '4683D79B00AE'
+ CONST Name 'SubItems'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target ME_4683D1660352 // IvcmItems
+ ;
+ CONST "pm" false
+
+ref; // ME_4683D79B00AE SubItems
+
+: ME_4683D7C20321
+ CONST UID '4683D7C20321'
+ CONST Name 'SubNodes'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target ME_4683D617036D // IvcmNodes
+ ;
+ CONST "pm" false
+
+ref; // ME_4683D7C20321 SubNodes
+
+: ME_4683D7EC015F
+ CONST UID '4683D7EC015F'
+ CONST Name 'Font'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Шрифт.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target ME_4683D6BC0266 // IvcmFont
+ ;
+ CONST "pm" false
+
+ref; // ME_4683D7EC015F Font
+
+: ME_4683D8290012
+ CONST UID '4683D8290012'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" false
+
+ref; // ME_4683D8290012 Caption
+
+: ME_4683D8620227
+ CONST UID '4683D8620227'
+ CONST Name 'Hint'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" false
+
+ref; // ME_4683D8620227 Hint
+
+: ME_4683D89603C6
+ CONST UID '4683D89603C6'
+ CONST Name 'LongHint'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" false
+
+ref; // ME_4683D89603C6 LongHint
+
+FORWARD ME_4683D8DF01AE
+
+: ME_4683D8F10359
+ CONST UID '4683D8F10359'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683D8DF01AE // Flag
+ ;
+ : Target ME_4683D6ED03C5 // TvcmOpFlag
+ ;
+
+ref; // ME_4683D8F10359 anIndex
+
+: ME_4683D8DF01AE
+ CONST UID '4683D8DF01AE'
+ CONST Name 'Flag'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Флаги операции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Attributes
+   @ ( ME_4683D8F10359 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_4683D8DF01AE Flag
+
+: ME_476962A9037A
+ CONST UID '476962A9037A'
+ CONST Name 'HasSubItems'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_476962A9037A HasSubItems
+
+: ME_4769631A03AE
+ CONST UID '4769631A03AE'
+ CONST Name 'HasSubNodes'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4769631A03AE HasSubNodes
+
+: ME_476963340066
+ CONST UID '476963340066'
+ CONST Name 'HasFont'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683D7430328 // IvcmOpParams
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_476963340066 HasFont
+
+: ME_4683D7430328
+ CONST UID '4683D7430328'
+ CONST GUID '953E889F-A018-40FA-A616-B62B351050F2'
+ CONST Name 'IvcmOpParams'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры операции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683DBF4007C // ImageIndex
+ ME_4683DC0802F2 // ShortCut
+ ME_47696233006A // SelectedString
+ ME_4683D79B00AE // SubItems
+ ME_4683D7C20321 // SubNodes
+ ME_4683D7EC015F // Font
+ ME_4683D8290012 // Caption
+ ME_4683D8620227 // Hint
+ ME_4683D89603C6 // LongHint
+ ME_4683D8DF01AE // Flag
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_476962A9037A // HasSubItems
+ ME_4769631A03AE // HasSubNodes
+ ME_476963340066 // HasFont
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4683D7430328 IvcmOpParams
+
+FORWARD ME_4683E0D103D0
+
+: ME_4683E0EB0279
+ CONST UID '4683E0EB0279'
+ CONST Name 'ItemIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" false
+
+ref; // ME_4683E0EB0279 ItemIndex
+
+: ME_4683E14202F6
+ CONST UID '4683E14202F6'
+ CONST Name 'CurrentNode'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ : Target ME_4683C8CE021C // IvcmNode
+ ;
+ CONST "pm" false
+
+ref; // ME_4683E14202F6 CurrentNode
+
+: ME_4683E17A0102
+ CONST UID '4683E17A0102'
+ CONST Name 'SelectedString'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" false
+
+ref; // ME_4683E17A0102 SelectedString
+
+: ME_4683DFC50384_ME_4683E0D103D0
+ CONST UID '4683DFC50384'
+ CONST Name 'Target'
+ : Original ME_4683DFC50384 // Target
+ ;
+ : Implementor ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ CONST "pm" false
+ref; // ME_4683DFC50384_ME_4683E0D103D0 Target
+
+: ME_4683DFDF0060_ME_4683E0D103D0
+ CONST UID '4683DFDF0060'
+ CONST Name 'OperationType'
+ : Original ME_4683DFDF0060 // OperationType
+ ;
+ : Implementor ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ CONST "pm" true
+ref; // ME_4683DFDF0060_ME_4683E0D103D0 OperationType
+
+: ME_4683E0010178_ME_4683E0D103D0
+ CONST UID '4683E0010178'
+ CONST Name 'Done'
+ : Original ME_4683E0010178 // Done
+ ;
+ : Implementor ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ CONST "pm" false
+ref; // ME_4683E0010178_ME_4683E0D103D0 Done
+
+: ME_4683E02900DF_ME_4683E0D103D0
+ CONST UID '4683E02900DF'
+ CONST Name 'DoneStatus'
+ : Original ME_4683E02900DF // DoneStatus
+ ;
+ : Implementor ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ CONST "pm" false
+ref; // ME_4683E02900DF_ME_4683E0D103D0 DoneStatus
+
+: ME_476A5C880011_ME_4683E0D103D0
+ CONST UID '476A5C880011'
+ CONST Name 'Control'
+ : Original ME_476A5C880011 // Control
+ ;
+ : Implementor ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ CONST "pm" false
+ref; // ME_476A5C880011_ME_4683E0D103D0 Control
+
+: ME_476A5CBD03A9_ME_4683E0D103D0
+ CONST UID '476A5CBD03A9'
+ CONST Name 'CallControl'
+ : Original ME_476A5CBD03A9 // CallControl
+ ;
+ : Implementor ME_4683E0D103D0 // IvcmRealExecuteParams
+ ;
+ref; // ME_476A5CBD03A9_ME_4683E0D103D0 CallControl
+
+: ME_4683E0D103D0
+ CONST UID '4683E0D103D0'
+ CONST GUID '66CFE94A-511B-4E02-A128-494F407ADACF'
+ CONST Name 'IvcmRealExecuteParams'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4683E0EB0279 // ItemIndex
+ ME_4683E14202F6 // CurrentNode
+ ME_4683E17A0102 // SelectedString
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4683DFC50384_ME_4683E0D103D0 // Target
+ ME_4683DFDF0060_ME_4683E0D103D0 // OperationType
+ ME_4683E0010178_ME_4683E0D103D0 // Done
+ ME_4683E02900DF_ME_4683E0D103D0 // DoneStatus
+ ME_476A5C880011_ME_4683E0D103D0 // Control
+ ME_476A5CBD03A9_ME_4683E0D103D0 // CallControl
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4683E0D103D0 IvcmRealExecuteParams
+
+: ME_4683E1AD0047
+ CONST UID '4683E1AD0047'
+ CONST Name 'IvcmExecuteParamsPrim'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( ME_4683E0D103D0 // IvcmRealExecuteParams
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "force usage" true
+
+ref; // ME_4683E1AD0047 IvcmExecuteParamsPrim
+
+FORWARD ME_4683E07E004B
+
+: ME_4683E0A70036
+ CONST UID '4683E0A70036'
+ CONST Name 'Op'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4683E07E004B // IvcmTestParamsPrim
+ ;
+ : Target ME_4683D7430328 // IvcmOpParams
+ ;
+ CONST "pm" false
+
+ref; // ME_4683E0A70036 Op
+
+: ME_4683DFC50384_ME_4683E07E004B
+ CONST UID '4683DFC50384'
+ CONST Name 'Target'
+ : Original ME_4683DFC50384 // Target
+ ;
+ : Implementor ME_4683E07E004B // IvcmTestParamsPrim
+ ;
+ CONST "pm" false
+ref; // ME_4683DFC50384_ME_4683E07E004B Target
+
+: ME_4683DFDF0060_ME_4683E07E004B
+ CONST UID '4683DFDF0060'
+ CONST Name 'OperationType'
+ : Original ME_4683DFDF0060 // OperationType
+ ;
+ : Implementor ME_4683E07E004B // IvcmTestParamsPrim
+ ;
+ CONST "pm" true
+ref; // ME_4683DFDF0060_ME_4683E07E004B OperationType
+
+: ME_4683E0010178_ME_4683E07E004B
+ CONST UID '4683E0010178'
+ CONST Name 'Done'
+ : Original ME_4683E0010178 // Done
+ ;
+ : Implementor ME_4683E07E004B // IvcmTestParamsPrim
+ ;
+ CONST "pm" false
+ref; // ME_4683E0010178_ME_4683E07E004B Done
+
+: ME_4683E02900DF_ME_4683E07E004B
+ CONST UID '4683E02900DF'
+ CONST Name 'DoneStatus'
+ : Original ME_4683E02900DF // DoneStatus
+ ;
+ : Implementor ME_4683E07E004B // IvcmTestParamsPrim
+ ;
+ CONST "pm" false
+ref; // ME_4683E02900DF_ME_4683E07E004B DoneStatus
+
+: ME_476A5C880011_ME_4683E07E004B
+ CONST UID '476A5C880011'
+ CONST Name 'Control'
+ : Original ME_476A5C880011 // Control
+ ;
+ : Implementor ME_4683E07E004B // IvcmTestParamsPrim
+ ;
+ CONST "pm" false
+ref; // ME_476A5C880011_ME_4683E07E004B Control
+
+: ME_476A5CBD03A9_ME_4683E07E004B
+ CONST UID '476A5CBD03A9'
+ CONST Name 'CallControl'
+ : Original ME_476A5CBD03A9 // CallControl
+ ;
+ : Implementor ME_4683E07E004B // IvcmTestParamsPrim
+ ;
+ref; // ME_476A5CBD03A9_ME_4683E07E004B CallControl
+
+: ME_4683E07E004B
+ CONST UID '4683E07E004B'
+ CONST GUID 'BE9F2D7D-185C-4F85-BDA6-0E76C48EE574'
+ CONST Name 'IvcmTestParamsPrim'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4683E0A70036 // Op
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4683DFC50384_ME_4683E07E004B // Target
+ ME_4683DFDF0060_ME_4683E07E004B // OperationType
+ ME_4683E0010178_ME_4683E07E004B // Done
+ ME_4683E02900DF_ME_4683E07E004B // DoneStatus
+ ME_476A5C880011_ME_4683E07E004B // Control
+ ME_476A5CBD03A9_ME_4683E07E004B // CallControl
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4683E07E004B IvcmTestParamsPrim
+
+FORWARD ME_476953920354
+
+: ME_476953C201CE
+ CONST UID '476953C201CE'
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683E1AD0047 // IvcmExecuteParamsPrim
+ ;
+
+ref; // ME_476953C201CE aParams
+
+: ME_476953BA0320
+ CONST UID '476953BA0320'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_476953920354 // TvcmControlEvent
+ ;
+ : Parameters
+   @ ( ME_476953C201CE // aParams
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_476953BA0320 DoIt
+
+: ME_476953920354
+ CONST UID '476953920354'
+ CONST Name 'TvcmControlEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_476953BA0320 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_476953920354 TvcmControlEvent
+
+FORWARD ME_4683E1EC0097
+
+: ME_4683DFC50384_ME_4683E1EC0097
+ CONST UID '4683DFC50384'
+ CONST Name 'Target'
+ : Original ME_4683DFC50384 // Target
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ CONST "pm" false
+ref; // ME_4683DFC50384_ME_4683E1EC0097 Target
+
+: ME_4683DFDF0060_ME_4683E1EC0097
+ CONST UID '4683DFDF0060'
+ CONST Name 'OperationType'
+ : Original ME_4683DFDF0060 // OperationType
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ CONST "pm" true
+ref; // ME_4683DFDF0060_ME_4683E1EC0097 OperationType
+
+: ME_4683E0010178_ME_4683E1EC0097
+ CONST UID '4683E0010178'
+ CONST Name 'Done'
+ : Original ME_4683E0010178 // Done
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ CONST "pm" false
+ref; // ME_4683E0010178_ME_4683E1EC0097 Done
+
+: ME_4683E02900DF_ME_4683E1EC0097
+ CONST UID '4683E02900DF'
+ CONST Name 'DoneStatus'
+ : Original ME_4683E02900DF // DoneStatus
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ CONST "pm" false
+ref; // ME_4683E02900DF_ME_4683E1EC0097 DoneStatus
+
+: ME_4683E0EB0279_ME_4683E1EC0097
+ CONST UID '4683E0EB0279'
+ CONST Name 'ItemIndex'
+ : Original ME_4683E0EB0279 // ItemIndex
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ CONST "pm" false
+ref; // ME_4683E0EB0279_ME_4683E1EC0097 ItemIndex
+
+: ME_4683E14202F6_ME_4683E1EC0097
+ CONST UID '4683E14202F6'
+ CONST Name 'CurrentNode'
+ : Original ME_4683E14202F6 // CurrentNode
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ CONST "pm" false
+ref; // ME_4683E14202F6_ME_4683E1EC0097 CurrentNode
+
+: ME_4683E17A0102_ME_4683E1EC0097
+ CONST UID '4683E17A0102'
+ CONST Name 'SelectedString'
+ : Original ME_4683E17A0102 // SelectedString
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ CONST "pm" false
+ref; // ME_4683E17A0102_ME_4683E1EC0097 SelectedString
+
+: ME_476A5C880011_ME_4683E1EC0097
+ CONST UID '476A5C880011'
+ CONST Name 'Control'
+ : Original ME_476A5C880011 // Control
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ CONST "pm" false
+ref; // ME_476A5C880011_ME_4683E1EC0097 Control
+
+: ME_476A5CBD03A9_ME_4683E1EC0097
+ CONST UID '476A5CBD03A9'
+ CONST Name 'CallControl'
+ : Original ME_476A5CBD03A9 // CallControl
+ ;
+ : Implementor ME_4683E1EC0097 // IvcmFlexParams
+ ;
+ref; // ME_476A5CBD03A9_ME_4683E1EC0097 CallControl
+
+: ME_4683E1EC0097
+ CONST UID '4683E1EC0097'
+ CONST GUID '6824C4ED-DA13-44B7-AE30-9902632C1FBA'
+ CONST Name 'IvcmFlexParams'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры операции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( ME_4683E0D103D0 // IvcmRealExecuteParams
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4683DFC50384_ME_4683E1EC0097 // Target
+ ME_4683DFDF0060_ME_4683E1EC0097 // OperationType
+ ME_4683E0010178_ME_4683E1EC0097 // Done
+ ME_4683E02900DF_ME_4683E1EC0097 // DoneStatus
+ ME_4683E0EB0279_ME_4683E1EC0097 // ItemIndex
+ ME_4683E14202F6_ME_4683E1EC0097 // CurrentNode
+ ME_4683E17A0102_ME_4683E1EC0097 // SelectedString
+ ME_476A5C880011_ME_4683E1EC0097 // Control
+ ME_476A5CBD03A9_ME_4683E1EC0097 // CallControl
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4683E1EC0097 IvcmFlexParams
+
+FORWARD ME_47694CD40080
+
+: ME_47694CFE00F9
+ CONST UID '47694CFE00F9'
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683E07E004B // IvcmTestParamsPrim
+ ;
+
+ref; // ME_47694CFE00F9 aParams
+
+: ME_47694CF500CF
+ CONST UID '47694CF500CF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47694CD40080 // TvcmControlTestEvent
+ ;
+ : Parameters
+   @ ( ME_47694CFE00F9 // aParams
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47694CF500CF DoIt
+
+: ME_47694CD40080
+ CONST UID '47694CD40080'
+ CONST Name 'TvcmControlTestEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Вызывается в момент проверки доступности операции из главного меню' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_47694CF500CF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_47694CD40080 TvcmControlTestEvent
+
+FORWARD ME_4683E878039B
+
+: ME_476965D9011C
+ CONST UID '476965D9011C'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_476965D9011C aValue
+
+: ME_476965D302A1
+ CONST UID '476965D302A1'
+ CONST Name 'SmallToolbarSize'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E878039B // IvcmToolbarNotifier
+ ;
+ : Parameters
+   @ ( ME_476965D9011C // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_476965D302A1 SmallToolbarSize
+
+: ME_4683E878039B
+ CONST UID '4683E878039B'
+ CONST GUID '701DCDE5-10B8-4A3B-A8BF-92014A9A0100'
+ CONST Name 'IvcmToolbarNotifier'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'интерфейс используется для уведомления компонента зоны vcm_ztNavigator'#13#10'       о размере toolbar-а с маленькими иконками и компонентами TvcmDateEdit,'#13#10'       TvcmEdit.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_476965D302A1 // SmallToolbarSize
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4683E878039B IvcmToolbarNotifier
+
+FORWARD ME_4683E895003F
+
+: ME_476A5BBD03D9
+ CONST UID '476A5BBD03D9'
+ CONST Name 'ControlIsPanel'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E895003F // IvcmDockType
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_476A5BBD03D9 ControlIsPanel
+
+: ME_4683E895003F
+ CONST UID '4683E895003F'
+ CONST GUID 'ADB055B7-59E8-4EFA-8CDA-5DD4CBE2B983'
+ CONST Name 'IvcmDockType'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'тип докинга (для ZonesCollectionItem.IsControlPanel)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_476A5BBD03D9 // ControlIsPanel
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683E895003F IvcmDockType
+
+FORWARD ME_4683E8AC018D
+
+: ME_476964B602C3
+ CONST UID '476964B602C3'
+ CONST Name 'PopupIgnoresAction'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8AC018D // IvcmPopupIgnoresAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_476964B602C3 PopupIgnoresAction
+
+: ME_4683E8AC018D
+ CONST UID '4683E8AC018D'
+ CONST GUID '572DC1D0-2CC9-479F-9C9D-43756BF38F2E'
+ CONST Name 'IvcmPopupIgnoresAction'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_476964B602C3 // PopupIgnoresAction
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4683E8AC018D IvcmPopupIgnoresAction
+
+FORWARD ME_4683E8BB0008
+
+: ME_4683E8CC011A
+ CONST UID '4683E8CC011A'
+ CONST Name 'WriteBackSettings'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8BB0008 // IvcmSettingsUser
+ ;
+
+ref; // ME_4683E8CC011A WriteBackSettings
+
+: ME_4683E8BB0008
+ CONST UID '4683E8BB0008'
+ CONST GUID 'B3FE4095-4F87-42BA-AD1C-101BBA3C527A'
+ CONST Name 'IvcmSettingsUser'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_4683E8CC011A // WriteBackSettings
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4683E8BB0008 IvcmSettingsUser
+
+: ME_476953D2039F
+ CONST UID '476953D2039F'
+ CONST Name 'TvcmControlExecuteEvent'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Вызывается при выполнении операции из главного меню.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( ME_476953920354 // TvcmControlEvent
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_476953D2039F TvcmControlExecuteEvent
+
+FORWARD ME_476954260249
+
+: ME_4769544800AE
+ CONST UID '4769544800AE'
+ CONST Name 'aPt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4769570D0204' '46A5E026007E.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_4769544800AE aPt
+
+: ME_4769544800D7
+ CONST UID '4769544800D7'
+ CONST Name 'theTarget'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4769544800D7 theTarget
+
+: ME_47695434030B
+ CONST UID '47695434030B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_476954260249 // TvcmControlGetTargetEvent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4769544800AE // aPt
+ ME_4769544800D7 // theTarget
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47695434030B DoIt
+
+: ME_476954260249
+ CONST UID '476954260249'
+ CONST Name 'TvcmControlGetTargetEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_47695434030B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_476954260249 TvcmControlGetTargetEvent
+
+FORWARD ME_4683F4D501E9
+
+: ME_4683F4DF036A
+ CONST UID '4683F4DF036A'
+ CONST Name 'rID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4683F4D501E9 // TvcmOperationStateIndex
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_4683F4DF036A rID
+
+: ME_4683F4D501E9
+ CONST UID '4683F4D501E9'
+ CONST Name 'TvcmOperationStateIndex'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_4683F4DF036A // rID
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "force usage" true
+
+ref; // ME_4683F4D501E9 TvcmOperationStateIndex
+
+FORWARD ME_4683E8080191
+
+: ME_476965370299
+ CONST UID '476965370299'
+ CONST Name 'IsDefault'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_476965370299 IsDefault
+
+: ME_4769664301D7
+ CONST UID '4769664301D7'
+ CONST Name 'Font'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Шрифт.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target ME_4683D6BC0266 // IvcmFont
+ ;
+ CONST "pm" true
+
+ref; // ME_4769664301D7 Font
+
+: ME_476966BA0220
+ CONST UID '476966BA0220'
+ CONST Name 'SubNodes'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target ME_4683D617036D // IvcmNodes
+ ;
+ CONST "pm" true
+
+ref; // ME_476966BA0220 SubNodes
+
+: ME_4769672400B2
+ CONST UID '4769672400B2'
+ CONST Name 'Hint'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" true
+
+ref; // ME_4769672400B2 Hint
+
+: ME_4769679302EA
+ CONST UID '4769679302EA'
+ CONST Name 'SubItems'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target ME_4683D1660352 // IvcmItems
+ ;
+ CONST "pm" true
+
+ref; // ME_4769679302EA SubItems
+
+: ME_476A54BF00B2
+ CONST UID '476A54BF00B2'
+ CONST Name 'SelectedString'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'содержит выбранное при выполнении действия значение.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" true
+
+ref; // ME_476A54BF00B2 SelectedString
+
+: ME_476A556C0320
+ CONST UID '476A556C0320'
+ CONST Name 'IsSelectedStringChanged'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'изменилась ли выбранное значение.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_476A556C0320 IsSelectedStringChanged
+
+: ME_476A56AF0001
+ CONST UID '476A56AF0001'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" true
+
+ref; // ME_476A56AF0001 Caption
+
+: ME_476A58CC02D8
+ CONST UID '476A58CC02D8'
+ CONST Name 'IsStringsChanged'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'проверяет изменилось значение строк.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_476A58CC02D8 IsStringsChanged
+
+: ME_4683E85C026E
+ CONST UID '4683E85C026E'
+ CONST Name 'LockUpdate'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+
+ref; // ME_4683E85C026E LockUpdate
+
+: ME_4683E8680044
+ CONST UID '4683E8680044'
+ CONST Name 'UnlockUpdate'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+
+ref; // ME_4683E8680044 UnlockUpdate
+
+: ME_476960DA0127
+ CONST UID '476960DA0127'
+ CONST Name 'Execute'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+
+ref; // ME_476960DA0127 Execute
+
+: ME_476A55EE0327
+ CONST UID '476A55EE0327'
+ CONST Name 'IsExecuteLocked'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_476A55EE0327 IsExecuteLocked
+
+: ME_476A562003BE
+ CONST UID '476A562003BE'
+ CONST Name 'UnlockExecute'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+
+ref; // ME_476A562003BE UnlockExecute
+
+: ME_476A562C0372
+ CONST UID '476A562C0372'
+ CONST Name 'LockExecute'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+
+ref; // ME_476A562C0372 LockExecute
+
+: ME_476A56C503E4
+ CONST UID '476A56C503E4'
+ CONST Name 'HasInfoForCombo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_476A56C503E4 HasInfoForCombo
+
+: ME_476A597A00E0
+ CONST UID '476A597A00E0'
+ CONST Name 'SaveStrings'
+ CONST Class class_Operation
+ %SUMMARY 'сохраняет текущее значение строк.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4683E8080191 // IvcmAction
+ ;
+
+ref; // ME_476A597A00E0 SaveStrings
+
+: ME_4683E8080191
+ CONST UID '4683E8080191'
+ CONST GUID 'ACDFCCF3-A2C1-4666-80FA-1F5A69B496C8'
+ CONST Name 'IvcmAction'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_476965370299 // IsDefault
+ ME_4769664301D7 // Font
+ ME_476966BA0220 // SubNodes
+ ME_4769672400B2 // Hint
+ ME_4769679302EA // SubItems
+ ME_476A54BF00B2 // SelectedString
+ ME_476A556C0320 // IsSelectedStringChanged
+ ME_476A56AF0001 // Caption
+ ME_476A58CC02D8 // IsStringsChanged
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4683E85C026E // LockUpdate
+ ME_4683E8680044 // UnlockUpdate
+ ME_476960DA0127 // Execute
+ ME_476A55EE0327 // IsExecuteLocked
+ ME_476A562003BE // UnlockExecute
+ ME_476A562C0372 // LockExecute
+ ME_476A56C503E4 // HasInfoForCombo
+ ME_476A597A00E0 // SaveStrings
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4683E8080191 IvcmAction
+
+FORWARD ME_476961870161
+
+: ME_4769619A004E
+ CONST UID '4769619A004E'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683E8080191 // IvcmAction
+ ;
+
+ref; // ME_4769619A004E anAction
+
+: ME_476961930017
+ CONST UID '476961930017'
+ CONST Name 'ParamsChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_476961870161 // IvcmActionLink
+ ;
+ : Parameters
+   @ ( ME_4769619A004E // anAction
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_476961930017 ParamsChanged
+
+: ME_476961A901A4
+ CONST UID '476961A901A4'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683E8080191 // IvcmAction
+ ;
+
+ref; // ME_476961A901A4 anAction
+
+: ME_476961A40369
+ CONST UID '476961A40369'
+ CONST Name 'ParamsChanging'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_476961870161 // IvcmActionLink
+ ;
+ : Parameters
+   @ ( ME_476961A901A4 // anAction
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_476961A40369 ParamsChanging
+
+: ME_476961870161
+ CONST UID '476961870161'
+ CONST GUID 'BFEEFBEF-3036-4141-B77C-8196E2083F2B'
+ CONST Name 'IvcmActionLink'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_476961930017 // ParamsChanged
+ ME_476961A40369 // ParamsChanging
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_476961870161 IvcmActionLink
+
+: ME_476963BB00EF
+ CONST UID '476963BB00EF'
+ CONST Name 'IvcmSettings'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_476963BB00EF IvcmSettings
+
+: ME_476964360112
+ CONST UID '476964360112'
+ CONST Name 'IvcmResources'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_473D93370113' '467823B7002C.pas.ms.script' // IafwResources
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_476964360112 IvcmResources
+
+: ME_476A5EFF00B5
+ CONST UID '476A5EFF00B5'
+ CONST Name 'IvcmSettingsSource'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_473DA12B02A0' '467823B7002C.pas.ms.script' // IafwSettingsSource
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_476A5EFF00B5 IvcmSettingsSource
+
+: ME_476A615E039E
+ CONST UID '476A615E039E'
+ CONST Name 'TvcmSettingId'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_476A615E039E TvcmSettingId
+
+FORWARD ME_47D0DE52037F
+
+: ME_47D0DE9902DE
+ CONST UID '47D0DE9902DE'
+ CONST Name 'Form'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Форма обработчика.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47D0DE52037F // IvcmFormHandler
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ CONST "pm" false
+
+ref; // ME_47D0DE9902DE Form
+
+: ME_47D0DE680250
+ CONST UID '47D0DE680250'
+ CONST Name 'Handler'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Обработчик формы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47D0DE52037F // IvcmFormHandler
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" false
+
+ref; // ME_47D0DE680250 Handler
+
+: ME_47D0DE7E02BB
+ CONST UID '47D0DE7E02BB'
+ CONST Name 'Hint'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Подсказка к обработчику.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47D0DE52037F // IvcmFormHandler
+ ;
+ : Target ME_4683C9AC03AC // IvcmCString
+ ;
+ CONST "pm" false
+
+ref; // ME_47D0DE7E02BB Hint
+
+FORWARD ME_4F619C980151
+
+: ME_4F619C9D0249
+ CONST UID '4F619C9D0249'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F619C980151 // CanHaveCloseButtonInNavigator
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F619C9D0249 DoIt
+
+: ME_4F619C980151
+ CONST UID '4F619C980151'
+ CONST Name 'CanHaveCloseButtonInNavigator'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47D0DE52037F // IvcmFormHandler
+ ;
+ : Operations
+   @ ( ME_4F619C9D0249 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F619C980151 CanHaveCloseButtonInNavigator
+
+FORWARD ME_4F6A0EA503A9
+
+: ME_4F6A0EBA0197
+ CONST UID '4F6A0EBA0197'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6A0EA503A9 // CanHaveOwnCloseButtonInNavigator
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F6A0EBA0197 DoIt
+
+: ME_4F6A0EA503A9
+ CONST UID '4F6A0EA503A9'
+ CONST Name 'CanHaveOwnCloseButtonInNavigator'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47D0DE52037F // IvcmFormHandler
+ ;
+ : Operations
+   @ ( ME_4F6A0EBA0197 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6A0EA503A9 CanHaveOwnCloseButtonInNavigator
+
+: ME_47D0DE52037F
+ CONST UID '47D0DE52037F'
+ CONST GUID '8708F998-5844-4B4B-9980-AE9A4E04729F'
+ CONST Name 'IvcmFormHandler'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик формы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_47D0DE9902DE // Form
+ ME_47D0DE680250 // Handler
+ ME_47D0DE7E02BB // Hint
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F619C980151 // CanHaveCloseButtonInNavigator
+ ME_4F6A0EA503A9 // CanHaveOwnCloseButtonInNavigator
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47D0DE52037F IvcmFormHandler
+
+FORWARD ME_47CFAA7E0341
+
+: ME_4F619EED00A8
+ CONST UID '4F619EED00A8'
+ CONST Name 'aCloseHandler'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47D0DE52037F // IvcmFormHandler
+ ;
+
+ref; // ME_4F619EED00A8 aCloseHandler
+
+: ME_47CFAAC70224
+ CONST UID '47CFAAC70224'
+ CONST Name 'Publish'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47CFAA7E0341 // IvcmFormHandlersPublisher
+ ;
+ : Parameters
+   @ ( ME_4F619EED00A8 // aCloseHandler
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47CFAAC70224 Publish
+
+: ME_47CFAA7E0341
+ CONST UID '47CFAA7E0341'
+ CONST GUID '674F0DBD-8D5E-4A7B-A9F7-A82CB0885E43'
+ CONST Name 'IvcmFormHandlersPublisher'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Спецификация объекта, который публикует обработчики формы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_47CFAAC70224 // Publish
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47CFAA7E0341 IvcmFormHandlersPublisher
+
+FORWARD ME_49886B8400D0
+
+: ME_49886BD20221
+ CONST UID '49886BD20221'
+ CONST Name 'State'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target ME_4683F4D501E9 // TvcmOperationStateIndex
+ ;
+
+ref; // ME_49886BD20221 State
+
+: ME_49886BB803BD
+ CONST UID '49886BB803BD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Обработчик события проверки состояния операции' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49886B8400D0 // TvcmControlGetStateEvent
+ ;
+ : Parameters
+   @ ( ME_49886BD20221 // State
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_49886BB803BD DoIt
+
+: ME_49886B8400D0
+ CONST UID '49886B8400D0'
+ CONST Name 'TvcmControlGetStateEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик события для определения состояния операции' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_49886BB803BD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_49886B8400D0 TvcmControlGetStateEvent
+
+FORWARD ME_496B0E070134
+
+: ME_4F619EF30307
+ CONST UID '4F619EF30307'
+ CONST Name 'aHandler'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47D0DE52037F // IvcmFormHandler
+ ;
+
+ref; // ME_4F619EF30307 aHandler
+
+: ME_496B0E6D0062
+ CONST UID '496B0E6D0062'
+ CONST Name 'SetWatch'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B0E070134 // IvcmCloseFormHandlerWatcher
+ ;
+ : Parameters
+   @ ( ME_4F619EF30307 // aHandler
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_496B0E6D0062 SetWatch
+
+: ME_496B0E070134
+ CONST UID '496B0E070134'
+ CONST GUID 'E7A13C9D-18E7-4F69-84DC-D519550692AF'
+ CONST Name 'IvcmCloseFormHandlerWatcher'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Приглядывающий за обработчиком закрытия формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_496B0E6D0062 // SetWatch
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_496B0E070134 IvcmCloseFormHandlerWatcher
+
+FORWARD ME_467BABDA0020
+
+: ME_476954890344
+ CONST UID '476954890344'
+ CONST Name 'anEntity'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CDED0141 // TvcmString
+ ;
+
+ref; // ME_476954890344 anEntity
+
+: ME_47695489036F
+ CONST UID '47695489036F'
+ CONST Name 'aGetTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_476954260249 // TvcmControlGetTargetEvent
+ ;
+
+ref; // ME_47695489036F aGetTarget
+
+: ME_476954790060
+ CONST UID '476954790060'
+ CONST Name 'PublishEntity'
+ CONST Class class_Operation
+ %SUMMARY 'опубликовать сущность.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_467BABDA0020 // IvcmOperationsPublisher
+ ;
+ : Parameters
+   @ ( ME_476954890344 // anEntity
+ ME_47695489036F // aGetTarget
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_476954790060 PublishEntity
+
+: ME_49537ADC0185
+ CONST UID '49537ADC0185'
+ CONST Name 'anEntity'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CDED0141 // TvcmString
+ ;
+
+ref; // ME_49537ADC0185 anEntity
+
+: ME_49537ADC01CC
+ CONST UID '49537ADC01CC'
+ CONST Name 'anOperation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CDED0141 // TvcmString
+ ;
+
+ref; // ME_49537ADC01CC anOperation
+
+: ME_49537ADC020C
+ CONST UID '49537ADC020C'
+ CONST Name 'anExecute'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_476953D2039F // TvcmControlExecuteEvent
+ ;
+ CONST Value 'nil'
+ : ValueType ME_476953D2039F // TvcmControlExecuteEvent
+ ;
+
+ref; // ME_49537ADC020C anExecute
+
+: ME_49537ADC0252
+ CONST UID '49537ADC0252'
+ CONST Name 'aTest'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47694CD40080 // TvcmControlTestEvent
+ ;
+ CONST Value 'nil'
+ : ValueType ME_47694CD40080 // TvcmControlTestEvent
+ ;
+
+ref; // ME_49537ADC0252 aTest
+
+: ME_4989A9C0036D
+ CONST UID '4989A9C0036D'
+ CONST Name 'aGetState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49886B8400D0 // TvcmControlGetStateEvent
+ ;
+ CONST Value 'nil'
+ : ValueType ME_49886B8400D0 // TvcmControlGetStateEvent
+ ;
+
+ref; // ME_4989A9C0036D aGetState
+
+: ME_49537ADC0293
+ CONST UID '49537ADC0293'
+ CONST Name 'aNoPrefix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49537ADC0293 aNoPrefix
+
+: ME_476954DD018A
+ CONST UID '476954DD018A'
+ CONST Name 'PublishOp'
+ CONST Class class_Operation
+ %SUMMARY 'Опубликовать операцию. aNoPrefix - костыль для [$133891300]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_467BABDA0020 // IvcmOperationsPublisher
+ ;
+ : Parameters
+   @ ( ME_49537ADC0185 // anEntity
+ ME_49537ADC01CC // anOperation
+ ME_49537ADC020C // anExecute
+ ME_49537ADC0252 // aTest
+ ME_4989A9C0036D // aGetState
+ ME_49537ADC0293 // aNoPrefix
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_476954DD018A PublishOp
+
+: ME_467BABDA0020
+ CONST UID '467BABDA0020'
+ CONST GUID 'BB2697B6-0966-4857-828B-FA4F4BA78109'
+ CONST Name 'IvcmOperationsPublisher'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контрол представляющий операции пользователю.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_476954790060 // PublishEntity
+ ME_476954DD018A // PublishOp
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_467BABDA0020 IvcmOperationsPublisher
+
+FORWARD ME_467BABAA00D5
+
+: ME_4769552B018A
+ CONST UID '4769552B018A'
+ CONST Name 'aPublisher'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_467BABDA0020 // IvcmOperationsPublisher
+ ;
+
+ref; // ME_4769552B018A aPublisher
+
+: ME_4769552100DD
+ CONST UID '4769552100DD'
+ CONST Name 'ProvideOps'
+ CONST Class class_Operation
+ %SUMMARY 'предоставить список доступных операций.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_467BABAA00D5 // IvcmOperationsProvider
+ ;
+ : Parameters
+   @ ( ME_4769552B018A // aPublisher
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4769552100DD ProvideOps
+
+: ME_467BABAA00D5
+ CONST UID '467BABAA00D5'
+ CONST GUID 'BD5A4AF8-9AC8-4411-9AFB-E60098B21373'
+ CONST Name 'IvcmOperationsProvider'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контрол с поддержкой операций.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_4769552100DD // ProvideOps
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_467BABAA00D5 IvcmOperationsProvider
+
+FORWARD ME_4D905A0F0316
+
+: ME_4D905A390277
+ CONST UID '4D905A390277'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_4D905A390277 aControl
+
+: ME_4D905A2A00D6
+ CONST UID '4D905A2A00D6'
+ CONST Name 'DataSourceChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4D905A0F0316 // IvcmDatasourceChangeListener
+ ;
+ : Parameters
+   @ ( ME_4D905A390277 // aControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D905A2A00D6 DataSourceChanged
+
+: ME_4D905A0F0316
+ CONST UID '4D905A0F0316'
+ CONST GUID '4ED370FF-415E-4620-9B94-2EDA86F89988'
+ CONST Name 'IvcmDatasourceChangeListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_4D905A2A00D6 // DataSourceChanged
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4D905A0F0316 IvcmDatasourceChangeListener
+
+FORWARD ME_5339327D023E
+
+: ME_5339336E01A0
+ CONST UID '5339336E01A0'
+ CONST Name 'EntityName'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5339327D023E // IvcmComponentWithAction
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" false
+
+ref; // ME_5339336E01A0 EntityName
+
+: ME_5339338502DC
+ CONST UID '5339338502DC'
+ CONST Name 'OperationName'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5339327D023E // IvcmComponentWithAction
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" false
+
+ref; // ME_5339338502DC OperationName
+
+: ME_533933BB014A
+ CONST UID '533933BB014A'
+ CONST Name 'Action'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5339327D023E // IvcmComponentWithAction
+ ;
+ : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
+ ;
+ CONST "pm" false
+
+ref; // ME_533933BB014A Action
+
+: ME_5339340603B1
+ CONST UID '5339340603B1'
+ CONST Name 'Hint'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5339327D023E // IvcmComponentWithAction
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" false
+
+ref; // ME_5339340603B1 Hint
+
+: ME_5339340D0047
+ CONST UID '5339340D0047'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5339327D023E // IvcmComponentWithAction
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" false
+
+ref; // ME_5339340D0047 Caption
+
+: ME_5339342C0318
+ CONST UID '5339342C0318'
+ CONST Name 'Visible'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5339327D023E // IvcmComponentWithAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_5339342C0318 Visible
+
+FORWARD ME_533933040073
+
+: ME_5339332C00E4
+ CONST UID '5339332C00E4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_533933040073 // GetParentForm
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_5339332C00E4 DoIt
+
+: ME_533933040073
+ CONST UID '533933040073'
+ CONST Name 'GetParentForm'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5339327D023E // IvcmComponentWithAction
+ ;
+ : Operations
+   @ ( ME_5339332C00E4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_533933040073 GetParentForm
+
+FORWARD ME_533954D202F8
+
+: ME_533954D90286
+ CONST UID '533954D90286'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_533954D202F8 // GetComponent
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_533954D90286 DoIt
+
+: ME_533954D202F8
+ CONST UID '533954D202F8'
+ CONST Name 'GetComponent'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5339327D023E // IvcmComponentWithAction
+ ;
+ : Operations
+   @ ( ME_533954D90286 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_533954D202F8 GetComponent
+
+: ME_5339327D023E
+ CONST UID '5339327D023E'
+ CONST GUID '8E3276DA-3A8F-4D13-90B9-102C8EA45E28'
+ CONST Name 'IvcmComponentWithAction'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_5339336E01A0 // EntityName
+ ME_5339338502DC // OperationName
+ ME_533933BB014A // Action
+ ME_5339340603B1 // Hint
+ ME_5339340D0047 // Caption
+ ME_5339342C0318 // Visible
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_533933040073 // GetParentForm
+ ME_533954D202F8 // GetComponent
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5339327D023E IvcmComponentWithAction
+
+FORWARD ME_53513BB401E7
+
+: ME_53513BDF02CD
+ CONST UID '53513BDF02CD'
+ CONST Name 'Count'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_53513BB401E7 // IvcmComponentContainer
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_53513BDF02CD Count
+
+FORWARD ME_53513C1400CC
+
+: ME_53513C3001B2
+ CONST UID '53513C3001B2'
+ CONST Name 'aIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53513C1400CC // OwnedComponent
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53513C3001B2 aIndex
+
+: ME_53513C1400CC
+ CONST UID '53513C1400CC'
+ CONST Name 'OwnedComponent'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_53513BB401E7 // IvcmComponentContainer
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+ : Attributes
+   @ ( ME_53513C3001B2 // aIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_53513C1400CC OwnedComponent
+
+: ME_53513BB401E7
+ CONST UID '53513BB401E7'
+ CONST GUID 'B8F103A1-FA45-4FDD-B6A4-F623EA089B56'
+ CONST Name 'IvcmComponentContainer'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Attributes
+   @ ( ME_53513BDF02CD // Count
+ ME_53513C1400CC // OwnedComponent
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_53513BB401E7 IvcmComponentContainer
+
+FORWARD ME_4F7DCF5E0198
+
+FORWARD ME_4F7DCF74032D
+
+: ME_4F7DCF790235
+ CONST UID '4F7DCF790235'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F7DCF74032D // StartFlashing
+ ;
+
+ref; // ME_4F7DCF790235 DoIt
+
+: ME_4F7DCF74032D
+ CONST UID '4F7DCF74032D'
+ CONST Name 'StartFlashing'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F7DCF5E0198 // IvcmFlashingWindow
+ ;
+ : Operations
+   @ ( ME_4F7DCF790235 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F7DCF74032D StartFlashing
+
+FORWARD ME_4F7DCF8D03CC
+
+: ME_4F7DCF930184
+ CONST UID '4F7DCF930184'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F7DCF8D03CC // StopFlashing
+ ;
+
+ref; // ME_4F7DCF930184 DoIt
+
+: ME_4F7DCF8D03CC
+ CONST UID '4F7DCF8D03CC'
+ CONST Name 'StopFlashing'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F7DCF5E0198 // IvcmFlashingWindow
+ ;
+ : Operations
+   @ ( ME_4F7DCF930184 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F7DCF8D03CC StopFlashing
+
+: ME_4F7DCF5E0198
+ CONST UID '4F7DCF5E0198'
+ CONST GUID '18DC2344-959D-4854-A58E-84080F09D788'
+ CONST Name 'IvcmFlashingWindow'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_4F7DCF74032D // StartFlashing
+ ME_4F7DCF8D03CC // StopFlashing
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ifdef" 'Nemesis'
+
+ref; // ME_4F7DCF5E0198 IvcmFlashingWindow
+
+FORWARD ME_53CF7D800293
+
+: ME_5502BC9800B2
+ CONST UID '5502BC9800B2'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_5502BC9800B2 aForm
+
+: ME_53CF7DD00066
+ CONST UID '53CF7DD00066'
+ CONST Name 'MainFormChanged'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Вызывается при измении главной формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53CF7D800293 // IvcmMainFormDependent
+ ;
+ : Parameters
+   @ ( ME_5502BC9800B2 // aForm
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53CF7DD00066 MainFormChanged
+
+: ME_53CF7D800293
+ CONST UID '53CF7D800293'
+ CONST GUID '3395E902-086E-47B0-874E-BC39562D6D14'
+ CONST Name 'IvcmMainFormDependent'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Inherits
+   @ ( ME_4683CEAD00CF // IvcmBase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_53CF7DD00066 // MainFormChanged
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53CF7D800293 IvcmMainFormDependent
+
+FORWARD ME_55DC1CE20394
+
+: ME_55DC1D1B03C1
+ CONST UID '55DC1D1B03C1'
+ CONST Name 'theState'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
+ ;
+
+ref; // ME_55DC1D1B03C1 theState
+
+: ME_55DC1D1C0008
+ CONST UID '55DC1D1C0008'
+ CONST Name 'aStateType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CBFD032D // TvcmStateType
+ ;
+
+ref; // ME_55DC1D1C0008 aStateType
+
+: ME_55DC1CFE018D
+ CONST UID '55DC1CFE018D'
+ CONST Name 'SaveStateForClone'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55DC1CE20394 // IvcmCloneableState
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_55DC1D1B03C1 // theState
+ ME_55DC1D1C0008 // aStateType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC1CFE018D SaveStateForClone
+
+: ME_56090ED602E8
+ CONST UID '56090ED602E8'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
+ ;
+
+ref; // ME_56090ED602E8 aState
+
+: ME_56090ED602F8
+ CONST UID '56090ED602F8'
+ CONST Name 'aStateType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4683CBFD032D // TvcmStateType
+ ;
+
+ref; // ME_56090ED602F8 aStateType
+
+: ME_55DC1D21005D
+ CONST UID '55DC1D21005D'
+ CONST Name 'LoadCloneState'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55DC1CE20394 // IvcmCloneableState
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_56090ED602E8 // aState
+ ME_56090ED602F8 // aStateType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC1D21005D LoadCloneState
+
+: ME_55DC1CE20394
+ CONST UID '55DC1CE20394'
+ CONST GUID 'D1968E93-A54D-4375-B9EE-5E8898DE352A'
+ CONST Name 'IvcmCloneableState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467BAB7F021E // vcmExternalInterfaces
+ ;
+ : Operations
+   @ ( ME_55DC1CFE018D // SaveStateForClone
+ ME_55DC1D21005D // LoadCloneState
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC1CE20394 IvcmCloneableState
+
+: ME_467BAB7F021E
+ CONST UID '467BAB7F021E'
+ CONST Name 'vcmExternalInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для взаимодействия с другими библиотеками.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_4683C8750015 // TvcmControlID
+ ME_4683C8CE021C // IvcmNode
+ ME_4683CBFD032D // TvcmStateType
+ ME_4683C9AC03AC // IvcmCString
+ ME_4683CC350070 // TvcmOperationType
+ ME_4683CDED0141 // TvcmString
+ ME_467C166B007B // IvcmState
+ ME_4683CE020336 // TvcmDoneStatus
+ ME_4683CF0601DB // IvcmStrings
+ ME_4683CF3401F5 // TvcmOPID
+ ME_4683CEAD00CF // IvcmBase
+ ME_4683CF84010A // TvcmMOPID
+ ME_4683CFC50258 // TvcmOpKind
+ ME_4683D016009C // TvcmOpSelector
+ ME_4683D1660352 // IvcmItems
+ ME_47F9C2600388 // IvcmTree
+ ME_4683D6BC0266 // IvcmFont
+ ME_4683D6ED03C5 // TvcmOpFlag
+ ME_4683D617036D // IvcmNodes
+ ME_4683DF4D0237 // IvcmBaseParamsPrim
+ ME_4683D7430328 // IvcmOpParams
+ ME_4683E0D103D0 // IvcmRealExecuteParams
+ ME_4683E1AD0047 // IvcmExecuteParamsPrim
+ ME_4683E07E004B // IvcmTestParamsPrim
+ ME_476953920354 // TvcmControlEvent
+ ME_4683E1EC0097 // IvcmFlexParams
+ ME_47694CD40080 // TvcmControlTestEvent
+ ME_4683E878039B // IvcmToolbarNotifier
+ ME_4683E895003F // IvcmDockType
+ ME_4683E8AC018D // IvcmPopupIgnoresAction
+ ME_4683E8BB0008 // IvcmSettingsUser
+ ME_476953D2039F // TvcmControlExecuteEvent
+ ME_476954260249 // TvcmControlGetTargetEvent
+ ME_4683F4D501E9 // TvcmOperationStateIndex
+ ME_4683E8080191 // IvcmAction
+ ME_476961870161 // IvcmActionLink
+ ME_476963BB00EF // IvcmSettings
+ ME_476964360112 // IvcmResources
+ ME_476A5EFF00B5 // IvcmSettingsSource
+ ME_476A615E039E // TvcmSettingId
+ ME_47D0DE52037F // IvcmFormHandler
+ ME_47CFAA7E0341 // IvcmFormHandlersPublisher
+ ME_49886B8400D0 // TvcmControlGetStateEvent
+ ME_496B0E070134 // IvcmCloseFormHandlerWatcher
+ ME_467BABDA0020 // IvcmOperationsPublisher
+ ME_467BABAA00D5 // IvcmOperationsProvider
+ ME_4D905A0F0316 // IvcmDatasourceChangeListener
+ ME_5339327D023E // IvcmComponentWithAction
+ ME_53513BB401E7 // IvcmComponentContainer
+ ME_4F7DCF5E0198 // IvcmFlashingWindow
+ ME_53CF7D800293 // IvcmMainFormDependent
+ ME_55DC1CE20394 // IvcmCloneableState
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D810610398' '47D810610398.pas.ms.script' // l3PureMixIns
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '27.06.2003 18:27'
+ CONST "weak" true
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmExternalInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\467BAB7F021E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\467BAB7F021E.pas.ms.script.runner'
+
+ref; // ME_467BAB7F021E vcmExternalInterfaces

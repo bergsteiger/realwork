@@ -1,0 +1,28 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _vcm_pas_GetOperationHandlersImplementation
+/ override
+//#UC START# *46B86B6A01DFGetOperationHandlersImplementation*
+	<{\n}{%C%f_vcm_pas_IsOperation()=true}%C%f_vcm_pas_GetOperationHandlersImplementation(%1N)>
+//#UC END# *46B86B6A01DFGetOperationHandlersImplementation*
+
+%f _vcm_pas_GetOperationHandlersInterface
+/ override
+//#UC START# *46B86B6A01DFGetOperationHandlersInterface*
+	<{\n}{%C%f_vcm_pas_IsOperation()=true}%C%f_vcm_pas_GetOperationHandlersInterface()>
+//#UC END# *46B86B6A01DFGetOperationHandlersInterface*
+
+%f _vcm_pas_IsEntity
+/ override
+//#UC START# *46B86B6A01DFIsEntity*
+	true
+//#UC END# *46B86B6A01DFIsEntity*
+
++ vcm.pas
+/ Генератр VCM.
+//#UC START# *46B86B6A01DF*
+O %SN_en.inc
+	// Сущность VCM
+	// %SN - "%SD"\
+	[\n\n// Операции:\n<{\n}{%C%f_vcm_pas_IsOperation()=true}// %CN - "%CD">]
+//#UC END# *46B86B6A01DF*

@@ -1,0 +1,27 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = adxBuildD7.bpl adxolBuildD7.bpl adxolWizardD7.bpl adxWizardD7.bpl
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+adxBuildD7.bpl: adxBuildD7.dpk
+  $(DCC)
+
+adxolBuildD7.bpl: adxolBuildD7.dpk
+  $(DCC)
+
+adxolWizardD7.bpl: adxolWizardD7.dpk
+  $(DCC)
+
+adxWizardD7.bpl: adxWizardD7.dpk
+  $(DCC)

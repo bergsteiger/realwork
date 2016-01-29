@@ -1,0 +1,740 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/FactoryMemory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::FactoryMemory
+//
+// Единая память для фабрик интерфейса
+// ---
+// Используется для указания фреймворку, что некоторые фабрики должны использовать единую "память"
+// для созданных ими объектов. Может быть вложен в интерфейс, и использован как тип фабричного
+// метода, что означает что данная фабрика будет использовать данную общую "память". Для
+// идентификации объектов можно указать тип единого ключа (с помощью атрибута), с помощью которого
+// будут идентифицироваться объекты внутри этой фабрики.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: FactoryMemory::Class
+? Единая память для фабрик интерфейса
+? Используется для указания фреймворку, что некоторые фабрики должны использовать единую "память" для созданных ими объектов. Может быть вложен в интерфейс, и использован как тип фабричного метода, что означает что данная фабрика будет использовать данную общую "память". Для идентификации объектов можно указать тип единого ключа (с помощью атрибута), с помощью которого будут идентифицироваться объекты внутри этой фабрики.
+< *::Class,*::Category
+
+= WithFactory::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_factory_memory.gif
+L code_factory_memory
+// Параметры визуализации
+$ C 130,170,200
+$ l 10,100,220
+$ f 10,100,220
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+// выводит тип ключа используемого для идентификации объектов в общей "памяти"
+%f _dump_factory_mem_key
+//#UC START# *4753E98D0058for4753C0BC029E*
+	[{%X{lid}=cpp}{%f_dump_factory_mem_key_java(%S)}%f_dump_factory_mem_key_cpp(%S)]
+
+
+f _dump_factory_mem_key_java
+	[{<{}{%CS=common key}{%CC}>=0}{\
+	#public static class %S%f_factory_mem_key_name() {
+	<{}{%CS=common key}{%C}#	[{%f_check_if_type(%C%T,"string")=false}{public String %CNArg_;}public %t_attr(%C%T,"agr") %f_to_java(%CN_arg)_;]
+	>
+	#	public %S%f_factory_mem_key_name() (final %S%f_factory_mem_key_name() c) {
+	[#		<{\n#		}{%CS=common key}%f_to_java(%CN_arg)_ = c.%f_to_java(%CN_arg)_;>][{%S%f_use_for_multi_factory()=true}
+	#		keyArg_ = c.keyArg_;]
+	#	}
+	
+	#	public %S%f_factory_mem_key_name() (
+	#		<{, }{%CS=common key}%t_arg(%C%T,"in") %f_to_java(%CN)>
+	#	) {
+	[#		<{\n#		}{%CS=common key}%f_to_java(%CN_arg)_ = %f_to_java(%CN);>]
+	#	}
+	
+	#	public %S%f_factory_mem_key_name() () {
+	#	}
+	
+	[{%S%f_use_for_multi_factory()=true}#	protected %P%f_dump_switch_type() keyArg_;
+	]
+	#}
+	}%f_collect_factory_for_mem(%S,"false")\
+	%f_pop_first_to_var(FACTORY_FOR_MEM,FACTORY)\
+	#public static class %S%f_factory_mem_key_name() {
+	%{FACTORY}<{}{"%CS"!="nokey"}#	[{%f_check_if_type(%C%T,"string")=false}{public String %CNArg_;}public %t_attr(%C%T,"agr") %f_to_java(%CN_arg)_;]
+	>
+	#	public %S%f_factory_mem_key_name() (final %S%f_factory_mem_key_name() c) {
+	[#		%{FACTORY}<{\n#		}{"%CS"!="nokey"}%f_to_java(%CN_arg)_ = c.%f_to_java(%CN_arg)_;>][{%S%f_use_for_multi_factory()=true}
+	#		keyArg_ = c.keyArg_;]
+	#	}
+	
+	#	public %S%f_factory_mem_key_name() (%{FACTORY}<{, }{"%CS"!="nokey"}%f_arg_full_decl(%C)>) {
+	[#		%{FACTORY}<{\n#		}{"%CS"!="nokey"}%f_to_java(%CN_arg)_ = %f_to_java(%CN);>]
+	#	}
+	
+	#	public %S%f_factory_mem_key_name() () {
+	#	}
+	
+	[{%S%f_use_for_multi_factory()=true}#	protected %P%f_dump_switch_type() keyArg_;
+	]
+	#}]
+	
+	#[{%Pa=abstract}public ]static class %S%f_factory_mem_key_name()Comparator implements java.util.Comparator\<%S%f_factory_mem_key_name()\> {
+	#	public int compare (final %S%f_factory_mem_key_name() a, final %S%f_factory_mem_key_name() b) {
+	[{<{}{%CS=common key}{%CC}>=0}{\
+	<{}{%CS=common key}#		int %f_to_java(a_%CN_arg_hash) = %t_to_object_type(%C,"a.%f_to_java(%CN_arg)_").hashCode ();
+	#		int %f_to_java(b_%CN_arg_hash) = %t_to_object_type(%C,"b.%f_to_java(%CN_arg)_").hashCode ();
+	#		if (%f_to_java(a_%CN_arg_hash) \< %f_to_java(b_%CN_arg_hash)) {
+	#			return 1;
+	#		} else if (%f_to_java(a_%CN_arg_hash) \> %f_to_java(b_%CN_arg_hash)) {
+	#			return -1;
+	#		}
+	>}\
+	%{FACTORY}<{}{"%CS"!="nokey"}#		int %f_to_java(a_%CN_arg_hash) = %t_to_object_type(%C,"a.%f_to_java(%CN_arg)_").hashCode ();
+	#		int %f_to_java(b_%CN_arg_hash) = %t_to_object_type(%C,"b.%f_to_java(%CN_arg)_").hashCode ();
+	#		if (%f_to_java(a_%CN_arg_hash) \< %f_to_java(b_%CN_arg_hash)) {
+	#			return 1;
+	#		} else if (%f_to_java(a_%CN_arg_hash) \> %f_to_java(b_%CN_arg_hash)) {
+	#			return -1;
+	#		}
+	>][{%S%f_use_for_multi_factory()=true}
+	#		if (a.keyArg_.hashCode () \< b.keyArg_.hashCode ()) {
+	#			return 1;
+	#		} else if (a.keyArg_.hashCode () \> b.keyArg_.hashCode ()) {
+	#			return -1;
+	#		}]
+	#		return 0;
+	#	]
+	#	}
+	#}
+
+f _dump_factory_mem_key_cpp
+	[{<{}{%CS=common key}{%CC}>=0}{\
+	#struct %S%f_factory_mem_key_name() {
+	<{}{%CS=common key}{%C}#	[{%f_check_if_type(%C%T,"string")=false}{std::string %CN_arg;}%t_attr(%C%T,"agr") %CN_arg;]
+	>
+	
+	#	%S%f_factory_mem_key_name() (const %S%f_factory_mem_key_name()& c)
+	[#		: <{\n#		, }{%CS=common key}%CN_arg (c.%CN_arg)>[{%S%f_use_for_multi_factory()=true}\n#		, key_arg (c.key_arg)]]
+	#	{
+	#	}
+	
+	#	%S%f_factory_mem_key_name() (<{, }{%CS=common key}%t_arg(%C%T,"in") %CN>)
+	[#		 : <{, }{%CS=common key}%CN_arg (%CN)>]
+	#	{
+	#	}
+	
+	#	%S%f_factory_mem_key_name() () {
+	#	}
+	
+	#	bool operator \< (const %S%f_factory_mem_key_name()& c) const {
+	#		return [{}{false}<{ ? true : }{%CS=common key}%CN_arg \< c.%CN_arg>[{%S%f_use_for_multi_factory()=true}[{%f_have_nokey_params(%{FACTORY})=true} ? true : ]key_arg \< c.key_arg]];
+	#	}
+	[{%S%f_use_for_multi_factory()=true}
+	#private:
+	#	friend class %PNFactoryManager;
+	#	%P%f_dump_switch_type() key_arg;]
+	#};
+	}%f_collect_factory_for_mem(%S,"false")\
+	%f_pop_first_to_var(FACTORY_FOR_MEM,FACTORY)\
+	#struct %S%f_factory_mem_key_name() {
+	[{"%{FACTORY}U"!=""}%{FACTORY}<{}{"%CS"!="nokey"}#	[{%f_check_if_type(%C%T,"string")=false}{std::string %CN_arg;}%t_attr(%C%T,"agr") %CN_arg;]
+	>
+	#	%S%f_factory_mem_key_name() (const %f_to_borland(%SNKeyID)& c)[
+	#		: %{FACTORY}<{\n#		, }{"%CS"!="nokey"}%CN_arg (c.%CN_arg>)[{%S%f_use_for_multi_factory()=true}\n#		, key_arg (c.key_arg)]]
+	#	{
+	#	}
+	
+	#	%S%f_factory_mem_key_name() (%{FACTORY}<{, }{"%CS"!="nokey"}%f_arg_full_decl(%C)>)[
+	#		 : %{FACTORY}<{, }{"%CS"!="nokey"}%CN_arg (%CN)>]
+	#	{
+	#	}
+	
+	#	%S%f_factory_mem_key_name() () {
+	#	}
+	
+	]#	bool operator \< (const %S%f_factory_mem_key_name()& c) const {
+	#		return [{}{true}%{FACTORY}<{ ? true : }{"%CS"!="nokey"}%CN_arg \< c.%CN_arg>[{%S%f_use_for_multi_factory()=true}[{%f_have_nokey_params(%{FACTORY})=true} ? true : ]key_arg \< c.key_arg]];
+	#	}
+	[{%S%f_use_for_multi_factory()=true}
+	
+	#private:
+	#	friend class %PNFactoryManager;
+	#	%P%f_dump_switch_type() key_arg;
+	]
+	#};]
+
+f _have_nokey_params
+	[{<{}{"%CS"!="nokey"}{%CC}>=0}{true}false]
+
+//собираем фабрики используещие данную "память" в список
+//в качестве второго параметра функции передаём флаг нужно ли "собирать" фабрики без параметров
+f _collect_factory_for_mem
+	%f_set_var(SELF,S)\
+	%f_clear_list(FACTORY_FOR_MEM)\
+	%f_set_var(ARG,1)\
+	%P<{}{%f_is_factory(%C)=true}{%C}[{%C%TU=%{SELF}U&%f_exists_in_list(FACTORY_FOR_MEM,C)=false}[{%{ARG}N=true|%C<{}{"%CS"!="nokey"}{C}>!=0}%f_add_to_list(FACTORY_FOR_MEM,C)]\
+	]>%P<{}{"%ga"="abstract"}%g<{}{%f_is_factory(%C)=true}{%C}[{%C%TU=%{SELF}U&%f_exists_in_list(FACTORY_FOR_MEM,C)=false}[%{ARG}N=true|%C<{}{"%CS"!="nokey"}{C}>!=0}%f_add_to_list(FACTORY_FOR_MEM,C)]\
+	]>>
+
+//выводит список параметров, которые используются для идентификации
+//объектов в данной общей пямяти
+%f _dump_factory_mem_params
+	[{<{}{%CS=common key}(%CC)>=0}{<{, }{%CS=common key}%t_arg(%C%T,"in") %CN>}\
+	%f_collect_factory_for_mem(%S,"false")\
+	%f_pop_first_to_var(FACTORY_FOR_MEM,FACTORY)\
+	%{FACTORY}<{, }{%CS!=no key}%f_arg(%C) %CN>]
+/	[{%TS=FactoryMemory&<{}{%CS=no key}{%CC}>!=0&%T<{}{%CS=common key}(%CC)>!=0}\
+/	%T<{, }{%CS=common key}%t_attr(%C%T,"in") %CN><{}{%CS!=no key}, %t_attr(%C%T,"in") %CN>]
+//#UC END# *4753E98D0058for4753C0BC029E*
+
+// Выводит имя ключа для идентификации объектов в общей памяти
+%f _factory_mem_key_name
+//#UC START# *4754F69C0002for4753C0BC029E*
+	%f_to_borland(%SNKeyID)
+
+//#UC END# *4754F69C0002for4753C0BC029E*
+
+// Выводит имя трансформатора параметров фабрик, использующих данную общую память, в ключ
+// идентификации
+%f _transfomator_name
+//#UC START# *4754F6DC0169for4753C0BC029E*
+	%PN%SNTransformator
+//#UC END# *4754F6DC0169for4753C0BC029E*
+
+// Используется ли данная общая память в мульти-фабрике.
+%f _use_for_multi_factory
+//#UC START# *47577D78020Efor4753C0BC029E*
+	%f_collect_factory_for_mem(%S,"true")\
+	[{"<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)[{%{CYCLE_ITEM}S=multi factory}%{CYCLE_ITEM}N]>"=""}{true}false]
+//#UC END# *47577D78020Efor4753C0BC029E*
+
+// используется ли данная общая память в синхро-фабриках
+%f _use_for_synchro_factory
+//#UC START# *47722E760365for4753C0BC029E*
+	%f_collect_factory_for_mem(%S,"true")\
+	%f_set_var(USE_IN_SYNCHRO,"false")\
+	<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)[{%{CYCLE_ITEM}s=synchro}%f_set_var(USE_IN_SYNCHRO,"true")]>\
+	%{USE_IN_SYNCHRO}N
+//#UC END# *47722E760365for4753C0BC029E*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4753C0BC029E*
+c                                                                {}
+/r {<{}{%CS=common key}{%CC}>!=0&<{}{%CS=common key}{%CC}>!=1}:  {%SS может иметь не более одного ключа}
+r "%f_check_equal_factory_parameters(%S)"!="":                   {Фабрики использующие %SS (%SN) в качестве общей памяти должны иметь одниковый список ключевых параметров \<%f_check_equal_factory_parameters(%S)\>}
+r {%f_check_non_empty_factory_list(%S)=false}:                   {Должна быть хотя бы одна НЕ создающая фабрика, использующая данную общую память}
+r {%f_check_synchro_use(%S)=false}:                              {Общая память, используемая в синхро-фабриках, не может использоваться в других типах фабрик}
+
+//проверяем, что фабрики использующие общий кэш определяют один набор параметров
+f _check_equal_factory_parameters
+	[{<{}{%CS=common key}{%CC}>=0}%f_collect_factory_for_mem(%S,"false")%f_set_var(FACTORY_ARG_STR,"")\
+	<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)\
+	[{%{CYCLE_ITEM}%Cx=true}[{"%{FACTORY_ARG_STR}N"=""}{[{"%{FACTORY_ARG_STR}N"!="%f_dump_args(%{CYCLE_ITEM})"}%{CYCLE_ITEM}N, ]}\
+	%f_set_var(FACTORY_ARG_STR,"%f_dump_args(%{CYCLE_ITEM})")]]>%f_set_var(FACTORY_ARG_STR,"")]
+
+f _dump_args
+	<{}{%CS!=nokey}{%C}%C%TU>
+
+//проверяем, что есть хотя бы одна НЕ создающая фабрика использующия данную общую память
+f _check_non_empty_factory_list
+	%f_collect_factory_for_mem(%S,"false")\
+	[{%f_is_empty(FACTORY_FOR_MEM)=false}{false}true]
+
+//проверяем, что если общая память используется для синхро-фабрик, то
+//она не может использоваться для других типов фабрик
+f _check_synchro_use
+	%f_collect_factory_for_mem(%S,"true")\
+	%f_set_var(USE_IN_SYNCHRO,"false")\
+	%f_set_var(USE_IN_NOT_SYNCHRO,"false")\
+	<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)\
+	[{%{CYCLE_ITEM}s=synchro}{%f_set_var(USE_IN_NOT_SYNCHRO,"true")}%f_set_var(USE_IN_SYNCHRO,"true")]>\
+	[{%f_is_correct_use(%S)=true}{false}true]
+
+f _is_correct_use
+	[{%{USE_IN_SYNCHRO}N=true&%{USE_IN_NOT_SYNCHRO}N=true}{true}false]
+//#UC END# *4704C0E30186for4753C0BC029E*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4753C0BC029E*
+//#UC END# *4705CBD6003Efor4753C0BC029E*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for4753C0BC029E*
+//#UC END# *470484D50138for4753C0BC029E*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for4753C0BC029E*
+	[{<{}{%CS=common key}{%CC}>!=0}%f_collect_factory_for_mem(%S)
+	[<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)
+	%PNFactoryManager::%S%f_factory_mem_key_name() %PNFactoryManager::%S%f_transfomator_name()::%{CYCLE_ITEM}N_to_id (%{CYCLE_ITEM}<{, }{%CS!=nokey}%f_arg_full_decl(%C)>)
+		/*throw (Core::Root::ImpossibleConversion)*/
+	{
+		%U[{FOR_%f_to_upper(%{CYCLE_ITEM}N_to_id)}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	}
+	>
+	]]
+//#UC END# *4705C54B01F4for4753C0BC029E*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for4753C0BC029E*
+	%f_set_var(COMMON_MEM,S)\
+	
+	public:
+	
+	%S%f_dump_factory_mem_key()
+	[{%Pa!=abstract}
+	protected:
+	%f_dump_common_mem_cache(%S)
+	][{<{}{%CS=common key}{%CC}>!=0}%f_collect_factory_for_mem(%S)
+	#class %S%f_transfomator_name() {
+	[	public:
+	<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)
+	#	static %S%f_factory_mem_key_name() %{CYCLE_ITEM}N_to_id (%{CYCLE_ITEM}<{, }{%CS!=nokey}%f_arg_full_decl(%C)>)
+	#		/*throw (Core::Root::ImpossibleConversion)*/;
+	>
+	#]\};]
+	
+
+f _dump_common_mem_cache
+	#typedef std::map\<[%f_type(%P)FactoryManager::]%S%f_factory_mem_key_name(), [{%S%f_use_for_synchro_factory()=false}{%t_fctr_manager_cache_value(%{INT},"type","")}%t_fctr_manager_cache_value(%{INT},"var","")]\> %f_to_borland(%SNMap);
+	#typedef std::map\<[{%f_is_server_type(%{INT})=false}{CORBA::ULong}const %f_type(%{INT})*], %f_to_borland(%SNMap)::iterator\> %f_to_borland(%SNIndexMap);
+	#%f_to_borland(%SNMap) m_%f_to_omg(%SN);
+	#%f_to_borland(%SNIndexMap) m_%f_to_omg(%SN)_index;
+	
+	#Core::Mutex m_mutex_for_%f_to_omg(%SN);
+f _need_conversion_exception
+	[{%TS=FactoryMemory&%T<{}{%CS=common key}{%CC}>!=0&<{}{%CS!=nokey}{%CC}>!=0}true]
+//#UC END# *4705C5490109for4753C0BC029E*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4753C0BC029E*
+//#UC END# *47022CB8034Bfor4753C0BC029E*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4753C0BC029E*
+//#UC END# *47022C88029Ffor4753C0BC029E*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4753C0BC029E*
+//#UC END# *47022CCF00EAfor4753C0BC029E*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for4753C0BC029E*
+//#UC END# *47022BBE0261for4753C0BC029E*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for4753C0BC029E*
+//#UC END# *47022C0F01E4for4753C0BC029E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4753C0BC029E*
+//#UC END# *49F5795900ECfor4753C0BC029E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4753C0BC029E*
+//#UC END# *470F15B800CBfor4753C0BC029E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4753C0BC029E*
+//#UC END# *470F1571031Cfor4753C0BC029E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4753C0BC029E*
+//#UC END# *477398E501C0for4753C0BC029E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4753C0BC029E*
+//#UC END# *4774D2A20372for4753C0BC029E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4753C0BC029E*
+//#UC END# *55B8D28B0157for4753C0BC029E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4753C0BC029E*
+//#UC END# *55B8D2F80145for4753C0BC029E*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4753C0BC029E*
+//#UC END# *55B8DD9C0301for4753C0BC029E*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4753C0BC029E*
+	%f_set_var(COMMON_MEM,S)\
+	
+	%S%f_dump_factory_mem_key()
+	[{%Pa!=abstract}
+	%f_dump_common_mem_cache_java(%S)
+	][{<{}{%CS=common key}{%CC}>!=0}%f_collect_factory_for_mem(%S)
+	#public static class %S%f_transfomator_name() {
+	[<{}{%f_is_empty(FACTORY_FOR_MEM)=false}{W}%f_pop_first_to_var(FACTORY_FOR_MEM,CYCLE_ITEM)
+	#	public static %S%f_factory_mem_key_name() %f_to_java(%{CYCLE_ITEM}N_to_id) (%{CYCLE_ITEM}<{, }{%CS!=nokey}%f_arg_full_decl(%C)>)
+	#		throws ru.garant.shared.Core.Root.ImpossibleConversion
+	#	{
+	#		%U[{FOR_%f_to_upper(%{CYCLE_ITEM}N_to_id)}
+	#		throw new java.lang.RuntimeException ("Method \[%f_to_java(%{CYCLE_ITEM}N_to_id)\] not implemented");
+	#		]
+	#	}
+	>
+	#]}]
+
+f _dump_common_mem_cache_java
+	#private java.util.Map\<%S%f_factory_mem_key_name(), [{%S%f_use_for_synchro_factory()=false}{%t_fctr_manager_cache_value(%{INT},"type","")}%t_fctr_manager_cache_value(%{INT},"var","")]\> %f_to_java(%SNMap)_ = 
+	#	new java.util.TreeMap\<%S%f_factory_mem_key_name(), [{%S%f_use_for_synchro_factory()=false}{%t_fctr_manager_cache_value(%{INT},"type","")}%t_fctr_manager_cache_value(%{INT},"var","")]\> (new %S%f_factory_mem_key_name()Comparator ());
+	#private [{%f_is_server_type(%{INT})=false}{java.util.Map\<Integer, %S%f_factory_mem_key_name()\> %f_to_java(%SNIndexMap)_ = 
+	#	new java.util.TreeMap\<Integer, %S%f_factory_mem_key_name()\> ();
+	}java.util.Map\<[{%S%f_use_for_synchro_factory()=false}{Integer}%f_var(%P)], %S%f_factory_mem_key_name()\> %f_to_java(%SNIndexMap)_ = 
+	#	new java.util.IdentityHashMap\<[{%S%f_use_for_synchro_factory()=false}{Integer}%f_var(%P)], %S%f_factory_mem_key_name()\> ();]
+//#UC END# *470321C1038Afor4753C0BC029E*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4753C0BC029E*
+//#UC END# *470321950119for4753C0BC029E*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor4753C0BC029E*
+//#UC END# *47032ED002DEfor4753C0BC029E*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor4753C0BC029E*
+//#UC END# *47032EC4032Cfor4753C0BC029E*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor4753C0BC029E*
+//#UC END# *470F152700FAfor4753C0BC029E*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4753C0BC029E*
+//#UC END# *46E6D4BB0339for4753C0BC029E*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: FactoryMemory::Class::common key::Attribute
+? Тип единого ключа
+? используется для идентификации объектов в общей "памяти", Дополнительно будут сгенерированы специальные функции преобразования параметров-ключей фабрик в этот единый ключ. По умолчанию, если единый ключ не задан, считается, что все фабрики имеют одинаковые параметры-ключи, и соотвественно, никакого преобразования не требуется.
+// Параметры стереотипа
+Y code_attr.gif
+L code_attr
+l arl
+/ - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4753C0D40361*
+//#UC END# *46E6D4BB0339for4753C0D40361*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for4753C0D40361*
+//#UC END# *47022BBE0261for4753C0D40361*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for4753C0D40361*
+//#UC END# *47022C0F01E4for4753C0D40361*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4753C0D40361*
+//#UC END# *47022C88029Ffor4753C0D40361*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4753C0D40361*
+//#UC END# *47022CB8034Bfor4753C0D40361*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4753C0D40361*
+//#UC END# *47022CCF00EAfor4753C0D40361*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4753C0D40361*
+//#UC END# *470321950119for4753C0D40361*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4753C0D40361*
+//#UC END# *470321C1038Afor4753C0D40361*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor4753C0D40361*
+//#UC END# *47032EC4032Cfor4753C0D40361*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor4753C0D40361*
+//#UC END# *47032ED002DEfor4753C0D40361*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for4753C0D40361*
+//#UC END# *4705C5490109for4753C0D40361*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for4753C0D40361*
+//#UC END# *4705C54B01F4for4753C0D40361*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor4753C0D40361*
+//#UC END# *470F152700FAfor4753C0D40361*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4753C0D40361*
+//#UC END# *470F1571031Cfor4753C0D40361*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4753C0D40361*
+//#UC END# *470F15B800CBfor4753C0D40361*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4753C0D40361*
+//#UC END# *477398E501C0for4753C0D40361*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4753C0D40361*
+//#UC END# *4774D2A20372for4753C0D40361*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4753C0D40361*
+//#UC END# *49F5795900ECfor4753C0D40361*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4753C0D40361*
+//#UC END# *55B8D28B0157for4753C0D40361*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4753C0D40361*
+//#UC END# *55B8D2F80145for4753C0D40361*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4753C0D40361*
+//#UC END# *55B8DD9C0301for4753C0D40361*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: FactoryMemory::Class::uses::ClassDependency
+? Использование
+? Определяет, что источник использует указанный объект (цель) каким-либо образом. Меожт использоваться при реализации трансформатора ключей фабрики в уникальный ключ, на основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+// Параметры стереотипа
+Y code_dep_uses.gif
+L code_dep_uses
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for47577B900144*
+//#UC END# *46E6D4BB0339for47577B900144*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for47577B900144*
+//#UC END# *47022BBE0261for47577B900144*
+
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for47577B900144*
+//#UC END# *47022C0F01E4for47577B900144*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47577B900144*
+//#UC END# *47022C88029Ffor47577B900144*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47577B900144*
+//#UC END# *47022CB8034Bfor47577B900144*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor47577B900144*
+//#UC END# *47022CCF00EAfor47577B900144*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47577B900144*
+//#UC END# *470321950119for47577B900144*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor47577B900144*
+//#UC END# *470321C1038Afor47577B900144*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor47577B900144*
+//#UC END# *47032EC4032Cfor47577B900144*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor47577B900144*
+//#UC END# *47032ED002DEfor47577B900144*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for47577B900144*
+//#UC END# *4705C5490109for47577B900144*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for47577B900144*
+//#UC END# *4705C54B01F4for47577B900144*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor47577B900144*
+//#UC END# *470F152700FAfor47577B900144*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor47577B900144*
+//#UC END# *470F1571031Cfor47577B900144*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor47577B900144*
+//#UC END# *470F15B800CBfor47577B900144*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for47577B900144*
+//#UC END# *477398E501C0for47577B900144*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for47577B900144*
+//#UC END# *4774D2A20372for47577B900144*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor47577B900144*
+//#UC END# *49F5795900ECfor47577B900144*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for47577B900144*
+//#UC END# *55B8D28B0157for47577B900144*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for47577B900144*
+//#UC END# *55B8D2F80145for47577B900144*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for47577B900144*
+//#UC END# *55B8DD9C0301for47577B900144*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

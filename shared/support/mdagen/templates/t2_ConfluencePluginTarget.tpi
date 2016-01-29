@@ -1,0 +1,417 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// ConfluencePluginTarget
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ConfluencePluginTarget::Category
+$ C 195,245,195
+$ l 80,245,90
+$ f 80,245,80
+? Сборка К-плагинов
+? Определяет цель для сборки плагинов Confluence.
+< *::Category, *::Class
+D
+L code_cplugin_target
+Y target.gif
+
+%t _constraint
+c             {}
+r {"%ax"="true"}: {%SS can't be used as target of dependence}
+
+%f _wiki_up_print
+
+f _need_output_xml
+	[{<{}{%CM=CPluginsPackage::Category}{C}>!=0}{false}true]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= ExeTarget::Category;wiki
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ java
+P
+C /%SN
+O %SNMain.java
+	%f_output_constraint(%S)\
+# t0_header	
+	package %f_dump_java_package(%S).%SN;
+	
+	%f_dump_std_java_imports(%S)
+	
+	public class %SNMain 
+		extends ru.garant.shared.ConfluenceCore.ConfluenceCoreImpl.ContainerManagerSrv 
+		implements com.atlassian.config.lifecycle.LifecycleItem
+	{
+
+		public %SNMain () {
+			Instance (this);
+		}
+	
+		public void startup(com.atlassian.config.lifecycle.LifecycleContext context) throws Exception {
+			System.out.println("MDPSupport startup...");
+			[{%f_use_server(%S)=true}{ru.garant.shared.Core.Root_i.Std}ru.garant.shared.CoreSrv.Root_i.Corba]LibHomeManagerFactoryImpl f = new [{%f_use_server(%S)=true}{ru.garant.shared.Core.Root_i.Std}ru.garant.shared.CoreSrv.Root_i.Corba]LibHomeManagerFactoryImpl ();
+			try {
+				f.registrate_me((short)0);
+			} catch (ru.garant.shared.Core.Root.DuplicatedFactoryKey ex) {
+				Logs.LOG_SEX (ex);
+			}
+	
+			ru.garant.shared.Core.Root.LibHomeManager lhm = null;
+			try {
+				lhm = ru.garant.shared.Core.Root.LibHomeManager.Factory.get();
+			} catch (ru.garant.shared.Core.Root.NoActiveFactory ex) {
+				Logs.LOG_SEX(ex);
+			}
+	
+			lhm.registrate_lib_home (ru.garant.shared.ConfluenceCore.LibHome.get());
+	[%f_reg_all_dep_java(%S)
+	]
+			try {
+				lhm.execute();
+			} catch (ru.garant.shared.Core.Root.InvalidParams ip) {
+				Logs.LOG_SEX (ip);
+			} catch (ru.garant.shared.Core.Root.HomeManagerInitError hmie) {
+				Logs.LOG_SEX (hmie);
+			}
+			System.out.println("MDPSupport startup complete");
+		}
+	
+		public void shutdown(com.atlassian.config.lifecycle.LifecycleContext context) throws Exception {
+			System.out.println("MDPSupport shutdown...");
+			try {
+				ru.garant.shared.Core.Root.LibHomeManager.Factory.get().finalize();
+				System.out.println("MDPSupport shutdown complete");
+			} catch (ru.garant.shared.Core.Root.NoActiveFactory ex) {
+				Logs.LOG_SEX (ex);
+			}
+		}
+
+	} // %SNMain
+	
+# t0_footer
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+C /%SN
+O atlassian-plugin.xml
+P
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<atlassian-plugin key="%SN" name="%SN"\>
+		\<plugin-info\>
+			\<description\>[{"%PD"!=""}{%PN}%PD] - [{"%SD"!=""}{%SN}%SD]\</description\>
+			\<version\>%P{major version}.%P{minor version}.%P{fix version}\</version\>
+			\<vendor name="ООО НПП 'Гарант-Сервис" url="www.garant.ru"/\>
+		\</plugin-info\>
+		\<lifecycle name="%SNMain" key="<%PN::>%SN::%SNMain" class="%f_dump_java_package(%S).%SN.%SNMain" sequence="1200"\>
+			\<description\>Компонента для регистрации фабрик\</description\>
+		\</lifecycle\><{}{%f_need_output_xml(%D)}
+	%D<{}{%t_is_cplugin(%A)=true&%A%f_can_dump_xml_info()=true}%AX>>\</atlassian-plugin\>
+
++ output.project
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O .project
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<projectDescription\>
+		\<name\>%SN\</name\>
+		\<comment\>%SD\</comment\>
+		\<projects\>
+		\</projects\>
+		\<buildSpec\>
+			\<buildCommand\>
+				\<name\>org.eclipse.jdt.core.javabuilder\</name\>
+				\<arguments\>
+				\</arguments\>
+			\</buildCommand\>
+			\<buildCommand\>
+				\<name\>org.eclipse.ui.externaltools.ExternalToolBuilder\</name\>
+				\<triggers\>full,incremental,\</triggers\>
+				\<arguments\>
+					\<dictionary\>
+						\<key\>LaunchConfigHandle\</key\>
+						\<value\>&lt;project&gt;/Makejar.launch\</value\>
+					\</dictionary\>
+				\</arguments\>
+			\</buildCommand\>
+		\</buildSpec\>
+		\<natures\>
+			\<nature\>org.eclipse.jdt.core.javanature\</nature\>
+		\</natures\>
+		\<linkedResources\>
+			\<link\>
+				\<name\>classes\</name\>
+				\<type\>2\</type\>
+				\<location\>J:/confluence_external/classes\</location\>
+			\</link\>
+			\<link\>
+				\<name\>%PN\</name\>
+				\<type\>2\</type\>
+				\<location\>%f_with_gen_id(java,%SR/%PN)/java/src/java\</location\>
+			\</link\>
+			\<link\>
+				\<name\>shared\</name\>
+				\<type\>2\</type\>
+				\<location\>W:/shared/java/src/java\</location\>
+			\</link\>
+			\<link\>
+				\<name\>target\</name\>
+				\<type\>2\</type\>
+				\<location\>W:/build/target/classes\</location\>
+			\</link\>
+		\</linkedResources\>
+		%U[{_CUSTOM_PROJECT_ENTRY}
+		]<%CX>
+	\</projectDescription\>
+	
+f _can_dep
+	[{%Sx=true&%Se=false&"%f_dump_src(%S)"!=""}{false}true]
+
++ output.classpath
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O .classpath
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<classpath\>
+		\<classpathentry kind="src" path="%PN"/\>
+		\<classpathentry kind="src" path="shared"/\>
+		\<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/activation-1.0.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/alt-0.07-j1.3-j2ee1.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/alt-0.07-jdk1.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/alt-jdk1.3-0.07.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ant-1.5.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/aopalliance-1.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-bandana-0.2.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-bonnie-2.2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-bucket-0.11.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-cache-servlet-0.5.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-config-0.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-confluence-extras-1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-core-3.1.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-event-0.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-extras-0.7.33.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-gregory-0.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-johnson-0.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-mail-2007_05_18.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-plugins-2007-05-02.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-profiling-1.1.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-profiling-1.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-renderer-3.0.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-spring-0.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-trackback-0.8.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-user-1.5-stable-compatible-1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/atlassian-velocity-0.1.9.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/attachments-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/avalon-framework-4.1.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/axis-1.2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/axis-jaxrpc-1.2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/axis-saaj-1.2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/axis-wsdl4j-1.2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/backport-util-concurrent-3.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/batik-1.5-fop-0.20-5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/bonnie-2007-05-07-1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/bsf-2.3.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/c3p0-0.9.0.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/cglib-full-2.0.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/coherence-3.2-b365.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-beanutils-1.6.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-codec-1.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-collections-3.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-digester-1.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-discovery-0.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-fileupload-1.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-httpclient-3.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-io-1.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-jrcs-diff-0.1.7.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-lang-2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/commons-logging-1.0.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/concurrent-1.3.4-patched.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ConfluenceCore.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ConfluenceMDChange.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ConfluencePlugins.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ConfluencePluginTarget.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/confluencerpc-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/Core.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/CoreSrv.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/cos-09May2002.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/dom4j-1.4-full.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/dwr-1.1.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/dynamictasklist-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ehcache-1.2.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/exml-7.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/FontBox-0.1.0-dev.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/fop-0.20.5-atlassian-20060626.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/glue-5.0b2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/hibernate-2.1.8-atlassian.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/hsqldb-1.8.0.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/httpunit-1.5.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/impresence-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/information-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jai_codec-1.1.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jai_core-1.1.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/javamail-1.3.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jcaptcha-all-1.0-RC2.0.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jcommon-1.0.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jdom-1.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jfreechart-1.0.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jira3-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/joda-time-0.98.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jta-1.0.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jta-1.0.1B.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jtds-1.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jtidy-r8-20050104.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jtidy-r8-21122004.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/jython-2.1-forked.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/layout-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ldaptemplate-ldaptemplate-1.0.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/leftnavigation-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/LinkSupport.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/livesearch-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/log4j-1.2.8.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/lucene-analyzers-1.9.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/lucene-core-1.9.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/lucene-core-1.9.1-atlassian.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/mail-1.3.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/masterdetail-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/MDGenPlugins.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/MDGenSupport.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/mockobjects-core-0.09.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/mockobjects-j1.3-j2ee1.3-0.07.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/mysql-connector-java-3.1.14-bin.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/nekohtml-0.9.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/net.sf.ldaptemplate-ldaptemplate-1.0.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/odmg-3.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ofbcore-share-2.1.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ognl-2.6.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/opensymphony-oscore-2.2.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/opensymphony-propertyset-1.3-21Nov03.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/opensymphony-webwork-2.1.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/opensymphony-xwork-1.0.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/org.textmining-tm-extractors-0.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/oro-2.0.7.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/oscache-2.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/oscore-oscore-2.2.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/osuser-atl.user.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/p6spy-1.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/pdfbox-0.7.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/pell-multipart-2.1.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/pell-multipart.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/poi-2.0-final-20040126.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/propertyset-propertyset-1.3-21Nov03.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/quartz-1.5.2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/radeox-1.0b2-forked-22Apr2004.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/rome-0.8.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/saxon-6.5.3-patched.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/seraph-0.7.23.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ServerGate.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/servlet-api.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/sitemesh-2.2.1-atlassian.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/sitemesh-2.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/slide-2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/spring-1.1.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/spring-aopalliance-1.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/ss_css2-0.9.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/stax-api-1.0.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/tangosol-3.2-b365-atlassian.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/tasklist-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/tm-extractors-tm-extractors-0.4.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/urlrewrite-2.6.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/userlister-2.5.6.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/velocity-1.3.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/velocity-dep-1.3.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/velocity-tools-view-1.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/webwork-webwork-2.1.5.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/wsdl4j-1.5.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/wstx-asl-2.9.3.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xalan-2.7.0.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xercesImpl-2.2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xfire-all-1.2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xml-apis-1.0.b2.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xmlParserAPIs-2.2.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xmlrpc-2.0+xmlrpc61.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xpp3-1.1.3.4d_b4_min.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xstream-1.1.1.jar"/\>
+		\<classpathentry kind="lib" path="J:/confluence_external/lib/xwork-xwork-1.0.3.jar"/\>
+		\<classpathentry kind="lib" path="classes"/\>
+		\<classpathentry kind="output" path="target"/\>
+	\</classpath\>
+
+f _dump_dep_for_makejar
+	<{\n}{%de=false&%dS!=Requirements}		\<ant antfile="%do" target="makejar" inheritAll="false"/\>>
+
+f _dump_dep_for_idlcomp
+	<{\n}{%de=false&%dS=ServerLibrary}		\<ant antfile="%do" target="idlcomp" inheritAll="false"/\>>
+
++ build.xml
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O build.xml
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<project name="%SN" basedir="."\>
+		\<property name="build.dir" value="w:/build/target"/\>
+	[{<{}{%D<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}.>>!=""}
+		\<target name="idlcomp"\>[{<{}{%dS=ServerLibrary}{C}>!=0}
+			\<ant antfile="W:/shared/java/project/CoreSrv/build.xml" target="idlcomp" inheritAll="false"/\>][
+	%f_dump_dep_for_idlcomp(%S)]
+		\</target\>]
+		\<target name="makejar"\>[{<{}{%dS=ServerLibrary}{C}>!=0}
+			\<ant antfile="W:/shared/java/project/Core/build.xml" target="makejar" inheritAll="false"/\>
+			\<ant antfile="W:/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/\>
+			\<ant antfile="W:/shared/java/project/ConfluenceCore/build.xml" target="makejar" inheritAll="false"/\>][
+	%f_dump_dep_for_makejar(%S)]
+			\<jar destfile="${build.dir}/jar/%SN.jar"\>
+				\<fileset dir ="${build.dir}/classes"\>
+					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+				\</fileset\>
+				\<fileset dir ="%f_with_gen_id(output.xml,%SR%Sd)"/\>
+			\</jar\>
+		\</target\>
+	<%CX>
+	\</project\>
+
++ Makejar.launch
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O Makejar.launch
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<launchConfiguration type="org.eclipse.ant.AntBuilderLaunchConfigurationType"\>
+		\<booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/\>
+		\<booleanAttribute key="org.eclipse.ant.ui.DEFAULT_VM_INSTALL" value="false"/\>
+		\<booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="true"/\>
+		\<stringAttribute key="org.eclipse.ant.ui.ATTR_ANT_AFTER_CLEAN_TARGETS" value="idlcomp,"/\>
+		\<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES"\>
+			\<listEntry value="1"/\>
+		\</listAttribute\>
+		\<stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,incremental,"/\>
+		\<booleanAttribute key="org.eclipse.ant.ui.ATTR_TARGETS_UPDATED" value="true"/\>
+		\<booleanAttribute key="org.eclipse.ui.externaltools.ATTR_TRIGGERS_CONFIGURED" value="true"/\>
+		\<booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="true"/\>
+		\<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.ant.ui.AntClasspathProvider"/\>
+		\<stringAttribute key="org.eclipse.ant.ui.ATTR_ANT_MANUAL_TARGETS" value="makejar,"/\>
+		\<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="%SN"/\>
+		\<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${workspace}"/\>
+		\<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS"\>
+			\<listEntry value="/%SN/build.xml"/\>
+		\</listAttribute\>
+		\<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/%SN/build.xml}"/\>
+	\</launchConfiguration\>
+	<%CX>

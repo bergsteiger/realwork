@@ -1,0 +1,366 @@
+// CustomStyleManager 53AABD9F02D1 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53AABD9F02D1
+
+FORWARD ME_53AABE1F0383
+
+FORWARD ME_BA57CFD34717
+
+: ME_C36691049497
+ CONST UID 'C36691049497'
+ CONST Name 'aSeg'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_C36691049497 aSeg
+
+: ME_C36691049498
+ CONST UID 'C36691049498'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_C36691049498 aPara
+
+: ME_391A810FF759
+ CONST UID '391A810FF759'
+ CONST Name 'IsAbolishedDocumentLink'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_BA57CFD34717 // MevCustomStyleManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_C36691049497 // aSeg
+ ME_C36691049498 // aPara
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_391A810FF759 IsAbolishedDocumentLink
+
+: ME_C1374E2BB356
+ CONST UID 'C1374E2BB356'
+ CONST Name 'aSeg'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_C1374E2BB356 aSeg
+
+: ME_DC1A5D24B383
+ CONST UID 'DC1A5D24B383'
+ CONST Name 'IsVisitedDocumentLink'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_BA57CFD34717 // MevCustomStyleManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_C1374E2BB356 // aSeg
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_DC1A5D24B383 IsVisitedDocumentLink
+
+: ME_BA57CFD34717
+ CONST UID 'BA57CFD34717'
+ CONST Name 'MevCustomStyleManager'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TevCustomStyleManager' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ : Operations
+   @ ( ME_391A810FF759 // IsAbolishedDocumentLink
+ ME_DC1A5D24B383 // IsVisitedDocumentLink
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_BA57CFD34717 MevCustomStyleManager
+
+FORWARD ME_D8B97AFBE40F
+
+: ME_391A810FF759_ME_D8B97AFBE40F
+ CONST UID '391A810FF759'
+ CONST Name 'IsAbolishedDocumentLink'
+ : Original ME_391A810FF759 // IsAbolishedDocumentLink
+ ;
+ : Implementor ME_D8B97AFBE40F // IevCustomStyleManager
+ ;
+ref; // ME_391A810FF759_ME_D8B97AFBE40F IsAbolishedDocumentLink
+
+: ME_DC1A5D24B383_ME_D8B97AFBE40F
+ CONST UID 'DC1A5D24B383'
+ CONST Name 'IsVisitedDocumentLink'
+ : Original ME_DC1A5D24B383 // IsVisitedDocumentLink
+ ;
+ : Implementor ME_D8B97AFBE40F // IevCustomStyleManager
+ ;
+ref; // ME_DC1A5D24B383_ME_D8B97AFBE40F IsVisitedDocumentLink
+
+: ME_D8B97AFBE40F
+ CONST UID 'D8B97AFBE40F'
+ CONST GUID '3E2B89CD-5B2D-400C-9EC9-FDA3B57A0C23'
+ CONST Name 'IevCustomStyleManager'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса TevCustomStyleManager' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ : Implements
+   @ ( ME_BA57CFD34717 // MevCustomStyleManager
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_391A810FF759_ME_D8B97AFBE40F // IsAbolishedDocumentLink
+ ME_DC1A5D24B383_ME_D8B97AFBE40F // IsVisitedDocumentLink
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_D8B97AFBE40F IevCustomStyleManager
+
+: ME_43E2805BD14B
+ CONST UID '43E2805BD14B'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса IevCustomStyleManager' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ : Target ME_D8B97AFBE40F // IevCustomStyleManager
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_43E2805BD14B Alien
+
+: ME_2F40C409CBFF
+ CONST UID '2F40C409CBFF'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ : Target ME_D8B97AFBE40F // IevCustomStyleManager
+ ;
+
+ref; // ME_2F40C409CBFF f_Alien
+
+: ME_5549E18D025A
+ CONST UID '5549E18D025A'
+ CONST Name 'aSeg'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5549E18D025A aSeg
+
+: ME_5549E18D0282
+ CONST UID '5549E18D0282'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_5549E18D0282 aPara
+
+: ME_5549E17B01C5
+ CONST UID '5549E17B01C5'
+ CONST Name 'IsAbolishedDocumentLink'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5549E18D025A // aSeg
+ ME_5549E18D0282 // aPara
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5549E17B01C5 IsAbolishedDocumentLink
+
+: ME_5549E1F800FA
+ CONST UID '5549E1F800FA'
+ CONST Name 'aSeg'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5549E1F800FA aSeg
+
+: ME_5549E1DA0063
+ CONST UID '5549E1DA0063'
+ CONST Name 'IsVisitedDocumentLink'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5549E1F800FA // aSeg
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5549E1DA0063 IsVisitedDocumentLink
+
+: ME_25686A6ABE17
+ CONST UID '25686A6ABE17'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_25686A6ABE17 Exists
+
+: ME_391A810FF759_ME_53AABE1F0383
+ CONST UID '391A810FF759'
+ CONST Name 'IsAbolishedDocumentLink'
+ : Original ME_391A810FF759 // IsAbolishedDocumentLink
+ ;
+ : Implementor ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ref; // ME_391A810FF759_ME_53AABE1F0383 IsAbolishedDocumentLink
+
+: ME_DC1A5D24B383_ME_53AABE1F0383
+ CONST UID 'DC1A5D24B383'
+ CONST Name 'IsVisitedDocumentLink'
+ : Original ME_DC1A5D24B383 // IsVisitedDocumentLink
+ ;
+ : Implementor ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ref; // ME_DC1A5D24B383_ME_53AABE1F0383 IsVisitedDocumentLink
+
+: ME_5000565C019C_ME_53AABE1F0383
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_53AABE1F0383 // TevCustomStyleManager
+ ;
+ref; // ME_5000565C019C_ME_53AABE1F0383 ClearFields
+
+: ME_53AABE1F0383
+ CONST UID '53AABE1F0383'
+ CONST Name 'TevCustomStyleManager'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53AABD9F02D1 // CustomStyleManager
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_BA57CFD34717 // MevCustomStyleManager
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_43E2805BD14B // Alien
+ ME_2F40C409CBFF // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5549E17B01C5 // IsAbolishedDocumentLink
+ ME_5549E1DA0063 // IsVisitedDocumentLink
+ ME_25686A6ABE17 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_391A810FF759_ME_53AABE1F0383 // IsAbolishedDocumentLink
+ ME_DC1A5D24B383_ME_53AABE1F0383 // IsVisitedDocumentLink
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_53AABE1F0383 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_BA57CFD34717 // MevCustomStyleManager
+ ME_D8B97AFBE40F // IevCustomStyleManager
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCustomStyleManager.pas'
+
+ref; // ME_53AABE1F0383 TevCustomStyleManager
+
+: ME_53AABD9F02D1
+ CONST UID '53AABD9F02D1'
+ CONST Name 'CustomStyleManager'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_53AABE1F0383 // TevCustomStyleManager
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53AABD9F02D1.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53AABD9F02D1.pas.ms.script.runner'
+
+ref; // ME_53AABD9F02D1 CustomStyleManager

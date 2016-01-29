@@ -1,0 +1,170 @@
+// Memos 4A8A6D020382 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8A6D020382
+
+FORWARD ME_4A8A6DD700CC
+
+: ME_EF5D8E935964
+ CONST UID 'EF5D8E935964'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TevCustomChatMemo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_EF5D8E935964 Ini_Reg_Class
+
+: ME_4A8A84C2001E
+ CONST UID '4A8A84C2001E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4A8A84C2001E 
+
+: ME_4B3096BD01AE
+ CONST UID '4B3096BD01AE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ : Target WL 'ME_48453A750156' '48453A40017C.pas.ms.script' // Operations
+ ;
+
+ref; // ME_4B3096BD01AE 
+
+: ME_33AE9F91DE84
+ CONST UID '33AE9F91DE84'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_33AE9F91DE84 
+
+: ME_47A042E100E2_ME_4A8A6DD700CC
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ref; // ME_47A042E100E2_ME_4A8A6DD700CC InitFields
+
+: ME_4A8A6D4701CC_ME_4A8A6DD700CC
+ CONST UID '4A8A6D4701CC'
+ CONST Name 'KeepParaFormattingTag'
+ : Original WL 'ME_4A8A6D4701CC' '4829D7D50156.pas.ms.script' // KeepParaFormattingTag
+ ;
+ : Implementor ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ref; // ME_4A8A6D4701CC_ME_4A8A6DD700CC KeepParaFormattingTag
+
+: ME_4B28D6780001_ME_4A8A6DD700CC
+ CONST UID '4B28D6780001'
+ CONST Name 'WantSoftEnter'
+ : Original WL 'ME_4B28D6780001' '4829D7D50156.pas.ms.script' // WantSoftEnter
+ ;
+ : Implementor ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ref; // ME_4B28D6780001_ME_4A8A6DD700CC WantSoftEnter
+
+: ME_4B309684022A_ME_4A8A6DD700CC
+ CONST UID '4B309684022A'
+ CONST Name 'IsCommandPublished'
+ : Original WL 'ME_4B309684022A' '4829D7D50156.pas.ms.script' // IsCommandPublished
+ ;
+ : Implementor ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ref; // ME_4B309684022A_ME_4A8A6DD700CC IsCommandPublished
+
+: ME_4A8A6DD700CC
+ CONST UID '4A8A6DD700CC'
+ CONST Name 'TevCustomChatMemo'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Мемо-поле для чатов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A8A6D020382 // Memos
+ ;
+ : Inherits
+   @ ( WL 'ME_4829D81D02E5' '4829D7D50156.pas.ms.script' // TevCustomMemo
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_EF5D8E935964 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47A042E100E2_ME_4A8A6DD700CC // InitFields
+ ME_4A8A6D4701CC_ME_4A8A6DD700CC // KeepParaFormattingTag
+ ME_4B28D6780001_ME_4A8A6DD700CC // WantSoftEnter
+ ME_4B309684022A_ME_4A8A6DD700CC // IsCommandPublished
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4A8A84C2001E // 
+ ME_4B3096BD01AE // 
+ ME_33AE9F91DE84 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.08.2009 14:48'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCustomChatMemo.pas'
+
+ref; // ME_4A8A6DD700CC TevCustomChatMemo
+
+: ME_4A8A6D020382
+ CONST UID '4A8A6D020382'
+ CONST Name 'Memos'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ %SUMMARY 'Memo-поля' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4A8A6DD700CC // TevCustomChatMemo
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A8A6D020382.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A8A6D020382.pas.ms.script.runner'
+
+ref; // ME_4A8A6D020382 Memos

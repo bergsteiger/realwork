@@ -1,0 +1,109 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/UsesContainer.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::UsesContainer
+//
+// Примесный класс. Определяет связь uses
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UsesContainer::Class
+implementation @ <<UsesContainer>>
+//? Примесный класс. Определяет связь uses
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: UsesContainer::Class::uses::ClassDependency
+; // st_space_key
+
+end. // <<UsesContainer>>
+
+implementation @ :: <<UsesContainer>> <<uses>> ;
+//? Использование
+//? Определяет что сервант (источник) использует указанный объект (цель) каким-либо образом (в том числе создает его через фабрики, есль цель-сервант)
+//? 
+//? НА основе данной связи будет сгенерированы пути включения файлов используемого объекта (для цели-серванта так же будет сгенерирована специальная фабрика возвращающая не интерфейс а сервант).
+//= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_uses.gif
+//L code_dep_uses
+
+// Пользовательские свойства
+//p isHighPriority:b=false ? Определяет, что связь имеет высший приоритет (для управления порядком включения модулей)
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{isHighPriority}"!="%S{!isHighPriority}"}%f_up_prefix(%S) *isHighPriority* = *%S{isHighPriority}* - Определяет, что связь имеет высший приоритет (для управления порядком включения модулей)
+ ?inherited
+ if ( ( %S get_up ( 'isHighPriority' ) ) %!= ( %S get_up_def ( 'isHighPriority' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *isHighPriority* = *'
+  %S get_up ( 'isHighPriority' ) '* - Определяет, что связь имеет высший приоритет (для управления порядком включения модулей)'
+//	]
+ end // if
+
+//%f _IsUses
+; // wiki_up_print
+
+: IsUses OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BB0BA210001for47049B5902FD*
+//	true
+ true
+//#UC END# *4BB0BA210001for47049B5902FD*
+; // IsUses
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47049B5902FD*
+//	uses
+ 'uses'
+//#UC END# *4705CBD6003Efor47049B5902FD*
+; // wiki_child_kind
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент не является параметром
+//%f _IsNotParam
+: IsNotParam OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4C766D140383for47049B5902FD*
+//	true
+ true
+//#UC END# *4C766D140383for47049B5902FD*
+; // IsNotParam
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<UsesContainer>> <<uses>> ;
+

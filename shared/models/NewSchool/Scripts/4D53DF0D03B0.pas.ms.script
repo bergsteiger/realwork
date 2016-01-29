@@ -1,0 +1,127 @@
+// Filters 4D53DF0D03B0 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D53DF0D03B0
+
+FORWARD ME_4EA5382F006A
+
+: ME_4EA5644C0099
+ CONST UID '4EA5644C0099'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4EA5382F006A // K294595323
+ ;
+ : Target WL 'ME_4EA538D60064' '4EA538A203C7.pas.ms.script' // TK294595323Suite
+ ;
+
+ref; // ME_4EA5644C0099 
+
+: ME_6E4296B559CB
+ CONST UID '6E4296B559CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4EA5382F006A // K294595323
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_6E4296B559CB 
+
+: ME_4C937013031D_ME_4EA5382F006A
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4EA5382F006A // K294595323
+ ;
+ref; // ME_4C937013031D_ME_4EA5382F006A GetFolder
+
+: ME_4DAED6F60146_ME_4EA5382F006A
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4EA5382F006A // K294595323
+ ;
+ref; // ME_4DAED6F60146_ME_4EA5382F006A GetModelElementGUID
+
+: ME_4EA553E901DB_ME_4EA5382F006A
+ CONST UID '4EA553E901DB'
+ CONST Name 'Suite'
+ : Original WL 'ME_4EA553E901DB' '4B2A0D6A0077.pas.ms.script' // Suite
+ ;
+ : Implementor ME_4EA5382F006A // K294595323
+ ;
+ CONST "is static" true
+ref; // ME_4EA553E901DB_ME_4EA5382F006A Suite
+
+: ME_4EA5382F006A
+ CONST UID '4EA5382F006A'
+ CONST Name 'K294595323'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:294595323}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D53DF0D03B0 // Filters
+ ;
+ : Inherits
+   @ ( WL 'ME_4EA5222A020E' '4D53DE3F00D1.pas.ms.script' // AACFiltersTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C937013031D_ME_4EA5382F006A // GetFolder
+ ME_4DAED6F60146_ME_4EA5382F006A // GetModelElementGUID
+ ME_4EA553E901DB_ME_4EA5382F006A // Suite
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4EA5644C0099 // 
+ ME_6E4296B559CB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K294595323.pas'
+ CONST extprop:pas:TypeName 'TK294595323'
+
+ref; // ME_4EA5382F006A K294595323
+
+: ME_4D53DF0D03B0
+ CONST UID '4D53DF0D03B0'
+ CONST Name 'Filters'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D53DEED0062' '4D53DEED0062.pas.ms.script' // Archi Tests
+ ;
+ : Children
+   @ ( ME_4EA5382F006A // K294595323
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4D53DE3F00D1' '4D53DE3F00D1.pas.ms.script' // Filters
+ WL 'ME_4EA538A203C7' '4EA538A203C7.pas.ms.script' // MultyFileTests
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D53DF0D03B0.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D53DF0D03B0.pas.ms.script.runner'
+
+ref; // ME_4D53DF0D03B0 Filters

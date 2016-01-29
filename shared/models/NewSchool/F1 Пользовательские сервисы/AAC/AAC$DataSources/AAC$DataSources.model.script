@@ -1,0 +1,383 @@
+<<VCMControllers>> AAC$DataSources
+ %UID '4FF2E61D00CA'
+ %SUMMARY 'Контроллеры бизнес-логики прецедента "Актуальная аналитика"' ;
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '484FA67302D7' /* GUI */
+  U$ '4982BE090383' /* vcmControllers */
+  U$ '4A9F8388014E' /* Document */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '4A9F8388014E' /* Document */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> AACInterfaces
+   %UID '4FF2E6570285'
+   %SUMMARY 'Интерфейсы контроллеров прецедента "Актуальная аналитика"' ;
+   %DEPENDS
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '4D1B548F00EE' /* WorkWithDocumentInterfaces */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+   ; // %TOBEINCLUDED
+  ; // AACInterfaces
+  <<ControllerUnit>> AACImplementation
+   %UID '4FF2E66802B4'
+   %SUMMARY 'Реализация контроллеров прецедента "Актуальная аналитика"' ;
+   %DEPENDS
+    U$ '4678137501EA' /* k2Interfaces */
+    U$ '467FC9F80281' /* DocumentTagNodes */
+    U$ '469D0AC7005E' /* Types */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47EA50050263' /* BaseDocument */
+    U$ '47F1F38601A3' /* ParaUtils */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '47F22C7501F6' /* Document */
+    U$ '48492FC0029D' /* Standard */
+    U$ '484A470100DD' /* Standard */
+    U$ '484FA67302D7' /* GUI */
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '4982BE090383' /* vcmControllers */
+    U$ '49A58A1A03C4' /* k2PrimObjects */
+    U$ '4A9F83AD0235' /* Document */
+    U$ '4C6A7BA001A5' /* F1DocumentContainers */
+    U$ '4C6E92E9016E' /* F1TagDataProviderInterface */
+    U$ '4D1B548F00EE' /* WorkWithDocumentInterfaces */
+    U$ '4FF2E6570285' /* AACInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '467A8734039C' /* EVD */
+    U$ '4680C57D01E9' /* Business */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4797632D0273' /* Everest */
+    U$ '47E9EEC60260' /* Model */
+    U$ '481EF5C4020D' /* Оболочка */
+    U$ '4A9F8388014E' /* Document */
+    U$ '4C6A65ED0374' /* F1DocumentProcessing */
+    U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4FF2E61D00CA' /* AAC$DataSources */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<UseCaseControllerImp>> TsdsAAC
+      %UID '4FF2E6B003C4'
+      %SUMMARY 'Контроллер прецедента "Актуальная аналитика"' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4A9F8388014E' /* Document */
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4FF2E68A0253' /* IsdsAAC */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '493E5C580280' /* sdsDocument */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4FF2E70A0103' /* Container */
+       U$ '4FF2E78901DC' /* Left */
+       U$ '4FF2E7BE016B' /* Right */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '491B02D80112' /* GetIsNeedChangePosition */
+       U$ '4925B1EC0100' /* BaseDocumentClass */
+       U$ '4925B7F00156' /* ClearAllDS */
+       U$ '4938F7E702B7' /* ClearAreas */
+       U$ '54CF10260215' /* DoGetTabCaption */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4FF2E7FF00CA"
+         %UID '4FF2E7FF00CA'
+         %TARGET U$ '493D63D20049' /* TdsDocument */
+        ; // 4FF2E7FF00CA
+        <<uses>> "4FF2EF0D02CB"
+         %UID '4FF2EF0D02CB'
+         %TARGET U$ '4FF2EEF80072' /* TdsAACContainer */
+        ; // 4FF2EF0D02CB
+        <<uses>> "500E748D031F"
+         %UID '500E748D031F'
+         %TARGET U$ '500E746B0273' /* TdsAACDocumentLeft */
+        ; // 500E748D031F
+        <<uses>> "500E749601A5"
+         %UID '500E749601A5'
+         %TARGET U$ '500E747B0047' /* TdsAACDocumentRight */
+        ; // 500E749601A5
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_DocumentLikeStateHolder
+         %UID '51ED56600317'
+         %TARGET U$ '51ED558501F2' /* InsDocumentLikeStateHolder */
+         %TOBEINCLUDED
+          U$ '4680C57D01E9' /* Business */
+         ; // %TOBEINCLUDED
+        ; // f_DocumentLikeStateHolder
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID '494EE1591180'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsAAC' ;
+         %TARGET U$ '4FF2E68A0253' /* IsdsAAC */
+         %TOBEINCLUDED
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+        ; // SetType
+        SUMMONED PRIVATE <<Attribute>> f_Container
+         %UID '969055BB864F'
+         %SUMMARY 'Поле для области вывода Container' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_Container
+        SUMMONED PRIVATE <<Attribute>> f_Left
+         %UID 'AE9A908DE012'
+         %SUMMARY 'Поле для области вывода Left' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_Left
+        SUMMONED PRIVATE <<Attribute>> f_Right
+         %UID 'AF3E1E574C58'
+         %SUMMARY 'Поле для области вывода Right' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_Right
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<method>> MakeDocumentLikeStateHolder
+         %UID '51ED56B903D6'
+         %TOBEINCLUDED
+          U$ '4680C57D01E9' /* Business */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51ED56CD01D2'
+            %TARGET U$ '51ED558501F2' /* InsDocumentLikeStateHolder */
+            %TOBEINCLUDED
+             U$ '4680C57D01E9' /* Business */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeDocumentLikeStateHolder
+      ; // %OPERATIONS
+     ; // TsdsAAC
+     FINAL <<ViewAreaControllerImp>> TdsAACContainer
+      %UID '4FF2EEF80072'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4FF2E6F200CC' /* IdsAACContainer */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47ECE94D03D4' /* vcmFormDataSourcePrim */
+      ; // %INHERITS
+     ; // TdsAACContainer
+     <<ViewAreaControllerImp>> TdsAACDocumentPrim
+      %UID '500E749D0046'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A8734039C' /* EVD */
+       U$ '4680C57D01E9' /* Business */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '493D63D20049' /* TdsDocument */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '49147B4602C0' /* GetIsNeedChangePosition */
+      ; // %OVERRIDES
+      %OPERATIONS
+        PROTECTED ABSTRACT <<abstractmethod>> BlockViewKind
+         %UID '500E74C30088'
+         %TOBEINCLUDED
+          U$ '467A8734039C' /* EVD */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '500E74CD0101'
+            %TARGET U$ '4FBE15CD02C7' /* BlockViewKind */
+            %TOBEINCLUDED
+             U$ '467A8734039C' /* EVD */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // BlockViewKind
+      ; // %OPERATIONS
+     ; // TdsAACDocumentPrim
+     <<ViewAreaControllerImp>> TdsAACDocumentRight
+      %UID '500E747B0047'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481EF5C4020D' /* Оболочка */
+       U$ '4FF2E61D00CA' /* AAC$DataSources */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '500FF3E20023' /* "`Правые` блоки должны показываться в правой половине окна, а `левые` в левой" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '500E749D0046' /* TdsAACDocumentPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '500E74C30088' /* BlockViewKind */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '491C263E03AF' /* GetIsReadOnly */
+       U$ '4C6AB38800F3' /* MakeContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "500E76A600B2"
+         %UID '500E76A600B2'
+         %TARGET U$ '500E75C90024' /* TnsAACRightDocumentContainer */
+        ; // 500E76A600B2
+      ; // %LINKS
+     ; // TdsAACDocumentRight
+     <<ViewAreaControllerImp>> TdsAACDocumentLeft
+      %UID '500E746B0273'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481EF5C4020D' /* Оболочка */
+       U$ '4FF2E61D00CA' /* AAC$DataSources */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '500FF3E20023' /* "`Правые` блоки должны показываться в правой половине окна, а `левые` в левой" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '500E749D0046' /* TdsAACDocumentPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '500E74C30088' /* BlockViewKind */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C6AB38800F3' /* MakeContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "500E769E005A"
+         %UID '500E769E005A'
+         %TARGET U$ '500E75A000B0' /* TnsAACLeftDocumentContainer */
+        ; // 500E769E005A
+      ; // %LINKS
+     ; // TdsAACDocumentLeft
+     <<SimpleClass>> TnsAACLeftDocumentContainer
+      %UID '500E75A000B0'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481EF5C4020D' /* Оболочка */
+       U$ '4C6A65ED0374' /* F1DocumentProcessing */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '500FF3E20023' /* "`Правые` блоки должны показываться в правой половине окна, а `левые` в левой" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '500E758002C7' /* TnsAACDocumentContainerPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '500E7677002B' /* AcceptableBlockViewKinds */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "502403DB0346"
+         %UID '502403DB0346'
+         %TARGET U$ '4FBE15CD02C7' /* BlockViewKind */
+        ; // 502403DB0346
+      ; // %LINKS
+     ; // TnsAACLeftDocumentContainer
+     <<SimpleClass>> TnsAACRightDocumentContainer
+      %UID '500E75C90024'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481EF5C4020D' /* Оболочка */
+       U$ '4C6A65ED0374' /* F1DocumentProcessing */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '500FF3E20023' /* "`Правые` блоки должны показываться в правой половине окна, а `левые` в левой" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '500E758002C7' /* TnsAACDocumentContainerPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '500E7677002B' /* AcceptableBlockViewKinds */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "502403D200B5"
+         %UID '502403D200B5'
+         %TARGET U$ '4FBE15CD02C7' /* BlockViewKind */
+        ; // 502403D200B5
+      ; // %LINKS
+     ; // TnsAACRightDocumentContainer
+   ; // %CHILDREN
+  ; // AACImplementation
+ ; // %CHILDREN
+; // AAC$DataSources

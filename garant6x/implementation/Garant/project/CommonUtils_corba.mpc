@@ -1,0 +1,73 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/CommonUtils_corba.mpc"
+// Additional MPC (mpc)
+// Generated from UML model, root element: <<Library::Category>> garant6x::CommonUtils
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (CommonUtils_corba) : project_generic_core_corba {
+	sharedname = CommonUtils_corba
+	staticname = CommonUtils_corba
+
+	after += CoreSrvC_corba
+	libs  += CoreSrvC_corba
+
+	includes += w:/
+
+	//#UC START# *447878CD0121_CUSTOM_DEPENDENCES*
+	//#UC END# *447878CD0121_CUSTOM_DEPENDENCES*
+	after += GblConsultingC_corba
+	libs  += GblConsultingC_corba
+
+	after += GCI_corba
+	libs  += GCI_corba
+
+	Header_Files {
+		Std_Headers {
+			./../CommonUtils/LibHome.h
+		}
+	
+		XML {
+			./../CommonUtils/XML/XML.h
+			./../CommonUtils/XML/XMLFactories.h
+		}
+	
+		XML_i {
+			./../CommonUtils/impl/XML_i/XMLReader_i.h
+			./../CommonUtils/impl/XML_i/XMLReader_i_factory.h
+			./../../../../garantServer/src/Business/GblConsultingClient/Server/XMLReader.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		XML {
+		}
+	
+		XML_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../CommonUtils/LibHome.cpp
+		}
+	
+		XML {
+			./../CommonUtils/XML/XML.cpp
+			./../CommonUtils/XML/XMLFactories.cpp
+		}
+	
+		XML_i {
+			./../CommonUtils/impl/XML_i/XMLReader_i.cpp
+			./../CommonUtils/impl/XML_i/XMLReader_i_factory.cpp
+			./../../../../garantServer/src/Business/GblConsultingClient/Server/XMLReader.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

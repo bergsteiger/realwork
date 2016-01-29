@@ -1,0 +1,110 @@
+// l3ChangingWithLock 54CB3F0F01C0 Impurity Class
+
+INCLUDE '48FCA1F20259.pas.ms.script'
+
+INCLUDE '4A5CBFAB03AF.pas.ms.script'
+
+FORWARD ME_54CB3F0F01C0
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_54CB435B016E
+ CONST UID '54CB435B016E'
+ CONST Name 'f_NotificationLockCount'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54CB435B016E f_NotificationLockCount
+
+: ME_54CB436C0163
+ CONST UID '54CB436C0163'
+ CONST Name 'f_NeedFireChanged'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_54CB436C0163 f_NeedFireChanged
+
+: ME_54CB43810028
+ CONST UID '54CB43810028'
+ CONST Name 'f_CanFireChanging'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_54CB43810028 f_CanFireChanging
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54CB3F2A02B0
+ CONST UID '54CB3F2A02B0'
+ CONST Name 'LockNotification'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54CB3F2A02B0 LockNotification
+
+: ME_54CB3F3F000F
+ CONST UID '54CB3F3F000F'
+ CONST Name 'UnLockNotification'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54CB3F3F000F UnLockNotification
+
+: ME_54CB3F0F01C0
+ CONST UID '54CB3F0F01C0'
+ CONST Name 'l3ChangingWithLock'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_48FCA1F20259 // l3ChangingChangedNotifier
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_54CB435B016E // f_NotificationLockCount
+ ME_54CB436C0163 // f_NeedFireChanged
+ ME_54CB43810028 // f_CanFireChanging
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54CB3F2A02B0 // LockNotification
+ ME_54CB3F3F000F // UnLockNotification
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_54D9E08D0212 // DoChanged
+ ME_54D9E09D018D // DoChanging
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54CB3F0F01C0 l3ChangingWithLock

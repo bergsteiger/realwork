@@ -1,0 +1,19 @@
+workspace (garant_zlib) {
+	cmdline += -ti dll_exe:msvc90-exe-generic+ace+tao-tools
+	cmdline += -ti dll:msvc90-dll-generic+ace+tao-tools
+
+	./targets_tools/test_pack.mpc
+	./targets_tools/test_unzip.mpc
+
+	./targets_tools/test_pack_op.mpc
+	./targets_tools/test_unzip_op.mpc
+
+	static_projects {
+		cmdline += -ti lib:msvc90-lib-generic+ace+tao-tools
+		cmdline += -static
+
+		./libs_tools/zlib_tools.mpc
+		./libs_tools/zlib_optpack.mpc
+		w:/shared/project/Core.mpc
+	}
+}

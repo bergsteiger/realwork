@@ -1,0 +1,4726 @@
+// EVD 4AB112DF005B EVD Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB112DF005B
+
+FORWARD ME_4860F3C103E4
+
+FORWARD ME_4862215A02D8
+
+FORWARD ME_4862217300FF
+
+: ME_486221B101C4
+ CONST UID '486221B101C4'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4862217300FF // ANSIDOS
+ ;
+ CONST Value '-12'
+
+ref; // ME_486221B101C4 Handle
+
+: ME_486221B701A0
+ CONST UID '486221B701A0'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4862217300FF // ANSIDOS
+ ;
+ CONST Value '''Моноширинный'''
+
+ref; // ME_486221B701A0 Name
+
+: ME_486221BD027B
+ CONST UID '486221BD027B'
+ CONST Name 'FirstIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4862217300FF // ANSIDOS
+ ;
+ CONST Value 0
+
+ref; // ME_486221BD027B FirstIndent
+
+: ME_486221C40294
+ CONST UID '486221C40294'
+ CONST Name 'FirstLineIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4862217300FF // ANSIDOS
+ ;
+ CONST Value 0
+
+ref; // ME_486221C40294 FirstLineIndent
+
+: ME_486221CC0215
+ CONST UID '486221CC0215'
+ CONST Name 'Justification'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4862217300FF // ANSIDOS
+ ;
+ CONST Value 'Preformatted'
+ : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
+ ;
+
+ref; // ME_486221CC0215 Justification
+
+: ME_4862217300FF
+ CONST UID '4862217300FF'
+ CONST Name 'ANSIDOS'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Моноширинный' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Attributes
+   @ ( ME_486221B101C4 // Handle
+ ME_486221B701A0 // Name
+ ME_486221BD027B // FirstIndent
+ ME_486221C40294 // FirstLineIndent
+ ME_486221CC0215 // Justification
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1ANSIDOS'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4862217300FF ANSIDOS
+
+FORWARD ME_4A8046650113
+
+FORWARD ME_4A8046CB0074
+
+: ME_4A8046E601E0
+ CONST UID '4A8046E601E0'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A8046CB0074 // Font
+ ;
+ CONST Value '@'
+
+ref; // ME_4A8046E601E0 ForeColor
+
+: ME_4A804B250367
+ CONST UID '4A804B250367'
+ CONST Name 'Bold'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A8046CB0074 // Font
+ ;
+ CONST Value '@'
+
+ref; // ME_4A804B250367 Bold
+
+: ME_4A8046CB0074
+ CONST UID '4A8046CB0074'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A8046650113 // CompareEditionsText
+ ;
+ : Attributes
+   @ ( ME_4A8046E601E0 // ForeColor
+ ME_4A804B250367 // Bold
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4A8046CB0074 Font
+
+: ME_4A80468601F1
+ CONST UID '4A80468601F1'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A8046650113 // CompareEditionsText
+ ;
+ CONST Value '-65534'
+
+ref; // ME_4A80468601F1 Handle
+
+: ME_4A80469D0225
+ CONST UID '4A80469D0225'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A8046650113 // CompareEditionsText
+ ;
+ CONST Value '''Сравнение редакций'''
+
+ref; // ME_4A80469D0225 Name
+
+: ME_4A8046650113
+ CONST UID '4A8046650113'
+ CONST Name 'CompareEditionsText'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сравнение редакций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A80468601F1 // Handle
+ ME_4A80469D0225 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4A8046CB0074 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1CompareEditionsText'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4A8046650113 CompareEditionsText
+
+FORWARD ME_4A6978A4008E
+
+FORWARD ME_4A69799101F8
+
+: ME_4A6979990332
+ CONST UID '4A6979990332'
+ CONST Name 'Strikeout'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A69799101F8 // Font
+ ;
+ CONST Value true
+
+ref; // ME_4A6979990332 Strikeout
+
+: ME_4A69799101F8
+ CONST UID '4A69799101F8'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6978A4008E // DeletedText
+ ;
+ : Attributes
+   @ ( ME_4A6979990332 // Strikeout
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4A69799101F8 Font
+
+: ME_4A6978B502FB
+ CONST UID '4A6978B502FB'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A6978A4008E // DeletedText
+ ;
+ CONST Value '-42'
+
+ref; // ME_4A6978B502FB Handle
+
+: ME_4A6978C1008B
+ CONST UID '4A6978C1008B'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A6978A4008E // DeletedText
+ ;
+ CONST Value '''Удалённый текст'''
+
+ref; // ME_4A6978C1008B Name
+
+: ME_4A6978A4008E
+ CONST UID '4A6978A4008E'
+ CONST Name 'DeletedText'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Удалённый текст' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4A8046650113 // CompareEditionsText
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A6978B502FB // Handle
+ ME_4A6978C1008B // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4A69799101F8 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1DeletedText'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4A6978A4008E DeletedText
+
+FORWARD ME_4A7A962F00C6
+
+: ME_4A7A96D000BE
+ CONST UID '4A7A96D000BE'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A7A962F00C6 // ChatHeaderSender
+ ;
+ CONST Value '-43'
+
+ref; // ME_4A7A96D000BE Handle
+
+: ME_4A7A96E300BF
+ CONST UID '4A7A96E300BF'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A7A962F00C6 // ChatHeaderSender
+ ;
+ CONST Value '''Заголовок собственного сообщения'''
+
+ref; // ME_4A7A96E300BF Name
+
+: ME_4A7A962F00C6
+ CONST UID '4A7A962F00C6'
+ CONST Name 'ChatHeaderSender'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Заголовок собственного сообщения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A7A96D000BE // Handle
+ ME_4A7A96E300BF // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1ChatHeaderSender'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4A7A962F00C6 ChatHeaderSender
+
+FORWARD ME_4A7A9694012E
+
+: ME_4A7A970D00F8
+ CONST UID '4A7A970D00F8'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A7A9694012E // ChatHeaderRecipient
+ ;
+ CONST Value '-44'
+
+ref; // ME_4A7A970D00F8 Handle
+
+: ME_4A7A97170201
+ CONST UID '4A7A97170201'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A7A9694012E // ChatHeaderRecipient
+ ;
+ CONST Value '''Заголовок полученного сообщения'''
+
+ref; // ME_4A7A97170201 Name
+
+: ME_4A7A9694012E
+ CONST UID '4A7A9694012E'
+ CONST Name 'ChatHeaderRecipient'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Заголовок полученного сообщения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A7A970D00F8 // Handle
+ ME_4A7A97170201 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1ChatHeaderRecipient'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4A7A9694012E ChatHeaderRecipient
+
+FORWARD ME_4A6978700071
+
+FORWARD ME_4A697921012D
+
+: ME_4A697929035B
+ CONST UID '4A697929035B'
+ CONST Name 'BackColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A697921012D // Font
+ ;
+ CONST Value 'clAqua'
+ : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_4A697929035B BackColor
+
+: ME_4A697921012D
+ CONST UID '4A697921012D'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6978700071 // AddedText
+ ;
+ : Attributes
+   @ ( ME_4A697929035B // BackColor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4A697921012D Font
+
+: ME_4A69788203E6
+ CONST UID '4A69788203E6'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A6978700071 // AddedText
+ ;
+ CONST Value '-41'
+
+ref; // ME_4A69788203E6 Handle
+
+: ME_4A69789000F0
+ CONST UID '4A69789000F0'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A6978700071 // AddedText
+ ;
+ CONST Value '''Добавленный текст'''
+
+ref; // ME_4A69789000F0 Name
+
+: ME_4A6978700071
+ CONST UID '4A6978700071'
+ CONST Name 'AddedText'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Добавленный текст' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4A8046650113 // CompareEditionsText
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A69788203E6 // Handle
+ ME_4A69789000F0 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4A697921012D // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1AddedText'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4A6978700071 AddedText
+
+FORWARD ME_4AD8438700EE
+
+: ME_4AD84395015F
+ CONST UID '4AD84395015F'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD8438700EE // NewSchoolMainMenu
+ ;
+ CONST Value '-65531'
+
+ref; // ME_4AD84395015F Handle
+
+: ME_4AD843A802F0
+ CONST UID '4AD843A802F0'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD8438700EE // NewSchoolMainMenu
+ ;
+ CONST Value '''Основное меню (по-умолчанию)'''
+
+ref; // ME_4AD843A802F0 Name
+
+: ME_4AD8438700EE
+ CONST UID '4AD8438700EE'
+ CONST Name 'NewSchoolMainMenu'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Основное меню' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Attributes
+   @ ( ME_4AD84395015F // Handle
+ ME_4AD843A802F0 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1NewSchoolMainMenu'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4AD8438700EE NewSchoolMainMenu
+
+FORWARD ME_4ACB351A031E
+
+FORWARD ME_4ACB35A501D5
+
+: ME_4ACB35B1031A
+ CONST UID '4ACB35B1031A'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB35A501D5 // Font
+ ;
+ CONST Value '''Verdana'''
+
+ref; // ME_4ACB35B1031A Name
+
+: ME_4ACB35BD0309
+ CONST UID '4ACB35BD0309'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB35A501D5 // Font
+ ;
+ CONST Value 8
+
+ref; // ME_4ACB35BD0309 Size
+
+: ME_4ACB35A501D5
+ CONST UID '4ACB35A501D5'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACB351A031E // MainMenu
+ ;
+ : Attributes
+   @ ( ME_4ACB35B1031A // Name
+ ME_4ACB35BD0309 // Size
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ACB35A501D5 Font
+
+: ME_4ACB352C0038
+ CONST UID '4ACB352C0038'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB351A031E // MainMenu
+ ;
+ CONST Value '-29'
+
+ref; // ME_4ACB352C0038 Handle
+
+: ME_4ACB35370223
+ CONST UID '4ACB35370223'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB351A031E // MainMenu
+ ;
+ CONST Value '''Основное меню (преемственное)'''
+
+ref; // ME_4ACB35370223 Name
+
+: ME_4ACB351A031E
+ CONST UID '4ACB351A031E'
+ CONST Name 'MainMenu'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Основное меню' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Attributes
+   @ ( ME_4ACB352C0038 // Handle
+ ME_4ACB35370223 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4ACB35A501D5 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1MainMenu'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ACB351A031E MainMenu
+
+FORWARD ME_4ACB354D030B
+
+FORWARD ME_4ACB35E40151
+
+: ME_4ACB35EC026C
+ CONST UID '4ACB35EC026C'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB35E40151 // Font
+ ;
+ CONST Value '$00A95800'
+
+ref; // ME_4ACB35EC026C ForeColor
+
+: ME_4ACB36040393
+ CONST UID '4ACB36040393'
+ CONST Name 'BackColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB35E40151 // Font
+ ;
+ CONST Value 'clBtnFace'
+ : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_4ACB36040393 BackColor
+
+: ME_4ACB36100032
+ CONST UID '4ACB36100032'
+ CONST Name 'Bold'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB35E40151 // Font
+ ;
+ CONST Value true
+
+ref; // ME_4ACB36100032 Bold
+
+: ME_4ACB35E40151
+ CONST UID '4ACB35E40151'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACB354D030B // MainMenuHeader
+ ;
+ : Attributes
+   @ ( ME_4ACB35EC026C // ForeColor
+ ME_4ACB36040393 // BackColor
+ ME_4ACB36100032 // Bold
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ACB35E40151 Font
+
+: ME_4ACB35660397
+ CONST UID '4ACB35660397'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB354D030B // MainMenuHeader
+ ;
+ CONST Value '-33'
+
+ref; // ME_4ACB35660397 Handle
+
+: ME_4ACB35720337
+ CONST UID '4ACB35720337'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB354D030B // MainMenuHeader
+ ;
+ CONST Value '''Заголовок *'''
+
+ref; // ME_4ACB35720337 Name
+
+: ME_4ACB354D030B
+ CONST UID '4ACB354D030B'
+ CONST Name 'MainMenuHeader'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Заголовки основного меню' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4ACB351A031E // MainMenu
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4ACB35660397 // Handle
+ ME_4ACB35720337 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4ACB35E40151 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1MainMenuHeader'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ACB354D030B MainMenuHeader
+
+FORWARD ME_4ACF27EA0362
+
+FORWARD ME_4ACF28310243
+
+: ME_4ACF283F01F5
+ CONST UID '4ACF283F01F5'
+ CONST Name 'Bold'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACF28310243 // Font
+ ;
+ CONST Value true
+
+ref; // ME_4ACF283F01F5 Bold
+
+: ME_4ACF284B0257
+ CONST UID '4ACF284B0257'
+ CONST Name 'Underline'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACF28310243 // Font
+ ;
+ CONST Value true
+
+ref; // ME_4ACF284B0257 Underline
+
+: ME_4ACF28310243
+ CONST UID '4ACF28310243'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF27EA0362 // MainMenuConstPath
+ ;
+ : Attributes
+   @ ( ME_4ACF283F01F5 // Bold
+ ME_4ACF284B0257 // Underline
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ACF28310243 Font
+
+: ME_4ACF281B036B
+ CONST UID '4ACF281B036B'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACF27EA0362 // MainMenuConstPath
+ ;
+ CONST Value '-31'
+
+ref; // ME_4ACF281B036B Handle
+
+: ME_4ACF28250251
+ CONST UID '4ACF28250251'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACF27EA0362 // MainMenuConstPath
+ ;
+ CONST Value '''Постоянная часть *'''
+
+ref; // ME_4ACF28250251 Name
+
+: ME_4ACF27EA0362
+ CONST UID '4ACF27EA0362'
+ CONST Name 'MainMenuConstPath'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'шрифт основного меню, постоянная часть' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4ACB351A031E // MainMenu
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4ACF281B036B // Handle
+ ME_4ACF28250251 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4ACF28310243 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1MainMenuConstPath'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ACF27EA0362 MainMenuConstPath
+
+FORWARD ME_4AD5C80F0127
+
+FORWARD ME_4AD5C9A90185
+
+: ME_4AD5C9B20354
+ CONST UID '4AD5C9B20354'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD5C9A90185 // Font
+ ;
+ CONST Value '''Arial'''
+
+ref; // ME_4AD5C9B20354 Name
+
+: ME_4AD5C9BC036A
+ CONST UID '4AD5C9BC036A'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD5C9A90185 // Font
+ ;
+ CONST Value 10
+
+ref; // ME_4AD5C9BC036A Size
+
+: ME_4ADC67200182
+ CONST UID '4ADC67200182'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD5C9A90185 // Font
+ ;
+ CONST Value '$00A95800'
+
+ref; // ME_4ADC67200182 ForeColor
+
+: ME_4AD5C9A90185
+ CONST UID '4AD5C9A90185'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AD5C80F0127 // NewSchoolMainMenuConstPath
+ ;
+ : Attributes
+   @ ( ME_4AD5C9B20354 // Name
+ ME_4AD5C9BC036A // Size
+ ME_4ADC67200182 // ForeColor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4AD5C9A90185 Font
+
+: ME_4AD5C822030A
+ CONST UID '4AD5C822030A'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD5C80F0127 // NewSchoolMainMenuConstPath
+ ;
+ CONST Value '-65532'
+
+ref; // ME_4AD5C822030A Handle
+
+: ME_4AD5C84C01AF
+ CONST UID '4AD5C84C01AF'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD5C80F0127 // NewSchoolMainMenuConstPath
+ ;
+ CONST Value '''Постоянная часть'''
+
+ref; // ME_4AD5C84C01AF Name
+
+: ME_4AD5C80F0127
+ CONST UID '4AD5C80F0127'
+ CONST Name 'NewSchoolMainMenuConstPath'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Шрифт основного меню, постоянная часть 2009' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4AD8438700EE // NewSchoolMainMenu
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4AD5C822030A // Handle
+ ME_4AD5C84C01AF // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4AD5C9A90185 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1NewSchoolMainMenuConstPath'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4AD5C80F0127 NewSchoolMainMenuConstPath
+
+FORWARD ME_4ACB349301A9
+
+FORWARD ME_4ACB363A00A2
+
+: ME_4ACB36410220
+ CONST UID '4ACB36410220'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB363A00A2 // Font
+ ;
+ CONST Value 'clBlack'
+ : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_4ACB36410220 ForeColor
+
+: ME_4ACB36680300
+ CONST UID '4ACB36680300'
+ CONST Name 'BackColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB363A00A2 // Font
+ ;
+ CONST Value 'clWhite'
+ : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_4ACB36680300 BackColor
+
+: ME_4ACB38AE024E
+ CONST UID '4ACB38AE024E'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB363A00A2 // Font
+ ;
+ CONST Value 11
+
+ref; // ME_4ACB38AE024E Size
+
+: ME_4ACB3C670216
+ CONST UID '4ACB3C670216'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB363A00A2 // Font
+ ;
+ CONST Value '''Arial'''
+
+ref; // ME_4ACB3C670216 Name
+
+: ME_4ADC3B680089
+ CONST UID '4ADC3B680089'
+ CONST Name 'Bold'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB363A00A2 // Font
+ ;
+ CONST Value true
+
+ref; // ME_4ADC3B680089 Bold
+
+: ME_4ACB363A00A2
+ CONST UID '4ACB363A00A2'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACB349301A9 // NewSchoolMainMenuHeader
+ ;
+ : Attributes
+   @ ( ME_4ACB36410220 // ForeColor
+ ME_4ACB36680300 // BackColor
+ ME_4ACB38AE024E // Size
+ ME_4ACB3C670216 // Name
+ ME_4ADC3B680089 // Bold
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ACB363A00A2 Font
+
+: ME_4ACB34A20308
+ CONST UID '4ACB34A20308'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB349301A9 // NewSchoolMainMenuHeader
+ ;
+ CONST Value '-65533'
+
+ref; // ME_4ACB34A20308 Handle
+
+: ME_4ACB34C8017F
+ CONST UID '4ACB34C8017F'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ACB349301A9 // NewSchoolMainMenuHeader
+ ;
+ CONST Value '''Заголовок'''
+
+ref; // ME_4ACB34C8017F Name
+
+: ME_4ACB349301A9
+ CONST UID '4ACB349301A9'
+ CONST Name 'NewSchoolMainMenuHeader'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Заголовки основного меню 2009' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4AD8438700EE // NewSchoolMainMenu
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4ACB34A20308 // Handle
+ ME_4ACB34C8017F // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4ACB363A00A2 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1NewSchoolMainMenuHeader'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ACB349301A9 NewSchoolMainMenuHeader
+
+FORWARD ME_4ADC299C03D9
+
+: ME_4ADC29F90006
+ CONST UID '4ADC29F90006'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ADC299C03D9 // MainMenuChangePath
+ ;
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ADC29F90006 Font
+
+: ME_4ADC29D40064
+ CONST UID '4ADC29D40064'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ADC299C03D9 // MainMenuChangePath
+ ;
+ CONST Value '-32'
+
+ref; // ME_4ADC29D40064 Handle
+
+: ME_4ADC29EC0026
+ CONST UID '4ADC29EC0026'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ADC299C03D9 // MainMenuChangePath
+ ;
+ CONST Value '''Переменная часть'''
+
+ref; // ME_4ADC29EC0026 Name
+
+: ME_4ADC299C03D9
+ CONST UID '4ADC299C03D9'
+ CONST Name 'MainMenuChangePath'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'шрифт основного меню, переменная часть' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4ACB351A031E // MainMenu
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4ADC29D40064 // Handle
+ ME_4ADC29EC0026 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4ADC29F90006 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1MainMenuChangePath'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ADC299C03D9 MainMenuChangePath
+
+FORWARD ME_4ADC2A3E0370
+
+FORWARD ME_4ADC2A7403E5
+
+: ME_4ADC2A7B0396
+ CONST UID '4ADC2A7B0396'
+ CONST Name 'Underline'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ADC2A7403E5 // Font
+ ;
+ CONST Value true
+
+ref; // ME_4ADC2A7B0396 Underline
+
+: ME_4ADC2A7403E5
+ CONST UID '4ADC2A7403E5'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ADC2A3E0370 // MainMenuInteractiveHeader
+ ;
+ : Attributes
+   @ ( ME_4ADC2A7B0396 // Underline
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ADC2A7403E5 Font
+
+: ME_4ADC2A590319
+ CONST UID '4ADC2A590319'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ADC2A3E0370 // MainMenuInteractiveHeader
+ ;
+ CONST Value '-34'
+
+ref; // ME_4ADC2A590319 Handle
+
+: ME_4ADC2A68032D
+ CONST UID '4ADC2A68032D'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ADC2A3E0370 // MainMenuInteractiveHeader
+ ;
+ CONST Value '''Интерактивный заголовок'''
+
+ref; // ME_4ADC2A68032D Name
+
+: ME_4ADC2A3E0370
+ CONST UID '4ADC2A3E0370'
+ CONST Name 'MainMenuInteractiveHeader'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'заголовки основного меню, являющиеся гипперссылками' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4ACB354D030B // MainMenuHeader
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4ADC2A590319 // Handle
+ ME_4ADC2A68032D // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4ADC2A7403E5 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1MainMenuInteractiveHeader'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4ADC2A3E0370 MainMenuInteractiveHeader
+
+FORWARD ME_4DDE66FE0008
+
+FORWARD ME_4DDE678403B7
+
+: ME_4DDE678B03A0
+ CONST UID '4DDE678B03A0'
+ CONST Name 'Italic'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE678403B7 // Font
+ ;
+ CONST Value true
+
+ref; // ME_4DDE678B03A0 Italic
+
+: ME_4DDE67B800E6
+ CONST UID '4DDE67B800E6'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE678403B7 // Font
+ ;
+ CONST Value 'clPurple'
+ : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_4DDE67B800E6 ForeColor
+
+: ME_4DDE678403B7
+ CONST UID '4DDE678403B7'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDE66FE0008 // Changes1
+ ;
+ : Attributes
+   @ ( ME_4DDE678B03A0 // Italic
+ ME_4DDE67B800E6 // ForeColor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4DDE678403B7 Font
+
+: ME_4DDE6725006E
+ CONST UID '4DDE6725006E'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE66FE0008 // Changes1
+ ;
+ CONST Value '-65530'
+
+ref; // ME_4DDE6725006E Handle
+
+: ME_4DDE674000F5
+ CONST UID '4DDE674000F5'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE66FE0008 // Changes1
+ ;
+ CONST Value '''Обзор изменений документа 1'''
+
+ref; // ME_4DDE674000F5 Name
+
+: ME_4DDE676302C4
+ CONST UID '4DDE676302C4'
+ CONST Name 'Justification'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE66FE0008 // Changes1
+ ;
+ CONST Value 'Center'
+ : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
+ ;
+
+ref; // ME_4DDE676302C4 Justification
+
+: ME_4DDE74BE00D9
+ CONST UID '4DDE74BE00D9'
+ CONST Name 'FirstIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE66FE0008 // Changes1
+ ;
+ CONST Value 0
+
+ref; // ME_4DDE74BE00D9 FirstIndent
+
+: ME_4DDE66FE0008
+ CONST UID '4DDE66FE0008'
+ CONST Name 'Changes1'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обзор изменений документа 1' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Attributes
+   @ ( ME_4DDE6725006E // Handle
+ ME_4DDE674000F5 // Name
+ ME_4DDE676302C4 // Justification
+ ME_4DDE74BE00D9 // FirstIndent
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4DDE678403B7 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1Changes1'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4DDE66FE0008 Changes1
+
+FORWARD ME_4DDE6716010D
+
+: ME_4DDE6731014F
+ CONST UID '4DDE6731014F'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE6716010D // Changes2
+ ;
+ CONST Value '-65529'
+
+ref; // ME_4DDE6731014F Handle
+
+: ME_4DDE674D02C6
+ CONST UID '4DDE674D02C6'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE6716010D // Changes2
+ ;
+ CONST Value '''Обзор изменений документа 2'''
+
+ref; // ME_4DDE674D02C6 Name
+
+: ME_4DDE676D03D7
+ CONST UID '4DDE676D03D7'
+ CONST Name 'Justification'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDE6716010D // Changes2
+ ;
+ CONST Value 'Left'
+ : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
+ ;
+
+ref; // ME_4DDE676D03D7 Justification
+
+: ME_4DDE6716010D
+ CONST UID '4DDE6716010D'
+ CONST Name 'Changes2'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обзор изменений документа 2' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4DDE66FE0008 // Changes1
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4DDE6731014F // Handle
+ ME_4DDE674D02C6 // Name
+ ME_4DDE676D03D7 // Justification
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Changes2'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4DDE6716010D Changes2
+
+FORWARD ME_4E9718AD01ED
+
+: ME_4E9718FC028E
+ CONST UID '4E9718FC028E'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E9718AD01ED // EnclosureHeader
+ ;
+ CONST Value 'EnclosureHeader'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_4E9718FC028E Handle
+
+: ME_4E9719110109
+ CONST UID '4E9719110109'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E9718AD01ED // EnclosureHeader
+ ;
+ CONST Value '''Заголовок приложения'''
+
+ref; // ME_4E9719110109 Name
+
+: ME_4E97192A0380
+ CONST UID '4E97192A0380'
+ CONST Name 'Apply2Para'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E9718AD01ED // EnclosureHeader
+ ;
+ CONST Value true
+
+ref; // ME_4E97192A0380 Apply2Para
+
+: ME_4E97193C018D
+ CONST UID '4E97193C018D'
+ CONST Name 'Justification'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E9718AD01ED // EnclosureHeader
+ ;
+ CONST Value 'Right'
+ : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
+ ;
+
+ref; // ME_4E97193C018D Justification
+
+: ME_4E9718AD01ED
+ CONST UID '4E9718AD01ED'
+ CONST Name 'EnclosureHeader'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Заголовок приложения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4E9718FC028E // Handle
+ ME_4E9719110109 // Name
+ ME_4E97192A0380 // Apply2Para
+ ME_4E97193C018D // Justification
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1EnclosureHeader'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4E9718AD01ED EnclosureHeader
+
+FORWARD ME_4EC2831B023E
+
+FORWARD ME_4EC2842F0044
+
+: ME_4EC2843902EA
+ CONST UID '4EC2843902EA'
+ CONST Name 'Bold'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC2842F0044 // Font
+ ;
+ CONST Value true
+
+ref; // ME_4EC2843902EA Bold
+
+: ME_4EC28D1F0227
+ CONST UID '4EC28D1F0227'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC2842F0044 // Font
+ ;
+ CONST Value '@'
+
+ref; // ME_4EC28D1F0227 ForeColor
+
+: ME_4EC2842F0044
+ CONST UID '4EC2842F0044'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EC2831B023E // EditionInterval
+ ;
+ : Attributes
+   @ ( ME_4EC2843902EA // Bold
+ ME_4EC28D1F0227 // ForeColor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4EC2842F0044 Font
+
+: ME_4EC283460224
+ CONST UID '4EC283460224'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC2831B023E // EditionInterval
+ ;
+ CONST Value 'EditionInterval'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_4EC283460224 Handle
+
+: ME_4EC28408022D
+ CONST UID '4EC28408022D'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC2831B023E // EditionInterval
+ ;
+ CONST Value '''Интервал действия редакции'''
+
+ref; // ME_4EC28408022D Name
+
+: ME_4EC2889101A4
+ CONST UID '4EC2889101A4'
+ CONST Name 'IsChangeableFont'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC2831B023E // EditionInterval
+ ;
+ CONST Value false
+
+ref; // ME_4EC2889101A4 IsChangeableFont
+
+: ME_4EC288A800A8
+ CONST UID '4EC288A800A8'
+ CONST Name 'VisibleToUser'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC2831B023E // EditionInterval
+ ;
+ CONST Value false
+
+ref; // ME_4EC288A800A8 VisibleToUser
+
+: ME_4EC2831B023E
+ CONST UID '4EC2831B023E'
+ CONST Name 'EditionInterval'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интервал действия редакции' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4EC283460224 // Handle
+ ME_4EC28408022D // Name
+ ME_4EC2889101A4 // IsChangeableFont
+ ME_4EC288A800A8 // VisibleToUser
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4EC2842F0044 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1EditionInterval'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4EC2831B023E EditionInterval
+
+FORWARD ME_4EC283940183
+
+FORWARD ME_4EC284E902C0
+
+: ME_4EC28D2B0238
+ CONST UID '4EC28D2B0238'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC284E902C0 // Font
+ ;
+ CONST Value 10
+
+ref; // ME_4EC28D2B0238 Size
+
+: ME_4EC284E902C0
+ CONST UID '4EC284E902C0'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EC283940183 // Edition
+ ;
+ : Attributes
+   @ ( ME_4EC28D2B0238 // Size
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4EC284E902C0 Font
+
+: ME_4EC2839F0325
+ CONST UID '4EC2839F0325'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC283940183 // Edition
+ ;
+ CONST Value 'Edition'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_4EC2839F0325 Handle
+
+: ME_4EC283B60271
+ CONST UID '4EC283B60271'
+ CONST Name 'FirstIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC283940183 // Edition
+ ;
+ CONST Value 0
+
+ref; // ME_4EC283B60271 FirstIndent
+
+: ME_4EC283C1010C
+ CONST UID '4EC283C1010C'
+ CONST Name 'LeftIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC283940183 // Edition
+ ;
+ CONST Value 370
+
+ref; // ME_4EC283C1010C LeftIndent
+
+: ME_4EC283D400FC
+ CONST UID '4EC283D400FC'
+ CONST Name 'Justification'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC283940183 // Edition
+ ;
+ CONST Value 'Left'
+ : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
+ ;
+
+ref; // ME_4EC283D400FC Justification
+
+: ME_4EC2841A02F7
+ CONST UID '4EC2841A02F7'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC283940183 // Edition
+ ;
+ CONST Value '''Редакция'''
+
+ref; // ME_4EC2841A02F7 Name
+
+: ME_4EC2889A00BC
+ CONST UID '4EC2889A00BC'
+ CONST Name 'IsChangeableFont'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC283940183 // Edition
+ ;
+ CONST Value false
+
+ref; // ME_4EC2889A00BC IsChangeableFont
+
+: ME_4EC288AF03AE
+ CONST UID '4EC288AF03AE'
+ CONST Name 'VisibleToUser'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC283940183 // Edition
+ ;
+ CONST Value false
+
+ref; // ME_4EC288AF03AE VisibleToUser
+
+: ME_4EC283940183
+ CONST UID '4EC283940183'
+ CONST Name 'Edition'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Редакция' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Attributes
+   @ ( ME_4EC2839F0325 // Handle
+ ME_4EC283B60271 // FirstIndent
+ ME_4EC283C1010C // LeftIndent
+ ME_4EC283D400FC // Justification
+ ME_4EC2841A02F7 // Name
+ ME_4EC2889A00BC // IsChangeableFont
+ ME_4EC288AF03AE // VisibleToUser
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4EC284E902C0 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1Edition'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4EC283940183 Edition
+
+FORWARD ME_4EC292E401B8
+
+FORWARD ME_4EC294BB0089
+
+: ME_4EC2950500DE
+ CONST UID '4EC2950500DE'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC294BB0089 // Font
+ ;
+ CONST Value 'clSilver'
+ : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_4EC2950500DE ForeColor
+
+: ME_4EC296B40283
+ CONST UID '4EC296B40283'
+ CONST Name 'Bold'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC294BB0089 // Font
+ ;
+ CONST Value false
+
+ref; // ME_4EC296B40283 Bold
+
+: ME_4EC294BB0089
+ CONST UID '4EC294BB0089'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EC292E401B8 // EditionNumber
+ ;
+ : Attributes
+   @ ( ME_4EC2950500DE // ForeColor
+ ME_4EC296B40283 // Bold
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4EC294BB0089 Font
+
+: ME_4EC29304028F
+ CONST UID '4EC29304028F'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC292E401B8 // EditionNumber
+ ;
+ CONST Value 'EditionNumber'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_4EC29304028F Handle
+
+: ME_4EC2931C012D
+ CONST UID '4EC2931C012D'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EC292E401B8 // EditionNumber
+ ;
+ CONST Value '''Номер редакции'''
+
+ref; // ME_4EC2931C012D Name
+
+: ME_4EC292E401B8
+ CONST UID '4EC292E401B8'
+ CONST Name 'EditionNumber'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Номер редакции' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_4EC2831B023E // EditionInterval
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4EC29304028F // Handle
+ ME_4EC2931C012D // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4EC294BB0089 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1EditionNumber'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4EC292E401B8 EditionNumber
+
+FORWARD ME_51E5116E03A9
+
+FORWARD ME_51E512FD0100
+
+: ME_51E513090280
+ CONST UID '51E513090280'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51E512FD0100 // Font
+ ;
+ CONST Value 11
+
+ref; // ME_51E513090280 Size
+
+: ME_51E5130F03BC
+ CONST UID '51E5130F03BC'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51E512FD0100 // Font
+ ;
+ CONST Value '$818386'
+
+ref; // ME_51E5130F03BC ForeColor
+
+: ME_51E512FD0100
+ CONST UID '51E512FD0100'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51E5116E03A9 // Snippet
+ ;
+ : Attributes
+   @ ( ME_51E513090280 // Size
+ ME_51E5130F03BC // ForeColor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_51E512FD0100 Font
+
+: ME_51E511E40320
+ CONST UID '51E511E40320'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51E5116E03A9 // Snippet
+ ;
+ CONST Value 'Snippet'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_51E511E40320 Handle
+
+: ME_51E511F10275
+ CONST UID '51E511F10275'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51E5116E03A9 // Snippet
+ ;
+ CONST Value '''Дочерний элемент списка'''
+
+ref; // ME_51E511F10275 Name
+
+: ME_51E513270160
+ CONST UID '51E513270160'
+ CONST Name 'FirstIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51E5116E03A9 // Snippet
+ ;
+ CONST Value 0
+
+ref; // ME_51E513270160 FirstIndent
+
+: ME_565713E901A7
+ CONST UID '565713E901A7'
+ CONST Name 'RightIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51E5116E03A9 // Snippet
+ ;
+ CONST Value 300
+
+ref; // ME_565713E901A7 RightIndent
+
+: ME_51E5116E03A9
+ CONST UID '51E5116E03A9'
+ CONST Name 'Snippet'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дочерний элемент списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Attributes
+   @ ( ME_51E511E40320 // Handle
+ ME_51E511F10275 // Name
+ ME_51E513270160 // FirstIndent
+ ME_565713E901A7 // RightIndent
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_51E512FD0100 // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1Snippet'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_51E5116E03A9 Snippet
+
+FORWARD ME_565704EA026C
+
+: ME_565704F801F4
+ CONST UID '565704F801F4'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_565704EA026C // DocumentInList
+ ;
+ CONST Value 'DocumentInList'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_565704F801F4 Handle
+
+: ME_565705170085
+ CONST UID '565705170085'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_565704EA026C // DocumentInList
+ ;
+ CONST Value '''Документ в списке'''
+
+ref; // ME_565705170085 Name
+
+: ME_555C8DD403CF
+ CONST UID '555C8DD403CF'
+ CONST Name 'VisibleToUser'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_565704EA026C // DocumentInList
+ ;
+ CONST Value false
+
+ref; // ME_555C8DD403CF VisibleToUser
+
+: ME_5657055F01B7
+ CONST UID '5657055F01B7'
+ CONST Name 'FirstIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_565704EA026C // DocumentInList
+ ;
+ CONST Value 0
+
+ref; // ME_5657055F01B7 FirstIndent
+
+: ME_56570589032A
+ CONST UID '56570589032A'
+ CONST Name 'RightIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_565704EA026C // DocumentInList
+ ;
+ CONST Value 300
+
+ref; // ME_56570589032A RightIndent
+
+: ME_565704EA026C
+ CONST UID '565704EA026C'
+ CONST Name 'DocumentInList'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ в списке' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Attributes
+   @ ( ME_565704F801F4 // Handle
+ ME_565705170085 // Name
+ ME_555C8DD403CF // VisibleToUser
+ ME_5657055F01B7 // FirstIndent
+ ME_56570589032A // RightIndent
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1DocumentInList'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_565704EA026C DocumentInList
+
+FORWARD ME_53D636E80128
+
+FORWARD ME_53D6375003DC
+
+: ME_53D6375A00AD
+ CONST UID '53D6375A00AD'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53D6375003DC // Font
+ ;
+ CONST Value '$8b1a55'
+
+ref; // ME_53D6375A00AD ForeColor
+
+: ME_53D6375003DC
+ CONST UID '53D6375003DC'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53D636E80128 // VisitedSnippetInList
+ ;
+ : Attributes
+   @ ( ME_53D6375A00AD // ForeColor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_53D6375003DC Font
+
+: ME_53D637040131
+ CONST UID '53D637040131'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53D636E80128 // VisitedSnippetInList
+ ;
+ CONST Value 'VisitedSnippetInList'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_53D637040131 Handle
+
+: ME_53D6373003AD
+ CONST UID '53D6373003AD'
+ CONST Name 'VisibleToUser'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53D636E80128 // VisitedSnippetInList
+ ;
+ CONST Value false
+
+ref; // ME_53D6373003AD VisibleToUser
+
+: ME_53D63774021F
+ CONST UID '53D63774021F'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53D636E80128 // VisitedSnippetInList
+ ;
+ CONST Value '''Посещенный дочерний элемент списка'''
+
+ref; // ME_53D63774021F Name
+
+: ME_53D636E80128
+ CONST UID '53D636E80128'
+ CONST Name 'VisitedSnippetInList'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Посещенный дочерний элемент списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_51E5116E03A9 // Snippet
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_53D637040131 // Handle
+ ME_53D6373003AD // VisibleToUser
+ ME_53D63774021F // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_53D6375003DC // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1VisitedSnippetInList'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_53D636E80128 VisitedSnippetInList
+
+FORWARD ME_54BE69EE00CD
+
+FORWARD ME_54BE6A73037C
+
+: ME_54BE6A8C03B4
+ CONST UID '54BE6A8C03B4'
+ CONST Name 'BackColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54BE6A73037C // Font
+ ;
+ CONST Value 'clYellow'
+ : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_54BE6A8C03B4 BackColor
+
+: ME_54BE6A73037C
+ CONST UID '54BE6A73037C'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54BE69EE00CD // TechComment
+ ;
+ : Attributes
+   @ ( ME_54BE6A8C03B4 // BackColor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_54BE6A73037C Font
+
+: ME_54BE6A000350
+ CONST UID '54BE6A000350'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54BE69EE00CD // TechComment
+ ;
+ CONST Value 'TechComment'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_54BE6A000350 Handle
+
+: ME_54BE6A2C0162
+ CONST UID '54BE6A2C0162'
+ CONST Name 'FirstIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54BE69EE00CD // TechComment
+ ;
+ CONST Value 0
+
+ref; // ME_54BE6A2C0162 FirstIndent
+
+: ME_54BE6A380245
+ CONST UID '54BE6A380245'
+ CONST Name 'FirstLineIndent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54BE69EE00CD // TechComment
+ ;
+ CONST Value 0
+
+ref; // ME_54BE6A380245 FirstLineIndent
+
+: ME_54BE6A4B028F
+ CONST UID '54BE6A4B028F'
+ CONST Name 'Justification'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54BE69EE00CD // TechComment
+ ;
+ CONST Value 'Left'
+ : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
+ ;
+
+ref; // ME_54BE6A4B028F Justification
+
+: ME_54BE6E7100DC
+ CONST UID '54BE6E7100DC'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54BE69EE00CD // TechComment
+ ;
+ CONST Value '''Технический комментарий'''
+
+ref; // ME_54BE6E7100DC Name
+
+: ME_54BE69EE00CD
+ CONST UID '54BE69EE00CD'
+ CONST Name 'TechComment'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Технический комментарий' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Attributes
+   @ ( ME_54BE6A000350 // Handle
+ ME_54BE6A2C0162 // FirstIndent
+ ME_54BE6A380245 // FirstLineIndent
+ ME_54BE6A4B028F // Justification
+ ME_54BE6E7100DC // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_54BE6A73037C // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1TechComment'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_54BE69EE00CD TechComment
+
+FORWARD ME_53CCD4FE0269
+
+FORWARD ME_53CCD5FA001A
+
+: ME_53CCD60D01F0
+ CONST UID '53CCD60D01F0'
+ CONST Name 'ForeColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CCD5FA001A // Font
+ ;
+ CONST Value '$8b1a55'
+
+ref; // ME_53CCD60D01F0 ForeColor
+
+: ME_53D630750375
+ CONST UID '53D630750375'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CCD5FA001A // Font
+ ;
+ CONST Value '@'
+
+ref; // ME_53D630750375 Size
+
+: ME_53CCD5FA001A
+ CONST UID '53CCD5FA001A'
+ CONST Name 'Font'
+ CONST Class class_Class
+ : Stereotype st_InnerTag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53CCD4FE0269 // VisitedDocumentInList
+ ;
+ : Attributes
+   @ ( ME_53CCD60D01F0 // ForeColor
+ ME_53D630750375 // Size
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST extprop:pas:TypeName 'Tf1Font'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_53CCD5FA001A Font
+
+: ME_53CCD51D00E5
+ CONST UID '53CCD51D00E5'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CCD4FE0269 // VisitedDocumentInList
+ ;
+ CONST Value 'VisitedDocumentInList'
+ : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_53CCD51D00E5 Handle
+
+: ME_53CCD5320111
+ CONST UID '53CCD5320111'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CCD4FE0269 // VisitedDocumentInList
+ ;
+ CONST Value '''Посещенный документ списка'''
+
+ref; // ME_53CCD5320111 Name
+
+: ME_53CCD4FE0269
+ CONST UID '53CCD4FE0269'
+ CONST Name 'VisitedDocumentInList'
+ CONST Class class_Class
+ : Stereotype st_TagValue ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Посещенный документ (в списке)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Inherits
+   @ ( ME_565704EA026C // DocumentInList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_53CCD51D00E5 // Handle
+ ME_53CCD5320111 // Name
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_53CCD5FA001A // Font
+ ) .SequenceCode.It
+ ; // Children
+ CONST extprop:pas:TypeName 'Tf1VisitedDocumentInList'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_53CCD4FE0269 VisitedDocumentInList
+
+: ME_4EC2A43A00C3
+ CONST UID '4EC2A43A00C3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Target WL 'ME_47AC7CF90230' '47A1D4C201E8.pas.ms.script' // L3 Core Consts
+ ;
+
+ref; // ME_4EC2A43A00C3 
+
+: ME_4EC2A63C02C6
+ CONST UID '4EC2A63C02C6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4862215A02D8 // TextStyle
+ ;
+ : Target WL 'ME_478E3C97021E' '473C3BEE0334.pas.ms.script' // l3Canvas
+ ;
+
+ref; // ME_4EC2A63C02C6 
+
+: ME_4862215A02D8
+ CONST UID '4862215A02D8'
+ CONST Name 'TextStyle'
+ CONST Class class_Class
+ : Stereotype st_TagOverride ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4860F3C103E4 // F1
+ ;
+ : Implements
+   @ ( WL 'ME_4860FD880077' '48492FC0029D.pas.ms.script' // TextStyle
+ ) .SequenceCode.It
+ ; // Implements
+ : Children
+   @ ( ME_4862217300FF // ANSIDOS
+ ME_4A8046650113 // CompareEditionsText
+ ME_4A6978A4008E // DeletedText
+ ME_4A7A962F00C6 // ChatHeaderSender
+ ME_4A7A9694012E // ChatHeaderRecipient
+ ME_4A6978700071 // AddedText
+ ME_4AD8438700EE // NewSchoolMainMenu
+ ME_4ACB351A031E // MainMenu
+ ME_4ACB354D030B // MainMenuHeader
+ ME_4ACF27EA0362 // MainMenuConstPath
+ ME_4AD5C80F0127 // NewSchoolMainMenuConstPath
+ ME_4ACB349301A9 // NewSchoolMainMenuHeader
+ ME_4ADC299C03D9 // MainMenuChangePath
+ ME_4ADC2A3E0370 // MainMenuInteractiveHeader
+ ME_4DDE66FE0008 // Changes1
+ ME_4DDE6716010D // Changes2
+ ME_4E9718AD01ED // EnclosureHeader
+ ME_4EC2831B023E // EditionInterval
+ ME_4EC283940183 // Edition
+ ME_4EC292E401B8 // EditionNumber
+ ME_51E5116E03A9 // Snippet
+ ME_565704EA026C // DocumentInList
+ ME_53D636E80128 // VisitedSnippetInList
+ ME_54BE69EE00CD // TechComment
+ ME_53CCD4FE0269 // VisitedDocumentInList
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4EC2A43A00C3 // 
+ ME_4EC2A63C02C6 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ CONST "children prefix" 'sa'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\f1TextStyle_Const.pas'
+ CONST extprop:pas:TypeName 'TextStyleTag'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_sa'
+
+ref; // ME_4862215A02D8 TextStyle
+
+: ME_54BE533C0001
+ CONST UID '54BE533C0001'
+ CONST Name 'TextPara'
+ CONST Class class_Class
+ : Stereotype st_TagOverride ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4860F3C103E4 // F1
+ ;
+ : Implements
+   @ ( WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
+ ) .SequenceCode.It
+ ; // Implements
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ CONST extprop:pas:TypeName 'TextParaTag'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_54BE533C0001 TextPara
+
+: ME_54BE5365004B
+ CONST UID '54BE5365004B'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_TagOverride ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4860F3C103E4 // F1
+ ;
+ : Implements
+   @ ( WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ ) .SequenceCode.It
+ ; // Implements
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ CONST extprop:pas:TypeName 'DocumentTag'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_54BE5365004B Document
+
+FORWARD ME_54BE68F10127
+
+: ME_54BE6ACC0233
+ CONST UID '54BE6ACC0233'
+ CONST Name 'Style'
+ CONST Class class_Attribute
+ : Stereotype st_override::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54BE68F10127 // DecorTextPara
+ ;
+ : Target ME_54BE69EE00CD // TechComment
+ ;
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_54BE6ACC0233 Style
+
+: ME_54BE68F10127
+ CONST UID '54BE68F10127'
+ CONST Name 'DecorTextPara'
+ CONST Class class_Class
+ : Stereotype st_TagOverride ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4860F3C103E4 // F1
+ ;
+ : Implements
+   @ ( WL 'ME_4857920901AF' '48492FC0029D.pas.ms.script' // DecorTextPara
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_54BE6ACC0233 // Style
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ CONST extprop:pas:TypeName 'DecorTextParaTag'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_54BE68F10127 DecorTextPara
+
+FORWARD ME_54BE692F0384
+
+: ME_54BE69530016
+ CONST UID '54BE69530016'
+ CONST Name 'Width'
+ CONST Class class_Attribute
+ : Stereotype st_override::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54BE692F0384 // BitmapPara
+ ;
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" false
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_54BE69530016 Width
+
+: ME_54BE6960012C
+ CONST UID '54BE6960012C'
+ CONST Name 'Height'
+ CONST Class class_Attribute
+ : Stereotype st_override::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54BE692F0384 // BitmapPara
+ ;
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" true
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_54BE6960012C Height
+
+: ME_54BE692F0384
+ CONST UID '54BE692F0384'
+ CONST Name 'BitmapPara'
+ CONST Class class_Class
+ : Stereotype st_TagOverride ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4860F3C103E4 // F1
+ ;
+ : Implements
+   @ ( WL 'ME_4858116B0355' '48492FC0029D.pas.ms.script' // BitmapPara
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_54BE69530016 // Width
+ ME_54BE6960012C // Height
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ CONST extprop:pas:TypeName 'BitmapParaTag'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_54BE692F0384 BitmapPara
+
+FORWARD ME_4B72E1CE0002
+
+: ME_4B72E2140339
+ CONST UID '4B72E2140339'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4860F3C103E4 // F1
+ ;
+ : Target ME_4B72E1CE0002 // eeDocument
+ ;
+
+ref; // ME_4B72E2140339 
+
+FORWARD ME_4028A9B7940C
+
+: ME_830EB2F5AEC4
+ CONST UID '830EB2F5AEC4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4860F3C103E4 // F1
+ ;
+ : Target ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_830EB2F5AEC4 
+
+: ME_4860F3C103E4
+ CONST UID '4860F3C103E4'
+ CONST Name 'F1'
+ CONST Class class_Class
+ : Stereotype st_TagTable ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB112DF005B // EVD
+ ;
+ : Inherits
+   @ ( WL 'ME_4868BE17039B' '48492FC0029D.pas.ms.script' // Everest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Children
+   @ ( ME_4862215A02D8 // TextStyle
+ ME_54BE533C0001 // TextPara
+ ME_54BE5365004B // Document
+ ME_54BE68F10127 // DecorTextPara
+ ME_54BE692F0384 // BitmapPara
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4B72E2140339 // 
+ ME_830EB2F5AEC4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "elements prefix" 'f1'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\F1_Schema.pas'
+ CONST extprop:pas:TypeName 'TF1Schema'
+ CONST extprop:pas:ElementPrefixBase 'f1'
+ CONST extprop:pas:ElementPrefix 'f1_'
+
+ref; // ME_4860F3C103E4 F1
+
+FORWARD ME_54BE514101E5
+
+: ME_4D63D26D033F_ME_54BE514101E5
+ CONST UID '4D63D26D033F'
+ CONST Name 'QueryTool'
+ : Original WL 'ME_4D63D26D033F' '49A58A1A03C4.pas.ms.script' // QueryTool
+ ;
+ : Implementor ME_54BE514101E5 // TeeTextPara
+ ;
+ref; // ME_4D63D26D033F_ME_54BE514101E5 QueryTool
+
+: ME_54BE514101E5
+ CONST UID '54BE514101E5'
+ CONST Name 'TeeTextPara'
+ CONST Class class_Class
+ : Stereotype st_InterfaceFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB112DF005B // EVD
+ ;
+ : Inherits
+   @ ( WL 'ME_48577C150116' '53D258F1004F.pas.ms.script' // TevTextPara
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_54BE533C0001 // TextPara
+ ME_54BE68F10127 // DecorTextPara
+ ) .SequenceCode.It
+ ; // Implements
+ : Overridden
+   @ ( ME_4D63D26D033F_ME_54BE514101E5 // QueryTool
+ ) .SequenceCode.It
+ ; // Overridden
+ : Injected
+   @ ( WL 'ME_54BE525C0357' '54BE4A3A005B.pas.ms.script' // 
+ WL 'ME_54BE526A02CF' '54BE4A3A005B.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTextPara_InterfaceFactory.pas'
+ CONST extprop:pas:TypeName 'TeeTextParaInterfaceFactory'
+
+ref; // ME_54BE514101E5 TeeTextPara
+
+FORWARD ME_54BE51580257
+
+: ME_4D63D26D033F_ME_54BE51580257
+ CONST UID '4D63D26D033F'
+ CONST Name 'QueryTool'
+ : Original WL 'ME_4D63D26D033F' '49A58A1A03C4.pas.ms.script' // QueryTool
+ ;
+ : Implementor ME_54BE51580257 // TeeDocument
+ ;
+ref; // ME_4D63D26D033F_ME_54BE51580257 QueryTool
+
+: ME_54BE51580257
+ CONST UID '54BE51580257'
+ CONST Name 'TeeDocument'
+ CONST Class class_Class
+ : Stereotype st_InterfaceFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB112DF005B // EVD
+ ;
+ : Inherits
+   @ ( WL 'ME_4857B637007C' '53D258F1004F.pas.ms.script' // TevDocument
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_54BE5365004B // Document
+ ) .SequenceCode.It
+ ; // Implements
+ : Overridden
+   @ ( ME_4D63D26D033F_ME_54BE51580257 // QueryTool
+ ) .SequenceCode.It
+ ; // Overridden
+ : Injected
+   @ ( WL 'ME_54BE5277018F' '54BE4A3A005B.pas.ms.script' // 
+ WL 'ME_54BE52830056' '54BE4A3A005B.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocument_InterfaceFactory.pas'
+ CONST extprop:pas:TypeName 'TeeDocumentInterfaceFactory'
+
+ref; // ME_54BE51580257 TeeDocument
+
+: ME_4B72E1CE0002
+ CONST UID '4B72E1CE0002'
+ CONST Name 'eeDocument'
+ CONST Class class_Class
+ : Stereotype st_TagTable ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB112DF005B // EVD
+ ;
+ : Inherits
+   @ ( ME_4860F3C103E4 // F1
+ ) .SequenceCode.It
+ ; // Inherits
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocument_Schema.pas'
+ CONST extprop:pas:TypeName 'TeeDocumentSchema'
+
+ref; // ME_4B72E1CE0002 eeDocument
+
+FORWARD ME_135A09B54955
+
+: ME_16619B144959
+ CONST UID '16619B144959'
+ CONST Name 'TextStyle_ANSIDOS_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_ANSIDOS_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Моноширинный'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_16619B144959 TextStyle_ANSIDOS_Name_Value
+
+: ME_8AB4ADDED3CC
+ CONST UID '8AB4ADDED3CC'
+ CONST Name 'TextStyle_CompareEditionsText_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_CompareEditionsText_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Сравнение редакций'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_8AB4ADDED3CC TextStyle_CompareEditionsText_Name_Value
+
+: ME_2506B1CAF3EB
+ CONST UID '2506B1CAF3EB'
+ CONST Name 'TextStyle_DeletedText_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_DeletedText_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Удалённый текст'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_2506B1CAF3EB TextStyle_DeletedText_Name_Value
+
+: ME_9400C281F255
+ CONST UID '9400C281F255'
+ CONST Name 'TextStyle_ChatHeaderSender_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_ChatHeaderSender_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Заголовок собственного сообщения'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_9400C281F255 TextStyle_ChatHeaderSender_Name_Value
+
+: ME_C89E98C65657
+ CONST UID 'C89E98C65657'
+ CONST Name 'TextStyle_ChatHeaderRecipient_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_ChatHeaderRecipient_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Заголовок полученного сообщения'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_C89E98C65657 TextStyle_ChatHeaderRecipient_Name_Value
+
+: ME_B72093EABDC0
+ CONST UID 'B72093EABDC0'
+ CONST Name 'TextStyle_AddedText_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_AddedText_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Добавленный текст'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_B72093EABDC0 TextStyle_AddedText_Name_Value
+
+: ME_EA056FE32A49
+ CONST UID 'EA056FE32A49'
+ CONST Name 'TextStyle_NewSchoolMainMenu_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenu_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Основное меню (по-умолчанию)'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_EA056FE32A49 TextStyle_NewSchoolMainMenu_Name_Value
+
+: ME_7E3FBD6D3926
+ CONST UID '7E3FBD6D3926'
+ CONST Name 'TextStyle_MainMenu_Font_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenu_Font_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Verdana'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_7E3FBD6D3926 TextStyle_MainMenu_Font_Name_Value
+
+: ME_55053F3F4A4E
+ CONST UID '55053F3F4A4E'
+ CONST Name 'TextStyle_MainMenu_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenu_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Основное меню (преемственное)'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55053F3F4A4E TextStyle_MainMenu_Name_Value
+
+: ME_D2724F136654
+ CONST UID 'D2724F136654'
+ CONST Name 'TextStyle_MainMenuHeader_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuHeader_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Заголовок *'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_D2724F136654 TextStyle_MainMenuHeader_Name_Value
+
+: ME_27CA4EDBD17D
+ CONST UID '27CA4EDBD17D'
+ CONST Name 'TextStyle_MainMenuConstPath_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuConstPath_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Постоянная часть *'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_27CA4EDBD17D TextStyle_MainMenuConstPath_Name_Value
+
+: ME_DF01AB86D91A
+ CONST UID 'DF01AB86D91A'
+ CONST Name 'TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Arial'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_DF01AB86D91A TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+
+: ME_491D5024B3D9
+ CONST UID '491D5024B3D9'
+ CONST Name 'TextStyle_NewSchoolMainMenuConstPath_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuConstPath_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Постоянная часть'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_491D5024B3D9 TextStyle_NewSchoolMainMenuConstPath_Name_Value
+
+: ME_10C7884E1F25
+ CONST UID '10C7884E1F25'
+ CONST Name 'TextStyle_NewSchoolMainMenuHeader_Font_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuHeader_Font_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Arial'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_10C7884E1F25 TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+
+: ME_9A717449CD2E
+ CONST UID '9A717449CD2E'
+ CONST Name 'TextStyle_NewSchoolMainMenuHeader_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuHeader_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Заголовок'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_9A717449CD2E TextStyle_NewSchoolMainMenuHeader_Name_Value
+
+: ME_7CA614858280
+ CONST UID '7CA614858280'
+ CONST Name 'TextStyle_MainMenuChangePath_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuChangePath_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Переменная часть'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_7CA614858280 TextStyle_MainMenuChangePath_Name_Value
+
+: ME_23BE03A07BD5
+ CONST UID '23BE03A07BD5'
+ CONST Name 'TextStyle_MainMenuInteractiveHeader_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuInteractiveHeader_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Интерактивный заголовок'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_23BE03A07BD5 TextStyle_MainMenuInteractiveHeader_Name_Value
+
+: ME_72E8E705AEA7
+ CONST UID '72E8E705AEA7'
+ CONST Name 'TextStyle_Changes1_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_Changes1_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Обзор изменений документа 1'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_72E8E705AEA7 TextStyle_Changes1_Name_Value
+
+: ME_3089DB05BE53
+ CONST UID '3089DB05BE53'
+ CONST Name 'TextStyle_Changes2_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_Changes2_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Обзор изменений документа 2'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_3089DB05BE53 TextStyle_Changes2_Name_Value
+
+: ME_CA0830ABA9E1
+ CONST UID 'CA0830ABA9E1'
+ CONST Name 'TextStyle_EnclosureHeader_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_EnclosureHeader_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Заголовок приложения'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_CA0830ABA9E1 TextStyle_EnclosureHeader_Name_Value
+
+: ME_4BE1CE8F6546
+ CONST UID '4BE1CE8F6546'
+ CONST Name 'TextStyle_EditionInterval_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_EditionInterval_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Интервал действия редакции'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4BE1CE8F6546 TextStyle_EditionInterval_Name_Value
+
+: ME_530468D6B93E
+ CONST UID '530468D6B93E'
+ CONST Name 'TextStyle_Edition_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_Edition_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Редакция'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_530468D6B93E TextStyle_Edition_Name_Value
+
+: ME_BF034452A9CA
+ CONST UID 'BF034452A9CA'
+ CONST Name 'TextStyle_EditionNumber_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_EditionNumber_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Номер редакции'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_BF034452A9CA TextStyle_EditionNumber_Name_Value
+
+: ME_5DC6A96CA585
+ CONST UID '5DC6A96CA585'
+ CONST Name 'TextStyle_Snippet_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_Snippet_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Дочерний элемент списка'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_5DC6A96CA585 TextStyle_Snippet_Name_Value
+
+: ME_08A558666313
+ CONST UID '08A558666313'
+ CONST Name 'TextStyle_DocumentInList_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_DocumentInList_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Документ в списке'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_08A558666313 TextStyle_DocumentInList_Name_Value
+
+: ME_7F6204D4D6AF
+ CONST UID '7F6204D4D6AF'
+ CONST Name 'TextStyle_VisitedSnippetInList_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_VisitedSnippetInList_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Посещенный дочерний элемент списка'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_7F6204D4D6AF TextStyle_VisitedSnippetInList_Name_Value
+
+: ME_70A621B61B38
+ CONST UID '70A621B61B38'
+ CONST Name 'TextStyle_TechComment_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_TechComment_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Технический комментарий'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_70A621B61B38 TextStyle_TechComment_Name_Value
+
+: ME_7D9F7622974B
+ CONST UID '7D9F7622974B'
+ CONST Name 'TextStyle_VisitedDocumentInList_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_VisitedDocumentInList_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_135A09B54955 // AttrValues
+ ;
+ CONST Value '''Посещенный документ списка'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_7D9F7622974B TextStyle_VisitedDocumentInList_Name_Value
+
+: ME_135A09B54955
+ CONST UID '135A09B54955'
+ CONST Name 'AttrValues'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые значения атрибутов значений тегов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+ : Attributes
+   @ ( ME_16619B144959 // TextStyle_ANSIDOS_Name_Value
+ ME_8AB4ADDED3CC // TextStyle_CompareEditionsText_Name_Value
+ ME_2506B1CAF3EB // TextStyle_DeletedText_Name_Value
+ ME_9400C281F255 // TextStyle_ChatHeaderSender_Name_Value
+ ME_C89E98C65657 // TextStyle_ChatHeaderRecipient_Name_Value
+ ME_B72093EABDC0 // TextStyle_AddedText_Name_Value
+ ME_EA056FE32A49 // TextStyle_NewSchoolMainMenu_Name_Value
+ ME_7E3FBD6D3926 // TextStyle_MainMenu_Font_Name_Value
+ ME_55053F3F4A4E // TextStyle_MainMenu_Name_Value
+ ME_D2724F136654 // TextStyle_MainMenuHeader_Name_Value
+ ME_27CA4EDBD17D // TextStyle_MainMenuConstPath_Name_Value
+ ME_DF01AB86D91A // TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+ ME_491D5024B3D9 // TextStyle_NewSchoolMainMenuConstPath_Name_Value
+ ME_10C7884E1F25 // TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+ ME_9A717449CD2E // TextStyle_NewSchoolMainMenuHeader_Name_Value
+ ME_7CA614858280 // TextStyle_MainMenuChangePath_Name_Value
+ ME_23BE03A07BD5 // TextStyle_MainMenuInteractiveHeader_Name_Value
+ ME_72E8E705AEA7 // TextStyle_Changes1_Name_Value
+ ME_3089DB05BE53 // TextStyle_Changes2_Name_Value
+ ME_CA0830ABA9E1 // TextStyle_EnclosureHeader_Name_Value
+ ME_4BE1CE8F6546 // TextStyle_EditionInterval_Name_Value
+ ME_530468D6B93E // TextStyle_Edition_Name_Value
+ ME_BF034452A9CA // TextStyle_EditionNumber_Name_Value
+ ME_5DC6A96CA585 // TextStyle_Snippet_Name_Value
+ ME_08A558666313 // TextStyle_DocumentInList_Name_Value
+ ME_7F6204D4D6AF // TextStyle_VisitedSnippetInList_Name_Value
+ ME_70A621B61B38 // TextStyle_TechComment_Name_Value
+ ME_7D9F7622974B // TextStyle_VisitedDocumentInList_Name_Value
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_135A09B54955 AttrValues
+
+FORWARD ME_CFCAF1C4F82D
+
+: ME_E333FE43F695
+ CONST UID 'E333FE43F695'
+ CONST Name 'TextStyle_ANSIDOS_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_ANSIDOS_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_ANSIDOS_Name_Value''; rValue : ''Моноширинный'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_E333FE43F695 TextStyle_ANSIDOS_Name_Value
+
+: ME_FCDB972AAB66
+ CONST UID 'FCDB972AAB66'
+ CONST Name 'TextStyle_CompareEditionsText_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_CompareEditionsText_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_CompareEditionsText_Name_Value''; rValue : ''Сравнение редакций'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_FCDB972AAB66 TextStyle_CompareEditionsText_Name_Value
+
+: ME_5DD40E846A08
+ CONST UID '5DD40E846A08'
+ CONST Name 'TextStyle_DeletedText_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_DeletedText_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_DeletedText_Name_Value''; rValue : ''Удалённый текст'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_5DD40E846A08 TextStyle_DeletedText_Name_Value
+
+: ME_F87C1B3EC36D
+ CONST UID 'F87C1B3EC36D'
+ CONST Name 'TextStyle_ChatHeaderSender_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_ChatHeaderSender_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_ChatHeaderSender_Name_Value''; rValue : ''Заголовок собственного сообщения'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_F87C1B3EC36D TextStyle_ChatHeaderSender_Name_Value
+
+: ME_70E3A3585552
+ CONST UID '70E3A3585552'
+ CONST Name 'TextStyle_ChatHeaderRecipient_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_ChatHeaderRecipient_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_ChatHeaderRecipient_Name_Value''; rValue : ''Заголовок полученного сообщения'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_70E3A3585552 TextStyle_ChatHeaderRecipient_Name_Value
+
+: ME_FD054096D328
+ CONST UID 'FD054096D328'
+ CONST Name 'TextStyle_AddedText_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_AddedText_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_AddedText_Name_Value''; rValue : ''Добавленный текст'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_FD054096D328 TextStyle_AddedText_Name_Value
+
+: ME_AFBC510A5319
+ CONST UID 'AFBC510A5319'
+ CONST Name 'TextStyle_NewSchoolMainMenu_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenu_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenu_Name_Value''; rValue : ''Основное меню (по-умолчанию)'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_AFBC510A5319 TextStyle_NewSchoolMainMenu_Name_Value
+
+: ME_301E1B981A9B
+ CONST UID '301E1B981A9B'
+ CONST Name 'TextStyle_MainMenu_Font_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenu_Font_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenu_Font_Name_Value''; rValue : ''Verdana'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_301E1B981A9B TextStyle_MainMenu_Font_Name_Value
+
+: ME_DB2E56C270DD
+ CONST UID 'DB2E56C270DD'
+ CONST Name 'TextStyle_MainMenu_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenu_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenu_Name_Value''; rValue : ''Основное меню (преемственное)'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_DB2E56C270DD TextStyle_MainMenu_Name_Value
+
+: ME_3F5E7D604ED3
+ CONST UID '3F5E7D604ED3'
+ CONST Name 'TextStyle_MainMenuHeader_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuHeader_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenuHeader_Name_Value''; rValue : ''Заголовок *'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_3F5E7D604ED3 TextStyle_MainMenuHeader_Name_Value
+
+: ME_545BFB114755
+ CONST UID '545BFB114755'
+ CONST Name 'TextStyle_MainMenuConstPath_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuConstPath_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenuConstPath_Name_Value''; rValue : ''Постоянная часть *'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_545BFB114755 TextStyle_MainMenuConstPath_Name_Value
+
+: ME_CCB8B73EC344
+ CONST UID 'CCB8B73EC344'
+ CONST Name 'TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value''; rValue : ''Arial'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_CCB8B73EC344 TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+
+: ME_A2A4E61317EC
+ CONST UID 'A2A4E61317EC'
+ CONST Name 'TextStyle_NewSchoolMainMenuConstPath_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuConstPath_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenuConstPath_Name_Value''; rValue : ''Постоянная часть'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_A2A4E61317EC TextStyle_NewSchoolMainMenuConstPath_Name_Value
+
+: ME_7ED6C1C8C532
+ CONST UID '7ED6C1C8C532'
+ CONST Name 'TextStyle_NewSchoolMainMenuHeader_Font_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuHeader_Font_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenuHeader_Font_Name_Value''; rValue : ''Arial'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_7ED6C1C8C532 TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+
+: ME_6A62A343B7A5
+ CONST UID '6A62A343B7A5'
+ CONST Name 'TextStyle_NewSchoolMainMenuHeader_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuHeader_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenuHeader_Name_Value''; rValue : ''Заголовок'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_6A62A343B7A5 TextStyle_NewSchoolMainMenuHeader_Name_Value
+
+: ME_2A9E5D993503
+ CONST UID '2A9E5D993503'
+ CONST Name 'TextStyle_MainMenuChangePath_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuChangePath_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenuChangePath_Name_Value''; rValue : ''Переменная часть'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_2A9E5D993503 TextStyle_MainMenuChangePath_Name_Value
+
+: ME_70D8E71F80EB
+ CONST UID '70D8E71F80EB'
+ CONST Name 'TextStyle_MainMenuInteractiveHeader_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuInteractiveHeader_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenuInteractiveHeader_Name_Value''; rValue : ''Интерактивный заголовок'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_70D8E71F80EB TextStyle_MainMenuInteractiveHeader_Name_Value
+
+: ME_5EBD3F89212F
+ CONST UID '5EBD3F89212F'
+ CONST Name 'TextStyle_Changes1_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_Changes1_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_Changes1_Name_Value''; rValue : ''Обзор изменений документа 1'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_5EBD3F89212F TextStyle_Changes1_Name_Value
+
+: ME_4C48BCC52138
+ CONST UID '4C48BCC52138'
+ CONST Name 'TextStyle_Changes2_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_Changes2_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_Changes2_Name_Value''; rValue : ''Обзор изменений документа 2'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4C48BCC52138 TextStyle_Changes2_Name_Value
+
+: ME_56490BC09182
+ CONST UID '56490BC09182'
+ CONST Name 'TextStyle_EnclosureHeader_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_EnclosureHeader_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_EnclosureHeader_Name_Value''; rValue : ''Заголовок приложения'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_56490BC09182 TextStyle_EnclosureHeader_Name_Value
+
+: ME_6B7AF3319A56
+ CONST UID '6B7AF3319A56'
+ CONST Name 'TextStyle_EditionInterval_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_EditionInterval_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_EditionInterval_Name_Value''; rValue : ''Интервал действия редакции'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_6B7AF3319A56 TextStyle_EditionInterval_Name_Value
+
+: ME_6B254D7600E1
+ CONST UID '6B254D7600E1'
+ CONST Name 'TextStyle_Edition_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_Edition_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_Edition_Name_Value''; rValue : ''Редакция'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_6B254D7600E1 TextStyle_Edition_Name_Value
+
+: ME_9CC79EFB2DFC
+ CONST UID '9CC79EFB2DFC'
+ CONST Name 'TextStyle_EditionNumber_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_EditionNumber_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_EditionNumber_Name_Value''; rValue : ''Номер редакции'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_9CC79EFB2DFC TextStyle_EditionNumber_Name_Value
+
+: ME_1876D1DEEA9F
+ CONST UID '1876D1DEEA9F'
+ CONST Name 'TextStyle_Snippet_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_Snippet_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_Snippet_Name_Value''; rValue : ''Дочерний элемент списка'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_1876D1DEEA9F TextStyle_Snippet_Name_Value
+
+: ME_DF2BA991C139
+ CONST UID 'DF2BA991C139'
+ CONST Name 'TextStyle_DocumentInList_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_DocumentInList_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_DocumentInList_Name_Value''; rValue : ''Документ в списке'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_DF2BA991C139 TextStyle_DocumentInList_Name_Value
+
+: ME_78CD1541C5D4
+ CONST UID '78CD1541C5D4'
+ CONST Name 'TextStyle_VisitedSnippetInList_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_VisitedSnippetInList_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_VisitedSnippetInList_Name_Value''; rValue : ''Посещенный дочерний элемент списка'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_78CD1541C5D4 TextStyle_VisitedSnippetInList_Name_Value
+
+: ME_460EEDCB6B19
+ CONST UID '460EEDCB6B19'
+ CONST Name 'TextStyle_TechComment_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_TechComment_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_TechComment_Name_Value''; rValue : ''Технический комментарий'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_460EEDCB6B19 TextStyle_TechComment_Name_Value
+
+: ME_DCA5DF1203DF
+ CONST UID 'DCA5DF1203DF'
+ CONST Name 'TextStyle_VisitedDocumentInList_Name_Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Локализуемое значения атрибута TextStyle_VisitedDocumentInList_Name_Value' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CFCAF1C4F82D // LCImplAttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_VisitedDocumentInList_Name_Value''; rValue : ''Посещенный документ списка'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_DCA5DF1203DF TextStyle_VisitedDocumentInList_Name_Value
+
+: ME_CFCAF1C4F82D
+ CONST UID 'CFCAF1C4F82D'
+ CONST Name 'LCImplAttrValues'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки AttrValues' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+ : Attributes
+   @ ( ME_E333FE43F695 // TextStyle_ANSIDOS_Name_Value
+ ME_FCDB972AAB66 // TextStyle_CompareEditionsText_Name_Value
+ ME_5DD40E846A08 // TextStyle_DeletedText_Name_Value
+ ME_F87C1B3EC36D // TextStyle_ChatHeaderSender_Name_Value
+ ME_70E3A3585552 // TextStyle_ChatHeaderRecipient_Name_Value
+ ME_FD054096D328 // TextStyle_AddedText_Name_Value
+ ME_AFBC510A5319 // TextStyle_NewSchoolMainMenu_Name_Value
+ ME_301E1B981A9B // TextStyle_MainMenu_Font_Name_Value
+ ME_DB2E56C270DD // TextStyle_MainMenu_Name_Value
+ ME_3F5E7D604ED3 // TextStyle_MainMenuHeader_Name_Value
+ ME_545BFB114755 // TextStyle_MainMenuConstPath_Name_Value
+ ME_CCB8B73EC344 // TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+ ME_A2A4E61317EC // TextStyle_NewSchoolMainMenuConstPath_Name_Value
+ ME_7ED6C1C8C532 // TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+ ME_6A62A343B7A5 // TextStyle_NewSchoolMainMenuHeader_Name_Value
+ ME_2A9E5D993503 // TextStyle_MainMenuChangePath_Name_Value
+ ME_70D8E71F80EB // TextStyle_MainMenuInteractiveHeader_Name_Value
+ ME_5EBD3F89212F // TextStyle_Changes1_Name_Value
+ ME_4C48BCC52138 // TextStyle_Changes2_Name_Value
+ ME_56490BC09182 // TextStyle_EnclosureHeader_Name_Value
+ ME_6B7AF3319A56 // TextStyle_EditionInterval_Name_Value
+ ME_6B254D7600E1 // TextStyle_Edition_Name_Value
+ ME_9CC79EFB2DFC // TextStyle_EditionNumber_Name_Value
+ ME_1876D1DEEA9F // TextStyle_Snippet_Name_Value
+ ME_DF2BA991C139 // TextStyle_DocumentInList_Name_Value
+ ME_78CD1541C5D4 // TextStyle_VisitedSnippetInList_Name_Value
+ ME_460EEDCB6B19 // TextStyle_TechComment_Name_Value
+ ME_DCA5DF1203DF // TextStyle_VisitedDocumentInList_Name_Value
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_CFCAF1C4F82D LCImplAttrValues
+
+: ME_18491A7AD430
+ CONST UID '18491A7AD430'
+ CONST Name 'Init_TextStyle_ANSIDOS_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_ANSIDOS_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_18491A7AD430 Init_TextStyle_ANSIDOS_Name_Value
+
+: ME_C69ED2E5296F
+ CONST UID 'C69ED2E5296F'
+ CONST Name 'Init_TextStyle_CompareEditionsText_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_CompareEditionsText_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_C69ED2E5296F Init_TextStyle_CompareEditionsText_Name_Value
+
+: ME_1B190C9A6779
+ CONST UID '1B190C9A6779'
+ CONST Name 'Init_TextStyle_DeletedText_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_DeletedText_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_1B190C9A6779 Init_TextStyle_DeletedText_Name_Value
+
+: ME_94D2EC13088B
+ CONST UID '94D2EC13088B'
+ CONST Name 'Init_TextStyle_ChatHeaderSender_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_ChatHeaderSender_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_94D2EC13088B Init_TextStyle_ChatHeaderSender_Name_Value
+
+: ME_A29415CD3AFD
+ CONST UID 'A29415CD3AFD'
+ CONST Name 'Init_TextStyle_ChatHeaderRecipient_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_ChatHeaderRecipient_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_A29415CD3AFD Init_TextStyle_ChatHeaderRecipient_Name_Value
+
+: ME_182C8C8204D7
+ CONST UID '182C8C8204D7'
+ CONST Name 'Init_TextStyle_AddedText_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_AddedText_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_182C8C8204D7 Init_TextStyle_AddedText_Name_Value
+
+: ME_1822E7AF9607
+ CONST UID '1822E7AF9607'
+ CONST Name 'Init_TextStyle_NewSchoolMainMenu_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenu_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_1822E7AF9607 Init_TextStyle_NewSchoolMainMenu_Name_Value
+
+: ME_3F6010DC8D96
+ CONST UID '3F6010DC8D96'
+ CONST Name 'Init_TextStyle_MainMenu_Font_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_MainMenu_Font_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_3F6010DC8D96 Init_TextStyle_MainMenu_Font_Name_Value
+
+: ME_E6CCEC053885
+ CONST UID 'E6CCEC053885'
+ CONST Name 'Init_TextStyle_MainMenu_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_MainMenu_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_E6CCEC053885 Init_TextStyle_MainMenu_Name_Value
+
+: ME_2608718B45F3
+ CONST UID '2608718B45F3'
+ CONST Name 'Init_TextStyle_MainMenuHeader_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_MainMenuHeader_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_2608718B45F3 Init_TextStyle_MainMenuHeader_Name_Value
+
+: ME_3F4716197817
+ CONST UID '3F4716197817'
+ CONST Name 'Init_TextStyle_MainMenuConstPath_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_MainMenuConstPath_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_3F4716197817 Init_TextStyle_MainMenuConstPath_Name_Value
+
+: ME_5EDD04658736
+ CONST UID '5EDD04658736'
+ CONST Name 'Init_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_5EDD04658736 Init_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+
+: ME_BCFE9BE90264
+ CONST UID 'BCFE9BE90264'
+ CONST Name 'Init_TextStyle_NewSchoolMainMenuConstPath_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenuConstPath_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_BCFE9BE90264 Init_TextStyle_NewSchoolMainMenuConstPath_Name_Value
+
+: ME_354CDEA9E53A
+ CONST UID '354CDEA9E53A'
+ CONST Name 'Init_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_354CDEA9E53A Init_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+
+: ME_50644474C84F
+ CONST UID '50644474C84F'
+ CONST Name 'Init_TextStyle_NewSchoolMainMenuHeader_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenuHeader_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_50644474C84F Init_TextStyle_NewSchoolMainMenuHeader_Name_Value
+
+: ME_03DD3573CC38
+ CONST UID '03DD3573CC38'
+ CONST Name 'Init_TextStyle_MainMenuChangePath_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_MainMenuChangePath_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_03DD3573CC38 Init_TextStyle_MainMenuChangePath_Name_Value
+
+: ME_5B53EE4CEB68
+ CONST UID '5B53EE4CEB68'
+ CONST Name 'Init_TextStyle_MainMenuInteractiveHeader_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_MainMenuInteractiveHeader_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_5B53EE4CEB68 Init_TextStyle_MainMenuInteractiveHeader_Name_Value
+
+: ME_99B8F8EDD333
+ CONST UID '99B8F8EDD333'
+ CONST Name 'Init_TextStyle_Changes1_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_Changes1_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_99B8F8EDD333 Init_TextStyle_Changes1_Name_Value
+
+: ME_1F8218D94107
+ CONST UID '1F8218D94107'
+ CONST Name 'Init_TextStyle_Changes2_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_Changes2_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_1F8218D94107 Init_TextStyle_Changes2_Name_Value
+
+: ME_8290D98311E8
+ CONST UID '8290D98311E8'
+ CONST Name 'Init_TextStyle_EnclosureHeader_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_EnclosureHeader_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_8290D98311E8 Init_TextStyle_EnclosureHeader_Name_Value
+
+: ME_158876BDDA61
+ CONST UID '158876BDDA61'
+ CONST Name 'Init_TextStyle_EditionInterval_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_EditionInterval_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_158876BDDA61 Init_TextStyle_EditionInterval_Name_Value
+
+: ME_903ADD60B4E3
+ CONST UID '903ADD60B4E3'
+ CONST Name 'Init_TextStyle_Edition_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_Edition_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_903ADD60B4E3 Init_TextStyle_Edition_Name_Value
+
+: ME_236288A44FD2
+ CONST UID '236288A44FD2'
+ CONST Name 'Init_TextStyle_EditionNumber_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_EditionNumber_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_236288A44FD2 Init_TextStyle_EditionNumber_Name_Value
+
+: ME_7C2FB5A164D5
+ CONST UID '7C2FB5A164D5'
+ CONST Name 'Init_TextStyle_Snippet_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_Snippet_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_7C2FB5A164D5 Init_TextStyle_Snippet_Name_Value
+
+: ME_BC5263CDC377
+ CONST UID 'BC5263CDC377'
+ CONST Name 'Init_TextStyle_DocumentInList_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_DocumentInList_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_BC5263CDC377 Init_TextStyle_DocumentInList_Name_Value
+
+: ME_6F9D71CEBDA4
+ CONST UID '6F9D71CEBDA4'
+ CONST Name 'Init_TextStyle_VisitedSnippetInList_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_VisitedSnippetInList_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_6F9D71CEBDA4 Init_TextStyle_VisitedSnippetInList_Name_Value
+
+: ME_4DB132074871
+ CONST UID '4DB132074871'
+ CONST Name 'Init_TextStyle_TechComment_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_TechComment_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_4DB132074871 Init_TextStyle_TechComment_Name_Value
+
+: ME_29244C27AE75
+ CONST UID '29244C27AE75'
+ CONST Name 'Init_TextStyle_VisitedDocumentInList_Name_Value'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_TextStyle_VisitedDocumentInList_Name_Value' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+
+ref; // ME_29244C27AE75 Init_TextStyle_VisitedDocumentInList_Name_Value
+
+: ME_47288684F4A5
+ CONST UID '47288684F4A5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_47288684F4A5 
+
+: ME_001AAA245994
+ CONST UID '001AAA245994'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4028A9B7940C // F1_AttrValues
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_001AAA245994 
+
+: ME_4028A9B7940C
+ CONST UID '4028A9B7940C'
+ CONST Name 'F1_AttrValues'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые значения атрибутов значений тегов таблицы тегов F1' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB112DF005B // EVD
+ ;
+ : Operations
+   @ ( ME_18491A7AD430 // Init_TextStyle_ANSIDOS_Name_Value
+ ME_C69ED2E5296F // Init_TextStyle_CompareEditionsText_Name_Value
+ ME_1B190C9A6779 // Init_TextStyle_DeletedText_Name_Value
+ ME_94D2EC13088B // Init_TextStyle_ChatHeaderSender_Name_Value
+ ME_A29415CD3AFD // Init_TextStyle_ChatHeaderRecipient_Name_Value
+ ME_182C8C8204D7 // Init_TextStyle_AddedText_Name_Value
+ ME_1822E7AF9607 // Init_TextStyle_NewSchoolMainMenu_Name_Value
+ ME_3F6010DC8D96 // Init_TextStyle_MainMenu_Font_Name_Value
+ ME_E6CCEC053885 // Init_TextStyle_MainMenu_Name_Value
+ ME_2608718B45F3 // Init_TextStyle_MainMenuHeader_Name_Value
+ ME_3F4716197817 // Init_TextStyle_MainMenuConstPath_Name_Value
+ ME_5EDD04658736 // Init_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+ ME_BCFE9BE90264 // Init_TextStyle_NewSchoolMainMenuConstPath_Name_Value
+ ME_354CDEA9E53A // Init_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+ ME_50644474C84F // Init_TextStyle_NewSchoolMainMenuHeader_Name_Value
+ ME_03DD3573CC38 // Init_TextStyle_MainMenuChangePath_Name_Value
+ ME_5B53EE4CEB68 // Init_TextStyle_MainMenuInteractiveHeader_Name_Value
+ ME_99B8F8EDD333 // Init_TextStyle_Changes1_Name_Value
+ ME_1F8218D94107 // Init_TextStyle_Changes2_Name_Value
+ ME_8290D98311E8 // Init_TextStyle_EnclosureHeader_Name_Value
+ ME_158876BDDA61 // Init_TextStyle_EditionInterval_Name_Value
+ ME_903ADD60B4E3 // Init_TextStyle_Edition_Name_Value
+ ME_236288A44FD2 // Init_TextStyle_EditionNumber_Name_Value
+ ME_7C2FB5A164D5 // Init_TextStyle_Snippet_Name_Value
+ ME_BC5263CDC377 // Init_TextStyle_DocumentInList_Name_Value
+ ME_6F9D71CEBDA4 // Init_TextStyle_VisitedSnippetInList_Name_Value
+ ME_4DB132074871 // Init_TextStyle_TechComment_Name_Value
+ ME_29244C27AE75 // Init_TextStyle_VisitedDocumentInList_Name_Value
+ ) .SequenceCode.It
+ ; // Operations
+ : Constants
+   @ ( ME_135A09B54955 // AttrValues
+ ME_CFCAF1C4F82D // LCImplAttrValues
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_47288684F4A5 // 
+ ME_001AAA245994 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\F1_AttrValues.pas'
+
+ref; // ME_4028A9B7940C F1_AttrValues
+
+: ME_4AB112DF005B
+ CONST UID '4AB112DF005B'
+ CONST Name 'EVD'
+ CONST Class class_Category
+ : Stereotype st_EVD ;
+ %SUMMARY 'Схема документа для F1' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
+ ;
+ : Children
+   @ ( ME_4860F3C103E4 // F1
+ ME_54BE514101E5 // TeeTextPara
+ ME_54BE51580257 // TeeDocument
+ ME_4B72E1CE0002 // eeDocument
+ ME_4028A9B7940C // F1_AttrValues
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
+ WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_53D258F1004F' '53D258F1004F.pas.ms.script' // InterfaceFactories
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifdef" 'Nemesis'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AB112DF005B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AB112DF005B.pas.ms.script.runner'
+
+ref; // ME_4AB112DF005B EVD

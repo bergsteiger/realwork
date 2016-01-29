@@ -1,0 +1,62 @@
+// wait_Ok 4DDE8A650180 ScriptKeyword Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '5093D47602BF.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4DDE8A650180
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_204CFD8DE590
+ CONST UID '204CFD8DE590'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация wait_Ok' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_204CFD8DE590 Ini_Reg
+
+: ME_4DDE8A650180
+ CONST UID '4DDE8A650180'
+ CONST Name 'wait_Ok'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5093D47602BF // afwImpurity
+ ]
+ ; // Implements
+ : Operations
+   [ ME_204CFD8DE590 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.05.2011 21:14'
+
+ @SELF
+; // ME_4DDE8A650180 wait_Ok

@@ -1,0 +1,485 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "UserSupportImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/UserSupportImpl/DefaultGarUserAccessor.java::477381E50094")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.java)"
+	    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/UserSupportImpl/DefaultGarUserAccessorFactoryImpl.java::477381E50094")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/UserSupportImpl|47737BED03CB
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/UserSupportImpl/DefaultGarUserAccessor|477381E50094::477381E50094
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16659292660"))
+    quid       	"47737BED03CB"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"47737BFF0054"
+	    supplier   	"Logical View::shared::ConfluenceCore::UserSupport"
+	    quidu      	"47737BB80068")
+	(object Visibility_Relationship
+	    quid       	"47737C950196"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.userImpl"
+	    quidu      	"4773799201F4")
+	(object Visibility_Relationship
+	    quid       	"4773B66C0103"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.user"
+	    quidu      	"461492E5005D")
+	(object Visibility_Relationship
+	    quid       	"4773BDF002EB"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.user.search.page"
+	    quidu      	"4773BDC000B8")
+	(object Visibility_Relationship
+	    quid       	"4981511B0256"
+	    supplier   	"Logical View::shared::ConfluenceCore::EventSupport"
+	    quidu      	"498150B70155"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DefaultGarUserAccessor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/UserSupportImpl/DefaultGarUserAccessor.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/UserSupportImpl/DefaultGarUserAccessorFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*477381E50094_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *477381E50094_CUSTOM_IMPORT*¤import java.util.ArrayList;¤import java.util.List;¤¤import org.apache.commons.collections.CollectionUtils;¤¤import com.atlassian.confluence.core.ContentEntityManager;¤import com.atlassian.confluence.event.events.user.UserRemoveEvent;¤import com.atlassian.confluence.mail.notification.NotificationManager;¤import com.atlassian.confluence.pages.Attachment;¤import com.atlassian.confluence.security.SpacePermissionManager;¤import com.atlassian.confluence.setup.settings.SettingsManager;¤import com.atlassian.confluence.spaces.Space;¤import com.atlassian.confluence.spaces.SpaceManager;¤import com.atlassian.confluence.spaces.SpaceType;¤import com.atlassian.confluence.user.ConfluenceUserPreferences;¤import com.atlassian.confluence.user.PersonalInformationManager;¤import com.atlassian.confluence.user.UserAccessor;¤import com.atlassian.confluence.user.actions.ProfilePictureInfo;¤import com.atlassian.confluence.userstatus.UserStatusManager;¤import com.atlassian.core.user.preferences.UserPreferences;¤import com.atlassian.event.EventManager;¤import com.atlassian.spring.container.ContainerManager;¤import com.atlassian.user.Entity;¤import com.atlassian.user.EntityException;¤import com.atlassian.user.Group;¤import com.atlassian.user.configuration.Configuration;¤import com.atlassian.user.repository.RepositoryIdentifier;¤import com.atlassian.user.search.SearchResult;¤import com.atlassian.user.search.page.DefaultPager;¤import com.atlassian.user.search.query.Query;¤import com.atlassian.user.search.query.QueryContext;¤import com.opensymphony.module.propertyset.PropertySet;¤¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManagerFactoryManager;¤¤import ru.garant.shared.Core.Root.NoActiveFactory;¤¤import ru.garant.shared.ConfluenceCore.EventSupport.UserAddMembershipEvent;¤import ru.garant.shared.ConfluenceCore.EventSupport.UserRemoveMembershipEvent;¤¤//#UC END# *477381E50094_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*477381E50094_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *477381E50094_CUSTOM_CLASS_DEFINITION*¤//#UC END# *477381E50094_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*477381E50094_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *477381E50094_CUSTOM_METHODS_AND_DATA*¤	public Pager filterUnaccessibleGroups (Pager groupPager, User user) {¤		return getUserAccessor().filterUnaccessibleGroups(groupPager, user);¤	}¤¤¤	public Pager filterUnaccessibleUsers (Pager userPager, User user) {¤		return getUserAccessor().filterUnaccessibleUsers(userPager, user);¤	}¤¤¤	public ConfluenceUserPreferences getConfluenceUserPreferences (User user) {¤		return getUserAccessor().getConfluenceUserPreferences(user);¤	}¤¤¤	public ProfilePictureInfo getUserProfilePicture (String username) {¤		return getUserAccessor().getUserProfilePicture(username);¤	}¤¤¤	public boolean isReadOnly (User user) {¤		return getUserAccessor().isReadOnly(user);¤	}¤¤¤	public boolean isReadOnly (Group group) {¤		return getUserAccessor().isReadOnly(group);¤	}¤¤¤	public void setContentEntityManager (ContentEntityManager contentEntityManager) {¤		getUserAccessor().setContentEntityManager(contentEntityManager);¤	}¤¤¤	public void setEventManager (EventManager eventManager) {¤		getUserAccessor().setEventManager(eventManager);¤	}¤¤¤	public void setNotificationManager (NotificationManager notificationManager) {¤		getUserAccessor().setNotificationManager(notificationManager);¤	}¤¤¤	public void setPersonalInformationManager (PersonalInformationManager personalInformationManager) {¤		getUserAccessor().setPersonalInformationManager(personalInformationManager);¤	}¤¤¤	public void setSettingsManager (SettingsManager settingsManager) {¤		getUserAccessor().setSettingsManager(settingsManager);¤	}¤¤¤	public void setSpacePermissionManager (SpacePermissionManager permissionManager) {¤		getUserAccessor().setSpacePermissionManager(permissionManager);¤	}¤¤¤	public Group addGroup (String name) {¤		return getUserAccessor().addGroup(name);¤	}¤¤¤	public void addMembership (Group group, User user) {¤		getUserAccessor().addMembership(group, user);¤	}¤¤¤	public void addMembership (String groupname, String username) {¤		getUserAccessor().addMembership(groupname, username);¤	}¤	¤	¤	public User addUser (String username, String password, String email, String fullname) {¤		return getUserAccessor().addUser(username, password, email, fullname);¤	}¤¤¤	public User addUser (String username, String password, String email, String fullname, String[] groups) {¤		return getUserAccessor().addUser(username, password, email, fullname, groups);¤	}¤¤¤	public void alterPassword (User user, String plainTextPassword) throws EntityException {¤		getUserAccessor().alterPassword(user, plainTextPassword);¤	}¤¤¤	public boolean authenticate (String username, String password) {¤		return getUserAccessor().authenticate(username, password);¤	}¤¤¤	public Group createGroup (String groupname) {¤		return getUserAccessor().createGroup(groupname);¤	}¤¤¤	public User createUser (String username) {¤		return getUserAccessor().createUser(username);¤	}¤¤¤	public void deactivateUser (User user) {¤		getUserAccessor().deactivateUser(user);¤	}¤¤¤	public SearchResult findUsers (Query search) throws EntityException {¤		return getUserAccessor().findUsers(search);¤	}¤¤¤	public Group getDefaultGroup () {¤		return getUserAccessor().getDefaultGroup();¤	}¤¤¤	public List getDelegatingRepositories () {¤		return getUserAccessor().getDelegatingRepositories();¤	}¤¤¤	public Pager getExternallMembers (Group group) {¤		return getUserAccessor().getExternallMembers(group);¤	}¤¤¤	public Group getGroup (String name) {¤		return getUserAccessor().getGroup(name);¤	}¤¤¤	public Group getGroupCreateIfNecessary (String name) {¤		return getUserAccessor().getGroupCreateIfNecessary(name);¤	}¤¤¤	public Pager getGroups () {¤		return getUserAccessor().getGroups();¤	}¤¤¤	public Pager getGroups (User user) {¤		return getUserAccessor().getGroups(user);¤	}¤¤¤	public Pager getLocalMembers (Group group) {¤		return getUserAccessor().getLocalMembers(group);¤	}¤¤¤	public Pager getMemberNames (Group group) {¤		return getUserAccessor().getMemberNames(group);¤	}¤¤¤	public PropertySet getPropertySet (User user) {¤		return getUserAccessor().getPropertySet(user);¤	}¤¤¤	public RepositoryIdentifier getRepository (Entity entity) throws EntityException {¤		return getUserAccessor().getRepository(entity);¤	}¤¤¤	public User getUser (String name) {¤		return getUserAccessor().getUser(name);¤	}¤¤¤	public Pager getUserNames () {¤		return getUserAccessor().getUserNames();¤	}¤¤¤	public UserPreferences getUserPreferences (User user) {¤		return getUserAccessor().getUserPreferences(user);¤	}¤¤¤	public Pager getUsers () {¤		return getUserAccessor().getUsers();¤	}¤¤¤	public SearchResult getUsersByEmail (String email) {¤		return getUserAccessor().getUsersByEmail(email);¤	}¤¤¤	public Pager getUsersWithConfluenceAccess () {¤		return getUserAccessor().getUsersWithConfluenceAccess();¤	}¤¤¤	public boolean hasMembership (Group group, User user) {¤		return getUserAccessor().hasMembership(group, user);¤	}¤¤¤	public boolean hasMembership (String groupname, String username) {¤		return getUserAccessor().hasMembership(groupname, username);¤	}¤¤¤	public boolean isDeactivated (User user) {¤		return getUserAccessor().isDeactivated(user);¤	}¤¤¤	public boolean isDeactivated (String username) {¤		return getUserAccessor().isDeactivated(username);¤	}¤¤¤	public boolean isLicensedToAddMoreUsers () {¤		return getUserAccessor().isLicensedToAddMoreUsers();¤	}¤¤¤	public boolean isUserRemovable (User user) throws EntityException {¤		return getUserAccessor().isUserRemovable(user);¤	}¤¤¤	public void reactivateUser (User user) {¤		getUserAccessor().reactivateUser(user);¤	}¤¤¤	public void removeGroup (Group group) {¤		getUserAccessor().removeGroup(group);¤	}¤¤¤	public boolean removeMembership (Group group, User user) {¤		return getUserAccessor().removeMembership(group, user);¤	}¤¤¤	public boolean removeMembership (String groupname, String username) {¤		return getUserAccessor().removeMembership(groupname, username);¤	}¤¤	public void removeUser (User user) {¤		getUserAccessor().removeUser(user);¤	}¤¤¤	public void saveUser (User user) {¤		getUserAccessor().saveUser(user);¤	}¤¤¤	public void setAtlassianUserConfiguration (Configuration atlassianUserConfiguration) {¤		getUserAccessor().setAtlassianUserConfiguration(atlassianUserConfiguration);¤	}¤¤¤	public SearchResult findGroups (Query query) throws EntityException {¤		return getUserAccessor().findGroups(query);¤	}¤¤¤	public SearchResult findGroups (Query query, QueryContext context) throws EntityException {¤		return getUserAccessor().findGroups(query, context);¤	}¤¤¤	public SearchResult findUsers (Query query, QueryContext context) throws EntityException {¤		return getUserAccessor().findUsers(query, context);¤	}¤	¤	public List filterUnaccessibleGroups (List arg0, User arg1) {¤		return getUserAccessor().filterUnaccessibleGroups(arg0, arg1);¤	}¤¤	public List filterUnaccessibleUsers (List arg0, User arg1) {¤		return getUserAccessor().filterUnaccessibleUsers(arg0, arg1);¤	}¤¤	public List findUsersAsList (Query arg0) throws EntityException {¤		return getUserAccessor().findUsersAsList(arg0);¤	}¤¤	public List getGroupsAsList () {¤		return getUserAccessor().getGroupsAsList();¤	}¤¤	public List<Group> getGroupsAsList (User arg0) {¤		return getUserAccessor().getGroupsAsList(arg0);¤	}¤¤	public List<String> getMemberNamesAsList (Group arg0) {¤		return getUserAccessor().getMemberNamesAsList(arg0);¤	}¤¤	public User getUserIfAvailable (String arg0) {¤		return getUserAccessor().getUserIfAvailable(arg0);¤	}¤¤	public ProfilePictureInfo getUserProfilePicture (User arg0) {¤		return getUserAccessor().getUserProfilePicture(arg0);¤	}¤¤	public List<User> getUsersWithConfluenceAccessAsList () {¤		return getUserAccessor().getUsersWithConfluenceAccessAsList();¤	}¤¤	public List<Group> getWriteableGroups () {¤		return getUserAccessor().getWriteableGroups();¤	}¤¤	public boolean isSuperUser (User arg0) {¤		return getUserAccessor().isSuperUser(arg0);¤	}¤¤	public void setUserProfilePicture (User arg0, Attachment arg1) {¤		getUserAccessor().setUserProfilePicture(arg0, arg1);¤	}¤¤	public void setUserProfilePicture (User arg0, String arg1) {¤		getUserAccessor().setUserProfilePicture(arg0, arg1);¤	}¤¤	public void setUserStatusManager (UserStatusManager arg0) {¤		getUserAccessor().setUserStatusManager(arg0);¤	}¤	¤	//#UC END# *477381E50094_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/UserSupportImpl/DefaultGarUserAccessor|477381E50094
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16659307342"))
+	    quid       	"477381E50094"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"47738201001A"
+		    supplier   	"Logical View::shared::ConfluenceCore::UserSupport::GarUserAccessor"
+		    quidu      	"47737C0F0079"))
+	    operations 	(list Operations
+		(object Operation "get_user_accessor"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4773B5FF01F0*"
+			    value      	(value Text 
+|//#UC START# *4773B5FF01F0*¤		¤		if(userAccessor_ == null)¤			userAccessor_ = (UserAccessor) ContainerManager.getComponent("userAccessor");¤		return userAccessor_;¤			¤		//#UC END# *4773B5FF01F0*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46149313006D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659308029"))
+		    quid       	"4773B5FF01F0"
+		    documentation 	" "
+		    result     	"UserAccessor"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"46149313006D")
+		(object Operation "filter_system_groups"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4773BD1A005B*"
+			    value      	(value Text 
+|//#UC START# *4773BD1A005B*¤		¤		List<Group> result = new ArrayList<Group>();¤		Iterator<?> iter = groups.iterator();¤		while(iter.hasNext()) {¤			Group group = (Group) iter.next();¤			String groupName = group.getName();¤			¤			if(!groupName.startsWith("confluence"))¤				result.add(group);¤		}¤		return new DefaultPager(result);¤		¤		//#UC END# *4773BD1A005B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4773BDCC02D6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659308381"))
+		    quid       	"4773BD1A005B"
+		    documentation 	"âîçâðàùàåò ñïèñîê ãðóïï ñ îòôèëüòðîâàííûìè ñèñòåìíûìè ãðóïïàìè"
+		    parameters 	(list Parameters
+			(object Parameter "groups"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4773BDCC02D6")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16659308679"))
+			    quid       	"4773BD2F0049"
+			    type       	"Pager"
+			    quidu      	"4773BDCC02D6"))
+		    result     	"Pager"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"4773BDCC02D6"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "user_accessor"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46149313006D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659307638"))
+		    quid       	"4773B5D90307"
+		    type       	"UserAccessor"
+		    quidu      	"46149313006D"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "DefaultUserAccessor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/UserSupportImpl/DefaultUserAccessor|49829AD201BA
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/UserSupportImpl/DefaultUserAccessor.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49829AD201BA_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49829AD201BA_CUSTOM_IMPORT*¤¤import com.atlassian.event.EventManager;¤import com.atlassian.user.Group;¤import com.atlassian.user.User;¤¤import ru.garant.shared.ConfluenceCore.EventSupport.UserAddMembershipEvent;¤import ru.garant.shared.ConfluenceCore.EventSupport.UserRemoveMembershipEvent;¤¤//#UC END# *49829AD201BA_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49829AD201BA_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49829AD201BA_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49829AD201BA_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49829AD201BA_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49829AD201BA_CUSTOM_METHODS_AND_DATA*¤	¤	@Override¤	public void addMembership (Group group, User user) {¤		super.addMembership(group, user);¤		sendUserAddMembershipEvent(user, group);¤	}¤¤	@Override¤	public void addMembership (String groupname, String username) {¤		super.addMembership(groupname, username);¤		sendUserAddMembershipEvent(getUser(username), getGroup(groupname));¤	}¤¤	private void sendUserAddMembershipEvent (User user, Group group) {¤		getEventManager().publishEvent(new UserAddMembershipEvent(this, user, group));¤	}¤¤	@Override¤	public boolean removeMembership (Group group, User user) {¤		boolean result = super.removeMembership(group, user);¤		if (result) {¤			sendUserRemoveMembershipEvent(user, group);¤		}¤		return result;¤	}¤¤	@Override¤	public boolean removeMembership (String groupname, String username) {¤		boolean result = super.removeMembership(groupname, username);¤		if (result) {¤			sendUserRemoveMembershipEvent(getUser(username), getGroup(groupname));¤		}¤		return result;¤	}¤¤	private void sendUserRemoveMembershipEvent (User user, Group group) {¤		getEventManager().publishEvent(new UserRemoveMembershipEvent(this, user, group));¤	}¤¤	private EventManager getEventManager () {¤		return ru.garant.shared.ConfluenceCore.Helpers.ContainerManager.Factory.get().getEventManager();¤	}¤	¤	//#UC END# *49829AD201BA_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16659309352"))
+	    quid       	"49829AD201BA"
+	    documentation 	"ñåðâàíò, ïåðåîïðåäåëÿþùèé áàçîâóþ ðåàëèçàöèþ èç Ê"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"49829B0F0165"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.userImpl::DefaultUserAccessor"
+		    quidu      	"477379CF025E"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"477381BF02D4"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::UserSupport::GarUserAccessor" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(789, 240)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(550, 208)
+			nlines     	1
+			max_width  	478
+			justify    	0
+			label      	"• GarUserAccessor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(550, 158)
+			anchor     	10
+			nlines     	1
+			max_width  	478
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47737C0F0079"
+		    width      	496
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::UserSupportImpl::DefaultGarUserAccessor" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(813, 720)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(362, 604)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	902
+			justify    	0
+			label      	"DefaultGarUserAccessor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(362, 554)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	902
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"477381E50094"
+		    width      	920
+		    height     	356
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"47738201001A"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(804, 541)
+			(793, 334))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::UserSupportImpl::DefaultUserAccessor" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1920, 735)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1710, 704)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	420
+			justify    	0
+			label      	"DefaultUserAccessor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1710, 654)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	420
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"49829AD201BA"
+		    width      	438
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.userImpl::DefaultUserAccessor" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1884, 216)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1609, 188)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	550
+			justify    	0
+			label      	"• DefaultUserAccessor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1609, 138)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	550
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"477379CF025E"
+		    width      	568
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @6
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49829B0F0165"
+		    client     	@4
+		    supplier   	@5
+		    vertices   	(list Points
+			(1913, 641)
+			(1889, 306))
+		    line_style 	0)))))

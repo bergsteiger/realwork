@@ -1,0 +1,987 @@
+<<Library>> UsersImportLib
+ %UID '481D6D4F010F'
+ %DOCUMENTATION 'модули утилиты импорта пользователей'
+ %DEPENDS
+  U$ '450811FE0213' /* Core */
+  U$ '45C715F602EE' /* std */
+  U$ '45ED3CF802F9' /* GblPilot */
+  U$ '4607E0DE03B9' /* GslUserManager */
+  U$ '460BAE7C03B9' /* GslSecurity */
+  U$ '46160A340270' /* Defines */
+  U$ '462CD49B0138' /* GslDataPipe */
+  U$ '46332C070244' /* GslSessionHandlerClient */
+  U$ '46B85FB7037A' /* boost */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'tie'
+  %upv "need UC" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '450811FE0213' /* Core */
+  U$ '45C715F602EE' /* std */
+  U$ '45ED3CF802F9' /* GblPilot */
+  U$ '4607E0DE03B9' /* GslUserManager */
+  U$ '460BAE7C03B9' /* GslSecurity */
+  U$ '46160A340270' /* Defines */
+  U$ '462CD49B0138' /* GslDataPipe */
+  U$ '46332C070244' /* GslSessionHandlerClient */
+  U$ '46B85FB7037A' /* boost */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> UsersImport
+   %UID '481D6E5E02A5'
+   %DOCUMENTATION 'интерфейсы уутилиты'
+   %DEPENDS
+    U$ '44D211530167' /* GCD */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '450811FE0213' /* Core */
+    U$ '481D6D4F010F' /* UsersImportLib */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Enum>> ActionType
+      %UID '4C2D917400DC'
+      %DOCUMENTATION 'тип действия'
+      %ATTRIBUTES
+        <<Attribute>> ADD_USER
+         %UID '4C2D91840100'
+         %DOCUMENTATION 'добавить пользователя (умолчательное значение)'
+        ; // ADD_USER
+        <<Attribute>> ERASE_USER
+         %UID '4C2D92D9026E'
+         %DOCUMENTATION 'удалить пользователя'
+        ; // ERASE_USER
+        <<Attribute>> CHANGE_USER
+         %UID '4C2D92EA02E4'
+         %DOCUMENTATION 'изменить данные пользователя'
+        ; // CHANGE_USER
+      ; // %ATTRIBUTES
+     ; // ActionType
+     <<Struct>> UserData
+      %UID '481DB7840086'
+      %DOCUMENTATION 'данные пользователя'
+      %TOBEINCLUDED
+       U$ '450811FE0213' /* Core */
+       U$ '481D6D4F010F' /* UsersImportLib */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        STRING FUNCTION login
+         %UID '481DB7AF01B9'
+         %DOCUMENTATION 'регистрационное имя, обязательный параметр, уникальное значение, длина - не более 32 знаков'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+        ; // login
+        STRING FUNCTION name
+         %UID '481DB8100234'
+         %DOCUMENTATION 'ФИО пользователя, обязательный параметр, длина - не более 255 знаков'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+        ; // name
+        STRING FUNCTION password
+         %UID '481DB8300274'
+         %DOCUMENTATION 'пароль пользователя, необязательный параметр, длина - не более 255 знаков'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+        ; // password
+        STRING FUNCTION email
+         %UID '481DB84F005B'
+         %DOCUMENTATION 'email пользователя, необязательный параметр, если указан, в нем обязательно должны быть "@" и "."'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+        ; // email
+        <<Attribute>> consulting_value
+         %UID '481DB87903B7'
+         %DOCUMENTATION 'право использования услуги Правового консалтинга, необязательный параметр, возможные значения ('''',''0'',''1''): "значение не указано" (по умолчанию) - право наследуется в соответствии с групповой настройкой политик на право доступа к консультациям для новых пользователей, "0" - запрещено, "1" - разрешено.'
+         %TARGET U$ '460ABDFA0377' /* tribool */
+        ; // consulting_value
+        BOOLEAN FUNCTION privileged_status
+         %UID '481DB8990242'
+         %DOCUMENTATION 'свойство привилегированности пользователя , необязательный параметр, возможные значения ('''',''0'',''1''): "значение не указано" (по умолчанию) - не привилегированный пользователь, "0" - не привилегированный пользователь, "1" - привилегированный пользователь.'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+        ; // privileged_status
+        FINAL <<Attribute>> group_id
+         %UID '49EC4F870004'
+         %DOCUMENTATION 'идентификатор группы пользователя'
+         %TARGET U$ '45FFD5B6032C' /* Uid */
+         %TOBEINCLUDED
+          U$ '450811FE0213' /* Core */
+         ; // %TOBEINCLUDED
+        ; // group_id
+        FINAL <<Attribute>> action
+         %UID '4C2D930D016B'
+         %TARGET U$ '4C2D917400DC' /* ActionType */
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+        ; // action
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        <<ctor>> make
+         %UID '481DB9AA03A3'
+         %DOCUMENTATION 'конструктор по-умолчанию'
+        ; // make
+      ; // %OPERATIONS
+     ; // UserData
+     <<Interface>> DataWriter
+      %UID '481D707501DC'
+      %DOCUMENTATION 'приёмник разобранных данных'
+      %META
+       %upv "single impl" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '450811FE0213' /* Core */
+       U$ '481D6D4F010F' /* UsersImportLib */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<factory>> make
+         %UID '481D70BA00FF'
+         %DOCUMENTATION 'фабрика'
+         %META
+          %upv "const_type" 'read-write'
+         ; // %META
+        ; // make
+        ABSTRACT <<chg>> add_user
+         %UID '481D77ED00CE'
+         %DOCUMENTATION 'записать данные'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> user_data
+            %UID '4C2DD33C0279'
+            %TARGET U$ '481DB7840086' /* UserData */
+            %TOBEINCLUDED
+             U$ '481D6D4F010F' /* UsersImportLib */
+            ; // %TOBEINCLUDED
+           ; // user_data
+         ; // %PARAMETERS
+        ; // add_user
+        ABSTRACT <<chg>> get_group_id
+         %UID '49EC5A5C00C4'
+         %DOCUMENTATION 'получить идентификатор группы по её имени'
+         %TARGET U$ '45FFD5B6032C' /* Uid */
+         %TOBEINCLUDED
+          U$ '450811FE0213' /* Core */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> name
+            %UID '49EC5AA802F0'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // name
+         ; // %PARAMETERS
+        ; // get_group_id
+        ABSTRACT <<chg>> erase_user
+         %UID '4C2DD3100050'
+         %DOCUMENTATION 'удалить пользователя'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> user_data
+            %UID '4C2DD32A0379'
+            %TARGET U$ '481DB7840086' /* UserData */
+            %TOBEINCLUDED
+             U$ '481D6D4F010F' /* UsersImportLib */
+            ; // %TOBEINCLUDED
+           ; // user_data
+         ; // %PARAMETERS
+        ; // erase_user
+        ABSTRACT <<chg>> change_user
+         %UID '4C2DD34902EE'
+         %DOCUMENTATION 'сменить данные пользователя'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> user_data
+            %UID '4C2DD386026C'
+            %TARGET U$ '481DB7840086' /* UserData */
+            %TOBEINCLUDED
+             U$ '481D6D4F010F' /* UsersImportLib */
+            ; // %TOBEINCLUDED
+           ; // user_data
+           <<in>> fields_count
+            %UID '4C2DEA8C0127'
+            %TARGET U$ '4538E9230233' /* size */
+           ; // fields_count
+         ; // %PARAMETERS
+        ; // change_user
+      ; // %OPERATIONS
+     ; // DataWriter
+     <<Interface>> DataParser
+      %UID '481D6FC201FD'
+      %DOCUMENTATION 'разборщик данных'
+      %META
+       %upv "single impl" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481D6D4F010F' /* UsersImportLib */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<factory>> make
+         %UID '481D6FE701AC'
+         %DOCUMENTATION 'фабрика получает приёмник, в который будетзаписывать разобранные данные'
+         %META
+          %upv "const_type" 'read-write'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> writer
+            %UID '4820487F018F'
+            %TARGET U$ '481D707501DC' /* DataWriter */
+            %TOBEINCLUDED
+             U$ '481D6D4F010F' /* UsersImportLib */
+            ; // %TOBEINCLUDED
+           ; // writer
+         ; // %PARAMETERS
+        ; // make
+        ABSTRACT <<chg>> parse
+         %UID '481D776901DB'
+         %DOCUMENTATION 'выполнить разбор данных, и записать их в заданный в конструкторе writer. string_num - номер разбираемой строки, нужен для вывода в лог.'
+         %PARAMETERS
+           <<in>> data
+            %UID '481DC1AB033D'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // data
+           <<in>> string_number
+            %UID '482075430339'
+            %TARGET U$ '4538E9230233' /* size */
+           ; // string_number
+         ; // %PARAMETERS
+        ; // parse
+      ; // %OPERATIONS
+     ; // DataParser
+     <<Interface>> DataReader
+      %UID '481D6ED302D2'
+      %DOCUMENTATION 'чтение данных для импорта'
+      %META
+       %upv "single impl" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481D6D4F010F' /* UsersImportLib */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<factory>> make$481D6F65009B
+         %UID '481D6F65009B'
+         %DOCUMENTATION 'фабрика получает имя источника, откуда читать данные и разборщик, которому она будет эти данные скармливать'
+         %META
+          %upv "const_type" 'read-write'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> source
+            %UID '481D8F7701E1'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // source
+           <<inout>> parser
+            %UID '4820488A004E'
+            %TARGET U$ '481D6FC201FD' /* DataParser */
+            %TOBEINCLUDED
+             U$ '481D6D4F010F' /* UsersImportLib */
+            ; // %TOBEINCLUDED
+           ; // parser
+         ; // %PARAMETERS
+        ; // make$481D6F65009B
+        ABSTRACT <<factory>> make$481D8BBE028C
+         %UID '481D8BBE028C'
+         %DOCUMENTATION 'фабрика получает имя источника, откуда читать данные'
+         %META
+          %upv "const_type" 'read-write'
+         ; // %META
+         %PARAMETERS
+           <<in>> source
+            %UID '481D8F7D0105'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // source
+         ; // %PARAMETERS
+        ; // make$481D8BBE028C
+      ; // %OPERATIONS
+     ; // DataReader
+   ; // %CHILDREN
+  ; // UsersImport
+  PROTECTED <<Impl>> UsersImport_i
+   %UID '481D6E830258'
+   %DOCUMENTATION 'реализация'
+   %DEPENDS
+    U$ '44D211530167' /* GCD */
+    U$ '45C8A15001F4' /* fstream */
+    U$ '460297CC00FB' /* GblPilot */
+    U$ '4607E18A0271' /* GslUserManager */
+    U$ '4616250B03C8' /* Defines */
+    U$ '46B8600E0261' /* algorithm */
+    U$ '474C292A02AC' /* GCM */
+    U$ '481D6E5E02A5' /* UsersImport */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+   ; // %META
+   %TOBEINCLUDED
+    U$ '450811FE0213' /* Core */
+    U$ '45C715F602EE' /* std */
+    U$ '45ED3CF802F9' /* GblPilot */
+    U$ '4607E0DE03B9' /* GslUserManager */
+    U$ '46160A340270' /* Defines */
+    U$ '46B85FB7037A' /* boost */
+    U$ '481D6D4F010F' /* UsersImportLib */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Servant>> FileReader_i
+      %UID '481D79380033'
+      %DOCUMENTATION 'реализация чтения данных из заданного файла'
+      %META
+       %upv "Factory auto reg" true
+       %upv "Factory default impl" true
+       %upv "Servant Pool" 'none'
+       %upv "factory priority" 0
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481D6D4F010F' /* UsersImportLib */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '481D6ED302D2' /* DataReader */
+      ; // %IMPLEMENTS
+      %LINKS
+        <<uses>> "481D8E48024F"
+         %UID '481D8E48024F'
+         %TARGET U$ '45C8A1FC03B9' /* ifstream */
+        ; // 481D8E48024F
+        <<uses>> "481D980B02B8"
+         %UID '481D980B02B8'
+         %TARGET U$ '481D95E402F0' /* CantFindDelimiter */
+        ; // 481D980B02B8
+        <<uses>> "48219761013C"
+         %UID '48219761013C'
+         %TARGET U$ '4821974A00EB' /* BadSourceFile */
+        ; // 48219761013C
+        <<uses>> "4C3194000121"
+         %UID '4C3194000121'
+         %TARGET U$ '4C3193D9029C' /* ErasedUserNotExists */
+        ; // 4C3194000121
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE <<chg>> read
+         %UID '481D90A7002D'
+         %DOCUMENTATION 'прочитать данные из заданного фалй и передать их в разборщик'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> source
+            %UID '481D90DF0259'
+            %TARGET U$ '3DBFFE240068' /* string */
+           ; // source
+           <<inout>> parser
+            %UID '482049FC0152'
+            %TARGET U$ '481D6FC201FD' /* DataParser */
+            %TOBEINCLUDED
+             U$ '481D6D4F010F' /* UsersImportLib */
+            ; // %TOBEINCLUDED
+           ; // parser
+         ; // %PARAMETERS
+        ; // read
+      ; // %OPERATIONS
+     ; // FileReader_i
+     <<Exception>> CantFindDelimiter
+      %UID '481D95E402F0'
+      %DOCUMENTATION 'в первой строке нет ни одного символа-разделителя'
+     ; // CantFindDelimiter
+     <<Servant>> Writer_i
+      %UID '481D7A0B00D7'
+      %DOCUMENTATION 'передаёт на сервер заданные данные для создания пользователя'
+      %META
+       %upv "Factory auto reg" true
+       %upv "Factory default impl" true
+       %upv "Servant Pool" 'none'
+       %upv "factory priority" 0
+      ; // %META
+      %TOBEINCLUDED
+       U$ '450811FE0213' /* Core */
+       U$ '45ED3CF802F9' /* GblPilot */
+       U$ '4607E0DE03B9' /* GslUserManager */
+       U$ '481D6D4F010F' /* UsersImportLib */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '481D707501DC' /* DataWriter */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '474C289B02E5' /* GCMSimpleServer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '481D77ED00CE' /* add_user */
+       U$ '49EC5A5C00C4' /* get_group_id */
+       U$ '4C2DD3100050' /* erase_user */
+       U$ '4C2DD34902EE' /* change_user */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "481EB62C00BE"
+         %UID '481EB62C00BE'
+         %TARGET U$ '481EB41800F7' /* ComponentNames */
+        ; // 481EB62C00BE
+        <<uses>> "481EB7F10015"
+         %UID '481EB7F10015'
+         %TARGET U$ '460BB0200232' /* UserManager */
+        ; // 481EB7F10015
+        <<uses>> "482032F7027A"
+         %UID '482032F7027A'
+         %TARGET U$ '482032880109' /* CantFindUserManager */
+        ; // 482032F7027A
+        <<uses>> "4821A0C101EB"
+         %UID '4821A0C101EB'
+         %TARGET U$ '4821A09902BE' /* AdminAlreadyLogged */
+        ; // 4821A0C101EB
+        <<uses>> "4AF0138D016B"
+         %UID '4AF0138D016B'
+         %TARGET U$ '4AF00C1E0154' /* GroupManager */
+        ; // 4AF0138D016B
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> user_manager
+         %UID '481EB94E02FC'
+         %DOCUMENTATION 'серверная компонента'
+         %TARGET U$ '460BB0200232' /* UserManager */
+         %TOBEINCLUDED
+          U$ '4607E0DE03B9' /* GslUserManager */
+         ; // %TOBEINCLUDED
+        ; // user_manager
+        PRIVATE <<Attribute>> auto_login
+         %UID '482016FF01EE'
+         %TARGET U$ '48200E98006D' /* AutoLoginAdmin */
+         %META
+          %upv "smart pointer" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+        ; // auto_login
+        PRIVATE <<Attribute>> groups_data
+         %UID '49EC67DB031F'
+         %TARGET U$ '49EC65C3034B' /* GroupsWithNames */
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+        ; // groups_data
+        PRIVATE <<Attribute>> group_manager
+         %UID '4AF013A70221'
+         %TARGET U$ '4AF00C1E0154' /* GroupManager */
+         %TOBEINCLUDED
+          U$ '4607E0DE03B9' /* GslUserManager */
+         ; // %TOBEINCLUDED
+        ; // group_manager
+        PRIVATE <<Attribute>> function_manager
+         %UID '4C2DC40903CC'
+         %TARGET U$ '460A8A1B0244' /* FunctionMng */
+         %TOBEINCLUDED
+          U$ '45ED3CF802F9' /* GblPilot */
+         ; // %TOBEINCLUDED
+        ; // function_manager
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        <<chg>> execute
+         %UID '481EB7040260'
+         %DOCUMENTATION 'метод запуска компоненты'
+        ; // execute
+        PRIVATE BOOLEAN FUNCTION convert_consulting_status_to_boolean
+         %UID '482046AE012D'
+         %DOCUMENTATION 'возвращает булево значение - можно ли платить за консультации.'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %PARAMETERS
+           <<in>> value
+            %UID '482046F80186'
+            %TARGET U$ '460ABDFA0377' /* tribool */
+           ; // value
+         ; // %PARAMETERS
+        ; // convert_consulting_status_to_boolean
+        PRIVATE <<chg>> login
+         %UID '49EC5DE40247'
+         %DOCUMENTATION 'залогиниться на сервере'
+        ; // login
+        PRIVATE <<chg>> get_groups_info
+         %UID '49EC68D303BE'
+         %DOCUMENTATION 'получить список групп с сервера'
+        ; // get_groups_info
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> AutoLoginAdmin
+         %UID '48200E98006D'
+         %DOCUMENTATION 'класс для авторизации администратора'
+         %META
+          %upv "need UC" true
+          %upv "need dctor" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4607E0DE03B9' /* GslUserManager */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> user_manager
+            %UID '48200F4E02E1'
+            %DOCUMENTATION 'серверная компонента'
+            %TARGET U$ '460BB0200232' /* UserManager */
+            %TOBEINCLUDED
+             U$ '4607E0DE03B9' /* GslUserManager */
+            ; // %TOBEINCLUDED
+           ; // user_manager
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<ctor>> make
+            %UID '48200F170398'
+            %DOCUMENTATION 'фабрика'
+            %TOBEINCLUDED
+             U$ '4607E0DE03B9' /* GslUserManager */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> user_manager
+               %UID '48200F320015'
+               %TARGET U$ '460BB0200232' /* UserManager */
+               %TOBEINCLUDED
+                U$ '4607E0DE03B9' /* GslUserManager */
+               ; // %TOBEINCLUDED
+              ; // user_manager
+            ; // %PARAMETERS
+           ; // make
+         ; // %OPERATIONS
+        ; // AutoLoginAdmin
+        <<Map>> GroupsWithNames
+         %UID '49EC65C3034B'
+         %DOCUMENTATION 'список групп с именами'
+         %TOBEINCLUDED
+          U$ '450811FE0213' /* Core */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           <<Attribute>> "49EC6A3202BD"
+            %UID '49EC6A3202BD'
+            %TARGET U$ '45FFD5B6032C' /* Uid */
+            %TOBEINCLUDED
+             U$ '450811FE0213' /* Core */
+            ; // %TOBEINCLUDED
+            %INDEXES
+             %INDEX key %TARGET U$ '452257A0036F' /* "a-string" */
+             ;
+            ; // %INDEXES
+           ; // 49EC6A3202BD
+         ; // %ATTRIBUTES
+        ; // GroupsWithNames
+      ; // %CHILDREN
+     ; // Writer_i
+     <<Exception>> BadLoginValue
+      %UID '481DA0D4005F'
+      %DOCUMENTATION 'плохое значение для login-а пользователя'
+     ; // BadLoginValue
+     <<Exception>> BadNameValue
+      %UID '481DA0F80096'
+      %DOCUMENTATION 'плохое значение имени пользователя'
+     ; // BadNameValue
+     <<Exception>> BadPasswordValue
+      %UID '481DA134011E'
+      %DOCUMENTATION 'плохое значение пароля'
+     ; // BadPasswordValue
+     <<Exception>> BadEmailValue
+      %UID '481DA1AD01A4'
+      %DOCUMENTATION 'плохое значение email'
+     ; // BadEmailValue
+     <<Exception>> BadConsultingValue
+      %UID '481DA2300275'
+      %DOCUMENTATION 'плохое значение разрешения консалтинга'
+     ; // BadConsultingValue
+     <<Exception>> BadPrivilegedValue
+      %UID '481DAF1C033C'
+      %DOCUMENTATION 'плохое значение свойства привилегированности'
+     ; // BadPrivilegedValue
+     <<Exception>> BadGroupValue
+      %UID '49EC586903BA'
+      %DOCUMENTATION 'некорректное имя группы'
+     ; // BadGroupValue
+     <<Exception>> CantFindUserManager
+      %UID '482032880109'
+      %DOCUMENTATION 'не смогли получить ссылку на соответствующую серверную компоненту'
+     ; // CantFindUserManager
+     <<Exception>> BadSourceFile
+      %UID '4821974A00EB'
+      %DOCUMENTATION 'не смогли открыть файл с данными'
+     ; // BadSourceFile
+     <<Exception>> AdminAlreadyLogged
+      %UID '4821A09902BE'
+      %DOCUMENTATION 'администратор уже залогирован на сервере'
+     ; // AdminAlreadyLogged
+     <<Servant>> Parser_i
+      %UID '481D797C02B3'
+      %DOCUMENTATION 'разбирает заданную строку формата:'#13#10'<login><разделитель><ФИО><разделитель>[password]<разделитель>[e-mail]<разделитель>[using_consulting_status]'
+      %META
+       %upv "Factory auto reg" true
+       %upv "Factory default impl" true
+       %upv "Servant Pool" 'none'
+       %upv "factory priority" 0
+      ; // %META
+      %TOBEINCLUDED
+       U$ '450811FE0213' /* Core */
+       U$ '481D6D4F010F' /* UsersImportLib */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '481D6FC201FD' /* DataParser */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '481D776901DB' /* parse */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "481DA2670260"
+         %UID '481DA2670260'
+         %TARGET U$ '481DA0D4005F' /* BadLoginValue */
+        ; // 481DA2670260
+        <<uses>> "481DA2740248"
+         %UID '481DA2740248'
+         %TARGET U$ '481DA0F80096' /* BadNameValue */
+        ; // 481DA2740248
+        <<uses>> "481DA281015F"
+         %UID '481DA281015F'
+         %TARGET U$ '481DA134011E' /* BadPasswordValue */
+        ; // 481DA281015F
+        <<uses>> "481DA28D03D6"
+         %UID '481DA28D03D6'
+         %TARGET U$ '481DA1AD01A4' /* BadEmailValue */
+        ; // 481DA28D03D6
+        <<uses>> "481DA29703BE"
+         %UID '481DA29703BE'
+         %TARGET U$ '481DA2300275' /* BadConsultingValue */
+        ; // 481DA29703BE
+        <<uses>> "481DAF3A02A5"
+         %UID '481DAF3A02A5'
+         %TARGET U$ '481DAF1C033C' /* BadPrivilegedValue */
+        ; // 481DAF3A02A5
+        <<uses>> "49059D2802FB"
+         %UID '49059D2802FB'
+         %TARGET U$ '48F57BAD0010' /* split */
+        ; // 49059D2802FB
+        <<uses>> "49059D8A004C"
+         %UID '49059D8A004C'
+         %TARGET U$ '48F57D7602C2' /* classification */
+        ; // 49059D8A004C
+        <<uses>> "49EC5882009F"
+         %UID '49EC5882009F'
+         %TARGET U$ '49EC586903BA' /* BadGroupValue */
+        ; // 49EC5882009F
+        <<uses>> "4C2DA5C40091"
+         %UID '4C2DA5C40091'
+         %TARGET U$ '4C2DA59E00F2' /* CantFindName */
+        ; // 4C2DA5C40091
+        <<uses>> "4C3194070021"
+         %UID '4C3194070021'
+         %TARGET U$ '4C3193D9029C' /* ErasedUserNotExists */
+        ; // 4C3194070021
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> delimiter
+         %UID '481D91EC0181'
+         %TARGET U$ '43786B35001F' /* "unsigned char" */
+         %META
+          %upv "is mutable" true
+         ; // %META
+        ; // delimiter
+        PRIVATE <<Attribute>> writer
+         %UID '481F2DAE0236'
+         %TARGET U$ '481D707501DC' /* DataWriter */
+         %META
+          %upv "is mutable" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+        ; // writer
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE <<Operation>> set_delimiter
+         %UID '481D926500D3'
+         %DOCUMENTATION 'вычитывает разделитель из заданной строки'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '481D95E402F0' /* CantFindDelimiter */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> data
+            %UID '481D92920290'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // data
+         ; // %PARAMETERS
+        ; // set_delimiter
+        PRIVATE <<Operation>> check_login
+         %UID '481DA07A02CA'
+         %DOCUMENTATION 'проверка корректности login-а'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '481DA0D4005F' /* BadLoginValue */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> login
+            %UID '481DA0B70251'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // login
+         ; // %PARAMETERS
+        ; // check_login
+        PRIVATE <<Operation>> check_name
+         %UID '481DA2BB0364'
+         %DOCUMENTATION 'проверка корректности ФИО пользователя'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '481DA0F80096' /* BadNameValue */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> name
+            %UID '481DA2D40322'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // name
+         ; // %PARAMETERS
+        ; // check_name
+        PRIVATE <<Operation>> check_password
+         %UID '481DA39803D3'
+         %DOCUMENTATION 'проверка корректности пароля'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '481DA134011E' /* BadPasswordValue */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> password
+            %UID '481DA3BF0045'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // password
+         ; // %PARAMETERS
+        ; // check_password
+        PRIVATE <<Operation>> check_email
+         %UID '481DA3F202AA'
+         %DOCUMENTATION 'проверка корректности email'
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '481DA1AD01A4' /* BadEmailValue */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> email
+            %UID '481DA41802C0'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // email
+         ; // %PARAMETERS
+        ; // check_email
+        PRIVATE <<Operation>> check_consulting
+         %UID '481DA42903B4'
+         %DOCUMENTATION 'проверка корректности значения разрешения консалтинга, возвращает заданное значение'
+         %TARGET U$ '460ABDFA0377' /* tribool */
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '481DA2300275' /* BadConsultingValue */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> value
+            %UID '481DA462020C'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // value
+         ; // %PARAMETERS
+        ; // check_consulting
+        PRIVATE BOOLEAN FUNCTION check_privileged
+         %UID '481DAF470204'
+         %DOCUMENTATION 'проверка корректности свойства привилегированности, возвращает заданное значение'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '481DAF1C033C' /* BadPrivilegedValue */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> value
+            %UID '481DB0C60242'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // value
+         ; // %PARAMETERS
+        ; // check_privileged
+        PRIVATE <<Operation>> parse_i
+         %UID '481F2FB701CE'
+         %DOCUMENTATION 'разобрать строку и вернуть данные (UserData и количество разобранных полей)'
+         %TARGET U$ '4538E9230233' /* size */
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> data
+            %UID '481F31DB002C'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // data
+           <<in>> string_number
+            %UID '4820750101DC'
+            %TARGET U$ '4538E9230233' /* size */
+           ; // string_number
+           <<inout>> user_data
+            %UID '481F31DB006C'
+            %TARGET U$ '481DB7840086' /* UserData */
+            %TOBEINCLUDED
+             U$ '481D6D4F010F' /* UsersImportLib */
+            ; // %TOBEINCLUDED
+           ; // user_data
+         ; // %PARAMETERS
+        ; // parse_i
+        PRIVATE <<Operation>> check_group
+         %UID '49EC55920010'
+         %DOCUMENTATION 'проверка корректности имени группы, возвращает идентификатор заданной группы'
+         %TARGET U$ '45FFD5B6032C' /* Uid */
+         %TOBEINCLUDED
+          U$ '450811FE0213' /* Core */
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '49EC586903BA' /* BadGroupValue */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> group_name
+            %UID '49EC55B500F8'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // group_name
+         ; // %PARAMETERS
+        ; // check_group
+        PRIVATE BOOLEAN FUNCTION set_action
+         %UID '4C2D9CEC02B7'
+         %DOCUMENTATION 'что сделать с данным пользователем. Возвращает true, если параметр указывает на какое-либо действие'
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> action
+            %UID '4C2DA0FD02B0'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // action
+           <<inout>> user_data
+            %UID '4C2DA0FD02F7'
+            %TARGET U$ '481DB7840086' /* UserData */
+            %TOBEINCLUDED
+             U$ '481D6D4F010F' /* UsersImportLib */
+            ; // %TOBEINCLUDED
+           ; // user_data
+         ; // %PARAMETERS
+        ; // set_action
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE <<Predicate>> NotCorrectCharacter
+         %UID '4862523801D8'
+         %DOCUMENTATION 'возвращает true, если символ недопустим в логине или пароле'
+         %META
+          %upv "const functor" true
+         ; // %META
+         %ATTRIBUTES
+           LINK <<param>> param
+            %UID '4862549A01B2'
+            %TARGET U$ '43786B35001F' /* "unsigned char" */
+           ; // param
+         ; // %ATTRIBUTES
+        ; // NotCorrectCharacter
+      ; // %CHILDREN
+     ; // Parser_i
+     <<Exception>> CantFindName
+      %UID '4C2DA59E00F2'
+      %DOCUMENTATION 'не заданы ФИО'
+     ; // CantFindName
+     <<Exception>> ErasedUserNotExists
+      %UID '4C3193D9029C'
+      %DOCUMENTATION 'нет удаляемого пользователя'
+     ; // ErasedUserNotExists
+   ; // %CHILDREN
+  ; // UsersImport_i
+  <<LibSupport>> LibSupport
+   %UID '481D6DE602CF'
+   %DOCUMENTATION 'поддержка работы библиотеки'
+   %DEPENDS
+    U$ '481D6E5E02A5' /* UsersImport */
+    U$ '481D6E830258' /* UsersImport_i */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '481D6D4F010F' /* UsersImportLib */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<LibExecutor>> UsersImportMain
+      %UID '481D6E04016B'
+      %DOCUMENTATION 'методы высокого уровня'
+      %META
+       %upv "need UC" true
+       %upv "type" 'server\\stand alone'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481D6D4F010F' /* UsersImportLib */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "481D8B8800E7"
+         %UID '481D8B8800E7'
+         %TARGET U$ '481D6ED302D2' /* DataReader */
+        ; // 481D8B8800E7
+        <<uses>> "481EEE2900E8"
+         %UID '481EEE2900E8'
+         %TARGET U$ '481D7A0B00D7' /* Writer_i */
+        ; // 481EEE2900E8
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE <<Operation>> usage
+         %UID '481D6E1A0146'
+         %DOCUMENTATION 'описание использования утилиты'
+        ; // usage
+        PRIVATE <<Operation>> init
+         %UID '481EBA160187'
+         %DOCUMENTATION 'инициализация приложения (GCMManager-а),возвращает созданный объект для записи данных'
+         %TARGET U$ '481D707501DC' /* DataWriter */
+         %TOBEINCLUDED
+          U$ '481D6D4F010F' /* UsersImportLib */
+         ; // %TOBEINCLUDED
+        ; // init
+        PRIVATE <<Operation>> fini
+         %UID '481F29DE0029'
+         %DOCUMENTATION 'Останов приложения'
+        ; // fini
+        PRIVATE <<Operation>> get_path_to_application
+         %UID '4821669F03B3'
+         %DOCUMENTATION 'вернуть путь к приложению'
+         %PARAMETERS
+           <<inout>> path
+            %UID '482166E00001'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // path
+         ; // %PARAMETERS
+        ; // get_path_to_application
+        PRIVATE <<Operation>> init_environment
+         %UID '4821676E03BD'
+         %DOCUMENTATION 'установка параметров ParamManager'
+        ; // init_environment
+        PRIVATE <<Operation>> get_path_to_datafile
+         %UID '482199220094'
+         %DOCUMENTATION 'получить полный путь к файлу с данными'
+         %PARAMETERS
+           <<inout>> path
+            %UID '48219957000F'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // path
+         ; // %PARAMETERS
+        ; // get_path_to_datafile
+      ; // %OPERATIONS
+     ; // UsersImportMain
+   ; // %CHILDREN
+  ; // LibSupport
+ ; // %CHILDREN
+; // UsersImportLib

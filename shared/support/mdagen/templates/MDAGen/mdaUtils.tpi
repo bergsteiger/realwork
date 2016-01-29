@@ -1,0 +1,115 @@
+/ Функции для генерации шаблонов MDA.
+
+f _mda_IsClass
+	[{%SS=MDAClass}{false}true]
+
+f _mda_IsCat
+	[{%SS=MDACategory}{false}true]
+
+f _mda_IsOp
+	[{%SS=MDAOperation}{false}true]
+
+f _mda_IsClassDep
+	[{%SS=MDADependency}{false}true]
+
+t _mda_Class
+c {}
+r {%f_mda_IsClass(%S)=true}: {Class}
+r {%f_mda_IsCat(%S)=true}: {Category}
+r {%SS=MDAGroup}: {Category}
+r {%f_mda_IsOp(%S)=true}: {Operation}
+r {%S%f_mda_IsAttr()=true}: {Attribute}
+r {%f_mda_IsClassDep(%S)=true}: {ClassDependency}
+r {true}: {!ERROR!_%SN_%SS}
+
+f _mda_Class
+	%t_mda_Class(%S)
+
+f _mda_FileName
+	[{%P{add name to child file}=true}%PN]%SN
+
+f _mda_NormName
+	%f_str_replace(%SN,.,_)
+
+t _mda_StFileName
+c {}
+r {%f_mda_IsClass(%S)=true}: {%f_mda_FileName(%S)_class}
+r {%f_mda_IsCat(%S)=true}: {%f_mda_FileName(%S)_cat}
+r {%SS=MDAGroup}: {%f_mda_FileName(%S)_grp}
+r {%SS=MDALib}: {%f_mda_FileName(%S)_lib}
+r {%S%f_mda_IsGenerator()=true}: {%f_mda_StFileName(%P)_%f_mda_NormName(%S)}
+r {%SS=MDAOperation}: {%f_mda_StFileName(%P)_%SN_op} 
+r {%SS=MDAAttribute}: {%f_mda_StFileName(%P)_%SN_attr} 
+r {%SS=MDADependency}: {%f_mda_StFileName(%P)_%SN_dep} 
+r {true}: {!ERROR!_%SN_%SS}
+
+f _mda_Name
+	[{%P{add name to child}=true&%S{restrict add lib name}=false}%PN]%SN
+
+f _mda_StFileName
+	%t_mda_StFileName(%S)
+
+f _mda_StFullFileName
+	%f_mda_StFileName(%S).tpi
+
+t _mda_GeneratorNeedsFile
+c {}
+r {%S{need UC}=true}: {true}
+r {%Gx=true}: {false}
+r {true}: {true}
+/ - здесь пусть пользователь пишет свой код
+
+f _mda_GeneratorNeedsFile
+	%t_mda_GeneratorNeedsFile(%S)
+
+f _mda_St
+	%f_mda_Name(%S)::%f_mda_Class(%S)
+
+t _mda_FullSt
+c {}
+r {%S%f_mda_IsClassPart()=true}: {%f_mda_St(%P)::[{%f_substr_from_begin(%SN,4)!=void}%SN::]%f_mda_Class(%S)}
+r {true}: {%f_mda_St(%S)}
+
+f _mda_FullSt
+	%t_mda_FullSt(%S)
+
+t _mda_GeneratorCode
+c {}
+r {%S{need UC}=true&%Gx=true}: {%U[\n= %f_mda_FullSt(%G%P);%GN\n]}
+/ - здесь пусть пользователь пишет свой код
+r {%Gx=true}: {= %f_mda_FullSt(%G%P);%GN}
+r {true}: {%U[\n]}
+/ - здесь пусть пользователь пишет свой код
+
+f _mda_GeneratorCode
+	%t_mda_GeneratorCode(%S)
+
+f _mda_CheckUsageCode
+	[{%S{check usage}=true}\nr \{\%f_tpi_IsUsed(\%S)=false\}: \{\%SS ни кем не используется\}]
+
+f _mda_CheckAbstractCode
+	[{%S{check abstract}=true}\nr \{\%Sa=abstract&\%Zx=false\}: \{абстрактный \%SS должен быть специализирован}]
+
+t _mda_CheckAncestorCode
+c {}
+r {%S{ancestor restrict}=0}: {\nr \{\%Gx=true\}: \{\%SS не может иметь предков\}}
+r {%S{ancestor restrict}=1}: {\nr {\<{}{}{\%GC}\>!=1}: \{\%SS должен наследоваться точно от одного типа\}}
+r {true}: {}
+
+f _mda_CheckAncestorCode
+	%t_mda_CheckAncestorCode(%S)
+
+f _mda_SupressAttrsCode
+	[{<{}{%CS=MDAAttribute}{C}>=0}\n$ s]
+
+f _mda_SupressOpsCode
+	[{<{}{%CS=MDAOperation}{C}>=0}\n$ S]
+
+f _mda_OutExclude
+	[{%f_mda_IsClass(%S)=true&%Sa!=abstract}\n\n\< *::Class, *::Category]
+
+f _mda_IncludeSt
+	[{%Sa!=abstract}\> %f_mda_St(%S)]
+
+f _mda_ParentSt
+	%f_mda_St(%G%P)

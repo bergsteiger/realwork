@@ -1,0 +1,3127 @@
+// ResultDelivery 546457E203C0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_546457E203C0
+
+FORWARD ME_54645DEC03E4
+
+: ME_A01DBECFE7E7
+ CONST UID 'A01DBECFE7E7'
+ CONST Name 'UserID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54645DEC03E4 // TncsGetReadyToDeliveryTasks
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+ CONST "pm" true
+
+ref; // ME_A01DBECFE7E7 UserID
+
+: ME_7832B8CFF60D
+ CONST UID '7832B8CFF60D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645DEC03E4 // TncsGetReadyToDeliveryTasks
+ ;
+ : Target WL 'ME_546458310155' '484A470100DD.pas.ms.script' // csGetReadyToDeliveryTasks
+ ;
+
+ref; // ME_7832B8CFF60D 
+
+: ME_53AC03EE01FD_ME_54645DEC03E4
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_54645DEC03E4 // TncsGetReadyToDeliveryTasks
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_54645DEC03E4 GetTaggedDataType
+
+: ME_54645DEC03E4
+ CONST UID '54645DEC03E4'
+ CONST Name 'TncsGetReadyToDeliveryTasks'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_544E079E0253' '544E0148010D.pas.ms.script' // TncsMessage
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_546458310155' '484A470100DD.pas.ms.script' // csGetReadyToDeliveryTasks
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_A01DBECFE7E7 // UserID
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_54645DEC03E4 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_7832B8CFF60D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasks.pas'
+
+ref; // ME_54645DEC03E4 TncsGetReadyToDeliveryTasks
+
+FORWARD ME_54645E0D0246
+
+: ME_DDB3B434FE0B
+ CONST UID 'DDB3B434FE0B'
+ CONST Name 'TasksIDList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54645E0D0246 // TncsGetReadyToDeliveryTasksReply
+ ;
+ : Target WL 'ME_54646E8C02EB' '484A470100DD.pas.ms.script' // TasksIDListHelper
+ ;
+ CONST "pm" true
+
+ref; // ME_DDB3B434FE0B TasksIDList
+
+: ME_D26EAA7D3957
+ CONST UID 'D26EAA7D3957'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E0D0246 // TncsGetReadyToDeliveryTasksReply
+ ;
+ : Target WL 'ME_5464592501C4' '484A470100DD.pas.ms.script' // csGetReadyToDeliveryTasksReply
+ ;
+
+ref; // ME_D26EAA7D3957 
+
+: ME_53AC03EE01FD_ME_54645E0D0246
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_54645E0D0246 // TncsGetReadyToDeliveryTasksReply
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_54645E0D0246 GetTaggedDataType
+
+: ME_54645E0D0246
+ CONST UID '54645E0D0246'
+ CONST Name 'TncsGetReadyToDeliveryTasksReply'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_547831BD02E5' '544E0148010D.pas.ms.script' // TncsReply
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_5464592501C4' '484A470100DD.pas.ms.script' // csGetReadyToDeliveryTasksReply
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_DDB3B434FE0B // TasksIDList
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_54645E0D0246 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_D26EAA7D3957 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasksReply.pas'
+
+ref; // ME_54645E0D0246 TncsGetReadyToDeliveryTasksReply
+
+FORWARD ME_54645E360193
+
+FORWARD ME_54645E5F018E
+
+: ME_DB54813F2A62
+ CONST UID 'DB54813F2A62'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ncsServerRegister' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+
+ref; // ME_DB54813F2A62 DoIt
+
+: ME_546464C902AF
+ CONST UID '546464C902AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+ : Target WL 'ME_54539F4702B1' '544E0148010D.pas.ms.script' // TncsMessageFactory
+ ;
+
+ref; // ME_546464C902AF 
+
+: ME_546464EF032F
+ CONST UID '546464EF032F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+ : Target ME_54645DEC03E4 // TncsGetReadyToDeliveryTasks
+ ;
+
+ref; // ME_546464EF032F 
+
+FORWARD ME_546B444D012F
+
+: ME_546B480A02D0
+ CONST UID '546B480A02D0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+ : Target ME_546B444D012F // TncsGetTaskDescription
+ ;
+
+ref; // ME_546B480A02D0 
+
+FORWARD ME_54746A670337
+
+: ME_54748EE3018E
+ CONST UID '54748EE3018E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+ : Target ME_54746A670337 // TncsTaskProgress
+ ;
+
+ref; // ME_54748EE3018E 
+
+FORWARD ME_547582EC02E0
+
+: ME_5475839D0132
+ CONST UID '5475839D0132'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+ : Target ME_547582EC02E0 // TncsDeliveryResult
+ ;
+
+ref; // ME_5475839D0132 
+
+FORWARD ME_547583330291
+
+: ME_547583A20030
+ CONST UID '547583A20030'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+ : Target ME_547583330291 // TncsGetFilePart
+ ;
+
+ref; // ME_547583A20030 
+
+: ME_547C333400A0
+ CONST UID '547C333400A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+ : Target WL 'ME_547C34E902C1' '544E0148010D.pas.ms.script' // ncsServerRegister
+ ;
+
+ref; // ME_547C333400A0 
+
+FORWARD ME_549AA9CE0345
+
+: ME_549AAE5401B6
+ CONST UID '549AAE5401B6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E5F018E // ncsServerRegister
+ ;
+ : Target ME_549AA9CE0345 // TncsCorrectFolder
+ ;
+
+ref; // ME_549AAE5401B6 
+
+: ME_54645E5F018E
+ CONST UID '54645E5F018E'
+ CONST Name 'ncsServerRegister'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54645E360193 // ncsFileTransferReg
+ ;
+ : Operations
+   @ ( ME_DB54813F2A62 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_546464C902AF // 
+ ME_546464EF032F // 
+ ME_546B480A02D0 // 
+ ME_54748EE3018E // 
+ ME_5475839D0132 // 
+ ME_547583A20030 // 
+ ME_547C333400A0 // 
+ ME_549AAE5401B6 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_54645E5F018E ncsServerRegister
+
+FORWARD ME_54645E7C0285
+
+: ME_940B1764E04E
+ CONST UID '940B1764E04E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ncsClientRegister' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54645E7C0285 // ncsClientRegister
+ ;
+
+ref; // ME_940B1764E04E DoIt
+
+: ME_546464D00027
+ CONST UID '546464D00027'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E7C0285 // ncsClientRegister
+ ;
+ : Target WL 'ME_54539F4702B1' '544E0148010D.pas.ms.script' // TncsMessageFactory
+ ;
+
+ref; // ME_546464D00027 
+
+: ME_546464F6001D
+ CONST UID '546464F6001D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E7C0285 // ncsClientRegister
+ ;
+ : Target ME_54645E0D0246 // TncsGetReadyToDeliveryTasksReply
+ ;
+
+ref; // ME_546464F6001D 
+
+FORWARD ME_546B442D0343
+
+: ME_546B480F0078
+ CONST UID '546B480F0078'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E7C0285 // ncsClientRegister
+ ;
+ : Target ME_546B442D0343 // TncsGetTaskDescriptionReply
+ ;
+
+ref; // ME_546B480F0078 
+
+FORWARD ME_547583540319
+
+: ME_547583A7019F
+ CONST UID '547583A7019F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E7C0285 // ncsClientRegister
+ ;
+ : Target ME_547583540319 // TncsGetFilePartReply
+ ;
+
+ref; // ME_547583A7019F 
+
+: ME_547C3339004A
+ CONST UID '547C3339004A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E7C0285 // ncsClientRegister
+ ;
+ : Target WL 'ME_547C350000AA' '544E0148010D.pas.ms.script' // ncsClientRegister
+ ;
+
+ref; // ME_547C3339004A 
+
+FORWARD ME_548940970391
+
+: ME_54895C0603E7
+ CONST UID '54895C0603E7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54645E7C0285 // ncsClientRegister
+ ;
+ : Target ME_548940970391 // TncsPushFilePart
+ ;
+
+ref; // ME_54895C0603E7 
+
+: ME_54645E7C0285
+ CONST UID '54645E7C0285'
+ CONST Name 'ncsClientRegister'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54645E360193 // ncsFileTransferReg
+ ;
+ : Operations
+   @ ( ME_940B1764E04E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_546464D00027 // 
+ ME_546464F6001D // 
+ ME_546B480F0078 // 
+ ME_547583A7019F // 
+ ME_547C3339004A // 
+ ME_54895C0603E7 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_54645E7C0285 ncsClientRegister
+
+: ME_54645E360193
+ CONST UID '54645E360193'
+ CONST Name 'ncsFileTransferReg'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Operations
+   @ ( ME_54645E5F018E // ncsServerRegister
+ ME_54645E7C0285 // ncsClientRegister
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsFileTransferReg.pas'
+
+ref; // ME_54645E360193 ncsFileTransferReg
+
+: ME_3294A79E3E3C
+ CONST UID '3294A79E3E3C'
+ CONST Name 'LocalFolder'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546B442D0343 // TncsGetTaskDescriptionReply
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_3294A79E3E3C LocalFolder
+
+: ME_87AC3958D4EC
+ CONST UID '87AC3958D4EC'
+ CONST Name 'RemoteFolder'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546B442D0343 // TncsGetTaskDescriptionReply
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_87AC3958D4EC RemoteFolder
+
+FORWARD ME_546EF57803B0
+
+: ME_121B881CBEF7
+ CONST UID '121B881CBEF7'
+ CONST Name 'FileDesc'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546B442D0343 // TncsGetTaskDescriptionReply
+ ;
+ : Target ME_546EF57803B0 // FileDescHelper
+ ;
+ CONST "pm" true
+
+ref; // ME_121B881CBEF7 FileDesc
+
+: ME_C405AF0D360A
+ CONST UID 'C405AF0D360A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546B442D0343 // TncsGetTaskDescriptionReply
+ ;
+ : Target WL 'ME_546B402F00FF' '484A470100DD.pas.ms.script' // csGetTaskDescriptionReply
+ ;
+
+ref; // ME_C405AF0D360A 
+
+: ME_53AC03EE01FD_ME_546B442D0343
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_546B442D0343 // TncsGetTaskDescriptionReply
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_546B442D0343 GetTaggedDataType
+
+: ME_546B442D0343
+ CONST UID '546B442D0343'
+ CONST Name 'TncsGetTaskDescriptionReply'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_547831BD02E5' '544E0148010D.pas.ms.script' // TncsReply
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_546B402F00FF' '484A470100DD.pas.ms.script' // csGetTaskDescriptionReply
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_3294A79E3E3C // LocalFolder
+ ME_87AC3958D4EC // RemoteFolder
+ ME_121B881CBEF7 // FileDesc
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_546B442D0343 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_C405AF0D360A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetTaskDescriptionReply.pas'
+
+ref; // ME_546B442D0343 TncsGetTaskDescriptionReply
+
+: ME_7579AB0F9F12
+ CONST UID '7579AB0F9F12'
+ CONST Name 'TaskID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546B444D012F // TncsGetTaskDescription
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_7579AB0F9F12 TaskID
+
+: ME_CB7399A731D0
+ CONST UID 'CB7399A731D0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546B444D012F // TncsGetTaskDescription
+ ;
+ : Target WL 'ME_546B3FE30185' '484A470100DD.pas.ms.script' // csGetTaskDescription
+ ;
+
+ref; // ME_CB7399A731D0 
+
+: ME_53AC03EE01FD_ME_546B444D012F
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_546B444D012F // TncsGetTaskDescription
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_546B444D012F GetTaggedDataType
+
+: ME_546B444D012F
+ CONST UID '546B444D012F'
+ CONST Name 'TncsGetTaskDescription'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_544E079E0253' '544E0148010D.pas.ms.script' // TncsMessage
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_546B3FE30185' '484A470100DD.pas.ms.script' // csGetTaskDescription
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_7579AB0F9F12 // TaskID
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_546B444D012F // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_CB7399A731D0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetTaskDescription.pas'
+
+ref; // ME_546B444D012F TncsGetTaskDescription
+
+FORWARD ME_546C52C001ED
+
+: ME_253C8AC17454
+ CONST UID '253C8AC17454'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546C52C001ED // TncsFileDesc
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_253C8AC17454 Name
+
+: ME_7F5542D15E0D
+ CONST UID '7F5542D15E0D'
+ CONST Name 'CRC'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546C52C001ED // TncsFileDesc
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+ CONST "pm" true
+
+ref; // ME_7F5542D15E0D CRC
+
+: ME_54C47EC3BF67
+ CONST UID '54C47EC3BF67'
+ CONST Name 'DateTime'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546C52C001ED // TncsFileDesc
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" true
+
+ref; // ME_54C47EC3BF67 DateTime
+
+: ME_A278B43F8E2B
+ CONST UID 'A278B43F8E2B'
+ CONST Name 'Size'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546C52C001ED // TncsFileDesc
+ ;
+ : Target WL 'ME_3DBFFD860205' '3DBFDB23006E.pas.ms.script' // long long
+ ;
+ CONST "pm" true
+
+ref; // ME_A278B43F8E2B Size
+
+: ME_9C62486ADB0F
+ CONST UID '9C62486ADB0F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546C52C001ED // TncsFileDesc
+ ;
+ : Target WL 'ME_546C4EED0383' '484A470100DD.pas.ms.script' // FileDesc
+ ;
+
+ref; // ME_9C62486ADB0F 
+
+: ME_53AC03EE01FD_ME_546C52C001ED
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_546C52C001ED // TncsFileDesc
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_546C52C001ED GetTaggedDataType
+
+: ME_546C52C001ED
+ CONST UID '546C52C001ED'
+ CONST Name 'TncsFileDesc'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
+ WL 'ME_546C4EED0383' '484A470100DD.pas.ms.script' // FileDesc
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_253C8AC17454 // Name
+ ME_7F5542D15E0D // CRC
+ ME_54C47EC3BF67 // DateTime
+ ME_A278B43F8E2B // Size
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_53AC03EE01FD_ME_546C52C001ED // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_9C62486ADB0F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsFileDesc.pas'
+
+ref; // ME_546C52C001ED TncsFileDesc
+
+FORWARD ME_546EF14803A6
+
+: ME_4002BB80A765
+ CONST UID '4002BB80A765'
+ CONST Name 'TaskID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546EF14803A6 // TncsTaskedFileDesc
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_4002BB80A765 TaskID
+
+: ME_3B46B181312E
+ CONST UID '3B46B181312E'
+ CONST Name 'CopiedSize'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_546EF14803A6 // TncsTaskedFileDesc
+ ;
+ : Target WL 'ME_3DBFFD860205' '3DBFDB23006E.pas.ms.script' // long long
+ ;
+ CONST "pm" true
+
+ref; // ME_3B46B181312E CopiedSize
+
+: ME_1C0AE7AC7E5B
+ CONST UID '1C0AE7AC7E5B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546EF14803A6 // TncsTaskedFileDesc
+ ;
+ : Target WL 'ME_546EED6C0081' '484A470100DD.pas.ms.script' // TaskedFileDesc
+ ;
+
+ref; // ME_1C0AE7AC7E5B 
+
+: ME_53AC03EE01FD_ME_546EF14803A6
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_546EF14803A6 // TncsTaskedFileDesc
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_546EF14803A6 GetTaggedDataType
+
+: ME_546EF14803A6
+ CONST UID '546EF14803A6'
+ CONST Name 'TncsTaskedFileDesc'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( ME_546C52C001ED // TncsFileDesc
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_546EED6C0081' '484A470100DD.pas.ms.script' // TaskedFileDesc
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4002BB80A765 // TaskID
+ ME_3B46B181312E // CopiedSize
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_546EF14803A6 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_1C0AE7AC7E5B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsTaskedFileDesc.pas'
+
+ref; // ME_546EF14803A6 TncsTaskedFileDesc
+
+FORWARD ME_546EF5650026
+
+: ME_546EF5C00189
+ CONST UID '546EF5C00189'
+ CONST Name 'Count'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_546EF57803B0 // FileDescHelper
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_546EF5C00189 Count
+
+FORWARD ME_546EF5CC0018
+
+: ME_546EF5D300F7
+ CONST UID '546EF5D300F7'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546EF5CC0018 // Files
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_546EF5D300F7 anIndex
+
+: ME_546EF5CC0018
+ CONST UID '546EF5CC0018'
+ CONST Name 'Files'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_546EF57803B0 // FileDescHelper
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ : Attributes
+   @ ( ME_546EF5D300F7 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_546EF5CC0018 Files
+
+FORWARD ME_546EF5F6032D
+
+: ME_546EF612012D
+ CONST UID '546EF612012D'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_546EF612012D anItem
+
+: ME_546EF60F01ED
+ CONST UID '546EF60F01ED'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546EF5F6032D // Add
+ ;
+ : Parameters
+   @ ( ME_546EF612012D // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_546EF60F01ED DoIt
+
+: ME_546EF5F6032D
+ CONST UID '546EF5F6032D'
+ CONST Name 'Add'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_546EF57803B0 // FileDescHelper
+ ;
+ : Operations
+   @ ( ME_546EF60F01ED // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_546EF5F6032D Add
+
+: ME_546EF57803B0
+ CONST UID '546EF57803B0'
+ CONST GUID '80CB6FA6-C4E8-4EEC-B04A-F4EAA6DD7800'
+ CONST Name 'FileDescHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546EF5650026 // ncsFileDescHelper
+ ;
+ : Implements
+   @ ( WL 'ME_546C4EED0383' '484A470100DD.pas.ms.script' // FileDesc
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_546EF5C00189 // Count
+ ME_546EF5CC0018 // Files
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_546EF5F6032D // Add
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_546EF57803B0 FileDescHelper
+
+FORWARD ME_546EF62900AA
+
+FORWARD ME_546F04DB0269
+
+: ME_95EE14CC2688
+ CONST UID '95EE14CC2688'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_95EE14CC2688 aValue
+
+: ME_0C6276C8EF6B
+ CONST UID '0C6276C8EF6B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TFileDescHelper.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F04DB0269 // Make
+ ;
+ : Target ME_546EF57803B0 // FileDescHelper
+ ;
+ : Parameters
+   @ ( ME_95EE14CC2688 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_0C6276C8EF6B DoIt
+
+: ME_546F04DB0269
+ CONST UID '546F04DB0269'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_546EF62900AA // TFileDescHelper
+ ;
+ : Inherits
+   @ ( WL 'ME_53BD1BCF010B' '484A470100DD.pas.ms.script' // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_546EF57803B0 // FileDescHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_0C6276C8EF6B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_546F04DB0269 Make
+
+: ME_546EF6530068
+ CONST UID '546EF6530068'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546EF62900AA // TFileDescHelper
+ ;
+ : Target WL 'ME_546C4EED0383' '484A470100DD.pas.ms.script' // FileDesc
+ ;
+
+ref; // ME_546EF6530068 
+
+: ME_546EF5C00189_ME_546EF62900AA
+ CONST UID '546EF5C00189'
+ CONST Name 'Count'
+ : Original ME_546EF5C00189 // Count
+ ;
+ : Implementor ME_546EF62900AA // TFileDescHelper
+ ;
+ CONST "pm" false
+ref; // ME_546EF5C00189_ME_546EF62900AA Count
+
+: ME_546EF5CC0018_ME_546EF62900AA
+ CONST UID '546EF5CC0018'
+ CONST Name 'Files'
+ : Original ME_546EF5CC0018 // Files
+ ;
+ : Implementor ME_546EF62900AA // TFileDescHelper
+ ;
+ CONST "pm" false
+ref; // ME_546EF5CC0018_ME_546EF62900AA Files
+
+: ME_546EF5F6032D_ME_546EF62900AA
+ CONST UID '546EF5F6032D'
+ CONST Name 'Add'
+ : Original ME_546EF5F6032D // Add
+ ;
+ : Implementor ME_546EF62900AA // TFileDescHelper
+ ;
+ref; // ME_546EF5F6032D_ME_546EF62900AA Add
+
+: ME_546EF62900AA
+ CONST UID '546EF62900AA'
+ CONST Name 'TFileDescHelper'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546EF5650026 // ncsFileDescHelper
+ ;
+ : Inherits
+   @ ( WL 'ME_53BFD54A01CC' '484A470100DD.pas.ms.script' // TevdTagHelper
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_546EF57803B0 // FileDescHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_546F04DB0269 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_546EF5C00189_ME_546EF62900AA // Count
+ ME_546EF5CC0018_ME_546EF62900AA // Files
+ ME_546EF5F6032D_ME_546EF62900AA // Add
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_546EF6530068 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_546EF62900AA TFileDescHelper
+
+: ME_546EF5650026
+ CONST UID '546EF5650026'
+ CONST Name 'ncsFileDescHelper'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Children
+   @ ( ME_546EF57803B0 // FileDescHelper
+ ME_546EF62900AA // TFileDescHelper
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsFileDescHelper.pas'
+
+ref; // ME_546EF5650026 ncsFileDescHelper
+
+FORWARD ME_546F3804032D
+
+FORWARD ME_5472F63C0394
+
+: ME_5472F65B0085
+ CONST UID '5472F65B0085'
+ CONST Name 'cControlExt'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5472F63C0394 // cFilesExtensions
+ ;
+ CONST Value '''.control'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_5472F65B0085 cControlExt
+
+: ME_5472F67B019A
+ CONST UID '5472F67B019A'
+ CONST Name 'cPartialExt'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5472F63C0394 // cFilesExtensions
+ ;
+ CONST Value '''.partial'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_5472F67B019A cPartialExt
+
+: ME_5472F63C0394
+ CONST UID '5472F63C0394'
+ CONST Name 'cFilesExtensions'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Attributes
+   @ ( ME_5472F65B0085 // cControlExt
+ ME_5472F67B019A // cPartialExt
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_5472F63C0394 cFilesExtensions
+
+: ME_546F382B031E
+ CONST UID '546F382B031E'
+ CONST Name 'LocalDesc'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target ME_546EF14803A6 // TncsTaskedFileDesc
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_546F382B031E LocalDesc
+
+: ME_546F388103BF
+ CONST UID '546F388103BF'
+ CONST Name 'f_Transporter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_5464B4730055' '544E0148010D.pas.ms.script' // IncsTransporter
+ ;
+
+ref; // ME_546F388103BF f_Transporter
+
+: ME_546F38FE021D
+ CONST UID '546F38FE021D'
+ CONST Name 'f_LocalPath'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_546F38FE021D f_LocalPath
+
+: ME_547588AA019E
+ CONST UID '547588AA019E'
+ CONST Name 'f_TaskID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_547588AA019E f_TaskID
+
+: ME_5489456000B9
+ CONST UID '5489456000B9'
+ CONST Name 'f_Stream'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
+ ;
+
+ref; // ME_5489456000B9 f_Stream
+
+: ME_5489482402E9
+ CONST UID '5489482402E9'
+ CONST Name 'f_Progressor'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_53A2EFA901C0' '53A2EF7E0117.pas.ms.script' // TddProgressObject
+ ;
+
+ref; // ME_5489482402E9 f_Progressor
+
+: ME_EE1F95B8278E
+ CONST UID 'EE1F95B8278E'
+ CONST Name 'f_LocalDesc'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства LocalDesc' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target ME_546EF14803A6 // TncsTaskedFileDesc
+ ;
+
+ref; // ME_EE1F95B8278E f_LocalDesc
+
+FORWARD ME_546F389A0156
+
+: ME_5472FF6C0224
+ CONST UID '5472FF6C0224'
+ CONST Name 'aTransporter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5464B4730055' '544E0148010D.pas.ms.script' // IncsTransporter
+ ;
+
+ref; // ME_5472FF6C0224 aTransporter
+
+: ME_5472FF6C0233
+ CONST UID '5472FF6C0233'
+ CONST Name 'aTaskID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5472FF6C0233 aTaskID
+
+: ME_5472FF6C0243
+ CONST UID '5472FF6C0243'
+ CONST Name 'aLocalPath'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5472FF6C0243 aLocalPath
+
+: ME_5472FF6C0262
+ CONST UID '5472FF6C0262'
+ CONST Name 'aRemoteDesc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_546C52C001ED // TncsFileDesc
+ ;
+
+ref; // ME_5472FF6C0262 aRemoteDesc
+
+: ME_546F38A30119
+ CONST UID '546F38A30119'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F389A0156 // Create
+ ;
+ : Parameters
+   @ ( ME_5472FF6C0224 // aTransporter
+ ME_5472FF6C0233 // aTaskID
+ ME_5472FF6C0243 // aLocalPath
+ ME_5472FF6C0262 // aRemoteDesc
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_546F38A30119 DoIt
+
+: ME_546F389A0156
+ CONST UID '546F389A0156'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Operations
+   @ ( ME_546F38A30119 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_546F389A0156 Create
+
+FORWARD ME_5473254E0090
+
+: ME_547588EB0039
+ CONST UID '547588EB0039'
+ CONST Name 'aRemoteDesc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_546C52C001ED // TncsFileDesc
+ ;
+
+ref; // ME_547588EB0039 aRemoteDesc
+
+: ME_547325CA01EC
+ CONST UID '547325CA01EC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5473254E0090 // CheckContinue
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_547588EB0039 // aRemoteDesc
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_547325CA01EC DoIt
+
+: ME_5473254E0090
+ CONST UID '5473254E0090'
+ CONST Name 'CheckContinue'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Operations
+   @ ( ME_547325CA01EC // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5473254E0090 CheckContinue
+
+FORWARD ME_5473255F03A1
+
+: ME_547588F80053
+ CONST UID '547588F80053'
+ CONST Name 'aRemoteDesc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_546C52C001ED // TncsFileDesc
+ ;
+
+ref; // ME_547588F80053 aRemoteDesc
+
+: ME_5473257F0260
+ CONST UID '5473257F0260'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5473255F03A1 // InitNew
+ ;
+ : Parameters
+   @ ( ME_547588F80053 // aRemoteDesc
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5473257F0260 DoIt
+
+: ME_5473255F03A1
+ CONST UID '5473255F03A1'
+ CONST Name 'InitNew'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Operations
+   @ ( ME_5473257F0260 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5473255F03A1 InitNew
+
+FORWARD ME_54732616034A
+
+: ME_547326290213
+ CONST UID '547326290213'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54732616034A // LocalControlFileName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_547326290213 DoIt
+
+: ME_54732616034A
+ CONST UID '54732616034A'
+ CONST Name 'LocalControlFileName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Operations
+   @ ( ME_547326290213 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54732616034A LocalControlFileName
+
+FORWARD ME_5473263D00AC
+
+: ME_547326500188
+ CONST UID '547326500188'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5473263D00AC // LocalPartialFileName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_547326500188 DoIt
+
+: ME_5473263D00AC
+ CONST UID '5473263D00AC'
+ CONST Name 'LocalPartialFileName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Operations
+   @ ( ME_547326500188 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5473263D00AC LocalPartialFileName
+
+FORWARD ME_5474A3BD0077
+
+: ME_18646E20D15C
+ CONST UID '18646E20D15C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода SaveControl' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5474A3BD0077 // SaveControl
+ ;
+
+ref; // ME_18646E20D15C DoIt
+
+: ME_5474A3BD0077
+ CONST UID '5474A3BD0077'
+ CONST Name 'SaveControl'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Operations
+   @ ( ME_18646E20D15C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5474A3BD0077 SaveControl
+
+FORWARD ME_5474A3D400D5
+
+: ME_54778D803EF5
+ CONST UID '54778D803EF5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода CommitDelivery' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5474A3D400D5 // CommitDelivery
+ ;
+
+ref; // ME_54778D803EF5 DoIt
+
+: ME_5474A7F90226
+ CONST UID '5474A7F90226'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5474A3D400D5 // CommitDelivery
+ ;
+ : Target WL 'ME_5474A7DD02EF' '47D0290B016D.pas.ms.script' // RenameFileSafe
+ ;
+
+ref; // ME_5474A7F90226 
+
+: ME_5474A3D400D5
+ CONST UID '5474A3D400D5'
+ CONST Name 'CommitDelivery'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Operations
+   @ ( ME_54778D803EF5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5474A7F90226 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_5474A3D400D5 CommitDelivery
+
+FORWARD ME_5474A7B201FC
+
+: ME_5474A7BE010E
+ CONST UID '5474A7BE010E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5474A7B201FC // LocalFileName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5474A7BE010E DoIt
+
+: ME_5474A7B201FC
+ CONST UID '5474A7B201FC'
+ CONST Name 'LocalFileName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Operations
+   @ ( ME_5474A7BE010E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5474A7B201FC LocalFileName
+
+: ME_54744E600038
+ CONST UID '54744E600038'
+ CONST Name 'aProgressor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53A2EFA901C0' '53A2EF7E0117.pas.ms.script' // TddProgressObject
+ ;
+
+ref; // ME_54744E600038 aProgressor
+
+: ME_5472E6E201EE
+ CONST UID '5472E6E201EE'
+ CONST Name 'DoProcess'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_54744E600038 // aProgressor
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "force overload" true
+
+ref; // ME_5472E6E201EE DoProcess
+
+: ME_546F404602FD
+ CONST UID '546F404602FD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_546F404602FD 
+
+: ME_5472F61902E1
+ CONST UID '5472F61902E1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_4C74ED51025F' '47913B47006E.pas.ms.script' // Tl3FileStream
+ ;
+
+ref; // ME_5472F61902E1 
+
+: ME_5472F61E004A
+ CONST UID '5472F61E004A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
+ ;
+
+ref; // ME_5472F61E004A 
+
+: ME_547456150156
+ CONST UID '547456150156'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_546F0E81033E' '47D0290B016D.pas.ms.script' // l3CalcCRC32
+ ;
+
+ref; // ME_547456150156 
+
+: ME_547583E30297
+ CONST UID '547583E30297'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target ME_547583540319 // TncsGetFilePartReply
+ ;
+
+ref; // ME_547583E30297 
+
+: ME_547583E8008C
+ CONST UID '547583E8008C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target ME_547583330291 // TncsGetFilePart
+ ;
+
+ref; // ME_547583E8008C 
+
+: ME_54758E27032F
+ CONST UID '54758E27032F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_544E079E0253' '544E0148010D.pas.ms.script' // TncsMessage
+ ;
+
+ref; // ME_54758E27032F 
+
+: ME_5475932A028B
+ CONST UID '5475932A028B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_5475911A0274' '4AB0997B00A2.pas.ms.script' // Min
+ ;
+
+ref; // ME_5475932A028B 
+
+: ME_548940D1027B
+ CONST UID '548940D1027B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target ME_548940970391 // TncsPushFilePart
+ ;
+
+ref; // ME_548940D1027B 
+
+: ME_548940EC036A
+ CONST UID '548940EC036A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_54607384020A' '544E0148010D.pas.ms.script' // TncsMessageExecutorFactory
+ ;
+
+ref; // ME_548940EC036A 
+
+: ME_548AC8E0026C
+ CONST UID '548AC8E0026C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_548AC7FB0046' '544E0148010D.pas.ms.script' // ncsProfile
+ ;
+
+ref; // ME_548AC8E0026C 
+
+: ME_5494061A03BD
+ CONST UID '5494061A03BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
+ ;
+
+ref; // ME_5494061A03BD 
+
+: ME_54607DDC0159_ME_546F3804032D
+ CONST UID '54607DDC0159'
+ CONST Name 'Execute'
+ : Original WL 'ME_54607DDC0159' '544E0148010D.pas.ms.script' // Execute
+ ;
+ : Implementor ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ref; // ME_54607DDC0159_ME_546F3804032D Execute
+
+: ME_546082B801F3_ME_546F3804032D
+ CONST UID '546082B801F3'
+ CONST Name 'MakeExecutor'
+ : Original WL 'ME_546082B801F3' '544E0148010D.pas.ms.script' // MakeExecutor
+ ;
+ : Implementor ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ref; // ME_546082B801F3_ME_546F3804032D MakeExecutor
+
+: ME_479731C50290_ME_546F3804032D
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ref; // ME_479731C50290_ME_546F3804032D Cleanup
+
+: ME_546F3804032D
+ CONST UID '546F3804032D'
+ CONST Name 'TncsOneFileDeliverer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_5460731E025E' '544E0148010D.pas.ms.script' // IncsExecutor
+ WL 'ME_5460829B0384' '544E0148010D.pas.ms.script' // IncsMessageExecutorFactory
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_546F382B031E // LocalDesc
+ ME_546F388103BF // f_Transporter
+ ME_546F38FE021D // f_LocalPath
+ ME_547588AA019E // f_TaskID
+ ME_5489456000B9 // f_Stream
+ ME_5489482402E9 // f_Progressor
+ ME_EE1F95B8278E // f_LocalDesc
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_546F389A0156 // Create
+ ME_5473254E0090 // CheckContinue
+ ME_5473255F03A1 // InitNew
+ ME_54732616034A // LocalControlFileName
+ ME_5473263D00AC // LocalPartialFileName
+ ME_5474A3BD0077 // SaveControl
+ ME_5474A3D400D5 // CommitDelivery
+ ME_5474A7B201FC // LocalFileName
+ ME_5472E6E201EE // DoProcess
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_54607DDC0159_ME_546F3804032D // Execute
+ ME_546082B801F3_ME_546F3804032D // MakeExecutor
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_546F3804032D // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Constants
+   @ ( ME_5472F63C0394 // cFilesExtensions
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_546F404602FD // 
+ ME_5472F61902E1 // 
+ ME_5472F61E004A // 
+ ME_547456150156 // 
+ ME_547583E30297 // 
+ ME_547583E8008C // 
+ ME_54758E27032F // 
+ ME_5475932A028B // 
+ ME_548940D1027B // 
+ ME_548940EC036A // 
+ ME_548AC8E0026C // 
+ ME_5494061A03BD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsOneFileDeliverer.pas'
+
+ref; // ME_546F3804032D TncsOneFileDeliverer
+
+FORWARD ME_546F3918029F
+
+: ME_546F392D008B
+ CONST UID '546F392D008B'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_546F3918029F // TncsOneFileDelivererList
+ ;
+ : Target ME_546F3804032D // TncsOneFileDeliverer
+ ;
+
+ref; // ME_546F392D008B ItemType
+
+: ME_47B2C42A0163_ME_546F3918029F
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_546F3918029F // TncsOneFileDelivererList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_546F3918029F AssignItem
+
+: ME_47B99D4503A2_ME_546F3918029F
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_546F3918029F // TncsOneFileDelivererList
+ ;
+ref; // ME_47B99D4503A2_ME_546F3918029F CompareExistingItems
+
+: ME_546F3918029F
+ CONST UID '546F3918029F'
+ CONST Name 'TncsOneFileDelivererList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_546F392D008B // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_546F3918029F // AssignItem
+ ME_47B99D4503A2_ME_546F3918029F // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsOneFileDelivererList.pas'
+
+ref; // ME_546F3918029F TncsOneFileDelivererList
+
+FORWARD ME_546F398E0203
+
+: ME_5472D9D7003A
+ CONST UID '5472D9D7003A'
+ CONST Name 'EncsEmptyResults'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Inherits
+   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_5472D9D7003A EncsEmptyResults
+
+: ME_546F39A50114
+ CONST UID '546F39A50114'
+ CONST Name 'f_Data'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target ME_546F3918029F // TncsOneFileDelivererList
+ ;
+
+ref; // ME_546F39A50114 f_Data
+
+: ME_5472DC560362
+ CONST UID '5472DC560362'
+ CONST Name 'f_Transporter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_5464B4730055' '544E0148010D.pas.ms.script' // IncsTransporter
+ ;
+
+ref; // ME_5472DC560362 f_Transporter
+
+: ME_5472EA7D01F5
+ CONST UID '5472EA7D01F5'
+ CONST Name 'f_LocalPath'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5472EA7D01F5 f_LocalPath
+
+: ME_5472FF89034D
+ CONST UID '5472FF89034D'
+ CONST Name 'f_TaskID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5472FF89034D f_TaskID
+
+: ME_547445710331
+ CONST UID '547445710331'
+ CONST Name 'f_Progressor'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_53A2EFA901C0' '53A2EF7E0117.pas.ms.script' // TddProgressObject
+ ;
+
+ref; // ME_547445710331 f_Progressor
+
+FORWARD ME_5472D96A03B7
+
+: ME_5472D97C010C
+ CONST UID '5472D97C010C'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_546EF57803B0 // FileDescHelper
+ ;
+
+ref; // ME_5472D97C010C aList
+
+: ME_5472D97302DE
+ CONST UID '5472D97302DE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5472D96A03B7 // PrepareDescription
+ ;
+ : Parameters
+   @ ( ME_5472D97C010C // aList
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5472D97302DE DoIt
+
+: ME_5472E6AD002F
+ CONST UID '5472E6AD002F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5472D96A03B7 // PrepareDescription
+ ;
+ : Target ME_546F3804032D // TncsOneFileDeliverer
+ ;
+
+ref; // ME_5472E6AD002F 
+
+: ME_5472E6BD00F0
+ CONST UID '5472E6BD00F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5472D96A03B7 // PrepareDescription
+ ;
+ : Target ME_546C52C001ED // TncsFileDesc
+ ;
+
+ref; // ME_5472E6BD00F0 
+
+: ME_5472D96A03B7
+ CONST UID '5472D96A03B7'
+ CONST Name 'PrepareDescription'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Operations
+   @ ( ME_5472D97302DE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5472E6AD002F // 
+ ME_5472E6BD00F0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_5472D96A03B7 PrepareDescription
+
+FORWARD ME_5472DC690380
+
+: ME_5474459602B9
+ CONST UID '5474459602B9'
+ CONST Name 'aTransporter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5464B4730055' '544E0148010D.pas.ms.script' // IncsTransporter
+ ;
+
+ref; // ME_5474459602B9 aTransporter
+
+: ME_5474459602C8
+ CONST UID '5474459602C8'
+ CONST Name 'aProgressor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53A2EFA901C0' '53A2EF7E0117.pas.ms.script' // TddProgressObject
+ ;
+
+ref; // ME_5474459602C8 aProgressor
+
+: ME_5474459602D8
+ CONST UID '5474459602D8'
+ CONST Name 'aTaskID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5474459602D8 aTaskID
+
+: ME_5474459602F7
+ CONST UID '5474459602F7'
+ CONST Name 'aLocalPath'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5474459602F7 aLocalPath
+
+: ME_5472DC76010B
+ CONST UID '5472DC76010B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5472DC690380 // Create
+ ;
+ : Parameters
+   @ ( ME_5474459602B9 // aTransporter
+ ME_5474459602C8 // aProgressor
+ ME_5474459602D8 // aTaskID
+ ME_5474459602F7 // aLocalPath
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5472DC76010B DoIt
+
+: ME_5472DC690380
+ CONST UID '5472DC690380'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Operations
+   @ ( ME_5472DC76010B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5472DC690380 Create
+
+: ME_546F407001B2
+ CONST UID '546F407001B2'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_546EF57803B0 // FileDescHelper
+ ;
+
+ref; // ME_546F407001B2 aList
+
+: ME_546F3BE702A4
+ CONST UID '546F3BE702A4'
+ CONST Name 'Execute'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_546F407001B2 // aList
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_546F3BE702A4 Execute
+
+: ME_546F40320250
+ CONST UID '546F40320250'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_546F40320250 
+
+: ME_547479230042
+ CONST UID '547479230042'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_47ECE9560395' '4677FBA70343.pas.ms.script' // Prg Consts
+ ;
+
+ref; // ME_547479230042 
+
+: ME_549A71CB014B
+ CONST UID '549A71CB014B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_549A718B037D' '47D0290B016D.pas.ms.script' // l3CheckPathWritable
+ ;
+
+ref; // ME_549A71CB014B 
+
+: ME_549A767701D1
+ CONST UID '549A767701D1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_549A76510063' '4AB0C3C60310.pas.ms.script' // ForceDirectories
+ ;
+
+ref; // ME_549A767701D1 
+
+: ME_56540FF9025A
+ CONST UID '56540FF9025A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
+ ;
+
+ref; // ME_56540FF9025A 
+
+: ME_479731C50290_ME_546F398E0203
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ref; // ME_479731C50290_ME_546F398E0203 Cleanup
+
+: ME_47A042E100E2_ME_546F398E0203
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ref; // ME_47A042E100E2_ME_546F398E0203 InitFields
+
+: ME_546F398E0203
+ CONST UID '546F398E0203'
+ CONST Name 'TncsFileListDeliverer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_546F39A50114 // f_Data
+ ME_5472DC560362 // f_Transporter
+ ME_5472EA7D01F5 // f_LocalPath
+ ME_5472FF89034D // f_TaskID
+ ME_547445710331 // f_Progressor
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5472D96A03B7 // PrepareDescription
+ ME_5472DC690380 // Create
+ ME_546F3BE702A4 // Execute
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_546F398E0203 // Cleanup
+ ME_47A042E100E2_ME_546F398E0203 // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_5472D9D7003A // EncsEmptyResults
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_546F40320250 // 
+ ME_547479230042 // 
+ ME_549A71CB014B // 
+ ME_549A767701D1 // 
+ ME_56540FF9025A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsFileListDeliverer.pas'
+
+ref; // ME_546F398E0203 TncsFileListDeliverer
+
+: ME_89A366919E99
+ CONST UID '89A366919E99'
+ CONST Name 'TaskID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54746A670337 // TncsTaskProgress
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_89A366919E99 TaskID
+
+: ME_F6C2147FAA9F
+ CONST UID 'F6C2147FAA9F'
+ CONST Name 'Description'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54746A670337 // TncsTaskProgress
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_F6C2147FAA9F Description
+
+: ME_F50A58BA5D41
+ CONST UID 'F50A58BA5D41'
+ CONST Name 'Percent'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54746A670337 // TncsTaskProgress
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" true
+
+ref; // ME_F50A58BA5D41 Percent
+
+: ME_68BA904148B6
+ CONST UID '68BA904148B6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54746A670337 // TncsTaskProgress
+ ;
+ : Target WL 'ME_547467D501F3' '484A470100DD.pas.ms.script' // csTaskProgress
+ ;
+
+ref; // ME_68BA904148B6 
+
+: ME_53AC03EE01FD_ME_54746A670337
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_54746A670337 // TncsTaskProgress
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_54746A670337 GetTaggedDataType
+
+: ME_54746A670337
+ CONST UID '54746A670337'
+ CONST Name 'TncsTaskProgress'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_544E079E0253' '544E0148010D.pas.ms.script' // TncsMessage
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_547467D501F3' '484A470100DD.pas.ms.script' // csTaskProgress
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_89A366919E99 // TaskID
+ ME_F6C2147FAA9F // Description
+ ME_F50A58BA5D41 // Percent
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_54746A670337 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_68BA904148B6 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsTaskProgress.pas'
+
+ref; // ME_54746A670337 TncsTaskProgress
+
+: ME_AD27C71E2468
+ CONST UID 'AD27C71E2468'
+ CONST Name 'TaskID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_547582EC02E0 // TncsDeliveryResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_AD27C71E2468 TaskID
+
+: ME_D70695E16D88
+ CONST UID 'D70695E16D88'
+ CONST Name 'ResultKind'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_547582EC02E0 // TncsDeliveryResult
+ ;
+ : Target WL 'ME_54996019037A' '484A470100DD.pas.ms.script' // TncsResultKind
+ ;
+ CONST "pm" true
+
+ref; // ME_D70695E16D88 ResultKind
+
+: ME_54653CD3DFCA
+ CONST UID '54653CD3DFCA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_547582EC02E0 // TncsDeliveryResult
+ ;
+ : Target WL 'ME_54757F3402F2' '484A470100DD.pas.ms.script' // csDeliveryResult
+ ;
+
+ref; // ME_54653CD3DFCA 
+
+: ME_53AC03EE01FD_ME_547582EC02E0
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_547582EC02E0 // TncsDeliveryResult
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_547582EC02E0 GetTaggedDataType
+
+: ME_547582EC02E0
+ CONST UID '547582EC02E0'
+ CONST Name 'TncsDeliveryResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_544E079E0253' '544E0148010D.pas.ms.script' // TncsMessage
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_54757F3402F2' '484A470100DD.pas.ms.script' // csDeliveryResult
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_AD27C71E2468 // TaskID
+ ME_D70695E16D88 // ResultKind
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_547582EC02E0 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_54653CD3DFCA // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsDeliveryResult.pas'
+
+ref; // ME_547582EC02E0 TncsDeliveryResult
+
+: ME_78F323F06BE5
+ CONST UID '78F323F06BE5'
+ CONST Name 'TaskID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_547583330291 // TncsGetFilePart
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_78F323F06BE5 TaskID
+
+: ME_FC273BB02538
+ CONST UID 'FC273BB02538'
+ CONST Name 'FileName'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'С относительным путем (полный вычисляется от задачи)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_547583330291 // TncsGetFilePart
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_FC273BB02538 FileName
+
+: ME_6A2208B1BA37
+ CONST UID '6A2208B1BA37'
+ CONST Name 'Offset'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_547583330291 // TncsGetFilePart
+ ;
+ : Target WL 'ME_3DBFFD860205' '3DBFDB23006E.pas.ms.script' // long long
+ ;
+ CONST "pm" true
+
+ref; // ME_6A2208B1BA37 Offset
+
+: ME_12BF94706D13
+ CONST UID '12BF94706D13'
+ CONST Name 'PartSize'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_547583330291 // TncsGetFilePart
+ ;
+ : Target WL 'ME_3DBFFD860205' '3DBFDB23006E.pas.ms.script' // long long
+ ;
+ CONST "pm" true
+
+ref; // ME_12BF94706D13 PartSize
+
+: ME_F2B109138600
+ CONST UID 'F2B109138600'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_547583330291 // TncsGetFilePart
+ ;
+ : Target WL 'ME_54757F9E023E' '484A470100DD.pas.ms.script' // csGetFilePart
+ ;
+
+ref; // ME_F2B109138600 
+
+: ME_53AC03EE01FD_ME_547583330291
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_547583330291 // TncsGetFilePart
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_547583330291 GetTaggedDataType
+
+: ME_547583330291
+ CONST UID '547583330291'
+ CONST Name 'TncsGetFilePart'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_544E079E0253' '544E0148010D.pas.ms.script' // TncsMessage
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_54757F9E023E' '484A470100DD.pas.ms.script' // csGetFilePart
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_78F323F06BE5 // TaskID
+ ME_FC273BB02538 // FileName
+ ME_6A2208B1BA37 // Offset
+ ME_12BF94706D13 // PartSize
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_547583330291 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_F2B109138600 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetFilePart.pas'
+
+ref; // ME_547583330291 TncsGetFilePart
+
+: ME_B1CB2F60283B
+ CONST UID 'B1CB2F60283B'
+ CONST Name 'IsSuccess'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_547583540319 // TncsGetFilePartReply
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_B1CB2F60283B IsSuccess
+
+: ME_B862C0452098
+ CONST UID 'B862C0452098'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_547583540319 // TncsGetFilePartReply
+ ;
+ : Target WL 'ME_54757FAF00AE' '484A470100DD.pas.ms.script' // csGetFilePartReply
+ ;
+
+ref; // ME_B862C0452098 
+
+: ME_53AC03EE01FD_ME_547583540319
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_547583540319 // TncsGetFilePartReply
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_547583540319 GetTaggedDataType
+
+: ME_547583540319
+ CONST UID '547583540319'
+ CONST Name 'TncsGetFilePartReply'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_547831BD02E5' '544E0148010D.pas.ms.script' // TncsReply
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_54757FAF00AE' '484A470100DD.pas.ms.script' // csGetFilePartReply
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_B1CB2F60283B // IsSuccess
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_547583540319 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_B862C0452098 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetFilePartReply.pas'
+
+ref; // ME_547583540319 TncsGetFilePartReply
+
+: ME_2C782D1D596C
+ CONST UID '2C782D1D596C'
+ CONST Name 'TaskID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_548940970391 // TncsPushFilePart
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_2C782D1D596C TaskID
+
+: ME_BA14D05FE9CC
+ CONST UID 'BA14D05FE9CC'
+ CONST Name 'FileName'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_548940970391 // TncsPushFilePart
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_BA14D05FE9CC FileName
+
+: ME_173DEF59C04D
+ CONST UID '173DEF59C04D'
+ CONST Name 'Offset'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_548940970391 // TncsPushFilePart
+ ;
+ : Target WL 'ME_3DBFFD860205' '3DBFDB23006E.pas.ms.script' // long long
+ ;
+ CONST "pm" true
+
+ref; // ME_173DEF59C04D Offset
+
+: ME_62BDC02A2DB8
+ CONST UID '62BDC02A2DB8'
+ CONST Name 'PartSize'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_548940970391 // TncsPushFilePart
+ ;
+ : Target WL 'ME_3DBFFD860205' '3DBFDB23006E.pas.ms.script' // long long
+ ;
+ CONST "pm" true
+
+ref; // ME_62BDC02A2DB8 PartSize
+
+: ME_0F7173AD8CC8
+ CONST UID '0F7173AD8CC8'
+ CONST Name 'Data'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_548940970391 // TncsPushFilePart
+ ;
+ : Target WL 'ME_53B546BC00BF' '4849284D0067.pas.ms.script' // Tk2RawData
+ ;
+ CONST "pm" true
+
+ref; // ME_0F7173AD8CC8 Data
+
+: ME_5C0A1C9EB6C4
+ CONST UID '5C0A1C9EB6C4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_548940970391 // TncsPushFilePart
+ ;
+ : Target WL 'ME_54893DC0002B' '484A470100DD.pas.ms.script' // csPushFilePart
+ ;
+
+ref; // ME_5C0A1C9EB6C4 
+
+: ME_53AC03EE01FD_ME_548940970391
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_548940970391 // TncsPushFilePart
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_548940970391 GetTaggedDataType
+
+: ME_548940970391
+ CONST UID '548940970391'
+ CONST Name 'TncsPushFilePart'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_544E079E0253' '544E0148010D.pas.ms.script' // TncsMessage
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_54893DC0002B' '484A470100DD.pas.ms.script' // csPushFilePart
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_2C782D1D596C // TaskID
+ ME_BA14D05FE9CC // FileName
+ ME_173DEF59C04D // Offset
+ ME_62BDC02A2DB8 // PartSize
+ ME_0F7173AD8CC8 // Data
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_548940970391 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5C0A1C9EB6C4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsPushFilePart.pas'
+
+ref; // ME_548940970391 TncsPushFilePart
+
+: ME_C62F9955664F
+ CONST UID 'C62F9955664F'
+ CONST Name 'TaskID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_549AA9CE0345 // TncsCorrectFolder
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_C62F9955664F TaskID
+
+: ME_5C25740B908E
+ CONST UID '5C25740B908E'
+ CONST Name 'NewFolder'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_549AA9CE0345 // TncsCorrectFolder
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_5C25740B908E NewFolder
+
+: ME_1D7F825A4BAB
+ CONST UID '1D7F825A4BAB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_549AA9CE0345 // TncsCorrectFolder
+ ;
+ : Target WL 'ME_549AA3D90143' '484A470100DD.pas.ms.script' // csCorrectFolder
+ ;
+
+ref; // ME_1D7F825A4BAB 
+
+: ME_53AC03EE01FD_ME_549AA9CE0345
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_549AA9CE0345 // TncsCorrectFolder
+ ;
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_549AA9CE0345 GetTaggedDataType
+
+: ME_549AA9CE0345
+ CONST UID '549AA9CE0345'
+ CONST Name 'TncsCorrectFolder'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_546457E203C0 // ResultDelivery
+ ;
+ : Inherits
+   @ ( WL 'ME_544E079E0253' '544E0148010D.pas.ms.script' // TncsMessage
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_549AA3D90143' '484A470100DD.pas.ms.script' // csCorrectFolder
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_C62F9955664F // TaskID
+ ME_5C25740B908E // NewFolder
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_53AC03EE01FD_ME_549AA9CE0345 // GetTaggedDataType
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_1D7F825A4BAB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsCorrectFolder.pas'
+
+ref; // ME_549AA9CE0345 TncsCorrectFolder
+
+: ME_546457E203C0
+ CONST UID '546457E203C0'
+ CONST Name 'ResultDelivery'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
+ ;
+ : Children
+   @ ( ME_54645DEC03E4 // TncsGetReadyToDeliveryTasks
+ ME_54645E0D0246 // TncsGetReadyToDeliveryTasksReply
+ ME_54645E360193 // ncsFileTransferReg
+ ME_546B442D0343 // TncsGetTaskDescriptionReply
+ ME_546B444D012F // TncsGetTaskDescription
+ ME_546C52C001ED // TncsFileDesc
+ ME_546EF14803A6 // TncsTaskedFileDesc
+ ME_546EF5650026 // ncsFileDescHelper
+ ME_546F3804032D // TncsOneFileDeliverer
+ ME_546F3918029F // TncsOneFileDelivererList
+ ME_546F398E0203 // TncsFileListDeliverer
+ ME_54746A670337 // TncsTaskProgress
+ ME_547582EC02E0 // TncsDeliveryResult
+ ME_547583330291 // TncsGetFilePart
+ ME_547583540319 // TncsGetFilePartReply
+ ME_548940970391 // TncsPushFilePart
+ ME_549AA9CE0345 // TncsCorrectFolder
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_53A2EF7E0117' '53A2EF7E0117.pas.ms.script' // Progress
+ WL 'ME_53B15D5603E3' '53B15D5603E3.pas.ms.script' // TagHolder
+ WL 'ME_544E0148010D' '544E0148010D.pas.ms.script' // Messages
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\546457E203C0.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\546457E203C0.pas.ms.script.runner'
+
+ref; // ME_546457E203C0 ResultDelivery

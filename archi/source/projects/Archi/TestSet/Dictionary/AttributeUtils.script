@@ -1,0 +1,278 @@
+// AttributeUtils.script
+// Утилитные функции работы с атрибутами.
+USES
+ axiom:Control
+ axiom:Lister
+ axiom:Tree
+ axiom:Component
+ axiom:AttrExplorer
+ axiom:ComboBox
+ axiom:RadioButton
+ axiom:SpinEdit
+ 
+ ArchiSystem.script
+	ContentsTree.script
+;
+
+ARRAY VAR AttrNumbersArray
+
+PROCEDURE "Работа с окном иерархического атрибута" 
+
+	OBJECT VAR l_DictOutliner
+
+		: "Поиск и выделение узла" STRING IN anItem			
+			l_DictOutliner pop:Control:SetFocus ASSERT
+			"В начало списка"
+			"Контрол по имени {('cbSearch')}" pop:Control:SetFocus ASSERT
+			anItem emitstring  
+			"Контрол по имени {('sbSearch')}" pop:Control:Click		
+			l_DictOutliner pop:Control:SetFocus ASSERT
+			INTEGER VAR l_Index					
+			l_DictOutliner pop:Lister:Current >>> l_Index 
+			true l_Index l_DictOutliner tree:SetSelected			
+			ProcessMessages
+		;
+	
+	"Контрол по имени {('DictOutliner')}" >>> l_DictOutliner
+        @ "Поиск и выделение узла" AttrNumbersArray ITERATE
+	"Нажать кнопку ОК"
+;
+
+PROCEDURE "Поиск и выделение одного узла" STRING IN aName
+	OBJECT VAR l_DictOutliner
+	"Контрол по имени {('DictOutliner')}" >>> l_DictOutliner
+	l_DictOutliner pop:Control:SetFocus ASSERT
+	"В начало списка"
+	"Контрол по имени {('cbSearch')}" pop:Control:SetFocus ASSERT
+	aName emitstring  
+	"Контрол по имени {('sbSearch')}" pop:Control:Click		
+;
+
+PROCEDURE "Работа с выбором одного элемента" STRING IN aName
+	"Поиск и выделение одного узла {(aName)}"
+	// Закрыть диалог:
+	"Нажать кнопку ОК"
+;
+
+PROCEDURE "Изменить иерархический атрибут" 
+	@ ( "Нажать Enter" ) MODAL "Работа с окном иерархического атрибута" 
+	// Закрыть диалог:
+	"Нажать кнопку ОК"
+;
+
+PROCEDURE "Найти атрибут" STRING IN aAttributeName
+	"Найти и выделить элемент в дереве {(aAttributeName)}"
+;
+
+USES
+ ArchiControls.script
+;
+
+PROCEDURE "Найти атрибут по номеру" INTEGER IN aAttributeName
+        aAttributeName "Контрол по имени {(acAttributesOutliner)}" pop:Component:Owner AttrExplorer:GotoOnAttrNode 
+;
+
+PROCEDURE "Работа с окном даты, номера" INTEGER IN aType STRING IN aDate STRING IN aNumber 
+	aType "Контрол по имени {('cbDNType')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('edtDate')}" pop:Control:SetFocus ASSERT
+	aDate emitstring  
+	"Контрол по имени {('edtNumber')}" pop:Control:SetFocus ASSERT
+	aNumber emitstring  	
+	// Закрыть диалог:
+	"Нажать кнопку ОК"
+;
+
+PROCEDURE "Работа с окном интервалы действия" STRING IN aRadioButton STRING IN aDateLow STRING IN aDateHigh 
+        "Контрол по имени {(aRadioButton)}" pop:RadioButton:Checked := true
+	"Контрол по имени {('edtDateLow')}" pop:Control:SetFocus ASSERT
+	aDateLow emitstring  	
+	"Контрол по имени {('edtDateHigh')}" pop:Control:SetFocus ASSERT
+	aDateHigh emitstring  	
+	// Закрыть диалог:
+	"Нажать кнопку ОК"
+;
+
+PROCEDURE "Работа с окном предыдущая редакция документа" INTEGER IN aNumber 
+         "Контрол по имени {('edtValue')}" pop:SpinEdit:Value := aNumber
+        "Нажать кнопку ОК"
+;
+
+PROCEDURE "Работа с окном напоминание" STRING IN aDate STRING IN aComment
+	"Контрол по имени {('edtDate')}" pop:Control:SetFocus ASSERT
+	aDate emitstring  	
+	"Контрол по имени {('edtComment')}" pop:Control:SetFocus ASSERT
+	aComment emitstring  		
+	// Закрыть диалог:
+	"Нажать кнопку ОК"
+;
+
+PROCEDURE "Работа с окном вычитка" INTEGER IN aType INTEGER IN aSource STRING IN aDate INTEGER IN aCorrector STRING IN aComment
+	aType "Контрол по имени {('cbType')}" pop:ComboBox:SetItemIndex
+	aSource "Контрол по имени {('cbSource')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('edtDate')}" pop:Control:SetFocus ASSERT
+	aDate emitstring  
+	aCorrector "Контрол по имени {('cbUser')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('edtComment')}" pop:Control:SetFocus ASSERT
+	aComment emitstring  			
+	// Закрыть диалог:
+	"Нажать кнопку ОК"
+; 
+
+PROCEDURE "Работа с окном связь с документом" INTEGER IN aType STRING IN aNumber 
+	aType "Контрол по имени {('cbLinkType')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('edNumber')}" pop:Control:SetFocus ASSERT
+	aNumber emitstring 
+	"Контрол по имени {('OKBtn')}" pop:Control:Click
+;
+
+PROCEDURE "Работа с окном юридическая операция" INTEGER IN aType STRING IN aDate
+	aType "Контрол по имени {('cbOperation')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('edtDate')}" pop:Control:SetFocus ASSERT
+	aDate emitstring  
+	"Нажать кнопку ОК"
+;
+
+PROCEDURE "Изменить атрибут Исходящие органы"
+	"В начало списка"
+//	"Найти атрибут {('Исходящие органы')}"	
+	"Найти атрибут по номеру {(12)}"
+	"Изменить иерархический атрибут"	
+;
+
+PROCEDURE "Изменить атрибут Типы"
+	"В начало списка"	
+//	"Найти атрибут {('Типы')}"
+	"Найти атрибут по номеру {(13)}"
+	"Изменить иерархический атрибут"	
+;
+
+PROCEDURE "Изменить атрибут Территория"
+	"В начало списка"	
+//	"Найти атрибут {('Территория')}"
+	"Найти атрибут по номеру {(20)}"
+	"Изменить иерархический атрибут"	
+;
+
+PROCEDURE "Изменить атрибут даты, номера" INTEGER IN aType STRING IN aDate STRING IN aNumber 
+	"В начало списка"
+//	"Найти атрибут {('Даты, номера')}"
+	"Найти атрибут по номеру {(11)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с окном даты, номера {(aType)} {(aDate)} {(aNumber)}" )
+;
+
+PROCEDURE "Изменить атрибут группы доступа" STRING IN aNumber
+	"В начало списка"
+//	"Найти атрибут {('Группы доступа')}"
+	"Найти атрибут по номеру {(22)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с выбором одного элемента {(aNumber)}" )
+;
+
+PROCEDURE "Изменить атрибут группы документов"
+	"В начало списка"	
+//	"Найти атрибут {('Группы документов')}"
+	"Найти атрибут по номеру {(17)}"
+	"Изменить иерархический атрибут"	
+;
+
+PROCEDURE "Изменить атрибут классы аннотации"
+	"В начало списка"	
+//	"Найти атрибут {('Классы аннотации')}"
+	"Найти атрибут по номеру {(23)}"
+	"Изменить иерархический атрибут"	
+;
+
+PROCEDURE "Изменить атрибут вид справочной информации"
+	"В начало списка"	
+//	"Найти атрибут {('Вид справочной информации')}"
+	"Найти атрибут по номеру {(24)}"
+	"Изменить иерархический атрибут"	
+;
+
+PROCEDURE "Изменить атрибут источники опубликования"
+	"В начало списка"	
+//	"Найти атрибут {('Источники опубликования')}"
+	"Найти атрибут по номеру {(19)}"
+	"Изменить иерархический атрибут"	
+;
+
+PROCEDURE "Изменить атрибут Предупреждения" STRING IN aNumber
+	"В начало списка"	
+//	"Найти атрибут {('Предупреждения')}"
+	"Найти атрибут по номеру {(18)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с выбором одного элемента {(aNumber)}" )			
+;
+
+PROCEDURE "Изменить атрибут связи между документами" INTEGER IN aType STRING IN aNumber
+	"В начало списка"	
+	"Найти атрибут по номеру {(31)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с окном связь с документом {(aType)} {(aNumber)}"	)		
+;
+
+PROCEDURE "Изменить атрибут интервалы действия" STRING IN aRadioButton STRING IN aDateLow STRING IN aDateHigh 
+	"В начало списка"
+//	"Найти атрибут {('Интервалы действия')}"
+	"Найти атрибут по номеру {(27)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с окном интервалы действия {(aRadioButton)} {(aDateLow)} {(aDateHigh)}" )
+;
+
+PROCEDURE "Изменить атрибут предыдущая редакция документа" INTEGER IN aNumber
+	"В начало списка"
+//	"Найти атрибут {('Предыдущая редакция документа')}"
+	"Найти атрибут по номеру {(8)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с окном предыдущая редакция документа {(aNumber)}" )
+;
+
+PROCEDURE "Изменить атрибут Напоминание" STRING IN aDate STRING IN aComment
+	"В начало списка"
+//	"Найти атрибут {('Напоминание')}"
+	"Найти атрибут по номеру {(26)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с окном напоминание {(aDate)} {(aComment)}" )
+;
+
+PROCEDURE "Изменить атрибут вычитка" INTEGER IN aType INTEGER IN aSource STRING IN aDate INTEGER IN aCorrector STRING IN aComment
+	"В начало списка"	
+//	"Найти атрибут {('Вычитка')}"
+	"Найти атрибут по номеру {(25)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с окном вычитка {(aType)} {(aSource)} {(aDate)} {(aCorrector)} {(aComment)} "	)		
+;
+
+PROCEDURE "Изменить нормы права" STRING IN aNumber
+	"В начало списка"
+//	"Найти атрибут {('Нормы права')}"
+	"Найти атрибут по номеру {(21)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с выбором одного элемента {(aNumber)}" )
+;
+
+PROCEDURE "Изменить атрибут Классы"
+	"В начало списка"
+//	"Найти атрибут {('Классы')}"
+	"Найти атрибут по номеру {(15)}"
+	"Изменить иерархический атрибут"
+;
+
+PROCEDURE "Изменить атрибут Вид информации"
+	"В начало списка"
+//	"Найти атрибут {('Вид информации')}"
+	"Найти атрибут по номеру {(14)}"
+	"Изменить иерархический атрибут"
+;
+
+PROCEDURE "Изменить атрибут Ключевые слова"
+	"В начало списка"
+//	"Найти атрибут {('Ключевые слова')}"
+	"Найти атрибут по номеру {(16)}"
+	"Изменить иерархический атрибут"
+;
+
+PROCEDURE "Изменить атрибут Журналы юридических операций" INTEGER IN aType STRING IN aDate
+	"В начало списка"
+//	"Найти атрибут {('Журналы юридических операций')}"
+	"Найти атрибут по номеру {(29)}"
+	@ ( "Нажать Enter" ) MODAL ( "Работа с окном юридическая операция {(aType)} {(aDate)}"	)
+;
+
+: "Удалить элемент" STRING IN aName
+	"В начало списка"
+	"Найти атрибут {(aName)}"	
+	"Контрол по имени {(acAttributesOutliner)}" tree:DeleteAllChildren	
+;

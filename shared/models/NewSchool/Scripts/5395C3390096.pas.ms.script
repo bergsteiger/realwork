@@ -1,0 +1,92 @@
+// Actions 5395C3390096 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5395C3390096
+
+: ME_5395C3760014
+ CONST UID '5395C3760014'
+ CONST Name 'TcsAction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Действие инициируемое клиентом и выполняемое на сервере' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5395C3390096 // Actions
+ ;
+ : Inherits
+   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\csAction.pas'
+
+ref; // ME_5395C3760014 TcsAction
+
+: ME_5395CD170333
+ CONST UID '5395CD170333'
+ CONST Name 'TcsTaskedAction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Действие на сервере с возможностью помещения в очередь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5395C3390096 // Actions
+ ;
+ : Inherits
+   @ ( ME_5395C3760014 // TcsAction
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\csTaskedAction.pas'
+
+ref; // ME_5395CD170333 TcsTaskedAction
+
+: ME_5395C3390096
+ CONST UID '5395C3390096'
+ CONST Name 'Actions'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Действия инициируемые клиентами и выполняемые на сервере' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
+ ;
+ : Children
+   @ ( ME_5395C3760014 // TcsAction
+ ME_5395CD170333 // TcsTaskedAction
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_52FBB2FC0386' '52FBB2FC0386.pas.ms.script' // Core
+ WL 'ME_538DA26C020A' '538DA26C020A.pas.ms.script' // ServerSide
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5395C3390096.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5395C3390096.pas.ms.script.runner'
+
+ref; // ME_5395C3390096 Actions

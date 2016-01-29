@@ -1,0 +1,243 @@
+// ScreenServices 556EE5640169 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_556EE5640169
+
+FORWARD ME_556EE57803CD
+
+FORWARD ME_430D5008738D
+
+: ME_88066E5D0414
+ CONST UID '88066E5D0414'
+ CONST Name 'IC'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_430D5008738D // Ml3ScreenService
+ ;
+ : Target WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
+ ;
+
+ref; // ME_88066E5D0414 IC
+
+: ME_430D5008738D
+ CONST UID '430D5008738D'
+ CONST Name 'Ml3ScreenService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3ScreenService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_556EE57803CD // Tl3ScreenService
+ ;
+ : Operations
+   @ ( ME_88066E5D0414 // IC
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_430D5008738D Ml3ScreenService
+
+FORWARD ME_6186CACBB9C1
+
+: ME_88066E5D0414_ME_6186CACBB9C1
+ CONST UID '88066E5D0414'
+ CONST Name 'IC'
+ : Original ME_88066E5D0414 // IC
+ ;
+ : Implementor ME_6186CACBB9C1 // Il3ScreenService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_88066E5D0414_ME_6186CACBB9C1 IC
+
+: ME_6186CACBB9C1
+ CONST UID '6186CACBB9C1'
+ CONST GUID '2ADD24A4-6629-417A-9825-E326572364B7'
+ CONST Name 'Il3ScreenService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3ScreenService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_556EE57803CD // Tl3ScreenService
+ ;
+ : Implements
+   @ ( ME_430D5008738D // Ml3ScreenService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_88066E5D0414_ME_6186CACBB9C1 // IC
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_6186CACBB9C1 Il3ScreenService
+
+: ME_0F1173251453
+ CONST UID '0F1173251453'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3ScreenService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_556EE57803CD // Tl3ScreenService
+ ;
+ : Target ME_6186CACBB9C1 // Il3ScreenService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_0F1173251453 Alien
+
+: ME_35F35D7BB5A6
+ CONST UID '35F35D7BB5A6'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_556EE57803CD // Tl3ScreenService
+ ;
+ : Target ME_6186CACBB9C1 // Il3ScreenService
+ ;
+
+ref; // ME_35F35D7BB5A6 f_Alien
+
+: ME_556EE5D60314
+ CONST UID '556EE5D60314'
+ CONST Name 'IC'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556EE57803CD // Tl3ScreenService
+ ;
+ : Target WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
+ ;
+
+ref; // ME_556EE5D60314 IC
+
+: ME_9CE3B47F1E72
+ CONST UID '9CE3B47F1E72'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556EE57803CD // Tl3ScreenService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_9CE3B47F1E72 Exists
+
+: ME_88066E5D0414_ME_556EE57803CD
+ CONST UID '88066E5D0414'
+ CONST Name 'IC'
+ : Original ME_88066E5D0414 // IC
+ ;
+ : Implementor ME_556EE57803CD // Tl3ScreenService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_88066E5D0414_ME_556EE57803CD IC
+
+: ME_5000565C019C_ME_556EE57803CD
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_556EE57803CD // Tl3ScreenService
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_556EE57803CD ClearFields
+
+: ME_556EE57803CD
+ CONST UID '556EE57803CD'
+ CONST Name 'Tl3ScreenService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556EE5640169 // ScreenServices
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_430D5008738D // Ml3ScreenService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_0F1173251453 // Alien
+ ME_35F35D7BB5A6 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_556EE5D60314 // IC
+ ME_9CE3B47F1E72 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_88066E5D0414_ME_556EE57803CD // IC
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_556EE57803CD // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_430D5008738D // Ml3ScreenService
+ ME_6186CACBB9C1 // Il3ScreenService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ScreenService.pas'
+
+ref; // ME_556EE57803CD Tl3ScreenService
+
+: ME_556EE5640169
+ CONST UID '556EE5640169'
+ CONST Name 'ScreenServices'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_556EE57803CD // Tl3ScreenService
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\556EE5640169.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\556EE5640169.pas.ms.script.runner'
+
+ref; // ME_556EE5640169 ScreenServices

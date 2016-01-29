@@ -1,0 +1,285 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/Core.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> shared::Core
+//
+// Ядро. Билиотека базовый системных типов и методов. Активно используется в шаблонах при генерации
+// с модели. Содержит фреймворк GCM2
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (Core) : project_generic_core {
+	sharedname = Core
+	staticname = Core
+
+	includes += ../../
+
+
+	Header_Files {
+		Std_Headers {
+			./../Core/LibHome.h
+		}
+	
+		GDS {
+			./../Core/GDS/MemoryWatcher.h
+			./../Core/GDS/ObjectCounter.h
+			./../Core/GDS/ObjectWatcher.h
+			./../Core/GDS/StackTracker.h
+			./../Core/GDS/StopWatch.h
+		}
+	
+		Params {
+			./../Core/Params/Params.h
+			./../Core/Params/ParamsFactories.h
+		}
+	
+		ParamsCore {
+			./../Core/ParamsCore/ParamsCore.h
+		}
+	
+		ParamsHelper {
+			./../Core/ParamsHelper/ParamConvert.h
+		}
+	
+		ParamsImpl {
+			./../Core/impl/ParamsImpl/ParamManagerImpl.h
+			./../Core/impl/ParamsImpl/ParamManagerImpl_factory.h
+		}
+	
+		Root {
+			./../Core/Root/Root.h
+			./../Core/Root/RootFactories.h
+		}
+	
+		Root_i {
+			./../Core/impl/Root_i/Root_i.h
+			./../Core/impl/Root_i/Configuration_i.h
+			./../Core/impl/Root_i/Configuration_i_factory.h
+			./../Core/impl/Root_i/ExecutorBase.h
+			./../Core/impl/Root_i/StdLibHomeBase.h
+			./../Core/impl/Root_i/StdLibHomeManager.h
+			./../Core/impl/Root_i/StdLibHomeManager_factory.h
+		}
+	
+		data {
+			./../Core/data/Array.h
+			./../Core/data/BitMaskType.h
+			./../Core/data/DynamicBitSet.h
+			./../Core/data/SortedTypeConverter.h
+			./../Core/data/TypeConverter.h
+			./../Core/data/TypeConverterException.h
+			./../Core/data/UnsortedTypeConverter.h
+			./../Core/data/unsorted_containers.h
+		}
+	
+		fix {
+			./../Core/fix/PragmaWarningDisable.h
+			./../Core/fix/Win32Exception.h
+			./../Core/fix/mpcxc.h
+			./../Core/fix/win_afx.h
+			./../Core/fix/wine.h
+		}
+	
+		functional {
+			./../Core/functional/equal_to.h
+			./../Core/functional/hash.h
+		}
+	
+		mng {
+			./../Core/mng/Aptr.h
+			./../Core/mng/Box.h
+			./../Core/mng/CacheMap.h
+			./../Core/mng/IObject_tie.h
+			./../Core/mng/LogMsgSmartBackend.h
+			./../Core/mng/PoolMemoryManager.h
+			./../Core/mng/PoolObjectManager.h
+			./../Core/mng/PtrGuard.h
+			./../Core/mng/TypeDestructors.h
+			./../Core/mng/TypeSingleton.h
+			./../Core/mng/Var.h
+		}
+	
+		mt {
+			./../Core/mt/mt.h
+			./../Core/mt/mtFactories.h
+		}
+	
+		mt_i {
+			./../Core/impl/mt_i/ThreadPool_i.h
+			./../Core/impl/mt_i/ThreadPool_i_factory.h
+		}
+	
+		os {
+			./../Core/os/ApplicationServer.h
+			./../Core/os/IniFile.h
+			./../Core/os/NTService.h
+			./../Core/os/Process.h
+			./../Core/os/RegistryHelper.h
+		}
+	
+		sys {
+			./../Core/sys/AtomicOp.h
+			./../Core/sys/AutoInit.h
+			./../Core/sys/DebugHelper.h
+			./../Core/sys/Exception.h
+			./../Core/sys/IObject.h
+			./../Core/sys/Logs.h
+			./../Core/sys/MemoryManagment.h
+			./../Core/sys/RefCountObjectBase.h
+			./../Core/sys/RefCountSingleton.h
+			./../Core/sys/TypeTraits.h
+			./../Core/sys/assert.h
+			./../Core/sys/core_std_inc.h
+			./../Core/sys/start_stop.h
+			./../Core/sys/std_inc.h
+			./../Core/sys/synch.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		GDS {
+		}
+	
+		Params {
+		}
+	
+		ParamsCore {
+		}
+	
+		ParamsHelper {
+		}
+	
+		ParamsImpl {
+		}
+	
+		Root {
+		}
+	
+		Root_i {
+		}
+	
+		data {
+			./../Core/data/Array.i.h
+			./../Core/data/BitMaskType.i.h
+			./../Core/data/SortedTypeConverter.i.h
+			./../Core/data/TypeConverter.i.h
+			./../Core/data/UnsortedTypeConverter.i.h
+		}
+	
+		fix {
+		}
+	
+		functional {
+		}
+	
+		mng {
+		}
+	
+		mt {
+		}
+	
+		mt_i {
+		}
+	
+		os {
+		}
+	
+		sys {
+			./../Core/sys/RefCountSingleton.i.h
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../Core/LibHome.cpp
+		}
+	
+		GDS {
+		}
+	
+		Params {
+			./../Core/Params/Params.cpp
+			./../Core/Params/ParamsFactories.cpp
+		}
+	
+		ParamsCore {
+			./../Core/ParamsCore/ParamsCore.cpp
+		}
+	
+		ParamsHelper {
+			./../Core/ParamsHelper/ParamConvert.cpp
+		}
+	
+		ParamsImpl {
+			./../Core/impl/ParamsImpl/ParamManagerImpl.cpp
+			./../Core/impl/ParamsImpl/ParamManagerImpl_factory.cpp
+		}
+	
+		Root {
+			./../Core/Root/Root.cpp
+			./../Core/Root/RootFactories.cpp
+		}
+	
+		Root_i {
+			./../Core/impl/Root_i/Configuration_i.cpp
+			./../Core/impl/Root_i/Configuration_i_factory.cpp
+			./../Core/impl/Root_i/ExecutorBase.cpp
+			./../Core/impl/Root_i/StdLibHomeBase.cpp
+			./../Core/impl/Root_i/StdLibHomeManager.cpp
+			./../Core/impl/Root_i/StdLibHomeManager_factory.cpp
+		}
+	
+		data {
+			./../Core/data/DynamicBitSet.cpp
+			./../Core/data/TypeConverterException.cpp
+		}
+	
+		fix {
+			./../Core/fix/Win32Exception.cpp
+			./../Core/fix/mpcxc.cpp
+		}
+	
+		functional {
+		}
+	
+		mng {
+			./../Core/mng/IObject_tie.cpp
+			./../Core/mng/LogMsgSmartBackend.cpp
+		}
+	
+		mt {
+			./../Core/mt/mt.cpp
+			./../Core/mt/mtFactories.cpp
+		}
+	
+		mt_i {
+			./../Core/impl/mt_i/ThreadPool_i.cpp
+			./../Core/impl/mt_i/ThreadPool_i_factory.cpp
+		}
+	
+		os {
+			./../Core/os/ApplicationServer.cpp
+			./../Core/os/IniFile.cpp
+			./../Core/os/NTService.cpp
+			./../Core/os/Process.cpp
+			./../Core/os/RegistryHelper.cpp
+		}
+	
+		sys {
+			./../Core/sys/AutoInit.cpp
+			./../Core/sys/DebugHelper.cpp
+			./../Core/sys/Exception.cpp
+			./../Core/sys/Logs.cpp
+			./../Core/sys/MemoryManagment.cpp
+			./../Core/sys/RefCountObjectBase.cpp
+			./../Core/sys/start_stop.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/LinkSupport/ConfModelLinks/ConfModelLinks.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::LinkSupport::ConfModelLinks
+//
+// пакет, обеспечивающий переход из Конфлюенса в К
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___CONFMODELLINKS_IDL__
+#define ___CONFMODELLINKS_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#pragma prefix "garant.ru"
+
+module LinkSupport {
+
+module ConfModelLinks {
+	// позволяет открыть выбранный в К элемент в розе
+	interface ShowOnModel {
+		// показать элемент в розе, возвращает 0 - если удалось, 1 - если открыта не та модель
+		long show (in string project_name, in string elem_guid);
+	};
+
+	// менеджер для ShowOnModel
+	interface ShowOnModelMng {
+		// получить объект ShowOnModel
+		ShowOnModel get_shower (in long user_id);
+		// добавить объект ShowOnModel
+		void add_shower (in ShowOnModel shower);
+		// удаляет объект
+		void remove_shower (in long user_id);
+	};
+
+	// factory manager server interface for ShowOnModelMng
+	interface ShowOnModelMngFactoryManagerSrv {
+		// получить экземпляр соответствующий юзеру
+		ShowOnModelMng get ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module LinkSupport
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

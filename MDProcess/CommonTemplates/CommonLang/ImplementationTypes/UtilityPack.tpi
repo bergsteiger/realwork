@@ -1,0 +1,684 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/UtilityPack.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::UtilityPack
+//
+// Утилитный набор
+// ---
+// Набор утилитных функций и типов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: UtilityPack::Class
+? Утилитный набор
+? Набор утилитных функций и типов
+= AbstractImplInclude::Class
+= WikiImplClass::Class
+= ClassBaseGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+a f
+/ - тип абстракции
+Y code_utility_pack.gif
+L code_utility_pack
+// Параметры визуализации
+$ C 255,215,215
+$ l 255,10,10
+$ f 255,10,10
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p need impl-file:b=false ? явно включает генерацию файла реализации (cpp)
+p need inline-file:b=false ? явно включает генерацию файла inline-реализации (i.h)
+p is namespace:b=false ? определяет является ли модуль неймспейсом
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p local helper:b=false ? указывает что данный набор явлется "локальным помошником" т.е. используется практически всеми другими элементам (рекомендуется использовать это свойство вместо явного указания большого кол-ва связей типа uses)
+p weak:b=false ? определяет что модуль может шариться между динамичексими пакетами
+p author:s ? автор
+p started:s ? дата и время начала
+p no hands:b=false ? предупреждение о том, что руками править нельзя (на время переходного периода)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{need impl-file}"!="%S{!need impl-file}"}%f_up_prefix(%S) *need impl-file* = *%S{need impl-file}* - явно включает генерацию файла реализации (cpp)
+	][{"%S{need inline-file}"!="%S{!need inline-file}"}%f_up_prefix(%S) *need inline-file* = *%S{need inline-file}* - явно включает генерацию файла inline-реализации (i.h)
+	][{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли модуль неймспейсом
+	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+	][{"%S{local helper}"!="%S{!local helper}"}%f_up_prefix(%S) *local helper* = *%S{local helper}* - указывает что данный набор явлется "локальным помошником" т.е. используется практически всеми другими элементам (рекомендуется использовать это свойство вместо явного указания большого кол-ва связей типа uses)
+	][{"%S{weak}"!="%S{!weak}"}%f_up_prefix(%S) *weak* = *%S{weak}* - определяет что модуль может шариться между динамичексими пакетами
+	][{"%S{author}"!="%S{!author}"}%f_up_prefix(%S) *author* = *%S{author}* - автор
+	][{"%S{started}"!="%S{!started}"}%f_up_prefix(%S) *started* = *%S{started}* - дата и время начала
+	][{"%S{no hands}"!="%S{!no hands}"}%f_up_prefix(%S) *no hands* = *%S{no hands}* - предупреждение о том, что руками править нельзя (на время переходного периода)
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4713540402CE*
+c                                  {}
+r {%Cx=false&%S{need UC}=false}:   {%SS не содержит ни каких типов}
+//#UC END# *4704C0E30186for4713540402CE*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _IsUtilityPack
+// возвращаемый результат: boolean
+//#UC START# *4E7B630D000Dfor4713540402CE*
+	true
+//#UC END# *4E7B630D000Dfor4713540402CE*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+%f _pas_ImplUses
+//#UC START# *4948EB2601FAfor4713540402CE*
+	%S%[inherited]\
+	<{}{%aC=Dependency&%aS=injects}{Sg}\
+//	[{"%f_pas_UnitName(%a%P)"=""&%a%P%P#f_IsUnitFileProducer()=true}{\
+	%f_pas_PutToUses(%a%P)\
+//	}\
+//	%f_pas_PutToUses(%a%P%P)\
+//	]\
+	>
+//#UC END# *4948EB2601FAfor4713540402CE*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя владельца метода
+%f _pas_MethodOwnerName
+//#UC START# *49CB3C99034Bfor4713540402CE*
+//#UC END# *49CB3C99034Bfor4713540402CE*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for4713540402CE*
+//#UC END# *470484D50138for4713540402CE*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4713540402CE*
+? Файл реализации утилитного набора %SN
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+O [{%f_need_cpp_file_for_utility_pack(%S)=true}%SN.cpp]
+	%f_output_constraint(%S)\
+	%f_set_var(UTILITY_PACK,S)%f_set_var(SELF,S)%f_set_var(SERV,S)[{%f_need_cpp_file_for_utility_pack(%S)=true}\
+	%f_header(%S)
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	<{}{"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>][{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	][
+	%S%f_open_ifdef()]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	][{%S{need UC}=true}
+	%U[
+	]
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// private member declaration<{}{"%CV"="PrivateAccess"&"%CC"="Operation"|"%CV"="PrivateAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+	
+	%f_with_gen_id(h,%CX)%f_set_var(SELF,{UTILITY_PACK})%f_set_var(SERV,{UTILITY_PACK})]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// public member implementation<{}{"%CV"="PublicAccess"&"%CC"="Operation"|"%CV"="PublicAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+	
+	%CX%f_set_var(SELF,{UTILITY_PACK})%f_set_var(SERV,{UTILITY_PACK})]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// private member implementation<{}{"%CV"="PrivateAccess"&"%CC"="Operation"|"%CV"="PrivateAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+	
+	%CX%f_set_var(SELF,{UTILITY_PACK})%f_set_var(SERV,{UTILITY_PACK})]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// template member implementation<{}{%CS=TemplateFunctions}{Sn}[
+	%CX%f_set_var(SELF,{UTILITY_PACK})%f_set_var(SERV,{UTILITY_PACK})]>
+	][{"%S{is namespace}"="true"}
+	} // namespace %SN]
+	%Sp
+	%f_footer(%S)
+	]
+//#UC END# *47022CB8034Bfor4713540402CE*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4713540402CE*
+/? Файл декларации утилитного набора %SN[- %SD]
+P
+O %SN.h
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	%f_h_header(%S)
+/ HACK for damned mpcxc
+	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%SN!=mpcxc&%SN!=PragmaWarningDisable}%f_std_inc(%S)
+	]%f_includes_by_contents(%S)<{}{%CM=UtilityPack::Class::ClassDependency}{}[\#include %f_dump_include_path(%C%TL,%C%T)
+	]><\#include %f_dump_include_path(%wL,%w)
+	>[{%S{need UC}=true}
+	%U[{_USER_INCLUDES}
+	]
+	][
+	%S%f_open_ifdef()]
+/ HACK for damned mpcxc
+	[{%SN!=mpcxc&%SN!=PragmaWarningDisable}%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]]
+	<{}{%CV=PublicAccess}%f_set_var(SERV,S)[%CX
+	
+	]>[{%S{need UC}=true}%U[{_USER_DEFINITION}
+	]
+	]
+/ HACK for damned mpcxc
+	[{%SN!=mpcxc&%SN!=PragmaWarningDisable}[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp][
+	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+	%f_h_footer(%S)
+//#UC END# *47022C88029Ffor4713540402CE*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4713540402CE*
+? Файл inline реализации утилитного набора %SN
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+O [{%f_need_inline_file(%S)=true}%SN.i.h]
+	%f_output_constraint(%S)\
+	[{%f_need_inline_file(%S)=true}\
+	%f_header(%S)
+	%f_set_var(SELF,S)%f_set_var(SERV,S)<{}{%CM=UtilityPack::Class::uses::ClassDependency}{}[\#include %f_dump_include_path(%f_with_gen_id(h,%C%TL),%C%T)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[{"%f_with_gen_id(h,%A%PO)"=""}\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>][{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+	]
+	]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	][{%S{need UC}=true}
+	%U[
+	]
+	][
+	%S%f_open_ifdef()][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// private member declaration<{}{"%CV"="PrivateAccess"&"%CC"!="Operation"}{Sn}[
+	
+	%f_with_gen_id(h,%CX)]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// public member implementation<{}{"%CV"="PublicAccess"&"%CC"!="Operation"}{Sn}[
+	
+	%CX]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// private member implementation<{}{"%CV"="PrivateAccess"&"%CC"!="Operation"}{Sn}[
+	
+	%CX]>
+	][{"%S{is namespace}"="true"}
+	} // namespace %SN]
+	%Sp
+	%f_footer(%S)
+	]
+//#UC END# *47022CCF00EAfor4713540402CE*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4713540402CE*
+	<{}{%CV!=PublicAccess&%CC=Class&"%f_pas_UnitFileName(%C)"=""}%CX>\
+	[{<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%C#f_NoForward()!=true&%CC=Operation}{+}%CX>!=0}\
+	<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%C#f_NoForward()!=true&%CC=Operation}{+}\
+	%f_pas_MethodSigImplementation(%C,%S) forward;>\
+	]\
+	<{}{%CV!=PublicAccess&%CS!=ini&%CS!=fini&%CC!=Class}%CX>\
+	<{}{%CV=PublicAccess&"%f_pas_UnitFileName(%C)"=""}%CX>\
+//	<{}{%CS=ini}%CX>\
+//	<{}{%CS=fini}%CX>
+	
+//#UC END# *470F15B800CBfor4713540402CE*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4713540402CE*
+O [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)
+P
+	%S%f_pas_OutLikeUtilityPack()
+//#UC END# *470F1571031Cfor4713540402CE*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4713540402CE*
+O %SN.java
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	
+	[%f_java_dump_import_block(%S)
+	]%f_includes_by_contents_java(%S)[{%S{need UC}=true}
+	%U[{_USER_INCLUDES}
+	]
+	]
+	%t_visibility(%S,"%XU")%t_abstract_type(%S)class %SN {
+	<{}{}{%C}%f_set_var(SERV,S)[%CX
+	
+	]>[{%S{need UC}=true}	%U[{_USER_DEFINITION}
+		]
+	]
+	} // class %SN
+	%f_footer(%S)
+//#UC END# *470321950119for4713540402CE*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for4713540402CE*
+	<%CX>\
+	%S%f_DoSpell()
+//#UC END# *4A41A13D03D5for4713540402CE*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: UtilityPack::Class::Attribute
+? Атрибут
+= ClassBase::Class::Attribute
+
+// Параметры стереотипа
+v +-
+/ - типы видимости
+l arl
+/ - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor471354E9009C*
+	%f_docs(%S)\
+	[#%S%f_open_ifdef()
+	]#%f_attr(%S) [{}{%f_to_omg(%TN)}%SN][ = %SI];[
+	#%S%f_close_ifdef()]
+//#UC END# *47022C88029Ffor471354E9009C*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for471354E9009C*
+= ClassBase::Class::static::Attribute;java
+//#UC END# *470321950119for471354E9009C*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor471354E9009C*
+	[{%SV=PublicAccess}%f_pas_dump_Var(%S)]
+//#UC END# *470F1571031Cfor471354E9009C*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor471354E9009C*
+	[{%SV!=PublicAccess}%f_pas_dump_Var(%S)\n]
+//#UC END# *470F15B800CBfor471354E9009C*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: UtilityPack::Class::uses::ClassDependency
+? Использование
+? Определяет что реализация утилитного набора (источник) использует указанный объект (цель) каким-либо образом. НА основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+= UsesContainer::Class::uses::ClassDependency
+
+// Параметры стереотипа
+Y code_dep_uses.gif
+L code_dep_uses
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: UtilityPack::Class::ClassDependency
+? Зависимость
+? Определяет что интерфейсная часть утилитного набора (источник) зависит от указанного объект (цель) каким-либо образом. НА основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+= UtilityPack::Class::uses::ClassDependency
+
+// Параметры стереотипа
+Y code_dep.gif
+L code_dep
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: UtilityPack::Class::Operation
+? Константный метод
+= ClassBase::Class::Operation
+
+// Параметры стереотипа
+v +-
+/ - типы видимости
+a f
+/ - тип абстракции
+
+// Генераторы
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for471355720222*
+= ClassBase::Class::static::Operation;java
+//#UC END# *470321950119for471355720222*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassBase::Class::Operation
+// признак, что метод статический
+%f _is_static
+//#UC START# *496AE51C03D5for471355720222*
+	true
+//#UC END# *496AE51C03D5for471355720222*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor471355720222*
+	static_method
+//#UC END# *4705CBD6003Efor471355720222*
+
+// Вложенные стереотипы
+: UtilityPack::Class::Operation::Parameter
+? параметр операции
+= ClassBase::Class::Operation::Parameter
+
+// Параметры стереотипа
+Y code_param.gif
+L code_param
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for471355BD029F*
+= ClassBase::Class::Operation::Parameter;wiki
+//#UC END# *46E6D4BB0339for471355BD029F*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor471355BD029F*
+//#UC END# *470F1571031Cfor471355BD029F*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor471355BD029F*
+//#UC END# *470F15B800CBfor471355BD029F*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for471355BD029F*
+//#UC END# *477398E501C0for471355BD029F*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for471355BD029F*
+//#UC END# *4774D2A20372for471355BD029F*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor471355BD029F*
+//#UC END# *49F5795900ECfor471355BD029F*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for471355BD029F*
+//#UC END# *55B8D28B0157for471355BD029F*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for471355BD029F*
+//#UC END# *55B8D2F80145for471355BD029F*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for471355BD029F*
+//#UC END# *55B8DD9C0301for471355BD029F*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for471355BD029F*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for471355BD029F*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor471355BD029F*
+//#UC END# *4705CBD6003Efor471355BD029F*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for471355BD029F*
+//#UC END# *470484D50138for471355BD029F*
+
+
+: UtilityPack::Class::ini::Operation
+? Секция инициализации.
+= UtilityPack::Class::Operation
+
+// Параметры стереотипа
+v -
+/ - типы видимости
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for478668780062*
+//#UC END# *46E6D4BB0339for478668780062*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor478668780062*
+//#UC END# *470321C1038Afor478668780062*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for478668780062*
+//#UC END# *477398E501C0for478668780062*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for478668780062*
+//#UC END# *4774D2A20372for478668780062*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor478668780062*
+//#UC END# *49F5795900ECfor478668780062*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for478668780062*
+//#UC END# *55B8D28B0157for478668780062*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for478668780062*
+//#UC END# *55B8D2F80145for478668780062*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for478668780062*
+//#UC END# *55B8DD9C0301for478668780062*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor478668780062*
+//	%S%f_pas_OutIniFiniImpl()
+// - специально закомментировано
+//#UC END# *470F15B800CBfor478668780062*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for478668780062*
+//#UC END# *470484D50138for478668780062*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является секцией инициализации
+%f _IsIni
+// возвращаемый результат: boolean
+//#UC START# *4B38844D0399for478668780062*
+	true
+//#UC END# *4B38844D0399for478668780062*
+
+: UtilityPack::Class::fini::Operation
+? Секция финализации.
+= UtilityPack::Class::Operation
+
+// Параметры стереотипа
+v -
+/ - типы видимости
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for478668A902B5*
+//#UC END# *46E6D4BB0339for478668A902B5*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor478668A902B5*
+//#UC END# *470321C1038Afor478668A902B5*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for478668A902B5*
+//#UC END# *477398E501C0for478668A902B5*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for478668A902B5*
+//#UC END# *4774D2A20372for478668A902B5*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor478668A902B5*
+//#UC END# *49F5795900ECfor478668A902B5*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for478668A902B5*
+//#UC END# *55B8D28B0157for478668A902B5*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for478668A902B5*
+//#UC END# *55B8D2F80145for478668A902B5*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for478668A902B5*
+//#UC END# *55B8DD9C0301for478668A902B5*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor478668A902B5*
+//	%S%f_pas_OutIniFiniImpl()
+// - специально закомментировано
+//#UC END# *470F15B800CBfor478668A902B5*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for478668A902B5*
+//#UC END# *470484D50138for478668A902B5*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является секцией финализации
+%f _IsFini
+// возвращаемый результат: boolean
+//#UC START# *4B388478009Ffor478668A902B5*
+	true
+//#UC END# *4B388478009Ffor478668A902B5*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

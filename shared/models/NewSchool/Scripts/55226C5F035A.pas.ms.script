@@ -1,0 +1,169 @@
+// Tl3GetCaptureHelper 55226C5F035A Service Class
+
+FORWARD ME_55226C5F035A
+
+FORWARD ME_358069CF953D
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_FC96CEF34C46
+ CONST UID 'FC96CEF34C46'
+ CONST Name 'GetCapture'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_FC96CEF34C46 GetCapture
+
+: ME_358069CF953D
+ CONST UID '358069CF953D'
+ CONST Name 'Ml3GetCaptureHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3GetCaptureHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_FC96CEF34C46 // GetCapture
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_358069CF953D Ml3GetCaptureHelper
+
+: ME_23B04EF2BA04
+ CONST UID '23B04EF2BA04'
+ CONST GUID '37325DBC-4527-4860-8B30-E4FA121B0FC5'
+ CONST Name 'Il3GetCaptureHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3GetCaptureHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_358069CF953D // Ml3GetCaptureHelper
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_FC96CEF34C46 // GetCapture
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_23B04EF2BA04 Il3GetCaptureHelper
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_EC748CF7BFB4
+ CONST UID 'EC748CF7BFB4'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3GetCaptureHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_23B04EF2BA04 // Il3GetCaptureHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_EC748CF7BFB4 Alien
+
+: ME_CBB0543C43F4
+ CONST UID 'CBB0543C43F4'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_23B04EF2BA04 // Il3GetCaptureHelper
+ ;
+
+ @SELF
+; // ME_CBB0543C43F4 f_Alien
+
+: ME_55226C7E01C4
+ CONST UID '55226C7E01C4'
+ CONST Name 'GetCapture'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_55226C7E01C4 GetCapture
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_BBCF167A72A2
+ CONST UID 'BBCF167A72A2'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_BBCF167A72A2 Exists
+
+: ME_55226C5F035A
+ CONST UID '55226C5F035A'
+ CONST Name 'Tl3GetCaptureHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_358069CF953D // Ml3GetCaptureHelper
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_EC748CF7BFB4 // Alien
+ ME_CBB0543C43F4 // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55226C7E01C4 // GetCapture
+ ME_BBCF167A72A2 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_FC96CEF34C46 // GetCapture
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_358069CF953D // Ml3GetCaptureHelper
+ ME_23B04EF2BA04 // Il3GetCaptureHelper
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55226C5F035A Tl3GetCaptureHelper

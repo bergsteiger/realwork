@@ -1,0 +1,227 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Реализовать подсистему</title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="Top"></a>Активность: Реализовать подсистему</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Произвести программный код в соответствии с проектной моделью.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Шаги</font></strong></small>
+    <ul>
+      <li><a href="#Design subsystem implementation">Спроектировать реализацию подсистемы</a></li>
+      <li><a href="#Implement Operations">Реализовать операции</a></li>
+      <li><a href="#Implement States">Реализовать состояния</a></li>
+      <li><a href="#Implement Associations">Реализовать ассоциации</a></li>
+      <li><a href="#Implement Attributes">Реализовать атрибуты</a></li>
+      <li><a href="#Provide Feedback to Design">Обеспечить обратную связь с проектированием</a></li>
+      <li><a name="Verify interconnections">Проверить совместную работу подсистемы</a> </li>
+      <li><a href="#Evaluate the Code">Оценить код</a></li>
+    </ul>
+    <p>Нет четкой последовательности шагов. Начинайте с реализации операций, ассоциаций и атрибутов так как нужно
+для компиляции и работы операций.</td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектная модель</a></li>
+      <li><a href="../../artifacts/analysisndesign/pa_sad.htm">Документ Программная архитектура</a></li>
+      <li><a href="../../artifacts/requirements/pa_supspec.htm">Дополнительные спецификации</a></li>
+      <li><strong>IDL-описания</strong></li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li>
+        <p align="left"><a href="../../artifacts/implementation/pa_comp.htm">Подсистема</a>, исходный код</p>
+      </li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_implm.htm">Программист-реализатор</a></td>
+  </tr>
+</table>
+</center></div>
+
+
+<p>Замечание: реализация и модификация компонент проводится в рамках системы конфигурационного управления проекта.
+<p>Следуйте <strong>Инструкциям Программирования</strong> при проведении реализации компонент.</p>
+<p>Первоначальным базисом реализации являются классы, с операциями, атрибутами и ассоциациями. Важно понимать, что
+не все операции и атрибуты классов выявляются в ходе проектирования.
+<p>Вторым базисом работ являются реализации прецедентов, показывающие как классы и объекты взаимодействуют, чтобы
+выполнить требуемое поведение прецедента.
+<p>Реализация проводится инкрементально: компиляция, линковка, запуск части регрессионных тестов пару раз в день.
+
+<h3><a name="#Design subsystem implementation">Спроектировать реализацию подсистемы</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+Этот шаг следует непосредственно после создания IDL-описаний интерфейсов компоненты в ходе <a href="../analysisndesign/ac_subds.htm">Активности: Спроектировать подсистему</a>.
+<p>Разработчик должен спроектировать UML-описание реализации подсистемы
+<p>Реализация подсистемы должна быть однозначно связана с интерфейсами, которые она реализует.
+<p>Классы проектирования описывают &quot;каркас&quot; системы на языке IDL.  
+Поэтому, для того чтобы начать стадию реализации необходимо с помощью IDL-компилятора 
+преобразовать такой &quot;каркас&quot; в &quot;каркас&quot; классов реализаций для 
+конечного языка программирования (например, C++). После этого необходимо 
+приступить к &quot;наполнению&quot; таких классов функциональностью, используя 
+диаграммы последовательности и средства языка программирования (специфичные библиотеки, 
+дополнительные классы, модули и т.д.).
+<p>После этого проект реализации подвергаетcя ревью, и только затем разработчик (возможно уже другой) приступает к кодированию.
+
+<h3><a name="Implement Operations">Реализовать операции</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Чтобы реализовать операции:
+<ul>
+  <li>Выберите алгоритм</li>
+  <li>Выберите структуру данных, соответствующую алгоритму</li>
+  <li>Задайте необходимые новые классы и операции</li>
+  <li>Проведите кодирование операции</li>
+</ul>
+<h3><a name="Implement States">Реализовать состояния</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Состояния могут быть реализованы в виде ссылок на значения атрибутов. Переходы между состояниями
+в этом случае будут реализованы как изменения значений атрибутов, а различное поведение в разных состояниеях реализуется
+за счет операторов сравнения. Такое решение неприемлемо для сложной модели поведения.
+<p>Машины состояний, показанные на диаграммах состояний четко описывают требуемое поведение. Они могут реализовываться
+следующими путями:
+<ul>
+  <li>для простых машин - заданием атрибута, в котором перечислены возможные состояния.</li>
+  <li>для более сложных машин можно использовать State pattern.</li>
+  <li>табличный подход хорошо работает на очень сложных машинах состояний. Следуя нему, для каждого состояния
+указывается состояния и связанные переходы.</li>
+</ul>
+
+<h3><a name="Implement Associations">Реализовать ассоциации</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Однонаправленная ассоцияция реализуется как указатель - атрибут, содержащий объектную ссылку.
+если множественность <strong>единица</strong>, то реализация идет как простой указатель, если
+множественность <strong>много</strong>, то как набор указателей. Если набор упорядочен, то
+следует использовать list вместо простого set.</p>
+<p>Двунаправленная ассоциация реализуется как атрибуты в обоих направлениях, используя технику, описанную выше для 
+однонаправленных ассоциаций.</p>
+<p>Большинство объектно-ориентированных языков и программных сред предоставляют библиотеки классов с компонентами,
+реализующими различные виды ассоциаций.
+
+<h3><a name="Implement Attributes">Реализовать атрибуты</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Есть три пути реализации атрибутов: использовать встраивание примитивных переменных, использовать
+классы вторично используемых компонент, задать новые классы. Задание новых классов обычно более гибкое решение, но требующее 
+<p class="picturecenter" align="center"><img src="../images/ac_impc1.gif" width="430" height="37"></p>
+<p class="picturetext">Альтернативное задание атрибутов</p>
+
+<p>Также возможна группировка нескольких переменных простых типов в новый класс.</p>
+<p class="picturecenter" align="center"><img src="../images/ac_impc2.gif" width="381" height="78"></p>
+<p class="picturetext">Атрибуты в Line реализованы как ассоциации к классу Point.</p>
+
+<h3><a name="Provide Feedback to Design">Обеспечьте обратные связи с проектированием</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Если обнаружится ошибка проектирования в любом из описанных шагов, должна быть изменена проектная модель.
+Если изменения носят локальный характер, то изменение модели может выполнить сам программист, при условии согласования 
+работ с Менеджером проект (который определяет, что не будет конфликтов из-за одновременного изменения
+несколькими сотрудниками одного и того же файла модели Rose). Структурные изменения модели производит только 
+Проектировщик.
+<p>На текущий момент запросы на изменение модели не фиксируются в системе отработки запросов на изменение.
+
+<h3><a name="Evaluate the Code">Оценить код</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Перед передачей на тестирование, выполняется <a href="ac_profile.htm">Активность: Провести отладку и профайлинг кода</a>.
+В ходе этой активности, как минимум:
+<ul>
+  <li>Написанный код должен компилироваться.</li>
+  <li>Написанный код должен быть помещен под конфигурационный контроль.</li>
+  <li>Проверьте, что все исключительные ситуации предупреждены.</li>
+</ul>
+&nbsp;
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+</body>
+
+</html>

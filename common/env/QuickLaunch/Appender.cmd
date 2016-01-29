@@ -1,0 +1,1 @@
+"W:\common\env\QuickLaunch\Appender.exe" "%~1" "~%2"

@@ -1,0 +1,67 @@
+project {
+	Define_Custom(FLEX) {
+		automatic = 0
+		inputext = .flex
+		command = dir
+	}
+	includes += ./../../component/cpp/libs/gc/src
+	includes += ./../../component/cpp/libs/gctx/src
+	includes += ./../../component/cpp/libs/gchange/include
+	includes += ./../../component/cpp/libs/lex/include
+	includes += ./../../component/cpp/tools/gctools/src
+	Header_Files {
+		./../../component/cpp/tools/gctools/src/belongs.h
+		./../../component/cpp/tools/gctools/src/blobtable.h
+		./../../component/cpp/tools/gctools/src/cacheIndex.h
+		./../../component/cpp/tools/gctools/src/classes.h
+		./../../component/cpp/tools/gctools/src/complect.h
+		./../../component/cpp/tools/gctools/src/dbproc.m-reader.h
+		./../../component/cpp/tools/gctools/src/dbproc.m-to-gkdb.h
+		./../../component/cpp/tools/gctools/src/dbproc.m-writer.h
+		./../../component/cpp/tools/gctools/src/fstringer.h
+		./../../component/cpp/tools/gctools/src/garcomp.h
+		./../../component/cpp/tools/gctools/src/gcini.h
+		./../../component/cpp/tools/gctools/src/loadStringMap.h
+		./../../component/cpp/tools/gctools/src/MyPipe.h
+		./../../component/cpp/tools/gctools/src/publish.h
+		./../../component/cpp/tools/gctools/src/sources.h
+		./../../component/cpp/tools/gctools/src/sttop.h
+	}
+	
+	Source_Files {
+		./../../component/cpp/tools/gctools/src/belongs.cpp
+		./../../component/cpp/tools/gctools/src/blobtable.cpp
+		./../../component/cpp/tools/gctools/src/cacheIndex.cpp
+		./../../component/cpp/tools/gctools/src/classes.cpp
+		./../../component/cpp/tools/gctools/src/complect.cpp
+		./../../component/cpp/tools/gctools/src/dbproc.m-reader.cpp
+		./../../component/cpp/tools/gctools/src/dbproc.m-to-gkdb.cpp
+		./../../component/cpp/tools/gctools/src/dbproc.m-writer.cpp
+		./../../component/cpp/tools/gctools/src/fstringer.cpp
+		./../../component/cpp/tools/gc/src/garcomp.cpp
+		./../../component/cpp/tools/gctools/src/gcini.cpp
+		./../../component/cpp/tools/gctools/src/gcpass1.cpp
+		./../../component/cpp/tools/gctools/src/kwfile.cpp
+		./../../component/cpp/tools/gctools/src/loadStringMap.cpp
+		./../../component/cpp/tools/gctools/src/MyPipe.cpp // GARANT_CROSSP: in order of <-
+		./../../component/cpp/tools/gctools/src/normfile.cpp
+		./../../component/cpp/tools/gctools/src/nsrcparser.cpp
+		./../../component/cpp/tools/gctools/src/publish.cpp
+		./../../component/cpp/tools/gctools/src/sources.cpp
+		./../../component/cpp/tools/gctools/src/sttop.cpp
+		./../../../../common/components/rtl/Garant/EVD/evddata.cpp
+	}
+
+	FLEX_Files {
+		./../../component/cpp/tools/gctools/src/belongs.flex
+		./../../component/cpp/tools/gctools/src/blobtable.flex
+		./../../component/cpp/tools/gctools/src/classes.flex
+		./../../component/cpp/tools/gctools/src/complect.flex
+		./../../component/cpp/tools/gctools/src/gcini.flex
+		./../../component/cpp/tools/gctools/src/kwfile.flex
+		./../../component/cpp/tools/gctools/src/loadStringMap.flex
+		./../../component/cpp/tools/gctools/src/normfile.flex
+		./../../component/cpp/tools/gctools/src/sources.flex
+		./../../component/cpp/tools/gctools/src/sttop.flex
+	}
+}

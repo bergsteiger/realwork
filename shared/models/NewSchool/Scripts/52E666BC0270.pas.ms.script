@@ -1,0 +1,432 @@
+// TtfwLambdedArrayView 52E666BC0270 SimpleClass Class
+
+FORWARD ME_52E666BC0270
+
+INCLUDE '4DCBD50101CB.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_52EA8AD102B0
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_52EA8AFB0166
+ CONST UID '52EA8AFB0166'
+ CONST Name 'f_Lambda'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_52EA8AFB0166 f_Lambda
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55E8661C0305
+ CONST UID '55E8661C0305'
+ CONST Name 'ItemsCountInSlice'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_55E8661C0305 ItemsCountInSlice
+
+: ME_279C8205E039
+ CONST UID '279C8205E039'
+ CONST Name 'f_ItemsCountInSlice'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ItemsCountInSlice' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_279C8205E039 f_ItemsCountInSlice
+
+FORWARD ME_52EA8B2403DD
+
+: ME_55E591680392
+ CONST UID '55E591680392'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_55E591680392 aLambda
+
+: ME_55E8664B0252
+ CONST UID '55E8664B0252'
+ CONST Name 'aItemsCountInSlice'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_55E8664B0252 aItemsCountInSlice
+
+: ME_55E8664B0270
+ CONST UID '55E8664B0270'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_55E8664B0270 aWord
+
+: ME_556311AC0311
+ CONST UID '556311AC0311'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_556311AC0311 aCtx
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_52EA8B2A03CA
+ CONST UID '52EA8B2A03CA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55E591680392 // aLambda
+ ME_55E8664B0252 // aItemsCountInSlice
+ ME_55E8664B0270 // aWord
+ ME_556311AC0311 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_52EA8B2A03CA DoIt
+
+: ME_52EA8B2403DD
+ CONST UID '52EA8B2403DD'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52EA8B2A03CA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52EA8B2403DD Create
+
+: ME_3475B0A12529
+ CONST UID '3475B0A12529'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwTwoLambdas' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_3475B0A12529 Ini_Reg_Class
+
+: ME_52EA8AD102B0
+ CONST UID '52EA8AD102B0'
+ CONST Name 'TtfwTwoLambdas'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4DCBD50101CB // TkwCompiledWordWorker
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_52EA8AFB0166 // f_Lambda
+ ME_55E8661C0305 // ItemsCountInSlice
+ ME_279C8205E039 // f_ItemsCountInSlice
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_52EA8B2403DD // Create
+ ME_3475B0A12529 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52EA8AD102B0 TtfwTwoLambdas
+
+: ME_52EA8ECC0358
+ CONST UID '52EA8ECC0358'
+ CONST Name 'RtfwTwoLambdas'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52EA8AD102B0 // TtfwTwoLambdas
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_52EA8ECC0358 RtfwTwoLambdas
+
+INCLUDE '52E270AE02EA.pas.ms.script'
+
+: ME_52E667570303
+ CONST UID '52E667570303'
+ CONST Name 'f_Lambda'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_52E667570303 f_Lambda
+
+FORWARD ME_52E6671B033F
+
+: ME_52E66734003C
+ CONST UID '52E66734003C'
+ CONST Name 'anOther'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_52E66734003C anOther
+
+: ME_52E667340057
+ CONST UID '52E667340057'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_52E667340057 aLambda
+
+: ME_52E6672003A5
+ CONST UID '52E6672003A5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_52E66734003C // anOther
+ ME_52E667340057 // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_52E6672003A5 DoIt
+
+: ME_52E6671B033F
+ CONST UID '52E6671B033F'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52E6672003A5 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52E6671B033F Create
+
+FORWARD ME_52E66739020A
+
+: ME_61236B2ED5D1
+ CONST UID '61236B2ED5D1'
+ CONST Name 'anOther'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_61236B2ED5D1 anOther
+
+: ME_FFE1F1350713
+ CONST UID 'FFE1F1350713'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_FFE1F1350713 aLambda
+
+: ME_CC7B7B254390
+ CONST UID 'CC7B7B254390'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TtfwLambdedArrayView.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_61236B2ED5D1 // anOther
+ ME_FFE1F1350713 // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_CC7B7B254390 DoIt
+
+: ME_52E66739020A
+ CONST UID '52E66739020A'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_52E6671B033F // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4DCC12FC0125 // ItfwValueList
+ ]
+ ; // Implements
+ : Operations
+   [ ME_CC7B7B254390 // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_52E66739020A Make
+
+FORWARD ME_52EA8EE702FA
+
+: ME_52EA8EFE019F
+ CONST UID '52EA8EFE019F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_52EA8ECC0358 // RtfwTwoLambdas
+ ;
+
+ @SELF
+; // ME_52EA8EFE019F DoIt
+
+: ME_52EA8EE702FA
+ CONST UID '52EA8EE702FA'
+ CONST Name 'TwoLabdasClass'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_52EA8EFE019F // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52EA8EE702FA TwoLabdasClass
+
+: ME_52E666BC0270
+ CONST UID '52E666BC0270'
+ CONST Name 'TtfwLambdedArrayView'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52E270AE02EA // TtfwArrayView
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_52E667570303 // f_Lambda
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_52E6671B033F // Create
+ ME_52E66739020A // Make
+ ME_52EA8EE702FA // TwoLabdasClass
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_52E666E80335 // DoForEach
+ ME_52E666F6036E // DoForEachBack
+ ]
+ ; // Overridden
+ : Children
+   [ ME_52EA8AD102B0 // TtfwTwoLambdas
+ ME_52EA8ECC0358 // RtfwTwoLambdas
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52E666BC0270 TtfwLambdedArrayView

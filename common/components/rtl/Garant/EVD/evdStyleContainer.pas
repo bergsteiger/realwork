@@ -1,0 +1,166 @@
+unit evdStyleContainer;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "EVD"
+// Автор: Люлин А.В.
+// Модуль: "w:/common/components/rtl/Garant/EVD/evdStyleContainer.pas"
+// Начат: 21.04.1997 16:39
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Core Objects::TevdStyleContainer
+//
+// описание базового контейнера стилей
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+{$Include ..\EVD\evdDefine.inc}
+
+interface
+
+uses
+  evdStyles,
+  k2Base,
+  l3Variant,
+  k2DictionaryEx
+  ;
+
+type
+ _ItemType_ = l3Variant.Tl3Variant;
+  {* Это вообще-то хак, но без этого не находится тип элемента }
+
+ TevStandardStylesArray = array [TevStandardCachedStyle] of Tl3Tag;
+
+ _StringType_ = Tl3Variant;
+ TevdStyleContainer = class(Tk2DictionaryEx)
+  {* описание базового контейнера стилей }
+ private
+ // private fields
+   f_AutoNum : Integer;
+   f_Styles : TevStandardStylesArray;
+ protected
+ // overridden property methods
+   function pm_GetDRByID(anID: Integer): _StringType_; override;
+ protected
+ // overridden protected methods
+   procedure Cleanup; override;
+     {* Функция очистки полей объекта. }
+   procedure DirectInsert(anIndex: Integer;
+    const aData: _ItemType_); override;
+     {* Непосредственное удаление элемента. Без проверки валидности индекса. }
+   function ControlFindByID: Boolean; override;
+ public
+ // public methods
+   class procedure CheckValueTable(aType: Tk2Type);
+     {* Проверяет таблицу значений. }
+ end;//TevdStyleContainer
+
+implementation
+
+uses
+  SysUtils,
+  l3Types,
+  k2Tags
+  ;
+
+// start class TevdStyleContainer
+
+class procedure TevdStyleContainer.CheckValueTable(aType: Tk2Type);
+//#UC START# *4860B7AA025D_4860B1230094_var*
+var
+ VT : TevdStyleContainer;
+//#UC END# *4860B7AA025D_4860B1230094_var*
+begin
+//#UC START# *4860B7AA025D_4860B1230094_impl*
+ if (aType.ValueTable = nil) then
+ begin
+  VT := TevdStyleContainer.Create(aType);
+  try
+   VT.Duplicates := l3_dupAssign;
+   aType.ValueTable := VT;
+  finally
+   FreeAndNil(VT); 
+  end;{try..finally}
+ end;//aType.ValueTable = nil
+//#UC END# *4860B7AA025D_4860B1230094_impl*
+end;//TevdStyleContainer.CheckValueTable
+
+procedure TevdStyleContainer.Cleanup;
+//#UC START# *479731C50290_4860B1230094_var*
+//#UC END# *479731C50290_4860B1230094_var*
+begin
+//#UC START# *479731C50290_4860B1230094_impl*
+ Finalize(f_Styles);
+ inherited;
+//#UC END# *479731C50290_4860B1230094_impl*
+end;//TevdStyleContainer.Cleanup
+
+procedure TevdStyleContainer.DirectInsert(anIndex: Integer;
+  const aData: _ItemType_);
+//#UC START# *47B49EC50034_4860B1230094_var*
+//#UC END# *47B49EC50034_4860B1230094_var*
+begin
+//#UC START# *47B49EC50034_4860B1230094_impl*
+ if (aData.IntA[k2_tiHandle] = 0) then
+ begin
+  Inc(f_AutoNum);
+  aData.IntA[k2_tiHandle] := f_AutoNum;
+ end;//S.Alias >= 0
+ if (aData.IntA[k2_tiHandle] = ev_saTxtNormalANSI) then
+  Default := aData;
+ inherited;
+//#UC END# *47B49EC50034_4860B1230094_impl*
+end;//TevdStyleContainer.DirectInsert
+
+function TevdStyleContainer.pm_GetDRByID(anID: Integer): _StringType_;
+//#UC START# *4B8BBA220048_4860B1230094get_var*
+
+ function DoGetDRByID(anID: Integer): Tl3Tag;
+ begin//DoGetDRByID
+  Result := inherited pm_GetDRByID(anID);
+  if (Result = nil) OR
+     (Result.IntA[k2_tiHandle] <> anID) then
+  begin
+   Result := AtomType.MakeTag.AsObject;
+   Result.IntA[k2_tiHandle] := anID;
+   Result.StrA[k2_tiName] := 'Элемент №' + IntToStr(anID);
+   Result.BoolA[k2_tiVisibleToUser] := False; // Он не нужен пользователю! См. http://mdp.garant.ru/pages/viewpage.action?pageId=259890927&focusedCommentId=259890934#comment-259890934
+   Self.Add(Result);
+   Assert(Result.IntA[k2_tiHandle] = anID);
+   f_LastRec.rTag := Result;
+   f_LastRec.rID := anID;
+  end;//Result = nil..
+ end;//DoGetDRByID
+
+//#UC END# *4B8BBA220048_4860B1230094get_var*
+begin
+//#UC START# *4B8BBA220048_4860B1230094get_impl*
+ if (anID >= Low(TevStandardCachedStyle)) AND
+    (anID <= High(TevStandardCachedStyle)) then
+ begin
+  Result := f_Styles[anID];
+  if (Result = nil) then
+  begin
+   Result := DoGetDRByID(anID);
+   f_Styles[anID] := Result;
+  end;//Result = nil
+ end//anID >= Low(TevStandardCachedStyle)..
+ else
+  Result := DoGetDRByID(anID);
+//#UC END# *4B8BBA220048_4860B1230094get_impl*
+end;//TevdStyleContainer.pm_GetDRByID
+
+function TevdStyleContainer.ControlFindByID: Boolean;
+//#UC START# *4B8BBAA800AB_4860B1230094_var*
+//#UC END# *4B8BBAA800AB_4860B1230094_var*
+begin
+//#UC START# *4B8BBAA800AB_4860B1230094_impl*
+ Result := true;
+//#UC END# *4B8BBAA800AB_4860B1230094_impl*
+end;//TevdStyleContainer.ControlFindByID
+
+end.

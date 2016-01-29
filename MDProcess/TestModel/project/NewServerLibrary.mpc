@@ -1,0 +1,48 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/project/NewServerLibrary.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> TestModel::NewServerLibrary
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (NewServerLibrary) : project_generic_core_corba {
+	staticname = NewServerLibrary
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += NewServerLibrary_cs
+	libs  += NewServerLibrary_cs
+
+	after += BasicTests
+	libs  += BasicTests
+
+	after += SubTestLibrary
+	libs  += SubTestLibrary
+
+	after += SubServerLibrary_cs
+	libs  += SubServerLibrary_cs
+
+	Header_Files {
+		Std_Headers {
+			./../NewServerLibrary/ServerLibHome.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../NewServerLibrary/ServerLibHome.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,35 @@
+// Shared Delphi Core And Low Level 5623B27D02CF ProjectGroup Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_5623B27D02CF
+ CONST UID '5623B27D02CF'
+ CONST Name 'Shared Delphi Core And Low Level'
+ CONST Class class_Category
+ : Stereotype st_ProjectGroup ;
+ %SUMMARY 'Общие проектные библиотеки нижнего уровня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Children
+   @ ( WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ WL 'ME_4E78C3EC018D' '4E78C3EC018D.pas.ms.script' // Shared Delphi Требования
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_561FCFDC007C' '561FCFDC007C.pas.ms.script' // Templates
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Core And Low Level.root.model.script'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5623B27D02CF.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5623B27D02CF.pas.ms.script.runner'
+
+ref; // ME_5623B27D02CF Shared Delphi Core And Low Level

@@ -1,0 +1,28 @@
+// Utils 5437B26200BF Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_5437B26200BF
+ CONST UID '5437B26200BF'
+ CONST Name 'Utils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_543244050044' '543244050044.pas.ms.script' // DA
+ ;
+ : Depends
+   @ ( WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
+ WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5437B26200BF.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5437B26200BF.pas.ms.script.runner'
+
+ref; // ME_5437B26200BF Utils

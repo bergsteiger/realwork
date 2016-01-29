@@ -1,0 +1,472 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "SearchView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView|47A814CB0368
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (vm)"
+	    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-panel-author.vm::47A85F8201A4,w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-panel-containingtext.vm::47A85F730084,w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-panel-daterange.vm::47A85FB501DF,w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-panel-grouping.vm::47A85F9F028F,w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-params.vm::47AACD9B0078")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-panel-author|47A85F8201A4::47A85F8201A4;MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-panel-containingtext|47A85F730084::47A85F730084;MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-panel-daterange|47A85FB501DF::47A85FB501DF;MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-panel-grouping|47A85F9F028F::47A85F9F028F;MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-params|47AACD9B0078::47AACD9B0078
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19037018220"))
+    quid       	"47A814CB0368"
+    documentation 	"ñîäåðæèò web-ñòðàíèöû ïîèñêà"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "searchpage-panel-containingtext"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-panel-containingtext.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-panel-containingtext|47A85F730084
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*47A85F730084_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*47A85F730084_CUSTOM_CONTENT*¤¤#set($disableSearchInCommentsAndAttachments = false)¤#if($action.searchResultType)¤	#set($disableSearchInCommentsAndAttachments = true)¤#end¤¤<div class="searchGroupHeading">¤	<a class="searchGroupLink" href="javascript:showBlock('containingTextBlock')">$garHelper.getText('searchpagecontainingtext.containing.text'):</a>¤</div>¤<table cellspacing="0" width="100%" id="containingTextBlock" style="#renderDisplayFromSearchBlock("containingTextBlock")">¤	<tr><td colspan="3">¤			#set($wordEscapeSymbols = $garHelper.escapeHtml("${form.wordsToSearch}"))¤			<input type="text" id="wordsToSearch" name="form.wordsToSearch" size="43" value="$wordEscapeSymbols">¤		</td>¤	</tr>¤	<tr><td width="21%">¤		<div valign="top">$garHelper.getText('searchpagecontainingtext.search.in'):</div>¤	</td>¤	<td width="37%">¤		<input type="checkbox" id="searchInHeader" name="form.searchInHeaders" value="true" #if($form.searchInHeaders.equals(true)) checked #end>¤		<img src="$req.contextPath/images/icons/garicons/page_header.png" align="absmiddle">¤		<label for="searchInHeader">$garHelper.getText('searchpagecontainingtext.header')</label><br/>¤		¤		<input type="checkbox" id="searchInText" name="form.searchInText" value="true" #if($form.searchInText.equals(true)) checked #end>¤		<img src="$req.contextPath/images/icons/garicons/page_text.png" align="absmiddle">¤		<label for="searchInText">$garHelper.getText('searchpagecontainingtext.body.text')</label>¤		¤	</td>¤	<td width="42%">¤		<input #if($disableSearchInCommentsAndAttachments)DISABLED#end type="checkbox" id="searchInComments" name="form.searchInComments" value="true" #if($form.searchInComments.equals(true)) checked #end>¤		<img src="$req.contextPath/images/icons/garicons/comment.png" align="absmiddle">¤		<label for="searchInComments">$garHelper.getText('searchpagecontainingtext.comments')</label><br/>¤		¤		<input #if($disableSearchInCommentsAndAttachments)DISABLED#end type="checkbox" id="searchInAttachments" name="form.searchInAttachments" value="true" #if($form.searchInAttachments.equals(true)) checked #end>¤		<img src="$req.contextPath/images/icons/attach_file_16.gif" align="absmiddle">¤		<label for="searchInAttachments">$garHelper.getText('searchpagecontainingtext.attachments')</label>¤	</td>¤	</tr>¤</table>¤¤¤##UC_END*47A85F730084_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19037023437"))
+	    quid       	"47A85F730084"
+	    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "searchpage-panel-author"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-panel-author|47A85F8201A4
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-panel-author.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*47A85F8201A4_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*47A85F8201A4_CUSTOM_CONTENT*¤<div class="searchGroupHeading">¤	<a class="searchGroupLink" href="javascript:showBlock('authorBlock')">$garHelper.getText('searchpageauthor.author'):</a>¤</div>¤<table width="100%" id="authorBlock" style="#renderDisplayFromSearchBlock("authorBlock")">¤	<tr><td>¤		<input type="radio" id="authorTypeMyTeam" name="form.authorType" value="AUTHOR_TYPE_MY_TEAM"¤			onclick="setSelectOptions('authors', authorsJsVar, this.value)" #if($form.authorType.equals("AUTHOR_TYPE_MY_TEAM")) checked #end>¤		<label for="authorTypeMyTeam">$garHelper.getText('searchpageauthor.my.team')</label><br/>¤		¤		<input type="radio" id="authorTypeGroups" name="form.authorType" value="AUTHOR_TYPE_GROUPS"¤			onclick="setSelectOptions('authors', authorsJsVar, this.value)" #if($form.authorType.equals("AUTHOR_TYPE_GROUPS")) checked #end>¤		<label for="authorTypeGroups">$garHelper.getText('searchpageauthor.groups')</label><br/>¤		¤		<input type="radio" id="authorTypeAll" name="form.authorType" value="AUTHOR_TYPE_ALL"¤			onclick="setSelectOptions('authors', authorsJsVar, this.value)" #if($form.authorType.equals("AUTHOR_TYPE_ALL")) checked #end>¤		<label for="authorTypeAll">$garHelper.getText('searchpageauthor.all')</label>¤	</td>¤	<td align="right">¤		<select MULTIPLE id="authors" name="form.authors" size="5" class="selectBox">¤			#foreach($author in $action.form.getAllAuthors())¤				#if($form.authors.contains($author.key))¤					<option value="$author.key" selected>$author</option>¤				#else¤					<option value="$author.key">$author</option>¤				#end¤			#end¤		</select>¤	</td></tr>¤	<tr>¤		<td colspan="2">¤			$garHelper.getText('searchpageauthor.author.is'):&nbsp;¤			¤			<input type="checkbox" id="authorIsCreator" name="form.authorIsCreator" value="true" #if($form.authorIsCreator.equals(true)) checked #end>¤			<label for="authorIsCreator">$garHelper.getText('searchpageauthor.creator')</label>¤			¤			<input type="checkbox" id="authorIsLastModifier" name="form.authorIsLastModifier" value="true" #if($form.authorIsLastModifier.equals(true)) checked #end>¤			<label for="authorIsLastModifier">$garHelper.getText('searchpageauthor.last.modifier')</label>¤		</td>¤	</tr>¤</table>¤##UC_END*47A85F8201A4_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19037026725"))
+	    quid       	"47A85F8201A4"
+	    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "searchpage-panel-grouping"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-panel-grouping.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-panel-grouping|47A85F9F028F
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*47A85F9F028F_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*47A85F9F028F_CUSTOM_CONTENT*¤<div class="searchGroupHeading">¤	<a class="searchGroupLink" href="javascript:showBlock('groupingBlock')">$garHelper.getText('searchpagegrouping.grouping'):</a>¤</div>¤<table width="100%" id="groupingBlock" style="#renderDisplayFromSearchBlock("groupingBlock")">¤	<tr><td>¤		<input type="checkbox" id="groupingBySpace" name="form.groupingBySpace" value="true" ¤			#if($form.groupingBySpace.equals(true)) checked #end>¤		<label for="groupingBySpace">$garHelper.getText('searchpagegrouping.space')</label>¤	</td></tr>¤</table>¤##UC_END*47A85F9F028F_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19037027832"))
+	    quid       	"47A85F9F028F"
+	    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "searchpage-panel-daterange"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-panel-daterange.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-panel-daterange|47A85FB501DF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*47A85FB501DF_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*47A85FB501DF_CUSTOM_CONTENT*¤¤<div class="searchGroupHeading">¤	<a class="searchGroupLink" href="javascript:showBlock('dateRangeBlock')">$garHelper.getText('searchpagedaterange.date.range'):</a>¤</div>¤<table width="100%" id="dateRangeBlock" style="#renderDisplayFromSearchBlock("dateRangeBlock")">¤	<tr>¤		<td colspan=2>¤			<select id="dateRangePredefined" name="form.dateRangePredefined" onChange="enableDateInputs()">¤				#foreach($dateRange in $action.form.getAllDateRangePredefined())¤					#if($form.dateRangePredefined.equals($dateRange))¤						<option value="$dateRange" selected>$dateRange</option>¤					#else¤						<option value="$dateRange">$dateRange</option>¤					#end¤				#end¤			</select>¤		</td>¤		<td>$garHelper.getText('searchpagedaterange.trait.dates.as'):</td>¤	</tr>¤	<tr>¤		<td>$garHelper.getText('searchpagedaterange.from'):</td>¤		<td>¤			<input type="text" size="15" id="dateFrom" name="form.dateFrom" value="$!{form.dateFrom}" #if($form.dateRangePredefined.equals($garHelper.getText('basesearchform.custom')).equals(false)) disabled #end/>¤		</td>¤		<td>¤			<input type="radio" id="dateTraitsAsCreation" name="form.dateTraitsAs" value="DATE_TRAITS_AS_CREATION" #if($form.dateTraitsAs.equals("DATE_TRAITS_AS_CREATION")) checked #end/>¤			<label for="dateTraitsAsCreation">$garHelper.getText('searchpagedaterange.creation')</label>¤		</td>¤	</tr>¤	<tr>¤		<td>$garHelper.getText('searchpagedaterange.to'):</td>¤		<td>¤			<input type="text" size="15" id="dateTo" name="form.dateTo" value="$!{form.dateTo}" #if($form.dateRangePredefined.equals($garHelper.getText('basesearchform.custom')).equals(false)) disabled #end/>¤		</td>¤		<td>¤			<input type="radio" id="dateTraitsAsModification" name="form.dateTraitsAs" value="DATE_TRAITS_AS_MODIFICATION" #if($form.dateTraitsAs.equals("DATE_TRAITS_AS_MODIFICATION")) checked #end/>¤			<label for="dateTraitsAsModification">$garHelper.getText('searchpagedaterange.modification')</label>¤		</td>¤	</tr>¤	<tr><td colspan="3" align="center">¤		<span class="smalltext">$garHelper.getText('searchpagedaterange.date.format')</span>¤	</td></tr>¤</table>¤¤##UC_END*47A85FB501DF_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19037024538"))
+	    quid       	"47A85FB501DF"
+	    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "searchpage-params"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/SearchView/searchpage-params.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/SearchView/searchpage-params|47AACD9B0078
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*47AACD9B0078_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*47AACD9B0078_CUSTOM_CONTENT*¤¤<style type="text/css">¤    td.paramName {text-align: right; font-style: italic; width:1%; white-space:nowrap}¤    td.paramValue {text-align: left; font-weight: bold}¤</style>¤¤#macro (showLabelOrList $label $list)¤	#if ($list.size() == 0)¤		$label¤	#else¤		#showStringList($list)¤	#end¤#end¤¤#macro (showStringList $list)¤	#set ( $size = $list.size() )¤	#foreach( $element in $list )¤		#if ($velocityCount != $size)¤			$element,¤		#else¤			$element¤		#end¤	#end¤#end¤¤¤<!-- -------------------- PAGE BEGINNING -------------------- -->¤#set ($formData = $action.Form)¤#set ($summary = $formData.SearchSummary)¤¤<table cellspacing="0" border="0">¤	#foreach( $key in $summary.keySet() )¤		#set( $value = $summary.get($key) )¤    	<tr>¤    		<td class="paramName">¤				$key:&nbsp;¤    		</td>¤    		<td class="paramValue">¤    			#showStringList($value)¤    		</td>¤    	</tr>¤	#end¤</table>¤¤##UC_END*47AACD9B0078_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19037025607"))
+	    quid       	"47AACD9B0078"
+	    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"47A859C901A9"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchView::searchpage-panel-containingtext" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(516, 210)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(179, 181)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	674
+			justify    	0
+			label      	"searchpage-panel-containingtext")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(179, 131)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	674
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"47A85F730084"
+		    width      	692
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchView::searchpage-panel-author" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(417, 450)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(180, 421)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	474
+			justify    	0
+			label      	"searchpage-panel-author")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(180, 371)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	474
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"47A85F8201A4"
+		    width      	492
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchView::searchpage-panel-grouping" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1176, 225)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(920, 196)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	512
+			justify    	0
+			label      	"searchpage-panel-grouping")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(920, 146)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	512
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"47A85F9F028F"
+		    width      	530
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchView::searchpage-panel-daterange" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1038, 468)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(770, 439)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	536
+			justify    	0
+			label      	"searchpage-panel-daterange")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(770, 389)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	536
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"47A85FB501DF"
+		    width      	554
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchView::searchpage-params" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(399, 699)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(184, 670)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	430
+			justify    	0
+			label      	"searchpage-params")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(184, 620)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	430
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"47AACD9B0078"
+		    width      	448
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)))))

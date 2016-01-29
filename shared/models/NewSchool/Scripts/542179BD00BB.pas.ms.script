@@ -1,0 +1,141 @@
+// m3PersistentList 542179BD00BB Impurity Class
+
+INCLUDE '545B7E6B00A1.pas.ms.script'
+
+FORWARD ME_542179BD00BB
+
+FORWARD ME_54538D8402D6
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_54538DA50016
+ CONST UID '54538DA50016'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_54538DA50016 aStream
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_54538DA50040
+ CONST UID '54538DA50040'
+ CONST Name 'aPosition'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_54538DA50040 aPosition
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54538D940221
+ CONST UID '54538D940221'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54538DA50016 // aStream
+ ME_54538DA50040 // aPosition
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54538D940221 DoIt
+
+: ME_54538D8402D6
+ CONST UID '54538D8402D6'
+ CONST Name 'LoadFromStream'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54538D940221 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54538D8402D6 LoadFromStream
+
+FORWARD ME_54538DB3032A
+
+: ME_54538DE200F4
+ CONST UID '54538DE200F4'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_54538DE200F4 aStream
+
+: ME_54538DD4013A
+ CONST UID '54538DD4013A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_47208C70028B // Int64
+ ;
+ : Parameters
+   [ ME_54538DE200F4 // aStream
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54538DD4013A DoIt
+
+: ME_54538DB3032A
+ CONST UID '54538DB3032A'
+ CONST Name 'SaveToStream'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54538DD4013A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54538DB3032A SaveToStream
+
+: ME_542179BD00BB
+ CONST UID '542179BD00BB'
+ CONST Name 'm3PersistentList'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_545B7E6B00A1 // m3ListWithFind
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_54538D8402D6 // LoadFromStream
+ ME_54538DB3032A // SaveToStream
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_542179BD00BB m3PersistentList

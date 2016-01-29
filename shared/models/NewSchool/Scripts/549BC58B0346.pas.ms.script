@@ -1,0 +1,371 @@
+// Tl3ExecuteInMainThread 549BC58B0346 SimpleClass Class
+
+FORWARD ME_549BC58B0346
+
+INCLUDE '549BC5C50174.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_549BDA9C0160
+
+: ME_549BDADA034E
+ CONST UID '549BDADA034E'
+ CONST Name 'f_Task'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ @SELF
+; // ME_549BDADA034E f_Task
+
+INCLUDE '48078324039E.pas.ms.script'
+
+: ME_549BDB090120
+ CONST UID '549BDB090120'
+ CONST Name 'f_Event'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_491D9DB8010F // TEvent
+ ;
+
+ @SELF
+; // ME_549BDB090120 f_Event
+
+: ME_549BDAD502E9
+ CONST UID '549BDAD502E9'
+ CONST Name 'aTask'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ @SELF
+; // ME_549BDAD502E9 aTask
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_549BDAC601E8
+ CONST UID '549BDAC601E8'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_549BDAD502E9 // aTask
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_549BDAC601E8 Create
+
+: ME_549BDB15036E
+ CONST UID '549BDB15036E'
+ CONST Name 'WaitForExec'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_549BDB15036E WaitForExec
+
+: ME_549BDA9C0160
+ CONST UID '549BDA9C0160'
+ CONST Name 'Tl3SynTask'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_549BC5C50174 // Tl3AsyncTask
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_549BDADA034E // f_Task
+ ME_549BDB090120 // f_Event
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_549BDAC601E8 // Create
+ ME_549BDB15036E // WaitForExec
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_549BC64F01DE // Exec
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_549BDA9C0160 Tl3SynTask
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '53A03846011C.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '549BC6740033.pas.ms.script'
+
+: ME_549BC6EC02B8
+ CONST UID '549BC6EC02B8'
+ CONST Name 'f_Data'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_549BC6740033 // Tl3AsynkTaskList
+ ;
+
+ @SELF
+; // ME_549BC6EC02B8 f_Data
+
+INCLUDE '48A41FF10094.pas.ms.script'
+
+: ME_549BCC490012
+ CONST UID '549BCC490012'
+ CONST Name 'f_Wnd'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4E95755B0162 // HWND
+ ;
+
+ @SELF
+; // ME_549BCC490012 f_Wnd
+
+: ME_549BD47903C0
+ CONST UID '549BD47903C0'
+ CONST Name 'f_MsgID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A465F9028C // THandle
+ ;
+
+ @SELF
+; // ME_549BD47903C0 f_MsgID
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+FORWARD ME_549BD08302D8
+
+INCLUDE '476F78840219.pas.ms.script'
+
+: ME_C8597985F0FD
+ CONST UID 'C8597985F0FD'
+ CONST Name 'Message'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476F78A602B2 // TMessage
+ ;
+
+ @SELF
+; // ME_C8597985F0FD Message
+
+: ME_AC627B00159F
+ CONST UID 'AC627B00159F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_C8597985F0FD // Message
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_AC627B00159F DoIt
+
+: ME_549BD08302D8
+ CONST UID '549BD08302D8'
+ CONST Name 'WndProc'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_47E124920022 // TWndMethod
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_AC627B00159F // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_549BD08302D8 WndProc
+
+FORWARD ME_549BE5C2006F
+
+: ME_4E8D43EFF3F4
+ CONST UID '4E8D43EFF3F4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Init' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4E8D43EFF3F4 DoIt
+
+: ME_549BE5C2006F
+ CONST UID '549BE5C2006F'
+ CONST Name 'Init'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4E8D43EFF3F4 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_549BE5C2006F Init
+
+: ME_549BC61300F5
+ CONST UID '549BC61300F5'
+ CONST Name 'aTask'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ @SELF
+; // ME_549BC61300F5 aTask
+
+: ME_549BC5F800ED
+ CONST UID '549BC5F800ED'
+ CONST Name 'AsyncExec'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_549BC61300F5 // aTask
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_549BC5F800ED AsyncExec
+
+: ME_549BC623037C
+ CONST UID '549BC623037C'
+ CONST Name 'aTask'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ @SELF
+; // ME_549BC623037C aTask
+
+: ME_549BC61B009B
+ CONST UID '549BC61B009B'
+ CONST Name 'SyncExec'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_549BC623037C // aTask
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_549BC61B009B SyncExec
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_2CBCCC682D65
+ CONST UID '2CBCCC682D65'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_2CBCCC682D65 Exists
+
+: ME_549BC58B0346
+ CONST UID '549BC58B0346'
+ CONST Name 'Tl3ExecuteInMainThread'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Перед использованием нужно вызывать init в главном потоке.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_53A03846011C // l3CriticalSectionHolder
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_549BC6EC02B8 // f_Data
+ ME_549BCC490012 // f_Wnd
+ ME_549BD47903C0 // f_MsgID
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_549BD08302D8 // WndProc
+ ME_549BE5C2006F // Init
+ ME_549BC5F800ED // AsyncExec
+ ME_549BC61B009B // SyncExec
+ ME_2CBCCC682D65 // Exists
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_549BDA9C0160 // Tl3SynTask
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_549BC58B0346 Tl3ExecuteInMainThread

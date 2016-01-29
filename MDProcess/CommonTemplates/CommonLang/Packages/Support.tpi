@@ -1,0 +1,112 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Packages/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Packages::Support
+//
+// вспомоагтельные функции для генерации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// выводит форвард декларацию класса, с учетом нэймспэйсов
+f _in_scope_name
+//#UC START# *47173A8B000F*
+	%SP\tclass %SN%1N;
+	%Sp
+//#UC END# *47173A8B000F*
+
+// нужно ли AMI
+f _need_ami
+//#UC START# *47173A970119*
+	[{"<{}{"%f_use_ami(%C)"="true"}{C%C}>"="0"}{true}false]
+//#UC END# *47173A970119*
+
+// возвращает true, если нужены дополнительные файлы для генерации фрейморвка фабрик
+f _need_factory_files
+//#UC START# *47173AA10222*
+	[{"<{}{"%f_has_factory_methods(%C)"="true"|%CM=ServerEvent::Class}{%CC}>"="0"}{true}false]
+//#UC END# *47173AA10222*
+
+// нужны ли дополнительные файлы для генерации описания TIE-обёрток
+f _need_tie_files
+//#UC START# *47173AB10186*
+	[{"<{}{%CM=Interface::Class|%CM=Struct::Class|%CM=Vector::Class|%CM=Set::Class}{%CC}>"="0"}{true}false]
+//#UC END# *47173AB10186*
+
+// нужно ли генерить в AMI
+f _print_in_ami_file
+//#UC START# *47173ABC0177*
+	[{"%f_use_ami(%S)"="true"|"%f_used_in_ami(%S)"="true"}{false}true]
+//#UC END# *47173ABC0177*
+
+// использует ли AMI
+f _use_ami
+//#UC START# *47173AC40222*
+/	[{"%S{Use AMI}"="true"}{[{"<{}{"%f_use_ami(%Z)"="true"}{C%Z}>"="0"}{true}false]}true]
+	[{"%S{Use AMI}"="true"}{[{"<{}{%f_use_ami(%Z)=true}{C%Z}>"="0"}{true}false]}true]
+//#UC END# *47173AC40222*
+
+// используется ли в AMI
+f _used_in_ami
+//#UC START# *47173ACB0242*
+/	[{"<{}{"%f_use_ami(%b)"="true"}{C%b}>"="0"}{true}false]
+	false
+//#UC END# *47173ACB0242*
+
+// использует ли заданный элемент детьми пакета
+f _use_in_pack_child
+//#UC START# *47173B27007D*
+	%f_set_var(TYPE,S)[{"%{PACK}<%C<{}{%wU=%{TYPE}U}.>>"!=""|<{}{%CS=Class&%f_use_in_pack_child(%C)=true}{C}>!=0}{false}true]
+//#UC END# *47173B27007D*
+
+// генерит код модуля idl
+f _idl_subsystem
+//#UC START# *47173E11031C*
+	[{"%XU"="idl"}
+	
+	\#ifndef __<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+	\#define __<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+	[%f_idl_pre_include(%S)
+	
+	][{%SN!=RootSrv}\#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+	][{"%f_need_ami(%S)"="true"}{<\n\#include %f_dump_include_path(%IL,%I)>}\#include %f_dump_include_path(%f_with_gen_id(idl_ami,%SL),%S)
+	]
+	[\#pragma prefix "%f_idl_prefix(%S)"
+	
+	]%SP[{%S{is namespace}=true}
+	#module %SN {]<{\n}{}{%C}[
+	[{"%f_print_in_ami_file(%C)"="false"}{\n#\t%CF // AMI forwarded}%CX]]>
+	[{%S{is namespace}=true}#};
+	]%Sp
+	][{"%XU"="idl_ami"}
+	
+	\#ifndef __AMI_<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+	\#define __AMI_<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+	
+	[%f_idl_pre_include(%S)
+	]
+	[<\n\#include %f_dump_include_path(%f_with_gen_id(idl,%IL),%I)>
+	]
+	[\#pragma prefix "%f_idl_prefix(%S)"
+	
+	]%SP[{%S{is namespace}=true}
+	#module %SN {]<{\n}{"%f_print_in_ami_file(%C)"="true"}
+	%C<{}{%f_use_ami(%n)=false&%f_kind_of(n,ServerFacet::Class)=true}[%f_with_gen_id(idl,#%nF)
+	]>%f_with_gen_id(idl,%CX)>
+	[{%S{is namespace}=true}#};
+	]%Sp
+	]
+	
+	\#endif
+//#UC END# *47173E11031C*
+
+// нужно ли генерить cpp
+f _srv_need_cpp_files
+//#UC START# *47173E1901E4*
+	[{<{}{%AS=ServerInterface|%AS=ServerFacet}{C}>!=0}{false}true]
+//#UC END# *47173E1901E4*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

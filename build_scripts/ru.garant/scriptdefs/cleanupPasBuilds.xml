@@ -1,0 +1,62 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		ru.garant.extensions.scriptdefs.cleanupAllFiles
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.cleanupPasBuilds"
+	language = "javascript"
+>
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var l_workRootDir = project.getProperty ("ru.garant.extensions.properties.workRootDir");
+
+			if (l_workRootDir != null) {
+				var l_workRootDirFile = new File (l_workRootDir);
+				var l_workRootDirPath = l_workRootDirFile.getPath ();
+
+				l_workRootDir = l_workRootDirPath;
+			}
+
+			{
+				var l_cleanupAllFilesTask = project.createTask ("ru.garant.extensions.scriptdefs.cleanupAllFiles"); {
+					var l_runtimeConfigurableWrapper = l_cleanupAllFilesTask.getRuntimeConfigurableWrapper (); {
+						var l_rootDir = l_workRootDir+ "/build/exe";
+
+						l_runtimeConfigurableWrapper.setAttribute ("root.dir", l_rootDir);
+					}
+
+					l_cleanupAllFilesTask.reconfigure ();
+				}
+
+				l_cleanupAllFilesTask.execute ();
+			} {
+				var l_cleanupAllFilesTask = project.createTask ("ru.garant.extensions.scriptdefs.cleanupAllFiles"); {
+					var l_runtimeConfigurableWrapper = l_cleanupAllFilesTask.getRuntimeConfigurableWrapper (); {
+						var l_rootDir = l_workRootDir+ "/build/units";
+
+						l_runtimeConfigurableWrapper.setAttribute ("root.dir", l_rootDir);
+					}
+
+					l_cleanupAllFilesTask.reconfigure ();
+				}
+
+				l_cleanupAllFilesTask.execute ();
+			}
+		}
+	]]>
+</scriptdef>

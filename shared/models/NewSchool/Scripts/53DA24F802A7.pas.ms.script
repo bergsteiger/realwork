@@ -1,0 +1,104 @@
+// TkwCompiledScriptCompileAndProcess 53DA24F802A7 SimpleClass Class
+
+INCLUDE '4DCBD50101CB.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '515AC8CC02BD.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_53DA24F802A7
+
+: ME_53DA33C9002A
+ CONST UID '53DA33C9002A'
+ CONST Name 'f_NativeCaller'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4DAF1A1700F7 // ItfwScriptCaller
+ ;
+
+ @SELF
+; // ME_53DA33C9002A f_NativeCaller
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_868863AFA667
+ CONST UID '868863AFA667'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwCompiledScriptCompileAndProcess' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_868863AFA667 Ini_Reg_Class
+
+: ME_53DA24F802A7
+ CONST UID '53DA24F802A7'
+ CONST Name 'TkwCompiledScriptCompileAndProcess'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DCBD50101CB // TkwCompiledWordWorker
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4DAF1A1700F7 // ItfwScriptCaller
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_53DA33C9002A // f_NativeCaller
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_868863AFA667 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4CAEDCF9006A // CheckOutputWithInput$1
+ ME_4DAEEDE10285 // DoDoIt
+ ME_4DAF1A280116 // Check
+ ME_4DB173AA005A // Print
+ ME_4DB1785F011A // Print
+ ME_4DC2E1470046 // ResolveIncludedFilePath
+ ME_4DCA915C0120 // ResolveOutputFilePath
+ ME_4DD533BF023D // CheckWithEtalon
+ ME_4DECF57B02D2 // ResolveInputFilePath
+ ME_4F0D7AC900FA // CheckPrintEtalon
+ ME_4F0D8B740186 // ShouldStop
+ ME_4F0D8C360085 // CheckTimeout
+ ME_4F0D8C5A01A2 // StartTimer
+ ME_4F0D8CB0015D // StopTimer
+ ME_4F0D91AA0080 // KPage
+ ME_4F0DA2A7024A // ToLog
+ ME_4F5F3C61023E // CheckOutputWithInput
+ ME_4F72CEFE016D // GetIsWritingToK
+ ME_4F72CF27029A // GetIsFakeCVS
+ ME_4F72CF78027D // GetCVSPath
+ ME_4F851D7B0399 // DontRaiseIfEtalonCreated
+ ME_511BC7C60063 // TimeToLog
+ ME_513866B10237 // GetTestSetFolderName
+ ME_5138790002FF // GetEtalonSuffix
+ ME_52EBC5BB0300 // CompileOnly
+ ME_536A15F901DA // CheckPictureOnly
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53DA24F802A7 TkwCompiledScriptCompileAndProcess

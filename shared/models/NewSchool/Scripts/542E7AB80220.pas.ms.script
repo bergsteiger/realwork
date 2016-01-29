@@ -1,0 +1,56 @@
+// Tm3StorageHolderListPrim 542E7AB80220 SimpleClass Class
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_542E7AB80220
+
+INCLUDE '542E5D79018F.pas.ms.script'
+
+: ME_542E7AF70226
+ CONST UID '542E7AF70226'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_542E5D79018F // Tm3StorageHolder
+ ;
+
+ @SELF
+; // ME_542E7AF70226 ItemType
+
+: ME_542E7AB80220
+ CONST UID '542E7AB80220'
+ CONST Name 'Tm3StorageHolderListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_542E7AF70226 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_542E7AB80220 Tm3StorageHolderListPrim

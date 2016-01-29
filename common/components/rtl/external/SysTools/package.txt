@@ -1,0 +1,32 @@
+TurboPower changes package names with each
+new library release. Doing so prevents conflicts
+with applications built using run-time packages
+from some other version.
+
+If you deploy applications that use run-time packages,
+you may need to alter them so that they will use the
+current package. C++Builder users will need to do this
+regardless of whether or not the application uses
+run-time packages (the project makefile contains
+a reference to the package library file).
+
+TurboPower's current package naming convention is as follows:
+
+-- The first letter represents one of the TurboPower
+     products (e.g., O for Orpheus, S for SysTools)
+-- The next three digits are the product version number
+     (e.g., 201 for version 2.01)
+-- The next two characters are product-specific
+-- The last two digits represent the Inprise VCL version
+     (e.g., 30 for VCL 3.0)
+
+In Orpheus, the last two digits for Delphi4 are 40 while
+they are 41 for C++Builder. While both use VCL 4.0, using
+separate packages prevents C++ syntax messages in Delphi
+and Delphi syntax in C++Builder.
+
+All run-time packages are digitally signed to insure
+their authenticity.
+
+Redistribution of TurboPower packages that are not digitally
+signed by TurboPower is not permitted.

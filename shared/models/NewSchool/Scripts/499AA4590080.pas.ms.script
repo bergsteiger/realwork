@@ -1,0 +1,100 @@
+// Profilers 499AA4590080 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499AA4590080
+
+FORWARD ME_499AA4880244
+
+FORWARD ME_499AA4C50300
+
+: ME_499AA4D102C1
+ CONST UID '499AA4D102C1'
+ CONST Name 'ProfilerID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_499AA4C50300 // Profiler
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_499AA4D102C1 ProfilerID
+
+: ME_499AA4C50300
+ CONST UID '499AA4C50300'
+ CONST Name 'Profiler'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AA4880244 // TvcmProfilersCollection
+ ;
+ : Target WL 'ME_499AA4AD0036' '47D0E1500033.pas.ms.script' // TvcmProfiler
+ ;
+ : Attributes
+   @ ( ME_499AA4D102C1 // ProfilerID
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_499AA4C50300 Profiler
+
+: ME_499AA4880244
+ CONST UID '499AA4880244'
+ CONST Name 'TvcmProfilersCollection'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499AA4590080 // Profilers
+ ;
+ : Inherits
+   @ ( WL 'ME_499AA39D0014' '47D0E1500033.pas.ms.script' // TvcmProfilersCollection
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_499AA4C50300 // Profiler
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmProfilersCollection_p.pas'
+
+ref; // ME_499AA4880244 TvcmProfilersCollection
+
+: ME_499AA4590080
+ CONST UID '499AA4590080'
+ CONST Name 'Profilers'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ %SUMMARY 'Профилирование' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_499AA43A012F' '499AA43A012F.pas.ms.script' // VCMTest
+ ;
+ : Children
+   @ ( ME_499AA4880244 // TvcmProfilersCollection
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499AA4590080.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499AA4590080.pas.ms.script.runner'
+
+ref; // ME_499AA4590080 Profilers

@@ -1,0 +1,59 @@
+'$Include "global.sbl"
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    Dim FolderName1$,FolderName2$,ListName$
+    Dim NewComment$
+    FolderName1="Empty Folder"
+    ListName="Новая закладка"
+    FolderName2="Новый комментарий"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=5,8"
+    InputKeys "^{ENTER}"
+    
+    Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+'    PushButton Click, "Text=Да"
+    InputKeys "{ENTER}"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{HOME}"
+    'ListBox Click, "ObjectIndex=4", "Coords=8,14"
+'    Toolbar Click, "ObjectIndex=116;VisualText=Файл", "Coords=55,8"
+    call Click_SaveAs
+    call SaveDlg("Мои документы",ListName)  
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    
+    call ChangeProperty("Мои документы\"+ListName,sComment:=FolderName2)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=13,118"
+    ListBox Click, "ObjectIndex=1", "Coords=49,11"
+    if Position_Internal("CurrentFocus","Мои документы\"+ListName)<>0 then
+        'Toolbar Click, "ObjectIndex=4;VisualText=Элемент папок", "Coords=6,10"
+        call Click_ChangeProperty
+        EditBox Click, "ObjectIndex=1", ""
+        SQAGetProperty "CurrentFocus","Text",NewComment
+        if NewComment=FolderName2 then
+           SQALogMessage sqaPass, "Комментарий изменён", "Новый комментарий: """+NewComment+"""" 
+        else
+           SQALogMessage sqaFail, "Комментарий не изменён", "Текущий комментарий: """+NewComment+"""" 
+        end if
+        'Toolbar Click, "ObjectIndex=10;VisualText=Выбор действия", "Coords=19,15"
+        Toolbar Click, "Text=Выбор действия", "Coords=89,11"
+   
+    else
+        SQALogMessage sqaFail, "Неудалось найти путь", "!Внимание! Не удалось найти путь: """+"Мои документы\"+ListName+""""
+    end if
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17" 
+    
+    call DeleteFolder("Мои документы\"+ListName,2)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=15,52"
+End Sub

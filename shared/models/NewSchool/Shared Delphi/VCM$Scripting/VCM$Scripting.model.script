@@ -1,0 +1,1633 @@
+<<Library>> VCM$Scripting
+ %UID '4E200FC9003B'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4C43E84F0304' /* tb97 */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4F91817500AC' /* VT$Rem */
+  U$ '52CFEC8C0111' /* VT$WithVCM */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'vcmDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "ifndef" 'NoScripts,NoVCM'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4C43E84F0304' /* tb97 */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4F91817500AC' /* VT$Rem */
+  U$ '52CFEC8C0111' /* VT$WithVCM */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> Operations
+   %UID '4E200FED0213'
+   %DEPENDS
+    U$ '467BAB7F021E' /* vcmExternalInterfaces */
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '4787B0A8007B' /* l3Except */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '4AADF9450143' /* Visual */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB34028023E' /* Components */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4F2275C00012' /* ScriptingKeywordsCore */
+    U$ '4F3E3F5F0160' /* PrimitiveWords */
+    U$ '52A73A4401B9' /* Operations */
+   ; // %DEPENDS
+   %META
+    %upv "path prefix" '/implementation/Scripting'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E200FC9003B' /* VCM$Scripting */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TkwEntityOperationPrim
+      %UID '523006F7004A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '54D229E702B6' /* TtfwRegisterableWordPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "5230086A0164"
+         %UID '5230086A0164'
+         %TARGET U$ '4683CF3401F5' /* TvcmOPID */
+        ; // 5230086A0164
+      ; // %LINKS
+      %ATTRIBUTES
+        PROTECTED LINK <<Attribute>> f_Op
+         %UID '523007090291'
+         %TARGET U$ '4D7A109601C2' /* TvcmBaseOperationsCollectionItem */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_Op
+        PROTECTED LINK <<Attribute>> f_En
+         %UID '523007130010'
+         %TARGET U$ '4DDBBD1103C3' /* TvcmBaseEntitiesCollectionItem */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_En
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '4DDBBDEB00DE'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DDBBEDE028E'
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anEn
+               %UID '4DDBBEF60237'
+               %TARGET U$ '4DDBBD1103C3' /* TvcmBaseEntitiesCollectionItem */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // anEn
+              <<in>> anOp
+               %UID '4DDBBEF60294'
+               %TARGET U$ '4D7A109601C2' /* TvcmBaseOperationsCollectionItem */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // anOp
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        PROTECTED ABSTRACT <<abstractmethod>> DoOp
+         %UID '523008BC0096'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '523008C901CD'
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aCtx
+               %UID '523008E500AB'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              <<in>> anOp
+               %UID '523008E500C8'
+               %TARGET U$ '4683CF3401F5' /* TvcmOPID */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // anOp
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoOp
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '15F9C022EB99'
+         %SUMMARY 'Регистрация TkwEntityOperationPrim' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TkwEntityOperationPrim
+     <<SimpleClass>> TkwEntityOperation
+      %UID '4DDBBDB00019'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '24.05.2011 18:15'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '523006F7004A' /* TkwEntityOperationPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '523008BC0096' /* DoOp */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4DDBBF15020E"
+         %UID '4DDBBF15020E'
+         %TARGET U$ '4AA936DC0154' /* vcmDispatcher */
+        ; // 4DDBBF15020E
+        <<uses>> "4DDBBF2D03BD"
+         %UID '4DDBBF2D03BD'
+         %TARGET U$ '4683CF3401F5' /* TvcmOPID */
+        ; // 4DDBBF2D03BD
+        <<injects>> "4E201EF90191"
+         %UID '4E201EF90191'
+         %TARGET U$ '4AD5DBBD0147' /* TvcmBaseMenuManagerPrim */
+         %META
+          %upv "injects as" 'interface'
+         ; // %META
+        ; // 4E201EF90191
+        <<uses>> "4E30129D0123"
+         %UID '4E30129D0123'
+         %TARGET U$ '4E3012700155' /* TvcmRepOperationsCollectionItem */
+        ; // 4E30129D0123
+        <<uses>> "4F75BB670020"
+         %UID '4F75BB670020'
+         %TARGET U$ '4991AD08005B' /* IvcmEntity */
+        ; // 4F75BB670020
+        <<uses>> "5230074F0386"
+         %UID '5230074F0386'
+         %TARGET U$ '5230072D031A' /* TkwEntityOperationTest */
+        ; // 5230074F0386
+        <<uses>> "528C9C01026C"
+         %UID '528C9C01026C'
+         %TARGET U$ '4DB6CD4203D4' /* TkwString */
+        ; // 528C9C01026C
+        <<uses>> "52A74A7D0134"
+         %UID '52A74A7D0134'
+         %TARGET U$ '52A73D1701B9' /* TkwOperationsRegistrar */
+        ; // 52A74A7D0134
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> Register
+         %UID '4DDBBF790154'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4DDBC01E010A"
+            %UID '4DDBC01E010A'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 4DDBC01E010A
+           <<uses>> "4DDBC7400205"
+            %UID '4DDBC7400205'
+            %TARGET U$ '483C378301CB' /* StrUtils */
+           ; // 4DDBC7400205
+           <<uses>> "4DDBC8E20193"
+            %UID '4DDBC8E20193'
+            %TARGET U$ '4787B1BA031F' /* El3DuplicateItem */
+           ; // 4DDBC8E20193
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DDBBF840080'
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anEn
+               %UID '4DDBBFFF02C4'
+               %TARGET U$ '4DDBBD1103C3' /* TvcmBaseEntitiesCollectionItem */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // anEn
+              <<in>> anOp
+               %UID '4DDBBFFF030E'
+               %TARGET U$ '4D7A109601C2' /* TvcmBaseOperationsCollectionItem */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // anOp
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Register
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID 'F6699E5A5B9B'
+         %SUMMARY 'Регистрация TkwEntityOperation' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TkwEntityOperation
+     <<SimpleClass>> TkwEntityOperationTest
+      %UID '5230072D031A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '523006F7004A' /* TkwEntityOperationPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '523008BC0096' /* DoOp */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "5230073B0196"
+         %UID '5230073B0196'
+         %TARGET U$ '4AA936DC0154' /* vcmDispatcher */
+        ; // 5230073B0196
+        <<uses>> "523008070254"
+         %UID '523008070254'
+         %TARGET U$ '4991AD08005B' /* IvcmEntity */
+        ; // 523008070254
+        <<uses>> "5230084E019C"
+         %UID '5230084E019C'
+         %TARGET U$ '4683CF3401F5' /* TvcmOPID */
+        ; // 5230084E019C
+        <<uses>> "52300D420103"
+         %UID '52300D420103'
+         %TARGET U$ '4683D6ED03C5' /* TvcmOpFlag */
+        ; // 52300D420103
+        <<uses>> "52300DD502EA"
+         %UID '52300DD502EA'
+         %TARGET U$ '47E7659001C3' /* IvcmTestParams */
+        ; // 52300DD502EA
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID 'B2FB3C3B22D7'
+         %SUMMARY 'Регистрация TkwEntityOperationTest' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TkwEntityOperationTest
+     <<SimpleClass>> TkwOperationsRegistrar
+      %UID '52A73D1701B9'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E13416D0227' /* VCM$Visual */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '52A73AE40326' /* IvcmOperationsRegistrar */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '52A73C7103C7' /* Register */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "52A73D3501DE"
+         %UID '52A73D3501DE'
+         %TARGET U$ '4DDBBDB00019' /* TkwEntityOperation */
+        ; // 52A73D3501DE
+        <<injects>> "54E7496D03D7"
+         %UID '54E7496D03D7'
+         %TARGET U$ '4AD5DBBD0147' /* TvcmBaseMenuManagerPrim */
+         %META
+          %upv "injects as" 'interface'
+         ; // %META
+        ; // 54E7496D03D7
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<ini>> new_ini_op
+         %UID '52A73D57020D'
+        ; // new_ini_op
+        SUMMONED FINAL <<static>> Exists
+         %UID 'AC2C8594F0B0'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TkwOperationsRegistrar
+     ABSTRACT <<SimpleClass>> TtfwModuleOperationWord
+      %UID '4DB060930263'
+      %SUMMARY 'Слово для выполнения операции модуля' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "ifndef" 'NoVCM'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '21.04.2011 20:52'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '52A086150180' /* RegisterInEngine */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4DB060EE029C"
+         %UID '4DB060EE029C'
+         %TARGET U$ '4AA936DC0154' /* vcmDispatcher */
+        ; // 4DB060EE029C
+        <<uses>> "52A086F10182"
+         %UID '52A086F10182'
+         %TARGET U$ '4DB6CD4203D4' /* TkwString */
+        ; // 52A086F10182
+        <<uses>> "52A091370167"
+         %UID '52A091370167'
+         %TARGET U$ '4D7A109601C2' /* TvcmBaseOperationsCollectionItem */
+        ; // 52A091370167
+        <<uses>> "52A0914F023E"
+         %UID '52A0914F023E'
+         %TARGET U$ '52A08E6701A1' /* TvcmModulesCollectionItem */
+        ; // 52A0914F023E
+        <<uses>> "52A097EC005A"
+         %UID '52A097EC005A'
+         %TARGET U$ '4787B1BA031F' /* El3DuplicateItem */
+        ; // 52A097EC005A
+        <<uses>> "52A0A2780007"
+         %UID '52A0A2780007'
+         %TARGET U$ '4AB24EF502BB' /* vcmBaseMenuManager */
+        ; // 52A0A2780007
+        <<uses>> "535E8B0702EB"
+         %UID '535E8B0702EB'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 535E8B0702EB
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED <<static>> GetModuleOperationCode
+         %UID '4DB079E00084'
+         %TARGET U$ '4683CF84010A' /* TvcmMOPID */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // GetModuleOperationCode
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '8C1833A152E6'
+         %SUMMARY 'Регистрация TtfwModuleOperationWord' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TtfwModuleOperationWord
+   ; // %CHILDREN
+  ; // Operations
+  <<ScriptKeywords>> VCMWords
+   %UID '4F69B9040391'
+   %DEPENDS
+    U$ '467BAB7F021E' /* vcmExternalInterfaces */
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47CD07B900E0' /* vtNavigator */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '48342A280198' /* elClone */
+    U$ '4AADF9450143' /* Visual */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '4AB34028023E' /* Components */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4E030FC801EB' /* BatchServices */
+    U$ '4F3E3F5F0160' /* PrimitiveWords */
+    U$ '5028887002FD' /* Toolbar */
+    U$ '521C9DA50125' /* "Application Resources" */
+    U$ '53288DFA03A7' /* NewReminders */
+    U$ '55BA28CE0290' /* tfwScriptingTypes */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'NoVCM'
+    %upv "path prefix" '/implementation/Scripting'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4797632D0273' /* Everest */
+    U$ '4C43E84F0304' /* tb97 */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E200FC9003B' /* VCM$Scripting */
+    U$ '4F91817500AC' /* VT$Rem */
+    U$ '52CFEC8C0111' /* VT$WithVCM */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+    U$ '550012C403C4' /* L3$AFW */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ScriptKeywordsPack>> VCMWordsPack
+      %UID '4F69B966010B'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" 'undefined'
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %LINKS
+        <<uses>> "4F69B9A5022F"
+         %UID '4F69B9A5022F'
+         %TARGET U$ '4F69B99001E0' /* "vcm_Dispatcher_Lock" */
+        ; // 4F69B9A5022F
+        <<uses>> "4F69B9B9011E"
+         %UID '4F69B9B9011E'
+         %TARGET U$ '4F69B9AD0040' /* "vcm_Dispatcher_Unlock" */
+        ; // 4F69B9B9011E
+        <<uses>> "4F69BC32032A"
+         %UID '4F69BC32032A'
+         %TARGET U$ '4F69BC1C02CC' /* "vcm_Dispatcher_BeginOp" */
+        ; // 4F69BC32032A
+        <<uses>> "4F69BC39004A"
+         %UID '4F69BC39004A'
+         %TARGET U$ '4F69BC2601EB' /* "vcm_Dispatcher_EndOp" */
+        ; // 4F69BC39004A
+        <<uses>> "4FC4C9210323"
+         %UID '4FC4C9210323'
+         %TARGET U$ '4FC4C90B002D' /* "vcm_History_GetBackCount" */
+        ; // 4FC4C9210323
+        <<uses>> "4FC4C94100B9"
+         %UID '4FC4C94100B9'
+         %TARGET U$ '4FC4C928013F' /* "vcm_History_GetBackItem" */
+        ; // 4FC4C94100B9
+        <<uses>> "4FC4CF010383"
+         %UID '4FC4CF010383'
+         %TARGET U$ '4FC4CEF40288' /* "vcm_History_GetForwardCount" */
+        ; // 4FC4CF010383
+        <<uses>> "4FC4CF1F00AA"
+         %UID '4FC4CF1F00AA'
+         %TARGET U$ '4FC4CF150163' /* "vcm_History_GetForwardItem" */
+        ; // 4FC4CF1F00AA
+        <<uses>> "523014C800E5"
+         %UID '523014C800E5'
+         %TARGET U$ '523014A301F2' /* "vcm_op_Enabled" */
+        ; // 523014C800E5
+        <<uses>> "523014E00005"
+         %UID '523014E00005'
+         %TARGET U$ '523014D3003C' /* "vcm_op_Visible" */
+        ; // 523014E00005
+        <<uses>> "523015410265"
+         %UID '523015410265'
+         %TARGET U$ '5230153303B8' /* "vcm_op_Checked" */
+        ; // 523015410265
+        <<uses>> "5230156C018C"
+         %UID '5230156C018C'
+         %TARGET U$ '5230156001B9' /* "vcm_op_Default" */
+        ; // 5230156C018C
+        <<uses>> "5230181C00B8"
+         %UID '5230181C00B8'
+         %TARGET U$ '5230180F029A' /* "vcm_op_Caption" */
+        ; // 5230181C00B8
+        <<uses>> "523018A50347"
+         %UID '523018A50347'
+         %TARGET U$ '5230189600D2' /* "vcm_op_Hint" */
+        ; // 523018A50347
+        <<uses>> "523018B9020F"
+         %UID '523018B9020F'
+         %TARGET U$ '523018AA0227' /* "vcm_op_ImageIndex" */
+        ; // 523018B9020F
+        <<uses>> "523018CE004F"
+         %UID '523018CE004F'
+         %TARGET U$ '523018BE02F9' /* "vcm_op_Shortcut" */
+        ; // 523018CE004F
+        <<uses>> "52301B1A010B"
+         %UID '52301B1A010B'
+         %TARGET U$ '52301B0C0177' /* "vcm_op_LongHint" */
+        ; // 52301B1A010B
+        <<uses>> "52D967500374"
+         %UID '52D967500374'
+         %TARGET U$ '52B16BA20032' /* RegisterVcmControls */
+        ; // 52D967500374
+        <<uses>> "52F4D3930270"
+         %UID '52F4D3930270'
+         %TARGET U$ '4E82CEBA0299' /* "vcm_History_DeleteBackItem" */
+        ; // 52F4D3930270
+        <<uses>> "52F4D3A102D2"
+         %UID '52F4D3A102D2'
+         %TARGET U$ '4F215ADB00AF' /* "vcm_FindForm" */
+        ; // 52F4D3A102D2
+        <<uses>> "52F4D3DC019F"
+         %UID '52F4D3DC019F'
+         %TARGET U$ '52F4D3CF01ED' /* "vcm_History_Clear" */
+        ; // 52F4D3DC019F
+        <<uses>> "53DA57150085"
+         %UID '53DA57150085'
+         %TARGET U$ '53DA56FB028B' /* "vcm_History_DeleteForwardItem" */
+        ; // 53DA57150085
+        <<uses>> "54D3A8AC010D"
+         %UID '54D3A8AC010D'
+         %TARGET U$ '507BDC31028B' /* "TryFocusOnForm" */
+        ; // 54D3A8AC010D
+        <<injects>> "54D4F2A60057"
+         %UID '54D4F2A60057'
+         %TARGET U$ '52A1F4A201F9' /* TvcmBaseMenuManager */
+        ; // 54D4F2A60057
+        <<uses>> "54D4FF6B03B1"
+         %UID '54D4FF6B03B1'
+         %TARGET U$ '4E29311F0055' /* "object_Create" */
+        ; // 54D4FF6B03B1
+        <<uses>> "558A602D0376"
+         %UID '558A602D0376'
+         %TARGET U$ '558A5FF8002C' /* "vcm_Dispatcher_LockInOp" */
+        ; // 558A602D0376
+        <<uses>> "558A60490161"
+         %UID '558A60490161'
+         %TARGET U$ '558A60390336' /* "vcm_Dispatcher_UnlockInOp" */
+        ; // 558A60490161
+        SUMMONED <<uses>> "BFDBB4AD11B1"
+         %UID 'BFDBB4AD11B1'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // BFDBB4AD11B1
+      ; // %LINKS
+     ; // VCMWordsPack
+     ABSTRACT <<Impurity>> VCMWord
+      %UID '4DB94A660083'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "ifndef" 'NoVCM'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '28.04.2011 15:07'
+      ; // %META
+      %LINKS
+        <<uses>> "4DB94A980228"
+         %UID '4DB94A980228'
+         %TARGET U$ '47F4EED50062' /* vcmForm */
+        ; // 4DB94A980228
+        <<uses>> "4DB94AD60214"
+         %UID '4DB94AD60214'
+         %TARGET U$ '4A980B37006B' /* ModalResults */
+        ; // 4DB94AD60214
+        <<uses>> "4DBA9C9D024A"
+         %UID '4DBA9C9D024A'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 4DBA9C9D024A
+        <<uses>> "4DBAA38500CB"
+         %UID '4DBAA38500CB'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 4DBAA38500CB
+        <<uses>> "4E0319E5007A"
+         %UID '4E0319E5007A'
+         %TARGET U$ '4E03119F00B2' /* afwAnswer */
+        ; // 4E0319E5007A
+      ; // %LINKS
+     ; // VCMWord
+     FINAL <<ScriptKeyword>> "vcm_Dispatcher_Unlock"
+      %UID '4F69B9AD0040'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '0321480A1331'
+         %SUMMARY 'Регистрация vcm_Dispatcher_Unlock' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_Dispatcher_Unlock"
+     FINAL <<ScriptKeyword>> "vcm_Dispatcher_BeginOp"
+      %UID '4F69BC1C02CC'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '591D37D7C79A'
+         %SUMMARY 'Регистрация vcm_Dispatcher_BeginOp' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_Dispatcher_BeginOp"
+     FINAL <<ScriptKeyword>> "vcm_Dispatcher_EndOp"
+      %UID '4F69BC2601EB'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '6FD4B6AB4987'
+         %SUMMARY 'Регистрация vcm_Dispatcher_EndOp' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_Dispatcher_EndOp"
+     FINAL <<ScriptKeyword>> "vcm_History_GetBackCount"
+      %UID '4FC4C90B002D'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'FE0F64A663C0'
+         %SUMMARY 'Регистрация vcm_History_GetBackCount' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_History_GetBackCount"
+     FINAL <<ScriptKeyword>> "vcm_History_GetBackItem"
+      %UID '4FC4C928013F'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '8D6F3BA96DF6'
+         %SUMMARY 'Регистрация vcm_History_GetBackItem' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_History_GetBackItem"
+     FINAL <<ScriptKeyword>> "vcm_History_GetForwardCount"
+      %UID '4FC4CEF40288'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '4AE12FA80929'
+         %SUMMARY 'Регистрация vcm_History_GetForwardCount' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_History_GetForwardCount"
+     FINAL <<ScriptKeyword>> "vcm_History_GetForwardItem"
+      %UID '4FC4CF150163'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'F96FD698244D'
+         %SUMMARY 'Регистрация vcm_History_GetForwardItem' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_History_GetForwardItem"
+     ABSTRACT <<ScriptKeyword>> "OperationParamWordPrim"
+      %UID '5230182A02A3'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OPERATIONS
+        PROTECTED ABSTRACT <<abstractmethod>> DoParams
+         %UID '5230185F0140'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '523018830380'
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aParams
+               %UID '523018870287'
+               %TARGET U$ '47E7659001C3' /* IvcmTestParams */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aParams
+              <<in>> aCtx
+               %UID '5230188702A2'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoParams
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '6313C4AE7015'
+         %SUMMARY 'Регистрация OperationParamWordPrim' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // "OperationParamWordPrim"
+     ABSTRACT <<ScriptKeyword>> "OperationParamWord"
+      %UID '5230147B0151'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230182A02A3' /* "OperationParamWordPrim" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230185F0140' /* DoParams */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "523014F6022D"
+         %UID '523014F6022D'
+         %TARGET U$ '47E7659001C3' /* IvcmTestParams */
+        ; // 523014F6022D
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<abstractmethod>> Flag
+         %UID '5230151C02BA'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52301527009A'
+            %TARGET U$ '4683D6ED03C5' /* TvcmOpFlag */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Flag
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '428C063B76B9'
+         %SUMMARY 'Регистрация OperationParamWord' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // "OperationParamWord"
+     FINAL <<ScriptKeyword>> "vcm_op_Visible"
+      %UID '523014D3003C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230147B0151' /* "OperationParamWord" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230151C02BA' /* Flag */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'DB256FC40C0B'
+         %SUMMARY 'Регистрация vcm_op_Visible' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_Visible"
+     FINAL <<ScriptKeyword>> "vcm_op_Checked"
+      %UID '5230153303B8'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230147B0151' /* "OperationParamWord" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230151C02BA' /* Flag */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'F26FCBC31DB7'
+         %SUMMARY 'Регистрация vcm_op_Checked' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_Checked"
+     FINAL <<ScriptKeyword>> "vcm_op_Default"
+      %UID '5230156001B9'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230147B0151' /* "OperationParamWord" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230151C02BA' /* Flag */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'BCBD169DD7D2'
+         %SUMMARY 'Регистрация vcm_op_Default' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_Default"
+     FINAL <<ScriptKeyword>> "vcm_op_Caption"
+      %UID '5230180F029A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230182A02A3' /* "OperationParamWordPrim" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230185F0140' /* DoParams */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '68076EA4B122'
+         %SUMMARY 'Регистрация vcm_op_Caption' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_Caption"
+     FINAL <<ScriptKeyword>> "vcm_op_Enabled"
+      %UID '523014A301F2'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230147B0151' /* "OperationParamWord" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230151C02BA' /* Flag */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '82001B362003'
+         %SUMMARY 'Регистрация vcm_op_Enabled' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_Enabled"
+     FINAL <<ScriptKeyword>> "vcm_op_Hint"
+      %UID '5230189600D2'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230182A02A3' /* "OperationParamWordPrim" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230185F0140' /* DoParams */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'ECEEE8E0A681'
+         %SUMMARY 'Регистрация vcm_op_Hint' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_Hint"
+     FINAL <<ScriptKeyword>> "vcm_op_ImageIndex"
+      %UID '523018AA0227'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230182A02A3' /* "OperationParamWordPrim" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230185F0140' /* DoParams */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '502EFFA39523'
+         %SUMMARY 'Регистрация vcm_op_ImageIndex' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_ImageIndex"
+     FINAL <<ScriptKeyword>> "vcm_op_Shortcut"
+      %UID '523018BE02F9'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230182A02A3' /* "OperationParamWordPrim" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230185F0140' /* DoParams */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '469DD830A0BC'
+         %SUMMARY 'Регистрация vcm_op_Shortcut' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_Shortcut"
+     FINAL <<ScriptKeyword>> "vcm_op_LongHint"
+      %UID '52301B0C0177'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5230182A02A3' /* "OperationParamWordPrim" */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5230185F0140' /* DoParams */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '9FC660929074'
+         %SUMMARY 'Регистрация vcm_op_LongHint' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_op_LongHint"
+     FINAL <<UtilityPack>> RegisterVcmControls
+      %UID '52B16BA20032'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %LINKS
+        <<uses>> "52B16C7601BF"
+         %UID '52B16C7601BF'
+         %TARGET U$ '4B30EC67025A' /* TvcmMenuManager */
+        ; // 52B16C7601BF
+        <<uses>> "52B16D9E0223"
+         %UID '52B16D9E0223'
+         %TARGET U$ '5028888A0160' /* TB97Tlbr */
+        ; // 52B16D9E0223
+        <<uses>> "52B183290085"
+         %UID '52B183290085'
+         %TARGET U$ '5028A4C0019B' /* TvcmToolbar */
+        ; // 52B183290085
+        <<uses>> "52B183300021"
+         %UID '52B183300021'
+         %TARGET U$ '508528D10384' /* TtfwClassRef */
+        ; // 52B183300021
+        <<uses>> "5322EA49022E"
+         %UID '5322EA49022E'
+         %TARGET U$ '482ACFA703C2' /* TelCustomButtonEdit */
+        ; // 5322EA49022E
+        <<uses>> "5374B10100E5"
+         %UID '5374B10100E5'
+         %TARGET U$ '5374B0D9013D' /* Ttb97MoreButton */
+        ; // 5374B10100E5
+        <<uses>> "5374B1220045"
+         %UID '5374B1220045'
+         %TARGET U$ '5028A32E02C2' /* TvcmSeparatorDef */
+        ; // 5374B1220045
+        <<uses>> "5374B1DB0303"
+         %UID '5374B1DB0303'
+         %TARGET U$ '5374B1D000BC' /* TCustomUpDown */
+        ; // 5374B1DB0303
+        <<uses>> "5374B2410350"
+         %UID '5374B2410350'
+         %TARGET U$ '52B9B0AA0105' /* TnpSplitter */
+        ; // 5374B2410350
+        <<uses>> "5374BE580388"
+         %UID '5374BE580388'
+         %TARGET U$ '53319C7502F4' /* TvgRemindersLineForm */
+        ; // 5374BE580388
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<ini>> new_ini_op
+         %UID '52B16BBF00B4'
+        ; // new_ini_op
+      ; // %OPERATIONS
+     ; // RegisterVcmControls
+     <<ScriptKeyword>> "vcm_History_DeleteBackItem"
+      %UID '4E82CEBA0299'
+      %SUMMARY 'Удаляет один элемент истории из списка Back.'#13#10' *Пример:*'#13#10'{code}'#13#10' моп::Поиск_Поиск_лекарственного_средства'#13#10' ''AT_PHARM_NAME'' ''Аргинин'' Search:SetAttribute'#13#10' ''AT_PHARM_ATC'' ''A. Пищеварительный тракт и обмен веществ'' Search:SetAttribute'#13#10' ''AT_PHARM_ATC'' ''B. Препараты влияющие на кроветворение и кровь'' Search:SetAttribute'#13#10' Ok'#13#10' OnTest'#13#10' vcm:history:DeleteBackItem'#13#10'{code}' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "ifndef" 'NoVCM'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '28.09.2011 11:37'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '5132A3C40D51'
+         %SUMMARY 'Регистрация vcm_History_DeleteBackItem' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_History_DeleteBackItem"
+     <<ScriptKeyword>> "vcm_FindForm"
+      %UID '4F215ADB00AF'
+      %META
+       %upv "ifndef" 'NoVCM'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4F2168A500CB"
+         %UID '4F2168A500CB'
+         %TARGET U$ '476A84380187' /* TvcmFormID */
+        ; // 4F2168A500CB
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'A558245E2746'
+         %SUMMARY 'Регистрация vcm_FindForm' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_FindForm"
+     FINAL <<ScriptKeyword>> "vcm_History_Clear"
+      %UID '52F4D3CF01ED'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'AE090677B4AA'
+         %SUMMARY 'Регистрация vcm_History_Clear' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_History_Clear"
+     FINAL <<ScriptKeyword>> "vcm_History_DeleteForwardItem"
+      %UID '53DA56FB028B'
+      %META
+       %upv "ifndef" 'NoVCM'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '87B92345D621'
+         %SUMMARY 'Регистрация vcm_History_DeleteForwardItem' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_History_DeleteForwardItem"
+     FINAL <<ScriptKeyword>> "vcm_Dispatcher_Lock"
+      %UID '4F69B99001E0'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '1E86902E10B9'
+         %SUMMARY 'Регистрация vcm_Dispatcher_Lock' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_Dispatcher_Lock"
+     FINAL <<ScriptKeyword>> "TryFocusOnForm"
+      %UID '507BDC31028B'
+      %META
+       %upv "ifndef" 'NoVCM'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "507BF935030F"
+         %UID '507BF935030F'
+         %TARGET U$ '476A84380187' /* TvcmFormID */
+        ; // 507BF935030F
+        <<uses>> "507BFA24031F"
+         %UID '507BFA24031F'
+         %TARGET U$ '4788090E01D4' /* TafwCustomForm */
+        ; // 507BFA24031F
+        <<uses>> "507BFAB50082"
+         %UID '507BFAB50082'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 507BFAB50082
+        <<uses>> "507BFB2003C8"
+         %UID '507BFB2003C8'
+         %TARGET U$ '47E13C6B0341' /* Forms */
+        ; // 507BFB2003C8
+        <<uses>> "507BFC6902A3"
+         %UID '507BFC6902A3'
+         %TARGET U$ '49525B34022A' /* TvcmEntityForm */
+        ; // 507BFC6902A3
+        <<uses>> "507BFCF30127"
+         %UID '507BFCF30127'
+         %TARGET U$ '4C3F434301AA' /* SetFocus */
+        ; // 507BFCF30127
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'C8CA47627EA0'
+         %SUMMARY 'Регистрация TryFocusOnForm' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "TryFocusOnForm"
+     <<ScriptKeyword>> "object_Create"
+      %UID '4E29311F0055'
+      %SUMMARY 'Поддержка автоматического создания формы-обвязки для тестов.'#13#10'*Формат:* aClass .Create'#13#10'aClass - класс формы.'#13#10''#13#10'ПОКА создаёт только VCM-формы но предполагается научить создавать и ДРУГИЕ объекты.' ;
+      %META
+       %upv "NameForScript" '.Create'
+       %upv "ifndef" 'NoVCM'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "509CD614001E"
+         %UID '509CD614001E'
+         %TARGET U$ '49525B34022A' /* TvcmEntityForm */
+        ; // 509CD614001E
+        <<uses>> "509CDA2F03E0"
+         %UID '509CDA2F03E0'
+         %TARGET U$ '484529DC0276' /* TCustomForm */
+        ; // 509CDA2F03E0
+        <<uses>> "509CE0EC01D8"
+         %UID '509CE0EC01D8'
+         %TARGET U$ '4AD89C420296' /* vcmMakeParams */
+        ; // 509CE0EC01D8
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '276FFFEFA9A0'
+         %SUMMARY 'Регистрация object_Create' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "object_Create"
+     FINAL <<ScriptKeyword>> "vcm_Dispatcher_LockInOp"
+      %UID '558A5FF8002C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'FE38BFB352D6'
+         %SUMMARY 'Регистрация vcm_Dispatcher_LockInOp' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_Dispatcher_LockInOp"
+     FINAL <<ScriptKeyword>> "vcm_Dispatcher_UnlockInOp"
+      %UID '558A60390336'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB94A660083' /* VCMWord */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'C3C4EE2362D5'
+         %SUMMARY 'Регистрация vcm_Dispatcher_UnlockInOp' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "vcm_Dispatcher_UnlockInOp"
+   ; // %CHILDREN
+  ; // VCMWords
+ ; // %CHILDREN
+; // VCM$Scripting

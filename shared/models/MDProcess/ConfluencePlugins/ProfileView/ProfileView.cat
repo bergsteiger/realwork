@@ -1,0 +1,376 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "ProfileView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (vm)"
+	    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/ProfileView/garantprofile.vm::461FABF202EE")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/ProfileView/garantprofile|461FABF202EE::461FABF202EE
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/ProfileView|477E298702CE
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19027413355"))
+    quid       	"477E298702CE"
+    documentation 	"Ýëåìåíòû ïðåäñòàâëåíèÿ äëÿ ðàáîòû ñî ñïåöèàëüíûìè íàñòðîéêàìè"
+    stereotype 	"HtmlUnit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4AB2113700AB"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit"
+	    quidu      	"490ACC32003C"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "garantprofile"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (output.xml)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"output.xml:*461FABF202EE_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*461FABF202EE_CUSTOM_CONTENT*¤¤¤#macro (addThreadStateRadio $state $name)¤    <input type="radio"¤           name="ThreadState"¤           value=$state¤           id="id$state"¤           #if ($action.threadState && $action.threadState == $state)¤               checked¤           #end¤     >$name¤    <br/>¤#end¤¤#macro (addCommentPlaceRadio $place $name)¤    <input type="radio"¤           name="CommentPlace"¤           value=$place¤           id="id$place"¤           #if ($action.commentPlace && $action.commentPlace == $place)¤               checked¤           #end¤     >$name¤    <br/>¤#end¤¤¤¤#macro (showSettingsBox $fid) ## tut ewe nada budet tip tam i pro4uu mutatu delat, poka tak¤	#set ( $userDefault = $action.getUserData("$fid") )¤	#set ( $field_type = $action.getDataDescriptor("$fid").getDisplayType().toString() )¤	#set ( $displayName = $action.getDataDescriptor("$fid").getDisplayName() )¤	¤	##<div style="border:1px solid red;">Debug: userDefaut: $userDefault; type: $field_type; name: $displayName;</div> ¤	¤	<div class="settingsBox"><a name="${fid}_a">&nbsp;</a>$displayName<br>¤	#if ( $field_type == "SET" )¤		#set ( $values = $action.getDescriptorValues("$fid") )¤		#foreach ($descrValue in $values)¤			¤			<input type="radio"¤				name="FID_$fid"¤				value="$descrValue"¤				id="id$fid-$descrValue"¤				#if ( $userDefault == $descrValue )¤					checked¤				#end¤			>$descrValue¤			<br />¤		#end¤	#elseif ( $field_type == "BOOLEAN" )¤		#set ( $udata = $action.getUserData("$fid") )¤		<input type="checkbox" name="FID_$fid" value="wtf?" id="id$fid"¤			#if ( $udata == "true" )¤				checked¤			#end¤		>¤	#elseif ( $field_type == "TEXT" )¤		#set ( $udata = $action.getUserData("$fid") )¤		<input type="text" name="FID_$fid" value="$udata" id="id$fid">¤	#elseif ( $field_type == "LONGTEXT" )¤		#set ( $udata = $action.getUserData("$fid") )¤		<textarea type="text" name="FID_$fid" id="id$fid">$udata</textarea>¤	#elseif ( $field_type == "INT" )¤		#set ( $udata = $action.getUserData("$fid") )¤		<input type="text" name="FID_$fid" value="$udata" id="id$fid">¤	#else 	¤		#set ( $udata = $action.getUserData("$fid") )¤		<input type="text" name="FID_$fid" value="$udata" id="id$fid">¤	#end¤	¤	</div>¤#end¤¤¤#macro ( showSettings )¤	#set ( $dset = $action.getDescriptors() )¤	#foreach( $descr in $dset )¤		#showSettingsBox( $descr.fid )¤	#end¤	¤#end¤¤¤<html>¤    <head>¤        <title>Garant special settings</title>¤    </head>¤    #applyDecorator("root")¤        #decoratorParam("context" "profile")¤        #decoratorParam("mode"  "MDProcess.ConfluencePlugins.GarantProfileSupport::GarantProfileWebItem")¤        #decoratorParam("helper" $action.helper)¤        #decoratorParam("infopanel-width" "200px")¤¤        <body>¤		<style>¤			.settingsBox¤			{¤				border:1px solid lightgrey;¤				margin: 3px;¤				padding:2px;¤				width:350px;¤			}¤		</style>¤		¤			#*¤            <table cellpadding=0 width="100%">¤                <tr><td width="90%">¤                    <div class="thickPadded">¤                    Select the way to show comments:¤                    <br/>¤                    <form name="garantprofiletabform" method="POST" action="dogarantprofiletab.action" enctype="multipart/form-data">¤                        <table class="greyBox" width="350" cellpadding="2" cellspacing="4">¤                            <tr><td valign=top>¤                                #addCommentPlaceRadio('after' 'After Document')¤                                #addCommentPlaceRadio('intab' 'In The Tab')¤                                #addCommentPlaceRadio('everywhere' 'Everywhere')¤                            </td></tr>¤                        </table>¤                    Select the comment thread state:¤                        <table class="greyBox" width="350" cellpadding="2" cellspacing="4">¤                            <tr><td valign=top>¤                                #addThreadStateRadio('rolldown' 'Expand')¤                                #addThreadStateRadio('rollup' 'Collapse readed')¤                            </td></tr>¤                        </table>¤                                #tag( Submit "name='confirm'" "value='update.name'" "theme='notable'" )¤                                #tag( Submit "name='cancel'" "value='cancel.name'" "theme='notable'" )¤¤                    </form>¤                </td></tr>¤            </table>¤			$action.getTest()<br>¤			#set ($fid1 = "collapse" )¤			<div style="border:1px solid grey;">¤				#showSettingsBox( $fid1 )¤			</div>¤				*#¤			<form name="garantprofiletabform" method="POST" action="dogarantprofiletab.action" enctype="multipart/form-data">¤			#showSettings()¤			#tag( Submit "name='confirm'" "value='update.name'" "theme='notable'" )¤			#tag( Submit "name='cancel'" "value='cancel.name'" "theme='notable'" )¤			</form>¤        </body>¤    #end¤</html>¤##UC_END*461FABF202EE_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/ProfileView/garantprofile|461FABF202EE
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/ProfileView/garantprofile.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*461FABF202EE_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*461FABF202EE_CUSTOM_CONTENT*¤#*¤#set ($needStopWatch = false)¤#if ($action.remoteUser.name == "elenau")¤    #set ($needStopWatch = true)¤#end¤ #if($needStopWatch)#set($startGlobalGarantTime = $garHelper.time)#end¤*#¤¤<SCRIPT LANGUAGE="JavaScript">¤	function onclickCheckBox(checkBoxCtrl, checkBoxValueHiddenId) {¤		if(checkBoxCtrl == null)¤			return;¤		var checkBoxValueHiddenCtrl = document.getElementById(checkBoxValueHiddenId);¤		if(checkBoxValueHiddenCtrl == null)¤			return;¤		if(checkBoxCtrl.checked == true)¤			checkBoxValueHiddenCtrl.value = "true";¤		else¤			checkBoxValueHiddenCtrl.value = "false";¤	}¤</SCRIPT>¤¤#macro (addThreadStateRadio $state $name)¤    <input type="radio"¤           name="collapse"¤           value=$state¤           id="id$state"¤           #if ($action.threadState && $action.threadState == $state)¤               checked¤           #end¤     >$name¤    <br/>¤#end¤¤¤¤¤#macro (showSettingsBox $descr $fid) ## tut ewe nada budet tip tam i pro4uu mutatu delat, poka tak¤	#set ( $userDefault = $action.getUserData("$fid") )¤	#set ( $field_type = $descr.getDisplayType().toString() )¤	#set ( $displayName = $descr.getDisplayName() )¤	¤	##<div style="border:1px solid red;">Debug: userDefaut: $userDefault; type: $field_type; name: $displayName;</div> ¤	¤	<div class="settingsBox"><a name="${fid}_a">&nbsp;</a>$garHelper.getText($displayName)<br>¤	#if ( $field_type == "SET" )¤		#set ( $values = $descr.getValueSet() )¤		#foreach ($descrValueObj in $values)¤			#set($descrValue = $descrValueObj.value)¤			#set($descrDisplay = $descrValueObj.display)¤			<input type="radio"¤				name="FID_$fid"¤				value="$descrValue"¤				##id="id${fid}"¤				#if ( $userDefault == $descrValue )¤					checked¤				#end¤			>$garHelper.getText($descrDisplay)¤			<br />¤		#end¤	#elseif ( $field_type == "BOOLEAN" )¤		#set ( $fieldValueControlId = "id${fid}Value" )¤		<input type="checkbox" onclick="onclickCheckBox(this, '$fieldValueControlId')"¤			#if ( $userDefault == "TRUE" || $userDefault == "true")¤				checked¤			#end¤		>¤		<input type="hidden" name="FID_$fid" id="$fieldValueControlId" value="$userDefault"/>¤	#elseif ( $field_type == "TEXT" )¤		<input type="text" name="FID_$fid" value="$userDefault" id="id$fid">¤	#elseif ( $field_type == "LONGTEXT" )¤		<textarea type="text" name="FID_$fid" id="id$fid">$userDefault</textarea>¤	#elseif ( $field_type == "INT" )¤		<input type="text" name="FID_$fid" value="$userDefault" id="id$fid">¤	#elseif ( $field_type == "MULTIPLY" )¤		#set ( $values = $descr.getValueSet() )¤		#foreach ($descrValueObj in $values)¤			#set($descrValue = $descrValueObj.value)¤			#set($descrDisplay = $descrValueObj.display)¤			<input type="checkbox"¤				name="FID_$fid"¤				value="$descrValue"¤				##id="id${fid}"¤				#if ( $userDefault.contains($descrValue) )¤					checked¤				#end¤			>$garHelper.getText($descrDisplay)¤			<br />¤		#end¤		<!-- dummy value to invoke set of data -->¤		<input type="hidden" name="FID_$fid" value=""/>¤	#else 	¤		<input type="text" name="FID_$fid" value="$userDefault" id="id$fid">¤	#end¤	¤	</div>¤#end¤¤¤#macro ( showSettings )¤##	#if($needStopWatch)#set($startForTime = $garHelper.time)#end¤	#set ( $dset = $action.getDescriptors() )¤	#foreach( $descr in $dset )¤		##<div style="color:red">Debug: ID: $descr.fid Visible: $descr.visible DafaultValue: $!descr.defaultValue UserData: $!action.getUserData("$descr.fid") </div>¤		#set ($visible = $descr.getVisible())¤		#if ( $visible == true )¤			#showSettingsBox( $descr $descr.fid)¤		#end¤	#end¤##	#if($needStopWatch)<div id="fortime" class="smalltext">[for render time $generalUtil.subtract($garHelper.time, $startForTime)]</div>#end¤#end¤¤¤<html>¤    <head>¤        <title>$garHelper.getText('garantprofile.garant.special.settings')</title>¤    </head>¤    #applyDecorator("root")¤        #decoratorParam("context" "profile")¤        #decoratorParam("mode"  "MDProcess.ConfluencePlugins.GarantProfileSupport::GarantProfileWebItem")¤        #decoratorParam("helper" $action.helper)¤        #decoratorParam("infopanel-width" "200px")¤¤        <body>¤		<style>¤			.settingsBox¤			{¤				border:1px solid lightgrey;¤				margin: 3px;¤				padding:2px;¤				width:500px;¤			}¤		</style>¤		¤			<div style="text-align:left;">¤			<form name="garantprofiletabform" method="POST" action="dogarantprofiletab.action" enctype="multipart/form-data">¤			#showSettings()¤			#tag( "Submit" "name='confirm'" "value='update.name'" "theme='notable'" )¤			#tag( "Submit" "name='cancel'" "value='cancel.name'" "theme='notable'" )¤			</form>¤			</div>¤        </body>¤    #end¤## 	#if($needStopWatch)<div id="globalgaranttime" class="smalltext">[global render time $generalUtil.subtract($garHelper.time, $startGlobalGarantTime)]</div>#end¤</html>¤¤##UC_END*461FABF202EE_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"All")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038914145"))
+	    quid       	"461FABF202EE"
+	    documentation 	"Âåëîñèòè øàáëîí äëÿ ïëàãèíà íàñòðîåê ïîëüçîâàòåëÿ."
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010700816"))
+		    quid       	"4AB2114102C3"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::changenotify_js"
+		    quidu      	"4AB2108200AF"))
+	    language   	"MDA Generator")
+	(object Class "notifymonitoringprofile"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"All")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/ProfileView/notifymonitoringprofile.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*48AC1315015A_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*48AC1315015A_CUSTOM_CONTENT*¤#requireResource('confluence.web.resources:utils')¤#parse("/ConfluencePlugins/UserNotificationUnit/changenotify_js.vm")¤¤#set($textHuntingContinue = $garHelper.getText('hunting.continue'))¤¤<html>¤    <head>¤        <title>$garHelper.getText('notifymonitoringprofile.notify.monitoring.settings')</title>¤    </head>¤	#applyDecorator("root")¤        #decoratorParam("context" "profile")¤        #decoratorParam("mode"  "MDProcess.ConfluencePlugins.NotifyMonitoringProfileSupport::NotifyMonitoringProfileWebItem")¤        #decoratorParam("helper" $action.helper)¤        #decoratorParam("infopanel-width" "200px")¤¤   <body>¤		<table width="100%" cellspacing="0" cellpadding="0">¤			<tr>¤			<td width="1%" valign="top"></td>¤			<td width="40%" valign="top">¤			<div style="padding: 20px 10px 5px 40px" class="tabletitle">$garHelper.getText('notifymonitoringprofile.all.not.notify.monitoring.content')</div>¤            <table width="100%" class="tableview">¤                    #if($action.userNotify.isEmpty())¤						<div style="padding: 0px 0px 5px 70px">¤							$garHelper.getText('there.are.no.pages')¤						</div>¤					#else¤						#foreach( $un in $contentNotify)¤							<tr>¤								<td valign="top">¤									#set($contentCurrentNotify = $un.getContent())¤									#set($IdWarningPlaceCurrentNotify = $un.getWarningPlace().getId())¤									#contentIconWithLinkPrefix($contentCurrentNotify $req.contextPath)¤									<a href="$req.contextPath$contentCurrentNotify.getUrlPath()¤									#if(!$IdWarningPlaceCurrentNotify.equals($contentCurrentNotify.getId()))¤										&focusedCommentId=$IdWarningPlaceCurrentNotify#comment-$IdWarningPlaceCurrentNotify¤									#end	¤									">¤									#if($un.getTitle())	¤										$webwork.htmlEncode($un.getTitle())¤									#else¤										$webwork.htmlEncode($contentCurrentNotify.getTitle())¤									#end¤									</a>¤									#contentOtherFixed($contentCurrentNotify)¤								</td>¤								<td valign="top">¤									#set ($id = $un.getIdNotify())¤									#if($un.getSender() == $action.getNotifyTo($id))¤										#set($isSender = true)¤									#else¤										#set($isSender = false)¤									#end¤									¤									#if($un.getStartDate() != 0)¤										#set($defNotify = true)¤									#else¤										#set($defNotify = false)¤									#end¤									<a href="" onClick="return false;">¤										<img id="notify-$id" onClick="addOrRemoveNotifyFromFavourites('$id', '$isSender', '$defNotify', this);" ¤										border="0" #if($isSender) src="$garIcon.getTypeIcon('forgui_watch_off_only_for_sender')" #elseif($defNotify) src="$garIcon.getTypeIcon('forgui_deferred_watch_off')" #else src="$garIcon.getTypeIcon('forgui_watch_off')" #end title="$textHuntingContinue">¤									</a>¤								</td>¤							</tr>¤						#end¤					#end¤			</table>¤			</td>¤			<td width="60%" valign="top"></td>¤			</tr>¤		</table>¤			<tr>¤                <td valign="top">¤                    <div style="padding: 0px 750px 5px 10px">¤						#set ($pageUrl = "${req.contextPath}/ru/garant/MDProcess/ConfluencePlugins/NotifyMonitoringProfileSupport/NotifyMonitoringProfileTabXWorkPlugin/NotifyMonitoringProfileTabXPackage/notifymonitoringprofiletab.action?")¤						#pagination($action.paginationSupport $pageUrl)¤                    </div>¤                </td>¤			</tr>¤	</body>¤	#end		¤</html>¤##UC_END*48AC1315015A_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/ProfileView/notifymonitoringprofile|48AC1315015A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038930984"))
+	    quid       	"48AC1315015A"
+	    documentation 	"Âåëîñèòè øàáëîí äëÿ ïëàãèíà íàñòðîåê ñëåæåíèÿ çà èçìåíåíèÿìè êîíòåíòà."
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"477E299A032C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	213
+	    origin_y   	31
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::ProfileView::garantprofile" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"210")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"1605")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"280")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"182"))
+		    location   	(582, 735)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(451, 705)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	262
+			justify    	0
+			label      	"garantprofile")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(451, 655)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	262
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"461FABF202EE"
+		    width      	280
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::ProfileView::notifymonitoringprofile" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1164, 744)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(949, 715)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	430
+			justify    	0
+			label      	"notifymonitoringprofile")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(949, 665)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	430
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"48AC1315015A"
+		    width      	448
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::changenotify_js" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(741, 1191)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	13110000
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(531, 1163)
+			nlines     	1
+			max_width  	420
+			justify    	0
+			label      	"changenotify_js")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(531, 1113)
+			anchor     	10
+			nlines     	1
+			max_width  	420
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    line_color 	13110000
+		    fill_color 	16777215
+		    quidu      	"4AB2108200AF"
+		    width      	438
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @5
+			Parent_View 	@4
+			location   	(773, 925)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4AB2114102C3"
+		    client     	@1
+		    supplier   	@3
+		    vertices   	(list Points
+			(613, 827)
+			(708, 1100))
+		    line_style 	0)))))

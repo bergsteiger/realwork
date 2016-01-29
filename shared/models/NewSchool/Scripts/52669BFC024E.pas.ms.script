@@ -1,0 +1,537 @@
+// CoreTypes 52669BFC024E EVD Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52669BFC024E
+
+FORWARD ME_52669C24032B
+
+: ME_4849290E0318
+ CONST UID '4849290E0318'
+ CONST Name 'Object'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый класс' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ CONST "ID" 6
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Object_Const.pas'
+ CONST extprop:pas:TypeName 'ObjectAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_4849290E0318 Object
+
+: ME_4A672F4F00E6
+ CONST UID '4A672F4F00E6'
+ CONST Name 'SomeDataContainer'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( ME_4849290E0318 // Object
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2SomeDataContainer_Const.pas'
+ CONST extprop:pas:TypeName 'SomeDataContainerAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_4A672F4F00E6 SomeDataContainer
+
+FORWARD ME_48492AC1023B
+
+: ME_484D0C68034D
+ CONST UID '484D0C68034D'
+ CONST Name 'Value'
+ CONST Class class_Attribute
+ %SUMMARY 'Собственно строка.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_48492AC1023B // String
+ ;
+ : Target ME_48492AC1023B // String
+ ;
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_484D0C68034D Value
+
+: ME_48492AC1023B
+ CONST UID '48492AC1023B'
+ CONST Name 'String'
+ CONST Class class_Class
+ : Stereotype st_Tag ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Строка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( ME_4A672F4F00E6 // SomeDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_484D0C68034D // Value
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2String_Const.pas'
+ CONST extprop:pas:TypeName 'StringTag'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_48492AC1023B String
+
+: ME_5266A6750356
+ CONST UID '5266A6750356'
+ CONST Name 'Empty'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Запрещённое значение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ CONST "ID" 0
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Empty_Const.pas'
+ CONST extprop:pas:TypeName 'EmptyAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_5266A6750356 Empty
+
+: ME_4849291B033B
+ CONST UID '4849291B033B'
+ CONST Name 'l3Base'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый класс с подсчетом ссылок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( ME_4849290E0318 // Object
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "ID" 9
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2l3Base_Const.pas'
+ CONST extprop:pas:TypeName 'l3BaseAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_4849291B033B l3Base
+
+FORWARD ME_48492AD90142
+
+: ME_48493EC101A8
+ CONST UID '48493EC101A8'
+ CONST Class class_Attribute
+ : Stereotype st_children::Attribute ;
+ %SUMMARY 'Дочерние элементы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_48492AD90142 // OList
+ ;
+ : Target ME_4849291B033B // l3Base
+ ;
+ CONST "Duplicates" 'Ignore'
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoreChildTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" true
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_48493EC101A8 
+
+: ME_48492AD90142
+ CONST UID '48492AD90142'
+ CONST Name 'OList'
+ CONST Class class_Class
+ : Stereotype st_Tag ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список объектов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( ME_4A672F4F00E6 // SomeDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_48493EC101A8 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "ID" 30
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2OList_Const.pas'
+ CONST extprop:pas:TypeName 'OListTag'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_48492AD90142 OList
+
+: ME_48492A0C00ED
+ CONST UID '48492A0C00ED'
+ CONST Name 'Long'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Целое число' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "ID" 1
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Long_Const.pas'
+ CONST extprop:pas:TypeName 'LongAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_48492A0C00ED Long
+
+: ME_48492A33037B
+ CONST UID '48492A33037B'
+ CONST Name 'Enum'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Перечислимый тип' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( ME_48492A0C00ED // Long
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "ID" 2
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Enum_Const.pas'
+ CONST extprop:pas:TypeName 'EnumAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_48492A33037B Enum
+
+: ME_48492A7A0255
+ CONST UID '48492A7A0255'
+ CONST Name 'Bool'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Логическое значение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ME_48492A33037B // Enum
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "ID" 3
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Bool_Const.pas'
+ CONST extprop:pas:TypeName 'BoolAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_48492A7A0255 Bool
+
+FORWARD ME_484CE9CE0107
+
+: ME_485798500367
+ CONST UID '485798500367'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_484CE9CE0107 // FontName
+ ;
+ : Target WL 'ME_484CE8BC01CC' '473C3BEE0334.pas.ms.script' // l3FontManager
+ ;
+
+ref; // ME_485798500367 
+
+: ME_484CE9CE0107
+ CONST UID '484CE9CE0107'
+ CONST Name 'FontName'
+ CONST Class class_Class
+ : Stereotype st_Tag ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Гарнитура шрифта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( ME_48492AC1023B // String
+ ) .SequenceCode.It
+ ; // Inherits
+ : Dependencies
+   @ ( ME_485798500367 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST "ID" 35
+ CONST "IDIndex" 'SelfID'
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ CONST "need UC" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2FontName_Const.pas'
+ CONST extprop:pas:TypeName 'FontNameTag'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_484CE9CE0107 FontName
+
+: ME_484929A9018E
+ CONST UID '484929A9018E'
+ CONST Name 'IUnknown'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( WL 'ME_4242EBBB03B9' '3DBFDB23006E.pas.ms.script' // object
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "ID" 98
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2IUnknown_Const.pas'
+ CONST extprop:pas:TypeName 'IUnknownAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_484929A9018E IUnknown
+
+: ME_540424E100E8
+ CONST UID '540424E100E8'
+ CONST Name 'SetOf'
+ CONST Class class_Class
+ : Stereotype st_Atom ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Множество' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52669C24032B // k2Core
+ ;
+ : Inherits
+   @ ( ME_48492A0C00ED // Long
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "Implementation" 'undef'
+ CONST "Parented" 'undefined'
+ CONST "SmallTag" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2SetOf_Const.pas'
+ CONST extprop:pas:TypeName 'SetOfAtom'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_540424E100E8 SetOf
+
+: ME_52669C24032B
+ CONST UID '52669C24032B'
+ CONST Name 'k2Core'
+ CONST Class class_Class
+ : Stereotype st_TagTable ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52669BFC024E // CoreTypes
+ ;
+ : Children
+   @ ( ME_4849290E0318 // Object
+ ME_4A672F4F00E6 // SomeDataContainer
+ ME_48492AC1023B // String
+ ME_5266A6750356 // Empty
+ ME_4849291B033B // l3Base
+ ME_48492AD90142 // OList
+ ME_48492A0C00ED // Long
+ ME_48492A33037B // Enum
+ ME_48492A7A0255 // Bool
+ ME_484CE9CE0107 // FontName
+ ME_484929A9018E // IUnknown
+ ME_540424E100E8 // SetOf
+ ) .SequenceCode.It
+ ; // Children
+ CONST "elements prefix" 'k2'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Core_Schema.pas'
+ CONST extprop:pas:TypeName 'Tk2CoreSchema'
+ CONST extprop:pas:ElementPrefixBase 'k2'
+ CONST extprop:pas:ElementPrefix 'k2_'
+
+ref; // ME_52669C24032B k2Core
+
+: ME_530340010116
+ CONST UID '530340010116'
+ CONST Name 'TIObject'
+ CONST Class class_Class
+ : Stereotype st_TagImplementator ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52669BFC024E // CoreTypes
+ ;
+ : Implements
+   @ ( ME_4849290E0318 // Object
+ ) .SequenceCode.It
+ ; // Implements
+
+ref; // ME_530340010116 TIObject
+
+: ME_52669BFC024E
+ CONST UID '52669BFC024E'
+ CONST Name 'CoreTypes'
+ CONST Class class_Category
+ : Stereotype st_EVD ;
+ %SUMMARY 'Совсем базовые типы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Children
+   @ ( ME_52669C24032B // k2Core
+ ME_530340010116 // TIObject
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52669BFC024E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52669BFC024E.pas.ms.script.runner'
+
+ref; // ME_52669BFC024E CoreTypes

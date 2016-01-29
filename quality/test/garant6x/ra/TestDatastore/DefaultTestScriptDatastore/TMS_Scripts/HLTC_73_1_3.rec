@@ -1,0 +1,24 @@
+'$include "States.sbl"
+'*** Проверка тесткейса № 73.1.3 ***
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию.
+
+Sub Main
+    Dim Result As Integer
+    
+  Call NeedState (ST_MAIN_MENU)
+  CUR_STATE = ST_NONE_STANDART
+'Идем до списка с трудовым кодексом и переходим на Статью 6  
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=83,9"
+  GenericObject Click, "Text=Документы", "Coords=54,11"
+  InputKeys "{ENTER}"
+  InputKeys "{DOWN}{DOWN}{DOWN}{ENTER}"
+  DelayFor (1500) 'Ждем загрузки списка
+  InputKeys "{DOWN}{Num+}{DOWN}{ENTER}"
+  DelayFor (3000) 'Ждем загрузки кодекса
+'Сравниваем отображаемый экран
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=St6")
+End Sub

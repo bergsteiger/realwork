@@ -1,0 +1,236 @@
+%producer 'ЭВЕРЕСТ 1.2.0.1420' date '08.02.2012'
+%format version 0.140 revision date '18/06/2010' 
+: Document = {
+ Subs = {
+  : = {
+   Handle = Sub
+   Children = 2
+   : = {
+    Handle = 65534
+   }
+  }
+ }
+ MaxSubID = 65534
+ Children = 9
+ : = {
+  Segments = {
+   : = {
+    Handle = View
+    : = {
+     Font = {
+      Bold = True
+     }
+     Finish = 11
+    }
+   }
+  }
+  Text = 'Ваш запрос:'
+ }
+ : Table = {
+  LeftIndent = 566
+  : ReqRow = {
+   : = {
+    Width = 10204
+    : = {
+     Name = 'QueryByParas'
+     Font = {
+      ForeColor = clPurple
+     }
+     Type = ev_ctTextParaLabel
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : Block = {
+  Handle = 65534
+  Children = 6
+  : = {
+   Segments = {
+    : = {
+     Handle = View
+     : = {
+      Font = {
+       Bold = True
+      }
+      Finish = 15
+     }
+    }
+   }
+   Text = 'Ответ эксперта:'
+  }
+  : Table = {
+   LeftIndent = 566
+   Children = 2
+   : ReqRow = {
+    Children = 2
+    : = {
+     Width = 5102
+     : = {
+      Text = 'Запрос от пользователя'
+      Type = ev_ctTextParaLabel
+     }
+    }
+    : = {
+     Width = 5102
+     : = {
+      Name = 'User'
+      Font = {
+       ForeColor = clPurple
+      }
+      Type = ev_ctTextParaLabel
+     }
+    }
+   }
+   : ReqRow = {
+    Children = 2
+    : = {
+     Width = 5102
+     : = {
+      Text = 'Дата предоставления ответа'
+      Type = ev_ctTextParaLabel
+     }
+    }
+    : = {
+     Width = 5102
+     : = {
+      Name = 'Date'
+      Font = {
+       ForeColor = clPurple
+      }
+      Type = ev_ctTextParaLabel
+     }
+    }
+   }
+  }
+  : Table = {
+   LeftIndent = 566
+   : ReqRow = {
+    : = {
+     Width = 10204
+     : = {
+      Name = 'Answer'
+      Justification = ev_itLeft
+      Type = ev_ctTextParaLabel
+     }
+    }
+   }
+  }
+  : Table = {
+   LeftIndent = 566
+   : ReqRow = {
+    ReqID = 'CS_LISTLINK'
+    : = {
+     Width = 10204
+     Children = 2
+     : = {
+     }
+     : = {
+      Segments = {
+       : = {
+        Handle = Hyperlinks
+        : HyperLink = {
+         : = {
+          Type = 65545
+          DocID = 9
+         }
+        }
+       }
+      }
+      Text = 'Список документов, упомянутых в данной консультации'
+     }
+    }
+   }
+  }
+  : = {
+  }
+  : Table = {
+   LeftIndent = 566
+   : ReqRow = {
+    : = {
+     Width = 10204
+     : = {
+      Name = 'Cost'
+      Justification = ev_itLeft
+      Type = ev_ctTextParaLabel
+     }
+    }
+   }
+  }
+ }
+ : = {
+  LeftIndent = 566
+ }
+ : = {
+  Text = 'Благодарим за то, что воспользовались услугами службы Правовой поддержки онлайн.'
+ }
+ : = {
+  Segments = {
+   : = {
+    Handle = Hyperlinks
+    : HyperLink = {
+     Start = 77
+     : = {
+      Type = 65545
+      DocID = 8
+     }
+    }
+   }
+  }
+  Text = 'Полный перечень услуг информационно-правового обеспечения ГАРАНТ приведен в Новостях онлайн'
+ }
+ : Table = {
+  LeftIndent = 566
+  Children = 2
+  : ReqRow = {
+   : = {
+    Width = 10204
+    : = {
+     Text = 'Контактная информация обслуживающей Вас организации:'
+     Type = ev_ctTextParaLabel
+    }
+   }
+  }
+  : ReqRow = {
+   : = {
+    Width = 10204
+    : = {
+     Name = 'DealerInf'
+     Justification = ev_itLeft
+     Type = ev_ctTextParaLabel
+    }
+   }
+  }
+ }
+ : Table = {
+  LeftIndent = 566
+  : ReqRow = {
+   ReqID = 'CS_ESTIMATION'
+   : = {
+    Width = 10204
+    Children = 3
+    : = {
+     Text = 'Для нас очень важна Ваша оценка нашей работы'
+    }
+    : = {
+    }
+    : = {
+     Segments = {
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        : = {
+         Type = 65545
+         DocID = 1
+        }
+       }
+      }
+     }
+     Justification = ev_itCenter
+     Text = 'Оценить ответ'
+    }
+   }
+  }
+ }
+}

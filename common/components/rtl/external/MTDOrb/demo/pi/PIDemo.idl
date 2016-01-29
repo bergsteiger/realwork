@@ -1,0 +1,82 @@
+// **********************************************************************
+//
+// Copyright (c) 2001
+// IONA Technologies, Inc.
+// Waltham, MA, USA
+//
+// All Rights Reserved
+//
+// **********************************************************************
+
+//
+// A simple interface used to demonstrate Request Interceptors
+//
+// This interface will be implemented by two servants, one using
+// the static skeleton and the other using the Dynamic Skeleton
+// Interface.
+//
+interface PIDemo
+{
+    //
+    // User defined exception
+    //
+    exception User 
+    {
+    };
+
+    //
+    // Operation with no arguments
+    //
+    void noargs();
+
+    //
+    // Oneway operation with no arguments
+    //
+    oneway void noargs_oneway();
+
+    //
+    // Operation with no arguments and a return
+    //
+    string noargs_return();
+
+    //
+    // Operation with in, inout and out parameters
+    //
+    void withargs(in string param1, inout string param2, out string param3);
+
+    //
+    // Operation which always throws a SystemException
+    //
+    void systemexception();
+
+    //
+    // Operation which always throws a UserException
+    //
+    void userexception() raises(User);
+     
+    //
+    // Operation resulting in a LOCATION_FORWARD with the reference
+    // corresponding to the static servant
+    //
+    void switch_to_static_impl();
+
+    //
+    // Operation resulting in a LOCATION_FORWARD with the reference
+    // corresponding to the dynamic servant
+    //
+    void switch_to_dynamic_impl();
+
+    //
+    // Operation for nested calls
+    //
+    // Each implementation will continue to call the other, for
+    // a total of "level" calls.
+    //
+    void call_other_impl(in short level);
+
+    //
+    // Deactivate the implementation
+    //
+    void deactivate();
+};
+

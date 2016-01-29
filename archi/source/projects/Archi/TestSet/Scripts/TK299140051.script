@@ -1,0 +1,21 @@
+USES 
+	QuickTestsUtils.script
+;
+
+Тест TK299140051
+	Выполнить (
+		 OBJECT VAR l_Editor
+		 focused:control:push >>> l_Editor 
+		 2 раза "Нажать вниз"	 
+		 "Прокрутить вниз {(3)}раз"
+		 "Обработать сообщения"
+		 l_Editor pop:editor:InsertRow
+		 "Обработать сообщения"
+		 l_Editor pop:editor:DeleteRow
+		 "Обработать сообщения"
+		 "Прокрутить вниз {(10)}раз"	 
+		 "Обработать сообщения"		
+	)
+;
+
+TK299140051

@@ -1,0 +1,38 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 73.3.1 ***
+
+'Начальное состояние:
+'В принципе - любое т.к. документ открывается по номеру
+
+Sub Main
+  
+    Dim Result As Integer
+    
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE = ST_NONE_STANDART
+    
+'Открываем по внутреннему номеру документ № 2002
+  OpenDocByNum (2002)
+  DelayFor (2000) 'Ждем открытия документа
+  
+'В документе сраниваем 2-а экрана текста
+  Window SetContext, "Caption={ГАРАНТ 6*}", ""
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=StartText")
+  InputKeys "{PGDN}"
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=PgDnText")
+  
+'Теперь изменяем размеры окна и сравиваем опять 3 экрана
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Window RestorePos, "", ""
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=RD_1")
+  InputKeys "{PGUP}^"
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=RD_2")
+  InputKeys "{PGUP}"
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=RD_3")
+  Window WMaximize, "", ""
+End Sub

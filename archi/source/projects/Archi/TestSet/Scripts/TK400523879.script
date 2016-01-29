@@ -1,0 +1,20 @@
+USES
+ QuickTestsUtils.script
+;
+
+Тест TK400523879
+ 	Параметры: ( "Тестирование отрисованного" ) 
+	Выполнить ( 
+	  "Нажать табуляцию"
+	  OBJECT VAR l_Editor
+	  "Контрол в фокусе" >>> l_Editor  
+	  6 раз "Нажать вниз"
+	  6 5 l_Editor pop:editor:InsertTable
+	  2 раз "Нажать табуляцию"
+	  false l_Editor pop:editor:SplitCell  
+	  "Обработать сообщения"
+	  2 0 2 1 l_Editor pop:editor:SelectCellsVertical
+	)
+;
+
+TK400523879

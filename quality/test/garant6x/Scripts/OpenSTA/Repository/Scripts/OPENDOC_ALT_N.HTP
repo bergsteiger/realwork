@@ -1,0 +1,1351 @@
+!Browser:IE5
+!Date : 26.03.2008
+Environment
+	Description ""
+	Mode		HTTP
+	Wait		UNIT MILLISECONDS
+
+Definitions
+	! Standard Defines
+	Include			"RESPONSE_CODES.INC"
+	Include			"GLOBAL_VARIABLES.INC"
+
+	CHARACTER*512	USER_AGENT
+	Integer			USE_PAGE_TIMERS
+	CHARACTER*256	MESSAGE
+	
+	!!!!!!!!  My Var  !!!!!!!!!!
+	Integer			USER_INDEX, GLOBAL
+	CHARACTER*256	HOST
+	CHARACTER*256	USER_INDEX_STR
+	CHARACTER*256	USER_NAME
+	CHARACTER*256	USER_PWD
+	
+	CHARACTER*256	SESSION_NAME
+	Integer			SESSION_IND
+	
+	Integer			SEARCH_COUNT
+	Integer			DELAY
+	CHARACTER*512	SEARCH_BODY
+	CHARACTER*256	DOC_NUM
+	Integer			IF_LOGOUT
+	Integer			IF_GUEST_USER
+	Integer 		IF_SAVE_BOOKMARK
+	Integer 		IF_OPEN_DOC
+	Integer			COUNT_OPEN_DOC
+	Integer			COUNT_ITERAT
+	Integer			i
+	Integer			n
+	Integer			ifEndSearch
+	
+	CHARACTER*256	Temp
+	!!!!!!!!!!!!!!!!!!!!!
+	Timer			T_ADD_USERS
+	CHARACTER*1024	cookie_2_0
+	CHARACTER*1024	cookie_2_1
+	CHARACTER*1024	cookie_2_2
+	
+	CHARACTER*1024	S_cookie_1_0
+	CHARACTER*1024	S_cookie_1_2
+	
+	CHARACTER*1024	cookie_5_1
+	CHARACTER*1024	cookie_5_2
+	CHARACTER*1024	S_cookie_1_4
+	CHARACTER*1024	cookie_5_0
+	CHARACTER*1024	S_cookie_1_1
+	CHARACTER*1024	S_cookie_6_0
+	CHARACTER*1024	DEFAULT_HEADERS
+	
+
+Code
+		
+	!Read in the default browser user agent field
+	Entry[USER_AGENT,USE_PAGE_TIMERS]
+	
+	set HOST = "tiger.garant.ru:80"
+	set DEFAULT_HEADERS = "Host: " + HOST + "^J"	&
+		"Proxy-Connection: Keep-Alive^J"	&
+		"User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)"
+	
+	ACQUIRE TEST-WIDE MUTEX "USER_NAME_GENERATOR"	
+		SET USER_INDEX = USER_INDEX + 1
+		CONVERT USER_INDEX TO USER_INDEX_STR
+		SET USER_NAME = 'USER_p4single12_' + USER_INDEX_STR
+		SET USER_PWD  = 'PWD' + USER_INDEX_STR	
+	RELEASE TEST-WIDE MUTEX "USER_NAME_GENERATOR"
+	
+	LOG USER_NAME
+	
+	!!!!!!!SET DELAY BEFOR RUNNER EVERY USER
+	SET DELAY = 3000
+	SET DELAY = USER_INDEX * DELAY - DELAY
+	WAIT DELAY
+	LOG DELAY
+		
+	Start Timer T_ADD_USERS
+	
+
+
+	WAIT 70
+	
+	PRIMARY GET URI "http://" + HOST + "/ HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Accept-Language: ru"}
+
+	WAIT 110
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/PILOT/index.htm HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Accept-Language: ru"}
+
+	WAIT 40
+	!!!!!!!	replace Session
+	LOAD RESPONSE_INFO HEADER ON 1 INTO SESSION_NAME, WITH "Location"
+	
+	SET SESSION_IND = ~LOCATE("SESSION/", SESSION_NAME)+8
+	SET SESSION_NAME = ~EXTRACT(SESSION_IND , 11, SESSION_NAME )
+		
+	!!!!!!!!Scenario
+	
+	SET IF_GUEST_USER = 0
+	SET IF_OPEN_DOC =1
+	SET IF_LOGOUT = 1
+	
+	
+	!!IF Guest Login?
+	
+	IF (IF_GUEST_USER = 0) THEN
+		
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm? HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Accept-Language: ru"}
+
+	WAIT 501
+
+
+
+		GET URI "http://" + HOST + "/help/help_sm.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm?", &
+				"Accept-Language: ru", &
+				"If-Modified-Since: Tue, 25 Dec 2007 15:28:16 GMT; length=234"}
+
+		WAIT 30
+
+
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/help/help_sm.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm?", &
+				"Accept-Language: ru"}
+
+		WAIT 5000
+
+	PRIMARY POST URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/registration/registration.htm HTTP/1.0" &
+		ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm?", &
+			"Accept-Language: ru", &
+			"Content-Type: application/x-www-form-urlencoded", &
+			"Content-Length: 54", &
+			"Pragma: no-cache"}	 &
+		,BODY "new_login=" + USER_NAME + "&new_pass=&rep_pass=&fio=" + USER_NAME + "&email="
+
+	WAIT 130
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/registration/registration/" &
+			"send_pwd.htm?login=" + USER_NAME + "&automatic_login_field=0 HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm?", &
+			"Accept-Language: ru", &
+			"Pragma: no-cache"}
+
+	WAIT 1993
+
+	PRIMARY GET URI "http://" + HOST + "/?l=" + USER_NAME + "&p= HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/registration/registration/" &
+				"send_pwd.htm?login=" + USER_NAME + "&automatic_login_field=0", &
+			"Accept-Language: ru"}
+
+	WAIT 60
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/PILOT/login_check.htm?l=" + USER_NAME + "&p= " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/registration/registration/" &
+				"send_pwd.htm?login=" + USER_NAME + "&automatic_login_field=0", &
+			"Accept-Language: ru"}
+
+	WAIT 50
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/login_check.htm?l=" + USER_NAME + "&p= HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/registration/registration/" &
+				"send_pwd.htm?login=" + USER_NAME + "&automatic_login_field=0", &
+			"Accept-Language: ru"}
+
+	Load Response_Info Header on 1		&
+		Into cookie_2_0	&
+		,WITH "Set-Cookie,passwd"
+
+	Load Response_Info Header on 1		&
+		Into cookie_2_1	&
+		,WITH "Set-Cookie,login"
+
+	Load Response_Info Header on 1		&
+		Into cookie_2_2	&
+		,WITH "Set-Cookie,save_login_passwd"
+
+	WAIT 420
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/registration/registration/" &
+				"send_pwd.htm?login=" + USER_NAME + "&automatic_login_field=0", &
+			"Accept-Language: ru"}
+
+	WAIT 541
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.css HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Accept-Language: ru"}
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/transfer02.js HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Accept-Language: ru"}
+
+		WAIT 311
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/get_login_info.htm HTTP/1.0" &
+			ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Accept-Language: ru"}
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/blank.html HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru"}
+
+	WAIT 40
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/blank.html HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru"}
+
+	WAIT 140
+
+
+
+	WAIT 20
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/keep_alive HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru"}
+
+	WAIT 50
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/save_setting.html " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru"}
+
+	WAIT 1000
+
+		GET URI "http://" + HOST + "/img/info/database_old.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Accept-Language: ru", &
+				"If-Modified-Since: Tue, 30 Oct 2007 08:10:33 GMT; length=1392"}
+
+		WAIT 191
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+			"main_frameset.html?window_type=utMainWindow&active_config=1 HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru"}
+
+	WAIT 1000
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/main_header.html " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frameset.html?window_type=utMainWindow&active_config=1", &
+			"Accept-Language: ru"}
+
+	WAIT 121
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/basesearch/base_search.html HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frameset.html?window_type=utMainWindow&active_config=1", &
+			"Accept-Language: ru"}
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+			"main_frame_frameset.html?window_id=utMainWindow HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frameset.html?window_type=utMainWindow&active_config=1", &
+			"Accept-Language: ru"}
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/main_footer.html " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frameset.html?window_type=utMainWindow&active_config=1", &
+			"Accept-Language: ru"}
+
+	WAIT 350
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+			"main_frame.html?window_id=utMainWindow HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frame_frameset.html?window_id=utMainWindow", &
+			"Accept-Language: ru"}
+
+	WAIT 10
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+			"tab_frameset.html?type=v&window_type=utNavigatorFrameset&window_id=utMainWindow&withBeginEng=1 " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frame_frameset.html?window_id=utMainWindow", &
+			"Accept-Language: ru"}
+
+	WAIT 210
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/blank.html HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frame.html?window_id=utMainWindow", &
+			"Accept-Language: ru"}
+
+	WAIT 221
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+			"tab_manager.html?window_id=utNavigatorFrameset HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+				"tab_frameset.html?type=v&window_type=utNavigatorFrameset&window_id=utMainWindow&withBeginEng=1", &
+			"Accept-Language: ru"}
+
+	WAIT 190
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.pip HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 22", &
+				"Pragma: no-cache"}		 &
+		,BODY "type=check_base_update"
+
+		WAIT 90
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.pip HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 27", &
+				"Pragma: no-cache"}		 &
+		,BODY "type=get_example_text&pos=1"
+
+		WAIT 80
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+			"tab_navigator.html?window_id=utNavigatorFrameset HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+				"tab_manager.html?window_id=utNavigatorFrameset", &
+			"Accept-Language: ru"}
+
+	WAIT 1179
+
+		GET URI "http://" + HOST + "/help/help.htm HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru"}
+
+		WAIT 160
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.pip HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 22", &
+				"Pragma: no-cache"}		 &
+		,BODY "type=check_base_update"
+
+		WAIT 60
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/folders/folder.pip HTTP/1.0" &
+			ON 3 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 32", &
+				"Pragma: no-cache"}		 &
+		,BODY "type=get_filters_list&async=true"
+
+		WAIT 421
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+			"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+				"tab_manager.html?window_id=utNavigatorFrameset", &
+			"Accept-Language: ru"}
+
+	WAIT 170
+
+	PRIMARY GET URI "http://" + HOST + "/help/content.htm HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/help/help.htm", &
+			"Accept-Language: ru"}
+
+	WAIT 250
+
+		GET URI "http://" + HOST + "/help/img/c.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/help/content.htm", &
+				"Accept-Language: ru", &
+				"If-Modified-Since: Tue, 25 Dec 2007 15:28:24 GMT; length=344"}
+
+		WAIT 10
+
+		GET URI "http://" + HOST + "/help/img/l.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/help/content.htm", &
+				"Accept-Language: ru", &
+				"If-Modified-Since: Tue, 25 Dec 2007 15:28:26 GMT; length=344"}
+
+		WAIT 161
+
+	PRIMARY GET URI "http://" + HOST + "/help/page4.htm HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: http://" + HOST + "/help/help.htm", &
+			"Accept-Language: ru"}
+
+	WAIT 90
+
+		GET URI "http://" + HOST + "/help/help.css HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/help/page4.htm", &
+				"Accept-Language: ru", &
+				"If-Modified-Since: Tue, 25 Dec 2007 15:28:16 GMT; length=3137"}
+
+		WAIT 661
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/css/tree02.css HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+					"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset", &
+				"Accept-Language: ru"}
+
+		WAIT 360
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/list/" &
+			"main_menu.html?window_id=utMainWindow&time=1206539145695 HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/vnd.ms-excel, application/msword, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frame.html?window_id=utMainWindow", &
+			"Accept-Language: ru"}
+
+	WAIT 5000
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.pip HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 22", &
+				"Pragma: no-cache"}		 &
+		,BODY "type=check_base_update"
+
+		WAIT 70
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/keep_alive HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 34", &
+				"Pragma: no-cache"}		 &
+		,BODY "type=keep_alive&time=1206539199803"
+
+		DISCONNECT FROM 1
+
+		DISCONNECT FROM 4
+ENDIF 
+!!!LOGIN_GUEST
+IF (IF_GUEST_USER = 1) THEN		
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/PILOT/index.htm HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 62
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm? HTTP/1.0" &
+		ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 469
+
+
+
+		GET URI "http://" + HOST + "/lib/check.js?v=2.5.b17 HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm?", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0}
+
+		WAIT 172
+
+
+
+		GET URI "http://" + HOST + "/help/help_sm.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm?", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Wed, 29 Apr 2009 12:31:25 GMT; length=234"}
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/help/help_sm.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm?", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0}
+
+		GET URI "http://" + HOST + "/img/logo-new.jpg HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/index.htm?", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Mon, 13 Apr 2009 12:24:30 GMT; length=49268"}
+
+		WAIT 3000
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/login_check.htm?l=guest&p= HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	Load Response_Info Header on 1		&
+		Into cookie_2_0	&
+		,WITH "Set-Cookie,passwd"
+
+	Load Response_Info Header on 1		&
+		Into cookie_2_1	&
+		,WITH "Set-Cookie,login"
+
+	Load Response_Info Header on 1		&
+		Into cookie_2_2	&
+		,WITH "Set-Cookie,save_login_passwd"
+
+	WAIT 250
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 609
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.css HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0}
+
+		WAIT 422
+
+
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/blank.html HTTP/1.0" &
+		ON 2 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/blank.html HTTP/1.0" &
+		ON 4 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/keep_alive HTTP/1.0" &
+		ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 16
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/save_setting.html " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 47
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/get_login_info.htm HTTP/1.0" &
+			ON 2 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0}
+
+		WAIT 31
+
+		GET URI "http://" + HOST + "/img/logo.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Tue, 14 Apr 2009 11:41:25 GMT; length=2539"}
+
+		WAIT 2375
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+			"main_frameset.html?window_type=utMainWindow&active_config=1 HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 31
+
+		GET URI "http://" + HOST + "/img/info/database_old.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/lib/popup/pop_info.html", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Tue, 30 Oct 2007 08:10:33 GMT; length=1392"}
+
+		DISCONNECT FROM 1
+
+		DISCONNECT FROM 3
+
+		WAIT 859
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/main_header.html " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frameset.html?window_type=utMainWindow&active_config=1", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 16
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/basesearch/base_search.html HTTP/1.0" &
+		ON 4 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frameset.html?window_type=utMainWindow&active_config=1", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 94
+
+
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+			"main_frame_frameset.html?window_id=utMainWindow HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frameset.html?window_type=utMainWindow&active_config=1", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 15
+
+
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/main_footer.html " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frameset.html?window_type=utMainWindow&active_config=1", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 297
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+			"tab_frameset.html?type=v&window_type=utNavigatorFrameset&window_id=utMainWindow&withBeginEng=1 " &
+			"HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frame_frameset.html?window_id=utMainWindow", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+			"main_frame.html?window_id=utMainWindow HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frame_frameset.html?window_id=utMainWindow", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 250
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.pip HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 27", &
+				"Pragma: no-cache", &
+				"Cookie: "+S_cookie_1_0}		 &
+		,BODY "type=get_example_text&pos=1"
+
+		WAIT 125
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/blank.html HTTP/1.0" &
+		ON 6 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frame.html?window_id=utMainWindow", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+			"main_info.html?window_id=utMainWindow HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_frame.html?window_id=utMainWindow", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 16
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+			"tab_manager.html?window_id=utNavigatorFrameset HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+				"tab_frameset.html?type=v&window_type=utNavigatorFrameset&window_id=utMainWindow&withBeginEng=1", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 297
+
+	PRIMARY GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/blank.html HTTP/1.0" &
+		ON 5 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_info.html?window_id=utMainWindow", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 31
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+			"tab_navigator.html?window_id=utNavigatorFrameset HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+				"tab_manager.html?window_id=utNavigatorFrameset", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 328
+
+		GET URI "http://" + HOST + "/img/toolbar/small/down.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+					"tab_navigator.html?window_id=utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Mon, 16 Mar 2009 09:10:05 GMT; length=59"}
+
+		GET URI "http://" + HOST + "/img/toolbar/small/up.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+					"tab_navigator.html?window_id=utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Mon, 16 Mar 2009 09:11:29 GMT; length=59"}
+
+		DISCONNECT FROM 2
+
+		WAIT 141
+
+		GET URI "http://" + HOST + "/img/toolbar/small/detail.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/lib/" &
+					"toolbar.html?window_id=utMainWindow&toolbar_id=main&active_config=1", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Mon, 16 Mar 2009 09:09:54 GMT; length=54"}
+
+		WAIT 31
+
+
+
+		GET URI "http://" + HOST + "/img/toolbar/small/detail.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/lib/" &
+					"toolbar.html?window_id=utMainWindow&toolbar_id=main&active_config=1", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Mon, 16 Mar 2009 09:09:54 GMT; length=54"}
+
+		WAIT 16
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/scripts/set_property " &
+				"HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Connection: Keep-Alive", &
+				"Content-Length: 235", &
+				"Pragma: no-cache", &
+				"Cookie: "+S_cookie_1_0}			&
+			,WITHOUT {"Proxy-Connection"}		 &
+		,BODY "asinc=true&prop_name=%u0412%u043D%u0443%u0442%u0440%u0435%u043D%u043D%u044F%u044F/" &
+			"%u041D%u0430%u0432%u0438%u0433%u0430%u0442%u043E%u0440/" &
+			"%u041B%u0435%u0432%u044B%u0439%20%u0440%u0430%u0437%u043C%u0435%u0440&prop_type=LONG&prop_value" &
+			"=28"
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/scripts/set_property " &
+				"HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Connection: Keep-Alive", &
+				"Content-Length: 235", &
+				"Pragma: no-cache", &
+				"Cookie: "+S_cookie_1_0}			&
+			,WITHOUT {"Proxy-Connection"}		 &
+		,BODY "asinc=true&prop_name=%u0412%u043D%u0443%u0442%u0440%u0435%u043D%u043D%u044F%u044F/" &
+			"%u041D%u0430%u0432%u0438%u0433%u0430%u0442%u043E%u0440/" &
+			"%u041B%u0435%u0432%u044B%u0439%20%u0440%u0430%u0437%u043C%u0435%u0440&prop_type=LONG&prop_value" &
+			"=28"
+
+		WAIT 15
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/folders/folder.pip HTTP/1.0" &
+			ON 4 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 32", &
+				"Pragma: no-cache", &
+				"Cookie: "+S_cookie_1_0}		 &
+		,BODY "type=get_filters_list&async=true"
+
+		WAIT 16
+
+		GET URI "http://" + HOST + "/img/toolbar/small/detail.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/lib/" &
+					"toolbar.html?window_id=utMainWindow&toolbar_id=main&active_config=1", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Mon, 16 Mar 2009 09:09:54 GMT; length=54"}
+
+		WAIT 375
+
+		GET URI "http://" + HOST + "/img/toolbar/small/detail.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/lib/" &
+					"toolbar.html?window_id=utMainWindow&toolbar_id=main&active_config=1", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0}
+
+		WAIT 31
+
+		GET URI "http://" + HOST + "/img/info/database_old.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: http://" + HOST + "/lib/popup/pop_info.html", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0}
+
+		WAIT 47
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+			"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+				"tab_manager.html?window_id=utNavigatorFrameset", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 313
+
+		GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/css/tree02.css HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+					"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0}
+
+		WAIT 468
+
+		GET URI "http://" + HOST + "/img/tree/mi_inpharm.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+					"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Thu, 05 Mar 2009 07:26:15 GMT; length=342"}
+
+		WAIT 16
+
+		GET URI "http://" + HOST + "/img/tree/mi_pharm_search.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+					"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Thu, 05 Mar 2009 07:28:18 GMT; length=1034"}
+
+		GET URI "http://" + HOST + "/img/tree/mi_pharm_basic_section.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+					"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Thu, 05 Mar 2009 07:32:12 GMT; length=182"}
+
+		WAIT 16
+
+		GET URI "http://" + HOST + "/img/tree/mi_pharm_lek.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+					"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Thu, 05 Mar 2009 07:36:49 GMT; length=1040"}
+
+		WAIT 31
+
+		GET URI "http://" + HOST + "/img/tree/mi_pharm_firms.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+					"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Thu, 05 Mar 2009 07:38:52 GMT; length=1054"}
+
+		WAIT 31
+
+		GET URI "http://" + HOST + "/img/tree/mi_pharm_dict.gif HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Referer: " &
+					"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/menu/" &
+					"menu.html?window_type=utNavigator&window_id=tab_utNavigatorFrameset", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0, &
+				"If-Modified-Since: Thu, 05 Mar 2009 07:40:25 GMT; length=1069"}
+
+		WAIT 188
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/list/" &
+			"main_menu.html?window_id=utMainWindow&time=1253626478078 HTTP/1.0" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/" &
+				"main_info.html?window_id=utMainWindow", &
+			"Accept-Language: ru", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 62
+
+		POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/scripts/set_property " &
+				"HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Connection: Keep-Alive", &
+				"Content-Length: 76", &
+				"Pragma: no-cache", &
+				"Cookie: "+S_cookie_1_0}			&
+			,WITHOUT {"Proxy-Connection"}		 &
+		,BODY "asinc=true&prop_name=stidNavigatorTree/stWrap&prop_type=BOOLEAN&prop_value=1"
+ENDIF
+
+!!!!!!!!!!!!IF OPEN DOC
+
+
+IF (IF_OPEN_DOC = 1) THEN
+SET COUNT_OPEN_DOC = 1
+SET COUNT_ITERAT= 0
+
+OPEN_DOC_LABLE:
+
+	IF (COUNT_OPEN_DOC = 1) THEN 
+		SET DOC_NUM = "10103000"
+	ENDIF	
+	IF (COUNT_OPEN_DOC = 2) THEN 
+		SET DOC_NUM = "10900200"
+	ENDIF	
+	IF (COUNT_OPEN_DOC = 3) THEN 
+		SET DOC_NUM = "12125268"
+	ENDIF	
+	
+		
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+			"tab_frameset.html?pid=" + DOC_NUM + "&window_type=dftDocument&window_id=dftDocument HTTP/1.1" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/x-ms-application, application/x-ms-xbap, " &
+				"application/vnd.ms-xpsdocument, application/xaml+xml, */*", &
+			"Referer: " &
+				"http:" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/main_frame.html?window_id=utMainWindow", &
+			"Accept-Language: ru", &
+			"UA-CPU: x86", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 1000
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/doc/" &
+			"doc.html?pid=" + DOC_NUM + "&page=1&window_id=utMainWindow&window_type=dftDocument&date=&time=12568252" &
+			"57450 HTTP/1.1" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/x-ms-application, application/x-ms-xbap, " &
+				"application/vnd.ms-xpsdocument, application/xaml+xml, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main/main_info.html?window_id=utMainWindow", &
+			"Accept-Language: ru", &
+			"UA-CPU: x86", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 1000
+
+	
+
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/doc/" &
+			"doc23_iframe.html?pid=" + DOC_NUM + "&page=1&window_id=utMainWindow&window_type=dftDocument&isShowWarn" &
+			"ing=0 HTTP/1.1" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/x-ms-application, application/x-ms-xbap, " &
+				"application/vnd.ms-xpsdocument, application/xaml+xml, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/doc/" &
+				"doc.html?pid=" + DOC_NUM + "&page=1&window_id=utMainWindow&window_type=dftDocument&date=&time=12568252" &
+				"57450", &
+			"Accept-Language: ru", &
+			"UA-CPU: x86", &
+			"Cookie: "+S_cookie_1_0}
+
+	WAIT 1000
+	
+	PRIMARY GET URI &
+		"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/headline/" &
+			"doc_head_line.html?window_type=utContents&countLevel=2&pid=" + DOC_NUM + "&window_id=tab_utNavigatorFrameset HTTP/1.1" ON 1 &
+		HEADER DEFAULT_HEADERS &
+		,WITH {"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, " &
+				"application/x-shockwave-flash, application/x-ms-application, application/x-ms-xbap, " &
+				"application/vnd.ms-xpsdocument, application/xaml+xml, */*", &
+			"Referer: " &
+				"http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/lib/tab/" &
+				"tab_manager.html?window_id=utNavigatorFrameset", &
+			"Accept-Language: ru", &
+			"UA-CPU: x86", &
+			"Cookie: "+S_cookie_1_0}
+			
+	WAIT 1000
+	
+	POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/keep_alive HTTP/1.1" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"UA-CPU: x86", &
+				"Content-Length: 34", &
+				"Pragma: no-cache", &
+				"Cookie: "+S_cookie_1_0}		 &
+		,BODY "type=keep_alive&time=1256894834184"
+		
+		
+		SET COUNT_OPEN_DOC = COUNT_OPEN_DOC + 1
+		
+		IF (COUNT_OPEN_DOC=4) THEN		
+			SET COUNT_OPEN_DOC = 1 
+			SET COUNT_ITERAT = COUNT_ITERAT + 1
+		ENDIF
+		
+		!!IF (COUNT_OPEN_DOC < 500) THEN
+			WAIT 55000
+		!!	Checking count iteration the Open Documents
+		IF (COUNT_ITERAT < 500000) THEN		 	
+			GOTO OPEN_DOC_LABLE
+		ENDIF	
+		
+ENDIF!!IF OPEN DOC
+
+
+IF (IF_LOGOUT = 1) THEN
+
+	GET URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/logout.htm?close=1 HTTP/1.0" &
+			ON 24 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Cookie: "+S_cookie_1_0}
+
+		WAIT 313
+
+	POST URI "http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/doc/document_func.pip " &
+				"HTTP/1.0" ON 1 &
+			HEADER DEFAULT_HEADERS	 &
+			,WITH {"Accept: */*", &
+				"Accept-Language: ru", &
+				"Referer: http://" + HOST + "/SESSION/" + SESSION_NAME + "/PILOT/main.html", &
+				"Content-Type: application/x-www-form-urlencoded", &
+				"Content-Length: 52", &
+				"Pragma: no-cache", &
+				"Cookie: "+S_cookie_1_0}		 &
+		,BODY "type=save_document_to_journal&para_id=0&pid=" + DOC_NUM + ""
+ENDIF		
+		
+SYNCHRONIZE REQUESTS
+
+	End Timer T_ADD_USERS
+Exit
+
+ERR_LABEL:
+
+	If (MESSAGE <> "") Then
+		Report MESSAGE
+	Endif
+
+Exit

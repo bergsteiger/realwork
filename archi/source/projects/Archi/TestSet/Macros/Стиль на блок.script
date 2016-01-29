@@ -1,0 +1,17 @@
+USES
+ EVDSchema.script
+ ArchiSystem.script
+ EditorTools.script
+ Automation.script
+;
+
+"Открыть документ с блоками"
+1 окно_редактора:перейти_к_метке 
+focused:control:push pop:Editor:PushParaFromCursor
+VAR l_PARA
+Para:GetParent >>> l_PARA
+evd::ti_Style ev_saAttention focused:control:push l_PARA Para:IntW
+2 окно_редактора:перейти_к_метке 
+focused:control:push pop:Editor:PushParaFromCursor
+Para:GetParent >>> l_PARA
+evd::ti_Style ev_saAttention focused:control:push l_PARA Para:IntW

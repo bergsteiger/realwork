@@ -1,0 +1,363 @@
+{$I OVC.INC}
+
+{$B-} {Complete Boolean Evaluation}
+{$I+} {Input/Output-Checking}
+{$P+} {Open Parameters}
+{$T-} {Typed @ Operator}
+{$W-} {Windows Stack Frame}
+{$X+} {Extended Syntax}
+
+{$IFNDEF Win32}
+{$G+} {286 Instructions}
+{$N+} {Numeric Coprocessor}
+
+{$C MOVEABLE,DEMANDLOAD,DISCARDABLE}
+{$ENDIF}
+
+{*********************************************************}
+{*                  OVCTGRES.PAS 2.17                    *}
+{*     Copyright (c) 1995-98 TurboPower Software Co      *}
+{*                 All rights reserved.                  *}
+{*********************************************************}
+
+
+unit OvcTGRes;
+  {-Orpheus glyph resource manager}
+
+interface
+
+uses
+  {$IFDEF Win32}
+  Windows,
+  {$ELSE}
+  WinProcs,
+  {$ENDIF}
+  SysUtils, Classes, Graphics, OvcMisc;
+
+type
+  TOvcCellGlyphs = class(TPersistent)
+    protected {private}
+      {.Z+}
+      FResource         : pointer;
+      FActiveGlyphCount : Integer;
+      FGlyphCount       : Integer;
+      FOnCfgChanged     : TNotifyEvent;
+      {.Z-}
+    protected
+      {.Z+}
+      function GetBitMap : TBitMap;
+      function GetIsDefault : boolean;
+      procedure SetActiveGlyphCount(G : Integer);
+      procedure SetBitMap(BM : TBitMap);
+      procedure SetGlyphCount(G : Integer);
+      procedure SetIsDefault(D : boolean);
+
+      procedure CalcGlyphCount;
+      function IsNotDefault : boolean;
+      procedure DoCfgChanged;
+      {.Z-}
+    public {protected}
+      {.Z+}
+      property OnCfgChanged : TNotifyEvent
+         read FOnCfgChanged write FOnCfgChanged;
+      {.Z-}
+
+    public
+      constructor Create;
+      destructor Destroy; override;
+
+      procedure Assign(Source : TPersistent); override;
+
+    published
+      {Note: must be in this order--IsDefault, BitMap, GlyphCount, ActiveGlyphCount}
+      property IsDefault : boolean
+         read GetIsDefault write SetIsDefault
+         stored true;
+
+      property BitMap : TBitMap
+         read GetBitMap write SetBitMap
+         stored IsNotDefault;
+
+      property GlyphCount : Integer
+         read FGlyphCount write SetGlyphCount;
+
+      property ActiveGlyphCount : Integer
+         read FActiveGlyphCount write SetActiveGlyphCount;
+  end;
+
+implementation
+
+
+type
+  PCellGlyphResource = ^TCellGlyphResource;
+  TCellGlyphResource = record
+    BitMap : TBitMap;
+    ResourceCount : Integer;
+    Next : PCellGlyphResource;
+  end;
+
+  TGlyphResourceManager = class
+    private
+      FList : PCellGlyphResource;
+      DefRes : PCellGlyphResource;
+    protected
+    public
+      constructor Create;
+      destructor Destroy; override;
+
+      function AllocResource(BM : TBitMap) : PCellGlyphResource;
+      procedure FreeResource(CBGR : PCellGlyphResource);
+      function ReallocResource(ToCBGR, FromCBGR : PCellGlyphResource) : PCellGlyphResource;
+      function DefaultResource : PCellGlyphResource;
+  end;
+
+var
+  CBResMgr : TGlyphResourceManager;
+
+function CreateNewResource : PCellGlyphResource;
+  var
+    Size : Integer;
+  begin
+    Size := sizeof(TCellGlyphResource);
+    GetMem(Result, Size);
+    FillChar(Result^, Size, 0);
+    with Result^ do
+      begin
+        ResourceCount := 1;
+      end;
+  end;
+
+procedure DestroyResource(ARes : PCellGlyphResource);
+  begin
+    FreeMem(ARes, sizeof(TCellGlyphResource));
+  end;
+
+{===TGlyphResourceManager=========================================}
+constructor TGlyphResourceManager.Create;
+  begin
+    DefRes := CreateNewResource;
+    with DefRes^ do
+      begin
+        BitMap := TBitMap.Create;          
+        BitMap.Handle := LoadOvcBaseBitmap('OVCTCCHECKGLYPHS');
+      end;
+    FList := DefRes;
+  end;
+{--------}
+destructor TGlyphResourceManager.Destroy;
+  var
+    Temp : PCellGlyphResource;
+  begin
+    while Assigned(FList) do
+      begin
+        Temp := FList;
+        FList := Temp^.Next;
+        Temp^.BitMap.Free;
+        DestroyResource(Temp);
+      end;
+  end;
+{--------}
+function TGlyphResourceManager.AllocResource(BM : TBitMap) : PCellGlyphResource;
+  var
+    NewRes : PCellGlyphResource;
+  begin
+    NewRes := CreateNewResource;
+    with NewRes^ do
+      begin
+        BitMap := TBitMap.Create;
+        BitMap.Assign(BM);
+        Next := FList;
+      end;
+    FList := NewRes;
+    Result := NewRes;
+  end;
+{--------}
+procedure TGlyphResourceManager.FreeResource(CBGR : PCellGlyphResource);
+  var
+    Temp, Dad : PCellGlyphResource;
+  begin
+    Temp := FList;
+    Dad := nil;
+    while (Temp <> nil) do
+      if (Temp = CBGR) then
+        begin
+          dec(Temp^.ResourceCount);
+          if (Temp^.ResourceCount = 0) then
+            begin
+              with Temp^ do
+                begin
+                  if (Dad = nil) then
+                       FList := Next
+                  else Dad^.Next := Next;
+                  BitMap.Free;
+                end;
+              DestroyResource(Temp);
+            end;
+          Temp := nil; {get out of loop}
+        end
+      else
+        begin
+          Dad := Temp;
+          Temp := Temp^.Next;
+        end;
+  end;
+{--------}
+function TGlyphResourceManager.ReallocResource(ToCBGR, FromCBGR : PCellGlyphResource)
+            : PCellGlyphResource;
+  var
+    Temp : PCellGlyphResource;
+  begin
+    FreeResource(FromCBGR);
+    Temp := FList;
+    while (Temp <> nil) do
+      if (Temp = ToCBGR) then
+        begin
+          inc(Temp^.ResourceCount);
+          Result := Temp;
+          Exit;
+        end
+      else
+        Temp := Temp^.Next;
+    Result := DefaultResource;
+  end;
+{--------}
+function TGlyphResourceManager.DefaultResource : PCellGlyphResource;
+  begin
+    inc(DefRes^.ResourceCount);
+    Result := DefRes;
+  end;
+{====================================================================}
+
+{===TOvcCellGlyphs==================================================}
+constructor TOvcCellGlyphs.Create;
+  begin
+    FResource := CBResMgr.DefaultResource;
+    CalcGlyphCount;
+  end;
+{--------}
+destructor TOvcCellGlyphs.Destroy;
+  begin
+    CBResMgr.FreeResource(PCellGlyphResource(FResource));
+  end;
+{--------}
+procedure TOvcCellGlyphs.Assign(Source : TPersistent);
+  begin
+    if Source is TOvcCellGlyphs then begin
+      if (Source = nil) then
+        begin
+          CBResMgr.FreeResource(PCellGlyphResource(FResource));
+          FResource := CBResMgr.DefaultResource;
+        end
+      else if (FResource <> TOvcCellGlyphs(Source).FResource) then
+        FResource :=
+           CBResMgr.ReallocResource(PCellGlyphResource(TOvcCellGlyphs(Source).FResource),
+                                    PCellGlyphResource(FResource));
+      CalcGlyphCount;
+      DoCfgChanged
+    end else inherited Assign(Source);
+  end;
+{--------}
+procedure TOvcCellGlyphs.CalcGlyphCount;
+  var
+    Temp : Integer;
+  begin
+    FGlyphCount := 1;
+    FActiveGlyphCount := 1;
+    with BitMap do
+      begin
+        if (Height > 0) then
+          begin
+            Temp := Width div Height;
+            if ((Temp * Height) = Width) then
+              begin
+                FGlyphCount := Temp;
+                FActiveGlyphCount := Temp;
+              end;
+          end;
+      end;
+  end;
+{--------}
+function TOvcCellGlyphs.GetBitMap : TBitMap;
+  begin
+    with PCellGlyphResource(FResource)^ do
+      Result := Bitmap;
+  end;
+{--------}
+function TOvcCellGlyphs.GetIsDefault : boolean;
+  begin
+    Result := FResource = pointer(CBResMgr.DefRes);
+  end;
+{--------}
+function TOvcCellGlyphs.IsNotDefault : boolean;
+  begin
+    Result := not IsDefault;
+  end;
+{--------}
+procedure TOvcCellGlyphs.DoCfgChanged;
+  begin
+    if Assigned(FOnCfgChanged) then
+      FOnCfgChanged(Self);
+  end;
+{--------}
+procedure TOvcCellGlyphs.SetActiveGlyphCount(G : Integer);
+  begin
+    if (G <> FActiveGlyphCount) and
+       (1 <= G) and (G <= GlyphCount)then
+      begin
+        FActiveGlyphCount := G;
+        DoCfgChanged;
+      end;
+  end;
+{--------}
+procedure TOvcCellGlyphs.SetBitMap(BM : TBitMap);
+  begin
+    CBResMgr.FreeResource(PCellGlyphResource(FResource));
+    if (BM = nil) then
+      FResource := CBResMgr.DefaultResource
+    else
+      FResource := CBResMgr.AllocResource(BM);
+    CalcGlyphCount;
+    DoCfgChanged;
+  end;
+{--------}
+procedure TOvcCellGlyphs.SetGlyphCount(G : Integer);
+  begin
+    if (G <> FGlyphCount) then
+      begin
+        FGlyphCount := G;
+        FActiveGlyphCount := G;
+        DoCfgChanged;
+      end;
+  end;
+{--------}
+procedure TOvcCellGlyphs.SetIsDefault(D : boolean);
+  begin
+    if (D <> IsDefault) then
+      begin
+        if D then
+          Assign(nil)
+        else
+          BitMap := BitMap; {note: this actually does do something!}
+        CalcGlyphCount;
+        DoCfgChanged;
+      end;
+  end;
+{====================================================================}
+
+
+procedure DestroyManager; far;
+  begin
+    CBResMgr.Free;
+  end;
+
+
+initialization
+  CBResMgr := TGlyphResourceManager.Create;
+
+{$IFDEF Win32}
+finalization
+  DestroyManager;
+{$ELSE}
+  AddExitProc(DestroyManager);
+{$ENDIF}
+end.

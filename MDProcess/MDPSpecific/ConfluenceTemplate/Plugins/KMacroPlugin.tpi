@@ -1,0 +1,113 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDPSpecific/ConfluenceTemplate/Plugins/KMacroPlugin.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::MDPSpecific::ConfluenceTemplate::Plugins::KMacroPlugin
+//
+// Плагин-макрос
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: KMacroPlugin::Class
+? Плагин-макрос
+= ClassPluginBase::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+a raf
+/ - тип абстракции
+Y code_cplugin.gif
+L code_cplugin
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p alias:s ? Алиас, для использования в wiki-разметке
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{alias}"!="%S{!alias}"}%f_up_prefix(%S) *alias* = *%S{alias}* - Алиас, для использования в wiki-разметке
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация иерархии наследования конкретного плагина
+%f _java_base_class_decl
+//#UC START# *4704D85102BFfor4704BA33003E*
+	[{%Gx=false}{%f_java_base(%S)} extends BaseMacro[{%Rx=true} implements <{, }{}%RN>]]
+//#UC END# *4704D85102BFfor4704BA33003E*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация импорта классов необходимых конкретному плагину
+%f _java_servant_import_self
+//#UC START# *4704D854007Dfor4704BA33003E*
+	[{%Gx=false}import com.atlassian.renderer.v2.macro.BaseMacro;
+	import com.atlassian.renderer.v2.macro.MacroException;
+	import com.atlassian.renderer.v2.RenderMode;
+	import com.atlassian.renderer.RenderContext;
+
+	import java.util.*;]
+
+//#UC END# *4704D854007Dfor4704BA33003E*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация специфического контента (методы, операции) плагина
+%f _servant_content_java
+//#UC START# *4704D85602FDfor4704BA33003E*
+	[{%Gx=false}#	public String execute (Map parameters, String body, RenderContext renderContext) throws MacroException {
+	#		%U[{_EXECUTE_IMPLEMETATION}
+	#		return "";
+	#		]
+	#	}
+
+	#	public boolean isInline () {
+	#		%U[{_ISINLINE_IMPLEMETATION}
+	#		return false;
+	#		]
+	#	}
+
+	#	public boolean hasBody () {
+	#		%U[{_HASBODY_IMPLEMETATION}
+	#		return false;
+	#		]
+	#	}
+
+	#	public RenderMode getBodyRenderMode () {
+	#		%U[{_GETBODYRENDERMODE_IMPLEMETATION}
+	#		return RenderMode.NO_RENDER;
+	#		]
+	#	}]
+//#UC END# *4704D85602FDfor4704BA33003E*
+
+// перекрытие базового стереотипа KPluginBase::Class
+// имя элемента для описания в atlasian.xml
+%f _xml_name
+//#UC START# *48A26EF50372for4704BA33003E*
+	[{}{%SN}%S{alias}]
+//#UC END# *48A26EF50372for4704BA33003E*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4704BA33003E*
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+r {<{}{%gS!=%SS}{C}>!=0&<{}{%gS=%SS}{C}>=0}: {%SS должен напрямую или опосредованно наследоваться от %SS}
+//#UC END# *4704C0E30186for4704BA33003E*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

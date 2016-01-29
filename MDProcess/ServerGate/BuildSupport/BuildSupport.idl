@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/ServerGate/BuildSupport/BuildSupport.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::ServerGate::BuildSupport
+//
+// Пакет серверных интерфейсов для создания сборок в К
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___BUILDSUPPORT_IDL__
+#define ___BUILDSUPPORT_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#include "MDProcess/ServerGate/Contents/Contents.idl"
+#pragma prefix "garant.ru"
+
+module ServerGate {
+
+module BuildSupport {
+	// Менеджер сборок - является простым враппером над серверными интерфейсами создания страниц.
+	// Отвественность менеджера в том, чтобы корректно обработать события начала и завершения работы
+	// сборочного скрипта, передав всю необходимую информацию на сервер. Экземпляр менеджера сборки
+	// получается каждый раз при запуске программы из скрипта, и выполняет какое-то одно действия для
+	// текущего события. Запуск, Завершение, Сбой и т.д.
+	interface BuildManager {
+		// Уведомление сервера конфлюенса о событии сборки: начало, успешной завершение или ошибка.
+		// Параметры:
+		// event_name - имя события (start, done или failure)
+		// project_name - ключ спейса (MDP, NST и т.д.)
+		// tag_name - имя тэга, связанного со сборкой
+		// build_name - номер билда
+		// branch_number - номер ветки или 0 (число)
+		// build_path - путь к сборке
+		// log - лог сборки
+		void make (in string event_name, in string project_name, in string tag_name, in string build_name, in string branch_number, in string build_path, in string log);
+		// Возвращает по заданной странице текущей сборки - страницу, соответствующую предыдущей сборке.
+		// Если предыдущую сборку найти не удалось - выбрасывается исключение PageNotFound.
+		Contents::KPage get_prev_build (in Contents::KPage current_build)
+			raises (Contents::PageNotFound);
+	};
+
+	// factory manager server interface for BuildManager
+	interface BuildManagerFactoryManagerSrv {
+		// Создание объекта сборки.
+		BuildManager get ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module ServerGate
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

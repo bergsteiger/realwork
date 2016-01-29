@@ -1,0 +1,180 @@
+package gtPDModel;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS OFF}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Gnostice Portable Document Model'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  xmlrtl,
+  vcljpg,
+  gtUtils,
+  gtStreams,
+  gtPDBase,
+  gtFontProcessor;
+
+contains
+  PDElement in 'PDElement.pas',
+  PDDocument in 'PDDocument.pas',
+  PDCatalog in 'PDCatalog.pas',
+  PDPage in 'PDPage.pas',
+  PDTypes in 'PDTypes.pas',
+  PDPageTree in 'PDPageTree.pas',
+  PDAnnot in 'PDAnnot.pas',
+  PDPageLabel in 'PDPageLabel.pas',
+  PDFont in 'PDFont.pas',
+  PDResource in 'PDResource.pas',
+  PDXObject in 'PDXObject.pas',
+  PDColorSpace in 'PDColorSpace.pas',
+  PDOCContext in 'PDOCContext.pas',
+  PDAction in 'PDAction.pas',
+  PDBead in 'PDBead.pas',
+  PDBookmark in 'PDBookmark.pas',
+  PDInlineImage in 'PDInlineImage.pas',
+  PDImage in 'PDImage.pas',
+  PDGraphic in 'PDGraphic.pas',
+  PDForm in 'PDForm.pas',
+  PDFileSpec in 'PDFileSpec.pas',
+  PDCharProc in 'PDCharProc.pas',
+  PDTextAnnot in 'PDTextAnnot.pas',
+  PDText in 'PDText.pas',
+  PDStyle in 'PDStyle.pas',
+  PDPath in 'PDPath.pas',
+  PDOCMD in 'PDOCMD.pas',
+  PDOCG in 'PDOCG.pas',
+  PDOCConfig in 'PDOCConfig.pas',
+  PDNumTree in 'PDNumTree.pas',
+  PDNameTree in 'PDNameTree.pas',
+  PDLinkAnnot in 'PDLinkAnnot.pas',
+  PDTrans in 'PDTrans.pas',
+  PDThumb in 'PDThumb.pas',
+  PDThread in 'PDThread.pas',
+  PDTextSelect in 'PDTextSelect.pas',
+  PDModelException in 'PDModelException.pas',
+  PDRect in 'PDRect.pas',
+  PDDocInfo in 'PDDocInfo.pas',
+  PDExportDevice in 'PDExportDevice.pas',
+  PDContents in 'PDContents.pas',
+  PDContentStream in 'PDContentStream.pas',
+  PDState in 'PDState.pas',
+  PDMatrix in 'PDMatrix.pas',
+  PDSubPath in 'PDSubPath.pas',
+  PD8bitFont in 'PD8bitFont.pas',
+  PDBuiltInFontMap in 'PDBuiltInFontMap.pas',
+  PDGState in 'PDGState.pas',
+  PDEncoding in 'PDEncoding.pas',
+  PDSquareAnnot in 'PDSquareAnnot.pas',
+  PDCircleAnnot in 'PDCircleAnnot.pas',
+  PDPolygonAnnot in 'PDPolygonAnnot.pas',
+  PDPolyLineAnnot in 'PDPolyLineAnnot.pas',
+  PDMarkUpAnnot in 'PDMarkUpAnnot.pas',
+  PDCaretAnnot in 'PDCaretAnnot.pas',
+  PDRubberStampAnnot in 'PDRubberStampAnnot.pas',
+  PDInkAnnot in 'PDInkAnnot.pas',
+  PDPopUpAnnot in 'PDPopUpAnnot.pas',
+  PDFileAttachmentAnnot in 'PDFileAttachmentAnnot.pas',
+  PDSoundAnnot in 'PDSoundAnnot.pas',
+  PDMovieAnnot in 'PDMovieAnnot.pas',
+  PDScreenAnnot in 'PDScreenAnnot.pas',
+  PDHighlightAnnot in 'PDHighlightAnnot.pas',
+  PDUnderlineAnnot in 'PDUnderlineAnnot.pas',
+  PDSquigglyAnnot in 'PDSquigglyAnnot.pas',
+  PDStrikeOutAnnot in 'PDStrikeOutAnnot.pas',
+  PDFormField in 'PDFormField.pas',
+  PDWatermarkAnnot in 'PDWatermarkAnnot.pas',
+  PDPattern in 'PDPattern.pas',
+  PDFreeTextAnnot in 'PDFreeTextAnnot.pas',
+  PDLineAnnot in 'PDLineAnnot.pas',
+  PDDeviceGrayColorSpace in 'PDDeviceGrayColorSpace.pas',
+  PDCalGrayColorSpace in 'PDCalGrayColorSpace.pas',
+  PDDeviceRGBColorSpace in 'PDDeviceRGBColorSpace.pas',
+  PDCalRGBColorSpace in 'PDCalRGBColorSpace.pas',
+  PDDeviceCMYKColorSpace in 'PDDeviceCMYKColorSpace.pas',
+  PDLabColorSpace in 'PDLabColorSpace.pas',
+  PDICCBasedColorSpace in 'PDICCBasedColorSpace.pas',
+  PDIndexedColorSpace in 'PDIndexedColorSpace.pas',
+  PDSeparationColorSpace in 'PDSeparationColorSpace.pas',
+  PDDeviceNColorSpace in 'PDDeviceNColorSpace.pas',
+  PDPatternColorSpace in 'PDPatternColorSpace.pas',
+  PDImageColorMap in 'PDImageColorMap.pas',
+  PDAltImage in 'PDAltImage.pas',
+  PDPostScript in 'PDPostScript.pas',
+  PDImageStream in 'PDImageStream.pas',
+  PDFunction in 'PDFunction.pas',
+  PDIdentityFunction in 'PDIdentityFunction.pas',
+  PDSampledFunction in 'PDSampledFunction.pas',
+  PDExponentialFunction in 'PDExponentialFunction.pas',
+  PDStitchingFunction in 'PDStitchingFunction.pas',
+  PDPostScriptFunction in 'PDPostScriptFunction.pas',
+  UnicodeTypeTable in 'UnicodeTypeTable.pas',
+  PDInheritedProperty in 'PDInheritedProperty.pas',
+  PDViewerPreference in 'PDViewerPreference.pas',
+  PDFormPushButton in 'PDFormPushButton.pas',
+  PDFormCheckBox in 'PDFormCheckBox.pas',
+  PDFormRadioButton in 'PDFormRadioButton.pas',
+  PDFormTextField in 'PDFormTextField.pas',
+  PDFormComboBox in 'PDFormComboBox.pas',
+  PDFormListBox in 'PDFormListBox.pas',
+  PDRadioItem in 'PDRadioItem.pas',
+  gtFont in 'gtFont.pas',
+  PDFormChoiceBox in 'PDFormChoiceBox.pas',
+  PDGoToAction in 'PDGoToAction.pas',
+  PDGoToRemoteAction in 'PDGoToRemoteAction.pas',
+  PDGoToEmbeddedAction in 'PDGoToEmbeddedAction.pas',
+  PDLaunchAction in 'PDLaunchAction.pas',
+  PDThreadAction in 'PDThreadAction.pas',
+  PDURIAction in 'PDURIAction.pas',
+  PDSoundAction in 'PDSoundAction.pas',
+  PDMovieAction in 'PDMovieAction.pas',
+  PDHideAction in 'PDHideAction.pas',
+  PDNamedAction in 'PDNamedAction.pas',
+  PDOCGSateAction in 'PDOCGSateAction.pas',
+  PDRenditionAction in 'PDRenditionAction.pas',
+  PDTransitionAction in 'PDTransitionAction.pas',
+  PDGoTo3DViewAction in 'PDGoTo3DViewAction.pas',
+  PDResetFormAction in 'PDResetFormAction.pas',
+  PDSubmitFormAction in 'PDSubmitFormAction.pas',
+  PDJavaScriptAction in 'PDJavaScriptAction.pas',
+  PDFontBase in 'PDFontBase.pas',
+  PDTrueType in 'PDTrueType.pas',
+  PDCIDFont in 'PDCIDFont.pas',
+  PDType1 in 'PDType1.pas',
+  PDType1C in 'PDType1C.pas',
+  PDDestination in 'PDDestination.pas',
+  PDCMap in 'PDCMap.pas',
+  PDNameToCharCode in 'PDNameToCharCode.pas',
+  PDDate in 'PDDate.pas',
+  PDAcroForms in 'PDAcroForms.pas',
+  PDAdobeGlyphList in 'PDAdobeGlyphList.pas',
+  PDCMapParser in 'PDCMapParser.pas',
+  PDFDFDocument in 'PDFDFDocument.pas',
+  PDAppearanceStream in 'PDAppearanceStream.pas',
+  PDXFADocument in 'PDXFADocument.pas',
+  gtStreamAdpt in 'gtStreamAdpt.pas',
+  PDSignature in 'PDSignature.pas',
+  PDSignatureField in 'PDSignatureField.pas';
+
+end.

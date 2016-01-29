@@ -1,0 +1,366 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "PrimeXMLConverterIface"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/garant6x/implementation/Garant/PrimeXmlConverterLib/PrimeXMLConverterIface/PrimeXMLConverterIface.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/garant6x/implementation/Garant/PrimeXmlConverterLib/PrimeXMLConverterIface/PrimeXMLConverterIfaceFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/garant6x/implementation/Garant/PrimeXmlConverterLib/PrimeXMLConverterIface/PrimeXMLConverterIfaceFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/garant6x/implementation/Garant/PrimeXmlConverterLib/PrimeXMLConverterIface/PrimeXMLConverterIface.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Модель проекта "garant6x"/PrimeXmlConverterLib/PrimeXMLConverterIface|46C046E00271
+	    ))
+    quid       	"46C046E00271"
+    documentation 	"Пакет интерфейса для работы с рассылками"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "PrimeConverter"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*46C047020261_46C04B6501C5_46C04A850128_BASE_INIT*"
+		    value      	"//#UC START# *46C047020261_46C04B6501C5_46C04A850128_BASE_INIT*¤: m_path_to_xml (path) ¤//#UC END# *46C047020261_46C04B6501C5_46C04A850128_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*46C047020261_46C04B6501C5_46C04A850128_BODY*"
+		    value      	(value Text 
+|//#UC START# *46C047020261_46C04B6501C5_46C04A850128_BODY*¤	ACE_Dirent_Selector xml_ds;¤	std::string directory = platform_independent_path (path);¤¤	int status = xml_ds.open (directory.c_str(), root_xml_file_selector);¤	if (status == -1) {¤		throw PrimeXMLConverterIface::BadPathToXML ();¤	}¤	for (int i = 0; i < xml_ds.length (); ++i) {¤		std::string full_path = m_path_to_xml + ACE_DIRECTORY_SEPARATOR_CHAR + xml_ds[i]->d_name;¤		if (this->is_prime_xml (full_path.c_str ())) {¤			m_root_list.push_back (xml_ds[i]->d_name);¤			if (m_last_name.empty () || (ACE_OS::strcmp (m_last_name.c_str (), xml_ds[i]->d_name) < 0)) {¤				m_last_name = xml_ds[i]->d_name;¤			}¤		}¤	}¤	status = xml_ds.close ();¤	GDS_ASSERT (status != -1);¤¤	this->make_root_name ();¤	//#UC END# *46C047020261_46C04B6501C5_46C04A850128_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Модель проекта "garant6x"/PrimeXmlConverterLib/PrimeXMLConverterIface/PrimeConverter|46C047020261
+		    ))
+	    quid       	"46C047020261"
+	    documentation 	"интерфейс для работы с файлами рассылок"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get_last_root_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*46C04907029F_46C04A850128*"
+			    value      	(value Text 
+|//#UC START# *46C04907029F_46C04A850128*¤	return m_last_name;¤	//#UC END# *46C04907029F_46C04A850128*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const,cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"46C04907029F"
+		    documentation 	"возвращает последний созданный файл рассылки"
+		    result     	"a-string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"452257A0036F")
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"46C1BFB903D8,46C070D90280"))
+		    quid       	"46C04B6501C5"
+		    documentation 	"фабрика, создаёт интерфес со списком xml-ных рутов."
+		    stereotype 	"factory"
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    quid       	"46C1BFF3030D"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "remove_old_xml"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*46C05B4D0177_46C04A850128*"
+			    value      	(value Text 
+|//#UC START# *46C05B4D0177_46C04A850128*¤	for (size_t i = 0; i < m_root_list.size (); ++i) {¤		std::string path_to_root_file = m_path_to_xml + ACE_DIRECTORY_SEPARATOR_CHAR + m_root_list[i];¤		std::string path_to_root_directory = path_to_root_file.substr (0, path_to_root_file.size () - 4 /* sizeof (".xml") */);¤		std::string path_to_predefined_data = path_to_root_directory + ACE_DIRECTORY_SEPARATOR_CHAR	+ "_predefined_data";¤		std::string path_to_folders_xml = path_to_predefined_data + ACE_DIRECTORY_SEPARATOR_CHAR + "folders.xml";¤		LOG_I (("%s: removing xml's for %s", GDS_CURRENT_FUNCTION,  m_root_list[i].c_str ()));¤		ACE_OS::unlink (path_to_folders_xml.c_str ());¤		ACE_OS::rmdir (path_to_predefined_data.c_str ());¤		ACE_OS::rmdir (path_to_root_directory.c_str ());¤		ACE_OS::unlink (path_to_root_file.c_str ());¤	}¤	//#UC END# *46C05B4D0177_46C04A850128*
+			    )))
+		    quid       	"46C05B4D0177"
+		    documentation 	"удаляет каталоги со старыми рассылками"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "create_new_prime"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"46C070D90280")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*46C07B5F03C8_46C04A850128*"
+			    value      	(value Text 
+|//#UC START# *46C07B5F03C8_46C04A850128*¤	if (m_last_name.empty ()) {¤		return false; // нет прайма для перемывки¤	}¤	if (!this->make_prime_file ()) {¤		LOG_E (("%s: can't create prime file", GDS_CURRENT_FUNCTION));¤		return false;¤	}¤	if (!this->make_root_xml ()) {¤		LOG_E (("%s: can't create root file for prime", GDS_CURRENT_FUNCTION));¤		return false;¤	}¤¤	return true;¤	//#UC END# *46C07B5F03C8_46C04A850128*
+			    )))
+		    quid       	"46C07B5F03C8"
+		    documentation 	"создать новый файл рассылки на основе последнего из старых"
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240"))
+	    language   	"MDA Generator")
+	(object Class "CantFindXerces"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"BC44ED59-95EE-413F-A0AD-7C6C0BC966E9")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Модель проекта "garant6x"/PrimeXmlConverterLib/PrimeXMLConverterIface/CantFindXerces|46C070D90280
+		    ))
+	    quid       	"46C070D90280"
+	    documentation 	"отсутствует библиотека для разбора xml."
+	    stereotype 	"Exception"
+	    language   	"MDA Generator")
+	(object Class "BadPathToXML"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"2A31E7F5-7CB8-4E7A-8614-C017C506A3B8")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Модель проекта "garant6x"/PrimeXmlConverterLib/PrimeXMLConverterIface/BadPathToXML|46C1BFB903D8
+		    ))
+	    quid       	"46C1BFB903D8"
+	    documentation 	"проблемы при чтении файлов из указанного каталога."
+	    stereotype 	"Exception"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "main"
+	    quid       	"46C046F8001F"
+	    title      	"main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::PrimeXmlConverterLib::PrimeXMLConverterIface::PrimeConverter" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(912, 958)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(597, 831)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	630
+			justify    	0
+			label      	"• PrimeConverter")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(597, 781)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	630
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"46C047020261"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(597, 892)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	666
+			justify    	1)
+		    width      	648
+		    height     	378
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::PrimeXmlConverterLib::PrimeXMLConverterIface::CantFindXerces" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(745, 1367)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(580, 1338)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"CantFindXerces")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(580, 1288)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"46C070D90280"
+		    width      	348
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::PrimeXmlConverterLib::PrimeXMLConverterIface::BadPathToXML" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1205, 1367)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1051, 1338)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	308
+			justify    	0
+			label      	"BadPathToXML")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1051, 1288)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	308
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"46C1BFB903D8"
+		    width      	326
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)))))

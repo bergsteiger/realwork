@@ -1,0 +1,47 @@
+// ImportExportTestLibrary 519465D90095 TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_519465D90095
+ CONST UID '519465D90095'
+ CONST Name 'ImportExportTestLibrary'
+ CONST Class class_Category
+ : Stereotype st_TestLibrary ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_51945CDA0027' '51945CDA0027.pas.ms.script' // archi$ImportExprortTest
+ ;
+ : Children
+   @ ( WL 'ME_51948EC4015D' '51948EC4015D.pas.ms.script' // ImportExport
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4B30CC420206' '4B30CC420206.pas.ms.script' // Shared Delphi Testing Framework
+ WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.pas.ms.script' // JEDI
+ WL 'ME_55F29ABD02C2' '55F29ABD02C2.pas.ms.script' // ArchiDBTests
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "ifdef" 'nsTest'
+ CONST "vendor" '/ImportExportTest'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\archi$ImportExprortTest\ImportExportTestLibrary\ImportExportTestLibrary.model.script'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\519465D90095.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\519465D90095.pas.ms.script.runner'
+
+ref; // ME_519465D90095 ImportExportTestLibrary

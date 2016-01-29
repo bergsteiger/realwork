@@ -1,0 +1,180 @@
+<project name="builder">
+    <target name="build.javascript.compress" depends="init.javascript.compress" description="Compress javascript">
+        <echo message="Download javascript from dev-intranet" level="info"/>
+        <ftp action="get" server="${ftp.dev.server}" port="${ftp.dev.port}" userid="${ftp.dev.login}" password="${ftp.dev.password}" passive="yes" binary="no">
+            <fileset dir="${javascript.compress.storage}">
+                <patternset id="patternset.all-javascript">
+                    <include name="/lib/event.j*"/>
+
+                    <include name="/lib/framework/mootools-core.j*"/>
+                    <include name="/lib/framework/mootools-more.j*"/>
+                    <include name="/lib/framework/garant.j*"/>
+                    <include name="/lib/framework/class/observable.j*"/>
+                    <include name="/lib/framework/data/abstract.j*"/>
+                    <include name="/lib/framework/data/jsonRequestBase.j*"/>
+                    <include name="/lib/framework/data/provider/array.j*"/>
+                    <include name="/lib/framework/data/provider/jsonRequest.j*"/>
+                    <include name="/lib/framework/data/sender/jsonRequest.j*"/>
+                    <include name="/lib/framework/control/abstract.j*"/>
+                    <include name="/lib/framework/control/widget.j*"/>
+                    <include name="/lib/framework/control/form/field/select.j*"/>
+                    <include name="/lib/framework/control/window/splash.j*"/>
+                    <include name="/lib/framework/element/properties.j*"/>
+                    <include name="/lib/framework/element/method.select.j*"/>
+                    <include name="/lib/framework/element/event/paste.j*"/>
+                    <include name="/lib/framework/request/refactor.j*"/>
+                    <include name="/lib/framework/native/string.j*"/>
+                    
+                    <include name="/lib/baseSearch/baseSearch.j*"/>
+                    <include name="/lib/baseSearch/searchExampleManager.j*"/>
+                    <include name="/lib/baseSearch/requestHintSuggester.j*"/>
+                    <include name="/lib/baseSearch/requestHintDataProvider.j*"/>
+
+                    <include name="/lib/editionComparer/*.js"/>
+
+                    <include name="/lib/htmlInput/*.js"/>
+
+                    <include name="/lib/suggester/*.js"/>
+
+                    <include name="/lib/inputAutoFocuser.j*"/>
+
+                    <include name="/lib/inputLabel.j*"/>
+
+                    <include name="/lib/remoteHint/remoteHint.j*"/>
+                    
+                    <include name="/SESSION/PDA/js/baseSearch/baseSearch.j*"/>
+                    <include name="/SESSION/PDA/js/baseSearch/requestHintSuggester.j*"/>
+                    <include name="/SESSION/PDA/js/gestures.j*"/>
+                    <include name="/SESSION/PDA/js/init.j*"/>
+                    <include name="/SESSION/PDA/js/mask.j*"/>
+                    <include name="/SESSION/PDA/js/warningPanel.j*"/>
+                </patternset>
+            </fileset>
+        </ftp>
+
+        <echo message="Compress javascript" level="info"/>
+        <apply executable="CScript" output="${log.packer}" error="${log.packer}" failonerror="true" timeout="180000">
+            <arg value="/nologo"/>
+            <arg value="bin/packer/pack.wsf"/>
+            <fileset dir="${javascript.compress.storage}">
+                <patternset refid="patternset.all-javascript"/>
+            </fileset>
+            <redirector>
+                <outputmapper type="glob" from="*" to="${javascript.compress.storage}/*"/>
+            </redirector>
+        </apply>
+
+        <echo message="Upload javascript to build-intranet" level="info"/>
+        <ftp server="${ftp.build.server}" port="${ftp.build.port}" userid="${ftp.build.login}" password="${ftp.build.password}" passive="yes" binary="no">
+            <fileset dir="${javascript.compress.storage}">
+                <patternset refid="patternset.all-javascript"/>
+            </fileset>
+        </ftp>
+    </target>
+    
+    <target name="build.help" depends="init.help" description="Copy help files to Zope">
+        <echo message="Build help [${locale.helpLanguage}]" level="info"/>
+        <ftp action="del" server="${ftp.build.server}" port="${ftp.build.port}" userid="${ftp.build.login}" password="${ftp.build.password}" remotedir="/help" passive="yes" binary="no">
+            <fileset dir="">
+                <patternset id="patternset.all-help">
+                    <include name="**/*"/>
+                </patternset>
+            </fileset>
+        </ftp>
+        <ftp server="${ftp.build.server}" port="${ftp.build.port}" userid="${ftp.build.login}" password="${ftp.build.password}" remotedir="/help" passive="yes" binary="yes">
+            <fileset dir="${help.storage}/${locale.helpLanguage}">
+                <patternset refid="patternset.all-help"/>
+            </fileset>
+        </ftp>
+    </target>
+
+    <target name="build.copy.all" depends="build.copy.datafs,build.copy.products.garant,build.copy.f1server,build.copy.other" description="Store all build resources to build storage folder">
+        <echo message="Copy all changed resources to directory for zip" level="info"/>
+    </target>
+
+    <target name="build.copy.datafs" description="Store Data.fs for next build steps">
+        <copy file="${intranet.build.home}/Web/Instance/zope/var/Data.fs" tofile="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/Web/Instance/zope/var/Data.fs" overwrite="true"/>
+    </target>
+
+    <target name="build.copy.products.garant" description="Store *.pyc for next build steps">
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/Web/lib/python/Products/Sessions" overwrite="true">
+            <fileset dir="${intranet.dev.home}/Web/lib/python/Products/Sessions">
+                <include name="**/*.pyc"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/Web/Instance/zope/Products/Garant" overwrite="true">
+            <fileset dir="${intranet.dev.home}/Web/Instance/zope/Products/Garant">
+                <include name="**/*.pyc"/>
+            </fileset>
+        </copy>
+    </target>
+    
+    <target name="build.copy.f1server" description="Store F1Server files for next build steps">
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web" overwrite="true">
+            <fileset dir="${f1server.storagePattern}${f1server.version.major}_${f1server.version.minor}_${f1server.version.subminor}_${f1server.version.build}/!daily-GARANTF1-${f1server.version.major}_${f1server.version.minor}/server">
+                <include name="/*.exe"/>
+            </fileset>
+        </copy>
+        
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/apps" overwrite="true">
+            <fileset dir="${f1server.storagePattern}${f1server.version.major}_${f1server.version.minor}_${f1server.version.subminor}_${f1server.version.build}/!daily-GARANTF1-${f1server.version.major}_${f1server.version.minor}/server/apps">
+                <include name="*.exe"/>
+                <include name="F1Prime.run*"/>
+            </fileset>
+        </copy>
+        
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/apps/winNT" overwrite="true">
+            <fileset dir="${f1server.storagePattern}${f1server.version.major}_${f1server.version.minor}_${f1server.version.subminor}_${f1server.version.build}/!daily-GARANTF1-${f1server.version.major}_${f1server.version.minor}/server/apps/winNT">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+        
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/settings" overwrite="true">
+            <fileset dir="${f1server.storagePattern}${f1server.version.major}_${f1server.version.minor}_${f1server.version.subminor}_${f1server.version.build}/!daily-GARANTF1-${f1server.version.major}_${f1server.version.minor}/server/settings${locale.f1serverSettingsSuffix}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+        
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/recovery/settings" overwrite="true">
+            <fileset dir="${f1server.storagePattern}${f1server.version.major}_${f1server.version.minor}_${f1server.version.subminor}_${f1server.version.build}/!daily-GARANTF1-${f1server.version.major}_${f1server.version.minor}/server/settings${locale.f1serverSettingsSuffix}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+        
+        <mkdir dir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/settings/etaloncopy"/>
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/settings/etaloncopy" overwrite="true">
+            <fileset dir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/settings">
+                <include name="**/*"/>
+                <exclude name="etaloncopy"/>
+            </fileset>
+        </copy>
+        
+        <copy todir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/settings-xml" overwrite="true">
+            <fileset dir="${f1server.storagePattern}${f1server.version.major}_${f1server.version.minor}_${f1server.version.subminor}_${f1server.version.build}/!daily-GARANTF1-${f1server.version.major}_${f1server.version.minor}/server/settings-xml${locale.f1serverSettingsSuffix}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="build.copy.other" description="Store some other files next build steps">
+        <copy file="${build.storage}/files/F1UsersSave.exe.bat.dist" tofile="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/settings/xmltools/winNT/F1UsersSave.exe.bat.dist" overwrite="true"/>        
+    </target>
+
+    <target name="build.zip" depends="init.build.zip" description="Zip distributive">
+        <copy todir="${build.storage}/${build.type}">
+            <fileset dir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+
+        <zip destfile="${build.storage}/intranet.zip">
+            <fileset dir="${build.storage}/${build.type}"/>
+        </zip>
+
+        <zip destfile="${build.storage}/${build.type}_${build.version.major}_${build.version.minor}_b${build.number}.zip">
+            <fileset dir="${build.storage}" includes="intranet.zip"/>
+            <fileset dir="${build.storage}/files" includes="install.bat"/>
+            <fileset dir="${build.storage}/files" includes="unzip.exe"/>
+        </zip>
+    </target>
+</project>

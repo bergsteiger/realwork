@@ -1,0 +1,97 @@
+// l3Unknown 47913F970159 Impurity Class
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_47913F970159
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47913FE900A2
+ CONST UID '47913FE900A2'
+ CONST Name 'NewInstance'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_47913FE900A2 NewInstance
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4791403F035A
+ CONST UID '4791403F035A'
+ CONST Name 'FreeInstance'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4791403F035A FreeInstance
+
+: ME_479140660154
+ CONST UID '479140660154'
+ CONST Name 'AfterConstruction'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_479140660154 AfterConstruction
+
+: ME_4791407A034E
+ CONST UID '4791407A034E'
+ CONST Name 'BeforeDestruction'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4791407A034E BeforeDestruction
+
+: ME_4791409000A0
+ CONST UID '4791409000A0'
+ CONST Name 'Destroy'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4791409000A0 Destroy
+
+: ME_47913F970159
+ CONST UID '47913F970159'
+ CONST Name 'l3Unknown'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY 'В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47913F4E02E0 // l3UnknownPrim
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_47913FE900A2 // NewInstance
+ ME_4791403F035A // FreeInstance
+ ME_479140660154 // AfterConstruction
+ ME_4791407A034E // BeforeDestruction
+ ME_4791409000A0 // Destroy
+ ]
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2004/09/15 10:01:44'
+
+ @SELF
+; // ME_47913F970159 l3Unknown

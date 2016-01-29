@@ -1,0 +1,263 @@
+// Tl3GetComponentFromPointHelper 551AB8CA014A Service Class
+
+FORWARD ME_551AB8CA014A
+
+FORWARD ME_A24A217A2949
+
+INCLUDE '4728A7020026.pas.ms.script'
+
+: ME_938AE659321C
+ CONST UID '938AE659321C'
+ CONST Name 'aPoint'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4739AD110072 // TPoint
+ ;
+
+ @SELF
+; // ME_938AE659321C aPoint
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_938AE659321D
+ CONST UID '938AE659321D'
+ CONST Name 'aComponent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_938AE659321D aComponent
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+: ME_938AE659321E
+ CONST UID '938AE659321E'
+ CONST Name 'aBindedControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E1201703C3 // TControl
+ ;
+
+ @SELF
+; // ME_938AE659321E aBindedControl
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_77F02E022F3C
+ CONST UID '77F02E022F3C'
+ CONST Name 'GetComponent'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_938AE659321C // aPoint
+ ME_938AE659321D // aComponent
+ ME_938AE659321E // aBindedControl
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_77F02E022F3C GetComponent
+
+: ME_A24A217A2949
+ CONST UID 'A24A217A2949'
+ CONST Name 'Ml3GetComponentFromPointHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3GetComponentFromPointHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_77F02E022F3C // GetComponent
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_A24A217A2949 Ml3GetComponentFromPointHelper
+
+: ME_90623703A4D4
+ CONST UID '90623703A4D4'
+ CONST GUID '8A45EBEB-1919-4ED9-AE29-39A44F9B3F6E'
+ CONST Name 'Il3GetComponentFromPointHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3GetComponentFromPointHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_77F02E022F3C // GetComponent
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_90623703A4D4 Il3GetComponentFromPointHelper
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_6F7428A13918
+ CONST UID '6F7428A13918'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3GetComponentFromPointHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_90623703A4D4 // Il3GetComponentFromPointHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_6F7428A13918 Alien
+
+: ME_5FB63B69F422
+ CONST UID '5FB63B69F422'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_90623703A4D4 // Il3GetComponentFromPointHelper
+ ;
+
+ @SELF
+; // ME_5FB63B69F422 f_Alien
+
+: ME_551ABA3E0014
+ CONST UID '551ABA3E0014'
+ CONST Name 'aPoint'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4739AD110072 // TPoint
+ ;
+
+ @SELF
+; // ME_551ABA3E0014 aPoint
+
+: ME_551AD6E100CF
+ CONST UID '551AD6E100CF'
+ CONST Name 'aComponent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_551AD6E100CF aComponent
+
+: ME_551AD6E100F1
+ CONST UID '551AD6E100F1'
+ CONST Name 'aBindedControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E1201703C3 // TControl
+ ;
+
+ @SELF
+; // ME_551AD6E100F1 aBindedControl
+
+: ME_551ABA0A0154
+ CONST UID '551ABA0A0154'
+ CONST Name 'GetComponent'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ %SUMMARY 'aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_551ABA3E0014 // aPoint
+ ME_551AD6E100CF // aComponent
+ ME_551AD6E100F1 // aBindedControl
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_551ABA0A0154 GetComponent
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5A11208B85B8
+ CONST UID '5A11208B85B8'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5A11208B85B8 Exists
+
+: ME_551AB8CA014A
+ CONST UID '551AB8CA014A'
+ CONST Name 'Tl3GetComponentFromPointHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_6F7428A13918 // Alien
+ ME_5FB63B69F422 // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_551ABA0A0154 // GetComponent
+ ME_5A11208B85B8 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_77F02E022F3C // GetComponent
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ ME_90623703A4D4 // Il3GetComponentFromPointHelper
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_551AB8CA014A Tl3GetComponentFromPointHelper

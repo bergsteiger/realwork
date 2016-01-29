@@ -1,0 +1,182 @@
+// TkwControlWord 4DB98B4B0382 SimpleClass Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DB95922039B.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_4DB98B4B0382
+
+FORWARD ME_4DB98B990054
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+: ME_4DB98BAE03CB
+ CONST UID '4DB98BAE03CB'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E1201703C3 // TControl
+ ;
+
+ @SELF
+; // ME_4DB98BAE03CB aControl
+
+: ME_4DB98FBD0045
+ CONST UID '4DB98FBD0045'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_4DB98FBD0045 aCtx
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4DB98BA40271
+ CONST UID '4DB98BA40271'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4DB98BAE03CB // aControl
+ ME_4DB98FBD0045 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DB98BA40271 DoIt
+
+: ME_4DB98B990054
+ CONST UID '4DB98B990054'
+ CONST Name 'DoControl'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_4DB98BA40271 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DB98B990054 DoControl
+
+FORWARD ME_5357B6FB0024
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_5357B7230025
+ CONST UID '5357B7230025'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_5357B7230025 aControl
+
+: ME_5357B7230040
+ CONST UID '5357B7230040'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_5357B7230040 aCtx
+
+: ME_5357B70F010B
+ CONST UID '5357B70F010B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5357B7230025 // aControl
+ ME_5357B7230040 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5357B70F010B DoIt
+
+: ME_5357B6FB0024
+ CONST UID '5357B6FB0024'
+ CONST Name 'DoComponent'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_5357B70F010B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5357B6FB0024 DoComponent
+
+: ME_50BA5D0149C5
+ CONST UID '50BA5D0149C5'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwControlWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_50BA5D0149C5 Ini_Reg_Class
+
+: ME_4DB98B4B0382
+ CONST UID '4DB98B4B0382'
+ CONST Name 'TkwControlWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4DB95922039B // SystemWord
+ ]
+ ; // Implements
+ : Operations
+   [ ME_4DB98B990054 // DoControl
+ ME_5357B6FB0024 // DoComponent
+ ME_50BA5D0149C5 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "ifndef" 'NoVCL'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.04.2011 19:44'
+
+ @SELF
+; // ME_4DB98B4B0382 TkwControlWord

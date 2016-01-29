@@ -1,0 +1,3038 @@
+Shared Delphi For Archi : Project - Библиотеки исключительно для нужд Архивариуса
+version: 663
+m3 : Library - Библиотека для работы с хранилищем представляющим реализацию виртуальной файловой системы
+ m3Interfaces : Interfaces - Базовые интерфейсы библиотеки.
+  Im3Base : Facet - 
+ m3StorageInterfaces : Interfaces - Интерфейсы для работы с хранилищем.
+  Tm3StoreAccess : Typedef - тип доступа к хранилищу.
+  m3StoreAcessConsts : Constants - Режимы доступа к хранилищу.
+   m3_saRead - чтение.
+   m3_saReadWrite - чтение и запись.
+   m3_saCreate - чтение и запись или создание.
+  msStoreTypes : Constants - Типы хранилищ.
+   m3_stNone - Не определен.
+   m3_stStream - Хранилище.
+   m3_stStorage - Поток.
+  Tm3StoreType : Range - Тип элемента хранилища.
+   first - 
+   last - 
+  Pm3StoreType : Typedef - Указатель на Tm3StoreType.
+  Tm3StoreMode : Enum - Режим открытия элемента каталога.
+   m3_smCreate - 
+   m3_smOpen - 
+  Tm3StoreInfo : Struct - Информация об элементе хранилища.
+   C : Constructor - 
+   rPosition - 
+   rStoreType - 
+  Tm3StorageElementID : Typedef - 
+  Tm3StorageElementInfo : Struct - 
+   C : Constructor - 
+   rInfo - 
+   rName - 
+  Im3StorageElementIDList : Facet - 
+   ItemType : impurity value - 
+  TStatStg : Typedef - 
+  Tm3StorageType : Enum - 
+   m3_stArchive - 
+   m3_stPlugin - 
+   m3_stPlain - 
+  Mm3StorageIterators : PureMixIn - 
+   IterateIndexedF : facetiterator - 
+   IterateAllF : facetiterator - 
+   Mm3StorageIterators_IterateIndexedF_Action : Function - Тип подитеративной функции для Mm3StorageIterators.IterateIndexedF
+   L2_Mm3StorageIterators_IterateIndexedF_Action : static - Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mm3StorageIterators.IterateIndexedF
+   Mm3StorageIterators_IterateAllF_Action : Function - Тип подитеративной функции для Mm3StorageIterators.IterateAllF
+   L2_Mm3StorageIterators_IterateAllF_Action : static - Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mm3StorageIterators.IterateAllF
+  Tm3StoreElementIndex : Typedef - 
+  Tm3Store : StaticObject - 
+   C$Stream : Constructor - 
+   C$Storage : Constructor - 
+   AsIStorage : method - 
+   E : Constructor - 
+   E$Res : Constructor - 
+   rStream - 
+   rStorage - 
+   rResult - 
+  Im3IndexedStorage : Facet - Хранилище с возможностью доступа по индексу.
+   ClearAll : facetmethod - 
+   CopyFrom : facetmethod - 
+   SetIndexParam - устанавливает параметры "размазывания" индекса.
+   DeleteStore - удаляет элемент хранилища.
+   CreateStore - создает элемент хранилища.
+   OpenStore - открывает элемент хранилища.
+   CreateStore - создает элемент хранилища
+   OpenStore - открывает элемент хранилища
+   OpenStore - открывает элемент хранилища.
+   OpenStore - открывает элемент хранилища
+   RenameElementA - Переименовывает элемент хранилища
+   ElementExists - Проверяет существование элемента с указанным именем
+  Im3StorageHolder : Facet - 
+   StoreToCache : facetmethod - 
+   Storage : readonly - 
+ Streams : Unit - 
+  m3BaseStore : Impurity - 
+   DoGetPosition : virtualmethod - 
+   DoGetSize : virtualmethod - 
+   DoGetLocksSupported : virtualmethod - 
+   DoGetAccess : method - 
+   DoGetName : virtualmethod - 
+   Create : Constructor - 
+   ReadOnly : method - только для чтения?
+   Access : readonly - 
+    : uses - 
+   f_Access - Поле для свойства Access
+  Tm3PrimStream : SimpleClass - 
+   DoRead : virtualmethod - 
+   DoWrite : virtualmethod - 
+   DoSeek : virtualmethod - 
+   DoSetSize : virtualmethod - 
+   LockRegion : virtualmethod - 
+   UnlockRegion : virtualmethod - 
+   Stat : virtualmethod - 
+   Commit : virtualmethod - 
+   Revert : method - 
+   Clone : method - 
+   Create : Constructor - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3BaseStream : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3CustomStream : SimpleClass - 
+   Create : Constructor - 
+   InnerStream : readonly - 
+    : uses - 
+   f_InnerStream - Поле для свойства InnerStream
+  Tm3LinkedStream : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3BuffStream : SimpleClass - 
+   LoadBuff : method - 
+   SaveBuff : method - 
+   Create : Constructor - 
+   Make : Factory - 
+   FRealSize - 
+   f_Buff - 
+   FBuffSize - 
+   FBuffCurPos - 
+   FBuffEndPos - 
+   FBuffOffset - 
+   FBuffModifed - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3FileStreamMapView : SimpleClass - 
+  Tm3FileStream : SimpleClass - 
+   SysCheck : method - 
+   Create : Constructor - 
+   Make : Factory - 
+   CreateMapView : method - 
+   FHandle - 
+   f_Name - 
+   f_SharedMode - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3TempStream : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+  Tm3SplittedFileStream : SimpleClass - Файловый поток порезанный на куски
+   Create : Constructor - 
+   Make : Factory - 
+   Tm3InnerFileStream : SimpleClass - 
+   FileByPos : method - 
+   FileNameByIndex : method - 
+   FileIndexByPos : method - 
+   Tm3InnerFileStreamList : SimpleClass - 
+   NormalizePartSize : method - 
+   CheckInfoStream : method - 
+   Constants : Constants - 
+   NormalizeFileName : method - 
+   SetDefaultSizeLimit : method - 
+   f_SharedMode - 
+   f_Distribution - 
+   f_Flags - 
+   f_Name - 
+   f_OpenedStreams - 
+   f_Position - 
+   f_Access - 
+   f_SizeLimit - 
+   f_Ext - 
+   f_AnsiName - 
+   FilesCount : property - 
+   f_InfoStream - 
+   g_DefaultSizeLimit : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_FilesCount - Поле для свойства FilesCount
+  m3Exceptions : UtilityPack - 
+   Em3Exception : Exception - 
+   Em3InvalidStream : Exception - 
+   Em3NilStream : Exception - 
+   Em3NoIndex : Exception - 
+    : uses - 
+ HeaderStream : Unit - 
+  Tm3BaseHeaderStream : SimpleClass - 
+   LockHeader : method - закрывает заголовок
+   UnlockHeader : method - открывает заголовок
+   DoSaveHeader : abstractmethod - сохраняет заголовок
+   DoLoadHeader : abstractmethod - загружает заголовок в память
+   LoadHeader : method - 
+   SaveHeader : method - 
+   DefaultInitAction : virtualmethod - 
+   DefaultDoneAction : virtualmethod - 
+   Defaults : Constants - 
+   DoLockHeader : virtualmethod - 
+   DoUnlockHeader : virtualmethod - 
+   FHeaderSize - 
+   FHeaderLocked - 
+   FHeaderLoaded - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  m3Const : UtilityPack - 
+   BasClaDefaults : Constants - 
+  m3HeaderIDSupplier : Impurity - 
+   HeaderID : abstractmethod - 
+  m3CustomHeaderStream : Impurity - Поток с заголовком-идентификатором
+   Create : Constructor - 
+   HeaderType : ImpurityParamType - 
+   DefaultHeaderValue : abstractmethod - 
+   NeedHeaderAlignment : virtualmethod - 
+   HeaderData - 
+   HeaderDataCompare - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ m3CoreObjects : Unit - 
+  m3RootStream : Impurity - 
+   Create : Constructor - 
+   Logger : property - 
+    : uses - 
+   f_Logger - Поле для свойства Logger
+  Tm3RootStream : SimpleClass - 
+   Tm3RootStreamHeader : Struct - Заголовок потока в котором живет IStorage.
+
+Данные определяются через пользовательскую секцию, чтобы они не дай бог местами не переставились.
+   Rm3RootStream : Typedef - 
+   ForceLockHeader : method - Гарантированно блокирует заголовок потока.
+   HeaderType : impurity value - 
+    : uses - 
+  Tm3RootStreamNew : SimpleClass - 
+  Tm3RootStreamManagerPrimPrim : SimpleClass - 
+   ReadData : abstractmethod - 
+   WriteData : abstractmethod - 
+   AllocatedStreamSize : abstractmethod - 
+   SetPositionAndValidateIt : abstractmethod - 
+   Create : Constructor - 
+   IsValidLink : method - 
+   DoIsValidPosition : virtualmethod - 
+   IsValidPosition : method - 
+   DoUnlockRegion : abstractmethod - 
+   DoLockRegion : abstractmethod - 
+   LockRegion : method - 
+   UnlockRegion : method - 
+   ReloadHeader : abstractmethod - 
+   ReadDataAtCurrent : abstractmethod - 
+   ClusterBodySize : abstractmethod - 
+   AllocNewCluster : abstractmethod - 
+   ClusterHeaderSize : abstractmethod - 
+   ClusterSize : method - 
+   RemoveTOCBuffData : abstractmethod - 
+   Logger : readonly - 
+    : uses - 
+    : uses - 
+   f_Logger - Поле для свойства Logger
+  Tm3BaseStore : SimpleClass - 
+  Tm3StoreHeaderDataPrim : SimpleClass - 
+   DataSize : abstractmethod - 
+   Modified : abstractmethod - 
+   DoDoLoad : abstractmethod - 
+   DoDoSave : abstractmethod - 
+   SaveToExistingPlace : method - 
+   Load : method - 
+   Save : method - 
+   CreateNew : Constructor - 
+   Create : Constructor - 
+   SaveToNewPlace : method - 
+   DoSaveNextPosition : abstractmethod - 
+   Lock : method - 
+   Unlock : method - 
+   CreatePrim : Constructor - 
+   CreateAtExistingPlace : Constructor - 
+   CreateForDeletion : Constructor - 
+   Rm3StoreHeaderDataPrim : Typedef - 
+   InitData : abstractmethod - 
+   DoLoad : method - 
+   DoSave : method - 
+   Delete : method - 
+   rRealSizePrim : property - 
+   FirstClusterPrim : property - 
+   rTOCItemListPositionPrim : property - 
+   Position : property - 
+   f_Lock - 
+   IsReadOnly : readonly - 
+   Name : readonly - 
+   Locked : readonly - 
+   rTOCItemListPosition : property - 
+   rRealSize : property - 
+   FirstCluster : property - 
+   Stream : readonly - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_Position - Поле для свойства Position
+   f_IsReadOnly - Поле для свойства IsReadOnly
+   f_Name - Поле для свойства Name
+   f_Stream - Поле для свойства Stream
+  Tm3RootStreamManagerPrim : SimpleClass - 
+   StoreHeaderDataClass : abstractmethod - 
+   RemoveFATElementAtPos : abstractmethod - 
+   AllocNewFATElement : abstractmethod - 
+   ReadOnly : abstractmethod - 
+   RootStorageFATElement : readonly - 
+    : uses - 
+  Tm3StoreHeaderData : SimpleClass - 
+   Tm3StoreHeaderDataRec : Struct - Элемент оглавления IStorage
+   Data - 
+   DataCompare - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3RootStreamManager : SimpleClass - 
+   Create : Constructor - 
+   DoAllocNewFATElement : abstractmethod - 
+   Res Const : Constants - 
+   DoRemoveFATElementAtPos : abstractmethod - 
+   FreeAllocatedFATElements : method - 
+   DoClearFATElement : abstractmethod - 
+   ValidateAllocatedSize : method - 
+   FreeAllocatedClusters : method - 
+   HasLockedRegions : method - 
+   RootStream : readonly - 
+   f_LockedRegions - 
+   f_NeedLocks - 
+   f_AllocatedFATElements - 
+   f_AllocatedClusters - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_RootStream - Поле для свойства RootStream
+  Tm3StoreHeader : SimpleClass - Описатель элемента хранилища (потока или подхранилища)
+   CreatePrim : Constructor - 
+   Create : method - 
+   HeaderData : readonly - 
+   RootStreamManager : readonly - 
+   TOCListPosition : property - 
+   Name : readonly - 
+    : uses - 
+    : uses - 
+   f_HeaderData - Поле для свойства HeaderData
+   f_RootStreamManager - Поле для свойства RootStreamManager
+   f_Name - Поле для свойства Name
+  m3StorageBlock : UtilityPack - 
+   Tm3StorageBlock : SimpleClass - 
+  Tm3Persistent : SimpleClass - 
+   Load : abstractmethod - 
+   Save : abstractmethod - 
+   LoadBuff : method - 
+   SaveBuff : method - 
+   LoadWideString : method - 
+   SaveWideString : method - 
+    : uses - 
+  Tm3CommonStorageStream : SimpleClass - 
+   Create : Constructor - 
+  Tm3TOCHandle : SimpleClass - 
+   Create : Constructor - 
+   CreateNew : method - 
+   HandleName : property - имя вхождения директории
+   StoreInfo - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_HandleName - Поле для свойства HandleName
+  m3AutoAllocList : Impurity - 
+   l3Items_IsProto : Define - 
+   l3Items_NoSort : Define - 
+    : uses - 
+  Tm3StoreHeaderDataNew : SimpleClass - 
+   Tm3StoreHeaderDataRecNew : Struct - 
+   Data - 
+   DataCompare - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  m3FileRegion : UtilityPack - 
+   Tm3FileRegion : StaticObject - 
+  Tm3NewRootStreamManager : SimpleClass - 
+   Make : method - 
+   f_StoreHeaderDataClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3ReadOnlyRootStreamManager : SimpleClass - 
+   Create : Constructor - 
+   f_Other - 
+    : uses - 
+  Tm3NewStorageStreamPrim : SimpleClass - 
+   MoveStreamPointer : method - 
+   Create : Constructor - 
+   f_Block - 
+   f_HeaderData - 
+   f_Position - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  m3ListWithFind : Impurity - 
+   KeyType : ImpurityParamType - 
+   FindItemByKey : method - 
+   CompareKeyByItem : abstractmethod - 
+  Tm3NewStorageStream : SimpleClass - 
+   Make : method - 
+    : uses - 
+  Tm3StorageTableOfContentsStream : SimpleClass - 
+   Make : method - 
+  m3PersistentList : Impurity - 
+   LoadFromStream : method - 
+   SaveToStream : method - 
+    : uses - 
+    : uses - 
+  Tm3TOCHandleList : SimpleClass - 
+   Modified : property - 
+   ItemType : impurity value - 
+   KeyType : impurity value - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_Modified - Поле для свойства Modified
+  Tm3BaseStorage : SimpleClass - 
+   DoCreateStore : virtualmethod - 
+   DoOpenStore : virtualmethod - 
+   TWindowsFileTime : Typedef - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  m3StorageTools : UtilityPack - 
+   m3COMOpenStream - 
+  Tm3StoragePrim : SimpleClass - 
+  Tm3CommonStorage : SimpleClass - 
+   IsValidName : method - 
+   IsValidName$1 : method - 
+   IsValidName$2 : method - 
+   CheckIndexStream : abstractmethod - 
+   Tm3IndexInfo : Struct - Информация об индексе
+   Create : Constructor - 
+   Tm3StoreOperation : Enum - Операция с элементом хранилища
+   Make : abstractmethod - 
+   Rm3CommonStorage : Typedef - 
+   SubStorageClass : method - 
+   DoSaveTableOfContents : abstractmethod - 
+   SaveTableOfContents : method - 
+   Manager : abstractmethod - 
+   LoadTableOfContents : method - 
+   DoLoadTableOfContents : abstractmethod - 
+   OpenRoot : abstractmethod - 
+   ForPlugin : virtualmethod - 
+   IsPacked : virtualmethod - 
+   OpenFromManager : abstractmethod - 
+   f_IndexStream - 
+   f_IndexInfo - 
+   f_TableOfContents - 
+   f_CanAllocateIndex - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3BranchHandlePrim : SimpleClass - 
+   Tm3BranchHandlePrimData : Struct - 
+   Pm3BranchHandlePrim : Typedef - 
+   Tm3BranchHandlesManager : SimpleClass - 
+   Data - 
+    : uses - 
+  Tm3BranchHandle : SimpleClass - 
+   NormalForms - 
+    : uses - 
+  Tm3NewStoragePrim : SimpleClass - 
+   Create : Constructor - 
+   Header : readonly - 
+   f_Header - Поле для свойства Header
+  Tm3BranchHandleList : SimpleClass - 
+   Tm3WideString : Struct - 
+   ItemType : impurity value - 
+   KeyType : impurity value - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3WideStringManager : SimpleClass - 
+   Create : Constructor - 
+   LockFree : method - 
+   UnlockFree : method - 
+   Exists : method - 
+   f_CanFreeBlocks - 
+    : uses - 
+  Tm3HashHandle : SimpleClass - 
+   Create : Constructor - 
+   BranchHandleList : readonly - 
+    : uses - 
+   f_BranchHandleList - Поле для свойства BranchHandleList
+  Tm3HashHandleListPrim : SimpleClass - 
+   ItemType : impurity value - 
+    : uses - 
+  Tm3NormalFormsManager : SimpleClass - 
+   Create : Constructor - 
+   LockFree : method - 
+   UnlockFree : method - 
+   Exists : method - 
+   f_CanFreeBlocks - 
+    : uses - 
+  Tm3StorageIndexStream : SimpleClass - 
+   Make : method - 
+   NeedBuffering : virtualmethod - 
+  Tm3StorageIndexStreamForIterate : SimpleClass - 
+  Tm3CustomNewStorage : SimpleClass - 
+   FindItemByIndex : method - 
+   FindItemByName : method - 
+   IsValidOpenMode : virtualmethod - 
+   IsValidCreateMode : method - 
+   RemoveElementByName : method - 
+   RemoveElementByTOCIndex : method - 
+   CreateOpenStoreByName : method - 
+   CreateOpenStoreByName$1 : method - 
+   CreateOpenStoreByIndex : method - 
+   SaveTableOfContentsPrim : method - 
+   Names : Constants - 
+   Create : Constructor - 
+   Tm3StoreHeaderDataPrimHack : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3BaseEnumStatStg : SimpleClass - Базовый класс для реализации IEnumStatStg
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Storage : Unit - 
+  m3NewStorage : UtilityPack - 
+   Tm3NewStorage : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3TempEnumStatStg : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   FStream - 
+   FItemsCount - 
+   FItemsIndex - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3ArchiveStorage : SimpleClass - 
+    : uses - 
+ Indexer : Unit - 
+  m3IdxCla : UtilityPack - 
+    : uses - 
+  Tm3BaseHashInfoStream : SimpleClass - 
+   Tm3HashInfoStreamHeader : Struct - 
+   HeaderType : impurity value - 
+    : uses - 
+    : uses - 
+ StorageHolder : Unit - 
+  Tm3StorageHolder : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   GetFromCache : method - 
+   ReopenStorage : method - 
+   f_Storage - 
+   f_StorageClass - 
+   Access : readonly - 
+   FileName : readonly - 
+   SharedMode : readonly - 
+   f_RootStreamManager - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_Access - Поле для свойства Access
+   f_FileName - Поле для свойства FileName
+   f_SharedMode - Поле для свойства SharedMode
+  Tm3StorageHolderListPrim : SimpleClass - 
+   ItemType : impurity value - 
+    : uses - 
+    : uses - 
+  Tm3StorageHolderListPrim1 : SimpleClass - 
+   FindDataType : impurity value - 
+    : uses - 
+    : uses - 
+  Tm3StorageHolderList : SimpleClass - 
+   Exists : method - 
+   Drop : method - 
+   DropAll : method - 
+    : uses - 
+ ArchiveStreams : Unit - 
+  Tm3ArcHandle : SimpleClass - 
+   Tm3ArcHandleData : Struct - 
+   Data - 
+    : uses - 
+  Tm3BaseArcStream : SimpleClass - 
+   Tm3BaseArcStreamHeader : Struct - 
+   HeaderType : impurity value - 
+  Tm3ArcHandleList : SimpleClass - 
+   ItemType : impurity value - 
+   KeyType : impurity value - 
+    : uses - 
+    : uses - 
+  Tm3LZODeflateStreamNew : SimpleClass - 
+  Tm3LZOInflateStreamNew : SimpleClass - 
+    : uses - 
+  m3ArcCla : UtilityPack - 
+   Tm3ArcInflateStream : SimpleClass - 
+   Tm3ArcDeflateStream : SimpleClass - 
+   Tm3LZOInflateStream : SimpleClass - 
+   Tm3LZODeflateStream : SimpleClass - 
+    : uses - 
+    : uses - 
+DA : Library - DataAccess - обобщение доступа к данным
+ daTypes : Interfaces - 
+  TdaUserID : Typedef - 
+  TGetLoginPasswordProc : Function - 
+   DoIt - 
+  TdaBaseFlag : Enum - 
+   bfAAC - 
+  TdaBaseFlags : SetOf - 
+  TdaRegionID : Typedef - 
+  TdaLoginError : Enum - 
+   da_leOk - 
+   da_leInsufficientRights - 
+   da_leUserParamsWrong - 
+   da_leConnectionError - 
+   da_leSQLError - 
+  TdaDocID : Typedef - 
+  TdaFamilyID : Typedef - 
+  TdaPathStr : Typedef - 
+  TdaProcessState : Enum - 
+   da_psStart - 
+   da_psCurrent - 
+   da_psEnd - 
+  TdaOnLongProcessEvent : Function - 
+   DoIt - 
+  TdaDataType : Enum - Типы данных полей
+   da_dtChar - 
+   da_dtByte - 
+   da_dtDate - 
+   da_dtTime - 
+   da_dtDWord - 
+   da_dtWord - 
+   da_dtInteger - 
+   da_dtBoolean - 
+   da_dtQWord - 
+  TdaTables : Enum - 
+   da_mtAccess - Права доступа к документам
+   da_mtPassword - Пароли пользователей
+   da_mtUsers - Пользователи
+   da_mtGroups - Группы (mtGUDt)
+   da_mtGroupMembers - Члены группы (mtGULnk)
+   da_mtFamily - Семейства (не прижилось)
+   da_mtFree - Список диапазонов для ID
+   da_mtJournal - Журнал работы (mtBBLog)
+   da_mtControl - Флажок эксклюзивного доступа (mtCtrl)
+   da_mtRegions - Словарь регионов
+   da_ftNone - Фэйковая таблица
+   da_ftDocuments - Документы (ftFile)
+   da_ftHyperlinks - Гиперссылки (ftHLink)
+   da_ftSubs - Сабы (ftSub)
+   da_ftFree - Список диапазонов для ID
+   da_ftSources - Словарь Исходящие органы (ftDt1)
+   da_ftTypes - Словарь Типы (ftDt2)
+   da_ftClasses - Словарь Классы (ftDt3)
+   da_ftKeywords - Словарь Ключевые слова (ftDt5)
+   da_ftBelongs - Словарь Группы (ftDt6)
+   da_ftDateCodes - Словарь Номеров и Дат (ftDt7)
+   da_ftWarnings - Словарь Предупреждений (ftDt8)
+   da_ftCorrections - Словарь Вычитка (ftDt9)
+   da_ftCoSources - Словарь Изданий (ftDtA)
+   da_ftPiblishedIn - Словарь Источников опубликования (ftDtB)
+   da_ftPrefixes - Словарь Видов информации (ftDtC)
+   da_ftTerritories - Словарь Территорий (ftDtD)
+   da_ftNorms - Словарь Нормы права (ftDtE)
+   da_ftExtClasses - Дополнение Словаря Классов (ftDt3E)
+   da_ftAccessGroups - Словарь Группы доступа (ftDtF)
+   da_ftAnnoClasses - Словарь Классы аннотаций (ftDtI)
+   da_ftServiceInfo - Словарь Вид справочной информации (ftDtJ)
+   da_ftDocSources - Исходящие органы документа (ftLnk1)
+   da_ftDocTypes - Типы документа (ftLnk2)
+   da_ftDocClasses - Классы документа (ftLnk3)
+   da_ftDocKeywords - Ключевые слова документа (ftLnk5)
+   da_ftDocBelongs - Группы документа (ftLnk6)
+   da_ftDocDateCodes - Номера и даты документа (ftLnk7) - не нужен
+   da_ftDocWarnings - Предупреждения документа (ftLnk8)
+   da_ftDocCorrections - Вычитка документа (ftLnk9) - не нужен
+   da_ftDocPublishedIn - Источники опубликования документа (ftLnkB)
+   da_ftDocPrefixes - Виды информации документа (ftLnkC)
+   da_ftDocTerritories - Территория документа (ftLnkD)
+   da_ftDocNorms - Нормы права документа (ftLnkE)
+   da_ftDocAccessGroups - Группы доступа документа (ftLnkF)
+   da_ftDocAnnoClasses - Классы аннотации документа (ftLnkI)
+   da_ftDocServiceInfo - Вид справочной информации документа (ftLnkJ)
+   da_ftDoc2DocLink - Связи между документами (ftLnkK)
+   da_ftPriority - Словарь приоритетов (ftPriority)
+   da_ftRenum - Соответствие внешних и внутренних номеров (ftRenum)
+   da_ftDocStages - Этапы обработки документа (ftStage)
+   da_ftDocLog - Журнал изменения документа (ftLog)
+   da_ftDocActivity - Интервалы действия документа (ftActiv)
+   da_ftDocAlarm - Служебные предупреждения к документу (ftAlarm)
+   da_ftControl - Флажок эксклюзивного доступа (ftCtrl)
+   da_ftDocumentsDub1 - Дубликат таблицы документов - для связывания в запросах (ftFileDup1)
+   da_ftDocumentsDub2 - Дубликат таблицы документов - для связывания в запросах (ftFileDup2)
+  TdaJournalOperation : Enum - 
+   da_oobNone - 
+   da_oobPause - Длина паузы в Additional
+   da_oobSessionBegin - ID Пользователя в ID_Ext
+   da_oobSessionEnd - 
+   da_oobOpenDoc - ID документа в ID_Ext
+   da_oobCreateDoc - ID Документа в ID_Ext
+   da_oobDeleteDoc - ID Документа в ID_Ext
+   da_oobEditDoc - ID Документа в ID_Ext, TdaDocEditRec в Additional
+   da_oobPrintDoc - ID Документа в ID_Ext
+   da_oobSaveDoc - ID Документа в ID_Ext
+   da_oobEditDictionary - TdaDictEditRec в Additional
+   da_oobExport - Количество документов в Additional
+   da_oobImport - 
+   da_oobSearch_Deprecated - 
+   da_oobAutoClass - Количество документов в Additional
+  TdaDocEditType : Enum - 
+   da_detText - 
+   da_detAttribute - 
+   da_detHyperLink - 
+   da_detSub - 
+   da_detDiction - 
+  TdaEditOperation : Enum - 
+   da_eoNone - 
+   da_eoAdd - 
+   da_eoEdit - 
+   da_eoDelete - 
+  TdaDictionaryType : Enum - 
+   da_dlNone - 
+   da_dlSources - 
+   da_dlTypes - 
+   da_dlClasses - 
+   da_dlKeyWords - 
+   da_dlBases - 
+   da_dlDateNums - 
+   da_dlWarnings - 
+   da_dlCorrects - 
+   da_dlCorSources - 
+   da_dlPublisheds - 
+   da_dlPrefixes - 
+   da_dlTerritories - 
+   da_dlNorms - 
+   da_dlAccGroups - 
+   da_dlNewClasses_Deprecated - 
+   da_dlAnnoClasses - 
+   da_dlServiceInfo - 
+   da_dlTextInsert - 
+  TdaJoinKind : Enum - Тип соединения таблиц в запросах
+   da_jkInner - 
+   da_jkParentOuter - 
+   da_jkChildOuter - 
+   da_jkFullOuter - 
+   da_jkCartesian - 
+  TdaSessionID : Typedef - 
+  TdaCompareOperation : Enum - 
+   da_copEqual - 
+  EdaError : Exception - 
+  TdaTablesSet : SetOf - 
+  LargeInt : Typedef - 
+  TdaDictionaryTypeSet : SetOf - 
+  TdaDocEditRecUnion : Union - 
+   void : switch - 
+   Operation - 
+   DictType - 
+  TdaDocEditRec : Struct - 
+   EditType - 
+   Details - 
+  TdaDictEditRec : Struct - 
+   DictType - 
+   Operation - 
+  PdaDocEditRec : Typedef - 
+  PdaDictEditRec : Typedef - 
+  PLargeInt : Typedef - 
+ daInterfaces : Interfaces - 
+  IdaLongProcessSubscriber : Facet - 
+   DoLongProcessNotify : facetmethod - 
+  IdaParamsStorage : Facet - Абстрагирует откуда именно надо читать параметры
+   ProviderKey : property - 
+   Login : property - 
+   Password : property - 
+   DocStoragePath : property - 
+   DocImagePath : property - 
+   HomeDirPath : property - 
+   InitStorage - 
+   OuterConfigEdit - 
+   BuildConfig - 
+  DBVersion : Constants - 
+   c_BadVersion - 
+   c_DocBaseVersion - 
+   c_AdminBaseVersion - 
+  UserConsts : Constants - 
+   usSupervisor - 
+   usAdminReservedHard - 
+   usFirstWorkUser - 
+   usAdminReserved - 
+   usServerService - 
+   usNotDefined - 
+   usWrongClient - говорит об отказе в регистрации
+   usDuplicateClient - попытка войти повторно
+   usDeadClient - не отвечает на запросы
+   usNone - 
+   c_SupervisorUserName - 
+  IdaProgressSubscriber : Facet - 
+   DoProgressNotify : facetmethod - 
+  daTableDescriptionIterator : PureMixIn - 
+   daTableDescriptionIterator_IterateFieldsF_Action : Function - Тип подитеративной функции для daTableDescriptionIterator.IterateFieldsF
+   IterateFieldsF : facetiterator - 
+   L2_daTableDescriptionIterator_IterateFieldsF_Action : static - Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF
+  IdaTableDescription : Facet - 
+   Description : readonly - 
+   IsDublicate : readonly - Дубликат таблицы для связки в запросах (HT по другому не умеет)
+   IsFake : readonly - Совсем виртуальная таблица
+   Kind : readonly - 
+   Code : readonly - 
+   Name : readonly - 
+   Field : readonly - 
+  IdaJournal : Facet - 
+   CurStatisticTreeRoot : readonly - 
+   UserID : property - 
+   CalcStatistics - 
+   LogExport - 
+   LogImport - 
+   LogPause - 
+   LogPrintDoc - 
+   LogSaveDoc - 
+   LogEditDoc - 
+   LogEditDoc - 
+   LogDeleteDoc - 
+   LogEditDict - 
+   LogCreateDoc - 
+   LogAutoClass - 
+   LogOpenDoc - 
+   StartCaching - 
+   StopCaching - 
+   SessionDone - 
+  IdaSelectField : Facet - 
+   Alias : readonly - 
+   BuildSQLValue - 
+  IdaParamListHelper : Facet - 
+   GetParamCode - 
+  IdaRelationDescription : Facet - 
+   IsEmpty - 
+  IdaFieldDescription : Facet - 
+   Name : readonly - 
+   Description : readonly - 
+   DataType : readonly - 
+   Required : readonly - 
+   Table : readonly - Должно быть Weak
+   Index : readonly - 
+   SIze : readonly - 
+   BindToTable - 
+  IdaParamDescription : Facet - 
+   Name : readonly - 
+   DataType : readonly - 
+   Size : readonly - 
+  IdaFromTable : Facet - 
+   TableAlias : readonly - 
+   Table : readonly - 
+   BuildSQLValue - 
+  IdaParam : Facet - 
+   Name : readonly - 
+   AsInteger : property - 
+   DataBuffer : readonly - 
+   AsLargeInt : property - 
+   AsString : property - 
+   IsSameType - 
+  IdaField : Facet - 
+   AsLargeInt : readonly - 
+   AsInteger : readonly - 
+   AsStDate : readonly - 
+   AsStTime : readonly - 
+   AsString : readonly - 
+   AsByte : readonly - 
+   Alias : readonly - 
+  IdaDataConverter : Facet - 
+   AllocateParamBuffer - 
+   ParamToDataBase - 
+   ParamFromDataBase - 
+   FreeParamBuffer - 
+  IdaResultSet : Facet - 
+   Field : readonly - 
+   EOF - 
+   Next - 
+   IsEmpty - 
+  IdaCondition : Facet - 
+   BuildSQLValue - 
+  IdaQuery : Facet - 
+   WhereCondition : property - 
+   Param : readonly - 
+   OpenResultSet - 
+   Prepare - 
+   AddSelectField - 
+   AddFromTable - 
+   UnPrepare - 
+  IdaTableQueryFactory : Facet - 
+   DataConverter : readonly - 
+   MakeTabledQuery - 
+   MakeSelectField - 
+   MakeParamsCondition - 
+   GetUserNameStr - 
+  IdaResultBuffer : Facet - 
+   RegisterField - 
+   UnregisterField - 
+   FieldBufferPtr - 
+  IdaFieldFromTable : Facet - 
+   TableAlias : readonly - 
+   Field : readonly - 
+  IdaUserManager : Facet - 
+   CheckPassword - 
+  IdaDataProvider : Facet - 
+   InitRegionFromIni : facetmethod - 
+   IsRegionExists : facetmethod - 
+   GetRegionName : facetmethod - 
+   FillRegionDataList : facetmethod - 
+   Start : facetmethod - 
+   Stop : facetmethod - 
+   UserID : readonly - 
+   RegionID : readonly - 
+   BaseName : readonly - 
+   AdminRights : readonly - 
+   CurUserIsServer : readonly - 
+   CurHomePath : readonly - 
+   GlobalHomePath : readonly - 
+   Journal : readonly - 
+   TableQueryFactory : readonly - 
+   DataConverter : readonly - 
+   ImpersonatedUserID : readonly - 
+   UserManager : readonly - 
+   BaseLanguage : readonly - 
+   TextBase : readonly - 
+   CheckLogin - 
+   LoginAsServer - 
+   GetFreeExtObjID - 
+   GetFreeExtDocID - 
+   LockAll - 
+   UnlockAll - 
+   GetHomePathName - 
+   GetHomePath - 
+   ConvertAliasPath - 
+   SubscribeLongProcess - 
+   UnSubscribeLongProcess - 
+   SubscribeProgress - 
+   UnSubscribeProgress - 
+   BeginImpersonate - 
+   EndImpersonate - 
+  UserFlagConst : Constants - 
+   usActive - 
+   usAdmin - 
+   usDeleted - 
+  IdaAtomicCondition : Facet - 
+   Operation : readonly - 
+ Utils : Unit - 
+ DataScheme : Unit - 
+  TdaFieldDescriptionListPrim : SimpleClass - 
+   l3Items_NeedsBeforeFreeItem : Define - 
+   ItemType : impurity value - 
+    : uses - 
+  TdaFieldDescription : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Table - 
+   f_Name - 
+   f_Description - 
+   f_Required - 
+   f_DataType - 
+   f_Index - 
+   f_Size - 
+  TdaFieldDescriptionList : SimpleClass - 
+   FindDataType : impurity value - 
+    : uses - 
+  TdaScheme : SimpleClass - 
+   BuildScheme : method - 
+   TFamilyDescriptions : Vector - 
+   BuildMain : method - 
+   BuildFamily : method - 
+   TdaFillTableDescriptionProc : Function - 
+   MakeTableDescription : method - 
+   FillMainAccess : method - 
+   FillMainPassword : method - 
+   FillMainUsers : method - 
+   FillMainGroups : method - 
+   FillMainGroupMembers : method - 
+   FillMainFamily : method - 
+   FillMainFree : method - 
+   FillMainJournal : method - 
+   FillControl : method - 
+   FillMainRegions : method - 
+   FillFamilyDocuments : method - 
+   FillFamilyHyperlinks : method - 
+   FillFamilySubs : method - 
+   FillFamilyFree : method - 
+   FillFamilySources : method - 
+   FillFamilyTypes : method - 
+   FillFamilyClasses : method - 
+   FillFamilyKeywords : method - 
+   FillFamilyBelongs : method - 
+   FillFamilyDateCodes : method - 
+   FillFamilyWarnings : method - 
+   FillFamilyCorrections : method - 
+   FillFamilyCoSources : method - 
+   FillFamilyPublishedIn : method - 
+   FillFamilyPrefixes : method - 
+   FillFamilyTerritories : method - 
+   FillFamilyNorms : method - 
+   FillFamilyExtClasses : method - 
+   FillFamilyAccessGroups : method - 
+   FillFamilyAnnoClasses : method - 
+   FillFamilyServiceInfo : method - 
+   FillFamilyDocSources : method - 
+   FillFamilyDocTypes : method - 
+   FillFamilyDocClasses : method - 
+   FillFamilyDocKeywords : method - 
+   FillFamilyDocBelongs : method - 
+   FillFamilyDocDateCodes : method - 
+   FillFamilyDocWarnings : method - 
+   FillFamilyDocCorrections : method - 
+   FillFamilyDocPublishedIn : method - 
+   FillFamilyDocPrefixes : method - 
+   FillFamilyDocTerritories : method - 
+   FillFamilyDocNorms : method - 
+   FillFamilyDocAccessGroups : method - 
+   FillFamilyDocAnnoClasses : method - 
+   FillFamilyDocServiceInfo : method - 
+   FillFamilyDoc2DocLink : method - 
+   FillFamilyPriority : method - 
+   FillFamilyRenum : method - 
+   FillFamilyDocStages : method - 
+   FillFamilyDocLog : method - 
+   FillFamilyDocActivity : method - 
+   FillFamilyDocAlarm : method - 
+   f_Tables - 
+   Table - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  daTableDescription : UtilityPack - 
+   TdaTableDescription : SimpleClass - 
+   CompareFields : method - 
+ daGUITypes : Interfaces - 
+  TBuildConfigProc : Function - 
+   DoIt - 
+ Provider : Unit - 
+  TdaDataProviderParams : SimpleClass - 
+   TdaDataProviderParamsClass : Typedef - 
+   CorrectAfterSet : method - 
+   ChangeBasePath : method - 
+   AssignParams : method - 
+   MakeBaseIni : method - 
+   UserID : property - 
+   FullHomeDirPath : readonly - Полный путь к домашнему каталогу (с ID пользователя)
+   ParamsKey : static - 
+    : uses - 
+    : uses - 
+   f_UserID - Поле для свойства UserID
+    : uses - undefined
+   Login : property - 
+   Password : property - 
+   DocStoragePath : property - 
+   DocImagePath : property - 
+   HomeDirPath : property - 
+   DocBaseVersion : property - 
+   AdminBaseVersion : property - 
+  TdaDataProviderFactory : SimpleClass - 
+   MakeFromConfig : method - 
+   LoadCommonParams : method - 
+   SaveCommonParams : method - 
+   SaveToConfig : method - 
+   ParamType : method - 
+   CorrectByClient : method - 
+   IsParamsValid : method - 
+   FillOutConfig : method - 
+   FillInConfig : method - 
+   BuildConfig : method - 
+   MakeProvider : method - 
+   LoadDBVersion : method - 
+   CheckLogin : method - 
+   DoMakeProvider : method - 
+   LoginCheckSucceed : method - 
+   ParamsStorage : property - 
+   Key : static - 
+   ParamKey - 
+    : uses - 
+   f_ParamsStorage - Поле для свойства ParamsStorage
+  TdaDataProviderFactoryList : SimpleClass - 
+   ItemType : impurity value - 
+  TdaDataProviderSuperFactory : SimpleClass - 
+   FindFactoryByKey : method - 
+   FindFactoryByParamType : method - 
+   MakeFromTaggedData : method - 
+   CorrectByClient : method - 
+   IsParamsValid : method - 
+   FillInConfig : method - 
+   FillOutConfig : method - 
+   BuildConfig : method - 
+   IndexOfParamType : method - 
+   MakeProvider : method - 
+   LoadDBVersion : method - 
+   CheckLogin : method - 
+   DefaultFactory : property - 
+   f_List - 
+   ParamsStorage : property - 
+   Register - 
+   UnRegister - 
+   MakeFromConfig - 
+   SaveToConfig - 
+   MakeParamsFromEVD - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_DefaultFactory - Поле для свойства DefaultFactory
+   f_ParamsStorage - Поле для свойства ParamsStorage
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  daDataProvider : UtilityPack - 
+   GlobalDataProvider : method - 
+   SetGlobalDataProvider : method - 
+   g_GlobalDataProvider - 
+  TdaLongProcessSubscriberList : SimpleClass - 
+   ItemType : impurity value - 
+  TdaProgressSubscriberList : SimpleClass - 
+   ItemType : impurity value - 
+  TdaProgressProcHolder : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Proc - 
+  TdaJournal : SimpleClass - 
+   Create : Constructor - 
+   LogEvent : method - 
+   CheckUser : method - 
+   UserChanged : method - 
+   SessionChanged : method - 
+   SessionConst : Constants - 
+   GetNewSessionID : method - 
+   DoStartCaching : method - 
+   DoStopCaching : method - 
+   AnalyseLog : method - 
+   MakeResultSet : method - 
+   CurStatTree : readonly - 
+   Factory : readonly - 
+   f_CurUser - 
+   CurSessionID : readonly - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_CurStatTree - Поле для свойства CurStatTree
+   f_Factory - Поле для свойства Factory
+   f_CurSessionID - Поле для свойства CurSessionID
+  TdaFieldListPrim : SimpleClass - 
+   ItemType : impurity value - 
+  daUtils : UtilityPack - 
+   GetHomePathCode : method - 
+   CheckDbVersion : method - 
+   UserIDBelongsToRegion : method - 
+   UserIsService : method - 
+   IsUserRequireReports : method - 
+  TdaSelectField : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Alias - 
+   f_TableAlias - 
+   f_Field - 
+  TdaSelectFieldListPrim : SimpleClass - 
+   ItemType : impurity value - 
+  TdaSelectFieldList : SimpleClass - 
+   FindDataType : impurity value - 
+    : uses - 
+  TdaParamsCondition : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   AddCaseInsensetive : method - 
+   f_Field - 
+   f_TableAlias - 
+   f_ParamName - 
+   f_Operation - 
+    : uses - 
+  TdaParam : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Description - 
+   f_Converter - 
+   f_Buffer - 
+  TdaParamListPrim : SimpleClass - 
+   ItemType : impurity value - 
+    : uses - 
+  TdaParamList : SimpleClass - 
+   DoGetParamName : method - 
+   FindDataType : impurity value - 
+    : uses - 
+  TdaFromTableListPrim : SimpleClass - 
+   ItemType : impurity value - 
+  TdaFromTableList : SimpleClass - 
+   FindDataType : impurity value - 
+    : uses - 
+  TdaFromTable : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   Table : readonly - 
+   Prepared : property - 
+   TableAlias : readonly - 
+   f_Table - Поле для свойства Table
+   f_Prepared - Поле для свойства Prepared
+   f_TableAlias - Поле для свойства TableAlias
+  TdaTabledQuery : SimpleClass - 
+   Create : Constructor - 
+   AddParam : method - 
+   MakeFromTable : method - 
+   MakeResultSet : method - 
+   PrepareTables : method - 
+   UnprepareTables : method - 
+   MakeParamList : method - 
+   DataConverter : readonly - 
+   Prepared : property - 
+   SelectFields : readonly - 
+   WhereCondition : property - 
+   Tables : readonly - 
+   Params : readonly - 
+    : uses - 
+    : uses - 
+   f_DataConverter - Поле для свойства DataConverter
+   f_Prepared - Поле для свойства Prepared
+   f_SelectFields - Поле для свойства SelectFields
+   f_WhereCondition - Поле для свойства WhereCondition
+   f_Tables - Поле для свойства Tables
+   f_Params - Поле для свойства Params
+  TdaFieldList : SimpleClass - 
+   FindDataType : impurity value - 
+    : uses - 
+m3$DB : Library - База документов Архивариуса
+ m3DBInterfaces : Interfaces - Интерфейсы для работы с хранилищем документов Архивариуса.
+  Im3Base : Typedef - 
+  Tm3DocPartSelector : Enum - Составная часть документа.
+   m3_dsMain - основной поток
+   m3_dsAnno - аннотация
+   m3_dsInfo - информация о документе
+   m3_dsObject - объект в документе
+  Tm3DocPartSet : SetOf - Множество потоков документа.
+  m3DBConsts : Constants - 
+   m3_defDocPart - Основной поток документа по умолчанию.
+   Cm3ConstVersion - 
+   Cm3LastVersion - 
+  m3_AllDocParts : SetConst - Все потоки документа.
+  Tm3DBDocumentInfo : Struct - Информация о документе.
+   rIndexID - 
+   rRelID - ID справки
+   rRightsMask - маска прав
+   rLockedBy - пользователь, который забрал документ
+   rDocType - 
+   rExtDocID - 
+   C : ctor - 
+  Tm3DBStreamIndex : StaticObject - Идентификатор потока документа.
+   rID - Номер документа
+   rPart - Номер потока
+   rIdx - индекс (для объектов)
+   C : ctor - Создаёт идентификатор
+  Tm3FilerAction : Function - Подитеративная функция перебора файлов.
+   Do - 
+  Im3TagGenerator : Typedef - 
+  Tm3DBCopyMode : Enum - 
+   m3_cmRewrite - 
+   m3_cmRewriteEmpty - 
+   m3_cmNotRewrite - 
+  Mm3DB : PureMixIn - 
+   DeleteVersion : facetmethod - Удаляет хранилище версий
+   CompareVersionWithBackup : facetmethod - 
+   CopyBackupToVersion : facetmethod - 
+   CopyVersionToBackup : facetmethod - 
+   ExtractMainTo : facetmethod - 
+   ExtractVersionTo : facetmethod - 
+   ExtractBackupTo : facetmethod - 
+   Start - начинает процесс с базой.
+   Update - переливает файлы из переменной части в постоянную.
+   Purge - удаляет файлы, помеченные как удаленные и возвращает число удаленных.
+   Finish - заканчивает процесс с базой.
+   Stop - остановить текущий процесс.
+  Tm3DocumentAction : Function - Подитеративная функция перебора документов.
+   Do - 
+  Im3DBObject : Facet - Объект работающий с хранилищем документов Архивариуса.
+   DB - 
+  Tm3DBStreamAction : Function - Подинтеративная функция для перебора потоков.
+   Do - 
+  Im3DB : Facet - Хранилище документов Архивариуса.
+   DeleteMain : facetmethod - Удаляет основную часть
+   RenameMain : facetmethod - Переименовывает постоянную часть
+   RenameVersion : facetmethod - Переименовывает переменную часть
+   Rename : facetmethod - Переименовывает ВСЮ базу
+   GetBackupStorage : facetmethod - 
+   GetVersionsStorage : facetmethod - 
+   MainStorage : facetmethod - 
+   IndexedFiles - индексированные файлы.
+   ModifiedFiles - модифицированные файла.
+   AllFiles - все файлы базы.
+   InProcess - с базой идет процесс.
+   Stopped - предыдущий процесс был остановлен.
+   FlushLists - сбрасывает кеш Modified и Deleted листов. Применяется при массовой заливке документов в конце заливки пачки. Так же вызывается при уничтожении объекта доступа к базе (Tm3DB).
+   LastElapsed - время последнего процесса с базой.
+   GetDocument - возвращает документ по номеру.
+   FreeVersions - Сообщает о том, что хранилище версий можно отпустить (заплатка)
+   FilesInList - Файлы с идентификаторами из списка
+  Im3DBDocumentPart : Facet - Часть документа (основная или переменная).
+   DateTime : facetmethod - 
+   Document : readonly - Документ, к которому часть относится.
+   Info : property - Информация о документе.
+   Open - Открывает поток в документе.
+  Im3DBDocument : Facet - Документ.
+   ID : readonly - Идентификатор документа.
+   Delete - Удаляет документ из хранилища.
+   Undelete - Восстанавливает документ.
+   GetConst - Постоянная часть документа.
+   GetVersion - Переменная часть документа.
+   Open - открыть документ.
+   GetFreeObjectID - 
+   DeleteObject - 
+  Tm3DBIndexAction : Function - Подинтеративная функция для перебора потоков.
+   DoIt - Подинтеративная функция для перебора потоков.
+  Tm3DBPart : Enum - Часть базы
+   Const - Постоянная
+   Version - Переменная
+   Backup - Резервная копия
+  Tm3DBStreamIndexEx : StaticObject - Идентификатор потока с указанием части
+   rDBPart - Часть базы
+   rVersion - Номер версии
+   C : ctor - 
+   CV : ctor - 
+  Im3DBRange : Facet - Выборка документов.
+   Mul - Пересекает выборки.
+   Iterate - 
+   IterateF - 
+   IterateF - 
+   CopyTo - переливает выборку в другую базу.
+  Tm3FilesProcessed : Function - 
+   DoIt - 
+  Tm3FilesProcessedEx : Function - 
+   DoIt - 
+ m3DBContainers : Unit - 
+  Tm3StorageElementIDList : SimpleClass - 
+   ListType : impurity value - 
+ m3DB : Unit - Реализация хранилища документов Архивариуса.
+  Tm3PrimDB : SimpleClass - Заготовка для абстрактной базы
+   DBConstants : Constants - 
+   NeedsFork : virtualmethod - 
+   IsExclusive : abstractmethod - 
+   NeedProxy : virtualmethod - 
+   AsDB : virtualmethod - 
+   LastElapsed : abstractmethod - 
+   Stopped : abstractmethod - 
+   Yield : abstractmethod - 
+   TuneFiler : abstractmethod - 
+   ModifyDeleted : abstractmethod - 
+   InProcess : abstractmethod - 
+   FilesProcessed : property - 
+   FilesProcessedEx : property - 
+   FileMeter : property - 
+   FilesMeter : property - 
+   ModifyModified - Добавляет документ в список изменённых
+   Commit - Сохраняет изменения в документе
+   Revert - Откатывает изменения потока
+   MainStorage - Возвращает корень постоянной части
+   GetVersionsStorage - Возвращает корень переменной части
+   GetBackupStorage - Возвращает корень резервной копии
+   GetDocumentObjectsIDs - Возвращает список номеров объектов в документе
+   Start - начинает процесс с базой
+   Finish - заканчивает процесс с базой
+   StartEx - начинает процесс с базой
+   CloseBase - закрывает открытые файлы
+   IterateObjectsInDocF - Перебирает объекты в документе
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_FilesProcessed - Поле для свойства FilesProcessed
+   f_FilesProcessedEx - Поле для свойства FilesProcessedEx
+   f_FileMeter - Поле для свойства FileMeter
+   f_FilesMeter - Поле для свойства FilesMeter
+  m3BackupTools : UtilityPack - Утилиты для работы с хранилищем документов Архивариуса
+   BaseSummary : Struct - Информация о диапазоне номеров долкументов
+   DocPartSelector_Names_Array : Vector - Массив Tm3DocPartSelector
+   Constants : Constants - 
+   GetBaseSummary - получить информациею об основном хранилище
+   GetBaseSummary - получить поток с информацией об основном хранилище
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  m3StgMgr : UtilityPack - Классы-менеджеры для работы с IStorage
+   Tm3StorageManager : SimpleClass - 
+   Tm3FullModeStorageManager : SimpleClass - 
+   Tm3ReadModeStorageManager : SimpleClass - 
+    : uses - 
+    : uses - 
+  Tm3BaseObject : SimpleClass - Базовая реализация объекта хранилища.
+   Create : Constructor - 
+   f_DB : readonly - 
+    : uses - 
+   f_f_DB - Поле для свойства f_DB
+  Tm3DBProxyStream : SimpleClass - Поток, знающий про базу, с которой он работает
+   DB : readonly - База, с которой работает поток
+   ID : readonly - Идентификатор потока
+   Create : ctor - 
+   Make : factory - Создаёт обёртку
+    : uses - 
+    : uses - 
+   f_DB - Поле для свойства DB
+   f_ID - Поле для свойства ID
+  Tm3DBProxyWriteStream : SimpleClass - Поток, пишущий в базу
+   IsNewVersion : readonly - Новая версия документа
+   f_NeedCommit - Сохранять ли изменения
+    : uses - 
+    : uses - 
+  Tm3SimpleDB : SimpleClass - 
+   Make : method - 
+    : uses - 
+  Tm3NewVersionStream : SimpleClass - Поток, создавший новую версию документа
+  m3DBActions : UtilityPack - 
+   m3FreeDBStreamAction - 
+  Tm3StorageService : Service - 
+   f_UseSplitted - 
+   UseSplitted : responsibility - 
+   SetUseSplitted : responsibility - 
+   Mm3StorageService : PureMixIn - Контракт сервиса Tm3StorageService
+   Im3StorageService : Facet - Интерфейс сервиса Tm3StorageService
+   Alien : writeonly - Внешняя реализация сервиса Im3StorageService
+   f_Alien - Поле для свойства Alien
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  m3DB : UtilityPack - Реализация хранилища документов Архивариуса.
+   Tm3BaseRangeParam : Enum - Параметры выборки.
+   Tm3BaseRangeParams : SetOf - Параметры выборки.
+   Tm3BaseRange : SimpleClass - Базовая реализация выборки документов.
+   Im3BaseRangeParamsSource : Facet - Параметры выборки.
+   Tm3DocListRange : SimpleClass - Реализация выборки документов, по списку номеров.
+   Tm3BaseParametricRange : SimpleClass - 
+   Tm3CustomDB : SimpleClass - Базовая реализация хранилища документов.
+   Tm3DB : SimpleClass - 
+   Tm3BiCompBaseRange : SimpleClass - Вован - с тебя документация.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3DBDocument : SimpleClass - Реализация документа.
+   Create : Constructor - 
+   Make : Factory - 
+   ID : readonly - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_ID - Поле для свойства ID
+  Tm3DBDocumentPart : SimpleClass - Реализация части документа.
+   Create : Constructor - 
+   Make : Factory - 
+   f_Document - 
+   f_Level - 
+   f_Filer - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Tm3DBFiler : SimpleClass - 
+   Create : Constructor - 
+   f_DB - 
+   Part : readonly - 
+   PartSelector : property - 
+   ObjectIndex : property - 
+   f_Level - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_Part - Поле для свойства Part
+   f_PartSelector - Поле для свойства PartSelector
+   f_ObjectIndex - Поле для свойства ObjectIndex
+DT : Library - Классы для работы с HyTech в Архивариусе и его смежных утилитах.
+ Dictionary : Unit - Классы для работы со словарями.
+  TdtCustomDictItem : SimpleClass - Базовый элемент словаря.
+   Handle : property - 
+  TdtDictItemsPrim : SimpleClass - Базовый список элементов словаря.
+   ItemType : impurity value - 
+  TdtDictItems : SimpleClass - Список элементов словаря.
+   FindDataType : impurity value - 
+  DictsSup : UtilityPack - 
+   GetDictName : method - 
+  dt_DictTypes : UtilityPack - 
+   TDictMessageRec : Struct - 
+   IDictChangeNotifyRecipient : Facet - 
+  dt_Dict : UtilityPack - 
+   TDictionaryServer : SimpleClass - 
+   DictServer : method - 
+  dt_DictConst : UtilityPack - 
+   cLengths : Constants - 
+ Autolink : Unit - 
+  ddAutoLinkFilter : UtilityPack - 
+    : uses - 
+  ddAutoLinkServices : UtilityPack - 
+   TddAutolinkService : ServiceImplementation - 
+    : uses - 
+ DataAccess : Unit - 
+  dt_Sab : UtilityPack - 
+   IValueSetFiller : Facet - 
+   MakeSab : method - 
+  dt_List : UtilityPack - 
+   TAbstractList : SimpleClass - 
+ Tables : Unit - 
+  dt_Renum : UtilityPack - 
+ Servers : Unit - 
+  dt_LinkServ : UtilityPack - 
+   LinkServer : method - 
+  dt_Lock : UtilityPack - 
+  dt_Jour : UtilityPack - 
+   TAbstractJournal : SimpleClass - 
+   EdtBrokenFileLock : Exception - 
+  dt_Doc : UtilityPack - 
+  dt_Serv : UtilityPack - 
+  dt_BBLog : UtilityPack - 
+   TBigBrotherTbl : SimpleClass - 
+ ImportExport : Unit - 
+  dt_IFltr : UtilityPack - 
+ Users : Unit - 
+  dt_UserTypes : UtilityPack - 
+   TArchiUser : SimpleClass - 
+  TArchiUserList : SimpleClass - 
+   ItemType : impurity value - 
+  dt_User : UtilityPack - 
+   TUserManager : SimpleClass - 
+   UserManager - 
+ Query : Unit - 
+  TSavedQuery : SimpleClass - 
+  TQueryListPrim : SimpleClass - 
+   l3Items_IsProto : Define - 
+   l3Items_HasChanging : Define - 
+   ItemType : impurity value - 
+  DT_AskList : UtilityPack - 
+    : uses - 
+ Containers : Unit - 
+  TdtNumRange : SimpleClass - вспомогательный тип для TNumSet
+   Create : Constructor - 
+   HasIntersectionWith : method - 
+   JoinWith : method - 
+   Amount : method - 
+   LowNum - 
+   HiNum - 
+    : uses - 
+    : uses - 
+  TdtNumRangeList : SimpleClass - 
+   ItemType : impurity value - 
+  Dt_containers : UtilityPack - 
+   TNumSet : SimpleClass - 
+ DbInfo : Unit - 
+  TdtFamilyInfo : SimpleClass - 
+   Number - 
+   Name - 
+   Path - 
+   DocGroup - 
+   Attributes - 
+  TdtFamilyInfoList : SimpleClass - 
+   ItemType : impurity value - 
+  DT_DbInfo : UtilityPack - 
+   TDbInfo : SimpleClass - 
+ Mail : Unit - 
+  dt_Mail : UtilityPack - 
+   TMailServer : SimpleClass - 
+ Core : Unit - 
+  HT_Const : UtilityPack - 
+   SAB : Struct - 
+   ThtTblHandle : Typedef - 
+   OPEL : Struct - 
+   LPOPEL : Typedef - 
+  HT_DLL : UtilityPack - 
+   htClearResults : method - 
+  dt_Err : UtilityPack - 
+   HT : method - 
+   EHtErrors : Exception - 
+ dtIntf : Interfaces - 
+  ISab : Facet - 
+m4 : Library - 
+ m4DBInterfaces : Interfaces - Интерфейсы индексируемого хранилища.
+  Tm4WordAction : Function - 
+   DoIt - 
+  Im4DB : Facet - 
+   DeleteIndex : facetmethod - Удаляет текстовый индекс
+   DeleteIndexDelta : facetmethod - 
+   PackedIndex : property - паковать ли индекс?
+   FakeIndex : property - индексировать в пустоту?
+   BuildIndex - строит контекстный индкс. Возвращает число проиндексированных файлов.
+   UpdateIndex - обновляет или перестраивает индекс (в зависимости от его состояния).
+ Dict : Unit - 
+  Tm4WordIDStr : SimpleClass - Элемент словаря. Список идентификаторов слов
+   ID : readonly - 
+   ItemType : impurity value - 
+   Compare - 
+   Create : ctor - 
+    : uses - 
+    : uses - 
+   f_ID - Поле для свойства ID
+  Tm4WordIDStrListPrim : SimpleClass - Список списков идентификаторов слов
+   ItemType : impurity value - 
+  Tm4Word : SimpleClass - Слово словаря
+   f_ID - 
+   FirstWordIDStrID : property - Первый элемент словаря который начинается с данного слова
+   Create : ctor - 
+   f_FirstWordIDStrID - Поле для свойства FirstWordIDStrID
+  Tm4WordList : SimpleClass - Список слов
+   AddWord : method - 
+   f_NextID - 
+   Create : ctor - 
+    : uses - 
+    : uses - 
+  Tm4WordIDStrList : SimpleClass - Список элементов словаря в закодированном виде
+  m4DictTypes : UtilityPack - 
+   Tm4DictItemID : Typedef - Идентификатор элемента словаря
+   Tm4WordID : Typedef - Буква в строке
+   Tm4DictItemAddr : Struct - 
+  Tm4DB : SimpleClass - 
+m3$Morpho : Library - 
+ m3Morpho : Unit - 
+  Tm3EndingReplaceListPrim : SimpleClass - 
+   Tm3EndingReplaceItem : StaticObject - 
+   CompareStrings : method - 
+   ItemType : impurity value - 
+    : uses - 
+  Tm3EndingReplaceList : SimpleClass - 
+   Load : method - 
+   MakeNorm : method - 
+   Const : Constants - 
+   TByteArrayOfChar : Vector - 
+   cBuff : static - 
+   FindDataType : impurity value - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+HT : Library - Реализация доступа к HyTech
+ htInterfaces : Interfaces - 
+  IhtParamsStorage : Facet - 
+   StationName : readonly - 
+   TablePath : property - 
+   LockPath : property - 
+   TempPath : property - 
+   StationErrorMessage - 
+   TablePathErrorMessage - 
+   LockPathErrorMessage - 
+  IhtDataSchemeHelper : Facet - 
+   TableFullPath - 
+   TablePassword - 
+   TableFamily - 
+  IhtFromTable : Facet - 
+   Handle : readonly - 
+   Prepare - 
+   Unprepare - 
+  IhtDataConverter : Facet - 
+   ToLargeInt - 
+   ToInteger - 
+   ToStDate - 
+   ToStTime - 
+   ToString - 
+   ToByte - 
+  ThtSubItemDescriptionArray : Vector - 
+ Provider : Unit - 
+  ThtDataProviderParams : SimpleClass - 
+   AliasesList : readonly - 
+   MakePathRec - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_AliasesList - Поле для свойства AliasesList
+    : uses - undefined
+   StationName : property - 
+   TablePath : property - 
+   TmpDirPath : property - 
+   LockPath : property - 
+  ThtDataProviderFactory : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtDataProvider : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   DoLongProcessNotify : method - 
+   DoProgressNotify : method - 
+   f_Params - 
+   f_NeedClearGlobalDataProvider - 
+   f_LongProcessList - 
+   f_ProgressList - 
+   f_IsStarted - 
+   f_ForCheckLogin - 
+   f_Journal - 
+   f_Factory - 
+   f_DataConverter - 
+   f_Helper - 
+   f_AllowClearLocks - 
+   f_ImpersonatedUserID - 
+   f_UserManager - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtJournal : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   TBigBrotherAccess : SimpleClass - 
+   BigBrother : method - 
+   GetUserStatistic : method - 
+   GetDocStatistic : method - 
+   CorrectDates : method - 
+   f_Table - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtTableQueryFactory : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_DataConverter - 
+   f_Helper - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtTabledQuery : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   FindTable : method - 
+   f_Helper - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtFromTable : SimpleClass - 
+   f_Handle - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtDataConverter : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   MakeString : method - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtDataSchemeHelper : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Params - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtResultSet : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_SAB - 
+   f_CurrentPos - 
+   f_Data - 
+   f_Fields - 
+   f_DataConverter - 
+   f_SabDescription - 
+   f_FieldsDescription - 
+   f_EOF - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ThtField : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   BufferPtr : method - 
+   f_ClientInfo - 
+   f_ServerInfo - 
+   f_DataBuffer - 
+   f_DataConverter - 
+  ThtUserManager : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+    : uses - 
+PG : Library - Реализация доступа к PostgreSQL
+ NativeSupport : Unit - 
+  LibPQ : UtilityPack - И никогда не будет Finished - бо импортирует функции из dll. А модель так не умеет.
+   TpgConnectStatusType : Enum - 
+   TPGconn : Struct - 
+   PPGconn : Typedef - 
+   TPGresult : Struct - 
+   PPGresult : Typedef - 
+   TpgExecStatusType : Enum - 
+ pgInterfaces : Interfaces - 
+  IpgParamsStorage : Facet - 
+   DataServerHostName : property - 
+   DataServerPort : property - 
+  IpgDataConverter : Facet - 
+   ToInteger - 
+   ToLargeInt - 
+   ToStDate - 
+   ToStTime - 
+   ToString - 
+   ToByte - 
+  EPgError : Exception - 
+  Defaults : Constants - 
+   c_DefaultPostgresPort - 
+ Provider : Unit - 
+  TpgDataProviderParams : SimpleClass - 
+    : uses - undefined
+   DataServerHostName : property - 
+   DataServerPort : property - 
+  TpgConnection : SimpleClass - 
+   BuildConnectString : method - 
+   Handle : readonly - 
+   Connect - 
+   Disconnect - 
+   Connected - 
+    : uses - 
+   f_Handle - Поле для свойства Handle
+  TpgDataProviderFactory : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TpgDataConverter : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+    : uses - 
+    : uses - 
+  TpgDataProvider : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   ReadIniFile : method - 
+   f_Params - 
+   f_DataConverter - 
+   f_NeedClearGlobalDataProvider - 
+   f_LongProcessList - 
+   f_ProgressList - 
+   f_ForCheckLogin - 
+   f_AllowClearLocks - 
+   f_RequireAdminRights - 
+   f_Connection - 
+   f_RegionID - 
+   f_BaseName - 
+   f_BaseLang - 
+   f_Factory - 
+   f_Journal - 
+   f_ImpersonatedUserID - 
+   f_UserManager - 
+   f_IsStarted - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TpgTableQueryFactory : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_DataConverter - 
+   f_Connection - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TpgTabledQuery : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   BuildSQL : method - 
+   BuildSelectClause : method - 
+   BuildFromClause : method - 
+   BuildWhereClause : method - 
+   f_Connection - 
+   f_QueryName - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TpgFromTable : SimpleClass - 
+  TpgJournal : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+    : uses - 
+    : uses - 
+  pgUtils : UtilityPack - 
+   pgCheckStatus : method - 
+  TpgParamList : SimpleClass - 
+    : uses - 
+  TpgResultSet : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Result - 
+   f_CurrentPos - 
+   f_EOF - 
+   f_FieldsDescription - 
+   f_Fields - 
+   f_DataConverter - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TpgField : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   BufferPtr : method - 
+   f_ClientInfo - 
+   f_DataBuffer - 
+   f_DataConverter - 
+   f_FieldIndex - 
+  TpgUserManager : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Factory - 
+   f_PasswordQuery - 
+   f_UserFlagsQuery - 
+    : uses - 
+    : uses - 
+cs : Library - 
+ Core : Unit - 
+  TCsObject : SimpleClass - 
+   TCsObjectClass : Typedef - 
+  CsCommon : UtilityPack - 
+   TCsPort : Typedef - 
+   TCsClientId : Typedef - 
+   TCsIp : Typedef - заменить на ченить поприличней
+   TcsError : Typedef - 
+   TcsLoginExDataEvent : Function - 
+   TcsUserConnectKind : Enum - 
+   TcsConnectResult : Enum - 
+   TcsGetIsBaseLockedEvent : Function - 
+  TcsIdIOHandlerAbstractAdapterPrim : SimpleClass - 
+   WriteBufferFlush : abstractmethod - 
+   ReadChar : abstractmethod - 
+   ReadCardinal : abstractmethod - 
+   ReadDateTime : abstractmethod - 
+   ReadLn : abstractmethod - 
+   ReadInt64 : abstractmethod - 
+   ReadStream : abstractmethod - 
+   ReadInteger : abstractmethod - 
+   ReadSmallInt : abstractmethod - 
+   WriteLn : abstractmethod - 
+   WriteCardinal : abstractmethod - 
+   WriteInt64 : abstractmethod - 
+   WriteStream : abstractmethod - 
+   WriteChar : abstractmethod - 
+   WriteSmallInt : abstractmethod - 
+   WriteInteger : abstractmethod - 
+   WriteDateTime : abstractmethod - 
+   WaitForReadData : abstractmethod - 
+   WriteLargeStr : abstractmethod - 
+   ReadLargeStr : abstractmethod - 
+    : uses - 
+  CsQueryTypes : UtilityPack - 
+   TCsQueryId : Enum - 
+  CsConst : UtilityPack - 
+   cProtocolVersion : Constants - 
+   cPredefinedClients : Constants - 
+   cErrorCodes : Constants - коды ошибок обработки запросов
+  TcsIdIOHandlerAbstractAdapter : SimpleClass - 
+   WriteBufferOpen : abstractmethod - 
+   WriteBufferClose : abstractmethod - 
+   WriteBufferClear : abstractmethod - 
+   Connected : abstractmethod - 
+   WriteFile : abstractmethod - 
+   InputBufferClear : abstractmethod - 
+  TCsDataPipePrim : SimpleClass - 
+   Create : Constructor - 
+   Create$1 : Constructor - 
+   Constants : Constants - 
+   ClientID : property - 
+   IOHandler : readonly - Пока торчит наружу до перехода на постоянно живущее соединение (для подделки протокола)
+    : uses - 
+    : uses - 
+    : uses - 
+   f_ClientID - Поле для свойства ClientID
+   f_IOHandler - Поле для свойства IOHandler
+  TCsDataPipe : SimpleClass - 
+   ReadFolder : method - 
+   WriteFolder : method - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TcsIdIOHandlerAdapter : SimpleClass - 
+   Create : Constructor - 
+   f_IOHandler - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  CsErrors : UtilityPack - 
+  ncsTCPClient : UtilityPack - 
+   TncsTCPClient : Typedef - 
+ ClientSide : Unit - 
+  TCsQueryRequesterTool : SimpleClass - 
+   ExecuteQuery : method - 
+  CsQueryRequester : UtilityPack - 
+   TCsQueryProc : Function - 
+    : uses - 
+  TncsServiceProviderParams : SimpleClass - 
+   ServerHostName : property - 
+   ServerPort : property - 
+   Login : property - 
+   Password : property - 
+   IsDeveloper : property - 
+   StandAlone : property - 
+   f_ServerHostName - Поле для свойства ServerHostName
+   f_ServerPort - Поле для свойства ServerPort
+   f_Login - Поле для свойства Login
+   f_Password - Поле для свойства Password
+   f_IsDeveloper - Поле для свойства IsDeveloper
+   f_StandAlone - Поле для свойства StandAlone
+  TncsServiceProviderParamsFactory : SimpleClass - 
+   FillInConfig : method - 
+   FillOutConfig : method - 
+   BuildConfig : method - 
+   MakeEmpty - 
+   MakeFromConfig - 
+   SaveToConfig - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  ddClientBaseEngine : UtilityPack - 
+   DoneClientBaseEngine : method - 
+  TncsClientParamsStorage : SimpleClass - 
+   Make : Factory - 
+   SectionNames : Constants - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Clients : Unit - 
+  TCsClientInfo : SimpleClass - 
+   ClientId - 
+   LoginName - 
+   ListenIp - 
+   ListenPort - 
+   UID - 
+   LastPing - 
+  TCsClientInfoList : SimpleClass - 
+   ItemType : impurity value - 
+ ServerSide : Unit - 
+  TCsProcWithId : SimpleClass - 
+   TCsReplyProc : Function - 
+   Create : Constructor - 
+   QueryId - 
+   Proc - 
+  TCsProcWithIdList : SimpleClass - 
+   ItemType : impurity value - 
+  TCsReplyProceduresPrim : SimpleClass - Класс для регистрации "ответных процедур" сервера для запросов от клиента
+   Create : Constructor - 
+   ListItemBy : method - 
+   ProcBy : method - 
+   f_List - 
+   f_Synchronizer - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TCsReply : SimpleClass - 
+    : uses - 
+  TCsReplyTool : SimpleClass - 
+   TcsProcessQueryProc : Function - 
+   ProcessQuery : method - 
+  TCsReplyProceduresWithRegistering : SimpleClass - 
+   Register : method - 
+   UnregisterAll : method - 
+  TCsQueryExecutor : SimpleClass - 
+    : uses - 
+  TCsServer : SimpleClass - 
+    : uses - 
+  TCsReplyProcedures : SimpleClass - Класс для регистрации "ответных процедур" сервера для запросов от клиента. Синглетон. Используется для "логики по-умолчанию". Т.е. когда сервер у нас в приложении ОДИН
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TncsServerParamsStorage : SimpleClass - 
+   Make : Factory - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ ArchiClientServer : Unit - 
+  ddServerTask : UtilityPack - 
+   TddTaskItem : SimpleClass - 
+   TddTaskClass : Typedef - 
+   RegisterTaskClass : method - 
+    : uses - 
+  TddTaskRecord : SimpleClass - 
+   TaskType - 
+   TaskClass - 
+   Description - 
+  csTaskTypes : UtilityPack - 
+   TcsTaskStatus : Enum - 
+   TcsTaskType : Enum - 
+   TcsFileRenameMode : Enum - 
+   TcsTaskTypes : SetOf - 
+   TcsExecutionStatus : Constants - 
+  TddTaskRecordList : SimpleClass - 
+   ItemType : impurity value - 
+  TddTaskClassManager : SimpleClass - 
+   GetClass : method - 
+   RegisterClass : method - 
+   Registered : method - 
+   f_ClassList - 
+    : uses - 
+    : uses - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TncsDataAccessServices : SimpleClass - 
+   InitClient : method - Настраивает и регестрирует фабрики для TdaDataProviderSuperFactory
+Должен быть вызван до обращения к методам TdaDataProviderSuperFactory
+   InitServer : method - 
+   f_InitCounter - 
+    : uses - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TncsDefaultProviderHolder : SimpleClass - 
+   IntCreateProvider : method - 
+   IntDoneProvider : method - 
+   f_Provider - 
+   CreateProvider : static - 
+   DoneProvider : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+ Tasks : Unit - 
+  TddProcessTaskPrim : SimpleClass - 
+   TddRunContext : StaticObject - 
+    : uses - undefined
+   Comment : property - 
+   Status : property - 
+   DocumentIDList : readonly - 
+   ReplyAddress : property - 
+  csRequestTask : UtilityPack - 
+   TddRequestTask : SimpleClass - 
+   TddRequestTaskAsTask : SimpleClass - 
+  TddClientMessagePrim : SimpleClass - 
+    : uses - 
+    : uses - undefined
+   NotifyType : property - 
+   Data : property - 
+   Text : property - 
+  TddClientMessageSortableListPrim : SimpleClass - 
+   ItemType : impurity value - 
+  TcsDictEditQueryPrim : SimpleClass - 
+    : uses - undefined
+   Family : property - 
+   DictType : property - 
+   Operation : property - 
+   ID : property - 
+   ParentID : property - 
+   NextID : property - 
+  TDictEditQueryList : SimpleClass - 
+   ItemType : impurity value - 
+  TddServerTaskListPrim : SimpleClass - 
+   ItemType : impurity value - 
+  TddTaskItemList : SimpleClass - 
+   l3Items_NoSort : Undef - 
+   ItemType : impurity value - 
+    : uses - 
+    : uses - 
+    : uses - 
+  CsNotification : UtilityPack - 
+   TCsNotificationType : Typedef - 
+  TcsNotifyObj : SimpleClass - 
+   TCsOnNotificationProc : Function - 
+   Create : Constructor - 
+   Proc - 
+  TcsNotifyObjList : SimpleClass - 
+   ItemType : impurity value - 
+  CsClient : UtilityPack - 
+    : uses - 
+  TcsMessageRecepient : SimpleClass - 
+   Messages : readonly - 
+   f_Messages - Поле для свойства Messages
+  TcsMessageRecepientListPrim : SimpleClass - 
+   l3Items_NoSort : Define - 
+   ItemType : impurity value - 
+  csMessageManager : UtilityPack - 
+   TcsMessageManager : SimpleClass - 
+    : uses - 
+    : uses - 
+  TcsExportTaskPrim : SimpleClass - 
+    : uses - undefined
+   AnnoTopicFileName : property - 
+   DiapasonType : property - 
+   DocID : property - 
+   DocumentFileNameMask : property - 
+   ExportAnnoTopics : property - 
+   ExportDirectory : property - 
+   ExportDocImage : property - 
+   ExportDocument : property - 
+   ExportEmptyKW : property - 
+   ExportKW : property - 
+   ExportRTFBody : property - 
+   Family : property - 
+   InternalFormat : property - 
+   KWFileName : property - 
+   MultiUser : property - 
+   ObjTopicFileName : property - 
+   OnlyStructure : property - 
+   OutFileType : property - 
+   OutputFileSize : property - 
+   ReferenceFileNameMask : property - 
+   SeparateFiles : property - 
+   ToRegion : property - 
+   ExportReference : property - 
+   ExportEditions : property - 
+   FormulaAsPicture : property - 
+   ExportReferences : property - 
+   SABStream : readonly - 
+   AdditionalProcess : property - 
+   RegionIDList : readonly - 
+  TcsImportTaskPrim : SimpleClass - 
+    : uses - undefined
+   DeleteIncluded : property - 
+   IsAnnotation : property - 
+   IsRegion : property - 
+   SourceDir : property - 
+   SourceFiles : readonly - 
+   RegionIDList : readonly - 
+   SafeDir : property - 
+   NeedSendMailReport : property - 
+  TcsAutoAnnoExportPrim : SimpleClass - 
+    : uses - undefined
+   StartDate : property - 
+   EndDate : property - 
+   BelongsIDList : readonly - 
+  TcsAutoSpellTaskPrim : SimpleClass - 
+    : uses - undefined
+  TddCommonDataRequestPrim : SimpleClass - 
+    : uses - 
+    : uses - undefined
+  csBaseStatusRequest : UtilityPack - 
+   TddBaseStatusRequest : SimpleClass - 
+  csNonEditableDictsRequest : UtilityPack - 
+   TddNonEditableDictsRequest : SimpleClass - 
+  TddServerStatusRequestPrim : SimpleClass - 
+    : uses - undefined
+  TaskRequest : SimpleClass - 
+  csExportResultRequest : UtilityPack - 
+   TcsExportResultRequest : SimpleClass - 
+  TcsLineRequestPrim : SimpleClass - 
+    : uses - undefined
+  TddClientMessageList : SimpleClass - 
+   l3Items_NoSort : Define - 
+   ItemType : impurity value - 
+  ddServerTaskList : UtilityPack - 
+   csProcessTaskWorkuper : PureMixIn - 
+   TddServerTaskList : SimpleClass - 
+  csMessageRecepientList : UtilityPack - 
+   csMessageRecepientIterator : PureMixIn - 
+   TcsMessageRecepientList : SimpleClass - 
+  ddClientMessageSortableList : UtilityPack - 
+   ddClientMessageIterator : PureMixIn - 
+   TddClientMessageSortableList : SimpleClass - 
+  csExport : UtilityPack - 
+   TcsExport : SimpleClass - 
+  csImport : UtilityPack - 
+   TcsImportTaskItem : SimpleClass - 
+  csProcessTask : UtilityPack - 
+   TddProcessTask : SimpleClass - 
+   IcsExternalTaskAbortProcessor : Facet - 
+   IcsRunTaskServices : Facet - 
+   IcsFileTransferServices : Facet - 
+  csClientMessageRequest : UtilityPack - 
+   TddClientMessage : SimpleClass - 
+  TcsSpellCorrectTaskPrim : SimpleClass - 
+    : uses - undefined
+   ReplacementFile : readonly - 
+  TcsSpellCorrectTask : SimpleClass - 
+  TcsUserDefinedExportTaskPrim : SimpleClass - 
+    : uses - undefined
+   QueryFile : property - 
+   TimeToRun : property - 
+  TcsUserDefinedExport : SimpleClass - 
+  TcsUserEditQueryPrim : SimpleClass - 
+    : uses - undefined
+   ID : property - 
+   IsGroup : property - 
+  TcsRemoteDictEditQueryPrim : SimpleClass - 
+    : uses - undefined
+  TcsDeleteDocsQueryPrim : SimpleClass - 
+    : uses - undefined
+  csAutoSpell : UtilityPack - 
+   TcsAutoSpellTask : SimpleClass - 
+  csCommonDataRequest : UtilityPack - 
+   TddCommonDataRequest : SimpleClass - 
+  csLineRequest : UtilityPack - 
+   TcsLineRequest : SimpleClass - 
+  csServerStatusRequest : UtilityPack - 
+   TddServerStatusRequest : SimpleClass - 
+  TddTaskResultRequestPrim : SimpleClass - 
+    : uses - undefined
+  TddGetTaskRequestPrim : SimpleClass - 
+   SetTaskID : method - 
+    : uses - undefined
+  csTaskRequest : UtilityPack - 
+   TddGetTaskRequest : SimpleClass - 
+   TddTaskResultRequest : SimpleClass - 
+  TcsAnnotationTask : SimpleClass - 
+    : uses - undefined
+   NeedAnalyzeLog : property - 
+   TargetFolder : property - 
+   eMailNotifyList : property - 
+   ExternalProcessor : property - 
+   OutFolder : property - 
+   PrimeRobotEMail : property - 
+   ExportDocuments : property - 
+   DocListFileName : property - 
+   DocListFolder : property - 
+   EndDateKind : property - 
+   StartDate : property - 
+   BelongsIDList : readonly - 
+   ExcludeAccGroupsIDList : readonly - 
+   AccGroupsIDList : readonly - 
+   CommentsIDList : readonly - 
+   ExcludeDocTypesIDList : readonly - 
+   ExcludeDocBasesIDList : readonly - 
+  TddRunCommandTaskPrim : SimpleClass - 
+    : uses - 
+    : uses - undefined
+  csServerTaskTypes : UtilityPack - 
+   TDictEditQuery : SimpleClass - 
+   TGetDictEditQuery : SimpleClass - 
+   TDeleteDocsQuery : SimpleClass - 
+   TRemoteDictEditQuery : SimpleClass - 
+   TUserEditQuery : SimpleClass - 
+   TddRunCommandTask : SimpleClass - 
+  TcsAACImport : SimpleClass - 
+   ini : ini - 
+    : uses - 
+    : uses - undefined
+   ManualMode : property - 
+   CreatedByServer : property - 
+   LogsFolder : property - 
+   DestinationFolder : property - 
+   ZippedLogsFolder : property - 
+   MailToLog : property - 
+   DuplicatesFolder : property - 
+   LinkDataFile : property - Данные для простановки ссылок
+   KeyThemesFile : property - Список Ключевых тем
+   SourceIDList : readonly - 
+   BaseArchiveName : property - 
+   DossierSourceIDList : readonly - 
+   MisspellsFileName : property - 
+   FASCorrectFileName : property - 
+   DocTypesIDList : readonly - 
+   FASSourceIDList : readonly - 
+   SourceConvertFileName : property - 
+   TypeRecodeFileName : property - 
+   SourceFileName : property - 
+   PartialLoadPackSize : property - 
+   CourtDecisionSabCheckerParams : property - 
+   TaskCountBeforeRun : property - 
+  TddCaseCodeTaskPrim : SimpleClass - 
+    : uses - undefined
+  csAutoAnnoExport : UtilityPack - 
+   TcsAutoAnnoExport : SimpleClass - 
+  TcsRelPublishTask : SimpleClass - 
+    : uses - undefined
+  TcsAutoClassTask : SimpleClass - 
+    : uses - undefined
+   BuilderFileName : property - 
+   ResultFileName : property - 
+   SourceFolder : property - 
+   LogFileName : property - 
+   eMailNotifyList : property - 
+  csTasksHelpers : UtilityPack - 
+   ReplacementFileHelper : Facet - 
+   AdditionalFilesHelper : Facet - 
+   SourceFilesHelper : Facet - 
+   TAdditionalFilesHelper : SimpleClass - 
+   TSourceFilesHelper : SimpleClass - 
+   TReplacementFileHelper : SimpleClass - 
+  TcsTaskChangeHelper : Service - 
+   TaskGotErrorStatus : responsibility - 
+   McsTaskChangeHelper : PureMixIn - Контракт сервиса TcsTaskChangeHelper
+   IcsTaskChangeHelper : Facet - Интерфейс сервиса TcsTaskChangeHelper
+   Alien : writeonly - Внешняя реализация сервиса IcsTaskChangeHelper
+   f_Alien - Поле для свойства Alien
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TcsMdpSyncDicts : SimpleClass - 
+    : uses - undefined
+   SyncFolderMask : property - 
+   GuardName : property - 
+   SyncURL : property - 
+   UseProxy : property - 
+   ProxyServer : property - 
+   ProxyPort : property - 
+   ProxyLogin : property - 
+   ProxyPassword : property - 
+  TcsMdpImportDocs : SimpleClass - 
+    : uses - undefined
+   Mail : property - 
+   ErrorMail : property - 
+   MaxCount : property - 
+ LoopBack : Unit - 
+  TcsLoopBack : SimpleClass - 
+   ExecuteQuery : method - 
+   ProcessInternal : method - 
+    : uses - 
+    : uses - 
+ Actions : Unit - Действия инициируемые клиентами и выполняемые на сервере
+  TcsAction : SimpleClass - Действие инициируемое клиентом и выполняемое на сервере
+  TcsTaskedAction : SimpleClass - Действие на сервере с возможностью помещения в очередь
+ CourtDecisionSabCheckerParams : Unit - 
+  TcsCourtDecisionSabCheckerParams : SimpleClass - 
+    : uses - undefined
+   DocTypeID : property - 
+   LastUpdateDate : property - 
+   NotifyList : property - 
+   CourtsList : readonly - 
+   IsParamsValid : property - 
+  TcsCourtDescription : SimpleClass - 
+   Clear : method - 
+    : uses - undefined
+   Name : property - 
+   SourceID : property - 
+   NeedProcess : property - 
+   DecisionPhrases : readonly - 
+  csDecisionPhrasesHelper : UtilityPack - 
+   DecisionPhrasesHelper : Facet - 
+   TDecisionPhrasesHelper : SimpleClass - 
+  csCourtsListHelper : UtilityPack - 
+   CourtsListHelper : Facet - 
+   TCourtsListHelper : SimpleClass - 
+ Messages : Unit - 
+  TncsLoginMessage : SimpleClass - 
+    : uses - undefined
+   ServerHost : property - 
+   Login : property - 
+   Password : property - 
+   ServerPort : property - 
+  TncsPriorityMessageList : SimpleClass - Список сортированый по приоритету и дате сообщения
+   ItemType : impurity value - 
+    : uses - 
+  TncsMessageQueue : SimpleClass - 
+   SignalMessageReady : method - 
+   Processing : property - 
+   f_Data - 
+   f_DataReadyEvent - 
+   Push - 
+   WaitForMessage - 
+   ExtractMessage - Увеличивает счетчик theMessage! Требуется theMessage.Free
+    : uses - 
+    : uses - 
+    : uses - 
+   f_Processing - Поле для свойства Processing
+  TncsTransporterThread : SimpleClass - 
+   Create : Constructor - 
+   TerminatedConnection : method - 
+   Queue : readonly - 
+    : uses - 
+   f_Queue - Поле для свойства Queue
+  TncsTransporterIOThread : SimpleClass - 
+   ReleaseIOHandler : method - 
+   IOHandler : property - 
+    : uses - 
+   f_IOHandler - Поле для свойства IOHandler
+  TncsReceiveThread : SimpleClass - 
+   ThreadTimeouts : Constants - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TncsReplyDescription : SimpleClass - 
+   Create : Constructor - 
+   RequestEvent : method - 
+   WaitForReply : method - 
+   AbortWait : method - 
+   Message : readonly - 
+   Reply : property - 
+   f_Event - 
+    : uses - 
+    : uses - 
+   f_Message - Поле для свойства Message
+   f_Reply - Поле для свойства Reply
+  ncsMessageInterfaces : UtilityPack - 
+   IncsTransporter : Facet - 
+   TncsExecuteContext : StaticObject - 
+   IncsExecutor : Facet - 
+   IncsMessageExecutorFactory : Facet - 
+   PIncsMessageExecutorFactory : Typedef - 
+   IncsClientTransporter : Facet - 
+   IncsServerTransporter : Facet - 
+   TncsSocketKind : Enum - 
+  TncsSendThread : SimpleClass - 
+   Send : method - 
+    : uses - 
+    : uses - 
+  ncsMessage : UtilityPack - 
+   TncsMessage : SimpleClass - 
+   TncsMessageClass : Typedef - 
+   TncsInvalidMessage : SimpleClass - 
+   TncsReply : SimpleClass - 
+   TncsDIsconnect : SimpleClass - 
+   TncsDIsconnectReply : SimpleClass - 
+  TncsMessageClassList : SimpleClass - 
+   ItemType : impurity value - 
+  TncsMessageFactory : SimpleClass - 
+   f_List - 
+   Register - 
+   UnRegister - 
+   Find - 
+   MakeFromEVD : static - 
+   MakeFromTaggedData : static - 
+    : uses - 
+    : uses - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TncsServerTransporterList : SimpleClass - 
+   l3Items_NoSort : Define - 
+   ItemType : impurity value - 
+  TncsServerTransporterPool : SimpleClass - 
+   f_Data - 
+   Register - 
+   UnRegister - 
+   TerminateAll - 
+  TncsReplyDecsriptionList : SimpleClass - 
+   ItemType : impurity value - 
+  TncsExecutorFactoryList : SimpleClass - 
+   ItemType : impurity value - 
+  TncsMessageExecutorFactory : SimpleClass - 
+   TncsInvalidExecutor : SimpleClass - 
+   TncsDisconnectExecutor : SimpleClass - 
+   f_List - 
+   f_DisconnectExecutor - 
+   Register - 
+   UnRegister - 
+   MakeExecutor - 
+    : uses - 
+    : uses - 
+    : uses - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TncsReplyWaiter : SimpleClass - 
+   FindDesc : method - 
+   f_List - 
+   SubmitReply - 
+   SubmitMessage - 
+   Clear - 
+   WaitForReply - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TncsProcessThread : SimpleClass - 
+   ProcessMessage : method - 
+   Create : Constructor - 
+   ReplyWaiter : readonly - 
+   f_Transporter - [weak] IncsTransporter
+   Transporter : readonly - 
+    : uses - 
+   f_ReplyWaiter - Поле для свойства ReplyWaiter
+  TncsTransporter : SimpleClass - 
+   SetConnected : method - 
+   StartProcessing : method - 
+   StopProcessing : method - 
+   HandShake : method - 
+   TncsIOHandlerArray : Vector - 
+   HandShakeKind : abstractmethod - 
+   TransportStarted : method - 
+   SendQueue : readonly - 
+   ReceiveQueue : readonly - 
+   SendThread : readonly - 
+   IOHandlers : property - 
+   ReceiveThread : readonly - 
+   ProcessThread : readonly - 
+   ReplyWaiter : readonly - 
+   f_Connected - 
+   f_ClientID - 
+   IntSessionID : property - 
+   f_IOHandlers - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_SendQueue - Поле для свойства SendQueue
+   f_ReceiveQueue - Поле для свойства ReceiveQueue
+   f_SendThread - Поле для свойства SendThread
+   f_ReceiveThread - Поле для свойства ReceiveThread
+   f_ProcessThread - Поле для свойства ProcessThread
+   f_ReplyWaiter - Поле для свойства ReplyWaiter
+   f_IntSessionID - Поле для свойства IntSessionID
+  TncsClientTransporter : SimpleClass - 
+   TimeoutConsts : Constants - В миллисек
+   TransportConnected : method - 
+   SendTransportStatus : method - 
+   Create : Constructor - 
+   Make : Factory - 
+   TncsClientArray : Vector - 
+   ReceiveTransportStatus : method - 
+   BeforeSendHandshake : method - 
+   BeforeReceiveHandshake : method - 
+   f_TCPClients - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TncsServerTransporter : SimpleClass - 
+   Create : Constructor - 
+   IntMake : Factory - 
+   Make : method - 
+    : uses - 
+    : uses - 
+  TncsLoginReply : SimpleClass - 
+    : uses - undefined
+  nscMessagesReg : UtilityPack - 
+   ncsServerRegister : method - 
+   ncsClientRegister : method - 
+  ncsProfile : UtilityPack - 
+   g_SaveMessage - 
+   g_LoadMessage - 
+   g_SendMessage - 
+   g_ReveiveMessage - 
+   g_WaitFile - 
+   g_ReceivePartFile - 
+   g_SaveControl - 
+   g_WriteFile - 
+  TncsServerTransporterPtrList : SimpleClass - 
+   ItemType : impurity value - 
+  TncsServerTransporterPtrPool : SimpleClass - 
+   f_Data - 
+   Register - 
+   UnRegister - 
+   FindTransporter - 
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TncsCompatibilityClientTransporter : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_QueryID - 
+    : uses - 
+  TncsSynchroTransporter : SimpleClass - 
+   SetConnected : method - 
+   StartProcessing : method - 
+   StopProcessing : method - 
+   HandShake : method - 
+   TransportStarted : method - 
+   ProcessMessage : method - 
+   IntSessionID : property - 
+   f_ClientID - 
+   f_Connected - 
+   IOHandler : property - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_IntSessionID - Поле для свойства IntSessionID
+   f_IOHandler - Поле для свойства IOHandler
+  TncsSynchroClientTransporter : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   TransportStatus : method - 
+   TransportConnected : method - 
+   BeforeHandshake : method - 
+   f_TCPClient - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TncsSynchroCompatibilityClientTransporter : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_QueryID - 
+    : uses - 
+  TncsSynchroServerTransporter : SimpleClass - 
+   Create : Constructor - 
+   IntMake : Factory - 
+   Make : method - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Connection : Unit - 
+  TncsConnection : SimpleClass - 
+  TncsClientConnection : SimpleClass - 
+  TncsServerConnection : SimpleClass - 
+ ResultDelivery : Unit - 
+  TncsGetReadyToDeliveryTasks : SimpleClass - 
+    : uses - undefined
+   UserID : property - 
+  TncsGetReadyToDeliveryTasksReply : SimpleClass - 
+    : uses - undefined
+   TasksIDList : readonly - 
+  ncsFileTransferReg : UtilityPack - 
+   ncsServerRegister : method - 
+   ncsClientRegister : method - 
+  TncsGetTaskDescriptionReply : SimpleClass - 
+    : uses - undefined
+   LocalFolder : property - 
+   RemoteFolder : property - 
+   FileDesc : readonly - 
+  TncsGetTaskDescription : SimpleClass - 
+    : uses - undefined
+   TaskID : property - 
+  TncsFileDesc : SimpleClass - 
+    : uses - undefined
+   Name : property - 
+   CRC : property - 
+   DateTime : property - 
+   Size : property - 
+  TncsTaskedFileDesc : SimpleClass - 
+    : uses - undefined
+   TaskID : property - 
+   CopiedSize : property - 
+  ncsFileDescHelper : UtilityPack - 
+   FileDescHelper : Facet - 
+   TFileDescHelper : SimpleClass - 
+  TncsOneFileDeliverer : SimpleClass - 
+   Create : Constructor - 
+   cFilesExtensions : Constants - 
+   CheckContinue : method - 
+   InitNew : method - 
+   LocalControlFileName : method - 
+   LocalPartialFileName : method - 
+   SaveControl : method - 
+   CommitDelivery : method - 
+   LocalFileName : method - 
+   LocalDesc : readonly - 
+   f_Transporter - 
+   f_LocalPath - 
+   f_TaskID - 
+   f_Stream - 
+   f_Progressor - 
+   DoProcess - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_LocalDesc - Поле для свойства LocalDesc
+  TncsOneFileDelivererList : SimpleClass - 
+   ItemType : impurity value - 
+  TncsFileListDeliverer : SimpleClass - 
+   PrepareDescription : method - 
+   Create : Constructor - 
+   EncsEmptyResults : Exception - 
+   f_Data - 
+   f_Transporter - 
+   f_LocalPath - 
+   f_TaskID - 
+   f_Progressor - 
+   Execute - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TncsTaskProgress : SimpleClass - 
+    : uses - undefined
+   TaskID : property - 
+   Description : property - 
+   Percent : property - 
+  TncsDeliveryResult : SimpleClass - 
+    : uses - undefined
+   TaskID : property - 
+   ResultKind : property - 
+  TncsGetFilePart : SimpleClass - 
+    : uses - undefined
+   TaskID : property - 
+   FileName : property - С относительным путем (полный вычисляется от задачи)
+   Offset : property - 
+   PartSize : property - 
+  TncsGetFilePartReply : SimpleClass - 
+    : uses - undefined
+   IsSuccess : property - 
+  TncsPushFilePart : SimpleClass - 
+    : uses - undefined
+   TaskID : property - 
+   FileName : property - 
+   Offset : property - 
+   PartSize : property - 
+   Data : property - 
+  TncsCorrectFolder : SimpleClass - 
+    : uses - undefined
+   TaskID : property - 
+   NewFolder : property - 
+ TaskSend : Unit - 
+  TncsSendTask : SimpleClass - 
+    : uses - undefined
+   Data : property - 
+  TncsSendTaskReply : SimpleClass - 
+    : uses - undefined
+   IsSuccess : property - 
+  ncsTaskSendReg : UtilityPack - 
+   ncsServerRegister : method - 
+   ncsClientRegister : method - 
+  TncsGetPartialTaskDescription : SimpleClass - 
+    : uses - undefined
+   FileName : property - 
+  TncsGetPartialTaskDescriptionExecutor : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_FileName - 
+   f_BasePath - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TncsGetFilePartExecutor : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_FileName - 
+   f_BasePath - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TncsTaskSendExecutorFactory : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Task - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+TestsSupport : Library - Вспомогательные тесты для тестирования.
+ m3TetsSupport : Unit - 
+  Tm3StorageIndexAdapter : SimpleClass - 
+   BaseName : property - 
+   DirName : property - 
+   PhaseStr : readonly - 
+   DoBuildIndex - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_BaseName - Поле для свойства BaseName
+   f_DirName - Поле для свойства DirName
+   f_PhaseStr - Поле для свойства PhaseStr
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+m3$Plugin : Library - 
+ PluginSupport : Unit - 
+  m3PluginSupport : UtilityPack - 
+   __CoCreateInstance : method - 
+   __CoInitialize : method - 
+   __CoTaskMemFree : method - 
+   __CoUninitialize : method - 
+   __StgOpenStorage : method - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+stg32 : AdapterTarget - Библиотека поддержки плагина для FAR

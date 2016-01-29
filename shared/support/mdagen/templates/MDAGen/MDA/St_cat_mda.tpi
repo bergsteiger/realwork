@@ -1,0 +1,49 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ mda
+/ √енератор шаблонов MDA.
+//#UC START# *46A73B920051*
+O %f_mda_StFullFileName(%S)
+	//////////////////////////////////////////////////////////////////////////////////
+	// %f_mda_Name(%S)
+	//////////////////////////////////////////////////////////////////////////////////
+
+	[{%Sa=abstract}\n/ ! Ётот стереотип €вл€етс€ абстрактным и не может иметь экземпл€ров ! \n]
+	: %f_mda_St(%S)
+	? %S{name}
+	? %SD\
+	%f_clear_list(_includes_)\
+	[\n<{\n}{%C%f_mda_IsStBody()=true}%f_add_to_list(_includes_,"%f_mda_ParentSt(%C)")\n= %f_mda_ParentSt(%C)>]\
+	[\n\n<{\n}{%C%f_mda_IsGenerator()=true}[{"%C%G%PN"!=""&%f_exist_in_list(_includes_,"%f_mda_ParentSt(%C)")=false}%f_add_to_list(_includes_,"%f_mda_ParentSt(%C)")& %f_mda_ParentSt(%C);f\
+	\n/ - включаем функции указанного стереотипа]>]\
+	<{\n}{%C%f_mda_IsStBody()=true}%CX>\
+	[\n<{\n}{%C%f_mda_IsUserProp()=true}%CX>]\
+	[{%S{can be main}=true}\n\nM\n/ - может быть основным элементом модели]\
+	[{%S{disable forward}=true}\n\nD\n/ - запрещает forward-декларацию элементов.]\
+	[\n
+	/ параметры визуализации\
+	[\n$ C %S{Color own fill}]\
+	[\n$ L %S{Color own lines}]\
+	[\n$ l %S{Color other lines}]\
+	[\n$ F %S{Color own font}]\
+	[\n$ f %S{Color other font}]\
+	[{%f_mda_IsClass(%S)=true&%Sa!=abstract}%f_mda_SupressOpsCode(%S)\
+	%f_mda_SupressAttrsCode(%S)]\
+	]\
+	[\n\n/ возможные типы абстрактности элемента\na %S{abstraction type}]\
+	[{%S{can has derived}=true}\n\n/ может иметь унаследованную реализацию\nd 1]\
+	[\n\n/ возможные типы видимости\nv %S{visibility type}]\
+	[\n\n/ картинка дл€ стереотипа\nY %S{icon}]\
+	[\n\n/ метки\nL %S{labels}]\
+	[\n\n\%t _constraint
+	/ - ограничени€ элемента
+	c {}\
+	%f_mda_CheckAncestorCode(%S)\
+	%f_mda_CheckAbstractCode(%S)\
+	%f_mda_CheckUsageCode(%S)\
+	[\nr %S{custom restrict}]]
+	[<{\n}{%CS=MDAFunc}%CX>\n]\
+	<{\n}{%C%f_mda_IsGenerator()=true}[{"%CO"!=""}\n\# %f_mda_StFileName(%C)]%CX>\
+	<{\n}{%CS=MDAAttribute}%CX>\
+	<{\n}{%CS=MDADependency}%CX>\
+	<{\n}{%CS=MDAOperation}%CX>
+//#UC END# *46A73B920051*

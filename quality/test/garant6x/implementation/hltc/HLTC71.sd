@@ -1,0 +1,3661 @@
+uses common, RunPrograms, States, FoldersWork, MenuWork, DocumentWork, SettingsWork, Clicks, ListWork, SearchWork;
+
+const
+  F1_REDCOLOR = -16777208;  
+  
+procedure ClearMenuContextFilter;
+const
+  FUNCTION_NAME = 'ClearMenuContextFilter: ';
+  hLogin = 'HLTC71_CONTEXT';
+var
+  w, nav_form;
+begin
+try
+  nav_form := GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+  if not IsExists(nav_form) then
+    Raise('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР" не найдена');
+    
+  w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', nav_form);
+  if not IsExists(w) then
+    Raise('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР" не найден!');
+  w.Keys('[End]![Home][Del]');
+  w := GetFromContextFilterForm('КНОПКА "ВКЛЮЧИТЬ КОНТЕКСТНЫЙ ФИЛЬТР"', nav_form);
+  if IsExists(w) and (w.Down) then w.Click;
+except
+  Log.Message(FUNCTION_NAME + ExceptionMessage,'',  pmNormal, GetLogAttr('EXCEPTION'));
+  Log.Message(FUNCTION_NAME + 'Перезапускаем оболочку...');  
+  RestartF1Shell(3, Options.Run.Timeout div 3, hLogin, hLogin);  
+end;
+end;
+
+//функция проверяет правильтность маппирования различных символов при фильтрации
+//в окне выбора терминов
+//первый контекст - английский, второй русский.
+function  CheckMappingContext(const ContextFrom, ContextTo: String): OleVariant;
+const
+  FUNCTION_NAME = 'CheckMappingContext: ';
+var
+  w, rubricator;
+  array1, array2;
+begin
+try
+	Result := false;
+  GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Activate;
+  rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+  if IsExists(rubricator) then 
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + ContextFrom);
+    rubricator.SetFocus;
+    array1 := GetElementsFromTree(rubricator);//получем отфильтраванный список
+    Result := CheckContextTreeElements(rubricator, ContextTo);
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + ContextTo);
+    rubricator.SetFocus;
+    array2 := GetElementsFromTree(rubricator);//получем отфильтраванный список
+//    Result := Result and CheckContextTreeElements(rubricator, ContextTo);
+  	Result := CompareArray(array1, array2);
+  end
+  else
+  	Log.Error(FUNCTION_NAME + 'Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+except
+	Result := False;
+  Raise(FUNCTION_NAME + ExceptionMessage);
+  CommonExceptionHandler;
+end;  
+end;
+
+function CheckFiltrateRequsiteTree(const Context: String; const ArrayOfElements: varArray): Boolean;
+const
+  FUNCTION_NAME = 'CheckFiltrateRequsiteTree: ';
+var
+  w, rubricator;
+  i: integer;
+  checkNames: Boolean;
+begin
+try
+	Result := False;
+  checkNames := true;
+  rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+  if IsExists(rubricator) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + Context);
+    rubricator.SetFocus;
+    Sys.Keys('[Home]');
+
+  	for i := VarArrayLowBound(ArrayOfElements, 1) to VarArrayHighBound(ArrayOfElements, 1) do
+    	checkNames := checkNames and common.Position_by_Text(rubricator, VarToStr(ArrayOfElements[i]));
+    Result := checkNames 
+    					and (CountElementInTree(rubricator) = (VarArrayHighBound(ArrayOfElements, 1) - VarArrayLowBound(ArrayOfElements, 1) + 1));
+  end
+  else
+  	Log.Error(FUNCTION_NAME + 'Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+except
+	Result := False;
+  Raise(FUNCTION_NAME + ExceptionMessage);
+  CommonExceptionHandler;
+end;  
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+{
+HLTC71.1.1: Проверить, что при раскрытии верхней, нижней и средней папок
+  раскрываются только соответствующие папки
+
+HLTC71.1.5: Проверить навигацию с использованием клавиатуры
+  HLTC71.1.5.2: клавиша Вниз
+  	HLTC71.1.5.2.1: В середине дерева
+  	HLTC71.1.5.2.2: В верхнем узле дерева
+
+HLTC71.1.5: Проверить навигацию с использованием клавиатуры
+  HLTC71.1.5.1: клавиша Вверх
+  	HLTC71.1.5.1.1: В середине дерева
+  	HLTC71.1.5.1.2: В верхнем узле дерева    
+}
+function  HLTC71_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+begin
+	Result := false;
+  //текущий элемент "Документы"
+  rubricatorTree:= OpenMenuTab;
+  //переходим из плоского классификатора на ветку рубрикатора: 
+  common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN);
+  //переходим на элемент Основы государственно-правового устройства
+  //раскрываем папку Основы государственно-правового устройства
+  if IsCurrentNodeExpanded(rubricatorTree) then Sys.Keys(GRAY_PLUS);
+	Sys.Keys(GRAY_PLUS + '[Down]');
+	Result := (common.GetWindowText(rubricatorTree.Handle) = 'Основы конституционного строя');
+  //сворачиваем папку Основы государственно-правового устройства
+  Sys.Keys('[Up]'+GRAY_PLUS);
+  //переходим на элемент Законодательство об отдельных видах деятельности
+	if (common.Position_by_Text(rubricatorTree, 'Законодательство об отдельных видах деятельности')) then
+	begin
+    //раскрываем папку Законодательство об отдельных видах деятельности
+    if IsCurrentNodeExpanded(rubricatorTree) then Sys.Keys(GRAY_PLUS);
+  	Sys.Keys(GRAY_PLUS+'[Down]');
+  	Result := Result and (common.GetWindowText(rubricatorTree.Handle) = 'Законодательство о промышленности');
+    //сворачиваем папку Законодательство об отдельных видах деятельности
+    Sys.Keys('[Up]'+GRAY_PLUS);
+  end
+  else
+  	Result := false;
+  //переходим на элемент Еще один класс. Верхний уровень  
+	if (common.Position_by_Text(rubricatorTree, 'Еще один класс. Верхний уровень')) then
+  begin 
+  	//раскрываем папку Ещё один класс. Верхний уровень
+    if IsCurrentNodeExpanded(rubricatorTree) then Sys.Keys(GRAY_PLUS);
+  	Sys.Keys(GRAY_PLUS+'[Down]');
+  	Result := Result and (common.GetWindowText(rubricatorTree.Handle) = 'Еще один класс. Нижний уровень 1');
+    //сворачиваем папку Ещё один класс. Верхний уровень
+    Sys.Keys('[Up]'+GRAY_PLUS);
+  end
+  else
+  	Result := false;
+  //
+  if not Result then
+  	Log.Error('Неправильно работает навигация по папкам, развернуть/свернуть');
+    
+  CollapseTreeInNavigator(LIST_RUBR_MAIN);
+  GoToMainMenu; 
+end;
+
+{
+HLTC71.1.2: Проверить, что при закрытии верхней, нижней и средней папок 
+закрываются только соответствующие папки
+}
+function  HLTC71_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+  common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN);
+  if IsCurrentNodeExpanded(rubricatorTree) then Sys.Keys(GRAY_PLUS);
+  //переходим на элемент Основы государственно-правового устройства
+  //раскрываем папку Основы государственно-правового устройства
+	Sys.Keys(GRAY_PLUS+'[Down]'); 
+  //сворачиваем папку Основы государственно-правового устройства
+  Sys.Keys('[Up]'+GRAY_PLUS);
+	Result := (common.GetWindowText(rubricatorTree.Handle) = 'Основы государственно-правового устройства');
+  //переходим на элемент Законодательство об отдельных видах деятельности
+	if (common.Position_by_Text(rubricatorTree, 'Законодательство об отдельных видах деятельности')) then
+	begin
+    //раскрываем папку Законодательство об отдельных видах деятельности
+    if IsCurrentNodeExpanded(rubricatorTree) then Sys.Keys(GRAY_PLUS);
+  	Sys.Keys(GRAY_PLUS+'[Down]');    
+    //сворачиваем папку Законодательство об отдельных видах деятельности
+    Sys.Keys('[Up]'+GRAY_PLUS);
+  	Result := Result and (common.GetWindowText(RubricatorTree.Handle) = 'Законодательство об отдельных видах деятельности');
+  end
+  else
+  	Result := false;
+  //переходим на элемент Еще один класс. Верхний уровень  
+	if (common.Position_by_Text(rubricatorTree, 'Еще один класс. Верхний уровень')) then
+  begin 
+  	//раскрываем папку Ещё один класс. Верхний уровень
+    if IsCurrentNodeExpanded(rubricatorTree) then Sys.Keys(GRAY_PLUS);
+  	Sys.Keys(GRAY_PLUS+'[Down]');    
+    //сворачиваем папку Ещё один класс. Верхний уровень
+    Sys.Keys('[Up]'+GRAY_PLUS);
+  	Result := Result and (common.GetWindowText(RubricatorTree.Handle) = 'Еще один класс. Верхний уровень');
+  end
+  else
+  	Result := false;
+  //
+  if not Result then
+  	Log.Error('Неправильно работает навигация по папкам, развернуть/свернуть');
+
+  CollapseTreeInNavigator(LIST_RUBR_MAIN);
+  GoToMainMenu;
+end;
+
+{HLTC71.1.5 Проверить навигацию с использованием клавиатуры 
+  HLTC71.1.5.2 клавиша Вниз 
+    HLTC71.1.5.2.3 не должно изменяться состояние свернутости/развернутости всех узлов дерева. 
+      HLTC71.1.5.2.3.1 При переходе с «закрытой папки»,  
+      HLTC71.1.5.2.3.2 При переходе с «конечного элемента» ветки дерева 
+}
+function  HLTC71_1_5_2_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree, listEthalon;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+	begin
+    listEthalon := GetElementsFromTree(rubricatorTree);
+    common.Position_by_Text(rubricatorTree, 'Информация о комплекте');
+  	Sys.Keys('[Down][Down][Down][Down]');
+		Result := CompareArray(listEthalon, GetElementsFromTree(rubricatorTree));
+  end;
+  if not Result then
+  	Log.Error('Неправильно работает навигация по папкам, клавиша Вниз');
+
+  CollapseTreeInNavigator(LIST_RUBR_MAIN);
+  GoToMainMenu;
+end;
+
+{HLTC71.1.5 Проверить навигацию с использованием клавиатуры 
+  HLTC71.1.5.1: клавиша Вверх 
+    HLTC71.1.5.1.3: не должно изменяться состояние свернутости/развернутости всех узлов дерева. 
+      HLTC71.1.5.1.3.1: При переходе с «закрытой папки»,  
+      HLTC71.1.5.1.3.2: При переходе с «конечного элемента» ветки дерева 
+}
+function  HLTC71_1_5_1_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree, listEthalon;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+	begin
+    listEthalon := GetElementsFromTree(rubricatorTree);
+    common.Position_by_Text(rubricatorTree, 'Информация о комплекте');
+    Sys.Keys('[Up][Up][Up][Up][Up][Up]');
+		Result := CompareArray(listEthalon, GetElementsFromTree(rubricatorTree));
+  end;
+  if not Result then
+  	Log.Error('Неправильно работает навигация по папкам, клавиша Вниз');
+    
+  CollapseTreeInNavigator(LIST_RUBR_MAIN);    
+  GoToMainMenu;
+end;
+
+{
+HLTC71.1.7: Проверить, что при изменении активного элемента древовидного 
+навигатора:
+	HLTC71.1.8: При раскрытии узлов дерева в древовидном классификаторе, не должен
+   изменяться текущий элемент состояния плоского классификатора и списка документов.
+}
+function  HLTC71_1_8_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+  beforExpandText;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+	begin
+    Sys.Keys(GRAY_MINUS);
+    Sys.Keys('[Enter]');
+    rubricatorTree.SetFocus;
+    
+    beforExpandText := common.GetWindowText(rubricatorTree.Handle);    
+
+    Sys.Keys(GRAY_PLUS);
+    Sys.Keys('[Enter]');    
+    Result := beforExpandText = common.GetWindowText(rubricatorTree.Handle);
+    if not Result then
+    	Log.Error('Меняется текущий элемент после раскрытия узла. До раскрытия был "' + beforExpandText + '", после раскрытия стал "' + common.GetWindowText(rubricatorTree.Handle) + '"');
+
+    Sys.Keys(GRAY_PLUS);
+  end
+  else
+    Log.Error('Не получилось открыть "' + LIST_RUBR_MAIN + '"');
+
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.1.9.1: Если активный элемент является иерархическим подэлементом свертываемого узла, 
+    то текущим элементом в древовидном классификаторе становится свертываемый узел, 
+    состояния плоского классификатора и списка документов не должны измениться.
+}
+function HLTC71_1_9_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+begin
+try
+  Result := true;
+  
+  rubricatorTree:= OpenMenuTab;
+	if not Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+    Raise('Не получилось найти "' + LIST_RUBR_MAIN + '"');
+  if not MoveMouseToObject(rubricatorTree, 'node_minus_nav.bmp', 0, 0, true) then
+    Raise('Не получилось открыть popup-меню на иконке версионного комментария в документе ' + IntToStr(DOC_NUM));
+  rubricatorTree.Keys(GRAY_PLUS);
+
+  if not StringCompare(PNAV, common.GetWindowText(rubricatorTree)) then
+    Raise('Текущий элемент навигатора: "' + common.GetWindowText(rubricatorTree) + '", отличается от ожидаемого "' + PNAV + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  HLTC71.1.9.2.1: Проверить, когда текущий элемент вообще из другой ветки
+}
+function HLTC71_1_9_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC71_1_9_2_1_Execute';
+var
+  rubricatorTree, listEthalon;
+  currentElement;
+  tmpX, tmpY, x, y;
+begin
+try
+  Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if not common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+    Raise('Не получилось найти "' + LIST_RUBR_MAIN + '"');
+  if IsCurrentNodeExpanded(rubricatorTree) then Sys.Keys(GRAY_PLUS);    
+
+  //сохраняем координаты 
+  if not GetTextSelectionCoords(rubricatorTree, x, y) then
+    Raise('Граница выделения не найдена!');
+  if not FindPicture(rubricatorTree, 'node_plus_nav.bmp', tmpX, tmpY, 1, y-8, x, 64) then
+    Raise('Картинка "' + Node_Plus + '" не найдена!');
+    
+	Sys.Keys('[Home]');
+  if not common.Position_Internal(rubricatorTree, LIST_LEGISLATION_COMMON) then
+    Raise('Не получилось найти "' + LIST_LEGISLATION_COMMON + '"');
+  currentElement := common.GetWindowText(rubricatorTree.Handle); 
+    
+  rubricatorTree.Click(tmpX + 2, tmpY + 2);
+  rubricatorTree.Click(tmpX + 2, tmpY + 2);  
+    
+  Result := currentElement = common.GetWindowText(rubricatorTree.Handle);
+  if not Result then
+    Raise('Текущий элемент изменился. Должен быть "' + currentElement + '", стал "' + common.GetWindowText(rubricatorTree.Handle) + '"');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+  CommonExceptionHandler;
+end;
+  CollapseTreeInNavigator(LIST_MAIN);  
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.1.9.2.2: Проверить, когда текущий элемент находится иерархически выше свертываемого узла.
+}
+function HLTC71_1_9_2_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC71_1_9_2_2_Execute';
+var
+  rubricatorTree, listEthalon;
+  currentElement;
+  tmpX, tmpY, x, y;
+begin
+try
+  Result := false;
+  rubricatorTree:= OpenMenuTab;
+  //сворачиваем дерево рубрикатора
+  if (common.Position_Internal(rubricatorTree, LIST_MAIN)) then
+    CollapseTree(rubricatorTree, LIST_MAIN);
+
+	if not common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+    Raise('Не получилось найти "' + LIST_RUBR_MAIN + '"');
+
+  //сохраняем координаты 
+  if not GetTextSelectionCoords(rubricatorTree, x, y) then
+    Raise('Граница выделения не найдена!');
+  if not FindPicture(rubricatorTree, 'node_plus_nav.bmp', tmpX, tmpY, 1, y-8, x, 64) then
+    Raise('Картинка "' + Node_Plus + '" не найдена!');
+    
+	Sys.Keys('[Home]');
+  if not common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+    Raise('Не получилось найти "' + LIST_RUBR_MAIN + '"');
+  currentElement := common.GetWindowText(rubricatorTree.Handle); 
+    
+  rubricatorTree.Click(tmpX + 2, tmpY +2);
+  rubricatorTree.Click(tmpX + 2, tmpY +2);  
+    
+  Result := currentElement = common.GetWindowText(rubricatorTree.Handle);
+  if not Result then
+    Raise('Текущий элемент изменился. Должен быть "' + currentElement + '", стал "' + common.GetWindowText(rubricatorTree.Handle) + '"');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+  CommonExceptionHandler;
+end;
+  CollapseTreeInNavigator(LIST_MAIN);
+  GoToMainMenu;
+end;
+
+{
+HLTC71 Навигация 
+  HLTC71.1 Навигация по древовидной структуре классификатора 
+    HLTC71.1.10 Проверить, что если в древовидный классификатор текст какого-либо элемента не помещается, 
+      то при наведении над ним мышью возникает хинт, содержащий полное название элемента. 
+}
+function  HLTC71_1_10_Execute(var  current_state: OleVariant): OleVariant;
+var
+  hintname, x, y;
+  rubricatorTree;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LIST_RUBR_BUH_AUDIT) then
+	begin
+    if IsCurrentNodeExpanded(rubricatorTree) then Sys.Keys(GRAY_PLUS);
+    ClickToolbarButton(GetFromNavigator('ТУЛБАР "МЕНЮ"'), 'Перенос по слов*', 'SetToState:=released');
+    GetTextSelectionCoords(rubricatorTree, x, y);
+
+    hintname := GetHintTextByCoords(x + 10, y, rubricatorTree);
+    if hintname <> '' then
+    begin
+      PressKeyWithCheck(['[Home]'], rubricatorTree);
+      Result := common.Position_by_Text(rubricatorTree, hintname);
+    end;
+  end;
+  if not Result then
+  	Log.Error('Хинт в рубрикаторе не найден или неправильно отображается', 'Хинт:' + hintname);
+  ClickToolbarButton(GetFromNavigator('ТУЛБАР "МЕНЮ"'), 'Перенос по слов*', 'SetToState:=pressed');
+
+  CollapseTreeInNavigator(LIST_RUBR_BUH_AUDIT);
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.1.14: Пусть А - это узел дерева, Б - тоже узел, подиерархический (т.е. находится в ветке А) А и Б - раскрыт, свертываем узел А и раскрываем обратно. Узел Б должен быть развернутым.
+}
+function  HLTC71_1_14_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC71_1_14_Execute';
+var
+  rubricatorTree, listEthalon;
+begin
+try
+  Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if not common.Position_Internal(rubricatorTree, LIST_MAIN) then
+    Raise('Не получилось найти "' + LIST_MAIN + '"');
+
+  //сохраняем список перед сворачиванием
+  listEthalon := GetElementsFromTree(rubricatorTree);            
+    
+  Sys.Keys('[Home]');    
+	if not common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+    Raise('Не получилось найти "' + LIST_RUBR_MAIN + '"');
+
+  //сворачиваем    
+  Sys.Keys(GRAY_PLUS);  
+  if not IsCurrentNodeExpanded(rubricatorTree) then 
+    Sys.Keys(GRAY_PLUS)
+  else
+    Raise('Видимо текущий узел "' + LIST_RUBR_MAIN + '" НЕ свернут');
+  if not IsCurrentNodeExpanded(rubricatorTree) then 
+    Raise('Видимо текущий узел "' + LIST_RUBR_MAIN + '" свернут');        
+
+  Result := CompareArray(listEthalon, GetElementsFromTree(rubricatorTree));    
+  if not Result then
+  	Log.Error('Дерево навигатора отличается после сворачивания/разворачивания узла "' + LIST_RUBR_MAIN + '"');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+  CommonExceptionHandler;
+end;
+  CollapseTreeInNavigator(LIST_MAIN);
+  GoToMainMenu;
+end;
+
+{HLTC71 Навигация 
+  HLTC71.2 Навигация по структуре классификатора 
+    HLTC71.2.1 Проверить, что при перемещении по навигатору с клавиатуры, после нажатия Enter меняется содержимое в плоском рубрикаторе: 
+    HLTC71.2.1.2 При перемещении в список документов, в древовидной структуре выделяется соответствующий списку элемент. 
+    HLTC71.2.2 Проверить, что количество и порядок расположения элементов в древовидной структуре и в плоском списке одинаковы. 
+}
+function  HLTC71_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  listRubr;
+  i, rubricatorTree, num;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LIST_RUBR_LEGISLATION) then
+	begin
+    rubricatorTree.Keys('[Enter]');
+    num := CountElementInTree(GetFromList('СПИСОК РУБРИКАТОРА'));
+    if not IsCurrentNodeExpanded(rubricatorTree) then rubricatorTree.Keys(GRAY_PLUS);
+    rubricatorTree.Keys('[Right]');
+    if num > 0 then
+    begin 
+      listRubr := CreateVariantArray(1, num);
+      for i := 1 to num do
+      begin
+        if IsCurrentNodeExpanded(rubricatorTree) then rubricatorTree.Keys(GRAY_PLUS);
+        listRubr[i] := common.GetWindowText(rubricatorTree.Handle);
+        rubricatorTree.Keys('[Down]');
+      end;
+      Result := CompareArray(listRubr, GetElementsFromTree(GetFromList('СПИСОК РУБРИКАТОРА')));    
+    end; 
+  end
+  else
+		Log.Error('Не найден элемент: "' + LIST_RUBR_LEGISLATION + '"');
+  if not Result then
+  	Log.Error('Неправильно работает навигация по навигатору, плоский и рубрикатор навигатора отличаются');
+
+  CollapseTreeInNavigator(LIST_RUBR_LEGISLATION);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7 Фильтрация в древовидных структурах 
+  HLTC71.7.4 Контекстная фильтрация 
+    HLTC71.7.4.3 Проверить, что контекстный фильтр можно включить и выключить клавишей Enter. 
+}
+function  HLTC71_7_4_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, button,
+  rubricatorTree;
+  listRubr;
+begin
+try
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+  w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));   
+  button := GetFromContextFilterForm('КНОПКА "ВКЛЮЧИТЬ КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+  if IsExists(w) and IsExists(button)  then 
+  begin
+    w.Keys('документы');
+    listRubr := GetElementsFromTree(rubricatorTree);
+    w.Keys('[Enter]');
+    Result := ArrayLength(listRubr) <> ArrayLength(GetElementsFromTree(rubricatorTree));
+    w.Keys('[Enter]');
+    Result := Result and CompareArray(listRubr, GetElementsFromTree(rubricatorTree))
+              and button.Down;
+    w.Keys('[End]![Home][Del]');
+    w := GetFromContextFilterForm('КНОПКА "ВКЛЮЧИТЬ КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if (w.Down) then w.Click;
+    if not Result then
+    	Log.Error('Клавиша Enter не включает/отключает контекстный фильтр в Навигаторе');
+  end
+  else
+  	Log.Error('Кнопка "Включить контекстный фильтр" не существует');
+finally
+  ClearMenuContextFilter;
+end;    
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.1.5: Проверить навигацию с использованием клавиатуры
+  HLTC71.1.5.3: клавиша Вправо
+  	HLTC71.1.5.3.1: когда текущий элемент – закрытая папка, то папка раскрывается, текущий элемент не изменяется 
+}
+function  HLTC71_1_5_3_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+
+  //Сворачиваем папку
+  if (common.Position_Internal(rubricatorTree, LIST_MAIN)) then
+    CollapseTree(rubricatorTree, LIST_RUBR_MAIN);
+
+	if common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+	begin
+  	Sys.Keys('[Right]');
+		Result := (common.GetWindowText(rubricatorTree.Handle) = 'Основы государственно-правового устройства');
+  end;         
+  if not Result then
+  	Log.Error('Неправильно работает навигация по папкам, клавиша Вправо');
+
+  CollapseTreeInNavigator(LIST_RUBR_MAIN);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.1.5: Проверить навигацию с использованием клавиатуры
+  HLTC71.1.5.3: клавиша Вправо
+  	HLTC71.1.5.3.2: когда текущий элемент - открытая папка, то текущим элементом
+     становится первая ее подрубрика
+}
+function  HLTC71_1_5_3_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then
+	begin
+  	Sys.Keys(GRAY_PLUS);
+  	Sys.Keys('[Right][Right][Right][Right][Right][Right]');
+		Result := (common.GetWindowText(rubricatorTree.Handle) = 'Основы конституционного строя');
+    if not Result then
+    	Log.Error('Неправильно работает навигация по папкам, клавиша Вправо');
+  end
+  else
+  	Log.Error('Не найден рубрикатор "' + LIST_RUBR_MAIN + '"');  
+
+  CollapseTreeInNavigator(LIST_RUBR_MAIN);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.1.5: Проверить навигацию с использованием клавиатуры
+  HLTC71.1.5.3: клавиша Вправо
+		HLTC71.1.5.3.3: проверить, когда установлена на последней записи в дереве  	
+}
+function  HLTC71_1_5_3_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN + '\Решения по кадровым вопросам, присвоение званий, классов и рангов') then
+	begin
+  	Sys.Keys('[Right][Right]');
+		Result := (common.GetWindowText(rubricatorTree.Handle) = 'Администрация Президента России');
+  end;
+  if not Result then
+  	Log.Error('Неправильно работает навигация по папкам, клавиша Вправо');
+  
+  CollapseTreeInNavigator(LIST_RUBR_MAIN);  
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.1.7: Проверить, что при изменении активного элемента древовидного
+навигатора:
+	HLTC71.1.7.1: если активным становится папка, после нажатия Enter - загрузится
+   плоский рубрикатор
+}
+function  HLTC71_1_7_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+  listTree;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+  if common.Position_Internal(rubricatorTree, LIST_RUBR_MAIN) then  
+	begin
+    rubricatorTree.Keys('[Enter]');
+    listTree := GetFromList('СПИСОК РУБРИКАТОРА');
+    listTree.SetFocus;
+    Result := (common.GetWindowText(listTree.Handle) = 'Основы конституционного строя')
+              and (CountElementInTree(listTree) > 20);
+    if not Result then
+    	Log.Error('Неправильно работает навигация по папкам, клавиша Enter не открывает плоский рубрикатор');
+  end
+  else
+  	Log.Error('НЕ найдена папка рубрикатора "' + LIST_RUBR_MAIN + '"');
+
+  CollapseTreeInNavigator(LIST_RUBR_MAIN);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.1.7: Проверить, что при изменении активного элемента древовидного 
+навигатора:
+	HLTC71.1.7.2: если активным становится вершина дерева, после нажатия Enter - 
+  загрузится список документов
+}
+function  HLTC71_1_7_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  rubricatorTree;
+  LISTPATH1;
+begin
+  LISTPATH1 := LIST_RUBR_LEGISLATION + '\Общие положения';
+	Result := false;
+  
+  GoToMainMenu;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LISTPATH1) then
+	begin
+  	Sys.Keys('[Enter]');
+    Result := IsExists(GetList);
+    if not Result then
+    	Log.Error('Неправильно работает навигация по папкам, клавиша Enter не открывает список документов');
+  end
+  else
+    Log.Error('Невозможно открыть "' + LISTPATH1 + '"');
+  
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.1: Поиск
+    	HLTC71.3.1.1.1: По реквизитам
+}
+function  HLTC71_3_1_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Поиск\По реквизитам';
+  CAPTIONNAME = 'Поиск по реквизитам';
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+  	Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromPPR('КЗ')) then
+    Raise('Не найдено КЗ ППР');
+
+  str := GetTabCaption;
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для КЗ ППР' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.1: Поиск
+    	HLTC71.3.1.1.2: По ситуации
+}
+function  HLTC71_3_1_1_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Поиск\По ситуации';
+  CAPTIONNAME = 'Поиск по ситуации';
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+  	Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then
+    Raise('Не найдено КЗ ППС');
+
+  str := GetTabCaption;  
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для КЗ ППC' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.1: Поиск
+    	HLTC71.3.1.1.3: По источнику опубликования
+}
+function  HLTC71_3_1_1_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Поиск\По источнику опубликования';
+  CAPTIONNAME = 'Поиск по источнику опубликования';
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+    Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromPPIO('ДЕРЕВО ИЗДАНИЙ')) then
+    Raise('Не найдено КЗ ППИО');
+    
+  str := GetTabCaption; 
+  Result := StringCompare(CAPTIONNAME, str);
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для КЗ ППИО' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.1: Поиск
+    	HLTC71.3.1.1.4: Обзор изменений законодательства
+}
+function  HLTC71_3_1_1_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Поиск\ПРАЙМ. Обзор изменений законодательства';
+var
+  rubricatorTree, w;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+  if OpenObjectFromFolder(LISTPATH1, rubricatorTree) then
+	begin
+    w := GetFromAnalyticReview('КЗ');
+		Result := IsExists(w) and StringCompare('Обзор изменений законодательства*', GetTabCaption);
+    if not Result then
+    	Log.Error('КЗ Обзора изменений законодательства не найдена или ошибка в заголовке главного окна');
+  end
+  else
+    Log.Error('Не получилось открыть "' + LISTPATH1 + '"');  
+
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.1: Поиск
+    	HLTC71.3.1.1.5: По Толковому словарю
+}
+function  HLTC71_3_1_1_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Поиск\По Толковому словарю';
+var
+  rubricatorTree;
+  w;
+begin
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_Internal(rubricatorTree, LISTPATH1) then
+	begin
+  	Sys.Keys('[Enter]');
+		Result := IsExists(GetFromDictionary('СПИСОК ТЕРМИНОВ')) and IsExists(GetFromDictionary('ТЕКСТ СТАТЬИ'));
+  end;
+  if not Result then
+  	Log.Error('Невозможно открыть Список терминов Толкового словаря по "' + LISTPATH1 + '" из Меню');
+
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.2: Правовой навигатор
+    	HLTC71.3.1.2.1: Основы государственно-правового устройства
+}
+function  HLTC71_3_1_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Основы государственно-правового устройства';
+  CAPTIONNAME = LISTPATH1;
+var
+  str;
+begin
+try
+	Result := false;                                
+	if not common.Position_Internal(OpenMenuTab, LIST_RUBR_MAIN) then
+    Raise('Невозможно найти рубрикатор "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromList('СПИСОК РУБРИКАТОРА')) then
+    Raise('Не найден Список рубрикатора');
+    
+  str := GetTabCaption;
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для Списка рубрикатора' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(PNAV);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.2: Правовой навигатор
+    	HLTC71.3.1.2.2: Гражданское законодательство, приватизация
+}
+function  HLTC71_3_1_2_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LISTPATH1 = 'Гражданское законодательство, приватизация';
+  CAPTIONNAME = LISTPATH1;
+var
+  str;
+begin
+try
+	Result := false;                                
+  if not common.Position_Internal(OpenMenuTab, LIST_RUBR_LEGISLATION) then
+    Raise('Невозможно найти рубрикатор "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromList('СПИСОК РУБРИКАТОРА')) then
+    Raise('Не найден Список рубрикатора');
+    
+  str := GetTabCaption;
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для Списка рубрикатора' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(PNAV);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.3: Справочная информация
+    	HLTC71.3.1.3.1: Бизнес-справки
+}
+function  HLTC71_3_1_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LISTPATH1 = 'Справочная информация\Бизнес-справки';
+  CAPTIONNAME = 'Бизнес-справки';
+var
+  str;
+begin
+try
+	Result := false;                                
+  if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+    Raise('Невозможно найти рубрикатор "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromList('СПИСОК РУБРИКАТОРА')) then
+    Raise('Не найден Список рубрикатора');
+    
+  str := GetTabCaption;
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для Списка рубрикатора' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.3: Справочная информация
+    	HLTC71.3.1.3.2: Мониторинг законодательства
+}
+function  HLTC71_3_1_3_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Справочная информация\Мониторинг законодательства';
+  CAPTIONNAME = 'Мониторинг законодательства';
+var
+  str;
+begin
+try
+	Result := false;                                
+  if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+    Raise('Невозможно найти рубрикатор "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromList('СПИСОК РУБРИКАТОРА')) then
+    Raise('Не найден Список рубрикатора');
+    
+  str := GetTabCaption;
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для Списка рубрикатора' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.3: Справочная информация
+    	HLTC71.3.1.3.3: Новые поступления
+}
+function  HLTC71_3_1_3_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Справочная информация\Новые поступления';
+  CAPTIONNAME = 'Новые поступления';
+var
+  str;
+begin
+try
+	Result := false;                                
+  if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+    Raise('Невозможно найти рубрикатор "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromList('СПИСОК РУБРИКАТОРА')) then
+    Raise('Не найден Список рубрикатора');
+    
+  str := GetTabCaption;
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для Списка рубрикатора' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.3: Справочная информация
+    	HLTC71.3.1.3.4: Горячая информация
+}
+function  HLTC71_3_1_3_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Справочная информация\Горячая информация';
+  CAPTIONNAME = 'Горячая информация';
+var
+  str;
+begin
+try
+	Result := false;                                
+  if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+    Raise('Невозможно найти рубрикатор "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromList('СПИСОК РУБРИКАТОРА')) then
+    Raise('Не найден Список рубрикатора');
+    
+  str := GetTabCaption;
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна для Списка рубрикатора' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CollapseTreeInNavigator(LISTPATH1);
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.4: ПРАЙМ
+    	HLTC71.3.1.4.1: Моя новостная лента
+}
+function  HLTC71_3_1_4_1_Execute(var  current_state: OleVariant): OleVariant;
+begin
+	Result := GoToPrime('НАВИГАТОР');
+  if not Result then
+  	Log.Error('Невозможно открыть ПРАЙМ из Навигатора');
+  GoToMainMenu;
+end;
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.5: Конфигурация
+}
+function  HLTC71_3_1_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Конфигурация';
+var
+  listCFG, nameCFG;
+  rubricatorTree;
+  w, i;
+  checkCFG: boolean;
+begin
+	Result := false;
+	listCFG := ['Основная', 'Расширенная'];
+  //
+  rubricatorTree:= OpenMenuTab;
+	if common.Position_by_Text(rubricatorTree, LISTPATH1) then
+	begin
+  	Sys.Keys('[Enter]');
+    w := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "КОНФИГУРАЦИИ"');
+    w.SetFocus;
+  	Sys.Keys('[Home]');
+  	Result := true;
+    for i := VarArrayLowBound(listCFG, 1) to VarArrayHighBound(listCFG, 1) do 
+    begin
+      nameCFG := common.GetWindowText(w.Handle);
+      checkCFG := StringCompare(listCFG[i] + '*', nameCFG);
+      Result :=Result and checkCFG;
+     	Sys.Keys('[Down]');
+      if not checkCFG then
+      	Log.Error('Название конфигурации: "' + nameCFG + '", а должно быть"' + listCFG[i] + '"');
+    end;
+  end;
+  if not Result then
+  	Log.Error('Невозможно открыть "Конфигурация" или названия конфигураций отличаются от шаблонных');
+  //
+  OpenMenuTab;  
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.3: Навигатор
+	HLTC71.3.1: Проверить, что в навигаторе есть пункты и перейти по ним:
+  	HLTC71.3.1.6: Информация о комплекте
+}
+function  HLTC71_3_1_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'Информация о комплекте';
+  CAPTIONNAME = LISTPATH1;
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+  	Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetFromMainWindow('ИНФОРМАЦИЯ О КОМПЛЕКТЕ')) then
+    Raise('Не найдено окно ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+
+  str := GetTabCaption;
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна ИНФОРМАЦИЯ О КОМПЛЕКТЕ' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  OpenMenuTab;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.1: Поиск лекарственных средств
+}
+function  HLTC71_3_1_7_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'ИнФарм\Поиск лекарственных средств';
+begin
+try
+	Result := true;
+  if not OpenObjectFromFolder(LISTPATH1, OpenMenuTab) then
+    Raise('Не получилось открыть "' + LISTPATH1 + '"');
+  if not IsExists(GetFromPLP('ФОРМА КАРТОЧКИ ЗАПРОСА')) then
+    Raise('Не найдена КЗ ' + LISTPATH1);
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.2.1: Лекарственные препараты
+}
+function  HLTC71_3_1_7_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'ИнФарм\Разделы справочника\Лекарственные препараты';
+  CAPTIONNAME = 'Список препаратов';
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+  	Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetList) then
+    Raise('Не найден Список Инфарма');
+
+  str := GetTabCaption;  
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна Списка Инфарма' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.2.2: Лекарственные растения и сырье
+}
+function  HLTC71_3_1_7_2_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'ИнФарм\Разделы справочника\Лекарственные растения и сырье';
+  CAPTIONNAME = 'Список препаратов';
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+  	Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetList) then
+    Raise('Не найден Список Инфарма');
+
+  str := GetTabCaption;  
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна Списка Инфарма' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.2.3: Иммунобиологические препараты
+}
+function  HLTC71_3_1_7_2_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'ИнФарм\Разделы справочника\Иммунобиологические препараты';
+  CAPTIONNAME = 'Список препаратов';
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+  	Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetList) then
+    Raise('Не найден Список Инфарма');
+
+  str := GetTabCaption;  
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна Списка Инфарма' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.2.4: Гомеопатические препараты
+}
+function  HLTC71_3_1_7_2_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'ИнФарм\Разделы справочника\Гомеопатические препараты';
+  CAPTIONNAME = 'Список препаратов';
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+  	Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetList) then
+    Raise('Не найден Список Инфарма');
+
+  str := GetTabCaption;  
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна Списка Инфарма' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.2.5: Поливитаминные препараты
+}
+function  HLTC71_3_1_7_2_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'ИнФарм\Разделы справочника\Поливитаминные препараты';
+  CAPTIONNAME = 'Список препаратов';
+var
+  str;
+begin
+try
+	Result := false;
+	if not common.Position_Internal(OpenMenuTab, LISTPATH1) then
+  	Raise('Невозможно найти пункт "' + LISTPATH1 + '" в Меню');
+
+	Sys.Keys('[Enter]');
+  if not IsExists(GetList) then
+    Raise('Не найден Список Инфарма');
+
+  str := GetTabCaption;  
+  Result := StringCompare(CAPTIONNAME, str);  
+  if not Result then
+    Raise('Отличается заголовок вкладки окна Списка Инфарма' + EndOfLine + 'Полученный заголовок: "' + str + '", ожидали: "' + CAPTIONNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.3: Лекарственные средства, разрешенные к применению
+}
+function  HLTC71_3_1_7_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'ИнФарм\Государственный реестр лекарственных средств';
+begin
+try
+	Result := true;
+  if not OpenObjectFromFolder(LISTPATH1, OpenMenuTab) then
+    Raise('Не получилось открыть "' + LISTPATH1 + '"');
+  if not IsExists(GetList) then
+    Raise('Не найден список ' + LISTPATH1);
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.4: Справочник фармацевтических фирм
+}
+function  HLTC71_3_1_7_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LISTPATH1 = 'ИнФарм\Справочник фармацевтических фирм';
+begin
+try
+	Result := true;
+  if not OpenObjectFromFolder(LISTPATH1, OpenMenuTab) then
+    Raise('Не получилось открыть "' + LISTPATH1 + '"');
+  if not IsExists(GetFromInfarmListFirms('СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ')) then
+    Raise('Не найден список ' + LISTPATH1);
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.3.1.7.5: Словарь медицинских терминов
+}
+function  HLTC71_3_1_7_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LISTPATH1 = 'ИнФарм\Словарь медицинских терминов';
+begin
+try
+	Result := true;
+  if not OpenObjectFromFolder(LISTPATH1, OpenMenuTab) then
+    Raise('Не получилось открыть "' + LISTPATH1 + '"');
+  if not IsExists(GetFromInfarmDictionary('ТЕКСТ СТАТЬИ')) then
+    Raise('Не найден текст статьи Словаря медицинских терминов');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.4.1: Проверить ситуацию 1:
+    Перейти на вкладку Меню (в Навигаторе) и выбрать один из типов правовой информации
+    Далее в плоском списке зайти в «папку». 
+    Повторить, но зайти в другую папку
+    Повторить для списка 
+}
+function  HLTC71_4_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  RUBR1 = 'Официальная символика';
+  RUBR2 = 'Выборы, избирательная система, референдумы';
+  LIST2 = 'Выборы, избирательная система';
+var
+  w;  
+begin
+try
+	Result := true;
+  if not OpenObjectFromFolder(LIST_RUBR_MAIN, OpenMenuTab) then
+    Raise('Не получилось открыть "' + LIST_RUBR_MAIN + '"');
+  w := GetFromList('СПИСОК РУБРИКАТОРА');
+  if not OpenObjectFromFolder(RUBR1, w) then
+    Raise('Не получилось открыть рубрикатор "' + RUBR1 + '"');
+	if not (IsExists(w) and StringCompare('*' + RUBR1, GetTabCaption)) then
+    Raise('Видимо не открылся рубрикатор из папки "' + RUBR1 + '"');
+    
+  if not OpenObjectFromFolder(LIST_RUBR_MAIN, OpenMenuTab) then
+    Raise('Не получилось открыть "' + LIST_RUBR_MAIN + '"');
+  w := GetFromList('СПИСОК РУБРИКАТОРА');
+  if not OpenObjectFromFolder(RUBR2, w) then
+    Raise('Не получилось открыть рубрикатор "' + RUBR2 + '"');
+	if not (IsExists(w) and StringCompare('*' + RUBR2, GetTabCaption)) then
+    Raise('Видимо не открылся рубрикатор из папки "' + RUBR2 + '"');
+  
+  if not OpenObjectFromFolder(LIST2, w) then
+    Raise('Не получилось открыть рубрикатор "' + LIST2 + '"');
+	if not IsExists(GetList) then
+    Raise('Видимо не открылся список из папки "' + LIST2 + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7: Фильтрация в древовидных структурах
+	HLTC71.7.1: Проверить, что если в результате фильтрации остался какой-то 
+  элемент, то все элементы того же дерева, находящиеся ВЫШЕ по иерархии, также 
+  будут видны после фильтрации (Если фильтру удовлетворяет <листьевой> элемент, 
+  то его непосредственный <родитель> и все остальные <предки> вверх по иерархии 
+  до корня показываются, не зависимо от того удовлетворяют они фильтру или нет.)
+}
+function  HLTC71_7_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT = 'Выслуга лет';
+var
+  rubricatorTree, w;
+  filteredTree;
+begin
+try
+  try
+  	Result := true;
+  
+    rubricatorTree:= OpenMenuTab;
+    if not IsExists(rubricatorTree) then
+      Raise('Вкладка меню не найдена!');
+
+    rubricatorTree.Keys('[Home]');
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    w.Keys('[End]![Home]' + CONTEXT);
+
+    filteredTree := [
+                      'Правовой навигатор',
+                      'Законодательство о труде*',
+                      'Трудовой стаж',
+                      CONTEXT
+    ];
+    if not CompareArray(filteredTree, GetElementsFromTree(rubricatorTree, false), true, true) then
+      Result := ErrorResult('После контекстной фильтрации по "' + CONTEXT + '", результирующий список дерева отличается от эталонного');
+  finally
+    ClearMenuContextFilter;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7: Фильтрация в древовидных структурах
+	HLTC71.7.2: Проверить, что если в результате фильтрации остался какой-то 
+  элемент, то все элементы того же дерева, находящиеся НИЖЕ по иерархии, также 
+  будут видны после фильтрации (Если фильтру удовлетворяет <ветка>, то все ее 
+  дочерние элементы (и <ветки>, и <листья>) до самого нижнего уровня иерархии 
+  показываются (остаются не фильтрованными).) 
+}
+function  HLTC71_7_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT = 'Трудовой стаж';
+var
+  rubricatorTree, w;
+  filteredTree;
+begin
+try
+  try
+  	Result := true;
+  
+    rubricatorTree:= OpenMenuTab;
+    if not IsExists(rubricatorTree) then
+      Raise('Вкладка меню не найдена!');
+
+    rubricatorTree.Keys('[Home]');
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    w.Keys('[End]![Home]' + CONTEXT);
+
+    filteredTree := [
+                      'Правовой навигатор',
+                      'Законодательство о труде*',
+                      CONTEXT,
+                      'Выслуга лет',
+                      'Порядок установления*',
+                      'Стаж для*'
+    ];
+    if not CompareArray(filteredTree, GetElementsFromTree(rubricatorTree, true), true, true) then
+      Result := ErrorResult('После контекстной фильтрации по "' + CONTEXT + '", результирующий список дерева отличается от эталонного');
+  finally
+    ClearMenuContextFilter;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.7.4.1: Проверить, что можно ввести контекстный фильтр, при этом система фильтрует дерево, оставляя в нем только элементы, чьи имена удовлетворяют введёному контексту.
+  HLTC71.7.4.2: Проверить, что система всегда расширяет введённый контекст символом «*» (визуально это ниакак не проявляется). Т.е если ввести в контекстный фильтр «прое», то под этот фильтр попадают и «проект», и «проектирование» и т.д.
+}
+function  HLTC71_7_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT1 = 'прое';
+  RES_CONTEXT1 = 'Проектирование*строительства';
+  RES_CONTEXT2 = 'Подготовка проектов*';
+var
+  w, rubricatorTree;
+begin
+try
+  try
+  	Result := true;
+
+    rubricatorTree := OpenMenuTab;
+    if not IsExists(rubricatorTree) then
+      Raise('Не получилось открыть вкладку "Меню"');
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if not IsExists(w) then
+      Raise('Не найден КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"');
+    w.Keys('[End]![Home]' + CONTEXT1);
+    
+  	if not Position_by_Text(rubricatorTree, RES_CONTEXT1, false, true) then
+      Raise('Не найден элемент после фильтрации "' + RES_CONTEXT1 + '"');
+    rubricatorTree.Keys('[Home]');
+  	if not Position_by_Text(rubricatorTree, RES_CONTEXT2, false, true) then
+      Raise('Не найден элемент после фильтрации "' + RES_CONTEXT2 + '"');
+  finally
+    ClearMenuContextFilter;
+    GoToMainMenu;  
+  end;  
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+HLTC71.7: Фильтрация в древовидных структурах
+	HLTC71.7.3: Проверить, что если после фильтрации текущий элемент 
+  отфильтровывается, то текущим становится ближайший видимый элемент, 
+  расположенный выше по иерархии
+}
+function  HLTC71_7_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT = 'конституция';
+var
+  rubricatorTree;
+  w;
+begin
+try
+	Result := false;
+  rubricatorTree:= OpenMenuTab;
+  rubricatorTree.Keys('[Home]');
+  w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+  w.Keys('[End]![Home]' + CONTEXT);
+  rubricatorTree.SetFocus;
+  Result :=StringCompare(PNAV, common.GetWindowText(rubricatorTree.Handle));
+  if not Result then
+  	Log.Error('Не отображаются элементы дерева после контекстной фильтрации');
+finally
+  ClearMenuContextFilter;
+end;  
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.1: В качестве контекста ввести "шкаф абон 1"
+    	HLTC71.7.6.1.1.1: Выставить параметры фильтрации: [Область поиска = Во 
+      всех уровнях, Положение контекста = В любой части слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве останется термин 
+      <Абонентский почтовый шкаф (1)>
+}
+function  HLTC71_7_6_1_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, dictionaryTree;
+begin
+	Result := false;
+	SetContextFilterSettings('Толковый словарь', 'В любой части слова', 'В любом порядке', 'Во всех уровнях');
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));     
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + 'шкаф абон 1');
+    dictionaryTree .SetFocus;
+    Result :=('Абонентский почтовый шкаф (1)' = common.GetWindowText(dictionaryTree.Handle));
+    w.SetFocus;
+    Sys.Keys('[End]![Home][Del]');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.1: В качестве контекста ввести "шкаф абон 1"
+      HLTC71.7.6.1.1.2: Выставить параметры фильтрации: [Область поиска = Во 
+      всех уровнях, Положение контекста = C начала слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве останется термин 
+      <Абонентский почтовый шкаф (1)>
+}
+function  HLTC71_7_6_1_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, dictionaryTree;
+begin
+	Result := false;
+  SetContextFilterSettings('Толковый словарь', 'С начала слова', 'В любом порядке', 'Во всех уровнях');   
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));    
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + 'шкаф абон 1');
+    dictionaryTree.SetFocus;
+    Result :=('Абонентский почтовый шкаф (1)' = common.GetWindowText(dictionaryTree.Handle));
+    w.SetFocus;
+    Sys.Keys('[End]![Home][Del]');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+    HLTC71.7.6.1.1: В качестве контекста ввести "шкаф абон 1"
+      HLTC71.7.6.1.1.3 : Ввести данный контекст. 
+      Выставить параметры фильтрации: [Область поиска = Во всех уровнях, Положение контекста = C начала слова,  Порядок слов = С учётом порядка] – 
+      контекст должен подсветится красным, последняя его часть «абон 1» должна выделиться, 
+      должен раздасться системный писк, а в дереве должно остаться 5 элементов, удовлетворяющих контексту «шкаф».
+HLTC99.6.3: Быстрый поиск. При наборе букв в списке терминов курсор устанавливается на первый подходящий термин. Если терминов, начинающихся с вводимых букв нет – то введенное выражение становится красным и фильтр не снимается.
+}
+function  HLTC71_7_6_1_1_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, n, nameBefore;
+  dictionaryTree;
+begin
+	Result := false;
+  SetDefaultSettings;
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if IsExists(w) then
+      begin
+        w.SetFocus;
+        Sys.Keys('[End]![Home]' + 'шкаф абон 1');
+        SetContextFilterSettings('Толковый словарь', 'С начала слова', 'С учетом порядка', 'Во всех уровнях');
+        if w.Font.Color <> F1_REDCOLOR then
+        	Log.Error('Цвет шрифта контекста не становится Красным');
+          
+        dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+        n := CountElementInTree(dictionaryTree);
+        Result := n = 5;
+        if not Result then
+          Log.Error('Количество элементов после фильтрации: ' + IntToStr(n) + ', должно быть 5');
+        w.Keys('[End]![Home][Del]');
+      end
+      else
+        Log.Error('Не найдено поле ввода контекстного поиска в закладке ТС');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.1: В качестве контекста ввести "шкаф абон 1"
+    	HLTC71.7.6.1.1.4: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = C начала строки,  Порядок слов 
+      В любом порядке] - контекст должен подсветится красным, а дерево остаться 
+      в прежнем состоянии. 	
+}
+function  HLTC71_7_6_1_1_4_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, nameBefore;
+  dictionaryTree;
+begin
+	Result := false;
+  SetContextFilterSettings('Толковый словарь', 'С начала строки', 'В любом порядке', 'Во всех уровнях');
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));    
+    if IsExists(w) then
+      begin
+        w.SetFocus;
+        Sys.Keys('[End]![Home]' + 'шкаф абон 1');
+        if w.Font.Color <> F1_REDCOLOR then
+        	Log.Error('Цвет шрифта контекста не становится Красным');
+        dictionaryTree .SetFocus;
+        nameBefore := common.GetWindowText(dictionaryTree.Handle);
+        Sys.Keys('[Down]');
+        Result :=(nameBefore <> common.GetWindowText(dictionaryTree.Handle));
+        w.SetFocus;
+        Sys.Keys('[End]![Home][Del]');
+      end
+      else
+        Log.Error('Не найдено поле ввода контекстного поиска в закладке ТС');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.2: В качестве контекста ввести <pre* n ие>
+			HLTC71.7.6.1.2.1: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = В любой части слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве должен остаться термин 
+      <Сообщение press any key>
+}
+function  HLTC71_7_6_1_2_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, dictionaryTree;
+begin
+	Result := false;
+  SetContextFilterSettings('Толковый словарь', 'В любой части слова', 'В любом порядке', 'Во всех уровнях');
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + 'pre* n ие');
+    dictionaryTree .SetFocus;
+    Result :=('Сообщение press any key' = common.GetWindowText(dictionaryTree.Handle));
+    w.SetFocus;
+    Sys.Keys('[End]![Home][Del]');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.2: В качестве контекста ввести <pre* n ие>
+			HLTC71.7.6.1.2.2: Выставить параметры фильтрации: [Область поиска = Во 
+      всех уровнях, Положение контекста = C начала слова,  Порядок слов = 
+      В любом порядке] - контекст должен подсветится красным, а дерево остаться 
+      в прежнем состоянии.
+}
+
+function  HLTC71_7_6_1_2_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, nameBefore;
+  dictionaryTree;
+begin
+	Result := false;
+  SetContextFilterSettings('Толковый словарь', 'С начала слова', 'В любом порядке', 'Во всех уровнях');     
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if IsExists(w) then
+      begin
+        w.SetFocus;
+        Sys.Keys('[End]![Home]' + 'pre* n ие');
+        if w.Font.Color <> F1_REDCOLOR then
+        	Log.Error('Цвет шрифта контекста не становится Красным');
+        dictionaryTree .SetFocus;
+        nameBefore := common.GetWindowText(dictionaryTree.Handle);
+        Sys.Keys('[Down]');
+        Result :=(nameBefore <> common.GetWindowText(dictionaryTree.Handle));
+        w.SetFocus;
+        Sys.Keys('[End]![Home][Del]');
+      end
+      else
+        Log.Error('Не найдено поле ввода контекстного поиска в закладке ТС');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.2: В качестве контекста ввести <pre* n ие>
+			HLTC71.7.6.1.2.3: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = C начала строки,  Порядок слов = 
+      В любом порядке] - контекст должен подсветится красным, а дерево остаться 
+      в прежнем состоянии.
+}
+
+function  HLTC71_7_6_1_2_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, nameBefore;
+  dictionaryTree;
+begin
+	Result := false;
+  SetContextFilterSettings('Толковый словарь', 'С начала строки', 'В любом порядке', 'Во всех уровнях');   
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if IsExists(w) then
+      begin
+        w.SetFocus;
+        Sys.Keys('[End]![Home]' + 'pre* n ие');
+        if w.Font.Color <> F1_REDCOLOR then
+        	Log.Error('Цвет шрифта контекста не становится Красным');
+        dictionaryTree .SetFocus;
+        nameBefore := common.GetWindowText(dictionaryTree.Handle);
+        Sys.Keys('[Down]');
+        Result :=(nameBefore <> common.GetWindowText(dictionaryTree.Handle));
+        w.SetFocus;
+        Sys.Keys('[End]![Home][Del]');
+      end
+      else
+        Log.Error('Не найдено поле ввода контекстного поиска в закладке ТС');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.3: В качестве контекста ввести "маш обор лиз"
+			HLTC71.7.6.1.3.1: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = В любой части слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве останется термин 
+      <Лизинг машин и оборудования>
+}
+
+function  HLTC71_7_6_1_3_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, dictionaryTree;
+begin
+	Result := false;
+	SetContextFilterSettings('Толковый словарь', 'В любой части слова', 'В любом порядке', 'Во всех уровнях');
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));    
+    w.SetFocus;
+    Sys.Keys('[Del][End]![Home]' + 'маш обор лиз');
+    dictionaryTree .SetFocus;
+    Result :=('Лизинг машин и оборудования' = common.GetWindowText(dictionaryTree.Handle));
+    w.SetFocus;
+    Sys.Keys('[End]![Home][Del]');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.3: В качестве контекста ввести "маш обор лиз"
+			HLTC71.7.6.1.3.2: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = C начала слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве останется термин 
+      <Лизинг машин и оборудования>
+}
+
+function  HLTC71_7_6_1_3_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, dictionaryTree;
+begin
+	Result := false;
+  SetContextFilterSettings('Толковый словарь', 'С начала слова', 'В любом порядке', 'Во всех уровнях');   
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + 'маш обор лиз');
+    dictionaryTree .SetFocus;
+    Result :=('Лизинг машин и оборудования' = common.GetWindowText(dictionaryTree.Handle));
+    w.SetFocus;
+    Sys.Keys('[End]![Home][Del]');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.3: В качестве контекста ввести "маш обор лиз"
+			HLTC71.7.6.1.3.3: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = C начала слова,  Порядок слов = 
+      С учётом порядка] - контекст должен подсветится красным, а дерево остаться 
+      в прежнем состоянии.
+}
+
+function  HLTC71_7_6_1_3_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, nameBefore;
+  dictionaryTree;
+begin
+	Result := false;
+  SetContextFilterSettings('Толковый словарь', 'С начала слова', 'С учетом порядка', 'Во всех уровнях');   
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if IsExists(w) then
+      begin
+        w.SetFocus;
+        Sys.Keys('[End]![Home]' + 'маш обор лиз');
+        if w.Font.Color <> F1_REDCOLOR then
+        	Log.Error('Цвет шрифта контекста не становится Красным');
+        dictionaryTree .SetFocus;
+        nameBefore := common.GetWindowText(dictionaryTree.Handle);
+        Sys.Keys('[Down]');
+        Result :=(nameBefore <> common.GetWindowText(dictionaryTree.Handle));
+        w.SetFocus;
+        Sys.Keys('[End]![Home][Del]');
+      end
+      else
+        Log.Error('Не найдено поле ввода контекстного поиска в закладке ТС');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+  	HLTC71.7.6.1.3: В качестве контекста ввести "маш обор лиз"
+			HLTC71.7.6.1.3.4: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = C начала строки,  Порядок слов 
+      В любом порядке] - контекст должен подсветится красным, а дерево остаться 
+      в прежнем состоянии.	
+}
+
+function  HLTC71_7_6_1_3_4_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, nameBefore;
+  dictionaryTree;
+begin
+	Result := false;
+  SetContextFilterSettings('Толковый словарь', 'С начала строки', 'В любом порядке', 'Во всех уровнях');
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    
+    if IsExists(w) then
+      begin
+        w.SetFocus;
+        Sys.Keys('[End]![Home]' + 'маш обор лиз');
+        if w.Font.Color <> F1_REDCOLOR then
+        	Log.Error('Цвет шрифта контекста не становится Красным');
+        dictionaryTree .SetFocus;
+        nameBefore := common.GetWindowText(dictionaryTree.Handle);
+        Sys.Keys('[Down]');
+        Result :=(nameBefore <> common.GetWindowText(dictionaryTree.Handle));
+        w.SetFocus;
+        Sys.Keys('[End]![Home][Del]');
+      end
+      else
+        Log.Error('Не найдено поле ввода контекстного поиска в закладке ТС');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+		HLTC71.7.6.1.4: В качестве контекста ввести <нал вая разница> 
+			HLTC71.7.6.1.4.1: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = В любой части слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве должен остаться термин 
+      <Налоговая разница>
+}
+function  HLTC71_7_6_1_4_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, dictionaryTree;
+begin
+	Result := false;
+	SetContextFilterSettings('Толковый словарь', 'В любой части слова', 'В любом порядке', 'Во всех уровнях');
+  GoToDictionary;
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if IsExists(dictionaryTree) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + 'нал вая разница');
+    dictionaryTree.SetFocus;
+    Result :=('Налоговая разница' = common.GetWindowText(dictionaryTree.Handle));
+    w.SetFocus;
+    Sys.Keys('[End]![Home][Del]');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ТС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+		HLTC71.7.6.1.4: В качестве контекста ввести <нал вая разница>
+      HLTC71.7.6.1.4.2 : Ввести данный контекст. Выставить параметры фильтрации: 
+      [Область поиска = Во всех уровнях, Положение контекста = C начала слова,  Порядок слов = В любом порядке] – 
+      контекст должен подсветится красным, последняя его часть «я разница» должна выделиться, 
+      должен раздасться системный писк, а в дереве должно остаться 3 элементов, удовлетворяющих контексту «на ва».
+}
+function  HLTC71_7_6_1_4_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  NUM_OF_DOCS = 3;
+var
+  w, dictionaryTree;
+  tmp_count;
+begin
+try
+  Result := true;
+  SetContextFilterSettings('Толковый словарь', 'С начала слова', 'В любом порядке', 'Во всех уровнях');
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+
+  if not FillTCContextFilterField('нал вая разница', false) then
+    Raise('Не получилось заполнить фильтр ТС');
+
+  dictionaryTree := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if not IsExists(dictionaryTree) then
+    Raise('Не найден список терминов ТС');
+
+  w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));      
+  if not IsExists(w) then
+    Raise('Не найдено поле ввода контекстного поиска в закладке ТС');
+
+  w.SetFocus;
+  if w.Font.Color <> F1_REDCOLOR then
+   	Result := ErrorResult('Цвет шрифта контекста не становится Красным');
+
+  tmp_count := CountElementInTree(dictionaryTree);         
+  if tmp_count <> NUM_OF_DOCS then
+   	Result := ErrorResult('После фильтрации должно быть ' + IntToStr(NUM_OF_DOCS) + ' терминов, а есть ' + IntToStr(tmp_count));
+
+  w.SetFocus;
+  Sys.Keys('[End]![Home][Del]');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.1: Дерево терминов толкового словаря
+		HLTC71.7.6.1.4: В качестве контекста ввести <нал вая разница>
+      HLTC71.7.6.1.4.3 : Очистить поле ввода и выставить параметры фильтрации: 
+      [Область поиска = Во всех уровнях, Положение контекста = C начала слова,  Порядок слов = С учетом порядка]. 
+      Начать вводить этот контекст с клавиатуры. После ввода «на вая» должен раздасться системный писк, 
+      контекст должен подсветится красным, последняя буква «я» должна выделиться, 
+      и при вводе пробела должа произойти замена последнего символа, 
+      т.е. конечный контекст должен выглядеть как «нал ва ра».
+}
+function  HLTC71_7_6_1_4_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT = 'нал ва ра';
+var
+  w, tmp_context;
+begin
+try
+  Result := true;
+  SetContextFilterSettings('Толковый словарь', 'С начала слова', 'С учетом порядка', 'Во всех уровнях');
+  if not GoToDictionary then
+    Raise('Не получилось открыть ТС');
+
+  w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));      
+  if not IsExists(w) then
+    Raise('Не найдено поле ввода контекстного поиска в закладке ТС');
+
+  if not FillTCContextFilterField('нал вая разница', false) then
+    Raise('Не получилось заполнить фильтр ТС');
+
+  tmp_context := common.GetWindowText(w.Handle);
+  if not StringCompare(CONTEXT, tmp_context) then 
+    Result := ErrorResult('После ввода контекста в поле ввода ТС должно остаться: "' + CONTEXT + '", а осталось "' + tmp_context + '"');
+
+  w.SetFocus;
+  Sys.Keys('[End]![Home][Del]');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.2: Дерево поиска по источнику опубликования.
+		HLTC71.7.6.2.1: В качестве контекста ввести <и нь эконо>
+      HLTC71.7.6.2.1.1: Выставить параметры фильтрации: 
+        [Область поиска = Во всех уровнях, Положение контекста = В любой части слова,  Порядок слов = В любом порядке] - 
+        после фильтрации в дереве должен остаться <ФПА АКДИ "Экономика и жизнь"> в свёрнутом состоянии>
+  HLTC71.7.6.2.1.1.1: Проверить, что этот оставшийся элемент содержит тоже самое количество детей (т.е под уровней) , что и при снятии фильтрации.
+}
+function  HLTC71_7_6_2_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  ELEMENT1 = 'ФПА АКДИ "Экономика и жизнь"\2002\Январь';
+  ELEMENT2 = 'ФПА АКДИ "Экономика и жизнь"\2001\Январь';
+var
+  w, rubricatorPPIO;
+begin
+	Result := false;
+  SetContextFilterSettings('Поиск по источнику опубликования', 'В любой части слова', 'В любом порядке', 'Во всех уровнях');   
+  GoToPPIO;
+  rubricatorPPIO := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+  if IsExists(rubricatorPPIO) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromPPIO('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    w.SetFocus;
+    Sys.Keys('[End]![Home]' + 'и нь эконо');
+    rubricatorPPIO.SetFocus;
+    Result :=('ФПА АКДИ "Экономика и жизнь"' = common.GetWindowText(rubricatorPPIO.Handle));
+    Result := Result and Position_Internal(rubricatorPPIO, ELEMENT1, DELIM_CHAR, true, 'IsPressHome:=true');
+    Result := Result and Position_Internal(rubricatorPPIO, ELEMENT2, DELIM_CHAR, true, 'IsPressHome:=true');
+
+    w.SetFocus;
+    Sys.Keys('[End]![Home][Del]');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ППИО');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.2: Дерево поиска по источнику опубликования.
+		HLTC71.7.6.2.2: В качестве контекста ввести <Ф Г 01>
+      HLTC71.7.6.2.2.1: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = В любой части слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве должны остаться:
+    ФПА АКДИ "Экономика и жизнь"
+        2001
+            Январь
+                ФПА АКДИ "Экономика и жизнь", 2001 год, N1
+    Специальный источник опубликования.
+        2001
+            Февраль
+                Специальный источник опубликования., 2001 год
+                Специальный источник опубликования., 2001 год, N 5 (февраь. номер 5)
+    Журнал "Вестник Росздавнадзора"
+        2001
+            Февраль
+                Журнал "Вестник Росздавнадзора", 2001 год, N 1 февраля 2001. Номер 4.
+                Журнал "Вестник Росздавнадзора", 2001 год, N 10 февраля 2001. Номер 5.
+                Журнал "Вестник Росздавнадзора", 2001 год, N 20 февраля 2001. Номер 6.
+}
+function  HLTC71_7_6_2_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT = 'Ф Г 01';
+var
+  w, rubricatorPPIO, elementsArray;
+begin
+  try
+  	Result := true;
+    elementsArray := [
+                      'ФПА АКДИ "Экономика и жизнь"',
+                      '2001',
+                      'Январь',
+                      'ФПА АКДИ "Экономика и жизнь", 2001 год, N 1',
+                      'Специальный источник опубликования.',
+                      '2001',
+                      'Февраль',
+                      'Специальный источник опубликования., 2001 год',
+                      'Специальный источник опубликования., 2001 год, N 5 (февраль. номер 5)',
+                      'Журнал "Вестник Росздравнадзора"',
+                      '2001',
+                      'Февраль',
+                      'Журнал "Вестник Росздравнадзора", 2001 год, N 1 февраля 2001. Номер 4.',
+                      'Журнал "Вестник Росздравнадзора", 2001 год, N 10 февраля 2001. Номер 5.',
+                      'Журнал "Вестник Росздравнадзора", 2001 год, N 20 февраля 2001. Номер 6.'
+    ];
+
+    if not SetContextFilterSettings('Поиск по источнику опубликования', 'В любой части слова', 'В любом порядке', 'Во всех уровнях') then
+      Raise('Не получилось установить нужные параметры контекстной фильтрации в КЗ ППИО');
+    GoToPPIO;
+    rubricatorPPIO := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+    if not IsExists(rubricatorPPIO) then
+      Raise('Список атрибутов ППИО после фильтрации не соответствует эталону');    
+
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromPPIO('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if not IsExists(w) then
+      Raise('В КЗ ППИО не найден КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"');
+    w.Keys('[End]![Home]' + CONTEXT);
+    rubricatorPPIO.SetFocus;
+    if not CompareArray(elementsArray, GetElementsFromTree(rubricatorPPIO, true), true, true) then
+      Raise('Список атрибутов ППИО после фильтрации не соответствует эталону, возможно неправильно работает Контекстный фильтр в ППИО для контекста: "' + CONTEXT + '"');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.2: Дерево поиска по источнику опубликования.
+		HLTC71.7.6.2.8: В качестве контекста ввести <ФПА 2001 ФПА>
+      HLTC71.7.6.2.8.1: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = С начала строки,  Порядок слов = 
+      С учётом порядка] - после фильтрации в дереве должны остаться:
+      "ФПА АКДИ "Экономика и жизнь"
+      	2001
+      		Январь
+      			"ФПА АКДИ "Экономика и жизнь "", 2001 год, N1
+}
+function  HLTC71_7_6_2_8_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT = 'ФПА 2001 ФПА';
+var
+  w, rubricatorPPIO, elementsArray;
+begin
+  try
+  	Result := true;
+    elementsArray := [
+                      'ФПА АКДИ "Экономика и жизнь"',
+                      '2001',
+                      'Январь',
+                      'ФПА АКДИ "Экономика и жизнь", 2001 год, N 1'
+    ];
+
+    if not SetContextFilterSettings('Поиск по источнику опубликования', 'С начала строки', 'С учетом порядка', 'Во всех уровнях') then
+      Raise('Не получилось установить нужные параметры контекстной фильтрации в КЗ ППИО');
+    GoToPPIO;
+    rubricatorPPIO := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+    if not IsExists(rubricatorPPIO) then
+      Raise('Список атрибутов ППИО после фильтрации не соответствует эталону');    
+
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromPPIO('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if not IsExists(w) then
+      Raise('В КЗ ППИО не найден КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"');
+    w.Keys('[End]![Home]' + CONTEXT);
+    rubricatorPPIO.SetFocus;
+    if not CompareArray(elementsArray, GetElementsFromTree(rubricatorPPIO, true), true, true) then
+      Raise('Список атрибутов ППИО после фильтрации не соответствует эталону, возможно неправильно работает Контекстный фильтр в ППИО для контекста: "' + CONTEXT + '"');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.2: Дерево поиска по источнику опубликования.
+		HLTC71.7.6.2.9: В качестве контекста ввести <АКДИ январь Экон АКДИ>
+			HLTC71.7.6.2.9.4: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = С начала строки,  Порядок слов = 
+      В любом порядке] - контекст должен подсветится красным, а дерево остаться 
+      в прежнем состоянии.
+}
+function  HLTC71_7_6_2_9_4_Execute(var  current_state: OleVariant): OleVariant;
+var
+  w, nameBefore;
+  rubricatorPPIO;
+begin
+	Result := false;
+  SetContextFilterSettings('Поиск по источнику опубликования', 'С начала строки', 'В любом порядке', 'Во всех уровнях');
+  GoToPPIO;
+  rubricatorPPIO := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+  if IsExists(rubricatorPPIO) then
+  begin
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromPPIO('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if IsExists(w) then
+    begin
+      w.SetFocus;
+      Sys.Keys('[End]![Home]' + 'АКДИ январь Экон АКДИ');
+      if w.Font.Color <> F1_REDCOLOR then
+      	Log.Error('Цвет шрифта контекста не становится Красным');
+      rubricatorPPIO.SetFocus;
+      nameBefore := common.GetWindowText(rubricatorPPIO.Handle);
+      Sys.Keys('[Down]');
+      Result :=(nameBefore <> common.GetWindowText(rubricatorPPIO.Handle));
+      w.SetFocus;
+      Sys.Keys('[End]![Home][Del]');
+    end
+    else
+      Log.Error('Не найдено поле ввода контекстного поиска в закладке ППИО');
+  end;
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в ППИО');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.1: Ввести контекстный фильтр <122-ФЗ>
+    	HLTC71.7.6.5.1.1: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = С начала строки,  
+      Порядок слов = В любом порядке] - после фильтрации 
+      в дереве должен остаться номер <122-ФЗ>
+}
+function  HLTC71_7_6_5_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = '122-Ф3';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetContextFilterSettings('Номер документа', 'С начала строки', 'В любом порядке', 'Во всех уровнях');
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+    if IsExists(rubricator) then 
+    begin
+      w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));       
+      w.SetFocus;
+      Sys.Keys('[End]![Home]' + DOCNAME);
+      rubricator.SetFocus;
+      Result := (common.GetWindowText(rubricator.Handle) = DOCNAME) and (CountElementInTree(rubricator) = 1);
+    end
+    else
+    	Log.Error('Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.1: Ввести контекстный фильтр <122-ФЗ>
+      HLTC71.7.6.5.1.2: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = В любой части слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве должен остаться номер <122-ФЗ>
+}
+
+function  HLTC71_7_6_5_1_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = '122-Ф3';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetContextFilterSettings('Номер документа', 'В любой части слова', 'В любом порядке', 'Во всех уровнях');
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+    if IsExists(rubricator) then 
+    begin
+      w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+      w.SetFocus;
+      Sys.Keys('[End]![Home]' + DOCNAME);
+      rubricator.SetFocus;
+      Result := (common.GetWindowText(rubricator.Handle) = DOCNAME) and (CountElementInTree(rubricator) = 1);
+    end
+    else
+    	Log.Error('Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.1: Ввести контекстный фильтр <122-ФЗ>
+			HLTC71.7.6.5.1.3: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = С начала слова,  Порядок слов = 
+      В любом порядке] - после фильтрации в дереве должен остаться номер <122-ФЗ
+}
+function  HLTC71_7_6_5_1_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = '122-Ф3';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetContextFilterSettings('Номер документа', 'С начала слова', 'В любом порядке', 'Во всех уровнях');
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+    if IsExists(rubricator) then 
+    begin
+      w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+      w.SetFocus;
+      Sys.Keys('[End]' + keyPause +'![Home]' + keyPause + DOCNAME);
+      rubricator.SetFocus;
+      Result := (common.GetWindowText(rubricator.Handle) = DOCNAME) and (CountElementInTree(rubricator) = 1);
+    end
+    else
+    	Log.Error('Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.1: Ввести контекстный фильтр <122-ФЗ>
+			HLTC71.7.6.5.1.4: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = В любой части слова,  
+      Порядок слов = С учётом порядка] - после фильтрации в дереве должен 
+      остаться номер <122-ФЗ
+}
+function  HLTC71_7_6_5_1_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = '122-Ф3';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetContextFilterSettings('Номер документа', 'В любой части слова', 'С учетом порядка', 'Во всех уровнях');   
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+    if IsExists(rubricator) then 
+    begin
+      w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+      w.SetFocus;
+      Sys.Keys('[End]![Home]' + DOCNAME);
+      rubricator.SetFocus;
+      Result := (common.GetWindowText(rubricator.Handle) = DOCNAME) and (CountElementInTree(rubricator) = 1);
+    end
+    else
+    	Log.Error('Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.1: Ввести контекстный фильтр <122-ФЗ>
+			HLTC71.7.6.5.1.5: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = С начала слова,  Порядок слов = 
+      С учётом порядка] - после фильтрации в дереве должен остаться номер <122-ФЗ
+}
+function  HLTC71_7_6_5_1_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = '122-Ф3';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetContextFilterSettings('Номер документа', 'С начала слова', 'С учетом порядка', 'Во всех уровнях');
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+    if IsExists(rubricator) then 
+    begin
+      w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+      w.SetFocus;
+      Sys.Keys('[End]![Home]' + DOCNAME);
+      rubricator.SetFocus;
+      Result := (common.GetWindowText(rubricator.Handle) = DOCNAME) and (CountElementInTree(rubricator) = 1);
+    end
+    else
+    	Log.Error('Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.1: Ввести контекстный фильтр <122-ФЗ>
+			HLTC71.7.6.5.1.6: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = С начала строки,  Порядок слов = 
+      С учётом порядка] - после фильтрации в дереве должен остаться номер <122-ФЗ
+}
+
+function  HLTC71_7_6_5_1_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = '122-Ф3';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetContextFilterSettings('Номер документа', 'С начала строки', 'С учетом порядка', 'Во всех уровнях');   
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+    if IsExists(rubricator) then 
+    begin
+      w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+      w.SetFocus;
+      Sys.Keys('[End]![Home]' + DOCNAME);
+      rubricator.SetFocus;
+      Result := (common.GetWindowText(rubricator.Handle) = DOCNAME) and (CountElementInTree(rubricator) = 1);
+    end
+    else
+    	Log.Error('Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.2: Ввести контекстный фильтр <Ф3> (3- цифра)
+			HLTC71.7.6.5.2.1: Выставить параметры фильтрации: [Область поиска = 
+      Во всех уровнях, Положение контекста = В любой части слова,
+      Порядок слов = В любом порядке] – после фильтрации в дереве должены
+      остаться все номера, удовлетворяющие условию.
+}
+function  HLTC71_7_6_5_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'Ф3';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetContextFilterSettings('Номер документа', 'В любой части слова', 'В любом порядке', 'Во всех уровнях');
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    rubricator := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+    if IsExists(rubricator) then 
+    begin
+      w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromAttributeSelect('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+      w.SetFocus;
+      Sys.Keys('[End]![Home]' + DOCNAME);
+      rubricator.SetFocus;
+      Result := CheckContextTreeElements(rubricator, DOCNAME);
+    end
+    else
+    	Log.Error('Не найдено окно "ДЕРЕВО АТТРИБУТОВ"');
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.1: <A> (английская) в <А> русскую
+}
+function  HLTC71_7_6_5_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'A';
+  WORD2 = 'А';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.2: <B> (английская) в <В> русскую
+}
+function  HLTC71_7_6_5_3_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'B';
+  WORD2 = 'В';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.3: <С> (английская) в <C> русскую
+}
+
+function  HLTC71_7_6_5_3_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'C';
+  WORD2 = 'С';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.4: <E> (английская) в <Е> русскую
+}
+function  HLTC71_7_6_5_3_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'E';
+  WORD2 = 'Е';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.6: <H> (английская) в <Н> русскую
+}
+
+function  HLTC71_7_6_5_3_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'H';
+  WORD2 = 'Н';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.7: <K> (английская) в <К> русскую
+}
+
+function  HLTC71_7_6_5_3_7_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'K';
+  WORD2 = 'К';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.8: <М> (английская) в <М> русскую
+}
+
+function  HLTC71_7_6_5_3_8_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'M';
+  WORD2 = 'М';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.9: <Р> (английская) в <Р> русскую
+}
+
+function  HLTC71_7_6_5_3_9_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'P';
+  WORD2 = 'Р';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.10: <Т> (английская) в <Т> русскую
+}
+
+function  HLTC71_7_6_5_3_10_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'T';
+  WORD2 = 'Т';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.11: <Х> (английская) в <Х> русскую
+}
+
+function  HLTC71_7_6_5_3_11_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'I';
+  WORD2 = '1';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+			HLTC71.7.6.5.3.12: <I> (английская) в <1>
+}
+function  HLTC71_7_6_5_3_12_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = '0I-0I';
+  WORD2 = '01-01';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+		 HLTC71.7.6.5.3.13: <O> (английская) в <0>
+}
+
+function  HLTC71_7_6_5_3_13_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'O1-O1';
+  WORD2 = '01-01';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+		 HLTC71.7.6.5.3.14: <О> (русская) в <0>
+}
+
+function  HLTC71_7_6_5_3_14_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = 'О1-О1';
+  WORD2 = '01-01';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.5: Дерево номеров (в ППР при переходе по кнопке-ссылке <Номер>)
+		HLTC71.7.6.5.3: Проверить, что при вводе слудующих символов в поле контекст, 
+    они перекодируются (т.е при фильтрации будет участвовать уже перекодированный 
+    символ):
+		 HLTC71.7.6.5.3.15: <З> (русская) в <3>
+}
+
+function  HLTC71_7_6_5_3_15_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WORD1 = '0З-0З';
+  WORD2 = '03-03';
+var
+  w, rubricator;
+begin
+	Result := false;
+  SetDefaultSettings;
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_NUMBER) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := CheckMappingContext(WORD1, WORD2);
+    GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА').Close;
+    if not Result then
+     	Log.Error('Результаты Контекстной фильтрации отличаются для английской "' + WORD1 + '" и русской "' + WORD2 + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.6: Дерево <Орган/Источник> (в ППР при переходе по кнопке-ссылке <Орган/Источник>)
+		HLTC71.7.6.6.1: Ввести контекстный фильтр <адм пре росс>
+		 HLTC71.7.6.6.1.1: Выставить параметры фильтрации: [Область поиска = 
+     В пределах одного уровня, Положение контекста = С начала строки,  
+     Порядок слов = С учётом порядка] – после фильтрации в дереве должен остаться:
+       "Президент России и CCСР"
+       		"Администрация Президента России"
+}
+function  HLTC71_7_6_6_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'адм пре росс';
+var
+  w;
+  treeNames: array [0..1] of String;  
+begin
+  treeNames[0] := 'Президент России и СССР';
+	treeNames[1] := 'Администрация Президента России';
+	Result := false;
+  SetContextFilterSettings('Орган/Источник', 'С начала строки', 'С учетом порядка', 'В пределах одного уровня');
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_SOURCE) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := checkFiltrateRequsiteTree(DOCNAME, treeNames);
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.6: Дерево <Орган/Источник> (в ППР при переходе по кнопке-ссылке <Орган/Источник>)
+		HLTC71.7.6.6.2: Ввести контекстный фильтр <дума феде соб>
+			HLTC71.7.6.6.2.1: Выставить параметры фильтрации: [Область поиска = 
+      В пределах одного уровня, Положение контекста = С начала слова,  Порядок 
+      слов = С учётом порядка] - после фильтрации в дереве должен остаться:
+      "Органы законодательной власти России и СССР"
+      	Федеральное собрание
+      		Государственная Дума Федерального Собрания
+} 
+function  HLTC71_7_6_6_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'дума феде соб';
+var
+  w;
+  treeNames: array [0..2] of String;  
+begin
+  treeNames[0] := 'Органы законодательной власти России и СССР';
+	treeNames[1] := 'Федеральное Собрание';
+	treeNames[2] := 'Государственная Дума Федерального Собрания';  
+	Result := false;
+  SetContextFilterSettings('Орган/Источник', 'С начала слова', 'С учетом порядка', 'В пределах одного уровня');
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_SOURCE) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := checkFiltrateRequsiteTree(DOCNAME, treeNames);
+    Sys.Keys('[Esc]');    
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.6: Дерево <Орган/Источник> (в ППР при переходе по кнопке-ссылке <Орган/Источник>)
+		HLTC71.7.6.6.4: Ввести контекстный фильтр <федер ведом министер>
+			HLTC71.7.6.6.4.1: Выставить параметры фильтрации: [Область поиска = 
+      В пределах одного уровня, Положение контекста = С начала строки,  
+      Порядок слов = В любом порядке] - после фильтрации в дереве должен остаться:
+      Федеральные министерства и ведомства
+}
+function  HLTC71_7_6_6_4_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'федер ведом министер';
+var
+  w;
+  treeNames: array [0..0] of String;  
+begin
+  treeNames[0] := 'Федеральные министерства и ведомства';
+	Result := false;
+  SetContextFilterSettings('Орган/Источник', 'С начала строки', 'В любом порядке', 'В пределах одного уровня');   
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_SOURCE) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := checkFiltrateRequsiteTree(DOCNAME, treeNames);
+    Sys.Keys('[Esc]');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+  HLTC71.7.6.7.1: Ввести «Часть вторая». Проверить, что останется Оглавление/Часть вторая со всеми подэлементами в развернутом виде.
+}
+function  HLTC71_7_6_7_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT1 = 'Часть вторая';
+  RES_CONTEXT1 = 'Статья 143*';
+  RES_CONTEXT2 = 'Пункт 1';
+var
+  w, rubricatorTree;
+begin
+try
+  try
+  	Result := true;
+
+    if not OpenDocByNumber(10800200) then
+      Raise('Не получилось открыть "НК РФ"');
+    rubricatorTree := OpenInDocument('СТРУКТУРА ДОКУМЕНТА');
+    if not IsExists(rubricatorTree) then
+      Raise('Не получилось открыть Структуру документа в "НК РФ"');
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if not IsExists(w) then
+      Raise('Не найден КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"');
+    w.Keys('[End]![Home]' + CONTEXT1 + KeyPause + KeyPause + KeyPause);
+    
+  	if not Position_by_Text(rubricatorTree, RES_CONTEXT1, false, true) then
+      Raise('Не найден элемент после фильтрации "' + RES_CONTEXT1 + '"');
+    rubricatorTree.Keys('[Home]');
+  	if not Position_by_Text(rubricatorTree, RES_CONTEXT2, false, true) then
+      Raise('Не найден элемент после фильтрации "' + RES_CONTEXT2 + '"');
+  finally
+    ClearMenuContextFilter;
+    GoToMainMenu;  
+  end;  
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC71.7.6.7.2: Ввести «пункт 2». Проверить, что отфильтруются ненужные элементы и останутся только те, которые содержат этот контекст, и их родители.
+  HLTC71.7.6.7.3: Проверить, что в отфильтрованном оглавлении корректно осуществляется синхронизация с текстом. Также проверить синхронизацию после снятия фильтра.
+}
+function  HLTC71_7_6_7_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT_NOT_EXISTS = 'Пункт 1';
+  CONTEXT_EXISTS = 'Пункт 2';
+var
+  w, i, arrayOfElements, docText;
+begin
+try
+  try
+  	Result := true;
+    arrayOfElements := [
+                        (['Часть первая*\Раздел I*\Глава 1*\Статья 1*\', '*2. Настоящий Кодекс устанавливает систему*']),
+                        (['Часть первая*\Раздел II*\Глава 4*\Статья 29*\', '*2. Не могут быть уполномоченными*']),
+                        (['Часть вторая*\Раздел VIII*\Глава 21*\Статья 144*\', '*2. Иностранные организации имеют право*']),
+                        (['Часть вторая*\Раздел X*\Глава 31*\Статья 398*\', '*Информация об изменениях:*Федеральным законом от 28 ноября*'])
+    ];
+
+    SetContextFilterSettings('Структура документа', 'С начала слова', 'В любом порядке', 'В пределах одного уровня');
+    if not OpenDocByNumber(10800200) then
+      Raise('Не получилось открыть "НК РФ"');
+    if not IsExists(OpenInDocument('СТРУКТУРА ДОКУМЕНТА')) then
+      Raise('Не получилось открыть Структуру документа в "НК РФ"');
+    w := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'));
+    if not IsExists(w) then
+      Raise('Не найден КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"');
+    w.Keys('[End]![Home]' + CONTEXT_EXISTS);
+
+  	for i := VarArrayLowBound(arrayOfElements, 1) to VarArrayHighBound(arrayOfElements, 1) do
+    begin
+      if not ClickToolbarButton(GetFromNavigator('ТУЛБАР "СТРУКТУРА ДОКУМЕНТА"'), 'Свернуть все*') then 
+        Result := ErrorResult('Не получилось свернуть дерево оглавления');
+    	if not Position_Internal(SetFocusToContents, arrayOfElements[i][0] + CONTEXT_EXISTS, DELIM_CHAR, true, 'ExpandKey:=[NumMinus][NumPlus]') then
+        Result := ErrorResult('Не найден элемент структуры после фильтрации "' + arrayOfElements[i][0] + CONTEXT_EXISTS + '"')
+      else
+      begin
+        docText := CopyToClipboard(GetEditor, 'STRING');
+        if not StringCompare(arrayOfElements[i][1], docText) then
+        	Result := ErrorResult('После перехода из структуры документа по "' + arrayOfElements[i][0] + CONTEXT_EXISTS + '" перешли к строке: "' + docText + '", ожидали переход к строке: "' + arrayOfElements[i][1] + '"');
+      end;
+    	
+      if Position_Internal(SetFocusToContents, arrayOfElements[i][0] + CONTEXT_NOT_EXISTS, DELIM_CHAR, true, 'ExpandKey:=[NumMinus][NumPlus]') then
+        Result := ErrorResult('Найден элемент структуры после фильтрации "' + arrayOfElements[i][0] + CONTEXT_NOT_EXISTS + '"');
+    end;
+  finally
+    ClearMenuContextFilter;
+    SetDefaultSettings;
+    GoToMainMenu;  
+  end;  
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+HLTC71.7.6: Проверить правильность контекстной фильтрации различных деревьев:
+	HLTC71.7.6.6: Дерево <Орган/Источник> (в ППР при переходе по кнопке-ссылке <Орган/Источник>)
+		HLTC71.7.6.6.5: Ввести контекстный фильтр <врач сан гос>
+			HLTC71.7.6.6.5.1: Выставить параметры фильтрации: [Область поиска = 
+      В пределах одного уровня, Положение контекста = С начала слова,  
+      Порядок слов = В любом порядке] - после фильтрации в дереве должен остаться:
+      Федеральные министерства и ведомства
+      		Главный государственный санитарный врач России
+      		Главный государственный санитарный врач СССР
+      Органы власти г. Москвы
+      		Главный государственный санитарный врач Москвы
+}
+function  HLTC71_7_6_6_5_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'врач сан гос';
+var
+  w;
+  treeNames: array [0..4] of String;  
+begin
+  TreeNames[0] := 'Федеральные министерства и ведомства';
+	TreeNames[1] := 'Главный государственный санитарный врач России';
+  TreeNames[2] := 'Главный государственный санитарный врач СССР';
+  TreeNames[3] := 'Органы власти г. Москвы';
+  TreeNames[4] := 'Главный государственный санитарный врач Москвы';
+	Result := false;
+  SetContextFilterSettings('Орган/Источник', 'С начала слова', 'В любом порядке', 'В пределах одного уровня');
+  //Открываем поле НОМЕР
+  if PositionInPPR(FD_SOURCE) then
+  begin
+    Sys.Keys('[Enter]');
+    Result := checkFiltrateRequsiteTree(DOCNAME, treeNames);
+    Sys.Keys('[Esc]');
+  end
+  else
+  	Log.Error('Не получилось открыть окно "ВЫБОР РЕКВИЗИТА" в ППР');
+  if not Result then
+    	Log.Error('Неправильно работает Контекстный фильтр в окне "Выбор значений реквизита"');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.7: Проверить параметры контекстной фильтрации можно настривать:
+	HLTC71.7.7.1: Перейти в настройки конфигурации (5.х или 6.х в зависимости от 
+  того, что требуется проверить), <Контекстная фильтрация>, меняя настройки 
+  контекстной фильтрации для различных деревьев проверять, что соответственно 
+  меняются настройки в тулбарах к соответстующему дереву
+		HLTC71.7.7.1.1: Поиск по ситуации (ППС).
+			HLTC71.7.7.1.1.2: Поменять <Порядок слов> на:
+				HLTC71.7.7.1.1.2.1:  <В любом порядке>.
+					HLTC71.7.7.1.1.2.1.1: Перейти в ППС, проверить, что на тулбаре, в 
+          комбобоксе <Порядок слов> выставлено значение <В любом порядке>.
+}
+function  HLTC71_7_7_1_1_2_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	CHECKNAME = 'В любом порядке';
+var
+  w, comboName;
+  operationsList: array [0..0] of String;    
+begin
+	Result := false;
+  SetContextFilterSettings('Поиск по ситуации',  '', CHECKNAME, '');
+  //
+  operationsList[0] := 'Порядок слов';
+	AddOPerationsToToolBar('Поиск: Выбор реквизита', operationsList);
+  if GoToPPS and IsExists(GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then
+  begin
+    w := GetToolbarObject(GetFromPPS('ТУЛБАР "ПОИСК: ВЫБОР РЕКВИЗИТА"'), 'COMBOBOX', 'Порядок слов*');
+    w.SetFocus;
+    comboName := common.GetWindowText(w.Handle);
+    Result := comboName = CHECKNAME;
+    if not Result then
+    	Log.Error('Порядок слов: Текст комбобокса "' + comboName + '", а должен быть "' + CHECKNAME + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть ППС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+{
+HLTC71.7.7: Проверить параметры контекстной фильтрации можно настривать:
+	HLTC71.7.7.1: Перейти в настройки конфигурации (5.х или 6.х в зависимости от 
+  того, что требуется проверить), <Контекстная фильтрация>, меняя настройки 
+  контекстной фильтрации для различных деревьев проверять, что соответственно 
+  меняются настройки в тулбарах к соответстующему дереву
+		HLTC71.7.7.1.1: Поиск по ситуации (ППС).
+			HLTC71.7.7.1.1.2: Поменять <Порядок слов> на:
+				HLTC71.7.7.1.1.2.2: <С учётом порядка>.
+          HLTC71.7.7.1.1.2.2.1: Перейти в ППС, проверить, что на тулбаре, в 
+          комбобоксе <Порядок слов> выставлено значение <С учётом порядка>.
+}
+
+function  HLTC71_7_7_1_1_2_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	CHECKNAME = 'С учетом порядка';
+var
+  w, comboName;
+  operationsList: array [0..0] of String;    
+begin
+	Result := false;
+  SetContextFilterSettings('Поиск по ситуации', '', CHECKNAME,'');
+  //
+  operationsList[0] := 'Порядок слов';
+	AddOPerationsToToolBar('Поиск: Выбор реквизита', operationsList);
+  if GoToPPS and IsExists(GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then
+  begin
+    w := GetToolbarObject(GetFromPPS('ТУЛБАР "ПОИСК: ВЫБОР РЕКВИЗИТА"'), 'COMBOBOX', 'Порядок слов*');
+    w.SetFocus;
+    comboName := common.GetWindowText(w.Handle);
+    Result := comboName = CHECKNAME;
+    if not Result then
+    	Log.Error('Порядок слов: Текст комбобокса "' + comboName + '", а должен быть "' + CHECKNAME + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть ППС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.7: Проверить параметры контекстной фильтрации можно настривать:
+	HLTC71.7.7.1: Перейти в настройки конфигурации (5.х или 6.х в зависимости от 
+  того, что требуется проверить), <Контекстная фильтрация>, меняя настройки 
+  контекстной фильтрации для различных деревьев проверять, что соответственно 
+  меняются настройки в тулбарах к соответстующему дереву
+		HLTC71.7.7.1.1: Поиск по ситуации (ППС).
+			HLTC71.7.7.1.1.3: Поменять <Область поиска> на:
+				HLTC71.7.7.1.1.3.1:  <Во всех уровнях>.
+          HLTC71.7.7.1.1.3.1.1: Перейти в ППС, проверить, что на тулбаре, в 
+          комбобоксе <Область поиска> выставлено значение <Во всех уровнях>.
+}
+
+function  HLTC71_7_7_1_1_3_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	CHECKNAME = 'Во всех уровнях';
+var
+  w, comboName;
+  operationsList: array [0..0] of String;    
+begin
+	Result := false;
+  SetContextFilterSettings('Поиск по ситуации', '', '', CHECKNAME);
+  //
+  operationsList[0] := 'Область поиска';
+	AddOPerationsToToolBar('Поиск: Выбор реквизита', operationsList);
+  if GoToPPS and IsExists(GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then
+  begin
+    w := GetToolbarObject(GetFromPPS('ТУЛБАР "ПОИСК: ВЫБОР РЕКВИЗИТА"'), 'COMBOBOX', 'Область поиска*');
+    w.SetFocus;
+    comboName := common.GetWindowText(w.Handle);
+    Result := comboName = CHECKNAME;
+    if not Result then
+    	Log.Error('Область поиска: Текст комбобокса "' + comboName + '", а должен быть "' + CHECKNAME + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть ППС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+
+{
+HLTC71.7.7: Проверить параметры контекстной фильтрации можно настривать:
+	HLTC71.7.7.1: Перейти в настройки конфигурации (5.х или 6.х в зависимости от 
+  того, что требуется проверить), <Контекстная фильтрация>, меняя настройки 
+  контекстной фильтрации для различных деревьев проверять, что соответственно 
+  меняются настройки в тулбарах к соответстующему дереву
+		HLTC71.7.7.1.1: Поиск по ситуации (ППС).
+			HLTC71.7.7.1.1.3: Поменять <Область поиска> на:
+				HLTC71.7.7.1.1.3.2: <В пределах одного уровня>.
+					HLTC71.7.7.1.1.3.2.1: Перейти в ППС, проверить, что на тулбаре, в 
+          комбобоксе <Область поиска> выставлено значение <В пределах одного уровня>.
+}
+
+function  HLTC71_7_7_1_1_3_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	CHECKNAME = 'В пределах одного уровня';
+var
+  w, comboName;
+  operationsList: array [0..0] of String;    
+begin
+	Result := false;
+  SetContextFilterSettings('Поиск по ситуации', '', '', CHECKNAME);
+  //
+  operationsList[0] := 'Область поиска';
+	AddOPerationsToToolBar('Поиск: Выбор реквизита', operationsList);
+  if GoToPPS and IsExists(GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then
+  begin
+    w := GetToolbarObject(GetFromPPS('ТУЛБАР "ПОИСК: ВЫБОР РЕКВИЗИТА"'), 'COMBOBOX', 'Область поиска*');
+    w.SetFocus;
+    comboName := common.GetWindowText(w.Handle);
+    Result := comboName = CHECKNAME;
+    if not Result then
+    	Log.Error('Область поиска: Текст комбобокса "' + comboName + '", а должен быть "' + CHECKNAME + '"');
+  end
+  else
+  	Log.Error('Не получилось открыть ППС');
+  SetDefaultSettings;        
+  GoToMainMenu;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+
+procedure RunMyTests71;
+var i, p : oleVariant;
+begin
+//  HLTC71_1_1_Execute(p);
+//  HLTC71_1_2_Execute(p);
+//  HLTC71_1_5_1_1_Execute(p);
+//  HLTC71_1_5_1_2_Execute(p);
+//  HLTC71_1_5_2_1_Execute(p);
+//  HLTC71_1_5_2_2_Execute(p);
+//  HLTC71_1_5_3_1_Execute(p);
+//  HLTC71_1_5_3_2_Execute(p);
+//  HLTC71_1_5_3_3_Execute(p);
+//  HLTC71_1_7_1_Execute(p);
+//  HLTC71_1_7_2_Execute(p);
+//  HLTC71_1_8_Execute(p);
+//  HLTC71_1_9_1_Execute(p);
+//  HLTC71_3_1_1_1_Execute(p);
+//  HLTC71_3_1_1_2_Execute(p);
+//  HLTC71_3_1_1_3_Execute(p);
+//  HLTC71_3_1_1_4_Execute(p);
+//  HLTC71_3_1_1_5_Execute(p);
+//  HLTC71_3_1_2_1_Execute(p);
+//  HLTC71_3_1_2_2_Execute(p);
+//  HLTC71_3_1_2_3_Execute(p);
+//  HLTC71_3_1_2_4_Execute(p);
+//  HLTC71_3_1_2_5_Execute(p);
+//  HLTC71_3_1_2_6_Execute(p);
+//  HLTC71_3_1_3_1_Execute(p);
+//  HLTC71_3_1_3_2_Execute(p);
+//  HLTC71_3_1_3_3_Execute(p);
+//  HLTC71_3_1_3_4_Execute(p);
+//  HLTC71_3_1_4_1_Execute(p);
+//  HLTC71_3_1_5_Execute(p);
+//  HLTC71_3_1_6_Execute(p);
+//  HLTC71_3_1_7_1_Execute(p);
+//  HLTC71_3_1_7_2_1_Execute(p);
+//  HLTC71_3_1_7_2_2_Execute(p);
+//  HLTC71_3_1_7_2_3_Execute(p);
+//  HLTC71_3_1_7_2_4_Execute(p);
+//  HLTC71_3_1_7_2_5_Execute(p);
+//  HLTC71_3_1_7_3_Execute(p);
+//  HLTC71_3_1_7_4_Execute(p);
+//  HLTC71_3_1_7_5_Execute(p);
+//  HLTC71_4_1_Execute(p);
+//  HLTC71_7_1_Execute(p);        //ошибка в оболочке
+//  HLTC71_7_2_Execute(p);        //ошибка в оболочке
+//  HLTC71_7_4_Execute(p);  
+//  HLTC71_7_3_Execute(p);   
+//  HLTC71_7_6_1_1_1_Execute(p);  
+//  HLTC71_7_6_1_1_2_Execute(p);  
+//  HLTC71_7_6_1_1_3_Execute(p);  
+//  HLTC71_7_6_1_1_4_Execute(p);  
+//  HLTC71_7_6_1_2_1_Execute(p);
+//  HLTC71_7_6_1_2_2_Execute(p);
+//  HLTC71_7_6_1_2_3_Execute(p);
+//  HLTC71_7_6_1_3_1_Execute(p);
+//  HLTC71_7_6_1_3_2_Execute(p);
+//  HLTC71_7_6_1_3_3_Execute(p);
+//  HLTC71_7_6_1_3_4_Execute(p);
+//  HLTC71_7_6_1_4_1_Execute(p);
+//  HLTC71_7_6_1_4_2_Execute(p);
+//  HLTC71_7_6_1_4_3_Execute(p);
+//  HLTC71_7_6_2_1_1_Execute(p);
+//  HLTC71_7_6_2_2_1_Execute(p);
+//  HLTC71_7_6_2_2_2_Execute(p);  
+//  HLTC71_7_6_2_8_1_Execute(p);  //ошибка в оболочке
+//  HLTC71_7_6_2_9_1_Execute(p);  //ошибка в оболочке
+//  HLTC71_7_6_2_9_2_Execute(p);  //ошибка в оболочке
+//  HLTC71_7_6_2_9_3_Execute(p);  //ошибка в оболочке
+//  HLTC71_7_6_2_9_4_Execute(p);
+//  HLTC71_7_6_2_10_1_Execute(p); //ошибка в оболочке
+//  HLTC71_7_6_2_11_1_Execute(p); //ошибка в оболочке 
+//  HLTC71_7_6_2_12_1_Execute(p); //ошибка в оболочке
+//  HLTC71_7_6_5_1_1_Execute(p);
+//  HLTC71_7_6_5_1_2_Execute(p);
+//  HLTC71_7_6_5_1_3_Execute(p);
+//  HLTC71_7_6_5_1_4_Execute(p);
+//  HLTC71_7_6_5_1_5_Execute(p);
+//  HLTC71_7_6_5_1_6_Execute(p);
+//  HLTC71_7_6_5_2_1_Execute(p);
+//  HLTC71_7_6_5_3_1_Execute(p);
+//  HLTC71_7_6_5_3_2_Execute(p);  
+//  HLTC71_7_6_5_3_3_Execute(p);  
+//  HLTC71_7_6_5_3_4_Execute(p);
+//  HLTC71_7_6_5_3_6_Execute(p);  
+//  HLTC71_7_6_5_3_7_Execute(p);
+//  HLTC71_7_6_5_3_8_Execute(p);  
+//  HLTC71_7_6_5_3_9_Execute(p);  
+//  HLTC71_7_6_5_3_10_Execute(p);  
+//  HLTC71_7_6_5_3_11_Execute(p); //Не работает в оболочке
+//  HLTC71_7_6_5_3_12_Execute(p);  
+//  HLTC71_7_6_5_3_13_Execute(p);  
+//  HLTC71_7_6_5_3_14_Execute(p);
+//  HLTC71_7_6_5_3_15_Execute(p);
+//  HLTC71_7_6_6_1_1_Execute(p);
+//  HLTC71_7_6_6_2_1_Execute(p);
+//  HLTC71_7_6_6_3_1_Execute(p);
+//  HLTC71_7_6_6_4_1_Execute(p);  
+//  HLTC71_7_6_6_5_1_Execute(p);    
+//  HLTC71_7_6_7_1_Execute(p);
+//  HLTC71_7_6_7_2_Execute(p);
+//  HLTC71_1_5_1_3_Execute(p);
+//  HLTC71_1_5_2_3_Execute(p);
+//  HLTC71_1_9_2_1_Execute(p);
+//  HLTC71_1_9_2_2_Execute(p);
+//  HLTC71_1_10_Execute(p);
+//  HLTC71_1_14_Execute(p);
+//  HLTC71_2_Execute(p);
+//  HLTC71_7_4_3_Execute(p);
+////////////////////////////
+  HLTC71_7_6_1_1_3_Execute(p); 
+ 
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+end;

@@ -1,0 +1,439 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Promt98 Translation System-->
+<HTML>
+ 
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Windows-1251">
+<META HTTP-EQUIV="Translator" CONTENT="Promt98 Translation System">  
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+ 
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">  
+<meta name="ProgId" content="FrontPage.Editor.Document">  
+<title> Руководство: Тест-сценарий</title> 
+<meta http-equiv="Content-Type" content="text/html">  
+  
+<meta name="Microsoft Border" content="rb">  </head> 
+<body>
+<a href="_md_tstsc.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<h2 class="banner"> <a name="Top"></a><a name="XE_test_script__guidelines_for"></a>Руководство:
+Тест-сценарий</h2> 
+<p class="banner">Guidelines:
+Test Script</p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td width="135" valign="middle" bordercolor="#808080" align="center"> 
+<a name="XE_test_script__definition_of"></a><font face="Arial" size="2"><strong>Тест-сценарий</strong></font>
+  <p><font face="Arial" size="2"><strong>Test
+    Script</strong></font></p>
+</td> 
+<td width="371" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"> <strong>Тест-сценарии</strong> -
+  читаемые для компьютера инструкции, которые автоматизируют выполнение
+  тест-процедуры (или части тест-процедуры).
+  Тест-сценарии могут быть созданы (записаны) или автоматически произведены
+  с использованием инструментария автоматизации
+  теста, запрограммированного с помощью языка программирования или
+  комбинации записи, производства, и программирования.
+  <p><strong>Test
+    scripts</strong> are the computer readable instructions that automate the
+    execution of a test procedure (or portion of a test procedure). Test scripts
+    may be created (recorded ) or automatically generated using test automation
+    tools, programmed using a programming language, or a combination of
+    recording, generating, and programming.</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h3> Разделы</h3> 
+ 
+<p> Topics</p> 
+<ul>
+ 
+<li> <a href="#Structure of Test Scripts">Структура Тест-сценариев</a></li> 
+<li> <a href="#Recording Technique">Техника З</a><a href="#Recording Technique">аписи</a></li> 
+<li> <a href="#Data-Driven Testing">Управляемое данными
+  Тестирование</a></li> 
+<li> <a href="#Error Handling">Обработка Ошибок</a></li> 
+<li> <a href="#Test Script Synchronization and Scheduling">Синхронизация и
+  Планирование Тест-сценариев</a></li> 
+<li> <a href="#Testing and Debugging Test Scripts">Тестирование и Отладка
+  Тест-сценариев</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Structure of Test Scripts">Structure of Test Scripts</a></li>
+  <li><a href="#Recording Technique">Recording Technique</a></li>
+  <li><a href="#Data-Driven Testing">Data-Driven Testing</a></li>
+  <li><a href="#Error Handling">Error Handling</a></li>
+  <li><a href="#Test Script Synchronization and Scheduling">Test Script
+    Synchronization and Scheduling</a></li>
+  <li><a href="#Testing and Debugging Test Scripts">Testing and Debugging Test
+    Scripts</a></li>
+</ul>
+<h3><a name="Structure of Test Scripts">Структура Тест-сценариев</a></h3> 
+<p><a name="Structure of Test Scripts">Structure of Test Scripts</a></p> 
+<p>
+Чтобы увеличивать удобство эксплуатации и возможность многократного использования ваших
+тест-сценариев, они должны быть структурированы прежде, чем они
+будут реализованы. Вы, вероятно, отметите, что
+существуют действия, которые будут
+фигурировать в нескольких тест-процедурах. Целью
+должно являться определение этих действия таким
+образом, чтобы Вы могли повторно их
+реализовать.
+</p>
+<p>To increase the maintainability and reusability of your test scripts, they
+should have been structured before they are implemented. You will probably find
+that there are actions that will appear in several test procedures. A goal
+should be to identify these actions so that you can reuse their implementation.
+</p>
+<p>
+Например, у Вас могут быть тест-процедуры, которые являются комбинациями различных действий, которые Вы можете
+выполнять для записи. Эти тест-процедуры могут быть
+комбинациями дополнения, модификации, и стирания
+записи:<p>For example, you may have test procedures that are combinations of different
+actions you can perform to a record. These test procedures may be combinations
+of the addition, modification, and the deletion of a record: 
+<ul>
+ 
+<li> Добавьте, Измените, Удалите (тот, который
+  очевиден)</li> 
+<li> Добавьте, Удалите, Изменить</li> 
+<li> Добавьте, Удалите, Добавьте, Удалите, ...</li> 
+<li> Добавьте, Добавьте, Добавьте, ...</li> 
+
+</ul>
+<ul>
+  <li>Add, Modify, Delete (the obvious one)</li>
+  <li>Add, Delete, Modify</li>
+  <li>Add, Delete, Add, Delete, ...</li>
+  <li>Add, Add, Add, ...</li>
+</ul>
+<p>
+Если Вы определите эти действия как отдельные
+тест-процедуры, реализуете их отдельно в различных
+тест-сценариях, и повторно используете их в других
+тест-процедурах, то Вы достигнете более высокого уровня повторного использования.
+</p>
+<p>If you identify these actions as separate test procedures, implement them
+separately in different test scripts, and reuse them in other test procedures
+you will achieve a higher level of reuse.
+</p>
+<p>
+Другая цель состояла бы в том, чтобы структурировать ваши
+тест-процедуры таким образом, чтобы изменение в целевом программном обеспечении
+вызывало бы локализованное и
+контролируемое изменение в ваших тест-процедурах. Это
+сделает ваши тест-процедуры и тест-сценарии более
+эластичными к изменениям в целевом программном обеспечении. Например,
+скажем, что часть программного обеспечения, предназначенная
+для входа в систему, изменилась. Для всех
+тест-установок, пересекающихся с частью
+входа в систему, только тест-процедура и
+тест-сценарий, имеющие отношение к входу в
+систему, должны будут измениться.
+</p>
+<p>Another goal would be to structure your test procedures in such a way that a
+change in the target software causes a localized and controllable change in your
+test procedures. This will make your test procedures and test scripts more
+resilient to changes in the target software. For example, say the login portion
+of the software has changed. For all test cases that traverses the login
+portion, only the test procedure and test script pertaining to login will have
+to change.
+</p>
+<h3> <a name="XE_recording_techniques_for_test_scripts"></a><a name="XE_test_script__recording_techniques"></a><a name="Recording Technique">Техника
+Записи</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Recording Technique">Recording
+Technique</a> </p> 
+<p>
+Чтобы достичь более высокого удобства
+эксплуатации ваших тест-сценариев, Вы должны
+вести запись таким способом, который является наименее уязвимым к изменениям в
+цели теста. Например, для тест-сценария, который заполняется
+на полях диалогового окна, имеются варианты
+перехода от одного поля к следующему:<p>To achieve higher maintainability of your test scripts, you should record
+them in a way that is least vulnerable to changes in the target-of-test. For
+example, for a test script that fills in dialog box fields, there are choices
+for how to proceed from one field to the next: 
+<ul>
+ 
+<li> Используйте клавишу TAB</li> 
+<li> Используйте мышь</li> 
+<li> Используйте командные клавиши на
+  клавиатуре</li> 
+
+</ul>
+<ul>
+  <li>Use the TAB key</li>
+  <li>Use the mouse</li>
+  <li>Use the keyboard accelerator keys</li>
+</ul>
+<p>
+Из этих вариантов, некоторые более уязвимы
+к изменениям проекта, чем другие. Если новое
+поле помещено на экран, то использование
+клавиши TAB будет ненадежно. Если командные
+клавиши назначены повторно, они не будут обеспечивать хорошую
+запись. Если метод, который использует мышь
+для определения поля является объектом
+изменения, то он также не может являться
+надежным методом. Однако, некоторые
+инструменты автоматизации теста имеют регистраторы
+тест-сценариев, которым может быть поручено
+идентифицировать поле более надежным методом,
+таким как Название Объекта(цели?),
+назначенное инструментом разработки (PowerBuilder,
+SQLWindows, или Visual Basic). Таким образом, на зарегистрированный
+тест-сценарий не влияют небольшие
+изменения в интерфейсе пользователя (например, изменения расположения, изменения
+меток полей, изменения форматирования, и т.д.)
+</p>
+<p>Of these choices, some are more vulnerable to design changes than others. If
+a new field is inserted on the screen the TAB key approach will not be reliable.
+If accelerator keys are reassigned, they will not provide a good recording. If
+the method that the mouse uses to identify a field is subject to change, that
+may not be a reliable method either. However, some test automation tools have
+test script recorders that can be instructed to identify the field by a more
+reliable method, such as its Object Name assigned by the development tool (PowerBuilder,
+SQLWindows, or Visual Basic). In this way, a recorded test script is not
+effected by minor changes to the user interface (e.g., layout changes, field
+label changes, formatting changes, etc.)
+</p>
+<h3> <a name="XE_data-driven_testing"></a><a name="XE_test_script__data-driven_testing"></a><a name="Data-Driven Testing">Управляемое данными
+Тестирование</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Data-Driven Testing">Data-Driven
+Testing </a> </p> 
+<p>Многие тест-процедуры включают введение
+нескольких наборов данных полей в экране
+ввода данных, чтобы проконтролировать функции
+проверки правильности данных в поле,
+обработку ошибок, и так далее. Процедурные шаги
+те же самые; только данные различны. Лучшим
+считается вместо записи тест-сценария для каждого набора
+исходных данных,&nbsp; произвести однократную
+запись и затем изменять ее для обработки
+множественных наборов данных. Например, все наборы данных, которые
+совершают одну и ту же ошибку из-за недействительных данных, могут разделять
+один и тот же записанный тест-сценарий. Тест-сценарий
+изменяется, чтобы определять данные, как
+изменяющуюся информацию, чтобы считывать
+наборы данных из файла или другого внешнего источника, и
+совершать цикл сквозь все имеющие отношение наборы данных.
+</p>
+<p>Many test procedures involve entering several sets of field data in a given
+data entry screen to check field validation functions, error handling, and so
+on. The procedural steps are the same; only the data is different. Rather than
+recording a test script for every set of input data, a single recording should
+be made and then modified to handle multiple data sets. For example, all the
+data sets that produce the same error because of invalid data can share the same
+recorded test script. The test script is modified to address the data as
+variable information, to read the data sets from a file or other external
+source, and to loop through all of the relevant data sets.
+</p>
+<p>
+Если тест-сценарии или тест-код были
+разработаны, чтобы совершить цикл сквозь наборы
+исходных и результирующих данных, то наборы
+данных должны быть установлены. Обычным форматом,
+используемым для этих наборов, являются
+записи разделенных запятой полей,
+расположенные в текстовом файле. Этот формат легок
+для прочтения из тест-сценариев и тест-кода и легок
+для создания и поддержки.
+</p>
+<p>If test scripts or test code have been developed to loop through sets of
+input and output data the data sets must be established. The usual format to use
+for these data sets is records of comma-separated fields in a text file. This
+format is easy to read from test scripts and test code, and is easy to create
+and maintain.
+</p>
+<p>
+Большинство баз данных и пакетов электронных таблиц могут производить
+разделенный запятыми текстовый файл. Использование этих пакетов
+для организации или фиксации наборов данных имеет
+два важных преимущества. Во-первых, они обеспечивают более структурированную среду для
+ввода и редактирования данных чем просто использование
+текстового редактора или текстового процессора. Во-вторых,
+большинство имеет возможность запрашивать существующие базы данных и
+фиксировать повторные (возвратные?) данные, позволяя
+достаточно легко извлекать наборы данных
+из существующих источников.
+</p>
+<p>Most database and spreadsheet packages can produce comma-separated textual
+output. Using these packages to organize or capture data sets has two important
+benefits. First, they provide a more structured environment for entering and
+editing the data than simply using a text editor or word processor. Second, most
+have the ability to query existing databases and capture the returned data,
+allowing an easy way to extract data sets from existing sources.
+</p>
+<h3> <a name="XE_error_handling__in_testing"></a><a name="Error Handling">Обработка
+Ошибок</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Error Handling">Error
+Handling</a> </p> 
+<p>Записанный тест-сценарий последователен в
+своем выполнении. Отсутствуют какие-либо
+точки ветвления. Робастная (устойчивая) обработка
+ошибок в тест-сценариях требует
+дополнительного алгоритма, чтобы отвечать на условия ошибки.
+Алгоритм решения, который может использоваться, когда ошибки
+имеют место, включает:<p>The recorded test script is sequential in its execution. There are no branch
+points. Robust error handling in the test scripts requires additional logic to
+respond to error conditions. Decision logic that can be employed when errors
+occur includes: 
+<ul>
+ 
+<li> Переход к другому тест-сценарию.</li> 
+<li> Запрос сценария, который пытается
+  привести в порядок ошибочное состояние.</li> 
+<li> Завершение сценария и начало следующего.</li> 
+<li> Завершение сценария и повторный старт
+  программного обеспечения, и возобновление
+  тестирования в тест-сценарии следующим за
+  тем, который потерпел неудачу.</li> 
+
+</ul>
+<ul>
+  <li>Branching to a different test script.</li>
+  <li>Calling a script that attempts to clean up the error condition.</li>
+  <li>Exiting the script and starting the next one.</li>
+  <li>Exiting the script and the software, re-starting, and resuming testing at
+    the next test script after the one that failed.</li>
+</ul>
+<p>
+Каждая техника обработки ошибки требует
+алгоритма программы, добавленного к тест-сценарию.
+Насколько возможно, этот алгоритм должен быть
+включен в тест-сценарии высокого уровня,
+которые управляют упорядочиванием тест-сценариев
+низшего уровня. Это позволяет тест-сценариям низшего уровня быть созданным полностью
+по записи.
+</p>
+<p>Each error-handling technique requires program logic added to the test
+script. As much as possible, this logic should be confined to the high-level
+test scripts that control the sequencing of lower-level test scripts. This
+allows the lower-level test scripts to be created completely from recording.
+</p>
+<h3> <a name="XE_test_script__synchronization_and_scheduling_of"></a><a name="Test Script Synchronization and Scheduling">Синхронизация и
+Планирование Тест-сценариев</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Test Script Synchronization and Scheduling">Test
+Script Synchronization and Scheduling</a> </p> 
+<p>
+При выполнении нагрузочного тестирования зачастую желательно синхронизировать
+тест-сценарии таким образом, чтобы каждый
+начинался в определенное время. Тест-сценарии могут быть изменены, чтобы
+начинаться в специфическое время, путем
+сравнения желательного времени старта с
+системным временем. В системах, работающих
+в сети,&nbsp; каждая тестирующая станция
+разделяет по сети одни и те же часы. В следующем примере (из
+сценария, написанного в Visual Basic) утверждения были вставлены в начале
+сценария, чтобы отложить выполнение сценария, пока требуемое время не
+будет достигнуто.
+</p>
+<p>When doing stress testing, it is often desirable to synchronize test scripts
+so that they start at predefined times. Test scripts can be modified to start at
+a particular time by comparing the desired start time with the system time. In
+networked systems each test station will share, via the network, the same clock.
+In the following example (from a script written in Visual Basic) statements have
+been inserted at the start of a script to suspend the execution of the script
+until the required time is reached.
+</p>
+<p class="example">InputFile$ = &quot;\TIME.DAT&quot;<br>
+Open InputFile$ For Input As 1<br>
+Input #1, StartTime$<br>
+Close #1<br>
+Do While TimeValue(StartTime$) &gt; Time<br>
+DoEvents<br>
+Loop<br>
+[Start script]
+</p>
+<p>
+В этом примере, требуемое время начала
+сохранено в файле. Это позволяет изменяться
+времени начала без изменения тест-сценария. Время читается и
+сохраняется в переменной c именем StartTime$.
+Цикл Do While продолжается до тех пор, пока стартовое время не достигнуто.
+Утверждение DoEvents очень существенно. Оно позволяет
+выполняться фоновым задачам, в то время как
+тест-сценарий приостановлен и ожидает
+старта. Без утверждения DoEvents, система не
+будет реагировать пока время начала не
+будет достигнуто.
+</p>
+<p>In this example, the required start time is stored in a file. This allows the
+start time to be changed without changing the test script. The time is read and
+stored in a variable called StartTime$. The Do While loop continues until the
+starting time is reached. The DoEvents statement is very significant. It allows
+background tasks to execute while the test script is suspended and waiting to
+start. Without the DoEvents statement, the system would be unresponsive until
+the start time had been reached.
+</p>
+<h3> <a name="XE_test_script__testing_and_debugging_test_scripts"></a><a name="Testing and Debugging Test Scripts">Тестирование
+и Отладка Тест-сценариев</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Testing and Debugging Test Scripts">Testing
+and Debugging Test Scripts</a> </p> 
+<p>
+Когда недавно записанные тест-сценарии выполнены на том же самом программном обеспечении, на котором они были
+записаны, то никаких ошибок быть не должно.
+Среда и программное обеспечение идентичны
+тем, когда они были записаны. Могут иметь
+место случаи, когда тест-сценарий не
+проходит успешно. Тестирование тест-сценариев раскрывает эти случаи, и позволяет
+исправить сценарии до их использования в реальном
+тесте. Три вида типичных проблем описаны
+ниже:<p>When the newly recorded test scripts are executed on the same software on
+which they were recorded, there should be no errors. The environment and the
+software are identical to when it was recorded. There may be instances where the
+test script does not run successfully. Testing the test scripts uncovers these
+cases, and allows the scripts to be corrected before being used in a real test.
+Three typical kinds of problems are discussed here: 
+<ul>
+ 
+<li> Неопределенность в методах, используемых для отбора
+  наименований в интерфейсе пользователя может заставить
+  тест-сценарии работать по-разному при
+  воспроизведении. Например, два
+  наименования, опознаваемые по их тексту (или
+  заголовку), могут иметь идентичный текст.
+  При выполнении сценария возникнет
+  неоднозначность.</li> 
+<li> Записываются данные, специфичные для
+  тестового запуска/сеанса (то есть указатель,
+  дата/время или какая-то другая величина данных, произведенная
+  системой), но они различаются при воспроизведении.</li> 
+<p>
+  <li>Ambiguity in the methods used for selecting items in a user interface can
+    make test scripts operate differently upon playback. For example, two items
+    recognized by their text (or caption) may have identical text. There will be
+    ambiguity when the script is executed.</li>
+  <li>Test run/session specific data is recorded (i.e., a pointer,
+    date/timestamp or some other system generated data value), but is different
+    upon playback.</li>
+</ul>
+<p>Различия в согласовании по времени при
+записи и воспроизведении могут приводить к проблемам.
+Запись тест-сценария является изначально более
+медленным процессом, чем его выполнение. Иногда эта разница во времени
+выливается в тест-сценарий, выполняемый перед программным обеспечением. 
+В этих случаях могут быть вставлены Wait States (периоды
+ожидания), чтобы регулировать скорость
+выполнения тест-сценария в соответствии со
+скоростью программного обеспечения.<p>Timing differences in recording and playback can lead to problems. Recording
+a test script is inherently a slower process than executing it. Sometimes this
+time difference results in the test script running ahead of the software. In
+these cases, Wait States can be inserted to throttle the test script to the
+speed of the software.<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+
+
+</body>
+ 
+</HTML>

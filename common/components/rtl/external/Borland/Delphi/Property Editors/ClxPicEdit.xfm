@@ -1,0 +1,129 @@
+object ClxPictureEditorDlg: TClxPictureEditorDlg
+  HelpType = htContext
+  Left = 247
+  Top = 278
+  Width = 361
+  Height = 308
+  VertScrollBar.Range = 96
+  ActiveControl = OKButton
+  BorderIcons = [biSystemMenu]
+  Caption = 'Picture Editor'
+  Color = clButton
+  Constraints.MinHeight = 308
+  Constraints.MinWidth = 361
+  Position = poScreenCenter
+  Scaled = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 86
+  object CancelButton: TButton
+    Left = 274
+    Top = 41
+    Width = 75
+    Height = 25
+    Anchors = [akTop, akRight]
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 1
+  end
+  object HelpButton: TButton
+    HelpType = htContext
+    Left = 274
+    Top = 71
+    Width = 75
+    Height = 25
+    Anchors = [akTop, akRight]
+    Caption = '&Help'
+    TabOrder = 2
+    OnClick = HelpButtonClick
+  end
+  object GroupBox1: TGroupBox
+    Left = 10
+    Top = 7
+    Width = 255
+    Height = 288
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    TabOrder = 3
+    object ImagePanel: TPanel
+      Left = 10
+      Top = 16
+      Width = 235
+      Height = 235
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      BevelOuter = bvNone
+      BorderWidth = 5
+      BorderStyle = bsSingle
+      Color = clBase
+      ParentColor = False
+      TabOrder = 0
+      object ImagePaintBox: TPaintBox
+        Left = 5
+        Top = 5
+        Width = 225
+        Height = 225
+        Align = alClient
+        OnPaint = ImagePaintBoxPaint
+      end
+    end
+    object Load: TButton
+      Left = 10
+      Top = 257
+      Width = 75
+      Height = 23
+      Anchors = [akRight, akBottom]
+      Caption = '&Load...'
+      TabOrder = 1
+      OnClick = LoadClick
+    end
+    object Save: TButton
+      Left = 90
+      Top = 257
+      Width = 75
+      Height = 23
+      Anchors = [akRight, akBottom]
+      Caption = '&Save...'
+      TabOrder = 2
+      OnClick = SaveClick
+    end
+    object Clear: TButton
+      Left = 170
+      Top = 257
+      Width = 75
+      Height = 23
+      Anchors = [akRight, akBottom]
+      Caption = '&Clear'
+      TabOrder = 3
+      OnClick = ClearClick
+    end
+  end
+  object OKButton: TButton
+    Left = 274
+    Top = 12
+    Width = 75
+    Height = 25
+    Anchors = [akTop, akRight]
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 0
+  end
+  object OpenDialog: TOpenDialog
+    FilterIndex = 0
+    Options = [ofFileMustExist, ofEnableSizing, ofPreview, ofAutoPreview]
+    Height = 0
+    Title = 'Open'
+    Width = 0
+    Left = 288
+    Top = 112
+  end
+  object SaveDialog: TSaveDialog
+    FilterIndex = 0
+    Options = [ofOverwritePrompt, ofEnableSizing]
+    Height = 0
+    Title = 'Save As'
+    Width = 0
+    Left = 288
+    Top = 144
+  end
+end

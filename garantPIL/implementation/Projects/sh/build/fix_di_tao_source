@@ -1,0 +1,29 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: fix_di_tao_source <fix_source_path_name>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the shell scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+tao_source=$1
+
+echo "fix_di_tao_source: fix_source_path_name = $tao_source ..."
+
+mkdir -p /tmp/$USER
+rm -f /tmp/$USER/mpcxc_tmp.cpp
+echo "#include \"tao/DynamicInterface/Request.h\"" > /tmp/$USER/mpcxc_tmp.cpp
+cat $tao_source >> /tmp/$USER/mpcxc_tmp.cpp
+cp -f /tmp/$USER/mpcxc_tmp.cpp $tao_source
+chmod 644 $tao_source
+
+echo "end."

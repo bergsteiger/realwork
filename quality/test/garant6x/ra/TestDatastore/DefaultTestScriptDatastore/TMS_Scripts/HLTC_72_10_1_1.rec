@@ -1,0 +1,27 @@
+'$Include "global.sbl"
+'Проверяем переход по ссылке первого уровня из списка.
+'после перехода должны спозиционироваться на начало документа        
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+   Call Goto_Spisok
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+'    ListBox Click, "ObjectIndex=5", "Index=0;Index=0;Coords=6,31"
+    ListBox DblClick, "ObjectIndex=5", "Coords=311,30"
+    DelayFor 5000
+    RichEdit Click, "ObjectIndex=1", "Coords=170,8"
+    
+    InputKeys "^+{RIGHT}"
+
+    Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=First Level")
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    'Call Goto_Spisok
+    
+    
+End Sub
+
+    

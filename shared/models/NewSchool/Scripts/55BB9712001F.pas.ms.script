@@ -1,0 +1,198 @@
+// tfwScriptingExceptions 55BB9712001F InternalInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55BB9712001F
+
+: ME_54F994E10154
+ CONST UID '54F994E10154'
+ CONST Name 'EtfwException'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55BB9712001F // tfwScriptingExceptions
+ ;
+ : Inherits
+   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_54F994E10154 EtfwException
+
+FORWARD ME_54F873F5009A
+
+FORWARD ME_54F8741B021E
+
+: ME_54F874490155
+ CONST UID '54F874490155'
+ CONST Name 'aCondition'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54F874490155 aCondition
+
+: ME_54F874490191
+ CONST UID '54F874490191'
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_54F874490191 aMessage
+
+: ME_54F874340321
+ CONST UID '54F874340321'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54F8741B021E // IsTrue
+ ;
+ : Parameters
+   @ ( ME_54F874490155 // aCondition
+ ME_54F874490191 // aMessage
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54F874340321 DoIt
+
+: ME_54F8741B021E
+ CONST UID '54F8741B021E'
+ CONST Name 'IsTrue'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F873F5009A // EtfwCheckPrim
+ ;
+ : Operations
+   @ ( ME_54F874340321 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_54F8741B021E IsTrue
+
+FORWARD ME_550C432A0223
+
+: ME_550C433E026F
+ CONST UID '550C433E026F'
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_550C433E026F aMessage
+
+: ME_550C433A0188
+ CONST UID '550C433A0188'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_550C432A0223 // Fail
+ ;
+ : Parameters
+   @ ( ME_550C433E026F // aMessage
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_550C433A0188 DoIt
+
+: ME_550C432A0223
+ CONST UID '550C432A0223'
+ CONST Name 'Fail'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F873F5009A // EtfwCheckPrim
+ ;
+ : Operations
+   @ ( ME_550C433A0188 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_550C432A0223 Fail
+
+: ME_54F873F5009A
+ CONST UID '54F873F5009A'
+ CONST Name 'EtfwCheckPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55BB9712001F // tfwScriptingExceptions
+ ;
+ : Inherits
+   @ ( ME_54F994E10154 // EtfwException
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_54F8741B021E // IsTrue
+ ME_550C432A0223 // Fail
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_54F873F5009A EtfwCheckPrim
+
+: ME_54F99536034A
+ CONST UID '54F99536034A'
+ CONST Name 'EtfwCheck'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55BB9712001F // tfwScriptingExceptions
+ ;
+ : Inherits
+   @ ( ME_54F873F5009A // EtfwCheckPrim
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_54F99536034A EtfwCheck
+
+: ME_55BB9712001F
+ CONST UID '55BB9712001F'
+ CONST Name 'tfwScriptingExceptions'
+ CONST Class class_Category
+ : Stereotype st_InternalInterfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ ;
+ : Children
+   @ ( ME_54F994E10154 // EtfwException
+ ME_54F873F5009A // EtfwCheckPrim
+ ME_54F99536034A // EtfwCheck
+ ) .SequenceCode.It
+ ; // Children
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptingExceptions.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55BB9712001F.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55BB9712001F.pas.ms.script.runner'
+
+ref; // ME_55BB9712001F tfwScriptingExceptions

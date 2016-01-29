@@ -1,0 +1,1344 @@
+uses common, Clicks, MenuWork, FoldersWork, RunPrograms;
+procedure AddNewAccessibleOperation(toolBarObj: OleVariant; groupeName: String;operationName: String); forward;
+
+const
+	LIST_SORT_JURISTIC_STRENGHT = 1; //юридическая сила
+	LIST_SORT_PUBLISHED_DATE = 2; //дата издания
+  LIST_SORT_CHANGING_DATE = 3; //дата последнего изменения
+  
+  LIST_SORT_ASCENDING = 0; //по возрастанию
+  LIST_SORT_DESCENDING = 1; //по убыванию
+  
+  CONFIGURATION_LIGHT = 'Основная';
+  CONFIGURATION_STANDART = 'Расширенная';
+  CONFIGURATION_DEFAULT = 'ПО УМОЛЧАНИЮ';
+  
+//генерируем случайным образом строку
+//из трёх возможных (В любой части слова, С начала строки, С начала слова)
+function GetRandomContextPosition: String;
+begin
+	Randomize;
+  case Random(3) of
+  	0: Result := 'В любой части слова';
+    1: Result := 'С начала слова';
+    2: Result := 'С начала строки';
+  end;
+end;
+
+//генерируем случайным образом строку
+//из двух возможных (В любом порядке, С учетом порядка)
+function GetRandomWordOrder: String;
+begin
+	Randomize;
+  case Random(2) of
+  	0: Result := 'В любом порядке';
+    1: Result := 'С учетом порядка';
+  end;
+end;
+
+//генерируем случайным образом строку
+//из двух возможных (Во всех уровнях, В пределах одного уровня)
+function GetRandomSearchArea: String;
+begin
+	Randomize;
+  case Random(2) of
+  	0: Result := 'Во всех уровнях';
+    1: Result := 'В пределах одного уровня';
+  end;
+end;
+  
+{
+  TYPE: Работа с настройками
+  DESC: Открывает настройку конфигурации
+  RESULT: Возвращает окно с настроками
+  REMARK:
+}
+function GoToSettings(
+  how : String = ''
+): OleVariant;
+  var w, how_i;
+begin
+	try
+    Result := NonExObj;
+    how := AnsiUpperCase(how);
+    GetMainWindow.SetFocus;
+    case how of
+      'МЕНЮ', '1' :
+        if not ClickByMainMenuItem('Файл\Настройк*конфигурац*') then
+          Raise('Не получилось открыть Настройки конфигурации через ОМ');
+      'КНОПКА НА ТУЛБАРЕ', '2' :
+      begin
+        if not IsExists(OpenConfigurationsTab(false)) then
+          Raise('Не получилось открыть вкладку Конфигурации');
+        if not ClickToolbarButton(GetFromNavigator('ТУЛБАР "КОНФИГУРАЦИИ (ВКЛАДКА)"'), 'Редактировать') then
+          Raise('Не получилось открыть Настройки конфигурации по кнопке тулбара "Редактировать"');
+      end;
+      '': 
+        for how_i := 1 to 2 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToSettings(how);
+          if IsExists(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+
+    Delay(Options.Run.Timeout div 10);
+    w := GetFromShell('НАСТРОЙКИ');
+    w.Activate;
+    Result := w;
+  except
+  	Log.Error('GoToSettings: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с настройками
+  DESC: Открывает страницу указанных настроек и отдает объект страницы
+  RESULT:
+  REMARK:
+}
+function OpenSettingsPage(
+  page : String;
+  const paramString : String = ''
+) : OleVariant;
+  var
+    paramList, wnd, how : OleVariant;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    how := VarToStr(GetParam(paramList, 'HowToOpen', ''));
+
+    wnd := GetFromShell('НАСТРОЙКИ', 1, 'DumpWindows:=false');
+    if NOT IsExists(wnd) then 
+      wnd := GoToSettings(how);
+    if NOT IsExists(wnd) then 
+      Raise('Не получилось открыть настройки!');
+    
+    if Position_Internal(GetFromSettings('СПИСОК НАСТРОЕК'), page, DELIM_CHAR, true, 'isPressHome:=true') then
+      Result := GetSettingsElement(page, 'Страница');
+  except
+    Log.Message('OpenSettingsPage: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+procedure _______________; begin end;
+{
+  TYPE:
+  DESC: Создает отдельную запись для массива настроек 
+  RESULT:
+  REMARK:
+}
+function CreateSettingsRec(
+  const page : String; // страница
+  const name : String; // имя настройки
+  const value : OleVariant // значение настройки
+) : OleVariant; // запись
+begin
+  try
+    Result := [page, name, value];
+  except
+    Log.Message('CreateSettingsRec: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Извлекает элементы из отдельной записи массива настроек
+  RESULT:
+  REMARK:
+}
+function GetFromSettingsRec(
+  const rec : OleVariant; // отдельная запись массива
+  const whatToGet : String // какое поле получить
+);
+begin
+  try
+    case AnsiUpperCase( whatToGet ) of
+      'PAGE' : Result := GetFromArray(rec, 0);
+      'NAME' : Result := GetFromArray(rec, 1);
+      'VALUE': Result := GetFromArray(rec, 2);
+    else
+      Raise('Неизвестное значение whatToGet!');
+    end;  
+  except
+    Log.Message('GetFromSettingsRec: ' + ExceptionMessage, 'whatToGet: ' + whatToGet ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function SetSettings(
+  const arrSettings : OleVariant; // массив страница-настройка-значение_настройки
+  const paramString : String = ''// строка параметров
+) : boolean; // удалось ли установить все настройки как планировалось
+  var 
+    i : integer;
+    setPage, setName, setValue, settingsForm, oldValue, newValue : OleVariant;
+    paramList, pageWnd, controlWnd, toolBar, treeWnd : OleVariant;
+    p_IsClose, res, isAnyChanged : boolean;
+begin
+  try
+    Result := false;
+    isAnyChanged := false;
+    if NOT IsArray(arrSettings) then Raise('arrSettings не массив!');  
+    //
+    paramList := ParseParamString(paramString);
+    p_IsClose := VarToBool( GetParam(paramList, 'IsClose', 'true') );
+    //
+    for i := VarArrayLowBound(arrSettings,1) to VarArrayHighBound(arrSettings,1) do
+    begin
+      if NOT IsArray(arrSettings[i]) then Raise('Передан не массив нужных значений!');
+      // получаем параметры текущей настройки
+      setPage   := GetFromSettingsRec(arrSettings[i], 'page');
+      setName   := GetFromSettingsRec(arrSettings[i], 'name');
+      setValue  := GetFromSettingsRec(arrSettings[i], 'value');
+      // открываем страницу с настройками
+      pageWnd := OpenSettingsPage(setPage, paramString);
+      if NOT IsExists(pageWnd) then Raise('Не удалось открыть нужную страницы с настройками!');
+                         
+      // получаем контрол настроек
+      controlWnd := GetSettingsElement(setPage, setName, pageWnd);
+      if NOT IsExists(controlWnd) then Raise('Не получилось получить контрол настроек!');
+      if NOT controlWnd.Enabled then Raise('Контрол задизейблен !!!');
+      res := false;
+      // заполняем контрол в зависимости от типа
+      case AnsiUpperCase(controlWnd.WndClass) of
+        'TCOMBOBOX' : // комбобокс
+          //res := SelectInCombobox(controlWnd, setValue);
+          begin
+            oldValue := controlWnd.wText;           
+            controlWnd.ClickItem( setValue );
+            res := (controlWnd.wText = setValue);
+            newValue := controlWnd.wText;
+          end;
+        'TVTCOMBOBOXQS': // оболочечный комбобокс
+        begin
+          oldValue := controlWnd.wText; 
+          controlWnd.Click(controlWnd.Width-8, controlWnd.Height div 2);
+          treeWnd := GetProcessFromWnd(controlWnd).WaitWindow('TSubTree', '*', -1, Options.Run.Timeout div 100);
+          if NOT IsExists(treeWnd) then 
+            Raise('Не смогли раскрыть комбобокс TVTCOMBOBOXQS');            
+          if NOT Position_Internal(treeWnd, setValue, DELIM_CHAR, true, 'IsPressHome:=true;IsFocusFolderTree:=false') then
+            Raise('Не смогли спозиционироваться в комбобоксе TVTCOMBOBOXQS');
+          Sys.Keys('[Enter]');
+          res := (controlWnd.wText = setValue);
+          newValue := controlWnd.wText;
+        end;   
+        'TCHECKBOX', 'TVTCHECKBOX' : // чекбокс
+          begin
+            oldValue := controlWnd.wState;
+            setValue := VarToBool(setValue);
+            controlWnd.ClickButton(setValue);
+            res := ((controlWnd.wState = cbChecked) AND setValue) OR ((controlWnd.wState = cbUnchecked) AND (NOT setValue));
+            newValue := controlWnd.wState;            
+          end;  
+        'TEDIT' : // поле ввода
+          begin
+            oldValue := VarToString(controlWnd.Text);
+            controlWnd.SetFocus;
+            Sys.Keys('[Home]' + KeyPause + '![End]' + KeyPause + VarToString(setValue));
+            res := setValue = VarToString(controlWnd.Text);
+            newValue := VarToString(controlWnd.Text);
+          end;
+        'TVTSPINEDIT' : // поле ввода
+          begin
+            oldValue := VarToString(controlWnd.Value);
+            controlWnd.SetFocus;
+            Sys.Keys('[Home]' + KeyPause + '![End]' + KeyPause + VarToString(setValue));
+            res := VarToString(setValue) = VarToString(controlWnd.Value);
+            newValue := VarToString(controlWnd.Value);
+          end;
+        'TNSCCOMBOBOXWITHREADONLY' : // поле ввода
+          begin
+            oldValue := VarToString(controlWnd.wText);
+            controlWnd.SetFocus;           
+            Sys.Keys('[Home]' + KeyPause + '![End]' + KeyPause + VarToString(setValue));
+            res := VarToString(controlWnd.wText) = VarToString(setValue);
+            newValue := VarToString(controlWnd.wText);
+          end;
+         'TVTRADIOBUTTON', 'TGROUPBUTTON': //
+          begin
+            oldValue := controlWnd.wChecked;
+            controlWnd.Click;
+            res := controlWnd.wChecked;
+            newValue := controlWnd.wChecked;
+          end;
+  
+      else
+        Raise('Неизвестный класс контрола (' + controlWnd.WndClass +') !!!');        
+      end;  
+      if (newValue <> oldValue) then isAnyChanged := true;
+      if NOT res then Log.Error('Не удалось установить настройки в нужное состояние!');      
+    end;
+             
+    Result := res;
+    // закрываем форму настроек
+    toolBar := GetFromSettings('НИЖНИЙ ТУЛБАР');
+    if p_IsClose then
+    begin
+      res := ClickToolbarButton(toolBar, Choose(Result AND isAnyChanged, 'Ок', 'Отмена'));
+      Delay(Options.Run.Timeout div 30);
+
+      settingsForm := GetFromShell('НАСТРОЙКИ', Options.Run.Timeout div 30);
+      if (NOT res) OR IsExists(settingsForm) then
+      begin
+        Result := false;
+        Log.Warning('SetSettings: Не можем закрыть форму настроек нажав на кнопку на тулбаре. Закрываем ее просто так, считаем, что работа с настройками не удалась.');
+        if IsExists(settingsForm) then
+        begin
+          Sys.Keys('[Esc]');
+          if IsExists(settingsForm) then
+            settingsForm.Close;
+        end; 
+      end;
+    end;
+      
+    if NOT (WaitForErrorWindow(Options.Run.Timeout div 20) = '') then
+    begin
+      Log.Warning('SetSettings: Появилось окно с ошибкой!');  
+      ClickToolbarButton(toolBar, 'Отмена');
+      Result := false;
+    end;          
+  except
+    // закрываем форму настроек
+    settingsForm := GetFromShell('НАСТРОЙКИ', Options.Run.Timeout div 10);
+    if IsExists(settingsForm) then 
+      settingsForm.Close;
+
+    Log.Warning('SetSettings: Возникла ошибка при установки настроек', '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Log.Message('SetSettings: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+function SetSettings_Demo;
+  var p, w : OleVariant;
+begin
+  try
+    
+    p := SetSettings(
+      [ (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'ПАНЕЛЬ НАВИГАЦИИ\С ЛЕВОЙ СТОРОНЫ\ПОЛОЖЕНИЕ [COMBOBOX]', 'Авто']),
+        (['ПОИСК\ПОДТВЕРЖДЕНИЯ',  'УДАЛЕНИЕ ФИЛЬТРА [CHECKBOX]', false]),      
+        
+        (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ В ИСТОРИИ [EDIT]', '13']),
+        (['ПОИСК\ПОДТВЕРЖДЕНИЯ',  'ПОСТРОЕНИЕ АВТОРЕФЕРАТА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ АВТОРЕФЕРАТА [CHECKBOX]', 'false']),        
+        (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'ПАНЕЛЬ НАВИГАЦИИ\С ПРАВОЙ СТОРОНЫ\В РЕЖИМЕ АВТОСКРЫТИЯ СКРЫВАТЬ/ПОКАЗЫВАТЬ ПЛАВНО [CHECKBOX]', true])
+      ]            
+    ); 
+  except
+    Log.Message('' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetSettings(
+  const arrSettings : OleVariant; // массив страница-настройка
+  const paramString : String = ''// строка параметров
+) : OleVariant; // удалось ли установить все настройки как планировалось
+  var 
+    i : integer;
+    setPage, setName, value : OleVariant;
+    settingsForm, paramList, pageWnd, controlWnd, toolBar : OleVariant;
+    p_IsClose : boolean;
+begin
+  try
+    Result := nil;
+    if NOT IsArray(arrSettings) then Raise('arrSettings не массив!');  
+    //
+    paramList := ParseParamString(paramString);
+    p_IsClose := VarToBool( GetParam(paramList, 'IsClose', 'true') );
+    
+    //
+    for i := VarArrayLowBound(arrSettings,1) to VarArrayHighBound(arrSettings,1) do
+    begin
+      if NOT IsArray(arrSettings[i]) then Raise('Передан не массив нужных значений!');
+      // получаем параметры текущей настройки
+      setPage   := GetFromSettingsRec(arrSettings[i], 'page');
+      setName   := GetFromSettingsRec(arrSettings[i], 'name');
+      
+      // открываем страницу с настройками
+      pageWnd := OpenSettingsPage(setPage, paramString);
+      if NOT IsExists(pageWnd) then Raise('Не удалось открыть нужную страницы с настройками!');
+      
+      // получаем контрол настроек
+      controlWnd := GetSettingsElement(setPage, setName, pageWnd);
+      if NOT IsExists(controlWnd) then Raise('Не получилось получить контрол настроек!');
+      if NOT controlWnd.Enabled then Raise('Контрол задизейблен !!!');
+      
+      // получаем значение контрола в зависимости от типа
+      case AnsiUpperCase(controlWnd.WndClass) of
+        'TCOMBOBOX', 'TVTCOMBOBOXQS' : // комбобокс
+          value := controlWnd.wText;
+        'TCHECKBOX', 'TVTCHECKBOX' : // чекбокс
+          value := controlWnd.wState;
+        'TEDIT' : // поле ввода
+          value := controlWnd.Text;
+        'TVTSPINEDIT' : // поле ввода
+          value := VarToString(controlWnd.Value);
+        'TVTRADIOBUTTON', 'TGROUPBUTTON': // выбор значений
+          value := controlWnd.wChecked;
+      else
+        Raise('Неизвестный класс контрола (' + controlWnd.WndClass +') !!!');        
+      end;  
+      AddToArray(Result, CreateSettingsRec(setPage, setName, value) );
+    end;
+
+    // закрываем форму настроек
+    toolBar := GetFromSettings('НИЖНИЙ ТУЛБАР');
+    if p_IsClose then
+    begin
+      ClickToolbarButton(toolBar, 'Отмена');
+      settingsForm := GetFromShell('НАСТРОЙКИ', Options.Run.Timeout div 30);
+      if IsExists(settingsForm) then
+      begin
+        Sys.Keys('[Esc]');
+        if IsExists(settingsForm) then
+          settingsForm.Close;
+      end;
+    end;
+
+    // это, вероятно, не надо, но пока пусть останется  
+    if NOT (WaitForErrorWindow(Options.Run.Timeout div 30) = '') then
+    begin
+      Log.Error('Появилось окно с ошибкой!');  
+      ClickToolbarButton(toolBar, 'Отмена');
+    end;  
+  except
+    Log.Message('GetSettings: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Отдает значение настройки из массива настроек по странице и имени
+  RESULT:
+  REMARK:
+}
+function GetFromSettingsArr(
+  const arrSettings : OleVariant; // массив настроек
+  const page : String; // страница
+  const name : String // имя
+) : OleVariant; // значение
+  var
+    i : integer;
+begin
+  try
+    
+    if NOT IsArray(arrSettings) then Raise('arrSettings не массив!');
+    // перебираем записи в массиве пока не найдем то что нам надо
+    for i := VarArrayLowBound(arrSettings,1) to VarArrayHighBound(arrSettings,1) do
+      if StringCompare(page, GetFromSettingsRec(arrSettings[i], 'page') ) AND
+         StringCompare(name, GetFromSettingsRec(arrSettings[i], 'name') ) then
+      begin
+        Result := GetFromSettingsRec(arrSettings[i], 'value');
+        Exit;
+      end;
+    
+    Log.Warning('В массиве не найдена запись с page: "' + page + '" и name: "' + name + '"');    
+  except
+    Log.Message('GetFromSettingsArr: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+function GetSettings_Demo;
+  var
+    p, w, arr : OleVariant;
+    i : integer;
+    page, name, value : OleVariant;
+begin
+  try
+    arr := [
+      (['ПОИСК\ПОДТВЕРЖДЕНИЯ',  'УДАЛЕНИЕ ФИЛЬТРА [CHECKBOX]']),
+      (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'ПАНЕЛЬ НАВИГАЦИИ\С ЛЕВОЙ СТОРОНЫ\ПОЛОЖЕНИЕ [COMBOBOX]']),
+      (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'ПАНЕЛЬ НАВИГАЦИИ\С ПРАВОЙ СТОРОНЫ\В РЕЖИМЕ АВТОСКРЫТИЯ СКРЫВАТЬ/ПОКАЗЫВАТЬ ПЛАВНО [CHECKBOX]'])
+    ];
+    
+    p := GetSettings( arr );
+    
+    // получение всех значений
+    Log.Message('Получение всех значений');    
+    for i := VarArrayLowBound(p,1) to VarArrayHighBound(p,1) do
+    begin
+      page := GetFromSettingsRec(p[i], 'Page');
+      name := GetFromSettingsRec(p[i], 'Name');
+      res := GetFromSettingsArr(arr, page, name) = GetFromSettingsRec(p[i], 'value');
+      Log.Message( '"' + page + '" : "' + name + '" : "' + VarToString(value) + '"' );
+    end;  
+    
+    // получение конкретного
+    Log.Message('Получение конкретного значения');
+    page := GetFromSettingsRec(p[1], 'Page');
+    name := GetFromSettingsRec(p[1], 'Name');
+    value := GetFromSettingsArr(p, page, name);
+    Log.Message( '"' + page + '" : "' + name + '" : "' + VarToString(value) + '"' );    
+    
+  except
+    Log.Message('' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+procedure __________; begin end;
+
+{
+  TYPE: Работа с настройками
+  DESC: Открывает редактор стилей
+  RESULT: Возвращает окно с редактором стилей
+  REMARK:
+}
+function GoToStyleEditor: OleVariant;
+  var w;
+begin
+	try
+    Result := NonExObj;
+    GetMainWindow.SetFocus;
+    if ClickByMainMenuItem('Файл\Редактор стилей*') then
+    begin
+      w := GetFromShell('РЕДАКТОР СТИЛЕЙ');
+      w.Activate;
+      Result := w;
+    end; 
+  except
+  	Log.Error('GoToStyleEditor: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: В скриптах лучше не использовать!
+  RESULT:
+  REMARK: Raise убирать нельзя!
+}
+procedure SetSettingsForF1ShellTabs;
+begin
+  if VarToBool(gbl_F1ShellOpenDocsInNewTab) then
+  begin
+    // если такая настройка по умолчанию, то ничего не делаем и надо закомментировать код ниже, чтобы везде не убирать вызовы процедуры
+    //if NOT SetSettings ([(['НАСТРОЙКИ ИНТЕРФЕЙСА', 'ВКЛАДКИ ОСНОВНОГО ОКНА\ОТКРЫВАТЬ ДОКУМЕНТЫ ИЗ СПИСКОВ\В НОВОЙ ВКЛАДКЕ [GROUPBUTTON]', true])]) then
+    //  Raise('Не удалось в Настройках включить открытие документа В НОВОЙ ВКЛАДКЕ!');            
+  end
+  else
+  begin
+    // если такая настройка по умолчанию, то ничего не делаем и надо закомментировать код ниже, чтобы везде не убирать вызовы процедуры
+    if NOT SetSettings ([(['НАСТРОЙКИ ИНТЕРФЕЙСА', 'ВКЛАДКИ ОСНОВНОГО ОКНА\ОТКРЫВАТЬ ДОКУМЕНТЫ ИЗ СПИСКОВ\В ТЕКУЩЕЙ ВКЛАДКЕ [GROUPBUTTON]', true])]) then
+      Raise('Не удалось в Настройках включить открытие документа В ТЕКУЩЕЙ ВКЛАДКЕ!');            
+  end;
+end;
+
+{
+  TYPE:
+  DESC: процедура выставлет в настроках конфигурации параметры контекстной фильтрации для WhereFilter
+  RESULT:
+  REMARK:
+}
+function SetContextFilterSettings(
+  whereFilter, // 
+  contextPosition, // Положение контекста
+  wordOrder, // Порядок слов
+  searchArea // Область поиска
+) : boolean;
+var
+	arr;
+begin
+  if (WhereFilter <> '') then
+    AddToArray(arr, ['КОНТЕКСТНАЯ ФИЛЬТРАЦИЯ',  'ПАРАМЕТРЫ ДЛЯ [COMBOBOX]', whereFilter]);
+  if (contextPosition <> '') then
+    AddToArray(arr, ['КОНТЕКСТНАЯ ФИЛЬТРАЦИЯ',  'ПОЛОЖЕНИЕ КОНТЕКСТА [COMBOBOX]', contextPosition]);
+  if (wordOrder <> '') then
+    AddToArray(arr, ['КОНТЕКСТНАЯ ФИЛЬТРАЦИЯ',  'ПОРЯДОК СЛОВ [COMBOBOX]', wordOrder]);
+  if (searchArea <> '') then
+    AddToArray(arr, ['КОНТЕКСТНАЯ ФИЛЬТРАЦИЯ',  'ОБЛАСТЬ ПОИСКА [COMBOBOX]', searchArea]);
+  
+  Result := SetSettings(arr);
+end;
+
+{
+  TYPE: Работа с настройками
+  DESC: в окне редактирования конфигурации жмём кнопку Восстановить Всё
+  RESULT:
+  REMARK:
+}
+function SettingsRestoreAll : boolean;
+begin
+  try 
+    Result := false;
+    Result :=
+      ClickToolbarButton( GetFromSettings('НИЖНИЙ ТУЛБАР'), 'Восстановить все') 
+      AND (WaitForConfirmationWindow(-1, 'Да', '*Восстановить*?') <> '');
+  except
+  	Log.Error('SettingsRestoreAll: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;    
+end;
+
+{
+  TYPE: Работа с настройками
+  DESC: Восстанавливает настройки по-умолчанию
+  RESULT:
+  REMARK:
+}
+function SetDefaultSettings : boolean;
+  var
+    settingsWindow: Window;
+begin
+  try
+    Result := false;   
+    settingsWindow := GoToSettings;
+    if IsExists(settingsWindow) then
+    try
+      Result := SettingsRestoreAll;
+      SetSettingsForF1ShellTabs;
+    finally
+      settingsWindow := GetFromShell('НАСТРОЙКИ', Options.Run.Timeout div 10);
+      if IsExists(settingsWindow) then
+      begin
+        Sys.Keys('[Esc]');
+        if IsExists(settingsWindow) then
+          settingsWindow.Close;
+      end 
+    end;
+  except
+  	Log.Error('SetDefaultSettings: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;    
+end;
+
+{
+  TYPE: Работа с настройками
+  DESC: Открывает форму настройки тулбаров
+  RESULT: окно формы настройки тулбаров, или несуществующий объект
+  REMARK:
+}
+function GoToToolBarSettings: Window;
+  var w;
+begin
+  try
+  	Result := NonExObj;
+    GetMainWindow.SetFocus;
+    w := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+    if IsExists(w) then
+    begin
+      w.ClickR(5, 5);
+      if ClickByPopupMenuItem(w, 'Настройка*') then
+        Result := GetFromShell('НАСТРОЙКА ПАНЕЛЕЙ ИНСТРУМЕНТОВ');
+    end
+    else
+      Raise('Не получилось найти тулбар "Главная панель инструментов"');
+  except
+  	Log.Error('GoToToolBarSettings: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  	Result := NonExObj;
+    Raise;
+  end;   
+end;  
+
+{
+  TYPE: Работа с настройками
+  DESC: Восстанавливает настройки тулбаров по-умолчанию
+  RESULT:
+  REMARK:
+}
+function SetDefaultToolBarSettings : boolean;
+var
+  w;
+  button;
+begin
+  try
+    Result := false;
+    GetMainWindow.SetFocus;
+    w := GoToToolBarSettings;
+    if IsExists(w) then
+    begin
+      GetFromTbSettings('КНОПКА "ВОССТАНОВИТЬ ВСЁ"').Click;
+      Result := WaitForConfirmationWindow(-1, 'Да', '*восстановить*?') <> '';
+      Delay(Options.Run.Timeout div 10);
+      button := GetFromTbSettings('КНОПКА "ОК"');
+      if NOT IsExists(button) then Raise('Не удалось получить кнопку КНОПКА "ОК"');  
+      button.Click;            
+    end
+    else
+      Raise('Не получилось открыть окно настройки тулбаров!');
+  except
+  	Log.Error('SetDefaultToolBarSettings: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  	Result := false;
+    CommonExceptionHandler;
+  end; 
+end;
+
+procedure AddOperationsToToolBar(
+  const ToolBarName: String;
+  const OperationsList: valArray;
+  toolBar : OleVariant = nil;
+  const paramString : string = ''
+);
+var
+	p, w;
+  ToolBarWindow;
+  AccessibleOpList;
+  i;
+  paramList;
+  p_gropeName;
+  p_operationName;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    p_gropeName := GetParam(paramList, 'groupeName', '');
+    p_operationName := GetParam(paramList, 'operationName', '');    
+    //Только если переданы параметры, то добавляем доступные операции: AddNewAccessibleOperation  
+    if NOT ( (p_gropeName = '') AND (p_operationName = '') ) then
+    begin
+      if toolBar = nil then toolBar := GetFromEditor('ТУЛБАР ТЕКСТА ДОКУМЕНТА');      
+      AddNewAccessibleOperation(toolBar, p_gropeName, p_operationName);
+    end;  
+  
+    try
+  	  ToolBarWindow := GoToToolBarSettings;
+      if NOT IsExists(ToolBarWindow) then
+        Raise('Не получилось найти окно настроек тулбаров!');	
+      ToolBarWindow.Activate;
+      if not SelectInCombobox(GetFromTBSettings('КОМБОБОКС "ОБЪЕКТ СИСТЕМЫ"'), ToolBarName) then
+        Raise('Не получилось выбрать "' + ToolBarName + '" в окне настроек тулбаров!');
+      
+      AccessibleOpList := GetFromTBSettings('СПИСОК "ДОСТУПНЫЕ ОПЕРАЦИИ"');
+      if not IsExists(AccessibleOpList) then
+        Raise('Не получилось найти список "ДОСТУПНЫЕ ОПЕРАЦИИ"');  
+      for i := VarArrayLowBound(OperationsList, 1) to VarArrayHighBound(OperationsList, 1) do
+      begin
+     	  AccessibleOpList.SetFocus;
+      	Sys.Keys('[Home]');
+        if (common.Position_by_Text(AccessibleOpList, VarToStr(OperationsList[i]))) then
+        	GetFromTBSettings('КНОПКА "СТРЕЛКА ВПРАВО"').Click()
+        else
+        	Log.Warning('Не удалось найти операцию "' + VarToStr(OperationsList[i]) + '" в списке доступных операций ');	
+      end;
+      GetFromTBSettings('КНОПКА "ОК"').Click;
+    finally
+      if IsExists(ToolBarWindow) then
+        ToolBarWindow.Close;
+    end;
+  except
+  	Log.Error('AddOperationsToToolBar: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+procedure AddNewAccessibleOperation(
+  toolBarObj: OleVariant;//Объект тулбара, для которого добавляем операцию
+  groupeName: String;//Имя новой группы, в которую будет добавлена операция
+  operationName: String //полный путь к операции из Доступных
+);
+var	
+  activeObject;
+begin
+  try
+    if NOT ( IsExists(toolBarObj)  AND (toolBarObj.Visible) ) then
+      Raise('Тулбар не валиден!');
+    if groupeName = '' then Raise('Передано Не валидное имя новой группы!');  
+    if operationName = '' then Raise('Передана Не валидная операция!');
+    toolBarObj.ClickR(toolBarObj.Width div 2, toolBarObj.Height div 2);
+    ClickByPopupMenuItem(toolBarObj, 'Доступные операции*');
+    
+    activeObject := GetFromAccessibleOperationTB('ПОЛЕ ВВОДА ИМЕНИ ГРУППЫ');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить ПОЛЕ ВВОДА ИМЕНИ ГРУППЫ');
+    activeObject.SetFocus;
+    Sys.Keys(groupeName);
+    activeObject := GetFromAccessibleOperationTB('КНОПКА "ДОБАВИТЬ ГРУППУ"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить КНОПКА "ДОБАВИТЬ ГРУППУ"');
+    activeObject.Click;
+    activeObject := GetFromAccessibleOperationTB('КНОПКА "ВКЛЮЧИТЬ ГРУППУ В ТЕКУЩИЕ"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить КНОПКА "ВКЛЮЧИТЬ ГРУППУ В ТЕКУЩИЕ"');
+    activeObject.Click;
+    activeObject := GetFromAccessibleOperationTB('ДЕРЕВО "ДОСТУПНЫЕ ОПЕРАЦИИ"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить ДЕРЕВО "ДОСТУПНЫЕ ОПЕРАЦИИ"');
+    if NOT Position_Internal(activeObject, operationName + '*', DELIM_CHAR, true, 'isPressHome:=true') then    
+        Raise('Не удалось в ДЕРЕВЕ "ДОСТУПНЫЕ ОПЕРАЦИИ" спозиционироваться на операцию "' + operationName + '"!');
+    activeObject := GetFromAccessibleOperationTB('КНОПКА "ВКЛЮЧИТЬ ОПЕРАЦИЮ В ТЕКУЩИЕ"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить КНОПКА "ВКЛЮЧИТЬ ОПЕРАЦИЮ В ТЕКУЩИЕ"');
+    activeObject.Click;
+    activeObject := GetFromAccessibleOperationTB('КНОПКА "OK"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить КНОПКА "OK"');
+    activeObject.Click;    
+     
+  except
+    activeObject := GetFromShell('НАСТРОЙКА ДОСТУПНЫХ ОПЕРАЦИЙ', -1);
+    if IsExists(activeObject) then activeObject.Close;
+  	Log.Error('AddNewAccessibleOperation: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+
+function DeleteAllAccessibleOperation(
+  toolBarObj: OleVariant = nil//Объект тулбара, у которого удаляем все доступные операции  
+) : boolean;
+var	
+  activeObject;
+  delBtn;
+begin
+  try
+    result := false;
+    if toolBarObj = nil then toolBarObj := GetFromEditor('ТУЛБАР ТЕКСТА ДОКУМЕНТА');
+    toolBarObj.ClickR(toolBarObj.Width div 2, toolBarObj.Height div 2);
+    ClickByPopupMenuItem(toolBarObj, 'Доступные операции*');
+    activeObject := GetFromAccessibleOperationTB('ДЕРЕВО "ТЕКУЩАЯ ПАНЕЛЬ ЗАДАЧ"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить ДЕРЕВО "ТЕКУЩАЯ ПАНЕЛЬ ЗАДАЧ"');
+    delBtn := GetFromAccessibleOperationTB('КНОПКА "ИСКЛЮЧИТЬ ГРУППУ ИЗ ТЕКУЩИХ"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить КНОПКА "ИСКЛЮЧИТЬ ГРУППУ ИЗ ТЕКУЩИХ"');  
+    activeObject.SetFocus;
+    while delBtn.Enabled do    
+      delBtn.Click;
+      
+    activeObject := GetFromAccessibleOperationTB('КНОПКА "ПРИМЕНИТЬ"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить КНОПКА "ПРИМЕНИТЬ"');
+    activeObject.Click;            
+    activeObject := GetFromAccessibleOperationTB('КНОПКА "OK"');
+    if NOT IsExists(activeObject) then Raise('Не удалось получить КНОПКА "OK"');
+    activeObject.Click;    
+      
+  except
+    activeObject := GetFromShell('НАСТРОЙКА ДОСТУПНЫХ ОПЕРАЦИЙ', -1);
+    if IsExists(activeObject) then activeObject.Close;    
+  	Log.Message('DeleteAllAccessibleOperation: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));     
+    result := false;
+    CommonExceptionHandler;    
+  end;   
+end;
+
+
+{
+  TYPE: Конфигурация
+  DESC: Выбор конфигурации
+  RESULT:
+  REMARK: Если isSwitchByPage = false, тогда открываем конфигурацию из главного меню, иначе со вкладки "Конфигурации"
+}
+function SelectConfiguration(
+  const confName: String; 
+  isSwitchByPage: boolean = false
+):boolean;
+var
+  w;
+begin
+try
+  if NOT isSwitchByPage then
+  begin
+    if NOT ClickByMainMenuItem('Файл\Выбор конфигурац*\' + confName) then
+      Raise('Не удалось вызвать пункт главного меню : Файл\Выбор конфигурации\' + confName);      
+  end
+  else
+  begin
+    w := OpenConfigurationsTab;
+    if not IsExists(w) then 
+      Raise('Не получилось открыть вкладку Конфигурации!');
+
+    if confName = CONFIGURATION_DEFAULT then
+      confName := CONFIGURATION_LIGHT;
+      
+    if NOT OpenObjectFromFolder(confName + '*', w) then 
+      Raise('Не удалось из вкладки открыть конфигурацию: "' + confName + '"');           
+  end;
+  
+  SetSettingsForF1ShellTabs;
+  
+  // проверяем, что включилась нужная конфигурация
+  Result := IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурац*\' + confName);  
+  except
+  	Log.Error('SelectConfiguration: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Конфигурация
+  DESC: Удаление скопированной конфигурации
+  RESULT:
+  REMARK: Если isSwitchByPage = false, тогда открываем конфигурацию из главного меню, иначе со вкладки "Конфигурации"
+}
+function DeleteConfiguration(conf: string): boolean;
+var
+  w;
+begin
+try
+  w := OpenConfigurationsTab;
+  conf := conf + '*';
+  if not Position_Internal(w, conf, DELIM_CHAR, true, 'IsPressHome:=true') then
+    Raise('Не найдена конфигурация "' + conf + '"');
+  if not OpenAndClickByPopUpMenuItem(w, 'Удалить') then
+    Log.Warning('Не получилось кликнуть по пункту "Удалить" для удаления конфигурации');
+  Result := WaitForConfirmationWindow(Options.Run.Timeout div 15) <> '';
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  TYPE: Конфигурация
+  DESC: Копирование конфигурации
+  RESULT:
+  REMARK:
+}
+function CopyConfiguration(conf: string): boolean;
+var
+  w;
+begin
+try
+  w := OpenConfigurationsTab;
+  conf := conf + '*';
+  if not Position_Internal(w, conf, DELIM_CHAR, true, 'IsPressHome:=true') then
+    Raise('Не найдена конфигурация "' + conf + '"');
+  if not OpenAndClickByPopUpMenuItem(w, 'Копировать') then
+    Raise('Не получилось кликнуть по пункту "Копировать" для копирования конфигурации');
+  GetFromShell('НАСТРОЙКИ').Close;
+  w := OpenConfigurationsTab;    
+  conf := 'Коп*' + conf;
+  Result := Position_Internal(w, conf, DELIM_CHAR, true, 'IsPressHome:=true');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  TYPE:
+  DESC: Функция говорит, активна ли конфигурация "Легкий интерфейс\Основная"
+  RESULT:
+  REMARK:
+}
+function IsLightConfiguration: boolean ;
+  const
+    FUNCTION_NAME = 'IsLightConfiguration';
+    CACHE_KEY = FUNCTION_NAME + 'button';
+  var 
+    mainTB, button;      
+begin
+  try
+    mainTB := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+    
+    if NOT Cache_Check(mainTB, CACHE_KEY, button) then
+    begin
+      mainTB.Refresh;
+      button := mainTB.Find(['VCLClass', 'Caption'], ['TvcmToolButtonDef', 'Панель задач'], 1);
+      if IsExists(button) then 
+        button := Cache_Put(mainTB, CACHE_KEY, button);
+    end;       
+    Result := IsExists(button);  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+TYPE:
+DESK: Функция для работы с Редактором стилей
+RESULT: Возвращает параметры шрифтов
+}
+function GetSettingsStyleEditor(
+  arrSettingsStyles : string;
+  paramString : string = ''
+) : OleVariant;
+var  
+  ss_IsClose;
+  paramList;
+  i;
+  setPage, setName, Value;
+  editorWnd;
+  controlWnd;  
+  treeWnd;  
+begin
+try
+  Result := nil;  
+  if NOT IsArray(arrSettingsStyles) then Raise('arrSettinsStyles не массив!');
+  
+  paramList := ParseParamString(paramString);
+  ss_IsClose := VarToBool(GetParam(paramList, 'IsClose', 'true'));
+  
+  for i := VarArrayLowBound(arrSettingsStyles, 1) to VarArrayHighBound(arrSettingsStyles, 1) do
+  begin
+    if NOT IsArray(arrSettingsStyles[i]) then Raise('Передан не массив нужных значений');
+    
+    setPage := arrSettingsStyles[i][0];
+    setName := arrSettingsStyles[i][1];
+        
+    //Открываем окно Редактора стилей и позиционируемся на нужную setPage
+    editorWnd := GetFromShell('РЕДАКТОР СТИЛЕЙ');
+    if NOT IsExists(editorWnd ) then editorWnd := GoToStyleEditor;
+
+    treeWnd := GetFromStyleEditor('ДЕРЕВО СТИЛЕЙ');
+    if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО СТИЛЕЙ');
+    if ExtractFileName(setPage) <> AnsiUpperCase(common.GetWindowText(treeWnd.Handle) ) then//если мы НЕ находимся на нужном стиле             
+      if NOT Position_Internal(treeWnd, setPage, DELIM_CHAR, true, 'isPressHome:=true') then    
+        Raise('Не удалось в ДЕРЕВЕ СТИЛЕЙ спозиционироваться на стиль "' + setPage + '"!');          
+    
+    //Получаем контрол настроек
+    controlWnd := GetFromStyleEditor(setName);
+    if NOT IsExists(controlWnd) then Raise('Не получилось получить контрол параметра шрифта в Редакторе стилей!'); 
+    //Заполняем контрол в зависимости от типа
+    case AnsiUpperCase(controlWnd.WndClass) of    
+      'TVTCOMBOBOXQS', 'TELPOPUPBUTTON': //Комбобокс\Кнопка тип наследования
+        value := common.GetWindowText(controlWnd.Handle);
+      'TEECOLORBOX', 'TVTCOLORBOX': //Комбобокс выбора цвета
+      begin                    
+        value :=  controlWnd.Selected;
+        if value = clDefault then
+          value := controlWnd.Picture(controlWnd.Height div 2, controlWnd.Height div 2, 2, 2).Pixels(0, 0);
+      end;     
+      'TEECHECKBOX':
+        value := VarToBool(controlWnd.wState);
+      else
+        Raise('Неизвестный класс контрола (' + controlWnd.WndClass +') !!!');    
+    end;
+    AddToArray(Result, [setPage, setName, value]);
+  end;
+  
+  //Закрываем Редактор Стилей
+  if ss_IsClose then      
+    ClickToolbarButton(GetFromStyleEditor('НИЖНИЙ ТУЛБАР'), 'Отмена');
+        
+except
+  if IsExists(editorWnd) then editorWnd.Close;
+  Log.Message('GetSettingsStyleEditor: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));  
+  CommonExceptionHandler;
+end;
+end;
+
+ 
+{
+TYPE:
+DESK: Функция для работы с Редактором стилей
+RESULT: Устанавливает параметры шрифтов
+}
+function SetSettingsInStyleEditor(
+  arrSettingsStyles : string;
+  paramString : string = ''  
+) : boolean;
+const
+  FUNCTION_NAME = 'SetSettingsInStyleEditor';
+var
+  i, j;
+  setPage, setName, setValue;
+  editorWnd;
+  controlWnd;  
+  treeWnd;
+  paramList;
+  ss_IsClose;    
+begin
+try
+  paramList := ParseParamString(paramString);
+  ss_IsClose := VarToBool( GetParam(paramList, 'IsClose', 'true') );
+
+  if NOT IsArray(arrSettingsStyles) then Raise('arrSettinsStyles не массив!');
+  
+  for i := VarArrayLowBound(arrSettingsStyles, 1) to VarArrayHighBound(arrSettingsStyles, 1) do
+  begin
+    if NOT IsArray(arrSettingsStyles[i]) then Raise('Передан не массив нужных значений');
+    
+    setPage := arrSettingsStyles[i][0];
+    setName := arrSettingsStyles[i][1];
+    setValue := arrSettingsStyles[i][2]; 
+        
+    //Открываем окно Редактора стилей и позиционируемся на нужную setPage
+    editorWnd := GetFromShell('РЕДАКТОР СТИЛЕЙ');
+    if NOT IsExists(editorWnd ) then editorWnd := GoToStyleEditor;
+
+    treeWnd := GetFromStyleEditor('ДЕРЕВО СТИЛЕЙ');
+    if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО СТИЛЕЙ');
+    if ExtractFileName(setPage) <> AnsiUpperCase(common.GetWindowText(treeWnd.Handle) ) then//если мы НЕ находимся на нужном стиле             
+      if NOT Position_Internal(treeWnd, setPage, DELIM_CHAR, true, 'isPressHome:=true') then    
+        Raise('Не удалось в ДЕРЕВЕ СТИЛЕЙ спозиционироваться на стиль "' + setPage + '"!');          
+    
+    //Получаем контрол настроек
+    controlWnd := GetFromStyleEditor(setName);
+    if NOT IsExists(controlWnd) then Raise('Не получилось получить контрол в Редакторе стилей: ' + setName); 
+    //Заполняем контрол в зависимости от типа
+    case AnsiUpperCase(controlWnd.WndClass) of    
+      'TVTCOMBOBOXQS':
+      begin
+       //if NOT SelectInComboBox(controlWnd, setValue) then       
+       //  Raise('Не удалось в комбобоксе установить значение setValue, видимо оно не валидно:' + setValue);
+        controlWnd.Click(controlWnd.Width-8, controlWnd.Height div 2);
+        treeWnd := GetProcessFromWnd(controlWnd).WaitWindow('TSubTree', '*', -1, Options.Run.Timeout div 100);
+        if NOT IsExists(treeWnd) then Raise('Не смогли раскрыть комбобокс TVTCOMBOBOXQS!');            
+        if NOT Position_Internal(treeWnd, setValue, DELIM_CHAR, true, 'IsPressHome:=true;IsFocusFolderTree:=false') then
+          Raise('Не смогли спозиционироваться в комбобоксе');
+        Sys.Keys('[Enter]');
+        if NOT ( controlWnd.wText = setValue) then Raise('Не удалось установить значение TVTCOMBOBOXQS');
+      end;   
+      'TEECOLORBOX', 'TVTCOLORBOX':
+      begin
+        if NOT ( VarType(setValue)= varInteger)then Raise('Значение setValue - не валидного типа');
+        controlWnd.Selected := setValue;
+        controlWnd.setFocus;
+        Sys.Keys('[Down][Enter]');
+        if NOT ( controlWnd.Selected = setValue) then Raise('Не удалось установить значение TEECOLORBOX-а\TVTCOLORBOX-а в нужный цвет ');     
+      end;           
+      'TELPOPUPBUTTON':
+      begin
+        if NOT ( ( setValue = 'С' ) OR ( setValue = 'П' ) OR ( setValue = 'Р') ) then
+          Raise('Передано невалидное значение setValue : ' + setValue);      
+        j := 0;        
+        while common.GetWindowText(controlWnd.Handle) <> setValue do      
+        begin  
+          controlWnd.Click;
+          inc(j);
+          if j = 3 then Raise('Не удалось установить нужное значение setValue, видимо оно не валидно : ' + setValue);       
+        end;                    
+      end;            
+      'TEECHECKBOX', 'TVTCHECKBOX':            
+        if IsTrue(setValue) then  
+          begin
+            if controlWnd.Visible then 
+              controlWnd.Checked := true 
+            else Raise('Чекбокс UnVisible -поэтому  не возможно установить его свойство Checked в true ');
+          end
+        else  
+          controlWnd.Checked := false;                
+      else
+        Raise('Неизвестный класс контрола (' + controlWnd.WndClass +') !!!');    
+    end;//case
+    
+  end;//for
+  
+  //Закрываем Редактор Стилей
+  if ss_IsClose then        
+    if NOT ClickToolbarButton(GetFromStyleEditor('НИЖНИЙ ТУЛБАР'), 'Ок') then 
+      Raise('Не удалось нажать "Ок" на нижнем тулбаре дерева стилей!');
+    
+  Result := true;
+
+except  
+  if IsExists(editorWnd) then 
+  begin
+    editorWnd.Close;
+    WaitForConfirmationWindow(2000, 'Да');
+  end;  
+  Result := false;
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));  
+  CommonExceptionHandler;
+end;
+end;
+
+
+{
+TYPE:
+DESK: Функция для работы с Редактором стилей
+RESULT: Восстанавливает значения по умолчанию
+}
+function SetDefaultSettingsInStyleEditor(
+  isCloseEditor : boolean = true
+): boolean;
+const
+  FUNCTION_NAME = 'SetDefaultSettingsInStyleEditor';
+var
+  editorWnd;
+  toolBar;
+  button;  
+begin
+try
+  editorWnd := GoToStyleEditor;
+  if NOT IsExists(editorWnd) then Raise('Не удалось получить редактор стилей');
+  
+  toolBar := GetFromStyleEditor('НИЖНИЙ ТУЛБАР');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР');
+  
+  button := GetToolbarButton(toolBar, 'Восстановить');
+  if button.Enabled then
+  begin 
+    if NOT ClickToolbarButton(toolBar, 'Восстановить') then 
+      Raise('Не удалось нажать "Восстановить" на нижнем тулбаре дерева стилей!');
+    WaitForConfirmationWindow(2000, 'Да');
+  end
+  else
+    if NOT ClickToolbarButton(toolBar, 'Отмена') then 
+      Raise('Не удалось нажать "Отмена" на нижнем тулбаре дерева стилей!');
+      
+  if isCloseEditor then
+    if IsExists(editorWnd) then
+      if NOT ClickToolbarButton(toolBar, 'Отмена') then 
+        Raise('Не удалось нажать "Отмена" на нижнем тулбаре дерева стилей!');
+      
+  Result := true;
+except
+  if isCloseEditor then
+    if IsExists(editorWnd) then
+      editorWnd.Close;
+  Result := false;
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));  
+  CommonExceptionHandler;
+end;
+end;
+{
+  TYPE: Общие
+  DESC: Сортировка массива с объектами по левой экранной координате методом пузырька 
+  RESULT: если какой то косяк, тогда результат - пустое строковое значение 
+  REMARK: перед и после запуска процедуры проверяем, что объект - массив 
+} 
+// 
+procedure SortArrayFromBubble(
+  var inArray: OleVariant//массив
+);
+var
+  i, j, b_j : integer; 
+  b_val : OleVariant;
+begin
+try
+  if NOT IsArray(inArray) then Raise('Передан не массив');
+  if VarArrayHighBound(inArray, 1) > 0 then
+  for i := 0 to VarArrayHighBound(inArray, 1) -1 do
+  begin
+    b_val := inArray[i];
+    b_j := i;
+    for j := i + 1 to VarArrayHighBound(inArray, 1) do
+    begin
+      if inArray[j].Left < b_val.Left then
+      begin
+        b_val := inArray[j];
+        b_j := j;
+      end;
+    end;
+    inArray[b_j] := inArray[i];
+    inArray[i] := b_val;
+  end;
+except
+  Log.Message('SortArrayFromBubble: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  inArray := ''; 
+  CommonExceptionHandler;
+end;  
+end;
+{
+  TYPE: Общие
+  DESC: Ф-ция считывает captions дочерних объектов тулбара и заносит их врезультирующий  массив 
+  RESULT: массив
+  REMARK: Во время  преобразовании исключаются все не видемые дочерние объекты
+}    
+function SetArrayFromTb(
+  toolBar : OleVariant;
+  isExcludeTtb97 : boolean = true;  //Исключать ли из массива кнопку Tb97
+  isExcludeAdmin : boolean = true   //Исключать ли из массива кнопку "Список пользователей и групп" и предшествующий ей сепаратор
+): OleVariant;
+var 
+  objArray;
+  i;  
+begin
+try
+  if NOT IsExists(toolBar) then Raise('Переданный тулбар не существует');
+  objArray := toolBar.FindAll(['Name'], ['*'], 1);
+  if NOT isArray(objArray) then Log.Warning('Не удалось считать элементы тулбара в массив');
+  //Сортируем массив по экранным координатам
+  SortArrayFromBubble(objArray);
+  if NOT IsArray(objArray) then Raise('Не удалось отсортировать массив');
+    
+  for i := VarArrayLowBound(objArray, 1) to VarArrayHighBound(objArray, 1) do
+  begin
+    
+    if StringCompare('*' + objArray[i].Name + '*', toolBar.Name ) then  continue;       
+       
+    if isExcludeTtb97 then    
+      if StringCompare('*Ttb97MoreButton*', objArray[i].Name) then continue;
+      
+    if isExcludeAdmin then          
+      if IsSupported(objArray[i], 'Caption') AND
+        (objArray[i].Caption = 'Список пользователей и групп') then continue;          
+      
+    if StringCompare('*TvcmSeparatorDef*', objArray[i].Name) then
+    begin
+      if isExcludeAdmin then //Если исключаем кнопку, то надо и исключить предшествующий сепаратор(у него Top какого то фига < 0) 
+        if objArray[i].Top < 0 then continue; 
+      AddToArray(result, '- Разделитель -');
+    end   
+    else
+    begin      
+      if StringCompare('*opRedactionOnDate*', objArray[i].Name) then //у этого эл-та нет Caption
+        AddToArray(result , 'Включить Машину времени с календарной даты')
+      else
+      if StringCompare('*Ttb97MoreButton*', objArray[i].Name) then 
+        AddToArray(result , 'Ttb97MoreButton') 
+      else  
+      if  StringCompare('*opShowJurorComments*', objArray[i].Name) then
+        AddToArray(result , 'Показать/скрыть комментарии ГАРАНТа')
+      else     
+      if StringCompare('*opShowUserComments*', objArray[i].Name) then
+        AddToArray(result , 'Показать/скрыть мои комментарии')
+      else
+      if StringCompare('*enFolders_opFiltrate*', objArray[i].Name) then
+        AddToArray(result , 'Фильтрация элементов папок по типу')
+      else
+      if StringCompare('*enContextParams_opEdit*', objArray[i].Name) then
+        AddToArray(result , 'Контекстный фильтр')
+      else
+      if StringCompare('*enList_opSortDirection*', objArray[i].Name) then
+        AddToArray(result , 'Установить направление сортировки')      
+      else  
+      if StringCompare('*enList_opSort*', objArray[i].Name) then
+        AddToArray(result , 'Сортировать')     
+      else
+      if StringCompare('*CRList_SetType*', objArray[i].Name) then       
+        AddToArray(result , 'Выбрать тип')
+      else
+      if StringCompare('*bt_enDocuments_opAddToControl*', objArray[i].Name) then
+        AddToArray(result , 'Поставить на контроль')
+      else
+      if StringCompare('*bt_enDocument_opShowVersionComments*', objArray[i].Name) then
+        AddToArray(result , 'Включить/выключить информацию об изменениях документа')
+      else
+      begin
+        if IsSupported(objArray[i], 'Caption') then
+          AddToArray(result , objArray[i].Caption)
+        else
+          Log.Warning('У данного объекта нет свойства Caption и он не обработался');  
+      end;    
+    end;//else     
+  end;//for   
+except
+  Log.Message('SetArrayFromTb: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  CommonExceptionHandler;  
+end;
+end;
+
+
+
+function SetStyleEditor_Demo;
+  var
+    p, w, arr : OleVariant;
+    i : integer;
+    page, name, value : OleVariant;
+begin
+  try
+    arr := [      
+      (['ТЕКСТ\КОММЕНТАРИЙ\КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ',  'КОМБОБОКС "ЦВЕТ"', clRed]),
+      (['ТЕКСТ\КОММЕНТАРИЙ\КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ',  'КНОПКА ТИПА НАСЛЕДОВАНИЯ "НАЗВАНИЕ"', 'С']),
+      (['ТЕКСТ\КОММЕНТАРИЙ\КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ',  'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ЖИРНЫЙ"', 'С']),
+      (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ',  'ЧЕКБОКС "ЖИРНЫЙ"', false]),
+      (['ТЕКСТ\ОСНОВНОЕ МЕНЮ', 'КОМБОБОКС "РАЗМЕР"', '20']),
+      (['ТЕКСТ', 'КОМБОБОКС "ФОН"', clLime])
+    ];
+    
+    if NOT SetSettingsInStyleEditor( arr ) then Log.Error('1111');
+    
+      
+   
+  except
+    Log.Message('' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;

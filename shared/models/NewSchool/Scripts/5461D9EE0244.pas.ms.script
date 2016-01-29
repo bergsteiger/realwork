@@ -1,0 +1,252 @@
+// TncsReplyWaiter 5461D9EE0244 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '53A03846011C.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_5461D9EE0244
+
+INCLUDE '5461D6FC00F7.pas.ms.script'
+
+: ME_5461DA210250
+ CONST UID '5461DA210250'
+ CONST Name 'f_List'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5461D6FC00F7 // TncsReplyDecsriptionList
+ ;
+
+ @SELF
+; // ME_5461DA210250 f_List
+
+FORWARD ME_54633EAE039A
+
+INCLUDE '5453986402AC.pas.ms.script'
+
+: ME_54633ECE02CA
+ CONST UID '54633ECE02CA'
+ CONST Name 'aMessage'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+
+ @SELF
+; // ME_54633ECE02CA aMessage
+
+INCLUDE '5461D6C30025.pas.ms.script'
+
+: ME_54633EB6031C
+ CONST UID '54633EB6031C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5461D6C30025 // TncsReplyDescription
+ ;
+ : Parameters
+   [ ME_54633ECE02CA // aMessage
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54633EB6031C DoIt
+
+: ME_54633EAE039A
+ CONST UID '54633EAE039A'
+ CONST Name 'FindDesc'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54633EB6031C // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54633EAE039A FindDesc
+
+: ME_54630A360321
+ CONST UID '54630A360321'
+ CONST Name 'aMessage'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+
+ @SELF
+; // ME_54630A360321 aMessage
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54630A1F0046
+ CONST UID '54630A1F0046'
+ CONST Name 'SubmitReply'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54630A360321 // aMessage
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54630A1F0046 SubmitReply
+
+: ME_54630A4F0322
+ CONST UID '54630A4F0322'
+ CONST Name 'aMessage'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+
+ @SELF
+; // ME_54630A4F0322 aMessage
+
+: ME_54630A3E001D
+ CONST UID '54630A3E001D'
+ CONST Name 'SubmitMessage'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54630A4F0322 // aMessage
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54630A3E001D SubmitMessage
+
+: ME_54630A7102CD
+ CONST UID '54630A7102CD'
+ CONST Name 'Clear'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54630A7102CD Clear
+
+: ME_547C4DD20008
+ CONST UID '547C4DD20008'
+ CONST Name 'aMessage'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+
+ @SELF
+; // ME_547C4DD20008 aMessage
+
+: ME_547C4DD20037
+ CONST UID '547C4DD20037'
+ CONST Name 'theReply'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_544E079E0253 // TncsMessage
+ ;
+
+ @SELF
+; // ME_547C4DD20037 theReply
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+INCLUDE '48A41FF10094.pas.ms.script'
+
+: ME_547C4DD20056
+ CONST UID '547C4DD20056'
+ CONST Name 'aTimeOut'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47BC524C0245 // LongWord
+ ;
+ CONST Value 'INFINITE'
+ : ValueType ME_483C21B0003E // Timeouts
+ ;
+
+ @SELF
+; // ME_547C4DD20056 aTimeOut
+
+: ME_54630A80027D
+ CONST UID '54630A80027D'
+ CONST Name 'WaitForReply'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_547C4DD20008 // aMessage
+ ME_547C4DD20037 // theReply
+ ME_547C4DD20056 // aTimeOut
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54630A80027D WaitForReply
+
+: ME_5461D9EE0244
+ CONST UID '5461D9EE0244'
+ CONST Name 'TncsReplyWaiter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_53A03846011C // l3CriticalSectionHolder
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5461DA210250 // f_List
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54633EAE039A // FindDesc
+ ME_54630A1F0046 // SubmitReply
+ ME_54630A3E001D // SubmitMessage
+ ME_54630A7102CD // Clear
+ ME_54630A80027D // WaitForReply
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5461D9EE0244 TncsReplyWaiter

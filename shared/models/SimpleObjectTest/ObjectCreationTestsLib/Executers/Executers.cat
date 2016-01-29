@@ -1,0 +1,551 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Executers"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:4948FB1B0267/Home/Ìîäåëü ïðîåêòà "SimpleObjectTest"/ObjectCreationTestsLib/Executers|4948FE3800FB
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"4948FE3800FB"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"494A12C7038D"
+	    supplier   	"Logical View::SimpleObjectTest::ObjectCreationTestsLib::Test"
+	    quidu      	"494A12B40311")
+	(object Visibility_Relationship
+	    quid       	"494A81580312"
+	    supplier   	"Logical View::SimpleObjectTest::ObjectCreationTestsLib::Support"
+	    quidu      	"494A814D037D"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "PoolExecutor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/PoolExecutor.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/PoolExecutor.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4948FE77007D*"
+		    value      	(value Text 
+|//#UC START# *4948FE77007D*¤		Core::select_log_format_set (Core::LFI_SILENT);¤¤		LOG_I ((¤			"Run %s test (iteration count = %d, thread count = %d)"¤			, RunParam::get_test_name ().c_str()¤			, RunParam::get_iteration_count ()¤			, RunParam::get_thread_count ()¤		));¤¤		Test::ObjCreationTest_var t = Test::ObjCreationTestFactory::make (RunParam::get_test_name ().c_str());¤¤		Support::MemorySPAM_var spamer = Support::MemorySPAMFactory::make ();¤		spamer->start_spam ();¤		{¤			Core::GDS::StopWatch sw ("Test exec time");¤		¤			std::vector<Core::ThreadHandle> threads;¤			unsigned long thread_count = RunParam::get_thread_count ();¤			for (unsigned i = 0; i < thread_count ; i++) {¤				threads.push_back (t->run_thread (RunParam::get_iteration_count ()));¤			}¤¤			for (std::vector<Core::ThreadHandle>::const_iterator it = threads.begin (); it != threads.end (); ++it) {¤				Core::ThreadPoolFactory::def().join_thread (*it);¤			}¤		}¤		spamer->stop_spam ();¤¤		¤		//#UC END# *4948FE77007D*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4948FE77007D_FINI*"
+		    value      	(value Text 
+|//#UC START# *4948FE77007D_FINI*¤	//#UC END# *4948FE77007D_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4948FE77007D_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *4948FE77007D_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *4948FE77007D_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:4948FB1B0267/Home/Ìîäåëü ïðîåêòà "SimpleObjectTest"/ObjectCreationTestsLib/Executers/PoolExecutor|4948FE77007D
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file"))
+	    quid       	"4948FE77007D"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A139B03BA"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::SimpleObjectTest::ObjectCreationTestsLib::Test::ObjCreationTest"
+		    quidu      	"494A13170079")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A1682013D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::SimpleObjectTest::ObjectCreationTestsLib::Executers::RunParam"
+		    quidu      	"494A161A0311")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A876601D0"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::SimpleObjectTest::ObjectCreationTestsLib::Support::MemorySPAM"
+		    quidu      	"494A81700314"))
+	    language   	"MDA Generator")
+	(object Class "RunParam"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/RunParam.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/RunParam.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:4948FB1B0267/Home/Ìîäåëü ïðîåêòà "SimpleObjectTest"/ObjectCreationTestsLib/Executers/RunParam|494A161A0311
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"494A161A0311"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "test_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A162C0088"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    initv      	"NEW"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "iteration_count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A16440064"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"10000000"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "thread_count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A165F038D"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"5"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4948FE71027A"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::SimpleObjectTest::ObjectCreationTestsLib::Executers::PoolExecutor" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(648, 597)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(477, 562)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	342
+			justify    	0
+			label      	"PoolExecutor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(477, 518)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	342
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4948FE77007D"
+		    width      	360
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::SimpleObjectTest::ObjectCreationTestsLib::Test::ObjCreationTest" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(849, 1050)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(691, 1021)
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"ObjCreationTest")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(691, 977)
+			anchor     	10
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"494A13170079"
+		    width      	334
+		    height     	168
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(859, 778)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"494A139B03BA"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(687, 687)
+			(810, 965))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::SimpleObjectTest::ObjectCreationTestsLib::Executers::RunParam" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1518, 471)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1115, 385)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	806
+			justify    	0
+			label      	"• RunParam")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1115, 341)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	806
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"494A161A0311"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(1115, 440)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Decoration"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	774
+			justify    	1)
+		    width      	824
+		    height     	282
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(951, 432)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"494A1682013D"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(828, 570)
+			(1105, 530))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::SimpleObjectTest::ObjectCreationTestsLib::Support::MemorySPAM" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(429, 1044)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(285, 1015)
+			nlines     	1
+			max_width  	288
+			justify    	0
+			label      	"MemorySPAM")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(285, 971)
+			anchor     	10
+			nlines     	1
+			max_width  	288
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"494A81700314"
+		    width      	306
+		    height     	168
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(644, 876)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"494A876601D0"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(602, 687)
+			(469, 959))
+		    line_style 	0)))))

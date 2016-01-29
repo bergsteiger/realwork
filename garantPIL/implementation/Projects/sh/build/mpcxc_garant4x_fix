@@ -1,0 +1,163 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_garant4x_fix <cvs_mod>"
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+echo "mpcxc_garant4x_fix ..."
+
+cvs_mod=$1
+
+export MPCXC_ROOT=$PWD
+export MPCXC_SH=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+
+libs_src_path=$MPCXC_ROOT/src/$cvs_mod
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} open ace_os_open FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} os_Open ace_os_open FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} open ace_os_open FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} os_Open ace_os_open FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} open ace_os_open FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} os_Open ace_os_open FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _open ace_os_open FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _open ace_os_open FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _open ace_os_open FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} close ace_os_close FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} os_Close ace_os_close FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} close ace_os_close FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} os_Close ace_os_close FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} close ace_os_close FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} os_Close ace_os_close FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _close ace_os_close FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _close ace_os_close FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _close ace_os_close FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} "read" "ace_os_read" FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} "os_Read" "ace_os_read" FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} "read" "ace_os_read" FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} "os_Read" "ace_os_read" FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} "read" "ace_os_read" FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} "os_Read" "ace_os_read" FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} "_read" "ace_os_read" FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} "_read" "ace_os_read" FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} "_read" "ace_os_read" FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} write ace_os_write FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} os_Write ace_os_write FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} write ace_os_write FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} os_Write ace_os_write FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} write ace_os_write FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} os_Write ace_os_write FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _write ace_os_write FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _write ace_os_write FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _write ace_os_write FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} lseek ace_os_lseek FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} os_seek ace_os_lseek FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} lseek ace_os_lseek FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} os_seek ace_os_lseek FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} lseek ace_os_lseek FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} os_seek ace_os_lseek FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _lseek ace_os_lseek FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _lseek ace_os_lseek FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _lseek ace_os_lseek FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} os_Chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} os_Chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} os_Chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _chsize ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} ftruncate ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} ftruncate ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} ftruncate ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _ftruncate ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _ftruncate ace_os_ftruncate FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _ftruncate ace_os_ftruncate FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} tell ace_os_tell FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} tell ace_os_tell FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} tell ace_os_tell FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _tell ace_os_tell FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _tell ace_os_tell FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _tell ace_os_tell FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} filelength ace_os_filesize FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} filelength ace_os_filesize FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} filelength ace_os_filesize FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _filelength ace_os_filesize FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _filelength ace_os_filesize FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _filelength ace_os_filesize FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} unlink ace_os_unlink FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} unlink ace_os_unlink FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} unlink ace_os_unlink FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} rename ace_os_rename FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} rename ace_os_rename FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} rename ace_os_rename FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _unlink ace_os_unlink FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _unlink ace_os_unlink FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _unlink ace_os_unlink FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} _rename ace_os_rename FUNC_NAME \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} _rename ace_os_rename FUNC_NAME \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} _rename ace_os_rename FUNC_NAME \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} O_RDONLY ACE_OS_O_RDONLY WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} O_RDONLY ACE_OS_O_RDONLY WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} O_RDONLY ACE_OS_O_RDONLY WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} O_WRONLY ACE_OS_O_WRONLY WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} O_WRONLY ACE_OS_O_WRONLY WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} O_WRONLY ACE_OS_O_WRONLY WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} O_RDWR ACE_OS_O_RDWR WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} O_RDWR ACE_OS_O_RDWR WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} O_RDWR ACE_OS_O_RDWR WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} O_CREAT ACE_OS_O_CREAT WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} O_CREAT ACE_OS_O_CREAT WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} O_CREAT ACE_OS_O_CREAT WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} O_TRUNC ACE_OS_O_TRUNC WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} O_TRUNC ACE_OS_O_TRUNC WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} O_TRUNC ACE_OS_O_TRUNC WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} O_BINARY ACE_OS_O_BINARY WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} O_BINARY ACE_OS_O_BINARY WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} O_BINARY ACE_OS_O_BINARY WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} O_TEXT ACE_OS_O_TEXT WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} O_TEXT ACE_OS_O_TEXT WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} O_TEXT ACE_OS_O_TEXT WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} O_EXCL ACE_OS_O_EXCL WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} O_EXCL ACE_OS_O_EXCL WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} O_EXCL ACE_OS_O_EXCL WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} SEEK_SET ACE_OS_SEEK_SET WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} SEEK_SET ACE_OS_SEEK_SET WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} SEEK_SET ACE_OS_SEEK_SET WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} SEEK_CUR ACE_OS_SEEK_CUR WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} SEEK_CUR ACE_OS_SEEK_CUR WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} SEEK_CUR ACE_OS_SEEK_CUR WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} SEEK_END ACE_OS_SEEK_END WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} SEEK_END ACE_OS_SEEK_END WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} SEEK_END ACE_OS_SEEK_END WHOLE_WORD \;
+
+find $libs_src_path -type f -name "*.cpp" -exec $MPCXC_SH/fix_replace {} NULL 0 WHOLE_WORD \;
+find $libs_src_path -type f -name "*.c" -exec $MPCXC_SH/fix_replace {} NULL 0 WHOLE_WORD \;
+find $libs_src_path -type f -name "*.h" -exec $MPCXC_SH/fix_replace {} NULL 0 WHOLE_WORD \;
+find $libs_src_path -type f -name "*.hpp" -exec $MPCXC_SH/fix_replace {} NULL 0 WHOLE_WORD \;

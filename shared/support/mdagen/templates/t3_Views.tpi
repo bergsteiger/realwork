@@ -1,0 +1,47 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Views (category)
+//////////////////////////////////////////////////////////////////////////////////
+
+: Views::Category
+? GUI пакет
+? Содержит описание компонент GUI интерфейса
+< *::Category, ValueType::Class, Interface::Class, ComInterface::Class, TestInterface::Class, UMLPrimitive::Class
+< TestInterface::Class, Iterator::Class, Const Iterator::Class, Servant::Class, ComServant::Class
+< Actor::Class, UserNeeds::Class, Feature::Class, UseCase::Class
+< CServletPlugin::Class, CListenerPlugin::Class, CMacroPlugin::Class, CComponentPlugin::Class, CJobPlugin::Class, CTriggerPlugin::Class, CVelocityContextPlugin::Class, VM::Class, CXWorkPlugin::Class, CActionPlugin::Class, XPackage::Class, CSpringPlugin::Class, CExtractorPlugin::Class
+< EvdTag::Class
+< EvdStruct::Class
+< EvdAtom::Class
+$ C 255,185,235
+$ l 240,10,200
+$ f 240,10,200
+D
+v +
+p is namespace:b=false ? определяет является ли модуль неймспейсом
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+L code_views
+Y t3_views.gif
+
+%f _wiki_up_print
+	[{%S{is namespace}!=false}* является неймспейсом 
+	]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Unit::Category;wiki
+
++ h
+= Impl::Category;h
+P
+C /%SN
+
++ cpp
+= Impl::Category;cpp
+P
+C /%SN
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ idl
+
++ rc
+= cpp

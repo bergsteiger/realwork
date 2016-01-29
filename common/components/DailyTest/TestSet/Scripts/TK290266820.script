@@ -1,0 +1,39 @@
+USES
+ EditorTools.script 
+;
+
+OBJECT VAR l_TextForm
+
+: "Открываем ППР" 
+ l_TextForm pop:Control:Width := 1000
+ l_TextForm pop:Control:Height := 700
+ l_TextForm pop:Control:Show
+ "Загрузить документ в {(l_TextForm)}"      
+;
+
+: "Выбираем любое поле"
+ 'Down' key
+;
+: "Нажимаем Сtrl+J столько раз, чтобы окно ввода опустилось ниже экрана" 
+ 20 LOOP ( 'Ctrl+J' key ProcessMessages )
+;
+
+: K290266820
+ class::TQFLikeTextLoadForm .Create >>> l_TextForm 
+ TRY
+  INTEGER VAR l_FontSize
+  GetFontSize >>> l_FontSize 
+  TRY 
+   cnDefaultFontSize SetFontSize 
+   "Открываем ППР"
+   "Выбираем любое поле"  // Не обязательно, но чтобы соотвествовало описанию. ;-)
+   "Нажимаем Сtrl+J столько раз, чтобы окно ввода опустилось ниже экрана"  
+  FINALLY
+   l_FontSize SetFontSize
+  END  
+ FINALLY
+  l_TextForm pop:Control:Handle AskWindowToCloseItself
+ END 
+;
+
+K290266820

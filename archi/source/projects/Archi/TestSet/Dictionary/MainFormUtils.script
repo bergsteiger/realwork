@@ -1,0 +1,114 @@
+// MainFormUtils.script
+// Утилитные функции работы с главной формой Арчи.
+
+USES
+ axiom:push
+ axiom:Control
+ axiom:Form
+ axiom:main_form
+ axiom:BeginWait
+ axiom:EndWait
+ axiom:MainForm
+ ArchiSystem.script
+ CommonWords.script
+ ArchiControls.script  
+;
+
+: "Сохранить документ"
+ acSave arMainActionList push:MainForm pop:form:ExecuteAction
+; 
+: "Проверка орфографии"
+ acSpellChecker arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+: "Показать РЕЕСТР ОБЪЕКТОВ" 
+ acShowObjectExplorer arGeneralActionList push:MainForm pop:form:ExecuteAction
+;
+
+: "Спрятать РЕЕСТР ОБЪЕКТОВ" 
+ acHideObjectExplorer arGeneralActionList push:MainForm pop:form:ExecuteAction
+;
+
+: "Фокус на РЕЕСТР ОБЪЕКТОВ"
+ carObjectExplorer push:MainForm pop:Control:FindControlByName pop:Control:SetFocus ASSERT
+;
+
+: "Новая выборка"
+ acNewDocExtracts arGeneralActionList push:MainForm pop:form:ExecuteAction	
+;
+
+: "Добавить ID"
+	acAddIDtoDocSet alDocList "Текущее родительское окно" pop:form:ExecuteAction	
+;
+
+: "Экспорт документов"
+	actDocExport alSearchActions "Текущее родительское окно" pop:form:ExecuteAction	
+;
+
+: "Открыть документ на чтение"
+	acRunViewer arGeneralActionList push:MainForm pop:form:ExecuteAction
+ ;
+ 
+: "Попытаться из буфера обмена"
+	acPaste arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+: "Ввести имя выборки"
+	'Тестовая выборка' emitstring	
+	 "Контрол по имени {('OK')}" pop:Control:Click  
+;
+
+: "Заполнить ID" INTEGER IN anID
+	anID IntToStr emitstring	
+	"Контрол по имени {('OKBtn')}" pop:Control:Click  	
+;
+ 
+ : "Создать выборку и добавить документ" INTEGER IN anID
+ 	@ ( "Новая выборка" ) MODAL ( "Ввести имя выборки" )
+	"Развернуть окно"
+	@ ( "Добавить ID" ) MODAL ( "Заполнить ID {(anID)}" )
+ ;
+
+ PROCEDURE "Команда 'Вырезать в буфер обмена'"
+	acCut arMainActionList push:MainForm pop:form:ExecuteAction
+ ;
+ 
+ PROCEDURE "Команда 'Вставить из буфера обмена'"
+	acPaste arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+STRING FUNCTION "Имя активной вкладки"
+	main_form:GetActivePageName =: Result
+ ;
+
+OBJECT FUNCTION "Главное окно"
+ push:MainForm >>> Result
+;
+
+PROCEDURE "Нажимаем печать"
+ BeginWait:Print
+ TRY
+  acPrint arMainActionList push:MainForm pop:form:ExecuteAction
+ FINALLY
+  EndWait:Print
+ END 
+;
+
+PROCEDURE "Эмуляция закрытия главной формы"
+	MainForm:FormClose
+;
+
+PROCEDURE "Очистить атрибуты"
+	'acBatchDeleteAttributes' 'alDocListTools' "Текущее родительское окно" pop:form:ExecuteAction
+;
+
+USES
+ ContentsTree.script
+;
+
+PROCEDURE "Установить исходное состояние Реестра Объектов"
+	"Обработать сообщения"
+	"Фокус на РЕЕСТР ОБЪЕКТОВ"
+	"Свернуть все узлы дерева"
+	"Спрятать РЕЕСТР ОБЪЕКТОВ" 
+;

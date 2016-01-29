@@ -1,0 +1,95 @@
+<project name="init">
+    <target name="init.intranet" description="Special initialization: intranet project">
+        <echo message="Init special build properties" level="info"/>
+        <property name="propertyFilename" value="intranet.properties" />
+    </target>
+    
+    <target name="init.english" description="Special initialization: english project">
+        <echo message="Init special build properties" level="info"/>
+        <property name="propertyFilename" value="english.properties" />
+    </target>
+    
+    <target name="init.park" description="Special initialization: park project">
+        <echo message="Init special build properties" level="info"/>
+        <property name="propertyFilename" value="park.properties" />
+    </target>
+    
+    <target name="init.all" description="Common initialization">
+        <echo message="Init common properties" level="info"/>
+        <buildnumber/>
+        <property file="${propertyFilename}"/>
+    
+        <if>
+            <equals arg1="${f1server.version.fixedBuild}" arg2=""/>
+            <then>                
+                <property file="\\p3single05\WORKS\!CURRENT\intranet_current_${f1server.version.major}.${f1server.version.minor}"/>
+                <echo message="Use actual server build: ${f1server.version.build}" level="info"/>
+            </then>
+            <else>
+                <property name="f1server.version.build" value="${f1server.version.fixedBuild}"/>
+                <echo message="Use fixed server build: ${f1server.version.build}" />
+            </else>
+        </if>
+        
+        <echo message="Delete compiled dev-intranet python files" level="info"/>
+        <delete>
+            <fileset dir="${intranet.dev.home}/Web/Instance/zope/Products/Garant">
+                <include name="**/*.pyc"/>
+            </fileset>
+        </delete>
+        
+        <echo message="Update version files by actual version data" level="info"/>
+        <copy file="${f1server.storagePattern}${f1server.version.major}_${f1server.version.minor}_${f1server.version.subminor}_${f1server.version.build}/!daily-GARANTF1-${f1server.version.major}_${f1server.version.minor}/server/version.txt" tofile="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/version.txt" overwrite="true"/>
+        <echo file="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/version.txt" append="true"><![CDATA[
+${build.version.major}.${build.version.minor}.${build.number}
+        ]]></echo>
+        <echo file="${intranet.dev.home}/Web/Instance/zope/Products/Garant/version.py"><![CDATA[build_version = '${build.version.major}.${build.version.minor}.b${build.number}']]></echo>
+    </target>
+    
+    <target name="init.javascript.compress" description="Initialization of javascript compress">
+        <mkdir dir="${javascript.compress.storage}"/>
+        
+        <echo message="Stop dev-intranet" level="info"/>
+        <exec executable="python" output="${log.service}" error="${log.service}" failonerror="true" timeout="180000">
+            <arg value="bin/ServiceHelper.py"/>
+            <arg value="--action=stop"/>
+            <arg value="--port-corba=${intranet.dev.portCorba}"/>
+            <arg value="--port-zope=${intranet.dev.portZope}"/>
+        </exec>
+        
+        <echo message="Stop build-intranet" level="info"/>
+        <exec executable="python" output="${log.service}" error="${log.service}" failonerror="true" timeout="180000">
+            <arg value="bin/ServiceHelper.py"/>
+            <arg value="--action=stop"/>
+            <arg value="--port-corba=${intranet.build.portCorba}"/>
+            <arg value="--port-zope=${intranet.build.portZope}"/>
+        </exec>
+        
+        <copy file="${intranet.dev.home}/Web/Instance/zope/var/Data.fs" tofile="${intranet.build.home}/Web/Instance/zope/var/Data.fs" overwrite="true"/>
+        
+        <echo message="Start dev-intranet" level="info"/>
+        <exec executable="python" output="${log.service}" error="${log.service}" failonerror="true" timeout="180000">
+            <arg value="bin/ServiceHelper.py"/>
+            <arg value="--action=start"/>
+            <arg value="--port-corba=${intranet.dev.portCorba}"/>
+            <arg value="--port-zope=${intranet.dev.portZope}"/>
+        </exec>
+        
+        <echo message="Start build-intranet" level="info"/>
+        <exec executable="python" output="${log.service}" error="${log.service}" failonerror="true" timeout="180000">
+            <arg value="bin/ServiceHelper.py"/>
+            <arg value="--action=start"/>
+            <arg value="--port-corba=${intranet.build.portCorba}"/>
+            <arg value="--port-zope=${intranet.build.portZope}"/>
+        </exec>
+    </target>
+    
+    <target name="init.help" description="Initialization of help files upload">
+        <mkdir dir="${help.storage}"/>
+        <exec executable="cmd/build.help.export.cmd" output="${log.service}" error="${log.service}" failonerror="true" timeout="180000"></exec>
+    </target>
+    
+    <target name="init.build.zip">
+        <mkdir dir="${build.storage}/${build.type}"/>
+    </target>
+</project>

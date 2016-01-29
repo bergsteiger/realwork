@@ -1,0 +1,345 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// ComTarget
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ComTarget::Category
+$ C 195,245,195
+$ l 80,245,90
+$ f 80,245,80
+? COM DLL
+? Длл для интеграции с внешним COM-приложением
+> CustomFile::Class , CustomDirectory::Class
+
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+D
+Y target.gif
+
+%t _constraint
+c             {}
+r {<{}{%aS!=InstallerTarget}{CSp}>!=0}: {%SS can't be used as target of dependence}
+r {"%f_com_constraint(%S)"="false"}: {%SS can't depend on packages wich contains more than 1 ComInterface::Category together.}
+
+%f _wiki_up_print
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= ExeTarget::Category;wiki
+L code_com_target
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ idl
++ idl_ami
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ mpc
+P
+O T_%SN.mpc
+X X:/support/bin/mwc_comp.bat %Po
+/X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd T_%SN dll
+	%f_output_constraint(%S)\
+# t0_header
+	project (T_%SN) : project_generic_core[{%f_use_server(%S)=true}_corba], project_subsystem_windows {
+		sharedname = %SN
+		
+		includes += %PR/
+		
+		after += Core
+		libs  += Core
+		[{%f_use_server(%S)=true}after += CoreSrv_cs
+		libs  += CoreSrv_cs
+		after += CoreSrv
+		libs  += CoreSrv][
+	
+	%f_mpc_all_dep(%S)]
+	
+		%U[{_CUSTOM_DEPENDENSES}
+		]
+	
+		Header_Files {
+			Std_Headers {
+				./../%SN/Resource.h
+			[	%f_normolized_path(h,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(h,A)
+			][	%f_normolized_path(fctr.h,A)
+			]>[{%S{need UC}=true}%U[{_%CN_Manual_Headers}
+			]
+			]}
+		>[{%S{need UC}=true}
+			Rest_Headers {
+			%U[{_Rest_Manual_Headers}
+			]
+			}]
+		}			
+	
+		Source_Files {
+			AAAFix {
+				w:/shared/Core/fix/__ace_inc.cpp
+			}
+			
+			Std_Sources {
+			[	%f_normolized_path(cpp,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+			][%f_normolized_path(fctr.cpp,C)
+			]>}
+		<{}{%CC=Category&%CS!=Requirements}{Sn}
+			%CN {
+			[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(cpp,A)
+			][	%f_normolized_path(fctr.cpp,A)
+			]>[{%S{need UC}=true}%U[{_%CN_Manual_Sources}
+			]
+			]}
+		>			
+		}
+		
+		Resource_Files {
+			Std_Resources {
+			[	%f_normolized_path(com.def,S)
+			]}
+			
+			%f_normolized_path(vi.rc,S)
+			%f_normolized_path(vi.rch,S)
+			
+			<{}{%dS!=Requirements}%d<{}{}{%CSn}%CN {
+			[	%f_normolized_path(com.rgs,C)
+			]}
+			
+			>>[{%f_contain_views(%S)=true}./../%SN/%SN.rc
+			./../%SN/%SN.rc2
+			]<{}{%dS!=Requirements}%d<{}{%AM=Resource::Class}
+			[%f_normolized_path(rc,A)
+			]>>%U[{CUSTOM_RESOURCE}
+			]
+		}
+	}
+# t0_footer
+	]
+
++ com.def
+P
+O %SN.def
+	%f_output_constraint(%S)\
+	LIBRARY "%SN.dll"
+	
+	EXPORTS
+		DllCanUnloadNow     PRIVATE
+		DllGetClassObject   PRIVATE
+		DllRegisterServer   PRIVATE
+		DllUnregisterServer PRIVATE<%CX>
+
++ com.rgs
+P
+C /%SN
+	<%CX>
+
++ vi.rc
+= ExeTarget::Category;vi.rc
+
++ vi.rch
+= ExeTarget::Category;vi.rch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ h
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+O %SN.h
+	%f_output_constraint(%S)\
+# t0_h_header
+	\#include "shared/Core/sys/std_inc.h"
+	\#include "shared/Core/fix/win_afx.h"
+	\#include "Resource.h"
+
+	extern ATL::CComModule _Module;	
+	
+	static const char* DLL_VERSION = "%P{major version}.%P{minor version}.%P{fix version}";
+	
+	static const long DLL_BUILD_NUM = %PA;<%CX>
+	
+	class COMDllInintializator {
+	public:
+		static void init ();
+		static void done ();
+	
+	private:
+		static Core::Mutex s_init_mutex;
+		static unsigned long s_count;
+	};
+# t0_h_footer
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ cpp
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+O %SN.cpp
+	%f_output_constraint(%S)\
+# t0_header
+	\#include "shared/Core/sys/start_stop.h"
+	\#include "shared/Core/fix/win_afx.h"
+	\#include "shared/Core/GDS/MemoryWatcher.h"
+	\#include "shared/Core/GDS/ObjectWatcher.h"
+	[{"%f_use_mem_pool(%S)"="true"}\#include "shared/Core/mng/PoolMemoryManager.h"
+	][{"%f_use_obj_pool(%S)"="true"}\#include "shared/Core/mng/PoolObjectManager.h"
+	]\#include [{%f_use_server(%S)=true}{"shared/Core/impl/Root_i/StdLibHomeManager_factory.h"}"shared/CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.h"]
+	[%f_inc_all_dep(%S)
+	]
+	/////////////////////ComServant includes//////////////////////
+	<%d<{}{%AM=ComServant::Class}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+	>>
+
+	%U[{_CUSTOM_INC}
+	]
+	
+	ATL::CComModule _Module;
+	
+	BEGIN_OBJECT_MAP(ObjectMap)
+	
+		<%d<{}{%AM=ComServant::Class}OBJECT_ENTRY(CLSID_Co%A%RN, %A<%NN::>%AN)
+		>>
+	END_OBJECT_MAP()
+	
+	class %SNApp: public CWinApp {
+	public:
+		virtual BOOL InitInstance();
+		
+		virtual int ExitInstance();
+		
+		DECLARE_MESSAGE_MAP()
+	};
+	
+	BEGIN_MESSAGE_MAP(%SNApp, CWinApp)
+	END_MESSAGE_MAP()
+	
+	%SNApp theApp;
+	
+	class ComThreadInit: public virtual Core::Root::ThreadInitializer, public virtual Core::RefCountObjectBase {
+		// Вызывается при создании потока
+		void thread_init () {
+			::CoInitialize (0);
+		}
+	
+		// вызывается при завершении потока
+		void thread_finalize () {
+			::CoUninitialize ();
+		}
+	};
+	
+	Core::Mutex COMDllInintializator::s_init_mutex;
+	unsigned long COMDllInintializator::s_count = 0;
+	
+	void COMDllInintializator::init () {
+		GUARD (s_init_mutex);
+		if (s_count++ != 0) {
+			return;
+		}
+		{
+			[{%f_use_server(%S)=true}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory_var f = new [{%f_use_server(%S)=true}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory ();
+			f-\>registrate_me(0);
+		}
+	
+		Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+		Core::Var\<ComThreadInit\> cti = new ComThreadInit ();
+		lhm.registrate_thread_initializer (cti.in());
+	
+	[	{
+	%f_reg_all_dep(%S)	}
+	
+	]	try {
+			lhm.execute ();
+		} catch (Core::Root::HomeManagerInitError&) {
+			LOG_W (("Server uninitialized - working in standalone mode"));
+		} CATCH_LOG_AND_DO ("while HomeManager processed", return;)
+	}
+		
+	void COMDllInintializator::done () {
+		GUARD (s_init_mutex);
+		if (--s_count != 0) {
+			return;
+		}
+		Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+		lhm.finalize ();
+	}
+	
+	BOOL %SNApp::InitInstance() {
+		Core::init ();
+		<%d<{}{%AM=ComInterface::Category}_Module.Init(ObjectMap, m_hInstance, &LIBID_%ANLib);
+		>>
+		try {
+			Core::ParamManagerInitData init = {"%SN", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\\\Software\\\\Garant\\\\%PN\\\\%SN"};
+			Core::ParamManager::instance ()-\>init (0, 0, init);
+		} CATCH_AND_LOG ("while init ParamManager executed")
+		return CWinApp::InitInstance();
+	}
+	
+	int %SNApp::ExitInstance() {
+		_Module.Term();
+		Core::fini ();
+		return CWinApp::ExitInstance();
+	}
+	
+	// Used to determine whether the DLL can be unloaded by OLE
+	STDAPI DllCanUnloadNow () {
+	    AFX_MANAGE_STATE (AfxGetStaticModuleState ());
+	    return (AfxDllCanUnloadNow () == S_OK && _Module.GetLockCount () == 0) ? S_OK : S_FALSE;
+	}
+	
+	// Returns a class factory to create an object of the requested type
+	STDAPI DllGetClassObject (REFCLSID rclsid, REFIID riid, LPVOID* ppv) {
+	    AFX_MANAGE_STATE (AfxGetStaticModuleState ());
+	    return _Module.GetClassObject (rclsid, riid, ppv);
+	}
+	
+	// DllRegisterServer - Adds entries to the system registry
+	STDAPI DllRegisterServer () {
+	    AFX_MANAGE_STATE (AfxGetStaticModuleState ());
+	    return _Module.RegisterServer (TRUE);
+	}
+	
+	// DllUnregisterServer - Removes entries from the system registry
+	STDAPI DllUnregisterServer () {
+	    AFX_MANAGE_STATE (AfxGetStaticModuleState ());
+	    return _Module.UnregisterServer (TRUE);
+	}<%CX>
+# t0_footer
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ i.h
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+	<%CX>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ fctr.h
+= i.h
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ fctr.cpp
+= i.h
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ odl
+= i.h
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// support functions
+f _count_com_interface
+	[<%d<{}{%AM=ComInterface::Category}.>>]
+
+f _com_constraint
+	%f_set_var(COM_INTERFACE_COUNT,"%f_count_com_interface(%S)")[{"%{COM_INTERFACE_COUNT}N"=""|"%{COM_INTERFACE_COUNT}N"="."}{false}true]
+
+f _contain_views
+	[{"<%d<{}{%AS=Views}{C}>>"!="0"}{false}true]

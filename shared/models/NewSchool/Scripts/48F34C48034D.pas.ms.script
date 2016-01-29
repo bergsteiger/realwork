@@ -1,0 +1,47 @@
+// ShlObj 48F34C48034D UtilityPack Class
+
+FORWARD ME_48F34C48034D
+
+: ME_48F34C8D030F
+ CONST UID '48F34C8D030F'
+ CONST Name 'TDropFiles'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_48F34C8D030F TDropFiles
+
+: ME_48F34C980291
+ CONST UID '48F34C980291'
+ CONST Name 'PDropFiles'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_48F34C8D030F // TDropFiles
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_48F34C980291 PDropFiles
+
+: ME_48F34C48034D
+ CONST UID '48F34C48034D'
+ CONST Name 'ShlObj'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_48F34C8D030F // TDropFiles
+ ME_48F34C980291 // PDropFiles
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_48F34C48034D ShlObj

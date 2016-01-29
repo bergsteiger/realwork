@@ -1,0 +1,331 @@
+// Tm3StoreHeader 5411C42800B8 SimpleClass Class
+
+INCLUDE '4AE5CA2D0034.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5411C42800B8
+
+INCLUDE '54084CDE023E.pas.ms.script'
+
+: ME_5411C44602B9
+ CONST UID '5411C44602B9'
+ CONST Name 'HeaderData'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_54084CDE023E // Tm3StoreHeaderDataPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5411C44602B9 HeaderData
+
+INCLUDE '543FBAC30068.pas.ms.script'
+
+: ME_5411C460001A
+ CONST UID '5411C460001A'
+ CONST Name 'RootStreamManager'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_543FBAC30068 // Tm3RootStreamManagerPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5411C460001A RootStreamManager
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5411C49E0248
+ CONST UID '5411C49E0248'
+ CONST Name 'TOCListPosition'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_5411C49E0248 TOCListPosition
+
+INCLUDE '4773DED9004C.pas.ms.script'
+
+: ME_5411C4C10298
+ CONST UID '5411C4C10298'
+ CONST Name 'Name'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4773DED9004C // Tl3_String
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5411C4C10298 Name
+
+: ME_282ADE95478D
+ CONST UID '282ADE95478D'
+ CONST Name 'f_HeaderData'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства HeaderData' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_54084CDE023E // Tm3StoreHeaderDataPrim
+ ;
+
+ @SELF
+; // ME_282ADE95478D f_HeaderData
+
+: ME_B55CA70CEB92
+ CONST UID 'B55CA70CEB92'
+ CONST Name 'f_RootStreamManager'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства RootStreamManager' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_543FBAC30068 // Tm3RootStreamManagerPrim
+ ;
+
+ @SELF
+; // ME_B55CA70CEB92 f_RootStreamManager
+
+: ME_E8C484FC5593
+ CONST UID 'E8C484FC5593'
+ CONST Name 'f_Name'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Name' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4773DED9004C // Tl3_String
+ ;
+
+ @SELF
+; // ME_E8C484FC5593 f_Name
+
+FORWARD ME_5411C4EB00A3
+
+INCLUDE '4773D64E036C.pas.ms.script'
+
+: ME_5411C522012F
+ CONST UID '5411C522012F'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4773DF5703C9 // Tl3String
+ ;
+
+ @SELF
+; // ME_5411C522012F aName
+
+: ME_5411C5220154
+ CONST UID '5411C5220154'
+ CONST Name 'aRootStreamManager'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543FBAC30068 // Tm3RootStreamManagerPrim
+ ;
+
+ @SELF
+; // ME_5411C5220154 aRootStreamManager
+
+: ME_5418356C0320
+ CONST UID '5418356C0320'
+ CONST Name 'aData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_54084CDE023E // Tm3StoreHeaderDataPrim
+ ;
+
+ @SELF
+; // ME_5418356C0320 aData
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5411C4F70190
+ CONST UID '5411C4F70190'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5411C522012F // aName
+ ME_5411C5220154 // aRootStreamManager
+ ME_5418356C0320 // aData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5411C4F70190 DoIt
+
+: ME_5411C4EB00A3
+ CONST UID '5411C4EB00A3'
+ CONST Name 'CreatePrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5411C4F70190 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5411C4EB00A3 CreatePrim
+
+FORWARD ME_54183548003F
+
+INCLUDE '4720862F0238.pas.ms.script'
+
+: ME_54183B7303A3
+ CONST UID '54183B7303A3'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_54183B7303A3 anAccess
+
+: ME_5418355800E7
+ CONST UID '5418355800E7'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4773DF5703C9 // Tl3String
+ ;
+
+ @SELF
+; // ME_5418355800E7 aName
+
+: ME_54183558010E
+ CONST UID '54183558010E'
+ CONST Name 'aRootStreamManager'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543FBAC30068 // Tm3RootStreamManagerPrim
+ ;
+
+ @SELF
+; // ME_54183558010E aRootStreamManager
+
+: ME_541835580137
+ CONST UID '541835580137'
+ CONST Name 'aTOCItemDataPosition'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_541835580137 aTOCItemDataPosition
+
+: ME_5418355503D6
+ CONST UID '5418355503D6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ : Parameters
+   [ ME_54183B7303A3 // anAccess
+ ME_5418355800E7 // aName
+ ME_54183558010E // aRootStreamManager
+ ME_541835580137 // aTOCItemDataPosition
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5418355503D6 DoIt
+
+: ME_54183548003F
+ CONST UID '54183548003F'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5418355503D6 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54183548003F Create
+
+: ME_5411C42800B8
+ CONST UID '5411C42800B8'
+ CONST Name 'Tm3StoreHeader'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Описатель элемента хранилища (потока или подхранилища)' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4AE5CA2D0034 // Tl3CProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_5411C44602B9 // HeaderData
+ ME_5411C460001A // RootStreamManager
+ ME_5411C49E0248 // TOCListPosition
+ ME_5411C4C10298 // Name
+ ME_282ADE95478D // f_HeaderData
+ ME_B55CA70CEB92 // f_RootStreamManager
+ ME_E8C484FC5593 // f_Name
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5411C4EB00A3 // CreatePrim
+ ME_54183548003F // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5411C42800B8 Tm3StoreHeader

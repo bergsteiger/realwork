@@ -1,0 +1,581 @@
+// l3Drawer 4739AF6301B6 UtilityPack Class
+
+FORWARD ME_4739AF6301B6
+
+FORWARD ME_4739AF7A0250
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4739AFA2004E
+ CONST UID '4739AFA2004E'
+ CONST Name 'l3_dmGDIPlus'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_4739AFA2004E l3_dmGDIPlus
+
+: ME_4739AFA90333
+ CONST UID '4739AFA90333'
+ CONST Name 'l3_dmGDI'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_4739AFA90333 l3_dmGDI
+
+: ME_4739AF7A0250
+ CONST UID '4739AF7A0250'
+ CONST Name 'Tl3DrawerMode'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_4739AFA2004E // l3_dmGDIPlus
+ ME_4739AFA90333 // l3_dmGDI
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_4739AF7A0250 Tl3DrawerMode
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+FORWARD ME_4739ABDB029D
+
+INCLUDE '47D15712022D.pas.ms.script'
+
+: ME_4739AEE803E0
+ CONST UID '4739AEE803E0'
+ CONST Name 'Canvas'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Канва для рисования.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_515581580039 // TCanvas
+ ;
+
+ @SELF
+; // ME_4739AEE803E0 Canvas
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4739AF1C02C3
+ CONST UID '4739AF1C02C3'
+ CONST Name 'PenColor'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A44A9E0112 // Tl3Color
+ ;
+
+ @SELF
+; // ME_4739AF1C02C3 PenColor
+
+: ME_4739AF29005E
+ CONST UID '4739AF29005E'
+ CONST Name 'BrushColor'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A44A9E0112 // Tl3Color
+ ;
+
+ @SELF
+; // ME_4739AF29005E BrushColor
+
+: ME_4739AFBA039C
+ CONST UID '4739AFBA039C'
+ CONST Name 'Mode'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4739AF7A0250 // Tl3DrawerMode
+ ;
+
+ @SELF
+; // ME_4739AFBA039C Mode
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4739AC1A02F7
+ CONST UID '4739AC1A02F7'
+ CONST Name 'X1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AC1A02F7 X1
+
+: ME_4739AC1A0315
+ CONST UID '4739AC1A0315'
+ CONST Name 'Y1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AC1A0315 Y1
+
+: ME_4739AC1A033E
+ CONST UID '4739AC1A033E'
+ CONST Name 'X2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AC1A033E X2
+
+: ME_4739AC1A035C
+ CONST UID '4739AC1A035C'
+ CONST Name 'Y2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AC1A035C Y2
+
+: ME_4739AC0801D9
+ CONST UID '4739AC0801D9'
+ CONST Name 'DrawLine'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4739AC1A02F7 // X1
+ ME_4739AC1A0315 // Y1
+ ME_4739AC1A033E // X2
+ ME_4739AC1A035C // Y2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4739AC0801D9 DrawLine
+
+: ME_4739AC8F02F6
+ CONST UID '4739AC8F02F6'
+ CONST Name 'X1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AC8F02F6 X1
+
+: ME_4739AC8F0314
+ CONST UID '4739AC8F0314'
+ CONST Name 'Y1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AC8F0314 Y1
+
+: ME_4739AC8F033C
+ CONST UID '4739AC8F033C'
+ CONST Name 'X2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AC8F033C X2
+
+: ME_4739AC8F0364
+ CONST UID '4739AC8F0364'
+ CONST Name 'Y2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AC8F0364 Y2
+
+: ME_4739AC7E016B
+ CONST UID '4739AC7E016B'
+ CONST Name 'DrawEllipse'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4739AC8F02F6 // X1
+ ME_4739AC8F0314 // Y1
+ ME_4739AC8F033C // X2
+ ME_4739AC8F0364 // Y2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4739AC7E016B DrawEllipse
+
+: ME_4739ACAC0153
+ CONST UID '4739ACAC0153'
+ CONST Name 'X1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739ACAC0153 X1
+
+: ME_4739ACAC017B
+ CONST UID '4739ACAC017B'
+ CONST Name 'Y1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739ACAC017B Y1
+
+: ME_4739ACAC01A3
+ CONST UID '4739ACAC01A3'
+ CONST Name 'X2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739ACAC01A3 X2
+
+: ME_4739ACAC01CB
+ CONST UID '4739ACAC01CB'
+ CONST Name 'Y2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739ACAC01CB Y2
+
+: ME_4739AC99032C
+ CONST UID '4739AC99032C'
+ CONST Name 'DrawRect'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4739ACAC0153 // X1
+ ME_4739ACAC017B // Y1
+ ME_4739ACAC01A3 // X2
+ ME_4739ACAC01CB // Y2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4739AC99032C DrawRect
+
+INCLUDE '46A5E026007E.pas.ms.script'
+
+: ME_4739ACDC01AC
+ CONST UID '4739ACDC01AC'
+ CONST Name 'Points'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4739AD740178 // TPointsArray
+ ;
+
+ @SELF
+; // ME_4739ACDC01AC Points
+
+: ME_4739ACBB02E5
+ CONST UID '4739ACBB02E5'
+ CONST Name 'DrawPolygon'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4739ACDC01AC // Points
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4739ACBB02E5 DrawPolygon
+
+: ME_4739ADFB024F
+ CONST UID '4739ADFB024F'
+ CONST Name 'X1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739ADFB024F X1
+
+: ME_4739ADFB0281
+ CONST UID '4739ADFB0281'
+ CONST Name 'Y1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739ADFB0281 Y1
+
+: ME_4739ADFB02A9
+ CONST UID '4739ADFB02A9'
+ CONST Name 'X2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739ADFB02A9 X2
+
+: ME_4739ADFB02DB
+ CONST UID '4739ADFB02DB'
+ CONST Name 'Y2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739ADFB02DB Y2
+
+: ME_4739ADEF01F7
+ CONST UID '4739ADEF01F7'
+ CONST Name 'FillEllipse'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4739ADFB024F // X1
+ ME_4739ADFB0281 // Y1
+ ME_4739ADFB02A9 // X2
+ ME_4739ADFB02DB // Y2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4739ADEF01F7 FillEllipse
+
+: ME_4739AE43011C
+ CONST UID '4739AE43011C'
+ CONST Name 'X1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AE43011C X1
+
+: ME_4739AE43014E
+ CONST UID '4739AE43014E'
+ CONST Name 'Y1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AE43014E Y1
+
+: ME_4739AE430180
+ CONST UID '4739AE430180'
+ CONST Name 'X2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AE430180 X2
+
+: ME_4739AE4301B2
+ CONST UID '4739AE4301B2'
+ CONST Name 'Y2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4739AE4301B2 Y2
+
+: ME_4739AE3300F1
+ CONST UID '4739AE3300F1'
+ CONST Name 'FillRect'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4739AE43011C // X1
+ ME_4739AE43014E // Y1
+ ME_4739AE430180 // X2
+ ME_4739AE4301B2 // Y2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4739AE3300F1 FillRect
+
+: ME_47726974001F
+ CONST UID '47726974001F'
+ CONST Name 'Points'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4739AD740178 // TPointsArray
+ ;
+
+ @SELF
+; // ME_47726974001F Points
+
+: ME_4739AE6C0279
+ CONST UID '4739AE6C0279'
+ CONST Name 'FillPolygon'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47726974001F // Points
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4739AE6C0279 FillPolygon
+
+: ME_4739ABDB029D
+ CONST UID '4739ABDB029D'
+ CONST Name 'Tl3Drawer'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY '"Универсальный отрисовщик", использующий по возможности функции GDI+' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4739AEE803E0 // Canvas
+ ME_4739AF1C02C3 // PenColor
+ ME_4739AF29005E // BrushColor
+ ME_4739AFBA039C // Mode
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4739AC0801D9 // DrawLine
+ ME_4739AC7E016B // DrawEllipse
+ ME_4739AC99032C // DrawRect
+ ME_4739ACBB02E5 // DrawPolygon
+ ME_4739ADEF01F7 // FillEllipse
+ ME_4739AE3300F1 // FillRect
+ ME_4739AE6C0279 // FillPolygon
+ ]
+ ; // Operations
+ CONST "author" 'Жучков А.Ю.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2007/11/06 09:34:31'
+
+ @SELF
+; // ME_4739ABDB029D Tl3Drawer
+
+: ME_4739AF6301B6
+ CONST UID '4739AF6301B6'
+ CONST Name 'l3Drawer'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4739AF7A0250 // Tl3DrawerMode
+ ME_4739ABDB029D // Tl3Drawer
+ ]
+ ; // Children
+ CONST "author" 'Жучков А.Ю.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '2007/11/06 09:34:31'
+
+ @SELF
+; // ME_4739AF6301B6 l3Drawer

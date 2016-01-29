@@ -1,0 +1,1 @@
+@F1UsersSave.exe -GCMActiveDataPath 2 -GCMDataPath1 "D:\nemesis\data" -GCMDataPath2 "D:\nemesis\server\data2" -GCMSettingsDataPath "C:\XML" -GCMSettingsPath "D:\nemesis\server\settings" -ORBDottedDecimalAddresses 1 -ORBUseSharedProfiles 1 -ORBLogFile "D:\nemesis\server\logs\save.log"

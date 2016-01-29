@@ -1,0 +1,481 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Promt98 Translation System-->
+<HTML>
+ 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+ 
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+<title> Концепции: Иерархическое представление</title> 
+  </head> 
+<body>
+<a href="_co_layer.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<h2 class="banner"> <a name="Top">Концепции: Иерархическое
+Представление</a></h2> 
+<p class="banner"> <a name="Top">Concepts: Layering</a></p> 
+<blockquote>  
+</blockquote>
+<h5> Разделы</h5> 
+<p> Topics</p> 
+<ul>
+ 
+<li> <a href="#Typical Layering Approaches">Типичные Методы Иерархического
+  Представления</a></li> 
+<li> <a href="#Layering Guidelines">Руководство
+  Иерархического Представления</a></li> 
+<li> <a href="#Partitioning Patterns">Образцы Разделения</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Typical Layering Approaches">Typical Layering Approaches</a></li>
+  <li><a href="#Layering Guidelines">Layering Guidelines</a></li>
+  <li><a href="#Partitioning Patterns">Partitioning Patterns</a></li>
+</ul>
+<p>&nbsp;</p>
+<h3> <a name="Typical Layering Approaches">Типичные Методы Иерархического представления</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Typical Layering Approaches">Typical Layering Approaches</a> </p> 
+<p>
+Иерархическое представление отражает
+упорядоченную группировку функциональных возможностей,
+в которой приложение-специфичные
+функциональные возможности расположены на верхних
+уровнях, функциональные возможности,
+охватывающие области приложений, находятся
+на средних уровнях, а функциональные
+возможности, специфичные для
+развертываемой среды, располагаются на более низких
+уровнях.
+</p>
+<p>Layering represents an ordered grouping of functionality, with the
+application-specific located in the upper layers, functionality that spans
+application domains in the middle layers, and functionality specific to the
+deployment environment at the lower layers.
+</p>
+<p>Число и состав уровней зависят от
+сложности области проблемы и сложности
+области решения:<p>The number and composition of layers is dependent upon the complexity of both
+the problem domain and the solution space: 
+<ul>
+ 
+<li> Как правило, имеется только один
+  приложение-специфичный уровень.</li> 
+<li> В областях, в которых были построены предыдущие системы,&nbsp;
+  или в которых большие системы, в свою очередь,
+  создаются&nbsp; из меньших интер-операционных систем,
+  существует большая необходимость
+  разделения информации между командами проекта. В результате,
+  бизнес-специфичный уровень вероятнее
+  всего будет представлен частично и для
+  ясности сможет быть структурирован на
+  нескольких уровнях.</li> 
+<li> Области Решения, которые хорошо поддерживаются
+  микропрограммными продуктами и в которых сложное программное обеспечение системы играет большую
+  роль, будут расположены на&nbsp; более низких  хорошо-разработанных
+  уровнях, возможно с несколькими уровнями
+  для микропрограмм и программного обеспечения системы.</li> 
+
+</ul>
+<ul>
+  <li>There is generally only a single application-specific layer.</li>
+  <li>Domains in which previous systems have been built, or in which large
+    systems are composed in turn of inter-operating smaller systems, there is a
+    strong need to share information between design teams. As a result, the
+    Business-specific layer is likely to partially exist and may be structured
+    into several layers for clarity.</li>
+  <li>Solution spaces that are well-supported by middleware products and in
+    which complex system software plays a greater part will have well-developed
+    lower layers, with perhaps several layers of middleware and system software.</li>
+</ul>
+<p>
+Подсистемы должны быть организованы в
+уровни с приложение-специфичными подсистемами, расположенными
+на более высоких уровнях архитектуры,
+аппаратными средствами ЭВМ, и операционно-специфичными
+подсистемами, расположенными на более низких
+уровнях архитектуры, и сервисами общего назначения,
+расположенными на уровнях микропрограмм.
+</p>
+<p>Subsystems should be organized into layers with application-specific
+subsystems located in the upper layers of the architecture, hardware and
+operating-specific subsystems located in the lower layers of the architecture,
+and general-purpose services occupying the middleware layers.
+</p>
+<p>Ниже представлена типовая архитектура с четырьмя
+уровнями: 
+<ul>
+ 
+<li> Высший уровень, <strong>уровень приложений</strong>, содержит
+  приложение-специфичные сервисы.</li> 
+<li> Следующий уровень -&nbsp; <strong>бизнес</strong><strong>-
+  специфичный</strong>, содержит бизнес-специфичные компоненты, используемые в
+  некоторых приложениях.</li> 
+<li> <strong>Уровень минипрограмм</strong> содержит
+  такие компоненты как программы
+  разработки&nbsp; графического интерфейса
+  пользователя (GUI), интерфейса к системам управления
+  базами данных, платформ-независимых
+  операционных сервисов системы, и таких OLE-компонентов,
+  как&nbsp; электронные таблицы и редакторы
+  диаграмм.</li> 
+<li> Нижний уровень - <b>уровень</b><strong> программного обеспечения системы</strong>, содержит
+  такие компоненты, как операционные системы, базы данных, интерфейсы
+  для определенных аппаратных средств ЭВМ и так далее.</li> 
+
+</ul>
+<ul>
+  <li>The top layer, <strong>application layer</strong>, contains the
+    application specific services.</li>
+  <li>The next layer, <strong>business-specific layer</strong>, contains
+    business specific components, used in several applications.</li>
+  <li>The <strong>middleware layer </strong>contains components such as
+    GUI-builders, interfaces to database management systems,
+    platform-independent operating system services, and OLE-components such as
+    spreadsheets and diagram editors.</li>
+  <li>The bottom layer, <strong>system software layer</strong>, contains
+    components such as operating systems, databases, interfaces to specific
+    hardware and so on.</li>
+</ul>
+<p align="center">
+<img src="../../modguide/images/md_dsub.gif" width="500" height="233"> 
+</p>
+<p class="picturetext">Иерархическая структура
+начинается на наиболее общих уровнях функциональных возможностей и
+растет по направлению к более специфичным уровням функциональных возможностей.
+</p>
+<p class="picturetext">A layered structure starting at the most general level of
+functionality and growing towards more specific levels of functionality.
+</p>
+<h3> <a name="Layering Guidelines">Руководство Иерархического
+Представления</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Layering Guidelines">Layering Guidelines </a> </p> 
+<p>
+<font color="#000000">Иерархическое представление обеспечивает логическое
+разделение подсистем на множество наборов, с
+определенными правилами относительно того, как могут быть сформированы
+отношения&nbsp; между уровнями. Иерархическое представление обеспечивает способ
+ограничения зависимостей между
+подсистемами, так что в итоге система более свободно соединена и поэтому более легко
+поддерживается.</font>
+</p>
+<p>
+<font color="#000000">Layering provides a logical partitioning of subsystems
+into a number of sets, with certain rules as to how relationships can be formed
+between layers. The layering provides a way to restrict inter-subsystem
+dependencies, with the result that the system is more loosely coupled and
+therefore more easily maintained.</font>
+</p>
+<p>
+<font color="#000000">Критерии для группируемых подсистем
+придерживаются нескольких образцов:</font> 
+<p>
+<font color="#000000">The criteria for grouping subsystems follow a few
+patterns:</font>
+<ul>
+ 
+<li> <strong>Видимость</strong>. Подсистемы могут зависеть только от подсистем
+  находящихся на том же самом уровне и следующем более низком
+  уровне.</li> 
+<li> <strong>Изменчивость</strong>. 
+<ul>
+ 
+<li> <strong>На </strong><strong>самых высоких </strong><strong>уровнях</strong>,
+  поместите элементы, которые изменяются
+  при изменении требований пользователя.</li> 
+<li> <strong>На </strong><strong>самых низких </strong><strong>уровнях</strong>
+  разместите элементы, которые изменяются
+  при изменении платформы реализации (аппаратные средства ЭВМ, язык,
+  операционная система, база данных, и т.д.).</li> 
+<li> На уровни, расположенные в середине,
+  поместите элементы, которые являются
+  широко применимыми в большом диапазоне
+  систем и сред реализации.</li> 
+<li> Добавляйте уровни, когда дополнительное разделение в пределах этих широких категорий
+  помогает организовывать модель.</li> 
+
+</ul>
+</li> 
+<li> <strong>Общность</strong>. Абстрактные элементы
+  модели, имеют тенденцию быть помещенными ниже в модели. Если
+  они не являются специфичными для
+  реализации, то они имеют тенденцию стремиться к средним
+  уровням.</li> 
+<li> <strong>Ч</strong><strong>исло Уровней.</strong> Для маленькой системы,
+  достаточно трех уровней. Для сложной системы, обычно
+  достаточно 5-7 уровней. Для любой степени сложности,
+  количество уровней превышающее 10 уровней
+  должно рассматриваться с подозрением,
+  которое увеличивается с числом уровней. Некоторые правила большого пальца представлены ниже:</li> 
+
+</ul>
+<ul>
+  <li><strong>Visibility</strong>. Subsystems may only depend on subsystems in
+    the same layer and the next lower layer.</li>
+  <li><strong>Volatility</strong>.
+    <ul>
+      <li><strong>In the highest layers</strong>, put elements which vary when
+        user requirements change.</li>
+      <li><strong>In the lowest layers</strong>, put elements that vary when the
+        implementation platform (hardware, language, operating system, database,
+        etc.) changes.</li>
+      <li>Sandwiched in the middle, put elements which are generally applicable
+        across wide ranges of systems and implementation environments.</li>
+      <li>Add layers when additional partitions within these broad categories
+        helps to organize the model.</li>
+    </ul>
+  </li>
+  <li><strong>Generality</strong>. Abstract model elements tend to be placed
+    lower in the model. If not implementation-specific, they tend to gravitate
+    toward to middle layers.</li>
+  <li><strong>Number of Layers.</strong> For a small system, three layers are
+    sufficient. For a complex system, 5-7 layers are usually sufficient. For any
+    degree of complexity, more than 10 layers should be viewed with suspicion
+    that increases with the number of layers. Some rules of thumb are presented
+    below:</li>
+</ul>
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellpadding="2">  
+<tr>  
+<td width="130" height="21" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">  
+<p align="center">
+ #Классы</td> 
+<td width="224" height="21" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">  
+<p align="center">
+ # Уровни</td> 
+</tr> 
+<tr>  
+<td width="130" height="31" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">  
+<p align="center">
+0 - 10</td> 
+<td width="224" height="31" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"> Иерархическое представление не
+  нужно
+  <p>No
+    layering needed</p>
+</td> 
+</tr> 
+<tr>  
+<td width="130" height="11" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">  
+<p align="center">
+10 - 50</td> 
+<td width="224" height="11" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"> 2
+  уровня
+  <p>2
+    layers</p>
+</td> 
+</tr> 
+<tr>  
+<td width="130" height="15" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">  
+<p align="center">
+25 - 150</td> 
+<td width="224" height="15" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"> 3
+  уровня
+  <p>3
+    layers</p>
+</td> 
+</tr> 
+<tr>  
+<td width="130" height="15" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">  
+<p align="center">
+100 - 1000</td> 
+<td width="224" height="15" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"> 4
+  уровня
+  <p>4
+    layers</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Подсистемы и пакеты в пределах
+определенного уровня должны зависеть только от подсистем в пределах того же самого
+уровня и следующего более низкого уровня. Таким образом,
+невозможность ограничить зависимости&nbsp;
+вызывает архитектурную деградацию и делает систему ломкой и
+трудной в обслуживании.
+</p>
+<p>Subsystems and packages within a particular layer should only depend upon
+subsystems within the same layer, and at the next lower layer. Failure to
+restrict dependencies in this way causes architectural degradation and makes the
+system brittle and difficult to maintain.
+</p>
+<p>
+Исключения включают случаи, в которых подсистемы нуждаются в прямом доступе
+для сервисов более низкого уровня: должно быть
+принято сознательное решение как
+контролировать примитивные сервисы,
+необходимые всей системе, такие как печать,
+отправление сообщений и т.д. Существует
+небольшая ценность в ограничении сообщений
+для более низких уровней, если существует решение,  чтобы эффективно
+осуществлять передачу запроса на промежуточных
+уровнях.
+</p>
+<p>Exceptions include cases where subsystems need direct access to lower layer
+services: a conscious decision should be made on how to handle primitive
+services needed throughout the system, such as printing, sending messages, etc.
+There is little value in restricting messages to lower layers if the solution is
+to effectively implement call pass-throughs in the intermediate layers.
+</p>
+<h3> <a name="Partitioning Patterns">Образцы Разделения</a><a href="#Top"></a> <img src="../../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Partitioning Patterns">Partitioning Patterns</a> </p> 
+<p>
+В пределах высших уровней системы дополнительное разделение может
+помочь организовать модель. Рассмотрите следующие
+руководства для разделения различных
+имеющихся проблем:<p>Within the top-layers of the system, additional partitioning may help
+organize the model. The following guidelines for partitioning present different
+issues to consider: 
+<ul>
+ 
+<li> <strong>Организация Пользователя</strong>. Подсистемы могут быть организованы по линиям,
+  которые отражают организацию функциональных возможностей в деловой организации (например разделение происходит по ведомственным линиям). Это разделение часто
+  имеет место на ранних этапах проекта, потому что существующая модель предприятия имеет
+  сильную организационно разделенную структуру. Этот образец организации обычно воздействует только на
+  несколько верхних уровней приложение-специфичных
+  сервисов, и часто исчезает по мере
+  развития проекта. 
+<ul>
+ 
+<li> Разделение по линиям пользовательской организации&nbsp;
+  может быть хорошей отправной точкой для модели.</li> 
+<li> Структура пользовательской организации неустойчива
+  в течение длительного периода времени (что
+  связано с деловой реорганизацией), и не
+  является хорошим долгосрочным основанием для разделения системы. Внутренняя организация системы должна
+  позволять системе развиваться и
+  обслуживаться независимо от организации бизнеса, который
+  она поддерживает.</li> 
+
+</ul>
+</li> 
+<li> <strong>Области компетентности и/или
+  квалификации</strong>. Подсистемы могут быть организованы
+  с целью разделения обязанностей частей модели
+  между различными группами в пределах организации
+  разработки. Как правило, это происходит в середине и
+  на более низких уровнях системы, и отражает потребность&nbsp;
+  специализации в квалификации в процессе
+  разработки и поддержки комплекса
+  инфраструктурной технологии. Примеры таких технологий, среди других,
+  включают: сеть, управление распределением, управление
+  базой данных, управление связью, и управление производственным процессом. Разделение по линиям компетентности может также
+  иметь место на верхних уровнях, где требуется
+  особая компетентность в области проблемы
+  для понимания и поддержки ключевых&nbsp;
+  деловых функциональных возможностей; примеры включают
+  управление телекоммуникационным запросом, торговлю
+  ценными бумагами, обработку требований страхования, и управление воздушным движением.</li> 
+<li> <strong>Распределение Системы</strong>. В пределах любого
+  уровня системы, уровни могут быть в
+  последствии разделены "горизонтально", чтобы отразить физическое распределение функциональных возможностей. 
+<ul>
+ 
+<li> Разделение для отражения распределения может
+  помочь визуализировать сетевые
+  коммуникации, которые буду иметь место при
+  выполнении системы.</li> 
+<li> Однако, разделение для отражения
+  распределения может сделать систему более трудной
+  для изменений, в то время как
+  Развертываемая Модель изменяется
+  значительно.</li> 
+
+</ul>
+</li> 
+
+</ul>
+<ul>
+ 
+<li> <strong>Секретные Области</strong>. Некоторые
+  приложения, особенно те, которые требуют
+  специального секретного проведения расчетов
+  для развития и/или поддержки, требуют дополнительного разделения по линиям привилегии
+  секретного доступа . Программное обеспечение,
+  которое управляет доступом к секретным областям, должно быть
+  разработано и поддерживаться персоналом с соответствующим
+  разрешением. Если число людей с такой подготовкой
+  ограничено в проекте, то функциональные возможности, требующие
+  специального проведения расчетов должны
+  быть разделены на подсистемы, которые будут развиты независимо от других подсистем, с интерфейсами к
+  секретным областям -&nbsp; единственному
+  видимому аспекту этих подсистем.</li> 
+<li> <strong>Области Изменчивости</strong>. Функциональные возможности, которые, вероятно,  будут
+  необязательными, и таким образом
+  разрабатываемые только в некоторых вариантах системы, должны быть организованы в независимые подсистемы, которые
+  развиваются и распространяются независимо от
+  обязательных функциональных возможностей системы.</li> 
+
+</ul>
+<ul>
+  <li><strong>User organization</strong>. Subsystems may be organized along
+    lines that mirror the organization of functionality in the business
+    organization (e.g. partitioning occurs along departmental lines). This
+    partitioning often occurs early in the design because an existing enterprise
+    model has a strongly organizationally partitioned structure. This
+    organization pattern usually affects only the top few layers of
+    application-specific services, and often disappears as the design evolves.
+    <ul>
+      <li>Partitioning along user organization lines can be a good starting
+        point for the model.</li>
+      <li>The structure of the user organization is not stable over a long
+        period of time (due to business reorganization), and is not a good
+        long-term basis for system partitioning. The internal organization of
+        the system should enable the system to evolve and be maintained
+        independently of the organization of the business it supports.</li>
+    </ul>
+  </li>
+  <li><strong>Areas of competence and/or skills</strong>. Subsystems may be
+    organized to partition responsibilities for parts of the model among
+    different groups within the development organization. Typically, this occurs
+    in the middle and lower layers of the system, and reflects the need for
+    specialization in skills during he development and support of complex
+    infrastructural technology. Examples of such technologies include network
+    and distribution management, database management, communication management,
+    and process control, among others. Partitioning along competence lines may
+    also occur in upper layers, where special competency in the problem domain
+    is required to understand and support key business functionality; examples
+    include telecommunication call management, securities trading, insurance
+    claims processing, and air traffic control, to name a few.</li>
+  <li><strong>System distribution</strong>. Within any of the layers of the
+    system, the layers may be further partitioned &quot;horizontally&quot; to
+    reflect the physical distribution of functionality.
+    <ul>
+      <li>Partitioning to reflect distribution can help to visualize the network
+        communication which will occur as the system executes.</li>
+      <li>Partitioning to reflect distribution can, however, make the system
+        more difficult to change if the Deployment Model changes significantly.</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li><strong>Secrecy areas</strong>. Some applications, especially those
+    requiring special security clearance to develop and/or support, require
+    additional partitioning along security access privilege lines. Software that
+    control access to secrecy areas must be developed and maintained by
+    personnel with appropriate clearance. If the number of persons with this
+    background on the project is limited, the functionality requiring special
+    clearance must be partitioning into subsystems that will be developed
+    independently of other subsystems, with the interfaces to the secrecy areas
+    the only visible aspect of these subsystems.</li>
+  <li><strong>Variability areas</strong>. Functionality that is likely to be
+    optional, and thereby delivered only in some variants of the system, should
+    be organized into independent subsystems which are developed and delivered
+    independently of the mandatory functionality of the system.</li>
+</ul>
+&nbsp;
+<p><font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+<p>
+
+
+</body>
+ 
+</HTML>

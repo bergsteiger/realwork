@@ -1,0 +1,50 @@
+// Consts 55C4AF3F02EE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C4AF3F02EE
+
+: ME_4C2D9FF00326
+ CONST UID '4C2D9FF00326'
+ CONST Name 'Consts'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C4AF3F02EE // Consts
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\NOT_FINISHED_Consts.pas'
+
+ref; // ME_4C2D9FF00326 Consts
+
+: ME_55C4AF3F02EE
+ CONST UID '55C4AF3F02EE'
+ CONST Name 'Consts'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ ;
+ : Children
+   @ ( ME_4C2D9FF00326 // Consts
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55C4AF3F02EE.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55C4AF3F02EE.pas.ms.script.runner'
+
+ref; // ME_55C4AF3F02EE Consts

@@ -1,0 +1,1 @@
+make DEMO=1

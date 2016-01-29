@@ -1,0 +1,74 @@
+// TtfwDictionaryPtrList 559F5E060345 SimpleClass Class
+
+FORWARD ME_559F5E060345
+
+: ME_55A549B40137
+ CONST UID '55A549B40137'
+ CONST Name 'l3Items_NoSort'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_55A549B40137 l3Items_NoSort
+
+: ME_55A549C8025C
+ CONST UID '55A549C8025C'
+ CONST Name 'l3Items_NoChanging'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_55A549C8025C l3Items_NoChanging
+
+INCLUDE '47B57B7800A7.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '55A4FCDC01B8.pas.ms.script'
+
+: ME_559F5E93019F
+ CONST UID '559F5E93019F'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ @SELF
+; // ME_559F5E93019F ItemType
+
+: ME_559F5E060345
+ CONST UID '559F5E060345'
+ CONST Name 'TtfwDictionaryPtrList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B57B7800A7 // l3ObjectPtrList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_559F5E93019F // ItemType
+ ]
+ ; // Attributes
+ : Children
+   [ ME_55A549B40137 // l3Items_NoSort
+ ME_55A549C8025C // l3Items_NoChanging
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_559F5E060345 TtfwDictionaryPtrList

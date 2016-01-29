@@ -1,0 +1,522 @@
+// TnsWindowsListPrim 4ADC5146016D SimpleClass Class
+
+FORWARD ME_4ADC5146016D
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_4ADC55470317
+
+FORWARD ME_4ADC560A0041
+
+INCLUDE '46A5E026007E.pas.ms.script'
+
+: ME_521B85A20242
+ CONST UID '521B85A20242'
+ CONST Name 'PInt'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47C6A43F01A1 // PInteger
+ ;
+ CONST "IsResult" false
+
+ @SELF
+; // ME_521B85A20242 PInt
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_521B85C40372
+ CONST UID '521B85C40372'
+ CONST Name 'Indx'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "IsResult" false
+
+ @SELF
+; // ME_521B85C40372 Indx
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4ADC561E02E9
+ CONST UID '4ADC561E02E9'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_4ADC561E02E9 aName
+
+: ME_4ADC561800C8
+ CONST UID '4ADC561800C8'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_4ADC561E02E9 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4ADC561800C8 DoIt
+
+: ME_4ADC560A0041
+ CONST UID '4ADC560A0041'
+ CONST Name 'MakeName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'возвращает уникальное имя' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_521B85A20242 // PInt
+ ME_521B85C40372 // Indx
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4ADC561800C8 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ADC560A0041 MakeName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4ADC55A200AD
+ CONST UID '4ADC55A200AD'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4ADC55A200AD Create
+
+: ME_4ADC55470317
+ CONST UID '4ADC55470317'
+ CONST Name 'TnsUniqueName'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'класс позволяющий получать уникальные имена в списке благодаря добавлению в конце повторяющихся слов значение счетчика повторения. Например Слово, Слово (1), Слово (2) и т.д' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4ADC560A0041 // MakeName
+ ME_4ADC55A200AD // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4ADC55470317 TnsUniqueName
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '476BF10A0280.pas.ms.script'
+
+: ME_4ADC531F03B4
+ CONST UID '4ADC531F03B4'
+ CONST Name 'Root'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Root дерева окон. Загружается при первом обращении' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_476BF22B03E1 // Il3Node
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_4ADC531F03B4 Root
+
+: ME_7E979EDBEEDE
+ CONST UID '7E979EDBEEDE'
+ CONST Name 'f_Root'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Root' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_476BF22B03E1 // Il3Node
+ ;
+
+ @SELF
+; // ME_7E979EDBEEDE f_Root
+
+FORWARD ME_4ADC538702FA
+
+: ME_4ADC53FC01B1
+ CONST UID '4ADC53FC01B1'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_4ADC53FC01B1 aName
+
+: ME_4ADC53F6039C
+ CONST UID '4ADC53F6039C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_4ADC53FC01B1 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4ADC53F6039C DoIt
+
+: ME_4ADC538702FA
+ CONST UID '4ADC538702FA'
+ CONST Name 'CheckLength'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'проверяет не выходит ли размер имени за допустимые пределы и корректирует при необходимости' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4ADC53F6039C // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ADC538702FA CheckLength
+
+FORWARD ME_4ADC54290390
+
+INCLUDE '4ADDE3D70311.pas.ms.script'
+
+: ME_5273A25A0018
+ CONST UID '5273A25A0018'
+ CONST Name 'Window'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4991A60F0247 // InsWindow
+ ;
+ CONST "IsResult" false
+
+ @SELF
+; // ME_5273A25A0018 Window
+
+: ME_4ADC544E0216
+ CONST UID '4ADC544E0216'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4ADC544E0216 aForm
+
+: ME_4ADC5447034A
+ CONST UID '4ADC5447034A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476BF22B03E1 // Il3Node
+ ;
+ : Parameters
+   [ ME_4ADC544E0216 // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4ADC5447034A DoIt
+
+: ME_4ADC54290390
+ CONST UID '4ADC54290390'
+ CONST Name 'FindNode'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'возвращает Il3Node для формы aForm' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_5273A25A0018 // Window
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4ADC5447034A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ADC54290390 FindNode
+
+FORWARD ME_4ADC5467036A
+
+: ME_5273A26800B0
+ CONST UID '5273A26800B0'
+ CONST Name 'Node'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_476BF22B03E1 // Il3Node
+ ;
+ CONST "IsResult" false
+
+ @SELF
+; // ME_5273A26800B0 Node
+
+: ME_4ADC5486004D
+ CONST UID '4ADC5486004D'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4ADC5486004D aForm
+
+: ME_4ADC547F0057
+ CONST UID '4ADC547F0057'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4ADC5486004D // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4ADC547F0057 DoIt
+
+: ME_4ADC5467036A
+ CONST UID '4ADC5467036A'
+ CONST Name 'Remove'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'удаляет форму из списка' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_5273A26800B0 // Node
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4ADC547F0057 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ADC5467036A Remove
+
+FORWARD ME_4ADC54070106
+
+: ME_521B85F003B3
+ CONST UID '521B85F003B3'
+ CONST Name 'Unique'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4ADC55470317 // TnsUniqueName
+ ;
+ CONST "IsResult" false
+
+ @SELF
+; // ME_521B85F003B3 Unique
+
+: ME_521B86030289
+ CONST UID '521B86030289'
+ CONST Name 'Index'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "IsResult" false
+
+ @SELF
+; // ME_521B86030289 Index
+
+: ME_53C8D57200EF
+ CONST UID '53C8D57200EF'
+ CONST Name 'MainForm'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ CONST "IsResult" false
+
+ @SELF
+; // ME_53C8D57200EF MainForm
+
+: ME_4ADC541700E2
+ CONST UID '4ADC541700E2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4ADC541700E2 DoIt
+
+: ME_4ADC54070106
+ CONST UID '4ADC54070106'
+ CONST Name 'Reload'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'перезагружает список' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_521B85F003B3 // Unique
+ ME_521B86030289 // Index
+ ME_53C8D57200EF // MainForm
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4ADC541700E2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ADC54070106 Reload
+
+FORWARD ME_4ADC564B01E9
+
+: ME_53C8CC0D00F8
+ CONST UID '53C8CC0D00F8'
+ CONST Name 'aForm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_53C8CC0D00F8 aForm
+
+: ME_4ADC566502B6
+ CONST UID '4ADC566502B6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_53C8CC0D00F8 // aForm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4ADC566502B6 DoIt
+
+: ME_4ADC564B01E9
+ CONST UID '4ADC564B01E9'
+ CONST Name 'nsGetWindowCaption'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'отрезает префикс оставляю только информацию о текущем контенте, а именно _caption формы находящейся в Parent зоне главной формы' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4ADC566502B6 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ADC564B01E9 nsGetWindowCaption
+
+: ME_4ADC5146016D
+ CONST UID '4ADC5146016D'
+ CONST Name 'TnsWindowsListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'класс управляющий списком окон' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4ADC531F03B4 // Root
+ ME_7E979EDBEEDE // f_Root
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4ADC538702FA // CheckLength
+ ME_4ADC54290390 // FindNode
+ ME_4ADC5467036A // Remove
+ ME_4ADC54070106 // Reload
+ ME_4ADC564B01E9 // nsGetWindowCaption
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_4ADC55470317 // TnsUniqueName
+ ]
+ ; // Children
+ CONST "author" 'Морозов М.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2005/06/07 11:31:00'
+
+ @SELF
+; // ME_4ADC5146016D TnsWindowsListPrim

@@ -1,0 +1,11 @@
+<project name="build" default="help">
+    <import file="init.xml"/>
+    <import file="builder.xml"/>
+    
+    <target name="build.iChecker" depends="init.all,build.copy.all,build.zip" description="Build iChecker">
+    </target>
+    
+    <target name="help" description="Show help message">
+        <echo message="Specify build target. Example: ant build.iChecker" level="info" />
+    </target>
+</project>

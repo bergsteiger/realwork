@@ -1,0 +1,29 @@
+USES
+	QuickTestsUtils.script
+;
+
+PROCEDURE InitChangeDocWizardDlg
+  // Заполняем диалог...
+	"Контрол по имени {(carChangingDocIDField)}" pop:Control:SetFocus ASSERT
+	cnDocument2MakeChangeDoc IntToStr emitstring
+	 
+	 "Контрол по имени {(carChangeDocIDField)}" pop:Control:SetFocus ASSERT
+	 Конституция IntToStr emitstring
+	  
+	 // В поле даты при получении фокуса формируется значение по умолчанию - его и используем для теста.
+	 "Контрол по имени {(carChangeDataField)}" pop:Control:SetFocus ASSERT	 
+	 // Необязательная проверка наличия поля...
+	 "Контрол по имени {(carChangerActivDateField)}" pop:Control:SetFocus ASSERT	 	 
+	"Нажать кнопку ОК"
+;
+
+Тест TK278843000
+	// Параметры: ( "Не открывать документ" "Проверка EVD документа" "Закрывать все окна" ) 
+	 TRY	  
+		@ ( macros:MakeChangeDoc ) MODAL InitChangeDocWizardDlg		
+	 FINALLY
+		"Закрыть все окна"
+	 END  
+;
+
+TK278843000

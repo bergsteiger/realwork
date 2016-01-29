@@ -1,0 +1,229 @@
+TNTFileSecurity component for Delphi 4 (version 1.0)
+----------------------------------------------------
+Copyright (c) 1999 by David A. Bussey
+
+
+Version Info
+------------
+
+v1.0
+  - Initial release.
+
+There are still a few things that can be improved.  If you have any suggestions for improvements please let me know your ideas.  If they are possible, I will try and include them in later versions.
+
+(you can reach me at dbussey@bluegrass.net)
+
+TNTFileSecurity is FREEWARE.  It is supplied as is, without warranty of any kind. Use it at your own risk.  Any components derived from TNTFileSecurity must also be FREEWARE.  You may use TNTFileSecurity in both private and commercial applications without any fees or royalties.  No person/persons may redistribute TNTFileSecurity as their own or for any profit whatsoever.  If you redistribute TNTFileSecurity you must supply the files in their original un-altered states.
+
+TNTFileSecurity is designed to run in the Windows NT operating system.  The necessary funtions will not work under Windows 95/98 however, software using TNTFileSecurity can be designed in these operating environments and should work correctly when installed on a Windows NT machine.
+
+TNTFileSecurity was designed with Delphi 4(sp2) running under WindowsNT 4.0(sp4).
+
+------------------------------------------------------------------
+These are the most common error codes that can occur, and their most likely causes (They are returned by the OnGetSecurity and OnSetSecurity events):
+
+ERROR_ACL_NOT_SUPPORTED : "The file system does not support Access Control Lists."
+
+The drive or partition in question does not support Access
+Control Lists and specific access rights cannot be read or
+set by inherent Windows NT methods.
+
+ERROR_CALL_NOT_IMPLEMENTED : "This function is only valid in Win32 mode."
+
+This error occurs when you are not running in the Windows NT
+operating environment.
+
+ERROR_NO_SECURITY_INFO : "The object has no security information."
+
+The requested file or directory has an empty Access Control List.
+No access rights are specified for any user, group or system account.
+
+ERROR_FILE_NOT_FOUND : "The system cannot find the file specified."
+
+The file or directory specified in TNTFileSecurity.FileName cannot be
+located.
+
+ERROR_ACCESS_DENIED  : "Access is denied."
+
+Just like it says...
+
+
+If, by some odd chance, you get this error code...
+ERROR_INVALID_NAME  :  "The filename, directory name, or volume label
+                           syntax is incorrect."
+
+This error will occur when attempting to read file security
+when TNTFileSecurity.FileName is an empty string.  You should
+not get this error, but just in case...
+------------------------------------------------------------------
+
+The following are notes on the public properties and methods:
+
+{I did not go into great detail because I don't like writting docs.  The demo application supplied shows the basics of using TNTFileSecurity and has some comments too...}
+
+{You can tell I don't like writting docs bcause this file is in the exact same format as my "docs" for TRASControl ;-)  Ya gotta love Copy-n-Paste/Find-n-Replace!}
+
+type
+  TFileAccess = (faRead,                They should be self explanitory.
+                 faWrite,
+                 faExecute,
+                 faDelete,
+                 faChangePermissions,
+                 faTakeOwnership,
+                 faAll);
+
+  TAccessSet = set of TFileAccess;
+
+
+    { Public declarations }
+    constructor Create(AOwner: TComponent); override;
+      Creates the component. {Pretty straight-forward huh?}
+
+    destructor Destroy; override;
+      Destroys the component. {Again, pretty straight-forward.}
+
+    function GetMessageString(ErrorCode, Location: DWORD): string;
+      This function is used to retrieve a human readable message
+      describing an error returned in the OnGetSecurity or
+      OnSetSecurity events.
+
+    function AddEntry(ServerName, Name: string): Integer;
+      This function adds an account to the list of security
+      information about the file/directory.  The actual
+      information is not changed until you call SetSecurity
+      and a call to RefreshSecurity will clear the pending
+      addition.  AddEntry returns the index of the account.
+
+    procedure RemoveEntry(Index: integer);
+      This procedure removes an account from the list of security
+      information about the file/directory.  The actual
+      information is not changed until you call SetSecurity
+      and a call to RefreshSecurity will undo the removal.
+
+    procedure RefreshSecurity;
+      This procedure re-reads the security information from
+      the file/directory.  It fires the OnGetSecurity event.
+
+    procedure SetSecurity;
+      This procedure modifies the security information of
+      the file/directory.  It fires the OnSetSecurity event.
+
+    procedure ClearAll(Index: integer);
+      This procedure clears the entry's access denied and access
+      allowed rights effectively removing the entry. (Entries with
+      blank properties will not be added to the file/directory.)
+      The actual information is not changed until you call SetSecurity
+      and a call to RefreshSecurity will reload the actual access rights.
+
+    procedure GrantAll(Index: integer);
+      This procedure clears the entry's access denied rights and
+      sets the access allowed rights to Full Access.  The actual
+      information is not changed until you call SetSecurity and a
+      call to RefreshSecurity will reload the actual access rights.
+
+    {$IFDEF WINVER5}
+    procedure DenyAll(Index: integer);
+      This procedure clears the entry's access allowed rights and
+      sets the access denied rights to Full Access.  The actual
+      information is not changed until you call SetSecurity and a
+      call to RefreshSecurity will reload the actual access rights.
+
+    property DeniedDirectoryRights[Index: integer] : TAccessSet
+    property DeniedFileRights[Index: integer] : TAccessSet
+      A TAccessSet, allowing you to set specific denied rights.
+
+      sets and set unions must be enclosed in brackets...
+      Correct:
+          [faRead] + [faWrite] = [faRead, faWrite] {Read/Write Access}
+
+      Incorrect:
+           faRead  +  faWrite  =  faExecute        {Execute Rights}
+          {Ord = 1    Ord = 2     Ord = 3}
+
+          [faRead] +  faWrite  =  Exception: Incompatible types
+
+    {$ENDIF}
+
+    property FileName : string
+       Setting this property will load the security information
+       about the file/directory automatically, firing the
+       OnGetSecurity event.
+
+    property HostName: string [READ_ONLY]
+       The name of the file/directory's host machine.
+
+    property VolumeName: string [READ_ONLY]
+       The volume name where the file/directory resides.
+
+    property FileSystemName: string [READ_ONLY]
+       The file system of the drive where the file/directory resides.
+
+    property LocalMachine: string [READ_ONLY]
+       The name of the computer running the application.
+
+    property VolumeSerialNumber: DWORD [READ_ONLY]
+       The volume serial number where the file/directory resides.
+
+    property Entries : TStrings [READ_ONLY]
+       A simple list of the security information entries.  Can be
+       used to quickly fill a ListBox with account names.
+       i.e. ListBox1.Items.Assign(FileSecurity1.Entries);
+
+    property EntryCount : Integer [READ_ONLY]
+       The number of security entries the file/directory has.
+
+    property EntryName [Index: integer] : string [READ_ONLY]
+       The account name of the specified entry.
+
+    property ServerName[Index: integer] : string [READ_ONLY]
+       The location the specified account originated.
+
+    property EntryType [Index: integer] : SecurityEntry [READ_ONLY]
+       The type of the specified account.
+       Possible values:
+                seNone              No account type is specified.
+                seUser              The account is a user.
+                seGroup             The account is a globaly defined group.
+                seDomain            The account is a domain.
+                seAlias             The account is a locally defined group.
+                seWellKnownGroup    A built in or system account.
+                seDeletedAcount     The account has been deleted.
+                seInvalid           The account type is invalid.
+                seUnknown           The account type cannot be determined.
+
+
+    property FileRights[Index: integer] : TAccessSet read GetFileAllowedRights write SetFileAllowedRights;
+    property DirectoryRights[Index: integer] : TAccessSet read GetDirAllowedRights write SetDirAllowedRights;
+      A TAccessSet, allowing you to set specific allowed rights.
+
+      sets and set unions must be enclosed in brackets...
+      Correct:
+          [faRead] + [faWrite] = [faRead, faWrite] {Read/Write Access}
+
+      Incorrect:
+           faRead  +  faWrite  =  faExecute        {Execute Rights}
+          {Ord = 1    Ord = 2     Ord = 3}
+
+          [faRead] +  faWrite  =  Exception: Incompatible types
+
+
+    { Published declarations }
+
+    property Tag;
+      'nuff said...
+
+    property OnGetSecurity: TNTFileSecurityEvent
+    property OnSetSecurity: TNTFileSecurityEvent
+      {procedure(Sender: TObject; Error, Location: DWORD) of object;}
+      These two events are fired when ever security is read or changed.
+
+      *Error* and *Location* are used with TNTFileSecurity.GetMessageString to
+      retrieve a description of the error that occured.
+
+      *Error* will contain ERROR_SUCCESS (if successful) or an error code (if not).
+
+      *Location* supplies the type of action that TNTFileSecurity was attempting
+      when the error was encountered.  *Location* was originally used to aid
+      in debugging and give more descriptive messages.  If you wish to use
+      it, un-comment the code in TNTFileSecurity.GetMessageString.  This will
+      add the location to the end of the resulting string.

@@ -1,0 +1,63 @@
+// **********************************************************************
+//
+// Copyright (c) 2001 - 2002
+// MT Tools
+// Samara, Russia
+//
+// All Rights Reserved
+// 
+// **********************************************************************
+
+#ifndef __orbtypes_idl
+#define __orbtypes_idl
+
+#pragma prefix "omg.org"
+
+module CORBA
+{
+
+#ifndef OBE
+typedef sequence<any> AnySeq;
+#endif // OBE
+typedef sequence<boolean> BooleanSeq;
+typedef sequence<char> CharSeq;
+#ifndef OBE
+typedef sequence<wchar> WCharSeq;
+#endif // OBE
+typedef sequence<octet> OctetSeq;
+typedef sequence<short> ShortSeq;
+typedef sequence<unsigned short> UShortSeq;
+typedef sequence<long> LongSeq;
+typedef sequence<unsigned long> ULongSeq;
+typedef sequence<long long> LongLongSeq;
+typedef sequence<unsigned long long> ULongLongSeq;
+typedef sequence<float> FloatSeq;
+typedef sequence<double> DoubleSeq;
+typedef sequence<long double> LongDoubleSeq;
+
+typedef sequence<string> StringSeq;
+#ifndef OBE
+typedef sequence<wstring> WStringSeq;
+#endif // OBE
+
+//
+// Some IFR types
+//
+typedef string RepositoryId;
+
+#ifndef OBE
+
+typedef string ScopedName, Identifier, VersionSpec;
+
+enum ParameterMode
+{
+    PARAM_IN,
+    PARAM_OUT,
+    PARAM_INOUT
+};
+
+#endif // OBE
+
+};
+
+#endif

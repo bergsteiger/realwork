@@ -1,0 +1,20 @@
+<Html><Head><Title>TTCPBlockSocket.RecvBuffer</Title></Head><Body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+<!---1--->
+<font face="Arial">
+<P Align="left"><BIG><B>TTCPBlockSocket.RecvBuffer</B></BIG><BR>
+
+<A href="TTCPBlockSocket.html">TTCPBlockSocket</A></P><B>function</B> RecvBuffer(Buffer: Pointer; Length: Integer): Integer;<B> override;</B><BR>
+<BR>
+<B>Unit</B><BR>
+<A href="blcksock.html">blcksock</A><BR>
+<BR>
+<B>Description</B><BR>
+Note: This is low-lever receive function. You must be sure if data is waiting for read before call this function for avoid deadlock!<BR>
+<BR>
+Waits until allocated buffer is filled by received data. Returns number of data received, which equals to LENGTH value under normal operation. If it is not equal the communication channel is possibly broken.<BR>
+<BR>
+On stream oriented sockets if is received 0 bytes, it mean 'socket is closed!&quot;<BR>
+<BR>
+On datagram socket is readed first waiting datagram.<BR>
+<BR>
+</font></Body></Html>

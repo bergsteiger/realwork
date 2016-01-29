@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\DOCUMENTATION\Archivarius.IntroductionOperation.hmxz "/tsk=Recent Publishes:Archivarius.IntroductionOperation" "/tsk=Recent Publishes:Archivarius.IntroductionOperation_!DAILY" "/tsk=Recent Publishes:Archivarius.IntroductionOperation(web)_!DAILY"

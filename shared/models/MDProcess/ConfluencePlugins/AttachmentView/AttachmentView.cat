@@ -1,0 +1,213 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "AttachmentView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/AttachmentView|4ADD609D035D
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19026241079"))
+    quid       	"4ADD609D035D"
+    documentation 	"ñîäåðæèò web-ñòðàíèöû àòòà÷åé"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "add-attachment-form"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/AttachmentView/add-attachment-form.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/AttachmentView/add-attachment-form|4ADD60CE0205
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4ADD60CE0205_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4ADD60CE0205_CUSTOM_CONTENT*¤<html>¤    <head>¤        <title>$action.getActionName($action.getClass().getName())</title>¤    </head>¤¤    <body>¤¤        #set ($actionBase = "$req.contextPath/ru/garant/MDProcess/ConfluencePlugins/IconsSelectorSupport/IconSelectorXPlugin/IconSelectorXPackage/")¤        #set ($tabUrl = "${actionBase}addattachmentform.action")¤¤        #if ($stringUtils.isNotBlank($!req.getParameter('pageId')))¤            #set ($attachmentsTabLinkUrl = "${actionBase}addattachmentform.action")¤            #set ($formAction = "addattachment.action")¤        #else¤            #set ($attachmentsTabLinkUrl = "${actionBase}addattachmentform.action")¤            #set ($formAction = "addattachment.action")¤        #end¤¤¤¤#requireResource("confluence.web.resources:ajs")¤#requireResource("com.atlassian.auiplugin:jquery-selection")¤#requireResource("confluence.editor.actions:editor-insertlink-popup")¤#requireResource("confluence.web.resources:master-styles")¤¤#parse ( "/template/includes/actionerrors.vm" )¤¤## Error box for javascript validation¤<div class="errorBox" id="popup-errorBox" style="display: none;">¤    <span class="errorMessage">$action.getText("errors.occurred")</span>¤    <ul>¤        <li id="noDestinationLinkError">$action.getText("no.link.destination")</li>¤    </ul>¤</div>¤¤    #set ($formname = "$req.getParameter('formname')")¤    #set ($currentspace = "$!req.getParameter('currentspace')")¤    #set ($fieldname = "$!req.getParameter('fieldname')")¤    #set ($pageId = "$!req.getParameter('pageId')")¤    #set ($draftType = "$!req.getParameter('draftType')")¤	#set ($mode = $!req.getParameter('mode'))¤¤    ## we store the state that is passed to this popup (from the originating page) in the URL as request parameters¤    ## these are appended on the end of each tab URL to ensure that this state is not lost as the user is switching in between tabs¤    #set ($extraRequestParametersForTabsOrgHtml = "currentspace=$generalUtil.urlEncode($currentspace)&formname=$generalUtil.urlEncode($formname)&fieldname=$generalUtil.urlEncode($fieldname)")¤	¤¤    ## the following are affected depending on whether or not we are attaching a file onto a page or a draft¤    ## (1) different extra request parameters¤    ## (2) whether or not to show the file upload box (anonymous users are not allowed to attach files to a draft)¤    #if ($stringUtils.isNotBlank($pageId))¤		#set ($extraRequestParametersForTabs = "${extraRequestParametersForTabsOrgHtml}&pageId=$generalUtil.urlEncode($pageId)")¤        #set ($canAttachFile = $action.hasAttachFilePermissions())¤    #else¤        #set ($extraRequestParametersForTabs = "${extraRequestParametersForTabsOrgHtml}&draftType=$generalUtil.urlEncode($draftType)&spaceKey=$generalUtil.urlEncode($currentspace)")¤        #set ($canAttachFile = $remoteUser && $action.hasAttachFilePermissions())¤    #end¤¤    <fieldset class="hidden parameters">¤        <input type="hidden" id="formname" value="$generalUtil.htmlEncode($formname)">¤        <input type="hidden" id="fieldname" value="$generalUtil.htmlEncode($fieldname)">¤        <input type="hidden" id="currentspace" value="$generalUtil.htmlEncode($currentspace)">¤        <input type="hidden" id="spaceKey" value="$generalUtil.htmlEncode($currentspace)">¤    </fieldset>¤¤	#parse ( "/ConfluencePlugins/SelectPageView/formparameters-selectpage.vm" )¤¤	<script language="javascript">¤	function addInForm(){¤		var attachmentHidden = window.opener.jQuery('#attachmentName');¤		if(attachmentHidden.size() == 1) {¤			if(jQuery('#file_name').val() != '') {¤				if(attachmentHidden.val() != '') {¤					attachmentHidden.val(attachmentHidden.val() + ", ");¤				}¤				attachmentHidden.val(attachmentHidden.val() + jQuery('#file_name').val()).trigger('change');¤			}		¤		}¤	}¤	¤	</script>¤¤    #set ($attachments = $action.getLatestVersionsOfAttachments())¤    #if ($attachments.size() > 0)¤            <table width="98%" class="tableview" cellspacing=0 style="margin: 10px;">¤                <tr>¤                <th>$action.getText('name.word')</th>¤                <th>$action.getText('size.name')</th>¤                <th>$action.getText('creator.name')</th>¤                <th>$action.getText('date.name')</th>¤                </tr>¤                #foreach ($attachment in $attachments)¤                <tr>¤                <td nowrap>#contentIcon ($attachment) &nbsp;<a class="attachment_link" href="#">$generalUtil.htmlEncode($attachment.fileName)</a></td>¤                <td width="1%" nowrap>$attachment.niceFileSize</td>¤                <td width="1%" nowrap>#usernameLink($attachment.lastModifierName)</td>¤                <td width="1%" nowrap>$dateFormatter.format($attachment.lastModificationDate)</td>¤                </tr>¤                #end¤            </table>¤    #else¤              <span style="margin: 0 0 0 7px;">¤                $action.getText('no.attachments')¤              </span>  ¤    #end¤¤    #if ($canAttachFile)¤            <p/>¤            ¤            #if ($stringUtils.isNotBlank($pageId))¤                #set ($parameterizedFormAction = "$generalUtil.appendAmpsandOrQuestionMark($generalUtil.htmlEncode(${formAction}))pageId=${pageId}&formname=$generalUtil.htmlEncode($formname)&fieldname=$generalUtil.htmlEncode($fieldname)&mode=attachments")¤            #else¤                #set ($parameterizedFormAction = "$generalUtil.appendAmpsandOrQuestionMark($generalUtil.htmlEncode(${formAction}))draftType=$generalUtil.htmlEncode($draftType)&spaceKey=$generalUtil.htmlEncode($spaceKey)&formname=$generalUtil.htmlEncode($formname)&fieldname=$generalUtil.htmlEncode($fieldname)&mode=attachments")            ¤            #end¤			<table><tr>¤			<td align="left">¤            <form method="POST" action="$parameterizedFormAction" style="margin: 0 0 0 5px;" enctype="multipart/form-data" onClick="addInForm();">¤                <p><span class="formtitle">$action.getText('attach.file'): <input type="file" name="file_0" id="file_name">&nbsp;</span>¤                <input type="submit" value="$action.getText('attach.name')"></p>¤                <input type="hidden" name="currentspace" value="$generalUtil.htmlEncode($!currentspace)">¤                <input type="hidden" name="fieldname" value="$generalUtil.htmlEncode($fieldname)">¤                <input type="hidden" name="comment_0" value="">¤				¤				<input type="hidden" name="childrenOnly" value="$childrenOnly">¤                <input type="hidden" name="spaceOnly" value="$spaceOnly">¤        		<input type="hidden" name="filterPageGroup" value="$filterPageGroup">¤                #foreach ($label in $action.filterLabels)¤        			<input type="hidden" name="filterLabels" value="$label">¤        		#end¤        		#foreach ($label in $action.filterExclusivePageGroups)¤        			<input type="hidden" name="filterExclusivePageGroups" value="$label">¤        		#end¤        		<input type="hidden" name="initialized" value="$initialized">¤            </form>¤            </td>¤            <td align="right">¤##            <div align="right">¤                <input type="button" value="$action.getText('close.name')" onClick="window.close();">¤##            </div>¤			</td>¤			</tr>¤			</table>    ¤    #end¤    </body>¤</html>¤¤##UC_END*4ADD60CE0205_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19026254322"))
+	    quid       	"4ADD60CE0205"
+	    documentation 	"ôîðìà äîáàâëåíèÿ àòòà÷à"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "preview"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1202011161474")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/AttachmentView/preview.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/AttachmentView/preview|4DCCF9BB031E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4DCCF9BB031E_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4DCCF9BB031E_CUSTOM_CONTENT*¤¤<html>¤<head>¤ <title>$fileName</title>¤<head>¤<content tag="pageTitle">$action.attachment.fileName</content>¤<content tag="title-text-span">$action.attachment.fileName</content>¤#applyDecorator("root")¤    #decoratorParam("helper" $action.helper)¤    #decoratorParam("mode" "view-attachments")¤    #decoratorParam("context" $action.attachment.content.type)¤¤<body>¤$resultHTML¤#parse("/breadcrumbs.vm")¤</body>¤#end¤</html>¤##UC_END*4DCCF9BB031E_CUSTOM_CONTENT*
+		    )))
+	    quid       	"4DCCF9BB031E"
+	    documentation 	"preview"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4ADD60B501A7"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::AttachmentView::add-attachment-form" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1035, 876)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(831, 847)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	408
+			justify    	0
+			label      	"add-attachment-form")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(831, 797)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	408
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4ADD60CE0205"
+		    width      	426
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::AttachmentView::preview" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1362, 393)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1264, 365)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	196
+			justify    	0
+			label      	"preview")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1264, 315)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	194
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4DCCF9BB031E"
+		    width      	214
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)))))

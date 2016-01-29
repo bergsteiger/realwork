@@ -1,0 +1,52 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+
+    Dim sBook$
+   
+    
+    
+    Window SetContext, "Caption=ГАРАНТ 6 - Основное меню", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=13", "Coords=29,10"
+    InputKeys "Акт{ENTER}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=6", "Coords=25,10"
+    InputKeys "законопроект"
+    call Click_FindSaveAs
+    sBook="Новый запрос"
+    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+    InputKeys sBook
+    ToolBar Click, "Text=Выбор действия", "Coords=44,4"
+    
+    
+    'создаём папку с именем, совпадающим с закладкоу в этой папке.    
+    call CreateFolder("Мои документы",sBook)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    ListBox Click, "ObjectIndex=1", "Coords=40,10"
+'    if Position_by_Text("Type=ListBox;ObjectIndex=1",sBook)<>0 then
+'        SQALogMessage sqaPass, "Элемент создался", "Элемент с именем "+sBook+" создался"
+'        InputKeys "{DOWN}"
+'        if Position_by_Text("Type=ListBox;ObjectIndex=1",sBook)<>0 then
+'            SQALogMessage sqaPass, "Элемент создался", "Элемент с именем "+sBook+" создался"
+'            InputKeys "{DELETE}"
+'        else
+'            SQALogMessage sqaFail, "Элемент не создался", "Элемент с именем "+sBook+" не создался"
+'        end if
+'        'InputKeys "{DELETE}"
+'        Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+'        InputKeys "{ENTER}"
+'        
+'    else
+'        SQALogMessage sqaFail, "Элемент не создался", "Элемент с именем "+sBook+" не создался"
+'    end if
+    call DeleteFolder(sBook,2)
+    call DeleteFolder(sBook)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,36"
+End Sub

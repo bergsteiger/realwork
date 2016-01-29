@@ -1,0 +1,83 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.unmountResource"
+	language = "javascript"
+>
+	<attribute name = "force.wait.for.complete"/>
+	<attribute name = "mount.root"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_forceWaitForComplete = (
+				attributes.get ("force.wait.for.complete")
+			);
+
+			if (a_forceWaitForComplete == null) {
+				a_forceWaitForComplete = "~0";
+			}
+
+			var a_mountRoot = (
+				attributes.get ("mount.root")
+			);
+
+			var l_execTask = project.createTask ("exec"); {
+				l_execTask.setError (new File ("nul"));
+				l_execTask.setExecutable ("net.exe");
+				l_execTask.setFailIfExecutionFails (true);
+				l_execTask.setFailonerror (a_forceWaitForComplete != "0");
+				l_execTask.setOutput (new File ("nul"));
+
+				var l_execTaskArg = l_execTask.createArg (); {
+					var l_mountRoot = a_mountRoot;
+
+					l_execTaskArg.setLine (
+						"use"
+						+ " \""+ l_mountRoot+ "\""
+						+ " /delete"
+						+ " /y"
+					);
+				}
+
+				l_execTask.reconfigure ();
+			}
+
+			while (true) {
+				try {
+					l_execTask.execute ();
+				} catch (exception) {
+					project.log (
+						(
+							"\t"
+							+ "Unmount resource exception `"+ exception+ "` catched and ignored, repeat again"
+						)
+						, project.MSG_INFO
+					);
+
+					project.createTask ("sleep").doSleep (1000); // one second
+
+					continue;
+				}
+
+				break;
+			}
+		}
+	]]>
+</scriptdef>

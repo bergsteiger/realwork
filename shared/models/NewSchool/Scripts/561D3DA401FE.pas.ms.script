@@ -1,0 +1,48 @@
+// Containers 561D3DA401FE Layer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561D3DA401FE
+
+: ME_561D40470085
+ CONST UID '561D40470085'
+ CONST Name 'Tl3LongintList'
+ CONST Class class_Class
+ : Stereotype st_ClassProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_561D3DA401FE // Containers
+ ;
+ : Generators
+ @ (
+ gen_pascal
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pascal:Path 'common\components\rtl\Garant\L3\Tl3LongintList_Proxy.pas'
+
+ref; // ME_561D40470085 Tl3LongintList
+
+: ME_561D3DA401FE
+ CONST UID '561D3DA401FE'
+ CONST Name 'Containers'
+ CONST Class class_Category
+ : Stereotype st_Layer ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_561D37540316' '561D37540316.pas.ms.script' // L3$Interface
+ ;
+ : Children
+   @ ( ME_561D40470085 // Tl3LongintList
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\561D3DA401FE.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\561D3DA401FE.pas.ms.script.runner'
+
+ref; // ME_561D3DA401FE Containers

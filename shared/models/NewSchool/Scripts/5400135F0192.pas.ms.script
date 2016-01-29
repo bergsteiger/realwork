@@ -1,0 +1,35 @@
+// eDocEngine 5400135F0192 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_5400135F0192
+ CONST UID '5400135F0192'
+ CONST Name 'eDocEngine'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ ;
+ : Children
+   @ ( WL 'ME_540013B002E1' '540013B002E1.pas.ms.script' // Source
+ ) .SequenceCode.It
+ ; // Children
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "is namespace" true
+ CONST "vendor" '/external'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi\eDocEngine\eDocEngine.model.script'
+ CONST intf.pas:Path 'common\components\rtl\external\eDocEngine\eDocEngine_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5400135F0192.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5400135F0192.pas.ms.script.runner'
+
+ref; // ME_5400135F0192 eDocEngine

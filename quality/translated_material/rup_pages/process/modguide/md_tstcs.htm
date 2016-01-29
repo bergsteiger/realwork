@@ -1,0 +1,2730 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Guidelines: Test Case</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body bgcolor="#C0C0C0"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<a href="md_tstcs1.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<h2 class="banner"><a name="Top"></a><a name="XE_test_case__guidelines_for"></a>Руководство:
+Тест-установка</h2>
+<h2 class="banner"><a name="Top"></a><a name="XE_test_case__guidelines_for"></a>Guidelines:
+Test Case</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td width="15%" valign="middle" bordercolor="#808080" align="center"> <font face="Arial" size="2"><strong>Тест-Установка</strong></font>
+  <p><font face="Arial" size="2"><strong>Test Case</strong></font></p>
+</td> 
+<td width="85%" valign="top" bordercolor="#808080"> <a name="XE_test_case__definition_of"></a><b>Тест-Установка</b>
+  - набор исходных данных теста, условий выполнения и ожидаемых результатов,
+  разработанных для специфической цели,
+  такой как осуществить заданный маршрут программы или
+  проверить согласование с определенным требованием.
+  <p><a name="XE_test_case__definition_of"></a>A<strong>
+    Test case</strong> is a set of test inputs, execution conditions, and
+    expected results developed for a particular objective, such as to exercise a
+    particular program path or to verify compliance with a specific requirement.</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h3> Темы</h3> 
+ 
+<p> Topics</p> 
+<ul>
+ 
+<li> <a href="#Explanation">Объяснение</a></li> 
+<li> <a href="#Deriving Test Cases from Use Cases">Получение Тест-установок&nbsp; от </a><a href="#Deriving Test Cases from Use Cases">Прецедентов</a></li> 
+<li> <a href="#Deriving Test Cases from Supplementary Sepecifications">Получение
+  Тест-Установок от Дополнительных Спецификаций</a> 
+<blockquote>  
+<ul>
+ 
+<li> <a href="#Deriving Test Cases for Performance Test">Получение
+  Тест-Установок для </a><a href="#Deriving Test Cases for Performance Test">Тестов
+  Представления</a></li> 
+<li> <a href="#Deriving Test Cases for Security / Access Tests">Получение
+  Тест-Установок для Тестов Безопасности/Доступа</a></li> 
+<li> <a href="#Deriving Test Cases for Configuration Tests">Получение
+  Тест-Установок для Тестов Конфигурации</a></li> 
+<li> <a href="#Deriving Test Cases for Installation Tests">Получение
+  Тест-Установок для Тестов Установки</a></li> 
+<li> <a href="#Deriving Test Cases for other non-functional tests">Получение
+  Тест-Установок для других Нефункциональных
+  Тестов</a></li> 
+
+</ul>
+
+</blockquote>
+</li> 
+<li> <a href="#Deriving Test Cases for Unit Test">Получение тест-установок для
+  Тестов Элемента</a></li> 
+
+</ul>
+<blockquote>  
+<ul>
+ 
+<li> <a href="#XE_white-box_test__of_units">Тесты с белым ящиком</a></li> 
+<li> <a href="#XE_black-box_test__of_units">Тесты с черным ящиком</a></li> 
+
+</ul>
+
+</blockquote>
+<ul>
+ 
+<li> <a href="#Deriving Test Cases for Acceptance Test">Получение
+  Тест-Установок для Теста Принятия Продукта</a></li> 
+<li> <a href="#Build Test Cases for Regression Test">Постройте Тест-Установки
+  для Возвратного Тестирования</a></li> 
+
+</ul>
+<p>&nbsp;</p>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Deriving Test Cases from Use Cases">Deriving Test Cases from Use
+    Cases</a></li>
+  <li><a href="#Deriving Test Cases from Supplementary Sepecifications">Deriving
+    Test Cases from Supplementary Specifications</a>
+    <blockquote>
+      <ul>
+        <li><a href="#Deriving Test Cases for Performance Test">Deriving Test
+          Cases for Performance Tests</a></li>
+        <li><a href="#Deriving Test Cases for Security / Access Tests">Deriving
+          Test Cases for Security / Access Tests</a></li>
+        <li><a href="#Deriving Test Cases for Configuration Tests">Deriving Test
+          Cases for Configuration Tests</a></li>
+        <li><a href="#Deriving Test Cases for Installation Tests">Deriving Test
+          Cases for Installation Tests</a></li>
+        <li><a href="#Deriving Test Cases for other non-functional tests">Deriving
+          Test Cases for other Non-Functional Tests</a></li>
+      </ul>
+    </blockquote>
+  </li>
+  <li><a href="#Deriving Test Cases for Unit Test">Deriving test cases for Unit
+    Tests</a></li>
+</ul>
+<blockquote>
+  <ul>
+    <li><a href="#XE_white-box_test__of_units">White-box tests</a></li>
+    <li><a href="#XE_black-box_test__of_units">Black-box tests</a></li>
+  </ul>
+</blockquote>
+<ul>
+  <li><a href="#Deriving Test Cases for Acceptance Test">Deriving Test Cases for
+    Product Acceptance Test</a></li>
+  <li><a href="#Build Test Cases for Regression Test">Build Test Cases for
+    Regression Test</a></li>
+</ul>
+<h3> <a name="Explanation">Объяснение</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Explanation">Explanation</a> &nbsp; <a href="#Top"></a> </p> 
+<p>
+Ничто так не влияет на удовлетворение конечного пользователя программным обеспечением
+как ясное представление того, что его ожидания могут быть проверены и
+подтверждены. Тест-установки отражают требования, которые должны быть проверены.
+Проверка этих требований, однако, может быть
+выполнена по-разному и различными
+тестировщиками. Например, работая с программным обеспечением,
+проверка его функционирования и работы может быть
+выполнена тестировщиком с использованием
+автоматизированных методов тестирования, последовательность
+выключения компьютерной системы может быть
+выполнена с помощью ручного теста и
+наблюдения, в то время как рыночная доля и продажи (
+а также требования к продукту) будут
+выполнены методом измерения продукта и сравнительным объемом продаж.
+</p>
+<p>Nothing has a greater effect on the end-user's satisfaction with the software
+than a clear view of what the end-user expects so that those expectations can be
+verified and validated. Test cases reflect the requirements that are to be
+verified. Verifying these requirements, however, may be done differently and by
+different testers. For example, executing the software to verify its function
+and performance may be done by a tester using automated test techniques, the
+shut-down sequence of a computer system may be done by manual test and
+observation, while market share and sales, (also product requirements), will be
+done by measuring product and competitive sales.
+</p>
+<p>
+Так как Вы можете оказаться неспособным к проверке всех требований (или не быть
+ответственным за нее) ,
+выбор максимально соответствующих или критичных требований для
+теста является основным условием успеха вашего проекта. 
+Требования, которые Вы хотите проверить, будут
+колебаться между стоимостью, риском и
+необходимостью наличия проверенного требования.
+</p>
+<p>Since you may not be able to (or be responsible to) verify all requirements,
+it is critical for the success of your project to select the most appropriate or
+critical ones requirements for test. The requirements you choose to verify will
+be a balance between the cost, risk, and necessity of having the requirement
+verified.
+</p>
+<p>
+Определение тест-установок важна по нескольким причинам.
+<p>
+Identifying the test cases is important for several reasons. 
+<ul>
+ 
+<li> Тест-установки формируют основу для
+  проектирования и развития тест-процедур.</li> 
+<li> "Глубина" тестирования пропорциональна числу
+  тест-установок. Большая уверенность в
+  качестве продукта и процесса тестирования достигается
+  при увеличении числа тест-установок, при
+  этом каждая тест-установка отражает определенный сценарий, состояние или
+  поток через продукт.</li> 
+<li> Основным показателем законченности
+  теста является основанный на требованиях охват,
+  базирующийся на числе определенных,
+  осуществленных, и/или выполненных тест-установок.
+  Утверждение типа "95 процентов от наших критических
+  тест-установок были выполнены и проверены" является более существенным, чем
+  утверждение "Мы прошли 95 процентов маршрутов функционирования программы
+  через наши тесты"</li> 
+<li> Объем работ по тестированию пропорционален
+  числу тест-установок. С исчерпывающей
+  схемой тест-установок может быть более точно оценено
+  согласование по времени успешных стадий цикла&nbsp;
+  теста.</li> 
+<li> Виды проектирования и разработки теста и
+  необходимые ресурсы&nbsp; в значительной степени управляются
+  тест-установками.</li> 
+
+</ul>
+<ul>
+  <li>Test cases form the foundation on which to design and develop test
+    procedures.</li>
+  <li>The &quot;depth&quot; of the testing is proportional to the number of test
+    cases. Greater confidence in the quality of the product and test process is
+    gained when the number of test cases increases, since each test case
+    reflects a different scenario, condition, or flow through the product.</li>
+  <li>A principal measure of the completeness of test is requirements-based
+    coverage, based on the of the number test cases identified, implemented, and
+    / or executed. A statement such as &quot;95 percent of our critical test
+    cases have been executed and verified&quot; is more significant than stating
+    &quot;We're 95 percent of the way through our tests.&quot;</li>
+  <li>The scale of the test effort is proportional to the number of test cases.
+    With a comprehensive breakdown of test cases, the timing of succeeding
+    stages of the test cycle can be more accurately estimated.</li>
+  <li>The kinds of test design and development, and the resources needed are
+    largely governed by the test cases.</li>
+</ul>
+<p>Тест-установки часто распределяются по категориям или классифицируются
+по типу теста или требованию к тесту, с
+которым они связаны, и в соответствии с
+которым изменяются. Лучшей практикой
+является разработка по крайней мере двух
+тест-установок для каждого требования к
+тесту:
+<p>Test cases are often categorized or classified by the type of test or
+requirement for test they are associated with, and will vary accordingly. Best
+practice is to develop at least two test cases for each requirement for test: 
+<ul>
+<li> Тест-установка для демонстрации достигнутого
+  требования, на которую часто ссылаются как
+  на положительную тест-установку,</li> 
+<li> Другая тест-установка, отражающая недопустимое,
+  ненормальное или неожиданное состояние или данные, чтобы
+  продемонстрировать, что требование
+  достигается только при требуемом условии,
+  на которую ссылаются как на отрицательную
+  тест-установку.</li> 
+<p>
+  <li>a test case to demonstrate the requirement has been achieved, often
+    referred to as a positive test case,</li>
+  <li>another test case, reflecting an unacceptable, abnormal, or unexpected
+    condition or data, to demonstrate that the requirement is only achieved
+    under the desired condition, referred to as a negative test cases.</li>
+</ul>
+
+<h3> &nbsp; <a name="Deriving Test Cases from Use Cases">
+ Получение Тест-Установок от
+Прецедентов</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p>Тест-установки для функционального
+тестирования получают от
+прецедентов цели теста (см. <a href="../artifact/ar_uc.htm">Артефакт:
+</a> <a href="../artifact/ar_uc.htm">Прецедент</a>). Тест-установки
+должны быть разработаны для каждого сценария
+прецедента. Сценарии прецедента
+определяются с помощью описания пути через
+прецедент, который пересекает основной и альтернативные потоки,
+проходя от начала до конца через прецедент.
+</p>
+<p>Test cases for functional testing are derived from the target-of-test's use
+cases (see <a href="../artifact/ar_uc.htm">Artifact: Use Case</a>). Test cases
+should be developed for each use-case scenario. The use-case scenarios are
+identified by describing the paths through the use case that traverse the basic
+flow and alternate flows start to finish through the use case.&nbsp;&nbsp; &nbsp; &nbsp;
+</p>
+<p>Например, ниже на диаграмме каждый из различных
+путей, проходящих через прецедент,
+отражающий основные и дополнительные потоки,
+представлен стрелками. Основной поток,
+отображенный&nbsp; прямой черной линией,
+является самым простым путем через
+прецедент. Каждый альтернативный поток начинается с основного потока и затем
+прогоняется в зависимости от
+определенных условий. Альтернативные потоки могут
+впадать в основной поток (альтернативные потоки 1 и 3), могут
+начинаться от другого дополнительного потока (альтернативный поток 2) или могут
+завершать прецедент без впадения в поток (альтернативные потоки 2 и 4).
+</p>
+<p>In the diagram below, for example, each of the different paths through a use
+case reflecting the basic and alternate flows, are represented with the arrows.
+The basic flow, represented by the straight, black-line is the simplest path
+through the use case. Each alternate flow begins with the basic flow and then,
+dependent upon a specific condition, the alternate flow is executed. Alternate
+flows may rejoin the basic flow (alternate flows 1 and 3), may originate from
+another alternate flow (alternate flow 2), or may terminate the use case without
+rejoining a flow (alternate flows 2 and 4).
+</p>
+<p align="center">
+<img border="0" src="images/tstcs_1.gif" width="400" height="347"> 
+</p>
+<p align="center" class="picturetext">
+Типовые Потоки Событий для прецедента - Sample Flows of Events for a use case
+</p>
+<p align="left">Следуя по каждому возможному пути через
+прецедент на отображенной выше диаграмме, могут быть
+определены различные сценарии прецедента. Начинаясь с основного потока и затем
+объединяя основной поток с дополнительными потоками,&nbsp;
+могут быть определены следующие сценарии
+прецедента: &nbsp;
+</p>
+<p align="left">Following each possible path through the use case in the above
+diagram, the different use-case scenarios can be identified. Beginning with the
+basic flow and then combining the basic flow with alternate flows, the following
+use-case scenarios can be identified:&nbsp;
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="94%" height="614">  
+<tr>  
+<td width="21%" align="left" height="76"> Сценарий 1
+  <p>Scenario 1</p>
+</td> 
+<td width="15%" align="left" height="76"> Основной Поток
+  <p>Basic Flow</p>
+</td> 
+<td width="24%" align="left" height="76">  &nbsp;</td> 
+<td width="27%" align="left" height="76">  &nbsp;</td> 
+<td width="20%" align="left" height="76">  &nbsp;</td> 
+</tr> 
+<tr>  
+<td width="21%" align="left" height="76"> Сценарий 2
+  <p>Scenario 2</p>
+</td> 
+<td width="15%" align="left" height="76"> Основной Поток
+  <p>Basic Flow</p>
+</td> 
+<td width="24%" align="left" height="76"> Альтернативный поток 1
+  <p>Alternate Flow 1</p>
+</td> 
+<td width="27%" align="left" height="76">  &nbsp;</td> 
+<td width="20%" align="left" height="76">  &nbsp;</td> 
+</tr> 
+<tr>  
+<td width="21%" align="left" height="76"> Сценарий 3
+  <p>Scenario 3</p>
+</td> 
+<td width="15%" align="left" height="76"> Основной Поток
+  <p>Basic Flow</p>
+</td> 
+<td width="24%" align="left" height="76"> Альтернативный поток 1
+  <p>Alternate Flow 1</p>
+</td> 
+<td width="27%" align="left" height="76"> Альтернативный поток 2
+  <p>Alternate Flow 2</p>
+</td> 
+<td width="20%" align="left" height="76">  &nbsp;</td> 
+</tr> 
+<tr>  
+<td width="21%" align="left" height="76"> Сценарий 4
+  <p>Scenario 4</p>
+</td> 
+<td width="15%" align="left" height="76"> Основной Поток
+  <p>Basic Flow</p>
+</td> 
+<td width="24%" align="left" height="76"> Альтернативный поток 3
+  <p>Alternate Flow 3</p>
+</td> 
+<td width="27%" align="left" height="76">  &nbsp;</td> 
+<td width="20%" align="left" height="76">  &nbsp;</td> 
+</tr> 
+<tr>  
+<td width="21%" align="left" height="76"> Сценарий 5
+  <p>Scenario 5</p>
+</td> 
+<td width="15%" align="left" height="76"> Основной Поток
+  <p>Basic Flow</p>
+</td> 
+<td width="24%" align="left" height="76"> Альтернативный поток 3
+  <p>Alternate Flow 3</p>
+</td> 
+<td width="27%" align="left" height="76"> Альтернативный поток 1
+  <p>Alternate Flow 1</p>
+</td> 
+<td width="20%" align="left" height="76">  &nbsp;</td> 
+</tr> 
+<tr>  
+<td width="21%" align="left" height="76"> Сценарий 6
+  <p>Scenario 6</p>
+</td> 
+<td width="15%" align="left" height="76"> Основной Поток
+  <p>Basic Flow</p>
+</td> 
+<td width="24%" align="left" height="76"> Альтернативный поток 3
+  <p>Alternate Flow 3</p>
+</td> 
+<td width="27%" align="left" height="76"> Альтернативный поток 1
+  <p>Alternate Flow 1</p>
+</td> 
+<td width="20%" align="left" height="76"> Альтернативный поток 2
+  <p>Alternate Flow 2</p>
+</td> 
+</tr> 
+<tr>  
+<td width="21%" align="left" height="76"> Сценарий 7
+  <p>Scenario 7</p>
+</td> 
+<td width="15%" align="left" height="76"> Основной Поток
+  <p>Basic Flow</p>
+</td> 
+<td width="24%" align="left" height="76"> Альтернативный поток 4
+  <p>Alternate Flow 4</p>
+</td> 
+<td width="27%" align="left" height="76">  &nbsp;</td> 
+<td width="20%" align="left" height="76">  &nbsp;</td> 
+</tr> 
+<tr>  
+<td width="21%" align="left" height="34"> Сценарий 8
+  <p>Scenario 8</p>
+</td> 
+<td width="15%" align="left" height="34"> Основной Поток
+  <p>Basic Flow</p>
+</td> 
+<td width="24%" align="left" height="34"> Альтернативный поток 3
+  <p>Alternate Flow 3</p>
+</td> 
+<td width="27%" align="left" height="34"> Альтернативный поток 4
+  <p>Alternate Flow 4</p>
+</td> 
+<td width="20%" align="left" height="34">  &nbsp;</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p align="left">
+ОБРАТИТЕ ВНИМАНИЕ: &nbsp; Для простоты Сценарии 5, 6, и 8 изображают только
+единичное выполнение цикла, обозначенного Дополнительным потоком 3.
+</p>
+<p align="left">NOTE:&nbsp; For simplicity, Scenarios 5, 6, and 8 only depict a
+single execution of the loop indicated by Alternate flow
+3.&nbsp;&nbsp;
+</p>
+<p>
+Получение тест-установок для каждого сценария
+выполняется с помощью определения специфического условия,
+благодаря которому определенный сценарий прецедента будет выполнен.
+</p>
+<p>Deriving the test cases for each scenario is done by identifying the specific
+condition that will cause that specific use-case scenario to be executed.</p>
+<p>
+Например, представьте прецедент, изображенный
+на расположенной выше диаграмме, формулирующим следующее для Дополнительного Потока 3:
+</p>
+<p>For example, suppose the use case depicted in the diagram above stated the
+following for Alternate Flow 3:
+</p>
+<p>
+&quot;Этот поток событий имеет место, если количество
+долларов, введенное выше в Шаге 2 &quot;Введите
+Снимаемую Сумму&quot; является большим чем текущий баланс счета. Система
+выдает предупреждение и затем входит в  основной поток в Шаге 2 &quot;Введите
+Снимаемую Сумму&quot; выше, где клиент банка может
+задать новую снимаемую сумму.&quot;
+</p>
+<p>&quot;This flow of events occurs if the dollar amount entered in Step 2
+above, &quot;Enter Withdraw Amount&quot; is greater than the current account
+balance. The system displays a warning message and then rejoins the basic flow
+at Step 2 &quot;Enter Withdraw Amount&quot; above, where the bank customer can
+enter a new withdrawal amount.&quot;
+</p>
+<p>
+С этой информацией, Вы можете начать
+определять тест-установки, необходимые для выполнения дополнительного потока 3:
+<p>With this information, you can begin to identify the test cases needed to
+execute the alternate flow 3: 
+<p>
+<div align="center">
+
+<center>  
+<table border="1" width="88%">  
+<tr>  
+<td width="15%"> ID Тест-Установки
+  <p>Test Case ID</p>
+</td> 
+<td width="16%"> Сценарий
+  <p>Scenario</p>
+</td> 
+<td width="86%"> Условие
+  <p>Condition</p>
+</td> 
+<td width="72%"> Ожидаемый Результат
+  <p>Expected Result</p>
+</td> 
+</tr> 
+<tr>  
+<td width="15%"> ТУ(тест-установка)&nbsp;х
+  <p> TC x</p>
+</td> 
+<td width="16%"> Сценарий 4
+  <p>Scenario 4</p>
+</td> 
+<td width="86%"> Шаг 2 - Снимаемая Сумма &gt; Баланса Счета
+  <p>Step 2 - Withdraw Amount &gt; Account Balance</p>
+</td> 
+<td width="72%"> Слияние с основным потоком в Шаге 2
+  <p>Rejoin basic flow at Step 2</p>
+</td> 
+</tr> 
+<tr>  
+<td width="15%"> ТУ&nbsp;у
+  <p>TC y</p>
+</td> 
+<td width="16%"> Сценарий 4
+  <p>Scenario 4</p>
+</td> 
+<td width="86%"> Шаг 2 - Снимаемая Сумма &lt; Баланса Счета
+  <p>Step 2 - Withdraw Amount &lt; Account Balance</p>
+</td> 
+<td width="72%"> Не выполняет Альтернативный поток 3,
+  выбирает основной поток
+  <p>Does not execute Alternate Flow 3, takes basic flow</p>
+</td> 
+</tr> 
+<tr>  
+<td width="15%"> ТУ z
+  <p> TC z</p>
+</td> 
+<td width="16%"> Сценарий 4
+  <p>Scenario 4</p>
+</td> 
+<td width="86%"> Шаг 2 - Снимаемая Сумма = Балансу Счета
+  <p>Step 2 - Withdraw Amount = Account Balance</p>
+</td> 
+<td width="72%"> Не выполняет Альтернативный поток 3,
+  выбирает основной поток
+  <p>Does not execute Alternate Flow 3, takes basic flow</p>
+  <p>&nbsp;</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+ОБРАТИТЕ ВНИМАНИЕ: тест-установки, показанные выше очень упрощены, так как никакая другая информация
+предоставлена не была. Тест-установки редко
+настолько просты.<p>NOTE: the test cases shown above are very simplistic since no other
+information was provided. Test cases are rarely this simple.&nbsp; 
+<p>
+Более реалистичный пример дифференцировки
+тест-установок от прецедентов указан ниже.
+</p>
+<p class="exampleheading">
+ &nbsp;Пример:
+</p>
+<p class="example">
+ &nbsp;<img src="images/tstcs002.gif" align="middle" width="354" height="226"> 
+</p>
+<p class="picturetext">
+Актеры и прецеденты в Банкомате.
+</p>
+<p class="picturetext">
+Actors and use cases in an ATM machine.
+</p>
+<p align="left">Следующая таблица содержит основной и некоторые дополнительные потоки для
+прецедента Снятия Наличности в
+расположенной выше диаграмме:
+</p>
+<p align="left">
+&nbsp;
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="80%">  
+<tr>  
+<td width="17%"> <font size="2">Основной Поток</font>
+  <p><font size="2">Basic Flow</font></p>
+</td> 
+<td width="83%"> <font size="2">Этот Прецедент начинается
+  когда Банкомат находится в состоянии
+  готовности.</font> 
+<ol>
+ 
+<li> <font size="2">Начните Снятие - Клиент вставляет
+  банковскую карту в считывающее устройство
+  Банкомата<br>
+  </font> </li> 
+<li> <font size="2">Проверьте Банковскую Карту -
+  Банкомат читает код счета с магнитной полосы на карте
+  и проверяет является ли эта карта
+  приемлемой.<br>
+  </font> </li> 
+<li> <font size="2">Введите PIN код - Банкомат просит
+  ввести PIN код&nbsp; клиента (4 цифры)<br>
+  </font> </li> 
+<li> <font size="2">Проверите код счета и PIN код - код счета и
+  PIN код проверяются, чтобы определить,
+  действителен&nbsp; ли счет и правилен ли
+  введенный PIN код для счета. Для этого потока, счетом
+  является действительный счет, и PIN кодом -
+  правильный PIN код, связанный с этим счетом.<br>
+  </font> </li> 
+<li> <font size="2">Опции Банкомата</font><font size="2"> -
+  Банкомат показывает различные варианты, доступные в этом
+  банкомате. &nbsp; В этом потоке, клиент банка всегда выбирает "Снятие
+  Наличности ."<br>
+  </font> </li> 
+<li> <font size="2">Введите сумму - Введите в
+  Банкомат сумму, которую нужно снять. Для этого потока клиент выбирает
+  предлагаемую сумму (10$ , 20$ , 50$ , или 100$ ).<br>
+  </font> </li> 
+<li> <font size="2">Авторизация </font><font size="2">-
+  Банкомат начинает процесс верификации с Банковской Системой,  посылая
+  ID Карты ,PIN код, Сумму, и информацию о Счете
+  как об операции (трансакция). &nbsp; Для этого потока, Банковская Система
+  находится в состоянии online и отвечает на
+  авторизацию чтобы успешно закончить
+  снятие наличности и соответственно
+  обновить баланс счета.<br>
+  </font> </li> 
+<li> <font size="2">В</font><font size="2">ыдача - Деньги
+  выдаются.<br>
+  </font> </li> 
+<li> <font size="2">Возвращение карты - Банковская Карта
+  возвращается.<br>
+  </font> </li> 
+<li> <font size="2">Квитанция- квитанция
+  распечатывается и выдается. &nbsp;Банкомат также соответственно
+  обновляет внутренний журнал . &nbsp;</font></li> 
+
+</ol>
+<p>
+<font size="2">Прецедент заканчивается, Банкомат
+находится в состоянии готовности</font><font size="2">.</font>
+    <ol>
+      <li><font size="2">Initiate Withdraw - Customer inserts bank card in the
+        card reader on the ATM machine<br>
+        </font></li>
+      <li><font size="2">Verify Bank Card - The ATM reads the account code from
+        the magnetic strip on the bank card&nbsp; and checks if it is an
+        acceptable bank card.<br>
+        </font></li>
+      <li><font size="2">Enter PIN - The ATM asks for the customer's PIN code (4
+        digits)<br>
+        </font></li>
+      <li><font size="2">Verify account code and PIN - The account code and PIN
+        are verified to determine if the account is valid and if the PIN entered
+        is the correct PIN for the account. For this flow, the account is a
+        valid account and the PIN is the correct PIN associated with this
+        account.<br>
+        </font></li>
+      <li><font size="2">ATM Options - The ATM displays the different
+        alternatives available at this ATM.&nbsp; In this flow, the bank
+        customer always selects &quot;Cash Withdraw.&quot;<br>
+        </font></li>
+      <li><font size="2">Enter Amount - The ATM the amount to withdraw. For this
+        flow the customer selects a pre-set amount ($10, $20, $50, or $100).<br>
+        </font></li>
+      <li><font size="2">Authorization - The ATM initiates the verification
+        process with the Banking System by sending the Card ID, PIN, Amount, and
+        Account information as a transaction.&nbsp; For this flow, the Banking
+        System is online and replies with the authorization to complete the cash
+        withdrawal successfully and updates the account balance accordingly.<br>
+        </font></li>
+      <li><font size="2">Dispense - The Money is dispensed.<br>
+        </font></li>
+      <li><font size="2">Return Card - The Bank Card is returned.<br>
+        </font></li>
+      <li><font size="2">Receipt - The receipt is printed and dispensed.&nbsp;
+        The ATM also updates the internal log accordingly.&nbsp;</font></li>
+    </ol>
+    <p><font size="2">Use Case ends with the ATM in the Ready State.
+    </font> </td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток 1 - Недействительная
+  Карта</font>
+  <p><font size="2">Alternate Flow 1 - Not a valid Card</font></p>
+</td> 
+<td width="83%"> <font size="2">В Шаге 2 Основного&nbsp; Потока -
+  Проверьте Банковскую Карту, если карта недействительна,
+  то она возвращается с&nbsp; появлением
+  соответствующего сообщения.</font>
+  <p><font size="2">In Basic Flow Step 2 - Verify Bank Card, if
+    the card is not valid, it is ejected with an appropriate message.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток 2 - В
+  Банкомате нет денег</font>
+  <p><font size="2">Alternate Flow 2 - ATM out of Money</font></p>
+</td> 
+<td width="83%"> <font size="2">В Шаге 5 Основного&nbsp; Потока&nbsp;
+  - Опции Банкомата, если в Банкомате нет денег,
+  то опция "Снятие Наличности" будет
+  недоступна.</font>
+  <p><font size="2">At Basic Flow Step 5 - ATM Options, if the
+    ATM is out of money, the &quot;Cash Withdraw&quot; option will not be
+    available.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток 3 -
+  Недостаточно средств в Банкомате&nbsp;</font>
+  <p><font size="2">Alternate Flow 3 - Insufficient funds in
+    ATM&nbsp;</font></p>
+</td> 
+<td width="83%"> <font size="2">В Шаге 6</font> <font size="2">Основного
+  Потока - Введите Сумму, если в Банкомате
+  недостаточно денег, чтобы выдать требуемое количество,
+  то&nbsp; будет показано соответствующее сообщение, и
+  будет выполнен повторный вход в основной поток
+  на Шаге 6 - Введите Сумму.</font>
+  <p><font size="2">At Basic Flow Step 6 - Enter Amount, if the
+    ATM contains insufficient funds to dispense the requested amount, an
+    appropriate message will be displayed, and rejoins the basic flow at Step 6
+    - Enter Amount.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток 4 -
+  Неверный PIN код</font>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p><font size="2">Alternate Flow 4 - Incorrect PIN&nbsp;</font></p>
+</td> 
+<td width="83%"> <font size="2">В Шаге 4 Основного&nbsp; Потока -
+  Проверьте Счет и PIN код, клиент имеет три попытки
+  ввода правильного PIN кода. &nbsp; &nbsp;<br>
+<br>
+Если введен неправильный PIN код, то Банкомат
+  выдает соответствующее сообщение и если еще
+  имеются попытки, то Выполняется повторный
+  вход в основной Поток на Шаге 3 - Введите PIN
+  код. &nbsp;<br>
+<br>
+  Если на заключительной попытке введен неверный PIN код, то карта удерживается,
+  Банкомат возвращается в состояние
+  готовности, и этот прецедент завершается.</font>
+  <p>&nbsp;</p>
+  <p><font size="2">At Basic Flow Step 4 - Verify Account and
+    PIN, the customer has three tries to enter the correct PIN.&nbsp;&nbsp;<br>
+    <br>
+    If an incorrect PIN is entered, the ATM displays the appropriate message and
+    if there are still tries remaining, this flow rejoins Basic Flow at Step 3 -
+    Enter PIN.&nbsp;<br>
+    <br>
+    If, on the final try the entered PIN number is incorrect, the card is
+    retained, ATM returns to Ready State, and this use case terminates.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток 5 -
+  Отсутствует Счет</font>
+  <p>&nbsp;</p>
+  <p> <font size="2">&nbsp;&nbsp;</font><font size="2">Alternate Flow 5 - No Account</font></p>
+</td> 
+<td width="83%"> <font size="2">В Шаге 4 Основного&nbsp; Потока -
+  Проверьте Счет и PIN код, если Банковская система
+  возвращает код, указывающий что счет не
+  может быть найден или что данный счет, не позволяет
+  снимать деньги, Банкомат показывает соответствующее сообщение и
+  повторно входит в основной поток на Шаге 9 -
+  Возвращение Карты.</font>
+  <p><font size="2">At Basic Flow Step 4 - Verify Account and
+    PIN, if the Banking system returns a code indicating the account could not
+    be found or is not an account which allows withdrawals, the ATM displays the
+    appropriate message and rejoins the Basic Flow at Step 9 - Return Card.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток 6 -
+  Недостаточно средств на Счете</font>
+  <p><font size="2">Alternate Flow 6 - Insufficient Funds in
+    Account</font></p>
+</td> 
+<td width="83%"> <font size="2">В Шаге 7 Основного Потока
+  - Авторизация, Банковская система
+  возвращает код, указывающий, что баланс счета - меньше, 
+  чем количество, введенное в основном потоке на Шаге 6 - Введите сумму,
+  Банкомат выдает соответствующее сообщение и
+  выполняет повторный вход в основной поток
+  на Шаге 6 - Введите Сумму.</font>
+  <p><font size="2">At&nbsp; Basic Flow Step 7 - Authorization,
+    the Banking system returns a code indicating the account balance is less
+    than the amount entered in Basic Flow Step 6 - Enter Amount, the ATM
+    displays the appropriate message and rejoins the Basic Flow at Step 6 -
+    Enter Amount.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток 7 -
+  Ежедневно достигается максимальное количество изъятия</font>
+  <p><font size="2">&nbsp;&nbsp;</font><font size="2">Alternate Flow 7 - Daily maximum withdrawal
+    amount reached&nbsp;</font></p>
+</td> 
+<td width="83%"> <font size="2">В Шаге 6 Основного&nbsp; Потока&nbsp;
+  - Авторизация, Банковская система возвращает
+  код, указывающий, что, включая этот запрос
+  на снятие, клиент уже превысил или превысит
+  в будущем максимальное количество, позволенное
+  для снятия в 24 часовой период, Банкомат показывает соответствующее сообщение и
+  выполняет повторный вход в основной поток
+  на Шаге 6 - Введите Сумму.</font>
+  <p><font size="2">At Basic Flow Step 6 - Authorization, the
+    Banking system returns a code indicating that, including this request for
+    withdrawal, the customer has or will have exceeded the maximum amount
+    allowed in a 24 hour period, the ATM displays the appropriate message and
+    rejoins the Basic Flow at Step 6 - Enter Amount.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток x - Ошибка
+  Журнала Работы</font>
+  <p>&nbsp;</p>
+  <p><font size="2">Alternate Flow x - Log Error</font></p>
+</td> 
+<td width="83%"> <font size="2">Если в&nbsp; Шаге 10 Основного
+  Потока&nbsp; - Квитанция, журнал работы не может быть
+  обновлен, Банкомат переходит в "безопасный
+  режим", в котором все функции приостановлены. Соответствующая тревога
+  посылается в&nbsp; Банковскую Систему, чтобы указать, что
+  Банкомат приостановил действие.</font>
+  <p><font size="2">If at the Basic Flow Step 10 - Receipt, the
+    log cannot be updated, the ATM enters the &quot;secure mode&quot; in which
+    all functions are suspended. An appropriate alarm is sent to the Bank System
+    to indicate the ATM has suspended operation.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток y -
+  Выход</font>
+  <p><font size="2">Alternate Flow y - Quit</font></p>
+</td> 
+<td width="83%"> <font size="2">Клиент может в любое время
+  решить закончить операцию&nbsp; (выход).
+  Операция (трансакция) завершается и карта
+  отдается.</font>
+  <p><font size="2">The customer can, at any time, decide to
+    terminate the transaction (quit). The transaction is stopped and the card
+    ejected.</font></p>
+  <p>&nbsp;</p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%"> <font size="2">Альтернативный поток z - "Нападение"</font>
+  <p>&nbsp;</p>
+  <p><font size="2">Alternate Flow z - &quot;Tilt&quot;</font></p>
+</td> 
+<td width="83%"> <font size="2">Банкомат </font><font size="2">содержит
+  большое число датчиков, которые контролируют различные функции,
+  такие как сила, давление, прилагаемое к
+  различным дверям и воротам, и датчики движения.
+  Если в какое-либо время датчик
+  активизируется, сигнал тревоги посылается
+  в Полицию и Банкомат переходит в "безопасный
+  режим", в котором заблокированы все функции,&nbsp;
+  до момента пока он не будет заново запущен
+  и инициализирован.</font>
+  <p><font size="2">The ATM contains numerous sensors which
+    monitor different functions, such as power, pressure exerted on the various
+    doors and gates, and motion detectors.&nbsp; If at any time a sensor is
+    activated, an alarm signal is sent to the Police and the ATM enters a
+    &quot;secure mode&quot; in which all functions are suspended until the
+    appropriate re-start / re-initialize actions are taken.</font></p>
+</td> 
+</tr> 
+<tr>  
+<td width="100%" colspan="2">  
+<p class="example">
+<br>
+<font size="2">В первой итерации, согласно плану
+итерации, мы должны проверить, что
+прецедент Снятия Наличности был реализован
+правильно. Не весь Прецедент еще реализован,
+если были реализованы только следующие потоки
+:</font>
+</p>
+<p class="example">
+    <font size="2">In the first iteration, according to the iteration plan, we
+    need to verify that the Cash Withdrawal use case has been implemented
+    correctly. The whole use case has not yet been implemented, only the
+    following flows have been implemented:</font>
+</p>
+<blockquote>  
+<ul>
+ 
+<li> <font size="2">Основной Поток - Снятие
+  предлагаемой суммы (10$, 20$ , 50$, 100$ )</font></li> 
+<li> <font size="2">Альтернативный поток 2 - В
+  Банкомате нет денег</font></li> 
+<li> <font size="2">Альтернативный поток 3 -
+  Недостаточно средств в </font><font size="2">Банкомате</font></li> 
+<li> <font size="2">Альтернативный поток 4 -
+  Неправильный PIN код</font></li> 
+<li> <font size="2">Альтернативный поток 5 -
+  Отсутствует Счет/Неверный Тип Счета</font></li> 
+<li> <font size="2">Альтернативный поток 6 -
+  Недостаточно средств на Счете</font></li> 
+
+</ul>
+
+      <ul>
+        <li><font size="2">Basic Flow - Withdrawal of a pre-set amount ($10,
+          $20, $50, $100)</font></li>
+        <li><font size="2">Alternate Flow 2 - ATM out of Money</font></li>
+        <li><font size="2">Alternate Flow 3 - Insufficient funds in ATM</font></li>
+        <li><font size="2">Alternate Flow 4 - Incorrect PIN</font></li>
+        <li><font size="2">Alternate Flow 5 - No Account / Incorrect Account
+          Type</font></li>
+        <li><font size="2">Alternate Flow 6 - Insufficient funds in Account</font></li>
+      </ul>
+
+</blockquote>
+<p>
+ &nbsp;</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Следующие сценарии могут быть получены от этого
+прецедента
+</p>
+<p>The following scenarios can be derived from this use case
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="88%">  
+<tr>  
+<td width="14%" align="left"> Сценарий 1 - Успешное снятие
+  денег
+  <p>Scenario 1 - Successful cash withdraw</p>
+</td> 
+<td width="15%" align="left"> Основной Поток &nbsp;
+  <p>Basic Flow&nbsp;</p>
+</td> 
+<td width="15%" align="left">  &nbsp;</td> 
+</tr> 
+<tr>  
+<td width="14%" align="left"> Сценарий 2 - В Банкомате нет
+  денег
+  <p>Scenario 2 - ATM out of&nbsp; money</p>
+</td> 
+<td width="15%" align="left"> Основной Поток
+  <p>Basic Flow&nbsp;</p>
+</td> 
+<td width="15%" align="left"> Альтернативный поток 2
+  <p>Alternate Flow 2</p>
+</td> 
+</tr> 
+<tr>  
+<td width="14%" align="left"> Сценарий 3 - Недостаточно
+  Средств в Банкомате
+  <p>Scenario 3 - Insufficient Funds in ATM</p>
+</td> 
+<td width="15%" align="left"> Основной Поток
+  <p>Basic Flow&nbsp;</p>
+</td> 
+<td width="15%" align="left"> Альтернативный поток 3
+  <p>Alternate Flow 3</p>
+</td> 
+</tr> 
+<tr>  
+<td width="14%" align="left"> Сценарий 4 - Неправильный PIN
+  код (остались попытки)
+  <p>Scenario 4 - Incorrect PIN (tries left)</p>
+</td> 
+<td width="15%" align="left"> Основной Поток
+  <p>Basic Flow&nbsp;</p>
+</td> 
+<td width="15%" align="left"> Альтернативный поток 4 &nbsp;
+  <p>Alternate Flow 4</p>
+</td> 
+</tr> 
+<tr>  
+<td width="14%" align="left"> Сценарий 5 - Неправильный PIN
+  код (не осталось попыток)
+  <p>Scenario 5 - Incorrect PIN (no tries left)</p>
+</td> 
+<td width="15%" align="left"> Основной Поток
+  <p>Basic Flow&nbsp;</p>
+</td> 
+<td width="15%" align="left"> Альтернативный поток 4 &nbsp;
+  <p>Alternate Flow 4</p>
+</td> 
+</tr> 
+<tr>  
+<td width="14%" align="left"> Сценарий 6 - Отсутствие Счета/Неверный
+  тип счета
+  <p>Scenario 6 - No Account / incorrect account
+    type</p>
+</td> 
+<td width="15%" align="left"> Основной Поток
+  <p>Basic Flow&nbsp;</p>
+</td> 
+<td width="15%" align="left"> Альтернативный поток 5
+  <p>Alternate Flow 5</p>
+</td> 
+</tr> 
+<tr>  
+<td width="14%" align="left"> Сценарий 7 - Недостаточный Баланс Счета &nbsp;
+  <p>Scenario 7 - Insufficient Account Balance&nbsp;</p>
+</td> 
+<td width="15%" align="left"> Основной Поток
+  <p>Basic Flow&nbsp;</p>
+</td> 
+<td width="15%" align="left"> Альтернативный поток 6
+  <p>Alternate Flow 6</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p align="left">
+ОБРАТИТЕ ВНИМАНИЕ: Для простоты циклы в Альтернативных потоках 3 и 6 (Сценарии 
+3 и 7), и комбинации циклов не были включены в расположенную выше таблицу.
+<p>
+NOTE: For simplicity the loops in Alternate flows 3 and 6
+(Scenarios 3 and 7), and combinations of loops have not been included in the
+table above.
+<p>
+Для каждого из этих семи сценариев, должны быть
+определены тест-установки. Тест-установки могут быть
+определены и управляться с использованием
+матриц или таблиц решений. Общий формат
+отображен ниже, каждый ряд в нем представляет
+частную тест-установку, а в колонках
+содержится информация&nbsp; о тест-установке. В этом примере, для
+каждой тест-установки, указаны ее ID, Состояние
+(или описание), и все элементы данных,
+участвующие в тест-установке (как исходные
+данные или уже находящиеся в базе данных), и ожидаемом результате. &nbsp;
+</p>
+<p>For each of these seven scenarios, test cases need to be identified. Test
+cases can be identified and managed using matrices or decision tables. A common
+format is shown below, where each row represent an individual test case, and the
+columns identify test case information.&nbsp; In this example, for each test
+case, there is a test case ID, Condition (or description), and all the data
+elements participating in the test case (as input or already in the database),
+and expected result.&nbsp;
+</p>
+<p>Чтобы приступить к разработке матрицы,
+начните с определения того, какие элементы данных
+необходимы для выполнения сценария тест-установки.
+Затем, для каждого сценария, определите
+тест-установку, которая имеет по крайней мере соответствующее
+условие для&nbsp; выполнения сценария. Например, в
+приведенной ниже матрице, буква V (valid - имеющий силу) используется
+для отметки условия ИМЕЮЩЕГО СИЛУ для
+выполнения основного потока, и буква I (invalid -
+не имеющее силу)&nbsp; - для условия, которое
+активизирует желательный Альтернативный поток. &nbsp;
+Формула "n/a" используется в приведенной ниже
+таблице для указания того, что это условие применимо к
+тест-установке.
+</p>
+<p>To begin developing the matrix, start by identifying what data elements are
+required to execute the use-case scenarios. Then, for each scenario, identify at
+least test case that contains the appropriate condition to execute the scenario.
+For example, in the matrix below, V (valid) is used to indicate this condition
+must be VALID for the basic flow to execute and I (invalid) is used to indicate
+the condition which will invoke the desired alternate flow.&nbsp;&quot;n/a&quot;
+is used in the table below to indicate that this condition is applicable to the
+test case.
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="86%">  
+<tr>  
+<td width="13%" align="center" valign="top"> ТУ ID#&nbsp;&nbsp;
+  <p>TC ID#</p>
+ </td> 
+<td width="17%" align="center" valign="top"> Сценарий/Условие
+  <p>Scenario / Condition</p>
+</td> 
+<td width="6%" align="center" valign="top"> PIN код
+  <p>&nbsp;PIN</p>
+<p>
+ &nbsp;
+</p>
+</td> 
+<td width="11%" align="center" valign="top"> Счет #
+  <p>Account #</p>
+<p>
+ &nbsp;
+</p>
+</td> 
+<td width="11%" align="center" valign="top"> Введенная Сумма
+  <p>(или выбранная)</p>
+  Amount Entered<p>(or chosen)</p>
+</td> 
+<td width="12%" align="center" valign="top"> Сумма на Счете
+  <p>Amount in Account</p>
+<p>
+ &nbsp;
+</p>
+</td> 
+<td width="11%" align="center" valign="top"> Сумма в Банкомате
+  <p>&nbsp;</p>
+<p>
+ Amount in ATM&nbsp;
+</p>
+</td> 
+<td width="16%" align="center" valign="top"> Ожидаемый Результат
+  <p>Expected Result</p>
+</td> 
+</tr> 
+<tr>  
+<td width="13%" align="right" valign="top"> Снятие наличности 1
+  <p>&nbsp;CW1.
+</td> 
+<td width="17%" valign="top"> Сценарий 1 - Успешное Снятие
+  денег
+  <p>Scenario 1 - Successful Cash Withdraw</p>
+</td> 
+<td width="6%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="16%" valign="top"> Успешное снятие денег.
+  <p>Successful cash withdrawal</p>
+</td> 
+</tr> 
+<tr>  
+<td width="13%" align="right" valign="top"> Снятие наличности 2
+  <p>CW2.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 2 - В Банкомате нет
+  денег
+  <p>Scenario 2 - ATM out of Money</p>
+</td> 
+<td width="6%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center" bgcolor="#C0C0C0"> I</td> 
+<td width="16%" valign="top"> Недоступна опция Снятия
+  Наличности, конец прецедента
+  <p>Cash Withdraw option unavailable, end of use
+    case</p>
+</td> 
+</tr> 
+<tr>  
+<td width="13%" align="right" valign="top"> Снятие наличности 3
+  <p>CW3.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 3 - Недостаточно
+  средств в Банкомате
+  <p>Scenario 3 - Insufficient funds in ATM</p>
+</td> 
+<td width="6%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center" bgcolor="#C0C0C0"> I</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение, возвращение к Шагу
+  6 Основного Потока&nbsp; - Введите Сумму
+  <p>Warning message, return to Basic Flow Step 6 -
+    Enter Amount</p>
+</td> 
+</tr> 
+<tr>  
+<td width="13%" align="right" valign="top"> Снятие наличности 4
+  <p>&nbsp;</p>
+  <p>CW4.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 4 - Неверный PIN код (&gt; 1
+  осталось)
+  <p>&nbsp;</p>
+  <p>Scenario 4 - Incorrect PIN (&gt; 1 left)</p>
+</td> 
+<td width="6%" valign="top" align="center" bgcolor="#C0C0C0"> I &nbsp; 
+<p>
+ &nbsp;</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> N/a</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение, возвращение к&nbsp;
+  Шагу 4 Основного Потока, Введите PIN код
+  <p>Warning message, return to Basic Flow Step 4,
+    Enter PIN</p>
+</td> 
+</tr> 
+<tr>  
+<td width="13%" align="right" valign="top"> Снятие наличности 5
+  <p>&nbsp;</p>
+  <p>CW5.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 4 - Неверный PIN код (= 1 попытка,
+  осталась)
+  <p>Scenario 4 - Incorrect PIN (= 1 try left)</p>
+</td> 
+<td width="6%" valign="top" align="center" bgcolor="#C0C0C0"> I &nbsp; 
+<p>
+ &nbsp;</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> N/a</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение, возвращение к&nbsp; Шагу
+  4 Основного Потока, Введите PIN код
+  <p>Warning message, return to Basic Flow Step 4,
+    Enter PIN</p>
+</td> 
+</tr> 
+<tr>  
+<td width="13%" align="right" valign="top"> Снятие наличности 6
+  <p>&nbsp;</p>
+  <p>CW6.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 4 - Неверный PIN код (= 0 &nbsp;
+  попыток, осталось)
+  <p>&nbsp;Scenario 4 - Incorrect PIN (= 0&nbsp; tries
+    left)</p>
+</td> 
+<td width="6%" valign="top" align="center" bgcolor="#C0C0C0"> I &nbsp; 
+<p>
+ &nbsp;</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> N/a</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="11%" valign="top" align="center"> V</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение,
+  карта удерживается, конец прецедента
+  <p>Warning message, card retained, end of use case</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+В приведенной выше матрице, шесть тест-установок
+выполняют четыре сценария. Для Основного Потока,
+Тест-установка CW1 выше известна как
+положительная тест-установка. Она проходит
+путь Основного Потока через прецедент без
+каких-либо отклонений. Всестороннее
+тестирование Основного Потока должно
+включать отрицательные тест-установки, чтобы гарантировать
+то, что Основной Поток выполняется только
+при корректных условиях. Эти отрицательные
+Тест-установки представлены тест-установками
+CW2 - 6 (заполненная ячейка указывает условие,
+необходимое для выполнения альтернативных
+потоков). &nbsp; В то время как CW2 - 6 - являются
+отрицательными тест-установками для Основного Потока, они
+являются положительными тест-установками для Альтернативных потоков 2 - 4, и имеется по крайней мере
+одна отрицательная тест-установка для
+каждого из этих Альтернативных потоков (CW1 - Основной Поток).
+</p>
+<p>In the matrix above, the six test cases execute the four scenarios. For the
+Basic Flow, test case CW1 above is known as a positive test case. It executes
+the Basic Flow path through the use case without any deviations. Comprehensive
+testing of the Basic Flow must include negative test cases to ensure that the
+Basic Flow is taken only when the conditions are correct. These negative test
+cases are represented by test cases CW2 - 6 (the shaded cell indicates the
+condition needed to execute the alternate flows).&nbsp;While CW2 - 6 are
+negative test cases for the Basic Flow, they are positive test cases for
+Alternate flows 2 - 4, and there is at least one negative test case each of
+these Alternate Flows (CW1 - the Basic Flow).&nbsp;&nbsp;
+</p>
+<p>
+Сценарий 4 является примером, в котором
+наличие только одной положительной и одной
+отрицательной тест-установок на сценарий не
+достаточно. Чтобы тщательно проверить Сценарий 4 -
+Неверный PIN код, по крайней мере три положительных
+тест-установок (чтобы активизировать Сценарий 4) необходимы:
+</p>
+<p>Scenario 4 is an example where having just one positive and one negative test
+case per scenario is not sufficient. To thoroughly test Scenario 4 - Incorrect
+PIN, at least three positive test cases (to invoke Scenario 4) are needed:
+</p>
+<ul>
+ 
+<li> Введен неверный PIN код и еще остались попытки,
+  то этот Альтернативный поток повторно
+  входит в  Основной Поток на Шаге 3 - Введите
+  PIN код</li> 
+ 
+<li> Введен Неверный PIN код и не осталось попыток,
+  то тогда этот Альтернативный поток
+  удерживает карту и завершает прецедент.</li> 
+<li> Введен ПРАВИЛЬНЫЙ PIN КОД, когда не
+  осталось попыток. Этот Альтернативный поток&nbsp;
+  повторно входит в Основной Поток на Шаге 5 -
+  Введите Сумму.</li> 
+
+</ul>
+<ul>
+  <li>the incorrect PIN is entered and there are tries left and this Alternate
+    Flow rejoins the Basic Flow Step 3 - Enter PIN)</li>
+  <li>the incorrect PIN is entered and there are no remaining tries left and
+    this Alternate Flow then retains the card and terminates the use case.</li>
+  <li>the CORRECT PIN is entered when there are no remaining tries left.&nbsp;
+    This Alternate Flow rejoins the Basic Flow at Step 5 - Enter Amount.&nbsp; &nbsp;</li>
+</ul>
+<p>
+Заметьте, что в расположенной выше матрице,
+никаких абсолютных величин не было задано для условий
+(данных). Преимущество создания матрицы
+тест-установок в таком виде состоит в том, что
+при этом легко видеть, какие условия
+тестируются. Также очень легко определить,
+было ли определено достаточно тест-установок,
+после Вы должны смотреть только на буквы V
+или I (или как сделано здесь - заштрихованные
+(заполненные?) ячейки). Смотря на
+расположенную выше таблицу, видно, что
+имеется несколько условий, для которых нет
+заштрихованных ячеек, поэтому, мы
+пропускаем тест-установки, такие как для Сценария 6 -
+Отсутствие Счета или Неверный Тип Счета, и
+для Сценария 7 - Недостаточный Баланс Счета.
+</p>
+<p>Notice, that in the above matrix, no actual values were entered for the
+conditions (data). An advantage of creating the test case matrix in this manner
+is that it is easy to see what conditions are being tested. It is also very easy
+to determine if sufficient test cases have been identified, since you only need
+to look at Vs and Is (or as done here - shaded cells). Looking at the above
+table, there are several conditions for which there is no shaded cell,
+therefore, we are missing test cases, such as for Scenario 6 - No Account or
+Incorrect Account Type and Scenario 7 - Insufficient Account Balance.
+</p>
+<p>Когда все тест-установки идентифицированы, они должны пройти экспертизу и утверждены, чтобы гарантировать точность,
+соответствие, и удалите лишние или эквивалентные
+тест-установки. Более подробно см. <a href="../activity/chklists/ck_tstcs.htm">Контрольные
+точки:</a> <a href="../activity/chklists/ck_tstcs.htm">Тест-Установка</a>.
+</p>
+<p>One all the test cases have been identified, they should be reviewed and
+validated to ensure accuracy, appropriateness, and eliminate redundant or
+equivalent test cases. See <a href="../activity/chklists/ck_tstcs.htm">Checkpoints:
+Test Case</a> for more details.
+</p>
+<p>На утверждение тест-установок, могут быть
+определены фактические значения данных (в
+матрице реализации тест-установок) и
+собраны данные тестирования (для большего количества информации относительно данных
+тестирования см. <a href="md_tstdt.htm">Руководства:
+Данные </a><a href="md_tstdt.htm">Тестирования</a>).
+</p>
+<p>Upon approval of the test cases, the actual data values can be identified (in
+the test case implementation matrix) and the test data built (see <a href="md_tstdt.htm">Guidelines:
+Test Data</a> for more information regarding test data).
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="80%">  
+<tr>  
+<td width="6%" align="center" valign="top"> ТУ ID#
+  <p>TC ID#</p>
+ </td> 
+<td width="17%" align="center" valign="top"> Сценарий/Условие
+  <p>Scenario / Condition</p>
+</td> 
+<td width="6%" align="center" valign="top"> PIN код
+  <p>PIN</p>
+<p>
+ &nbsp;
+</p>
+</td> 
+<td width="11%" align="center" valign="top"> Счет #
+  <p>Account #</p>
+<p>
+ &nbsp;
+</p>
+</td> 
+<td width="11%" align="center" valign="top"> Введенная Сумма<p>
+(или выбранная)
+</p>
+  Amount Entered<p>(or chosen)&nbsp;</p>
+</td> 
+<td width="12%" align="center" valign="top"> Сумма на Счете
+  <p>&nbsp;</p>
+<p>
+ &nbsp;Amount in Account
+</p>
+</td> 
+<td width="11%" align="center" valign="top"> Сумма в Банкомате
+  <p>Amount in ATM</p>
+<p>
+ &nbsp;
+</p>
+</td> 
+<td width="16%" align="center" valign="top"> Ожидаемый Результат
+  <p>Expected Result</p>
+</td> 
+</tr> 
+<tr>  
+<td width="6%" align="right" valign="top"> Снятие Наличности 1
+  <p>&nbsp;CW1.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 1 - Успешное Снятие
+  Денег
+  <p>Scenario 1 - Successful Cash Withdraw</p>
+</td> 
+<td width="6%" valign="top" align="center"> 4987</td> 
+<td width="11%" valign="top" align="center"> 809 - 498</td> 
+<td width="11%" valign="top" align="center"> 50.00</td> 
+<td width="12%" valign="top" align="center"> 500.00</td> 
+<td width="11%" valign="top" align="center"> 2,000</td> 
+<td width="16%" valign="top"> Успешное снятие наличности. Баланс Счета,
+  обновлен до 450.00
+  <p>Successful cash withdrawal. Account balance
+    updated to 450.00</p>
+</td> 
+</tr> 
+<tr>  
+<td width="6%" align="right" valign="top"> Снятие Наличности
+  2&nbsp;
+  <p>CW2.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 2 - В Банкомате нет
+  Денег
+  <p>Scenario 2 - ATM out of Money</p>
+</td> 
+<td width="6%" valign="top" align="center"> 4987</td> 
+<td width="11%" valign="top" align="center"> 809 - 498</td> 
+<td width="11%" valign="top" align="center"> 100.00</td> 
+<td width="12%" valign="top" align="center"> 500.00</td> 
+<td width="11%" valign="top" align="center"> 0.00</td> 
+<td width="16%" valign="top"> Опция Снятие Наличности
+  недоступна выбор, конец прецедента
+  <p>Cash Withdraw option unavailable, end of use
+    case</p>
+</td> 
+</tr> 
+<tr>  
+<td width="6%" align="right" valign="top"> Снятие Наличности
+  3&nbsp;
+  <p></p>
+  <p>&nbsp;</p>
+  <p>CW3.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 3 - Недостаточно
+  средств в Банкомате
+  <p></p>
+  <p>Scenario 3 - Insufficient funds in ATM</p>
+</td> 
+<td width="6%" valign="top" align="center"> 4987</td> 
+<td width="11%" valign="top" align="center"> 809 - 498</td> 
+<td width="11%" valign="top" align="center"> 100.00</td> 
+<td width="12%" valign="top" align="center"> 500.00</td> 
+<td width="11%" valign="top" align="center"> 70.00</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение, возвращение к Основному
+  Потоку на Шаг 6 - Выедите Сумму
+  <p>Warning message, return to Basic Flow Step 6 -
+    Enter Amount</p>
+</td> 
+</tr> 
+<tr>  
+<td width="6%" align="right" valign="top"> Снятие Наличности 4
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>CW4.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 4 - Неверный PIN код (&gt; 1
+  осталось)
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>Scenario 4 - Incorrect PIN (&gt; 1 left)</p>
+</td> 
+<td width="6%" valign="top" align="center"> 49<b><font size="4">78</font></b> &nbsp; 
+<p>
+ &nbsp;</td> 
+<td width="11%" valign="top" align="center"> 809 - 498</td> 
+<td width="11%" valign="top" align="center"> N/a</td> 
+<td width="12%" valign="top" align="center"> 500.00</td> 
+<td width="11%" valign="top" align="center"> 2,000</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение, возвращение к Основному
+  Потоку на Шаг 4, Введите PIN код
+  <p>Warning message, return to Basic Flow Step 4,
+    Enter PIN</p>
+</td> 
+</tr> 
+<tr>  
+<td width="6%" align="right" valign="top"> Снятие Наличности 5
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>CW5.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 4 - Неверный PIN код (= 1
+  оставшаяся попытка)
+  <p>&nbsp;</p>
+  <p>Scenario 4 - Incorrect PIN (= 1 try left)</p>
+</td> 
+<td width="6%" valign="top" align="center"> 49<b><font size="4">78</font></b> 
+<p>
+ &nbsp;</td> 
+<td width="11%" valign="top" align="center"> 809 - 498</td> 
+<td width="11%" valign="top" align="center"> N/a</td> 
+<td width="12%" valign="top" align="center"> 500.00</td> 
+<td width="11%" valign="top" align="center"> 2,000</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение, возвращение к Основному
+  Потоку на Шаг 4, Введите PIN код&nbsp;
+  <p>Warning message, return to Basic Flow Step 4,
+    Enter PIN</p>
+</td> 
+</tr> 
+<tr>  
+<td width="6%" align="right" valign="top"> Снятие Наличности 6
+  <p>&nbsp;</p>
+  <p>CW6.</p>
+</td> 
+<td width="17%" valign="top"> Сценарий 4 - Неверный PIN код (= 0
+  оставшихся попыток)
+  <p>Scenario 4 - Incorrect PIN (= 0&nbsp; tries
+    left)</p>
+</td> 
+<td width="6%" valign="top" align="center"> 49<b><font size="4">78</font></b> &nbsp; 
+<p>
+ &nbsp;</td> 
+<td width="11%" valign="top" align="center"> 809 - 498</td> 
+<td width="11%" valign="top" align="center"> N/a</td> 
+<td width="12%" valign="top" align="center"> 500.00</td> 
+<td width="11%" valign="top" align="center"> 2,000</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение, карта
+  удерживается, конец прецедента
+  <p>Warning message, card retained, end of use case</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Тест-установки, указанные выше, - только некоторые из тест-установок, необходимых
+для проверки Прецедента Снятия Наличности для этой итерации. Другие необходимые 
+тест-установки включают:
+<p>The test cases above are only a few of the test cases needed to verify the
+Cash Withdraw Use Case for this iteration. Other test cases needed include: 
+<ul>
+ 
+<li> Сценарий 6 - Отсутствие Счета или
+  Неверный Тип Счета: Счет не найден или
+  недоступен</li> 
+<li> Сценарий 6 - Отсутствие Счета или
+  Неверный Тип Счета: Счет не позволяет
+  снятие</li> 
+<li> Сценарий 7 - Недостаточный Баланс Счета:
+  Требуемое количество денег превышает
+  имеющееся на счете.</li> 
+
+</ul>
+<ul>
+  <li>Scenario 6 - No Account or Incorrect Account Type: Account not found or
+    available</li>
+  <li>Scenario 6 - No Account or Incorrect Account Type: Account does not allow
+    withdraws</li>
+  <li>Scenario 7 - Insufficient Account Balance: Amount requested greater than
+    amount in account.</li>
+</ul>
+<p>
+В будущих итерациях, когда осуществляются другие потоки,
+тест-установки будут необходимы для:<p>In future iterations, when other flows are implemented, test cases will be
+needed for: 
+<ul>
+ 
+<li> Недействительные карты (сообщено, что карта
+  потеряна, украдена, карта от неприемлемого
+  банка, повреждена полоса, и т.д.)</li> 
+<li> Невозможно считать карту (считывающее
+  устройство забито, находится в режиме off-line, или
+  работает со сбоями)</li> 
+<li> Счет закрыт, заморожен, или недоступен по
+  другим причинам</li> 
+<li> Сумма в Банкомате недостаточна или
+  невозможно отсчитать требуемое
+  количество (отличается от CW3, в котором
+  одна купюра отсутствует, но не все)</li> 
+<li> Невозможно подключиться к банковской
+  системе для подтверждения</li> 
+<li> Банковская Сеть находится в режиме off line или
+  недостаток питания на середине сделки</li> 
+
+</ul>
+<ul>
+  <li>Invalid cards (card is reported lost, stolen, is not from an accepted
+    bank, has a damaged stripe, etc.)</li>
+  <li>Inability to read a card (card reader is jammed, off-line, or
+    malfunctioning)</li>
+  <li>Account is closed, frozen, or otherwise unavailable</li>
+  <li>Amount in ATM is insufficient or incapable of creating requested amount
+    (different than CW3, in that one denomination is out, but not all)</li>
+  <li>Incapable of contacting banking system for approval</li>
+  <li>Bank network goes off line, or power failure mid-transaction</li>
+</ul>
+<p>
+При определении функциональных Тест-установок,
+обеспечьте следующее:<p>When identifying functional test cases, ensure the following: 
+<ul>
+ 
+<li> Достаточные положительные и отрицательные
+  тест-установки, которые были определены для каждого сценария
+  прецедента&nbsp;</li> 
+<li> Тест-установки, адресующие любые деловые
+  правила, реализуемые прецедентами,
+  гарантирующие, что имеются тест-установки
+  внутри, вне, и на пограничном состоянии/значении
+  деловых правил</li> 
+<li> Тест-установки, адресующие любые последовательности событий или действий,
+  типа тех, которые определены в диаграммах последовательностей в модели проекта, 
+  или положения, состояния объектов интерфейса пользователя.</li> 
+<li> Тест-установки, адресующие любые специальные требования, определенные для
+  прецедента, например, минимум/максимум производительности, иногда сочетается с 
+  минимумом/максимумом загрузок или объемами данных в течение выполнения прецедентов.</li> 
+<p>
+  <li>sufficient test cases, positive and negative, have been identified for
+    each use-case scenario&nbsp;</li>
+  <li>test cases address any business rules implemented by the use cases,
+    ensuring that there are test cases inside, outside, and at the boundary
+    condition / value for the business rule</li>
+  <li>test cases address any sequencing of events or actions, such as those
+    identified in the sequence diagrams in the design model, or user interface
+    object states or conditions.</li>
+  <li>test cases address any special requirements defined for the use case, such
+    minimum/maximum performance, sometimes combined with minimum/maximum loads
+    or data volumes during the execution of the use cases.</li>
+</ul>
+<p>
+Дополнительную информацию касательно данных
+тестирования см. также <a href="md_tstdt.htm">Руководство:
+Данные Тестирования</a>.
+</p>
+<p>
+See also <a href="md_tstdt.htm">Guidelines: Test Data</a> for additional
+information regarding the test data.
+</p>
+<h3> <a name="Deriving Test Cases from Supplementary Sepecifications">Получение
+Тест-Установок от Дополнительных Спецификаций</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Deriving Test Cases from Supplementary Sepecifications">Deriving
+Test Cases from Supplementary Specifications</a> </p> 
+<p>
+Не все требования&nbsp; к цели теста будут отражены в прецедентах. 
+Не-функциональные требования, такие как производительность, безопасность и
+доступность, требования к конфигурации определяют дополнительные
+линии поведения или характеристики цели теста. Дополнительная Спецификация - 
+первичный источник для получения тест-установок для этих дополнительных
+линий поведения.
+</p>
+<p>Not all requirements for a target-of-test will be reflected in use cases.
+Non-functional requirements, such as performance, security and access, and
+configuration requirements specify additional behaviors or characteristics of
+the target-of-test. The Supplementary Specification is the primary source for
+deriving test cases for these additional behaviors.
+</p>
+<p>
+Ниже даны руководства по получению этих дополнительных тест-установок:
+<p>
+Below are described guidelines for deriving these additional test cases: 
+<ul>
+ 
+<li> <a href="#Deriving Test Cases for Performance Test">Получение Тест-Установок для
+  Тестов Производительности</a></li> 
+<li> <a href="#Deriving Test Cases for Security / Access Tests">Получение
+  Тест-Установок для Тестов Безопасности/Доступа</a></li> 
+<li> <a href="#Deriving Test Cases for Configuration Tests">Получение
+  Тест-Установок для Тестов Конфигурации</a></li> 
+<li> <a href="#Deriving Test Cases for Installation Tests">Получение
+  Тест-Установок для Тестов Установки</a></li> 
+<li> <a href="#Deriving Test Cases for other non-functional tests">Получение
+  Тест-Установок для других не-функциональных
+  тестов</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Deriving Test Cases for Performance Test">Deriving Test Cases
+    for Performance Tests</a></li>
+  <li><a href="#Deriving Test Cases for Security / Access Tests">Deriving Test
+    Cases for Security / Access Tests</a></li>
+  <li><a href="#Deriving Test Cases for Configuration Tests">Deriving Test Cases
+    for Configuration Tests</a></li>
+  <li><a href="#Deriving Test Cases for Installation Tests">Deriving Test Cases
+    for Installation Tests</a></li>
+  <li><a href="#Deriving Test Cases for other non-functional tests">Deriving
+    Test Cases for other non-functional tests</a></li>
+</ul>
+<h4> <a name="Deriving Test Cases for Performance Test">Получение
+Тест-Установок для Тестов Производительности</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p> <a name="Deriving Test Cases for Performance Test">Deriving Test Cases for
+Performance Test</a> </p> 
+<p>Первичным входом для тест-установок производительности являются 
+Дополнительные Спецификации, которые содержат не-функциональные требования 
+(см. <a href="../artifact/ar_sspec.htm">Артефакт: Дополнительные Спецификации</a>).
+Используйте следующие руководства при получении тест-установок для
+теста производительности:<p>The primary input for performance test cases are the Supplementary
+Specifications which contain the non-functional requirements (see <a href="../artifact/ar_sspec.htm">Artifact:
+Supplementary Specifications</a>). Use the following guidelines when deriving
+test cases for performance test: 
+<ul>
+ 
+<li> Гарантируйте, что имеется по крайней мере
+  одна тест-установка, определенная для каждого утверждения
+  в дополнительной спецификации, которая
+  формулирует критерии производительности. Критерии
+  производительности обычно выражаются как время
+  за сделку (транзакцию), число сделок/пользователей
+  или процентили.</li> 
+<li> Гарантируйте, что имеется по крайней мере
+  одна тест-установка, определенная для каждого критического
+  прецедента. Критические прецеденты это те,
+  которые определены в упомянутых выше утверждениях и/или в документе анализа рабочей нагрузки (см.
+  <a href="../artifact/ar_wlmod.htm">Артефакт: Документ Анализа
+  </a><a href="../artifact/ar_wlmod.htm">Объема работ</a>) 
+  который должен быть оценен с использованием показателей производительности.</li> 
+<p>
+  <li>ensure there is at least one test case identified for each statement in
+    the supplementary specification which states a performance criteria.
+    Performance criteria are usually expressed as time per transaction, number
+    of transactions / users, or percentiles.</li>
+  <li>ensure there is at least one test case identified for each critical use
+    case. Critical use cases are those identified in the above statements and /
+    or in the workload analysis document (see <a href="../artifact/ar_wlmod.htm">Artifact:
+    Workload Analysis Document</a>) that must be evaluated using performance
+    measures.</li>
+</ul>
+<p>
+Как и с тест-установками, для функциональных тестов чаще всего будет 
+иметься больше, чем одна тест-установка на прецедент/требование.
+Скорей всего, что будет иметься одна тест-установка, расположенная ниже порога
+производительности, другая тест-установка на пороговом уровне, и третья 
+тест-установка - выше порогового уровня.
+</p>
+<p>As with test cases for functional tests, there will typically be more than
+one test case per use case / requirement. It is more common that there will be
+one test case that is below the performance threshold value another at the
+threshold value, and a third test case above the threshold value.
+</p>
+<p>
+В дополнение к упомянутым выше критериям
+производительности, гарантируйте, что Вы идентифицируете определенные 
+условия, которые затрагивают время ответа, включая:
+<p>In addition to the above performance criteria, ensure that you identify the
+specify conditions that affect response times, including: 
+<ul>
+ 
+<li> Размер базы данных - сколько записей существует?</li> 
+<li> Объем работ - число и тип одновременных конечных пользователей,
+  число и тип одновременно выполняемых сделок (транзакций)</li> 
+<li> Характеристики окружения (аппаратные средства ЭВМ, 
+  сетевое обеспечение, конфигурация программного обеспечения)</li> 
+<p>
+  <li>Size of the database - how many records exist?</li>
+  <li>Workload - number and type of simultaneous end-users, number and type of
+    simultaneous transactions being performed</li>
+  <li>Environment characteristics (hardware, netware, software configuration)</li>
+</ul>
+<p>
+Определите в матрицах тест-установки для теста производительности, подобные тем,
+которые используются для функционального тестирования.
+</p>
+<p>Capture test cases for performance test in matrices similar to those used for
+function test.
+</p>
+<p>Дополнительную информацию касательно данных
+тестирования см. также <a href="md_tstdt.htm">Руководство:
+Данные Тестирования</a>
+</p>
+<p>&nbsp;See also <a href="md_tstdt.htm">Guidelines: Test Data</a> for additional
+information regarding the test data.
+</p>
+<p>Ниже представлены некоторые примеры для различных типов Тестов Производительности:</p>
+<p>Below are some examples for the different types of Performance Tests:</p>
+<p>Для Теста Загрузки:</p>
+<p>For Load Test:</p>
+<div align="center">
+
+<center>  
+<table border="1" width="95%">  
+<tr>  
+<td width="20%">ТУ ID#<p>TC ID#</p></td> 
+<td width="20%">Рабочая нагрузка<p>Workload</p></td> 
+<td width="20%">Условие<p>Condition</p></td> 
+<td width="35%">Ожидаемый Результат<p>Expected Result</p></td> 
+</tr> 
+<tr>  
+<td>Производительность Снятия Наличности 1<p>PCW1.</td> 
+<td>1<p>(Единственный Банкомат)<p>(single ATM)</td> 
+<td>Завершенная Операция Снятия<p>Complete Withdraw Transaction</td> 
+<td>Вся сделка (актер-независимое согласование по времени) длится &lt; 20 секунд
+  <p>Complete transaction (non-actor dependent timing) occurs &lt; 20 seconds</p>
+</td> 
+</tr> 
+<tr>  
+<td>Производительность Снятия Наличности 2<p>PCW2.</td> 
+<td>2<p>( 1,000 параллельных Банкоматов)<p>(1,000 simultaneous ATMs)</td> 
+<td>Завершенная Операция Снятия<p>Complete Withdraw Transaction</td> 
+<td>Вся сделка (актер-независимое согласование по времени) длится &lt; 30 секунд
+  <p>Complete transaction (non-actor dependent timing) occurs &lt; 30 seconds</p>
+</td> 
+</tr> 
+<tr>  
+<td>Производительность Снятия Наличности 3<p>PCW3.</p></td> 
+<td>3<p>(10,000 параллельных Банкоматов)<p>(10,000 simultaneous ATMs)</td> 
+<td>Завершенная Операция Снятия<p>Complete Withdraw Transaction</td> 
+<td>Вся сделка (актер-независимое согласование по времени) длится &lt; 50 секунд
+  <p>Complete transaction (non-actor dependent timing) occurs &lt; 50 seconds</p>
+</td> 
+</tr> 
+</align> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Для Теста Напряжения:
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="95%">  
+<tr>  
+<td width="20%">ТУ ID#<p>TC ID#</p></td> 
+<td width="20%">Рабочая нагрузка<p>Workload</p></td> 
+<td width="20%">Условие<p>Condition</p></td> 
+<td width="35%">Ожидаемый Результат<p>Expected Result</p></td> 
+</tr> 
+<tr>  
+<td width="29%" align="right" valign="top"> 
+  <p align="center"> Напряжение Снятия
+  Наличности(?) 1&nbsp;
+
+<center>  
+  <p>SCW1.</p>
+</td> 
+<td width="13%" valign="top">  
+<p align="center">
+2
+</p>
+<p align="center">
+( 1,000 параллельных Банкоматов)
+<p align="center">
+(1,000 simultaneous ATMs)</td> 
+<td width="21%" valign="top" align="center">  
+<p align="left">
+Блокировка Базы данных - 2 Банкомата
+запрашивают один и тот же счет  
+<p align="left">
+Database lock - 2 ATMs requesting same account</td> 
+<td width="16%" valign="top"> Запросы Банкоматов ставятся
+  в очередь
+  <p>ATM requests queued</p>
+</td> 
+</tr> 
+<tr>  
+<td width="29%" align="right" valign="top"> 
+  <p align="center"> Напряжение Снятия
+  Наличности(?) 2&nbsp;
+  <p align="center">SCW2.</p>
+</td> 
+<td width="13%" valign="top">  
+<p align="center">
+2
+</p>
+<p align="center">
+( 1,000 параллельных Банкоматов)
+<p align="center">
+(1,000 simultaneous ATMs)</td> 
+<td width="21%" valign="top" align="center">  
+<p align="left">
+Связь с Банковской Системой недоступна  
+<p align="left">
+Bank System communication is unavailable</td> 
+<td width="16%" valign="top"> Операция ставится в
+  очередь или время истекает
+  <p>Transaction is queued or times out</p>
+</td> 
+</tr> 
+<tr>  
+<td width="29%" align="right" valign="top"> 
+  <p align="center"> Напряжение Снятия
+  Наличности(?) 3&nbsp;
+  <p align="center">SCW3.</p>
+</td> 
+<td width="13%" valign="top">  
+<p align="center">
+2
+</p>
+<p align="center">
+( 1,000 параллельных Банкоматов)
+<p align="center">
+(1,000 simultaneous ATMs)</td> 
+<td width="21%" valign="top" align="center">  
+<p align="left">
+Связь с Банковской Системой&nbsp; прерывается
+в процессе сделки<p align="left">Bank System communication is terminates during transaction</td> 
+<td width="16%" valign="top"> Выдается Предупреждающее
+  сообщение
+  <p>Warning message is displayed</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h4> <a name="Deriving Test Cases for Security / Access Tests">Получение
+Тест-Установок для Тестов Безопасности/Доступа</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+ 
+<p> <a name="Deriving Test Cases for Security / Access Tests">Deriving Test
+Cases for Security / Access Tests</a> &nbsp; <a href="#Top"></a> </p> 
+<p>
+Актеры и прецеденты описывают взаимодействие между внешними пользователями системы и
+действиями, выполняемыми системой, чтобы выдать
+значение определенному актеру. Сложные системы
+включают много актеров и критическим
+является то, что мы разрабатываем тест-установки, чтобы гарантировать, что только
+актеры, выбранные для выполнения
+прецедентов могут это делать. Это наиболее истинно, если имеются различия в
+прецедентном потоке событий, основанных на типе актера.
+</p>
+<p>Actors and use cases describe the interaction between external users of the
+system and the actions performed by the system to yield a value to a particular
+actor. Complex systems contain many actors and it is critical that we develop
+test cases to ensure that only those actors specified to execute the use cases
+can do so. This is especially true if there are differences in the use case flow
+of events based upon actor type.
+</p>
+<p>
+Например, в прецедентах Банкомата,
+различные прецедентные потоки событий
+могут быть выполнены для актера "Клиент Банка", если их карта и счет
+относятся к банку, который владеет Банкоматом по
+сравнению с "Клиентом Банка", который использует карту банка (и счет) от
+конкурирующего банка, или пытается использовать карту
+неучаствующего банка.
+</p>
+<p>For example, in the ATM use cases, different use case flow of events may be
+executed for the actor &quot;Bank Customer&quot; if their card and account is
+from the bank that owns the ATM versus the &quot;Bank Customer&quot; who uses a
+bank card (and account) from a competing bank, or tries to use a
+non-participating bank card.
+</p>
+<p>
+Следуйте за такими же руководствами как
+представлены выше для функциональных тест-установок.
+</p>
+<p>Follow the same guidelines as listed above for functional test cases.
+</p>
+<p>Дополнительную информацию касательно данных
+тестирования см. также <a href="md_tstdt.htm">Руководство:
+Данные Тестирования</a>
+</p>
+<p>&nbsp;See also <a href="md_tstdt.htm">Guidelines: Test Data</a> for additional
+information regarding the test data.
+</p>
+<p>
+Пример Тест-Установок для Безопасности и Доступа:
+</p>
+<p>
+Example test cases for Security and Access:
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="90%">  
+<tr>  
+<td width="17%" align="center" valign="top"> ТУ ID#
+  <p>TC ID#</p>
+ </td> 
+<td width="11%" align="center" valign="top"> Условие
+  <p>Condition</p>
+</td> 
+<td width="12%" align="center" valign="top"> Карта
+  <p>Card</p>
+<p>
+<font size="2">( Буквой V обозначается
+действительная карта)</font> 
+<p>
+<font size="2">(V indicates valid card)</font></td> 
+<td width="12%" align="center" valign="top"> Считывающее
+  устройство для Карты
+  <p>Card Reader</p>
+<p>
+<font size="2">( Буквой V обозначается считывающее
+устройство, работающее должным образом)</font> 
+<p>
+<font size="2">(V indicates reader working properly)</font></td> 
+<td width="12%" align="center" valign="top"> <font size="3">&nbsp;Банковская
+  Сеть</font>
+  <p><font size="3">Bank's Network</font></p>
+</td> 
+<td width="16%" align="center" valign="top"> Ожидаемый Результат
+  <p>Expected Result</p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%" align="center" valign="top"> Доступ к Снятию
+  Наличности 1 (?)
+  <p>ACW1.</p>
+</td> 
+<td width="11%" valign="top" align="center"> В&nbsp; Банковской Сети
+  <p>In Bank Network</p>
+</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="16%" valign="top"> Все прецеденты возможны
+  <p>All Use Cases available</p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%" align="center" valign="top"> Доступ к Снятию
+  Наличности 2 (?)
+  <p>ACW2.</p>
+</td> 
+<td width="11%" valign="top" align="center"> Вне банковской&nbsp; сети&nbsp;
+  <p>Out of bank network</p>
+</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="12%" valign="top" align="center"> I</td> 
+<td width="16%" valign="top"> Только прецедент Снятия
+  Наличности
+  <p>Cash withdrawal use case only</p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%" align="center" valign="top"> Доступ к Снятию
+  Наличности 3 (?)
+  <p>ACW3.</p>
+</td> 
+<td width="11%" valign="top" align="center"> Не возможно считать карту
+  <p>Can't read card</p>
+</td> 
+<td width="12%" valign="top" align="center"> I</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="16%" valign="top"> Предупреждающее Сообщение, Карта
+  изгоняется
+  <p>Warning Message, Card is ejected</p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%" align="center" valign="top"> Доступ к Снятию
+  Наличности 4 (?)
+  <p>ACW4.</p>
+</td> 
+<td width="11%" valign="top" align="center"> Карта, о которой заявлено как
+  об украденной
+  <p>Card reported as stolen</p>
+</td> 
+<td width="12%" valign="top" align="center"> I</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="16%" valign="top"> Предупреждающее Сообщение, карта
+  удерживается
+  <p>Warning Message, card is retained</p>
+</td> 
+</tr> 
+<tr>  
+<td width="17%" align="center" valign="top"> Доступ к Снятию
+  Наличности 5 (?)
+  <p>ACW5.</p>
+</td> 
+<td width="11%" valign="top" align="center"> Истекшая Карта
+  <p>Card expired</p>
+</td> 
+<td width="12%" valign="top" align="center"> I</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="12%" valign="top" align="center"> V</td> 
+<td width="16%" valign="top"> Предупреждающее сообщение, карта
+  удерживается
+  <p>Warning message, card is retained</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h4> <a name="Deriving Test Cases for Configuration Tests">Получение
+Тест-Установок для Тестов Конфигурации</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+ 
+<p> <a name="Deriving Test Cases for Configuration Tests">Deriving Test Cases
+for Configuration Tests</a> </p> 
+<p>
+В типичных распространяемых системах может
+быть много допустимых комбинаций аппаратных средств ЭВМ и программного обеспечения, которое будет
+поддерживаться. Тестирование должно
+выполняться для проверки того, что функции цели
+теста выполняются приемлемо в различных конфигурациях
+- с различными операционными системами, браузерами, или скоростями
+процессора (CPU). Кроме того, тестирование также
+необходимо для покрытия комбинаций компонентов,
+для выявления дефектов, которые возникают
+при взаимодействии различных компонентов, например,
+обеспечивая установку версии DLLs&nbsp; одним
+приложением не создавать конфликта с
+версией того же самого DLLs, используемого другим
+приложением.
+</p>
+<p>In typical distributed systems there can be many allowed combinations of
+hardware and software that will be supported. Testing should be performed to
+verify that the target-of-test functions or performs acceptably in different
+configurations, such as with different operating systems, browsers, or CPU
+speeds. Furthermore, testing also needs to cover combinations of components to
+uncover defects that come from interactions of the different components, for
+example, ensuring that the version of DLLs installed by one application do not
+conflict the versions of the same DLLs expected by another application.
+</p>
+<p>
+Чтобы получить тест-установки для
+тестирования конфигурации, используйте
+следующее руководство:<p>To derive test cases for configuration testing, use the following guidelines: 
+<ul>
+ 
+<li> Гарантируйте, что имеется по крайней мере
+  одна тест-установка, определяющая каждую критическую конфигурацию. Это
+  выполняется с помощью определения
+  требуемых аппаратных средств ЭВМ и конфигурации программного обеспечения для
+  окружения цели теста и расположения
+  конфигураций по приоритетам, обеспечивая,
+  что наиболее общие из них будут проверены
+  первыми, включая: 
+<ul>
+ 
+<li> Поддержку Принтера</li> 
+<li> Сетевые связи - местные сети и сети
+  широких областей</li> 
+<li> Конфигурации Сервера - драйверы сервера, аппаратные средства
+  сервера</li> 
+<li> Другое программное обеспечение, установленное на рабочем столе и/или
+  сервере</li> 
+<li> Версии Программного обеспечения для всего установленного программного обеспечения</li> 
+
+</ul>
+</li> 
+<li> Гарантируйте, что имеется по крайней мере
+  одна тест-установка для каждой конфигурации,
+  в которой возможно возникновение проблем. Они могут включать: 
+<ul>
+ 
+<li> Аппаратные средства ЭВМ с самой низкой
+  производительностью.</li> 
+<li> Одновременно находящееся в памяти
+  программное обеспечение, с которым ранее
+  имелись проблемы совместимости.</li> 
+<li> Клиенты, обращающиеся к серверу по
+  самому медленному LAN/WAN соединению.</li> 
+<li> Недостаточные ресурсы (медленная скорость
+  процессора (CPU), минимальная память или разрешение, место
+  на диске, и т.д.)</li> 
+
+</ul>
+</li> 
+
+</ul>
+<ul>
+  <li>Ensure there is at least one test case identifying each critical
+    configuration. This is done by identifying the required hardware and
+    software configurations for the target-of-test's environment and
+    prioritizing the configurations, ensuring the most common ones are tested
+    first, including:
+    <ul>
+      <li>Printer support</li>
+      <li>Network connections - local and wide area networks</li>
+      <li>Server configurations - server drivers, server hardware</li>
+      <li>Other software installed on the desktop and / or servers</li>
+      <li>Software versions for all installed software</li>
+    </ul>
+  </li>
+  <li>Ensure there is at least one test case for each configuration likely to
+    have problems. These may include:
+    <ul>
+      <li>Hardware with the lowest performance.</li>
+      <li>Co-resident software that has a history of compatibility problems.</li>
+      <li>Clients accessing the server over slowest possible LAN/WAN connection.</li>
+      <li>Insufficient resources (slow CPU speed, minimum memory or resolution,
+        disk space, etc.)</li>
+    </ul>
+  </li>
+</ul>
+<h4> <a name="Deriving Test Cases for Installation Tests">Получение
+Тест-Установок для Тестов Установки</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p> <a name="Deriving Test Cases for Installation Tests">Deriving Test Cases for
+Installation Tests</a> </p> 
+<p>Тестирование установки (инсталляции)
+необходимо для проверки того, что цель
+теста может быть установлена под всеми возможными сценариями установки. Сценарии Установки могут включать
+инсталляцию цели теста в первый раз, или
+инсталляцию более новой версии или
+конструкции цели теста (на машине,
+содержащей более старую версию).
+Тестирование Установки&nbsp; должно также гарантировать, что
+цель теста выполняется приемлемо, когда
+сталкивается с ненормальными условиями, типа
+отсутствия достаточного места на диске.
+</p>
+<p>Installation testing needs to verify that the target-of-test can be installed
+under all possible installation scenarios. Installation scenarios may include
+installing the target-of-test for the first time, or installing a newer version
+or build of the target-of-test (onto a machine containing the older version).
+Install testing should also ensure that the target-of-test performs acceptably
+when abnormal conditions are encountered, such as insufficient disk space.
+</p>
+<p>Тест-установки должны охватить сценарии установки для программного обеспечения, включая:<p>The test cases should cover installation scenarios for the software
+including: 
+<ul>
+ 
+<li> Средства переноса информации, например, дискеты, CD-ROM, или
+  файловый сервер.</li> 
+<li> Новая установка.</li> 
+<li> Полная установка.</li> 
+<li> Выборочная установки.</li> 
+<li> Установки обновления.</li> 
+
+</ul>
+<ul>
+  <li>Distribution media, for example, diskettes, CD-ROM, or file server.</li>
+  <li>New installation.</li>
+  <li>Complete installation.</li>
+  <li>Custom installations.</li>
+  <li>Upgrade installations.</li>
+</ul>
+<p>&nbsp;</p>
+<p>
+Программы Установки для программного обеспечения
+клиент-сервера имеют специализированный набор
+тест-установок. В отличие от host систем, программа установки
+обычно разделяется между сервером и клиентом. Поэтому, важно, чтобы
+тестирование установки выполняло установку всех компонентов
+цели теста, включая клиента, промежуточные
+звенья и сервер.
+</p>
+<p>Installation programs for client-server software have a specialized set of
+test cases. Unlike host-based systems, the installation program is typically
+divided between the server and the client. Therefore, it is important that
+installation testing perform the installation of all components of the
+target-of-test, including the client, middle tiers, and servers.
+</p>
+<h4> <a name="Deriving Test Cases for other non-functional tests">Получение
+Тест-Установок для других Не-функциональных
+Тестов</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p> <a name="Deriving Test Cases for other non-functional tests">Deriving Test
+Cases for other Non-Functional Tests</a> </p> 
+<p>
+Идеально, Вы должны найти все необходимые
+исходные данные для получения тест-установок
+в Модели Прецедента, Модели Проекта, и
+артефактах Дополнительной Спецификации.
+Однако, достаточно часто в этой точке Вам
+потребуется&nbsp; найденное там дополнение.
+</p>
+<p>Ideally, you should find all the necessary input to derive test cases in the
+Use-Case Model, the Design Model, and the Supplementary Specification artifacts.
+It is, however, not uncommon that you at this point need to complement what is
+found there.
+</p>
+<p>
+Примеры:
+<p>
+Examples would be: 
+<ul>
+ 
+<li> Тест-установки для Эксплуатационных
+  Тестов (чтобы проверить, что программное обеспечение работает когда
+  используется в течение "длительного времени" между отказами).</li> 
+<li> Тест-установки, которые исследуют узкие места
+  производительности, возможности объема системы, или
+  подвигают цель теста к отказу.</li> 
+
+</ul>
+<ul>
+  <li>Test cases for Operational Tests (to verify that the software works when
+    in use for a &quot;long time&quot; between failures).</li>
+  <li>Test cases that investigate performance bottlenecks, volume capabilities
+    of the system, or stress the target-of-test to failure.</li>
+</ul>
+<p>
+В большинстве случаев, Вы можете найти эти тест-установки с помощью создания
+вариантов или совокупностей тест-установок, которые Вы получили из тех, что были
+определены ранее.
+</p>
+<p>In most cases, you can find these test cases by creating variants or
+aggregates of the test cases you've derived from those previously identified.
+</p>
+<h3> <a name="Deriving Test Cases for Unit Test">Получение Тест-Установок
+для Теста Элемента</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Deriving Test Cases for Unit Test">Deriving Test Cases for Unit
+Test </a> </p> 
+<p>Тестирование Элемента требует
+тестирования как внутренней структуры
+элемента, так и ее поведенческих
+характеристик. Тестирование внутренней структуры требует
+знания того, как элемент реализуется, и
+тесты, основывающиеся на этом знании,
+известны как тесты с  белым ящиком.
+Тестирование поведенческих характеристик
+элемента сосредотачиваетсяся на внешних
+доступных для наблюдения линиях поведения
+элемента, без знания или рассмотрения его
+реализации. Тесты, основанные на этом
+подходе известны как тесты с  черным ящиком. Получение
+тест-установок, основанных на обоих подходах
+описано ниже.
+</p>
+<p>Unit testing requires testing both the unit's internal structure and its
+behavioral characteristics. Testing the internal structure requires a&nbsp;
+knowledge of how the unit is implemented, and tests based upon this knowledge
+are known as white-box tests. Testing a unit's behavioral characteristics
+focuses on the external observable behaviors of the unit without knowledge or
+regard its implementation. Tests based upon this approach are referred to as
+black-box tests. Deriving test cases based upon both approaches are described
+below.
+</p>
+<h4> <a name="XE_white-box_test__of_units">Тесты с Белым ящиком</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p> <a name="XE_white-box_test__of_units">White-Box Tests</a> </p> 
+<p>
+Теоретически, Вы должны протестировать
+каждый возможный путь через код. Достижение такой цели,
+во всех, но очень простых элементах,
+является или непрактичными или почти невозможными. По крайней мере Вы должны
+как минимум однажды протестировать каждый <b>путь
+&quot;решение к решению&quot;</b> (DD-дорожка), завершая
+это хотя бы однократным выполнением всех
+предписаний. Решение обычно содержит
+утверждение ИЛИ, и DD-дорожка является путем между двумя решениями.
+</p>
+<p>Theoretically, you should test every possible path through the code.
+Achieving such a goal, in all but very simple units, is either impractical or
+almost impossible. At the very least you should exercise every <strong>decision-to-decision
+path</strong> (DD-path) at least once, resulting in executing all statements at
+least once. A decision is typically an if-statement, and a DD-path is a path
+between two decisions.
+</p>
+<p>
+Чтобы достигнуть этого уровня тестового
+покрытия, рекомендуется, чтобы Вы выбрали данные
+теста таким образом, чтобы каждое решение было оценено
+каждым возможным способом. Ближе к&nbsp; концу
+тест-установки должны удостовериться что:<p>To get this level of test coverage, it is recommended that you choose test
+data so that every decision is evaluated in every possible way. Toward that end,
+the test cases should make sure that: 
+<ul>
+ 
+<li> Каждое булево выражение оценивается как <strong>истинное</strong> и <strong>ложное</strong>. Например выражение (а&lt; 3) ИЛИ (b&gt; 4)
+  выливается в четыре комбинации <strong>истинна/ложь</strong></li> 
+<li> Каждый бесконечный цикл выполняется по крайней мере
+  ноль раз, однажды, и больше чем однажды.</li> 
+
+</ul>
+<ul>
+  <li>Every Boolean expression is evaluated to <strong>true</strong> and <strong>false</strong>.
+    For example the expression (a&lt;3) OR (b&gt;4) evaluates to four
+    combinations of <strong>true</strong>/<strong>false</strong></li>
+  <li>Every infinite loop is exercised at least zero times, once, and more than
+    once.</li>
+</ul>
+<p>Используйте инструменты покрытия кода, чтобы
+идентифицировать код, не прошедший&nbsp; ваше
+тестирование с&nbsp; белым ящиком.
+Тестирование Надежности должно
+выполняться одновременно с вашим тестированием
+с  белым ящиком.
+</p>
+<p>Use code-coverage tools to identify the code not exercised by your white box
+testing. Reliability testing should be done simultaneously with your white-box
+testing.
+</p>
+<p class="exampleheading">
+Пример:
+</p>
+<p class="exampleheading">
+Example:
+</p>
+<p class="example">
+Предположите, что Вы выполняете тест структуры на <strong>члене</strong> функции в
+классе <strong>Набор</strong> <strong>Целых чисел.</strong> 
+Тест - с помощью двоичного поиска - проверяет, содержит ли набор данное целое число.
+</p>
+<p class="example">
+Assume that you perform a structure test on a function <strong>member</strong>
+in the class <strong>Set of Integers. </strong>The test - with the help of a
+binary search - checks whether the set contains a given integer.
+</p>
+<p class="picturecenter" align="center">
+<img src="../activity/images/untst001.gif" width="301" height="200"> 
+</p>
+<p class="picturetext">
+Функция члена и ее соответствующая блок-схема. Пунктирные стрелки иллюстрируют, как Вы можете использовать
+две тест-установки, чтобы выполнить все утверждения
+по крайней мере однажды.
+</p>
+<p class="picturetext">The member function and its corresponding flowchart.
+Dotted arrows illustrate how you can use two test cases to execute all the
+statements at least once.
+</p>
+<p>
+Теоретически, для действия, которое будет
+тщательно тестировано, тест-установка
+должна пересечь все комбинации маршрутов в
+коде. В <strong>члене</strong>, имеются три альтернативных маршрута внутри
+<b>продолжительности цикла</b>. Тест-установка
+может пересекать цикл или несколько раз или
+вообще не пересекать. Если тест-установка не пересекает
+цикл вообще, Вы найдете только один маршрут через
+код. Если она пересекает цикл однажды, Вы найдете три маршрута. Если
+она пересекает дважды, Вы найдете шесть маршрутов, и т.д. Таким образом, общее количество маршрутов будет 1+3+6+12+24+48+…,
+что на практике представляет собой трудно
+поддающееся контролю число комбинаций маршрута. Именно поэтому Вы должны выбрать
+подмножество всех этих маршрутов. В этом примере, Вы можете использовать
+две тест-установки, чтобы выполнить все утверждения. В
+одной тест-установке, Вы могли бы выбирать <strong>Набор Целых чисел</strong> = {1,5,7,8,11} и <strong>t</strong> = 3 как данные
+тестирования. В другой тест-установке, Вы могли бы выбирать <strong>Набор Целых чисел</strong> = {1,5,7,8,11} и <strong>t</strong> = 8.
+</p>
+<p>Theoretically, for an operation to be thoroughly tested, the test case should
+traverse all the combinations of routes in the code. In <strong>member</strong>,
+there are three alternative routes inside the <strong>while-loop</strong>. The
+test case can traverse the loop either several times or not at all. If the test
+case does not traverse the loop at all, you will find only one route through the
+code. If it traverses the loop once, you will find three routes. If it traverses
+twice, you will find six routes, and so forth. Thus, the total number of routes
+will be 1+3+6+12+24+48+…, which in practice, is an unmanageable number of
+route combinations. That is why you must choose a subset of all these routes. In
+this example, you can use two test cases to execute all the statements. In one
+test case, you might choose <strong>Set of Integers</strong> = {1,5,7,8,11} and <strong>t</strong>
+= 3 as test data. In the other test case, you might choose <strong>Set of
+Integers</strong> = {1,5,7,8,11} and <strong>t</strong> = 8.
+</p>
+<p>
+Дополнительную информацию см. <a href="md_untst.htm">Руководство:
+Тест Элемента</a>
+</p>
+<p>
+See <a href="md_untst.htm">Guidelines: Unit Test</a> for additional
+information
+</p>
+<p>
+&nbsp;
+</p>
+<h4> <a name="XE_black-box_test__of_units">Тесты с Черным ящиком</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h4> 
+<p> <a name="XE_black-box_test__of_units">Black-Box Tests</a> &nbsp; <a href="#Top"></a> </p> 
+<p>
+Цель теста с черным ящиком состоит в том, чтобы проверить
+определенное поведение элемента без
+просмотра того<strong>, как</strong>  элемент
+реализует это поведение. Тесты с Черным ящиком
+фокусируются и полагаются на исходные
+данные и продукт элемента.
+</p>
+<p>The purpose of a black-box test is to verify the unit's specified behavior
+without looking at <strong>how </strong>the unit implements that behavior.
+Black-box tests focus and rely upon the unit's input and output.
+</p>
+<p>
+<strong>Разделение Эквивалентности</strong> - техника,
+направленная на сокращение требуемого числа
+тестов. Для каждого действия, Вы должны
+определить классы эквивалентности аргументов и
+режимы объекта. <strong>Класс эквивалентности</strong> - набор
+величин, для которых объект, как предполагается,  ведет себя однообразно. 
+Например, <strong>Набор</strong> имеет три класса эквивалентности: 
+<strong>пустой</strong>, <strong>некоторый элемент,</strong> и <strong>полный</strong>.
+</p>
+<p><strong>Equivalence partitioning</strong><b> </b>is a technique for reducing
+the required number of tests.<b> </b>For every operation, you should identify
+the equivalence classes of the arguments and the object states. An <strong>equivalence
+class</strong> is a set of values for which an object is supposed to behave
+similarly. For example, a <strong>Set</strong> has three equivalence classes: <strong>empty</strong>,
+<strong>some element, </strong>and<strong> full</strong>.
+</p>
+<p>Используйте инструменты покрытия кода , чтобы идентифицировать
+код, не прошедший ваше тестирование с белым ящиком. Испытание Надежности должно
+проводиться одновременно с выполнением
+теста с черным ящиком.
+</p>
+<p>Use code-coverage tools to identify the code not exercised by your white box
+testing. Reliability testing should be done simultaneously with your black-box
+testing.
+</p>
+<p>
+Следующие два подраздела описывают, как
+определить тест-установки,  выбирая данные
+тестирования для определенных аргументов.
+</p>
+<p>The next two subsections describe how to identify test cases by selecting
+test data for specific arguments.
+</p>
+<h4>Тест-установки, основанные на Исходных
+Аргументах</h4> 
+<p>Test Cases based upon Input Arguments</p> 
+<p>
+<strong>Исходный Аргумент</strong> - аргумент, используемый
+при выполнении действия. Вы должны создать
+тест-установки,  используя исходные аргументы
+для каждого действия, для каждого из последующих
+исходных условий:
+<p>An <strong>input argument </strong>is an argument used by an operation. You
+should create test cases by using input arguments for each operation, for each
+of the following input conditions:&nbsp; 
+<ul>
+ 
+<li> Нормальные величины из каждого класса эквивалентности.</li> 
+<li> Величины на границе каждого класса эквивалентности.</li> 
+<li> Величины вне классов эквивалентности.</li> 
+<li> Недопустимые величины.</li> 
+
+</ul>
+<ul>
+  <li>Normal values from each equivalence class.</li>
+  <li>Values on the boundary of each equivalence class.</li>
+  <li>Values outside the equivalence classes.</li>
+  <li>Illegal values.</li>
+</ul>
+<p>
+Не забудьте обработать структуру объекта как
+исходный аргумент. Если, например, Вы
+тестируете операцию <strong>прибавление</strong>&nbsp;
+в объект <strong>Набор</strong>, Вы должны
+тестировать<strong> </strong> <b>прибавление</b> с
+величинами из всех классов эквивалентности <strong> Набора</strong>, то есть с полным <strong>Набором</strong>, с некоторым элементом в <strong>Наборе,</strong> и с пустым <strong>Набором</strong>.
+</p>
+<p>Remember to treat the object state as an input argument. If, for example, you
+test an operation <strong>add </strong>on an object <strong>Set</strong>, you
+must test <strong>add </strong>with values from all of <strong>Set</strong>'s
+equivalence classes, that is, with a full <strong>Set</strong>, with some
+element in <strong>Set, </strong>and with an empty<strong> Set</strong>.
+</p>
+<h4>Тест-Установки, основанные на Аргументах
+Результата</h4> 
+<h4>Test Cases based upon Output Arguments</h4> 
+<p>
+<strong>Аргумент</strong><strong> результата</strong> - аргумент,
+который представляет собой изменения
+операции. Аргумент может быть как исходным,
+так и результирующим. Выберите такой
+исходный аргумент, чтобы Вы получили <b>результирующий</b>,
+согласующийся с каждым из следующих.
+<p>An <strong>output argument</strong> is an argument that an operation changes.
+An argument can be both an input and an output argument. Select input so that
+you get <strong>output</strong> according to each of the following. 
+<ul>
+ 
+<li> Нормальные показатели от каждого класса эквивалентности.</li> 
+<li> Показатели на границе для каждого класса эквивалентности.</li> 
+<li> Показатели вне классов эквивалентности.</li> 
+<li> Недопустимые величины.</li> 
+
+</ul>
+<ul>
+  <li>Normal values from each equivalence class.</li>
+  <li>Values on the boundary for each equivalence class.</li>
+  <li>Values outside the equivalence classes.</li>
+  <li>Illegal values.</li>
+</ul>
+<p>
+Не забудьте обработать структуру объекта как аргумент
+результата. Если, например, Вы
+тестируете операцию <b>удаление</b> в <b>Списке</b>, Вы должны
+выбрать исходные величины так, чтобы <b>Лист</b>
+был полным, имел некоторые элементы, и стал
+пустым после выполнения операции (тестируйте
+с показателями из всех классов эквивалентности).
+</p>
+<p>Remember to treat the object state as an output argument. If for example, you
+test an operation <strong>remove</strong> on a <strong>List</strong>, you must
+choose input values so that <strong>List</strong> is full, has some element, and
+is empty after the operation is performed (test with values from all its
+equivalence classes).
+</p>
+<p>
+Если объект с контролируемой структурой (реагирует по-разному
+в зависимости от структуры объекта), Вы должны использовать
+структурную матрицу типа той, что
+изображена на расположенном ниже рисунке.
+</p>
+<p>If the object is state-controlled (reacts differently depending on the
+object's state), you should use a state matrix such as the one in the following
+figure.
+</p>
+<p class="picturecenter" align="center">
+<img src="../activity/images/untst002.gif" width="184" height="166"> 
+</p>
+<p class="picturetext">Структурная матрица для
+тестирования. Вы можете тестировать все комбинации
+структур и влияний на основе этой матрицы.
+</p>
+<p class="picturetext">A state matrix for testing. You can test all combinations
+of state and stimuli on the basis of this matrix.
+</p>
+<p>
+Дополнительную информацию см. в <a href="md_untst.htm">Руководство:
+Тест Элемента</a>.
+</p>
+<p>
+See <a href="md_untst.htm">Guidelines: Unit Test</a> for additional
+information&nbsp;
+</p>
+<h3> <a name="Deriving Test Cases for Acceptance Test">Получение
+Тест-установок для Теста Принятия Продукта</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p><a name="Deriving Test Cases for Acceptance Test">Deriving Test Cases for
+Product Acceptance Test</a> &nbsp; <a href="#Top"></a> </p> 
+<p>Тестирование принятия Продукта - заключительное
+тестирующее действие перед развертыванием программного обеспечения. Цель
+тестирования принятия состоит в том, чтобы проверить, что программное обеспечение готово и может использоваться конечными пользователями
+для исполнения тех функций и задач, для
+которых программное обеспечение было
+создано. Тестирование Принятия Продукта часто
+включает нечто большее, чем проверка готовности
+программного обеспечения, оно также
+включает все артефакты изделия,
+поставляемые клиенту(ам), такие как
+обучение, документация, и упаковка.
+</p>
+<p>&nbsp;&nbsp;Product acceptance testing is the final test action prior to deploying the
+software. The goal of acceptance testing is to verify that the software is ready
+and can be used by the end-users to perform those functions and tasks the
+software was built to do. Product acceptance testing often involves more than
+execution of the software for readiness, it also involves all product artifacts
+delivered to the customer(s), such as training, documentation, and
+packaging.&nbsp;
+</p>
+<p>
+Получение тест-установок для артефакта(ов) программного обеспечения
+выполненных в манере, описанной в
+расположенных выше разделах. В зависимости от
+степени и формальности теста принятия
+продукта, тест-установки будут или те же
+самые, или подобные тем, которые определил вышеупомянутый (формальный), или (неофициальный) под-набор.
+Независимо от глубины тест-установок, соглашение по
+тест-установкам и <a href="../artifact/ar_acpl.htm">Плану
+Принятия Продукта</a> должно быть достигнуто
+прежде, чем испытание изделия будет
+реализовано и выполнено.
+</p>
+<p>Deriving test cases for the software artifact(s) is done in the manner
+described in the sections above. Depending upon the degree and of formality of
+the product acceptance test, the test cases will either be the same or similar
+to those identified above (formal), or a sub-set (informal). Independent of the
+depth of the test cases, agreement on the test cases and <a href="../artifact/ar_acpl.htm">Product
+Acceptance Plan</a> should be reached at before product testing is implemented
+and executed.
+</p>
+<p>
+
+<span style="COLOR: black">
+<font color="black">Оценка артефакта(ов), не связанных
+с&nbsp; программным обеспечением сильно
+изменяется в зависимости от оцениваемых
+артефактов. Обратитесь к Руководствам и
+Контрольным таблицам каждого
+определенного артефакта, не связанного с
+программным обеспечением, для получения информации относительно того,
+что или как оценивать.</font>
+</span>
+
+</p>
+<p>
+
+<span style="COLOR: black"><font color="black">Evaluating the non-software
+artifact(s) varies greatly dependent upon the artifact being evaluated. Refer to
+each specific non-software artifact’s Guidelines and Checklists for
+information regarding what / how to evaluate it.</font></span>
+
+</p>
+<h3> <a name="XE_test_case__prioritizing_based_on_risk"></a><a name="XE_prioritizing__test_cases"></a><a name="Build Test Cases for Regression Test">Постройте
+Тест-установки для Возвратных Тестов</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Build Test Cases for Regression Test">Build
+Test Cases for Regression Test </a> </p> 
+<p>Возвратное Тестирование сравнивает два
+построения или версии одной и той же цели
+теста и выявляет различия как места потенциальных дефектов.
+Таким образом, предполагается, что новая версия должна вести себя
+подобно предыдущей, и гарантируется, что дефекты в результате изменений
+не появятся.
+</p>
+<p>Regression testing compares two builds or versions of the same target-of-test
+and identifies differences as potential defects. It thus assumes that a new
+version should behave like an earlier one and ensures that defects have not been
+introduced as a result of the changes.
+</p>
+<p>В идеале, Вы хотели бы чтобы все тест-установки в
+одной итерации использовались как тест-установки
+и в последующих итерациях. Следующие
+руководства должны использоваться для
+определения, проектирования и реализации
+тест-установок, которые максимизируют
+величину возвратного тестирования и повторного использования, при уменьшении
+поддержки:
+<p>Ideally, you would like all the test cases in one iteration to be used as
+test cases in the later iterations. The following guidelines should be used to
+identify, design, and implement test cases that maximize the value of regression
+testing and re-use, while minimizing maintenance: 
+<ul>
+ 
+<li> Гарантируйте, что тест-установка
+  определяет только критические элементы данных (которые
+  необходимы, чтобы создать/поддерживать
+  тестируемое условие)</li> 
+<li> Гарантируйте, что каждая тест-установка описывает или представляет 
+  уникальный набор исходных данных или последовательности событий,
+  которые приводят к уникальному поведению
+  цели теста</li> 
+<li> Устраните лишние или эквивалентные тест-установки</li> 
+<li> Сгруппируйте вместе тест-установки, которые имеют
+  ту же самую исходную структуру цели теста и
+  структуру данных тестирования.</li> 
+<p>
+  <li>Ensure the test case identify only the critical data elements (those
+    needed to create / support the condition being tested</li>
+  <li>Ensure each test case describes or represents a unique set of inputs or
+    sequence of events that results in a unique behavior by the target-of-test</li>
+  <li>Eliminate redundant or equivalent test cases</li>
+  <li>Group together test cases which have the same target-of-test initial state
+    and state of the test data</li>
+</ul>
+<p>&nbsp;</p>
+<p>
+ &nbsp;<font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+</p>
+
+
+</body>
+ 
+</HTML>

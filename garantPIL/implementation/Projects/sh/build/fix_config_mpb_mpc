@@ -1,0 +1,32 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: fix_config_mpb_mpc <fix_path>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the shell scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+all_src_path=$1
+
+echo "fix_config_mpb_mpc: fix_path = $all_src_path ..."
+
+find $all_src_path -type f -name "*.mp[b,c]" -exec $MPCXC_SH/fix_replace {} "libout" "//lib__out" WHOLE_WORD \;
+find $all_src_path -type f -name "*.mp[b,c]" -exec $MPCXC_SH/fix_replace {} "install" "//inst__all" WHOLE_WORD \;
+find $all_src_path -type f -name "*.mp[b,c]" -exec $MPCXC_SH/fix_replace {} "libpaths" "//lib__paths" WHOLE_WORD \;
+
+find $all_src_path -type f -name "*.mp[b,c]" -exec $MPCXC_SH/fix_replace {} "//mpcxc_libpaths" "libpaths" BINARY_SUBSTR \;
+
+echo "fix_config_mpb_mpc: fix for tao_idl"
+find $all_src_path -type f -name "*.mp[b,c]" -exec $MPCXC_SH/fix_replace {} "\$(ACE_ROOT)/lib" "\$(LD_LIBRARY_PATH)" BINARY_SUBSTR \;
+find $all_src_path -type f -name "*.mp[b,c]" -exec $MPCXC_SH/fix_replace {} "\$(ACE_ROOT)/bin" "\$(TAOACE_MPCXC_ROOT)/out/\$(TAOACE_MPCXC_TARGET)/bin" BINARY_SUBSTR \;
+
+echo "end."

@@ -1,0 +1,831 @@
+<<Library>> Editor
+ %UID '4E004D0B033A'
+ %DOCUMENTATION 'Версия редактора для Арчи'
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47913B47006E' /* l3CoreObjects */
+  U$ '4797632D0273' /* Everest */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E25512D01C0' /* Utils */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E25512D01C0' /* Utils */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> Printing
+   %UID '4E004DEB0324'
+   %DOCUMENTATION 'Поддержка печати в Арчи'
+   %DEPENDS
+    U$ '47EA968D0155' /* Printing */
+   ; // %DEPENDS
+   %META
+    %upv "finished" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4797632D0273' /* Everest */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TarHAFPainer
+      %UID '4E004E2F0251'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47F352A30004' /* TevHAFPainterEx */
+      ; // %INHERITS
+     ; // TarHAFPainer
+     <<SimpleClass>> TarMacroReplacer
+      %UID '4E004EA70057'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C2215040200' /* TevCustomHAFMacroReplacer */
+      ; // %INHERITS
+     ; // TarMacroReplacer
+   ; // %CHILDREN
+  ; // Printing
+  <<Unit>> DocumentContainer
+   %UID '4E004D460329'
+   %DEPENDS
+    U$ '4678193C009C' /* l3Types */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '469D0AC7005E' /* Types */
+    U$ '476BE0350329' /* Styles */
+    U$ '476BF10A0280' /* l3Tree_TLB */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '47F086170200' /* DocumentContainers */
+    U$ '47F088300159' /* evInternalInterfaces */
+    U$ '48492FC0029D' /* Standard */
+    U$ '484A470100DD' /* Standard */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4DFEEE4A017D' /* ContentsTree */
+    U$ '4E004DEB0324' /* Printing */
+    U$ '4E255287019F' /* arConst */
+    U$ '519A10AF03DE' /* dt_Const */
+    U$ '52E788B40110' /* arCommonTypes */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '4E004D0B033A' /* Editor */
+    U$ '4E25512D01C0' /* Utils */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TarDocumentContainer
+      %UID '4E007C3803DC'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47F34F00021C' /* TnevPrintableDocumentContainer */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47F27721012A' /* DoGetSubEx */
+       U$ '47F35CAC00E4' /* HAFPainterClass */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4E007CAA032D"
+         %UID '4E007CAA032D'
+         %TARGET U$ '4E004E2F0251' /* TarHAFPainer */
+        ; // 4E007CAA032D
+        <<uses>> "535F5A68007B"
+         %UID '535F5A68007B'
+         %TARGET U$ '535F5A0E0098' /* TarSubImplementation */
+        ; // 535F5A68007B
+      ; // %LINKS
+     ; // TarDocumentContainer
+     <<SimpleClass>> TarDocumentContainerWithContentsTree
+      %UID '4E004D900171'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E004D0B033A' /* Editor */
+       U$ '4E25512D01C0' /* Utils */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '52738AF30116' /* IarCheckLeftOrRightBlock */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4E007C3803DC' /* TarDocumentContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '52738B050043' /* HasAACBlock */
+       U$ '52738B2F02B7' /* SetBlockKind */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+       U$ '47F0BA6E0019' /* SendTOCCreatedNotify */
+       U$ '47F226170180' /* DoBeforeFinishAtom1 */
+       U$ '47F2802003C4' /* GetContentsTree */
+       U$ '49184A180301' /* DoPropChanged */
+       U$ '527384840253' /* SubDeleted */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4E0059A302DF"
+         %UID '4E0059A302DF'
+         %TARGET U$ '4DFEEEA000DA' /* TevContentsTree */
+        ; // 4E0059A302DF
+        <<uses>> "4E005A1902DA"
+         %UID '4E005A1902DA'
+         %TARGET U$ '4A2627EA0145' /* InevContentsNodeFilter */
+        ; // 4E005A1902DA
+        <<uses>> "4E005A56034B"
+         %UID '4E005A56034B'
+         %TARGET U$ '48EDB1DC023D' /* InevSubChangeListener */
+        ; // 4E005A56034B
+        <<uses>> "4E005C050004"
+         %UID '4E005C050004'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 4E005C050004
+        <<uses>> "4E25535502F7"
+         %UID '4E25535502F7'
+         %TARGET U$ '4E005E5500A7' /* ContentsTreeConst */
+        ; // 4E25535502F7
+        <<uses>> "4EB22DC50030"
+         %UID '4EB22DC50030'
+         %TARGET U$ '47F0B9190003' /* "Notify Consts" */
+        ; // 4EB22DC50030
+        <<uses>> "4EB22DF9016F"
+         %UID '4EB22DF9016F'
+         %TARGET U$ '4857A87D0337' /* Block */
+        ; // 4EB22DF9016F
+        <<uses>> "4EB230040383"
+         %UID '4EB230040383'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4EB230040383
+        <<uses>> "52739848039C"
+         %UID '52739848039C'
+         %TARGET U$ '484F95C1026A' /* Sub */
+        ; // 52739848039C
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_ContentsTree
+         %UID '4E0064AA0302'
+         %DOCUMENTATION 'Дерево оглавления.'
+         %TARGET U$ '476BF13201C4' /* Il3Tree */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_ContentsTree
+        PRIVATE <<Attribute>> f_LeftSubID
+         %UID '52738B9B012E'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_LeftSubID
+        PRIVATE <<Attribute>> f_RightSubID
+         %UID '52738BA7013D'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_RightSubID
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<method>> MakeContentsTree
+         %UID '4E0056E503BE'
+         %DOCUMENTATION 'Создать, если нужно, дерево оглваления.'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4E0056FC00E8'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeContentsTree
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Constants>> Defaults
+         %UID '52738BEE00C9'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> cnUndefAACSubID
+            %UID '52738C07012D'
+            %VALUE '-1'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cnUndefAACSubID
+         ; // %ATTRIBUTES
+        ; // Defaults
+      ; // %CHILDREN
+     ; // TarDocumentContainerWithContentsTree
+     <<SimpleClass>> TarSpravkaDocumentContainer
+      %UID '4F9501970235'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E004D0B033A' /* Editor */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4E007C3803DC' /* TarDocumentContainer */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47F35245009A' /* MakeProcessor */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4F95052403E6"
+         %UID '4F95052403E6'
+         %TARGET U$ '476BE0660328' /* Standard */
+        ; // 4F95052403E6
+      ; // %LINKS
+     ; // TarSpravkaDocumentContainer
+     <<SimpleClass>> TarSubImplementation
+      %UID '535F5A0E0098'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C9B0A3D0184' /* TevSubImplementation */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '535F5A7D00BB' /* DoGetFlags */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "535F62880048"
+         %UID '535F62880048'
+         %TARGET U$ '535F623501D9' /* SubFlagsCont */
+        ; // 535F62880048
+        <<uses>> "535F62C2023C"
+         %UID '535F62C2023C'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 535F62C2023C
+        <<uses>> "535F657A02B7"
+         %UID '535F657A02B7'
+         %TARGET U$ '535F655902D1' /* l3SetBit */
+        ; // 535F657A02B7
+        <<uses>> "535F69DB00D3"
+         %UID '535F69DB00D3'
+         %TARGET U$ '4857A87D0337' /* Block */
+        ; // 535F69DB00D3
+      ; // %LINKS
+     ; // TarSubImplementation
+   ; // %CHILDREN
+  ; // DocumentContainer
+  <<Unit>> DocIntf
+   %UID '4E0072500208'
+   %DOCUMENTATION 'Один из исторически сложившихся модулей.'
+   %DEPENDS
+    U$ '47BC51FE018B' /* dt_Types */
+    U$ '47ECACA70141' /* Generators */
+    U$ '482BFB50007B' /* TextSources */
+    U$ '4E004D460329' /* DocumentContainer */
+   ; // %DEPENDS
+   %META
+    %upv "finished" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4677E18600C2' /* dd */
+    U$ '4797632D0273' /* Everest */
+    U$ '4E004D0B033A' /* Editor */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TarTextOfDocument
+      %UID '4E0072E100DB'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '4E004D0B033A' /* Editor */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '482D98DE00A9' /* TevTextSource */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '482D9A030221' /* DoMakeDocumentContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4E007D4A02E9"
+         %UID '4E007D4A02E9'
+         %TARGET U$ '4E007C3803DC' /* TarDocumentContainer */
+        ; // 4E007D4A02E9
+      ; // %LINKS
+      %CHILDREN
+       
+        <<Typedef>> RarTextOfDocument
+         %UID '4E007ECC01EC'
+         %TOBEINCLUDED
+          U$ '4E004D0B033A' /* Editor */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E0072E100DB' /* TarTextOfDocument */
+         ; // %INHERITS
+        ; // RarTextOfDocument
+      ; // %CHILDREN
+     ; // TarTextOfDocument
+     FINAL <<UtilityPack>> DocIntf
+      %UID '4E0072C40154'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E18600C2' /* dd */
+       U$ '4E004D0B033A' /* Editor */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4E007EEC0321"
+         %UID '4E007EEC0321'
+         %TARGET U$ '4E0072E100DB' /* TarTextOfDocument */
+        ; // 4E007EEC0321
+      ; // %LINKS
+      %CHILDREN
+       
+        <<SimpleClass>> TarCustomDocument
+         %UID '4E007419002D'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E004D0B033A' /* Editor */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4F7D45950280"
+            %UID '4F7D45950280'
+            %TARGET U$ '4F7D3EB4039D' /* TevOutTextParaEliminator */
+           ; // 4F7D45950280
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED ABSTRACT <<Operation>> GetTextOfDocumentClass
+            %UID '4E007EF703CE'
+            %TARGET U$ '4E007ECC01EC' /* RarTextOfDocument */
+            %TOBEINCLUDED
+             U$ '4E004D0B033A' /* Editor */
+            ; // %TOBEINCLUDED
+           ; // GetTextOfDocumentClass
+         ; // %OPERATIONS
+        ; // TarCustomDocument
+        <<SimpleClass>> TarSprDocument
+         %UID '4E00742A00F5'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E004D0B033A' /* Editor */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E007419002D' /* TarCustomDocument */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4E007EF703CE' /* GetTextOfDocumentClass */
+         ; // %REALIZES
+         %LINKS
+           <<uses>> "4F9502DD02C5"
+            %UID '4F9502DD02C5'
+            %TARGET U$ '4F9502130133' /* TarSpravkaTextOfDocument */
+           ; // 4F9502DD02C5
+         ; // %LINKS
+        ; // TarSprDocument
+        <<SimpleClass>> TarDocument
+         %UID '4E00743901FC'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E004D0B033A' /* Editor */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E007419002D' /* TarCustomDocument */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4E007EF703CE' /* GetTextOfDocumentClass */
+         ; // %REALIZES
+        ; // TarDocument
+        <<Struct>> TDocAddr
+         %UID '4E0ACE9A02C2'
+         %TOBEINCLUDED
+          U$ '4677E18600C2' /* dd */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           FINAL <<Attribute>> FamID
+            %UID '4E0ACEBA0188'
+            %TARGET U$ '4E0ACF45025C' /* TFamilyID */
+            %TOBEINCLUDED
+             U$ '4677E18600C2' /* dd */
+            ; // %TOBEINCLUDED
+           ; // FamID
+           FINAL <<Attribute>> DocID
+            %UID '4E0ACECB0235'
+            %TARGET U$ '4DE60AE303AD' /* TDocID */
+            %TOBEINCLUDED
+             U$ '4677E18600C2' /* dd */
+            ; // %TOBEINCLUDED
+           ; // DocID
+         ; // %ATTRIBUTES
+        ; // TDocAddr
+      ; // %CHILDREN
+     ; // DocIntf
+     <<SimpleClass>> TarTextOfAnnoDocument
+      %UID '4E0073BD0223'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E004D0B033A' /* Editor */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4E0072E100DB' /* TarTextOfDocument */
+      ; // %INHERITS
+     ; // TarTextOfAnnoDocument
+     <<SimpleClass>> TarTextOfDocumentWithContentsTree
+      %UID '4E007CE303AC'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E004D0B033A' /* Editor */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4E0072E100DB' /* TarTextOfDocument */
+      ; // %INHERITS
+      %LINKS
+        <<uses>> "4E007D6001F0"
+         %UID '4E007D6001F0'
+         %TARGET U$ '4E004D900171' /* TarDocumentContainerWithContentsTree */
+        ; // 4E007D6001F0
+      ; // %LINKS
+     ; // TarTextOfDocumentWithContentsTree
+     <<SimpleClass>> TarSpravkaTextOfDocument
+      %UID '4F9502130133'
+      %DOCUMENTATION 'ТextSource для справки.'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E004D0B033A' /* Editor */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4E0072E100DB' /* TarTextOfDocument */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '482D9A030221' /* DoMakeDocumentContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4F9502670074"
+         %UID '4F9502670074'
+         %TARGET U$ '4F9501970235' /* TarSpravkaDocumentContainer */
+        ; // 4F9502670074
+      ; // %LINKS
+     ; // TarSpravkaTextOfDocument
+   ; // %CHILDREN
+  ; // DocIntf
+  <<Unit>> "Scripting Support"
+   %UID '4E5C7E800347'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4A251D6E00BD' /* nevNavigation */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4DAEEA14018A' /* "Scripting Axiomatics" */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4E4B99A60349' /* Tools */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '4E25512D01C0' /* Utils */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> arHyperLinkProcessor
+      %UID '4E5C7F4402E8'
+      %DOCUMENTATION 'Открытие ссылки со скриптом.'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4797632D0273' /* Everest */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> arOpenHyperLink
+         %UID '4E5C7FB10117'
+         %DOCUMENTATION 'Открыть ссылку'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4E5C80ED00BC'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> aHyperLink
+               %UID '4E5C863701F8'
+               %TARGET U$ '49E5FCDB02E9' /* IevHyperlink */
+               %TOBEINCLUDED
+                U$ '4797632D0273' /* Everest */
+               ; // %TOBEINCLUDED
+              ; // aHyperLink
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // arOpenHyperLink
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE <<SimpleClass>> TarHyperLinkPorcessor
+         %UID '4E5C7EA10197'
+         %DOCUMENTATION 'Обработка ссылок со скриптами'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4DAF1A1700F7' /* ItfwScriptCaller */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4CAEDCF9006A' /* CheckOutputWithInput$1$4CAEDCF9006A */
+          U$ '4DAF1A280116' /* Check */
+          U$ '4DB173AA005A' /* Print$4DB173AA005A */
+          U$ '4DB1785F011A' /* Print$4DB1785F011A */
+          U$ '4DC2E1470046' /* ResolveIncludedFilePath */
+          U$ '4DCA915C0120' /* ResolveOutputFilePath */
+          U$ '4DD533BF023D' /* CheckWithEtalon */
+          U$ '4DECF57B02D2' /* ResolveInputFilePath */
+          U$ '4E240D1A007A' /* SystemDictionary */
+          U$ '4F0D7AC900FA' /* CheckPrintEtalon */
+          U$ '4F0D8B740186' /* ShouldStop */
+          U$ '4F0D8C360085' /* CheckTimeout */
+          U$ '4F0D8C5A01A2' /* StartTimer */
+          U$ '4F0D8CB0015D' /* StopTimer */
+          U$ '4F0D91AA0080' /* KPage */
+          U$ '4F0DA2A7024A' /* ToLog */
+          U$ '4F5F3C61023E' /* CheckOutputWithInput$4F5F3C61023E */
+          U$ '4F72CEFE016D' /* GetIsWritingToK */
+          U$ '4F72CF27029A' /* GetIsFakeCVS */
+          U$ '4F72CF78027D' /* GetCVSPath */
+          U$ '4F851D7B0399' /* DontRaiseIfEtalonCreated */
+          U$ '511BC7C60063' /* TimeToLog */
+          U$ '513866B10237' /* GetTestSetFolderName */
+          U$ '5138790002FF' /* GetEtalonSuffix */
+          U$ '52EBC5BB0300' /* CompileOnly */
+          U$ '536A15F901DA' /* CheckPictureOnly */
+         ; // %REALIZES
+         %LINKS
+           <<uses>> "4E5C91070151"
+            %UID '4E5C91070151'
+            %TARGET U$ '4ADF0823017C' /* l3IsNil$4ADF0823017C */
+           ; // 4E5C91070151
+           <<uses>> "4E5C917901CF"
+            %UID '4E5C917901CF'
+            %TARGET U$ '4AA7888B0076' /* l3CStr */
+           ; // 4E5C917901CF
+           <<uses>> "4E60BD3A00E2"
+            %UID '4E60BD3A00E2'
+            %TARGET U$ '4E4B99BE00EA' /* TDlgInitStorage */
+           ; // 4E60BD3A00E2
+           <<uses>> "4EF2FBF80183"
+            %UID '4EF2FBF80183'
+            %TARGET U$ '4DDA4CFE00E8' /* ExtractFilePath */
+           ; // 4EF2FBF80183
+           <<uses>> "4F740CC00044"
+            %UID '4F740CC00044'
+            %TARGET U$ '4DAEEA9E0049' /* TtfwScriptEngine */
+           ; // 4F740CC00044
+           <<uses>> "509BB18802E0"
+            %UID '509BB18802E0'
+            %TARGET U$ '484529DC0276' /* TCustomForm */
+           ; // 509BB18802E0
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<Operation>> OpenURL
+            %UID '4E5C805800FC'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> anURL
+               %UID '4E5C806901A6'
+               %TARGET U$ '46780D0003AF' /* Tl3WString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // anURL
+            ; // %PARAMETERS
+           ; // OpenURL
+           PROTECTED <<Operation>> ExecuteScript
+            %UID '4E5C806F0361'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> aScript
+               %UID '4E5C807D017F'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aScript
+            ; // %PARAMETERS
+           ; // ExecuteScript
+         ; // %OPERATIONS
+        ; // TarHyperLinkPorcessor
+      ; // %CHILDREN
+     ; // arHyperLinkProcessor
+   ; // %CHILDREN
+  ; // "Scripting Support"
+  <<Interfaces>> arInterfaces
+   %UID '53EC893302E3'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4E004D0B033A' /* Editor */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> IInfoOut
+      %UID '53EC895B0384'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<Operation>> AddString
+         %UID '53EC896701E5'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aStr
+            %UID '53EC898D028D'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aStr
+           <<in>> aFormat
+            %UID '53EC898D029C'
+            %TARGET U$ '46A449A301E3' /* Tl3ClipboardFormat */
+            %VALUE 'cf_Text'
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aFormat
+         ; // %PARAMETERS
+        ; // AddString
+        ABSTRACT <<Operation>> StartData
+         %UID '53EC89920323'
+        ; // StartData
+        ABSTRACT <<Operation>> EndData
+         %UID '53EC899E0103'
+        ; // EndData
+      ; // %OPERATIONS
+     ; // IInfoOut
+     <<Function>> TarFillDocInfo
+      %UID '53EC89AF0157'
+      %META
+       %upv "of object" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E004D0B033A' /* Editor */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<Operation>> DoIt
+         %UID '53EC89CB0048'
+         %TOBEINCLUDED
+          U$ '4E004D0B033A' /* Editor */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<const>> lInfoOut
+            %UID '53EC89DA00E0'
+            %TARGET U$ '53EC895B0384' /* IInfoOut */
+            %TOBEINCLUDED
+             U$ '4E004D0B033A' /* Editor */
+            ; // %TOBEINCLUDED
+           ; // lInfoOut
+         ; // %PARAMETERS
+        ; // DoIt
+      ; // %OPERATIONS
+     ; // TarFillDocInfo
+   ; // %CHILDREN
+  ; // arInterfaces
+ ; // %CHILDREN
+; // Editor

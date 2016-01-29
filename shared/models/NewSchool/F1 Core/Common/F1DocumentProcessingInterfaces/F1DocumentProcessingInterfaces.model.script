@@ -1,0 +1,576 @@
+<<VCMControllers>> F1DocumentProcessingInterfaces
+ %UID '4D1B6BAB022D'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> DocumentInterfaces
+   %UID '4B1FC2FF03CD'
+   %DEPENDS
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '45700BFD0251' /* DynamicDocList */
+    U$ '4570511E038A' /* Document */
+    U$ '457450470167' /* DynamicTree */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678137501EA' /* k2Interfaces */
+    U$ '4678209200A6' /* nevBase */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AC207650135' /* AdapterFacade */
+    U$ '4B1D3D250382' /* PrimPrimListInterfaces */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Ћюлин ј.¬.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '09.12.2009 18:32'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677E16A022A' /* K2 */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> IdeDocInfo
+      %UID '47EA0784000D'
+      %SUMMARY '»нтерфейс обмена данными дл€ формы "TextForm"' ;
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4A9FFD3F01AD' /* Search */
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<property>> Doc
+         %UID '4B1D126203E6'
+         %SUMMARY 'документ' ;
+         %TARGET U$ '45EEB6520191' /* Document */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Doc
+        ABSTRACT LINK <<readonly>> DocumentState
+         %UID '4B1D127600DC'
+         %SUMMARY 'состо€ние документа' ;
+         %TARGET U$ '45EED80E0086' /* DocumentState */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // DocumentState
+        ABSTRACT LINK <<property>> Pos
+         %UID '4B1D12A30083'
+         %SUMMARY 'позици€ в документе' ;
+         %TARGET U$ '491B329F0330' /* TbsDocPos */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // Pos
+        ABSTRACT LINK <<readonly>> Language
+         %UID '4B1D12C103CC'
+         %SUMMARY 'используемый €зык' ;
+         %TARGET U$ '47EA082B021A' /* TbsLanguage */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // Language
+        ABSTRACT LINK <<readonly>> List
+         %UID '4B1D12F10074'
+         %SUMMARY 'список из которого был открыт документ' ;
+         %TARGET U$ '45EEDB730265' /* DynList */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // List
+        ABSTRACT LINK <<readonly>> ListNode
+         %UID '4B1D13200333'
+         %SUMMARY 'дл€ навигации по предыдущему/следующему' ;
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // ListNode
+        ABSTRACT LINK <<readonly>> DocName
+         %UID '4B1D137202D9'
+         %SUMMARY 'им€ текущего документа' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // DocName
+        ABSTRACT LINK <<readonly>> DocShortName
+         %UID '4B1D13AF006C'
+         %SUMMARY 'короткое им€ текущего документа' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // DocShortName
+        ABSTRACT LINK <<readonly>> CurEditionName
+         %UID '4B1D13C500CA'
+         %SUMMARY 'им€ текущей редакции документа' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // CurEditionName
+        ABSTRACT LINK <<readonly>> DataSize
+         %UID '4B1D13D501CF'
+         %SUMMARY '–азмер документа в байтах' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // DataSize
+        ABSTRACT LINK <<readonly>> InternalNumber
+         %UID '4B1D13E30017'
+         %SUMMARY 'внутренний номер документа' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // InternalNumber
+        ABSTRACT LINK <<readonly>> ListRoot
+         %UID '4B1D142201E3'
+         %SUMMARY 'root списка из которого открыли документ' ;
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // ListRoot
+        ABSTRACT LINK <<readonly>> DocType
+         %UID '4B1D144802C3'
+         %SUMMARY 'тип документа' ;
+         %TARGET U$ '45EEB6520208' /* DocumentType */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // DocType
+        ABSTRACT LINK <<property>> SearchInfo
+         %UID '4B1D14B701DF'
+         %SUMMARY 'информаци€ о запросе, по которому был построен документ' ;
+         %TARGET U$ '4822962A0071' /* IdeSearchInfo */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // SearchInfo
+        ABSTRACT LINK <<readonly>> FilePosition
+         %UID '4B1D14CE0062'
+         %SUMMARY 'ѕозици€ документа в исходном NSRC' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // FilePosition
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> IsSame
+         %UID '4B1D118000EA'
+         %SUMMARY 'сравнить документы.'#13#10'           - aView: возвращает равенство документов с учетом их состо€ни€ (в'#13#10'                    отличии от is_same_entity, который возвращает равенство без'#13#10'                    учета состо€ни€). —осто€нием документа €вл€етс€ суперпозици€'#13#10'                    номера редакции, €зыка и списка извлечений.'#13#10'           - aPosition: сравнивать с учетом позиций.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aDocInfo
+            %UID '4B1D119702BA'
+            %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+            %TOBEINCLUDED
+             U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+            ; // %TOBEINCLUDED
+           ; // aDocInfo
+           <<in>> aView
+            %UID '4B1D119702FF'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE true
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aView
+           <<in>> aPosition
+            %UID '4B1D1197033D'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE true
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aPosition
+         ; // %PARAMETERS
+        ; // IsSame
+        ABSTRACT <<Operation>> SetPosition
+         %UID '4B1D11B00164'
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aPos
+            %UID '4B1D11BC019E'
+            %TARGET U$ '491B329F0330' /* TbsDocPos */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // aPos
+         ; // %PARAMETERS
+        ; // SetPosition
+        ABSTRACT <<Operation>> ChangeRedaction$4B1D11CF0265
+         %UID '4B1D11CF0265'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aChangeType
+            %UID '4B1D11DA003A'
+            %TARGET U$ '4AE7370403CB' /* TnsChangeRedactionType */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // aChangeType
+           <<in>> aRedaction
+            %UID '4B1D11DA0081'
+            %TARGET U$ '45EED84C01FD' /* RedactionID */
+            %VALUE 0
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aRedaction
+         ; // %PARAMETERS
+        ; // ChangeRedaction$4B1D11CF0265
+        ABSTRACT <<Operation>> ChangeRedaction$4B1D11E00385
+         %UID '4B1D11E00385'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aDate
+            %UID '4B1D11EA01C8'
+            %TARGET U$ '4AC203A500FD' /* AdapterDate */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // aDate
+         ; // %PARAMETERS
+        ; // ChangeRedaction$4B1D11E00385
+        ABSTRACT <<Operation>> ChangeRedaction$4B1D11F0033E
+         %UID '4B1D11F0033E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aDocument
+            %UID '4B1D11F6018C'
+            %TARGET U$ '45EEB6520191' /* Document */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aDocument
+         ; // %PARAMETERS
+        ; // ChangeRedaction$4B1D11F0033E
+        ABSTRACT <<Operation>> InitListNode
+         %UID '4B1D11FE0117'
+         %SUMMARY 'документ открываетс€ из списка' ;
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aRoot
+            %UID '4B1D12110293'
+            %TARGET U$ '45EEB95901C5' /* NodeBase */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aRoot
+           <<in>> aListNode
+            %UID '4B1D121102E2'
+            %TARGET U$ '45EEB95901C5' /* NodeBase */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aListNode
+         ; // %PARAMETERS
+        ; // InitListNode
+        ABSTRACT <<Operation>> CorrectLanguage
+         %UID '4B1D121B03D0'
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aLanguage
+            %UID '4B1D121E038E'
+            %TARGET U$ '47EA082B021A' /* TbsLanguage */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // aLanguage
+         ; // %PARAMETERS
+        ; // CorrectLanguage
+        ABSTRACT <<Operation>> Clone
+         %UID '4B1D12260038'
+         %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+         %TOBEINCLUDED
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+        ; // Clone
+        ABSTRACT <<Operation>> ClearListNode
+         %UID '4B1FA0B003E1'
+         %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098' ;
+        ; // ClearListNode
+      ; // %OPERATIONS
+     ; // IdeDocInfo
+     <<Facet>> IbsDocumentContainer
+      %UID '4B1D16280137'
+      %SUMMARY ' онтейнер документа. ќбеспечивает отложенное получение документа' ;
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<property>> Document
+         %UID '4B1D166E026B'
+         %TARGET U$ '45EEB6520191' /* Document */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Document
+        ABSTRACT LINK <<readonly>> IsInited
+         %UID '4B1D16840257'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsInited
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> Clone
+         %UID '4B1D163700AC'
+         %TARGET U$ '4B1D16280137' /* IbsDocumentContainer */
+         %TOBEINCLUDED
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+        ; // Clone
+        ABSTRACT <<Operation>> IsSame
+         %UID '4B1D16430369'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aContainer
+            %UID '4B1D164E0026'
+            %TARGET U$ '4B1D16280137' /* IbsDocumentContainer */
+            %TOBEINCLUDED
+             U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+            ; // %TOBEINCLUDED
+           ; // aContainer
+           <<in>> aView
+            %UID '4B1D164E0040'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE true
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aView
+         ; // %PARAMETERS
+        ; // IsSame
+      ; // %OPERATIONS
+     ; // IbsDocumentContainer
+     <<Facet>> InsContentsTree
+      %UID '468362CA028D'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<Operation>> FindBlock
+         %UID '49085E9202C5'
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aBlockID
+            %UID '49085E9402B1'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aBlockID
+         ; // %PARAMETERS
+        ; // FindBlock
+        ABSTRACT <<Operation>> NeedResetRoot
+         %UID '49085EA001E8'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // NeedResetRoot
+        ABSTRACT <<Operation>> ResetRoot
+         %UID '49085EAE0132'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aDocument
+            %UID '49085EB70039'
+            %TARGET U$ '534572370056' /* Tl3Tag */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // aDocument
+           <<in>> aRoot
+            %UID '49085EB70073'
+            %TARGET U$ '468274930190' /* Il3SimpleRootNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aRoot
+         ; // %PARAMETERS
+        ; // ResetRoot
+        ABSTRACT <<Operation>> RootResetted
+         %UID '49085EDA00CC'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // RootResetted
+        ABSTRACT <<Operation>> DataReceived
+         %UID '49085EE502F1'
+        ; // DataReceived
+      ; // %OPERATIONS
+     ; // InsContentsTree
+     <<ReflectablePureMixIn>> MdeDocInfoProvider
+      %UID '4ED8F1860003'
+      %TOBEINCLUDED
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> DocInfo
+         %UID '4DF9D63B0360'
+         %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+         %META
+          %upv "pm" true
+          %upv "reflectable" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+        ; // DocInfo
+      ; // %ATTRIBUTES
+     ; // MdeDocInfoProvider
+     <<Facet>> IdeDocInfoProvider
+      %UID '4DF9D62701AD'
+      %SUMMARY 'ѕоставщик IdeDocInfo' ;
+      %TOBEINCLUDED
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4ED8F1860003' /* MdeDocInfoProvider */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '4DF9D63B0360' /* DocInfo */
+      ; // %REALIZES
+     ; // IdeDocInfoProvider
+   ; // %CHILDREN
+  ; // DocumentInterfaces
+ ; // %CHILDREN
+; // F1DocumentProcessingInterfaces

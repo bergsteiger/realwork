@@ -1,0 +1,222 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Functors/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Functors::Support
+//
+// набор вспомогательных функций для генерации функторов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерация тела функтора
+//f _functor_impl_body
+: functor_impl_body OBJECT IN %S
+//#UC START# *471328B302BF*
+//	%t_functor_ret(%S) %f_function_scope(%S)operator () %t_functor_functor(%S) {
+ [%t] functor_ret %( %S )% ' '
+ [%f] function_scope %( %S )% 'operator () '
+ [%t] functor_functor %( %S )% ' {'
+//		%U[{_IMPL!cpp!}
+ '	'
+ %Usersection (
+  '_IMPL!cpp!' 
+ )
+ (
+  #13#10
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+  '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]
+  '	' 
+ ) // Usersection
+ //	}[
+ '}'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	%f_common_functors_impl_body(%S)]
+  [%f] common_functors_impl_body %( %S )% 
+ end // if
+ NOP
+//#UC END# *471328B302BF*
+; // functor_impl_body
+
+
+// возаращает тип результата функтора
+//t _functor_ret
+<<transformator>> functor_ret OBJECT IN %S
+//#UC START# *4713294A002E*
+//c                                              {}
+//r "%SS"="Predicate"|"%SS"="BinaryPredicate":   {bool}
+//r ""="":                                       {[{}{void}<{}{%CS=result}%f_ret(%C)>]}
+//#UC END# *4713294A002E*
+; // functor_ret
+
+
+// генерация параметра функтора
+//f _functor_arg
+: functor_arg OBJECT IN %S
+//#UC START# *471329B00138*
+//	[{"%{PARAM}l"!="ref"}{[{"%t_refcounted(%S)"="true"}{%t_arg(%S,%1)}%t_functor_arg(%S,%1)]}%t_arg(%S,%1)]
+ if ( ( ( get_global_var ( 'PARAM' ) |l ) ) %!= 'ref' ) then
+ begin
+  [%t] arg %( %S %, %1 )% 
+ end // if
+ else
+ begin
+  if ( ( [%t] refcounted %( %S )% ) %== true ) then
+  begin
+   [%t] functor_arg %( %S %, %1 )% 
+  end // if
+  else
+  begin
+   [%t] arg %( %S %, %1 )% 
+  end // else
+ end // else
+//#UC END# *471329B00138*
+; // functor_arg
+
+
+// генерация параметра функтора
+//t _functor_arg
+<<transformator>> functor_arg OBJECT IN %S
+//#UC START# *471329BF033C*
+//c                                         {in}                                              {inout}              {out}
+//r "%t_refcounted(%S)"="true":             {[{%f_is_server_type(%S)=false}const ]%f_tn(%S)_var&} {%f_tn(%S)_var&}         {%f_tn(%S)_var*&}
+//#UC END# *471329BF033C*
+; // functor_arg
+
+
+// общий код для функторов
+//f _common_functors_impl_body
+: common_functors_impl_body OBJECT IN %S
+//#UC START# *4716E5190213*
+//	%f_impl_dump_def_init_ctor(%S)[{<{}{%CC=Attribute&"%CS"=""}{C}>!=0}
+ [%f] impl_dump_def_init_ctor %( %S )% if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C |S ) %== ''  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  #13#10
+
+//	%f_function_scope(%S)%SN (<{, }{%CC=Attribute&"%CS"=""}%t_arg(%C%T,"%f_get_arg_specifier(%C)") %CN_>) : <{, }{%CC=Attribute&"%CS"=""}%CN(%t_init_functor_memeber(%C))> {
+  [%f] function_scope %( %S )% %S |N ' ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C |S ) %== ''  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%t] arg %( %C ->T  %, [%f] get_arg_specifier %( %C )% )% ' '
+    %C |N '_' 
+    ++! l_Counter
+   end // if
+  end // for C
+  ') : '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C |S ) %== ''  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    %C |N '('
+    [%t] init_functor_memeber %( %C )% ')' 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' {'
+//		%U[{_INIT_CTOR!cpp!}
+  '	'
+  %Usersection (
+   '_INIT_CTOR!cpp!' 
+  )
+  (
+   #13#10
+
+//		]
+   '	' 
+  ) // Usersection
+ //	}
+  '}'
+//	]<{}{%CC=Operation&%CS=ctor}
+ end // if
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Operation' AND 
+   ( ( %C |S ) %== 'ctor'  ) ) then
+  begin
+   #13#10
+
+//	%CX
+   %C |X 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//t _init_functor_memeber
+; // common_functors_impl_body
+
+<<transformator>> init_functor_memeber OBJECT IN %S
+//c                                                                                                                                 {}
+//r {%f_suffix(%f_attr(%S),*)=*&%f_suffix(%t_arg(%T,"%f_get_arg_specifier(%S)"),%f_dump_apersand(%S))=%f_dump_apersand(%S)}:        {&%SN_}
+//r {%t_refcounted(%T)=true&%Sl=ref}:                                                                                               {%f_type(%T)::_duplicate(%SN_)}
+//r {""=""}:                                                                                                                        {%SN_}
+//#UC END# *4716E5190213*
+; // init_functor_memeber
+
+
+// выводит часть сигнатуры для оператора ()
+//t _functor_functor
+<<transformator>> functor_functor OBJECT IN %S
+//#UC START# *4716E55F03A9*
+//c                                                 {}
+//r "%SS"="Generator"|"%SS=FunctorBase":            {()[{%S{const functor}=true} const]}
+//r "%SS"="UnaryFunctor"|"%SS"="Predicate":         {(<{}{%CS=param}%f_set_var(PARAM,C)%f_functor_arg(%C%T,"[{%Cs!=chg}{inout}in]")> param_)[{%S{const functor}=true} const]}
+//r "%SS"="BinaryFunctor"|"%SS"="BinaryPredicate":  {(<{}{%CS=first param}%t_arg(%C%T,"[{%Cs!=chg}{inout}in]")> first_param_, <{}{%CS=second param}%t_arg(%C%T,"[{%Cs!=chg}{inout}in]")> second_param_)[{%S{const functor}=true} const]}
+
+//f _functor_arg_type
+; // functor_functor
+
+: functor_arg_type OBJECT IN %S
+//	%f_set_var(PARAM,S)\
+ [%f] set_var %( 'PARAM' %, 'S' )% 
+//	%f_str_replace(%f_str_replace(%f_functor_arg(%T,"inout"),&,),*,)%f_set_var(PARAM,"")
+ [%f] str_replace %( [%f] str_replace %( [%f] functor_arg %( %T %, 'inout' )% %, '&' %, )% %, '*' %, )% [%f] set_var %( 'PARAM' %, '' )% 
+
+//f _functor_ret_type
+; // functor_arg_type
+
+: functor_ret_type OBJECT IN %S
+//	%f_str_replace(%f_str_replace(%f_str_replace(%%t_functor_ret(%S,"inout"),&,),*,),const ,)
+//	%f_ret(%S)
+ [%f] ret %( %S )% 
+//#UC END# *4716E55F03A9*
+; // functor_ret_type
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

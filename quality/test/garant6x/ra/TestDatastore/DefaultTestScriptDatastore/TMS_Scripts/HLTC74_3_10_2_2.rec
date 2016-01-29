@@ -1,0 +1,64 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+   Dim sBook$
+    
+    call OpenDocByNum(3822621)
+    DelayFor 5000
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    RichEdit Click, "ObjectIndex=1", "Coords=249,8"
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    'InputKeys "{APPS}"
+    'PopupMenuIDSelect 203
+    call Click_AddBookMark
+    
+    
+    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+    SQAGetProperty "Type=EditBox;ObjectIndex=2","Text",sBook
+    ToolBar Click, "Text=Выбор действия", "Coords=48,7"
+ 
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   MenuIDSelect 12
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+   'переходим по сохранённой закладке
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,140"
+    ListBox Click, "ObjectIndex=1", "Coords=49,11"
+    
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    if Position_by_Text("CurrentFocus",sBook)<>0 then
+        InputKeys "{ENTER}"
+        DelayFor 2000
+        RichEdit Click, "ObjectIndex=1", "Coords=307,11"
+        InputKeys "^+{RIGHT}"
+        Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=MiddleDoc")
+        
+        Window SetContext, "Caption={ГАРАНТ*}", ""
+        GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,140"
+        ListBox Click, "ObjectIndex=1", "Coords=49,11"
+        call  Position_by_Text("CurrentFocus",sBook)
+        InputKeys "{DELETE}"
+        Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+        InputKeys "{ENTER}"
+        
+    else
+        SQALogMessage sqaFail, "Закладки нет!!!", "Закладка с именем ""+sBook+"" отсутствует!"
+    end if
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,145"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=19,64"
+    
+End Sub

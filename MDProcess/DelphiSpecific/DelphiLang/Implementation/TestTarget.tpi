@@ -1,0 +1,92 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/TestTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::TestTarget
+//
+// Тестовый модуль
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: TestTarget::Category
+? Тестовый модуль
+> TestResults::Class
+> SimpleClass::Class
+
+= ExeTarget::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_test_target.gif
+L code_test_target
+// Параметры визуализации
+$ C 222,126,208
+$ l 56,142,142
+$ f 56,142,142
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p is insider test:b=false ? Определяет, что тесты встраиваются внутрь приложения
+p no scripts:tribool=undefined ? В тесты не надо включать скриптовую машину
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{is insider test}"!="%S{!is insider test}"}%f_up_prefix(%S) *is insider test* = *%S{is insider test}* - Определяет, что тесты встраиваются внутрь приложения
+	][{"%S{no scripts}"!="%S{!no scripts}"}%f_up_prefix(%S) *no scripts* = *%S{no scripts}* - В тесты не надо включать скриптовую машину
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4B4CAE4F00E4*
+	%S%[inherited]\
+	[{%S{isRelease}!=true&%SS!=VCMTestTarget&%S{need UC in project}!=true}\
+	%P%f_add_category(%SU_Release,%SS,Release%SN,Release_Instance)\
+	%{Release_Instance}%f_set_up(isRelease,true)\
+	%{Release_Instance}%f_set_up(defines,%S{defines})\
+	%{Release_Instance}%f_set_documentation(%SD (релизный вариант))\
+	<{}{%DS=TestLibrary}\
+	%f_addCDep(%{Release_Instance},%D)\
+	>\
+
+	<{}{%CS=TestResults}\
+	%{Release_Instance}%f_add_class(%CU_Release,%CS,Release%CN,TestResults_Inst)\
+	%{TestResults_Inst}%f_set_documentation(%CD (релизный вариант))\
+	%C<{}{}{%O}\
+	%{TestResults_Inst}%f_add_override(%OU)\
+	>\
+	>\
+
+	]
+//#UC END# *4B2A19E3038Bfor4B4CAE4F00E4*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Путь к модулю
+%f _pas_UnitPath
+//#UC START# *4948C3290020for4B4CAE4F00E4*
+	%S%[inherited]
+//#UC END# *4948C3290020for4B4CAE4F00E4*
+
+// перекрытие базового стереотипа ExeTarget::Category
+// Определяет является ли приложение тестом
+%f _IsTest
+// возвращаемый результат: boolean
+//#UC START# *4B2A46060306for4B4CAE4F00E4*
+	true
+//#UC END# *4B2A46060306for4B4CAE4F00E4*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

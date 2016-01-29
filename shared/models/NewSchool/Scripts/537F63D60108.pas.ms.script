@@ -1,0 +1,56 @@
+// TCsProcWithIdList 537F63D60108 SimpleClass Class
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_537F63D60108
+
+INCLUDE '537F6306025B.pas.ms.script'
+
+: ME_537F63EC035D
+ CONST UID '537F63EC035D'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_537F6306025B // TCsProcWithId
+ ;
+
+ @SELF
+; // ME_537F63EC035D ItemType
+
+: ME_537F63D60108
+ CONST UID '537F63D60108'
+ CONST Name 'TCsProcWithIdList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_537F63EC035D // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_537F63D60108 TCsProcWithIdList

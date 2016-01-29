@@ -1,0 +1,54 @@
+// TtfwStandardDictionaryList 55B0EFA300D1 SimpleClass Class
+
+INCLUDE '55B0FF1501FC.pas.ms.script'
+
+INCLUDE '47B47E230134.pas.ms.script'
+
+FORWARD ME_55B0EFA300D1
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_55B0F90B0230
+ CONST UID '55B0F90B0230'
+ CONST Name 'FindDataType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+
+ @SELF
+; // ME_55B0F90B0230 FindDataType
+
+: ME_55B0EFA300D1
+ CONST UID '55B0EFA300D1'
+ CONST Name 'TtfwStandardDictionaryList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_55B0FF1501FC // TtfwStandardDictionaryListPrim
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B47E230134 // l3Searcher
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_55B0F90B0230 // FindDataType
+ ]
+ ; // Attributes
+ : Overridden
+   [ ME_47B9BAFD01F4 // CompareItemWithData
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55B0EFA300D1 TtfwStandardDictionaryList

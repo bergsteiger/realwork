@@ -1,0 +1,84 @@
+{жмём всё}
+function EnterInCalc(x: string);
+var
+ i, n: int;
+ w;
+begin
+  w := Sys.Process('calc').Window('SciCalc', 'Калькулятор');
+  for i:=1 to Length(x) do 
+  begin
+    case x[i] of
+      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '=', 'C': w.Window('Button', x[i]).ClickButton;
+//      'C': w.Window('Button', 'C').ClickButton; 
+      '*': w.Window('Button', '**').ClickButton;
+    end;
+  end
+end;
+
+
+{ супер калькуляр }
+function calcex;
+var
+  x, y, summ;
+  w;
+  pusk, poisk;       
+ begin
+ // вызов калькуляра    
+  pusk := Sys.Process('Explorer');
+  pusk.Window('Button', 'Пуск').ClickButton;
+  poisk := pusk.Window('DV2ControlHost', 'Главное меню').Window('Desktop OpenBox Host').Window('Search Control').Window('Edit').Window('Edit');
+  poisk.Click(43, 8);
+  poisk.Keys('calc[Enter][Enter]');  
+  // перебор
+  w := Sys.Process('calc').Window('SciCalc', 'Калькулятор');
+   for x:=1 to 11 do
+    for y:=1 to 11 do
+     begin
+        enterincalc('C' + inttostr(x) + '*' + inttostr(y) + '=');
+        summ:= IntToStr(x*y) + ', ';
+        if summ <> Sys.Process('calc').Window('SciCalc', 'Калькулятор', 1).Window('Edit', '', 1).wText then 
+          Log.Error('косяк при ' +  IntToStr(x) +  '*' + IntToStr(y) + '=' + summ) else
+          Log.Error('ОК - ' +  IntToStr(x) +  '*' + IntToStr(y) + '=' + summ);          
+     end;    
+ end; 
+
+ {набираем цыфры}
+function EnterNumberInCalc(num: integer);
+var
+  w1, w2;
+  num1, num2: integer;
+begin
+  w1 := Sys.Process('calc').Window('SciCalc', 'Калькулятор');
+  w2 := w1.Window('Button', inttostr(num1));
+  num1:=num div 10;
+  num2:=num mod 10;
+  if num >=10 then
+  begin  
+    w2.ClickButton;
+  end;
+  w2 := w1.Window('Button', inttostr(num2));
+  w2.ClickButton;
+end;
+ 
+{ калькуляр }
+function calc;
+var
+  x, y, summ;
+  w;       
+ begin    
+  w := Sys.Process('calc').Window('SciCalc', 'Калькулятор');
+   for x:=1 to 11 do
+    for y:=1 to 11 do
+     begin
+        w.Window('Button', 'C').ClickButton; 
+        EnterNumberInCalc(x);
+        w.Window('Button', '**').ClickButton;
+        EnterNumberInCalc(y);
+        w.Window('Button', '=').ClickButton;
+        summ:= IntToStr(x*y) + ', ';
+        if summ <> Sys.Process('calc').Window('SciCalc', 'Калькулятор', 1).Window('Edit', '', 1).wText then 
+          Log.Error('косяк при ' +  IntToStr(x) +  '*' + IntToStr(y) + '=' + summ) else
+          Log.Error('ОК - ' +  IntToStr(x) +  '*' + IntToStr(y) + '=' + summ);          
+     end;    
+ end; 
+

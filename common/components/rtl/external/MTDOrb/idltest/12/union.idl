@@ -1,0 +1,44 @@
+//Conflict with Delphi 2007 type TBytes
+//typedef octet Bytes[64];
+
+typedef octet BytesTest[64];
+
+struct S { long len; };
+
+interface foo;
+
+// Union with explicit default label
+union U switch (long) {
+  case 1: long x;
+  case 2: BytesTest y;
+  case 3: string z;
+  case 4:
+  case 5: S w;
+  case 6: long array[ 10 ][ 20 ];
+  case 7: sequence<long> seq;
+ default: foo obj;
+};
+
+typedef enum E {
+  A,
+  B
+} E_Alias;
+
+
+// Union with no default label
+union U2 switch(E_Alias) {
+  case A: long x;
+  case B: short y;
+};
+
+
+// Union with implicit default label
+union U3 switch(E_Alias) {
+  case B: long x;
+};
+
+interface foo {
+  void bar( in U x, out U y, out U2 z );
+};
+
+

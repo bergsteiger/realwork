@@ -1,0 +1,388 @@
+// TdaDataProviderParams 54F9A60200A8 SimpleClass Class
+
+FORWARD ME_54F9A60200A8
+
+: ME_550FD4CC0309
+ CONST UID '550FD4CC0309'
+ CONST Name 'TdaDataProviderParamsClass'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54F9A60200A8 // TdaDataProviderParams
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_550FD4CC0309 TdaDataProviderParamsClass
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+INCLUDE '5432448401BC.pas.ms.script'
+
+: ME_55111BEE0301
+ CONST UID '55111BEE0301'
+ CONST Name 'UserID'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_543244A30197 // TdaUserID
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_55111BEE0301 UserID
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55C1ECC40309
+ CONST UID '55C1ECC40309'
+ CONST Name 'FullHomeDirPath'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Полный путь к домашнему каталогу (с ID пользователя)' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_55C1ECC40309 FullHomeDirPath
+
+: ME_9595EED0909C
+ CONST UID '9595EED0909C'
+ CONST Name 'f_UserID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства UserID' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_543244A30197 // TdaUserID
+ ;
+
+ @SELF
+; // ME_9595EED0909C f_UserID
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_B0886B1AD02D
+ CONST UID 'B0886B1AD02D'
+ CONST Name 'Login'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_452257A0036F // a-string
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_B0886B1AD02D Login
+
+: ME_D5C03CDE39EF
+ CONST UID 'D5C03CDE39EF'
+ CONST Name 'Password'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_452257A0036F // a-string
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_D5C03CDE39EF Password
+
+: ME_831416B8EE51
+ CONST UID '831416B8EE51'
+ CONST Name 'DocStoragePath'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_452257A0036F // a-string
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_831416B8EE51 DocStoragePath
+
+: ME_C7D4E9D7D086
+ CONST UID 'C7D4E9D7D086'
+ CONST Name 'DocImagePath'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_452257A0036F // a-string
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_C7D4E9D7D086 DocImagePath
+
+: ME_07F578763A7C
+ CONST UID '07F578763A7C'
+ CONST Name 'HomeDirPath'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_452257A0036F // a-string
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_07F578763A7C HomeDirPath
+
+: ME_FE0DB1805C11
+ CONST UID 'FE0DB1805C11'
+ CONST Name 'DocBaseVersion'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_FE0DB1805C11 DocBaseVersion
+
+: ME_F092404B3731
+ CONST UID 'F092404B3731'
+ CONST Name 'AdminBaseVersion'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_F092404B3731 AdminBaseVersion
+
+FORWARD ME_55194F830311
+
+: ME_5E7DFC97E7E9
+ CONST UID '5E7DFC97E7E9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода CorrectAfterSet' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5E7DFC97E7E9 DoIt
+
+: ME_55194F830311
+ CONST UID '55194F830311'
+ CONST Name 'CorrectAfterSet'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_5E7DFC97E7E9 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55194F830311 CorrectAfterSet
+
+FORWARD ME_55195AE803E0
+
+: ME_55195B0900BF
+ CONST UID '55195B0900BF'
+ CONST Name 'aPath'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55195B0900BF aPath
+
+: ME_55195AFB027A
+ CONST UID '55195AFB027A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55195B0900BF // aPath
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55195AFB027A DoIt
+
+: ME_55195AE803E0
+ CONST UID '55195AE803E0'
+ CONST Name 'ChangeBasePath'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55195AFB027A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55195AE803E0 ChangeBasePath
+
+FORWARD ME_553A37E902C9
+
+: ME_553A38150085
+ CONST UID '553A38150085'
+ CONST Name 'aParams'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+
+ @SELF
+; // ME_553A38150085 aParams
+
+: ME_553A37FF0059
+ CONST UID '553A37FF0059'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_553A38150085 // aParams
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_553A37FF0059 DoIt
+
+: ME_553A37E902C9
+ CONST UID '553A37E902C9'
+ CONST Name 'AssignParams'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_553A37FF0059 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_553A37E902C9 AssignParams
+
+FORWARD ME_55F7DD1803E2
+
+INCLUDE '51BAE2BF011A.pas.ms.script'
+
+: ME_55F7DD5C0214
+ CONST UID '55F7DD5C0214'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5433C1D30101 // TCfgList
+ ;
+
+ @SELF
+; // ME_55F7DD5C0214 DoIt
+
+: ME_55F7DD1803E2
+ CONST UID '55F7DD1803E2'
+ CONST Name 'MakeBaseIni'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55F7DD5C0214 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55F7DD1803E2 MakeBaseIni
+
+: ME_550AB45B0179
+ CONST UID '550AB45B0179'
+ CONST Name 'ParamsKey'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_550AB45B0179 ParamsKey
+
+: ME_54F9A60200A8
+ CONST UID '54F9A60200A8'
+ CONST Name 'TdaDataProviderParams'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_534572370056 // Tl3Tag
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_55111BEE0301 // UserID
+ ME_55C1ECC40309 // FullHomeDirPath
+ ME_9595EED0909C // f_UserID
+ ME_B0886B1AD02D // Login
+ ME_D5C03CDE39EF // Password
+ ME_831416B8EE51 // DocStoragePath
+ ME_C7D4E9D7D086 // DocImagePath
+ ME_07F578763A7C // HomeDirPath
+ ME_FE0DB1805C11 // DocBaseVersion
+ ME_F092404B3731 // AdminBaseVersion
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55194F830311 // CorrectAfterSet
+ ME_55195AE803E0 // ChangeBasePath
+ ME_553A37E902C9 // AssignParams
+ ME_55F7DD1803E2 // MakeBaseIni
+ ME_550AB45B0179 // ParamsKey
+ ]
+ ; // Operations
+ : Children
+   [ ME_550FD4CC0309 // TdaDataProviderParamsClass
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54F9A60200A8 TdaDataProviderParams

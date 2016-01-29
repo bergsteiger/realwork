@@ -1,0 +1,235 @@
+// Dictionary 4F463D910318 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F463D910318
+
+FORWARD ME_4F4DF07602DD
+
+: ME_4F4DF0B100B7
+ CONST UID '4F4DF0B100B7'
+ CONST Name 'l3Items_NeedsBeforeFreeItem'
+ CONST Class class_Class
+ : Stereotype st_Undef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ ;
+
+ref; // ME_4F4DF0B100B7 l3Items_NeedsBeforeFreeItem
+
+: ME_4F4DF0BE0053
+ CONST UID '4F4DF0BE0053'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Undef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ ;
+
+ref; // ME_4F4DF0BE0053 l3Items_NoSort
+
+: ME_4F4DF0D00212
+ CONST UID '4F4DF0D00212'
+ CONST Name 'l3Items_CaseUnsensitive'
+ CONST Class class_Class
+ : Stereotype st_Undef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ ;
+
+ref; // ME_4F4DF0D00212 l3Items_CaseUnsensitive
+
+: ME_4F4DF07602DD
+ CONST UID '4F4DF07602DD'
+ CONST Name 'TtfwDictionaryPrimPrimPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F463D910318 // Dictionary
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B88F8D6025A' '47913B47006E.pas.ms.script' // l3StringList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Children
+   @ ( ME_4F4DF0B100B7 // l3Items_NeedsBeforeFreeItem
+ ME_4F4DF0BE0053 // l3Items_NoSort
+ ME_4F4DF0D00212 // l3Items_CaseUnsensitive
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
+
+ref; // ME_4F4DF07602DD TtfwDictionaryPrimPrimPrim
+
+: ME_4F463DDB0108
+ CONST UID '4F463DDB0108'
+ CONST Name 'TtfwDictionaryPrimPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F463D910318 // Dictionary
+ ;
+ : Inherits
+   @ ( ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ WL 'ME_5304D68D03B2' '47913B47006E.pas.ms.script' // l3DelphiStringSearcher
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
+
+ref; // ME_4F463DDB0108 TtfwDictionaryPrimPrim
+
+FORWARD ME_4F4659980048
+
+: ME_4F4659EC0192
+ CONST UID '4F4659EC0192'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4F4659EC0192 FindDataType
+
+: ME_4F465F900266
+ CONST UID '4F465F900266'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ : Target WL 'ME_47A8693601A1' '47913B47006E.pas.ms.script' // Tl3PrimString
+ ;
+
+ref; // ME_4F465F900266 ItemType
+
+: ME_4F465F5E02CD
+ CONST UID '4F465F5E02CD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F465F5E02CD 
+
+: ME_47B9BAFD01F4_ME_4F4659980048
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47B9BAFD01F4_ME_4F4659980048 CompareItemWithData
+
+: ME_4F4659980048
+ CONST UID '4F4659980048'
+ CONST Name 'TtfwDictionaryPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F463D910318 // Dictionary
+ ;
+ : Inherits
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ME_4F463DDB0108 // TtfwDictionaryPrimPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F4659EC0192 // FindDataType
+ ME_4F465F900266 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_47B9BAFD01F4_ME_4F4659980048 // CompareItemWithData
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F465F5E02CD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
+
+ref; // ME_4F4659980048 TtfwDictionaryPrim
+
+: ME_4F463D910318
+ CONST UID '4F463D910318'
+ CONST Name 'Dictionary'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ ;
+ : Children
+   @ ( ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ ME_4F463DDB0108 // TtfwDictionaryPrimPrim
+ ME_4F4659980048 // TtfwDictionaryPrim
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F463D910318.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F463D910318.pas.ms.script.runner'
+
+ref; // ME_4F463D910318 Dictionary

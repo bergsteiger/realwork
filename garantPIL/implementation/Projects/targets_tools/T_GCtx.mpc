@@ -1,0 +1,50 @@
+project (T_GCtx) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_GCtx {
+	exename = gctx
+	
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += STORE_FORM_N
+	macros += QUICK_NEW_DOC
+	macros += ONLY_NORM_INDEX
+	macros += MIN_MEM_CONTEXT
+
+	//macros -= UPDATE_FACE // if delta will be linked in???
+
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+
+	after += Morpho
+	libs += Morpho
+
+	after += evd
+	libs += evd
+
+	after += endt
+	libs += endt
+
+	after += vcontrol_ggu
+	after += gsscreen_gctx
+	after += mrglib_gctx
+	after += dummies_tools
+	
+	libs += vcontrol_ggu
+	libs += gsscreen_gctx
+	libs += mrglib_gctx
+	libs += dummies_tools
+
+	after += cchlp2
+	libs  += cchlp2
+
+	after += cchlp1
+	libs  += cchlp1
+
+	after += gctx_gudll
+	libs  += gctx_gudll
+
+	after += gkdb_gudll
+	libs  += gkdb_gudll
+}

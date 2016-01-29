@@ -1,0 +1,45 @@
+// View 521DA5E10048 VCMViews Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_521DA5E10048
+ CONST UID '521DA5E10048'
+ CONST Name 'View'
+ CONST Class class_Category
+ : Stereotype st_VCMViews ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_521DA5750380' '521DA5750380.pas.ms.script' // List
+ ;
+ : Children
+   @ ( WL 'ME_521DA60E0390' '521DA60E0390.pas.ms.script' // List
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B990EDE031A' '4B990EDE031A.pas.ms.script' // AppConfig
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Sand Box$UC\List\View\View.model.script'
+ CONST intf.pas:Path 'common\components\SandBox\VCM\View\List_View_vcmlib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\521DA5E10048.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\521DA5E10048.pas.ms.script.runner'
+
+ref; // ME_521DA5E10048 View

@@ -1,0 +1,17 @@
+USES
+ QuickTestsUtils.script
+;
+
+Тест TK289276523
+   	Параметры: ( "Курсор вниз на{(6)} строк" "Тестирование изображения редактора" ) 
+	Выполнить ( 
+		 OBJECT VAR l_Editor
+		 "Контрол в фокусе" >>> l_Editor
+		 17 раз ( l_Editor pop:Editor:ScrollLineDown )
+		 ProcessMessages
+		 7 раз ( l_Editor pop:Editor:ScrollLineUp )
+		 ProcessMessages  		
+	)
+;
+
+TK289276523

@@ -1,0 +1,124 @@
+<<Library>> "VCM$ Applications Testing"
+ %UID '4F79CCD4016C'
+ %SUMMARY 'Обвязка для тестирования GUI-приложений построенных на VCM' ;
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+  U$ '528E3D990126' /* "L3$Component Info" */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "ifdef" 'InsiderTest'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+  U$ '528E3D990126' /* "L3$Component Info" */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> AppTestingSupport
+   %UID '4F79CD2603DF'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4DB14DDC01A9' /* ScriptDebugger */
+    U$ '4DEF302C0007' /* ScriptEngine */
+    U$ '4E030FC801EB' /* BatchServices */
+    U$ '4F635E1901E5' /* l3Listeners */
+    U$ '50883A2E00B3' /* Application */
+    U$ '51309A4A02FB' /* "Tests Res Common" */
+    U$ '528E3DE20137' /* "Component Info" */
+   ; // %DEPENDS
+   %META
+    %upv "path prefix" '/AppTesting'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+    U$ '528E3D990126' /* "L3$Component Info" */
+    U$ '550012C403C4' /* L3$AFW */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<Impurity>> VCMAppTester
+      %UID '4F79CD9F015F'
+      %SUMMARY 'Примесь для тестирования приложений, построенных на VCM' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E13416D0227' /* VCM$Visual */
+       U$ '513098F2017C' /* "Shared Delphi Tests Common" */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '523040FB01AA' /* MvcmApplication */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '52F21A610247' /* GUIAppTester */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '52F2269B0373' /* BeforeApplicationRun */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4F79CF960087"
+         %UID '4F79CF960087'
+         %TARGET U$ '4C8A2ADD01B1' /* Application */
+        ; // 4F79CF960087
+        <<uses>> "4F79CFC901AB"
+         %UID '4F79CFC901AB'
+         %TARGET U$ '4B2A6D4303A9' /* KTestRunner */
+        ; // 4F79CFC901AB
+        <<uses>> "4F79D00200F7"
+         %UID '4F79D00200F7'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 4F79D00200F7
+        <<uses>> "4F79D07902E1"
+         %UID '4F79D07902E1'
+         %TARGET U$ '4F72CAA90045' /* Tl3ComponentInfoHelper */
+        ; // 4F79D07902E1
+        <<uses>> "4F79D5FE0054"
+         %UID '4F79D5FE0054'
+         %TARGET U$ '4E03119F00B2' /* afwAnswer */
+        ; // 4F79D5FE0054
+        <<uses>> "51238BA9026E"
+         %UID '51238BA9026E'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 51238BA9026E
+        <<uses>> "51238F56033F"
+         %UID '51238F56033F'
+         %TARGET U$ '4DEF306102FF' /* TtfwScriptEngineEX */
+        ; // 51238F56033F
+      ; // %LINKS
+     ; // VCMAppTester
+   ; // %CHILDREN
+  ; // AppTestingSupport
+ ; // %CHILDREN
+; // "VCM$ Applications Testing"

@@ -1,0 +1,32 @@
+<Html><Head><Title>TMimePart</Title></Head><Body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+<!---1--->
+<font face="Arial">
+<P Align="left"><BIG><B>TMimePart</B></BIG><BR>
+
+<A href="TMimePart.Hierarchy.html">Hierarchy</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href="TMimePart.0properties.html">properties</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href="TMimePart.0methods.html">methods</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href="TMimePart.0events.html">events</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P><B>Unit</B><BR>
+<A href="MIMEpart.html">MIMEpart</A><BR>
+<BR>
+<B>Description</B><BR>
+Object for working with parts of MIME e-mail.<BR>
+<BR>
+Each TMimePart object can handle any number of nested subparts as new TMimepart objects. It can handle any tree hierarchy structure of nested MIME subparts itself.<BR>
+<BR>
+Basic tasks are:<BR>
+<BR>
+Decoding of MIME message:<BR>
+- store message into Lines property<BR>
+- call DecomposeParts. Now you have decomposed MIME parts in all nested levels!<BR>
+- now you can explore all properties and subparts. (You can use WalkPart method)<BR>
+- if you need decode part, call DecodePart.<BR>
+<BR>
+Encoding of MIME message:<BR>
+<BR>
+- if you need multipart message, you must create subpart by AddSubPart.<BR>
+- set all properties of all parts.<BR>
+- set content of part into DecodedLines stream<BR>
+- encode this stream by EncodePart.<BR>
+- compose full message by ComposeParts. (it build full MIME message from all subparts. Do not call this method for each subpart! It is needed on root part!)<BR>
+- encoded MIME message is stored in Lines property.<BR>
+<BR>
+<BR>
+</font></Body></Html>

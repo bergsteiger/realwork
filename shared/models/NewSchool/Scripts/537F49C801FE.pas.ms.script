@@ -1,0 +1,311 @@
+// CsCommon 537F49C801FE UtilityPack Class
+
+FORWARD ME_537F49C801FE
+
+: ME_537F49E4025E
+ CONST UID '537F49E4025E'
+ CONST Name 'TCsPort'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_537F49E4025E TCsPort
+
+INCLUDE '5432448401BC.pas.ms.script'
+
+: ME_537F4A04037C
+ CONST UID '537F4A04037C'
+ CONST Name 'TCsClientId'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_543244A30197 // TdaUserID
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_537F4A04037C TCsClientId
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_537F4A3A024C
+ CONST UID '537F4A3A024C'
+ CONST Name 'TCsIp'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ %SUMMARY 'заменить на ченить поприличней' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_476136D3010B // String
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_537F4A3A024C TCsIp
+
+: ME_537F4A5A02DA
+ CONST UID '537F4A5A02DA'
+ CONST Name 'TcsError'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_46A606AC03B2 // Integer
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_537F4A5A02DA TcsError
+
+FORWARD ME_537F4A6C0162
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_537F4A760356
+ CONST UID '537F4A760356'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_537F4A760356 DoIt
+
+: ME_537F4A6C0162
+ CONST UID '537F4A6C0162'
+ CONST Name 'TcsLoginExDataEvent'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_537F4A760356 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_537F4A6C0162 TcsLoginExDataEvent
+
+FORWARD ME_5412C88C0365
+
+: ME_5412C8A4036E
+ CONST UID '5412C8A4036E'
+ CONST Name 'cs_uckRegular'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY ' оннект с обычными правами' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5412C8A4036E cs_uckRegular
+
+: ME_5412C8D700CB
+ CONST UID '5412C8D700CB'
+ CONST Name 'cs_uckDeveloper'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY ' оннект на залоченную базу и пр.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5412C8D700CB cs_uckDeveloper
+
+: ME_541BD192007E
+ CONST UID '541BD192007E'
+ CONST Name 'cs_uckRequireAdminRights'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_541BD192007E cs_uckRequireAdminRights
+
+: ME_5412C88C0365
+ CONST UID '5412C88C0365'
+ CONST Name 'TcsUserConnectKind'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5412C8A4036E // cs_uckRegular
+ ME_5412C8D700CB // cs_uckDeveloper
+ ME_541BD192007E // cs_uckRequireAdminRights
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_5412C88C0365 TcsUserConnectKind
+
+FORWARD ME_5412CC6F0226
+
+: ME_5412CC8B03A6
+ CONST UID '5412CC8B03A6'
+ CONST Name 'cs_crOk'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5412CC8B03A6 cs_crOk
+
+: ME_5412CCB200F5
+ CONST UID '5412CCB200F5'
+ CONST Name 'cs_crNetworkError'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5412CCB200F5 cs_crNetworkError
+
+: ME_5412CCE20078
+ CONST UID '5412CCE20078'
+ CONST Name 'cs_crUserParamsWrong'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5412CCE20078 cs_crUserParamsWrong
+
+: ME_5412CCF20127
+ CONST UID '5412CCF20127'
+ CONST Name 'cs_crDuplicateClient'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5412CCF20127 cs_crDuplicateClient
+
+: ME_5412CD04014C
+ CONST UID '5412CD04014C'
+ CONST Name 'cs_crDeadClient'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5412CD04014C cs_crDeadClient
+
+: ME_5412CD14035C
+ CONST UID '5412CD14035C'
+ CONST Name 'cs_crBaseLocked'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5412CD14035C cs_crBaseLocked
+
+: ME_541BD0F003D0
+ CONST UID '541BD0F003D0'
+ CONST Name 'cs_crInsufficientRights'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_541BD0F003D0 cs_crInsufficientRights
+
+: ME_5412CC6F0226
+ CONST UID '5412CC6F0226'
+ CONST Name 'TcsConnectResult'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5412CC8B03A6 // cs_crOk
+ ME_5412CCB200F5 // cs_crNetworkError
+ ME_5412CCE20078 // cs_crUserParamsWrong
+ ME_5412CCF20127 // cs_crDuplicateClient
+ ME_5412CD04014C // cs_crDeadClient
+ ME_5412CD14035C // cs_crBaseLocked
+ ME_541BD0F003D0 // cs_crInsufficientRights
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_5412CC6F0226 TcsConnectResult
+
+FORWARD ME_5412D7C102A2
+
+: ME_5412D7DC0081
+ CONST UID '5412D7DC0081'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5412D7DC0081 DoIt
+
+: ME_5412D7C102A2
+ CONST UID '5412D7C102A2'
+ CONST Name 'TcsGetIsBaseLockedEvent'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_5412D7DC0081 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_5412D7C102A2 TcsGetIsBaseLockedEvent
+
+: ME_537F49C801FE
+ CONST UID '537F49C801FE'
+ CONST Name 'CsCommon'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_537F49E4025E // TCsPort
+ ME_537F4A04037C // TCsClientId
+ ME_537F4A3A024C // TCsIp
+ ME_537F4A5A02DA // TcsError
+ ME_537F4A6C0162 // TcsLoginExDataEvent
+ ME_5412C88C0365 // TcsUserConnectKind
+ ME_5412CC6F0226 // TcsConnectResult
+ ME_5412D7C102A2 // TcsGetIsBaseLockedEvent
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_537F49C801FE CsCommon

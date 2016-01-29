@@ -1,0 +1,1143 @@
+// AFWServices 5506D079035B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5506D079035B
+
+FORWARD ME_5506D3B202FA
+
+FORWARD ME_1D128503AC70
+
+: ME_B6C92677BBF7
+ CONST UID 'B6C92677BBF7'
+ CONST Name 'ProcessMessages'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_1D128503AC70 // Ml3MessagesService
+ ;
+
+ref; // ME_B6C92677BBF7 ProcessMessages
+
+: ME_1D128503AC70
+ CONST UID '1D128503AC70'
+ CONST Name 'Ml3MessagesService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3MessagesService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5506D3B202FA // Tl3MessagesService
+ ;
+ : Operations
+   @ ( ME_B6C92677BBF7 // ProcessMessages
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_1D128503AC70 Ml3MessagesService
+
+FORWARD ME_0B2A9A8C27FB
+
+: ME_B6C92677BBF7_ME_0B2A9A8C27FB
+ CONST UID 'B6C92677BBF7'
+ CONST Name 'ProcessMessages'
+ : Original ME_B6C92677BBF7 // ProcessMessages
+ ;
+ : Implementor ME_0B2A9A8C27FB // Il3MessagesService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_B6C92677BBF7_ME_0B2A9A8C27FB ProcessMessages
+
+: ME_0B2A9A8C27FB
+ CONST UID '0B2A9A8C27FB'
+ CONST GUID '8169CB3B-D3C5-412F-82E9-1473799C89FD'
+ CONST Name 'Il3MessagesService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3MessagesService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5506D3B202FA // Tl3MessagesService
+ ;
+ : Implements
+   @ ( ME_1D128503AC70 // Ml3MessagesService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_B6C92677BBF7_ME_0B2A9A8C27FB // ProcessMessages
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_0B2A9A8C27FB Il3MessagesService
+
+: ME_BBA6975A0477
+ CONST UID 'BBA6975A0477'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3MessagesService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_5506D3B202FA // Tl3MessagesService
+ ;
+ : Target ME_0B2A9A8C27FB // Il3MessagesService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_BBA6975A0477 Alien
+
+: ME_224797B4B14D
+ CONST UID '224797B4B14D'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5506D3B202FA // Tl3MessagesService
+ ;
+ : Target ME_0B2A9A8C27FB // Il3MessagesService
+ ;
+
+ref; // ME_224797B4B14D f_Alien
+
+: ME_5506D3CD02AA
+ CONST UID '5506D3CD02AA'
+ CONST Name 'ProcessMessages'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D3B202FA // Tl3MessagesService
+ ;
+
+ref; // ME_5506D3CD02AA ProcessMessages
+
+: ME_B73A8914E9C7
+ CONST UID 'B73A8914E9C7'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D3B202FA // Tl3MessagesService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_B73A8914E9C7 Exists
+
+: ME_B6C92677BBF7_ME_5506D3B202FA
+ CONST UID 'B6C92677BBF7'
+ CONST Name 'ProcessMessages'
+ : Original ME_B6C92677BBF7 // ProcessMessages
+ ;
+ : Implementor ME_5506D3B202FA // Tl3MessagesService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_B6C92677BBF7_ME_5506D3B202FA ProcessMessages
+
+: ME_5000565C019C_ME_5506D3B202FA
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_5506D3B202FA // Tl3MessagesService
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_5506D3B202FA ClearFields
+
+: ME_5506D3B202FA
+ CONST UID '5506D3B202FA'
+ CONST Name 'Tl3MessagesService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D079035B // AFWServices
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_1D128503AC70 // Ml3MessagesService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_BBA6975A0477 // Alien
+ ME_224797B4B14D // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5506D3CD02AA // ProcessMessages
+ ME_B73A8914E9C7 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_B6C92677BBF7_ME_5506D3B202FA // ProcessMessages
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_5506D3B202FA // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_1D128503AC70 // Ml3MessagesService
+ ME_0B2A9A8C27FB // Il3MessagesService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MessagesService.pas'
+
+ref; // ME_5506D3B202FA Tl3MessagesService
+
+FORWARD ME_5506D56601D6
+
+: ME_5506D6F10072
+ CONST UID '5506D6F10072'
+ CONST Name 'TCustomForm'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Inherits
+   @ ( WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_5506D6F10072 TCustomForm
+
+FORWARD ME_B610F360B21E
+
+: ME_C87E24BF9C23
+ CONST UID 'C87E24BF9C23'
+ CONST Name 'Component'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ;
+
+ref; // ME_C87E24BF9C23 Component
+
+: ME_32D6965B86E7
+ CONST UID '32D6965B86E7'
+ CONST Name 'GetParentForm'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_B610F360B21E // Ml3FormsService
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ : Parameters
+   @ ( ME_C87E24BF9C23 // Component
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_32D6965B86E7 GetParentForm
+
+: ME_DB3AE24018E5
+ CONST UID 'DB3AE24018E5'
+ CONST Name 'Component'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ;
+
+ref; // ME_DB3AE24018E5 Component
+
+: ME_1077E9580F6F
+ CONST UID '1077E9580F6F'
+ CONST Name 'GetAnotherParentForm'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_B610F360B21E // Ml3FormsService
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ : Parameters
+   @ ( ME_DB3AE24018E5 // Component
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_1077E9580F6F GetAnotherParentForm
+
+: ME_3F3ED8A56F58
+ CONST UID '3F3ED8A56F58'
+ CONST Name 'Component'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ;
+
+ref; // ME_3F3ED8A56F58 Component
+
+: ME_D9663D6CD433
+ CONST UID 'D9663D6CD433'
+ CONST Name 'GetTopParentForm'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_B610F360B21E // Ml3FormsService
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ : Parameters
+   @ ( ME_3F3ED8A56F58 // Component
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_D9663D6CD433 GetTopParentForm
+
+: ME_BD56DB3648A8
+ CONST UID 'BD56DB3648A8'
+ CONST Name 'Component'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ;
+
+ref; // ME_BD56DB3648A8 Component
+
+: ME_207716257CFB
+ CONST UID '207716257CFB'
+ CONST Name 'GetMainForm'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_B610F360B21E // Ml3FormsService
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ : Parameters
+   @ ( ME_BD56DB3648A8 // Component
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_207716257CFB GetMainForm
+
+: ME_B610F360B21E
+ CONST UID 'B610F360B21E'
+ CONST Name 'Ml3FormsService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3FormsService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Operations
+   @ ( ME_32D6965B86E7 // GetParentForm
+ ME_1077E9580F6F // GetAnotherParentForm
+ ME_D9663D6CD433 // GetTopParentForm
+ ME_207716257CFB // GetMainForm
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_B610F360B21E Ml3FormsService
+
+FORWARD ME_A10B9C97F853
+
+: ME_1077E9580F6F_ME_A10B9C97F853
+ CONST UID '1077E9580F6F'
+ CONST Name 'GetAnotherParentForm'
+ : Original ME_1077E9580F6F // GetAnotherParentForm
+ ;
+ : Implementor ME_A10B9C97F853 // Il3FormsService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_1077E9580F6F_ME_A10B9C97F853 GetAnotherParentForm
+
+: ME_207716257CFB_ME_A10B9C97F853
+ CONST UID '207716257CFB'
+ CONST Name 'GetMainForm'
+ : Original ME_207716257CFB // GetMainForm
+ ;
+ : Implementor ME_A10B9C97F853 // Il3FormsService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_207716257CFB_ME_A10B9C97F853 GetMainForm
+
+: ME_32D6965B86E7_ME_A10B9C97F853
+ CONST UID '32D6965B86E7'
+ CONST Name 'GetParentForm'
+ : Original ME_32D6965B86E7 // GetParentForm
+ ;
+ : Implementor ME_A10B9C97F853 // Il3FormsService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_32D6965B86E7_ME_A10B9C97F853 GetParentForm
+
+: ME_D9663D6CD433_ME_A10B9C97F853
+ CONST UID 'D9663D6CD433'
+ CONST Name 'GetTopParentForm'
+ : Original ME_D9663D6CD433 // GetTopParentForm
+ ;
+ : Implementor ME_A10B9C97F853 // Il3FormsService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_D9663D6CD433_ME_A10B9C97F853 GetTopParentForm
+
+: ME_A10B9C97F853
+ CONST UID 'A10B9C97F853'
+ CONST GUID '69FEDDF5-3C91-4527-B7FA-B2965BA459E9'
+ CONST Name 'Il3FormsService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3FormsService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Implements
+   @ ( ME_B610F360B21E // Ml3FormsService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_1077E9580F6F_ME_A10B9C97F853 // GetAnotherParentForm
+ ME_207716257CFB_ME_A10B9C97F853 // GetMainForm
+ ME_32D6965B86E7_ME_A10B9C97F853 // GetParentForm
+ ME_D9663D6CD433_ME_A10B9C97F853 // GetTopParentForm
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_A10B9C97F853 Il3FormsService
+
+: ME_7E336ABA9BFC
+ CONST UID '7E336ABA9BFC'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3FormsService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Target ME_A10B9C97F853 // Il3FormsService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_7E336ABA9BFC Alien
+
+: ME_7FCAA463DB83
+ CONST UID '7FCAA463DB83'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Target ME_A10B9C97F853 // Il3FormsService
+ ;
+
+ref; // ME_7FCAA463DB83 f_Alien
+
+: ME_5506D59401DF
+ CONST UID '5506D59401DF'
+ CONST Name 'Component'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ;
+
+ref; // ME_5506D59401DF Component
+
+: ME_5506D58B0238
+ CONST UID '5506D58B0238'
+ CONST Name 'GetParentForm'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ : Parameters
+   @ ( ME_5506D59401DF // Component
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5506D58B0238 GetParentForm
+
+: ME_5506D5BC039F
+ CONST UID '5506D5BC039F'
+ CONST Name 'Component'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ;
+
+ref; // ME_5506D5BC039F Component
+
+: ME_5506D5B30127
+ CONST UID '5506D5B30127'
+ CONST Name 'GetAnotherParentForm'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ : Parameters
+   @ ( ME_5506D5BC039F // Component
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5506D5B30127 GetAnotherParentForm
+
+: ME_5506E84F005D
+ CONST UID '5506E84F005D'
+ CONST Name 'Component'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ;
+
+ref; // ME_5506E84F005D Component
+
+: ME_5506E84700E5
+ CONST UID '5506E84700E5'
+ CONST Name 'GetTopParentForm'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ : Parameters
+   @ ( ME_5506E84F005D // Component
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5506E84700E5 GetTopParentForm
+
+: ME_5506E867032E
+ CONST UID '5506E867032E'
+ CONST Name 'Component'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ ;
+
+ref; // ME_5506E867032E Component
+
+: ME_5506E861028F
+ CONST UID '5506E861028F'
+ CONST Name 'GetMainForm'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+ : Parameters
+   @ ( ME_5506E867032E // Component
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5506E861028F GetMainForm
+
+: ME_72287A6E0930
+ CONST UID '72287A6E0930'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D56601D6 // Tl3FormsService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_72287A6E0930 Exists
+
+: ME_1077E9580F6F_ME_5506D56601D6
+ CONST UID '1077E9580F6F'
+ CONST Name 'GetAnotherParentForm'
+ : Original ME_1077E9580F6F // GetAnotherParentForm
+ ;
+ : Implementor ME_5506D56601D6 // Tl3FormsService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_1077E9580F6F_ME_5506D56601D6 GetAnotherParentForm
+
+: ME_207716257CFB_ME_5506D56601D6
+ CONST UID '207716257CFB'
+ CONST Name 'GetMainForm'
+ : Original ME_207716257CFB // GetMainForm
+ ;
+ : Implementor ME_5506D56601D6 // Tl3FormsService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_207716257CFB_ME_5506D56601D6 GetMainForm
+
+: ME_32D6965B86E7_ME_5506D56601D6
+ CONST UID '32D6965B86E7'
+ CONST Name 'GetParentForm'
+ : Original ME_32D6965B86E7 // GetParentForm
+ ;
+ : Implementor ME_5506D56601D6 // Tl3FormsService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_32D6965B86E7_ME_5506D56601D6 GetParentForm
+
+: ME_D9663D6CD433_ME_5506D56601D6
+ CONST UID 'D9663D6CD433'
+ CONST Name 'GetTopParentForm'
+ : Original ME_D9663D6CD433 // GetTopParentForm
+ ;
+ : Implementor ME_5506D56601D6 // Tl3FormsService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_D9663D6CD433_ME_5506D56601D6 GetTopParentForm
+
+: ME_5000565C019C_ME_5506D56601D6
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_5506D56601D6 // Tl3FormsService
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_5506D56601D6 ClearFields
+
+: ME_5506D56601D6
+ CONST UID '5506D56601D6'
+ CONST Name 'Tl3FormsService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D079035B // AFWServices
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_B610F360B21E // Ml3FormsService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_7E336ABA9BFC // Alien
+ ME_7FCAA463DB83 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5506D58B0238 // GetParentForm
+ ME_5506D5B30127 // GetAnotherParentForm
+ ME_5506E84700E5 // GetTopParentForm
+ ME_5506E861028F // GetMainForm
+ ME_72287A6E0930 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_1077E9580F6F_ME_5506D56601D6 // GetAnotherParentForm
+ ME_207716257CFB_ME_5506D56601D6 // GetMainForm
+ ME_32D6965B86E7_ME_5506D56601D6 // GetParentForm
+ ME_D9663D6CD433_ME_5506D56601D6 // GetTopParentForm
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_5506D56601D6 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_5506D6F10072 // TCustomForm
+ ME_B610F360B21E // Ml3FormsService
+ ME_A10B9C97F853 // Il3FormsService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "ifndef" 'NoVCL'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormsService.pas'
+
+ref; // ME_5506D56601D6 Tl3FormsService
+
+FORWARD ME_55099A8303E1
+
+FORWARD ME_58FA1B19298C
+
+: ME_747558CBA739
+ CONST UID '747558CBA739'
+ CONST Name 'TryActivateKeyboardLayout'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_58FA1B19298C // Ml3KeyboardLayoutService
+ ;
+
+ref; // ME_747558CBA739 TryActivateKeyboardLayout
+
+: ME_58FA1B19298C
+ CONST UID '58FA1B19298C'
+ CONST Name 'Ml3KeyboardLayoutService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3KeyboardLayoutService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+ : Operations
+   @ ( ME_747558CBA739 // TryActivateKeyboardLayout
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_58FA1B19298C Ml3KeyboardLayoutService
+
+FORWARD ME_4C80517D75F5
+
+: ME_747558CBA739_ME_4C80517D75F5
+ CONST UID '747558CBA739'
+ CONST Name 'TryActivateKeyboardLayout'
+ : Original ME_747558CBA739 // TryActivateKeyboardLayout
+ ;
+ : Implementor ME_4C80517D75F5 // Il3KeyboardLayoutService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_747558CBA739_ME_4C80517D75F5 TryActivateKeyboardLayout
+
+: ME_4C80517D75F5
+ CONST UID '4C80517D75F5'
+ CONST GUID 'B81FD1FC-A13C-4F60-A0D1-0D1F2E636216'
+ CONST Name 'Il3KeyboardLayoutService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3KeyboardLayoutService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+ : Implements
+   @ ( ME_58FA1B19298C // Ml3KeyboardLayoutService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_747558CBA739_ME_4C80517D75F5 // TryActivateKeyboardLayout
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4C80517D75F5 Il3KeyboardLayoutService
+
+: ME_F14ED4D4867C
+ CONST UID 'F14ED4D4867C'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3KeyboardLayoutService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+ : Target ME_4C80517D75F5 // Il3KeyboardLayoutService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_F14ED4D4867C Alien
+
+: ME_6F2A12F1DB29
+ CONST UID '6F2A12F1DB29'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+ : Target ME_4C80517D75F5 // Il3KeyboardLayoutService
+ ;
+
+ref; // ME_6F2A12F1DB29 f_Alien
+
+: ME_55099AAA0207
+ CONST UID '55099AAA0207'
+ CONST Name 'TryActivateKeyboardLayout'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+
+ref; // ME_55099AAA0207 TryActivateKeyboardLayout
+
+: ME_927065CD0EB6
+ CONST UID '927065CD0EB6'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_927065CD0EB6 Exists
+
+: ME_747558CBA739_ME_55099A8303E1
+ CONST UID '747558CBA739'
+ CONST Name 'TryActivateKeyboardLayout'
+ : Original ME_747558CBA739 // TryActivateKeyboardLayout
+ ;
+ : Implementor ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_747558CBA739_ME_55099A8303E1 TryActivateKeyboardLayout
+
+: ME_5000565C019C_ME_55099A8303E1
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_55099A8303E1 ClearFields
+
+: ME_55099A8303E1
+ CONST UID '55099A8303E1'
+ CONST Name 'Tl3KeyboardLayoutService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D079035B // AFWServices
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_58FA1B19298C // Ml3KeyboardLayoutService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_F14ED4D4867C // Alien
+ ME_6F2A12F1DB29 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55099AAA0207 // TryActivateKeyboardLayout
+ ME_927065CD0EB6 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_747558CBA739_ME_55099A8303E1 // TryActivateKeyboardLayout
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_55099A8303E1 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_58FA1B19298C // Ml3KeyboardLayoutService
+ ME_4C80517D75F5 // Il3KeyboardLayoutService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3KeyboardLayoutService.pas'
+
+ref; // ME_55099A8303E1 Tl3KeyboardLayoutService
+
+FORWARD ME_550AE937003B
+
+FORWARD ME_B9924A64571A
+
+: ME_A8AF111E1F35
+ CONST UID 'A8AF111E1F35'
+ CONST Name 'HasTabs'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_B9924A64571A // Ml3TabService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_A8AF111E1F35 HasTabs
+
+: ME_B9924A64571A
+ CONST UID 'B9924A64571A'
+ CONST Name 'Ml3TabService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3TabService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_550AE937003B // Tl3TabService
+ ;
+ : Operations
+   @ ( ME_A8AF111E1F35 // HasTabs
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_B9924A64571A Ml3TabService
+
+FORWARD ME_DB8C4BB17004
+
+: ME_A8AF111E1F35_ME_DB8C4BB17004
+ CONST UID 'A8AF111E1F35'
+ CONST Name 'HasTabs'
+ : Original ME_A8AF111E1F35 // HasTabs
+ ;
+ : Implementor ME_DB8C4BB17004 // Il3TabService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_A8AF111E1F35_ME_DB8C4BB17004 HasTabs
+
+: ME_DB8C4BB17004
+ CONST UID 'DB8C4BB17004'
+ CONST GUID 'D4A2A5A2-FB9C-4ECA-B050-7914DC032822'
+ CONST Name 'Il3TabService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3TabService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_550AE937003B // Tl3TabService
+ ;
+ : Implements
+   @ ( ME_B9924A64571A // Ml3TabService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_A8AF111E1F35_ME_DB8C4BB17004 // HasTabs
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_DB8C4BB17004 Il3TabService
+
+: ME_614099779DB7
+ CONST UID '614099779DB7'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3TabService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_550AE937003B // Tl3TabService
+ ;
+ : Target ME_DB8C4BB17004 // Il3TabService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_614099779DB7 Alien
+
+: ME_FF6B9946B5CF
+ CONST UID 'FF6B9946B5CF'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_550AE937003B // Tl3TabService
+ ;
+ : Target ME_DB8C4BB17004 // Il3TabService
+ ;
+
+ref; // ME_FF6B9946B5CF f_Alien
+
+: ME_550AE94503E6
+ CONST UID '550AE94503E6'
+ CONST Name 'HasTabs'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550AE937003B // Tl3TabService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_550AE94503E6 HasTabs
+
+: ME_CA10524BD61D
+ CONST UID 'CA10524BD61D'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550AE937003B // Tl3TabService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_CA10524BD61D Exists
+
+: ME_A8AF111E1F35_ME_550AE937003B
+ CONST UID 'A8AF111E1F35'
+ CONST Name 'HasTabs'
+ : Original ME_A8AF111E1F35 // HasTabs
+ ;
+ : Implementor ME_550AE937003B // Tl3TabService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_A8AF111E1F35_ME_550AE937003B HasTabs
+
+: ME_5000565C019C_ME_550AE937003B
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_550AE937003B // Tl3TabService
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_550AE937003B ClearFields
+
+: ME_550AE937003B
+ CONST UID '550AE937003B'
+ CONST Name 'Tl3TabService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5506D079035B // AFWServices
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_B9924A64571A // Ml3TabService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_614099779DB7 // Alien
+ ME_FF6B9946B5CF // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_550AE94503E6 // HasTabs
+ ME_CA10524BD61D // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_A8AF111E1F35_ME_550AE937003B // HasTabs
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_550AE937003B // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_B9924A64571A // Ml3TabService
+ ME_DB8C4BB17004 // Il3TabService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3TabService.pas'
+
+ref; // ME_550AE937003B Tl3TabService
+
+: ME_5506D079035B
+ CONST UID '5506D079035B'
+ CONST Name 'AFWServices'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
+ ;
+ : Children
+   @ ( ME_5506D3B202FA // Tl3MessagesService
+ ME_5506D56601D6 // Tl3FormsService
+ ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ME_550AE937003B // Tl3TabService
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5506D079035B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5506D079035B.pas.ms.script.runner'
+
+ref; // ME_5506D079035B AFWServices

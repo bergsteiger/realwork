@@ -1,0 +1,170 @@
+f _cvs_Magic
+	$
+
+t _pas_UnitName
+c {}
+r {%SS=EvdDataDef}: {%f_evd_SchemaName(%S)}
+// - имя модуля для EVD-схемы
+r {%SS=Interface}: {%SN}
+// - имя модуля для пакета с интерфейсами
+r {%SS=EvdFactoryDef}: {%SN}
+// - имя модуля для пакета с фабриками
+r {%SN=Primitives}: {}
+// - модуль с примитивами
+r {true}: {!ERROR!}
+
+f _pas_UnitName
+	%t_pas_UnitName(%S)
+
+f _pas_UnitFileName
+	%t_pas_UnitName(%S).pas
+
+f _pas_GetDefaultAncestor
+	<{}{%C{is default ancestor}=true}%CN>
+
+t _pas_DefaultInterfaceAncestor
+c {}
+r {%SS!=Interface&%SS!=Facet}: {!ERROR!}
+r {%S{is default ancestor}=true}: {}
+r {true}: {%f_pas_GetDefaultAncestor(%P)}
+
+f _pas_InterfaceAncestor
+	[{%Gx=true}{%t_pas_DefaultInterfaceAncestor(%S)}%GN]
+
+f _pas_OpenConst
+	[{%{WAS_CONST}N=0}const\n%f_set_var(WAS_CONST,"1")%f_set_var(WAS_TYPE,"0")]
+
+f _pas_OpenType
+	[{%{WAS_TYPE}N=0}type\n%f_set_var(WAS_TYPE,"1")%f_set_var(WAS_CONST,"0")]
+
+f _pas_OpenUses
+	[{%{WAS_USES}N=0}{\n  ,\n}\nuses\n%f_set_var(WAS_USES,"1")]
+
+f _pas_CloseUses
+	[{%{WAS_USES}N=1}\n  ;\n%f_set_var(WAS_USES,"0")]
+
+f _pas_Uses
+/ - выводит список пакетов с указанным стереотипом от которых мы зависим
+	[{<{}{%DS=%1N&%DN!=System}{C}>!=0}%f_pas_OpenUses(%S)]\
+	<{,\n}{%DS=%1N&%DN!=System}  %f_pas_UnitName(%D)>
+
+f _pas_Depends
+/ - выводит список пакетов с указанным стереотипом которые зависят от нас
+	[{<{}{%aS=%1N}{C}>!=0}%f_pas_OpenUses(%S)]\
+	<{,\n}{%aS=%1N}  %f_pas_UnitName(%a)>
+
+t _pas_TypeName
+c {}
+r {%SN=void}: {}
+r {%SN=long}: {Integer}
+r {%SN=boolean}: {Boolean}
+r {%SN=wstring}: {WideString}
+/r {%SN=BOOL}: {LongBool}
+r {%SN=unsigned long}: {Cardinal}
+r {%SN=unsigned char}: {Byte}
+r {%SN=object}: {IUnknown}
+r {%SN=string}: {PChar}
+r {%SN=a-string}: {String}
+r {true}: {%SN}
+
+f _pas_TypeName
+	%t_pas_TypeName(%S)
+
+t _pas_InInterfacePrefix
+c {}
+r {%S{objStub}=true}: {}
+r {true}: {const }
+
+t _pas_InPrefix
+c {}
+r {%SS=Typedef}: {%t_pas_InPrefix(%G)}
+r {%SS=InitedTypedef}: {%t_pas_InPrefix(%G)}
+r {%SS=Struct}: {const }
+r {%SS=Interface}: {%t_pas_InInterfacePrefix(%S)}
+r {%SS=Facet}: {%t_pas_InInterfacePrefix(%S)}
+r {%SN=object}: {const }
+r {%SN=a-string}: {const }
+r {true}: {}
+
+t _pas_ParamPrefix
+c {}
+r {%SS=in}: {%t_pas_InPrefix(%T)}
+r {%SS=const}: {const }
+r {%SS=out}: {out }
+r {%SS=inout}: {var }
+r {true}: {!ERROR! }
+/r {true}: {%SS}
+
+f _pas_InAttr
+	%t_pas_InPrefix(%T)aValue: %f_pas_TypeName(%T)
+
+f _pas_PropGet
+	[{%S{pm}=true}{Get_}pm_Get]%f_to_borland(%SN)
+
+f _pas_PropSet
+	[{%S{pm}=true}{Set_}pm_Set]%f_to_borland(%SN)
+
+f _pas_AttrIndexes
+	<{; }%t_pas_InPrefix(%C%T)%CN: %f_pas_TypeName(%C%T)>
+
+t _pas_ParamType
+c {}
+r {%SS=InitedTypedef}: {%f_pas_TypeName(%G) = %CN}
+r {true}: {%f_pas_TypeName(%S)}
+
+f _pas_Params
+	<{;\n##}%t_pas_ParamPrefix(%C)%CN[: %t_pas_ParamType(%C%T)]>
+
+t _pas_VendorPrefix
+c {}
+r {true}: {%S{vendor}}
+
+f _pas_LibPath
+	[{%S{gui}=true}{/rtl}/gui]%t_pas_VendorPrefix(%S)/%SN
+
+f _pas_PrjPath
+	[{%SN=Shared Delphi}{/%SN}[{%M{check finished}=false}{/common/components}/shared/Delphi]]%S{root path suffix}
+
+t _pas_UnitPath
+c {}
+r {true}: {%S{path prefix}}
+
+f _pas_UnitPath
+	%t_pas_UnitPath(%S)
+
+f _pas_AncestorPrefix
+	[{%f_pas_UnitName(%P)!=%f_pas_UnitName(%G%P)}%f_pas_UnitName(%G%P)]
+
+t _pas_SetConst
+c {}
+r {%SS=SetConst}: {%f_pas_TypeName(%S)}
+r {%SS=SetOf}: {%t_pas_SetConst(%G)}
+r {true}: {\[Low(%f_pas_TypeName(%S))..High(%f_pas_TypeName(%S))\]}
+
+f _pas_StructFields
+	<{;\n#}%CN: %f_pas_TypeName(%C%T)>
+
+f _pas_UnionFields
+	[{%f_substr_from_begin(%SN,4)=void}{%SN: %f_pas_TypeName(%T)}%f_pas_StructFields(%T)]
+
+t _pas_IsSimpleType
+c {}
+r {%SS=UMLPrimitive}: {true}
+r {%SS=Typedef}: {%t_pas_IsSimpleType(%G)}
+r {true}: {false}
+
+f _pas_IsSimpleType
+	%t_pas_IsSimpleType(%S)
+
+f _pas_PropFromField
+	[{"%SN"!=""&%t_pas_IsSimpleType(%T)=true}\
+	# property %SN: %TN \n##read %1N.%SN \n##write %1N.%SN;\n]
+
+f _pasPropsFromStructFields
+	<{}%f_pas_PropFromField(%C,%1N)>
+
+f _pas_PropsFromUnionFields
+	<{}{%CS!=switch}%f_pasPropsFromStructFields(%C%T,%1N)>
+
+f _pas_PropsFromUnion
+	[{%TS=Union}%f_pas_PropsFromUnionFields(%T,%S)]

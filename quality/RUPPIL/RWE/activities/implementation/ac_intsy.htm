@@ -1,0 +1,161 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Интегрировать систему </title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+<h2 class="banner"><a name="Top"></a><a name="XE_implementation_subsystem__planning_integration_of"></a>Активность: Интегрировать систему </h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Интегрировать отдельные подсистемы в сборку системы.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Шаги</font></strong></small>
+    <ul>
+      <li><a href="#Accept Subsystems and Produce Intermediate Builds">Принять подсистемы и выпустить промежуточные сборки</a></li>
+      <li><a href="#Promote Baselines">Оповестить о сборке</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/implementation/pa_impss.htm">Реализованные Подсистемы</a></li>
+      <li><a href="../../artifacts/implementation/pa_buildplan.htm">План интеграции</a></li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li>
+        <p align="left"><a href="../../artifacts/implementation/pa_release.htm">Выпуск</a></p>
+      </li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_integ.htm">Интегратор</a></td>
+  </tr>
+</table>
+</center></div>
+
+<h3><a name="Accept Subsystems and Produce Intermediate Builds">Принять подсистемы и выпустить промежуточные сборки</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Когда начинается активность, реализованные подсистемы должны удовлетворять требованиям целевого 
+выпуска, описанного в <a href="../../artifacts/implementation/pa_buildplan.htm">Артефакте:
+План интеграции</a>, не забудьте, что может быть несколько сборок в одной итерации.
+В зависимости от сложности и числа интегрируемых подсистем, часто более эффективным является
+итеративная сборка, когда на каждой итерации подключается некоторое дополнительное количество 
+подсистем и получаются промежуточные сборки.
+<p class="picturelarge" align="center"><img src="../images/ac_intsy.gif" alt width="501" height="172"></p>
+<p class="picturetext" align="left">Диаграмма показывает сборку в три прохода.
+Некоторые подсистемы необходимы в качестве заглушек, чтобы обеспечить сборку и минимально необходимое 
+функционирование при запуске программы.</p>
+<p align="left">Конечная сборка после проверки в группе разработчиков 
+передается для проведения высокоуровневого тестирования в Группу качества.</p>
+
+<h3 align="left"><a name="Promote Baselines">Оповестить о сборке</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>При передаче системы на тестирование в системе конфигурационного контроля делается идентификационная запись на 
+всех модулях, которая указывает соответствие версии программного продукта и состояния каждого из модулей на 
+момент выпуска. Эти активности подробнее описаны в <a href="../../activities/environment/ac_baspj.htm">Активности:
+Создать выпуск</a> потока работ Управление средой. Выпуск осуществляется в строгом соответствии с 
+<a href="../../artifacts/projectmanagement/pa_sdp.htm">Общим планом проекта</a> и 
+<a href="../../artifacts/projectmanagement/pa_itplan1.htm">Планом итерации</a>
+<p>Передача сборки программного продукта на тестирование в Группу Качества, осуществляется в соответствии с 
+<a href='#' onclick="window.open('../../applet/cvsget/control.asp?fid=quality\guidelines_test\transfer_to_test.rtf',null,'height=450,width=580,status=no,toolbar=no,menubar=yes,location=no,resizable=yes,scrollbars=no',1);">Регламентом передачи программных продуктов на тестирование в Группу Качества ОИТ ПУ.</a> 
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+</body>
+
+</html>

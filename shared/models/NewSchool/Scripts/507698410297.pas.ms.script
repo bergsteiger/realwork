@@ -1,0 +1,1926 @@
+// ObjectFromstackWords 507698410297 ScriptKeywordsPack Class
+
+FORWARD ME_507698410297
+
+INCLUDE '55B7A33101AF.pas.ms.script'
+
+FORWARD ME_695731F3434E
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5FF444184009
+ CONST UID '5FF444184009'
+ CONST Name 'RegAxiom'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5FF444184009 RegAxiom
+
+: ME_695731F3434E
+ CONST UID '695731F3434E'
+ CONST Name 'TObjectFromstackWordsResNameGetter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5FF444184009 // RegAxiom
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55B7A3AF0359 // ResName
+ ]
+ ; // Implemented
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_695731F3434E TObjectFromstackWordsResNameGetter
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_C6231F1FCA26
+
+: ME_E2CA796A9245
+ CONST UID 'E2CA796A9245'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_E2CA796A9245 aCtx
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_E2CA796A9246
+ CONST UID 'E2CA796A9246'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_E2CA796A9246 aObject
+
+: ME_E2CA796A9247
+ CONST UID 'E2CA796A9247'
+ CONST Name 'aClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55C0A4F9013F // TtfwStackValue
+ ;
+
+ @SELF
+; // ME_E2CA796A9247 aClass
+
+: ME_8E2028C997CB
+ CONST UID '8E2028C997CB'
+ CONST Name 'Inherits'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:Inherits' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_E2CA796A9245 // aCtx
+ ME_E2CA796A9246 // aObject
+ ME_E2CA796A9247 // aClass
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_8E2028C997CB Inherits
+
+: ME_4006EFE7A329
+ CONST UID '4006EFE7A329'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_Inherits' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4006EFE7A329 Ini_Reg
+
+: ME_C6231F1FCA26
+ CONST UID 'C6231F1FCA26'
+ CONST Name 'pop_Object_Inherits'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:Inherits'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aClass aObject pop:Object:Inherits >>> l_Boolean'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_8E2028C997CB // Inherits
+ ME_4006EFE7A329 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:Inherits'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_C6231F1FCA26 pop_Object_Inherits
+
+FORWARD ME_7B6D4B0B5715
+
+: ME_3D9112324FEF
+ CONST UID '3D9112324FEF'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_3D9112324FEF aCtx
+
+: ME_3D9112324FF0
+ CONST UID '3D9112324FF0'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_3D9112324FF0 aObject
+
+: ME_DB3E01510FFF
+ CONST UID 'DB3E01510FFF'
+ CONST Name 'ClassName'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:ClassName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_3D9112324FEF // aCtx
+ ME_3D9112324FF0 // aObject
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_DB3E01510FFF ClassName
+
+: ME_08388AF064B0
+ CONST UID '08388AF064B0'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_ClassName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_08388AF064B0 Ini_Reg
+
+: ME_7B6D4B0B5715
+ CONST UID '7B6D4B0B5715'
+ CONST Name 'pop_Object_ClassName'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:ClassName'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aObject pop:Object:ClassName >>> l_String'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_DB3E01510FFF // ClassName
+ ME_08388AF064B0 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:ClassName'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_7B6D4B0B5715 pop_Object_ClassName
+
+FORWARD ME_EDA57987A3B6
+
+: ME_24B64A491BF5
+ CONST UID '24B64A491BF5'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_24B64A491BF5 aCtx
+
+: ME_24B64A491BF6
+ CONST UID '24B64A491BF6'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_24B64A491BF6 aObject
+
+: ME_24B64A491BF7
+ CONST UID '24B64A491BF7'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_24B64A491BF7 aName
+
+: ME_B092970B7218
+ CONST UID 'B092970B7218'
+ CONST Name 'GetFloatProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:GetFloatProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_24B64A491BF5 // aCtx
+ ME_24B64A491BF6 // aObject
+ ME_24B64A491BF7 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_B092970B7218 GetFloatProp
+
+: ME_C29F7CCBC4AB
+ CONST UID 'C29F7CCBC4AB'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_GetFloatProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_C29F7CCBC4AB Ini_Reg
+
+: ME_EDA57987A3B6
+ CONST UID 'EDA57987A3B6'
+ CONST Name 'pop_Object_GetFloatProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:GetFloatProp'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aName aObject pop:Object:GetFloatProp >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_B092970B7218 // GetFloatProp
+ ME_C29F7CCBC4AB // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:GetFloatProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_EDA57987A3B6 pop_Object_GetFloatProp
+
+FORWARD ME_AB78BA187455
+
+: ME_5D6A9E55DF08
+ CONST UID '5D6A9E55DF08'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_5D6A9E55DF08 aCtx
+
+: ME_5D6A9E55DF09
+ CONST UID '5D6A9E55DF09'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_5D6A9E55DF09 aObject
+
+: ME_5D6A9E55DF0A
+ CONST UID '5D6A9E55DF0A'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5D6A9E55DF0A aName
+
+: ME_A6C646A9D4FA
+ CONST UID 'A6C646A9D4FA'
+ CONST Name 'GetInterfaceProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:GetInterfaceProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A451250363 // IUnknown
+ ;
+ : Parameters
+   [ ME_5D6A9E55DF08 // aCtx
+ ME_5D6A9E55DF09 // aObject
+ ME_5D6A9E55DF0A // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_A6C646A9D4FA GetInterfaceProp
+
+: ME_8F0D5490F4B3
+ CONST UID '8F0D5490F4B3'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_GetInterfaceProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8F0D5490F4B3 Ini_Reg
+
+: ME_AB78BA187455
+ CONST UID 'AB78BA187455'
+ CONST Name 'pop_Object_GetInterfaceProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:GetInterfaceProp'#13#10'*Тип результата:* IUnknown'#13#10'*Пример:*'#13#10'{code}'#13#10'INTERFACE VAR l_IUnknown'#13#10' aName aObject pop:Object:GetInterfaceProp >>> l_IUnknown'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A6C646A9D4FA // GetInterfaceProp
+ ME_8F0D5490F4B3 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:GetInterfaceProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_AB78BA187455 pop_Object_GetInterfaceProp
+
+FORWARD ME_BA0E0748BC5D
+
+: ME_CFE58D8BB793
+ CONST UID 'CFE58D8BB793'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_CFE58D8BB793 aCtx
+
+: ME_CFE58D8BB794
+ CONST UID 'CFE58D8BB794'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_CFE58D8BB794 aObject
+
+: ME_CFE58D8BB795
+ CONST UID 'CFE58D8BB795'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_CFE58D8BB795 aName
+
+: ME_C3A777545BCF
+ CONST UID 'C3A777545BCF'
+ CONST Name 'GetObjProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:GetObjProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4807745602C8 // TObject
+ ;
+ : Parameters
+   [ ME_CFE58D8BB793 // aCtx
+ ME_CFE58D8BB794 // aObject
+ ME_CFE58D8BB795 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_C3A777545BCF GetObjProp
+
+: ME_E34875C4B7DD
+ CONST UID 'E34875C4B7DD'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_GetObjProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E34875C4B7DD Ini_Reg
+
+: ME_BA0E0748BC5D
+ CONST UID 'BA0E0748BC5D'
+ CONST Name 'pop_Object_GetObjProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:GetObjProp'#13#10'*Тип результата:* TObject'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TObject'#13#10' aName aObject pop:Object:GetObjProp >>> l_TObject'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_C3A777545BCF // GetObjProp
+ ME_E34875C4B7DD // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:GetObjProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_BA0E0748BC5D pop_Object_GetObjProp
+
+FORWARD ME_AB11F1E6DB9D
+
+: ME_097088FBEB66
+ CONST UID '097088FBEB66'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_097088FBEB66 aCtx
+
+: ME_097088FBEB67
+ CONST UID '097088FBEB67'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_097088FBEB67 aObject
+
+: ME_097088FBEB68
+ CONST UID '097088FBEB68'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_097088FBEB68 aName
+
+: ME_902589FCB14D
+ CONST UID '902589FCB14D'
+ CONST Name 'GetOrdProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:GetOrdProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_097088FBEB66 // aCtx
+ ME_097088FBEB67 // aObject
+ ME_097088FBEB68 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_902589FCB14D GetOrdProp
+
+: ME_834183F267A6
+ CONST UID '834183F267A6'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_GetOrdProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_834183F267A6 Ini_Reg
+
+: ME_AB11F1E6DB9D
+ CONST UID 'AB11F1E6DB9D'
+ CONST Name 'pop_Object_GetOrdProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:GetOrdProp'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aName aObject pop:Object:GetOrdProp >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_902589FCB14D // GetOrdProp
+ ME_834183F267A6 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:GetOrdProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_AB11F1E6DB9D pop_Object_GetOrdProp
+
+FORWARD ME_B3D2E54183FE
+
+: ME_9E4520C66812
+ CONST UID '9E4520C66812'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_9E4520C66812 aCtx
+
+: ME_9E4520C66813
+ CONST UID '9E4520C66813'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_9E4520C66813 aObject
+
+: ME_9E4520C66814
+ CONST UID '9E4520C66814'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_9E4520C66814 aName
+
+: ME_FA828528EED2
+ CONST UID 'FA828528EED2'
+ CONST Name 'GetStrProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:GetStrProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_9E4520C66812 // aCtx
+ ME_9E4520C66813 // aObject
+ ME_9E4520C66814 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_FA828528EED2 GetStrProp
+
+: ME_3442792713F0
+ CONST UID '3442792713F0'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_GetStrProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3442792713F0 Ini_Reg
+
+: ME_B3D2E54183FE
+ CONST UID 'B3D2E54183FE'
+ CONST Name 'pop_Object_GetStrProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:GetStrProp'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aName aObject pop:Object:GetStrProp >>> l_String'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_FA828528EED2 // GetStrProp
+ ME_3442792713F0 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:GetStrProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_B3D2E54183FE pop_Object_GetStrProp
+
+FORWARD ME_6EBCA1F985F5
+
+: ME_9A5CC1F68159
+ CONST UID '9A5CC1F68159'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_9A5CC1F68159 aCtx
+
+: ME_9A5CC1F6815A
+ CONST UID '9A5CC1F6815A'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_9A5CC1F6815A aObject
+
+: ME_9A5CC1F6815B
+ CONST UID '9A5CC1F6815B'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_9A5CC1F6815B aName
+
+: ME_C4DA28B83595
+ CONST UID 'C4DA28B83595'
+ CONST Name 'HasProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:HasProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_9A5CC1F68159 // aCtx
+ ME_9A5CC1F6815A // aObject
+ ME_9A5CC1F6815B // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_C4DA28B83595 HasProp
+
+: ME_E02AACA1C6B9
+ CONST UID 'E02AACA1C6B9'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_HasProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E02AACA1C6B9 Ini_Reg
+
+: ME_6EBCA1F985F5
+ CONST UID '6EBCA1F985F5'
+ CONST Name 'pop_Object_HasProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:HasProp'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aName aObject pop:Object:HasProp >>> l_Boolean'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_C4DA28B83595 // HasProp
+ ME_E02AACA1C6B9 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:HasProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_6EBCA1F985F5 pop_Object_HasProp
+
+FORWARD ME_0725EE68AD3B
+
+: ME_6AE1A23F0132
+ CONST UID '6AE1A23F0132'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_6AE1A23F0132 aCtx
+
+: ME_6AE1A23F0133
+ CONST UID '6AE1A23F0133'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_6AE1A23F0133 aObject
+
+: ME_C6405BCAA6A5
+ CONST UID 'C6405BCAA6A5'
+ CONST Name 'RTTIInfo'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:RTTIInfo' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_6AE1A23F0132 // aCtx
+ ME_6AE1A23F0133 // aObject
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_C6405BCAA6A5 RTTIInfo
+
+: ME_5867B9F27C30
+ CONST UID '5867B9F27C30'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_RTTIInfo' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5867B9F27C30 Ini_Reg
+
+: ME_0725EE68AD3B
+ CONST UID '0725EE68AD3B'
+ CONST Name 'pop_Object_RTTIInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:RTTIInfo'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aObject pop:Object:RTTIInfo >>> l_String'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_C6405BCAA6A5 // RTTIInfo
+ ME_5867B9F27C30 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:RTTIInfo'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_0725EE68AD3B pop_Object_RTTIInfo
+
+FORWARD ME_529CD18EA056
+
+: ME_1AFB2985A329
+ CONST UID '1AFB2985A329'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_1AFB2985A329 aCtx
+
+: ME_1AFB2985A32A
+ CONST UID '1AFB2985A32A'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_1AFB2985A32A aObject
+
+: ME_1AFB2985A32B
+ CONST UID '1AFB2985A32B'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_1AFB2985A32B aName
+
+: ME_1AFB2985A32C
+ CONST UID '1AFB2985A32C'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_1AFB2985A32C aValue
+
+: ME_4D07D0C5DD70
+ CONST UID '4D07D0C5DD70'
+ CONST Name 'SetFloatProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:SetFloatProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_1AFB2985A329 // aCtx
+ ME_1AFB2985A32A // aObject
+ ME_1AFB2985A32B // aName
+ ME_1AFB2985A32C // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4D07D0C5DD70 SetFloatProp
+
+: ME_68F1CE923B70
+ CONST UID '68F1CE923B70'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_SetFloatProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_68F1CE923B70 Ini_Reg
+
+: ME_529CD18EA056
+ CONST UID '529CD18EA056'
+ CONST Name 'pop_Object_SetFloatProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:SetFloatProp'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aName aObject pop:Object:SetFloatProp'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4D07D0C5DD70 // SetFloatProp
+ ME_68F1CE923B70 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:SetFloatProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_529CD18EA056 pop_Object_SetFloatProp
+
+FORWARD ME_A2938530A58A
+
+: ME_896E79B92E5B
+ CONST UID '896E79B92E5B'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_896E79B92E5B aCtx
+
+: ME_896E79B92E5C
+ CONST UID '896E79B92E5C'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_896E79B92E5C aObject
+
+: ME_896E79B92E5D
+ CONST UID '896E79B92E5D'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_896E79B92E5D aName
+
+: ME_896E79B92E5E
+ CONST UID '896E79B92E5E'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_896E79B92E5E aValue
+
+: ME_F069028D7CFF
+ CONST UID 'F069028D7CFF'
+ CONST Name 'SetOrdProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:SetOrdProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_896E79B92E5B // aCtx
+ ME_896E79B92E5C // aObject
+ ME_896E79B92E5D // aName
+ ME_896E79B92E5E // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_F069028D7CFF SetOrdProp
+
+: ME_A901B3F7D8F4
+ CONST UID 'A901B3F7D8F4'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_SetOrdProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_A901B3F7D8F4 Ini_Reg
+
+: ME_A2938530A58A
+ CONST UID 'A2938530A58A'
+ CONST Name 'pop_Object_SetOrdProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:SetOrdProp'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aName aObject pop:Object:SetOrdProp'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_F069028D7CFF // SetOrdProp
+ ME_A901B3F7D8F4 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:SetOrdProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_A2938530A58A pop_Object_SetOrdProp
+
+FORWARD ME_798893499F18
+
+: ME_9EA6C320CF91
+ CONST UID '9EA6C320CF91'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_9EA6C320CF91 aCtx
+
+: ME_9EA6C320CF92
+ CONST UID '9EA6C320CF92'
+ CONST Name 'aObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_9EA6C320CF92 aObject
+
+: ME_9EA6C320CF93
+ CONST UID '9EA6C320CF93'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_9EA6C320CF93 aName
+
+: ME_9EA6C320CF94
+ CONST UID '9EA6C320CF94'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_9EA6C320CF94 aValue
+
+: ME_D79D3014F0CB
+ CONST UID 'D79D3014F0CB'
+ CONST Name 'SetStrProp'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Object:SetStrProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_9EA6C320CF91 // aCtx
+ ME_9EA6C320CF92 // aObject
+ ME_9EA6C320CF93 // aName
+ ME_9EA6C320CF94 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_D79D3014F0CB SetStrProp
+
+: ME_7CEA4EC6691B
+ CONST UID '7CEA4EC6691B'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Object_SetStrProp' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_7CEA4EC6691B Ini_Reg
+
+: ME_798893499F18
+ CONST UID '798893499F18'
+ CONST Name 'pop_Object_SetStrProp'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Object:SetStrProp'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aName aObject pop:Object:SetStrProp'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_D79D3014F0CB // SetStrProp
+ ME_7CEA4EC6691B // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Object:SetStrProp'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_798893499F18 pop_Object_SetStrProp
+
+: ME_561275DA026B
+ CONST UID '561275DA026B'
+ CONST Name 'aClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55C0A4F9013F // TtfwStackValue
+ ;
+
+ @SELF
+; // ME_561275DA026B aClass
+
+: ME_561275A50363
+ CONST UID '561275A50363'
+ CONST Name 'Inherits'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_561275DA026B // aClass
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_561275A50363 Inherits
+
+: ME_561276140246
+ CONST UID '561276140246'
+ CONST Name 'ClassName'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_561276140246 ClassName
+
+: ME_56128782037B
+ CONST UID '56128782037B'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_56128782037B aName
+
+: ME_5612877900FD
+ CONST UID '5612877900FD'
+ CONST Name 'GetFloatProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_56128782037B // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5612877900FD GetFloatProp
+
+: ME_561287AA0138
+ CONST UID '561287AA0138'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_561287AA0138 aName
+
+: ME_5612879D0254
+ CONST UID '5612879D0254'
+ CONST Name 'GetInterfaceProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A451250363 // IUnknown
+ ;
+ : Parameters
+   [ ME_561287AA0138 // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5612879D0254 GetInterfaceProp
+
+: ME_561287C602AA
+ CONST UID '561287C602AA'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_561287C602AA aName
+
+: ME_561287BB03E6
+ CONST UID '561287BB03E6'
+ CONST Name 'GetObjProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4807745602C8 // TObject
+ ;
+ : Parameters
+   [ ME_561287C602AA // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_561287BB03E6 GetObjProp
+
+: ME_561287E00143
+ CONST UID '561287E00143'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_561287E00143 aName
+
+: ME_561287D60299
+ CONST UID '561287D60299'
+ CONST Name 'GetOrdProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_561287E00143 // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_561287D60299 GetOrdProp
+
+: ME_5612880202C1
+ CONST UID '5612880202C1'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5612880202C1 aName
+
+: ME_561287F1013D
+ CONST UID '561287F1013D'
+ CONST Name 'GetStrProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_5612880202C1 // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_561287F1013D GetStrProp
+
+: ME_5612881E005B
+ CONST UID '5612881E005B'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5612881E005B aName
+
+: ME_5612881202CE
+ CONST UID '5612881202CE'
+ CONST Name 'HasProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5612881E005B // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5612881202CE HasProp
+
+: ME_5612883002F0
+ CONST UID '5612883002F0'
+ CONST Name 'RTTIInfo'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5612883002F0 RTTIInfo
+
+: ME_5612885C0322
+ CONST UID '5612885C0322'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5612885C0322 aName
+
+: ME_5612885C037C
+ CONST UID '5612885C037C'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_5612885C037C aValue
+
+: ME_5612884C014B
+ CONST UID '5612884C014B'
+ CONST Name 'SetFloatProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5612885C0322 // aName
+ ME_5612885C037C // aValue
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5612884C014B SetFloatProp
+
+: ME_561288840098
+ CONST UID '561288840098'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_561288840098 aName
+
+: ME_5612888400F2
+ CONST UID '5612888400F2'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_5612888400F2 aValue
+
+: ME_5612887002C3
+ CONST UID '5612887002C3'
+ CONST Name 'SetOrdProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_561288840098 // aName
+ ME_5612888400F2 // aValue
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5612887002C3 SetOrdProp
+
+: ME_561288AD02A8
+ CONST UID '561288AD02A8'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_561288AD02A8 aName
+
+: ME_561288AD02EE
+ CONST UID '561288AD02EE'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_561288AD02EE aValue
+
+: ME_5612889D0092
+ CONST UID '5612889D0092'
+ CONST Name 'SetStrProp'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_561288AD02A8 // aName
+ ME_561288AD02EE // aValue
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5612889D0092 SetStrProp
+
+: ME_642A786222EE
+ CONST UID '642A786222EE'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_642A786222EE Reg_TtfwContext
+
+: ME_463ABFC97F94
+ CONST UID '463ABFC97F94'
+ CONST Name 'Reg_TObject'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TObject' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_463ABFC97F94 Reg_TObject
+
+: ME_DB587D064E8A
+ CONST UID 'DB587D064E8A'
+ CONST Name 'Reg_TtfwStackValue'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwStackValue' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DB587D064E8A Reg_TtfwStackValue
+
+: ME_3D0D344E17D5
+ CONST UID '3D0D344E17D5'
+ CONST Name 'Reg_Boolean'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Boolean' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3D0D344E17D5 Reg_Boolean
+
+: ME_F74E72DF4A91
+ CONST UID 'F74E72DF4A91'
+ CONST Name 'Reg_String'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F74E72DF4A91 Reg_String
+
+: ME_ED586C4F59EE
+ CONST UID 'ED586C4F59EE'
+ CONST Name 'Reg_Integer'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Integer' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_ED586C4F59EE Reg_Integer
+
+: ME_22500349B1B6
+ CONST UID '22500349B1B6'
+ CONST Name 'Reg_IUnknown'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа IUnknown' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_22500349B1B6 Reg_IUnknown
+
+: ME_507698410297
+ CONST UID '507698410297'
+ CONST Name 'ObjectFromstackWords'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_561275A50363 // Inherits
+ ME_561276140246 // ClassName
+ ME_5612877900FD // GetFloatProp
+ ME_5612879D0254 // GetInterfaceProp
+ ME_561287BB03E6 // GetObjProp
+ ME_561287D60299 // GetOrdProp
+ ME_561287F1013D // GetStrProp
+ ME_5612881202CE // HasProp
+ ME_5612883002F0 // RTTIInfo
+ ME_5612884C014B // SetFloatProp
+ ME_5612887002C3 // SetOrdProp
+ ME_5612889D0092 // SetStrProp
+ ME_642A786222EE // Reg_TtfwContext
+ ME_463ABFC97F94 // Reg_TObject
+ ME_DB587D064E8A // Reg_TtfwStackValue
+ ME_3D0D344E17D5 // Reg_Boolean
+ ME_F74E72DF4A91 // Reg_String
+ ME_ED586C4F59EE // Reg_Integer
+ ME_22500349B1B6 // Reg_IUnknown
+ ]
+ ; // Operations
+ : Children
+   [ ME_695731F3434E // TObjectFromstackWordsResNameGetter
+ ME_C6231F1FCA26 // pop_Object_Inherits
+ ME_7B6D4B0B5715 // pop_Object_ClassName
+ ME_EDA57987A3B6 // pop_Object_GetFloatProp
+ ME_AB78BA187455 // pop_Object_GetInterfaceProp
+ ME_BA0E0748BC5D // pop_Object_GetObjProp
+ ME_AB11F1E6DB9D // pop_Object_GetOrdProp
+ ME_B3D2E54183FE // pop_Object_GetStrProp
+ ME_6EBCA1F985F5 // pop_Object_HasProp
+ ME_0725EE68AD3B // pop_Object_RTTIInfo
+ ME_529CD18EA056 // pop_Object_SetFloatProp
+ ME_A2938530A58A // pop_Object_SetOrdProp
+ ME_798893499F18 // pop_Object_SetStrProp
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" true
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_507698410297 ObjectFromstackWords

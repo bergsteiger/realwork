@@ -1,0 +1,161 @@
+// k2Const 47AC7B760263 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47AC7B760263
+
+FORWARD ME_47AC7BD90281
+
+: ME_47AC7BED00B6
+ CONST UID '47AC7BED00B6'
+ CONST Name 'k2_TransparentValue'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC7BD90281 // Tag Consts
+ ;
+ CONST Value 'Pred(High(Long))'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47AC7BED00B6 k2_TransparentValue
+
+: ME_47AC7BF501F2
+ CONST UID '47AC7BF501F2'
+ CONST Name 'k2_tiByIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC7BD90281 // Tag Consts
+ ;
+ CONST Value 'Succ(l3_siNative)'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47AC7BF501F2 k2_tiByIndex
+
+: ME_47AC7BFD0264
+ CONST UID '47AC7BFD0264'
+ CONST Name 'k2_tiSelfID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC7BD90281 // Tag Consts
+ ;
+ CONST Value 'Succ(k2_tiByIndex)'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47AC7BFD0264 k2_tiSelfID
+
+: ME_47AC7C0401A0
+ CONST UID '47AC7C0401A0'
+ CONST Name 'k2_tiVoid'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC7BD90281 // Tag Consts
+ ;
+ CONST Value 'k2_tiSelfID'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47AC7C0401A0 k2_tiVoid
+
+: ME_47AC7C0E0306
+ CONST UID '47AC7C0E0306'
+ CONST Name 'k2_tiMask'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC7BD90281 // Tag Consts
+ ;
+ CONST Value 'Succ(k2_tiSelfID)'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47AC7C0E0306 k2_tiMask
+
+: ME_484FE2A301FF
+ CONST UID '484FE2A301FF'
+ CONST Name 'k2_tiNative'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC7BD90281 // Tag Consts
+ ;
+ CONST Value 'l3_siNative'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_484FE2A301FF k2_tiNative
+
+: ME_47AC7BD90281
+ CONST UID '47AC7BD90281'
+ CONST Name 'Tag Consts'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47AC7B760263 // k2Const
+ ;
+ : Attributes
+   @ ( ME_47AC7BED00B6 // k2_TransparentValue
+ ME_47AC7BF501F2 // k2_tiByIndex
+ ME_47AC7BFD0264 // k2_tiSelfID
+ ME_47AC7C0401A0 // k2_tiVoid
+ ME_47AC7C0E0306 // k2_tiMask
+ ME_484FE2A301FF // k2_tiNative
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47AC7BD90281 Tag Consts
+
+: ME_47AC7B760263
+ CONST UID '47AC7B760263'
+ CONST Name 'k2Const'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Constants
+   @ ( ME_47AC7BD90281 // Tag Consts
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '24.09.1998 12:09'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Const.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47AC7B760263.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47AC7B760263.pas.ms.script.runner'
+
+ref; // ME_47AC7B760263 k2Const

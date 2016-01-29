@@ -1,0 +1,122 @@
+<<MDALibrary>> SettingsLib
+ %UID '48C8B810028D'
+ %SUMMARY 'библиотека шаблонов для поддержки настроек' ;
+ %DEPENDS
+  U$ '46E801C00348' /* Core */
+  U$ '4773963E021D' /* AllGenerators */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '46E801C00348' /* Core */
+  U$ '4773963E021D' /* AllGenerators */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<MDALayer>> SettingsLayer
+   %UID '489FD5120186'
+   %SUMMARY 'Набор стереотипов для генерации настроек и работы с ними' ;
+   %DEPENDS
+    U$ '46E80398003B' /* "Abstract" */
+    U$ '4773969402E9' /* СppGens */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E801C00348' /* Core */
+    U$ '4773963E021D' /* AllGenerators */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDAClass>> Settings
+      %UID '48A27E2101E1'
+      %SUMMARY 'Настройки' ;
+      %META
+       %upv "personal label" 'code_settings'
+       %upv "visualization bg color" 2154415
+       %upv "visualization f-font color" 0
+       %upv "visualization f-line color" 37632
+       %upv "visualization font color" 0
+       %upv "visualization line color" 0
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4773963E021D' /* AllGenerators */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47022C670251' /* "C++ интерфейсы и реализация" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '471723E1037A' /* WikiImplClass */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47022C88029F' /* h */
+       U$ '47022CB8034B' /* cpp */
+       U$ '47022CCF00EA' /* i.h */
+       U$ '4704C0E30186' /* constraint */
+      ; // %REALIZES
+      %OPERATIONS
+       <<Operation>> check_duplicate_attr OBJECT IN %S
+        %UID '48B692B502E0'
+        %SUMMARY 'Проверяем, что во всем множетсве настроек нет дублирующихся имен параметров' ;
+       ; // check_duplicate_attr
+       <<transformator>> direct_access OBJECT IN %S
+        %UID '4929B2E70086'
+        %SUMMARY 'возвращает true если тип на прямую поддерживается ParamManager-ом' ;
+       ; // direct_access
+      ; // %OPERATIONS
+      %CHILDREN
+       
+       <<MDAAttribute>> Parameters
+        %UID '48A27E7F0092'
+        %SUMMARY 'конкретный параметр доступный через настройки' ;
+        %META
+         %upv "personal label" 'code_settings_param'
+         %upv "unstereotyped" true
+         %upv "visability type" '+'
+        ; // %META
+        %ATTRIBUTES
+         <<bool>> is_required
+          %UID '48EF456400D6'
+          %SUMMARY 'Признак обязательного параметра' ;
+         ; // is_required
+         <<bool>> "in config"
+          %UID '493F5C2701F3'
+          %SUMMARY 'Свойство определяет должен ли параметр попадать в файл настроек' ;
+          %VALUE true
+         ; // "in config"
+        ; // %ATTRIBUTES
+        %OPERATIONS
+         <<Operation>> print_usage$492A93F303C8
+          %UID '492A93F303C8'
+          %SUMMARY 'генерит код для вывода описания параметра в стандартный поток' ;
+         ; // print_usage$492A93F303C8
+         <<Operation>> dump_cast$492B81C90201
+          %UID '492B81C90201'
+          %SUMMARY 'генерит приведение типа, если оно необходимо' ;
+         ; // dump_cast$492B81C90201
+         <<Operation>> complex_return$492B824000C5
+          %UID '492B824000C5'
+          %SUMMARY 'генерирует код возврата для типов на прямую не поддержиыаемых ParamМanаger-ом' ;
+         ; // complex_return$492B824000C5
+         <<Operation>> complex_set$492B82430369
+          %UID '492B82430369'
+          %SUMMARY 'генерирует код установки значения для типов на прямую не поддержиыаемых ParamМanаger-ом' ;
+         ; // complex_set$492B82430369
+         <<Operation>> dump_get_impl$492B9F400206
+          %UID '492B9F400206'
+          %SUMMARY 'генерит реализацию метода get для получения значения параметра' ;
+         ; // dump_get_impl$492B9F400206
+         <<Operation>> dump_set_impl$492B9F7001FA
+          %UID '492B9F7001FA'
+          %SUMMARY 'генерит реализациб метода set ля установки значения параметра' ;
+         ; // dump_set_impl$492B9F7001FA
+         <<Operation>> in_config$493F5C8F02AF
+          %UID '493F5C8F02AF'
+          %SUMMARY 'Функция возвращает true, если параметр может попадать в файл настроек, иначе - false' ;
+         ; // in_config$493F5C8F02AF
+        ; // %OPERATIONS
+       ; // Parameters
+      ; // %CHILDREN
+     ; // Settings
+     [EXPORT] <<Settings>>
+   ; // %CHILDREN
+  ; // SettingsLayer
+ ; // %CHILDREN
+; // SettingsLib

@@ -1,0 +1,210 @@
+uses
+  common;
+
+const
+  UNIT_NAME = 'ProjectWork';
+        
+  
+// Возвращает имя текущего проекта  
+function PW_GetProjectName : String;
+  const
+    FUNCTION_NAME = 'PW_GetProjectName';
+begin
+  try
+    Result := aqFileSystem.GetFileName(Project.FileName);
+    if Pos('.', Result) <> 0 then Raise(Result); // эта проверка чтобы узнать что GetFileName заработала как описано в хелпе
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+
+var
+  gbl_PWGetIntegration : OleVariant;
+
+// Возвращает объект Integration того что скорее всего выполняет данный скрипт
+function PW_GetIntegration : OleVariant;
+  const
+    FUNCTION_NAME = 'PW_GetIntegration';
+  var
+    oApp, oInt;
+    arrData;
+    i;
+begin
+  try
+    if VarType(gbl_PWGetIntegration) = varEmpty then
+    begin
+      arrData := [
+        (['TestComplete', 'TestComplete.TestCompleteApplication.6']),
+        (['TestExecute', 'TestExecute.TestExecuteApplication.6'])        
+      ];      
+      //
+      for i := VarArrayLowBound(arrData, 1) to VarArrayHighBound(arrData, 1) do
+        if Sys.WaitProcess(arrData[i][0], 1).Exists then
+        begin
+          try
+            oApp := Sys.OleObject(arrData[i][1]);
+          except
+            continue;
+          end;
+          oInt := oApp.Integration;
+          // проверяем что выполняется данный проект
+          if oInt.IsRunning AND (ProjectSuite.FileName = oInt.ProjectSuiteFileName) then
+          begin
+            gbl_PWGetIntegration := oInt;
+            break;
+          end;          
+        end;          
+    end;
+    //
+    Result := gbl_PWGetIntegration;        
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+
+
+const
+  PD_UNITS = 1;
+  PD_ALL_ROUTINES = 2;
+var
+  gbl_ProjectData : OleVariant;
+  
+// Возвращает структуру данных с информацией о проекте.   
+function PW_GetProjectData : OleVariant;
+  const
+    FUNCTION_NAME = 'PW_InitIfNotInitialized';
+  var
+    oRoutineIter, oSR;
+    oUnits, oAllRoutines;   
+begin
+  try
+    if VarType(gbl_ProjectData) = varEmpty then
+    begin
+      // создаем структуры данных
+      gbl_ProjectData := Sys.OleObject('Scripting.Dictionary');
+      gbl_ProjectData.Add(PD_UNITS, Sys.OleObject('Scripting.Dictionary'));
+      oUnits := gbl_ProjectData[PD_UNITS];
+      oUnits.CompareMode := 1;   
+      gbl_ProjectData.Add(PD_ALL_ROUTINES, Sys.OleObject('Scripting.Dictionary'));
+      oAllRoutines := gbl_ProjectData[PD_ALL_ROUTINES];
+      oAllRoutines.CompareMode := 1;      
+      // получаем итератор по функциям проекта        
+      oRoutineIter := PW_GetIntegration.ProjectRoutinesIterator[PW_GetProjectName];
+      // заносим информацию о функциях в структуру данных
+      while oRoutineIter.HasNext do
+      begin    
+        oSR := oRoutineIter.Next;
+        //
+        if NOT oUnits.Exists(oSR.UnitName) then
+        begin
+          oUnits.Add(oSR.UnitName, Sys.OleObject('Scripting.Dictionary'));
+          oUnits.Item[oSR.UnitName].CompareMode := 1;
+        end;
+        oUnits.Item[oSR.UnitName].Add(oSR.Name, oSR);
+        //
+        oAllRoutines.Add(oSR.UnitName + '.' + oSR.Name, oSR); 
+      end;      
+    end;
+    Result := gbl_ProjectData;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+
+// Возвращает массив с именами модулей в данном проекте    
+function PW_GetUnits : OleVariant;
+  const
+    FUNCTION_NAME = 'PW_GetUnits';
+begin
+  try 
+    Result := PW_GetProjectData[PD_UNITS].Keys;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+
+// Говорит существует ли в проекте функция
+function PW_IsRoutineExists(
+  const sFullRoutineName : String // полное имя функци
+) : Boolean;
+  const
+    FUNCTION_NAME = 'PW_IsRoutineExists'; 
+begin
+  try
+    Result := PW_GetProjectData[PD_ALL_ROUTINES].Exists(sFullRoutineName); 
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+
+// Говорит сколько параметров у указанной функции
+function PW_GetRoutineParamCount(
+  const sFullRoutineName : String // полное имя функции 
+) : Integer;
+  const
+    FUNCTION_NAME = 'PW_GetRoutineParamCount';
+begin
+  try
+    Result := PW_GetProjectData[PD_ALL_ROUTINES][sFullRoutineName].ParamCount;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+  
+// Вызывает функции инициализации модулей в соответствии с заданным порядком.
+procedure PW_CallInitializationRoutines;
+  const
+    FUNCTION_NAME = 'PW_CallInitializationRoutines';
+    INIT_ROUTINE = '_Initialization';
+    INIT_ORDER_ROUTINE = '_InitializationOrder';
+  var
+    arrUnits, arrInitRoutines : OleVariant;
+    i, iInitOrder : Integer;
+    sUnitName, sFullInitName, sFullInitOrderName : String;          
+begin
+  try 
+    arrUnits := PW_GetUnits;
+    //
+    arrInitRoutines := CreateVariantArray(VarArrayLowBound(arrUnits, 1), VarArrayHighBound(arrUnits, 1));
+    for i := VarArrayLowBound(arrUnits, 1) to VarArrayHighBound(arrUnits, 1) do
+    begin
+      sUnitName := arrUnits[i];
+      sFullInitName := sUnitName + '.' + INIT_ROUTINE;
+      //
+      if PW_IsRoutineExists(sFullInitName) then
+      begin
+        sFullInitOrderName := sUnitName + '.' + INIT_ORDER_ROUTINE;
+        // если есть функций возвращающая порядок инициализации, то вызываем ее чтобы получить его 
+        if PW_IsRoutineExists(sFullInitOrderName) then
+          iInitOrder := Runner.CallMethod(sFullInitOrderName)
+        else
+          iInitOrder := Win32API.MAXLONG;
+        //  
+        arrInitRoutines[i] := [iInitOrder, sFullInitName];
+      end
+      else
+        arrInitRoutines[i] := [0, '']; 
+    end;
+    // сортируем имена функций в соответствии с порядком
+    SortArrayEx(arrInitRoutines, 'y[0] > x[0]');
+    // вызываем функции инициализации
+    for i := VarArrayLowBound(arrInitRoutines, 1) to VarArrayHighBound(arrInitRoutines, 1) do
+      if arrInitRoutines[i][1] <> '' then
+         Runner.CallMethod(arrInitRoutines[i][1]);     
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;

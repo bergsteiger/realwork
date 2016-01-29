@@ -1,0 +1,54 @@
+// TkwTemporaryCompiledCode 52DFE4E403E7 SimpleClass Class
+
+INCLUDE '52D55D7B0178.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_52DFE4E403E7
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_ABA9D4CCEC6C
+ CONST UID 'ABA9D4CCEC6C'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwTemporaryCompiledCode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_ABA9D4CCEC6C Ini_Reg_Class
+
+: ME_52DFE4E403E7
+ CONST UID '52DFE4E403E7'
+ CONST Name 'TkwTemporaryCompiledCode'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Временный контейне скомпилированного кода, который умрёт после компиляции. На который нельзя держать "слабые" ссылки. Например как Caller' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52D55D7B0178 // TkwRuntimeWordWithCode
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_ABA9D4CCEC6C // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_52DFE48500BB // GetAsCaller
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52DFE4E403E7 TkwTemporaryCompiledCode

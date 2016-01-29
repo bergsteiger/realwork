@@ -1,0 +1,56 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_valgrind_tools <MPCXC_ROOT> <exe_tool_name> [<tool_parameters>]"
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+taoace_target=`$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/uname2target.rb`
+target=$taoace_target"_server_debug"
+
+if test "$taoace_target" = "" ; then
+echo "mpcxc_valgrind_tools: FATAL: target platform = $taoace_target not supported."
+exit
+fi	  
+
+target=$taoace_target"_static" # tools build configuration fixup
+
+export MPCXC_ROOT=$1
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path
+ace_config_path=$MPCXC_ROOT/src/common/templates/mpc/make/TAOACE
+export MPCXC_CONFIG="" # ensure no config
+export MPCXC_TARGET=$target
+
+export TAOACE_MPCXC_ROOT=$MPCXC_ROOT
+export TAOACE_MPCXC_TARGET=$taoace_target
+
+export ACE_ROOT=$TAOACE_MPCXC_ROOT/src
+export TAO_ROOT=$ACE_ROOT/TAO
+
+#export LOKI_ROOT="/home2/grigorio/samba2/2005-10-11"
+#export XERCES_ROOT="/home/grigorio/tuning/xerces-c-src_2_6_0"
+
+
+export PATH=/usr/local/gcc402/bin:/usr/local/gcc344/bin:/usr/local/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/gcc402/lib:/usr/local/gcc344/lib:/usr/local/lib:$MPCXC_ROOT/out/$MPCXC_TARGET/lib:$TAOACE_MPCXC_ROOT/out/$TAOACE_MPCXC_TARGET/lib:$XERCES_ROOT/lib:$LD_LIBRARY_PATH
+
+rm -f $MPCXC_ROOT/valgrind.log
+
+/usr/local/valgrind320/bin/valgrind \
+-v \
+--show-below-main=yes \
+--tool=memcheck \
+--show-reachable=no \
+--trace-children=yes \
+--leak-check=full \
+--leak-resolution=high \
+--num-callers=16 \
+--partial-loads-ok=no \
+--track-fds=yes \
+--log-file-exactly=$MPCXC_ROOT/valgrind.log \
+--suppressions=$MPCXC_SH/garant_server.mwc.valgrind_suppressions.txt \
+$MPCXC_ROOT/out/$target/bin/$2 $3 $4 $5 $6 $7 $8 $9
+
+

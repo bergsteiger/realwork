@@ -1,0 +1,1 @@
+rar a -r W:\common\components\rtl\Garant\all.rar W:\*.script W:\*.dict

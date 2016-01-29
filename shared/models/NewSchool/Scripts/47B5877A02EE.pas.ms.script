@@ -1,0 +1,35 @@
+// l3DataRefList 47B5877A02EE Impurity Class
+
+INCLUDE '47B5786C033A.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+: ME_47B5877A02EE
+ CONST UID '47B5877A02EE'
+ CONST Name 'l3DataRefList'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY '—писок ссылок на данные. ”правл€ет жизненным циклом указателей.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B5786C033A // l3RefList
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B2C42A0163 // AssignItem
+ ME_47B935AF0066 // FillItem
+ ME_47B94A5C006E // FreeItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47B5877A02EE l3DataRefList

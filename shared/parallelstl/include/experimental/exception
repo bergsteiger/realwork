@@ -1,0 +1,76 @@
+#pragma once
+
+#ifndef _EXCEPTION_LIST_H_
+#define _EXCEPTION_LIST_H_ 1
+
+#include <exception>
+#include <list>
+#include "impl/defines.h"
+
+_PSTL_NS1_BEGIN
+
+/// <summary>
+///     The exception_list is inteded to aggregate exceptions, 
+///     which can be later extracted and processed. 
+/// </summary>
+class exception_list : public exception
+{
+public:
+	typedef std::list<std::exception_ptr>::const_iterator iterator;
+
+	/// <summary>
+	///     Constructs a new <c>exception_list</c> object.
+	/// </summary>
+	/// <param name="_E">
+	///	   Captured exception
+	/// </param>
+	explicit exception_list(std::exception_ptr&& _E)
+	{
+		_Exception_list.push_back(std::forward<std::exception_ptr>(_E));
+	}
+
+	/// <summary>
+	///     Constructs a new <c>exception_list</c> object.
+	/// </summary>
+	/// <param name="_E">
+	///     List of captured exceptions
+	/// </param>
+	explicit exception_list(std::list<exception_ptr>&& _E) :
+		_Exception_list(std::forward<std::list<std::exception_ptr> >(_E))
+	{
+	}
+
+	/// <summary>
+	///     Get the number of exceptions.
+	/// </summary>
+	size_t size() const _NOEXCEPT
+	{
+		return _Exception_list.size();
+	}
+
+	/// <summary>
+	///     Returns the iterator to first exception in container.
+	/// </summary>
+	iterator begin() const _NOEXCEPT
+	{
+		return _Exception_list.begin();
+	}
+
+	/// <summary>
+	///     Returns the iterator to the end (element after last element).
+	/// </summary>
+	iterator end() const _NOEXCEPT
+	{
+		return _Exception_list.end();
+	}
+
+	virtual const char* what() const _NOEXCEPT override
+	{
+		return "std::experimental::parallel::exception_list";
+	}
+private:
+	std::list<std::exception_ptr> _Exception_list;
+};
+_PSTL_NS1_END // std::experimental::parallel
+
+#endif // _EXCEPTION_LIST_H_

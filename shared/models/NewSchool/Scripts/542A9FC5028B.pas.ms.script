@@ -1,0 +1,101 @@
+// m3ArcCla 542A9FC5028B UtilityPack Class
+
+FORWARD ME_542A9FC5028B
+
+INCLUDE '53FF2D7500EB.pas.ms.script'
+
+: ME_542A9FF7001B
+ CONST UID '542A9FF7001B'
+ CONST Name 'Tm3ArcInflateStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_53FF2D7500EB // Tm3BaseArcStream
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_542A9FF7001B Tm3ArcInflateStream
+
+: ME_542AA00C0250
+ CONST UID '542AA00C0250'
+ CONST Name 'Tm3ArcDeflateStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_53FF2D7500EB // Tm3BaseArcStream
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_542AA00C0250 Tm3ArcDeflateStream
+
+: ME_542AA02E0128
+ CONST UID '542AA02E0128'
+ CONST Name 'Tm3LZOInflateStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_542A9FF7001B // Tm3ArcInflateStream
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_542AA02E0128 Tm3LZOInflateStream
+
+: ME_542AA040007A
+ CONST UID '542AA040007A'
+ CONST Name 'Tm3LZODeflateStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_542AA00C0250 // Tm3ArcDeflateStream
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_542AA040007A Tm3LZODeflateStream
+
+: ME_542A9FC5028B
+ CONST UID '542A9FC5028B'
+ CONST Name 'm3ArcCla'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_542A9FF7001B // Tm3ArcInflateStream
+ ME_542AA00C0250 // Tm3ArcDeflateStream
+ ME_542AA02E0128 // Tm3LZOInflateStream
+ ME_542AA040007A // Tm3LZODeflateStream
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_542A9FC5028B m3ArcCla

@@ -1,0 +1,51 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 71.1.3.3 ***
+
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+Sub Main
+    Dim Result As Integer
+    Dim i%, value$
+    Dim ItemsNameArray (1 To 6) As String 'Названия первых 6-и элементов развернутого дерева
+    
+    ItemsNameArray (1) = "Документы, включенные за период с 22/01/2004 по 23/01/2004"
+    ItemsNameArray (2) = "Документы, подключенные с полной юридической обработкой"
+    ItemsNameArray (3) = "Документы, включенные за период с 21/01/2004 по 22/01/2004"
+    ItemsNameArray (4) = "Документы, подключенные с полной юридической обработкой"
+    ItemsNameArray (5) = "Документы, включенные за период с 11/01/2004 по 17/01/2004"    
+    ItemsNameArray (6) = "Документы, подключенные с полной юридической обработкой"
+
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE = ST_NONE_STANDART
+
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Обновление \ Новые документы
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Обновление", "Coords=62,12"
+  GenericObject Click, "Class=TMainMenuPanelNode;ClassIndex=4", "Coords=53,8"
+  
+'Переводим фокус на закладку навигатора "Новые документы"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+  
+'Раскрываем поочередно все элементы дерева
+  InputKeys "{DOWN}{Num+}{DOWN}{DOWN}{Num+}{DOWN}{DOWN}{Num+}{DOWN}"
+ 
+'Проверяем что все дерево развернуто
+  Call CheckItemNames (ItemsNameArray, "{UP}", 5, 6)
+  
+'Разворачиваем все элементы кнопкой "Развренуть все"
+  Call Click_NavExpClps
+  'GenericObject Click, "Class=TvcmToolbar;ClassIndex=2", "Coords=9,10"
+  
+'Проверяем, что все узлы остались развернутыми
+  InputKeys "{DOWN}"
+  Call CheckItemNames (ItemsNameArray, "{DOWN}", 0, 6)
+ 
+'Проверяем проявляется ли ошибка в тестовой базе (делаем 2-а скрина)
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=WinText;ExpectedResult=FAIL")
+  Result = ListBoxVP (CompareImage, "ObjectIndex=1", "VP=Nav;ExpectedResult=FAIL")
+End Sub

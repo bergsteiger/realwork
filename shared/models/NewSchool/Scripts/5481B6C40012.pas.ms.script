@@ -1,0 +1,69 @@
+// eeConst 5481B6C40012 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5481B6C40012
+
+FORWARD ME_54817F3503D2
+
+: ME_54817F4402A1
+ CONST UID '54817F4402A1'
+ CONST Name 'ee_SubAutoID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54817F3503D2 // eeInterfaces Const
+ ;
+ CONST Value '-3'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_54817F4402A1 ee_SubAutoID
+
+: ME_54817F3503D2
+ CONST UID '54817F3503D2'
+ CONST Name 'eeInterfaces Const'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5481B6C40012 // eeConst
+ ;
+ : Attributes
+   @ ( ME_54817F4402A1 // ee_SubAutoID
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_54817F3503D2 eeInterfaces Const
+
+: ME_5481B6C40012
+ CONST UID '5481B6C40012'
+ CONST Name 'eeConst'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
+ ;
+ : Constants
+   @ ( ME_54817F3503D2 // eeInterfaces Const
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeConst.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5481B6C40012.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5481B6C40012.pas.ms.script.runner'
+
+ref; // ME_5481B6C40012 eeConst

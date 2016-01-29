@@ -1,0 +1,337 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/Feature.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$CoreTemplates::CoreTemplates::RequirementsLib::Requirements::Feature
+//
+// Возможность
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Feature::Class
+implementation @ <<Feature>>
+//? Возможность
+//> Feature::Class
+
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a ra
+// - тип абстракции
+//Y feature.gif
+//L feature
+// Параметры визуализации
+//$ C 195,245,175
+//$ l 10,195,10
+//$ f 10,195,10
+//$ i i
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47047810029F*
+//c                              {}
+//r {%S%f_by_self()=false&%S%f_by_children()=false&%S%f_by_parent()=false}: {%SS долен реализовывать как минимум один UserNeeds}
+//r {"<{}{%GS!=Feature}{C}>"!="0"}: {%SS может наследоваться только от других %SS}
+
+//%f _by_self
+; // constraint
+
+: by_self OBJECT IN %S
+//	[{<{}{%RS=UserNeeds}{C}>=0}{true}false]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |S ) %== 'UserNeeds' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %== 0 ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+
+//%f _by_children
+; // by_self
+
+: by_children OBJECT IN %S
+//	[{%Cx=true}{false}[{<{}{%C%f_by_self()=false&%C%f_by_children()=false}{C}>=0}{false}true]]
+ if ( ( %C |x ) %==  true ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C %f by_self %( )% ) %==  false AND 
+     ( ( %C %f by_children %( )% ) %==  false  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %== 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//%f _by_parent
+; // by_children
+
+: by_parent OBJECT IN %S
+//	[{%PS=%SS}{false}[{%P%f_by_self()=true|%P%f_by_parent()=true}{false}true]]
+ if ( ( %P |S ) %== ( %S |S ) ) then
+ begin
+  if ( ( %P %f by_self %( )% ) %==  true OR 
+    ( ( %P %f by_parent %( )% ) %==  true  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4704C0E30186for47047810029F*
+; // by_parent
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47047810029F*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[{%Rx=true}
+ if ( ( %R |x ) %==  true ) then
+ begin
+  #13#10
+
+//	{info}Решает проблему:
+  '{info}Решает проблему:'
+//	<* %f_k_link_wp(%R,%S)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if true then
+   begin
+    '* '
+    [%f] k_link_wp %( %R %, %S )% 
+//	>{info}][{%Lx=true|%Gx=true}
+
+    ++! l_Counter
+   end // if
+  end // for R
+  '{info}' 
+ end // if
+ if ( ( %L |x ) %==  true OR 
+   ( ( %G |x ) %==  true  ) ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{info}Реализована [{%Gx=true}базовой возможностью][{%Gx=true&%Lx=true} и ][{%Lx=true}прецедентом]:
+  '{info}Реализована '
+  if ( ( %G |x ) %==  true ) then
+  begin
+   'базовой возможностью' 
+  end // if
+  if ( ( %G |x ) %==  true AND 
+    ( ( %L |x ) %==  true  ) ) then
+  begin
+   ' и ' 
+  end // if
+  if ( ( %L |x ) %==  true ) then
+  begin
+   'прецедентом' 
+  end // if
+  ':'
+//	<* %f_k_link_wp(%G,%S)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    '* '
+    [%f] k_link_wp %( %G %, %S )% 
+//	><* %f_k_link_wp(%L,%S)
+
+    ++! l_Counter
+   end // if
+  end // for G
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%L
+  begin
+   OBJECT IN %L
+   if true then
+   begin
+    '* '
+    [%f] k_link_wp %( %L %, %S )% 
+//	>{info}][{%Lx=false&%Gx=false}[{%Cx=false}
+
+    ++! l_Counter
+   end // if
+  end // for L
+  '{info}' 
+ end // if
+ if ( ( %L |x ) %==  false AND 
+   ( ( %G |x ) %==  false  ) ) then
+ begin
+  if ( ( %C |x ) %==  false ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{warning}Возможность не реализованна!
+   '{warning}Возможность не реализованна!'
+//	{warning}][{%Cx=true}
+   '{warning}' 
+  end // if
+  if ( ( %C |x ) %==  true ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{tip}Реализацию возможности смотрите в ее вложеных подвозможностях
+   '{tip}Реализацию возможности смотрите в ее вложеных подвозможностях'
+//	{tip}]][{%Zx=true}
+   '{tip}' 
+  end // if
+ end // if
+ if ( ( %Z |x ) %==  true ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{tip}Использована в качестве основы для:
+  '{tip}Использована в качестве основы для:'
+//	<* %f_k_link_wp(%Z,%S)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Z
+  begin
+   OBJECT IN %Z
+   if true then
+   begin
+    '* '
+    [%f] k_link_wp %( %Z %, %S )% 
+//	>{tip}][{%mx=true&%Cx=true}
+
+    ++! l_Counter
+   end // if
+  end // for Z
+  '{tip}' 
+ end // if
+ if ( ( %m |x ) %==  true AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма элемента:_
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%m
+  begin
+   OBJECT IN %m
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( '----'#13#10 )
+    '_'
+    if ( ( %m |N ) %!= 'Main' ) then
+    begin
+     %m |N 
+    end // if
+    else
+    begin
+     'Основная' 
+    end // else
+    ' диаграмма элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+    [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+    %m |U '.jpg}'
+//	>]<%CX>
+
+    ++! l_Counter
+   end // if
+  end // for m
+ end // if
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for47047810029F*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Feature>>
+

@@ -1,0 +1,104 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/KPageToolLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::KPageToolLib
+//
+// содержит логику чтения/записи страницы в К.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (KPageToolLib) : project_generic_core_corba {
+	sharedname = KPageToolLib
+	staticname = KPageToolLib
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	Header_Files {
+		Std_Headers {
+			./../KPageToolLib/LibHome.h
+		}
+	
+		Actions {
+			./../KPageToolLib/Actions/Actions.h
+			./../KPageToolLib/Actions/ActionsFactories.h
+		}
+	
+		ActionsImpl {
+			./../KPageToolLib/impl/ActionsImpl/ActionsImpl.h
+			./../KPageToolLib/impl/ActionsImpl/AddAttachmentAction.h
+			./../KPageToolLib/impl/ActionsImpl/AddAttachmentAction_factory.h
+			./../KPageToolLib/impl/ActionsImpl/AppendTextAction.h
+			./../KPageToolLib/impl/ActionsImpl/AppendTextAction_factory.h
+			./../KPageToolLib/impl/ActionsImpl/GetLabelAction.h
+			./../KPageToolLib/impl/ActionsImpl/GetLabelAction_factory.h
+			./../KPageToolLib/impl/ActionsImpl/GetTextAction.h
+			./../KPageToolLib/impl/ActionsImpl/GetTextAction_factory.h
+			./../KPageToolLib/impl/ActionsImpl/SetLabelAction.h
+			./../KPageToolLib/impl/ActionsImpl/SetLabelAction_factory.h
+			./../KPageToolLib/impl/ActionsImpl/SetTextAction.h
+			./../KPageToolLib/impl/ActionsImpl/SetTextAction_factory.h
+			./../KPageToolLib/impl/ActionsImpl/SourceFileHelper.h
+		}
+	
+		LibSupport {
+			./../KPageToolLib/Executor.h
+			./../KPageToolLib/Settings.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Actions {
+		}
+	
+		ActionsImpl {
+		}
+	
+		LibSupport {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../KPageToolLib/LibHome.cpp
+		}
+	
+		Actions {
+			./../KPageToolLib/Actions/Actions.cpp
+			./../KPageToolLib/Actions/ActionsFactories.cpp
+		}
+	
+		ActionsImpl {
+			./../KPageToolLib/impl/ActionsImpl/AddAttachmentAction.cpp
+			./../KPageToolLib/impl/ActionsImpl/AddAttachmentAction_factory.cpp
+			./../KPageToolLib/impl/ActionsImpl/AppendTextAction.cpp
+			./../KPageToolLib/impl/ActionsImpl/AppendTextAction_factory.cpp
+			./../KPageToolLib/impl/ActionsImpl/GetLabelAction.cpp
+			./../KPageToolLib/impl/ActionsImpl/GetLabelAction_factory.cpp
+			./../KPageToolLib/impl/ActionsImpl/GetTextAction.cpp
+			./../KPageToolLib/impl/ActionsImpl/GetTextAction_factory.cpp
+			./../KPageToolLib/impl/ActionsImpl/SetLabelAction.cpp
+			./../KPageToolLib/impl/ActionsImpl/SetLabelAction_factory.cpp
+			./../KPageToolLib/impl/ActionsImpl/SetTextAction.cpp
+			./../KPageToolLib/impl/ActionsImpl/SetTextAction_factory.cpp
+			./../KPageToolLib/impl/ActionsImpl/SourceFileHelper.cpp
+		}
+	
+		LibSupport {
+			./../KPageToolLib/Executor.cpp
+			./../KPageToolLib/Settings.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

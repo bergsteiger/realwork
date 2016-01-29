@@ -1,0 +1,697 @@
+<<Library>> Components
+ %UID '51DD5AB6022D'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '467A8734039C' /* EVD */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '472745450206' /* l3Units */
+  U$ '47540FF802AC' /* Orpheus */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '48EEE54C0072' /* EverestCommon */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '537B83AD01F0' /* l3Math */
+  U$ '54B90AC6014B' /* StringUtils */
+  U$ '561F9F7D02A7' /* ScriptEngine */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '47540FF802AC' /* Orpheus */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '48EEE54C0072' /* EverestCommon */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Views>> Tree$WithDnD
+   %UID '52DE57B200A5'
+   %DEPENDS
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '456F02A50196' /* BaseTreeSupport */
+    U$ '4570501E037A' /* Folders */
+    U$ '4570511E038A' /* Document */
+    U$ '469C688102A3' /* DataObjects */
+    U$ '469D0AC7005E' /* Types */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '4802FF41005C' /* DataObjects */
+    U$ '499C2614028C' /* Tree */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4797632D0273' /* Everest */
+    U$ '48EEE54C0072' /* EverestCommon */
+    U$ '490838AA02D0' /* Nemesis */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<GuiControl>> TnscTreeViewWithAdapterDragDrop
+      %UID '52DE57DF007B'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '490838AA02D0' /* Nemesis */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '499C26240034' /* TnscTreeView */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '52DD106403D3' /* DataObjectClass */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "52DE586D02EC"
+         %UID '52DE586D02EC'
+         %TARGET U$ '48F73BBD02B3' /* TnsEntitiesTreeDataObject */
+        ; // 52DE586D02EC
+        SUMMONED <<uses>> "8C6FC0BDDEAC"
+         %UID '8C6FC0BDDEAC'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // 8C6FC0BDDEAC
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '6CA2F64A2D31'
+         %SUMMARY 'Регистрация TnscTreeViewWithAdapterDragDrop' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TnscTreeViewWithAdapterDragDrop
+     <<SimpleClass>> TnsNodeStorable
+      %UID '468271030094'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48F4D8230366' /* TevNodeStorable */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48F494F102DD' /* GetAddress */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "52EBD7C800C5"
+         %UID '52EBD7C800C5'
+         %TARGET U$ '45EEDC6F01D7' /* FoldersItemType */
+        ; // 52EBD7C800C5
+        <<uses>> "52EBD7CA03CF"
+         %UID '52EBD7CA03CF'
+         %TARGET U$ '45EEB65202A0' /* Bookmark */
+        ; // 52EBD7CA03CF
+        <<uses>> "52EBD7CC02A4"
+         %UID '52EBD7CC02A4'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 52EBD7CC02A4
+        <<uses>> "52EBD7CE012A"
+         %UID '52EBD7CE012A'
+         %TARGET U$ '456EB3E10177' /* EntityBase */
+        ; // 52EBD7CE012A
+        <<uses>> "52EBD7D0003E"
+         %UID '52EBD7D0003E'
+         %TARGET U$ '456FE63B01D4' /* Node */
+        ; // 52EBD7D0003E
+        <<uses>> "52EBD7D10379"
+         %UID '52EBD7D10379'
+         %TARGET U$ '47C6B03200AF' /* IevSub */
+        ; // 52EBD7D10379
+        <<uses>> "52EBD7D40035"
+         %UID '52EBD7D40035'
+         %TARGET U$ '484AB26803DB' /* "Hyperlink Const" */
+        ; // 52EBD7D40035
+      ; // %LINKS
+     ; // TnsNodeStorable
+     <<SimpleClass>> TnsNodeDataObject
+      %UID '468270DC0341'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48F4DC5A018D' /* TevNodeDataObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48F8CD5401AD' /* DataClass */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "52EBD76D038E"
+         %UID '52EBD76D038E'
+         %TARGET U$ '468271030094' /* TnsNodeStorable */
+        ; // 52EBD76D038E
+      ; // %LINKS
+     ; // TnsNodeDataObject
+     <<SimpleClass>> TnsEntitiesTreeDataObject
+      %UID '48F73BBD02B3'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '48EEE54C0072' /* EverestCommon */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48F7014003A5' /* TevNodeData */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48F3495D0398' /* DoGetData */
+       U$ '48F349AE00F1' /* DoGetDataHere */
+       U$ '48F359680368' /* DoQueryGetData */
+       U$ '48F8D47302FD' /* ExtDataClass */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "52EBD77300B9"
+         %UID '52EBD77300B9'
+         %TARGET U$ '468270DC0341' /* TnsNodeDataObject */
+        ; // 52EBD77300B9
+        <<uses>> "52EBD77F0234"
+         %UID '52EBD77F0234'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 52EBD77F0234
+        <<uses>> "52EBD7820113"
+         %UID '52EBD7820113'
+         %TARGET U$ '456EB454018E' /* CanNotFindData */
+        ; // 52EBD7820113
+      ; // %LINKS
+     ; // TnsEntitiesTreeDataObject
+   ; // %CHILDREN
+  ; // Tree$WithDnD
+  <<Unit>> DocumentHistory
+   %UID '53D227F702DF'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'Admin, Monitorings'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '51DD5AB6022D' /* Components */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnscDocumentHistory
+      %UID '53D2281F0048'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '51DD5AB6022D' /* Components */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "53F703F600E0"
+         %UID '53F703F600E0'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 53F703F600E0
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_List
+         %UID '53D228740264'
+         %TARGET U$ '47BB29D40117' /* Tl3LongintList */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_List
+        PRIVATE <<Attribute>> f_Listeners
+         %UID '55E6CD4600DC'
+         %TARGET U$ '55E6CD1903BE' /* TnscDocumentHistoryListenerList */
+         %TOBEINCLUDED
+          U$ '51DD5AB6022D' /* Components */
+         ; // %TOBEINCLUDED
+        ; // f_Listeners
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> AddDocument
+         %UID '53D229400300'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53D2294A03B2'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aDocId
+               %UID '53D2295103BB'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aDocId
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AddDocument
+        FINAL <<method>> HasDocument
+         %UID '53D2295603BA'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53D229600035'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aDocId
+               %UID '53D2296902FB'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aDocId
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // HasDocument
+        FINAL <<method>> AddListener
+         %UID '55E6CD570088'
+         %TOBEINCLUDED
+          U$ '51DD5AB6022D' /* Components */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55E6CD6200CB'
+            %TOBEINCLUDED
+             U$ '51DD5AB6022D' /* Components */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aListener
+               %UID '55E6CD6F00C7'
+               %TARGET U$ '55E6CC7C0362' /* InscDocumentHistoryListener */
+               %TOBEINCLUDED
+                U$ '51DD5AB6022D' /* Components */
+               ; // %TOBEINCLUDED
+              ; // aListener
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AddListener
+        FINAL <<method>> RemoveListener
+         %UID '55E6CD750386'
+         %TOBEINCLUDED
+          U$ '51DD5AB6022D' /* Components */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55E6CD570088' /* AddListener */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '02F3BFF08FC5'
+            %TOBEINCLUDED
+             U$ '51DD5AB6022D' /* Components */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aListener
+               %UID '0D765873E350'
+               %TARGET U$ '55E6CC7C0362' /* InscDocumentHistoryListener */
+               %TOBEINCLUDED
+                U$ '51DD5AB6022D' /* Components */
+               ; // %TOBEINCLUDED
+              ; // aListener
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RemoveListener
+        PRIVATE FINAL <<method>> NotifyListeners
+         %UID '55E6CD920105'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '970464BAA437'
+            %SUMMARY 'Сигнатура метода NotifyListeners' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // NotifyListeners
+        SUMMONED FINAL <<static>> Exists
+         %UID '522E6B1D4FB7'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Facet>> InscDocumentHistoryListener
+         %UID '55E6CC7C0362'
+         %OPERATIONS
+           ABSTRACT <<Operation>> NewDocumentInHistory
+            %UID '55E6CC91033A'
+           ; // NewDocumentInHistory
+         ; // %OPERATIONS
+        ; // InscDocumentHistoryListener
+        <<SimpleClass>> TnscDocumentHistoryListenerList
+         %UID '55E6CD1903BE'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '51DD5AB6022D' /* Components */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '47B57D630029' /* l3InterfacePtrList */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+         ; // %INHERITS
+         %ATTRIBUTES
+           PRIVATE ABSTRACT <<impurity_value>> ItemType
+            %UID '55E6CD3F01AE'
+            %TARGET U$ '55E6CC7C0362' /* InscDocumentHistoryListener */
+            %TOBEINCLUDED
+             U$ '51DD5AB6022D' /* Components */
+            ; // %TOBEINCLUDED
+           ; // ItemType
+         ; // %ATTRIBUTES
+        ; // TnscDocumentHistoryListenerList
+      ; // %CHILDREN
+     ; // TnscDocumentHistory
+   ; // %CHILDREN
+  ; // DocumentHistory
+  <<Views>> DocumentListTree
+   %UID '51D56E2A023C'
+   %DEPENDS
+    U$ '45700BFD0251' /* DynamicDocList */
+    U$ '457450470167' /* DynamicTree */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '472745450206' /* l3Units */
+    U$ '473C3BEE0334' /* l3Canvas */
+    U$ '476BE0350329' /* Styles */
+    U$ '476F78840219' /* Messages */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47D036150077' /* l3ControlsTypes */
+    U$ '47E246C90144' /* l3Trees */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '47ECB2870309' /* StyleTable */
+    U$ '48D21909003A' /* OvcConst */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '52DE57B200A5' /* Tree$WithDnD */
+    U$ '537B83AD01F0' /* l3Math */
+    U$ '53D227F702DF' /* DocumentHistory */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '47540FF802AC' /* Orpheus */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '51DD5AB6022D' /* Components */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<GuiControl>> TnscDocumentListTreeView
+      %UID '51D56E9F004B'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+       U$ '51DD5AB6022D' /* Components */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '55E6CC7C0362' /* InscDocumentHistoryListener */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '52DE57DF007B' /* TnscTreeViewWithAdapterDragDrop */
+      ; // %INHERITS
+      %REALIZES
+       U$ '55E6CC91033A' /* NewDocumentInHistory */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+       U$ '47D1602000C6' /* Create */
+       U$ '508F825303E4' /* DoOnGetItemStyle */
+       U$ '5152C7D50201' /* DoOnGetItemFont */
+       U$ '51D2DC290320' /* DoOnGetItemIndentEx */
+       U$ '51EEB81F017C' /* CanAcceptData */
+       U$ '543239ED008D' /* GetRealClientWidth */
+       U$ '5604EC1403A8' /* NeedAssignTreeStructFromHistory */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "51D6DA1300D6"
+         %UID '51D6DA1300D6'
+         %TARGET U$ '47D0368C0272' /* TvtViewOptions */
+        ; // 51D6DA1300D6
+        <<uses>> "51D6DEF0012E"
+         %UID '51D6DEF0012E'
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+        ; // 51D6DEF0012E
+        <<uses>> "51D7E49A0117"
+         %UID '51D7E49A0117'
+         %TARGET U$ '47ECBD5D03BB' /* "Msg Codes" */
+        ; // 51D7E49A0117
+        <<uses>> "51D7F9FB01B0"
+         %UID '51D7F9FB01B0'
+         %TARGET U$ '48D2191902CB' /* ActionCodes */
+        ; // 51D7F9FB01B0
+        <<uses>> "51DACF1201D8"
+         %UID '51DACF1201D8'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 51DACF1201D8
+        <<uses>> "51DBD281026D"
+         %UID '51DBD281026D'
+         %TARGET U$ '47F25741021C' /* l3Nodes */
+        ; // 51DBD281026D
+        <<uses>> "51DD80D3014F"
+         %UID '51DD80D3014F'
+         %TARGET U$ '47A066980016' /* l3MinMax */
+        ; // 51DD80D3014F
+        <<uses>> "51E01C110227"
+         %UID '51E01C110227'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 51E01C110227
+        <<uses>> "51E0215E0256"
+         %UID '51E0215E0256'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 51E0215E0256
+        <<uses>> "51E029F300E5"
+         %UID '51E029F300E5'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 51E029F300E5
+        <<uses>> "51E53E3C035F"
+         %UID '51E53E3C035F'
+         %TARGET U$ '49F048510365' /* evStyleTableTools */
+        ; // 51E53E3C035F
+        <<uses>> "51E53FC902B3"
+         %UID '51E53FC902B3'
+         %TARGET U$ '4727456300E7' /* Tl3Point */
+        ; // 51E53FC902B3
+        <<uses>> "51E54163036A"
+         %UID '51E54163036A'
+         %TARGET U$ '4799F84900DD' /* l3ScreenIC */
+        ; // 51E54163036A
+        <<uses>> "51E5423000C7"
+         %UID '51E5423000C7'
+         %TARGET U$ '476BE0660328' /* Standard */
+        ; // 51E5423000C7
+        <<uses>> "51EEBD820221"
+         %UID '51EEBD820221'
+         %TARGET U$ '45EEDB730265' /* DynList */
+        ; // 51EEBD820221
+        <<uses>> "531DAD1F00A9"
+         %UID '531DAD1F00A9'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+        ; // 531DAD1F00A9
+        SUMMONED <<uses>> "E2450C633764"
+         %UID 'E2450C633764'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // E2450C633764
+      ; // %LINKS
+      %ATTRIBUTES
+        <<property>> OnGetNodeType
+         %UID '51DC195E0142'
+         %TARGET U$ '51DC189502B6' /* TdltGetNodeTypeEvent */
+         %META
+          %upv "pm" true
+          %upv "reads field" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '51DD5AB6022D' /* Components */
+         ; // %TOBEINCLUDED
+        ; // OnGetNodeType
+        PRIVATE <<Attribute>> f_AllSelected
+         %UID '5209F808037E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_AllSelected
+        SUMMONED PRIVATE <<Attribute>> f_OnGetNodeType
+         %UID 'D1DE6DC1EE9E'
+         %SUMMARY 'Поле для свойства OnGetNodeType' ;
+         %TARGET U$ '51DC189502B6' /* TdltGetNodeTypeEvent */
+         %TOBEINCLUDED
+          U$ '51DD5AB6022D' /* Components */
+         ; // %TOBEINCLUDED
+        ; // f_OnGetNodeType
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED <<method>> GetCurrentText
+         %UID '51E01CC7023D'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51E01CDC0243'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetCurrentText
+        PRIVATE FINAL <<message>> WMGetText
+         %UID '51E00D2000A7'
+         %META
+          %upv "Message ID" 'WM_GetText'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> Msg
+            %UID '51E00DA20133'
+            %TARGET U$ '504F1A2302CE' /* TWMGetText */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Msg
+         ; // %PARAMETERS
+        ; // WMGetText
+        PRIVATE FINAL <<message>> WMGetTextLength
+         %UID '51E00DAD024C'
+         %META
+          %upv "Message ID" 'WM_GETTEXTLENGTH'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> Msg
+            %UID '51E00DC1006F'
+            %TARGET U$ '504F1A3900B2' /* TWMGetTextLength */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Msg
+         ; // %PARAMETERS
+        ; // WMGetTextLength
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '0AA787083C95'
+         %SUMMARY 'Регистрация TnscDocumentListTreeView' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Function>> TdltGetNodeTypeEvent
+         %UID '51DC189502B6'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '51DC19280230'
+            %TARGET U$ '47F213990332' /* TbsListNodeType */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anIndex
+               %UID '51DC1957024E'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIndex
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TdltGetNodeTypeEvent
+      ; // %CHILDREN
+     ; // TnscDocumentListTreeView
+   ; // %CHILDREN
+  ; // DocumentListTree
+ ; // %CHILDREN
+; // Components

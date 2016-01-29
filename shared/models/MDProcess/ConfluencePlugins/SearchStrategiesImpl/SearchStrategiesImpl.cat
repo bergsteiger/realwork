@@ -1,0 +1,1059 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "SearchStrategiesImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/SearchStrategiesImpl/AbstractSearchStrategy.java::478743B503BB")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/SearchStrategiesImpl|4787432C0004
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/SearchStrategiesImpl/AbstractSearchStrategy|478743B503BB::478743B503BB
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19026747096"))
+    quid       	"4787432C0004"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4787434D01B3"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::Search"
+	    quidu      	"474D3CA60168")
+	(object Visibility_Relationship
+	    quid       	"4787434F027B"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::SearchStrategies"
+	    quidu      	"474E78E20091")
+	(object Visibility_Relationship
+	    quid       	"478749DA0165"
+	    supplier   	"Logical View::external::ConfluenceSupport::bucket.core.actions"
+	    quidu      	"475E4578012C")
+	(object Visibility_Relationship
+	    quid       	"47874AC7024A"
+	    supplier   	"Logical View::external::JavaTypes::Lang"
+	    quidu      	"474D4C0101B0"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "AbstractSearchStrategy"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"abstract")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/SearchStrategiesImpl/AbstractSearchStrategy.java")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need unsorted less"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedImplement"
+		    value      	(value Text 
+|{"474D474E00BC":{"need_collect_children":"false"},"4755456B0065":{"need_collect_children":"false"}}
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"exclude")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*478743B503BB_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *478743B503BB_CUSTOM_IMPORT*¤import java.util.List;¤¤//#UC END# *478743B503BB_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*478743B503BB_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *478743B503BB_CUSTOM_CLASS_DEFINITION*¤//#UC END# *478743B503BB_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*478743B503BB_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *478743B503BB_CUSTOM_METHODS_AND_DATA*¤	¤	protected void addGroupSearchResult(String groupMark, PaginationSupport ps, List<?> result) {¤		PaginationSupport tmpPS = new PaginationSupport(ps.getCountOnEachPage());¤		tmpPS.setStartIndex(ps.getStartIndex());¤		tmpPS.setItems(result);¤		¤		SearchResult currentResult = SearchResult.Factory.make();¤		currentResult.setGroupMark(groupMark);¤		currentResult.setPaginationSupport(ps);¤		currentResult.setResult(tmpPS.getPage());¤		¤		getSearchResults().add(currentResult);¤	}¤	¤	protected PaginationSupport makeGroupPaginationSupport() {¤		return new PaginationSupport(10);¤	}¤	¤	//#UC END# *478743B503BB_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/SearchStrategiesImpl/AbstractSearchStrategy|478743B503BB
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*474D46ED03B5_474D4C8703CE_478743B503BB_BODY*"
+		    value      	(value Text 
+|//#UC START# *474D46ED03B5_474D4C8703CE_478743B503BB_BODY*¤		queryData_ = queryData;¤		//#UC END# *474D46ED03B5_474D4C8703CE_478743B503BB_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*478768C902B1_INIT_search_results*"
+		    value      	(value Text 
+|//#UC START# *478768C902B1_INIT_search_results*¤		return new java.util.ArrayList<ru.garant.MDProcess.ConfluencePlugins.Search.SearchResult> ();¤		//#UC END# *478768C902B1_INIT_search_results*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4787697800FD*"
+		    value      	(value Text 
+|//#UC START# *4787697800FD*¤		if(defaultSearchResult_ == null) {¤			defaultSearchResult_ = SearchResultFactoryManager.getInstance().make();¤			defaultSearchResult_.setGroupMark(DEFAULT_SEARCH_RESULT_KEY);¤			searchResults_.add(defaultSearchResult_);¤		}¤		return defaultSearchResult_;¤		//#UC END# *4787697800FD*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47C5435F0209*"
+		    value      	(value Text 
+|//#UC START# *47C5435F0209*¤		return queryData_;¤		//#UC END# *47C5435F0209*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4787699703A9*"
+		    value      	(value Text 
+|//#UC START# *4787699703A9*¤		for(SearchResult searchResult : searchResults_) {¤			if(searchResult.getGroupMark().equals(groupMark))¤				return searchResult;¤		}¤		return null;¤		//#UC END# *4787699703A9*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47C543730304*"
+		    value      	(value Text 
+|//#UC START# *47C543730304*¤		return searchResults_;¤		//#UC END# *47C543730304*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*478747E602D0_478743B503BB*"
+		    value      	(value Text 
+|//#UC START# *478747E602D0_478743B503BB*¤		return -1;¤		//#UC END# *478747E602D0_478743B503BB*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4787494601B6_478743B503BB_GET*"
+		    value      	(value Text 
+|//#UC START# *4787494601B6_478743B503BB_GET*¤		return getDefaultSearchResult().getPaginationSupport();¤		//#UC END# *4787494601B6_478743B503BB_GET*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4787494601B6_478743B503BB_SET*"
+		    value      	(value Text 
+|//#UC START# *4787494601B6_478743B503BB_SET*¤		getDefaultSearchResult().setPaginationSupport(paginationSupport);¤		//#UC END# *4787494601B6_478743B503BB_SET*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19026751039")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"DerivedOverload"
+		    value      	"{}"))
+	    quid       	"478743B503BB"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"478743CF01FC"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::SearchStrategies::SearchStrategy"
+		    quidu      	"474D46ED03B5"))
+	    operations 	(list Operations
+		(object Operation "get_default_search_result"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4787697800FD*"
+			    value      	(value Text 
+|//#UC START# *4787697800FD*¤		if(defaultSearchResult_ == null) {¤			defaultSearchResult_ = SearchResult.Factory.make();¤			defaultSearchResult_.setGroupMark(DEFAULT_SEARCH_RESULT_KEY);¤			searchResults_.add(defaultSearchResult_);¤		}¤		return defaultSearchResult_;¤		//#UC END# *4787697800FD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47874A17020D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010747636"))
+		    quid       	"4787697800FD"
+		    documentation 	"возвращает объект результатов поиска по умолчанию, используется в случае, когда не задана группировка результатов"
+		    result     	"SearchResult"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Protected"
+		    uid        	0
+		    quidu      	"47874A17020D")
+		(object Operation "get_search_result"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4787699703A9*"
+			    value      	(value Text 
+|//#UC START# *4787699703A9*¤		for(SearchResult searchResult : searchResults_) {¤			if(searchResult.getGroupMark().equals(groupMark))¤				return searchResult;¤		}¤		return null;¤		//#UC END# *4787699703A9*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47874A17020D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010748006"))
+		    quid       	"4787699703A9"
+		    documentation 	"возвращает объект результатов поиска по значению группировочного поля"
+		    parameters 	(list Parameters
+			(object Parameter "group_mark"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010748309"))
+			    quid       	"478769AD021F"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"SearchResult"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Protected"
+		    uid        	0
+		    quidu      	"47874A17020D")
+		(object Operation "get_query_data"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const,cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47C5435F0209*"
+			    value      	(value Text 
+|//#UC START# *47C5435F0209*¤		return queryData_;¤		//#UC END# *47C5435F0209*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"474C22A90245")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010748732"))
+		    quid       	"47C5435F0209"
+		    documentation 	"документация отсутствует"
+		    result     	"SearchQueryData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Protected"
+		    uid        	0
+		    quidu      	"474C22A90245")
+		(object Operation "get_search_results"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const,cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47C543730304*"
+			    value      	(value Text 
+|//#UC START# *47C543730304*¤		return searchResults_;¤		//#UC END# *47C543730304*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47876898011C")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010749110"))
+		    quid       	"47C543730304"
+		    documentation 	"документация отсутствует"
+		    result     	"SearhResultList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Protected"
+		    uid        	0
+		    quidu      	"47876898011C"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "query_data"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Readonly accessor"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"474C22A90245")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010746439"))
+		    quid       	"478744670388"
+		    type       	"SearchQueryData"
+		    quidu      	"474C22A90245"
+		    Containment 	"By Value")
+		(object ClassAttribute "default_search_result"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47874A17020D")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010746801"))
+		    quid       	"47876A2203E3"
+		    type       	"SearchResult"
+		    quidu      	"47874A17020D"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE
+	    nestedClasses 	(list nestedClasses
+		(object Class "NestedConstants"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010744261"))
+		    quid       	"47874C5B00FC"
+		    documentation 	" константы для поиска"
+		    stereotype 	"Constants"
+		    exportControl 	"Protected"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "DEFAULT_SEARCH_RESULT_KEY"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010744569"))
+			    quid       	"47874C670339"
+			    documentation 	" ключ стандартного поиска"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"
+			    initv      	"DEFAULT_SEARCH_RESULT_KEY"
+			    exportControl 	"Public"
+			    Containment 	"By Value")))
+		(object Class "SearhResultList"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19027052006"))
+		    quid       	"47876898011C"
+		    documentation 	" список результатов поиска"
+		    stereotype 	"List"
+		    exportControl 	"Private")))
+	(object Association "$UNNAMED$0"
+	    quid       	"478768B302C5"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010745777"))
+		    quid       	"478768B400C0"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::Search::SearchResult"
+		    quidu      	"47874A17020D"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"478768B400C2"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::SearchStrategiesImpl::AbstractSearchStrategy::SearhResultList"
+		    quidu      	"47876898011C"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"478768C900BE"
+	    roles      	(list role_list
+		(object Role "search_results"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Readonly accessor"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*478768C902B1_INIT_search_results*"
+			    value      	(value Text 
+|//#UC START# *478768C902B1_INIT_search_results*¤		return new java.util.ArrayList<ru.garant.MDProcess.ConfluencePlugins.Search.SearchResult> ();¤		//#UC END# *478768C902B1_INIT_search_results*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010747246"))
+		    quid       	"478768C902B1"
+		    label      	"search_results"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::SearchStrategiesImpl::AbstractSearchStrategy::SearhResultList"
+		    quidu      	"47876898011C"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$4"
+		    quid       	"478768C902B3"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::SearchStrategiesImpl::AbstractSearchStrategy"
+		    quidu      	"478743B503BB"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"478743920154"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchStrategies::SearchStrategy" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(873, 198)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(598, 166)
+			nlines     	1
+			max_width  	550
+			justify    	0
+			label      	"SearchStrategy")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(598, 116)
+			anchor     	10
+			nlines     	1
+			max_width  	550
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"474D46ED03B5"
+		    width      	568
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object Label @2
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"47876898011C"))
+		    location   	(1836, 780)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchStrategiesImpl::AbstractSearchStrategy::SearhResultList" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2049, 711)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6572835
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1843, 683)
+			nlines     	1
+			max_width  	412
+			justify    	0
+			label      	"SearhResultList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1843, 633)
+			anchor     	10
+			nlines     	1
+			max_width  	412
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    line_color 	6572835
+		    fill_color 	16777215
+		    quidu      	"47876898011C"
+		    width      	430
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchStrategiesImpl::AbstractSearchStrategy" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(888, 699)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(355, 505)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1066
+			justify    	0
+			label      	"• AbstractSearchStrategy")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(355, 455)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1066
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12842435
+		    quidu      	"478743B503BB"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(355, 567)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	7
+			max_width  	1063
+			justify    	1)
+		    width      	1084
+		    height     	512
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @5
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"478743CF01FC"
+		    client     	@4
+		    supplier   	@1
+		    vertices   	(list Points
+			(879, 442)
+			(875, 292))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$3" @6
+		    location   	(1631, 706)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"478768C900BE"
+		    roleview_list 	(list RoleViews
+			(object RoleView "search_results" @7
+			    Parent_View 	@6
+			    location   	(743, 7)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @8
+				Parent_View 	@7
+				location   	(1672, 653)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	382
+				justify    	0
+				label      	"-search_results"
+				pctDist    	0.203872
+				height     	54
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"478768C902B1"
+			    client     	@6
+			    supplier   	@3
+			    vertices   	(list Points
+				(1631, 706)
+				(1833, 708))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$4" @9
+			    Parent_View 	@6
+			    location   	(743, 7)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"478768C902B3"
+			    client     	@6
+			    supplier   	@4
+			    vertices   	(list Points
+				(1631, 706)
+				(1430, 704))
+			    line_style 	0)))))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"478743B503BB"))
+	    quid       	"47874A0C03E3"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchStrategiesImpl::AbstractSearchStrategy::NestedConstants" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1026, 231)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(249, 174)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1554
+			justify    	0
+			label      	"NestedConstants")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(249, 124)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1554
+			justify    	0
+			label      	"<<Constants>>")
+		    icon_style 	"Label"
+		    fill_color 	16119285
+		    quidu      	"47874C5B00FC"
+		    compartment 	(object Compartment
+			Parent_View 	@10
+			location   	(249, 289)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	1
+			max_width  	1540
+			justify    	1)
+		    width      	1572
+		    height     	238
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object Label @11
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"47874C5B00FC"))
+		    location   	(252, 147)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"protected")
+		(object Label @12
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"47876898011C"))
+		    location   	(318, 837)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::Search::SearchResult" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1680, 750)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(1542, 718)
+			nlines     	1
+			max_width  	276
+			justify    	0
+			label      	"SearchResult")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(1542, 668)
+			anchor     	10
+			nlines     	1
+			max_width  	276
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47874A17020D"
+		    width      	294
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchStrategiesImpl::AbstractSearchStrategy::SearhResultList" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(540, 762)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(322, 710)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"SearhResultList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(322, 660)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"47876898011C"
+		    width      	454
+		    height     	228
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @15
+		    location   	(1149, 755)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"478768B302C5"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @16
+			    Parent_View 	@15
+			    location   	(609, -7)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"478768B400C0"
+			    client     	@15
+			    supplier   	@13
+			    vertices   	(list Points
+				(1149, 755)
+				(1532, 751))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @17
+			    Parent_View 	@15
+			    location   	(609, -7)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"478768B400C2"
+			    client     	@15
+			    supplier   	@14
+			    vertices   	(list Points
+				(1149, 755)
+				(767, 759))
+			    line_style 	0)))))))

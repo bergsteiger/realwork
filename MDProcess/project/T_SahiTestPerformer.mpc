@@ -1,0 +1,57 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/T_SahiTestPerformer.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ExeTarget::Category>> MDProcess::SahiTestPerformer
+//
+// экзешник, контролирующая выполнение тестов sahi передающий результаты тестирования серверу
+// запуска тестов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_SahiTestPerformer) : project_generic_core_corba, project_subsystem_console {
+	exename = SahiTestPerformer
+	
+	includes += ../../
+	
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += SahiTestLib
+	libs  += SahiTestLib
+	after += FilePublishLib
+	libs  += FilePublishLib
+	after += BuildTestLib_cs
+	libs  += BuildTestLib_cs
+
+	
+	Header_Files {
+		Std_Headers {
+			
+		}
+	}
+	
+	Inline_Files {
+		Std_Inlines {
+			
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../SahiTestPerformer/SahiTestPerformer_main.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../SahiTestPerformer/SahiTestPerformer_vi.rc
+		./../SahiTestPerformer/SahiTestPerformer_vi.rch
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,1033 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/Integrated/Root/Project.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::Integrated::Root::Project
+//
+// Проект
+// ---
+// Рутовый элемент модели. Определяет основные проекты. Одна модель может определять несколько
+// проектов, определяя связи между ними.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Project::Category (redefinition)
+? Проект
+? Рутовый элемент модели. Определяет основные проекты. Одна модель может определять несколько проектов, определяя связи между ними.
+> ServerLibrary::Category
+> Library::Category
+> AdapterTarget::Category
+> ComTarget::Category
+> ExeTarget::Category
+> InstallerTarget::Category
+> AdapterTargetUnion::Category
+> WebLibrary::Category
+> TestLibrary::Category
+
+= CORBA IDL::MDAGenerator
+= Проектные файлы C++::MDAGenerator
+= COM::MDAGenerator
+= Проектные файлы Java::MDAGenerator
+= Дельфи-DLL Адаптер::MDAGenerator
+= Скрипт для сборки::MDAGenerator
+= C++ Фабрики::MDAGenerator
+= Delphi интерфейсы и реализация::MDAGenerator
+= Дельфи-DLL Адаптер проектные файлы::MDAGenerator
+= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+// Параметры визуализации
+$ C 195,245,195
+$ l 80,245,90
+$ f 80,245,90
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p create project:b=true ? определяет необходимость создания файла проекта (MWC)
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p package prefix:s=ru.garant ? префикс проекта (используется при генерации java-кода)
+p major version:s=1 ? Мажорный номер версии
+p minor version:s=0 ? Минорный номер версии
+p fix version:s=0 ? Номер багфикса
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+p build share:s ? название сетевой папки, куда будет собираться проект
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()[{"%S{create project}"!="%S{!create project}"}%f_up_prefix(%S) *create project* = *%S{create project}* - определяет необходимость создания файла проекта (MWC)
+	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+	][{"%S{package prefix}"!="%S{!package prefix}"}%f_up_prefix(%S) *package prefix* = *%S{package prefix}* - префикс проекта (используется при генерации java-кода)
+	][{"%S{major version}"!="%S{!major version}"}%f_up_prefix(%S) *major version* = *%S{major version}* - Мажорный номер версии
+	][{"%S{minor version}"!="%S{!minor version}"}%f_up_prefix(%S) *minor version* = *%S{minor version}* - Минорный номер версии
+	][{"%S{fix version}"!="%S{!fix version}"}%f_up_prefix(%S) *fix version* = *%S{fix version}* - Номер багфикса
+	][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+	][{"%S{build share}"!="%S{!build share}"}%f_up_prefix(%S) *build share* = *%S{build share}* - название сетевой папки, куда будет собираться проект
+	][{"%S{Full MDP}"!="%S{!Full MDP}"}%f_up_prefix(%S) *Full MDP* = *%S{Full MDP}* - поддержка полного контроля используемости определяемого MDP
+	][{"%S{full constraint}"!="%S{!full constraint}"}%f_up_prefix(%S) *full constraint* = *%S{full constraint}* - Включает полный контроль за правильностью использования элементов (например при включенной опции серванты не могут нигде использоваться, кроме своих вложенных типов)
+	][{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли проект неймспейсом
+	][{"%S{root path suffix}"!="%S{!root path suffix}"}%f_up_prefix(%S) *root path suffix* = *%S{root path suffix}* - определяет префикс пути вставляемый между рутовой дирректорией и всем компонентам входящими в проект
+	][{"%S{space key}"!="%S{!space key}"}%f_up_prefix(%S) *space key* = *%S{space key}* - идентификатор родительского спейса для генерации в MDKnow
+	][{"%S{space name}"!="%S{!space name}"}%f_up_prefix(%S) *space name* = *%S{space name}* - Название родительского спейса - при генерации будет выставленно в заданное (т.е. изменено при необходимости)
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических cpp-шников (например хидере реализации хранения)
+%f _specific_cpp_files_list
+//#UC START# *47EA208B0009for46E13AC200BB*
+//#UC END# *47EA208B0009for46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических хидеров (например хидере реализации хранения)
+%f _specific_h_files_list
+//#UC START# *47EA1ED00157for46E13AC200BB*
+//#UC END# *47EA1ED00157for46E13AC200BB*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является проектом
+%f _IsProject
+// возвращаемый результат: boolean
+//#UC START# *4F379BBA00BFfor46E13AC200BB*
+	true
+//#UC END# *4F379BBA00BFfor46E13AC200BB*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for46E13AC200BB*
+P
+C /[{%f_substr_from_begin(%SN,13)=Shared Delphi}{%SN}common]%S{root path suffix}
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	<%CX>
+//#UC END# *4705C54B01F4for46E13AC200BB*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for46E13AC200BB*
+= fctr.cpp
+//#UC END# *4705C5490109for46E13AC200BB*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor46E13AC200BB*
+= fctr.cpp
+//#UC END# *47022CB8034Bfor46E13AC200BB*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor46E13AC200BB*
+= fctr.cpp
+//#UC END# *47022C88029Ffor46E13AC200BB*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor46E13AC200BB*
+= fctr.cpp
+//#UC END# *47022CCF00EAfor46E13AC200BB*
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генерация файла экспорта определений для COM DLL (.def)
++ com.def
+//#UC START# *470320C1030Dfor46E13AC200BB*
+P
+C /%SN%S{root path suffix}/project
+	<%CX>
+//#UC END# *470320C1030Dfor46E13AC200BB*
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генерация файла опрделений для регистрации COM DLL (.rgs)
++ com.rgs
+//#UC START# *470320E002CEfor46E13AC200BB*
+= fctr.cpp
+//#UC END# *470320E002CEfor46E13AC200BB*
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генератор ODL-файла спецификации COM-интерфейса (.odl)
++ odl
+//#UC START# *47032097038Afor46E13AC200BB*
+= fctr.cpp
+//#UC END# *47032097038Afor46E13AC200BB*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for46E13AC200BB*
+= fctr.cpp
+//#UC END# *47022BBE0261for46E13AC200BB*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for46E13AC200BB*
+= fctr.cpp
+//#UC END# *47022C0F01E4for46E13AC200BB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor46E13AC200BB*
+P
+C %f_pas_PrjPath(%S)
+	<%CX>
+//#UC END# *49F5795900ECfor46E13AC200BB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor46E13AC200BB*
+//#UC END# *470F15B800CBfor46E13AC200BB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor46E13AC200BB*
+R  
+P
+C %f_pas_PrjPath(%S)
+O [{%f_substr_from_begin(%SN,13)=Shared Delphi}{%SN}common%f_cut_prefix(%SN,Shared Delphi)]_prj.info
+	%SN : %SS - %SD
+	version: %SA
+	<{\n}{}%CN : %CS - %CD%C<\n %CN : %CS - %CD%C<\n  %CN : %CS - %CD%C<\n   %CN[ : %CS] - %CD>>>>\
+	<%CX>
+//#UC END# *470F1571031Cfor46E13AC200BB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for46E13AC200BB*
+//#UC END# *477398E501C0for46E13AC200BB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for46E13AC200BB*
+//#UC END# *4774D2A20372for46E13AC200BB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for46E13AC200BB*
+P
+C %f_pas_PrjPath(%S)
+	<%CX>
+//#UC END# *55B8D28B0157for46E13AC200BB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for46E13AC200BB*
+P
+C %f_pas_PrjPath(%S)
+	<%CX>
+//#UC END# *55B8D2F80145for46E13AC200BB*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for46E13AC200BB*
+P
+C %f_pas_PrjPath(%S)
+	<%CX>
+//#UC END# *55B8DD9C0301for46E13AC200BB*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor46E13AC200BB*
+P
+C /%f_str_replace(%f_java_root(%S),%SR/,)/%f_str_replace(%S{package prefix},.,/)/%SN
+	<%CX>
+//#UC END# *470321C1038Afor46E13AC200BB*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for46E13AC200BB*
+= fctr.java
+//#UC END# *470321950119for46E13AC200BB*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor46E13AC200BB*
+= fctr.cpp
+//#UC END# *47032ED002DEfor46E13AC200BB*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor46E13AC200BB*
+= fctr.cpp
+//#UC END# *47032EC4032Cfor46E13AC200BB*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor46E13AC200BB*
+= fctr.cpp
+//#UC END# *470F152700FAfor46E13AC200BB*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер проектные файлы::MDAGenerator
+// MPC для TIE-обвязки (.mpc)
++ mpc.dll
+//#UC START# *470F252801D4for46E13AC200BB*
+= com.def
+//#UC END# *470F252801D4for46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor46E13AC200BB*
+P
+O [{"%S{create project}"="true"&"%X%MU"="%SU"}%SN.mwc]
+X X:/support/bin/mwc_comp.bat %So
+C /%SN%S{root path suffix}/project
+	%f_header(%S)
+	
+	workspace (%SN) {
+	[{%S{need UC}=true}	custom_projects {
+			%U[{_CUSTOM_PRJ}
+			]
+		}
+	]	static_projects {
+			cmdline += -ti lib:msvc90-lib-generic-static
+			cmdline += -static
+			
+			<{}{%SU!=%dU}{Sn}%d<{}{%t_target(%A)=false&%AN!=Core&%AN!=CoreSrv&%f_used_by_main(%A)=true}{%ASn}[%Ao
+			][%f_with_gen_id(mpc2,%Ao)
+			][%f_with_gen_id(mpc.dll,%Ao)
+			]>><{}{%t_target(%A)=false&%AN!=Core&%AN!=CoreSrv}{%A}[%Ao
+			][%f_with_gen_id(mpc2,%Ao)
+			][%f_with_gen_id(mpc.dll,%Ao)
+			]>
+			[{%S{need UC}=true}%U[{_STATIC_PRJ}
+			]
+			]w:/shared/project/Core.mpc
+			[{%f_has_tragets_with_server(%S)=true}w:/shared/project/CoreSrv_cs.mpc
+			w:/shared/project/CoreSrv.mpc
+			][{"<{}{"%CM"="TestSuite::Category"}{C}>"!="0"}w:/gtf/project/gtflib.mpc
+			]
+		}
+		<{}{%t_target(%C)=true}{%CSn}[{%f_is_dll_target(%C)=true}{%f_dump_exe_target(%C)}%f_dump_dll_target(%C)]
+		>[{%S{need UC}=true}
+		%U[{_STD_PRJ}
+		]]<%CX>
+	}
+	%f_footer(%S)
+//#UC END# *47031E41002Efor46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for46E13AC200BB*
+= mpc.dll
+//#UC END# *47031E850177for46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor46E13AC200BB*
+= fctr.cpp
+//#UC END# *471442BE033Cfor46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for46E13AC200BB*
+P
+I ;#UC START#
+J ;#UC END#
+C /%SN%S{root path suffix}/project
+//#UC END# *47031EDE0138for46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor46E13AC200BB*
+P
+C /%SN%S{root path suffix}/project
+//O [{<{}{%t_target(%C)=true}{C}>!=0}init_regestry.reg]
+//	REGEDIT4
+//	
+//	<{}{%t_tarGet(%C)=true}{Sn}\[HKEY_LOCAL_MACHINE\\SOFTWARE\\Garant\\%SN\\%CN\]
+//	"-GCMConfigFile"="%f_with_gen_id(s.ini,%So)"
+//	
+//	>
+	<{}{%t_target(%C)=true}{%C}%CX>
+//#UC END# *47031EA5002Efor46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor46E13AC200BB*
+= fctr.cpp
+//#UC END# *47031EF6005Dfor46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor46E13AC200BB*
+= fctr.cpp
+//#UC END# *47031F13004Efor46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for46E13AC200BB*
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+P
+C /%SN%S{root path suffix}/java/project
+	<%CX>
+//#UC END# *470322DF03A9for46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor46E13AC200BB*
+= Makejar.launch
+//#UC END# *47032262037Afor46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for46E13AC200BB*
+= Makejar.launch
+//#UC END# *470322910119for46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor46E13AC200BB*
+= Makejar.launch
+//#UC END# *47032220003Efor46E13AC200BB*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for46E13AC200BB*
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+P
+C /%SN%S{root path suffix}/java/src/etc
+	<%CX>
+//#UC END# *4703223D01A5for46E13AC200BB*
+
+// реализация абстрактного стереотипа Скрипт для сборки::MDAGenerator
+// Пускачь для скрипта (.bat)
++ ant.bat
+//#UC START# *47032FA101E4for46E13AC200BB*
+C /build_scripts/scriptset/%SN
+//O [{"%S{create project}"="true"&"%X%MU"="%SU"}%SN.bat]
+O [{"%S{create project}"="true"}%SN.bat]
+I rem BEGIN
+J rem END
+	@echo off& setlocal
+	
+	:main
+		:main.begin
+	
+			echo.
+	
+			pushd "\%~dp0"
+				set PROJECT=%f_to_upper(%SN)
+	
+				set PROJECT_MAJOR=%S{major version}
+				set PROJECT_MINOR=%S{minor version}
+
+				set PROJECT_SUFFIX=\%PROJECT\%-\%PROJECT_MAJOR\%_\%PROJECT_MINOR\%
+
+				set VERSION_MAJOR=0
+				set VERSION_MINOR=001
+	
+				set SUBINFO=MAIN-PART
+	
+				set LOGFILE=\%TEMP\%\\\%~nx0.log
+				set LOGFILE=\%LOGFILE:\\\\=\\\%
+	
+				set LOGGER=org.apache.tools.ant.NoBannerLogger
+	
+				set BUILDFILE=\%~0.xml
+				set BUILDFILE=\%BUILDFILE:\\\\=\\\%
+	
+				set BUILD_SHARE=[{}{%f_error("Property (build share) must be defined")}%S{build share}]
+				set BUILDARGS=-buildfile "\%BUILDFILE\%" -logfile "\%LOGFILE\%" -logger "\%LOGGER\%" -nouserlib -Dproperties.delphi.suffix=\%PROJECT\% -Denable-cppFinalBuild=1
+	
+				pushd "W:\\"
+	<{}{%DS=Project}[				ren "%DN" "%DN-UNKNOWN-X.XXX" 1\>nul 2\>&1& ren "%DN-\%PROJECT\%" "%DN" 1\>nul 2\>&1
+	]>				ren "%SN" "%SN-UNKNOWN-X.XXX" 1\>nul 2\>&1& ren "%SN-\%PROJECT\%" "%SN" 1\>nul 2\>&1
+				popd
+	
+				net use "N:" /delete /y 1\>nul 2\>&1
+				net use "N:" "\\\\10.0.1.155\\\%BUILD_SHARE\%" 1\>nul 2\>&1
+					pushd "N:\\deployment"
+						ren "!daily"           "!daily-UNKNOWN-X.XXX"           1\>nul 2\>&1& ren "!daily-\%PROJECT\%"           "!daily"           1\>nul 2\>&1
+						ren "!daily-installer" "!daily-UNKNOWN-X.XXX-installer" 1\>nul 2\>&1& ren "!daily-\%PROJECT\%-installer" "!daily-installer" 1\>nul 2\>&1
+						
+						rmdir "!daily-installer\\%SN" /S/Q 1>nul 2>&1
+						rmdir "!daily_new" /S/Q 1>nul 2>&1& mkdir "!daily_new"
+						copy /Y "!daily\\!cvs_tag" "!daily_new\\!cvs_tag"
+						copy /Y "!daily\\!success" "!daily_new\\!success"
+						rmdir "!daily" /S/Q 1\>nul 2\>&1
+						ren "!daily_new" "!daily" 1\>nul 2\>&1
+					popd
+					
+					call "..\\..\\updatever.bat" "N:\\deployment\\!daily\\!cvs_tag"
+				net use "N:" /delete /y 1\>nul 2\>&1
+	
+				set BUILD_PATH=\\\\10.0.1.155\\\%BUILD_SHARE\%\\deployment\\!daily-\%PROJECT\%
+				set CVS_TAG=T_\%PROJECT_SUFFIX\%_\%VERSION_MAJOR\%_\%VERSION_MINOR\%
+				set VERSION=\%VERSION_MAJOR\%.\%VERSION_MINOR\%
+				
+				if exist "\%LOGFILE\%" (del /f /q "\%LOGFILE\%" 1\>nul 2\>&1)
+	
+					call "..\\..\\buildmail.bat" "BUILD STARTED \[\%PROJECT_SUFFIX\%: \%SUBINFO\%\], CVS TAG \[\%CVS_TAG\%\]: don't use shared build targets while build not ended"
+					call "..\\..\\confbuild.bat" "start" "[{}{\%PROJECT\%}%S{space key}]" "\%CVS_TAG\%" "\%VERSION_MINOR\%" "\%VERSION_MAJOR\%" "\%BUILD_PATH\%"
+					
+					call "ant.bat" \%BUILDARGS\% -Dru.garant.extensions.properties.cvs_tag=\%CVS_TAG\% -Dru.garant.extensions.properties.version=\%PROJECT_MAJOR\%.\%PROJECT_MINOR\%.\%VERSION\% \%*
+					
+					set ANT_SUCCESS=0
+					if errorlevel 1 (
+						set ANT_SUCCESS=0
+					) else (
+						set ANT_SUCCESS=1
+					)
+	
+				net use "N:" /delete /y 1\>nul 2\>&1
+				net use "N:" "\\\\10.0.1.155\\\%BUILD_SHARE\%" 1\>nul 2\>&1
+					pushd "N:\\deployment"
+						ren "!daily-installer" "!daily-\%PROJECT\%-installer" 1\>nul 2\>&1& ren "!daily-UNKNOWN-X.XXX-installer" "!daily-installer" 1\>nul 2\>&1
+						ren "!daily"           "!daily-\%PROJECT\%"           1\>nul 2\>&1& ren "!daily-UNKNOWN-X.XXX"           "!daily"           1\>nul 2\>&1
+					popd
+				net use "N:" /delete /y 1\>nul 2\>&1
+				
+				if "\%ANT_SUCCESS\%" == "0" (
+					call "..\\..\\buildmail.bat" "BUILD FAILURE \[\%PROJECT_SUFFIX\%: \%SUBINFO\%\], CVS TAG \[\%CVS_TAG\%\]" "\%LOGFILE\%"
+					call "..\\..\\confbuild.bat" "failure" "[{}{\%PROJECT\%}%S{space key}]" "\%CVS_TAG\%" "\%VERSION_MINOR\%" "\%VERSION_MAJOR\%" "\%BUILD_PATH\%" "\%LOGFILE\%"
+				) else (
+					call "..\\..\\buildmail.bat" "BUILD SUCCESS \[\%PROJECT_SUFFIX\%: \%SUBINFO\%\], CVS TAG \[\%CVS_TAG\%\]" "\%LOGFILE\%"
+					call "..\\..\\confbuild.bat" "done" "[{}{\%PROJECT\%}%S{space key}]" "\%CVS_TAG\%" "\%VERSION_MINOR\%" "\%VERSION_MAJOR\%" "\%BUILD_PATH\%"
+				)
+				
+				if exist "\%LOGFILE\%" (del /f /q "\%LOGFILE\%" 1\>nul 2\>&1)
+				
+				pushd "W:\\"
+	<{}{%DS=Project}[				ren "%DN" "%DN-\%PROJECT\%" 1\>nul 2\>&1& ren "%DN-UNKNOWN-X.XXX" "%DN" 1\>nul 2\>&1
+	]>				ren "%SN" "%SN-\%PROJECT\%" 1\>nul 2\>&1& ren "%SN-UNKNOWN-X.XXX" "%SN" 1\>nul 2\>&1
+				popd
+			popd
+	
+			goto :main.end
+	
+		:main.end
+	
+	@endlocal& exit /b
+//#UC END# *47032FA101E4for46E13AC200BB*
+
+// реализация абстрактного стереотипа Скрипт для сборки::MDAGenerator
+// Скрипт для Ant'а (.xml)
++ ant.xml
+//#UC START# *47032F9601A5for46E13AC200BB*
+C /build_scripts/scriptset/%SN
+//O [{"%S{create project}"="true"&"%X%MU"="%SU"}%SN.bat.xml]
+O [{"%S{create project}"="true"}%SN.bat.xml]
+	\<?xml version = "1.0" encoding = "ISO-8859-1"?\>
+	
+	\<!DOCTYPE ru.garant.extensions SYSTEM "../../ru.garant/extensions.dtd"\>
+	
+	\<project
+		name = "scriptset.%SN"
+		basedir = "."
+		default = "default"
+	\>
+	
+	\<!-- external uses { --\>
+			&ru.garant.extensions.properties.cppBuildMaxCyclesCount;
+			&ru.garant.extensions.properties.cvsRoot;
+			&ru.garant.extensions.properties.cvsUpdateMaxCyclesCount;
+			&ru.garant.extensions.properties.externalMountPath;
+			&ru.garant.extensions.properties.externalMountRoot;
+			&ru.garant.extensions.properties.signDescription;
+			&ru.garant.extensions.properties.signDescriptionURL;
+			&ru.garant.extensions.properties.signSHA1;
+			&ru.garant.extensions.properties.signTargetMaxCyclesCount;
+			&ru.garant.extensions.properties.signTimestampServer;
+			&ru.garant.extensions.properties.wixLibRoot;
+			&ru.garant.extensions.properties.workRootDir;
+			&ru.garant.extensions.scriptdefs.buildCppTarget;
+			&ru.garant.extensions.scriptdefs.buildWixTarget;
+			&ru.garant.extensions.scriptdefs.cleanupCppBuilds;
+			&ru.garant.extensions.scriptdefs.cleanupAllFiles;
+			&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
+			&ru.garant.extensions.scriptdefs.copyFile;
+			&ru.garant.extensions.scriptdefs.copyDirToDir;
+			&ru.garant.extensions.scriptdefs.copyCppTarget;
+			&ru.garant.extensions.scriptdefs.createFile;
+			&ru.garant.extensions.scriptdefs.removeFile;
+			&ru.garant.extensions.scriptdefs.mountResource;
+			&ru.garant.extensions.scriptdefs.unmountResource;
+			&ru.garant.extensions.scriptdefs.setCvsTagByList;
+			&ru.garant.extensions.scriptdefs.updateCvsByList;
+			&ru.garant.extensions.scriptdefs.signTarget;
+	\<!-- } external uses --\>
+	
+	\<!-- properties { --\>
+		\<property
+			name = "properties.buildOutputMountPath"
+			value = "\\\\10.0.1.155\\%S{build share}"
+		/\>
+	
+		\<property
+			name = "properties.buildOutputMountRoot"
+			value = "N:"
+		/\>
+	
+		\<property
+			name = "properties.buildOutputMountRoot.deploymentCatalog"
+			value = "${properties.buildOutputMountRoot}/deployment"
+		/\>
+	
+		\<property
+			name = "properties.buildRoot"
+			value = "${ru.garant.extensions.properties.workRootDir}/build"
+		/\>
+	
+		\<property
+			name = "properties.buildSuccessFile"
+			value = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/!success"
+		/\>
+	
+		\<property
+			name = "properties.cvsDirsetListForTagging"
+			value = "build_scripts,%SN[<{}{%SU!=%dU},%dN>]"
+		/\>
+	
+		\<property
+			name = "properties.cvsDirsetListForUpdate"
+			value = "%SN<{}{%SU!=%dU},%dN>"
+		/\>
+	
+		\<property
+			name = "properties.cvsRootDir"
+			value = "${ru.garant.extensions.properties.workRootDir}"
+		/\>
+	
+		\<property
+			name = "properties.externalMountPath"
+			value = "${ru.garant.extensions.properties.externalMountPath}"
+		/\>
+	
+		\<property
+			name = "properties.externalMountRoot"
+			value = "${ru.garant.extensions.properties.externalMountRoot}"
+		/\>
+	
+	\<!-- } properties --\>
+	
+	\<!-- conditions { --\>
+		\<condition property = "disable-buildCppTargets.winNT"\>
+			\<isset property = "disable-buildCppTargets"/\>
+		\</condition\>
+	
+		\<condition property = "disable-buildCppTargets.winNT-garsock"\>
+			\<isset property = "disable-buildCppTargets.winNT"/\>
+		\</condition\>
+	
+		\<condition property = "disable-copyCppOtherFilesToDeploymentCatalog"\>
+			\<isset property = "disable-buildCppTargets"/\>
+		\</condition\>
+	
+		\<condition property = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock"\>
+			\<isset property = "disable-buildCppTargets.winNT-garsock"/\>
+		\</condition\>
+	
+		\<condition property = "disable-copyWixTargetsToDeploymentCatalog"\>
+			\<isset property = "disable-buildWixTargets"/\>
+		\</condition\>
+	\<!-- } conditions --\>
+	
+	\<!-- targets { --\>
+	
+	\<!-- ********** TARGET buildCppTargets ********** --\>
+		\<target
+			name = "buildCppTargets"
+			depends = "copyCppTargetsToDeploymentCatalog.winNT-garsock,copyCppOtherFilesToDeploymentCatalog"
+			unless = "disable-buildCppTargets"
+		\>
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF buildCppTargets --\>
+		
+	\<!-- ********** TARGET copyCppTargetsToDeploymentCatalog.winNT-garsock ********** --\>
+		\<target
+			name = "copyCppTargetsToDeploymentCatalog.winNT-garsock"
+			depends = "buildCppTargets.winNT-garsock"
+			unless = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.externalMountRoot}"
+				mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+			/\>
+	
+			<{}{%C#f_IsExeTarget()=true|%CS=ComTarget}\<ru.garant.extensions.scriptdefs.copyCppTarget
+				cpp.target.default.file = "${properties.buildRoot}/bin/Release_Static/%CN[{%C#f_IsExeTarget()=true}{.dll}.exe]"
+				cpp.target.release.file = "${properties.buildRoot}/bin/Final_Static/%CN[{%C#f_IsExeTarget()=true}{.dll}.exe]"
+	
+				cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%CN/%CN[{%C#f_IsExeTarget()=true}{.dll}.exe]"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.externalMountRoot}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF copyCppTargetsToDeploymentCatalog.winNT-garsock --\>
+	
+	\<!-- ********** TARGET buildCppTargets.winNT-garsock ********** --\>
+		\<target
+			name = "buildCppTargets.winNT-garsock"
+			depends = "updateCvs"
+			unless = "disable-buildCppTargets.winNT-garsock"
+		\>
+			\<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.externalMountRoot}"
+				mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+			/\>
+	
+			<{}{%C#f_IsExeTarget()=true|%CS=ComTarget}\<ru.garant.extensions.scriptdefs.buildCppTarget
+				cpp.target = "T_%CN"
+				cpp.target.project.path = "%SN/project/%SN.sln"
+	
+				cpp.target.default.config = "Release|Win32"
+				cpp.target.release.config = "Final|Win32"
+	
+				cpp.target.root.dir = "${ru.garant.extensions.properties.workRootDir}"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.externalMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF buildCppTargets.winNT-garsock --\>
+	
+	\<!-- ********** TARGET buildWixTargets ********** --\>
+		\<target
+			name = "buildWixTargets"
+			depends = "signCppTargets"
+			unless = "disable-buildWixTargets"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.externalMountRoot}"
+				mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+			/\>
+	
+			<{}{%CS=InstallerTarget}\<ru.garant.extensions.scriptdefs.buildWixTarget
+				wix.target.codepage = "1252"
+				wix.target.language = "en-us"
+				wix.target.project.name = "%CN"
+				wix.target.root.dir = "${ru.garant.extensions.properties.workRootDir}/%SN/%CN"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.externalMountRoot}"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF buildWixTargets --\>
+		
+	\<!-- ********** TARGET createSuccessFile ********** --\>
+		\<target
+			name = "createSuccessFile"
+	    depends = "setCvsTag"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.createFile
+				file.name = "${properties.buildSuccessFile}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF buildWixTargets --\>
+	
+	\<!-- ********** TARGET copyCppOtherFilesToDeploymentCatalog ********** --\>
+		\<target
+			name = "copyCppOtherFilesToDeploymentCatalog"
+			depends = "updateCvs"
+			unless = "disable-copyCppOtherFilesToDeploymentCatalog"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+		<{}{%t_target(%C)=true&"%f_with_gen_id(config,%CO)"!=""}	\<ru.garant.extensions.scriptdefs.copyFile
+				file = "${properties.cvsRootDir}/%f_with_gen_id(config,%CL)"
+				to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%CN/%f_with_gen_id(config,%CO)"
+			/\>
+			
+		>
+		[
+			\<ru.garant.extensions.scriptdefs.copyFile
+				file = "${properties.cvsRootDir}/%f_with_gen_id(test_scenario.txt,%SL)"
+				to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%f_with_gen_id(test_scenario.txt,%SO)"
+			/\>
+		]
+			<{}{%AS=CustomFile}\<ru.garant.extensions.scriptdefs.copyFile
+				file = "${properties.cvsRootDir}/%SN/%A%PN/other/%AN"
+				to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%A%PN/%AN"
+			/\>
+	
+			>
+			<{}{%AS=CustomDirectory}\<ru.garant.extensions.scriptdefs.copyDirToDir
+				dir = "${properties.cvsRootDir}/[{"%A{source}"=""}{%A{source}}%SN/%A%PN/other/%AN]"
+				to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/%SN/%A%f_dump_path_str()"
+			/\>
+	
+			><{}{%AS=MDATemplates}%f_dump_template_copy(%A)
+	
+			%A<%d<{}{%AS=MDATemplates}%f_dump_template_copy(%A)
+			>>>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF copyCppOtherFilesToDeploymentCatalog --\>
+	
+	\<!-- ********** TARGET copyWixTargetsToDeploymentCatalog ********** --\>
+		\<target
+			name = "copyWixTargetsToDeploymentCatalog"
+			depends = "buildWixTargets"
+			unless = "disable-copyWixTargetsToDeploymentCatalog"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			<{}{%CS=InstallerTarget}\<ru.garant.extensions.scriptdefs.copyFile
+				file = "${properties.cvsRootDir}/%SN/%CN/%CN_en-us.msi"
+				to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/%SN/%CN.msi"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF copyWixTargetsToDeploymentCatalog --\>
+	
+	\<!-- ********** TARGET default ********** --\>
+		\<target
+			name = "default"
+			depends = "createSuccessFile,setCvsTag"
+		\>
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF default --\>
+	
+	\<!-- ********** TARGET removeSuccessFile ********** --\>
+		\<target
+			name = "removeSuccessFile"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.removeFile
+				file.name = "${properties.buildSuccessFile}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF removeSuccessFile --\>
+	
+	\<!-- ********** TARGET setCvsTag ********** --\>
+		\<target
+			name = "setCvsTag"
+			depends = "removeSuccessFile,copyWixTargetsToDeploymentCatalog"
+			unless = "disable-setCvsTag"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.setCvsTagByList
+				cvs.dirset.list = "${properties.cvsDirsetListForTagging}"
+				cvs.root.dir = "${properties.cvsRootDir}"
+	
+				cvs.tag.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/!cvs_tag"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF setCvsTag --\>
+	
+	\<!-- ********** TARGET signCppTargets ********** --\>
+		\<target
+			name = "signCppTargets"
+			depends = "buildCppTargets"
+			unless = "disable-signCppTargets"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			<{}{%C#f_IsExeTarget()=true|%CS=ComTarget}\<ru.garant.extensions.scriptdefs.signTarget
+				sign.target = "%CN[{%C#f_IsExeTarget()=true}{.dll}.exe]"
+	
+				sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%CN"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF signCppTargets --\>
+	
+	\<!-- ********** TARGET updateCvs ********** --\>
+		\<target
+			name = "updateCvs"
+			unless = "disable-updateCvs"
+		\>
+			\<ru.garant.extensions.scriptdefs.updateCvsByList
+				cvs.dirset.list = "${properties.cvsDirsetListForUpdate}"
+				cvs.root.dir = "${properties.cvsRootDir}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF updateCvs --\>
+	
+	\<!-- } targets --\>
+	
+	\</project\> \<!-- // scriptset.MDProcess --\>
+
+
+//собираем элементы, от которых зависит даныый (рекурсивно)
+f _collect_req_dependencies
+	[{"%1N"=""}%f_error("_collect_req_dependencies: Не задан идентификатор списка")]\
+	<{}{}{%d}%f_add_to_list(%1N,d)>\
+	%f_sort_list(%1N,g)%f_unique_list(%1N)
+f _dump_template_copy
+	\<ru.garant.extensions.scriptdefs.copyDirToDir
+				dir = "${properties.cvsRootDir}/%f_str_replace(%f_str_replace(%f_normolized_dir(mda,S),../,),./,)"
+				to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/<{}{%PS=Project}%PN>/templates/%SN"
+			/\>
+//#UC END# *47032F9601A5for46E13AC200BB*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for46E13AC200BB*
+	<%CX>
+//#UC END# *4A41A13D03D5for46E13AC200BB*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

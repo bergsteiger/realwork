@@ -1,0 +1,249 @@
+%producer everest2everest date '31.10.2013'
+%format version 0.136 revision date '07/08/2009' 
+: QueryCard = {
+ CardType = ev_qtConsultations
+ Subs = {
+  Children = 1
+  : = {
+   Handle = Sub
+   Children = 2
+   : = {
+    Handle = 1
+   }
+  }
+ }
+ Children = 1
+ : ControlsBlock = {
+  Handle = 1
+  ShortName = 'Request'
+  Flat = False
+  Children = 1
+  : Table = {
+   Children = 8
+   : ReqRow = {
+    ReqID = 'AT_USER_NAME'
+    Children = 2
+    Multy = False
+    Required = True
+    : = {
+     Frame = {
+     }
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Enabled = False
+      Justification = ev_itRight
+      Text = 'User name'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 8080
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_USER_PHONE'
+    Children = 4
+    Multy = False
+    Required = True
+    : = {
+     Frame = {
+     }
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Enabled = False
+      Justification = ev_itRight
+      Text = 'City code'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 1500
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Justification = ev_itLeft
+      MaxTextLength = 10
+      Type = ev_ctPhoneEdit
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 2500
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Enabled = False
+      Justification = ev_itRight
+      Text = 'Contact phone number'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 4080
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Justification = ev_itLeft
+      Type = ev_ctPhoneEdit
+      MaxTextLength = 20
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_EMAIL'
+    Children = 2
+    Multy = False
+    Required = False
+    : = {
+     Frame = {
+     }
+     Width = 2000
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Enabled = False
+      Justification = ev_itRight
+      Text = 'E-mail'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 8080
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_LAW_SUPPORT_LABEL'
+    ReqKind = ev_rkDescription
+    Enabled = False
+    Children = 1
+    : = {
+     Frame = {
+     }
+     Width = 10080
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Justification = ev_itLeft
+      Text = 'Please enter your message'
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_LAW_SUPPORT_TEXT'
+    Children = 1
+    Required = True
+    : = {
+     Frame = {
+     }
+     Width = 10080
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Justification = ev_itLeft
+      MaxTextLength = 6000
+      Type = ev_ctMemoEdit
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_LAW_SUPPORT_DESCRIPTION'
+    ReqKind = ev_rkDescription
+    Enabled = False
+    Children = 1
+    : = {
+     Frame = {
+     }
+     Width = 10080
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Justification = ev_itLeft
+      Segments = {
+       Children = 1
+       : = {
+        Handle = Hyperlinks
+        Children = 1
+        : HyperLink = {
+         Start = 665
+         Finish = 710
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         Style = -8
+         Children = 1
+         : = {
+          Type = 65545
+          DocID = 5
+         }
+        }
+       }
+      }
+      Text = 'Garant Company is always ready to help its clients and improves constantly the offered set of services and quality of product.<10>It is of interest for us to know what is appreciated by professionals in our information and legal support, what other instruments they want to have in their work with legal information.<10>Enter your question or desire in the appropriate form fields, and we shall reply within one day.<10>Or you may call your servicing company right now – the contact information is available in section Help/Contact Information.<10>Your opinion about the work of Garant Company and its partners is very important for us.'
+      Type = ev_ctPictureLabel
+      StateIndex = 0
+      Flat = True
+      ImageIndex = 0
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_CHECK_LAW_SUPPORT_AVAILABLE'
+    ReqKind = ev_rkDescription
+    Enabled = False
+    Children = 1
+    : = {
+     Frame = {
+     }
+     Width = 10080
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : = {
+      Segments = {
+       Children = 1
+       : = {
+        Handle = Hyperlinks
+        Children = 1
+        : HyperLink = {
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         Style = -8
+         Children = 1
+         : = {
+          Type = 65545
+          DocID = 7
+         }
+        }
+       }
+      }
+      Justification = ev_itLeft
+      Text = 'Check of connection'
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,112 @@
+// **********************************************************************
+//
+// Copyright (c) 2001 - 2002
+// MT Tools
+// Samara, Russia
+//
+// All Rights Reserved
+//
+// **********************************************************************
+
+#ifndef BOOT_MANAGER_IDL
+#define BOOT_MANAGER_IDL
+
+#pragma prefix "omg.org"
+#include "orbtypes.idl"
+typedef string ObjectId;
+
+/**
+ *
+ * Interface to manage bootstrapping of objects.
+ *
+ **/
+interface BootLocator;
+interface BootManager
+{
+    /**
+     *
+     * This exception indicates that a binding has not been found.
+     *
+     **/
+    exception NotFound
+    {
+    };
+
+    /**
+     *
+     * This exception indicates that a binding already exists.
+     *
+     **/
+    exception AlreadyExists
+    {
+    };
+
+    /**
+     *
+     * Add a new binding to the internal table.
+     *
+     * @param oid The object id to bind.
+     *
+     * @param obj The object reference.
+     *
+     * @exception AlreadyExists Thrown if binding already exists.
+     *
+     **/
+    void add_binding(in ObjectId oid, in Object obj)
+        raises(AlreadyExists);
+
+    /**
+     *
+     * Remove a binding from the internal table.
+     *
+     * @param oid The object id to remove.
+     *
+     * @exception NotFound Thrown if no binding found.
+     *
+     **/
+    void remove_binding(in ObjectId oid)
+        raises(NotFound);
+
+    /**
+     *
+     * Set the BootLocator. The BootLocator is called when a binding
+     * for an object id does not exist in the internal table.
+     *
+     * @param locator The BootLocator reference.
+     *
+     * @see BootLocator
+     *
+     **/
+    void set_locator(in BootLocator locator);
+};
+
+/**
+ *
+ * Interface used by BootManager to assist in locating objects.
+ *
+ * @see BootManager
+ *
+ **/
+interface BootLocator
+{
+    /**
+     *
+     * Locate the object coresponding to the given object id.
+     *
+     * @param oid The object id.
+     *
+     * @param obj The object reference to associate with the id.
+     *
+     * @param add Whether the binding should be added to the internal
+     * table.
+     *
+     * @exception NotFound Raised if no binding found.
+     *
+     **/
+    void locate(in ObjectId oid,
+    		out Object obj,
+		out boolean add)
+        raises(BootManager::NotFound);
+};
+
+#endif

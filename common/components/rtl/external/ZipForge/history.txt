@@ -1,0 +1,686 @@
+ZipForge: History of changes
+============================
+
+- version 5.05 (09/09/2010)
+  New features:
+  Delphi / C++ Builder XE support is added.
+
+  Bugs fixed:
+  1. Memory leak in IsFilePasswordValid is removed.
+  2. Error with mixed AES and classic encryption used is fixed.
+  3. Error with adding file from stream with the name of existing disk file is fixed.
+
+
+- version 5.04 (06/23/2010)
+  New features:
+  1. ExtractFiles method speed is significantly increased when exact file name is passed as a parameter.
+  2. Options.OverwriteMode is now applied in MergeWith command.
+
+  Bugs fixed:
+  1. Warnings on compiling source code in D2009, D2010 were fixed.
+  2. AddFromStream and AddFromBuffer bug with setting zero datetime for added files is fixed.
+  3. Bug with invalid setting AES encryption when password is balnk is fixed.
+  4. Bug with cancel in OnOverallProgress while creating splitted archive is fixed.
+  5. Memory leak with AddFromStream call when overwriting existing file is fixed.
+  6. Error on opening zip created with Zip64Mode=zmAlways is fixed.
+  7. Bug with not requesting password for some files encrypted by zip-classic algorithm is fixed.
+
+
+- version 5.03 (10/14/2009)
+  New features:
+  1. Unicode file names compatibility with WinZip is added.
+
+  Bugs fixed:
+  1. Bug with OnDiskFull and not raising exception is fixed.
+
+
+- version 5.02 (09/18/2009)
+  New features:
+  1. Delphi/C++Builder 2010 support is added
+  2. Extraction of only specified portion of data from compressed file inside archive is implemented via ExtractToBuffer method.
+  3. MergeWith method is added to merge 2 zip files without re-packing files inside archive.
+
+  Bugs fixed:
+  1. Bug with incorrect handling of extra fields not specified in central directory of archive was fixed.
+  2. Bug with adding and extracting without close encrypted archive file is fixed.
+  3. Bug with repeated rename of the same file in transaction is fixed.
+  4. Bug with setting EncryptionMethod to PkzipClassic on assigning blank Password is fixed.
+  5. Bug with AES encryption of non-compressed files was fixed.
+  6. Bug with high-ratio compression of large files having all bytes of the same value is fixed.
+  7. Bug with OnStoreFile event in CB2009 is fixed.
+  8. Error on accessing UnicodeFilenames in archive with component events and properties is fixed.
+  9. Bug with creating empty SFX archive is fixed.
+
+
+- version 5.01 (12/19/2008)
+  Bugs fixed:
+  1. Bug with incorrect handling of extra fields not specified in central directory of archive was fixed.
+  2. Built-in functions to work with back trailing slash are now used with Delphi 5 and higher.
+  3. Compiler defines are corrected.
+  4. Bug with possible lock of some folders after adding files was fixed.
+  5. Incorrect SearchAttr handling in AddFiles with absolute path was fixed.
+
+
+- version 5.0 (10/17/2008)
+
+  Delphi 2009 Support
+
+- version 4.05 (07/27/2008)
+  Bugs fixed:
+  1. Problem with deleting files from ZIP archives
+     created by ZipForge in Windows Explorer is partially 
+     solved.
+     Partially, this problem is caused by Windows Explorer.
+     You can work around this problem by setting Unicode 
+     Filenames property to False.
+  2. Problem with AV error and system files like hiberfil.sys 
+     is solved
+  3. Problem with AV error and very long file names is solved
+  4. Problem with decrypting old archives is solved
+  5. Problem with Recurse option is solved
+
+
+- version 4.04 (10/06/2008)
+
+  Bugs fixed:
+  1. Problem with progress indication and FileMasks is solved
+  2. Problem with IsValidArchiveFile and files containded within folders is solved
+  3. Problem with progress indication and stored files is solved
+  4. Problem with multiple RenameFile class is solved
+
+
+- version 4.03 (30/04/2008)
+
+  Bugs fixed:
+  1. Problem with extracting files with Exclusion Mask was solved
+  2. Problem with long unicode file names was solved
+  3. Problem with with zero uncompressed size files was solved
+
+
+- version 4.02 (19/03/2008)
+
+  Bugs fixed:
+  1. Problem with password dialog is solved
+  2. Problem with wrong CRC and encrypted splitted Zip64 archive files is solved
+
+
+- version 4.01 (01/03/2008)
+
+  Bugs fixed:
+  1. Problem with multi-volume archives and Unicode file names is solved
+  2. Invalid progress indication when extracting to a stream fixed
+  3. Problem with multi-volume archives and IsValidPassword is solved
+  4. Access violation error when deleting and adding a file with the same name if fixed  
+  5. Problem with high memory consumption when extracting large archives is solved
+
+
+- version 4.00 (12/06/2007)
+
+  New features:
+
+  1. AES encryption support
+
+  Bugs fixed:
+  
+  1. Problem with renaming files within Zip64 archives is solved
+  2. Progress in ExtractToStream method is enabled
+  3. AddFromStream now supports streams over 4GB
+
+  
+
+
+
+- version 3.03 (08/02/2007)
+
+  Bugs fixed:
+  1. Problem with Access Violation in AddFromStream is solved
+  2. Probleb with renaming files is solved
+  3. Problem with DeleteFile in Windows 98 is solved
+  4. Memory leak problem with AddFromStream is solved
+  5. Problem with FindFirst in Windows 98 is solved
+
+
+
+- version 3.02 (05/04/2007)
+
+  Bugs fixed:
+  1. Problem with splitting is solved
+  2. Problem with adding folder names with unicode characters is solved
+
+  New features:
+
+  1. Borland C++ Builder 2007 support
+
+- version 3.01 (04/02/2007)
+
+  Bugs fixed:
+  1. Problem with storing Chinese filenames is solved
+
+- version 3.00 (03/20/2007)
+
+  New features:
+  1. Full Unicode support
+  2. OnDiskFull is now fired when there is not enough disk space to extract files
+  2. Delphi 2007 is now supported
+
+- version 2.77 (01/23/2007)
+
+  Bugs fixed:
+  1. Problem with compilation in C++ Builder is solved
+  2. OnDiskFull is now fired regardless of SpanningMode value
+
+
+
+- version 2.76 (01/16/2006)
+
+  
+  Bugs fixed:
+  1. Bug with adding archive file into the archive when BaseDir is empty is fixed
+  2. Bug with creating temporary files when testing archive is fixed
+  3. Bug with renaming a file within a transaction is fixed
+  4. Problems with AddFromStream, AddFromBuffer, AddFromString when      
+     are solved
+  5. Problem with extracting encrypted Zip64 archives is solved
+
+
+- version 2.75 (09/15/2006)
+
+  Improvements (thanks to Jaroslav Kulisek for suggestions):
+  1. Archived files testing speed is improved 
+  2. Source code formatting is improved (source-code edition only)
+  3. ZLIB .obj files moved to ZLIB folder to avoid conflicts
+     when another version of ZLIB is included into Delphi search 
+     path (source-code edition only)
+
+
+- version 2.74 (09/15/2006)
+
+  Bugs fixed:
+  1. Bug with irregular progress is fixed
+  2. Bug with OnConfirmOverwrite is fixed
+  3. Bug with C++ Builder and OnStoreFile event is fixed
+
+- version 2.73 (08/08/2006)
+
+  Bugs fixed:
+  1. Bug with losing folders attributes is fixed
+
+
+- version 2.72 (06/19/2006)
+
+  Bugs fixed:
+  1. Bug with OnStoreFile event is fixed
+  2. Bug with ExcludeFileMasks and directories is fixed
+
+
+
+- version 2.71 (05/16/2006)
+
+  New features added:
+  1. Speed of ExtracTo... methods is improved
+
+  Bugs fixed:
+  1. Bug with compression algorithm PPM caused Access Violation error for some specific files is fixed
+  2. Bug with mutliple transactions on multi volume archives is fixed 
+  3. IsFilePasswordValid worked incorrectly for spanned archives  
+
+
+- version 2.70 (01/31/2006)
+
+  New features added: 
+  1. Extraction speed is increased. ZLib library is updated.
+  2. Multi-threaded applications support is added.
+
+  Bugs fixed:
+  1. Error in hpp file with C++ Builder 6 version is fixed.
+
+
+- version 2.69 (12/21/2005)
+
+  New features added: 
+  1. Delphi 2006 and C++ Builder 2006 support is added.
+  2. CopyToBuffer parameter is added to AddFromStream method 
+     which helps to speed up adding data from a strream.
+
+  Bugs fixed:
+  1. Empty folders are now deleted after a MoveFiles call.
+  2. Bug with deleting read-only files in a MoveFiles call is fixed.
+
+
+- version 2.68 (11/23/2005)
+
+  Bugs fixed:
+  1. Bug with incorrect check of file existence in an archive is fixed.
+  2. Bug with creating multi-volume archive larger than 4Gb is fixed.
+
+
+- version 2.67 (10/26/2005)
+
+  New features added: 
+  1. The performance of adding many files to an archive is improved.
+
+  Bugs fixed:
+  1. Bug with THashedStringList overriding is fixed.
+  2. Bug with adding more than 65535 files to an archive smaller than 4Gb is fixed.
+
+
+- version 2.66 (09/28/2005)
+
+  New features added: 
+  1. The speed of adding many small files to an archive is increased.
+
+  Bugs fixed:
+  1. Bug with repairing of archive with corrupted Central Directory is fixed.
+  2. Bug with invalid buffer size estimation on decompression of a files larger than 4Gb is fixed.
+  3. Validation check of Central Directory is added.
+
+
+- version 2.65 (08/16/2005)
+
+  Bugs fixed:
+  1. Bug with long and binary comments stored in OnStoreFile event is fixed.
+  2. Bug with extraction of a just created and not closed spanned archive is fixed.
+
+
+- version 2.64 (07/18/2005)
+
+  New features added: 
+  1. vs4700MB volume size constant is added to support DVD disk type.
+
+  Bugs fixed:
+  1. Bug with long and binary comments is fixed.
+  2. Autocorrection of invalid compressed size is added.
+
+
+- version 2.63 (06/09/2005)
+
+  Bugs fixed:
+  1. Bug with false multi-spanning detection of SFX archive on a floppy is fixed.
+  2. IsPasswordValid now tests files CRC to ensure the password is valid.
+  3. ExtractTo... methods now handle FileName parameter as a precise path inside archive.
+  4. FileName parameter in OnFileProgress now contains source file name with path, not an internal file name.
+
+
+- version 2.62 (05/06/2005)
+
+  Bugs fixed:
+  1. Bug with modification of compressed file larger than 4 Gb is fixed.
+  2. Bug with low compression rate in Normal and Max compression levels is fixed.
+  3. Zip files containing directories w/o appropriate attribute are now handled properly.
+  4. Problem with modification of ZipForge zip files by WinZip and WinRar is solved.
+
+
+- version 2.61 (04/04/2005)
+
+  New features added: 
+  1. Compression/decompression speed is increased.
+  2. OnStoreFile event now has a new parameter: OriginalFileName.
+  3. OnCopyTempFile event is added.
+
+  Bugs fixed:
+  1. IsValidArchive error with some SFX files is fixed.
+  2. Bug with case-sensivity in file names is fixed.
+  3. Decompression problem with error 0008 is solved.
+
+
+- version 2.60 (02/22/2004)
+
+  Bugs fixed:
+  1. Bug with extremely high compressed files decompression is fixed.
+  2. Zip64 property in C++ Builder now works properly.
+  3. Splitted files of the archive itself are now pevented from being added to the archive file.
+  4. IsValidArchiveFile now makes complete verifications when necessary.
+  6. Memory consumption is limited while extracting huge files with the highest compression ratio.
+
+
+- version 2.59 (01/10/2005)
+
+  New features added: 
+  1. Attr and DateTime arguments are added to AddFromStream, AddFromBuffer and AddFromString methods.
+
+  Bugs fixed:
+  1. Problem with progress event in MakeSFX is solved.
+  2. Bug with handling files without extension is fixed.
+
+- version 2.58 (11/23/2004)
+
+  New features added: 
+  1. Delphi 2005 support is added.
+  2. Decompression speed is increased.
+  3. MakeSFX is improved and it now calls for progress events.
+
+  Bugs fixed:
+  1. Problem with extra fields is solved.
+  2. Buf with adding files from system folders is fixed.
+
+
+- version 2.57 (10/19/2004)
+
+  Bugs fixed:
+  1. Extra fields are now preserved on archive modification.
+  
+- version 2.56 (08/11/2004)
+
+  Bugs fixed:
+  1. Problem with RenameFile is solved.
+  2. FindFirst now works correctly with spFullPathWithDrive option.
+  3. Memory leak with delete file from archive is removed
+  
+
+- version 2.55 (06/17/2004)
+
+  New features added: 
+  1. Speed of spanned archive creation on floppy is increased.
+  2. Multiple calls to AddFromStream method in transaction are supported.
+  3. vs250MB constant is added for preset volume size for Iomega Zip 250Mb disks.
+  4. Full file path with drive letter can be stored now for files in archive: 
+     Options.StorePath = spFullPathWithDrive.
+
+  Bugs fixed:
+  1. Problem with TestFiles is solved.
+  2. Memory leak with deleting file with extra fields from archive is fixed.
+  3. Operation parameter in OnOverallProgress event is now correct for AddFiles call.
+  4. Compatibility with the first release of Windows95 is added.
+  5. RenameFile now works properly for renaming folders inside an archive. 
+  6. OnExtractFile now works properly when full path with drive is substituted.
+
+
+- version 2.54 (05/26/2004)
+
+  Improved: 
+  1. Compiled code added by ZipForge units is now shorter.
+
+  Bugs fixed:
+  1. Errors with floppies having no free space are now handled properly.
+  2. IsValidArchiveFile bug is fixed.
+  3. Bug with extracting from damaged floppies is fixed.
+  4. Correct VolumeName is now passed to OnRequest events.
+  5. SFX bug is fixed.
+  6. Custom stream destroying in CloseArchive is removed.
+
+
+- version 2.53 (04/27/2004)
+
+  New features added: 
+  1. Speed of multi-spanned archive creation is increased.
+
+  Bugs fixed:
+  1. Files without attributes now can be added to archive under Win95/98.
+  2. OEMFileNames bug is fixed.
+  3. Unnecessary request for disk with spanned archive is removed.
+  4. Problem with OnExtractFile event is solved.
+  5. Test archive compatibility with WinZip is improved.
+  6. Files with invalid password now could not be extracted as empty files.
+  7. Zip file format with optional data descriptor is supported now.
+
+
+- version 2.52 (03/29/2004)
+
+  Bugs fixed:
+  1. IsValidArchive problem with some EXE files is solved.
+  2. Last disk is requested now while opening spanned archive
+     even if the file doesn't exists on inserted floppy.
+
+
+- version 2.51 (03/10/2004)
+
+  changes: 
+  1. OpenCorruptedArchives property is now public.
+
+  Bugs fixed:
+  1. AddFromStream bug is fixed.
+  2. Problem with spanned archives is solved.
+
+
+- version 2.50 (02/25/2004)
+
+  New features added: 
+  1. The default value of OpenCorruptedArchives is now true, 
+     to provide auto-repair of sligthly corrupted archives
+     which could be recovered without data loss.
+  2. OnExtractFile and OnStoreFile events are added.
+     Now it is possible to change the name of the file 
+     being added to archive and of the file being extracted,
+     thanks to Tobias Giesen.
+  3. IsValidArchiveFile function is added. 
+     It lets you check if the file has valid format 
+     before its opening.
+
+  Bugs fixed:
+  1. Bugs with not closed stream and emptying archive are fixed, 
+     thanks to Tobias Giesen.
+  2. MultiSpanning problem is solved.
+
+
+- version 2.40 (01/29/2004)
+
+  New features added: 
+  1. The default value of SearchAttr now provides adding files 
+     without 'A' attribute and files of other users in NTFS.
+
+  Bugs fixed:
+  1. FileCount property now works correctly 
+     with Options.Recurse set to false.
+  2. Issue with incorrect buffer for extracted data is solved.
+  3. Bug with adding the same file twice is fixed.
+  4. Problem with Cancel parameter of OnOverallProgress event 
+     in ExtractFiles method is solved.
+
+
+- version 2.30 (12/22/2003)
+
+  New features added: 
+  1. Multi-spanned archive compatibility improved.
+     Arhive volume disks now have disk label.
+
+  Bugs fixed:
+  1. Problem with aborting compression process is solved.
+  2. Not enough decompression buffer error is fixed.
+
+
+- version 2.21 (12/15/2003)
+
+  New features added: 
+  1. A possibility to skip filtering by file attributes 
+     if the file name with absolute path is specified as a file mask
+     is added.
+
+  Bugs fixed:
+  1. Now archive file is unlocked by CloseArchive call 
+     after an error with file processing.
+
+
+- version 2.20 (12/10/2003)
+
+  New features added: 
+  1. Speed of building list of lots of small files 
+     when adding them to archive is significantly increased.
+  2. Compatibility with Java archives (JAR) is added.  
+
+  Bugs fixed:
+  1. Cancel of adding files operation now doesn't raise an exception.
+
+
+- version 2.10 (11/10/2003)
+
+  New features added: 
+  1. Speed of adding large number of small files 
+     is significantly improved.
+  2. Options.OEMFileNames property is added to control whether
+     file names are stored in OEM character set.
+
+  Bugs fixed:
+  1. Problem with adding folder and subfolders is solved.
+
+
+- version 2.06 (09/22/2003)
+
+  Bugs fixed:
+  1. Problem with searching in archive folder without subfolders
+     is solved.
+  2. Recurse file processing now works correctly with 
+     ExclusionMasks specified.
+  3. Repairing archive bug appeared in Win98 is fixed.
+  4. Hidden folder are now also processed 
+     while adding files to archive.
+  5. Zip64Mode now can be set at run-time with C++ Builder 6.
+  6. Recurse file processing now works correctly with 
+     masks like 'Folder\*.txt'.
+  7. Spanning and splitting problem with advanced naming is solved.
+
+
+- version 2.05 (09/15/2003)
+
+  Bugs fixed:
+  1. Files without Archive attribute now could be added to archive.
+
+
+- version 2.03 (06/17/2003)
+
+  New features added: 
+  1. Directories can also be excluded by ExclusionMasks.
+  2. Multi-thread modification of different archives 
+     is now possible.
+
+  Bugs fixed:
+  1. Exception is added to AddFiles for spanning mode.
+  2. Extracting file error with small buffer is fixed.
+  3. Files like 'something..txt' are now handled correctly.
+  4. Files with corrupted extra field can be opened correctly. 
+  5. No dialogs mode problem with not specified event handlers
+     is solved.
+  6. Network path in file name now is now detected.
+  7. OnFileProgress now passes file names with '\', not with '/'.
+  8. Memory leak is fixed.
+  9. Second modification of ExclusionMasks property in design-time 
+     now works properly.
+
+
+- version 2.02 (03/26/2003)
+
+  New features added: 
+  1. TZipForge.OnDiskFull event is added.
+
+  Bugs fixed:
+  1. ExclusionMasks bug with ignoring files without extension is fixed.
+  2. Opening archive in a stream now works correctly.
+  3. File lock after opening corrupted archive is removed.
+  4. Numerous requests of volume with multi-spanning 
+     for each processed file is removed.
+  5. FlushBuffer before requesting new volume is added to avoid 
+     missed writes to removable media. 
+
+
+- version 2.01 (03/19/2003)
+
+  Bugs fixed:
+  1. File lock after opening damaged archive is removed.
+  2. Opening archive in a stream now works correctly.
+  3. ExclusionMasks bug with ignoring subfolder files is fixed.
+
+
+- version 2.00 Beta (03/07/2003)
+
+  New features added: 
+  1. TZipForge.SpanningMode property is added to support 
+     multi-spanning and splitting archive on multiple parts.
+  2. TZipForge.SpanningOptions property is added to configure
+     multi-spanning and splitted files processing.
+  3. OnRequestFirstVolume, OnRequestLastVolume, OnRequestMiddleVolume, 
+     OnRequestBlankVolume events are added.
+  4. Zip64Mode property is added. ZipForge can now compress and 
+     store files > 4 Gb.
+  5. OpenCorruptedArchives propery is added to enable opening 
+     and repair on-the-fly slightly corrupted archives.
+
+  Bugs fixed:
+  1. Archive comment encoding is removed.
+  2. omIfNewer overwrite mode problem is solved.
+
+
+- version 1.60 (02/10/2003)
+
+  New features added: 
+  1. Users of the product with source code now can significantly 
+     reduce SFX stub size if this stub doesn't use forms.
+  2. TZipForge.IsPasswordValid method.
+  3. TZipForge.Options.FlushBuffers property is added to 
+     flush file buffers when archive is updated or 
+     when files are extracted.
+
+  Bugs fixed:
+  1. AddFromStream with duplicate file name problem is solved.
+  2. Full path of file is now correctly stored in archive when 
+     requested.
+  3. Invalid checksum error for some corrupted but repairable
+     files is fixed.
+  4. Exception for seriously damaged files is now always raised 
+     on extraction operation.
+
+- version 1.50 (12/27/2002)
+
+  New features added: 
+  1. Open damaged archive capability is added.
+  2. Repair damaged archive is added: 
+     TZipForge.RepairArchive method
+  3. Possibilty to extract corrupted files from damaged archive: 
+     TZipForge.ExtractCorruptedFiles property.
+  3. Unzipping files ecnrypted by Linux zip utilities is now supported.
+  4. Three types of exclusion masks are now supported. 
+     See ZipForge.hlp: ExclusionMasks topic for more details.
+
+  Changes:
+  1. The default value of SearchAttr parameter in 
+     AddFiles and MoveFiles is now faAnyFile-faDirectory.
+
+  Bugs fixed:
+  1. FileMasks property is now used correctly.
+  2. FileCount property now returns number of files ignoring folders.
+  3. Square brackets in file name are now handled correctly.
+  4. Zero length files now can be correclty extracted by standard 
+     ZIP utilities.
+  5. AddFromStream method now sets default attributes to faArchive.
+
+
+- version 1.30 (11/05/2002)
+
+  New features added: 
+  1. c++ Builder 4 and C++ Builder 5 support is added.
+
+
+- version 1.20 (10/24/2002)
+
+  New features added: 
+  1. Retry, ignore, abort modes added to OnProcessFileFailure 
+     event handler.
+
+  Bugs fixed:
+  1. Problem with adding files from non-existing dir is solved.
+  2. DeleteFiles now works correctly.
+  3. Not enough memory buffer allocation for decompression 
+     is fixed.
+  4. Problem with adding files opened by another application 
+     is solved.
+  5. OnProcessFileFailure is now fired when necessary.
+
+
+- version 1.10 (09/04/2002)
+
+  Bugs fixed:
+  1. Store mode (compression mode = 0) bug is fixed.
+  2. AddFiles now works correctly with full path and blank BaseDir.
+  3. ReadOnly error with custom streams is fixed.
+
+
+- version 1.00 (08/21/2002)
+
+  New features added: 
+  1. Zip file comments and comments for individual files 
+     in archive are now supported.
+
+  Bugs fixed:
+  1. Non-english file names are now encoded.
+  2. Directory date is now set correctly.
+
+
+- version 1.00 Beta (08/05/2002)

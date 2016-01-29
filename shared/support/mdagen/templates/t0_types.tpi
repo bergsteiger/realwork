@@ -1,0 +1,722 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// types transformators
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+// type names
+
+t n
+c                                  {idl}                {cpp}                             {CORBA_cpp}         {delphi}           {dll_cpp}                                                                  {java}
+r "%SM"="Iterator::Class":         {ERROR}              {%tn(%P,%1)::iterator}            {%tn(%P,%1)::iterator}  {ERROR}        {ERROR}                                                                    {java.util.Iterator\<%f_data_dump(%S)\>}
+r "%SM"="Const Iterator::Class":   {ERROR}              {%tn(%P,%1)::const_iterator}      {%tn(%P,%1)::const_iterator} {ERROR}   {ERROR}                                                                    {java.util.Iterator\<%f_data_dump(%S)\>}
+r "%SN"="atomic":                  {ERROR}              {Core::AtomicOp\<long\>}          {Core::AtomicOp\<long\>}             {ERROR}            {ERROR}                                                   {java.util.concurrent.atomic.AtomicLong}
+r "%SN"="unsigned atomic":         {ERROR}              {Core::AtomicOp\<unsigned long\>} {Core::AtomicOp\<unsigned long\>}             {ERROR}            {ERROR}                                          {java.util.concurrent.atomic.AtomicLong}
+r "%SN"="mutex":                   {ERROR}              {Core::Mutex}                     {Core::Mutex}             {ERROR}            {ERROR}                                                              {java.util.concurrent.Semaphore}
+r "%SN"="time":                   {ERROR}              {ACE_Time_Value}                     {ACE_Time_Value}             {ERROR}            {ERROR}                                                              {java.util.Date}
+r "%SN"="void":                    {void}               {void}                            {void}              {}                 {void}                                                                     {void}
+r "%SN"="size":                    {unsigned long}      {size_t}                          {CORBA::ULong}      {Cardinal}         {size_t}                                                                   {long}
+r "%SN"="short":                   {short}              {short}                           {CORBA::Short}      {Smallint}         {short}                                                                    {short}
+r {%SN=long}:                      {long}               {long}                            {CORBA::Long}       {Longint}          {long}                                                                     {int}
+r "%SN"="long long":               {long long}          {long long}                       {CORBA::LongLong}   {Int64}            {long long}                                                                {long}
+r "%SN"="integer":                 {long}               {int}                             {CORBA::Long}       {Longint}          {int}                                                                      {int}
+r "%SN"="unsigned integer":        {unsigned long}      {unsigned int}                    {CORBA::ULong}      {Longint}          {unsigned int}                                                             {int}
+r "%SN"="unsigned short":          {unsigned short}     {unsigned short}                  {CORBA::UShort}     {Word}             {unsigned short}                                                           {short}
+r "%SN"="unsigned long":           {unsigned long}      {unsigned long}                   {CORBA::ULong}      {Longword}         {unsigned long}                                                            {int}
+r "%SN"="unsigned long long":      {unsigned long long} {unsigned long long}              {CORBA::ULongLong}  {Int64}            {unsigned long long}                                                       {ERROR4_%SS::%SN}
+r "%SN"="float":                   {float}              {float}                           {CORBA::Float}      {Double}           {float}                                                                    {float}
+r "%SN"="double":                  {double}             {double}                          {CORBA::double}     {Double}           {double}                                                                   {double}
+r "%SN"="boolean":                 {boolean}            {bool}                            {CORBA::Boolean}    {Bytebool}         {bool}                                                                     {boolean}
+r "%SN"="tribool":                 {ERROR}              {boost::tribool}                  {Boost::Tribool}    {ERROR}            {bool}                                                                     {ERROR}
+r "%SN"="char":                    {char}               {char}                            {CORBA::Char}       {AnsiChar}         {char}                                                                     {char}
+r "%SN"="unsigned char":           {unsigned char}      {unsigned char}                   {CORBA::UChar}      {AnsiChar}         {unsigned char}                                                            {ERROR5_%SS::%SN}
+r "%SN"="wchar":                   {wchar}              {wchar}                           {CORBA::WChar}      {ERROR(wchar)}     {ERROR(wchar)}                                                             {ERROR6_%SS::%SN}
+r "%SN"="octet":                   {octet}              {unsigned char}                   {CORBA::Octet}      {Byte}             {unsigned char}                                                            {ERROR7_%SS::%SN}
+r "%SN"="hthread":                 {ERROR}              {Core::ThreadHandle}              {Core::ThreadHandle}{????}             {???}                                                                      {java.lang.Thread}
+r {%SN=string}:                    {string}             {char*}                           {char*}             {PAnsiChar}        {char*}                                                                    {String}
+r "%SN"="a-string":                {ERROR}              {std::string}                     {std::string}       {ERROR}            {ERROR}                                                                    {String}
+r "%SN"="c-string":                {ERROR}              {Core::ConstString}               {Core::ConstString} {ERROR}            {ERROR}                                                                    {String}
+r "%SN"="wstring":                 {wstring}            {wchar*}                          {WChar*}            {ERROR(wstring)}   {ERROR(wstring)}                                                           {String}
+r "%SN"="object":                  {Object}             {Core::IObject}                   {CORBA::Object}     {IUnknown}         {Core::IObject_tie}                                                        {java.lang.Object}
+r "%SN"="any":                     {any}                {CORBA::Any}                      {CORBA::Any}        {ERROR(any)}       {ERROR(any)}                                                               {ERROR8_%SS::%SN}
+r "%SN"="fixed":                   {fixed}              {fixed}                           {CORBA::Fixed}      {ERROR(fixed)}     {ERROR(fixed)}                                                             {ERROR9_%SS::%SN}
+r "%SN"="pointer":                 {ERROR}              {void*}                           {void*}             {Pointer}          {void*}                                                                    {java.lang.Object}
+r "%t_interface(%S)"="true":       {%S<%NN::>%SN}       {%S<%NN::>%SN}                    {%S<%NN::>%SN}      {%S<%NN.>%SN}      {%S<%NN::>%SN_tie}                                                         {[{%SM!=Typedef::Class}{%tn(%G,"java")}%f_dump_java_package(%S)[{%Se=false|"%SL"=""}.%SN]]}
+r "%t_impl_class(%S)"="true":      {ERROR(impl class)}  {%f_tn_cpp_impl_class(%S)}        {%S<%NN::>%SN}      {%S<%NN.>%SN}      {ERROR(impl class)}                                                        {[{%SM!=Typedef::Class}{%tn(%G,"java")}%f_dump_java_package(%S)[{%Se=false|"%SL"=""}.%SN]]}
+r "%SM"="Exception::Class":        {%S<%NN::>%SN}       {%S<%NN::>%SN}                    {%S<%NN::>%SN}      {%S<%NN.>E%SN}     {%S<%NN::>%SN[{"%t_dll_direct(%S)"="false"}_tie]}                          {%f_dump_java_package(%S)[{%Se=false}.%SN]}
+r "%SC"="Class":                   {%S<%NN::>%SN}       {%S<%NN::>%SN}                    {%S<%NN::>%SN}      {%S<%NN.>T%SN}     {%S<%NN::>%SN[{"%t_dll_direct(%S)"="false"}_tie]}                          {[{%SM!=BitMask::Class}{java.util.BitSet}[{%SM!=Typedef::Class}{%tn(%G,"java")}%f_dump_java_package(%S)[{%Se=false|"%SL"=""}.%SN]]]}
+r "%SC"="Parameter":               {%f_dump_param(%S)}       {%f_dump_param(%S)}                    {%f_dump_param(%S)}      {%S<%NN.>T%SN}     {%f_dump_param(%S)[{"%t_dll_direct(%S)"="false"}_tie]}      {%f_dump_java_package(%S)[{%Se=false|"%SL"=""}.%SN]}
+r ""="":                           {ERROR}              {ERROR}                           {ERROR}             {ERROR}            {ERROR}                                                                    {ERROR10_%SS::%SN}
+
+f _tn_cpp_impl_class
+	%S<%NN::>%SN[{%XU!=h&%XU!=fctr.h}%f_templ_footer(%S)]
+
+f _need_server_type_decl
+	[{<{}{%PS=ServerLibrary}{C}>!=0|"<%G<{}{%PS=ServerLibrary}.>>"!=""|"<%R<{}{%PS=ServerLibrary}.>>"!=""}{false}true]
+
+f _tn
+	[{%X{lid}=cpp}{%tn(%S,"%X{lid}")}\
+	[{%SS=UMLPrimitive&%f_need_server_type_decl(%B)=true}{%tn(%S,"%X{lid}")}%tn(%S,"CORBA_cpp")]]
+
+////////////////////////////////////////////////////////////
+// general type declarition
+
+
+// SYSTEM TRNSFORMATOR!
+// types with fixed size 
+
+t _fixed_type
+c                                  {}
+r "%SN"="short":                   {true}
+r "%SN"="size":                    {true}
+r "%SN"="integer":                 {true}
+r "%SN"="long":                    {true}
+r "%SN"="atomic":                  {true}
+r "%SN"="unsigned atomic":         {true}
+r "%SN"="long long":               {true}
+r "%SN"="unsigned short":          {true}
+r "%SN"="unsigned integer":        {true}
+r "%SN"="unsigned long":           {true}
+r "%SN"="unsigned long long":      {true}
+r "%SN"="float":                   {true}
+r "%SN"="double":                  {true}
+r "%SN"="boolean":                 {true}
+r "%SN"="tribool":                 {true}
+r "%SN"="char":                    {true}
+r "%SN"="hthread":                 {true}
+r "%SN"="octet":                   {true}
+r "%SN"="a-string":                {true}
+r "%SN"="c-string":                {true}
+r "%SN"="mutex":                   {true}
+r "%SM"="Enum::Class":             {true}
+r "%SM"="BitMask::Class":        {true}
+r "%SC"="Operation":               {true}
+r "%SM"="Iterator::Class":         {true}
+r "%SM"="Const Iterator::Class":   {true}
+r "%SC"="Parameter"&"%PC"="Class": {[{%SS!=withref}{false}true]}
+r "%SN"="string":                  {false}
+r "%SN"="wstring":                 {false}
+r "%SN"="any":                     {false}
+r {%t_refcounted(%S)=true}:        {false}
+r "%SM"="Typedef::Class":          {[{%Gx=true}{true}%Gf]}
+
+// simple types (serves as atomic objects)
+
+t _simple
+c                                  {}
+r "%SN"="void":                    {undef}
+r "%SM"="Enum::Class":             {true}
+r "%SM"="BitMask::Class":             {true}
+r "%SC"="Operation":               {true}
+r "%SN"="short":                   {true}
+r "%SN"="size":                    {true}
+r "%SN"="integer":                 {true}
+r "%SN"="long":                    {true}
+r "%SN"="atomic":                  {true}
+r "%SN"="hthread":                 {true}
+r "%SN"="unsigned atomic":         {true}
+r "%SN"="long long":               {true}
+r "%SN"="unsigned short":          {true}
+r "%SN"="unsigned integer":        {true}
+r "%SN"="unsigned long":           {true}
+r "%SN"="unsigned long long":      {true}
+r "%SN"="float":                   {true}
+r "%SN"="double":                  {true}
+r "%SN"="boolean":                 {true}
+r "%SN"="tribool":                 {true}
+r "%SN"="char":                    {true}
+r "%SN"="octet":                   {true}
+r "%SN"="string":                  {true}
+r "%SN"="pointer":                 {true}
+r "%SN"="HWND":                    {true}
+r "%SN"="WPARAM":                  {true}
+r "%SN"="LPARAM":                  {true}
+r "%SN"="BOOL":                    {true}
+r "%SN"="LRESULT":                 {true}
+r "%SN"="UINT":                    {true}
+r "%SN"="HANDLE":                  {true}
+r "%SN"="HHOOK":                   {true}
+r "%S%PN"="Win32":                 {true}
+r "%SM"="Typedef::Class":          {[{%Gx=true}{true}%t_simple(%G)]}
+r "%SC"="Parameter"&"%PC"="Class": {[{%SS=primitive}{false}true]}
+r ""="":                           {false}
+
+// iterface types
+
+t _interface
+c                             {}
+r "%SN"="object":             {true}
+r "%SM"="Interface::Class":   {true}
+r "%SM"="Facet::Class":       {true}
+r "%SM"="ServerFacet::Class":       {true}
+r "%SM"="ServerInterface::Class":   {true}
+r "%SM"="Typedef::Class":     {%t_interface(%G)}
+r ""="":                      {false}
+
+t _simple_class
+c                             {}
+r "%SM"="SimpleClass::Class":   {true}
+r "%SM"="Typedef::Class":     {%t_simple_class(%G)}
+r "%SM"="InstanceDef::Class":     {%t_simple_class(%R)}
+r ""="":                      {false}
+
+// types with refcount
+
+t _refcounted
+c                                                              {}
+r {%t_interface(%S)=true}:                                     {true}
+r {%SM=Servant::Class}:                                        {true}
+r {%SM=ComServant::Class}:                                     {true}
+r {%SM=SimpleClass::Class&%S{Need ref count}=true}:            {true}
+r {%SM=SimpleClass::Class&<{}{%t_refcounted(%G)=true}{C}>!=0}: {true}
+r {%SM=SimpleClass::Class&<{}{%t_refcounted(%R)=true}{C}>!=0}: {true}
+r {%SC=Parameter&%PC=Class&%SS=withref}:                       {true}
+r {%SM=Typedef::Class}:                                        {%t_refcounted(%G)}
+r {0=0}:                                                       {false}
+
+// implementation types
+
+t _impl_class
+c                             {}
+r "%SM"="SimpleClass::Class": {true}
+r "%SM"="Servant::Class":     {true}
+r "%SM"="ComServant::Class":     {true}
+r "%SM"="Dialog::Class":     {true}
+r "%SM"="PropertyPage::Class":     {true}
+r "%SM"="PropertySheet::Class":     {true}
+r "%SM"="Typedef::Class":     {%t_impl_class(%G)}
+r ""="":                      {false}
+
+
+f _dump_first_not_fixed_attr
+	[{%f_exist_in_list(NOT_FIXED_ATTRS,S)=false}%f_add_to_list(NOT_FIXED_ATTRS,S)<{}{%CC=Attribute}[{%f_is_not_fixed_complex(%C%T)=false}{%C%TU}%f_dump_first_not_fixed_attr(%C%T)]>]
+
+f _has_not_fixed_complex
+	%f_clear_list(NOT_FIXED_ATTRS)[{"%f_dump_first_not_fixed_attr(%S)"!=""}{false}true]%f_clear_list(NOT_FIXED_ATTRS)
+
+// classs-like types
+t _class_type
+c                             {}
+r "%t_interface(%S)"="true":  {true}
+r "%t_impl_class(%S)"="true": {true}
+r ""="":                      {false}
+
+// struct-like types
+t _struct_type
+c                             {}
+r "%SM"="Struct::Class":      {true}
+r "%SM"="Typedef::Class":     {%t_struct_type(%G)}
+r ""="":                      {false}
+
+t _target
+c                             {}
+r {%SM=ExeTarget::Category}: {true}
+r {%SM=AdapterTarget::Category}: {true}
+r {%SM=TestSuite::Category}: {true}
+r {%SM=ComTarget::Category}: {true}
+r ""="":                      {false}
+
+t _target_ex
+c                             {}
+r {%t_target(%S)=true}: {true}
+r {%SM=ConfluencePluginTarget::Category}: {true}
+r {%SM=InstallerTarget::Category}: {true}
+r ""="":                      {false}
+
+f _is_server_type
+	[{%SS=ServerInterface|%SS=ServerFacet}{[{<{}{%PS=ServerInterface}{C}>!=0}{false}true]}true]
+
+f _use_as_srv_type
+	[{%SS=ServerInterface|%SS=ServerFacet|%S<{}{%RS=ServerInterface|%RS=ServerFacet}{C}>!=0}{[{<{}{%PS=ServerInterface}{C}>!=0}{false}true]}true]
+
+f _beaccessed
+	[{%t_class_type(%T)=true&%f_is_server_type(%T)=false&%Ss!=const&%Ss!=const,cached&%Ss!=const,ref}{false}true]
+
+// existence of less oprerator
+
+t _has_less
+c                             {}
+r "%SN"="atomic":             {true}
+r "%SN"="unsigned atomic":    {true}
+r "%SN"="short":              {true}
+r "%SN"="long":               {true}
+r "%SN"="long long":          {true}
+r "%SN"="unsigned short":     {true}
+r "%SN"="unsigned long":      {true}
+r "%SN"="unsigned long long": {true}
+r "%SN"="integer":            {true}
+r "%SN"="unsigned integer":   {true}
+r "%SN"="float":              {true}
+r "%SN"="double":             {true}
+r "%SN"="boolean":            {true}
+r "%SN"="tribool":            {true}
+r "%SN"="char":               {true}
+r "%SN"="unsigned char":      {true}
+r "%SN"="a-string":           {true}
+r "%SN"="c-string":           {true}
+r "%SN"="octet":              {true}
+r "%SM"="Enum::Class":        {true}
+r "%SM"="Iterator::Class":         {true}
+r "%SM"="Const Iterator::Class":   {true}
+r "%SM"="Union::Class":   {%S{Need less}}
+r "%SM"="Typedef::Class":     {%t_has_less(%G)}
+r ""="":                      {false}
+
+// direct maping for DLL
+
+t _dll_direct
+c                             {} 
+r "%SN"="void":               {true}
+r "%SN"="short":              {true}
+r "%SN"="long":               {true}
+r "%SN"="long long":          {true}
+r "%SN"="unsigned short":     {true}
+r "%SN"="unsigned long":      {true}
+r "%SN"="unsigned long long": {true}
+r "%SN"="unsigned int":       {true}
+r "%SN"="int":                {true}
+r "%SN"="float":              {true}
+r "%SN"="double":             {true}
+r "%SN"="boolean":            {true}
+r "%SN"="char":               {true}
+r "%SN"="unsigned char":      {true}
+r "%SN"="wchar":              {true}
+r "%SN"="octet":              {true}
+r "%SN"="string":             {true}
+r "%SN"="wstring":            {true}
+r "%SN"="pointer":            {true}
+r "%SN"="octet":              {true}
+r "%SN"="fixed":              {true}
+r "%SN"="size":               {true}
+r "%SM"="Enum::Class":        {true}
+r "%SM"="Struct::Class"&"<{}{"%t_dll_direct(%C%T)"="false"}{%CC}>"="0":  {true}
+r "%SM"="Typedef::Class":     {%t_dll_direct(%G)}
+r ""="":                      {false}
+
+t _tied_elem
+c                             {} 
+r {%SS=Vector}:               {true}
+r {%SS=Set}:                  {true}
+r ""="":                      {false}
+
+f _need_tie
+	[{"%t_dll_direct(%S)"="false"}{false}true]
+
+f _is_fixed_simple
+	[{%t_simple(%S)=true&%Sf=true&%t_refcounted(%S)=false}{false}true]
+
+f _is_fixed_complex
+	[{%t_simple(%S)=false&%Sf=true&%t_refcounted(%S)=false}{false}true]
+
+f _is_not_fixed_simple
+	[{%t_simple(%S)=true&%Sf=false&%t_refcounted(%S)=false}{false}true]
+
+f _is_not_fixed_complex
+	[{%t_simple(%S)=false&%Sf=false&%t_refcounted(%S)=false}{false}true]
+
+////////////////////////////////////////////////////////////
+// direct gen functions
+
+f _arg
+	%t_arg(%T,"%SS",%S)\
+	[{%SN=void}%f_error("<{}{}{r}%PN::>%SN - void cant be passed as function argument")]
+
+f _ret
+	[{%t_class_type(%P)=true}{%f_set_var(__SCOPE,P)}%f_set_var(__SCOPE,{SERV})]\
+	%t_ret(%T,"%Ss")
+
+f _attr
+	%t_attr(%T,"%Sl[-%Ss]",%S)\
+	[{%SN=void}%f_error("<{}{}{r}%PN::>%SN - void cant be used as data attribute")]
+
+f _iget_attr
+	[{%f_use_as_srv_type(%B)=false}{%t_ret(%T,"")}[{%Sl=agr}{%t_ret(%T,"const")}%t_ret(%T,"const,cached")]]
+
+f _igetnc_attr
+	[{%Sl=agr}{%t_ret(%T,"")}%t_ret(%T,"cached")]
+
+f _iset_attr
+	[{%Ss!=const&%t_refcounted(%T)=true&%f_is_server_type(%T)=false}{%t_arg(%T,"in",%S)}%t_arg(%T,"inout",%S)]
+/	%t_arg(%T,"in",%S)
+
+f _type
+	%t_decl(%S,"typ")
+
+f _var
+	%t_decl(%S,"var")
+
+f _cvar
+	%t_decl(%S,"cvar")
+
+f _arg_full_decl
+	[{%X{lid}!=delphi}{%f_arg(%S)[ = %f_init(%S)]}\
+	%f_arg(%S) %SN[{%XU=h&"%SI"!=""}[ = %f_init(%S)]]]
+
+////////////////////////////////////////////////////////////
+// direct gen functions (languge forced)
+
+f _cpp_ret
+	%f_with_gen_id(cpp,%f_ret(%S))
+
+f _cpp_type
+	%f_with_gen_id(cpp,%f_type(%S))
+
+
+////////////////////////////////////////////////////////////
+// first step transformators
+
+t _arg
+c				               {}
+r "%X{lid}"="cpp":     {%t_arg_cpp(%S,%1)}
+r "%X{lid}"="dll_cpp": {%t_arg_dll_cpp(%S,%1)}
+r "%X{lid}"="idl":     {%t_arg_idl(%S,%1)}
+r "%X{lid}"="delphi":  {%t_arg_delphi(%S,%1,%2)}
+r "%X{lid}"="java":    {%t_arg_java(%S,%1)}
+r ""="":               {%f_error("Arguments types maping is undefined for %XN")}
+
+t _decl
+c                      {}
+r "%X{lid}"="cpp":     {%t_decl_cpp(%S,%1)}
+r "%X{lid}"="dll_cpp": {%t_decl_cpp(%S,%1)}
+r "%X{lid}"="idl":     {%t_decl_idl(%S,%1)}
+r "%X{lid}"="delphi":  {%t_decl_delphi(%S,%1)}
+r "%X{lid}"="java":     {%t_decl_java(%S,%1)}
+r ""="":               {%f_error("Decloration types maping is undefined for %XN")}
+
+t _ret
+c                      {}
+r "%X{lid}"="cpp":     {%t_ret_cpp(%S,%1)}
+r "%X{lid}"="dll_cpp": {%t_ret_cpp(%S,%1)}
+r "%X{lid}"="idl":     {%t_ret_idl(%S,%1)}
+r "%X{lid}"="delphi":  {%t_ret_delphi(%S,%1)}
+r "%X{lid}"="java":    {%t_ret_java(%S,%1)}
+r ""="":               {%f_error("Function returns types maping is undefined for %XN")}
+
+t _attr
+c				               {}
+r "%X{lid}"="cpp":     {%t_attr_cpp(%S,%1,%2)}
+r "%X{lid}"="dll_cpp": {%t_attr_cpp(%S,%1,%2)}
+r "%X{lid}"="idl":     {%t_attr_idl(%S,%1,%2)}
+r "%X{lid}"="delphi":  {%t_attr_delphi(%S,%1,%2)}
+r "%X{lid}"="java":  {%t_attr_java(%S,%1,%2)}
+r ""="":               {%f_error("Function returns types maping is undefined for %XN")}
+
+////////////////////////////////////////////////////////////
+// last step transformators
+t _arg_dll_cpp
+c                                         {in}                                              {inout}              {out}
+r {%t_refcounted(%S)=true|%t_is_container(%S)=true}:               {[{%f_is_server_type(%S)=false}const ]%f_tn(%S)*} {%f_tn(%S)*[{%f_is_server_type(%S)=true}&]}         {%f_tn(%S)[{%f_is_server_type(%B)=false}{_out}*&]}
+r "%f_is_fixed_simple(%S)"="true":        {%f_tn(%S)}                                       {%f_tn(%S)&}         {%f_tn(%S)&}
+r "%SN"="c-string":                       {const %f_tn(%S)&}                                {%f_cstr_nconst(%S)} {%f_tn(%S)*&}
+r "%f_is_fixed_complex(%S)"="true":       {const %f_tn(%S)&}                                {%f_tn(%S)&}         {%f_tn(%S)[{%f_is_server_type(%S)=false}{_out}*&]}
+r "%SN"="string":                         {const %f_tn(%S)}                                 {%f_tn(%S)[{%f_is_server_type(%B)=true}&]}          {[{%f_is_server_type(%B)=false}{CORBA::String_out}%f_tn(%S)&]}
+r {%SS=Typedef&%GN=string}:               {[{%f_use_as_srv_type(%B)=true}{const %f_tn(%S)}%f_tn(%S)_const]}    {%f_tn(%S)[{%f_is_server_type(%B)=true}&]}          {%f_tn(%S)[{%f_is_server_type(%B)=false}{_out}&]}
+r "%f_is_not_fixed_simple(%S)"="true":    {const %f_tn(%S)}                                 {%f_tn(%S)}          {%f_tn(%S)&}
+r "%f_is_not_fixed_complex(%S)"="true":   {const %f_tn(%S)&}                                {%f_tn(%S)&}         {%f_tn(%S)[{%f_is_server_type(%B)=false}{_out}*&]}
+
+t _arg_cpp
+c                                         {in}                                              {inout}              {out}                                                                                                     {nokey}
+r "%f_is_fixed_simple(%S)"="true":        {%f_tn(%S)}                                       {%f_tn(%S)&}         {%f_tn(%S)&}                                                                                              {%t_arg_cpp(%S,"in")}
+r "%SN"="c-string":                       {const %f_tn(%S)&}                                {%f_cstr_nconst(%S)} {%f_tn(%S)*&}                                                                                             {%t_arg_cpp(%S,"in")}
+r "%f_is_fixed_complex(%S)"="true":       {const %f_tn(%S)&}                                {%f_tn(%S)&}         {%f_tn(%S)[{%f_is_server_type(%S)=false}{_out}*&]}                                                        {%t_arg_cpp(%S,"in")}
+r "%SN"="string":                         {const %f_tn(%S)}                                 {%f_tn(%S)[{%f_is_server_type(%B)=true}&]}          {[{%f_is_server_type(%B)=false}{CORBA::String_out}%f_tn(%S)&]}             {%t_arg_cpp(%S,"in")}
+r {%SS=Typedef&%GN=string}:               {%f_tn(%S)_const}    {%f_tn(%S)[{%f_is_server_type(%B)=true}&]}          {%f_tn(%S)[{%f_is_server_type(%B)=false}{_out}&]}       {%t_arg_cpp(%S,"in")}
+r "%f_is_not_fixed_simple(%S)"="true":    {const %f_tn(%S)}                                 {%f_tn(%S)}          {%f_tn(%S)&}                                                                                              {%t_arg_cpp(%S,"in")}
+r "%f_is_not_fixed_complex(%S)"="true":   {const %f_tn(%S)&}                                {%f_tn(%S)&}         {%f_tn(%S)[{%f_is_server_type(%B)=false}{_out}*&]}                                                        {%t_arg_cpp(%S,"in")}
+r {%t_refcounted(%S)=true}:               {[{%f_is_server_type(%S)=false}const ]%f_tn(%S)*} {%f_tn(%S)*[{%f_is_server_type(%S)=true}&]}         {%f_tn(%S)[{%f_is_server_type(%B)=false}{_out}*&]}                         {%t_arg_cpp(%S,"in")}
+
+t _arg_idl
+c                                         {in}            {inout}             {out}..............{nokey}
+r "%SN"="c-string":                       {ERROR}         {ERROR}             {ERROR}............{%t_arg_idl(%S,"in")}
+r ""="":                                  {in %f_tn(%S)}  {inout %f_tn(%S)}   {out %f_tn(%S)}....{%t_arg_idl(%S,"in")}
+
+t _arg_java
+c                                         {in}                                                                 {inout}             {out}.........................................{nokey}
+r ""="":                                  {[{%f_use_as_srv_type(%B)=false}final ]%t_attr_java(%S)}  {%t_attr_java(%S)}   {%t_attr_java(%S)}......{%t_arg_java(%S,"in")}
+
+t _arg_delphi
+c                                     {in}                                    {inout}                                  {out}
+r "%f_is_fixed_simple(%S)"="true":        {const a%f_to_borland(%2N): %f_tn(%S)}  {var a%f_to_borland(%2N): %f_tn(%S)}    {out a%f_to_borland(%2N):%f_tn(%S)}
+r "%SN"="c-string":                       {ERROR}  {ERROR} {ERROR}
+r "%f_is_fixed_complex(%S)"="true":       {const a%f_to_borland(%2N): %f_tn(%S)} {const a%f_to_borland(%2N): %f_tn(%S)}  {out a%f_to_borland(%2N): %f_tn(%S)}
+r "%f_is_not_fixed_simple(%S)"="true":    {const a%f_to_borland(%2N): %f_tn(%S)}  {var a%f_to_borland(%2N): %f_tn(%S)}    {out a%f_to_borland(%2N):%f_tn(%S)}
+r "%f_is_not_fixed_complex(%S)"="true":   {const a%f_to_borland(%2N): %f_tn(%S)}  {var a%f_to_borland(%2N): %f_tn(%S)}    {out a%f_to_borland(%2N):%f_tn(%S)}
+r "%t_refcounted(%S)"="true":             {const a%f_to_borland(%2N): %f_tn(%S)}  {const a%f_to_borland(%2N): %f_tn(%S)}   {out a[{"%2x"="true"}{Ret}%f_to_borland(%2N)] {: %f_tn(%S)}}
+
+f _cstr_nconst
+	%f_error("%B%PN::%BN - c-string cant be used as non const object")
+
+t _decl_cpp
+c                           {typ}         {var}            {cvar}
+r "%t_refcounted(%S)"="true":   {%f_tn(%S)}   {%f_tn(%S)_var}  {const %f_tn(%S)_cvar}
+r "%t_refcounted(%S)"="false":  {%f_tn(%S)}   {%f_tn(%S)}      {const %f_tn(%S)}
+
+t _decl_delphi
+c          {typ}         {var}            {cvar}
+r ""="":   {%f_tn(%S)}   {%f_tn(%S)}      {%f_tn(%S)}
+
+t _decl_idl
+c          {typ}         {var}            {cvar}
+r ""="":   {%f_tn(%S)}   {%f_tn(%S)}      {%f_tn(%S)}
+
+t _decl_java
+c          {typ}         {var}            {cvar}
+r ""="":   {%f_tn(%S)}   {%f_tn(%S)}      {%f_tn(%S)}
+
+
+t _ret_cpp
+c                                       {}                           {const}                                           {cached}                     {const,cached}
+r "%SN"="void":                         {void}                       {ERROR}                                           {ERROR}                      {ERROR}
+r {%SS=Typedef&%GN=string}:             {%f_tn(%S)}                   {%f_tn(%S)_const}                                {%f_tn(%S)&}                 {const %f_tn(%S)_const&}
+r "%f_is_fixed_simple(%S)"="true":      {%f_tn_prefix(%S)%f_tn(%S)}                  {const %f_tn(%S)}                                 {%f_tn(%S)&}                 {%f_tn(%S)}
+r "%SN"="c-string":                     {%f_tn(%S)*}                 {const %f_tn(%S)}                                 {%f_cstr_nconst(%S)}         {const %f_tn(%S)&}
+r "%f_is_fixed_complex(%S)"="true":     {%f_tn_prefix(%S)%f_tn(%S)[{%f_is_server_type(%S)=false}*]} {const %f_tn_prefix(%S)%f_tn(%S)}                 {%f_tn_prefix(%S)%f_tn(%S)&} {const %f_tn_prefix(%S)%f_tn(%S)&}
+r "%f_is_not_fixed_simple(%S)"="true":  {%f_tn(%S)}                  {%f_nfs_cret(%S)}                                 {%f_tn(%S)&}                 {const %f_tn(%S)}
+r "%f_is_not_fixed_complex(%S)"="true": {%f_tn_prefix(%S)%f_tn(%S)*} {%f_nfc_cret(%S)}                                 {%f_tn_prefix(%S)%f_tn(%S)&} {const %f_tn_prefix(%S)%f_tn(%S)&}
+r "%t_refcounted(%S)"="true":          {%f_tn_prefix(%S)%f_tn(%S)*} {[{%f_is_server_type(%S)=false}const ]%f_tn_prefix(%S)%f_tn(%S)*} {%f_tn_prefix(%S)%f_tn(%S)&} {[{%f_is_server_type(%S)=false}const ]%f_tn_prefix(%S)%f_tn(%S)&}
+/r "%SS"="ServerInterface":              {%f_tn_prefix(%S)%f_tn(%S)_ptr} {%f_tn_prefix(%S)%f_tn(%S)_ptr} {%f_tn_prefix(%S)%f_tn(%S)&} {%f_tn_prefix(%S)%f_tn(%S)&}
+/r "%t_refcounted(%S)"="true":           {%f_tn_prefix(%S)%f_tn(%S)*} {const %f_tn_prefix(%S)%f_tn(%S)*} {%f_tn_prefix(%S)%f_tn(%S)&} {const %f_tn_prefix(%S)%f_tn(%S)&}
+
+t _ret_delphi
+c                                       {}           {const}       {cached}    {const,cached}
+r "%SN"="void":                         {void}       {1ERROR}      {2ERROR}    {3ERROR}
+r "%f_is_fixed_simple(%S)"="true":      {%f_tn(%S)}  {%f_tn(%S)}   {%f_tn(%S)} {%f_tn(%S)}
+r "%f_is_not_fixed_simple(%S)"="true":  {ERROR}      {ERROR}       {ERROR}     {%f_tn(%S)}
+r ""="":                                {6ERROR}     {7ERROR}      {8ERROR}    {9ERROR}
+
+t _ret_idl
+c           {}           {const}       {cached}    {const,cached}
+r ""="":    {%f_tn(%S)}  {%f_tn(%S)}   {%f_tn(%S)} {%f_tn(%S)}
+
+t _ret_java
+c           {}                   {const}              {cached}             {const,cached}
+r ""="":    {%t_attr_java(%S)}   {%t_attr_java(%S)}   {%t_attr_java(%S)}   {%t_attr_java(%S)}
+
+f _nfc_cret
+	[{%S{Need assign op}!=true}{const %f_tn_prefix(%S)%f_tn(%S)}%f_error("%B<{}{}{r}%PN::>%BN - Not fixed type (%SN) must have copy operator to be able to returned by const value")]
+
+f _nfs_cret
+	%f_error("%B<{}{}{r}%PN::>%BN - Not fixed simple type (%SN) cant be returned as \<\<const\>\>. Use \<\<const,cached\>\> to return const cached pointers, or \<\<\>\> for return non const pointer to newly allocated data")
+
+t _var_type
+c                                      {var}                                             {cvar}
+r "%f_is_server_type(%S)"="true":      {%f_tn_prefix(%S)]%f_tn(%S)_var}                  {%f_error("No cvar for server object%SN")}
+r ""="":                               {%f_tn_prefix(%S)%f_tn(%S)_var}                   {%f_tn_prefix(%S)%f_tn(%S)_cvar}
+
+
+t _attr_cpp
+c                                       {agr}                              {agr-const}                        {agr-ref}                     {agr-const,ref}                     {ref}                                     {ref-const}                                     {lnk}                         {lnk-const}                        {lnk-ref}                      {lnk-const,ref}                      {}
+r "%f_is_fixed_simple(%S)"="true":      {[{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)}                        {const [{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)}                  {[{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)&}                  {const [{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)&}                  {Core::Box\<[{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)\>}                  {Core::Box\<const [{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)\>}                  {[{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)*}                  {const [{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)*}                 {[{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)*&}                  {const [{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)*&}                  {%f_error("Cant use this type of attributes (%SN,%1N)")}
+r "%f_is_fixed_complex(%S)"="true":     {%f_tn_prefix(%S)%f_tn(%S)}        {const %f_tn_prefix(%S)%f_tn(%S)}  {%f_tn_prefix(%S)%f_tn(%S)&}  {const %f_tn_prefix(%S)%f_tn(%S)&}  {Core::Box\<%f_tn_prefix(%S)%f_tn(%S)\>}  {Core::Box\<const %f_tn_prefix(%S)%f_tn(%S)\>}  {%f_tn_prefix(%S)%f_tn(%S)*}  {const %f_tn_prefix(%S)%f_tn(%S)*} {%f_tn_prefix(%S)%f_tn(%S)*&}  {const %f_tn_prefix(%S)%f_tn(%S)*&}  {%f_error("Cant use this type of attributes (%SN,%1N)")}
+r "%SN"="string":                       {%f_tn(%S)}                        {const %f_tn(%S)}                  {%f_tn(%S)&}                  {const %f_tn(%S)&}                  {Core::Box\<char\>}                       {Core::Box\<const char\>}                       {%f_tn(%S)*}                  {const %f_tn(%S)*}                 {%f_tn(%S)*&}                  {const %f_tn(%S)*&}                  {%f_error("Cant use this type of attributes (%SN,%1N)")}
+r "%SN"="pointer":                      {%f_tn(%S)}                        {const %f_tn(%S)}                  {%f_tn(%S)&}                  {const %f_tn(%S)&}                  {Core::Box\<void\>}                       {Core::Box\<const void\>}                       {%f_tn(%S)*}                  {const %f_tn(%S)*}                 {%f_tn(%S)*&}                  {const %f_tn(%S)*&}                  {%f_error("Cant use this type of attributes (%SN,%1N)")}
+r "%f_is_not_fixed_simple(%S)"="true":  {%f_tn_prefix(%S)%f_tn(%S)}        {const %f_tn_prefix(%S)%f_tn(%S)}  {%f_tn_prefix(%S)%f_tn(%S)&}  {const %f_tn_prefix(%S)%f_tn(%S)&}  {Core::Box\<%f_tn_prefix(%S)%f_tn(%S)\>}  {Core::Box\<const %f_tn_prefix(%S)%f_tn(%S)\>}  {%f_tn_prefix(%S)%f_tn(%S)*}  {const %f_tn_prefix(%S)%f_tn(%S)*} {%f_tn_prefix(%S)%f_tn(%S)*&}  {const %f_tn_prefix(%S)%f_tn(%S)*&}  {%f_error("Cant use this type of attributes (%SN,%1N)")}
+r "%f_is_not_fixed_complex(%S)"="true": {%f_tn_prefix(%S)%f_tn(%S)}        {const %f_tn_prefix(%S)%f_tn(%S)}  {%f_tn_prefix(%S)%f_tn(%S)&}  {const %f_tn_prefix(%S)%f_tn(%S)&}  {[{%f_is_server_type(%S)=false}{%t_var_type(%S,"var")}Core::Box\<%f_tn_prefix(%S)%f_tn(%S)\>]}  {[{%f_is_server_type(%S)=false}{%f_tn_prefix(%S)%f_tn(%S)_var}Core::Box\<const %f_tn_prefix(%S)%f_tn(%S)\>]}  {%f_tn_prefix(%S)%f_tn(%S)*}  {const %f_tn_prefix(%S)%f_tn(%S)*} {%f_tn_prefix(%S)%f_tn(%S)*&}  {const %f_tn_prefix(%S)%f_tn(%S)*&}  {%f_error("Cant use this type of attributes (%SN,%1N)")}
+r "%t_refcounted(%S)"="true":           {%f_tn_prefix(%S)%f_refc_agr(%S,%2)}  {%f_refc_agr(%S,%2)}                  {%f_refc_agr(%S,%2)}             {%f_refc_agr(%S,%2)}                   {%t_var_type(%S,"var")}           {%t_var_type(%S,"cvar")}                {%f_tn_prefix(%S)%f_tn(%S)*}  {const %f_tn_prefix(%S)%f_tn(%S)*} {%f_tn_prefix(%S)%f_tn(%S)*&}  {const %f_tn_prefix(%S)%f_tn(%S)*&}  {%f_error("Cant use this type of attributes (%SN,%1N)")}
+
+t _attr_idl
+c                                   {}
+r ""="":                            {[%2S ]attribute %f_tn(%S)}
+
+t _pointer_attr
+c                                         {}
+r "%f_is_fixed_simple(%S)"="true":        {[{%SS=Typedef}%f_tn_prefix(%S)]%f_tn(%S)}
+r "%f_is_fixed_complex(%S)"="true":       {%f_tn_prefix(%S)%f_tn(%S)}
+r "%SN"="string":                         {%f_tn(%S)}
+r "%SN"="pointer":                        {%f_tn(%S)}
+r "%f_is_not_fixed_simple(%S)"="true":    {%f_tn_prefix(%S)%f_tn(%S)*}
+r "%f_is_not_fixed_complex(%S)"="true":   {%f_tn_prefix(%S)%f_tn(%S)*}
+r "%t_refcounted(%S)"="true":             {%f_tn_prefix(%S)%f_tn(%S)*}
+
+t _is_container
+c                               {}
+r "%SM"="Map::Class":           {true}
+r "%SM"="UnsortedMap::Class":   {true}
+r "%SM"="HashMap::Class":       {true}
+r "%SM"="Set::Class":           {true}
+r "%SM"="UnsortedSet::Class":   {true}
+r "%SM"="Vector::Class":        {true}
+r "%SM"="Queue::Class":         {true}
+r ""="":                        {false}
+
+f _need_oop_wrapper
+	[{%t_is_container(%P)=true}{false}true]
+
+f _can_be_init
+	%t_is_container(%T)
+
+t _attr_init_java
+c                                   {}
+r "%SM"="Map::Class":		{java.util.TreeMap\<%t_key_dump_java(%S), %f_data_dump(%S)\>}
+r "%SM"="UnsortedMap::Class":		{java.util.HashMap\<%t_key_dump_java(%S), %f_data_dump(%S)\>}
+r "%SM"="HashMap::Class":		{java.util.HashMap\<%t_key_dump_java(%S), %f_data_dump(%S)\>}
+r "%SM"="Set::Class":		{java.util.TreeSet\<%f_data_dump(%S)\>}
+r "%SM"="UnsortedSet::Class":		{java.util.HashSet\<%f_data_dump(%S)\>}
+r "%SM"="Vector::Class":		{java.util.Vector\<%f_data_dump(%S)\>}
+r "%SM"="Queue::Class":		{java.util.LinkedList\<%f_data_dump(%S)\>}
+r ""="":                            {}
+
+f _attr_init_java
+	[new %t_attr_init_java(%T) ()]
+
+t _key_dump_java
+c                                   {}
+r "%f_key_dump(%S)"="int":			{Integer}
+r "%f_key_dump(%S)"="long":			{Long}
+r "%f_key_dump(%S)"="boolean":			{Boolean}
+r "%f_key_dump(%S)"="char":			{Character}
+r ""="":								{%f_key_dump(%S)}
+
+t _attr_java
+c                                   {}
+r "%SM"="Map::Class":		{java.util.Map\<%t_key_dump_java(%S), %f_data_dump(%S)\>}
+r "%SM"="UnsortedMap::Class":		{java.util.Map\<%t_key_dump_java(%S), %f_data_dump(%S)\>}
+r "%SM"="HashMap::Class":		{java.util.Map\<%t_key_dump_java(%S), %f_data_dump(%S)\>}
+r "%SM"="Set::Class":		{java.util.Set\<%f_data_dump(%S)\>}
+r "%SM"="UnsortedSet::Class":		{java.util.Set\<%f_data_dump(%S)\>}
+r "%SM"="Vector::Class":		{[{%f_is_server_type(%S)=false}{%f_data_dump(%S)\[\]}java.util.List\<%f_data_dump(%S)\>]}
+r "%SM"="Queue::Class":		{java.util.Queue\<%f_data_dump(%S)\>}
+r ""="":                            {%f_tn(%S)}
+
+f _refc_agr
+	%f_error("Refcounted type (%SN in %1%PS %1%PN) can't be agrigated")
+
+////////////////////////////////////////////////////////////
+// Transformator for initial value
+
+t _init
+c                             {idl}    {cpp}  {delphi}  {dll_cpp}	{java} 
+r "%SI"="EMPTY_STR":          {ERROR}  {0}    {nil}     {0}			{0}
+r "%SI"="NULL":               {ERROR}  {0}    {nil}     {0}			{null}
+r "%SI"="MAX":                {ERROR}  {std::numeric_limits \<%f_type(%T)\>::max ()}    {ERROR}     {ERROR}	{ERROR}
+r "%TN"="string"|"%TN"="a-string"|"%TN"="c-string":    {%SI}  {%SI}  {%SI}     {%SI}	{%SI}
+r ""="":                      {%SI}  {%SI}  {%SI}     {%SI}	{%SI}
+
+f _init
+	%t_init(%S,"%X{lid}")
+
+f _tn_prefix
+	[{%PS!=TemplateFunctions}[{%XU=cpp}[{<{}{%PC=Class&%{__SCOPE}U=%PU}{%PC}>!=0|%f_set_var(__SP,P)%{__SCOPE}<{}{%PC=Class&%PU!={__SP}U}{%PC}>!=0}\
+	<{}{%t_nested_scope_def(%P)=true}{r}%PN::>]]]
+
+t _nested_scope_def
+c                             {}
+r {%t_impl_class(%S)=true}:   {true}
+r {%SM=UtilityClass::Class}:  {true}
+r {%SM=StateMachine::Class}:  {true}
+r {%SM=CXWorkPlugin::Class}:  {true}
+r {%SM=Typedef::Class}:       {%t_nested_scope_def(%T)}
+r {""=""}:                    {false}
+
+t _has_impl
+c                                     {}
+r "%SS"="Generator":                  {true}
+r "%SS"="Predicate":                  {true}
+r "%SS"="UnaryFunctor":               {true}
+r "%SS"="BinaryFunctor":              {true}
+r "%SS"="BinaryPredicate":            {true}
+r "%SC"="Operation":                  {true}
+r "%SM"="TemplateFunctions::Class":   {[{<{}{%t_has_impl(%C)=true}{C}>!=0}{false}true]}
+r ""="":                              {false}
+
+///////////////////////////////////////////////////////////
+// ParameterizedClass helper
+f _count_template_params
+	[<{, }{"%CC"="Parameter"}{C}>]
+
+f _dump_template_params
+/	[{%f_count_template_params(%{SELF})!=0}\<%{SELF}<{, }{"%CC"="Parameter"|"[{"%CC"="Attribute"&"%CS"="template"}{false}true]"="true"}%CN>\>]
+	[%f_dump_parameterized_list(%S)]
+
+f _template_specify
+	[{%f_set_var(SELF,S)"%1<{, }{"%CC"="Parameter"}{%C}%f_set_var(ARG,C)[{"%{SELF}<{}{"%{ARG}N"="%CN"&"[{"%CC"="Parameter"|"[{"%CC"="Attribute"&"%CS"="template"}{false}true]"="true"}{false}true]"="true"}{C}>"!="1"}.]>"!=""}{true}false]
+
+f _dump_parameterized_list
+/	[{"%{SELF}K"="ParameterizedClass"&"%SK"="ParameterizedClass"}\<%S<{, }{"%CC"="Parameter"}{%C}%f_set_var(ARG,C)%{SELF}<{}{"%{ARG}N"="%CN"&"[{"%CC"="Parameter"|"[{"%CC"="Attribute"&"%CS"="template"}{false}true]"="true"}{false}true]"="true"}%f_type(%C%T)>>\>]
+	[{"%SK"="ParameterizedClass"}\<%S<{, }{"%CC"="Parameter"}{%C}%f_set_var(ARG,C)%{SELF}<{}{"%{ARG}N"="%CN"&"[{"%CC"="Parameter"|"[{"%CC"="Attribute"&"%CS"="template"}{false}true]"="true"}{false}true]"="true"}[{"%Cs"="const"}const ]%f_type(%C%T)>>\>]
+
+f _is_parent_parameterized
+	[{"%S<{}{"%NK"="ParameterizedClass"}{C}>"="0"}{true}false]
+
+f _prefix
+	[{%f_is_parent_parameterized(%S)=true}typename ]
+
+f _dump_normalized_scope
+	[{"%{SELF}K"="ParameterizedClass"&"%f_is_parent_parameterized(%S)"="true"}{%S<%NN::>}]
+
+f _find_template_param
+	[%{SELF}<{}{"%CC"="Attribute"&"%CS"="template"}[{"%{PARAM}N"="%CN"}%f_type(%C%T)]>]
+
+f _dump_param
+	[{%PS!=TemplateFunctions}{%SN}%f_set_var(PARAM,S)[{"%f_find_template_param(%S)"!=""}{%{SELF}<{}{"%CC"="Parameter"}[{"%CN"="%{PARAM}N"}%f_dump_normalized_scope(%S)%CN]>}\
+	%f_dump_normalized_scope(%S)%f_find_template_param(%S)]]
+
+t _is_cplugin
+c                                    {}
+r "%SM"="CServletPlugin::Class":     {true}
+r "%SM"="CListenerPlugin::Class":    {true}
+r "%SM"="CMacroPlugin::Class":       {true}
+r "%SM"="CComponentPlugin::Class":   {true}
+r "%SM"="CJobPlugin::Class":         {true}
+r "%SM"="CTriggerPlugin::Class":     {true}
+r "%SM"="CVelocityContextPlugin::Class":  {true}
+r "%SM"="VM::Class":                 {true}
+r "%SM"="CXWorkPlugin::Class":       {true}
+r "%SM"="CActionPlugin::Class":      {true}
+r "%SM"="CSpringPlugin::Class":      {true}
+r "%SM"="CExtractorPlugin::Class":   {true}
+r "%SM"="CLifecyclePlugin::Class":   {true}
+r "%SM"="WebItem::Class":            {true}
+r ""="":                             {false}
+
+t _have_k_page
+c                                    {}
+r %SS=Generator:                     {true}
+r %SS=Predicate:                     {true}
+r %SS=UnaryFunctor:                  {true}
+r %SS=BinaryFunctor:                 {true}
+r %SS=BinaryPredicate:               {true}
+r "%SM"="CServletPlugin::Class":     {true}
+r "%SM"="CListenerPlugin::Class":    {true}
+r "%SM"="CMacroPlugin::Class":       {true}
+r "%SM"="CComponentPlugin::Class":   {true}
+r "%SM"="CJobPlugin::Class":         {true}
+r "%SM"="CTriggerPlugin::Class":     {true}
+r "%SM"="CVelocityContextPlugin::Class":  {true}
+r "%SM"="VM::Class":                 {true}
+r "%SM"="CXWorkPlugin::Class":       {true}
+r "%SM"="CActionPlugin::Class":      {true}
+r "%SM"="CSpringPlugin::Class":      {true}
+r "%SM"="CExtractorPlugin::Class":   {true}
+r "%SM"="CLifecyclePlugin::Class":   {true}
+r "%SM"="WebItem::Class":            {true}
+r "%SM"="Interface::Class":          {true}
+r "%SM"="ComInterface::Class":       {true}
+r "%SM"="Facet::Class":              {true}
+r "%SM"="ServerFacet::Class":        {true}
+r "%SM"="ServerInterface::Class":    {true}
+r "%SM"="SimpleClass::Class":        {true}
+r "%SM"="Servant::Class":            {true}
+r "%SM"="ComServant::Class":         {true}
+r "%SM"="Dialog::Class":             {true}
+r "%SM"="PropertyPage::Class":       {true}
+r "%SM"="PropertySheet::Class":      {true}
+r "%SM"="GuiControl::Class":         {true}
+r "%SM"="Deallocator::Class":        {true}
+r "%SM"="Exception::Class":          {true}
+r "%SM"="ClientInterceptor::Class":  {true}
+r "%SM"="ServerInterceptor::Class":  {true}
+r "%SM"="LibExecutor::Class":        {true}
+r "%SM"="LibExecutor::Class":        {true}
+r "%SM"="Struct::Class":             {true}
+r "%SM"="Valuetype::Class":          {true}
+r "%SM"="UtilityPack::Class":        {true}
+r "%SM"="UtilityClass::Class":       {true}
+
+//функция проверяет имеет ли
+//элемент указанный тип (с учетом Typedef'а) или нет
+t _check_type
+c                                  {}
+r "%SM"="%1N":                     {true}
+r "%SM"="Typedef::Class":          {%t_check_type(%G,"%1N")}
+r ""="":                           {false}

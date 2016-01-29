@@ -1,0 +1,440 @@
+// ReleaseDaily$Test 06EF1E6353C7 TestTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_06EF1E6353C7
+
+FORWARD ME_431348CB3E15
+
+: ME_4B7AB0B6016E_ME_431348CB3E15
+ CONST UID '4B7AB0B6016E'
+ CONST Name 'CommandLineKey'
+ : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
+ ;
+ : Implementor ME_431348CB3E15 // ReleasetoK
+ ;
+ref; // ME_4B7AB0B6016E_ME_431348CB3E15 CommandLineKey
+
+: ME_4B7C0B43005B_ME_431348CB3E15
+ CONST UID '4B7C0B43005B'
+ CONST Name 'TimesPage'
+ : Original WL 'ME_4B7C0B43005B' '4B2A112B011A.pas.ms.script' // TimesPage
+ ;
+ : Implementor ME_431348CB3E15 // ReleasetoK
+ ;
+ref; // ME_4B7C0B43005B_ME_431348CB3E15 TimesPage
+
+: ME_4B7C0B670215_ME_431348CB3E15
+ CONST UID '4B7C0B670215'
+ CONST Name 'ResultsPage'
+ : Original WL 'ME_4B7C0B670215' '4B2A112B011A.pas.ms.script' // ResultsPage
+ ;
+ : Implementor ME_431348CB3E15 // ReleasetoK
+ ;
+ref; // ME_4B7C0B670215_ME_431348CB3E15 ResultsPage
+
+: ME_4BEA9969001B_ME_431348CB3E15
+ CONST UID '4BEA9969001B'
+ CONST Name 'IsGK'
+ : Original WL 'ME_4BEA9969001B' '4B2A112B011A.pas.ms.script' // IsGK
+ ;
+ : Implementor ME_431348CB3E15 // ReleasetoK
+ ;
+ref; // ME_4BEA9969001B_ME_431348CB3E15 IsGK
+
+: ME_431348CB3E15
+ CONST UID '431348CB3E15'
+ CONST Name 'ReleasetoK'
+ CONST Class class_Class
+ : Stereotype st_TestResults ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Стандартный вывод для ГК (релизный вариант)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_06EF1E6353C7 // ReleaseDaily$Test
+ ;
+ : Inherits
+   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4B7AB0B6016E_ME_431348CB3E15 // CommandLineKey
+ ME_4B7C0B43005B_ME_431348CB3E15 // TimesPage
+ ME_4B7C0B670215_ME_431348CB3E15 // ResultsPage
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4BEA9969001B_ME_431348CB3E15 // IsGK
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "needs script keywords documentation" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\DailyTest\ReleasetoK.pas'
+ CONST extprop:pas:TypeName 'TReleasetoK'
+
+ref; // ME_431348CB3E15 ReleasetoK
+
+FORWARD ME_97FE67497778
+
+: ME_4B7AB0B6016E_ME_97FE67497778
+ CONST UID '4B7AB0B6016E'
+ CONST Name 'CommandLineKey'
+ : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
+ ;
+ : Implementor ME_97FE67497778 // ReleaseItsLAW
+ ;
+ref; // ME_4B7AB0B6016E_ME_97FE67497778 CommandLineKey
+
+: ME_4B7C0B43005B_ME_97FE67497778
+ CONST UID '4B7C0B43005B'
+ CONST Name 'TimesPage'
+ : Original WL 'ME_4B7C0B43005B' '4B2A112B011A.pas.ms.script' // TimesPage
+ ;
+ : Implementor ME_97FE67497778 // ReleaseItsLAW
+ ;
+ref; // ME_4B7C0B43005B_ME_97FE67497778 TimesPage
+
+: ME_4B7C0B670215_ME_97FE67497778
+ CONST UID '4B7C0B670215'
+ CONST Name 'ResultsPage'
+ : Original WL 'ME_4B7C0B670215' '4B2A112B011A.pas.ms.script' // ResultsPage
+ ;
+ : Implementor ME_97FE67497778 // ReleaseItsLAW
+ ;
+ref; // ME_4B7C0B670215_ME_97FE67497778 ResultsPage
+
+: ME_4C35A6DA02E9_ME_97FE67497778
+ CONST UID '4C35A6DA02E9'
+ CONST Name 'IsLAW'
+ : Original WL 'ME_4C35A6DA02E9' '4B2A112B011A.pas.ms.script' // IsLAW
+ ;
+ : Implementor ME_97FE67497778 // ReleaseItsLAW
+ ;
+ref; // ME_4C35A6DA02E9_ME_97FE67497778 IsLAW
+
+: ME_97FE67497778
+ CONST UID '97FE67497778'
+ CONST Name 'ReleaseItsLAW'
+ CONST Class class_Class
+ : Stereotype st_TestResults ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Вывод для отладочных целей (релизный вариант)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_06EF1E6353C7 // ReleaseDaily$Test
+ ;
+ : Inherits
+   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4B7AB0B6016E_ME_97FE67497778 // CommandLineKey
+ ME_4B7C0B43005B_ME_97FE67497778 // TimesPage
+ ME_4B7C0B670215_ME_97FE67497778 // ResultsPage
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C35A6DA02E9_ME_97FE67497778 // IsLAW
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "needs script keywords documentation" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\DailyTest\ReleaseItsLAW.pas'
+ CONST extprop:pas:TypeName 'TReleaseItsLAW'
+
+ref; // ME_97FE67497778 ReleaseItsLAW
+
+FORWARD ME_6B92D0808EA8
+
+: ME_4B7AB0B6016E_ME_6B92D0808EA8
+ CONST UID '4B7AB0B6016E'
+ CONST Name 'CommandLineKey'
+ : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
+ ;
+ : Implementor ME_6B92D0808EA8 // ReleaseArchi2
+ ;
+ref; // ME_4B7AB0B6016E_ME_6B92D0808EA8 CommandLineKey
+
+: ME_4B7C0B43005B_ME_6B92D0808EA8
+ CONST UID '4B7C0B43005B'
+ CONST Name 'TimesPage'
+ : Original WL 'ME_4B7C0B43005B' '4B2A112B011A.pas.ms.script' // TimesPage
+ ;
+ : Implementor ME_6B92D0808EA8 // ReleaseArchi2
+ ;
+ref; // ME_4B7C0B43005B_ME_6B92D0808EA8 TimesPage
+
+: ME_4B7C0B670215_ME_6B92D0808EA8
+ CONST UID '4B7C0B670215'
+ CONST Name 'ResultsPage'
+ : Original WL 'ME_4B7C0B670215' '4B2A112B011A.pas.ms.script' // ResultsPage
+ ;
+ : Implementor ME_6B92D0808EA8 // ReleaseArchi2
+ ;
+ref; // ME_4B7C0B670215_ME_6B92D0808EA8 ResultsPage
+
+: ME_6B92D0808EA8
+ CONST UID '6B92D0808EA8'
+ CONST Name 'ReleaseArchi2'
+ CONST Class class_Class
+ : Stereotype st_TestResults ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тесты на Archi2 (релизный вариант)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_06EF1E6353C7 // ReleaseDaily$Test
+ ;
+ : Inherits
+   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4B7AB0B6016E_ME_6B92D0808EA8 // CommandLineKey
+ ME_4B7C0B43005B_ME_6B92D0808EA8 // TimesPage
+ ME_4B7C0B670215_ME_6B92D0808EA8 // ResultsPage
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "needs script keywords documentation" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\DailyTest\ReleaseArchi2.pas'
+ CONST extprop:pas:TypeName 'TReleaseArchi2'
+
+ref; // ME_6B92D0808EA8 ReleaseArchi2
+
+FORWARD ME_18F018C495DA
+
+: ME_4B7AB0B6016E_ME_18F018C495DA
+ CONST UID '4B7AB0B6016E'
+ CONST Name 'CommandLineKey'
+ : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
+ ;
+ : Implementor ME_18F018C495DA // ReleasetoK64
+ ;
+ref; // ME_4B7AB0B6016E_ME_18F018C495DA CommandLineKey
+
+: ME_4B7C0B43005B_ME_18F018C495DA
+ CONST UID '4B7C0B43005B'
+ CONST Name 'TimesPage'
+ : Original WL 'ME_4B7C0B43005B' '4B2A112B011A.pas.ms.script' // TimesPage
+ ;
+ : Implementor ME_18F018C495DA // ReleasetoK64
+ ;
+ref; // ME_4B7C0B43005B_ME_18F018C495DA TimesPage
+
+: ME_4B7C0B670215_ME_18F018C495DA
+ CONST UID '4B7C0B670215'
+ CONST Name 'ResultsPage'
+ : Original WL 'ME_4B7C0B670215' '4B2A112B011A.pas.ms.script' // ResultsPage
+ ;
+ : Implementor ME_18F018C495DA // ReleasetoK64
+ ;
+ref; // ME_4B7C0B670215_ME_18F018C495DA ResultsPage
+
+: ME_4BEA9969001B_ME_18F018C495DA
+ CONST UID '4BEA9969001B'
+ CONST Name 'IsGK'
+ : Original WL 'ME_4BEA9969001B' '4B2A112B011A.pas.ms.script' // IsGK
+ ;
+ : Implementor ME_18F018C495DA // ReleasetoK64
+ ;
+ref; // ME_4BEA9969001B_ME_18F018C495DA IsGK
+
+: ME_18F018C495DA
+ CONST UID '18F018C495DA'
+ CONST Name 'ReleasetoK64'
+ CONST Class class_Class
+ : Stereotype st_TestResults ;
+ CONST Kind kind_NormalClass
+ %SUMMARY ' (релизный вариант)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_06EF1E6353C7 // ReleaseDaily$Test
+ ;
+ : Inherits
+   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4B7AB0B6016E_ME_18F018C495DA // CommandLineKey
+ ME_4B7C0B43005B_ME_18F018C495DA // TimesPage
+ ME_4B7C0B670215_ME_18F018C495DA // ResultsPage
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4BEA9969001B_ME_18F018C495DA // IsGK
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "needs script keywords documentation" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\DailyTest\ReleasetoK64.pas'
+ CONST extprop:pas:TypeName 'TReleasetoK64'
+
+ref; // ME_18F018C495DA ReleasetoK64
+
+FORWARD ME_7C0A8318D8D4
+
+: ME_4B7AB0B6016E_ME_7C0A8318D8D4
+ CONST UID '4B7AB0B6016E'
+ CONST Name 'CommandLineKey'
+ : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
+ ;
+ : Implementor ME_7C0A8318D8D4 // ReleasetoKT
+ ;
+ref; // ME_4B7AB0B6016E_ME_7C0A8318D8D4 CommandLineKey
+
+: ME_4B7C0B43005B_ME_7C0A8318D8D4
+ CONST UID '4B7C0B43005B'
+ CONST Name 'TimesPage'
+ : Original WL 'ME_4B7C0B43005B' '4B2A112B011A.pas.ms.script' // TimesPage
+ ;
+ : Implementor ME_7C0A8318D8D4 // ReleasetoKT
+ ;
+ref; // ME_4B7C0B43005B_ME_7C0A8318D8D4 TimesPage
+
+: ME_4B7C0B670215_ME_7C0A8318D8D4
+ CONST UID '4B7C0B670215'
+ CONST Name 'ResultsPage'
+ : Original WL 'ME_4B7C0B670215' '4B2A112B011A.pas.ms.script' // ResultsPage
+ ;
+ : Implementor ME_7C0A8318D8D4 // ReleasetoKT
+ ;
+ref; // ME_4B7C0B670215_ME_7C0A8318D8D4 ResultsPage
+
+: ME_4BEA9969001B_ME_7C0A8318D8D4
+ CONST UID '4BEA9969001B'
+ CONST Name 'IsGK'
+ : Original WL 'ME_4BEA9969001B' '4B2A112B011A.pas.ms.script' // IsGK
+ ;
+ : Implementor ME_7C0A8318D8D4 // ReleasetoKT
+ ;
+ref; // ME_4BEA9969001B_ME_7C0A8318D8D4 IsGK
+
+: ME_7C0A8318D8D4
+ CONST UID '7C0A8318D8D4'
+ CONST Name 'ReleasetoKT'
+ CONST Class class_Class
+ : Stereotype st_TestResults ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ежедневные тесты библиотек в Твери (релизный вариант)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_06EF1E6353C7 // ReleaseDaily$Test
+ ;
+ : Inherits
+   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4B7AB0B6016E_ME_7C0A8318D8D4 // CommandLineKey
+ ME_4B7C0B43005B_ME_7C0A8318D8D4 // TimesPage
+ ME_4B7C0B670215_ME_7C0A8318D8D4 // ResultsPage
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4BEA9969001B_ME_7C0A8318D8D4 // IsGK
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "needs script keywords documentation" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\DailyTest\ReleasetoKT.pas'
+ CONST extprop:pas:TypeName 'TReleasetoKT'
+
+ref; // ME_7C0A8318D8D4 ReleasetoKT
+
+: ME_06EF1E6353C7
+ CONST UID '06EF1E6353C7'
+ CONST Name 'ReleaseDaily'
+ CONST Class class_Category
+ : Stereotype st_TestTarget ;
+ %SUMMARY 'Ежедневные тесты нашей библиотеки компонент (релизный вариант)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49B923B60333' '49B923B60333.pas.ms.script' // Shared Delphi Tests
+ ;
+ : Children
+   @ ( ME_431348CB3E15 // ReleasetoK
+ ME_97FE67497778 // ReleaseItsLAW
+ ME_6B92D0808EA8 // ReleaseArchi2
+ ME_18F018C495DA // ReleasetoK64
+ ME_7C0A8318D8D4 // ReleasetoKT
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
+ WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ WL 'ME_4B2A6D4303A9' '4B2A112B011A.pas.ms.script' // KTestRunner
+ WL 'ME_4B30C5FF0172' '4B30C5FF0172.pas.ms.script' // TestFormsTest
+ WL 'ME_4CA0BB8600CF' '4CA0BB31027B.pas.ms.script' // TKBridge
+ WL 'ME_4D02561D01C8' '4D02561D01C8.pas.ms.script' // Abstract Tests
+ WL 'ME_4D53DDBE00EE' '4D53DDBE00EE.pas.ms.script' // Abstract Archi Tests
+ WL 'ME_4D53DEED0062' '4D53DEED0062.pas.ms.script' // Archi Tests
+ WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
+ WL 'ME_4DC24756009A' '5130776E01BE.pas.ms.script' // TAutoTestsSuite
+ WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
+ WL 'ME_515D7B0B006F' '515D7B0B006F.pas.ms.script' // Containers
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "CONFIG_UC" false
+ CONST "console" false
+ CONST "defines" 'DailyTest.inc'
+ CONST "is insider test" false
+ CONST "need UC in project" false
+ CONST "no scripts" 'undefined'
+ CONST "old format" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\DailyTest\ReleaseDailyTest.dpr'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\06EF1E6353C7.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\06EF1E6353C7.pas.ms.script.runner'
+
+ref; // ME_06EF1E6353C7 ReleaseDaily$Test

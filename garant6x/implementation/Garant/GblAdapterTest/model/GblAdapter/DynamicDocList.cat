@@ -1,0 +1,1954 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.4.0410.2500"
+    charSet    	204)
+
+(object Class_Category "DynamicDocList"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false"))
+    quid       	"418E325702AF"
+    stereotype 	"Interface"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"418E327C007D"
+	    supplier   	"Logical View::garant6x::GblAdapter::DynamicTree"
+	    quidu      	"40BDAEB101F2")
+	(object Visibility_Relationship
+	    quid       	"42F32AF6038A"
+	    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes"
+	    quidu      	"3F2557FD00CD")
+	(object Visibility_Relationship
+	    quid       	"4304B97A01F4"
+	    supplier   	"Logical View::garant6x::GblAdapter::Document"
+	    quidu      	"3F1506E50115")
+	(object Visibility_Relationship
+	    quid       	"43328100012D"
+	    supplier   	"Logical View::garant6x::GblAdapter::Filters"
+	    quidu      	"3F1518650262"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DynList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default Constructor"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default make_interface"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Final"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"00B91ACF-6CDD-437F-935A-07287C0E2DF0")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *418E334400DA_CUSTOM_PREINCLUDES*¤//#UC END# *418E334400DA_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CUSTOM_INCLUDES*¤#include <fstream>¤¤#include "Garant/GblAdapter/convertors.h"¤#include "Garant/GblAdapter/DynamicDocList/SortTypes_i.h"¤#include "Garant/GblAdapter/DynamicTree/FilterList_i.h"¤#include "Garant/GblAdapter/DynamicTree/SortFilter_i.h"¤#include "Garant/GblAdapter/DynamicTree/ContextFilter_i.h"¤#include "Garant/GblAdapter/DynamicTree/QueryFilter_i.h"¤#include "Garant/GblAdapter/Filters/Filters_i.h"¤#include "Garant/GblAdapter/Folders/FoldersNode_i.h"¤#include "Garant/GblAdapter/DynamicTree/NodesClipboard_i.h"¤//#UC END# *418E334400DA_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_MAKE_INTERFACE_IMPLEMENTATION*¤	return new DynList_i ();¤	//#UC END# *418E334400DA_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text "//#UC START# *418E334400DA_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *418E334400DA_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *418E334400DA_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_BASE_METHOD_IMPL*¤bool __stdcall DynList_i::get_is_changed () const {¤_GCL_DLL_TRY¤	return m_root.is_nil () ? false : this->get_cached_adapter_tree ()->is_changed ();¤_GCL_DLL_CATCH¤}¤¤bool __stdcall DynList_i::get_is_saved () const {¤_GCL_DLL_TRY¤	return Folders_i::check_content (m_saved_list);¤_GCL_DLL_CATCH¤}¤¤void __stdcall DynList_i::save_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) ¤	throw (Unsupported, AccessDenied, CanNotSave, NotSaved, DuplicateNode) {¤_GCL_DLL_TRY¤	if (0 == storage) {¤		if (true == Folders_i::check_server_content (m_saved_list.in ())) {¤			//this->save_data ();¤			m_saved_list->save (this->get_actual_server_tree ());¤¤			if (!m_root.is_nil ()) {¤				this->get_cached_adapter_tree ()->set_changed (false);¤			}	¤		} else {¤			throw NotSaved ();¤		}¤	} else if (Defines::CT_FOLDER == dynamic_cast<EntityStorage_i*>(storage)->get_content_type ()) {¤		FoldersNode_i* fn = dynamic_cast <FoldersNode_i*> (storage);¤		if (0 == fn) {¤			throw CanNotSave ();¤		}¤		INode_var node;	¤		fn->add_child_node_i (¤			static_cast<IDynList*>(this)¤			, node.out ()¤		);¤		out_entity_storage = node._sretn ();¤	} else if (Defines::CT_SAVED_LIST == dynamic_cast<EntityStorage_i*>(storage)->get_content_type ()) {¤		FoldersNode_i* fn = dynamic_cast <FoldersNode_i*> (storage);¤		if (0 == fn) {¤			throw CanNotSave ();¤		}¤		m_saved_list = GblFolders::SavedList::_narrow (dynamic_cast<EntityStorage_i*>(storage)->get_cached_content ());¤		*m_name = CORBA::String_var (m_saved_list->get_name ()).in ();¤		m_saved_list->save (this->get_actual_server_tree ());¤		//this->save_data ();¤	} else {¤		assert (0);¤		throw CanNotSave ();¤	}¤_GCL_DLL_CATCH¤}¤¤void __stdcall DynList_i::append_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (ConstantModify, Unsupported, AccessDenied, CanNotSave) {¤_GCL_DLL_TRY¤	if (Defines::CT_SAVED_LIST == dynamic_cast<EntityStorage_i*>(storage)->get_content_type ()) {¤		FoldersNode_i* fn = dynamic_cast <FoldersNode_i*> (storage);¤		if (0 == fn) {¤			throw CanNotSave ();¤		}¤		GblFolders::SavedList_var sl = GblFolders::SavedList::_narrow (dynamic_cast<EntityStorage_i*>(storage)->get_cached_content ());¤		sl->append (this->get_actual_server_tree ());¤	} else {¤		assert (0);¤		throw CanNotSave ();¤	}¤_GCL_DLL_CATCH¤}¤¤EntityId DynList_i::get_eid () const {¤_GCL_DLL_TRY¤	if (this->get_is_saved ()) {¤		return m_saved_list->id ();¤	} else {¤		throw NotSaved ();¤	}¤_GCL_DLL_CATCH¤}¤¤¤Containers::Content_ptr DynList_i::save_to_folder (GblFolders::Folder_ptr folder) {¤	GblFolders::Folders* folders = application_helper ()->get_cached_folders ();¤	Containers::Content_var content = folders->create_content (Defines::CT_SAVED_LIST);¤	GblFolders::SavedList_var saved_list = GblFolders::SavedList::_narrow (content);¤	try {¤		saved_list->set_name (*m_name);	¤		saved_list->save (this->get_actual_server_tree ());¤		folder->add_content (content);¤	} catch (Containers::DuplicateName&) {¤		throw DuplicateNode ();¤	} catch (GCD::AccessDenied&) {¤		throw AccessDenied ();¤	} catch (...) {¤		throw CanNotFindData ();¤	}¤¤	this->set_list_storage (saved_list.in ());¤	return content._retn ();¤}¤¤void DynList_i::set_list_storage (const GblFolders::SavedList_ptr saved_list) {¤_GCL_DLL_TRY¤	m_saved_list = GblFolders::SavedList::_duplicate (saved_list);¤_GCL_DLL_CATCH¤}¤¤void __stdcall DynList_i::get_active_filters (IFilters*& active_filters) const {¤_GCL_DLL_TRY¤	size_t length = m_filters.size ();¤	IFilters_var filters;¤	filters = Filters_i::make_interface (length);¤	¤	for (size_t i = 0; i < length; ++i) {¤		FilterBox* box = filters->get_data_ptr (i);	¤		box->filter = m_filters[i]._sretn ();¤	}¤¤	active_filters = filters._retn ();¤_GCL_DLL_CATCH¤}¤¤void __stdcall DynList_i::add_filter (INode* filter, bool auto_refresh) {¤_GCL_DLL_TRY¤	// clear history cache¤	m_history = 0;	¤¤	size_t length = m_filters.size ();¤	¤	for (size_t i = 0; i < length; ++i) {¤		if (m_filters[i]->is_same_node (filter)) { ¤			return; // don't save the same filter twice¤		}¤	}¤¤	#ifdef _DEBUG  // check: is it incoming entity a query filter¤	assert (filter->get_flags () & NF_FILTER);¤¤	GCL::IObjectOld_var base_entity;¤	filter->open (base_entity.out ());¤	assert (!base_entity.is_nil ());¤	¤	IQuery_var query = IQuery::_narrow (base_entity.in ());¤	assert (!query.is_nil ());¤	#endif        // end of check ¤¤	m_filters.push_back (INode::_duplicate (filter));¤¤	if (auto_refresh) {¤		INodeBase_var current_view = GCL::IObjectOld::_duplicate (this->view ());¤		this->truncate_view_by_query ();¤		if (!m_view->get_child_count ()) {¤			this->do_delete_filter (filter);¤			m_view = current_view;¤			throw AllContentIsFiltered ();¤		}¤	}¤_GCL_DLL_CATCH¤}¤¤void __stdcall DynList_i::delete_filter (INode* filter, bool auto_refresh) throw (CanNotFindData) {¤_GCL_DLL_TRY¤	this->do_delete_filter (filter);¤	if (auto_refresh) {¤		this->filtrate ();¤	}¤_GCL_DLL_CATCH¤}¤¤void __stdcall DynList_i::create (¤	INodesClipboard* nodes¤	, ICatalogBase*& out_catalog_base¤) {¤_GCL_DLL_TRY¤	GTree::Tree_var new_tree = this->get_actual_server_tree ()->create_new (dynamic_cast<NodesClipboard_i*>(nodes)->node_holder());¤	GblDocList::DocListTree_var dlt = GblDocList::DocListTree::_narrow (new_tree.in ());¤	out_catalog_base = static_cast<IDynList*> (new DynList_i (dlt.in ()));¤_GCL_DLL_CATCH¤}¤¤void DynList_i::do_delete_filter (INode* filter) {¤	size_t length = m_filters.size ();¤¤	for (size_t i = 0; i < length; ++i) {¤		if (m_filters[i]->is_same_node (filter)) {¤			m_filters.erase (m_filters.begin () + i);¤			break;¤		}¤	}¤}¤¤void DynList_i::filtrate () {¤	// clear history cache¤	m_history = 0;	¤¤	std::vector <IFilter*> buffer;¤	¤	// create sort filter¤	ISortFilter* sort_filter = new SortFilter_i ();¤	sort_filter->set_order (m_sort_params ().sort_order);¤	sort_filter->set_type (m_sort_params ().sort_type);¤	buffer.push_back (sort_filter);¤	¤	// create context filter¤	if (m_context_filter.ptr ()) {¤		#ifdef _DEBUG¤		IStringOld_var context;¤		m_context_filter->get_context (context.out ());¤		assert (strlen (context->get_buffer ()));¤		#endif // _DEBUG¤		IContextFilter* context_filter = IContextFilter::_duplicate (m_context_filter. in ());	¤		buffer.push_back (context_filter);¤	}¤	¤	// create query filters¤	if (m_filters.size ()) {¤		IQueryFilter* query_filter = new QueryFilter_i (m_filters);¤		buffer.push_back (query_filter);¤	}¤	¤	IFilterList_var list = FilterList_i::make_interface (buffer.size ());¤	for (size_t i = 0; i < buffer.size (); ++i) {¤		list->get_data_ptr (i)->filter = buffer[i];¤	}¤	¤	VisibleIndex index;¤	INodeBase_var new_view;¤	this->real_root ()->create_view_ex (list, FM_USER_FLAG_MASK, 0, &index, 0, false, false, false, new_view.out ());¤	//this->real_root ()->create_view_ex (list, FM_SHARED_ALL, 0, &index, 0, false, false, false, new_view.out ()); //need to be FM_SHARED_ALL, but we have strange error¤	m_view = new_view;¤}¤¤¤void __stdcall DynList_i::clear_filters () throw (CanNotFindData) {¤_GCL_DLL_TRY¤	m_filters.clear ();¤	this->filtrate();¤_GCL_DLL_CATCH¤}¤¤void __stdcall DynList_i::refresh_filters () throw (CanNotFindData) {¤_GCL_DLL_TRY¤	this->filtrate ();¤_GCL_DLL_CATCH¤}¤¤void __stdcall DynList_i::apply_filters (IFilters* filters) {¤_GCL_DLL_TRY¤	size_t f_count = filters->get_count ();¤	if (!f_count) {¤		return; ¤	}¤¤	size_t prev_length = m_filters.size ();¤¤	// add if doesn't already exist ¤	for (size_t i = 0; i < f_count; ++i) {¤		FilterBox* f_box = filters->get_data_ptr (i);¤		¤		size_t length = m_filters.size ();¤		size_t j = 0;¤		for (;j < length; ++j) {¤			if (m_filters[j]->is_same_node (f_box->filter)) { ¤				break;¤			}¤		}¤¤		if (j == length) {¤			#ifdef _DEBUG	// check: is it incoming entity a query filter¤			assert (f_box->filter->get_flags () & NF_FILTER);¤¤			GCL::IObjectOld_var base_entity;¤			f_box->filter->open (base_entity.out ());¤			assert (!base_entity.is_nil ());¤			¤			IQuery_var query = IQuery::_narrow (base_entity.in ());¤			assert (!query.is_nil ());¤			#endif       // end of check ¤¤			m_filters.push_back (INode::_duplicate (f_box->filter));¤		}¤	}¤¤	if (prev_length == m_filters.size ()) {		// all new filters already exist¤		return;¤	}¤¤	INodeBase_var current_view = GCL::IObjectOld::_duplicate (this->view ());¤	¤	if (m_filters.size () == 1) {¤		this->truncate_view_by_query ();¤	} else {¤		this->filtrate();¤	}¤¤	if (!m_view->get_child_count ()) {¤		m_filters.erase (m_filters.begin () + prev_length, m_filters.end ());¤		m_view = current_view;¤		throw AllContentIsFiltered ();¤	}¤_GCL_DLL_CATCH¤}¤¤bool __stdcall DynList_i::get_has_active_filters () const {¤_GCL_DLL_TRY¤	return m_filters.size () ? true : false;¤_GCL_DLL_CATCH¤}¤¤void DynList_i::make_name (DynList_i::Type type) {¤	switch (type) {¤		case T_RESPONDENT:¤			*m_name = "Ðåñïîíäåíòû äëÿ: ";¤			break;¤		case T_CORRESPONDENT:¤			*m_name = "Êîððåñïîíäåíòû äëÿ: ";¤			break;¤	}¤	GblPilotDef::ExtendedDocInfo_var edi = m_legal_document->extended_info ();¤	*m_name += edi->short_name.in ();¤}¤¤¤void DynList_i::truncate_view_by_sort () {¤	IFilterList_var list = FilterList_i::make_interface (1);¤	ISortFilter* filter = new SortFilter_i ();¤	filter->set_order (m_sort_params ().sort_order);¤	filter->set_type (m_sort_params ().sort_type);¤	list->get_data_ptr (0)->filter = filter;¤	this->truncate_view_i (list.in ());	¤}¤¤void DynList_i::truncate_view_by_context () {¤	IFilterList_var list = FilterList_i::make_interface (1);¤	list->get_data_ptr (0)->filter = IContextFilter::_duplicate (m_context_filter. in ());¤	this->truncate_view_i (list.in ());¤}¤¤void DynList_i::truncate_view_by_query () {¤	if (!m_filters.size ()) {¤		return;¤	}¤	IFilterList_var list = FilterList_i::make_interface (1);¤	list->get_data_ptr (0)->filter = static_cast<IQueryFilter*> (new QueryFilter_i (m_filters));¤	this->truncate_view_i (list.in ());¤}¤¤void DynList_i::truncate_view_i (IFilterList* list) {¤	VisibleIndex index;¤	INodeBase_var new_view;¤	this->view ()->create_view_ex (list, FM_USER_FLAG_MASK, 0, &index, 0, false, false, true, new_view.out ());¤	//this->view ()->create_view_ex (list, FM_SHARED_ALL, 0, &index, 0, false, false, true, new_view.out ()); //need to be FM_SHARED_ALL, but we have strange error¤	m_view = new_view; ¤}¤¤GblDocList::DocListTree_ptr DynList_i::get_server_tree () {¤	if (!this->get_cached_server_tree ()) {¤		this->view (); // load tree on demand¤	}¤	GblDocList::DocListTree_ptr server_tree = GblDocList::DocListTree::_narrow (this->get_cached_server_tree ());¤	assert (server_tree);¤	return server_tree;¤}¤¤¤INodeBase* DynList_i::get_root_i () const {¤	if (m_view.is_nil ()) {¤		if (build_server_list_on_demand) {¤			try {¤				switch (m_type) {¤					case T_RESPONDENT   : m_server_list = m_legal_document->get_respond_list (m_query);    break;¤					case T_CORRESPONDENT: m_server_list = m_legal_document->get_correspond_list (m_query); break;¤				};¤				this->make_tree (true);¤			} catch (GCD::CanNotFindData&) {¤				throw CanNotFindData ();¤			} catch (...) {¤				LOG_E (("DynList_i::get_root_i: unknown exception"));¤				assert (false);¤				throw CanNotFindData ();¤			}¤			build_server_list_on_demand = false;¤			m_legal_document = 0;¤		} else {¤			assert (!CORBA::is_nil (m_server_list.in ()));¤			this->make_tree (true);¤		}¤		ListCatalogBase::get_root (m_view.out ());¤	}¤	return m_view.ptr ();¤}¤¤SortParams& DynList_i::SortParamsWrapper::operator () () {¤	if (m_sort_params.is_nil ()) {¤		GblDocList::DocListTree_var server_tree = m_owner->get_server_tree ();¤		GblPilotDef::SortParams params = server_tree->current_sort_type ();¤		m_sort_params = new SortParams;¤		m_sort_params->sort_type = ListSortTypeTranslator::translate (params.m_type);¤		m_sort_params->sort_order = SortOrderTranslator::translate (params.m_order);¤	}¤	return *m_sort_params;¤}¤¤¤GTree::Tree_ptr DynList_i::get_actual_server_tree () {¤	GTree::Tree_ptr stree = dynamic_cast<GTree::Tree_ptr> (¤		dynamic_cast<NodeBase*>(this->view ())->get_tree_owner ()->get_server_tree ()¤	);¤	assert (stree);¤	return stree;¤}¤¤¤void DynList_i::add_bookmark (const GblPilotDef::Bookmark& bookmark) {¤	assert (this->get_cached_server_tree ());¤	GblDocList::DocListTree_var docs_list = GblDocList::DocListTree::_narrow (this->get_cached_server_tree ());¤	assert (!CORBA::is_nil (docs_list));¤	docs_list->add_bookmark (bookmark);¤	IEntityStorage_var dummy;¤	this->save_to (0, dummy.out ());¤}¤¤//#UC END# *418E334400DA_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *418E334400DA_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *418E334400DA_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*418E334400DA_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤DynList_i::DynList_i (GblDocList::DocListTree_ptr server_list) :¤	ListCatalogBase (server_list)¤	, RefCountObjectBaseOld ()¤	, m_legal_document (0)¤	, build_server_list_on_demand (false)¤	, m_sort_params (this)¤{¤	// DO NOT OBTAIN SERVER ROOT HERE¤	// to work with last view use 'view ()' method¤	// to work with real tree use 'real_root ()' method¤	// OBTAINING SERVER ROOT HERE rise to loading server tree¤}¤¤DynList_i::DynList_i (GblPilot::LegalDocument_ptr legal_document, GblPilotQueryDef::Query query, DynList_i::Type type) :¤	ListCatalogBase (0)¤	, RefCountObjectBaseOld ()¤	, m_legal_document (GblPilot::LegalDocument::_duplicate (legal_document))¤	, m_query (query)¤	, build_server_list_on_demand (true)¤	, m_type (type)¤	, m_sort_params (this) ¤{¤	this->make_name (type);¤	// DO NOT OBTAIN SERVER ROOT HERE¤	// to work with last view use 'view ()' method¤	// to work with real tree use 'real_root ()' method¤	// OBTAINING SERVER ROOT HERE rise to loading server tree¤}¤//#UC END# *418E334400DA_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*418E334400DA_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/DynamicDocList/DynListNode_i.h"¤#include "Garant/GblAdapter/DynamicTree/ContextFilter_i.h"¤namespace GblAdapter {¤¤template <typename _NodeType>¤class ListTree : virtual public Tree<_NodeType, NodeDelegate> {¤public:¤	ListTree (bool active_changeble) : Tree<_NodeType, NodeDelegate> (active_changeble) {¤	}¤	¤	virtual ~ListTree () {¤		if (!CORBA::is_nil (m_server_tree)) {¤			application_helper ()->get_cached_life_cycle_manager ()->release_object (m_server_tree.in ());¤		}¤	}¤¤public:¤	virtual GTree::NodePath* get_first_fit (const GCL::StaticNode* from_node, IFilterList* filters) {¤		for (long i = 0; i < filters->get_count (); i++) {¤			ContextFilter_i* cf = dynamic_cast<ContextFilter_i*> (filters->get_data_ptr (i)->filter);¤			if (cf) {¤				cf->m_need_moprho_analyze = true;¤			}¤		}¤		return Tree<_NodeType, NodeDelegate>::get_first_fit (from_node, filters);¤	}¤¤public:¤	void add_block_position (GTree::NodePointer pointer, unsigned long position) {¤		m_node_pointer_2_block_position[pointer] = position;¤	}¤¤	unsigned long get_block_position (GTree::NodePointer pointer) {¤		assert (m_node_pointer_2_block_position.end () != m_node_pointer_2_block_position.find (pointer));¤		return m_node_pointer_2_block_position [pointer];¤	}¤¤	void clear_block_positions () {¤		m_node_pointer_2_block_position.clear ();¤	}¤¤private:¤	std::map<GTree::NodePointer, unsigned long> m_node_pointer_2_block_position;¤};¤¤template <typename _NodeType>¤class ListCatalogBase_i : virtual public CatalogBase_i<_NodeType> {¤protected: ¤	ListCatalogBase_i (GblDocList::DocListTree_ptr server_list) ¤		: m_server_list (GblDocList::DocListTree::_duplicate (server_list)) {¤	}¤¤	virtual void make_tree (bool active_changeble) const {¤		TreeBase_var tree = new ListTree<_NodeType> (active_changeble);¤		application_helper ()->get_cached_life_cycle_manager()->duplicate_object (m_server_list.in ());¤		tree->apply_server_tree (m_server_list.in ());¤		m_root = dynamic_cast<INodeBase*> (tree->root ());¤	}¤¤	virtual ~ListCatalogBase_i () {¤		if (!CORBA::is_nil (m_server_list)) {¤			application_helper ()->get_cached_life_cycle_manager()->release_object (m_server_list.in ());¤		}¤	}¤¤protected:¤	mutable GblDocList::DocListTree_var m_server_list;¤};¤¤typedef ListCatalogBase_i<DynListNode_i> ListCatalogBase;¤¤} // namespace¤//#UC END# *418E334400DA_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*418E334400DA_CUSTOM_TYPES*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CUSTOM_TYPES*¤public:¤    enum Type {¤		T_RESPONDENT¤		, T_CORRESPONDENT¤		, T_RESPONDENT_TO_PART¤		, T_CORRESPONDENT_TO_PART¤	};¤//#UC END# *418E334400DA_CUSTOM_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*418E334400DA_CUSTOM_STATIC*"
+		    value      	(value Text "//#UC START# *418E334400DA_CUSTOM_STATIC*¤//#UC END# *418E334400DA_CUSTOM_STATIC*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*418E334400DA_CUSTOM_ABSTRACT*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CUSTOM_ABSTRACT*¤private:¤	class SortParamsWrapper {¤	public:¤		SortParamsWrapper (DynList_i* owner) : m_owner (owner) {¤		}¤		SortParams& operator () ();¤¤	private:¤		GCL::Aptr<SortParams> m_sort_params;¤		DynList_i* m_owner;¤	};¤//#UC END# *418E334400DA_CUSTOM_ABSTRACT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*418E334400DA_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CUSTOM_METHODS_AND_DATA*¤	¤	// ctors¤	DynList_i (GblDocList::DocListTree_ptr server_list);¤	DynList_i (GblPilot::LegalDocument_ptr legal_document, GblPilotQueryDef::Query query, DynList_i::Type type);¤¤// IEntityBase implementation¤public:¤	virtual bool __stdcall get_is_changed () const;¤¤	virtual bool __stdcall get_is_saved () const;¤¤	virtual void __stdcall save_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (Unsupported, AccessDenied, CanNotSave, NotSaved);¤¤	virtual void __stdcall append_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (ConstantModify, Unsupported, AccessDenied, CanNotSave);¤	¤	virtual EntityId __stdcall get_eid () const;¤¤	void add_bookmark (const GblPilotDef::Bookmark& bookmark);¤// IFilterable implementation¤public:¤	// Îïåðàöèè äîñòóïà ê àòòðèáóòó active_filters - ñïèñîê àêòèâíûõ ¤	// ôèëüòðîâ¤	virtual void __stdcall get_active_filters (IFilters*& active_filters) const;¤¤	// Äîáàâëÿåò INode (èç äåðåâà ïàïîê) êàê ôèëüòð¤	virtual void __stdcall add_filter (INode* filter, bool auto_refresh = true);¤¤	// Óäàëÿåò ôèëüòð¤	virtual void __stdcall delete_filter (INode* filter, bool auto_refresh = true);¤¤	// Óäàëÿåò âñå ôèëüòðû¤	virtual void __stdcall clear_filters ();¤¤	virtual void __stdcall refresh_filters ();¤¤	// Äîáàâëÿåò ïà÷êó ôèëüòðîâ ñ îäíîâðåìåííûì èõ ïðèìåíåíèåì. Ïðè ýòîì ¤	// ýòà ïà÷êà ëèáî öåëèêîì ïðèìåíÿåòñÿ, ëèáî (â ñëó÷àå, åñëè âñå äîêóìåíòû ¤	// îòôèëüòðîâàíû) öåëèêîì îòêëîíÿåòñÿ. ¤	virtual void __stdcall apply_filters (IFilters* filters);¤¤	// Îïåðàöèè äîñòóïà ê àòòðèáóòó has_active_filters - ¤	virtual bool __stdcall get_has_active_filters () const;¤¤	virtual void __stdcall create (¤		INodesClipboard* nodes¤		, ICatalogBase*& out_catalog_base¤	);¤¤protected:¤	//virtual NodeBase* alloc_new_node (const GTree::Node& snode) {¤	//	return new DynListNode_i (this, snode);¤	//}¤¤private:¤	void filtrate (); ¤	void do_delete_filter (INode* filter);¤¤public:	¤	Containers::Content_ptr save_to_folder (GblFolders::Folder_ptr folder);¤	void make_name (DynList_i::Type type);¤¤	GblDocList::DocListTree_ptr get_server_tree ();¤¤	void set_list_storage (const GblFolders::SavedList_ptr saved_list);¤	GTree::Tree_ptr get_actual_server_tree ();¤¤private:¤	void truncate_view_by_sort ();¤	void truncate_view_by_query ();¤	void truncate_view_by_context ();¤	void truncate_view_i (IFilterList* list);¤¤	INodeBase* get_root_i () const;¤	¤	INodeBase* view () {             // return cached m_view + load server tree on demand¤		return this->get_root_i ();¤	}¤	¤	INodeBase* real_root () {        // return cached m_root + load server tree on demand¤		this->get_root_i ();¤		return m_root.ptr ();¤	}¤¤	void reset_by_server_tree (GTree::Tree_ptr new_tree) {¤		m_server_list = GblDocList::DocListTree::_narrow (new_tree);¤		m_view = 0;¤		this->get_root_i ();¤		ListTree<DynListNode_i>* list = dynamic_cast<ListTree<DynListNode_i>*> (this->get_cached_adapter_tree ());¤		assert (list);¤		list->clear_block_positions ();¤	}¤¤protected:¤	virtual GTree::Tree_ptr get_cached_server_tree () const {¤		assert (!CORBA::is_nil (m_server_list));¤		return m_server_list.ptr ();¤	}¤¤private:¤	mutable GblPilot::LegalDocument_var m_legal_document;¤	mutable GblPilotQueryDef::Query m_query;¤	mutable bool build_server_list_on_demand;¤	mutable DynList_i::Type m_type;¤	mutable StringOld_var m_history;¤	¤	// data for build views by various filters ¤	std::vector<INode_var> m_filters;	¤	mutable SortParamsWrapper m_sort_params;¤	IContextFilter_var m_context_filter;¤	¤	mutable INodeBase_var m_view;¤	¤	std::map<GTree::NodePointer, unsigned long> m_node_pointer_2_block_position;¤¤	mutable GblFolders::SavedList_var m_saved_list;¤//#UC END# *418E334400DA_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*418E334400DA_INLINE_INCLUDES*"
+		    value      	"//#UC START# *418E334400DA_INLINE_INCLUDES*¤//#UC END# *418E334400DA_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Suppres servant generation"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*418E334400DA_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *418E334400DA_CUSTOM_INHERITANCE*¤	//#UC END# *418E334400DA_CUSTOM_INHERITANCE*
+		    )))
+	    quid       	"418E334400DA"
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"418E33EA036B"
+		    supplier   	"Logical View::garant6x::GblAdapter::DynamicTree::CatalogBase"
+		    quidu      	"411C9F89004E"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"42F3289B01A5"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::EntityBase"
+		    quidu      	"411C9622007F")
+		(object Realize_Relationship
+		    quid       	"43327E9402F5"
+		    supplier   	"Logical View::garant6x::GblAdapter::Filters::Filterable"
+		    quidu      	"3F3361FD0150"))
+	    operations 	(list Operations
+		(object Operation "sort"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4333FAE902FA_BASE_METHOD_IMPLEMENTATION_MonitoringList*"
+			    value      	(value Text 
+|//#UC START# *4333FAE902FA_BASE_METHOD_IMPLEMENTATION_MonitoringList*¤	DynList_i::sort(params);¤	//#UC END# *4333FAE902FA_BASE_METHOD_IMPLEMENTATION_MonitoringList*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4333FAE902FA*"
+			    value      	(value Text 
+|//#UC START# *4333FAE902FA*¤	if (m_sort_params ().sort_order != params.sort_order¤		|| m_sort_params ().sort_type != params.sort_type¤	) {¤		m_sort_params () = params;¤		this->truncate_view_by_sort ();¤	}¤	//#UC END# *4333FAE902FA*
+			    )))
+		    quid       	"4333FAE902FA"
+		    parameters 	(list Parameters
+			(object Parameter "params"
+			    quid       	"4333FAF90367"
+			    type       	"SortParams"
+			    quidu      	"3EC3544F022C"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "set_context_filter"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4333FFC20184_BASE_METHOD_IMPLEMENTATION_MonitoringList*"
+			    value      	(value Text 
+|//#UC START# *4333FFC20184_BASE_METHOD_IMPLEMENTATION_MonitoringList*¤	DynList_i::set_context_filter(context);¤	//#UC END# *4333FFC20184_BASE_METHOD_IMPLEMENTATION_MonitoringList*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4333FFC20184*"
+			    value      	(value Text 
+|//#UC START# *4333FFC20184*¤	IStringOld_var new_context;¤	context->get_context (new_context.out ());	¤		¤	if (m_context_filter.ptr () && !strlen (new_context->get_buffer ())) { // removing current ¤	  m_context_filter = 0;                                                // context filter¤	  return this->filtrate ();¤	}¤¤	if (m_context_filter.ptr ()) {¤		IStringOld_var cur_context; ¤		m_context_filter->get_context (cur_context.out ());¤		¤		if (context->get_area () == m_context_filter->get_area ()             // new filter is ¤			&& context->get_order () == m_context_filter->get_order ()          // equivalent to¤			&& !strcmp (cur_context->get_buffer(), new_context->get_buffer ())  // current => nothing to do¤		) {¤			return;¤		}¤	}¤		¤	m_context_filter = IContextFilter::_duplicate (context);                // filtrate current ¤	this->truncate_view_by_context ();                                      // state¤	//#UC END# *4333FFC20184*
+			    )))
+		    quid       	"4333FFC20184"
+		    parameters 	(list Parameters
+			(object Parameter "context"
+			    quid       	"4334002700D9"
+			    type       	"ContextFilter"
+			    quidu      	"4136D5CE032C"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "save_to_file"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"432E626102DE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*440D323103D8_BASE_METHOD_IMPLEMENTATION_MonitoringList*"
+			    value      	(value Text 
+|//#UC START# *440D323103D8_BASE_METHOD_IMPLEMENTATION_MonitoringList*¤	DynList_i::save_to_file(path, nodes);¤	//#UC END# *440D323103D8_BASE_METHOD_IMPLEMENTATION_MonitoringList*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*440D323103D8*"
+			    value      	(value Text 
+|//#UC START# *440D323103D8*¤	GblDocList::DocListTree_var doc_list_tree = GblDocList::DocListTree::_narrow (this->get_cached_server_tree ());    ¤	if (0 == doc_list_tree.in ()) {¤		assert ("ses: íóæíà îòëîæåííàÿ çàãðóçêà äåðåâà?" == 0);¤	} else {¤		GblDocList::XMLText* result;¤¤		try {¤			if (nodes) {¤				result = doc_list_tree->save_buffer_to_xml ((dynamic_cast<NodesClipboard_i*> (nodes))->node_holder ());¤			} else {¤				GTree::Tree_var actual_tree = this->get_actual_server_tree ();¤				result = doc_list_tree->save_tree_to_xml (actual_tree.in ());¤			}¤		} catch (GblDocList::XMLCreationError&) {¤			throw CanNotSave ();¤		}¤¤		std::ofstream xml_file (path);¤		if (!xml_file) {¤			LOG_W (("DynList_i::save_to_file: can't create file %s", path));¤			throw CanNotSave ();¤		}¤		xml_file.write (reinterpret_cast<const char*> (result->get_buffer ()), result->length ());¤		if (!xml_file) {¤			LOG_W (("DynList_i::save_to_file: can't write to %s", path));¤			throw CanNotSave ();¤		}¤	}¤	//#UC END# *440D323103D8*
+			    )))
+		    quid       	"440D323103D8"
+		    documentation 	"Ñîõðàíèòü ñïèñîê èëè åãî âûäåëåííûå ýëåìåíòû â ôàéë."
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    quid       	"440D323C006D"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "nodes"
+			    quid       	"440D32490222"
+			    type       	"NodesClipboard"
+			    quidu      	"434BDC780177"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "history"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*432942FE0242_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*"
+			    value      	(value Text 
+|//#UC START# *432942FE0242_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*¤	DynList_i::get_history (history);¤	//#UC END# *432942FE0242_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*432942FE0242_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_SET*"
+			    value      	(value Text 
+|//#UC START# *432942FE0242_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_SET*¤	DynList_i::set_hisrory (hisrory);¤	//#UC END# *432942FE0242_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*432942FE0242_GET*"
+			    value      	(value Text 
+|//#UC START# *432942FE0242_GET*¤//	if (0 == m_history.in ()) {¤		GTree::Tree_var stree = const_cast <DynList_i*> (this)->get_actual_server_tree ();¤		if (0 == stree.in ()) {¤			assert (stree.in ());¤			//ses: äëÿ èñòîðèè íóæíà îòëîæåííàÿ çàãðóçêà äåðåâà?¤		} else {¤			*m_history = CORBA::String_var (stree->history ()).in ();¤		}¤//	}¤	history = m_history._sretn ();¤	//#UC END# *432942FE0242_GET*
+			    )))
+		    quid       	"432942FE0242"
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "is_filtered"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4365DC1B02EE_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*"
+			    value      	(value Text 
+|//#UC START# *4365DC1B02EE_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*¤	return DynList_i::get_is_filtered ();¤	//#UC END# *4365DC1B02EE_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4365DC1B02EE_GET*"
+			    value      	(value Text 
+|//#UC START# *4365DC1B02EE_GET*¤	return !m_filters.empty ();¤	//#UC END# *4365DC1B02EE_GET*
+			    )))
+		    quid       	"4365DC1B02EE"
+		    stereotype 	"readonly"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "ListEntryInfo"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"5B3CE8D5-3CB9-4EA6-B3AC-37EADA8FDF9C")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *4304B756033C_CUSTOM_PREINCLUDES*¤//#UC END# *4304B756033C_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/Document/Document_i.h"¤#include "Garant/GblAdapter/DynamicDocList/DynListNode_i.h"¤//#UC END# *4304B756033C_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_MAKE_INTERFACE_IMPLEMENTATION*¤	return new ListEntryInfo_i ();¤	//#UC END# *4304B756033C_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤IListEntryInfo* ListEntryInfo_i::make_interface (GblPilot::ListEntryInfo& lei, const INodeBase* root) {¤	return new ListEntryInfo_i (lei, root);¤}¤//#UC END# *4304B756033C_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *4304B756033C_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_BASE_METHOD_IMPL*¤void ListEntryInfo_i::build_entry_list (const INodeBase* root) {¤	INodeBase_var doc_node;¤	if (GblAdapter::LNT_PARA == root->get_type () || GblAdapter::LNT_SUB == root->get_type ()) {¤		root->get_parent (doc_node.out ());¤	} else {¤		doc_node = INodeBase::_duplicate (root);¤	}¤¤	INodeBase_var nb;¤	INodeBase_var nb_ret;¤	doc_node->get_first_child (nb.out ());¤	long i = 0;¤	while (0 != nb.in ()) {¤		if (¤			GblAdapter::LNT_EDITIONS_GROUP == nb->get_type ()¤			|| 0 == dynamic_cast<DynListNode_i*>(nb.ptr ())->get_block_position ()¤		) {¤			nb->get_next (nb_ret.out ());¤			nb = nb_ret._retn ();¤			continue;¤		}¤		i++;¤		nb->get_next (nb_ret.out ());¤		nb = nb_ret._retn ();¤	}¤¤	m_entry_list = new GblPilotDef::SubParaList ();¤	m_entry_list->length (i);¤	if (0 != i) {¤		m_data_for_compare = i;¤		doc_node->get_first_child (nb.inout ());¤		i = 0;¤		while (0 != nb.in ()) {¤			if (¤				GblAdapter::LNT_EDITIONS_GROUP == nb->get_type ()¤				|| 0 == dynamic_cast<DynListNode_i*>(nb.ptr ())->get_block_position ()¤			) {¤				nb->get_next (nb_ret.out ());¤				nb = nb_ret._retn ();¤				continue;¤			}¤		¤			if (GblAdapter::LNT_PARA == nb->get_type ()) {¤				m_entry_list[i].m_para = dynamic_cast<DynListNode_i*>(nb.ptr ())->get_block_position ();¤				m_entry_list[i].m_sub = 0;¤				m_data_for_compare = (m_data_for_compare<<4)^m_entry_list[i].m_para;¤			} else {¤				m_entry_list[i].m_para = 0;¤				m_entry_list[i].m_sub = dynamic_cast<DynListNode_i*>(nb.ptr ())->get_block_position ();¤				m_data_for_compare = (m_data_for_compare<<4)^m_entry_list[i].m_sub;¤			}¤	¤			i++;¤			nb->get_next (nb_ret.out ());¤			nb = nb_ret._retn ();¤		}¤	}¤}¤¤const GblPilotDef::SubParaList& ListEntryInfo_i::get_entry_list () {¤	if (0 == m_entry_list.ptr ()) {¤		assert (0);¤	}¤	return m_entry_list.in ();¤}¤¤const GblPilotDef::WordList& ListEntryInfo_i::get_relevance_words_list () {¤	return m_lei.relevance_words_list;¤}¤¤//#UC END# *4304B756033C_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4304B756033C_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4304B756033C_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4304B756033C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	"//#UC START# *4304B756033C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤//#UC END# *4304B756033C_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4304B756033C_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4304B756033C_CUSTOM_INCLUDES*¤//#UC END# *4304B756033C_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4304B756033C_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_CUSTOM_INHERITANCE*¤	//#UC END# *4304B756033C_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4304B756033C_CUSTOM_TYPES*"
+		    value      	"//#UC START# *4304B756033C_CUSTOM_TYPES*¤//#UC END# *4304B756033C_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4304B756033C_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_CUSTOM_STATIC*¤	static IListEntryInfo* make_interface (GblPilot::ListEntryInfo& lei, const INodeBase* root);	¤//#UC END# *4304B756033C_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4304B756033C_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *4304B756033C_CUSTOM_ABSTRACT*¤//#UC END# *4304B756033C_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4304B756033C_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4304B756033C_CUSTOM_METHODS_AND_DATA*¤	virtual bool __stdcall get_is_changed () const {¤		return false;¤	}¤¤	virtual bool __stdcall get_is_saved () const {¤		return true;¤	}¤¤	virtual void __stdcall save_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (Unsupported, AccessDenied, CanNotSave) {¤		throw Unsupported ();¤	}¤¤	virtual void __stdcall append_to (IEntityStorage* storage, IEntityStorage*& out_entity_storage) throw (ConstantModify, Unsupported, AccessDenied, CanNotSave) {¤		throw Unsupported ();¤	}¤¤	virtual EntityId __stdcall get_eid () const {¤		return 0;¤	}¤¤¤	ListEntryInfo_i (GblPilot::ListEntryInfo& lei, const INodeBase* root)¤		: m_lei (lei), m_data_for_compare (0)¤	{¤		this->build_entry_list (root);¤		for (CORBA::ULong i = 0; i < m_lei.relevance_words_list.length (); i++) {¤			const char* key = m_lei.relevance_words_list[i].in ();¤			while (*key) {¤				m_data_for_compare = (m_data_for_compare<<1)^*key++;¤			}¤		}¤	}¤¤	bool operator == (const ListEntryInfo_i& lei) const {¤		return (¤			m_data_for_compare == lei.m_data_for_compare¤		);¤	}¤¤	const GblPilotDef::SubParaList& get_entry_list ();¤¤	const GblPilotDef::WordList& get_relevance_words_list ();¤¤private:¤	void build_entry_list (const INodeBase* root);¤¤private:¤	GblPilot::ListEntryInfo m_lei;¤	unsigned long m_data_for_compare;¤¤	GblPilotDef::SubParaList_var m_entry_list;¤//#UC END# *4304B756033C_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4304B756033C_INLINE_INCLUDES*"
+		    value      	"//#UC START# *4304B756033C_INLINE_INCLUDES*¤typedef Core::Var<IListEntryInfo> ListEntryInfo_var;¤//#UC END# *4304B756033C_INLINE_INCLUDES*"))
+	    quid       	"4304B756033C"
+	    stereotype 	"Interface"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4304B77E0196"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::EntityBase"
+		    quidu      	"411C9622007F"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4304B8490399_GET*"
+			    value      	(value Text 
+|//#UC START# *4304B8490399_GET*¤	if (m_lei.para) {¤		return PT_PARA;¤	}¤	return PT_SUB;¤	//#UC END# *4304B8490399_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4304B8490399_SET*"
+			    value      	(value Text 
+|//#UC START# *4304B8490399_SET*¤	#pragma GBLADAPTER_MESSAGE ("TODO: ListEntryInfo_i::set_type")¤	//#UC END# *4304B8490399_SET*
+			    )))
+		    quid       	"4304B8490399"
+		    stereotype 	"readonly"
+		    type       	"PositionType"
+		    quidu      	"40DC2C85034D"
+		    exportControl 	"Public")
+		(object ClassAttribute "position"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4304B86102AF_GET*"
+			    value      	(value Text 
+|//#UC START# *4304B86102AF_GET*¤	if (m_lei.para) {¤		return m_lei.para;¤	}¤	return m_lei.sub;¤	//#UC END# *4304B86102AF_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4304B86102AF_SET*"
+			    value      	(value Text 
+|//#UC START# *4304B86102AF_SET*¤	#pragma GBLADAPTER_MESSAGE ("TODO: ListEntryInfo_i::set_position")¤	//#UC END# *4304B86102AF_SET*
+			    )))
+		    quid       	"4304B86102AF"
+		    stereotype 	"readonly"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "ListNodeType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4305CA6901E4"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "LNT_SUB"
+		    quid       	"4305CC850157"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_PARA"
+		    quid       	"43369431038A"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_EXTERNAL_OBJECT"
+		    quid       	"4305CCA5030D"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_EXTERNAL_LINK"
+		    quid       	"4305CCAD0251"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_DOCUMENT_ABOLISHED"
+		    quid       	"4305CD73036B"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_DOCUMENT_ACTIVE"
+		    quid       	"4305CDDB01D4"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_DOCUMENT_PREACTIVE"
+		    quid       	"4305CE1101B5"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_DOCUMENT_UNKNOWN"
+		    quid       	"4305CE250399"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_EDITION_ABOLISHED"
+		    quid       	"4305CE81001F"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_EDITION_ACTIVE"
+		    quid       	"4305CE96038A"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_EDITION_PREACTIVE"
+		    quid       	"4305CEA002BF"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_EDITION_UNKNOWN"
+		    quid       	"4305CEA902CE"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_EDITIONS_GROUP"
+		    quid       	"43367F3A0280"
+		    exportControl 	"Public")
+		(object ClassAttribute "LNT_BLOCK"
+		    quid       	"433694D703C8"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "SortTypes"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"A4E750C6-5513-44B2-ABE0-67CC2D4C503E")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4329429200CBCUSTOM_INCLUDE*"
+		    value      	"//#UC START# *4329429200CBCUSTOM_INCLUDE*¤//#UC END# *4329429200CBCUSTOM_INCLUDE*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4329429200CBCUSTOM_MAKE_INTERFACE_IMPL*"
+		    value      	"//#UC START# *4329429200CBCUSTOM_MAKE_INTERFACE_IMPL*¤//#UC END# *4329429200CBCUSTOM_MAKE_INTERFACE_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4329429200CB_CUSTOM_DESTRUCTOR_FIX*"
+		    value      	(value Text 
+|//#UC START# *4329429200CB_CUSTOM_DESTRUCTOR_FIX*¤	//#UC END# *4329429200CB_CUSTOM_DESTRUCTOR_FIX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4329429200CBCUSTOM_MAKE_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *4329429200CBCUSTOM_MAKE_INTERFACE*¤	//#UC END# *4329429200CBCUSTOM_MAKE_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*4329429200CB_CUSTOM_DESTROY_DECLARATION*"
+		    value      	"//#UC START# *4329429200CB_CUSTOM_DESTROY_DECLARATION*¤//#UC END# *4329429200CB_CUSTOM_DESTROY_DECLARATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*4329429200CB_CUSTOM_DESTROY_BODY*"
+		    value      	(value Text 
+|//#UC START# *4329429200CB_CUSTOM_DESTROY_BODY*¤		//#UC END# *4329429200CB_CUSTOM_DESTROY_BODY*
+		    )))
+	    quid       	"4329429200CB"
+	    stereotype 	"Sequence"
+	    language   	"MDA Generator")
+	(object Class "SearchDynList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"DB91FE90-832B-4753-9222-4313AB5CA667")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *4424183F03C7_CUSTOM_PREINCLUDES*¤//#UC END# *4424183F03C7_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4424183F03C7_CUSTOM_INCLUDES*¤#include "Garant/GblAdapter/DynamicDocList/DynList_i.h"¤//#UC END# *4424183F03C7_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4424183F03C7_MAKE_INTERFACE_IMPLEMENTATION*¤	return new SearchDynList_i ();¤	//#UC END# *4424183F03C7_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	"//#UC START# *4424183F03C7_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤//#UC END# *4424183F03C7_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *4424183F03C7_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *4424183F03C7_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_BASE_METHOD_IMPL*"
+		    value      	"//#UC START# *4424183F03C7_BASE_METHOD_IMPL*¤//#UC END# *4424183F03C7_BASE_METHOD_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4424183F03C7_CONSTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4424183F03C7_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4424183F03C7_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *4424183F03C7_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*4424183F03C7_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *4424183F03C7_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤SearchDynList_i::SearchDynList_i (GblPilot::SearchDocList_ptr search_doc_list) :¤	SearchEntity_i (GblAdapter::SRT_DOCUMENT_LIST, search_doc_list->document_count (), GblAdapter::SRS_SUCCESSFUL) ¤{¤	m_doc_list_tree = search_doc_list->get_doc_list_tree (); ¤}¤//#UC END# *4424183F03C7_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4424183F03C7_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4424183F03C7_CUSTOM_INCLUDES*¤//#UC END# *4424183F03C7_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4424183F03C7_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *4424183F03C7_CUSTOM_INHERITANCE*¤	//#UC END# *4424183F03C7_CUSTOM_INHERITANCE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4424183F03C7_CUSTOM_TYPES*"
+		    value      	"//#UC START# *4424183F03C7_CUSTOM_TYPES*¤//#UC END# *4424183F03C7_CUSTOM_TYPES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4424183F03C7_CUSTOM_STATIC*"
+		    value      	"//#UC START# *4424183F03C7_CUSTOM_STATIC*¤//#UC END# *4424183F03C7_CUSTOM_STATIC*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4424183F03C7_CUSTOM_ABSTRACT*"
+		    value      	"//#UC START# *4424183F03C7_CUSTOM_ABSTRACT*¤//#UC END# *4424183F03C7_CUSTOM_ABSTRACT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4424183F03C7_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4424183F03C7_CUSTOM_METHODS_AND_DATA*¤public:¤	SearchDynList_i (GblPilot::SearchDocList_ptr search_doc_list);¤private:¤	GblDocList::DocListTree_var m_doc_list_tree;¤//#UC END# *4424183F03C7_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*4424183F03C7_INLINE_INCLUDES*"
+		    value      	"//#UC START# *4424183F03C7_INLINE_INCLUDES*¤//#UC END# *4424183F03C7_INLINE_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default Constructor"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default make_interface"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Final"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Suppres servant generation"
+		    value      	"false"))
+	    quid       	"4424183F03C7"
+	    documentation 	"Ñïèñîê - ðåçóëüòàò ïîèñêà"
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"442418530394"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::SearchEntity"
+		    quidu      	"4423FB910334"))
+	    operations 	(list Operations
+		(object Operation "get_dyn_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4427A0770370*"
+			    value      	(value Text 
+|//#UC START# *4427A0770370*¤	out_dyn_list = new DynList_i (m_doc_list_tree.in ());¤	//#UC END# *4427A0770370*
+			    )))
+		    quid       	"4427A0770370"
+		    result     	"DynList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"418E334400DA"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"4304B7B201B5"
+	    roles      	(list role_list
+		(object Role "doc"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4304B7B3007D_GET*"
+			    value      	(value Text 
+|//#UC START# *4304B7B3007D_GET*¤	IDocument_var orig_doc = Document_i::make_interface (m_lei.doc.in (), 0);¤	const DocumentState_i& ds = dynamic_cast<Document_i*>(orig_doc.ptr ())->get_current_state ();¤	ds.set_appropriate_list_info (this);¤	doc = orig_doc._sretn ();¤	//#UC END# *4304B7B3007D_GET*
+			    )))
+		    quid       	"4304B7B3007D"
+		    stereotype 	"readonly"
+		    label      	"doc"
+		    supplier   	"Logical View::garant6x::GblAdapter::Document::Document"
+		    quidu      	"3EB8B5400044"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"4304B7B3009C"
+		    supplier   	"Logical View::garant6x::GblAdapter::DynamicDocList::ListEntryInfo"
+		    quidu      	"4304B756033C"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    quid       	"432942A002DE"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$3"
+		    quid       	"432942A1009C"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::SortType"
+		    quidu      	"3EC3544F0233"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$4"
+		    quid       	"432942A1009E"
+		    supplier   	"Logical View::garant6x::GblAdapter::DynamicDocList::SortTypes"
+		    quidu      	"4329429200CB"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$5"
+	    quid       	"432942AF00DA"
+	    roles      	(list role_list
+		(object Role "available_sort_types"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*432942B00186_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*"
+			    value      	(value Text 
+|//#UC START# *432942B00186_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*¤	DynList_i::get_available_sort_types (available_sort_types);¤	//#UC END# *432942B00186_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*432942B00186_GET*"
+			    value      	(value Text 
+|//#UC START# *432942B00186_GET*¤	available_sort_types = 0;¤	GblPilotDef::SortTypeList_var type_list;¤	GblDocList::DocListTree_var stree = GblDocList::DocListTree::_narrow (this->get_cached_server_tree ());¤	if (0 == stree.in ()) {¤		assert ("ses: íóæíà îòëîæåííàÿ çàãðóçêà äåðåâà?" == 0);¤	} else {¤		type_list = stree->available_sort_types ();¤		ISortTypes_var st = SortTypes_i::make_interface (type_list->length ());¤		for (unsigned long i = 0; i < type_list->length (); i++) {¤			*(st->get_data_ptr (i)) = ListSortTypeTranslator::translate (type_list[i]);¤		}¤		available_sort_types = st._retn ();¤	}	¤	//#UC END# *432942B00186_GET*
+			    )))
+		    quid       	"432942B00186"
+		    stereotype 	"readonly"
+		    label      	"available_sort_types"
+		    supplier   	"Logical View::garant6x::GblAdapter::DynamicDocList::SortTypes"
+		    quidu      	"4329429200CB"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$6"
+		    quid       	"432942B00188"
+		    supplier   	"Logical View::garant6x::GblAdapter::DynamicDocList::DynList"
+		    quidu      	"418E334400DA"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$7"
+	    quid       	"4333FB44028C"
+	    roles      	(list role_list
+		(object Role "current_sort_params"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4333FB45004A_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*"
+			    value      	(value Text 
+|//#UC START# *4333FB45004A_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*¤	DynList_i::get_current_sort_params (current_sort_params);¤	//#UC END# *4333FB45004A_BASE_ATTRIBUTE_IMPLEMENTATION_MonitoringList_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*4333FB45004A_GET*"
+			    value      	(value Text 
+|//#UC START# *4333FB45004A_GET*¤	current_sort_params = m_sort_params ();¤	//#UC END# *4333FB45004A_GET*
+			    )))
+		    quid       	"4333FB45004A"
+		    stereotype 	"readonly"
+		    label      	"current_sort_params"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::SortParams"
+		    quidu      	"3EC3544F022C"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$8"
+		    quid       	"4333FB450059"
+		    supplier   	"Logical View::garant6x::GblAdapter::DynamicDocList::DynList"
+		    quidu      	"418E334400DA"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$9"
+	    quid       	"3F572A2901F0"
+	    roles      	(list role_list
+		(object Role "position"
+		    quid       	"3F572A2A031E"
+		    label      	"position"
+		    supplier   	"Logical View::garant6x::GblAdapter::Document::Position"
+		    quidu      	"3ED31CF20149"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$10"
+		    quid       	"3F572A2A0320"
+		    supplier   	"Logical View::garant6x::GblAdapter::Document::Topic"
+		    quidu      	"3EC346E702FE"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$11"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC346E70301"
+	    roles      	(list role_list
+		(object Role "pid"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"1"))
+		    quid       	"3EC346E70302"
+		    documentation 	"Èäåíòèôèêàòîð îáúåêòà."
+		    label      	"pid"
+		    supplier   	"Logical View::garant6x::GblAdapter::BaseTypes::PId"
+		    quidu      	"3EC346E70306"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$12"
+		    quid       	"3EC346E70303"
+		    supplier   	"Logical View::garant6x::GblAdapter::Document::Topic"
+		    quidu      	"3EC346E702FE"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$13"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ED31D9102A6"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$14"
+		    quid       	"3ED31D9200DB"
+		    supplier   	"Logical View::garant6x::GblAdapter::Document::Position"
+		    quidu      	"3ED31CF20149"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$15"
+		    quid       	"3ED31D9200DD"
+		    supplier   	"Logical View::garant6x::GblAdapter::Document::PositionList"
+		    quidu      	"3ED31D77012C"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"418E334103D8"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	319
+	    origin_y   	1062
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTypes::EntityBase" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1791, 165)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1657, 138)
+			nlines     	1
+			max_width  	268
+			justify    	0
+			label      	"EntityBase")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1657, 88)
+			anchor     	10
+			nlines     	1
+			max_width  	268
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"411C9622007F"
+		    width      	286
+		    height     	179
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::DynamicDocList::ListNodeType" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(447, 2457)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(127, 2098)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	640
+			justify    	0
+			label      	"ListNodeType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(127, 2048)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	640
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"4305CA6901E4"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(127, 2159)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	14
+			max_width  	627
+			justify    	1)
+		    width      	658
+		    height     	842
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Document::Document" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(324, 780)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(323, 888)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1263
+			justify    	0
+			label      	"Document")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3EB8B5400044"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::DynamicDocList::ListEntryInfo" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1338, 780)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(959, 696)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	758
+			justify    	0
+			label      	"ListEntryInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(959, 646)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	758
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4304B756033C"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(959, 757)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	745
+			justify    	1)
+		    width      	776
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @5
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4304B77E0196"
+		    client     	@4
+		    supplier   	@1
+		    vertices   	(list Points
+			(1444, 633)
+			(1722, 254))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$0" @6
+		    location   	(649, 780)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4304B7B201B5"
+		    roleview_list 	(list RoleViews
+			(object RoleView "doc" @7
+			    Parent_View 	@6
+			    location   	(-1098, -602)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @8
+				Parent_View 	@7
+				location   	(563, 814)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	130
+				justify    	0
+				label      	"+doc"
+				pctDist    	0.288889
+				height     	34
+				orientation 	0)
+			    stereotype 	(object SegLabel @9
+				Parent_View 	@7
+				location   	(632, 736)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.200000
+				height     	60
+				orientation 	1)
+			    line_color 	3342489
+			    quidu      	"4304B7B3007D"
+			    client     	@6
+			    supplier   	@3
+			    vertices   	(list Points
+				(649, 780)
+				(350, 780))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$1" @10
+			    Parent_View 	@6
+			    location   	(-1098, -602)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4304B7B3009C"
+			    client     	@6
+			    supplier   	@4
+			    vertices   	(list Points
+				(649, 780)
+				(949, 780))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Filters::Filterable" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2775, 171)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(2639, 144)
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"Filterable")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(2639, 94)
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"3F3361FD0150"
+		    width      	290
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::DynamicDocList::DynList" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2319, 1518)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(1834, 1359)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	970
+			justify    	0
+			label      	"DynList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(1834, 1309)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	970
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"418E334400DA"
+		    compartment 	(object Compartment
+			Parent_View 	@12
+			location   	(1834, 1420)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	958
+			justify    	1)
+		    width      	988
+		    height     	442
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @13
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"42F3289B01A5"
+		    client     	@12
+		    supplier   	@1
+		    vertices   	(list Points
+			(2233, 1296)
+			(1826, 254))
+		    line_style 	0)
+		(object RealizeView "" @14
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"43327E9402F5"
+		    client     	@12
+		    supplier   	@11
+		    vertices   	(list Points
+			(2393, 1296)
+			(2744, 260))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::DynamicDocList::SortTypes" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1044, 1323)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(896, 1319)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	296
+			justify    	0
+			label      	"SortTypes")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(896, 1269)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	296
+			justify    	0
+			label      	"<<Sequence>>")
+		    icon_style 	"Label"
+		    fill_color 	16774615
+		    quidu      	"4329429200CB"
+		    width      	314
+		    height     	133
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$5" @16
+		    location   	(1512, 1393)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"432942AF00DA"
+		    roleview_list 	(list RoleViews
+			(object RoleView "available_sort_types" @17
+			    Parent_View 	@16
+			    location   	(927, -100)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @18
+				Parent_View 	@17
+				location   	(1523, 1384)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	556
+				justify    	0
+				label      	"+available_sort_types"
+				pctDist    	-0.028638
+				height     	11
+				orientation 	1)
+			    stereotype 	(object SegLabel @19
+				Parent_View 	@17
+				location   	(1442, 1306)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	0.083093
+				height     	14
+				orientation 	1)
+			    line_color 	3342489
+			    quidu      	"432942B00186"
+			    client     	@16
+			    supplier   	@15
+			    vertices   	(list Points
+				(1512, 1393)
+				(1201, 1346))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$6" @20
+			    Parent_View 	@16
+			    location   	(927, -100)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"432942B00188"
+			    client     	@16
+			    supplier   	@12
+			    vertices   	(list Points
+				(1512, 1393)
+				(1824, 1441))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTypes::SortParams" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1038, 1704)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(903, 1677)
+			nlines     	1
+			max_width  	270
+			justify    	0
+			label      	"SortParams")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(903, 1627)
+			anchor     	10
+			nlines     	1
+			max_width  	270
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	16777215
+		    quidu      	"3EC3544F022C"
+		    width      	288
+		    height     	179
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$7" @22
+		    location   	(1503, 1635)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4333FB44028C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "current_sort_params" @23
+			    Parent_View 	@22
+			    location   	(-508, 102)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @24
+				Parent_View 	@23
+				location   	(1584, 1750)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	456
+				justify    	0
+				label      	"+current_sort_params"
+				pctDist    	-0.199618
+				height     	125
+				orientation 	0)
+			    stereotype 	(object SegLabel @25
+				Parent_View 	@23
+				location   	(1500, 1672)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	-0.043185
+				height     	66
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"4333FB45004A"
+			    client     	@22
+			    supplier   	@21
+			    vertices   	(list Points
+				(1503, 1635)
+				(1182, 1682))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$8" @26
+			    Parent_View 	@22
+			    location   	(-508, 102)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4333FB450059"
+			    client     	@22
+			    supplier   	@12
+			    vertices   	(list Points
+				(1503, 1635)
+				(1824, 1588))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTypes::SortType" @27
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(318, 1509)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@27
+			location   	(184, 1460)
+			nlines     	1
+			max_width  	268
+			justify    	0
+			label      	"SortType")
+		    icon_style 	"None"
+		    fill_color 	16777215
+		    quidu      	"3EC3544F0233"
+		    width      	286
+		    height     	123
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$2" @28
+		    location   	(673, 1416)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"432942A002DE"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$3" @29
+			    Parent_View 	@28
+			    location   	(-989, -370)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"432942A1009C"
+			    client     	@28
+			    supplier   	@27
+			    vertices   	(list Points
+				(673, 1416)
+				(461, 1470))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$4" @30
+			    Parent_View 	@28
+			    location   	(-989, -370)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"432942A1009E"
+			    client     	@28
+			    supplier   	@15
+			    vertices   	(list Points
+				(673, 1416)
+				(886, 1362))
+			    line_style 	0)))
+		(object AssociationViewNew "" @31
+		    location   	(677, 1605)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3EC3544F022E"
+		    roleview_list 	(list RoleViews
+			(object RoleView "" @32
+			    Parent_View 	@31
+			    location   	(387, 330)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @33
+				Parent_View 	@32
+				location   	(839, 1693)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC3544F0230"
+			    client     	@31
+			    supplier   	@21
+			    vertices   	(list Points
+				(677, 1605)
+				(893, 1664))
+			    line_style 	0)
+			(object RoleView "sort_type" @34
+			    Parent_View 	@31
+			    location   	(387, 330)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @35
+				Parent_View 	@34
+				location   	(634, 1523)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	224
+				justify    	0
+				label      	"+sort_type"
+				pctDist    	0.279815
+				height     	69
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC3544F022F"
+			    client     	@31
+			    supplier   	@27
+			    vertices   	(list Points
+				(677, 1605)
+				(461, 1547))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::DynamicTree::CatalogBase" @36
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2310, 174)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@36
+			location   	(2174, 147)
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"CatalogBase")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@36
+			location   	(2174, 97)
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"411C9F89004E"
+		    width      	290
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::Document::PositionType" @37
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(280, 213)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@37
+			location   	(-37, 186)
+			nlines     	1
+			max_width  	635
+			justify    	0
+			label      	"PositionType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@37
+			location   	(-37, 136)
+			anchor     	10
+			nlines     	1
+			max_width  	635
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	16777215
+		    quidu      	"40DC2C85034D"
+		    width      	653
+		    height     	179
+		    annotation 	8)
+		(object InheritView "" @38
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"418E33EA036B"
+		    client     	@12
+		    supplier   	@36
+		    vertices   	(list Points
+			(2310, 1297)
+			(2310, 263))
+		    line_style 	3
+		    origin_attachment 	(2310, 1297)
+		    terminal_attachment 	(2310, 263))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::DynamicDocList::SearchDynList" @39
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2328, 2073)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@39
+			location   	(2086, 2014)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	484
+			justify    	0
+			label      	"SearchDynList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@39
+			location   	(2086, 1964)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	484
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4424183F03C7"
+		    compartment 	(object Compartment
+			Parent_View 	@39
+			location   	(2086, 2075)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	471
+			justify    	1)
+		    width      	502
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::BaseTypes::SearchEntity" @40
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1386, 2061)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@40
+			location   	(1245, 2034)
+			nlines     	1
+			max_width  	282
+			justify    	0
+			label      	"SearchEntity")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@40
+			location   	(1245, 1984)
+			anchor     	10
+			nlines     	1
+			max_width  	282
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4423FB910334"
+		    width      	300
+		    height     	179
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @41
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"442418530394"
+		    client     	@39
+		    supplier   	@40
+		    vertices   	(list Points
+			(2076, 2069)
+			(1536, 2062))
+		    line_style 	0)))))

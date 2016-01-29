@@ -1,0 +1,176 @@
+// TtfwIntegerConstantRegistrator 53C7C4BF03D9 SimpleClass Class
+
+INCLUDE '4EE1DBBB013C.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_53C7C4BF03D9
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_53C7C657008F
+ CONST UID '53C7C657008F'
+ CONST Name 'f_Value'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_53C7C657008F f_Value
+
+FORWARD ME_53C7C5F402F1
+
+: ME_53C7C616004E
+ CONST UID '53C7C616004E'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_53C7C616004E aName
+
+: ME_53C7C6160073
+ CONST UID '53C7C6160073'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_53C7C6160073 aValue
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_53C7C608029E
+ CONST UID '53C7C608029E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_53C7C616004E // aName
+ ME_53C7C6160073 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_53C7C608029E DoIt
+
+: ME_53C7C5F402F1
+ CONST UID '53C7C5F402F1'
+ CONST Name 'Register'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53C7C608029E // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_53C7C5F402F1 Register
+
+FORWARD ME_55C0D9FB0106
+
+: ME_55C0DA06028A
+ CONST UID '55C0DA06028A'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_55C0DA06028A aValue
+
+: ME_55C0DA020263
+ CONST UID '55C0DA020263'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55C0DA06028A // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55C0DA020263 DoIt
+
+: ME_55C0D9FB0106
+ CONST UID '55C0D9FB0106'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55C0DA020263 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55C0D9FB0106 Create
+
+: ME_FDE5991FDEBE
+ CONST UID 'FDE5991FDEBE'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwIntegerConstantRegistrator' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_FDE5991FDEBE Ini_Reg
+
+: ME_53C7C4BF03D9
+ CONST UID '53C7C4BF03D9'
+ CONST Name 'TtfwIntegerConstantRegistrator'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4EE1DBBB013C // TtfwInteger
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_53C7C657008F // f_Value
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_53C7C5F402F1 // Register
+ ME_55C0D9FB0106 // Create
+ ME_FDE5991FDEBE // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DC2E05B03DD // ReallyNeedRegister
+ ME_4EE1DC8903BB // GetInteger
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53C7C4BF03D9 TtfwIntegerConstantRegistrator

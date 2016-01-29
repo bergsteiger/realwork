@@ -1,0 +1,148 @@
+// TtfwStoredValues 4F49408A03C0 SimpleClass Class
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '4E5506F6007E.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_4F49408A03C0
+
+: ME_4F49409F0363
+ CONST UID '4F49409F0363'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'lnk'
+ : Target ME_4F493FAE01C7 // TtfwStoredValue
+ ;
+
+ @SELF
+; // ME_4F49409F0363 ItemType
+
+FORWARD ME_4F4947D50241
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4F4947E502AF
+ CONST UID '4F4947E502AF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4F4947E502AF DoIt
+
+: ME_4F4947D50241
+ CONST UID '4F4947D50241'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F4947E502AF // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F4947D50241 Create
+
+FORWARD ME_4F4947F30251
+
+: ME_84067E5C6B65
+ CONST UID '84067E5C6B65'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TtfwStoredValues.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4F494729028E // ItfwStoredValues
+ ;
+
+ @SELF
+; // ME_84067E5C6B65 DoIt
+
+: ME_4F4947F30251
+ CONST UID '4F4947F30251'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F4947D50241 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4F494729028E // ItfwStoredValues
+ ]
+ ; // Implements
+ : Operations
+   [ ME_84067E5C6B65 // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_4F4947F30251 Make
+
+: ME_4F49408A03C0
+ CONST UID '4F49408A03C0'
+ CONST Name 'TtfwStoredValues'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ME_4E5506F6007E // l3RecordListPrimPrim
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4F494729028E // ItfwStoredValues
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4F49409F0363 // ItemType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4F4947D50241 // Create
+ ME_4F4947F30251 // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B2C42A0163 // AssignItem
+ ME_47B94A5C006E // FreeItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ME_4F494C0D009A // Restore
+ ME_56012ACE02B2 // Grow
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F49408A03C0 TtfwStoredValues

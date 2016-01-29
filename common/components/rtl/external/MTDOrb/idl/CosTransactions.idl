@@ -1,0 +1,790 @@
+// **********************************************************************
+//
+// Copyright (c) 2001 - 2002
+// MT Tools
+// Samara, Russia
+//
+// All Rights Reserved
+// 
+// **********************************************************************
+
+#ifndef _COS_TRANSACTIONS_IDL_
+#define _COS_TRANSACTIONS_IDL_
+
+#include <orb.idl>
+
+#pragma prefix "omg.org"
+
+module CosTransactions 
+{
+
+	// Forward references for interfaces defined later in module
+	local interface Current;
+	interface TransactionFactory;
+	interface Control;
+	interface Terminator;
+	interface Coordinator;
+	interface RecoveryCoordinator;
+	interface Resource;
+	interface Synchronization;
+	interface SubtransactionAwareResource;
+	interface TransactionalObject; 
+
+	// DATATYPES 
+	enum Status {
+		StatusActive,
+		StatusMarkedRollback,
+		StatusPrepared,
+		StatusCommitted,
+		StatusRolledBack,
+		StatusUnknown,
+		StatusNoTransaction,
+		StatusPreparing,
+		StatusCommitting,
+		StatusRollingBack
+	};
+
+	enum Vote {
+		VoteCommit,
+		VoteRollback,
+		VoteReadOnly
+	};
+
+	// Structure definitions
+	
+	typedef sequence<octet> OctetSeq;
+	
+	struct otid_t {
+		long formatID; /*format identifier. 0 is OSI TP */
+		long bqual_length;
+		OctetSeq tid;
+	};
+	struct TransIdentity {
+		Coordinator coord;
+		Terminator term;
+		otid_t otid;
+	};
+	
+	typedef sequence<TransIdentity> TransIdentitySeq;
+	
+	struct PropagationContext {
+		unsigned long timeout;
+		TransIdentity current;
+		TransIdentitySeq parents;
+		any implementation_specific_data;
+	};
+
+	// Heuristic exceptions
+	exception HeuristicRollback {};
+	exception HeuristicCommit {};
+	exception HeuristicMixed {};
+	exception HeuristicHazard {};
+
+	// Other transaction-specific exceptions
+	exception SubtransactionsUnavailable {};
+	exception NotSubtransaction {};
+	exception Inactive {};
+	exception NotPrepared {};
+	exception NoTransaction {};
+	exception InvalidControl {};
+	exception Unavailable {};
+	exception SynchronizationUnavailable {};
+	
+	/**
+	 * The Current interface defines operations that allow a client of the Transaction Service
+	 * to explicitly manage the association between threads and transactions. The Current
+	 * interface also defines operations that simplify the use of the Transaction Service for
+	 * most applications. These operations can be used to begin and end transactions and to
+	 * obtain information about the current transaction.
+	 *
+	 * The Current interface is designed to be supported by a pseudo object whose behavior
+	 * depends upon and may alter the transaction context associated with the invoking
+	 * thread. 
+	 */
+	local interface Current : CORBA::Current 
+	{
+		/**
+		 * A new transaction is created. The transaction context of the client thread is modified so
+		 * that the thread is associated with the new transaction. If the client thread is currently
+		 * associated with a transaction, the new transaction is a subtransaction of that
+		 * transaction. Otherwise, the new transaction is a top-level transaction.
+		 *
+		 * @exception SubtransactionsUnavailable The SubtransactionsUnavailable exception is raised 
+		 * if the client thread already has an associated transaction and the Transaction 
+		 * Service implementation does not support nested transactions.
+		 */
+		void begin()
+			raises(SubtransactionsUnavailable);
+		
+		/**
+		 * If there is no transaction associated with the client thread, the NoTransaction exception
+		 * is raised. If the client thread does not have permission to commit the transaction, the
+		 * standard exception NO_PERMISSION is raised. (The commit operation may be restricted
+		 * to the transaction originator in some implementations.)
+		 *
+		 * Otherwise, the transaction associated with the client thread is completed. The effect of
+		 * this request is equivalent to performing the commit operation on the corresponding
+		 * Terminator object.
+		 *
+		 * The client thread transaction context is modified as follows: If the transaction was
+		 * begun by a thread (invoking begin) in the same execution environment, then the
+		 * thread’s transaction context is restored to its state prior to the begin request. Otherwise,
+		 * the thread’s transaction context is set to null.
+		 */
+		void commit(in boolean report_heuristics)
+			raises(
+				NoTransaction,
+				HeuristicMixed,
+				HeuristicHazard
+			);
+			
+		/**
+		 * If there is no transaction associated with the client thread, the NoTransaction exception
+		 * is raised. If the client thread does not have permission to rollback the transaction, the
+		 * standard exception NO_PERMISSION is raised. (The rollback operation may be restricted
+		 * to the transaction originator in some implementations; however, the rollback_only
+		 * operation, described below, is available to all transaction participants.)
+		 *
+		 * Otherwise, the transaction associated with the client thread is rolled back. The effect of
+		 * this request is equivalent to performing the rollback operation on the corresponding
+		 * Terminator object.
+		 *
+		 * The client thread transaction context is modified as follows: If the transaction was
+		 * begun by a thread (invoking begin) in the same execution environment, then the
+		 * thread’s transaction context is restored to its state prior to the begin request. Otherwise,
+		 * the thread’s transaction context is set to null.		 
+		 */
+		void rollback()
+			raises(NoTransaction);
+			
+		/**
+		 * If there is no transaction associated with the client thread, the NoTransaction exception
+		 * is raised. Otherwise, the transaction associated with the client thread is modified so
+		 * that the only possible outcome is to rollback the transaction. The effect of this request
+		 * is equivalent to performing the rollback_only operation on the corresponding
+		 * Coordinator object.
+		 */
+		void rollback_only()
+			raises(NoTransaction);
+
+		/**
+		 * If there is no transaction associated with the client thread, the StatusNoTransaction value
+		 * is returned. Otherwise, this operation returns the status of the transaction associated
+		 * with the client thread. The effect of this request is equivalent to performing the
+		 * get_status operation on the corresponding Coordinator object.
+		 */
+		Status get_status();
+		
+		/**
+		 * If there is no transaction associated with the client thread, an empty string is returned.
+		 * Otherwise, this operation returns a printable string describing the transaction. The
+		 * returned string is intended to support debugging. The effect of this request is
+		 * equivalent to performing the get_transaction_name operation on the corresponding
+		 * Coordinator object.
+		 */
+		string get_transaction_name();
+		
+		/**
+		 * This operation modifies a state variable associated with the target object that affects
+		 * the time-out period associated with top-level transactions created by subsequent
+		 * invocations of the begin operation. If the parameter has a nonzero value n, then top-level
+		 * transactions created by subsequent invocations of begin will be subject to being
+		 * rolled back if they do not complete before n seconds after their creation. If the
+		 * parameter is zero, then no application specified time-out is established.
+		 */
+		void set_timeout(in unsigned long seconds);
+		
+		/**
+		 * If the client thread is not associated with a transaction, a null object reference is
+		 * returned. Otherwise, a Control object is returned that represents the transaction context
+		 * currently associated with the client thread. This object can be given to the resume
+		 * operation to reestablish this context in the same thread or a different thread. The scope
+		 * within which this object is valid is implementation dependent; at a minimum, it must
+		 * be usable by the client thread. This operation is not dependent on the state of the
+		 * transaction; in particular, it does not raise the TRANSACTION_ROLLEDBACK
+		 * exception.
+		 */
+		Control get_control();
+		
+		/**
+		 * If the client thread is not associated with a transaction, a null object reference is
+		 * returned. Otherwise, an object is returned that represents the transaction context
+		 * currently associated with the client thread. This object can be given to the resume
+		 * operation to reestablish this context in the same thread or a different thread. The scope
+		 * within which this object is valid is implementation dependent; at a minimum, it must
+		 * be usable by the client thread. In addition, the client thread becomes associated with no
+		 * transaction. This operation is not dependent on the state of the transaction; in
+		 * particular, it does not raise the TRANSACTION_ROLLEDBACK exception.
+		 */
+		Control suspend();
+		
+		/**
+		 * If the parameter is a null object reference, the client thread becomes associated with no
+		 * transaction. Otherwise, if the parameter is valid in the current execution environment,
+		 * the client thread becomes associated with that transaction (in place of any previous
+		 * transaction). Otherwise, the InvalidControl exception is raised.
+		 *
+		 * This operation is not dependent on the state of the transaction; in particular, 
+		 * it does not raise the TRANSACTION_ROLLEDBACK exception.
+		 */
+		void resume(in Control which)
+			raises(InvalidControl);
+	};
+
+	/**
+	 * The TransactionFactory interface is provided to allow the transaction originator to
+	 * begin a transaction. This interface defines two operations, create and recreate, which
+	 * create a new representation of a top-level transaction.
+	 */
+	interface TransactionFactory 
+	{
+		/**
+		 * A new top-level transaction is created and a Control object is returned. The Control
+		 * object can be used to manage or to control participation in the new transaction. An
+		 * implementation of the Transaction Service may restrict the ability for the Control
+		 * object to be transmitted to or used in other execution environments; at a minimum, it
+		 * can be used by the client thread.
+		 *
+		 * If the parameter has a nonzero value n, then the new transaction will be subject to being
+		 * rolled back if it does not complete before n seconds have elapsed. If the parameter is zero,
+		 * then no application specified time-out is established.
+		 */
+		Control create(in unsigned long time_out);
+		
+		/**
+		 * A new representation is created for an existing transaction defined by the
+		 * PropagationContext and a Control object is returned. The Control object can be used
+		 * to manage or to control participation in the transaction. An implementation of the
+		 * Transaction Service which supports interposition  uses recreate to create a new representation 
+		 * of the transaction being imported, subordinate to the representation in ctx. The recreate
+		 * operation can also be used to import a transaction which originated outside of the
+		 * Transaction Service.
+		 */
+		Control recreate(in PropagationContext ctx);
+	};
+
+	/**
+	 * The Control interface allows a program to explicitly manage or propagate a transaction
+	 * context. An object supporting the Control interface is implicitly associated with one
+	 * specific transaction.
+	 *
+	 * The Control interface defines two operations, get_terminator and get_coordinator. The
+	 * get_terminator operation returns a Terminator object, which supports operations to end
+	 * the transaction. The get_coordinator operation returns a Coordinator object, which
+	 * supports operations needed by resources to participate in the transaction. The two
+	 * objects support operations that are typically performed by different parties. Providing
+	 * two objects allows each set of operations to be made available only to the parties that
+	 * require those operations.
+	 *
+	 * A Control object for a transaction is obtained using the operations defined by the
+	 * TransactionFactory interface or the create_subtransaction operation defined by the
+	 * Coordinator interface. It is possible to obtain a Control object for the current
+	 * transaction (associated with a thread) using the get_control or suspend operations defined
+	 * by the Current interface. (These two operations return a null object reference if there 
+	 * is no current transaction.)
+	 *
+	 * An implementation of the Transaction Service may restrict the ability for the Control
+	 * object to be transmitted to or used in other execution environments; at a minimum, it
+	 * can be used within a single thread.
+	 */
+	interface Control 
+	{
+		/**
+		 * This operation returns a Terminator object, which supports operations to end
+		 * the transaction.
+		 * 
+		 * @return An object is returned that supports the Terminator interface. The object can be used to
+		 * rollback or commit the transaction associated with the Control. 
+		 *
+		 * @exception Unavailable The Unavailable exception may be raised if the Control 
+		 * cannot provide the requested object. 		 		 
+		 */	
+		Terminator get_terminator() raises(Unavailable);
+		
+		/**
+		 * This operation returns a Coordinator object, which supports operations needed by 
+		 * resources to participate in the transaction.
+		 * 
+		 * @return An object is returned that supports the Coordinator interface. The object can be used
+		 * to register resources for the transaction associated with the Control. 
+		 *
+		 * @exception Unavailable The Unavailable exception may be raised if the Control cannot provide 
+		 * the requested object. 
+		 */
+		Coordinator get_coordinator() raises(Unavailable);
+	};
+
+	/** 
+	 * The Terminator interface supports operations to commit or rollback a transaction.
+	 * Typically, these operations are used by the transaction originator.
+	 */
+	interface Terminator 
+	{
+		/**
+		 * If the transaction has not been marked rollback only, and all of the participants in the
+		 * transaction agree to commit, the transaction is committed and the operation terminates
+		 * normally. Otherwise, the transaction is rolled back (as described below) and the
+		 * TRANSACTION_ROLLEDBACK standard exception is raised.
+		 *
+		 * If the report_heuristics parameter is true, the Transaction Service will report inconsistent
+		 * or possibly inconsistent outcomes using the HeuristicMixed and HeuristicHazard
+		 * exceptions. A Transaction Service implementation may optionally use the Event Service to 
+		 * report heuristic decisions.
+		 *
+		 * The commit operation may rollback the transaction if there are subtransactions of the
+		 * transaction that have not themselves been committed or rolled back or if there are
+		 * existing or potential activities associated with the transaction that have not completed.
+		 * The nature and extent of such error checking is implementation-dependent.
+		 *
+		 * When a top-level transaction is committed, all changes to recoverable objects made in
+		 * the scope of this transaction are made permanent and visible to other transactions or
+		 * clients. When a subtransaction is committed, the changes are made visible to other
+		 * related transactions as appropriate to the degree of isolation enforced by the resources.
+		 */
+		void commit(in boolean report_heuristics)
+			raises(
+				HeuristicMixed,
+				HeuristicHazard
+			);
+		
+		/**
+		 * The transaction is rolled back.
+		 *
+		 * When a transaction is rolled back, all changes to recoverable objects made in the scope
+		 * of this transaction (including changes made by descendant transactions) are rolled
+		 * back. All resources locked by the transaction are made available to other transactions
+		 * as appropriate to the degree of isolation enforced by the resources.
+		 */
+		void rollback();
+	};
+
+	/**
+	 * The Coordinator interface provides operations that are used by participants in a
+	 * transaction. These participants are typically either recoverable objects or agents of
+	 * recoverable objects, such as subordinate coordinators. Each object supporting the
+	 * Coordinator interface is implicitly associated with a single transaction.
+	 */
+	interface Coordinator 
+	{
+
+		/**
+		 * This operation returns the status of the transaction associated with the target object:
+		 *
+		 * StatusActive - A transaction is associated with the target object and it is in the active
+		 * state. An implementation returns this status after a transaction has been started and
+		 * prior to a coordinator issuing any prepares unless it has been marked for rollback.
+		 *
+		 * StatusMarkedRollback - A transaction is associated with the target object and has been
+		 * marked for rollback, perhaps as the result of a rollback_only operation.
+		 *
+		 * StatusPrepared - A transaction is associated with the target object and has been
+		 * prepared (i.e., all subordinates have responded VoteCommit). The target object may
+		 * be waiting for a superior’s instructions as to how to proceed.
+		 *
+		 * StatusCommitted - A transaction is associated with the target object and it has
+		 * completed commitment. It is likely that heuristics exists; otherwise, the transaction
+		 * would have been destroyed and StatusNoTransaction returned.
+		 *
+		 * StatusRolledBack - A transaction is associated with the target object and the outcome
+		 * has been determined as rollback. It is likely that heuristics exists, otherwise the
+		 * transaction would have been destroyed and StatusNoTransaction returned.
+		 *
+		 * StatusUnknown - A transaction is associated with the target object, but the
+		 * Transaction Service cannot determine its current status. This is a transient
+		 * condition, and a subsequent invocation will ultimately return a different status.
+		 *
+		 * StatusNoTransaction - No transaction is currently associated with the target object.
+		 * This will occur after a transaction has completed.
+		 *
+		 * StatusPreparing - A transaction is associated with the target object and it is the
+		 * process of preparing. An implementation returns this status if it has started
+		 * preparing, but has not yet completed the process, probably because it is waiting for
+		 * responses to prepare from one or more resources.
+		 *
+		 * StatusCommitting - A transaction is associated with the target object and is in the
+		 * process of committing. An implementation returns this status if it has decided to
+		 * commit, but has not yet completed the process, probably because it is waiting for
+		 * responses from one or more resources.
+		 *
+		 * StatusRollingBack - A transaction is associated with the target object and it is in the
+		 * process of rolling back. An implementation returns this status if it has decided to
+		 * rollback, but has not yet completed the process, probably because it is waiting for
+		 * responses from one or more resources.
+		 */
+		Status get_status();
+		
+		/**
+		 * If the transaction associated with the target object is a top-level transaction, then this
+		 * operation is equivalent to the get_status operation. Otherwise, this operation returns the
+		 * status of the parent of the transaction associated with the target object.
+		 */
+		Status get_parent_status();
+		
+		/**
+		 * This operation returns the status of the top-level ancestor of the transaction associated
+		 * with the target object. If the transaction is a top-level transaction, then this operation is
+		 * equivalent to the get_status operation.
+		 */
+		Status get_top_level_status();
+
+ 		/**
+ 		 * This operation returns true if, and only if, the target object and the parameter object
+		 * both refer to the same transaction.
+		 */
+		boolean is_same_transaction(in Coordinator tc);
+		
+		/**
+		 * This operation returns true if, and only if, the transaction associated with the target
+		 * object is an ancestor of the transaction associated with the parameter object.
+		 */
+		boolean is_related_transaction(in Coordinator tc);
+		
+		/**
+		 * This operation returns true if, and only if, the transaction associated with the target
+		 * object is a descendant of the transaction associated with the parameter object.
+		 */
+		boolean is_ancestor_transaction(in Coordinator tc);
+		
+		/**
+		 * This operation returns true if, and only if, the transaction associated with the target
+		 * object is related to the transaction associated with the parameter object.
+		 */
+		boolean is_descendant_transaction(in Coordinator tc);
+		
+		/**
+		 * This operation returns true if, and only if, the transaction associated with the target
+		 * object is a top-level transaction. A transaction is a top-level transaction if it has no
+		 * parent.
+		 */
+		boolean is_top_level_transaction();
+
+		/**
+		 * This operation returns a hash code for the transaction associated with the target object.
+		 * Each transaction has a single hash code. Hash codes for transactions should be
+		 * uniformly distributed.
+		 */
+		unsigned long hash_transaction();
+		
+		/**
+		 * This operation returns the hash code for the top-level ancestor of the transaction
+		 * associated with the target object. This operation is equivalent to the hash_transaction
+		 * operation when the transaction associated with the target object is a top-level
+		 * transaction.
+		 */
+		unsigned long hash_top_level_tran();
+
+		/**
+		 * This operation registers the specified resource as a participant in the transaction
+		 * associated with the target object. When the transaction is terminated, the resource will
+		 * receive requests to commit or rollback the updates performed as part of the transaction.
+		 * These requests are described in the description of the Resource interface. The Inactive
+		 * exception is raised if the transaction has already been prepared. The standard exception
+		 * TRANSACTION_ROLLEDBACK may be raised if the transaction has been marked
+		 * rollback only.
+		 *
+		 * If the resource is a subtransaction aware resource (it supports the
+		 * SubtransactionAwareResource interface) and the transaction associated with the target
+		 * object is a subtransaction, then this operation registers the specified resource with the
+		 * subtransaction and indirectly with the top-level transaction when the subtransaction’s
+		 * ancestors have completed. Otherwise, the resource is registered as a participant in the
+		 * current transaction. If the current transaction is a subtransaction, the resource will not
+		 * receive prepare or commit requests until the top-level ancestor terminates.
+		 *
+		 * This operation returns a RecoveryCoordinator that can be used by this resource during
+		 * recovery.
+		 */
+		RecoveryCoordinator register_resource(in Resource r)
+			raises(Inactive);
+
+		/**
+		 * This operation registers the specified Synchronization object such that it will be
+		 * notified to perform necessary processing prior to prepare being driven to resources
+		 * registered with this Coordinator. These requests are described in the description of the
+		 * Synchronization interface. The Inactive exception is raised if the transaction has already
+		 * been prepared. The SynchronizationUnavailable exception is raised if the Coordinator
+		 * does not support synchronization. The standard exception
+		 * TRANSACTION_ROLLEDBACK may be raised if the transaction has been marked
+		 * rollback only.
+		 */
+		void register_synchronization (in Synchronization sync)
+			raises(Inactive, SynchronizationUnavailable);
+
+		/**
+		 * This operation registers the specified subtransaction aware resource such that it will be
+		 * notified when the subtransaction has committed or rolled back. These requests are
+		 * described in the description of the SubtransactionAwareResource interface.
+		 *
+		 * Note that this operation registers the specified resource only with the subtransaction.
+		 * This operation cannot be used to register the resource as a participant in the
+		 * transaction.
+		 *
+		 * The NotSubtransaction exception is raised if the current transaction is not a
+		 * subtransaction. The Inactive exception is raised if the subtransaction (or any ancestor)
+		 * has already been terminated. The standard exception TRANSACTION_ROLLEDBACK
+		 * may be raised if the subtransaction (or any ancestor) has been marked rollback only.
+		 */
+		void register_subtran_aware(in SubtransactionAwareResource r)
+			raises(Inactive, NotSubtransaction);
+
+		/**
+		 * The transaction associated with the target object is modified so that the only possible
+		 * outcome is to rollback the transaction. The Inactive exception is raised if the transaction
+		 * has already been prepared.
+		 */
+		void rollback_only()
+			raises(Inactive);
+
+		/**
+		 * This operation returns a printable string describing the transaction associated with the
+		 * target object. The returned string is intended to support debugging.
+		 */
+		string get_transaction_name();
+		
+		/**
+		 * A new subtransaction is created whose parent is the transaction associated with the
+		 * target object. The Inactive exception is raised if the target transaction has already been
+		 * prepared. An implementation of the Transaction Service is not required to support
+		 * nested transactions. If nested transactions are not supported, the exception
+		 * SubtransactionsUnavailable is raised.
+		 *
+		 * The create_subtransaction operation returns a Control object, which enables the
+		 * subtransaction to be terminated and allows recoverable objects to participate in the
+		 * subtransaction. An implementation of the Transaction Service may restrict the ability
+		 * for the Control object to be transmitted to or used in other execution environments.
+		 */
+		Control create_subtransaction()
+			raises(SubtransactionsUnavailable, Inactive);
+
+		/**
+		 * The get_txcontext operation returns a PropagationContext object, which is used by one
+		 * Transaction Service domain to export the current transaction to a new Transaction
+		 * Service domain. An implementation of the Transaction Service may also use the
+		 * PropagationContext to assist in the implementation of the is_same_transaction operation
+		 * when the input Coordinator has been generated by a different Transaction Service
+		 * implementation.
+		 *
+		 * The Unavailable exception is raised if the Transaction Service implementation chooses
+		 * to restrict the availability of the PropagationContext.
+		 */
+		PropagationContext get_txcontext ()
+			raises(Unavailable);
+	};
+
+	/**
+	 * A recoverable object uses a RecoveryCoordinator to drive the recovery process in
+	 * certain situations. The object reference for an object supporting the
+	 * RecoveryCoordinator interface, as returned by the register_resource operation, is
+	 * implicitly associated with a single resource registration request and may only be used
+	 * by that resource.
+	 */
+	interface RecoveryCoordinator 
+	{
+		/**
+		 * This operation can be invoked at any time after the associated resource has been
+		 * prepared. The Resource must be passed as the parameter. Performing this operation
+		 * provides a hint to the Coordinator that the commit or rollback operations have not been
+		 * performed on the resource. This hint may be required in certain failure cases. This non-blocking
+		 * operation returns the current status of the transaction. The NotPrepared
+		 * exception is raised if the resource has not been prepared.
+		 */
+		Status replay_completion(in Resource r)
+			raises(NotPrepared);
+	};
+
+	/**
+	 * The Transaction Service uses a two-phase commitment protocol to complete a top-level
+	 * transaction with each registered resource. The Resource interface defines the
+	 * operations invoked by the transaction service on each resource. Each object supporting
+	 * the Resource interface is implicitly associated with a single top-level transaction. Note
+	 * that in the case of failure, the completion sequence will continue after the failure is
+	 * repaired. A resource should be prepared to receive duplicate requests for the commit or
+	 * rollback operation and to respond consistently.
+	 */
+	interface Resource 
+	{
+		/**
+		 * This operation is invoked to begin the two-phase commit protocol on the resource. The
+		 * resource can respond in several ways, represented by the Vote result.
+		 *
+		 * If no persistent data associated with the resource has been modified by the transaction,
+		 * the resource can return VoteReadOnly. After receiving this response, the Transaction
+		 * Service is not required to perform any additional operations on this resource.
+		 * Furthermore, the resource can forget all knowledge of the transaction.
+		 *
+		 * If the resource is able to write (or has already written) all the data needed to commit
+		 * the transaction to stable storage, as well as an indication that it has prepared the
+		 * transaction, it can return VoteCommit. After receiving this response, the Transaction
+		 * Service is required to eventually perform either the commit or the rollback operation on
+		 * this object. To support recovery, the resource should store the RecoveryCoordinator
+		 * object reference in stable storage.
+		 *
+		 * The resource can return VoteRollback under any circumstances, including not having
+		 * any knowledge about the transaction (which might happen after a crash). If this
+		 * response is returned, the transaction must be rolled back. Furthermore, the Transaction
+		 * Service is not required to perform any additional operations on this resource. After
+		 * returning this response, the resource can forget all knowledge of the transaction.
+		 * The resource reports inconsistent outcomes using the HeuristicMixed and HeuristicHazard
+		 * exceptions. Heuristic outcomes occur when a resource acts as a sub-coordinator and at least 
+		 * one of its resources takes a heuristic decision after a VoteCommit return.
+		 */
+		Vote prepare()
+			raises(
+				HeuristicMixed,
+				HeuristicHazard
+			);
+			
+		/**
+		 * If necessary, the resource should rollback all changes made as part of the transaction.
+		 * If the resource has forgotten the transaction, it should do nothing.
+		 * The heuristic outcome exceptions are used
+		 * to report heuristic decisions related to the resource. If a heuristic outcome exception is
+		 * raised, the resource must remember this outcome until the forget operation is performed
+		 * so that it can return the same outcome in case rollback is performed again. Otherwise,
+		 * the resource can immediately forget all knowledge of the transaction.
+		 */
+		void rollback()
+			raises(
+				HeuristicCommit,
+				HeuristicMixed,
+				HeuristicHazard
+			);
+			
+		/**
+		 * If necessary, the resource should commit all changes made as part of the transaction. If
+		 * the resource has forgotten the transaction, it should do nothing.
+		 * The heuristic outcome exceptions are used
+		 * to report heuristic decisions related to the resource. If a heuristic outcome exception is
+		 * raised, the resource must remember this outcome until the forget operation is performed
+		 * so that it can return the same outcome in case commit is performed again. Otherwise,
+		 * the resource can immediately forget all knowledge of the transaction.
+		 * The NotPrepared exception is raised if the commit operation is performed without first
+		 * performing the prepare operation.
+		 */
+		void commit()
+			raises(
+				NotPrepared,
+				HeuristicRollback,
+				HeuristicMixed,
+				HeuristicHazard
+			);
+			
+		/**
+		 * If possible, the resource should commit all changes made as part of the transaction. If
+		 * it cannot, it should raise the TRANSACTION_ROLLEDBACK standard exception.
+		 * If a failure occurs during commit_one_phase, it must be retried when the failure is
+		 * repaired. Since their can only be a single resource, the HeuristicHazard exception is used
+		 * to report heuristic decisions related to that resource. If a heuristic exception is raised,
+		 * the resource must remember this outcome until the forget operation is performed so that
+		 * it can return the same outcome in case commit_one_phase is performed again. Otherwise,
+		 * the resource can immediately forget all knowledge of the transaction.
+		 */
+		void commit_one_phase()
+			raises(
+				HeuristicHazard
+			);
+			
+		/**
+		 * This operation is performed only if the resource raised a heuristic outcome exception
+		 * to rollback, commit, or commit_one_phase. Once the coordinator has determined that the
+		 * heuristic situation has been addressed, it should issue forget on the resource. The
+		 * resource can forget all knowledge of the transaction.
+		 */
+		void forget();
+	};
+
+	/**
+	 * The TransactionalObject interface is used by an object to indicate that it is
+	 * transactional. By supporting the TransactionalObject interface, an object indicates that
+	 * it wants the transaction context associated with the client thread to be associated with
+	 * all operations on its interface.
+	 */
+	interface TransactionalObject 
+	{
+	};
+
+	/**
+	 * The Transaction Service provides a synchronization protocol which enables an object
+	 * with transient state data that relies on an X/Open XA conformant Resource Manager
+	 * for ensuring that data is made persistent, to be notified before the start of the two-phase
+	 * commitment protocol, and after its completion. An object with transient state
+	 * data that relies on a Resource object for ensuring that data is made persistent can also
+	 * make use of this protocol, provided that both objects are registered with the same
+	 * Coordinator. Each object supporting the Synchronization interface is implicitly
+	 * associated with a single top-level transaction.
+	 */
+	interface Synchronization : TransactionalObject 
+	{
+		/**
+		 * This operation is invoked prior to the start of the two-phase commit protocol within the
+		 * coordinator the Synchronization has registered with. This operation will therefore be
+		 * invoked prior to prepare being issued to Resource objects or X/Open Resource
+		 * Managers registered with that same coordinator. The Synchronization object must
+		 * ensure that any state data it has that needs to be made persistent is made available to
+		 * the resource.
+		 *
+		 * Only standard exceptions may be raised. Unless there is a defined recovery procedure
+		 * for the exception raised, the transaction should be marked rollback only.
+		 */
+		void before_completion();
+		
+		/**
+		 * This operation is invoked after all commit or rollback responses have been received by
+		 * this coordinator. The current status of the transaction (as determined by a get_status on
+		 * the Coordinator) is provided as input.
+		 *
+		 * Only standard exceptions may be raised and they have no effect on the outcome of the
+		 * commitment process.
+		 */
+		void after_completion(in CosTransactions::Status status);
+	};
+
+	/**
+	 * Recoverable objects that implement nested transaction behavior may support a
+	 * specialization of the Resource interface called the SubtransactionAwareResource
+	 * interface. A recoverable object can be notified of the completion of a subtransaction by
+	 * registering a specialized resource object that offers the SubtransactionAwareResource
+	 * interface with the Transaction Service. This registration is done by using the
+	 * register_resource or the register_subtran_aware operation of the current Coordinator object.
+	 *
+	 * A recoverable object generally uses the register_resource operation to register a resource
+	 * that will participate in the completion of the top-level transaction and the
+	 * register_subtran_aware operation to be notified of the completion of a subtransaction.
+	 *
+	 * Certain recoverable objects may want a finer control over the registration in the
+	 * completion of a subtransaction. These recoverable objects will use the register_resource
+	 * operation to ensure participation in the completion of the top-level transaction and they
+	 * will use the register_subtran_aware operation to be notified of the completion of a
+	 * particular subtransaction. For example, a recoverable object can use the
+	 * register_subtran_aware operation to establish a "committed with respect to" relationship
+	 * between transactions; that is, the recoverable object wants to be informed when a
+	 * particular subtransaction is committed and then perform certain operations on the
+	 * transactions that depend on that transaction’s completion. This technique could be used
+	 * to implement lock inheritance, for example.
+	 *
+	 * The Transaction Service uses the SubtransactionAwareResource interface on each
+	 * Resource object registered with a subtransaction. Each object supporting this interface
+	 * is implicitly associated with a single subtransaction.
+	 */
+	interface SubtransactionAwareResource : Resource 
+	{
+		/**
+		 * This operation is invoked only if the resource has been registered with a subtransaction
+		 * and the subtransaction has been committed. The Resource object is provided with a
+	  	 * Coordinator that represents the parent transaction. This operation may raise a standard
+		 * exception such as TRANSACTION_ROLLEDBACK.
+		 * Note that the results of a committed subtransaction are relative to the completion of its
+		 * ancestor transactions, that is, these results can be undone if any ancestor transaction is
+		 * rolled back.
+		 */
+		void commit_subtransaction(in Coordinator parent);
+		
+		/**
+		 * This operation is invoked only if the resource has been registered with a subtransaction
+		 * and notifies the resource that the subtransaction has rolled back.
+		 */
+		void rollback_subtransaction();
+	};
+
+}; 
+
+#endif 

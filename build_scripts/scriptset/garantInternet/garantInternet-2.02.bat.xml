@@ -1,0 +1,1268 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE ru.garant.extensions SYSTEM "../../ru.garant/extensions.dtd">
+
+<project
+	name = "scriptset.garantF1"
+	basedir = "."
+	default = "default"
+>
+
+	<!--
+		apache `ant` script [http://ant.apache.org]
+
+		required third party jars {
+			bsf.jar:               [http://jakarta.apache.org/bsf]
+			commons-logging-*.jar: [http://jakarta.apache.org/commons/logging]
+
+			js.jar:                [http://www.mozilla.org/rhino]
+		}
+	-->
+
+<!-- external uses { -->
+	<!-- properties { -->
+		&ru.garant.extensions.properties.cppBuildMaxCyclesCount;
+
+		&ru.garant.extensions.properties.cvsRoot;
+		&ru.garant.extensions.properties.cvsUpdateMaxCyclesCount;
+
+		&ru.garant.extensions.properties.externalMountPath;
+		&ru.garant.extensions.properties.externalMountRoot;
+
+		&ru.garant.extensions.properties.moleboxTargetMaxCyclesCount;
+
+		&ru.garant.extensions.properties.signDescription;
+		&ru.garant.extensions.properties.signDescriptionURL;
+		&ru.garant.extensions.properties.signSHA1;
+		&ru.garant.extensions.properties.signTargetMaxCyclesCount;
+		&ru.garant.extensions.properties.signTimestampServer;
+
+		&ru.garant.extensions.properties.svnRoot;
+		&ru.garant.extensions.properties.svnUpdateMaxCyclesCount;
+
+		&ru.garant.extensions.properties.wixLibRoot;
+
+		&ru.garant.extensions.properties.workRootDir;
+	<!-- } properties -->
+
+	<!-- scriptdefs { -->
+		&ru.garant.extensions.scriptdefs.buildCppTarget;
+		&ru.garant.extensions.scriptdefs.buildPasTarget;
+
+		&ru.garant.extensions.scriptdefs.buildWixTarget;
+
+		&ru.garant.extensions.scriptdefs.cleanupAllFiles;
+
+		&ru.garant.extensions.scriptdefs.cleanupCppBuilds;
+		&ru.garant.extensions.scriptdefs.cleanupPasBuilds;
+
+		&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
+
+		&ru.garant.extensions.scriptdefs.cleanupSvnByPath;
+
+		&ru.garant.extensions.scriptdefs.copyDirToDir;
+
+		&ru.garant.extensions.scriptdefs.copyFile;
+		&ru.garant.extensions.scriptdefs.copyFileToDir;
+
+		&ru.garant.extensions.scriptdefs.copyCppTarget;
+
+		&ru.garant.extensions.scriptdefs.createFile;
+		&ru.garant.extensions.scriptdefs.removeFile;
+
+		&ru.garant.extensions.scriptdefs.replaceStringInFile;
+
+		&ru.garant.extensions.scriptdefs.manifestTarget;
+
+		&ru.garant.extensions.scriptdefs.moleboxTarget;
+
+		&ru.garant.extensions.scriptdefs.mountResource;
+		&ru.garant.extensions.scriptdefs.unmountResource;
+
+		&ru.garant.extensions.scriptdefs.setCvsTagByList;
+		&ru.garant.extensions.scriptdefs.updateCvsByList;
+
+		&ru.garant.extensions.scriptdefs.setSvnTagByList;
+		&ru.garant.extensions.scriptdefs.updateSvnByList;
+
+		&ru.garant.extensions.scriptdefs.signTarget;
+	<!-- } scriptdefs -->
+<!-- } external uses -->
+
+<!-- properties { -->
+	<property
+		name = "properties.buildOutputMountPath"
+		value = "\\10.14.3.205\garant-nemesis"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot"
+		value = "N:"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot.deploymentCatalog"
+		value = "${properties.buildOutputMountRoot}/deployment"
+	/>
+
+	<property
+		name = "properties.buildRoot"
+		value = "${ru.garant.extensions.properties.workRootDir}/build"
+	/>
+
+	<property
+		name = "properties.buildSuccessName"
+		value = "!success"
+	/>
+
+	<property
+		name = "properties.buildSuccessFile"
+		value = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/${properties.buildSuccessName}"
+	/>
+
+	<property
+		name = "properties.cppTargetDefaultConfig32"
+		value = "Release|Win32"
+	/>
+
+	<property
+		name = "properties.cppTargetDefaultConfig64"
+		value = "Release|x64"
+	/>
+
+	<property
+		name = "properties.cppTargetDefaultFolder"
+		value = "bin/Release_Static"
+	/>
+
+	<property
+		name = "properties.cppTargetReleaseConfig32"
+		value = "Final|Win32"
+	/>
+
+	<property
+		name = "properties.cppTargetReleaseConfig64"
+		value = "Final|x64"
+	/>
+
+	<property
+		name = "properties.cppTargetReleaseFolder"
+		value = "bin/Final_Static"
+	/>
+
+	<property
+		name = "properties.cppTargetRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+
+	<property
+		name = "properties.cvsDirsetListForTagging"
+		value = "build_scripts,common,garantInternet,garantServer,garantPIL,shared"
+	/>
+
+	<property
+		name = "properties.cvsDirsetListForUpdate"
+		value = "common,garantInternet,garantServer,garantPIL,shared"
+	/>
+
+	<property
+		name = "properties.cvsRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+
+	<property
+		name = "properties.cvsTagName"
+		value = "!cvs_tag"
+	/>
+
+	<property
+		name = "properties.cvsTagFile"
+		value = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/${properties.cvsTagName}"
+	/>
+
+	<property
+		name = "properties.externalMountPath"
+		value = "${ru.garant.extensions.properties.externalMountPath}"
+	/>
+
+	<property
+		name = "properties.externalMountPathRevision"
+		value = "msvc120only-current"
+	/>
+
+	<property
+		name = "properties.externalMountPath.win64"
+		value = "${properties.externalMountPath}/${properties.externalMountPathRevision}/win64"
+	/>
+
+	<property
+		name = "properties.externalMountPath.winNT"
+		value = "${properties.externalMountPath}/${properties.externalMountPathRevision}/win32"
+	/>
+
+	<property
+		name = "properties.externalMountPath.winXX-shared"
+		value = "${properties.externalMountPath}/${properties.externalMountPathRevision}/winXX-shared"
+	/>
+
+	<property
+		name = "properties.externalMountRoot"
+		value = "${ru.garant.extensions.properties.externalMountRoot}"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot.currentCatalog"
+		value = "${properties.buildOutputMountRoot}/.current"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot.supportCatalog"
+		value = "${properties.buildOutputMountRoot}/.support"
+	/>
+
+	<property
+		name = "properties.pasTargetConfigsPath"
+		value = "${basedir}/delphi.configs-${properties.delphi.suffix}"
+	/>
+
+	<property
+		name = "properties.pasTargetRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+
+	<property
+		name = "properties.wixTargetRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+<!-- } properties -->
+
+<!-- conditions { -->
+	<condition property = "disable-buildCppTargets.win64">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-buildCppTargets.winNT">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-buildPasTargets.winXX-console">
+		<isset property = "disable-buildPasTargets"/>
+	</condition>
+
+	<condition property = "disable-buildPasTargets.winXX+console">
+		<isset property = "disable-buildPasTargets"/>
+	</condition>
+
+	<condition property = "disable-copyCppPresetsToDeploymentCatalog">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToCurrentCatalog">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.win64">
+		<isset property = "disable-buildCppTargets.win64"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.win64">
+		<isset property = "disable-copyCppTargetsToDeploymentCatalog"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.winNT">
+		<isset property = "disable-buildCppTargets.winNT"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.winNT">
+		<isset property = "disable-copyCppTargetsToDeploymentCatalog"/>
+	</condition>
+
+	<condition property = "disable-copyPasPresetsToDeploymentCatalog">
+		<isset property = "disable-buildPasTargets"/>
+	</condition>
+
+	<condition property = "disable-copyPasTargetsToCurrentCatalog">
+		<isset property = "disable-buildPasTargets"/>
+	</condition>
+
+	<condition property = "disable-copyPasTargetsToDeploymentCatalog.winXX-console">
+		<isset property = "disable-buildPasTargets.winXX-console"/>
+	</condition>
+
+	<condition property = "disable-copyPasTargetsToDeploymentCatalog.winXX-console">
+		<isset property = "disable-copyPasTargetsToDeploymentCatalog"/>
+	</condition>
+
+	<condition property = "disable-copyPasTargetsToDeploymentCatalog.winXX+console">
+		<isset property = "disable-buildPasTargets.winXX+console"/>
+	</condition>
+
+	<condition property = "disable-copyPasTargetsToDeploymentCatalog.winXX+console">
+		<isset property = "disable-copyPasTargetsToDeploymentCatalog"/>
+	</condition>
+
+	<condition property = "disable-copyWixTargetsToDeploymentCatalog">
+		<isset property = "disable-buildWixTargets"/>
+	</condition>
+
+	<condition property = "disable-moleboxWixTargets">
+		<isset property = "disable-buildWixTargets"/>
+	</condition>
+<!-- } conditions -->
+
+<!-- targets { -->
+	<target
+		name = "buildCppTargets"
+		depends = "buildCppTargets.win64,buildCppTargets.winNT"
+		unless = "disable-buildCppTargets"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildCppTargets -->
+
+	<target
+		name = "buildCppTargets.win64"
+		depends = "updateCvs,copyCppPresetsToDeploymentCatalog"
+		unless = "disable-buildCppTargets.win64"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath.win64}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_CSAdapter"
+			cpp.target.project.path = "garantInternet/projects/garantInternet4build.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig64}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig64}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_garantInternet"
+			cpp.target.project.path = "garantInternet/projects/garantInternet4build.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig64}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig64}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_delivery"
+			cpp.target.project.path = "garantInternet/projects/garantInternet4build.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig64}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig64}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildCppTargets.win64 -->
+
+	<target
+		name = "buildCppTargets.winNT"
+		depends = "updateCvs,copyCppPresetsToDeploymentCatalog"
+		unless = "disable-buildCppTargets.winNT"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath.winNT}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_CSAdapter"
+			cpp.target.project.path = "garantInternet/projects/garantInternet4build.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_garantInternet"
+			cpp.target.project.path = "garantInternet/projects/garantInternet4build.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_delivery"
+			cpp.target.project.path = "garantInternet/projects/garantInternet4build.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_RenderEVD"
+			cpp.target.project.path = "garantInternet/projects/garantInternet4build.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildCppTargets.winNT -->
+
+	<target
+		name = "buildPasTargets"
+		depends = "buildPasTargets.winXX-console,buildPasTargets.winXX+console"
+		unless = "disable-buildPasTargets"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildPasTargets -->
+
+	<target
+		name = "buildPasTargets.winXX-console"
+		depends = "updateCvs,copyPasPresetsToDeploymentCatalog"
+		unless = "disable-buildPasTargets.winXX-console"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "RenderEVD.dpr"
+			pas.target.compile.name = "RenderEVD.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/common/components/RenderEVD/_cfg/RenderEVD.cfg"
+
+			pas.target.root.dir = "${properties.pasTargetRootDir}/common/components/RenderEVD"
+		/>
+<!-- -->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildPasTargets.winXX-console -->
+
+	<target
+		name = "buildPasTargets.winXX+console"
+		depends = "updateCvs,copyPasPresetsToDeploymentCatalog"
+		unless = "disable-buildPasTargets.winXX+console"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildPasTargets.winXX+console -->
+
+	<target
+		name = "buildWixTargets"
+		depends = "signCppTargets,signPasTargets,createVersionInfo"
+		unless = "disable-buildWixTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath.winXX-shared}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildWixTargets -->
+
+	<target
+		name = "createSuccessFile"
+        depends = "copyCppPresetsToDeploymentCatalog,copyCppTargetsToCurrentCatalog,copyPasPresetsToDeploymentCatalog,copyPasTargetsToCurrentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.createFile
+			file.name = "${properties.buildSuccessFile}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // createSuccessFile -->
+
+	<target
+		name = "copyCppPresetsToDeploymentCatalog"
+		depends = "updateCvs"
+		unless = "disable-copyCppPresetsToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppPresetsToDeploymentCatalog -->
+
+	<target
+		name = "copyCppTargetsToCurrentCatalog"
+		depends = "copyCppPresetsToDeploymentCatalog,setCvsTag"
+		unless = "disable-copyCppTargetsToCurrentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/CSAdapter.dll"
+			to.file = "${properties.buildOutputMountRoot.currentCatalog}/internet/CSAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/InternetServer.exe"
+			to.file = "${properties.buildOutputMountRoot.currentCatalog}/internet/InternetServer.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/InternetServerDelivery.exe"
+			to.file = "${properties.buildOutputMountRoot.currentCatalog}/internet/InternetServerDelivery.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/RenderEVD.dll"
+			to.file = "${properties.buildOutputMountRoot.currentCatalog}/internet/RenderEVD.dll"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppTargetsToCurrentCatalog -->
+
+	<target
+		name = "copyCppTargetsToDeploymentCatalog"
+		depends = "copyCppTargetsToDeploymentCatalog.win64,copyCppTargetsToDeploymentCatalog.winNT"
+		unless = "disable-copyCppTargetsToDeploymentCatalog"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppTargetsToDeploymentCatalog -->
+
+	<target
+		name = "copyCppTargetsToDeploymentCatalog.win64"
+		depends = "buildCppTargets.win64"
+		unless = "disable-copyCppTargetsToDeploymentCatalog.win64"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/CSAdapter.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/CSAdapter.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/CSAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/InternetServer.exe"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/InternetServer.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/InternetServer.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/delivery.exe"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/delivery.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/InternetServerDelivery.exe"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppTargetsToDeploymentCatalog.win64 -->
+
+	<target
+		name = "copyCppTargetsToDeploymentCatalog.winNT"
+		depends = "buildCppTargets.winNT"
+		unless = "disable-copyCppTargetsToDeploymentCatalog.winNT"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/CSAdapter.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/CSAdapter.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet/apps/winNT/CSAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/CSAdapter.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/CSAdapter.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/winNT/CSAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/F1RenderEVD.exe"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/F1RenderEVD.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/F1RenderEVD.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/InternetServer.exe"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/InternetServer.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/winNT/InternetServer.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/delivery.exe"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/delivery.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/winNT/InternetServerDelivery.exe"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppTargetsToDeploymentCatalog.winNT -->
+
+	<target
+		name = "copyPasPresetsToDeploymentCatalog"
+		depends = "updateCvs"
+		unless = "disable-copyPasPresetsToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garantInternet/garant.ini-internet"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet/garant.ini"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garantInternet/garant.ini-internet"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/garant.ini"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyPasPresetsToDeploymentCatalog -->
+
+	<target
+		name = "copyPasTargetsToCurrentCatalog"
+		depends = "copyPasPresetsToDeploymentCatalog,setCvsTag"
+		unless = "disable-copyPasTargetsToCurrentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyPasTargetsToCurrentCatalog -->
+
+	<target
+		name = "copyPasTargetsToDeploymentCatalog"
+		depends = "copyPasTargetsToDeploymentCatalog.winXX-console,copyPasTargetsToDeploymentCatalog.winXX+console"
+		unless = "disable-copyPasTargetsToDeploymentCatalog"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyPasTargetsToDeploymentCatalog -->
+
+	<target
+		name = "copyPasTargetsToDeploymentCatalog.winXX-console"
+		depends = "buildPasTargets.winXX-console"
+		unless = "disable-copyPasTargetsToDeploymentCatalog.winXX-console"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/RenderEVD.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64/RenderEVD.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/RenderEVD.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/winNT/RenderEVD.dll"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyPasTargetsToDeploymentCatalog.winXX-console -->
+
+	<target
+		name = "copyPasTargetsToDeploymentCatalog.winXX+console"
+		depends = "buildPasTargets.winXX+console"
+		unless = "disable-copyPasTargetsToDeploymentCatalog.winXX+console"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyPasTargetsToDeploymentCatalog.winXX+console -->
+
+	<target
+		name = "copyWixTargetsToDeploymentCatalog"
+		depends = "buildWixTargets"
+		unless = "disable-copyWixTargetsToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyWixTargetsToDeploymentCatalog -->
+
+	<target
+		name = "createVersionInfo"
+		unless = "disable-createVersionInfo"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.createFile
+			file.name = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet/version.txt"
+			file.data = "${ru.garant.extensions.properties.full.version}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.createFile
+			file.name = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/version.txt"
+			file.data = "${ru.garant.extensions.properties.full.version}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // createVersionInfo -->
+
+	<target
+		name = "default"
+		depends = "removeSuccessFile,createSuccessFile"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // default -->
+
+	<target
+		name = "manifestCppTargets"
+		depends = "copyCppTargetsToDeploymentCatalog"
+		unless = "disable-manifestCppTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "F1RenderEVD.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "InternetServer.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "InternetServerDelivery.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/win64"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "InternetServer.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/winNT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "InternetServerDelivery.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/winNT"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // manifestCppTargets -->
+
+	<target
+		name = "manifestPasTargets"
+		depends = "copyPasTargetsToDeploymentCatalog"
+		unless = "disable-manifestPasTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // manifestPasTargets -->
+
+	<target
+		name = "manifestWixTargets"
+		depends = "copyWixTargetsToDeploymentCatalog"
+		unless = "disable-manifestWixTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // manifestWixTargets -->
+
+	<target
+		name = "moleboxCppTargets"
+		depends = "manifestCppTargets"
+		unless = "disable-moleboxCppTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.moleboxTarget
+			molebox.target = "InternetServer.exe"
+
+			molebox.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/winNT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.moleboxTarget
+			molebox.target = "InternetServerDelivery.exe"
+
+			molebox.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet-private/apps/winNT"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // moleboxCppTargets -->
+
+	<target
+		name = "moleboxPasTargets"
+		depends = "manifestPasTargets"
+		unless = "disable-moleboxPasTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // moleboxPasTargets -->
+
+	<target
+		name = "moleboxWixTargets"
+		depends = "manifestWixTargets"
+		unless = "disable-moleboxWixTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // moleboxWixTargets -->
+
+	<target
+		name = "removeSuccessFile"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.removeFile
+			file.name = "${properties.buildSuccessFile}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // removeSuccessFile -->
+
+	<target
+		name = "setCvsTag"
+		depends = "signWixTargets"
+		unless = "disable-setCvsTag"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.setCvsTagByList
+			cvs.dirset.list = "${properties.cvsDirsetListForTagging}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+
+			cvs.tag.file = "${properties.cvsTagFile}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // setCvsTag -->
+
+	<target
+		name = "signCppTargets"
+		depends = "moleboxCppTargets"
+		unless = "disable-signCppTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "CSAdapter.dll"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet/apps/winNT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "InternetServer.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet/apps/winNT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "InternetServerDelivery.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/internet/apps/winNT"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // signCppTargets -->
+
+	<target
+		name = "signPasTargets"
+		depends = "moleboxPasTargets"
+		unless = "disable-signPasTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // signPasTargets -->
+
+	<target
+		name = "signWixTargets"
+		depends = "moleboxWixTargets"
+		unless = "disable-signWixTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!--
+		// do nothing
+-->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // signWixTargets -->
+
+	<target
+		name = "updateCvs"
+		depends = "removeSuccessFile"
+		unless = "disable-updateCvs"
+	>
+<!-- -->
+		<ru.garant.extensions.scriptdefs.updateCvsByList
+			cvs.dirset.list = "${properties.cvsDirsetListForUpdate}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+		/>
+<!-- -->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // updateCvs -->
+<!-- } targets -->
+
+</project> <!-- // scriptset.garantF1 -->

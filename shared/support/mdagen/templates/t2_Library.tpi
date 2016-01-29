@@ -1,0 +1,440 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// Library
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Library::Category
+
+= CoreLibrary::Category
+
+? Библиотека
+? Определяет элемент линковки, содержащий все вложенные типы и интерфесы (разбитые на юниты) и их закрытую реализацию
+> Unit::Category, Interface::Category, Impl::Category, CPluginsPackage::Category
+> LibSupport::Category, ComInterface::Category, Views::Category, EvdDataDef::Category, EvdFactoryDef::Category
+p is namespace:b=true ? определяет является ли модуль неймспейсом
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p is standart:b=false ? определяет является ли библиотека стандартной, для элементов такой библиотеки include геенрится в угловых скобках
+p finished:b=true ? определяет что модуль полностью закончен и может генерироваться в код
+p gui:b=false ? определяет что модуль уровня представления
+p native name:s ? определяет MPC-имя для внешней (native) библиотеки
+p native lib path:s ? определяет путь где находится внешняя (native) библиотека
+p native includes path:s ? определяет путь где находится нужно искать дополнительные файлы внешней (native) библиотеки
+p lit_libs:s ? список внешних (системных) библиотек от которых зависит данная
+p exec mode=concluded|idle ? определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+p vendor:s=/Garant ? определяет префикс разработчика
+p defines:s= ? определяет файл с условиями компиляции
+
+%f _wiki_up_print
+	[{%S{is namespace}=false}* *не* является неймспейсом 
+	][* режим исполненения дома библиотеки: _%S{thread pool size}_ - [{%S{thread pool size}=idle}{дом завершится когда завершаться все исполнители}дом перейдет в сосотояние ожидания]
+	]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= CoreLibrary::Category;wiki
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ mpc
+P
+O %SN.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN library
+# t0_header
+	project (%SN) : project_generic_core[{%f_use_server(%S)=true}_corba][{"<{}{%CM=ComInterface::Category}{C}>"!="0"}, project_compile_odl] {
+		sharedname = %SN
+		staticname = %SN
+	[
+	%f_mpc_all_includes(%S)
+	%f_mpc_all_libpaths(%S)
+	][{%f_use_server(%S)=true&%SN!=Core&%SN!=CoreSrv}
+		after += CoreSrv_cs
+		libs  += CoreSrv_cs
+	]
+	%f_library_mpc_base(%S)
+	}
+# t0_footer
+
+/ TIE mpc
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ mpc.dll
+P
+/C /%SN/targets
+O %SN_tie.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN_tie library
+# t0_header
+	project (%SN_tie) : project_generic_core[{%f_use_server(%S)=true}_corba] {
+		sharedname = %SN_tie
+		staticname = %SN_tie
+		
+		includes += %f_root_relative_path(%S)
+		
+		after += %SN
+		libs  += %SN
+		
+		Header_Files {
+			Std_Headers {
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(dll.h,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(dll.h,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(dll.h,A)
+			]>[{%S{need UC}=true}%U[{_%CN_Manual_Headers}
+			]
+			]}
+		>[{%S{need UC}=true}
+			Rest_Headers {
+			%U[{_Rest_Manual_Headers}
+			]
+			}]
+		}
+	[{%S{need UC}=true}
+		Inline_Files {
+			%U[{_Manual_Inlines}
+			]
+		}
+	]
+		Source_Files {
+			Std_Sources {				
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(dll.cpp,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(dll.cpp,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(dll.cpp,A)
+			]>[{%S{need UC}=true}%U[{_%CN_Manual_Sources}
+			]
+			]}
+		>[{%S{need UC}=true}
+			Rest_Sources {
+			%U[{_Rest_Manual_Sources}
+			]
+			}]
+		}
+	[{%S{need UC}=true}
+		Resource_Files {
+		%U[{_RESOURCE_FILES}
+		]
+		}]
+	}
+# t0_footer
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+%f _include_base_libhome
+	[{%X{lid}=cpp}{import ru.garant.shared.Core.Root_i.StdLibHomeBase;}\#include "shared/Core/impl/Root_i/StdLibHomeBase.h"]
+
+%f _base_libhome
+	[{%X{lid}=cpp}{extends ru.garant.shared.Core.Root_i.StdLibHomeBase}virtual public Core::Root_i::StdLibHomeBase]
+
+%f _libhome
+	[{%X{lid}=cpp}{ru.garant.shared.Core.Root.LibHome}Core::Root::LibHome]
+
+%f _name_prefix	
+	
+
+%f _interceptor_cpp
+
+%f _interceptor_h
+
+%f _interceptor_java
+
+%f _self_methods_h
+
+%f _self_methods_java
+
+%f _self_methods_cpp
+
+%t _need_to_execute
+c {}
+r {server/stand alone}: {true}
+r {both}: {true}
+r {""=""}: {false}
+
+%t _need_to_reg
+c {}
+r {""=""}: {true}
+
+f _dump_libhome_h
+	
++ h
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+C /%SN
+O %S%f_name_prefix()LibHome.h
+	%f_output_constraint(%S)\
+# t0_h_header
+	%f_std_inc(%S)
+	%S%f_include_base_libhome()
+	
+	%SP[namespace %SN {
+	]
+	class %S%f_name_prefix()LibHome : %S%f_base_libhome() {
+		SET_OBJECT_COUNTER (%S%f_name_prefix()LibHome)
+	[%S%f_interceptor_h()
+	
+	]public:
+		static %S%f_libhome()& get ();\
+	%S%f_self_methods_h()
+	
+	private:
+		REFCOUNT_SINGLETON(%S%f_name_prefix()LibHome)
+		
+		%S%f_name_prefix()LibHome ();
+	
+		void registrate_all_factories () const;
+		
+		void finalize ();
+	};
+	[} // namespace %SN
+	]%Sp<%CX>
+# t0_h_footer
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+%f _add_cpp_inc
+
+%f _set_exec_mode
+	[{%S{exec mode}=idle}	this-\>requested_status () = Core::Root::ES_IDLE;
+	]
+
++ cpp
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+C /%SN
+O %S%f_name_prefix()LibHome.cpp
+	%f_output_constraint(%S)\
+# t0_header
+	\#include "[{%XU=cpp}{%f_with_gen_id(fctr.h,%SL)}%f_with_gen_id(h,%SL)]"
+	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}\
+	[\#include "%f_with_gen_id(fctr.h,%AL)"
+	]]><{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}\#include "%f_with_gen_id(h,%AL)"
+	>%S%f_add_cpp_inc()
+	%SP[namespace %SN {
+	]
+	%S%f_self_methods_cpp()\
+	%S%f_interceptor_cpp()\
+	%S%f_libhome()& %S%f_name_prefix()LibHome::get () {
+		return Singleton::instance();
+	}
+	
+	%S%f_name_prefix()LibHome::%S%f_name_prefix()LibHome () {
+	%S%f_set_exec_mode()\
+	<{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}	this-\>executors ().insert (&%AN::get ());
+	>}
+	
+	void %S%f_name_prefix()LibHome::registrate_all_factories () const {
+		%U[{_ENVIRONMENTS_CONFIG}
+		]
+	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true&%A{Factory auto reg}=true}
+		{
+			%f_type(%A)_factory_var fctr = new %f_type(%A)_factory ();
+			fctr-\>registrate_me(0);
+		}
+		]>
+		%U[{_CUSTOM_REGISTRATE}
+		]
+	}
+		
+	void %S%f_name_prefix()LibHome::finalize () {
+	}
+
+	[} // namespace %SN
+	]%Sp<%CX>
+# t0_footer
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ i.h
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+C /%SN
+	<%CX>
+
++ fctr.h
+= i.h
++ fctr.cpp
+= i.h
++ dll.h
+= i.h
++ dll.cpp
+= i.h
++ odl
+= i.h
++ evd.pas
+C /EVD
+	<%CX>
+/= i.h
++ com.rgs
+P
+C /%SN
+	<%CX>
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ pas
+P
+C /%SN
+	<%CX>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+# MDAGen/GTS/Library_cat_intf_pas
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ idl
+
+f _need_plugin_info
+	[{"<{}{%AM=CPluginsPackage::Category}{C}>"!="0"}{false}true]
+
+%f _add_java_inc
+
++ java
+P
+C [{%S{is namespace}=true}/%SN]
+O %S%f_name_prefix()LibHome.java
+# t0_header	
+	package %f_dump_java_package(%S).%SN;
+	
+	%f_dump_std_java_imports(%S)
+	
+	%f_java_core_exceptions(%S)
+	
+	%S%f_include_base_libhome()
+/	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}\
+/	[%f_with_gen_id(java,%f_java_import(%A))
+/	]]>%S%f_add_java_inc()
+	
+	public class %S%f_name_prefix()LibHome %S%f_base_libhome() {
+	[
+	%S%f_interceptor_java()
+	]
+		public static %S%f_libhome() get () {
+			return INSTANCE;
+		}\
+	%S%f_self_methods_java()
+	
+		private %S%f_name_prefix()LibHome () {
+		<{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}	this.Executors ().add(%f_type(%A).get());
+		>}
+	
+		public void registrate_all_factories () {
+			%U[{_ENVIRONMENTS_CONFIG}
+			]
+	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true&%A{Factory auto reg}=true}
+			try {
+				%f_type(%A)FactoryImpl fctr = new %f_type(%A)FactoryImpl ();
+				fctr.registrate_me((short)0);
+			} catch (DuplicatedFactoryKey ex) {
+				Logs.LOG_SEX (ex);
+			}
+	]>
+			%U[{_CUSTOM_REGISTRATE}
+			]
+		}
+	
+		public void finalize () {
+		}
+	
+		private static %S%f_name_prefix()LibHome INSTANCE = new %S%f_name_prefix()LibHome ();
+	<%CX>
+	} // class %S%f_name_prefix()LibHome
+# t0_footer	
+
++ fctr.java
+P
+C [{%S{is namespace}=true}/%SN]
+	<%CX>
+
++ output.xml
+C /%SN
+P
+	<%CX>
+
++ rc
+C /%SN
+P
+	<%CX>
+
++ build.xml
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O build.xml
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<project name="%SN" basedir="."\>
+		\<property name="build.dir" value="w:/build/target"/\>
+		
+		\<target name="idlcomp"/\>
+		\<target name="makejar"\>
+			\<mkdir dir="${build.dir}/jar"/\>
+			\<jar destfile="${build.dir}/jar/%SN.jar"\>
+				\<fileset dir ="${build.dir}/classes"\>
+					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+				\</fileset\>[{<{}{"%f_with_gen_id(output.xml,%AO)"!=""}{%AC}>!=0}
+				\<fileset dir ="%f_with_gen_id(output.xml,%SR%Sd)"/\>]
+			\</jar\>
+		\</target\>
+		<%CX>
+	\</project\>
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// support functions
+f _mpc_lib_dep
+	<{\n\t}{%De=false&%DS!=Requirements|"%D{native name}"!=""&%DS!=Requirements}after += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+		libs  += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+	[{%DS=ServerLibrary&%t_target(%S)=true}
+		after += %DN
+		libs  += %DN
+	]>
+f _library_mpc_base
+		includes += %f_root_relative_path(%S)
+	[{%S{need UC}=true}
+		%U[{_CUSTOM_DEPENDENCES}
+		]]
+	[{"<{}{%DS!=Requirements}{%DC}>"!="0"}[	%f_mpc_lib_dep(%S)]]
+		Header_Files {
+			Std_Headers {
+			[	%f_normolized_path(fctr.h,S)
+			][	%f_normolized_path(h,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(h,A)
+			][	%f_normolized_path(fctr.h,A)
+			]>}
+		>}
+	
+		Inline_Files {
+			Std_Inlines {
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(i.h,C)
+			]>}
+		<{}{%CC=Category&%CS!=ServerInterface}{Sn}
+			%CN {
+			[	%f_normolized_path(i.h,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(i.h,A)
+			]>}
+		>}
+	
+		Source_Files {
+			Std_Sources {
+			[	%f_normolized_path(fctr.cpp,S)
+			][	%f_normolized_path(cpp,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(cpp,A)
+			][	%f_normolized_path(fctr.cpp,A)
+			]>}
+		>}[{"<{}{%CM=ComInterface::Category}{C}>"!="0"}
+		
+		<{}{}{%CSn}%f_set_var(ODL_PATH,"%f_normolized_path(odl,C)")ODL_Files (%CN) {
+			[%f_normolized_path(odl,C)
+			]
+		}
+		>]

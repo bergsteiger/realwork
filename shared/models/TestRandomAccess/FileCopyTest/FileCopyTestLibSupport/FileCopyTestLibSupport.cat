@@ -1,0 +1,648 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "FileCopyTestLibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Лаборатория,key:LAB,guid:49CB8B1C02FB/Home/Модель проекта "TestRandomAccess"/FileCopyTest/FileCopyTestLibSupport|49D9C3D00119
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"49D9C3D00119"
+    documentation 	"FileCopyTest"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49D9C4930399"
+	    supplier   	"Logical View::shared::GCL::os"
+	    quidu      	"4503DD5F01B5")
+	(object Visibility_Relationship
+	    quid       	"49D9DD39008E"
+	    supplier   	"Logical View::shared::GCL::math"
+	    quidu      	"45018D5E036B"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "FileCopyTestLibExecutor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"W:/labs/TestRandomAccess/FileCopyTest/FileCopyTestLibExecutor.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Лаборатория,key:LAB,guid:49CB8B1C02FB/Home/Модель проекта "TestRandomAccess"/FileCopyTest/FileCopyTestLibSupport/FileCopyTestLibExecutor|49D9C41801EE
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"W:/labs/TestRandomAccess/FileCopyTest/FileCopyTestLibExecutor.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D9C41801EE*"
+		    value      	(value Text 
+|//#UC START# *49D9C41801EE*¤		LOG_D (("Hello world, this is FileCopyTestLibExecutor!"));¤		std::string file_name = FileCopyTestSettings::get_file_name ();¤		unsigned long file_size = FileCopyTestSettings::get_file_size ();¤		unsigned long random_seed = FileCopyTestSettings::get_random_seed ();¤		LongRandFPtr my_rand_f_ptr = (random_seed == 0) ? my_long_rand : my_long_rand_2;¤		LOG_I (("file_name = %s, file_size = %u, random_seed = %u", file_name.c_str (), file_size, random_seed));¤¤		unsigned long size_mb = FileCopyTestSettings::get_size_mb ();¤		unsigned long size = size_mb*1024*1024;¤		unsigned long block_size = 4*1024;¤		for (unsigned long i = 0; i < size; i += block_size) {¤			char* buf = new char [block_size];¤			ACE_OS::memset (buf, 1, block_size);¤		}¤		LOG_I (("%u Mb allocated", size_mb));¤¤		struct LogLocalThroughput {¤			::Core::GDS::HiResCounter m_timer;¤			double m_sec;¤			unsigned long m_bytes;¤			LogLocalThroughput (unsigned long bytes): m_bytes (bytes) {¤				m_sec = m_timer.get_seconds ();¤			}¤			~LogLocalThroughput () {¤				double sec2 = m_timer.get_seconds ();¤				LOG_I (("bytes = %u, time = %4.4f sec, throughput = %4.4f bytes/sec", m_bytes, (sec2 - m_sec), double (m_bytes) / (sec2 - m_sec)));¤			}¤		} llt (file_size);¤		bool to_read = FileCopyTestSettings::get_to_read ();¤		::Core::GDS::StopWatch sw ("to_read = %u", (unsigned int) to_read);¤		if (to_read) {¤			LOG_I (("read file_name"));¤			ACE_HANDLE fd = ACE_OS::open (file_name.c_str (), O_RDONLY | O_BINARY);¤			if (fd == ACE_INVALID_HANDLE) {¤				throw ::GCL::FileOp::AccessDenied ();¤			}¤			unsigned char buf [BUF_SIZ];¤			unsigned long sum = 0;¤			for (unsigned long buf_cnt = 0; buf_cnt < file_size / BUF_SIZ; ++buf_cnt) {¤				int c = ACE_OS::read (fd, buf, BUF_SIZ);¤				GDS_ASSERT (((unsigned long) c) == BUF_SIZ);¤				for (unsigned long buf_pos = 0; buf_pos < BUF_SIZ; ++buf_pos) {¤					sum += buf [buf_pos];¤				}¤				//LOG_I (("buf [0] = %u, buf [1] = %u", (unsigned long) buf [0], (unsigned long) buf [1]));¤			}¤			ACE_OS::close (fd);¤			LOG_I (("done, sum = %u", sum));¤		} else {¤			LOG_I (("create file_name"));¤			ACE_HANDLE fd = ACE_OS::open (file_name.c_str (), O_WRONLY | O_BINARY | O_CREAT | O_TRUNC);¤			if (fd == ACE_INVALID_HANDLE) {¤				throw ::GCL::FileOp::AccessDenied ();¤			}¤			unsigned char buf [BUF_SIZ];¤			for (unsigned long buf_cnt = 0; buf_cnt < file_size / BUF_SIZ; ++buf_cnt) {¤				for (unsigned long buf_pos = 0; buf_pos < BUF_SIZ; ++buf_pos) {¤					buf [buf_pos] = (unsigned char) my_rand_f_ptr (256);¤				}¤				//LOG_I (("buf [0] = %u, buf [1] = %u", (unsigned long) buf [0], (unsigned long) buf [1]));¤				int c = ACE_OS::write (fd, buf, BUF_SIZ);¤				GDS_ASSERT (((unsigned long) c) == BUF_SIZ);¤			}¤			ACE_OS::close (fd);¤			LOG_I (("done"));¤		}¤		//#UC END# *49D9C41801EE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D9C41801EE_FINI*"
+		    value      	(value Text 
+|//#UC START# *49D9C41801EE_FINI*¤	//#UC END# *49D9C41801EE_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D9C41801EE_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *49D9C41801EE_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *49D9C41801EE_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D9C41801EE_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *49D9C41801EE_CUSTOM_INCLUDES*¤#include "shared/Core/GDS/StopWatch.h"¤//#UC END# *49D9C41801EE_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49D9C41801EE_CUSTOM_BODY*"
+		    value      	(value Text 
+|//#UC START# *49D9C41801EE_CUSTOM_BODY*¤typedef ACE_UINT64 (*LongRandFPtr) (ACE_UINT64);¤ACE_UINT64 my_long_rand (ACE_UINT64 max_bound) { // не обязан быть хорошим, главное чтобы больше нигде не встречался¤	static ACE_UINT64 x0 = 32124214ULL;¤	ACE_UINT64 x = (1664525ULL * x0 + 9869054ULL) % 0xFFFFFFFFULL;¤	x0 = x;¤	return (x % max_bound);¤}¤ACE_UINT64 my_long_rand_2 (ACE_UINT64 max_bound) { // не обязан быть хорошим, главное чтобы больше нигде не встречался¤	static ACE_UINT64 x0 = 76987687ULL;¤	ACE_UINT64 x = (16807ULL * x0 + 5765876ULL) % 0xFFFFFFFFULL;¤	x0 = x;¤	return (x % max_bound);¤}¤static const unsigned long BUF_SIZ = 256;¤//#UC END# *49D9C41801EE_CUSTOM_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49D9C41801EE_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *49D9C41801EE_CUSTOM_INCLUDES*¤//#UC END# *49D9C41801EE_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49D9C41801EE*"
+		    value      	"//#UC START# *49D9C41801EE*¤//#UC END# *49D9C41801EE*"))
+	    quid       	"49D9C41801EE"
+	    documentation 	"FileCopyTestLibExecutor"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49D9C4C90239"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCL::os::FileOp"
+		    quidu      	"4503DEC603C8")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49D9C5380159"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestRandomAccess::FileCopyTest::FileCopyTestLibSupport::FileCopyTestSettings"
+		    quidu      	"49D9C4DC0288")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49D9DD5102E7"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCL::math::long_rand"
+		    quidu      	"45018DA0002E"))
+	    language   	"MDA Generator")
+	(object Class "FileCopyTestSettings"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Лаборатория,key:LAB,guid:49CB8B1C02FB/Home/Модель проекта "TestRandomAccess"/FileCopyTest/FileCopyTestLibSupport/FileCopyTestSettings|49D9C4DC0288
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"W:/labs/TestRandomAccess/FileCopyTest/FileCopyTestSettings.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"W:/labs/TestRandomAccess/FileCopyTest/FileCopyTestSettings.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file"))
+	    quid       	"49D9C4DC0288"
+	    documentation 	"FileCopyTestSettings"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "file_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"49D9C4EE001B"
+		    documentation 	"file_name"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "to_read"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240"))
+		    quid       	"49D9C50A00B9"
+		    documentation 	"to_read, если 1 то читать файл, если 0 то создать"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "file_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"49D9DCE002A3"
+		    documentation 	"file_size"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"104857600"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "random_seed"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"49DB1A0602A7"
+		    documentation 	"начальное случайное значение (влияет на генерируемую последовательность)"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"0"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "size_mb"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"4AB39ED300E0"
+		    documentation 	"сколько держать собственной памяти пока идет копирование"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"512"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"49D9C40C0368"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::TestRandomAccess::FileCopyTest::FileCopyTestLibSupport::FileCopyTestLibExecutor" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(393, 282)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(124, 252)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	538
+			justify    	0
+			label      	"• FileCopyTestLibExecutor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(124, 202)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	538
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49D9C41801EE"
+		    width      	556
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCL::os::FileOp" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1251, 282)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1101, 254)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• FileOp")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1101, 204)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"4503DEC603C8"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(883, 245)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.506537
+			height     	38
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49D9C4C90239"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(671, 282)
+			(1091, 282))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::TestRandomAccess::FileCopyTest::FileCopyTestLibSupport::FileCopyTestSettings" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(693, 966)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(324, 832)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	738
+			justify    	0
+			label      	"• FileCopyTestSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(324, 782)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	738
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"49D9C4DC0288"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(324, 893)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	5
+			max_width  	740
+			justify    	1)
+		    width      	756
+		    height     	392
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(639, 574)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.615336
+			height     	109
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49D9C5380159"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(433, 374)
+			(605, 769))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GCL::math::long_rand" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1254, 612)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1104, 584)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• long_rand")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1104, 534)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"45018DA0002E"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(875, 409)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.482960
+			height     	53
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49D9DD5102E7"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(634, 374)
+			(1094, 549))
+		    line_style 	0)))))

@@ -1,0 +1,42 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    'CUR_STATE=ST_NONE_STANDART
+    Call NeedState (ST_PPR_6x)
+    call Select_Property(gl_Type,"Приказ",1)
+    call Select_Property(gl_Type,"Рекомендации",2)
+    call Select_Property(gl_Form_Law_Info,"Документы",1)
+    'call Select_Property(gl_Form_Law_Info,"Документы",1)
+    call Select_Property(gl_Territory,"Российская Федерация",1)
+    call Select_Property(gl_Organ_Source,"Федеральные министерства и ведомства\Госстрой России",1)
+    call Select_Property(gl_Part_Topic,"Гражданское законодательство, приватизация\Обязательственное право, договоры\Страхование\Добровольное страхование\Имущественное страхование",1)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    call Click_Find_DateAccept
+    InputKeys "{HOME}28062000"
+   
+    'GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=22,8"
+    call Click_Find_Number
+    InputKeys "{HOME}149{ENTER}"
+    
+    
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=8", ""
+    InputKeys "+{HOME}ЖКХ"
+   
+    GenericObject Click, "Text=Только в названии", "Coords=159,12"
+    InputKeys "{HOME}По всему тексту"
+  
+   ' Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "^{ENTER}"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=4", "Coords=8,8"
+    Dim ListCount%
+    Dim elem$
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call StrComp2Log(CSTR(ListCount),"1")
+    SQAGetProperty "CurrentFocus","Text",elem
+    call StrComp2Log("Приказ Госстроя РФ от 28 июня 2000 г. N 149 ""Об утверждении Рекомендаций по дальнейшему развитию страхования в жилищно-коммунальном комплексе""",elem)
+    CUR_STATE=ST_NONE_STANDART
+        
+       
+End Sub

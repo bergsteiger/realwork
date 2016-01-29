@@ -1,0 +1,26 @@
+USES
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Сместиться к месту добавления текста"
+	4 раза "Нажать вниз"
+	25 раз "Нажать вправо"
+;
+
+PROCEDURE "Вставить строку"
+	'текст' emitstring
+;
+
+Тест TK336658853
+	Параметры: ( "Проверка EVD документа" )
+	Выполнить (
+		 OBJECT VAR l_Editor
+		 focused:control:push >>> l_Editor      
+                 l_Editor pop:Editor:DrawSpecial := true
+		 l_Editor pop:Editor:DrawLines := true
+		 "Сместиться к месту добавления текста"
+		 "Вставить строку"	
+	)
+;
+
+TK336658853

@@ -1,0 +1,27 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = makedata.exe execmake.bat execcomp.bat m0pasrtl.bpl
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+makedata.exe: makedata.dpr
+  $(DCC)
+
+execmake.bat: execmake.bat
+  call $**
+
+execcomp.bat: execcomp.bat
+  call $**
+
+m0pasrtl.bpl: m0pasrtl.dpk
+  $(DCC)

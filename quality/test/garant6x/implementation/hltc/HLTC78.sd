@@ -1,0 +1,561 @@
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork;
+//////////////////////////////////////////////////////////////////////////////
+//  Набор тест-кейсов
+//  HLTC 78 Блочная арифметика
+//////////////////////////////////////////////////////////////////////////////
+
+{
+HLTC78.1: Вычитание (пп. 1, 5) используется в операции ППР с «кроме», если ищем «в извлечениях» В тестовой базе
+HLTC78.1.1: В списке, найденном по атрибутам РАЗДЕЛ = ИЛИ «Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Лицензирование аудиторской деятельности», 
+            КРОМЕ «Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Общие вопросы» - не должно быть ссылок на блок 310 документа 2002 (в т.ч. может не быть самого документа 2002).
+}
+function  HLTC78_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  cardData, docsName;
+begin
+  Result := False;
+  docsName :=
+    [
+    ([FL_NOT_EXISTS, 'ДОКУМЕНТ 2002*'])
+    ];
+  cardData :=
+    [
+    	CARD_PPR, ([([
+    	FD_THEME, ([
+    		'[ИЛИ]Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Лицензирование аудиторской деятельности',
+    		'[КРОМЕ]Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Общие вопросы']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];
+  if SearchInPPR(cardData) then
+  begin
+    Result := FindInList(docsName);
+    if not Result then
+    	Log.Error('Результат поиска ППР не соответствует эталону');
+  end
+  else
+    Log.Error('Не получилось провести поиск по заполненной КЗ ППР');
+  GoToMainMenu;
+end;
+
+{
+HLTC78.1.2: В списке, найденном по атрибутам РАЗДЕЛ = КРОМЕ «Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Лицензирование аудиторской деятельности», 
+ИЛИ «Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Общие вопросы» - из ссылок на документ 2002 должна присутствовать только ссылка на блок 300 и только она.
+}
+function  HLTC78_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  cardData, docsName;
+begin
+  Result := False;
+  docsName :=
+    [
+    ([FL_EXISTS_INT, 'ДОКУМЕНТ 2002*\BLOCK 300. Состоит только из BLOCK 310 и BLOCK 320'])
+    ];
+  cardData :=
+    [
+    	CARD_PPR, ([([
+    	FD_THEME, ([
+    		'[КРОМЕ]Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Лицензирование аудиторской деятельности',
+    		'[ИЛИ]Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Общие вопросы']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];
+  if SearchInPPR(cardData) then
+  begin
+    Result := FindInList(docsName);
+    if not Result then
+    	Log.Error('Результат поиска ППР не соответствует эталону');
+  end
+  else
+    Log.Error('Не получилось провести поиск по заполненной КЗ ППР');
+  GoToMainMenu;
+end;
+
+{
+HLTC78.1.3: В списке, найденном по атрибутам РАЗДЕЛ ИЛИ «Банковская деятельность\Общие вопросы банковской деятельности» 
+КРОМЕ «Основы государственно-правового устройства\Основы конституционного строя», - не должно быть ссылок на документ 2002.
+}
+function  HLTC78_1_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  cardData, docsName;
+begin
+  Result := False;
+  docsName :=
+    [
+    ([FL_NOT_EXISTS, 'ДОКУМЕНТ 2002*'])
+    ];    
+  cardData :=
+    [
+    	CARD_PPR, ([([
+    	FD_THEME, ([
+    		'[ИЛИ]Банковская деятельность\Общие вопросы банковской деятельности',
+    		'[КРОМЕ]Основы государственно-правового устройства']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ])
+    ];
+  if SearchInPPR(cardData) then
+  begin
+    Result := FindInList(docsName);
+    if not Result then
+    	Log.Error('Результат поиска ППР не соответствует эталону');
+  end
+  else
+    Log.Error('Не получилось провести поиск по заполненной КЗ ППР');
+  GoToMainMenu;        
+end;
+
+{
+HLTC78.2: Сложение (пп. 2, 4) используется в операции ППР и в «Поиске похожих» (В версии 5.5.0 поиск похожих решили не делать) при поиске по «ИЛИ», если ищем «В извлечениях». В тестовой базе:
+  HLTC78.2.1: В списке, найденном по реквизитам: РАЗДЕЛ = ИЛИ «Налоговое законодательство\Основы налоговой системы» 
+  ИЛИ «Ценные бумаги, рынок ценных бумаг\Чеки» 
+  не должно быть ссылки на блоки 210, 220, 230, 
+  но (как минимум) должна быть ссылка на блок 200 
+  документа «ПРИКАЗ МИНТРАНСА РФ ОТ 14.05.2001 N 84» (для проверки документ следует открыть в извлечениях)
+}
+function  HLTC78_2_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  cardData, docsName;
+begin
+  Result := False;
+  docsName :=
+    [
+    ([FL_NOT_EXISTS_INT, 'Приказ Минтранса РФ от 14 мая 2001 г. N 84*\*210*']),
+    ([FL_NOT_EXISTS_INT, 'Приказ Минтранса РФ от 14 мая 2001 г. N 84*\*220*']),
+    ([FL_NOT_EXISTS_INT, 'Приказ Минтранса РФ от 14 мая 2001 г. N 84*\*230*']),
+    ([FL_EXISTS_INT, 'Приказ Минтранса РФ от 14 мая 2001 г. N 84*\*200*'])
+    ];    
+  cardData :=
+    [
+    	CARD_PPR, ([([
+    	FD_THEME, ([
+    		'[ИЛИ]Налоговое законодательство\Основы налоговой системы',
+    		'[ИЛИ]Ценные бумаги, рынок ценных бумаг\Чеки']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ])
+    ];
+  if SearchInPPR(cardData) then
+  begin
+    Result := FindInList(docsName);
+    if not Result then
+    	Log.Error('Результат поиска ППР не соответствует эталону');
+  end
+  else
+    Log.Error('Не получилось провести поиск по заполненной КЗ ППР');
+  GoToMainMenu;        
+end;
+
+{
+HLTC78.3: Объединение (п. 3) используется в ППР при поиске по «И», если ищем «в извлечениях». В тестовой базе:
+  HLTC78.3.1: При поиске по реквизитам: 
+  РАЗДЕЛ = ИЛИ «Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Общие вопросы» 
+  И «Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Лицензирование аудиторской деятельности»; 
+  «Искать в извлечениях» в результирующем списке для документа 2002 должна быть только 
+  ссылка на блок 310 и не должно быть на блок 300.
+}
+function  HLTC78_3_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  cardData, docsName;
+begin
+  Result := False;
+  docsName :=
+    [
+    ([FL_NOT_EXISTS_INT, 'ДОКУМЕНТ 2002*\BLOCK 300*']),
+    ([FL_EXISTS_INT, 'ДОКУМЕНТ 2002*\BLOCK 310*'])
+    ];    
+  cardData :=
+    [
+    	CARD_PPR, ([([
+    	FD_THEME, ([
+    		'[И]Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Лицензирование аудиторской деятельности',
+    		'[ИЛИ]Бухгалтерский учет, аудит, статистическая отчетность\Аудит\Общие вопросы']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];  
+  if SearchInPPR(cardData) then
+  begin
+    Result := FindInList(docsName);
+    if not Result then
+    	Log.Error('Результат поиска ППР не соответствует эталону');
+  end
+  else
+    Log.Error('Не получилось провести поиск по заполненной КЗ ППР');
+  GoToMainMenu;        
+end;
+
+{
+  HLTC78.3.2: При поиске по реквизитам: 
+    РАЗДЕЛ = ИЛИ «Налоговое законодательство\Федеральные налоги и сборы\Налог на добавленную стоимость»
+    И «Бухгалтерский учет, аудит, статистическая отчетность»; - 
+    в результирующем списке для документа «Правила рабочего общежития (И. Карамзин, "Двойная запись", N 1, январь 2003 г.) (в извлечениях)» 
+    должен находиться SUB 2 «В качестве взносов иногда не только перечисляются деньги…»
+     (а не SUB15 «Фирма,  которая  платит  эти  взносы»).
+}
+function  HLTC78_3_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  cardData, docsName;
+begin
+  Result := False;
+  docsName :=
+    [
+    ([FL_EXISTS_CONTEXT_IN_STRING, 'Правила рабочего общежития*\*Вхождение 1', (['В качестве взносов иногда*'])])
+    ];    
+  cardData :=
+    [
+    	CARD_PPR, ([([
+    	FD_THEME, ([
+    		'[ИЛИ]Налоговое законодательство\Федеральные налоги и сборы\Налог на добавленную стоимость',
+    		'[И]Бухгалтерский учет, аудит, статистическая отчетность']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];  
+  if SearchInPPR(cardData) then
+  begin
+    Result := FindInList(docsName);
+    if not Result then
+    	Log.Error('Результат поиска ППР не соответствует эталону');
+  end
+  else
+    Log.Error('Не получилось провести поиск по заполненной КЗ ППР');
+  GoToMainMenu;        
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+{
+  HLTC78.10: Пересечение списков.
+    q1(D) – просто документ в списке; 
+    q2(D,v1,v2) – вхождения того же документа v1,v2; 
+    q3(D,v2,v3) – вхождения того же документа v2,v3; 
+    q4(D,v1,v3) – весь документ и его вхождения v1,v3; 
+    q5(D,v3,v4) - весь документ т его вхождения v3,v4.
+
+  HLTC78.11: Вычитание списков.
+    q1(D) – просто документ в списке;
+    q2(D,v1,v2) – вхождения того же документа v1,v2;
+    q3(D,v2,v3) – весь документ и его вхождения v2,v3;
+    q4(D,v1,v2) – весь документ и его вхождения v1,v2.
+}
+const
+  KONSTNAME = 'Конституция Российской Федерации*';
+  KONST = KONSTNAME + '\*';
+  BASE_LIST = 'q_all';
+  D  = 'Вхождение 1';
+  DD = 'Вхождение 2';
+  V1 = 'Статья 2 *'; //Глава 1. Основы конституционного строя (ст.ст. 1-16). Раздел первый/';
+  V2 = 'Статья 6 *'; //Глава 1. Основы конституционного строя (ст.ст. 1-16). Раздел первый/';
+  V3 = 'Статья 10 *'; //Глава 1. Основы конституционного строя (ст.ст. 1-16). Раздел первый/';
+  V4 = 'Статья 12 *'; //Глава 1. Основы конституционного строя (ст.ст. 1-16). Раздел первый/';
+  q1 = 'q1(D,v1)';
+  q2 = 'q2(D,v1,v2)';
+  q3 = 'q3(D,v2,v3)';
+  q3n= 'q3n(D,v2,v3)';  
+  q4 = 'q4(D,v1,v3)';
+  q4n= 'q4n(D,v1,v2)';
+  q5 = 'q5(D,v3,v4)';
+  OP_OR = 'ДОПОЛНИТЬ';  
+  OPAND = 'ПЕРЕСЕЧЬ';
+  OPNOT = 'ВЫЧЕСТЬ';
+////////////////////////////////////////////////////////////////////////////////
+
+function  DeleteEnteringExceptFromList(entArrray): boolean;
+var
+  pprData, elListText, subText, list, findcheck;
+  i , j;
+begin
+try
+  Result := false;
+  list := GetList;
+  list.SetFocus;
+  i:= 0;
+  Position_Internal(GetList, KONST + D, '\' ,true, 'IsPressHome:=true');
+  elListText := 'null';  
+  while (not StringCompare(elListText, common.GetWindowText(list.Handle))) and (i < 128) do
+  begin  
+    elListText := common.GetWindowText(list.Handle);
+    subText := GetSubStr(elListText, '', '/');
+    if subText <> '' then elListText := subText + '*';
+      
+//   Log.Message(elListText);    
+      
+    if FindElement(entArrray, elListText, true) or 
+       StringCompare(KONSTNAME, elListText) then
+      Sys.Keys('[Down]' + keyPause)
+    else
+      DelWithConfirm;
+    inc(i);
+  end;
+  Result := true;
+except
+  Result := false;  
+  Log.Error('DeleteEnteringFromList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+
+end;
+
+ 
+function  PrepareBaseList: boolean;
+var
+  pprData;
+begin
+try
+  Result := false;
+  pprData :=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'Российской федерации']) ]),([
+    	FD_TYPE, ([
+    		'[ИЛИ]Конституция', 
+        '[КРОМЕ]Закон']) ]),([
+    	FD_THEME, ([
+    		'[ИЛИ]Основы государственно-правового устройства']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];
+  DeleteAllInMyDoc;
+  Result := SearchInPPR(pprData) and FindInList([([FL_NUMBER, '1'])]) and
+            DeleteEnteringExceptFromList([D, V1, V2, V3, V4]) and
+            SimpleSaveToFolders(BASE_LIST);
+except
+  Result := false;  
+  Log.Error('PrepareBaseList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+
+end;
+
+function OpenBaseList: boolean;
+begin
+try
+  Result := OpenObjectFromFolder(MY_DOCS_PATH + BASE_LIST) and
+            Position_Internal(GetList, KONST + D, '\' ,true, 'IsPressHome:=true');
+  if not Result then 
+    Raise('Не получилось открыть базовый запрос');
+except
+  Result := false;  
+  Log.Error('OpenBaseList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+    
+end;
+
+
+function  SaveQList(listname: string; entArrray):boolean;
+var
+  pprData, elListText, list, findcheck;
+  i;            
+begin
+try
+  Result := OpenBaseList and DeleteEnteringExceptFromList(entArrray) and SimpleSaveToFolders(listname);
+  if not Result then 
+    Raise('Не получилось сохранить запрос "' + listname + '"');
+except
+  Result := false;  
+  Log.Error('SaveQList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+
+
+end;
+
+                    
+function FindEnteringInList(entArrray, isDeleteDocEntry: boolean = true): boolean;
+const
+  FUNCTION_NAME = 'FindEnteringInList: ';
+var
+  elListText, list, arraylist, i , j, iLow, iHigh;
+begin
+try
+  list := GetList;
+  list.SetFocus;
+  arraylist := GetElementsFromTree(list, true);
+
+  if isDeleteDocEntry then
+    DeleteElementFromArray(arraylist, VarArrayLowBound(arraylist, 1));
+    
+  if ArrayLength(arraylist) = 0 then
+    arraylist := [D];
+  SortArray(arraylist);
+  SortArray(entArrray);
+
+  Result := false;
+  if ArrayLength(arraylist) <> ArrayLength(entArrray) then
+  	Log.Warning(FUNCTION_NAME + 'Массивы разных размеров')
+  else
+  begin              
+    Result := true;
+		for i := VarArrayLowBound(entArrray, 1) to VarArrayHighBound(entArrray, 1) do
+    if not StringCompare(entArrray[i], arraylist[i]) then
+    begin
+      Result := false;
+      Log.Warning(FUNCTION_NAME + 'Элементы №' + IntToStr(i) + ' различаются: "' + 
+        						VarToString(entArrray[i]) + '" <> "' + VarToString(arraylist[i]) + '"');
+    end;
+  end;    
+
+  if not Result then 
+    Raise('Результирующий список отличается от эталонного. ' + 
+          'Эталон: ' + Array2String(entArrray) + '. Полученный: ' + Array2String(arraylist));
+except
+  Result := false;  
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+
+function DoLogicalOperationWithCheck(logOper, s1, s2, docsname): boolean;
+const
+  FUNCTION_NAME = 'DoLogicalOperationWithCheck: ';
+var 
+  st: string;
+  res;
+begin
+  try
+    Log.Message(FUNCTION_NAME + 'Начинаем ' + s1 + ' ' + logOper + ' ' + s2, '', pmNormal, GetLogAttr('BLUE'));
+
+    if s1 = q1 then
+      st := q4 
+    else
+      st := s1;
+    if not OpenObjectFromFolder(MY_DOCS_PATH + st) then
+      Raise('Не получилось открыть список "' + st + '"');
+    if s1 = q1 then 
+      DeleteEnteringExceptFromList([D]);
+
+    res := ListLogicalOperation(logOper, MY_DOCS_PATH + s2, nil, 'IsExtendedResult:=true');
+    if not GetParam(res, 'Result', false) then
+      Raise('Не получилось выполнить лог. операцию "' + logOper + '" ' + s1 + ' со списком ' + s2 + '"')
+    else
+    begin
+      if GetParam(res, 'IsResultIsEmptyList', false) then
+      begin
+        Result := not IsArray(docsname);
+        if not Result then
+          Log.Error(FUNCTION_NAME + 'В результате Пустой список!');
+      end
+      else
+        Result := FindEnteringInList(docsname);
+    end;
+    if not Result then
+      Raise('Результат выполнения операции "' + logOper + '" ' + s1 + ' и ' + s2 + ' НЕВЕРЕН!');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+  Log.Message(FUNCTION_NAME + 'Закончили проверку ' + s1 + ' ' + logOper + ' ' + s2);
+end;
+
+function AddEntringToListByBookmark(s1, docsname): boolean;
+const
+  FUNCTION_NAME = 'AddEntringToListByBookmark: ';
+var 
+  res;
+begin
+try
+  if not (OpenDocByNumber(10003000) and BaseSearchInDocument(GetEditor, 'Статья 128') and
+          SaveToFoldersExt(MY_DOCS_PATH + s1, s1, '', 'Добавить')) then
+    Raise('Не получилось добавить Вхождение в список');
+
+  if not OpenObjectFromFolder(MY_DOCS_PATH + s1) then
+    Raise('Не получилось открыть список с добавленным вхождением Статья 128 "' + s1 + '"');
+  Result := FindEnteringInList(docsname, false);
+  if not Result then
+    Raise('Вхожение Статья 128 не добавилось к списку "' + s1 + '"');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function  HLTC78_4_Execute(var  current_state: OleVariant): OleVariant;
+var
+  cardData, docsName;
+begin
+try
+  Result := true;
+  if not PrepareBaseList then
+    Raise('Не получилось сохранить список со всеми вложениями Q(D, V1, V2, V3, V4)');
+  if not SaveQList(q1, [D]) then
+    Raise('Не получилось сохранить список ' + q1);
+  if not SaveQList(q2, [D, V1, V2]) then
+    Raise('Не получилось сохранить список ' + q2);  
+  if not SaveQList(q3, [D, V2, V3]) then
+    Raise('Не получилось сохранить список ' + q3);    
+  if not SaveQList(q4, [D, V1, V3]) then
+    Raise('Не получилось сохранить список ' + q4);    
+  if not SaveQList(q5, [D, V3, V4]) then
+    Raise('Не получилось сохранить список ' + q5);
+  // and
+  //HLTC78.10.1: q1(D)&q2(D,v1,v2) = q(D),  т.е. <Имя документа>
+  //HLTC78.10.2: q1(D)&q4(D,v1,v3) =q(D), т.е. <Имя документа>
+  //HLTC78.10.3: q2(D,v1,v2)&q3(D,v2,v3)=q(D), т.е. <Имя документа>
+  //HLTC78.10.4: q2(D,v1,v2)&q5(D,v3,v4)=q(D), т.е. <Имя документа>
+  //HLTC78.10.5: q4(D,v1,v3)&q5(D,v3,v4)=q(D), т.е. <Имя документа>
+  Result := DoLogicalOperationWithCheck(OPAND, q1, q2, [D]) and Result;
+  Result := DoLogicalOperationWithCheck(OPAND, q1, q4, [D]) and Result;
+  Result := DoLogicalOperationWithCheck(OPAND, q2, q3, [D]) and Result;
+  Result := DoLogicalOperationWithCheck(OPAND, q2, q5, [D]) and Result;
+  Result := DoLogicalOperationWithCheck(OPAND, q4, q5, [D]) and Result;
+  
+  Result := DoLogicalOperationWithCheck(OP_OR, q2, q4, [D]) and Result;
+{
+HLTC72.11: Логические операции
+	HLTC72.11.2: Объединение
+		HLTC72.11.2.2: Объединить список, состоящий из 1 элемента со списком, состоящим из того же документа, 
+    но с другим вхождением. Проверить, что в результате получится список из одного документа, без вхождений
+}
+  Result := DoLogicalOperationWithCheck(OP_OR, q1, q3, [D]) and Result;
+  //
+  if not SaveQList(q3n, [D, V2, V3]) then
+    Raise('Не получилось сохранить список ' + q3n);
+  if not SaveQList(q4n, [D, V1, V2]) then
+    Raise('Не получилось сохранить список ' + q4n);  
+  //sub
+  //HLTC78.11.1: q1(D) – q2(v1,v2) = (), т.е. документ не попадает в новый список
+  //HLTC78.11.2: q4(D,v1,v2) – q2(v1,v2) = (), т.е. документ не попадает в новый список
+  //HLTC78.11.3: q2(v1,v2) – q1(D) = (), т.е. документ не попадает в новый список
+  //HLTC78.11.4: q1(D) – q3(D,v2,v3) = (), т.е. документ не попадает в новый список
+  //HLTC78.11.5: q3(D,v2,v3) – q1(D) = (), т.е. документ не попадает в новый список
+  //HLTC78.11.6: q2(v1,v2) – q3(D,v2,v3) = (), т.е. документ не попадает в новый список
+  //HLTC78.11.7: q3(D,v2,v3) – q2(v1,v2) = (), т.е. документ не попадает в новый список
+  Result := DoLogicalOperationWithCheck(OPNOT, q1, q2, nil) and Result;
+  Result := DoLogicalOperationWithCheck(OPNOT, q4n, q2, nil) and Result;
+  Result := DoLogicalOperationWithCheck(OPNOT, q2, q1, nil) and Result;
+  Result := DoLogicalOperationWithCheck(OPNOT, q1, q3n, nil) and Result;
+  Result := DoLogicalOperationWithCheck(OPNOT, q3n, q1, nil) and Result;
+  Result := DoLogicalOperationWithCheck(OPNOT, q2, q3n, nil) and Result;
+  Result := DoLogicalOperationWithCheck(OPNOT, q3n, q2, nil) and Result;
+  //HLTC78.9: В список, где найден документ целиком добавляем закладку на фрагмент документа. В списке будет <Имя документа>: Начало документа, Указатель на закладку
+  Result := AddEntringToListByBookmark(q1, [KONSTNAME + D, DD]) and Result;
+  Result := AddEntringToListByBookmark(q1, [KONSTNAME + D, DD]) and Result;
+  //
+  DeleteAllInMyDoc;
+  //
+  GoToMainMenu;
+except
+  Result := false;
+  Log.Error('HLTC78_4_Execute: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+
+////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests78;
+var i, p, w : oleVariant;
+begin                                          
+//  HLTC78_1_1_Execute(p);
+//  HLTC78_1_2_Execute(p);
+//  HLTC78_1_3_Execute(p);
+//  HLTC78_2_1_Execute(p);
+//  HLTC78_3_1_Execute(p);
+//  HLTC78_3_2_Execute(p);
+
+//  HLTC78_4_Execute(p);
+//////////////////////////
+
+
+
+
+
+
+  
+
+
+end;

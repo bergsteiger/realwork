@@ -1,0 +1,1235 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Promt98 Translation System-->
+<HTML>
+ 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+<title> Действие: Архитектурный Анализ </title> 
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+ 
+  </head> 
+<body>
+<a href="_ac_arcan.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<h2 class="banner"> <a name="Top"></a>Действие:
+Архитектурный Анализ&nbsp;</h2> 
+<p class="banner">Activity: Architectural Analysis</p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellpadding="2" style="border: 1px solid rgb(128,128,128)" cellspacing="0">  
+<tr>  
+<td colspan="2" valign="top" bordercolor="#808080"> 
+<strong><font face="Arial"> 
+<small>
+Цель</small></font></strong>
+<p><small><strong><font face="Arial">Purpose</font></strong></small>
+</p>
+ 
+<ul>
+ 
+<li> Определить возможную архитектуру
+  системы, основанную на опыте, полученном
+  от аналогичных систем или в подобных
+  областях проблемы.</li> 
+<li> Определить для системы архитектурные
+  шаблоны, ключевые механизмы и условные
+  обозначения моделирования.</li> 
+<li> Определить стратегию повторного
+  использования</li> 
+<li> Обеспечить ввод данных в процесс
+  планирования</li> 
+
+</ul>
+    <ul>
+      <li>To define a candidate architecture for the system, based on experience
+        gained from similar systems or in similar problem domains.</li>
+      <li>To define the architectural patterns, key mechanisms and modeling
+        conventions for the system.</li>
+      <li>To define the reuse strategy</li>
+      <li>To provide input to the planning process</li>
+    </ul>
+<p>&nbsp;
+</td> 
+</tr> 
+<tr>  
+<td colspan="2" valign="top" bordercolor="#808080"> 
+<small>
+<strong><font face="Arial">Шаги</font></strong>
+</small>
+ 
+<p><small><strong><font face="Arial">Steps</font></strong></small>
+</p>
+ 
+<ul>
+ 
+<li> <a href="#Develop Architecture Overview">Разработайте
+  Обзор Архитектуры</a></li> 
+<li> <font size="3"><a href="#Survey Available Assets">Проведите
+  исследование Доступных Активов</a></font></li> 
+<li> <a href="#Define the High-Level Organization of Subsystems">Определите
+  Высокоуровневую </a><font size="3"><a href="#Survey Available Assets">Организацию
+  </a></font><a href="#Define the High-Level Organization of Subsystems">Подсистем</a></li> 
+<li> <a href="#Identify Analysis Mechanisms">Определите Механизмы Анализа</a></li> 
+<li> <a href="#Identify Key Concepts">Определите Ключевую Абстракцию</a></li> 
+<li> <a href="#Create Use-Case Realizations">Создайте
+  Реализации Прецедентов</a></li> 
+<li> <a href="#Identify Stereotypical Interactions">Определите
+  Стереотипные Взаимодействия</a></li> 
+<li> <a href="#Develop High Level Deployment Model">Разработайте Высокоуровневую
+  Развертываемую Модель</a></li> 
+<li> <a href="#Review the Results">Выполните Обзор
+  Результатов</a></li> 
+
+</ul>
+    <ul>
+      <li><a href="#Develop Architecture Overview">Develop Architecture Overview</a></li>
+      <li><font size="3"><a href="#Survey Available Assets">Survey Available
+        Assets</a></font></li>
+      <li><a href="#Define the High-Level Organization of Subsystems">Define the
+        High-Level Organization of Subsystems</a></li>
+      <li><a href="#Identify Analysis Mechanisms">Identify Analysis Mechanisms</a></li>
+      <li><a href="#Identify Key Concepts">Identify Key Abstraction</a></li>
+      <li><a href="#Create Use-Case Realizations">Create Use-Case Realizations</a></li>
+      <li><a href="#Identify Stereotypical Interactions">Identify Stereotypical
+        Interactions</a></li>
+      <li><a href="#Develop High Level Deployment Model">Develop High Level
+        Deployment Model</a></li>
+      <li><a href="#Review the Results">Review the Results</a></li>
+    </ul>
+<p>&nbsp;
+</td> 
+</tr> 
+<tr>  
+<td valign="top" bordercolor="#808080"> 
+<font face="Arial"><strong><small>Артефакты Ввода</small><small>
+данных:</small></strong></font>
+<p><small><font face="Arial"><strong>Input
+    Artifacts:</strong></font></small>
+</p>
+ 
+<ul>
+ 
+<li> <a href="../artifact/ar_vsion.htm">Видение</a></li> 
+<li> <a href="../artifact/ar_ucmod.htm">Модель Прецедента</a></li> 
+<li> <a href="../artifact/ar_sspec.htm">Дополнительные Спецификации</a></li> 
+<li> <a href="../artifact/ar_gloss.htm">Глоссарий</a></li> 
+<li> <a href="../artifact/ar_bom.htm">Деловая Модель Объекта(цели)</a></li> 
+<li> <a href="../artifact/ar_sadoc.htm">Документ Программной Архитектуры</a></li> 
+<li> <a href="../artifact/ar_desmd.htm">Модель Проекта</a></li> 
+<li> <a href="../artifact/ar_desgl.htm">Руководства Проекта</a></li> 
+<li> <a href="../artifact/ar_refarch.htm">Базовая Архитектура</a>(ы)- существующие активы</li> 
+
+</ul>
+    <ul>
+      <li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+      <li><a href="../artifact/ar_ucmod.htm">Use Case Model</a></li>
+      <li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+      <li><a href="../artifact/ar_gloss.htm">Glossary</a></li>
+      <li><a href="../artifact/ar_bom.htm">Business Object Model</a></li>
+      <li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+      <li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+      <li><a href="../artifact/ar_desgl.htm">Design Guidelines</a></li>
+      <li><a href="../artifact/ar_refarch.htm">Reference Architecture</a>(s) -
+        existing assets</li>
+    </ul>
+</td> 
+<td style="text-indent: 0px" valign="top" bordercolor="#808080"> 
+<font face="Arial"><strong><small>Результирующие</small><small>
+Артефакты</small><small>:</small></strong></font>
+<p><small><font face="Arial"><strong>Resulting
+    Artifacts:</strong></font></small>
+</p>
+ 
+<ul>
+ 
+<li> Обновленный <a href="../artifact/ar_sadoc.htm">Документ
+  Программной Архитектуры</a></li> 
+<li> Обновленная <a href="../artifact/ar_desmd.htm">Модель Проекта</a></li> 
+<li> <a href="../artifact/ar_desgl.htm">Руководства Проекта</a></li> 
+<li> <a href="../artifact/ar_ucrea.htm">Реализация(и) </a><a href="../artifact/ar_ucrea.htm">Прецедента</a></li> 
+<li> <a href="../artifact/ar_dplmdl.htm">Развертываемая Модель</a></li> 
+<li> <a href="../artifact/ar_refarch.htm">Базовая Архитектура(ы)</a> - выбранные активы</li> 
+
+</ul>
+    <ul>
+      <li>updated <a href="../artifact/ar_sadoc.htm">Software Architecture
+        Document</a></li>
+      <li>updated <a href="../artifact/ar_desmd.htm">Design Model</a></li>
+      <li><a href="../artifact/ar_desgl.htm">Design Guidelines</a></li>
+      <li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a>(s)</li>
+      <li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+      <li><a href="../artifact/ar_refarch.htm">Reference Architecture</a>(s) -
+        selected assets</li>
+    </ul>
+</td> 
+</tr> 
+<tr>  
+<td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong> 
+<small>
+<font face="Arial">Частота:</font>
+ </small>
+</strong>Один раз за итерацию при том, что
+  большинство работы приходится на ранние
+  итерации; в более поздних итерациях прежде всего
+  выполняется работа направленная на
+  обоснование и корректировку
+  аналитических аспектов архитектуры.
+  <p><strong><small><font face="Arial">Frequency:</font></small>
+    </strong>Once per iteration, with most work occurring in the early
+    iterations; later iterations visit the activity primarily to validate and
+    adjust the analytic aspects of the architecture.</p>
+</td> 
+</tr> 
+<tr>  
+<td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"> 
+<small>
+Роль: </small></font></strong>  <a href="../workers/wk_archt.htm">Создатель
+  Программного обеспечения</a>
+  <p><strong><font face="Arial"><small>Role:</small>
+    </font></strong><a href="../workers/wk_archt.htm">Software Architect</a></p>
+</td> 
+</tr> 
+<tr>  
+<td width="596" valign="top" height="25" colspan="2" style="text-indent: 4px" bordercolor="#808080"> 
+<small>
+<font face="Arial"><strong>Концепции:</strong></font>
+</small>
+ 
+<p><small><font face="Arial"><strong>Concepts:</strong></font></small>
+</p>
+ 
+<ul>
+ 
+<li> <a href="../workflow/ana_desi/co_dpatt.htm">Модели Распределения</a></li> 
+<li> <a href="../workflow/ana_desi/co_amech.htm">Механизмы Анализа</a></li> 
+<li> <a href="../workflow/ana_desi/co_cncry.htm">Параллелизм</a></li> 
+<li> <a href="../workflow/ana_desi/co_layer.htm">Иерархическое представление</a></li> 
+
+</ul>
+    <ul>
+      <li><a href="../workflow/ana_desi/co_dpatt.htm">Distribution Patterns</a></li>
+      <li><a href="../workflow/ana_desi/co_amech.htm">Analysis Mechanisms</a></li>
+      <li><a href="../workflow/ana_desi/co_cncry.htm">Concurrency</a></li>
+      <li><a href="../workflow/ana_desi/co_layer.htm">Layering</a></li>
+    </ul>
+<p>&nbsp;
+</td> 
+</tr> 
+</table> 
+<!-- Linked to Workflow Begin -->
+ 
+<p>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" colspan="2" bordercolor="#808080"> 
+<font face="Arial"><strong> 
+<small>Последовательность
+выполняемых действий</small><small> в деталях:</small></strong></font>
+<p><small><font face="Arial"><strong>Workflow Details:</strong></font></small></p>
+
+<ul>
+ 
+<li> <b><a href="../workflow/ovu_and.htm">Ядро Последовательности
+  выполняемых действий: Анализ и Проект</a></b></li> 
+<ul>
+ 
+<li> <a href="../workflow/ana_desi/wfs_and1.htm">Определите
+  Возможную Архитектуру</a></li> 
+<li> <a href="../workflow/ana_desi/wfs_archsyn.htm">Выполните Архитектурный Синтез</a></li> 
+
+</ul>
+
+</ul>
+<ul>
+<li><b><a href="../workflow/ovu_and.htm">Core Workflow: Analysis & Design</a></b></li><ul>
+<li><a href="../workflow/ana_desi/wfs_and1.htm">Define a Candidate Architecture</a></li>
+<li><a href="../workflow/ana_desi/wfs_archsyn.htm">Perform Architectural Synthesis</a></li>
+</ul>
+</ul>
+<p>&nbsp;
+</td> 
+</tr> 
+</table> 
+<!-- Linked to Workflow End -->
+ 
+</center>
+</div>
+ 
+<p>
+<a name="XE_modeling_conventions__defining"></a>Архитектурный анализ
+сосредоточен на определении
+возможной архитектуры и ограничении
+используемых в системе архитектурных
+методик. Чтобы не тратить силы в пустую на
+&quot;повторное открытие архитектуры&quot;, для
+ограничения и фокусировки архитектуры
+архитектурный анализ основывается на сборе
+проверенных опытом данных, полученных в
+аналогичных системах или областях проблемы. В системах
+с уже имеющейся четкой архитектурой, архитектурный анализ может быть
+опущен; архитектурный анализ&nbsp; прежде всего
+имеет
+смысл при разработке новых и беспрецедентных систем.
+</p>
+<p>Architectural analysis
+focuses on defining a candidate architecture and constraining the architectural
+techniques to be used in the system. It relies on gathering experienced gained
+in similar systems or problem domains to constrain and focus the architecture so
+that effort is not wasted in 'architectural rediscovery'. In systems in which
+there is already a well-defined architecture, architectural analysis may be
+omitted; architectural analysis is primarily of benefit when developing new and
+unprecedented systems.
+</p>
+<h3> <a name="Develop Architecture Overview">Разработайте Обзор Архитектуры</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Develop Architecture Overview">Develop Architecture Overview</a> </p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" bordercolor="#808080"> 
+<small>
+<strong><font face="Arial">Цель</font></strong>
+</small>
+ 
+<p><small><strong><font face="Arial">Purpose</font></strong></small>
+</p>
+ 
+<ul>
+ 
+<li> способствовать составлению
+  представления о системе, исследуя и оценивая высокоуровневые архитектурные
+  возможности</li> 
+<li> Сообщать спонсору, командам
+  разработчиков, и другим участникам
+  предварительное понимание
+  высокоуровневой структуры
+  разрабатываемой системы</li> 
+
+</ul>
+    <ul>
+      <li>to facilitate system envisioning, by exploring and evaluating high
+        level architectural options&nbsp;</li>
+      <li>to convey to the sponsor, development teams, and other stakeholders an
+        early understanding of the high level structure of the intended system</li>
+    </ul>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>Обзор архитектуры создается на ранних
+стадиях жизненного цикла проекта, возможно
+даже уже в начальной стадии (см. раздел <a href="../workflow/ana_desi/wfs_archsyn.htm">Последовательность
+выполняемых действий в деталях: Выполните Архитектурный Синтез</a>).
+Он отражает как предварительные решения и рабочие предположения при
+реализации Видения, так и решения,
+касающиеся физической и логической архитектуры и нефункциональных требований системы.
+Обзор выполняется создателем программного обеспечения, часто в сотрудничестве со
+спонсором проекта. Он принимает форму
+неофициальной, полной картины, управления
+версией, или графической диаграммы. Концептуально,
+обзор отражает сущность предложенного решения, передавая
+основные идеи и включая главные
+строительные блоки. Уровень формальности архитектурного обзора
+зависит от проекта. Например, в большом проекте, с
+высоким уровнем формальности, может быть
+необходимым записывать обзор архитектуры в
+соответствующие разделы Документа
+Программной Архитектуры, так, чтобы это могло быть формально рассмотрено.
+</p>
+<p>The architecture overview is created early in the lifecycle of a project,
+possibly as early as the inception phase (in <a href="../workflow/ana_desi/wfs_archsyn.htm">Workflow
+Detail: Perform Architectural Synthesis</a>). It reflects early decisions and
+working assumptions on implementing the Vision, as well as decisions concerning
+the physical and logical architecture and non-functional requirements of the
+system. It is produced by the software architect, often in collaboration with
+the project sponsor. It takes the form of an informal, rich picture,
+story-board, or iconic graph. Conceptually, it illustrates the essential nature
+of the proposed solution, conveying the governing ideas and including the major
+building blocks. The level of formality of the architectural overview is project
+dependent. For example, in a large, high-ceremony project, it may be necessary
+to capture the architecture overview in the appropriate sections of the Software
+Architecture Document, so that it may be formally reviewed.
+</p>
+<p>
+В этой точке обзор архитектуры является
+предварительным первым проходом. Никакие обязательства не должны быть основаны на диаграмме обзора архитектуры
+до тех пор, пока высокоуровневые
+Развертываемая Модель и Модель Реализации не были
+разработаны и утверждены.
+</p>
+<p>At this point the architecture overview is a provisional first pass. No
+commitments should be based on the architecture overview diagram until the high
+level Deployment Model and Implementation Model have been developed and
+validated.
+</p>
+<p>
+Рассмотрите базирование архитектуры на
+основе базовой архитектуры, других <a href="../workflow/ana_desi/co_swarch.htm#Architectural Patterns">архитектурных образцах</a>, или других архитектурных активах.
+</p>
+<p>
+Consider basing the architecture on a reference architecture, other <a href="../workflow/ana_desi/co_swarch.htm#Architectural Patterns">architectural
+patterns</a>, or other architectural assets.
+</p>
+<p>Детализируйте диаграмму обзора архитектуры
+для того, чтобы максимизировать ее эффективность как
+средства&nbsp; передачи данных.
+</p>
+<p>Refine the architecture overview diagram to maximize its effectiveness as a
+communication vehicle.
+</p>
+<p>Многие системы не могут быть разработаны и
+развернуты в существующей среде аппаратных средств ЭВМ и программного обеспечения; для них
+создатель программного обеспечения
+соберет информацию относительно текущей среды и
+запишет это в Развертываемой Модели. Например
+к разработке систем электронной коммерции
+имеет отношение следующая информация:
+</p>
+<p>Many systems are constrained to be developed and deployed in an existing
+environment of hardware and software; for these, the software architect will
+gather information about the current environment and capture it in the
+Deployment Model. For example, in an e-business system development, the
+following information is pertinent:
+</p>
+<ul>
+ 
+<li> Наличие сети логического и физического
+  проекта</li> 
+<li> Наличие баз данных и проекта базы данных</li> 
+<li> Наличие Web среды (серверы, firewalls и т.д.)</li> 
+<li> Наличие среды сервера (конфигурация,
+  версия программного обеспечения, запланированные
+  обновления)</li> 
+<li> Наличие стандартов (сеть, присваивание
+  имен, протоколы и т.д.)</li> 
+
+</ul>
+<ul>
+  <li>Existing network logical and physical design</li>
+  <li>Existing databases and database design</li>
+  <li>Existing Web environment (servers, firewalls etc.)</li>
+  <li>Existing server environment (configuration, software versions, planned
+    upgrades)</li>
+  <li>Existing standards (network, naming, protocols etc.)</li>
+</ul>
+
+
+<h3> <a name="Survey Available Assets">Проведите
+исследование Доступных Активов</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Survey Available Assets">Survey Available Assets</a> &nbsp; <a href="#Top"></a> </p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" bordercolor="#808080" align="left">  
+<p align="left">
+
+<small>
+<strong><font face="Arial">Цель</font></strong>
+</small>
+ 
+<p align="left">
+
+<small><strong><font face="Arial">Purpose</font></strong></small>
+ 
+<ul>
+ 
+<li> Определить активы, которые могли бы
+  иметь отношение к проекту.</li> 
+<li> Проанализировать соответствие и разницу
+  между активами и требованиями проекта.</li> 
+<li> Решить,  базировать ли области системы на активах.</li> 
+<li> Расположить и внести в список активы, которые потенциально
+  могут быть несколько раз использованы в проекте.
+  Провести предварительную оценку для того, чтобы
+  гарантировать, что необходимая поддержка потенциально доступна.</li> 
+
+</ul>
+    <ul>
+      <li>To identify assets that might be relevant for the project.</li>
+      <li>To analyze the fit and gap between assets and project requirements.</li>
+      <li>To decide whether to base areas of the system on assets.</li>
+      <li>Locate and list assets that are potentially reusable on the project.
+        Perform a preliminary evaluation to ensure that necessary support is
+        potentially available.</li>
+    </ul>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Поймите требования среды, для которой рассматриваются
+активы. Поймите возможности системы и требуемые общие функциональные возможности.
+Проведите поиск в организационных базах
+активов, технической литературе, для
+определения активов или подобных проектов.
+Имеется несколько типов активов, которые нужно рассмотреть,
+это активы не ограниченные по отношению к
+промышленным моделям, структурам, классам, и
+опыту. Оцените, могли ли бы имеющиеся в
+наличии активы внести вклад в решение ключевых
+проблем текущего проекта, и быть совместимыми с его ограничениями.
+</p>
+<p>Understand the requirements of the environment for which assets are being
+considered. Understand the system scope and the general functionality required.
+Search through organizational asset bases, industry literature, to identify
+assets or similar projects. There are several types of assets to be considered,
+such as, but not limited to, industry models, frameworks, classes, and
+experience. Assess whether available assets could contribute to solving the key
+challenges of the current project, and are compatible with its constraints.
+</p>
+<p>
+Проанализируйте степень соответствия между
+активом и требованиями клиента. Рассмотрите,
+является ли любое из требований реальным (для
+того, чтобы позволить использование актива).
+</p>
+<p>
+Analyze the extent of fit between asset and customer requirements. Consider
+whether any of the requirements are negotiable (to enable use of the asset).
+</p>
+<p>
+Оцените, можно ли будет менять или
+расширять актив для удовлетворения
+требований. Оцените компромиссы в стоимости, риске и функциональных возможностях
+при принятии актива.
+</p>
+<p>Assess whether the asset could be modified or extended to satisfy
+requirements. Assess the trade-offs in cost, risk and functionality from
+adopting the asset.
+</p>
+<p>
+Решите в принципе,  использовать один или
+большее число активов, и документируйте логическое
+обоснование для этого решения.
+</p>
+<p>
+Decide in principle whether to use one or more assets, and document the
+rationale for this decision.
+</p>
+<h3> <a name="XE_design_subsystem__defining_high-level_organization_of"></a><a name="Define the High-Level Organization of Subsystems">Определите
+Высокоуровневую Организацию Подсистем</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Define the High-Level Organization of Subsystems">Define
+the High-Level Organization of Subsystems</a> &nbsp; <a href="#Top"></a> </p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" bordercolor="#808080"> 
+<small>
+<strong><font face="Arial">Цель</font></strong>
+</small>
+ 
+<p><small><strong><font face="Arial">Purpose</font></strong></small>
+</p>
+ 
+<ul>
+ 
+<li> Создать начальную структуру для Модели Проекта</li> 
+
+<li> To create an initial structure for the Design Model</li> 
+
+</ul>
+</td> 
+</tr> 
+<tr>  
+<td valign="top" style="text-indent: 4px" bordercolor="#808080"> 
+<font face="Arial"><strong><small>Руководства</small></strong></font><small><font face="Arial"><strong>:</strong></font> 
+</small>
+<a href="../modguide/md_layer.htm">Иерархическое представление</a>
+<p><small><font face="Arial"><strong>Guidelines:
+    </strong></font></small><a href="../modguide/md_layer.htm">Layering</a></p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Этот шаг пропускается при выполнении Архитектурного Анализа (эта
+деятельность) как часть раздела <a href="../workflow/ana_desi/wfs_archsyn.htm">Последовательность
+выполняемых действий в деталях: Выполните Архитектурный Синтез</a> в
+начальной стадии.
+</p>
+<p>This step is omitted in the performance of Architectural Analysis (this
+activity) as part of <a href="../workflow/ana_desi/wfs_archsyn.htm">Workflow
+Detail: Perform Architectural Synthesis</a>, during inception.
+</p>
+<p>
+Модель проекта обычно организовывается в
+уровни - общий <a href="../workflow/ana_desi/co_swarch.htm#Architectural Patterns">архитектурный образец</a> для
+систем от умеренного до большого размера. Число
+уровней не фиксировано, но оно меняется от
+одной ситуации к другой.
+</p>
+<p>The design model is normally organized in layers - a common <a href="../workflow/ana_desi/co_swarch.htm#Architectural Patterns">architectural
+pattern</a> for moderate to large sized systems. The number of layers is not
+fixed, but varies from situation to situation.
+</p>
+<p>
+В процессе архитектурного анализа, фокус обычно
+находится на двух высоких уровнях, то есть
+на уровне <b>приложений</b> и <strong>бизнес</strong><strong>-
+</strong> <b>специфичном </b>уровне; это то, под
+чем подразумевается "высокоуровневая организация подсистем". Другие
+более низкие уровни рассматриваются в
+разделе <a href="ac_incds.htm">Действие: Объедините Существующие
+</a><a href="ac_incds.htm">Элементы Проекта</a>. Если используются
+другие архитектурные образцы, то подсистемы будут
+определяться по архитектурному шаблону.
+</p>
+<p>During architectural analysis, focus is normally on the two high-level
+layers, that is, the <strong>application</strong> and <strong>business-specific</strong>
+layers; this is what is meant by the &quot;high-level organization of
+subsystems.&quot; The other lower-level layers are considered in <a href="ac_incds.htm">Activity:
+Incorporate Existing Design Elements</a>. If other architectural patterns are
+being used, the subsystems will be defined around the architectural template.
+</p>
+<h3> <a name="XE_analysis_mechanisms__identifying"></a><a name="Identify Analysis Mechanisms"><b>Определите
+Механизмы Анализа</b></a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Identify Analysis Mechanisms"><b>Identify
+Analysis Mechanisms</b></a> </p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" bordercolor="#808080"> 
+<small>
+<strong><font face="Arial">Цель</font></strong>
+</small>
+ 
+<p><small><strong><font face="Arial">Purpose</font></strong></small>
+</p>
+ 
+<ul>
+ 
+<li> <font size="3">Определить механизмы анализа и
+  службы, используемые разработчиками для
+  придания "жизни" их объектам.</font></li> 
+
+<li> <font size="3">To define the analysis mechanisms and services used by
+        designers to give &quot;life&quot; to their objects.</font></li> 
+
+</ul>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Этот шаг пропускается при выполнении Архитектурного Анализа (эта
+деятельность) как часть раздела <a href="../workflow/ana_desi/wfs_archsyn.htm">Последовательность
+выполняемых действий деталях: Выполните Архитектурный Синтез</a>, в
+начальной стадии.
+</p>
+<p>This step is omitted in the performance of Architectural Analysis (this
+activity) as part of <a href="../workflow/ana_desi/wfs_archsyn.htm">Workflow
+Detail: Perform Architectural Synthesis</a>, during inception.
+</p>
+<p>
+<font size="3">Механизмы анализа могут быть
+определены &quot;сверху-вниз&quot; (априорные
+знания) или &quot;снизу-вверх&quot; (обнаруживаемые
+по мере Вашего продвижения). В режиме &quot;сверху-вниз&quot;, опыт
+ведет создателя программного обеспечения к
+знанию того, что определенные проблемы
+имеются в области и они будут требовать
+определенных типов решений. Примерами общих
+архитектурных проблем, которые могут быть выражены как механизмы в
+процессе анализа являются: сохранение
+эффекта после устранения причины (постоянство), управление
+запросом, управление ошибкой, передача
+сообщений, и механизм логического вывода.
+Общим аспектом всего этого является то, что каждый
+из них является общей характеристикой для широкого класса систем и каждый обеспечивает функциональные возможности, которые взаимодействуют
+с основными функциональными возможностями
+приложений или поддерживают их.&nbsp;
+Возможности поддержки &quot;механизмов анализа&quot;,
+необходимые в основных функциональных требованиях системы,
+не зависят от развернутой платформы, или языка
+реализации. Механизмы анализа также в
+основном могут быть разработаны и
+реализованы несколькими различными путями;
+таким образом, в основном, будут иметь место
+более чем один механизмы проекта,
+соответствующие каждому механизму анализа, и возможно
+более одного пути реализации для&nbsp; каждого механизма проекта.</font>
+</p>
+<p>
+<font size="3">Analysis mechanisms can be identified 'top-down' (a priori
+knowledge) or 'bottom-up' (discovered as you go along). In the 'top-down' mode,
+experience guides the software architect to know that certain problems are
+present in the domain and will require certain kinds of solutions. Examples of
+common architectural problems which may be expressed as mechanisms during
+analysis are: persistence, transaction management, fault management, messaging,
+and inference engines. The common aspect of all these is that each is a general
+capability of a broad class of systems and each provides functionality that
+interacts with or supports the basic application functionality. The 'analysis
+mechanisms' support capabilities required in the basic functional requirements
+of the system, regardless of the platform deployed upon or the implementation
+language. Analysis mechanisms also generally can be designed and implemented in
+a number of different ways; there will generally be more than one design
+mechanism corresponding to each analysis mechanism, and perhaps more than one
+way of implementing each design mechanism.</font>
+</p>
+<p>
+<font size="3">Подход &quot;снизу-вверх&quot; имеет
+место там, где&nbsp; в конечном счете
+рождаются механизмы анализа: они создаются
+так как их видит создатель программного обеспечения, сначала
+возможно слабо, общая тема появляется в
+зависимости от набора решений различных проблем:
+существует необходимость обеспечения пути для элементов в различных
+потоках, чтобы синхронизировать их часы,
+существует потребность в общем пути распределения ресурсов. От этих образцов появляются механизмы анализа,
+упрощающие язык анализа.</font>
+</p>
+<p>
+<font size="3">The 'bottom-up' approach is where analysis mechanisms are
+ultimately born: they are created as the software architect sees, perhaps
+faintly at first, a common theme emerging from a set of solutions to various
+problems: there is a need to provide a way for elements in different threads to
+synchronize their clocks, there is a need for a common way of allocating
+resources. From these patterns emerge analysis mechanisms which simplify the
+language of analysis.</font>
+</p>
+<p>
+<font size="3">Идентификация </font><font size="3">механизма
+анализа должна определить тот механизм,
+который является общим, возможно неявно (в
+этом требования для включающей его системы),
+из-за существующих под-проблем, и дать ему
+имя. Первоначально имя может относиться ко
+всему, что имеется, например создатель
+программного обеспечения осознает, что
+система будет нуждаться в &quot;механизме
+постоянства&quot;. В конечном счете, этот
+механизм будет реализован путем
+взаимодействия &quot;общества классов&quot; (см. [<a href="../referenc.htm#BOO98">BOO98</a>]), некоторые из
+которых непосредственно не передают функциональные возможности
+приложений, а существуют только для их
+поддержки. Очень часто, эти &quot;классы поддержки&quot;
+располагаются в середине или на более низких
+уровнях иерархической архитектуры, таким образом обеспечивая
+общую службу поддержки ко всем классам на
+уровне приложений.</font>
+</p>
+<p>
+<font size="3">The identification of an analysis mechanism is to identify
+that a common, perhaps implicit (in that the requirements for the system imply
+it), sub-problem exists, and to name it.&nbsp; Initially the name may be all
+that exists, e.g.&nbsp; the software architect recognizes that the system will
+require a 'persistence mechanism'.&nbsp; Ultimately, this mechanism will be
+implemented through the collaboration of a 'society of classes' (see [<a href="../referenc.htm#BOO98">BOO98</a>]),
+some of which do not directly deliver application functionality, but exist only
+to support it. Very often, these 'support classes' are located in the middle or
+lower layers of a layered architecture, thus providing a common support service
+to all application level classes.</font>
+</p>
+<p>
+<font size="3">Если определенная под-проблема
+является достаточно общей, </font>то&nbsp; <font size="3">возможно существует
+<a href="../glossary.htm#pattern"><b>шаблон</b></a>, по которому может быть
+создан механизм путем связывания
+существующих классов и реализации новых
+как требуется шаблоном. Механизм анализа произведенный
+таким образом будет абстрактным, и будет
+нуждаться в дальнейшей обработке на
+протяжении проекта и реализации.</font>
+</p>
+<p>
+<font size="3">If the identified sub-problem is common enough, perhaps a <a href="../glossary.htm#pattern"><b>pattern</b></a>
+exists from which the mechanism can be instantiated - by binding existing
+classes and implementing new ones as required by the pattern. An analysis
+mechanism so produced will be abstract, and require further refinement through
+design and implementation.</font>
+</p>
+<p>
+<font size="3">Дополнительную информацию см. <a href="../workflow/ana_desi/co_amech.htm">Концепции: Механизмы Анализа</a>.</font>
+</p>
+<p>
+<font size="3">For more information, see <a href="../workflow/ana_desi/co_amech.htm">Concepts:
+Analysis Mechanisms</a>.</font>
+</p>
+<h2> <a name="XE_key_concepts__identifying"></a><a name="Identify Key Concepts">
+<small>Определите Ключевые Абстракции </small>
+</a>  <a href="#Top"><img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"></a> </h2> 
+<p> <a name="Identify Key Concepts"><small>Identify
+Key Abstractions</small></a> </p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" bordercolor="#808080"> 
+<small>
+<strong><font face="Arial">Цель</font></strong>
+</small>
+ 
+<p><small><strong><font face="Arial">Purpose</font></strong></small>
+</p>
+ 
+<ul>
+ 
+<li> <font size="3">"Стимулировать" анализ,
+  определяя ключевые абстракции (представление концепций,
+  определенных в процессе делового моделирования и
+  влияния требований) которые система должна
+  обработать.</font></li> 
+
+<li> <font size="3">To &quot;prime the pump&quot; for analysis by
+        identifying the key abstractions (representation of concepts identified
+        during business modeling and requirement activities) that the system
+        must handle.</font></li> 
+
+</ul>
+</td> 
+</tr> 
+<tr>  
+<td valign="top" style="text-indent: 4px" bordercolor="#808080"><font face="Arial"><strong><small>Управляющий</small><small>
+  </small></strong></font><font face="Arial"><strong><small>Инструмента</small><small>рием</small><small>:
+  </small>
+</strong></font> <a href="../../toolment/rose/tm_ucana.htm#Responsibilities">Документация классов
+  анализа в Rational Rose</a></td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Этот шаг не пропускается при выполнении Архитектурного Анализа (эта
+деятельность) как часть раздела <a href="../workflow/ana_desi/wfs_archsyn.htm">Последовательность
+выполняемых действий в деталях: Выполните Архитектурный Синтез</a> в
+начальной стадии, но он выполняется только
+до момента, необходимого для введения
+создателя программного обеспечения в
+процесс выбора активов для создания <a href="../artifact/ar_archpoc.htm">Артефакта</a><a href="../artifact/ar_archpoc.htm">:
+Доказательство Архитектурной Концепции</a>&quot; и
+разрешения создания <a href="#Identify Stereotypical Interactions">стереотипных
+</a><a href="#Identify Stereotypical Interactions">взаимодействий</a>.
+</p>
+<p>This step is not omitted in the performance of Architectural Analysis (this
+activity) as part of <a href="../workflow/ana_desi/wfs_archsyn.htm">Workflow
+Detail: Perform Architectural Synthesis</a>, during inception, but only
+performed to the extent necessary to guide the software architect in the
+selection of assets for the construction of the <a href="../artifact/ar_archpoc.htm">Artifact:
+Architectural Proof-of-Concept</a>, and enable the construction of <a href="#Identify Stereotypical Interactions">stereotypical
+interactions</a>.
+</p>
+<p>
+Требования и действия Делового
+Моделирования обычно раскрывают ключевые концепции
+которыми система должна быть способна
+оперировать; эти концепции проявляют себя как ключевые абстракции проекта.
+Так как работа уже выполнена, то
+потребность в повторении процесса идентификации
+в процессе <a href="ac_ucana.htm">Деятельности: Анализ
+Прецедента</a> отсутствует<em>.</em> Чтобы воспользоваться преимуществом
+имеющихся знаний, мы определяем
+предварительную сущность классов анализа, чтобы представить эти ключевые абстракции на основе общего знания системы,
+такого как знание Требований, <strong>Глоссария</strong>, и в частности
+знание <strong>Модели Области</strong>, или <strong>Деловой
+Модели Объекта</strong>, если Вы их имеете. При определении ключевых абстракций, также определяют любые отношения, которые существуют между классами
+объекта. Представьте ключевые абстракции в
+одной или нескольких диаграммах класса, и создайте для каждого
+короткое описание. В зависимости от области, и
+новизны системы, <a href="../glossary.htm#XE_analysis_pattern__definition_in_glossary"><b>образцы анализа</b></a>,
+захватывающие большое количество ключевых абстракций,
+необходимых для моделирования системы,
+могут уже существовать. Использование таких образцов (которые
+должны были бы уже успешно использоваться в области) значительно ослабит
+интеллектуальную нагрузку при определении важных концепций, которые должны быть представлены. <a href="../referenc.htm#FOW97a">[FOW97a]</a> представляет некоторые образцы анализа, которые являются
+очень полезными для моделирования деловых
+систем, но которые могут применяться и в
+других контекстах. Другой пример - Группа
+Управления Объектом (Object
+Management Group (OMG<font size="3">™)), которая</font> также пытается определять интерфейсы и протоколы для многих областей,
+с помощью работы ее Комитета Технологии Области
+(Domain Technology Committee ) и связанных усилий
+постановки задачи. Неизбежно эта работа ведет к
+определению важных абстракций в области.
+</p>
+<p>Requirements and Business Modeling activities usually uncover key concepts
+that the system must be able to handle; these concepts manifest themselves as
+key design abstractions. Because of the work already done, there is no need to
+repeat the identification work again during <a href="ac_ucana.htm">Activity: Use
+Case Analysis</a><em>. </em>To take advantage of existing knowledge, we identify
+preliminary entity analysis classes to represent these key abstractions on the
+basis of general knowledge of the system, such as the Requirements, the <strong>Glossary</strong>,
+and in particular, the <strong>Domain Model</strong>, or the <strong>Business
+Object Model</strong>, if you have one. While defining the key abstractions,
+also define any relationships that exist between entity classes. Present the key
+abstractions in one or several class diagrams, and create a short description
+for each.&nbsp; Depending on the domain, and the novelty of the system, <a href="../glossary.htm#XE_analysis_pattern__definition_in_glossary"><b>analysis
+patterns</b></a>, which capture many of the key abstractions required to model
+the system, may already exist. Use of such patterns (which should already have
+been successfully employed in the domain) will considerably ease the
+intellectual burden of identifying the important concepts which must be
+represented. [<a href="../referenc.htm#FOW97a">FOW97a</a>] presents some
+analysis patterns that are immediately useful for modeling business systems, but
+which may be applicable in other contexts. Another example is the Object
+Management Group (OMG<font size="3">™), which </font>is also attempting to
+define interfaces and protocols for many domains, through the work of its Domain
+Technology Committee and associated task forces. Inevitably this work leads to
+the identification of important abstractions in the domain.
+</p>
+<p>
+Классы анализа, определенные в этой точке вероятно
+будут меняться и развиваться в течение проекта. Цель этого шага состоит
+не в том, чтобы определить набор классов, которые
+будут сохранять работоспособность на
+протяжении проекта, но в том, чтобы
+определить ключевые концепции, которыми система должна
+оперировать. Не тратьте много времени, подробно описывая классы
+объекта в начальной стадии, так как имеется риск, что Вы
+определяете классы и отношения, которые фактически не
+являются необходимыми для прецедентов.
+Запомните, что Вы найдете большее количество классов
+объекта и взаимоотношений при просмотре
+прецедентов.
+</p>
+<p>The analysis classes identified at this point will probably change and evolve
+during the course of the project. The purpose of this step is not to identify a
+set of classes that will survive throughout design, but to identify the key
+concepts the system must handle. Don't spend much time describing entity classes
+in detail at this initial stage, because there is a risk that you identify
+classes and relationships that are not actually needed by the use cases.
+Remember that you will find more entity classes and relationships when looking
+at the use cases.
+</p>
+<h2> <a name="Create Use-Case Realizations">
+<small>
+Создайте Реализацию Прецедентов </small>
+</a>  <a href="#Top"><img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"></a> </h2> 
+<p> <a name="Create Use-Case Realizations"><small>Create Use-Case Realizations</small></a>
+ </p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" bordercolor="#808080"> 
+<small>
+<strong><font face="Arial">Цель</font></strong>
+</small>
+ 
+<p><small><strong><font face="Arial">Purpose</font></strong></small>
+</p>
+ 
+<ul>
+ 
+<li> <font size="3">Создать артефакты Проектной Модели
+  используемые для выражения поведения
+  прецедентов.</font></li> 
+
+<li> <font size="3">To create the Design Model artifacts used to express
+        the behavior of the use cases.</font></li> 
+
+</ul>
+</td> 
+</tr> 
+<tr>  
+<td valign="top" style="text-indent: 4px" bordercolor="#808080"> 
+<font face="Arial"><strong><small>Руководство:</small></strong></font>
+<p><small><font face="Arial"><strong>Guidelines:</strong></font></small></p>
+ 
+<ul>
+ 
+<li> <a href="../modguide/md_ucrea.htm">Реализация
+  Прецедента</a></li> 
+
+<li> <a href="../modguide/md_ucrea.htm">Use-Case Realization</a></li> 
+
+</ul>
+</td> 
+</tr> 
+<tr>  
+<td valign="top" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Управляющий
+  Инструмента</small><small>рием</small><small>:</small></font></strong>
+  <p><strong><small><font face="Arial">Tool
+    Mentor: </font></small></strong></p>
+  <p><strong><small>&nbsp;</small></strong><a href="../../toolment/rose/tm_ucrea.htm">Создание Реализации
+  Прецедента с использованием </a><a href="../../toolment/rose/tm_ucrea.htm"> Rational Rose</a></p>
+  <p><a href="../../toolment/rose/tm_ucrea.htm">Creating
+    Use-Case Realizations Using Rational Rose</a></p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+Этот шаг пропускается при выполнении Архитектурного Анализа (эта деятельность) как часть
+<a href="../workflow/ana_desi/wfs_archsyn.htm">Последовательность
+выполняемых действий в деталях: Выполните Архитектурный Синтез</a>, в
+начальной стадии.
+</p>
+<p>This step is omitted in the performance of Architectural Analysis (this
+activity) as part of <a href="../workflow/ana_desi/wfs_archsyn.htm">Workflow
+Detail: Perform Architectural Synthesis</a>, during inception.
+</p>
+<p>Прецеденты формируют центральный фокус
+основной части предварительного анализа и
+проектной работы. Чтобы разрешить переход между Требования-центральными и Проект-центральными действиями
+<a href="../artifact/ar_ucrea.htm">Артефакт: Реализация
+Прецедента</a> выполняет роль моста, тем
+самым обеспечивая&nbsp; путь отслеживания
+поведения от Проектной Модели назад к Модели
+Прецедента, и организуя взаимодействие в
+Проектной Модели по концепции Прецедента.
+</p>
+<p>Use Cases form the central focus of most of the early analysis and design
+work. To enable the transition between Requirements-centric activities and
+Design-centric activities, the <a href="../artifact/ar_ucrea.htm">Artifact:
+Use-Case Realization</a> serves as a bridge, providing a way to trace behavior
+in the Design Model back to the Use-Case Model, as well as organizing
+collaborations in the Design Model around the Use Case concept.
+</p>
+<p>
+Для каждого Прецедента в Модели Прецедента, создайте Реализацию
+Прецедента в Проектной Модели. Имя для Реализации
+Прецедента должно быть тем же самым, что и в соответствующем
+Прецеденте, и&nbsp; должна быть установлена зависимость
+записи информации от реализации прецедента
+до соответствующего прецедента.
+</p>
+<p>For each Use Case in the Use Case Model, create a Use-Case Realization in the
+Design Model. The name for the Use-Case Realization should be the same as the
+associated Use Case, and a trace dependency should be established from the
+use-case realization to its associated use case.
+</p>
+<h3> <a name="Identify Stereotypical Interactions">Определите
+Стереотипные Взаимодействия</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Identify Stereotypical Interactions">Identify Stereotypical
+Interactions</a> </p> 
+<p>
+Этот шаг включается только в выполнение Архитектурного Анализа (эта деятельность) как часть <a href="../workflow/ana_desi/wfs_archsyn.htm">Последовательность
+выполняемых действий в деталях: Выполните Архитектурный Синтез</a>, в
+начальной стадии.
+</p>
+<p>This step is included only in the performance of Architectural Analysis (this
+activity) as part of <a href="../workflow/ana_desi/wfs_archsyn.htm">Workflow
+Detail: Perform Architectural Synthesis</a>, during inception.
+</p>
+<p>
+Цель этого шага состоит в том, чтобы
+определить те взаимодействия, между ключевыми абстракциями в системе, которые характеризуют (то есть
+являются репрезентативными для) существенные виды деятельности в системе. Эти взаимодействия
+записываются как Реализации Прецедента.
+</p>
+<p>The purpose of this step is to identify those interactions, between key
+abstractions in the system, which characterize (i.e. are representative of)
+significant kinds of activity in the system. These interactions are captured as
+Use-Case Realizations.
+</p>
+<h3> <a name="Develop High Level Deployment Model">Развейте Высокоуровневую&nbsp;
+Развертываемую Модель</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Develop High Level Deployment Model">Develop High Level Deployment
+Model</a> </p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" bordercolor="#808080" align="left">  
+<p align="left">
+
+<small>
+<strong><font face="Arial">Цель</font></strong>
+</small>
+ 
+<p align="left">
+
+<small><strong><font face="Arial">Purpose</font></strong></small>
+ 
+<ul>
+ 
+<li> Предоставить основу для оценки
+  устойчивости к условиям использования реализации
+  системы</li> 
+<li> Достичь понимания географического распределения и эксплуатационной сложности системы</li> 
+<li> Предоставить основу для
+  заблаговременных работ и оценок стоимости</li> 
+
+</ul>
+    <ul>
+      <li>To provide a basis for assessing the viability of implementing the
+        system</li>
+      <li>To gain an understanding of the geographical distribution and
+        operational complexity of the system</li>
+      <li>To provide a basis for early effort and cost estimates</li>
+    </ul>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>Теперь разрабатывается высокоуровневая
+развертываемая модель с использованием
+заранее разработанного обзора архитектуры.
+</p>
+<p>Using the architecture overview developed previously, a high level deployment
+model is now developed.
+</p>
+<p>
+Основными деловыми двигателями модели развертывания
+являются:
+</p>
+<p>
+The primary business drivers of the deployment model are:
+</p>
+<ul>
+ 
+<li> Пользователи (в местоположениях),
+  определенные в Профилях Пользователя (в Видении),
+  прецеденты и Модель Прецедента</li> 
+<li> Деловые данные (в Деловой Модели Объекта и
+  Проектной Модели)</li> 
+<li> Требования уровня обслуживания (в Дополнительных Спецификациях)</li> 
+<li> Ограничения (в Дополнительных Спецификациях)</li> 
+
+</ul>
+<ul>
+  <li>users (at locations), defined in User Profiles (in the Vision) and use
+    cases and the Use Case Model</li>
+  <li>business data (in the Business Object Model and Design Model)</li>
+  <li>service level requirements (in the Supplementary Specifications)</li>
+  <li>constraints (in the Supplementary Specifications)</li>
+</ul>
+<p>Развертываемая Модель должна быть способна к поддержке пользователей в
+прецедентах представляющих местоположения,
+чьи компоненты доступа и чьи данные доступа,
+имеют место и удовлетворяют нефункциональные
+требования и ограничения. Компоненты временно
+помещаются в узлы. Подтвердите что узлы и связи адекватны
+для поддержки взаимодействия между компонентами на различных узлах, и между компонентами и их
+сохраненными данными.
+</p>
+<p>The deployment model must be capable of supporting users at locations
+performing use cases which access components which access data, while and
+satisfying non-functional requirements and constraints. Components are
+provisionally placed on nodes. Validate that the nodes and connections are
+adequate to support the interactions between components on different nodes, and
+between components and their stored data.
+</p>
+<p>
+Если отношения между основными двигателями
+сложны, может заслуживать внимания
+определение единиц развертывания и
+создание таблиц единиц развертывания в
+этой точке (нежели позже).
+</p>
+<p>If the relationships between the prime drivers are complex, it may be
+worthwhile to identify deployment units and to produce deployment unit matrices
+at this point (rather than later).
+</p>
+<p>
+Активы используются, если соответствующие активы доступны.
+</p>
+<p>
+Assets are used, if appropriate assets are available.
+</p>
+<p>
+Детальная спецификация узлов и связей
+откладывается, исключая те моменты, где они являются важными для оценки или
+определения устойчивости к условиям
+использования.
+</p>
+<p>Detailed specification of nodes and connections is deferred, except where
+they are important for estimating or viability assessment.
+</p>
+<p>
+Хотя это первая развертываемая модель, произведенная в проекте, и
+она производится быстро и на высоком уровне,
+она может определять фактические аппаратные средства ЭВМ и
+продукты программного обеспечения, если они известны, или если важно
+сделать выбор в это время.
+</p>
+<p>Although this is the first deployment model produced in the project, and is
+produced quickly and at a high level, it may identify actual hardware and
+software products if these are known, or if it is important to make these
+selection decisions at this time.
+</p>
+<h2> <a name="Review the Results">
+<small>Выполните</small><small> Обзор Результатов </small>
+</a>  <a href="#Top"><img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"></a> </h2> 
+<p> <a name="Review the Results"><small>Review the Results</small></a> </p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td valign="top" bordercolor="#808080"> 
+<small>
+<strong><font face="Arial">Цель</font></strong>
+</small>
+ 
+<p><small><strong><font face="Arial">Purpose</font></strong></small>
+</p>
+ 
+<ul>
+ 
+<li> <font size="3">Гарантировать, что результаты архитектурного анализа являются полными и последовательными.</font></li> 
+
+<li> <font size="3">To ensure that the results of architectural analysis
+        are complete and consistent.</font></li> 
+
+</ul>
+</td> 
+</tr> 
+<tr>  
+<td valign="top" style="text-indent: 4px" bordercolor="#808080"> 
+<strong><font face="Arial"><small>Контрольные точки:</small></font></strong>
+<small> </small>
+ <a href="chklists/ck_arcan.htm">Архитектурный Анализ</a>
+<p><small><strong><font face="Arial">Checkpoints:</font></strong></small>
+    <a href="chklists/ck_arcan.htm">Architectural Analysis</a></p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>Как заключает Архитектурный Анализ, просмотрите
+архитектурные механизмы, подсистемы, пакеты и классы, которые были
+определены, чтобы гарантировать, что они полны и последовательны. Поскольку результаты Архитектурного Анализа предварительны и относительно неофициальны, обзоры также должны быть
+неофициальны. Должны использоваться
+сценарии важных прецедентов, чтобы
+проверить архитектурные варианты, сделанные на нескольких уровнях, от деловой перспективы до определенных
+происходящих взаимодействий.<p>As Architectural Analysis concludes, review the architectural mechanisms, the
+subsystems, packages and classes that have been identified, to ensure that they
+are complete and consistent. As the results of Architectural Analysis are
+preliminary and relatively informal, reviews should be informal as well.
+Scenarios from the important use cases should be used to validate the
+architectural choices made at several levels, from the business perspective down
+to the specific interactions that occur.<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font> 
+
+
+</body>
+ 
+</HTML>

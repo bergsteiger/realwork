@@ -1,0 +1,78 @@
+// m3StgMgr 49B9535B0235 UtilityPack Class
+
+FORWARD ME_49B9535B0235
+
+: ME_4FA4EF660273
+ CONST UID '4FA4EF660273'
+ CONST Name 'Tm3StorageManager'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4FA4EF660273 Tm3StorageManager
+
+: ME_49B9537D0202
+ CONST UID '49B9537D0202'
+ CONST Name 'Tm3FullModeStorageManager'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4FA4EF660273 // Tm3StorageManager
+ ]
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_49B9537D0202 Tm3FullModeStorageManager
+
+: ME_49B95372024C
+ CONST UID '49B95372024C'
+ CONST Name 'Tm3ReadModeStorageManager'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4FA4EF660273 // Tm3StorageManager
+ ]
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_49B95372024C Tm3ReadModeStorageManager
+
+: ME_49B9535B0235
+ CONST UID '49B9535B0235'
+ CONST Name 'm3StgMgr'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Классы-менеджеры для работы с IStorage' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4FA4EF660273 // Tm3StorageManager
+ ME_49B9537D0202 // Tm3FullModeStorageManager
+ ME_49B95372024C // Tm3ReadModeStorageManager
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_49B9535B0235 m3StgMgr

@@ -1,0 +1,50 @@
+// TRoundedEdit 517C102F03B5 GuiControl Class
+
+INCLUDE '51614065019A.pas.ms.script'
+
+INCLUDE '517C0F4B027C.pas.ms.script'
+
+INCLUDE '48C78D5402A6.pas.ms.script'
+
+FORWARD ME_517C102F03B5
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5F5599376D75
+ CONST UID '5F5599376D75'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TRoundedEdit' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_5F5599376D75 Ini_Reg_Class
+
+: ME_517C102F03B5
+ CONST UID '517C102F03B5'
+ CONST Name 'TRoundedEdit'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_51614065019A // RefCounted
+ ME_517C0F4B027C // RoundedControl
+ ME_517C0FF50380 // TEdit
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5F5599376D75 // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_517C102F03B5 TRoundedEdit

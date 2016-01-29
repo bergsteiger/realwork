@@ -1,0 +1,702 @@
+// l3StringIDEx 4B3B36EC03B2 UtilityPack Class
+
+FORWARD ME_4B3B36EC03B2
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+FORWARD ME_500700DF0376
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4BB9D83702F4
+ CONST UID '4BB9D83702F4'
+ CONST Name 'rLocalized'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Строка локализована' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4BB9D83702F4 rLocalized
+
+: ME_500700DF0376
+ CONST UID '500700DF0376'
+ CONST Name 'Tl3StringIDExPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'StaticObject'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4B98CE990318 // Tl3StringID
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4BB9D83702F4 // rLocalized
+ ]
+ ; // Attributes
+ CONST "not treat as record for XE4" true
+
+ @SELF
+; // ME_500700DF0376 Tl3StringIDExPrim
+
+FORWARD ME_4B3B3728004C
+
+: ME_561FDFF403DA
+ CONST UID '561FDFF403DA'
+ CONST Name 'rKey'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Ключ' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_561FDFF403DA rKey
+
+: ME_561FE0000148
+ CONST UID '561FE0000148'
+ CONST Name 'rValue'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Значение' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_561FE0000148 rValue
+
+FORWARD ME_4BB9D8550292
+
+: ME_4BB9D88A0393
+ CONST UID '4BB9D88A0393'
+ CONST Name 'aRus'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4BB9D88A0393 aRus
+
+: ME_4BB9D88A03D3
+ CONST UID '4BB9D88A03D3'
+ CONST Name 'anAlien'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4BB9D88A03D3 anAlien
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4BB9D8770230
+ CONST UID '4BB9D8770230'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4BB9D88A0393 // aRus
+ ME_4BB9D88A03D3 // anAlien
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4BB9D8770230 DoIt
+
+: ME_4BB9D8550292
+ CONST UID '4BB9D8550292'
+ CONST Name 'Localize'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Локализовать' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4BB9D8770230 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4BB9D8550292 Localize
+
+FORWARD ME_4CFE25B202FA
+
+: ME_4CFE25BF0327
+ CONST UID '4CFE25BF0327'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_4CFE25BF0327 DoIt
+
+: ME_4CFE25B202FA
+ CONST UID '4CFE25B202FA'
+ CONST Name 'AsWideString'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4CFE25BF0327 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4CFE25B202FA AsWideString
+
+FORWARD ME_4D7258F003D4
+
+INCLUDE '4678193C009C.pas.ms.script'
+
+: ME_4D7258FD0146
+ CONST UID '4D7258FD0146'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_47209E670266 // Tl3PCharLen
+ ;
+
+ @SELF
+; // ME_4D7258FD0146 DoIt
+
+: ME_4D7258F003D4
+ CONST UID '4D7258F003D4'
+ CONST Name 'AsWStr'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4D7258FD0146 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4D7258F003D4 AsWStr
+
+: ME_4B3B3B51012A
+ CONST UID '4B3B3B51012A'
+ CONST Name 'AsCStr'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_4B3B3B51012A AsCStr
+
+: ME_4B3B3F25003B
+ CONST UID '4B3B3F25003B'
+ CONST Name 'AsStr'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4B3B3F25003B AsStr
+
+: ME_4B3B4D0A0026
+ CONST UID '4B3B4D0A0026'
+ CONST Name 'Init'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Инициализирует строку' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4B3B4D0A0026 Init
+
+: ME_4B3B3728004C
+ CONST UID '4B3B3728004C'
+ CONST Name 'Tl3StringIDEx'
+ CONST Class 'Class'
+ CONST Stereotype 'StaticObject'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_500700DF0376 // Tl3StringIDExPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_561FDFF403DA // rKey
+ ME_561FE0000148 // rValue
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4BB9D8550292 // Localize
+ ME_4CFE25B202FA // AsWideString
+ ME_4D7258F003D4 // AsWStr
+ ME_4B3B3B51012A // AsCStr
+ ME_4B3B3F25003B // AsStr
+ ME_4B3B4D0A0026 // Init
+ ]
+ ; // Operations
+ CONST "not treat as record for XE4" true
+
+ @SELF
+; // ME_4B3B3728004C Tl3StringIDEx
+
+: ME_4B3B49B40262
+ CONST UID '4B3B49B40262'
+ CONST Name 'Pl3StringIDEx'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4B3B3728004C // Tl3StringIDEx
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_4B3B49B40262 Pl3StringIDEx
+
+FORWARD ME_4BA223D801B3
+
+: ME_4BA22CD70162
+ CONST UID '4BA22CD70162'
+ CONST Name 'l3Items_NoSort'
+ CONST Class 'Class'
+ CONST Stereotype 'Undef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4BA22CD70162 l3Items_NoSort
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '4B71611400B3.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_4BA2240501D9
+ CONST UID '4BA2240501D9'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_4B3B49B40262 // Pl3StringIDEx
+ ;
+
+ @SELF
+; // ME_4BA2240501D9 ItemType
+
+: ME_4BA223D801B3
+ CONST UID '4BA223D801B3'
+ CONST Name 'Tl3ConstStringsPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ME_4B71611400B3 // l3AtomicListPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4BA2240501D9 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_4BA22CD70162 // l3Items_NoSort
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.03.2010 16:00'
+
+ @SELF
+; // ME_4BA223D801B3 Tl3ConstStringsPrim
+
+FORWARD ME_4B98D6C201AD
+
+FORWARD ME_38979385DFF9
+
+: ME_1F5BE5CABF73
+ CONST UID '1F5BE5CABF73'
+ CONST Name 'aStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ @SELF
+; // ME_1F5BE5CABF73 aStr
+
+: ME_201B50E5979A
+ CONST UID '201B50E5979A'
+ CONST Name 'AsCStr'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_1F5BE5CABF73 // aStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_201B50E5979A AsCStr
+
+: ME_3F7C7858DF60
+ CONST UID '3F7C7858DF60'
+ CONST Name 'aStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ @SELF
+; // ME_3F7C7858DF60 aStr
+
+: ME_74E80608E1B4
+ CONST UID '74E80608E1B4'
+ CONST Name 'AsStr'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_3F7C7858DF60 // aStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_74E80608E1B4 AsStr
+
+: ME_DCECFBB61D23
+ CONST UID 'DCECFBB61D23'
+ CONST Name 'theStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ @SELF
+; // ME_DCECFBB61D23 theStr
+
+: ME_071573E75439
+ CONST UID '071573E75439'
+ CONST Name 'Init'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_DCECFBB61D23 // theStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_071573E75439 Init
+
+: ME_38979385DFF9
+ CONST UID '38979385DFF9'
+ CONST Name 'Ml3StringIDExHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3StringIDExHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_201B50E5979A // AsCStr
+ ME_74E80608E1B4 // AsStr
+ ME_071573E75439 // Init
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_38979385DFF9 Ml3StringIDExHelper
+
+: ME_26AFA90E5B84
+ CONST UID '26AFA90E5B84'
+ CONST GUID '8AB76DA9-7B40-4325-8F71-3EAA5DB9E047'
+ CONST Name 'Il3StringIDExHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3StringIDExHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_38979385DFF9 // Ml3StringIDExHelper
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_071573E75439 // Init
+ ME_201B50E5979A // AsCStr
+ ME_74E80608E1B4 // AsStr
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_26AFA90E5B84 Il3StringIDExHelper
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+: ME_05B3D469C519
+ CONST UID '05B3D469C519'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3StringIDExHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_26AFA90E5B84 // Il3StringIDExHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_05B3D469C519 Alien
+
+: ME_460532C55BB1
+ CONST UID '460532C55BB1'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_26AFA90E5B84 // Il3StringIDExHelper
+ ;
+
+ @SELF
+; // ME_460532C55BB1 f_Alien
+
+: ME_4B98D79E0230
+ CONST UID '4B98D79E0230'
+ CONST Name 'aStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ @SELF
+; // ME_4B98D79E0230 aStr
+
+: ME_4B98D78501E1
+ CONST UID '4B98D78501E1'
+ CONST Name 'AsCStr'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_4B98D79E0230 // aStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4B98D78501E1 AsCStr
+
+: ME_4B98D7AD039F
+ CONST UID '4B98D7AD039F'
+ CONST Name 'aStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ @SELF
+; // ME_4B98D7AD039F aStr
+
+: ME_4B98D7A50160
+ CONST UID '4B98D7A50160'
+ CONST Name 'AsStr'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_4B98D7AD039F // aStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4B98D7A50160 AsStr
+
+: ME_4B98D7CB0329
+ CONST UID '4B98D7CB0329'
+ CONST Name 'theStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ @SELF
+; // ME_4B98D7CB0329 theStr
+
+: ME_4B98D7BA00C6
+ CONST UID '4B98D7BA00C6'
+ CONST Name 'Init'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4B98D7CB0329 // theStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4B98D7BA00C6 Init
+
+: ME_EC9235189D85
+ CONST UID 'EC9235189D85'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_EC9235189D85 Exists
+
+: ME_4B98D6C201AD
+ CONST UID '4B98D6C201AD'
+ CONST Name 'Tl3StringIDExHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_38979385DFF9 // Ml3StringIDExHelper
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_05B3D469C519 // Alien
+ ME_460532C55BB1 // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4B98D78501E1 // AsCStr
+ ME_4B98D7A50160 // AsStr
+ ME_4B98D7BA00C6 // Init
+ ME_EC9235189D85 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_071573E75439 // Init
+ ME_201B50E5979A // AsCStr
+ ME_74E80608E1B4 // AsStr
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_38979385DFF9 // Ml3StringIDExHelper
+ ME_26AFA90E5B84 // Il3StringIDExHelper
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '11.03.2010 14:41'
+
+ @SELF
+; // ME_4B98D6C201AD Tl3StringIDExHelper
+
+: ME_4B3B36EC03B2
+ CONST UID '4B3B36EC03B2'
+ CONST Name 'l3StringIDEx'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Строка для локализации' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_500700DF0376 // Tl3StringIDExPrim
+ ME_4B3B3728004C // Tl3StringIDEx
+ ME_4B3B49B40262 // Pl3StringIDEx
+ ME_4BA223D801B3 // Tl3ConstStringsPrim
+ ME_4B98D6C201AD // Tl3StringIDExHelper
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '30.12.2009 14:18'
+
+ @SELF
+; // ME_4B3B36EC03B2 l3StringIDEx

@@ -1,0 +1,641 @@
+// TncsTransporter 544A09EE005F SimpleClass Class
+
+FORWARD ME_544A09EE005F
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+FORWARD ME_54917076009C
+
+INCLUDE '538DDC890328.pas.ms.script'
+
+: ME_5491708B03B6
+ CONST UID '5491708B03B6'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+
+ @SELF
+; // ME_5491708B03B6 
+
+: ME_54917076009C
+ CONST UID '54917076009C'
+ CONST Name 'TncsIOHandlerArray'
+ CONST Class 'Class'
+ CONST Stereotype 'Vector'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5490036B0204 // TncsSocketKind
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_5491708B03B6 // 
+ ]
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ @SELF
+; // ME_54917076009C TncsIOHandlerArray
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '53A03846011C.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '544E3C54031D.pas.ms.script'
+
+: ME_5450AB4D02E2
+ CONST UID '5450AB4D02E2'
+ CONST Name 'SendQueue'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_544E3C54031D // TncsMessageQueue
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5450AB4D02E2 SendQueue
+
+: ME_5450AB6A00A2
+ CONST UID '5450AB6A00A2'
+ CONST Name 'ReceiveQueue'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_544E3C54031D // TncsMessageQueue
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5450AB6A00A2 ReceiveQueue
+
+INCLUDE '5450E9A0034A.pas.ms.script'
+
+: ME_5450EA6D02B3
+ CONST UID '5450EA6D02B3'
+ CONST Name 'SendThread'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5450E9A0034A // TncsSendThread
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5450EA6D02B3 SendThread
+
+FORWARD ME_545225640060
+
+: ME_5491703C03A8
+ CONST UID '5491703C03A8'
+ CONST Name 'SocketKind'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5490036B0204 // TncsSocketKind
+ ;
+
+ @SELF
+; // ME_5491703C03A8 SocketKind
+
+: ME_545225640060
+ CONST UID '545225640060'
+ CONST Name 'IOHandlers'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+ : Attributes
+   [ ME_5491703C03A8 // SocketKind
+ ]
+ ; // Attributes
+ CONST "pm" true
+
+ @SELF
+; // ME_545225640060 IOHandlers
+
+INCLUDE '54534F1A00BF.pas.ms.script'
+
+: ME_54534F3D0029
+ CONST UID '54534F3D0029'
+ CONST Name 'ReceiveThread'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_54534F1A00BF // TncsReceiveThread
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_54534F3D0029 ReceiveThread
+
+INCLUDE '546061CE03DA.pas.ms.script'
+
+: ME_546061ED0170
+ CONST UID '546061ED0170'
+ CONST Name 'ProcessThread'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_546061CE03DA // TncsProcessThread
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_546061ED0170 ProcessThread
+
+INCLUDE '5461D9EE0244.pas.ms.script'
+
+: ME_5461D7C4021A
+ CONST UID '5461D7C4021A'
+ CONST Name 'ReplyWaiter'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5461D7C4021A ReplyWaiter
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5465AB860254
+ CONST UID '5465AB860254'
+ CONST Name 'f_Connected'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5465AB860254 f_Connected
+
+INCLUDE '537F49C801FE.pas.ms.script'
+
+: ME_5466092F01BB
+ CONST UID '5466092F01BB'
+ CONST Name 'f_ClientID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_537F4A04037C // TCsClientId
+ ;
+
+ @SELF
+; // ME_5466092F01BB f_ClientID
+
+: ME_548FEF8F0026
+ CONST UID '548FEF8F0026'
+ CONST Name 'IntSessionID'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_548FEF8F0026 IntSessionID
+
+: ME_5491709C03AC
+ CONST UID '5491709C03AC'
+ CONST Name 'f_IOHandlers'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_54917076009C // TncsIOHandlerArray
+ ;
+
+ @SELF
+; // ME_5491709C03AC f_IOHandlers
+
+: ME_E29F67C9278B
+ CONST UID 'E29F67C9278B'
+ CONST Name 'f_SendQueue'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства SendQueue' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_544E3C54031D // TncsMessageQueue
+ ;
+
+ @SELF
+; // ME_E29F67C9278B f_SendQueue
+
+: ME_AE6A73B404AC
+ CONST UID 'AE6A73B404AC'
+ CONST Name 'f_ReceiveQueue'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ReceiveQueue' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_544E3C54031D // TncsMessageQueue
+ ;
+
+ @SELF
+; // ME_AE6A73B404AC f_ReceiveQueue
+
+: ME_7AEE0D8FFAF8
+ CONST UID '7AEE0D8FFAF8'
+ CONST Name 'f_SendThread'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства SendThread' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_5450E9A0034A // TncsSendThread
+ ;
+
+ @SELF
+; // ME_7AEE0D8FFAF8 f_SendThread
+
+: ME_390A99709FD8
+ CONST UID '390A99709FD8'
+ CONST Name 'f_ReceiveThread'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ReceiveThread' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_54534F1A00BF // TncsReceiveThread
+ ;
+
+ @SELF
+; // ME_390A99709FD8 f_ReceiveThread
+
+: ME_9BEF39A01DE1
+ CONST UID '9BEF39A01DE1'
+ CONST Name 'f_ProcessThread'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ProcessThread' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_546061CE03DA // TncsProcessThread
+ ;
+
+ @SELF
+; // ME_9BEF39A01DE1 f_ProcessThread
+
+: ME_43D5E38812CC
+ CONST UID '43D5E38812CC'
+ CONST Name 'f_ReplyWaiter'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ReplyWaiter' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+
+ @SELF
+; // ME_43D5E38812CC f_ReplyWaiter
+
+: ME_2397A2F9DDB1
+ CONST UID '2397A2F9DDB1'
+ CONST Name 'f_IntSessionID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства IntSessionID' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_2397A2F9DDB1 f_IntSessionID
+
+FORWARD ME_54533B010030
+
+: ME_54533B2900CE
+ CONST UID '54533B2900CE'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_54533B2900CE aValue
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54533B1701F2
+ CONST UID '54533B1701F2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54533B2900CE // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54533B1701F2 DoIt
+
+: ME_54533B010030
+ CONST UID '54533B010030'
+ CONST Name 'SetConnected'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54533B1701F2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54533B010030 SetConnected
+
+FORWARD ME_5459C7E00125
+
+: ME_178FCCEED7C4
+ CONST UID '178FCCEED7C4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода StartProcessing' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_178FCCEED7C4 DoIt
+
+: ME_5459C7E00125
+ CONST UID '5459C7E00125'
+ CONST Name 'StartProcessing'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_178FCCEED7C4 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5459C7E00125 StartProcessing
+
+FORWARD ME_5459C803038D
+
+: ME_545B3E250102
+ CONST UID '545B3E250102'
+ CONST Name 'WaitForThreads'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_545B3E250102 WaitForThreads
+
+: ME_545B3E120323
+ CONST UID '545B3E120323'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_545B3E250102 // WaitForThreads
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_545B3E120323 DoIt
+
+: ME_5459C803038D
+ CONST UID '5459C803038D'
+ CONST Name 'StopProcessing'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_545B3E120323 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5459C803038D StopProcessing
+
+FORWARD ME_5477033C03D0
+
+: ME_A6A7B60F1DF2
+ CONST UID 'A6A7B60F1DF2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода HandShake' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_A6A7B60F1DF2 DoIt
+
+: ME_5477033C03D0
+ CONST UID '5477033C03D0'
+ CONST Name 'HandShake'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_A6A7B60F1DF2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5477033C03D0 HandShake
+
+FORWARD ME_549175C4030A
+
+: ME_549175D702CD
+ CONST UID '549175D702CD'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5490036B0204 // TncsSocketKind
+ ;
+
+ @SELF
+; // ME_549175D702CD DoIt
+
+: ME_549175C4030A
+ CONST UID '549175C4030A'
+ CONST Name 'HandShakeKind'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_549175D702CD // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_549175C4030A HandShakeKind
+
+FORWARD ME_5492C5F703AA
+
+: ME_8A8BAA04A4CE
+ CONST UID '8A8BAA04A4CE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода TransportStarted' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8A8BAA04A4CE DoIt
+
+: ME_5492C5F703AA
+ CONST UID '5492C5F703AA'
+ CONST Name 'TransportStarted'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_8A8BAA04A4CE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5492C5F703AA TransportStarted
+
+: ME_544A09EE005F
+ CONST UID '544A09EE005F'
+ CONST Name 'TncsTransporter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_53A03846011C // l3CriticalSectionHolder
+ ME_5464B4730055 // IncsTransporter
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5450AB4D02E2 // SendQueue
+ ME_5450AB6A00A2 // ReceiveQueue
+ ME_5450EA6D02B3 // SendThread
+ ME_545225640060 // IOHandlers
+ ME_54534F3D0029 // ReceiveThread
+ ME_546061ED0170 // ProcessThread
+ ME_5461D7C4021A // ReplyWaiter
+ ME_5465AB860254 // f_Connected
+ ME_5466092F01BB // f_ClientID
+ ME_548FEF8F0026 // IntSessionID
+ ME_5491709C03AC // f_IOHandlers
+ ME_E29F67C9278B // f_SendQueue
+ ME_AE6A73B404AC // f_ReceiveQueue
+ ME_7AEE0D8FFAF8 // f_SendThread
+ ME_390A99709FD8 // f_ReceiveThread
+ ME_9BEF39A01DE1 // f_ProcessThread
+ ME_43D5E38812CC // f_ReplyWaiter
+ ME_2397A2F9DDB1 // f_IntSessionID
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54533B010030 // SetConnected
+ ME_5459C7E00125 // StartProcessing
+ ME_5459C803038D // StopProcessing
+ ME_5477033C03D0 // HandShake
+ ME_549175C4030A // HandShakeKind
+ ME_5492C5F703AA // TransportStarted
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5464B4E900DA // Send
+ ME_5464B52F02D5 // WaitForReply
+ ME_5465AB2B00CA // Connected
+ ME_546608F101DE // ClientID
+ ME_5486B96A0025 // Processing
+ ME_548FEF4F002E // SessionID
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_54917076009C // TncsIOHandlerArray
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_544A09EE005F TncsTransporter

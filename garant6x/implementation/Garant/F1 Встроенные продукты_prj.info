@@ -1,0 +1,185 @@
+F1 Встроенные продукты : VCMUseCases - Встроенные в F1 продукты
+version: 754
+Chat : VCMUseCase - [$144575025]
+ Chat$UC : VCMUseCaseRealization - Чат
+ Chat : Library - Внутренняя механика (контроллеры+данные)
+  ChatTypes : Interfaces - 
+   TnsContactType : Enum - Тип активности контакта
+   TContactListFilterTypes : Enum - Тип фильтра списка контактов
+   TbsUserID : Typedef - ID пользователя
+  ChatInterfaces : Interfaces - 
+   InsChatMessage : Facet - 
+   InsChatMessages : Facet - 
+   IbsAbstractChatWindow : Facet - 
+   IbsChatWindow : Facet - 
+   IbsChatHistoryWindow : Facet - 
+   IbsContactList : Facet - 
+   IbsChatDispatcher : Facet - 
+   EnsUnknownChatUser : Exception - 
+  ChatImpl : Unit - 
+   TnsChatMessage : SimpleClass - 
+   TnsChatMessages : SimpleClass - 
+   TnsChatTreeStruct : SimpleClass - 
+   TnsBaseChatWindowList : SimpleClass - 
+   AbstactChatWindowList : Impurity - 
+   TnsUserIDList : SimpleClass - 
+   TnsBaseChatHistoryList : SimpleClass - 
+   TnsChatHistoryList : SimpleClass - 
+   TnsChatWindowList : SimpleClass - 
+   TnsContactListNotifiers : SimpleClass - 
+   TbsChatDispatcherPrim : SimpleClass - 
+   TbsChatDispatcher : SimpleClass - 
+ View : VCMViews - Внешнее представление в UI
+  Chat : VCMModule - 
+   AbstractHistory : VCMContainer - Абстрактное окно истории
+   BaseChatWindow : VCMContainer - Переписка
+   BaseHistoryWindow : VCMContainer - История переписки
+   PrimContactList : VCMForm - Совещание онлайн
+   BaseChatWindowOptions : VCMContainer - 
+   PrimContactListOptions : VCMForm - Совещание онлайн
+   BaseChat : VCMFormsPack - 
+   ChatRes : UtilityPack - 
+   Tkw_Chat_opOpenContactList : ScriptKeyword - Слово словаря для вызова операции модуля Chat.OpenContactList (Чат)
+InternetAgent : VCMUseCase - [$146901332]
+ InternetAgent$UC : VCMUseCaseRealization - Интернет-агент
+ InternetAgent : VCMControllers - [$124453728]
+  InternetAgentInterfaces : ControllerInterfaces - Интерфейсы для реализации [Интернет-агента|$124453728]
+   IsdsInternetAgent : UseCaseController - Прецедент работы с Интернет-агентом
+  InternetAgent : ControllerUnit - Реализация [Интернет-агента|$124453728]
+   TsdsInternetAgent : UseCaseControllerImp - Реализация прецедента Интернет-агента
+   TdsInternetAgent : ViewAreaControllerImp - Реализация области вывода Интернет-агента
+ View : VCMViews - Представление
+  InternetAgent : VCMModule - Модуль для [Интернет-агента|$144575249]
+   TnsWebBrowserPrim : SimpleClass - 
+   TnsWebBrowser : GuiControl - Наследник от стандартного компонента, для заточек в F1
+   PrimInternetAgent : VCMForm - Базаовая форма для [Интернет-агента|$124453728]
+   PrimInternetAgent$FP : VCMFormsPack - Модуль для [Интернет-агента|$144575249]
+   nsWebBrowserHelper : UtilityPack - 
+   Tkw_InternetAgent_opInternetAgent : ScriptKeyword - Слово словаря для вызова операции модуля InternetAgent.InternetAgent (Интернет-агент Новости онлайн)
+DictionLike : VCMSubsystem - 
+ DictionLikeDocumentProcessing : Library - 
+  DocumentContainers : Unit - 
+   TnsDictionDocumentContainer : SimpleClass - Контейнер документа толкового словаря
+ View : VCMViews - 
+  DictionLikeForms : VCMForms - 
+   DictionContainerUserTypes : VCMForm - 
+Diction : VCMUseCase - [$69240102]
+ Diction$UC : VCMUseCaseRealization - Толковый словарь
+ Diction : VCMControllers - Толковый словарь
+  DictionInterfaces : ControllerInterfaces - Интерфейсы для работы с толковым словарём
+   InsLangToContextMap : Facet - 
+   IbsDictionListener : Facet - Слушатель событий бизнес объекта формы список толкований
+   IdsDiction : ViewAreaController - Список толкований
+   IdDiction : Facet - Данные толкового словаря
+   IdeDiction : Facet - Данные для сборки Толковый словарь
+   IsdsDiction : UseCaseController - Толковый словарь
+  Diction$Unit : Unit - Структуры для толкового словаря
+   TnsLayeredTreeFilters : SimpleClass - 
+   TnsLayerFilter : SimpleClass - 
+   TnsLangList : SimpleClass - 
+   TnsDictionTree : SimpleClass - Дерево толкового словаря.
+   TnsDictListChild : SimpleClass - 
+   TnsLangToContextMap : SimpleClass - 
+   TnsDictCachePrim : SimpleClass - 
+   TnsDictCache : SimpleClass - 
+   TnsMedicDictCache : SimpleClass - 
+   TnsDayTipsDictCache : SimpleClass - 
+  Diction : ControllerUnit - Работа с толковым словарём
+   TdsDictionDocument : ViewAreaControllerImp - Документ толкового словаря
+   TdsDiction : ViewAreaControllerImp - перевод толкового словаря на сборку
+   TsdsDiction : UseCaseControllerImp - Бизнес объект сборки "Толковый словарь"
+   TdDiction : SimpleClass - 
+   TdeDiction : SimpleClass - 
+ View : VCMViews - Представление
+  Strange : VCMControls - 
+   Lang : VCMOperations - 
+  Diction : VCMModule - Толковый словарь
+   PrimDiction : VCMForm - Толковый словарь
+   PrimDictionContainer : VCMContainer - 
+   PrimDictionOptions : VCMForm - 
+   PrimCommonDiction : VCMForm - 
+   PrimCommonDictionOptions : VCMForm - Совет дня
+   Diction$FP : VCMFormsPack - Толковый словарь
+   DictionRes : UtilityPack - 
+   Tkw_Diction_opOpenDict : ScriptKeyword - Слово словаря для вызова операции модуля Diction.OpenDict (Толковый словарь Толковый словарь)
+Inpharm : VCMUseCase - [$13746]
+ Inpharm : VCMUseCaseRealization - Инфарм
+ Medic : VCMControllers - Инфарм
+  MedicInterfaces : ControllerInterfaces - Интерфейсы Инфарма
+   IdsDrugList : ViewAreaController - Список лекартственных препаратов.
+   IdsMedicFirmList : ViewAreaController - Список фирм производителей
+   IsdsBaseDrugDocument : UseCaseController - Базовый интерфейс для списка документов и описания препарата.
+   IdsDrugListSynchroView : ViewAreaController - 
+   IsdsMedicFirmDocumentPrim : UseCaseController - описание фирмы-производителя
+   IdsMedicFirmListSynchroView : ViewAreaController - 
+   IsdsDrugDocument : UseCaseController - 
+   IdBaseDrugDocument : Facet - Данные сборки описания препарата
+   IdDrugDocument : Facet - 
+   TDrugList_SynchroView_Areas : Enum - Типы зон для "Бизнес объект "Синхронный просмотра""
+   IdMedicFirmDocument : Facet - Данные описания фирмы-производителя
+   TMedicFirmList_SynchroView_Areas : Enum - Типы зон для "dsSynchroView"
+   IsdsMedicFirmList : UseCaseController - 
+   IsdsDrugList : UseCaseController - Список лекарственных препаратов.
+   IsdsMedicFirmDocument : UseCaseController - 
+   IdMedicFirmList : Facet - Данные списка фирм-производителей
+   IdDrugList : Facet - Данные сборки "Список лекарственных препаратов"
+  Medic$Unit : Unit - Структуры данных для Инфарма
+   TnsMedicFirmListFilters : SimpleClass - 
+   TnsCountryFilter : SimpleClass - 
+   TnsMedicDictionTreeBase : SimpleClass - Словарь медицинских терминов
+   TnsMedicDictionTree : SimpleClass - Словарь медицинских терминов (синглетон)
+   TnsMedicFirmsTreeBase : SimpleClass - 
+   TnsMedicFirmsTree : SimpleClass - 
+   TnsMedicFirmsSubscribersList : SimpleClass - 
+   TnsMedicFirmsCountryFilterTreeBase : SimpleClass - 
+   TnsMedicFirmsCountryFilterTree : SimpleClass - 
+  MedicMainMenu : Unit - Основное меню для инфарма
+   TmmmTree : SimpleClass - 
+   TmmmReferencesAndDictionaries : SimpleClass - Справочники и словари
+   TmmmMainFeatures : SimpleClass - Основные возможности
+   TmmmReferencePharmaceuticalInformation : SimpleClass - Справочная фармацевтическая информация
+   TmmmRegulatoryInformation : SimpleClass - Нормативная информация
+  Medic : ControllerUnit - Инфарм
+   TdsMedicFirmDocument : ViewAreaControllerImp - Документ описания фирмы-производителя
+   dsBaseDrugDocument : ViewAreaControllerImp - Документ-препарат
+   TdsMedicDictionDocument : ViewAreaControllerImp - для словаря медицинских терминов
+   TdsDrugDocument : ViewAreaControllerImp - Описание лекарственного препарата
+   TdsDrugList : ViewAreaControllerImp - Список лекарственных препаратов
+   TdsMedicFirmSynchroView : ViewAreaControllerImp - Бизнес объект формы синхронного просмотра списка препаратов
+   TdsMedicDiction : ViewAreaControllerImp - Список медицинских терминов
+   TdsMedicFirmList : ViewAreaControllerImp - Список фирм-производителей
+   sdsMedicFirmDocument : UseCaseControllerImp - документ-фирма
+   TsdsMedicFirmList : UseCaseControllerImp - Бизнес объект прецедента список медицинских фирм-производителей
+   TsdsMedicDiction : UseCaseControllerImp - Бизнес объект сборки "Совет дня"
+   TsdsMedicFirmDocument : UseCaseControllerImp - Документ-фирма
+   dMedicFirmDocument : Impurity - 
+   TdMedicFirmList : SimpleClass - 
+   TdeMedicDiction : SimpleClass - 
+   TdMedicFirmDocument : SimpleClass - 
+ Drug : VCMControllers - Препараты
+  DrugData : Unit - 
+   dBaseDrugDocument : Impurity - Данные описания препарата.
+   TdDrugList : SimpleClass - Данные сборки "Список лекартсвенных препаратов".
+   TdDrugDocument : SimpleClass - Данные описания препарата.
+  sdsDrugDocument : ControllerUnit - БОС описания препарата.
+   sdsBaseDrugDocument : UseCaseControllerImp - БОС описание препарата.
+   TsdsDrugDocument : UseCaseControllerImp - Базовый для списка препаратов и описания препаратов.
+  sdsDrugList : ControllerUnit - БОС Список лекарственных препаратов.
+   TsdsDrugList : UseCaseControllerImp - БОС Список лекарственных препаратов.
+   TdsDrugListSynchroView : ViewAreaControllerImp - Бизнес объект формы синхронного просмотра списка препаратов
+   TdsDrugListDocument : ViewAreaControllerImp - 
+   TdsMainDrugList : ViewAreaControllerImp - БОФ списка препаратов в главной зоне
+ View : VCMViews - Представление
+  Strange : VCMControls - 
+   MedicListSynchroView : VCMOperations - Синхронный просмотр ИНФАРМ
+   MedicFirmList : VCMOperations - 
+  Inpharm : VCMModule - Инфарм
+   InpharmMainMenu : VCMForm - Основное меню Инфарм
+   PrimMedicListSynchroView : VCMContainer - Синхронный просмотр
+   PrimMedicFirmList : VCMForm - Список фирм-производителей
+   PrimMedicFirmListOptions : VCMForm - 
+   Inpharm : VCMFormsPack - 
+   Tkw_Inpharm_opMedicDiction : ScriptKeyword - Слово словаря для вызова операции модуля Inpharm.MedicDiction$Op (Инфарм Словарь медицинских терминов)
+   Tkw_Inpharm_opMedicFirms : ScriptKeyword - Слово словаря для вызова операции модуля Inpharm.MedicFirms (Инфарм Фармацевтические фирмы)
+   Tkw_Inpharm_opDrugList : ScriptKeyword - Слово словаря для вызова операции модуля Inpharm.DrugList$Op (Инфарм Список выпускаемых препаратов)
+   Tkw_Inpharm_opMedicMainMenu : ScriptKeyword - Слово словаря для вызова операции модуля Inpharm.MedicMainMenu$Op (Инфарм Основное меню ИнФарм)

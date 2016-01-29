@@ -1,0 +1,100 @@
+FINAL <<VCMUseCase>> InternetAgent
+ %UID '4A9691FD01BB'
+ %SUMMARY '[$146901332]' ;
+ %INCLUDES
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\InternetAgent\InternetAgent\InternetAgent.model.script' /* InternetAgent */
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\InternetAgent\View\View.model.script' /* View */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '483E96C10305' /* Internet */
+  U$ '484F80CF0274' /* "Встроенные продукты" */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '4954C00703D0' /* OfficeLike */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '4A78010000B7' /* Search */
+  U$ '4A7C095601DA' /* "Base Operations" */
+  U$ '4A92C561015D' /* Common */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4D5E61FC01F0' /* AFW$Core */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4F6B65EA0392' /* F1Like */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '483E96C10305' /* Internet */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '4954C00703D0' /* OfficeLike */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '49EC6D0903DD' /* InternetAgent */
+  U$ '4A78010000B7' /* Search */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A7C095601DA' /* "Base Operations" */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A92C561015D' /* Common */
+  U$ '4A969297010D' /* View */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4D5E61FC01F0' /* AFW$Core */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4F4B8F830023' /* ExternalObjects */
+  U$ '4F6B65EA0392' /* F1Like */
+  U$ '4F6B660100D5' /* View */
+  U$ '53BA5A5D03A0' /* TabInterface */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '55B62380030A' /* Logging */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  FINAL <<VCMUseCaseRealization>> InternetAgent$UC
+   %UID '49F6E8F90153'
+   %SUMMARY 'Интернет-агент' ;
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "ifndef" 'Admin,Monitorings'
+    %upv "needs InstanceR" 'undefined'
+    %upv "needs script" 'undefined'
+    %upv "no hands" true
+    %upv "register in scripts" 'undefined'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '481EF5C4020D' /* Оболочка */
+    U$ '4A969297010D' /* View */
+   ; // %TOBEINCLUDED
+   %IMPLEMENTS
+    U$ '49FE7E780022' /* "Новости онлайн" */
+   ; // %IMPLEMENTS
+   %INHERITS
+    U$ '49EC739C0100' /* PrimInternetAgent$FP */
+   ; // %INHERITS
+  ; // InternetAgent$UC
+ ; // %CHILDREN
+; // InternetAgent

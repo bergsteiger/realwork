@@ -1,0 +1,55 @@
+// m3HeaderIDSupplier 53FDFADD027F Impurity Class
+
+FORWARD ME_53FDFADD027F
+
+FORWARD ME_53FDFAF900ED
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_53FDFB070246
+ CONST UID '53FDFB070246'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_53FDFAAE0115 // TCLSID
+ ;
+
+ @SELF
+; // ME_53FDFB070246 DoIt
+
+: ME_53FDFAF900ED
+ CONST UID '53FDFAF900ED'
+ CONST Name 'HeaderID'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_53FDFB070246 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_53FDFAF900ED HeaderID
+
+: ME_53FDFADD027F
+ CONST UID '53FDFADD027F'
+ CONST Name 'm3HeaderIDSupplier'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_53FDFAF900ED // HeaderID
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53FDFADD027F m3HeaderIDSupplier

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type='text/xsl' href='C:\Program Files\Microsoft Windows Software Logo Kit\results.xsl'?>
+<REPORT OVERALL_RESULT="WARNING" VERSION="1.0" TOOLSET_ARCHITECTURE="X64" UIMODE="true" ID="74cc99d28d503afde0766b2a8177410c">
+  <REQUIREMENTS>
+    <REQUIREMENT NUMBER="1" TITLE="Clean, reversible, installation" RATIONAL="A clean, reversible, installation allows users to successfully manage (deploy, and remove) applications on their system.">
+      <TEST NAME="Write appropriate Add/Remove Program values." DESCRIPTION="Write appropriate Add/Remove Program values.">
+        <RESULT>WARNING</RESULT>
+        <MESSAGES>
+          <MESSAGE TEXT="Value InstallLocation missing for program &quot;ГАРАНТ Платформа F1 ЭКСПЕРТ&quot; (ФайлСервер) Текущий Пользователь." />
+          <MESSAGE TEXT="Value Publisher missing for program &quot;ГАРАНТ Платформа F1 ЭКСПЕРТ&quot; (ФайлСервер) Текущий Пользователь." />
+          <MESSAGE TEXT="Value VersionMajor missing for program &quot;ГАРАНТ Платформа F1 ЭКСПЕРТ&quot; (ФайлСервер) Текущий Пользователь." />
+          <MESSAGE TEXT="Value VersionMinor missing for program &quot;ГАРАНТ Платформа F1 ЭКСПЕРТ&quot; (ФайлСервер) Текущий Пользователь." />
+          <MESSAGE TEXT="Value MajorVersion missing for program &quot;ГАРАНТ Платформа F1 ЭКСПЕРТ&quot; (ФайлСервер) Текущий Пользователь." />
+          <MESSAGE TEXT="Value MinorVersion missing for program &quot;ГАРАНТ Платформа F1 ЭКСПЕРТ&quot; (ФайлСервер) Текущий Пользователь." />
+        </MESSAGES>
+      </TEST>
+      <TEST NAME="Do not force an immediate reboot during installation." DESCRIPTION="Users should have the opportunity to restart later.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+      <TEST NAME="Do not force an immediate reboot during uninstallation." DESCRIPTION="Users should have the opportunity to restart later.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+      <TEST NAME="Remove all non-shared files and folders." DESCRIPTION="All newly installed programs were properly removed.">
+        <RESULT>WARNING</RESULT>
+        <MESSAGES>
+          <MESSAGE TEXT="File c:\program files (x86)\garant-fs\settings\gclean.exe from program &quot;ГАРАНТ. Платформа F1&quot; (ФайлСервер) v7.04.0.091 was not deleted." />
+          <MESSAGE TEXT="File c:\program files (x86)\garant-fs\settings\xmltools\win9X\F1UsersSave.exe from program &quot;ГАРАНТ. Платформа F1&quot; (ФайлСервер) v7.04.0.091 was not deleted." />
+          <MESSAGE TEXT="File c:\program files (x86)\garant-fs\settings\xmltools\winNT\F1UsersSave.exe from program &quot;ГАРАНТ. Платформа F1&quot; (ФайлСервер) v7.04.0.091 was not deleted." />
+          <MESSAGE TEXT="Program &quot;ГАРАНТ Платформа F1 ЭКСПЕРТ&quot; (ФайлСервер) Текущий Пользователь was not removed." />
+        </MESSAGES>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="2" TITLE="Install to the correct folders by default" RATIONAL="Windows provides specific locations in the file system to store programs and software components, shared application data, and application data specific to a user.">
+      <TEST NAME="Do not write to the %WINDIR% or %SystemDrive% folders." DESCRIPTION="Do not write to the %WINDIR% or %SystemDrive% folders.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+      <TEST NAME="Install to Program Files." DESCRIPTION="Install to Program Files description.">
+        <RESULT>WARNING</RESULT>
+        <MESSAGES>
+          <MESSAGE TEXT="Program &quot;ГАРАНТ Платформа F1 ЭКСПЕРТ&quot; (ФайлСервер) Текущий Пользователь fails due to missing install location." />
+        </MESSAGES>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="3" TITLE="Digitally sign files and drivers" RATIONAL="An Authenticode digital signature allows users to be sure that the software is genuine. It also allows detection if a file has been tampered with e.g. infected by a virus.">
+      <TEST NAME="Install signed driver and executable files." DESCRIPTION="Install signed driver and executable files.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="4" TITLE="Support x64 versions of Windows" RATIONAL="To maintain compatibility with 64-bit versions of Windows, it is necessary that applications should natively support 64-bit or at minimum 32-bit Windows based applications to run seamlessly on 64-bit.">
+      <TEST NAME="Install platform specific files, including drivers." DESCRIPTION="Install platform specific files, including drivers.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="5" TITLE="Do not block installation or application launch based on OS version check" RATIONAL="Applications must not perform version checks for equality (== 5.1). If you need a specific feature, check whether the feature is available. If you need Windows XP, check for Windows XP or later (&gt;= 5.1), This way, your detection code will continue to work on future versions of Windows. Driver installers and uninstall modules should never check the OS version.">
+      <TEST NAME="Proper OS version checking." DESCRIPTION="Perform proper OS version checking during installation.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+      <TEST NAME="Perform version checking properly at runtime." DESCRIPTION="Perform version checking properly at runtime.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="6" TITLE="Follow User Account Control (UAC) guidelines" RATIONAL="Most applications do not require administrator privileges at run time, and should be just fine running as a standard-user. Windows applications must have a manifest (embedded or external) to define its execution level that tells OS the privileges needed to run the application.">
+      <TEST NAME="User Account Control Run Level" DESCRIPTION="Windows® applications must have a manifest (embedded or external) to define its execution level that tells OS the privileges needed to run the application.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="7" TITLE="Adhere to Restart Manager messages" RATIONAL="In a critical shutdown, applications that return FALSE to WM_QUERYENDSESSION will be sent WM_ENDSESSION and closed, while those that time out in response to WM_QUERYENDSESSION will be terminated.">
+      <TEST NAME="Don't block reboot." DESCRIPTION="Don't block reboot.">
+        <RESULT>WARNING</RESULT>
+        <MESSAGES>
+          <MESSAGE TEXT="Executable c:\program files (x86)\garant-fs\garant.exe failed to shutdown." />
+          <MESSAGE TEXT="Executable c:\program files (x86)\garant-fs\download.exe failed to shutdown." />
+          <MESSAGE TEXT="Executable c:\program files (x86)\garant-fs\dataupd.exe failed to shutdown." />
+          <MESSAGE TEXT="Executable c:\program files (x86)\garant-fs\datasetup.exe failed to shutdown." />
+        </MESSAGES>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="8" TITLE="Do not load Services and Drivers in Safe Mode" RATIONAL="By default, most drivers and services that did not come preinstalled with Windows are not started in Safe Mode. They should remain disabled unless they are needed for basic operations of the system or for diagnostic and recovery purposes.">
+      <TEST NAME="Do not load Services and Drivers in Safe Mode" DESCRIPTION="By default, most drivers and services that did not come preinstalled with Windows are not started in Safe Mode. They should remain disabled unless they are needed for basic operations of the system or for diagnostic and recovery purposes.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="9" TITLE="Support multiuser sessions" RATIONAL="Windows users should be able to run concurrent sessions without conflict or disruption.  Applications must ensure that when running in multiple sessions either locally or remotely, the normal functionality of the application should not be impacted. Application settings and data files should not be persisted across users. A user’s privacy and preferences should be isolated to the user’s session.">
+      <TEST NAME="Do not write to the %USERS% folder." DESCRIPTION="Do not write to the %USERS% folder.">
+        <RESULT>WARNING</RESULT>
+        <MESSAGES>
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1ADMIN.RUN was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1CONSULTINGCHECKER.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1EASYUPDATE.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1PRIME.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1PRIME.RUN was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1SENDMAIL.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1SHELL.RUN was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1SLEEP.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\F1SPLASHSCREEN.RUN was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\WINNT\CSADAPTER.DLL was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\WINNT\F1CONSULTINGCHECKER.RUN was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\WINNT\F1DATASETUP.RUN was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\WINNT\F1DATAUPD.RUN was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\WINNT\F1DOWNLOAD.RUN was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\WINNT\GL.DLL was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\WINNT\GSOCK32.DLL was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\APPS\WINNT\GU974.DLL was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\DATASETUP.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\DATAUPD.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\DOWNLOAD.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\GARANT.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\GARANT.INI was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\HELP\F1DATATOOLS.CHM was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\HELP\F1PRIME.CHM was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\HELP\F1SHELL.CHM was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\HELP\F1WHATSNEW.CHM was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\HELP\README.RTF was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\BACKUP.DIR\DATA_FDB.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\BACKUP.DIR\DATA_FDB.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\BACKUP.DIR\DATA_UDB.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\BACKUP.DIR\DATA_UDB.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\BACKUP.LOG was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\DATA_FDB.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\DATA_FDB.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\DATA_UDB.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\DATA_UDB.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\GARANT.INI was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\GCLEAN.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\GCLEAN.INI was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\_____CFG.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\_____CFG.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\_____DEF.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\_____DEF.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\_____UTL.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\_____UTL.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\_____VAL.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\_____VAL.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\0001_UTL.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\0001_UTL.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\0001_VAL.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\0001_VAL.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\BACKUP.DIR\_____CFG.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\BACKUP.DIR\_____CFG.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\BACKUP.DIR\_____DEF.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\BACKUP.DIR\_____DEF.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\BACKUP.DIR\_____UTL.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\BACKUP.DIR\_____UTL.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\BACKUP.DIR\_____VAL.K was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\USERDATA\BACKUP.DIR\_____VAL.S was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\XMLTOOLS\F1USERSSAVE.EXE.INI was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\XMLTOOLS\WIN9X\F1USERSSAVE.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\GENSNET\APPDATA\ROAMING\GARANT-NET\SETTINGS\XMLTOOLS\WINNT\F1USERSSAVE.EXE was written to an incorrect location." />
+          <MESSAGE TEXT="File C:\USERS\ВСЕ ПОЛЬЗОВАТЕЛИ\MICROSOFT\SEARCH\DATA\APPLICATIONS\WINDOWS\MSS0000B.LOG was written to an incorrect location." />
+        </MESSAGES>
+      </TEST>
+      <TEST NAME="Multi User registry check" DESCRIPTION="Checks invalid writes to registry on install time.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+      <TEST NAME="Multi User session test." DESCRIPTION="Multi User checks Application invocation in multiple sessions.">
+        <RESULT>WARNING</RESULT>
+        <MESSAGES>
+          <MESSAGE TEXT=" Application[download-&gt;F1CacheHelper.run] failed to work in two sessions." />
+          <MESSAGE TEXT=" Application[download-&gt;F1Download.run] failed to work in two sessions." />
+          <MESSAGE TEXT=" Application[dataupd] exited in other session." />
+          <MESSAGE TEXT=" Application[datasetup-&gt;F1DataSetup.run] failed to work in two sessions." />
+        </MESSAGES>
+      </TEST>
+      <TEST NAME="Multi User Check Logs" DESCRIPTION="Multi User checks App-Verifier logs.">
+        <RESULT>PASS</RESULT>
+        <MESSAGES />
+      </TEST>
+    </REQUIREMENT>
+  </REQUIREMENTS>
+  <APPLICATIONS>
+    <Installed_Programs>
+      <Program Name="&quot;ГАРАНТ. Платформа F1&quot; (ФайлСервер) v7.04.0.091" Type="Application" Source="Msi" Publisher="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" Version="7.04.0.091" Language="1049" MsiProductCode="{C3455581-1665-478C-80FA-1C9F3841C43B}" MsiPackageCode="{A4C13F06-8383-40ED-AF18-3B78104F41AE}" InstallDate="08/19/2009 00:00:00" OnSystemDrive="true" RootDirPath="C:\Program Files (x86)\Garant-FS\" PathEvidenceId="0xa" RNP="0x0" DNP="0xd" EvidenceId="0xa" Id="00003484ce2e5647fa740442412d532e214100001904">
+        <Indicators>
+          <MsiIndicators>
+            <Msi ProductName="&quot;ГАРАНТ. Платформа F1&quot; (ФайлСервер) v7.04.0.091" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7.04.0.091" Language="1049" Path="C:\Program Files (x86)\Garant-FS\" RNP="0x0" DNP="0x0" ProductCode="{C3455581-1665-478C-80FA-1C9F3841C43B}" PackageCode="{A4C13F06-8383-40ED-AF18-3B78104F41AE}" InstallDate="08/19/2009 00:00:00" UniqueId="0xa" Id="00006e63b9c0b3e12a77ffe9df3c22433b84f6ca1c9f" />
+          </MsiIndicators>
+          <AddRemoveProgramIndicators>
+            <AddRemoveProgram DisplayName="&quot;ГАРАНТ. Платформа F1&quot; (ФайлСервер) v7.04.0.091" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7.04.0.091" Language="1049" Path="C:\Program Files (x86)\Garant-FS" ActualInstallLocation="C:\Program Files (x86)\Garant-FS\" RegistryPath="HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{C3455581-1665-478C-80FA-1C9F3841C43B}" UninstallString="C:\Windows\SysWOW64\msiexec.exe /I{C3455581-1665-478C-80FA-1C9F3841C43B}" VersionMajor="7" VersionMinor="4" GUID="{C3455581-1665-478C-80FA-1C9F3841C43B}" RNP="0x1" DNP="0x1" RegistrySubKey="{C3455581-1665-478C-80FA-1C9F3841C43B}" UniqueId="0x1bc" Id="000062ae6c21a8157f587e40f76d822e2233a8b5554f" />
+          </AddRemoveProgramIndicators>
+          <ShellIndicators>
+            <Shell ShellName="ГАРАНТ. Платформа F1" ParentName="ГАРАНТ. Платформа F1 (ФайлСервер)" TargetFileName="garant.exe" Path="C:\Program Files (x86)\Garant-FS" TargetPath="C:\Program Files (x86)\Garant-FS\garant.exe" LinkDirectory="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\ГАРАНТ. Платформа F1 (ФайлСервер)" LinkPath="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\ГАРАНТ. Платформа F1 (ФайлСервер)\ГАРАНТ. Платформа F1.lnk" HasFolderSibling="true" RNP="0x2" DNP="0x2" UniqueId="0x229" Id="000036a84439420bfbe6047dcb1f37afade3f5b3d9d6" />
+            <Shell ShellName="Загрузка файлов Пакетного пополнения" ParentName="Информационный банк" TargetFileName="download.exe" Path="C:\Program Files (x86)\Garant-FS" TargetPath="C:\Program Files (x86)\Garant-FS\download.exe" LinkDirectory="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\ГАРАНТ. Платформа F1 (ФайлСервер)\Информационный банк" LinkPath="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\ГАРАНТ. Платформа F1 (ФайлСервер)\Информационный банк\Загрузка файлов Пакетного пополнения.lnk" HasFolderSibling="false" RNP="0x2" DNP="0x2" UniqueId="0x22b" Id="00007e3ed29cb8f7ae302669704858ba539495bd5c7a" />
+            <Shell ShellName="Пакетное пополнение" ParentName="Информационный банк" TargetFileName="dataupd.exe" Path="C:\Program Files (x86)\Garant-FS" TargetPath="C:\Program Files (x86)\Garant-FS\dataupd.exe" LinkDirectory="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\ГАРАНТ. Платформа F1 (ФайлСервер)\Информационный банк" LinkPath="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\ГАРАНТ. Платформа F1 (ФайлСервер)\Информационный банк\Пакетное пополнение.lnk" HasFolderSibling="false" RNP="0x2" DNP="0x2" UniqueId="0x22d" Id="00008040596d8fc50473c884712fdbe4d5f22e891d63" />
+            <Shell ShellName="Установка данных" ParentName="Информационный банк" TargetFileName="datasetup.exe" Path="C:\Program Files (x86)\Garant-FS" TargetPath="C:\Program Files (x86)\Garant-FS\datasetup.exe" LinkDirectory="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\ГАРАНТ. Платформа F1 (ФайлСервер)\Информационный банк" LinkPath="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\ГАРАНТ. Платформа F1 (ФайлСервер)\Информационный банк\Установка данных.lnk" HasFolderSibling="false" RNP="0x2" DNP="0x2" UniqueId="0x22f" Id="0000e286d170da68b1940cb04678acc286a7b9c4f0ba" />
+          </ShellIndicators>
+          <DirectoryIndicators>
+            <Directory Name="garant-fs" Path="c:\program files (x86)\garant-fs" RNP="0x9" DNP="0xb" UniqueId="0x1bd" Id="0000eb0309e0f858aee028040013f8b013cc41e5536a" />
+            <Directory Name="apps" Path="c:\program files (x86)\garant-fs\apps" RNP="0x9" DNP="0xb" UniqueId="0x1c2" Id="0000687c9518a1eb3f4ea88d1ccb870048672148ef13" />
+            <Directory Name="win9x" Path="c:\program files (x86)\garant-fs\apps\win9x" RNP="0x9" DNP="0xb" UniqueId="0x1c8" Id="000048d463877643bde7b6242da82b77f9189821d39d" />
+            <Directory Name="winnt" Path="c:\program files (x86)\garant-fs\apps\winnt" RNP="0x9" DNP="0xb" UniqueId="0x1cd" Id="000030ac43e44a3ffcf51e9664cc2ee19da0c8bac7a6" />
+            <Directory Name="settings" Path="c:\program files (x86)\garant-fs\settings" RNP="0x9" DNP="0xb" UniqueId="0x1d9" Id="0000640f24481574839ab34d85fad829617f870bbf93" />
+            <Directory Name="xmltools" Path="c:\program files (x86)\garant-fs\settings\xmltools" RNP="0x9" DNP="0xb" UniqueId="0x1de" Id="000035f0bdd49aaf077d994a23211ffc80184517b3cc" />
+            <Directory Name="win9x" Path="c:\program files (x86)\garant-fs\settings\xmltools\win9x" RNP="0x9" DNP="0xb" UniqueId="0x1df" Id="000048d463877643bde7b6242da82b77f9189821d39d" />
+            <Directory Name="winnt" Path="c:\program files (x86)\garant-fs\settings\xmltools\winnt" RNP="0x9" DNP="0xb" UniqueId="0x1e1" Id="000030ac43e44a3ffcf51e9664cc2ee19da0c8bac7a6" />
+            <Directory Name="tools" Path="c:\program files (x86)\garant-fs\tools" RNP="0x9" DNP="0xb" UniqueId="0x1e7" Id="0000fe29050c61eb4a5b8c131dd2ba453a5fb9611ef4" />
+            <Directory Name="schedule" Path="c:\program files (x86)\garant-fs\tools\schedule" RNP="0x9" DNP="0xb" UniqueId="0x1e8" Id="0000e3b8364cb1d119d7d92e15127ad182ff81bdec7b" />
+          </DirectoryIndicators>
+        </Indicators>
+        <StaticProperties>
+          <Files Id="0000709225af593eceb4a0d29a3ec608273581d906e7">
+            <File Name="garant.exe" Id="0000092eab1999119b350e0c6c6d54a75847ad37d5ee" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.4.0.210" Size="0x1b0150" SizeOfImage="0x20d000" PeChecksum="0x1bfa04" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.210" BinFileVersion="7.4.0.210" FileDescription="ГАРАНТ - утилита запуска" InternalName="garant" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:24:16" Modified="08/05/2009 00:24:16" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="garant.exe" Path="C:\Program Files (x86)\Garant-FS" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\garant.exe" LongPathHash="0000f3eb1cee5a963dbade6933477dd48fa39fd72b8d" UniqueId="0x22a" />
+            <File Name="download.exe" Id="0000716520108aac7757e636f86e51223956412423b9" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.4.0.157" Size="0x46950" SizeOfImage="0x85000" PeChecksum="0x560e6" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.157" BinFileVersion="7.4.0.157" FileDescription="ГАРАНТ - утилита запуска загрузки файлов пакетного пополнения" InternalName="download" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:23:40" Modified="08/05/2009 00:23:40" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="download.exe" Path="C:\Program Files (x86)\Garant-FS" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\download.exe" LongPathHash="00007b964613ff5ff7e3deb0b561e15c7356d1e92062" UniqueId="0x22c" />
+            <File Name="dataupd.exe" Id="0000013ffaaf33abfd29df583fcdbc690e6382fa3e2d" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.4.0.157" Size="0x47150" SizeOfImage="0x86000" PeChecksum="0x51e04" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.157" BinFileVersion="7.4.0.157" FileDescription="ГАРАНТ - утилита запуска пакетного пополнения" InternalName="dataupd" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:23:34" Modified="08/05/2009 00:23:34" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="dataupd.exe" Path="C:\Program Files (x86)\Garant-FS" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\dataupd.exe" LongPathHash="0000d94b3bdcdae7161800348c9fcd087533bf8fa184" UniqueId="0x22e" />
+            <File Name="datasetup.exe" Id="00007441a70f75ccc658cb71714d5353e030ae7b4867" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" ShortName="DATASE~1.EXE" FileVersion="7.4.0.166" Size="0x144088" SizeOfImage="0x18a000" PeChecksum="0x14d843" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.166" BinFileVersion="7.4.0.166" FileDescription="ГАРАНТ - утилита запуска установки данных" InternalName="datasetup" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:23:30" Modified="08/05/2009 00:23:30" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="datasetup.exe" Path="C:\Program Files (x86)\Garant-FS" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\datasetup.exe" LongPathHash="00001917015405d5f78c8c53732440bfb0c53a0c43c6" UniqueId="0x230" />
+            <File Name="CSAdapter.dll" Id="0000eb66a562600344515fb5dc6075c716fa7ee9d6b3" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" ShortName="CSADAP~1.DLL" FileVersion="7.04.0" Size="0x1a6750" SizeOfImage="0x1ae000" PeChecksum="0x1abc4a" PeImageType="0x14c" PeSubsystem="3" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="Система ГАРАНТ - библиотека контекстного поиска" InternalName="CSAdapter" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="9.0" LinkDate="08/04/2009 23:47:25" BinaryType="UNKNOWN" Created="08/05/2009 00:10:42" Modified="08/05/2009 00:10:42" OriginalFilename="CSAdapter.dll" Path="C:\Program Files (x86)\Garant-FS\apps\winNT" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\winnt\csadapter.dll" LongPathHash="000042fc4f37e7101f4f16e39c4c82b6f802530b4fa1" UniqueId="0xb" />
+            <File Name="GL.dll" Id="00005ffa26f085705c87fba0ded992aaff8759459102" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.04.0" Size="0x15f350" SizeOfImage="0x16d000" PeChecksum="0x163e30" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="ГАРАНТ - библиотека построения классификатора" InternalName="GLDll" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="9.0" LinkDate="08/05/2009 00:03:10" BinaryType="UNKNOWN" Created="08/05/2009 00:12:30" Modified="08/05/2009 00:12:30" OriginalFilename="gl.dll" Path="C:\Program Files (x86)\Garant-FS\apps\winNT" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\winnt\gl.dll" LongPathHash="0000c92ac2ba747dfdb009abd348af6dafb5865cb98d" UniqueId="0xc" />
+            <File Name="GSOCK32.dll" Id="0000122559d3dd15293dd1c8e670b35f33644e8405af" ProductName="GarSock" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.04.0" Size="0x26750" SizeOfImage="0x2c000" PeChecksum="0x334b6" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="GarSock - эмулятор локальной сети для WinSock 1.1" InternalName="GarSock" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="9.0" LinkDate="08/04/2009 23:41:51" BinaryType="UNKNOWN" Created="08/05/2009 00:10:56" Modified="08/05/2009 00:10:56" OriginalFilename="gsock32.dll" Path="C:\Program Files (x86)\Garant-FS\apps\winNT" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\winnt\gsock32.dll" LongPathHash="000011cd7f36f631dd38bc6dd2100c3b6329392a6cbe" UniqueId="0xd" />
+            <File Name="GU974.dll" Id="00009598a027bfedae77bdc25debe304eedea7932dae" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.04.0" Size="0x1d3f50" SizeOfImage="0x1eb000" PeChecksum="0x1df677" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="ГАРАНТ - библиотека пакетного обновления" InternalName="GUDll" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="9.0" LinkDate="08/05/2009 00:04:02" BinaryType="UNKNOWN" Created="08/05/2009 00:12:40" Modified="08/05/2009 00:12:40" OriginalFilename="gu.dll" Path="C:\Program Files (x86)\Garant-FS\apps\winNT" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\winnt\gu974.dll" LongPathHash="0000b2b265abd871ca41da4fd81173139eda159e4d3f" UniqueId="0xe" />
+            <File Name="CSAdapter.dll" Id="0000b84c58fa418d64044a39a9a8ae049834b02debe0" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" ShortName="CSADAP~1.DLL" FileVersion="7.04.0" Size="0x1a6750" SizeOfImage="0x1ae000" PeChecksum="0x1a7a79" PeImageType="0x14c" PeSubsystem="3" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="Система ГАРАНТ - библиотека контекстного поиска" InternalName="CSAdapter" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="9.0" LinkDate="08/04/2009 22:46:43" BinaryType="UNKNOWN" Created="08/05/2009 00:10:40" Modified="08/05/2009 00:10:40" OriginalFilename="CSAdapter.dll" Path="C:\Program Files (x86)\Garant-FS\apps\win9X" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\win9x\csadapter.dll" LongPathHash="0000263ceec1945865be62421b4a450206eaa45493b4" UniqueId="0xbf" />
+            <File Name="GL.dll" Id="00008473de1fd421c644e2defe538e6a185578ca971f" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.04.0" Size="0x15f150" SizeOfImage="0x16d000" PeChecksum="0x169862" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="ГАРАНТ - библиотека построения классификатора" InternalName="GLDll" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="9.0" LinkDate="08/04/2009 23:01:28" BinaryType="UNKNOWN" Created="08/05/2009 00:12:28" Modified="08/05/2009 00:12:28" OriginalFilename="gl.dll" Path="C:\Program Files (x86)\Garant-FS\apps\win9X" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\win9x\gl.dll" LongPathHash="0000b9b854d0298f52cdf473ffecc67e10c69469a41f" UniqueId="0xc0" />
+            <File Name="GSOCK32.dll" Id="0000004dd266978923b9cfd529734ebf18d6a1553d3d" ProductName="GarSock" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.04.0" Size="0x26750" SizeOfImage="0x2c000" PeChecksum="0x2ddd6" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="GarSock - эмулятор локальной сети для WinSock 1.1" InternalName="GarSock" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="9.0" LinkDate="08/04/2009 22:41:47" BinaryType="UNKNOWN" Created="08/05/2009 00:10:54" Modified="08/05/2009 00:10:54" OriginalFilename="gsock32.dll" Path="C:\Program Files (x86)\Garant-FS\apps\win9X" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\win9x\gsock32.dll" LongPathHash="0000d5f769d1ed1c3d44677147364c58ee8b646a0d84" UniqueId="0xc1" />
+            <File Name="GU974.dll" Id="000068b25a48f3a119a7e9bdc27a5c95cabd5e8552fe" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.04.0" Size="0x1d3d50" SizeOfImage="0x1eb000" PeChecksum="0x1d76c5" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="ГАРАНТ - библиотека пакетного обновления" InternalName="GUDll" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="9.0" LinkDate="08/04/2009 23:02:18" BinaryType="UNKNOWN" Created="08/05/2009 00:12:38" Modified="08/05/2009 00:12:38" OriginalFilename="gu.dll" Path="C:\Program Files (x86)\Garant-FS\apps\win9X" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\win9x\gu974.dll" LongPathHash="0000948f3df8cde9deefad046860a698fce4c64ae9a8" UniqueId="0xc2" />
+            <File Name="F1ConsultingChecker.exe" Id="0000d7237a4959ff17f9e1b49f06cb7cd202c5b9fd64" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" ShortName="F1CONS~1.EXE" FileVersion="7.4.0.31" Size="0xc1550" SizeOfImage="0x100000" PeChecksum="0xc2e29" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.31" BinFileVersion="7.4.0.31" FileDescription="ГАРАНТ - утилита запуска проверки доступности сервера консультаций" InternalName="F1ConsultingChecker" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:23:46" Modified="08/05/2009 00:23:46" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="F1ConsultingChecker.exe" Path="c:\program files (x86)\garant-fs\apps" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\f1consultingchecker.exe" LongPathHash="00000468bf33f946c89ab81df94937ef7866f5e3021f" UniqueId="0x1c3" />
+            <File Name="F1EasyUpdate.exe" Id="0000d4108b1f64c7a97a3b0944686bd3fe2289434cfd" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" ShortName="F1EASY~1.EXE" FileVersion="7.4.0.30" Size="0xfc440" SizeOfImage="0x164000" PeChecksum="0x10bb26" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.30" BinFileVersion="7.4.0.30" FileDescription="ГАРАНТ - утилита настройки параметров автоматического обновления" InternalName="F1EasyUpdate" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:23:52" Modified="08/05/2009 00:23:52" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="F1EasyUpdate.exe" Path="c:\program files (x86)\garant-fs\apps" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\f1easyupdate.exe" LongPathHash="0000cfc9efc497eebf8f8bafac329a243eed13bffb29" UniqueId="0x1c4" />
+            <File Name="F1Prime.exe" Id="0000d19ef1bc68323614d1a02d77379e6459f2cc5959" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.4.0.49" Size="0xc1350" SizeOfImage="0x100000" PeChecksum="0xc9a62" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.49" BinFileVersion="7.4.0.49" FileDescription="ГАРАНТ - утилита запуска заказа рассылки" InternalName="F1Prime" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:23:58" Modified="08/05/2009 00:23:58" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="F1Prime.exe" Path="c:\program files (x86)\garant-fs\apps" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\f1prime.exe" LongPathHash="000008c9f48a6a193f0d582f61c47db90ebb6c0c5619" UniqueId="0x1c5" />
+            <File Name="F1SendMail.exe" Id="0000ac603a7409435c8dd7086b1d79d52d49a713359d" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" ShortName="F1SEND~1.EXE" FileVersion="7.4.0.9" Size="0x28e08" SizeOfImage="0x2e000" PeChecksum="0x2dfb3" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.9" BinFileVersion="7.4.0.9" FileDescription="ГАРАНТ - утилита отправки почты" InternalName="F1SendMail" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:24:02" Modified="08/05/2009 00:24:02" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="F1SendMail.exe" Path="c:\program files (x86)\garant-fs\apps" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\f1sendmail.exe" LongPathHash="0000e197b479dc877c69d40db93f1bf3bfc7cebfd6f8" UniqueId="0x1c6" />
+            <File Name="F1Sleep.exe" Id="0000c35a8bef22b19cf46729e13e69afe74915759804" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.4.0.6" Size="0x19750" SizeOfImage="0x2d000" PeChecksum="0x1e727" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.6" BinFileVersion="7.4.0.6" FileDescription="ГАРАНТ - утилита ожидания" InternalName="F1Sleep" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:24:08" Modified="08/05/2009 00:24:08" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="F1Sleep.exe" Path="c:\program files (x86)\garant-fs\apps" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\apps\f1sleep.exe" LongPathHash="0000f130b367d0af2c9de7d9fab1b6ddbdb249a4e4d7" UniqueId="0x1c7" />
+            <File Name="gclean.exe" Id="000037f90ef95770627234104b88959efb19c91df62b" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" FileVersion="7.4.0.53" Size="0xc2b50" SizeOfImage="0x103000" PeChecksum="0xc312d" PeImageType="0x14c" PeSubsystem="2" BinProductVersion="7.4.0.53" BinFileVersion="7.4.0.53" FileDescription="ГАРАНТ - утилита удаления локальных настроек" InternalName="gclean" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="06/19/1992 22:22:17" BinaryType="32BIT" Created="08/05/2009 00:24:22" Modified="08/05/2009 00:24:22" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="gclean.exe" Path="c:\program files (x86)\garant-fs\settings" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\settings\gclean.exe" LongPathHash="000092b804a170c4de3e19d7810e49fe25c6e57de59d" UniqueId="0x1da" />
+            <File Name="F1UsersSave.exe" Id="000030ef5d8647683cb6c5b65553d645069649d4b2d7" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" ShortName="F1USER~1.EXE" FileVersion="7.04.0" Size="0x796638" SizeOfImage="0xebe000" PeChecksum="0x798833" PeImageType="0x14c" PeSubsystem="3" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="ГАРАНТ - утилита сохранения пользователей" InternalName="XMLSave" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="08/04/2009 23:05:22" BinaryType="32BIT" Created="08/05/2009 00:12:16" Modified="08/05/2009 00:12:16" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="F1UsersSave.exe" Path="c:\program files (x86)\garant-fs\settings\xmltools\win9X" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\settings\xmltools\win9x\f1userssave.exe" LongPathHash="0000b4214c22589c56cd2867e0f56c9dd07b087e92b0" UniqueId="0x1e0" />
+            <File Name="F1UsersSave.exe" Id="0000bd8ec25dccebd1895927a9bc69995ae4cbff352b" ProductName="ГАРАНТ. Платформа F1" CompanyName="ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;" ProductVersion="7" VerLanguage="1049" ShortName="F1USER~1.EXE" FileVersion="7.04.0" Size="0x798c88" SizeOfImage="0xec1000" PeChecksum="0x7a2ac1" PeImageType="0x14c" PeSubsystem="3" BinProductVersion="7.4.0.0" BinFileVersion="7.4.0.0" FileDescription="ГАРАНТ - утилита сохранения пользователей" InternalName="XMLSave" LegalCopyright="(C) ООО НПП &quot;ГАРАНТ-СЕРВИС&quot;, 1990-2009" LinkerVersion="6.0" LinkDate="08/05/2009 00:07:12" BinaryType="32BIT" Created="08/05/2009 00:12:18" Modified="08/05/2009 00:12:18" RunLevel="AsInvoker" UiAccess="false" OriginalFilename="F1UsersSave.exe" Path="c:\program files (x86)\garant-fs\settings\xmltools\winNT" RNP="0x4" DNP="0x5" LowerCaseLongPath="c:\program files (x86)\garant-fs\settings\xmltools\winnt\f1userssave.exe" LongPathHash="0000c5e641bc31d0735fadc0a042b9b07909eb7ef5d0" UniqueId="0x1e2" />
+            <File Name="F1EasyUpdateJob.bat" Id="00005a2b5b85835a67acb1d21658cf049dbb88f4d06b" ShortName="F1EASY~1.BAT" Size="0x2955" BinaryType="UNKNOWN" Created="01/19/2009 22:16:44" Modified="01/19/2009 22:16:44" Path="c:\program files (x86)\garant-fs\tools\schedule" RNP="0xa" DNP="0x9" LowerCaseLongPath="c:\program files (x86)\garant-fs\tools\schedule\f1easyupdatejob.bat" LongPathHash="000028d606c810b49711d59d496d248c186eef6284ae" UniqueId="0x1e9" />
+            <File Name="F1EasyUpdateSet.bat" Id="00007f814442410e6fd3a908ae407ccbf8bf79da2037" ShortName="F1EASY~2.BAT" Size="0x376" BinaryType="UNKNOWN" Created="10/11/2008 01:38:56" Modified="10/11/2008 01:38:56" Path="c:\program files (x86)\garant-fs\tools\schedule" RNP="0xa" DNP="0x9" LowerCaseLongPath="c:\program files (x86)\garant-fs\tools\schedule\f1easyupdateset.bat" LongPathHash="00001f55532e2d7d08d221f02c1c183232e697c30c6a" UniqueId="0x1ea" />
+          </Files>
+        </StaticProperties>
+      </Program>
+    </Installed_Programs>
+  </APPLICATIONS>
+</REPORT>

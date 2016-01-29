@@ -1,0 +1,1 @@
+call W:\common\env\.call_compile_res.cmd W:\archi\

@@ -1,0 +1,65 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.copyFileToDir"
+	language = "javascript"
+>
+	<attribute name = "file"/>
+	<attribute name = "to.dir"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_file = (
+				attributes.get ("file")
+			);
+
+			if (a_file != null) {
+				var l_fileFile = new File (a_file);
+				var l_filePath = l_fileFile.getPath ();
+
+				a_file = l_filePath;
+			}
+
+			var a_toDir = (
+				attributes.get ("to.dir")
+			);
+
+			if (a_toDir != null) {
+				var l_toDirFile = new File (a_toDir);
+				var l_toDirPath = l_toDirFile.getPath ();
+
+				a_toDir = l_toDirPath;
+			}
+
+			var l_copyTask = project.createTask ("copy"); {
+				l_copyTask.setFailOnError (true);
+				l_copyTask.setFile (new File (a_file));
+				l_copyTask.setOverwrite (true);
+				l_copyTask.setPreserveLastModified (true);
+				l_copyTask.setTodir (new File (a_toDir));
+				l_copyTask.setVerbose (true);
+
+				l_copyTask.reconfigure ();
+			}
+
+			l_copyTask.execute ();
+		}
+	]]>
+</scriptdef>

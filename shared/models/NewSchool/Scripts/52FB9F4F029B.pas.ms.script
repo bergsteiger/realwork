@@ -1,0 +1,63 @@
+// TcsMessageRecepient 52FB9F4F029B SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+FORWARD ME_52FB9F4F029B
+
+INCLUDE '53A2F5F9024F.pas.ms.script'
+
+: ME_53A2EA1701BB
+ CONST UID '53A2EA1701BB'
+ CONST Name 'Messages'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_53A2EA3D0044 // TddClientMessageSortableList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_53A2EA1701BB Messages
+
+: ME_B9CC7F9FDC25
+ CONST UID 'B9CC7F9FDC25'
+ CONST Name 'f_Messages'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Messages' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_53A2EA3D0044 // TddClientMessageSortableList
+ ;
+
+ @SELF
+; // ME_B9CC7F9FDC25 f_Messages
+
+: ME_52FB9F4F029B
+ CONST UID '52FB9F4F029B'
+ CONST Name 'TcsMessageRecepient'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_53A2EA1701BB // Messages
+ ME_B9CC7F9FDC25 // f_Messages
+ ]
+ ; // Attributes
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52FB9F4F029B TcsMessageRecepient

@@ -1,0 +1,1065 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/NotificationSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::NotificationSupport
+//
+// набор вспомогательных функций для генерации модели нотификаций
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Дампит определение метода для отправки нотификации
+//f _dump_supply_idl
+: dump_supply_idl OBJECT IN %S
+//#UC START# *47FC954802E3*
+//	#oneway void send_%f_to_omg(%TN) (%t_arg_idl(%T,"in") %f_to_omg(%TN));
+ out_indent 'oneway void send_'
+ [%f] to_omg %( %T |N )% ' ('
+ [%t] arg_idl %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ');'
+//	
+//	#oneway void send_%f_to_omg(%TN)_personal (%t_arg_idl(%T,"in") %f_to_omg(%TN), in long personal_id);
+ out_indent 'oneway void send_'
+ [%f] to_omg %( %T |N )% '_personal ('
+ [%t] arg_idl %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ', in long personal_id);'
+//	
+//#UC END# *47FC954802E3*
+; // dump_supply_idl
+
+
+// Дампит определение метода для получения нотификации
+//f _dump_consume_idl
+: dump_consume_idl OBJECT IN %S
+//#UC START# *47FCA49F00A8*
+//	#void subscribe_for_common_%f_to_omg(%TN) ();
+ out_indent 'void subscribe_for_common_'
+ [%f] to_omg %( %T |N )% ' ();'
+//	
+//	#void subscribe_for_personal_%f_to_omg(%TN) (in long personal_id);
+ out_indent 'void subscribe_for_personal_'
+ [%f] to_omg %( %T |N )% ' (in long personal_id);'
+//	
+//	#void unsubscribe_from_%f_to_omg(%TN) ();
+ out_indent 'void unsubscribe_from_'
+ [%f] to_omg %( %T |N )% ' ();'
+//	
+//#UC END# *47FCA49F00A8*
+; // dump_consume_idl
+
+
+// Дампит определение метода для отправки нотификации на интерфейсе
+//f _dump_supply_interface_h
+: dump_supply_interface_h OBJECT IN %S
+//#UC START# *47FC95740135*
+//	#//supplier's methods for %f_type(%T)
+ out_indent '//supplier''s methods for '
+ [%f] type %( %T )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#virtual void send_%f_to_omg(%TN) (%t_arg(%T,"in") %f_to_omg(%TN)) const = 0;
+ end // if
+ NOP
+ out_indent 'virtual void send_'
+ [%f] to_omg %( %T |N )% ' ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ') const = 0;'
+//	
+//	#virtual void send_%f_to_omg(%TN)_personal (%t_arg(%T,"in") %f_to_omg(%TN), long personal_id) const = 0;[
+ out_indent 'virtual void send_'
+ [%f] to_omg %( %T |N )% '_personal ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ', long personal_id) const = 0;'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47FC95740135*
+; // dump_supply_interface_h
+
+
+// Дампит определение метода для отправки нотификации на интерфейсе
+//f _dump_supply_interface_java
+: dump_supply_interface_java OBJECT IN %S
+//#UC START# *47FC95A70170*
+//	#//supplier's methods for %f_type(%T)
+ out_indent '//supplier''s methods for '
+ [%f] type %( %T )% 
+//	#void send%f_to_borland(%TN) (%t_arg(%T,"in") %f_to_java(%f_to_omg(%TN)));
+ out_indent 'void send'
+ [%f] to_borland %( %T |N )% ' ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ');'
+//	
+//	#void send%f_to_borland(%TN)Personal (%t_arg(%T,"in") %f_to_java(%f_to_omg(%TN)), int personalId);
+ out_indent 'void send'
+ [%f] to_borland %( %T |N )% 'Personal ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ', int personalId);'
+//#UC END# *47FC95A70170*
+; // dump_supply_interface_java
+
+
+// Дампит определение метода для получения нотификации на интерфейсе
+//f _dump_consume_interface_h
+: dump_consume_interface_h OBJECT IN %S
+//#UC START# *480EE1C000DD*
+//	#//consumers's methods for %f_type(%T)
+ out_indent '//consumers''s methods for '
+ [%f] type %( %T )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#virtual void subscribe_for_common_%f_to_omg(%TN) () = 0;
+ end // if
+ NOP
+ out_indent 'virtual void subscribe_for_common_'
+ [%f] to_omg %( %T |N )% ' () = 0;'
+//	
+//	#virtual void subscribe_for_personal_%f_to_omg(%TN) (long personal_id) = 0;
+ out_indent 'virtual void subscribe_for_personal_'
+ [%f] to_omg %( %T |N )% ' (long personal_id) = 0;'
+//	
+//	#virtual void unsubscribe_from_%f_to_omg(%TN) () = 0;[
+ out_indent 'virtual void unsubscribe_from_'
+ [%f] to_omg %( %T |N )% ' () = 0;'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *480EE1C000DD*
+; // dump_consume_interface_h
+
+
+// Дампит определение метода для получения нотификации на интерфейсе
+//f _dump_consume_interface_java
+: dump_consume_interface_java OBJECT IN %S
+//#UC START# *480EE1CA0255*
+//	#//consumers's methods for %f_type(%T)
+ out_indent '//consumers''s methods for '
+ [%f] type %( %T )% 
+//	#void subscribeForCommon%f_to_borland(%TN) ();
+ out_indent 'void subscribeForCommon'
+ [%f] to_borland %( %T |N )% ' ();'
+//	
+//	#void subscribeForPersonal%f_to_borland(%TN) (int personalId);
+ out_indent 'void subscribeForPersonal'
+ [%f] to_borland %( %T |N )% ' (int personalId);'
+//	
+//	#void unsubscribeFrom%f_to_borland(%TN) ();
+ out_indent 'void unsubscribeFrom'
+ [%f] to_borland %( %T |N )% ' ();'
+//#UC END# *480EE1CA0255*
+; // dump_consume_interface_java
+
+
+// Дампит определение метода для отправки нотификации на классе реализации
+//f _dump_supply_impl_h
+: dump_supply_impl_h OBJECT IN %S
+//#UC START# *47FC95BF00DD*
+//	#//supplier's methods for %f_type(%T)
+ out_indent '//supplier''s methods for '
+ [%f] type %( %T )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#virtual void send_%f_to_omg(%TN) (%t_arg(%T,"in") %f_to_omg(%TN))[{%f_is_server_type(%P)=false} const];
+ end // if
+ NOP
+ out_indent 'virtual void send_'
+ [%f] to_omg %( %T |N )% ' ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ')'
+ if ( ( [%f] is_server_type %( %P )% ) %==  false ) then
+ begin
+  ' const' 
+ end // if
+ ';'
+//	
+//	#virtual void send_%f_to_omg(%TN)_personal (%t_arg(%T,"in") %f_to_omg(%TN), [{%f_is_server_type(%P)=true}{long}CORBA::Long] personal_id)[{%f_is_server_type(%P)=false} const];[
+ out_indent 'virtual void send_'
+ [%f] to_omg %( %T |N )% '_personal ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ', '
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'CORBA::Long' 
+ end // if
+ else
+ begin
+  'long' 
+ end // else
+ ' personal_id)'
+ if ( ( [%f] is_server_type %( %P )% ) %==  false ) then
+ begin
+  ' const' 
+ end // if
+ ';'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47FC95BF00DD*
+; // dump_supply_impl_h
+
+
+// Дампит реализацию метода для отправки нотификации на классе реализации
+//f _dump_supply_impl_cpp
+: dump_supply_impl_cpp OBJECT IN %S
+//#UC START# *47FC95F601EB*
+//	//supplier's methods implementation for %f_type(%T)
+ '//supplier''s methods implementation for '
+ [%f] type %( %T )% 
+//	[%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  %S %f open_ifdef %( )% 
+//	]void %f_function_scope(%{SERV})send_%f_to_omg(%TN) (%t_arg(%T,"in") %f_to_omg(%TN))[{%f_is_server_type(%P)=false} const] {
+ end // if
+ NOP
+ 'void '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% 'send_'
+ [%f] to_omg %( %T |N )% ' ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ')'
+ if ( ( [%f] is_server_type %( %P )% ) %==  false ) then
+ begin
+  ' const' 
+ end // if
+ ' {'
+//		%f_type(%T)EventManager::instance ().send_notify (%f_to_omg(%TN));
+ '	'
+ [%f] type %( %T )% 'EventManager::instance ().send_notify ('
+ [%f] to_omg %( %T |N )% ');'
+//	}
+ '}'
+//	
+//	void %f_function_scope(%{SERV})send_%f_to_omg(%TN)_personal (%t_arg(%T,"in") %f_to_omg(%TN), [{%f_is_server_type(%P)=true}{long}CORBA::Long] personal_id)[{%f_is_server_type(%P)=false} const] {
+ 'void '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% 'send_'
+ [%f] to_omg %( %T |N )% '_personal ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ', '
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'CORBA::Long' 
+ end // if
+ else
+ begin
+  'long' 
+ end // else
+ ' personal_id)'
+ if ( ( [%f] is_server_type %( %P )% ) %==  false ) then
+ begin
+  ' const' 
+ end // if
+ ' {'
+//		%f_type(%T)EventManager::instance ().send_personal_notify (%f_to_omg(%TN), personal_id);
+ '	'
+ [%f] type %( %T )% 'EventManager::instance ().send_personal_notify ('
+ [%f] to_omg %( %T |N )% ', personal_id);'
+//	}[
+ '}'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47FC95F601EB*
+; // dump_supply_impl_cpp
+
+
+// Дампит  метод для отправки нотификации на классе реализации
+//f _dump_supply_impl_java
+: dump_supply_impl_java OBJECT IN %S
+//#UC START# *47FC961300B4*
+//	#//supplier's methods for %f_type(%T)
+ out_indent '//supplier''s methods for '
+ [%f] type %( %T )% 
+//	#public void [{%f_is_server_type(%P)=true}{send%f_to_borland(%TN)}send_%f_to_omg(%TN)] (%t_arg(%T,"in") %f_to_java(%f_to_omg(%TN))) {
+ out_indent 'public void '
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'send_'
+  [%f] to_omg %( %T |N )% 
+ end // if
+ else
+ begin
+  'send'
+  [%f] to_borland %( %T |N )% 
+ end // else
+ ' ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ') {'
+//	#	%f_type(%T)EventManager.instance ().sendNotify (%f_to_java(%f_to_omg(%TN)));
+ out_indent '	'
+ [%f] type %( %T )% 'EventManager.instance ().sendNotify ('
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ');'
+//	#}
+ out_indent '}'
+//	
+//	#public void [{%f_is_server_type(%P)=true}{send%f_to_borland(%TN)Personal}send_%f_to_omg(%TN)_personal] (%t_arg(%T,"in") %f_to_java(%f_to_omg(%TN)), int personalId) {
+ out_indent 'public void '
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'send_'
+  [%f] to_omg %( %T |N )% '_personal' 
+ end // if
+ else
+ begin
+  'send'
+  [%f] to_borland %( %T |N )% 'Personal' 
+ end // else
+ ' ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ', int personalId) {'
+//	#	%f_type(%T)EventManager.instance ().sendPersonalNotify (%f_to_java(%f_to_omg(%TN)), personalId);
+ out_indent '	'
+ [%f] type %( %T )% 'EventManager.instance ().sendPersonalNotify ('
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ', personalId);'
+//	#}
+ out_indent '}'
+//#UC END# *47FC961300B4*
+; // dump_supply_impl_java
+
+
+// Дампит определение метода для получения нотификации на классе реализации
+//f _dump_consumer_impl_h
+: dump_consumer_impl_h OBJECT IN %S
+//#UC START# *47FC963D010D*
+//	#//consumer's methods for %f_type(%T)
+ out_indent '//consumer''s methods for '
+ [%f] type %( %T )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#virtual void subscribe_for_common_%f_to_omg(%TN) ();
+ end // if
+ NOP
+ out_indent 'virtual void subscribe_for_common_'
+ [%f] to_omg %( %T |N )% ' ();'
+//	
+//	#virtual void subscribe_for_personal_%f_to_omg(%TN) ([{%f_is_server_type(%P)=true}{long}CORBA::Long] personal_id);
+ out_indent 'virtual void subscribe_for_personal_'
+ [%f] to_omg %( %T |N )% ' ('
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'CORBA::Long' 
+ end // if
+ else
+ begin
+  'long' 
+ end // else
+ ' personal_id);'
+//	
+//	#virtual void unsubscribe_from_%f_to_omg(%TN) ();
+ out_indent 'virtual void unsubscribe_from_'
+ [%f] to_omg %( %T |N )% ' ();'
+//	
+//	#virtual void fire (%t_arg(%T,"in") %f_to_omg(%TN));[
+ out_indent 'virtual void fire ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ');'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47FC963D010D*
+; // dump_consumer_impl_h
+
+
+// Дампит реализацию метода для получения нотификации на классе реализации
+//f _dump_consumer_impl_cpp
+: dump_consumer_impl_cpp OBJECT IN %S
+//#UC START# *47FC965D01A4*
+//	//consumer's methods implementation for %f_type(%T)
+ '//consumer''s methods implementation for '
+ [%f] type %( %T )% 
+//	[%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  %S %f open_ifdef %( )% 
+//	]void %f_function_scope(%{SERV})subscribe_for_common_%f_to_omg(%TN) () {
+ end // if
+ NOP
+ 'void '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% 'subscribe_for_common_'
+ [%f] to_omg %( %T |N )% ' () {'
+//		if (m_%f_to_omg(%TN)_consumer.is_nil () == true) {
+ '	if (m_'
+ [%f] to_omg %( %T |N )% '_consumer.is_nil () == true) {'
+//			m_%f_to_omg(%TN)_consumer = new %f_type(%T)EventManager::%TNConsumerImpl\<%{SERV}N\> (this);
+ '		m_'
+ [%f] to_omg %( %T |N )% '_consumer = new '
+ [%f] type %( %T )% 'EventManager::'
+ %T |N 'ConsumerImpl<'
+ ( get_global_var ( 'SERV' ) |N ) '> (this);'
+//		}
+ '	}'
+//		%f_type(%T)EventManager::instance ().subscribe_for_common (m_%f_to_omg(%TN)_consumer.in ());
+ '	'
+ [%f] type %( %T )% 'EventManager::instance ().subscribe_for_common (m_'
+ [%f] to_omg %( %T |N )% '_consumer.in ());'
+//	}
+ '}'
+//	
+//	void %f_function_scope(%{SERV})subscribe_for_personal_%f_to_omg(%TN) ([{%f_is_server_type(%P)=true}{long}CORBA::Long] personal_id) {
+ 'void '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% 'subscribe_for_personal_'
+ [%f] to_omg %( %T |N )% ' ('
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'CORBA::Long' 
+ end // if
+ else
+ begin
+  'long' 
+ end // else
+ ' personal_id) {'
+//		if (m_%f_to_omg(%TN)_consumer.is_nil () == true) {
+ '	if (m_'
+ [%f] to_omg %( %T |N )% '_consumer.is_nil () == true) {'
+//			m_%f_to_omg(%TN)_consumer = new %f_type(%T)EventManager::%TNConsumerImpl\<%{SERV}N\> (this);
+ '		m_'
+ [%f] to_omg %( %T |N )% '_consumer = new '
+ [%f] type %( %T )% 'EventManager::'
+ %T |N 'ConsumerImpl<'
+ ( get_global_var ( 'SERV' ) |N ) '> (this);'
+//		}
+ '	}'
+//		%f_type(%T)EventManager::instance ().subscribe_for_personal (m_%f_to_omg(%TN)_consumer.in (), personal_id);
+ '	'
+ [%f] type %( %T )% 'EventManager::instance ().subscribe_for_personal (m_'
+ [%f] to_omg %( %T |N )% '_consumer.in (), personal_id);'
+//	}
+ '}'
+//	
+//	void %f_function_scope(%{SERV})unsubscribe_from_%f_to_omg(%TN) () {
+ 'void '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% 'unsubscribe_from_'
+ [%f] to_omg %( %T |N )% ' () {'
+//		if (m_%f_to_omg(%TN)_consumer.is_nil () == false) {
+ '	if (m_'
+ [%f] to_omg %( %T |N )% '_consumer.is_nil () == false) {'
+//			%f_type(%T)EventManager::instance ().unsubscribe (m_%f_to_omg(%TN)_consumer.in ());
+ '		'
+ [%f] type %( %T )% 'EventManager::instance ().unsubscribe (m_'
+ [%f] to_omg %( %T |N )% '_consumer.in ());'
+//		}
+ '	}'
+//	}
+ '}'
+//	
+//	void %f_function_scope(%{SERV})fire (%t_arg(%T,"in") %f_to_omg(%TN)) {
+ 'void '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% 'fire ('
+ [%t] arg %( %T %, 'in' )% ' '
+ [%f] to_omg %( %T |N )% ') {'
+//		%U[{_%{SERV}U_FIRE_IMPL}
+ '	'
+ %Usersection (
+  '_'
+  ( get_global_var ( 'SERV' ) |U ) '_FIRE_IMPL' 
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //	}[
+ '}'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47FC965D01A4*
+; // dump_consumer_impl_cpp
+
+
+// Дампит реализацию метода для получения нотификации на классе реализации
+//f _dump_consumer_impl_java
+: dump_consumer_impl_java OBJECT IN %S
+//#UC START# *47FC969D0302*
+//	#//consumer's methods for %f_type(%T)
+ out_indent '//consumer''s methods for '
+ [%f] type %( %T )% 
+//	#public void [{%f_is_server_type(%P)=true}{subscribeForCommon%f_to_borland(%TN)}subscribe_for_common_%f_to_omg(%TN)] () {
+ out_indent 'public void '
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'subscribe_for_common_'
+  [%f] to_omg %( %T |N )% 
+ end // if
+ else
+ begin
+  'subscribeForCommon'
+  [%f] to_borland %( %T |N )% 
+ end // else
+ ' () {'
+//	#	%f_type(%T)EventManager.instance ().subscribeForCommon (this);
+ out_indent '	'
+ [%f] type %( %T )% 'EventManager.instance ().subscribeForCommon (this);'
+//	#}
+ out_indent '}'
+//	
+//	#public void [{%f_is_server_type(%P)=true}{subscribeForPersonal%f_to_borland(%TN)}subscribe_for_personal_%f_to_omg(%TN)] (int personalId) {
+ out_indent 'public void '
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'subscribe_for_personal_'
+  [%f] to_omg %( %T |N )% 
+ end // if
+ else
+ begin
+  'subscribeForPersonal'
+  [%f] to_borland %( %T |N )% 
+ end // else
+ ' (int personalId) {'
+//	#	%f_type(%T)EventManager.instance ().subscribeForPersonal (this, personalId);
+ out_indent '	'
+ [%f] type %( %T )% 'EventManager.instance ().subscribeForPersonal (this, personalId);'
+//	#}
+ out_indent '}'
+//	
+//	#public void [{%f_is_server_type(%P)=true}{unsubscribeFrom%f_to_borland(%TN)}unsubscribe_from_%f_to_omg(%TN)] () {
+ out_indent 'public void '
+ if ( ( [%f] is_server_type %( %P )% ) %==  true ) then
+ begin
+  'unsubscribe_from_'
+  [%f] to_omg %( %T |N )% 
+ end // if
+ else
+ begin
+  'unsubscribeFrom'
+  [%f] to_borland %( %T |N )% 
+ end // else
+ ' () {'
+//	#	%f_type(%T)EventManager.instance ().unsubscribe (this);
+ out_indent '	'
+ [%f] type %( %T )% 'EventManager.instance ().unsubscribe (this);'
+//	#}
+ out_indent '}'
+//	
+//	#/*oneway*/
+ out_indent '/*oneway*/'
+//	#public void fire (final %f_type(%T) %f_to_java(%f_to_omg(%TN))) {
+ out_indent 'public void fire (final '
+ [%f] type %( %T )% ' '
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ') {'
+//	#	java.util.concurrent.Executor executor = ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ();
+ out_indent '	java.util.concurrent.Executor executor = ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ();'
+//	#	Runnable eval = new Runnable () {
+ out_indent '	Runnable eval = new Runnable () {'
+//	#		public void run() {
+ out_indent '		public void run() {'
+//	#			fireImpl (%f_to_java(%f_to_omg(%TN)));
+ out_indent '			fireImpl ('
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ');'
+//	#		}
+ out_indent '		}'
+//	#	};
+ out_indent '	};'
+//	#	executor.execute(eval);
+ out_indent '	executor.execute(eval);'
+//	#}
+ out_indent '}'
+//	
+//	#public void fireImpl (final %f_type(%T) %f_to_java(%f_to_omg(%TN))) {
+ out_indent 'public void fireImpl (final '
+ [%f] type %( %T )% ' '
+ [%f] to_java %( [%f] to_omg %( %T |N )% )% ') {'
+//	#	%U[{_%{SERV}U_FIRE_IMPL}
+ out_indent '	'
+ %Usersection (
+  '_'
+  ( get_global_var ( 'SERV' ) |U ) '_FIRE_IMPL' 
+ )
+ (
+  #13#10
+
+//	#	]
+  out_indent '	' 
+ ) // Usersection
+ //	#}
+ out_indent '}'
+//#UC END# *47FC969D0302*
+; // dump_consumer_impl_java
+
+
+// Дампит блок вспомогательных данных для получения нотификаций
+//f _dump_consumer_impl_data_h
+: dump_consumer_impl_data_h OBJECT IN %S
+//#UC START# *480EE1F80341*
+//	#//consumer's data for %f_type(%T)
+ out_indent '//consumer''s data for '
+ [%f] type %( %T )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#friend class %f_type(%T)EventManager::%TNConsumerImpl\<%{SERV}N\>;
+ end // if
+ NOP
+ out_indent 'friend class '
+ [%f] type %( %T )% 'EventManager::'
+ %T |N 'ConsumerImpl<'
+ ( get_global_var ( 'SERV' ) |N ) '>;'
+//	#%f_type(%T)EventManager::%TNConsumer_var m_%f_to_omg(%TN)_consumer;[
+ out_indent [%f] type %( %T )% 'EventManager::'
+ %T |N 'Consumer_var m_'
+ [%f] to_omg %( %T |N )% '_consumer;'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *480EE1F80341*
+; // dump_consumer_impl_data_h
+
+
+// Дампит блок вспомогательных данных для получения нотификаций
+//f _dump_consumer_impl_data_java
+: dump_consumer_impl_data_java OBJECT IN %S
+//#UC START# *480EE21D02C4*
+//	#//consumer's data for %f_type(%T)
+//	#private %f_type(%T)EventManager.%TNConsumer %f_to_java(%TN)Consumer_ = null;
+//#UC END# *480EE21D02C4*
+; // dump_consumer_impl_data_java
+
+
+// Дампит список необходимых include'ов
+//f _dump_consumers_suppliers_include
+: dump_consumers_suppliers_include OBJECT IN %S
+//#UC START# *480EE2430217*
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_clear_list(SUPPLY_DEP_LIST)\
+ [%f] clear_list %( 'SUPPLY_DEP_LIST' )% 
+//	%f_clear_list(SUPPLY_TARGET)\
+ [%f] clear_list %( 'SUPPLY_TARGET' )% 
+//	%f_collect_consumer_event(%S)\
+ [%f] collect_consumer_event %( %S )% 
+//	%f_collect_supply_event(%S)\
+ [%f] collect_supply_event %( %S )% 
+//	[<{}{%f_is_empty(CONSUME_DEP_LIST)=false}{W}%f_pop_first_to_var(CONSUME_DEP_LIST,CONSUME_DEP)[{%f_exists_in_list(SUPPLY_TARGET,"%{CONSUME_DEP}%TU")=false}%f_add_to_list(SUPPLY_DEP_LIST,{CONSUME_DEP})]>]\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'CONSUME_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'CONSUME_DEP_LIST' %, 'CONSUME_DEP' )% if ( ( [%f] exists_in_list %( 'SUPPLY_TARGET' %, ( get_global_var ( 'CONSUME_DEP' )  ->T |U ) )% ) %==  false ) then
+    begin
+     [%f] add_to_list %( 'SUPPLY_DEP_LIST' %, '{CONSUME_DEP}' )% 
+    end // if
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+//	[<{}{%f_is_empty(SUPPLY_DEP_LIST)=false}{W}%f_pop_first_to_var(SUPPLY_DEP_LIST,DEP)[\#include %f_with_gen_id(fctr.h,%f_dump_include_path(%{DEP}%TW,%{DEP}%T))
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'SUPPLY_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'SUPPLY_DEP_LIST' %, 'DEP' )% if NOT-EMPTY
+    begin
+     '#include '
+     [%f] with_gen_id %( 'fctr.h' %, [%f] dump_include_path %( ( get_global_var ( 'DEP' )  ->T |W ) %, ( get_global_var ( 'DEP' )  ->T ) )% )% 
+//	]>]\
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_clear_list(SUPPLY_DEP_LIST)\
+ [%f] clear_list %( 'SUPPLY_DEP_LIST' )% 
+//	%f_clear_list(SUPPLY_TARGET)
+ [%f] clear_list %( 'SUPPLY_TARGET' )% 
+//#UC END# *480EE2430217*
+; // dump_consumers_suppliers_include
+
+
+// Дампит определения необходмых методов для получения всех типов нотификаций, получаетелем которых
+// является элемент
+//f _dump_consumers_methods_h
+: dump_consumers_methods_h OBJECT IN %S
+//#UC START# *480EE260021D*
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_collect_consumer_event(%S)\
+ [%f] collect_consumer_event %( %S )% 
+//	[<{}{%f_is_empty(CONSUME_DEP_LIST)=false}{W}%f_pop_first_to_var(CONSUME_DEP_LIST,CONSUME_DEP)%f_dump_consumer_impl_h(%{CONSUME_DEP})
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'CONSUME_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'CONSUME_DEP_LIST' %, 'CONSUME_DEP' )% [%f] dump_consumer_impl_h %( ( get_global_var ( 'CONSUME_DEP' ) ) )% 
+//	>]%f_clear_list(CONSUME_DEP_LIST)%f_clear_list(CONSUME_TARGET)
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% [%f] clear_list %( 'CONSUME_TARGET' )% 
+//#UC END# *480EE260021D*
+; // dump_consumers_methods_h
+
+
+// Дампит реализацию необходмиых методов для получения всех типов нотификаций, получаетелем которых
+// является элемент
+//f _dump_consumers_methods_cpp
+: dump_consumers_methods_cpp OBJECT IN %S
+//#UC START# *480EE2A101C8*
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_collect_consumer_event(%S)\
+ [%f] collect_consumer_event %( %S )% 
+//	[<{}{%f_is_empty(CONSUME_DEP_LIST)=false}{W}%f_pop_first_to_var(CONSUME_DEP_LIST,CONSUME_DEP)%f_dump_consumer_impl_cpp(%{CONSUME_DEP})
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'CONSUME_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'CONSUME_DEP_LIST' %, 'CONSUME_DEP' )% [%f] dump_consumer_impl_cpp %( ( get_global_var ( 'CONSUME_DEP' ) ) )% 
+//	>]%f_clear_list(CONSUME_DEP_LIST)%f_clear_list(CONSUME_TARGET)
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% [%f] clear_list %( 'CONSUME_TARGET' )% 
+//#UC END# *480EE2A101C8*
+; // dump_consumers_methods_cpp
+
+
+// Дампит реализацию необходмиых методов для получения всех типов нотификаций, получаетелем которых
+// является элемент
+//f _dump_consumers_methods_java
+: dump_consumers_methods_java OBJECT IN %S
+//#UC START# *480EE2B600A4*
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_collect_consumer_event(%S)\
+ [%f] collect_consumer_event %( %S )% 
+//	[<{}{%f_is_empty(CONSUME_DEP_LIST)=false}{W}%f_pop_first_to_var(CONSUME_DEP_LIST,CONSUME_DEP)%f_dump_consumer_impl_java(%{CONSUME_DEP})
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'CONSUME_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'CONSUME_DEP_LIST' %, 'CONSUME_DEP' )% [%f] dump_consumer_impl_java %( ( get_global_var ( 'CONSUME_DEP' ) ) )% 
+//	>]%f_clear_list(CONSUME_DEP_LIST)%f_clear_list(CONSUME_TARGET)
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% [%f] clear_list %( 'CONSUME_TARGET' )% 
+//#UC END# *480EE2B600A4*
+; // dump_consumers_methods_java
+
+
+// Дампит определения необходмых методов для отправки всех типов нотификаций, поставщиком которых
+// является элемент.
+//f _dump_suppliers_methods_h
+: dump_suppliers_methods_h OBJECT IN %S
+//#UC START# *480EE7090308*
+//	%f_clear_list(SUPPLY_DEP_LIST)\
+ [%f] clear_list %( 'SUPPLY_DEP_LIST' )% 
+//	%f_clear_list(SUPPLY_TARGET)\
+ [%f] clear_list %( 'SUPPLY_TARGET' )% 
+//	%f_collect_supply_event(%S)\
+ [%f] collect_supply_event %( %S )% 
+//	[<{}{%f_is_empty(SUPPLY_DEP_LIST)=false}{W}%f_pop_first_to_var(SUPPLY_DEP_LIST,SUPPLY_DEP)%f_dump_supply_impl_h(%{SUPPLY_DEP})
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'SUPPLY_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'SUPPLY_DEP_LIST' %, 'SUPPLY_DEP' )% [%f] dump_supply_impl_h %( ( get_global_var ( 'SUPPLY_DEP' ) ) )% 
+//	>]%f_clear_list(SUPPLY_DEP_LIST)%f_clear_list(SUPPLY_TARGET)
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+ [%f] clear_list %( 'SUPPLY_DEP_LIST' )% [%f] clear_list %( 'SUPPLY_TARGET' )% 
+//#UC END# *480EE7090308*
+; // dump_suppliers_methods_h
+
+
+// Дампит реализацию необходмых методов для отправки всех типов нотификаций, поставщиком которых
+// является элемент.
+//f _dump_suppliers_methods_cpp
+: dump_suppliers_methods_cpp OBJECT IN %S
+//#UC START# *480EE71200BD*
+//	%f_clear_list(SUPPLY_DEP_LIST)\
+ [%f] clear_list %( 'SUPPLY_DEP_LIST' )% 
+//	%f_clear_list(SUPPLY_TARGET)\
+ [%f] clear_list %( 'SUPPLY_TARGET' )% 
+//	%f_collect_supply_event(%S)\
+ [%f] collect_supply_event %( %S )% 
+//	[<{}{%f_is_empty(SUPPLY_DEP_LIST)=false}{W}%f_pop_first_to_var(SUPPLY_DEP_LIST,SUPPLY_DEP)%f_dump_supply_impl_cpp(%{SUPPLY_DEP})
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'SUPPLY_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'SUPPLY_DEP_LIST' %, 'SUPPLY_DEP' )% [%f] dump_supply_impl_cpp %( ( get_global_var ( 'SUPPLY_DEP' ) ) )% 
+//	>]%f_clear_list(SUPPLY_DEP_LIST)%f_clear_list(SUPPLY_TARGET)
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+ [%f] clear_list %( 'SUPPLY_DEP_LIST' )% [%f] clear_list %( 'SUPPLY_TARGET' )% 
+//#UC END# *480EE71200BD*
+; // dump_suppliers_methods_cpp
+
+
+// Дампит реализацию необходмых методов для отправки всех типов нотификаций, поставщиком которых
+// является элемент.
+//f _dump_suppliers_methods_java
+: dump_suppliers_methods_java OBJECT IN %S
+//#UC START# *480EE71901B7*
+//	%f_clear_list(SUPPLY_DEP_LIST)\
+ [%f] clear_list %( 'SUPPLY_DEP_LIST' )% 
+//	%f_clear_list(SUPPLY_TARGET)\
+ [%f] clear_list %( 'SUPPLY_TARGET' )% 
+//	%f_collect_supply_event(%S)\
+ [%f] collect_supply_event %( %S )% 
+//	[<{}{%f_is_empty(SUPPLY_DEP_LIST)=false}{W}%f_pop_first_to_var(SUPPLY_DEP_LIST,SUPPLY_DEP)%f_dump_supply_impl_java(%{SUPPLY_DEP})
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'SUPPLY_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'SUPPLY_DEP_LIST' %, 'SUPPLY_DEP' )% [%f] dump_supply_impl_java %( ( get_global_var ( 'SUPPLY_DEP' ) ) )% 
+//	>]%f_clear_list(SUPPLY_DEP_LIST)%f_clear_list(SUPPLY_TARGET)
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+ [%f] clear_list %( 'SUPPLY_DEP_LIST' )% [%f] clear_list %( 'SUPPLY_TARGET' )% 
+//#UC END# *480EE71901B7*
+; // dump_suppliers_methods_java
+
+
+// Собирает список связей-consume для элемента (с учетом наследования)
+//f _collect_consumer_event
+: collect_consumer_event OBJECT IN %S
+//#UC START# *480EE733032A*
+//	<{}{%CC=Dependency&%CS=consume}[{%f_exists_in_list(CONSUME_TARGET,"%C%TU")=false}%f_add_to_list(CONSUME_DEP_LIST,C)%f_add_to_list(CONSUME_TARGET,"%C%TU")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Dependency' AND 
+   ( ( %C |S ) %== 'consume'  ) ) then
+  begin
+   if ( ( [%f] exists_in_list %( 'CONSUME_TARGET' %, %C ->T |U  )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( 'CONSUME_DEP_LIST' %, 'C' )% [%f] add_to_list %( 'CONSUME_TARGET' %, %C ->T |U  )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	<%f_collect_consumer_event(%R)><{}{%ga=abstract}%f_collect_consumer_event(%g)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] collect_consumer_event %( %R )% 
+   ++! l_Counter
+  end // if
+ end // for R
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%g
+ begin
+  OBJECT IN %g
+  if ( ( %g |a ) %== 'abstract' ) then
+  begin
+   [%f] collect_consumer_event %( %g )% 
+   ++! l_Counter
+  end // if
+ end // for g
+//#UC END# *480EE733032A*
+; // collect_consumer_event
+
+
+// Собирает список связей-supply для элемента (с учетом наследования)
+//f _collect_supply_event
+: collect_supply_event OBJECT IN %S
+//#UC START# *480EE7680229*
+//	<{}{%CC=Dependency&%CS=supply}[{%f_exists_in_list(SUPPLY_TARGET,"%C%TU")=false}%f_add_to_list(SUPPLY_DEP_LIST,C)%f_add_to_list(SUPPLY_TARGET,"%C%TU")]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Dependency' AND 
+   ( ( %C |S ) %== 'supply'  ) ) then
+  begin
+   if ( ( [%f] exists_in_list %( 'SUPPLY_TARGET' %, %C ->T |U  )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( 'SUPPLY_DEP_LIST' %, 'C' )% [%f] add_to_list %( 'SUPPLY_TARGET' %, %C ->T |U  )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	<%f_collect_supply_event(%R)><{}{%ga=abstract}%f_collect_supply_event(%g)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   [%f] collect_supply_event %( %R )% 
+   ++! l_Counter
+  end // if
+ end // for R
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%g
+ begin
+  OBJECT IN %g
+  if ( ( %g |a ) %== 'abstract' ) then
+  begin
+   [%f] collect_supply_event %( %g )% 
+   ++! l_Counter
+  end // if
+ end // for g
+//#UC END# *480EE7680229*
+; // collect_supply_event
+
+
+// Дампит блок данных необходимых для отправки всех типов нотификаций
+//f _dump_consumers_datas
+: dump_consumers_datas OBJECT IN %S
+//#UC START# *480EE80F039E*
+//	%f_clear_list(CONSUME_DEP_LIST)\
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% 
+//	%f_clear_list(CONSUME_TARGET)\
+ [%f] clear_list %( 'CONSUME_TARGET' )% 
+//	%f_collect_consumer_event(%S)\
+ [%f] collect_consumer_event %( %S )% 
+//	[<{}{%f_is_empty(CONSUME_DEP_LIST)=false}{W}%f_pop_first_to_var(CONSUME_DEP_LIST,CONSUME_DEP)
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'CONSUME_DEP_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'CONSUME_DEP_LIST' %, 'CONSUME_DEP' )% 
+//	%f_dump_consumer_impl_data_h(%{CONSUME_DEP})
+    [%f] dump_consumer_impl_data_h %( ( get_global_var ( 'CONSUME_DEP' ) ) )% 
+//	>]%f_clear_list(CONSUME_DEP_LIST)%f_clear_list(CONSUME_TARGET)
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+ [%f] clear_list %( 'CONSUME_DEP_LIST' )% [%f] clear_list %( 'CONSUME_TARGET' )% 
+//#UC END# *480EE80F039E*
+; // dump_consumers_datas
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

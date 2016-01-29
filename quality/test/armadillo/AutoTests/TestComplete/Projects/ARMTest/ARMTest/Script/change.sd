@@ -1,0 +1,508 @@
+uses func, maps, clicks, search, menu, list, make, common, StartStop;  
+
+
+// Изменение реквизитов клиента
+//       надо бы создавать нового клиента, иначе может оказаться что там уже что то заполнено, или удалять существующие записи
+
+procedure rekvisit;
+  var arm, rekv, cat, CatOld, i1, i2 : OleVariant;
+begin
+  arm := Sys.Process('Armadillo');
+  rekv := arm.frmMain.pInfo.pcAllParams.tsClientParams.GroupBox2;
+  arm.frmMain.pClientList.gwClientList.VScroll.Pos := 0;
+  arm.frmMain.pClientList.gwClientList.Click(146, 30);
+  arm.frmMain.pInfo.pcAllParams.ClickTab('Реквизиты клиента');    // идём в реквизиты клиента
+//  if rekv.edShortClientName.Text <> '111'         // проверили название клиента
+//    then Log.Error('не верное имя у первого элемента списка');
+  if rekv.cb_UCategory.wText <> 'Коммерческие'    // проверили категории
+    then Log.Error('не верная категория');
+  if rekv.chbClientNameLong.wState <> 0              // Проверка "полное наименование" 
+    then Log.Error('включено "полное наименование"');
+  if rekv.cb_Prefix.wSelectedItem <> -1             // Проверка "префикс" 
+    then Log.Error('включен "префикс"');
+  
+//  rekv.edShortClientName.Keys('[Home]![End]1111');
+  CatOld := rekv.cb_UCategory.wText;
+  
+    {проверка возможных значений поля "категория"}
+  for i1 := 1 to rekv.cb_UCategory.wItemCount do
+    begin
+      case i1 of
+        1 : cat := 'Коммерческие';
+        2 : cat := 'ОВиУ. Информационный обмен';
+        3 : cat := 'ОВиУ. Прочие';
+        4 : cat := 'УЗ. Гарант в учебном процессе';
+        5 : cat := 'УЗ. Прочие учебные заведения';
+        6 : cat := 'СМИ. Обмен';
+        7 : cat := 'Некоммерческие другие';
+      else Log.Error(VarToStr(rekv.cb_UCategory.wItemCount) + ' значений комбобокса, вместо 7');
+      end;
+      {порверяем диалог, который появляется после выбора "Некоммерческие другие" }
+      if cat = 'Некоммерческие другие' then
+        begin
+          for i2:=1 to 2 do                                              
+            begin
+              rekv.cb_UCategory.ClickItem(cat); {выбираем "Некоммерческие другие"}
+              if pos('Отнесение клиента к категории',arm.WaitWindow('TfRgnDialog', '*', -1, 500).VCLObject('Message').Caption) = 1
+              then
+                case i2 of
+                  1 :
+                    begin
+                      arm.Window('TfRgnDialog').Yes.Click;
+                      if rekv.cb_UCategory.wText <> Cat 
+                        then Log.Error('не установилось занчение ' + cat);
+                    end;
+                  2 :
+                    begin
+                      arm.Window('TfRgnDialog').No.Click;
+                      if rekv.cb_UCategory.wText <> CatOld
+                        then Log.Error('не пустое поле "категория"');
+                    end;
+                end
+              else log.error('окно "Отнесение клиента к категории..." не открылось');
+            end;
+        end; 
+  if rekv.cb_UCategory.wItem[i1-1] <> cat
+    then Log.Error('"' + rekv.cb_UCategory.wItem[i1-1] + '" не равно "' + cat + '"')
+//    else Log.Message('"' + rekv.cb_UCategory.wItem[i1-1] + '" равно "' + cat + '"');
+  end;
+  {проверка возможных значений поля "Префикс"}
+//  for i1 := 1 to rekv.cb_Prefix.wItemCount do
+    if (rekv.cb_Prefix.wItem[0] <> 'НПП') and (rekv.cb_Prefix.wItem[1] <> 'ООО')  
+      then Log.Error('в поле "Префикс" не верные значения');
+  rekv.cb_Prefix.ClickItem('ООО');                            // включили "НПП"  
+  
+  { проверка "полное название" }
+  rekv.chbClientNameLong.Click{(3, 11)}; 
+  if rekv.mmLongClientName.wText <> (rekv.cb_Prefix.wText + ' "' + rekv.edShortClientName.Text + '"')
+    then Log.Error('не верно отображается "полное название"');
+  
+  // балуемся с контактным лицом
+  for i1 := 1 to 15 do
+  begin
+    arm.frmMain.pInfo.pcAllParams.tsClientParams.GroupBox4.btnAddQuoter.ClickButton;
+    if IsExists(arm.WaitWindow('*', 'Редактирование представителя клиента', -1, 500)) = False 
+      then Log.Error('не открылся диалог "Редактирование представителя клиента"');
+    arm.frmAddQuoter.edLName.Keys(i1);
+    
+    for i2 := 1 to (i1 mod 6) do arm.frmAddQuoter.edPrefix.Keys(i2);
+    for i2 := 1 to (10 - (i1 mod 6)) do arm.frmAddQuoter.edNumber.Keys(i2);
+    arm.frmAddQuoter.btnOK.ClickButton;
+  end;  
+  arm.frmMain.pInfo.pcAllParams.tsClientParams.GroupBox4.btnAddQuoter.ClickButton;
+  if pos(arm.Window('TfRgnDialog', '', 1).VCLObject('Message').Caption, 'невозможно') = 0
+    then arm.Window('TfRgnDialog').OK.Click
+    else Log.Error('не появилось предупреждение об ограничении количества контактов');
+  
+  arm.frmMain.TBDock1.tbControls.Click(42, 13);
+  arm.Window('TfRgnDialog').Yes.Click;
+  
+  
+end;
+
+
+
+// измеряет длинну полей и способы закрытия диалога
+procedure ChangeContact;
+  var arm, rekv, OldLength : OleVariant;
+begin
+  arm := Sys.Process('Armadillo');
+  rekv := arm.frmMain.pInfo.pcAllParams.tsClientParams.GroupBox4;
+  ClickOnMainWindow('реквизиты');
+  if GetFromClientParams('Контактное лицо').RowCount < 1 
+    then
+      begin
+        arm.frmMain.pInfo.pcAllParams.tsClientParams.GroupBox4.btnAddQuoter.ClickButton;
+        if IsExists(arm.WaitWindow('*', 'Редактирование представителя клиента', -1, 500)) = False 
+          then Log.Error('не открылся диалог "Редактирование представителя клиента"');
+        arm.frmAddQuoter.edLName.Keys('контактное лицо');
+        arm.frmAddQuoter.edPrefix.Keys('11');
+        arm.frmAddQuoter.edNumber.Keys('11111111');
+        arm.frmAddQuoter.btnOK.ClickButton;
+      end;  
+  rekv.gwQuoterList.Click(553, 29);
+  rekv.gwQuoterList.Keys('[Home]');
+  rekv.btnEditQuoter.ClickButton;
+  if IsExists(arm.WaitWindow('*', 'Редактирование представителя клиента', -1, 500)) = False 
+    then Log.Error('не открылся диалог "Редактирование представителя клиента"');
+  // измеряем размер поля "Фамилия" 
+  if VarToStr(ObjLength(arm.frmAddQuoter.edLName)) <> 30
+  then Log.Message('размер поля "Фамилия" не 30 символов');
+  // измеряем размер поля "Имя" 
+  if VarToStr(ObjLength(arm.frmAddQuoter.edFName)) <> 30
+  then Log.Message('размер поля "Имя" не 30 символов');
+  // измеряем размер поля "Отчество" 
+  if VarToStr(ObjLength(arm.frmAddQuoter.edMName)) <> 30
+  then Log.Message('размер поля "Отчество" не 30 символов');
+  // измеряем размер поля "Примечание" 
+  if VarToStr(ObjLength(arm.frmAddQuoter.rePrim)) <> 100
+  then Log.Message('размер поля "Примечание" не 30 символов');
+  // закрываем разными способами
+    arm.frmAddQuoter.Close;
+  if IsExists(arm.WaitWindow('*', 'Редактирование представителя клиента', -1, 500)) then Log.Error('клик по крестику не закрыл диалог "Редактирование представителя клиента"');
+  
+  rekv.gwQuoterList.Click(553, 29);//
+  rekv.gwQuoterList.Keys('[Home]');//
+  rekv.btnEditQuoter.ClickButton;  // открыли диалог снова
+  arm.frmAddQuoter.edLName.Keys('[Esc]');        // жмём ESC
+  if IsExists(arm.WaitWindow('*', 'Редактирование представителя клиента', -1, 500)) then
+    begin
+      Log.Error('кнопка "ESC" не закрыла диалог "Редактирование представителя клиента"');
+      arm.frmAddQuoter.Close;
+    end;
+    
+  rekv.gwQuoterList.Click(553, 29);//
+  rekv.gwQuoterList.Keys('[Home]');//
+  rekv.btnEditQuoter.ClickButton;  // открыли диалог снова   
+  arm.frmAddQuoter.BitBtn2.ClickButton;     // жмём "отмена"
+  if IsExists(arm.WaitWindow('*', 'Редактирование представителя клиента', -1, 500)) then
+    begin
+      Log.Error('кнопка "отмена" не закрыла диалог "Редактирование представителя клиента"'); 
+      arm.frmAddQuoter.Close;           
+    end;      
+end;
+
+// редактор должностей в контактных лицах
+//
+procedure ContactDolzhn;
+  var arm, rekv : OleVariant;
+begin
+  arm := Sys.Process('Armadillo');
+  rekv := arm.frmMain.pInfo.pcAllParams.tsClientParams.GroupBox4;  
+  if GetFromClientParams('Контактное лицо').RowCount < 1 
+    then
+      begin
+        arm.frmMain.pInfo.pcAllParams.tsClientParams.GroupBox4.btnAddQuoter.ClickButton;
+        if IsExists(arm.WaitWindow('*', 'Редактирование представителя клиента', -1, 500)) = False 
+          then Log.Error('не открылся диалог "Редактирование представителя клиента"');
+        arm.frmAddQuoter.edLName.Keys('контактное лицо');
+        arm.frmAddQuoter.edPrefix.Keys('11');
+        arm.frmAddQuoter.edNumber.Keys('11111111');
+        arm.frmAddQuoter.btnOK.ClickButton;
+      end;
+  rekv.gwQuoterList.Click(553, 29);
+  rekv.gwQuoterList.Keys('[Home]');
+  rekv.btnEditQuoter.ClickButton;
+  arm.frmAddQuoter.btnPositionEditor.ClickButton;  // открыли редактор должностей
+  // проверка наличия кнопок
+  if (arm.frmDescrList.f_DescrListBox.btnAddItem.WndCaption <> 'Добавить')
+    or (arm.frmDescrList.f_DescrListBox.btnEditItem.WndCaption <> 'Изменить')
+    or (arm.frmDescrList.f_DescrListBox.btnDelItem.WndCaption <> 'Удалить')
+    or (arm.frmDescrList.btnOK.WndCaption <> 'Принять') or (arm.frmDescrList.btnCancel.WndCaption <> 'Отмена')
+    then Log.Error('в диалоге редактирования должностей отсутствует одна или более кнопок');
+  // порверка активности кнопок при не выделенном элементе
+//  if (arm.frmDescrList.f_DescrListBox.btnAddItem.Enabled = False)
+//    or arm.frmDescrList.f_DescrListBox.btnEditItem.Enabled
+//    or arm.frmDescrList.f_DescrListBox.btnDelItem.Enabled
+//    or arm.frmDescrList.btnOK.Enabled or (arm.frmDescrList.btnCancel.Enabled = False)
+//    then Log.Error('ни один элемент не выделен, состояние активности/неактивности кнопок не верное');  
+    
+  arm.frmDescrList.f_DescrListBox.btnAddItem.ClickButton;
+  arm.frmDescrEditor.ed_Descr.Keys('должность');
+  arm.frmDescrEditor.bbOK.ClickButton;
+  
+  arm.frmDescrList.f_DescrListBox.vtLister.Click(131, 10);
+  
+  // порверка активности кнопок при выделенном элементе
+  if (arm.frmDescrList.f_DescrListBox.btnAddItem.Enabled = False)
+    or (arm.frmDescrList.f_DescrListBox.btnEditItem.Enabled = False)
+    or (arm.frmDescrList.f_DescrListBox.btnDelItem.Enabled = False)
+    or (arm.frmDescrList.btnOK.Enabled = False) or (arm.frmDescrList.btnCancel.Enabled = False)
+    then Log.Error('выделен элемент, состояние активности/неактивности кнопок не верное');  
+  
+  arm.frmDescrList.btnOK.ClickButton;
+  //пробуем создать дубликат
+  arm.frmAddQuoter.btnPositionEditor.ClickButton;  // открыли редактор должностей
+  arm.frmDescrList.f_DescrListBox.btnAddItem.ClickButton;
+  arm.frmDescrEditor.ed_Descr.Keys('должность');
+  arm.frmDescrEditor.bbOK.ClickButton;
+  if pos('д', arm.WaitWindow('TfRgnDialog', '', 1, 500).VCLObject('Message').Caption) <> 3
+    then log.message('не появилось предупреждение о том "" должность " уже присутствует в списке"')
+    else arm.Window('TfRgnDialog').OK.Click; 
+  arm.frmDescrList.Close;
+  arm.frmAddQuoter.Close; //
+                          //проверяем закрытие диалога разными способами
+  arm := Sys.Process('Armadillo');
+  rekv := arm.frmMain.pInfo.pcAllParams.tsClientParams.GroupBox4;  
+  rekv.gwQuoterList.Click(553, 29);
+  rekv.gwQuoterList.Keys('[Home]');
+  rekv.btnEditQuoter.ClickButton;
+  arm.frmAddQuoter.btnPositionEditor.ClickButton;                               // открыли диалог снова
+  arm.frmDescrList.Close;  
+  if IsExists(arm.WaitWindow('*', 'Редактор должностей', -1, 500)) then Log.Error('клик по крестику не закрыл диалог "Редактор должностей"');
+  
+  arm.frmAddQuoter.btnPositionEditor.ClickButton;                               // открыли диалог снова
+  arm.frmDescrList.btnCancel.Keys('[Esc]');                                     // жмём ESC
+  if IsExists(arm.WaitWindow('*', 'Редактор должностей', -1, 500)) then
+    begin
+      Log.Error('кнопка "ESC" не закрыла диалог "Редактор должностей"');
+      arm.frmDescrList.Close; 
+    end;
+    
+  arm.frmAddQuoter.btnPositionEditor.ClickButton;                               // открыли диалог снова   
+  arm.frmDescrList.btnCancel.ClickButton;                                       // жмём "отмена"
+  if IsExists(arm.WaitWindow('*', 'Редактор должностей', -1, 500)) then
+    begin
+      Log.Error('кнопка "отмена" не закрыла диалог "Редактор должностей"'); 
+      arm.frmDescrList.Close;            
+    end; 
+  arm.frmAddQuoter.Close;   //
+  ClickOnMainWindow('отменить изменения');
+  Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('Yes').Click; // согласие с тем, что данные не будут сохранены
+end;
+
+
+// договорная информация
+
+procedure DogInfo;
+  var arm, y, m, d : OleVariant;
+begin
+  arm := Sys.Process('Armadillo');
+  // значения полей по умолчанию при создании договора
+  arm.frmMain.pInfo.pcAllParams.ClickTab('Взаимодействие');
+  arm.frmMain.pInfo.pcAllParams.tsCooperation.GroupBox9.btnAddDog.ClickButton;
+  if IsExists(arm.WaitWindow('*', 'Информация о договоре', -1, 500)) = false
+    then Log.Error('диалог "информация о договоре" не открылся')
+    else
+      if arm.frmDogInfo.WndCaption <> 'Информация о договоре'
+        then Log.Message('диалог  называется не "информация о договоре"');
+  if (arm.frmDogInfo.edDogNumber.wText <> '') or (arm.frmDogInfo.cb_ContrType.wText <> '') or (arm.frmDogInfo.mPrim.wText <> '')  
+    then Log.Error('поля "номер", "предмет" "примечания" должны быть пустыми');
+
+  DecodeDate(now, y, m, d);
+  if (arm.frmDogInfo.dtDateStart.Text <> FormatDateTime('dd.mm.yyyy', now)) or (arm.frmDogInfo.dtDateFinish.Text <> FormatDateTime('dd.mm.yyyy', EncodeDate(y + 1, m, d)))
+    then Log.Error('поле "заключён с" должно быть заполнено текущей датой, а поле "по" датой на год позже');
+  if ObjLength(arm.frmDogInfo.edDogNumber) <> 30
+    then Log.Error('максимальный размер поля "номер" не 30');
+  arm.frmDogInfo.edDogNumber.Keys('[Home]![End]Аф47fn');
+  if arm.frmDogInfo.edDogNumber.wText <> 'Аф47fn'
+    then Log.Error('не верное значение поля "номер". должно быть "Аф47fn"');  
+  if (arm.frmDogInfo.cb_ContrType.wItem[0] <> '11') or (arm.frmDogInfo.cb_ContrType.wItemCount <> '1')
+    then Log.Error('не верные возможнын значения в комбобоксе "предмет", должен быть доступен только "11"');
+  // когда появится возможность, добавить "Список продуктов по договору <список чекбоксов для каждого НАЗВАНИЯ продуктов у клиент"
+  if ObjLength(arm.frmDogInfo.mPrim) <> 100
+    then Log.Error('максимальный размер поля "примечания" не 100');
+    
+  //проверяем закрытие диалога разными способами
+  arm.frmDogInfo.Close;
+  if IsExists(arm.WaitWindow('*', 'Информация о договоре', -1, 500)) 
+    then Log.Error('клик по крестику не закрыл диалог создания/редактирования информации о договорах (если нет вариантов прдмета договора, не закроется по клику на крестик)');
+  arm.frmMain.pInfo.pcAllParams.tsCooperation.GroupBox9.btnAddDog.ClickButton;  // открыли диалог снова
+  arm.frmDogInfo.edDogNumber.Keys('[Esc]');                                     // жмём ESC
+  if IsExists(arm.WaitWindow('*', 'Информация о договоре', -1, 500)) then
+    begin
+      Log.Error('кнопка "ESC" не закрыла диалог создания/редактирования информации о договорах');
+      arm.frmDogInfo.Close;
+    end;
+    
+  arm.frmMain.pInfo.pcAllParams.tsCooperation.GroupBox9.btnAddDog.ClickButton;  // открыли диалог снова   
+  arm.frmDogInfo.btnCancel.ClickButton;                                         // жмём "отмена"
+  if IsExists(arm.WaitWindow('*', 'Информация о договоре', -1, 500)) then
+    begin
+      Log.Error('кнопка "отмена" не закрыла диалог создания/редактирования информации о договорах'); 
+      arm.frmDogInfo.Close;           
+    end; 
+end;
+
+
+
+//   Ручной ввод номера карточки клиента 
+//Возможность вручную вводить номер - в Настройках выключение флага "Автоматическое определение номера карточки"
+//Диалог появляется когда клиенту должен быть присвоен номер (например, при коммерческой или некоммерческой поставке клиенту без номера)
+//
+//1 - убедиться что в настройках выклечен автомат назначения номера, если не так, выключить
+//2 - вычислить самый старший номер карточки (st)
+//3 - создать карточку, продать продукт, назначить номер st+2
+//4 - создать карточку, продать продукт, назначить номер st+2, убедиться что не создалось
+//5 - включить автомат назначения номера
+//6 - создать карточку, продать продукт, убедиться что st+1
+//7 - создать карточку, продать продукт, убедиться что st+3
+
+  procedure AutoNumeration;
+    var arm, settings, count, i, j, rows, MaxNum, MaxNumN, NumToDo, CurrName, CurrNameDup, NumOfTry, y, m, d, delta, NumCur : OleVariant;
+  begin
+    arm := Sys.Process('Armadillo');
+    
+    ClickOnMainMenu('настройки');
+    if GetFromSettings('не показывать клиентов без видимых продуктов').Checked
+      then GetFromSettings('не показывать клиентов без видимых продуктов').click;
+    if not GetFromSettings('активных').Checked
+      then GetFromSettings('активных').click;
+    arm.frmViewProductsSettings.pcViewSettings.ClickTab('Автоподбор'); 
+    if GetFromSettings('автоматическое определение номера карточки').Checked
+      then
+        begin 
+          GetFromSettings('автоматическое определение номера карточки').Click;
+          Log.Message('отключили "Автоматическое определение номера карточки"');
+        end;
+    GetFromSettings('ок').ClickButton;     
+    
+    MaxNum := 0;
+
+    for j := 1 to 3 do
+      begin
+    
+        rows := GetFromMainWindow('список клиентов').RowCount;                               // определили количество строк
+        // определяем максимальное значение номера карточки                                  
+        for i := 0 to (rows-1) do                                                            
+          begin                                                                              
+            CurrName := copy(GetFromMainWindow('список клиентов').Cells[0, i], 10 , 10);     
+            if CurrName  <> ''                                                               
+              then if VarToInteger(CurrName) > MaxNum then MaxNum := VarToInteger(CurrName); 
+          end;                                                                               
+        
+        ClickOnMainMenu('настройки');                                                               //
+                                                                                                    //
+        case j of                                                                                   //
+          1: if not GetFromSettings('неактивных').Checked then GetFromSettings('неактивных').click; //
+          2: if not GetFromSettings('удалённых').Checked then GetFromSettings('удалённых').click;   //
+          3: if not GetFromSettings('активных').Checked then GetFromSettings('активных').click;     //
+        end;                                                                                        //   переключение списка
+                                                                                                    //
+        GetFromSettings('ок').ClickButton;                                                          //
+          
+      end;
+     
+//    log.message(MaxNum);
+    
+    for count :=1 to 3 do
+      begin
+        // появилась функция MakeClient, можно на неё поменять
+        ClickOnMainWindow('добавить нового клиента'); 
+        CurrName := 'максимальный номер карточки - ' + VarToStr(MaxNum) + ', (' + VarToStr(count) + '/3)'; 
+        GetFromAddClient('наименование').Keys(CurrName);
+        GetFromAddClient('категория').ClickItem('ОВиУ. Прочие');
+        GetFromAddClient('нас.пункт').ClickItem('Абакан');
+        GetFromAddClient('адрес').Keys('адрес');
+        GetFromAddClient('курьер').Keys('[Down]');
+        GetFromAddClient('применить').Click;
+    
+        CurrNameDup := CurrName;
+    
+        NumOfTry := 0;
+        while IsExists(arm.WaitWindow('TfRgnDialog', '*', -1, 500)) and (pos(arm.Window('TfRgnDialog', '', 1).VCLObject('Message').Caption, 'Указанное название клиента уже существует') <> 0) do
+          begin  
+            arm.Window('TfRgnDialog', '', 1).VCLObject('OK').Click;
+            NumOfTry := NumOfTry + 1;
+            CurrNameDup := CurrName + ', попытка ' + VarToStr(NumOfTry);
+            GetFromAddClient('наименование').Keys(CurrNameDup);
+            GetFromAddClient('применить').Click;
+          end;
+    
+        ClickOnMainWindow('сохранить изменения');
+       // конец участка кода, который заменит MakeClient (если менять, не забыть учесть что старый код придумывает новое имя если текущее уже существует)
+        if count=2 
+          then
+            begin
+              arm := Sys.Process('Armadillo');
+              ClickOnMainMenu('настройки');
+              arm.frmViewProductsSettings.pcViewSettings.ClickTab('Автоподбор');
+              GetFromSettings('автоматическое определение номера карточки').click;
+              GetFromSettings('ок').click;
+            end;
+
+        ClickOnMainWindow('реквизиты');
+        if GetFromClientParams('наименование').Text <> CurrNameDup
+          then
+            begin
+              Log.Error('после создания карточки клиента карточка оказалась не выделенной');
+              rows := SearchInList(GetFromMainWindows('список клиентов') ,CurrNameDup, 'название');
+              GetFromMainWindow('список клиентов').Keys('[Home]');
+              if GetFromClientParams('наименование').Text <> CurrNameDup
+                then
+                  for i := 1 to rows do
+                    GetFromMainWindow('список клиентов').Keys('[Down]');
+            end;
+
+        ClickOnMainWindow('продукты');
+        GetFromMainWindow('список продуктов').ClickR;
+        ClickOnProductsListMenu('продажа');
+        
+        case count of
+          1 : delta := 2;
+          2 : delta := 1;
+          3 : delta := 3;
+        end;        
+        NumToDo := MaxNum + delta;
+        
+        if count = 1
+          then
+            if not IsExists(Sys.Process('Armadillo').VCLObject('frmChangeCardNum'))
+              then Log.Error('не появилось окно ввода номера карточки')
+              else
+                begin
+                  for i:=1 to (6-length(NumToDo)) do Sys.Process('Armadillo').VCLObject('frmChangeCardNum').VCLObject('edUCardNum').Keys('0');
+                  Sys.Process('Armadillo').VCLObject('frmChangeCardNum').VCLObject('edUCardNum').Keys(VarToStr(NumToDo) + '[Enter]'); 
+    
+                  if IsExists(Sys.Process('Armadillo').WaitWindow('TfRgnDialog', '*', -1, 500)) then Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('OK').Click;      
+                    
+                end;
+            
+        GetFromAddProduct('15').click;
+        DecodeDate(now, y, m, d);
+        if Sys.Process('Armadillo').Window('TPopupCalendar', '', 1).Window('TPanel', '', 1).Window('TLocCalendar', '', 1).Day <> d
+          then Log.Error('должен быть предложен/выделен текущий день месяца');
+        Sys.Keys('[Enter]');
+        if GetFromAddProduct('дата').text <> FormatDateTime('dd.mm.yyyy', now)
+          then Log.Error('в поле "дата продажи" установилась дата "' + GetFromAddProduct('дата').text + '", а должна быть текущая - "' + FormatDateTime('dd.mm.yyyy', now) + '" (ошибка 28988)');
+        GetFromAddProduct('тип продукта').ClickItem('ГАРАНТ-Классик');  
+        GetFromAddProduct('сетевой коэффициент').ClickItem('Локальная'); 
+        GetFromAddProduct('способ обновления').ClickItem('Целиком');
+        GetFromAddProduct('состав экземпляра').Keys(' [Down] ');
+        GetFromAddProduct('принять').Click;
+    
+        ClickOnMainWindow('сохранить изменения');
+        if IsExists(Sys.Process('Armadillo').WaitWindow('TfRgnDialog', '*', -1, 500)) then Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('OK').Click;
+        
+        ClickOnMainWindow('реквизиты');
+        
+        NumCur := -1;
+        if GetFromClientParams('номер').wText = ''
+          then
+            Log.Error('после присвоения номера карточки вручную и сохранения изменений в "реквизитах клиента" поле "номер карточки" пустое (ошибка 29023)')
+          else NumCur := VarToInteger(copy(GetFromClientParams('номер').wText, 10 , 10));
+        if NumCur = -1
+          then Log.Error('не удалось получить номер клиента из реквизитов клиента (ошибка 29023)')
+          else 
+            if NumCur <> NumToDo  
+              then Log.Error('не верно присвоен номер - "' + VarToStr(NumCur) + '", а должен быть "' + VarToStr(NumToDo) + '" (должно исправиться с закрытием ошибки 29038)');     
+        
+
+        if IsExists(Sys.Process('Armadillo').WaitWindow('TfRgnDialog', '*', -1, 500)) then Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('OK').Click;
+    
+    end;
+  end;
+
+procedure AllChange;
+begin
+  rekvisit;
+  ChangeContact;
+  ContactDolzhn;
+  DogInfo;
+  AutoNumeration;  
+end;
+  
+
+procedure Alwwwl;
+begin
+WaitForMessageForm();
+end;
+
+procedure prest;
+begin
+
+end;
+
+procedure Test1;
+var i, j;
+begin
+  for i := 1 to 200 do
+    begin
+      Sys.Process('Armadillo6').Window('TfrmMain', 'АРМ регионального партнера компании "Гарант"').Window('TPanel', '', 1).Window('TPageControl').Window('TTabSheet', 'Реквизиты клиента').Window('TGroupBox', 'Телефоны для ПРЕСТ').Window('TBitBtn', 'Добавить').ClickButton;
+      Sys.Process('Armadillo6').Window('TfrmAddPhone', 'Новый телефон (10 символов)').Window('TDEdit', '', 2).Keys(i);
+      for j := 1 to (10-length(i)) do
+        Sys.Process('Armadillo6').Window('TfrmAddPhone', 'Новый телефон (10 символов)').Window('TDEdit', '', 1).Keys('1');
+      Sys.Process('Armadillo6').Window('TfrmAddPhone', 'Новый телефон (10 символов)').Window('TBitBtn', 'Принять').ClickButton;
+    end;
+end;
+

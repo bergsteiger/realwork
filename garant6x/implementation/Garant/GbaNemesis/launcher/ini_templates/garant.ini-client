@@ -1,0 +1,108 @@
+[ACE Params]
+;-AceLargeDataRecvEnabled=0
+;-AceLargeDataSendEnabled=0
+;-AceRecvMaxSocketBufsiz=32768
+;-AceSendMaxSocketBufsiz=32768
+
+[Default]
+Application=F1Shell.run
+CommandLine=$(CommandLineParams)
+;CommandLine=-F1ShellLogin "%USERNAME%" $(CommandLineParams)
+CreateDesktopShortcuts=Yes
+CurrentDirectory=$(CacheRoot)\apps
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-GCMConfigFile "$(ThisIniFileName)" -GPMAdapterConfigSection "F1Client Params" -LocalePath "$(CacheRoot)\apps"
+RegistryValueName=ApplicationAdapterOptions
+ShowCreateDesktopShortcutsDialog=Yes
+
+[Downloader]
+AccessType=0
+IdComplect=
+Login=
+Path=
+ProxyAdress=
+ProxyAuthentication=0
+ProxyLogin=
+ProxyPassword=
+ProxyPort=
+Pswd=
+Queries Flags=0
+
+[F1Admin]
+Application=F1Admin.run
+CommandLine=$(CommandLineParams)
+CreateDesktopShortcuts=Yes
+CurrentDirectory=$(CacheRoot)\apps
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-GCMConfigFile "$(ThisIniFileName)" -GPMAdapterConfigSection "F1Client Params" -LocalePath "$(CacheRoot)\apps"
+RegistryValueName=ApplicationAdapterOptions
+ShowCreateDesktopShortcutsDialog=Yes
+
+[F1Client Params]
+;-AutoShowHelp=0
+-EOEnable=0
+;-GCMEnforceRemoteConnection=false
+;-GCMIsAutoConfigApplyAlways=true
+-GCMServerAddress=$HOST$
+-GCMServerPort=$PORT$
+;-GCMSkipFirewallCheck=1
+-GPMAdditionalSection=GCM Params
+;-SBEBackupDir=%TEMP%\F1Client-backups
+;-SBELogFile=%TEMP%\F1Client.log
+;-SBEMaxLogFileSize=1048576
+;-SBEMaxLogFreeSize=32768
+-SettingsFlushTimeout=600
+
+[GCM Params]
+;-GCMBiDirectional=1
+-GPMAdditionalSection=ORB Params
+
+[Launcher]
+CleanerDisplayName=$(LocaleCleanerName)
+CleanerPublisher=$(LocalePublisher)
+CleanerRegistryKey=HKEY_CURRENT_USER
+CleanerRegistryPath=Software\Microsoft\Windows\CurrentVersion\Uninstall\%(ProductId)
+CleanerUninstallString=%(SettingsCurrentDirectory)\gclean.exe
+DefaultDirectory=$(DefaultPath)\Garant-Client
+;LocalCacheEnabled=0
+LocaleKey=HKEY_CURRENT_USER
+LocalePath=Software\Garant.F1
+LocaleValue=ru_RU.CP1251
+LocaleValueName=Locale
+;RegistrationEnabled=0
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1-Launcher
+SettingsCurrentDirectory=$(InstallRoot)\settings
+SettingsPreviousDirectory=$(InstallRoot)\settings-previous
+SettingsSourceDirectory=$(ExecuteRoot)\settings
+SettingsVersion={B9E437DB-60C1-4C24-8B99-8338292DE519}
+ShowInstallRootDialog=No
+UnRegistrationEnabled=1
+
+[LauncherDesktopShortcuts]
+$(LocaleProductName)=$(ThisApplication)
+
+[LauncherRegistration]
+Item01=$(ExecuteRoot)\apps\F1Shell.dll|MSOIntegrationEnabled
+
+[LauncherUnRegistration]
+Item01=$(ExecuteRoot)\apps\F1Shell.dll|MSOIntegrationEnabled
+;Item02=$(ExecuteRoot)\apps\F1Shell.dll
+
+[LauncherUpdates]
+Item01=settings\gclean.exe
+Item02=settings\gclean.ini
+
+[ORB Params]
+-GPMAdditionalSection=ACE Params
+;-ORBDebugLevel=10
+-ORBDottedDecimalAddresses=1
+-ORBUseSharedProfiles=1
+
+[Version]
+-IniFile=19
+-Product=client
+-ProductId={486D1BA5-D873-404A-9F28-BD91D1D621F0}
+

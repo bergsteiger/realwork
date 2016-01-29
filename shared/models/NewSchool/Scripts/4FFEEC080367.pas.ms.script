@@ -1,0 +1,119 @@
+// TtfwKeyWordPrim 4FFEEC080367 SimpleClass Class
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_4FFEEC080367
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4FFEEFF702E5
+ CONST UID '4FFEEFF702E5'
+ CONST Name 'AsCStr'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_4FFEEFF702E5 AsCStr
+
+: ME_F5B7D2D5B34A
+ CONST UID 'F5B7D2D5B34A'
+ CONST Name 'f_AsCStr'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства AsCStr' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_F5B7D2D5B34A f_AsCStr
+
+FORWARD ME_55A6967900B3
+
+: ME_55A6968703CF
+ CONST UID '55A6968703CF'
+ CONST Name 'aKeyword'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_55A6968703CF aKeyword
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55A69680017B
+ CONST UID '55A69680017B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55A6968703CF // aKeyword
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55A69680017B DoIt
+
+: ME_55A6967900B3
+ CONST UID '55A6967900B3'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55A69680017B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55A6967900B3 Create
+
+: ME_4FFEEC080367
+ CONST UID '4FFEEC080367'
+ CONST Name 'TtfwKeyWordPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_47A8693601A1 // Tl3PrimString
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4FFEEFF702E5 // AsCStr
+ ME_F5B7D2D5B34A // f_AsCStr
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55A6967900B3 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4FFEEC080367 TtfwKeyWordPrim

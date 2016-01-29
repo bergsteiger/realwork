@@ -1,0 +1,19 @@
+USES
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Задать параметры преобразования текста в таблицу"
+	 "Обработать сообщения"
+	 "Контрол по имени {(rbSpace)}" pop:RadioButton:Checked  := true
+	 "Контрол по имени {(acTableConvParamDialogBTOk)}" pop:Control:Click
+; 
+
+Тест TK370384999
+	Параметры: ( "Проверка EVD документа" )
+	Выполнить ( 	
+				"Контрол в фокусе" pop:Editor:SelectAll 
+				@ ( "Преобразовать тест в таблицу" ) MODAL ( "Задать параметры преобразования текста в таблицу" )
+			)
+;
+
+TK370384999

@@ -1,0 +1,85 @@
+// seWordsInfo 53E107920007 UtilityPack Class
+
+FORWARD ME_53E107920007
+
+FORWARD ME_53E10704024E
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_53E1110901E2
+ CONST UID '53E1110901E2'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_53E1110901E2 aCtx
+
+: ME_53E1072301A6
+ CONST UID '53E1072301A6'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_53E1072301A6 aWord
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_53E1071F00CC
+ CONST UID '53E1071F00CC'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_53E1110901E2 // aCtx
+ ME_53E1072301A6 // aWord
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_53E1071F00CC DoIt
+
+: ME_53E10704024E
+ CONST UID '53E10704024E'
+ CONST Name 'GetWordDirectives'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53E1071F00CC // DoIt
+ ]
+ ; // Operations
+ CONST "is static" false
+
+ @SELF
+; // ME_53E10704024E GetWordDirectives
+
+: ME_53E107920007
+ CONST UID '53E107920007'
+ CONST Name 'seWordsInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53E10704024E // GetWordDirectives
+ ]
+ ; // Operations
+ CONST "no hands" false
+
+ @SELF
+; // ME_53E107920007 seWordsInfo

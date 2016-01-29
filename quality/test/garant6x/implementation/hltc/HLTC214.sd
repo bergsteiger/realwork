@@ -1,0 +1,617 @@
+//////////////////////////////////////////////////////////////////////////////
+//  HLTC214 ПРОВЕРКА УСТАНОВКИ СИСТЕМЫ
+//////////////////////////////////////////////////////////////////////////////
+
+uses Main, SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork, Installer, HTMLWork, commonEventHandlers;
+
+{
+HLTC214.14.1: Установка поверх предыдущей версии
+  HLTC214.14.1.1: Установить предыдущую КС версию оболочки вместе с клиентом, установить текущую версию поверх. Сравнить полученные инишники сервера и клиента с инишниками сервера и клиента, поставленной КС текущей версии с нуля. Должно совпадать все, кроме параметра -DSDataPath в серверном инишнике – он должен быть равен пути, откуда был запущен инсталлятор.
+}
+function HLTC214_14_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_before, garantini_after, garantiniClient_before, garantiniClient_after;
+  pathToF1, pathToF1Client;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(KS_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + KS_INSTALL_PATH + '" до установки');      
+    if not RemoveFoldersExt(CLIENT_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + CLIENT_INSTALL_PATH + '" до установки');      
+
+    pathToF1 := IncludeTrailingBackslash(PATH_INSTALLER_OLD) + MSI_RU_KS_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки предыдущей версии F1 не найден "' + pathToF1 + '"'); 
+    pathToF1Client := IncludeTrailingBackslash(PATH_INSTALLER_OLD) + MSI_RU_CLIENT_FILE;
+    if not FileExists(pathToF1Client) then
+      Raise('Файл установки предыдущей версии F1 не найден "' + pathToF1Client + '"'); 
+                       
+    UninstallF1ByProductID(PID_KS);
+    UninstallF1ByProductID(PID_CLIENT);    
+    //1. Ставим старую версию
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+    if not InstallF1ByMSIFileName(pathToF1Client) then
+      Raise('Установка не пройдена');
+      
+    //получаем путь к каталогу установки текущей версии
+    //2. Ставим новую версию поверх    
+    pathToF1 := GetPathToInstallerDir + MSI_RU_KS_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1 + '"');
+    if not ReinstallF1ByMSIFileName(pathToF1) then
+      Raise('ПЕРЕУстановка не пройдена');
+    garantini_before := GetBodyGarantIni;
+    if garantini_before = '' then 
+      Raise('Пусто');
+    //2.1
+    pathToF1Client := GetPathToInstallerDir + MSI_RU_CLIENT_FILE;
+    if not FileExists(pathToF1Client) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1Client + '"');
+    if not ReinstallF1ByMSIFileName(pathToF1Client) then
+      Raise('ПЕРЕУстановка не пройдена');
+    garantiniClient_before := GetBodyGarantIni;
+    if garantiniClient_before = '' then 
+      Raise('Пусто');
+            
+    UninstallF1ByProductID(PID_KS);
+    UninstallF1ByProductID(PID_CLIENT);    
+    //3. Ставим новую версию на чисто
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+    garantini_after := GetBodyGarantIni;
+    if garantini_after = '' then
+      Raise('Пусто');      
+    SaveIniFileToLog(garantini_before, garantini_after, 'KS');
+    Result := CompareINIFiles(garantini_before, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах сервера не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+    //3.1 
+    if not InstallF1ByMSIFileName(pathToF1Client) then
+      Raise('Установка не пройдена');
+    garantiniClient_after := GetBodyGarantIni;
+    if garantiniClient_after = '' then
+      Raise('Пусто');
+    SaveIniFileToLog(garantiniClient_before, garantiniClient_after, 'Client');
+    if CompareINIFiles(garantiniClient_before, garantiniClient_after) then
+      Log.Message('Различия в ini-файлах клиента не найдены', '',  pmNormal, GetLogAttr('YELLOW'))
+    else
+      Result := false;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_KS);
+  UninstallF1ByProductID(PID_CLIENT);
+  if DeleteSystemService(F1SERVICENAME) then
+    Result := ErrorResult('Сервис видимо не удален после uninstall, получилось удалить службу сервера F1:"' + F1SERVICENAME + '"');
+end;
+
+{
+HLTC214.14.1: Установка поверх предыдущей версии
+  HLTC214.14.1.2: Установить предыдущую ФС версию оболочки, установить текущую версию поверх. Сравнить полученный инишник и инишник, поставленной ФС текущей версии с нуля. Должно совпадать все, кроме параметра –DSDataPath – он должен быть равен пути, откуда был запущен инсталлятор.
+}
+function HLTC214_14_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_before, garantini_after;
+  pathToF1;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(FS_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + FS_INSTALL_PATH + '" до установки');      
+  
+    pathToF1 := IncludeTrailingBackslash(PATH_INSTALLER_OLD) + MSI_RU_FS_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки предыдущей версии F1 не найден "' + pathToF1 + '"'); 
+                 
+    UninstallF1ByProductID(PID_FS);
+    //1. Ставим старую версию
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+      
+    //получаем путь к каталогу установки текущей версии
+    pathToF1 := GetPathToInstallerDir + MSI_RU_FS_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1 + '"');
+    //2. Ставим новую версию поверх
+    if not ReinstallF1ByMSIFileName(pathToF1) then
+      Raise('ПЕРЕУстановка не пройдена');
+    garantini_before := GetBodyGarantIni;
+    if garantini_before = '' then 
+      Raise('Пусто');
+      
+    UninstallF1ByProductID(PID_FS);
+    //3. Ставим новую версию на чисто
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+    garantini_after := GetBodyGarantIni;
+    if garantini_after = '' then 
+      Raise('Пусто');      
+
+    SaveIniFileToLog(garantini_before, garantini_after, 'FS');              
+    Result := CompareINIFiles(garantini_before, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах файлсервера не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_FS);  
+end;
+
+{
+ Установка поверх предыдущей версии
+  HLTC214.14.1.3: Установить предыдущую десктоп версию оболочки, установить текущую версию поверх. Сравнить полученный инишник и инишник, поставленной десктоп текущей версии с нуля. Должно совпадать все, кроме параметра –DSDataPath – он должен быть равен пути, откуда был запущен инсталлятор.
+}
+function HLTC214_14_1_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_before, garantini_after;
+  pathToF1;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(DESKTOP_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + DESKTOP_INSTALL_PATH + '" до установки');      
+  
+    pathToF1 := IncludeTrailingBackslash(PATH_INSTALLER_OLD) + MSI_RU_DESKTOP_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки предыдущей версии F1 не найден "' + pathToF1 + '"'); 
+                 
+    UninstallF1ByProductID(PID_DESKTOP);
+    //1. Ставим старую версию
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+      
+    //получаем путь к каталогу установки текущей версии
+    pathToF1 := GetPathToInstallerDir + MSI_RU_DESKTOP_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1 + '"');
+    //2. Ставим новую версию поверх
+    if not ReinstallF1ByMSIFileName(pathToF1) then
+      Raise('ПЕРЕУстановка не пройдена');
+    garantini_before := GetBodyGarantIni;
+    if garantini_before = '' then 
+      Raise('Пусто');
+      
+    UninstallF1ByProductID(PID_DESKTOP);
+    //3. Ставим новую версию на чисто
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+    garantini_after := GetBodyGarantIni;
+    if garantini_after = '' then 
+      Raise('Пусто');      
+
+    SaveIniFileToLog(garantini_before, garantini_after, 'D');              
+    Result := CompareINIFiles(garantini_before, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах десктопа не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_DESKTOP);  
+end;
+
+{  
+HLTC214.14.2: Установка поверх текущей версии
+  HLTC214.14.2.1: Установить текущую КС версию оболочки вместе с клиентом, установить ее же поверх. Сравнить полученные инишники сервера и клиента с инишниками сервера и клиента, поставленной КС версии с нуля. Должно все совпадать.
+}
+function HLTC214_14_2_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_before, garantini_after, garantiniClient_before, garantiniClient_after;
+  pathToF1, pathToF1Client;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(KS_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + KS_INSTALL_PATH + '" до установки');      
+    if not RemoveFoldersExt(CLIENT_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + CLIENT_INSTALL_PATH + '" до установки');      
+  
+    pathToF1 := GetPathToInstallerDir + MSI_RU_KS_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки не найден "' + pathToF1 + '"'); 
+    pathToF1Client := GetPathToInstallerDir + MSI_RU_CLIENT_FILE;    
+    if not FileExists(pathToF1Client) then
+      Raise('Файл установки не найден "' + pathToF1Client + '"'); 
+
+    UninstallF1ByProductID(PID_KS);
+    UninstallF1ByProductID(PID_CLIENT);
+    
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+    Log.Message('Прописываем "-GCMActiveDataPath=1" в garant.ini. Это значение должно сохраниться после переустановки F1.',  '',  pmNormal, GetLogAttr('YELLOW'));    
+    if not SetValueToGarantINI('F1Server Params', '-GCMActiveDataPath', '1', false, GetPathToGarantIniFromInstallDir) then
+      Raise('Не получилось установить -GCMActiveDataPath=1'); 
+    garantini_before := GetBodyGarantIni;
+    if garantini_before = '' then 
+      Raise('Пусто');      
+      
+    if not InstallF1ByMSIFileName(pathToF1Client) then
+      Raise('Установка не пройдена');
+    garantiniClient_before := GetBodyGarantIni;
+    if garantiniClient_before = '' then 
+      Raise('Пусто');      
+
+    if not ReinstallF1ByMSIFileName(pathToF1) then
+      Raise('ПЕРЕУстановка не пройдена');
+    garantini_after := GetBodyGarantIni;
+    if garantini_after = '' then 
+      Raise('Пусто');
+      
+    if not ReinstallF1ByMSIFileName(pathToF1Client) then
+      Raise('ПЕРЕУстановка не пройдена');
+    garantiniClient_after := GetBodyGarantIni;
+    if garantiniClient_after = '' then 
+      Raise('Пусто');      
+
+    SaveIniFileToLog(garantini_before, garantini_after, 'KS');              
+    Result := CompareINIFiles(garantini_before, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах сервера не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+      
+    SaveIniFileToLog(garantini_before, garantini_after, 'Clent');
+    if CompareINIFiles(garantini_before, garantini_after) then
+      Log.Message('Различия в ini-файлах клиента не найдены', '',  pmNormal, GetLogAttr('YELLOW'))
+    else
+      Result := false;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_KS);
+  UninstallF1ByProductID(PID_CLIENT);
+  if DeleteSystemService(F1SERVICENAME) then
+    Result := ErrorResult('Сервис видимо не удален после uninstall, получилось удалить службу сервера F1:"' + F1SERVICENAME + '"');
+end;
+
+{
+HLTC214.14.2: Установка поверх текущей версии
+  HLTC214.14.2.2: Установить текущую ФС версию оболочки, установить ее же поверх. Сравнить полученный инишник и инишник, поставленной ФС версии с нуля. Должно все совпадать.
+}
+function HLTC214_14_2_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_before, garantini_after;
+  pathToF1;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(FS_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + FS_INSTALL_PATH + '" до установки');      
+
+    pathToF1 := GetPathToInstallerDir + MSI_RU_FS_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1 + '"');
+                 
+    UninstallF1ByProductID(PID_FS);
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+      
+    Log.Message('Прописываем "-GCMActiveDataPath=1" в garant.ini. Это значение должно сохраниться после переустановки F1.',  '',  pmNormal, GetLogAttr('YELLOW'));    
+    if not SetValueToGarantINI('F1Server Params', '-GCMActiveDataPath', '1', false, GetPathToGarantIniFromInstallDir) then
+      Raise('Не получилось установить -GCMActiveDataPath=1'); 
+      
+    garantini_before := GetBodyGarantIni;
+    if garantini_before = '' then 
+      Raise('Пусто');      
+
+    if not ReinstallF1ByMSIFileName(pathToF1) then
+      Raise('ПЕРЕУстановка не пройдена');
+    garantini_after := GetBodyGarantIni;
+    if garantini_after = '' then 
+      Raise('Пусто');      
+
+    SaveIniFileToLog(garantini_before, garantini_after, 'FS');              
+    Result := CompareINIFiles(garantini_before, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах файлсервера не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_FS);  
+end;
+
+{
+HLTC214.14.2: Установка поверх текущей версии
+  HLTC214.14.2.3: Установить текущую десктоп версию оболочки, установить ее же поверх. Сравнить полученный инишник и инишник, поставленной десктоп версии с нуля. Должно все совпадать.
+
+HLTC337.5.19: В garant.ini должен быть прописан в качестве сервера консультаций consulting1.garant.ru в секции F1ServerParams.  
+}
+function HLTC214_14_2_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_before, garantini_after;
+  pathToF1;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(DESKTOP_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + DESKTOP_INSTALL_PATH + '" до установки');      
+  
+    pathToF1 := GetPathToInstallerDir + MSI_RU_DESKTOP_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1 + '"');
+
+    if not FileExists(pathToF1) then
+      Raise('Файл установки не найден "' + pathToF1 + '"'); 
+
+    UninstallF1ByProductID(PID_DESKTOP);
+    //потом удатить, для теста 
+    Log.Message('----', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+      
+    Log.Message('Прописываем "-GCMActiveDataPath=1" в garant.ini. Это значение должно сохраниться после переустановки F1.',  '',  pmNormal, GetLogAttr('YELLOW'));    
+    if not SetValueToGarantINI('F1Server Params', '-GCMActiveDataPath', '1', false, GetPathToGarantIniFromInstallDir) then
+      Raise('Не получилось установить -GCMActiveDataPath=1'); 
+      
+    garantini_before := GetBodyGarantIni;
+    if garantini_before = '' then 
+      Raise('Пусто');      
+
+    if not ReinstallF1ByMSIFileName(pathToF1) then
+      Raise('ПЕРЕУстановка не пройдена');
+    garantini_after := GetBodyGarantIni;
+    if garantini_after = '' then 
+      Raise('Пусто');
+
+    //HLTC337.5.19: В garant.ini должен быть прописан в качестве сервера консультаций consulting1.garant.ru в секции F1ServerParams.
+    if not StringCompare('*-ConsultingServerAddress=consulting1.garant.ru*', garantini_after) then
+      Raise('В garant.ini не найден "-ConsultingServerAddress=consulting1.garant.ru"');  
+    
+    SaveIniFileToLog(garantini_before, garantini_after, 'D');              
+    Result := CompareINIFiles(garantini_before, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах десктопа не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_DESKTOP);  
+end;
+
+{
+	Проверка изменений инишника garant.ini 
+	Производится сравнение с эталонным ини-файлом, если версия 
+    [Version]
+    -IniFile=8  
+  изменилась, то смотрим какие случились изменения и решаем есть ли ошибка.
+  Если не изменилась, то файлы должны быть идентичными. 
+}
+function HLTC214_CHECK_INI_KS_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_etalon, garantini_after;
+  pathToF1;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(KS_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + KS_INSTALL_PATH + '" до установки');      
+    if not RemoveFoldersExt(CLIENT_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + CLIENT_INSTALL_PATH + '" до установки');      
+
+    pathToF1 := GetPathToInstallerDir + MSI_RU_KS_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1 + '"');
+
+    UninstallF1ByProductID(PID_KS);
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+      
+    garantini_etalon := GetFileBody(Files.FileNameByName('garant_ks.ini'));
+    garantini_after := GetBodyGarantIni;    
+    
+    if garantini_etalon = '' then 
+      Raise('Пусто');      
+    if garantini_after = '' then 
+      Raise('Пусто');      
+
+    SaveIniFileToLog(garantini_etalon, garantini_after, 'KS');
+    Result := CompareINIFiles(garantini_etalon, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах десктопа не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_KS);  
+end;
+
+{
+  Для ФС-версии
+}
+function HLTC214_CHECK_INI_FS_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_etalon, garantini_after;
+  pathToF1;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(FS_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + FS_INSTALL_PATH + '" до установки');      
+
+    pathToF1 := GetPathToInstallerDir + MSI_RU_FS_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1 + '"');
+
+    UninstallF1ByProductID(PID_FS);
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+      
+    garantini_etalon := GetFileBody(Files.FileNameByName('garant_fs.ini'));
+    garantini_after := GetBodyGarantIni;    
+    
+    if garantini_etalon = '' then 
+      Raise('Пусто');      
+    if garantini_after = '' then 
+      Raise('Пусто');      
+
+    SaveIniFileToLog(garantini_etalon, garantini_after, 'FS');
+    Result := CompareINIFiles(garantini_etalon, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах десктопа не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_FS);  
+end;
+
+{
+  Для Desktop-версии
+}                          
+function HLTC214_CHECK_INI_DESKTOP_Execute(var  current_state: OleVariant): OleVariant;
+var
+  garantini_etalon, garantini_after;
+  pathToF1;
+begin
+  try
+    //0. Удаляем каталог с ранее установленной версией
+    if not RemoveFoldersExt(DESKTOP_INSTALL_PATH) then
+      Result := ErrorResult('Не получилось удалить каталог "' + DESKTOP_INSTALL_PATH + '" до установки');      
+
+    pathToF1 := GetPathToInstallerDir + MSI_RU_DESKTOP_FILE;
+    if not FileExists(pathToF1) then
+      Raise('Файл установки текущей версии F1 не найден "' + pathToF1 + '"');
+
+    UninstallF1ByProductID(PID_DESKTOP);
+    if not InstallF1ByMSIFileName(pathToF1) then
+      Raise('Установка не пройдена');
+      
+    garantini_etalon := GetFileBody(Files.FileNameByName('garant_desktop.ini'));
+    garantini_after := GetBodyGarantIni;    
+    
+    if garantini_etalon = '' then 
+      Raise('Пусто');      
+    if garantini_after = '' then 
+      Raise('Пусто');      
+
+    SaveIniFileToLog(garantini_etalon, garantini_after, 'DESKTOP');
+    Result := CompareINIFiles(garantini_etalon, garantini_after);
+    if Result then
+      Log.Message('Различия в ini-файлах десктопа не найдены', '',  pmNormal, GetLogAttr('YELLOW'));
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_DESKTOP);  
+end;
+
+{
+  Проверка запуска Desktop-версии на Windows 98
+}                          
+procedure HLTC214_CHECK_RUN_DESKTOP_ON_W98;
+const    
+  scriptName = 'HLTC214_CHECK_RUN_DESKTOP_ON_W98';
+var 
+  login, pass;
+  emailMessage, emailSubject, 
+  scriptMessages, res;
+begin
+  try
+    try
+      //Включение логов 
+      gbl_LogCopyEnabled := true;  
+
+      res := IsExists(GetMainWindow);
+      if res then
+      begin
+        Log.Message('Оболочка найдена. Получилось запустить оболочку');
+        GetMainWindow.SetFocus;
+      end
+      else
+        Raise('Оболочка НЕ найдена. НЕ получилось запустить оболочку!');
+
+      DoLoginOperation(login, pass, OPER_WELCOME_INFO);
+      GetListOfAllDocuments;
+      res := IsExists(GetList);
+      if res then
+        Log.Message('Получили список всех документов.')
+      else
+        Raise('НЕ получили список всех документов!');
+    finally
+      //Высылаем письмо
+      emailMessage :=
+        HTMLDocument(
+          scriptName,
+          HTMLParagraph( HTMLText(scriptName, 'IsBold:=true') ) +
+          '<hr>' + 
+          HTMLParagraph( HTMLText('Скрипт ' + Choose(res, ' пройден', ' не пройден!'), Choose(NOT res, 'FontColor:=red', '') ) ) +
+          HTMLParagraph( HTMLText('Проверялась версия десктопа: ', 'IsBold:=true') + GetFileBody(Utilities.IncludeTrailingBackslash(GetF1Directory) + 'version.txt')) +
+          HTMLParagraph( HTMLText('Запускался на машине: ', 'IsBold:=true') + CompName ) + 
+          Choose(UnexpWindow('get flag'), HTMLParagraph( HTMLText('Во время выполнения скрипта было обнаружено неизвестное окно типа "' + UnexpWindow('GET TYPE') + '"', 'FontColor:=red')), '' ) +
+          Choose(UnexpWindow('get message') <> '', HTMLParagraph( HTMLText('В нем написано "' + UnexpWindow('get message') + '"', 'FontColor:=red')), '' ) +
+          Choose(ErrorUnexpectedWindow('get flag'), HTMLParagraph( HTMLText('Во время выполнения скрипта было обнаружено окно c ошибкой.', 'FontColor:=red')), '' ) +
+          Choose(ErrorUnexpectedWindow('get message') <> '', HTMLParagraph( HTMLText('В нем написано "' + ErrorUnexpectedWindow('get message') + '"', 'FontColor:=red')), '' ) +
+          '<hr>' + 
+          HTMLParagraph( 'Содержимое узла лога для скрипта: <br>' +  ExtractOpenNodeMessages)
+        );
+      //  
+      emailSubject := 
+        EMAIL_SUBJ_PREFIX + 
+        'Script ' + '   ' + scriptName + '   ' + Choose(res, ' success!' , ' failed!') +
+        Choose(UnexpWindow('get flag'), ' Было UnexpectedWindow!','') + 
+        Choose(ErrorUnexpectedWindow('get flag'), ' Было окно с ошибкой!','') +
+        Choose(Permissions('get flag', ''), ' Не хватило разрешений!', '');
+      // высылаем
+      SendMailByBlat(
+        EMAIL_FROM_ADDR,
+        EMAIL_TO_ADDR_MAIN,
+        emailSubject,
+        emailMessage,
+        '',
+        true{,
+        'smtp.garant.ru',
+        IncludeTrailingBackslash(Project.Path) + '..\RunUtils\blat.exe'}
+      );
+      CloseF1Shell();
+    end;
+  except
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests214;
+var 
+  i, p, w : oleVariant;
+  fso, drv; 
+begin
+  //HLTC214_14_1_1_Execute(p);
+  //HLTC214_14_1_2_Execute(p);
+  //HLTC214_14_1_3_Execute(p);    
+  //HLTC214_14_2_1_Execute(p);
+  //HLTC214_14_2_2_Execute(p);
+  //HLTC214_14_2_3_Execute(p);
+  //HLTC214_CHECK_INI_DESKTOP_Execute(p);
+  //HLTC214_CHECK_INI_FS_Execute(p);
+  //HLTC214_CHECK_INI_KS_Execute(p);
+  //HLTC214_CHECK_RUN_DESKTOP_ON_W98;
+  //Log.Message(UninstallF1ByProductID(PID_FS));
+  //Log.Message(UninstallF1ByProductID(PID_DESKTOP));
+  //Log.Message(InstallF1ByMSIFileName('D:\_INCOMING\WINLOGO\f1expertsetupeng_en-us.msi'));
+///////////////////////////////////////
+
+
+
+    
+    
+    
+    
+    
+    
+end;

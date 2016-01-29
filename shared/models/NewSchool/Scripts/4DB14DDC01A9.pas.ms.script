@@ -1,0 +1,115 @@
+// ScriptDebugger 4DB14DDC01A9 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB14DDC01A9
+
+FORWARD ME_4DB1629901E8
+
+FORWARD ME_4DB14E0A029D
+
+: ME_4DB14E2D007D
+ CONST UID '4DB14E2D007D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB14E0A029D // TtfwScriptDebugger_Form
+ ;
+ : Target WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
+ ;
+
+ref; // ME_4DB14E2D007D 
+
+: ME_4DB1661901AB
+ CONST UID '4DB1661901AB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB14E0A029D // TtfwScriptDebugger_Form
+ ;
+ : Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.pas.ms.script' // TtfwScriptEngine
+ ;
+
+ref; // ME_4DB1661901AB 
+
+: ME_4DB14E0A029D
+ CONST UID '4DB14E0A029D'
+ CONST Name 'TtfwScriptDebugger_Form'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB1629901E8 // tfwScriptDebugger
+ ;
+ : Dependencies
+   @ ( ME_4DB14E2D007D // 
+ ME_4DB1661901AB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '22.04.2011 13:45'
+
+ref; // ME_4DB14E0A029D TtfwScriptDebugger_Form
+
+: ME_4DB1629901E8
+ CONST UID '4DB1629901E8'
+ CONST Name 'tfwScriptDebugger'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB14DDC01A9 // ScriptDebugger
+ ;
+ : Children
+   @ ( ME_4DB14E0A029D // TtfwScriptDebugger_Form
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '22.04.2011 15:12'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\NOT_FINISHED_tfwScriptDebugger.pas'
+
+ref; // ME_4DB1629901E8 tfwScriptDebugger
+
+: ME_4DB14DDC01A9
+ CONST UID '4DB14DDC01A9'
+ CONST Name 'ScriptDebugger'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ ;
+ : Children
+   @ ( ME_4DB1629901E8 // tfwScriptDebugger
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifdef" 'InsiderTest'
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DB14DDC01A9.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DB14DDC01A9.pas.ms.script.runner'
+
+ref; // ME_4DB14DDC01A9 ScriptDebugger

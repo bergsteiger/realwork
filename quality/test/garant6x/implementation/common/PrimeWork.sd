@@ -1,0 +1,98 @@
+uses States, Clicks, common, exceptions, FileWork, FoldersWork, ListWork, MenuWork, RunPrograms, SearchWork;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function CreateNewPosting(
+  cardData : OleVariant;
+  const paramString : String = ''
+) : boolean;
+  var
+    paramList, toolBar : OleVariant;
+    str : String;
+    mfData, NOT_SUCCESS_FORMS : OleVariant;
+begin
+  try
+    NOT_SUCCESS_FORMS := 
+      [
+        ([MFT_INFO, 'Не задано значение*', 'ОК']),
+        ([MFT_INFO, 'Рассылка с таким именем уже существует.', 'ОК'])
+      ];
+    Result := false;
+    paramList := ParseParamString(paramString);
+    //
+    // создаем новую ленту
+    toolBar := F1Prime_GetFromMainWindow('ТУЛБАР "МОЯ НОВОСТНАЯ ЛЕНТА"');
+    if NOT ClickToolbarButton(toolBar, 'Новая индивидуальная лента' ) then
+    begin
+      Log.Error('Не получилось кликнуть на кнопку "Новая индивидуальная лента", вероятно превышен лимит числа рассылок!');
+      Exit;
+    end;
+    WaitForConfirmationWindow(Options.Run.Timeout div 15, 'Нет', 'Данные*ленты*не сохранены*Сохранить?*');
+    
+    //заполняем ее
+    if NOT FillPrimeCard(cardData) then Raise('Не получилось заполнить карточку Прайма!');
+    
+    // сохраняем ее
+    toolBar := F1Prime_GetFromMainWindow('НИЖНИЙ ТУЛБАР КАРТОЧКМ ЗАПРОСА');
+    if NOT ClickToolbarButton(toolBar, 'Сохранить' ) then
+    begin
+      Log.Error('Не получилось кликнуть на кнопку "Сохранить"');
+      Exit;
+    end;  
+    
+    if CheckForKnownMessageForms(NOT_SUCCESS_FORMS, mfData, Options.Run.TImeout div 15) then
+    begin
+      str := GetParam(mfData, WFMF_RES_MSGTEXT);
+      Log.Error('Не получилось сохранить рассылку, потому что "' + str + '"');
+      Exit;
+    end;
+        
+    Result := true;
+  except
+    Log.Message('CreateNewPosting: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+function CreateNewPosting_UnitTest;
+  var cardData : OleVariant;
+begin
+  try
+    //
+    cardData := 
+      [
+      	CARD_PRIME, ([([
+      	FD_DEALER_NAME, ([
+      		'Моя клевая организация']) ]),([
+      	FD_THEMES_NAME, ([
+      		'Мое клевое название']) ]),([
+      	FD_IMPORTANT_DOCUMENTS, ([
+      		'Добавлять в рассылку']) ]),([
+      	FD_ANNO_KIND, ([
+      		'Судебная и арбитражная практика']) ]),([
+      	FD_ANNO_USER, ([
+      		'Руководитель',
+          'Юрист']) ]),([
+       	FD_ANNO_ORG, ([
+      		'Бюджетная организация',
+          'ПБОЮЛ']) ]),([
+       	FD_ANNO_INTEREST, ([
+      		'Промышленность',
+          'Транспорт\Воздушный транспорт',
+          'Налоги и налогообложение\Единый налог на вмененный доход' ]) ]),([
+      	FD_EMAIL, ([
+      		'']) ]) ])
+     ];
+     
+     Log.Message( CreateNewPosting(cardData) );     
+          
+  except
+    Log.Message('' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+

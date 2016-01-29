@@ -1,0 +1,72 @@
+// Tf1VersionInfoService 55DDD0110086 ServiceImplementation Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '55DDCF7C004A.pas.ms.script'
+
+FORWARD ME_55DDD0110086
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_DB74325CC883
+ CONST UID 'DB74325CC883'
+ CONST Name 'bind'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tf1VersionInfoService' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DB74325CC883 bind
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_082545F9DBB0
+ CONST UID '082545F9DBB0'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_082545F9DBB0 Exists
+
+: ME_55DDD0110086
+ CONST UID '55DDD0110086'
+ CONST Name 'Tf1VersionInfoService'
+ CONST Class 'Class'
+ CONST Stereotype 'ServiceImplementation'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_BDE9EFF83116 // Il3VersionInfoService
+ ]
+ ; // Implements
+ : Operations
+   [ ME_DB74325CC883 // bind
+ ME_082545F9DBB0 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_30F5EA5AF6DF // VersionInfo
+ ]
+ ; // Implemented
+ CONST "ifdef" 'Nemesis'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55DDD0110086 Tf1VersionInfoService

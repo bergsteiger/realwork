@@ -1,0 +1,379 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Support"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Лаборатория,key:LAB,guid:4948FB1B0267/Home/Модель проекта "SimpleObjectTest"/ObjectCreationTestsLib/Support|494A814D037D
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/Support/SupportFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/Support/SupportFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/Support/Support.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/Support/Support.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"494A814D037D"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "MemorySPAM"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Лаборатория,key:LAB,guid:4948FB1B0267/Home/Модель проекта "SimpleObjectTest"/ObjectCreationTestsLib/Support/MemorySPAM|494A81700314
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*494A81700314_494A819A01AE_494A821902B4_BASE_INIT*"
+		    value      	(value Text 
+|//#UC START# *494A81700314_494A819A01AE_494A821902B4_BASE_INIT*¤	: m_stop_flag (0)¤//#UC END# *494A81700314_494A819A01AE_494A821902B4_BASE_INIT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*494A81700314_494A819A01AE_494A821902B4_BODY*"
+		    value      	(value Text 
+|//#UC START# *494A81700314_494A819A01AE_494A821902B4_BODY*¤	//#UC END# *494A81700314_494A819A01AE_494A821902B4_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"494A81700314"
+	    documentation 	"Мусорит в память (но потом за собой убирает разумеется)"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A819A01AE"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "start_spam"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494A81AC0325_494A821902B4*"
+			    value      	(value Text 
+|//#UC START# *494A81AC0325_494A821902B4*¤	unsigned long size = Support::SPAMParam::get_alloc_size ();¤	bool is_random = Support::SPAMParam::get_random_factor ();¤	unsigned long sleep_usec = Support::SPAMParam::get_spam_delay ();¤¤	while (m_stop_flag == 0) {¤		unsigned long real_size = is_random ? GCL::long_rand (size) : size;¤¤		char* buf = new char [real_size];¤		memset (buf, '7', real_size);¤		m_buffs.push_back (buf);¤		ACE_OS::sleep (ACE_Time_Value (0, sleep_usec));¤	}¤	m_stop_flag = 2;¤	//#UC END# *494A81AC0325_494A821902B4*
+			    )))
+		    quid       	"494A81AC0325"
+		    stereotype 	"oneway"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "stop_spam"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494A82050291_494A821902B4*"
+			    value      	(value Text 
+|//#UC START# *494A82050291_494A821902B4*¤	m_stop_flag = 1;¤	//#UC END# *494A82050291_494A821902B4*
+			    )))
+		    quid       	"494A82050291"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "SPAMParam"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/Support/SPAMParam.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/SimpleObjectTest/ObjectCreationTestsLib/Support/SPAMParam.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Лаборатория,key:LAB,guid:4948FB1B0267/Home/Модель проекта "SimpleObjectTest"/ObjectCreationTestsLib/Support/SPAMParam|494A8A6801A2
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"494A8A6801A2"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "spam_delay"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A8A8701E2"
+		    documentation 	"задержка между аллокациями в милисек"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"10"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "alloc_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494A8AA90167"
+		    documentation 	"размер порции"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"128"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "random_factor"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"in config"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is_required"
+			    value      	"false"))
+		    quid       	"494A8ACA03D8"
+		    documentation 	"случайная аллокация в пределах 0 - alloc_size"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    initv      	"true"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"494A816C02EE"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::SimpleObjectTest::ObjectCreationTestsLib::Support::MemorySPAM" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(747, 318)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(499, 222)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	496
+			justify    	0
+			label      	"MemorySPAM")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(499, 178)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	496
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"494A81700314"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(499, 277)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	4
+			max_width  	503
+			justify    	1)
+		    width      	514
+		    height     	302
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::SimpleObjectTest::ObjectCreationTestsLib::Support::SPAMParam" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1539, 312)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1237, 238)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	604
+			justify    	0
+			label      	"• SPAMParam")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1237, 194)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	604
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"494A8A6801A2"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(1237, 293)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	3
+			max_width  	607
+			justify    	1)
+		    width      	622
+		    height     	258
+		    annotation 	8
+		    autoResize 	TRUE)))))

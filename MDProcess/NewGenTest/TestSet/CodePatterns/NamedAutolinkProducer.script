@@ -1,0 +1,39 @@
+Тест NamedAutolinkProducerTest
+
+ NamedAutolinkProducer %TARGET %T
+ 
+ operator U$
+  ^ IN aRight
+  aRight DO
+ ; // U$
+ 
+ : A
+  %TARGET ( U$ '1' )
+ 
+  %T .
+  %T .
+  @SELF ->^ '%T' DO .
+  @SELF ->^ '%T' DO .
+  @SELF -> %T .
+ ; // A 
+ 
+ : B
+  %TARGET U$ '2'
+ 
+  %T .
+  %T .
+  @SELF ->^ '%T' DO .
+  @SELF ->^ '%T' DO .
+  @SELF -> %T .
+ ; // B
+ 
+ A
+ @SELF -> A
+ B
+ @SELF -> B
+ 
+ @SELF __DumpMembers
+ 
+; // NamedAutolinkProducerTest
+
+NamedAutolinkProducerTest

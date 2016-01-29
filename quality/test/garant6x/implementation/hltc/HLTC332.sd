@@ -1,0 +1,1487 @@
+uses
+  Main, common, commonEventHandlers, DocumentWork, exceptions, FileWork, FoldersWork, ListWork,  MenuWork,
+  RunPrograms, SearchWork, SettingsWork, States, Clicks, Administrator;
+  
+/////////////////////////////////////       Скрипты       /////////////////////////////////////////////
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.5: Создание нового пользователя. Проверить, что:
+    HLTC332.5.1: При создании нового пользователя все поля доступны для редактирования.
+}
+function HLTC332_5_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  toolBar;
+  fieldWnd;
+  fieldName;
+  i;
+  countOfAttempts;
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  toolBar := GetFromAdmin('ВЕРХНИЙ ТУЛБАР'); 
+  if NOT ClickToolbarButton(toolBar, 'Создать нового пользователя') then
+    Raise('Не удалось кликнуть по кнопке "Создать нового пользователя"');
+  for i := 0 to 5 do
+  begin
+    case i of
+      0: begin fieldName := 'ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"';   fieldWnd := GetFromAdmin(fieldName); end;
+      1: begin fieldName := 'ПОЛЕ "ПАРОЛЬ"';                fieldWnd := GetFromAdmin(fieldName); end;
+      2: begin fieldName := 'ПОЛЕ "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ"';  fieldWnd := GetFromAdmin(fieldName); end;
+      3: begin fieldName := 'ПОЛЕ "ФИО ПОЛЬЗОВАТЕЛЯ"';      fieldWnd := GetFromAdmin(fieldName); end;
+      4: begin fieldName := 'ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"';     fieldWnd := GetFromAdmin(fieldName); end;
+      5: begin fieldName := 'ЧЕКБОКС "РАЗРЕШЕНО ИСПОЛЬЗОВАНИЕ УСЛУГИ ПРАВОВОГО КОНСАЛТИНГА"'; fieldWnd := GetFromAdmin(fieldName); end;
+    end;//case
+    if NOT IsExists(fieldWnd) then
+    begin
+      Log.Error('Не удалось получить: ' + fieldName);
+      Raise;    
+    end;
+    if NOT fieldWnd.Enabled then
+    begin
+      Log.Error('При попытке создать нового пользователя Поле " ' + fieldName + ' "не активно!');
+      Raise('При попытке создать нового пользователя Поле " ' + fieldName + ' "не активно');
+    end;  
+  end;//for
+  
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+except
+  Log.Message( 'HLTC332_5_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.5: Создание нового пользователя. Проверить, что:
+    HLTC332.5.2: Создать пользователя можно с пустым паролем и без электронной почты.
+}
+function HLTC332_5_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC332_5_2';
+var  
+  countOfAttempts;
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + ';' + ADM_USER_FIO + ':=user' +  PREF) then
+  begin
+    Log.Error('Не удалось создать пользователя с пустым паролем и без электронной почты');
+    Raise('Не удалось создать пользователя с пустым паролем и без электронной почты');
+  end;
+  
+  countOfAttempts := 3;  
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+except
+  Log.Message( 'HLTC332_5_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.5: Создание нового пользователя. Проверить, что:
+    HLTC332.5.3:  Поле для ввода e-mail проверяется на правильность адреса(некорректный адрес подсвечивается красным).
+}
+function HLTC332_5_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  toolBar;
+  fieldWnd;
+  button;  
+  countOfAttempts;
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  toolBar := GetFromAdmin('ВЕРХНИЙ ТУЛБАР'); 
+  if NOT ClickToolbarButton(toolBar, 'Создать нового пользователя') then
+    Raise('Не удалось кликнуть по кнопке "Создать нового пользователя"');    
+  button := GetToolbarObject(GetFromAdmin('НИЖНИЙ ТУЛБАР'), 'BUTTON', 'Создать');
+  if NOT IsExists(button) then Raise('Не удалось получить кнопку "Создать"');
+  fieldWnd := GetFromAdmin('ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"'); 
+  if NOT IsExists(fieldWnd) then Raise('Не удалось получить ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"');
+  fieldWnd.SetFocus;
+  PressKeyWithCheck(['1']);
+  fieldWnd := GetFromAdmin('ПОЛЕ "ФИО ПОЛЬЗОВАТЕЛЯ"');
+  if NOT IsExists(fieldWnd) then Raise('Не удалось получить ПОЛЕ "ФИО ПОЛЬЗОВАТЕЛЯ"');
+  fieldWnd.SetFocus;
+  PressKeyWithCheck(['1']);
+  fieldWnd := GetFromAdmin('ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"');
+  if NOT IsExists(fieldWnd) then Raise('Не удалось получить ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"');     
+  fieldWnd.SetFocus;
+  PressKeyWithCheck(['1']);
+  if button.Enabled then
+  begin
+    Log.Error('При вводе НЕкорректного значения E_MAIL кнопка "Создать" активна');
+    Raise('При вводе НЕкорректного значения E_MAIL кнопка "Создать" активна');
+  end;
+  fieldWnd.SetFocus;
+  PressKeyWithCheck(['[End]![Home][Del]']);
+  PressKeyWithCheck(['1@garant']);
+  if button.Enabled then
+  begin
+    Log.Error('При вводе НЕкорректного значения E_MAIL кнопка "Создать" активна');
+    Raise('При вводе НЕкорректного значения E_MAIL кнопка "Создать" активна');
+  end;
+  fieldWnd.SetFocus;
+  PressKeyWithCheck(['[End]![Home][Del]']);
+  PressKeyWithCheck(['1@garant.ru']);
+  if NOT button.Enabled then
+  begin
+    Log.Error('При вводе корректного значения E_MAIL кнопка "Создать" НЕ активна');
+    Raise('При вводе корректного значения E_MAIL кнопка "Создать" НЕ активна');
+  end;
+  
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+except
+  Log.Message( 'HLTC332_5_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.5: Создание нового пользователя. Проверить, что:
+    HLTC332.5.4:  Вновь созданный пользователь добавляется не в конец списка, а фильтруется по ФИО
+    пользователя(не по логину) по алфавиту.
+}
+function HLTC332_5_4_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC332_5_4';
+var  
+  countOfAttempts;
+  userName;
+  tempUserName;
+  newUserName;
+  treeWnd;
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');   
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_а;' + ADM_USER_FIO + ':=user' +  PREF + '_а') then  
+    Raise('Не удалось создать пользователя' + ADM_USER_FIO + ':=user' +  PREF + '_а');
+    
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_в;' + ADM_USER_FIO + ':=user' +  PREF + '_в') then  
+    Raise('Не удалось создать пользователя' + ADM_USER_FIO + ':=user' +  PREF + '_в');
+  //1 
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_б;' + ADM_USER_FIO + ':=user' +  PREF + '_б') then  
+    Raise('Не удалось создать пользователя' + ADM_USER_FIO + ':=user' +  PREF + '_б');
+  newUserName := 'user' +  PREF + '_б (' + PREF + '_б)';   
+  if NOT Position_Internal(treeWnd, newUserName, '\', false, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ' + newUserName);
+  PressKeyWithCheck(['[Up]']);
+  tempUserName := 'user' +  PREF + '_а (' + PREF + '_а)';
+  userName := common.GetWindowText(treeWnd.Handle); 
+  if NOT StringCompare(userName, tempUserName) then     
+  begin
+    Log.Error('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, вышестоящий пользователь - не эталонен');
+    Raise('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, вышестоящий пользователь - не эталонен');
+  end;
+  if NOT Position_Internal(treeWnd, newUserName, '\', false, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ' + newUserName);
+  PressKeyWithCheck(['[Down]']);
+  tempUserName := 'user' +  PREF + '_в (' + PREF + '_в)';
+  userName := common.GetWindowText(treeWnd.Handle); 
+  if NOT StringCompare(userName, tempUserName) then     
+  begin
+    Log.Error('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+    Raise('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+  end;
+  //2
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_Б;' + ADM_USER_FIO + ':=user' +  PREF + '_Б') then  
+    Raise('Не удалось создать пользователя' + ADM_USER_FIO + ':=user' +  PREF + '_Б');
+  newUserName := 'user' +  PREF + '_Б (' + PREF + '_Б)';   
+  if NOT Position_Internal(treeWnd, newUserName, '\', false, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ' + newUserName);
+  PressKeyWithCheck(['[Up]']);
+  tempUserName := 'user' +  PREF + '_а (' + PREF + '_а)';
+  userName := common.GetWindowText(treeWnd.Handle); 
+  if NOT StringCompare(userName, tempUserName) then     
+  begin
+    Log.Error('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, вышестоящий пользователь - не эталонен');
+    Raise('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, вышестоящий пользователь - не эталонен');
+  end;
+  if NOT Position_Internal(treeWnd, newUserName, '\', false, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ' + newUserName);
+  PressKeyWithCheck(['[Down]']);
+  tempUserName := 'user' +  PREF + '_б (' + PREF + '_б)';
+  userName := common.GetWindowText(treeWnd.Handle); 
+  if NOT StringCompare(userName, tempUserName) then     
+  begin
+    Log.Error('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+    Raise('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+  end;
+  //3
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_N;' + ADM_USER_FIO + ':=user' +  PREF + '_N') then  
+    Raise('Не удалось создать пользователя' + ADM_USER_FIO + ':=user' +  PREF + '_N');
+  newUserName := 'user' +  PREF + '_N (' + PREF + '_N)';
+  if NOT Position_Internal(treeWnd, newUserName, '\', false, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ' + newUserName);
+  PressKeyWithCheck(['[Down]']);
+  tempUserName := 'user' +  PREF + '_а (' + PREF + '_а)';
+  userName := common.GetWindowText(treeWnd.Handle); 
+  if NOT StringCompare(userName, tempUserName) then     
+  begin
+    Log.Error('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+    Raise('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+  end;
+  //4
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_n;' + ADM_USER_FIO + ':=user' +  PREF + '_n') then  
+    Raise('Не удалось создать пользователя' + ADM_USER_FIO + ':=user' +  PREF + '_n');
+  newUserName := 'user' +  PREF + '_n (' + PREF + '_n)';   
+  if NOT Position_Internal(treeWnd, newUserName, '\', false, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ' + newUserName);
+  PressKeyWithCheck(['[Up]']);
+  tempUserName := 'user' +  PREF + '_N (' + PREF + '_N)';
+  userName := common.GetWindowText(treeWnd.Handle); 
+  if NOT StringCompare(userName, tempUserName) then     
+  begin
+    Log.Error('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, вышестоящий пользователь - не эталонен');
+    Raise('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, вышестоящий пользователь - не эталонен');
+  end;
+  if NOT Position_Internal(treeWnd,  newUserName, '\', false, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ' + newUserName);
+  PressKeyWithCheck(['[Down]']);
+  tempUserName := 'user' +  PREF + '_а (' + PREF + '_а)';
+  userName := common.GetWindowText(treeWnd.Handle); 
+  if NOT StringCompare(userName, tempUserName) then     
+  begin
+    Log.Error('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+    Raise('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+  end;
+  //5
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_1;' + ADM_USER_FIO + ':=user' +  PREF + '_1') then  
+    Raise('Не удалось создать пользователя' + ADM_USER_FIO + ':=user' +  PREF + '_1');
+  newUserName := 'user' +  PREF + '_1 (' + PREF + '_1)';
+  if NOT Position_Internal(treeWnd, newUserName, '\', false, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ' + newUserName);
+  PressKeyWithCheck(['[Down]']);
+  tempUserName := 'user' +  PREF + '_N (' + PREF + '_N)';
+  userName := common.GetWindowText(treeWnd.Handle); 
+  if NOT StringCompare(userName, tempUserName) then     
+  begin
+    Log.Error('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+    Raise('Новый пользователь "' + newUserName + '" не правильно отсортировался в списке пользователей, нижестоящий пользователь - не эталонен');
+  end;
+  
+  countOfAttempts := 3;      
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+except
+  Log.Message( 'HLTC332_5_4_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler;
+end;
+end;
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.5: Создание нового пользователя. Проверить, что:
+    HLTC332.5.5: При нажатии Отмена активным становится предыдущий выбранный элемент.
+}
+function HLTC332_5_5_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC332_5_5';
+var  
+  countOfAttempts;  
+  treeWnd;
+  fieldWnd;
+  fieldName;
+  i;
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');  
+  if NOT Position_Internal(treeWnd, '*ADMIN*', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: "ADMIN"');
+  if NOT ClickToolbarButton(GetFromAdmin('ВЕРХНИЙ ТУЛБАР'), 'Создать нового пользователя') then
+    Raise('Не удалось кликнуть по кнопке "Создать нового пользователя"');
+    
+  if NOT ClickToolbarButton(GetFromAdmin('НИЖНИЙ ТУЛБАР'), 'Отмена') then
+    Raise('Не удалось кликнуть по кнопке "Отмена"');
+      
+  if NOT StringCompare('*ADMIN*', common.GetWindowText(treeWnd.Handle)) then
+  begin
+    Log.Error('При отмене создания пользователя - активный элемент дерева НЕ "ADMIN"');
+    Raise('При отмене создания пользователя - активный элемент дерева НЕ "ADMIN"');
+  end;
+  
+  
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);  
+  result := true;
+except
+  Log.Message( 'HLTC332_5_5_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.6: Редактирование пользователей. Проверить, что:    
+      HLTC332.6.1: При редактировании данных пользователей поле регистрационное имя недоступно.
+}
+function HLTC332_6_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC332_6_1';
+var  
+  countOfAttempts;
+  treeWnd;
+  wnd; 
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_user1;' + ADM_USER_FIO + ':=' +  PREF + '_user1') then  
+    Raise('Не удалось создать пользователя' + ADM_USER_FIO + ':=' +  PREF + '_user1');
+  if NOT CreateNewUserInAdmin(ADM_NAME + ':=' +  PREF + '_user2;' + ADM_USER_FIO + ':=' +  PREF + '_user2') then  
+    Raise('Не удалось создать пользователя ' + ADM_USER_FIO + ':=' +  PREF + '_user2');
+    
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  wnd := GetFromAdmin('ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"');
+  if NOT IsExists(wnd) then Raise('Не удалось получить ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"');   
+  if NOT Position_Internal(treeWnd, PREF + '_user1*', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: "' + PREF + '_user1*');
+  if wnd.Enabled then
+  begin
+    Log.Error('При редактировании данных пользоваетля поле "Регистрационное" имя доступно для редактирования');
+    Raise('При редактировании данных пользоваетля поле "Регистрационное" имя доступно для редактирования');
+  end;
+  if NOT Position_Internal(treeWnd, PREF + '_user2*', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: "' + PREF + '_user2*');
+  if wnd.Enabled then
+  begin
+    Log.Error('При редактировании данных пользоваетля поле "Регистрационное" имя доступно для редактирования');
+    Raise('При редактировании данных пользоваетля поле "Регистрационное" имя доступно для редактирования');
+  end;
+  
+  countOfAttempts := 3;    
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+  
+except
+  Log.Message( 'HLTC332_6_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+
+
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.6: Редактирование пользователей. Проверить, что:
+    HLTC332.6.2: Все сделанные изменения корректно сохраняются.
+      HLTC332.6.2.2:
+      1. Поменять e-mail у админа 
+      2. Выбрать другого пользователя (перевести фокус на него)
+      3. Снова выбрать админа
+      Убедиться, что в поле Электронная почта прописан правильный, введённый нами e-mail
+      
+}
+function HLTC332_6_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC332_6_2_2';
+var  
+  countOfAttempts;
+  treeWnd; 
+  wndMail;
+  wnd;
+  caption;     
+begin
+try
+
+  countOfAttempts := 3;  
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');    
+  if NOT Position_Internal(treeWnd, '*(ADMIN)', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: ADMIN');
+  wndMail := GetFromAdmin('ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"');
+  if NOT IsExists(wndMail) then Raise('Не удалось получить ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"');
+  wndMail.SetFocus;
+  Sys.Keys('[End]![Home][Del]');
+  PressKeyWithCheck([PREF + '@garant.ru']);
+  if NOT ClickToolbarButton(GetFromAdmin('НИЖНИЙ ТУЛБАР'), 'Сохранить') then  
+    Raise('Не удалось кликнуть на кнопку "Сохранить"');    
+  
+  if NOT StringCompare(common.GetWindowText(wndMail.Handle), PREF + '@garant.ru') then
+  begin
+    Log.Error('В окне About значение E-mail не изменилось, должно быть "*@garant.ru"', caption);
+    Raise('В окне About значение E-mail не изменилось');
+  end;    
+      
+  wndMail.SetFocus;
+  Sys.Keys('[End]![Home][Del]');
+  PressKeyWithCheck([PREF + '@yandex.ru']);
+  if NOT ClickToolbarButton(GetFromAdmin('НИЖНИЙ ТУЛБАР'), 'Сохранить') then  
+    Raise('Не удалось кликнуть на кнопку "Сохранить"');  
+  if NOT StringCompare(common.GetWindowText(wndMail.Handle), PREF + '@yandex.ru') then
+  begin    
+    Log.Error('В окне About значение E-mail не изменилось, должно быть "*@yandex.ru"', caption);
+    Raise('В окне About значение E-mail не изменилось');
+  end;  
+  
+  countOfAttempts := 3;  
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+  
+except  
+  Log.Message( 'HLTC332_6_2_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.7: Удаление пользователей.
+    Проверить, что нельзя удалить системного пользователя «ADMIN» и группу «Все».
+}
+function HLTC332_7_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  countOfAttempts;
+  treeWnd;
+  button;
+  mainMenu;
+  toolBar;     
+begin
+try
+
+  countOfAttempts := 3;  
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');    
+  if NOT Position_Internal(treeWnd, '*ADMIN*', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на пользователе: "ADMIN"');
+  button := GetToolbarObject(GetFromAdmin('ВЕРХНИЙ ТУЛБАР'), 'BUTTON', 'Удалить пользователя');
+  if NOT IsExists(button) then Raise('Не удалить получить кнопку "Удалить пользователя" на тулбаре');
+  if button.Enabled then
+  begin
+    Log.Error('Кнопка "Удалить" для системного пользователя АКТИВНА');
+    Raise('Кнопка "Удалить" для системного пользователя АКТИВНА');
+  end;
+  mainMenu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');  
+  if IsMenuItemEnabled(mainMenu, 'Правка\Удалить') then
+  begin
+    Log.Error('Пункт главного меню  "Правка\Удалить" для системного пользователя АКТИВНА');
+    Raise('Кнопка "Правка\Удалить" для системного пользователя АКТИВНА');
+  end;
+  //Проверяем для группы Все   
+  treeWnd := GetFromAdmin('ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');    
+  if NOT Position_Internal(treeWnd, 'Все', '\', true, 'IsPressHome := true') then 
+    Raise('Не удалось спозиционироваться на системной группе: "Все"');
+  toolBar := GetFromAdmin('ТУЛБАР "ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ"');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить ТУЛБАР "ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ"');   
+  button := GetToolbarObject(toolBar, 'BUTTON', 'Удалить группу*');
+  if NOT IsExists(button) then Raise('Не удалить получить кнопку "Удалить группу*" на тулбаре');
+  if button.Enabled then
+  begin
+    Log.Error('Кнопка "Удалить группу" для системной группы "Все" АКТИВНА');
+    Raise('Кнопка "Удалить группу" для системной группы "Все" АКТИВНА');
+  end;
+  mainMenu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');  
+  if IsMenuItemEnabled(mainMenu, 'Правка\Удалить') then
+  begin
+    Log.Error('Пункт главного меню  "Правка\Удалить" для системной группы "Все" АКТИВНА');
+    Raise('Кнопка "Правка\Удалить" для системной группы "Все" АКТИВНА');
+  end;  
+  
+  countOfAttempts := 3;  
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+  
+except
+  Log.Message( 'HLTC332_7_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.8: Работа с оболочкой.    
+    HLTC332.8.1: Проверить, что основная функциональность системы недоступна: не открываются поиски, документы, 
+    толковый словарь и т.д. А в главном меню присутствуют только пункты Файл, Правка и Помощь.
+}
+function HLTC332_8_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  TEMP_FILE = 'HLTC332_8_1.BMP';
+var  
+  countOfAttempts;
+  mainWnd;
+  menu;
+  pathToImage;
+  i; shellObjects; 
+begin
+try
+  shellObjects := ['[F7]', '[F5]', '[F6]', '[F4]', '~n'];
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  mainWnd := GetMainWindow;
+  menu := GetFromAdmin('ГЛАВНОЕ МЕНЮ', nil, mainWnd);  
+  if NOT IsExists(menu) then Raise('Не удалсоь получить ГЛАВНОЕ МЕНЮ');
+  if NOT (
+    (menu.Items.count = 3)  AND 
+    (StringCompare('Файл', menu.Items.Items[0].caption )) AND
+    (StringCompare('Правка', menu.Items.Items[1].caption )) AND
+    (StringCompare('Помощь', menu.Items.Items[2].caption ))  ) then
+  Raise('Наполнение главного меню не эталонно!!!');  
+  
+  pathToImage := GetTempDirectory + '\' + TEMP_FILE;
+  mainWnd.SetFocus;
+  mainWnd.Picture.SaveToFile(pathToImage);
+  for i := VarArrayLowBound(shellObjects,1) to VarArrayHighBound(shellObjects,1) do
+  begin
+    Sys.Keys(shellObjects[i]);
+    if NOT Regions.Compare(mainWnd, pathToImage, false, true, true, 0) then 
+      Raise('После вызова : ' + shellObjects[i] + ' изменилось отображение главного окна Админа, хотя не должно было!');
+  end;   
+  
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+except
+  Log.Message( 'HLTC332_8_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.15 Утилита импорта списка пользователей
+  HLTC332.15.1
+    Формат CSV-файла
+    <action><разделитель><login><разделитель><ФИО><разделитель><password><разделитель><e-mail><разделитель><using_consulting_status><разделитель><privileged_status><разделитель><group_name>
+    <разделитель> - в качестве разделителя могут быть использованы: ";"(точка с запятой), "," (запятая), "|" (вертикальная черта), "(0х09)"(символ табуляции)., использование разных разделителей в одном файле - не допускается, выбранный (первый упомянутый с начала файла) разделитель не может быть использован в значениях параметров. В первом <login> в файле не допускается использование ни одного из символов-разделителей;
+    <action> - Тип действия, производимого с пользователем. Необязательный параметр.
+     Может быть: 
+    «+» - добавление пользователя (значение по-умолчанию);
+    «=» - изменение данных пользователя;
+    «-» - удаление пользователя.
+    <login> - Регистрационное имя, обязательный параметр, уникальное значение, длина - не более 32 знаков;
+    <ФИО> - ФИО пользователя, необязательный параметр, длина - не более 255 знаков. Параметр не нужно указывать, если пользователь удаляется из системы. В любом другом случае параметр обязателен.
+    <password> - пароль пользователя, необязательный параметр, длина - не более 255 знаков
+    <e-mail> - email пользователя, необязательный параметр, если указан, в нем обязательно должны быть "@" и ".";
+    <using_consulting_status> - право использования услуги Правового консалтинга, необязательный параметр, возможные значения ('','0','1'): "значение не указано" (по умолчанию) - право наследуется в соответствии с групповой настройкой политик на право доступа к консультациям для новых пользователей, "0" - запрещено, "1" - разрешено.
+    <privileged_status> - свойство привилегированности пользователя , необязательный параметр, возможные значения ('','0','1'): "значение не указано" (по умолчанию) - не привилегированный пользователь, "0" - не привилегированный пользователь, "1" - привилегированный пользователь.
+    <group_name> - группа, к которой принадлежит пользователь, необязательный параметр, строка произвольного вида: если значение не указано - пользователь будет добавлен только в группу "Все".
+
+    Если пользователь удаляется из системы, то разбор строки заканчивается после получения регистрационного имени.
+  
+      
+  HLTC332.15.2  Проверить, что на КС версии завести пользователей можно с помощью специальной утилиты.
+    Модификация ТБ:
+    Берём утилиту Setlicence из
+     \\BUILDS-STORE\garant-nemesis\.support
+     Копируем батники, exe-шник и dll в каталог с данными
+    Изменяем файл SetLicence.exe_internal.bat:
+     -max 32 -perm 2 -profiles 32
+    Запускаем с параметром data:
+     SetLicence.exe_internal.bat data
+     База готова.
+
+    Оболочка:
+    Взять файл users.txt (в аттаче к странице HLTC в К)
+    Положить в каталог с оболочкой (рядом с garant.exe)
+    Запустить из каталога tools
+     uimport.bat -f "C:\Program Files\Garant-Server\users.txt"
+    Проверить записи в логе по адресу:
+     C:\Program Files\Garant-Server\apps\winNT\f1userimport.log
+    
+}
+function HLTC332_15_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PATH_TO_SETLICENCE = '\\builds-store\garant-nemesis\.support';  
+var  
+	newLogName,
+  countOfAttempts;
+  currDBPath;
+  proc, runTimeout, time, a, b;
+  toolsPath;
+  usersTxtPath;
+  f1UserImportLogPath;
+  strInLog;
+  
+  etalonUsers;
+  treeWnd;
+  i;
+  paramList;
+  etalonUserName, etalonUserFio, etalonUserEmain, etalonUserPrivilegid, etalonUserConsultAcces, etalonUserGroup;
+begin
+try
+  //Стопим сервер
+  countOfAttempts := 3;
+  CloseF1Shell(countOfAttempts, Options.Run.Timeout div 6);
+  if NOT StopF1Server then Raise('Не удалось остановить сервер');  
+  //копируем setlicence со всем хозяйством под ноги к базе      
+  currDBPath := GetDataPath('active');
+  CopyFilesExt(PATH_TO_SETLICENCE + '\*.dll', currDBPath);  
+  CopyFilesExt(PATH_TO_SETLICENCE + '\*.exe', currDBPath);
+  CopyFilesExt(PATH_TO_SETLICENCE + '\*.bat', currDBPath);
+    
+  //правим батник с setlicence  
+  BuiltIn.SaveStrToFile(
+    currDBPath + 'SetLicence.exe_internal.bat', 
+    '@SetLicence.exe -max 32 -perm 2 -profiles 32 -licence internal %*'
+  );
+  
+  //запускаем setlicence  
+  Utilities.SetCurrentDir(currDBPath); 
+  if( Win32API.WinExec('SetLicence.exe_internal.bat data', Win32API.SW_SHOWMAXIMIZED) < 32) then//// WinExec возвращает число меньше 32 если возникла ошибка при запуске.
+    Raise('WinExec не смог запустить SetLicence.exe_internal.bat!');  
+  runTimeout := 1000*60*2;//это время будем ждать, пока не отработает setLicence  
+	time := Win32API.GetTickCount + runTimeout;  
+	repeat
+    Delay( 1000 );
+    proc := Sys.WaitProcess('setlicence', 5000);		
+		a := NOT IsExists(proc);
+		b :=  ( time < Win32API.GetTickCount ); 
+	until ( a or b );
+	if b and NOT a then
+  begin
+		if IsExists(proc) then proc.Terminate;  // если время истекло а процесс еще работает, то прибиваем его
+    Raise('SetLicence не отработал за заданное время, возможно завис, прибиваем его!');
+  end;
+  
+  //копируем эталонный файл users.txt под ноги оболочке  
+  usersTxtPath := Files.FileNameByName('users.txt');
+  CopyFilesExt(usersTxtPath, GetF1Directory);
+  //Перед запуском батника чистим лог утилиты, вдруг от старого скрипта затесался   
+  f1UserImportLogPath := GetF1Directory + '\apps\winNT\f1userimport.log';  
+  DeleteFilesExt(f1UserImportLogPath);
+  //запускаем батник uimport.bat
+  if NOT StartF1Server then Raise('Не удалось запустить сервер');//перед запуском утилиты запускаем сервер
+  toolsPath := GetF1Directory + '\tools';  
+  Utilities.SetCurrentDir(toolsPath);
+  if( Win32API.WinExec('uimport.bat -f "' + GetF1Directory + '\users.txt"', Win32API.SW_SHOWMAXIMIZED) < 32) then//// WinExec возвращает число меньше 32 если возникла ошибка при запуске.
+    Raise('WinExec не смог запустить uimport.bat');  
+  runTimeout := 1000*60*2;//это время будем ждать, пока не отработает F1UsersImport.exe  
+	time := Win32API.GetTickCount + runTimeout;  
+	repeat
+    Delay( 1000 );
+    proc := Sys.WaitProcess('F1UsersImport', 5000);		
+		a := NOT IsExists(proc);
+		b :=  ( time < Win32API.GetTickCount ); 
+	until ( a or b );
+	if b and NOT a then
+  begin
+		if IsExists(proc) then proc.Terminate;  // если время истекло а процесс еще работает, то прибиваем его
+    Raise('F1UsersImport не отработал за заданное время, возможно завис, прибиваем его!');
+  end;
+    
+  //ПРОВЕРЯЕМ ЛОГ  f1userimport.log  
+  Result := IsStringIncludeInLog(
+              [
+                '-LM_ERROR: CSV String (3) skipped: incorrect login',
+                '-LM_ERROR: CSV String (4) skipped: incorrect password',
+                '-LM_ERROR: CSV String (5) skipped: incorrect name',
+                '-LM_ERROR: CSV String (6): incorrect e-mail address, parameter skipped',
+                '-LM_INFO: CSV String (6) successfully processed',
+                '-LM_ERROR: CSV String (7): incorrect consulting rights value. Using default',
+                '-LM_INFO: CSV String (7) successfully processed',
+                '-LM_ERROR: CSV String (8): incorrect privileged rights value. Using default',
+                '-LM_INFO: CSV String (8) successfully processed',
+                '-LM_ERROR: CSV String (9) skipped: user <login1> already exists',
+                '-LM_ERROR: CSV String (10): can''t find delimiter',
+                '-LM_WARNING: CSV String (37): maximum count of privileged users reached, add nonprivileged user', 
+                '-LM_INFO: CSV String (37) successfully processed',
+                '-LM_WARNING: CSV String (45): maximum count of privileged users reached, flag not changed',
+                '-LM_INFO: CSV String (45) successfully processed',  
+                '-LM_ERROR: CSV String (42): can''t find user to erase',
+                '-LM_WARNING: CSV String (43): can''t find modified user, create new one',
+                '-LM_INFO: CSV String (43) successfully processed',
+                '-LM_ERROR: CSV String (44) skipped: maximum count of users reached'
+                
+              ],
+              'InFileName:='+f1UserImportLogPath);
+   
+  //Заходим в админку и сравниваем список пользователей с эталонным списком пользователей
+  //сравниваем все поля, кроме пароля - пароль будем проверять позже логинившись каждым пользователем отдельно
+  etalonUsers := [
+    ADM_NAME+':=login1;'+ADM_USER_FIO+':=ФИО1;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=русский_логин1;'+ADM_USER_FIO+':=ФИО2;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login3;'+ADM_USER_FIO+':=ФИО3;'+ADM_E_MAIL+':=1@1;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login 4;'+ADM_USER_FIO+':=ФИО4;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    //ADM_NAME+':=login log loginuch;'+ADM_USER_FIO+':=ФИО4.1;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login5;'+ADM_USER_FIO+':=ФИО5;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login6;'+ADM_USER_FIO+':=ФИО6;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login7;'+ADM_USER_FIO+':=ФИО7;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login8;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Новая группа пользователей',
+    ADM_NAME+':=login9;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Новая группа пользователей',
+    ADM_NAME+':=login11;'+ADM_USER_FIO+':=ФИО --------- Был изменён! -- А login10 теперь нет -------- ;'+ADM_E_MAIL+':=ФИО --------- Был изменён! -- А login10 теперь нет -------- ;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    
+    ADM_NAME+':=login12;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login13;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login14;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login15;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login16;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login17;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login18;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login19;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login21;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login22;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login23;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login24;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login25;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все',
+    ADM_NAME+':=login26;'+ADM_USER_FIO+':=ФИО;'+ADM_E_MAIL+':=;'+ADM_PRIVILEGID+':=false;'+ADM_CONSULTING_ACCESS+':=разрешено;'+ADM_GROUP+':=Все'
+    
+  ];
+  
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  treeWnd := GetFromAdmin('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(treeWnd) then Raise('Не удалось получить ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ');
+  
+  //Сравниваем общие количество пользователей
+  usersCount;
+  
+  for i := VarArrayLowBound(etalonUsers,1) to VarArrayHighBound(etalonUsers,1) do
+  begin
+    paramList := ParseParamString(etalonUsers[i]);    
+    etalonUserName := BuiltIn.VarToString( GetParam(paramList, ADM_NAME) );
+    etalonUserFio := BuiltIn.VarToString( GetParam(paramList, ADM_USER_FIO) );
+    etalonUserEmain := BuiltIn.VarToString( GetParam(paramList, ADM_E_MAIL) );
+    etalonUserPrivilegid := BuiltIn.VarToBool( GetParam(paramList, ADM_PRIVILEGID) ); 
+    etalonUserConsultAcces := BuiltIn.VarToString( GetParam(paramList, ADM_CONSULTING_ACCESS) );
+    etalonUserGroup := BuiltIn.VarToString( GetParam(paramList, ADM_GROUP) );
+      
+    if NOT Position_Internal(treeWnd, etalonUserFio + ' ('+etalonUserName+')', '\', true, 'IsPressHome := true') then
+    Raise('Не удалось спозиционироваться на пользователе в дереве пользователей:' + etalonUserFio + ' ('+etalonUserName+')'); 
+  
+    paramList := '';
+    if NOT ReadUserDataInAdmin(paramList) then Raise('Не удалось считать данные пользователя');
+    //Сравниваем регистрационное имя  
+    if NOT ( GetParam(paramList, ADM_NAME, '' ) = etalonUserName) then
+    begin
+      Log.Error(ADM_NAME + ' у пользователя : "' + etalonUserName + '" НЕ эталонно: ' + GetParam(paramList, ADM_NAME, '' ));
+      Raise;
+    end;
+    //Сравниваем ФИО
+    if NOT ( GetParam(paramList, ADM_USER_FIO, '' ) = etalonUserFio) then
+    begin
+      Log.Error(ADM_USER_FIO + ' у пользователя : "' + etalonUserName + '" НЕ эталонно: ' + GetParam(paramList, ADM_USER_FIO, '' ));
+      Raise;
+    end;
+    //Сравниваем email    
+    if NOT ( GetParam(paramList, ADM_E_MAIL, '' ) = etalonUserEmain) then
+    begin
+      Log.Error(ADM_E_MAIL + ' у пользователя : "' + etalonUserName + '" НЕ эталонно: ' + GetParam(paramList, ADM_E_MAIL, '' ));
+      Raise;
+    end;
+    //Сравниваем значение чекбокса: Привилегированный пользователь        
+    if NOT ( GetParam(paramList, ADM_PRIVILEGID, '' ) = etalonUserPrivilegid) then
+    begin
+      Log.Error(ADM_PRIVILEGID + ' у пользователя : "' + etalonUserName + '" НЕ эталонно: ' + BuiltIn.VarToStr(GetParam(paramList, ADM_PRIVILEGID, '' )));
+      Raise;
+    end;    
+    //Сравниваем значение чекбокса: Разрешено использование услуги провового консалтинга        
+    if NOT ( GetParam(paramList, ADM_CONSULTING_ACCESS, '' ) = etalonUserConsultAcces) then
+    begin
+      Log.Error(ADM_CONSULTING_ACCESS + ' у пользователя : "' + etalonUserName + '" НЕ эталонно: ' + GetParam(paramList, ADM_CONSULTING_ACCESS, '' ));
+      Raise;
+    end;
+    //Сравниваем группу
+    if NOT ( GetParam(paramList, ADM_GROUP, '' ) = etalonUserGroup) then
+    begin
+      Log.Error(ADM_GROUP + ' у пользователя : "' + etalonUserName + '" НЕ эталонно: ' + GetParam(paramList, ADM_GROUP, '' ));
+      Raise;
+    end;    
+  end;
+    
+  
+           
+  //HLTC332.15.2.1 Логин не соответствует требованиям формата. Запись в логе: 
+  //-LM_ERROR: CSV String (3) skipped: incorrect login
+  
+                  
+  //HLTC332.15.2.2 Пароль не соответствует требованиям формата. Запись в логе:
+  //-LM_ERROR: CSV String (4) skipped: incorrect password
+  
+  //login 4|ФИО4|pass4pass4pass4-здесь-пробел-должен-проимпортироваться
+ 
+    
+     
+  //HLTC332.15.2.3 ФИО не соответствует требованиям формата. Запись в логе:
+  //-LM_ERROR: CSV String (5) skipped: incorrect name
+  
+  //Проверяем, что нельзя зайти пользователем с некорректным именем  
+  
+  
+  //HLTC332.15.2.4 E-mail не соответствует требованиям формата. Запись в логе:
+  //-LM_ERROR: CSV String (6): incorrect e-mail address, parameter skipped
+  //-LM_INFO: CSV String (6) successfully processed  
+
+  
+  //HLTC332.15.2.5 <using_consulting_status> не соответствует требованиям формата. Запись в логе:
+  //-LM_ERROR: CSV String (7): incorrect consulting rights value. Using default
+  //-LM_INFO: CSV String (7) successfully processed
+  
+  
+  //HLTC332.15.2.6 <privileged_status> не соответствует требованиям формата. Запись в логе:
+  //-LM_ERROR: CSV String (8): incorrect privileged rights value. Using default
+  //-LM_INFO: CSV String (8) successfully processed
+  
+  
+  //HLTC332.15.2.7 Логин не оригинален. Запись в логе:
+  //-LM_ERROR: CSV String (9) skipped: user <login1> already exists
+  
+  
+  //HLTC332.15.2.8 Строка не содержит разделителя. Запись в логе:
+  //-LM_ERROR: CSV String (10): can't find delimiter
+  
+  
+  //HLTC332.15.2.9 Достигнут лимит количества привилегированных пользователей в системе:  Запись в логе:
+  //-LM_WARNING: CSV String (37): maximum count of privileged users reached, add nonprivileged user 
+  //-LM_INFO: CSV String (37) successfully processed
+  
+  
+  //HLTC332.15.2.10 Достигнут лимит количества привилегированных пользователей в системе при смене данных пользователя
+  //Запись в логе:
+  //-LM_WARNING: CSV String (45): maximum count of privileged users reached, flag not changed
+  //-LM_INFO: CSV String (45) successfully processed
+  
+  
+  //HLTC332.15.2.11 Удаляемого пользователя нет в системе. Запись в логе:
+  //-LM_ERROR: CSV String (42): can't find user to erase
+  
+  
+  //HLTC332.15.2.12 Модифицируемого пользователя нет в системе. Запись в логе:
+  //-LM_WARNING: CSV String (43): can't find modified user, create new one
+  //-LM_INFO: CSV String (43) successfully processed
+  
+  
+  //HLTC332.15.2.13 Достигнут лимит количества пользователей в системе. Запись в логе:
+  //-LM_ERROR: CSV String (44) skipped: maximum count of users reached
+  
+  
+  //HLTC332.15.2.14 Сервер недоступен. Запись в логе:
+  //can't connect to server
+  
+  
+  //HLTC332.15.2.15 Пароль администратора неверен. Запись в логе:
+  //bad ADMIN password, use -pwd option
+
+    
+  //HLTC332.15.2.16. Работа с изменённым паролем админа
+  //1. Изменить пароль админа
+  //2. Запустить из каталога tools
+  //uimport.bat -f "C:\Program Files\Garant-Server\users.txt" –pwd "new_pass"
+  //3. Проверить, что заведенные пользователи и их свойства соответствуют содержимому файла.
+  
+  
+  //HLTC332.15.2.17  Файлы с разными разделителями
+  //1. Удаляем всех пользователей в системе
+  //2. Берём из аттача к странице с HLTC 4 файла (users_1.txt, users_2.txt, users_3.txt, users_4.txt)
+  //3. Натравливаем утилиту на каждый из них по порядку
+  //Смотрим, что в F1UserImport.log, ближе к концу файла есть записи:
+  //-LM_ERROR: CSV String (2): can't find delimiter
+  //-LM_ERROR: CSV String (3): can't find delimiter
+  //-LM_ERROR: CSV String (4): can't find delimiter
+  //А в системе заведено 4 пользователя.
+
+  result := true;
+  
+  //Чистим за собой все
+except
+  Log.Message( 'HLTC332_15_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  //CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+
+//нужно чтобы в отчетах с логами не было ошибок
+try
+  CloseF1Admin;
+  CloseF1Shell;
+  StopF1Server;
+finally
+	newLogName := GetFilePathToLogFile('SERVER') + '.HLTC332_15_1';
+	Utilities.DeleteFile(newLogName);
+  Utilities.RenameFile(GetFilePathToLogFile('SERVER'), newLogName);
+
+	newLogName := GetFilePathToLogFile('CLIENT') + '.HLTC332_15_1';
+	Utilities.DeleteFile(newLogName);
+  Utilities.RenameFile(GetFilePathToLogFile('CLIENT'), newLogName);
+
+	StartF1Server;
+end;
+end;
+
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.16  Группы пользователей    
+    HLTC332.16.1  Во вкладке группы пользователей есть возможность создать, удалить и переименовать(кроме группы Все) любую группу
+}
+function HLTC332_16_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+    PREF = 'HLTC332_16_1'; 
+var  
+  countOfAttempts;
+  i;
+  groupTree;
+  groupToolBar;
+  tbBtn;
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  //Создаем новые группы
+  for i:= 1 to 2 do
+  begin
+    CreateNewGroup(PREF + '_' + IntToStr(i));
+  end;
+  //Проверяем, что группы появились в списке
+  groupTree := GetFromAdmin('ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(groupTree) then Raise('Не удалось получить ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');  
+  for i:=  1 to 2 do
+  begin
+    if NOT Position_Internal(groupTree, PREF + '_' + IntToStr(i), '\', true, 'IsPressHome := true') then  
+    begin
+      Log.Error('Не удалось спозиционироваться на СОЗДАННУЮ группу :' + PREF + '_' + IntToStr(i));
+      Raise('Не удалось спозиционироваться на СОЗДАННУЮ группу :' + PREF + '_' + IntToStr(i));
+    end;    
+  end;  
+  //Редактируем группу и проверяем, что она успешно отредактировалась  
+  if NOT ChangeGroupName(PREF + '_1', PREF + '_1_chahged') then
+    Raise('Не удалось отредактировать группу!');
+        
+  if NOT Position_Internal(groupTree, PREF + '_1_chahged', '\', true, 'IsPressHome := true') then
+  begin
+    Log.Error('Не удалось спозиционироваться на ОТРЕДАКТИРОВАННУЮ группу :' + PREF + '_1_chahged');
+    Raise('Не удалось спозиционироваться на ОТРЕДАКТИРОВАННУЮ группу :' + PREF + '_1_chahged');      
+  end;      
+  //Удаляем группу и проверяем, что она успешно удалилась   
+  if NOT DeleteGroup(PREF + '_2') then
+    Raise('Не удалось удалить группу: ' + PREF + '_2');
+  if Position_Internal(groupTree, PREF + '_2', '\', true, 'IsPressHome := true') then
+  begin
+    Log.Error('Удалось спозиционироваться на уже УДАЛЕННУЮ группу :' + PREF + '_2');
+    Raise('Удалось спозиционироваться на уже УДАЛЕННУЮ группу :' + PREF + '_2');      
+  end;      
+  //Проверяем, что нельзя отредактировать и удалить группу Все      
+  if NOT Position_Internal(groupTree, 'Все', '\', true, 'IsPressHome := true') then
+  begin
+    Log.Error('Не удалось спозиционироваться на группу: Все');  
+    RaiseLog.Error('Не удалось спозиционироваться на группу: Все');  
+  end;
+  Sys.Keys('[Apps]');
+  if IsPopupMenuExists then
+  begin
+    Log.Error('На группе "Все" можно вызывть контекстное меню, чего в принципе быть не должно!');
+    Raise('На группе "Все" можно вызывть контекстное меню, чего в принципе быть не должно!');
+  end;
+  //Проверяем, что задизейблены кнопки "Удалить" и "Редактировать" на тулбаре групп для группы "Все"
+  groupToolBar := GetFromAdmin('ТУЛБАР "ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ"'); 
+  if NOT IsExists(groupToolBar) then Raise('Не удалось получить ТУЛБАР "ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ"');
+  tbBtn := GetToolbarButton(groupToolBar, 'Переименовать');
+  if NOT IsExists(tbBtn) then Raise('Не удалось получить кнопку "Переименовать"');
+  if tbBtn.Enabled then
+  begin
+    Log.Error('Для группы "Все" активна кнопка "Переименовать", такого быть не должно!');  
+    Raise('Для группы "Все" активна кнопка "Переименовать", такого быть не должно!');
+  end; 
+  tbBtn := GetToolbarButton(groupToolBar, 'Удалить группу');
+  if NOT IsExists(tbBtn) then Raise('Не удалось получить кнопку "Удалить группу"');
+  if tbBtn.Enabled then
+  begin
+    Log.Error('Для группы "Все" активна кнопка "Удалить группу", такого быть не должно!');  
+    Raise('Для группы "Все" активна кнопка "Удалить группу", такого быть не должно!');
+  end;
+  groupTree.SetFocus;
+  Sys.Keys('[Del]');
+  if NOT (WaitForConfirmationWindow(Options.Run.Timeout div 6,'Да') = '') then
+  begin
+    Log.Error('После нажатия Del на группе "Все" появилось окна Подтверждения, значит возможно сработала операция Эудалить группу"');  
+    Raise('После нажатия Del на группе "Все" появилось окна Подтверждения, значит возможно сработала операция Эудалить группу"');
+  end;  
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+except
+  Log.Message( PREF + '_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.16  Группы пользователей
+    HLTC332.16.4  Ограничения информационных блоков    
+      HLTC332.16.4.1  Проверить, что для всех групп(кроме группы Все) в контекстном меню доступна опция «Изменить доступ к информационным блокам».
+}
+function HLTC332_16_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+    PREF = 'HLTC332_16_4_1'; 
+var  
+  countOfAttempts;
+  i;
+  groupTree;  
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  //Создаем новые группы
+  for i:= 1 to 3 do
+  begin
+    CreateNewGroup(PREF + '_' + IntToStr(i));
+  end;
+  groupTree := GetFromAdmin('ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  if NOT IsExists(groupTree) then Raise('Не удалось получить ДЕРЕВО ГРУППЫ ПОЛЬЗОВАТЕЛЕЙ');
+  //Проверяем, что у созданных групп есть контекстная операция «Изменить доступ к информационным блокам»    
+  for i:=  1 to 3 do
+  begin
+    if NOT Position_Internal(groupTree, PREF + '_' + IntToStr(i), '\', true, 'IsPressHome := true') then
+      Raise('Не удалось спозиционироваться на СОЗДАННУЮ группу :' + PREF + '_' + IntToStr(i));    
+    Sys.Keys('[Apps]');
+    
+    if NOT IsPopupMenuItemExists(groupTree, 'Изменить доступ к информационным блокам', true) then
+    begin
+      Log.Error('У созданной группы отсутствует контекстная операция «Изменить доступ к информационным блокам»');
+      Raise('У созданной группы отсутствует контекстная операция «Изменить доступ к информационным блокам»');    
+    end;   
+  end;
+  if NOT Position_Internal(groupTree, 'Все', '\', true, 'IsPressHome := true') then
+    Raise('Не удалось спозиционироваться на группу : Все');
+  if IsPopupMenuItemExists(groupTree, 'Изменить доступ к информационным блокам', true) then
+    begin
+      Log.Error('У группы ВСЕ присутствует  контекстная операция «Изменить доступ к информационным блокам»');
+      Raise('У группы ВСЕ присутствует  контекстная операция «Изменить доступ к информационным блокам»');    
+    end; 
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  result := true;
+except
+  Log.Message( PREF + '_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  CommonExceptionHandler; 
+end;
+end;
+
+
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.16  Группы пользователей
+    HLTC332.16.4  Ограничения информационных блоков    
+      HLTC332.16.4.2  
+      Результат запрета всех блоков
+       1. Выбрать созданную группу и вызвать для нее эту операцию.
+       2. Запретить к показу все блоки.
+       3. Зайти любым пользователем из группы и открыть ППР
+       Проверить, что в поле «Информационные блоки» осталось лишь «ГАРАНТ – ИнФарм – Лекарства и фирмы» (только для F1, в Интранете блока не будет)
+
+       4. Построить список всех документов
+       Список должен содержать гораздо меньше 13000 документов.
+}
+function HLTC332_16_4_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+    PREF = 'HLTC332_16_4_2'; 
+var  
+  countOfAttempts;
+  i;
+  groupTree;
+  login;
+  attributeTree;
+  listWnd;    
+  countDoc;
+  listAttr, etalonListAttr;
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  //Создаем новую группу  
+  CreateNewGroup(PREF);
+  //Создаем нового пользователя в этой группе
+  login := 'user' +  PREF; 
+  if NOT CreateNewUserInAdmin(
+    ADM_NAME+':='+login+';'+ 
+    ADM_USER_FIO +':='+login+';'+ 
+    ADM_GROUP+':='+ PREF
+  ) then  
+    Raise('Не удалось создать нового пользователя');    
+  ChangeAccessToInfBlocks(PREF, '', true);
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  StartF1Shell;    
+  if NOT LoginExistingUser(login, '') then
+  begin
+    Log.Error('Не удалось залогинится только что созданным пользователем :' + login);
+    Raise('Не удалось залогинится только что созданным пользователем :' + login);
+  end;  
+  //Проверяем, что в поле «Информационные блоки» остался лишь «ГАРАНТ – ИнФарм – Лекарства и фирмы»
+  if NOT PositionInPPR(FD_INFORMATIONAL_BLOCK) then
+    Raise('Не удалось в КЗ ППР спозиционироваться на поле: ' + FD_INFORMATIONAL_BLOCK);
+  Sys.Keys('[Enter]');  
+  attributeTree := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+  if NOT IsExists(attributeTree) then Raise('Не удалось получить ДЕРЕВО АТТРИБУТОВ');
+  etalonListAttr := ['ГАРАНТ - ИнФарм - Лекарства и фирмы'];
+  listAttr := GetElementsFromTree(attributeTree);   
+  if NOT CompareArray(listAttr, etalonListAttr) then
+  begin
+    Log.Error('Cписок аттрибутов не эталонный !', listAttr);
+    Raise('Cписок аттрибутов не эталонный!');
+  end;
+  Sys.Keys('[Esc]');//закрываем дерево аттрибутов
+  //Проверяем, что в списке всех документов мало документов    
+  listWnd := GetListOfAllDocuments;
+  if NOT IsExists(listWnd) then Raise('Не удалось получить список всех документов');
+  countDoc := CountElementInList(listWnd); 
+  if countDoc > 50 then
+  begin
+    Log.Error('В полученном списке с ограниченными блоками > 50 документов :' + IntToStr(countDoc));
+    Raise('В полученном списке с ограниченными блоками > 50 документов :' + IntToStr(countDoc));  
+  end;
+  result := true;
+except
+  Log.Message( PREF + '_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.16  Группы пользователей
+    HLTC332.16.4  Ограничения информационных блоков    
+      HLTC332.16.4.3  Выбрать созданную группу и вызвать для нее эту операцию. Запретить к показу любой блок. 
+      Зайти любым пользователем из группы. Проверить, что документы, принадлежащие только этому блоку, не открываются по номеру и по ссылкам из других документов.
+
+      Например блок «Международное право (Россия - СНГ)», документ 2005. 
+      Ссылка на него есть в документе 2002.
+
+}
+function HLTC332_16_4_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+    PREF = 'HLTC332_16_4_3'; 
+var  
+  countOfAttempts;  
+  login;  
+  docWnd;  
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  //Создаем новую группу  
+  CreateNewGroup(PREF);
+  //Создаем нового пользователя в этой группе
+  login := 'user' +  PREF; 
+  if NOT CreateNewUserInAdmin(
+    ADM_NAME+':='+login+';'+ 
+    ADM_USER_FIO +':='+login+';'+ 
+    ADM_GROUP+':='+ PREF
+  ) then  
+    Raise('Не удалось создать нового пользователя');   
+  //Устанавливаем для нового пользователя ограничение на блок 
+  ChangeAccessToInfBlocks(PREF, ['Международное право (Россия - СНГ)']);
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  StartF1Shell;    
+  if NOT LoginExistingUser(login, '') then
+  begin
+    Log.Error('Не удалось залогинится только что созданным пользователем :' + login);
+    Raise('Не удалось залогинится только что созданным пользователем :' + login);
+  end;
+  //Проверяем, что документ из запрещенного блока не открывается по номеру     
+  if OpenDocByNumber(2005) then
+  begin
+    Log.Error('Удалось по Alt+N открыть документ из запрещенного блока!"');
+    Raise('Удалось по Alt+N открыть документ из запрещенного блока!"');  
+  end;                        
+  
+  {if (WaitForWarningWindow(Options.Run.Timeout div 60, '*Данный документ не включён в состав вашего комплекта.*', true, '#Вернуться*', true) = '') then
+  begin
+    Log.Error('После открытия документа из запрещенного блока по Alt+N не получили предупреждение "Данный документ не включён в состав вашего комплекта."');
+    Raise('После открытия документа из запрещенного блока по Alt+N не получили предупреждение "Данный документ не включён в состав вашего комплекта."');
+  end;
+  }
+    
+  //Проверяем, что документ из запрещенного блока не открывается по ссылке    
+  if NOT OpenDocByNumber(2002) then Raise('Не удалось открыть документ по Alt+N');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');   
+  if NOT ClickByHyperLink(docWnd, '2005 и') then Raise('Не удалось кликнуть по искомой гиперссылке "2005 и"');  
+  if (WaitForWarningWindow(Options.Run.Timeout div 60, '*Данный документ не включён в состав вашего комплекта.*', true, '#Вернуться*', true) = '') then
+  begin
+    Log.Error('После открытия документа из запрещенного блока по гиперссылке не получили предупреждение "Данный документ не включён в состав вашего комплекта."');
+    Raise('После открытия документа из запрещенного блока по гиперссылке не получили предупреждение "Данный документ не включён в состав вашего комплекта."');
+  end;
+  
+  result := true;
+except
+  Log.Message( PREF + '_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.16  Группы пользователей
+    HLTC332.16.4  Ограничения информационных блоков    
+      HLTC332.16.4.6  Проверить, что нельзя просмотреть и сохранить в файл документы, входящие только в запрещенный блок, и которые были найдены по рубрикатору, мультиссылке и как СКР к документу.
+
+        1. Запретить блок "Международное право..." 
+        2. Перейти по первой ветке рубрикатора до списка 
+        Документа 2005 быть не должно(располагается между 2004 и 2007-м). 
+
+        3. Открыть документ 2001 
+        4. Перейти по ссылке: 
+        мультиссылка на все документы, входящие в 213 и 214 сегменты 
+
+        5. Открыть из списка документ 2003 
+        Вместо текста должна появиться заглушка: 
+        "Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта..." 
+      
+        6. Снова открываем 2001й документ 
+        7. Открываем "Ссылки из документа" (в Интранете через Расширенную конфигурацию) 
+        В списке должен быть 2003й документ 
+        8. Открываем его 
+        Вместо текста должны получить заглушку "Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта..."
+
+}
+function HLTC332_16_4_6_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+    PREF = 'HLTC332_16_4_6'; 
+var  
+  countOfAttempts;  
+  login;  
+  docWnd;
+  listWnd;
+  x, y, linkStr;
+  str;
+  obj;
+begin
+try
+  countOfAttempts := 3;
+  if NOT RestartF1ShellByAdmin then Raise('Не удалось перелогиниться в оболочку Админом');
+  //Создаем новую группу  
+  CreateNewGroup(PREF);
+  //Создаем нового пользователя в этой группе
+  login := 'user' +  PREF; 
+  if NOT CreateNewUserInAdmin(
+    ADM_NAME+':='+login+';'+ 
+    ADM_USER_FIO +':='+login+';'+ 
+    ADM_GROUP+':='+ PREF
+  ) then  
+    Raise('Не удалось создать нового пользователя');   
+  //Устанавливаем для нового пользователя ограничение на блок 
+  ChangeAccessToInfBlocks(PREF, ['Международное право (Россия - СНГ)']);
+  countOfAttempts := 3;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);
+  StartF1Shell;    
+  if NOT LoginExistingUser(login, '') then
+  begin
+    Log.Error('Не удалось залогинится только что созданным пользователем :' + login);
+    Raise('Не удалось залогинится только что созданным пользователем :' + login);
+  end;  
+  //Проверяем
+      //2.Перейти по первой ветке рубрикатора до списка 
+      //Документа 2005 быть не должно(располагается между 2004 и 2007-м).
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список по первой ветки');
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(listWnd) then Raise('Не удалось открыть список документовпо первой ветки');
+  if Position_Internal(listWnd, 'Документ 2005', '\', true, 'IsPressHome := true') then
+  begin
+    Log.Error('В списке удалось обнаружить документ из запрещенного блока : Документ 2005');
+   	Raise('В списке удалось обнаружить документ из запрещенного блока : Документ 2005');
+  end;  
+  
+  //Проверяем
+      //3. Открыть документ 2001 
+      //  4. Перейти по ссылке: 
+      //  мультиссылка на все документы, входящие в 213 и 214 сегменты 
+      
+  if NOT OpenDocByNumber(2001) then Raise('Не удалось открыть документ по Alt+N');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //заточка, что бы выделить мультиссылку, так ксть бага, что после поиска она не выделяется  http://mdp.garant.ru/pages/viewpage.action?pageId=519483026
+  linkStr :='входящие в 213 и 214 сегменты.'; 
+  if NOT GetCoordsSearchContext(docWnd, linkStr, x, y) then Raise ('Не удалось найти координаты искомой гиперссылки');  
+  docWnd.SetFocus;
+  docWnd.Click(x + 4, y + 4);//кликаем по ссылке  
+  //5. Открыть из списка документ 2003
+     //Вместо текста должна появиться заглушка: 
+     // "Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта..."
+  
+  listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');  
+  if NOT IsExists(listWnd) then Raise('Не удалось открыть список документов');
+  if NOT OpenDocFromList('Документ 2003', listWnd) then Raise('Не удалось открыть документ 2003 из списка');
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  str := CopyToClipboard(docWnd,'ALL','Trim := true');
+  if NOT StringCompare(
+    'Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта*Контактная информация отсутствует',
+    str) then
+  begin
+    Log.Error('Текст документа из запрещенного блока не является заглушкой: Данный документ содержится в информационном... :', str);  
+    Raise('Текст документа из запрещенного блока не является заглушкой: Данный документ содержится в информационном...');
+  end;
+  //6. Снова открываем 2001й документ 
+    //7. Открываем "Ссылки из документа" (в Интранете через Расширенную конфигурацию) 
+    //В списке должен быть 2003й документ 
+    //8. Открываем его 
+    //Вместо текста должны получить заглушку "Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта..."
+  if NOT OpenDocByNumber(2001) then Raise('Не удалось открыть документ по Alt+N');
+  listWnd := OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить ССЫЛКИ ИЗ ДОКУМЕНТА');
+  
+  obj := GetFromList('ТУЛБАР ВЕРХНИЙ ПРАВЫЙ', listWnd);  
+  if NOT IsExists(obj) then Raise('Не удалось получиь ТУЛБАР ВЕРХНИЙ ПРАВЫЙ на вкладке "ССЫЛКИ ИЗ ДОКУМЕНТ"');
+  if NOT ClickToolBarButton(obj, 'Открыть в текущем окне') then Raise('Не удалось кликнуть по кнопке "Открыть в текущем окне"'); 
+  listWnd := OpenInList('СПИСОК');
+  if NOT IsExists(listWnd) then Raise('Не удалось получить ССЫЛКИ ИЗ ДОКУМЕНТА в текущем окне');  
+  if NOT Position_Internal(listWnd, 'Документ 2003', '\', true, 'IsPressHome := true') then
+  begin
+    Log.Error('В списке СКР НЕ удалось обнаружить документ 2003 из запрещенного блока, хотя должны были');
+   	Raise('В списке СКР НЕ удалось обнаружить документ 2003 из запрещенного блока, хотя должны были');
+  end;
+  OpenDocFromList;  
+  docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');   
+  if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  str := CopyToClipboard(docWnd,'ALL','Trim := true');
+  if NOT StringCompare(
+    'Данный документ содержится в информационном блоке, который не включен в состав Вашего комплекта*Контактная информация отсутствует',
+    str) then
+  begin
+    Log.Error('Текст документа из запрещенного блока не является заглушкой: Данный документ содержится в информационном... :', str);  
+    Raise('Текст документа из запрещенного блока не является заглушкой: Данный документ содержится в информационном...');
+  end;
+  result := true;
+except
+  Log.Message( PREF + '_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  Log.Picture(Sys_Desktop.Picture, 'Скриншот экрана в момент исключения"');
+  result := false;
+  CommonExceptionHandler;   
+end;
+  CloseF1Shell;
+end;
+
+{
+HLTC332: Администрирование пользователей
+  HLTC332.17  Проверить, что пароль администратора можно сбросить в стандартный указав в инишнике
+  в секции \[F1ServerParams\] опцию -GCMResetAdminPassword c произвольным значением. 
+  После запуска оболочки, эта строка должна удалиться.
+
+}
+function HLTC332_17_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC332_17'; 
+var  
+  countOfAttempts;                      
+  optionInIniFile;
+  tmp;
+begin
+try
+  countOfAttempts := 3; 
+  //Меняем пароль админа
+  if NOT ChangeAdminPswd('ADMIN_' + PREF) then
+  begin
+    Log.Error('Не удалось изменить пароль АДМИНА');
+    Raise('Не удалось изменить пароль АДМИНА');  
+  end;
+  //Указываем опцию в инишнике  
+  if NOT SetValueToGarantINI('F1Server Params', '-GCMResetAdminPassword', '1', true ) then
+    Raise('Не удалось корректно изменить опцию -GCMResetAdminPassword в garant.ini');    
+  //Заходим под дефолтным паролем, тем самым проверяем, что пароль сбросился на дефолтный 
+  Log.Message('Стартуем F1Admin.');
+  StartF1Admin ('', 3);
+  Log.Message('Логинимся в F1Admin.'); 
+  if NOT LoginByAdmin('ADMIN' ,'ADMIN') then
+  begin
+    Log.Message('Не удалось залогиниться Админом с дефолтным паролем после его сброса!');
+    Raise('Не удалось залогиниться Админом с дефолтным паролем после его сброса!');
+  end;
+  CloseF1Admin(countOfAttempts, Options.Run.Timeout div 6);  
+  //Проверяем, что в ini файле сбросилась опция GCMResetAdminPassword
+  optionInIniFile := GetValueFromGarantIni('[F1Server Params]', '-GCMResetAdminPassword');
+  if NOT IsEmpty(optionInIniFile) then
+  begin
+    Log.Error('В секции [F1Server Params] ini файла параметр -GCMResetAdminPassword НЕ удалился');  
+    Raise('В секции [F1Server Params] ini файла параметр -GCMResetAdminPassword НЕ удалился');  
+  end;
+  result := true;
+except
+  Log.Message( PREF + '_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  Log.Picture(Sys_Desktop.Picture, 'Скриншот экрана в момент исключения"');
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+
+procedure RykovTest332;
+var cur;
+begin
+   gbl_F1ShellTabsEnabled := true;
+  //Log.Message( HLTC332_5_1_Execute(cur)); 
+  //Log.Message( HLTC332_5_2_Execute(cur));
+  //Log.Message( HLTC332_5_3_Execute(cur));
+  //Log.Message( HLTC332_5_4_Execute(cur));
+  //Log.Message( HLTC332_5_5_Execute(cur));  
+
+  //Log.Message( HLTC332_6_1_Execute(cur));
+  //Log.Message( HLTC332_6_2_2_Execute(cur));
+  //Log.Message( HLTC332_7_3_Execute(cur));
+  //Log.Message( HLTC332_8_1_Execute(cur));
+  //Log.Message( HLTC332_15_1_Execute(cur)); //доделать, после того как Дима дополнит\расширит соответствующий hltc
+
+  //Log.Message(HLTC332_16_1_Execute(cur));
+  //Log.Message(HLTC332_16_4_1_Execute(cur));
+  //Log.Message(HLTC332_16_4_2_Execute(cur));
+  //Log.Message(HLTC332_16_4_3_Execute(cur));
+  Log.Message(HLTC332_16_4_6_Execute(cur));
+  //Log.Message(HLTC332_17_Execute(cur));
+end;

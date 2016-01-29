@@ -1,0 +1,438 @@
+archi$TestSupport : Project - 
+version: 158
+Archi Insider Test Support : Library - Поддержка тестирования Архивариуса изнутри
+ Scripting : Unit - Скрипты для Арчи
+  TkwArchiOpenDocument : ScriptKeyword - *Формат:*  Номер_документа Внутренний_номер Открыть
+*Описание:* Открывает документ по номеру. Позволяет установить флаг внутренний/внешний при задании номера документа.
+ *Пример:*
+ {code}
+ 10003000 true Открыть
+ {code}
+ *Результат:* Открывает Конституцию РФ
+ *Примечания:*
+ Константы номеров документов в тестах, залитых в тестовую базу, находятся в файле:
+ {code}
+ w:\archi\source\projects\Archi\TestSet\Dictionary\DocumentConst.script"
+ {code}
+ В скриптах напрямую практически не используется, так как есть более удобные функции в файле:
+ {code}
+  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
+ {code}
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwArchiOpenDocument
+  arArchiTestsAdapter : UtilityPack - Обертки для вызова функциональности из Арчи
+   arOpenDocumentByNumber : method - Открыть документ по номеру.
+   arGetDocumentEditor : method - Получить редактор для текста документа.
+   arOpenByNumberAsString : method - Открыть документ по номеру
+   arCloseActiveDocument : method - 
+   arSubNameEdit : method - Редакторование саба.
+   arDeleteSub : method - 
+   arCreateNewDocument : method - 
+   arCreateNewDocumentByFileName : method - 
+   acOpenInsDWin : method - 
+   acDeInitDB : method - 
+   acInitDB : method - 
+   arAddBlock : method - 
+   acSetActivePage : method - 
+   acCreateStructure : method - 
+   arSetContentsSub : method - 
+   arGotoSub : method - 
+   TarTestConfig : SimpleClass - Хранилище всяких флагов, настроек и т.п. чтобы в одном месте было.
+  TkwArchiCloseDocument : ScriptKeyword - *Формат:* Закрыть
+*Описание:* Закрывает текущее дочернее окно в Арчи. В качестве окна может выступать окно документа, окно почтового сообщения, окно словарей и т.п.
+ *Пример:*
+{code}
+ '76.bmp' Создать_Объектный_топик_из
+ TRY
+   carPictureViewer TryFocus ASSERT
+   acCut arMainActionList carMainForm Action:Execute
+   ProcessMessages
+   acPaste arMainActionList carMainForm Action:Execute
+   ProcessMessages
+ FINALLY
+  wait:No
+  Закрыть
+  waited:? ASSERT
+ END
+{code}
+ *Результат:*
+ Создает объектный топик из графического файла, выполняет с ними набор тестовых операций (в данном случае, копирование/вставка картинкуи в/из буфера обмена) и закрывает документ без вопроса о необходимости сохранения.
+*Примечания:*
+ В скриптах напрямую практически не используется, так как есть более удобные функции в файле:
+{code}
+ w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
+{code}
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwArchiCloseDocument
+  TarEditorControl : SimpleClass - 
+   DoWithEditor - 
+    : uses - 
+   Ini_Reg_Class : ini - Регистрация TarEditorControl
+  TkwClickOnCommentHeader : ScriptKeyword - 
+   f_Engine - 
+   Ini_Reg : ini - Регистрация TkwClickOnCommentHeader
+  TkwEditorDblClickOnSub : ScriptKeyword - Двойной щелчок на сабе.
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwEditorDblClickOnSub
+  arEditorUtils : UtilityPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TkwDeleteSub : ScriptKeyword - окно_редактора:удалить_саб
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwDeleteSub
+  TkwDocEditorSetModified : ScriptKeyword - 
+   Ini_Reg : ini - Регистрация TkwDocEditorSetModified
+  TkwCreateNewFile : SimpleClass - 
+   DoWithFileName : method - 
+   Ini_Reg_Class : ini - Регистрация TkwCreateNewFile
+  TkwArchiNewDocumentPrim : ScriptKeyword - *Формат:* Создать_из
+*Описание:* Создание документа из файла. Имя файла совпадает с названием теста, но используется расширение evd.
+*Пример:*
+{code}
+имя_файла  Создать_из
+{code}
+*Результат:*
+ Создает документ из файла имя_файла. При этом анализируется расширение файла. Путь исправляется на путь к тестовым доукментам.
+*Примечания:*
+ В скриптах напрямую практически не используется, так как есть более удобные функции в файле:
+{code}
+  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
+{code}
+   Ini_Reg : ini - Регистрация TkwArchiNewDocumentPrim
+  TkwOpenInsDWin : ScriptKeyword - 
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwOpenInsDWin
+  arDialogsPack : UtilityPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TkwClearDataBase : ScriptKeyword - *Формат:*  'File_Name.zip' 'Path2Base' ClearDataBase
+*Описание:* Рапаковывает базу из архива 'File_Name.zip' в заданный каталог 'Path2Base'. Каталог, в который рапаковывается база, предварительно очищается.. 
+*Пример:*
+{code}
+  'testBase.zip' 'C:\Base\TestBase' ClearDataBase
+{code}
+    : uses - 
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwClearDataBase
+  CommonArchiWords : UtilityPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  arArchiTestAdapter2 : UtilityPack - Времянка для подключения модулей не на модели, т.к. даже при частичном переносе требуется их перемещение. А это мешает.
+   arMakeChangeDoc : method - 
+   arInsertDocChanges : method - 
+   arIniRecSetZoom : method - 
+   arIniRecGetZoom : method - 
+   arShowMailWindow : method - 
+   acEndDragAndDrop : method - 
+   acSetExpiredStyle : method - 
+   acCorrectRelatedText : method - 
+   acMakePreview : method - 
+   acSaveDocAs : method - 
+   acSaveTextAs : method - 
+   arClearTemplateStorage : method - 
+   acMainFormFormClose : method - 
+  TkwMakeChangeDoc : ScriptKeyword - macros:MakeChangeDoc
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwMakeChangeDoc
+  TkwInsertDocChanges : ScriptKeyword - macros:InsertDocChanges
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwInsertDocChanges
+  TkwGetActiveEditorPageName : ScriptKeyword - *Формат:* main_form:GetActivePageName
+*Описание:* Помещает в стек номер активной вкладки в окне редактирования документа.
+*Примечания:*
+ Константы с номерами вкладок находятся в файле:
+{code}
+  w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"
+{code}
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwGetActiveEditorPageName
+  TkwIniRecSetZoom : ScriptKeyword - IniRec:SetZoom
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwIniRecSetZoom
+  TkwIniRecGetZoom : ScriptKeyword - IniRec:GetZoom
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwIniRecGetZoom
+  TkwArchiNewEmptyDocument : ScriptKeyword - *Формат:* Создать_пустой
+*Описание:* Создание пустого документа. 
+*Пример:*
+{code}
+ Создать_пустой
+{code}
+*Результат:*
+ Создает пустой документ
+*Примечания:*
+ В скриптах напрямую практически не используется, так как есть более удобные функции в файле:
+{code}
+  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
+{code}
+   Ini_Reg : ini - Регистрация TkwArchiNewEmptyDocument
+  TkwAddBlock : ScriptKeyword - окно_редактора:установить_блок
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwAddBlock
+  TkwSetActivePage : ScriptKeyword - *Формат:* ID_вкладки окно_редактора:перейти_на_вкладку
+*Описание:* Делает активной вкладку с номером ID_вкладки.
+*Примечания:*
+ Константы с номерами вкладок находятся в файле:
+{code}
+  w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"
+{code}
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwSetActivePage
+  TkwEditorSetTOC : ScriptKeyword - редактор:установить_оглавление
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwEditorSetTOC
+  TkwGotoSub : ScriptKeyword - окно_редактора:перейти_к_метке
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwGotoSub
+  TkwEndAddSubByMouse : ScriptKeyword - Закончить простановку ссылки на саб с помощью мыши (Drag&Drop):
+окно_редактора:постановить_ссылку_мышью
+    : uses - 
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwEndAddSubByMouse
+  TkwShowMailMessage : ScriptKeyword - ShowMailWindow
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwShowMailMessage
+  TkwSetExpiredStyle : ScriptKeyword - 
+    : uses - 
+   Ini_Reg : ini - Регистрация TkwSetExpiredStyle
+  TkwArchiNewDocument : ScriptKeyword - *Формат:* Создать
+*Описание:* Создание документа из файла. Имя файла совпадает с названием теста, но используется расширение evd.
+*Пример:*
+{code}
+ Создать
+{code}
+*Результат:*
+ Создает документ из файла Название_теста.evd
+*Примечания:*
+ В скриптах напрямую практически не используется, так как есть более удобные функции в файле:
+{code}
+ w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
+{code}
+   Ini_Reg : ini - Регистрация TkwArchiNewDocument
+  archiDocEditorWindowWordsPack : ScriptKeywordsPack - 
+   IsNeedSaveDocument : keyword - 
+   TarchiDocEditorWindowWordsPackResNameGetter : SimpleClass - Регистрация скриптованой аксиоматики
+    : uses - undefined
+    : injects - undefined
+   DocEditorWindow_IsNeedSaveDocument : ScriptKeyword - Слово скрипта DocEditorWindow:IsNeedSaveDocument
+*Тип результата:* Boolean
+*Пример:*
+{code}
+BOOLEAN VAR l_Boolean
+ aDocEditorWindow DocEditorWindow:IsNeedSaveDocument >>> l_Boolean
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TDocEditorWindow : ini - Регистрация типа TDocEditorWindow
+   Reg_Boolean : ini - Регистрация типа Boolean
+ EverestArchiWords : ScriptKeywords - Слова одинаковые для Эвереста и Арчи
+  kwArchiEverestWordsPack : ScriptKeywordsPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  DisableMergedCellFilter : ScriptKeyword - 
+    : uses - 
+   Ini_Reg : ini - Регистрация DisableMergedCellFilter
+  ClearFindDialog : ScriptKeyword - Очищает диалог поиска (удаляет его объект).
+    : uses - 
+   Ini_Reg : ini - Регистрация ClearFindDialog
+  AutoComplete_Clear : ScriptKeyword - Очищает данные автозамены.
+    : uses - 
+   Ini_Reg : ini - Регистрация AutoComplete_Clear
+ EditorKeyWords : ScriptKeywords - Набор слов для работы с редактором.
+  kwEditorKeyWordsPack : ScriptKeywordsPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  pop_editor_EditFormula : ScriptKeyword - *Формат:* указатель_на_редактор  pop:editor:EditFormula
+*Описание:* Открывает окно редактирование формулы и нажимает на "Ок". 
+*Пример:*
+{code}
+focused:control:push pop:editor:EditFormula
+{code}
+*Результат:*
+ Появится диалог редактирования формулы и будет закрыт по нажатии кнопки "Ок"
+*Примечания:* Не изменяет содерижое формулы. Служит для проверки изменения в формуле, если там в ней присуствовал мусор и работы форматирования после такого изменения.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация pop_editor_EditFormula
+  pop_editor_AlignCellsBoundary : ScriptKeyword - 
+   f_OutputFileName - 
+   f_ScriptCaller - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация pop_editor_AlignCellsBoundary
+  pop_editor_SetStyle2Block : ScriptKeyword - {code}
+aStyle anEditor pop:editor:SetStyle2Block
+{code}
+aStyle -  номер стиля из таблицы стилей.
+anEditor - редактор, в котором производятся изменения.
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация pop_editor_SetStyle2Block
+  pop_editor_InsertFormula : ScriptKeyword - 
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация pop_editor_InsertFormula
+  push_MainForm : ScriptKeyword - 
+    : uses - 
+   Ini_Reg : ini - Регистрация push_MainForm
+  pop_editor_SetStyle2Table : ScriptKeyword - {code}
+aStyle anEditor pop:editor:SetStyle2Table
+{code}
+aStyle -  номер стиля из таблицы стилей.
+anEditor - редактор, в котором производятся изменения.
+    : uses - 
+   Ini_Reg : ini - Регистрация pop_editor_SetStyle2Table
+ CommonArchiWords : ScriptKeywords - Общие слова для Арчи-тестов
+  kwCommonArchiWords : ScriptKeywordsPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  MainForm_FindDocuments : ScriptKeyword - Вызывает поиск документов.
+    : uses - 
+   Ini_Reg : ini - Регистрация MainForm_FindDocuments
+  base_export : ScriptKeyword - Экспорт документа из базы
+   TSewerPipeHack : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация base_export
+  base_RelCorrecter : ScriptKeyword - 
+    : uses - 
+   Ini_Reg : ini - Регистрация base_RelCorrecter
+  Preview : ScriptKeyword - 
+    : uses - 
+   Ini_Reg : ini - Регистрация Preview
+  SearchWin_SaveDocumentList : ScriptKeyword - Формат: 
+{code}
+aFileName SearchWin:SaveDocumentList
+{code}
+Сохраняет список документов в файл aFileName. Аналоична команде "Сохранить как..." в окне выборке. Окно выборки должно быть активно.
+    : uses - 
+   Ini_Reg : ini - Регистрация SearchWin_SaveDocumentList
+  MainForm_ClearHistory : ScriptKeyword - Очищает историю переходов по документам.
+    : uses - 
+   Ini_Reg : ini - Регистрация MainForm_ClearHistory
+  Editor_Text_SaveAs : ScriptKeyword - Описание: сохраняет файл из редактора (без использования выливки) с именем скрипта и заданным в пареметре расширением.
+Формат:
+{code}
+anExt Editor:Text:SaveAs
+{code}
+где anExt - расширение из списка поддерживаемых: '.evd', .txt', .rtf', .doc'
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация Editor_Text_SaveAs
+  ClearTemplateStorage : ScriptKeyword - Очищает данные для 'Текстового шаблона'
+    : uses - 
+   Ini_Reg : ini - Регистрация ClearTemplateStorage
+  MainForm_FormClose : ScriptKeyword - Эмулирует выполнение FormClose главной формы, возращая после выполнения все в исходное состояние.
+Формат: 
+{code}
+MainForm:FormClose
+{code}
+    : uses - 
+   Ini_Reg : ini - Регистрация MainForm_FormClose
+  dialogs_LockDocument_GetSkipMode : ScriptKeyword - Возращает установленный режим работы с диалогом о залочке документа:
+{code}
+  ar_AsUsual // Показывать диалог и проверять его результат.
+  ar_OpenDocument // Если есть залоченный - все равно открывать.
+  ar_NotOpen // Если есть залоченный - не открывать.
+{code}
+    : uses - 
+   Ini_Reg : ini - Регистрация dialogs_LockDocument_GetSkipMode
+  dialogs_LockDocument_SetSkipMode : ScriptKeyword - Устанавливает режим работы с диалогом о залочке документа:
+{code}
+  ar_AsUsual // Показывать диалог и проверять его результат.
+  ar_OpenDocument // Если есть залоченный - все равно открывать.
+  ar_NotOpen // Если есть залоченный - не открывать.
+{code}
+Формат:
+{code}
+aMode dialogs:LockDocument:SetSkipMode
+{code}
+    : uses - 
+   Ini_Reg : ini - Регистрация dialogs_LockDocument_SetSkipMode
+  AttributeExplorerWordsPack : ScriptKeywordsPack - 
+   GotoOnAttrNode : keyword - Формат: aNumberAttribute aControl AttributeExplorer:GotoOnAttrNode
+где aNumberAttribute - номер атрибута, а aControl - форма TAttrExplorer.
+Пример:
+{code}
+TdtAttribute::atKeyWords "Контрол по имени {('otlAttributes')}- в стек" pop:Component:Owner AttributeExplorer:GotoOnAttrNode
+{code}
+    : uses - 
+    : uses - 
+    : uses - undefined
+    : injects - undefined
+   AttrExplorer_GotoOnAttrNode : ScriptKeyword - Слово скрипта AttrExplorer:GotoOnAttrNode
+{panel}Формат: aNumberAttribute aControl AttributeExplorer:GotoOnAttrNode
+где aNumberAttribute - номер атрибута, а aControl - форма TAttrExplorer.
+Пример:
+{code}
+TdtAttribute::atKeyWords "Контрол по имени {('otlAttributes')}- в стек" pop:Component:Owner AttributeExplorer:GotoOnAttrNode
+{code}{panel}
+*Пример:*
+{code}
+ anAttrID aAttrExplorer AttrExplorer:GotoOnAttrNode
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TAttrExplorer : ini - Регистрация типа TAttrExplorer
+   Reg_TdtAttribute : ini - Регистрация типа TdtAttribute
+ ArchiScriptSupport : Unit - Поддержка скриптов в тестах Арчи
+  TArchiAutoTestSuite : SimpleClass - 
+   Register : static - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TArchiInsiderTest : SimpleClass - Скрипты "знакомые" со внутренними особенностями Арчи.
+  TArchiAutoTest : SimpleClass - Поддержка автоскриптов в Арчи.
+    : uses - 
+    : uses - 

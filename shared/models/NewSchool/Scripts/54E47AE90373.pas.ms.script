@@ -1,0 +1,244 @@
+// TncsSynchroServerTransporter 54E47AE90373 SimpleClass Class
+
+INCLUDE '54E333CD0130.pas.ms.script'
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+FORWARD ME_54E47AE90373
+
+FORWARD ME_54E591B50054
+
+INCLUDE '538DDC890328.pas.ms.script'
+
+: ME_54E591C4003C
+ CONST UID '54E591C4003C'
+ CONST Name 'anIOHandler'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+
+ @SELF
+; // ME_54E591C4003C anIOHandler
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_54E591C4005B
+ CONST UID '54E591C4005B'
+ CONST Name 'aSessionID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_54E591C4005B aSessionID
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54E591C00274
+ CONST UID '54E591C00274'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54E591C4003C // anIOHandler
+ ME_54E591C4005B // aSessionID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54E591C00274 DoIt
+
+: ME_54E591B50054
+ CONST UID '54E591B50054'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54E591C00274 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54E591B50054 Create
+
+FORWARD ME_54E591D102F6
+
+: ME_63B3F71DF29E
+ CONST UID '63B3F71DF29E'
+ CONST Name 'anIOHandler'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+
+ @SELF
+; // ME_63B3F71DF29E anIOHandler
+
+: ME_68101AC0FD24
+ CONST UID '68101AC0FD24'
+ CONST Name 'aSessionID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_68101AC0FD24 aSessionID
+
+: ME_D8F302F2A75D
+ CONST UID 'D8F302F2A75D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TncsSynchroServerTransporter.IntMake' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5465A5AB0324 // IncsServerTransporter
+ ;
+ : Parameters
+   [ ME_63B3F71DF29E // anIOHandler
+ ME_68101AC0FD24 // aSessionID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_D8F302F2A75D DoIt
+
+: ME_54E591D102F6
+ CONST UID '54E591D102F6'
+ CONST Name 'IntMake'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_54E591B50054 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5465A5AB0324 // IncsServerTransporter
+ ]
+ ; // Implements
+ : Operations
+   [ ME_D8F302F2A75D // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_545335BF0283 // ProcessMessages
+ ME_5459D46D01FE // Terminate
+ ME_5459E3150030 // Terminated
+ ME_5464B4E900DA // Send
+ ME_5464B52F02D5 // WaitForReply
+ ME_5465AB2B00CA // Connected
+ ME_546608F101DE // ClientID
+ ME_5486B96A0025 // Processing
+ ME_548FEF4F002E // SessionID
+ ME_549180E701E0 // RegisterSendBackHandler
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_54E591D102F6 IntMake
+
+FORWARD ME_54E5920A003C
+
+: ME_54E5922801B3
+ CONST UID '54E5922801B3'
+ CONST Name 'anIOHandler'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+
+ @SELF
+; // ME_54E5922801B3 anIOHandler
+
+: ME_54E5921C031D
+ CONST UID '54E5921C031D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5465A5AB0324 // IncsServerTransporter
+ ;
+ : Parameters
+   [ ME_54E5922801B3 // anIOHandler
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54E5921C031D DoIt
+
+: ME_54E5920A003C
+ CONST UID '54E5920A003C'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54E5921C031D // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54E5920A003C Make
+
+: ME_54E47AE90373
+ CONST UID '54E47AE90373'
+ CONST Name 'TncsSynchroServerTransporter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54E333CD0130 // TncsSynchroTransporter
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5465A5AB0324 // IncsServerTransporter
+ ]
+ ; // Implements
+ : Operations
+   [ ME_54E591B50054 // Create
+ ME_54E591D102F6 // IntMake
+ ME_54E5920A003C // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_545335BF0283 // ProcessMessages
+ ME_5459D46D01FE // Terminate
+ ME_5459E3150030 // Terminated
+ ME_549180E701E0 // RegisterSendBackHandler
+ ME_54E3353000D8 // HandShake
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54E47AE90373 TncsSynchroServerTransporter

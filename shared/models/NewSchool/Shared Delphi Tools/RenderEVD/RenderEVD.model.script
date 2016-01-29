@@ -1,0 +1,822 @@
+<<Library>> RenderEVD
+ %UID '474AD18D0096'
+ %SUMMARY 'Библиотека для преобразования EVD-структур в картинки.' ;
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4ACDBBED0241' /* ImageEn */
+  U$ '4B4DCCBF034F' /* JEDI */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4E36644A0023' /* "Стандартные компоненты" */
+  U$ '4EF09DD80155' /* Требования */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'evDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4ACDBBED0241' /* ImageEn */
+  U$ '4B4DCCBF034F' /* JEDI */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4E36644A0023' /* "Стандартные компоненты" */
+  U$ '4EF09DD80155' /* Требования */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> Implementation
+   %UID '4B72B3FD02AE'
+   %SUMMARY 'Реализация' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678137501EA' /* k2Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '4678209200A6' /* nevBase */
+    U$ '467C0CAA02AB' /* l3InternalInterfaces */
+    U$ '469D0AC7005E' /* Types */
+    U$ '46A0E6C5023A' /* ActiveX */
+    U$ '472745450206' /* l3Units */
+    U$ '473C3BEE0334' /* l3Canvas */
+    U$ '476BE0350329' /* Styles */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47ECA80B000D' /* Generators */
+    U$ '47ECACA70141' /* Generators */
+    U$ '47ECB2870309' /* StyleTable */
+    U$ '47ECB8BD00A8' /* Generators */
+    U$ '47F086170200' /* DocumentContainers */
+    U$ '47F1F38601A3' /* ParaUtils */
+    U$ '4811D4EC0237' /* Views */
+    U$ '483E80C9025F' /* Readers */
+    U$ '48492FC0029D' /* Standard */
+    U$ '48F4BA770180' /* Writers */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB112DF005B' /* EVD */
+    U$ '4ACDBC26003C' /* Source */
+    U$ '4B322E1F0000' /* Schemas */
+    U$ '4B324F930103' /* Filters */
+    U$ '4B72BEC80036' /* Windows */
+    U$ '4C1B915E0261' /* "Version Info" */
+    U$ '4E5CF70B01E2' /* "Требования к редактору Эверест" */
+    U$ '4EF09DE80211' /* "Поддержка формул" */
+    U$ '537B83AD01F0' /* l3Math */
+    U$ '55C4AEC801CA' /* Graphics */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+    U$ '467A8734039C' /* EVD */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '474AD18D0096' /* RenderEVD */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '4ACDBBED0241' /* ImageEn */
+    U$ '4B4DCCBF034F' /* JEDI */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '4E36644A0023' /* "Стандартные компоненты" */
+    U$ '4EF09DD80155' /* Требования */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> eeEVDtoRTF
+      %UID '4B72B41502F5'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "no hands" true
+       %upv "started" '19.01.2009 12:11'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+       U$ '4677E18600C2' /* dd */
+       U$ '467A8734039C' /* EVD */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E36644A0023' /* "Стандартные компоненты" */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4B72DF180226"
+         %UID '4B72DF180226'
+         %TARGET U$ '4860F3C103E4' /* F1 */
+        ; // 4B72DF180226
+        <<uses>> "4B72E30D02B5"
+         %UID '4B72E30D02B5'
+         %TARGET U$ '4B322E2E0270' /* evdSchema */
+        ; // 4B72E30D02B5
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<method>> DoEVDtoRTF
+         %UID '4B72B44A0392'
+         %META
+          %upv "is static" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4677E16A022A' /* K2 */
+          U$ '4677E18600C2' /* dd */
+          U$ '467A8734039C' /* EVD */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4E36644A0023' /* "Стандартные компоненты" */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4E85A4EB02BD' /* "Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой" */
+         ; // %IMPLEMENTS
+         %LINKS
+           <<uses>> "4B72BC7D0350"
+            %UID '4B72BC7D0350'
+            %TARGET U$ '4773D64E036C' /* l3Base */
+           ; // 4B72BC7D0350
+           <<uses>> "4B72BE4F0388"
+            %UID '4B72BE4F0388'
+            %TARGET U$ '4B324FA20278' /* TddSectionRepairFilter */
+           ; // 4B72BE4F0388
+           <<uses>> "4B72BF150276"
+            %UID '4B72BF150276'
+            %TARGET U$ '4B72BED1017B' /* jclDebug */
+           ; // 4B72BF150276
+           <<uses>> "4B72BF5100FD"
+            %UID '4B72BF5100FD'
+            %TARGET U$ '47ECBAA30322' /* TevHiddenFilter */
+           ; // 4B72BF5100FD
+           <<uses>> "4B72BFCB0188"
+            %UID '4B72BFCB0188'
+            %TARGET U$ '4B72BF9003D0' /* TevNestedDocumentEliminator */
+           ; // 4B72BFCB0188
+           <<uses>> "4B72C2CE00AA"
+            %UID '4B72C2CE00AA'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 4B72C2CE00AA
+           <<uses>> "4B72C40801D6"
+            %UID '4B72C40801D6'
+            %TARGET U$ '47ECB8E402B4' /* TevdPageParamsFilter */
+           ; // 4B72C40801D6
+           <<uses>> "4B72E7350333"
+            %UID '4B72E7350333'
+            %TARGET U$ '4857EFDA01E5' /* evStyleInterfaceEx */
+           ; // 4B72E7350333
+           <<uses>> "4D88C00D02B5"
+            %UID '4D88C00D02B5'
+            %TARGET U$ '4D88BFEA013A' /* TevCommentDecorator */
+           ; // 4D88C00D02B5
+           <<uses>> "4D8B75BD0043"
+            %UID '4D8B75BD0043'
+            %TARGET U$ '4A2CFFA30282' /* TevdBlockNameAdder */
+           ; // 4D8B75BD0043
+           <<uses>> "4EFC4E7B0049"
+            %UID '4EFC4E7B0049'
+            %TARGET U$ '4E85A869034E' /* TevStyleHeaderAdder */
+           ; // 4EFC4E7B0049
+           <<uses>> "4F796D7B00A2"
+            %UID '4F796D7B00A2'
+            %TARGET U$ '4F352A840264' /* TevdScriptHyperlinkEliminator */
+           ; // 4F796D7B00A2
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE FINAL <<var>> Reader
+            %UID '4B72BA810390'
+            %TARGET U$ '483E80FA0312' /* TevdNativeReader */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '467A8734039C' /* EVD */
+            ; // %TOBEINCLUDED
+           ; // Reader
+           PRIVATE FINAL <<var>> G
+            %UID '4B72BAC0031D'
+            %TARGET U$ '47ECAA5B0394' /* Tk2TagGenerator */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4677E16A022A' /* K2 */
+            ; // %TOBEINCLUDED
+           ; // G
+           PRIVATE FINAL <<var>> Writer
+            %UID '4B72BB600341'
+            %TARGET U$ '4B72BB480373' /* TevRTFObjectGenerator */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4677E18600C2' /* dd */
+            ; // %TOBEINCLUDED
+           ; // Writer
+           PRIVATE FINAL <<var>> Styles
+            %UID '4B72BC0E02DE'
+            %TARGET U$ '476BE38D01B0' /* StandardStyles */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '467A8734039C' /* EVD */
+            ; // %TOBEINCLUDED
+           ; // Styles
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B72B47601D9'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aEVD
+               %UID '530C9AE302ED'
+               %TARGET U$ '46A5AFF103CA' /* IStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aEVD
+              <<in>> aRTF
+               %UID '530C9AE30305'
+               %TARGET U$ '46A5AFF103CA' /* IStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aRTF
+              <<in>> Hidden
+               %UID '530C9AE3034F'
+               %TARGET U$ '47289B590038' /* PLong */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // Hidden
+              <<in>> HiddenCount
+               %UID '530C9AE30368'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // HiddenCount
+              <<in>> aHost
+               %UID '530C9AE30381'
+               %TARGET U$ '4771179900D8' /* PChar */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aHost
+              <<in>> aNeedEliminateCommentDecor
+               %UID '530C9AE3039B'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNeedEliminateCommentDecor
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoEVDtoRTF
+        FINAL <<method>> EVDtoRTFWithoutCommentDecor
+         %UID '530C8AA4024F'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "530C9B530138"
+            %UID '530C9B530138'
+            %TARGET U$ '4B72B44A0392' /* DoEVDtoRTF */
+           ; // 530C9B530138
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '530C8ABF029E'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "calling conventions" 'stdcall'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aEVD
+               %UID '530C9A3600F2'
+               %TARGET U$ '46A5AFF103CA' /* IStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aEVD
+              <<in>> aRTF
+               %UID '530C9A360108'
+               %TARGET U$ '46A5AFF103CA' /* IStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aRTF
+              <<in>> Hidden
+               %UID '530C9A36014E'
+               %TARGET U$ '47289B590038' /* PLong */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // Hidden
+              <<in>> HiddenCount
+               %UID '530C9A360166'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // HiddenCount
+              <<in>> aHost
+               %UID '530C9A36019A'
+               %TARGET U$ '4771179900D8' /* PChar */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aHost
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EVDtoRTFWithoutCommentDecor
+        FINAL <<method>> EVDtoRTF
+         %UID '530C9AB60327'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "530C9B5C02E8"
+            %UID '530C9B5C02E8'
+            %TARGET U$ '4B72B44A0392' /* DoEVDtoRTF */
+           ; // 530C9B5C02E8
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '530C9AC302AF'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "calling conventions" 'stdcall'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aEVD
+               %UID '530C9AC8017C'
+               %TARGET U$ '46A5AFF103CA' /* IStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aEVD
+              <<in>> aRTF
+               %UID '530C9AC80191'
+               %TARGET U$ '46A5AFF103CA' /* IStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aRTF
+              <<in>> Hidden
+               %UID '530C9AC801CF'
+               %TARGET U$ '47289B590038' /* PLong */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // Hidden
+              <<in>> HiddenCount
+               %UID '530C9AC801E5'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // HiddenCount
+              <<in>> aHost
+               %UID '530C9AC801FA'
+               %TARGET U$ '4771179900D8' /* PChar */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aHost
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EVDtoRTF
+        FINAL <<method>> SetStyleTable
+         %UID '53CD1F8A0194'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "53CD24DE01C9"
+            %UID '53CD24DE01C9'
+            %TARGET U$ '499D47A502DE' /* Tl3ConstMemoryStream */
+           ; // 53CD24DE01C9
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53CD1FA60396'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "calling conventions" 'stdcall'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStyleBuf
+               %UID '53CD1FB002C3'
+               %TARGET U$ '4771179900D8' /* PChar */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStyleBuf
+              <<in>> aStyleBufSize
+               %UID '53CD1FB002FC'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStyleBufSize
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SetStyleTable
+      ; // %OPERATIONS
+     ; // eeEVDtoRTF
+     FINAL <<UtilityPack>> eeRenderFormula
+      %UID '4B72DF7B0164'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "no hands" true
+       %upv "started" '27.11.2007 15:32'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '474AD18D0096' /* RenderEVD */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4797632D0273' /* Everest */
+       U$ '4EF09DD80155' /* Требования */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<Dependency>> "4B72E10C003A"
+         %UID '4B72E10C003A'
+         %TARGET U$ '4860F3C103E4' /* F1 */
+        ; // 4B72E10C003A
+        <<uses>> "4B72E31300B2"
+         %UID '4B72E31300B2'
+         %TARGET U$ '4B322E2E0270' /* evdSchema */
+        ; // 4B72E31300B2
+        <<uses>> "4B8CE4BE0169"
+         %UID '4B8CE4BE0169'
+         %TARGET U$ '4B3B36EC03B2' /* l3StringIDEx */
+        ; // 4B8CE4BE0169
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<method>> DoRender
+         %UID '4EF0A285035D'
+         %SUMMARY 'Собствеено рендерит формулу' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4EF0A82E004C"
+            %UID '4EF0A82E004C'
+            %TARGET U$ '4857D48E00F4' /* Table */
+           ; // 4EF0A82E004C
+           <<uses>> "4EF0A830034C"
+            %UID '4EF0A830034C'
+            %TARGET U$ '4857D2F8006D' /* TableRow */
+           ; // 4EF0A830034C
+           <<uses>> "4EF0A8330394"
+            %UID '4EF0A8330394'
+            %TARGET U$ '4857CD8D0093' /* TableCell */
+           ; // 4EF0A8330394
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4EF0A2C8007C'
+            %TARGET U$ '476F70910097' /* Il3Bitmap */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aText
+               %UID '4EF0A2D0018B'
+               %TARGET U$ '532031160122' /* Tl3Variant */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aText
+              <<in>> aFormula
+               %UID '4EF0A2D001D7'
+               %TARGET U$ '532031160122' /* Tl3Variant */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aFormula
+              <<in>> aZoom
+               %UID '4EF0A2D00229'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aZoom
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoRender
+        FINAL <<method>> RenderFormula
+         %UID '53BE8DDD026E'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53BE8DEB01F2'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "calling conventions" 'stdcall'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aBuf
+               %UID '53BE8DF20355'
+               %TARGET U$ '4771179900D8' /* PChar */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aBuf
+              <<in>> aSize
+               %UID '53BE8DF2037F'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSize
+              <<in>> aNumber
+               %UID '53BE8DF203A5'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNumber
+              <<in>> aZoom
+               %UID '53BE8DF203CA'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aZoom
+              <<in>> aPicture
+               %UID '53BE8DF30005'
+               %TARGET U$ '46A5AFF103CA' /* IStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aPicture
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RenderFormula
+        FINAL <<method>> RenderFormulaPrim
+         %UID '4B72DF930061'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '474AD18D0096' /* RenderEVD */
+          U$ '4EF09DD80155' /* Требования */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4EF09E0D007E' /* "Рендеринг формул в PNG" */
+          U$ '4EF09E25025C' /* "При рендеренге должен учитываться Zoom" */
+         ; // %IMPLEMENTS
+         %LINKS
+           <<uses>> "4CBD726100C8"
+            %UID '4CBD726100C8'
+            %TARGET U$ '4CBD724403E7' /* TJclStackInfoList */
+           ; // 4CBD726100C8
+           <<uses>> "4CBD728B014D"
+            %UID '4CBD728B014D'
+            %TARGET U$ '499D47A502DE' /* Tl3ConstMemoryStream */
+           ; // 4CBD728B014D
+           <<uses>> "4CBD72A30027"
+            %UID '4CBD72A30027'
+            %TARGET U$ '47E150FF028A' /* TStream */
+           ; // 4CBD72A30027
+           <<uses>> "4CBD72BF011A"
+            %UID '4CBD72BF011A'
+            %TARGET U$ '47ECA82403AC' /* Tk2DocumentBuffer */
+           ; // 4CBD72BF011A
+           <<uses>> "4CBD72D50029"
+            %UID '4CBD72D50029'
+            %TARGET U$ '483E80FA0312' /* TevdNativeReader */
+           ; // 4CBD72D50029
+           <<uses>> "4CBD731F0166"
+            %UID '4CBD731F0166'
+            %TARGET U$ '4CBD730A0323' /* Tl3BitmapContainer */
+           ; // 4CBD731F0166
+           <<uses>> "4CBD733E0253"
+            %UID '4CBD733E0253'
+            %TARGET U$ '467817DD0200' /* Ik2Tag */
+           ; // 4CBD733E0253
+           <<uses>> "4CBD735502F0"
+            %UID '4CBD735502F0'
+            %TARGET U$ '476F70910097' /* Il3Bitmap */
+           ; // 4CBD735502F0
+           <<uses>> "4CBD736E0030"
+            %UID '4CBD736E0030'
+            %TARGET U$ '4727449A00A2' /* Il3Canvas */
+           ; // 4CBD736E0030
+           <<uses>> "4CBD73890177"
+            %UID '4CBD73890177'
+            %TARGET U$ '4ACDBE8801BE' /* TImageEnIO */
+           ; // 4CBD73890177
+           <<uses>> "4CBD73B20265"
+            %UID '4CBD73B20265'
+            %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+           ; // 4CBD73B20265
+           <<uses>> "4CBD73E40007"
+            %UID '4CBD73E40007'
+            %TARGET U$ '47F24AFB0308' /* Layers */
+           ; // 4CBD73E40007
+           <<uses>> "4CBD73F901F1"
+            %UID '4CBD73F901F1'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 4CBD73F901F1
+           <<uses>> "4CBD761F017D"
+            %UID '4CBD761F017D'
+            %TARGET U$ '47A080670100' /* l3Stream */
+           ; // 4CBD761F017D
+           <<uses>> "4CBD762A006B"
+            %UID '4CBD762A006B'
+            %TARGET U$ '4773D64E036C' /* l3Base */
+           ; // 4CBD762A006B
+           <<uses>> "4CBD763D0280"
+            %UID '4CBD763D0280'
+            %TARGET U$ '47E0C36201C7' /* l3Math */
+           ; // 4CBD763D0280
+           <<uses>> "4CBD76EE0048"
+            %UID '4CBD76EE0048'
+            %TARGET U$ '46A614A202CA' /* Il3Font */
+           ; // 4CBD76EE0048
+           <<uses>> "4CBD7910012C"
+            %UID '4CBD7910012C'
+            %TARGET U$ '4C1B918900FD' /* Ver */
+           ; // 4CBD7910012C
+           <<uses>> "4CBD79430039"
+            %UID '4CBD79430039'
+            %TARGET U$ '485683750360' /* TextPara */
+           ; // 4CBD79430039
+           <<uses>> "4CBD797E0048"
+            %UID '4CBD797E0048'
+            %TARGET U$ '4728974E009E' /* Tl3Rect */
+           ; // 4CBD797E0048
+           <<uses>> "4EF06CAF022A"
+            %UID '4EF06CAF022A'
+            %TARGET U$ '47C520EE007C' /* InevObject */
+           ; // 4EF06CAF022A
+           <<uses>> "4EF06CF00097"
+            %UID '4EF06CF00097'
+            %TARGET U$ '480F377B0271' /* TnevFormatInfoPrim */
+           ; // 4EF06CF00097
+           <<uses>> "4EF06D0D00AD"
+            %UID '4EF06D0D00AD'
+            %TARGET U$ '4857B5260267' /* Document */
+           ; // 4EF06D0D00AD
+           <<uses>> "4EF06D2D0107"
+            %UID '4EF06D2D0107'
+            %TARGET U$ '481213C903A2' /* TnevVirtualDrawView */
+           ; // 4EF06D2D0107
+           <<uses>> "4EF06D5B025B"
+            %UID '4EF06D5B025B'
+            %TARGET U$ '4799F84900DD' /* l3ScreenIC */
+           ; // 4EF06D5B025B
+           <<uses>> "537B5038026B"
+            %UID '537B5038026B'
+            %TARGET U$ '4857926501CB' /* Formula */
+           ; // 537B5038026B
+           <<uses>> "53BE9F690115"
+            %UID '53BE9F690115'
+            %TARGET U$ '47D15712022D' /* Graphics */
+           ; // 53BE9F690115
+           <<uses>> "53BEC3A001FC"
+            %UID '53BEC3A001FC'
+            %TARGET U$ '4CB861CA00F8' /* l3ImageUtils */
+           ; // 53BEC3A001FC
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B72DF9E00A6'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "calling conventions" 'stdcall'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '474AD18D0096' /* RenderEVD */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aBuf
+               %UID '4B72DFD700C7'
+               %TARGET U$ '4771179900D8' /* PChar */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aBuf
+              <<in>> aSize
+               %UID '4B72DFD700FE'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSize
+              <<in>> aNumber
+               %UID '4B72DFD70121'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNumber
+              <<in>> aZoom
+               %UID '4CBD727500B5'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aZoom
+              <<in>> aPicture
+               %UID '4B72DFD70141'
+               %TARGET U$ '46A5AFF103CA' /* IStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aPicture
+              <<in>> aTarget
+               %UID '53BEADCD01B8'
+               %TARGET U$ '53BEAD8B03B2' /* TeeRenderTarget */
+               %TOBEINCLUDED
+                U$ '474AD18D0096' /* RenderEVD */
+               ; // %TOBEINCLUDED
+              ; // aTarget
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RenderFormulaPrim
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Enum>> TeeRenderTarget
+         %UID '53BEAD8B03B2'
+         %ATTRIBUTES
+           <<Attribute>> ee_rtPNG
+            %UID '53BEAD9D023D'
+           ; // ee_rtPNG
+           <<Attribute>> ee_rtBMP
+            %UID '53BEADA600F9'
+           ; // ee_rtBMP
+           <<Attribute>> ee_rtRawBMP
+            %UID '53BEADB0032C'
+           ; // ee_rtRawBMP
+         ; // %ATTRIBUTES
+        ; // TeeRenderTarget
+        PRIVATE ABSTRACT <<SimpleClass>> TnevDocumentContainerHack
+         %UID '4EF06C6C014A'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47F0870E0034' /* TnevDocumentContainer */
+         ; // %INHERITS
+        ; // TnevDocumentContainerHack
+      ; // %CHILDREN
+     ; // eeRenderFormula
+   ; // %CHILDREN
+  ; // Implementation
+ ; // %CHILDREN
+; // RenderEVD

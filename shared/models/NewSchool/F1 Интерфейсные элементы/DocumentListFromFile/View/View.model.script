@@ -1,0 +1,336 @@
+<<VCMViews>> View
+ %UID '4DA44ADF034E'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4799D29F033F' /* Implementation */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FED0213' /* Operations */
+  U$ '4F9BDEEE01BC' /* "Поддержка локализованных сообщений" */
+  U$ '521C9DA50125' /* "Application Resources" */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<VCMModule>> DocumentListFromFile
+   %UID '4DA44B170176'
+   %DEPENDS
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '45700BFD0251' /* DynamicDocList */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47EA50050263' /* BaseDocument */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '47F475660140' /* List */
+    U$ '48F747EC0073' /* Common */
+    U$ '4AADF9450143' /* Visual */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B1D394B00E5' /* PrimListInterfaces */
+    U$ '4B1D3D250382' /* PrimPrimListInterfaces */
+    U$ '4DDA34AA023B' /* Dialogs */
+    U$ '4E200FED0213' /* Operations */
+    U$ '4F9BDEEE01BC' /* "Поддержка локализованных сообщений" */
+    U$ '521C9DA50125' /* "Application Resources" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '4680C57D01E9' /* Business */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4ABB680E0218' /* Common$Lib */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E200FC9003B' /* VCM$Scripting */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<VCMFormsPack>> PrimDocumentListFromFile
+      %UID '4DA44B2C01BB'
+      %SUMMARY 'Список документов из файла' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '12.04.2011 16:53'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4E0344DA0341"
+         %UID '4E0344DA0341'
+         %TARGET U$ '4E01D696020C' /* vcmMessagesSupport */
+        ; // 4E0344DA0341
+        SUMMONED <<uses>> "A98CA3784345"
+         %UID 'A98CA3784345'
+         %TARGET U$ 'FC678F27F4DB' /* "Tkw_DocumentListFromFile_opOpenDocumentListFromFile" */
+        ; // A98CA3784345
+        SUMMONED <<uses>> "D4250D0E56D5"
+         %UID 'D4250D0E56D5'
+         %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+        ; // D4250D0E56D5
+        SUMMONED <<uses>> "787F171BCC01"
+         %UID '787F171BCC01'
+         %TARGET U$ '4E01D1E002AE' /* Tl3MessageID */
+        ; // 787F171BCC01
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<ModuleMethod>> OpenDocumentListFromFile
+         %UID '4DA44BDB01D9'
+         %SUMMARY 'Открыть список документов из файла' ;
+         %META
+          %upv "ShortCut" 'Shift-Alt-L'
+          %upv "ShowInToolbar" false
+          %upv "no prefix" false
+          %upv "no test" false
+         ; // %META
+         %LINKS
+           <<uses>> "4DA44E450022"
+            %UID '4DA44E450022'
+            %TARGET U$ '4DA44E2C0153' /* TOpenDialog */
+           ; // 4DA44E450022
+           <<uses>> "4DA451D10238"
+            %UID '4DA451D10238'
+            %TARGET U$ '4B1E8FAE0380' /* DefDataAdapter$4B1E8FAE0380 */
+           ; // 4DA451D10238
+           <<uses>> "4DA45B47034E"
+            %UID '4DA45B47034E'
+            %TARGET U$ '45EEDB730265' /* DynList */
+           ; // 4DA45B47034E
+           <<uses>> "4DA45B8C023D"
+            %UID '4DA45B8C023D'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 4DA45B8C023D
+           <<uses>> "4DA45BA301FC"
+            %UID '4DA45BA301FC'
+            %TARGET U$ '4AAF9718001D' /* nsAStr */
+           ; // 4DA45BA301FC
+           <<uses>> "4DA45BF30397"
+            %UID '4DA45BF30397'
+            %TARGET U$ '4926AE3900B9' /* TdeListSet */
+           ; // 4DA45BF30397
+           <<uses>> "4DA45C690223"
+            %UID '4DA45C690223'
+            %TARGET U$ '477515240332' /* Tafw */
+           ; // 4DA45C690223
+           <<uses>> "4DA4664A0051"
+            %UID '4DA4664A0051'
+            %TARGET U$ '4AA7F1CB012C' /* vcmConstString */
+           ; // 4DA4664A0051
+           <<uses>> "4DA4695F038F"
+            %UID '4DA4695F038F'
+            %TARGET U$ '456EB4540188' /* AccessDenied */
+           ; // 4DA4695F038F
+           <<uses>> "4DA469A70148"
+            %UID '4DA469A70148'
+            %TARGET U$ '456EB4540192' /* InvalidType */
+           ; // 4DA469A70148
+           <<uses>> "4DA46C49002C"
+            %UID '4DA46C49002C'
+            %TARGET U$ '4A9D129E00FA' /* Say$4A9D129E00FA */
+           ; // 4DA46C49002C
+           <<uses>> "4DECC9D30272"
+            %UID '4DECC9D30272'
+            %TARGET U$ '4DDD468D0131' /* TnsOpenDialog */
+           ; // 4DECC9D30272
+           <<uses>> "4DF0D42201F4"
+            %UID '4DF0D42201F4'
+            %TARGET U$ '4AA4D8A6012B' /* TbsOpenListInfo */
+           ; // 4DF0D42201F4
+           <<uses>> "4DF75F48008F"
+            %UID '4DF75F48008F'
+            %TARGET U$ '47F20DEA0340' /* IdeList */
+           ; // 4DF75F48008F
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DA44C2A00D9'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OpenDocumentListFromFile
+        SUMMONED PRIVATE FINAL <<ini>> Init_AccessDenied
+         %UID 'B994EADFFEC2'
+         %SUMMARY 'Инициализация str_AccessDenied' ;
+        ; // Init_AccessDenied
+        SUMMONED PRIVATE FINAL <<ini>> Init_InvalidType
+         %UID 'C84263D7E97C'
+         %SUMMARY 'Инициализация str_InvalidType' ;
+        ; // Init_InvalidType
+        SUMMONED PRIVATE FINAL <<ini>> Init_ImportDocuments
+         %UID 'C8AE9C045E60'
+         %SUMMARY 'Инициализация str_ImportDocuments' ;
+        ; // Init_ImportDocuments
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE FINAL <<LocalConst>> Local
+         %UID '4DA469B30396'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> AccessDenied
+            %UID '4DA46A320096'
+            %VALUE '''Нет доступа к файлу'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // AccessDenied
+           <<Attribute>> InvalidType
+            %UID '4DA46A460119'
+            %VALUE '''Неверный тип файла'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // InvalidType
+           <<Attribute>> ImportDocuments
+            %UID '4DF0CA020253'
+            %VALUE '''Импортируемых документов'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // ImportDocuments
+         ; // %ATTRIBUTES
+        ; // Local
+        SUMMONED PRIVATE <<Constants>> LCImplLocal
+         %UID 'F396466C3CA0'
+         %SUMMARY 'Локализуемые строки Local' ;
+         %META
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> AccessDenied
+            %UID '9F072BD7216A'
+            %SUMMARY '''Нет доступа к файлу''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''AccessDenied''; rValue : ''Нет доступа к файлу'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // AccessDenied
+           SUMMONED <<Attribute>> InvalidType
+            %UID 'A72DA19F5E8C'
+            %SUMMARY '''Неверный тип файла''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''InvalidType''; rValue : ''Неверный тип файла'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // InvalidType
+           SUMMONED <<Attribute>> ImportDocuments
+            %UID '4BFD445C37B9'
+            %SUMMARY '''Импортируемых документов''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''ImportDocuments''; rValue : ''Импортируемых документов'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // ImportDocuments
+         ; // %ATTRIBUTES
+        ; // LCImplLocal
+      ; // %CHILDREN
+     ; // PrimDocumentListFromFile
+     SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_DocumentListFromFile_opOpenDocumentListFromFile"
+      %UID 'FC678F27F4DB'
+      %SUMMARY 'Слово словаря для вызова операции модуля DocumentListFromFile.OpenDocumentListFromFile (Список документов из файла Открыть список документов из файла)' ;
+      %META
+       %upv "NameForScript" 'моп::Список_документов_из_файла_Открыть_список_документов_из_файла'
+       %upv "ifndef" 'NoScripts'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DB060930263' /* TtfwModuleOperationWord */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+       U$ '4DB079E00084' /* GetModuleOperationCode */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "CEBAC5084303"
+         %UID 'CEBAC5084303'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // CEBAC5084303
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'ADDA2BF044B9'
+         %SUMMARY 'Регистрация Tkw_DocumentListFromFile_opOpenDocumentListFromFile' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "Tkw_DocumentListFromFile_opOpenDocumentListFromFile"
+   ; // %CHILDREN
+  ; // DocumentListFromFile
+ ; // %CHILDREN
+; // View

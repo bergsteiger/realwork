@@ -1,0 +1,65 @@
+#!/bin/bash
+
+MESSAGE="All Up-sell componets will be removed during this uninstall"
+
+SHARED_WARNING1="This application installed files which may be shared by other"
+SHARED_WARNING2="programs. Removing the shared files may cause these other"
+SHARED_WARNING3="applications to stop working."
+REMOVE_SHARED="Do you want to continue (default N)?"
+
+if [ -z $LD_LIBRARY_PATH ]; then
+  LD_LIBRARY_PATH=$SETUP_INSTALLPATH/bin
+  export LD_LIBRARY_PATH
+else
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SETUP_INSTALLPATH/bin
+  export LD_LIBRARY_PATH
+fi
+
+echo $MESSAGE
+echo
+
+echo $SHARED_WARNING1
+echo $SHARED_WARNING2
+echo $SHARED_WARNING3
+echo
+echo -n "$REMOVE_SHARED "
+read response
+
+case $response in
+    y|Y|yes|Yes|YES )
+	if [ -d ~/.borland ]; then
+	  if [ -f ~/.borland/connections ]; then
+	    if [ -e ~/.borland/connect_ora ]; then
+	      $SETUP_INSTALLPATH/bin/UnMergeIniL ~/.borland/connect_ora ~/.borland/connections 1
+	      mv -f ~/.borland/connect_ora $SETUP_INSTALLPATH/bin/
+	    fi
+	    if [ -e ~/.borland/connect_db2 ]; then
+	      $SETUP_INSTALLPATH/bin/UnMergeIniL ~/.borland/connect_db2 ~/.borland/connections 1
+	      mv -f ~/.borland/connect_db2 $SETUP_INSTALLPATH/bin/
+	    fi
+            echo
+	    echo "connections config file has be modified"
+	  fi
+	  if [ -f ~/.borland/drivers ]; then
+	    if [ -e ~/.borland/drivers_ora ]; then
+	      $SETUP_INSTALLPATH/bin/UnMergeIniL ~/.borland/drivers_ora ~/.borland/drivers 1
+	      mv -f ~/.borland/drivers_ora $SETUP_INSTALLPATH/bin/
+	    fi
+	    if [ -e ~/.borland/drivers_db2 ]; then
+	      $SETUP_INSTALLPATH/bin/UnMergeIniL ~/.borland/drivers_db2 ~/.borland/drivers 1
+	      mv -f ~/.borland/drivers_db2 $SETUP_INSTALLPATH/bin/
+	    fi
+            echo
+	    echo "drivers config file has be modified"
+	  fi
+	else
+          echo
+	  echo "System cannot find connections and drivers configuration file."
+	fi
+	;;
+    * )
+	echo "Uninstall has been canceled!"
+	exit 0
+	;;
+esac
+echo

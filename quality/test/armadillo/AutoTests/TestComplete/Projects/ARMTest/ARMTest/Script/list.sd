@@ -1,0 +1,657 @@
+ uses func, maps, clicks, menu, search, make, change, StartStop;
+
+
+
+{ Интерфейс списка клиентов 
+Название над списком зависит от настроек: 
+"Активные клиенты" / "Неактивные клиенты" / "Удаленные клиенты"
+
+под списком надпись "Всего пользователей: <...>" по числу клиентов 
+проверить случаи: 
+нуля клиентов
+после расширенного поиска
+в режиме удаленных/неактивных клиентов}
+function ListOfClients1;
+var
+  arm, pClientList, settingsBtn, XSearsh, edClientName, StatusBar, position : OleVariant;
+begin
+  arm := Sys.Process('Armadillo');
+  pClientList := arm.VCLObject('frmMain').VCLObject('pClientList').VCLObject('pClientStatus');
+  StatusBar := arm.VCLObject('frmMain').VCLObject('StatusBar'); 
+  {проверка настройки показа списка клиентов и установка в состояние "показывать активных"
+  включение отображения удалённых клиентов}
+  arm.frmMain.Click(382, 31);
+  arm.Window('#32768').Click(29, 6);
+  if arm.VCLObject('frmViewProductsSettings').VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox2').VCLObject('rbViewActiveClients').Checked = false {если радиокнопка не установлена на "активных"}
+    then arm.frmViewProductsSettings.pcViewSettings.tsViewSettings.GroupBox2.rbViewActiveClients.ClickButton;  {клик по "активных"} 
+  
+  {проверка, и если надо выключение «Не показывать клиентов без видимых продуктов»}
+  if arm.VCLObject('frmViewProductsSettings').VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox2').VCLObject('chkNoComplects').Checked then
+    begin
+      Log.Error('включён "Не показывать клиентов без видимых продуктов", по умолчанию не должен');
+      arm.frmViewProductsSettings.pcViewSettings.tsViewSettings.GroupBox2.chkNoComplects.Click      
+    end;
+    arm.frmViewProductsSettings.btnOK.ClickButton;         {клик по "принять"}        
+  
+  {проверка названия списка активных клиентов}  
+  if pClientList.caption <> 'Активные клиенты'
+    then Log.Error('список клиентов называется "' + pClientList.Caption + '", а должен называться "Активные клиенты"')
+    else Log.Message('список клиентов называется "' + pClientList.caption + '", и это верно'); 
+  {проверка числа пользователей в тулбаре}
+  if StatusBar.wText[0] <> 'Всего пользователей: 50'
+    then Log.Error('в статус баре "' + StatusBar.wText[0] + '", а должен быть "Всего пользователей: 50 "')
+    else Log.Message('в статус баре "' + StatusBar.wText[0] + '", и это верно ');
+  {включение отображения неактивных клиентов}
+  arm.frmMain.Click(382, 31);
+  arm.Window('#32768').Click(29, 6);
+  arm.frmViewProductsSettings.pcViewSettings.tsViewSettings.GroupBox2.rbViewInactiveClients.ClickButton;  {включили отображение неактивных клиентов} 
+  arm.frmViewProductsSettings.btnOK.ClickButton;         {клик по "принять"}
+  {проверка названия списка неактивных клиентов}  
+  if pClientList.caption <> 'Неактивные клиенты'
+    then Log.Error('список клиентов называется "' + pClientList.caption + '", а должен называться "Неактивные клиенты"')
+    else Log.Message('список клиентов называется "' + pClientList.caption + '", и это верно');
+  {проверка числа пользователей в тулбаре}
+  if StatusBar.wText[0] <> 'Всего пользователей: 0'
+    then Log.Error('в статус баре "' + StatusBar.wText[0] + '", а должен быть "Всего пользователей: 0"')
+    else Log.Message('в статус баре "' + StatusBar.wText[0] + '", и это верно'); 
+  {включение отображения удалённых клиентов}  
+  arm.frmMain.Click(382, 31);
+  arm.Window('#32768').Click(29, 6);
+  arm.frmViewProductsSettings.pcViewSettings.tsViewSettings.GroupBox2.rbViewDeletedClients.ClickButton;  {включили отображение удалённых клиентов} 
+  arm.frmViewProductsSettings.btnOK.ClickButton;         {клик по "принять"}
+  {проверка названия списка удалённых клиентов} 
+  if pClientList.caption <> 'Удаленные клиенты'
+    then Log.Error('список клиентов называется "' + pClientList.caption + '", а должен называться "Удаленные клиенты"');
+//    else Log.Message('список клиентов называется "' + pClientList.caption + '", и это верно');
+  {проверка числа пользователей в тулбаре}
+  if StatusBar.wText[0] <> 'Всего пользователей: 20'
+    then Log.Error('в статус баре "' + StatusBar.wText[0] + '", а должен быть "Всего пользователей: 20"');
+//    else Log.Message('в статус баре "' + StatusBar.wText[0] + '", и это верно'); 
+  {проверка числа пользователей в тулбаре после расширенного поиска, поиск по названию клиента "08"}
+  arm.frmMain.TBDock1.tbSearch.Click(43, 14);
+  XSearsh := arm.frmSearch;
+  edClientName := XSearsh.pcSearch.tsClient.GrBClients.edClientName;
+  XSearsh.pcSearch.ClickTab('Реквизиты клиента');
+  edClientName.Click;
+  edClientName.Keys('08');
+  XSearsh.btnSearch.ClickButton;
+  {условие поставить !!!}
+  position := pos('найдено',arm.Window('TfRgnDialog', '', 1).VCLObject('Message').Caption);
+  case position of
+    '29' : 
+      begin
+        arm.Window('TfRgnDialog').OK.Click;      {ничего не найдено, жмём "ок"}
+        arm.frmSearch.BitBtn2.ClickButton;       {отмена}
+      end;
+    '19' : arm.Window('TfRgnDialog').Yes.Click;    {подтверждение построения списка}
+  end;
+  if arm.VCLObject('frmMain').VCLObject('StatusBar').wText[0] <> 'Всего пользователей: 1'
+    then Log.Error('в статус баре после расширенного поиска "' + StatusBar.wText[0] + '", а должен быть "Всего пользователей: 1"')
+    else Log.Message('в статус баре "' + StatusBar.wText[0] + '", и это верно');
+    
+    
+  {возвращаем в исходное состояние}
+  arm.frmMain.Click(382, 31);
+  arm.Window('#32768').Click(29, 6);
+  if arm.VCLObject('frmViewProductsSettings').VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox2').VCLObject('rbViewActiveClients').Checked = false {если радиокнопка не установлена на "активных"}
+    then arm.frmViewProductsSettings.pcViewSettings.tsViewSettings.GroupBox2.rbViewActiveClients.ClickButton;  {клик по "активных"} 
+  
+  {проверка, и если надо выключение «Не показывать клиентов без видимых продуктов»}
+  if arm.VCLObject('frmViewProductsSettings').VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox2').VCLObject('chkNoComplects').Checked then
+    begin
+      Log.Error('включён "Не показывать клиентов без видимых продуктов", по умолчанию не должен');
+      arm.frmViewProductsSettings.pcViewSettings.tsViewSettings.GroupBox2.chkNoComplects.Click      
+    end;
+    arm.frmViewProductsSettings.btnOK.ClickButton;         {клик по "принять"}  
+    
+ end;
+ 
+
+ 
+// проверяет работу контекстного поиска в списке клиентов вызванного двумя способами и поиск с помощью строки под списком
+// сравнивает количество найденных, а надо бы по результату  
+// проверки расширенного поиска ещё не хватает
+   function Kontext;
+var
+   arm, i, j, search, n, last, SearchCheck : OleVariant;
+begin
+   
+  arm := Sys.Process('Armadillo');
+  ClickOnMainMenu('настройки');
+  if GetFromSettings('не показывать клиентов без видимых продуктов').Checked
+    then GetFromSettings('не показывать клиентов без видимых продуктов').click;
+  if not GetFromSettings('активных').Checked
+    then GetFromSettings('активных').click;
+  GetFromSettings('ок').ClickButton;   
+   
+   
+   {открытие окна "контекст" кнопкой в тулбаре и кнопкой внизу списка клиентов.
+   проверка наличия объектов "текстовое поле" и "стрелка вверх/вниз"}
+  for i:=1 to 3 do
+    begin
+      n := -1; 
+      case i of
+        '1' : 
+          begin
+            ClickOnMainWindow('контекстный поиск');
+            search := 'кор';
+          end;
+        '2' : 
+          begin
+            GetFromMainWindow('контекст').Click;
+            search := 'корова';
+          end;
+        '3' : 
+          begin
+            GetFromMainWindow('контекст').Click;          
+            search := '061';
+          end;
+      end;
+      if GetFromKontext('').Caption <> 'Контекстный поиск'
+        then Log.Error(VarToStr(i) + '-ым способом окно "Контекстный поиск" не открылось');
+      if not IsExists(GetFromKontext('вверх'))
+        then Log.Erorr('стрелка вверх не существует');
+      if not IsExists(GetFromKontext('вниз'))
+        then Log.Erorr('стрелка вниз не существует');
+      if not IsExists(GetFromKontext('текст'))
+        then Log.Erorr('поле ввода текста для поиска по контексту не существует');
+
+      GetFromKontext('текст').Keys(search);    {ввод слова для поиска}
+        repeat
+          GetFromKontext('вниз').ClickButton;    {клиr по стрелке вниз}
+          n := n+1;
+        until IsExists(arm.WaitWindow('TfRgnDialog', '*', -1, 500));
+      arm.Window('TfRgnDialog').OK.Click;     {закрыть сообщение об окончании поиска} 
+      GetFromKontext('отмена').ClickButton; {закрыть контекстный поиск}
+    
+    // поиск скриптом    
+    j:=-1;
+    last:=-1;
+    repeat
+      j := j + 1; 
+      last := last+1;
+      last:=SearchInList(GetFromMainWindow('список клиентов'), '*' + search + '*', '',last, True);
+      if last = GetFromMainWindow('список клиентов').RowCount - 1 then j := j + 1;    
+    until (last = -1) or (last = GetFromMainWindow('список клиентов').RowCount - 1);
+    
+    if n <> j then Log.Error('в ' + i + '-ю итерацию контекст "' + search + '" был найден ' + VarToStr(n) + ' раз, а должен был ' + VarToStr(j)); 
+     
+    end;
+
+  // проверка строки контекстного поиска под списком клиентов
+  search := 'корзина'; 
+  GetFromMainWindow('поле контекст').Keys('[End]![Home][Del]');
+  last:=0;
+  for i:=1 to j do
+    begin
+      SearchCheck:= SearchCheck+search[i];
+      GetFromMainWindow('поле контекст').Keys(search[i]);
+      Log.Message('нашёл ' + GetFromClientParams('наименование').text);
+      
+      last := last;
+      last:=SearchInList(GetFromMainWindow('список клиентов'), '*' + '^' + SearchCheck + '*', '',last, True);
+      Log.Message('должен ' + GetFromMainWindow('список клиентов').Cells[1,last]);
+      if GetFromClientParams('наименование').text <> GetFromMainWindow('список клиентов').Cells[1,last]
+        then
+          Log.Error('поиск контекста "' + search + '" строкой под списком клиентов не верен');
+    end;   
+
+end;
+
+
+
+function NewClient;
+var
+  arm, i1, i2, cat : OleVarian;
+begin
+  arm := Sys.Process('Armadillo');
+  arm.frmMain.TBDock1.tbControls.Keys('^n');
+  if arm.VCLObject('frmAddClient').WndCaption <> 'Внесение информации о новом клиенте'
+    then Log.Error('окно "Внесение информации о новом клиенте" не открылось')
+    else Log.Message('окно "Внесение информации о новом клиенте" открылось');
+  {проверка возможных значений поля "категория"}
+  for i1:=1 to arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wItemCount do
+    begin
+      case i1 of
+        1 : cat := 'Коммерческие';
+        2 : cat := 'ОВиУ. Информационный обмен';
+        3 : cat := 'ОВиУ. Прочие';
+        4 : cat := 'УЗ. Гарант в учебном процессе';
+        5 : cat := 'УЗ. Прочие учебные заведения';
+        6 : cat := 'СМИ. Обмен';
+        7 : cat := 'Некоммерческие другие';
+      else Log.Error(VarToStr(arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wItemCount) + ' значений комбобокса, вместо 7');
+      end;
+      {порверяем диалог, который появляется после выбора "Некоммерческие другие" }
+      if cat = 'Некоммерческие другие' then
+        begin
+          for i2:=1 to 2 do                                              
+            begin
+              arm.frmAddClient.cb_UCategory.ClickItem(cat); {выбираем "Некоммерческие другие"}
+              if pos('Отнесение клиента к категории',arm.WaitWindow('TfRgnDialog', '*', -1, 500).VCLObject('Message').Caption) = 1
+              then
+                case i2 of
+                  1 :
+                    begin
+                      arm.Window('TfRgnDialog').Yes.Click;
+                      if arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wSelectedItem <> i1-1 
+                        then Log.Error('не установилось занчение ' + cat);
+                    end;
+                  2 :
+                    begin
+                      arm.Window('TfRgnDialog').No.Click;
+                      if arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wSelectedItem <> -1
+                        then Log.Error('не пустое поле "категория"');
+                    end;
+                end
+              else log.error('окно "Отнесение клиента к категории..." не открылось');
+            end;
+        end; 
+      if arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wItem[i1-1] <> cat
+        then Log.Error('"' + arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wItem[i1-1] + '" не равно "' + cat + '"');
+//        else Log.Message('"' + arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wItem[i1-1] + '" равно "' + cat + '"');        
+    end;
+  
+ 
+  {перебор значений поля "категория" на клавиатуре}
+  arm.frmAddClient.cb_UCategory.Keys('[Esc]');
+  arm.frmMain.TBDock1.tbControls.Keys('^n');
+  Log.Message('перебор значений поля "категория" на клавиатуре');
+  for i1:=1 to arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wItemCount do
+    begin
+      arm.frmAddClient.cb_UCategory.Keys('[Down]'); 
+      case i1 of
+        1 : cat := 'Коммерческие';
+        2 : cat := 'ОВиУ. Информационный обмен';
+        3 : cat := 'ОВиУ. Прочие';
+        4 : cat := 'УЗ. Гарант в учебном процессе';
+        5 : cat := 'УЗ. Прочие учебные заведения';
+        6 : cat := 'СМИ. Обмен';
+        7 : 
+        begin
+          cat := 'Некоммерческие другие';
+          if pos('Отнесение клиента к категории',arm.WaitWindow('TfRgnDialog', '*', -1, 500).VCLObject('Message').Caption) = 1
+          then
+            begin
+              arm.Window('TfRgnDialog').Yes.Click;
+              if arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wSelectedItem <> i1-1 
+                then Log.Error('не установилось занчение ' + cat);
+            end
+          else log.error('окно "Отнесение клиента к категории..." не открылось');
+        end; 
+      else log.error(arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').wItemCount + ' значений комбобокса, вместо 7');
+      end;
+      if arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').Text <> cat
+        then Log.Error('"' + arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').Text + '" не равно "' + cat + '"')
+        else Log.Message('"' + arm.VCLObject('frmAddClient').VCLObject('cb_UCategory').Text + '" равно "' + cat + '"');        
+    end;
+  {поле "индекс"}
+  arm.frmAddClient.edPostIndex.Keys('По2Н5аH78g2 dl5e1');
+  if arm.VCLObject('frmAddClient').VCLObject('edPostIndex').Text <> '257825'
+    then Log.Error('в поле "индекс" не верное значение');
+  arm.frmAddClient.cb_UCategory.Keys('[Esc]');
+  arm.frmMain.TBDock1.tbControls.Keys('^n');
+  Sys.Clipboard := 321687;
+  arm.frmAddClient.edPostIndex.ClickR;
+  arm.frmAddClient.edPostIndex.PopupMenu.Click('Вставить');
+  if arm.VCLObject('frmAddClient').VCLObject('edPostIndex').Text <> '321687'
+    then Log.Error('в поле "индекс" не верное значение после вставки из буфера обмена мышью');
+  arm.frmAddClient.cb_UCategory.Keys('[Esc]');
+  arm.frmMain.TBDock1.tbControls.Keys('^n');
+  Sys.Clipboard := 462893;
+  arm.frmAddClient.edPostIndex.Keys('^v');
+  if arm.VCLObject('frmAddClient').VCLObject('edPostIndex').Text <> '462893'
+    then Log.Error('в поле "индекс" не верное значение после вставки из буфера обмена с помощью ctrl+v (ошибка 28622)');
+  
+  {Надпись: "ВНИМАНИЕ! Все поля данной формы, помеченные символом "*", должны быть заполнены!"}
+  if Sys.Process('Armadillo').VCLObject('frmAddClient').VCLObject('Label2').Caption <> 'ВНИМАНИЕ! Все поля данной формы, помеченные символом "*",  должны быть заполнены!'
+    then Log.Error('не существует предупреждения "Все поля данной формы, помеченные символом "*",  должны быть заполнены!"');
+  
+  arm.frmAddClient.cb_UCategory.Keys('[Esc]');
+       
+    
+end; 
+
+//
+// заполнение обязательных полей в новом клиенте
+//
+
+// функция для заполнение обязательных полей. если заполняется текстовое поле, возвращает длину текста в нём.
+// иначе возвращает "-1"
+
+
+
+function NewClFill(
+  const NumOfField : OleVariant;  // номер обязательного поля
+  const n2 : Olevariant;          // количество символов в поле, если необходимо. Symb набирается n2 раз (для полей 1 и 4)
+  const Symb       : Olevariant;  // текст, если необходимо (для полей 1 и 4)
+  const Meth       : Olevariant)  // определяет, каким образом заполняется текстовове поле "0" - с клавиатуры, "1" - из буфера мышью, "3" - из буфера с помощью ctrl+c
+  : Integer;  
+var 
+  arm, i, text : OleVariant;
+begin
+  arm := Sys.Process('Armadillo');
+  Result := -1 ;
+  text := ''; 
+  for i := 1 to n2 do text := text + VarToStr(Symb);
+  Sys.Clipboard := text;
+  case NumOfField of  
+    1 :                                                                         // заполнения 1-го текстового поля клавиатурой, 
+      begin                                                                     // мышью из буфера обмена и с помощью ctrl+v 
+        case Meth of                                                            //
+          0 : for i:=1 to n2 do arm.frmAddClient.edShortClientName.Keys(symb);  //
+          1 :                                                                   //
+            begin                                                               //
+              arm.frmAddClient.edShortClientName.ClickR;                        //
+              arm.Window('#32768').Click(38, 71);                               //
+            end;                                                                //
+          2 : arm.frmAddClient.edShortClientName.Keys('^v');                    //
+        else Log.Error('недопустимый параметр');                                //
+        end;                                                                    //
+        Result := length(arm.frmAddClient.edShortClientName.wText);             //
+      end;                                                                      //
+    2 : arm.frmAddClient.cb_UCategory.ClickItem('Коммерческие');
+    3 : arm.frmAddClient.f_CityBox.cb_City.ClickItem('Абакан');
+    4 :                                                                         // заполнения 2-го текстового поля клавиатурой, 
+      begin                                                                     // мышью из буфера обмена и с помощью ctrl+v 
+        case Meth of                                                            //
+          0 : for i:=1 to n2 do arm.frmAddClient.edPostAddress.Keys(Symb);      //
+          1 :                                                                   //
+            begin                                                               //
+              arm.frmAddClient.edPostAddress.ClickR;                            //
+              arm.Window('#32768').Click(38, 71);                               //
+            end;                                                                //
+          2 : arm.frmAddClient.edPostAddress.Keys('^v');                        //
+        else Log.Error('недопустимый параметр');                                //
+        end;                                                                    //
+        Result := length(arm.frmAddClient.edPostAddress.wText);                 //
+      end;                                                                      //
+//    4 : 
+//      begin
+//        {for i:=1 to n2 do }arm.frmAddClient.edPostAddress.Keys(text);
+//        Result := length(arm.frmAddClient.edPostAddress.wText);
+//      end;
+    5 : arm.frmAddClient.cb_Courier.ClickItem('Вицукаев Владимир Александрович');
+  else Log.Error('недопустимый параметр');
+  end;
+end;
+
+
+procedure NewClient2;
+var i0, i1, i2, mess, arm; // способ заполнения текстового поля; номер последнего заполняемого поля; номер поля для заполнения, вывод в лог
+begin
+  arm := Sys.Process('Armadillo');
+  for i0 := 0 to 2 do
+    begin
+      case i0 of
+        0 : mess := 'с помощью клавиатуры';
+        1 : mess := 'из буфера обмена с помощью мыши';
+        2 : mess := 'из буфера обмена с помощью ctrl+v';
+      end;
+//      Log.Message('итерация ' + VarToStr(i0) + ', заполнение текстовых полей ' + mess);
+      for i1 := 1 to 5 do 
+        begin
+//          Log.Message('итерация ' + VarToStr(i0) + '-' + VarToStr(i1));
+          arm.frmMain.TBDock1.tbControls.Keys('^n');
+          for i2:= 1 to 5 do
+            begin
+              if i1 <> i2
+                then
+                  begin
+                    if arm.VCLObject('frmAddClient').VCLObject('btnOK').Enabled
+                      then Log.Error('кнопка "принять" доступна');
+                    NewClFill(i2, 3, i1, i0);
+//                    Log.Message('заполняется поле ' + VarToStr(i2));
+                  end;
+            end;
+          NewClFill(i1 , 3, i1, i0);
+          Log.Message('заполняется исключённое поле - ' + VarToStr(i1));
+          if arm.VCLObject('frmAddClient').VCLObject('btnOK').Enabled = false  
+            then Log.Error('кнопка "принять" не доступна');                
+          arm.frmAddClient.cb_UCategory.Keys('[Esc]');
+//        arm.frmAddClient.btnOK.ClickButton; // клик по кнопке "принять"
+//        arm.frmMain.TBDock1.tbControls.Click(21, 8); // клик по кнопке "сохранить изменения"
+        end;
+    end;
+end;
+
+// добавить проверку факта создания клиентов !!!!!!!!!!!!
+
+//
+// проверка количество допустимых символов в обязательных текстовых полях и доступность кнопки "принять"  
+//
+
+procedure NewClient3;
+var i1, i2, arm, exclude, amount;
+begin
+  exclude := 1;               // переменная определяющая поле, которое будет тестироваться на количество символов
+  arm := Sys.Process('Armadillo');
+  for i1:= 1 to 2 do
+    begin
+      Log.Message('итерация ' + VarToStr(i1));
+      arm.frmMain.TBDock1.tbControls.Keys('^n');
+      if i1 = 2 then exclude := 4;
+      for i2:= 1 to 5 do                                                    
+        begin                                                               
+          if exclude <> i2                                                       
+            then                                                            
+              begin                                                         
+                if arm.VCLObject('frmAddClient').VCLObject('btnOK').Enabled 
+                  then Log.Error('кнопка "принять" доступна');              
+                NewClFill(i2 , 3, i1, 0);                                      
+                Log.Message('заполнено поле ' + VarToStr(i2));          
+              end; 
+                                                       
+        end;
+//      for i2 := 1 to 101 do
+//        begin
+//          amount := NewClFill(exclude , 1, i2 mod 2);  // "i2 mod 2" - что бы было видно движение
+//        end;
+      i2 := 0;
+      repeat       // добавляем по символу
+        inc(i2);
+        amount := NewClFill(exclude , 1, i2 mod 2, 0);  // "i2 mod 2" - что бы было видно движение
+        if i2 < 2          // 2 - минимальное количество символов в поле                     //   // ??????????????????????
+          then                                                                               //
+            begin                                                                            //
+              if arm.VCLObject('frmAddClient').VCLObject('btnOK').Enabled                    //
+                then Log.Error('введено ' + VarToStr(i2) + ', кнопка "принять" доступна');   // проверка доступности кнопки
+            end                                                                              //
+          else                                                                               //
+            if arm.VCLObject('frmAddClient').VCLObject('btnOK').Enabled = false              //
+              then Log.Error('введено ' + VarToStr(i2) + ', кнопка "принять" не доступна');  //
+      until i2 <> amount;
+      Log.Message('заполнено поле ' + VarToStr(exclude) + '. в поле возможно ввести не более ' + VarToStr(amount) + ' символов' ); 
+      Log.Message('удаляем по символу');
+            
+      repeat      // удаляем по символу
+        if i1 = 1
+          then arm.frmAddClient.edShortClientName.Keys('[BS]')
+          else arm.frmAddClient.edPostAddress.Keys('[BS]');
+        dec(i2); 
+        if i2 < 3  // ??????????????????????                                                 //
+          then                                                                               //
+            begin                                                                            //
+              if arm.VCLObject('frmAddClient').VCLObject('btnOK').Enabled                    //
+                then Log.Error('введено ' + VarToStr(i2) + ', кнопка "принять" доступна');   // проверка доступности кнопки
+            end                                                                              //
+          else                                                                               //
+            if arm.VCLObject('frmAddClient').VCLObject('btnOK').Enabled = false              //
+              then Log.Error('введено ' + VarToStr(i2) + ', кнопка "принять" не доступна');  //
+      until (length(arm.frmAddClient.edShortClientName.wText) = 0) or (length(arm.frmAddClient.edPostAddress.wText) = 0);
+      arm.frmAddClient.cb_UCategory.Keys('[Esc]');                                                                
+    end;
+end;
+
+//
+//проверка порядка следования таб-стопов
+//
+
+procedure TestTab;
+var arm, i, Cur;
+begin
+  i := 0;
+  arm := Sys.Process('Armadillo');
+  arm.frmMain.TBDock1.tbControls.Keys('^n');
+  repeat
+    inc(i);
+    case i of
+      1 : cur := 'VCLObject(''edShortClientName'')';   // поле наименование
+      2 : cur := 'VCLObject(''cb_Prefix'')';           // поле префикс
+      3 : cur := 'VCLObject(''cb_UCategory'')';        // поле категория
+      4 : cur := 'VCLObject(''cb_City'')';             // поле нас пункт
+      5 : cur := 'VCLObject(''edPostIndex'')';         // поле индекс
+      6 : cur := 'VCLObject(''edPostAddress'')';       // поле адрес
+      7 : cur := 'VCLObject(''cb_Courier'')';          // поле курьер
+      8 : cur := 'VCLObject(''btnCancel'')'            // кнопка отмена
+    else
+      Log.Error(VarToStr(i) + '-я итерация !!! должно быть не больше 8-ми');      
+    end;
+    if Sys.Desktop.FocusedWindow.Name <> cur then Log.Error('скорее всего не верный порядок таб-стопов');
+    Sys.Process('Armadillo').VCLObject('frmAddClient').Keys('[Tab]');
+  until (i = 20) or (Sys.Desktop.FocusedWindow.Name = 'VCLObject(''edShortClientName'')');
+  arm.frmAddClient.cb_UCategory.Keys('[Esc]'); 
+end;
+
+//
+// проверка отказа от создания клиента после нажатия кнопки "применить"
+//
+
+procedure NewClientBack;
+var i, n, arm; // способ заполнения текстового поля; номер последнего заполняемого поля; номер поля для заполнения, вывод в лог
+begin
+  arm := Sys.Process('Armadillo');
+  n := arm.VCLObject('frmMain').VCLObject('StatusBar').wText[0];
+  arm.frmMain.TBDock1.tbControls.Keys('^n');
+  for i:= 1 to 5 do NewClFill(i, 3, 1, 0);
+  arm.frmAddClient.btnOK.ClickButton; // клик по кнопке "принять"
+  arm.frmMain.TBDock1.tbControls.Click(40, 12);
+  arm.Window('TfRgnDialog').Yes.Click;
+  if arm.VCLObject('frmMain').VCLObject('StatusBar').wText[0] <> n
+    then Log.Message('клиент не должен был создаться');
+end;
+
+// перевод клиента в Неактивные и обратно
+procedure ActiveToInactive;
+var arm, name, place, NumOfTry ; 
+begin
+  arm := Sys.Process('Armadillo');
+  ClickOnMainMenu('настройки');
+  if GetFromSettings('не показывать клиентов без видимых продуктов').Checked
+    then GetFromSettings('не показывать клиентов без видимых продуктов').click;
+  if not GetFromSettings('активных').Checked
+    then GetFromSettings('активных').click;
+  GetFromSettings('ок').ClickButton; 
+  
+  name := 'ActiveToInactive';
+  repeat
+    place := SearchInList(GetFromMainWindow('список клиентов'), name, 'Название клиента');
+    if place = -1 
+      then  
+        begin
+          Log.Message('клиента ' + name + ' не существует, создаём');
+          name := MakeClient(name);
+          place := SearchInList(GetFromMainWindow('список клиентов'), name, 'Название клиента');
+//          ClickOnMainWindow('добавить нового клиента');
+//          GetFromAddClient('наименование').Keys(name);
+//          GetFromAddClient('категория').ClickItem('ОВиУ. Прочие');
+//          GetFromAddClient('нас.пункт').ClickItem('Абакан');
+//          GetFromAddClient('адрес').Keys('адрес');
+//          GetFromAddClient('курьер').Keys('[Down]');
+//          GetFromAddClient('применить').Click;
+//        
+//          NumOfTry := 0;
+//          while IsExists(arm.WaitWindow('TfRgnDialog', '*', -1, 500)) and (pos(arm.Window('TfRgnDialog', '', 1).VCLObject('Message').Caption, 'Указанное название клиента уже существует') <> 0) do
+//            begin  
+//              arm.Window('TfRgnDialog', '', 1).VCLObject('OK').Click;
+//              NumOfTry := NumOfTry + 1;
+//              name := name + ', попытка ' + VarToStr(NumOfTry);
+//              GetFromAddClient('наименование').Keys(name);
+//              GetFromAddClient('применить').Click;
+//            end;
+//        
+//          ClickOnMainWindow('сохранить изменения');
+        end;
+  until place <> -1;
+  ClickOnItemsList(GetFromMainWindow('список клиентов'), place, 'r');
+  ClickOnClientsListMenu('спрятать');     
+  Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('Yes').Click; // согласились с перемещением
+  place := SearchInList(GetFromMainWindow('список клиентов'), name, 'Название клиента');
+  if place <> -1 then Log.Message('клиент "' + name + '" не удалился из списка активных');
+  
+  ClickOnMainMenu('настройки');
+  GetFromSettings('неактивных').click;
+  GetFromSettings('ок').ClickButton; 
+  place := SearchInList(GetFromMainWindow('список клиентов'), name, 'Название клиента');
+  if place = -1 then Log.Message('клиент "' + name + '" не добавился в список неактивных');
+  ClickOnItemsList(GetFromMainWindow('список клиентов'), place, 'r');
+  ClickOnClientsListMenu('восстановить');
+  Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('Yes').Click;  // согласились с перемещением
+  place := SearchInList(GetFromMainWindow('список клиентов'), name, 'Название клиента');
+  if place <> -1 then Log.Message('клиент "' + name + '" не удалился из списка неактивных');
+  
+  ClickOnMainMenu('настройки');
+  GetFromSettings('активных').click;
+  GetFromSettings('ок').ClickButton;
+  place := SearchInList(GetFromMainWindow('список клиентов'), name, 'Название клиента');
+  if place = -1 then Log.Error('клиент "' + name + '" не добавился в список активных');
+  ClickOnItemsList(GetFromMainWindow('список клиентов'), place);
+  MakeProduct;
+  
+  place := SearchInList(GetFromMainWindow('список клиентов'), name, 'Название клиента');
+  ClickOnItemsList(GetFromMainWindow('список клиентов'), place, 'r');
+  ClickOnClientsListMenu('спрятать');
+  if IsExists(Sys.Process('Armadillo').WaitWindow('TfRgnDialog', '*', -1, 500))
+    then
+      begin
+        case arm.Window('TfRgnDialog', '', 1).VCLObject('Message').Caption of
+          'Нельзя перевести в Неактивные клиента с продуктами в категории РЕГ': arm.Window('TfRgnDialog', '', 1).VCLObject('OK').Click;
+          'Вы действительно хотите перевести клиента в неактивные?' : Log.Error('появилось предлождение перенести клиента с регулярными продуктами в неактивные');
+        end;
+      end
+    else Log.Error('не появилось предупреждение о невозможности перенести клиента в неактивные');
+  place := SearchInList(GetFromMainWindow('список клиентов'), name, 'Название клиента');
+  if place = -1 then Log.Error('при попытке перенести клиента с регулярными продуктом в неактивные он исчез из списка активных');
+  
+end; 
+
+ function ALL;
+ begin
+//   StartingARM;
+//   ListOfClients1;
+//   Kontext;
+//   NewClient;
+//   NewClient2;
+//   NewClient3;           // чо то косячит 
+//   TestTab;
+//   NewClientBack;
+//   ActiveToInactive;
+//   rekvisit;
+   ChangeContact;
+   ContactDolzhn;
+   DogInfo;
+   AutoNumeration;
+ end;     
+ 
+function test;
+var paramList ;
+begin 
+// парсим строку параметров
+  paramList := ParseParamString('x:=GggG;y:=222');
+  log.message(GetParam(paramList, 'z', '8'));
+end;
+
+// проверка поставок
+procedure postavka;
+var arm, category, Place, NameOfClient, TypeOfProduct; 
+begin
+//  category := 'Коммерческие';
+  TypeOfProduct := 'продажа';
+//  NameOfClient := '1 проверка поставок, категория "' + category + '"';
+//  MakeClient(NameOfClient, 'категория:=' + category);
+//  Place := SearchInList(GetFromMainWindow('список клиентов'), NameOfClient, 'Название клиента');
+//  ClickOnItemsList(GetFromMainWindow('список клиентов'), Place);
+  MakeProduct(TypeOfProduct);
+  ClickOnMainWindow('реквизиты клиента');
+     
+end;

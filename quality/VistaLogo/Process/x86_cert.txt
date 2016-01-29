@@ -1,0 +1,99 @@
+TEST CASE 1. Verify all of the application’s executables contain an embedded manifest that define its execution level (Req:1.1)
+PASSED
+
+TEST CASE 2. Verify Least-Privilege Users cannot modify other users documents or files (Req:1.1)
+PASSED
+
+TEST CASE 3. Verify Least-Privilege user is not able to save files to Windows System directory (Req:1:1)
+PASSED
+
+TEST CASE 4. Verify application installer does not have a 16-Bit installer, does not use or rely on 16-Bit code or components and does not attempt to install any non 64-Bit drivers on x64 versions of Windows regardless if application is a Win32 application or is native to 64-bit (Req:1.2)
+PASSED (N/A)
+
+TEST CASE 5. Verify application installed executables and files are signed (Req:1.3)
+PASSED
+
+TEST CASE 6. Verify all kernel-mode drivers installed by the application are signed (Req:1.4)
+PASSED (N/A)
+
+TEST CASE 7. Verify application properly checks for Operating System version (Req:1.6)
+PASSED
+
+TEST CASE 8. Verify application launches and executes properly using Fast User Switching (Req.1.8)
+PASSED
+
+TEST CASE 9. Verify application launches and executes properly using Remote Desktop (Req.1.8)
+PASSED
+
+TEST CASE 10. Verify drivers and services start in Safe-Mode. (Req:1.10)
+PASSED (N/A)
+
+
+Install/Uninstall
+TEST CASE 11. Verify application installer uses Windows Installer. (Req:2.1)
+PASSED
+
+TEST CASE 12. Verify application’s MSI installer does not receive any errors from the Internal Consistency Evaluators. (Req:2.1)
+PASSED
+
+TEST CASE 13. Verify application’s installer contains an embedded manifest (Req:2.2)
+PASSED
+
+TEST CASE 14. Verify application launches with installed user token (Req:2.2)
+PASSED (N/A)
+
+TEST CASE 15. Verify application installs to the correct folders by default (Req:2.3)
+PASSED
+
+TEST CASE 16. Verify ClickOnce application is signed with a valid Authenticode Certificate (Req:2.4)
+PASSED (N/A)
+
+TEST CASE 17. Verify ClickOnce application only stores data in installed user’s folders and does not write to WRP registry keys during install.  (Req:2.5)
+PASSED (N/A)
+
+TEST CASE 18. Verify Windows Installer package contains Manufacturer, ProductCode, ProductLanguage, ProductName, ProductVersion (major and minor), and UpgradeCode property tags and that they are not null (Req:2.7)
+PASSED
+
+TEST CASE 19. Verify application creates uninstall registry key and values (Req:2.7)
+PASSED
+
+TEST CASE 20. Verify application does not try to write to or replace any WRP registry keys or files (Req:2.9)
+PASSED
+
+TEST CASE 21. Verify the application does not use nested install custom actions (Req:2.10)
+PASSED
+
+TEST CASE 22. Verify the application does not add custom columns to the Windows Installer’s standard tables and that any custom tables or properties are not prefixed with ‘msi’ (Req:2.10)
+PASSED
+
+TEST CASE 23. Verify the application rolls back the install and restores machine back to previous state (Req:2.10)
+PASSED
+
+TEST CASE 24. Verify the application does not force a reboot during install (Req:2.12)
+PASSED
+
+TEST CASE 25. Verify the application properly handles files in use during install (Req:2.12)
+PASSED
+
+TEST CASE 26. Verify the application can be installed quietly from the command line (Req:2.13)
+PASSED
+
+TEST CASE 27. Verify the application’s Windows Installer ComponentID table does not contain null values (Req:2.14)
+PASSED
+
+TEST CASE 28. Verify the application’s Windows Installer Package does not contain more than one COM Server for each Component (Req:2.14)
+PASSED
+
+TEST CASE 29. Verify the application’s Windows Installer Package does not contain more than one shortcut for each component (Req:2.14)
+PASSED
+
+
+Reliability
+TEST CASE 30. Verify the application is Restart Manager Aware (Req:3.1)
+PASSED (Support shutdown only)
+
+TEST CASE 31. Verify application does not break into a debugger with the specified AppVerifier checks (Req:3.2)
+PASSED
+
+TEST CASE 32. Verify that the application only handles exceptions that are known and expected (Req:3.2)
+PASSED

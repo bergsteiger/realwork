@@ -1,0 +1,463 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////// HLTC 191: Запуск внешнего приложения //////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork;
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.1: MS Word
+    	HLTC191.2.1.1: проверить экспорт непосредственно в Word (кнопка на тулбаре)
+      – объект загружается в Word’е. Необходимо перейти к просмотру соответствующего
+      объекта
+      	HLTC191.2.1.1.1: Документа 
+        HLTC73.18.1.2: Экспорт в MS-Word
+        
+HLTC73.19.8.1: Wordовский документ
+  HLTC73.19.8.1.1: Когда Word установлен
+  HLTC73.19.8.1.2: Когда Word не установлен
+}
+function HLTC191_2_1_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  words;
+begin
+  if not IsWordInstalled then begin Result := true; exit; end;
+  words := 
+    [
+    'КОНСТИТУЦИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ*',
+    '*Депутаты Совета Федерации первого созыва осуществляют свои полномочия на непостоянной основе*'
+    ];
+  if OpenDocByNumber(10003000) then
+    Result := ExportToWord(GetEditor, words) and ExportToWord(GetEditor, words, GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'))
+  else
+    Log.Error('Не получилось открыть документ по номеру (Конституция РФ)');
+  //  
+  GoToMainMenu;
+end;                       
+
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.1: MS Word
+    	HLTC191.2.1.1: проверить экспорт непосредственно в Word (кнопка на тулбаре)
+      – объект загружается в Word’е. Необходимо перейти к просмотру соответствующего
+      объекта
+      	HLTC191.2.1.1.2: Справки к документу
+}
+function HLTC191_2_1_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  words;
+begin
+  if not IsWordInstalled then begin Result := true; exit; end;
+  words := 
+    [
+    'Договор "О создании Союзного государства" (Москва, 8 декабря 1999 г.)*',
+    '*договоров, март 2000 г., N 3, в "Российской газете" от 29 января 2000 г., N 21'
+    ];
+  if OpenDocByNumber(1055132) and IsExists(OpenInDocument('СПРАВКА')) then
+  begin
+    GetFromEditor('ВКЛАДКА "СПРАВКА"').SetFocus;
+    Result := ExportToWord(GetFromEditor('ВКЛАДКА "СПРАВКА"'), words) and 
+              ExportToWord(GetEditor, words, GetFromEditor('ТУЛБАР "ДОКУМЕНТ: СПРАВКА К ДОКУМЕНТУ"'));
+  end
+  else
+    Log.Error('Не получилось открыть документ по номеру (Конституция РФ)');
+  //  
+  GoToMainMenu;
+end;
+
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.1: MS Word
+    	HLTC191.2.1.1: проверить экспорт непосредственно в Word (кнопка на тулбаре)
+      – объект загружается в Word’е. Необходимо перейти к просмотру соответствующего
+      объекта
+      	HLTC191.2.1.1.5: Списка
+}
+function HLTC191_2_1_1_5_Execute(var  current_state: OleVariant): OleVariant;
+var
+  listTree, rubricatorTree;
+  words;
+begin
+  if not IsWordInstalled then begin Result := true; exit; end;
+  words := 
+    [
+    '•	Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.)*',
+    '*•	Документ 2006. Source без территории*',
+    '*•	Документ 8902002'
+    ];
+  //
+  rubricatorTree := OpenMenuTab;
+  if common.Position_Internal(rubricatorTree, LIST_MAIN) then
+  begin
+		Sys.Keys('[Enter]');
+    listTree := GetList;
+    listTree.SetFocus;
+    Result := ExportToWord(listTree, words) and ExportToWord(listTree, words, GetFromList('ТУЛБАР "СПИСОК"'));
+  end
+  else
+		Log.Error('Не найден список (с нажатием кнопки Открывать в извлечениях): "' + LIST_MAIN + '"');
+  //
+  GoToMainMenu;
+end;                       
+
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.1: MS Word
+    	HLTC191.2.1.1: проверить экспорт непосредственно в Word (кнопка на тулбаре)
+      – объект загружается в Word’е. Необходимо перейти к просмотру соответствующего
+      объекта
+      	HLTC191.2.1.1.6: СКР
+}
+function HLTC191_2_1_1_6_Execute(var  current_state: OleVariant): OleVariant;
+var
+  words, words2;
+begin
+  if not IsWordInstalled then begin Result := true; exit; end;
+  words := 
+    [
+    '*Налоговый кодекс Российской Федерации (НК РФ)*',
+    '*Соглашение между Российской Федерацией и Кыргызской Республикой о порядке комплектования и прохождения военной службы гражданами Кыргызской Республики в Пограничных войсках Российской Федерации, находящихся на территории Кыргызской Республики (Бишкек, 1 апреля 1994 г.)*',
+    '*Устав Курской области*'
+    ];
+  if OpenDocByNumber(10003000) and IsExists(OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ')) then
+  begin
+    Result := true;
+    GetFromEditor('ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"').SetFocus;
+    if not (ExportToWord(GetFromEditor('ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"'), words)
+              and ExportToWord(GetFromEditor('ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"'), words, GetFromEditor('ТУЛБАР "СПИСОК: ССЫЛКИ НА ДОКУМЕНТ"'))) then
+    begin
+      Result := false;
+      Log.Error('Не получилось экспортировать документ в Word из вкладки "ССЫЛКИ НА ДОКУМЕНТ"');
+    end;
+  end
+  else
+    Log.Error('Не получилось открыть документ по номеру (Конституция РФ) или Список ссылок на документ');
+
+  words2 := 
+    [
+    '*Земельный кодекс Российской Федерации от 25 октября 2001 г. N 136-ФЗ*',
+    '*Кодекс Российской Федерации об административных правонарушениях (КоАП РФ)*',
+    '*Федеральный закон от 4 января 1999 г. N 4-ФЗ "О координации международных и внешнеэкономических связей субъектов Российской Федерации"*',
+    '*Cправка о динамике минимального размера оплаты труда*'
+    ];
+  if OpenDocByNumber(10003000) and IsExists(OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА')) then
+  begin
+    Result := true;
+    GetFromEditor('ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"').SetFocus;
+    if not (ExportToWord(GetFromEditor('ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"'), words2)
+              and ExportToWord(GetFromEditor('ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"'), words2, GetFromEditor('ТУЛБАР "СПИСОК: ССЫЛКИ ИЗ ДОКУМЕНТА"'))) then
+    begin
+      Result := false;
+      Log.Error('Не получилось экспортировать документ в Word из вкладки Список ссылок из документа');
+    end;
+  end
+  else
+    Log.Error('Не получилось открыть документ по номеру (Конституция РФ) или Список ссылок из документа');
+  //  
+  GoToMainMenu;
+end;
+
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.1: MS Word
+    	HLTC191.2.1.1: проверить экспорт непосредственно в Word (кнопка на тулбаре)
+      – объект загружается в Word’е. Необходимо перейти к просмотру соответствующего
+      объекта
+      	HLTC191.2.1.1.7: Толкования 
+HLTC99.4.4: Экспорт в Word (это не сохранение в файл, а экспорт напрямую в MS-Word).
+  HLTC99.4.4.1: Проверить экспорт в Word для русских толкований
+  HLTC99.4.4.2: Проверить экспорт в Word для английских толкований
+}
+function HLTC191_2_1_1_7_Execute(var  current_state: OleVariant): OleVariant;
+var
+  words, words2;
+begin
+  if not IsWordInstalled then begin Result := true; exit;end;
+  words :=     
+    [
+    'Теория, утверждающая, что уровень инвестиций (investment) определяется отношением оценки стоимости физического капитала фирмы на фондовом рынке  и текущими издержками замещения выбытия (replacement cost) этого капитала. Объем инвестиций растет, если первый показатель превышает второй, и, наоборот, падает, если первый показатель меньше второго. Впервые выдвинутая Джеймсом Тобином (род. 1918), эта теория дополняет и улучшает слабо аргументированную теорию акселератора (accelerator theory) и теорию стоимости капитала для его потребителя  (user-cost-of-capital theory), которые доказали свою слабость на практике.'
+    ];
+  words2 := 
+    [
+    'A theory stating that the level of investment is determined by the ratio of the stock-market valuation of the physical capital of firms and the current replacement cost of those items. Investment will rise if the former is greater than latter and vice versa. First suggested by James Tobin (1918- ), the theory provides an improvement on both the accelerator theory (which is theoretically weak) and the user-cost-of-capital theory (which is weak in practice).'
+    ];
+  if GoToDictionary then
+  begin
+    Result := ExportToWord(GetFromDictionary('ТЕКСТ СТАТЬИ'), words)
+              and ExportToWord(GetFromDictionary('ТЕКСТ СТАТЬИ'), words, GetFromDictionary('ТУЛБАР ТЕКСТ СТАТЬИ'))
+              and ExportToWord(GetFromDictionary('ПЕРЕВОД СТАТЬИ'), words2, GetFromDictionary('ТУЛБАР ПЕРЕВОД СТАТЬИ'));
+  end
+  else
+    Log.Error('Не получилось перейти в Толковый словарь');
+  //  
+  GoToMainMenu;
+end;
+
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.1: MS Word
+     	HLTC191.2.1.2: Проверить переход по ссылке из документа (система спрашивает
+      подтверждение на открытие документа во внешнем приложении или сохранение)
+      – открывается Word, загружается объект (3919697)
+} // будем проверять по ссылке из документа 2001
+function  HLTC191_2_1_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LINKNAME = 'ЛОКАЛЬНАЯ РЕСУРСНАЯ ВЕДОМОСТЬ';
+var 
+  words;
+begin
+  if not IsWordInstalled then begin Result := true; exit;end;
+  words :=     
+    [
+    'Приложение 1.*',
+    '*Проверил:________________________________'
+    ];
+	Result := false;
+  if OpenDocByNumber(2001) and IsExists(GetEditor) then
+  begin                
+    if ClickByHyperLink(GetEditor, 'ссылка на документ в формате Word '+ LINKNAME + '', false, 0, 0, false) then
+    begin
+      Result := StringCompare('*' + LINKNAME + '*', WaitForConfirmationWindow(Options.Run.Timeout div 8, 'Да'));
+      if not Result then
+        Log.Error('Не было окна c предупреждением об открытии документа в Word (внешнее приложение)');
+      if not ExportToWord(nil, words, nil, false) then
+      begin
+        Result := false;
+        Log.Error('Документ неккоректно экспортировался в WORD или вообще не открылся');
+      end;
+    end;
+  end
+  else
+    Log.Error('Не получилось открыть документ по номеру!');
+  GoToMainMenu;
+end;
+
+
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.2: MS Excel
+			HLTC191.2.2.1: Проверить переход по ссылке из документа (система спрашивает
+      подтверждение на открытие документа во внешнем приложении или сохранение)–
+      открывается Excel, загружается объект (ТБ: внут.номер 2001).
+  HLTC191.1: Проверить, что при открытии объекта во внешнем приложении (по ссылке из документа) система запускает соответствующее приложение и передаёт ему объект
+
+HLTC73.19.8.2: Excelевский документ 
+  HLTC73.19.8.2.1: Когда Excel установлен
+  HLTC73.19.8.2.2: Когда Excel не установлен
+} 
+function HLTC191_2_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+	LINKNAME = 'ЗАЯВЛЕНИЕ*ПРИЛОЖЕНИЕ К УКАЗАНИЮ ЦБР ОТ 03.06.2002 N 1155-У*';
+var
+  p, w;
+begin
+	Result := false;
+  if OpenDocByNumber(2001) and IsExists(GetEditor) then
+  begin
+    if ClickByHyperLink(GetEditor, 'ссылка на объект Excel ЗАЯВЛЕНИЕ', false, 0, 0, false) then
+    begin
+      Result := StringCompare('*' + LINKNAME + '*', WaitForConfirmationWindow(Options.Run.Timeout div 8, 'Да'));
+      if not Result then
+        Log.Error('Не было окна с предупреждением об открытии документа в Excel (внешнее приложение)');
+      if not IsExcelInstalled then
+      begin
+        w := Sys.Process('rundll32').WaitWindow('#32770', 'Windows', -1, Options.Run.Timeout div 16);
+        if not IsExists(w) then 
+        begin
+          Log.Error('Не появился стандартный диалог выбора программы (Excel не установлен)');
+          Result := false;
+        end
+        else
+          w.Close;
+        Result := true;
+      end
+      else
+      begin  
+        p := Sys.WaitProcess('EXCEL',Options.Run.Timeout div 4);
+        w := p.WaitWindow('XLMAIN', 'Microsoft Excel*' + LINKNAME, -1, Options.Run.Timeout div 4);
+        if not IsExists(w) then
+        begin
+          Result := false;
+          Log.Error('Excel почему-то не открылся');
+        end;
+        p.Close;
+      end;
+    end;
+  end
+  else
+    Log.Error('Не получилось открыть документ по номеру!');
+  GoToMainMenu;
+end;
+    
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.3: MS Outlook соответствующие ссылки есть в документе №105602 
+			HLTC191.2.3.1: Проверить переход по ссылке из документа – создаётся новое 
+      письмо с адресатом из ссылки (ТБ: внут.номер 5602)
+} // видать имеется в виду все же OutlookExpress а не Outlook
+function  HLTC191_2_3_1_Execute(var  current_state: OleVariant): OleVariant;
+var               
+  p, w;
+begin
+	Result := false;
+  if OpenDocByNumber(5602) and IsExists(GetEditor) then
+  begin
+    if ClickByHyperLink(GetEditor, 'Письмо Владу', false, 0, 0, false) then
+    begin
+      if WaitForConfirmationWindow <> '' then
+        Log.Error('Было окно подтверждения открытия Outlook Express');
+      p := Sys.WaitProcess('msimn',Options.Run.Timeout div 4);
+      w := p.WaitWindow('ATH_Note', 'New Message', -1, Options.Run.Timeout div 4);
+      Delay(Options.Run.Timeout div 4);
+      Result := IsExists(w);
+      if not Result then
+        Log.Error('Outlook Express почему-то не открылся');
+      p.Close;
+    end;
+  end
+  else
+    Log.Error('Не получилось открыть документ по номеру!');
+  GoToMainMenu;
+end;
+
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.4: MS IE
+			HLTC191.2.4.1: Проверить открытие графического образа документа, нажав 
+      кнопку тулбара «Графическая копия официально публикации»  (соответствующие
+      ссылки есть в документе в ТБ: №105602 и МАКС: 12025268) – запускается 
+      браузер, автоматически переходит на адрес графического образа.
+}
+function  HLTC191_2_4_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  p, f, w, ww, ie_edit;
+begin
+try
+  Result := true;
+
+  if not (OpenDocByNumber(5602) and IsExists(GetEditor)) then
+    Raise('Не получилось открыть документ 5602!');
+  if not ClickByHyperLink(GetEditor, 'Сайт www.microsoft.com', false, 0, 0, false) then
+    Raise('Не получилось открыть ссылку "Сайт www.microsoft.com"');
+  if WaitForConfirmationWindow <> '' then
+    Result := ErrorResult('Было окно подтверждения открытия браузера');
+
+  w := Sys.Process('firefox');
+  if IsExists(w) then
+  begin
+    if not IsExists(FindWindowByPath(w, 'WndCaption:=*Microsoft*;WndClass:=MozillaWindowClass', false)) then
+      Raise('В браузере FF не открылась страница "microsoft"');
+  end
+  else
+  begin
+    w := Sys.WaitProcess('iexplore', Options.Run.Timeout div 4).WaitWindow('IEFrame', '*', 1, Options.Run.Timeout div 4);
+    try
+      w.WaitWindow('Internet Explorer_Server', '*', -1, Options.Run.Timeout div 4);
+      Delay(Options.Run.Timeout div 4);
+      if not IsExists(w) then
+        Raise('Internet Explorer почему-то не открылся');
+      ww := w.Window('WorkerW', '*', 1).Window('ReBarWindow32', '*', 1);
+
+      // IE6
+      try
+        ie_edit := ww.Window('ComboBoxEx32').Window('ComboBox').Window('Edit');
+      except
+        Log.Message('Поле ввода адреса IE6 не найдено, пытаемся найти для IE7');
+      end;
+
+      // IE7
+      try
+        if not IsExists(ie_edit) then
+          ie_edit := ww.Window('Address Band Root', '*', 1).Window('ComboBoxEx32').Window('ComboBox').Window('Edit');
+      except
+        Log.Message('Поле ввода адреса IE7 не найдено, пытаемся найти для IE8+');
+      end;
+
+      // IE8
+      if not IsExists(ie_edit) then
+        ie_edit := ww.Window('Address Band Root', '*', 1).Window('Edit');  
+      if not IsExists(ie_edit) then
+        Raise('Не найдено поле ввода адреса в IE8+');
+
+      // проверяем, что адрес действительно примерно такой, как ожидалось      
+      if not StringCompare('*microsoft*', ie_edit.wText ) then        
+        Raise('В адресной строке IE не найден адрес "microsoft"');
+    finally
+      w.Close;
+    end;
+  end;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC191: Запуск внешнего приложения
+	HLTC191.2: Проверить, что поддерживаются приложения:
+		HLTC191.2.5: Media
+			HLTC191.2.5.1: переход по ссылке (ссылка на гимн РФ в документе) –
+      запускается медиа-проигрователь, на вход ему подаётся объект.
+}
+function  HLTC191_2_5_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  p, w;
+begin
+	Result := false;
+  if OpenDocByNumber(2001) and IsExists(GetEditor) then
+  begin
+    if ClickByHyperLink(GetEditor, 'ссылка на звуковой фрагмент гимн', false, 0, 0, false) then
+    begin
+      Result := WaitForConfirmationWindow(Options.Run.Timeout div 16, 'Нет') <> '';
+      if not Result then
+        Log.Error('НЕ было окна подтверждения открытия звукового фрагмента');
+    end;
+  end
+  else
+    Log.Error('Не получилось открыть документ по номеру!');
+  GoToMainMenu;
+end;
+
+
+////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests191;
+var i, p, w : oleVariant;
+begin
+//30.05
+//  HLTC191_2_1_1_1_Execute(p);
+//  HLTC191_2_1_1_2_Execute(p);
+//  HLTC191_2_1_1_4_Execute(p);
+//  HLTC191_2_1_1_5_Execute(p);
+//  HLTC191_2_1_1_6_Execute(p);
+//  HLTC191_2_1_1_7_Execute(p);
+//1.06
+//  HLTC191_2_1_2_Execute(p);
+//  HLTC191_2_2_1_Execute(p);
+//  HLTC191_2_3_1_Execute(p);  
+//  HLTC191_2_4_1_Execute(p);    
+//  HLTC191_2_5_1_Execute(p);
+//Corrected
+
+
+
+  
+  
+  
+     
+
+end;

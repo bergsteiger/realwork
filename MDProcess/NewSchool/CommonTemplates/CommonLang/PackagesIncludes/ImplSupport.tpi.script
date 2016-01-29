@@ -1,0 +1,190 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/PackagesIncludes/ImplSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::PackagesIncludes::ImplSupport
+//
+// набор вспомогательных функции для генерации пакета реализации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// нужна ли функция сравнения
+//f _need_comp_func
+: need_comp_func OBJECT IN %S
+//#UC START# *4716ECF50399*
+//	[{<{}{%f_used_as_compare_func(%s)=true}{%sC}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%s
+  begin
+   OBJECT IN %s
+   if ( ( [%f] used_as_compare_func %( %s )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for s
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4716ECF50399*
+; // need_comp_func
+
+
+// возвращает true, если структура генериться в cpp
+//f _st_need_impl
+: st_need_impl OBJECT IN %S
+//#UC START# *4716ECFD01D4*
+//	[{%SM=Struct::Class}{false}[{%f_need_less_func(%S)=true|%f_need_comp_func(%S)=true|%S%f_struct_need_impl()=true}{false}true]]
+ if ( ( %S |M ) %== 'Struct::Class' ) then
+ begin
+  if ( ( [%f] need_less_func %( %S )% ) %==  true OR 
+    ( ( [%f] need_comp_func %( %S )% ) %==  true  ) OR 
+    ( ( %S %f struct_need_impl %( )% ) %==  true  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4716ECFD01D4*
+; // st_need_impl
+
+
+// возвращает true, если нужен cpp-файл
+//f _need_impl_cpp
+: need_impl_cpp OBJECT IN %S
+//#UC START# *4716ED0A0203*
+//	[{<{}{%f_st_need_impl(%C)=true|%Ca!=inline&%t_has_impl(%C)=true}{%CC}>!=0|<{}{%f_interface_need_impl(%C)=true}{%CC}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] st_need_impl %( %C )% ) %==  true OR 
+    ( ( %C |a ) %!= 'inline'  ) AND 
+    ( ( [%t] has_impl %( %C )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] interface_need_impl %( %C )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _interface_need_impl
+; // need_impl_cpp
+
+: interface_need_impl OBJECT IN %S
+//	[{[{%SS=LocalInterface|%SS=Facet}{false}true]=true&[{<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{%CC}>!=0|%f_has_factory_methods(%S)=true}{false}true]=true}{false}true]
+ if ( if ( ( %S |S ) %== 'LocalInterface' OR 
+    ( ( %S |S ) %== 'Facet'  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+  %==  true AND 
+   ( if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Operation' AND 
+     ( ( %C |S ) %== 'oneway'  ) OR 
+     ( ( %C |S ) %== 'oneway,chg'  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 OR 
+    ( ( [%f] has_factory_methods %( %S )% ) %==  true  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+  %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4716ED0A0203*
+; // interface_need_impl
+
+
+// возвращает true, если нужен хедер для классов реалиации
+//f _need_impl_header
+: need_impl_header OBJECT IN %S
+//#UC START# *4716ED100203*
+//	[{"<{}{"%CO"=""&%CM!=Settings::Class}{C}>"="0"}{true}false]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |O ) %== '' AND 
+    ( ( %C |M ) %!= 'Settings::Class'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0 ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *4716ED100203*
+; // need_impl_header
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

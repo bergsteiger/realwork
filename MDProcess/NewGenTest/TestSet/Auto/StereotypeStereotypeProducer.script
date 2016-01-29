@@ -1,0 +1,106 @@
+EtalonNeedsXE
+
+StereotypeStereotypeProducer P
+
+ : X1
+ ;
+ 
+ : m2
+ ;
+ 
+;
+
+@^ <<@P>> :: X1 |^@ pop:Word:Name .
+
+<<@P>> MDAClass
+
+ : m1
+ ;
+ 
+ : m2
+ ;
+ 
+;
+
+@ <<MDAClass>> pop:object:ClassName .
+@^ <<MDAClass>> :: m1 |^@ pop:Word:Name .
+@^ <<MDAClass>> :: m1 |^@ pop:Word:Parent pop:Word:Name .
+
+<<@P>> MDACategory
+
+ : m1
+ ;
+ 
+ : m2
+ ;
+ 
+;
+
+<<MDAClass>> SimpleClass
+
+ : m1
+ ;
+ 
+ : m2
+ ;
+ 
+;
+
+<<SimpleClass>> Tl3Base
+
+ : m1
+ ;
+ 
+;
+
+@^ Tl3Base :: m1 |^@ pop:Word:Name .
+
+@^ <<SimpleClass>> :: m1 |^@ pop:Word:Name .
+@^ <<SimpleClass>> :: m1 |^@ pop:Word:Parent pop:Word:Name .
+
+@ <<SimpleClass>> pop:Word:Name .
+// <<SimpleClass>>
+@ <<SimpleClass>> pop:Word:Producer pop:Word:Name .
+// <<MDAClass>>
+@ <<SimpleClass>> pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// <<@P>>
+@ <<SimpleClass>> pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// StereotypeStereotypeProducer
+@ <<SimpleClass>> pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// ???
+
+
+@ Tl3Base pop:Word:Name .
+// Tl3Base
+@ Tl3Base pop:Word:Producer pop:Word:Name .
+// <<SimpleClass>>
+@ Tl3Base pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// <<MDAClass>>
+@ Tl3Base pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// <<@P>>
+@ Tl3Base pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// StereotypeStereotypeProducer
+@ Tl3Base pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// ???
+
+
+<<MDACategory>> Unit
+ : x1
+ ;
+ 
+ : x2
+ ;
+;
+
+@ <<Unit>> pop:Word:Name .
+// <<Unit>>
+@ <<Unit>> pop:Word:Producer pop:Word:Name .
+// <<MDACategory>>
+@ <<Unit>> pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// <<@P>>
+@ <<Unit>> pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// StereotypeStereotypeProducer
+@ <<Unit>> pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Producer pop:Word:Name .
+// ???
+
+help

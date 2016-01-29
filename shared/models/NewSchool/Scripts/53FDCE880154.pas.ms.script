@@ -1,0 +1,141 @@
+// Tm3CustomStream 53FDCE880154 SimpleClass Class
+
+INCLUDE '4FA276800294.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '5481CCCF0319.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_53FDCE880154
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_5481A7CD003B
+ CONST UID '5481A7CD003B'
+ CONST Name 'InnerStream'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5481A7CD003B InnerStream
+
+: ME_8301B9496131
+ CONST UID '8301B9496131'
+ CONST Name 'f_InnerStream'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства InnerStream' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_8301B9496131 f_InnerStream
+
+FORWARD ME_5480895501A0
+
+: ME_5480897F02E5
+ CONST UID '5480897F02E5'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_5480897F02E5 aStream
+
+INCLUDE '4720862F0238.pas.ms.script'
+
+: ME_5480897F0348
+ CONST UID '5480897F0348'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_5480897F0348 anAccess
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5480895B00FE
+ CONST UID '5480895B00FE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5480897F02E5 // aStream
+ ME_5480897F0348 // anAccess
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5480895B00FE DoIt
+
+: ME_5480895501A0
+ CONST UID '5480895501A0'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5480895B00FE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5480895501A0 Create
+
+: ME_53FDCE880154
+ CONST UID '53FDCE880154'
+ CONST Name 'Tm3CustomStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4FA276800294 // Tm3BaseStream
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_5481A7CD003B // InnerStream
+ ME_8301B9496131 // f_InnerStream
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5480895501A0 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_4FA280DB0288 // Commit
+ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53FDCE880154 Tm3CustomStream

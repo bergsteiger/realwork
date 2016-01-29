@@ -1,0 +1,1173 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "DateUtils"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCL/DateUtils|47A2C9B70293
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils|47A2C9D10083::47A2C9D10083;MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/CommonUtils/DateUtils|47A2C9D10083::47A2C9D10083;MDProcess,key:MDP,guid:45ED9AFC026A/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils|47A2C9D10083::47A2C9D10083;Shared (c++),key:SHR,guid:45ED9AFC026A/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils/WrongFormat|47C6AEFD01BF::47A2C9D10083;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils/WrongFormat|47C6AEFD01BF::47A2C9D10083;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils|47A2C9D10083::47A2C9D10083;Shared (java and c++),key:SHR,guid:45ED9AFC026A/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils|47A2C9D10083::47A2C9D10083
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/shared/java/src/java/ru/garant/shared/GCL/DateUtils.java::47A2C9D10083")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"Java|Документация")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16657844321"))
+    quid       	"47A2C9B70293"
+    documentation 	"содержит общие методы работы с датами"
+    stereotype 	"Unit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DateUtils"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils|47A2C9D10083
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/GCL/DateUtils.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A2C9D10083_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *47A2C9D10083_CUSTOM_IMPORT*¤import java.text.DateFormat;¤import java.text.ParseException;¤import java.text.SimpleDateFormat;¤import java.util.ArrayList;¤import java.util.Calendar;¤import java.util.Collection;¤import java.util.Date;¤import java.util.EnumSet;¤import java.util.List;¤¤import org.apache.commons.lang.StringUtils;¤¤import ru.garant.shared.GCI.I18N.Messages;¤¤//#UC END# *47A2C9D10083_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A2C9D10083_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *47A2C9D10083_CUSTOM_CLASS_DEFINITION*¤//#UC END# *47A2C9D10083_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A2C9D10083_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *47A2C9D10083_CUSTOM_METHODS_AND_DATA*¤	¤	private static long parseCombinedDate (String str, boolean relative, long relativeTime) {¤		if (StringUtils.isBlank(str)) {¤			return 0;¤		}¤		long result = 0;¤		try {¤			result = DateUtils.parseYMWDHDuration(str, false);¤			if (relative) {¤				result += relativeTime; // get real time from reletive time¤			}¤		} catch (WrongFormat e) {¤			if (relative) {¤				try {¤					result = parseDdMMyyyyDate(str).getTime();¤				} catch (WrongFormat ee) {¤					// nothing to do¤				}¤			}¤		}¤		return result;¤	}¤	¤	private static final class DateFormatEx {¤		public DateFormatEx(String formatStr, int[][] valuesToAdd) {¤			formatter = new SimpleDateFormat(formatStr);¤			this.valuesToSet = valuesToAdd;¤		}¤¤		public DateFormat formatter;¤		public int[][] valuesToSet;¤	}¤	¤	private static Collection<DateFormatEx> getDdMmYyyyFormatters () {¤		Calendar current = Calendar.getInstance();¤		// order is a matter!¤		List<DateFormatEx> result = new ArrayList<DateFormatEx>();¤		result.add(new DateFormatEx("dd.MM.yyyy HH:mm", new int[][] {}));¤		result.add(new DateFormatEx("dd.MM.yyyy", new int[][] {}));¤		result.add(new DateFormatEx("dd/MM/yyyy", new int[][] {}));¤		result.add(new DateFormatEx("dd.MM", new int[][] { { Calendar.YEAR, current.get(Calendar.YEAR) } }));¤		result.add(new DateFormatEx("dd/MM", new int[][] { { Calendar.YEAR, current.get(Calendar.YEAR) } }));¤		result.add(new DateFormatEx("dd", new int[][] { { Calendar.MONTH, current.get(Calendar.MONTH) },¤				{ Calendar.YEAR, current.get(Calendar.YEAR) } }));¤		return result;¤	}¤	¤	private static long parseYMWDHDuration (final String dateTime, final EnumSet<ParseValues> valuesToParse, final boolean flagParseDayInEightHours) throws WrongFormat {¤		if (StringUtils.isBlank(dateTime)) {¤			Logs.LOG_E("parseWDHDuration: Format of forecast time string is not valid.");¤			throw new WrongFormat();¤		}¤		¤		long year = 0;¤		long month = 0;¤		long week = 0;¤		long days = 0;¤		long hours = 0;¤		try {¤			String stackVal = "";¤			for (int i = 0; i < dateTime.length(); i++) {¤				char curChar = dateTime.charAt(i);¤				if (Character.isDigit(curChar)) {¤					stackVal += curChar; ¤				} else {¤					if (valuesToParse.contains(ParseValues.YEAR) && ParseValues.YEAR.is(curChar)) {¤						year = Long.valueOf(stackVal);¤					} else if (valuesToParse.contains(ParseValues.MONTH) && ParseValues.MONTH.is(curChar)) {¤						month = Long.valueOf(stackVal);¤					} else if (valuesToParse.contains(ParseValues.WEEK) && ParseValues.WEEK.is(curChar)) {¤						week = Long.valueOf(stackVal);¤					} else if (valuesToParse.contains(ParseValues.DAY) && ParseValues.DAY.is(curChar)) {¤						days = Long.valueOf(stackVal);¤					} else if (valuesToParse.contains(ParseValues.HOUR) && ParseValues.HOUR.is(curChar)) {¤						hours = Long.valueOf(stackVal);¤					} else if (' ' == curChar) {¤						// ignore spaces¤						continue;¤					} else {¤						Logs.LOG_E("parseWDHDuration: Format of forecast time string is not valid.");¤						throw new WrongFormat();¤					}¤					stackVal = "";¤				}¤			}¤			if(!StringUtils.isEmpty(stackVal) && hours == 0) {¤				hours = Long.valueOf(stackVal);¤			}¤		} catch (NumberFormatException e) {¤			Logs.LOG_E("parseWDHDuration: Forecast time string is not valid");¤			throw new WrongFormat();¤		}¤		if(flagParseDayInEightHours)¤			return ((year * 240L + month * 20L + week * 5L + days) * 8L + hours) * 60L * 60L * 1000L;		¤		else	¤			return ((year * 365L + month * 30L + week * 7L + days) * 24L + hours) * 60L * 60L * 1000L;		¤	}¤	¤	private static enum ParseValues {¤		YEAR("yuг"), MONTH("mьмv"), WEEK("wцнy"), DAY("dвlд"), HOUR("hрчx");¤¤		private String letters_;¤¤		private ParseValues(String letters) {¤			letters_ = letters;¤		}¤¤		public boolean is (char c) {¤			return letters_.indexOf(c) >= 0;¤		}¤¤	}¤	¤	// выводит длительность текущей даты в днях и часах¤	public static String formatDHDateFullDay (final java.util.Date dateTime) {¤		if (dateTime == null) {¤			return Messages.Factory.messages().get("no.data");¤		}¤		if (dateTime.getTime() == 0) {¤			return Messages.Factory.messages().get("no.data");¤		}¤		long hours = getTimeInHours(dateTime);¤		long minutes = (dateTime.getTime() / 1000l / 60l) % 60l;¤		if(minutes > 30)¤			hours++;¤		¤		if (hours == 0) {¤			return "< 1" + Messages.Factory.messages().get("sessionvelocitycontext.hours");¤		}¤		¤		long days = 0;¤		long weeks = 0;¤		if (Math.abs(hours) > 24) {¤			days = hours / 24L;¤			hours =  hours % 24L;¤		}¤		if (Math.abs(days) > 7) {¤			weeks = days / 7L;¤			days = days % 7L;¤		}¤		¤		String ret = (dateTime.getTime() < 0) ? new String("-"): new String();		¤		if (weeks != 0) {¤			ret += Math.abs(weeks) + Messages.Factory.messages().get("sessionvelocitycontext.week") + " ";¤		}		¤		if (days != 0) {¤			ret += Math.abs(days) + Messages.Factory.messages().get("sessionvelocitycontext.day") + " ";¤		}¤		if (hours != 0) {¤			ret += Math.abs(hours) + Messages.Factory.messages().get("sessionvelocitycontext.hours") + " ";¤		}¤		return ret;			¤	}¤	//#UC END# *47A2C9D10083_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NESTED GENERATED WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (c++),key:SHR,guid:45ED9AFC026A/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils/WrongFormat|47C6AEFD01BF::47C6AEFD01BF;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils/WrongFormat|47C6AEFD01BF::47C6AEFD01BF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NESTED GENERATED FILES (java)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16657856977"))
+	    quid       	"47A2C9D10083"
+	    documentation 	"содержит общие методы работы с датами"
+	    stereotype 	"SimpleClass"
+	    operations 	(list Operations
+		(object Operation "format_WD_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47A2CBC001A0*"
+			    value      	(value Text 
+|//#UC START# *47A2CBC001A0*¤		¤		if (date == null) {¤			return Messages.Factory.messages().get("sessionvelocitycontext.no.data");¤		}¤		¤		Date lifeTime = date;¤		¤		long days = getTimeInDays(lifeTime);¤		long weeks = days / 7l;¤		long restDays = days % 7;¤		¤		StringBuffer result = new StringBuffer();¤		¤		String weekLabel = verbose ? Messages.Factory.messages().get("sessionvelocitycontext.weeks.verbose")¤				: Messages.Factory.messages().get("sessionvelocitycontext.week");¤		String dayLabel = verbose ? Messages.Factory.messages().get("sessionvelocitycontext.days.verbose")¤				: Messages.Factory.messages().get("sessionvelocitycontext.day");¤ 		¤		result.append(timeElementToString(weeks, weekLabel, verbose));¤		if (weeks < 0) {¤			restDays = Math.abs (restDays);¤		}¤		result.append(timeElementToString(restDays, dayLabel, verbose));¤		¤		if (result.length() == 0)¤			return verbose ? Messages.Factory.messages().get("sessionvelocitycontext.less.one.day.verbose")¤					: "< 1" + Messages.Factory.messages().get("sessionvelocitycontext.day");¤		else¤			return result.substring(0, result.length() - (verbose ? 2 : 1));¤		¤		//#UC END# *47A2CBC001A0*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657857868"))
+		    quid       	"47A2CBC001A0"
+		    documentation 	"Преобразует дату в строку длительности. Нужно для преобразования возраста запроса."
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657858199"))
+			    quid       	"47A2CBD001F9"
+			    type       	"time"
+			    quidu      	"4616256D0399")
+			(object Parameter "verbose"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657858552"))
+			    quid       	"47A2CBD00219"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "time_element_to_string"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47A2CBE40085*"
+			    value      	(value Text 
+|//#UC START# *47A2CBE40085*¤		¤		if(timeElement == 0)¤			return "";¤		¤		if(!verbose)¤			return timeElement + timeElementName + " ";¤		¤		if(timeElement == 1)¤			return timeElement + " " + timeElementName + ", ";¤		¤		return timeElement + " " + timeElementName + "s, ";¤		¤		//#UC END# *47A2CBE40085*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657858975"))
+		    quid       	"47A2CBE40085"
+		    documentation 	" "
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "time_element"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657859313"))
+			    quid       	"47A2CBE90077"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "time_element_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657859676"))
+			    quid       	"47A2CBE9009C"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "verbose"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657860057"))
+			    quid       	"47A2CBE900C3"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "parse_WDH_duration"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47A2CC9F0143*"
+			    value      	(value Text 
+|//#UC START# *47A2CC9F0143*¤		return parseYMWDHDuration(dateTime, EnumSet.of(ParseValues.WEEK, ParseValues.DAY, ParseValues.HOUR), flagParseDayInEightHours);¤		//#UC END# *47A2CC9F0143*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"47C6AEFD01BF")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657860473"))
+		    quid       	"47A2CC9F0143"
+		    documentation 	
+|возвращает длительность времени, переданное строкой в фомате:
+|Xw Xd Xh или Xн Xд Xч
+		    
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657860775"))
+			    quid       	"47A2CD5D0002"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "flag_parse_day_in_eight_hours"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657861154"))
+			    quid       	"492E6EB6029D"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "format_DH_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47A326580240*"
+			    value      	(value Text 
+|//#UC START# *47A326580240*¤		¤		if (dateTime == null) {¤			return Messages.Factory.messages().get("no.data");¤		}¤		if (dateTime.getTime() == 0) {¤			return Messages.Factory.messages().get("no.data");¤		}¤		long hours = getTimeInHours(dateTime);¤		long minutes = (dateTime.getTime() / 1000l / 60l) % 60l;¤		if(minutes > 30)¤			hours++;¤		¤		if (hours == 0) {¤			return "< 1" + Messages.Factory.messages().get("sessionvelocitycontext.hours");¤		}¤		¤		long days = 0;¤		long weeks = 0;¤		if (Math.abs(hours) > 8) {¤			days = hours / 8l;¤			hours =  hours % 8l;¤		}¤		if (Math.abs(days) > 5) {¤			weeks = days / 5l;¤			days = days % 5l;¤		}¤		¤		String ret = (dateTime.getTime() < 0) ? "-": "";		¤		if (weeks != 0) {¤			ret += Math.abs(weeks) + Messages.Factory.messages().get("sessionvelocitycontext.week") + " ";¤		}		¤		if (days != 0) {¤			ret += Math.abs(days) + Messages.Factory.messages().get("sessionvelocitycontext.day") + " ";¤		}¤		if (hours != 0) {¤			ret += Math.abs(hours) + Messages.Factory.messages().get("sessionvelocitycontext.hours") + " ";¤		}¤		return ret;			¤		//#UC END# *47A326580240*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657861609"))
+		    quid       	"47A326580240"
+		    documentation 	"выводит длительность текущей даты в днях и часах"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657861907"))
+			    quid       	"47A32730015E"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "format_WDH_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47A32AF3013A*"
+			    value      	(value Text 
+|//#UC START# *47A32AF3013A*¤		if (dateTime == null) {¤			return Messages.Factory.messages().get("no.data");¤		}¤		¤		Date lifeTime = dateTime;¤		long hours = getTimeInHours(lifeTime);¤		if (hours == 0) {¤			return "< 1" + Messages.Factory.messages().get("sessionvelocitycontext.day");¤		}¤		boolean isNegative = hours < 0;¤		if(isNegative) {¤			hours *= -1;¤		}¤		¤		long days = hours / 24l;¤		long weeks = days / 7l;¤		long restDays = days % 7;¤		long restHours = hours - (weeks * 7 * 24 + restDays * 24);¤		¤		String result = "";¤		if (weeks != 0)¤			result += Long.toString(weeks) + Messages.Factory.messages().get("sessionvelocitycontext.week") + " ";¤		if (restDays != 0)¤			result += Long.toString(restDays) + Messages.Factory.messages().get("sessionvelocitycontext.day") + " ";¤		if (restHours != 0)¤			result += Long.toString(restHours) + Messages.Factory.messages().get("sessionvelocitycontext.hours");¤		if (result.length() != 0) {¤			if (result.charAt(result.length() - 1) == ' ')¤				result = result.substring(0, result.length() - 1);¤		}¤		if(isNegative) {¤			result = "-" + result;¤		}¤		return result;¤		//#UC END# *47A32AF3013A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657862381"))
+		    quid       	"47A32AF3013A"
+		    documentation 	
+|преобразует дату в строку формата "Xw Xd Xh"
+		    
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657862683"))
+			    quid       	"47A32B740070"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "format_H_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47C4032D00E2*"
+			    value      	(value Text 
+|//#UC START# *47C4032D00E2*¤		if (dateTime == null) {¤			return Messages.Factory.messages().get("no.data");¤		}¤		long hours = getTimeInHours(dateTime);¤		return hours != 0 ? String.format("%d" + Messages.Factory.messages().get("sessionvelocitycontext.hours"), hours) : "< 1" + Messages.Factory.messages().get("sessionvelocitycontext.hours");¤		//#UC END# *47C4032D00E2*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657863090"))
+		    quid       	"47C4032D00E2"
+		    documentation 	"выводит дату в часах"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657863424"))
+			    quid       	"47C4034D00CF"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "get_time_in_hours"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47CFABBD000A*"
+			    value      	(value Text 
+|//#UC START# *47CFABBD000A*¤		return getTimeInHours(dateTime.getTime());¤		//#UC END# *47CFABBD000A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657863844"))
+		    quid       	"47CFABBD000A"
+		    documentation 	"возвращает время в часах"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657864170"))
+			    quid       	"47CFABDB035D"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "get_time_in_days"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47CFABE2008E*"
+			    value      	(value Text 
+|//#UC START# *47CFABE2008E*¤		return getTimeInDays(dateTime.getTime());¤		//#UC END# *47CFABE2008E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657864576"))
+		    quid       	"47CFABE2008E"
+		    documentation 	"?????"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657864892"))
+			    quid       	"47CFABEA00FF"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "get_time_in_weeks"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47CFABF100C0*"
+			    value      	(value Text 
+|//#UC START# *47CFABF100C0*¤		return getTimeInWeeks(dateTime.getTime());¤		//#UC END# *47CFABF100C0*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657865326"))
+		    quid       	"47CFABF100C0"
+		    documentation 	"?????"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657865626"))
+			    quid       	"47CFABF8035E"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "get_time_in_hours"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47CFADAA0273*"
+			    value      	(value Text 
+|//#UC START# *47CFADAA0273*¤		return dateTime / 1000l / 60l / 60l;¤		//#UC END# *47CFADAA0273*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657866048"))
+		    quid       	"47CFADAA0273"
+		    documentation 	"?????"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657866366"))
+			    quid       	"47CFADB70015"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "get_time_in_days"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47CFADBC0208*"
+			    value      	(value Text 
+|//#UC START# *47CFADBC0208*¤		return dateTime / 1000l / 60l / 60l / 24l;¤		//#UC END# *47CFADBC0208*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657866780"))
+		    quid       	"47CFADBC0208"
+		    documentation 	"?????"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657867108"))
+			    quid       	"47CFADC6032C"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "get_time_in_weeks"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47CFADCB018E*"
+			    value      	(value Text 
+|//#UC START# *47CFADCB018E*¤		return dateTime / 1000l / 60l / 60l / 24l / 7l;¤		//#UC END# *47CFADCB018E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657867515"))
+		    quid       	"47CFADCB018E"
+		    documentation 	"?????"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657867829"))
+			    quid       	"47CFADD6020B"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "parse_YMWDH_duration"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"47C6AEFD01BF")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48F586F80341*"
+			    value      	(value Text 
+|//#UC START# *48F586F80341*¤		return parseYMWDHDuration(dateTime, EnumSet.allOf(ParseValues.class), flagParseDayInEightHours);¤		//#UC END# *48F586F80341*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657868263"))
+		    quid       	"48F586F80341"
+		    documentation 	
+|возвращает длительность времени, переданное строкой в фомате:
+|Xy Xm Xw Xd Xh или Xг Xм Xн Xд Xч
+		    
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657868560"))
+			    quid       	"48F5870101CF"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "flag_parse_day_in_eight_hours"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657868920"))
+			    quid       	"492E6E7702E9"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "format_ddMMyyy_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49213AF60066*"
+			    value      	(value Text 
+|//#UC START# *49213AF60066*¤		if (date == null || date.getTime() == 0) {¤			return Messages.Factory.messages().get("no.data");¤		}¤		return new SimpleDateFormat("dd.MM.yyyy").format(date);¤		//#UC END# *49213AF60066*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657869351"))
+		    quid       	"49213AF60066"
+		    documentation 	"выводит дату в формате ddMMyyy"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657869667"))
+			    quid       	"49213B1C01A2"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "parse_ddMMyyyy_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"47C6AEFD01BF")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49213B2A01B6*"
+			    value      	(value Text 
+|//#UC START# *49213B2A01B6*¤		Iterable<DateFormatEx> ddMmYyyyFormatters = getDdMmYyyyFormatters();¤		¤		Date result = null;¤		for (DateFormatEx format : ddMmYyyyFormatters) {¤			try {¤				result = format.formatter.parse(str);¤				Calendar res = Calendar.getInstance();¤				res.setTime(result);¤				for (int[] valueToSet : format.valuesToSet) {¤					res.set(valueToSet[0], valueToSet[1]);¤				}¤				result = res.getTime();¤				break;¤			} catch (ParseException e) {¤				// do nothing¤			}¤		}¤		if (result == null) {¤			throw new WrongFormat();¤		}¤		return result;¤		//#UC END# *49213B2A01B6*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4616256D0399")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657870206"))
+		    quid       	"49213B2A01B6"
+		    documentation 	"пытается распарсить строку в формате dd.MM.yyyy в дату"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "str"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657870508"))
+			    quid       	"49213B4C01E7"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"time"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4616256D0399")
+		(object Operation "parse_combined_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4ACC805D009B*"
+			    value      	(value Text 
+|//#UC START# *4ACC805D009B*¤		return parseCombinedDate(str, true, relativeTime);¤		//#UC END# *4ACC805D009B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657870924"))
+		    quid       	"4ACC805D009B"
+		    documentation 	"пытается распарсить строку сначала в формате: от Xy Xm Xw Xd Xh или Xг Xм Xн Xд Xч до Xу или Xг, затем как dd.MM.yyyy HH:mm до dd; результирующая дата считается как относительной от заданной"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "str"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657871230"))
+			    quid       	"4ACC81CA02BF"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "relative_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657871604"))
+			    quid       	"4ACC974F02B8"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "parse_combined_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4ACC976901A1*"
+			    value      	(value Text 
+|//#UC START# *4ACC976901A1*¤		return parseCombinedDate(str, relative, relative ? new Date().getTime() : 0);¤		//#UC END# *4ACC976901A1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657872027"))
+		    quid       	"4ACC976901A1"
+		    documentation 	"пытается распарсить строку сначала в формате: от Xy Xm Xw Xd Xh или Xг Xм Xн Xд Xч до Xу или Xг, затем как dd.MM.yyyy HH:mm до dd; результирующая дата в случае relative==true считается как относительной от текущей"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "str"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657872328"))
+			    quid       	"4ACC977401C8"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "relative"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657872691"))
+			    quid       	"4ACC9774022D"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "format_ddMMyyyyHHmm_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4ADF13DA011F*"
+			    value      	(value Text 
+|//#UC START# *4ADF13DA011F*¤		if (date == null || date.getTime() == 0) {¤			return Messages.Factory.messages().get("no.data");¤		}¤		return new SimpleDateFormat("dd.MM.yyyy HH:mm").format(date);¤		//#UC END# *4ADF13DA011F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657873125"))
+		    quid       	"4ADF13DA011F"
+		    documentation 	"выводит дату в формате ddMMyyyyHHmm"
+		    stereotype 	"static"
+		    parameters 	(list Parameters
+			(object Parameter "date"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657873431"))
+			    quid       	"4ADF144E0147"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "WrongFormat"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/GCL/DateUtils/DateUtils/WrongFormat|47C6AEFD01BF
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SELF GENERATED FILE (java)"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16662309224"))
+		    quid       	"47C6AEFD01BF"
+		    documentation 	"Неверный формат строки времени."
+		    stereotype 	"Exception"))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"47A2C9CC01FE"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::GCL::DateUtils::DateUtils" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1278, 555)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(170, 61)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	2216
+			justify    	0
+			label      	"DateUtils")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(170, 11)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	2216
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"47A2C9D10083"
+		    width      	2234
+		    height     	1112
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCL::DateUtils::DateUtils::WrongFormat" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2589, 135)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(2449, 107)
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"WrongFormat")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(2449, 57)
+			anchor     	10
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"47C6AEFD01BF"
+		    width      	298
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)))))

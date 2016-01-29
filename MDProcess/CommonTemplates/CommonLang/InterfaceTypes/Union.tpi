@@ -1,0 +1,310 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/Union.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::Union
+//
+// Объединение
+// ---
+// Объединяет несколько типов используя для них смежную память. Конкретный используемый тип
+// определяется дескрименантом (switch).
+// Объединяемые типы указываются как атрибуты без стереотипа. Тип дескрименанта, как атрибут со
+// стереотипом switch. С каждым объединяемым типом должно быть связано значение дескрименанта, в
+// виде значения по умолчания соответствующего атрибута (например: type: MyType = 1)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Union::Class
+? Объединение
+? Объединяет несколько типов используя для них смежную память. Конкретный используемый тип определяется дескрименантом (switch).
+? Объединяемые типы указываются как атрибуты без стереотипа. Тип дескрименанта, как атрибут со стереотипом switch. С каждым объединяемым типом должно быть связано значение дескрименанта, в виде значения по умолчания соответствующего атрибута (например: type: MyType = 1)
+< *::Class,*::Category
+
+= InterfaceGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+Y code_union.gif
+L code_union
+// Параметры визуализации
+$ C 240,230,210
+$ l 100,75,35
+$ f 100,75,35
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+p Need less:b=false ? Влючает генерацию дефолтного оератора сравнения
+p packed:b=false ? определяет упакованность структуры
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+	][{"%S{Need less}"!="%S{!Need less}"}%f_up_prefix(%S) *Need less* = *%S{Need less}* - Влючает генерацию дефолтного оератора сравнения
+	][{"%S{packed}"!="%S{!packed}"}%f_up_prefix(%S) *packed* = *%S{packed}* - определяет упакованность структуры
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F3839033C*
+c                                     {}
+r {<{}{"%CS"="switch"}{%CC}>!=1}: {%SS must provide one SWICH member}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+r {%M{force usage}=false&%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
+//#UC END# *4704C0E30186for470F3839033C*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F3839033C*
+F class %f_type(%S);
+	[#%S%f_open_ifdef()
+	][<#%FF
+	>]%f_docs(%S)\
+	#/*union*/ class %SN {
+	#public:
+	#	class InvalidDiscrimenant: public Core::Exception {
+	#		const char* what () const throw () {
+	#			return "%SN - access to data by invalid discrimenant";
+	#		}
+	
+	#		const char* uid () const /*throw ()*/ {
+	#			return "%SN::InvalidDiscrimenant";
+	#		}
+	#	};
+	<{}{%CS=switch}%C[%f_set_var(SWITCH,T)]>
+	#	%SN () : m_d ((<{}{%CS=switch}%f_type(%C%T)>)-1) {
+	#	}
+	
+	#	%SN (const %SN& c) : m_d ((<{}{%CS=switch}%f_type(%C%T)>)-1) {
+	#			switch (c.m_d) {<{}{%CS!=switch}
+	#			case %{SWITCH}<%NN::>%CI:
+	#				this-\>%CN (c.%CN());
+	#				break;
+	#			>}
+	#	}
+	
+	#	~%SN () {
+	#		this-\>reset();
+	#	}
+	
+	[{%S{Need less}=true}#	bool operator \< (const %SN& c) const {
+	#		if (m_d != c.m_d) {
+	#			return m_d \< c.m_d;
+	#		} else {
+	#			switch (m_d) {<{}{%CS!=switch}[{"%t_interface(%C%T)"="true"}{
+	#			case %{SWITCH}<%NN::>%CI:
+	#				return [{"%f_has_it_cc(%C%T)"="true"}*]m_u.%CN \< [{"%f_has_it_cc(%C%T)"="true"}*]c.m_u.%CN;}
+	#			case %{SWITCH}<%NN::>%CI:
+	#				return m_u.%CN \< c.m_u.%CN;
+	#			]>
+	#			}
+	#			return false;
+	#		}
+	#	}
+	
+	]#	<{}{%CS=switch}%f_type(%C%T)> d_ () const {
+	#		return m_d;
+	#	}
+	
+	<%CX>#private:
+	#	void reset () {
+	#		switch (m_d) {<{}{%CS!=switch}[{"%t_interface(%C%T)"="true"}
+	#		case %{SWITCH}<%NN::>%CI:
+	#			if(m_u.%CN) {
+	#				m_u.%CN-\>[{%f_is_server_type(%C%T)=true}{release}_remove_ref]();
+	#			}
+	#			break;
+	#		][{"%f_has_it_cc(%C%T)"="true"}
+	#		case %{SWITCH}<%NN::>%CI:
+	#			if(m_u.%CN) {
+	#				delete m_u.%CN;
+	#			}
+	#			break;
+	#		]>}
+	#	}
+	#
+	#private:
+	#	<{}{%CS=switch}%f_type(%C%T)> m_d;
+	#
+	#	union {
+	<{}{%CS!=switch}#		[%CS ][{%t_interface(%C%T)=true|%f_has_it_cc(%C%T)=true}{%f_attr(%C)}%f_type(%C%T)*] [{}{%f_to_omg(%C%TN)}%CN];
+	>#	} m_u;
+	#};[
+	#%S%f_close_ifdef()]
+//#UC END# *47022C88029Ffor470F3839033C*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F3839033C*
+F union <%NN::>%SN;
+	<#%FF
+	>%f_docs(%S)\
+	#union %SN switch (<{}{"%CS"="switch"}%C[%T<%NN::>]%C[%TN]>) {<{}{"%CS"!="switch"}
+	%CX>
+	#};
+//#UC END# *47022BBE0261for470F3839033C*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F3839033C*
+R  
+	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+	%f_pas_OpenType(%S)\
+	<{}{%C#f_IsDefine()=true}[%CX\n]>\
+	[#%S#f_open_ifdef()\n]\
+	#%f_pas_TypeName(%S) = [{%S{packed}=true}packed ]record
+	# Case <{}{%CS=switch}[{%CN!=void}%CN: ]%f_pas_TypeName(%C%T)> of
+	#  <{\n#  }{%CS!=switch}%CI: (%f_pas_UnionFields(%C));>
+	#end;//%f_pas_TypeName(%S)\
+	[\n#%S#f_close_ifdef()]\
+	]
+//#UC END# *470F1571031Cfor470F3839033C*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F3839033C*
+G %PU
+//#UC END# *46E6D4BB0339for470F3839033C*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Union::Class::Attribute
+? Атрибут
+= InterfaceGenerator::MDAGenerator
+
+// Параметры стереотипа
+Y code_attr.gif
+L code_attr
+A const|ref|const,ref
+/ - стереотипы "цели" (типа/результата)
+l arl
+/ - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F38E001D4*
+//#UC END# *46E6D4BB0339for470F38E001D4*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F38E001D4*
+	%f_docs(%S)\
+	#case %SI: %T<%NN::>%TN %SN;
+//#UC END# *47022BBE0261for470F38E001D4*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F38E001D4*
+	%f_set_var(__SCOPE,P)#[{%t_interface(%T)!=true}{%t_ret(%T,"%Ss") %SN () const /*throw (%PN::InvalidDiscrimenant)*/ {
+	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+	#		throw InvalidDiscrimenant ();
+	#	} else {
+	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+	#	}
+	#}
+	#}%t_ret(%T,"const,cached") %SN () const /*throw (%PN::InvalidDiscrimenant)*/ {
+	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+	#		throw InvalidDiscrimenant ();
+	#	} else {
+	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+	#	}
+	#}
+	
+	#%t_ret(%T,"cached") %SN () /*throw (%PN::InvalidDiscrimenant)*/ {
+	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+	#		throw InvalidDiscrimenant ();
+	#	} else {
+	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+	#	}
+	#}
+	#]	
+	#void %SN (%t_arg(%T,"[{%t_interface(%T)=true&%f_is_server_type(%T)=false}{in}inout]") val) {
+	#	this-\>reset ();
+	#	m_d = %{SWITCH}<%NN::>%SI;
+	#	m_u.%SN = [{%t_interface(%T)=true}{[{%f_has_it_cc(%T)=true}{val}new %f_type(%T) (val)]}%f_type(%T)::_duplicate (val)];
+	#}\n\n
+//#UC END# *47022C88029Ffor470F38E001D4*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F38E001D4*
+//#UC END# *470F1571031Cfor470F38E001D4*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F38E001D4*
+c               {}
+r {"%SI"=""}:   {%SM must specify default value (of SWITCH type) to select theirs CASE}
+//#UC END# *4704C0E30186for470F38E001D4*
+
+: Union::Class::switch::Attribute
+? Дескрименант объединения
+// Параметры стереотипа
+Y code_switch_attr.gif
+L code_switch_attr
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F3908000F*
+//#UC END# *46E6D4BB0339for470F3908000F*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F3908000F*
+//#UC END# *47022BBE0261for470F3908000F*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F3908000F*
+//#UC END# *47022C88029Ffor470F3908000F*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F3908000F*
+//#UC END# *470F1571031Cfor470F3908000F*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

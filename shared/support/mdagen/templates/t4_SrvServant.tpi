@@ -1,0 +1,74 @@
+//////////////////////////////////////////////////////////////////////////////////
+// SrvServant
+//////////////////////////////////////////////////////////////////////////////////
+
+: SrvServant::Class
+= Servant::Class
+? CORBA-сервант
+? Реализация CORBA-интерфейса 
+
+%t _constraint
+c                              {}
+r "%rx"="false": {%SS must implement at least one ServerInterface}
+r {<{}{"%RM"!="ServerInterface::Class"}{C}>!=0}: {%SS can implement ServerInterfaces only (need to use generalization)}
+r {"<{}{"%GM"="ServerInterface::Class"}{C}>"!="0"}: {%SS can't be inherited from ServerInterface (need to use realization)}
+r <{}{}{%RC}>!=0&<{}{}{%RC}>!=1: {%SS can't directly implement more then one ServerInterface}
+r "%Sa"!="abstract"&"%f_has_factory_methods(%S)"="false"&"%f_need_servant_factory(%S)"="false": {%SS that implement interface without factory and not used by somebody must be abstract}
+
+%f _h_includes	
+	<{}{%wU!=%R%PU}[\#include %f_dump_include_path(%wL,%w)
+	]>\#include "%RW"
+	\#include "%f_delsubstr_from_end(%RW,[{%Re=false}{3}2])S.h"\n
+
+%f _base_class_decl
+	<{\n	, }virtual public POA_%f_full_name(%R)>\
+	[{"%Rx"="true"}\n\t, ][{"<{}{"%GM"="SrvServant::Class"}{C}>"="0"}\
+	virtual public ::CoreSrv::RefCountServantBase[{"%Gx"="true"}\n\t, ]]
+
+f _full_name
+	<{}{%P{is namespace}=true}{r}%PN::>%SN
+
+%f _activate_and_ret
+	return ret-\>_this ();
+
+: SrvServant::Class::Parameter
+= Servant::Class::Parameter
+
+: SrvServant::Class::Operation
+= Servant::Class::Operation
+
+: SrvServant::Class::chg::Operation
+= Servant::Class::chg::Operation
+
+: SrvServant::Class::ctor::Operation
+= Servant::Class::ctor::Operation
+
+: SrvServant::Class::oneway::Operation
+= Servant::Class::oneway::Operation
+
+: SrvServant::Class::oneway,chg::Operation
+= Servant::Class::oneway,chg::Operation
+
+: SrvServant::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: SrvServant::Class::Attribute
+= Servant::Class::Attribute
+
+: SrvServant::Class::cached::Attribute
+= Servant::Class::cached::Attribute
+
+: SrvServant::Class::mutable::Attribute
+= Servant::Class::mutable::Attribute
+
+: SrvServant::Class::static::Attribute
+= Servant::Class::static::Attribute
+
+: SrvServant::Class::static::Operation
+= Servant::Class::static::Operation
+
+: SrvServant::Class::uses::ClassDependency
+= Servant::Class::uses::ClassDependency
+
+: SrvServant::Class::friend::ClassDependency
+= Servant::Class::friend::ClassDependency

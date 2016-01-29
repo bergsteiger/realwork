@@ -1,0 +1,95 @@
+// Ruler 4F8EAF64033F Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F8EAF64033F
+
+FORWARD ME_4F8EAF8B0259
+
+: ME_4F8EAFA1026D
+ CONST UID '4F8EAFA1026D'
+ CONST Name 'TevCustomRuler'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F8EAF8B0259 // evRuler
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4F8EAFA1026D TevCustomRuler
+
+: ME_4F8EAFB102A9
+ CONST UID '4F8EAFB102A9'
+ CONST Name 'TevRuler'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F8EAF8B0259 // evRuler
+ ;
+ : Inherits
+   @ ( ME_4F8EAFA1026D // TevCustomRuler
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4F8EAFB102A9 TevRuler
+
+: ME_4F8EAF8B0259
+ CONST UID '4F8EAF8B0259'
+ CONST Name 'evRuler'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F8EAF64033F // Ruler
+ ;
+ : Children
+   @ ( ME_4F8EAFA1026D // TevCustomRuler
+ ME_4F8EAFB102A9 // TevRuler
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evRuler.pas'
+
+ref; // ME_4F8EAF8B0259 evRuler
+
+: ME_4F8EAF64033F
+ CONST UID '4F8EAF64033F'
+ CONST Name 'Ruler'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4F8EAF8B0259 // evRuler
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F8EAF64033F.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F8EAF64033F.pas.ms.script.runner'
+
+ref; // ME_4F8EAF64033F Ruler

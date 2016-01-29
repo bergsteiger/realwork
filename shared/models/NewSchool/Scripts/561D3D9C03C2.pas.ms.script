@@ -1,0 +1,89 @@
+// Core 561D3D9C03C2 Layer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561D3D9C03C2
+
+: ME_561D403603DA
+ CONST UID '561D403603DA'
+ CONST Name 'Tl3ProtoObject'
+ CONST Class class_Class
+ : Stereotype st_ClassProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_561D3D9C03C2 // Core
+ ;
+ : Generators
+ @ (
+ gen_pascal
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pascal:Path 'common\components\rtl\Garant\L3\Tl3ProtoObject_Proxy.pas'
+
+ref; // ME_561D403603DA Tl3ProtoObject
+
+: ME_561E5682024D
+ CONST UID '561E5682024D'
+ CONST GUID 'C0616F17-E6AA-47F2-B92C-4DBCC8B21FEF'
+ CONST Name 'Il3CString'
+ CONST Class class_Class
+ : Stereotype st_InterfaceProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_561D3D9C03C2 // Core
+ ;
+ : Generators
+ @ (
+ gen_pascal
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pascal:Path 'common\components\rtl\Garant\L3\Il3CString_Proxy.pas'
+
+ref; // ME_561E5682024D Il3CString
+
+: ME_561E56EA011E
+ CONST UID '561E56EA011E'
+ CONST Name 'Tl3ProtoDataContainer'
+ CONST Class class_Class
+ : Stereotype st_ClassProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_561D3D9C03C2 // Core
+ ;
+ : Generators
+ @ (
+ gen_pascal
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pascal:Path 'common\components\rtl\Garant\L3\Tl3ProtoDataContainer_Proxy.pas'
+
+ref; // ME_561E56EA011E Tl3ProtoDataContainer
+
+: ME_561D3D9C03C2
+ CONST UID '561D3D9C03C2'
+ CONST Name 'Core'
+ CONST Class class_Category
+ : Stereotype st_Layer ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_561D37540316' '561D37540316.pas.ms.script' // L3$Interface
+ ;
+ : Children
+   @ ( ME_561D403603DA // Tl3ProtoObject
+ ME_561E5682024D // Il3CString
+ ME_561E56EA011E // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\561D3D9C03C2.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\561D3D9C03C2.pas.ms.script.runner'
+
+ref; // ME_561D3D9C03C2 Core

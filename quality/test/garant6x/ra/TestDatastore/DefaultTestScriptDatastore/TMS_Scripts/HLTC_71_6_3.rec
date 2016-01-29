@@ -1,0 +1,29 @@
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TMainMenuPanelNode;ClassIndex=15", "Coords=106,15"
+    GenericObject Click, "Text=Документы", "Coords=67,10"
+    GenericObject Click, "Text=Основы государственно-правового устройства", "Coords=103,468"
+    GenericObject Click, "Text=Общие вопросы", "Coords=161,90"
+    GenericObject Click, "Text=Международные и зарубежные организации", "Coords=158,51"
+    
+    Window SetContext, "Caption={ГАРАНТ 6*}", ""
+    GenericObject Click, "Class=TeeTreeView", "Coords=400,650"
+    Window SetTestContext, "Caption={ГАРАНТ*}", ""
+    Result = GenericObjectVP (CompareImage, "CurrentFocus", "VP=No_Filter")
+    Window ResetTestContext, "", ""
+    
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=12,300"
+    GenericObject Click, "Text=Действующие", "Coords=52,8"
+    
+    Window SetContext, "Caption={ГАРАНТ 6*}", ""
+    GenericObject Click, "Class=TeeTreeView", "Coords=400,650"
+    Window SetTestContext, "Caption={ГАРАНТ*}", ""
+    Result = GenericObjectVP (CompareImage, "CurrentFocus", "VP=Filter")
+    Window ResetTestContext, "", ""
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+      
+End Sub

@@ -1,0 +1,3975 @@
+garant6x : Project - ГАРАНТ
+version: 1189
+HCAdapterLib : Library - 
+ HCInterfaces : Interfaces - Интерфейсы для взаимодействия с отделом Пащака
+  ConsultingData : Interface - Интерфейс для получения и подтверждения факта получения запроса.
+   get_data : chg - Получение данных запроса. Возвращается запрос (оценка) в XML формате (описание см в реквизите).
+   data_received - Подтверждение получения данных текущего запроса. При вызове этого метода запрос помечается как переданный на обработку (при получении оценки, как полностью обработанный).
+  ResultValue : Enum - Возможные значения возвращаемых значений функций
+   RV_SUCCESS - функция отработала успешно
+   RV_DUPLICATED - запрос в базе уже помечен, как отвеченный.
+   RV_EMPTY - на данный момент нет запросов данного типа
+   RV_ERROR - серверу не удалось прочесть ответ, или положить его в базу, или произошел еще какой-то внутренний сбой. В этом случае необходимо повторить попытку отдачи ответа.
+   RV_BAD_XML - формат ответа не соответствует "ожиданиям" сервера.
+   RV_COMPLECT_REMOVED_ERROR - комплект был удалён из АРМ-а (http://mdp.garant.ru/pages/viewpage.action?pageId=118982402)
+   RV_INVALID_QUERY_ID - данного идентификатора нет в базе
+  QueryID : Typedef - 
+  CantFindXerces : Exception - Не смогли загрузить библиотеку для работы с XML
+  OnlineData : Interface - Консультации, проходящие через СК. Имеют уникальный идентификатор.
+    : factory switch - 
+   make : multi factory - фабрика для получения интерфейса
+  HCConstants : Constants - Константы для адаптера консультаций.
+   STATISTIC_PACKET_SIZE_PARAMETER - Параметр командной строки, задающий максимальное количество консультаций, которые могут быть спрошены за раз у СК (не накладывает ограничений на количество консультаций, передаваемых в метод GetStatusStatistic)
+   STATISTIC_PACKET_SIZE - Значение по-умолчанию для максимального количества консультаций, которые могут быть спрошены за раз у СК (не накладывает ограничений на количество консультаций, передаваемых в метод GetStatusStatistic)
+   STATISTIC_SLEEP_TIME_PARAMETER - Параметр командной строки, задающий время ожидания между посылкой запросов на статистику при большом числе консультаций.
+   STATISTIC_SLEEP_TIME - Время ожидания в секундах между посылкой запросов на статистику при большом числе консультаций.
+  BusinessLogicLifeCycle : Interface - Интерфейс для управления жизненным циклом бизнес-объектов адаптера
+   start : chg - метод должен быть вызван первым после загрузки dll библиотеки
+   stop : chg - метод должен быть вызван перед завершением работы библиотеки
+   make : factory - кешированная фабрика объекта
+   get_consultation_manager70 - получить интерфейс к СК  версии 7
+  EraseErrorStatuses : Constants - текстовые значения ошибок в xml при удалении запросов из базы.
+   EES_INVALID_STATUS - консультация с текущим статусом не может быть удалена (чтобы её удалить необходимо указать атрибут force="yes")
+   EES_NOT_FOUND - консультация с заданным идентификатором не найдена (например переехала из базы 6-ки в базу 7-ки)
+   EES_UNKNOWN - внутренняя ошибка СК
+  OnlineDataKeys : Constants - ключи мульти фабрик для интерфейса консультации
+   QUERY70 - 
+   MARK70 - 
+  ConsultingRequests : Interface - Интерфейс для получения запросов от пользователей и их оценок.
+   make : factory - получить интерфейс работы  с запросами консультационной услуги
+   get_query_by_id - получить следующий запрос для обработки
+   get_next_mark - Получение очередной оценки на запрос.
+При вызове этой операции происходит передача объекта "Оценка" для получения данных. До тех пор пока не будет проведен вызов DataRecieved, эта операция будет возвращать этот запрос.
+Если нет ни одного нового запроса, получившего оценку пользователя, возвращается нулевой объект.
+   set_answer - Ответ на запрос или предварительное уведомление о сроках обработки запроса.
+Ответ оформлен в XML формате (описание cм. в реквизите).
+Варианты возвращаемых значений:
+[0] - если ответ успешно помещен в базу.
+[1] - если запрос в базе уже помечен, как отвеченный.
+[-1] - если серверу не удалось прочесть ответ, или положить его в базу, или произошел еще какой-то внутренний сбой. В этом случае необходимо повторить попытку отдачи ответа.
+[-2] - если формат ответа не соответствует "ожиданиям" сервера.
+   get_status_statistic - функция выдаёт статусы консультаций и даты их последней модификации по их идентификаторам.
+   erase_queries_by_id - удалить запросы из базы СК
+   sign_query - добавить в xml контрольную сумму
+   get_list_of_new_queries - получить список идентификаторов консультаций, которые нужно забрать на обработку в ППО
+    : friend - 
+ HCInterfaces_i : Impl - Классы, реализующие интерфейсы.
+  ConsultingRequests_i : Servant - 
+   ConsultationStatusToString : TypeConvertor - переводит статус консультации в строку
+   ComplectTrialTypeToString : TypeConvertor - переводит тип ознакомительной версии системы
+   ComplectNetworkTypeToString : TypeConvertor - переводит тип комплекта в строку
+   HCConsultationPaymentStatusToString : TypeConvertor - перевести статус оплаты в строку
+   EstimationValueToString : TypeConvertor - переводит оценку в строку
+   IDListCreator : SimpleClass - общий код для вычитывания id-шников из потока
+   ErrorResultToString : TypeConvertor - код ошибки в строку
+   create_xml_request - создать xml запрос для консультации с сервера f1
+   create_xml_estimation - Генерит xml для полученной оценки
+   set_xml_root_params - Установка рутового тега для генерируемого xml
+   set_xml_date - Генерит дату в формате xml
+   set_xml_time - 
+   create_stream_by_xml - Кладёт полученный xml документ в поток
+   commit_result_to_set_answer_result - Конвертер результата записи в базу
+   create_status_stream - создание стрима со статистикой о заданных запросах
+   create_erase_result_stream - создать поток с результатами удаления консультаций
+    : uses - 
+    : uses - 
+    : uses - 
+  ConsultingData_i : Servant - 
+   consultation_id - 
+   xml_stream - 
+   get_cached_consultation_id - получить идентификатор консультации
+  Query70ConsultingData_i : Servant - Реализация интерфейса запроса для СК сентября 2007 года (ф1 версии 7.0).
+   key : switch - 
+  MarkConsultingData70_i : Servant - оценка для СК версии 7.0
+   key : switch - 
+  BusinessLogicLifeCycle_i : Servant - реализация соответствующего интерфейса
+   consultation_manager70 - 
+GblAdapterLib : Library - 
+ BaseTypes : Interfaces - Базовые типы, используемые в адаптере
+  ClassId : Typedef - Идентификатор класса объекта
+  ObjectId : Typedef - Идентификатор объекта внутри класса
+  PId : Struct - Persistent ID, тип для идентификации хранимых объектов.
+   class_id - идентификатор класса
+   object_id - идентификатор объекта
+  Date : Struct - Дата.
+   day - Число
+   month - Месяц
+   year - Год.
+   make : ctor - создать нулевую дату
+   make : ctor - создать заданную дату
+  DateInterval : Struct - Интервал дат (включающий).
+   start - начальная дата
+   finish - завершающая дата
+  Time : Struct - Время
+   hour - часы
+   min - минуты
+   sec - секунды
+  DateTime : Struct - Дата и время
+   date - Дата
+   time - время
+  Languages : Enum - Языки
+   LG_RUSSIAN - Русский
+   LG_ENGLISH - Английский
+   LG_FRENCH - Французский
+   LG_GERMAN - Немецкий
+   LG_SPANISH - Испанский
+   LG_ITALIAN - Итальянский
+  NamedElement : Interface - Именованный элемент.
+   name : property - имя
+   comment : property - комментарий
+  ConstantModify : Exception - Исключение возникает при попытке изменить константный параметер.
+  AccessDenied : Exception - Возбуждается в случае нарушения прав доступа.
+  InvalidTimeStamp : Exception - Исключение возбуждается в случае если запрошенная операция не может быть выполнена на сервер, по причине неверной метки синхронизации. Возможно необходимо повторить вызов.
+  StorageLocked : Exception - База блокирована
+  Unsupported : Exception - Возвращается в случае если вызванная опреация не поддеоживается объектом.
+  NotSaved : Exception - Возвращается при попытке сохранить/восстановить изменения в несохраненном (т.е не привязанном к месту хранения, например к папкам) объекте
+  FoldersNotAvailable : Exception - Папки недоступны.
+Возвращается в случае, если у пользователя нет доступа к папкам.
+  CanNotFindData : Exception - Запрошенные данные не найдены.
+Возвращается в случае, если данные запрошенные по операции get_<something> отсутствуют.
+  DuplicateNode : Exception - Возникает в случае добавления узла в дерево, где уже есть такой же узел. При этом уникальность определяется самим узлом.
+  InvalidType : Exception - Плохой тип данных
+  CanNotSave : Exception - объект не может быть сохранён
+  InvalidXMLType : Exception - Ошибка при разборе XML
+  AdapterConstants : Constants - Общие константы, используемые в GblAdapter
+   NODE_FLAG_STORABLE_ENTITY - маска, применяемая к Node::flags. Если BaseEntity::storable == true, то (Node::flags AND NODE_FLAG_STORABLE_ENTITY) возвращает true
+   PROPERTY_PATH_DELIMITER - символ - разделитель частей пути
+   DEFAULT_PRELOAD_CACHE - Размер по умолчанию при подгрузке фильтрованных эелментов дерева атрибутов.
+   LIBRARY_NAME - Название библиотеки
+  AllContentIsFiltered : Exception - Всё сожержимое отфильтровано, что противоречит бизнес-логике
+  CodePage : Typedef - номер кодовой страницы
+  EntityStorage : Interface - Хранилище сущностей
+   get_content_type - получить тип содержимого
+   get_cached_content - получить содежимое
+  EntityBase : Interface - Базовый абстрактный интерфейс для сущностей. Данный интерфейс должен заменить устаревыший BaseTreeSupport::BaseEntity .
+   is_saved : readonly - Признак того что данный объект уже сохранен в базе данных. Для не сохраненный объекта сначало необходимо указать место хранения (чаще всего папки). Для не сохраненных объектов операция save вернет исключение.
+   is_changed : readonly - свойство изменённости
+   eid : readonly - идентификатор
+   save_to : chg - Перезаписать сущность текущей сущностью.
+   append_to : chg - Сохраняет в базе  измененное состояние объекта.
+Объеденяя с с ранее сохраненными данными
+  EmptyResult : Exception - Возвращается при операции по изменению дерева в случае, если результат получается пустой, и это запрещенно логикой конкретеного дерева.
+  ItemStatus : Enum - Статус элемента.
+   IS_ABOLISHED - Утратил силу
+   IS_ACTIVE - Действующий
+   IS_PREACTIVE - Не вступил в силу
+   IS_UNKNOWN - Неопределен
+  NavigatorMenuItemType : Enum - Возможные типы элементов основного меню.
+   NM_FOLDER - Псевдоэлемент - папка.
+   NM_RUBRICATOR - Навигатор по классификатору.
+   NM_ATTRIBUTE_SEARCH - Поиск по атрибутам.
+   NM_SITUATION_SEARCH - Поиск по ситуации.
+   NM_PUBLISH_SOURCE_SEARCH - Поиск по источнику опубликования.
+   NM_SINGLE_CONTEXT_SEARCH - Атомарный (простой) поиск по контексту.
+   NM_SINGLE_ATTRIBUTE_SEARCH - Атомарный (простой) поиск по древовидному атрибуту.
+   NM_SINGLE_DATE_NUMBER_SEARCH - Атомарный (простой) поиск по дате и номеру.
+   NM_FILTER_5X - Карточка фильтра а-ля Гарант 5.х.
+   NM_ATTRIBUTE_SEARCH_5X - Карточка поиска по атрибутам а-ля Гарант 5.х.
+   NM_SITUATION_SEARCH_5X - Карточка поиска по ситуациям а-ля Гарант 5.х.
+   NM_UPDATE - Обновление.
+   NM_CONFIGURATION_LIST - Список конфигураций.
+   NM_LIST - Список.
+   NM_COMPLECT_INFO - Информация о комплекте.
+   NM_DOCUMENT - Документ
+   NM_LAW_NAVIGATOR_FOLDER - Папка "Правовой навигатор"
+   NM_BUSINESS_INFO_FOLDER - Папка "Справочная информация"
+   NM_SEARCH_FOLDER - Папка "Поиск"
+   NM_UPDATE_FOLDER - Папка "Обновление"
+   NM_RECENTLY_DOCUMENTS_FOLDER - Папка "Последние открытые документы"
+   NM_EXPLANATORY_DICTIONARY - Толковый словарь
+   NM_NEW_DOCS - Новые документы
+   NM_PRIME_FOLDER - пункт меню ПРАЙМ
+   NM_REVIEW - пункт меню ОБЗОРЫ ЗАКОНОДАТЕЛЬСТВА
+   NM_NEWS_LINE - мониторинги
+   NM_SEARCH_WITH_LAW_SUPPORT - Пункт меню: Поиск с правовой поддержкой
+   NM_LAW_SUPPORT - пункт меню: правовая поддержка
+   NM_CALENDAR - 
+   NM_BUSINESS_REFERENCES - 
+   NM_HOT_INFORMATION - 
+   NM_CODEX - Кодексы
+   NM_FORMS - Формы документа
+   NM_MONITORINGS - Мониторинги
+   NM_PHARM_SEARCH - поиск в инфарме
+   NM_INPHARM - Инфарм
+   NM_PHARM_LEK - Лекарственные препараты
+   NM_PHARM_FIRMS - Фирмы производители
+   NM_PHARM_DICT - Словарь медицинских терминов
+   NM_PHARM_BASIC_SECTION - Основные разделы справочника
+   NM_TAXES_AND_FINANCE - Налоги и финансы
+   NM_BUSINESS_REFERENCES_FOLDER - Папка Бизнес-справки
+   NM_LEGAL_ISSUES - Юридические вопросы
+   NM_HR - Зарплата и кадры
+   NM_BUDGET_ORGS - Гос. и муниципальные учреждения
+   NM_LAW_FOR_ALL - Право для всех
+  SearchResultType : Enum - Тип результата поиска
+   SRT_DOCUMENT_LIST - найден список документов
+   SRT_AUTOREFERAT - найден автореферат
+   SRT_CONSULTATION - найдена консультация
+  SearchEntity : Interface - Сущность, передаваемая в метод finish_process на прогресс индикаторе, как результат поиска
+   result_type : readonly - Тип результата поиска (список, автореферат, консультация)
+   document_count : readonly - Количество найденных документов
+   entry_count : readonly - Количество вхождений
+   edition_count : readonly - количество редакций
+   make : factory - фабрика
+   make : factory - фабрика
+  SortOrder : Enum - Направление сортировки.
+   SO_ASCENDING - По возрастанию значений.
+   SO_DESCENDING - По убыванию значений.
+  SortType : Enum - Тип сортировки.
+   ST_PRIORITY - Сортировка по юридической силе
+   ST_CREATE_DATE - Сортировка по дате создания
+   ST_LAST_EDIT_DATE - Сортировка по дате последнего изменения
+   ST_NOT_SORTED - Не отсортирован
+   ST_RELEVANCE - сортировка по релевантности
+  SortParams : Struct - Параметры сортировки.
+   sort_order - порядок сортировки
+   sort_type - тип сортивровки
+  TextSearchOptionType : Enum - Типы поиска по контексту
+   TSO_TEXT - поиск по тексту
+   TSO_NAME - поиск по заголовку
+   TSO_PARA - поиск по параграфу
+   TSO_SENTENCE - поиск по предложению
+  Variant : Interface - тип данных для нотификации
+   get_long - вернуть целое
+   get_bool - вернуть булево значение
+   get_string : chg - вернуть строку
+   get_object : chg - вернуть объект
+   make : factory - фабрика
+   make_long : factory - создать обёртку вокруг лонг
+   make_bool : factory - создать обёртку вокруг bool
+   make_string : factory - создать обёртку вокруг IString
+   make_object : factory - создать обёртку вокруг объекта
+  LanguagesList : Vector - Список языков
+  StringList : Vector - контейнер строк
+  InternalDatabaseError : Exception - Произошла внутреняя ошибка при обращении к базе
+  NoSession : Exception - выбрасывается из методов, которые могут дергаться только в контексте сессии, т.е. после логина
+  DuplicateName : Exception - Элемент с таким именем уже существует, а два и более созадвать нельзя
+  Uid : Typedef - идентификатор пользователя или группы
+  ListNodeType : Enum - 
+   LNT_SUB - Саб
+   LNT_PARA - Параграф
+   LNT_EXTERNAL_OBJECT - Объект, открываемый во внешнем приложении
+   LNT_EXTERNAL_LINK - 
+   LNT_DOCUMENT_ABOLISHED - Утративший силу документ
+   LNT_DOCUMENT_ACTIVE - Документ
+   LNT_DOCUMENT_PREACTIVE - Не вступивший в силу документ
+   LNT_DOCUMENT_UNKNOWN - Неизвестный тип
+   LNT_EDITION_ABOLISHED - Утратившая силу редакция
+   LNT_EDITION_ACTIVE - Актуальная редакция
+   LNT_EDITION_PREACTIVE - Редакция, которая еще не действует
+   LNT_EDITION_UNKNOWN - Неизвестный тип редакции
+   LNT_EDITIONS_GROUP - Узел Редакции
+   LNT_BLOCK - Блок
+   LNT_DRUG_ANNULED - препарат аннулирован
+   LNT_DRUG_NARCOTIC - наркотический препарат
+   LNT_DRUG_NONANNULED_NONNARCOTIC - разрешённый ненаркотический препарат
+   LNT_FORM_ANNULED - аннулированная форма препарата
+   LNT_FORM_RUSSIAN_IMPORTANT - жизненноважный российский препарат
+   LNT_FORM_NONRUSSIAN_IMPORTANT - жизненноважный иностранный препарат
+   LNT_FORM_RUSSIAN_NONIMPORTANT - российский препарат
+   LNT_FORM_NONRUSSIAN_NONIMPORTANT - иностранный препарат
+   LNT_FIRM - Фирма
+   LNT_AAK - Документ ААК
+  BaseTypesObjectId : Typedef - Это создал Шура, т.к. были коллизии с модулем ActiveX и его ObjectId в модуле Document
+  KindConstants : Constants - 
+   ALL_DOCUMENTS_KIND - 
+ ContextSearchSupport : Interfaces - 
+  HighlightPosition : Struct - Позиции для подсветки найденных слов.
+   start - начало выделения
+   finish - конец выделения
+  HighlightPositionList : Vector - Список позиций для подсветки.
+  ContextSearchResult : Struct - Результат поиска по контексту.
+   item_index - Индекс найденного элемента.
+   positions - позиции, найденные в результате поиска
+  SearchStatus : Enum - Зона поиска.
+   SS_GLOBAL - Поиск по всему объекту.
+   SS_CURENT - Поиск от текущего элемента.
+  SearchDirection : Enum - Направление поиска.
+   SD_UP - Поис вверх.
+   SD_DOWN - Поиск вниз.
+  SearchMode : Struct - Перечислимый тип, определяющий способ поиска в линейных структурах (списках, текстах и т.п.).
+Сочетание ss_Global + sd_Up - поиск с конца вверх.
+Сочетание ss_Global + sd_Down - поиск сначала вниз.
+Сочетание c ss_Current - поиск от текущего элемента вверх или вниз.
+   status - результат поиска
+   direction - направление поиска
+ BaseTreeSupport : Interfaces - Поддержка старого дерева.
+  EntityType : Typedef - идентификатор типа сущности лежащей в Ноде. В каждом конкретном дереве определяется как AdapterEnum
+  CopyDisabled : Exception - Возвращается если нода не может быть скопирована.
+  InvalidContainer : Exception - Вызывается при попытке использовать нодй не являющуюся контенером как контейнер.
+  MoveDisabled : Exception - Возвращается если нода не может быть перенесена.
+  InvalidEntityType : Exception - Возвращается при попытке присвоить одной сущности сущность другого типа.
+  InvalidIndex : Exception - Возвращается при попытке получить элемент списка по несуществующему индексу. Т.е. index<0 или index>=count.
+  NotEntityElement : Exception - Возвращается при попытке вызвать операцию open у элемента каталога, не являющегося сущностью (в частности у папки).
+  Node : Interface - Интерфейс для чтения данных об элементе древовидной структуры.
+   level : readonly - Уровень вложенности элемента в древовидной структуре.
+У root_node=0.
+   child_count : readonly - Количество вложенных элементов для текущего (один уровень).
+У листьевых элементов =0.
+   all_child_count : readonly - Количество вложенных элементов для текущего с учетом всех уровней вложенности.
+У листьевых элементов =0.
+   flags : readonly - Поле для передачи дополнительной винарной информации о статусе элемента.
+   index : readonly - Позиция текущего элемента в предке (parent).
+   through_index : readonly - Сквозная позиция элемента.
+   parent : readonly - родитель
+   previous_node : readonly - предыдущая нода в дереве
+   next_node : readonly - следующая нода в дереве
+   caption : property - название
+   hint : property - информация о ноде
+   object_type : readonly - тип сущности, представляемой нодой
+   get_child : chg - Получить интерфейс на один из вложенных элементов.
+Параметр должен принимать значения из диапазона: 0<=index<=(child_coun-1)
+   is_same_node - Сравнивает текущий элемент с элементом, поданным в параметре node.
+Возвращает true в случае совпадения.
+   open : chg - Возвращает интерфейс для работы с конкретным элементом (сущностью) системы.
+   delete_node : chg - Удаляет указанные узел из списка/дерева.
+Если указан элемент, имеющий вложенные элементы, то они тоже удаляются. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify
+   add_child_node - Добавляет сущность как ребенка к указанной ноде, возвращает новую созданную ноду. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify. Если нода не может содержать детей возвращается исключение InvalidContainer
+   add_sibling_node - Добавляет сущность как "соседа" справа к указанной ноде, возвращает новую созданную ноду. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify
+   move_to_location : chg - Переносит текущую ноду в указанный узел, делая ее его ребенком. Если узел не может пнринять ноду (т.е. вставить ее в себя), то генерируется исключение InvalidContainer. Если операция перемещения узлов не доступна, генерируется исключение MoveDisabled
+   copy_to_location : chg - Сопирует текущую ноду и оекурсивно все ее содержимое, в указанный узел, делая ее его ребенком. Если узел не может пнринять ноду (т.е. вставить ее в себя), то генерируется исключение InvalidContainer. Если операция копирования узлов не доступна, генерируется исключение CopyDisabled
+   can_move - можно ли переместить ноду
+   can_copy - можно ли скопировать ноду
+   can_insert - можно ли вставить ноду
+   is_last - Последнией элемент.
+   is_first - Первый элемент.
+   has_child - Есть ли дочерние элементы.
+   override_child_node - перезаписать дочернюю ноду
+   make : factory - фабрика
+   can_modify - можно ли модифицировать ноду
+  BaseCatalog : Interface - Базовый интерфейс для работы с древовидными и/или линейными списками различных сущностей системы. Навигация по структуре (дерево или линейный список) осуществляется через экземпляры интерфейса Node. При этом каждый екземпляр Node может быть приведен к интерфейсу необходимой сущности через метод open интерфейса BaseCatalog. Для того что бы сущность можно было привести таким образом, ее экземпляр должен реализовывать интерфейс BaseEntity.
+В случае если конкретное дерево не поддерживает тех или иных операция определенных на BaseCatalog, то при их вызове должно генерироваться исключение
+   root : readonly - корень дерева
+   filter : property - наложенный фильтр
+   find - Найти узел по его элементу.
+   find_context - Поиск контекста среди элементов списка.
+   reset_type_filter - сбрасывает все установленные фильтры по типам
+  BaseTreeNodeMask : Typedef - флаги на старой ноде
+ SearchDefines : Interfaces - 
+  AttributeTag : Typedef - Тэги всех атрибутов получаемых в виде дерева.
+ DynamicTreeDefines : Interfaces - 
+  FlagMask : Typedef - флаги на ноде
+ Filters : Interfaces - 
+  FilterFromQuery : Interface - 
+   name : property - 
+   query : readonly - если делать query Search::Query, каковым он и является, на модели получается дофига циклических связей, которые небыстро будет развязать
+   changeable : readonly - 
+   permanent : property - 
+   id : readonly - идентификатор нужен оболочке, чтобы идентифицировать установленные фильтры (К274848126)
+   flags : readonly - 
+   mark_to_erase : chg - удалить фильтр после того, как он перестанет использоваться
+   make : factory - 
+   is_same - возвращает true, если оригинальный и переданный фильтры совпадают
+   get_server_query - 
+   save_to_server : chg - 
+   check : chg - проверить атрибуты в фильтре
+   marked_to_erase - 
+   is_used - наложен ли фильтр
+  NotAllAttributesRestored : Exception - Не все атрибуты поискового запроса восстановлны из базы
+  FiltersFromQuery : Vector - контейнер фильтров.
+  Filterable : Facet - Интерфейс фильтруемости. Должен поддерживаться объектами, желающими предоставлять сервис фильтров. Сейчас используется для списков.
+   has_active_filters : readonly - 
+   active_filters : readonly - 
+   add_filter : chg - Добавляет INode (из дерева папок) как фильтр. 
+Если auto_refresh = true (значение по умолчанию), то
+операция приводит к перефильтрации объекта.
+   delete_filter : chg - Удаляет фильтр из списка активных фильтров объекта. Если auto_refresh = true (значение по умолчанию), то операция приводит к перефильтрации объекта.
+   clear_filters : chg - Удаляет все фильтры. В результате операции объект переходит в состояние, соответвующее отсутствию фильтров
+   refresh_filters : chg - 
+   apply_filters : chg - Добавляет пачку фильтров с одновременным их применением. При этом эта пачка либо целиком применяется, либо (в случае, если все документы отфильтрованы) целиком отклоняется.
+
+Если выясняется, что на сервере нет данных для построения списка, т.е. списка как такового нет (см. К244711732), летит CanNotFindData.
+  FilterNotifier : Facet - 
+   filters_changed - 
+   filter_name_changed - 
+   filter_permanence_changed - 
+  FiltersManager : Interface - 
+   get_legal_filters - получить список фильтров для правовых документов
+   get_pharm_filters - 
+   create_filter : chg - создать новый фильтр
+   make : factory - 
+   set_legal_notifier : chg - 
+   set_pharm_notifier : chg - 
+   filter_name_changed - 
+   filter_permanence_changed - 
+   filter_removed - 
+   clear_cache : chg - 
+ ExternalObject : Interfaces - 
+  ExternalObjectType : Enum - 
+   EOT_PIC - Картинка в формате BMP.
+   EOT_JPG - 
+   EOT_PNG - 
+   EOT_GIF - 
+   EOT_RTF - Текст в формате RTF.
+   EOT_XLS - Таблица в формате XLS.
+   EOT_MP3 - 
+   EOT_EVD - 
+   EOT_TIF - 
+   EOT_PDF - 
+   EOT_PPT - Файлы PowerPoint
+   EOT_CDR - Файлы CorelDraw
+   EOT_DOC - Документ Word
+   EOT_DOCX - 
+   EOT_XLSX - 
+   EOT_XML - 
+   EOT_XSD - 
+   EOT_USR - 
+  ExternalLink : Interface - 
+   url : readonly - Ссылка на внешние ресурсы в стандарте URL.
+   make : factory - 
+  ExternalObject : Interface - 
+   data_size : readonly - Общий размер возвращаемых данных.
+   data_pointer : readonly - Указатель на буфер с данными.
+   name : readonly - Имя внешнего объекта.
+   extension : readonly - расширение для файла (вместе с лидирующей точкой) на диске
+   data_type : readonly - 
+   make : factory - 
+   make : factory - 
+  SplashScreen : Interface - 
+   show_time : readonly - 
+   owner_caption : readonly - 
+   owner : readonly - 
+   make : factory - is_start - заставка при логине
+x,y - разрешение экрана
+flash_available -доступен ли показ флеш роликов
+ DynamicTree : Interfaces - 
+  FilterForTree : Interface - Абстрактный интерфейс фильтров деревьев
+   make : factory - 
+  FilterList : Vector - Список фильтров
+  ContextPlace : Enum - 
+   CP_ANY - 
+   CP_BEGIN_OF_WORD - 
+   CP_BEGIN_OF_PHRASE - 
+   CP_WHOLE_WORD - 
+  IndexInParent : Typedef - 
+  FindOrder : Enum - Порядок поиска
+   FO_SEQUENCE - 
+   FO_ANY - 
+  NodeIndexPath : Vector - путь в дереве, заданный списком индексов нод
+  FindPosition : Struct - Позиция поискового итератора.
+   node - Путь к ноде данной позиции итератора.
+   begin - Начало позиции.
+   end - Конец позиции. Если -1 - то до конца.
+  NodeType : Typedef - Пользовательский тип ноды
+  NodeId : Typedef - Идентификатор ноды дерева
+  SearchArea : Enum - Область поиска
+SA_IN_ALL_TEXT - используется в контекстном поиске, ищем по всему тексту, результат по каждой ноде это списко всех вхождений любого слова внутри текста одной ноды.
+SA_IN_ONE_SENTENCES - используется в контекстном поиске двух и более слов, указывает что слова запроса должны находиться внутри предложения в любом порядке
+   SA_ONE_LEVEL - 
+   SA_ALL_LEVEL - 
+   SA_IN_ALL_TEXT - 
+   SA_IN_ONE_SENTENCES - 
+  FindPositionList : Vector - Набор позиций итератора поиска.
+  VisibleIndex : Typedef - Видимый индекс в дереве
+  LayerId : Typedef - Идентификатор уровня
+  FlagsConst : Constants - Константы для флагов
+   FM_SHARED_NONE - 
+   FM_OPEN - 
+   FM_SELECTION - 
+   FM_FIRST_USER_FLAG - 
+   FM_USER_FLAG_MASK - 
+   FM_SHARED_ALL - 
+   IIP_BEFORE_LEFT_CHILD - 
+   VI_ALL_CHILDREN - Уведомление об изменении всех узлов.
+  LayerIdList : Vector - Список идентификаторов уровня
+  SortFilter : Interface - 
+   type : property - 
+   order : property - 
+   sub_filter : property - 
+  TrimFilter : Interface - 
+   is_trimmed : property - 
+  LayerFilter : Interface - Класс фильтров для переключения визуального уровня (языка)
+   layer : property - 
+  FindIterator : Interface - Итератор поиска.
+   count : readonly - количество найденных фрагментов
+   next : chg - Перемещенеи итератора на следующий элемент.
+   prev : chg - Перемещенеи итератора на предыдущий элемент.
+   get_position - 
+   is_good - Возвращает true, если по итератору можно получить данные, т.е. position. Иначе итератор за концом, т.е. равен end или вообще пуст
+   make : factory - 
+   is_first - возвращает true, если нельзя перейти на предыдущий фрагмент
+  NotifierID : Typedef - 
+  EVDGeneratorStyle : Enum - стиль выливки дерева или нод в evd
+   GS_DEFAULT - выливаем только верхний уровень, нормальные имена
+   GS_FULL_TREE - выливаем дерево полностью, нормальные имена
+   GS_TOPIC_AS_NAME - выливаем только верхний уровень, вместо имён используем номера топиков
+  NoEntity : Exception - генерируется при попытке получить сущность на ноде которая ее не содержит
+  NotFound : Exception - возвращается если get_visible_delta не может найти ноду
+  PropertyID : Typedef - 
+  SettingEntity : Interface - абстрактный интерфейс, наследники которого умеют "сохранять" себя в настройках
+   save_in_setting - Сохраняет "ссылку" на данный экземпляр в настройках, связывая ее с переданным строковым ключем. Тип ссылки зависит зависит от конкретного класса реализующего джанный интерфейс.
+   load_from_setting - Восстанавливает "ссылку" из настроек свзанную с данным ключем и данным типом (классом, группой) объеков.
+  NodeTypeConst : Constants - константы типов ноды
+   NT_UNKNOWN - 
+  NodesClipboard : Interface - контейнер для скопированных нод
+   count : readonly - 
+   as_evd - 
+   make : factory - 
+   make : factory - 
+  FakeFacetForFactory : Facet - когда будут локальные интерфейсы, фасет надо грохнуть
+  NodeNotifier : Facet - callback интерфейс для оповещения визуального дерева об изменениях на ноде
+   change_children_count - нотификация об изменении кол-ва видимых детей на ноде с указвнным индексом. В случае если изменение нод внутри рута не последовательное и не от начала, индекс должен быть задан как -1. 
+parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удаление, если delta > 0 - вставка)
+    left_child_index - индекс ребенка в узле: если удаление, то начиная с которого (включительно) мы удаляем delta элементорв; если вставка, то сразу после которого вы вставляем delta элементов.
+    left_child_index, может принять "специальное" значение IIP_BEFORE_LEFT_CHILD (-1) - означающее элемент "до первого" - например для вставки в начало детей.
+   reset_children_count - устанавливает кол-во детей = 0
+   is_root_visible - признак аутлайнера что он с видимым рутом
+   is_one_level - признак аутлайнера что он одноуровневый
+   invalidate - нотификация о необходимости перерисовки. Должна вызываться после change_children_count (которые можно группирвать) или самостоятельно при изменении дерева не связанном с кол-вом детей.
+    parent_path - путь к НОДЕ в которой произашли изменения
+   changing - Начало итерации изменения дерева
+   changed - Конец итерации изменения дерева
+   get_id - Возвращает уникальный идентификатор объекта
+  ListForFiltering : Facet - 
+   count : readonly - 
+   item - 
+  NodeBase : Interface - Базовый интерфейс ноды "новых" деревьев
+   caption : readonly - Пользовательское название ноды
+   level : readonly - уровень ноды в дереве
+   type : property - Пользовательский тип ноды. Может определять тип связанной сущности, или просто использоваться для диффиренцации отображения
+   child_count : readonly - 
+   is_expanded : readonly - возвращает true, если установлен флаг раскрытия всех нод
+   entity : property - 
+   first_child : readonly - 
+   prev : readonly - 
+   next : readonly - 
+   parent : readonly - 
+    : factory switch - 
+   add_notifier : chg - 
+   create_view_ex : chg - Расширенная версия метода create_view. (покачто вью всегда создается от рута)
+   find_node - ищет в текущем дереву ноду равную переданной
+   find_node_path - Получение индексного пути ноды. Первый индекс в пути сам узел node_to_find
+   get_by_sibbling_index : chg - возвращает ноду-соседа (т.е. "брата" текущей) по индексу
+   get_by_visible_index : chg - возвращает ноду по видемому индексу относительно текущей
+   get_first_fit - 
+   get_flag_count - возвращает кол-во зхаданных флагов в текущем поддереве
+   get_first_level_children_flag_count - 
+   get_node_id - Получение идентификатора ноды. Обычно возвращает пойнтер, но для документа value->id (), т.е. не уникален.
+   set_node_id : chg - Изменить идентификатор ноды. Обычно ничего не делает, но для документа изменяет value->id ().
+   get_available_layers - 
+   get_visible_delta - возвращает разницу видимых индексов двух нод (может автоматически развернуть необходимые уровни)
+   get_visible_delta_by_entity - 
+   get_index_from_parent - Возвращает порядковый номер узла относительно родителя (начиная с 1)
+   get_abs_index - Возвращает абс. индекс для ноды
+   get_child_path_by_abs_index - Возвращает путь к ноде по её абс. индексу
+   get_frozen_node - 
+   get_unfiltered_node - 
+   has_children - признакк есть ли дети
+   has_children_flag - признак взведен ли у детей указанный флаг
+   has_filtered_children - признак того что нода соджержит отфильтрованных детей
+   has_flag - признак взведен ли указанный флаг
+   has_parent_flag - признак взведен ли у родителей указанный флаг
+   is_first - признак первый ли это ребенок
+   is_it_higher - возвращает true если переданная нода (it) выше текущей
+   is_last - признак последний ли это ребенок
+   is_same_node - проверяет на равенство две ноды
+   iterate_nodes : chg - возвращает сквозной итератор по нодам с указанным флагом
+   make_visible : chg - 
+   remove_notifier : chg - 
+   set_all_flag : chg - устанавливает у всего поддерева (КРОМЕ самой ноды на который была вызвана операция) указанный флаг (сейчас работает всегда от рута, и иногда глючит именно установка, сброс работает корректно)
+   set_flag : chg - взводит указанный флаг
+   set_range_flag : chg - взводит указанный флаг на промежутке
+   delete_nodes : chg - удаляет все ноды по заданному флагу. ВРЕМЕННО перенесен с каталога на ноду!!!
+   delete_node : chg - удаляет текущую ноду
+   copy_nodes : chg - копирует ноды по заданному флагу и возвращает их в виде контейнера для последующей вставки в любое другое дерево.ВРЕМЕННО перенесен с каталога на ноду!!!
+   add_last_childs : chg - вставляет ноды из контейнера в конец списка детей - на самом деле если есть сортировка то позиции вставки могут стать другими, но ОБЯЗАТЕЛЬНО в указанном паранте
+   add_last_child : chg - аналогично add_last_childs но для одной ноды (как-либо полученной например, через create_new_node или напрямую из дерева, если это нода из дерева то будет сделана копия)
+   add_prev_siblings : chg - аналогично add_last_childs, но ноды вставляется перед указанной как соседи, соответственно КОНСТАНТНЫМ будет парент текущей ноды
+   add_prev_sibling : chg - аналогично add_prev_siblings но для одной ноды
+   start_change_transaction : chg - указывает на начало транзакции изменения данных ноды. Транзакции могут быть вложенными
+   rollback_change_transaction : chg - сбрасывает текущщую транзакцию (вместе со всеми вложенными),  сбрасывает все изменения (перечитывает с сервера или внутреннего буффера)
+   commit_change_transaction : chg - закрывает транзакцию, и если это больше нет "верхних" открытых транзакций - сохраняет все изменения сделанные на ноде (отправляет данные на сервер)
+   get_node_by_path - Дублирует с CatalogBase
+   find - Поиск в дереве по условию, заданному в фильтре. В случае успеха возвращает итератор первого вхождения, иначе пустой итератор (is_good!=true).
+   is_relevance_search_supported - 
+   expand_all : chg - устанавливает и снимает флаг раскрытия всех нод в дереве
+   make : multi factory - 
+   make : multi factory - 
+   iterate_all_nodes : chg - 
+   set_all_flag_except_first_children_of_root_children : chg - 
+   set_range_flag_except_first_children_of_root_children : chg - 
+  NodeIterator : Interface - Интерфейс для получения линейного списка элементов дерева.
+Должен поддерживаться пользователем для реализации операций с произвольным набором элементов дерева (например, со списком выделенных элементов).
+   next : readonly - 
+   make : factory - 
+  NodePosition : Struct - Позиция ноды в дереве и внутри этой ноды.
+   pos - Позиция внутри ноды node.
+   node - 
+  CatalogBase : Interface - Менеджер деревьев постренных на основе NodeBase и поддерживающие хранение сущностей (EntityBase). Заменяет устаревший BaseTreeSupport::BaseCatalog
+   name : property - 
+   root : readonly - 
+   clone - 
+   get_node_by_path - 
+   intersect_tree : chg - 
+   merge_tree : chg - 
+   minus_tree : chg - 
+   create - 
+  TrimLeafFilter : Interface - 
+  TreeTags : Constants - идентификаторы деревьев
+   AT_ANNO_INTEREST - 
+   AT_ANNO_KIND - 
+   AT_ANNO_ORG - 
+   AT_ANNO_TAX - 
+   AT_ANNO_USER - 
+   AT_BASES - 
+   AT_CLASS - 
+   AT_EDITION - 
+   AT_KW - 
+   AT_NORM - 
+   AT_PREFIX - 
+   AT_PUBLISH_SOURCE - 
+   AT_REG_IN_MU_NUM - 
+   AT_REG_IN_MU - 
+   AT_REG_NUM - 
+   AT_SOURCE - 
+   AT_STATUS - 
+   AT_TERRITORY - 
+   AT_TYPE - 
+   AT_UC - 
+   AT_PHARM_INTERNATIONAL_NAME - 
+   AT_PHARM_TRADE_NAME - 
+   AT_PHARM_CHAPTER - 
+   AT_PHARM_COUNTRY - 
+   AT_PHARM_FIRM - 
+   AT_PHARM_REG_STATUS - 
+   AT_PHARM_MEDICINAL_FORM - 
+   AT_PHARM_ATC - 
+   AT_PHARM_MKB - 
+   AT_PHARM_GROUP - 
+   AT_PHARM_EFFECT - 
+   AT_PHARM_NARCOTIC - 
+   AT_PHARM_UNRECIPE - 
+   AT_PHARM_IMPORTANT - 
+   AT_PHARM_COUNTRY_FOR_FILTER - 
+   AT_VARIANTS - дерево подсказок для базового поиска
+   AT_PREFIX_REVIEW - Дерево Видов правовой информации в КЗ ОИЗ
+   AT_PUBLISH_SOURCE_FINANCE - Ветка дерева Источник опубликования для СМИ по налогам и бухучету
+   AT_PUBLISH_SOURCE_LEGAL - Ветка дерева Источник опубликования для СМИ для юриста
+   AT_PUBLISH_SOURCE_HR - Ветка дерева Источник опубликования для СМИ для кадровика
+   AT_PUBLISH_SOURCE_BUDGET_ORGS - Ветка дерева Источник опубликования для СМИ для бюджетных организаций
+   AT_BASE_SEARCH_PANES - Вкладки Базового поиска
+   AT_CLASS_REVIEW - 
+   AT_SOURCE_REVIEW - 
+   AT_PUBLISH_SOURCE_PHARM - 
+  CountryFilter : Interface - 
+   country : property - 
+   make : factory - 
+  CutToLeafCountFilter : Interface - оставляет в дереве количество детей, не большее заданного
+   leaf_count : property - получить число листьев для фильтра
+   make : factory - создает фильтр, оставляющий в дереве не более leaf_count листьев
+  NodeIdList : Vector - список идентификаторов нод
+  BlocksFilter : Interface - Фильтр оставляет только те блоки, которые доступны конкретному пользователю
+  InpharmFilter : Interface - не показывать в дереве блоков блоки для инфарм
+  VariantsForDocFilter : Interface - получить подсказки для заданного документа
+   doc_id : readonly - идентификатор документа
+   make : factory - 
+  Filtered : Vector - 
+  ContextFilter : Interface - Класс контекстных фильтров
+   place : property - 
+   order : property - 
+   area : property - 
+   context : property - 
+   clone - 
+   filtrate - 
+ UnderControl : Interfaces - 
+  ControlledItemType : Enum - Типы объектов на контроле.
+   CIT_DOCUMENT - Документ
+   CIT_LIST - Список.
+   CIT_QUERY - Запрос.
+  ControlStatus : Constants - Битовые значения статуса изменений.
+   CS_DELETED - Документ удален.
+   CS_ACTIVE - Документ вступил в действие
+   CS_CHANGED - Документ изменен
+   CS_ABOLISHED - Документ утратил силу
+   CS_REGISTERED - Документ зарегистрирован в Минюсте РФ
+   CS_NOT_REGISTERED - Документу отказано в регистрации в Минюсте РФ
+   CS_NONE - Документ не изменился
+  ControlledChangeNotifier : Facet - Интерфейс который должен быть реализован со стороны оболочки, для нотификации ее об изменении контролируемых объектов.
+   fire - сообщает о том что контролируемые объекты изменились.
+  Controllable : Facet - Интерфейс, который должна реализовывать сущность которую можно ставить "на контроль". Реализация должны быть выполнена, так что бы доступ к методам определяемым этим интерфейсам не приводила к загрузки данных самой сущности. Для функционирования всех мотодов достаточно знать лишь идентификатор сущности на сервере, с помощью которого осуществляется вся работа с серверным интерфейсом ControlManager.
+   controlled : property - свойство определяющее, что данная сущность находится на контроле. Установка свойства в true приводит к добавлению сущности на контроль, в false соответственно к снятию.
+   short_name : readonly - Название объекта на контроле.
+   can_set_to_control : readonly - Возвращает true, если разрешена постановка на контроль
+   name : readonly - 
+   type : readonly - 
+   get_control_status : chg - Возврящает текущее значение статуса изменений.
+   reset_control_status : chg - Сбрасывает статус изменений в ноль.
+   open : chg - Получить объект на контроле.
+   is_same_controllable : chg - Сравнение объектов на контроле.
+  ControlledObjects : Vector - Список объектов папок, стоящих на контроле.
+  NotUnderControl : Exception - Объект не на контроле.
+  AlreadyControlled : Exception - Объект уже на контроле.
+  ControlManager : Interface - Менеджер объектов на контроле.
+   controlled_change_notifier : writeonly - 
+   changed_doc : readonly - 
+   update_status : chg - Обновить статусы объектов на контроле.
+   get_under_control_status : chg - 
+   add : chg - 
+   remove : chg - 
+   reset_control_status : chg - 
+   refresh_control_status : chg - 
+   do_update_status : chg - 
+   make : factory - 
+   get_controlled_objects - 
+ ProgressIndicatorSupport : Interfaces - 
+  ProgressIndicator : Facet - Интерфейс для обратной связи при длительных операциях на сервере.
+Должен реализовываться пользователем адаптера.
+   max_count : readonly - 
+   set_current - Изменение состояния длительного процесса.
+В качестве параметра cur_count подается либо число уже обработанных элементов, принимающих участие в длительном процессе, либо число <=100 (при индикации в %).
+  CancelLongProcess : Interface - Интерфейс для возможности прерывания длительных операций на сервере. Используется в интерфейсе IProgressIndicator.
+   cancel_process - Вызывается для прерывания длительного процесса.
+ Logging : Interfaces - Операции логирования действий пользователя
+  LogEvent : Enum - События логирования
+   LE_OPEN_DOCUMENT_FROM_LIST - Открытие документа из списка
+   LE_OPEN_DOCUMENT_FROM_LINK - Открытие документа по ссылке
+   LE_OPEN_MAIN_MENU - Открытие основного меню
+   LE_OPEN_DICTIONARY - Открытие толкового словаря
+   LE_ADD_TO_LIST - Добавление документов в список
+   LE_DELETE_FROM_LIST - Удаление документов из списка
+   LE_GET_DOCUMENT_STRUCTURE - Запрос структуры докумнта
+   LE_SEARCH_IN_DOCUMENT - Поиск в документе
+   LE_OPEN_RELATED - открытие справки
+   LE_OPEN_ANNOTATION - 
+   LE_EXPORT_TO_FILE - Экспорт в файл
+   LE_EXPORT_TO_WORD - Экспорт в ворд
+   LE_USER_OPERATION - Любая пользовательская операция из меню, тулбара итд
+   LE_OPEN_DOCUMENT_FROM_FOLDERS - открытие документа из папок
+   LE_SAVE_DOCUMENT_TO_FOLDERS - Сохранение документа в папки
+   LE_PRIMARY_MONITOR_RESOLUTION - Разрешение на основном мониторе
+   LE_DPI - Размер системного шрифта
+   LE_FONT_SIZE - Рзамер основоного шрифта
+   LE_FIND_CONTEXT_IN_LIST - Поиск контекста в списке
+   LE_OPEN_DOCUMENT_FROM_HISTORY - Открытие документа из истории
+   LE_LIST_PRINT - Печать списка
+   LE_LIST_PRINT_PREVIEW - Предварительный просмотр печати списка
+   LE_LIST_SORT - Направление и порядок сортировки списка
+   LE_LIST_REFERENCE_ACTIVATE - 
+   LE_SYNCHROVIEW_ACTIVATE - Вкладка Синхронный просмотр
+   LE_TIME_MACHINE_ON - Включение машины времени
+   LE_TIME_MACHINE_OFF - Выключение машины времени
+   LE_NEXT_DOCUMENT - Переход на след документ в списке
+   LE_PREV_DOCUMENT - Переход на предыдущий документ в списке
+   LE_VIEW_DOCUMENT_EDITION_LIST - просмотр списка редакций документа
+   LE_VIEW_DOCUMENT_ATTRIBUTES - просмотр атрибутов документа
+   LE_BACK - Шаг назад
+   LE_FORWARD - Шаг вперед
+   LE_INC_FONT - Увеличение шрифта
+   LE_DEC_FONT - Уменьшение шрифта
+   LE_OPEN_NEWS_LINE - Открытие Новостной ленты
+   LE_OPEN_CONSULTATION - Открытие Мои консультации
+   LE_SAVE_QUERY - Сохранение запроса в папки
+   LE_LOAD_QUERY - Загрузка запроса из папок
+   LE_LOAD_QUERY_FROM_HISTORY - Загрузка запроса из истории
+   LE_CONTEXT_FILTER_IN_TREE - Контекстаня фильтрация дерева
+   LE_DOCUMENT_PRINT - Печать документа
+   LE_DOCUMENT_PRINT_PREVIEW - Предварительный просмотр печати
+   LE_VIEW_SAME_DOCUMENTS - Просмотр похожих документов
+   LE_SEND_DOCUMENT_BY_EMAIL - Отправка документа по емейл
+   LE_SEND_LIST_BY_EMAIL - Отправка списка по емейлу
+   LE_UNKNOWN - Неизвестное событие - можно использовать при неготовности сервера/адаптера для логирования новых событий
+   LE_SEND_TEST_REQUEST_TO_LEGAL_ADVISE - Проверка соединения с ППО (отправка тестового запроса)
+   LE_OPEN_MEDIC_FIRMS - Открытие списка фирм
+   LE_OPEN_MEDIC_DICTIONARY - Открытие толкового медицинского словаря
+   LE_USE_SUB_PANEL_DOCUMENT_OPERATION - Факт вызова любых операций из Меню к фрагменту документа на полях документа
+   LE_USE_BASE_SEARCH_EXAMPLE - Количество подстановок в панель БП текстов из примеров
+   LE_USE_TASK_PANEL_OPERATION - Количество вызовов операций с вкладки "Панель задач"
+   LE_SEND_REQUEST_TO_LEGAL_ADVISE - Отправка запроса в ППО
+   LE_OPEN_DOCUMENT_BY_NUMBER - Открытие документа по номеру
+   LE_OPEN_PHARM_DOCUMENT - Открытие документа - описание препарата
+   LE_OPEN_PHARM_FIRM_DOCUMENT - Открытие документа описание фирмы
+   LE_USE_BASE_SEARCH_HINT - 
+   LE_LIST_EXPORT_TO_FILE - 
+   LE_LIST_EXPORT_TO_WORD - 
+   LE_USE_BACK_SEARCH_BUTTON - при контекстном поиске внутри документа нажатие на кнопку "Назад"
+   LE_OPEN_INTERNET_AGENT - открытие окна Интернет-агента
+   LE_SWITCH_VERSION_COMMENTS - включение-выключение версионных комментариев
+   LE_CHAT_WINDOW_OPENS_COUNT - работа с чатом
+   LE_SEARCH_IN_DOCUMENT_DONE - поиск в документе завершен
+   LE_NEXT_SEARCH_IN_DOCUMENT - поиск следующего вхождения в документе
+   LE_PREVIOUS_SEARCH_IN_DOCUMENT - поиск предыдущего вхождения в документе
+   LE_DOCUMENT_NOT_EXIST - Документа нет в базе или запрещен к просмотру
+   LE_OPEN_DOCUMENT_FROM_SEARCH_HINT - Открытие документа из словаря подсказок
+  LogEventData : Interface - Данные события логирования
+   add_object : chg - 
+   add_string : chg - 
+   make : factory - 
+   add_ulong : chg - 
+   add_date : chg - 
+   write_to_log - Записать в лог
+  LogManager : Interface - Менеджер записи в лог
+   add_event : chg - 
+   make : factory - 
+ ApplicationHelper : Unit - 
+  ServerFacade : SimpleClass - 
+   get_server_interface - 
+  ApplicationHelper : SimpleClass - 
+   BaseId : Struct - 
+   base_id - 
+   function_manager - 
+   contract_form - 
+   search_manager - 
+   user_manager - 
+   folders - 
+   under_control_manager - 
+   settings - 
+   settings_manager - 
+   life_cycle_manager - 
+   consultation_manager - 
+   logging_manager - 
+   integration - 
+   xml_save - 
+   prime - 
+   prime_xml_save - 
+   server_facade - 
+   user_journal - Журнал работы
+   tree_factory - 
+   property_manager - 
+   banner_manager - 
+   uid : readonly - uid текущего пользователя
+   group_manager - 
+   remote_support - 
+   filters_manager - 
+   context_filter - 
+   main_menu - 
+   decisions_archive_support - 
+   document_type_resolver - 
+   link_manager - 
+   clear_cache_and_regenerate_base_id : chg - 
+   compare_and_update_base_id - 
+   get_cached_function_manager - 
+   get_cached_context_filter - 
+   get_cached_contract_form - 
+   get_cached_user_manager - 
+   get_cached_folders - 
+   get_cached_under_control_manager - 
+   get_cached_settings - 
+   get_cached_settings_manager - 
+   get_cached_life_cycle_manager - 
+   get_cached_xml_save - 
+   thr_mgr - 
+   is_configurations_exist - 
+   get_cached_search_manager - 
+   get_cached_consultation_manager - 
+   get_cached_logging_manager - 
+   get_cached_integration - 
+   get_cached_prime - 
+   get_cached_prime_xml_save - 
+   start_listen_for_me : chg - Заставляем NotifyManager слушать нотификации только для меня
+   stop_listen_for_me : chg - Прекратить слушать нотификации для меня
+   clear_cache - Очистка кешированных серверных объектов
+   init : chg - 
+   make : ctor - 
+   server_facade - 
+   get_cached_user_journal - 
+   get_cached_tree_factory - 
+   get_cached_property_manager - 
+   get_cached_banner_manager - Получить баннер с сервера
+   get_cached_current_user_id - возвращает идентификатор текущего пользователя
+   get_cached_group_manager - 
+   get_cached_remote_document_support - 
+   get_cached_filters_manager - 
+   get_cached_main_menu - 
+   get_cached_decisions_archive_support - 
+   get_cached_document_type_resolver - 
+   get_cached_link_manager - 
+    : uses - 
+  SessionHelper : SimpleClass - 
+   is_session_active : property - 
+   make : ctor - 
+ Folders : Interfaces - 
+  FolderId : Typedef - тип папочной ноды
+  NodeFlags : Constants - Значения flags для  элемента FoldersNode.
+   NF_CONTROLLED - Сохраненный элемент стоит на контроле.
+   NF_SHARED - Расшарен ли этот узел (если папка).
+   NF_EXTERNAL - Внешний узел.
+   NF_IN_SHARED - Расположен ли этот узел в шареной папке.
+   NF_HAS_SHARED - Есть ли в этом узле (если папка) шаренные папки.
+   NF_COMMENTS - Папка Мои комментарии
+   NF_IN_COMMENTS - Элемент внутри папки Мои кооментарии
+   NF_COMMON - Папка Общие
+   NF_USER - Папки внутри папки Общие (по именам пользователей)
+   NF_MY_DOCUMENTS - Папка Мои документы
+   NF_MY_CONSULTATIONS - Папка Мои консультации
+   NF_FOLDER_SENT - Папка Мои консультации/Запросы в обработке
+   NF_FOLDER_RECEIVED - Папка Мои консультации/Ответы
+   NF_CONSULTATION_SENT - Консультация со статусом CS_SENT
+   NF_PAYMENT_REQUEST - Консультация со статусом CS_PAYMAND_REQUEST (Запрошена оплата)
+   NF_ANSWER_RECEIVED - Консультация со статусом CS_ANSWER_RECEIVED (получен ответ)
+   NF_ANSWER_READ - Консультация со статусом CS_ANSWER_READ (ответ прочитан)
+   NF_ESTIMATION_SENT - Консультация со статусом CS_ESTIMATION_SENT (отправлена оценка)
+   NF_FOLDER_DRAFTS - Папка Мои консультации/Исходящие запросы
+   NF_FOLDER_PAYMENT_REFUSAL - Папка Мои консультации/Неподтвержденные
+   NF_DRAFTS - Консультация со статусом CS_DRAFTS (созданная, но еще не отправленная консультация)
+   NF_PAYMENT_REFUSAL - Консультация со статусом CS_PAYMENT_REFUSAL (консультация с неподтвержденной оплатой)
+   NF_PAYMENT_CONFIRM - Консультация со статусом CS_PAYMENT_CONFIRM (консультация с подтвержденной оплатой)
+   NF_VALIDATION_FAILED - Консультация со статусом CS_VALIDATION_FAILED (консультация не отправлена, так как база невалидирована)
+  FoldersNode : Interface - Специализированная нода для Папок. Хранит дополнительный атрибут "дата создания".
+Атрибуты Caption и Hint унаследованные от Node представляю собой Имя элемента и Пользовательский Комментарий соответственно.
+В качестве BaseEntity нода может содержать Закладку на Документ, Список, Запрос или собственно узел (Folder). Имена и хинты всех элементов (кроме узла) копируются при создании в ноду, однако потом могут изменятся независимо (т.е. изменения имени ноды не влечет за собой изменения имени сущности содержащейся в ней).
+   id : readonly - Сонтент айди
+   creation_date : readonly - Дата создания
+   save_consultation_to_xml - Сохраняет информацию о сущности, представляемой папочной нодой консультации в xml.
+   save_to_xml - 
+   load_from_xml - загружает информацию из xml в папку (пустую, нерасшаренную).
+   save_to_integration_xml - сохранить ноду для библиотеки интеграции
+   can_save_consultation_to_xml - Указывает может ли консультация быть сохранена в xml.
+   can_save_to_xml - указывает может ли нода быть сохранена в xml.
+   can_load_from_xml - указывает можно ли в ноду загрузить данные из xml.
+   can_save_to_integration_xml - может ли нода быть сохранена для библиотеки интеграции
+   make : factory - 
+   get_pid - 
+  Folders : Interface - Интерфейс (менеджер) обеспечивающий работу с деревом папок. Сложит фабрикой для узлов (Folder).
+   create_folder - Фабрика узлов, возвращает новый созданный экземпляр BaseEntity типа Folder.
+   find_folder_node - Найти узел папки по его идентификатору. Если не найден то CanNotFindData.
+   make : factory - 
+  NotifyStatus : Enum - Статус изменения папки.
+   NS_NODE - Изменена структура папки. Означает что удалился/добавился один из дочерних узлов.
+   NS_CONTENT - Изменено содержимое папки, например имя папки, комментарий, дата, и т.д.
+  DoneNotifier : Facet - 
+   done : chg - 
+  Folder : Interface - Реализация BaseEntity воплощающая узловой элемент дерва Папок.
+   shared : property - Для сетевой версии. Признак того что папка является общедоступной, т.е видимой другим пользователям.
+Прим. внешние папки вегда являются общедоступными.
+При попытки изменить данный признак у внешней папки генерируется исключение ConstantModify.
+   external : readonly - Для сетевой версии. 
+Признак того что папка является внешней (т.е. не собственной а принадлежащей другому пользователю).
+   make : factory - 
+   can_share - можно ли расшарить папку
+  FoldersItemType : Enum - Значения object_type для  элемента FolderNode.
+   FIT_BOOKMARK - Интерфейс Bookamark
+   FIT_LIST - Интерфейс List
+   FIT_QUERY - Интерфейс Query
+   FIT_FOLDER - Группирующий элемент (папка)
+   FIT_CONSULTATION - Консультация
+   FIT_PHARM_LIST - список мед. препаратов
+   FIT_PHARM_BOOKMARK - закладка на мед. препарат
+   FIT_OLD_HISTORY - Ссылка на старый журнал работы
+  NotifyData : Struct - Данные нотификации по изменению папок.
+   status - Статус изменения.
+   done_notifier - 
+   folder - 
+  ExternalFoldersChangeNotifier : Facet - Интерфейс нотификации изменения структуры папок.
+   fire - Произошло изменение папки. При этом необходимо перечитать только непосредственное содержимое папки, исключая рекурсивную прогрузку дочерних папок.
+ Settings : Interfaces - 
+  PropertyStringID : Typedef - 
+  PropertyType : Enum - 
+   PT_LONG - 
+   PT_STRING - 
+   PT_INT64 - 
+   PT_ULONG - 
+   PT_BOOLEAN - 
+  PropertyDefinition : Struct - Интерфейс доступа к аттрибутам настройки.
+   is_unique - Определяет "уникальность" своства. Уникальные свойства имеют одинаковое значение во всех конфигурациях, другими словами, уникальное свойство всегда присутствует как бы в одном экземпляре.
+Уникальные своства должны использоваться для настроек не зависящих от конфигурации.
+Значение по умолчанию: false
+   is_constant - Определяет возможность изменения значения настройки.
+Значение по умолчанию: false
+   type - 
+  DefaultValuesChangesState : Enum - Статус  проверки обновления значений настроек в предустановленных конфигурациях
+   NO_CHANGES - значения не изменялись
+   UPDATED_WITH_COPY_ACTIVE_CONFIGURATION - Пользователь в момент смены настроек по умолчанию работает с одной из стандартных (предустановленных) конфигураций.
+
+  - Делается копия текущей конфигурации. Имя: <имя конфигурации> + (сохраненная). Если конфигурация с таким именем уже cуществует -- то  (сохраненная 2).
+
+  - Для всех стандартных конфигураций настройки сбрасываются в значения  по умолчанию.
+   UPDATED_WITH_ACTIVATE_PREDEFINED_CONFIGURATION - Пользователь в момент смены настроек работает с собственной конфигурацией (копией стандартной). 
+  - Для всех стандартных конфигураций настройки сбрасываются в значения по умолчанию 
+  - Пользователь переключается с его собственной конфигурации на "Стандартную" (первую в списке предустановленных)
+  InvalidValueType : Exception - Возвращается при попытке прочитать или присвоить через интерфейс ParameterValues значение по типу, который не совпадает с реальным типом значения (реальный тип можно получить через свойство value_type).
+  ConfigurationType : Enum - тип конфигурации, различаем две предустановленные: Стандартная и ГАРАНТ 5x, все остальные - пользовательские
+   CT_STANDARD - 
+   CT_GARANT5X - 
+   CT_USER - 
+  PropertyStringIDList : Vector - 
+  BaseSettingsManager : Interface - 
+   get_bool : chg - Чтение свойства типа Boolean.
+При успехе возвращает true.
+Если свойство не существует возвращает false.
+Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType
+   get_int64 : chg - Чтение свойства типа int64.
+При успехе возвращает true.
+Если свойство не существует возвращает false.
+Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType
+   get_long : chg - Чтение свойства типа long.
+При успехе возвращает true.
+Если свойство не существует возвращает false.
+Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType
+   get_string : chg - Чтение свойства типа String.
+При успехе возвращает true.
+Если свойство не существует возвращает false.
+Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType
+   get_ulong : chg - Чтение свойства типа unsigned long.
+При успехе возвращает true.
+Если свойство не существует возвращает false.
+Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType
+   set_bool : chg - Запись свойства типа Boolean.
+Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
+Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType
+   set_int64 : chg - Запись свойства типа int64.
+Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
+Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType
+   set_long : chg - Запись свойства типа long.
+Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
+Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType
+   set_string : chg - Запись свойства типа String.
+Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
+Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType
+   set_ulong : chg - Запись свойства типа unsigned long.
+Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.
+Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType
+   is_exist - возвращает true, если параметр с таким именем существует
+  SettingsManager : Interface - Интерфейс работы с настройками. Обеспечивает создание новых свойств и их получение. Свойство характеризуется строковым идентификатором. 
+Интерфейс может быть получен 
+1. Из интерфейса Common, в этом случае он обеспечивает доступ к свойствам активной конфигурации.
+2. Из интерфейса Configuration, в этом случае обеспечивается работа со свойствами конкретной конфигурации.
+   restore_default - Устанавливает указанному свойству текущее значение равными значению по умолчанию
+   save_as_default - записывает текущее значение свойства в качестве  его значения по умолчанию
+   get_definition - возвращает структуру с атрибутами настройки
+   is_changed - возвращает true, если текущее значение НЕ равно значению по умолчанию, в противном случае возвращает false
+   is_changed_set - 
+   make : factory - 
+  ConfigurationIsActiveNow : Exception - 
+  Configuration : Interface - Интерфейс обеспечивающий работу с конкретной конфигурацией, является элементом списка конфигураций.
+   name : property - Имя конфигурации
+   hint : property - Комментарий или пояснение к конфигурации
+   type : readonly - 
+   is_readonly : readonly - определяет возможность изменения значений по умолчанию для конфигурации
+   id : readonly - 
+   restore_default_values - устанавливает для всех свойств конфигурации начальные значения
+   save_values_as_default - записывает текущие значения для всех свойств в качестве значений по умолчанию
+   copy - возвращает копию конфигурации
+   get_settings - 
+   make : factory - 
+  ConfigurationsNotDefined : Exception - 
+  DefaultValuesChangesIndicator : Interface - Результат проверки обновления значений настроек в предустановленных конфигурациях
+
+если sate == UPDATED_WITH_COPY_ACTIVE_CONFIGURATION, то configuration содержит вновь созданную пользовательскую конфигурацию - копию активной предустановленной
+
+если state == UPDATED_WITH_ACTIVATE_PREDEFINED_CONFIGURATION, то configuration содержит предустановленную, на которую переключили пользователя
+   state : readonly - 
+   configuration : readonly - 
+   make : factory - 
+  Configurations : Vector - 
+  ConfigurationManager : Interface - Интерфейс обеспечивающий работу со списком конфигураций. Доступен через интерфейс Common.
+   configurations : readonly - 
+   set_active : chg - Устанавливает заданную конфигурацией активной (текущей для интерфейса Settings, полученного через Common)
+   remove : chg - Удаляет заданную конфигурацию. В случае попытки удалить активную конфигурацию возбуждает исключение ConfigurationIsActiveNow
+   get_active : chg - возвращает активную конфигурацию
+   default_values_update_check : chg - 
+   make : factory - 
+   get_active_id - возвращает идентификатор активной конфигурации
+   logout : chg - метод дёргается при выходе из системы
+  PermanentSettingsManager : Interface - настройки, не зависящие от конфигураций
+   make : factory - 
+ ExternalOperation : Interfaces - 
+  ExternalOperation : Interface - Ссылки на операции
+   id : readonly - 
+   make : factory - 
+  ExternalOperationId : Constants - 
+   EOI_ESTIMATION - Оценить ответ
+   EOI_PAYMENT_CONFIRM - Подтверждение оплаты
+   EOI_PAYMENT_REFUSAL - Оплата отклонена
+   EOI_OPEN_ATTRIBUTE_CARD - 
+   EOI_SHOW_HELP_TOPIC - 
+   EOI_CHANGE_COLLAPSED - 
+   EOI_CHECK_LEGAL_ADVISE_AVAILABLE - 
+   EOI_CONSULTATION_CALL_GARANT - Ссылка на www.garant.ru в уведомлении о консалтинге
+   EOI_SHOW_CONSULTATION_LIST - показать список к консультации
+   EOI_SHOW_LC_HELP - Ссылка на Справка-описание Правового календаря
+   EOI_CHANGES_INSIDE_TABLE - 
+ Document : Interfaces - 
+  LinkedObjectType : Enum - Тип объекта, на который указывает гипертекстовая ссылка.
+   LO_DOCUMENT - Документ.
+   LO_RELATED_DOCUMENT - Справка к документу.
+   LO_EXTERNAL_OBJECT - Внешний объект.
+   LO_MULTILINK - Мультиссылка (список документов).
+   LO_EXTERNAL_LINK - Внешняя ссылка.
+   LO_QUERY - Запрос.
+   LO_BOOKMARK - Закладка
+   LO_EXTERNAL_OPERATION - 
+   LO_ENO - Ссылка на ENO
+   LO_AUTOREFERAT - Автореферат
+   LO_SCRIPT - скрипт для К271754146
+  MissingInfo : Interface - Информация об отсутствующем документе.
+   obj_name : readonly - Имя отсутствующего объекта.
+   blocks_info : readonly - Имена блоков (баз), в которых содержится отсутствующий объект.
+   is_one_block - Отсутствующий объект содержится только в одном блоке (базе) - необходимо для правильного постоения сообщения о том, в каком(их) блоке(ах) содержится отсутствующий объект.  Если в blocks_info содержится только один блок, то возвращается true, в противном случае false.
+   make : factory - 
+  InvalidParaId : Exception - Неверный идентификатор параграфа
+  TimeMachineWarningType : Enum - 
+   TMWT_RED - 
+   TMWT_YELLOW - 
+  PositionInDocument : Constants - 
+   POSITION_TYPE_MASK - 
+   POSITION_TYPE_SUB_ID - 
+   POSITION_TYPE_PARA_ID - 
+  TimeMachineWarning : Struct - 
+   warning - 
+   type - 
+  InvalidTopicId : Exception - Возвращается при попытке выполнить операцию с внутренним идентификатором документа, несуществующим в базе.
+  PositionType : Enum - 
+   PT_SUB - 
+   PT_PARA - 
+   PT_BOOKMARK - 
+  Position : Struct - Точка входа в документ.
+   type - Флаг определяющий значение поля point. Если true то point указывает на параграф, в противном случае на саб или блок.
+   point - Точка входа.
+  PositionList : Vector - Список меток или блоков в документе.
+  Topic : Struct - Внутренние идентификаторы элемента списка документов.
+   pid - 
+   position - 
+  ParaId : Typedef - Идентификатор параграфа (тот самы волшебный, который должен прикрутить Влад)
+  DocumentType : Enum - тип документа
+   DT_DOCUMENT - 
+   DT_EXPLANATORY - 
+   DT_AUTO_REFERAT - 
+   DT_BOOK - 
+   DT_TIP - Совет дня
+   DT_MEDICAL_EXPLANATORY - элемент словаря мед. терминов
+   DT_MEDICAL_FIRM - документ с описанием фирмы из инфарм
+   DT_MEDICAL_DOCUMENT - 
+   DT_FLASH - Документ-флеш
+   DT_ACTUAL_ANALYTICS - ААК
+   DT_ACTUAL_ANALYTICS_CONTENTS - ААК-Содержание
+   DT_REF - Топик с www ссылками
+  FolderLinkNotFound : Exception - Не найдена ссылка на папочный элемент (возможно он был удален)
+  RedactionID : Typedef - Идентификатор редакции объекта (сейчас будет совпадать с ObjectId).
+  ActiveIntervalList : Vector - 
+  NotSureInfo : Struct - 
+   warning - 
+   interval - 
+  NotSureIntervalList : Vector - 
+  RedactionType : Enum - Тип редакции объекта.
+   RT_ACTUAL - Документ
+   RT_ACTUAL_ABOLISHED - документ со статусом DS_ABOLISHED (утратил силу)
+   RT_ACTUAL_PREACTIVE - документ со статусом DS_PREACTIVE (не вступил в силу)
+   RT_OLD - редакция в цепочке редакций до актуальной, у которой нет ни DS_ABOLISHED, ни DS_PREACTIVE
+   RT_NEW - редакция в цепочке редакций после актуальной, у которой нет ни DS_ABOLISHED, ни DS_PREACTIVE
+   RT_NEW_ABOLISHED - 
+   RT_NEW_PREACTIVE - редакция со статусом DS_PREACTIVE (не вступил в силу)
+  RedactionSourceDocumentInfo : Struct - 
+   display_name - изменяющий документ (то что показывается)
+   doc_topic - топик для перехода в изменяющий документ
+  RedactionSourceDocumentInfoList : Vector - 
+  RedactionNotFound : Exception - Возвращается в случае попытки получения несуществующей редакции объекта.
+  NotAllowedInTrialMode : Exception - 
+  LinkKind : Enum - Вид хинта
+   LK_INTERNAL_INVALID - 
+   LK_REGULAR - 
+   LK_EXTERNAL - 
+   LK_ABOLISHED - Ссылка на утративший силу документ
+   LK_PREACTIVE - Ссылка на не вступивший в силу документ
+   LK_ENO - Ссылка на ЭО
+   LK_EDITION - Редакция документа
+   LK_SCRIPT - ссылка на скрипт
+  InvalidDate : Exception - 
+  ExplanationDictionaryNotInstalled : Exception - Толковый словарь не установлен в системе.
+Возвращается в случае вызова операции "поиск толкования" и отсутствии в системе толкового словаря.
+  LinkInfo : Struct - 
+   kind - вид хинта
+   hint - 
+  FactoryKey : Enum - 
+   FK_DOCUMENT_MASTER - 
+   FK_DOCUMENT_DELEGATE - 
+   FK_DICT_DOCUMENT - 
+   FK_PHARM_DICT_DOCUMENT - 
+   FK_PHARM_DOCUMENT - 
+   FK_PHARM_FIRM_DOCUMENT - 
+   FK_TIP_DOCUMENT - 
+   FK_TRANSLATED_DOCUMENT - 
+   FK_SIMPLE_DOCUMENT - 
+   FK_FLASH_DOCUMENT - 
+   FK_AUTOREFERAT_DOCUMENT - 
+   FK_ACTUAL_ANALYTICS_CONTENTS_DOCUMENT - 
+   FK_ACTUAL_ANALYTICS_DOCUMENT - 
+   FK_REF - 
+   FK_BOOK - 
+  ParaNum : Typedef - список измененных параграфов в порядке выдачи машиной сравнения
+  DiffIterator : Interface - [$175966492]
+*  Операции "Следующее изменение" и "Предыдущее изменение" должны работать относительно позиции курсора (если он на экране) или относительно верхнего края документа в фокусе.
+* Операция "Следующее изменение" должна работать только до конца документа (не переходя в начало по циклу)
+* Операция "Предыдущее изменение" должна работать только до начала документа (не переходя в конец по циклу)
+   has_next - 
+   has_prev - 
+   next : chg - 
+   acquire_next - 
+   prev : chg - 
+   acquire_prev - 
+   move_to : chg - 
+   make : factory - 
+  LayerID : Typedef - 
+  InvalidObjectClass : Exception - 
+  NoPrevRedaction : Exception - 
+  ChildID : Typedef - 
+  EntryPoint : Struct - 
+   layer - 
+   child - 
+  Context : Struct - 
+   path - 
+   start - 
+   finish - 
+  EVDType : Typedef - 
+  ExternalID : Typedef - 
+  EVDStream : Typedef - 
+  InvalidEntryPoint : Exception - 
+  InvalidLayerID : Exception - 
+  Bookmark2 : Struct - 
+   para_id - 
+   eid - 
+   name - 
+  BookmarkList : Vector - 
+  FragmentList : Vector - 
+  SubList : Vector - 
+  ContextList : Vector - 
+  FoundContext : Interface - 
+   list : readonly - 
+   make : factory - 
+  DocumentTextProvider : Interface - 
+   get_child_type : chg - 
+   get_child_layer_id : chg - 
+   get_child_external_id : chg - 
+   get_child_evd_style : chg - 
+   get_child_comment : chg - 
+   set_child_comment : chg - 
+   remove_child_comment : chg - 
+   get_child_bookmarks : chg - 
+   get_child_text : chg - 
+   get_child_tech_comment : chg - 
+   all_leaf_para_count : chg - 
+   children_count : chg - 
+   find_block_or_sub : chg - 
+   find_para : chg - 
+   find_context : chg - 
+   get_sub_list : chg - 
+   get_prefix_tree : chg - 
+   make : factory - 
+   make : factory - 
+   show_sub_panel_icon : chg - Нужно ли показывать иконку для блока на сабпанели
+   has_same : chg - Если есть похожие к sub вернет true, иначе false.
+  DocumentTextProviderList : Vector - 
+  TextProviderConstants : Constants - 
+   ROOT_CHILD - 
+   ROOT_LAYER - 0xFFFFFFFF
+  CommentsParaList : Vector - 
+  ExternalObjectData : Struct - 
+   type - 
+   para_id - 
+   name - 
+  ExternalObjectDataList : Vector - 
+  DiffData : Struct - 
+   diff_iterator - 
+   cur - 
+   prev - 
+  DocumentTextProviderDescriptor : Struct - 
+   handle - 
+   header_leaf_count - 
+   anno_leaf_count - 
+  DocumentTextProviderDescriptorList : Vector - 
+  SubId : Typedef - 
+  DocPoint : Struct - Точка входа в документ (пара DocId SubId)
+   doc_id - Идентификатор документа
+   sub_id - Номер саба/блока
+  DocPointList : Vector - Список точек входа в документ
+  Likeable : Facet - 
+   can_like : readonly - Доступность операции оценки
+   like - Нравится
+   unlike - Не нравится
+  RedactionInfo : Struct - Информация о редакции объекта.
+   name - Имя редакции.
+   time_machine_date - 
+   doc_date - 
+   is_comparable - 
+   actual_type - 
+   not_sure_intervals - 
+   active_intervals - 
+   id - 
+   changing_documents - 
+  DiffDocPara : Struct - 
+   text - 
+   style - 
+   data - 
+   type - 
+   id - 
+  DiffDocParaList : Vector - 
+  ChangedBlock : Struct - 
+   id - 
+   header - Название структурной единицы с точностью до минимального блока, входящего в оглавление,
+которым  предваряется измененный фрагмент (блок)
+   right_text_para_list - Измененный фрагмент правой редакции
+   left_text_para_list - Измененный фрагмент левой редакции
+  RedactionInfoList : Vector - Список редакций.
+  Document : Interface - Интерфейс обеспечивающий работу с документом.
+   name : readonly - Имя документа.
+   short_name : readonly - Краткое имя документа.
+   warning : readonly - Предупреждение к документу.
+   size : readonly - размер документа в байтах
+   internal_id : readonly - внутренний номер документа в базе
+   not_tm : readonly - True - если документ не подключен к машине времени
+   file_position : readonly - 
+   new_revision_available : readonly - Доступна новая ревизия документа (для супермобильной версии)
+   change_status : readonly - Статус изменения документа
+   status : readonly - Статус документа
+   text_languages : readonly - 
+   attributes_root : readonly - 
+   redactions_list : readonly - 
+   current_state : readonly - 
+   doc_type : readonly - 
+   translation : readonly - 
+   annotation : readonly - 
+   related_doc : readonly - 
+    : factory switch - 
+   contents_root : readonly - 
+   bookmark_list : readonly - 
+   comments_para_list : readonly - 
+   external_object_data_list : readonly - 
+   create_bookmark - Создает экземпляр Закладки на заданный идентификатор параграфа. Присваивает ей в качестве названия короткое имя документа. А в качестве full_name имя документа и имя ближайшего (сверху) саба или блока (как в списках).
+   create_view : chg - Возвращает документ - редакцию, заказанную через  filters.
+Если текущая редакция равна заказанной - возвращает NULL
+   get_correspondents_to_part - Возвращает список корреспондентов к фрагменту документа (список параграфов) для указанной категории (category).
+
+для редакций, отлчных от "главной", возвращает NULL
+   get_internet_image_url - Получить url для отсканированного WWW-образа документа.
+   get_linked_object - Получить интерфейс объекта, на который указывает гипертекстовая ссылка, по внутреннему идентификатору.
+Возвращается интерфейс на объект (obj) и тип объекта (obj_type).
+Дополнительно можно получить интерфейс (missing_info) с информацией, в каких блоках (базах) содержится отсутствующий объект (метод get_missing_info)
+Будет использоваться для перехода по гипертекстовой ссылке.
+   get_not_sure_info - Возвращает информацию об интервале неуверенности документа. Если указанная в параметра date дата не попадает в интревал бросает CanNotFindData
+   get_respondents_to_part - Возвращает список респондентов к фрагменту документа (список параграфов) для указанной категории (category).
+
+для редакций, отлчных от "главной", возвращает NULL
+   get_time_machine_warning : chg - 
+   has_correspondents - Проверка наличия корреспондентов (любогй категории) у текущего документа.
+Возвращает true в случае, если список корреспондентов для документа по категории CR_ALL не пуст.
+
+для редакций, отличных от "главной", возвращает FALSE
+   has_internet_image - Проверка наличия WWW-образа у текущего документа.
+Возвращает true в случае, если у текущего документа есть WWW-образ.
+   has_next_redaction - Функция показывает наличие следующей редакции для объекта.
+Следующая редакция считается относительно текущего состояния (current_redaction).
+Возвращает True в случае наличия хотябы одной более поздней (чем текущая) редакции.
+   has_prev_redaction - Функция показывает наличие предыдущей редакции для объекта.
+Предыдущая редакция считается относительно текущего состояния (current_redaction).
+Возвращает True в случае наличия хотябы одной более ранней (чем текущая) редакции.
+   has_related_doc - Проверка наличия справки у текущего документа.
+Возвращает true в случае, если у текущего документа есть справка.
+
+для редакций, отличных от "главной", поведение такое же как и для "главной"
+   has_respondents - Проверка наличия респондентов (любогй категории) у текущего документа.
+Возвращает true в случае, если список респондентов для документа по категории CR_ALL не пуст.
+
+для редакций, отличных от "главной", возвращает FALSE
+   has_annotation - 
+   has_attributes - для документов типа DT_BOOK возвращает false,
+для остальных true
+   has_warning - Присутствие предупреждения.
+   is_alive - Специальный метод, позволяющий выяснить "жив" ли документ на сервере приложений. Если документ "жив" - возвращается `true` (как правило такая проверка нужна, когда документ может быть удален, например во время обновления базы). Результаты данного метода не кешируются на адаптере, т.е. вызов этого метода всегда обращается к серверу приложений.
+   is_date_in_not_sure_interval - Метод позволяет определить попадает ли date в интервал неуверенности документа.
+   is_my_bookmark - 
+   is_same_document - 
+   is_same_redaction - 
+   is_same_view - Возвращает равенство документов с учетом их состояния (в отличии от is_same_entity, который возвращает равенство без учета состояния). Состоянием документа является суперпозиция номера редакции, языка и списка извлечений.
+   may_show_attributes - Проверка возможности отображения атрибутов документа для текущего документа.
+Возвращает true в случае, если показ атрибутов разрешен.
+
+для редакций проверяются атрибуты, соответсвующие редакции (т.е. соответсвующие топику редакции )
+   get_correspondents - 
+   get_respondents - 
+   has_translation - Есть ли у документа перевод
+   has_same_documents - Проверка наличия похожих документов
+   get_same_documents - Получить список похожих документов
+   get_server_doc - 
+   make : multi factory - 
+   make : multi factory - 
+   is_morpho_search_supported - индексирован ли документ для морфопоиска
+   get_link_info - 
+   get_missing_info_for_object - Возвращает расширенную информацию по отсутствующему объекту (pid - идентификатор и класс объекта по ссылке)
+   get_drug_list - Получить список выпускаемых фирмой препаратов
+   get_flash - Получение флеш-ролика
+   create_journal_bookmark - Создать журнальную закладку
+   get_auto_referat_doc_count - вернуть число документов для автореферата
+   get_text_provider - 
+   get_text_provider_desc_list : chg - 
+   get_text_provider_by_desc : chg - 
+   get_text_provider_list : chg - 
+   get_autoreferat_header_evd - 
+   get_annotation_header_evd - 
+   diff - 
+   get_evd_stream - возвращает evd поток документа - совета дня или evd поток заглушки для отсутствующего в базе документа или документа запрещенного к просмотру
+   get_self_missing_info - Получить расширенную информацию по текущему документу (в случае его отсутствия - в каких блоках этот документ присутствует)
+   get_multi_link_info - Получить данные по мульnиссылке в виде списка (DocId, SubId)
+   dont_show_document_status_changes_warning - Не показывать статус изменения данного документа в текущей сессии
+   get_redaction_pid - 
+   has_chronology - есть ли у документа хронология рассмотрения судебного дела
+K555095873
+   get_link - 
+   get_same_to_point - 
+  Bookmark : Interface - Закладка на документ. Используется для сохранения документа (и позиции) в папках.
+   name : property - Названите закладки. Используется в качестве caption в Папках.
+   comment : property - полное имя документа и блока/саба на который указывает закладка. Используется в качестве hint  в Папках.
+   paragraph : readonly - 
+   pid : readonly - 
+   document : readonly - 
+   make : factory - 
+  DocumentState : Interface - Интерфейс для работы с редакциями объекта.
+   language : property - 
+   prev_redactions_list : readonly - 
+   cur_and_next_redactions_list : readonly - [$178324034]
+   set_prev_redaction - Операция устанавливает в качестве текущей предыдущую редакцию объекта.
+Если предыдущей редакции нет, то возвращается RedactionNotFound.
+   set_next_redaction - Операция устанавливает в качестве текущей следующую редакцию объекта.
+Если следующей редакции нет, то возвращается RedactionNotFound.
+   set_redaction_on_date - 
+   set_redaction_on_id - Операция устанавливает в качестве текущей редакцию с заданным идентификатором.
+Возвращает True в случае если текущая редакиция изменилась и False, если осталась той же самой, что и до вызова метода.
+Если задан неверный идентификатор редакции, то возвращается InvalidRedactionId.
+   set_actual_redaction - Операция устанавливает в качестве текущей редакцию, актуальную редакцию для данного документа.
+Возвращает True в случае если текущая редакиция изменилась и False, если осталась той же самой, что и до вызова метода.
+   redaction - 
+   get_current_redaction - 
+   is_same_redactions - 
+   make : factory - 
+   make : factory - 
+   diff_with_redaction_by_id - 
+   clone - 
+   set_prev_active_redaction - GetБлижайшаяДействующаяРедакцияВниз. [$178325284]
+   can_compare_with_any_other_redaction - [$178325284]
+   is_actual - возвращает true, если эта редакция актуальная, т. е. имеет тип:
+- RT_ACTUAL
+- RT_ACTUAL_ABOLISHED
+- RT_ACTUAL_PREACTIVE
+  AllChangesInTables : Exception - 
+  JournalBookmark : Interface - Журнальная закладка
+   name : readonly - Имя
+   full_name : readonly - Полное имя (хинт)
+   para_id : readonly - 
+   document : readonly - 
+   make : factory - 
+   make : factory - 
+   get_journal_bookmark - Получить  серверную журнальную закладку
+  DocumentLayerID : Typedef - 
+  Link : Interface - 
+   make : factory - 
+   get_object_type - 
+   get_object - 
+   get_link_info - 
+   get_linked_hint - 
+   get_kind - 
+   make : factory - 
+  JournalBookmarkList : Vector - 
+  DiffDocDataProvider : Interface - 
+   get_all_leaf_para_count - 
+   get_header_para_list - Заголовок документа состоит из:
+
+Фраза "Обзор изменений документа"
+Длинное имя документа (!Name)
+Фраза "Подготовлено экспертами компании "Гарант" 
+Фраза "Далее приведены изменившиеся фрагменты редакций:"
+   get_date_para_right - параграф с датами изменений документа для правого документа
+   get_date_para_left - параграф с датами изменений документа для левого документа
+   get_redaction_name_right - Каждая таблица имеет заголовок содержащий имена редакций (это имя редакции для правого документа)
+   get_redaction_name_left - Каждая таблица имеет заголовок содержащий имена редакций (это имя редакции для левого документа)
+   get_changed_block_count - 
+   get_changed_block - 
+   make : factory - 
+  ObjectFromLink : Interface - 
+    : factory switch - 
+   get_object - 
+   get_object_type - 
+   make : multi factory - 
+ BaseTreeSupport_i : Impl - 
+  Node_i : Servant - 
+   children_count - Количество непосредственных детей
+   caption - Заголовок
+   hint - Комментарий
+   data - Данные
+   flags - Флаги
+   object_type - Тип объекта
+   index - Порядковый номер
+   parent - Родитель
+   through_index - Сквозной порядковый номер
+   all_children_count - Количество всех детей
+   get_data - 
+   clear_cache : chg - 
+   clear_cache : chg - 
+   fix_after_del : chg - 
+   fix_indexes : chg - 
+   nil_parent : chg - 
+   make : ctor - 
+   load_child : chg - 
+   load : chg - 
+  StaticNode_i : Servant - 
+    : uses - 
+ SearchProgressIndicator : Interfaces - Прогрессиндикаторы для поиска
+  CancelSearch : Interface - 
+   make : factory - 
+  ProgressIndicatorForSearch : Facet - 
+   finish_process - 
+ DynamicDocList : Interfaces - 
+  SortTypes : Vector - 
+  DynListType : Enum - 
+   T_RESPONDENT - 
+   T_CORRESPONDENT - 
+   T_RESPONDENT_TO_PART - 
+   T_CORRESPONDENT_TO_PART - 
+   T_SAME_DOCUMENTS - Похожие документы
+  DynListContent : Enum - задаёт вид списка
+   DLC_LEGAL_DOCUMENTS - юридические документы
+   DLC_MEDICAL_DOCUMENTS - документы инфарма
+  ListEntryInfo : Interface - 
+   type : readonly - 
+   position : readonly - 
+   relevance : readonly - Релевантность. Для списков без релевантности всегда 0.
+   pid : readonly - 
+   doc : readonly - 
+   make : factory - 
+   make : factory - 
+   get_entry_list - 
+   get_relevance_words_list - 
+  SpecialListKey : Enum - 
+   SLK_ALL_ALLOWED_DRUGS - Все неаннулированные препараты
+  DynList : Interface - 
+   history : readonly - 
+   is_filtered : readonly - 
+   content_type : readonly - 
+   is_short : readonly - Это короткий список (сниппеты)
+   is_snippet : readonly - Признак, является ли список сниппетом
+   current_sort_params : readonly - 
+   available_sort_types : readonly - 
+   sort : chg - 
+   set_context_filter : chg - 
+   save_to_file - Сохранить список или его выделенные элементы в файл.
+   make : factory - 
+   make : factory - 
+   as_evd - 
+   get_short_name - получить "короткое" имя списка, используется при выводе на печать
+   set_list_storage : chg - 
+   make : factory - 
+   get_full_list : chg - Получить полный список
+   get_analysis_tree - получить дерево анализа для списка
+   get_full_list_size - Получить длину полного для базового списка
+  SearchDynList : Interface - Список - результат поиска
+   get_dyn_list - 
+   make : factory - 
+  DynListFlags : Enum - 
+   DLF_ANALYSIS_NODE_HAS_DATA - может быть построен список
+   DLF_ANALYSIS_NODE_EMPTY - 
+  DocListFactory : Interface - фабрика для создания списков
+   make : factory - 
+   make_list - построить список по данным из файла file_name.
+ inner_numbers - флаг указывающий какие номера документов используются (если inner_numbers=true - внутренние)
+
+Формат файла (К195757811):
+<номер топика>{.<номер саба/блока>}{<пробел или табуляция><любые символы>}
+<номер топика>{.<номер саба/блока>}{<пробел или табуляция><любые символы>}
+<номер топика>{.<номер саба/блока>}{<пробел или табуляция><любые символы>}
+...
+
+Исключения:
+AccessDenied - не смогли прочитать данные из файла
+InvalidType - в файле некорректные данные
+  DynListNode : Interface - 
+   get_document_id - Получить идентифкатор документа из ноды списка
+   make : factory - 
+ ContextSearchSupport_i : Impl - 
+ Notify : Interfaces - 
+  NotifyType : Enum - 
+   NT_LONG_OPERATION_START - 
+   NT_LONG_OPERATION_END - 
+   NT_MONITORING_UPDATE - 
+   NT_SHUTDOWN - 
+   NT_LOGOUT - 
+   NT_BASE_UPDATE_START - 
+   NT_BASE_UPDATE_END - 
+   NT_BASE_UPDATE_FAILED - 
+   NT_CONSULTATION_RECEIVED - Получен ответ
+   NT_CONSULTATION_NOT_SENT - Консультация не отправлена
+   NT_NO_SUBSCRIPTION - Консультация не отправлена, тк не прошла валидация
+   NT_INTERNET_AVAILABLE - Приходит при успешной связи с удалёнными сервисами (СК или сервер ревизий документов)
+   NT_NEW_CHAT_MESSAGES_RECEIVED - получены новые сообщения для чата
+   NT_CHAT_CONTACT_ADDED - добавлен новый контакт для чата
+   NT_CHAT_CONTACT_REMOVED - удалён контакт чата
+   NT_INTERNET_NOT_AVAILABLE - нет доступа к серверу ревизий документов
+  Notification : Interface - 
+   id : readonly - 
+   data : readonly - 
+   make : factory - 
+   set_type : chg - 
+   set_data : chg - 
+  Listener : Facet - Callback на облочке для получения сообщений с адаптера
+   fire - 
+  NotifyManager : Interface - Менеджер, обеспечивающий обмен сообщениями между адаптером и оболочкой
+   register_listener_for_notify : chg - 
+   register_transformer : chg - 
+   listen_for_all : chg - 
+   listen_only_for_me : chg - 
+   stop_listen_me : chg - 
+   make : factory - 
+ Security : Interfaces - 
+  UserFilterFlags : Constants - 
+   UFF_USER_ACTIVE - 
+   UFF_USER_NOT_ACTIVE - 
+   UFF_USER_SYSTEM - 
+   UFF_USER_NOT_SYSTEM - 
+   UFF_USER_NOT_CURRENT - 
+   UFF_GUEST_USER - 
+   UFF_NOT_GUEST_USER - 
+   UFF_USER_CAN_BUY_CONSULTING - 
+   UFF_USER_CANT_BUY_CONSULTING - 
+   UFF_USER_PRIVILEGED - 
+   UFF_USER_NOT_PRIVILEGED - 
+   UFF_GROUP_UID - выбрать пользователей только заданной группы
+   UFF_NOT_GROUPPED_USERS - пользователи, входящие только в группу все
+   UFF_CHAT_CONTACT_LIST_USERS - только те пользователи, которые включены в список контактов для чата текущего пользователя
+  WrongAuthentication : Exception - Неверные данные аутентификации
+  NoMoreProfiles : Exception - Превышение лимита профилей пользователей
+  UserActive : Exception - Попытка удалить работающего в данный момент пользователя
+  LicenceViolation : Exception - Нарушение лицензионных настроек
+  XMLImportRunning : Exception - Активен процесс заливки на стороне сервера
+  LoginDuplicate : Exception - Данный пользователь уже зарегестрирован в системе
+  ShutdownInited : Exception - Бросается в случае попытки залогинится в момент завершения работы сервера.
+  ProfileNodeType : Constants - Состояния в которых могут находится пользователи с точки зрения их отображения.
+   PNT_LOGGED_FLAG - пользователь в данный момент работает в системе
+   PNT_SYSTEM_FLAG - признак системности
+   PNT_EXIT_FLAG - 
+   PNT_PRIVILEGED_FLAG - 
+  UserProfile : Interface - Информация о пользователе
+   group_id : readonly - идентификатор группы, к которой принадлежит пользователь.
+   get_login - 
+   has_password - 
+   get_name - 
+   get_mail - 
+   get_uid - 
+   is_system - 
+   can_buy_consulting - 
+   is_privileged - привилегированный пользователь
+   make : factory - 
+   make : factory - 
+  UserFilter : Interface - Фильтр для дерева пользователей
+   flags : property - 
+   group_uid : property - идентификатор группы по которой необходимо осуществить фильтрацию
+  ProfileNode : Interface - Узел в дереве пользователей
+   make : factory - 
+   get_uid - 
+  TrialPeriodExpired : Exception - Время ознакомительной версии истекло
+  UidList : Vector - список пользователей
+  AutoregistrationDisabled : Exception - Авторегистрация запрещена администратором системы
+  NoMorePrivilegedProfiles : Exception - нельзя завести новых пользователей с привилегированным входом
+  UserManager : Interface - Класс для работы с пользователями. Содержит метод для получения дерева пользователей.
+   create_user_with_rights - 
+   delete_user - 
+   change_user_info - Изменение параметров пользователя за исключением
+пароля. Пользователь идентифицируется по uid.
+   change_user_password - Изменение пароля пользователя. Пользователь идентифицируется по uid.
+   change_user_group - 
+   change_users_group - 
+   user_can_buy_consulting - Установка свойства - может ли данный пользователь платить за консультации
+   user_is_privileged - установить свойство привилегированности для пользователя
+   logout_user - 
+   get_self_profile : chg - 
+   set_consulting_payment_for_all - установка политики оплаты консультаций для всех пользователей
+   set_consulting_payment_for_newbies - установка политики оплаты консультаций для новых пользователей
+   get_consulting_payment_for_newbies - возвращает текущее значение политики оплаты консультаций для новых пользователей (true - оплата разрешена)
+   delete_users - удалить список пользователей. Возвращает список пользователей, которых удалить не удалось.
+   logout_users - завершить работу в системе указанного списка пользователей.
+   set_consulting_rights - задать права на оплату консультаций для заданного списка пользователей.
+   set_privileged_rights - установить права привилегированности
+   can_create_privileged_user - можно ли зоздавать привилегированных пользователей
+   make : factory - 
+   get_active_users_list_for_net_one_user_version - Получение списка юзеров, захвативших сетевую версию
+   get_groups_tree - получить дерево групп
+   get_users_tree - получить дерево пользователей для группы с заданным идентификатором
+   create_group - создать группу с заданным именем
+   delete_group - удалить группу с заданным идентификатором
+   set_nonsearchable_blocks_for_group - установить список блоков базы по которым запрещён поиск группе пользователей
+   get_nonsearchable_blocks_for_group - получить список блоков базы по которым запрещён поиск группе пользователей
+   change_group_name - сменить имя группы
+   has_shared_filters - общие ли фильтры пользователя
+   set_shared_filters_state - устанавливает флажок являются ли фильтры пользователя uid общими в соответствии со значением state
+   is_erasable - может ли пользователь быть удалён
+   set_erasable_state - установка свойства - можно ли удалить пользователя
+  GroupsConstants : Constants - константы, связанные с группами
+   GROUP_ALL_ID - идентификатор группы "Все"
+  GroupNode : Interface - узел дерева групп
+   has_users - есть ли в группе пользователи
+   make : factory - фабрика
+ Search : Interfaces - 
+  QueryType : Enum - 
+   QT_KEYWORD - 
+   QT_ATTRIBUTE - 
+   QT_PUBLISHED_SOURCE - 
+   QT_COMMENTS - 
+   QT_REVIEW - 
+   QT_MAIL_LIST - 
+   QT_RUBRICATOR - 
+   QT_CONSULT - 
+   QT_HANDYCRAFT_CONSULT - 
+   QT_DETAIL - Детализация СКР
+   QT_BASE_SEARCH - Карточка базового поиска
+   QT_PHARM_SEARCH - Поиск в Инфарме
+  QueryTagType : Enum - 
+   QTT_CONTEXT - 
+   QTT_NODE - 
+   QTT_DATE - 
+   QTT_PHONE_NUMBER - номер телефона
+  QueryAttribute : Interface - 
+   type : readonly - 
+   clear : chg - 
+   get_tag - 
+  QueryLogicOperation : Enum - Возможные логические операции для объединения поисковых атрибутов и списков.
+   QLO_AND - Логическое И.
+   QLO_OR - Логическое ИЛИ.
+   QLO_AND_NOT - Кроме.
+Данная логическая операция используется только при получении список карточке запроса - Search::get_query_forms. Для установки этой операции на узлах запросов QueryNode, у них предусмотрен флаг negative.
+  QueryPhoneNumberAttribute : Interface - Телефон юзера
+   phone_number : property - 
+   city_code : property - 
+   make : factory - 
+  QueryNodeValue : Struct - 
+   node - 
+   operation - 
+   make : ctor - 
+   make : ctor - конструктор по умолчанию
+  ContextValue : Struct - 
+   context - 
+   operation - 
+   make : ctor - 
+   make : ctor - конструктор по умолчанию
+  ContextValueList : Vector - 
+  DateValue : Struct - 
+   from - 
+   to - 
+   operation - 
+   make : ctor - конструктор по умолчанию
+  DateValueList : Vector - 
+  QueryDateAttribute : Interface - 
+   values : readonly - 
+   add_value : chg - 
+   make : factory - 
+  NodeValueList : Vector - 
+  QueryNodeAttribute : Interface - 
+   values : readonly - 
+   add_value : chg - 
+   make : factory - 
+  QueryAttributeList : Vector - 
+  OperationList : Vector - 
+  QueryContextAttribute : Interface - 
+   values : readonly - 
+   add_value : chg - 
+   make : factory - 
+  AttributeInfo : Interface - 
+   is_exist : readonly - 
+   available_operations : readonly - 
+   get_default_value - Получить дефолтное значение атрибута
+   make : factory - 
+  ContextWordList : Vector - Список слов
+  NoDefaultValue : Exception - Для атрибута нет значения по умолчанию
+  Query : Interface - Интерфейс обеспечивающий работу с запросом. Объекты этого интерфейса расположены в узлах навигатора.
+Поисковый запрос формируется при помощи узлов QueryOperationNode и QueryAttributeNode, сгруппированных в виде нисходящего бинарного дерева.
+   count : readonly - Количество найденных документов при последнем поиске.
+   type : readonly - 
+   date : readonly - 
+   attributes : readonly - 
+   execute : chg - 
+   get_context_attribute : chg - 
+   get_node_attribute : chg - 
+   get_date_attribute : chg - 
+   clear : chg - 
+   attributes_by_tag : chg - 
+   clone : chg - 
+   send_query : chg - Отправить запрос на консультацию
+   get_phone_number_attribute : chg - 
+   build_query : chg - 
+   make : factory - 
+   set_name : chg - 
+   get_name - 
+   get_comment - 
+   set_comment : chg - 
+   is_filter_query - получен ли запрос с фильтра
+  QueryList : Vector - Список запросов.
+  AttributeFilterType : Enum - 
+   AFT_NONE - 
+   AFT_TRIM - 
+  Search : Interface - Поиск.
+   is_morpho_exist : readonly - 
+   create_query - Создать новый поисковый запрос. В созданном поисковом запросе по умолчанию создаеться корневой QueryOperationNode с опреацией LO_AND.
+   get_attribute_info - 
+   make : factory - 
+   get_example_text_count - Получить количество примеров
+   get_example_text - получить текст примера по заданной позиции pos
+   get_documents_without_class - Список документов без команды CLASS
+   get_documents_without_included - Cписок документов с командой vanonced и без команды vincluded
+   get_documents_without_key - Cписок документов без команды key
+   correct_context - Возвращает список слов, которые не смогли скорректировать и скорректированную строку
+  QueryNotExecuted : Exception - 
+  QueryFields : Constants - константы для оболочки - К121160631
+   AT_CONSULTATION_TEXT - 
+   AT_LAW_SUPPORT_TEXT - 
+   AT_TEXT - 
+   AT_TEXT_NAME - 
+   AT_TEXT_BODY - 
+   AT_THEMES_NAME - 
+   AT_CONSULTATION_DESCRIPTION - 
+   AT_USER_NAME - 
+   AT_EMAIL - 
+   AT_PHARM_NAME - 
+   AT_PHARM_TEXT - 
+   AT_SHORT_LIST - 
+   AT_USER_PHONE - 
+  FullAttributeInfo : Interface - информация об атрибуте для КЗ
+   tag : readonly - 
+   make : factory - 
+  AttributeList : Vector - 
+  QueryCardType : Constants - 
+   QCT_PRIME - карточка прайма
+   QCT_ATTRIBUTE - карточка ППР
+   QCT_REVIEW - карточка поиска по изменениям законодательства
+   QCT_CONSULTING - карточка запроса к консалтингу
+   QCT_PHARM - карточка инфарма
+  QueryCardInfo : Interface - информация, связанная с карточкой запроса
+   evd_card : readonly - 
+   key : factory switch - 
+   create : multi factory - 
+   get_exist_attrs - получить список существующих атрибутов для КЗ
+  AttributesHelper : Interface - информация об атрибутах, которая напрямую не касается карточек
+   attribute_KW_exists - 
+   attribute_publish_source_exists - 
+   make : factory - 
+ ExternalOperation_i : Impl - 
+  ExternalOperation_i : Servant - 
+   id - 
+ DocTree : Interfaces - 
+  TagHandle : Typedef - EVD-тег ноды
+  DocNodeFilter : Interface - Фильтр для поиска ноды документа
+   id : property - 
+   inheritable : property - 
+   type : property - 
+  ContentsNode : Interface - 
+   make : factory - 
+ Banner : Interfaces - Баннеры
+  Banner : Interface - Баннер
+   open_link - Открыть ссылку баннера (возвращает или IDocument или ExternalLink)
+   make : factory - 
+   get_picture - Картинка
+ PrefixTree : Interfaces - Дерево для Вид правовой информации
+  PrefixNode : Interface - Нода деревьев вид правовой информации
+   make : factory - 
+   make : factory - 
+ Profile : Interfaces - 
+  StopWatch : Interface - 
+   make : factory - 
+  StopWatchEx : Interface - 
+   make : factory - 
+ Profile_i : Impl - 
+  StopWatch_i : Servant - 
+  StopWatchEx_i : Servant - 
+ Start : Interfaces - 
+  IPAddressNotFound : Exception - Возбуждается, когда не надено ни одного IP адреса для машины клиента (вероятные причины: нет активных сетевых соединений).
+  InvalidBase : Exception - Отсутствует или неверная база.
+  NoServer : Exception - Возбуждается в случае, когда по каким-то причинам сервер оказался недоступным.
+  BadNetworkConfig : Exception - Возбуждается, если в течении 10 секунд не пришел ответ от сервера ни на один из IP адрессов на машине-клиенте (вероятные причины: firewall блокирует `incoming connection` на порты, которые использует ACE/TAO при обратном вызове).
+  SMTPServerAddressNotDefined : Exception - Не задан адрес SMTP сервера
+  SMTPServerNotFound : Exception - Приложение не может соединиться c SMTP сервером. Возможно была допущена ошибка в при вводе адреса сервера.
+  UserNotFound : Exception - Пользователь не найден
+  ServerVersionNotValid : Exception - 
+  InternalServerError : Exception - Внутренняя ошибка сервера
+  WorkingParamsNotFound : Exception - Не найдены параметры, необходимые для работы приложения.
+  BadSMTPReply : Exception - 
+  SettingsRestoreFails : Exception - 
+  ExternalApplicationError : Exception - Ошибка при работе внешнего приложения
+  AlreadyLogged : Exception - 
+  PICTURES_CONSTANTS : Constants - параметры инишника для отображения картинок во внешнем приложении
+   PATH_TO_PICTURES - 
+   PATH_TO_EXECUTABLE - 
+  Capacity : Enum - Разрядность
+   C_32 - 
+   C_64 - 
+  ProductType : Enum - тип продукта
+   PT_UNKNOWN - 
+   PT_DVD - 
+   PT_MOBILE - 
+   PT_FILESERVER - 
+   PT_DESKTOP - 
+   PT_CLIENTSERVER - 
+   PT_SUPERMOBILE - 
+  AccountDisabled : Exception - 
+  NoMoreConnections : Exception - 
+  SMTPAuthorizationFailed : Exception - Неудачная авторизация на почтовом сервере
+  MorphoNotExists : Exception - отсутствует морфоиндекс.
+  BaseType : Enum - Тип оболочки
+   BT_UNKNOWN - Неизвестный тип (отсутствует data.org)
+   BT_TRIAL - Ознакомительная версия
+   BT_COMMERCIAL - Коммерческая база
+   BT_NON_COMMERCIAL - Не коммерческая база
+   BT_DEMO - Демоверсия
+  InternalApplicationError : Exception - ошибка в механизме gcm
+  InvalidUserDatastore : Exception - может быть брошено только на desktop версии - сигнализирует о битой базе пользовалетя (что-то из содержимого каталога settings)
+  Authorization : Interface - Интерфейс обеспечивает начальную авторизацию в системе, открытие выбранного комплекта данных, получение информации о комплекте.
+   protection_error : readonly - Ошибка защиты.
+   rest_trial_days_count : readonly - Колличество оставшихся триальных дней. Если `== 0` - триальный период истек; если `< 0` триальный период не установлен.
+   autoregistration_status : property - статус авторегистрации
+   administrator_email : property - Почта администратора
+   administrator_phone : property - Телефон администратора
+   login - Начало работы с системой. При успешном завершении подключается к базе, прописанной в параметрах, как база по умолчанию и возвращает интерфейс ICommon.
+   guest_login - Начало работы с системой пользователя-гостя. При успешном завершении подключается к базе, прописанной в параметрах, как база по умолчанию и возвращает интерфейс ICommon.
+   logout - Окончание работы с системой.
+   autoregistration - Аналогично login но с регистрацией нового пользователя. email - адрес, на который в последствии может быть выслана информация о пользователе (логин, пароль)
+   send_user_info_by_email - Проверяет наличие указанного адреса в базе. Если адрес найден,  высылает на него информацию о пользователе.
+   is_server_alive - возвращает true если сервер доступен, false иначе
+   make : factory - 
+   logout_without_xml_backup - K274827650
+  ServerIsStarting : Exception - сервер запущен, находится в процессе инициализации
+  EO_CONSTANTS : Constants - Константы для электронной отчётности
+   EO_ENABLED - подключён ли модуль ЭО. По-умолчанию считаем, что подключён.
+  LicenseRestrictions : Struct - Различные лицензионные счетчики
+   users - Разрешенное количество обычных пользователей
+   permanent_users - Разрешенное количество пользователей с постоянным доступом
+  Common : Interface - Интерфейс обеспечивает доступ к основной функциональности системы, доступной из "Основного меню" или навигатора.
+   base_date : readonly - 
+   license_restrictions : readonly - Лицензионные ограничения на количество пользователей
+   get_document_on_number - Возвращает документ (Document) по заданному внутреннему ("гарантовскому") номеру.
+   start_processing_folder_notification : chg - Установить нотификацию изменения папок.
+   is_explanatory_dictionary_exist - Проверяет существует (доступен) ли в системе Толковый словарь.
+Возвращает true в случае, если толковый словарь существует.
+   is_pharm_exist - 
+   check_internal - проверка является ли база с лицензионными настройками - "для внутреннего использования"
+   show_pictures_on_number - показывает рисунки для заданного топика (функциональность внутренней версии)
+   make : factory - 
+   get_complect_name - 
+   auto_show_help - показывать ли помощь при первом запуске после инсталяции.
+   get_product_type - получить тип установленного продукта
+   get_splash_screen - Получить сплеш
+   get_settings_manager - Получить менеджер настроек
+   is_eo_enabled - доступен ли модуль ЭО.
+   get_base_type - Тип базы
+   create_folder_notification_queue : chg - Создать очередь обработки папочных нотификаций
+   get_banner - Получить баннер
+   is_trimmed_publish_source_exists - Есть ли усеченный индекс Источник опубликования
+   get_scripts_system_dictionary - словарь для скриптов (К271754146)
+   get_picture - 
+   is_erase_of_inactive_users_enabled - включена ли поддержка удаления пользователей, которые давно не пользовались системой
+   get_encrypted_complect_id - получить зашифрованный идентификатор комплекта
+  ComponentManager : Interface - 
+   start : chg - 
+   stop : chg - 
+   make : factory - 
+  AssemblyInfo : Interface - 
+   is_debug : readonly - 
+   is_desktop : readonly - 
+   is_commerce : readonly - 
+   first_start : property - 
+   server_capacity : readonly - Разрядность сервера
+   make : factory - 
+ ProgressIndicatorSupport_i : Impl - 
+ TimeStampSync : Impl - 
+  ActiveChangeableProxy : SimpleClass - 
+    : uses - 
+  TimeStampObjectManager : SimpleClass - 
+  ActiveChangeableBase : SimpleClass - 
+ Consulting : Interfaces - Интерфейсы для работы со службой ПП
+  EstimationValue : Enum - Возможные оценки
+   EV_UNDEFINED - оценка не выставлена
+   EV_VERY_GOOD - супер!!!
+   EV_GOOD - хорошо
+   EV_NORMAL - сойдёт
+   EV_BAD - полная фигня...
+  NoDocumentList : Exception - Нет списка документов в ответе
+  NoConnection : Exception - Нет связи с сервером консультаций
+  NoSubscription : Exception - Нет доступа с сервису - вы не подписаны на услугу
+  PaymentForbidden : Exception - У пользователя нет прав оплачивать консультации
+  NotDeleted : Exception - Нельзя удалить консультацию
+  Deleted : Exception - Консультация удалена - все операции запрещены
+  Estimation : Interface - Оценка
+   value : property - оценка
+   text : property - комментарий к оценке
+   make : factory - фабрика
+  OldFormatConsultation : Exception - консультация старого формата
+  ConsultationStatus : Typedef - 
+  ParasList : Vector - 
+  ConsultationsStatusConstants : Constants - Статусы консультаций
+   CS_SENT - Отправлена
+   CS_PAYMENT_REQUEST - Запрос на оплату
+   CS_ANSWER_RECEIVED - Получен ответ
+   CS_READ - 
+   CS_ESTIMATION_SENT - Отправлена оценка
+   CS_DRAFTS - Создана, но не отправлена
+   CS_PAYMENT_REFUSAL - Оплата отклонена
+   CS_PAYMENT_CONFIRM - 
+   CS_VALIDATION_FAILED - 
+   CS_ANSWER_NOT_CONFIRM - 
+   CS_READ_NOT_CONFIRM - 
+  Consultation : Interface - Консультация
+   status : readonly - Статус консультации
+   id : readonly - Идентификатор консультации
+   creation_date : readonly - Дата создания
+   modification_date : readonly - Дата последнего изменения статуса
+   name : readonly - Имя консультации (текст запроса)
+   query_data : readonly - 
+   user_name : readonly - 
+   expert_info : readonly - 
+   expert_name : readonly - 
+   reply_date : readonly - 
+   type : readonly - 
+   get_answer - Получить уведомление или ответ на запрос
+   get_query - Получить запрос
+   get_document_list - Получить список документов ответа
+   send_estimation : chg - Отправить оценку
+   create_estimation - создать оценку
+   payment_confirm : chg - Подвердить (answer = true)/отказаться (false) от оплаты
+   make : factory - фабрика
+   read : chg - Помечают консультацию как прочитанную
+   has_list - 
+   has_estimation - 
+   has_payment_information - 
+   get_query_by_paras - получить запрос в виде списка параграфов
+   get_answer_data - 
+  TemplateType : Enum - тип шаблона
+   PREANSWER_TEMPLATE - шаблон запроса об оплате
+   ANSWER_TEMPLATE - шаблон ответа
+   QUERY_TEMPLATE - шаблон запроса
+  ConsultationManager : Interface - Менеджер консультаций
+   check_internet_channel - Проверка интернет канала
+   check_consulting_available - Проверка досутпности консультационных услуг
+   delete_consultation - Удалить консультацию
+   update_not_readed_consultations - Возвращает количество непрочитанных консультаций
+   load_from_xml - загрузить консультацию из файла
+   make : factory - фабрика
+   cant_receive_answer - Сообщает о невозможности получать ответы (true - когда лампочку надо включать)
+   create_query_with_notice_user - Создание уведомления пользователя о консалтинге
+  ConsultingTemplateInfo : Interface - Информация для шаблонов консалтинга. Сейчас в базе есть 2 шаблона (preanswer и answer). Какой шаблон нужен для консультации спрашиваем у get_template_type
+   get_preanswer_template - 
+   get_answer_template - 
+   get_dealer_info - информация о комплекте, которая может быть нужна для шаблона. См. [$100008775]
+   make : factory - 
+   get_template_type - определяет какой шаблон нужен для отображения консультации
+   get_query_template - получить шаблон для запроса
+ Complect : Interfaces - 
+  ComplectType : Enum - 
+   CT_INTERNAL - 
+   CT_LOCAL - 
+   CT_NET_ONE_USER - 
+   CT_NET_MANY_USERS - 
+  ComplectInfoNode : Interface - Нода информации о комплекте
+   info : readonly - 
+   make : factory - 
+  VisualRepresentation : Struct - 
+   name - 
+   percent - 
+  VisualRepresentationList : Vector - 
+  ComplectInfo : Interface - Интерфейс получение информации о текущем комплекте баз.
+   type : readonly - 
+   owner  : readonly - 
+   dealer_info : readonly - 
+   old_base_warning : readonly - 
+   info  : readonly - 
+   unexist_doc_message : readonly - 
+   make : factory - 
+   get_visual_representation_data - 
+ Convertors : Unit - 
+  DateTranslator : UtilityPack - трансляция адаптерных и серверных дат
+   translate - 
+   translate - 
+   translate_date - 
+   translate_date - 
+   translate_date - 
+   translate_date - 
+  DateToString : UtilityPack - перевод даты в символьное представление
+   to_string - перевод даты в символьное представление
+  ServerAdapterConverters : UtilityPack - 
+   adapter_to_server - 
+   server_to_adapter - 
+   adapter_to_server - 
+   server_to_adapter - 
+   adapter_to_server - 
+   server_to_adapter - 
+   category_to_query - 
+   convert - 
+   adapter_to_server - 
+   server_to_adapter - 
+   adapter_to_server - 
+   server_to_adapter - 
+   consultation_status_to_folders_flag - 
+   adapter_to_server - 
+   adapter_to_server - 
+   adapter_to_server - 
+   server_to_adapter - Преобразование серверного списка вида Документ, Саб в адаптерный
+    : uses - 
+    : uses - 
+    : uses - 
+  RedactionTypeTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  DocStatusConverter : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  LanguagesTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  QueryTypeTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  LogicOperationTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  NodeTypeTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  ListSortTypeTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  SortOrderTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  EstimationTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  DateTimeTranslator : UtilityPack - 
+   translate - 
+   translate - 
+  LogEventTranslator : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+  TreeNameTranslator : UtilityPack - Конвертертер имен деревьев
+   shell_to_adapter - 
+    : uses - 
+  ExternalObjectTypeConvertor : TypeConvertor - 
+   type1 : Type1 - 
+   type2 : Type2 - 
+    : uses - 
+  gardefs : UtilityPack - 
+ DynamicTree_i : Impl - 
+  GCL::StaticNode_var : Typedef - Гнусный хак.  Нужен для того, чтобы можно было передавать в фунции симпл класс по ссылке на вар, что в свою очередь нужно, чтобы где-то в кишках дёрнуть на этом варе ремув-реф при определённых условиях.
+  ContextFilter_i : Servant - 
+   order - 
+   area - 
+   place - 
+   context - 
+    : uses - 
+    : uses - 
+  LayerFilter_i : Servant - 
+   layer - 
+  SortFilter_i : Servant - 
+   type - 
+   order - 
+   sub_filter - 
+  TrimFilter_i : Servant - 
+   is_trimmed - 
+  FindIterator_i : Servant - 
+   IteratorDirection : Enum - 
+   dir - 
+   cur_node - 
+   srv_iter - 
+   cur_pos - 
+    : uses - 
+    : uses - 
+    : uses - 
+  CompactSelectorList : Vector - 
+  FlagNodeBase : SimpleClass - нода с флагами
+   flags : writeonly - 
+   make : ctor - 
+   set_my_parent : chg - 
+   get_my_parent - 
+   set_all_flag : chg - 
+   internal_set_all_flag : chg - возвращает количество взведённых (изменённых?) флагов.
+   set_flag : chg - 
+   has_flag - 
+   get_flags - 
+   make_visible : chg - 
+   is_visible - 
+   get_node_by_visible_index : chg - 
+   next_with_flag - 
+   next_visible - 
+   plane_next - 
+   plane_next_back - 
+   prev_visible - 
+   prev_visible_stop : chg - 
+   next_one_level - 
+   prev_one_level - 
+   all_visible_children_count - // TODO: hide in cache
+   set_all_flag_except_first_children_of_root_children : chg - 
+   internal_set_all_flag_except_first_children_of_root_children : chg - 
+    : uses - 
+  FlagNodeStub : SimpleClass - 
+   _StubImpl : template - 
+   make : ctor - 
+   remove_me_and_siblings : chg - 
+    : uses - 
+  TreeBase : SimpleClass - адаптерное дерево
+   InvalidOwnerTree : Exception - 
+   EmptyBranch : Exception - 
+   NodeExpander : SimpleClass - 
+   FindedData : Struct - 
+   CountMap : Map - 
+   NodeFlagMap : Map - 
+   NotifierSet : Map - 
+   CounterDeltaMap : Map - 
+   FindedNodes : Map - 
+   LastSelectMap : Map - 
+   NodeMap : Map - 
+   FlagMaskStubPostProcess : SimpleClass - 
+   load_block_half_size - 
+   load_in_one_direction - 
+   active_changeble : property - 
+   notifiers - 
+   counter_deltas - 
+   root - 
+   finded_node - 
+   server_tree : readonly - 
+   selected_count - 
+   nodes - 
+   last_select - 
+   flags_map : readonly - 
+   changed_layer - 
+   server_data_version - 
+   is_changed : readonly - 
+   all_expanded - 
+   tree_name : readonly - 
+   make : ctor - 
+   make : ctor - 
+   calc_from_position : chg - 
+   onedir_calc_from_position : chg - 
+   bidir_calc_from_position : chg - 
+   get_load_block_half_size - 
+   set_load_block_half_size : chg - 
+   is_load_in_one_direction - 
+   set_load_in_one_direction : chg - 
+   is_loaded_node - 
+   adapter_filters_to_server - 
+   flush_counter_delta : chg - 
+   root - 
+   get_last_selected - 
+   update_counters : chg - 
+   get_children_flags_count - 
+   get_all_flags_count - 
+   pointer_path_to_index_path - 
+   pointer_to_index_path - 
+   name_path_to_index_path - 
+   server_data_version - 
+   add_notifier : chg - 
+   remove_notifier : chg - 
+   create_view : chg - 
+   pre_find - 
+   is_relevance_search_supported - 
+   get_first_fit - 
+   find - 
+   is_mode - 
+   build_node : chg - 
+   load_nodes_from_server : chg - 
+   get_shared_mode - 
+   apply_flags - 
+   cache_finded_node - 
+   invalidate_finded_node - 
+   find_cached_node - 
+   get_available_layers - 
+   change_children_count : chg - 
+   invalidate - 
+   changing - 
+   changed - 
+   apply_server_tree : chg - 
+   apply_created_node : chg - 
+   find_created_uid : chg - 
+   associate_node_with_uid : chg - 
+   disassociate_node_with_uid : chg - 
+   get_cached_server_tree - 
+   add_to_loaded : chg - 
+   is_all_expanded - 
+   expand_all : chg - 
+   is_root_visible - 
+   master_tree - 
+   alloc_new_node : chg - 
+   alloc_new_view : chg - 
+   clear : chg - 
+   safety_remove : chg - 
+   reset_children_count : chg - 
+   changed_layer - 
+   dump_flags_map - 
+   reset_by_server_tree : chg - 
+   reset_by_root : chg - 
+   set_changed : chg - 
+   apply_delta_postprocess : chg - [timestamp_sync]
+   get_change_mutex : chg - 
+   is_root_nil - 
+   root_is_dead : chg - used by RealNodeRoot::delete_obj ONLY
+   load_all_tree - прогружает дерево целиком. см. http://mdp.garant.ru/pages/viewpage.action?pageId=17334971
+   load_children - 
+   load_stub_node - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : friend - 
+    : friend - 
+    : friend - 
+    : uses - 
+    : uses - 
+    : uses - 
+  DefaultNodeBase : SimpleClass - 
+   children_flags : readonly - 
+   owner_tree : writeonly - 
+   srv_path_to_adapter : static - 
+   adapter_path_to_srv : static - 
+   index_path_to_node_path : static - 
+   print_path : static - 
+   server_layers_id_list_to_adapter : static - 
+   get_real_interface : static - 
+   make : ctor - 
+   make : ctor - 
+   get_server_pointer - 
+   find_node_by_path - 
+   find_node_by_path - 
+   find_loaded_node_by_path - 
+   get_tree_name - 
+   get_settings_root_id - 
+   node_name - 
+   server_data_version - 
+   get_server_path - 
+   get_tree_owner : chg - 
+   get_visible_index - 
+   invalidate_children_count - 
+   create_view_ex - 
+   set_range_flag : chg - 
+   has_parent_flag - 
+   has_children_flag - 
+   get_flag_count - 
+   get_first_level_children_flag_count - 
+   set_children_flag : chg - 
+   find_node_by_interface - 
+   find_node - 
+   find_node_path - 
+   get_visible_delta - 
+   get_visible_delta - 
+   get_visible_delta - 
+   get_index_from_parent - TODO: упростить, выкинув этот метод
+ходить только к StaticNode-е
+   get_abs_index - 
+   get_child_path_by_abs_index - 
+   add_notifier : chg - 
+   remove_notifier : chg - 
+   find_stub_for_index : chg - 
+   get_available_layers - 
+   get_first_fit - 
+   find - 
+   is_relevance_search_supported - 
+   get_node_by_path - Дублирует с CatalogBase
+   node_path_to_index_path - 
+   entity - 
+   apply_reset_delta : chg - 
+   apply_change_delta : chg - 
+   apply_insert_delta : chg - 
+   apply_delete_delta : chg - 
+   remove_me_and_siblings : chg - 
+   clean : chg - 
+   is_all_expanded - 
+   expand_all_nodes : chg - 
+   owner_tree : chg - 
+   owner_tree - 
+   set_range_flag_except_first_children_of_root_children : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : friend - 
+    : uses - 
+  ViewBase : SimpleClass - 
+   mode : readonly - 
+   parent_tree_root : readonly - 
+   maximum_levels_restriction : readonly - 
+   auto_open : readonly - 
+   make : ctor - 
+   build_node : chg - 
+   init : chg - 
+    : friend - 
+    : uses - 
+    : uses - 
+    : friend - 
+    : uses - 
+  RealNodeBase : SimpleClass - 
+   NodeChangeTransaction : SimpleClass - 
+   NodeChangeTransactionHolder : SimpleClass - 
+   server_point - 
+   name : property - 
+   current_transaction - 
+   fill_value : chg - 
+   fill_entity : chg - 
+   init : chg - 
+   reset : chg - 
+   init_inserted : chg - 
+   draw_node - 
+   is_equal : chg - 
+   get_current_transaction : chg - 
+   delete_current_transaction : chg - 
+   commit_and_remove_transaction : chg - 
+   paste_node : chg - 
+   paste_nodes - 
+   apply_transaction : chg - 
+   change_node_value : chg - 
+   change_node_entity : chg - 
+   make : ctor - 
+   make : ctor - 
+    : friend - 
+  NodesClipboard_i : Servant - 
+   server_node_holder - 
+   node_holder : chg - 
+    : uses - 
+  QueryFilter_i : Servant - 
+   list - 
+   insert_data : chg - 
+    : uses - 
+  DelegateNodeBase : SimpleClass - 
+   has_filtered_children : property - 
+   master_node : writeonly - 
+   make : ctor - 
+   draw_node - 
+   cached_master_node : chg - 
+   cached_master_node - 
+    : friend - 
+  NodeDelegate : Servant - 
+   make : ctor - 
+   is_alive - возвращает false, если нода принадлежит убитому дереву
+   get_master_caption - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  NodeBase_i : Servant - 
+   NodeBaseServantFactory : CustomFactory - 
+   key : switch - 
+   make_servant : ctor - 
+   make_servant : ctor - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : friend - 
+    : uses - 
+    : uses - 
+  DelegateNodeRoot : Servant - 
+   owner_view - 
+   key : switch - 
+   make : ctor - 
+  FrozenNode_i : Servant - 
+   server_point - 
+   server_path - 
+   server_name_path - 
+   server_data_version - 
+   settings_root_id - 
+   name - 
+   type - 
+   flags - 
+   has_filtered_children - 
+   key : switch - 
+   get_server_path - 
+   get_server_path - 
+   make : ctor - 
+    : uses - 
+  NodeIterator_i : Servant - 
+   CompactSelectorHelper : SimpleClass - 
+   cur_node - 
+   root - 
+   with_flags - 
+   get_base_next - 
+   make_selectors - 
+   make_compact_selectors - 
+   make : ctor - 
+  CatalogBase_i : Servant - 
+   root : property - 
+   name - 
+   get_cached_server_tree - 
+   get_cached_adapter_tree - 
+   make_tree : chg - 
+   get_cached_root - Получение рута
+   NodeType_ : in - 
+  View : SimpleClass - 
+   make : ctor - 
+   NodeDelegateType_ : in - 
+    : uses - 
+    : uses - 
+  Tree : SimpleClass - 
+   NewNodeMap : Map - 
+   NewNodeBackMap : Map - 
+   ApplyedNodeMap : Map - 
+   change_mutex - 
+   tree_name : property - 
+   new_node_map - 
+   new_node_back_map - 
+   make : ctor - 
+   create_uid : static - 
+   NodeType_ : in - 
+   NodeDelegateType_ : in - 
+    : uses - 
+    : uses - 
+    : uses - 
+  RealNodeRoot : Servant - 
+   owner_tree_var : readonly - 
+   key : switch - 
+   safety_tree_remove : chg - 
+    : friend - 
+  AllNodeIterator_i : Servant - 
+   cur_node - 
+   with_flags - 
+   make : ctor - 
+  KW_tree : Servant - 
+   key : switch - 
+  TYPE_tree : Servant - 
+   key : switch - 
+  FilteredTreeNode_i : Servant - 
+   has_filtered_children - Признак, что у ноды показываются не все дети
+   make : ctor - 
+    : uses - 
+  CLASS_REVIEW_tree : Servant - 
+   key : switch - 
+  REG_NUM_tree : Servant - 
+   key : switch - 
+  REG_IN_MU_NUM_tree : Servant - 
+   key : switch - 
+  STATUS_tree : Servant - 
+   key : switch - 
+  NORM_tree : Servant - 
+   key : switch - 
+  REG_IN_MU_tree : Servant - 
+   key : switch - 
+  BASES_tree : Servant - 
+   key : switch - 
+  PREFIX_tree : Servant - 
+   key : switch - 
+  TERRITORY_tree : Servant - 
+   key : switch - 
+  PUBLISH_SOURCE_tree : Servant - 
+   key : switch - 
+  EDITION_tree : Servant - 
+   key : switch - 
+  UC_tree : Servant - 
+   key : switch - 
+  ANNO_KIND_tree : Servant - 
+   key : switch - 
+  ANNO_USER_tree : Servant - 
+   key : switch - 
+  ANNO_ORG : Servant - 
+   key : switch - 
+  ANNO_INTEREST_tree : Servant - 
+   key : switch - 
+  ANNO_TAX : Servant - 
+   key : switch - 
+  TrimLeafFilter_i : Servant - 
+  NodeServerTree : SimpleClass - Адаптерное дерево, с кешом сервантов (эмуляция мультифабрики)
+   NodeDelegateType_ : template - 
+   make_tree : static - 
+   NodeType_ : in - 
+  PHARM_INTERNATIONAL_NAME_tree : Servant - 
+   key : switch - 
+  PHARM_TRADE_NAME_tree : Servant - 
+   key : switch - 
+  PHARM_CHAPTER_tree : Servant - 
+   key : switch - 
+  PHARM_COUNTRY_tree : Servant - 
+   key : switch - 
+  PHARM_REG_STATUS_tree : Servant - 
+   key : switch - 
+  PHARM_MEDICINAL_FORM_tree : Servant - 
+   key : switch - 
+  PHARM_ATC_tree : Servant - 
+   key : switch - 
+  PHARM_MKB_tree : Servant - 
+   key : switch - 
+  PHARM_GROUP_tree : Servant - 
+   key : switch - 
+  PHARM_EFFECT_tree : Servant - 
+   key : switch - 
+  PHARM_UNRECIPE_tree : Servant - 
+   key : switch - 
+  PHARM_IMPORTANT_tree : Servant - 
+   key : switch - 
+  PHARM_NARCOTIC_tree : Servant - 
+   key : switch - 
+  PHARM_COUNTRY_FOR_FILTER_tree : Servant - 
+   key : switch - 
+  CountryFilter_i : Servant - 
+   country - 
+  Variants_tree : Servant - дерево подсказок для базового поиска
+   key : switch - 
+  CutToLeafCountFilter_i : Servant - реализация фильтра усечения
+   leaf_count - максимальное число листьев в дереве
+  BlocksFilter_i : Servant - заглушка для фильтра по блокам
+  InpharmFilter_i : Servant - реализация фильтра
+  VariantsForDocFilter_i : Servant - 
+   doc_id - 
+  PREFIX_REVIEW_tree : Servant - 
+   key : switch - 
+  PUBLISH_SOURCE_FINANCE_tree : Servant - 
+   key : switch - 
+  SOURCE_REVIEW_tree : Servant - 
+   key : switch - 
+  PUBLISH_SOURCE_LEGAL_tree : Servant - 
+   key : switch - 
+  PUBLISH_SOURCE_HR_tree : Servant - 
+   key : switch - 
+  PUBLISH_SOURCE_BUDGET_ORGS_tree : Servant - 
+   key : switch - 
+  FilteredTree : InstanceDef - 
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+  BaseSearchPanesTree : Servant - 
+   key : switch - 
+  CLASS_tree : Servant - 
+   key : switch - 
+  SOURCE_tree : Servant - 
+   key : switch - 
+  PUBLISH_SOURCE_PHARM_tree : Servant - 
+   key : switch - 
+ FoldersHelper : Unit - 
+  ContentChecker : UtilityPack - 
+   check_content - Проверка контента на существование
+   check_server_content - Проверка существует ли контент (лезем на сервер)
+    : uses - 
+ PrefixTree_i : Impl - 
+  PrefixNode_i : Servant - 
+   PrefixNodeServantFactory : CustomFactory - 
+   mask - 
+   key : switch - 
+   make_servant : ctor - 
+    : uses - 
+  PrefixTreeDef : InstanceDef - 
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+ DocumentHelper : Unit - 
+  RedactionInfoListHelper : UtilityPack - 
+   NoActivityInterval : UnaryFunctor - 
+   find_redaction - 
+   find_redaction - 
+   find_actual_redaction - 
+   prev_redactions - 
+   cur_and_next_redactions - 
+  DocumentFactoryKeyHelper : UtilityPack - Получение ключа мультифабрики по серверному документу или PID
+   server_document_to_key - По серверному документу
+   PID_to_key - По PID'у
+    : uses - 
+    : uses - 
+    : uses - 
+  DocumentTypeToFactoryKey : TypeConvertor - 
+   type : Type1 - 
+   key : Type2 - 
+ DocTree_i : Impl - 
+  DocNodeFilter_i : Servant - 
+   id - 
+   type - 
+   inheritable - 
+  PrefixTree : SimpleClass - 
+   NodeType_ : template - 
+   NodeDelegateType_ : template - 
+   make : ctor - 
+    : uses - 
+    : uses - 
+  ContentsNode_i : Servant - 
+   type - 
+   id - 
+   make : ctor - 
+   make_servant : ctor - 
+  ContentsNodeDelegate : Servant - 
+   make : ctor - 
+    : uses - 
+  ContentsTree : SimpleClass - 
+   NodeType_ : template - 
+   NodeDelegateType_ : template - 
+   make : ctor - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ContentsView : SimpleClass - 
+   NodeDelegateType_ : template - 
+   make : ctor - 
+    : uses - 
+ InternetSupport : Interfaces - Возможности, доступные через интернет
+  InternetSupport : Interface - поддержка работы пользователей через internet
+   revision_check_enabled - Разрешена ли онлайн проверка ревизий документов (для супермобильной версии)
+   get_url_for_document - получить URL для заданного документа
+   make : factory - фабрика
+   is_internet_agent_enabled - Разрешен ли Интернет-Агент.
+   get_url_for_internet_version - получить URL для интранет версии
+   show_warning - Нужно ли показывать блямбу об отключении онлайн проверки
+  DecisionsArchiveSupport : Interface - Интерфейс доступа к архивам судебных решений
+   make : factory - 
+   get_archive_url - получить ссылку для перехода на архив судебных решений
+   archive_available - архив судебных решений доступен
+ Document_i : Impl - 
+  DocWithPid : SimpleClass - 
+   get_document_pid - 
+  DocumentState_i : Servant - 
+   State : Struct - 
+   source_doc - 
+   new_state - 
+   language - 
+   set_appropriate_list_info : chg - 
+   is_list_data_equivalent - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : friend - 
+  Document_i : Servant - 
+   AttributeTree : SimpleClass - 
+   AOM : Map - 
+   DocumentConstants : Constants - 
+   document : property - 
+   warning_impl : readonly - 
+   attributes_root - 
+   has_next_redaction_ : readonly - 
+   has_prev_redaction_ : readonly - 
+   doc_part_mask : readonly - 
+   loaded : readonly - 
+   time_machine_warning_string : readonly - 
+   name_impl : readonly - 
+   short_name_impl : readonly - 
+   doc_size : readonly - 
+   translation_impl : readonly - 
+   status_impl : readonly - 
+   last_check - Время последней проверки изменений документа
+   bookmark_list - 
+   comments_para_list - 
+   external_object_data_list - 
+   contents_data_mutex - 
+   contents_data_loaded - 
+   status_changes - Статус изменения документа
+   status_changes_updated - Статус изменения документа требует обновления
+   correspondent_mask : readonly - Маска типизированных корреспондентов
+   respondent_mask : readonly - Маска типизированных респондентов
+   yellow_time_machine_warning - 
+   can_like - Можно ли оценивать
+   current_state - 
+   aom : static readonly - 
+   load_server_doc - 
+   load_contents_data_if_empty : chg - 
+   load - 
+   load_and_update - 
+   is_date_in_not_sure_interval_i - 
+   get_master - 
+   build_extruct_list - 
+   get_current_redaction_info - 
+   get_internet_image_url_i - 
+   make_servant : ctor - 
+   make_servant : ctor - 
+   make_servant : ctor - 
+   get_linked_hint - получить тултип к ссылке
+   is_yellow_medal_time_machine_warning - // UC 72.5.2 пункт 3) [пункты 1) и 2) выполняются автоматически]
+   redaction_id - 
+   has_same_redactions - 
+   set_list_info : chg - 
+   set_inner_state : chg - 
+   make_text_provider - 
+    : uses - 
+    : friend - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  DocumentMaster : Servant - 
+   NewNestedCustomFactory : CustomFactory - 
+   related_doc - 
+   annotation - 
+   redaction_info_list : property - 
+   language_list - 
+   under_control_status - 
+   pid - 
+   may_show_attributes : static - 
+   key : switch - 
+   can_set_to_control - 
+   make : ctor - 
+   make : ctor - 
+   is_redaction_info_list_init - возвращает true, если список проинициализированн, иначе false
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  SimpleDocument : Servant - 
+   key : switch - 
+   make_servant : ctor - 
+  TranslatedDocument : Servant - 
+   key : switch - 
+   make_servant : ctor - 
+  AutoreferatDocument : Servant - 
+   key : switch - 
+   pid - 
+   bookmark_list - 
+   comments_para_list - 
+   list - 
+   desc_list - 
+   make_servant : ctor - 
+    : uses - 
+  Bookmark_i : Servant - 
+   name - 
+   saved_name - 
+   comment - 
+   pid - 
+   para_id - 
+   pilot_bookmark - 
+   doc_bookmark - 
+   folders_node - 
+   get_doc_bookmark : chg - 
+   clear_doc_bookmark : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  MissingInfo_i : Servant - 
+   obj_name - 
+   blocks_info - 
+   is_one_block - 
+    : uses - 
+  TipDocument : Servant - Документ Совета дня
+   key : switch - 
+   make_servant : ctor - 
+   make : ctor - 
+  PharmFirmDocument_i : Servant - Фирма
+   key : switch - 
+   make_servant : ctor - 
+   make : ctor - 
+  PharmDictDocument : Servant - Документ толкование медицинского толкового словаря
+   key : switch - 
+   make : ctor - 
+   make : ctor - 
+  DictDocument : Servant - Документ - толкование толкового словаря
+   key : switch - 
+   make : ctor - 
+   make : ctor - 
+  PharmDocument : Servant - Перапарат
+   key : switch - 
+   has_same - 
+   make : ctor - 
+   make : ctor - 
+  FlashDocument : Servant - Документ-флеш
+   key : switch - 
+   make : ctor - 
+   make : ctor - 
+  JournalBookmark_i : Servant - 
+   full_name - 
+   name - 
+   bookmark - 
+   journal_bookmark - 
+    : uses - 
+    : uses - 
+    : uses - 
+  DiffIterator_i : Servant - 
+  DocumentTextProvider_i : Servant - 
+  FoundContext_i : Servant - 
+  DiffDocDataProvider_i : Servant - 
+  ConsultingStub_i : Servant - заглушка для документа-консультации К259180433
+   name - 
+   pid : readonly - 
+    : uses - 
+    : uses - 
+  ConsultingStateStub_i : Servant - 
+  DocumentDelegate : Servant - 
+   master_document - 
+   key : switch - 
+   make : ctor - 
+    : friend - 
+    : friend - 
+    : uses - 
+    : uses - 
+  ActualAnalyticsContentsDocument : Servant - ААК-содержание
+   key : switch - 
+   make_servant : ctor - 
+   make : ctor - 
+    : uses - 
+  ActualAnalyticsDocument : Servant - ААК
+   key : switch - 
+   make_servant : ctor - 
+   make : ctor - 
+    : uses - 
+  DTPWithCachedData : Servant - Провайдер кеширует стиль и текст на адаптере
+  DTPWithDataCleaning : Servant - провайдер очищает данные о стиле и тексте после того, как прокидывает их оболочке
+  Link_i : Servant - 
+   server_link - 
+   get_server_link - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  RefDocument : Servant - Документ с http ссылками
+   key : switch - 
+   make_servant : ctor - 
+   make : ctor - 
+  BookDocument : Servant - 
+   key : switch - 
+   make_servant : ctor - 
+   make : ctor - 
+  LinkKindConvertor : TypeConvertor - 
+   server_link_kind : Type1 - 
+   adapter_link_kind : Type2 - 
+  ObjectFromLink_i : Servant - 
+   server_link - 
+   get_server_link - 
+  DocumentFromLink : Servant - 
+   type : switch - 
+    : uses - 
+  ListFromLink : Servant - 
+   type : switch - 
+    : uses - 
+  ExternalObjectFromLink : Servant - 
+   type : switch - 
+    : uses - 
+  ExternalLinkFromLink : Servant - 
+   type : switch - 
+  EnoFromLink : Servant - 
+   type : switch - 
+  ScriptFromLink : Servant - 
+   type : switch - 
+  AutoreferatFromLink : Servant - 
+   type : switch - 
+  ExternalOperationFromLink : Servant - 
+   type : switch - 
+    : uses - 
+  BookmarkFromLink : Servant - 
+   type : switch - 
+  QueryFromLink : Servant - 
+   type : switch - 
+    : uses - 
+  LinkedObjectTypeConvertor : TypeConvertor - 
+   server_type : Type1 - 
+   adapter_type : Type2 - 
+ UnderControl_i : Impl - 
+  ControlManager_i : Servant - 
+   pilot_controlled_objects - 
+   controlled_objects_mutex - 
+   force_for_update_status - 
+   control_notifier - 
+   async_update_status : static - 
+   get_cached_pilot_controlled_object - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ DynamicDocList_i : Impl - 
+  NodePointerMap : Map - 
+  ListCatalogBase_i : Servant - 
+   server_list : property - 
+   make : ctor - 
+   make_tree : chg - 
+   get_cached_server_list - возвращает экземпляр DocListTree БЕЗ увеличения счетчика ссылок!
+   NodeType_ : in - 
+    : uses - 
+    : uses - 
+    : uses - 
+  DynListNodeDelegate : Servant - 
+   make : ctor - 
+    : uses - 
+  DynListNode_i : Servant - 
+   list_node_type - 
+   document_id - 
+   make_servant : ctor - 
+   make_servant2 : ctor - 
+   get_block_position - 
+   get_parent_document_id - 
+   is_document_node - 
+   is_sub_or_para_node - 
+    : uses - 
+  DynListContentImpl : Enum - 
+   DLCI_UNKNOWN - 
+   DLCI_LEGAL - 
+   DLCI_MEDIC - 
+  ListEntryInfo_i : Servant - 
+   lei - 
+   entry_list - 
+   data_for_compare - 
+   build_entry_list : chg - 
+   operator== - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  SearchDynList_i : Servant - 
+   doc_list_tree - 
+  DynListNodeTree : InstanceDef - 
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+  ListCatalogBase : InstanceDef - 
+   NodeType_ - 
+  DynListTypeImpl : Enum - типы списка для кода реализации
+   T_CORRESPONDENT_IMPL - 
+   T_CORRESPONDENT_TO_PART_IMPL - 
+   T_RESPONDENT_IMPL - 
+   T_RESPONDENT_TO_PART_IMPL - 
+   T_UNKNOWN_IMPL - 
+   T_SAME_DOCUMENTS_IMPL - 
+  DynList_i : Servant - 
+   SortParamsWrapper : SimpleClass - 
+   DocListTypeConvertor : TypeConvertor - 
+   legal_document - 
+   query - 
+   build_server_list_on_demand - 
+   history - 
+   sort_params - 
+   context_filter - 
+   view - 
+   saved_list - 
+   NodeType_ : template - 
+   name_initialized - 
+   is_short_list - Короткий список (сниппеты)
+   is_snippet - 
+   node_pointer_2_block_position - 
+   filters - 
+   type - 
+   content_type - тип содержимого списка
+   filtrate : chg - 
+   clone_filters - 
+   do_delete_filter : chg - 
+   save_to_folder : chg - 
+   make_name : chg - 
+   get_cached_server_doc_list - 
+   get_actual_server_tree - 
+   write_to_log - 
+   check_filter - 
+   truncate_view_by_sort : chg - 
+   truncate_view_by_query : chg - 
+   truncate_view_by_context : chg - 
+   truncate_view_i : chg - 
+   get_root_i : chg - 
+   view : chg - 
+   real_root : chg - 
+   reset_by_server_tree : chg - 
+   add_bookmark : chg - 
+   type_to_impl_type : static - 
+   clear_cache : chg - Очистка закешированных данных
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  AnalysisNode_i : Servant - 
+   key : switch - 
+   has_list - может ли быть построен список
+   make : ctor - 
+   expand_if_needed : chg - Если узел пуст, он показывается свернутым с нулем напротив в скобках. Если в нем что-то есть, то разворачивается.
+  ListAnalysisTree : SimpleClass - Дерево анализа списка
+   NodeType_ : template - 
+   NodeDelegateType_ : template - 
+   expanded - флажок, были ли развёрнуты узлы дерева в соответствии с правилом:
+
+Если узел пуст, он показывается свернутым с нулем напротив в скобках. Если в нем что-то есть, то разворачивается.
+   make : ctor - 
+    : uses - 
+    : uses - 
+  DocListFactory_i : Servant - 
+    : uses - 
+    : uses - 
+  ListTree : SimpleClass - 
+   NodeDelegateType_ : template - 
+   node_pointer_2_block_position - 
+   make : ctor - 
+   add_block_position : chg - 
+   get_block_position - 
+   clear_block_positions : chg - 
+   NodeType_ : in - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ListTreeView : SimpleClass - 
+   NodeDelegateType_ : template - 
+   make : ctor - 
+    : uses - 
+ ExternalObject_i : Impl - 
+  ExternalLink_i : Servant - 
+   url - 
+  ExternalObject_i : Servant - 
+   name - 
+   blob - 
+  SplashScreen_i : Servant - 
+   splash_image_info - 
+    : uses - 
+ NewsLine_i : Impl - 
+  NewsLineNode_i : Servant - 
+   NewNestedCustomFactory : CustomFactory - 
+   key : switch - 
+   make_servant : ctor - 
+   make_servant : ctor - 
+  NewsLineTree : InstanceDef - 
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+ Monitoring : Interfaces - 
+  MonitoringList : Interface - Интерфейс-врапер, для того что бы отдать Документ с мониторингом ввиде Списка из опроеации поиска. Сразу после получения MonitoringList необхождимо преобразовать его к документу, через метод summary
+   summary : readonly - 
+   make : factory - 
+  Monitoring : Interface - 
+   news_line_root : readonly - 
+   is_news_line_defined - 
+   is_exist - 
+   make : factory - 
+ Notify_i : Impl - 
+  NotifyManager_i : Servant - 
+   TransformerList : Map - 
+   ListenerList : MultiMap - 
+   data_transformers - 
+   listeners - 
+   send_notify_to_all : chg - 
+   timestamp_changed : chg - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  LongTransformer_i : Servant - 
+   key : switch - 
+    : uses - 
+  BoolTransformer_i : Servant - 
+   key : switch - 
+    : uses - 
+  StringDataTransformer_i : Servant - 
+   key : switch - 
+    : uses - 
+  Notification_i : Servant - 
+   type - 
+   data - 
+ ChatInterfaces : Interfaces - интерфейсы для поддержки чата
+  UserInfo : Struct - информация о пользователе
+   email - email пользователя
+   login - регистрационное имя пользователя
+   name - имя пользователя
+  UnknownUser : Exception - задан идентификатор неизвестного пользователя
+  ChatManager : Interface - управление чатом
+   make : factory - фабрика
+   is_embed_chat_enabled - возвращает true, если на сервере обеспечена поддержка чата
+   get_contacts_tree - получить список пользователей, добавленных в контакты
+   get_user_info - информация о пользователе с заданным идентификатором
+   add_user : chg - добавить пользователя в список контактов
+   delete_user : chg - удалить пользователя из списка контактов
+   register_listener_for_notify : chg - зарегестрировать слушателя
+   receive_message : chg - получить сообщение с сервера
+   take_unreaded_messages : chg - выбрать все непрочитанные сообщения
+   logout : chg - вызывается при выходе из системы
+  Message : Struct - данные сообщения
+   text - сообщение (предполагается, что в evd формате)
+   time - время создания сообщения
+   my - true, если сообщение послано текущим пользователем, иначе это сообщение для него
+  Messages : Vector - список сообщений
+  MessagesManager : Interface - работа с сообщениями
+   make : factory - фабрика
+   get_unreaded_messages - получить непрочитанные сообщения от пользователя с заданным uid
+   send_message - послать сообщение заданному пользователю
+   get_history_for_user - получить count последних сообщений переписки с пользователем uid. Если count = 0, получить полную историю переписки. Если all_new = true, будут получены все непрочитанные сообщения, даже если их количество превышает count.
+   clean_history : chg - очистить историю сообщений с заданным пользователем
+   get_unreaded_messages - получить непрочитанные сообщения с сервера
+ Complect_i : Impl - 
+  ComplectInfo_i : Servant - 
+   old_base_warning - 
+   unexist_doc_message - 
+   owner - 
+   dealer_info - 
+   complect_type - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ComplectInfoNode_i : Servant - 
+    : CustomFactory - 
+   info - Данные ноды
+   make_servant : ctor - 
+   make : ctor - 
+  ComplectInfoTree : InstanceDef - 
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+ Explanatory_i : Impl - 
+  ExplanatoryNode_i : Servant - 
+   NewCustomFactory : CustomFactory - 
+   key : switch - 
+   make_servant : ctor - 
+   make_servant : ctor - 
+  ExplanatoryTree : InstanceDef - 
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+  MedExplanatoryNode_i : Servant - Узел для словарной статьи мед. термина
+   NewNestedCustomFactory : CustomFactory - 
+   key : switch - 
+   make_servant : ctor - 
+   make_servant : ctor - 
+  MedExplanatoryTree : InstanceDef - дерево словаря мед. терминов
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+ Folders_i : Impl - 
+  NodeVector : Vector - 
+  FoldersManager_i : Servant - 
+   root - 
+   root_mutex - Объект синхронизации создания папочного рута
+   recalc_shared_flags : chg - 
+   recalc_node_flags : chg - 
+   refresh : chg - 
+   pick_up_nodes - 
+   set_root : chg - 
+    : uses - 
+    : friend - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Folder_i : Servant - 
+   is_shared - Расшарена ли папка
+   is_external - Чужая ли это папка
+   name - 
+   comment - 
+   id - 
+   folder - 
+   folders_node - 
+   is_my - Проверяет моя или чужая папка
+   get_content_folder - 
+   clear_content_folder - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  FoldersNode_i : Servant - 
+   NewNestedConstants : Constants - 
+   ContentTypeConvertor : TypeConvertor - 
+   creation_date - 
+   caption - 
+   hint - 
+   m_short_doc_name - 
+   content - 
+   folder_element - 
+   content_type - 
+   type - 
+   flags - 
+   under_control_status - 
+   iquery - 
+   folders_manager - 
+   id - 
+   pid - 
+   short_doc_name - 
+   recalc_consultations_flag : chg - 
+   recursive_recalc_consultations_flag : chg - 
+   update_content : chg - Обновить содержимое этого узла
+   update_children : chg - Обновить кэш всех детей
+   load_children : chg - Прогрузить детей, рекурсивно
+   recalc_shared_flags : chg - Обновить флаги NF_HAS_SHARED, NF_IN_SHARED
+Вызывается рекурсивно от родителя передачей кумулятивного флага from_shared
+Возвращает true если хотя бы один из детенышей имеет флаг NS_SHARED
+   recalc_node_flags : chg - Обновить флаг flag2
+Вызывается рекурсивно от родителя передачей кумулятивного флага from_node
+Возвращает true если хотя бы один из детенышей имеет флаг flag1
+   find_node_by_id - Рекурсивный поиск ребенка по идентификатору
+   get_document_pid - 
+   set_shared_flag : chg - 
+   recalc_external_flag : chg - 
+   get_folder : chg - 
+   is_my_documents_or_lower - папка "Мои документы" или ее содержимое
+   is_my_documents - проверка или папка "Мои документы"
+   is_bookmark - Является ли контент ноды закладкой
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  FolderNotifier_i : SimpleClass - 
+   NotifierStatusConvertor : TypeConvertor - 
+   current_user - 
+   external_folders_change_notifier - 
+   done_notifier - 
+   make : ctor - 
+   send_notify : chg - 
+   ready - Возвращает true, если нотифаер готов обрабатывать нотификацию от сервера.
+   set_external_folders_change_notifier : chg - Установить оболочечный нотифайер
+    : uses - 
+    : uses - 
+    : uses - 
+  Notify : Struct - 
+   status - 
+   folder_id - 
+  NotifyDataList : Queue - 
+  DoneNotifier_i : SimpleClass - 
+   notify_data_list - 
+   fire_done - 
+   notifier - 
+   done_mutex - 
+   make : ctor - 
+   add_notify_data : chg - 
+   clear_cache : chg - 
+ Start_i : Impl - 
+  AssemblyInfo_i : Servant - 
+   ServerCapacityConverter : TypeConvertor - 
+    : uses - 
+  Authorization_i : Servant - 
+   need_logout - 
+   need_full_backup_after_logout - 
+   has_session - 
+   login_i - 
+   guest_login_i - 
+   post_login - 
+   pre_login - 
+   logout_i - 
+   xml_backup - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Common_i : Servant - 
+   BaseTypeTypeConvertor : TypeConvertor - 
+   is_explanatory_dictionary_exist - 
+   is_internal - 
+   base_date - 
+   folder_notifier - 
+   is_pharm_exist - есть ли в базе инфарм
+   is_trimmed_publish_source_exists - 
+   erase_inactive_users - 
+   get_bookmark_by_xml - xml restore method for integration
+   get_cached_folder_notifier - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  INI_OPTION_NAMES : Constants - названия опций из инишника
+   AUTO_SHOW_HELP_OPTION - показывать ли информацию об обновлениях при старте
+  ComponentManagerBase : Servant - 
+   notify_manager - 
+   make_server_facade : chg - 
+   get_server_interface - 
+   execute : chg - 
+   smart_backend_init - 
+   timestamp_init - 
+   run : chg - 
+   pre_orb_run : chg - 
+   wait_for_finalize : chg - 
+ Search_i : Impl - 
+  FoldersQueryFactories : LocalInterface - 
+   make_query : factory - 
+   make_query : factory - 
+   make_query : factory - 
+  QueryAttribute_i : Servant - 
+   tag_type - 
+   attribute_tag - 
+   make : ctor - 
+    : uses - 
+  QueryContextAttribute_i : Servant - 
+   values - 
+  QueryPhoneNumberAttribute_i : Servant - 
+   phone_number - 
+   city_code - 
+  QueryDateAttribute_i : Servant - 
+   values - 
+  QueryNodeAttribute_i : Servant - 
+   values - 
+  SearchImpl : Servant - 
+   is_morpho_exist - 
+   example_text_count - количество примеров
+    : uses - 
+    : uses - 
+  AttributeInfo_i : Servant - 
+   exist - 
+   default_value - 
+   available_operations - 
+   fill_attribute_info - 
+   make : ctor - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  QueryCreator_i : Servant - 
+    : uses - 
+  QueryHelper : Servant - 
+   type : property - 
+   find_attribute : chg - возвращает 0, если атрибут не найден
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  FiltersQueryHelper : Servant - 
+  Query_i : Servant - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  AdapterFiltersQuery_i : Servant - 
+   name - 
+   check_saved_query : chg - 
+  FiltersQuery_i : Servant - 
+   filter - 
+   need_load - 
+   parse_server_query : chg - 
+   check_saved_query : chg - 
+    : uses - 
+    : uses - 
+  QueryCardHelper : Servant - 
+   get_evd_card - 
+   get_exist_attrs - 
+    : uses - 
+    : uses - 
+  AttributeQueryCard : Servant - 
+   key : switch - 
+  ConsultingQueryCard : Servant - 
+   key : switch - 
+  PharmQueryCard : Servant - 
+   key : switch - 
+  ReviewQueryCard : Servant - 
+   key : switch - 
+  PrimeQueryCard : Servant - 
+   key : switch - 
+  FullAttributeInfo_i : Servant - 
+   default_value - 
+   tag - 
+   available_operations - 
+    : uses - 
+    : uses - 
+  AttributesHelper_i : Servant - 
+    : uses - 
+ Logging_i : Impl - 
+  LogManager_i : Servant - 
+  AnyVector : Vector - 
+  LogEventData_i : Servant - 
+   data - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Monitoring_i : Impl - 
+  MonitoringManager_i : Servant - 
+   is_anno_present - 
+   check_anno_present - 
+    : uses - 
+    : uses - 
+  MonitoringList_i : Servant - 
+ Filters_i : Impl - 
+  FilterFromQuery_i : Servant - 
+   filter - 
+   checked - все ли атрибуты в фильтре могут быть восстановлены
+   saved_query - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  FiltersManager_i : Servant - 
+   legal_notifier - 
+   pharm_notifier - 
+   legal_filters - 
+   pharm_filters - 
+   get_adapter_list - 
+    : uses - 
+    : uses - 
+  FilterInfo : Struct - 
+   count - 
+   flags - 
+   make : ctor - 
+  ErasedIds : Vector - 
+  Counter : Map - 
+  FilterUsageCounter_i : Servant - 
+   counter - 
+   erased - 
+   delete_filter - 
+    : uses - 
+    : uses - 
+ IntegrationProject : Interfaces - Пакет для проекта интеграции
+  IntegrationType : Enum - тип объекта
+   IT_LISTENTRYINFO - закладка
+   IT_LIST - список
+   IT_QUERY - запрос
+  CantCreateObject : Exception - в базе недостаточно данных для построения объекта
+  Integration : Interface - интерфейс для работы с проектом интеграции
+   integration_enabled : readonly - доступны ли в версии возможности для внешних интеграторов
+   get_integration_complect_id - возвращает идентификатор комлекта.
+   get_object_by_xml - метод возвращает объект по поданному xml-у
+   make : factory - фабрика
+ Integration_i : Impl - 
+  Integration_i : Servant - 
+   is_integration_enabled : readonly - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Tips : Interfaces - Совет дня
+  TipsManager : Interface - Менеджер Советов дня
+   tips_tree_root : readonly - Рут дерева совет дня
+   make : factory - 
+   get_current_tip - Получить текущий (по сценарию) Совет дня
+   is_exist - 
+ Tips_i : Impl - 
+  TipsManager_i : Servant - 
+   tips_exists - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TipsTreeNode_i : Servant - 
+  TipsTree : SimpleClass - 
+   NodeType_ : template - 
+   NodeDelegateType_ : template - 
+   make : ctor - 
+    : uses - 
+ Prime : Interfaces - 
+  PrimeKey : Typedef - 
+  Prime : Interface - 
+   name : property - 
+   query : property - 
+   id : readonly - 
+   make : factory - 
+  PrimeList : Vector - 
+  UnknownExportError : Exception - 
+  KeysList : Vector - список ключей рассылок
+  PrimeManager : Interface - 
+   has_online_access : readonly - есть ли доступ к онлайн редактированию анкет прайма
+   list : readonly - 
+   make : factory - 
+   add : chg - сохраняет на сервере свеже созданный запрос для рассылок
+   remove : chg - 
+   save_mail_delivery_task - 
+   share_prime_for_file_server - 
+   save_list_to_xml - 
+   update - обновить данные о новостных лентах у всех клиентов. Должен быть вызван перед выходом из утилиты.
+   save_and_send_to_online_server - рассылку в локальных настройках и отправить на сервер праймов
+   check_connection_to_online_server - проверить соединение с онлайн сервисом праймов
+  PrimeSettingsManager : Interface - настройки для утилиты настройки новостных лент
+   make : factory - фабрика
+  PrimeContractData : Interface - данные для печатной формы прайма.
+   info_kind : readonly - 
+   themes_name : readonly - 
+   client_name : readonly - 
+   profession : readonly - 
+   organisation_type : readonly - 
+   area : readonly - 
+   taxes : readonly - 
+   email : readonly - 
+   get_contract_data : factory - получить данные для заполнения печатной формы Прайма
+   get_contract_evd_form - получить шаблон для печатной формы Прайма
+ Prime_i : Impl - 
+  PrimeManager_i : Servant - 
+   has_online_access - 
+   list - 
+   result_file_name - создать имя файла для сохранения prime
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Prime_i : Servant - 
+   key - 
+   name - 
+   query - 
+   save : chg - 
+    : uses - 
+    : uses - 
+  PrimeSettingsManager_i : Servant - 
+  PrimeContractData_i : Servant - 
+   evd_template - 
+   area : readonly - 
+   email : readonly - 
+   info_kind : readonly - 
+   client_name : readonly - 
+   organisation_type : readonly - 
+   profession : readonly - 
+   taxes : readonly - 
+   themes_name : readonly - 
+    : uses - 
+ PharmFirmList : Interfaces - Список фирм
+  PharmFirmListEntry : Interface - Обертка для документа-фирмы из списка
+   make : factory - 
+   get_document - 
+ PharmFirmList_i : Impl - Пакет реализации списка-фирм
+  PharmFirmListEntry_i : Servant - 
+   document_id - Идентификатор документа
+    : uses - 
+    : uses - 
+    : uses - 
+  PharmFirmNode_i : Servant - 
+   NewNestedCustomFactory : CustomFactory - 
+   key : switch - 
+   make_servant : ctor - 
+   make_servant : ctor - 
+    : uses - 
+  PharmFirmTree : InstanceDef - 
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+ ChatService_i : Impl - реализация сервиса обмена сообщениями
+TODO: перенести в garant6x?
+  MessageListener_i : Servant - 
+    : uses - 
+  ChatManager_i : Servant - реализация
+   MessageComparator : Struct - упорядочивание сообщений
+   ServerMessages : Set - список сообщений
+   Constants : Constants - 
+   chat_enabled - 
+   unread_mutex - защита вектора непрочитанных сообщений
+   listener_id - идентификатор зарегестрированного на сервере интерфейса обратного вызова
+   contacts_mutex - защита доступа к списку контактов
+   unread - 
+   listener - оболочечный слушатель
+   contacts_list - список контактов
+   notify_tree - послать дереву пользователей (список контактов) нотификацию об обновлении
+   receive_messages : chg - получить список сообщений
+   check_contacts_list : chg - проверить есть ли пользователь в списке контактов
+   add_contact : chg - проверить список контактов и добавить пользователя при отсутствии
+   delete_contact : chg - проверить список контактов и удалить из него заданного пользователя
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  MessageManager_i : Servant - реализация
+   microseconds_to_datetime : static - перевод серверной даты в оболочечную
+   server_to_adapter_list : static - перемывка серверной коллекции сообщений в адаптерную
+    : uses - 
+    : uses - 
+    : uses - 
+ Security_i : Impl - 
+  UserManager_i : Servant - 
+   is_payment_status_cached - 
+   payment_status_for_newbies - 
+   users_root - 
+   groups_root - 
+   load_users_tree - 
+   load_groups_tree - 
+   set_privileged_rights_i - 
+    : uses - 
+    : uses - 
+    : uses - 
+  UserFilter_i : Servant - 
+   flags - 
+   group_uid - 
+   current_uid - 
+  UserProfile_i : Servant - 
+   NewNestedCustomFactory : CustomFactory - 
+   uid - 
+   login - 
+   name - 
+   mail - 
+   is_system - 
+   has_password - 
+   can_buy_consulting - 
+   is_privileged - 
+   update_mutex - 
+   make : ctor - 
+    : uses - 
+    : uses - 
+    : uses - 
+  UserNode_i : Servant - 
+   type - 
+   make : ctor - 
+   servant_make : ctor - 
+    : uses - 
+  GroupsNode : Servant - 
+   make : ctor - 
+   servant_make : ctor - 
+    : uses - 
+  GroupsTree : SimpleClass - 
+   NodeType_ : template - 
+   NodeDelegateType_ : template - 
+   make : ctor - 
+    : uses - 
+  UserNodeDelegate : Servant - 
+   make : ctor - 
+  UsersTree : SimpleClass - Дерево  пользователей
+   NodeType_ : template - 
+   NodeDelegateType_ : template - 
+   make : ctor - 
+   register_listener : chg - 
+    : uses - 
+    : uses - 
+  UsersTreeDef : InstanceDef - 
+   NodeDelegateType_ - 
+    : uses - 
+ SearchProgressIndicator_i : Impl - 
+  CancelSearch_i : Servant - 
+   search_manager - 
+ Settings_i : Impl - 
+  SettingsManager_i : Servant - Реализация интерфейса работы с настройками. Обеспечивает создание новых свойств и их получение. Свойство характеризуется строковым идентификатором. Интерфейс может быть получен или  из интерфейса Common,  в этом случае он обеспечивает доступ к свойствам активной конфигурации, или из интерфейса Configuration, тогда обеспечивается работа со свойствами этой конфигурации.
+   ConfigurationSelector : SimpleClass - 
+   ActiveConfigurationSelector : SimpleClass - 
+   FixedConfigurationSelector : SimpleClass - 
+   configuration_selector - 
+   make : ctor - 
+    : uses - 
+    : uses - 
+  Configuration_i : Servant - Реализация интерфейса, обеспечивающего работу с конкретной конфигурацией, является элементом списка конфигураций.
+   id - 
+   is_readonly - 
+   name - 
+   hint - 
+    : uses - 
+    : uses - 
+    : uses - 
+  DefaultValuesChangesIndicator_i : Servant - 
+   state : readonly - 
+   configuration : readonly - 
+  StoreSettingsToServer : SimpleClass - класс периодически сбрасывающий изменённые настройки на сервер
+    : friend - 
+  ServerSettingData : Struct - данные для сохранения настройки на сервере
+   conf_id - 
+   prop_id - 
+   prop_value - 
+   time - 
+   ctor : ctor - используется для поиска элемента в кешированных данных
+  CachedDataForServer : Set - данные для отправки на сервер
+  SettingsSaveStrategy : Enum - стратегия сохранения настроек
+   SSS_INTIME - сразу писать настройки на сервер
+   SSS_CACHE - сохранять настройки в кеше с периодическим сбросом на сервер
+   SSS_NOTSAVE - не сохранять настройки на сервере
+  ServerCacheValues : Constants - константы, связанные с использованием кеша настроек для сбрасывания на сервер. Если таймаут меньше нуля, настройеки на сервер вообще не пишутся, если равен нулю, то пишутся сразу без использования кеша
+   DELTA_OPTION_NAME - название опции, задающей таймаут сбрасывания настроек на сервер
+   DELTA_OPTION_VALUE - значение таймаута по-умолчанию
+  ConfigurationManager_i : Servant - 
+   Hasher : Struct - 
+   Property : Struct - 
+   ValueID : Struct - 
+   KeysMap : UnsortedMap - 
+   ValuesMap : UnsortedMap - 
+   PropertyTypeTranslator : TypeConvertor - 
+   DefaultValuesChangesStateTranslator : TypeConvertor - 
+   active_configuration_id - 
+   values_on_demand - 
+   configurations - 
+   save_strategy - cтратегия сохранения настроек на сервер
+   keys : readonly - 
+   values : readonly - 
+   store_timer - 
+   data_for_server - изменённые настройки
+   reactor - 
+   copy_configuration : chg - 
+   set_property_value : chg - 
+   get_property_value : chg - 
+   get_definition : chg - 
+   is_changed - 
+   is_changed_set - 
+   is_exist - 
+   save_as_default : chg - 
+   restore_default : chg - 
+   update_cache : chg - 
+   is_property_equal - 
+   update_cache : chg - 
+   flush_settings_to_server : chg - сбрасывает изменённые кешированные настройки на сервер
+   add_data_to_server : chg - добавить данные в кеш для отправки на сервер
+   property_used_by_server : static - настройка используется сервером, поэтому она должна быть передана на него.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  PropertiesManager_i : Servant - 
+   pid : readonly - идентифкатор текущего пользователя
+    : uses - 
+    : uses - 
+ UserJournal : Interfaces - 
+  JournalObjectType : Enum - Типы элементов Журнала работы
+   JOT_BOOKMARK - Закладка
+   JOT_QUERY - Запрос
+   JOT_FOLDER - Папка
+  BookmarkJournalType : Enum - 
+   BJT_BOOKMARK - Закладки
+   BJT_PHARM_BOOKMARK - Закладки Инфарма
+  UserJournal : Interface - Интерфейс журанла работы
+   save - Сохранить объект в журнал работы
+   remove - Удалить объект из журнала работы
+   clear - Очистить Журнал работы (аналогичен вызову remove (рут дерева журнала работы)
+   get_user_jornal_tree - Получить дерево Журнала работы
+   make : factory - 
+   get_bookmark_history - список закладок заданного типа
+   get_query_history - Получит список запросов заданного типа из Журнала
+ UserJournal_i : Impl - 
+  UserJournal_i : Servant - 
+   BookmarkJournalTypeTranslator : TypeConvertor - 
+   QueryJournalTypeTranslator : TypeConvertor - 
+   root - Рут дерева журнала
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  JournalNode : Servant - 
+   type - 
+    : uses - 
+  JournalTree : SimpleClass - 
+   NodeDelegateType_ : template - 
+   NodeType_ : template - 
+   make : ctor - 
+   clear : chg - Очистить дерево
+   : : NodeType_ - 
+    : uses - 
+    : uses - 
+  JournalObjectTypeTranslator : UtilityPack - 
+   translate - 
+   translate - 
+ Rubricator_i : Impl - 
+  RubricatorNode_i : Servant - 
+   NewNestedCustomFactory : CustomFactory - 
+   node_type - 
+   key : switch - 
+   make_servant : ctor - 
+   make_servant : ctor - 
+    : uses - 
+    : uses - 
+  RubricatorTree : InstanceDef - 
+   NodeType_ - 
+   NodeDelegateType_ - 
+    : uses - 
+ Banner_i : Impl - 
+  Banner_i : Servant - 
+   server_banner - Серверный баннер
+    : uses - 
+    : uses - 
+ Consulting_i : Impl - 
+  Estimation_i : Servant - реализация интерфейса
+   value - 
+   text - 
+  ConsultationManager_i : Servant - реализация
+   consulting_available - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Consultation_i : Servant - реализация
+   ListOfDeletedConsultations : SimpleClass - список удалённых консультаций
+   id - 
+   name - 
+   folders_node - 
+   query - 
+   user_name - 
+   answer - 
+   expert_name - 
+   query_paras - 
+   creation_date - 
+   modification_date - 
+   server_consultation - 
+   check_deleted - 
+   get_cached_server_consultation - 
+   refresh_node_flags : chg - 
+   mark_deleted : chg - пометить консультацию как удалённую
+   translate_paras - возвращает true, если в ответе лежит evd
+   translate_txt_paras - 
+   translate_evd_paras - 
+   is_evd_paras - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ConsultingTemplateInfo_i : Servant - 
+   answer - 
+   preanswer - 
+   query - 
+    : uses - 
+    : uses - 
+ InternetSupport_i : Impl - Возможности, доступные через интернет
+  InternetSupport_i : Servant - поддержка работы пользователей через internet
+   revision_check_enabled - Разрешена ли проверка ревизий
+   show_warning - Нужно ли показывать блямбу об отключении онлайн проверки
+    : uses - 
+  DecisionsArchiveSupport_i : Servant - поддержка доступа к архивам судебных решений
+   archive_available - 
+    : uses - 
+ MainMenu : Interfaces - Основное меню
+  SectionType : Enum - Тип секции ОМ
+   ST_FINANCE - Налоги и финансы
+   ST_HR - Раздел для кадровиков
+   ST_LEGAL - Раздел для юристов
+   ST_BUDGET_ORGS - Бюджетные организаций
+   ST_LAW_FOR_ALL - Право для всех
+   ST_BUSINESS_REFERENCES - Бизнес-справки
+   ST_CHANGES_IN_LEGISLATION - Изменения в законодательстве
+  SectionItem : Interface - Элемент раздела ОМ
+   caption : readonly - Имя
+   open - Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString)
+   make : factory - 
+  SectionItemList : Vector - 
+  Section : Interface - 
+   caption : readonly - имя
+    : factory switch - 
+   make : multi factory - 
+   get_items - Получить элементы раздела ОМ
+  MainMenu : Interface - Основное меню
+   get_base_search_panes - Получить дерево вкладок Бзового поиска
+   make : factory - 
+   get_section - Получить дерево секции ОМ по типу
+ MainMenu_i : Impl - Реализация интерфейса Основного меню
+  MainMenu_i : Servant - 
+    : uses - 
+  SectionTypeConverter : TypeConvertor - 
+   server : Type1 - 
+   adapter : Type2 - 
+  SectionBase : Servant - 
+   server_section - Серверный раздел ОМ
+   type - 
+   make : ctor - 
+    : uses - 
+    : uses - 
+    : uses - 
+  SectionItem_i : Servant - 
+   server_section_item - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  FinanceSection : Servant - 
+   key : switch - 
+  HRSection : Servant - раздел для кадровиков
+   key : switch - 
+  LegalSection : Servant - Раздел для юристов
+   key : switch - 
+  BudgetOrgsSection : Servant - Раздел для бюджетных организаций
+   key : switch - 
+  BusinessReferencesSection : Servant - Раздел Бизнес-справки
+   key : switch - 
+  ChangesInLegislationSection : Servant - Раздел Изменения в законодательстве
+   key : switch - 
+  LawForAllSection : Servant - 
+   key : switch - 
+GblAdapterServer : AdapterTarget - 
+GblAdapterClient : AdapterTarget - 
+GblAdapter : AdapterTargetUnion - 

@@ -1,0 +1,26 @@
+USES
+	axiom:subdescriptor
+;
+
+BOOLEAN VAR g_IsIconVisible
+
+PROCEDURE FindIconVisible OBJECT IN aSubDescription INTEGER IN aHandle 
+ Если ( aHandle РАВНО 0 ) то 
+	( aSubDescription subdescriptor:GetVisible >>> g_IsIconVisible )
+;
+
+PROCEDURE "Ищем видимость первой иконки"
+        false >>> g_IsIconVisible
+	OBJECT VAR l_SubPanel		
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	@ FindIconVisible l_SubPanel IterateSubDecriptorsOnSubPanel
+        g_IsIconVisible .
+;
+
+Тест TK604485383
+	Выполнить (
+		"Ищем видимость первой иконки"
+	)
+;
+
+TK604485383

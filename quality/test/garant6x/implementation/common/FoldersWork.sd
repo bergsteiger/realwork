@@ -1,0 +1,914 @@
+///////////////////////////////////////////////////////////////////////////////
+//	Модуль для работы с папками                                              //
+///////////////////////////////////////////////////////////////////////////////
+uses Clicks, common, SettingsWork, MenuWork, ListWork, exceptions, RunPrograms;
+
+{
+  TYPE: Работа с папками
+  DESC: Заполняет диалог сохранения в папки
+  RESULT: True, если не было окна с ошибкой
+  REMARK:
+    paramString:
+      Name - имя объекта
+        по-умолчанию : ''
+      Note - примечание к объекту
+        по-умолчанию : ''
+      OkButtonName - имя кнопки на нижнем тулбаре, по которой кликнем после заполнения формы, если IsCloseDialog=true
+        по-умолчанию : Ок
+      IsCloseDialog - закрывать ли диалог после заполнения формы
+        по-умолчанию : true
+}
+function FillObjectInfoDialog(
+  folderForm : OleVariant;
+  const paramString : String
+) : boolean;
+  var
+    paramList, wnd : OleVariant;
+    objectName, objectNote, errorMessage, okButtonName : String;
+    isCloseDialog : boolean;
+begin
+  try
+    Result := false;
+    if NOT IsExists(folderForm) then Raise('Окно формы не существует!');
+    { парсим параметры }
+    paramList := ParseParamString(paramString );
+    // !!! отключенная ЗАТОЧКА!!! Эти 2 StringReplace'а внизу - заточка против неработающего серого минуса.
+    //objectName := StringReplace( GetParam(paramList, 'Name', ''), '-', '!-', 1 or 2);
+    objectName := GetParam(paramList, 'Name', '');    
+    //objectNote := StringReplaceExt( GetParam(paramList, 'Note', ''), ['-', EndOfLine], ['!-', '[Enter]'], 1 or 2);
+    objectNote := StringReplace( GetParam(paramList, 'Note', ''), EndOfLine, '[Enter]', 1 or 2);
+    okButtonName := GetParam(paramList, 'OkButtonName', 'Ок');
+    isCloseDialog := VarToBool( GetParam(paramList, 'IsCloseDialog', 'true') );
+
+    { заполняем диалог }                                 
+    if objectName <> '' then
+    begin
+      wnd := GetFromFolderForm('ПОЛЕ "ИМЯ"', folderForm);
+      if NOT IsExists(wnd) then Raise('Не вижу поле "ИМЯ"');
+      wnd.SetFocus;
+      Sys.Keys(objectName);     
+      //wnd.Keys(objectName);
+    end;  
+
+    if objectNote <> '' then
+    begin
+      wnd := GetFromFolderForm('ПОЛЕ "ПРИМЕЧАНИЕ"', folderForm);
+      if NOT IsExists(wnd) then Raise('Не вижу поле "ПРИМЕЧАНИЕ"');
+      wnd.SetFocus;
+      //wnd.Keys(objectNote);
+      Sys.Keys(objectNote);
+    end;
+    
+    { закрываем диалог }
+    if isCloseDialog then
+    begin
+      wnd := GetFromFolderForm('НИЖНИЙ ТУЛБАР' , folderForm);
+      if NOT ClickToolbarButton( wnd, okButtonName) then Raise('Не получилось кликнуть по указанной кнопке(' + okButtonName + ')!');
+      WaitForConfirmationWindow(Options.Run.Timeout div 30);
+      errorMessage := WaitForErrorWindow(Options.Run.Timeout div 30);
+      Result := (errorMessage = '');
+      if NOT Result then
+      begin
+        Log.Warning('При закрытии диалога вылезло сообщение об ошибке!', errorMessage );
+//        ClickToolbarButton( wnd, 'Отмена'); // Рыков
+        Raise('При закрытии диалога вылезло сообщение об ошибке!');
+      end;
+    end
+    else
+      Result := true;//Если не закрываем диалог  
+  except
+    Log.Message('FillObjectInfoDialog: ' + ExceptionMessage, 'paramString : "' + paramString + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    if (isCloseDialog) AND IsExists(folderForm) then
+      ClickToolbarButton( GetFromFolderForm('НИЖНИЙ ТУЛБАР' , folderForm), 'Отмена');
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Открывает окно диалога сохранения в Мои документы и позиционирует курсор на необходимом элементе (по умолчанию "Мои документы")
+  RESULT: В качестве результата возвращает дерево папок
+  REMARK:
+    paramString:
+      IsPressHome - нажимать ли кнопку Home в дереве папок (true|false)
+        по-умолчанию: true
+}
+function OpenSaveToFolderDialog(
+  const mPath: String = 'Мои документы'; // на этом пути позиционируемся (если пусто, то не позиционируемся)
+  const paramString : String = '' // строка параметров
+): OleVariant;
+var
+  w, myDocTree : OleVaraint;
+  i : integer;
+  paramList : OleVariant;
+  isPressHome : boolean;
+begin
+  try
+    { парсим параметры }
+    paramList := ParseParamString(paramString);
+    isPressHome := VarToBool(GetParam(paramList, 'IsPressHome', 'true'));
+    {}
+    Result := NonExObj;
+    for i := 1 to 2 do
+    begin
+      case i of 
+        1 : if NOT ClickByMainMenuItem('Файл\Сохранить в Мои*документы*') then
+          Log.Warning('Не получилось кликнуть по пункту меню: "Файл\Сохранить в Мои документы..."');        
+        2 :	Sys.Keys('^[F11]');
+      end;
+      WaitForConfirmationWindow(Options.Run.Timeout div 15, 'Да');
+      w := GetFromShell('ДИАЛОГ СОХРАНЕНИЯ В ПАПКИ');
+      if IsExists(w) then break;
+    end;
+    if not IsExists(w) then 
+      Raise('Не получилось открыть диалог "Сохранить в Мои документы..."');                
+      
+    myDocTree := GetFromFolderForm('ДЕРЕВО ПАПОК', w);
+    if IsExists( myDocTree ) then
+    begin
+      Result := myDocTree;
+      myDocTree.SetFocus;
+      if isPressHome then Sys.Keys ('[Home]');
+      if (mPath <> '') then
+        if NOT Position_Internal(myDocTree, mPath) then 
+          Raise('Не получилось спозиционировать на пути: "' + mPath + '"');
+    end;  
+  except
+    Log.Message('OpenSaveToFolderDialog: ' + ExceptionMessage, 'mPath: "' + VarToStr(mPath) + '"; ' + EndOfLine + 'paramString: "' + VarToStr(paramString) + '"; ',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+  CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Открывает окно диалога сохранения в Мои документы и позиционирует курсор на необходимом элементе (по умолчанию "Мои документы")
+  RESULT: В качестве результата возвращает дерево папок
+  REMARK:
+    paramString:
+      IsPressHome - нажимать ли кнопку Home в дереве папок (true|false)
+        по-умолчанию: true
+}
+function OpenLoadFromFolderDialog(
+  const mPath: String = ''; // на этом пути позиционируемся (если пусто, то не позиционируемся)
+  const paramString : String = '' // строка параметров
+): OleVariant;
+var
+  w, myDocTree : OleVaraint;
+  i : integer;
+  paramList : OleVariant;
+  isPressHome : boolean;
+begin
+  try
+    { парсим параметры }
+    paramList := ParseParamString(paramString);
+    isPressHome := VarToBool(GetParam(paramList, 'IsPressHome', 'true'));
+    {}
+    Result := NonExObj;
+    for i := 1 to 2 do
+    begin
+      case i of 
+        1 : if NOT ClickByMainMenuItem('Файл\Выбрать из Моих*документов...') then 
+          Log.Warning('Не получилось кликнуть по пункту меню: "Файл\Выбрать из Моих документов..."');        
+        2 :	Sys.Keys('![F11]');
+      end;  
+      WaitForConfirmationWindow(Options.Run.Timeout div 15, 'Да');
+      w := GetFromShell('ДИАЛОГ ОТКРЫТИЯ ИЗ ПАПОК');
+      if IsExists(w) then break;
+    end;
+    if not IsExists(w) then 
+      Raise('Не получилось открыть диалог "Выбрать из Моих документов..."');      
+    myDocTree := GetFromFolderForm('ДЕРЕВО ПАПОК', w);
+    if IsExists( myDocTree ) then
+    begin
+      Result := myDocTree;
+      myDocTree.SetFocus;
+      if isPressHome then Sys.Keys ('[Home]');
+      if (mPath <> '') then
+        if NOT Position_Internal(myDocTree, mPath) then 
+          Raise('Не получилось спозиционировать на пути: "' + mPath + '"');
+    end;  
+  except
+    Log.Message('OpenLoadFromFolderDialog: ' + ExceptionMessage, 'mPath: "' + VarToStr(mPath) + '"; ' + EndOfLine + 'paramString: "' + VarToStr(paramString) + '"; ',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+  CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Функция простого сохранения в папку объекта (список, запрос, закладка) под именем NameOfSavedObject
+  RESULT:
+  REMARK:
+}
+function SimpleSaveToFolders(
+  const nameOfSavedObject: String; // имя сохраняемого объекта
+  const isDialogAlwaysOpen : boolean = false; // открыт ли уже диалог сохранения
+  const paramString : String = '' // строка параметров
+): Boolean;
+var
+	p,w, folderTree;
+  errorMessage: String;
+  i : integer;
+begin
+  try
+    Result := false;
+    if NOT isDialogAlwaysOpen then
+      folderTree := OpenSaveToFolderDialog
+    else
+      folderTree := GetFromFolderForm('ДЕРЕВО ПАПОК', GetFromShell('ДИАЛОГ СОХРАНЕНИЯ В ПАПКИ'));
+    
+    if IsExists(folderTree) then 
+    begin
+      Result := FillObjectInfoDialog(
+        folderTree,
+        'Name:=' + nameOfSavedObject + ';' + 
+        'IsCloseDialog:=true;' +
+        'OkButtonName:=Сохранить;' + paramString
+      );
+      if NOT Result then
+        Log.Warning('Не удалось сохранить в папки объект под именем "' + nameOfSavedObject + '"');
+    end
+    else
+      Log.Warning('Не получилось найти окно диалога сохранения!');
+  except
+    Log.Message('SimpleSaveToFolders: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+  CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Функция простого сохранения в папку объекта 
+  RESULT:
+  REMARK:
+}
+function SaveToFoldersExt(
+  const pathToPosition : String; // на этом объекте спозиционируемся перед записью
+  const objName: String; // имя сохраняемого объекта
+  const objNote: String; //  сохраняемого объекта  
+  const buttonToClick : String = 'Сохранить';
+  const isDialogAlwaysOpen : boolean = false // открыт ли уже диалог сохранения
+): Boolean;
+var
+	p,w, folderTree;
+  errorMessage: String;
+  i : integer;
+begin
+  try
+    Result := false;
+    if NOT isDialogAlwaysOpen then
+      folderTree := OpenSaveToFolderDialog
+    else
+      folderTree := GetFromFolderForm('ДЕРЕВО ПАПОК', GetFromShell('ДИАЛОГ СОХРАНЕНИЯ В ПАПКИ'));
+    
+    if IsExists(folderTree) then 
+    begin
+      if NOT Position_Internal(folderTree, pathToPosition, DELIM_CHAR, true, 'isPressHome:=true') then 
+        Raise('Не получилось спозиционироваться по указанному пути!');
+      Result := FillObjectInfoDialog(
+        folderTree,
+        'Name:=' + objName + ';' + 
+        'Note:=' + objNote + ';' +         
+        'IsCloseDialog:=true;' +
+        'OkButtonName:=' + buttonToClick + ';');
+      if NOT Result then Raise('Не удалось сохранить в папки объект!');
+    end
+    else
+      Log.Warning('Не получилось найти окно диалога сохранения!');
+  except
+    Log.Message('SaveToFoldersExt: ' + ExceptionMessage, 'pathToPosition: "' + VarToStr(pathToPosition) + '"; objName: "' + VarToStr(objName) + '"; objNote: "' + VarToStr(objNote) + '"; buttonToClick: "' + VarToStr(buttonToClick) + '"; isDialogAlwaysOpen: "' + VarToStr(isDialogAlwaysOpen) + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+  CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Функция простого сохранения в папку объекта (список, запрос, закладка) под именем NameOfSavedObject
+  RESULT:
+  REMARK:
+}
+function SetBookmark(
+  const bookmarkName : String; // имя 
+  const bookmarkNote : String = ''; // примечание 
+  const pathToSave : String = 'Мои документы';
+  const isUsePopupMenu : boolean = false; // использовать попап-меню
+  const wndWithPopupMenu : OleVariant = nil // объект окна, на котором есть попап-меню
+): Boolean;
+var
+	wnd, folderForm;
+  errorMessage: String;
+  res : boolean;
+begin
+  try
+    Result := false;
+    //GetMainWindow.SetFocus;
+    
+    if NOT isUsePopupMenu then
+    	res := ClickByMainMenuItem('Документы\Установить закладку...')
+    else
+    begin
+    	Sys.Keys('[Apps]');
+      if NOT IsExists(wndWithPopupMenu) then Raise('Окно с попап-меню не задано или не существует!');
+      res := ClickByPopupMenuItem(wndWithPopupMenu, 'Установить закладку...');
+    end;
+    if NOT res then Raise('Не смогли вызвать "Установить закладку..."');
+    
+    WaitForConfirmationWindow(Options.Run.Timeout div 15, 'Да');
+
+    folderForm := GetFromShell('ДИАЛОГ УСТАНОВКИ ЗАКЛАДКИ');
+    if IsExists(folderForm) then 
+    begin
+      if Position_Internal(
+        GetFromFolderForm('ДЕРЕВО ПАПОК', folderForm), pathToSave, DELIM_CHAR, true, 'IsPressHome:=true') then
+        Result := FillObjectInfoDialog(
+          folderForm,
+          'Name:=' + bookmarkName + ';' + 
+          'Note:=' + bookmarkNote + ';' + 
+          'IsCloseDialog:=true;' +
+          'OkButtonName:=Сохранить'
+        )
+      else
+      begin
+        Log.Error('Не получилось спозиционироваться по пути "' + pathToSave + '"');  
+        ClickToolbarButton( GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderForm), 'Отмена');
+      end;  
+    end        
+    else
+      Log.Error('Не получилось найти окно диалога сохранения!');
+  except
+    Log.Message('SetBookmark: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+  CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Удаление объекта из папок "Мои документы"
+  RESULT:
+  REMARK: Позиционируется на объекте в папках и нажимает Del
+    paramString:
+      HowToDel - (keyboard|popupmenu|mainmenu) - как удалять
+        по-умолчанию : keyboard
+}
+function DeleteObjectFromFolder(
+  const path : String; // путь к объекту (разделитель - "\")
+  folderTree : OleVariant = nil; // окно
+  const paramString : String = '' // строка параметров
+) : boolean;
+  var
+    paramList : OleVariant;
+    howToDel, lastElementText : String;
+begin
+  try
+    Result := false;
+    paramList := ParseParamString(paramString);
+    howToDel := AnsiUpperCase( GetParam(paramList, 'HowToDel', 'keyboard') );
+
+    if (folderTree = nil) then folderTree := OpenMyDocTab;
+    if NOT IsExists(folderTree) then Raise('Родительское окно не существует');
+    folderTree.SetFocus;
+    Sys.Keys('[Home]');
+    if (common.Position_Internal(folderTree, path, DELIM_CHAR, true)) then
+    begin
+      lastElementText := common.GetWindowText(folderTree);
+      case howToDel of
+        'KEYBOARD'  : Sys.Keys('[Del]');
+        'POPUPMENU' : 
+          begin 
+            Sys.Keys('[Apps]');
+            if NOT ClickByPopupMenuItem(folderTree, 'Удалить*') then
+              Raise('Не получилось в контекстном меню кликнуть по "Удалить"');
+          end;
+        'MAINMENU'  : if NOT ClickByMainMenuItem('Правка\Удалить') then Raise('Не получилось кликнуть в главном меню по "Правка\Удалить"');
+      else
+        Raise('Параметр HowToDel не распознан!');    
+      end;    
+      Result := VarToBool(GetParam(paramList, 'IsWaitConfim', 'true')) and (WaitForConfirmationWindow <> '')
+                or (not StringCompare(lastElementText, common.GetWindowText(folderTree)));
+    end
+    else
+    	Log.Warning('Не найден элемент: "' + path + '"');      	  
+  except
+    Log.Message('DeleteObjectFromFolder: ' + ExceptionMessage, 'paramString: "' + VarToStr(paramString) + '"; ',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Открытие объекта из папок ( по умолчанию из вкладки: "Мои документы")
+  RESULT:
+  REMARK: Позиционируется на объекте в папках и нажимает Enter
+}
+function OpenObjectFromFolder(
+  const path: String; // путь к элементу (полный!)
+  folderTree : OleVariant = nil;
+  const paramString : String = ''
+): boolean;
+var
+  paramList, msg_txt;
+  isFocusFolderTree; // если например мы позиционируемся в выпадающем списке комбобокса, лучше передавать этот параметр False
+begin
+  try
+    Result := false;
+    paramList := ParseParamString(paramString);    
+    isFocusFolderTree := VarToBool(GetParam(paramList, 'IsFocusFolderTree', 'true'));
+    
+    if (folderTree = nil) then folderTree := OpenMyDocTab;
+    if NOT IsExists(folderTree) then 
+      Raise('Родительское окно не существует');    
+    if (common.Position_Internal(folderTree, path, DELIM_CHAR, true,  'IsPressHome:=true; IsFocusFolderTree:=' + VarToStr(isFocusFolderTree) )) then
+    begin
+      Sys.Keys('[Enter]');
+      msg_txt := GetParam( WaitForAnyMessageWindow('', Options.Run.Timeout div 30, '', 'OK'), WFMF_RES_MSGTEXT, ''); 
+      Result := msg_txt = '';
+      if not Result then
+  	    Raise('При открытии элемента "' + path + '" возникла ошибка с текстом: "' + msg_txt + '"');
+    end
+    else
+  	  Raise('Не найден элемент: "' + path + '"');
+  except
+    Log.Message('OpenObjectFromFolder: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Создание папки кликом на тулбаре или через контекстное меню
+  RESULT:
+  REMARK:
+}
+function CreateFolderFrom (
+  tbOrContext: Boolean; // true при помощи клика, false через контекстное меню
+  pathToFolder : String; // путь к папке
+  folderName: String; // имя папки
+  folderNote: String = ''; // примечание к папке
+  folderTree: OleVariant = nil // окно с деревом папок 
+): Boolean;
+var
+  errorMessage : String;
+  res : boolean;
+  wnd : OleVariant;
+begin
+  try
+    Result := false;
+    if folderTree = nil then folderTree := OpenMyDocTab;
+    if NOT IsExists(folderTree) then Raise('Родительское окно не существует');
+    // ищем путь
+    if Position_Internal(folderTree, pathToFolder) then
+    begin // нашли путь
+      // открываем диалог создания папки
+      if tbOrContext then
+        res := ClickToolbarButton( GetFromFolderForm('ТУЛБАР "МОИ ДОКУМЕНТЫ"', folderTree), 'Создать папку' )
+      else
+      begin
+        Sys.Keys('[Apps]');
+        res := ClickByPopupMenuItem(folderTree, 'Создать папку');
+      end;
+      if (NOT res) then Raise('Не смогли кликнуть по кнопке или в контестном меню по пункту "Создать папку"');
+// The following line was changed by TestComplete:
+//       Sys.Delay(Options.Run.Timeout div 20); // задержка для того, чтобы модальное окно(если его вызываем) успело появиться
+      Delay(Options.Run.Timeout div 20); // задержка для того, чтобы модальное окно(если его вызываем) успело появиться
+            
+      Result := FillObjectInfoDialog(
+        folderTree,
+        'Name:=' + folderName + ';' +
+        'Note:=' + folderNote + ';' +
+        'IsCloseDialog:=true;OkButtonName:=Ок'
+      );
+      folderTree.SetFocus;
+      Sys.Keys('[Home]');
+    end
+    else // не нашли путь
+      Result := ErrorResult('Не получилось создать папку по пути: ' + pathToFolder);
+  except
+    Log.Message('CreateFolderFrom: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Очищает Журнал Работы
+  RESULT:
+  REMARK:
+}
+function JurnalClear : boolean;
+var
+  folderTree;
+  jurnalToolbar;
+  jurnalClearButton;
+begin
+  try
+    //GetMainWindow.SetFocus;
+    folderTree:= OpenJurnalTab;      
+    if NOT IsExists(folderTree) then Raise('Не получилось найти вкладку "Журнал работы"');
+    jurnalToolbar := 
+      FindWindowByPath(
+        FindWindowByPath(folderTree, 'WNDCLASS:=TWorkJournalForm;MAXDEPTH:=-1'),
+        'NAME:=TopDock;WNDCLASS:=TvcmDockDef;MAXDEPTH:=3|NAME:=tbWorkJournalFormTop;WNDCLASS:=TvcmToolbar'
+      );
+    if NOT IsExists(jurnalToolbar) then Raise('Не удалось получить Тулбар Журнала работы');         
+    //folderTree.SetFocus;    
+    //Sys.Keys('[Apps]');
+    //if NOT ClickByPopupMenuItem(folderTree, 'Очистить журнал работы') then Raise('Не получилось кликнуть по "Очистить журнал работы"');
+
+    jurnalClearButton := GetToolbarButton(jurnalToolbar, 'Очистить');
+    if (IsExists(jurnalClearButton) and (not jurnalClearButton.Enabled)) then
+      Log.Warning('JurnalClear: Кнопка "Очистить" неактивна - считаем журнал чистым', '',  pmNormal, GetLogAttr('EXCEPTION'))
+    else  
+    if (NOT ClickToolBarButton(jurnalToolbar, 'Очистить')) then
+      Raise('Не удалось кликнуть по кнопке "Очистить" на тулбаре Журнала Работы');
+      
+    Result := true;
+  except
+    Log.Message('JurnalClear: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+  CommonExceptionHandler;
+  end;
+end;
+
+
+{
+  TYPE:
+  DESC: Удаляет все объекты из Моих документов
+  RESULT: True, если во вкладке "Мои документы" объектов не осталось
+  REMARK:
+}
+function DeleteAllInMyDoc : boolean;     
+  var
+    folderTree;
+begin
+  try                                                 
+    result := false;
+    folderTree := OpenMyDocTab;    
+    if NOT IsExists(folderTree) then
+      Raise('Не удалось получить вкладку навигатора "Мои документы"');
+    folderTree.SetFocus;
+    
+    while NOT Assign(Result, NOT Position_Internal(folderTree, MY_DOCS_PATH + '*', DELIM_CHAR, true, 'IsPressHome:=true')) do
+      DelWithConfirm;
+  except
+    Log.Message('DeleteAllInMyDoc: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+    result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Получает строку из поля Имя, Примечание
+  RESULT:
+  REMARK: После выполнения скрипта, вкладка Свойства закрывается. 
+}
+function GetFromProperties(
+  name: string; //полный путь в закладки Мои документы
+  edittype: string; //тип поля
+  getByCopy: boolean = false //получать посредствам copy
+): oleVariant;
+var
+  field, folderTree;  
+begin
+try
+  folderTree := OpenMyDocTab(name <> '');
+  if (name <>'') and (not Position_Internal (folderTree,  name)) then
+    Raise('Не получилось спозиционироваться на объекте "' + name + '"');
+  if not OpenAndClickByPopUpMenuItem(folderTree, '*свойства*') then
+    Raise('Не получилось открыть Свойства объекта "' + name + '"');
+
+  //Было нужно для 7.2
+  //if NOT SwitchToPage(GetFromFolderForm('ЗАКЛАДКИ', folderTree), 'Свойства') then
+  //  Raise('Не удалось переключить PageControl на вкладку Свойства');
+
+  case edittype of
+    'ПОЛЕ "ПРИМЕЧАНИЕ"' :
+      field := GetFromFolderForm(edittype, folderTree);
+    'ПОЛЕ "ИМЯ"' :
+      field := GetFromFolderForm(edittype, folderTree);
+  else     
+    Raise('Тип поля "' + edittype + '" не известен!');
+  end;    
+  if not IsExists(field) then
+    Raise('Поле "' + edittype + '" объекта "' + name + ' не найдено!');
+
+  if getByCopy then
+    Result := CopyToClipboard(field, 'ALL')
+  else
+    Result := common.GetWindowText(field.Handle);
+
+  if not ClickToolbarButton(GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderTree), 'Отмена') then 
+    Raise('Не удалось нажать кнопку Отмена на нижнем тулбаре');  
+except
+  Result := '';
+  Log.Error('GetFromProperties: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Выполняется Экспорт данных из папки в xml файл
+  RESULT:
+  REMARK:  
+}
+function ExportObjectsFromFolder(
+  pathToFolderInMyDoc: string;//Путь к папке в моих документах
+  fileName: string//Имя xml файла, в которые происходит экспорт 
+) : boolean;
+const
+  FUNCTION_NAME = 'ExportObjectsFromFolder';
+var
+  myDocWnd;
+  operation;
+  exportDialog;
+  objectFromExportDialog;  
+begin
+try
+  operation := 'Экспорт информации из папки*'; 
+  myDocWnd := OpenMyDocTab; 
+  if NOT Position_Internal(myDocWnd, pathToFolderInMyDoc) then
+    Raise('Не удалось спозиционироваться на папку в Моих документах, из которой необходимо выполнить Экспорт!');
+  PressKeyWithCheck(['[Apps]']);
+  if NOT ClickByPopUpMenuItem(myDocWnd, operation) then
+    Raise('Не удалось вызвать контекстную операцию : ' + operation);
+  exportDialog := GetFromExportFromFolderDialog('ДИАЛОГ "ЭКСПОРТ ИНФОРМАЦИИ ИЗ ПАПКИ"');
+  if NOT IsExists(exportDialog) then
+    Raise('Не удалось получить ДИАЛОГ "ЭКСПОРТ ИНФОРМАЦИИ ИЗ ПАПКИ"');
+  objectFromExportDialog := GetFromExportFromFolderDialog('ПОЛЕ "ИМЯ ФАЙЛА"');
+  objectFromExportDialog.SetFocus;
+  Sys.Keys(fileName);
+  objectFromExportDialog := GetFromExportFromFolderDialog('КНОПКА "СОХРАНИТЬ"');
+  objectFromExportDialog.Click;
+  if IsExists(exportDialog) then
+    Raise('После нажатия на кнопку сохранить ДИАЛОГ "ЭКСПОРТ ИНФОРМАЦИИ ИЗ ПАПКИ" не закрылся!');
+  result := true;
+except
+  Log.Message(FUNCTION_NAME + ' : ' + ExceptionMessage,'',   pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: Работа с папками
+  DESC: Выполняется Импорт данных из папки в xml файл
+  RESULT:
+  REMARK:  
+}
+function ImportObjectsFromFolder(
+  pathToFolderInMyDoc: string;//Путь к папке в моих документах, куда будет производится импорт
+  fileName: string//Имя xml файла, из которого будем делать импорт 
+) : boolean;
+const
+  FUNCTION_NAME = 'ImportObjectsFromFolder';
+var
+  myDocWnd;
+  operation;
+  importDialog;
+  objectFromImportDialog;  
+begin
+try
+  operation := 'Импорт информации в папку*'; 
+  myDocWnd := OpenMyDocTab; 
+  if NOT Position_Internal(myDocWnd, pathToFolderInMyDoc) then
+    Raise('Не удалось спозиционироваться на папку в Моих документах, в которую необходимо выполнить Импорт!');
+  PressKeyWithCheck(['[Apps]']);
+  if NOT ClickByPopUpMenuItem(myDocWnd, operation) then
+    Raise('Не удалось вызвать контекстную операцию : ' + operation);
+  importDialog := GetFromImportInFolderDialog('ДИАЛОГ "ИМПОРТ ИНФОРМАЦИИ В ПАПКУ"');
+  if NOT IsExists(importDialog) then
+    Raise('Не удалось получить ДИАЛОГ "ИМПОРТ ИНФОРМАЦИИ В ПАПКУ"');
+  objectFromImportDialog := GetFromImportInFolderDialog('ПОЛЕ "ИМЯ ФАЙЛА"');
+  objectFromImportDialog.SetFocus;
+  Sys.Keys(fileName + keyPause + '[Enter]');
+  PressKeyWithCheck(['[Enter]']);
+  if IsExists(importDialog) then
+    Raise('После нажатия на кнопку сохранить ДИАЛОГ "ЭКСПОРТ ИНФОРМАЦИИ ИЗ ПАПКИ" не закрылся!');
+  result := true;
+except
+  Log.Message(FUNCTION_NAME + ' : ' + ExceptionMessage,'',   pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+
+
+///////////////// Работа с настройками прав достпуа к общим папкам ...........
+
+//Функция корректно переключает пайджконтрол в свойствах объекта на вкладку доступ 
+function SwitchToPageRight(
+  pageControl: OleVariant  //Объект Page контрола.
+) : boolean;     
+begin
+  try    
+    result := SwitchToPage(pageControl,'Доступ') ;
+    if result then 
+      pageControl.Click(132, pageControl.Height-10);      
+  except
+    Log.Message('SwitchToPageRight: ' + ExceptionMessage,'',   pmNormal, GetLogAttr('EXCEPTION'));
+    result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{ Константы для работы ...}
+const
+  RIGHT_READ = 'Чтение';
+  RIGHT_READ_AND_WRITE = 'Чтение и запись';
+  RIGHT_NOT = 'Нет прав';  
+  RIGHT_UNDEFINED = 'Не определено';              
+{
+  TYPE: Работа со установкой доступа
+  DESC: Устанавливает или возвращает права доступа при открытом окне списке пользователей
+  RESULT:
+  REMARK: 
+  профайлера с 
+}
+function  RightAccessDialog(
+  whatToDo : string ; //Устанавливать(назначать) или Возвращать(считывать) права доступа для пользователя 
+  const userName : String; // имя пользователя
+  const right : string = ''; // права доступа только на 
+  const closeForm : boolean =true;//Закрывать ли после выполнения окно
+  const userListWindow : OleVariant = nil // окно списка пользователей
+): OleVariant;    
+const
+  BTN_PRESSED = 'Нажата';
+  BTN_RELEASED = 'Отжата';
+  BTN_DISABLED = 'Задизейблена';
+var
+  userTree;  
+  toolBar;
+  button;   
+  rBtnState, rwBtnState;
+begin  
+  try 
+    if userListWindow = nil then 
+      userListWindow := GetFromShell('ОКНО СПИСКА ПОЛЬЗОВАТЕЛЕЙ');
+    if NOT IsExists(userListWindow) then
+      Raise('Окно списка пользователей не найдено');
+    whatToDo := AnsiUpperCase(whatToDo);
+    userTree := GetFromUserForm('ДЕРЕВО ПОЛЬЗОВАТЕЛЕЙ',userListWindow);
+    if NOT IsExists(userTree) then Raise('Окно с деревом пользователя не найдено');
+    userTree.SetFocus;
+    Sys.Keys('[Home]');
+    if NOT Position_Internal ( userTree , userName, '\' , true) then      
+      Raise('Не удалось спозиционироваться на пользователе в дереве пользователей!');
+    toolBar := GetFromUserForm('ВЕРХНИЙ ТУЛБАР',userListWindow);  
+    {}    
+    case whatToDo of
+      'SET':   //Если нужно установить права доступа для пользователя         
+      begin
+        result := false; 
+        case right of      
+          RIGHT_READ:
+          begin            
+            if GetToolbarObject(toolBar,'BUTTON','Только чтение').NativeDelphiObject.Enabled then
+               result:=ClickToolBarButton(toolBar,'Только чтение','SetToState:=pressed') 
+            else 
+              result:=true;    
+          end; 
+          RIGHT_READ_AND_WRITE: 
+          begin
+            if GetToolbarObject(toolBar,'BUTTON','Чтение и запись').NativeDelphiObject.Enabled then
+              result:=ClickToolBarButton(toolBar,'Чтение и запись','SetToState:=pressed') 
+            else 
+              result:=true;    
+          end;        
+          RIGHT_NOT: 
+          begin
+            if GetToolbarObject(toolBar,'BUTTON','Только чтение').NativeDelphiObject.Enabled then
+              result:=ClickToolBarButton(toolBar,'Только Чтение','SetToState:=released') 
+            else 
+              result:=false;    
+            if result AND (GetToolbarObject(toolBar,'BUTTON','Чтение и запись').NativeDelphiObject.Enabled) then
+              result:=ClickToolBarButton(toolBar,'Чтение и запись','SetToState:=released') 
+            else 
+              result:=false;      
+          end;
+        else
+          Raise('Не распознанный параметр "right"');              
+        end;
+        if closeForm then ClickToolBarButton(GetFromUserForm('НИЖНИЙ ТУЛБАР',userListWindow),'Ок');  
+      end;  
+      'GET':  //Если нужно возвращать права доступа для пользователя    
+      begin      
+        //Проверяем состояние кнопки "Только чтение"
+        button := GetToolbarObject(toolBar,'BUTTON','Только чтение');
+        if button.NativeDelphiObject.Enabled then 
+        begin
+          if button.Down then rBtnState := BTN_PRESSED //Кнопка "Толька чтение"  нажата
+          else
+            rBtnState := BTN_RELEASED;//Кнопка "Толька чтение" отжата
+        end  
+        else
+          rBtnState := BTN_DISABLED;//Кнопка "Толька чтение" задизейблена
+        //Проверяем состояние кнопки "Чтение и запись"   
+        button := GetToolbarObject(toolBar,'BUTTON','Чтение и запись');      
+        if button.NativeDelphiObject.Enabled then 
+        begin
+          if button.Down then rwBtnState := BTN_PRESSED //Кнопка "Чтение и запись"  нажата
+          else
+            rwBtnState := BTN_RELEASED; //Кнопка "Чтение и запись"  не нажата
+        end  
+        else
+          rwBtnState := BTN_DISABLED; //Кнопка "Чтение и запись"  задизейблена      
+        {}  
+        if (rBtnState = BTN_PRESSED)  and (rwBtnState = BTN_RELEASED) then result := RIGHT_READ;                     
+        if (rBtnState = BTN_PRESSED)  and (rBtnState = BTN_DISABLED)  then result := RIGHT_READ;                             
+        if (rBtnState = BTN_RELEASED) and (rwBtnState = BTN_PRESSED)  then result := RIGHT_READ_AND_WRITE;
+        if (rBtnState = BTN_RELEASED) and (rwBtnState = BTN_DISABLED) then result := RIGHT_UNDEFINED;
+        if (rBtnState = BTN_DISABLED) and (rwBtnState = BTN_DISABLED) then result := RIGHT_READ_AND_WRITE;
+        if (rBtnState  = BTN_PRESSED) and (rwBtnState = BTN_PRESSED)  then result := RIGHT_UNDEFINED;
+        if (rBtnState = BTN_RELEASED) and (rwBtnState = BTN_RELEASED) then result := RIGHT_NOT;          
+        if (rBtnState = BTN_DISABLED) and (rwBtnState = BTN_PRESSED)  then result := RIGHT_READ_AND_WRITE;
+        if (rBtnState = BTN_DISABLED) and (rwBtnState = BTN_RELEASED) then result := RIGHT_READ;
+        {}
+        if result = RIGHT_UNDEFINED then 
+        begin
+          Log.Picture(toolbar,'Не возможное состояние кнопок на тулбаре ');
+          Log.Error('Не возможное состояние кнопок на тулбаре ');
+        end;
+        if closeForm then ClickToolBarButton(GetFromUserForm('НИЖНИЙ ТУЛБАР',userListWindow),'Отмена'); 
+      end;          
+    else  
+      Raise('Не распознанный параметр "whatToDo"');        
+    end;                 
+  except
+    Log.Message('RightAccessDialog: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    if closeForm then ClickToolBarButton(GetFromUserForm('НИЖНИЙ ТУЛБАР',userListWindow),'Отмена');
+    case whatToDo of
+      'SET' : result := false;
+      'GET' : result := RIGHT_UNDEFINED;
+    else
+      Raise;
+    end;  
+    CommonExceptionHandler;      
+  end;
+end;
+
+{
+  TYPE: Работа со установкой доступа
+  DESC: Устанавливает  права доступа 
+  RESULT:
+  REMARK: Куча дополнительных парамеиров осталась для совместимости с 7_3  
+}
+function RightAccess(
+  objPath : string;//Путь к объекту
+  whatToDo : string = 'SET'; 
+  const userName : String = 'Все';   
+  const right : string = '';  
+  const closeForm : boolean = true;
+  const userListWindow : OleVariant = nil
+): OleVariant;  
+  const
+    FUNCTION_NAME = 'RightAccess';
+var  
+  toolBarMyDoc;
+  folderTree;
+  checkBox; 
+begin
+  try
+    Result := NonExObj;
+    try
+      folderTree := OpenMyDocTab;
+      if NOT IsExists(folderTree) then Raise('Не удалось получить МОИ ДОКУМЕНТЫ'); 
+      toolBarMyDoc := GetFromFolderForm('ТУЛБАР "МОИ ДОКУМЕНТЫ"', OpenMyDocTab);
+      if NOT IsExists(toolBarMyDoc) then Raise('Не удалось получить ТУЛБАР "МОИ ДОКУМЕНТЫ"');
+      if NOT Position_Internal(folderTree, objPath, DELIM_CHAR, false, 'isPressHome:=true')  then
+        Raise('Не удалось спозиционировать на элементе "'+objPath+'"');
+      if NOT ClickToolbarButton(toolBarMyDoc,'Свойства','SetToState := pressed') then    
+        Raise('Не удалось нажать кнопку "Свойства" ');
+      checkBox := GetFromFolderForm('ЧЕКБОКС "ОТКРЫТЬ ОБЩИЙ ДОСТУП"',  folderTree);
+      if NOT IsExists(checkBox) then Raise('Не удалось получить ЧЕКБОКС "ОТКРЫТЬ ОБЩИЙ ДОСТУП"');   
+      if NOT checkBox.Checked then checkBox.Click;  
+
+      if ClickToolbarButton(GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderTree),'Ок') then //Если вдруг папкка уже была открыта на общий доступ, тогда просто ничего не делаем
+        ClickToolbarButton(GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderTree),'Отмена');
+      result := true;    
+    except    
+      result := false;
+      Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+      if GetToolbarObject(toolBarMyDoc,'BUTTON','Свойства').Down then
+        ClickToolbarButton(GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderTree),'Отмена');        
+      case whatToDo of
+        'SET' : result := false;
+        'GET' : result := RIGHT_UNDEFINED;
+      else
+        Raise;
+      end;      
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;

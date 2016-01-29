@@ -1,0 +1,81 @@
+// afwConsts 47EA0C8D0351 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47EA0C8D0351
+
+FORWARD ME_47EA0D5F0038
+
+: ME_47EA0D860132
+ CONST UID '47EA0D860132'
+ CONST Name 'g_afwPathSep'
+ CONST Class class_Attribute
+ %SUMMARY 'разделитель, используется при формировании пути сохранения в настройки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47EA0D5F0038 // afwConsts
+ ;
+ : Target WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
+ ;
+ CONST Value '''/'''
+ : ValueType WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
+ ;
+
+ref; // ME_47EA0D860132 g_afwPathSep
+
+: ME_47EA0D5F0038
+ CONST UID '47EA0D5F0038'
+ CONST Name 'afwConsts'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47EA0C8D0351 // afwConsts
+ ;
+ : Attributes
+   @ ( ME_47EA0D860132 // g_afwPathSep
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '23.06.2005 11:10'
+ CONST "weak" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwConsts.pas'
+
+ref; // ME_47EA0D5F0038 afwConsts
+
+: ME_47EA0C8D0351
+ CONST UID '47EA0C8D0351'
+ CONST Name 'afwConsts'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ ;
+ : Children
+   @ ( ME_47EA0D5F0038 // afwConsts
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "is namespace" true
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47EA0C8D0351.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47EA0C8D0351.pas.ms.script.runner'
+
+ref; // ME_47EA0C8D0351 afwConsts

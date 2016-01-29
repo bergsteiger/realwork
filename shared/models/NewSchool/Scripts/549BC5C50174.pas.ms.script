@@ -1,0 +1,59 @@
+// Tl3AsyncTask 549BC5C50174 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+FORWARD ME_549BC5C50174
+
+FORWARD ME_549BC64F01DE
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_71DEA970B38C
+ CONST UID '71DEA970B38C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Exec' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_71DEA970B38C DoIt
+
+: ME_549BC64F01DE
+ CONST UID '549BC64F01DE'
+ CONST Name 'Exec'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_71DEA970B38C // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_549BC64F01DE Exec
+
+: ME_549BC5C50174
+ CONST UID '549BC5C50174'
+ CONST Name 'Tl3AsyncTask'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_549BC64F01DE // Exec
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_549BC5C50174 Tl3AsyncTask

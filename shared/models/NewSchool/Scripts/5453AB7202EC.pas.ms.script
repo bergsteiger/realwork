@@ -1,0 +1,196 @@
+// Tm3BranchHandlePrim 5453AB7202EC SimpleClass Class
+
+FORWARD ME_5453AB7202EC
+
+FORWARD ME_5453AD480340
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5453AD700166
+ CONST UID '5453AD700166'
+ CONST Name 'Hash'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_476F71A701AB // Word
+ ;
+
+ @SELF
+; // ME_5453AD700166 Hash
+
+: ME_5453AD84031B
+ CONST UID '5453AD84031B'
+ CONST Name 'Value'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4FA284CE011F // PWideChar
+ ;
+
+ @SELF
+; // ME_5453AD84031B Value
+
+: ME_5453AD480340
+ CONST UID '5453AD480340'
+ CONST Name 'Tm3BranchHandlePrimData'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5453AD700166 // Hash
+ ME_5453AD84031B // Value
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_5453AD480340 Tm3BranchHandlePrimData
+
+: ME_5453ACB101F8
+ CONST UID '5453ACB101F8'
+ CONST Name 'Pm3BranchHandlePrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5453AB7202EC // Tm3BranchHandlePrim
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_5453ACB101F8 Pm3BranchHandlePrim
+
+INCLUDE '5453AE0C0100.pas.ms.script'
+
+FORWARD ME_5453B699001A
+
+FORWARD ME_5453B6CA01AD
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5453B6D403C5
+ CONST UID '5453B6D403C5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5453B6D403C5 DoIt
+
+: ME_5453B6CA01AD
+ CONST UID '5453B6CA01AD'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5453B6D403C5 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5453B6CA01AD Create
+
+: ME_13D7AD2BF48F
+ CONST UID '13D7AD2BF48F'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_13D7AD2BF48F Exists
+
+: ME_5453B699001A
+ CONST UID '5453B699001A'
+ CONST Name 'Tm3BranchHandlesManager'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5453B6CA01AD // Create
+ ME_13D7AD2BF48F // Exists
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_5453B699001A Tm3BranchHandlesManager
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_5453AD5300BB
+ CONST UID '5453AD5300BB'
+ CONST Name 'Data'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5453AD480340 // Tm3BranchHandlePrimData
+ ;
+
+ @SELF
+; // ME_5453AD5300BB Data
+
+: ME_5453AB7202EC
+ CONST UID '5453AB7202EC'
+ CONST Name 'Tm3BranchHandlePrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_5453AD5300BB // Data
+ ]
+ ; // Attributes
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A6FEE600FC // IsCacheable
+ ME_5453AC3702B2 // AllocInstanceMem
+ ME_5453AC66022A // FreeInstanceMem
+ ]
+ ; // Overridden
+ : Children
+   [ ME_5453AD480340 // Tm3BranchHandlePrimData
+ ME_5453ACB101F8 // Pm3BranchHandlePrim
+ ME_5453B699001A // Tm3BranchHandlesManager
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5453AB7202EC Tm3BranchHandlePrim

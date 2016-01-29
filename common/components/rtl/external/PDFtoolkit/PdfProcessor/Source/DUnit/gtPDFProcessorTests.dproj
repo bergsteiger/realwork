@@ -1,0 +1,233 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{833ae9b3-3954-45fe-be1c-e726cadafe41}</ProjectGuid>
+    <MainSource>gtPDFProcessorTests.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>gtPDFProcessorTests.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG;_CONSOLE_TESTRUNNER</DCC_Define>
+    <DCC_UnitSearchPath>;$(BDS)\Source\DUnit\src</DCC_UnitSearchPath>
+    <DCC_ResourcePath>;$(BDS)\Source\DUnit\src</DCC_ResourcePath>
+    <DCC_ObjPath>;$(BDS)\Source\DUnit\src</DCC_ObjPath>
+    <DCC_IncludePath>;$(BDS)\Source\DUnit\src</DCC_IncludePath>
+    <DCC_Optimize>False</DCC_Optimize>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">False</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1033</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">gtPDFProcessorTests.dpr</Source></Source></Delphi.Personality><UnitTesting><TestFramework>DUnit / Delphi Win32</TestFramework><TestRunner>GUI</TestRunner></UnitTesting></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="gtPDFProcessorTests.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\Logger\gtLogger.pas" />
+    <DCCReference Include="..\PDBase\FileStructure\PDReader.pas" />
+    <DCCReference Include="..\PDBase\FileStructure\PDWriter.pas" />
+    <DCCReference Include="..\PDBase\FileStructure\PDXRef.pas" />
+    <DCCReference Include="..\PDBase\FileStructure\PDXRefEntry.pas" />
+    <DCCReference Include="..\PDBase\Parser\PDLexer.pas" />
+    <DCCReference Include="..\PDBase\Parser\PDParser.pas" />
+    <DCCReference Include="..\PDBase\PDArray.pas" />
+    <DCCReference Include="..\PDBase\PDBaseDoc.pas" />
+    <DCCReference Include="..\PDBase\PDBaseObject.pas" />
+    <DCCReference Include="..\PDBase\PDBoolean.pas" />
+    <DCCReference Include="..\PDBase\PDCollection.pas" />
+    <DCCReference Include="..\PDBase\PDCommand.pas" />
+    <DCCReference Include="..\PDBase\PDDictionary.pas" />
+    <DCCReference Include="..\PDBase\PDEOF.pas" />
+    <DCCReference Include="..\PDBase\PDError.pas" />
+    <DCCReference Include="..\PDBase\PDFilterManager.pas" />
+    <DCCReference Include="..\PDBase\PDIndirectRef.pas" />
+    <DCCReference Include="..\PDBase\PDInteger.pas" />
+    <DCCReference Include="..\PDBase\PDName.pas" />
+    <DCCReference Include="..\PDBase\PDNull.pas" />
+    <DCCReference Include="..\PDBase\PDReal.pas" />
+    <DCCReference Include="..\PDBase\PDStream.pas" />
+    <DCCReference Include="..\PDBase\PDString.pas" />
+    <DCCReference Include="..\PDModel\PDAction.pas" />
+    <DCCReference Include="..\PDModel\PDAnnot.pas" />
+    <DCCReference Include="..\PDModel\PDBead.pas" />
+    <DCCReference Include="..\PDModel\PDBookmark.pas" />
+    <DCCReference Include="..\PDModel\PDCatalog.pas" />
+    <DCCReference Include="..\PDModel\PDCharProc.pas" />
+    <DCCReference Include="..\PDModel\PDCIDSystemInfo.pas" />
+    <DCCReference Include="..\PDModel\PDColorSpace.pas" />
+    <DCCReference Include="..\PDModel\PDDocument.pas" />
+    <DCCReference Include="..\PDModel\PDElement.pas" />
+    <DCCReference Include="..\PDModel\PDEncoding.pas" />
+    <DCCReference Include="..\PDModel\PDFileSpec.pas" />
+    <DCCReference Include="..\PDModel\PDFont.pas" />
+    <DCCReference Include="..\PDModel\PDForm.pas" />
+    <DCCReference Include="..\PDModel\PDGraphic.pas" />
+    <DCCReference Include="..\PDModel\PDImage.pas" />
+    <DCCReference Include="..\PDModel\PDInlineImage.pas" />
+    <DCCReference Include="..\PDModel\PDLinkAnnot.pas" />
+    <DCCReference Include="..\PDModel\PDNameTree.pas" />
+    <DCCReference Include="..\PDModel\PDNumTree.pas" />
+    <DCCReference Include="..\PDModel\PDOCCG.pas" />
+    <DCCReference Include="..\PDModel\PDOCConfig.pas" />
+    <DCCReference Include="..\PDModel\PDOCContext.pas" />
+    <DCCReference Include="..\PDModel\PDOCG.pas" />
+    <DCCReference Include="..\PDModel\PDOCMD.pas" />
+    <DCCReference Include="..\PDModel\PDPage.pas" />
+    <DCCReference Include="..\PDModel\PDPageLabel.pas" />
+    <DCCReference Include="..\PDModel\PDPageTree.pas" />
+    <DCCReference Include="..\PDModel\PDPath.pas" />
+    <DCCReference Include="..\PDModel\PDResource.pas" />
+    <DCCReference Include="..\PDModel\PDStyle.pas" />
+    <DCCReference Include="..\PDModel\PDText.pas" />
+    <DCCReference Include="..\PDModel\PDTextAnnot.pas" />
+    <DCCReference Include="..\PDModel\PDTextSelect.pas" />
+    <DCCReference Include="..\PDModel\PDThread.pas" />
+    <DCCReference Include="..\PDModel\PDThumb.pas" />
+    <DCCReference Include="..\PDModel\PDTrans.pas" />
+    <DCCReference Include="..\PDModel\PDWord.pas" />
+    <DCCReference Include="..\PDModel\PDWordFinder.pas" />
+    <DCCReference Include="..\PDModel\PDXlateTable.pas" />
+    <DCCReference Include="..\PDModel\PDXObject.pas" />
+    <DCCReference Include="..\Stream\ASCII85Decode.pas" />
+    <DCCReference Include="..\Stream\ASCII85Encode.pas" />
+    <DCCReference Include="..\Stream\ASCII85Stream.pas" />
+    <DCCReference Include="..\Stream\ASCIIHexDecode.pas" />
+    <DCCReference Include="..\Stream\ASCIIHexEncode.pas" />
+    <DCCReference Include="..\Stream\ASCIIHexStream.pas" />
+    <DCCReference Include="..\Stream\BaseStream.pas" />
+    <DCCReference Include="..\Stream\CCITTDecode.pas" />
+    <DCCReference Include="..\Stream\CCITTEncode.pas" />
+    <DCCReference Include="..\Stream\CCITTStream.pas" />
+    <DCCReference Include="..\Stream\CryptStream.pas" />
+    <DCCReference Include="..\Stream\DCTDecode.pas" />
+    <DCCReference Include="..\Stream\DCTEncode.pas" />
+    <DCCReference Include="..\Stream\DCTStream.pas" />
+    <DCCReference Include="..\Stream\DecodeIntf.pas" />
+    <DCCReference Include="..\Stream\EmbededStream.pas" />
+    <DCCReference Include="..\Stream\EncodeIntf.pas" />
+    <DCCReference Include="..\Stream\EOFStream.pas" />
+    <DCCReference Include="..\Stream\FileStream.pas" />
+    <DCCReference Include="..\Stream\FilterStream.pas" />
+    <DCCReference Include="..\Stream\FlateDecode.pas" />
+    <DCCReference Include="..\Stream\FlateEncode.pas" />
+    <DCCReference Include="..\Stream\FlateStream.pas" />
+    <DCCReference Include="..\Stream\LZWDecode.pas" />
+    <DCCReference Include="..\Stream\LZWEncode.pas" />
+    <DCCReference Include="..\Stream\LZWStream.pas" />
+    <DCCReference Include="..\Stream\MemoryStream.pas" />
+    <DCCReference Include="..\Stream\Predictor.pas" />
+    <DCCReference Include="..\Stream\RunLengthDecode.pas" />
+    <DCCReference Include="..\Stream\RunLengthEncode.pas" />
+    <DCCReference Include="..\Stream\RunLengthStream.pas" />
+    <DCCReference Include="..\Stream\Stream.pas" />
+    <DCCReference Include="..\Stream\StreamIntf.pas" />
+    <DCCReference Include="TestASCII85Decode.pas" />
+    <DCCReference Include="TestASCII85Encode.pas" />
+    <DCCReference Include="TestASCII85Stream.pas" />
+    <DCCReference Include="TestASCIIHexDecode.pas" />
+    <DCCReference Include="TestASCIIHexEncode.pas" />
+    <DCCReference Include="TestASCIIHexStream.pas" />
+    <DCCReference Include="TestBaseStream.pas" />
+    <DCCReference Include="TestCCITTDecode.pas" />
+    <DCCReference Include="TestCCITTEncode.pas" />
+    <DCCReference Include="TestCCITTStream.pas" />
+    <DCCReference Include="TestCryptStream.pas" />
+    <DCCReference Include="TestDCTDecode.pas" />
+    <DCCReference Include="TestDCTEncode.pas" />
+    <DCCReference Include="TestDCTStream.pas" />
+    <DCCReference Include="TestDecodeIntf.pas" />
+    <DCCReference Include="TestEmbededStream.pas" />
+    <DCCReference Include="TestEncodeIntf.pas" />
+    <DCCReference Include="TestEOFStream.pas" />
+    <DCCReference Include="TestFileStream.pas" />
+    <DCCReference Include="TestFilterStream.pas" />
+    <DCCReference Include="TestFlateDecode.pas" />
+    <DCCReference Include="TestFlateEncode.pas" />
+    <DCCReference Include="TestFlateStream.pas" />
+    <DCCReference Include="TestgtLogger.pas" />
+    <DCCReference Include="TestLZWDecode.pas" />
+    <DCCReference Include="TestLZWEncode.pas" />
+    <DCCReference Include="TestLZWStream.pas" />
+    <DCCReference Include="TestPDAction.pas" />
+    <DCCReference Include="TestPDAnnot.pas" />
+    <DCCReference Include="TestPDArray.pas" />
+    <DCCReference Include="TestPDBaseDoc.pas" />
+    <DCCReference Include="TestPDBaseObject.pas" />
+    <DCCReference Include="TestPDBead.pas" />
+    <DCCReference Include="TestPDBookmark.pas" />
+    <DCCReference Include="TestPDBoolean.pas" />
+    <DCCReference Include="TestPDCatalog.pas" />
+    <DCCReference Include="TestPDCharProc.pas" />
+    <DCCReference Include="TestPDCollection.pas" />
+    <DCCReference Include="TestPDColorSpace.pas" />
+    <DCCReference Include="TestPDCommand.pas" />
+    <DCCReference Include="TestPDDictionary.pas" />
+    <DCCReference Include="TestPDDocument.pas" />
+    <DCCReference Include="TestPDElement.pas" />
+    <DCCReference Include="TestPDEncoding.pas" />
+    <DCCReference Include="TestPDEOF.pas" />
+    <DCCReference Include="TestPDError.pas" />
+    <DCCReference Include="TestPDFileSpec.pas" />
+    <DCCReference Include="TestPDFilterManager.pas" />
+    <DCCReference Include="TestPDFont.pas" />
+    <DCCReference Include="TestPDForm.pas" />
+    <DCCReference Include="TestPDGraphic.pas" />
+    <DCCReference Include="TestPDImage.pas" />
+    <DCCReference Include="TestPDIndirectRef.pas" />
+    <DCCReference Include="TestPDInlineImage.pas" />
+    <DCCReference Include="TestPDInteger.pas" />
+    <DCCReference Include="TestPDLexer.pas" />
+    <DCCReference Include="TestPDLinkAnnot.pas" />
+    <DCCReference Include="TestPDName.pas" />
+    <DCCReference Include="TestPDNameTree.pas" />
+    <DCCReference Include="TestPDNull.pas" />
+    <DCCReference Include="TestPDNumTree.pas" />
+    <DCCReference Include="TestPDOCCG.pas" />
+    <DCCReference Include="TestPDOCConfig.pas" />
+    <DCCReference Include="TestPDOCContext.pas" />
+    <DCCReference Include="TestPDOCG.pas" />
+    <DCCReference Include="TestPDOCMD.pas" />
+    <DCCReference Include="TestPDPage.pas" />
+    <DCCReference Include="TestPDPageLabel.pas" />
+    <DCCReference Include="TestPDPageTree.pas" />
+    <DCCReference Include="TestPDParser.pas" />
+    <DCCReference Include="TestPDPath.pas" />
+    <DCCReference Include="TestPDReader.pas" />
+    <DCCReference Include="TestPDReal.pas" />
+    <DCCReference Include="TestPDResource.pas" />
+    <DCCReference Include="TestPDStream.pas" />
+    <DCCReference Include="TestPDString.pas" />
+    <DCCReference Include="TestPDStyle.pas" />
+    <DCCReference Include="TestPDText.pas" />
+    <DCCReference Include="TestPDTextAnnot.pas" />
+    <DCCReference Include="TestPDTextSelect.pas" />
+    <DCCReference Include="TestPDThread.pas" />
+    <DCCReference Include="TestPDThumb.pas" />
+    <DCCReference Include="TestPDTrans.pas" />
+    <DCCReference Include="TestPDWord.pas" />
+    <DCCReference Include="TestPDWordFinder.pas" />
+    <DCCReference Include="TestPDWriter.pas" />
+    <DCCReference Include="TestPDXlateTable.pas" />
+    <DCCReference Include="TestPDXObject.pas" />
+    <DCCReference Include="TestPDXRef.pas" />
+    <DCCReference Include="TestPDXRefEntry.pas" />
+    <DCCReference Include="TestPredictor.pas" />
+    <DCCReference Include="TestRunLengthDecode.pas" />
+    <DCCReference Include="TestRunLengthEncode.pas" />
+    <DCCReference Include="TestRunLengthStream.pas" />
+    <DCCReference Include="TestStream.pas" />
+    <DCCReference Include="TestStreamIntf.pas" />
+  </ItemGroup>
+</Project>

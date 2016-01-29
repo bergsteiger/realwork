@@ -1,0 +1,7493 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/AllGenerators/DelphiGens/Delphi интерфейсы и реализация.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAGenerator::Class>> MDProcess$Templates::CommonTemplates::AllGenerators::DelphiGens::Delphi интерфейсы и реализация
+//
+// группа генераторов в Delphi
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Delphi интерфейсы и реализация::MDAGenerator
+implementation @ "Delphi интерфейсы и реализация"
+//? группа генераторов в Delphi
+//= Документация::MDAGenerator
+//= Ifdef::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p finished:b=true ? Определяет, что элемент полностью описан на модели.
+//p children prefix:s ? Префикс непосредственных детей.
+//p elements prefix:s ? Префикс приписываемый вложенным элементам. <none> - ничего не приписывать. Если не задан, то берём у родителя.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Генераторы
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for470F151302FD*
+//#UC END# *4774D2A20372for470F151302FD*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor470F151302FD*
+//#UC END# *49F5795900ECfor470F151302FD*
+; // dfm
+
+
+//+ pas.script
+<<generator>> pas.script OBJECT IN %S
+//R  
+//#UC START# *563244E50325for470F151302FD*
+//P true
+//X [{%S%f_pas_script_runner_NeedOwnFile()=true}W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"]
+//C %S%f_pas_script_Path()
+//O %S%f_pas_script_FileName()
+//F %S%f_pas_script_GenerateForward()
+//	[{%S%f_pas_script_NeedOwnFile()=true}\
+ if ( ( %S %f pas_script_NeedOwnFile %( )% ) %==  true ) then
+ begin
+//	%S%f_pas_script_Generate()\
+  %S %f pas_script_Generate %( )% 
+//	]\
+ end // if
+//	<{}{%C#f_pas_script_NeedOwnFile()=true}%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f pas_script_NeedOwnFile %( )% ) %==  true ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *563244E50325for470F151302FD*
+; // pas.script
+
+
+//+ pas.script.runner
+<<generator>> pas.script.runner OBJECT IN %S
+//R  
+//#UC START# *563CBCC10243for470F151302FD*
+//P true
+//X [{%S%f_pas_script_runner_NeedOwnFile()=true}W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"]
+//C %S%f_pas_script_Path()
+//O %S%f_pas_script_runner_FileName()
+//	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
+ if ( ( %S %f pas_script_runner_NeedOwnFile %( )% ) %==  true ) then
+ begin
+//	%S%f_pas_script_runner_Generate()\
+  %S %f pas_script_runner_Generate %( )% 
+//	]\
+ end // if
+//	<{}{%C#f_pas_script_runner_NeedOwnFile()=true}%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f pas_script_runner_NeedOwnFile %( )% ) %==  true ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *563CBCC10243for470F151302FD*
+; // pas.script.runner
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Трансформаторы стереотипа
+
+//%t _IsTypeForCleanup
+<<transformator>> IsTypeForCleanup OBJECT IN %S
+//#UC START# *4AE0718003CDfor470F151302FD*
+//@ %SU
+//c          {}
+//r {%t_interface(%S)=true}: {true}
+//r {%f_IsVector(%S)=true}: {true}
+//r {%S#f_IsStruct()=true}: {true}
+//r {""=""}: {false}
+//#UC END# *4AE0718003CDfor470F151302FD*
+; // IsTypeForCleanup
+
+
+
+//%t _IsStereoForCleanup
+<<transformator>> IsStereoForCleanup OBJECT IN %S
+//#UC START# *4AE074330009for470F151302FD*
+//c          {}
+//r {%SC=Attribute&"%SS"=""}: {true}
+//r {""=""}: {false}
+//#UC END# *4AE074330009for470F151302FD*
+; // IsStereoForCleanup
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{finished}"!="%S{!finished}"}%f_up_prefix(%S) *finished* = *%S{finished}* - Определяет, что элемент полностью описан на модели.
+ ?inherited
+ if ( ( %S get_up ( 'finished' ) ) %!= ( %S get_up_def ( 'finished' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *finished* = *'
+  %S get_up ( 'finished' ) '* - Определяет, что элемент полностью описан на модели.'
+//	][{"%S{children prefix}"!="%S{!children prefix}"}%f_up_prefix(%S) *children prefix* = *%S{children prefix}* - Префикс непосредственных детей.
+ end // if
+ if ( ( %S get_up ( 'children prefix' ) ) %!= ( %S get_up_def ( 'children prefix' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *children prefix* = *'
+  %S get_up ( 'children prefix' ) '* - Префикс непосредственных детей.'
+//	][{"%S{elements prefix}"!="%S{!elements prefix}"}%f_up_prefix(%S) *elements prefix* = *%S{elements prefix}* - Префикс приписываемый вложенным элементам. \<none\> - ничего не приписывать. Если не задан, то берём у родителя.
+ end // if
+ if ( ( %S get_up ( 'elements prefix' ) ) %!= ( %S get_up_def ( 'elements prefix' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *elements prefix* = *'
+  %S get_up ( 'elements prefix' ) '* - Префикс приписываемый вложенным элементам. <none> - ничего не приписывать. Если не задан, то берём у родителя.'
+//	]
+ end // if
+
+// Определяет префикс элемента
+//%f _pas_ElementPrefix
+; // wiki_up_print
+
+: pas_ElementPrefix OBJECT IN %S
+// параметры: anElement: void = %1
+//#UC START# *493D246701FEfor470F151302FD*
+//@ %SU_%1C
+//	%S%f_pas_ElementPrefixBase(%1)[{"%S%f_pas_ElementPrefixBase(%1)"!=""}[{%1C!=Operation|"%S{children prefix}"!=""}_]]%S{children prefix}
+ %S %f pas_ElementPrefixBase %( %1 )% if ( ( %S %f pas_ElementPrefixBase %( %1 )% ) %!= '' ) then
+ begin
+  if ( ( %1 |C ) %!= 'Operation' OR 
+    ( ( %S get_up ( 'children prefix' ) ) %!= ''  ) ) then
+  begin
+   '_' 
+  end // if
+ end // if
+ %S get_up ( 'children prefix' ) 
+//#UC END# *493D246701FEfor470F151302FD*
+; // pas_ElementPrefix
+
+
+// нет документации
+//%f _pas_ElementPrefixBase
+: pas_ElementPrefixBase OBJECT IN %S
+// параметры: anElement: void = %1
+//#UC START# *493D246A025Bfor470F151302FD*
+//@ %SU
+//	[{%S#f_pas_ElementPrefixPrim(%1)=\<none\>}{%S#f_pas_ElementPrefixPrim(%1)}]
+ if ( ( %S %?f pas_ElementPrefixPrim %( %1 )% ) %== '<none>' ) then
+ begin
+ end // if
+ else
+ begin
+  %S %?f pas_ElementPrefixPrim %( %1 )% 
+ end // else
+//#UC END# *493D246A025Bfor470F151302FD*
+; // pas_ElementPrefixBase
+
+
+// Рекурсивно определяет префикс элемента
+//%f _pas_ElementPrefixPrim
+: pas_ElementPrefixPrim OBJECT IN %S
+// параметры: anElement: void = %1
+//#UC START# *493D246E0016for470F151302FD*
+//@ %SU
+//	[{}{[%P#f_pas_ElementPrefixPrim(%1)]}%S{elements prefix}]
+ if NOT-EMPTY
+ begin
+  %S get_up ( 'elements prefix' ) 
+ end // if
+ NOP
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   %P %?f pas_ElementPrefixPrim %( %1 )% 
+  end // if
+  NOP
+ end // else
+//#UC END# *493D246E0016for470F151302FD*
+; // pas_ElementPrefixPrim
+
+
+// Префикс имени
+//%f _pas_Prefix
+: pas_Prefix OBJECT IN %S
+//#UC START# *493D24710142for470F151302FD*
+//@ %SU
+//	%P%f_pas_ElementPrefix(%S)
+ %P %f pas_ElementPrefix %( %S )% 
+//#UC END# *493D24710142for470F151302FD*
+; // pas_Prefix
+
+
+// Определяет, что это свойство.
+//%f _IsProp
+: IsProp OBJECT IN %S
+//#UC START# *493D2D510282for470F151302FD*
+//	false
+ false
+//#UC END# *493D2D510282for470F151302FD*
+; // IsProp
+
+
+// Определяет, что метод глобальный
+//%f _IsGlobal
+: IsGlobal OBJECT IN %S
+//#UC START# *493D2E45011Bfor470F151302FD*
+//@ %SU
+//	[{%P#f_IsUtilityPack()=true|%PS=Function|%S{isGlobal}=true}{\
+ if ( ( %P %?f IsUtilityPack %( )% ) %==  true OR 
+   ( ( %P |S ) %== 'Function'  ) OR 
+   ( ( %S get_up ( 'isGlobal' ) ) %==  true  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%P#f_IsMethod()=true&%P%P#f_IsUtilityPack()=true}{\
+  if ( ( %P %?f IsMethod %( )% ) %==  true AND 
+    ( ( %P ->P %?f IsUtilityPack %( )%  ) %==  true  ) ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *493D2E45011Bfor470F151302FD*
+; // IsGlobal
+
+
+// Является ли простым классом реализации
+//%f _IsSimpleClass
+: IsSimpleClass OBJECT IN %S
+//#UC START# *4947E4DA0227for470F151302FD*
+//@ %SU
+//	[{%SS=SimpleClass|%SS=GuiControl|%SS=ViewAreaControllerImp}{false}true]
+ if ( ( %S |S ) %== 'SimpleClass' OR 
+   ( ( %S |S ) %== 'GuiControl'  ) OR 
+   ( ( %S |S ) %== 'ViewAreaControllerImp'  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4947E4DA0227for470F151302FD*
+; // IsSimpleClass
+
+
+// Является ли примесью
+//%f _IsMixIn
+: IsMixIn OBJECT IN %S
+//#UC START# *4947E5D40127for470F151302FD*
+//	false
+ false
+//#UC END# *4947E5D40127for470F151302FD*
+; // IsMixIn
+
+
+// Определяет, что элемент производит файл (Unit)
+//%f _IsUnitFileProducer
+: IsUnitFileProducer OBJECT IN %S
+//#UC START# *4947EC0F0380for470F151302FD*
+//@ %SU
+//	[{%S#f_IsUtilityPack()=true|%S#f_IsSimpleClass()=true|%S#f_IsMixIn()=true}{false}true]
+ if ( ( %S %?f IsUtilityPack %( )% ) %==  true OR 
+   ( ( %S %?f IsSimpleClass %( )% ) %==  true  ) OR 
+   ( ( %S %?f IsMixIn %( )% ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4947EC0F0380for470F151302FD*
+; // IsUnitFileProducer
+
+
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for470F151302FD*
+//#UC END# *4947F8AD02A1for470F151302FD*
+; // pas_TypeName
+
+
+// Элемент определён на стороне обёртки С++
+//%f _InTie
+: InTie OBJECT IN %S
+//#UC START# *494802B40121for470F151302FD*
+//@ %SU
+//	[{%P%P{gui}=tie|%P{gui}=tie}{false}true]
+ if ( ( %P ->P get_up ( 'gui' )  ) %== 'tie' OR 
+   ( ( %P get_up ( 'gui' ) ) %== 'tie'  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *494802B40121for470F151302FD*
+; // InTie
+
+
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor470F151302FD*
+//#UC END# *4948065C01DFfor470F151302FD*
+; // pas_UnitName
+
+
+// Путь к модулю
+//%f _pas_UnitPath
+: pas_UnitPath OBJECT IN %S
+//#UC START# *4948C3290020for470F151302FD*
+//	%S{path prefix}
+ %S get_up ( 'path prefix' ) 
+//#UC END# *4948C3290020for470F151302FD*
+; // pas_UnitPath
+
+
+// нет документации
+//%f _pas_DefaultAncestor
+: pas_DefaultAncestor OBJECT IN %S
+//#UC START# *4948E5B60391for470F151302FD*
+//#UC END# *4948E5B60391for470F151302FD*
+; // pas_DefaultAncestor
+
+
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor470F151302FD*
+//#UC END# *4948EB2601FAfor470F151302FD*
+; // pas_ImplUses
+
+
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for470F151302FD*
+//#UC END# *4948F2EE0334for470F151302FD*
+; // pas_IntfUses
+
+
+// Определяет, что элемент это readonly-свойство
+//%f _IsReadOnlyProp
+: IsReadOnlyProp OBJECT IN %S
+//#UC START# *4948F9190291for470F151302FD*
+//	[{%S#f_IsAttribute()=true}{false}[{%SS=readonly|%S#f_IsVCMArea()=true}{false}true]]
+ if ( ( %S %?f IsAttribute %( )% ) %==  true ) then
+ begin
+  if ( ( %S |S ) %== 'readonly' OR 
+    ( ( %S %?f IsVCMArea %( )% ) %==  true  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4948F9190291for470F151302FD*
+; // IsReadOnlyProp
+
+
+// Определяет, что элемент это writeonly-свойство
+//%f _IsWriteOnlyProp
+: IsWriteOnlyProp OBJECT IN %S
+//#UC START# *4948F93D038Afor470F151302FD*
+//	[{%S#f_IsAttribute()=true}{false}[{%SS=writeonly}{false}true]]
+ if ( ( %S %?f IsAttribute %( )% ) %==  true ) then
+ begin
+  if ( ( %S |S ) %== 'writeonly' ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _OutIncludePrimPrim
+; // IsWriteOnlyProp
+
+end. // "Delphi интерфейсы и реализация"
+
+: OutIncludePrimPrim OBJECT IN %S
+//	\{$Include \
+ '{$Include '
+//	%f_IncPath(%S,%1)\
+ [%f] IncPath %( %S %, %1 )% 
+//	\\%f_pas_UnitFileName(%S)\}
+ '\'
+ [%f] pas_UnitFileName %( %S )% '}'
+
+//f _OutIncludePrim
+; // OutIncludePrimPrim
+
+: OutIncludePrim OBJECT IN %S
+//@ %SU_%1U
+//	#%f_OutIncludePrimPrim(%S,%1)
+ out_indent [%f] OutIncludePrimPrim %( %S %, %1 )% 
+
+//f _OutInclude
+; // OutIncludePrim
+
+: OutInclude OBJECT IN %S
+//	[%1%f_open_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  %1 %f open_ifdef %( )% #13#10 
+ end // if
+ NOP
+//	%f_OutIncludePrim(%S,%1)\
+ [%f] OutIncludePrim %( %S %, %1 )% 
+//	[\n%1%f_close_ifdef()]
+ if NOT-EMPTY
+ begin
+  #13#10
+  %1 %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *4948F93D038Afor470F151302FD*
+; // OutInclude
+
+
+// Выводит объявление класса
+//%f _pas_OutClassInterface
+implementation @ "Delphi интерфейсы и реализация"
+: pas_OutClassInterface OBJECT IN %S
+//#UC START# *494B7197025Afor470F151302FD*
+//	[{%S#f_IsMixIn()=true}\
+//	%f_set_var(POS,"%f_string_find(%S{ifndef},DesignTimeLibrary)")\
+//	[{%{POS}N!=-1}\
+//	\n\{$IfDef DesignTimeLibrary\}
+//	 %f_pas_TypeName(%S) = %f_pas_ImpurityParentName(%S);
+//	\{$EndIf DesignTimeLibrary\}
+//	]\
+//	]\
+//
+//	%f_set_var(NeedElse,"false")\
+ [%f] set_var %( 'NeedElse' %, false )% 
+//	[{%S#f_IsMixIn()=true}\
+ if ( ( %S %?f IsMixIn %( )% ) %==  true ) then
+ begin
+//	%f_set_var(CLASS_IFDEF,"%f_dump_open_ifdef_str(%S)")\
+  [%f] set_var %( 'CLASS_IFDEF' %, [%f] dump_open_ifdef_str %( %S )% )% 
+//	[{%f_is_already_under_ifdef(%S,"%{CLASS_IFDEF}N")=false&"%{CLASS_IFDEF}N"!=""}\
+  if ( ( [%f] is_already_under_ifdef %( %S %, ( get_global_var ( 'CLASS_IFDEF' ) |N ) )% ) %==  false AND 
+    ( ( ( get_global_var ( 'CLASS_IFDEF' ) |N ) ) %!= ''  ) ) then
+  begin
+//	%f_set_var(NeedElse,"true")\
+   [%f] set_var %( 'NeedElse' %, true )% 
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[\n%S%f_open_ifdef()]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	<{}{%t_interface(%R)=true}%R<{}{%CS=impurity value}%f_set_var(%CN,"%f_pas_TypeName(%C%T)")>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%t] interface %( %R )% ) %==  true ) then
+  begin
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %== 'impurity value' ) then
+     begin
+      [%f] set_var %( %C |N %, [%f] pas_TypeName %( %C ->T  )% )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+// - устанавливаем типы параметров реализуемых методов
+//	[{%S#f_IsMixIn()=true}%f_set_var(WAS_TYPE,"1")]\
+ if ( ( %S %?f IsMixIn %( )% ) %==  true ) then
+ begin
+  [%f] set_var %( 'WAS_TYPE' %, 1 )% 
+ end // if
+// - чтобы лишнее ключевое слово не выводить
+//	%f_shift_intend(-1)\
+ [%f] shift_intend %( -1 )% 
+
+//	<{}{%CV!=PrivateAccess&%C%f_IsClassInner()!=true&"%CO"=""}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %!= 'PrivateAccess' AND 
+   ( ( %C %f IsClassInner %( )% ) %!=  true  ) AND 
+   ( ( %C |O ) %== ''  ) ) then
+  begin
+//	[{%CS!=Typedef|%C%GU!=%SU|%C{isClassRef}=true}\
+   if ( ( %C |S ) %!= 'Typedef' OR 
+     ( ( %C ->G |U  ) %!= ( %S |U )  ) OR 
+     ( ( %C get_up ( 'isClassRef' ) ) %==  true  ) ) then
+   begin
+//	[{"%C{ifdef}"!=""|"%C{ifndef}"!=""}\
+    if ( ( %C get_up ( 'ifdef' ) ) %!= '' OR 
+      ( ( %C get_up ( 'ifndef' ) ) %!= ''  ) ) then
+    begin
+//	%f_pas_OpenType(%S)\
+     [%f] pas_OpenType %( %S )% 
+//	]\
+    end // if
+//	[%CX\n]]\
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	%f_shift_intend(+1)\
+ [%f] shift_intend %( 1 )% 
+//	%f_pas_OpenType(%S)\
+ [%f] pas_OpenType %( %S )% 
+//	[{%S{need UC}=true}%U[{ci}\n]\n]\
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  %Usersection (
+   'ci' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+   #13#10 
+ end // if
+//	%S%f_pas_OutMixInValues()\
+ %S %f pas_OutMixInValues %( )% 
+//	<{}{"%CS"="impurity value"}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'impurity value' ) then
+  begin
+//	[{%SU=%C%TU}%SF]\
+   if ( ( %S |U ) %== ( %C ->T |U  ) ) then
+   begin
+    %S |F 
+   end // if
+//	#_%CN_ = %f_pas_TypeName(%C%T);\n\
+   out_indent '_'
+   %C |N '_ = '
+   [%f] pas_TypeName %( %C ->T  )% ';'#13#10
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%C#f_IsDefine()=true&%CV=PublicAccess}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsDefine %( )% ) %==  true AND 
+   ( ( %C |V ) %== 'PublicAccess'  ) ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//
+//	%f_CalcParentAndInclude(%S)\
+ [%f] CalcParentAndInclude %( %S )% 
+//	[{%S{need UC}=true}%U[{cit}\n]\n]\
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  %Usersection (
+   'cit' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+   #13#10 
+ end // if
+//
+//	#%f_pas_TypeName(%S) = \
+ out_indent [%f] pas_TypeName %( %S )% ' = '
+
+//	[{%Sa=abstract}{\
+ if ( ( %S |a ) %== 'abstract' ) then
+ begin
+//	%f_set_var(CLASS_MARK_PREFIX,"abstract")\
+  [%f] set_var %( 'CLASS_MARK_PREFIX' %, 'abstract' )% 
+//	]\
+ end // if
+ else
+ begin
+//	[{%Sa=final}{\
+  if ( ( %S |a ) %== 'final' ) then
+  begin
+//	%f_set_var(CLASS_MARK_PREFIX,"final")\
+   [%f] set_var %( 'CLASS_MARK_PREFIX' %, 'final' )% 
+//	]}\
+  end // if
+  else
+  begin
+//	%f_set_var(CLASS_MARK_PREFIX,"")\
+   [%f] set_var %( 'CLASS_MARK_PREFIX' %, '' )% 
+//	}\
+  end // else
+ end // else
+//	[{"%S%f_pas_OutClassMark()"!=""}{\
+ if ( ( %S %f pas_OutClassMark %( )% ) %!= '' ) then
+ begin
+//	\{\
+  '{'
+//	[{"%{CLASS_MARK_PREFIX}N"!=""}%{CLASS_MARK_PREFIX}N ]\
+  if ( ( ( get_global_var ( 'CLASS_MARK_PREFIX' ) |N ) ) %!= '' ) then
+  begin
+   ( get_global_var ( 'CLASS_MARK_PREFIX' ) |N ) ' ' 
+  end // if
+//	%S%f_pas_OutClassMark()\} ]\
+  %S %f pas_OutClassMark %( )% '} ' 
+ end // if
+ else
+ begin
+//	[{"%{CLASS_MARK_PREFIX}N"!=""}\{%{CLASS_MARK_PREFIX}N\} ]\
+  if ( ( ( get_global_var ( 'CLASS_MARK_PREFIX' ) |N ) ) %!= '' ) then
+  begin
+   '{'
+   ( get_global_var ( 'CLASS_MARK_PREFIX' ) |N ) '} ' 
+  end // if
+//	}\
+ end // else
+//	class[(%S%f_pas_OutAncestor()\
+ 'class'
+ if NOT-EMPTY
+ begin
+  '('
+  %S %f pas_OutAncestor %( )% 
+//	[<{}{%R#f_ClassImplementable()=true&%S%f_SomeAncestorImplements(%R)!=true}\
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R %?f ClassImplementable %( )% ) %==  true AND 
+     ( ( %S %f SomeAncestorImplements %( %R )% ) %!=  true  ) ) then
+    begin
+//	[ %R#f_open_ifdef()]\
+     if NOT-EMPTY
+     begin
+      ' '
+      %R %?f open_ifdef %( )% 
+     end // if
+     NOP
+//	, %f_pas_TypeName(%R)\
+     ', '
+     [%f] pas_TypeName %( %R )% 
+
+//	[%R<{}{%R#f_ClassImplementable()=true&%1#f_Implements(%R)!=true}\
+     if NOT-EMPTY
+     begin
+      %R
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%R
+       begin
+        OBJECT IN %R
+        if ( ( %R %?f ClassImplementable %( )% ) %==  true AND 
+         ( ( %1 %?f Implements %( %R )% ) %!=  true  ) ) then
+        begin
+//	, %f_pas_TypeName(%R) \{from %f_pas_TypeName(%S)\}\
+         ', '
+         [%f] pas_TypeName %( %R )% ' {from '
+         [%f] pas_TypeName %( %S )% '}'
+//	>\
+
+         ++! l_Counter
+        end // if
+       end // for R
+
+      ) // bind
+ //	]\
+     end // if
+     NOP
+
+
+//	[%R#f_close_ifdef()\n#]\
+     if NOT-EMPTY
+     begin
+      %R %?f close_ifdef %( )% #13#10
+      out_indent 
+     end // if
+     NOP
+
+
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for R
+
+
+//	])\
+  end // if
+  NOP
+  ')'
+//	]\
+ end // if
+ NOP
+//	[\n# \{* %f_Doc(%S) \}]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  out_indent ' {* '
+  [%f] Doc %( %S )% ' }' 
+ end // if
+ NOP
+//	%S%f_pas_OutBeforeFields()
+ %S %f pas_OutBeforeFields %( )% 
+//	[#private
+ if NOT-EMPTY
+ begin
+  out_indent 'private'
+//	#// private fields
+  out_indent '// private fields'
+//	<{}{%CV=PrivateAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS!=static}[%CX\n]>]\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'PrivateAccess' AND 
+    ( ( %C %?f IsAttribute %( )% ) %==  true  ) AND 
+    ( ( %C %?f IsProp %( )% ) %!=  true  ) AND 
+    ( ( %C |S ) %!= 'static'  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//	\
+
+//	[{%S%f_HasAnyVCMAreaLink()=true}\
+////	#private
+////	#// auto fields
+//////	%f_with_gen_id(intf3.pas,<%R<{}{%CC=Class&%C#f_IsVCMAreaLink()=true}[%CX\n]>>)\
+////	%f_with_gen_id(intf3.pas,<{}{%o#f_IsVCMAreaLink()=true}[%oX\n]>)\
+
+//	#protected
+//	#  procedure ClearRefs; override;
+//	]\
+
+//	[#protected
+ if NOT-EMPTY
+ begin
+  out_indent 'protected'
+//	%S%f_pas_OutOverridesIntf()\
+  %S %f pas_OutOverridesIntf %( )% 
+//	]\
+ end // if
+ NOP
+//	\
+//	[#private
+//	#// property fields
+//	%f_with_gen_id(intf3.pas,<{}{%C#f_IsStaticObject()!=true&%C#f_IsStruct()!=true}[%CX\n]>)]\
+//	\
+//	[#private
+ if NOT-EMPTY
+ begin
+  out_indent 'private'
+//	#// private methods
+  out_indent '// private methods'
+//	<{}{%CV=PrivateAccess&%C#f_IsAttribute()!=true&%C%f_IsClassInner()=true}[%CX\n]>]\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'PrivateAccess' AND 
+    ( ( %C %?f IsAttribute %( )% ) %!=  true  ) AND 
+    ( ( %C %f IsClassInner %( )% ) %==  true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//	\
+//	[#protected
+ if NOT-EMPTY
+ begin
+  out_indent 'protected'
+//	#// property methods
+  out_indent '// property methods'
+//	<{}{%C#f_IsProp()=true}[%CX\n]>]\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsProp %( )% ) %==  true ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//	\
+
+//	%f_clear_list(REALIZED_METHODS)\
+ [%f] clear_list %( 'REALIZED_METHODS' )% 
+//	[{%S{is_friend}!=true}\
+ if ( ( %S get_up ( 'is_friend' ) ) %!=  true ) then
+ begin
+//	[#protected
+  if NOT-EMPTY
+  begin
+   out_indent 'protected'
+//	#// realized methods\
+   out_indent '// realized methods'
+
+
+
+// Генерируем интерфейс методов "квадратиком", вложенных в фасеты/интерфейсы:
+//	<\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+
+
+//	%R<{}{%CC=Class&%C#f_IsClassImplementableElement()=true&%C#f_IsRealizedBySomeClassElement(%1)!=true}\
+     %R
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |C ) %== 'Class' AND 
+        ( ( %C %?f IsClassImplementableElement %( )% ) %==  true  ) AND 
+        ( ( %C %?f IsRealizedBySomeClassElement %( %1 )% ) %!=  true  ) ) then
+       begin
+//	[\n%C%f_pas_MethodInterface(%1,"r")]\
+        if NOT-EMPTY
+        begin
+         #13#10
+         %C %f pas_MethodInterface %( %1 %, 'r' )% 
+        end // if
+        NOP
+//	>\
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+
+//	%R<{}{%1#f_Implements(%G)!=true}{%G}\
+     %R
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%G
+      begin
+       OBJECT IN %G
+       if ( ( %1 %?f Implements %( %G )% ) %!=  true ) then
+       begin
+//	%G<{}{%CC=Class&%C#f_IsClassImplementableElement()=true&%C#f_IsRealizedBySomeClassElement(%2)!=true}\
+        %G
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%C
+         begin
+          OBJECT IN %C
+          if ( ( %C |C ) %== 'Class' AND 
+           ( ( %C %?f IsClassImplementableElement %( )% ) %==  true  ) AND 
+           ( ( %C %?f IsRealizedBySomeClassElement %( %2 )% ) %!=  true  ) ) then
+          begin
+//	[\n%C%f_pas_MethodInterface(%2,"r")]\
+           if NOT-EMPTY
+           begin
+            #13#10
+            %C %f pas_MethodInterface %( %2 %, 'r' )% 
+           end // if
+           NOP
+//	>\
+
+           ++! l_Counter
+          end // if
+         end // for C
+
+        ) // bind
+ //	>\
+
+        ++! l_Counter
+       end // if
+      end // for G
+
+     ) // bind
+ 
+
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for R
+
+// end Генерируем интерфейс методов "квадратиком"...
+
+
+//	<{}{%oS!=inline}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%o
+   begin
+    OBJECT IN %o
+    if ( ( %o |S ) %!= 'inline' ) then
+    begin
+//	[{%o#f_IsAttribute()=true|%S%f_IsPublicRealizedMethod(%o)!=true}\
+     if ( ( %o %?f IsAttribute %( )% ) %==  true OR 
+       ( ( %S %f IsPublicRealizedMethod %( %o )% ) %!=  true  ) ) then
+     begin
+//	[\n%o%f_pas_MethodInterface(%S,"r")]\
+      if NOT-EMPTY
+      begin
+       #13#10
+       %o %f pas_MethodInterface %( %S %, 'r' )% 
+      end // if
+      NOP
+//	]\
+     end // if
+//	>\n\
+
+     ++! l_Counter
+    end // if
+   end // for o
+   #13#10
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+//	#protected
+
+//	[{%S{is_friend}!=true}\
+ if ( ( %S get_up ( 'is_friend' ) ) %!=  true ) then
+ begin
+//	[#public
+  if NOT-EMPTY
+  begin
+   out_indent 'public'
+//	#// realized methods
+   out_indent '// realized methods'
+//	<{\n}{%oS!=inline}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%o
+   begin
+    OBJECT IN %o
+    if ( ( %o |S ) %!= 'inline' ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10 )
+//	[{%o#f_IsAttribute()!=true&%S%f_IsPublicRealizedMethod(%o)=true}\
+     if ( ( %o %?f IsAttribute %( )% ) %!=  true AND 
+       ( ( %S %f IsPublicRealizedMethod %( %o )% ) %==  true  ) ) then
+     begin
+//	%o%f_pas_MethodInterface(%S,"r")\
+      %o %f pas_MethodInterface %( %S %, 'r' )% 
+//	]\
+     end // if
+//	>\n\
+
+     ++! l_Counter
+    end // if
+   end // for o
+   #13#10
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+//	#public
+
+//	[#protected
+ if NOT-EMPTY
+ begin
+  out_indent 'protected'
+//	#// overridden property methods
+  out_indent '// overridden property methods'
+//	<{\n}{%O#f_IsAttribute()=true}%O%f_pas_MethodInterface(%S,"o")>\n]\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%O
+  begin
+   OBJECT IN %O
+   if ( ( %O %?f IsAttribute %( )% ) %==  true ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    %O %f pas_MethodInterface %( %S %, 'o' )% 
+    ++! l_Counter
+   end // if
+  end // for O
+  #13#10 
+ end // if
+ NOP
+//	[#protected
+ if NOT-EMPTY
+ begin
+  out_indent 'protected'
+//	#// overridden protected methods
+  out_indent '// overridden protected methods'
+//	<{\n}{%OV=ProtectedAccess&%O#f_IsAttribute()!=true&%OS!=inline}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%O
+  begin
+   OBJECT IN %O
+   if ( ( %O |V ) %== 'ProtectedAccess' AND 
+    ( ( %O %?f IsAttribute %( )% ) %!=  true  ) AND 
+    ( ( %O |S ) %!= 'inline'  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+//	%O%f_pas_MethodInterface(%S,"o")\
+    %O %f pas_MethodInterface %( %S %, 'o' )% 
+//	>\n\
+
+    ++! l_Counter
+   end // if
+  end // for O
+  #13#10
+//	]\
+ end // if
+ NOP
+//	#protected
+
+//	[#public
+ if NOT-EMPTY
+ begin
+  out_indent 'public'
+//	#// overridden public methods
+  out_indent '// overridden public methods'
+//	<{\n}{%OV=PublicAccess&%O#f_IsAttribute()!=true&%OS!=inline}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%O
+  begin
+   OBJECT IN %O
+   if ( ( %O |V ) %== 'PublicAccess' AND 
+    ( ( %O %?f IsAttribute %( )% ) %!=  true  ) AND 
+    ( ( %O |S ) %!= 'inline'  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+//	%O%f_pas_MethodInterface(%S,"o")\
+    %O %f pas_MethodInterface %( %S %, 'o' )% 
+//	>\n\
+
+    ++! l_Counter
+   end // if
+  end // for O
+  #13#10
+//	]\
+ end // if
+ NOP
+//	#public
+
+//	[#protected
+ if NOT-EMPTY
+ begin
+  out_indent 'protected'
+//	#// protected fields
+  out_indent '// protected fields'
+//	<{}{%CV=ProtectedAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS!=static}[%CX\n]>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'ProtectedAccess' AND 
+    ( ( %C %?f IsAttribute %( )% ) %==  true  ) AND 
+    ( ( %C %?f IsProp %( )% ) %!=  true  ) AND 
+    ( ( %C |S ) %!= 'static'  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]\
+ end // if
+ NOP
+
+//	[#public
+ if NOT-EMPTY
+ begin
+  out_indent 'public'
+//	#// public fields
+  out_indent '// public fields'
+//	<{}{%CV=PublicAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS!=static}[%CX\n]>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'PublicAccess' AND 
+    ( ( %C %?f IsAttribute %( )% ) %==  true  ) AND 
+    ( ( %C %?f IsProp %( )% ) %!=  true  ) AND 
+    ( ( %C |S ) %!= 'static'  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]\
+ end // if
+ NOP
+
+//	\
+//	[#protected
+ if NOT-EMPTY
+ begin
+  out_indent 'protected'
+//	#// protected methods
+  out_indent '// protected methods'
+//	<{}{%CV=ProtectedAccess&%C#f_IsAttribute()!=true&%C%f_IsClassInner()=true&%C#f_IsPublishedAccess()!=true}[%CX\n]>]\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'ProtectedAccess' AND 
+    ( ( %C %?f IsAttribute %( )% ) %!=  true  ) AND 
+    ( ( %C %f IsClassInner %( )% ) %==  true  ) AND 
+    ( ( %C %?f IsPublishedAccess %( )% ) %!=  true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//	[#public
+ if NOT-EMPTY
+ begin
+  out_indent 'public'
+//	#// public methods
+  out_indent '// public methods'
+//	<{}{%CV=PublicAccess&%C#f_IsAttribute()!=true&%C%f_IsClassInner()=true&%C#f_IsPublishedAccess()!=true}[%CX\n]>]\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'PublicAccess' AND 
+    ( ( %C %?f IsAttribute %( )% ) %!=  true  ) AND 
+    ( ( %C %f IsClassInner %( )% ) %==  true  ) AND 
+    ( ( %C %?f IsPublishedAccess %( )% ) %!=  true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//	\
+//	[#private
+ if NOT-EMPTY
+ begin
+  out_indent 'private'
+//	#// private properties
+  out_indent '// private properties'
+//	%f_with_gen_id(intf2.pas,<{}{%CV=PrivateAccess}[%CX\n]>)]\
+  [%f] with_gen_id %( 'intf2.pas' %, 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'PrivateAccess' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+)%  end // if
+ NOP
+//	[#protected
+ if NOT-EMPTY
+ begin
+  out_indent 'protected'
+//	#// protected properties
+  out_indent '// protected properties'
+//	%f_with_gen_id(intf2.pas,<{}{%CV=ProtectedAccess}[%CX\n]>)]\
+  [%f] with_gen_id %( 'intf2.pas' %, 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'ProtectedAccess' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+)%  end // if
+ NOP
+
+//	[#public
+ if NOT-EMPTY
+ begin
+  out_indent 'public'
+//	#// public properties
+  out_indent '// public properties'
+//	%f_with_gen_id(intf2.pas,<{}{%CV=PublicAccess}[%CX\n]>)\
+  [%f] with_gen_id %( 'intf2.pas' %, 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'PublicAccess' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+)% //	%f_with_gen_id(intf2.pas,<{}{%o#f_IsProp()=true&%o%P#f_IsContract()=true}[%oX\n]>)\
+  [%f] with_gen_id %( 'intf2.pas' %, 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%o
+  begin
+   OBJECT IN %o
+   if ( ( %o %?f IsProp %( )% ) %==  true AND 
+    ( ( %o ->P %?f IsContract %( )%  ) %==  true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %o |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for o
+)% //	]\
+ end // if
+ NOP
+
+//	[{%S{need UC}=true}%U[{publ}\n]\n]\
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  %Usersection (
+   'publ' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+   #13#10 
+ end // if
+//	[{%S{singleton}=true&<{}{%C#f_IsFactory()=true}{C}>=0}\
+ if ( ( %S get_up ( 'singleton' ) ) %==  true AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsFactory %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0  ) ) then
+ begin
+//	#public
+  out_indent 'public'
+//	#// singleton factory method
+  out_indent '// singleton factory method'
+//	#  class function Instance: %f_pas_TypeName(%S);
+  out_indent '  class function Instance: '
+  [%f] pas_TypeName %( %S )% ';'
+//	#   {- возвращает экземпляр синглетона. }
+  out_indent '   {- возвращает экземпляр синглетона. }'
+//	]\
+ end // if
+
+//	%f_clear_list(CAST_METHODS)\
+ [%f] clear_list %( 'CAST_METHODS' )% 
+//	[#protected
+ if NOT-EMPTY
+ begin
+  out_indent 'protected'
+//	#// Методы преобразования к реализуемым интерфейсам
+  out_indent '// Методы преобразования к реализуемым интерфейсам'
+//	<{}{%t_interface(%R)=true&%R%f_InTie()!=true}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( [%t] interface %( %R )% ) %==  true AND 
+    ( ( %R %f InTie %( )% ) %!=  true  ) ) then
+   begin
+//	%R<{\n}{%R#f_IsPureMixIn()!=true&%t_interface(%R)=true&%f_exists_in_list(CAST_METHODS,R)!=true}\
+    %R
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%R
+     begin
+      OBJECT IN %R
+      if ( ( %R %?f IsPureMixIn %( )% ) %!=  true AND 
+       ( ( [%t] interface %( %R )% ) %==  true  ) AND 
+       ( ( [%f] exists_in_list %( 'CAST_METHODS' %, 'R' )% ) %!=  true  ) ) then
+      begin
+       if ( l_Counter >0 ) then ( #13#10 )
+//	%f_add_to_list(CAST_METHODS,R)\
+       [%f] add_to_list %( 'CAST_METHODS' %, 'R' )% 
+//	%f_pas_OutCastMethodInterface(%R,%1)\
+       [%f] pas_OutCastMethodInterface %( %R %, %1 )% 
+//	>\
+
+       ++! l_Counter
+      end // if
+     end // for R
+
+    ) // bind
+ //	>
+
+    ++! l_Counter
+   end // if
+  end // for R
+//	]\
+ end // if
+ NOP
+//	%f_clear_list(CAST_METHODS)\
+ [%f] clear_list %( 'CAST_METHODS' )% 
+
+//	[#published
+ if NOT-EMPTY
+ begin
+  out_indent 'published'
+//	#// published methods
+  out_indent '// published methods'
+//	<{}{%CV=PublicAccess&%C#f_IsAttribute()!=true&%C%f_IsClassInner()=true&%C#f_IsPublishedAccess()=true&%C{isPublishedAccess}!=true}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'PublicAccess' AND 
+    ( ( %C %?f IsAttribute %( )% ) %!=  true  ) AND 
+    ( ( %C %f IsClassInner %( )% ) %==  true  ) AND 
+    ( ( %C %?f IsPublishedAccess %( )% ) %==  true  ) AND 
+    ( ( %C get_up ( 'isPublishedAccess' ) ) %!=  true  ) ) then
+   begin
+//	[%CX\n]\
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]\
+ end // if
+ NOP
+
+//	%S%f_pas_BeforeClassEnd()\
+ %S %f pas_BeforeClassEnd %( )% 
+//	#end;//%f_pas_TypeName(%S)\
+ out_indent 'end;//'
+ [%f] pas_TypeName %( %S )% 
+//	%S%f_pas_AfterClassEnd()\
+ %S %f pas_AfterClassEnd %( )% 
+//	<{}{%t_interface(%R)=true}%R<{}{%CS=impurity value}%f_set_var(%CN,"")>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%t] interface %( %R )% ) %==  true ) then
+  begin
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %== 'impurity value' ) then
+     begin
+      [%f] set_var %( %C |N %, '' )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+//	%f_shift_intend(-1)\
+ [%f] shift_intend %( -1 )% 
+
+//	<{}{%CV!=PrivateAccess&%C%f_IsClassInner()!=true&"%CO"=""}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %!= 'PrivateAccess' AND 
+   ( ( %C %f IsClassInner %( )% ) %!=  true  ) AND 
+   ( ( %C |O ) %== ''  ) ) then
+  begin
+//	[{%CS=Typedef&%C%GU=%SU&%C{isClassRef}!=true}[%CX\n]]\
+   if ( ( %C |S ) %== 'Typedef' AND 
+     ( ( %C ->G |U  ) %== ( %S |U )  ) AND 
+     ( ( %C get_up ( 'isClassRef' ) ) %!=  true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	%f_shift_intend(+1)\
+ [%f] shift_intend %( 1 )% 
+
+//	[{%{NeedElse}N=true}\
+ if ( ( ( get_global_var ( 'NeedElse' ) |N ) ) %==  true ) then
+ begin
+//	\n\{$Else\}
+  #13#10'{$Else}'
+//	
+  #13#10
+
+
+
+//	%f_CalcParentAndInclude(%S)\
+  [%f] CalcParentAndInclude %( %S )% 
+
+//	#%f_pas_TypeName(%S) = %S%f_pas_OutAncestor();
+  out_indent [%f] pas_TypeName %( %S )% ' = '
+  %S %f pas_OutAncestor %( )% ';'
+//	]\
+ end // if
+
+//	[\n%S%f_close_ifdef()]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//	%f_shift_intend(-1)\
+ [%f] shift_intend %( -1 )% 
+//	%f_warning(%SN)\
+//	%f_with_gen_id(intf3.pas,<{}{%C#f_IsStaticObject()=true|%C#f_IsStruct()=true|%t_interface(%C)=true|%C#f_IsPureMixIn()=true}\
+ [%f] with_gen_id %( 'intf3.pas' %, 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsStaticObject %( )% ) %==  true OR 
+   ( ( %C %?f IsStruct %( )% ) %==  true  ) OR 
+   ( ( [%t] interface %( %C )% ) %==  true  ) OR 
+   ( ( %C %?f IsPureMixIn %( )% ) %==  true  ) ) then
+  begin
+
+//	%f_warning(%CN)\
+//	[\n%CX]>)\
+   if NOT-EMPTY
+   begin
+    #13#10
+    %C |X 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+)% // - генерируем псевдо-конструкторы записей и StaticObject'ов
+//	%f_shift_intend(+1)\
+ [%f] shift_intend %( 1 )% 
+//	[\n\
+ if NOT-EMPTY
+ begin
+  #13#10
+//	<{}{%CV=PublicAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS=static}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |V ) %== 'PublicAccess' AND 
+    ( ( %C %?f IsAttribute %( )% ) %==  true  ) AND 
+    ( ( %C %?f IsProp %( )% ) %!=  true  ) AND 
+    ( ( %C |S ) %== 'static'  ) ) then
+   begin
+//	[\n%CX]\
+    if NOT-EMPTY
+    begin
+     #13#10
+     %C |X 
+    end // if
+    NOP
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]\
+ end // if
+ NOP
+
+//	%f_clear_list(REALIZED_METHODS)
+ [%f] clear_list %( 'REALIZED_METHODS' )% 
+
+//f _CalcParentAndInclude
+; // pas_OutClassInterface
+
+end. // "Delphi интерфейсы и реализация"
+
+: CalcParentAndInclude OBJECT IN %S
+//	[{%S#f_IsMixIn()=true}{\
+ if ( ( %S %?f IsMixIn %( )% ) %==  true ) then
+ begin
+//	[{<{}{%G#f_IsMixIn()!=true}{C}>=0}{\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( %G %?f IsMixIn %( )% ) %!=  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %== 0 ) then
+  begin
+//	%f_set_var(PARENT,"%f_pas_ImpurityParentName(%S)")\
+   [%f] set_var %( 'PARENT' %, [%f] pas_ImpurityParentName %( %S )% )% 
+//	]\
+  end // if
+  else
+  begin
+//	%f_set_var(PARENT,"%f_pas_TypeName(%G)")\
+   [%f] set_var %( 'PARENT' %, [%f] pas_TypeName %( %G )% )% 
+//	}\
+  end // else
+//	]\
+ end // if
+ else
+ begin
+//	%f_set_var(PARENT,"%f_pas_MainParentName(%S)")\
+  [%f] set_var %( 'PARENT' %, [%f] pas_MainParentName %( %S )% )% 
+//	}\
+ end // else
+//
+//	%f_set_var(WAS_PROLOGUE,"false")\
+ [%f] set_var %( 'WAS_PROLOGUE' %, false )% 
+//	<{}{%G#f_IsMixIn()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if ( ( %G %?f IsMixIn %( )% ) %==  true ) then
+  begin
+
+//	[{"%{PARENT}N"!=""}#%f_pas_ImpurityParentName(%G) = %{PARENT}N;\n]\
+//	[{%G<{}{%g#f_IsMixIn()!=true}{C}>=0&"%{PARENT}N"!=""}#%f_pas_ImpurityParentName(%G) = %{PARENT}N;\n]\
+   if ( ( %G
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%g
+     begin
+      OBJECT IN %g
+      if ( ( %g %?f IsMixIn %( )% ) %!=  true ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for g
+     l_Counter
+
+    ) // bind
+ )     %== 0 AND 
+     ( ( ( get_global_var ( 'PARENT' ) |N ) ) %!= ''  ) ) then
+   begin
+    out_indent [%f] pas_ImpurityParentName %( %G )% ' = '
+    ( get_global_var ( 'PARENT' ) |N ) ';'#13#10 
+   end // if
+//	%f_set_var(PARENT,"%f_pas_TypeName(%G)")\
+   [%f] set_var %( 'PARENT' %, [%f] pas_TypeName %( %G )% )% 
+//	%S%f_OutL3ItemsPrologue(%G,"WAS_PROLOGUE")\
+   %S %f OutL3ItemsPrologue %( %G %, 'WAS_PROLOGUE' )% 
+//	%f_OutIncludePrim(%G,%S)\n\
+   [%f] OutIncludePrim %( %G %, %S )% #13#10
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for G
+//
+//	<{}{%R#f_IsMixIn()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R %?f IsMixIn %( )% ) %==  true ) then
+  begin
+//	#%f_pas_ImpurityParentName(%R) = %{PARENT}N;\n\
+   out_indent [%f] pas_ImpurityParentName %( %R )% ' = '
+   ( get_global_var ( 'PARENT' ) |N ) ';'#13#10
+//	%f_set_var(PARENT,"%f_pas_TypeName(%R)")\
+   [%f] set_var %( 'PARENT' %, [%f] pas_TypeName %( %R )% )% 
+//	%S%f_OutL3ItemsPrologue(%R,"WAS_PROLOGUE")\
+   %S %f OutL3ItemsPrologue %( %R %, 'WAS_PROLOGUE' )% 
+//	%f_OutIncludePrim(%R,%S)\n\
+   [%f] OutIncludePrim %( %R %, %S )% #13#10
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for R
+//#UC END# *494B7197025Afor470F151302FD*
+; // CalcParentAndInclude
+
+
+// Выводит спец-метку класса
+//%f _pas_OutClassMark
+implementation @ "Delphi интерфейсы и реализация"
+: pas_OutClassMark OBJECT IN %S
+//#UC START# *494B74D7016Bfor470F151302FD*
+//#UC END# *494B74D7016Bfor470F151302FD*
+; // pas_OutClassMark
+
+
+// Выводит значения параметров примесей
+//%f _pas_OutMixInValues
+: pas_OutMixInValues OBJECT IN %S
+//#UC START# *494B7E6D0125for470F151302FD*
+//#UC END# *494B7E6D0125for470F151302FD*
+; // pas_OutMixInValues
+
+
+// Определяет является ли элемент контроллером прецедента
+//%f _IsUseCaseController
+: IsUseCaseController OBJECT IN %S
+//#UC START# *494B7E8B02B1for470F151302FD*
+//	false
+ false
+//#UC END# *494B7E8B02B1for470F151302FD*
+; // IsUseCaseController
+
+
+// Выводит интерфейс переопределённых методов
+//%f _pas_OutOverridesIntf
+: pas_OutOverridesIntf OBJECT IN %S
+//#UC START# *494B856502ECfor470F151302FD*
+//	[{%S%f_NeedCleanupFields()=true}\
+//	#  procedure ClearFields; override;
+//	]
+//#UC END# *494B856502ECfor470F151302FD*
+; // pas_OutOverridesIntf
+
+
+// Выводит реализацию переопределённых методов
+//%f _pas_OutOverridesImpl
+: pas_OutOverridesImpl OBJECT IN %S
+//#UC START# *494B86B5014Bfor470F151302FD*
+//	[{%S%f_NeedCleanupFields()=true}\
+//	%f_pas_OpenMethodImplementation("ClearFields",%S)\
+//	procedure %f_pas_TypeName(%S).ClearFields;
+//	begin
+//	<{}{%C#f_IsFieldForCleanup()=true}\
+//	 [{%C%T#f_IsStruct()=true}{\
+//	[{"%C%{clearViaProperty}N"!=""}{%C%f_pas_AttrName()}%C%{clearViaProperty}N]\
+//	 := nil\
+//	}\
+//	Finalize(%C%f_pas_AttrName())];\n\
+//	>\
+//	 inherited;
+//	end;\
+//	]
+//#UC END# *494B86B5014Bfor470F151302FD*
+; // pas_OutOverridesImpl
+
+
+// Имя атрибута
+//%f _pas_AttrName
+: pas_AttrName OBJECT IN %S
+//#UC START# *494B9868000Afor470F151302FD*
+//	%SN
+ %S |N 
+//#UC END# *494B9868000Afor470F151302FD*
+; // pas_AttrName
+
+
+// Заглушка-реализация метода
+//%f _pas_MethodStub
+: pas_MethodStub OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2
+//#UC START# *494BAFBF00C0for470F151302FD*
+//	 !!! Needs to be implemented !!!
+ ' !!! Needs to be implemented !!!'
+//#UC END# *494BAFBF00C0for470F151302FD*
+; // pas_MethodStub
+
+
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+//%f _pas_MethodBodyPrim
+: pas_MethodBodyPrim OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for470F151302FD*
+//	\n\
+ #13#10
+//	[{"%4N"!=""}{\
+ if ( ( %4 |N ) %!= '' ) then
+ begin
+//	%4%f_pas_MethodDeclarations(%1,%2)\
+  %4 %f pas_MethodDeclarations %( %1 %, %2 )% 
+//	]\
+ end // if
+ else
+ begin
+//	%S%f_pas_MethodDeclarations(%1,%2)\
+  %S %f pas_MethodDeclarations %( %1 %, %2 )% 
+//	}\
+ end // else
+//	\n\
+ #13#10
+//	%S%f_Ind()\
+ %S %f Ind %( )% 
+//	[{%S{isAsm}=true}{\
+ if ( ( %S get_up ( 'isAsm' ) ) %==  true ) then
+ begin
+//	asm\
+  'asm'
+//	]
+ end // if
+ else
+ begin
+//	begin\
+  'begin'
+//	}\
+ end // else
+//	%S%f_pas_BeforeMethodBodyImplementation(%1,%2)\
+ %S %f pas_BeforeMethodBodyImplementation %( %1 %, %2 )% 
+//	%S%f_pas_MethodBodyImplementation(%1,%2)
+ %S %f pas_MethodBodyImplementation %( %1 %, %2 )% 
+//	%S%f_Ind()\
+ %S %f Ind %( )% 
+//	end;//%f_pas_FullMethodName(%S,%1,%3,%2)
+ 'end;//'
+ [%f] pas_FullMethodName %( %S %, %1 %, %3 %, %2 )% 
+//#UC END# *494BB3A201A2for470F151302FD*
+; // pas_MethodBodyPrim
+
+
+// Выводит реализацию итератора
+//%f _pas_IteratorBody
+: pas_IteratorBody OBJECT IN %S
+//#UC START# *494BBE430242for470F151302FD*
+//	\n\
+ #13#10
+//	var
+ 'var'
+//	 Hack : Pointer absolute anAction;
+ ' Hack : Pointer absolute anAction;'
+//	begin
+ 'begin'
+//	 try
+ ' try'
+//	  \
+ '  '
+//	[{%S{needs result}=true}\
+ if ( ( %S get_up ( 'needs result' ) ) %==  true ) then
+ begin
+//	Result := \
+  'Result := '
+//	]\
+ end // if
+//	%f_N(%S)(anAction[, <{, }%CN>]);
+ [%f] N %( %S )% '(anAction'
+ if NOT-EMPTY
+ begin
+  ', '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    %C |N 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ ');'
+//	 finally
+ ' finally'
+//	  l3FreeLocalStub(Hack);
+ '  l3FreeLocalStub(Hack);'
+//	 end;//try..finally
+ ' end;//try..finally'
+//	end;
+ 'end;'
+//#UC END# *494BBE430242for470F151302FD*
+; // pas_IteratorBody
+
+
+// Выводит имя метода
+//%f _pas_MethodName
+: pas_MethodName OBJECT IN %S
+// параметры: Modification: a-string = %1
+//#UC START# *494BD6C80075for470F151302FD*
+//@ %SU_%1N
+//	[{%P#f_IsUtilityPack()=true}%S%f_pas_Prefix()]%t_pas_MethodName(%S,%1)
+ if ( ( %P %?f IsUtilityPack %( )% ) %==  true ) then
+ begin
+  %S %f pas_Prefix %( )% 
+ end // if
+ [%t] pas_MethodName %( %S %, %1 )% 
+//#UC END# *494BD6C80075for470F151302FD*
+; // pas_MethodName
+
+
+// Параметры операции
+//%f _pas_Params
+: pas_Params OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor470F151302FD*
+//	[{%t_interface(%P)=true&%P#f_InTie()=true}{\
+ if ( ( [%t] interface %( %P )% ) %==  true AND 
+   ( ( %P %?f InTie %( )% ) %==  true  ) ) then
+ begin
+//	%f_set_var(FIRST_PARAM,"true")\
+  [%f] set_var %( 'FIRST_PARAM' %, true )% 
+//	<{;\n#  }{%C#f_IsNotParam()!=true}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsNotParam %( )% ) %!=  true ) then
+   begin
+    if ( l_Counter >0 ) then ( ';'#13#10
+    out_indent '  ' )
+//	%f_set_var(FIRST_PARAM,"false")\
+    [%f] set_var %( 'FIRST_PARAM' %, false )% 
+//	%t_pas_ParamPrefix(%C)a%f_to_borland(%CN)\
+    [%t] pas_ParamPrefix %( %C )% 'a'
+    [%f] to_borland %( %C |N )% 
+//	[: %t_pas_ParamType(%C%T)][{"%C%VN"!=""} = %C%V%T#f_pas_ElementPrefix()%C%VN]\
+    if NOT-EMPTY
+    begin
+     ': '
+     [%t] pas_ParamType %( %C ->T  )% 
+    end // if
+    NOP
+    if ( ( %C ->V |N  ) %!= '' ) then
+    begin
+     ' = '
+     %C ->V ->T %?f pas_ElementPrefix %( )%   %C ->V |N  
+    end // if
+//	[{%CD!=undefined}[\n#  \{* %f_Doc(%C)\}]]>\
+    if ( ( %C |D ) %!= 'undefined' ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+      out_indent '  {* '
+      [%f] Doc %( %C )% '}' 
+     end // if
+     NOP
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+
+//	[{"%S%f_pas_ResultTypeName()"=""&"%f_pas_TypeName(%T)"!=""}\
+  if ( ( %S %f pas_ResultTypeName %( )% ) %== '' AND 
+    ( ( [%f] pas_TypeName %( %T )% ) %!= ''  ) ) then
+  begin
+//	[{%{FIRST_PARAM}N!=true}; ]\
+   if ( ( ( get_global_var ( 'FIRST_PARAM' ) |N ) ) %!=  true ) then
+   begin
+    '; ' 
+   end // if
+//	out aRet \{: %f_pas_TypeName(%T)\}\
+   'out aRet {: '
+   [%f] pas_TypeName %( %T )% '}'
+//	]\
+  end // if
+
+
+//	]
+ end // if
+ else
+ begin
+//	%f_set_var(FIRST_PARAM,"true")\
+  [%f] set_var %( 'FIRST_PARAM' %, true )% 
+//	<{}{%C#f_IsNotParam()!=true}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsNotParam %( )% ) %!=  true ) then
+   begin
+//	[\n#  %C#f_open_ifdef()\n#  ]\
+    if NOT-EMPTY
+    begin
+     #13#10
+     out_indent '  '
+     %C %?f open_ifdef %( )% #13#10
+     out_indent '  ' 
+    end // if
+    NOP
+//	[{%{FIRST_PARAM}N!=true}{\
+    if ( ( ( get_global_var ( 'FIRST_PARAM' ) |N ) ) %!=  true ) then
+    begin
+//	;\n#  \
+     ';'#13#10
+     out_indent '  '
+//	%S%f_Ind()\
+     %S %f Ind %( )% 
+//	]\
+    end // if
+    else
+    begin
+//	%f_set_var(FIRST_PARAM,"false")\
+     [%f] set_var %( 'FIRST_PARAM' %, false )% 
+//	}\
+    end // else
+//	%t_pas_ParamPrefix(%C)%CN\
+    [%t] pas_ParamPrefix %( %C )% %C |N 
+//	[: %t_pas_ParamType(%C%T)]\
+    if NOT-EMPTY
+    begin
+     ': '
+     [%t] pas_ParamType %( %C ->T  )% 
+    end // if
+    NOP
+//	[{"%C%VN"!=""} = %C%V%T#f_pas_ElementPrefix()%C%VN]\
+    if ( ( %C ->V |N  ) %!= '' ) then
+    begin
+     ' = '
+     %C ->V ->T %?f pas_ElementPrefix %( )%   %C ->V |N  
+    end // if
+//	[{%CD!=undefined}[\n#  \{* %f_Doc(%C)\}]]\
+    if ( ( %C |D ) %!= 'undefined' ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+      out_indent '  {* '
+      [%f] Doc %( %C )% '}' 
+     end // if
+     NOP
+    end // if
+//	[\n#  %C#f_close_ifdef()\n#  ]\
+    if NOT-EMPTY
+    begin
+     #13#10
+     out_indent '  '
+     %C %?f close_ifdef %( )% #13#10
+     out_indent '  ' 
+    end // if
+    NOP
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	}\
+ end // else
+//#UC END# *494BDCF3030Efor470F151302FD*
+; // pas_Params
+
+
+// Имя типа результата функции
+//%f _pas_ResultTypeName
+: pas_ResultTypeName OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for470F151302FD*
+//@ %SU
+//	%f_pas_ResultTypeNamePrim(%T,%S)
+ [%f] pas_ResultTypeNamePrim %( %T %, %S )% 
+//#UC END# *494BDD190361for470F151302FD*
+; // pas_ResultTypeName
+
+
+// выводит параметры и результат метода
+//%f _pas_MethodParams
+: pas_MethodParams OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BE0CC0226for470F151302FD*
+//	[(%S%f_pas_Params(%1))]\
+ if NOT-EMPTY
+ begin
+  '('
+  %S %f pas_Params %( %1 )% ')' 
+ end // if
+ NOP
+//	[: %S%f_pas_ResultTypeName(%1)]
+ if NOT-EMPTY
+ begin
+  ': '
+  %S %f pas_ResultTypeName %( %1 )% 
+ end // if
+ NOP
+//#UC END# *494BE0CC0226for470F151302FD*
+; // pas_MethodParams
+
+
+// Параметры и результат итератора
+//%f _pas_IteratorParams
+: pas_IteratorParams OBJECT IN %S
+// параметры: Modification: a-string = %1
+//#UC START# *494BE0DB007Afor470F151302FD*
+//	(anAction: %f_pas_TypeName(%S%{Action})\
+ '(anAction: '
+ [%f] pas_TypeName %( %S ( get_object_var ( 'Action' ) )  )% 
+//	[;\n#  %S%f_pas_Params(%1)])\
+ if NOT-EMPTY
+ begin
+  ';'#13#10
+  out_indent '  '
+  %S %f pas_Params %( %1 )% 
+ end // if
+ NOP
+ ')'
+//	[{%S{needs result}=true}\
+ if ( ( %S get_up ( 'needs result' ) ) %==  true ) then
+ begin
+//	: [{}{Integer}<{}{%CS=result type}%f_pas_TypeName(%C%T)>]\
+  ': '
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'result type' ) then
+    begin
+     [%f] pas_TypeName %( %C ->T  )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  else
+  begin
+   'Integer' 
+  end // else
+//	]
+ end // if
+//#UC END# *494BE0DB007Afor470F151302FD*
+; // pas_IteratorParams
+
+
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+//%f _pas_MethodInterface
+: pas_MethodInterface OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor470F151302FD*
+//	%S%f_pas_DoMethodInterface(%1,%2,%3)
+ %S %f pas_DoMethodInterface %( %1 %, %2 %, %3 )% 
+//#UC END# *494BEC6A038Afor470F151302FD*
+; // pas_MethodInterface
+
+
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+//%f _pas_MethodImplementation
+: pas_MethodImplementation OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for470F151302FD*
+//	%S%f_pas_DoMethodImplementation(%1,%2,%3)
+ %S %f pas_DoMethodImplementation %( %1 %, %2 %, %3 )% 
+//#UC END# *494BEC7C03E5for470F151302FD*
+; // pas_MethodImplementation
+
+
+// выводит ключевое слова типа абстракности
+// 
+// RealizeType = o|r|f
+// Modification = get|set|area|arearef
+//%f _pas_AbstractionKeyword
+: pas_AbstractionKeyword OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3
+//#UC START# *494BF05502ACfor470F151302FD*
+//@ %SU_%1N_%2N_%3N
+//	[{%3N!=recall}{\
+ if ( ( %3 |N ) %!= 'recall' ) then
+ begin
+
+
+//	[{"%1N"=""|%t_interface(%P)=true|%P#f_IsPureMixIn()=true}\
+  if ( ( %1 |N ) %== '' OR 
+    ( ( [%t] interface %( %P )% ) %==  true  ) OR 
+    ( ( %P %?f IsPureMixIn %( )% ) %==  true  ) ) then
+  begin
+//	[{%S#f_IsFactory()=true|%P#f_IsFactory()=true}{\
+   if ( ( %S %?f IsFactory %( )% ) %==  true OR 
+     ( ( %P %?f IsFactory %( )% ) %==  true  ) ) then
+   begin
+//	 reintroduce;\
+    ' reintroduce;'
+//	]\
+   end // if
+   else
+   begin
+//	[{%SN=Create|%PN=Create}\
+    if ( ( %S |N ) %== 'Create' OR 
+      ( ( %P |N ) %== 'Create'  ) ) then
+    begin
+//	[{%S#f_IsConstructor()=true|%P#f_IsConstructor()=true} reintroduce;]\
+     if ( ( %S %?f IsConstructor %( )% ) %==  true OR 
+       ( ( %P %?f IsConstructor %( )% ) %==  true  ) ) then
+     begin
+      ' reintroduce;' 
+     end // if
+//	]\
+    end // if
+//	}\
+   end // else
+//	[%f_delphi_overload(%S) ]\
+   if NOT-EMPTY
+   begin
+    [%f] delphi_overload %( %S )% ' ' 
+   end // if
+   NOP
+//	]\
+  end // if
+
+//	"%1N"=""|%t_interface(%P)=true|%P#f_IsPureMixIn()=true
+
+
+//	[{%S#f_IsGlobal()!=true}\
+  if ( ( %S %?f IsGlobal %( )% ) %!=  true ) then
+  begin
+//	[{%P#f_IsContract()!=true}{\
+   if ( ( %P %?f IsContract %( )% ) %!=  true ) then
+   begin
+//	[{%t_interface(%P)!=true&%P#f_IsPureMixIn()!=true}{\
+    if ( ( [%t] interface %( %P )% ) %!=  true AND 
+      ( ( %P %?f IsPureMixIn %( )% ) %!=  true  ) ) then
+    begin
+
+
+//	[{"%1N"=""}{\
+     if ( ( %1 |N ) %== '' ) then
+     begin
+
+// - проверили, что это декларация обычного класса, и что метод не унаследован
+//	[{%SS!=override}{\
+      if ( ( %S |S ) %!= 'override' ) then
+      begin
+//	[{%SS!=message}{\
+       if ( ( %S |S ) %!= 'message' ) then
+       begin
+//	[{%Sa=abstract}{\
+        if ( ( %S |a ) %== 'abstract' ) then
+        begin
+//	 virtual; abstract;\
+         ' virtual; abstract;'
+//	]\
+        end // if
+        else
+        begin
+//	[{%S%f_IsVirtual()=true} virtual;]}\
+         if ( ( %S %f IsVirtual %( )% ) %==  true ) then
+         begin
+          ' virtual;' 
+         end // if
+        end // else
+//	]\
+       end // if
+       else
+       begin
+//	 message %S{Message ID};}\
+        ' message '
+        %S get_up ( 'Message ID' ) ';' 
+       end // else
+//	]\
+      end // if
+      else
+      begin
+//	 override;}\
+       ' override;' 
+      end // else
+//	]\
+     end // if
+     else
+     begin
+//	 override;}\
+      ' override;' 
+     end // else
+//	]\
+    end // if
+    else
+    begin
+
+
+//	[{"%1N"!=""&"%2N"="o"}\
+     if ( ( %1 |N ) %!= '' AND 
+       ( ( %2 |N ) %== 'o'  ) ) then
+     begin
+//	%f_error("Метод %f_pas_FullMethodName(%S,%1,%2,%3) не может быть перекрыт")\
+      [%f] error %( 'Метод '
+      [%f] pas_FullMethodName %( %S %, %1 %, %2 %, %3 )% ' не может быть перекрыт' )% 
+//	]}\
+     end // if
+    end // else
+
+//	%t_interface(%P)!=true&%P#f_IsPureMixIn()!=true
+
+
+//	]\
+   end // if
+   else
+   begin
+//	[{"%2N"="r"|"%1N"=""}{\
+    if ( ( %2 |N ) %== 'r' OR 
+      ( ( %1 |N ) %== ''  ) ) then
+    begin
+//	 virtual; abstract;\
+     ' virtual; abstract;'
+//	]\
+    end // if
+    else
+    begin
+//	 override;\
+     ' override;'
+//	}\
+    end // else
+//	}\
+   end // else
+//	]\
+  end // if
+
+//	%S#f_IsGlobal()!=true
+
+
+//	[{"%2N"!="o"}\
+  if ( ( %2 |N ) %!= 'o' ) then
+  begin
+//	%S%f_pas_CallingConventionsDirective()\
+   %S %f pas_CallingConventionsDirective %( )% 
+//	]\
+  end // if
+
+//	"%2N"!="o"
+
+
+//	]
+ end // if
+ else
+ begin
+//	%f_delphi_overload(%S)\
+  [%f] delphi_overload %( %S )% 
+//	}\
+ end // else
+//#UC END# *494BF05502ACfor470F151302FD*
+; // pas_AbstractionKeyword
+
+
+// нет документации
+//%f _pas_DoMethodInterface
+: pas_DoMethodInterface OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494FAB950174for470F151302FD*
+//	[{%S#f_IsGlobal()=true}%f_shift_intend(-7)]\
+ if ( ( %S %?f IsGlobal %( )% ) %==  true ) then
+ begin
+  [%f] shift_intend %( '-7' )% 
+ end // if
+//	[# %S%f_open_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  out_indent ' '
+  %S %f open_ifdef %( )% #13#10 
+ end // if
+ NOP
+//	[{%S#f_IsAttribute()=true}{\
+ if ( ( %S %?f IsAttribute %( )% ) %==  true ) then
+ begin
+  %S %f pas_PropertyMethodInterface %( %1 %, %2 %, %3 )% 
+// - выводим методы от атрибута
+//	]\
+ end // if
+ else
+ begin
+//	%f_pas_MethodSigInterface(%S,%1,%2,%3)\
+  [%f] pas_MethodSigInterface %( %S %, %1 %, %2 %, %3 )% 
+//	%S%f_pas_AbstractionKeyword(%1,%2,%3)\
+  %S %f pas_AbstractionKeyword %( %1 %, %2 %, %3 )% 
+// - выводим спецификатор абстрактности метода
+//	[ // can raise <{, }%f_pas_TypeName(%E)>\
+  if NOT-EMPTY
+  begin
+   ' // can raise '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] pas_TypeName %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+//	]\
+  end // if
+  NOP
+
+// - выводим список поднимаемых исключений
+//	%f_set_var(METHOD_DOC,"")\
+  [%f] set_var %( 'METHOD_DOC' %, '' )% 
+//	[{%P#f_IsMethod()=true&"%PD"!=""}\
+  if ( ( %P %?f IsMethod %( )% ) %==  true AND 
+    ( ( %P |D ) %!= ''  ) ) then
+  begin
+//	%f_set_var(METHOD_DOC,"%f_Doc(%P)")\
+   [%f] set_var %( 'METHOD_DOC' %, [%f] Doc %( %P )% )% 
+//	]\
+  end // if
+
+
+//	[{"%{METHOD_DOC}N"=""}\
+  if ( ( ( get_global_var ( 'METHOD_DOC' ) |N ) ) %== '' ) then
+  begin
+//	%f_set_var(METHOD_DOC,"%f_Doc(%S)")\
+   [%f] set_var %( 'METHOD_DOC' %, [%f] Doc %( %S )% )% 
+//	]\
+  end // if
+
+
+//	[{"%{METHOD_DOC}N"!=""}\
+  if ( ( ( get_global_var ( 'METHOD_DOC' ) |N ) ) %!= '' ) then
+  begin
+//	\n[{%S#f_IsGlobal()!=true}  ]\
+   #13#10
+   if ( ( %S %?f IsGlobal %( )% ) %!=  true ) then
+   begin
+    '  ' 
+   end // if
+//	   \{* %{METHOD_DOC}N \}\
+   '   {* '
+   ( get_global_var ( 'METHOD_DOC' ) |N ) ' }'
+//	]\
+  end // if
+//	%f_set_var(METHOD_DOC,"")\
+  [%f] set_var %( 'METHOD_DOC' %, '' )% 
+// - выводим документацию метода
+//	}%S%f_pas_PropertyMethodInterface(%1,%2,%3)\
+ end // else
+//	[\n# %S%f_close_ifdef()]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  out_indent ' '
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//	[{%S#f_IsGlobal()=true}%f_shift_intend(+7)]
+ if ( ( %S %?f IsGlobal %( )% ) %==  true ) then
+ begin
+  [%f] shift_intend %( '+7' )% 
+ end // if
+//#UC END# *494FAB950174for470F151302FD*
+; // pas_DoMethodInterface
+
+
+// нет документации
+//%f _pas_DoMethodImplementation
+: pas_DoMethodImplementation OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494FABD00055for470F151302FD*
+//	%f_shift_intend(-7)\
+ [%f] shift_intend %( '-7' )% 
+//	[{%S#f_IsFactory()=true&%P{singleton}=true}\
+ if ( ( %S %?f IsFactory %( )% ) %==  true AND 
+   ( ( %P get_up ( 'singleton' ) ) %==  true  ) ) then
+ begin
+//	[{%t_interface(%T)!=true}%f_error("Неверный тип синглетона - %f_pas_TypeName(%T) в %f_pas_FullMethodName(%S,%1,%2,%3) ")]\
+  if ( ( [%t] interface %( %T )% ) %!=  true ) then
+  begin
+   [%f] error %( 'Неверный тип синглетона - '
+   [%f] pas_TypeName %( %T )% ' в '
+   [%f] pas_FullMethodName %( %S %, %1 %, %2 %, %3 )% ' ' )% 
+  end // if
+//	%f_pas_OpenMethodImplementation(%S,%1,%2,%3)\
+  [%f] pas_OpenMethodImplementation %( %S %, %1 %, %2 %, %3 )% 
+//	var g_%f_pas_TypeName(%P,%1) : Pointer = nil;
+  'var g_'
+  [%f] pas_TypeName %( %P %, %1 )% ' : Pointer = nil;'
+//	
+  #13#10
+
+//	procedure %f_pas_TypeName(%P,%1)Free;
+  'procedure '
+  [%f] pas_TypeName %( %P %, %1 )% 'Free;'
+//	begin
+  'begin'
+//	 IUnknown(g_%f_pas_TypeName(%P,%1)) := nil;
+  ' IUnknown(g_'
+  [%f] pas_TypeName %( %P %, %1 )% ') := nil;'
+//	end;
+  'end;'
+//	]\
+ end // if
+//	[{%Sa!=abstract|"%1N"!=""}\
+ if ( ( %S |a ) %!= 'abstract' OR 
+   ( ( %1 |N ) %!= ''  ) ) then
+ begin
+//	[{%P#f_IsContract()!=true|"%2N"!="r"}\
+  if ( ( %P %?f IsContract %( )% ) %!=  true OR 
+    ( ( %2 |N ) %!= 'r'  ) ) then
+  begin
+
+// - для абстрактных методов не генерируем реализацию
+//	[{%S#f_IsAttribute()=true}{\
+   if ( ( %S %?f IsAttribute %( )% ) %==  true ) then
+   begin
+    %S %f pas_PropertyMethodImplementation %( %1 %, %2 %, %3 )% 
+//	]\
+   end // if
+   else
+   begin
+//	%f_pas_MethodSigImplementation(%S,%1,%2,%3)\
+    [%f] pas_MethodSigImplementation %( %S %, %1 %, %2 %, %3 )% 
+//	[ // can raise <{, }%f_pas_TypeName(%E)>]\
+    if NOT-EMPTY
+    begin
+     ' // can raise '
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%E
+     begin
+      OBJECT IN %E
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       [%f] pas_TypeName %( %E )% 
+       ++! l_Counter
+      end // if
+     end // for E
+    end // if
+    NOP
+
+// - выводим список поднимаемых исключений
+//	%f_pas_MethodBody(%S,%1,%3,%2,%4)\
+    [%f] pas_MethodBody %( %S %, %1 %, %3 %, %2 %, %4 )% 
+// - выводим реализацию метода
+//	[\n%S%f_close_ifdef()]\
+    if NOT-EMPTY
+    begin
+     #13#10
+     %S %f close_ifdef %( )% 
+    end // if
+    NOP
+//	}%S%f_pas_PropertyMethodImplementation(%1,%2,%3)\
+   end // else
+//	]\
+  end // if
+//	]\
+ end // if
+// - выводим методы от атрибута
+//	]\
+ ']'
+//	endif{%S#f_IsAttribute()=true
+//	%f_shift_intend(+7)
+ [%f] shift_intend %( '+7' )% 
+//#UC END# *494FABD00055for470F151302FD*
+; // pas_DoMethodImplementation
+
+
+// Определяет, что элемент может реализовываться классом
+//%f _ClassImplementable
+: ClassImplementable OBJECT IN %S
+//#UC START# *49551CA202CFfor470F151302FD*
+//@ %SU
+//	[{%S#f_IsMixIn()!=true&%S#f_IsPureMixIn()!=true&%S#f_evd_IsSchemaElement()!=true&%S#f_IsVCMOperations()!=true}{false}true]
+ if ( ( %S %?f IsMixIn %( )% ) %!=  true AND 
+   ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) AND 
+   ( ( %S %?f evd_IsSchemaElement %( )% ) %!=  true  ) AND 
+   ( ( %S %?f IsVCMOperations %( )% ) %!=  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *49551CA202CFfor470F151302FD*
+; // ClassImplementable
+
+
+// Определяет, что элемент является чистой примесью
+//%f _IsPureMixIn
+: IsPureMixIn OBJECT IN %S
+//#UC START# *4977065602B3for470F151302FD*
+//	false
+ false
+//#UC END# *4977065602B3for470F151302FD*
+; // IsPureMixIn
+
+
+// Определяет, что стереотип содержит хотя бы один VCM-контроллер среди своих детей
+//%f _HasAnyVCMController
+: HasAnyVCMController OBJECT IN %S
+//#UC START# *497874AD00B1for470F151302FD*
+//@ %SU
+//	[{<{}{%C#f_IsVCMController()=true}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsVCMController %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *497874AD00B1for470F151302FD*
+; // HasAnyVCMController
+
+
+// Определяет, что стереотип содержит хотя бы один именованный VCM-контроллер среди своих детей
+//%f _HasAnyNamedVCMController
+: HasAnyNamedVCMController OBJECT IN %S
+//#UC START# *4978770402B4for470F151302FD*
+//@ %SU
+//	[{<{}{%C#f_IsVCMController()=true&"%CN"!=""}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsVCMController %( )% ) %==  true AND 
+    ( ( %C |N ) %!= ''  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4978770402B4for470F151302FD*
+; // HasAnyNamedVCMController
+
+
+// Определяет, что элемент является контролелром области вывода
+//%f _IsViewAreaController
+: IsViewAreaController OBJECT IN %S
+//#UC START# *497DF8C8028Efor470F151302FD*
+//	false
+ false
+//#UC END# *497DF8C8028Efor470F151302FD*
+; // IsViewAreaController
+
+
+// Определяет, что элемент является интерфейсом
+//%f _IsInterface
+: IsInterface OBJECT IN %S
+//#UC START# *49809333028Cfor470F151302FD*
+//	false
+ false
+//#UC END# *49809333028Cfor470F151302FD*
+; // IsInterface
+
+
+// Выводит родительский класс по-умолчанию
+//%f _pas_OutDefaultAncestor
+: pas_OutDefaultAncestor OBJECT IN %S
+//#UC START# *4986B4FA0093for470F151302FD*
+//	[{%S%f_IsMixIn()!=true}%S%f_pas_DefaultAncestor()]
+ if ( ( %S %f IsMixIn %( )% ) %!=  true ) then
+ begin
+  %S %f pas_DefaultAncestor %( )% 
+ end // if
+//#UC END# *4986B4FA0093for470F151302FD*
+; // pas_OutDefaultAncestor
+
+
+// Выводит родительский класс
+//%f _pas_OutAncestor
+: pas_OutAncestor OBJECT IN %S
+//#UC START# *4989EB520196for470F151302FD*
+//	[{}{%S%f_pas_OutDefaultAncestor()}\
+ if NOT-EMPTY
+ begin
+//	%{PARENT}N]
+  ( get_global_var ( 'PARENT' ) |N ) 
+ end // if
+ NOP
+ else
+ begin
+  %S %f pas_OutDefaultAncestor %( )% 
+ end // else
+//#UC END# *4989EB520196for470F151302FD*
+; // pas_OutAncestor
+
+
+// Выводит код перед поляпи класса. Для переопределения в потомках
+//%f _pas_OutBeforeFields
+: pas_OutBeforeFields OBJECT IN %S
+//#UC START# *498B054F03A1for470F151302FD*
+//	<{}{%C#f_IsPublishedAccess()=true&%C#f_IsMethod()!=true}[\n%CX]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsPublishedAccess %( )% ) %==  true AND 
+   ( ( %C %?f IsMethod %( )% ) %!=  true  ) ) then
+  begin
+   if NOT-EMPTY
+   begin
+    #13#10
+    %C |X 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *498B054F03A1for470F151302FD*
+; // pas_OutBeforeFields
+
+
+// Выводит код после секции implementation
+//%f _pas_OutAfterUnitImplementation
+: pas_OutAfterUnitImplementation OBJECT IN %S
+//#UC START# *498B059101B3for470F151302FD*
+//#UC END# *498B059101B3for470F151302FD*
+; // pas_OutAfterUnitImplementation
+
+
+// Разделитель имени метода
+//%f _pas_MethodOwnerDelim
+: pas_MethodOwnerDelim OBJECT IN %S
+//#UC START# *4999789602FFfor470F151302FD*
+//	.
+ '.'
+//#UC END# *4999789602FFfor470F151302FD*
+; // pas_MethodOwnerDelim
+
+
+// документация отсутствует
+//%f _pas_AttrIndexes
+: pas_AttrIndexes OBJECT IN %S
+//#UC START# *49998CA903A8for470F151302FD*
+//	<{; }%t_pas_InPrefix(%C%T)%CN: %f_pas_TypeName(%C%T)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( '; ' )
+   [%t] pas_InPrefix %( %C ->T  )% %C |N ': '
+   [%f] pas_TypeName %( %C ->T  )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *49998CA903A8for470F151302FD*
+; // pas_AttrIndexes
+
+
+// Выводит реализацию тела метода
+//%f _pas_MethodBodyImplementation
+: pas_MethodBodyImplementation OBJECT IN %S
+//#UC START# *499A7D7E028Afor470F151302FD*
+//	%S%f_Ind()\
+ %S %f Ind %( )% 
+//	%U[{_%f_pas_MethodOwnerID(%S,%1)%2N_impl}
+ %Usersection (
+  '_'
+  [%f] pas_MethodOwnerID %( %S %, %1 )% %2 |N '_impl' 
+ )
+ (
+  #13#10
+
+//	%S%f_Ind()\
+  %S %f Ind %( )% 
+//	%S%f_pas_MethodStub(%1,%2)
+  %S %f pas_MethodStub %( %1 %, %2 )% 
+//	%S%f_Ind()\
+  %S %f Ind %( )% 
+//	]
+
+ ) // Usersection
+ //#UC END# *499A7D7E028Afor470F151302FD*
+; // pas_MethodBodyImplementation
+
+
+// Выводит имя владельца метода
+//%f _pas_MethodOwnerName
+: pas_MethodOwnerName OBJECT IN %S
+//#UC START# *49CB3C99034Bfor470F151302FD*
+//	%f_pas_TypeName(%S)
+ [%f] pas_TypeName %( %S )% 
+//#UC END# *49CB3C99034Bfor470F151302FD*
+; // pas_MethodOwnerName
+
+
+// Определяет, что элемент является "внутренностью" класса, атрибутом или операцией
+//%f _IsClassInner
+: IsClassInner OBJECT IN %S
+//#UC START# *49CB3EE70382for470F151302FD*
+//	[{%SC=Class}{true}false]
+ if ( ( %S |C ) %== 'Class' ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *49CB3EE70382for470F151302FD*
+; // IsClassInner
+
+
+// Выводит секцию определений метода
+//%f _pas_MethodDeclarations
+: pas_MethodDeclarations OBJECT IN %S
+//#UC START# *49CB54AA033Afor470F151302FD*
+//	%S%f_Ind()\
+ %S %f Ind %( )% 
+//	%U[{_%f_pas_MethodOwnerID(%S,%1)%2N_var}\n\
+ %Usersection (
+  '_'
+  [%f] pas_MethodOwnerID %( %S %, %1 )% %2 |N '_var' 
+ )
+ (
+  #13#10
+//	%S%f_Ind()\
+  %S %f Ind %( )% 
+//	]
+
+ ) // Usersection
+ //#UC END# *49CB54AA033Afor470F151302FD*
+; // pas_MethodDeclarations
+
+
+// Префикс типа
+//%f _TypePrefix
+: TypePrefix OBJECT IN %S
+//#UC START# *49F5C7BD00B4for470F151302FD*
+//#UC END# *49F5C7BD00B4for470F151302FD*
+; // TypePrefix
+
+
+// Суффикс типа
+//%f _TypeSuffix
+: TypeSuffix OBJECT IN %S
+//#UC START# *49F5C87903C0for470F151302FD*
+//#UC END# *49F5C87903C0for470F151302FD*
+; // TypeSuffix
+
+
+// Элемент попадает в секцию Published
+//%f _IsPublishedAccess
+: IsPublishedAccess OBJECT IN %S
+//#UC START# *49F703730268for470F151302FD*
+//	[{%S{isPublishedAccess}=true}{\
+ if ( ( %S get_up ( 'isPublishedAccess' ) ) %==  true ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *49F703730268for470F151302FD*
+; // IsPublishedAccess
+
+
+// Определяет, что стереотип описывает область ввода (как составную часть прецедента)
+//%f _IsVCMArea
+: IsVCMArea OBJECT IN %S
+//#UC START# *4A3665370285for470F151302FD*
+//	false
+ false
+//#UC END# *4A3665370285for470F151302FD*
+; // IsVCMArea
+
+
+// Определяет, что это Link на область ввода, а не Reference
+//%f _IsVCMAreaLink
+: IsVCMAreaLink OBJECT IN %S
+//#UC START# *4A37945D011Ffor470F151302FD*
+//	false
+ false
+//#UC END# *4A37945D011Ffor470F151302FD*
+; // IsVCMAreaLink
+
+
+// Определяет, что стереотип является атрибутом
+//%f _IsAttribute
+: IsAttribute OBJECT IN %S
+//#UC START# *4A37B6A9016Ffor470F151302FD*
+//	[{%SC=Attribute}{false}true]
+ if ( ( %S |C ) %== 'Attribute' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4A37B6A9016Ffor470F151302FD*
+; // IsAttribute
+
+
+// Имеет ли стереотип хотя бы одну область ввода
+//%f _HasAnyVCMArea
+: HasAnyVCMArea OBJECT IN %S
+//#UC START# *4A37C60A0273for470F151302FD*
+//@ %SU
+//	[{<{}{%R<{}{%CC=Class&%C#f_IsVCMArea()=true}{C}>!=0}{C}>!=0|<{}{%o#f_IsVCMArea()=true}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Class' AND 
+      ( ( %C %?f IsVCMArea %( )% ) %==  true  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+ )    %!= 0 ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %!= 0 OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%o
+  begin
+   OBJECT IN %o
+   if ( ( %o %?f IsVCMArea %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for o
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4A37C60A0273for470F151302FD*
+; // HasAnyVCMArea
+
+
+// Имеет ли стереотип хотя бы одну ССЫЛКУ на область ввода
+//%f _HasAnyVCMAreaLink
+: HasAnyVCMAreaLink OBJECT IN %S
+//#UC START# *4A37C6510297for470F151302FD*
+//@ %SU
+//	[{<{}{%o#f_IsVCMAreaLink()=true}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%o
+  begin
+   OBJECT IN %o
+   if ( ( %o %?f IsVCMAreaLink %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for o
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//	[{<{}{%R<{}{%CC=Class&%C#f_IsVCMAreaLink()=true}{C}>!=0}{C}>!=0|<{}{%o#f_IsVCMAreaLink()=true}{C}>!=0}{false}true]
+//#UC END# *4A37C6510297for470F151302FD*
+; // HasAnyVCMAreaLink
+
+
+// Определяет, что метод должен быть реализован публично
+//%f _IsPublicRealizedMethod
+: IsPublicRealizedMethod OBJECT IN %S
+// параметры: aMethod: void = %1
+//#UC START# *4A42517502CEfor470F151302FD*
+//	[{%1%P#f_IsPureMixIn()=true|%1{is static}=true}{\
+ if ( ( %1 ->P %?f IsPureMixIn %( )%  ) %==  true OR 
+   ( ( %1 get_up ( 'is static' ) ) %==  true  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%1C=Operation&%1S=static}{\
+  if ( ( %1 |C ) %== 'Operation' AND 
+    ( ( %1 |S ) %== 'static'  ) ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4A42517502CEfor470F151302FD*
+; // IsPublicRealizedMethod
+
+
+// Определяет, что элемент является контролом
+//%f _IsControl
+: IsControl OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4A794AED0078for470F151302FD*
+//	false
+ false
+//#UC END# *4A794AED0078for470F151302FD*
+; // IsControl
+
+
+// Определяет - нужно ли определять поле данных для свойства.
+//%f _pas_NeedsField
+: pas_NeedsField OBJECT IN %S
+//#UC START# *4A796BE403D6for470F151302FD*
+//	[{%S#f_ReadsField()=true|%S{writes field}=true}{\
+ if ( ( %S %?f ReadsField %( )% ) %==  true OR 
+   ( ( %S get_up ( 'writes field' ) ) %==  true  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%Sa=abstract}{\
+  if ( ( %S |a ) %== 'abstract' ) then
+  begin
+//	false\
+    false 
+//	]\
+  end // if
+  else
+  begin
+//	[{%S{needs field}=true}{\
+   if ( ( %S get_up ( 'needs field' ) ) %==  true ) then
+   begin
+//	true\
+     true 
+//	]\
+   end // if
+   else
+   begin
+//	false\
+     false 
+//	}\
+   end // else
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4A796BE403D6for470F151302FD*
+; // pas_NeedsField
+
+
+// выводит интерфейс методов для свойства
+//%f _pas_PropertyMethodInterface
+: pas_PropertyMethodInterface OBJECT IN %S
+//#UC START# *4A7ADF400052for470F151302FD*
+//	[{%TS!=Constants}\
+ if ( ( %T |S ) %!= 'Constants' ) then
+ begin
+//	[# %S%f_open_ifdef()\n]\
+  if NOT-EMPTY
+  begin
+   out_indent ' '
+   %S %f open_ifdef %( )% #13#10 
+  end // if
+  NOP
+
+// - не выводим атрибуты, указывающие на константы
+//	[{%f_pas_NeedsGetter(%S)=true}\
+  if ( ( [%f] pas_NeedsGetter %( %S )% ) %==  true ) then
+  begin
+//	%f_pas_MethodDefInterface(%S,%1,%2,"get")[(%S%f_pas_AttrIndexes())]: %S%f_pas_ResultTypeName();\
+   [%f] pas_MethodDefInterface %( %S %, %1 %, %2 %, 'get' )% if NOT-EMPTY
+   begin
+    '('
+    %S %f pas_AttrIndexes %( )% ')' 
+   end // if
+   NOP
+   ': '
+   %S %f pas_ResultTypeName %( )% ';'
+//	%S%f_pas_AbstractionKeyword(%1,%2,"get")\
+   %S %f pas_AbstractionKeyword %( %1 %, %2 %, 'get' )% 
+// - выводим спецификатор абстрактности метода
+//	]\
+  end // if
+
+// - выводим метод для чтения
+//	[{%f_pas_NeedsSetter(%S)=true}\
+  if ( ( [%f] pas_NeedsSetter %( %S )% ) %==  true ) then
+  begin
+//	[{%f_pas_NeedsGetter(%S)=true}\n]\
+   if ( ( [%f] pas_NeedsGetter %( %S )% ) %==  true ) then
+   begin
+    #13#10 
+   end // if
+//	%f_pas_MethodDefInterface(%S,%1,%2,"set")([%S%f_pas_AttrIndexes(); ]%f_pas_InAttr(%S));\
+   [%f] pas_MethodDefInterface %( %S %, %1 %, %2 %, 'set' )% '('
+   if NOT-EMPTY
+   begin
+    %S %f pas_AttrIndexes %( )% '; ' 
+   end // if
+   NOP
+   [%f] pas_InAttr %( %S )% ');'
+//	%S%f_pas_AbstractionKeyword(%1,%2,"set")\
+   %S %f pas_AbstractionKeyword %( %1 %, %2 %, 'set' )% 
+// - выводим спецификатор абстрактности метода
+//	]\
+  end // if
+//	[{%S#f_IsVCMArea()=true}\
+  if ( ( %S %?f IsVCMArea %( )% ) %==  true ) then
+  begin
+//	[{"%1N"!=""}
+   if ( ( %1 |N ) %!= '' ) then
+   begin
+    #13#10
+
+//	%f_pas_MethodDefInterface(%S,%1,%2,"area")[(%S%f_pas_AttrIndexes())]: %S%f_pas_ResultTypeName();\
+    [%f] pas_MethodDefInterface %( %S %, %1 %, %2 %, 'area' )% if NOT-EMPTY
+    begin
+     '('
+     %S %f pas_AttrIndexes %( )% ')' 
+    end // if
+    NOP
+    ': '
+    %S %f pas_ResultTypeName %( )% ';'
+//	%S%f_pas_AbstractionKeyword(%1,%2,"area")\
+    %S %f pas_AbstractionKeyword %( %1 %, %2 %, 'area' )% 
+//	[\n# %S%f_close_ifdef()]\
+//	]\
+   end // if
+//	[{%S#f_IsVCMAreaLink()!=true}
+   if ( ( %S %?f IsVCMAreaLink %( )% ) %!=  true ) then
+   begin
+    #13#10
+
+//	%f_pas_MethodDefInterface(%S,%1,%2,"arearef")[(%S%f_pas_AttrIndexes())]: IvcmViewAreaControllerRef;\
+    [%f] pas_MethodDefInterface %( %S %, %1 %, %2 %, 'arearef' )% if NOT-EMPTY
+    begin
+     '('
+     %S %f pas_AttrIndexes %( )% ')' 
+    end // if
+    NOP
+    ': IvcmViewAreaControllerRef;'
+//	%S%f_pas_AbstractionKeyword(%1,%2,"arearef")\
+    %S %f pas_AbstractionKeyword %( %1 %, %2 %, 'arearef' )% 
+//	[\n# %S%f_close_ifdef()]\
+//	]\
+   end // if
+//	]\
+  end // if
+//	[\n# %S%f_close_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   out_indent ' '
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+
+// -  выводим метод для записи
+//	]
+ end // if
+//#UC END# *4A7ADF400052for470F151302FD*
+; // pas_PropertyMethodInterface
+
+
+// выводит реализацию методов для свойства
+//%f _pas_PropertyMethodImplementation
+: pas_PropertyMethodImplementation OBJECT IN %S
+//#UC START# *4A7ADF4E0277for470F151302FD*
+//	[{%TS!=Constants}\
+ if ( ( %T |S ) %!= 'Constants' ) then
+ begin
+
+// - не выводим атрибуты, указывающие на константы
+//	[{%f_pas_NeedsGetter(%S)=true}\
+  if ( ( [%f] pas_NeedsGetter %( %S )% ) %==  true ) then
+  begin
+//	%f_pas_MethodDefImplementation(%S,%1,%2,"get")[(%S%f_pas_AttrIndexes())]: %S%f_pas_ResultTypeName();\
+   [%f] pas_MethodDefImplementation %( %S %, %1 %, %2 %, 'get' )% if NOT-EMPTY
+   begin
+    '('
+    %S %f pas_AttrIndexes %( )% ')' 
+   end // if
+   NOP
+   ': '
+   %S %f pas_ResultTypeName %( )% ';'
+//	%f_pas_MethodBody(%S,%1,"get",%2)\
+   [%f] pas_MethodBody %( %S %, %1 %, 'get"' %, %2 )% 
+//	]\
+  end // if
+
+// - выводим метод для чтения
+//	[{%f_pas_NeedsSetter(%S)=true}\
+  if ( ( [%f] pas_NeedsSetter %( %S )% ) %==  true ) then
+  begin
+//	[{%f_pas_NeedsGetter(%S)=true}[\n%S%f_close_ifdef()]]\
+   if ( ( [%f] pas_NeedsGetter %( %S )% ) %==  true ) then
+   begin
+    if NOT-EMPTY
+    begin
+     #13#10
+     %S %f close_ifdef %( )% 
+    end // if
+    NOP
+   end // if
+//	%f_pas_MethodDefImplementation(%S,%1,%2,"set")([%S%f_pas_AttrIndexes(); ]%f_pas_InAttr(%S));\
+   [%f] pas_MethodDefImplementation %( %S %, %1 %, %2 %, 'set' )% '('
+   if NOT-EMPTY
+   begin
+    %S %f pas_AttrIndexes %( )% '; ' 
+   end // if
+   NOP
+   [%f] pas_InAttr %( %S )% ');'
+//	%f_pas_MethodBody(%S,%1,"set",%2)\
+   [%f] pas_MethodBody %( %S %, %1 %, 'set"' %, %2 )% 
+//	]\
+  end // if
+//	[{%S#f_IsVCMArea()=true}\
+  if ( ( %S %?f IsVCMArea %( )% ) %==  true ) then
+  begin
+//	%f_pas_MethodDefImplementation(%S,%1,%2,"area")[(%S%f_pas_AttrIndexes())]: %S%f_pas_ResultTypeName();\
+   [%f] pas_MethodDefImplementation %( %S %, %1 %, %2 %, 'area' )% if NOT-EMPTY
+   begin
+    '('
+    %S %f pas_AttrIndexes %( )% ')' 
+   end // if
+   NOP
+   ': '
+   %S %f pas_ResultTypeName %( )% ';'
+//	%f_pas_MethodBody(%S,%1,"area")\
+   [%f] pas_MethodBody %( %S %, %1 %, 'area' )% 
+//	[\n%S%f_close_ifdef()]\
+   if NOT-EMPTY
+   begin
+    #13#10
+    %S %f close_ifdef %( )% 
+   end // if
+   NOP
+//	[{%S#f_IsVCMAreaLink()!=true}\
+   if ( ( %S %?f IsVCMAreaLink %( )% ) %!=  true ) then
+   begin
+//	%f_pas_MethodDefImplementation(%S,%1,%2,"arearef")[(%S%f_pas_AttrIndexes())]: IvcmViewAreaControllerRef;\
+    [%f] pas_MethodDefImplementation %( %S %, %1 %, %2 %, 'arearef' )% if NOT-EMPTY
+    begin
+     '('
+     %S %f pas_AttrIndexes %( )% ')' 
+    end // if
+    NOP
+    ': IvcmViewAreaControllerRef;'
+//	%f_pas_MethodBody(%S,%1,"arearef")\
+    [%f] pas_MethodBody %( %S %, %1 %, 'arearef' )% 
+//	[\n%S%f_close_ifdef()]\
+    if NOT-EMPTY
+    begin
+     #13#10
+     %S %f close_ifdef %( )% 
+    end // if
+    NOP
+//	]\
+   end // if
+//	]\
+  end // if
+
+// -  выводим метод для записи
+//	[{%f_pas_NeedsGetter(%S)=true|%f_pas_NeedsSetter(%S)=true}\
+  if ( ( [%f] pas_NeedsGetter %( %S )% ) %==  true OR 
+    ( ( [%f] pas_NeedsSetter %( %S )% ) %==  true  ) ) then
+  begin
+//	[\n%S%f_close_ifdef()]\
+   if NOT-EMPTY
+   begin
+    #13#10
+    %S %f close_ifdef %( )% 
+   end // if
+   NOP
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4A7ADF4E0277for470F151302FD*
+; // pas_PropertyMethodImplementation
+
+
+// документация отсутствует
+//%f _pas_dump_Property
+: pas_dump_Property OBJECT IN %S
+//#UC START# *4A7ADFAE0118for470F151302FD*
+//	[{%TS!=Constants}%f_shift_intend(-1)\
+ if ( ( %T |S ) %!= 'Constants' ) then
+ begin
+  [%f] shift_intend %( -1 )% 
+//	[#%S%f_open_ifdef()\n]\
+  if NOT-EMPTY
+  begin
+   out_indent %S %f open_ifdef %( )% #13#10 
+  end // if
+  NOP
+//	   property %S%f_pas_AttrName()[\[%S%f_pas_AttrIndexes()\]]: %S%f_pas_ResultTypeName()\
+  '   property '
+  %S %f pas_AttrName %( )% if NOT-EMPTY
+  begin
+   '['
+   %S %f pas_AttrIndexes %( )% ']' 
+  end // if
+  NOP
+  ': '
+  %S %f pas_ResultTypeName %( )% 
+//	[{%S#f_IsWriteOnlyProp()!=true}\n\
+  if ( ( %S %?f IsWriteOnlyProp %( )% ) %!=  true ) then
+  begin
+   #13#10
+//	     read [{%S#f_ReadsField()!=true}{%f_pas_FieldName(%S)}%S%f_pas_MethodName("get")]]\
+   '     read '
+   if ( ( %S %?f ReadsField %( )% ) %!=  true ) then
+   begin
+    %S %f pas_MethodName %( 'get' )% 
+   end // if
+   else
+   begin
+    [%f] pas_FieldName %( %S )% 
+   end // else
+  end // if
+//	[{%S#f_IsReadOnlyProp()!=true}\n\
+  if ( ( %S %?f IsReadOnlyProp %( )% ) %!=  true ) then
+  begin
+   #13#10
+//	     write [{%S{writes field}!=true}{%f_pas_FieldName(%S)}%S%f_pas_MethodName("set")]]\
+   '     write '
+   if ( ( %S get_up ( 'writes field' ) ) %!=  true ) then
+   begin
+    %S %f pas_MethodName %( 'set' )% 
+   end // if
+   else
+   begin
+    [%f] pas_FieldName %( %S )% 
+   end // else
+  end // if
+
+//	[\n     default %VN];\
+
+
+//	[{%S{needs stored directive}=true}\
+  if ( ( %S get_up ( 'needs stored directive' ) ) %==  true ) then
+  begin
+//	\n     stored %S%f_pas_AttrName()Stored\
+   #13#10'     stored '
+   %S %f pas_AttrName %( )% 'Stored'
+//	]\
+  end // if
+
+
+//	[{"%VN"!=""}\n     default %S%f_OutValue()];\
+  if ( ( %V |N ) %!= '' ) then
+  begin
+   #13#10'     default '
+   %S %f OutValue %( )% 
+  end // if
+  ';'
+//	[{%S{is default}=true}\n     default;]\
+  if ( ( %S get_up ( 'is default' ) ) %==  true ) then
+  begin
+   #13#10'     default;' 
+  end // if
+//	[\n     \{* %f_Doc(%S) \}]\
+  if NOT-EMPTY
+  begin
+   #13#10'     {* '
+   [%f] Doc %( %S )% ' }' 
+  end // if
+  NOP
+//	[{%S#f_IsVCMArea()=true&%S#f_IsVCMAreaLink()!=true}
+  if ( ( %S %?f IsVCMArea %( )% ) %==  true AND 
+    ( ( %S %?f IsVCMAreaLink %( )% ) %!=  true  ) ) then
+  begin
+   #13#10
+
+//	   property %SNRef[\[%S%f_pas_AttrIndexes()\]]: IvcmViewAreaControllerRef
+   '   property '
+   %S |N 'Ref'
+   if NOT-EMPTY
+   begin
+    '['
+    %S %f pas_AttrIndexes %( )% ']' 
+   end // if
+   NOP
+   ': IvcmViewAreaControllerRef'
+//	     read %S%f_pas_MethodName("arearef");\
+   '     read '
+   %S %f pas_MethodName %( 'arearef' )% ';'
+//	[\n     \{* Ссылка на "%f_Doc(%S)" \}]\
+   if NOT-EMPTY
+   begin
+    #13#10'     {* Ссылка на "'
+    [%f] Doc %( %S )% ' }' 
+   end // if
+   NOP
+//	]\
+  end // if
+//	[\n#%S%f_close_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   out_indent %S %f close_ifdef %( )% 
+  end // if
+  NOP
+//	%f_shift_intend(+1)]
+  [%f] shift_intend %( 1 )% 
+ end // if
+//#UC END# *4A7ADFAE0118for470F151302FD*
+; // pas_dump_Property
+
+
+//%f _pas_BeforeClassEnd
+: pas_BeforeClassEnd OBJECT IN %S
+//#UC START# *4A9293AE02DCfor470F151302FD*
+//#UC END# *4A9293AE02DCfor470F151302FD*
+; // pas_BeforeClassEnd
+
+
+//%f _pas_TotalUses
+: pas_TotalUses OBJECT IN %S
+//#UC START# *4AA8B1D901E5for470F151302FD*
+//	[{"%SS"!=""|"%SC"!=""}\
+ if ( ( %S |S ) %!= '' OR 
+   ( ( %S |C ) %!= ''  ) ) then
+ begin
+//	[{%S%{INTOTAL}N!=1}\
+  if ( ( %S ( get_object_var ( 'INTOTAL' ) |N )  ) %!= 1 ) then
+  begin
+//	%S%f_set_var(INTOTAL,"1")\
+   %S %f set_var %( 'INTOTAL' %, 1 )% 
+//	%f_add_to_list(TOTAL_USES,S)\
+   [%f] add_to_list %( 'TOTAL_USES' %, 'S' )% 
+//	[{"%SS"=""&"%SC"=""}{\
+
+
+//	[{%SC!=Category|%S#f_IsTarget()=true}{\
+   if ( ( %S |C ) %!= 'Category' OR 
+     ( ( %S %?f IsTarget %( )% ) %==  true  ) ) then
+   begin
+
+
+//	<{}{%CS=uses&%CC=Dependency&%C{isHighPriority}=true}\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %== 'uses' AND 
+      ( ( %C |C ) %== 'Dependency'  ) AND 
+      ( ( %C get_up ( 'isHighPriority' ) ) %==  true  ) ) then
+     begin
+//	%C%T#f_pas_TotalUses()\
+      %C ->T %?f pas_TotalUses %( )%  
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+
+//	[{%S#f_IsAdapterTarget()=true}\
+    if ( ( %S %?f IsAdapterTarget %( )% ) %==  true ) then
+    begin
+//	<{}{%DS=Library&%PU=%D%PU}\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%D
+     begin
+      OBJECT IN %D
+      if ( ( %D |S ) %== 'Library' AND 
+       ( ( %P |U ) %== ( %D ->P |U  )  ) ) then
+      begin
+//	%D<{}{}\
+       %D
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if true then
+         begin
+//	%C#f_pas_TotalUses()\
+          %C %?f pas_TotalUses %( )% 
+//	[{%C#f_IsUnit()=true}\
+          if ( ( %C %?f IsUnit %( )% ) %==  true ) then
+          begin
+//	%C<{}{}\
+           %C
+           bind ( 
+            OBJECT VAR %S
+            INTEGER VAR l_Counter l_Counter := 0
+            for %S%C
+            begin
+             OBJECT IN %C
+             if true then
+             begin
+//	%C#f_pas_TotalUses()\
+              %C %?f pas_TotalUses %( )% 
+//	>\
+
+              ++! l_Counter
+             end // if
+            end // for C
+
+           ) // bind
+ //	]\
+          end // if
+//	>\
+
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ //	>\
+
+       ++! l_Counter
+      end // if
+     end // for D
+//	]\
+    end // if
+
+
+//	<%D#f_pas_TotalUses()>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%D
+    begin
+     OBJECT IN %D
+     if true then
+     begin
+      %D %?f pas_TotalUses %( )% 
+      ++! l_Counter
+     end // if
+    end // for D
+//	<%w#f_pas_TotalUses()>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%w
+    begin
+     OBJECT IN %w
+     if true then
+     begin
+      %w %?f pas_TotalUses %( )% 
+      ++! l_Counter
+     end // if
+    end // for w
+//	<%G#f_pas_TotalUses()>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%G
+    begin
+     OBJECT IN %G
+     if true then
+     begin
+      %G %?f pas_TotalUses %( )% 
+      ++! l_Counter
+     end // if
+    end // for G
+//	<%R#f_pas_TotalUses()>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if true then
+     begin
+      %R %?f pas_TotalUses %( )% 
+      ++! l_Counter
+     end // if
+    end // for R
+//	<%O#f_pas_TotalUses()>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%O
+    begin
+     OBJECT IN %O
+     if true then
+     begin
+      %O %?f pas_TotalUses %( )% 
+      ++! l_Counter
+     end // if
+    end // for O
+//	<%o#f_pas_TotalUses()>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%o
+    begin
+     OBJECT IN %o
+     if true then
+     begin
+      %o %?f pas_TotalUses %( )% 
+      ++! l_Counter
+     end // if
+    end // for o
+//	[{%S#f_IsInterfaces()=true}\
+    if ( ( %S %?f IsInterfaces %( )% ) %==  true ) then
+    begin
+//	<%C#f_pas_TotalUses()>\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       %C %?f pas_TotalUses %( )% 
+       ++! l_Counter
+      end // if
+     end // for C
+//	]\
+    end // if
+//	[{%SS=TagTable}\
+    if ( ( %S |S ) %== 'TagTable' ) then
+    begin
+//	<%C<{}{%LS=Wrapper}%L#f_pas_TotalUses()>>\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%L
+        begin
+         OBJECT IN %L
+         if ( ( %L |S ) %== 'Wrapper' ) then
+         begin
+          %L %?f pas_TotalUses %( )% 
+          ++! l_Counter
+         end // if
+        end // for L
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for C
+//	<%C<{}{%LS=InterfaceFactory}%L#f_pas_TotalUses()>>\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%L
+        begin
+         OBJECT IN %L
+         if ( ( %L |S ) %== 'InterfaceFactory' ) then
+         begin
+          %L %?f pas_TotalUses %( )% 
+          ++! l_Counter
+         end // if
+        end // for L
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for C
+//	<%C<{}{%LS=TagImplementator}%L%G#f_pas_TotalUses()\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%L
+        begin
+         OBJECT IN %L
+         if ( ( %L |S ) %== 'TagImplementator' ) then
+         begin
+          %L ->G %?f pas_TotalUses %( )%  
+//	%L#f_pas_TotalUses()>>\
+          %L %?f pas_TotalUses %( )% 
+          ++! l_Counter
+         end // if
+        end // for L
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for C
+//	]\
+    end // if
+
+//	%S#f_pas_IntfUses()\
+
+//	%S#f_pas_ImplUses()\
+
+
+//	[{%S#f_IsTest()=true}\
+    if ( ( %S %?f IsTest %( )% ) %==  true ) then
+    begin
+
+// Сначала перебираем чужие тестовые библиотеки:
+//	<{}{%DS=TestLibrary&%D%PU!=%PU}\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%D
+     begin
+      OBJECT IN %D
+      if ( ( %D |S ) %== 'TestLibrary' AND 
+       ( ( %D ->P |U  ) %!= ( %P |U )  ) ) then
+      begin
+//	%D<{}{%CS=TestUnit}\
+       %D
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( %C |S ) %== 'TestUnit' ) then
+         begin
+//	%C<{}{%CS=TestCase}\
+          %C
+          bind ( 
+           OBJECT VAR %S
+           INTEGER VAR l_Counter l_Counter := 0
+           for %S%C
+           begin
+            OBJECT IN %C
+            if ( ( %C |S ) %== 'TestCase' ) then
+            begin
+//	%C#f_pas_TotalUses()\
+             %C %?f pas_TotalUses %( )% 
+//	>\
+
+             ++! l_Counter
+            end // if
+           end // for C
+
+          ) // bind
+ //	>\
+
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ //	>\
+
+       ++! l_Counter
+      end // if
+     end // for D
+
+
+
+// Потом перебираем свои тестовые библиотеки:
+//	<{}{%DS=TestLibrary&%D%PU=%PU}\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%D
+     begin
+      OBJECT IN %D
+      if ( ( %D |S ) %== 'TestLibrary' AND 
+       ( ( %D ->P |U  ) %== ( %P |U )  ) ) then
+      begin
+//	%D<{}{%CS=TestUnit}\
+       %D
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( %C |S ) %== 'TestUnit' ) then
+         begin
+//	%C<{}{%CS=TestCase}\
+          %C
+          bind ( 
+           OBJECT VAR %S
+           INTEGER VAR l_Counter l_Counter := 0
+           for %S%C
+           begin
+            OBJECT IN %C
+            if ( ( %C |S ) %== 'TestCase' ) then
+            begin
+//	%C#f_pas_TotalUses()\
+             %C %?f pas_TotalUses %( )% 
+//	>\
+
+             ++! l_Counter
+            end // if
+           end // for C
+
+          ) // bind
+ //	>\
+
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ //	>\
+
+       ++! l_Counter
+      end // if
+     end // for D
+//	]\
+    end // if
+
+
+//	<\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+//	[{%CS=uses&%CC=Dependency}{\
+      if ( ( %C |S ) %== 'uses' AND 
+        ( ( %C |C ) %== 'Dependency'  ) ) then
+      begin
+//	%C%T#f_pas_TotalUses()\
+       %C ->T %?f pas_TotalUses %( )%  
+//	]\
+      end // if
+      else
+      begin
+//	%C#f_pas_TotalUses()}\
+       %C %?f pas_TotalUses %( )% 
+      end // else
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+
+//	]\
+   end // if
+   else
+   begin
+//	[{%S#f_IsInterfaces()=true}\
+    if ( ( %S %?f IsInterfaces %( )% ) %==  true ) then
+    begin
+//	<%C#f_pas_TotalUses()>\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       %C %?f pas_TotalUses %( )% 
+       ++! l_Counter
+      end // if
+     end // for C
+//	]\
+    end // if
+//	}\
+   end // else
+
+
+//	[{%S#f_IsPureMixIn()!=true}\
+   if ( ( %S %?f IsPureMixIn %( )% ) %!=  true ) then
+   begin
+//	[{"%So"!=""}{\
+    if ( ( %S |o ) %!= '' ) then
+    begin
+//	%f_pas_PutToUses(%S)\
+     [%f] pas_PutToUses %( %S )% 
+//	]\
+    end // if
+    else
+    begin
+//	<%P#f_pas_TotalUses()>\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%P
+     begin
+      OBJECT IN %P
+      if true then
+      begin
+       %P %?f pas_TotalUses %( )% 
+       ++! l_Counter
+      end // if
+     end // for P
+//	}\
+    end // else
+//	]\
+   end // if
+//	<{}{%aC=Dependency}{Sg}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ag
+   begin
+    OBJECT IN %a
+    if ( ( %a |C ) %== 'Dependency' ) then
+    begin
+//	[{%aS=injects}\
+     if ( ( %a |S ) %== 'injects' ) then
+     begin
+//	%f_pas_PutToUses(%a%P)\
+      [%f] pas_PutToUses %( %a ->P  )% 
+
+//	%a%P<\
+      %a ->P
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%g
+       begin
+        OBJECT IN %g
+        if true then
+        begin
+
+//	%f_pas_PutToUses(%g)\
+//	%g#f_pas_TotalUses()\
+         %g %?f pas_TotalUses %( )% 
+//	>\
+
+         ++! l_Counter
+        end // if
+       end // for g
+
+      ) // bind
+  
+
+//	%a%P<\
+      %a ->P
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%r
+       begin
+        OBJECT IN %r
+        if true then
+        begin
+
+//	%f_pas_PutToUses(%r)\
+//	%r#f_pas_TotalUses()\
+         %r %?f pas_TotalUses %( )% 
+//	>\
+
+         ++! l_Counter
+        end // if
+       end // for r
+
+      ) // bind
+  
+
+//	%a%P<{}{%CS=uses&%CC=Dependency}\
+      %a ->P
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |S ) %== 'uses' AND 
+         ( ( %C |C ) %== 'Dependency'  ) ) then
+        begin
+//	%C%T#f_pas_TotalUses()\
+         %C ->T %?f pas_TotalUses %( )%  
+//	%f_pas_PutToUses(%C%T)\
+//	>\
+
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+  //	]\
+     end // if
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for a
+
+
+
+//	}\
+
+//	%f_pas_PutToUses(%S)\
+
+//	]\
+//	]\
+  end // if
+//	]
+ end // if
+
+//f _clear_TotalUses
+; // pas_TotalUses
+
+end. // "Delphi интерфейсы и реализация"
+
+: clear_TotalUses OBJECT IN %S
+//	%{TOTAL_USES}<%C%f_del_var(INTOTAL)>\
+//	<{}{"%AC"!=""&%A%{INTOTAL}N=1}%A%f_set_var(INTOTAL,"")>\
+//	%{TOTAL_USES}<{}{"%CC"!=""}%C%f_set_var(INTOTAL,"")>\
+ ( get_global_var ( 'TOTAL_USES' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %!= '' ) then
+   begin
+    %C %f set_var %( 'INTOTAL' %, '' )% 
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+//	%f_clear_list(TOTAL_USES)\
+ [%f] clear_list %( 'TOTAL_USES' )% 
+//	%f_clear_USED_UNITS(%S)
+ [%f] clear_USED_UNITS %( %S )% 
+//#UC END# *4AA8B1D901E5for470F151302FD*
+; // clear_TotalUses
+
+
+// Читаем ли из поля
+//%f _ReadsField
+implementation @ "Delphi интерфейсы и реализация"
+: ReadsField OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4ACB78A4017Ffor470F151302FD*
+//	[{%S{reads field}=true}{false}true]
+ if ( ( %S get_up ( 'reads field' ) ) %==  true ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4ACB78A4017Ffor470F151302FD*
+; // ReadsField
+
+
+// Пишем ли в поле
+//%f _WritesField
+: WritesField OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4ACB78D500C2for470F151302FD*
+//#UC END# *4ACB78D500C2for470F151302FD*
+; // WritesField
+
+
+//%f _IsConstructor
+: IsConstructor OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE025440082for470F151302FD*
+//	[{%SS=ctor|%SS=vctor}{false}true]
+ if ( ( %S |S ) %== 'ctor' OR 
+   ( ( %S |S ) %== 'vctor'  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4AE025440082for470F151302FD*
+; // IsConstructor
+
+
+//%f _IsFactory
+: IsFactory OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE026A90143for470F151302FD*
+//	false
+ false
+//#UC END# *4AE026A90143for470F151302FD*
+; // IsFactory
+
+
+//%f _pas_VCMFormFactoryParams
+: pas_VCMFormFactoryParams OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4AE062A601E1for470F151302FD*
+//	[{%S%f_IsMakeSingleChild()=true}\
+ if ( ( %S %f IsMakeSingleChild %( )% ) %==  true ) then
+ begin
+//	\n#  const aCont   : IvcmContainer;\
+  #13#10
+  out_indent '  const aCont   : IvcmContainer;'
+//	[{%S%f_NeedAggregate()=true}\
+  if ( ( %S %f NeedAggregate %( )% ) %==  true ) then
+  begin
+//	\n#  const anAgg   : IvcmAggregate;\
+   #13#10
+   out_indent '  const anAgg   : IvcmAggregate;'
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{%S%f_IsMakeSingleChild()!=true}\
+ if ( ( %S %f IsMakeSingleChild %( )% ) %!=  true ) then
+ begin
+//	\n#  const aParams : IvcmMakeParams = nil;\
+  #13#10
+  out_indent '  const aParams : IvcmMakeParams = nil;'
+//	]
+ end // if
+//	#  aZoneType     : TvcmZoneType = vcm_ztAny;
+ out_indent '  aZoneType     : TvcmZoneType = vcm_ztAny;'
+//	#  aUserType     : TvcmEffectiveUserType = 0\
+ out_indent '  aUserType     : TvcmEffectiveUserType = 0'
+//	[{%S#f_FirstParamIsViewAreaController()!=true};
+ if ( ( %S %?f FirstParamIsViewAreaController %( )% ) %!=  true ) then
+ begin
+  ';'
+//	#  aDataSource   : IvcmFormDataSource = nil]
+  out_indent '  aDataSource   : IvcmFormDataSource = nil' 
+ end // if
+//#UC END# *4AE062A601E1for470F151302FD*
+; // pas_VCMFormFactoryParams
+
+
+// Есть ли у операции параметры
+//%f _HasParams
+: HasParams OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE065E20005for470F151302FD*
+//@ %SU
+//	[{%Cx=true}{false}true]
+ if ( ( %C |x ) %==  true ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4AE065E20005for470F151302FD*
+; // HasParams
+
+
+//%f _OutCallParams
+: OutCallParams OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4AE066F202E2for470F151302FD*
+//	[(<{, }%CN>)]
+ if NOT-EMPTY
+ begin
+  '('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    %C |N 
+    ++! l_Counter
+   end // if
+  end // for C
+  ')' 
+ end // if
+ NOP
+//#UC END# *4AE066F202E2for470F151302FD*
+; // OutCallParams
+
+
+// Нужно ли очищать поля объекта
+//%f _NeedCleanupFields
+: NeedCleanupFields OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE06FBA02FEfor470F151302FD*
+//@ %SU
+//	[{%S%f_IsSimpleClass()=true|%S%f_IsMixIn()=true}{\
+ if ( ( %S %f IsSimpleClass %( )% ) %==  true OR 
+   ( ( %S %f IsMixIn %( )% ) %==  true  ) ) then
+ begin
+//	[{<{}{%C#f_IsFieldForCleanup()=true}{C}>!=0}{false}true]\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f IsFieldForCleanup %( )% ) %==  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *4AE06FBA02FEfor470F151302FD*
+; // NeedCleanupFields
+
+
+//%f _IsStereoForCleanup
+: IsStereoForCleanup OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE0713E0081for470F151302FD*
+//	[{%S%f_IsAttribute()=true&%S%t_IsStereoForCleanup()=true}{false}true]
+ if ( ( %S %f IsAttribute %( )% ) %==  true AND 
+   ( ( %S %t IsStereoForCleanup %( )% ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4AE0713E0081for470F151302FD*
+; // IsStereoForCleanup
+
+
+//%f _IsFieldForCleanup
+: IsFieldForCleanup OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE0738A0004for470F151302FD*
+//@ %SU
+//	[{%Sl=ref&%S%f_IsStereoForCleanup()=true&%S%T#t_IsTypeForCleanup()=true}{false}true]
+ if ( ( %S |l ) %== 'ref' AND 
+   ( ( %S %f IsStereoForCleanup %( )% ) %==  true  ) AND 
+   ( ( %S ->T %?t IsTypeForCleanup %( )%  ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4AE0738A0004for470F151302FD*
+; // IsFieldForCleanup
+
+
+//%f _pas_AfterClassEnd
+: pas_AfterClassEnd OBJECT IN %S
+//#UC START# *4B17BC05001Efor470F151302FD*
+//#UC END# *4B17BC05001Efor470F151302FD*
+; // pas_AfterClassEnd
+
+
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor470F151302FD*
+//	[{%S#f_IsInterface()!=true&%S#f_IsVCMFormSetFactory()!=true&%S#f_IsVCMZone()!=true}\
+ if ( ( %S %?f IsInterface %( )% ) %!=  true AND 
+   ( ( %S %?f IsVCMFormSetFactory %( )% ) %!=  true  ) AND 
+   ( ( %S %?f IsVCMZone %( )% ) %!=  true  ) ) then
+ begin
+//	%f_set_var(PARENT_CLASS,S)\
+  [%f] set_var %( 'PARENT_CLASS' %, 'S' )% 
+//	<{}{%P#f_IsControl()!=true}\
+
+//	%f_set_var(PARENT_CLASS,P)\
+
+//	%f_cycle_break(%S)\
+
+//	>\
+
+
+//	<{}{%o#f_IsVCMAreaLink()=true}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%o
+  begin
+   OBJECT IN %o
+   if ( ( %o %?f IsVCMAreaLink %( )% ) %==  true ) then
+   begin
+//	[{"%{IvcmViewAreaControllerRef}N"=""}%f_find_element(IvcmViewAreaControllerRef,IvcmViewAreaControllerRef)]\
+    if ( ( ( get_global_var ( 'IvcmViewAreaControllerRef' ) |N ) ) %== '' ) then
+    begin
+     [%f] find_element %( 'IvcmViewAreaControllerRef' %, 'IvcmViewAreaControllerRef' )% 
+    end // if
+//	%{PARENT_CLASS}%f_make_accessable(%{IvcmViewAreaControllerRef}U)\
+    ( get_global_var ( 'PARENT_CLASS' ) %f make_accessable %( ( get_global_var ( 'IvcmViewAreaControllerRef' ) |U ) )% ) 
+//	%{PARENT_CLASS}%f_add_attribute(%oU_AutoField,,\
+    ( get_global_var ( 'PARENT_CLASS' ) %f add_attribute %( %o |U '_AutoField' %, '' %, 
+//	f_%oN: %{IvcmViewAreaControllerRef}U,\
+    'f_'
+    %o |N ': '
+    ( get_global_var ( 'IvcmViewAreaControllerRef' ) |U ) %, 
+//	Attr_Inst)\
+    'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_link_type(ref)\
+    ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'ref' )% ) 
+//	%{Attr_Inst}%f_set_abstraction_type(final)\
+//	%{Attr_Inst}%f_set_visibility_type(PrivateAccess)\
+    ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Attr_Inst}%f_set_up(ifdef,%o{ifdef})\
+    ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %o get_up ( 'ifdef' ) )% ) 
+//	%{Attr_Inst}%f_set_up(ifndef,%o{ifndef})\
+    ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %o get_up ( 'ifndef' ) )% ) 
+//	%{Attr_Inst}%f_set_applied_gen(cpp,false)\
+    ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'cpp' %, false )% ) 
+//	%{Attr_Inst}%f_set_applied_gen(h,false)\
+    ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'h' %, false )% ) 
+//	%{Attr_Inst}%f_set_documentation(Поле для области вывода %oN)\
+    ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Поле для области вывода '
+    %o |N )% ) 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for o
+//	]
+ end // if
+//#UC END# *4B2A19E3038Bfor470F151302FD*
+; // DoSpell
+
+
+//%f _pas_BeforeCloseUnit
+: pas_BeforeCloseUnit OBJECT IN %S
+//#UC START# *4B2A253F0051for470F151302FD*
+//#UC END# *4B2A253F0051for470F151302FD*
+; // pas_BeforeCloseUnit
+
+
+//%f _IsMethod
+: IsMethod OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B2A29440092for470F151302FD*
+//	false
+ false
+//#UC END# *4B2A29440092for470F151302FD*
+; // IsMethod
+
+
+//%f _IsExeTarget
+: IsExeTarget OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B2A4565034Dfor470F151302FD*
+//	false
+ false
+//#UC END# *4B2A4565034Dfor470F151302FD*
+; // IsExeTarget
+
+
+// Определяет, что элемент является секцией инициализации
+//%f _IsIni
+: IsIni OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B38844D0399for470F151302FD*
+//	false
+ false
+//#UC END# *4B38844D0399for470F151302FD*
+; // IsIni
+
+
+// Определяет, что элемент является секцией финализации
+//%f _IsFini
+: IsFini OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B388478009Ffor470F151302FD*
+//	false
+ false
+//#UC END# *4B388478009Ffor470F151302FD*
+; // IsFini
+
+
+// Выводит секции инициализации
+//%f _pas_OutIni
+: pas_OutIni OBJECT IN %S
+//#UC START# *4B3886890063for470F151302FD*
+//	<\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+//	[{%C#f_IsIni()=true}{\
+   if ( ( %C %?f IsIni %( )% ) %==  true ) then
+   begin
+//	%C#f_pas_OutIniFiniImpl()\
+    %C %?f pas_OutIniFiniImpl %( )% 
+//	]\
+   end // if
+   else
+   begin
+//	[{%f_pas_IsSameUnit(%S,%C)=true}\
+    if ( ( [%f] pas_IsSameUnit %( %S %, %C )% ) %==  true ) then
+    begin
+//	%C#f_pas_OutIni()\
+     %C %?f pas_OutIni %( )% 
+//	]\
+    end // if
+//	}\
+   end // else
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4B3886890063for470F151302FD*
+; // pas_OutIni
+
+
+// Выводит секции финализации
+//%f _pas_OutFini
+: pas_OutFini OBJECT IN %S
+//#UC START# *4B3886C50247for470F151302FD*
+//	<\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+//	[{%C#f_IsFini()=true}{\
+   if ( ( %C %?f IsFini %( )% ) %==  true ) then
+   begin
+//	%C#f_pas_OutIniFiniImpl()\
+    %C %?f pas_OutIniFiniImpl %( )% 
+//	]\
+   end // if
+   else
+   begin
+//	[{%f_pas_IsSameUnit(%S,%C)=true}\
+    if ( ( [%f] pas_IsSameUnit %( %S %, %C )% ) %==  true ) then
+    begin
+//	%C#f_pas_OutFini()\
+     %C %?f pas_OutFini %( )% 
+//	]\
+    end // if
+//	}\
+   end // else
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4B3886C50247for470F151302FD*
+; // pas_OutFini
+
+
+// Выводит реализацию секции инициализации/финализации
+//%f _pas_OutIniFiniImpl
+: pas_OutIniFiniImpl OBJECT IN %S
+//#UC START# *4B3898EB0368for470F151302FD*
+//	\n\
+ #13#10
+//	[%S#f_open_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  %S %?f open_ifdef %( )% #13#10 
+ end // if
+ NOP
+//	%f_pas_CloseDefinitions(%S)\
+ [%f] pas_CloseDefinitions %( %S )% 
+//	%f_pas_OpenMethodImplementation(%S)\
+//	[// %f_Doc(%S)\n]\
+ if NOT-EMPTY
+ begin
+  '// '
+  [%f] Doc %( %S )% #13#10 
+ end // if
+ NOP
+//	%f_with_gen_id(intf.pas,%U[\n])\
+ [%f] with_gen_id %( 'intf.pas' %, %Usersection (
+
+ )
+ (
+  #13#10 
+ ) // Usersection
+ )% //	%f_set_var(WAS_METHOD,"1")\
+ [%f] set_var %( 'WAS_METHOD' %, 1 )% 
+//	[\n%S#f_close_ifdef()]
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %?f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *4B3898EB0368for470F151302FD*
+; // pas_OutIniFiniImpl
+
+
+//%f _IsDataModule
+: IsDataModule OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B5D68660386for470F151302FD*
+//	false
+ false
+//#UC END# *4B5D68660386for470F151302FD*
+; // IsDataModule
+
+
+//%f _IsStaticObject
+: IsStaticObject OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B6C3C5C01FCfor470F151302FD*
+//	false
+ false
+//#UC END# *4B6C3C5C01FCfor470F151302FD*
+; // IsStaticObject
+
+
+// Стереотип является структурой
+//%f _IsStruct
+: IsStruct OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B6C49DA0023for470F151302FD*
+//	false
+ false
+//#UC END# *4B6C49DA0023for470F151302FD*
+; // IsStruct
+
+
+//%f _pas_BeforeMethodBodyImplementation
+: pas_BeforeMethodBodyImplementation OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2
+// возвращаемый результат: a-string
+//#UC START# *4B6C4DE70271for470F151302FD*
+//#UC END# *4B6C4DE70271for470F151302FD*
+; // pas_BeforeMethodBodyImplementation
+
+
+//%f _pas_StaticCtorBeforeMethodBodyImplementation
+: pas_StaticCtorBeforeMethodBodyImplementation OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2
+// возвращаемый результат: a-string
+//#UC START# *4B6C4E2903C5for470F151302FD*
+
+//	%f_set_var(PARENT,1)\
+ [%f] set_var %( 'PARENT' %, 1 )% 
+//	[{"%{PARENT}N"=""}\
+ if ( ( ( get_global_var ( 'PARENT' ) |N ) ) %== '' ) then
+ begin
+//	[{%P#f_IsConstructorsHolder()=true}{\
+  if ( ( %P %?f IsConstructorsHolder %( )% ) %==  true ) then
+  begin
+//	%f_set_var(PARENT,P%G)\
+   [%f] set_var %( 'PARENT' %, 'P'
+   %G )% 
+//	]\
+  end // if
+  else
+  begin
+//	%f_set_var(PARENT,P)\
+   [%f] set_var %( 'PARENT' %, 'P' )% 
+//	}\
+  end // else
+//	]\
+ end // if
+
+//	%f_warning(%{PARENT}N %{PARENT}S)\
+
+//	[{%f_NeedFinalize(%{PARENT})=true}\
+ if ( ( [%f] NeedFinalize %( ( get_global_var ( 'PARENT' ) ) )% ) %==  true ) then
+ begin
+//	 Finalize(Result);\n\
+  ' Finalize(Result);'#13#10
+//	]\
+ end // if
+//	 System.FillChar(Result, SizeOf(Result), 0);\n
+ ' System.FillChar(Result, SizeOf(Result), 0);'#13#10
+
+//t _isStruct
+; // pas_StaticCtorBeforeMethodBodyImplementation
+
+end. // "Delphi интерфейсы и реализация"
+
+<<transformator>> isStruct OBJECT IN %S
+//@ %SU
+//c {}
+//r {%S#f_IsStruct()=true}: {true}
+//r {%SS=Typedef&%S{isPointer}!=true}: {%t_isStruct(%G)}
+//r {""=""}: {false}
+
+//t _IsTypeForCleanup
+; // isStruct
+
+<<transformator>> IsTypeForCleanup OBJECT IN %S
+//@ %SU
+//c {}
+//r {%t_interface(%S)=true}: {true}
+//r {%f_IsVector(%S)=true&%f_NeedFinalize(%S)=true}: {true}
+//r {%t_isStruct(%S)=true&%f_NeedFinalize(%S)=true}: {true}
+//r {""=""}: {false}
+
+//f _NeedFinalize
+; // IsTypeForCleanup
+
+: NeedFinalize OBJECT IN %S
+//	[{<{}{%CC=Attribute&%t_IsTypeForCleanup(%C%T)=true}{C}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( [%t] IsTypeForCleanup %( %C ->T  )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+
+//#UC END# *4B6C4E2903C5for470F151302FD*
+; // NeedFinalize
+
+
+// Определяет, что элемент конечной модели является наследником от aClassName
+//%f _InheritsFrom
+implementation @ "Delphi интерфейсы и реализация"
+: InheritsFrom OBJECT IN %S
+// параметры: aClassName: a-string = %1
+// возвращаемый результат: boolean
+//#UC START# *4B704DE10322for470F151302FD*
+//@ %SU%1N
+//	[{%f_pas_TypeName(%S)=%1N}{\
+ if ( ( [%f] pas_TypeName %( %S )% ) %== ( %1 |N ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{<{}{%G#f_InheritsFrom(%1)=true}{C}>!=0}{\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( %G %?f InheritsFrom %( %1 )% ) %==  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %!= 0 ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4B704DE10322for470F151302FD*
+; // InheritsFrom
+
+
+// Выводит пролог для _l3Items_
+//%f _OutL3ItemsPrologue
+: OutL3ItemsPrologue OBJECT IN %S
+// параметры: anAncestor: void = %1, aWasVarName: a-string = %2
+//#UC START# *4B70554F0038for470F151302FD*
+//	[{%{%2N}N!=true}\
+ if ( ( ( get_global_var ( %2 |N ) |N ) ) %!=  true ) then
+ begin
+//	%f_set_var(%2N,"true")\
+  [%f] set_var %( %2 |N %, true )% 
+//	[{%1#f_InheritsFrom("_l3Items_")=true}\
+  if ( ( %1 %?f InheritsFrom %( '_l3Items_' )% ) %==  true ) then
+  begin
+//	[{%S%f_InheritsFrom("Tl3ProtoObject")=true}{\
+   if ( ( %S %f InheritsFrom %( 'Tl3ProtoObject' )% ) %==  true ) then
+   begin
+//	 \{$Define l3Items_IsProto\}\n\
+    ' {$Define l3Items_IsProto}'#13#10
+//	]\
+   end // if
+   else
+   begin
+//	[{%S%f_InheritsFrom("Tl3DataContainerWithoutIUnknownPrim")=true&%S%f_InheritsFrom("Tl3DataContainerWithoutIUnknown")!=true}\
+    if ( ( %S %f InheritsFrom %( 'Tl3DataContainerWithoutIUnknownPrim' )% ) %==  true AND 
+      ( ( %S %f InheritsFrom %( 'Tl3DataContainerWithoutIUnknown' )% ) %!=  true  ) ) then
+    begin
+//	 \{$Define l3Items_IsProto\}\n\
+     ' {$Define l3Items_IsProto}'#13#10
+//	]\
+    end // if
+//	}\
+   end // else
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4B70554F0038for470F151302FD*
+; // OutL3ItemsPrologue
+
+
+//%f _IsAdapterTarget
+: IsAdapterTarget OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B72CB6A01CAfor470F151302FD*
+//	false
+ false
+//#UC END# *4B72CB6A01CAfor470F151302FD*
+; // IsAdapterTarget
+
+
+//%f _IsTarget
+: IsTarget OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B72CBF50223for470F151302FD*
+//	[{%S#f_IsVCMGUI()=true|%S%f_IsExeTarget()=true|%S%f_IsAdapterTarget()=true}{false}true]
+ if ( ( %S %?f IsVCMGUI %( )% ) %==  true OR 
+   ( ( %S %f IsExeTarget %( )% ) %==  true  ) OR 
+   ( ( %S %f IsAdapterTarget %( )% ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4B72CBF50223for470F151302FD*
+; // IsTarget
+
+
+//%f _ImplementedInlinesCount
+: ImplementedInlinesCount OBJECT IN %S
+// возвращаемый результат: integer
+//#UC START# *4B8908F2014Bfor470F151302FD*
+//@ %SU
+//	%f_evaluate(<{}{%oS=inline}{C}>+<{}{%OS=inline}{C}>)
+ [%f] evaluate %( 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%o
+ begin
+  OBJECT IN %o
+  if ( ( %o |S ) %== 'inline' ) then
+  begin
+
+   ++! l_Counter
+  end // if
+ end // for o
+ l_Counter
+ '+'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%O
+ begin
+  OBJECT IN %O
+  if ( ( %O |S ) %== 'inline' ) then
+  begin
+
+   ++! l_Counter
+  end // if
+ end // for O
+ l_Counter
+)% //#UC END# *4B8908F2014Bfor470F151302FD*
+; // ImplementedInlinesCount
+
+
+// Выводит значение (атрибута, константы, параметра)
+//%f _OutValue
+: OutValue OBJECT IN %S
+//#UC START# *4B8FB23D01E8for470F151302FD*
+//	[{"%S%VN"!=""}{\
+ if ( ( %S ->V |N  ) %!= '' ) then
+ begin
+//	[{%S{is define}=true&"%f_pas_TypeName(%S%T)"!=""}\
+  if ( ( %S get_up ( 'is define' ) ) %==  true AND 
+    ( ( [%f] pas_TypeName %( %S ->T  )% ) %!= ''  ) ) then
+  begin
+//	%f_pas_TypeName(%S%T)(\
+   [%f] pas_TypeName %( %S ->T  )% '('
+//	]\
+  end // if
+
+
+//	[{%S{is define}!=true}\
+  if ( ( %S get_up ( 'is define' ) ) %!=  true ) then
+  begin
+//	[{%S{no unit prefix}!=true}\
+   if ( ( %S get_up ( 'no unit prefix' ) ) %!=  true ) then
+   begin
+//	[{%S%T#f_IsSimpleClass()!=true&%t_interface(%S%T)!=true&%S%TS!=Vector&%TS!=Typedef&%T#f_IsStruct()!=true}\
+    if ( ( %S ->T %?f IsSimpleClass %( )%  ) %!=  true AND 
+      ( ( [%t] interface %( %S ->T  )% ) %!=  true  ) AND 
+      ( ( %S ->T |S  ) %!= 'Vector'  ) AND 
+      ( ( %T |S ) %!= 'Typedef'  ) AND 
+      ( ( %T %?f IsStruct %( )% ) %!=  true  ) ) then
+    begin
+
+
+//	[{%f_pas_IsSameUnit(%S,%S%V%T)!=true}\
+     if ( ( [%f] pas_IsSameUnit %( %S %, %S ->V ->T   )% ) %!=  true ) then
+     begin
+//	[%f_pas_Unit(%S%V%T).]\
+      if NOT-EMPTY
+      begin
+       [%f] pas_Unit %( %S ->V ->T   )% '.' 
+      end // if
+      NOP
+//	]\
+     end // if
+
+
+//	]\
+    end // if
+//	]\
+   end // if
+
+//	{%S{no unit prefix}!=true}
+//	]\
+  end // if
+
+//	{%S{is define}!=true
+
+
+//	[{"%S%V%TN"!=""}{\
+  if ( ( %S ->V ->T |N   ) %!= '' ) then
+  begin
+//	%S%V%T#f_pas_ElementPrefix()\
+   %S ->V ->T %?f pas_ElementPrefix %( )%   
+//	]\
+  end // if
+  else
+  begin
+//	%S%T#f_pas_ElementPrefix()\
+   %S ->T %?f pas_ElementPrefix %( )%  
+//	}\
+  end // else
+
+
+//	[{%f_substr_from_begin(%S%VN,2)=0x}{\
+  if ( ( [%f] substr_from_begin %( %S ->V |N  %, 2 )% ) %== 0 'x' ) then
+  begin
+//	$%f_delsubstr_from_begin(%S%VN,2)\
+   '$'
+   [%f] delsubstr_from_begin %( %S ->V |N  %, 2 )% 
+//	]\
+  end // if
+  else
+  begin
+//	%S%VN\
+   %S ->V |N  
+//	}\
+  end // else
+
+
+//	[ %S{suffix expr}]\
+  if NOT-EMPTY
+  begin
+   ' '
+   %S get_up ( 'suffix expr' ) 
+  end // if
+  NOP
+
+
+//	[{%S{is define}=true&"%f_pas_TypeName(%S%T)"!=""}\
+  if ( ( %S get_up ( 'is define' ) ) %==  true AND 
+    ( ( [%f] pas_TypeName %( %S ->T  )% ) %!= ''  ) ) then
+  begin
+//	)\
+   ')'
+//	]\
+  end // if
+
+
+//	]
+ end // if
+ else
+ begin
+
+
+//	[{%SS=static}\
+  if ( ( %S |S ) %== 'static' ) then
+  begin
+//	[{%TS=Typedef&%T{isClassRef}=true}{\
+   if ( ( %T |S ) %== 'Typedef' AND 
+     ( ( %T get_up ( 'isClassRef' ) ) %==  true  ) ) then
+   begin
+//	nil\
+    'nil'
+//	]\
+   end // if
+   else
+   begin
+//	[{%TS=Function}{\
+    if ( ( %T |S ) %== 'Function' ) then
+    begin
+//	nil\
+     'nil'
+//	]\
+    end // if
+    else
+    begin
+//	[{%f_pas_TypeName(%T)=Boolean}{\
+     if ( ( [%f] pas_TypeName %( %T )% ) %== 'Boolean' ) then
+     begin
+//	false\
+       false 
+//	]\
+     end // if
+     else
+     begin
+//	[{%f_pas_TypeName(%T)=Cardinal|%f_pas_TypeName(%T)=Integer}\
+      if ( ( [%f] pas_TypeName %( %T )% ) %== 'Cardinal' OR 
+        ( ( [%f] pas_TypeName %( %T )% ) %== 'Integer'  ) ) then
+      begin
+//	0\
+       0 
+//	]\
+      end // if
+//	}\
+     end // else
+//	}\
+    end // else
+//	}\
+   end // else
+//	]\
+  end // if
+
+
+//	}\
+ end // else
+//#UC END# *4B8FB23D01E8for470F151302FD*
+; // OutValue
+
+
+// Определяет реализует ли элемент указанный фасет/интерфейс
+//%f _Implements
+: Implements OBJECT IN %S
+// параметры: aFacet: MDAClass = %1
+// возвращаемый результат: boolean
+//#UC START# *4BA3925D035Cfor470F151302FD*
+//@ %SU%1U
+//	[{%1S=Typedef}{\
+ if ( ( %1 |S ) %== 'Typedef' ) then
+ begin
+//	%S%f_Implements(%1%G)\
+  %S %f Implements %( %1 ->G  )% 
+//	]
+ end // if
+ else
+ begin
+//	[{<{}{%RU=%1U}{C}>!=0}{\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |U ) %== ( %1 |U ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	%S%f_SomeAncestorImplements(%1)\
+   %S %f SomeAncestorImplements %( %1 )% 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4BA3925D035Cfor470F151302FD*
+; // Implements
+
+
+// Кто-то из предков (но не сам элемент) реализует указанный фасет
+//%f _SomeAncestorImplements
+: SomeAncestorImplements OBJECT IN %S
+// параметры: aFacet: MDAClass = %1
+// возвращаемый результат: boolean
+//#UC START# *4BA3AF160024for470F151302FD*
+//@ %SU%1U
+//	[{<{}{%G#f_Implements(%1)=true}{C}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G %?f Implements %( %1 )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %!= 0 ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{<{}{%R#f_IsMixIn()=true&%R#f_Implements(%1)=true}{C}>!=0}{\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R %?f IsMixIn %( )% ) %==  true AND 
+     ( ( %R %?f Implements %( %1 )% ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 0 ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4BA3AF160024for470F151302FD*
+; // SomeAncestorImplements
+
+
+// Реализация Spell'а для итератора
+//%f _IteratorSpell
+: IteratorSpell OBJECT IN %S
+//#UC START# *4BA884DD00A7for470F151302FD*
+//	[{%SC!=Class|%Cx=true}\
+ if ( ( %S |C ) %!= 'Class' OR 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+//	[{%S#f_IsOverride()!=true}\
+  if ( ( %S %?f IsOverride %( )% ) %!=  true ) then
+  begin
+
+//	- это чтобы C++ не сломать
+
+
+//	[{%SC=Class}{\
+   if ( ( %S |C ) %== 'Class' ) then
+   begin
+//	<{}{%CS=element type}%f_set_var(ELEMENT_TYPE,C%T)>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %== 'element type' ) then
+     begin
+      [%f] set_var %( 'ELEMENT_TYPE' %, 'C'
+      %T )% 
+      ++! l_Counter
+     end // if
+    end // for C
+//	]\
+   end // if
+   else
+   begin
+//	%f_set_var(ELEMENT_TYPE,T)\
+    [%f] set_var %( 'ELEMENT_TYPE' %, 'T' )% 
+//	}\
+   end // else
+
+
+
+//	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}\
+
+//	%f_warning("%{%{ELEMENT_TYPE}N}U")\
+
+//	%f_set_var(ELEMENT_TYPE,{%{ELEMENT_TYPE}N})\
+
+//	]\
+
+
+//	%P%f_add_class(%SU_Action,Function,%PN_%f_N(%S)_Action,Action_Inst)\
+   %P %f add_class %( %S |U '_Action' %, 'Function' %, %P |N '_'
+   [%f] N %( %S )% '_Action' %, 'Action_Inst' )% 
+//	%{Action_Inst}%f_set_visibility_type(PublicAccess)\
+   ( get_global_var ( 'Action_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Action_Inst}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
+   ( get_global_var ( 'Action_Inst' ) %f set_documentation %( 'Тип подитеративной функции для '
+   %P |N '.'
+   [%f] N %( %S )% )% ) 
+//	%{Action_Inst}%f_add_operation(%SU_Action_Sig,,\
+   ( get_global_var ( 'Action_Inst' ) %f add_operation %( %S |U '_Action_Sig' %, '' %, 
+//	DoIt (anItem: \
+   'DoIt (anItem: '
+
+//	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}{\
+//	%{ELEMENT_TYPE}U\
+   ( get_global_var ( 'ELEMENT_TYPE' ) |U ) 
+//	}\
+
+//	%{%{ELEMENT_TYPE}N}U\
+
+//	]\
+//	[{%S{needs index}=true}\
+   if ( ( %S get_up ( 'needs index' ) ) %==  true ) then
+   begin
+//	, anIndex: [{}{long}<{}{%CS=index type}%C%TU>]\
+    ', anIndex: '
+    if NOT-EMPTY
+    begin
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |S ) %== 'index type' ) then
+      begin
+       %C ->T |U  
+       ++! l_Counter
+      end // if
+     end // for C
+    end // if
+    NOP
+    else
+    begin
+     'long' 
+    end // else
+//	]\
+   end // if
+//	): boolean,Op_Instance\
+   '): boolean' %, 'Op_Instance'
+//	)\
+)% ) //	%{Op_Instance}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Тип подитеративной функции для '
+   %P |N '.'
+   [%f] N %( %S )% )% ) 
+//	%S%f_set_var(Action,{Action_Inst})\
+   %S %f set_var %( 'Action' %, '{Action_Inst}' )% 
+
+//	%P%f_add_operation(%SU_Stub,static,L2_%PN_%f_N(%S)_Action (anAction: pointer): %{Action_Inst}U,Op_Instance)
+   %P %f add_operation %( %S |U '_Stub' %, 'static' %, 'L2_'
+   %P |N '_'
+   [%f] N %( %S )% '_Action (anAction: pointer): '
+   ( get_global_var ( 'Action_Inst' ) |U ) %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_documentation(Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для %PN.%f_N(%S))\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для '
+   %P |N '.'
+   [%f] N %( %S )% )% ) 
+//	%{Op_Instance}%f_set_up(isGlobal,true)\
+   ( get_global_var ( 'Op_Instance' ) %f set_up %( 'isGlobal' %, true )% ) 
+//	%{Op_Instance}%f_set_up(isAsm,true)\
+   ( get_global_var ( 'Op_Instance' ) %f set_up %( 'isAsm' %, true )% ) 
+
+//	%S%f_set_var(Stub,{Op_Instance})\
+   %S %f set_var %( 'Stub' %, '{Op_Instance}' )% 
+
+//	[{"%S%{SPELLER}N"!=""}\
+   if ( ( %S ( get_object_var ( 'SPELLER' ) |N )  ) %!= '' ) then
+   begin
+//	%S%{SPELLER}%f_set_var(Stub,{Op_Instance})\
+    %S ( get_object_var ( 'SPELLER' ) %f set_var %( 'Stub' %, '{Op_Instance}' )% )  
+//	]\
+   end // if
+
+
+//	[{"%{l3LocalStub}N"=""}%f_find_element(l3LocalStub,l3LocalStub)]\
+   if ( ( ( get_global_var ( 'l3LocalStub' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'l3LocalStub' %, 'l3LocalStub' )% 
+   end // if
+//	%P%f_make_accessable(%{l3LocalStub}U)\
+   %P %f make_accessable %( ( get_global_var ( 'l3LocalStub' ) |U ) )% 
+//	[{%SC=Class}\
+   if ( ( %S |C ) %== 'Class' ) then
+   begin
+//	%f_addCDep(%S,%{l3LocalStub})\
+    [%f] addCDep %( %S %, ( get_global_var ( 'l3LocalStub' ) ) )% 
+//	]\
+   end // if
+
+
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_var,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %P )% '_var' %, 
+//	 {-}\
+   ' {-}'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_impl,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %P )% '_impl' %, 
+//	\tjmp l3LocalStub\
+   #9'jmp l3LocalStub'
+//	)\
+)% ) 
+
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4BA884DD00A7for470F151302FD*
+; // IteratorSpell
+
+
+//%f _IsIterator
+: IsIterator OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BA899E20317for470F151302FD*
+//	false
+ false
+//#UC END# *4BA899E20317for470F151302FD*
+; // IsIterator
+
+
+// Элемент может реализовываться классом
+//%f _IsClassImplementableElement
+: IsClassImplementableElement OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BA9EBAE0254for470F151302FD*
+//	false
+ false
+//#UC END# *4BA9EBAE0254for470F151302FD*
+; // IsClassImplementableElement
+
+
+// Декларирует указатели на элемент
+//%f _pas_ForwardPointers
+: pas_ForwardPointers OBJECT IN %S
+//#UC START# *4BAA50E802CAfor470F151302FD*
+//	<{}{%ZS=Typedef&%Z{isPointer}=true&%f_pas_IsSameUnit(%S,%Z)=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Z
+ begin
+  OBJECT IN %Z
+  if ( ( %Z |S ) %== 'Typedef' AND 
+   ( ( %Z get_up ( 'isPointer' ) ) %==  true  ) AND 
+   ( ( [%f] pas_IsSameUnit %( %S %, %Z )% ) %==  true  ) ) then
+  begin
+//	%ZX\
+   %Z |X 
+//	\n\
+   #13#10
+//	%f_add_to_list(FORWARDED_INTF,Z)\
+   [%f] add_to_list %( 'FORWARDED_INTF' %, 'Z' )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for Z
+//#UC END# *4BAA50E802CAfor470F151302FD*
+; // pas_ForwardPointers
+
+
+// Определяет, что элемент переопределяет другой элемент
+//%f _IsOverride
+: IsOverride OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BAA5CAB02CFfor470F151302FD*
+//	false
+ false
+//#UC END# *4BAA5CAB02CFfor470F151302FD*
+; // IsOverride
+
+
+// Ключевое слово метода
+//%f _pas_MethodKeyword
+: pas_MethodKeyword OBJECT IN %S
+// параметры: Modification: a-string = %1
+// возвращаемый результат: a-string
+//#UC START# *4BB0B1D202C2for470F151302FD*
+//@ %SU_%1N
+//	%t_pas_MethodKeyword(%S,%1)
+ [%t] pas_MethodKeyword %( %S %, %1 )% 
+//#UC END# *4BB0B1D202C2for470F151302FD*
+; // pas_MethodKeyword
+
+
+// Отступ. Аналог #, только с учётом особенностей Delphi
+//%f _Ind
+: Ind OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4BB2008E003Afor470F151302FD*
+//#UC END# *4BB2008E003Afor470F151302FD*
+; // Ind
+
+
+// Элемент реализован каким-то элементом указанного класса
+//%f _IsRealizedBySomeClassElement
+: IsRealizedBySomeClassElement OBJECT IN %S
+// параметры: aClass: MDAClass = %1
+// возвращаемый результат: boolean
+//#UC START# *4BBF125A02BFfor470F151302FD*
+//@ %SU_%1U
+//	[{<{}{%L%PU=%1U}{C}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%L
+  begin
+   OBJECT IN %L
+   if ( ( %L ->P |U  ) %== ( %1 |U ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for L
+  l_Counter
+  %!= 0 ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%1<{}{%oU=%1U}{C}>!=0}{\
+  if ( ( %1
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%o
+    begin
+     OBJECT IN %o
+     if ( ( %o |U ) %== ( %1 |U ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for o
+    l_Counter
+
+   ) // bind
+ )    %!= 0 ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4BBF125A02BFfor470F151302FD*
+; // IsRealizedBySomeClassElement
+
+
+// Элемент является виртуальным
+//%f _IsVirtual
+: IsVirtual OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BC4823500C1for470F151302FD*
+//	[{%Sa=regular}{\
+ if ( ( %S |a ) %== 'regular' ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *4BC4823500C1for470F151302FD*
+; // IsVirtual
+
+
+// Выводит элемент как UtilityPack
+//%f _pas_OutLikeUtilityPack
+: pas_OutLikeUtilityPack OBJECT IN %S
+//#UC START# *4BD1A77701B1for470F151302FD*
+//	%f_pas_OpenUnitInterface(%S)\
+ [%f] pas_OpenUnitInterface %( %S )% 
+//	[{%Cx=true}\
+ if ( ( %C |x ) %==  true ) then
+ begin
+//	[\n%S%f_open_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	]\
+ end // if
+//	%f_pas_Uses(%S)\
+ [%f] pas_Uses %( %S )% 
+//	%f_pas_CloseUses(%S)\
+ [%f] pas_CloseUses %( %S )% 
+//	<{\n}{%CV=PublicAccess&%C#f_IsMethod()!=true&"%CO"=""}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %== 'PublicAccess' AND 
+   ( ( %C %?f IsMethod %( )% ) %!=  true  ) AND 
+   ( ( %C |O ) %== ''  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%CV=PublicAccess&%C#f_IsMethod()=true&"%CO"=""}[\n%CX]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |V ) %== 'PublicAccess' AND 
+   ( ( %C %?f IsMethod %( )% ) %==  true  ) AND 
+   ( ( %C |O ) %== ''  ) ) then
+  begin
+   if NOT-EMPTY
+   begin
+    #13#10
+    %C |X 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_with_gen_id(intf3.pas,[\n<{\n}%CX>])\
+ [%f] with_gen_id %( 'intf3.pas' %, if NOT-EMPTY
+ begin
+  #13#10
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+)% //	[{%Cx=true}\
+ if ( ( %C |x ) %==  true ) then
+ begin
+//	[\n%S%f_close_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+//	]\
+ end // if
+//	
+//	%f_pas_OpenUnitImplementation(%S)\
+ [%f] pas_OpenUnitImplementation %( %S )% 
+//	[{%Cx=true}\
+ if ( ( %C |x ) %==  true ) then
+ begin
+//	[\n%S%f_open_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	%f_pas_UsesInImpl(%S)\
+  [%f] pas_UsesInImpl %( %S )% 
+//	%f_pas_CloseUses(%S)\
+  [%f] pas_CloseUses %( %S )% 
+//	%f_with_gen_id(impl.pas,%SX)\
+  [%f] with_gen_id %( 'impl.pas' %, %S |X )% 
+//	[\n%S%f_close_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+//	]\
+ end // if
+//	%f_pas_CloseUnit(%S)\
+ [%f] pas_CloseUnit %( %S )% 
+//	<{}{"%CO"!=""}%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |O ) %!= '' ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4BD1A77701B1for470F151302FD*
+; // pas_OutLikeUtilityPack
+
+
+// Имя условной директивы
+//%f _pas_DefineName
+: pas_DefineName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4C0524A20161for470F151302FD*
+//@ %SU
+//	%f_str_replace(%f_pas_UnitName(%S),.,_)
+ [%f] str_replace %( [%f] pas_UnitName %( %S )% %, '.' %, '_' )% 
+//#UC END# *4C0524A20161for470F151302FD*
+; // pas_DefineName
+
+
+// Имеет ли секцию инициализации
+//%f _HasIni
+: HasIni OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4C05291601EEfor470F151302FD*
+//@ %SU
+//	[{<{}{%CS=ini}{C}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'ini' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%S#f_IsMixIn()=true&<{}{%G#f_IsMixIn()=true&%G%f_HasIni()=true}{C}>!=0}{\
+  if ( ( %S %?f IsMixIn %( )% ) %==  true AND 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( %G %?f IsMixIn %( )% ) %==  true AND 
+     ( ( %G %f HasIni %( )% ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %!= 0  ) ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	[{<{}{"%CO"=""&%C#f_HasIni()=true}{C}>!=0}{\
+   if ( 
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |O ) %== '' AND 
+      ( ( %C %?f HasIni %( )% ) %==  true  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+    %!= 0 ) then
+   begin
+//	true\
+     true 
+//	]\
+   end // if
+   else
+   begin
+//	false\
+     false 
+//	}\
+   end // else
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4C05291601EEfor470F151302FD*
+; // HasIni
+
+
+// Выводит включение секций инициализации примесей
+//%f _pas_OutMixInIniInclude
+: pas_OutMixInIniInclude OBJECT IN %S
+//#UC START# *4C0532EF02E3for470F151302FD*
+//	<{}{%G#f_IsMixIn()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if ( ( %G %?f IsMixIn %( )% ) %==  true ) then
+  begin
+//	[{%G%f_HasIni()=true}\
+   if ( ( %G %f HasIni %( )% ) %==  true ) then
+   begin
+//	\n%f_OutInclude(%G,%B)\
+    #13#10
+    [%f] OutInclude %( %G %, %B )% 
+//	]\
+   end // if
+
+//	<%f_pas_OutMixInIniInclude(%G)>\
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for G
+
+//	<{}{%R#f_IsMixIn()=true&%R%f_HasIni()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R %?f IsMixIn %( )% ) %==  true AND 
+   ( ( %R %f HasIni %( )% ) %==  true  ) ) then
+  begin
+//	\n%f_OutInclude(%R,%B)\
+   #13#10
+   [%f] OutInclude %( %R %, %B )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for R
+//#UC END# *4C0532EF02E3for470F151302FD*
+; // pas_OutMixInIniInclude
+
+
+//%f _InheritsFromClass
+: InheritsFromClass OBJECT IN %S
+// параметры: aClass: MDAClass = %1
+// возвращаемый результат: boolean
+//#UC START# *4C342AB5032Efor470F151302FD*
+//@ %SU%1U
+//	[{<{}{%GU=%1U}{C}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |U ) %== ( %1 |U ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %!= 0 ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *4C342AB5032Efor470F151302FD*
+; // InheritsFromClass
+
+
+// Элемент не является параметром
+//%f _IsNotParam
+: IsNotParam OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4C766D140383for470F151302FD*
+//	[{%SS!=uses&%SS!=element type&%SS!=index type&%SS!=result type}{\
+ if ( ( %S |S ) %!= 'uses' AND 
+   ( ( %S |S ) %!= 'element type'  ) AND 
+   ( ( %S |S ) %!= 'index type'  ) AND 
+   ( ( %S |S ) %!= 'result type'  ) ) then
+ begin
+//	false\
+   false 
+//	]
+ end // if
+ else
+ begin
+//	true\
+   true 
+//	}\
+ end // else
+//#UC END# *4C766D140383for470F151302FD*
+; // IsNotParam
+
+
+//%f _pas_CallingConventionsDirective
+: pas_CallingConventionsDirective OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4CBD7CFE025Bfor470F151302FD*
+//	[{%S{calling conventions}!=none&"%S{calling conventions}"!=""}{\
+ if ( ( %S get_up ( 'calling conventions' ) ) %!= 'none' AND 
+   ( ( %S get_up ( 'calling conventions' ) ) %!= ''  ) ) then
+ begin
+//	 %S{calling conventions};\
+  ' '
+  %S get_up ( 'calling conventions' ) ';'
+//	]
+ end // if
+ else
+ begin
+//	[{%t_interface(%P)=true&%P#f_InTie()=true} stdcall;]\
+  if ( ( [%t] interface %( %P )% ) %==  true AND 
+    ( ( %P %?f InTie %( )% ) %==  true  ) ) then
+  begin
+   ' stdcall;' 
+  end // if
+//	}\
+ end // else
+//#UC END# *4CBD7CFE025Bfor470F151302FD*
+; // pas_CallingConventionsDirective
+
+
+//%f _FirstParamIsViewAreaController
+: FirstParamIsViewAreaController OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4CBEFA1402F2for470F151302FD*
+//@ %SU
+//	[{%S%f_HasParams()=true}{\
+ if ( ( %S %f HasParams %( )% ) %==  true ) then
+ begin
+//	%f_set_var(RESULT,"false")\
+  [%f] set_var %( 'RESULT' %, false )% 
+//	<{}{%CC=Parameter}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Parameter' ) then
+   begin
+//	[{%C%T#f_IsViewAreaController()=true}\
+    if ( ( %C ->T %?f IsViewAreaController %( )%  ) %==  true ) then
+    begin
+//	%f_set_var(RESULT,"true")\
+     [%f] set_var %( 'RESULT' %, true )% 
+//	]\
+    end // if
+//	%f_cycle_break(%S)\
+    [%f] cycle_break %( %S )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	%{RESULT}N\
+  ( get_global_var ( 'RESULT' ) |N ) 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *4CBEFA1402F2for470F151302FD*
+; // FirstParamIsViewAreaController
+
+
+//%f _FirstParamName
+: FirstParamName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4CBEFF7C020Bfor470F151302FD*
+//@ %SU
+//	[{%S%f_HasParams()=true}{\
+ if ( ( %S %f HasParams %( )% ) %==  true ) then
+ begin
+//	<{}{%CC=Parameter}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Parameter' ) then
+   begin
+//	%CN\
+    %C |N 
+//	%f_cycle_break(%S)\
+    [%f] cycle_break %( %S )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+ else
+ begin
+//	\
+//	}\
+ end // else
+//#UC END# *4CBEFF7C020Bfor470F151302FD*
+; // FirstParamName
+
+
+//%f _IsMakeSingleChild
+: IsMakeSingleChild OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4CC01C0D0010for470F151302FD*
+//	[{%f_N(%S)=MakeSingleChild}{\
+ if ( ( [%f] N %( %S )% ) %== 'MakeSingleChild' ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *4CC01C0D0010for470F151302FD*
+; // IsMakeSingleChild
+
+
+// Нужна ли фабрике формы агрегация
+//%f _NeedAggregate
+: NeedAggregate OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4CC02B360368for470F151302FD*
+//	%S{need Aggregate}
+ %S get_up ( 'need Aggregate' ) 
+//#UC END# *4CC02B360368for470F151302FD*
+; // NeedAggregate
+
+
+//%f _HasFini
+: HasFini OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4CEFC15B03C1for470F151302FD*
+//@ %SU
+//	[{<{}{%CS=fini}{C}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'fini' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%S#f_IsMixIn()=true&<{}{%G#f_IsMixIn()=true&%G%f_HasFini()=true}{C}>!=0}{\
+  if ( ( %S %?f IsMixIn %( )% ) %==  true AND 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( %G %?f IsMixIn %( )% ) %==  true AND 
+     ( ( %G %f HasFini %( )% ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %!= 0  ) ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	[{<{}{"%CO"=""&%C#f_HasFini()=true}{C}>!=0}{\
+   if ( 
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |O ) %== '' AND 
+      ( ( %C %?f HasFini %( )% ) %==  true  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+    %!= 0 ) then
+   begin
+//	true\
+     true 
+//	]\
+   end // if
+   else
+   begin
+//	false\
+     false 
+//	}\
+   end // else
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4CEFC15B03C1for470F151302FD*
+; // HasFini
+
+
+//%f _pas_OutMixInFiniInclude
+: pas_OutMixInFiniInclude OBJECT IN %S
+//#UC START# *4CEFC1720254for470F151302FD*
+//	<{}{%G#f_IsMixIn()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if ( ( %G %?f IsMixIn %( )% ) %==  true ) then
+  begin
+//	[{%G%f_HasFini()=true}\
+   if ( ( %G %f HasFini %( )% ) %==  true ) then
+   begin
+//	\n%f_OutInclude(%G,%B)\
+    #13#10
+    [%f] OutInclude %( %G %, %B )% 
+//	]\
+   end // if
+
+//	<%f_pas_OutMixInIniInclude(%G)>\
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for G
+
+//	<{}{%R#f_IsMixIn()=true&%R%f_HasFini()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R %?f IsMixIn %( )% ) %==  true AND 
+   ( ( %R %f HasFini %( )% ) %==  true  ) ) then
+  begin
+//	\n%f_OutInclude(%R,%B)\
+   #13#10
+   [%f] OutInclude %( %R %, %B )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for R
+//#UC END# *4CEFC1720254for470F151302FD*
+; // pas_OutMixInFiniInclude
+
+
+//%f _IsUtilityPack
+: IsUtilityPack OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E7B630D000Dfor470F151302FD*
+//	false
+ false
+//#UC END# *4E7B630D000Dfor470F151302FD*
+; // IsUtilityPack
+
+
+// Нужно ли документацию к слову скрипта, которое представляет элемента
+//%f _NeedsKeywordDocumentation
+: NeedsKeywordDocumentation OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4F30B869036Efor470F151302FD*
+//	false
+ false
+//#UC END# *4F30B869036Efor470F151302FD*
+; // NeedsKeywordDocumentation
+
+
+// Создаёт документацию к словам скрипта
+//%f _SpellKeywordsDocumentation
+: SpellKeywordsDocumentation OBJECT IN %S
+// параметры: aSummoner: MDAClass = %1
+//#UC START# *4F30B8A403DFfor470F151302FD*
+//	[{%S%{_WasSpelled}N!=1}\
+ if ( ( %S ( get_object_var ( '_WasSpelled' ) |N )  ) %!= 1 ) then
+ begin
+//	[{%SS!=Requirements&%SS!=Constants&%SS!=TestLibrary}\
+  if ( ( %S |S ) %!= 'Requirements' AND 
+    ( ( %S |S ) %!= 'Constants'  ) AND 
+    ( ( %S |S ) %!= 'TestLibrary'  ) ) then
+  begin
+//	%S%f_set_var(_WasSpelled,"1")\
+   %S %f set_var %( '_WasSpelled' %, 1 )% 
+//	[{%S%{WasSpelledToKeywordsDocumentation}N!=true}\
+
+//	%S%f_set_var(WasSpelledToKeywordsDocumentation,"true")\
+//	%f_add_to_list(WasSpelledToKeywordsDocumentation_LIST,S)\
+   [%f] add_to_list %( 'WasSpelledToKeywordsDocumentation_LIST' %, 'S' )% 
+//	<{}{%CC=Class|%CC=Category}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Class' OR 
+     ( ( %C |C ) %== 'Category'  ) ) then
+    begin
+//	[{%C#f_IsMethod()!=true}\
+     if ( ( %C %?f IsMethod %( )% ) %!=  true ) then
+     begin
+//	%C#f_SpellKeywordsDocumentation(%1)\
+      %C %?f SpellKeywordsDocumentation %( %1 )% 
+//	]\
+     end // if
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+// - тут итерируем ТОЛЬКО по классам и категориям, не заходя внутрь методов,
+
+//   операций и связей, так наверное памяти СИЛЬНО меньше тратиться должно,
+
+//   до и по времени побыстрее должно быть
+//	%S%f_DoSpellKeywordDocumentation(%1)\
+   %S %f DoSpellKeywordDocumentation %( %1 )% 
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4F30B8A403DFfor470F151302FD*
+; // SpellKeywordsDocumentation
+
+
+//%f _ScriptKeywordDocumentationName
+: ScriptKeywordDocumentationName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4F30B8E60385for470F151302FD*
+//	%f_N(%S)
+ [%f] N %( %S )% 
+//#UC END# *4F30B8E60385for470F151302FD*
+; // ScriptKeywordDocumentationName
+
+
+// Выводит документацию для СЛОВА скрипта, которое представляет данный эелемент
+//%f _DoSpellKeywordDocumentation
+: DoSpellKeywordDocumentation OBJECT IN %S
+// параметры: aSummoner: MDAClass = %1
+//#UC START# *4F30D27300BAfor470F151302FD*
+// - специально ничего не делаем
+//#UC END# *4F30D27300BAfor470F151302FD*
+; // DoSpellKeywordDocumentation
+
+
+//%f _IsUnit
+: IsUnit OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4F30E88502A5for470F151302FD*
+//	false
+ false
+//#UC END# *4F30E88502A5for470F151302FD*
+; // IsUnit
+
+
+// Определяет, что элемент является проектом
+//%f _IsProject
+: IsProject OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4F379BBA00BFfor470F151302FD*
+//	false
+ false
+//#UC END# *4F379BBA00BFfor470F151302FD*
+; // IsProject
+
+
+//%f _NeedRegisterInScripts
+: NeedRegisterInScripts OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *55278EA5036Afor470F151302FD*
+//@ %SU
+//	[{%S{register in scripts}!=false}{\
+ if ( ( %S get_up ( 'register in scripts' ) ) %!=  false ) then
+ begin
+//	[{%S{register in scripts}=true}{\
+  if ( ( %S get_up ( 'register in scripts' ) ) %==  true ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	[{<{}{%G#f_NeedRegisterInScripts()=true}{C}>!=0}{\
+   if ( 
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%G
+    begin
+     OBJECT IN %G
+     if ( ( %G %?f NeedRegisterInScripts %( )% ) %==  true ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for G
+    l_Counter
+    %!= 0 ) then
+   begin
+//	true\
+     true 
+//	]\
+   end // if
+   else
+   begin
+//	false\
+     false 
+//	}\
+   end // else
+//	}\
+  end // else
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *55278EA5036Afor470F151302FD*
+; // NeedRegisterInScripts
+
+
+//%f _pas_script_FileName
+: pas_script_FileName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *5632451B0167for470F151302FD*
+//	[{%S%f_pas_script_NeedOwnFile()=true}\
+ if ( ( %S %f pas_script_NeedOwnFile %( )% ) %==  true ) then
+ begin
+//	%SU.pas.ms.script\
+  %S |U '.pas.ms.script'
+//	]
+ end // if
+//#UC END# *5632451B0167for470F151302FD*
+; // pas_script_FileName
+
+
+//%f _pas_script_Path
+: pas_script_Path OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *563245390156for470F151302FD*
+//#UC END# *563245390156for470F151302FD*
+; // pas_script_Path
+
+
+//%f _pas_script_Generate
+: pas_script_Generate OBJECT IN %S
+//#UC START# *5632454C0277for470F151302FD*
+//	// %SN %SU %SS %SC
+ '// '
+ %S |N ' '
+ %S |U ' '
+ %S |S ' '
+ %S |C 
+//	
+//	INCLUDE 'ElementsRTTI.ms.dict'
+ 'INCLUDE 'ElementsRTTI.ms.dict''
+
+//	%f_clear_list(INCLUDED_FILES)\
+ [%f] clear_list %( 'INCLUDED_FILES' )% 
+//	%f_clear_list(FORWARDED_ELEMENTS)\
+ [%f] clear_list %( 'FORWARDED_ELEMENTS' )% 
+
+//	%S%f_pas_script_GenerateDescriptionRecur()\
+ %S %f pas_script_GenerateDescriptionRecur %( )% 
+
+//	%f_clear_list(FORWARDED_ELEMENTS)\
+ [%f] clear_list %( 'FORWARDED_ELEMENTS' )% 
+//	%f_clear_list(INCLUDED_FILES)
+ [%f] clear_list %( 'INCLUDED_FILES' )% 
+//#UC END# *5632454C0277for470F151302FD*
+; // pas_script_Generate
+
+
+//%f _pas_script_NeedOwnFile
+: pas_script_NeedOwnFile OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *56333DFB00A7for470F151302FD*
+//@ %SU
+//	[{%S%f_pas_script_NeedOutToScript()=true}{\
+ if ( ( %S %f pas_script_NeedOutToScript %( )% ) %==  true ) then
+ begin
+//	[{%S#f_IsMethod()=true}{\
+  if ( ( %S %?f IsMethod %( )% ) %==  true ) then
+  begin
+//	false\
+    false 
+//	]\
+  end // if
+  else
+  begin
+//	[{%SS=Constants}{\
+   if ( ( %S |S ) %== 'Constants' ) then
+   begin
+//	false\
+     false 
+//	]\
+   end // if
+   else
+   begin
+//	[{%P#f_IsInterfaces()=true}{\
+    if ( ( %P %?f IsInterfaces %( )% ) %==  true ) then
+    begin
+//	false\
+      false 
+//	]\
+    end // if
+    else
+    begin
+//	[{%SC=Class}{\
+     if ( ( %S |C ) %== 'Class' ) then
+     begin
+//	[{%PC=Class|%SS=TestCase}{\
+      if ( ( %P |C ) %== 'Class' OR 
+        ( ( %S |S ) %== 'TestCase'  ) ) then
+      begin
+       #13#10
+
+//	false\
+        false 
+//	]\
+      end // if
+      else
+      begin
+//	false\
+        false 
+// - наверное классы не надо в отдельные файлы выливать
+
+//	true\
+//	}
+      end // else
+//	]\
+     end // if
+     else
+     begin
+//	true\
+       true 
+//	}\
+     end // else
+//	}\
+    end // else
+//	}\
+   end // else
+//	}\
+  end // else
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *56333DFB00A7for470F151302FD*
+; // pas_script_NeedOwnFile
+
+
+//%f _pas_script_GenerateDescription
+: pas_script_GenerateDescription OBJECT IN %S
+//#UC START# *56333E330061for470F151302FD*
+//	%f_add_to_list(FORWARDED_ELEMENTS,S)\
+ [%f] add_to_list %( 'FORWARDED_ELEMENTS' %, 'S' )% 
+//	\n\
+ #13#10
+//	: %S%f_pas_script_Name()
+ ': '
+ %S %f pas_script_Name %( )% 
+//	 CONST UID '%SU'
+ ' CONST UID '''
+ %S |U '''
+//	[{%S#f_IsInterface()=true}\
+ if ( ( %S %?f IsInterface %( )% ) %==  true ) then
+ begin
+//	 CONST GUID '%SG'
+  ' CONST GUID '''
+  %S |G '''
+//	]\
+ end // if
+//	[{"%SN"!=""}\
+ if ( ( %S |N ) %!= '' ) then
+ begin
+//	 CONST Name '%f_str_replace(%f_N(%S),','')'
+  ' CONST Name '''
+  [%f] str_replace %( [%f] N %( %S )% %, '''' %, '''''' )% '''
+//	]\
+ end // if
+//	[\
+ if NOT-EMPTY
+ begin
+//	 CONST Class class_%SC
+  ' CONST Class class_'
+  %S |C 
+//	]\
+ end // if
+ NOP
+//	[{"%SS"!=""}\
+ if ( ( %S |S ) %!= '' ) then
+ begin
+//	[{%SC=Category|%SC=Class}{\
+  if ( ( %S |C ) %== 'Category' OR 
+    ( ( %S |C ) %== 'Class'  ) ) then
+  begin
+//	 : Stereotype st_%f_str_replace(%SS, ,_) ;
+   ' : Stereotype st_'
+   [%f] str_replace %( %S |S %, ' ' %, '_' )% ' ;'
+//	]\
+  end // if
+  else
+  begin
+//	[{%SC=Operation|%SC=Attribute|%SC=Dependency}{\
+   if ( ( %S |C ) %== 'Operation' OR 
+     ( ( %S |C ) %== 'Attribute'  ) OR 
+     ( ( %S |C ) %== 'Dependency'  ) ) then
+   begin
+//	 : Stereotype st_%f_str_replace(%SS, ,_)::%SC ;
+    ' : Stereotype st_'
+    [%f] str_replace %( %S |S %, ' ' %, '_' )% '::'
+    %S |C ' ;'
+//	]\
+   end // if
+   else
+   begin
+
+//	 CONST Stereotype '%f_str_replace(%SS,','')'
+//	 : Stereotype st_%f_str_replace(%SS, ,_) ;
+    ' : Stereotype st_'
+    [%f] str_replace %( %S |S %, ' ' %, '_' )% ' ;'
+//	}\
+   end // else
+//	}\
+  end // else
+//	]\
+ end // if
+//	[{"%SK"!=""}\
+ if ( ( %S |K ) %!= '' ) then
+ begin
+//	 CONST Kind kind_%SK
+  ' CONST Kind kind_'
+  %S |K 
+//	]\
+ end // if
+//	[{"%SD"!=""&"%SD"!="undefined"}\
+ if ( ( %S |D ) %!= '' AND 
+   ( ( %S |D ) %!= 'undefined'  ) ) then
+ begin
+//	 \%SUMMARY '%f_fine_string("%SD")' ;
+  ' %SUMMARY '''
+  [%f] fine_string %( %S |D )% '' ;'
+//	]\
+ end // if
+//	[{%SC!=Dependency&%SC!=Parameter}\
+ if ( ( %S |C ) %!= 'Dependency' AND 
+   ( ( %S |C ) %!= 'Parameter'  ) ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST Visibility %SV
+   ' CONST Visibility '
+   %S |V 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+//	[{%SC!=Dependency&%SC!=Parameter}\
+ if ( ( %S |C ) %!= 'Dependency' AND 
+   ( ( %S |C ) %!= 'Parameter'  ) ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST Abstraction at_%Sa
+   ' CONST Abstraction at_'
+   %S |a 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+//	[{"%Sl"!=""}\
+ if ( ( %S |l ) %!= '' ) then
+ begin
+//	 CONST LinkType lt_%Sl
+  ' CONST LinkType lt_'
+  %S |l 
+//	]\
+ end // if
+
+//	[{%PS!=ProjectGroup&%SC!=Parameter}\
+ if ( ( %P |S ) %!= 'ProjectGroup' AND 
+   ( ( %S |C ) %!= 'Parameter'  ) ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Parent %P#f_pas_script_Reference() ;
+   ' : Parent '
+   %P %?f pas_script_Reference %( )% ' ;'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+//	[{%TN!=void&"%TN"!=""}\
+ if ( ( %T |N ) %!= 'void' AND 
+   ( ( %T |N ) %!= ''  ) ) then
+ begin
+//	 : Target %T#f_pas_script_Reference() ;
+  ' : Target '
+  %T %?f pas_script_Reference %( )% ' ;'
+//	]\
+ end // if
+//	[{"%Ss"!=""}\
+ if ( ( %S |s ) %!= '' ) then
+ begin
+//	 CONST TargetStereotype '%Ss'
+  ' CONST TargetStereotype '''
+  %S |s '''
+//	]\
+ end // if
+//	[{"%VN"!=""}\
+ if ( ( %V |N ) %!= '' ) then
+ begin
+//	 CONST Value %f_out_val(%f_fine_string("%VN"))
+  ' CONST Value '
+  [%f] out_val %( [%f] fine_string %( %V |N )% )% 
+//	]\
+ end // if
+//	[{"%VN"!=""&"%V%TU"!=""&"%V%TN"!="void"}\
+ if ( ( %V |N ) %!= '' AND 
+   ( ( %V ->T |U  ) %!= ''  ) AND 
+   ( ( %V ->T |N  ) %!= 'void'  ) ) then
+ begin
+//	 : ValueType %V%T#f_pas_script_Reference() ;
+  ' : ValueType '
+  %V ->T %?f pas_script_Reference %( )%  ' ;'
+//	]\
+ end // if
+
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Inherits
+  ' : Inherits'
+//	   @ (< %G#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    ' '
+    %G %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for G
+  ' ) .SequenceCode.It'
+//	 ; // Inherits
+  ' ; // Inherits'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Implements
+  ' : Implements'
+//	   @ (< %R#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if true then
+   begin
+    ' '
+    %R %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for R
+  ' ) .SequenceCode.It'
+//	 ; // Implements
+  ' ; // Implements'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Attributes
+  ' : Attributes'
+//	   @ (<{}{%C#f_pas_script_IsAttribute()=true} %C#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f pas_script_IsAttribute %( )% ) %==  true ) then
+   begin
+    ' '
+    %C %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' ) .SequenceCode.It'
+//	 ; // Attributes
+  ' ; // Attributes'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Operations
+  ' : Operations'
+//	   @ (<{}{%C#f_pas_script_IsOperation()=true} %C#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f pas_script_IsOperation %( )% ) %==  true ) then
+   begin
+    ' '
+    %C %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' ) .SequenceCode.It'
+//	 ; // Operations
+  ' ; // Operations'
+//	]\
+ end // if
+ NOP
+
+//	[{%S#f_pas_script_CanImplementMethods()=true}\
+ if ( ( %S %?f pas_script_CanImplementMethods %( )% ) %==  true ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Implemented
+   ' : Implemented'
+//	   @ (< %o#f_pas_script_Reference()> ) .SequenceCode.It
+   '   @ ('
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%o
+   begin
+    OBJECT IN %o
+    if true then
+    begin
+     ' '
+     %o %?f pas_script_Reference %( )% 
+     ++! l_Counter
+    end // if
+   end // for o
+   ' ) .SequenceCode.It'
+//	 ; // Implemented
+   ' ; // Implemented'
+//	]\
+  end // if
+  NOP
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Overridden
+   ' : Overridden'
+//	   @ (< %O#f_pas_script_Reference()> ) .SequenceCode.It
+   '   @ ('
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%O
+   begin
+    OBJECT IN %O
+    if true then
+    begin
+     ' '
+     %O %?f pas_script_Reference %( )% 
+     ++! l_Counter
+    end // if
+   end // for O
+   ' ) .SequenceCode.It'
+//	 ; // Overridden
+   ' ; // Overridden'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Children
+  ' : Children'
+//	   @ (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)!=true} %C#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f pas_script_NeedOutToScript %( )% ) %==  true AND 
+    ( ( [%f] IsConstants %( %C )% ) %!=  true  ) ) then
+   begin
+    ' '
+    %C %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' ) .SequenceCode.It'
+//	 ; // Children
+  ' ; // Children'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Constants
+  ' : Constants'
+//	   @ (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)=true} %C#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f pas_script_NeedOutToScript %( )% ) %==  true AND 
+    ( ( [%f] IsConstants %( %C )% ) %==  true  ) ) then
+   begin
+    ' '
+    %C %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' ) .SequenceCode.It'
+//	 ; // Constants
+  ' ; // Constants'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Parameters
+  ' : Parameters'
+//	   @ (<{}{%CC=Parameter} %C#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Parameter' ) then
+   begin
+    ' '
+    %C %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' ) .SequenceCode.It'
+//	 ; // Parameters
+  ' ; // Parameters'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Dependencies
+  ' : Dependencies'
+//	   @ (<{}{%CC=Dependency} %C#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Dependency' ) then
+   begin
+    ' '
+    %C %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' ) .SequenceCode.It'
+//	 ; // Dependencies
+  ' ; // Dependencies'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Depends
+  ' : Depends'
+//	   @ (< %D#f_pas_script_Reference()> ) .SequenceCode.It
+  '   @ ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if true then
+   begin
+    ' '
+    %D %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for D
+  ' ) .SequenceCode.It'
+//	 ; // Depends
+  ' ; // Depends'
+//	]\
+ end // if
+ NOP
+
+//	%S%f_pas_script_GenerateUserProperties()\
+ %S %f pas_script_GenerateUserProperties %( )% 
+
+//	
+//	 @SELF
+ ' @SELF'
+//	; // %S%f_pas_script_Name() %SN\n
+ '; // '
+ %S %f pas_script_Name %( )% ' '
+ %S |N #13#10
+
+//f _IsConstants
+; // pas_script_GenerateDescription
+
+end. // "Delphi интерфейсы и реализация"
+
+: IsConstants OBJECT IN %S
+//	[{%SS=Constants|%SS=ConstantArray|%SS=LocalConst}{\
+ if ( ( %S |S ) %== 'Constants' OR 
+   ( ( %S |S ) %== 'ConstantArray'  ) OR 
+   ( ( %S |S ) %== 'LocalConst'  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *56333E330061for470F151302FD*
+; // IsConstants
+
+
+//%f _pas_script_NeedOutToScript
+implementation @ "Delphi интерфейсы и реализация"
+: pas_script_NeedOutToScript OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *563340DD039Ffor470F151302FD*
+//	[{%SC=Dependency|%S#f_pas_script_IsOperation()=true|%S#f_pas_script_IsAttribute()=true|%SC=Parameter|"%SC"=""}{\
+ if ( ( %S |C ) %== 'Dependency' OR 
+   ( ( %S %?f pas_script_IsOperation %( )% ) %==  true  ) OR 
+   ( ( %S %?f pas_script_IsAttribute %( )% ) %==  true  ) OR 
+   ( ( %S |C ) %== 'Parameter'  ) OR 
+   ( ( %S |C ) %== ''  ) ) then
+ begin
+//	false\
+   false 
+//	]
+ end // if
+ else
+ begin
+//	true\
+   true 
+//	}\
+ end // else
+//#UC END# *563340DD039Ffor470F151302FD*
+; // pas_script_NeedOutToScript
+
+
+//%f _pas_script_GenerateInclude
+: pas_script_GenerateInclude OBJECT IN %S
+//#UC START# *56335F7C03DDfor470F151302FD*
+//	[{"%S#f_pas_script_FileNameForLink()"!=""}\
+ if ( ( %S %?f pas_script_FileNameForLink %( )% ) %!= '' ) then
+ begin
+//	[{"%S#f_pas_script_FileNameForLink()"!="%BO"}\
+  if ( ( %S %?f pas_script_FileNameForLink %( )% ) %!= ( %B |O ) ) then
+  begin
+//	[{%f_exists_in_list(INCLUDED_FILES,"%S#f_pas_script_FileNameForLink()")!=true}\
+   if ( ( [%f] exists_in_list %( 'INCLUDED_FILES' %, %S %?f pas_script_FileNameForLink %( )% )% ) %!=  true ) then
+   begin
+//	%f_add_to_list(INCLUDED_FILES,"%S#f_pas_script_FileNameForLink()")\
+    [%f] add_to_list %( 'INCLUDED_FILES' %, %S %?f pas_script_FileNameForLink %( )% )% 
+//	\nINCLUDE '%S%f_pas_script_FileNameForLink()' // %SN\n\
+    #13#10'INCLUDE '''
+    %S %f pas_script_FileNameForLink %( )% ''' // '
+    %S |N #13#10
+//	]\
+   end // if
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *56335F7C03DDfor470F151302FD*
+; // pas_script_GenerateInclude
+
+
+//%f _pas_script_FileNameForLink
+: pas_script_FileNameForLink OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *56335FB00013for470F151302FD*
+//@ %SU
+//	[{"%S%f_pas_script_FileName()"!=""}{\
+ if ( ( %S %f pas_script_FileName %( )% ) %!= '' ) then
+ begin
+//	%S%f_pas_script_FileName()\
+  %S %f pas_script_FileName %( )% 
+//	]
+ end // if
+ else
+ begin
+//	%P#f_pas_script_FileNameForLink()\
+  %P %?f pas_script_FileNameForLink %( )% 
+//	}\
+ end // else
+//#UC END# *56335FB00013for470F151302FD*
+; // pas_script_FileNameForLink
+
+
+//%f _pas_script_Name
+: pas_script_Name OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *5633620E0126for470F151302FD*
+//	ME_%SU
+ 'ME_'
+ %S |U 
+//#UC END# *5633620E0126for470F151302FD*
+; // pas_script_Name
+
+
+//%f _pas_script_GenerateDescriptionRecur
+: pas_script_GenerateDescriptionRecur OBJECT IN %S
+//#UC START# *563378C200C8for470F151302FD*
+//	<%FF>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%F
+ begin
+  OBJECT IN %F
+  if true then
+  begin
+   %F |F 
+   ++! l_Counter
+  end // if
+ end // for F
+
+//	<\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+//	[{%C#f_pas_script_NeedOwnFile()=true}{\
+   if ( ( %C %?f pas_script_NeedOwnFile %( )% ) %==  true ) then
+   begin
+//	%C#f_pas_script_GenerateWeakInclude()\
+    %C %?f pas_script_GenerateWeakInclude %( )% 
+//	]\
+   end // if
+   else
+   begin
+//	[{%C#f_pas_script_NeedOutToScript()=true}\
+    if ( ( %C %?f pas_script_NeedOutToScript %( )% ) %==  true ) then
+    begin
+//	%S%f_pas_script_GenerateForwardPrim()\
+     %S %f pas_script_GenerateForwardPrim %( )% 
+//	%C#f_pas_script_GenerateDescriptionRecur()\
+     %C %?f pas_script_GenerateDescriptionRecur %( )% 
+//	]\
+    end // if
+//	}\
+   end // else
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	<%G#f_pas_script_GenerateIncludeOrForward()>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+   %G %?f pas_script_GenerateIncludeOrForward %( )% 
+   ++! l_Counter
+  end // if
+ end // for G
+//	<%R#f_pas_script_GenerateIncludeOrForward()>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   %R %?f pas_script_GenerateIncludeOrForward %( )% 
+   ++! l_Counter
+  end // if
+ end // for R
+
+//	[{%S#f_pas_script_CanImplementMethods()=true}\
+ if ( ( %S %?f pas_script_CanImplementMethods %( )% ) %==  true ) then
+ begin
+//	<%o#f_pas_script_GenerateIncludeOrForward()\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%o
+  begin
+   OBJECT IN %o
+   if true then
+   begin
+    %o %?f pas_script_GenerateIncludeOrForward %( )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for o
+//	<%O#f_pas_script_GenerateIncludeOrForward()\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%O
+  begin
+   OBJECT IN %O
+   if true then
+   begin
+    %O %?f pas_script_GenerateIncludeOrForward %( )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for O
+//	]\
+ end // if
+
+//	<{}{%C#f_pas_script_IsAttribute()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f pas_script_IsAttribute %( )% ) %==  true ) then
+  begin
+//	%S%f_pas_script_GenerateForwardPrim()\
+   %S %f pas_script_GenerateForwardPrim %( )% 
+//	%C#f_pas_script_GenerateDescriptionRecur()\
+   %C %?f pas_script_GenerateDescriptionRecur %( )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	<{}{%C#f_pas_script_IsOperation()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f pas_script_IsOperation %( )% ) %==  true ) then
+  begin
+//	%S%f_pas_script_GenerateForwardPrim()\
+   %S %f pas_script_GenerateForwardPrim %( )% 
+//	%C#f_pas_script_GenerateDescriptionRecur()\
+   %C %?f pas_script_GenerateDescriptionRecur %( )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	<{}{%CC=Parameter}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Parameter' ) then
+  begin
+
+//	%S%f_pas_script_GenerateForwardPrim()\
+//	%C#f_pas_script_GenerateDescriptionRecur()\
+   %C %?f pas_script_GenerateDescriptionRecur %( )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	<{}{%CC=Dependency}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Dependency' ) then
+  begin
+//	%S%f_pas_script_GenerateForwardPrim()\
+   %S %f pas_script_GenerateForwardPrim %( )% 
+//	%C#f_pas_script_GenerateDescriptionRecur()\
+   %C %?f pas_script_GenerateDescriptionRecur %( )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	%T#f_pas_script_GenerateIncludeOrForward()\
+ %T %?f pas_script_GenerateIncludeOrForward %( )% 
+
+//	[{"%VN"!=""&"%V%TU"!=""&"%V%TN"!="void"}\
+ if ( ( %V |N ) %!= '' AND 
+   ( ( %V ->T |U  ) %!= ''  ) AND 
+   ( ( %V ->T |N  ) %!= 'void'  ) ) then
+ begin
+//	%V%T#f_pas_script_GenerateIncludeOrForward()\
+  %V ->T %?f pas_script_GenerateIncludeOrForward %( )%  
+//	]\
+ end // if
+
+//	%S%f_pas_script_GenerateDescription()
+ %S %f pas_script_GenerateDescription %( )% 
+//#UC END# *563378C200C8for470F151302FD*
+; // pas_script_GenerateDescriptionRecur
+
+
+//%f _pas_script_GenerateUserProperties
+: pas_script_GenerateUserProperties OBJECT IN %S
+//#UC START# *56374FD101B7for470F151302FD*
+//	%f_clear_list(UP_LIST)\
+ [%f] clear_list %( 'UP_LIST' )% 
+//	%f_ups_to_list(S,UP_LIST)\
+ [%f] ups_to_list %( 'S' %, 'UP_LIST' )% 
+//	[\
+ if NOT-EMPTY
+ begin
+//	<{}{%f_is_empty(UP_LIST)=false}{W}\
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'UP_LIST' )% ) %==  false ) then
+   begin
+//	[%f_pop_first_to_var(UP_LIST,UP)\
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'UP_LIST' %, 'UP' )% 
+
+//	%f_split_to_list(VALS,%{UP}N, = )\
+     [%f] split_to_list %( 'VALS' %, ( get_global_var ( 'UP' ) |N ) %, ' = ' )% 
+//	%f_pop_first_to_var(VALS,LEFT)\
+     [%f] pop_first_to_var %( 'VALS' %, 'LEFT' )% 
+//	%f_pop_first_to_var(VALS,RIGHT)\
+     [%f] pop_first_to_var %( 'VALS' %, 'RIGHT' )% 
+//	%f_set_var(LEFT,"%f_cut_quotes("%{LEFT}N")")\
+     [%f] set_var %( 'LEFT' %, [%f] cut_quotes %( ( get_global_var ( 'LEFT' ) |N ) )% )% 
+//	%f_set_var(RIGHT,"%f_cut_quotes("%{RIGHT}N")")\
+     [%f] set_var %( 'RIGHT' %, [%f] cut_quotes %( ( get_global_var ( 'RIGHT' ) |N ) )% )% 
+//	%f_set_var(RIGHT,"%f_fine_string("%{RIGHT}N")")\
+     [%f] set_var %( 'RIGHT' %, [%f] fine_string %( ( get_global_var ( 'RIGHT' ) |N ) )% )% 
+
+//	[\
+     if NOT-EMPTY
+     begin
+//	[{"%{RIGHT}N"!=""}\
+      if ( ( ( get_global_var ( 'RIGHT' ) |N ) ) %!= '' ) then
+      begin
+
+// - не выводим пустые значения
+//	[{%f_is_default_up_value(%S,%{LEFT},%{RIGHT})!=true}\
+       if ( ( [%f] is_default_up_value %( %S %, ( get_global_var ( 'LEFT' ) ) %, ( get_global_var ( 'RIGHT' ) ) )% ) %!=  true ) then
+       begin
+//	 CONST \
+        ' CONST '
+
+
+//	"%{LEFT}N" \
+        ( get_global_var ( 'LEFT' ) |N ) ' '
+//	%f_out_val("%{RIGHT}N")
+        [%f] out_val %( ( get_global_var ( 'RIGHT' ) |N ) )% 
+//	]\
+       end // if
+//	]\
+      end // if
+//	]\
+     end // if
+     NOP
+
+
+//	]>\
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	]\
+ end // if
+ NOP
+//	%f_clear_list(VALS)\
+ [%f] clear_list %( 'VALS' )% 
+//	%f_clear_list(UP_LIST)
+ [%f] clear_list %( 'UP_LIST' )% 
+//#UC END# *56374FD101B7for470F151302FD*
+; // pas_script_GenerateUserProperties
+
+
+//%f _pas_script_IsOperation
+: pas_script_IsOperation OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *5637623B00A0for470F151302FD*
+//	[{%SC=Operation|%S#f_IsMethod()=true}{\
+ if ( ( %S |C ) %== 'Operation' OR 
+   ( ( %S %?f IsMethod %( )% ) %==  true  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *5637623B00A0for470F151302FD*
+; // pas_script_IsOperation
+
+
+//%f _pas_script_Reference
+: pas_script_Reference OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *563765ED0263for470F151302FD*
+//	[{"%S#f_pas_script_FileNameForLink()"!="%BO"}{\
+ if ( ( %S %?f pas_script_FileNameForLink %( )% ) %!= ( %B |O ) ) then
+ begin
+//	WL '%S%f_pas_script_Name()' '%S#f_pas_script_FileNameForLink()'\
+  'WL '''
+  %S %f pas_script_Name %( )% ''' '''
+  %S %?f pas_script_FileNameForLink %( )% ''''
+//	] // %SN\n
+ end // if
+ else
+ begin
+//	%S%f_pas_script_Name()\
+  %S %f pas_script_Name %( )% 
+//	}\
+ end // else
+ ' // '
+ %S |N #13#10
+//#UC END# *563765ED0263for470F151302FD*
+; // pas_script_Reference
+
+
+//%f _pas_script_GenerateForward
+: pas_script_GenerateForward OBJECT IN %S
+//#UC START# *56377E090112for470F151302FD*
+//	[{%SC!=Category}\
+ if ( ( %S |C ) %!= 'Category' ) then
+ begin
+
+// - наверное папкам forward-декларации не нужны
+//	%S%f_pas_script_GenerateForwardPrim()\
+  %S %f pas_script_GenerateForwardPrim %( )% 
+//	]
+ end // if
+//#UC END# *56377E090112for470F151302FD*
+; // pas_script_GenerateForward
+
+
+//%f _pas_script_IsAttribute
+: pas_script_IsAttribute OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *56378C6C0218for470F151302FD*
+//	[{%SC=Attribute|%S#f_IsAttribute()=true}{\
+ if ( ( %S |C ) %== 'Attribute' OR 
+   ( ( %S %?f IsAttribute %( )% ) %==  true  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *56378C6C0218for470F151302FD*
+; // pas_script_IsAttribute
+
+
+//%f _pas_script_GenerateIncludeOrForward
+: pas_script_GenerateIncludeOrForward OBJECT IN %S
+//#UC START# *563B85E00244for470F151302FD*
+//	%S#f_pas_script_GenerateWeakInclude()\
+ %S %?f pas_script_GenerateWeakInclude %( )% 
+//	%S#f_pas_script_GenerateForwardPrim()
+ %S %?f pas_script_GenerateForwardPrim %( )% 
+//#UC END# *563B85E00244for470F151302FD*
+; // pas_script_GenerateIncludeOrForward
+
+
+//%f _pas_script_CanImplementMethods
+: pas_script_CanImplementMethods OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *563C76070331for470F151302FD*
+//	[{%t_isClassRef(%S)=true|%SS=Typedef|%SS=MixInMirror|%S#f_IsMethod()=true}{\
+ if ( ( [%t] isClassRef %( %S )% ) %==  true OR 
+   ( ( %S |S ) %== 'Typedef'  ) OR 
+   ( ( %S |S ) %== 'MixInMirror'  ) OR 
+   ( ( %S %?f IsMethod %( )% ) %==  true  ) ) then
+ begin
+//	false\
+   false 
+//	]
+ end // if
+ else
+ begin
+//	true\
+   true 
+//	}\
+ end // else
+//#UC END# *563C76070331for470F151302FD*
+; // pas_script_CanImplementMethods
+
+
+//%f _pas_script_runner_FileName
+: pas_script_runner_FileName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *563CBCF800FCfor470F151302FD*
+//	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
+ if ( ( %S %f pas_script_runner_NeedOwnFile %( )% ) %==  true ) then
+ begin
+//	[{"%S%f_pas_script_FileName()"!=""}%S%f_pas_script_FileName().runner]\
+  if ( ( %S %f pas_script_FileName %( )% ) %!= '' ) then
+  begin
+   %S %f pas_script_FileName %( )% '.runner' 
+  end // if
+//	]
+ end // if
+//#UC END# *563CBCF800FCfor470F151302FD*
+; // pas_script_runner_FileName
+
+
+//%f _pas_script_runner_NeedOwnFile
+: pas_script_runner_NeedOwnFile OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *563CBD110135for470F151302FD*
+//	[{%S%f_pas_script_NeedOwnFile()=true}{false}true]
+ if ( ( %S %f pas_script_NeedOwnFile %( )% ) %==  true ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *563CBD110135for470F151302FD*
+; // pas_script_runner_NeedOwnFile
+
+
+//%f _pas_script_runner_Generate
+: pas_script_runner_Generate OBJECT IN %S
+//#UC START# *563CBD450198for470F151302FD*
+//	// %SN %SU %SS %SC
+ '// '
+ %S |N ' '
+ %S |U ' '
+ %S |S ' '
+ %S |C 
+//	
+//	INCLUDE 'Generation.ms.dict'
+ 'INCLUDE 'Generation.ms.dict''
+
+//	%f_clear_list(INCLUDED_FILES)\
+ [%f] clear_list %( 'INCLUDED_FILES' )% 
+//	%f_clear_list(FORWARDED_ELEMENTS)\
+ [%f] clear_list %( 'FORWARDED_ELEMENTS' )% 
+
+//	%S%f_pas_script_GenerateInclude()\
+ %S %f pas_script_GenerateInclude %( )% 
+
+//	%f_clear_list(FORWARDED_ELEMENTS)\
+ [%f] clear_list %( 'FORWARDED_ELEMENTS' )% 
+//	%f_clear_list(INCLUDED_FILES)\
+ [%f] clear_list %( 'INCLUDED_FILES' )% 
+//	
+//	%S%f_pas_script_Name() .Generate
+ %S %f pas_script_Name %( )% ' .Generate'
+//#UC END# *563CBD450198for470F151302FD*
+; // pas_script_runner_Generate
+
+
+//%f _pas_script_GenerateWeakInclude
+: pas_script_GenerateWeakInclude OBJECT IN %S
+//#UC START# *564207B10283for470F151302FD*
+//#UC END# *564207B10283for470F151302FD*
+; // pas_script_GenerateWeakInclude
+
+
+//%f _pas_script_GenerateForwardPrim
+: pas_script_GenerateForwardPrim OBJECT IN %S
+//#UC START# *5643707B0390for470F151302FD*
+//	[{"%S#f_pas_script_FileNameForLink()"="%BO"}\
+ if ( ( %S %?f pas_script_FileNameForLink %( )% ) %== ( %B |O ) ) then
+ begin
+
+// - forward-декларации валидны только в пределах своего же файла
+//	[{%f_exists_in_list(FORWARDED_ELEMENTS,S)!=true}\
+  if ( ( [%f] exists_in_list %( 'FORWARDED_ELEMENTS' %, 'S' )% ) %!=  true ) then
+  begin
+//	%f_add_to_list(FORWARDED_ELEMENTS,S)\
+   [%f] add_to_list %( 'FORWARDED_ELEMENTS' %, 'S' )% 
+//	\nFORWARD %S%f_pas_script_Name()\n\
+   #13#10'FORWARD '
+   %S %f pas_script_Name %( )% #13#10
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *5643707B0390for470F151302FD*
+; // pas_script_GenerateForwardPrim
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // "Delphi интерфейсы и реализация"
+

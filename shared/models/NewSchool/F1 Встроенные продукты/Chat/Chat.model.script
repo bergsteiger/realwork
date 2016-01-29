@@ -1,0 +1,95 @@
+FINAL <<VCMUseCase>> Chat
+ %UID '4A66B8720216'
+ %SUMMARY '[$144575025]' ;
+ %INCLUDES
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\Chat\Chat\Chat.model.script' /* Chat */
+  'w:\shared\models\NewSchool\F1 Встроенные продукты\Chat\View\View.model.script' /* View */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '484F80CF0274' /* "Встроенные продукты" */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '4954C00703D0' /* OfficeLike */
+  U$ '4A7C095601DA' /* "Base Operations" */
+  U$ '4A92C561015D' /* Common */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '4954C00703D0' /* OfficeLike */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '4A66B91A01E4' /* Chat */
+  U$ '4A66B9520090' /* View */
+  U$ '4A7C095601DA' /* "Base Operations" */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A92C561015D' /* Common */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '55B62380030A' /* Logging */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  FINAL <<VCMUseCaseRealization>> Chat$UC
+   %UID '4A697E4303C9'
+   %SUMMARY 'Чат' ;
+   %META
+    %upv "ifndef" 'Admin,Monitorings'
+    %upv "needs InstanceR" 'undefined'
+    %upv "needs script" 'undefined'
+    %upv "no hands" false
+    %upv "register in scripts" 'undefined'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '481EF5C4020D' /* Оболочка */
+    U$ '4A66B9520090' /* View */
+   ; // %TOBEINCLUDED
+   %IMPLEMENTS
+    U$ '49EC560D03E0' /* "Совещание онлайн" */
+   ; // %IMPLEMENTS
+   %INHERITS
+    U$ '4A6971B802A6' /* BaseChat */
+   ; // %INHERITS
+  ; // Chat$UC
+ ; // %CHILDREN
+; // Chat

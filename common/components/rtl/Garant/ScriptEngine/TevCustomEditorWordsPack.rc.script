@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "ScriptEngine$Everest"
+// Модуль: "TevCustomEditorWordsPack.rc.script"
+// Скрипты в ресурсах (.rc.script)
+// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TevCustomEditorWordsPack
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//#UC START# *55E46D4F03AEimpl*
+
+USES
+ axiom:Editor
+;
+
+WordAlias pop:editor:InsertTable pop:Editor:InsertTable
+WordAlias pop:editor:InsertRow pop:Editor:InsertRow
+WordAlias pop:editor:DeleteRow pop:Editor:DeleteRow
+WordAlias pop:editor:MergeCells pop:Editor:MergeCells
+WordAlias pop:editor:SplitCell pop:Editor:SplitCell
+
+USES
+ axiom:Range
+;
+
+//REDEFINITION
+ PROCEDURE pop:Editor:MergeTablesWithTimer
+  TevCustomEditor IN anEditor
+  
+  INTERFACE VAR l_Range
+  anEditor pop:Editor:Range >>> l_Range
+  
+  if ( l_Range IsNil ) then
+   EXIT
+   
+  INTERFACE VAR l_Table
+  l_Range pop:Range:Table >>> l_Table
+  
+  if ( l_Table IsNil ) then
+   EXIT
+   
+  StartTimer
+  TRY
+   anEditor pop:Editor:MergeTables
+  FINALLY
+   'Объединение таблиц' 'Перемещение таблицы' StopTimerEx DROP
+  END 
+ ; // pop:Editor:MergeTablesWithTimer
+
+WordAlias pop:editor:MergeTablesWithTimer pop:Editor:MergeTablesWithTimer
+
+WordAlias pop:editor:SplitTable pop:Editor:SplitTable
+WordAlias pop:editor:MergeTables pop:Editor:MergeTables
+WordAlias pop:editor:InsertSectionBreak pop:Editor:InsertSectionBreak
+WordAlias pop:editor:PrevHyperlink pop:Editor:PrevHyperlink
+WordAlias pop:editor:NextHyperlink pop:Editor:NextHyperlink
+
+//#UC END# *55E46D4F03AEimpl*
+
+
+EXPORTS
+//#UC START# *55E46D4F03AEexports*
+ ''
+//#UC END# *55E46D4F03AEexports*
+

@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\DOCUMENTATION\Arhivarius.Kompleks.hmxz /tsk=Common:Arhivarius.Kompleks /tsk=Common:Kompleks.Arhivarius(chm) /tsk=Common:Arhivarius.Kompleks_!DAILY /tsk=Common:Arhivarius.Kompleks(web)_!DAILY

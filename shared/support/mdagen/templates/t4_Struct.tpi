@@ -1,0 +1,285 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Struct
+//////////////////////////////////////////////////////////////////////////////////
+
+: Struct::Class
+? —труктура
+? Ёлемент аграгации других типов. —труктура не может иметь бизнесс-операций, только данные. ƒополнительно (через пользовательское свойство) может быть указанно что дл€ структуоры необходимо сгенерировать стандартные операторы.
+< *::Class, *::Category
+$ C 240,230,210
+$ l 100,75,35
+$ f 100,75,35
+
+p need UC:b=false ? €вно включает генерацию дополнительных секций ёзер- ода
+p need dctor:b=false ? включает генерацию деструктора
+p Need copy ctor:b=false ? включает генерацию копирующего конструктора и оператора присваивани€
+p Need init ctor:b=false ? включает генерацию конструктора инициализации
+p force usage:b=false ? €вно определ€ет, что элемент будет кем-то использован (нужно дл€ проверки)
+p Can Have Methods:b=false ? определ€ет, что дл€ Delphi может иметь методы (ключевое слово object)
+p packed:b=false ? определ€ет упакованность структуры
+v +#-
+L code_struct
+Y t4_struct.gif
+%f _wiki_up_print
+
+%f _wiki_up_add_gen
+	[{%S{Need init ctor}=true}* конструктор инициализации
+	][{%S{Need copy ctor}=true}* копирующий конструктор
+	][{%S{need dctor}=true}* деструктор дл€ финальных классов
+	]
+
+%f _base_class
+
+%t _constraint
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {им€ %SS, используемой в качестве серверного типа, не должно совпадать с именем родител€}
+r {%M{force usage}=false&%S{force usage}=false&%ax=false}: {%SS ни кем не используетс€}
+
+%f _struct_need_impl
+	[{%S{Need copy ctor}=true|%S{Need init ctor}=true|%S{Need assign op}=true|<{}{"%CC"="Operation"&"%CS"="ctor"}{%CC}>!=0|%S{need dctor}=true}{false}true]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ idl
+F struct <%NN::>%SN;
+	<#%FF
+	>%f_docs(%S)\
+	#struct %SN {<{}{"%CC"!="Operation"}
+	%CX>
+	#};
+
++ h
+F struct %SN;
+	[<#%FF
+	>]%f_dump_cpp_functors_h_fd(%S)[{"%PM"="Interface::Category"}\#pragma pack (push, 1)
+	
+	]%f_set_var(STRUCT,S)%f_docs(%S)\
+	#struct %SN%S%f_base_class() {
+	<{}{"%CC"!="Operation"}%f_docs(%C)\
+	#	%f_attr(%C) [{}{%f_to_omg(%C%TN)}%CN];
+	>%f_dump_def_init_ctor(%S)[{%S{need dctor}=true}
+	#	~%SN ();
+	][{%S{Need init ctor}=true}
+	#	%SN (<{, }{%CC=Attribute}[{%Cl!=lnk}{%f_attr(%C)}%t_arg(%C%T,"in")] %CN_>);
+	][{%S{Need copy ctor}=true}
+	#	%SN (const %SN& copy);
+	
+	#	%SN& operator = (const %SN& copy);
+	][<{}{"%CC"="Operation"&"%CS"="ctor"}
+	%CX
+	>]%f_dump_cpp_functors_h(%S)[{"%S{need UC}"="true"}#	%U[
+	#	]
+	]#};[{"%PM"="Interface::Category"}
+	
+	\#pragma pack (pop)]
++ cpp
+	%f_set_var(__SCOPE,P)%f_set_var(STRUCT,S)%f_dump_cpp_functors_cpp(%S)[{%S{need dctor}=true}\
+	%f_templ_header(%S)%f_function_scope(%S)~%SN () {
+		%U[{_DCTOR}
+		]
+	}
+	][{%S{Need init ctor}=true}\
+	%f_templ_header(%S)%f_function_scope(%S)%SN (<{, }{%CC=Attribute}[{%Cl!=lnk}{%f_with_gen_id(h,%f_attr(%C))}%t_arg(%C%T,"in")] %CN_>)
+	%U[{_INIT_CTOR_BASE_INIT!cpp!}
+	]
+	{
+		%U[{_INIT_CTOR!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	}
+	][{%S{Need copy ctor}=true}\
+	%f_templ_header(%S)%f_function_scope(%S)%SN (const %SN& copy) 
+	%U[{_COPY_CTOR_BASE_INIT!cpp!}
+	]
+	{
+		%U[{_COPY_CTOR!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	}
+	
+	%f_templ_header(%S)%t_ret(%S,"cached") %f_function_scope(%S)operator = (const %SN& copy) {
+		%U[{_ASSIGN_OP!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+		return *this;
+	}
+	][<{}{"%CC"="Operation"&"%CS"="ctor"}
+	%CX
+	>]
+
++ pas
+	%f_docs(%S)\
+	#P%SN = ^T%SN;
+	#T%SN = packed record
+	<{\n}#	r%f_to_borland(%CN): %f_type(%C%T);[ // %CD]>
+	#end;
+
++ intf.pas
+# PAS/pasStruct
+
++ dll.h
+	[{"%f_need_tie(%S)"="true"}struct %f_type(%S) {
+	<{\n}{%CC!=Operation}	%t_pointer_attr(%C%T) %CN;>
+		
+		static void make_cpp (const %SN_tie& obj, %SN& ret_) {
+	<		[{%C%TS=Vector}GDS_ASSERT_MSG (0, ("ƒанный TIE-алгритм (cpp-трансформаци€ структуры с векторами)не тестировалс€!!!"));
+			GDS_ASSERT_MSG (0, ("ƒанный TIE-алгритм приводит к копированию векторов при обратной передаче!!!"));
+			][{"%f_need_tie(%C%T)"="true"}{ret_.%CN = obj.%CN}\
+	[{%t_is_container(%C%T)=true}{%f_type(%C%T)::make_cpp (obj.%CN, ret_.%CN[{"%t_interface(%C%T)"="true"}.out ()], true)}\
+	%f_cpp_type(%C%T)* ret_%CN_;
+			%f_type(%C%T)::make_cpp (obj.%CN, ret_%CN_);
+			ret_.%CN = *ret_%CN_]];
+	>	}
+	
+		static void make_tie (const %SN& obj, %t_arg(%S,"inout") ret_, const Core::TIEBase* owner = 0) {
+	<		[{%C%TS=Vector}GDS_ASSERT_MSG (0, ("ƒанный TIE-алгритм (tie-трансформаци€ структуры с векторами)не тестировалс€!!!"));
+			][{"%f_need_tie(%C%T)"="true"}{ret_.%CN = obj.%CN}%f_type(%C%T)::make_tie (obj.%CN[{"%t_interface(%C%T)"="true"}.in ()], ret_.%CN, [{%t_is_container(%C%T)=false}{owner}true])];
+	>	}
+	};]
+
+%f _java_servant_import_self
+
+/%f _servant_content_java
+
+/%f _java_base_class_decl
+/	[{%f_java_constraint(%G)=false}{< extends %GN>[ implements <{, }{}%RN>]}%f_error(Java class %SN can't extend more than one class)]
+
++ java
+O [{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false}%SN.java]
+	%f_output_constraint(%S)\
+	[{%f_is_server_type(%S)=false}[{%t_nested_scope_def(%P)=false}\
+# t0_header
+	package %f_dump_java_package(%S);
+	
+	%f_servant_import(%S)%f_includes_by_contents_java(%S)[%S%f_java_servant_import_self(%S)
+	]
+	%U[{_CUSTOM_IMPORT}
+	]
+	
+	%U[{_CUSTOM_CLASS_DEFINITION}
+	]
+	]%f_set_var(STRUCT,S)%f_docs(%S)\
+	#%t_visibility(%S,"%XU")[{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false}{static }]class %SN%S%f_base_class() {
+	<{}{"%CC"!="Operation"}
+	%CX
+	>%f_dump_def_init_ctor_java(%S)[{%S{need dctor}=true}
+	#	protected void finalize () {
+	#		%U[{_DTOR}
+	#		]
+	#	}
+	][{%S{Need init ctor}=true}
+	#	public %SN (<{, }{%CC=Attribute}[{%Cl!=lnk}{%f_attr(%C)}%t_arg(%C%T,"in")] %CN_>) {
+	#		%U[{_CTOR}
+	#		]
+	#	}
+	][{%S{Need copy ctor}=true}
+	#	public %SN (final %SN& copy) {
+	#		%U[{_COPY_CTOR}
+	#		]
+	#	}
+	][{%S{Need assign op}=true}
+	][<{}{"%CC"="Operation"&"%CS"="ctor"}%f_docs(%C)\
+	#	public %SN (%C<{, }%f_arg_full_decl(%C)>) {
+	#		%U[{_%CU_CTOR_BODY!java!}
+	#		]
+	#	}
+	>][{"%S{need UC}"="true"}#	%U[
+	#	]
+	]#} // class %SN][{%f_is_server_type(%S)=false}\
+	[{%t_nested_scope_def(%P)=false}
+# t0_footer
+	]]
+
+//////////////////////////////////////////////////////////////////////////////////
+: Struct::Class::Attribute
+? јтрибут
+l arl
+v +#-
+A const|ref|const,ref
+Y t5_attr.gif
+
+%t _constraint
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {им€ %SS не должно совпадать с именем родител€}
+
+%f _wiki_child_kind
+	attr
+
++ idl
+	%f_docs(%S)\
+	#[{"%SS"="sequence"}{%T<%NN::>%TN}sequence \<%T<%NN::>%TN\>] %SN;
+
++ java
+	%f_docs(%S)\
+	#public %f_attr(%S) [{}{%f_to_borland(%TN)}%SN][{%f_can_be_init(%S)=true}{;} = init_%SN ();
+	
+	#static private %f_attr(%S) init_%SN () {
+	#	%U[{_INIT_%SN}
+	#	return %f_attr_init_java(%S);
+	#	]
+	#}]
+//////////////////////////////////////////////////////////////////////////////////
+: Struct::Class::ctor::Operation
+?  онструктор
+T
+L code_factory
+Y t5_factory.gif
+
+%f _wiki_child_kind
+	mng
+
++ h
+	%f_docs(%S)\
+	%f_set_var(CTOR,"#%{STRUCT}N (<{, }%f_arg_full_decl(%C)>);")\
+	%f_set_var(OP_LEN,"%f_string_length("%{CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{CTOR}N}#%{STRUCT}N (\n\t\t<{\n\t\t, }%f_arg_full_decl(%C)>\n\t);]
+
++ cpp
+	%f_docs(%S)\
+	%f_set_var(CTOR,"%f_templ_header(%{STRUCT})%f_function_scope(%{STRUCT})%{STRUCT}N (<{, }%f_arg_full_decl(%C)>)[ : %{STRUCT}<{, }{"%CI"!=""}m_%CN (%CI)>]")\
+	%f_set_var(OP_LEN,"%f_string_length("%{CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{CTOR}N}%f_templ_header(%{STRUCT})%f_function_scope(%{STRUCT})%{STRUCT}N (\n\t<{\n\t, }%f_arg_full_decl(%C)>\n)[ :\n\t%{STRUCT}<{\n\t, }{"%CI"!=""}m_%CN (%CI)>]]
+	%U[{_INIT_CTOR_BASE_INIT!cpp!}
+	]
+	{%f_start_func_cpp(%S,"%{STRUCT}N::%{STRUCT}N")
+		%U[{_CTOR_BODY!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	%f_end_func_cpp(%S)}
+
+
+: Struct::Class::sequence::Attribute
+? јтрибут-массив
+? ќпредел€ет атрибут как неограниченный массив элементов заданного типа
+= Struct::Class::Attribute
+
+//////////////////////////////////////////////////////////////////////////////////
+f _dump_def_init_ctor
+	[{<{}{"%CI"!=""&%CC=Attribute}{C}>!=0}#	%SN () : <{, }{"%CI"!=""&%CC=Attribute}%CN(%CI)> {
+	#		%U[{_DEF_INIT_CTOR!cpp!}
+	#		]
+	#	}
+	]
+
+f _dump_def_init_ctor_java
+	[{<{}{"%CI"!=""&%CC=Attribute}{C}>!=0}#	public %SN () {
+	<{\n}{"%CI"!=""&%CC=Attribute}#		this.%CN = %CI;>
+	#		%U[{_DEF_INIT_CTOR!java!}
+	#		]
+	#	}
+	]
+
+f _h_dump_def_init_ctor
+	[{<{}{"%CI"!=""&%CC=Attribute}{C}>!=0}#	%SN ();
+	]
+
+f _impl_dump_def_init_ctor
+	[{<{}{"%CI"!=""&%CC=Attribute}{C}>!=0}%SN::%SN () : <{, }{"%CI"!=""&%CC=Attribute}%CN(%CI)> {
+		%U[{_DEF_INIT_CTOR!cpp!}
+		]
+	}
+	]

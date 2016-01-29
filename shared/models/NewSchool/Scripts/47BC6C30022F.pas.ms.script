@@ -1,0 +1,168 @@
+// Tl3RecListWithPartialFind 47BC6C30022F SimpleClass Class
+
+FORWARD ME_47BC6C30022F
+
+FORWARD ME_47BC6C92017D
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47BC6CA301E6
+ CONST UID '47BC6CA301E6'
+ CONST Name 'rData'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_47BC6CA301E6 rData
+
+: ME_47BC6CAB03E4
+ CONST UID '47BC6CAB03E4'
+ CONST Name 'rSize'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_47BC6CAB03E4 rSize
+
+: ME_47BC6C92017D
+ CONST UID '47BC6C92017D'
+ CONST Name 'Tl3DataAndSize'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_47BC6CA301E6 // rData
+ ME_47BC6CAB03E4 // rSize
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_47BC6C92017D Tl3DataAndSize
+
+INCLUDE '479DF9C5033A.pas.ms.script'
+
+INCLUDE '47B47E230134.pas.ms.script'
+
+: ME_4B880C8E00F6
+ CONST UID '4B880C8E00F6'
+ CONST Name 'FindDataType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_47BC6C92017D // Tl3DataAndSize
+ ;
+
+ @SELF
+; // ME_4B880C8E00F6 FindDataType
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_47BF0ADC0391
+ CONST UID '47BF0ADC0391'
+ CONST Name 'aData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47BF0ADC0391 aData
+
+: ME_47BF0ADC03C9
+ CONST UID '47BF0ADC03C9'
+ CONST Name 'aDataSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_47BF0ADC03C9 aDataSize
+
+: ME_47BF0ADD0019
+ CONST UID '47BF0ADD0019'
+ CONST Name 'theIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47BF0ADD0019 theIndex
+
+: ME_47BF0AB902EB
+ CONST UID '47BF0AB902EB'
+ CONST Name 'FindPart'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'поиск по началу записи, размер сравниваемых данных в aDataSize' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_47BF0ADC0391 // aData
+ ME_47BF0ADC03C9 // aDataSize
+ ME_47BF0ADD0019 // theIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47BF0AB902EB FindPart
+
+: ME_47BC6C30022F
+ CONST UID '47BC6C30022F'
+ CONST Name 'Tl3RecListWithPartialFind'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B47E230134 // l3Searcher
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4B880C8E00F6 // FindDataType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_47BF0AB902EB // FindPart
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_47B9BAFD01F4 // CompareItemWithData
+ ]
+ ; // Overridden
+ : Children
+   [ ME_47BC6C92017D // Tl3DataAndSize
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47BC6C30022F Tl3RecListWithPartialFind

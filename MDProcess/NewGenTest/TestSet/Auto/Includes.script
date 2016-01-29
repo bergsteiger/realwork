@@ -1,0 +1,32 @@
+//NamedWordProducer %CHILDREN %C
+// - список дочерних элементов элемента
+
+: XXX
+
+ %INCLUDES
+  YYY.script
+ ;
+ 
+ : PPP
+  VAR F
+ ;
+ 
+;
+
+: OUT IN %S
+ %S pop:Word:Name .
+ %S pop:Word:Producer pop:Word:Name .
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\MDALike.tpl.script'
+;
+
+: OUT1 IN %S
+ XXX
+ %S NativeMembersIterator ==> OUT
+;
+
+@ XXX NativeMembersIterator ==> OUT
+@ XXX NativeMembersIterator ==> OUT1
+//help

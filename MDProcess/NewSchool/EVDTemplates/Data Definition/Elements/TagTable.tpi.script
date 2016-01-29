@@ -1,0 +1,1143 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Elements/TagTable.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Elements::TagTable
+//
+// EVD-схема
+// ---
+// Таблица описания тегов. Может содержать атомы или теги, которые связываются друг с другом
+// отношениями наследования, реализации или связи.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TagTable::Class
+implementation @ <<TagTable>>
+//? EVD-схема
+//? Таблица описания тегов. Может содержать атомы или теги, которые связываются друг с другом отношениями наследования, реализации или связи.
+//> Tag::Class
+//> Atom::Class
+//> TagOverride::Class
+//> Enum::Class
+
+//= WikiImplClass::Class
+//= AttrValueSpeller::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_evd_tag_table.gif
+//L code_evd_tag_table
+// Параметры визуализации
+//$ C 127,255,212
+//$ L 0,0,0
+//$ l 127,255,212
+//$ F 0,0,0
+//$ f 127,255,212
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p author:s ? 
+//p started:s ? 
+//p need UC:b=false ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{author}"!="%S{!author}"}%f_up_prefix(%S) *author* = *%S{author}*
+ ?inherited
+ if ( ( %S get_up ( 'author' ) ) %!= ( %S get_up_def ( 'author' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *author* = *'
+  %S get_up ( 'author' ) '*'
+//	][{"%S{started}"!="%S{!started}"}%f_up_prefix(%S) *started* = *%S{started}*
+ end // if
+ if ( ( %S get_up ( 'started' ) ) %!= ( %S get_up_def ( 'started' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *started* = *'
+  %S get_up ( 'started' ) '*'
+//	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}*
+ end // if
+ if ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for484926640110*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for484926640110*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor484926640110*
+//	%S%[inherited]\
+ inherited
+//	%f_pas_PutToUses("SysUtils")\
+ [%f] pas_PutToUses %( 'SysUtils' )% 
+//	%f_pas_PutToUses("TypInfo")\
+ [%f] pas_PutToUses %( 'TypInfo' )% 
+//	%f_pas_PutToUses("k2Const")\
+ [%f] pas_PutToUses %( 'k2Const' )% 
+//	%f_pas_PutToUses("k2Tags")\
+ [%f] pas_PutToUses %( 'k2Tags' )% 
+//	%f_pas_PutToUses("k2BaseStruct")\
+ [%f] pas_PutToUses %( 'k2BaseStruct' )% 
+//	%f_pas_PutToUses("l3Types")\
+ [%f] pas_PutToUses %( 'l3Types' )% 
+//	%f_pas_PutToUses("l3String")\
+ [%f] pas_PutToUses %( 'l3String' )% 
+//	%f_pas_PutToUses("l3Variant")\
+ [%f] pas_PutToUses %( 'l3Variant' )% 
+//	%f_pas_PutToUses("k2Facade")\
+//	<%C<{}{%LS=Wrapper}%f_pas_PutImplToUses(%L)>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%L
+    begin
+     OBJECT IN %L
+     if ( ( %L |S ) %== 'Wrapper' ) then
+     begin
+      [%f] pas_PutImplToUses %( %L )% 
+      ++! l_Counter
+     end // if
+    end // for L
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<%C<{}{%LS=InterfaceFactory}%f_pas_PutImplToUses(%L)>>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%L
+    begin
+     OBJECT IN %L
+     if ( ( %L |S ) %== 'InterfaceFactory' ) then
+     begin
+      [%f] pas_PutImplToUses %( %L )% 
+      ++! l_Counter
+     end // if
+    end // for L
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<%C<{}{%LS=TagImplementator}%f_pas_PutImplToUses(%L%G)\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%L
+    begin
+     OBJECT IN %L
+     if ( ( %L |S ) %== 'TagImplementator' ) then
+     begin
+      [%f] pas_PutImplToUses %( %L ->G  )% 
+//	%f_pas_UsesInImpl(%L)>>\
+      [%f] pas_UsesInImpl %( %L )% 
+      ++! l_Counter
+     end // if
+    end // for L
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%w#f_evd_IsSchemaElement()=true}%f_pas_PutToUses(%w)>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%w
+ begin
+  OBJECT IN %w
+  if ( ( %w %?f evd_IsSchemaElement %( )% ) %==  true ) then
+  begin
+   [%f] pas_PutToUses %( %w )% 
+   ++! l_Counter
+  end // if
+ end // for w
+//	%f_pas_PutToUses("k2List")\
+ [%f] pas_PutToUses %( 'k2List' )% 
+//	%f_pas_PutToUses("k2NonOptimizeContext")\
+ [%f] pas_PutToUses %( 'k2NonOptimizeContext' )% 
+//	<{}{%aC=Dependency&%aS=injects}{Sg}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%ag
+ begin
+  OBJECT IN %a
+  if ( ( %a |C ) %== 'Dependency' AND 
+   ( ( %a |S ) %== 'injects'  ) ) then
+  begin
+//	%f_pas_PutToUses(%a%P)\
+   [%f] pas_PutToUses %( %a ->P  )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for a
+//	<{}{%C#f_evd_IsSchemaElement()=true}%f_pas_Uses(%C)>
+//#UC END# *4948EB2601FAfor484926640110*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for484926640110*
+//	%S%[inherited]\
+ inherited
+//	%f_pas_PutToUses("l3Variant")\
+ [%f] pas_PutToUses %( 'l3Variant' )% 
+//	%f_pas_PutToUses("k2Base")\
+ [%f] pas_PutToUses %( 'k2Base' )% 
+//	%f_pas_PutToUses("l3Interfaces")\
+ [%f] pas_PutToUses %( 'l3Interfaces' )% 
+//	%f_pas_PutToUses("k2Interfaces")\
+ [%f] pas_PutToUses %( 'k2Interfaces' )% 
+//	<{}{%C#f_evd_IsSchemaElement()=true}%f_pas_Uses(%C)>
+//	<{}{%C#f_evd_IsSchemaElement()=true}%C%f_pas_IntfUses()>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f evd_IsSchemaElement %( )% ) %==  true ) then
+  begin
+   %C %f pas_IntfUses %( )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4948F2EE0334for484926640110*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит секции инициализации
+//%f _pas_OutIni
+: pas_OutIni OBJECT IN %S
+//#UC START# *4B3886890063for484926640110*
+//	%S%[inherited]\
+ inherited
+//	[\n%S%f_open_ifdef()]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	\n %f_pas_TypeName(%S).SetAsDefault;\
+ #13#10' '
+ [%f] pas_TypeName %( %S )% '.SetAsDefault;'
+//	[\n%S%f_close_ifdef()\n]
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f close_ifdef %( )% #13#10 
+ end // if
+ NOP
+//#UC END# *4B3886890063for484926640110*
+; // pas_OutIni
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor484926640110*
+//R  
+//	[<%C#f_evd_OutElementImplementation()>]\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C %?f evd_OutElementImplementation %( )% 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//	%f_pas_OpenMethodImplementation("Create",%S)\
+ [%f] pas_OpenMethodImplementation %( 'Create"' %, %S )% 
+//	constructor %f_pas_TypeName(%S).Create;
+ 'constructor '
+ [%f] pas_TypeName %( %S )% '.Create;'
+//	%f_clear_list(LOCAL_VARS)\
+ [%f] clear_list %( 'LOCAL_VARS' )% 
+//	[var
+ if NOT-EMPTY
+ begin
+  'var'
+//	%f_out_vars(%S)\
+  [%f] out_vars %( %S )% 
+//	]\
+ end // if
+ NOP
+//	%f_clear_list(LOCAL_VARS)\
+ [%f] clear_list %( 'LOCAL_VARS' )% 
+//	begin
+ 'begin'
+//	 inherited;\
+ ' inherited;'
+//	[\n %S%f_open_ifdef()]\
+ if NOT-EMPTY
+ begin
+  #13#10' '
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	[{%S{need UC}=true}\n%f_with_gen_id(intf.pas,%U[{ttimpl}\n])]
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+  [%f] with_gen_id %( 'intf.pas' %, %Usersection (
+   'ttimpl' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+ )%  end // if
+//	%f_shift_intend(-3)\
+ [%f] shift_intend %( '-3' )% 
+//	[<{\n}%CX\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    %C |X 
+//	>\n]\
+
+    ++! l_Counter
+   end // if
+  end // for C
+  #13#10 
+ end // if
+ NOP
+//	%f_shift_intend(+3)\
+ [%f] shift_intend %( '+3' )% 
+//	[ <{\n }{%C#f_evd_IsSchemaElement()=true}t_%CN.Recalc;>\n]\
+ if NOT-EMPTY
+ begin
+  ' '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f evd_IsSchemaElement %( )% ) %==  true ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10' ' )
+    't_'
+    %C |N '.Recalc;' 
+    ++! l_Counter
+   end // if
+  end // for C
+  #13#10 
+ end // if
+ NOP
+//	[{%S{need UC}=true}%f_with_gen_id(intf.pas,%U[{ttimpl1}\n])\n]\
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  [%f] with_gen_id %( 'intf.pas' %, %Usersection (
+   'ttimpl1' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+ )%   #13#10 
+ end // if
+//	[ %S%f_close_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  ' '
+  %S %f close_ifdef %( )% #13#10 
+ end // if
+ NOP
+//	end;
+ 'end;'
+//	[{%Cx=true}
+ if ( ( %C |x ) %==  true ) then
+ begin
+  #13#10
+
+//	// определяем стандартные методы схемы
+  '// определяем стандартные методы схемы'
+
+//	%f_pas_OpenMethodImplementation("pm_GetTypeByHandle",%S)\
+
+//	function %f_pas_TypeName(%S).pm_GetTypeByHandle(H: Integer): Tk2Type;
+
+//	begin
+
+//	[{}{\
+
+//	 Result := inherited pm_GetTypeByHandle(H);\
+
+//	}\
+
+//	 Case H of
+
+//	  <{\n  }{%CS!=TagOverride&%CC!=Dependency&%C#f_evd_HasPersistentID()=true}\
+
+//	[{%C#f_evd_HasPersistentID()=true}{k2_id%f_N(%C)}k2_id%f_N(%C) \{%C{ID}\}]:
+
+//	   Result := t_%CN;>
+
+//	  else
+
+//	  begin
+
+//	%f_set_var(WAS_OUT,"false")\
+
+//	   \
+
+//	[<{}{%CS!=TagOverride&%CC!=Dependency}\
+
+
+
+//	[{%C#f_evd_HasPersistentID()!=true}\
+
+//	[{%{WAS_OUT}N!=false}\
+
+//	\n   else\n   \
+
+//	]\
+
+//	%f_set_var(WAS_OUT,"true")\
+
+//	if (t_%CN \<\> nil) AND (t_%CN.StringID = H) then
+
+//	    Result := t_%CN\
+
+//	]\
+
+
+
+//	[%C<{}{%C#f_NeedsOwnType()=true}\
+
+//	[\n   %C%f_open_ifdef()]\
+
+//	[{%{WAS_OUT}N!=false}\
+
+//	\n   else\n   \
+
+//	]\
+
+//	%f_set_var(WAS_OUT,"true")\
+
+//	if (t_%C%f_NewTypeName() \<\> nil) AND (t_%C%f_NewTypeName().StringID = H) then
+
+//	    Result := t_%C%f_NewTypeName()\
+
+//	[\n   %C%f_close_ifdef()]\
+
+//	>\
+
+//	   else
+
+//	   \
+
+//	]\
+
+//	>\
+
+//	 \
+
+//	]\
+
+
+
+//	[{%{WAS_OUT}N!=false}\
+
+//	\n   else\n    \
+
+//	]\
+
+//	%f_set_var(WAS_OUT,"true")\
+
+
+
+//	Result := inherited pm_GetTypeByHandle(H);
+
+//	  end;//else
+
+//	 end;//Case H]
+
+//	end;\
+//	%f_pas_OpenMethodImplementation("Cleanup",%S)\
+  [%f] pas_OpenMethodImplementation %( 'Cleanup"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).Cleanup;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.Cleanup;'
+//	begin
+  'begin'
+//	[ <{\n }{%CS!=TagOverride&%CC!=Dependency&%C#f_evd_IsSchemaElement()=true}\
+  if NOT-EMPTY
+  begin
+   ' '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'TagOverride' AND 
+     ( ( %C |C ) %!= 'Dependency'  ) AND 
+     ( ( %C %?f evd_IsSchemaElement %( )% ) %==  true  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10' ' )
+//	t_%CN.InterfaceFactory := nil;\
+     't_'
+     %C |N '.InterfaceFactory := nil;'
+
+//	\n t_%CN.ToolFactory := nil;\
+//	[\n %C<{\n }{%C#f_NeedsOwnType()=true}\
+     if NOT-EMPTY
+     begin
+      #13#10' '
+      %C
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C %?f NeedsOwnType %( )% ) %==  true ) then
+        begin
+         if ( l_Counter >0 ) then ( #13#10' ' )
+//	[%C%f_open_ifdef()\n ]\
+         if NOT-EMPTY
+         begin
+          %C %f open_ifdef %( )% #13#10' ' 
+         end // if
+         NOP
+//	t_%C%f_NewTypeName().InterfaceFactory := nil;\
+         't_'
+         %C %f NewTypeName %( )% '.InterfaceFactory := nil;'
+//	[\n %C%f_close_ifdef()]\
+         if NOT-EMPTY
+         begin
+          #13#10' '
+          %C %f close_ifdef %( )% 
+         end // if
+         NOP
+//	>\
+
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ //	]>\n]\
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+   #13#10 
+  end // if
+  NOP
+//	[ <{\n }{%CS!=TagOverride&%CC!=Dependency&%C#f_evd_IsSchemaElement()=true}FreeAndNil(t_%CN);\
+  if NOT-EMPTY
+  begin
+   ' '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'TagOverride' AND 
+     ( ( %C |C ) %!= 'Dependency'  ) AND 
+     ( ( %C %?f evd_IsSchemaElement %( )% ) %==  true  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10' ' )
+     'FreeAndNil(t_'
+     %C |N ');'
+//	[\n %C<{\n }{%C#f_NeedsOwnType()=true}\
+     if NOT-EMPTY
+     begin
+      #13#10' '
+      %C
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C %?f NeedsOwnType %( )% ) %==  true ) then
+        begin
+         if ( l_Counter >0 ) then ( #13#10' ' )
+//	[%C%f_open_ifdef()\n ]\
+         if NOT-EMPTY
+         begin
+          %C %f open_ifdef %( )% #13#10' ' 
+         end // if
+         NOP
+//	FreeAndNil(t_%C%f_NewTypeName());\
+         'FreeAndNil(t_'
+         %C %f NewTypeName %( )% ');'
+//	[\n %C%f_close_ifdef()]\
+         if NOT-EMPTY
+         begin
+          #13#10' '
+          %C %f close_ifdef %( )% 
+         end // if
+         NOP
+//	>]>\n]\
+
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+      end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+   #13#10 
+  end // if
+  NOP
+//	 inherited;
+  ' inherited;'
+//	end;
+  'end;'
+//	]
+ end // if
+
+//f _out_vars
+; // impl.pas
+
+end. // <<TagTable>>
+
+: out_vars OBJECT IN %S
+//	<{}{}{%C}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+
+
+//	[{%CS=TagChild}\
+   if ( ( %C |S ) %== 'TagChild' ) then
+   begin
+//	[{%f_exists_in_list(LOCAL_VARS,"%C%P%PN_%C%PN_%CN")!=true}\
+    if ( ( [%f] exists_in_list %( 'LOCAL_VARS' %, %C ->P ->P |N   '_'
+     %C ->P |N  '_'
+     %C |N )% ) %!=  true ) then
+    begin
+//	%f_add_to_list(LOCAL_VARS,"%C%P%PN_%C%PN_%CN")\
+     [%f] add_to_list %( 'LOCAL_VARS' %, %C ->P ->P |N   '_'
+     %C ->P |N  '_'
+     %C |N )% 
+//	 l_%C%P%PN_%C%PN_%CN : Tl3Variant;
+     ' l_'
+     %C ->P ->P |N   '_'
+     %C ->P |N  '_'
+     %C |N ' : Tl3Variant;'
+//	]\
+    end // if
+//	]\
+   end // if
+
+
+//	%f_out_vars(%C)\
+   [%f] out_vars %( %C )% 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F15B800CBfor484926640110*
+; // out_vars
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+implementation @ <<TagTable>>
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor484926640110*
+//O [{"%f_pas_UnitFileName(%S)"!=""}[{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)]
+//R  
+//F !!%SN\n\n
+//	[{"%SO"!=""}\
+ if ( ( %S |O ) %!= '' ) then
+ begin
+//	[{%S#f_IsMixIn()!=true}{\
+  if ( ( %S %?f IsMixIn %( )% ) %!=  true ) then
+  begin
+//	%f_pas_OpenUnitInterface(%S)\
+   [%f] pas_OpenUnitInterface %( %S )% 
+//	%f_pas_Uses(%S)\
+   [%f] pas_Uses %( %S )% 
+//	%f_pas_CloseUses(%S)\
+   [%f] pas_CloseUses %( %S )% 
+//	]\
+  end // if
+  else
+  begin
+//	\{$IfNDef %f_pas_UnitName(%S)\}
+   '{$IfNDef '
+   [%f] pas_UnitName %( %S )% '}'
+//	[ \{* %SD \}\n]\
+   if NOT-EMPTY
+   begin
+    ' {* '
+    %S |D ' }'#13#10 
+   end // if
+   NOP
+//	\{$Define %f_pas_UnitName(%S)\}\
+   '{$Define '
+   [%f] pas_UnitName %( %S )% '}'
+//	}\
+  end // else
+//	]\
+ end // if
+//	\
+
+//	[\n%S%f_open_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f open_ifdef %( )% #13#10 
+ end // if
+ NOP
+
+//	<{}{"%CO"=""}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |O ) %== '' ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_shift_intend(-3)\
+ [%f] shift_intend %( '-3' )% 
+//	[%f_with_gen_id(intf2.pas,<{\n}%CX>)\n]\
+ if NOT-EMPTY
+ begin
+  [%f] with_gen_id %( 'intf2.pas' %, 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+)%   #13#10 
+ end // if
+ NOP
+//	%f_shift_intend(+3)\
+ [%f] shift_intend %( '+3' )% 
+//	%f_pas_OpenType(%S)\
+ [%f] pas_OpenType %( %S )% 
+//	#%f_pas_TypeName(%S) = class([{}{Tk2TypeTable}%f_pas_TypeName(%G)])
+ out_indent [%f] pas_TypeName %( %S )% ' = class('
+ if NOT-EMPTY
+ begin
+  [%f] pas_TypeName %( %G )% 
+ end // if
+ NOP
+ else
+ begin
+  'Tk2TypeTable' 
+ end // else
+ ')'
+//	[#public
+ if NOT-EMPTY
+ begin
+  out_indent 'public'
+//	#// типы, определённые в данной схеме:
+  out_indent '// типы, определённые в данной схеме:'
+//	%f_shift_intend(-2)\
+  [%f] shift_intend %( '-2' )% 
+//	%f_with_gen_id(intf3.pas,<{\n}%CX>)\n\
+  [%f] with_gen_id %( 'intf3.pas' %, 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+)%   #13#10
+//	%f_shift_intend(+2)\
+  [%f] shift_intend %( '+2' )% 
+//	]\
+ end // if
+ NOP
+//	[{%Cx=true}\
+ if ( ( %C |x ) %==  true ) then
+ begin
+//	#protected
+  out_indent 'protected'
+//	#// определяем стандартные методы схемы
+  out_indent '// определяем стандартные методы схемы'
+
+//	#  function  pm_GetTypeByHandle(H: Integer): Tk2Type; override;
+//	#  procedure Cleanup; override;
+  out_indent '  procedure Cleanup; override;'
+//	]\
+ end // if
+//	#public
+ out_indent 'public'
+//	#  constructor Create; override;
+ out_indent '  constructor Create; override;'
+//	#end;//%f_pas_TypeName(%S)\
+ out_indent 'end;//'
+ [%f] pas_TypeName %( %S )% 
+//	[{%S{need UC}=true}\n\n%U[{ttintf}\n]]
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10#13#10
+  %Usersection (
+   'ttintf' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+  end // if
+
+//	[\n%S%f_close_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f close_ifdef %( )% #13#10 
+ end // if
+ NOP
+
+//	%f_pas_OpenUnitImplementation(%S)\
+ [%f] pas_OpenUnitImplementation %( %S )% 
+//	%f_pas_UsesInImpl(%S)\
+ [%f] pas_UsesInImpl %( %S )% 
+//	%f_pas_CloseUses(%S)\
+ [%f] pas_CloseUses %( %S )% 
+//	]\
+ ']'
+//	
+//	[\n%S%f_open_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f open_ifdef %( )% #13#10 
+ end // if
+ NOP
+
+//	[{%S{need UC}=true}%U[{tt}\n]\n\n]\
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  %Usersection (
+   'tt' 
+  )
+  (
+   #13#10 
+  ) // Usersection
+   #13#10#13#10 
+ end // if
+//	%f_with_gen_id(impl.pas,%SX)\
+ [%f] with_gen_id %( 'impl.pas' %, %S |X )% 
+
+//	[\n%S%f_close_ifdef()\n]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f close_ifdef %( )% #13#10 
+ end // if
+ NOP
+
+//	%f_pas_CloseUnit(%S)\
+ [%f] pas_CloseUnit %( %S )% 
+//	<{}{"%CO"!=""}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |O ) %!= '' ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	]]
+ ']]'
+//#UC END# *470F1571031Cfor484926640110*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for484926640110*
+//#UC END# *477398E501C0for484926640110*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for484926640110*
+//#UC END# *55B8D28B0157for484926640110*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for484926640110*
+//#UC END# *55B8D2F80145for484926640110*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for484926640110*
+//#UC END# *55B8DD9C0301for484926640110*
+; // res.cmd.pas
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for484926640110*
+//	%f_set_var(TAG_TABLE_CONSTANTS_PACK,"")\
+ [%f] set_var %( 'TAG_TABLE_CONSTANTS_PACK' %, '' )% 
+//	%f_set_var(TAG_TABLE_CONSTANTS,"")\
+ [%f] set_var %( 'TAG_TABLE_CONSTANTS' %, '' )% 
+//	%S%f_SpellAttrValue(%S)\
+ %S %f SpellAttrValue %( %S )% 
+//	[{"%{TAG_TABLE_CONSTANTS_PACK}N"!=""}\
+ if ( ( ( get_global_var ( 'TAG_TABLE_CONSTANTS_PACK' ) |N ) ) %!= '' ) then
+ begin
+//	%f_addCDep(%S,%{TAG_TABLE_CONSTANTS_PACK})\
+  [%f] addCDep %( %S %, ( get_global_var ( 'TAG_TABLE_CONSTANTS_PACK' ) ) )% 
+//	]\
+ end // if
+//	<%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%S%f_DoSpell()
+ %S %f DoSpell %( )% 
+//#UC END# *4A41A13D03D5for484926640110*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: TagTable::Class::uses::ClassDependency
+end. // <<TagTable>>
+
+implementation @ :: <<TagTable>> <<uses>> ;
+//? Использование других элементов кода
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_uses.gif
+//L code_dep_uses
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor49AE663102AD*
+//#UC END# *470F1571031Cfor49AE663102AD*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor49AE663102AD*
+//#UC END# *470F15B800CBfor49AE663102AD*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for49AE663102AD*
+//#UC END# *477398E501C0for49AE663102AD*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for49AE663102AD*
+//#UC END# *55B8D28B0157for49AE663102AD*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for49AE663102AD*
+//#UC END# *55B8D2F80145for49AE663102AD*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for49AE663102AD*
+//#UC END# *55B8DD9C0301for49AE663102AD*
+; // res.cmd.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for49AE663102AD*
+//#UC END# *46E6D4BB0339for49AE663102AD*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for49AE663102AD*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for49AE663102AD*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor49AE663102AD*
+//#UC END# *4705CBD6003Efor49AE663102AD*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for49AE663102AD*
+//	uses
+ 'uses'
+//#UC END# *470484D50138for49AE663102AD*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<TagTable>> <<uses>> ;
+

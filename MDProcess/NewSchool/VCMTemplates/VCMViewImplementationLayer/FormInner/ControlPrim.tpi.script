@@ -1,0 +1,570 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormInner/ControlPrim.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::ControlPrim
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ControlPrim::Class
+implementation @ <<ControlPrim>>
+//= ClassBase::Class::readonly::Attribute
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p put to dfm:b=true ? Выводить ли контрол в dfm, или создавать в MakeControls
+//p need Caption:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{put to dfm}"!="%S{!put to dfm}"}%f_up_prefix(%S) *put to dfm* = *%S{put to dfm}* - Выводить ли контрол в dfm, или создавать в MakeControls
+ ?inherited
+ if ( ( %S get_up ( 'put to dfm' ) ) %!= ( %S get_up_def ( 'put to dfm' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *put to dfm* = *'
+  %S get_up ( 'put to dfm' ) '* - Выводить ли контрол в dfm, или создавать в MakeControls'
+//	][{"%S{need Caption}"!="%S{!need Caption}"}%f_up_prefix(%S) *need Caption* = *%S{need Caption}*
+ end // if
+ if ( ( %S get_up ( 'need Caption' ) ) %!= ( %S get_up_def ( 'need Caption' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need Caption* = *'
+  %S get_up ( 'need Caption' ) '*'
+//	]
+ end // if
+
+//%f _NeedPutToDFM
+; // wiki_up_print
+
+: NeedPutToDFM OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B5DC1FE0191for4B5DC1D50227*
+//@ %SU
+//	[{%S{put to dfm}!=true}{\
+ if ( ( %S get_up ( 'put to dfm' ) ) %!=  true ) then
+ begin
+//	false\
+   false 
+//	]
+ end // if
+ else
+ begin
+//	[{%P#f_IsControl()=true}{\
+  if ( ( %P %?f IsControl %( )% ) %==  true ) then
+  begin
+//	[{%P%f_NeedPutToDFM()=true}{\
+   if ( ( %P %f NeedPutToDFM %( )% ) %==  true ) then
+   begin
+//	true\
+     true 
+//	]\
+   end // if
+   else
+   begin
+//	false\
+     false 
+//	}\
+   end // else
+//	]\
+  end // if
+  else
+  begin
+//	true\
+    true 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *4B5DC1FE0191for4B5DC1D50227*
+; // NeedPutToDFM
+
+
+//%f _NeedPutToMakeControls
+: NeedPutToMakeControls OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B5DC202039Dfor4B5DC1D50227*
+//@ %SU
+//	[{%S%f_NeedPutToDFM()!=true}{\
+ if ( ( %S %f NeedPutToDFM %( )% ) %!=  true ) then
+ begin
+//	true]
+   true 
+ end // if
+ else
+ begin
+//	[{<{}{%C#f_NeedPutToMakeControls()=true}{C}>!=0}{false}true]\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f NeedPutToMakeControls %( )% ) %==  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+//	}\
+ end // else
+//#UC END# *4B5DC202039Dfor4B5DC1D50227*
+; // NeedPutToMakeControls
+
+
+//%f _PutToMakeControls
+: PutToMakeControls OBJECT IN %S
+//#UC START# *4B5DC20802E2for4B5DC1D50227*
+//	[\n%S%f_open_ifdef()]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	[{%S%f_NeedPutToDFM()!=true}\
+ if ( ( %S %f NeedPutToDFM %( )% ) %!=  true ) then
+ begin
+//	[{%S%f_IsOverride()!=true}\
+  if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+  begin
+//	\n %f_pas_FieldName(%S) := %S%f_pas_ResultTypeName().Create(\
+   #13#10' '
+   [%f] pas_FieldName %( %S )% ' := '
+   %S %f pas_ResultTypeName %( )% '.Create('
+//	[{%S#f_InheritsFrom("TvgReminder")=true}{\
+   if ( ( %S %?f InheritsFrom %( 'TvgReminder' )% ) %==  true ) then
+   begin
+//	[{%P#f_IsVCMForm()!=true}{Self}%P%f_pas_AttrName()]\
+    if ( ( %P %?f IsVCMForm %( )% ) %!=  true ) then
+    begin
+     %P %f pas_AttrName %( )% 
+    end // if
+    else
+    begin
+     'Self' 
+    end // else
+//	]\
+   end // if
+   else
+   begin
+//	Self\
+    'Self'
+//	}\
+   end // else
+//	);\
+   ');'
+//	\n %f_pas_FieldName(%S).Name := '%S%f_pas_AttrName()';\
+   #13#10' '
+   [%f] pas_FieldName %( %S )% '.Name := '''
+   %S %f pas_AttrName %( )% ''';'
+//	]\
+  end // if
+//	[{%S#f_InheritsFrom("TvgReminder")!=true}\
+  if ( ( %S %?f InheritsFrom %( 'TvgReminder' )% ) %!=  true ) then
+  begin
+//	[{%SS!=Component}\n %f_pas_FieldName(%S).Parent := [{%P#f_IsVCMForm()!=true}{Self}%P%f_pas_AttrName()];]\
+   if ( ( %S |S ) %!= 'Component' ) then
+   begin
+    #13#10' '
+    [%f] pas_FieldName %( %S )% '.Parent := '
+    if ( ( %P %?f IsVCMForm %( )% ) %!=  true ) then
+    begin
+     %P %f pas_AttrName %( )% 
+    end // if
+    else
+    begin
+     'Self' 
+    end // else
+    ';' 
+   end // if
+//	[{"%SD"!=""&%S{need Caption}!=false}\n %f_pas_FieldName(%S).Caption := '%SD';]\
+   if ( ( %S |D ) %!= '' AND 
+     ( ( %S get_up ( 'need Caption' ) ) %!=  false  ) ) then
+   begin
+    #13#10' '
+    [%f] pas_FieldName %( %S )% '.Caption := '''
+    %S |D ''';' 
+   end // if
+//	]\
+  end // if
+//	]\
+ end // if
+//	[<{}{%ZS=VCMFormZone}\n\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Z
+  begin
+   OBJECT IN %Z
+   if ( ( %Z |S ) %== 'VCMFormZone' ) then
+   begin
+    #13#10
+//	 with DefineZone(vcm_zt%Z{ZoneType}, \
+    ' with DefineZone(vcm_zt'
+    %Z get_up ( 'ZoneType' ) ', '
+//	[{%S%f_NeedPutToDFM()!=true}{\
+    if ( ( %S %f NeedPutToDFM %( )% ) %!=  true ) then
+    begin
+//	%f_pas_FieldName(%S)\
+     [%f] pas_FieldName %( %S )% 
+//	%S%f_pas_AttrName()\
+//	]\
+    end // if
+    else
+    begin
+//	%f_N(%S)\
+     [%f] N %( %S )% 
+//	}\
+    end // else
+//	) do
+    ') do'
+//	 begin
+    ' begin'
+//	[{%Z{MergeTopTollbarWithContainer}=true}\
+    if ( ( %Z get_up ( 'MergeTopTollbarWithContainer' ) ) %==  true ) then
+    begin
+//	  FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
+     '  FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;'
+//	]\
+    end // if
+//	[{%Z{MergeBottomTollbarWithContainer}=true}\
+    if ( ( %Z get_up ( 'MergeBottomTollbarWithContainer' ) ) %==  true ) then
+    begin
+//	  FormStyle.Toolbars.Bottom.MergeWithContainer := vcm_bTrue;
+     '  FormStyle.Toolbars.Bottom.MergeWithContainer := vcm_bTrue;'
+//	]\
+    end // if
+//	[{%Z{CanClose}!=undefined}\
+    if ( ( %Z get_up ( 'CanClose' ) ) %!= 'undefined' ) then
+    begin
+//	[{%Z{CanClose}=true}{\
+     if ( ( %Z get_up ( 'CanClose' ) ) %==  true ) then
+     begin
+//	  CanClose := vcm_ccEnable;
+      '  CanClose := vcm_ccEnable;'
+//	]\
+     end // if
+     else
+     begin
+//	  CanClose := vcm_ccDisable;
+      '  CanClose := vcm_ccDisable;'
+//	}\
+     end // else
+//	]\
+    end // if
+//	[{%Z{Need UC}=true}\
+    if ( ( %Z get_up ( 'Need UC' ) ) %==  true ) then
+    begin
+//	  %f_with_gen_id(intf.pas,%U[\n  !!!\n  ])
+     '  '
+     [%f] with_gen_id %( 'intf.pas' %, %Usersection (
+
+     )
+     (
+      #13#10'  !!!'#13#10'  ' 
+     ) // Usersection
+ )% //	]\
+    end // if
+//	 end;//with DefineZone(vcm_zt%Z{ZoneType}, %f_pas_FieldName(%S))\
+    ' end;//with DefineZone(vcm_zt'
+    %Z get_up ( 'ZoneType' ) ', '
+    [%f] pas_FieldName %( %S )% ')'
+//	>]\
+
+    ++! l_Counter
+   end // if
+  end // for Z
+ end // if
+ NOP
+//	[\n%S%f_close_ifdef()]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//	<%C#f_PutToMakeControls()>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C %?f PutToMakeControls %( )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4B5DC20802E2for4B5DC1D50227*
+; // PutToMakeControls
+
+
+// Выводит представление контрола в DFM
+//%f _ToDFM
+: ToDFM OBJECT IN %S
+//#UC START# *4B5DC20D00F0for4B5DC1D50227*
+//	[{%S%f_NeedPutToDFM()=true}\
+ if ( ( %S %f NeedPutToDFM %( )% ) %==  true ) then
+ begin
+//	[{%f_exists_in_list(FORM_CONTROLS,"%S%f_pas_AttrName()")=false}\
+  if ( ( [%f] exists_in_list %( 'FORM_CONTROLS' %, %S %f pas_AttrName %( )% )% ) %==  false ) then
+  begin
+//	%f_add_to_list(FORM_CONTROLS,"%S%f_pas_AttrName()")\
+   [%f] add_to_list %( 'FORM_CONTROLS' %, %S %f pas_AttrName %( )% )% 
+//	\n# object %S%f_pas_AttrName(): %S%f_pas_ResultTypeName()\
+   #13#10
+   out_indent ' object '
+   %S %f pas_AttrName %( )% ': '
+   %S %f pas_ResultTypeName %( )% 
+//	[{"%SD"!=""&%S{need Caption}!=false}\n#  Caption = '%SD']\
+   if ( ( %S |D ) %!= '' AND 
+     ( ( %S get_up ( 'need Caption' ) ) %!=  false  ) ) then
+   begin
+    #13#10
+    out_indent '  Caption = '''
+    %S |D '''' 
+   end // if
+//	<%C#f_ToDFM()>\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     %C %?f ToDFM %( )% 
+     ++! l_Counter
+    end // if
+   end // for C
+//	[{%S%f_IsOverride()=true}\
+   if ( ( %S %f IsOverride %( )% ) %==  true ) then
+   begin
+//	<{}{}{r}%g<%C#f_ToDFM()>>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for downto %S%g
+    begin
+     OBJECT IN %g
+     if true then
+     begin
+      %g
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if true then
+        begin
+         %C %?f ToDFM %( )% 
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for g
+//	]
+   end // if
+//	# end\
+   out_indent ' end'
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4B5DC20D00F0for4B5DC1D50227*
+; // ToDFM
+
+
+// Выводит определение полей
+//%f _ToFields
+: ToFields OBJECT IN %S
+//#UC START# *4B5DC210037Dfor4B5DC1D50227*
+//	[{%S%f_NeedPutToDFM()=true}\
+ if ( ( %S %f NeedPutToDFM %( )% ) %==  true ) then
+ begin
+//	[{%S%f_IsOverride()!=true}\
+  if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+  begin
+//	\n  %S%f_pas_AttrName(): %S%f_pas_ResultTypeName();\
+   #13#10'  '
+   %S %f pas_AttrName %( )% ': '
+   %S %f pas_ResultTypeName %( )% ';'
+//	]\
+  end // if
+//	<%C#f_ToFields()>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C %?f ToFields %( )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+//#UC END# *4B5DC210037Dfor4B5DC1D50227*
+; // ToFields
+
+
+// Выводит необходимые включения
+//%f _ToIntfUses
+: ToIntfUses OBJECT IN %S
+//#UC START# *4B5DC214020Efor4B5DC1D50227*
+//	%f_pas_PutToUses(%S%T)
+ [%f] pas_PutToUses %( %S ->T  )% 
+//#UC END# *4B5DC214020Efor4B5DC1D50227*
+; // ToIntfUses
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является контролом
+//%f _IsControl
+: IsControl OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4A794AED0078for4B5DC1D50227*
+//	true
+ true
+//#UC END# *4A794AED0078for4B5DC1D50227*
+; // IsControl
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Читаем ли из поля
+//%f _ReadsField
+: ReadsField OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4ACB78A4017Ffor4B5DC1D50227*
+//	[{%S%f_NeedPutToDFM()!=true}{false}true]
+ if ( ( %S %f NeedPutToDFM %( )% ) %!=  true ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4ACB78A4017Ffor4B5DC1D50227*
+; // ReadsField
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// документация отсутствует
+//%f _pas_AttrIndexes
+: pas_AttrIndexes OBJECT IN %S
+//#UC START# *49998CA903A8for4B5DC1D50227*
+//#UC END# *49998CA903A8for4B5DC1D50227*
+; // pas_AttrIndexes
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя атрибута
+//%f _pas_AttrName
+: pas_AttrName OBJECT IN %S
+//#UC START# *494B9868000Afor4B5DC1D50227*
+//	[{%S%f_IsOverride()!=true}{\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	%SN]
+  %S |N 
+ end // if
+ else
+ begin
+//	%G%f_pas_AttrName()}\
+  %G %f pas_AttrName %( )% 
+ end // else
+//#UC END# *494B9868000Afor4B5DC1D50227*
+; // pas_AttrName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+//%f _pas_MethodBodyPrim
+: pas_MethodBodyPrim OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for4B5DC1D50227*
+//	\n\
+ #13#10
+//	begin
+ 'begin'
+//	 if (%f_pas_FieldName(%S) = nil) then
+ ' if ('
+ [%f] pas_FieldName %( %S )% ' = nil) then'
+//	  %f_pas_FieldName(%S) := FindComponent('%SN') As %S%f_pas_ResultTypeName();
+ '  '
+ [%f] pas_FieldName %( %S )% ' := FindComponent('''
+ %S |N ''') As '
+ %S %f pas_ResultTypeName %( )% ';'
+//	 Result := %f_pas_FieldName(%S);
+ ' Result := '
+ [%f] pas_FieldName %( %S )% ';'
+//	end;
+ 'end;'
+//#UC END# *494BB3A201A2for4B5DC1D50227*
+; // pas_MethodBodyPrim
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет - нужно ли определять поле данных для свойства.
+//%f _pas_NeedsField
+: pas_NeedsField OBJECT IN %S
+//#UC START# *4A796BE403D6for4B5DC1D50227*
+//	true
+ true
+//#UC END# *4A796BE403D6for4B5DC1D50227*
+; // pas_NeedsField
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа результата функции
+//%f _pas_ResultTypeName
+: pas_ResultTypeName OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for4B5DC1D50227*
+//	[{%S%f_IsOverride()!=true}{\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	%f_pas_TypeName(%T)]
+  [%f] pas_TypeName %( %T )% 
+ end // if
+ else
+ begin
+//	%G%f_pas_ResultTypeName()}\
+  %G %f pas_ResultTypeName %( )% 
+ end // else
+//#UC END# *494BDD190361for4B5DC1D50227*
+; // pas_ResultTypeName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ControlPrim>>
+

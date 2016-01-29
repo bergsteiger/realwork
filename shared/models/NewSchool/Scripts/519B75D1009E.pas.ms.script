@@ -1,0 +1,50 @@
+// Tables 519B75D1009E Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_519B75D1009E
+
+: ME_519B75E200C7
+ CONST UID '519B75E200C7'
+ CONST Name 'dt_Renum'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_519B75D1009E // Tables
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Renum.pas'
+
+ref; // ME_519B75E200C7 dt_Renum
+
+: ME_519B75D1009E
+ CONST UID '519B75D1009E'
+ CONST Name 'Tables'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ ;
+ : Children
+   @ ( ME_519B75E200C7 // dt_Renum
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\519B75D1009E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\519B75D1009E.pas.ms.script.runner'
+
+ref; // ME_519B75D1009E Tables

@@ -1,0 +1,306 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "LibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/garant6x/implementation/Garant/PrimeXmlConverterLib/PrimeXmlConverterMain.h::46C031ED0196")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/garant6x/implementation/Garant/PrimeXmlConverterLib/PrimeXmlConverterMain.cpp::46C031ED0196")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Модель проекта "garant6x"/PrimeXmlConverterLib/LibSupport|46C031D400FA
+	    )))
+    quid       	"46C031D400FA"
+    documentation 	"запуск экзешника конвертации прайма"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"46C05F3D02BF"
+	    supplier   	"Logical View::garant6x::PrimeXmlConverterLib::PrimeXMLConverterIface"
+	    quidu      	"46C046E00271"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "PrimeXmlConverterMain"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/garant6x/implementation/Garant/PrimeXmlConverterLib/PrimeXmlConverterMain.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/garant6x/implementation/Garant/PrimeXmlConverterLib/PrimeXmlConverterMain.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*46C031ED0196*"
+		    value      	(value Text 
+|//#UC START# *46C031ED0196*¤		std::string path_to_xml;¤		try {¤			path_to_xml = Core::ParamManagerFactory::get ().get_string ("-p");¤			if (path_to_xml.empty ()) {¤				this->usage ();¤				this->set_current_status(Core::Root::ES_FINISHED);¤				return;¤			}¤			// От инсталятора может прийти путь, заканчивающийся на кавычку¤			if (path_to_xml[path_to_xml.size () - 1]  == '"') {¤				path_to_xml = path_to_xml.substr (0, path_to_xml.size () - 1);¤			}¤¤			PrimeXMLConverterIface::PrimeConverter_var converter ( ¤				PrimeXMLConverterIface::PrimeConverterFactory::make (path_to_xml)¤			);¤			if (converter->create_new_prime ()) {¤				converter->remove_old_xml ();¤			}¤		} catch (PrimeXMLConverterIface::CantFindXerces&) {¤			LOG_E (("%s: can't find library for xml parsing", GDS_CURRENT_FUNCTION));¤			this->set_current_status(Core::Root::ES_ERROR);¤			return;¤		} catch (PrimeXMLConverterIface::BadPathToXML&) {¤			LOG_E (("%s: can't open directory %s", GDS_CURRENT_FUNCTION, path_to_xml.c_str ()));¤			this->set_current_status(Core::Root::ES_ERROR);¤			return;¤		} catch (...) {¤			LOG_E (("%s: unknown error", GDS_CURRENT_FUNCTION));¤			this->set_current_status(Core::Root::ES_ERROR);¤			return;¤		}¤		//#UC END# *46C031ED0196*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*46C031ED0196_FINI*"
+		    value      	(value Text 
+|//#UC START# *46C031ED0196_FINI*¤	//#UC END# *46C031ED0196_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*46C1BAF10399*"
+		    value      	(value Text 
+|//#UC START# *46C1BAF10399*¤	LOG_I (("usage: F1PrimeConverter -p <path>"));¤	LOG_I (("-p <path>     : path to xml directory"));¤	//#UC END# *46C1BAF10399*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Модель проекта "garant6x"/PrimeXmlConverterLib/LibSupport/PrimeXmlConverterMain|46C031ED0196
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*46C031ED0196_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *46C031ED0196_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *46C031ED0196_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*46C031ED0196_CUSTOM_INCLUDES*"
+		    value      	
+|//#UC START# *46C031ED0196_CUSTOM_INCLUDES*¤#include "shared/Core/Params/Params.h"¤//#UC END# *46C031ED0196_CUSTOM_INCLUDES*
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*46C031ED0196_CUSTOM_BODY*"
+		    value      	"//#UC START# *46C031ED0196_CUSTOM_BODY*¤//#UC END# *46C031ED0196_CUSTOM_BODY*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*46C031ED0196_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *46C031ED0196_CUSTOM_INCLUDES*¤//#UC END# *46C031ED0196_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*46C031ED0196*"
+		    value      	"//#UC START# *46C031ED0196*¤//#UC END# *46C031ED0196*"))
+	    quid       	"46C031ED0196"
+	    documentation 	"запуск экзешника конвертации прайма"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"46C0610D00AB"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::garant6x::PrimeXmlConverterLib::PrimeXMLConverterIface::PrimeConverter"
+		    quidu      	"46C047020261"))
+	    operations 	(list Operations
+		(object Operation "usage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*46C1BAF10399*"
+			    value      	(value Text 
+|//#UC START# *46C1BAF10399*¤	LOG_I (("usage: F1PrimeConverter -p <path>"));¤	LOG_I (("-p <path>     : path to xml directory"));¤	//#UC END# *46C1BAF10399*
+			    )))
+		    quid       	"46C1BAF10399"
+		    documentation 	"вывод информации об использовании утилиты"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "main"
+	    quid       	"46C031DF00EA"
+	    title      	"main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::PrimeXmlConverterLib::LibSupport::PrimeXmlConverterMain" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"702")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"870")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"396")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"182"))
+		    location   	(702, 870)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(440, 811)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	524
+			justify    	0
+			label      	"• PrimeXmlConverterMain")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(440, 761)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	524
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"46C031ED0196"
+		    width      	542
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::PrimeXmlConverterLib::PrimeXMLConverterIface::PrimeConverter" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1100, 409)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(867, 381)
+			nlines     	1
+			max_width  	466
+			justify    	0
+			label      	"• PrimeConverter")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(867, 331)
+			anchor     	10
+			nlines     	1
+			max_width  	466
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"46C047020261"
+		    width      	484
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(822, 547)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"46C0610D00AB"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(805, 748)
+			(1020, 499))
+		    line_style 	0)))))

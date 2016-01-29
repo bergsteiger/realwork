@@ -1,0 +1,103 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.manifestTarget"
+	language = "javascript"
+>
+	<attribute name = "manifest.name"/>
+	<attribute name = "manifest.name.root.dir"/>
+
+	<attribute name = "manifest.target"/>
+	<attribute name = "manifest.target.root.dir"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_manifestName = (
+				attributes.get ("manifest.name")
+			);
+
+			var a_manifestTarget = (
+				attributes.get ("manifest.target")
+			);
+
+			if (a_manifestName == null) {
+				a_manifestName = a_manifestTarget+ ".manifest"
+			}
+
+			var a_manifestNameRootDir = (
+				attributes.get ("manifest.name.root.dir")
+			);
+
+			var a_manifestTargetRootDir = (
+				attributes.get ("manifest.target.root.dir")
+			);
+
+			if (a_manifestTargetRootDir != null) {
+				var l_manifestTargetRootDirFile = new File (a_manifestTargetRootDir);
+				var l_manifestTargetRootDirPath = l_manifestTargetRootDirFile.getPath ();
+
+				a_manifestTargetRootDir = l_manifestTargetRootDirPath;
+			}
+
+			if (a_manifestNameRootDir != null) {
+				var l_manifestNameRootDirFile = new File (a_manifestNameRootDir);
+				var l_manifestNameRootDirPath = l_manifestNameRootDirFile.getPath ();
+
+				a_manifestNameRootDir = l_manifestNameRootDirPath;
+			} else {
+				a_manifestNameRootDir = a_manifestTargetRootDir;
+			}
+
+			var l_manifestNameFile = new File (a_manifestNameRootDir, a_manifestName);
+			var l_manifestNamePath = l_manifestNameFile.getPath ();
+
+			var l_manifestTargetFile = new File (a_manifestTargetRootDir, a_manifestTarget);
+			var l_manifestTargetPath = l_manifestTargetFile.getPath ();
+
+			project.log (
+				(
+					"\t"
+					+ "Manifest target `"+ l_manifestTargetPath+ "` (using `"+ l_manifestNamePath+ "`)"
+				)
+				, project.MSG_INFO
+			);
+
+			var l_execTask = project.createTask ("exec"); {
+				l_execTask.setDir (new File (a_manifestTargetRootDir));
+				l_execTask.setExecutable ("mt.exe");
+				l_execTask.setFailIfExecutionFails (true);
+				l_execTask.setFailonerror (true);
+				l_execTask.setLogError (true);
+
+				var l_execTaskArg = l_execTask.createArg (); {
+					l_execTaskArg.setLine (
+						"-nologo"
+						+ " -manifest \""+ l_manifestNamePath+ "\""
+						+ " -outputresource:\""+ l_manifestTargetPath+ "\""
+					);
+				}
+
+				l_execTask.reconfigure ();
+			}
+
+			l_execTask.execute ();
+		}
+	]]>
+</scriptdef>

@@ -1,0 +1,165 @@
+// AtomicListTest 51E03FC80111 TestCaseMixIn Class
+
+FORWARD ME_51E03FC80111
+
+: ME_51E03FE602DF
+ CONST UID '51E03FE602DF'
+ CONST Name 'ListType'
+ CONST Class 'Class'
+ CONST Stereotype 'ImpurityParamType'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_51E03FE602DF ListType
+
+INCLUDE '4B2A0DCE03A9.pas.ms.script'
+
+INCLUDE '51E80DD30125.pas.ms.script'
+
+: ME_51DEB319037C
+ CONST UID '51DEB319037C'
+ CONST Name 'DoIt'
+ CONST Class 'Class'
+ CONST Stereotype 'Test'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_51DEB319037C DoIt
+
+: ME_51DED6FC03C1
+ CONST UID '51DED6FC03C1'
+ CONST Name 'TestTwoLists'
+ CONST Class 'Class'
+ CONST Stereotype 'Test'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_51DED6FC03C1 TestTwoLists
+
+: ME_51E6AC74038B
+ CONST UID '51E6AC74038B'
+ CONST Name 'TestInsert'
+ CONST Class 'Class'
+ CONST Stereotype 'Test'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_51E6AC74038B TestInsert
+
+FORWARD ME_51E6ADE0016E
+
+INCLUDE '51DEB1B30171.pas.ms.script'
+
+: ME_51E6ADED001F
+ CONST UID '51E6ADED001F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_51DEB1B30171 // ItemType
+ ;
+
+ @SELF
+; // ME_51E6ADED001F DoIt
+
+: ME_51E6ADE0016E
+ CONST UID '51E6ADE0016E'
+ CONST Name 'RandomItem'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_51E6ADED001F // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_51E6ADE0016E RandomItem
+
+: ME_51E6B4260008
+ CONST UID '51E6B4260008'
+ CONST Name 'TestInsertAt0'
+ CONST Class 'Class'
+ CONST Stereotype 'Test'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_51E6B4260008 TestInsertAt0
+
+: ME_51E7F6EF0285
+ CONST UID '51E7F6EF0285'
+ CONST Name 'DeleteTest'
+ CONST Class 'Class'
+ CONST Stereotype 'Test'
+ %SUMMARY 'Тест удаления элемента' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_51E7F6EF0285 DeleteTest
+
+: ME_51E80DC50154
+ CONST UID '51E80DC50154'
+ CONST Name 'AddTest'
+ CONST Class 'Class'
+ CONST Stereotype 'Test'
+ %SUMMARY 'Тест добавления элемента' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_51E80DC50154 AddTest
+
+: ME_51E8127802AF
+ CONST UID '51E8127802AF'
+ CONST Name 'RemoveTest'
+ CONST Class 'Class'
+ CONST Stereotype 'Test'
+ %SUMMARY 'Тест удаления элемента по значению' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_51E8127802AF RemoveTest
+
+: ME_51E03FC80111
+ CONST UID '51E03FC80111'
+ CONST Name 'AtomicListTest'
+ CONST Class 'Class'
+ CONST Stereotype 'TestCaseMixIn'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4B2A0DDE028B // TTestCase
+ ME_51E80DD30125 // ListTest
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_51DEB319037C // DoIt
+ ME_51DED6FC03C1 // TestTwoLists
+ ME_51E6AC74038B // TestInsert
+ ME_51E6ADE0016E // RandomItem
+ ME_51E6B4260008 // TestInsertAt0
+ ME_51E7F6EF0285 // DeleteTest
+ ME_51E80DC50154 // AddTest
+ ME_51E8127802AF // RemoveTest
+ ]
+ ; // Operations
+ : Children
+   [ ME_51E03FE602DF // ListType
+ ]
+ ; // Children
+ CONST "needs InstanceR" false
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_51E03FC80111 AtomicListTest

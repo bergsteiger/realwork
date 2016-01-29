@@ -1,0 +1,1204 @@
+//////////////////////////////////////////////////////////////////////////////
+//  Набор тест-кейсов
+//  HLTC 70 Начало работы
+//////////////////////////////////////////////////////////////////////////////
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+  MenuWork, RunPrograms, SearchWork, Installer, DataSetup, Administrator;
+//////////////////////////////////////////////////////////////////////////////
+const
+  F1_FILE_VER = '7.12.0.*';
+  F1_FILE_VER_EX = '7.12.0';  
+  F1_PRODUCT_VER = '7';
+
+  MENU_AUTOLOGIN = 'Файл\Авто*вход*систему';
+  REGISTRY_AUTOLOGIN = 'IsAutoLogin';
+
+//////////////////////////////////////////////////////////////////////////////
+{
+ HLTC70.1.3.1: Проверить, что если данных нет или один или несколько файлов битые, или данные имеют неверный формат, то выдается одно из сообщений:
+  «Файлы данных отсутствуют или повреждены!»
+    или
+  «Нарушена целостность данных - файлы для быстрого контекстного поиска не найдены или повреждены. Продолжение работы невозможно, обратитесь за технической поддержкой в обслуживающую Вас организацию»
+}
+function  HLTC70_1_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  MSG_TEXT = 'Файлы данных отсутствуют или повреждены!';
+var
+	newLogName, dataPath, msg, logText;
+begin
+try
+  Result := true;
+
+  CloseF1Shell;
+
+  dataPath := IncludeTrailingBackslash(GetActiveGCMDataPath);
+  if not DirectoryExists(dataPath) then
+    Raise('Каталог с активной базой не найден: ' + dataPath);
+  try
+    if not DeleteFiles(dataPath + '*.*') then
+      Raise('Не получилось удалить все файлы из каталога активной базы: ' + dataPath);
+
+    StartF1Shell('', 1);
+    if not IsExists(GetF1ShellProcess) then
+      Raise('Не найден процесс оболочки!');
+      
+    msg := WaitForErrorWindow;
+    if not StringCompare(MSG_TEXT, msg) then
+      Raise('Неправильное сообщение после удаления файлов данных из активной базы. Получили: "' + msg + '", ожидали: "' + MSG_TEXT + '"');
+  finally
+    // смотрим лог, чтобы пускач лишний раз не видел ошибку отсутствующей базы
+    logText := ProcessingLogForErrors(nil, nil, 'isFromLastLogPositionCounter:=true');
+    if not (StringCompare('*LM_ERROR: Can''t open database*', logText) and  
+      (ArrayLength(String2Array(logText)) = 2) ) then // 2ая строка пустая
+      Result := ErrorResult('После запуска без базы в логе найдены ошибки:' + EndOfLine + logText); 
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CloseF1Shell;
+  newLogName := GetFilePathToLogFile + '.HLTC71_7_1';
+  Utilities.DeleteFile(newLogName);
+  Utilities.RenameFile(GetFilePathToLogFile, newLogName);
+end;
+
+{
+  HLTC70.1.11: Проверить запуск оболочки из командной строки
+    HLTC70.1.11: С указанием логина и пароля в виде параметров -F1ShellLogin и -F1ShellPassword:
+      HLTC70.1.11.1.1: Указать правильные логин и пароль
+  HLTC70.1.1: Проверить запуск с правильными параметрами сервера в настройках и правильным КИБ       
+}
+function  HLTC70_1_11_1_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_1_11_1_1';
+var
+  msg;
+begin
+try
+  Result := true;
+
+  if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+    Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+  CloseF1Shell;
+
+  try
+    StartF1Shell('', 1, 'CmdParams:=' + '-F1ShellLogin ' + LOGINNAME + ' -F1ShellPassword ' + LOGINNAME);
+    if not IsExists(GetMainWindow) then
+      Result := ErrorResult('Оболочка не запустилась c правильными -F1ShellLogin и -F1ShellPassword');
+    msg := GetParam(WaitForAnyMessageWindow('', Options.Run.Timeout, '', 'OK'), WFMF_RES_MSGTEXT, '');
+    if msg <> '' then
+      Raise('После запуска оболочки c правильными -F1ShellLogin и -F1ShellPassword появилось сообщение: "' + msg + '"');
+  finally
+    CloseF1Shell;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.1.11: Проверить запуск оболочки из командной строки
+    HLTC70.1.11: С указанием логина и пароля в виде параметров -F1ShellLogin и -F1ShellPassword:
+      HLTC70.1.11.1.2: Указать правильный логин и неправильный пароль 
+}
+function  HLTC70_1_11_1_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_1_11_1_2';
+  MSG_TEXT = 'Неверное имя пользователя или неправильный пароль!';
+var
+  msg;
+begin
+try
+  Result := true;
+
+  if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+    Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+  CloseF1Shell;
+
+  try
+    StartF1Shell('', 1, 'CmdParams:=' + '-F1ShellLogin ' + LOGINNAME + ' -F1ShellPassword ' + 'none');
+    if IsExists(GetMainWindow) then
+      Result := ErrorResult('Оболочка запустилась c правильным -F1ShellLogin и неправильным -F1ShellPassword');
+
+    msg := GetParam(WaitForAnyMessageWindow('', Options.Run.Timeout, '', 'OK'), WFMF_RES_MSGTEXT, '');
+    if not StringCompare(MSG_TEXT, msg) then
+      Result := ErrorResult('После запуска оболочки c правильным -F1ShellLogin и неправильным -F1ShellPassword ожидали сообщение: "' + MSG_TEXT + '", появилось: "' + msg + '"');
+  finally
+    CloseF1Shell;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.1.11: Проверить запуск оболочки из командной строки
+    HLTC70.1.11: С указанием логина и пароля в виде параметров -F1ShellLogin и -F1ShellPassword:
+      HLTC70.1.11.1.3: Указать несуществующий логин. В этом случае должен автоматически завестись указанный пользователь.
+}
+function  HLTC70_1_11_1_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_1_11_1_3';
+var
+  msg;
+begin
+try
+  Result := true;
+
+  CloseF1Shell;
+  try
+    StartF1Shell('', 1, 'CmdParams:=' + '-F1ShellLogin ' + LOGINNAME);
+    if not IsExists(GetMainWindow) then
+      Result := ErrorResult('Оболочка не запустилась c правильным -F1ShellLogin');
+      
+    if DoLoginOperation('', '', OPER_WELCOME_INFO) <> IDLO_NOERROR then
+      Result := ErrorResult('Возникла ошибка во время "' + OPER_WELCOME_INFO + '"');
+
+    msg := GetParam(WaitForAnyMessageWindow('', Options.Run.Timeout, '', 'OK'), WFMF_RES_MSGTEXT, '');
+    if msg <> '' then
+      Raise('После запуска оболочки c правильным -F1ShellLogin появилось сообщение: "' + msg + '"');
+  finally
+    CloseF1Shell;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.2.3: Ввести логин и пароль корректного пользователя. Поставить галку "Запомнить пароль". 
+    Войти в систему, выйти. Проверить, что при следующем входе в систему пользователю не выводится окно ввода Login и система автоматически запускается. (в меню «Файл» отмечено операция «Автоматический вход в систему»)
+  HLTC70.2.6: Проверить, что есть возможность установить опцию автологина не только при входе в систему, но и в момент работы - в меню «Файл» должна быть операция (с двумя состояниями) «Автоматический вход в систему», отражающая состояние опции Автологин.
+  HLTC70.2.7: Проверить, что можно снять опцию «Автологин» через меню «Файл» - при следующем входе показывется обычное окно «Логин»
+  HLTC70.2.12.2: Работая в системе, через меню Файл\Автоматический вход в систему - снять галку.
+  HLTC70.2.13: Проверить, что если при заведении нового пользователя выставить галку «запомнить пароль», то после регистрации и запуска приложения в меню Файл\Автоматический вход в систему стоит галка напротив данного пункта.  
+}
+function  HLTC70_2_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_2_3';
+begin
+try
+  Result := true;
+
+  CloseF1Shell;
+  try
+    //HLTC70.2.3 новый пользователь
+    if not StartF1Shell then
+      Raise('Не получилось 1ый раз запустить оболочку');
+    //HLTC70.2.13 - OPER_LOGIN_NEW_USER, 'isAutoLogin:=1'
+    if DoLoginOperation(LOGINNAME, LOGINNAME, OPER_LOGIN_NEW_USER, 'isAutoLogin:=1') <> IDLO_NOERROR then
+      Raise('Не получилось залогиниться под несуществующим пользователем и паролем "' + LOGINNAME + '"');
+    Delay(Options.Run.Timeout);
+    CloseF1Shell;      
+
+    if not StartF1Shell then
+      Raise('Не получилось 2ой раз запустить оболочку');
+    Delay(Options.Run.Timeout);      
+    if not IsExists(GetMainWindow) then
+      Raise('Похоже оболочка не запустилась в режиме автологина!');
+    if not IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),  MENU_AUTOLOGIN) then
+      Result := ErrorResult('В режиме автологина не стоит галка в пункте главного меню "' + MENU_AUTOLOGIN + '"')
+    else
+      //HLTC70.2.7 снимаем галку
+      if not ClickByMainMenuItem(MENU_AUTOLOGIN) then
+        Raise('Не получилось кликнуть по пункту главного меню "' + MENU_AUTOLOGIN + '"');      
+    CloseF1Shell;
+      
+    //HLTC70.2.3 существующий пользователь
+    if not StartF1Shell then
+      Raise('Не получилось 1ый раз запустить оболочку');
+    if DoLoginOperation(LOGINNAME, LOGINNAME, OPER_LOGIN_EXISTING_USER, 'isAutoLogin:=1') <> IDLO_NOERROR then
+      Raise('Не получилось залогиниться под существующим пользователем и паролем "' + LOGINNAME + '"');
+    Delay(Options.Run.Timeout);
+    CloseF1Shell;      
+
+    if not StartF1Shell then
+      Raise('Не получилось 2ой раз запустить оболочку');
+    Delay(Options.Run.Timeout);      
+    if not IsExists(GetMainWindow) then
+      Raise('Похоже оболочка не запустилась в режиме автологина!');
+    if not IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),  MENU_AUTOLOGIN) then
+      Result := ErrorResult('В режиме автологина не стоит галка в пункте главного меню "' + MENU_AUTOLOGIN + '"')
+    else
+      ClickByMainMenuItem(MENU_AUTOLOGIN);
+  finally
+    CloseF1Shell;
+    Storages.Registry(F1REGBRANCH).RemoveOption(REGISTRY_AUTOLOGIN);    
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.2.4: Выставить для пользователя опцию автологин, выйти из системы, стереть из реестра ОС информацию о сохранённом логине (пароле). 
+    Войти в систему - должно показаться окно «Логин» и в нём пустое поле «логин» (так как мы удалили инф. Из реестра). 
+    Ключ реестра: HKEY_CURRENT_USER\Software\Garant.F1 	    
+}
+function  HLTC70_2_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_2_4';
+begin
+try
+  Result := true;
+
+  CloseF1Shell;
+  try
+    if not StartF1Shell then
+      Raise('Не получилось 1ый раз запустить оболочку');
+    if DoLoginOperation(LOGINNAME, LOGINNAME, OPER_LOGIN_NEW_USER, 'isAutoLogin:=1') <> IDLO_NOERROR then
+      Raise('Не получилось залогиниться под несуществующим пользователем и паролем "' + LOGINNAME + '"');
+    CloseF1Shell;
+
+    Storages.Registry(F1REGBRANCH).RemoveOption('Login');          
+
+    if not StartF1Shell then
+      Raise('Не получилось 2ой раз запустить оболочку');
+    Delay(Options.Run.Timeout);
+    if not IsExists(GetFromLoginForm('ФОРМА ЛОГИНА')) then
+      Raise('Форма логина не открылась после удаления "Login" в реестре');
+  finally
+    CloseF1Shell;
+    Storages.Registry(F1REGBRANCH).RemoveOption(REGISTRY_AUTOLOGIN);
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.2.5: Выставить для пользователя опцию автологин, выйти из системы. Запустить Немезис, удерживая Shift - диалог Login должен появиться независимо от прописанной в реестре информации об автологине.
+  HLTC70.2.9: Выставить для пользователя опцию автологин, выйти из системы. Запустить Немезис, удерживая Shift - проверить, что в окне «Логин» отмечен check-box «Запомнить пароль».    
+  HLTC70.2.11: Проверить, что данные login\password прописываются в реестре (запускаем regedit.exe, идём в HKEY_CURRENT_USER \Software\Garant.F1 - там должно быть два поля login - с именем пользователя и password - с зашифрованным паролем) и оттуда читаются системой при автологине.
+  HLTC70.2.12: Проверить выключение автологина:
+    HLTC70.2.12.1: Путём снятия галки «Запомнить пароль» на форме логина (удерживать Shift при запуске).
+}
+function  HLTC70_2_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_2_5';
+var
+  cbAutoLogin, value;
+begin
+try
+  Result := true;
+
+  CloseF1Shell;
+  try
+    if not StartF1Shell then
+      Raise('Не получилось 1ый раз запустить оболочку');
+    if DoLoginOperation(LOGINNAME, LOGINNAME, OPER_LOGIN_NEW_USER, 'isAutoLogin:=1') <> IDLO_NOERROR then
+      Raise('Не получилось залогиниться под несуществующим пользователем и паролем "' + LOGINNAME + '"');
+    if not IsExists(GetMainWindow) then
+      Raise('Похоже оболочка не запустилась в режиме автологина!');
+    CloseF1Shell;
+
+    // HLTC70.2.5, HLTC70.2.9
+    try
+      Sys.Desktop.KeyDown(Win32API.VK_SHIFT);
+      if not StartF1Shell then
+        Raise('Не получилось 2ой раз запустить оболочку');
+      Delay(Options.Run.Timeout);      
+    finally
+      Sys.Desktop.KeyUp(Win32API.VK_SHIFT);
+    end;
+    cbAutoLogin := GetFromLoginForm('ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ"');
+    if not IsExists(cbAutoLogin) then
+      Raise('Не найден ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ"');
+    if cbAutoLogin.wState <> cbChecked then
+      Raise('В режиме автологина ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ" не выставлен после удержания клавиши Shift');
+      
+    // HLTC70.2.11
+    value := Storages.Registry(F1REGBRANCH).GetOption('Login', '');
+    if value <> LOGINNAME then  
+      Result := ErrorResult('Значение опции "Login" в реестре отличается: "' + value + '", ожидали: "' + LOGINNAME + '"');
+    value := Storages.Registry(F1REGBRANCH).GetOption('Password', '');
+    if Length(value) < 69 then // длина шифрованного пароля 69 символов   
+      Result := ErrorResult('Опция "Password" в реестре возможно имеет неправильное значение: "' + value + '"');
+
+    // HLTC70.2.12.1, снимаем галку с автологина
+    if DoLoginOperation(LOGINNAME, LOGINNAME, OPER_LOGIN_EXISTING_USER, 'isAutoLogin:=2') <> IDLO_NOERROR then
+      Raise('Не получилось залогиниться под существующим пользователем и паролем "' + LOGINNAME + '"');
+    if IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),  MENU_AUTOLOGIN) then
+      Result := ErrorResult('После отключения автологина стоит галка в пункте главного меню "' + MENU_AUTOLOGIN + '"');
+  finally
+    CloseF1Shell;
+    Storages.Registry(F1REGBRANCH).RemoveOption(REGISTRY_AUTOLOGIN);
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.2.8: Проверить, что при повторном входе в систему сохранился последний логин, 
+    под которым пользователь заходил в систему (не зависимо от положения переключателя Автологин)- в окне «Логин» в поле «логин» подставляется это значение. 
+}
+function  HLTC70_2_8_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_2_8';
+var
+  w, login_name;
+begin
+try
+  try
+    Result := true;
+
+    if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+
+    CloseF1Shell;
+    if not StartF1Shell then
+      Raise('Не получилось запустить оболочку');
+    w := GetFromLoginForm('ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"');
+    if not IsExists(w) then
+      Raise('Поле ввода имени пользователя не найдено!');
+    login_name := common.GetWindowText(w.handle);
+
+    if login_name <> LOGINNAME then
+      Raise('После перезапуска имя пользователя не сохранилось, ожидали: ' + LOGINNAME + ', получили: ' + login_name);
+  finally
+    CloseF1Shell;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.3.1: Проверить запуск, когда логин-пароль валидны (т.е вводятся логин и пароль уже зарегистрированного в системе пользователя).
+  HLTC70.3.2.1: Проверить запуск с логином на русском языке(разрешено)
+  HLTC70.3.2.2: Проверить запуск с паролем на русском языке(разрешено)
+  HLTC70.3.2.4: Проверить запуск, когда пароль - пустая строка(разрешено)
+}
+function  HLTC70_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME_BASE = 'HLTC70_3_1_логин';
+var
+  i, loginname, passname;
+begin
+try
+    Result := true;
+    
+    for i := 1 to 2 do
+    begin
+      loginname := LOGINNAME_BASE + IntToStr(i); 
+      case i of
+        1: passname := 'пароль';
+        2: passname := '';
+      end;
+  
+      CloseF1Shell;
+      if not StartF1Shell then
+        Raise('Не получилось 1ый раз запустить оболочку');
+      if DoLoginOperation(loginname, passname, OPER_LOGIN_NEW_USER) <> IDLO_NOERROR then
+        Raise('Не получилось залогиниться под несуществующим пользователем "' + loginname + '" и паролем "' + passname + '"');
+
+      CloseF1Shell;    
+      if not StartF1Shell then
+        Raise('Не получилось 2ой раз запустить оболочку');
+      if DoLoginOperation(loginname, passname, OPER_LOGIN_EXISTING_USER) <> IDLO_NOERROR then
+        Raise('Не получилось залогиниться под существующим пользователем "' + loginname + '" и паролем "' + passname + '"');
+    end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CloseF1Shell;
+end;
+
+{
+  HLTC70.3.2.5: Проверить запуск, когда логин и пароль: ADMIN и ADMIN, соответственно – система должна выдать сообщение "Пользователь ADMIN может запускать только модуль администратора!". Войти под этим пользователем в оболочку нельзя.
+}
+function  HLTC70_3_2_5_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME_BASE = 'HLTC70_3_1_логин';
+begin
+try
+  Result := true;
+  try
+    if not RestartF1ShellByAdmin then 
+      Raise('Не удалось перелогиниться в оболочку Админом');  
+  finally
+    CloseF1Admin;  
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.3.2.6: Проверить, что можно зарегистрировать пользователя, когда в логине наличествуют
+    HLTC70.3.2.6.2: Прямые и обратные слэши 
+    HLTC70.3.2.6.4: Скобки
+}
+function  HLTC70_3_2_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = '_HLTC70_3_2_6_';
+  PASSNAME = 'пароль';
+var
+  i, resLogin, suffixes;
+begin
+  try
+    Result := true;
+    
+    suffixes := ['\\', '//', '((', '))'];
+    for i := VarArrayLowBound(suffixes, 1) to VarArrayHighBound(suffixes, 1) do
+    begin
+      resLogin := suffixes[i] + LOGINNAME + suffixes[i];
+      if not RestartF1Shell(3, Options.Run.Timeout div 3, resLogin, PASSNAME) then
+        Result := ErrorResult('Не получилось перезапустить оболочку под пользователем "' + resLogin + '" и паролем "' + PASSNAME + '"');
+      CloseF1Shell;
+    end;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  HLTC70.3.2.7: Проверить, что можно зарегистрировать пользователя, когда в пароле наличествуют
+    HLTC70.3.2.7.2: Прямые и обратные слэши 
+    HLTC70.3.2.7.4: Скобки
+}
+function  HLTC70_3_2_7_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_3_2_7';
+  PASSNAME = '_pwd_';
+var
+  i, resLogin, resPass, suffixes;
+begin
+  try
+    Result := true;
+    
+    suffixes := ['\\', '//', '((', '))'];
+    for i := VarArrayLowBound(suffixes, 1) to VarArrayHighBound(suffixes, 1) do
+    begin
+      resLogin := LOGINNAME + '_' + IntToStr(i);
+      resPass := suffixes[i] + PASSNAME + suffixes[i];
+      if not RestartF1Shell(3, Options.Run.Timeout div 3, resLogin, resPass) then
+        Result := ErrorResult('Не получилось перезапустить оболочку под пользователем "' + resLogin + '" и паролем "' + resPass + '"');
+      CloseF1Shell;
+    end;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  HLTC70.3.5.2: Проверить что система выдаёт сообщение «Неверное имя пользователя или пароль!», когда логин набран неправильно, пароль - правильно
+  HLTC70.3.5.3: Проверить что система выдаёт сообщение «Неверное имя пользователя или пароль!», когда логин набран правильно, пароль - неправильно
+  HLTC70.3.5.4: Проверить что система выдаёт сообщение «Неверное имя пользователя или пароль!», когда логин и пароль - неправильные
+}
+function  HLTC70_3_5_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME_BASE = 'HLTC70_3_5_2';
+  ERR_STR = 'err';
+  MSG_TEXT = 'Неверное имя пользователя или неправильный пароль!';
+var
+  i, msg, loginname, passname, loginname_test, passname_test;
+begin
+try
+    Result := true;
+
+    loginname := LOGINNAME_BASE;
+    passname := LOGINNAME_BASE;
+        
+    if not RestartF1Shell(3, Options.Run.Timeout div 3, loginname, passname) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + loginname + '" и паролем "' + passname + '"');
+      
+    for i := 1 to 3 do
+    begin
+      case i of
+        1: begin //HLTC70.3.5.2
+          loginname_test := LOGINNAME_BASE + ERR_STR;
+          passname_test := LOGINNAME_BASE;
+        end;
+        2: begin //HLTC70.3.5.3
+          loginname_test := LOGINNAME_BASE;
+          passname_test := LOGINNAME_BASE + ERR_STR;
+        end;
+        3: begin //HLTC70.3.5.4
+          loginname_test := LOGINNAME_BASE + ERR_STR;
+          passname_test := LOGINNAME_BASE + ERR_STR;
+        end;
+      end;
+
+      CloseF1Shell;        
+      if not StartF1Shell then
+        Raise('Не получилось запустить оболочку');
+      if DoLoginOperation(loginname_test, passname_test, OPER_LOGIN_EXISTING_USER, 'isCloseErrorMessages:=false') = IDLO_NOERROR then
+        Raise('Получилось залогиниться пользователем "' + loginname_test + '" и паролем "' + passname_test + '"');
+
+      msg := GetParam(WaitForAnyMessageWindow('', Options.Run.Timeout, '', 'OK'), WFMF_RES_MSGTEXT, '');
+      if not StringCompare(MSG_TEXT, msg) then
+        Raise('Неправильное сообщение после попытки логина с неправильными рег. данными (логин "' + loginname_test + '", пароль "' + passname_test + '"):' + EndOfLine +
+              '"' + msg + '", ожидали: "' + MSG_TEXT + '"');
+    end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CloseF1Shell;
+end;
+
+{
+  HLTC70.3.6.1: Проверить, что невозможно зайти в Гарант под логином уже работающего пользователя.
+    Пользователь "1" уже работает в системе, или предыдущий сеанс пользователя закончился аварийно (в этом случае повторите попытку через 2 минуты)!
+	HLTC70.5.3.1.1: при попытке снова войти в систему в течении 2 минут должно появиться сообщение о том, что пользователь уже работает в системе
+  HLTC70.5.3.1.2: при попытке войти в систему после истечения 2 минут происходит обычная авторизация в системе. 
+    При этом в логе сервера должна быть запись о том, что пользователя отключили (так как он залочился в результате некорректной работы, а при повторном входе должна принудительно завершиться сессия).
+  HLTC70.5.3.1.3: При истечении Y минут (где Y - значение параметра -GCMUserHardTimeout в настройках сервера) пользователя принудительно отключают на сервере (запись в логе типа «internal logout»).
+  HLTC391.1.5.7: Логаут пользователя по таймауту -LM_GARANT: LOGOUT_BY_TIMEOUT [имя пользователя][идентификатор пользователя][номер сессии], затем -LM_GARANT: LOGOUT_BY_ADMIN [имя пользователя][идентификатор пользователя][номер сессии]
+}
+function  HLTC70_3_6_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME_BASE = 'HLTC70_3_6_1';
+  MSG_TEXT = 'Пользователь "%s" уже работает в системе, или предыдущий сеанс пользователя закончился аварийно (в этом случае повторите попытку через 2 минуты)!';
+var
+  i, msg, msg_etalon, loginname, passname;
+begin
+try
+  try
+    Result := true;
+    if not StopF1Server then
+      Raise('Не получилось остановить F1Server!');
+    if not (SetValueToGarantINI('F1Server Params', '-GCMUserSoftTimeout', '2', true) and
+            SetValueToGarantINI('F1Server Params', '-GCMUserHardTimeout', '4', true))
+    then
+      Raise('Не получилось установить параметр -GCMUserSoftTimeout или -GCMUserHardTimeout');
+    if not StartF1Server then
+      Raise('Не получилось запустить F1Server!');          
+      
+    loginname := LOGINNAME_BASE;
+    passname := loginname;
+
+    if not RestartF1Shell(3, Options.Run.Timeout div 3, loginname, passname) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + loginname + '" и паролем "' + passname + '"');
+
+    if not KillF1Shell then
+      Raise('Не получилось убить процесс оболочки');
+
+    // HLTC70.3.6.1, HLTC70.5.3.1.1 
+    if not StartF1Shell then
+      Raise('Не получилось запустить оболочку');
+    if DoLoginOperation(loginname, passname, OPER_LOGIN_EXISTING_USER, 'isCloseErrorMessages:=false') = IDLO_NOERROR then
+      Raise('Получилось залогиниться уже работающем пользователем "' + loginname + '" и паролем "' + passname + '"');
+    msg := GetParam(WaitForAnyMessageWindow('', Options.Run.Timeout, '', 'OK'), WFMF_RES_MSGTEXT, '');
+    msg_etalon := Format(MSG_TEXT, [loginname]);
+    if not StringCompare(msg_etalon, msg) then
+      Raise('Неправильное сообщение после попытки логина уже работающего пользователя "' + msg + '", ожидали: "' + msg_etalon + '"');
+
+    // HLTC70.5.3.1.3
+    CloseF1Shell;
+    StartF1Admin;
+    try
+      if not LoginByAdmin then 
+        Raise('Не удалось залогиниться Админом');
+      if not IsUserActiveInAdmin(loginname) then
+        Result := ErrorResult('Пользователь "' + loginname + '" не активен в интерфейсе Админа сразу же после уничтожения процесса оболочки');
+      Delay(4*60*1000);
+      if IsUserActiveInAdmin(loginname) then
+        Result := ErrorResult('Пользователь "' + loginname + '" активен в интерфейсе Админа после истечения GCMUserHardTimeout');
+    except
+      Result := ErrorResult('Не получилось проверить активность пользователя "' + loginname + '" в интерфейсе Админа');
+    end;
+    CloseF1Admin;    
+
+    // HLTC70.5.3.1.2
+    if not StartF1Shell then
+      Raise('Не получилось запустить оболочку');
+    if DoLoginOperation(loginname, passname, OPER_LOGIN_EXISTING_USER, 'isCloseErrorMessages:=false') <> IDLO_NOERROR then
+      Raise('Не получилось залогиниться через более чем 2 минуты после уничтожения клиента под логином "' + loginname + '" и паролем "' + passname + '"');
+
+    // HLTC391.1.5.7
+    Result := IsStringIncludeInLog(
+              [
+                '-LM_INFO: UserManager_i::internal_logout: internal logout for session*',
+                '-LM_GARANT: LOGOUT_BY_TIMEOUT [' + LOGINNAME_BASE + '][*][*]',
+                '-LM_GARANT: LOGOUT_BY_ADMIN [' + LOGINNAME_BASE + '][*][*]',
+                '-LM_GARANT: LOGIN [' + LOGINNAME_BASE + '][*][*]'
+              ]) and Result;
+  finally
+    //SetValueToGarantINI('F1Server Params', '-GCMUserSoftTimeout', 2, true);
+    //SetValueToGarantINI('F1Server Params', '-GCMUserHardTimeout', 10, true);
+    CloseF1Admin;
+    CloseF1Shell;
+    StartF1Server;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.4.4: Проверить выход (закрытие оболочки) из: 
+    HLTC70.4.4.1: Просмотра документа 
+    HLTC70.4.4.2: Просмотра списка
+    HLTC70.4.4.3: Карточки поиска
+  HLTC70.4.5: Проверить, что размеры и расположение окон, навигатора, панелей инструментов и пр. запоминаются при выходе из системы и при последующем входе в систему сохраненные значения восстанавливаются.     
+}
+function  HLTC70_4_4_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_4_4_1';
+  DOC_NUM = 10003000;
+var
+  i, w, x, y, shell_state;
+  w_x, w_y, w_width, w_height;
+begin
+try
+  try
+    Result := true;
+
+    for i := 1 to 3 do
+    begin
+      if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+        Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+      w := GetMainWindow;
+      if not IsExists(w) then
+        Raise('Не найдено главное окно оболочки!');
+      
+      if i = 1 then //HLTC70.4.5 
+      begin
+        w.Restore;
+        Delay(Options.Run.Timeout div 3);
+        w_x := w.ScreenLeft;
+        w_y := w.ScreenTop;
+        w_width := w.Width;
+        w_height := w.Height;
+      end
+      else
+      begin
+        if (w_x <> w.ScreenLeft) or (w_y <> w.ScreenTop) or (w_width <> w.Width) or (w_height <> w.Height) then
+          Result := ErrorResult('Отличаются размеры главного после закрытия оболочки из состояния: ' + shell_state + EndOfLine +
+                                'Ожидаемые: x=' + IntToStr(w_x) + ', у=' + IntToStr(w_y) + ', w=' + IntToStr(w_width) + ', h=' + IntToStr(w_height) + EndOfLine +
+                                'Текущие: x=' + IntToStr(w.ScreenLeft) + ', у=' + IntToStr(w.ScreenTop) + ', w=' + IntToStr(w.Width) + ', h=' + IntToStr(w.Height)
+                    );          
+      end;
+
+      case i of
+        1: begin //HLTC70.4.4.1
+            shell_state := 'Документ';
+            if not OpenDocByNumber(DOC_NUM) then
+              Result := ErrorResult('Не получилось открыть документ по номеру ' + IntToStr(DOC_NUM));
+        end;
+        2: begin //HLTC70.4.4.2
+            shell_state := 'Список всех документов';
+            if not IsExists(GetListOfAllDocuments) then
+              Result := ErrorResult('Не получилось построить список всех документов!');
+        end;
+        3: begin //HLTC70.4.4.3
+            shell_state := 'КЗ ППР';
+            if not GoToPPR then
+              Result := ErrorResult('Не получилось открыть КЗ ППР!');
+        end;
+      end;
+
+      w.Keys('~[F4]');
+      WaitForConfirmationWindow(Options.Run.Timeout, '#Выйти*');
+      Delay(Options.Run.Timeout);
+      if IsExists(GetF1ShellProcess(Options.Run.Timeout div 10, 1, false)) then
+      begin
+        Result := ErrorResult('Процесс оболочки существует после закрытия из состояния: "' + shell_state + '"');
+        CloseF1Shell;
+      end;
+    end;
+  finally
+    CloseF1Shell;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.5.1: Проверить, что после запуска фокус клавиатуры находится в базовом поиске 
+}
+function  HLTC70_5_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME = 'HLTC70_5_1';
+var
+  w;
+begin
+  try
+    Result := true;
+
+    if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+
+    w := GetFromBaseSearch('КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    if not IsExists(w) then
+      Raise('Не найден КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+
+    if not w.Focused then
+      Raise('После перезапуска оболочки фокус не в поле ввода БП!');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+//////////////////////////////////////////////////////////////////////////////
+//('CompanyName', 'FileDescription', 'FileVersion', 'ProductVersion', 'InternalName', 'LegalCopyright', 'LegalTradeMarks', 'OriginalFileName', 'ProductName', 'Comments')
+{
+  HLTC70.5.7: Проверить для всех существующих версий, что в свойствах файлов будет прописана актуальная информация:
+    Версия файла (первые 3 цифры)
+    Версия продукта (1 цифра)
+  HLTC70.5.7.1: Для всех исполняемых файлов (exe, dll и run), установленной версии
+    HLTC70.5.7.1.1 Для КС
+}
+function  HLTC70_5_7_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+	i, fileNamesArray, pathToF1, pathToFile, infoStr;
+begin
+try
+  Result := true;
+
+  fileNamesArray := [
+    'apps\winNT\F1BU.exe',
+    'apps\winNT\F1Server.exe',
+    'apps\winNT\F1ServerMng.exe',
+    'apps\winNT\F1ServerStopper.exe',
+    'apps\winNT\F1UsersImport.exe',    
+    'apps\winNT\csadapter.dll',
+    'apps\winNT\gl.dll',
+    'apps\winNT\gu711.dll',
+    'apps\winNT\GU7tr.dll',
+    'apps\winNT\f1consultingchecker.run',
+    'apps\winNT\f1datasetup.run',
+    'apps\winNT\f1dataupd.run',
+    'apps\winNT\f1download.run',
+    'apps\f1shell.dll',
+    'apps\f1consultingchecker.exe',
+    'apps\f1easyupdate.exe',
+    'apps\f1prime.exe',
+    'apps\f1sendmail.exe',
+    'apps\f1sleep.exe',
+    'apps\f1admin.run',
+    'apps\f1prime.run',
+    'apps\f1shell.run',
+    'apps\f1splashscreen.run',
+    'settings\xmltools\winNT\f1userssave.exe',
+    'datasetup.exe',
+    'dataupd.exe',
+    'download.exe',
+    'garant.exe'
+  ];
+
+  if not IsQCPluginEnabled then
+    Raise('QCPlugin не найден!');  
+  pathToF1 := IncludeTrailingBackslash(GetF1Directory);
+  if not DirectoryExists(pathToF1) then
+    Raise('Каталог F1 не найден "' + pathToF1 + '"');
+
+  for i := VarArrayLowBound(fileNamesArray, 1) to VarArrayHighBound(fileNamesArray, 1) do
+  begin
+    pathToFile := pathToF1 + fileNamesArray[i]; 
+    if not FileExists(pathToFile) then
+      Result := ErrorResult('Файл для проверки версии не найден: "' + pathToFile + '"')
+    else
+    begin
+      // file ver
+      infoStr := '';
+      try
+        infoStr := Trim(gbl_QCPlugin.GetFileVerInfo(pathToFile, 'FileVersion'));
+      except
+        Result := ErrorResult('Ошибка (' + ExceptionMessage + ') во время получения информации "File Version" о файле "' + pathToFile + '"');
+      end;
+      if not (StringCompare(F1_FILE_VER, infoStr) or StringCompare(F1_FILE_VER_EX, infoStr)) then
+        Result := ErrorResult('Не соответствует "File Version" в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_FILE_VER + '" или "' + F1_FILE_VER_EX + '"');
+      infoStr := Sys.OleObject('Scripting.FileSystemObject').GetFileVersion(pathToFile);        
+      if not (StringCompare(F1_FILE_VER, infoStr) or StringCompare(F1_FILE_VER_EX, infoStr)) then
+        Result := ErrorResult('Не соответствует основной "File Version" (через FSO) в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_FILE_VER + '" или "' + F1_FILE_VER_EX + '"');
+
+      // product ver
+      infoStr := '';
+      try
+        infoStr := Trim(gbl_QCPlugin.GetFileVerInfo(pathToFile, 'ProductVersion'));
+      except
+        Result := ErrorResult('Ошибка (' + ExceptionMessage + ') во время получения информации "Product Version" о файле "' + pathToFile + '"');
+      end;
+      if not StringCompare(F1_PRODUCT_VER, infoStr) then
+        Result := ErrorResult('Не соответствует "Product Version" в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_PRODUCT_VER + '"');
+    end;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.5.7.1.2 Для ФС
+}
+function  HLTC70_5_7_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+	i, fileNamesArray, pathToF1, pathToFile, infoStr;
+begin
+try
+  Result := true;
+
+  fileNamesArray := [
+    'apps\winNT\csadapter.dll',
+    'apps\winNT\gl.dll',
+    'apps\winNT\gsock32.dll',
+    'apps\winNT\gu711.dll',
+    'apps\winNT\GU7tr.dll',
+    'apps\winNT\f1consultingchecker.run',
+    'apps\winNT\f1datasetup.run',
+    'apps\winNT\f1dataupd.run',
+    'apps\winNT\f1download.run',
+    'apps\f1shell.dll',
+    'apps\f1consultingchecker.exe',
+    'apps\f1easyupdate.exe',
+    'apps\f1prime.exe',
+    'apps\f1sendmail.exe',
+    'apps\f1sleep.exe',
+    'apps\f1admin.run',
+    'apps\f1cachehelper.run',
+    'apps\f1prime.run',
+    'apps\f1shell.run',
+    'apps\f1splashscreen.run',
+    'settings\xmltools\winNT\f1userssave.exe',
+    'settings\gclean.exe',
+    'datasetup.exe',
+    'dataupd.exe',
+    'download.exe',
+    'garant.exe'
+  ];
+
+  if not IsQCPluginEnabled then
+    Raise('QCPlugin не найден!');  
+  pathToF1 := IncludeTrailingBackslash(GetF1Directory);
+  if not DirectoryExists(pathToF1) then
+    Raise('Каталог F1 не найден "' + pathToF1 + '"');
+
+  for i := VarArrayLowBound(fileNamesArray, 1) to VarArrayHighBound(fileNamesArray, 1) do
+  begin
+    pathToFile := pathToF1 + fileNamesArray[i]; 
+    if not FileExists(pathToFile) then
+      Result := ErrorResult('Файл для проверки версии не найден: "' + pathToFile + '"')
+    else
+    begin
+      // file ver
+      infoStr := '';
+      try
+        infoStr := Trim(gbl_QCPlugin.GetFileVerInfo(pathToFile, 'FileVersion'));
+      except
+        Result := ErrorResult('Ошибка (' + ExceptionMessage + ') во время получения информации "File Version" о файле "' + pathToFile + '"');
+      end;
+      if not (StringCompare(F1_FILE_VER, infoStr) or StringCompare(F1_FILE_VER_EX, infoStr)) then
+        Result := ErrorResult('Не соответствует "File Version" в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_FILE_VER + '" или "' + F1_FILE_VER_EX + '"');
+      infoStr := Sys.OleObject('Scripting.FileSystemObject').GetFileVersion(pathToFile);        
+      if not (StringCompare(F1_FILE_VER, infoStr) or StringCompare(F1_FILE_VER_EX, infoStr)) then
+        Result := ErrorResult('Не соответствует основной "File Version" (через FSO) в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_FILE_VER + '" или "' + F1_FILE_VER_EX + '"');
+
+      // product ver
+      infoStr := '';
+      try
+        infoStr := Trim(gbl_QCPlugin.GetFileVerInfo(pathToFile, 'ProductVersion'));
+      except
+        Result := ErrorResult('Ошибка (' + ExceptionMessage + ') во время получения информации "Product Version" о файле "' + pathToFile + '"');
+      end;
+      if not StringCompare(F1_PRODUCT_VER, infoStr) then
+        Result := ErrorResult('Не соответствует "Product Version" в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_PRODUCT_VER + '"');
+    end;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.5.7.1.3 Для Десктоп
+}
+function  HLTC70_5_7_1_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+	i, fileNamesArray, pathToF1, pathToFile, infoStr;
+begin
+try
+  Result := true;
+
+  fileNamesArray := [
+    'apps\winNT\csadapter.dll',
+    'apps\winNT\gl.dll',
+    'apps\winNT\gsock32.dll',
+    'apps\winNT\gu711.dll',
+    'apps\winNT\GU7tr.dll',
+    'apps\winNT\f1consultingchecker.run',
+    'apps\winNT\f1datasetup.run',
+    'apps\winNT\f1dataupd.run',
+    'apps\winNT\f1download.run',
+    'apps\f1shell.dll',
+    'apps\f1consultingchecker.exe',
+    'apps\f1easyupdate.exe',
+    'apps\f1prime.exe',
+    'apps\f1sendmail.exe',
+    'apps\f1sleep.exe',
+    'apps\f1admin.run',
+    'apps\f1prime.run',
+    'apps\f1shell.run',
+    'apps\f1splashscreen.run',
+    'settings\xmltools\winNT\f1userssave.exe',
+    'settings\gclean.exe',
+    'datasetup.exe',
+    'dataupd.exe',
+    'download.exe',
+    'garant.exe'
+  ];
+
+  if not IsQCPluginEnabled then
+    Raise('QCPlugin не найден!');  
+  pathToF1 := IncludeTrailingBackslash(GetF1Directory);
+  if not DirectoryExists(pathToF1) then
+    Raise('Каталог F1 не найден "' + pathToF1 + '"');
+
+  for i := VarArrayLowBound(fileNamesArray, 1) to VarArrayHighBound(fileNamesArray, 1) do
+  begin
+    pathToFile := pathToF1 + fileNamesArray[i]; 
+    if not FileExists(pathToFile) then
+      Result := ErrorResult('Файл для проверки версии не найден: "' + pathToFile + '"')
+    else
+    begin
+      // file ver
+      infoStr := '';
+      try
+        infoStr := Trim(gbl_QCPlugin.GetFileVerInfo(pathToFile, 'FileVersion'));
+      except
+        Result := ErrorResult('Ошибка (' + ExceptionMessage + ') во время получения информации "File Version" о файле "' + pathToFile + '"');
+      end;
+      if not (StringCompare(F1_FILE_VER, infoStr) or StringCompare(F1_FILE_VER_EX, infoStr)) then
+        Result := ErrorResult('Не соответствует "File Version" в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_FILE_VER + '" или "' + F1_FILE_VER_EX + '"');
+      infoStr := Sys.OleObject('Scripting.FileSystemObject').GetFileVersion(pathToFile);        
+      if not (StringCompare(F1_FILE_VER, infoStr) or StringCompare(F1_FILE_VER_EX, infoStr)) then
+        Result := ErrorResult('Не соответствует основной "File Version" (через FSO) в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_FILE_VER + '" или "' + F1_FILE_VER_EX + '"');
+
+      // product ver
+      infoStr := '';
+      try
+        infoStr := Trim(gbl_QCPlugin.GetFileVerInfo(pathToFile, 'ProductVersion'));
+      except
+        Result := ErrorResult('Ошибка (' + ExceptionMessage + ') во время получения информации "Product Version" о файле "' + pathToFile + '"');
+      end;
+      if not StringCompare(F1_PRODUCT_VER, infoStr) then
+        Result := ErrorResult('Не соответствует "Product Version" в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_PRODUCT_VER + '"');
+    end;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.5.7.2: Для F1setup.exe, и всех exe-шников инсталлятора (файлы f1*.exe в папке setup)
+}
+function  HLTC70_5_7_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+	i, fileNamesArray, pathToF1, pathToFile, infoStr;
+begin
+try
+  Result := true;
+
+  fileNamesArray := [
+    'setup\f1clientsetupeng_en-us.exe',
+    'setup\f1clientsetupeng_ru-ru.exe',
+    'setup\f1clientsetuprus_en-us.exe',
+    'setup\f1clientsetuprus_ru-ru.exe',
+    'setup\f1fileserversetupeng_en-us.exe',
+    'setup\f1fileserversetupeng_ru-ru.exe',
+    'setup\f1fileserversetuprus_en-us.exe',
+    'setup\f1fileserversetuprus_ru-ru.exe',
+    'setup\f1localsetupeng_en-us.exe',
+    'setup\f1localsetupeng_ru-ru.exe',
+    'setup\f1localsetuprus_en-us.exe',
+    'setup\f1localsetuprus_ru-ru.exe',
+    'setup\f1serversetupeng_en-us.exe',
+    'setup\f1serversetupeng_ru-ru.exe',
+    'setup\f1serversetuprus_en-us.exe',
+    'setup\f1serversetuprus_ru-ru.exe',
+    'F1Setup.exe'
+  ];
+
+  if not IsQCPluginEnabled then
+    Raise('QCPlugin не найден!');  
+  pathToF1 := GetPathToInstallerDir;
+  if not DirectoryExists(pathToF1) then
+    Raise('Каталог с инсталлятором F1 не найден "' + pathToF1 + '"');
+
+  for i := VarArrayLowBound(fileNamesArray, 1) to VarArrayHighBound(fileNamesArray, 1) do
+  begin
+    pathToFile := pathToF1 + fileNamesArray[i]; 
+    if not FileExists(pathToFile) then
+      Result := ErrorResult('Файл для проверки версии не найден: "' + pathToFile + '"')
+    else
+    begin
+      // file ver
+      infoStr := '';
+      try
+        infoStr := Trim(gbl_QCPlugin.GetFileVerInfo(pathToFile, 'FileVersion'));
+      except
+        Result := ErrorResult('Ошибка (' + ExceptionMessage + ') во время получения информации "File Version" о файле "' + pathToFile + '"');
+      end;
+      if not (StringCompare(F1_FILE_VER, infoStr) or StringCompare(F1_FILE_VER_EX, infoStr)) then
+        Result := ErrorResult('Не соответствует "File Version" в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_FILE_VER + '" или "' + F1_FILE_VER_EX + '"');
+      infoStr := Sys.OleObject('Scripting.FileSystemObject').GetFileVersion(pathToFile);        
+      if not (StringCompare(F1_FILE_VER, infoStr) or StringCompare(F1_FILE_VER_EX, infoStr)) then
+        Result := ErrorResult('Не соответствует основной "File Version" (через FSO) в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_FILE_VER + '" или "' + F1_FILE_VER_EX + '"');
+
+      // product ver
+      infoStr := '';
+      try
+        infoStr := Trim(gbl_QCPlugin.GetFileVerInfo(pathToFile, 'ProductVersion'));
+      except
+        Result := ErrorResult('Ошибка (' + ExceptionMessage + ') во время получения информации "Product Version" о файле "' + pathToFile + '"');
+      end;
+      if not StringCompare(F1_PRODUCT_VER, infoStr) then
+        Result := ErrorResult('Не соответствует "Product Version" в файле "' + pathToFile + '", получили "' + infoStr + '", ожидалось "' + F1_PRODUCT_VER + '"');
+    end;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.5.8: Изменить (перед каждым запуском) в реестре (HKCU\Software) путь к инишнику и запустить:
+    HLTC70.5.8.1: оболочку отдельного клиента КС версии
+    HLTC70.5.8.2: оболочку КС версии в каталоге с сервером
+}
+function  HLTC70_5_8_1_KS_Execute(var  current_state: OleVariant): OleVariant;
+const
+  PATH_F1_NEW = 'C:\';
+var
+	pathToF1;
+begin
+try
+  Result := true;
+  pathToF1 := GetF1Directory;
+  try    
+    CloseF1Shell;
+    if not SetF1Directory(PATH_F1_NEW) then
+      Raise('Не получилось выставить путь к инифайлу: ' + PATH_F1_NEW + '"');
+    if not StartF1Shell(pathToF1) then
+      Raise('Не получилось запустить оболочку из каталога: "' + pathToF1 + '"');
+    if not StringCompare(pathToF1, GetF1Directory) then
+      Raise('Путь к инифайлу не восстановился после запуска оболочки. Текущий путь в реестре: "' + GetF1Directory + '", должен быть "' + pathToF1 + '"');
+  finally
+    SetF1Directory(pathToF1);
+    CloseF1Shell;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC70.5.8.3: локальную версию
+}
+function HLTC70_5_8_3_DESKTOP_Execute(var  current_state: OleVariant): OleVariant;
+begin
+  try
+    Result := HLTC70_5_8_1_KS_Execute(current_state);
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC70.5.8.4: ФС версию
+}
+function HLTC70_5_8_4_FS_Execute(var  current_state: OleVariant): OleVariant;
+begin
+  try
+    Result := HLTC70_5_8_1_KS_Execute(current_state);
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  HLTC70.6.1.2: Название и дата ревизии комплекта отображается в названии окна. Для тестовой базы это 
+  «Это длинное РУССКОЕ имя для тестовой базы. Больше 75 символов. Кончается на Ы. Версия от 24 мая 2013 г.»
+}
+function  HLTC70_6_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  wndcaption, str;
+begin  
+try
+  Result := true;
+  wndcaption := MAINWINDOW_CAPTION + ' - Это длинное РУССКОЕ имя для тестовой базы. Больше 75 символов. Кончается на Ы. Версия от 24 мая 2013 г.';
+
+  if not GoToMainMenu then 
+    Raise('Не получилось зайти в ОМ');
+    
+  str := GetMainWindow.WndCaption;    
+  if not StringCompare(wndcaption, str) then
+    Raise('Заголовок окна не соответствует, ожидалось: "' + wndcaption + '", есть "' + str + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests70;
+var currText, i, p, w : oleVariant;
+begin
+//  HLTC70_1_3_1_Execute(p);
+//  HLTC70_1_11_1_1_Execute(p);
+//  HLTC70_1_11_1_2_Execute(p);
+//  HLTC70_1_11_1_3_Execute(p);
+//  HLTC70_2_3_Execute(p);
+//  HLTC70_2_4_Execute(p);
+//  HLTC70_2_5_Execute(p);
+//  HLTC70_2_8_Execute(p);
+//  HLTC70_3_1_Execute(p);
+//  HLTC70_3_2_5_Execute(p);
+//  HLTC70_3_2_6_Execute(p);
+//  HLTC70_3_2_7_Execute(p);
+//  HLTC70_3_5_2_Execute(p);
+//  HLTC70_3_6_1_Execute(p);
+//  HLTC70_4_4_1_Execute(p);
+
+//  HLTC70_5_1_Execute(p);
+//  HLTC70_5_7_1_1_Execute(p);
+//  HLTC70_5_7_1_2_Execute(p);
+//  HLTC70_5_7_1_3_Execute(p);
+//  HLTC70_5_7_2_Execute(p);
+//  HLTC70_5_8_1_KS_Execute(p);
+//  HLTC70_5_8_3_DESKTOP_Execute(p);
+//  HLTC70_5_8_4_FS_Execute(p);
+//  HLTC70_6_1_2_Execute(p);
+////////////////////////////////////////////////////////////////////////////////
+
+
+  
+
+
+
+
+
+
+
+
+
+   
+end;

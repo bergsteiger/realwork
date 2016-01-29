@@ -1,0 +1,44 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 71.1.3.1 ***
+
+Sub Main
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+  Dim Result As Integer
+  Dim value$
+
+  Call NeedState (ST_MAIN_MENU)
+  CUR_STATE = ST_NONE_STANDART
+  
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Правовой навигатор \ Международные договоры
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=92,12"
+  GenericObject Click, "Text=Международные договоры", "Coords=136,13"
+  
+'Переводим фокус на закладку навигатора "Международные договоры"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+  
+'Разворачиваем все элементы
+  Window SetContext, "Caption=ГАРАНТ 6 - Международные договоры", ""
+  Call Click_NavExpClps
+  
+'--Переход в развернутом дереве на узел "Охрана правопорядка, международное уголовное право"
+'Переход в развернутом дереве на узел "Обеспечение международной безопасности"
+  InputKeys "{PGDN}{UP}{UP}{UP}"
+  
+'Проверяем название выбранного элемента
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Обеспечение международной безопасности", value)
+  
+'Переход в развернутом дереве на лист "Торгово-экономическое сотрудничество"  
+  InputKeys "{END}{PGUP}{UP}"
+  
+'Проверяем название выбранного элемента  
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Торгово-экономическое сотрудничество", value)
+End Sub

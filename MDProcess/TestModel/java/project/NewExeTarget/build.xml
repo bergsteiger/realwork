@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<project name="NewExeTarget" basedir=".">
+	<property name="build.dir" value="w:/build/target"/>
+	<property environment="env"/>
+
+	<target name="idlcomp">
+		<ant antfile="W:/shared/java/project/CoreSrv/build.xml" target="idlcomp" inheritAll="false"/>
+		<ant antfile="w:/MDProcess/TestModel/java/project/SubServerLibrary/build.xml" target="idlcomp" inheritAll="false"/>
+	</target>
+
+	<target name="gcomp">
+
+	</target>
+	<target name="cleanJar">
+		<delete dir="${build.dir}/jar" />
+	</target>
+	<target name="makejar">
+		<ant antfile="W:/shared/java/project/Core/build.xml" target="makejar" inheritAll="false"/>
+		<ant antfile="W:/shared/java/project/FSM/build.xml" target="makejar" inheritAll="false"/>
+		<ant antfile="W:/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/>
+		<ant antfile="w:/MDProcess/TestModel/java/project/NewLibrary/build.xml" target="makejar" inheritAll="false"/>
+		<ant antfile="w:/MDProcess/TestModel/java/project/NewServerLibrary/build.xml" target="makejar" inheritAll="false"/>
+		<ant antfile="w:/MDProcess/TestModel/java/project/NewTestLibrary/build.xml" target="makejar" inheritAll="false"/>
+		<ant antfile="w:/MDProcess/TestModel/java/project/BasicTests/build.xml" target="makejar" inheritAll="false"/>
+		<ant antfile="w:/MDProcess/TestModel/java/project/SubTestLibrary/build.xml" target="makejar" inheritAll="false"/>
+		<ant antfile="w:/MDProcess/TestModel/java/project/SubServerLibrary/build.xml" target="makejar" inheritAll="false"/>
+		<jar destfile="${build.dir}/jar/NewExeTarget.jar">
+			<fileset dir ="${build.dir}/classes">
+				<include name="ru/garant/TestModel/NewExeTarget/"/>
+			</fileset>
+			<fileset dir ="w:/MDProcess/TestModel/java/src/etc"/>
+		</jar>
+	</target>
+</project>

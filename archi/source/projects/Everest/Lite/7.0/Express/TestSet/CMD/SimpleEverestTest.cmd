@@ -1,0 +1,1 @@
+call RunEverestTest.cmd > a.log

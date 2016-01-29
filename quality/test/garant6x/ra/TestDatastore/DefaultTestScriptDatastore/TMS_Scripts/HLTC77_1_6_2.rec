@@ -1,0 +1,36 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Dim ListArray(1 to 1) as String
+Sub FillArray
+    ListArray(1)="Соглашение между Правительством Российской Федерации и Правительством Республики Беларусь о порядке взаимодействия при осуществлении экспорта продукции военного назначения в третьи страны (Москва, 6 июля 2000 г.)"
+          
+end sub
+Sub Main
+    call FillArray
+    'CUR_STATE=ST_NONE_STANDART
+    Call NeedState (ST_MAIN_MENU)
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+'    GenericObject Click, "Text=Правовой навигатор", "Coords=80,15"
+'    GenericObject Click, "Text=Проекты законов", "Coords=58,15"
+    GenericObject DblClick, "Text=Правовой навигатор", ""
+    GenericObject DblClick, "Text=Формы документов", ""
+ 
+    if Position_by_Text("CurrentFocus","Законодательство об обороне",PressHome:=1)<>0 then
+       InputKeys "{ENTER}"
+    else
+       SQALogMessage sqaFail, "Элемент не найден", "Элемент не найден"
+    end if
+    if Position_by_Text("CurrentFocus","Вооружение и военная техника",PressHome:=1)<>0 then
+       InputKeys "{ENTER}"
+    else
+       SQALogMessage sqaFail, "Элемент не найден", "Элемент не найден"
+    end if
+    Window SetContext, "Caption={ГАРАН*}", ""
+    Dim ListCount%
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call StrComp2Log(CSTR(ListCount),"1")
+    call CheckItemNames(ListArray,"{DOWN}",0,ListCount,1)
+    CUR_STATE=ST_NONE_STANDART
+
+End Sub

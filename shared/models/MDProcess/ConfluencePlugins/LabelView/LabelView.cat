@@ -1,0 +1,112 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "LabelView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"1396519758011433")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false"))
+    quid       	"533D334E0003"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "garviewlabel"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1396519937922724")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/LabelView/garviewlabel.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*533D34010397_CUSTOM_CONTENT*"
+		    value      	
+|##UC_BEGIN*533D34010397_CUSTOM_CONTENT*¤<html>¤	<head>¤		<title>$action.getText("label.view.title", [$label.name])</title>¤	</head>¤¤	#if ($action.space)¤		#set ($decoratorContext = "space-labels")¤		#set ($location = "system.space.labels")¤	#else¤		#set ($decoratorContext = "labels")¤		#set ($location = "system.labels")¤	#end¤¤	<body>¤    #applyDecorator("root")¤		#decoratorParam("context" $decoratorContext)¤        #decoratorParam("helper" $action.helper)¤¤        <script type="text/javascript">¤            function toggleSpanDisplay(elementId, trigger_element)¤            {¤                var element = document.getElementById(elementId);¤                if (element.style.display == 'none')¤                {¤                    element.style.display = 'inline';¤                    trigger_element.innerHTML = '&laquo; less';¤                }¤                else¤                {¤                    element.style.display = 'none';¤                    trigger_element.innerHTML = 'more &raquo;';¤                }¤            }¤        </script>¤¤        <table cellspacing="10px" width="100%">¤            <tr>¤                <td width="85%" valign="top">¤                    <p>¤                    #if ($action.space.key)¤                        $action.getText("content.with.label.in.space", ["$!label.name", "$webwork.htmlEncode($action.space.name)", "$req.contextPath$label.urlPath"])¤                    #else¤                        $action.getText("all.content.with.label", ["$!label.name"])¤                    #end<br/>¤						&#1055;&#1086;&#1082;&#1072;&#1079;&#1072;&#1085;&#1099;&#32;&#1090;&#1086;&#1083;&#1100;&#1082;&#1086;&#32;&#1087;&#1077;&#1088;&#1074;&#1099;&#1077;&#32;&#49;&#48;&#32;&#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1086;&#1074;&#44;&#32;&#1076;&#1083;&#1103;&#32;&#1087;&#1086;&#1083;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;&#32;&#1086;&#1089;&#1090;&#1072;&#1083;&#1100;&#1085;&#1099;&#1093;&#32;&#1074;&#1086;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077;&#1089;&#1100;&#32;&#1087;&#1086;&#1080;&#1089;&#1082;&#1086;&#1084;¤                    </p>¤ ¤                #set($ps = $action.paginationSupport)¤                #if($ps)¤                    <table width="100%" class="tableview topRow">¤                        #if(!$action.preloadedPage || $action.preloadedPage.size() == 0)¤                            <tr>¤                                <td colspan="6">¤                                    $action.getText("there.are.no.pages")¤                                </td>¤                            </tr>¤                        #else¤¤                            #foreach( $content in $action.preloadedPage)¤                                <tr>¤                                    <td valign="top" #if ($velocityCount == 1)class="topRow"#end>¤                                            #contentLink2( $content true false )¤                                        #if (!$action.space)¤                                            #contentOther( $content)¤                                        #end¤¤                                        #if ($content.type != "attachment")¤                                            #set ($encodedSummary = $generalUtil.htmlEncode($generalUtil.wordWrap($content.excerpt, 75)))¤                                        #elseif ($content.type == "attachment" && $content.comment)¤                                            #set ($encodedSummary = $generalUtil.htmlEncode($content.comment))¤                                        #end¤                                        <br/>¤                                        $encodedSummary<br/>¤                                        #set ($otherLabels = $action.getOtherLabels($content))¤                                        #if ($otherLabels.size() > 0)¤                                        <span class="smalltext">$action.getText("other.labels")¤                                        #foreach ($otherLabel in $otherLabels)#if ($velocityCount == 9) ...#elseif($velocityCount > 1), #end#if ($velocityCount < 9)#labelLink($otherLabel)#end#end</span>¤                                        #end¤                                    </td>¤                                    #set ($datedObject = $content)¤                                    #if ($content.type == "spacedesc" || $content.type == "personalspacedesc")¤                                        #set ($datedObject = $content.space)¤                                    #end¤                                </tr>¤                            #end¤                        #end¤                    </table>¤                #end¤¤                </td>¤                <td width="15%" valign="top">¤                    #parse( "/labels/includes/labels-sidebar.vm" )¤                </td>¤            </tr>¤        </table>¤    #end¤</body>¤</html>¤##UC_END*533D34010397_CUSTOM_CONTENT*
+		    ))
+	    quid       	"533D34010397"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"533D33FD0151"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::LabelView::garviewlabel" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(411, 570)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(289, 541)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"garviewlabel")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(289, 491)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"533D34010397"
+		    width      	262
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)))))

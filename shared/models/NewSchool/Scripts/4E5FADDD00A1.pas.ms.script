@@ -1,0 +1,402 @@
+// Segments 4E5FADDD00A1 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5FADDD00A1
+
+FORWARD ME_4E5FAE1700D5
+
+FORWARD ME_4E5FB49D0253
+
+: ME_4E5FB4AC0160
+ CONST UID '4E5FB4AC0160'
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_4E5FB4AC0160 aTag
+
+: ME_4E5FB4A4037F
+ CONST UID '4E5FB4A4037F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5FB49D0253 // Create
+ ;
+ : Parameters
+   @ ( ME_4E5FB4AC0160 // aTag
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4E5FB4A4037F DoIt
+
+: ME_4E5FB49D0253
+ CONST UID '4E5FB49D0253'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ : Operations
+   @ ( ME_4E5FB4A4037F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E5FB49D0253 Create
+
+FORWARD ME_4E5FB4B90229
+
+: ME_F1F069B39E20
+ CONST UID 'F1F069B39E20'
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_F1F069B39E20 aTag
+
+: ME_E676710C58D6
+ CONST UID 'E676710C58D6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TnevSegmentObject.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5FB4B90229 // Make
+ ;
+ : Target WL 'ME_49D0E657022F' '4678209200A6.pas.ms.script' // InevObjectPrim
+ ;
+ : Parameters
+   @ ( ME_F1F069B39E20 // aTag
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_E676710C58D6 DoIt
+
+: ME_4E5FB4B90229
+ CONST UID '4E5FB4B90229'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ : Inherits
+   @ ( ME_4E5FB49D0253 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_49D0E657022F' '4678209200A6.pas.ms.script' // InevObjectPrim
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_E676710C58D6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4E5FB4B90229 Make
+
+: ME_4E708D6D0221
+ CONST UID '4E708D6D0221'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ : Target WL 'ME_4E7087BE0311' '54B90AC6014B.pas.ms.script' // l3AssignNil
+ ;
+
+ref; // ME_4E708D6D0221 
+
+: ME_53439D980196
+ CONST UID '53439D980196'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ : Target WL 'ME_484FDC4F013F' '484A470100DD.pas.ms.script' // TextSegment
+ ;
+
+ref; // ME_53439D980196 
+
+: ME_47C6AB1D02C0_ME_4E5FAE1700D5
+ CONST UID '47C6AB1D02C0'
+ CONST Name 'Text'
+ : Original WL 'ME_47C6AB1D02C0' '4678209200A6.pas.ms.script' // Text
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "pm" true
+ref; // ME_47C6AB1D02C0_ME_4E5FAE1700D5 Text
+
+: ME_47C6AB2A0082_ME_4E5FAE1700D5
+ CONST UID '47C6AB2A0082'
+ CONST Name 'TabStops'
+ : Original WL 'ME_47C6AB2A0082' '4678209200A6.pas.ms.script' // TabStops
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "pm" true
+ref; // ME_47C6AB2A0082_ME_4E5FAE1700D5 TabStops
+
+: ME_49D0BBEE0383_ME_4E5FAE1700D5
+ CONST UID '49D0BBEE0383'
+ CONST Name 'IsHiddenPrim'
+ : Original WL 'ME_49D0BBEE0383' '4678209200A6.pas.ms.script' // IsHiddenPrim
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ref; // ME_49D0BBEE0383_ME_4E5FAE1700D5 IsHiddenPrim
+
+: ME_49D0C441019B_ME_4E5FAE1700D5
+ CONST UID '49D0C441019B'
+ CONST Name 'OffsetX'
+ : Original WL 'ME_49D0C441019B' '4678209200A6.pas.ms.script' // OffsetX
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "pm" true
+ref; // ME_49D0C441019B_ME_4E5FAE1700D5 OffsetX
+
+: ME_49D0E3CE00F5_ME_4E5FAE1700D5
+ CONST UID '49D0E3CE00F5'
+ CONST Name 'IsList'
+ : Original WL 'ME_49D0E3CE00F5' '4678209200A6.pas.ms.script' // IsList
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ref; // ME_49D0E3CE00F5_ME_4E5FAE1700D5 IsList
+
+: ME_49D0E4E7009C_ME_4E5FAE1700D5
+ CONST UID '49D0E4E7009C'
+ CONST Name 'PID'
+ : Original WL 'ME_49D0E4E7009C' '4678209200A6.pas.ms.script' // PID
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "pm" true
+ref; // ME_49D0E4E7009C_ME_4E5FAE1700D5 PID
+
+: ME_49D0E75F00E4_ME_4E5FAE1700D5
+ CONST UID '49D0E75F00E4'
+ CONST Name 'IsVertical'
+ : Original WL 'ME_49D0E75F00E4' '4678209200A6.pas.ms.script' // IsVertical
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "pm" true
+ref; // ME_49D0E75F00E4_ME_4E5FAE1700D5 IsVertical
+
+: ME_49D104BB01AF_ME_4E5FAE1700D5
+ CONST UID '49D104BB01AF'
+ CONST Name 'OverlapType'
+ : Original WL 'ME_49D104BB01AF' '4678209200A6.pas.ms.script' // OverlapType
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "pm" false
+ref; // ME_49D104BB01AF_ME_4E5FAE1700D5 OverlapType
+
+: ME_49D105D10274_ME_4E5FAE1700D5
+ CONST UID '49D105D10274'
+ CONST Name 'NeedIncludeHeight'
+ : Original WL 'ME_49D105D10274' '4678209200A6.pas.ms.script' // NeedIncludeHeight
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ref; // ME_49D105D10274_ME_4E5FAE1700D5 NeedIncludeHeight
+
+: ME_4B7BDCA502F7_ME_4E5FAE1700D5
+ CONST UID '4B7BDCA502F7'
+ CONST Name 'IsLegalComment'
+ : Original WL 'ME_4B7BDCA502F7' '4678209200A6.pas.ms.script' // IsLegalComment
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ref; // ME_4B7BDCA502F7_ME_4E5FAE1700D5 IsLegalComment
+
+: ME_4E1AFECA025B_ME_4E5FAE1700D5
+ CONST UID '4E1AFECA025B'
+ CONST Name 'IsDecorationElement'
+ : Original WL 'ME_4E1AFECA025B' '4678209200A6.pas.ms.script' // IsDecorationElement
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ref; // ME_4E1AFECA025B_ME_4E5FAE1700D5 IsDecorationElement
+
+: ME_4E243EF60356_ME_4E5FAE1700D5
+ CONST UID '4E243EF60356'
+ CONST Name 'DecorObj'
+ : Original WL 'ME_4E243EF60356' '4678209200A6.pas.ms.script' // DecorObj
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ref; // ME_4E243EF60356_ME_4E5FAE1700D5 DecorObj
+
+: ME_4E5E1CB9007D_ME_4E5FAE1700D5
+ CONST UID '4E5E1CB9007D'
+ CONST Name 'HolderPrim'
+ : Original WL 'ME_4E5E1CB9007D' '4678209200A6.pas.ms.script' // HolderPrim
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "pm" false
+ref; // ME_4E5E1CB9007D_ME_4E5FAE1700D5 HolderPrim
+
+: ME_4E6F7B7902C4_ME_4E5FAE1700D5
+ CONST UID '4E6F7B7902C4'
+ CONST Name 'TreatCollapsedAsHidden'
+ : Original WL 'ME_4E6F7B7902C4' '4678209200A6.pas.ms.script' // TreatCollapsedAsHidden
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "pm" false
+ref; // ME_4E6F7B7902C4_ME_4E5FAE1700D5 TreatCollapsedAsHidden
+
+: ME_47A6FEE600FC_ME_4E5FAE1700D5
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_4E5FAE1700D5 IsCacheable
+
+: ME_4A48AFBD001D_ME_4E5FAE1700D5
+ CONST UID '4A48AFBD001D'
+ CONST Name 'NeedEvents'
+ : Original WL 'ME_4A48AFBD001D' '49A58A1A03C4.pas.ms.script' // NeedEvents
+ ;
+ : Implementor ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ref; // ME_4A48AFBD001D_ME_4E5FAE1700D5 NeedEvents
+
+: ME_4E5FAE1700D5
+ CONST UID '4E5FAE1700D5'
+ CONST Name 'TnevSegmentObject'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5FADDD00A1 // Segments
+ ;
+ : Inherits
+   @ ( WL 'ME_467C18A303CB' '467C182A01BE.pas.ms.script' // Tk2TagTool
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_49D0E657022F' '4678209200A6.pas.ms.script' // InevObjectPrim
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4E5FB49D0253 // Create
+ ME_4E5FB4B90229 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47C6AB1D02C0_ME_4E5FAE1700D5 // Text
+ ME_47C6AB2A0082_ME_4E5FAE1700D5 // TabStops
+ ME_49D0BBEE0383_ME_4E5FAE1700D5 // IsHiddenPrim
+ ME_49D0C441019B_ME_4E5FAE1700D5 // OffsetX
+ ME_49D0E3CE00F5_ME_4E5FAE1700D5 // IsList
+ ME_49D0E4E7009C_ME_4E5FAE1700D5 // PID
+ ME_49D0E75F00E4_ME_4E5FAE1700D5 // IsVertical
+ ME_49D104BB01AF_ME_4E5FAE1700D5 // OverlapType
+ ME_49D105D10274_ME_4E5FAE1700D5 // NeedIncludeHeight
+ ME_4B7BDCA502F7_ME_4E5FAE1700D5 // IsLegalComment
+ ME_4E1AFECA025B_ME_4E5FAE1700D5 // IsDecorationElement
+ ME_4E243EF60356_ME_4E5FAE1700D5 // DecorObj
+ ME_4E5E1CB9007D_ME_4E5FAE1700D5 // HolderPrim
+ ME_4E6F7B7902C4_ME_4E5FAE1700D5 // TreatCollapsedAsHidden
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A6FEE600FC_ME_4E5FAE1700D5 // IsCacheable
+ ME_4A48AFBD001D_ME_4E5FAE1700D5 // NeedEvents
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4E708D6D0221 // 
+ ME_53439D980196 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevSegmentObject.pas'
+
+ref; // ME_4E5FAE1700D5 TnevSegmentObject
+
+: ME_529EFC6301CE
+ CONST UID '529EFC6301CE'
+ CONST Name 'evSegOp'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5FADDD00A1 // Segments
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSegOp.pas'
+
+ref; // ME_529EFC6301CE evSegOp
+
+: ME_4E5FADDD00A1
+ CONST UID '4E5FADDD00A1'
+ CONST Name 'Segments'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4E5FAE1700D5 // TnevSegmentObject
+ ME_529EFC6301CE // evSegOp
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_467C182A01BE' '467C182A01BE.pas.ms.script' // k2TagTool
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E5FADDD00A1.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E5FADDD00A1.pas.ms.script.runner'
+
+ref; // ME_4E5FADDD00A1 Segments

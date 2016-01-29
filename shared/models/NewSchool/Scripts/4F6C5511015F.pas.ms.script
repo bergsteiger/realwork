@@ -1,0 +1,3163 @@
+// afwSettings 4F6C5511015F Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6C5511015F
+
+: ME_4AD58C89018C
+ CONST UID '4AD58C89018C'
+ CONST Name 'SettingsClass'
+ CONST Class class_Class
+ : Stereotype st_ImpurityParamType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ CONST extprop:pas:TypeName '_SettingsClass_'
+
+ref; // ME_4AD58C89018C SettingsClass
+
+: ME_4F6C56340320
+ CONST UID '4F6C56340320'
+ CONST Name 'IStringType'
+ CONST Class class_Class
+ : Stereotype st_ImpurityParamType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ CONST extprop:pas:TypeName '_IStringType_'
+
+ref; // ME_4F6C56340320 IStringType
+
+: ME_4F6C64FF032A
+ CONST UID '4F6C64FF032A'
+ CONST Name 'KeyType'
+ CONST Class class_Class
+ : Stereotype st_ImpurityParamType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ CONST extprop:pas:TypeName '_KeyType_'
+
+ref; // ME_4F6C64FF032A KeyType
+
+: ME_4F6C91F5037B
+ CONST UID '4F6C91F5037B'
+ CONST Name 'BooleanType'
+ CONST Class class_Class
+ : Stereotype st_ImpurityParamType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ CONST extprop:pas:TypeName '_BooleanType_'
+
+ref; // ME_4F6C91F5037B BooleanType
+
+FORWARD ME_4AD58B6C0289
+
+: ME_4F6C56400308
+ CONST UID '4F6C56400308'
+ CONST Name 'IStringType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_param::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target ME_4F6C56340320 // IStringType
+ ;
+
+ref; // ME_4F6C56400308 IStringType
+
+: ME_4F6C650A01BF
+ CONST UID '4F6C650A01BF'
+ CONST Name 'KeyType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_param::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target ME_4F6C64FF032A // KeyType
+ ;
+
+ref; // ME_4F6C650A01BF KeyType
+
+: ME_4AD58CFC02A8
+ CONST UID '4AD58CFC02A8'
+ CONST Name 'Settings'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target ME_4AD58C89018C // SettingsClass
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4AD58CFC02A8 Settings
+
+: ME_4F6C91FB033E
+ CONST UID '4F6C91FB033E'
+ CONST Name 'BooleanType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_param::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target ME_4F6C91F5037B // BooleanType
+ ;
+
+ref; // ME_4F6C91FB033E BooleanType
+
+: ME_552189DE540D
+ CONST UID '552189DE540D'
+ CONST Name 'f_Settings'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Settings' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target ME_4AD58C89018C // SettingsClass
+ ;
+
+ref; // ME_552189DE540D f_Settings
+
+: ME_4AD5914002E6
+ CONST UID '4AD5914002E6'
+ CONST Name 'aSettings'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4AD58C89018C // SettingsClass
+ ;
+
+ref; // ME_4AD5914002E6 aSettings
+
+: ME_4AD5913102A1
+ CONST UID '4AD5913102A1'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Parameters
+   @ ( ME_4AD5914002E6 // aSettings
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AD5913102A1 Create
+
+: ME_4AD59CD60064
+ CONST UID '4AD59CD60064'
+ CONST Name 'aSettingID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4AD59CD60064 aSettingID
+
+: ME_4AD5979E01BB
+ CONST UID '4AD5979E01BB'
+ CONST Name 'NotifySettingChanged'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Parameters
+   @ ( ME_4AD59CD60064 // aSettingID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AD5979E01BB NotifySettingChanged
+
+: ME_4AD59CCA00B5
+ CONST UID '4AD59CCA00B5'
+ CONST Name 'aSettingID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4AD59CCA00B5 aSettingID
+
+: ME_4AD597CE0390
+ CONST UID '4AD597CE0390'
+ CONST Name 'TryToRestore'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4AD59CCA00B5 // aSettingID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AD597CE0390 TryToRestore
+
+: ME_4AD59C9F036A
+ CONST UID '4AD59C9F036A'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4AD58C89018C // SettingsClass
+ ;
+
+ref; // ME_4AD59C9F036A aTarget
+
+: ME_4AD59C3600E7
+ CONST UID '4AD59C3600E7'
+ CONST Name 'aSettingId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4AD59C3600E7 aSettingId
+
+: ME_4AD59C360135
+ CONST UID '4AD59C360135'
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4720951F0382' '4AB0C3C60310.pas.ms.script' // byte
+ ;
+
+ref; // ME_4AD59C360135 aType
+
+: ME_4AD59C360183
+ CONST UID '4AD59C360183'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_4AD59C360183 aValue
+
+: ME_4AD59C3601C1
+ CONST UID '4AD59C3601C1'
+ CONST Name 'aDefault'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_4AD59C3601C1 aDefault
+
+: ME_4AD59C36020F
+ CONST UID '4AD59C36020F'
+ CONST Name 'aSetAsDefault'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AD59C36020F aSetAsDefault
+
+: ME_4AD59C2C027D
+ CONST UID '4AD59C2C027D'
+ CONST Name 'DoSaveParam'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Parameters
+   @ ( ME_4AD59C9F036A // aTarget
+ ME_4AD59C3600E7 // aSettingId
+ ME_4AD59C360135 // aType
+ ME_4AD59C360183 // aValue
+ ME_4AD59C3601C1 // aDefault
+ ME_4AD59C36020F // aSetAsDefault
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AD59C2C027D DoSaveParam
+
+: ME_4AD5AAAB0003
+ CONST UID '4AD5AAAB0003'
+ CONST Name 'aTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4AD58C89018C // SettingsClass
+ ;
+
+ref; // ME_4AD5AAAB0003 aTarget
+
+: ME_4AD5AAAB0042
+ CONST UID '4AD5AAAB0042'
+ CONST Name 'aSettingId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4AD5AAAB0042 aSettingId
+
+: ME_4AD5AA940324
+ CONST UID '4AD5AA940324'
+ CONST Name 'DoSetAsDefault'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Parameters
+   @ ( ME_4AD5AAAB0003 // aTarget
+ ME_4AD5AAAB0042 // aSettingId
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AD5AA940324 DoSetAsDefault
+
+: ME_4F6C57140004
+ CONST UID '4F6C57140004'
+ CONST Name 'aStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F6C56340320 // IStringType
+ ;
+
+ref; // ME_4F6C57140004 aStr
+
+: ME_4F6C56D90012
+ CONST UID '4F6C56D90012'
+ CONST Name 'IStringTypeToIl3CString'
+ CONST Class class_Operation
+ : Stereotype st_inline::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_4F6C57140004 // aStr
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C56D90012 IStringTypeToIl3CString
+
+: ME_4F6C653A0204
+ CONST UID '4F6C653A0204'
+ CONST Name 'aSettingID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C653A0204 aSettingID
+
+: ME_4F6C651603A5
+ CONST UID '4F6C651603A5'
+ CONST Name 'SettingIDtoKeyType'
+ CONST Class class_Operation
+ : Stereotype st_inline::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target ME_4F6C64FF032A // KeyType
+ ;
+ : Parameters
+   @ ( ME_4F6C653A0204 // aSettingID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C651603A5 SettingIDtoKeyType
+
+: ME_4F6C660B01D9
+ CONST UID '4F6C660B01D9'
+ CONST Name 'aStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C660B01D9 aStr
+
+: ME_4F6C65E2024F
+ CONST UID '4F6C65E2024F'
+ CONST Name 'Il3CStringToAString'
+ CONST Class class_Operation
+ : Stereotype st_inline::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_46A45CF00005' '4677FBA70343.pas.ms.script' // Il3AString
+ ;
+ : Parameters
+   @ ( ME_4F6C660B01D9 // aStr
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C65E2024F Il3CStringToAString
+
+: ME_4F6C69B900F3
+ CONST UID '4F6C69B900F3'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_4F6C69B900F3 aString
+
+: ME_4F6C699E009A
+ CONST UID '4F6C699E009A'
+ CONST Name 'StringToPChar'
+ CONST Class class_Operation
+ : Stereotype st_inline::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
+ ;
+ : Parameters
+   @ ( ME_4F6C69B900F3 // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C699E009A StringToPChar
+
+: ME_4AD5A7E400BD
+ CONST UID '4AD5A7E400BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AD5A7E400BD 
+
+: ME_4AD5A8070140
+ CONST UID '4AD5A8070140'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4AD5A8070140 
+
+: ME_4AD5AD870198
+ CONST UID '4AD5AD870198'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_4ACF4D6E03B5' '54B90AC6014B.pas.ms.script' // l3Str
+ ;
+
+ref; // ME_4AD5AD870198 
+
+: ME_4AD840B70106
+ CONST UID '4AD840B70106'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_48721F730220' '47E21C730035.pas.ms.script' // Tl3Strings
+ ;
+
+ref; // ME_4AD840B70106 
+
+: ME_4F6C56BC03A0
+ CONST UID '4F6C56BC03A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_4F6C56BC03A0 
+
+: ME_4F6C6FC0004B
+ CONST UID '4F6C6FC0004B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F6C6FC0004B 
+
+: ME_4AD59EBE0044_ME_4AD58B6C0289
+ CONST UID '4AD59EBE0044'
+ CONST Name 'LoadInteger'
+ : Original WL 'ME_4AD59EBE0044' '467823B7002C.pas.ms.script' // LoadInteger
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD59EBE0044_ME_4AD58B6C0289 LoadInteger
+
+: ME_4AD59EC20349_ME_4AD58B6C0289
+ CONST UID '4AD59EC20349'
+ CONST Name 'LoadParam'
+ : Original WL 'ME_4AD59EC20349' '467823B7002C.pas.ms.script' // LoadParam
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD59EC20349_ME_4AD58B6C0289 LoadParam
+
+: ME_4AD59EC6017E_ME_4AD58B6C0289
+ CONST UID '4AD59EC6017E'
+ CONST Name 'LoadString'
+ : Original WL 'ME_4AD59EC6017E' '467823B7002C.pas.ms.script' // LoadString
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD59EC6017E_ME_4AD58B6C0289 LoadString
+
+: ME_4AD59ECB0232_ME_4AD58B6C0289
+ CONST UID '4AD59ECB0232'
+ CONST Name 'SaveBoolean'
+ : Original WL 'ME_4AD59ECB0232' '467823B7002C.pas.ms.script' // SaveBoolean
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD59ECB0232_ME_4AD58B6C0289 SaveBoolean
+
+: ME_4AD59ED10331_ME_4AD58B6C0289
+ CONST UID '4AD59ED10331'
+ CONST Name 'SaveInteger'
+ : Original WL 'ME_4AD59ED10331' '467823B7002C.pas.ms.script' // SaveInteger
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD59ED10331_ME_4AD58B6C0289 SaveInteger
+
+: ME_4AD59ED60126_ME_4AD58B6C0289
+ CONST UID '4AD59ED60126'
+ CONST Name 'SaveParam'
+ : Original WL 'ME_4AD59ED60126' '467823B7002C.pas.ms.script' // SaveParam
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD59ED60126_ME_4AD58B6C0289 SaveParam
+
+: ME_4AD59EDD0244_ME_4AD58B6C0289
+ CONST UID '4AD59EDD0244'
+ CONST Name 'SaveString'
+ : Original WL 'ME_4AD59EDD0244' '467823B7002C.pas.ms.script' // SaveString
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD59EDD0244_ME_4AD58B6C0289 SaveString
+
+: ME_4AD5A017034A_ME_4AD58B6C0289
+ CONST UID '4AD5A017034A'
+ CONST Name 'LoadBoolean'
+ : Original WL 'ME_4AD5A017034A' '467823B7002C.pas.ms.script' // LoadBoolean
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD5A017034A_ME_4AD58B6C0289 LoadBoolean
+
+: ME_4AD83CCF036F_ME_4AD58B6C0289
+ CONST UID '4AD83CCF036F'
+ CONST Name 'LoadStrings'
+ : Original WL 'ME_4AD83CCF036F' '467823B7002C.pas.ms.script' // LoadStrings
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD83CCF036F_ME_4AD58B6C0289 LoadStrings
+
+: ME_4AD83CD703C0_ME_4AD58B6C0289
+ CONST UID '4AD83CD703C0'
+ CONST Name 'SaveStrings'
+ : Original WL 'ME_4AD83CD703C0' '467823B7002C.pas.ms.script' // SaveStrings
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_4AD83CD703C0_ME_4AD58B6C0289 SaveStrings
+
+: ME_479731C50290_ME_4AD58B6C0289
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ;
+ref; // ME_479731C50290_ME_4AD58B6C0289 Cleanup
+
+: ME_4AD58B6C0289
+ CONST UID '4AD58B6C0289'
+ CONST Name 'nsAbstractSettingsPrim'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Implements
+   @ ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
+ WL 'ME_4AD59E7E009A' '467823B7002C.pas.ms.script' // afwSettingsPrim
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F6C56400308 // IStringType
+ ME_4F6C650A01BF // KeyType
+ ME_4AD58CFC02A8 // Settings
+ ME_4F6C91FB033E // BooleanType
+ ME_552189DE540D // f_Settings
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4AD5913102A1 // Create
+ ME_4AD5979E01BB // NotifySettingChanged
+ ME_4AD597CE0390 // TryToRestore
+ ME_4AD59C2C027D // DoSaveParam
+ ME_4AD5AA940324 // DoSetAsDefault
+ ME_4F6C56D90012 // IStringTypeToIl3CString
+ ME_4F6C651603A5 // SettingIDtoKeyType
+ ME_4F6C65E2024F // Il3CStringToAString
+ ME_4F6C699E009A // StringToPChar
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4AD59EBE0044_ME_4AD58B6C0289 // LoadInteger
+ ME_4AD59EC20349_ME_4AD58B6C0289 // LoadParam
+ ME_4AD59EC6017E_ME_4AD58B6C0289 // LoadString
+ ME_4AD59ECB0232_ME_4AD58B6C0289 // SaveBoolean
+ ME_4AD59ED10331_ME_4AD58B6C0289 // SaveInteger
+ ME_4AD59ED60126_ME_4AD58B6C0289 // SaveParam
+ ME_4AD59EDD0244_ME_4AD58B6C0289 // SaveString
+ ME_4AD5A017034A_ME_4AD58B6C0289 // LoadBoolean
+ ME_4AD83CCF036F_ME_4AD58B6C0289 // LoadStrings
+ ME_4AD83CD703C0_ME_4AD58B6C0289 // SaveStrings
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_4AD58B6C0289 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4AD5A7E400BD // 
+ ME_4AD5A8070140 // 
+ ME_4AD5AD870198 // 
+ ME_4AD840B70106 // 
+ ME_4F6C56BC03A0 // 
+ ME_4F6C6FC0004B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas'
+ CONST extprop:pas:TypeName '_nsAbstractSettingsPrim_'
+
+ref; // ME_4AD58B6C0289 nsAbstractSettingsPrim
+
+FORWARD ME_4F6C6DF70131
+
+: ME_4F6C6E180003
+ CONST UID '4F6C6E180003'
+ CONST Name 'IStringType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C6E180003 IStringType
+
+: ME_4F6C6E510230
+ CONST UID '4F6C6E510230'
+ CONST Name 'KeyType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C6E510230 KeyType
+
+: ME_4F6C92190005
+ CONST UID '4F6C92190005'
+ CONST Name 'BooleanType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F6C92190005 BooleanType
+
+: ME_4F6C6FAE02AC
+ CONST UID '4F6C6FAE02AC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F6C6FAE02AC 
+
+: ME_4F6C6FB20013
+ CONST UID '4F6C6FB20013'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4F6C6FB20013 
+
+FORWARD ME_4F6C79B10165
+
+: ME_4F6C79D502AF
+ CONST UID '4F6C79D502AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ : Target ME_4F6C79B10165 // TafwAString
+ ;
+
+ref; // ME_4F6C79D502AF 
+
+: ME_4F6C56D90012_ME_4F6C6DF70131
+ CONST UID '4F6C56D90012'
+ CONST Name 'IStringTypeToIl3CString'
+ : Original ME_4F6C56D90012 // IStringTypeToIl3CString
+ ;
+ : Implementor ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ref; // ME_4F6C56D90012_ME_4F6C6DF70131 IStringTypeToIl3CString
+
+: ME_4F6C651603A5_ME_4F6C6DF70131
+ CONST UID '4F6C651603A5'
+ CONST Name 'SettingIDtoKeyType'
+ : Original ME_4F6C651603A5 // SettingIDtoKeyType
+ ;
+ : Implementor ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ref; // ME_4F6C651603A5_ME_4F6C6DF70131 SettingIDtoKeyType
+
+: ME_4F6C65E2024F_ME_4F6C6DF70131
+ CONST UID '4F6C65E2024F'
+ CONST Name 'Il3CStringToAString'
+ : Original ME_4F6C65E2024F // Il3CStringToAString
+ ;
+ : Implementor ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ref; // ME_4F6C65E2024F_ME_4F6C6DF70131 Il3CStringToAString
+
+: ME_4F6C699E009A_ME_4F6C6DF70131
+ CONST UID '4F6C699E009A'
+ CONST Name 'StringToPChar'
+ : Original ME_4F6C699E009A // StringToPChar
+ ;
+ : Implementor ME_4F6C6DF70131 // afwSettingsPrim
+ ;
+ref; // ME_4F6C699E009A_ME_4F6C6DF70131 StringToPChar
+
+: ME_4F6C6DF70131
+ CONST UID '4F6C6DF70131'
+ CONST Name 'afwSettingsPrim'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F6C6E180003 // IStringType
+ ME_4F6C6E510230 // KeyType
+ ME_4F6C92190005 // BooleanType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4F6C56D90012_ME_4F6C6DF70131 // IStringTypeToIl3CString
+ ME_4F6C651603A5_ME_4F6C6DF70131 // SettingIDtoKeyType
+ ME_4F6C65E2024F_ME_4F6C6DF70131 // Il3CStringToAString
+ ME_4F6C699E009A_ME_4F6C6DF70131 // StringToPChar
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_4F6C6FAE02AC // 
+ ME_4F6C6FB20013 // 
+ ME_4F6C79D502AF // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas'
+ CONST extprop:pas:TypeName '_afwSettingsPrim_'
+
+ref; // ME_4F6C6DF70131 afwSettingsPrim
+
+FORWARD ME_4F6C6EAD0053
+
+FORWARD ME_4F6C6EEE038B
+
+FORWARD ME_4F6C7F2B036B
+
+: ME_4F6C7F470060
+ CONST UID '4F6C7F470060'
+ CONST Name 'aSettingId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C7F470060 aSettingId
+
+: ME_4F6C7F900019
+ CONST UID '4F6C7F900019'
+ CONST Name 'theValue'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C7F900019 theValue
+
+: ME_4F6C7F320155
+ CONST UID '4F6C7F320155'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7F2B036B // GetString
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F6C7F470060 // aSettingId
+ ME_4F6C7F900019 // theValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C7F320155 DoIt
+
+: ME_4F6C7F2B036B
+ CONST UID '4F6C7F2B036B'
+ CONST Name 'GetString'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ : Operations
+   @ ( ME_4F6C7F320155 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C7F2B036B GetString
+
+FORWARD ME_4F6C7F650121
+
+: ME_4F6C7F80009C
+ CONST UID '4F6C7F80009C'
+ CONST Name 'aSettingId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C7F80009C aSettingId
+
+: ME_4F6C7F8000D2
+ CONST UID '4F6C7F8000D2'
+ CONST Name 'theValue'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F6C7F8000D2 theValue
+
+: ME_4F6C7F7001CD
+ CONST UID '4F6C7F7001CD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7F650121 // GetLong
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F6C7F80009C // aSettingId
+ ME_4F6C7F8000D2 // theValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C7F7001CD DoIt
+
+: ME_4F6C7F650121
+ CONST UID '4F6C7F650121'
+ CONST Name 'GetLong'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ : Operations
+   @ ( ME_4F6C7F7001CD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C7F650121 GetLong
+
+FORWARD ME_4F6C7F9D0247
+
+: ME_4F6C7FAE00E2
+ CONST UID '4F6C7FAE00E2'
+ CONST Name 'aSettingId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C7FAE00E2 aSettingId
+
+: ME_4F6C7FAE0118
+ CONST UID '4F6C7FAE0118'
+ CONST Name 'theValue'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F6C7FAE0118 theValue
+
+: ME_4F6C7FA703A1
+ CONST UID '4F6C7FA703A1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7F9D0247 // GetBool
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4F6C7FAE00E2 // aSettingId
+ ME_4F6C7FAE0118 // theValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C7FA703A1 DoIt
+
+: ME_4F6C7F9D0247
+ CONST UID '4F6C7F9D0247'
+ CONST Name 'GetBool'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ : Operations
+   @ ( ME_4F6C7FA703A1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C7F9D0247 GetBool
+
+FORWARD ME_4F6C7FDF00C2
+
+: ME_4F6C7FF701DE
+ CONST UID '4F6C7FF701DE'
+ CONST Name 'aSettingId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C7FF701DE aSettingId
+
+: ME_4F6C7FF70218
+ CONST UID '4F6C7FF70218'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
+ ;
+
+ref; // ME_4F6C7FF70218 aValue
+
+: ME_4F6C7FEA00CE
+ CONST UID '4F6C7FEA00CE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7FDF00C2 // SetString
+ ;
+ : Parameters
+   @ ( ME_4F6C7FF701DE // aSettingId
+ ME_4F6C7FF70218 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C7FEA00CE DoIt
+
+: ME_4F6C7FDF00C2
+ CONST UID '4F6C7FDF00C2'
+ CONST Name 'SetString'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ : Operations
+   @ ( ME_4F6C7FEA00CE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C7FDF00C2 SetString
+
+FORWARD ME_4F6C800D02AE
+
+: ME_4F6C80210113
+ CONST UID '4F6C80210113'
+ CONST Name 'aSettingId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C80210113 aSettingId
+
+: ME_4F6C80210151
+ CONST UID '4F6C80210151'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4F6C80210151 aValue
+
+: ME_4F6C801B015C
+ CONST UID '4F6C801B015C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C800D02AE // SetLong
+ ;
+ : Parameters
+   @ ( ME_4F6C80210113 // aSettingId
+ ME_4F6C80210151 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C801B015C DoIt
+
+: ME_4F6C800D02AE
+ CONST UID '4F6C800D02AE'
+ CONST Name 'SetLong'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ : Operations
+   @ ( ME_4F6C801B015C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C800D02AE SetLong
+
+FORWARD ME_4F6C80390209
+
+: ME_4F6C805001A8
+ CONST UID '4F6C805001A8'
+ CONST Name 'aSettingId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C805001A8 aSettingId
+
+: ME_4F6C805001DE
+ CONST UID '4F6C805001DE'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F6C805001DE aValue
+
+: ME_4F6C8046022F
+ CONST UID '4F6C8046022F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C80390209 // SetBool
+ ;
+ : Parameters
+   @ ( ME_4F6C805001A8 // aSettingId
+ ME_4F6C805001DE // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C8046022F DoIt
+
+: ME_4F6C80390209
+ CONST UID '4F6C80390209'
+ CONST Name 'SetBool'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ : Operations
+   @ ( ME_4F6C8046022F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C80390209 SetBool
+
+: ME_4F6C6EEE038B
+ CONST UID '4F6C6EEE038B'
+ CONST GUID 'A764A778-3678-4317-BAA8-F586E633D82F'
+ CONST Name 'IafwSettingsImpl'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ : Operations
+   @ ( ME_4F6C7F2B036B // GetString
+ ME_4F6C7F650121 // GetLong
+ ME_4F6C7F9D0247 // GetBool
+ ME_4F6C7FDF00C2 // SetString
+ ME_4F6C800D02AE // SetLong
+ ME_4F6C80390209 // SetBool
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C6EEE038B IafwSettingsImpl
+
+FORWARD ME_4F6C7CEB035A
+
+: ME_4F6C7D040268
+ CONST UID '4F6C7D040268'
+ CONST Name 'rKey'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_4F6C7CEB035A // TafwKeyValue
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C7D040268 rKey
+
+: ME_4F6C7D1202BA
+ CONST UID '4F6C7D1202BA'
+ CONST Name 'rValue'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_4F6C7CEB035A // TafwKeyValue
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C7D1202BA rValue
+
+FORWARD ME_4F6C7D1F0329
+
+: ME_4F6C7D470255
+ CONST UID '4F6C7D470255'
+ CONST Name 'aKey'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C7D470255 aKey
+
+: ME_4F6C7D47027F
+ CONST UID '4F6C7D47027F'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C7D47027F aValue
+
+: ME_4F6C7D430290
+ CONST UID '4F6C7D430290'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7D1F0329 // C
+ ;
+ : Parameters
+   @ ( ME_4F6C7D470255 // aKey
+ ME_4F6C7D47027F // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C7D430290 DoIt
+
+: ME_4F6C7D1F0329
+ CONST UID '4F6C7D1F0329'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7CEB035A // TafwKeyValue
+ ;
+ : Operations
+   @ ( ME_4F6C7D430290 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C7D1F0329 C
+
+: ME_4F6C7CEB035A
+ CONST UID '4F6C7CEB035A'
+ CONST Name 'TafwKeyValue'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ : Attributes
+   @ ( ME_4F6C7D040268 // rKey
+ ME_4F6C7D1202BA // rValue
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F6C7D1F0329 // C
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_4F6C7CEB035A TafwKeyValue
+
+: ME_4F6C7DE8018D
+ CONST UID '4F6C7DE8018D'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_ref
+ : Parent ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ : Target ME_4F6C7CEB035A // TafwKeyValue
+ ;
+
+ref; // ME_4F6C7DE8018D ItemType
+
+: ME_4F6C7EFF01BB
+ CONST UID '4F6C7EFF01BB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F6C7EFF01BB 
+
+: ME_47B07CF403D0_ME_4F6C6EAD0053
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_4F6C6EAD0053 IsSameItems
+
+: ME_47B2C42A0163_ME_4F6C6EAD0053
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4F6C6EAD0053 AssignItem
+
+: ME_47B99D4503A2_ME_4F6C6EAD0053
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ref; // ME_47B99D4503A2_ME_4F6C6EAD0053 CompareExistingItems
+
+: ME_4F6C6EAD0053
+ CONST UID '4F6C6EAD0053'
+ CONST Name 'TafwSettingsImplPrimPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F6C7DE8018D // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_4F6C6EAD0053 // IsSameItems
+ ME_47B2C42A0163_ME_4F6C6EAD0053 // AssignItem
+ ME_47B99D4503A2_ME_4F6C6EAD0053 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_4F6C6EEE038B // IafwSettingsImpl
+ ME_4F6C7CEB035A // TafwKeyValue
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4F6C7EFF01BB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImplPrimPrim.pas'
+
+ref; // ME_4F6C6EAD0053 TafwSettingsImplPrimPrim
+
+FORWARD ME_4F6C6E6F00CA
+
+: ME_4F6C6F3C0324
+ CONST UID '4F6C6F3C0324'
+ CONST Name 'SettingsClass'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F6C6E6F00CA // TafwSettingsPrimPrim
+ ;
+ : Target ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+
+ref; // ME_4F6C6F3C0324 SettingsClass
+
+FORWARD ME_4F6C7E6802B0
+
+: ME_4F6C7E88033A
+ CONST UID '4F6C7E88033A'
+ CONST Name 'aSettingsImpl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+
+ref; // ME_4F6C7E88033A aSettingsImpl
+
+: ME_4F6C7E6F00C7
+ CONST UID '4F6C7E6F00C7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7E6802B0 // Create
+ ;
+ : Parameters
+   @ ( ME_4F6C7E88033A // aSettingsImpl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C7E6F00C7 DoIt
+
+: ME_4F6C7E6802B0
+ CONST UID '4F6C7E6802B0'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C6E6F00CA // TafwSettingsPrimPrim
+ ;
+ : Operations
+   @ ( ME_4F6C7E6F00C7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C7E6802B0 Create
+
+FORWARD ME_4F6C7E8E02D1
+
+: ME_4929BE37250C
+ CONST UID '4929BE37250C'
+ CONST Name 'aSettingsImpl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+
+ref; // ME_4929BE37250C aSettingsImpl
+
+: ME_B813F2A38804
+ CONST UID 'B813F2A38804'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TafwSettingsPrimPrim.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7E8E02D1 // Make
+ ;
+ : Target WL 'ME_4AB728CB025C' '467823B7002C.pas.ms.script' // IafwSettingsPrim
+ ;
+ : Parameters
+   @ ( ME_4929BE37250C // aSettingsImpl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_B813F2A38804 DoIt
+
+: ME_4F6C7E8E02D1
+ CONST UID '4F6C7E8E02D1'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C6E6F00CA // TafwSettingsPrimPrim
+ ;
+ : Inherits
+   @ ( ME_4F6C7E6802B0 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4AB728CB025C' '467823B7002C.pas.ms.script' // IafwSettingsPrim
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_B813F2A38804 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4F6C7E8E02D1 Make
+
+: ME_4F6C6E6F00CA
+ CONST UID '4F6C6E6F00CA'
+ CONST Name 'TafwSettingsPrimPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ME_4F6C6DF70131 // afwSettingsPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4AB728CB025C' '467823B7002C.pas.ms.script' // IafwSettingsPrim
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F6C6F3C0324 // SettingsClass
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F6C7E6802B0 // Create
+ ME_4F6C7E8E02D1 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsPrimPrim.pas'
+
+ref; // ME_4F6C6E6F00CA TafwSettingsPrimPrim
+
+: ME_4F6C79F400AE
+ CONST UID '4F6C79F400AE'
+ CONST Name 'f_String'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F6C79B10165 // TafwAString
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C79F400AE f_String
+
+: ME_4F6C7C5B035A
+ CONST UID '4F6C7C5B035A'
+ CONST Name 'f_Tmp'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F6C79B10165 // TafwAString
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4F6C7C5B035A f_Tmp
+
+FORWARD ME_4F6C7A060311
+
+: ME_4F6C7A1900B4
+ CONST UID '4F6C7A1900B4'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C7A1900B4 aString
+
+: ME_4F6C7A0C035E
+ CONST UID '4F6C7A0C035E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7A060311 // Create
+ ;
+ : Parameters
+   @ ( ME_4F6C7A1900B4 // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6C7A0C035E DoIt
+
+: ME_4F6C7A060311
+ CONST UID '4F6C7A060311'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C79B10165 // TafwAString
+ ;
+ : Operations
+   @ ( ME_4F6C7A0C035E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C7A060311 Create
+
+FORWARD ME_4F6C7A1F020E
+
+: ME_E5071AB1D799
+ CONST UID 'E5071AB1D799'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_E5071AB1D799 aString
+
+: ME_482D4C6C41CA
+ CONST UID '482D4C6C41CA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TafwAString.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7A1F020E // Make
+ ;
+ : Target WL 'ME_46A45CF00005' '4677FBA70343.pas.ms.script' // Il3AString
+ ;
+ : Parameters
+   @ ( ME_E5071AB1D799 // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_482D4C6C41CA DoIt
+
+: ME_4F6C7A1F020E
+ CONST UID '4F6C7A1F020E'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C79B10165 // TafwAString
+ ;
+ : Inherits
+   @ ( ME_4F6C7A060311 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_46A45CF00005' '4677FBA70343.pas.ms.script' // Il3AString
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_482D4C6C41CA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4F6C7A1F020E Make
+
+: ME_4F6C7A3B0229
+ CONST UID '4F6C7A3B0229'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C79B10165 // TafwAString
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F6C7A3B0229 
+
+: ME_4F6C7C780240
+ CONST UID '4F6C7C780240'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C79B10165 // TafwAString
+ ;
+ : Target WL 'ME_49082AE80393' '476BE98C01B8.pas.ms.script' // Code Pages
+ ;
+
+ref; // ME_4F6C7C780240 
+
+: ME_46A45D0A02A1_ME_4F6C79B10165
+ CONST UID '46A45D0A02A1'
+ CONST Name 'S'
+ : Original WL 'ME_46A45D0A02A1' '4677FBA70343.pas.ms.script' // S
+ ;
+ : Implementor ME_4F6C79B10165 // TafwAString
+ ;
+ref; // ME_46A45D0A02A1_ME_4F6C79B10165 S
+
+: ME_47A6FEE600FC_ME_4F6C79B10165
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_4F6C79B10165 // TafwAString
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_4F6C79B10165 IsCacheable
+
+: ME_5000565C019C_ME_4F6C79B10165
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4F6C79B10165 // TafwAString
+ ;
+ref; // ME_5000565C019C_ME_4F6C79B10165 ClearFields
+
+: ME_4F6C79B10165
+ CONST UID '4F6C79B10165'
+ CONST Name 'TafwAString'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_46A45CF00005' '4677FBA70343.pas.ms.script' // Il3AString
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F6C79F400AE // f_String
+ ME_4F6C7C5B035A // f_Tmp
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F6C7A060311 // Create
+ ME_4F6C7A1F020E // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46A45D0A02A1_ME_4F6C79B10165 // S
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A6FEE600FC_ME_4F6C79B10165 // IsCacheable
+ ME_5000565C019C_ME_4F6C79B10165 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F6C7A3B0229 // 
+ ME_4F6C7C780240 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwAString.pas'
+
+ref; // ME_4F6C79B10165 TafwAString
+
+FORWARD ME_4F6C7D5F00E6
+
+: ME_4F6C7EC00298
+ CONST UID '4F6C7EC00298'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F6C7D5F00E6 // TafwSettingsImplPrim
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F6C7EC00298 FindDataType
+
+: ME_4F6C7EE80165
+ CONST UID '4F6C7EE80165'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C7D5F00E6 // TafwSettingsImplPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F6C7EE80165 
+
+: ME_47B9BAFD01F4_ME_4F6C7D5F00E6
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_4F6C7D5F00E6 // TafwSettingsImplPrim
+ ;
+ref; // ME_47B9BAFD01F4_ME_4F6C7D5F00E6 CompareItemWithData
+
+: ME_4F6C7D5F00E6
+ CONST UID '4F6C7D5F00E6'
+ CONST Name 'TafwSettingsImplPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F6C7EC00298 // FindDataType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_47B9BAFD01F4_ME_4F6C7D5F00E6 // CompareItemWithData
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F6C7EE80165 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImplPrim.pas'
+
+ref; // ME_4F6C7D5F00E6 TafwSettingsImplPrim
+
+FORWARD ME_4F6C8A610176
+
+: ME_4F6C8A96027B
+ CONST UID '4F6C8A96027B'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_4F6C8A96027B FindDataType
+
+: ME_4F6C8AB30390
+ CONST UID '4F6C8AB30390'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F6C8AB30390 
+
+: ME_4F6C90CF02DF
+ CONST UID '4F6C90CF02DF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4F6C90CF02DF 
+
+: ME_4F6C90DD008E
+ CONST UID '4F6C90DD008E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4F6C90DD008E 
+
+: ME_4F6C7F2B036B_ME_4F6C8A610176
+ CONST UID '4F6C7F2B036B'
+ CONST Name 'GetString'
+ : Original ME_4F6C7F2B036B // GetString
+ ;
+ : Implementor ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ref; // ME_4F6C7F2B036B_ME_4F6C8A610176 GetString
+
+: ME_4F6C7F650121_ME_4F6C8A610176
+ CONST UID '4F6C7F650121'
+ CONST Name 'GetLong'
+ : Original ME_4F6C7F650121 // GetLong
+ ;
+ : Implementor ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ref; // ME_4F6C7F650121_ME_4F6C8A610176 GetLong
+
+: ME_4F6C7F9D0247_ME_4F6C8A610176
+ CONST UID '4F6C7F9D0247'
+ CONST Name 'GetBool'
+ : Original ME_4F6C7F9D0247 // GetBool
+ ;
+ : Implementor ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ref; // ME_4F6C7F9D0247_ME_4F6C8A610176 GetBool
+
+: ME_4F6C7FDF00C2_ME_4F6C8A610176
+ CONST UID '4F6C7FDF00C2'
+ CONST Name 'SetString'
+ : Original ME_4F6C7FDF00C2 // SetString
+ ;
+ : Implementor ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ref; // ME_4F6C7FDF00C2_ME_4F6C8A610176 SetString
+
+: ME_4F6C800D02AE_ME_4F6C8A610176
+ CONST UID '4F6C800D02AE'
+ CONST Name 'SetLong'
+ : Original ME_4F6C800D02AE // SetLong
+ ;
+ : Implementor ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ref; // ME_4F6C800D02AE_ME_4F6C8A610176 SetLong
+
+: ME_4F6C80390209_ME_4F6C8A610176
+ CONST UID '4F6C80390209'
+ CONST Name 'SetBool'
+ : Original ME_4F6C80390209 // SetBool
+ ;
+ : Implementor ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ref; // ME_4F6C80390209_ME_4F6C8A610176 SetBool
+
+: ME_47B9BAFD01F4_ME_4F6C8A610176
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_4F6C8A610176 // TafwSettingsImpl
+ ;
+ref; // ME_47B9BAFD01F4_ME_4F6C8A610176 CompareItemWithData
+
+: ME_4F6C8A610176
+ CONST UID '4F6C8A610176'
+ CONST Name 'TafwSettingsImpl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ME_4F6C7D5F00E6 // TafwSettingsImplPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_4F6C6EEE038B // IafwSettingsImpl
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F6C8A96027B // FindDataType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4F6C7F2B036B_ME_4F6C8A610176 // GetString
+ ME_4F6C7F650121_ME_4F6C8A610176 // GetLong
+ ME_4F6C7F9D0247_ME_4F6C8A610176 // GetBool
+ ME_4F6C7FDF00C2_ME_4F6C8A610176 // SetString
+ ME_4F6C800D02AE_ME_4F6C8A610176 // SetLong
+ ME_4F6C80390209_ME_4F6C8A610176 // SetBool
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47B9BAFD01F4_ME_4F6C8A610176 // CompareItemWithData
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F6C8AB30390 // 
+ ME_4F6C90CF02DF // 
+ ME_4F6C90DD008E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImpl.pas'
+
+ref; // ME_4F6C8A610176 TafwSettingsImpl
+
+FORWARD ME_4F6C9DBE03CF
+
+FORWARD ME_4F6C9DF8028F
+
+: ME_4F6C9E04022D
+ CONST UID '4F6C9E04022D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C9DF8028F // Load
+ ;
+
+ref; // ME_4F6C9E04022D DoIt
+
+: ME_4F6C9DF8028F
+ CONST UID '4F6C9DF8028F'
+ CONST Name 'Load'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Operations
+   @ ( ME_4F6C9E04022D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C9DF8028F Load
+
+FORWARD ME_4F6C9E0E011D
+
+: ME_4F6C9E150177
+ CONST UID '4F6C9E150177'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C9E0E011D // Save
+ ;
+
+ref; // ME_4F6C9E150177 DoIt
+
+: ME_4F6C9E0E011D
+ CONST UID '4F6C9E0E011D'
+ CONST Name 'Save'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Operations
+   @ ( ME_4F6C9E150177 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C9E0E011D Save
+
+FORWARD ME_4F6C9E1C0308
+
+: ME_4F6C9E250097
+ CONST UID '4F6C9E250097'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C9E1C0308 // FileName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4F6C9E250097 DoIt
+
+: ME_4F6C9E1C0308
+ CONST UID '4F6C9E1C0308'
+ CONST Name 'FileName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Operations
+   @ ( ME_4F6C9E250097 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C9E1C0308 FileName
+
+: ME_4F6C9E470312
+ CONST UID '4F6C9E470312'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4F6C9E470312 
+
+: ME_4F6C9E610210
+ CONST UID '4F6C9E610210'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Target WL 'ME_47A0686803A5' '47913B47006E.pas.ms.script' // l3Filer
+ ;
+
+ref; // ME_4F6C9E610210 
+
+: ME_4F6C9E7302D7
+ CONST UID '4F6C9E7302D7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
+ ;
+
+ref; // ME_4F6C9E7302D7 
+
+: ME_4F6C9FF60064
+ CONST UID '4F6C9FF60064'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4F6C9FF60064 
+
+: ME_4F6C9FFC0341
+ CONST UID '4F6C9FFC0341'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F6C9FFC0341 
+
+: ME_4F6CA0140120
+ CONST UID '4F6CA0140120'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Target WL 'ME_47CC4CCC02FA' '47913B47006E.pas.ms.script' // Tl3InterfacedString
+ ;
+
+ref; // ME_4F6CA0140120 
+
+: ME_4F6CA25C00C6
+ CONST UID '4F6CA25C00C6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4F6CA25C00C6 
+
+: ME_4F6CA45A002A
+ CONST UID '4F6CA45A002A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ : Target ME_4F6C7CEB035A // TafwKeyValue
+ ;
+
+ref; // ME_4F6CA45A002A 
+
+: ME_479731C50290_ME_4F6C9DBE03CF
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ref; // ME_479731C50290_ME_4F6C9DBE03CF Cleanup
+
+: ME_47A042E100E2_ME_4F6C9DBE03CF
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ref; // ME_47A042E100E2_ME_4F6C9DBE03CF InitFields
+
+: ME_49BFC98902FF_ME_4F6C9DBE03CF
+ CONST UID '49BFC98902FF'
+ CONST Name 'BeforeRelease'
+ : Original WL 'ME_49BFC98902FF' '51612EBB02F5.pas.ms.script' // BeforeRelease
+ ;
+ : Implementor ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ;
+ref; // ME_49BFC98902FF_ME_4F6C9DBE03CF BeforeRelease
+
+: ME_4F6C9DBE03CF
+ CONST UID '4F6C9DBE03CF'
+ CONST Name 'TafwSettingsImplPersistent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( ME_4F6C8A610176 // TafwSettingsImpl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4F6C9DF8028F // Load
+ ME_4F6C9E0E011D // Save
+ ME_4F6C9E1C0308 // FileName
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4F6C9DBE03CF // Cleanup
+ ME_47A042E100E2_ME_4F6C9DBE03CF // InitFields
+ ME_49BFC98902FF_ME_4F6C9DBE03CF // BeforeRelease
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F6C9E470312 // 
+ ME_4F6C9E610210 // 
+ ME_4F6C9E7302D7 // 
+ ME_4F6C9FF60064 // 
+ ME_4F6C9FFC0341 // 
+ ME_4F6CA0140120 // 
+ ME_4F6CA25C00C6 // 
+ ME_4F6CA45A002A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImplPersistent.pas'
+
+ref; // ME_4F6C9DBE03CF TafwSettingsImplPersistent
+
+FORWARD ME_4F6C957F01E7
+
+: ME_4F6C979A024B
+ CONST UID '4F6C979A024B'
+ CONST Name 'f_State'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F6C957F01E7 // TafwSettings
+ ;
+ : Target WL 'ME_488969BC03B6' '467823B7002C.pas.ms.script' // TafwSettingsState
+ ;
+
+ref; // ME_4F6C979A024B f_State
+
+FORWARD ME_4F6C960D0300
+
+: ME_88D4F056D887
+ CONST UID '88D4F056D887'
+ CONST Name 'aSettingsImpl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+
+ref; // ME_88D4F056D887 aSettingsImpl
+
+: ME_455D30C9275E
+ CONST UID '455D30C9275E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TafwSettings.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C960D0300 // Make
+ ;
+ : Target WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
+ ;
+ : Parameters
+   @ ( ME_88D4F056D887 // aSettingsImpl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_455D30C9275E DoIt
+
+: ME_4F6C960D0300
+ CONST UID '4F6C960D0300'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C957F01E7 // TafwSettings
+ ;
+ : Inherits
+   @ ( ME_4F6C7E6802B0 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_455D30C9275E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4F6C960D0300 Make
+
+: ME_4F6CAC9B00D8
+ CONST UID '4F6CAC9B00D8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C957F01E7 // TafwSettings
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4F6CAC9B00D8 
+
+FORWARD ME_5242FE0C02ED
+
+: ME_5242FE1E025C
+ CONST UID '5242FE1E025C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C957F01E7 // TafwSettings
+ ;
+ : Target ME_5242FE0C02ED // TafwSettingsChangePublisher
+ ;
+
+ref; // ME_5242FE1E025C 
+
+: ME_48896A7B0311_ME_4F6C957F01E7
+ CONST UID '48896A7B0311'
+ CONST Name 'State'
+ : Original WL 'ME_48896A7B0311' '467823B7002C.pas.ms.script' // State
+ ;
+ : Implementor ME_4F6C957F01E7 // TafwSettings
+ ;
+ CONST "pm" true
+ref; // ME_48896A7B0311_ME_4F6C957F01E7 State
+
+: ME_4AB729980069_ME_4F6C957F01E7
+ CONST UID '4AB729980069'
+ CONST Name 'LoadDouble'
+ : Original WL 'ME_4AB729980069' '467823B7002C.pas.ms.script' // LoadDouble
+ ;
+ : Implementor ME_4F6C957F01E7 // TafwSettings
+ ;
+ref; // ME_4AB729980069_ME_4F6C957F01E7 LoadDouble
+
+: ME_4AB729A702A2_ME_4F6C957F01E7
+ CONST UID '4AB729A702A2'
+ CONST Name 'SaveDouble'
+ : Original WL 'ME_4AB729A702A2' '467823B7002C.pas.ms.script' // SaveDouble
+ ;
+ : Implementor ME_4F6C957F01E7 // TafwSettings
+ ;
+ref; // ME_4AB729A702A2_ME_4F6C957F01E7 SaveDouble
+
+: ME_47A042E100E2_ME_4F6C957F01E7
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4F6C957F01E7 // TafwSettings
+ ;
+ref; // ME_47A042E100E2_ME_4F6C957F01E7 InitFields
+
+: ME_4AD5979E01BB_ME_4F6C957F01E7
+ CONST UID '4AD5979E01BB'
+ CONST Name 'NotifySettingChanged'
+ : Original ME_4AD5979E01BB // NotifySettingChanged
+ ;
+ : Implementor ME_4F6C957F01E7 // TafwSettings
+ ;
+ref; // ME_4AD5979E01BB_ME_4F6C957F01E7 NotifySettingChanged
+
+: ME_4F6C957F01E7
+ CONST UID '4F6C957F01E7'
+ CONST Name 'TafwSettings'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( ME_4F6C6E6F00CA // TafwSettingsPrimPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F6C979A024B // f_State
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4F6C960D0300 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_48896A7B0311_ME_4F6C957F01E7 // State
+ ME_4AB729980069_ME_4F6C957F01E7 // LoadDouble
+ ME_4AB729A702A2_ME_4F6C957F01E7 // SaveDouble
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A042E100E2_ME_4F6C957F01E7 // InitFields
+ ME_4AD5979E01BB_ME_4F6C957F01E7 // NotifySettingChanged
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F6CAC9B00D8 // 
+ ME_5242FE1E025C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettings.pas'
+
+ref; // ME_4F6C957F01E7 TafwSettings
+
+FORWARD ME_4F6C6F250398
+
+FORWARD ME_4F6C8EF600AE
+
+: ME_4F6C8F00027F
+ CONST UID '4F6C8F00027F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C8EF600AE // Create
+ ;
+
+ref; // ME_4F6C8F00027F DoIt
+
+: ME_4F6C8EF600AE
+ CONST UID '4F6C8EF600AE'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C6F250398 // TafwSettingsImplemented
+ ;
+ : Operations
+   @ ( ME_4F6C8F00027F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F6C8EF600AE Create
+
+FORWARD ME_4F6C8F070179
+
+: ME_553AE3521663
+ CONST UID '553AE3521663'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TafwSettingsImplemented.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C8F070179 // Make
+ ;
+ : Target WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
+ ;
+
+ref; // ME_553AE3521663 DoIt
+
+: ME_4F6C8F070179
+ CONST UID '4F6C8F070179'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C6F250398 // TafwSettingsImplemented
+ ;
+ : Inherits
+   @ ( ME_4F6C8EF600AE // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_473D9EF10387' '467823B7002C.pas.ms.script' // IafwSettings
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_553AE3521663 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4F6C8F070179 Make
+
+FORWARD ME_4F6C7DC2022A
+
+: ME_4F6C8EE501AC
+ CONST UID '4F6C8EE501AC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6C6F250398 // TafwSettingsImplemented
+ ;
+ : Target ME_4F6C7DC2022A // TafwSettingsImplSing
+ ;
+
+ref; // ME_4F6C8EE501AC 
+
+: ME_4F6C6F250398
+ CONST UID '4F6C6F250398'
+ CONST Name 'TafwSettingsImplemented'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( ME_4F6C957F01E7 // TafwSettings
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4F6C8EF600AE // Create
+ ME_4F6C8F070179 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4F6C8EE501AC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImplemented.pas'
+
+ref; // ME_4F6C6F250398 TafwSettingsImplemented
+
+FORWARD ME_49143FC20016
+
+: ME_49143FFC01FC
+ CONST UID '49143FFC01FC'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_49143FC20016 // TIafwSettingListenerPtrList
+ ;
+ : Target WL 'ME_475E8C230253' '467823B7002C.pas.ms.script' // IafwSettingListener
+ ;
+
+ref; // ME_49143FFC01FC ItemType
+
+: ME_49143FC20016
+ CONST UID '49143FC20016'
+ CONST Name 'TIafwSettingListenerPtrList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список УКАЗАТЕЛЕЙ на IafwSettingListener' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49143FFC01FC // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.11.2008 15:40'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\IafwSettingListenerPtrList.pas'
+
+ref; // ME_49143FC20016 TIafwSettingListenerPtrList
+
+FORWARD ME_491441E201E0
+
+: ME_4914421A037E
+ CONST UID '4914421A037E'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_491441E201E0 // TIafwSettingsReplaceListenerPtrList
+ ;
+ : Target WL 'ME_475E8CFA0204' '467823B7002C.pas.ms.script' // IafwSettingsReplaceListener
+ ;
+
+ref; // ME_4914421A037E ItemType
+
+: ME_491441E201E0
+ CONST UID '491441E201E0'
+ CONST Name 'TIafwSettingsReplaceListenerPtrList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список УКАЗАТЕЛЕЙ на IafwSettingsReplaceListener' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4914421A037E // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.11.2008 16:26'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\IafwSettingsReplaceListenerPtrList.pas'
+
+ref; // ME_491441E201E0 TIafwSettingsReplaceListenerPtrList
+
+: ME_116604214E91
+ CONST UID '116604214E91'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6C7DC2022A // TafwSettingsImplSing
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_116604214E91 Exists
+
+: ME_47A042E100E2_ME_4F6C7DC2022A
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4F6C7DC2022A // TafwSettingsImplSing
+ ;
+ref; // ME_47A042E100E2_ME_4F6C7DC2022A InitFields
+
+: ME_4F6C7DC2022A
+ CONST UID '4F6C7DC2022A'
+ CONST Name 'TafwSettingsImplSing'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_116604214E91 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47A042E100E2_ME_4F6C7DC2022A // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImplSing.pas'
+
+ref; // ME_4F6C7DC2022A TafwSettingsImplSing
+
+FORWARD ME_5242FDD303DF
+
+: ME_4F6CAC820222
+ CONST UID '4F6CAC820222'
+ CONST Name 'f_SettingListeners'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ : Target ME_49143FC20016 // TIafwSettingListenerPtrList
+ ;
+
+ref; // ME_4F6CAC820222 f_SettingListeners
+
+: ME_4F6CB2070279
+ CONST UID '4F6CB2070279'
+ CONST Name 'f_ReplaceListeners'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ : Target ME_491441E201E0 // TIafwSettingsReplaceListenerPtrList
+ ;
+
+ref; // ME_4F6CB2070279 f_ReplaceListeners
+
+FORWARD ME_524303770307
+
+: ME_524303910012
+ CONST UID '524303910012'
+ CONST Name 'aSettingID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_524303910012 aSettingID
+
+: ME_5243038A023E
+ CONST UID '5243038A023E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_524303770307 // NotifySettingChanged
+ ;
+ : Parameters
+   @ ( ME_524303910012 // aSettingID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5243038A023E DoIt
+
+: ME_524303770307
+ CONST UID '524303770307'
+ CONST Name 'NotifySettingChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ : Operations
+   @ ( ME_5243038A023E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_524303770307 NotifySettingChanged
+
+FORWARD ME_524304C002EE
+
+: ME_524304D60219
+ CONST UID '524304D60219'
+ CONST Name 'aStart'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_524304D60219 aStart
+
+: ME_524304D101FF
+ CONST UID '524304D101FF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_524304C002EE // NotifyReplace
+ ;
+ : Parameters
+   @ ( ME_524304D60219 // aStart
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_524304D101FF DoIt
+
+: ME_524304C002EE
+ CONST UID '524304C002EE'
+ CONST Name 'NotifyReplace'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ : Operations
+   @ ( ME_524304D101FF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_524304C002EE NotifyReplace
+
+: ME_5242FE4C01CE
+ CONST UID '5242FE4C01CE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_5242FE4C01CE 
+
+: ME_475E8E410197_ME_5242FDD303DF
+ CONST UID '475E8E410197'
+ CONST Name 'AddListener'
+ : Original WL 'ME_475E8E410197' '467823B7002C.pas.ms.script' // AddListener
+ ;
+ : Implementor ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ref; // ME_475E8E410197_ME_5242FDD303DF AddListener
+
+: ME_475E8E4D03E4_ME_5242FDD303DF
+ CONST UID '475E8E4D03E4'
+ CONST Name 'RemoveListener'
+ : Original WL 'ME_475E8E4D03E4' '467823B7002C.pas.ms.script' // RemoveListener
+ ;
+ : Implementor ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ref; // ME_475E8E4D03E4_ME_5242FDD303DF RemoveListener
+
+: ME_475E8E5E0286_ME_5242FDD303DF
+ CONST UID '475E8E5E0286'
+ CONST Name 'AddListener'
+ : Original WL 'ME_475E8E5E0286' '467823B7002C.pas.ms.script' // AddListener
+ ;
+ : Implementor ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ref; // ME_475E8E5E0286_ME_5242FDD303DF AddListener
+
+: ME_475E8E7900A3_ME_5242FDD303DF
+ CONST UID '475E8E7900A3'
+ CONST Name 'RemoveListener'
+ : Original WL 'ME_475E8E7900A3' '467823B7002C.pas.ms.script' // RemoveListener
+ ;
+ : Implementor ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ref; // ME_475E8E7900A3_ME_5242FDD303DF RemoveListener
+
+: ME_479731C50290_ME_5242FDD303DF
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ref; // ME_479731C50290_ME_5242FDD303DF Cleanup
+
+: ME_5242FDD303DF
+ CONST UID '5242FDD303DF'
+ CONST Name 'TafwSettingsChangePublisherPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_5243000F03A2' '467823B7002C.pas.ms.script' // MafwSettingsNotify
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4F6CAC820222 // f_SettingListeners
+ ME_4F6CB2070279 // f_ReplaceListeners
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_524303770307 // NotifySettingChanged
+ ME_524304C002EE // NotifyReplace
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_475E8E410197_ME_5242FDD303DF // AddListener
+ ME_475E8E4D03E4_ME_5242FDD303DF // RemoveListener
+ ME_475E8E5E0286_ME_5242FDD303DF // AddListener
+ ME_475E8E7900A3_ME_5242FDD303DF // RemoveListener
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_5242FDD303DF // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5242FE4C01CE // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsChangePublisherPrim.pas'
+
+ref; // ME_5242FDD303DF TafwSettingsChangePublisherPrim
+
+FORWARD ME_5242FE6200D6
+
+: ME_5242FE7401E5
+ CONST UID '5242FE7401E5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5242FE6200D6 // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5242FE7401E5 DoIt
+
+: ME_5242FE6200D6
+ CONST UID '5242FE6200D6'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5242FE0C02ED // TafwSettingsChangePublisher
+ ;
+ : Operations
+   @ ( ME_5242FE7401E5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_5242FE6200D6 Exists
+
+: ME_5242FE0C02ED
+ CONST UID '5242FE0C02ED'
+ CONST Name 'TafwSettingsChangePublisher'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6C5511015F // afwSettings
+ ;
+ : Inherits
+   @ ( ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_5242FE6200D6 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsChangePublisher.pas'
+
+ref; // ME_5242FE0C02ED TafwSettingsChangePublisher
+
+: ME_4F6C5511015F
+ CONST UID '4F6C5511015F'
+ CONST Name 'afwSettings'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ ;
+ : Children
+   @ ( ME_4AD58C89018C // SettingsClass
+ ME_4F6C56340320 // IStringType
+ ME_4F6C64FF032A // KeyType
+ ME_4F6C91F5037B // BooleanType
+ ME_4AD58B6C0289 // nsAbstractSettingsPrim
+ ME_4F6C6DF70131 // afwSettingsPrim
+ ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ME_4F6C6E6F00CA // TafwSettingsPrimPrim
+ ME_4F6C79B10165 // TafwAString
+ ME_4F6C7D5F00E6 // TafwSettingsImplPrim
+ ME_4F6C8A610176 // TafwSettingsImpl
+ ME_4F6C9DBE03CF // TafwSettingsImplPersistent
+ ME_4F6C957F01E7 // TafwSettings
+ ME_4F6C6F250398 // TafwSettingsImplemented
+ ME_49143FC20016 // TIafwSettingListenerPtrList
+ ME_491441E201E0 // TIafwSettingsReplaceListenerPtrList
+ ME_4F6C7DC2022A // TafwSettingsImplSing
+ ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ME_5242FE0C02ED // TafwSettingsChangePublisher
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_47E21C730035' '47E21C730035.pas.ms.script' // l3VCLExtensions
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6C5511015F.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6C5511015F.pas.ms.script.runner'
+
+ref; // ME_4F6C5511015F afwSettings

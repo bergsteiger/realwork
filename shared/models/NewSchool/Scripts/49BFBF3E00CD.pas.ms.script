@@ -1,0 +1,241 @@
+// Tm3DBProxyStream 49BFBF3E00CD SimpleClass Class
+
+INCLUDE '49BE68B201D1.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_49BFBF3E00CD
+
+INCLUDE '49BFBC690162.pas.ms.script'
+
+: ME_49BFBFBE01D9
+ CONST UID '49BFBFBE01D9'
+ CONST Name 'DB'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'База, с которой работает поток' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_49BFBC690162 // Tm3PrimDB
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_49BFBFBE01D9 DB
+
+INCLUDE '4720831F012D.pas.ms.script'
+
+: ME_49BFC6C603D4
+ CONST UID '49BFC6C603D4'
+ CONST Name 'ID'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Идентификатор потока' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_49BFCF61009F // Tm3DBStreamIndexEx
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_49BFC6C603D4 ID
+
+: ME_C707E14F7A8F
+ CONST UID 'C707E14F7A8F'
+ CONST Name 'f_DB'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства DB' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_49BFBC690162 // Tm3PrimDB
+ ;
+
+ @SELF
+; // ME_C707E14F7A8F f_DB
+
+: ME_B5DC1A4AC9CA
+ CONST UID 'B5DC1A4AC9CA'
+ CONST Name 'f_ID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ID' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_49BFCF61009F // Tm3DBStreamIndexEx
+ ;
+
+ @SELF
+; // ME_B5DC1A4AC9CA f_ID
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_49BFC35301F9
+ CONST UID '49BFC35301F9'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5B0060013 // IStream
+ ;
+
+ @SELF
+; // ME_49BFC35301F9 aStream
+
+: ME_49BFC0410253
+ CONST UID '49BFC0410253'
+ CONST Name 'aDB'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_49BFBC690162 // Tm3PrimDB
+ ;
+
+ @SELF
+; // ME_49BFC0410253 aDB
+
+: ME_49BFC6ED0068
+ CONST UID '49BFC6ED0068'
+ CONST Name 'anID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_49BFCF61009F // Tm3DBStreamIndexEx
+ ;
+
+ @SELF
+; // ME_49BFC6ED0068 anID
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_49BFC03402A2
+ CONST UID '49BFC03402A2'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_49BFC35301F9 // aStream
+ ME_49BFC0410253 // aDB
+ ME_49BFC6ED0068 // anID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_49BFC03402A2 Create
+
+: ME_49BFC37902A4
+ CONST UID '49BFC37902A4'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5B0060013 // IStream
+ ;
+
+ @SELF
+; // ME_49BFC37902A4 aStream
+
+: ME_49BFC37902D1
+ CONST UID '49BFC37902D1'
+ CONST Name 'aDB'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_49BFBC690162 // Tm3PrimDB
+ ;
+
+ @SELF
+; // ME_49BFC37902D1 aDB
+
+: ME_49BFC709005C
+ CONST UID '49BFC709005C'
+ CONST Name 'anID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_49BFCF61009F // Tm3DBStreamIndexEx
+ ;
+
+ @SELF
+; // ME_49BFC709005C anID
+
+: ME_49BFC3620118
+ CONST UID '49BFC3620118'
+ CONST Name 'Make'
+ CONST Class 'Operation'
+ CONST Stereotype 'factory'
+ %SUMMARY 'Создаёт обёртку' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A5B0060013 // IStream
+ ;
+ : Parameters
+   [ ME_49BFC37902A4 // aStream
+ ME_49BFC37902D1 // aDB
+ ME_49BFC709005C // anID
+ ]
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_49BFC3620118 Make
+
+: ME_49BFBF3E00CD
+ CONST UID '49BFBF3E00CD'
+ CONST Name 'Tm3DBProxyStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Поток, знающий про базу, с которой он работает' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49BE68B201D1 // Tl3ProxyStream
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_49BFBFBE01D9 // DB
+ ME_49BFC6C603D4 // ID
+ ME_C707E14F7A8F // f_DB
+ ME_B5DC1A4AC9CA // f_ID
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_49BFC03402A2 // Create
+ ME_49BFC3620118 // Make
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '17.03.2009 18:19'
+
+ @SELF
+; // ME_49BFBF3E00CD Tm3DBProxyStream

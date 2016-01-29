@@ -1,0 +1,136 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/PackagesIncludes/AbstractImplBase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::PackagesIncludes::AbstractImplBase
+//
+// Базовый стереотип для пакетов имплементации
+// ---
+// определяет набор стереотипов, который могут быть включены в пакет
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: AbstractImplBase::Category
+? Базовый стереотип для пакетов имплементации
+? определяет набор стереотипов, который могут быть включены в пакет
+> Box::Class
+> FunctorBase::Class
+> Environment::Class
+> Event::Class
+
+= AbstractUnitBase::Category
+= CommonPackageInclude::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4714A0260109*
+O [{"%f_need_impl_cpp(%S)"="true"}%SN.cpp]
+C /impl/%SN
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_impl_cpp(%S)"="true"}{<%CX>}\
+	%f_header(%S)
+	%f_std_inc(%S)
+	[{%f_need_typeinfo_include_pack(%S)=true}\#include \<typeinfo\>
+	][\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	][\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)
+	][<{}{"%f_with_gen_id(h,%CO)"=""}
+	%C<{}{"%CS"="uses"&"%CC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)
+	]>>][[{<{}{%f_realize_srv_type(%C)=true}{C}>!=0}\#include "%f_with_gen_id(h,%PL)"]
+	][{%S{need UC}=true}%U[{_CUSTOM_INCLUDE}
+	]
+	][
+	%S%f_open_ifdef()]
+	
+	%SP[{%S{is namespace}=true}namespace %SN {
+	]
+	<{\n\n}{}[%CX]>
+	
+	[{%S{is namespace}=true}} //namespace %SN
+	]%Sp
+	%f_footer(%S)
+	]
+//#UC END# *47022CB8034Bfor4714A0260109*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4714A0260109*
+P
+v #-i
+O [{"%f_need_impl_header(%S)"="true"}%SN.h]
+C /impl/%SN
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_impl_header(%S)"="true"}{<%CX>}\
+	%f_h_header(%S)
+	%f_std_inc(%S)
+	[{"<{}{"%CM"="Set::Class"}{C}>"!="0"}\#include \<set\>
+	][{"<{}{"%CM"="Map::Class"|"%CM"="MultiMap::Class"}{C}>"!="0"}\#include \<map\>
+	][{"<{}{"%CM"="Vector::Class"}{C}>"!="0"}\#include \<vector\>
+	][{"<{}{"%CM"="List::Class"}{C}>"!="0"}\#include \<list\>
+	]\
+	[{"<{}{"%CM"="Queue::Class"}{C}>"!="0"}\#include \<queue\>
+	]\
+
+	[{"<{}{"%CM"="Deque::Class"}{C}>"!="0"}\#include \<deque\>
+	]\
+
+	[{<{}{%CM=UnsortedMap::Class|%CM=UnsortedSet::Class}{C}>!=0}\#include "shared/Core/data/unsorted_containers.h"
+	][<{}{}{%D}[\#include %f_dump_include_path(%DL,%D)
+	]>]<{}{%CM=LocalInterface::Class&%f_use_as_srv_type(%C)=true}[\#include "%f_str_replace(%f_with_gen_id(idl,%C%RW),.idl,S.h)"
+	]>
+	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDE}
+	]
+	][
+	%S%f_open_ifdef()]%f_dump_package_fwd(%S)
+	%SP[{%S{is namespace}=true}namespace %SN {
+	][
+	<[{"%CO"=""}{%CX}[%CX
+	
+	]]>][{%S{is namespace}=true}} //namespace %SN
+	]%Sp[
+	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+	%f_h_footer(%S)
+	]
+
+f _dump_package_fwd
+	%f_clear_list(FWD_LIST)\
+	%f_set_var(PACK,S)\
+	<{}{"%CO"=""&%t_is_container(%C)=true}%C<{}{%CC=Attribute&"%CS"=""}%C[%f_set_var(TYPE,T)]>[{%{TYPE}W!=%{PACK}W&%{PACK}<{}{%DW=%{TYPE}W}{C}>=0}%f_add_to_list(FWD_LIST,{TYPE})]>\
+	<{}{"%CO"=""&%CC=Class}[{%CS=InstanceDef}%C[%f_set_var(TYPE,R)][{%{TYPE}W!=%{PACK}W&%{PACK}<{}{%DW=%{TYPE}W}{C}>=0}%f_add_to_list(FWD_LIST,{TYPE})]]\
+	%C<{}{%CC=Operation}%C<{}{%CC=Parameter}%C[%f_set_var(TYPE,T)][{%{TYPE}W!=%{PACK}W&%{PACK}<{}{%DW=%{TYPE}W}{C}>=0}%f_add_to_list(FWD_LIST,{TYPE})]>>\
+	%C<{}{%CC=Attribute}%C[%f_set_var(TYPE,T)][{%{TYPE}W!=%{PACK}W&%{PACK}<{}{%DW=%{TYPE}W}{C}>=0}%f_add_to_list(FWD_LIST,{TYPE})]>\
+	>\
+	%f_unique_list(FWD_LIST,"%SU")\
+	[//forward decl
+	<{}{%f_is_empty(FWD_LIST)=false}{W}[%f_pop_first_to_var(FWD_LIST,FWD)[{"%{FWD}F"!=""}[%{FWD}P\t]%{FWD}F[
+	%{FWD}p]]
+	]>]
+
+//%S - где осуществляем проверку
+//%1 - что проверяем
+f _need_to_be_fwded
+	%f_set_var(__TYPE__,1)\
+	[{%{__TYPE__}W!=%SW&%{PACK}<{}{%DW=%{__TYPE__}W}{C}>=0}{C}>=0}{false}true]
+//#UC END# *47022C88029Ffor4714A0260109*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

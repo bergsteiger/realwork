@@ -1,0 +1,530 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "functional"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"C++ èíòåðôåéñû è ðåàëèçàöèÿ|Äîêóìåíòàöèÿ")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/functional|4945FA96003E
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16657657170"))
+    quid       	"4945FA96003E"
+    documentation 	"íàáîð ôóíêöèîíàëüíûõ àëãîðèòìîâ"
+    stereotype 	"Unit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "hash"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"All")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local helper"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no hands"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"weak"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no base class"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"non virtual base"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/functional/hash.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4945FAC70197_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4945FAC70197_CUSTOM_INCLUDES*¤//#UC END# *4945FAC70197_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4945FAC70197*"
+		    value      	"//#UC START# *4945FAC70197*¤//#UC END# *4945FAC70197*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4945FAC70197_USER_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4945FAC70197_USER_INCLUDES*¤#include <functional>¤#include "boost/functional/hash.hpp"¤//#UC END# *4945FAC70197_USER_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4945FAC70197_USER_DEFINITION*"
+		    value      	(value Text 
+|//#UC START# *4945FAC70197_USER_DEFINITION*¤template <class T> class Var;¤template <class T, class Destructor, bool allow_use_on_refcounted> class Box;¤template <class T, class Destructor>  class Aptr;¤¤namespace detail {¤	template <class T> ¤	struct hash_impl {¤		static std::size_t call (T const& val) {¤			return boost::hash<T> () (val);¤		}¤	};¤	¤	//ñïåöèàëèçàöèÿ äëÿ Var'à¤	template <class T> ¤	struct hash_impl<Core::Var<T> > {¤		static std::size_t call (Core::Var<T> const& val) {¤			return boost::hash<const T*> () (val.ptr ());¤		}¤	};¤	¤	//ñïåöèàëèçàöèÿ äëÿ Box'à¤	template <class T, class Destructor, bool allow_use_on_refcounted> ¤	struct hash_impl<Core::Box<T, Destructor, allow_use_on_refcounted> > {¤		static std::size_t call (Core::Box<T, Destructor, allow_use_on_refcounted> const& val) {¤			return boost::hash<const T*> () (val.ptr ());¤		}¤	};¤¤	//ñïåöèàëèçàöèÿ äëÿ Aptr'à¤	template <class T, class Destructor> ¤	struct hash_impl<Core::Aptr<T, Destructor> > {¤		static std::size_t call (Core::Aptr<T, Destructor> const& val) {¤			return boost::hash<const T*> () (val.ptr ());¤		}¤	};¤} //namespace detail¤¤template <class T> ¤struct hash: std::unary_function<T, std::size_t>¤{¤    std::size_t operator() (T const& val) const {¤		return detail::hash_impl<T>::call (val);¤    }¤};¤//#UC END# *4945FAC70197_USER_DEFINITION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/functional/hash|4945FAC70197
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16657669311"))
+	    quid       	"4945FAC70197"
+	    documentation 	"Àëãîðèòì âû÷èñëåíèÿ õýøà - ïðîñòàÿ îáåðòêà íàä boost::hash"
+	    stereotype 	"UtilityPack"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657669665"))
+		    quid       	"4945FB050102"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::boost::functional::hash"
+		    quidu      	"47836B4B0073"))
+	    language   	"MDA Generator")
+	(object Class "equal_to"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/functional/equal_to.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local helper"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no hands"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"weak"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4945FB4300C7_USER_INCLUDES*"
+		    value      	"//#UC START# *4945FB4300C7_USER_INCLUDES*¤#include <functional>¤//#UC END# *4945FB4300C7_USER_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4945FB4300C7_USER_DEFINITION*"
+		    value      	(value Text 
+|//#UC START# *4945FB4300C7_USER_DEFINITION*¤template <class T> class Var;¤template <class T, class Destructor, bool allow_use_on_refcounted> class Box;¤template <class T, class Destructor>  class Aptr;¤¤namespace detail {¤	template <class T> ¤	struct equal_to_impl {¤		static bool call (T const& lhs, T const& rhs) {¤			return std::equal_to<T> () (lhs, rhs);¤		}¤	};¤¤	template <class T> ¤	struct equal_to_impl<Core::Var<T> > {¤		static bool call (Core::Var<T> const& lhs, Core::Var<T> const& rhs) {¤			return std::equal_to<const T*> () (lhs.ptr (), rhs.ptr ());¤		}¤	};¤	¤	//ñïåöèàëèçàöèÿ äëÿ Box'à¤	template <class T, class Destructor, bool allow_use_on_refcounted>¤	struct equal_to_impl<Core::Box<T, Destructor, allow_use_on_refcounted> > {¤		static bool call (¤			Core::Box<T, Destructor, allow_use_on_refcounted> const& lhs¤			, Core::Box<T, Destructor, allow_use_on_refcounted> const& rhs¤		) {¤			return std::equal_to<const T*> () (lhs.ptr (), rhs.ptr ());¤		}¤	};¤	¤	//ñïåöèàëèçàöèÿ äëÿ Aptr'à¤	template <class T, class Destructor> ¤	struct equal_to_impl<Core::Aptr<T, Destructor> > {¤		static bool call (¤			Core::Aptr<T, Destructor> const& lhs¤			, Core::Aptr<T, Destructor> const& rhs¤		) {¤			 return std::equal_to<const T*>() (lhs.ptr (), rhs.ptr ());¤		}¤	};¤} //namespace detail¤¤template <class T> ¤struct equal_to: std::binary_function<T, T, bool>¤{¤    bool operator () (T const& lhs, T const& rhs) const {¤		return detail::equal_to_impl<T>::call (lhs, rhs);¤    }¤};¤//#UC END# *4945FB4300C7_USER_DEFINITION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/functional/equal_to|4945FB4300C7
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16657670262"))
+	    quid       	"4945FB4300C7"
+	    documentation 	"îáåðòêà íàä std::equal èñïîëüçóåòñÿ äëÿ ñïåöèàëèçàöèè ñðàâíåíèÿ Var'îâ, Aptr'îâ, Box'îâ"
+	    stereotype 	"UtilityPack"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657670589"))
+		    quid       	"4945FBFA035C"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::std::functional::functional"
+		    quidu      	"4945FBE9020E"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4945FAAB02B1"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::Core::functional::hash" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(813, 1077)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(663, 1047)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• hash")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(663, 997)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"4945FAC70197"
+		    width      	318
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::boost::functional::hash" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(816, 609)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(666, 581)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• hash")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(666, 531)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"47836B4B0073"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(695, 841)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4945FB050102"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(813, 984)
+			(815, 699))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::Core::functional::equal_to" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1299, 1083)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1149, 1053)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"equal_to")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1149, 1003)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"4945FB4300C7"
+		    width      	318
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::std::functional::functional" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1299, 621)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1149, 593)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"functional")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1149, 543)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4945FBE9020E"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @7
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @8
+			Parent_View 	@7
+			location   	(1180, 850)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4945FBFA035C"
+		    client     	@5
+		    supplier   	@6
+		    vertices   	(list Points
+			(1299, 990)
+			(1299, 711))
+		    line_style 	0)))))

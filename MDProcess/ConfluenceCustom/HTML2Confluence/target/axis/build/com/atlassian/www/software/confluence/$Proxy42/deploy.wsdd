@@ -1,0 +1,288 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ConfluenceService WSDL service -->
+
+  <service name="ConfluenceSoapService" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://www.atlassian.com/software/confluence/$Proxy42/"/>
+      <parameter name="wsdlServiceElement" value="ConfluenceService"/>
+      <parameter name="schemaUnqualified" value="http://www.atlassian.com/package/com.atlassian.confluence.rpc/,http://www.atlassian.com/package/java.util/,http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/,http://www.themindelectric.com/2001/schemaArray/"/>
+      <parameter name="wsdlServicePort" value="ConfluenceSoapService"/>
+      <parameter name="className" value="com.atlassian.www.software.confluence.$Proxy42.ConfluenceSoapServiceSkeleton"/>
+      <parameter name="wsdlPortType" value="ConfluenceSoapService"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="Session"/>
+
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemoteBlogEntrySummary"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteBlogEntrySummary[]"
+        innerType="cmp-ns:RemoteBlogEntrySummary" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteBlogEntry"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteBlogEntry"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteAttachment"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteAttachment"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteUser"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteUser"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:AbstractRemotePageSummary"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.AbstractRemotePageSummary"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemoteSpace"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteSpace[]"
+        innerType="cmp-ns:RemoteSpace" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemoteSpaceSummary"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteSpaceSummary[]"
+        innerType="cmp-ns:RemoteSpaceSummary" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemoteComment"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteComment[]"
+        innerType="cmp-ns:RemoteComment" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc/"
+        qname="ns:InvalidSessionException"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc.InvalidSessionException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc/"
+        qname="ns:VersionMismatchException"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc.VersionMismatchException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteServerInfo"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteServerInfo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemotePermission"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemotePermission"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc/"
+        qname="ns:AlreadyExistsException"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc.AlreadyExistsException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteUserInformation"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteUserInformation"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/java.util/"
+        qname="ns:Map"
+        type="java:com.atlassian.www._package.java_util.Map"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemotePageHistory"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemotePageHistory"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteLabel"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteLabel"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc/"
+        qname="ns:AuthenticationFailedException"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc.AuthenticationFailedException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemotePermission"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemotePermission[]"
+        innerType="cmp-ns:RemotePermission" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteSpaceSummary"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteSpaceSummary"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemotePageSummary"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemotePageSummary[]"
+        innerType="cmp-ns:RemotePageSummary" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc/"
+        qname="ns:RemoteException"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc.RemoteException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteSearchResult"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteSearchResult"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteBlogEntrySummary"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteBlogEntrySummary"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteComment"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteComment"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemoteSearchResult"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteSearchResult[]"
+        innerType="cmp-ns:RemoteSearchResult" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemoteSpace"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteSpace"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc/"
+        qname="ns:NotPermittedException"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc.NotPermittedException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.themindelectric.com/2001/schemaArray/"
+        qname="ns:ArrayOfstring"
+        type="java:java.lang.String[]"
+        innerType="cmp-ns:string" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemoteAttachment"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteAttachment[]"
+        innerType="cmp-ns:RemoteAttachment" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemoteLabel"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemoteLabel[]"
+        innerType="cmp-ns:RemoteLabel" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemotePageSummary"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemotePageSummary"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:RemotePage"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemotePage"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        qname="ns:ArrayOfRemotePageHistory"
+        type="java:com.atlassian.www._package.com_atlassian_confluence_rpc_soap_beans.RemotePageHistory[]"
+        innerType="cmp-ns:RemotePageHistory" xmlns:cmp-ns="http://www.atlassian.com/package/com.atlassian.confluence.rpc.soap.beans/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  </service>
+</deployment>

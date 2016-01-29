@@ -1,0 +1,1322 @@
+<?xml version = "1.0" encoding = "windows-1252"?>
+
+<Wix
+	xmlns = "http://schemas.microsoft.com/wix/2003/01/wi"
+>
+	<?define ProductGUID = "4483DCC4-C574-4107-B5E6-A2CBF971E769"?> <!-- change, if  only major upgrade -->
+
+	<?define PackageGUID = "????????-????-????-????-????????????"?> <!--   autogenuuid, don't change it -->
+	<?define UpgradeGUID = "2BABE6D8-35C3-40E9-9537-3DDED39600F0"?> <!--    uuid, keep the same as long -->
+
+	<?ifndef ProductVersion?>
+		<?define ProductVersion = "9.999.999"?>                     <!--   special manual build release -->
+	<?endif?>
+	
+	<?ifndef ExternalRoot?>
+		<?define ExternalRoot = "X:\support\msi"?>
+	<?endif?>
+
+	<Product Id = "$(var.ProductGUID)"
+		Codepage = "$(var.LocaleCodePage)"
+		Language = "$(loc.LocaleLangID)"
+		Manufacturer = "$(loc.GeneralCompanyName)"
+		Name = "$(loc.GeneralProductName) v$(var.ProductVersion)"
+		UpgradeCode = "$(var.UpgradeGUID)"
+		Version = "$(var.ProductVersion)"
+	>
+
+		<Package Id = "$(var.PackageGUID)"
+			Comments = "$(loc.PackageComments)"
+			Compressed = "yes"
+			Description = "$(loc.PackageDescription)"
+			InstallerVersion = "100"
+			Keywords = "$(loc.PackageKeywords)"
+			Manufacturer = "$(loc.GeneralCompanyName)"
+			Platforms = "Intel"
+			ReadOnly = "yes"
+			ShortNames = "no"
+			SummaryCodepage = "$(var.LocaleCodePage)"
+		/>
+
+		<Upgrade Id = "$(var.UpgradeGUID)"
+		>
+			<UpgradeVersion
+				IncludeMaximum = "yes"
+				IncludeMinimum = "yes"
+				Maximum = "$(var.ProductVersion)"
+				Minimum = "$(var.ProductVersion)"
+				OnlyDetect = "yes"
+				Property = "PATCHFOUND"
+        	/>
+
+      		<UpgradeVersion
+				IncludeMinimum = "no"
+				Minimum = "$(var.ProductVersion)"
+				OnlyDetect = "yes"
+				Property = "NEWERFOUND"
+			/>
+		</Upgrade>
+
+		<Binary Id = 'msihlp32.dll'
+			SourceFile = '$(var.ExternalRoot)\msihlp32.dll'
+		/>
+
+		<Media Id = "1"
+			Cabinet = "data1.cab"
+			CompressionLevel = "high"
+			DiskPrompt="DVD"
+			EmbedCab = "yes"
+		/>
+
+		<Property Id = "DiskPrompt"
+			Value = "$(loc.GeneralProductName) $(loc.MediaDiskPrompt)"
+		/>
+
+		<!-- Conditions { -->
+			<Condition
+				Message = "$(loc.MessageAdministratorRequired)"
+			>
+				<![CDATA[
+					Privileged
+				]]>
+			</Condition>
+
+			<Condition
+				Message = "$(loc.MessageWindowsNTRequired)"
+			>
+				<![CDATA[
+					NOT Version9X
+				]]>
+			</Condition>
+
+			<Condition
+				Message = "$(loc.MessageRationalRoseRequired)"
+			>
+				<![CDATA[
+					NOT RATIONALROSEINSTALLDIR = ""
+				]]>
+			</Condition>
+		<!-- } Conditions -->
+
+		<!-- CustomActions { -->
+			<CustomAction Id = "CustomActionSetInstallDirByMDAGeneratorInstallDir"
+				Directory = "INSTALLDIR"
+				Value = "[MDAGENERATORINSTALLDIR]"
+			/>
+
+			<CustomAction Id = "CustomActionSetInstallDirByRationalRoseInstallDir"
+				Directory = "INSTALLDIR"
+				Value = "[RATIONALROSEINSTALLDIR]\Garant\MDAGenerator"
+			/>
+
+			<CustomAction Id = "CustomActionShowAlreadyUpdatedError"
+				Error = "$(loc.ErrorAlreadyUpdated)"
+			/>
+
+			<CustomAction Id = "CustomActionShowNoDowngradeError"
+				Error = "$(loc.ErrorNoDowngrade)"
+			/>
+		<!-- } CustomActions -->
+
+		<!-- Properties { -->
+			<!-- ARP Properties { -->
+				<Property Id = "ARPCOMMENTS"
+					Value = "$(loc.PackageComments)"
+				/>
+
+				<Property Id = "ARPCONTACT"
+					Value = "$(loc.PackageContact)"
+				/>
+
+				<Property Id = "ARPHELPLINK"
+					Value = "$(loc.PackageHelpLink)"
+				/>
+
+				<Property Id = "ARPHELPTELEPHONE"
+					Value = "$(loc.PackageHelpTelephone)"
+				/>
+			<!-- } ARP Properties -->
+
+			<Property Id = "ALLUSERS"
+				Value = "1"
+			/>
+
+			<Property Id = "MDAGENERATORINSTALLDIR"
+			>
+				<RegistrySearch Id = "RegistrySearchMDAGeneratorInstallDir"
+					Key = "Software\Rational Software\Rose\AddIns\MDAGenerator"
+					Name = "InstallDir"
+					Root = "HKLM"
+					Type = "raw"
+				/>
+			</Property>
+
+			<Property Id = "RATIONALROSEINSTALLDIR"
+			>
+				<RegistrySearch Id = "RationalRoseInstallDir"
+					Key = "Software\Rational Software\Rose"
+					Name = "InstallDir"
+					Root = "HKLM"
+					Type = "raw"
+				/>
+			</Property>
+		<!-- } Properties -->
+
+		<!-- Directories { -->
+			<Directory Id = "TARGETDIR"
+				Name = "SourceDir"
+			>
+				<Directory Id = "ProgramFilesFolder"
+					LongName = "Program Files"
+					Name = "PROGRA_1"
+				>
+					<Directory Id = "Rational"
+						LongName = "Rational"
+						Name = "RATIONAL"
+					>
+						<Directory Id = "Rose"
+							LongName = "Rose"
+							Name = "ROSE"
+						>
+							<Directory Id = "Garant"
+								LongName = "Garant"
+								Name = "GARANT_1"
+							>
+								<Directory Id = "INSTALLDIR"
+									LongName = "MDAGenerator"
+									Name = "MDAGEN_1"
+								>
+									<Component Id = "ComponentEmptyFeatureWorkaround"
+										Guid = "EB57E628-BA76-46F4-B1B6-0FAF2023CF64"
+									/>
+
+									<Component Id = "ComponentMDAGenerator"
+										Guid = "C03C5407-8D21-449F-AF51-70D5FA8E7F5D"
+									>
+										<?include MDAGeneratorSetupAddIns.wxi?>
+										<?include MDAGeneratorSetupGenSet.wxi?>
+										<?include MDAGeneratorSetupServer.wxi?>
+									</Component>
+
+									<Component Id = "ComponentMDAGeneratorDocumentation"
+										Guid = "28104757-034B-4187-BFE5-60D1EB1B2AC8"
+									>
+<!-- 
+										// TODO: add documentation and other help files here.
+-->
+									</Component>
+
+									<Directory Id = "INSTALLDIR.images"
+										LongName = "images"
+										Name = "IMAGES"
+									>
+										
+									<Component Id = 'INSTALLDIR.images'
+											Guid = '76443BF9-1E16-43cf-A9EA-309B1E99E774'
+										>
+											<CreateFolder
+											>
+											</CreateFolder>
+
+											<RemoveFile Id = 'UID_221843BF73B54cc88B6D42FB93021B75'
+												LongName = '*'
+												Name = '*.*'
+												On = 'uninstall'
+											/>
+										</Component>
+										
+									</Directory>
+
+									<Directory Id = "INSTALLDIR.images.tmp"
+										LongName = "images.tmp"
+										Name = "IMAGES.TMP"
+									>
+										
+										<Component Id = 'INSTALLDIR.images.tmp'
+											Guid = '7F20434C-E8B2-4670-BDE1-9DD08445478B'
+										>
+											<CreateFolder
+											>
+											</CreateFolder>
+										</Component>
+									</Directory>
+
+									<Directory Id = "INSTALLDIR.templates"
+										LongName = "templates"
+										Name = "TEMPL"
+									>
+
+										<Component Id = 'INSTALLDIR.templates'
+											Guid = '2607FE75-1ED8-4732-8300-F46E493E9769'
+										>
+											<CreateFolder
+											>
+											</CreateFolder>
+
+											<RemoveFile Id = 'UID_B7DC2C896ADC409dBA1FB9CD961F16CC'
+												LongName = '*'
+												Name = '*.*'
+												On = 'uninstall'
+											/>
+										</Component>
+									</Directory>
+
+									<Directory Id = "INSTALLDIR.templates.tmp"
+										LongName = "templates.tmp"
+										Name = "TEMPL.TMP"
+									>
+
+										<Component Id = 'INSTALLDIR.templates.tmp'
+											Guid = '79AB28B8-08F5-41ed-B848-3E3CF10A1E9D'
+										>
+											<CreateFolder
+											>
+											</CreateFolder>
+
+											<RemoveFile Id = 'UID_CF9E9B248DBA427dAC6A46C6A1ADE485'
+												LongName = '*'
+												Name = '*.*'
+												On = 'uninstall'
+											/>
+										</Component>
+										
+									</Directory>
+
+								</Directory>
+							</Directory>
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+		<!-- } Directories -->
+
+		<!-- Features { -->
+			<Feature Id = "FeatureMDAGeneratorPlugin"
+				Absent = "disallow"
+				AllowAdvertise = "no"
+				ConfigurableDirectory = "INSTALLDIR"
+				Description = "$(loc.FeatureMDAGeneratorPluginDescription)"
+				Display = "expand"
+				InstallDefault = "local"
+				Title = "$(loc.FeatureMDAGeneratorPluginTitle)"
+				TypicalDefault = "install"
+				Level = "1"
+			>
+				<ComponentRef Id = "ComponentEmptyFeatureWorkaround"
+				/>
+
+				<Feature Id = "FeatureMDAGenerator"
+					Absent = "disallow"
+					AllowAdvertise = "no"
+					Description = "$(loc.FeatureMDAGeneratorDescription)"
+					InstallDefault = "local"
+					Title = "$(loc.FeatureMDAGeneratorTitle)"
+					TypicalDefault = "install"
+					Level = "1"
+				>
+					<ComponentRef Id = "ComponentMDAGenerator"
+					/>
+
+					<ComponentRef Id = "INSTALLDIR.images"
+					/>
+
+					<ComponentRef Id = "INSTALLDIR.images.tmp"
+					/>
+
+					<ComponentRef Id = "INSTALLDIR.templates"
+					/>
+
+					<ComponentRef Id = "INSTALLDIR.templates.tmp"
+					/>
+				</Feature>
+
+				<Feature Id = "FeatureMDAGeneratorDocumentation"
+					AllowAdvertise = "no"
+					Description = "$(loc.FeatureMDAGeneratorDocumentationDescription)"
+					InstallDefault = "local"
+					Title = "$(loc.FeatureMDAGeneratorDocumentationTitle)"
+					TypicalDefault = "install"
+					Level = "1000"
+				>
+					<ComponentRef Id = "ComponentMDAGeneratorDocumentation"
+					/>
+				</Feature>
+			</Feature>
+		<!-- } Features -->
+
+		<!-- UIRefs { -->
+			<UIRef Id= "WixUI_Mondo"
+			/>
+
+			<UIRef Id = "WixUI_ErrorProgressText"
+			/>
+		<!-- } UIRefs -->
+
+		<!-- InstallSequences { -->
+			<InstallUISequence>
+				<Custom
+					Action = "CustomActionSetInstallDirByMDAGeneratorInstallDir"
+					After = "CostFinalize"
+				>
+					<![CDATA[
+						NOT MDAGENERATORINSTALLDIR = ""
+					]]>
+				</Custom>
+
+				<Custom
+					Action = "CustomActionSetInstallDirByRationalRoseInstallDir"
+					After = "CostFinalize"
+				>
+					<![CDATA[
+						NOT RATIONALROSEINSTALLDIR = ""
+						AND MDAGENERATORINSTALLDIR = ""
+					]]>
+				</Custom>
+			</InstallUISequence>
+
+			<InstallExecuteSequence>
+				<Custom
+					Action = "CustomActionShowAlreadyUpdatedError"
+					After = "FindRelatedProducts"
+				>
+					<![CDATA[
+						PATCHFOUND
+					]]>
+				</Custom>
+
+				<Custom
+					Action = "CustomActionShowNoDowngradeError"
+					After = "FindRelatedProducts"
+				>
+					<![CDATA[
+						NEWERFOUND
+					]]>
+				</Custom>
+
+				<RemoveExistingProducts
+					After = "InstallFinalize"
+				/>
+			</InstallExecuteSequence>
+		<!-- } InstallSequences -->
+
+
+		<!-- Extract.DataBase.Path.OnDeferred { -->
+			<?define BaseName = "Extract.DataBase.Path.OnDeferred"?>
+			<?define BaseDesc = "Extract DataBase.Path"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'ExtractFilePath'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.ProcessComponents?><?define InstallExecuteSequence.Before.ProcessComponents = "ProcessComponents"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.ProcessComponents)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.ProcessComponents?><?define InstallExecuteSequence.Before.ProcessComponents = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);FileName=[OriginalDatabase];Result=DATABASEPATH'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.ProcessComponents?><?define InstallExecuteSequence.Before.ProcessComponents = "ProcessComponents"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.ProcessComponents)'
+							>
+								<![CDATA[
+									OriginalDatabase
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.ProcessComponents?><?define InstallExecuteSequence.Before.ProcessComponents = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Extract.DataBase.Path.OnDeferred -->
+
+		<!-- Setup.LogFile.Config.OnDeferred { -->
+			<?define BaseName = "Setup.LogFile.Config.OnDeferred"?>
+			<?define BaseDesc = "Setup log file path"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'SetIniFileValue'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%LOGFILE%";If_NEQ_RValue="";IniFileName=[#FileSettingsINI];SectionName=Common Params;ValueName=-LogFile;Value=[INSTALLDIR]MDAGenerator.log'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Setup.LogFile.Config.OnDeferred -->
+
+		<!-- Is.LogFile.Config.Exist.OnDeferred { -->
+			<?define BaseName = "Is.LogFile.Config.Exist.OnDeferred"?>
+			<?define BaseDesc = "Is log file key exist in ini-file"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'GetIniFileValue'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);IniFileName=[#FileSettingsINI];SectionName=Common Params;ValueName=-LogFile;Result=LOGFILE'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- Is.LogFile.Config.Exist.OnDeferred { -->
+
+		<!-- Setup.ImageDir.Config.OnDeferred { -->
+			<?define BaseName = "Setup.ImageDir.Config.OnDeferred"?>
+			<?define BaseDesc = "Setup image directory"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'SetIniFileValue'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);IniFileName=[#FileSettingsINI];SectionName=Common Params;ValueName=-ImageDir;Value=[INSTALLDIR.images]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Setup.ImageDir.Config.OnDeferred -->
+
+		<!-- Remove.Image.Temp.Folder.OnCommit { -->
+			<?define BaseName = "Remove.Image.Temp.Folder.OnCommit"?>
+			<?define BaseDesc = "Romove image temp foler"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'commit'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'RemovePathName'
+						Return = 'ignore'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%IMAGEFOLDER%";If_NEQ_RValue="";PathName=[INSTALLDIR.images.tmp]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.images.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Remove.Image.Temp.Folder.OnCommit -->
+
+		<!-- Copy.ImageSRC.To.ImageDST.Location.OnDeferred { -->
+			<?define BaseName = "Copy.ImageSRC.To.ImageDST.Location.OnDeferred"?>
+			<?define BaseDesc = "Copy image src to image dst"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'CopyPathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%IMAGEFOLDER%";If_NEQ_RValue="";FromPathName=%IMAGEFOLDER%;ToPathName=[INSTALLDIR.images]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.images
+									AND INSTALLDIR.images.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Copy.ImageSRC.To.ImageDST.OnDeferred -->
+
+		<!-- Remove.ImageDST.Folder.OnRollback { -->
+			<?define BaseName = "Remove.ImageDST.Folder.OnRollback"?>
+			<?define BaseDesc = "Remove image dst folder"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'rollback'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'RemovePathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%IMAGEFOLDER%";If_NEQ_RValue="";PathName=[INSTALLDIR.images]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.images
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Remove.ImageDST.Folder.OnRollback -->
+
+		<!-- Move.Temp.ImageFolder.To.ImageDST.Location.OnRollback { -->
+			<?define BaseName = "Move.Temp.ImageFolder.To.ImageDST.Location.OnRollback"?>
+			<?define BaseDesc = "Move temp image folder to destination"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'MovePathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%IMAGEFOLDER%";If_NEQ_RValue="";FromPathName=[INSTALLDIR.images.tmp];ToPathName=[INSTALLDIR.images]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.images
+									AND INSTALLDIR.images.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Move.Temp.ImageFolder.To.ImageDST.Location.OnRollback -->
+
+		<!-- Move.ImageDST.To.Temp.Location.OnDeferred { -->
+			<?define BaseName = "Move.ImageDST.To.Temp.Location.OnDeferred"?>
+			<?define BaseDesc = "Move image destination to temp"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'MovePathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%IMAGEFOLDER%";If_NEQ_RValue="";FromPathName=[INSTALLDIR.images];ToPathName=[INSTALLDIR.images.tmp]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.images
+									AND INSTALLDIR.images.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Move.ImageDST.To.Temp.Location.OnDeferred -->
+
+		<!-- Remove.Temp.ImageFolder.OnDeferred { -->
+			<?define BaseName = "Remove.Temp.ImageFolder.OnDeferred"?>
+			<?define BaseDesc = "Remove temp image folder"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'RemovePathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);PathName=[INSTALLDIR.images.tmp]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.images.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Remove.Temp.ImageFolder.OnDeferred -->
+
+		<!-- Is.ImageFolder.Exist.Check.OnDeferred { -->
+			<?define BaseName = "Is.ImageFolder.Exist.Check.OnDeferred"?>
+			<?define BaseDesc = "Is image folder exist"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'IsFolderExist'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);FolderName=%DATABASEPATH%\images;Result=IMAGEFOLDER'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Is.ImageFolder.Exist.Check.OnDeferred -->
+
+		<!-- Setup.TemplatesDir.Config.OnDeferred { -->
+			<?define BaseName = "Setup.TemplatesDir.Config.OnDeferred"?>
+			<?define BaseDesc = "Setup templates directory"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'SetIniFileValue'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%TEMPLDEFAULT%";If_NEQ_RValue="";IniFileName=[#FileSettingsINI];SectionName=Common Params;ValueName=-TemplatesDir;Value=[INSTALLDIR.templates]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Setup.TemplatesDir.Config.OnDeferred -->
+
+		<!-- Is.TemplatesDirKey.Config.Exist.OnDeferred { -->
+			<?define BaseName = "Is.TemplatesDirKey.Config.Exist.OnDeferred"?>
+			<?define BaseDesc = "Is templates dir key exist in ini-file"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'GetIniFileValue'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);IniFileName=[#FileSettingsINI];SectionName=Common Params;ValueName=-TemplatesDir;Result=TEMPLDEFAULT'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Setup.TemplatesDir.Config.OnDeferred -->
+
+		<!-- Remove.Templates.Temp.Folder.OnCommit { -->
+			<?define BaseName = "Remove.Templates.Temp.Folder.OnCommit"?>
+			<?define BaseDesc = "Romove templates temp foler"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'commit'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'RemovePathName'
+						Return = 'ignore'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%TEMPLATESFOLDER%";If_NEQ_RValue="";PathName=[INSTALLDIR.templates.tmp]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.templates.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Remove.Templates.Temp.Folder.OnCommit -->
+
+		<!-- Copy.TemplatesSRC.To.TemplatesDST.Location.OnDeferred { -->
+			<?define BaseName = "Copy.TemplatesSRC.To.TemplatesDST.Location.OnDeferred"?>
+			<?define BaseDesc = "Copy templates source to templates destination"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'CopyPathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%TEMPLATESFOLDER%";If_NEQ_RValue="";FromPathName=%TEMPLATESFOLDER%;ToPathName=[INSTALLDIR.templates]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.templates
+									AND INSTALLDIR.templates.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Copy.TemplatesSRC.To.TemplatesDST.OnDeferred -->
+
+		<!-- Remove.TemplatesDST.Folder.OnRollback { -->
+			<?define BaseName = "Remove.TemplatesDST.Folder.OnRollback"?>
+			<?define BaseDesc = "Remove templates destination folder"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'rollback'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'RemovePathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%TEMPLATESFOLDER%";If_NEQ_RValue="";PathName=[INSTALLDIR.templates]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.templates
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Remove.TemplatesDST.Folder.OnRollback -->
+
+		<!-- Move.Temp.TemplatesFolder.To.TemplatesDST.Location.OnRollback { -->
+			<?define BaseName = "Move.Temp.TemplatesFolder.To.TemplatesDST.Location.OnRollback"?>
+			<?define BaseDesc = "Move temp templates folder to destination"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'MovePathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%TEMPLATESFOLDER%";If_NEQ_RValue="";FromPathName=[INSTALLDIR.templates.tmp];ToPathName=[INSTALLDIR.templates]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.templates
+									AND INSTALLDIR.templates.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Move.Temp.TemplatesFolder.To.TemplatesDST.Location.OnRollback -->
+
+		<!-- Move.TemplatesDST.To.Temp.Location.OnDeferred { -->
+			<?define BaseName = "Move.TemplatesDST.To.Temp.Location.OnDeferred"?>
+			<?define BaseDesc = "Move templates destination to temp"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'MovePathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);If_NEQ_LValue="%TEMPLATESFOLDER%";If_NEQ_RValue="";FromPathName=[INSTALLDIR.templates];ToPathName=[INSTALLDIR.templates.tmp]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.images
+									AND INSTALLDIR.images.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Move.ImageDST.To.Temp.Location.OnDeferred -->
+
+		<!-- Remove.Temp.TemplatesFolder.OnDeferred { -->
+			<?define BaseName = "Remove.Temp.TemplatesFolder.OnDeferred"?>
+			<?define BaseDesc = "Remove temp templates folder"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'RemovePathName'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);PathName=[INSTALLDIR.templates.tmp]'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+									AND INSTALLDIR.templates.tmp
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Remove.Temp.TemplatesFolder.OnDeferred -->
+
+		<!-- Is.TemplatesFolder.Exist.Check.OnDeferred { -->
+			<?define BaseName = "Is.TemplatesFolder.Exist.Check.OnDeferred"?>
+			<?define BaseDesc = "Is templates folder exist"?>
+				<?define CustomAction = "CALLENTRY_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'deferred'
+						BinaryKey = 'msihlp32.dll'
+						DllEntry = 'IsFolderExist'
+						Return = 'check'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									$(var.CustomAction)
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+
+				<?define CustomAction = "SETPARAMS_$(var.BaseName)"?>
+					<CustomAction Id = '$(var.CustomAction)' Execute = 'immediate'
+						Property = 'CALLENTRY_$(var.BaseName)'
+						Value = 'Description=$(var.BaseDesc);FolderName=%DATABASEPATH%\templates;Result=TEMPLATESFOLDER'
+					/>
+
+					<?ifndef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "StartServices"?><?endif?>
+						<InstallExecuteSequence>
+							<Custom Action = '$(var.CustomAction)'
+								Before = '$(var.InstallExecuteSequence.Before.StartServices)'
+							>
+								<![CDATA[
+									NOT (REMOVE ~= "ALL")
+								]]>
+							</Custom>
+						</InstallExecuteSequence>
+					<?undef InstallExecuteSequence.Before.StartServices?><?define InstallExecuteSequence.Before.StartServices = "$(var.CustomAction)"?>
+				<?undef CustomAction?>
+			<?undef BaseDesc?>
+			<?undef BaseName?>
+		<!-- } Is.TemplatesFolder.Exist.Check.OnDeferred -->
+
+	</Product>
+</Wix>

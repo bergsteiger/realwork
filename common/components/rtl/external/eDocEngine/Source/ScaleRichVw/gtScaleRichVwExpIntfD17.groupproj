@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8DD7700E-F4EA-45CB-86EA-0BB780176E4A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="gtScaleRichVwExpD17.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DCLgtScaleRichVwExpD17.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="gtScaleRichVwExpD17">
+        <MSBuild Projects="gtScaleRichVwExpD17.dproj"/>
+    </Target>
+    <Target Name="gtScaleRichVwExpD17:Clean">
+        <MSBuild Projects="gtScaleRichVwExpD17.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="gtScaleRichVwExpD17:Make">
+        <MSBuild Projects="gtScaleRichVwExpD17.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DCLgtScaleRichVwExpD17">
+        <MSBuild Projects="DCLgtScaleRichVwExpD17.dproj"/>
+    </Target>
+    <Target Name="DCLgtScaleRichVwExpD17:Clean">
+        <MSBuild Projects="DCLgtScaleRichVwExpD17.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DCLgtScaleRichVwExpD17:Make">
+        <MSBuild Projects="DCLgtScaleRichVwExpD17.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="gtScaleRichVwExpD17;DCLgtScaleRichVwExpD17"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="gtScaleRichVwExpD17:Clean;DCLgtScaleRichVwExpD17:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="gtScaleRichVwExpD17:Make;DCLgtScaleRichVwExpD17:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

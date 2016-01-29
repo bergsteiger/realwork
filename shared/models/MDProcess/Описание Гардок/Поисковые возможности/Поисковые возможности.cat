@@ -1,0 +1,1097 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "Розыск документов"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Описание Гардок/Розыск документов|4C36F000039D
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19036793189"))
+    quid       	"4C36F000039D"
+    documentation 	"Содержит возможности связанные с розыском документов"
+    stereotype 	"Features"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4C36FA1E001A"
+	    supplier   	"Logical View::MDProcess::Описание Гардок::Общие проблемы"
+	    quidu      	"4C35E5990174")
+	(object Visibility_Relationship
+	    quid       	"4C3C6B350181"
+	    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО"
+	    quidu      	"4C3C6AFD0015")
+	(object Visibility_Relationship
+	    quid       	"4C36F51602DC"
+	    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ДПО УВС"
+	    quidu      	"4C35DE960108"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Поэтапная обработка запроса на розыск в ГЛ ЮО"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Описание Гардок/Розыск документов/Поэтапная обработка запроса на розыск в ГЛ ЮО|4C36F92B0237
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036791302"))
+	    quid       	"4C36F92B0237"
+	    documentation 	"Розыск запрашиваемого документа в архивах НПП силами ГЛ ЮО"
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4C36F9FC025A"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Отсутствие возможности предоставить документ по запросу РП"
+		    quidu      	"4C36D7E600EF")
+		(object Realize_Relationship
+		    quid       	"4C3D84520285"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Отсутствие контроля за исполнением запроса на розыск документа"
+		    quidu      	"4C36FFA90360")
+		(object Realize_Relationship
+		    quid       	"4C3DA4EA000A"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Большое кол-во повторных запросов"
+		    quidu      	"4C3C615F019A")
+		(object Realize_Relationship
+		    quid       	"4C3DA74800B5"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Многократная ручная рассылка одного и того же ответа"
+		    quidu      	"4C3C6A3200B0"))
+	    language   	"MDA Generator")
+	(object Class "Поэтапная обработка информации в ДПО УВС"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Описание Гардок/Розыск документов/Поэтапная обработка информации в ДПО УВС|4C3DA1B400E3
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036814248"))
+	    quid       	"4C3DA1B400E3"
+	    documentation 	"Включает розыск документов по запросам из ГЛ ЮО и регистрацию текущих документов, приходящих по информационным каналам закрепленных за ООД УВС. Каждое действие связанное с обработкой протоколируется путем введения четко определенных этапов, через которые должна пройти обработка запроса на розыск или передача текущего документа в ОД ЮО."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4C3DA4B400DA"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ДПО УВС::Сложный контроль за процессом получения документов из ОГВ"
+		    quidu      	"4C35DEFE033B"))
+	    language   	"MDA Generator")
+	(object Class "Печать списка запросов"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Описание Гардок/Розыск документов/Печать списка запросов|4C37074501D5
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036808099"))
+	    quid       	"4C37074501D5"
+	    documentation 	"Печать списка запросов"
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4C37076201F6"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ДПО УВС::Ручное формирование списка розыска"
+		    quidu      	"4C35E2BE0157")
+		(object Realize_Relationship
+		    quid       	"4C494B580382"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ДПО УВС::Безадресная входящая почта"
+		    quidu      	"4C494A8C00F5"))
+	    language   	"MDA Generator")
+	(object Class "Поиск документов по базе карточек"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Описание Гардок/Розыск документов/Поиск документов по базе карточек|4C5C00E6013F
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036784681"))
+	    quid       	"4C5C00E6013F"
+	    documentation 	"Автоматический поиск карточек удовлетворяющий необходимым критериям"
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4C5C014403A2"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Отсутствие возможности предоставить документ по запросу РП"
+		    quidu      	"4C36D7E600EF"))
+	    language   	"MDA Generator")
+	(object Class "Рассылка почтовых уведомлений"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Описание Гардок/Розыск документов/Рассылка почтовых уведомлений|4C5C08C9023E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036785690"))
+	    quid       	"4C5C08C9023E"
+	    documentation 	"Автоматическая рассылка e-mail уведомлений сотрудникам ГЛ при наступлении следующих событий: документ принят к розыску ДПО УВС, запрос на документ отправлен в ОГВ, из ОГВ получен отказ в предоставлении документа ."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4C5C0B270199"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Избавится от нагрузки, связанной с необходимости транслирования ответов из ОГВ"
+		    quidu      	"4C5C0A150175"))
+	    language   	"MDA Generator")
+	(object Class "В автоматическом режиме заливать документы с сайтов"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1439545276093761")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Описание Гардок/Розыск документов/В автоматическом режиме заливать документы с сайтов|55CDB7BC005D
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"55CDB7BC005D"
+	    documentation 	"появилась возможность в автоматическом режиме заливать документы в МДП напрямую с сайта ГосДумы без необходимости в каком либо ручном вводе: скачанный МДП документ сразу отправляется на обработку Руководителю Проекта в ЮО"
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1439545330093850"))
+		    quid       	"55CDB7F2005C"
+		    supplier   	"Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Избавится от нагрузки, связанной с необходимости транслирования ответов из ОГВ"
+		    quidu      	"4C5C0A150175"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4C36F9240184"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	94
+	    origin_y   	84
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Розыск документов::Поэтапная обработка запроса на розыск в ГЛ ЮО" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1542, 669)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1044, 648)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	996
+			justify    	0
+			label      	"Поэтапная обработка запроса на розыск в ГЛ ЮО")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1044, 598)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	996
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4C36F92B0237"
+		    width      	1014
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Отсутствие возможности предоставить документ по запросу РП" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(735, 360)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(110, 328)
+			nlines     	1
+			max_width  	1250
+			justify    	0
+			label      	"Отсутствие возможности предоставить документ по запросу РП")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(110, 278)
+			anchor     	10
+			nlines     	1
+			max_width  	1250
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C36D7E600EF"
+		    width      	1268
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4C36F9FC025A"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(1326, 585)
+			(982, 454))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Отсутствие контроля за исполнением запроса на розыск документа" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1542, 114)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(866, 82)
+			nlines     	1
+			max_width  	1352
+			justify    	0
+			label      	"Отсутствие контроля за исполнением запроса на розыск документа")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(866, 32)
+			anchor     	10
+			nlines     	1
+			max_width  	1352
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C36FFA90360"
+		    width      	1370
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @5
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4C3D84520285"
+		    client     	@1
+		    supplier   	@4
+		    vertices   	(list Points
+			(1542, 585)
+			(1542, 208))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Розыск документов::Поэтапная обработка информации в ДПО УВС" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1518, 1776)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1057, 1755)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	922
+			justify    	0
+			label      	"Поэтапная обработка информации в ДПО УВС")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1057, 1705)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	922
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4C3DA1B400E3"
+		    width      	940
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ДПО УВС::Ручное формирование списка розыска" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(408, 2631)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(12, 2599)
+			nlines     	1
+			max_width  	792
+			justify    	0
+			label      	"Ручное формирование списка розыска")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(12, 2549)
+			anchor     	10
+			nlines     	1
+			max_width  	792
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C35E2BE0157"
+		    width      	810
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ДПО УВС::Сложный контроль за процессом получения документов из ОГВ" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(678, 1434)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(42, 1402)
+			nlines     	1
+			max_width  	1272
+			justify    	0
+			label      	"Сложный контроль за процессом получения документов из ОГВ")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(42, 1352)
+			anchor     	10
+			nlines     	1
+			max_width  	1272
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C35DEFE033B"
+		    width      	1290
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4C3DA4B400DA"
+		    client     	@6
+		    supplier   	@8
+		    vertices   	(list Points
+			(1316, 1692)
+			(912, 1528))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Большое кол-во повторных запросов" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2277, 375)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(1880, 343)
+			nlines     	1
+			max_width  	794
+			justify    	0
+			label      	"Большое кол-во повторных запросов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(1880, 293)
+			anchor     	10
+			nlines     	1
+			max_width  	794
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C3C615F019A"
+		    width      	812
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @11
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4C3DA4EA000A"
+		    client     	@1
+		    supplier   	@10
+		    vertices   	(list Points
+			(1746, 585)
+			(2038, 469))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Многократная ручная рассылка одного и того же ответа" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(696, 987)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(149, 955)
+			nlines     	1
+			max_width  	1094
+			justify    	0
+			label      	"Многократная ручная рассылка одного и того же ответа")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(149, 905)
+			anchor     	10
+			nlines     	1
+			max_width  	1094
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C3C6A3200B0"
+		    width      	1112
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Описание MDChange::Управление запросами::Групповые операции с запросами" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1404, 2958)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(1052, 2926)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	704
+			justify    	0
+			label      	"Групповые операции с запросами")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(1052, 2876)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	704
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4C36FDFF019C"
+		    width      	722
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ДПО УВС::Трудоемкое занесение результатов" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(381, 2970)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(9, 2938)
+			nlines     	1
+			max_width  	744
+			justify    	0
+			label      	"Трудоемкое занесение результатов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(9, 2888)
+			anchor     	10
+			nlines     	1
+			max_width  	744
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C35E4FC0229"
+		    width      	762
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @15
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4C36FEC40348"
+		    client     	@13
+		    supplier   	@14
+		    vertices   	(list Points
+			(1042, 2961)
+			(762, 2965))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Розыск документов::Печать списка запросов" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1326, 2640)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(1050, 2619)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	552
+			justify    	0
+			label      	"Печать списка запросов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(1050, 2569)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	552
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4C37074501D5"
+		    width      	570
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @17
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4C37076201F6"
+		    client     	@16
+		    supplier   	@7
+		    vertices   	(list Points
+			(1040, 2636)
+			(813, 2634))
+		    line_style 	0)
+		(object RealizeView "" @18
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4C3DA74800B5"
+		    client     	@1
+		    supplier   	@12
+		    vertices   	(list Points
+			(1317, 752)
+			(943, 892))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ДПО УВС::Безадресная входящая почта" @19
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2313, 2505)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(1997, 2473)
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"Безадресная входящая почта")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@19
+			location   	(1997, 2423)
+			anchor     	10
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C494A8C00F5"
+		    width      	650
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @20
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4C494B580382"
+		    client     	@16
+		    supplier   	@19
+		    vertices   	(list Points
+			(1611, 2599)
+			(1987, 2548))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Розыск документов::Поиск документов по базе карточек" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(516, 651)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(135, 630)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	762
+			justify    	0
+			label      	"Поиск документов по базе карточек")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(135, 580)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	762
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4C5C00E6013F"
+		    width      	780
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @22
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4C5C014403A2"
+		    client     	@21
+		    supplier   	@2
+		    vertices   	(list Points
+			(576, 567)
+			(662, 454))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Розыск документов::Рассылка почтовых уведомлений" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1896, 1446)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(1527, 1425)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	738
+			justify    	0
+			label      	"Рассылка почтовых уведомлений")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(1527, 1375)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	738
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4C5C08C9023E"
+		    width      	756
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Проблемы ГЛ ЮО::Избавится от нагрузки, связанной с необходимости транслирования ответов из ОГВ" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2418, 1161)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(1605, 1129)
+			nlines     	1
+			max_width  	1626
+			justify    	0
+			label      	"Избавится от нагрузки, связанной с необходимости транслирования ответов из ОГВ")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@24
+			location   	(1605, 1079)
+			anchor     	10
+			nlines     	1
+			max_width  	1626
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4C5C0A150175"
+		    width      	1644
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @25
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4C5C0B270199"
+		    client     	@23
+		    supplier   	@24
+		    vertices   	(list Points
+			(2045, 1362)
+			(2242, 1255))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::Описание Гардок::Розыск документов::В автоматическом режиме заливать документы с сайтов" @26
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3000, 1470)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@26
+			location   	(2437, 1454)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1126
+			justify    	0
+			label      	"В автоматическом режиме заливать документы с сайтов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@26
+			location   	(2437, 1404)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1126
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"55CDB7BC005D"
+		    width      	1144
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @27
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"55CDB7F2005C"
+		    client     	@26
+		    supplier   	@24
+		    vertices   	(list Points
+			(2853, 1391)
+			(2596, 1255))
+		    line_style 	0)))))

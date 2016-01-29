@@ -1,0 +1,2 @@
+MakeCo InterfacedNodeWordsPack.rc.script
+brcc32 InterfacedNodeWordsPack.rc

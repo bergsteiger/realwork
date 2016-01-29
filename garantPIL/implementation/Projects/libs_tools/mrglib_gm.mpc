@@ -1,0 +1,16 @@
+project (mrglib_gm) : project-common-defines-tools, project-common-includes, project_generic_core, mrglib_base {
+	staticname = mrglib_gm
+	sharedname = mrglib_gm
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += STORE_FORM_N
+
+	Header_Files {
+		./../../component/cpp/libs/mrglib/src/profile.h // is used in gm
+	}
+
+	Source_Files {
+		./../../component/cpp/libs/mrglib/src/profile.c // is used in gm
+	}
+}

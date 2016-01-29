@@ -1,0 +1,269 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/SettingsHolder.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::SettingsHolder
+//
+// Класс работающий с настройками
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: SettingsHolder::Class
+implementation @ <<SettingsHolder>>
+//? Класс работающий с настройками
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // st_space_key
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor522EE3210288*
+//	%S%[inherited]\
+ inherited
+//	%S%f_add_class(%SU_Sing,SimpleClass,T%SNSettingsListener,Sing_Inst)\
+ %S %f add_class %( %S |U '_Sing' %, 'SimpleClass' %, 'T'
+ %S |N 'SettingsListener' %, 'Sing_Inst' )% 
+
+//	%{Sing_Inst}%f_set_visibility_type(PrivateAccess)\
+ ( get_global_var ( 'Sing_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Sing_Inst}%f_set_up(singleton,true)\
+ ( get_global_var ( 'Sing_Inst' ) %f set_up %( 'singleton' %, true )% ) 
+
+//	[{"%{Tl3ProtoObject}N"=""}%f_find_element(49E7754802A9,Tl3ProtoObject)]\
+ if ( ( ( get_global_var ( 'Tl3ProtoObject' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( '49E7754802A9' %, 'Tl3ProtoObject' )% 
+ end // if
+//	%{Sing_Inst}%f_make_accessable(%{Tl3ProtoObject}U)\
+ ( get_global_var ( 'Sing_Inst' ) %f make_accessable %( ( get_global_var ( 'Tl3ProtoObject' ) |U ) )% ) 
+//	%f_addG(%{Sing_Inst},%{Tl3ProtoObject})\
+ [%f] addG %( ( get_global_var ( 'Sing_Inst' ) ) %, ( get_global_var ( 'Tl3ProtoObject' ) ) )% 
+
+//	[{"%{afwSettingChanged}N"=""}%f_find_element(afwSettingChanged,afwSettingChanged)]\
+ if ( ( ( get_global_var ( 'afwSettingChanged' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( 'afwSettingChanged' %, 'afwSettingChanged' )% 
+ end // if
+//	%{Sing_Inst}%f_make_accessable(%{afwSettingChanged}U)\
+ ( get_global_var ( 'Sing_Inst' ) %f make_accessable %( ( get_global_var ( 'afwSettingChanged' ) |U ) )% ) 
+//	%f_addR(%{Sing_Inst},%{afwSettingChanged})\
+ [%f] addR %( ( get_global_var ( 'Sing_Inst' ) ) %, ( get_global_var ( 'afwSettingChanged' ) ) )% 
+
+//	[{"%{SysUtils}N"=""}%f_find_element(47877EB202FB,SysUtils)]\
+ if ( ( ( get_global_var ( 'SysUtils' ) |N ) ) %== '' ) then
+ begin
+  [%f] find_element %( '47877EB202FB' %, 'SysUtils' )% 
+ end // if
+//	%{Sing_Inst}%f_make_accessable(%{SysUtils}U)\
+ ( get_global_var ( 'Sing_Inst' ) %f make_accessable %( ( get_global_var ( 'SysUtils' ) |U ) )% ) 
+//	%f_addCDep(%{Sing_Inst},%{SysUtils})\
+ [%f] addCDep %( ( get_global_var ( 'Sing_Inst' ) ) %, ( get_global_var ( 'SysUtils' ) ) )% 
+
+//	%{Sing_Inst}%f_set_documentation(Экземпляр %SN%f_comma(%S) который подписывается к настройкам)\
+ ( get_global_var ( 'Sing_Inst' ) %f set_documentation %( 'Экземпляр '
+ %S |N [%f] comma %( %S )% ' который подписывается к настройкам' )% ) 
+
+//	%{Sing_Inst}%f_add_class(%{Sing_Inst}U_CheckSubscribe,method,CheckSubscribe,Op_Inst)\
+ ( get_global_var ( 'Sing_Inst' ) %f add_class %( ( get_global_var ( 'Sing_Inst' ) |U ) '_CheckSubscribe' %, 'method' %, 'CheckSubscribe' %, 'Op_Inst' )% ) 
+
+//	%{Op_Inst}%f_set_documentation(Метод для проверки того факта%f_comma(%S) что %{Sing_Inst}N подписан на изменения необходимых настроек)\
+ ( get_global_var ( 'Op_Inst' ) %f set_documentation %( 'Метод для проверки того факта'
+ [%f] comma %( %S )% ' что '
+ ( get_global_var ( 'Sing_Inst' ) |N ) ' подписан на изменения необходимых настроек' )% ) 
+//	%{Op_Inst}%f_set_abstraction_type(final)\
+ ( get_global_var ( 'Op_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Inst}%f_set_up(is static,true)\
+ ( get_global_var ( 'Op_Inst' ) %f set_up %( 'is static' %, true )% ) 
+
+//	%{Op_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Inst},%{Sing_Inst})_var,\
+ ( get_global_var ( 'Op_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Inst' ) ) %, ( get_global_var ( 'Sing_Inst' ) ) )% '_var' %, 
+//	 {-}\
+ ' {-}'
+//	)\
+)% ) //	%{Op_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Inst},%{Sing_Inst})_impl,\
+ ( get_global_var ( 'Op_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Inst' ) ) %, ( get_global_var ( 'Sing_Inst' ) ) )% '_impl' %, 
+//	 if (g_%{Sing_Inst}N = nil) then
+ ' if (g_'
+ ( get_global_var ( 'Sing_Inst' ) |N ) ' = nil) then'
+//	  if (afw.Application \<\> nil) then
+ '  if (afw.Application <> nil) then'
+//	   if (afw.Application.Settings \<\> nil) then
+ '   if (afw.Application.Settings <> nil) then'
+//	    %{Sing_Inst}N.Instance;\
+ '    '
+ ( get_global_var ( 'Sing_Inst' ) |N ) '.Instance;'
+//	)
+)% ) 
+//	%f_warning(got1)\
+//	%f_warning(%f_is_empty(%SU_SETTINGS_KEYS))\
+
+//	%S%{SETTINGS_KEYS}<%f_warning(%CN)>\
+
+//	[{%f_is_empty(%SU_SETTINGS_KEYS)=false}\
+ if ( ( [%f] is_empty %( %S |U '_SETTINGS_KEYS' )% ) %==  false ) then
+ begin
+
+
+//	%f_clear_list(TEMP_LIST)\
+  [%f] clear_list %( 'TEMP_LIST' )% 
+
+//	<{}{%f_is_empty(%SU_SETTINGS_KEYS)=false}{W}%f_pop_first_to_var(%SU_SETTINGS_KEYS,KEY)\
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( %S |U '_SETTINGS_KEYS' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( %S |U '_SETTINGS_KEYS' %, 'KEY' )% 
+//	%f_warning(%{KEY}N)\
+//	%f_add_to_list(TEMP_LIST,"%{KEY}N")\
+    [%f] add_to_list %( 'TEMP_LIST' %, ( get_global_var ( 'KEY' ) |N ) )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+
+
+//	%{Sing_Inst}%f_add_operation(%{Sing_Inst}U_IsSettingAffectsUs,,\
+  ( get_global_var ( 'Sing_Inst' ) %f add_operation %( ( get_global_var ( 'Sing_Inst' ) |U ) '_IsSettingAffectsUs' %, '' %, 
+//	IsSettingAffectsUs (aSettingId: TafwSettingId): boolean,Op_Inst\
+  'IsSettingAffectsUs (aSettingId: TafwSettingId): boolean' %, 'Op_Inst'
+//	)\
+)% ) 
+
+//	%{Op_Inst}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Op_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Inst}%f_set_documentation(Метод для проверки того факта%f_comma(%S) что %{Sing_Inst}N касается изменение указанной настройки)\
+  ( get_global_var ( 'Op_Inst' ) %f set_documentation %( 'Метод для проверки того факта'
+  [%f] comma %( %S )% ' что '
+  ( get_global_var ( 'Sing_Inst' ) |N ) ' касается изменение указанной настройки' )% ) 
+//	%{Op_Inst}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Op_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+
+//	%{Op_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Inst},%{Sing_Inst})_var,\
+  ( get_global_var ( 'Op_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Inst' ) ) %, ( get_global_var ( 'Sing_Inst' ) ) )% '_var' %, 
+//	 {-}\
+  ' {-}'
+//	)\
+)% ) //	%{Op_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Inst},%{Sing_Inst})_impl,\
+  ( get_global_var ( 'Op_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Inst' ) ) %, ( get_global_var ( 'Sing_Inst' ) ) )% '_impl' %, 
+//	 Result := <{ OR\n  }{%f_is_empty(TEMP_LIST)=false}{W}%f_pop_first_to_var(TEMP_LIST,KEY)\
+  ' Result := '
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'TEMP_LIST' )% ) %==  false ) then
+   begin
+    if ( l_Counter >0 ) then ( ' OR'#13#10'  ' )
+    [%f] pop_first_to_var %( 'TEMP_LIST' %, 'KEY' )% 
+//	%f_warning(%{KEY}N)\
+//	ANSISameText(aSettingId, %{KEY}N)>\
+    'ANSISameText(aSettingId, '
+    ( get_global_var ( 'KEY' ) |N ) ')' 
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	;\
+  ';'
+//	)\
+)% ) 
+
+//	[{"%{_afwSettingChanged_.DoSettingChanged}N"=""}%f_find_element(47EA863A035C,_afwSettingChanged_.DoSettingChanged)]\
+  if ( ( ( get_global_var ( '_afwSettingChanged_.DoSettingChanged' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '47EA863A035C' %, '_afwSettingChanged_.DoSettingChanged' )% 
+  end // if
+//	%{Sing_Inst}%f_add_override(%{_afwSettingChanged_.DoSettingChanged}U)\
+  ( get_global_var ( 'Sing_Inst' ) %f add_override %( ( get_global_var ( '_afwSettingChanged_.DoSettingChanged' ) |U ) )% ) 
+
+//	%{_afwSettingChanged_.DoSettingChanged}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{_afwSettingChanged_.DoSettingChanged},%{Sing_Inst})_impl,\
+  ( get_global_var ( '_afwSettingChanged_.DoSettingChanged' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( '_afwSettingChanged_.DoSettingChanged' ) ) %, ( get_global_var ( 'Sing_Inst' ) ) )% '_impl' %, 
+//	 Result := inherited DoSettingChanged(aSettingId);
+  ' Result := inherited DoSettingChanged(aSettingId);'
+//	 if IsSettingAffectsUs(aSettingId) then
+  ' if IsSettingAffectsUs(aSettingId) then'
+//	 begin
+  ' begin'
+//	  Result := true;
+  '  Result := true;'
+//	  %f_with_gen_id(intf.pas,%U[{SettingChanged}
+  '  '
+  [%f] with_gen_id %( 'intf.pas' %, %Usersection (
+   'SettingChanged' 
+  )
+  (
+   #13#10
+
+//	  !!! Needs to be implemented !!!
+   '  !!! Needs to be implemented !!!'
+//	  ])
+   '  ' 
+  ) // Usersection
+ )% //	 end;//IsSettingAffectsUs(aSettingId)\
+  ' end;//IsSettingAffectsUs(aSettingId)'
+//	)\
+)% ) 
+
+//	]\
+ end // if
+
+//	%f_clear_list(%SU_SETTINGS_KEYS)\
+ [%f] clear_list %( %S |U '_SETTINGS_KEYS' )% 
+//	
+//#UC END# *4B2A19E3038Bfor522EE3210288*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for522EE3210288*
+//	SH%f_N(%S)
+ 'SH'
+ [%f] N %( %S )% 
+//#UC END# *4947F8AD02A1for522EE3210288*
+; // pas_TypeName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor522EE3210288*
+//	%f_N(%S)_SH
+ [%f] N %( %S )% '_SH'
+//#UC END# *4948065C01DFfor522EE3210288*
+; // pas_UnitName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<SettingsHolder>>
+

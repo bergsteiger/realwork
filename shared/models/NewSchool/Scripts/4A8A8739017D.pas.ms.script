@@ -1,0 +1,48 @@
+// TnscChatMemo 4A8A8739017D GuiControl Class
+
+INCLUDE '4A8A871B02ED.pas.ms.script'
+
+FORWARD ME_4A8A8739017D
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_DB84AA72A027
+ CONST UID 'DB84AA72A027'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TnscChatMemo' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_DB84AA72A027 Ini_Reg_Class
+
+: ME_4A8A8739017D
+ CONST UID '4A8A8739017D'
+ CONST Name 'TnscChatMemo'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ %SUMMARY 'Мемо-поле для чата F1' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A8A871B02ED // TnscCustomChatMemo
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_DB84AA72A027 // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.08.2009 14:49'
+
+ @SELF
+; // ME_4A8A8739017D TnscChatMemo

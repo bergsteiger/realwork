@@ -1,0 +1,431 @@
+// l3StopWatch 5480073300B1 UtilityPack Class
+
+FORWARD ME_5480073300B1
+
+FORWARD ME_548007530030
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5480085D0068
+ CONST UID '5480085D0068'
+ CONST Name 'f_Count'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_5480085D0068 f_Count
+
+: ME_54800872018E
+ CONST UID '54800872018E'
+ CONST Name 'f_Start'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_54800872018E f_Start
+
+: ME_54800878006C
+ CONST UID '54800878006C'
+ CONST Name 'f_Total'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_54800878006C f_Total
+
+FORWARD ME_54800888018B
+
+: ME_54800DBB02A1
+ CONST UID '54800DBB02A1'
+ CONST Name 'aSource'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_548007530030 // Tl3StopWatch
+ ;
+
+ @SELF
+; // ME_54800DBB02A1 aSource
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5480089B0044
+ CONST UID '5480089B0044'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54800DBB02A1 // aSource
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5480089B0044 DoIt
+
+: ME_54800888018B
+ CONST UID '54800888018B'
+ CONST Name 'Add'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5480089B0044 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54800888018B Add
+
+FORWARD ME_548008B003AB
+
+: ME_548013D602F6
+ CONST UID '548013D602F6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_548013D602F6 DoIt
+
+: ME_548008B003AB
+ CONST UID '548008B003AB'
+ CONST Name 'Reset'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_548013D602F6 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_548008B003AB Reset
+
+FORWARD ME_548008C4036C
+
+: ME_548013E40273
+ CONST UID '548013E40273'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_548013E40273 DoIt
+
+: ME_548008C4036C
+ CONST UID '548008C4036C'
+ CONST Name 'Start'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_548013E40273 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_548008C4036C Start
+
+FORWARD ME_5480092E039D
+
+: ME_548009640376
+ CONST UID '548009640376'
+ CONST Name 'aCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST Value 1
+ : ValueType ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_548009640376 aCount
+
+: ME_5480093F021B
+ CONST UID '5480093F021B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_548009640376 // aCount
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5480093F021B DoIt
+
+: ME_5480092E039D
+ CONST UID '5480092E039D'
+ CONST Name 'Stop'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5480093F021B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5480092E039D Stop
+
+FORWARD ME_5480097D00D1
+
+: ME_548009A001E1
+ CONST UID '548009A001E1'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_475EA27A0131 // Double
+ ;
+
+ @SELF
+; // ME_548009A001E1 DoIt
+
+: ME_5480097D00D1
+ CONST UID '5480097D00D1'
+ CONST Name 'Time'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Общее время выполнения (теоретически в секундах)' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_548009A001E1 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5480097D00D1 Time
+
+FORWARD ME_548009B60076
+
+: ME_548009ED03A7
+ CONST UID '548009ED03A7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_475EA27A0131 // Double
+ ;
+
+ @SELF
+; // ME_548009ED03A7 DoIt
+
+: ME_548009B60076
+ CONST UID '548009B60076'
+ CONST Name 'AvgTime'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Среднее время выполнения 1 операции (теоретически в секундах)' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_548009ED03A7 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_548009B60076 AvgTime
+
+FORWARD ME_548009FB0066
+
+: ME_54800A1B013C
+ CONST UID '54800A1B013C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_475EA27A0131 // Double
+ ;
+
+ @SELF
+; // ME_54800A1B013C DoIt
+
+: ME_548009FB0066
+ CONST UID '548009FB0066'
+ CONST Name 'OpsPerSec'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Операций в секунду' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54800A1B013C // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_548009FB0066 OpsPerSec
+
+FORWARD ME_54800A2E03D8
+
+: ME_54800A3F018B
+ CONST UID '54800A3F018B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54800A3F018B DoIt
+
+: ME_54800A2E03D8
+ CONST UID '54800A2E03D8'
+ CONST Name 'OpsCount'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54800A3F018B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54800A2E03D8 OpsCount
+
+: ME_548007530030
+ CONST UID '548007530030'
+ CONST Name 'Tl3StopWatch'
+ CONST Class 'Class'
+ CONST Stereotype 'StaticObject'
+ %SUMMARY 'Секундомер для профилирования' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5480085D0068 // f_Count
+ ME_54800872018E // f_Start
+ ME_54800878006C // f_Total
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54800888018B // Add
+ ME_548008B003AB // Reset
+ ME_548008C4036C // Start
+ ME_5480092E039D // Stop
+ ME_5480097D00D1 // Time
+ ME_548009B60076 // AvgTime
+ ME_548009FB0066 // OpsPerSec
+ ME_54800A2E03D8 // OpsCount
+ ]
+ ; // Operations
+ CONST "not treat as record for XE4" 'undefined'
+
+ @SELF
+; // ME_548007530030 Tl3StopWatch
+
+: ME_54800ACE0379
+ CONST UID '54800ACE0379'
+ CONST Name 'g_Freq'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_54800ACE0379 g_Freq
+
+INCLUDE '48078324039E.pas.ms.script'
+
+: ME_54800AF00391
+ CONST UID '54800AF00391'
+ CONST Name 'g_StopSection'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4807833801D7 // TCriticalSection
+ ;
+
+ @SELF
+; // ME_54800AF00391 g_StopSection
+
+: ME_5480080A006F
+ CONST UID '5480080A006F'
+ CONST Name 'Init'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5480080A006F Init
+
+: ME_54800B1E0193
+ CONST UID '54800B1E0193'
+ CONST Name 'Done'
+ CONST Class 'Operation'
+ CONST Stereotype 'fini'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54800B1E0193 Done
+
+: ME_5480073300B1
+ CONST UID '5480073300B1'
+ CONST Name 'l3StopWatch'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_54800ACE0379 // g_Freq
+ ME_54800AF00391 // g_StopSection
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5480080A006F // Init
+ ME_54800B1E0193 // Done
+ ]
+ ; // Operations
+ : Children
+   [ ME_548007530030 // Tl3StopWatch
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_5480073300B1 l3StopWatch

@@ -1,0 +1,2747 @@
+// LeafPara Painters 4804A24003C1 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4804A24003C1
+
+FORWARD ME_49DB53330394
+
+: ME_49DB53CE0367
+ CONST UID '49DB53CE0367'
+ CONST Name 'X'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_49DB53330394 // TevLeafParaPainter
+ ;
+ : Target WL 'ME_47C6A7FF02C1' '47C5207602D1.pas.ms.script' // InevLeafPara
+ ;
+
+ref; // ME_49DB53CE0367 X
+
+: ME_49DB53330394
+ CONST UID '49DB53330394'
+ CONST Name 'TevLeafParaPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( WL 'ME_4804CB1B0328' '49DCBC09029B.pas.ms.script' // evLeafParaPainter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49DB53CE0367 // X
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.04.2009 17:21'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evLeafParaPainter.pas'
+
+ref; // ME_49DB53330394 TevLeafParaPainter
+
+FORWARD ME_49DA2BF5016E
+
+: ME_49DB52F7020B
+ CONST UID '49DB52F7020B'
+ CONST Name 'X'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_49DA2BF5016E // TevTextParaPainterPrim
+ ;
+ : Target WL 'ME_47C6AAEF0157' '47C5207602D1.pas.ms.script' // InevTextPara
+ ;
+
+ref; // ME_49DB52F7020B X
+
+: ME_4E31744801A1
+ CONST UID '4E31744801A1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA2BF5016E // TevTextParaPainterPrim
+ ;
+ : Target WL 'ME_4E31743D01F8' '47ECB2870309.pas.ms.script' // TevDefaultStylesFontSizes
+ ;
+
+ref; // ME_4E31744801A1 
+
+: ME_49DA2BF5016E
+ CONST UID '49DA2BF5016E'
+ CONST Name 'TevTextParaPainterPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Промежуточный класс, чтобы другие классы было проще на модель переносить' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( WL 'ME_4804CB1B0328' '49DCBC09029B.pas.ms.script' // evLeafParaPainter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49DB52F7020B // X
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_4E31744801A1 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '06.04.2009 20:21'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaPainterPrim.pas'
+
+ref; // ME_49DA2BF5016E TevTextParaPainterPrim
+
+FORWARD ME_4804CC1E0349
+
+FORWARD ME_55CC63800051
+
+: ME_55CC63990317
+ CONST UID '55CC63990317'
+ CONST Name 'aFont'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
+ ;
+
+ref; // ME_55CC63990317 aFont
+
+: ME_55CC63990327
+ CONST UID '55CC63990327'
+ CONST Name 'aStyle'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_533D31A90231' '4678209200A6.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_55CC63990327 aStyle
+
+: ME_55CC638F0033
+ CONST UID '55CC638F0033'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55CC63800051 // AssignFontFromStyle
+ ;
+ : Parameters
+   @ ( ME_55CC63990317 // aFont
+ ME_55CC63990327 // aStyle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55CC638F0033 DoIt
+
+: ME_55CC63800051
+ CONST UID '55CC63800051'
+ CONST Name 'AssignFontFromStyle'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ : Operations
+   @ ( ME_55CC638F0033 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55CC63800051 AssignFontFromStyle
+
+: ME_5062D55300EB
+ CONST UID '5062D55300EB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ : Target WL 'ME_50629BBB03DC' '47F1F38601A3.pas.ms.script' // evHasAACStyle
+ ;
+
+ref; // ME_5062D55300EB 
+
+: ME_51FF903D01D1
+ CONST UID '51FF903D01D1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_51FF903D01D1 
+
+: ME_5062C0650076_ME_4804CC1E0349
+ CONST UID '5062C0650076'
+ CONST Name 'NeedCalcSpace'
+ : Original WL 'ME_5062C0650076' '49DCBC09029B.pas.ms.script' // NeedCalcSpace
+ ;
+ : Implementor ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ref; // ME_5062C0650076_ME_4804CC1E0349 NeedCalcSpace
+
+: ME_51FF6BC10266_ME_4804CC1E0349
+ CONST UID '51FF6BC10266'
+ CONST Name 'HeaderOwnSpace'
+ : Original WL 'ME_51FF6BC10266' '49DCBC09029B.pas.ms.script' // HeaderOwnSpace
+ ;
+ : Implementor ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ref; // ME_51FF6BC10266_ME_4804CC1E0349 HeaderOwnSpace
+
+: ME_5208B63400C1_ME_4804CC1E0349
+ CONST UID '5208B63400C1'
+ CONST Name 'GetSpaceTop'
+ : Original WL 'ME_5208B63400C1' '49DCBC09029B.pas.ms.script' // GetSpaceTop
+ ;
+ : Implementor ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ref; // ME_5208B63400C1_ME_4804CC1E0349 GetSpaceTop
+
+: ME_47A6FEE600FC_ME_4804CC1E0349
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_4804CC1E0349 IsCacheable
+
+: ME_4804CC1E0349
+ CONST UID '4804CC1E0349'
+ CONST Name 'TevTextParaPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Рисователь текстового параграфа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( ME_49DA2BF5016E // TevTextParaPainterPrim
+ WL 'ME_5062BFDB025E' '49DCBC09029B.pas.ms.script' // AACSpaceDrawing
+ WL 'ME_5514FB530333' '49DCBC09029B.pas.ms.script' // evCollapsedStylePainter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4E71FB8302C6' '529F102E0065.pas.ms.script' // nevStringCache
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_55CC63800051 // AssignFontFromStyle
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_5062C0650076_ME_4804CC1E0349 // NeedCalcSpace
+ ME_51FF6BC10266_ME_4804CC1E0349 // HeaderOwnSpace
+ ME_5208B63400C1_ME_4804CC1E0349 // GetSpaceTop
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A6FEE600FC_ME_4804CC1E0349 // IsCacheable
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5062D55300EB // 
+ ME_51FF903D01D1 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '14.03.1997 10:07'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaPainter.pas'
+
+ref; // ME_4804CC1E0349 TevTextParaPainter
+
+: ME_49DA328801C9
+ CONST UID '49DA328801C9'
+ CONST Name 'TevLinePainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evLinePainter.pas'
+
+ref; // ME_49DA328801C9 TevLinePainter
+
+FORWARD ME_480C9D5E01EE
+
+FORWARD ME_4B8BF1F90349
+
+: ME_4B8BF20A031D
+ CONST UID '4B8BF20A031D'
+ CONST Name 'PageBegin'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B8BF1F90349 // Local
+ ;
+ CONST Value ''' Начало страницы. '''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B8BF20A031D PageBegin
+
+: ME_4B8BF1F90349
+ CONST UID '4B8BF1F90349'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Attributes
+   @ ( ME_4B8BF20A031D // PageBegin
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'nevmm'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefix 'nevmm'
+
+ref; // ME_4B8BF1F90349 Local
+
+FORWARD ME_5F711CE85869
+
+: ME_710F11916A3D
+ CONST UID '710F11916A3D'
+ CONST Name 'PageBegin'
+ CONST Class class_Attribute
+ %SUMMARY ''' Начало страницы. ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5F711CE85869 // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''nevmmPageBegin''; rValue : '' Начало страницы. '')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_710F11916A3D PageBegin
+
+: ME_5F711CE85869
+ CONST UID '5F711CE85869'
+ CONST Name 'LCImplLocal'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Attributes
+   @ ( ME_710F11916A3D // PageBegin
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'nevmm'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_nevmm'
+
+ref; // ME_5F711CE85869 LCImplLocal
+
+: ME_480C9DC4032F
+ CONST UID '480C9DC4032F'
+ CONST Name 'GetString'
+ CONST Class class_Operation
+ %SUMMARY 'вернуть строчку для отображения.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_480C9DC4032F GetString
+
+: ME_480C9DDD01B0
+ CONST UID '480C9DDD01B0'
+ CONST Name 'NewPage'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается перед началом новой страницы.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+
+ref; // ME_480C9DDD01B0 NewPage
+
+: ME_480C9E0003A9
+ CONST UID '480C9E0003A9'
+ CONST Name 'A'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
+ ;
+
+ref; // ME_480C9E0003A9 A
+
+: ME_480C9E010000
+ CONST UID '480C9E010000'
+ CONST Name 'B'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
+ ;
+
+ref; // ME_480C9E010000 B
+
+: ME_480C9DEF0099
+ CONST UID '480C9DEF0099'
+ CONST Name 'DrawLine'
+ CONST Class class_Operation
+ %SUMMARY 'нарисовать линию разрыва.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Parameters
+   @ ( ME_480C9E0003A9 // A
+ ME_480C9E010000 // B
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_480C9DEF0099 DrawLine
+
+: ME_1B369276488B
+ CONST UID '1B369276488B'
+ CONST Name 'Init_PageBegin'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_nevmmPageBegin' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+
+ref; // ME_1B369276488B Init_PageBegin
+
+: ME_480CA0A1008C
+ CONST UID '480CA0A1008C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_480CA0A1008C 
+
+: ME_480CA0F0036A
+ CONST UID '480CA0F0036A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target ME_4B8BF1F90349 // Local
+ ;
+
+ref; // ME_480CA0F0036A 
+
+: ME_480CA369012A
+ CONST UID '480CA369012A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_47AC7CF90230' '47A1D4C201E8.pas.ms.script' // L3 Core Consts
+ ;
+
+ref; // ME_480CA369012A 
+
+: ME_480CA4040065
+ CONST UID '480CA4040065'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_47C7F2FA0277' '4678209200A6.pas.ms.script' // Constants
+ ;
+
+ref; // ME_480CA4040065 
+
+: ME_480CA43101A5
+ CONST UID '480CA43101A5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_4804ABA703CA' '55C4AEC801CA.pas.ms.script' // Colors$1
+ ;
+
+ref; // ME_480CA43101A5 
+
+: ME_480CA47C01E2
+ CONST UID '480CA47C01E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_480CA47C01E2 
+
+: ME_4DD67C0A0292
+ CONST UID '4DD67C0A0292'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_48567BA50307' '53D258F1004F.pas.ms.script' // TevPageBreak
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_4DD67C0A0292 
+
+: ME_53D0AFF00071
+ CONST UID '53D0AFF00071'
+ CONST Class class_Dependency
+ : Stereotype st_injects_this::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
+ ;
+ CONST "needs processor" 'undefined'
+
+ref; // ME_53D0AFF00071 
+
+: ME_B8A346F7213A
+ CONST UID 'B8A346F7213A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_B8A346F7213A 
+
+: ME_23667F328009
+ CONST UID '23667F328009'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_23667F328009 
+
+: ME_4804C81000B9_ME_480C9D5E01EE
+ CONST UID '4804C81000B9'
+ CONST Name 'DrawLeaf'
+ : Original WL 'ME_4804C81000B9' '49DCBC09029B.pas.ms.script' // DrawLeaf
+ ;
+ : Implementor ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ref; // ME_4804C81000B9_ME_480C9D5E01EE DrawLeaf
+
+: ME_480C9D5E01EE
+ CONST UID '480C9D5E01EE'
+ CONST Name 'TevPageBreakPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация инструмента рисования для разрыва страниц.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( ME_49DB53330394 // TevLeafParaPainter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_480C9DC4032F // GetString
+ ME_480C9DDD01B0 // NewPage
+ ME_480C9DEF0099 // DrawLine
+ ME_1B369276488B // Init_PageBegin
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4804C81000B9_ME_480C9D5E01EE // DrawLeaf
+ ) .SequenceCode.It
+ ; // Overridden
+ : Constants
+   @ ( ME_4B8BF1F90349 // Local
+ ME_5F711CE85869 // LCImplLocal
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_480CA0A1008C // 
+ ME_480CA0F0036A // 
+ ME_480CA369012A // 
+ ME_480CA4040065 // 
+ ME_480CA43101A5 // 
+ ME_480CA47C01E2 // 
+ ME_4DD67C0A0292 // 
+ ME_53D0AFF00071 // 
+ ME_B8A346F7213A // 
+ ME_23667F328009 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.10.2000 16:03'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evPageBreakPainter.pas'
+
+ref; // ME_480C9D5E01EE TevPageBreakPainter
+
+FORWARD ME_480CA641014D
+
+FORWARD ME_4B8C005F03B8
+
+: ME_4B8C00950122
+ CONST UID '4B8C00950122'
+ CONST Name 'PortaitSection'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B8C005F03B8 // Local
+ ;
+ CONST Value ''' Начало раздела. (%s, книжная) '''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B8C00950122 PortaitSection
+
+: ME_4B8C00B3030B
+ CONST UID '4B8C00B3030B'
+ CONST Name 'LandscapeSection'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B8C005F03B8 // Local
+ ;
+ CONST Value ''' Начало раздела. (%s, альбомная) '''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4B8C00B3030B LandscapeSection
+
+: ME_4B8C005F03B8
+ CONST UID '4B8C005F03B8'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Attributes
+   @ ( ME_4B8C00950122 // PortaitSection
+ ME_4B8C00B3030B // LandscapeSection
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'nev'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefix 'nev'
+
+ref; // ME_4B8C005F03B8 Local
+
+FORWARD ME_8395777CD6A3
+
+: ME_D25C91F77269
+ CONST UID 'D25C91F77269'
+ CONST Name 'PortaitSection'
+ CONST Class class_Attribute
+ %SUMMARY ''' Начало раздела. (%s, книжная) ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_8395777CD6A3 // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''nevPortaitSection''; rValue : '' Начало раздела. (%s, книжная) '')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_D25C91F77269 PortaitSection
+
+: ME_ED6A57C6A9F1
+ CONST UID 'ED6A57C6A9F1'
+ CONST Name 'LandscapeSection'
+ CONST Class class_Attribute
+ %SUMMARY ''' Начало раздела. (%s, альбомная) ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_8395777CD6A3 // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''nevLandscapeSection''; rValue : '' Начало раздела. (%s, альбомная) '')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_ED6A57C6A9F1 LandscapeSection
+
+: ME_8395777CD6A3
+ CONST UID '8395777CD6A3'
+ CONST Name 'LCImplLocal'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Attributes
+   @ ( ME_D25C91F77269 // PortaitSection
+ ME_ED6A57C6A9F1 // LandscapeSection
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'nev'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_nev'
+
+ref; // ME_8395777CD6A3 LCImplLocal
+
+: ME_ADAF29A1D600
+ CONST UID 'ADAF29A1D600'
+ CONST Name 'Init_PortaitSection'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_nevPortaitSection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+
+ref; // ME_ADAF29A1D600 Init_PortaitSection
+
+: ME_5341E57C3F90
+ CONST UID '5341E57C3F90'
+ CONST Name 'Init_LandscapeSection'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_nevLandscapeSection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+
+ref; // ME_5341E57C3F90 Init_LandscapeSection
+
+: ME_480CA6D90305
+ CONST UID '480CA6D90305'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_47CD3486030A' '47CD3441002F.pas.ms.script' // TnevMiscMessages
+ ;
+
+ref; // ME_480CA6D90305 
+
+: ME_480CA7CF02FE
+ CONST UID '480CA7CF02FE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_480CA7CF02FE 
+
+: ME_480CA868009B
+ CONST UID '480CA868009B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_480CA868009B 
+
+: ME_480CA8CE0281
+ CONST UID '480CA8CE0281'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_468CFC7101C1' '469D0AC7005E.pas.ms.script' // PageOrientation
+ ;
+
+ref; // ME_480CA8CE0281 
+
+: ME_480CAA07018B
+ CONST UID '480CAA07018B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_480CA9AD0198' '47C52679006D.pas.ms.script' // evSectionPara
+ ;
+
+ref; // ME_480CAA07018B 
+
+: ME_480CAA70006C
+ CONST UID '480CAA70006C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_4799ED060093' '4799EC9300AF.pas.ms.script' // l3Defaults
+ ;
+
+ref; // ME_480CAA70006C 
+
+: ME_4B8C006900F4
+ CONST UID '4B8C006900F4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target ME_4B8C005F03B8 // Local
+ ;
+
+ref; // ME_4B8C006900F4 
+
+: ME_4DD67BFD008A
+ CONST UID '4DD67BFD008A'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_48567BD10027' '53D258F1004F.pas.ms.script' // TevSectionBreak
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_4DD67BFD008A 
+
+: ME_5346A510016A
+ CONST UID '5346A510016A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5346A510016A 
+
+: ME_53D0B04A0378
+ CONST UID '53D0B04A0378'
+ CONST Class class_Dependency
+ : Stereotype st_injects_this::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
+ ;
+ CONST "needs processor" 'undefined'
+
+ref; // ME_53D0B04A0378 
+
+: ME_A7BB925E3514
+ CONST UID 'A7BB925E3514'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_A7BB925E3514 
+
+: ME_14E61ADC089D
+ CONST UID '14E61ADC089D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_480CA641014D // TevSectionBreakPainter
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_14E61ADC089D 
+
+: ME_480C9DC4032F_ME_480CA641014D
+ CONST UID '480C9DC4032F'
+ CONST Name 'GetString'
+ : Original ME_480C9DC4032F // GetString
+ ;
+ : Implementor ME_480CA641014D // TevSectionBreakPainter
+ ;
+ref; // ME_480C9DC4032F_ME_480CA641014D GetString
+
+: ME_480C9DDD01B0_ME_480CA641014D
+ CONST UID '480C9DDD01B0'
+ CONST Name 'NewPage'
+ : Original ME_480C9DDD01B0 // NewPage
+ ;
+ : Implementor ME_480CA641014D // TevSectionBreakPainter
+ ;
+ref; // ME_480C9DDD01B0_ME_480CA641014D NewPage
+
+: ME_480C9DEF0099_ME_480CA641014D
+ CONST UID '480C9DEF0099'
+ CONST Name 'DrawLine'
+ : Original ME_480C9DEF0099 // DrawLine
+ ;
+ : Implementor ME_480CA641014D // TevSectionBreakPainter
+ ;
+ref; // ME_480C9DEF0099_ME_480CA641014D DrawLine
+
+: ME_480CA641014D
+ CONST UID '480CA641014D'
+ CONST Name 'TevSectionBreakPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация инструмента рисования для разрыва секций.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( ME_480C9D5E01EE // TevPageBreakPainter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_ADAF29A1D600 // Init_PortaitSection
+ ME_5341E57C3F90 // Init_LandscapeSection
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_480C9DC4032F_ME_480CA641014D // GetString
+ ME_480C9DDD01B0_ME_480CA641014D // NewPage
+ ME_480C9DEF0099_ME_480CA641014D // DrawLine
+ ) .SequenceCode.It
+ ; // Overridden
+ : Constants
+   @ ( ME_4B8C005F03B8 // Local
+ ME_8395777CD6A3 // LCImplLocal
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_480CA6D90305 // 
+ ME_480CA7CF02FE // 
+ ME_480CA868009B // 
+ ME_480CA8CE0281 // 
+ ME_480CAA07018B // 
+ ME_480CAA70006C // 
+ ME_4B8C006900F4 // 
+ ME_4DD67BFD008A // 
+ ME_5346A510016A // 
+ ME_53D0B04A0378 // 
+ ME_A7BB925E3514 // 
+ ME_14E61ADC089D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.10.2000 18:59'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSectionBreakPainter.pas'
+
+ref; // ME_480CA641014D TevSectionBreakPainter
+
+FORWARD ME_55CC33ED010B
+
+FORWARD ME_502268560274
+
+: ME_5022687C027C
+ CONST UID '5022687C027C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_502268560274 // CheckDrawFocused
+ ;
+
+ref; // ME_5022687C027C DoIt
+
+: ME_502268560274
+ CONST UID '502268560274'
+ CONST Name 'CheckDrawFocused'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Operations
+   @ ( ME_5022687C027C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_502268560274 CheckDrawFocused
+
+FORWARD ME_4D664903006E
+
+: ME_4D6649270300
+ CONST UID '4D6649270300'
+ CONST Name 'aSeg'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_4D6649270300 aSeg
+
+: ME_4D66492400D1
+ CONST UID '4D66492400D1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D664903006E // ValidateSegFont
+ ;
+ : Parameters
+   @ ( ME_4D6649270300 // aSeg
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D66492400D1 DoIt
+
+: ME_4D664903006E
+ CONST UID '4D664903006E'
+ CONST Name 'ValidateSegFont'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Operations
+   @ ( ME_4D66492400D1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4D664903006E ValidateSegFont
+
+FORWARD ME_55CC5EDA00AD
+
+: ME_55CC5EFE0273
+ CONST UID '55CC5EFE0273'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55CC5EDA00AD // BeforeDrawLeaf
+ ;
+
+ref; // ME_55CC5EFE0273 DoIt
+
+: ME_55CC5EDA00AD
+ CONST UID '55CC5EDA00AD'
+ CONST Name 'BeforeDrawLeaf'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Operations
+   @ ( ME_55CC5EFE0273 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55CC5EDA00AD BeforeDrawLeaf
+
+FORWARD ME_55CC5F0D01A2
+
+: ME_55CC5F2403C8
+ CONST UID '55CC5F2403C8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55CC5F0D01A2 // AfterDrawLeaf
+ ;
+
+ref; // ME_55CC5F2403C8 DoIt
+
+: ME_55CC5F0D01A2
+ CONST UID '55CC5F0D01A2'
+ CONST Name 'AfterDrawLeaf'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Operations
+   @ ( ME_55CC5F2403C8 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55CC5F0D01A2 AfterDrawLeaf
+
+: ME_55CC3BEC0103
+ CONST UID '55CC3BEC0103'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Target WL 'ME_55CB071000EC' '47F1F38601A3.pas.ms.script' // AACConst
+ ;
+
+ref; // ME_55CC3BEC0103 
+
+: ME_55CC3D5D0061
+ CONST UID '55CC3D5D0061'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Target WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_55CC3D5D0061 
+
+: ME_55CC3EEF01A4
+ CONST UID '55CC3EEF01A4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_55CC3EEF01A4 
+
+: ME_55CC42B502D9
+ CONST UID '55CC42B502D9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Target WL 'ME_485649E10305' '484A470100DD.pas.ms.script' // HyperLink
+ ;
+
+ref; // ME_55CC42B502D9 
+
+: ME_55CC699D0195
+ CONST UID '55CC699D0195'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55CC33ED010B // TevAACTextPainter
+ ;
+ : Target WL 'ME_484D2CBA0213' '484A470100DD.pas.ms.script' // TextStyle
+ ;
+
+ref; // ME_55CC699D0195 
+
+: ME_4E2702FE01EA_ME_55CC33ED010B
+ CONST UID '4E2702FE01EA'
+ CONST Name 'FillUnfilled'
+ : Original WL 'ME_4E2702FE01EA' '49DCBC09029B.pas.ms.script' // FillUnfilled
+ ;
+ : Implementor ME_55CC33ED010B // TevAACTextPainter
+ ;
+ref; // ME_4E2702FE01EA_ME_55CC33ED010B FillUnfilled
+
+: ME_55CC33A10342_ME_55CC33ED010B
+ CONST UID '55CC33A10342'
+ CONST Name 'GetBackColor'
+ : Original WL 'ME_55CC33A10342' '49DCBC09029B.pas.ms.script' // GetBackColor
+ ;
+ : Implementor ME_55CC33ED010B // TevAACTextPainter
+ ;
+ref; // ME_55CC33A10342_ME_55CC33ED010B GetBackColor
+
+: ME_55CC33ED010B
+ CONST UID '55CC33ED010B'
+ CONST Name 'TevAACTextPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Все "заточки" для отрисовки текста и содержания AAC.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( ME_4804CC1E0349 // TevTextParaPainter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_502268560274 // CheckDrawFocused
+ ME_4D664903006E // ValidateSegFont
+ ME_55CC5EDA00AD // BeforeDrawLeaf
+ ME_55CC5F0D01A2 // AfterDrawLeaf
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4E2702FE01EA_ME_55CC33ED010B // FillUnfilled
+ ME_55CC33A10342_ME_55CC33ED010B // GetBackColor
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55CC3BEC0103 // 
+ ME_55CC3D5D0061 // 
+ ME_55CC3EEF01A4 // 
+ ME_55CC42B502D9 // 
+ ME_55CC699D0195 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evAACTextPainter.pas'
+
+ref; // ME_55CC33ED010B TevAACTextPainter
+
+FORWARD ME_49DA30D901B6
+
+: ME_49DA33FC021D
+ CONST UID '49DA33FC021D'
+ CONST Name 'f_FirstIndent'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49DA33FC021D f_FirstIndent
+
+: ME_4E272722029F
+ CONST UID '4E272722029F'
+ CONST Name 'f_TopLine'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4E272722029F f_TopLine
+
+: ME_4E568E1200BB
+ CONST UID '4E568E1200BB'
+ CONST Name 'f_LinePainter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target ME_49DA328801C9 // TevLinePainter
+ ;
+
+ref; // ME_4E568E1200BB f_LinePainter
+
+FORWARD ME_4D725A550218
+
+: ME_4D725A670247
+ CONST UID '4D725A670247'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D725A550218 // ValidateParaFont
+ ;
+
+ref; // ME_4D725A670247 DoIt
+
+: ME_4D725A550218
+ CONST UID '4D725A550218'
+ CONST Name 'ValidateParaFont'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Operations
+   @ ( ME_4D725A670247 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4D725A550218 ValidateParaFont
+
+: ME_49DA328F037A
+ CONST UID '49DA328F037A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target ME_49DA328801C9 // TevLinePainter
+ ;
+
+ref; // ME_49DA328F037A 
+
+: ME_49DA334C0334
+ CONST UID '49DA334C0334'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47AC7CF90230' '47A1D4C201E8.pas.ms.script' // L3 Core Consts
+ ;
+
+ref; // ME_49DA334C0334 
+
+: ME_49DA335A0238
+ CONST UID '49DA335A0238'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+
+ref; // ME_49DA335A0238 
+
+: ME_49DA33CB021C
+ CONST UID '49DA33CB021C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_49DA33CB021C 
+
+: ME_49DA33D60109
+ CONST UID '49DA33D60109'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_49DA33D60109 
+
+: ME_49DA3436010D
+ CONST UID '49DA3436010D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
+ ;
+
+ref; // ME_49DA3436010D 
+
+: ME_49DA3467006E
+ CONST UID '49DA3467006E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47F6036500E3' '47E3DF460095.pas.ms.script' // TnevAfterEndPoint
+ ;
+
+ref; // ME_49DA3467006E 
+
+: ME_49DA349501FF
+ CONST UID '49DA349501FF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4728C6AC0070' '467C0CAA02AB.pas.ms.script' // Il3ImageList
+ ;
+
+ref; // ME_49DA349501FF 
+
+: ME_49DA353A01CB
+ CONST UID '49DA353A01CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
+ ;
+
+ref; // ME_49DA353A01CB 
+
+: ME_49DA354B02AB
+ CONST UID '49DA354B02AB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_49DA354B02AB 
+
+: ME_49DA3567031F
+ CONST UID '49DA3567031F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
+ ;
+
+ref; // ME_49DA3567031F 
+
+: ME_49DA361702B7
+ CONST UID '49DA361702B7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_49DA361702B7 
+
+: ME_49DA36290082
+ CONST UID '49DA36290082'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47D00CC20108' '47C52679006D.pas.ms.script' // nevFacade
+ ;
+
+ref; // ME_49DA36290082 
+
+: ME_49DA36D000CD
+ CONST UID '49DA36D000CD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_48D3AF8E024B' '47F1F38601A3.pas.ms.script' // evTextParaTools
+ ;
+
+ref; // ME_49DA36D000CD 
+
+: ME_49DA37110227
+ CONST UID '49DA37110227'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_480F77D40153' '480F77890296.pas.ms.script' // TextParaConst
+ ;
+
+ref; // ME_49DA37110227 
+
+: ME_49DA3742017E
+ CONST UID '49DA3742017E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4773DEF0021B' '47913B47006E.pas.ms.script' // Tl3CustomString
+ ;
+
+ref; // ME_49DA3742017E 
+
+: ME_49DA375A0095
+ CONST UID '49DA375A0095'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_49DA375A0095 
+
+: ME_49DA37850145
+ CONST UID '49DA37850145'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
+ ;
+
+ref; // ME_49DA37850145 
+
+: ME_49DA3871023B
+ CONST UID '49DA3871023B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47C5B81A030C' '4678209200A6.pas.ms.script' // InevLines
+ ;
+
+ref; // ME_49DA3871023B 
+
+: ME_49DA3895027D
+ CONST UID '49DA3895027D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47C7DBE0022A' '49D2080D020C.pas.ms.script' // TevParaMarkStyle
+ ;
+
+ref; // ME_49DA3895027D 
+
+: ME_49DA38B700E5
+ CONST UID '49DA38B700E5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_49DA38B700E5 
+
+: ME_49DA38E80349
+ CONST UID '49DA38E80349'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47E38876005D' '47E37BB6016B.pas.ms.script' // Ik2TagList
+ ;
+
+ref; // ME_49DA38E80349 
+
+: ME_49DA390E01CB
+ CONST UID '49DA390E01CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47F245BD01E1' '47F2458300E4.pas.ms.script' // Defaults
+ ;
+
+ref; // ME_49DA390E01CB 
+
+: ME_49DA394702CB
+ CONST UID '49DA394702CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_480F6F5C0125' '47913B47006E.pas.ms.script' // l3LineArray
+ ;
+
+ref; // ME_49DA394702CB 
+
+: ME_49DA3A2E0144
+ CONST UID '49DA3A2E0144'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.pas.ms.script' // k2Base
+ ;
+
+ref; // ME_49DA3A2E0144 
+
+: ME_4A278E500020
+ CONST UID '4A278E500020'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_485649E10305' '484A470100DD.pas.ms.script' // HyperLink
+ ;
+
+ref; // ME_4A278E500020 
+
+: ME_4A27CCD20344
+ CONST UID '4A27CCD20344'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4A27C4D20100' '4A267EE3017B.pas.ms.script' // TnevActiveHyperlink
+ ;
+
+ref; // ME_4A27CCD20344 
+
+: ME_4A27F00A01DF
+ CONST UID '4A27F00A01DF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4A27EF61039B' '484A470100DD.pas.ms.script' // ActiveHyperLink
+ ;
+
+ref; // ME_4A27F00A01DF 
+
+: ME_4A27F1A400E5
+ CONST UID '4A27F1A400E5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_484D2CBA0213' '484A470100DD.pas.ms.script' // TextStyle
+ ;
+
+ref; // ME_4A27F1A400E5 
+
+: ME_4B347BB8025C
+ CONST UID '4B347BB8025C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47CD3486030A' '47CD3441002F.pas.ms.script' // TnevMiscMessages
+ ;
+
+ref; // ME_4B347BB8025C 
+
+: ME_4B7404190016
+ CONST UID '4B7404190016'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_480DBA760390' '480DBA6900E6.pas.ms.script' // k2Facade
+ ;
+
+ref; // ME_4B7404190016 
+
+: ME_4C985980033D
+ CONST UID '4C985980033D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47F1F3BC0330' '47F1F38601A3.pas.ms.script' // evParaTools
+ ;
+
+ref; // ME_4C985980033D 
+
+: ME_4DD67BBE0275
+ CONST UID '4DD67BBE0275'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_48577C150116' '53D258F1004F.pas.ms.script' // TevTextPara
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_4DD67BBE0275 
+
+: ME_4E16FC19016E
+ CONST UID '4E16FC19016E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4E16E263024F' '48185390010A.pas.ms.script' // TnevFormatInfoFactory
+ ;
+
+ref; // ME_4E16FC19016E 
+
+: ME_4E1708370162
+ CONST UID '4E1708370162'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47AC7BD90281' '47AC7B760263.pas.ms.script' // Tag Consts
+ ;
+
+ref; // ME_4E1708370162 
+
+: ME_4E1DB48502BC
+ CONST UID '4E1DB48502BC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4E1D96B8035A' '4A267EE3017B.pas.ms.script' // TnevDecorActiveHyperlink
+ ;
+
+ref; // ME_4E1DB48502BC 
+
+: ME_4E2709560366
+ CONST UID '4E2709560366'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4CC82A7D0162' '473C3BEE0334.pas.ms.script' // Tl3Region
+ ;
+
+ref; // ME_4E2709560366 
+
+: ME_4E270C1201F2
+ CONST UID '4E270C1201F2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4E270C1201F2 
+
+: ME_4E270C310122
+ CONST UID '4E270C310122'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4E270C21028E' '4AB0C3F60375.pas.ms.script' // CreateRoundRectRgn
+ ;
+
+ref; // ME_4E270C310122 
+
+: ME_4E271AB600B5
+ CONST UID '4E271AB600B5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_4E271AB600B5 
+
+: ME_4E271CFF00B1
+ CONST UID '4E271CFF00B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4739ABDB029D' '4739AB8601AA.pas.ms.script' // Tl3Drawer
+ ;
+
+ref; // ME_4E271CFF00B1 
+
+: ME_4E3BC748019C
+ CONST UID '4E3BC748019C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4E3BB9C7005A' '47F1F38601A3.pas.ms.script' // evCalcDecimalTabIndent
+ ;
+
+ref; // ME_4E3BC748019C 
+
+: ME_4E57C3B3010F
+ CONST UID '4E57C3B3010F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47E0C36201C7' '537B83AD01F0.pas.ms.script' // l3Math
+ ;
+
+ref; // ME_4E57C3B3010F 
+
+: ME_4E5FAE6A0388
+ CONST UID '4E5FAE6A0388'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4E5FAE1700D5' '4E5FADDD00A1.pas.ms.script' // TnevSegmentObject
+ ;
+
+ref; // ME_4E5FAE6A0388 
+
+: ME_4F6AE1AE01B5
+ CONST UID '4F6AE1AE01B5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_4858116B0355' '48492FC0029D.pas.ms.script' // BitmapPara
+ ;
+
+ref; // ME_4F6AE1AE01B5 
+
+: ME_506592C900CA
+ CONST UID '506592C900CA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47F2499F0049' '47F1F38601A3.pas.ms.script' // evSegLst
+ ;
+
+ref; // ME_506592C900CA 
+
+: ME_53AAC13D0030
+ CONST UID '53AAC13D0030'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_53AABE1F0383' '53AABD9F02D1.pas.ms.script' // TevCustomStyleManager
+ ;
+
+ref; // ME_53AAC13D0030 
+
+: ME_53D78CC6012C
+ CONST UID '53D78CC6012C'
+ CONST Class class_Dependency
+ : Stereotype st_injects_this::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
+ ;
+ CONST "needs processor" 'undefined'
+
+ref; // ME_53D78CC6012C 
+
+: ME_55CB1BAA0350
+ CONST UID '55CB1BAA0350'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ : Target WL 'ME_50223AB403B3' '47F1F38601A3.pas.ms.script' // evIsAACHyperlink
+ ;
+
+ref; // ME_55CB1BAA0350 
+
+: ME_479F2AFB0397_ME_49DA30D901B6
+ CONST UID '479F2AFB0397'
+ CONST Name 'Release'
+ : Original WL 'ME_479F2AFB0397' '51612EBB02F5.pas.ms.script' // Release
+ ;
+ : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ref; // ME_479F2AFB0397_ME_49DA30D901B6 Release
+
+: ME_4804B5FC02A3_ME_49DA30D901B6
+ CONST UID '4804B5FC02A3'
+ CONST Name 'DoInitAlignObjects'
+ : Original WL 'ME_4804B5FC02A3' '49DCBC09029B.pas.ms.script' // DoInitAlignObjects
+ ;
+ : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ref; // ME_4804B5FC02A3_ME_49DA30D901B6 DoInitAlignObjects
+
+: ME_4804B9BB0383_ME_49DA30D901B6
+ CONST UID '4804B9BB0383'
+ CONST Name 'GetFramePartPrim'
+ : Original WL 'ME_4804B9BB0383' '49DCBC09029B.pas.ms.script' // GetFramePartPrim
+ ;
+ : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ref; // ME_4804B9BB0383_ME_49DA30D901B6 GetFramePartPrim
+
+: ME_4804BC800172_ME_49DA30D901B6
+ CONST UID '4804BC800172'
+ CONST Name 'InitBottom'
+ : Original WL 'ME_4804BC800172' '49DCBC09029B.pas.ms.script' // InitBottom
+ ;
+ : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ref; // ME_4804BC800172_ME_49DA30D901B6 InitBottom
+
+: ME_4804C35B00B2_ME_49DA30D901B6
+ CONST UID '4804C35B00B2'
+ CONST Name 'DoDrawFrameText'
+ : Original WL 'ME_4804C35B00B2' '49DCBC09029B.pas.ms.script' // DoDrawFrameText
+ ;
+ : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ref; // ME_4804C35B00B2_ME_49DA30D901B6 DoDrawFrameText
+
+: ME_4804C81000B9_ME_49DA30D901B6
+ CONST UID '4804C81000B9'
+ CONST Name 'DrawLeaf'
+ : Original WL 'ME_4804C81000B9' '49DCBC09029B.pas.ms.script' // DrawLeaf
+ ;
+ : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ref; // ME_4804C81000B9_ME_49DA30D901B6 DrawLeaf
+
+: ME_4E2702FE01EA_ME_49DA30D901B6
+ CONST UID '4E2702FE01EA'
+ CONST Name 'FillUnfilled'
+ : Original WL 'ME_4E2702FE01EA' '49DCBC09029B.pas.ms.script' // FillUnfilled
+ ;
+ : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
+ ;
+ref; // ME_4E2702FE01EA_ME_49DA30D901B6 FillUnfilled
+
+: ME_49DA30D901B6
+ CONST UID '49DA30D901B6'
+ CONST Name 'TevTextParaPainterEx'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Рисователь текстового параграфа. Для упрощения переноса на модель' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( ME_55CC33ED010B // TevAACTextPainter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49DA33FC021D // f_FirstIndent
+ ME_4E272722029F // f_TopLine
+ ME_4E568E1200BB // f_LinePainter
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4D725A550218 // ValidateParaFont
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479F2AFB0397_ME_49DA30D901B6 // Release
+ ME_4804B5FC02A3_ME_49DA30D901B6 // DoInitAlignObjects
+ ME_4804B9BB0383_ME_49DA30D901B6 // GetFramePartPrim
+ ME_4804BC800172_ME_49DA30D901B6 // InitBottom
+ ME_4804C35B00B2_ME_49DA30D901B6 // DoDrawFrameText
+ ME_4804C81000B9_ME_49DA30D901B6 // DrawLeaf
+ ME_4E2702FE01EA_ME_49DA30D901B6 // FillUnfilled
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_49DA328F037A // 
+ ME_49DA334C0334 // 
+ ME_49DA335A0238 // 
+ ME_49DA33CB021C // 
+ ME_49DA33D60109 // 
+ ME_49DA3436010D // 
+ ME_49DA3467006E // 
+ ME_49DA349501FF // 
+ ME_49DA353A01CB // 
+ ME_49DA354B02AB // 
+ ME_49DA3567031F // 
+ ME_49DA361702B7 // 
+ ME_49DA36290082 // 
+ ME_49DA36D000CD // 
+ ME_49DA37110227 // 
+ ME_49DA3742017E // 
+ ME_49DA375A0095 // 
+ ME_49DA37850145 // 
+ ME_49DA3871023B // 
+ ME_49DA3895027D // 
+ ME_49DA38B700E5 // 
+ ME_49DA38E80349 // 
+ ME_49DA390E01CB // 
+ ME_49DA394702CB // 
+ ME_49DA3A2E0144 // 
+ ME_4A278E500020 // 
+ ME_4A27CCD20344 // 
+ ME_4A27F00A01DF // 
+ ME_4A27F1A400E5 // 
+ ME_4B347BB8025C // 
+ ME_4B7404190016 // 
+ ME_4C985980033D // 
+ ME_4DD67BBE0275 // 
+ ME_4E16FC19016E // 
+ ME_4E1708370162 // 
+ ME_4E1DB48502BC // 
+ ME_4E2709560366 // 
+ ME_4E270C1201F2 // 
+ ME_4E270C310122 // 
+ ME_4E271AB600B5 // 
+ ME_4E271CFF00B1 // 
+ ME_4E3BC748019C // 
+ ME_4E57C3B3010F // 
+ ME_4E5FAE6A0388 // 
+ ME_4F6AE1AE01B5 // 
+ ME_506592C900CA // 
+ ME_53AAC13D0030 // 
+ ME_53D78CC6012C // 
+ ME_55CB1BAA0350 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '06.04.2009 20:42'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaPainterEx.pas'
+
+ref; // ME_49DA30D901B6 TevTextParaPainterEx
+
+FORWARD ME_4804CC63006C
+
+: ME_4804CCB802E5
+ CONST UID '4804CCB802E5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CC63006C // TevFormulaPainter
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4804CCB802E5 
+
+: ME_4DD67BEC00A2
+ CONST UID '4DD67BEC00A2'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_4804CC63006C // TevFormulaPainter
+ ;
+ : Target WL 'ME_4857934201E3' '53D258F1004F.pas.ms.script' // TevFormula
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_4DD67BEC00A2 
+
+: ME_53D0F6EE0230
+ CONST UID '53D0F6EE0230'
+ CONST Class class_Dependency
+ : Stereotype st_injects_this::Dependency ;
+ : Parent ME_4804CC63006C // TevFormulaPainter
+ ;
+ : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
+ ;
+ CONST "needs processor" 'undefined'
+
+ref; // ME_53D0F6EE0230 
+
+: ME_4804B86403BE_ME_4804CC63006C
+ CONST UID '4804B86403BE'
+ CONST Name 'DoFillSelection'
+ : Original WL 'ME_4804B86403BE' '49DCBC09029B.pas.ms.script' // DoFillSelection
+ ;
+ : Implementor ME_4804CC63006C // TevFormulaPainter
+ ;
+ref; // ME_4804B86403BE_ME_4804CC63006C DoFillSelection
+
+: ME_4804C81000B9_ME_4804CC63006C
+ CONST UID '4804C81000B9'
+ CONST Name 'DrawLeaf'
+ : Original WL 'ME_4804C81000B9' '49DCBC09029B.pas.ms.script' // DrawLeaf
+ ;
+ : Implementor ME_4804CC63006C // TevFormulaPainter
+ ;
+ref; // ME_4804C81000B9_ME_4804CC63006C DrawLeaf
+
+: ME_4E53B9A500B4_ME_4804CC63006C
+ CONST UID '4E53B9A500B4'
+ CONST Name 'GetBitmapForPara'
+ : Original WL 'ME_4E53B9A500B4' '49DCBC09029B.pas.ms.script' // GetBitmapForPara
+ ;
+ : Implementor ME_4804CC63006C // TevFormulaPainter
+ ;
+ref; // ME_4E53B9A500B4_ME_4804CC63006C GetBitmapForPara
+
+: ME_4804CC63006C
+ CONST UID '4804CC63006C'
+ CONST Name 'TevFormulaPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( ME_49DA30D901B6 // TevTextParaPainterEx
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4804B86403BE_ME_4804CC63006C // DoFillSelection
+ ME_4804C81000B9_ME_4804CC63006C // DrawLeaf
+ ME_4E53B9A500B4_ME_4804CC63006C // GetBitmapForPara
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4804CCB802E5 // 
+ ME_4DD67BEC00A2 // 
+ ME_53D0F6EE0230 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '15.12.2002 15:28'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evFormulaPainter.pas'
+
+ref; // ME_4804CC63006C TevFormulaPainter
+
+FORWARD ME_4804CBCA0090
+
+: ME_4DD67C2A01F6
+ CONST UID '4DD67C2A01F6'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_4804CBCA0090 // TevBitmapParaPainter
+ ;
+ : Target WL 'ME_4858137901EF' '53D258F1004F.pas.ms.script' // TevBitmapPara
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_4DD67C2A01F6 
+
+: ME_53D0F11C01A6
+ CONST UID '53D0F11C01A6'
+ CONST Class class_Dependency
+ : Stereotype st_injects_this::Dependency ;
+ : Parent ME_4804CBCA0090 // TevBitmapParaPainter
+ ;
+ : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
+ ;
+ CONST "needs processor" 'undefined'
+
+ref; // ME_53D0F11C01A6 
+
+: ME_4804B86403BE_ME_4804CBCA0090
+ CONST UID '4804B86403BE'
+ CONST Name 'DoFillSelection'
+ : Original WL 'ME_4804B86403BE' '49DCBC09029B.pas.ms.script' // DoFillSelection
+ ;
+ : Implementor ME_4804CBCA0090 // TevBitmapParaPainter
+ ;
+ref; // ME_4804B86403BE_ME_4804CBCA0090 DoFillSelection
+
+: ME_4804C81000B9_ME_4804CBCA0090
+ CONST UID '4804C81000B9'
+ CONST Name 'DrawLeaf'
+ : Original WL 'ME_4804C81000B9' '49DCBC09029B.pas.ms.script' // DrawLeaf
+ ;
+ : Implementor ME_4804CBCA0090 // TevBitmapParaPainter
+ ;
+ref; // ME_4804C81000B9_ME_4804CBCA0090 DrawLeaf
+
+: ME_4804CBCA0090
+ CONST UID '4804CBCA0090'
+ CONST Name 'TevBitmapParaPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '"рисователь" параграфа с картинкой. Реализует интерфейс IevPainter.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( ME_49DB53330394 // TevLeafParaPainter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4804B86403BE_ME_4804CBCA0090 // DoFillSelection
+ ME_4804C81000B9_ME_4804CBCA0090 // DrawLeaf
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4DD67C2A01F6 // 
+ ME_53D0F11C01A6 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '16.12.2002 14:35'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapParaPainter.pas'
+
+ref; // ME_4804CBCA0090 TevBitmapParaPainter
+
+FORWARD ME_4804CDA403CE
+
+FORWARD ME_49DB2E950297
+
+: ME_4E14519000A2
+ CONST UID '4E14519000A2'
+ CONST Name 'ImageInfo'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_49DB2E950297 // DrawImgListComponent
+ ;
+ : Target WL 'ME_4D5936FC01A0' '4678209200A6.pas.ms.script' // TnevControlImageInfo
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4E14519000A2 ImageInfo
+
+: ME_49DB2EB9002D
+ CONST UID '49DB2EB9002D'
+ CONST Name 'aEditRect'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728976B0154' '472745450206.pas.ms.script' // Tl3SRect
+ ;
+
+ref; // ME_49DB2EB9002D aEditRect
+
+: ME_49DB2EB90053
+ CONST UID '49DB2EB90053'
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469245FB0354' '469D0AC7005E.pas.ms.script' // ControlType
+ ;
+
+ref; // ME_49DB2EB90053 aType
+
+: ME_49DB2EB90074
+ CONST UID '49DB2EB90074'
+ CONST Name 'aPartialDraw'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49DB2EB90074 aPartialDraw
+
+: ME_49DB2EB90096
+ CONST UID '49DB2EB90096'
+ CONST Name 'aBtnWidth'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49DB2EB90096 aBtnWidth
+
+: ME_49DB2EA7020F
+ CONST UID '49DB2EA7020F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49DB2E950297 // DrawImgListComponent
+ ;
+ : Parameters
+   @ ( ME_49DB2EB9002D // aEditRect
+ ME_49DB2EB90053 // aType
+ ME_49DB2EB90074 // aPartialDraw
+ ME_49DB2EB90096 // aBtnWidth
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_49DB2EA7020F DoIt
+
+: ME_49DB2E950297
+ CONST UID '49DB2E950297'
+ CONST Name 'DrawImgListComponent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Отрисовывает комопоненты с иконками' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Attributes
+   @ ( ME_4E14519000A2 // ImageInfo
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_49DB2EA7020F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_49DB2E950297 DrawImgListComponent
+
+: ME_4804D129029A
+ CONST UID '4804D129029A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4804D129029A 
+
+: ME_4804D17B010C
+ CONST UID '4804D17B010C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_469245FB0354' '469D0AC7005E.pas.ms.script' // ControlType
+ ;
+
+ref; // ME_4804D17B010C 
+
+: ME_4804D23D001B
+ CONST UID '4804D23D001B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_4728C6AC0070' '467C0CAA02AB.pas.ms.script' // Il3ImageList
+ ;
+
+ref; // ME_4804D23D001B 
+
+: ME_4804D28A0184
+ CONST UID '4804D28A0184'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_47CFFEDE0215' '47CEBC900123.pas.ms.script' // evControlParaTools
+ ;
+
+ref; // ME_4804D28A0184 
+
+: ME_4804D33900E6
+ CONST UID '4804D33900E6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_47D0018D03D9' '47D0015C0022.pas.ms.script' // Control Types
+ ;
+
+ref; // ME_4804D33900E6 
+
+: ME_4804D357028E
+ CONST UID '4804D357028E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_47C5AAEF02C3' '47C5207602D1.pas.ms.script' // TnevRect
+ ;
+
+ref; // ME_4804D357028E 
+
+: ME_4804D445003C
+ CONST UID '4804D445003C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_4804ABA703CA' '55C4AEC801CA.pas.ms.script' // Colors$1
+ ;
+
+ref; // ME_4804D445003C 
+
+: ME_4804D49D027B
+ CONST UID '4804D49D027B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_46A5ECB20217' '4677FBA70343.pas.ms.script' // Tl3CheckBoxState
+ ;
+
+ref; // ME_4804D49D027B 
+
+: ME_4804D4B20177
+ CONST UID '4804D4B20177'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_4804D4B20177 
+
+: ME_4D07B79103A6
+ CONST UID '4D07B79103A6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_4857CD8D0093' '48492FC0029D.pas.ms.script' // TableCell
+ ;
+
+ref; // ME_4D07B79103A6 
+
+: ME_4D07B91D0169
+ CONST UID '4D07B91D0169'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_480F377B0271' '4678209200A6.pas.ms.script' // TnevFormatInfoPrim
+ ;
+
+ref; // ME_4D07B91D0169 
+
+: ME_4D6649840041
+ CONST UID '4D6649840041'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_4858000901EF' '53D258F1004F.pas.ms.script' // TevControlPara
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_4D6649840041 
+
+: ME_4D6649A000F6
+ CONST UID '4D6649A000F6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_485649E10305' '484A470100DD.pas.ms.script' // HyperLink
+ ;
+
+ref; // ME_4D6649A000F6 
+
+: ME_4D725BBA00CC
+ CONST UID '4D725BBA00CC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
+ ;
+
+ref; // ME_4D725BBA00CC 
+
+: ME_4D833B8903DD
+ CONST UID '4D833B8903DD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_4799ECBF00D6' '4799EC9300AF.pas.ms.script' // Defaults
+ ;
+
+ref; // ME_4D833B8903DD 
+
+: ME_4D833B9F013D
+ CONST UID '4D833B9F013D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_4D833B9F013D 
+
+: ME_53D64C7B006F
+ CONST UID '53D64C7B006F'
+ CONST Class class_Dependency
+ : Stereotype st_injects_this::Dependency ;
+ : Parent ME_4804CDA403CE // TevControlParaPainter
+ ;
+ : Target WL 'ME_47C7DC2801FB' '49D2080D020C.pas.ms.script' // IevPainter
+ ;
+ CONST "needs processor" 'undefined'
+
+ref; // ME_53D64C7B006F 
+
+: ME_4804B76803D5_ME_4804CDA403CE
+ CONST UID '4804B76803D5'
+ CONST Name 'DrawFrame'
+ : Original WL 'ME_4804B76803D5' '49DCBC09029B.pas.ms.script' // DrawFrame
+ ;
+ : Implementor ME_4804CDA403CE // TevControlParaPainter
+ ;
+ref; // ME_4804B76803D5_ME_4804CDA403CE DrawFrame
+
+: ME_4804C81000B9_ME_4804CDA403CE
+ CONST UID '4804C81000B9'
+ CONST Name 'DrawLeaf'
+ : Original WL 'ME_4804C81000B9' '49DCBC09029B.pas.ms.script' // DrawLeaf
+ ;
+ : Implementor ME_4804CDA403CE // TevControlParaPainter
+ ;
+ref; // ME_4804C81000B9_ME_4804CDA403CE DrawLeaf
+
+: ME_4D664903006E_ME_4804CDA403CE
+ CONST UID '4D664903006E'
+ CONST Name 'ValidateSegFont'
+ : Original ME_4D664903006E // ValidateSegFont
+ ;
+ : Implementor ME_4804CDA403CE // TevControlParaPainter
+ ;
+ref; // ME_4D664903006E_ME_4804CDA403CE ValidateSegFont
+
+: ME_4D725A550218_ME_4804CDA403CE
+ CONST UID '4D725A550218'
+ CONST Name 'ValidateParaFont'
+ : Original ME_4D725A550218 // ValidateParaFont
+ ;
+ : Implementor ME_4804CDA403CE // TevControlParaPainter
+ ;
+ref; // ME_4D725A550218_ME_4804CDA403CE ValidateParaFont
+
+: ME_4804CDA403CE
+ CONST UID '4804CDA403CE'
+ CONST Name 'TevControlParaPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Инструмент для рисования параграфов типа Control.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4804A24003C1 // LeafPara Painters
+ ;
+ : Inherits
+   @ ( ME_49DA30D901B6 // TevTextParaPainterEx
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_49DB2E950297 // DrawImgListComponent
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4804B76803D5_ME_4804CDA403CE // DrawFrame
+ ME_4804C81000B9_ME_4804CDA403CE // DrawLeaf
+ ME_4D664903006E_ME_4804CDA403CE // ValidateSegFont
+ ME_4D725A550218_ME_4804CDA403CE // ValidateParaFont
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4804D129029A // 
+ ME_4804D17B010C // 
+ ME_4804D23D001B // 
+ ME_4804D28A0184 // 
+ ME_4804D33900E6 // 
+ ME_4804D357028E // 
+ ME_4804D445003C // 
+ ME_4804D49D027B // 
+ ME_4804D4B20177 // 
+ ME_4D07B79103A6 // 
+ ME_4D07B91D0169 // 
+ ME_4D6649840041 // 
+ ME_4D6649A000F6 // 
+ ME_4D725BBA00CC // 
+ ME_4D833B8903DD // 
+ ME_4D833B9F013D // 
+ ME_53D64C7B006F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '02.11.2004 15:49'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlParaPainter.pas'
+
+ref; // ME_4804CDA403CE TevControlParaPainter
+
+: ME_4804A24003C1
+ CONST UID '4804A24003C1'
+ CONST Name 'LeafPara Painters'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Утилиты для рисования листьевых параграфов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_49DB53330394 // TevLeafParaPainter
+ ME_49DA2BF5016E // TevTextParaPainterPrim
+ ME_4804CC1E0349 // TevTextParaPainter
+ ME_49DA328801C9 // TevLinePainter
+ ME_480C9D5E01EE // TevPageBreakPainter
+ ME_480CA641014D // TevSectionBreakPainter
+ ME_55CC33ED010B // TevAACTextPainter
+ ME_49DA30D901B6 // TevTextParaPainterEx
+ ME_4804CC63006C // TevFormulaPainter
+ ME_4804CBCA0090 // TevBitmapParaPainter
+ ME_4804CDA403CE // TevControlParaPainter
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
+ WL 'ME_467C182A01BE' '467C182A01BE.pas.ms.script' // k2TagTool
+ WL 'ME_467FC43F01F9' '467FC43F01F9.pas.ms.script' // k2CoreObjects
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
+ WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+ WL 'ME_4739AB8601AA' '4739AB8601AA.pas.ms.script' // l3Drawer
+ WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
+ WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_476BEA0B0103' '476BEA0B0103.pas.ms.script' // evConst
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4799EC9300AF' '4799EC9300AF.pas.ms.script' // l3Defaults
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47AC7B760263' '47AC7B760263.pas.ms.script' // k2Const
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47C52679006D' '47C52679006D.pas.ms.script' // nevUtils
+ WL 'ME_47C695A10172' '47C695A10172.pas.ms.script' // evTypes
+ WL 'ME_47CD3441002F' '47CD3441002F.pas.ms.script' // nevInterfaces
+ WL 'ME_47CEBC900123' '47CEBC900123.pas.ms.script' // qf
+ WL 'ME_47CFDC160002' '47CFDC160002.pas.ms.script' // Paragraphs
+ WL 'ME_47D0015C0022' '47D0015C0022.pas.ms.script' // evControlParaConst
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_47E246C90144' '47E246C90144.pas.ms.script' // l3Trees
+ WL 'ME_47E37BB6016B' '47E37BB6016B.pas.ms.script' // k2InterfacesEx
+ WL 'ME_47E3DF460095' '47E3DF460095.pas.ms.script' // Cursors
+ WL 'ME_47EA968D0155' '47EA968D0155.pas.ms.script' // Printing
+ WL 'ME_47ECB2870309' '47ECB2870309.pas.ms.script' // StyleTable
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
+ WL 'ME_47F1F38601A3' '47F1F38601A3.pas.ms.script' // ParaUtils
+ WL 'ME_47F2458300E4' '47F2458300E4.pas.ms.script' // evDef
+ WL 'ME_480DBA6900E6' '480DBA6900E6.pas.ms.script' // k2Facade
+ WL 'ME_480F77890296' '480F77890296.pas.ms.script' // evTextParaConst
+ WL 'ME_4811D4EC0237' '4811D4EC0237.pas.ms.script' // Views
+ WL 'ME_48185390010A' '48185390010A.pas.ms.script' // Rendering
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_485808AB001D' '485808AB001D.pas.ms.script' // evControlsBlockConst
+ WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
+ WL 'ME_49D2080D020C' '49D2080D020C.pas.ms.script' // nevRealTools
+ WL 'ME_49DCBC09029B' '49DCBC09029B.pas.ms.script' // Drawing Framework
+ WL 'ME_4A267EE3017B' '4A267EE3017B.pas.ms.script' // HotSpots
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4E56909E0240' '4E56909E0240.pas.ms.script' // evResultFont
+ WL 'ME_4E5FADDD00A1' '4E5FADDD00A1.pas.ms.script' // Segments
+ WL 'ME_4E60BA4D00A6' '4E60BA4D00A6.pas.ms.script' // Fonts
+ WL 'ME_4E71FAFC0240' '4E71FAFC0240.pas.ms.script' // Garbage
+ WL 'ME_529F102E0065' '529F102E0065.pas.ms.script' // StringCache
+ WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
+ WL 'ME_53AABD9F02D1' '53AABD9F02D1.pas.ms.script' // CustomStyleManager
+ WL 'ME_53D258F1004F' '53D258F1004F.pas.ms.script' // InterfaceFactories
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifdef" 'evNeedPainters'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4804A24003C1.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4804A24003C1.pas.ms.script.runner'
+
+ref; // ME_4804A24003C1 LeafPara Painters

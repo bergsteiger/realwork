@@ -1,0 +1,279 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDPSpecific/ConfluenceTemplate/HighLayers/KPluginTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess::MDPSpecific::ConfluenceTemplate::HighLayers::KPluginTarget
+//
+// Сборка К-плагинов
+// ---
+// Определяет цель для сборки плагинов Confluence.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: KPluginTarget::Category
+? Сборка К-плагинов
+? Определяет цель для сборки плагинов Confluence.
+= ExeTarget::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_cplugin_target.gif
+L code_cplugin_target
+D
+/ - запрещена форвард-декларация
+// Параметры визуализации
+$ C 195,245,195
+$ l 80,245,80
+$ f 80,245,90
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ExeTarget::Category
+// список задач через запятую, которые нужно запускать после выполнения команды "Clean"
+%f _attr_ant_after_clean_targets
+//#UC START# *4AA89C080397for47046F98035B*
+	idlcomp,
+//#UC END# *4AA89C080397for47046F98035B*
+
+// перекрытие базового стереотипа ExeTarget::Category
+// специфичные данные, необходимые для включения в classpath
+%f _specific_classpath_entries
+//#UC START# *4AA8997F0292for47046F98035B*
+	[%S%[inherited]
+	]	\<classpathentry kind="src" path="java.conf"/\>
+//#UC END# *4AA8997F0292for47046F98035B*
+
+// перекрытие базового стереотипа ExeTarget::Category
+// дополнительные исходники, подключаемые к проекту
+%f _specific_project_linked_source
+//#UC START# *4AA89A2E01CEfor47046F98035B*
+	[%S%[inherited]
+	]		\<link\>
+				\<name\>java.conf\</name\>
+				\<type\>2\</type\>
+				\<locationURI\>%f_with_gen_id(java,JAVA_SOURCE_ROOT/%PN)/java/src/java.conf\</locationURI\>
+			\</link\>
+//#UC END# *4AA89A2E01CEfor47046F98035B*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47046F98035B*
+c                                             {}
+r {"%ax"="true"}:                             {%SS can't be used as target of dependence}
+r {"%f_check_unique_xpackage_name(%S)"!=""}:  {имена XPackage должны быть уникальны%f_check_unique_xpackage_name(%S)}
+
+//имена XPackage должны быть уникальны
+f _check_unique_xpackage_name
+	%f_clear_list(XPACKAGE_NAMES)\
+	%f_clear_list(XPACKS)\
+	<%d<{}{%AM=XPackage::Class}%{XPACKS}%f_add_to_list(A)>>\
+	%{XPACKS}%f_unique_list()\
+	%{XPACKS}<{}{}{%C}[{%f_exists_in_list(XPACKAGE_NAMES,"%CN")=false}{, %C%PN::%CN (%CU)}%f_add_to_list(XPACKAGE_NAMES,"%CN")]>\
+	%f_clear_list(XPACKAGE_NAMES)%f_clear_list(XPACKS)
+//#UC END# *4704C0E30186for47046F98035B*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for47046F98035B*
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+C /%SN
+O atlassian-plugin.xml
+P
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<atlassian-plugin key="%SN" name="%SN"\>
+		\<plugin-info\>
+			\<description\>[{"%PD"!=""}{%PN}%PD] - [{"%SD"!=""}{%SN}%SD]\</description\>
+			\<version\>%P{major version}.%P{minor version}.%P{fix version}\</version\>
+			\<vendor name="ООО НПП 'Гарант-Сервис" url="www.garant.ru"/\>
+		\</plugin-info\>
+		\<lifecycle name="%SNMain" key="<%PN::>%SN::%SNMain" class="%f_dump_java_package(%S).%SN.%SNMain" sequence="1200"\>
+			\<description\>Компонента для регистрации фабрик\</description\>
+		\</lifecycle\><{}{%f_need_output_xml(%D)}
+	%D<{}{%t_is_cplugin(%A)=true&%A%f_can_dump_xml_info()=true}%AX>>\</atlassian-plugin\>
+//#UC END# *4703223D01A5for47046F98035B*
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47046F98035B*
+P
+C /%SN
+O %SNMain.java
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	package %f_dump_java_package(%S).%SN;
+	
+	%f_dump_std_java_imports(%S)
+	
+	public class %SNMain 
+		extends ru.garant.shared.ConfluenceCore.ConfluenceCoreImpl.ContainerManagerSrv 
+		implements com.atlassian.config.lifecycle.LifecycleItem
+	{
+
+		public %SNMain () {
+			setInstance (this);
+		}
+	
+		public void startup(com.atlassian.config.lifecycle.LifecycleContext context) throws Exception {
+			System.out.println("MDPSupport startup...");
+			[{%f_use_server(%S)=true}{ru.garant.shared.Core.Root_i.Std}ru.garant.shared.CoreSrv.Root_i.Corba]LibHomeManagerFactoryImpl libHomeFactory = new [{%f_use_server(%S)=true}{ru.garant.shared.Core.Root_i.Std}ru.garant.shared.CoreSrv.Root_i.Corba]LibHomeManagerFactoryImpl ();
+			try {
+				libHomeFactory.registrateMe((short)0);
+			} catch (ru.garant.shared.Core.Root.DuplicatedFactoryKey ex) {
+				Logs.LOG_SEX (ex);
+			}
+			ru.garant.shared.Core.ParamsImpl.ParamManagerImplFactoryImpl paramManagerFactory = new ru.garant.shared.Core.ParamsImpl.ParamManagerImplFactoryImpl ();
+			try {
+				paramManagerFactory.registrateMe((short)0);
+			} catch (ru.garant.shared.Core.Root.DuplicatedFactoryKey ex) {
+				Logs.LOG_SEX (ex);
+			}
+			
+			try {
+				ru.garant.shared.Core.ParamManagerInitData initData = new ru.garant.shared.Core.ParamManagerInitData ();
+				initData.setApplicationName("%SN");
+				initData.setRegistrySubkey("Core::RegistryHelper::KEY_LOCAL_MACHINE\\\\Software\\\\Garant\\\\%PN\\\\%SN");
+				
+				ru.garant.shared.Core.ParamManager.Factory.get ().init (null, initData);
+			} catch (Throwable e) {
+				Logs.LOG_SEX (e);
+			}
+			
+			ru.garant.shared.Core.Root.LibHomeManager lhm = null;
+			try {
+				lhm = ru.garant.shared.Core.Root.LibHomeManager.Factory.get();
+			} catch (ru.garant.shared.Core.Root.NoActiveFactory ex) {
+				Logs.LOG_SEX(ex);
+			}
+	
+			lhm.registrateLibHome (ru.garant.shared.ConfluenceCore.LibHomeFactory.get());
+	[%f_reg_all_dep_java(%S)
+	]
+			try {
+				lhm.execute();
+			} catch (ru.garant.shared.Core.Root.InvalidParams ip) {
+				Logs.LOG_SEX (ip);
+			} catch (ru.garant.shared.Core.Root.HomeManagerInitError hmie) {
+				Logs.LOG_SEX (hmie);
+			}
+			System.out.println("MDPSupport startup complete");
+		}
+	
+		public void shutdown(com.atlassian.config.lifecycle.LifecycleContext context) throws Exception {
+			System.out.println("MDPSupport shutdown...");
+			try {
+				ru.garant.shared.Core.Root.LibHomeManager.Factory.get().finalize();
+				System.out.println("MDPSupport shutdown complete");
+			} catch (ru.garant.shared.Core.Root.NoActiveFactory ex) {
+				Logs.LOG_SEX (ex);
+			}
+		}
+
+	} // %SNMain
+	
+	%f_footer(%S)
+//#UC END# *470321950119for47046F98035B*
+
+// перекрытие базового стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor47046F98035B*
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O build.xml
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<project name="%SN" basedir="."\>
+		\<property environment="env"/\>
+		\<property name="build.dir" value="$\{env.JAVA_SOURCE_ROOT}/build/target"/\>
+		\<property name="src.dir" value="%f_with_gen_id(java,$\{env.JAVA_SOURCE_ROOT}/%PN)/java/src"/\>
+		\<property name="current.lib" value="$\{env.JAVA_EXTERNAL}/current_lib/"/\>
+	[{<{}{%D<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}.>>!=""}
+		\<target name="idlcomp"\>[{<{}{%dS=ServerLibrary}{C}>!=0}
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/CoreSrv/build.xml" target="idlcomp" inheritAll="false"/\>][
+	%f_dump_dep_for_idlcomp(%S)]
+		\</target\>]
+		\<target name="cleanJar"\>
+			\<delete dir="${build.dir}/jar" /\>
+		\</target\>
+		\<target name="localDeployOnlyVM"\>
+			\<copy todir="${env.CONFLUENCE_HOME}/confluence" overwrite="true"\>
+/				\<fileset dir="${src.dir}/etc/ConfluencePlugins" casesensitive="true" defaultexcludes="true"\>
+/					\<include name="**/*.vm*"/\>
+/				\</fileset\>
+/				\<fileset dir="${src.dir}/etc/ConfluenceMDChange" casesensitive="true" defaultexcludes="true"\>
+/					\<include name="**/*.vm*"/\>
+/				\</fileset\>
+	[<{}{%DS!=KCustomize&%D<{}{%AM=VM::Class}{%AC}>!=0}\
+				\<fileset dir="%f_with_gen_id(vm,%f_cut_postfix($\{env.JAVA_SOURCE_ROOT}%Dd,/%DN))" casesensitive="true" defaultexcludes="true"\>
+					\<include name="%DN/*.vm*"/\>
+					\<include name="%DN/**/*.vm*"/\>
+				\</fileset\>
+	>]		\</copy\>
+	[<{}{%DS=KCustomize}[		\<copy todir="${env.CONFLUENCE_HOME}/confluence" overwrite="true"\>
+				\<fileset dir="%f_with_gen_id(vm,$\{env.JAVA_SOURCE_ROOT}%Dd)"/\>
+			\</copy\>
+	]>]	\</target\>
+		\<target name="makejar"\>
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/Core/build.xml" target="makejar" inheritAll="false"/\>
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/FSM/build.xml" target="makejar" inheritAll="false"/\>[{<{}{%dS=ServerLibrary}{C}>!=0}
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/\>
+			\<ant antfile="$\{env.JAVA_SOURCE_ROOT}/shared/java/project/ConfluenceCore/build.xml" target="makejar" inheritAll="false"/\>][
+	%f_dump_dep_for_makejar(%S)]
+			\<jar destfile="${build.dir}/jar/%SN.jar"\>
+				\<fileset dir ="${build.dir}/classes"\>
+					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+				\</fileset\>
+				\<fileset dir ="%f_with_gen_id(output.xml,$\{env.JAVA_SOURCE_ROOT}%Sd)"/\>
+			\</jar\>
+		\</target\>
+		\<target name="localDeploy" depends="makejar, localDeployOnlyVM"\>
+			\<copy todir="${env.CONFLUENCE_HOME}/confluence/WEB-INF/lib" overwrite="true"\>
+				\<fileset dir="${build.dir}/jar" includes="**/*.jar"/\>
+			\</copy\>
+		\</target\>
+		\<target name="prepareDeploy" depends="makejar"\>
+			\<delete dir="${build.dir}/deploy"/\>
+			\<mkdir dir="${build.dir}/deploy/confluence"/\>
+			\<mkdir dir="${build.dir}/deploy/confluence/WEB-INF/lib"/\>
+	[<{}{%DS=KCustomize}[		\<copy todir="${build.dir}/deploy/confluence" overwrite="true"\>
+				\<fileset dir="%f_with_gen_id(vm,$\{env.JAVA_SOURCE_ROOT}%Dd)"/\>
+			\</copy\>
+	]>]		\<copy todir="${build.dir}/deploy/confluence/WEB-INF/lib"\>
+				\<fileset dir="${build.dir}/jar" includes="**/*.jar"/\>
+			\</copy\>
+			\<copy todir="${build.dir}/deploy/confluence/WEB-INF/lib"\>
+				\<fileset dir="${current.lib}"\>
+					\<patternset\>
+						\<include name="**/*.jar"/\>
+						\<exclude name="**/common_lib/**"/\>
+					\</patternset\>
+				\</fileset\>
+			\</copy\>
+		\</target\><%CX>
+	\</project\>
+//#UC END# *47032262037Afor47046F98035B*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,302 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/FixedArray.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::FixedArray
+//
+// Массив фиксированной длинны
+// ---
+// Тип данных задается атрибутом без стереотипа, размер массива задаётся с помощью значания по-
+// умолчанию для ключа этого атрибута.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: FixedArray::Class
+implementation @ <<FixedArray>>
+//? Массив фиксированной длинны
+//? Тип данных задается атрибутом без стереотипа, размер массива задаётся с помощью значания по-умолчанию для ключа этого атрибута.
+//= BaseContainer::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа BaseContainer::Class
+// сгенерить определение контэйнера для C++
+//%f _dump_container_def_h
+; // st_space_key
+
+: dump_container_def_h OBJECT IN %S
+//#UC START# *49015EE401E1for4A10F31901C6*
+//	%f_dump_container_fwds_h(%S)\
+ [%f] dump_container_fwds_h %( %S )% 
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#typedef boost::array \< %f_data_dump(%S), <{}{"%CS"=""}%C<%f_init(%C)>> \> %SN;
+ out_indent 'typedef boost::array < '
+ [%f] data_dump %( %S )% ', '
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== '' ) then
+  begin
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      [%f] init %( %C )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+ ' > '
+ %S |N ';'
+//#UC END# *49015EE401E1for4A10F31901C6*
+; // dump_container_def_h
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4A10F31901C6*
+//c                                                       {}
+//r {"%Cx"="false"}:                                      {%SS не задан тип данных}
+//r {"%C%Cx"="false"|%C<{}{"%CI"!=""}{%CC}>=0}:            {%SS не задан размер массива}
+//r {""=""}:                      {}
+//#UC END# *4704C0E30186for4A10F31901C6*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: FixedArray::Class::Attribute
+end. // <<FixedArray>>
+
+implementation @ :: <<FixedArray>> <<Attribute>> ;
+//? Тип данных контэйнера, значение по-умолчанию для ключа атрибута определяет размер контэйнера
+//= BaseContainer::Class::Attribute
+
+// Параметры стереотипа
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4A10F404034B*
+//#UC END# *46E6D4BB0339for4A10F404034B*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4A10F404034B*
+//#UC END# *470F1571031Cfor4A10F404034B*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4A10F404034B*
+//#UC END# *470F15B800CBfor4A10F404034B*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4A10F404034B*
+//#UC END# *477398E501C0for4A10F404034B*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4A10F404034B*
+//#UC END# *55B8D28B0157for4A10F404034B*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4A10F404034B*
+//#UC END# *55B8D2F80145for4A10F404034B*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4A10F404034B*
+//#UC END# *55B8DD9C0301for4A10F404034B*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4A10F404034B*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4A10F404034B*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4A10F404034B*
+//#UC END# *4705CBD6003Efor4A10F404034B*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4A10F404034B*
+//#UC END# *470484D50138for4A10F404034B*
+; // wiki_up_add_gen
+
+
+// Вложенные стереотипы
+//: FixedArray::Class::Attribute::Attribute
+end. // :: <<FixedArray>> <<Attribute>> ;
+
+implementation @ :: <<FixedArray>> <<Attribute>> ;
+//? Размер массива
+// Параметры стереотипа
+//Y code_key_attr.gif
+//L code_key_attr
+//T 
+// - может не иметь "цели" (типа/результата)
+//l a
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4A10FE01039E*
+//#UC END# *46E6D4BB0339for4A10FE01039E*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4A10FE01039E*
+//#UC END# *470F1571031Cfor4A10FE01039E*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4A10FE01039E*
+//#UC END# *470F15B800CBfor4A10FE01039E*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4A10FE01039E*
+//#UC END# *477398E501C0for4A10FE01039E*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4A10FE01039E*
+//#UC END# *55B8D28B0157for4A10FE01039E*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4A10FE01039E*
+//#UC END# *55B8D2F80145for4A10FE01039E*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4A10FE01039E*
+//#UC END# *55B8DD9C0301for4A10FE01039E*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<FixedArray>> <<Attribute>> ;
+

@@ -1,0 +1,60 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{3CCFBF9A-F95B-4455-B622-7C7BE76600FC}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\PDFProcessor\Source\gtPDF32\gtPDF32D2009.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="gtPDFkitD2009ProP.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DCLgtPDFkitD2009ProP.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="gtPDF32D2009">
+			<MSBuild Projects="..\PDFProcessor\Source\gtPDF32\gtPDF32D2009.dproj"/>
+		</Target>
+		<Target Name="gtPDF32D2009:Clean">
+			<MSBuild Targets="Clean" Projects="..\PDFProcessor\Source\gtPDF32\gtPDF32D2009.dproj"/>
+		</Target>
+		<Target Name="gtPDF32D2009:Make">
+			<MSBuild Targets="Make" Projects="..\PDFProcessor\Source\gtPDF32\gtPDF32D2009.dproj"/>
+		</Target>
+		<Target Name="gtPDFkitD2009ProP">
+			<MSBuild Projects="gtPDFkitD2009ProP.dproj"/>
+		</Target>
+		<Target Name="gtPDFkitD2009ProP:Clean">
+			<MSBuild Targets="Clean" Projects="gtPDFkitD2009ProP.dproj"/>
+		</Target>
+		<Target Name="gtPDFkitD2009ProP:Make">
+			<MSBuild Targets="Make" Projects="gtPDFkitD2009ProP.dproj"/>
+		</Target>
+		<Target Name="DCLgtPDFkitD2009ProP">
+			<MSBuild Projects="DCLgtPDFkitD2009ProP.dproj"/>
+		</Target>
+		<Target Name="DCLgtPDFkitD2009ProP:Clean">
+			<MSBuild Targets="Clean" Projects="DCLgtPDFkitD2009ProP.dproj"/>
+		</Target>
+		<Target Name="DCLgtPDFkitD2009ProP:Make">
+			<MSBuild Targets="Make" Projects="DCLgtPDFkitD2009ProP.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="gtPDF32D2009;gtPDFkitD2009ProP;DCLgtPDFkitD2009ProP"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="gtPDF32D2009:Clean;gtPDFkitD2009ProP:Clean;DCLgtPDFkitD2009ProP:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="gtPDF32D2009:Make;gtPDFkitD2009ProP:Make;DCLgtPDFkitD2009ProP:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

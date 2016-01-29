@@ -1,0 +1,45 @@
+project (gsplitcsources_gsplit) : project-common-defines-tools, project-common-includes, project_generic_core {
+	staticname = gsplitcsources_gsplit
+	sharedname = gsplitcsources_gsplit
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += STORE_FORM_N
+	macros += BLOCKSINHERIT
+	macros += ONLY_NORM_INDEX
+	macros += QUICK_NEW_DOC
+
+	includes += ./../../component/cpp/libs/gctx/src
+	includes += ./../../component/cpp/libs/mrglib/src
+	includes += ./../../component/cpp/libs/VControl/src
+	includes += ./../../component/cpp/tools/gsplit/src
+
+	Header_Files {
+		./../../component/cpp/tools/gsplit/src/hc_index.h
+		./../../component/cpp/tools/gsplit/src/indhlp.h
+		./../../component/cpp/tools/gsplit/src/message.h
+		./../../component/cpp/tools/gsplit/src/progress.h
+		./../../component/cpp/tools/gsplit/src/ready.h
+	}
+		
+	Source_Files {
+		./../../component/cpp/tools/gsplit/src/attr_index.c
+		./../../component/cpp/tools/gsplit/src/aux_index.c
+		./../../component/cpp/tools/gsplit/src/blob_index.c
+		./../../component/cpp/tools/gsplit/src/cmdline.c
+		./../../component/cpp/tools/gsplit/src/cr_index.c
+		./../../component/cpp/tools/gsplit/src/doc_index.c
+		./../../component/cpp/tools/gsplit/src/doclist.c
+		./../../component/cpp/tools/gsplit/src/hc_index.c
+		./../../component/cpp/tools/gsplit/src/hier_index.c
+		./../../component/cpp/tools/gsplit/src/hind_collect.c
+		./../../component/cpp/tools/gsplit/src/indhlp.c
+		./../../component/cpp/tools/gsplit/src/main.c
+		./../../component/cpp/tools/gsplit/src/msg_tbl.c
+		./../../component/cpp/tools/gsplit/src/segfile.c
+		./../../component/cpp/tools/gsplit/src/split_index.c
+		./../../component/cpp/tools/gsplit/src/subname.c
+		./../../component/cpp/tools/gsplit/src/usage.c
+	}
+}
+

@@ -1,0 +1,1098 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "”тилиты"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text "Nemesis,key:NMS,guid:4A82EED40053/Home/јдминистратор/“ребовани€/”тилиты|481F03780379"))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19779988766"))
+    quid       	"481F03780379"
+    documentation 	"–азличные вспомогательные программы, облегчающие выполнение пакетных операций или обслуживание Ѕанка данных"
+    stereotype 	"UseCases"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"481F03D80174"
+	    supplier   	"Logical View::F1 ѕроблемы и решения::–ешения::”правление пользователями"
+	    quidu      	"481F00D900BB"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "јдминистратор"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19780012274")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AutoCounter"
+		    value      	"213"))
+	    quid       	"481F03F50317"
+	    documentation 	"јдминистратор, обеспечивающий работу с системой"
+	    stereotype 	"Actor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19780012596"))
+		    quid       	"481F047D02FB"
+		    supplier   	"Logical View::F1 јдминистратор::“ребования::”тилиты::”тилита импорта списка пользователей"
+		    quidu      	"481F041C02D9"))
+	    language   	"MDA Generator")
+	(object Class "”тилита импорта списка пользователей"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text "Nemesis,key:NMS,guid:4A82EED40053/Home/јдминистратор/“ребовани€/”тилиты/”тилита импорта списка пользователей|481F041C02D9"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19792732446")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (link_to_requests_hack)"
+		    value      	"w:/garant6x/implementation/Garant/Requirements/481F041C02D9.req")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (link_to_requests_hack)"
+		    value      	"file"))
+	    quid       	"481F041C02D9"
+	    documentation 	"”тилита предназначена€ дл€ создани€ в системе √ј–јЌ“ ѕлатформа F1 списка пользователей из CSV-файла, передаваемого ей в качестве параметра"
+	    stereotype 	"UseCase"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"481F048C0158"
+		    supplier   	"Logical View::F1 ѕроблемы и решения::–ешения::”правление пользователями::јвторизаци€::јвтоматическое создание учетных записей"
+		    quidu      	"481F013D01DF"))
+	    language   	"MDA Generator")
+	(object Mechanism @1
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$0"
+		    quid       	"4822C8F20109"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"4822C92202F1"
+			    supplier   	"$UNNAMED$1"
+			    quidu      	"4822C8F70223"
+			    messages   	(list Messages
+				(object Message "запуск"
+				    quid       	"4822C92202F2"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::F1 јдминистратор::“ребования::”тилиты::јдминистратор"
+		    quidu      	"481F03F50317"
+		    persistence 	"Transient"
+		    creationObj 	TRUE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$1"
+		    quid       	"4822C8F70223"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"4822C93501C8"
+			    supplier   	"$UNNAMED$2"
+			    quidu      	"4822C9070185"
+			    messages   	(list Messages
+				(object Message "make(a-string, DataParser)"
+				    quid       	"4822C958019E"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	3
+				    quidu      	"481D6F65009B"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"4822C94402A7"
+			    supplier   	"$UNNAMED$3"
+			    quidu      	"4822C91500C8"
+			    messages   	(list Messages
+				(object Message "make( )"
+				    quid       	"4822C94402A8"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"481D70BA00FF"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"4822C950031E"
+			    supplier   	"$UNNAMED$4"
+			    quidu      	"4822C9120353"
+			    messages   	(list Messages
+				(object Message "make(DataWriter)"
+				    quid       	"4822C950031F"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	2
+				    quidu      	"481D6FE701AC"
+				    creation   	FALSE))))
+		    class      	"Logical View::garant6x::UsersImportLib::LibSupport::UsersImportMain"
+		    quidu      	"481D6E04016B"
+		    persistence 	"Transient"
+		    creationObj 	TRUE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$2"
+		    quid       	"4822C9070185"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"4822C96E0222"
+			    supplier   	"$UNNAMED$2"
+			    quidu      	"4822C9070185"
+			    messages   	(list Messages
+				(object Message "вычитать строку из файла"
+				    quid       	"4822C96E0223"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"4"
+				    ordinal    	4
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"4822C97E0254"
+			    supplier   	"$UNNAMED$4"
+			    quidu      	"4822C9120353"
+			    messages   	(list Messages
+				(object Message "parse(a-string, size)"
+				    quid       	"4822C97E0255"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"5"
+				    ordinal    	5
+				    quidu      	"481D776901DB"
+				    creation   	FALSE))))
+		    class      	"Logical View::garant6x::UsersImportLib::UsersImport::DataReader"
+		    quidu      	"481D6ED302D2"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$4"
+		    quid       	"4822C9120353"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"4822C98A021C"
+			    supplier   	"$UNNAMED$3"
+			    quidu      	"4822C91500C8"
+			    messages   	(list Messages
+				(object Message "add_user(UserData)"
+				    quid       	"4822C98A021D"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"6"
+				    ordinal    	6
+				    quidu      	"481D77ED00CE"
+				    creation   	FALSE))))
+		    class      	"Logical View::garant6x::UsersImportLib::UsersImport::DataParser"
+		    quidu      	"481D6FC201FD"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$3"
+		    quid       	"4822C91500C8"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"4822CA6502EF"
+			    supplier   	"$UNNAMED$5"
+			    quidu      	"4822CA5E02B1"
+			    messages   	(list Messages
+				(object Message "передача данных на сервер"
+				    quid       	"4822CA6502F0"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"7"
+				    ordinal    	7
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::garant6x::UsersImportLib::UsersImport::DataWriter"
+		    quidu      	"481D707501DC"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$5"
+		    quid       	"4822CA5E02B1"
+		    class      	"Logical View::garantPIL::GslUserManager::GslUserManager::UserManager"
+		    quidu      	"460BB0200232"
+		    persistence 	"Transient"
+		    creationObj 	TRUE
+		    multi      	FALSE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"481F03DE018B"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::F1 јдминистратор::“ребования::”тилиты::јдминистратор" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(429, 528)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(243, 526)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"јдминистратор")
+		    icon       	"Actor"
+		    icon_style 	"Decoration"
+		    fill_color 	16766935
+		    quidu      	"481F03F50317"
+		    width      	390
+		    height     	205
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::F1 јдминистратор::“ребования::”тилиты::”тилита импорта списка пользователей" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1284, 534)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1283, 676)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1853
+			justify    	0
+			label      	"”тилита импорта списка пользователей")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    fill_color 	12510975
+		    quidu      	"481F041C02D9"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"481F047D02FB"
+		    client     	@2
+		    supplier   	@3
+		    vertices   	(list Points
+			(624, 528)
+			(1170, 530))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::F1 ѕроблемы и решения::–ешения::”правление пользователями::јвторизаци€::јвтоматическое создание учетных записей" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1281, 198)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(838, 166)
+			nlines     	1
+			max_width  	886
+			justify    	0
+			label      	"јвтоматическое создание учетных записей")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(838, 116)
+			anchor     	10
+			nlines     	1
+			max_width  	886
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"481F013D01DF"
+		    width      	904
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"481F048C0158"
+		    client     	@3
+		    supplier   	@5
+		    vertices   	(list Points
+			(1280, 471)
+			(1281, 292))
+		    line_style 	0)))
+	(object InteractionDiagram "”тилита импорта списка пользователей"
+	    mechanism_ref 	@1
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"UseCase"
+		    value      	"481F041C02D9")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4822C7BD0205"
+	    title      	"”тилита импорта списка пользователей"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	169
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$0" @7
+		    location   	(333, 369)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(333, 394)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	360
+			justify    	0
+			label      	"")
+		    icon       	"Actor"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4822C8F20109"
+		    width      	120
+		    height     	1330
+		    icon_height 	162
+		    icon_width 	120
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @8
+			location   	(333, 449)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	172
+			y_coord    	82
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$1" @9
+		    location   	(713, 335)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(713, 335)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	282
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4822C8F70223"
+		    width      	300
+		    height     	1364
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @10
+			location   	(713, 415)
+			line_color 	3342489
+			InterObjView 	@9
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @11
+			location   	(713, 531)
+			line_color 	3342489
+			InterObjView 	@9
+			height     	195
+			y_coord    	105
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @12
+			location   	(713, 772)
+			line_color 	3342489
+			InterObjView 	@9
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @13
+			location   	(713, 941)
+			line_color 	3342489
+			InterObjView 	@9
+			height     	90
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$2" @14
+		    location   	(1066, 225)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(1066, 225)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	282
+			justify    	0
+			label      	"")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4822C9070185"
+		    width      	300
+		    height     	1474
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @15
+			location   	(1066, 941)
+			line_color 	3342489
+			InterObjView 	@14
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @16
+			location   	(1066, 1122)
+			line_color 	3342489
+			InterObjView 	@14
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @17
+			location   	(1066, 1147)
+			line_color 	3342489
+			InterObjView 	@14
+			height     	90
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @18
+			location   	(1066, 1284)
+			line_color 	3342489
+			InterObjView 	@14
+			height     	90
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$4" @19
+		    location   	(1447, 225)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(1447, 225)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	282
+			justify    	0
+			label      	"")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4822C9120353"
+		    width      	300
+		    height     	1474
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @20
+			location   	(1447, 772)
+			line_color 	3342489
+			InterObjView 	@19
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @21
+			location   	(1447, 1284)
+			line_color 	3342489
+			InterObjView 	@19
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @22
+			location   	(1447, 1389)
+			line_color 	3342489
+			InterObjView 	@19
+			height     	90
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$3" @23
+		    location   	(1902, 225)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(1902, 225)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	282
+			justify    	0
+			label      	"")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4822C91500C8"
+		    width      	300
+		    height     	1474
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @24
+			location   	(1902, 636)
+			line_color 	3342489
+			InterObjView 	@23
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @25
+			location   	(1902, 1389)
+			line_color 	3342489
+			InterObjView 	@23
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @26
+			location   	(1902, 1519)
+			line_color 	3342489
+			InterObjView 	@23
+			height     	90
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$5" @27
+		    location   	(2265, 231)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@27
+			location   	(2265, 231)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	282
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4822CA5E02B1"
+		    width      	300
+		    height     	1468
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @28
+			location   	(2265, 311)
+			line_color 	3342489
+			InterObjView 	@27
+			height     	90
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @29
+			location   	(2265, 1519)
+			line_color 	3342489
+			InterObjView 	@27
+			height     	90
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterMessView "запуск" @30
+		    location   	(0, 531)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @31
+			Parent_View 	@30
+			location   	(522, 487)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"4822C92202F2"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	185
+			justify    	0
+			label      	"запуск"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@7
+		    supplier   	@9
+		    Focus_Src  	@8
+		    Focus_Entry 	@11
+		    origin     	(348, 531)
+		    terminus   	(697, 531)
+		    ordinal    	0)
+		(object InterMessView "make( )" @32
+		    location   	(0, 636)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @33
+			Parent_View 	@32
+			location   	(1307, 592)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"4822C94402A8"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	198
+			justify    	0
+			label      	"make( )"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@9
+		    supplier   	@23
+		    Focus_Src  	@11
+		    Focus_Entry 	@24
+		    origin     	(728, 636)
+		    terminus   	(1886, 636)
+		    ordinal    	1)
+		(object InterMessView "make(DataWriter)" @34
+		    location   	(0, 772)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @35
+			Parent_View 	@34
+			location   	(1079, 728)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"4822C950031F"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	379
+			justify    	0
+			label      	"make(DataWriter)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@9
+		    supplier   	@19
+		    Focus_Src  	@12
+		    Focus_Entry 	@20
+		    origin     	(728, 772)
+		    terminus   	(1431, 772)
+		    ordinal    	2)
+		(object InterMessView "make(a-string, DataParser)" @36
+		    location   	(0, 941)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @37
+			Parent_View 	@36
+			location   	(889, 897)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"4822C958019E"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	551
+			justify    	0
+			label      	"make(a-string, DataParser)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@9
+		    supplier   	@14
+		    Focus_Src  	@13
+		    Focus_Entry 	@15
+		    origin     	(728, 941)
+		    terminus   	(1050, 941)
+		    ordinal    	3)
+		(object SelfMessView "вычитать строку из файла" @38
+		    location   	(0, 1122)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @39
+			Parent_View 	@38
+			location   	(1157, 1078)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"4822C96E0223"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	548
+			justify    	0
+			label      	"вычитать строку из файла"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@14
+		    supplier   	@14
+		    Focus_Src  	@16
+		    Focus_Entry 	@17
+		    origin     	(1082, 1122)
+		    terminus   	(1232, 1122)
+		    ordinal    	4)
+		(object InterMessView "parse(a-string, size)" @40
+		    location   	(0, 1284)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @41
+			Parent_View 	@40
+			location   	(1256, 1240)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"4822C97E0255"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	423
+			justify    	0
+			label      	"parse(a-string, size)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@14
+		    supplier   	@19
+		    Focus_Src  	@18
+		    Focus_Entry 	@21
+		    origin     	(1081, 1284)
+		    terminus   	(1431, 1284)
+		    ordinal    	5)
+		(object InterMessView "add_user(UserData)" @42
+		    location   	(0, 1389)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @43
+			Parent_View 	@42
+			location   	(1674, 1346)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"4822C98A021D"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"add_user(UserData)"
+			pctDist    	0.500000
+			height     	44
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@19
+		    supplier   	@23
+		    Focus_Src  	@22
+		    Focus_Entry 	@25
+		    origin     	(1462, 1389)
+		    terminus   	(1886, 1389)
+		    ordinal    	6)
+		(object InterMessView "передача данных на сервер" @44
+		    location   	(0, 1519)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @45
+			Parent_View 	@44
+			location   	(2083, 1475)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"4822CA6502F0"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	588
+			justify    	0
+			label      	"передача данных на сервер"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@23
+		    supplier   	@27
+		    Focus_Src  	@26
+		    Focus_Entry 	@29
+		    origin     	(1917, 1519)
+		    terminus   	(2249, 1519)
+		    ordinal    	7)))))

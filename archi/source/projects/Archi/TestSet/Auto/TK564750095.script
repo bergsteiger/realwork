@@ -1,0 +1,79 @@
+INTEGER VAR g_FileCount
+
+STRING VAR g_NameSubDirExportNSRC
+
+[ csExportNSRCDir '\' 'TK564750095' ] strings:Cat >>> g_NameSubDirExportNSRC
+
+PROCEDURE "Создать каталог, если он не существует" STRING IN aNameDir 
+	aNameDir sysutils:ForceDirectories ASSERT
+;
+
+PROCEDURE "Создать каталог для экспорта"
+	"Создать каталог, если он не существует {(g_NameSubDirExportNSRC)}"
+;
+
+PROCEDURE "Заполнить окно экспорта документа" INTEGER IN anExportID
+	"Создать каталог для экспорта"
+	"Контрол по имени {('cbWorkDir')}" pop:Control:SetFocus ASSERT
+ 	g_NameSubDirExportNSRC emitstring
+	"Выбрать 'Экспортировать Всю выборку'"
+	"Выбрать метод 'Каждый документ отдельно'"
+	cnNSRCItemIndex "Контрол по имени {('cbOutFormat')}" pop:ComboBox:SetItemIndex
+	OBJECT VAR l_CheckListBox 
+	"Контрол по имени {('checkExportParts')}" >>> l_CheckListBox    
+	l_CheckListBox pop:CheckListBox:UncheckAll	
+    true 0 l_CheckListBox pop:CheckListBox:SetChecked
+	anExportID "Контрол по имени {('cbOutFormat')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('OK')}" pop:Control:Click  
+;
+
+PROCEDURE "Экcпортировать выборку в формате NSRC в отдельные файлы"
+	g_NameSubDirExportNSRC PureDir	
+	@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта документа {(cnNSRCItemIndex)}" )
+;
+
+INTEGER FUNCTION "Посчитать количество выгруженных файлов"
+	0 >>> g_FileCount
+	@ ( DROP INC g_FileCount ) '*.nsr' g_NameSubDirExportNSRC ProcessFilesWithMask 
+	g_FileCount >>> Result 
+;
+
+INTEGER FUNCTION "Выполнить подсчёт документов в выборке"
+	OBJECT VAR l_Lister
+	INTEGER VAR ii
+	0 >>> ii
+	"Контрол по имени {('SrchResultLister')}" >>> l_Lister 	
+	Если ( l_Lister pop:Lister:Current РАВНО csPublicZero ) то
+		( 
+			WHILE ( l_Lister pop:Lister:Current = ii )
+				BEGIN
+					"Команда 'Стрелка вниз'"
+					"Обработать сообщения"
+					ii 1 + >>> ii	
+				END
+			ii >>> Result 
+		)
+	иначе
+		( l_Lister pop:Lister:Current >>> Result )
+;
+
+PROCEDURE "Вывести результат проверки документов экспорта в эталон"
+	INTEGER VAR l_TotalExport
+	INTEGER VAR l_TotalSelection
+	"Посчитать количество выгруженных файлов" >>> l_TotalExport
+	"Выполнить подсчёт документов в выборке" >>> l_TotalSelection
+	Если ( l_TotalExport < ( 1 l_TotalSelection - ) ) то
+	 ( 'Количество выгруженных документов неправильное!' . )
+;
+
+Тест TK564750095
+	Параметры: ( "Не открывать документ" )
+	Выполнить ( 
+		"Подготовить массив документов для TK565491886"
+		"Создать выборку и добавить документы {( Документы )}"
+		"Экcпортировать выборку в формате NSRC в отдельные файлы"
+		"Вывести результат проверки документов экспорта в эталон"	
+	)
+;
+
+TK564750095

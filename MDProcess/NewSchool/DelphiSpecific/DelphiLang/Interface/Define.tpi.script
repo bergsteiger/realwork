@@ -1,0 +1,184 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Interface/Define.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Interface::Define
+//
+// Директива условной компиляции
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Define::Class
+implementation @ <<Define>>
+//? Директива условной компиляции
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +-
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_define.gif
+//L code_define
+// Параметры визуализации
+//$ C 230,230,250
+//$ l 102,102,102
+//$ f 102,102,102
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _IsDefine
+; // st_space_key
+
+: IsDefine OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B7EBC970190for4B7EBC4002E1*
+//	true
+ true
+//#UC END# *4B7EBC970190for4B7EBC4002E1*
+; // IsDefine
+
+
+//%f _DefineKeyword
+: DefineKeyword OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4B7EC8C803A5for4B7EBC4002E1*
+//	Define
+ 'Define'
+//#UC END# *4B7EC8C803A5for4B7EBC4002E1*
+; // DefineKeyword
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4B7EBC4002E1*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4B7EBC4002E1*
+; // constraint
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4B7EBC4002E1*
+//	[{%SV!=PublicAccess}[%f_with_gen_id(intf.pas,%SX)\n]]
+ if ( ( %S |V ) %!= 'PublicAccess' ) then
+ begin
+  if NOT-EMPTY
+  begin
+   [%f] with_gen_id %( 'intf.pas' %, %S |X )% #13#10 
+  end // if
+  NOP
+ end // if
+//#UC END# *470F15B800CBfor4B7EBC4002E1*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4B7EBC4002E1*
+//	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+ if ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+  [%f] add_to_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% 
+//	[\n%S%f_open_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	\n \{$%S%f_DefineKeyword() %f_N(%S)\}\
+  #13#10' {$'
+  %S %f DefineKeyword %( )% ' '
+  [%f] N %( %S )% '}'
+//	[\n \{ %f_Doc(%S) \}]\
+  if NOT-EMPTY
+  begin
+   #13#10' { '
+   [%f] Doc %( %S )% ' }' 
+  end // if
+  NOP
+//	[\n%S%f_close_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+//	]
+ end // if
+//#UC END# *470F1571031Cfor4B7EBC4002E1*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4B7EBC4002E1*
+//#UC END# *477398E501C0for4B7EBC4002E1*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4B7EBC4002E1*
+//#UC END# *55B8D28B0157for4B7EBC4002E1*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4B7EBC4002E1*
+//#UC END# *55B8D2F80145for4B7EBC4002E1*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4B7EBC4002E1*
+//#UC END# *55B8DD9C0301for4B7EBC4002E1*
+; // res.cmd.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Define>>
+

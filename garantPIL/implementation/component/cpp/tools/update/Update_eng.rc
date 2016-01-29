@@ -1,0 +1,1010 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Update.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Update.ico"
+IDI_BEHAND              ICON    DISCARDABLE     "res\\icon1.ico"
+IDI_BESTOP              ICON    DISCARDABLE     "res\\ico00001.ico"
+IDI_BEWARNING           ICON    DISCARDABLE     "res\\ico00002.ico"
+IDI_BEINFO              ICON    DISCARDABLE     "res\\ico00003.ico"
+IDI_E                   ICON    DISCARDABLE     "res\\e.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WELCOME_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Welcome!"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         135,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    LTEXT           "Welcome to the GARANT program additions package.",
+                    IDC_STATIC,110,6,200,19
+    LTEXT           "We strongly recommend closing all Windows programs before launching the update program.",
+                    IDC_STATIC,110,30,200,25
+    LTEXT           "Click ''Cancel'' to exit the additions program. To continue working, click ''Continue''.",
+                    IDC_STATIC,110,60,200,35
+    LTEXT           "WARNING. This program is protected by laws on authors' rights and by international agreements.",
+                    IDC_STATIC,110,100,195,25
+    LTEXT           "The unsanctioned reproduction or distribution of this program or any part of it may lead to strict civil and criminal sanctions and will be prosecuted through the courts in the maximum amounts established by law.",
+                    IDC_STATIC,110,130,200,50
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+END
+
+IDD_FATALERROR_DIALOG DIALOG DISCARDABLE  0, 0, 237, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Help",ID_HELP,95,60,0,0,NOT WS_VISIBLE | NOT WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,95,60,50,14
+    ICON            IDI_BEHAND,IDC_BEICON,10,10,20,20,SS_CENTERIMAGE
+    LTEXT           "",IDC_TEXT,40,10,190,45
+END
+
+IDD_SELECTDELTASFOLDER_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Choice of catalog with program update files"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    PUSHBUTTON      "&Browse...",IDC_BROWSE,250,155,50,14
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Choose the catalog in which the downloaded update program files are located.",
+                    IDC_STATIC,110,6,200,19
+    LTEXT           "To choose another catalog, click ""Browse"".",
+                    IDC_STATIC,110,30,200,20
+    GROUPBOX        "Catalog",IDC_STATIC,110,145,200,30
+    CONTROL         "C:\\Garant\\Delta",IDC_DELTAPATH,"Static",
+                    SS_LEFTNOWORDWRAP | WS_GROUP,117,158,128,8
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+END
+
+IDD_CONFIRM_DIALOG DIALOG DISCARDABLE  0, 0, 237, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Yes",IDYES,66,60,50,14
+    PUSHBUTTON      "No",IDNO,122,60,50,14
+    ICON            IDI_BEHAND,IDC_BEICON,10,10,20,20,SS_CENTERIMAGE
+    LTEXT           "",IDC_TEXT,40,10,190,45
+END
+
+IDD_COPYFILES_DIALOG DIALOG DISCARDABLE  0, 0, 253, 50
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Copying of files"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_FILEPROGRESS,"msctls_progress32",
+                    WS_BORDER,5,13,240,8
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,102,31,50,14
+END
+
+IDD_PARTUPDATE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Partial update is possible"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next>",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         "List2",IDC_MORE,"SysListView32",LVS_REPORT | 
+                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,110,30,200,115
+    PUSHBUTTON      "E",IDC_E,60,190,25,14,BS_ICON
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Info bank of 10-10-1010 may be updated up to 12-12-1212.",
+                    IDC_PARTUPDATETEXT,110,6,200,19
+    LTEXT           "Click ""Next"" for update of info bank.",
+                    IDC_STATIC,110,155,200,19
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+END
+
+IDD_CANTUPDATE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Update impossible"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Exit",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         "List2",IDC_MORE,"SysListView32",LVS_REPORT | 
+                    LVS_NOSORTHEADER | WS_BORDER,110,20,200,155
+    PUSHBUTTON      "E",IDC_E,60,190,25,14,BS_ICON
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Update of info bank is impossible.",
+                    IDC_STATIC,110,6,200,9
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+END
+
+IDD_FULLUPDATE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Full update possible"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next>",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    LTEXT           "Update of info bank to current date possible.",
+                    IDC_STATIC,110,6,200,19
+    LTEXT           "Click ""Continue"" to update info bank.",
+                    IDC_STATIC,110,30,200,19
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+END
+
+IDD_COLLECTPARTS_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Merging of volumes"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next >",IDOK,150,190,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "List1",IDC_PARTS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | 
+                    NOT WS_VISIBLE | WS_BORDER | WS_TABSTOP,110,30,200,145
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         "Progress1",IDC_FILEPROGRESS,"msctls_progress32",NOT 
+                    WS_VISIBLE | WS_BORDER,110,40,200,8
+    LTEXT           "",IDC_ARCHIVE,110,30,200,10,NOT WS_VISIBLE
+    CONTROL         "Progress1",IDC_FILESPROGRESS,"msctls_progress32",
+                    WS_BORDER,110,15,200,8
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Total files being checked:",IDC_PARTSCOUNT,110,5,120,10
+    LTEXT           "Errors were found during merging. Merging procedure should be repeated.",
+                    IDC_WASERROR,110,5,200,20,NOT WS_VISIBLE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+END
+
+IDD_BADDELTAS_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Checking program update files"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next>",IDOK,150,190,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "List2",IDC_BADDELTAS,"SysListView32",LVS_REPORT | 
+                    LVS_NOSORTHEADER | NOT WS_VISIBLE | WS_BORDER,110,30,200,
+                    145
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Certain program update files have an incorrect or damaged version.",
+                    IDC_RESULT,110,5,200,19,NOT WS_VISIBLE
+    CONTROL         "Progress1",IDC_DELTAPROGRESS,"msctls_progress32",
+                    WS_BORDER,110,15,200,8
+    LTEXT           "Total update files checked:",
+                    IDC_DELTACOUNT,110,5,200,10
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+END
+
+IDD_UNZIP_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Unzipping of archives"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next>",IDOK,150,190,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "List1",IDC_BADZIPS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | 
+                    NOT WS_VISIBLE | WS_BORDER | WS_TABSTOP,110,35,200,140
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         "Progress1",IDC_ZIPSPROGRESS,"msctls_progress32",
+                    WS_BORDER,110,15,200,8
+    LTEXT           "Total archives unzipped:",IDC_ZIPSCOUNT,110,5,140,
+                    10
+    LTEXT           "Errors were found during unzipping. It is necessary to receive the below files again.",
+                    IDC_WASERROR,110,5,200,30,NOT WS_VISIBLE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+END
+
+IDD_RUNGUGL DIALOG DISCARDABLE  0, 0, 253, 50
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,5,
+                    13,240,8
+    LTEXT           "",IDC_MESSAGE,5,25,240,8
+    LTEXT           "",IDC_MESSAGE2,5,33,240,8
+END
+
+IDD_TRYOPENBASES_DIALOG DIALOG DISCARDABLE  0, 0, 253, 50
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Work stations expected to release data"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,102,31,50,14
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,5,
+                    13,240,8
+END
+
+IDD_SELECTBACKUPFOLDER_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Launch of update procedure."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Start>",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+    PUSHBUTTON      "&Browse...",IDC_BROWSE,250,155,50,14,WS_DISABLED
+    GROUPBOX        "Catalog",IDC_BACKUPGROUP,110,145,200,30,WS_DISABLED
+    LTEXT           "C:\\Garant\\Backup",IDC_BACKUPPATH,117,158,128,8,
+                    WS_DISABLED
+    LTEXT           "Program ready to update your info bank.\nClick ""Start"" to launch update procedure.",
+                    IDC_STATIC,110,5,200,25
+    CONTROL         "Create reserve copy of info bank(%ld MByte).",
+                    IDC_DOBACKUP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,110,
+                    35,195,10
+    LTEXT           "To choose another catalog click ""Browse"".",
+                    IDC_STATICHELP,110,55,200,20,WS_DISABLED
+    LTEXT           "Note! Among the accessible discs, there are none with the necessary free space.",
+                    IDC_NODISKS,110,80,195,20,NOT WS_VISIBLE | WS_DISABLED
+END
+
+IDD_LOGIN_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Authorization"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,185,60,120,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,185,80,120,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "&Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         135,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+    LTEXT           "Enter name which will identify you as the user of the GARANT system.",
+                    IDC_STATIC,111,7,199,18
+    LTEXT           "Note: you should have permission to carry out the program update of the system.",
+                    IDC_STATIC,110,30,200,20
+    LTEXT           "User name:",IDC_STATIC,110,63,70,8
+    LTEXT           "Password:",IDC_STATIC,110,83,65,8,NOT WS_GROUP
+END
+
+IDD_SELECTBASEFOLDER_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Copying the info bank for next update."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Create reserve copy. Renewal will be carried out without interruption of users' work.",
+                    IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
+                    110,32,195,18
+    CONTROL         "Decline creation of reserve copy of info bank. During update, users' work with the system will be interrupted.",
+                    IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
+                    110,53,195,24
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+    LTEXT           "Program ready to make a copy of your info bank for next renewal.",
+                    IDC_STATIC,110,5,200,20
+END
+
+IDD_WAITSERVER DIALOG DISCARDABLE  0, 0, 332, 36
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Master of package update. Creation of info bank copy"
+
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Copy of info bank created. Please wait...",
+                    IDC_STATIC,15,7,309,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITXML DIALOG  0, 0, 322, 40
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Master of package update. Checking settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Checking and updating the settings. Please wait...",IDC_STATIC,35,7,280,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+    //PUSHBUTTON      "Cancel",IDCANCEL,136,37,50,14
+END
+
+IDD_WAITSERVER2 DIALOG DISCARDABLE  0, 0, 318, 37
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Master of package update. Data release"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Release of info bank expected. Please wait...",
+                    IDC_STATIC,33,7,277,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITSERVER1 DIALOG DISCARDABLE  0, 0, 302, 37
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Master of package update. Copying data"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Information bank being copied to server. Please wait...",
+                    IDC_STATIC,35,7,260,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_SELECTBASEFOLDEREX_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Copying info bank for next update."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+    LTEXT           "Program ready to make copy of your info bank in the indicated catalog for next update.",
+                    IDC_STATIC,110,5,200,25
+    LTEXT           "To choose another catalog, click ""Browse"".",
+                    IDC_STATIC,110,50,200,20
+    PUSHBUTTON      "&Browse...",IDC_BROWSE,250,155,50,14
+    GROUPBOX        "Catalog",IDC_STATIC,110,145,200,30
+    CONTROL         "C:\\",IDC_BASEPATH,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,117,158,128,8
+    LTEXT           "To create a copy%ld MByte is required.",IDC_BASESIZE,
+                    110,35,200,8
+END
+
+IDD_SELECTUPDATETYPE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Copying of updated bank to server."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+    CONTROL         "Create a reserve copy of an existing info bank in catalog indicated in settings.Update will be carried out without interruption of user's work.",
+                    IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
+                    110,35,200,35
+    CONTROL         "Decline creation of copy of existing info bank. During update the user's work will be interrupted.",
+                    IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
+                    110,75,195,25
+    LTEXT           "Program ready to carry out copying of existing info bank for next update:",
+                    IDC_STATIC,110,5,200,25
+END
+
+IDD_SELECTREMOTETYPE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose update method"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         133,-1,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",-1,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,
+                    WS_EX_STATICEDGE
+    CONTROL         145,-1,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    CONTROL         "Update info bank directly on the server.",
+                    IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
+                    110,30,195,17
+    CONTROL         "Copy info bank to local computer, update, then copy back to server.",
+                    IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
+                    110,55,200,25
+    LTEXT           "Choose your preferred method of info bank update.",
+                    -1,110,5,200,20
+END
+
+IDD_SELECTSERVERTYPE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Server update"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         133,-1,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",-1,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,
+                    WS_EX_STATICEDGE
+    CONTROL         145,-1,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    CONTROL         "Create reserve copy. Update will be carried out without interruption of user's work.",
+                    IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
+                    110,35,200,15
+    CONTROL         "Decline creation of reserve copy of info bank. During update, the user's work will be interrupted.",
+                    IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
+                    110,59,195,25
+    LTEXT           "Choose your preferred method of updating info bank directly on server.",
+                    -1,110,5,200,20
+END
+
+IDD_METHOD_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose type of update"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Simplified (recommended)",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON,110,25,119,10
+    CONTROL         "Extended",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,110,
+                    45,195,10
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14
+    DEFPUSHBUTTON   "Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,
+                    183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,
+                    16
+    LTEXT           "Choose type of update:",IDC_STATIC,110,5,200,10
+    LTEXT           "To find out about differences between the proposed types of update, click ""Help"".",
+                    IDC_STATIC,110,65,200,20
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_WELCOME_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_FATALERROR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_SELECTDELTASFOLDER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_CONFIRM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_COPYFILES_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 43
+    END
+
+    IDD_PARTUPDATE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_CANTUPDATE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_FULLUPDATE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_COLLECTPARTS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_BADDELTAS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_UNZIP_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_RUNGUGL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 43
+    END
+
+    IDD_TRYOPENBASES_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 245
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 45
+    END
+
+    IDD_SELECTBACKUPFOLDER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_LOGIN_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SELECTBASEFOLDER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_WAITSERVER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 29
+    END
+
+    IDD_WAITSERVER2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 32
+    END
+
+    IDD_WAITSERVER1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 30
+    END
+
+    IDD_SELECTBASEFOLDEREX_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SELECTUPDATETYPE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SELECTREMOTETYPE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SELECTSERVERTYPE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_METHOD_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#ifdef _GCD_CLIENT
+ // moved to `F1DataUpd.rc`
+#else
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 7,12,0,0
+ PRODUCTVERSION 7,12,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", """GARANT"" - english resources"
+            VALUE "CompanyName", "SIE ""GARANT-SERVICE-UNIVERSITY"" LLC"
+            VALUE "FileDescription", """GARANT"" - english resources"
+            VALUE "FileVersion", "7.12.0.0"
+            VALUE "InternalName", "Updater_eng"
+            VALUE "LegalCopyright", "(C) SIE ""GARANT-SERVICE-UNIVERSITY"" LLC, 1990-2015"
+            VALUE "LegalTrademarks", "GARANT system"
+            VALUE "OriginalFilename", "F1DataUpd_eng.dll"
+            VALUE "ProductName", "GARANT"
+            VALUE "ProductVersion", "7"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+#endif
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DESIGNED            BITMAP  DISCARDABLE     "res\\2060.bmp"
+IDB_GARANT              BITMAP  DISCARDABLE     "res\\garant.bmp"
+IDB_NTCOMPATIBLE        BITMAP  DISCARDABLE     "res\\2060.bmp"
+IDB_PROGRESS            BITMAP  DISCARDABLE     "res\\Progress.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GARANTINI_NOTFOUND  "GARANT.INI file is missing"
+    IDS_BASESORG_NOTFOUND   "Protection file is missing."
+    IDS_SELECTFOLDERWITHDELTAS 
+                            "Choose catalog with package update files:"
+    IDS_ERROR               "Error"
+    IDS_CONFIRM             "Attention"
+    IDS_SUREEXIT            "Do you really want to exit the package update program?"
+    IDS_SURECANCELCOPY      "Do you really want to interrupt copying of files?"
+    IDS_ERROROPENINGFILE    "Error in opening file %s. Repeat?"
+    IDS_ERRORCREATINGFILE   "Error in creating file %s. Repeat?"
+    IDS_ERRORREADINGFILE    "Error in reading file %s. Repeat?"
+    IDS_ERRORWRITINGFILE    "Error in copying file %s. Repeat?"
+    IDS_UPDATERUN           "Launch of several copies of the package update program impossible."
+    IDS_ERROROPENINGBASE    "Error in opening base %s."
+    IDS_ERRORREADINGHERE    "Error in reading HERE index in base %s."
+    IDS_BASENOTGL           "Into base %s process of building new menu was not accepted."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_BASEPACKED          "Base %s packed. This base can not be updated."
+    IDS_CANTFINDBASEINFO    "Impossible to determine information about segment d base %s."
+    IDS_BASESORGPRIMARY     "Protection file damaged."
+    IDS_BASESORGBADCOMPLECT "Information on established sets are missing."
+    IDS_BASEBADREVS         "Set comprising various revision segments can not be updated."
+    IDS_UPDATENO            "Update impossible."
+    IDS_UPDATEPART          "Partial update possible."
+    IDS_UPDATEFULL          "Full update possible."
+    IDS_ABSENTPERIOD        "from %02d-%02d-%04d to %02d-%02d-%04d"
+    IDS_ABSENTPERIODFOR     "from %02d-%02d-%04d to %02d-%02d-%04d for ""%s"""
+    IDS_OLDDELTA            "old delta"
+    IDS_UNSEGS              "excessive segments"
+    IDS_DUP		    "duplicate %s"
+    IDS_PARTDELTALISTTITLE  "Deltas required for update to current date:"
+    IDS_NONEED              "Info bank does not need update."
+    IDS_ATTENTION           "Attention"
+    IDS_NEEDDELTASTITLE     "Deltas needed for update:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_COLLECTPROGRESSTEXT "Archive: %s (%.2fMB из %.2fMB)"
+    IDS_PARTNOTFULL         "not fully downloaded"
+    IDS_PARTABSENT          "missing"
+    IDS_COLLECTERRORS       "Errors during merging volumes. Repeat merging procedure if possible."
+    IDS_COLLECTCANCELED     "Tome merging procedure was interrupted."
+    IDS_COLLECTBADS         "Certain tomes are missing or damaged. It is necessary to download them again."
+    IDS_PARTTITLE           "Volume is needed"
+    IDS_PARTDESC            "Description"
+    IDS_FILESTOCHECK        "Total files checked: %ld"
+    IDS_COLLECTBADSANDERRORS 
+                            "Errors during merging of volumes.\nCertain volumes missing or damaged."
+    IDS_COLLECTBADSANDCANCEL 
+                            "Process of merging volumes was interrupted.\nCertain volumes are missing or damaged."
+    IDS_DELTABADSIZE        "incorrect delta file size"
+    IDS_DELTABADVER         "incorrect delta file format"
+    IDS_DELTATITLEHEADER    "File"
+    IDS_DELTASTOCHECK       "Total package update files checked: %ld"
+    IDS_ZIPSTOUNZIP         "Total archives unzipped: %ld"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_UNZIPERRORS         "Errors in unzipping files.\nIt is possible that certain archives are damaged or there is not enough free space for unzipping."
+    IDS_ZIPBADSANDCANCEL    "Unzipping process was interrupted.\nIt is possible that certain archives are damaged or there is not enough free space for unzipping."
+    IDS_UNZIPCANCELED       "Archive unzipping process was interrupted."
+    IDS_ZIPSTITLE           "Suspicious archives"
+    IDS_SURECANCELUNZIP     "Do you really want to stop archive unzipping?"
+    IDS_SURECANCELCOLLECT   "Do you really want to stop merging volumes?"
+    IDS_BASEUPDATED         "Package update process has been successfully completed.\nUpdate took %02ld:%02d:%02ld"
+    IDS_GUFAIL              "Abnormal completion of program update."
+    IDS_GLFAIL              "Abnormal completion of program of rubricator creation."
+    IDS_GLTITLE             "Building of rubricator"
+    IDS_GUTITLE             "Update of set"
+    IDS_SURECANCELTRYEXIT   "Do you really want to interrupt the process of releasing the base and exiting the package update program?"
+    IDS_BASELOCKED          "Process of releasing base not completed.\nUpdate of info bank not carried out."
+    IDS_COPYINGFILE         "Copying file %s"
+    IDS_SELECTFOLDERFORBACKUP "Choose catalog for reserve copy of data."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CHECKBOXBACKUP      "Create reserve copy of set (%ld MByte)."
+    IDS_RESTORINGFILE       "File %s being restored"
+    IDS_BASERESTORED        "GARANT info bank was restored from the reserve copy.\nSystem will continue to operate with old data."
+    IDS_BASENOTRESTORED     "Data not restored.\nGARANT system functioning not possible."
+    IDS_BASEDEAD            "Data in process of update was damaged.\nGARANT system functioning not possible."
+    IDS_DELETEBACKUP        "Delete reserve data copy?"
+    IDS_UPDATERUNOTHER      "Process of updating data now launched, or previous attempt failed.\nComplete program's work?"
+    IDS_PARTUPDATETEXT      "Info bank from%d-%d-%d can be updated until %d-%d-%d."
+    IDS_BADPATCHVERSION     "Non-match of versions: patch cannot be applied."
+    IDS_PATCHNOTAPPLIED     "Errors occurred during application of patch. Advisable to repeat application."
+    IDS_SHELLLOCKED         "Process of releasing data and covers not completed. \nUpdate of covers and utilities not carried out."
+    IDS_UPDATENOLOG         "Update not possible. For update until current date deltas are required:"
+    IDS_PARTUPDATELOG       "Partial update possible. Deltas are required for update to current date:"
+    IDS_BADDELTASLOG        "Some package update files have an incorrect version or are damaged:"
+    IDS_STARTBACKUPLOG      "Start backup"
+    IDS_BACKUPREFUSAL	    "Backup refusal"
+    IDS_ENDBACKUPLOG        "Backup finished"
+    IDS_SELECTFOLDERFORBASECOPY 
+                            "Choose catalog for copy of bank"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DOWNLOADDELTA       "Load package update file"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MSG_91              "Invalid user name and/or password."
+    IDS_MSG_92              "User with this name already working in system."
+    IDS_MSG_93              "User blocked. Contact system administrator."
+    IDS_MSG_94              "Error in opening database."
+    IDS_TRANSIENT           "Connection with server of attachments missing."
+    IDS_SERVER_NOT_FOUND    "Server of attachments not accessible."
+    IDS_BAD_NETWORK_CONFIG  "Return call from server of attachments not received - firewall of client probably blocking incoming calls."
+    IDS_IP_ADDRESS_NOT_FOUND "Invalid IP address."
+    IDS_DATANOTFOUND        "Invalid parameters."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SERVERCOPYFAILED    "Not possible to copy data into the given catalog. Check server settings."
+    IDS_FORBIDDEN           "No rights to carry out the operation"
+    IDS_MSG_95              "Error in receiving information about user"
+    IDS_NOMORE_CONNECTIONS  "This connection infringes licensed settings"
+    IDS_BADTOMFILE          "Incorrect expansion on behalf of volume"
+    IDS_NOTENOUGHROOM       "Not possible to copy data to given catalog. Not enough space"
+    IDS_SERVERCOPY2FAILED   "Failed to wait for release of user base."
+    IDS_BASEEXSIZE          "To create copy%ld MByte needed."
+    IDS_SELECTFOLDERFORBASEEX 
+                            "Choose catalog for copy of info bank:"
+    IDS_COPYPROCESSFAILED   "Error in copying data"
+    IDS_NOTENOUGHROOM2      "Not enough space on disc for copying set"
+    IDS_ACCESSDENIED        "Access Denied"
+    IDS_CANNOTFINDDATA      "Error in opening established set (missing or damaged)"
+    IDS_UPDATEFAILED        "Terminal error in updating base"
+    IDS_FREESPACE           "It is possible that there is not enough space to copy the set. Continue?"
+    IDS_COPYOK              "Data copied to server"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_COPY2CLIENT         "Data copied to client"
+    IDS_SMALLFREESPACE      "It is possible that there is not enough free space for update of data. Continue?"
+    IDS_CANTWRITE           "It is not possible to copy data. Check server settings and user rights."
+    IDS_NOBASE              "Info bank for update not found.\nIt is possible that the files of the base are missing or damaged."
+    IDS_CANTWRITE2          "It will not be possible to determine the size of the info bank. Check whether the user has access rights to text."
+    IDS_XMLIMPORT           "Dear user: The process of checking andactualizing the settings base is in progress."
+    IDS_NOTUPDATED          "GARANT info bank not updated.\nSystem will continue to operate with old data."
+    IDS_SERVER_IS_STARTING  "The application's server is in process of initialization. Try to start the program later!"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Update.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

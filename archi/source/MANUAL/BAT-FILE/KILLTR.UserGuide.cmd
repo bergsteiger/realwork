@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\MANUAL\KILLTR.ADMINGUIDE\KILLTR.UserGuide.hmxz "/tsk=Recent Publishes:KILLTR.UserGuide" "/tsk=Recent Publishes:KILLTR.UserGuide_!DAILY"

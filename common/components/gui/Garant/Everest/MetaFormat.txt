@@ -1,0 +1,170 @@
+%producer 'Тучнин Д.А. & Люлин А. В. (Project)'                          
+%format version 0.01 brackets { }                                        
+{ : Document                                                             
+ ExternalHandle = 123456  // !Topic - гарантовский номер                 
+ InternalHandle = 454321  //        - внутренний номер архивариуса       
+ ShortName = 'Короткое название документа'  // !Topic                    
+ { Groups  // !Belongs                                                   
+  Children = 1                                                           
+  { : DictRec                                                            
+   Handle = 9                                                            
+   ShortName = 'MSK'                                                     
+  }                                                                      
+ }                                                                       
+ Name = 'Полное название документа'  // !Name                            
+ Type = 1  // Внутренний тип архивариуса, пока только TextDoc (перечислимый тип)
+ UserType = 1  // !Doc, !NoDoc, !Kalendar, !Business, !UserInfo (перечислимый тип)
+ { Num&Dates  // !Date, !Code, !RDate, !RCode, !GDDate, !SFDate          
+  Children = 1                                                           
+  { : Num&Date                                                           
+   Type = 1  // перечислимый тип: dnDoc,dnPublish,dnMU,dnGD,dnSF,dnPres,dnSystem
+   Date = 654321                                                         
+   Number = 'XX/YY-ZZ'                                                   
+   Comment = 'Пояснения'                                                 
+  }                                                                      
+ }                                                                       
+ { Sources  // !Source                                                   
+  Children = 1                                                           
+  { : DictRec  // Для правильного определения достаточно любого параметра: Handle or Name
+   Handle = 8                                                            
+   Name = 'ГТК РФ'                                                       
+  }                                                                      
+ }                                                                       
+ { Types  // !Type                                                       
+  Children = 1                                                           
+  { : DictRec                                                            
+   Handle = 1                                                            
+   Name = 'Письмо'                                                       
+  }                                                                      
+ }                                                                       
+ { Classes // !Class, !Suffix, но в начало Name надо добавлять 'Суффиксы\'
+  Children = 1                                                           
+  { : DictRec                                                            
+   Handle = 2                                                            
+   Name = 'КОММЕНТАРИИ\НАЛОГОВОЕ ЗАКОНОДАТЕЛЬСТВО\ОСНОВЫ НАЛОГОВОЙ СИСТЕМЫ'
+  }                                                                      
+ }                                                                       
+ { KeyWords                                                              
+  Children = 1                                                           
+  { : DictRec                                                            
+   Handle = 1                                                            
+   Name = 'Льготы по налогам пенсионерам'                                
+  }                                                                      
+ }                                                                       
+ { Warnings                                                              
+  Children = 1                                                           
+  { : DictRec                                                            
+   Handle = 7                                                            
+   Name = 'Tэшьрэшх! ...'                                                
+  }                                                                      
+ }                                                                       
+ SortDate = 654321  // !SortDate                                         
+ NoActiveDate = 654321 // !NoActive                                      
+ RelExternalNumber = 123456 // !Related                                  
+ Priority = 456  // !Priority                                            
+ { LogRecords  // !Revision, !VIncluded, !VChanged, !VAbolished, !VLControl, !VAnonced
+  Children = 1                                                           
+  { : LogRecord                                                          
+   Type = 1  // перечислимый тип                                         
+   Date = 654321                                                         
+  }                                                                      
+ }                                                                       
+ { Stages                                                                
+  Children = 1                                                           
+  { : Stage                                                              
+   Type = 1                                                              
+   {User : DictRec                                                       
+    Handle = 2                                                           
+   }                                                                     
+   Start = 654320                                                        
+   Finish = 654321                                                       
+  }                                                                      
+ }                                                                       
+ { Checks                                                                
+  Children = 1                                                           
+  { : Check                                                              
+   Date = 654321                                                         
+   {Source : DictRec                                                     
+    Handle = 0                                                           
+   }                                                                     
+   Type = 1                                                              
+   {User : DictRec                                                       
+    Handle = 2                                                           
+   }                                                                     
+   Comment = 'Пояснения'                                                 
+  }                                                                      
+ }                                                                       
+ { PublishedIn                                                           
+  { : PIRec                                                              
+   { Source : DictRec                                                    
+    Handle = 123                                                         
+    Name = ‘Московский Комсомолец’                                       
+   }                                                                     
+   Start = 654321                                                        
+   Finish = 654322                                                       
+   Number = 12                                                           
+   Comment = 'Пояснения'                                                 
+  }                                                                      
+ }                                                                       
+ { Prefix                                                                
+  { : DictRec                                                            
+  }                                                                      
+ }                                                                       
+ { Territory                                                             
+  { : DictRec                                                            
+  }                                                                      
+ }                                                                       
+ PreActiveDate = 654321                                                  
+ { Norm                                                                  
+  { : DictRec                                                            
+  }                                                                      
+ }                                                                       
+ ExternalPath = СC:\pictures\picture1.jpgТ                               
+ Children = 1                                                            
+ { : TextPara                                                            
+  { Segments                                                             
+   Children = 1                                                          
+   { : SegmentsLayer                                                     
+    Children = 1                                                         
+    { : HyperLink                                                        
+     Handle = 926100                                                     
+     Style = -8                                                          
+     Start = 18                                                          
+     Finish = 21                                                         
+     Children = 1  // New!                                               
+     { : Address                                                         
+      DocID = 123                                                        
+      SubID = 2                                                          
+     }             // NewEnd!                                            
+    }                                                                    
+    Handle = 2                                                           
+   }                                                                     
+  }                                                                      
+  { Subs                                                                 
+   Children = 1                                                          
+   { : SubLayer                                                          
+    Children = 1                                                         
+    { : Sub                                                              
+     Handle = 1                                                          
+     Name = 'в соответствии с п. 5' // New!                              
+     { Classes // SubClass, !Suffix, но в начало Name надо добавлять 'Суффиксы\'
+      Children = 1                                                       
+      { : DictRec                                                        
+       Handle = 2                                                        
+       Name = 'КОММЕНТАРИИ\НАЛОГОВОЕ ЗАКОНОДАТЕЛЬСТВО\ОСНОВЫ НАЛОГОВОЙ СИСТЕМЫ'
+      }                                                                  
+     }                                                                   
+     { KeyWords  // !SubKW                                               
+      Children = 1                                                       
+      { : DictRec                                                        
+       Handle = 1                                                        
+       Name = 'Льготы по налогам пенсионерам'                            
+      }                                                                  
+     }                              //NewEnd!                            
+    }                                                                    
+    Handle = 1                                                           
+   }                                                                     
+  }                                                                      
+  Text = 'в соответствии с п. 5 Временного положения о зоне таможенного контроля вдоль российско-украинской государственной границы, утвержденного приказом ГТК России от 23.05.96 № 313, основанием для перемещения товаров и транспортных средств в пределах зоны таможенного контроля, а также через ее внутреннюю границу, организациями, находящимися в зоне таможенного контроля, и физическими лицами, постоянно в ней проживающими, являются документы, удостоверяющие личность, а также пропуска на транспортные средства, выдаваемые таможенными органами.'
+ }                                                                       
+}                                                                        

@@ -1,0 +1,49 @@
+// TdtCustomDictItem 47BC507501AB SimpleClass Class
+
+INCLUDE '47BC50F5038E.pas.ms.script'
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+FORWARD ME_47BC507501AB
+
+: ME_47BC528601A2
+ CONST UID '47BC528601A2'
+ CONST Name 'Handle'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST "needs field" false
+ CONST "pm" false
+
+ @SELF
+; // ME_47BC528601A2 Handle
+
+: ME_47BC507501AB
+ CONST UID '47BC507501AB'
+ CONST Name 'TdtCustomDictItem'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Базовый элемент словаря.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47BC50F5038E // Tl3NCString
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_47BC528601A2 // Handle
+ ]
+ ; // Attributes
+ : Overridden
+   [ ME_47BC3BFD017F // StringID
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47BC507501AB TdtCustomDictItem

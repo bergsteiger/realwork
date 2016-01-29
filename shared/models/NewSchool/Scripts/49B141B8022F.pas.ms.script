@@ -1,0 +1,325 @@
+// m3BackupTools 49B141B8022F UtilityPack Class
+
+FORWARD ME_49B141B8022F
+
+FORWARD ME_49B141FD028B
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_49B1421B0101
+ CONST UID '49B1421B0101'
+ CONST Name 'rMin'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_49B1421B0101 rMin
+
+: ME_49B14223019E
+ CONST UID '49B14223019E'
+ CONST Name 'rMax'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_49B14223019E rMax
+
+: ME_49B141FD028B
+ CONST UID '49B141FD028B'
+ CONST Name 'BaseSummary'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ %SUMMARY 'Информация о диапазоне номеров долкументов' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_49B1421B0101 // rMin
+ ME_49B14223019E // rMax
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_49B141FD028B BaseSummary
+
+INCLUDE '4720831F012D.pas.ms.script'
+
+FORWARD ME_49B931DB03BD
+
+: ME_49B93214003D
+ CONST UID '49B93214003D'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_49B93214003D 
+
+: ME_49B931DB03BD
+ CONST UID '49B931DB03BD'
+ CONST Name 'DocPartSelector_Names_Array'
+ CONST Class 'Class'
+ CONST Stereotype 'Vector'
+ %SUMMARY 'Массив Tm3DocPartSelector' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_472083770011 // Tm3DocPartSelector
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_49B93214003D // 
+ ]
+ ; // Attributes
+ CONST "array type" 'dynamic'
+ CONST "elements prefix" '<none>'
+
+ @SELF
+; // ME_49B931DB03BD DocPartSelector_Names_Array
+
+FORWARD ME_49B9323603E5
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_49B9324603DD
+ CONST UID '49B9324603DD'
+ CONST Name 'ExchangeExt'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''.sav'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_49B9324603DD ExchangeExt
+
+: ME_49B9324E006D
+ CONST UID '49B9324E006D'
+ CONST Name 'MainExt'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''.stg'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_49B9324E006D MainExt
+
+: ME_49B9325401A9
+ CONST UID '49B9325401A9'
+ CONST Name 'Summary'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''summary'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_49B9325401A9 Summary
+
+: ME_49B9325A0173
+ CONST UID '49B9325A0173'
+ CONST Name 'Object'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''object'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_49B9325A0173 Object
+
+: ME_49B9326302DC
+ CONST UID '49B9326302DC'
+ CONST Name 'DocPartName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_49B931DB03BD // DocPartSelector_Names_Array
+ ;
+ CONST Value '(''main'', ''anno'', m3_cSummary, m3_cObject)'
+ : ValueType ME_49B931DB03BD // DocPartSelector_Names_Array
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_49B9326302DC DocPartName
+
+: ME_49B9323603E5
+ CONST UID '49B9323603E5'
+ CONST Name 'Constants'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_49B9324603DD // ExchangeExt
+ ME_49B9324E006D // MainExt
+ ME_49B9325401A9 // Summary
+ ME_49B9325A0173 // Object
+ ME_49B9326302DC // DocPartName
+ ]
+ ; // Attributes
+ CONST "children prefix" 'c'
+ CONST "spell names" false
+
+ @SELF
+; // ME_49B9323603E5 Constants
+
+INCLUDE '4720862F0238.pas.ms.script'
+
+: ME_49B92E3E00AF
+ CONST UID '49B92E3E00AF'
+ CONST Name 'aBase'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4720937500A4 // Im3IndexedStorage
+ ;
+
+ @SELF
+; // ME_49B92E3E00AF aBase
+
+: ME_49B92E3E0100
+ CONST UID '49B92E3E0100'
+ CONST Name 'theSumm'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_49B141FD028B // BaseSummary
+ ;
+
+ @SELF
+; // ME_49B92E3E0100 theSumm
+
+: ME_49B92E2D02CD
+ CONST UID '49B92E2D02CD'
+ CONST Name 'GetBaseSummary'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'получить информациею об основном хранилище' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_49B92E3E00AF // aBase
+ ME_49B92E3E0100 // theSumm
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_49B92E2D02CD GetBaseSummary
+
+: ME_49B92E500175
+ CONST UID '49B92E500175'
+ CONST Name 'aBase'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4720937500A4 // Im3IndexedStorage
+ ;
+
+ @SELF
+; // ME_49B92E500175 aBase
+
+: ME_49B92E5001CC
+ CONST UID '49B92E5001CC'
+ CONST Name 'aMode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_49B92E5001CC aMode
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_49B92E450104
+ CONST UID '49B92E450104'
+ CONST Name 'GetBaseSummary'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'получить поток с информацией об основном хранилище' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A5B0060013 // IStream
+ ;
+ : Parameters
+   [ ME_49B92E500175 // aBase
+ ME_49B92E5001CC // aMode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_49B92E450104 GetBaseSummary
+
+: ME_49B141B8022F
+ CONST UID '49B141B8022F'
+ CONST Name 'm3BackupTools'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Утилиты для работы с хранилищем документов Архивариуса' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_49B92E2D02CD // GetBaseSummary
+ ME_49B92E450104 // GetBaseSummary
+ ]
+ ; // Operations
+ : Children
+   [ ME_49B141FD028B // BaseSummary
+ ME_49B931DB03BD // DocPartSelector_Names_Array
+ ]
+ ; // Children
+ : Constants
+   [ ME_49B9323603E5 // Constants
+ ]
+ ; // Constants
+ CONST "author" 'Люлин А.В.'
+ CONST "elements prefix" 'm3'
+ CONST "no hands" true
+ CONST "started" '01.12.2002 15:07'
+
+ @SELF
+; // ME_49B141B8022F m3BackupTools

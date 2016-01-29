@@ -1,0 +1,656 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ћодуль: "w:/MDProcess/DDT/Metamodel/Elements/GrammarSupport.tpi"
+// √енераци€ мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess::DDT::Metamodel::Elements::GrammarSupport
+//
+// вспомогательные функции дл€ генерации грамматики
+//
+//
+// ¬се права принадлежат ќќќ Ќѕѕ "√арант-—ервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// выводит предустановленные правила дл€ лексера
+f _dump_predefined_lexer_rule
+//#UC START# *4868BB2A01B0*
+	WS_
+		:	(	' '
+		|	'\\t'
+		|	'\\f'
+		// handle newlines
+		|	(	'\\r' '\\n'  // Evil DOS
+			|	'\\r'        // Macintosh
+			|	'\\n'        // Unix (the right way)
+			)
+			{ newline(); }
+		)
+		{[{%XU=g.java}{_ttype = ANTLR_USE_NAMESPACE(antlr)Token::SKIP;}_ttype = Token.SKIP;]}
+		;
+//#UC END# *4868BB2A01B0*
+
+// выводит предустановленные правила дл€ парсера
+f _dump_predefined_parser_rule
+//#UC START# *4868BB9C0308*
+//#UC END# *4868BB9C0308*
+
+// —обирает все правила (дл€ лексера и парсера), которые нужно сгенерить. ѕравила дл€ лексера
+// помещаютс€ в список LEXER_RULES, дл€ парсера - в PARSER_RULES
+f _collect_rules
+//#UC START# *4868BBC40091*
+	%f_clear_list(POST_PRE_FIXES)\
+	%f_clear_list(PARSER_RULES)\
+	%f_clear_list(LEXER_RULES)\
+	%f_clear_list(TOKENS_RULES)\
+	%f_clear_list(PARSER_RULES_NAME)\
+	%f_clear_list(LEXER_RULES_NAME)\
+	%f_clear_list(TOKENS_RULES_NAME)\
+	%f_collect_rules_impl(%S)\
+	<{}{%CC=Dependency&%C%TS=LexicalRule}%C[{%f_exists_in_list(LEXER_RULES_NAME,"%f_to_upper(%TN)")=false}%f_add_to_list(LEXER_RULES_NAME,"%f_to_upper(%TN)")%f_add_to_list(LEXER_RULES,S)]>\
+	%f_remove_from_list(POST_PRE_FIXES,"")%f_sort_list(POST_PRE_FIXES,n)\
+	%f_unique_list(POST_PRE_FIXES)\
+	%f_clear_list(ARBITRARIES)\
+	%f_copy_list(LEXER_RULES,TEMP)\
+	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)[{%{ITEM}%TS=UMLPrimitive&%{ITEM}%TN=arbitrary string}\
+	%f_add_to_list(ARBITRARIES,"%f_arbitrary_string_lexer_rule_impl(%{ITEM})")]]>\
+	%f_sort_list(ARBITRARIES,n)\
+	%f_unique_list(ARBITRARIES)
+
+f _collect_post_pre_fix
+	[{%TS!=UMLPrimitive|%TN!=arbitrary string}%f_clear_list(SPLITED)%f_clear_list(SPLITED_BY_WS)\
+	%f_add_to_list(POST_PRE_FIXES,"%T{separator}")\
+	%f_add_to_list(POST_PRE_FIXES,"%S{separator}")\
+	[{%PS=DataEnum}%f_add_to_list(POST_PRE_FIXES,"[{}{%SN}%S{description}]")]\
+	[{%TS=Grammar}%f_add_to_list(POST_PRE_FIXES,";")]\
+	[{"%S{prefix_rule}"!=""|"%S{postfix_rule}"!=""}\
+	%f_split_to_list(SPLITED_BY_WS,%S{prefix_rule}, )\
+	<{}{%f_is_empty(SPLITED_BY_WS)=false}{W}[%f_pop_first_to_var(SPLITED_BY_WS,ITEM)\
+	%f_split_to_list(SPLITED,%{ITEM}N,|)\
+	%f_collect_post_pre_fix_impl(%S)\
+	%f_clear_list(SPLITED)]>\
+/	
+/	
+	%f_clear_list(SPLITED)%f_clear_list(SPLITED_BY_WS)\
+	%f_split_to_list(SPLITED_BY_WS,%S{postfix_rule}, )\
+	<{}{%f_is_empty(SPLITED_BY_WS)=false}{W}[%f_pop_first_to_var(SPLITED_BY_WS,ITEM)\
+	%f_split_to_list(SPLITED,%{ITEM}N,|)\
+	%f_collect_post_pre_fix_impl(%S)\
+	%f_clear_list(SPLITED)]>\
+	%f_clear_list(SPLITED)][{%1N=true&%TS=Grammar}%f_add_to_list(POST_PRE_FIXES,"}")\
+	%f_add_to_list(POST_PRE_FIXES,"{")\
+	%f_add_to_list(POST_PRE_FIXES,"%f_to_omg(%TN)")]]
+
+f _collect_post_pre_fix_impl
+	<{}{%f_is_empty(SPLITED)=false}{W}[%f_pop_first_to_var(SPLITED,RULE)[{"%{RULE}N"!=""}%f_add_to_list(POST_PRE_FIXES,"%{RULE}N")]]>
+//#UC END# *4868BBC40091*
+
+// реализаци€ сбора правил
+f _collect_rules_impl
+//#UC START# *4868BBEA03DB*
+	%f_collect_post_pre_fix(%S)\
+	<{}{%CC=Attribute&%CS!=extern}%f_add_rule_to_list(%C)%f_collect_post_pre_fix(%C,"true")>
+//#UC END# *4868BBEA03DB*
+
+// дампит правило дл€ парсера
+t _parser_rule
+//#UC START# *4868BC53013C*
+c                               {}
+r "%TM"="Set::Class":           {%f_list_parser_rule(%S,"true")}
+r "%TM"="Vector::Class":        {%f_list_parser_rule(%S)}
+r "%TM"="List::Class":          {%f_list_parser_rule(%S)}
+r {%TM=Grammar::Class}:         {%f_nested_grammar(%S)}
+r {%TM=Typedef::Class}:         {%t_parser_rule(%G)}
+r {%TM=DataEnum::Class}:        {%f_data_enum_parser_rule_cpp(%T)}
+r {""=""}:                      {%TX}
+
+//возвращает им€ переменной, в которую записываетс€ результат, возвращаемы правилом
+f _variable_name_for_rule_ret
+	[{%t_is_container(%T)=false|%2N=false}{%f_container_item_name(%S)}\
+	[{%XU=g.java}{[{"%SN"!=""}{%f_to_omg(%TN%1N)}%f_to_omg(%SN%1N)]}[{"%SN"!=""}{%f_to_java(%f_to_omg(%TN%1N))}%f_to_java(%f_to_omg(%SN%1N))]]]
+
+f _nested_grammar
+	%T%f_set_root_rule_type()%f_set_var(ROOT_TYPE,{ROOT_TYPE_%TU})\
+	[{%XU=g.java}\
+	][{%XU=g.cpp}\
+	%f_parser_rule_name(%T)
+		:	"%f_to_omg(%TN)" "{"
+			(
+				path:GRAMMAR_FILE_PATH ";"
+				{
+					%f_with_gen_id(h,%f_type(%T)) item (path-\>getText ().c_str ());
+/					[{%f_is_main_grammar(%T)=true}{item.[{}{%T<{}{%CC=Attribute}%f_to_omg(%C%TN)>}%T<{}{%CC=Operation}%f_to_omg(%CN)>] ();}%f_to_omg(%TN_ret).push_back (item.[{}{%T<{}{%CC=Attribute}%f_to_omg(%C%TN)>}%T<{}{%CC=Operation}%f_to_omg(%CN)>] ());]
+					%f_with_gen_id(h,%f_type(%T))Parser::ContextSingleton::instance ()-\>on_new_element (item.[{}{%T<{}{%CC=Attribute}%f_to_omg(%C%TN)>}%T<{}{%CC=Operation}%f_to_omg(%CN)>] ());
+				}
+			)*
+			"}"
+		;
+	]
+//#UC END# *4868BC53013C*
+
+// дапит правила дл€ разбора списка
+f _list_parser_rule
+//#UC START# *4868BC6D0029*
+	[{%XU=g.java}\
+	%f_parser_rule_name(%T) returns \[%f_with_gen_id(java,%f_ret(%S)) %f_to_java(%f_to_omg(%TN_ret))\][{%T<{}{"%CS"=""&%C%TS=UMLPrimitive&%f_is_string(%C%T)=true}{%CC}>=0}
+		\{
+			%f_to_java(%f_to_omg(%TN_ret)) = %f_with_gen_id(java,%f_attr_init_java(%S));
+			%f_with_gen_id(java,%t_data_dump_java(%T)) item = null;
+		\}]
+		:	(item[{%T%C%TS=UMLPrimitive}{=}:]%t_rule_name(%T%C)
+			{
+				if (item != null) {
+					%f_to_java(%f_to_omg(%TN_ret)).add (item[{%T%C%TS=UMLPrimitive|%T%C%TS=LexicalRule}.getText ()]);
+				}
+			}
+			)+
+		;][{%XU=g.cpp}\
+	%f_parser_rule_name(%T) returns \[%f_with_gen_id(cpp,%f_type(%T)) %f_to_omg(%TN_ret)\][{%T<{}{"%CS"=""&%C%TS=UMLPrimitive&%f_is_string(%C%T)=true}{%CC}>=0}
+		\{
+			%f_with_gen_id(cpp,%f_data_dump(%T)) item;
+		\}]
+		:	(item[{%t_is_lexical_ret(%T%C)=true}{=}:]%t_rule_name(%T%C)
+			{
+				%f_to_omg(%TN_ret).[{%1N=true}{push_back}insert] (item[{%t_is_lexical_ret(%T%C)=true}-\>getText ()[{%T%C%TN=string}.c_str ()]]);
+			}
+			)+
+		;]
+//#UC END# *4868BC6D0029*
+
+// возвращает им€ грамматики дл€ лексера
+f _lexer_rule_name
+//#UC START# *4868BCE50015*
+	%t_lexer_rule_name(%S)
+
+t _lexer_rule_name
+c           {}
+r {%SN=integer|%SN=long|%SN=long long|%SN=short}:                         {SIGNED}
+r {%SN=unsigned integer|%SN=unsigned long}:                               {UNSIGNED}
+r {%SN=unsigned long long|%SN=unsigned short}:                            {UNSIGNED}
+r {%f_is_string(%S)=true}:                                                {STRING}
+r {""=""}:                                                                {%f_to_upper(%SN)}
+//#UC END# *4868BCE50015*
+
+// возвращает им€ грамматики дл€ парсера
+f _parser_rule_name
+//#UC START# *4868BCF70293*
+	[{%XU=g.java&%f_to_omg(%SN)=package}{[{%f_to_omg(%SN)=class|%f_to_omg(%SN)=namespace}{%f_to_omg(%SN)}%f_to_omg(%SN)_]}package_]
+//#UC END# *4868BCF70293*
+
+// дампит код дл€ инициализации возвращаемого правилом значени€
+t _init_rule_return
+//#UC START# *4868BD890361*
+c                                   {}
+r {%t_is_container(%S)=true}:       {%f_with_gen_id(java,[new %t_attr_init_java(%S) (%t_init_constr_java(%S))])}
+r {%f_is_string(%S)=true}:          {""}
+r {%f_is_wstring(%S)=true}:         {""}
+r {%SS=DataElement|%SS=DataPart}:   {new %f_with_gen_id(java,%f_type(%S))}
+r ""="":                            {}
+
+t _init_rule_attr
+c                                            {}
+r {%SS=namespace}:                           {%f_namespace_type(%T) [{}{%f_to_omg(%TN)}%f_to_omg(%SN)]_;}
+r {%TS=UMLPrimitive&%TN=identifier}:         {std::string [{}{%f_to_omg(%TN)}%f_to_omg(%SN)]_;}
+r {%TS=UMLPrimitive}:                        {}
+r {%TS=LexicalRule}:                         {}
+r {%TS=ParserRule}:                          {}
+r {%XU=g.java}:                              {%f_init_rule_attr_java(%S)}
+r {%XU=g.cpp}:                               {%f_init_rule_attr_cpp(%S)}
+r {""=""}:                                   {}
+
+f _namespace_type
+	%f_set_var(KEY_ARG,"")\
+	<{}{%CC=Attribute&%CS=key}%f_set_var(KEY_ARG,C)>\
+	%f_with_gen_id([{%XU=g.java}{h}java],%f_type(%{KEY_ARG}%T))
+
+f _init_rule_attr_java
+	%f_with_gen_id(java,%f_attr(%S)) %f_to_java(%SN)_ = null;
+
+f _init_rule_attr_cpp
+/	[{%TS=Grammar}{%f_with_gen_id(h,[{%TS!=DataElement}{%t_attr(%T,"ref")}%f_attr(%S)])}%T%f_set_root_rule_type()%f_set_var(ROOT_TYPE,{ROOT_TYPE_%TU})\
+/	std::vector\<%f_with_gen_id(h,%t_attr(%{ROOT_TYPE}%T,"[{%{ROOT_TYPE}%TS=DataElement}{agr}ref]"))\>] [{}{%f_to_omg(%TN)}%f_to_omg(%SN)]_;
+	[{%TS!=Grammar}%f_with_gen_id(h,[{%TS!=DataElement}{%t_attr(%T,"ref")}%f_attr(%S)]) [{}{%f_to_omg(%TN)}%f_to_omg(%SN)]_;]
+//#UC END# *4868BD890361*
+
+// действие выполн€емое дл€ правила, определ€ющего рутовое правило
+f _root_rule_action
+//#UC START# *4868BDC8029C*
+	%f_set_gen_id([{%XU=g.java}{cpp}java])\{
+				%U[{_RULE_ACTION}
+				]
+			\}%f_set_gen_id([{%XU=java}{g.cpp}g.java])
+//#UC END# *4868BDC8029C*
+
+// выводит правила лексера дл€ примитивов
+t _primitive_lexer_rule
+//#UC START# *4868BECD0017*
+c                                                                         {}
+r {%TN=string}:                                                           {%f_string_lexer_rule(%T)}
+r {%TN=a-string}:                                                         {%f_string_lexer_rule(%T)}
+r {%TN=integer|%TN=long|%TN=long long|%TN=short}:                         {%f_integer_lexer_rule(%T)}
+r {%TN=unsigned integer|%TN=unsigned long}:                               {%f_unsigned_integer_lexer_rule(%T)}
+r {%TN=unsigned long long|%TN=unsigned short}:                            {%f_unsigned_integer_lexer_rule(%T)}
+r {%TN=identifier}:                                                       {%f_identifier_lexer_rule(%T)}
+r {%TN=arbitrary string}:                                                 {%f_arbitrary_string_lexer_rule(%S)}
+r {""=""}:                                                                {%f_error("Lexer support only string and integer primitive (%SM), not %TN")}
+//#UC END# *4868BECD0017*
+
+// выводит правило лексера дл€ строчек
+f _string_lexer_rule
+//#UC START# *4868BEF5015F*
+	STRING
+		:	'"'! (ESC|'"' '"'|~'"')* '"'!
+		;
+	
+	protected
+	ESC	:	'\\\\'
+			(	'n'
+			|	'r'
+			|	't'
+			|	'b'
+			|	'f'
+			|	'w'
+			|	'a'
+			|	'"'
+			|	'\\''
+			|	'\\\\'
+			|	('0'..'3')
+				(
+					options {
+						warnWhenFollowAmbig = false;
+					}
+				:
+		('0'..'9')
+					(
+						options {
+							warnWhenFollowAmbig = false;
+						}
+					:
+		'0'..'9'
+					)?
+				)?
+			|	('4'..'7')
+				(
+					options {
+						warnWhenFollowAmbig = false;
+					}
+				:
+		('0'..'9')
+				)?
+			|	'u' XDIGIT XDIGIT XDIGIT XDIGIT
+			)
+		;
+	
+	protected
+	XDIGIT :
+			'0' .. '9'
+		|	'a' .. 'f'
+		|	'A' .. 'F'
+		;
+
+f _identifier_lexer_rule
+	IDENTIFIER
+		options {testLiterals=true;}
+		:	([{%XU=g.java}{'\\300'..'\\377'|}'\\u0410'..'\\u044F'|]'a'..'z'|'A'..'Z'|'_') ([{%XU=g.java}{'\\300'..'\\377'|}'\\u0410'..'\\u044F'|]'a'..'z'|'A'..'Z'|'0'..'9'|'_')*
+		;
+
+f _arbitrary_string_lexer_rule
+	%t_rule_name(%S)
+		:	%f_arbitrary_string_lexer_rule_impl(%S)
+		;
+
+f _arbitrary_string_lexer_rule_impl
+	%f_clear_list(EXCLUDED)\
+	%f_clear_list(EXCLUDED_POSTFIX)\
+	%f_split_to_list(EXCLUDED_POSTFIX,%S{postfix_rule},|)\
+	[{%f_exists_in_list(EXCLUDED_PREFIX,"NL")=true|%f_exists_in_list(EXCLUDED_POSTFIX,"NL")=true}%f_add_to_list(EXCLUDED,"\\r")%f_add_to_list(EXCLUDED,"\\n")]\
+	<{}{%f_is_empty(EXCLUDED_POSTFIX)=false}{W}[%f_pop_first_to_var(EXCLUDED_POSTFIX,ELEM)[{%f_string_length(%{ELEM}N)=1|%{ELEM}N=\\r|%{ELEM}N=\\n}{%f_add_to_list(EXCLUDED,"%f_substr_from_begin(%{ELEM}N,1)")}%f_add_to_list(EXCLUDED,"%{ELEM}N")]]>\
+	%f_sort_list(EXCLUDED,n)%f_unique_list(EXCLUDED)\
+	[%f_pre_fix_rule(%S)! ]([{}{.}~(<{|}{%f_is_empty(EXCLUDED)=false}{W}[%f_pop_first_to_var(EXCLUDED,CHAR)'%{CHAR}N']>)])+[ %f_post_fix_rule(%S)!]
+
+f _post_fix_rule
+	[{%S{postfix_rule}!=NL}{}%f_str_to_rule(%S{postfix_rule})]
+
+f _pre_fix_rule
+	[{%S{prefix_rule}!=NL}{}%f_str_to_rule(%S{prefix_rule})]
+
+f _old
+	%f_clear_list(LEXER_SINGLE_CHAR)%f_copy_list(POST_PRE_FIXES,LEXER_SINGLE_CHAR)\
+	'"' (~('"'))* '"'
+			{
+				//make unquoted string and set it as current token text
+				[{%XU=g.java}String quoted = getText ();
+				setText (quoted.substring(1, quoted.length() - 1));
+				][{%XU=g.cpp}std::string quoted = getText ();
+				setText (quoted.substr(1, quoted.size() - 2));
+				]
+			}
+		|	(~(' '|'"'|'\\r'|'\\n'|'\\t'|'\\f'<{}{%f_is_empty(LEXER_SINGLE_CHAR)=false}{W}[%f_pop_first_to_var(LEXER_SINGLE_CHAR,CHAR)[{%f_string_length(%{CHAR}N)=1}|'%{CHAR}N']]>))+
+//#UC END# *4868BEF5015F*
+
+// выводит правило лексера дл€ чисел
+f _integer_lexer_rule
+//#UC START# *4868BF0A0272*
+	SIGNED
+		: ('+'|'-')?('0'..'9')+
+		;
+
+f _unsigned_integer_lexer_rule
+	UNSIGNED
+		: ('0'..'9')+
+		;
+//#UC END# *4868BF0A0272*
+
+// добавл€ет правило в нужный список (либо список правил лексреа, либо список правил парсера)
+f _add_rule_to_list
+//#UC START# *4868BF6F015B*
+	[{%TS=UMLPrimitive|%TS=LexicalRule}{\
+	[{%f_exists_in_list(PARSER_RULES_NAME,"%f_to_omg(%TN)")=false}%f_add_to_list(PARSER_RULES_NAME,"%f_to_omg(%TN)")%f_add_to_list(PARSER_RULES,S)[{%TS!=Grammar}%f_collect_rules_impl(%T)]]}\
+	[{%TN!=void&%TN!=boolean}[{%TN!=arbitrary string}{[{%f_exists_in_list(LEXER_RULES_NAME,"%t_rule_name_for_collect_rules(%S)")=false}%f_add_to_list(LEXER_RULES_NAME,"%t_rule_name_for_collect_rules(%S)")%f_add_to_list(LEXER_RULES,S)[{%f_exists_in_list(LEXER_RULES_NAME,"%f_to_upper(%TN)")=false}%f_add_to_list(LEXER_RULES_NAME,"%f_to_upper(%TN)")[{%TS!=Grammar}%f_collect_rules_impl(%T)]]]}\
+	[{%f_exists_in_list(LEXER_RULES_NAME,"%t_rule_name(%S)")=false}%f_add_to_list(LEXER_RULES_NAME,"%t_rule_name_for_collect_rules(%S)")%f_add_to_list(LEXER_RULES,S)[{%TS!=Grammar}%f_collect_rules_impl(%T)]]]]]
+//#UC END# *4868BF6F015B*
+
+// возвращает им€ правила
+t _rule_name
+//#UC START# *4868C0150299*
+c                                                                {}
+r {%SS=namespace}:                                               {%f_namespace_rule_name(%S)}
+r {%SS=LexicalRule}:                                             {%f_lexer_rule_name(%S)}
+r {%SS=ParserRule}:                                              {%f_parser_rule_name(%S)}
+r {%TS=UMLPrimitive&%TN=arbitrary string}:                       {%f_arbitrary_string_rule_name(%S)}
+r {%TS=UMLPrimitive&%TN=identifier}:                             {identifier}
+r {%TS=UMLPrimitive|%TS=LexicalRule}:                            {%f_lexer_rule_name(%T)}
+r {""=""}:                                                       {%f_parser_rule_name(%T)}
+
+t _rule_name_for_collect_rules
+c                                                                {}
+r {%SS=LexicalRule}:                                             {%f_lexer_rule_name(%S)}
+r {%SS=ParserRule}:                                              {%f_parser_rule_name(%S)}
+r {%TS=UMLPrimitive&%TN=arbitrary string}:                       {%f_arbitrary_string_rule_name_common(%S)}
+r {%TS=UMLPrimitive|%TS=LexicalRule}:                            {%f_lexer_rule_name(%T)}
+r {""=""}:                                                       {%f_parser_rule_name(%T)}
+
+f _namespace_rule_name
+	%f_set_var(KEY_ARG,"")\
+	%T<{}{%CC=Attribute&%CS=key}%f_set_var(KEY_ARG,C)>\
+	%f_rule_name(%{KEY_ARG})
+
+f _arbitrary_string_rule_name
+	%f_copy_list(ARBITRARIES,TEMP)\
+	%f_set_var(INDEX,"%f_size_list(TEMP)")\
+	%f_set_var(FINDED_INDEX,"")\
+	%f_set_var(SELF_IMPL,"%f_arbitrary_string_lexer_rule_impl(%S)")\
+	<{}{%f_number_cmp("%{INDEX}N","0","\>")=1}{W}[%f_pop_first_to_var(TEMP,ITEM)%f_set_var(INDEX,"%f_evaluate(%{INDEX}N - 1)")\
+	[{%{SELF_IMPL}N=%{ITEM}N}%f_set_var(FINDED_INDEX,"%{INDEX}N")]]>\
+	[{"%{FINDED_INDEX}N"=""}{%f_arbitrary_string_rule_name_spec(%S,"%{FINDED_INDEX}N")}%f_arbitrary_string_rule_name_common(%S)]
+
+f _
+	%f_copy_list(LEXER_RULES,TEMP)\
+	%f_set_var(NEED_SPEC,"false")\
+	%f_set_var(SELF_IMPL,"%f_arbitrary_string_lexer_rule_impl(%S)")\
+	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)\
+	[{%f_arbitrary_string_lexer_rule_impl(%{ITEM})=%{SELF_IMPL}N}%f_set_var(NEED_SPEC,"true")]]>\
+	[{%{NEED_SPEC}N!=true}{%f_arbitrary_string_rule_name_spec(%S)}%f_arbitrary_string_rule_name_common(%S)]
+
+f _
+	%f_copy_list(ARBITRARY_LIST,TEMP)\
+	%f_set_var(INDEX,"%f_size_list(TEMP)")\
+	%f_set_var(FINDED_INDEX,"")\
+	%f_set_var(SELF_IMPL,"%f_arbitrary_string_lexer_rule_impl(%S)")\
+	<{}{%f_number_cmp("%{INDEX}N","0","\>")=1}{W}[%f_pop_first_to_var(TEMP,ITEM)%f_set_var(INDEX,"%f_evaluate(%{INDEX}N - 1)")\
+	[{%{SELF_IMPL}N=%{ITEM}N}%f_set_var(FINDED_INDEX,"%{INDEX}N")]]>\
+	[{"%{FINDED_INDEX}N"=""}{%f_arbitrary_string_rule_name_spec(%S,"%{FINDED_INDEX}N")}%f_arbitrary_string_rule_name_common(%S)]
+
+/	%f_copy_list(LEXER_RULES,TEMP)\
+/	%f_set_var(NEED_SPEC,"false")\
+/	%f_set_var(SELF_IMPL,"%f_arbitrary_string_lexer_rule_impl(%S)")\
+/	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)\
+/	[{%f_arbitrary_string_lexer_rule_impl(%{ITEM})=%{SELF_IMPL}N}%f_set_var(NEED_SPEC,"true")]]>\
+/	[{%{NEED_SPEC}N!=true}{%f_arbitrary_string_rule_name_spec(%S)}%f_arbitrary_string_rule_name_common(%S)]
+
+f _arbitrary_string_rule_name_common
+	%f_to_upper(%PN_%SN)_STRING
+
+f _arbitrary_string_rule_name_spec
+	SPEC_ARBITRARY_STRING%1N
+
+//#UC END# *4868C0150299*
+
+// действие дл€ правила
+t _parser_rule_action_java
+//#UC START# *4868C0420347*
+c                                                       {}
+r {%TS=LexicalRule|%TS=ParserRule}:                     {%f_to_java(%f_to_omg(%{SERV}N)_ret).set%f_to_borland(%SN) (%f_to_java(%SN).getText ());}
+r {%TS=UMLPrimitive}:                                   {%t_primitive_parser_rule_action_java(%S)}
+r {""=""}:                                              {%f_to_java(%f_to_omg(%{SERV}N)_ret).set%f_to_borland(%SN) (%f_to_java(%SN));}
+
+t _primitive_parser_rule_action_java
+c                                                                         {}
+r {%TN=integer|%TN=long|%TN=long long|%TN=short}:                         {%f_to_java(%f_to_omg(%{SERV}N)_ret).set%f_to_borland(%SN) (%t_convert_to_object_type(%S,"%f_to_java(%SN).getText ()"));}
+r {%TN=unsigned integer|%TN=unsigned long}:                               {%f_to_java(%f_to_omg(%{SERV}N)_ret).set%f_to_borland(%SN) (%t_convert_to_object_type(%S,"%f_to_java(%SN).getText ()"));}
+r {%TN=unsigned long long|%TN=unsigned short}:                            {%f_to_java(%f_to_omg(%{SERV}N)_ret).set%f_to_borland(%SN) (%t_convert_to_object_type(%S,"%f_to_java(%SN).getText ()"));}
+r {%f_is_string(%T)=true}:                                                {%f_to_java(%f_to_omg(%{SERV}N)_ret).set%f_to_borland(%SN) (%f_to_java(%SN).getText ());}
+r {%TN=arbitrary string}:                                                 {%f_to_java(%f_to_omg(%{SERV}N)_ret).set%f_to_borland(%SN) (%f_to_java(%SN).getText ());}
+r {%TN=identifier}:                                                       {%f_to_java(%f_to_omg(%{SERV}N)_ret).set%f_to_borland(%SN) (%f_to_java(%SN).getText ());}
+r {""=""}:                                                                {%f_error("Unsupported primitive %TN")}
+//#UC END# *4868C0420347*
+
+// действие дл€ правила
+t _parser_rule_action_cpp
+//#UC START# *4868C06A02CA*
+c                                                                                                    {}
+r {%SS=namespace}:                                                                                   {%f_namespace_rule_action_cpp(%S)}
+r {%TS=LexicalRule|%TS=ParserRule}:                                                                  {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN (%f_variable_name_for_rule_ret(%S,"_")-\>getText ()[{%TN=string}.c_str ()]);}
+r {%TS=UMLPrimitive&%TN!=identifier}:                                                                {%t_primitive_parser_rule_action_cpp(%S)}
+r {%t_is_container(%T)=true&%T<{}{%C%TS=UMLPrimitive&%f_is_identifier(%C%T)=false}{C}>=0}:           {%f_to_omg(%SN)_.[{%TS!=Set}{insert}push_back (%f_variable_name_for_rule_ret(%S,"_"));]}
+r {%t_is_container(%T)=true&%T<{}{%C%TS=UMLPrimitive}{C}>!=0}:                                       {%f_to_omg(%SN)_.[{%TS!=Set}{insert}push_back (%t_assign_lexer_ret(%S,"","","%2N"));]}
+r {""=""}:                                                                                           {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN ([{%TS=DataElement&%S{optional}=false}*]%f_variable_name_for_rule_ret(%S,"_"));}
+
+f _namespace_rule_action_cpp
+	%f_set_var(GRAMMAR,"")\
+	%P<{}{%aC=Attribute&%a%PS=Grammar}%a%P[{"%{GRAMMAR}U"=""}%f_set_var(GRAMMAR,S)]>\
+	%f_with_gen_id(h,%f_type(%{GRAMMAR}))Parser::ContextSingleton::instance ()-\>on_namespace (%f_variable_name_for_rule_ret(%S,"_"));
+
+t _assign_lexer_ret
+c                                                         {}
+r {%TN=integer|%TN=long|%TN=long long|%TN=short}:         {boost::lexical_cast\<%f_with_gen_id(h,%f_type(%T))\> (%f_variable_name_for_rule_ret(%2,"_")%3N-\>getText ())}
+r {%TN=unsigned integer|%TN=unsigned long}:               {boost::lexical_cast\<%f_with_gen_id(h,%f_type(%T))\> (%f_variable_name_for_rule_ret(%2,"_")%3N-\>getText ())}
+r {%TN=unsigned long long|%TN=unsigned short}:            {boost::lexical_cast\<%f_with_gen_id(h,%f_type(%T))\> (%f_variable_name_for_rule_ret(%2,"_")%3N-\>getText ())}
+r {%f_is_string(%T)=true}:                                {%f_variable_name_for_rule_ret(%2,"_")%3N-\>getText ()[{%TN=string}.c_str ()]}
+r {%TN=arbitrary string}:                                 {%f_variable_name_for_rule_ret(%2,"_")%3N-\>getText ()}
+r {%TN=identifier}:                                       {%f_variable_name_for_rule_ret(%2,"_")%3N-\>getText ()}
+r {%TN=boolean}:                                          {true}
+r {%t_is_container(%T)=true}:                             {%f_set_var(RET_OWNER,S)%f_set_var(ARG,"%3N")%T<{}{"%CS"=""}%f_assign_lexer_ret(%C,%{RET_OWNER},%{ARG})>}
+r {""=""}:                                                {%f_error("Unsupported primitive %TN")}
+
+f _assign_lexer_ret
+	[{"%1N"!=""}{%t_assign_lexer_ret(%S,"",%S,%2)}%t_assign_lexer_ret(%S,"",%1,%2)]
+t _primitive_parser_rule_action_cpp
+c                                                                         {}
+r {%TN=integer|%TN=long|%TN=long long|%TN=short}:                         {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN (%f_assign_lexer_ret(%S));}
+r {%TN=unsigned integer|%TN=unsigned long}:                               {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN (%f_assign_lexer_ret(%S));}
+r {%TN=unsigned long long|%TN=unsigned short}:                            {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN (%f_assign_lexer_ret(%S));}
+r {%f_is_string(%T)=true}:                                                {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN (%f_assign_lexer_ret(%S));}
+r {%TN=arbitrary string}:                                                 {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN (%f_assign_lexer_ret(%S));}
+r {%TN=identifier}:                                                       {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN (%f_assign_lexer_ret(%S));}
+r {%TN=boolean}:                                                          {%f_variable_name_for_rule_ret(%{DATA_TYPE},"_ret")-\>set_%SN (true);}
+r {""=""}:                                                                {%f_error("Unsupported primitive %TN")}
+//#UC END# *4868C06A02CA*
+
+// возвращает целевой €зык грамматики (например дл€ g.java - это java, дл€ g.cpp - это C++)
+f _target_lid
+//#UC START# *4868C5A701FB*
+	[{%XU=g.java}{[{%XU=g.cpp}{%f_error("Unknown generator: %XN")}cpp]}java]
+
+f _dump_grammar_context_h
+	[{%f_need_grammar_context_def(%S)=true}%f_find_union_grammar(%S,"ROOT_GRAMMAR")%f_find_root_type(%S,"GRAMMAR_ROOT_TYPE")\
+		class Context {
+		public:
+			%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{GRAMMAR_ROOT_TYPE}%TS=DataElement}{agr}ref]")) find_context (const std::string& key) const;
+			
+			const %f_with_gen_id(h,%f_dump_return_type(%{ROOT_GRAMMAR},%{GRAMMAR_ROOT_TYPE}))& get_root_level () const;
+			
+			void on_namespace (const std::string& ns);
+			
+			//call by framework, when file parsed
+			void on_new_element (%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{GRAMMAR_ROOT_TYPE}%TS=DataElement}{agr}ref]"))& new_element);
+			
+			//call by framework, when start parse main part
+			void reset_context ();
+		private:
+			Context ();
+			
+			void add_root (const %f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{GRAMMAR_ROOT_TYPE}%TS=DataElement}{agr}ref]"))& new_root);
+			
+			%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{GRAMMAR_ROOT_TYPE}%TS=DataElement}{agr}ref]")) create_new_context (const std::string& key);
+			
+			friend class ACE_Unmanaged_Singleton \<Context, ACE_SYNCH_RECURSIVE_MUTEX\>;
+			friend class ACE_Singleton \<Context, ACE_SYNCH_RECURSIVE_MUTEX\>;
+		private:
+			%f_with_gen_id(h,%f_dump_return_type(%{ROOT_GRAMMAR},%{GRAMMAR_ROOT_TYPE})) m_root_level;
+			Core::Box\<%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"agr"))\> m_context;
+		};
+		
+		typedef ACE_Unmanaged_Singleton \<Context, ACE_SYNCH_RECURSIVE_MUTEX\> ContextSingleton;
+	]
+
+f _dump_grammar_context_cpp
+	[{%f_need_grammar_context_def(%S)=true}%f_find_union_grammar(%S,"ROOT_GRAMMAR")%f_find_root_type(%S,"GRAMMAR_ROOT_TYPE")\
+	[%f_dump_key_comparator(%{GRAMMAR_ROOT_TYPE}%T)
+	]\
+		%SNParser::Context::Context () {
+		}
+		
+		%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{ROOT_TYPE}%TS=DataElement}{agr}ref]")) %SNParser::Context::find_context (const std::string& key) const {
+			%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{ROOT_TYPE}%TS=DataElement}{agr}ref]")) result;
+			if (m_context.is_nil ()) {
+				%f_with_gen_id(h,%f_dump_return_type(%{ROOT_GRAMMAR},%{GRAMMAR_ROOT_TYPE}))::const_iterator it = std::find_if (
+					m_root_level.begin ()
+					, m_root_level.end ()
+					, %{ROOT_TYPE}%TNKeyComparator (key)
+				);
+				
+				if (it != m_root_level.end ()) {
+					result = *it;
+				}
+			}[{%f_is_tree(%{ROOT_TYPE}%T)=true} else {
+				
+				result = ContextFinder () (m_context, ns);
+			]
+			return result;
+		}
+		
+		const %f_with_gen_id(h,%f_dump_return_type(%{ROOT_GRAMMAR},%{GRAMMAR_ROOT_TYPE}))& %SNParser::Context::get_root_level () const {
+			return m_root_level;
+		}
+		
+		void %SNParser::Context::add_root (const %f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{GRAMMAR_ROOT_TYPE}%TS=DataElement}{agr}ref]"))& new_root) {
+			[{%f_need_grammar_ret_union(%{ROOT_GRAMMAR})=false}{m_root_level.push_back (new_root);}m_root_level = new_root;]
+		}
+		
+		void %SNParser::Context::on_namespace (const std::string& ns) {
+			%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{GRAMMAR_ROOT_TYPE}%TS=DataElement}{agr}ref]")) context_for_ns = find_context (ns);
+			
+			if (context_for_ns.is_nil ()) {
+				context_for_ns = create_new_context (ns);
+				if (m_context.is_nil ()) {
+					add_root (context_for_ns);
+				}[{%f_is_tree(%{GRAMMAR_ROOT_TYPE}%T)=true} else {
+				%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{GRAMMAR_ROOT_TYPE}%TS=DataElement}{agr}ref]")) new_context = ContextFinder () (m_context, ns);
+				if (new_context.is_nil ()) {
+					new_context = create_new_context (ns);
+				}
+				m_context = new_context;]
+			}
+			
+			m_context = context_for_ns;
+		}
+		
+		void %SNParser::Context::on_new_element (%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{ROOT_TYPE}%TS=DataElement}{agr}ref]"))& new_element) {
+			if (m_context.is_nil ()) {
+				add_root (new_element);
+			}[{%f_is_tree(%{GRAMMAR_ROOT_TYPE}%T)=true} else {
+				%f_add_child(%{GRAMMAR_ROOT_TYPE}%T,"new_element")
+			}]
+		}
+		
+		%SNParser::Context::reset_context () {
+			m_context = 0;
+		}
+		
+		%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{ROOT_TYPE}%TS=DataElement}{agr}ref]")) %SNParser::Context::create_new_context (const std::string& key) {
+			%f_with_gen_id(h,%t_attr(%{GRAMMAR_ROOT_TYPE}%T,"[{%{ROOT_TYPE}%TS=DataElement}{agr}ref]")) new_context[{%{ROOT_TYPE}%TS=DataElement} = new %{ROOT_TYPE}%TN ()];
+			new_context%f_dump_key_access(%{GRAMMAR_ROOT_TYPE}%T) (key);
+			
+			return new_context;
+		}\
+	]
+
+f _need_grammar_context_def
+/	[{%f_is_main_grammar(%S)=true&%{ROOT_TYPE}%T<{}{%CC=Attribute&%CS=key}{%CC}>!=0}{false}true]
+	%f_used_by_grammar(%S)
+
+f _need_grammar_context
+	%f_set_var(ROOT_GRAMMAR,"")%f_find_union_grammar(%S,"ROOT_GRAMMAR")\
+	[{"%{ROOT_GRAMMAR}U"!=""}{false}%f_clear_list(ATTRS)%f_collect_attrs_req(%{ROOT_GRAMMAR},"ATTRS")%f_set_var(BREAK_CYCLE,"false")%f_set_var(ARG,"%1N")\
+	<{}{%f_is_empty(ATTRS)=false&%{BREAK_CYCLE}N=false}{W}%f_pop_first_to_var(ATTRS,ATTR)[{%{ATTR}S=extern}true%f_set_var(BREAK_CYCLE,"true")]>]]
+
+//представл€ет ли элемент дерево, т.е есть ли у него дети такого же типа
+f _is_tree
+/	%f_set_var(__S__,S)\
+	%f_clear_list(ATTRS)\
+	%f_clear_list(ATTRS_TYPE)\
+	%f_collect_attrs_req(%S,"ATTRS","ATTRS_TYPE")\
+	%f_exists_in_list(ATTRS_TYPE,S)
+/	[{<{}{%CC=Attribute&"%CS"=""&%{__S__}U=%C%TU}{%CC}>!=0|<{}{%CC=Attribute&"%CS"=""&%t_is_container(%C%T)=true&%C%T<{}{"%CS"=""&%{__S__}U=%C%TU}{%CC}>!=0}{%CC}>!=0}{false}true]
+
+f _add_child
+	%f_set_var(__S__,S)\
+	%f_set_var(ARG,1)\
+	<{}{%CC=Attribute&"%CS"=""&%{__S__}U=%C%TU}%f_to_omg(m_%CN) = %{ARG}N;>\
+	<{}{%CC=Attribute&"%CS"=""&%t_is_container(%C%T)=true&%C%T<{}{"%CS"=""&%{__S__}U=%C%TU}{%CC}>!=0}%f_to_omg(m_%CN).push_back (%{ARG}N);>
+
+f _dump_context_finder
+	%f_set_var(__S__,S)\
+	%f_set_var(ARG,1)\
+		struct ContextFinder {
+			%f_with_gen_id(h,%t_attr(%S,"[{%SS=DataElement}{agr}ref]")) operator () (const %f_with_gen_id(h,%t_attr(%S,"[{%SS=DataElement}{agr}ref]"))& item, const std::string& key) {
+	[<{}{%CC=Attribute&"%CS"=""&%{__S__}U=%C%TU}		if (context-\>%f_to_omg(m_%CN)%f_dump_key_access(%{__S__}) () == key) {
+				return context\>%f_to_omg(m_%CN);
+			}
+	>
+	][			%{__S__}NKeyComparator key_comparator (key);
+	[<{}{%CC=Attribute&"%CS"=""&%t_is_container(%C%T)=true&%C%T<{}{"%CS"=""&%{__S__}U=%C%TU}{%CC}>!=0}\
+				{
+					%f_with_gen_id(h,%f_type(%C%T))::const_iterator it = std::find_if (
+						context-\>%f_to_omg(m_%CN).begin ()
+						, context-\>%f_to_omg(m_%CN).end ()
+						, key_comparator
+					);
+					if (it != context-\>%f_to_omg(m_%CN).end ()) {
+						return *it;
+					}
+				}
+	>]]		}
+		};
+	
+
+f _dump_key_comparator
+		struct %SNKeyComparator : public std::unary_function\<%f_with_gen_id(h,%t_attr(%S,"[{%SS=DataElement}{agr}ref]")), bool\> {
+			%SNKeyComparator (const std::string& key)
+				: m_key (&key)
+			{
+			}
+			
+			bool operator () (const %f_with_gen_id(h,%t_attr(%S,"[{%SS=DataElement}{agr}ref]"))& item) {
+				return item%f_dump_key_access(%S) () == *m_key;
+			}
+			
+			const std::string* m_key;
+		};
+	
+
+f _dump_key_access
+	[{%SS=DataElement}{.}-\>][<{}{%CC=Attribute&%CS=key}get_%CN>]
+//#UC END# *4868C5A701FB*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

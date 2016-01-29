@@ -1,0 +1,99 @@
+'$include "States.sbl"
+'$include "Clicks.sbl"
+'*** Проверка тесткейса № 73.19.1 ***
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+Sub Main
+    Dim Result As Integer
+
+Call NeedState (ST_MAIN_MENU)
+CUR_STATE = ST_NONE_STANDART
+'Идем по первой ветке рубрикатора до списка с конституцией и договора с Беларусией
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=89,10"
+  GenericObject Click, "Text=Документы", "Coords=60,12"
+  InputKeys "{Enter}"
+  InputKeys "{Enter}"
+  DelayFor (3000) 'Ждем отрисовки списка
+
+'Преход в документ:
+'Договор "О создании Союзного государства" (Москва, 8 декабря 1999 г.)
+  InputKeys "{Down}"
+  InputKeys "{Enter}"
+  DelayFor (2000) 'Ждем 1 сек. до отрисовки документа
+'Выделяем 1-ое слово и снимаем скрин
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Dogovor")
+  
+'[переход по ссылке внутри документа]
+'Переходим по ссылке из оглавления документа (в тексте) на начало Главы 14
+'и кликаем по ссылке внутри документа на Главу 22
+  GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=542,118"
+  InputKeys "{PGUP}"
+  DelayFor (1000)
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=St13")
+  GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=370,600"
+  DelayFor (1000)
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=St22")
+  
+'Возвращаемся по истории [Back] к началу документа
+  DelayFor (300)
+  Call Click_Back
+  'Toolbar Click, "Text=История", "Coords=8,8"
+  DelayFor (300)
+  Call Click_Back
+  'Toolbar Click, "Text=История", "Coords=8,8"
+  
+'[переход по ссылке на другой документ]
+'Переходим по ссылке из оглавления документа (в тексте)  на Главу 61
+'и в Главе 69 переходим по ссылке на документ
+'Федеральный закон от 2 января 2000 г. N 25-ФЗ ->
+' -> "О ратификации Договора о создании Союзного государства"
+  GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=546,327"
+  InputKeys "{PGDN}{PGDN}"
+  DelayFor (1000)
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=St69")
+  GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=435,26"
+  DelayFor (2000) 'Ждем отрисовки документа
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=FZ")
+  
+'[переход по ссылке из юр.комментария в другой документ]
+'Возвращаемся по истории [Back] к началу исходному списку
+'Переходим в документ:
+'[Постановление ВС РСФСР от 12 декабря 1991 г. N 2014-I 
+'"О ратификации Соглашения о создании Содружества Независимых Государств"]
+'В документе жмем первую ссылку на "Соглашение"
+'->[Соглашение о создании Содружества Независимых Государств (Минск, 8 декабря 1991 г.)]
+'в соглашении жмем ссылку на "Статус"
+'Статус Соглашения о создании Содружества Независимых Государств
+'(Минск, 8 декабря 1991 г.) (по состоянию на 15 мая 2001 г.)
+  Call Click_Back
+  DelayFor (500)
+  Call Click_Back
+  DelayFor (300)
+  Call Click_Back
+  DelayFor (3000) 'Ждем отрисовки списка
+  InputKeys "{Down}{Down}{Down}{Down}" 'Переходим на элемент списка с клавиатуры
+  InputKeys "{Enter}"
+  DelayFor (3000) 'Ждем отрисовки документа
+  
+  Window SetContext, "Caption={ГАРАНТ 6*}", ""
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=PostVS")
+  RichEdit Click, "ObjectIndex=1", "Coords=218,88" 'Статус
+  DelayFor (3000) 'Ждем отрисовки документа
+  
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Sog")
+  RichEdit Click, "ObjectIndex=1", "Coords=73,72" 'Соглашение
+  DelayFor (3000) 'Ждем отрисовки документа
+  
+  InputKeys "^+{RIGHT}"
+  Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Status")
+End Sub

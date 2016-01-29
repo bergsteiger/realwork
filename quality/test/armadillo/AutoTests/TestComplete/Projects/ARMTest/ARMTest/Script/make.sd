@@ -1,0 +1,121 @@
+uses
+  func, Maps, Clicks, Menu, common;
+
+// создаёт клиента. обязательно надо указать его имя, все остальные пораметру могут быть приняты по умолчанию
+// param должен получить строку вида параметр1:=значение1;параметр2:=значение2
+function MakeClient(
+    name : string,
+    param : string = '');
+var
+  NumOfTry, CurrNameDup, paramList, kat, punkt, adres, curier;
+begin
+  try
+    if (length(name) < 3) or (length(name) > 200) then 
+      Raise('имя содержит ' + VarToStr(length(name)) + ' символа(ов). должно быть 3..200' );
+    ClickOnMainWindow('добавить нового клиента'); 
+    CurrNameDup := name;
+    
+    // извлекаем параметры из param
+    paramList := ParseParamString(param);
+    kat := GetParam(paramList, 'категория', 'Коммерческие');
+    punkt := GetParam(paramList, 'нас.пункт', 'Абакан');
+    adres := GetParam(paramList, 'адрес', 'адрес');
+    curier := GetParam(paramList, 'курьер', 'Empty');
+    
+    GetFromAddClient('наименование').Keys(CurrNameDup);
+    GetFromAddClient('категория').ClickItem(kat);
+    GetFromAddClient('нас.пункт').ClickItem(punkt);
+    GetFromAddClient('адрес').Keys(adres);
+    if curier = 'Empty' then GetFromAddClient('курьер').Keys('[Down]') else GetFromAddClient('курьер').ClickItem(curier);
+    GetFromAddClient('применить').Click;
+    
+    NumOfTry := 1;
+    while IsExists(Sys.Process('Armadillo').WaitWindow('TfRgnDialog', '*', -1, 500)) and (pos(Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('Message').Caption, 'Указанное название клиента уже существует') <> 0) do
+      begin  
+        Raise('клиент "' + name + '" уже существует');
+//        NumOfTry := NumOfTry + 1;
+//        Log.Message('имя клиента "' + name + '" уже существует, попытка создать "' + name + ', попытка ' + VarToStr(NumOfTry) + '"');
+//        Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('OK').Click;
+//        CurrNameDup := name + ', попытка ' + VarToStr(NumOfTry);
+//        GetFromAddClient('наименование').Keys(CurrNameDup);
+//        GetFromAddClient('применить').Click;
+      end;
+    
+  ClickOnMainWindow('сохранить изменения');
+  Result := CurrNameDup;  
+      
+  except
+    Log.Error(ExceptionMessage);
+  end;
+end;     
+
+
+// создаёт продукт. если передан номер и требуется его ввод, присваивается переданный номер клиента,
+// если номер не передан, присваивается автоматически.
+// заполняет тока обязательные поля. вероятно это пока
+function MakeProduct(
+    TypeOfProduct : string = 'продажа';
+    number : integer = -1);
+var i, TrialPeriod;
+begin
+  try
+    if length(number) > 6 then Raise('в введённом параметре ' + lehgth(number) + ' знаков. требуется не более 6-ти');
+    
+    TrialPeriod := 14;  
+    ClickOnMainWindow('продукты');
+    GetFromMainWindow('список продуктов').ClickR;
+    ClickOnProductsListMenu(TypeOfProduct);
+
+    if IsExists(Sys.Process('Armadillo').WaitWindow('TfrmSetTrialPeriod', '*', -1, 500))
+      then Sys.Process('Armadillo').VCLObject('frmSetTrialPeriod').VCLObject('seTrialPeriod').Keys(VarToStr(TrialPeriod) + '[Enter]');
+    
+    if IsExists(Sys.Process('Armadillo').WaitWindow('TfrmChangeCardNum', '*', -1, 500))
+      then 
+        begin
+          if number < 1
+          then
+            begin
+              log.message('не передан номер клиента, будет присвоен автоматически');
+              Sys.Process('Armadillo').VCLObject('frmChangeCardNum').VCLObject('btnCancel').Click;
+              Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('Yes').Click;
+            end
+          else
+            begin
+              for i:=1 to (6-length(number)) do Sys.Process('Armadillo').VCLObject('frmChangeCardNum').VCLObject('edUCardNum').Keys('0');
+              Sys.Process('Armadillo').VCLObject('frmChangeCardNum').VCLObject('edUCardNum').Keys(VarToStr(number) + '[Enter]');
+              if IsExists(Sys.Process('Armadillo').WaitWindow('TfRgnDialog', '*', -1, 500)) 
+                then
+                  case Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('Message').Caption of
+                    'Указанный номер карточки уже присутствует в списке': Raise('Указанный номер карточки уже присутствует в списке');
+                    'Внимание! Отсутствие или некорректное указание в АРМ контактной информации является нарушением Стандартов сервисного обслуживания и ПРЕСТ': Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('OK').Click;
+                  else
+                    log.Message('ваще не понятное окно %)');
+                  end;
+            end;
+        end;
+    GetFromAddProduct('15').click;
+    Sys.Keys('[Enter]');
+    GetFromAddProduct('тип продукта').Keys('[Down][Down]');
+//    GetFromAddProduct('тип продукта').ClickItem('ГАРАНТ-Классик');  
+    GetFromAddProduct('сетевой коэффициент').ClickItem('Локальная'); 
+    if GetFromAddProduct('версия данных').Text = '' then GetFromAddProduct('версия данных').ClickItem('7.1');
+    if GetFromAddProduct('способ обновления').Text = '' then GetFromAddProduct('способ обновления').ClickItem('Целиком');
+    GetFromAddProduct('состав экземпляра').Keys(' [Down] ');
+   
+    
+    GetFromAddProduct('принять').Click;
+    ClickOnMainWindow('сохранить изменения');
+    if IsExists(Sys.Process('Armadillo').WaitWindow('TfRgnDialog', '*', -1, 500)) then Sys.Process('Armadillo').Window('TfRgnDialog', '', 1).VCLObject('OK').Click;    
+         
+  except
+    Log.Error(ExceptionMessage);
+  end;
+end;  
+
+
+
+procedure Test1;
+begin
+  StartingArm;
+  MakeProduct;
+end;

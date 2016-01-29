@@ -1,0 +1,27 @@
+
+Sub Main
+    Dim Result As Integer
+
+    'Initially Recorded: 21.06.2002  21:03:43
+    'Script Name: change_x1
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 51
+    
+    Window SetContext, "Caption=Сложный переход с КИБ на КИБ", ""
+    InputKeys "{DOWN} {DOWN} "
+    GroupBox Click, "ObjectIndex=2", "Coords=11,6"
+    
+    Window SetContext, "Caption=Создание замещающего продукта", ""
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{TAB}{TAB}{DOWN}{TAB}{DOWN}{ENTER}"
+    
+    Window SetContext, "Caption=Сложный переход с КИБ на КИБ", ""
+    GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=13,8"
+    InputKeys "{PGUP}{PGUP}{PGUP}{PGUP}{UP}{UP}{RIGHT}{UP}{ENTER}"
+    
+    Window SetContext, "Caption=Сложный переход с КИБ на КИБ", ""
+    InputKeys "{TAB}{ENTER}"
+
+End Sub

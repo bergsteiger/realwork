@@ -1,0 +1,94 @@
+// Tl3ProtoPtrRecListPrim 479DF9C5033A SimpleClass Class
+
+FORWARD ME_479DF9C5033A
+
+: ME_4B88025F00AD
+ CONST UID '4B88025F00AD'
+ CONST Name 'l3Items_NeedsBeforeFreeItem'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4B88025F00AD l3Items_NeedsBeforeFreeItem
+
+: ME_52FCA68802C2
+ CONST UID '52FCA68802C2'
+ CONST Name 'l3Items_HasChanging'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_52FCA68802C2 l3Items_HasChanging
+
+: ME_52FCA9120078
+ CONST UID '52FCA9120078'
+ CONST Name 'l3Items_IsProto'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_52FCA9120078 l3Items_IsProto
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '4A5CBFAB03AF.pas.ms.script'
+
+INCLUDE '47B433E500BC.pas.ms.script'
+
+INCLUDE '47AB1FDE03E4.pas.ms.script'
+
+: ME_47B5951701F0
+ CONST UID '47B5951701F0'
+ CONST Name 'DataType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_47AB20F40050 // Tl3Ptr
+ ;
+
+ @SELF
+; // ME_47B5951701F0 DataType
+
+: ME_479DF9C5033A
+ CONST UID '479DF9C5033A'
+ CONST Name 'Tl3ProtoPtrRecListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ME_4A5CBFAB03AF // l3Changing
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B433E500BC // l3UntypedList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_47B5951701F0 // DataType
+ ]
+ ; // Attributes
+ : Children
+   [ ME_4B88025F00AD // l3Items_NeedsBeforeFreeItem
+ ME_52FCA68802C2 // l3Items_HasChanging
+ ME_52FCA9120078 // l3Items_IsProto
+ ]
+ ; // Children
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2006 17:10'
+
+ @SELF
+; // ME_479DF9C5033A Tl3ProtoPtrRecListPrim

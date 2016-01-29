@@ -1,0 +1,96 @@
+workspace (garant_main) {
+	cmdline += -ti dll_exe:msvc90-exe-generic-static
+	cmdline += -ti dll:msvc90-dll-generic-static
+
+	custom_projects {
+		w:/garantServer/projects/libs_custom/IdlCompilationSet.mpc
+	}
+
+	static_projects {
+		cmdline += -ti lib:msvc90-lib-generic-static
+		cmdline += -static
+
+		w:/shared/project/Core.mpc
+		w:/shared/project/CoreSrv_cs.mpc
+		w:/shared/project/CoreSrv.mpc
+		w:/shared/project/GCL.mpc
+		w:/shared/project/Adapters.mpc
+		w:/shared/project/GSI.mpc
+		w:/shared/project/GCI.mpc
+		w:/shared/project/GCI_tie.mpc
+		w:/shared/project/ContextSearch.mpc
+		w:/shared/project/Internet.mpc
+		w:/shared/project/Morpho.mpc
+		w:/shared/project/json.mpc
+
+		w:/garantPIL/implementation/component/cpp/garantCore/project/DBExt.mpc
+		w:/garantPIL/implementation/component/cpp/garantCore/project/SearchAdapterLib.mpc
+
+		w:/garantPIL/implementation/Projects/libs/zlib.mpc
+
+		w:/garantPIL/implementation/Projects/libs/gkdb.mpc
+		w:/garantPIL/implementation/Projects/libs/gkdb_server.mpc
+		w:/garantPIL/implementation/Projects/libs/gsscreen.mpc
+		w:/garantPIL/implementation/Projects/libs/delta1.mpc
+		w:/garantPIL/implementation/Projects/libs/delta2.mpc
+		w:/garantPIL/implementation/Projects/libs/cchlp1.mpc
+		w:/garantPIL/implementation/Projects/libs/cchlp2.mpc
+		w:/garantPIL/implementation/Projects/libs/gctx.mpc
+		w:/garantPIL/implementation/Projects/libs/gc.mpc
+
+		w:/garantPIL/implementation/Projects/libs/gkdb_gudll.mpc
+		w:/garantPIL/implementation/Projects/libs/mrglib_gudll.mpc
+		w:/garantPIL/implementation/Projects/libs/delta1_gudll.mpc
+		w:/garantPIL/implementation/Projects/libs/delta2_gudll.mpc
+		w:/garantPIL/implementation/Projects/libs/gctx_gudll.mpc
+
+		w:/garantPIL/implementation/Projects/libs_tools/endt.mpc
+		w:/garantPIL/implementation/Projects/libs/evd.mpc
+		w:/garantPIL/implementation/Projects/libs/SearchBase.mpc
+
+		w:/garantPIL/implementation/Projects/libs_tools/gkdb_gc.mpc
+		w:/garantPIL/implementation/Projects/libs/gsscreen_breeder.mpc
+		w:/garantPIL/implementation/Projects/libs/cchlp_breeder.mpc
+		w:/garantPIL/implementation/Projects/libs/vcontrol_breeder.mpc
+		w:/garantPIL/implementation/Projects/libs/gsplit_breeder.mpc
+		w:/garantPIL/implementation/Projects/libs/mrglib_breeder.mpc
+		w:/garantPIL/implementation/Projects/libs/gc_breeder.mpc
+		w:/garantPIL/implementation/Projects/libs/gctx_breeder.mpc
+
+		w:/garantPIL/implementation/Projects/libs/NdtClone.mpc
+		w:/garantPIL/implementation/Projects/libs/GbaConsultingCrypt_corba.mpc
+
+		w:/garantServer/projects/libs/CoreOld_corba_client.mpc
+		w:/garantServer/projects/libs/GblLoggingC_corba.mpc
+		w:/garantServer/projects/libs/GblPilotC_corba.mpc
+		w:/garantServer/projects/libs/GslDataPipeC_corba.mpc
+		w:/garantServer/projects/libs/GslDataPipeS_corba.mpc
+		w:/garantServer/projects/libs/GslHeartbeatManagerC_corba.mpc
+		w:/garantServer/projects/libs/GslSecurityC_corba.mpc
+		w:/garantServer/projects/libs/GslSessionHandlerClientS_corba.mpc
+		w:/garantServer/projects/libs/GslUserManagerC_corba.mpc
+		w:/garantServer/projects/libs/timestamp_sync_client.mpc
+	}
+
+	w:/garantPIL/implementation/Projects/targets/T_PilotLicence_corba.mpc
+	w:/garantPIL/implementation/Projects/targets/T_SetLicence.mpc
+	w:/garantPIL/implementation/Projects/targets/T_UpdateRunner_corba_client.mpc
+
+	w:/garantPIL/implementation/Projects/targets/T_Breeder_corba_client.mpc
+	w:/garantPIL/implementation/Projects/targets/T_Breeder_res_eng.mpc
+
+	w:/garantPIL/implementation/Projects/targets/T_Downloader_corba_client.mpc
+	w:/garantPIL/implementation/Projects/targets/T_Downloader_res_eng.mpc
+
+	w:/garantPIL/implementation/Projects/targets/T_Updater_corba_client.mpc
+	w:/garantPIL/implementation/Projects/targets/T_Updater_res_eng.mpc
+
+	w:/garantPIL/implementation/Projects/targets/T_UpdaterStart_corba_client.mpc
+
+	w:/garantPIL/implementation/Projects/targets/T_GLDll.mpc
+	w:/garantPIL/implementation/Projects/targets/T_GUDll.mpc
+	w:/garantPIL/implementation/Projects/targets/T_GUDll7tr.mpc
+	w:/garantPIL/implementation/Projects/targets/T_OnlineFlash.mpc
+
+	w:/garantPIL/implementation/Projects/targets/T_CSAdapter_mt.mpc
+}

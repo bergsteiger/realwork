@@ -1,0 +1,220 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "SearchHighLightSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"name"
+	    value      	"Garant Search Highlight Support")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"prefix"
+	    value      	"ru.garant")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"vendor name"
+	    value      	"ÎÎÎ ÍÏÏ 'Ãàðàíò-Ñåðâèñ'")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"vendor url"
+	    value      	"www.garant.ru")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AutoCounter"
+	    value      	"2")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/SearchHighLightSupport/SearchHighLightUtil.java::45D9C55603C8")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (output.xml)"
+	    value      	""))
+    quid       	"45D9C51F007D"
+    stereotype 	"CPluginsPackage"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4614CE620203"
+	    supplier   	"Logical View::MDProcess::Îïèñàíèå MDKnow::Äîïîëíèòåëüíûå ñöåíàðèè"
+	    quidu      	"45BE066401BB"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "SearchHighLightUtil"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"context-key"
+		    value      	"garSearchHighLightUtil")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45D9C55603C8_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *45D9C55603C8_CUSTOM_IMPORT*¤import java.util.ArrayList;¤import java.util.StringTokenizer;¤import com.atlassian.confluence.util.GeneralUtil;¤import com.atlassian.confluence.search.summary.Summary;¤import com.atlassian.confluence.spaces.Space;¤import com.atlassian.confluence.spaces.SpaceManager;¤import com.atlassian.user.search.page.Pager;¤import com.atlassian.confluence.core.ConfluenceActionSupport;¤¤import java.util.TreeMap;¤//#UC END# *45D9C55603C8_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45D9C55603C8_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *45D9C55603C8_CUSTOM_CLASS_DEFINITION*¤//#UC END# *45D9C55603C8_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45D9C55603C8_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *45D9C55603C8_CUSTOM_METHODS_AND_DATA*¤	private ConfluenceActionSupport cas = null;¤	private SpaceManager space_manager = null;¤¤	public void setSpaceManager (SpaceManager sm) {¤		this.space_manager = sm;¤	}¤¤	public String extractSearchWords (String full_query) {¤		int bl_pos = full_query.indexOf ("(");¤		if (bl_pos != -1) {¤			int br_pos = full_query.indexOf (")", bl_pos + 1);¤			if (br_pos != -1) {¤				return full_query.substring(bl_pos + 1, br_pos);¤			}¤		}¤		return full_query;¤	}¤¤	public String extractHtmlSearchWords (String full_query) {¤		if ((full_query == null) || full_query.length () == 0) {¤			return "&lt;any&gt;";¤		}¤		if (full_query.indexOf ("aaai8j8zzz") != -1) {¤			return "&lt;any&gt;";¤		}¤		return "<b>" + full_query + "</b>";¤	}¤¤	public String extractHtmlSearchTypes (String full_query, String context_path) {¤		String type_marker = "type:";¤		String split_marker = " OR ";¤		String split_marker_bold = " <i>OR</i> ";¤		int tl_pos = full_query.indexOf (type_marker);¤		if (tl_pos != -1) {¤			int tr_pos = full_query.indexOf (")", tl_pos + type_marker.length ());¤			if (tr_pos != -1) {¤				String types_raw = full_query.substring(tl_pos, tr_pos);¤				String[] types_raw_arr = types_raw.split(split_marker);¤				String result = new String ("");¤				if (types_raw_arr.length == 6) {¤					return "&lt;any&gt;";¤				}¤				for (int i = 0; i < types_raw_arr.length; ++i) {¤					int t_pos = types_raw_arr[i].indexOf (type_marker);¤					if (t_pos != -1) {¤						String cur_type = types_raw_arr[i].substring (t_pos + type_marker.length ());¤						result += get_type_icon_img_src (cur_type, context_path);¤						result += "&nbsp;";¤						result += cur_type;¤						result += split_marker_bold;¤					}¤				}¤				int lo_pos = result.lastIndexOf(split_marker_bold);¤				if (lo_pos != -1) {¤					result = result.substring (0, lo_pos);¤				}¤				return result;¤			}¤		}¤		return "&lt;any&gt;";¤	}¤¤	public int text_length_of_html (String html) {¤		int result = 0;¤		int cur_pos = 0;¤		int lt_pos = -1;¤		while ((lt_pos = html.indexOf ("<", cur_pos)) != -1) {¤			result += (lt_pos - cur_pos);¤			cur_pos = lt_pos + 1;¤			int gt_pos = html.indexOf (">", cur_pos);¤			if (gt_pos == -1) {¤				return result; // html damaged¤			}¤			cur_pos = gt_pos + 1;¤		}¤		result += (html.length () - cur_pos);¤		return result;¤	}¤¤	public String extractHtmlSearchLabels (String full_query, String context_path) {¤		String label_marker = "labelText:";¤		String label_marker_not = "NOT (labelText:";¤		int tl_pos_n = full_query.indexOf (label_marker_not);¤		if (tl_pos_n != -1) {¤			label_marker = label_marker_not;¤		}¤		String split_marker = " OR ";¤		String split_marker_bold = " <i>OR</i> ";¤		int tl_pos = full_query.indexOf (label_marker);¤		if (tl_pos != -1) {¤			int tr_pos = full_query.indexOf (")", tl_pos + label_marker.length ());¤			if (tr_pos != -1) {¤				String labels_raw = full_query.substring(tl_pos, tr_pos);¤				if (labels_raw.indexOf (split_marker) == -1) {¤					split_marker = " AND ";¤					split_marker_bold = " <i>AND</i> ";¤				}¤				String[] labels_raw_arr = labels_raw.split(split_marker);¤				String result = new String ("");¤				if (label_marker == label_marker_not) {¤					result += "<i>NOT</i> ";¤				}¤				for (int i = 0; i < labels_raw_arr.length; ++i) {¤					int t_pos = labels_raw_arr[i].indexOf (label_marker);¤					if (t_pos != -1) {¤						String cur_label = labels_raw_arr[i].substring (t_pos + label_marker.length ());¤						result += get_label_icon_img_src (cur_label, context_path);¤						result += "&nbsp;";¤						result += cur_label;¤						result += split_marker_bold;¤					}¤				}¤				int lo_pos = result.lastIndexOf (split_marker_bold);¤				if (lo_pos != -1) {¤					result = result.substring (0, lo_pos);¤				}¤				return result;¤			}¤		}¤		return "&lt;any&gt;";¤	}¤¤	public String extractHtmlSearchSpaces (String full_query, String search_words, String search_req, String context_path) {¤		if (search_words == search_req) {¤			return "&lt;global spaces&gt;";¤		}¤		if ((full_query == null) || full_query.length () == 0) {¤			return "&lt;nothing&gt;";¤		}¤		String[] keys_arr = full_query.split(" ");¤		if (keys_arr.length == 0) {¤			return "&lt;nothing&gt;";¤		}¤		String result = new String ("");¤		String split_marker_bold = " <i>OR</i> ";¤		for (int i = 0; i < keys_arr.length; ++i) {¤			Space cur_space = this.space_manager.getSpace (keys_arr [i]);¤			if (cur_space != null) {¤				result += get_space_icon_img_src (keys_arr [i], context_path);¤				result += "&nbsp;";¤				result += cur_space.getName ();¤				result += split_marker_bold;¤			}¤		}¤		int lo_pos = result.lastIndexOf (split_marker_bold);¤		if (lo_pos != -1) {¤			result = result.substring(0, lo_pos);¤		}¤		return result;¤	}¤¤	// *** ONE SHOULD CALL THIS METHOD FROM VELOCITY TEMPLATE TO FIX COMMENT URL PATH ***¤	public String fixCommentUrlPath (String path, String query) {¤		int n_pos = path.indexOf("#");¤		if (n_pos != -1) {¤			String result = path.substring (0, n_pos);¤			result += "&myCtxWords=";¤			result += query;¤			result += path.substring(n_pos);¤			return result;¤		}¤		return path;¤	}¤¤	public String cssHighlight (String css, String color) {¤		String css_out = new String ("");¤		int sh_pos = css.indexOf (".search-highlight");¤		if (sh_pos != -1) {¤			int bg_pos = css.indexOf ("background-color:", sh_pos);¤			if (bg_pos != -1) {¤				int n_pos = css.indexOf ("#", bg_pos);¤				if (n_pos != -1) {¤					int s_pos = css.indexOf (";", n_pos);¤					if (s_pos != -1) {¤						css_out += css.substring (0, n_pos);¤						css_out += color;¤						css_out += css.substring (s_pos);¤						return css_out;¤					}¤				}¤			}¤		}¤		return css;¤	}¤¤	// *** ONE SHOULD CALL THIS METHOD FROM VELOCITY TEMPLATE FOR MORPHOLOGY TO WORK PROPERLY ***¤	public String XHtmlHighlightBySummary (String xhtml, String query) {¤		if ((query == null) || (query.length () == 0)) {¤			return xhtml; // return immediately if no highlight required¤		}¤		String xhtml_out = new String (""); // init result string¤		String xhtml_rest = new String (xhtml); // init the rest of the string to be parsed¤		while (xhtml_rest.length () > 0) {¤			int left_br_pos0 = xhtml_rest.indexOf ("<"); // we search a html tag left boundary...¤			if (left_br_pos0 != -1) { // ...found¤				// extract free text outside of tags¤				String free_text = xhtml_rest.substring (0, left_br_pos0);¤				free_text = my_replace_by_summary (free_text, query);¤				// then extract text within a tag¤				int right_br_pos0 = xhtml_rest.indexOf (">", left_br_pos0 + 1);¤				xhtml_out += free_text;¤				xhtml_out += xhtml_rest.substring (left_br_pos0, right_br_pos0 + 1);¤				// prepare new rest of the string¤				xhtml_rest = xhtml_rest.substring (right_br_pos0 + 1);¤			} else { // ...not found: the rest of the string is free text¤				String free_text = xhtml_rest;¤				free_text = my_replace_by_summary (free_text, query);¤				xhtml_out += free_text;¤				// prepare new rest of the string - empty string¤				xhtml_rest = "";¤			}¤		}¤		return xhtml_out;¤	}¤¤	private String my_replace_by_summary (String free_text, String query) {¤		String free_text_out = new String ("");¤		String delims = new String (" .,?!:;-`~()[]<>@#$%^&*+-/|\\\'\"\n\r\t");¤		// we split words and delimenters¤		StringTokenizer st = new StringTokenizer (free_text, delims, true);¤		while (st.hasMoreTokens()) {¤			String sub_text_i = st.nextToken();¤			if (delims.indexOf (sub_text_i) == -1) { // is a word¤				// make a summary upon one word, it will be equal to word¤				Summary sum = GeneralUtil.makeSummary(sub_text_i, query);¤				if (sum != null) {¤					// we expect number of fragments to be 1, but actually it does not matter¤					Summary.Fragment[] frags = sum.getFragments();¤					if (frags.length > 0) {¤						for (int j = 0; j < frags.length; ++j) {¤							String gtxt = frags[j].getText ();¤							if (frags[j].isHighlight()) {¤								// we highlight it by html tag <span>¤								free_text_out += my_span (gtxt);¤							} else {¤								free_text_out += gtxt;¤							}¤						}¤					} else { // if something goes wrong, we simply don't highlight¤						free_text_out += sub_text_i;¤					}¤				} else {¤					free_text_out += sub_text_i;¤				}¤			} else {¤				free_text_out += sub_text_i;¤			}¤		}¤		return free_text_out;¤	}¤¤	public String XHtmlHighlight (String xhtml, String query) {¤		if ((query == null) || (query.length () == 0)) {¤			return xhtml;¤		}¤		String xhtml_out = new String ("");¤		String[] words = query.split(" ");¤		String xhtml_rest = new String (xhtml);¤		while (xhtml_rest.length () > 0) {¤			int left_br_pos0 = xhtml_rest.indexOf("<");¤			if (left_br_pos0 != -1) {¤				String free_text = xhtml_rest.substring (0, left_br_pos0);¤				for (int i = 0; i < words.length; ++i) {¤					free_text = my_replace_all (free_text, words[i], my_span (words[i]));¤				}¤				int right_br_pos0 = xhtml_rest.indexOf(">", left_br_pos0 + 1);¤				xhtml_out += free_text;¤				xhtml_out += xhtml_rest.substring (left_br_pos0, right_br_pos0 + 1);¤				xhtml_rest = xhtml_rest.substring (right_br_pos0 + 1);¤			} else {¤				String free_text = xhtml_rest;¤				for (int i = 0; i < words.length; ++i) {¤					free_text = my_replace_all (free_text, words[i], my_span (words[i]));¤				}¤				xhtml_out += free_text;¤				xhtml_rest = "";¤			}¤		}¤		return xhtml_out;¤	}¤¤	private String my_replace_all (String str_in, String str_from, String str_to) {¤		if ((str_from.indexOf("<") != -1) || (str_from.indexOf(">") != -1)) {¤			return str_in;¤		}¤		String str_out = new String ("");¤		String str_rest = new String (str_in);¤		int from_pos = -1;¤		while (str_rest.length () > 0) {¤			if ((from_pos = str_rest.indexOf (str_from)) != -1) {¤				str_out += str_rest.substring(0, from_pos);¤				String replacer = str_to;¤				if (from_pos > 0) {¤					if (str_rest.charAt (from_pos - 1) == '<') {¤						replacer = str_from;¤					}¤					if (from_pos > 1) {¤						if ((str_rest.charAt (from_pos - 1) == '/') && (str_rest.charAt (from_pos - 2) == '<')) {¤							replacer = str_from;¤						}¤					}¤				}¤				str_out += replacer;¤				str_rest = str_rest.substring(from_pos + str_from.length ());¤			} else {¤				str_out += str_rest;¤				str_rest = "";¤			}¤		}¤		return str_out;¤	}¤¤	private String my_span (String word) {¤		String span_open = new String ("<span class=\"search-highlight\">");¤		String span_close = new String ("</span>");¤		return span_open + word + span_close;¤	}¤¤	public String fixXHtmlAfterHighlight (String xhtml) {¤		String xhtml_out = new String ("");¤		try {¤			String span_open = new String ("<span class=\"search-highlight\">");¤			String span_close = new String ("</span>");¤			String xhtml_rest = new String (xhtml);¤			while (xhtml_rest.length () > 0) {¤				int left_br_pos0 = xhtml_rest.indexOf("<");¤				int left_br_pos = left_br_pos0;¤				if (left_br_pos != -1) {¤					int right_br_pos = -1;¤					int span_open_pos = -1;¤					int span_close_pos = -1;¤					do {¤						span_open_pos = xhtml_rest.indexOf (span_open, left_br_pos + 1);¤						if (span_open_pos != -1) {¤							span_open_pos = span_open_pos + span_open.length () - 1;¤						}¤						span_close_pos = xhtml_rest.indexOf (span_close, left_br_pos + 1);¤						if (span_close_pos != -1) {¤							span_close_pos = span_close_pos + span_close.length () - 1;¤						}¤						right_br_pos = xhtml_rest.indexOf (">", left_br_pos);¤						if (right_br_pos == span_open_pos) {¤							left_br_pos = span_open_pos + 1;¤						}¤						if (right_br_pos == span_close_pos) {¤							left_br_pos = span_close_pos + 1;¤						}¤					} while ((right_br_pos == span_open_pos) || (right_br_pos == span_close_pos));¤					String ancor = xhtml_rest.substring (left_br_pos0, right_br_pos);¤					String pure_ancor1 = my_replace_all_fix (ancor, span_open, "");¤					String pure_ancor2 = my_replace_all_fix (pure_ancor1, span_close, "");¤					xhtml_out += xhtml_rest.substring (0, left_br_pos0);¤					xhtml_out += pure_ancor2;¤					xhtml_out += ">";¤					xhtml_rest = xhtml_rest.substring (right_br_pos + 1);¤					//System.err.println ("fixXHtmlAfterHighlight (): pure_ancor2 = " + pure_ancor2);¤				} else {¤					xhtml_out += xhtml_rest;¤					xhtml_rest = "";¤				}¤			}¤		} catch (Exception e) {¤			System.err.println ("fixXHtmlAfterHighlight (): Exception:" + e.getLocalizedMessage ());¤		}¤		return xhtml_out;¤	}¤¤	private String my_replace_all_fix (String str_in, String str_from, String str_to) {¤		String str_out = new String ("");¤		String str_rest = new String (str_in);¤		int from_pos = -1;¤		while (str_rest.length () > 0) {¤			if ((from_pos = str_rest.indexOf (str_from)) != -1) {¤				str_out += str_rest.substring(0, from_pos);¤				str_out += str_to;¤				str_rest = str_rest.substring(from_pos + str_from.length ());¤			} else {¤				str_out += str_rest;¤				str_rest = "";¤			}¤		}¤		return str_out;¤	}¤¤	private TreeMap <String, String> type_icon_map = null;¤¤	private void init_type_icon_map () {¤		type_icon_map = new TreeMap <String, String> ();¤		type_icon_map.put ("page", "/images/icons/docs_16.gif");¤		type_icon_map.put ("blogpost", "/images/icons/blogentry_16.gif");¤		type_icon_map.put ("comment", "/images/icons/comment_16.gif");¤		type_icon_map.put ("attachment", "/images/icons/attach_file_16.gif");¤		type_icon_map.put ("userinfo", "/images/icons/user_16.gif");¤		type_icon_map.put ("spacedesc", "/images/icons/home_16.gif");¤	}¤¤	private String get_type_icon (String type) {¤		String result = type_icon_map.get (type);¤		if (result != null) {¤			return result;¤		}¤		return "/images/icons/cd_16.gif";¤	}¤¤	private String get_type_icon_img_src (String type, String path) {¤		String icon_path = path + get_type_icon (type);¤		return "<img src=\"" + icon_path + "\" align=\"absmiddle\" />";¤	}¤¤	private TreeMap <String, String> space_icon_map = null;¤¤	private void init_space_icon_map () {¤		space_icon_map = new TreeMap <String, String> ();¤		space_icon_map.put ("MDP", "/images/icons/garicons/mdp_logo_16.png");¤		space_icon_map.put ("EXTDOCS", "/images/icons/garicons/external_logo_16.png");¤	}¤¤	private String get_space_icon (String space) {¤		String result = space_icon_map.get (space);¤		if (result != null) {¤			return result;¤		}¤		return "/images/icons/web_16.gif";¤	}¤¤	private String get_space_icon_img_src (String space, String path) {¤		String icon_path = path + get_space_icon (space);¤		return "<img src=\"" + icon_path + "\" align=\"absmiddle\" />";¤	}¤¤	public String getIconByLabel (String label) {¤		if (label.compareTo ("feature") == 0) {¤			return new String ("/images/icons/garicons/Feature.png");¤		} else if (label.compareTo ("important") == 0) {¤			return new String ("/images/icons/garicons/Important.png");¤		} else if (label.compareTo ("report") == 0) {¤			return new String ("/images/icons/garicons/Report.png");¤		} else if (label.compareTo ("requirements") == 0) {¤			return new String ("/images/icons/garicons/Requirements.png");¤		} else if (label.compareTo ("software_update") == 0) {¤			return new String ("/images/icons/garicons/SU.png");¤		} else if (label.compareTo ("usecase") == 0) {¤			return new String ("/images/icons/garicons/UseCase.png");¤		} else if (label.compareTo ("userneeds") == 0) {¤			return new String ("/images/icons/garicons/UserNeed.png");¤		} else {¤			return null;¤		}¤	}¤¤	private String get_label_icon (String label) {¤		String result = this.getIconByLabel (label);¤		if (result != null) {¤			return result;¤		}¤		return "/images/icons/label_16.gif";¤	}¤¤	private String get_label_icon_img_src (String label, String path) {¤		String icon_path = path + get_label_icon (label);¤		return "<img src=\"" + icon_path + "\" align=\"absmiddle\" />";¤	}¤¤    public ArrayList<String> allUserNames () {¤    	ArrayList<String> l = new ArrayList<String> ();¤    	Pager p = GeneralUtil.getUserAccessor ().getUserNames ();¤    	while (p.iterator ().hasNext ()) {¤    		String d = p.iterator ().next ().toString ();¤    		l.add (d);¤    	}¤    	return l;¤    }¤¤    public String extractHtmlSearchAuthors (String full_query) {¤    	String author_marker = "author:";¤		String split_marker = " OR ";¤		String split_marker_bold = " <i>OR</i> ";¤		int tl_pos = full_query.indexOf (author_marker);¤		if (tl_pos != -1) {¤			int tr_pos = full_query.indexOf (")", tl_pos + author_marker.length ());¤			if (tr_pos != -1) {¤				String authors_raw = full_query.substring(tl_pos, tr_pos);¤				String[] authors_raw_arr = authors_raw.split(split_marker);¤				String result = new String ("");¤				for (int i = 0; i < authors_raw_arr.length; ++i) {¤					int t_pos = authors_raw_arr[i].indexOf (author_marker);¤					if (t_pos != -1) {¤						String cur_author = authors_raw_arr[i].substring (t_pos + author_marker.length ());¤						result += this.cas.getUserFullName(cur_author);¤						result += split_marker_bold;¤					}¤				}¤				int lo_pos = result.lastIndexOf (split_marker_bold);¤				if (lo_pos != -1) {¤					result = result.substring (0, lo_pos);¤				}¤				return result;¤			}¤		}¤		return "&lt;any&gt;";¤    }¤	//#UC END# *45D9C55603C8_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/SearchHighLightSupport/SearchHighLightUtil.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*45D9C55603C8_DEFAULT_CONSTRUCTOR*"
+		    value      	(value Text 
+|//#UC START# *45D9C55603C8_DEFAULT_CONSTRUCTOR*¤		init_type_icon_map ();¤		init_space_icon_map ();¤		this.cas = new ConfluenceActionSupport ();¤		//#UC END# *45D9C55603C8_DEFAULT_CONSTRUCTOR*
+		    )))
+	    quid       	"45D9C55603C8"
+	    stereotype 	"CVelocityContextPlugin"
+	    operations 	(list Operations
+		(object Operation "ctor"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*460BA7620148_BODY*"
+			    value      	(value Text 
+|//#UC START# *460BA7620148_BODY*¤		init_type_icon_map ();¤		init_space_icon_map ();¤		this.cas = new ConfluenceActionSupport ();¤		//#UC END# *460BA7620148_BODY*
+			    )))
+		    quid       	"460BA7620148"
+		    stereotype 	"ctor"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"45D9C54E03A9"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchHighLightSupport::SearchHighLightUtil" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(429, 579)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(163, 520)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	532
+			justify    	0
+			label      	"SearchHighLightUtil")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(163, 470)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	532
+			justify    	0
+			label      	"<<CVelocityContextPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	15448575
+		    quidu      	"45D9C55603C8"
+		    width      	550
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @2
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45D9C55603C8"))
+		    location   	(1149, 582)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(852, 520)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	558
+			justify    	1
+			label      	"{context-key:=garSearchHighLightUtil}")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	618
+		    height     	137)
+		(object AttachView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(839, 580)
+			(704, 579))
+		    line_style 	0)))))

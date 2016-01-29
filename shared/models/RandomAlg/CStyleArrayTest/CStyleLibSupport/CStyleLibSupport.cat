@@ -1,0 +1,547 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "CStyleLibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49897DFE0071/Home/Ìîäåëü ïðîåêòà "RandomAlg"/CStyleArrayTest/CStyleLibSupport|49F6F2E70113
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"49F6F2E70113"
+    documentation 	"CStyleLibSupport"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49F6F3400304"
+	    supplier   	"Logical View::RandomAlg::CStyleArrayTest::CStyleArray"
+	    quidu      	"49F6D82B01F1")
+	(object Visibility_Relationship
+	    quid       	"49F84F8E0149"
+	    supplier   	"Logical View::shared::GCL::math"
+	    quidu      	"45018D5E036B"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "CStyleEntryPoint"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49897DFE0071/Home/Ìîäåëü ïðîåêòà "RandomAlg"/CStyleArrayTest/CStyleLibSupport/CStyleEntryPoint|49F6F31002B5
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/RandomAlg/CStyleArrayTest/CStyleEntryPoint.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/RandomAlg/CStyleArrayTest/CStyleEntryPoint.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49F6F31002B5_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *49F6F31002B5_CUSTOM_INCLUDES*¤#include "shared/Core/GDS/StopWatch.h"¤¤///////////////////////////////////////¤#include <algorithm>¤¤#include "shared/Core/mng/TypeDestructors.h"¤¤namespace Core {¤¤template <class T>¤struct ArrayNewDeleteAllocator {¤	static inline T* construct (size_t len) {¤		T* result = new T [len];¤		LOG_I (("%s (): len = %u, %@", GDS_CURRENT_FUNCTION, len, result));¤		return result;¤	}¤	static inline void destruct (T* t) {¤		LOG_I (("%s (): %@", GDS_CURRENT_FUNCTION, t));¤		delete [] t;¤	}¤};¤¤    template <class _Type, class _Allocator = ArrayNewDeleteAllocator <_Type> >¤    class memory_array {¤	public:¤        // type definitions¤        typedef _Type              value_type;¤        typedef _Type*             iterator;¤        typedef const _Type*       const_iterator;¤        typedef _Type&             reference;¤        typedef const _Type&       const_reference;¤        typedef std::size_t    size_type;¤        typedef std::ptrdiff_t difference_type;¤¤        // reverse iterator support¤        typedef std::reverse_iterator <iterator> reverse_iterator;¤        typedef std::reverse_iterator <const_iterator> const_reverse_iterator;¤¤		//ctors & dtors¤		memory_array (_Type* mem, size_type len, bool destr = false): m_elems_ptr (mem), m_N_of_elems (len), m_destroy (destr) {}¤		memory_array (size_type len): m_elems_ptr (_Allocator::construct (len)), m_N_of_elems (len), m_destroy (true) {}¤		void assign (_Type* mem, size_type len, bool destr = false) {¤			if (m_destroy) {¤				_Allocator::destruct (m_elems_ptr);¤			}¤			m_elems_ptr = mem;¤			m_N_of_elems = len;¤			m_destroy = destr;¤		}¤		~memory_array () {¤			if (m_destroy) {¤				_Allocator::destruct (m_elems_ptr);¤			}¤			m_elems_ptr = 0;¤		}¤¤        // iterator support¤        iterator begin () { return m_elems_ptr; }¤        const_iterator begin () const { return m_elems_ptr; }¤        iterator end () { return m_elems_ptr + m_N_of_elems; }¤        const_iterator end () const { return m_elems_ptr + m_N_of_elems; }¤¤        reverse_iterator rbegin () { return reverse_iterator (end ()); }¤        const_reverse_iterator rbegin () const {¤            return const_reverse_iterator (end ());¤        }¤        reverse_iterator rend () { return reverse_iterator (begin ()); }¤        const_reverse_iterator rend () const {¤            return const_reverse_iterator (begin ());¤        }¤¤        // operator[]¤        reference operator [] (size_type i) { ¤            assert (i < m_N_of_elems); ¤            return m_elems_ptr [i];¤        }¤        ¤        const_reference operator [] (size_type i) const {     ¤            assert (i < m_N_of_elems);¤            return m_elems_ptr [i]; ¤        }¤    ¤        // front() and back()¤        reference front () { ¤            return m_elems_ptr [0]; ¤        }¤        ¤        const_reference front () const {¤            return m_elems_ptr [0];¤        }¤        ¤        reference back () { ¤            return m_elems_ptr [m_N_of_elems-1]; ¤        }¤        ¤        const_reference back () const { ¤            return m_elems_ptr [m_N_of_elems-1]; ¤        }¤¤        // size is constant¤        size_type size () { return m_N_of_elems; }¤        bool empty () { return m_N_of_elems == 0; }¤        size_type max_size () { return m_N_of_elems; }¤¤        // swap (note: linear complexity)¤        void swap (memory_array <_Type>& y) {¤			assert (size () <= y.size ());¤            std::swap_ranges(begin (), end (), y.begin ());¤        }¤¤        // direct access to data¤        const _Type* data () const { return m_elems_ptr; }¤        _Type* data () { return m_elems_ptr; }¤¤        // assign one value to all elements¤        void fill (const _Type& value) {¤            std::fill_n (begin (), size (), value);¤        }¤¤	private:¤        // copy ctor & operator = are unavailable conceptually¤		memory_array (const memory_array<_Type>& rhs) {¤			assert (m_N_of_elems == rhs.m_N_of_elems);¤		}¤        memory_array <_Type>& operator= (const memory_array <_Type>& rhs) {¤			assert (m_N_of_elems == rhs.m_N_of_elems);¤            return *this;¤        }¤	private:¤		_Type* m_elems_ptr;¤		size_type m_N_of_elems;¤		bool m_destroy;¤    };¤¤} // namespace Core¤¤///////////////////////////////////////¤¤//#UC END# *49F6F31002B5_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49F6F31002B5_CUSTOM_BODY*"
+		    value      	(value Text 
+|//#UC START# *49F6F31002B5_CUSTOM_BODY*¤const size_t NUMBER_OF_PAIRS = 1024*1024*16;¤const size_t BITS_PER_ID = 4;¤const size_t MPHF_IMAGE_MAX_SIZE = NUMBER_OF_PAIRS * BITS_PER_ID / 8;¤¤const size_t NUMBER_OF_CYCLES = 1000;¤¤void test_arrays () {¤	Core::GDS::StopWatch sw ("test_arrays");¤	std::string array_type = CStyleSettings::get_array_type ();¤	LOG_I (("array_type = %s", array_type.c_str ()));¤	CStyleArray::MPHFWork_var cstyle_work = CStyleArray::MPHFWorkFactory::create (array_type.c_str ());¤	void* array_memory = new CStyleArray::IdOffsetPair [NUMBER_OF_PAIRS];¤	CStyleArray::IdOffsetPairArray pair_array (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤	for (size_t i = 0; i < NUMBER_OF_PAIRS; ++i) {¤		((CStyleArray::IdOffsetPair*) pair_array.start_pointer) [i].id = i;¤		((CStyleArray::IdOffsetPair*) pair_array.start_pointer) [i].offset = i;¤	}¤	void* mphf_memory = new char [MPHF_IMAGE_MAX_SIZE];¤	CStyleArray::MPHFImage mphf_image (mphf_memory, MPHF_IMAGE_MAX_SIZE);¤	CStyleArray::IdOffsetPair dummy;¤	for (size_t i = 0; i < NUMBER_OF_CYCLES; ++i) {¤		cstyle_work->make_mphf_image_cstyle (pair_array, mphf_image, dummy);¤	}¤	LOG_I (("NUMBER_OF_CYCLES = %u, mphf_image.size = %u, MPHF_IMAGE_MAX_SIZE = %u", NUMBER_OF_CYCLES, mphf_image.size, MPHF_IMAGE_MAX_SIZE));¤	delete [] array_memory;¤	array_memory = 0;¤	delete [] mphf_memory;¤	mphf_memory = 0;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_it (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef Core::memory_array <CStyleArray::IdOffsetPair> IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr ((CStyleArray::IdOffsetPair*) mem, num_of_elem);¤	GDS_ASSERT (my_arr.size () == num_of_elem);¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (IdOffsetPairMemoryArray::iterator it = my_arr.begin (); it != my_arr.end (); ++it) {¤		sum.id += (it->id % 10);¤		sum.id <<= 1;¤		sum.offset += (it->offset % 10);¤		sum.offset <<= 1;¤	}¤	return sum;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_op (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef Core::memory_array <CStyleArray::IdOffsetPair> IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr ((CStyleArray::IdOffsetPair*) mem, num_of_elem);¤	GDS_ASSERT (my_arr.size () == num_of_elem);¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (IdOffsetPairMemoryArray::size_type i = 0; i < my_arr.size (); ++i) {¤		sum.id += (my_arr [i].id % 10);¤		sum.id <<= 1;¤		sum.offset += (my_arr [i].offset % 10);¤		sum.offset <<= 1;¤	}¤	return sum;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_cs (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef CStyleArray::IdOffsetPair* IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr = (IdOffsetPairMemoryArray) mem;¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (size_t i = 0; i < num_of_elem; ++i) {¤		sum.id += (my_arr [i].id % 10);¤		sum.id <<= 1;¤		sum.offset += (my_arr [i].offset % 10);¤		sum.offset <<= 1;¤	}¤	return sum;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_op_rnd (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef Core::memory_array <CStyleArray::IdOffsetPair> IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr ((CStyleArray::IdOffsetPair*) mem, num_of_elem);¤	GDS_ASSERT (my_arr.size () == num_of_elem);¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (IdOffsetPairMemoryArray::size_type i = 0; i < my_arr.size (); ++i) {¤		IdOffsetPairMemoryArray::size_type j = (IdOffsetPairMemoryArray::size_type) GCL::long_rand (my_arr.size ());¤		sum.id += (my_arr [j].id % 10);¤		sum.id <<= 1;¤		sum.offset += (my_arr [j].offset % 10);¤		sum.offset <<= 1;¤	}¤	return sum;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_cs_rnd (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef CStyleArray::IdOffsetPair* IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr = (IdOffsetPairMemoryArray) mem;¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (size_t i = 0; i < num_of_elem; ++i) {¤		size_t j = (size_t) GCL::long_rand (num_of_elem);¤		sum.id += (my_arr [j].id % 10);¤		sum.id <<= 1;¤		sum.offset += (my_arr [j].offset % 10);¤		sum.offset <<= 1;¤	}¤	return sum;¤}¤¤bool IdOffsetPairGreater (const CStyleArray::IdOffsetPair& t, const CStyleArray::IdOffsetPair& o) {¤	return t.id > o.id;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_algo_sort (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef Core::memory_array <CStyleArray::IdOffsetPair> IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr ((CStyleArray::IdOffsetPair*) mem, num_of_elem);¤	GDS_ASSERT (my_arr.size () == num_of_elem);¤	CStyleArray::IdOffsetPair sum (0, 0);¤	std::sort (my_arr.begin (), my_arr.end (), IdOffsetPairGreater);¤	return sum;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_algo_minmax_element (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef Core::memory_array <CStyleArray::IdOffsetPair> IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr ((CStyleArray::IdOffsetPair*) mem, num_of_elem);¤	GDS_ASSERT (my_arr.size () == num_of_elem);¤	CStyleArray::IdOffsetPair sum (0, 0);¤	IdOffsetPairMemoryArray::iterator it_min = std::min_element (my_arr.begin (), my_arr.end (), IdOffsetPairGreater);¤	IdOffsetPairMemoryArray::iterator it_max = std::max_element (my_arr.begin (), my_arr.end (), IdOffsetPairGreater);¤	LOG_I (("%s (), it_min->id = %Q, it_max->id = %Q", GDS_CURRENT_FUNCTION, it_min->id, it_max->id));¤	return sum;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_algo_copy (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef Core::memory_array <CStyleArray::IdOffsetPair> IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr ((CStyleArray::IdOffsetPair*) mem, num_of_elem);¤	void* mem2 = new CStyleArray::IdOffsetPair [num_of_elem];¤	IdOffsetPairMemoryArray my_arr2 ((CStyleArray::IdOffsetPair*) mem2, num_of_elem);¤	GDS_ASSERT (my_arr.size () == num_of_elem);¤	std::copy (my_arr.begin (), my_arr.end (), my_arr2.begin ());¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (IdOffsetPairMemoryArray::iterator it = my_arr.begin (); it != my_arr.end (); ++it) {¤		sum.id += (it->id % 10);¤		sum.id <<= 1;¤		sum.offset += (it->offset % 10);¤		sum.offset <<= 1;¤	}¤	CStyleArray::IdOffsetPair sum2 (0, 0);¤	for (IdOffsetPairMemoryArray::iterator it = my_arr2.begin (); it != my_arr2.end (); ++it) {¤		sum2.id += (it->id % 10);¤		sum2.id <<= 1;¤		sum2.offset += (it->offset % 10);¤		sum2.offset <<= 1;¤	}¤	CStyleArray::IdOffsetPair delta = sum2 - sum;¤	LOG_I (("%s (): delta.id = %Q, delta.offset = %Q", GDS_CURRENT_FUNCTION, delta.id, delta.offset));¤	delete [] mem2;¤	return delta;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_algo_reverse_copy (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef Core::memory_array <CStyleArray::IdOffsetPair> IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr ((CStyleArray::IdOffsetPair*) mem, num_of_elem);¤	void* mem2 = new CStyleArray::IdOffsetPair [num_of_elem];¤	IdOffsetPairMemoryArray my_arr2 ((CStyleArray::IdOffsetPair*) mem2, num_of_elem);¤	GDS_ASSERT (my_arr.size () == num_of_elem);¤	std::reverse_copy (my_arr.rbegin (), my_arr.rend (), my_arr2.begin ()); // for delta to be 0¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (IdOffsetPairMemoryArray::iterator it = my_arr.begin (); it != my_arr.end (); ++it) {¤		sum.id += (it->id % 10);¤		sum.id <<= 1;¤		sum.offset += (it->offset % 10);¤		sum.offset <<= 1;¤	}¤	CStyleArray::IdOffsetPair sum2 (0, 0);¤	for (IdOffsetPairMemoryArray::iterator it = my_arr2.begin (); it != my_arr2.end (); ++it) {¤		sum2.id += (it->id % 10);¤		sum2.id <<= 1;¤		sum2.offset += (it->offset % 10);¤		sum2.offset <<= 1;¤	}¤	CStyleArray::IdOffsetPair delta = sum2 - sum;¤	LOG_I (("%s (): delta.id = %Q, delta.offset = %Q", GDS_CURRENT_FUNCTION, delta.id, delta.offset));¤	delete [] mem2;¤	return delta;¤}¤¤void IdOffsetPairFunctor (CStyleArray::IdOffsetPair& c) {¤	c.id = 0;¤	c.offset = 0;¤}¤¤CStyleArray::IdOffsetPair test_memory_array_algo_for_each (void* mem, size_t num_of_elem, size_t siz_of_elem) {¤	//LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef Core::memory_array <CStyleArray::IdOffsetPair> IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr ((CStyleArray::IdOffsetPair*) mem, num_of_elem);¤	GDS_ASSERT (my_arr.size () == num_of_elem);¤	std::for_each (my_arr.begin (), my_arr.end (), IdOffsetPairFunctor);¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (IdOffsetPairMemoryArray::iterator it = my_arr.begin (); it != my_arr.end (); ++it) {¤		sum.id += (it->id % 10);¤		sum.id <<= 1;¤		sum.offset += (it->offset % 10);¤		sum.offset <<= 1;¤	}¤	LOG_I (("%s (): sum.id = %Q, sum.offset = %Q", GDS_CURRENT_FUNCTION, sum.id, sum.offset));¤	return sum;¤}¤¤void print_memory_array (void* mem, size_t num_of_elem, size_t siz_of_elem, size_t print_elems) {¤	LOG_I (("%s", GDS_CURRENT_FUNCTION));¤	typedef CStyleArray::IdOffsetPair* IdOffsetPairMemoryArray;¤	GDS_ASSERT (siz_of_elem == sizeof (CStyleArray::IdOffsetPair));¤	IdOffsetPairMemoryArray my_arr = (IdOffsetPairMemoryArray) mem;¤	CStyleArray::IdOffsetPair sum (0, 0);¤	for (size_t i = 0; i < num_of_elem; ++i) {¤		if (i < print_elems) {¤			LOG_I (("i = %u, my_arr [i].id = %Q, my_arr [i].offset = %Q", i, my_arr [i].id, my_arr [i].offset));¤		}¤		sum.id += (my_arr [i].id % 10);¤		sum.id <<= 1;¤		sum.offset += (my_arr [i].offset % 10);¤		sum.offset <<= 1;¤	}¤	LOG_I (("sum.id = %Q, sum.offset = %Q", sum.id, sum.offset));¤}¤//#UC END# *49F6F31002B5_CUSTOM_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49F6F31002B5*"
+		    value      	(value Text 
+|//#UC START# *49F6F31002B5*¤		LOG_D (("Hello world, this is CStyleEntryPoint!"));¤		LOG_I (("NUMBER_OF_PAIRS = %u, sizeof (CStyleArray::IdOffsetPair) = %u", NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair)));¤		void* array_memory = new CStyleArray::IdOffsetPair [NUMBER_OF_PAIRS]; // simpulate mmap memory¤		unsigned char* array_memory_byte_ptr = (unsigned char*) array_memory;¤		for (size_t i = 0; i < NUMBER_OF_PAIRS * sizeof (CStyleArray::IdOffsetPair); ++i) {¤			array_memory_byte_ptr [i] = (unsigned char) GCL::long_rand (256);¤		}¤		print_memory_array (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair), 10);¤		// start tests¤		Core::GDS::HiResCounter timer;¤		double sec0 = timer.get_seconds ();¤		CStyleArray::IdOffsetPair sum_it = test_memory_array_it (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		double sec1 = timer.get_seconds ();¤		CStyleArray::IdOffsetPair sum_op = test_memory_array_op (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		double sec2 = timer.get_seconds ();¤		CStyleArray::IdOffsetPair sum_cs = test_memory_array_cs (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		double sec3 = timer.get_seconds ();¤		CStyleArray::IdOffsetPair sum_op_rnd = test_memory_array_op_rnd (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		double sec4 = timer.get_seconds ();¤		CStyleArray::IdOffsetPair sum_cs_rnd = test_memory_array_cs_rnd (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		double sec5 = timer.get_seconds ();¤		LOG_I (("sum_it.id = %Q, test_memory_array_it = %4.8f", sum_it.id, sec1-sec0));¤		LOG_I (("sum_op.id = %Q, test_memory_array_op = %4.8f", sum_op.id, sec2-sec1));¤		LOG_I (("sum_cs.id = %Q, test_memory_array_cs = %4.8f", sum_cs.id, sec3-sec2));¤		LOG_I (("sum_op_rnd.id = %Q, test_memory_array_op_rnd = %4.8f", sum_op_rnd.id, sec4-sec3));¤		LOG_I (("sum_cs_rnd.id = %Q, test_memory_array_cs_rnd = %4.8f", sum_cs_rnd.id, sec5-sec4));¤		test_memory_array_algo_sort (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		test_memory_array_algo_minmax_element (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		test_memory_array_algo_copy (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		test_memory_array_algo_reverse_copy (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		print_memory_array (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair), 10);¤		test_memory_array_algo_for_each (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair));¤		print_memory_array (array_memory, NUMBER_OF_PAIRS, sizeof (CStyleArray::IdOffsetPair), 10);¤		delete [] array_memory;¤		Core::memory_array <char> carr (100);¤		Core::memory_array <char> carr2 (2);¤		carr2.assign (carr.data (), carr.size ());¤		//#UC END# *49F6F31002B5*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49F6F31002B5_FINI*"
+		    value      	(value Text 
+|//#UC START# *49F6F31002B5_FINI*¤	//#UC END# *49F6F31002B5_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49F6F31002B5_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *49F6F31002B5_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *49F6F31002B5_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49F6F31002B5_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *49F6F31002B5_CUSTOM_INCLUDES*¤//#UC END# *49F6F31002B5_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49F6F31002B5*"
+		    value      	"//#UC START# *49F6F31002B5*¤//#UC END# *49F6F31002B5*"))
+	    quid       	"49F6F31002B5"
+	    documentation 	"CStyleEntryPoint"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F6F34D03C9"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::RandomAlg::CStyleArrayTest::CStyleLibSupport::CStyleSettings"
+		    quidu      	"49F6F32602DF")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F6F48203B3"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::RandomAlg::CStyleArrayTest::CStyleArray::MPHFWork"
+		    quidu      	"49F6D87500B0")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F84FA301F2"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCL::math::long_rand"
+		    quidu      	"45018DA0002E"))
+	    language   	"MDA Generator")
+	(object Class "CStyleSettings"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/RandomAlg/CStyleArrayTest/CStyleSettings.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49897DFE0071/Home/Ìîäåëü ïðîåêòà "RandomAlg"/CStyleArrayTest/CStyleLibSupport/CStyleSettings|49F6F32602DF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/RandomAlg/CStyleArrayTest/CStyleSettings.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file"))
+	    quid       	"49F6F32602DF"
+	    documentation 	"CStyleSettings"
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "array_type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F6F36701CC"
+		    documentation 	"array_type = cstyle, stdvector, ..."
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    initv      	"cstyle"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"49F6F306017D"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::RandomAlg::CStyleArrayTest::CStyleLibSupport::CStyleEntryPoint" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(369, 270)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(175, 240)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"• CStyleEntryPoint")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(175, 190)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49F6F31002B5"
+		    width      	406
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::RandomAlg::CStyleArrayTest::CStyleLibSupport::CStyleSettings" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1083, 270)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(810, 236)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	546
+			justify    	0
+			label      	"• CStyleSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(810, 186)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	546
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"49F6F32602DF"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(810, 297)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	1
+			max_width  	546
+			justify    	1)
+		    width      	564
+		    height     	192
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(686, 224)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.506012
+			height     	47
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49F6F34D03C9"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(572, 270)
+			(800, 270))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::RandomAlg::CStyleArrayTest::CStyleArray::MPHFWork" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(370, 684)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(237, 656)
+			nlines     	1
+			max_width  	266
+			justify    	0
+			label      	"MPHFWork")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(237, 606)
+			anchor     	10
+			nlines     	1
+			max_width  	266
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49F6D87500B0"
+		    width      	284
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(489, 477)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49F6F48203B3"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(369, 362)
+			(369, 593))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GCL::math::long_rand" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1128, 660)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(978, 632)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• long_rand")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(978, 582)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"45018DA0002E"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(816, 438)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.577183
+			height     	54
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49F84FA301F2"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(550, 362)
+			(968, 577))
+		    line_style 	0)))))

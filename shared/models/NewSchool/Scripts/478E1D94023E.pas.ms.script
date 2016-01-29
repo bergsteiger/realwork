@@ -1,0 +1,569 @@
+// l3TypedIntegerValueMap 478E1D94023E UtilityPack Class
+
+FORWARD ME_478E1D94023E
+
+INCLUDE '478797300345.pas.ms.script'
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+FORWARD ME_478E1E9E01CE
+
+INCLUDE '4767743E00E5.pas.ms.script'
+
+: ME_478E1F35009B
+ CONST UID '478E1F35009B'
+ CONST Name 'f_TypeData'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_478E1F060192 // PTypeData
+ ;
+
+ @SELF
+; // ME_478E1F35009B f_TypeData
+
+: ME_478E210D0194
+ CONST UID '478E210D0194'
+ CONST Name 'aID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5EF660059 // Tl3ValueMapID
+ ;
+
+ @SELF
+; // ME_478E210D0194 aID
+
+: ME_478E210D01B5
+ CONST UID '478E210D01B5'
+ CONST Name 'aTypeInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767749802D1 // PTypeInfo
+ ;
+
+ @SELF
+; // ME_478E210D01B5 aTypeInfo
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_478E20F70032
+ CONST UID '478E20F70032'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_478E210D0194 // aID
+ ME_478E210D01B5 // aTypeInfo
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_478E20F70032 Create
+
+: ME_479747B90140
+ CONST UID '479747B90140'
+ CONST Name 'aDisplayName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_479747B90140 aDisplayName
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_478E235D0041
+ CONST UID '478E235D0041'
+ CONST Name 'DoDisplayNameToValue'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_479747B90140 // aDisplayName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_478E235D0041 DoDisplayNameToValue
+
+: ME_478E237602A1
+ CONST UID '478E237602A1'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_478E237602A1 aValue
+
+: ME_478E237001B3
+ CONST UID '478E237001B3'
+ CONST Name 'DoValueToDisplayName'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_478E237602A1 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_478E237001B3 DoValueToDisplayName
+
+: ME_478E1E9E01CE
+ CONST UID '478E1E9E01CE'
+ CONST Name 'Tl3IntegerValueMap'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478797300345 // Tl3ValueMap
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_46A5FCD303C1 // Il3IntegerValueMap
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_478E1F35009B // f_TypeData
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_478E20F70032 // Create
+ ME_478E235D0041 // DoDisplayNameToValue
+ ME_478E237001B3 // DoValueToDisplayName
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_46A5FCF900E0 // DisplayNameToValue
+ ME_46A5FD1B000D // ValueToDisplayName
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_478E1E9E01CE Tl3IntegerValueMap
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_478E1E3A0182
+
+: ME_47986DB50325
+ CONST UID '47986DB50325'
+ CONST Name 'f_Values'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A1053F01FD // Tl3StringArray
+ ;
+
+ @SELF
+; // ME_47986DB50325 f_Values
+
+: ME_478E21CB0017
+ CONST UID '478E21CB0017'
+ CONST Name 'aID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5EF660059 // Tl3ValueMapID
+ ;
+
+ @SELF
+; // ME_478E21CB0017 aID
+
+: ME_478E21CB0054
+ CONST UID '478E21CB0054'
+ CONST Name 'aTypeInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767749802D1 // PTypeInfo
+ ;
+
+ @SELF
+; // ME_478E21CB0054 aTypeInfo
+
+: ME_478E21CB00BF
+ CONST UID '478E21CB00BF'
+ CONST Name 'aValues'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_478D048D01CC // array of AnsiString
+ ;
+
+ @SELF
+; // ME_478E21CB00BF aValues
+
+: ME_478E21AD021D
+ CONST UID '478E21AD021D'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_478E21CB0017 // aID
+ ME_478E21CB0054 // aTypeInfo
+ ME_478E21CB00BF // aValues
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_478E21AD021D Create
+
+: ME_478E2344003F
+ CONST UID '478E2344003F'
+ CONST Name 'aID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5EF660059 // Tl3ValueMapID
+ ;
+
+ @SELF
+; // ME_478E2344003F aID
+
+: ME_478E23440063
+ CONST UID '478E23440063'
+ CONST Name 'aTypeInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767749802D1 // PTypeInfo
+ ;
+
+ @SELF
+; // ME_478E23440063 aTypeInfo
+
+: ME_478E23440087
+ CONST UID '478E23440087'
+ CONST Name 'aValues'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_478D048D01CC // array of AnsiString
+ ;
+
+ @SELF
+; // ME_478E23440087 aValues
+
+: ME_478E233501E7
+ CONST UID '478E233501E7'
+ CONST Name 'Make'
+ CONST Class 'Operation'
+ CONST Stereotype 'factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A5FCD303C1 // Il3IntegerValueMap
+ ;
+ : Parameters
+   [ ME_478E2344003F // aID
+ ME_478E23440063 // aTypeInfo
+ ME_478E23440087 // aValues
+ ]
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_478E233501E7 Make
+
+: ME_478E1E3A0182
+ CONST UID '478E1E3A0182'
+ CONST Name 'Tl3SimpleTypedIntegerValueMap'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478E1E9E01CE // Tl3IntegerValueMap
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_47986DB50325 // f_Values
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_478E21AD021D // Create
+ ME_478E233501E7 // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_478E235D0041 // DoDisplayNameToValue
+ ME_478E237001B3 // DoValueToDisplayName
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_478CFFBA017D // DoGetDisplayNames
+ ME_478CFFCE02DE // GetMapSize
+ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_478E1E3A0182 Tl3SimpleTypedIntegerValueMap
+
+FORWARD ME_478E203503AF
+
+: ME_47986C9A023C
+ CONST UID '47986C9A023C'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_478E1F9100AC // PResStringRec
+ ;
+
+ @SELF
+; // ME_47986C9A023C 
+
+: ME_478E203503AF
+ CONST UID '478E203503AF'
+ CONST Name 'Tl3ResStringArray'
+ CONST Class 'Class'
+ CONST Stereotype 'Vector'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_47986C9A023C // 
+ ]
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ @SELF
+; // ME_478E203503AF Tl3ResStringArray
+
+FORWARD ME_478E1DFA01DF
+
+: ME_47986CEA02E4
+ CONST UID '47986CEA02E4'
+ CONST Name 'f_Values'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_478E203503AF // Tl3ResStringArray
+ ;
+
+ @SELF
+; // ME_47986CEA02E4 f_Values
+
+: ME_478E2148006F
+ CONST UID '478E2148006F'
+ CONST Name 'aID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5EF660059 // Tl3ValueMapID
+ ;
+
+ @SELF
+; // ME_478E2148006F aID
+
+: ME_478E21480090
+ CONST UID '478E21480090'
+ CONST Name 'aTypeInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767749802D1 // PTypeInfo
+ ;
+
+ @SELF
+; // ME_478E21480090 aTypeInfo
+
+: ME_478E214800B3
+ CONST UID '478E214800B3'
+ CONST Name 'aValues'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_478E1FC10349 // array of PResStringRec
+ ;
+
+ @SELF
+; // ME_478E214800B3 aValues
+
+: ME_478E212D0257
+ CONST UID '478E212D0257'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_478E2148006F // aID
+ ME_478E21480090 // aTypeInfo
+ ME_478E214800B3 // aValues
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_478E212D0257 Create
+
+: ME_478E231F0287
+ CONST UID '478E231F0287'
+ CONST Name 'aID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5EF660059 // Tl3ValueMapID
+ ;
+
+ @SELF
+; // ME_478E231F0287 aID
+
+: ME_478E231F02AD
+ CONST UID '478E231F02AD'
+ CONST Name 'aTypeInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4767749802D1 // PTypeInfo
+ ;
+
+ @SELF
+; // ME_478E231F02AD aTypeInfo
+
+: ME_478E231F02D2
+ CONST UID '478E231F02D2'
+ CONST Name 'aValues'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_478E1FC10349 // array of PResStringRec
+ ;
+
+ @SELF
+; // ME_478E231F02D2 aValues
+
+: ME_478E230C0052
+ CONST UID '478E230C0052'
+ CONST Name 'Make'
+ CONST Class 'Operation'
+ CONST Stereotype 'factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A5FCD303C1 // Il3IntegerValueMap
+ ;
+ : Parameters
+   [ ME_478E231F0287 // aID
+ ME_478E231F02AD // aTypeInfo
+ ME_478E231F02D2 // aValues
+ ]
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_478E230C0052 Make
+
+: ME_478E1DFA01DF
+ CONST UID '478E1DFA01DF'
+ CONST Name 'Tl3ResourceTypedIntegerValueMap'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478E1E9E01CE // Tl3IntegerValueMap
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_47986CEA02E4 // f_Values
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_478E212D0257 // Create
+ ME_478E230C0052 // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_478E235D0041 // DoDisplayNameToValue
+ ME_478E237001B3 // DoValueToDisplayName
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_478CFFBA017D // DoGetDisplayNames
+ ME_478CFFCE02DE // GetMapSize
+ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_478E1DFA01DF Tl3ResourceTypedIntegerValueMap
+
+: ME_478E1D94023E
+ CONST UID '478E1D94023E'
+ CONST Name 'l3TypedIntegerValueMap'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'реализация мапы "строка"-"число" для чистой замены array [TSomeType] of string. Берет данные из ResourceString.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_478E1E9E01CE // Tl3IntegerValueMap
+ ME_478E1E3A0182 // Tl3SimpleTypedIntegerValueMap
+ ME_478E203503AF // Tl3ResStringArray
+ ME_478E1DFA01DF // Tl3ResourceTypedIntegerValueMap
+ ]
+ ; // Children
+ CONST "no hands" true
+
+ @SELF
+; // ME_478E1D94023E l3TypedIntegerValueMap

@@ -1,0 +1,644 @@
+// csTasksHelpers 54A247D202B0 UtilityPack Class
+
+FORWARD ME_54A247D202B0
+
+FORWARD ME_53C3A62101DB
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_53C3A69D00D9
+ CONST UID '53C3A69D00D9'
+ CONST Name 'Name'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'lnk'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "pm" false
+
+ @SELF
+; // ME_53C3A69D00D9 Name
+
+: ME_53C3A62101DB
+ CONST UID '53C3A62101DB'
+ CONST GUID 'F8F4240B-F6FA-4A16-9D97-F74A37E37C6B'
+ CONST Name 'ReplacementFileHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_53C3A69D00D9 // Name
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_53C3A62101DB ReplacementFileHelper
+
+FORWARD ME_54B3B0E401C8
+
+FORWARD ME_54B7ABF7033F
+
+: ME_54B7AC3A013F
+ CONST UID '54B7AC3A013F'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54B7AC3A013F anIndex
+
+: ME_54B7AC3A014E
+ CONST UID '54B7AC3A014E'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_54B7AC3A014E aValue
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54B7AC160001
+ CONST UID '54B7AC160001'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54B7AC3A013F // anIndex
+ ME_54B7AC3A014E // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B7AC160001 DoIt
+
+: ME_54B7ABF7033F
+ CONST UID '54B7ABF7033F'
+ CONST Name 'ChangeName'
+ CONST Class 'Class'
+ CONST Stereotype 'facetmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_54B7AC160001 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B7ABF7033F ChangeName
+
+: ME_54B3B0E401C8
+ CONST UID '54B3B0E401C8'
+ CONST GUID 'BFED0922-1466-47EF-ACB3-538D574F74ED'
+ CONST Name 'AdditionalFilesHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_54B7ABF7033F // ChangeName
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B3B0E401C8 AdditionalFilesHelper
+
+FORWARD ME_53EDDBB5025F
+
+FORWARD ME_54B3BCB10348
+
+: ME_54B4C8C30217
+ CONST UID '54B4C8C30217'
+ CONST Name 'anIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54B4C8C30217 anIndex
+
+: ME_54B3BCB10348
+ CONST UID '54B3BCB10348'
+ CONST Name 'AdditionalFiles'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'lnk'
+ : Target ME_54B3B0E401C8 // AdditionalFilesHelper
+ ;
+ : Attributes
+   [ ME_54B4C8C30217 // anIndex
+ ]
+ ; // Attributes
+ CONST "pm" false
+
+ @SELF
+; // ME_54B3BCB10348 AdditionalFiles
+
+: ME_53EDDBB5025F
+ CONST UID '53EDDBB5025F'
+ CONST GUID 'D13DC0D8-257A-4B1F-90CD-0DD2B70AD91A'
+ CONST Name 'SourceFilesHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54B3B0E401C8 // AdditionalFilesHelper
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_54B3BCB10348 // AdditionalFiles
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_53EDDBB5025F SourceFilesHelper
+
+FORWARD ME_54B3B12C007B
+
+FORWARD ME_54B3B43000FE
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+: ME_7E12ECD398D2
+ CONST UID '7E12ECD398D2'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_534572370056 // Tl3Tag
+ ;
+
+ @SELF
+; // ME_7E12ECD398D2 aValue
+
+: ME_281D68D1C560
+ CONST UID '281D68D1C560'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TAdditionalFilesHelper.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_54B3B0E401C8 // AdditionalFilesHelper
+ ;
+ : Parameters
+   [ ME_7E12ECD398D2 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_281D68D1C560 DoIt
+
+: ME_54B3B43000FE
+ CONST UID '54B3B43000FE'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Implements
+   [ ME_54B3B0E401C8 // AdditionalFilesHelper
+ ]
+ ; // Implements
+ : Operations
+   [ ME_281D68D1C560 // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_54B3B43000FE Make
+
+: ME_54B3B12C007B
+ CONST UID '54B3B12C007B'
+ CONST Name 'TAdditionalFilesHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_54B3B0E401C8 // AdditionalFilesHelper
+ ]
+ ; // Implements
+ : Operations
+   [ ME_54B3B43000FE // Make
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54B3B12C007B TAdditionalFilesHelper
+
+FORWARD ME_53BFCD060366
+
+FORWARD ME_54B3D8780114
+
+: ME_54B3D8940184
+ CONST UID '54B3D8940184'
+ CONST Name 'cPicToken'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value 'ev_NSRCFormula + ''pic:'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_54B3D8940184 cPicToken
+
+: ME_54B3D8AF0002
+ CONST UID '54B3D8AF0002'
+ CONST Name 'cObjToken'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''!OBJPATH '''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_54B3D8AF0002 cObjToken
+
+: ME_54B5225C02D3
+ CONST UID '54B5225C02D3'
+ CONST Name 'cTopicToken'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''!TOPIC '''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_54B5225C02D3 cTopicToken
+
+: ME_54B522D800A0
+ CONST UID '54B522D800A0'
+ CONST Name 'cObjTopicToken'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''!OBJTOPIC '''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_54B522D800A0 cObjTopicToken
+
+: ME_54B3D8780114
+ CONST UID '54B3D8780114'
+ CONST Name 'SearchTokens'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_54B3D8940184 // cPicToken
+ ME_54B3D8AF0002 // cObjToken
+ ME_54B5225C02D3 // cTopicToken
+ ME_54B522D800A0 // cObjTopicToken
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_54B3D8780114 SearchTokens
+
+FORWARD ME_53BFD5C10134
+
+: ME_4E8EBCDBDA64
+ CONST UID '4E8EBCDBDA64'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_534572370056 // Tl3Tag
+ ;
+
+ @SELF
+; // ME_4E8EBCDBDA64 aValue
+
+: ME_F474BEC01FA6
+ CONST UID 'F474BEC01FA6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TSourceFilesHelper.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_53EDDBB5025F // SourceFilesHelper
+ ;
+ : Parameters
+   [ ME_4E8EBCDBDA64 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_F474BEC01FA6 DoIt
+
+: ME_53BFD5C10134
+ CONST UID '53BFD5C10134'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Implements
+   [ ME_53EDDBB5025F // SourceFilesHelper
+ ]
+ ; // Implements
+ : Operations
+   [ ME_F474BEC01FA6 // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_53BFD5C10134 Make
+
+FORWARD ME_54B3C3F4029A
+
+: ME_54B3C41601B8
+ CONST UID '54B3C41601B8'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_54B3C41601B8 DoIt
+
+: ME_54B3C3F4029A
+ CONST UID '54B3C3F4029A'
+ CONST Name 'NeedCheckNSRC'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_54B3C41601B8 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B3C3F4029A NeedCheckNSRC
+
+FORWARD ME_54B3C6080134
+
+: ME_54B4CCB70040
+ CONST UID '54B4CCB70040'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54B4CCB70040 anIndex
+
+: ME_54B4CCB70041
+ CONST UID '54B4CCB70041'
+ CONST Name 'anItem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_54B4CCB70041 anItem
+
+: ME_54B3C617016A
+ CONST UID '54B3C617016A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54B4CCB70040 // anIndex
+ ME_54B4CCB70041 // anItem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B3C617016A DoIt
+
+: ME_54B3C6080134
+ CONST UID '54B3C6080134'
+ CONST Name 'CheckNSRC'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B3C617016A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B3C6080134 CheckNSRC
+
+: ME_53BFCD060366
+ CONST UID '53BFCD060366'
+ CONST Name 'TSourceFilesHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54B3B12C007B // TAdditionalFilesHelper
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_53EDDBB5025F // SourceFilesHelper
+ ]
+ ; // Implements
+ : Operations
+   [ ME_53BFD5C10134 // Make
+ ME_54B3C3F4029A // NeedCheckNSRC
+ ME_54B3C6080134 // CheckNSRC
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_54B3BCB10348 // AdditionalFiles
+ ]
+ ; // Implemented
+ : Constants
+   [ ME_54B3D8780114 // SearchTokens
+ ]
+ ; // Constants
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53BFCD060366 TSourceFilesHelper
+
+FORWARD ME_53C3A63C0315
+
+FORWARD ME_53C3A6770100
+
+: ME_E2323AC54F97
+ CONST UID 'E2323AC54F97'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_534572370056 // Tl3Tag
+ ;
+
+ @SELF
+; // ME_E2323AC54F97 aValue
+
+: ME_3D9138E36AD7
+ CONST UID '3D9138E36AD7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TReplacementFileHelper.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_53C3A62101DB // ReplacementFileHelper
+ ;
+ : Parameters
+   [ ME_E2323AC54F97 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_3D9138E36AD7 DoIt
+
+: ME_53C3A6770100
+ CONST UID '53C3A6770100'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Implements
+   [ ME_53C3A62101DB // ReplacementFileHelper
+ ]
+ ; // Implements
+ : Operations
+   [ ME_3D9138E36AD7 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_53C3A69D00D9 // Name
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_53C3A6770100 Make
+
+: ME_53C3A63C0315
+ CONST UID '53C3A63C0315'
+ CONST Name 'TReplacementFileHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53BFCD060366 // TSourceFilesHelper
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_53C3A62101DB // ReplacementFileHelper
+ ]
+ ; // Implements
+ : Operations
+   [ ME_53C3A6770100 // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_53C3A69D00D9 // Name
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_54B3C3F4029A // NeedCheckNSRC
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53C3A63C0315 TReplacementFileHelper
+
+: ME_54A247D202B0
+ CONST UID '54A247D202B0'
+ CONST Name 'csTasksHelpers'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_53C3A62101DB // ReplacementFileHelper
+ ME_54B3B0E401C8 // AdditionalFilesHelper
+ ME_53EDDBB5025F // SourceFilesHelper
+ ME_54B3B12C007B // TAdditionalFilesHelper
+ ME_53BFCD060366 // TSourceFilesHelper
+ ME_53C3A63C0315 // TReplacementFileHelper
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_54A247D202B0 csTasksHelpers

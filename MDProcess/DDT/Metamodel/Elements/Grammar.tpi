@@ -1,0 +1,1168 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DDT/Metamodel/Elements/Grammar.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::DDT::Metamodel::Elements::Grammar
+//
+// Файл грамматики
+// ---
+// Определяет файл грамматики, в котором описываются правила для включаемых элементов. Включаемые
+// элементы определяются связью со стереотипом <<include>> (включаться могут как элементы данных,
+// так и другие грамматики). Для указания корневого правила используется связь <<root>>
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Grammar::Class
+? Файл грамматики
+? Определяет файл грамматики, в котором описываются правила для включаемых элементов. Включаемые элементы определяются связью со стереотипом <<include>> (включаться могут как элементы данных, так и другие грамматики). Для указания корневого правила используется связь <<root>>
+< *::Class,*::Category
+
+= WikiImplClass::Class
+= DDGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_grammar.gif
+L code_grammar
+// Параметры визуализации
+$ C 220,210,180
+$ l 180,150,90
+$ f 220,210,180
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p extension:s ? Определяет расширение файла формата
+p need predefined grammar:b=true ? Нужно ли генерить предустановленные грамматикт (например для пробелов и переносов строк)
+p parser lookahead:s ? количество символов на которое может "заглядывать" вперед парсер
+p lexer_lookahead:s=2 ? количество символов на которое может "заглядывать" вперед лексер
+p is main:b=false ? Определяет, что данный формат определяет основную структуру данных, к которой будут "добавлятся" атрибуты, определённые в других форматах.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{extension}"!="%S{!extension}"}%f_up_prefix(%S) *extension* = *%S{extension}* - Определяет расширение файла формата
+	][{"%S{need predefined grammar}"!="%S{!need predefined grammar}"}%f_up_prefix(%S) *need predefined grammar* = *%S{need predefined grammar}* - Нужно ли генерить предустановленные грамматикт (например для пробелов и переносов строк)
+	][{"%S{parser lookahead}"!="%S{!parser lookahead}"}%f_up_prefix(%S) *parser lookahead* = *%S{parser lookahead}* - количество символов на которое может "заглядывать" вперед парсер
+	][{"%S{lexer_lookahead}"!="%S{!lexer_lookahead}"}%f_up_prefix(%S) *lexer_lookahead* = *%S{lexer_lookahead}* - количество символов на которое может "заглядывать" вперед лексер
+	][{"%S{is main}"!="%S{!is main}"}%f_up_prefix(%S) *is main* = *%S{is main}* - Определяет, что данный формат определяет основную структуру данных, к которой будут "добавлятся" атрибуты, определённые в других форматах.
+	]
+
+// инициализирует переменную ROOT_TYPE_%SU типом значения, которое должно возвращать рутовое правило
+%f _set_root_rule_type
+//#UC START# *486A255601D7for48623AC503A4*
+	%f_find_root_type(%S,"ROOT_TYPE_%SU")
+/	%f_set_var(ROOT_TYPE_%SU,"")%f_set_var(SELF,S)\
+/	<{}{%CC=Operation&[{%C%TS=UMLPrimitive&%C%TN=void}{false}true]=false}%f_set_var(ROOT_TYPE_%{SELF}U,C)>\
+/	[{"%{ROOT_TYPE_%SU}U"=""}<{}{%CC=Attribute}%f_set_var(ROOT_TYPE_%{SELF}U,C)>]
+
+f _find_root_type
+	[{"%1N"=""}%f_error("_find_root_type: Не задано имя переменной, в которую поместить результат")]\
+	%f_set_var(ARG,1)\
+	%f_set_var(FINDED,"false")\
+	<{}{%CC=Operation&[{%C%TS=UMLPrimitive&%C%TN=void}{false}true]=false}%f_set_var(%{ARG}N,C)%f_set_var(FINDED,"true")>\
+	[{%{FINDED}N=false}<{}{%CC=Attribute}[{%C%TS=Grammar}{%f_set_var(%{ARG}N,C)}[{%f_is_main_grammar(%C%T)=true}%f_find_root_type(%C%T,%{ARG})]]>]
+//#UC END# *486A255601D7for48623AC503A4*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48623AC503A4*
+c                                                                                                                                          {}
+r {<{}{%CC=Operation}{%CC}>!=1&<{}{%CC=Operation}{%CC}>!=0}:                                                                               {%SS должен определять только одно рутовое правило}
+r {%f_check_root_rule(%S)=false}:                                                                                                          {%SS имеющий более одного атрибута, должен явно рутовое правило}
+r {<{}{%CC=Attribute}{%CC}>=0}:                                                                                                            {%SS должен содержать хотя бы одно правило}
+r {%f_return_type_exist(%S)!=true&<{}{%CC=Attribute&%C%TS!=Grammar}{%CC}>!=0}:                                                             {%SS должен определять тип возращаемого значения (либо через указание типа возвращаемого значениея операции, либо иметь один атрибут)}
+r {<{}{%CC=Dependency&%C%TS!=LexicalRule}{%CC}>!=0}:                                                                                       {%SS может включать (иметь связь-зависимости) только LexerRule}
+r {%f_number_cmp("<{}{%CC=Attribute&%C%TS=Grammar}{%CC}>","1","\>")=1&<{}{%CC=Attribute&%C%TS=Grammar&%C%T{is main}=true}{%CC}>=0}:        {Не указан основной формат (свойство is main), определяющий основную структуру данных}
+r {%f_number_cmp("<{}{%CC=Attribute&%C%TS=Grammar&%C%T{is main}=true}{%CC}>","1","\>")=1}:                                                 {%SS не может объединять несколько грамматик, определяющих основную структуру данных (свойство is main)}
+r {""=""}:                                                                                                                                 {}
+
+f _check_root_rule
+	%f_set_var(ATTR_CNT,"<{}{%CC=Attribute}{%CC}>")\
+	[{%f_number_cmp("%{ATTR_CNT}N","1","\>")=1&<{}{%CC=Operation}{%CC}>=0}{true}false]
+
+f _return_type_exist
+	[{<{}{%CC=Attribute}{%CC}>!=1}{true}%f_clear_list(TYPES)\
+	<{}{%CC=Attribute}%C[%f_add_to_list(TYPES,T)]>[{"<{}{%CC=Operation}%C[{%f_exists_in_list(TYPES,T)=true}.]>"=""}{true}[{<{}{%CC=Operation&%C%TN!=void}{%CC}>!=0}{false}true]]]
+//#UC END# *4704C0E30186for48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических cpp-шников (например хидере реализации хранения)
+%f _specific_cpp_files_list
+//#UC START# *47EA208B0009for48623AC503A4*
+//#UC END# *47EA208B0009for48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических хидеров (например хидере реализации хранения)
+%f _specific_h_files_list
+//#UC START# *47EA1ED00157for48623AC503A4*
+//#UC END# *47EA1ED00157for48623AC503A4*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48623AC503A4*
+P
+S class %SN;
+O %SN.cpp
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+	%f_find_root_type(%S,"ROOT_TYPE")\
+	\#include "boost/algorithm/string/join.hpp"
+	\#include "antlr/ANTLRException.hpp"
+	[{"%SK"!="ParameterizedClass"}\#include %f_dump_include_path(%f_with_gen_id(h,%SW),%S)
+	]\#include %f_str_replace(%f_str_replace(%f_with_gen_id(g.cpp,%f_dump_include_path(%SL,%S)),.cpp.g,.hpp),%SN.,%SNParser.)
+	\#include %f_str_replace(%f_str_replace(%f_with_gen_id(g.cpp,%f_dump_include_path(%SL,%S)),.cpp.g,.hpp),%SN.,%SNLexer.)[{%f_need_grammar_context_def(%S)=false&%f_need_grammar_context(%S)=true&%f_used_by_grammar(%S)=false}%f_find_main_grammar(%S,"MAIN_GRAMMAR")
+	\#include %f_str_replace(%f_str_replace(%f_with_gen_id(g.cpp,%f_dump_include_path(%{MAIN_GRAMMAR}L,%{MAIN_GRAMMAR})),.cpp.g,.hpp),%{MAIN_GRAMMAR}N.,%{MAIN_GRAMMAR}NParser.)]
+	
+	%SP
+	%SN::%SN (const char* source_file)
+		: m_filename (source_file), m_input_stream (new std::ifstream (source_file))
+	{
+	}
+	
+	%SN::%SN (std::istream* source_stream)
+		: m_input_stream (source_stream)
+	{
+	}
+	
+	%f_dump_return_type(%S,%{ROOT_TYPE}) %SN::[{}{<{}{%CC=Attribute}%f_to_omg(%C%TN) ()>}<{}{%CC=Operation}%f_to_omg(%CN) (%C<{, }%f_arg_full_decl(%C)>)>]] /*antrl::ANTRLException*/ {
+	[{%f_need_grammar_context_def(%S)=false&%f_need_grammar_context(%S)=true&%f_used_by_grammar(%S)=false}%f_find_main_grammar(%S,"MAIN_GRAMMAR")\
+		class ContextAutoCleaner {
+		public:
+			ContextAutoCleaner () {
+				%f_type(%{MAIN_GRAMMAR})Parser::ContextSingleton::close ();
+			}
+			
+			~ContextAutoCleaner () {
+				%f_type(%{MAIN_GRAMMAR})Parser::ContextSingleton::close ();
+			}
+		};
+	]	%SNLexer lexer (*m_input_stream.ptr ());
+		lexer.setFilename (m_filename);
+		
+		%SNParser parser (lexer);
+		parser.setFilename (m_filename);
+		
+		%f_dump_return_type(%S,%{ROOT_TYPE}) res;
+		try {
+			[{%f_need_grammar_context_def(%S)=false&%f_need_grammar_context(%S)=true&%f_used_by_grammar(%S)=false}%f_find_main_grammar(%S,"MAIN_GRAMMAR")//init autocleaner for parsing context
+			ContextAutoCleaner cleaner;
+			]res = parser.[{}{<{}{%CC=Attribute}>%f_to_omg(%C%TN) ()}<{}{%CC=Operation}%f_to_omg(%CN) (%C<{, }%CN>)>];
+		} catch (antlr::RecognitionException& ex) {
+			if (parser.has_stack_error ()) {
+				std::string full_message = ex.getMessage ();
+				full_message += ", additional info:\\n";
+				full_message += boost::algorithm::join (parser.get_error_stack (), ", ");
+				
+				throw antlr::RecognitionException (full_message, ex.getFilename (), ex.getLine (), ex.getColumn ());
+			}
+			throw ex;
+		}
+		
+		return res;
+	}
+	%Sp
+	
+	%f_footer(%S)
+
+f _serialize_grammar_union_res
+	%f_clear_groups(%S)<{}{%CC=Attribute&%C%TS=Grammar}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)%f_sort_strings_as_integer(%S,"GROUPS")\
+	std::ostream& operator \<\< (std::ostream& out_stream, const %SNRes& item) {
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)<{}{%f_is_empty(%{LIST_ID}N)=false}{W}[%f_pop_first_to_var(%{LIST_ID}N,ITEM)\
+	%{ITEM}%T%f_set_root_rule_type()%f_set_var(RES_MEMEBER,{ROOT_TYPE_%{ITEM}%TU})\
+		if (item.m_%f_to_omg(%{ITEM}%TN)_res.empty () == false) {
+			std::vector\<std::pair\<%t_attr(%{RES_MEMEBER}%T,"[{%{RES_MEMEBER}%TS=DataElement}{agr}ref]"), std::string\> \>::const_iterator it = item.m_%f_to_omg(%{ITEM}%TN)_res.begin ();
+			std::vector\<std::pair\<%t_attr(%{RES_MEMEBER}%T,"[{%{RES_MEMEBER}%TS=DataElement}{agr}ref]"), std::string\> \>::const_iterator it_end = item.m_%f_to_omg(%{ITEM}%TN)_res.end ();
+			out_stream \<\< "%f_to_omg(%{ITEM}%TN) {\\n";
+			for (; it != it_end; ++it) {
+				out_stream \<\< (*it).second \<\< ";\\n";
+			}
+			out_stream \<\< "}\\n";
+		}
+	]>]>
+		return out_stream;
+	}
+//#UC END# *47022CB8034Bfor48623AC503A4*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48623AC503A4*
+F class %SN;
+S class %SN;
+O %SN.h
+	%f_output_constraint(%S)\
+	%f_h_header(%S)
+	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+	%f_find_root_type(%S,"ROOT_TYPE")\
+	%f_std_inc(%S)
+	[%f_dump_all_includes(%S)]\#include \<stdio.h\>
+	\#include \<fstream\>[
+	%S%f_open_ifdef()]
+	
+	%SP
+	%f_docs(%S)\
+	#class %SN {
+	#
+	#public:
+	#	explicit %SN (const char* file_name);
+	#	explicit %SN (std::istream* source_stream);
+	#
+	#[#	%f_dump_return_type(%S,%{ROOT_TYPE}) [{}{<{}{%CC=Attribute}%f_to_omg(%C%TN) ()>}<{}{%CC=Operation}%f_to_omg(%CN) (%C<{, }%f_arg_full_decl(%C)>)>]] /*antrl::ANTRLException*/;
+	#
+	#private:
+	#	Core::Aptr\<std::istream\> m_input_stream;
+	#	std::string m_filename;
+	#}; //class %SN
+	%Sp
+	
+	%f_h_footer(%S)
+
+f _dump_return_type
+	[{%f_need_grammar_ret_union(%S)=true}{%t_attr(%1%T,"[{%1%TS=DataElement}{agr}ref]")}std::vector\<%t_attr(%1%T,"[{%1%TS=DataElement}{agr}ref]")[{%1%TS=DataElement} ]\>]
+
+f _dump_root_grammar_return_block
+/	%f_find_main_grammar(%S,"MAIN_GRAMMAR"){
+/	[{%f_need_grammar_ret_union(%S)=true}{\
+/				if (%f_with_gen_id(h,%f_type(%{MAIN_GRAMMAR}))Parser::ContextSingleton::instance ()-\>get_root_level ().empty () == false) \{
+/					%f_variable_name_for_rule_ret(%{ROOT_TYPE},"_ret","false") = %f_with_gen_id(h,%f_type(%{MAIN_GRAMMAR}))Parser::ContextSingleton::instance ()-\>get_root_level ()\[0\];]
+/				\}}\
+/				%f_variable_name_for_rule_ret(%{ROOT_TYPE},"_ret","false") = %f_with_gen_id(h,%f_type(%{MAIN_GRAMMAR}))Parser::ContextSingleton::instance ()-\>get_root_level ();]
+/			}
+
+f _need_grammar_ret_union
+	[{<{}{%f_is_grammar_ret_union_part(%C)=true}{%CC}>!=0}{false}true]
+
+f _is_grammar_ret_union_part
+	[{%TS=Grammar|%T<{}{"%CS"=""&%C%TS=Grammar}{%CC}>!=0}{false}true]
+
+f _dump_all_includes
+	%f_includes_by_contents(%S)%f_clear_list(INCLUDES)\
+	<%f_add_to_list(INCLUDES,"%f_dump_include_path(%wL,%w)")>\
+	<%f_add_to_list(INCLUDES,"%f_dump_include_path(%IL,%I)")>\
+	%f_add_to_list(INCLUDES,"%f_dump_include_path(%{ROOT_TYPE}%TL,%{ROOT_TYPE}%T)")\
+	%f_remove_from_list(INCLUDES,"")%f_sort_list(INCLUDES,n)%f_unique_list(INCLUDES)\
+	<{}{%f_is_empty(INCLUDES)=false}{W}[%f_pop_first_to_var(INCLUDES,INC)\#include %{INC}N
+	]>
+//#UC END# *47022C88029Ffor48623AC503A4*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48623AC503A4*
+//#UC END# *47022CCF00EAfor48623AC503A4*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor48623AC503A4*
+//#UC END# *470321C1038Afor48623AC503A4*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for48623AC503A4*
+O %SN.java
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	%f_set_var(SELF,S)%f_set_var(SERV,S)%S%f_set_root_rule_type()%f_set_var(ROOT_TYPE,{ROOT_TYPE_%SU})\
+	package %f_dump_java_package_ex(%S);
+	
+	import java.io.Reader;
+	import java.io.FileReader;
+	#
+	%f_docs(%S)\
+	#public class %SN {
+	#
+	#	private Reader reader_;
+	#
+	#	public %SN (final String filePath) throws java.io.FileNotFoundException {
+	#		this (new java.io.FileReader (filePath));
+	#	}
+	
+	#	public %SN (final java.io.Reader reader) {
+	#		reader_ = reader;
+	#	}
+	#
+	#<{}{%CC=Operation}#public	%f_ret(%{ROOT_TYPE}) %f_to_java(%f_to_omg(%CN)) (%C<{, }%f_arg_full_decl(%C)>)
+	#		throws antlr.RecognitionException, antlr.TokenStreamException
+	#	{
+	#		%{SERV}NLexer lexer = new %{SERV}NLexer (reader_);
+	#		%{SERV}NParser parser = new %{SERV}NParser (lexer);
+	#	
+	#		return parser.%f_to_java(%f_to_omg(%CN)) (%C<{, }%f_to_java(%CN)>);
+	#	}>
+	#
+	#}; //class %SN
+	
+	%f_footer(%S)
+//#UC END# *470321950119for48623AC503A4*
+
+// реализация абстрактного стереотипа Грамматика::MDAGenerator
+// Генератор грамматики для ANTLR (целевой язык c++)
++ g.cpp
+//#UC START# *4863819D0383for48623AC503A4*
+O %SN.cpp.g
+/X C:/Work/ANTLR/bin/antlr.bat -o %SR%Sd %So
+	%f_output_constraint(%S)\
+	%f_set_var(GRAMMAR,S)%f_set_var(SERV,S)%f_collect_rules(%S)\
+	%f_find_main_grammar_result(%S,"ROOT_TYPE")\
+	header "pre_include_hpp" {
+	\#include "shared/Core/sys/std_inc.h"
+	}
+	
+	header "post_include_hpp" {
+	[%f_dump_grammar_includes(%S)
+	][{%f_grammar_need_lexical_cast(%S)=true}\#include \<boost/lexical_cast.hpp\>
+	]\#include \<vector\>
+	\#include \<map\>
+	}[{%f_need_grammar_context_def(%S)=false&%f_need_grammar_context(%S)=true}%f_find_main_grammar(%S,"MAIN_GRAMMAR")
+	
+	header "post_include_cpp" \{
+	\#include %f_str_replace(%f_str_replace(%f_dump_include_path(%{MAIN_GRAMMAR}L,%{MAIN_GRAMMAR}),.cpp.g,.hpp),%{MAIN_GRAMMAR}N.,%{MAIN_GRAMMAR}NParser.)
+	\}]
+	options {
+	[	k = %S{parser_lookahead};
+	]	language = "Cpp";
+		genHashLines=false;[
+		namespace = "%f_with_gen_id(h,%f_create_antrl_namespace(%S))";]
+	}
+	
+	[\{[
+	%f_dump_grammar_context_cpp(%S)
+	][{<{}{%CC=Attribute&%C%TS!=Grammar}{%CC}>!=0}
+		//helper functions
+		namespace {
+			typedef std::vector\<unsigned long\> AttributeIDList;
+			typedef std::map\<unsigned long, std::string\> DescriptionMap;
+			
+			const std::string get_attribute_description (
+				unsigned long attr_id
+				, const DescriptionMap& description_map
+			) {
+				std::string res;
+				DescriptionMap::const_iterator it = description_map.find (attr_id);
+				if (it != description_map.end ()) {
+					res = it-\>second;
+				}
+				
+				return res;
+			}
+			
+//проверка уникальности атрибута
+//accumulated_flag - число, в котором выставлены в 1 биты, соответствующие уже прочитанному атрибуту
+//flag - число, определяющее прочитанный атрибут (соответствующий бит выставлен в 1, остальные - в 0)
+//если flag не учтен в accumulated_flag, возвращается новый аккумулированное число (accumulated_flag |= flag)
+//если flag уже учтен в accumulated_flagб т.е соотвествующий атрибут уже прочитан - генерируется исключение RecognitionException
+			unsigned long check_attribute_originality (
+				unsigned long accumulated_flag
+				, unsigned long attr_id
+				, const antlr::RefToken& token
+				, const DescriptionMap& description_map
+			) /*throw (antlr::RecognitionException)*/
+			{
+				if (attr_id != 0 && accumulated_flag & attr_id) { //attr_id == 0 - it is container type, no exception
+					std::string mess ("Attribute \\"");
+					mess += get_attribute_description (attr_id, description_map);
+					mess += "\\" already defined";
+					
+					throw antlr::RecognitionException (
+						mess
+						, token-\>getFilename ()
+						, token-\>getLine ()
+						, token-\>getColumn ()
+					);
+				} else {
+					accumulated_flag |= attr_id;
+				}
+				return accumulated_flag;
+			}
+			
+			void check_all_necessary_parsed (
+				unsigned long accumulated_flag
+				, const AttributeIDList& attr_ids
+				, const DescriptionMap& description_map
+				, const antlr::RefToken& token
+			)
+				/*throw (antlr::RecognitionException)*/
+			{
+				AttributeIDList::const_iterator it = attr_ids.begin ();
+				AttributeIDList::const_iterator it_end = attr_ids.end ();
+				
+				std::string error_message ("Not all necessary attributes defined: ");
+				bool not_all_defined = false;
+				for (; it != it_end; ++it) {
+					if ((accumulated_flag & *it) == false) {
+						if (not_all_defined) {
+							error_message += ", ";
+						}
+						error_message += get_attribute_description (*it, description_map);
+						not_all_defined = true;
+					}
+				}
+				
+				if (not_all_defined) {
+					throw antlr::RecognitionException (
+						error_message
+						, token-\>getFilename ()
+						, token-\>getLine ()
+						, token-\>getColumn ()
+					);
+				}
+			}
+		} //namespace
+	]
+		void %SNParser::rule_begin () {
+			this-\>reset_error_stack ();
+		}
+		
+		void %SNParser::rule_end () {
+			this-\>reset_error_stack ();
+		}
+	\}]
+	class %SNParser extends Parser;
+	options {
+		defaultErrorHandler=false;
+	}
+	{[{%f_need_grammar_context_def(%S)=true}
+	public:
+	%f_dump_grammar_context_h(%S)]
+		public:
+			void rule_begin ();
+			
+			void rule_end ();
+	}
+	<{}{%CC=Operation}%f_parser_rule_name(%C)[
+		\[%C<{, }%f_with_gen_id(h,%f_arg_full_decl(%C))>\]][
+		returns \[%f_with_gen_id(h,%f_dump_return_type(%{SERV},%{ROOT_TYPE})) %f_variable_name_for_rule_ret(%{ROOT_TYPE},"_ret","false")\]][
+		{
+			[%{SERV}<{}{%CC=Attribute&%{ROOT_TYPE_%SU}%TU!=%C%TU}[%t_init_rule_attr(%C)
+			]>]
+		}]
+		:	%{SERV}%f_dump_sub_rules()[
+			%f_dump_root_grammar_return_block(%{SERV})]
+		;
+	>[
+	
+	<{}{%f_is_empty(PARSER_RULES)=false}{W}[%f_pop_first_to_var(PARSER_RULES,RULE)%t_parser_rule(%{RULE})
+	
+	]>][%f_copy_list(LEXER_RULES,LEXER_RULES_COPY)%f_set_var(NEED_IDENT,"false")\
+	[{"<{}{%f_is_empty(LEXER_RULES_COPY)=false}{W}[%f_pop_first_to_var(LEXER_RULES_COPY,ITEM)[{%f_is_identifier(%{ITEM}%T)=true}.]]>"!=""}\
+	%f_parser_rule_name("identifier") returns \[std::string ret\]
+		:	s:STRING {ret = s-\>getText ();}
+			| i:IDENTIFIER {ret = i-\>getText ();}
+		;
+	]][{%S{need predefined grammar}=true}
+	%f_dump_predefined_parser_rule(%S)
+	]
+	
+	class %SNLexer extends Lexer;
+	options {
+	[	k = %S{lexer_lookahead};
+	]	testLiterals = false;
+		charVocabulary = '\\003'..'\\377'
+/						| '\\u0410'..'\\u044F' //Russian symbols
+						;
+	}
+	[{%f_is_empty(POST_PRE_FIXES)=false}%f_clear_list(COPY)%f_copy_list(POST_PRE_FIXES,COPY)%f_remove_from_list(COPY,"NL")\
+	%f_sort_strings_by_length(%S,"COPY")\
+	%f_set_var(IDENT_EXIST,"%f_is_identifier_rule_exist(%S,"LEXER_RULES")")\
+	ALL_POST_AND_PREFIXES
+		options {testLiterals=true;}
+		:	<{\n	|}{%f_is_empty(COPY)=false}{W}[%f_pop_last_to_var(COPY,ITEM)%f_set_var(RULE,"%f_str_to_rule(%{ITEM}N)")[{%{IDENT_EXIST}N=false|%f_is_str_intersect_with_identifier_rule(%S,"%f_str_replace(%{RULE}N,%f_dump_q(%S),)")=false}\
+// -2 - это 2 кавычки
+	%f_set_var(RULE_LEN,"%f_evaluate(%f_string_length(%{RULE}N) - 2)")\
+	[{%f_number_cmp("%{RULE_LEN}N","%S{lexer_lookahead}","\>")=1}{%{RULE}N}(%{RULE}N) =\> %{RULE}N]]]>
+		;
+	[{%f_exists_in_list(POST_PRE_FIXES,"NL")=true}
+	protected
+	NL
+		:	(
+				'\\r' '\\n'
+				| 'n'
+				| 'r'
+			)
+			{newline ();}
+		;
+	]][{%f_need_path_lexical_rule(%S)=true}
+	GRAMMAR_FILE_PATH
+		:	(('a'..'z')|('A'..'Z')) ':' (~(';'))*
+		;
+	][%f_copy_list(LEXER_RULES,LEXER_RULES_COPY)%f_clear_list(PRIMITIVE_IMPLS)%f_sort_list(LEXER_RULES_COPY,"%TM%TN")
+	<{}{%f_is_empty(LEXER_RULES_COPY)=false}{W}[%f_pop_first_to_var(LEXER_RULES_COPY,RULE)%f_dump_lexer_rule_def(%{RULE})
+	
+	]>%f_dump_if_need_string_lexer_rule(%S)]%f_clear_list(PRIMITIVE_IMPLS)[{%S{need predefined grammar}=true}
+	%f_dump_predefined_lexer_rule(%S)
+	]%f_clear_list(PARSER_RULES)\
+	%f_clear_list(LEXER_RULES)\
+	%f_clear_list(TOKENS_RULES)\
+	%f_clear_list(PARSER_RULES_NAME)\
+	%f_clear_list(LEXER_RULES_NAME)\
+	%f_clear_list(TOKENS_RULES_NAME)
+
+//нужно ли генерить лексическое правило для разбора строк
+//например возможна ситуация, когда явно строки на модели не используются, но
+//используется правило для identifier, в этом случае нужно добавить правило для разбора строк
+f _dump_if_need_string_lexer_rule
+	%f_copy_list(LEXER_RULES,LEXER_RULES_COPY)\
+	%f_set_var(IDENT_EXIST,"false")\
+	%f_set_var(STRING_EXIST,"false")\
+	<{}{%f_is_empty(LEXER_RULES_COPY)=false}{W}[%f_pop_first_to_var(LEXER_RULES_COPY,RULE)\
+	[{%f_is_string(%{RULE}%T)=true}{[{%{RULE}%TN=identifier}%f_set_var(IDENT_EXIST,"true")]}%f_set_var(STRING_EXIST,"true")]]>\
+	[{%{STRING_EXIST}N=false&%{IDENT_EXIST}N=true}%f_string_lexer_rule("")
+	]
+
+//собираем правила для arbitrary string в один список (ARBITRARY_LIST)
+f _init_arbitrary_list
+	%f_clear_list(ARBITRARY_LIST)\
+	%f_copy_list(LEXER_RULES,TEMP)\
+	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)\
+	[{%{ITEM}%TS=UMLPrimitive&%{ITEM}%TN=arbitrary string}%f_add_to_list(ARBITRARY_LIST,"%f_arbitrary_string_lexer_rule_impl(%{ITEM})")]]>\
+	%f_sort_list(ARBITRARY_LIST,n)\
+	%f_unique_list(ARBITRARY_LIST)\
+	%f_dump_list(%S,"ARBITRARY_LIST","\n")
+	
+f _is_identifier_rule_exist
+	%f_copy_list(%1N,TEMP)\
+	[{"<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)[{%f_is_identifier(%{ITEM}%T)=true}.]]>"!=""}{false}true]
+/	<{\n}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)[{%f_is_identifier(%{ITEM}%T)=true}.]]>
+
+f _is_identifier
+	[{%SS=UMLPrimitive&%SN=identifier}{false}true]
+
+f _is_str_intersect_with_identifier_rule
+	%f_set_var(IDENTIFIER_SYMBOLS,"0123456789abcdefghijklmnopqarstuvwxyzABCDEFGHIJKLMNOPQARSTUVWXYZ_абвгдеёжзийклмнопрстуфхцчщэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧЩЭЮЯ")\
+	%f_set_var(IDENTIFIER_START_SYMBOLS,"abcdefghijklmnopqarstuvwxyzABCDEFGHIJKLMNOPQARSTUVWXYZ_абвгдеёжзийклмнопрстуфхцчщэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧЩЭЮЯ")\
+	[{%f_consist_of(%f_substr_from_begin(%1N,1),%{IDENTIFIER_START_SYMBOLS}N)=true&%f_consist_of(%1N,%{IDENTIFIER_SYMBOLS}N)=true}{false}true]
+
+f _dump_lexer_rule_def
+	[{%TS=UMLPrimitive}{[{%TS!=Grammar}%TX]}%f_set_var(IMPL,"%t_primitive_lexer_rule(%S)")\
+	[{%f_exists_in_list(PRIMITIVE_IMPLS,"%{IMPL}N")=false}%f_add_to_list(PRIMITIVE_IMPLS,"%{IMPL}N")%{IMPL}N]]
+
+f _dump_grammar_includes
+	%f_clear_list(INCLUDES)\
+	%f_with_gen_id(h,%f_collect_includes_by_containers(%S,"CONT_DATA"))\
+	%f_copy_list(PARSER_RULES,TEMP)\
+	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)%f_add_to_list(INCLUDES,"%f_with_gen_id(h,%f_dump_include_path(%{ITEM}%TW,%{ITEM}%T))")]>\
+	<{}{}{%w}%f_add_to_list(INCLUDES,"%f_with_gen_id(h,%f_dump_include_path(%wL,%w))")>\
+	%f_add_to_list(INCLUDES,"%f_with_gen_id(h,%f_dump_include_path(%{ROOT_TYPE}%TL,%{ROOT_TYPE}%T))")\
+	%f_sort_list(INCLUDES,n)%f_remove_from_list(INCLUDES,"")%f_unique_list(INCLUDES)\
+	%f_copy_list(INCLUDES,INCLUDES_COPY)\
+	<{}{%f_is_empty(INCLUDES)=false}{W}[%f_pop_first_to_var(INCLUDES,ITEM)[\#include %{ITEM}N
+	]]>[<{}{%f_is_empty(CONT_DATA)=false}{W}[%f_pop_first_to_var(CONT_DATA,FWD)[{%f_exists_in_list(INCLUDES_COPY,"%f_dump_include_path(%{FWD}L,%{FWD})")=false}[\#include %f_dump_include_path(%{FWD}L,%{FWD})
+	]]]>]
+
+f _collect_rules_req_i
+	
+
+f _dump_fwd_by_attrs
+
+f _need_path_lexical_rule
+	[{<{}{%CC=Attribute&%C%TS=Grammar}{C}>=0}{true}false]
+
+f _grammar_need_lexical_cast
+	%f_copy_list(LEXER_RULES,TEMP)\
+/	<{, }{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)[{%{ITEM}%TS=UMLPrimitive&%f_is_string(%{ITEM}%T)=false}]%{ITEM}%TN]>
+	[{"<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,ITEM)[{%{ITEM}%TS=UMLPrimitive&%f_is_string(%{ITEM}%T)=false}.]]>"!=""}{false}true]
+
+f _create_antrl_namespace
+	%f_cut_postfix(%f_str_replace(%f_str_replace(%f_str_replace(%SP,namespace,), ,),{\n,::),::)
+//#UC END# *4863819D0383for48623AC503A4*
+
+// реализация абстрактного стереотипа Грамматика::MDAGenerator
+// Генератор грамматики для ANTLR (целевой язык java)
++ g.java
+//#UC START# *48632D7803AEfor48623AC503A4*
+O %SN.java.g
+/X C:/Work/ANTLR/bin/antlr.bat -o %SR%Sd %So
+	%f_output_constraint(%S)\
+	%f_set_var(SERV,S)%S%f_set_root_rule_type()%f_set_var(ROOT_TYPE,{ROOT_TYPE_%SU})\
+	header {
+	package %f_dump_java_package_ex(%S);
+	}
+	
+	options {
+	[	k = %S{parser_lookahead};
+	]	language = "Java";
+	}
+	
+	
+	%f_collect_rules(%S)\
+	class %SNParser extends Parser;
+	options {
+		defaultErrorHandler=false;
+	}
+	
+	<{}{%CC=Operation}%f_parser_rule_name(%C)[
+		\[%C<{, }%f_with_gen_id(java,%f_arg_full_decl(%C))>\]][
+		returns \[%f_with_gen_id(java,%f_ret(%{ROOT_TYPE})) %f_to_java(%f_to_omg(%{ROOT_TYPE}N_ret))\]]
+		{
+			%f_to_java(%f_to_omg(%{ROOT_TYPE}N_ret))[ = %t_init_rule_return(%{ROOT_TYPE}%T)];[
+			%{SERV}<{}{%CC=Attribute&%{ROOT_TYPE_%SU}%TU!=%C%TU}[
+			%t_init_rule_attr(%C)]>]
+		}
+		:	%{SERV}%f_dump_sub_rules()
+		;
+	>[
+	
+	<{}{%f_is_empty(PARSER_RULES)=false}{W}[%f_pop_first_to_var(PARSER_RULES,RULE)%t_parser_rule(%{RULE})
+	
+	]>][{%S{need predefined grammar}=true}
+	%f_dump_predefined_parser_rule(%S)
+	]
+	
+	class %SNLexer extends Lexer;
+	options {
+	[	k = %S{lexer_lookahead};
+	]	charVocabulary = '\\003'..'\\377'
+						| '\\u0410'..'\\u044F' //Russian symbols
+						;
+	}
+	[{%f_is_empty(POST_PRE_FIXES)=false}%f_clear_list(COPY)%f_copy_list(POST_PRE_FIXES,COPY)%f_remove_from_list(COPY,"NL")
+	ALL_POST_AND_PREFIXES
+		options {testLiterals=true;}
+		:	<{|}{%f_is_empty(COPY)=false}{W}[%f_pop_first_to_var(COPY,ITEM)%f_str_to_rule(%{ITEM}N)]>
+		;
+	[{%f_exists_in_list(POST_PRE_FIXES,"NL")=true}
+	protected
+	NL
+		:	(
+				'\\r' '\\n'
+				| 'n'
+				| 'r'
+			)
+			{newline ();}
+		;
+	]][
+	<{}{%f_is_empty(LEXER_RULES)=false}{W}[%f_pop_first_to_var(LEXER_RULES,RULE)[{%{RULE}%TS=UMLPrimitive}{%{RULE}%TX}%t_primitive_lexer_rule(%{RULE})
+	]
+	]>][{%S{need predefined grammar}=true}
+	%f_dump_predefined_lexer_rule(%S)
+	]%f_clear_list(PARSER_RULES)\
+	%f_clear_list(LEXER_RULES)\
+	%f_clear_list(TOKENS_RULES)\
+	%f_clear_list(PARSER_RULES_NAME)\
+	%f_clear_list(LEXER_RULES_NAME)\
+	%f_clear_list(TOKENS_RULES_NAME)
+
+f _iterate_grammar_list_rules
+	<{\n\t\t|}{%f_is_empty(%1N)=false}{W}[%f_pop_first_to_var(%1N,RULE)\
+	[{%{IS_FIRST}N=true}{%2N}%f_set_var(IS_FIRST,"false")][{%{RULE}{optional}=true}(][{%{RULE}%TS!=Grammar}[{%{RULE}%TU=%{ROOT_TYPE}%TU}{\
+	[{%{RULE}%TS!=UMLPrimitive&%{RULE}%TS!=LexicalRule}[%f_variable_name_for_rule_ret(%{RULE},"_","false")=]]}\
+	%f_variable_name_for_rule_ret(%{ROOT_TYPE},"_ret","false")=]]%t_rule_name(%{RULE})[{%{RULE}{optional}=true})?]]>
+
+%f _dump_sub_rules
+	%f_clear_list(GROUPS)\
+	<{}{%CC=Attribute}%f_add_to_list(GROUPS,"%C{number}")%f_add_to_list(%C{number},C)>\
+	%f_sort_list(GROUPS,n)%f_unique_list(GROUPS)\
+	%f_set_var(IS_FIRST,"true")\
+	<{}{%f_is_empty(GROUPS)=false}{W}[%f_pop_first_to_var(GROUPS,LIST_ID)[{%f_size_list(%{LIST_ID}N)=1}{[{%{IS_FIRST}N=true}{\t\t}%f_set_var(IS_FIRST,"false")](%f_iterate_grammar_list_rules(%S,"%{LIST_ID}N","\t")\n\t\t)+}%f_iterate_grammar_list_rules(%S,"%{LIST_ID}N","\t\t")]
+	]>
+
+%f _dump_sub_rules1
+	%f_clear_list(RULES)\
+	<{}{%CC=Attribute}%f_add_to_list(RULES,C)>\
+	%f_sort_list(RULES,"%S{number}")\
+	%f_set_var(IS_FIRST,"true")\
+	<{}{%f_is_empty(RULES)=false}{W}[%f_pop_first_to_var(RULES,RULE)\
+	[{%{RULE}%TU=%{ROOT_TYPE_%SU}%TU}{\
+	[{%{RULE}%TS!=UMLPrimitive&%{RULE}%TS!=LexicalRule}[{%{IS_FIRST}N=true}{\t\t}%f_set_var(IS_FIRST,"false")][%f_to_java(%{RULE}N)=]]}\
+	[{%{IS_FIRST}N=true}{		}%f_set_var(IS_FIRST,"false")]%f_to_java(%f_to_omg(%{ROOT_TYPE}N_ret))=]%t_rule_name(%{RULE})
+	]>
+
+//#UC END# *48632D7803AEfor48623AC503A4*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
++ link_to_requests_hack
+//#UC START# *4E65F581015Afor48623AC503A4*
+//#UC END# *4E65F581015Afor48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor48623AC503A4*
+//#UC END# *47031E41002Efor48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for48623AC503A4*
+//#UC END# *47031E850177for48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor48623AC503A4*
+//#UC END# *471442BE033Cfor48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for48623AC503A4*
+//#UC END# *47031EDE0138for48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor48623AC503A4*
+//#UC END# *47031EA5002Efor48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor48623AC503A4*
+//#UC END# *47031EF6005Dfor48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor48623AC503A4*
+//#UC END# *47031F13004Efor48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for48623AC503A4*
+//#UC END# *470322DF03A9for48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor48623AC503A4*
+//#UC END# *47032262037Afor48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for48623AC503A4*
+//#UC END# *470322910119for48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor48623AC503A4*
+//#UC END# *47032220003Efor48623AC503A4*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for48623AC503A4*
+//#UC END# *4703223D01A5for48623AC503A4*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Grammar::Class::Attribute
+? Атрибут
+? определяет какие элементы данных или другие грамматики включаются.
+= Документация::MDAGenerator
+
+// Параметры стереотипа
+v +
+/ - типы видимости
+a f
+/ - тип абстракции
+Y code_grammar_attr.gif
+L code_grammar_attr
+l a
+/ - возможные типы связи атрибута
+
+// Пользовательские свойства
+p number:s ? Определяет порядковый номер правила
+p optional:b=false ? флаг определяет является ли атрибут необязательным
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor486328FE0364*
+//#UC END# *47022C88029Ffor486328FE0364*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor486328FE0364*
+//#UC END# *47022CB8034Bfor486328FE0364*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor486328FE0364*
+//#UC END# *47022CCF00EAfor486328FE0364*
+
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor486328FE0364*
+//#UC END# *47031E41002Efor486328FE0364*
+
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for486328FE0364*
+//#UC END# *47031E850177for486328FE0364*
+
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor486328FE0364*
+//#UC END# *47031EA5002Efor486328FE0364*
+
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for486328FE0364*
+//#UC END# *47031EDE0138for486328FE0364*
+
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor486328FE0364*
+//#UC END# *47031EF6005Dfor486328FE0364*
+
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor486328FE0364*
+//#UC END# *47031F13004Efor486328FE0364*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for486328FE0364*
+//#UC END# *470321950119for486328FE0364*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor486328FE0364*
+//#UC END# *470321C1038Afor486328FE0364*
+
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor486328FE0364*
+//#UC END# *47032220003Efor486328FE0364*
+
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for486328FE0364*
+//#UC END# *4703223D01A5for486328FE0364*
+
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor486328FE0364*
+//#UC END# *47032262037Afor486328FE0364*
+
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for486328FE0364*
+//#UC END# *470322910119for486328FE0364*
+
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for486328FE0364*
+//#UC END# *470322DF03A9for486328FE0364*
+
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor486328FE0364*
+//#UC END# *471442BE033Cfor486328FE0364*
+
+// Генератор грамматики для ANTLR (целевой язык java)
++ g.java
+//#UC START# *48632D7803AEfor486328FE0364*
+//#UC END# *48632D7803AEfor486328FE0364*
+
+// Генератор грамматики для ANTLR (целевой язык c++)
++ g.cpp
+//#UC START# *4863819D0383for486328FE0364*
+//#UC END# *4863819D0383for486328FE0364*
+
+// Хак для [$281531116]
++ link_to_requests_hack
+//#UC START# *4E65F581015Afor486328FE0364*
+//#UC END# *4E65F581015Afor486328FE0364*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{number}"!="%S{!number}"}%f_up_prefix(%S) *number* = *%S{number}* - Определяет порядковый номер правила
+	][{"%S{optional}"!="%S{!optional}"}%f_up_prefix(%S) *optional* = *%S{optional}* - флаг определяет является ли атрибут необязательным
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor486328FE0364*
+	attr
+//#UC END# *4705CBD6003Efor486328FE0364*
+
+: Grammar::Class::Operation
+? Сигнатура рутового правила
+? определяет имя рутового правила, а также список параметров, требуемых для правила и возвращаемое значение.
+= Документация::MDAGenerator
+
+// Параметры стереотипа
+v +
+/ - типы видимости
+a f
+/ - тип абстракции
+Y code_operation.gif
+L code_operation
+T 
+/ - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4864780A036C*
+//#UC END# *47022C88029Ffor4864780A036C*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4864780A036C*
+//#UC END# *47022CB8034Bfor4864780A036C*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4864780A036C*
+//#UC END# *47022CCF00EAfor4864780A036C*
+
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor4864780A036C*
+//#UC END# *47031E41002Efor4864780A036C*
+
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for4864780A036C*
+//#UC END# *47031E850177for4864780A036C*
+
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor4864780A036C*
+//#UC END# *47031EA5002Efor4864780A036C*
+
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for4864780A036C*
+//#UC END# *47031EDE0138for4864780A036C*
+
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor4864780A036C*
+//#UC END# *47031EF6005Dfor4864780A036C*
+
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor4864780A036C*
+//#UC END# *47031F13004Efor4864780A036C*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4864780A036C*
+//#UC END# *470321950119for4864780A036C*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4864780A036C*
+//#UC END# *470321C1038Afor4864780A036C*
+
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor4864780A036C*
+//#UC END# *47032220003Efor4864780A036C*
+
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for4864780A036C*
+//#UC END# *4703223D01A5for4864780A036C*
+
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor4864780A036C*
+//#UC END# *47032262037Afor4864780A036C*
+
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for4864780A036C*
+//#UC END# *470322910119for4864780A036C*
+
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for4864780A036C*
+//#UC END# *470322DF03A9for4864780A036C*
+
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor4864780A036C*
+//#UC END# *471442BE033Cfor4864780A036C*
+
+// Генератор грамматики для ANTLR (целевой язык java)
++ g.java
+//#UC START# *48632D7803AEfor4864780A036C*
+//#UC END# *48632D7803AEfor4864780A036C*
+
+// Генератор грамматики для ANTLR (целевой язык c++)
++ g.cpp
+//#UC START# *4863819D0383for4864780A036C*
+//#UC END# *4863819D0383for4864780A036C*
+
+// Хак для [$281531116]
++ link_to_requests_hack
+//#UC START# *4E65F581015Afor4864780A036C*
+//#UC END# *4E65F581015Afor4864780A036C*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4864780A036C*
+	method
+//#UC END# *4705CBD6003Efor4864780A036C*
+
+: Grammar::Class::ClassDependency
+? Включение
+? определяет какие правила для лексера или парсера нужно включить в файл грамматики
+= Документация::MDAGenerator
+
+// Параметры стереотипа
+Y code_grammar_dep.gif
+L code_grammar_dep
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4868B5F80306*
+//#UC END# *47022C88029Ffor4868B5F80306*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4868B5F80306*
+//#UC END# *47022CB8034Bfor4868B5F80306*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4868B5F80306*
+//#UC END# *47022CCF00EAfor4868B5F80306*
+
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor4868B5F80306*
+//#UC END# *47031E41002Efor4868B5F80306*
+
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for4868B5F80306*
+//#UC END# *47031E850177for4868B5F80306*
+
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor4868B5F80306*
+//#UC END# *47031EA5002Efor4868B5F80306*
+
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for4868B5F80306*
+//#UC END# *47031EDE0138for4868B5F80306*
+
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor4868B5F80306*
+//#UC END# *47031EF6005Dfor4868B5F80306*
+
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor4868B5F80306*
+//#UC END# *47031F13004Efor4868B5F80306*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4868B5F80306*
+//#UC END# *470321950119for4868B5F80306*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4868B5F80306*
+//#UC END# *470321C1038Afor4868B5F80306*
+
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor4868B5F80306*
+//#UC END# *47032220003Efor4868B5F80306*
+
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for4868B5F80306*
+//#UC END# *4703223D01A5for4868B5F80306*
+
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor4868B5F80306*
+//#UC END# *47032262037Afor4868B5F80306*
+
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for4868B5F80306*
+//#UC END# *470322910119for4868B5F80306*
+
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for4868B5F80306*
+//#UC END# *470322DF03A9for4868B5F80306*
+
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor4868B5F80306*
+//#UC END# *471442BE033Cfor4868B5F80306*
+
+// Генератор грамматики для ANTLR (целевой язык java)
++ g.java
+//#UC START# *48632D7803AEfor4868B5F80306*
+//#UC END# *48632D7803AEfor4868B5F80306*
+
+// Генератор грамматики для ANTLR (целевой язык c++)
++ g.cpp
+//#UC START# *4863819D0383for4868B5F80306*
+//#UC END# *4863819D0383for4868B5F80306*
+
+// Хак для [$281531116]
++ link_to_requests_hack
+//#UC START# *4E65F581015Afor4868B5F80306*
+//#UC END# *4E65F581015Afor4868B5F80306*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4868B5F80306*
+	uses
+//#UC END# *4705CBD6003Efor4868B5F80306*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,896 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "NotifyService"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"h:*44A118DA009C_CUSTOM_INCLUDE*"
+	    value      	(value Text "//#UC START# *44A118DA009C_CUSTOM_INCLUDE*¤//#UC END# *44A118DA009C_CUSTOM_INCLUDE*"))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"All")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/shared/GSI/NotifyService/NotifyService.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/shared/GSI/NotifyService/NotifyServiceFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/shared/GSI/NotifyService/NotifyServiceFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/shared/GSI/NotifyService/NotifyService.h"))
+    quid       	"44A118DA009C"
+    stereotype 	"Interface"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Consumer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"01441F0A-F291-4ACB-821F-8975EFA4C752")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Use AMI"
+		    value      	"false"))
+	    quid       	"44A1190D0167"
+	    documentation 	"интерфейс получателя сообщений. Подписку/отписку на сообщения нужно делать внутри реализации. В текущей реализации сервиса для этих целей необходимо просто отнаследоваться от реализации Consumer_i."
+	    stereotype 	"Facet"
+	    operations 	(list Operations
+		(object Operation "fire_event"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A119280119_44A119FD0213*"
+			    value      	(value Text 
+|//#UC START# *44A119280119_44A119FD0213*¤	GDS_ASSERT_MSG (0, ("Consumer_i::fire_notify: must be implemented in children"));¤	//#UC END# *44A119280119_44A119FD0213*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A119280119_44EEA4EE0102*"
+			    value      	(value Text 
+|//#UC START# *44A119280119_44EEA4EE0102*¤	¤	//#UC END# *44A119280119_44EEA4EE0102*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A119280119_45F7E2F3000C*"
+			    value      	(value Text 
+|//#UC START# *44A119280119_45F7E2F3000C*¤	GblPilotDef::UserNotify* user_notify;¤	static ACE_Atomic_Op<ACE_Thread_Mutex, long> s_start_notify_whatcher = 0;¤	if (event >>= user_notify) {¤		if (user_notify->m_type == GblPilotDef::unt_LongOperationStart) {¤			if (1 != (++s_start_notify_whatcher)) {¤				LOG_W (("NotifyManager_i::fire_event: unexpected order of Long Operation message"));¤			}¤			this->send_notify_to_all (NT_LONG_OPERATION_START, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_LongOperationEnd) {¤			if (0 != (--s_start_notify_whatcher)) {¤				LOG_W (("NotifyManager_i::fire_event: unexpected order of Long Operation message"));¤			}¤			this->send_notify_to_all (NT_LONG_OPERATION_END, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_PredefinedDataLogout) {			¤			this->send_notify_to_all (NT_PREDEFINED_DATA_LOGOUT, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_ServerStopped) {¤			this->send_notify_to_all (NT_SHUTDOWN, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_LogOut) {¤			this->send_notify_to_all (NT_LOGOUT, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_BaseStartUpdate) {¤			this->send_notify_to_all (NT_BASE_UPDATE_START, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_BaseUpdated) {¤			application_helper ()->clear_cache_and_regenerate_base_id ();			¤			this->send_notify_to_all (NT_BASE_UPDATE_END, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_BaseUpdateFailed) {¤			this->send_notify_to_all (NT_BASE_UPDATE_FAILED, user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_TimeStampChanged) {¤			this->timestamp_changed (user_notify->m_data);¤		} else if (user_notify->m_type == GblPilotDef::unt_consultation_received) {¤			this->send_notify_to_all (NT_CONSULTATION_RECEIVED, user_notify->m_data); ¤		} else if (user_notify->m_type == GblPilotDef::unt_consultation_not_sent) {¤			this->send_notify_to_all (NT_CONSULTATION_NOT_SENT, user_notify->m_data); ¤		} else if (user_notify->m_type == GblPilotDef::unt_no_subscription) {¤			this->send_notify_to_all (NT_NO_SUBSCRIPTION, user_notify->m_data); ¤		} else if (user_notify->m_type == GblPilotDef::unt_FoldersChanged || user_notify->m_type == GblPilotDef::unt_consultation_folders_changed) {¤			// Нотификация об изменении папок идет в обход NotifyManager_i потому здесь не обрабатывается¤		} else {¤			LOG_W (("NotifyManager_i::fire_event (): unknown user type %d", user_notify->m_type));¤			GDS_ASSERT (false);¤		}¤	} else {¤		LOG_W (("NotifyManager_i::fire_event (): unknown data"));¤		GDS_ASSERT (false);¤	}¤	//#UC END# *44A119280119_45F7E2F3000C*
+			    )))
+		    quid       	"44A119280119"
+		    documentation 	"Для получения сообщений реализация перекрывает этот метод."
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "event"
+			    quid       	"4538C84103B9"
+			    type       	"any"
+			    quidu      	"3DBFFE040134"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "PersonalID"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular"))
+	    quid       	"44A11981000F"
+	    documentation 	"В сервисе предусмотрена возможность послать сообщение только определенному получателю, который идентифицируется через PersonalID. Что бы получатель мог получать сообщения, предназаначенные только ему, он должен при подписке для приема сообщений указать свой PersonalID."
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"44A1199C032C"
+		    supplier   	"Logical View::Primitives::long"
+		    quidu      	"3DBFFD7002C2"))
+	    language   	"MDA Generator")
+	(object Class "Manager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"fctr.cpp:*44A13E3702DE44A13F9E035B_44A142C901B5_IMPL*"
+		    value      	(value Text 
+|//#UC START# *44A13E3702DE44A13F9E035B_44A142C901B5_IMPL*¤	Manager_i::Singleton::instance ()->init (prid, m_orb.in ());¤	return Manager_i::Singleton::instance ();¤	//#UC END# *44A13E3702DE44A13F9E035B_44A142C901B5_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"fctr.cpp:*44A13E3702DE44A13F9E035B_44B2080D028F_IMPL*"
+		    value      	(value Text 
+|//#UC START# *44A13E3702DE44A13F9E035B_44B2080D028F_IMPL*¤	Manager_i* mng = Manager_i::Singleton::instance ();¤¤	mng->m_prid = m_prj;¤	mng->m_orb = CORBA::ORB::_duplicate (m_orb);¤¤	mng->addref ();¤	return mng;¤	//#UC END# *44A13E3702DE44A13F9E035B_44B2080D028F_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"D8D0D41A-9698-41A7-8351-0BC25F1B993A")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A13E3702DE_44B2080D028F_44A13F9E035B_BASE_INIT*"
+		    value      	"//#UC START# *44A13E3702DE_44B2080D028F_44A13F9E035B_BASE_INIT*¤//#UC END# *44A13E3702DE_44B2080D028F_44A13F9E035B_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44A13E3702DE_44B2080D028F_44A13F9E035B_BODY*"
+		    value      	(value Text 
+|//#UC START# *44A13E3702DE_44B2080D028F_44A13F9E035B_BODY*¤	//#UC END# *44A13E3702DE_44B2080D028F_44A13F9E035B_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular"))
+	    quid       	"44A13E3702DE"
+	    documentation 	"Сервис Сообщений. Позволяет организовать межпроцессорный обмен сообщениями. Текущая реализация использует CORBA::TAO::Real Event Service, и существует в единственном экземпляре на приложение."
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "done"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A13E670186_44A13F9E035B*"
+			    value      	(value Text 
+|//#UC START# *44A13E670186_44A13F9E035B*¤	if (0 == m_orb.ptr ()) {¤		throw NotifyService::NotInitialized ();¤	}¤¤	m_rte_supplier = 0;¤	{¤        GUARD (m_subscribe_event_mutex);¤		m_consumers_set.clear ();¤		m_event_listeners.clear ();¤	}¤	m_consumer_adm = RtecEventChannelAdmin::ConsumerAdmin::_nil ();¤	m_supplier_adm = RtecEventChannelAdmin::SupplierAdmin::_nil ();¤	if (false == CORBA::is_nil (m_event_channel)) {¤		if (CT_CLIENT != m_prid) {¤			m_event_channel->destroy ();¤		}¤		m_event_channel = RtecEventChannelAdmin::EventChannel::_nil ();¤	}¤	m_poa = PortableServer::POA::_nil ();¤	m_orb = CORBA::ORB::_nil ();¤	//#UC END# *44A13E670186_44A13F9E035B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"44A232E501A5,44F291A301AD"))
+		    quid       	"44A13E670186"
+		    documentation 	"остановка сервиса"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "init"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A142C901B5_44A13F9E035B*"
+			    value      	(value Text 
+|//#UC START# *44A142C901B5_44A13F9E035B*¤	m_orb = CORBA::ORB::_duplicate (&Environment::get_orb ());¤	m_prid = Environment::get_type ();¤¤	if (0 == m_orb.ptr ()) {¤		throw NotifyService::NotInitialized ();¤	}¤¤	try {¤		CORBA::Object_var obj_poa = m_orb->resolve_initial_references ("RootPOA");¤		m_poa = PortableServer::POA::_narrow (obj_poa.in ());¤		¤		if (CT_CLIENT != m_prid) {¤			ACE_Service_Config::process_directive (¤				"static EC_Factory \""¤					"-ECDispatching mt"¤					" -ECDispatchingThreads 5"¤					" -ECProxyConsumerLock thread"¤					" -ECProxySupplierLock thread"¤					" -ECConsumerControl reactive"¤					" -ECSupplierControl reactive"¤					" -ECConsumerControlPeriod 600000000" // 10 минут¤					" -ECSupplierControlPeriod 600000000" // 10 минут¤					" -ECConsumerControlTimeout 10000000" // 10 секунд¤					" -ECSupplierControlTimeout 10000000" // 10 секунд¤					" -ECUseORBId MainORB"¤				"\""¤			);¤	¤			TAO_EC_Default_Factory::init_svcs ();¤			TAO_EC_Event_Channel_Attributes attributes (m_poa, m_poa);¤			TAO_EC_Event_Channel* ec_impl = new TAO_EC_Event_Channel (attributes);¤			ec_impl->activate ();¤			PortableServer::ObjectId_var oid = m_poa->activate_object (ec_impl);¤			ec_impl->_remove_ref (); ¤			CORBA::Object_var ec_obj = m_poa->id_to_reference (oid.in ());¤			m_event_channel = RtecEventChannelAdmin::EventChannel::_narrow (ec_obj.in ());¤			m_consumer_adm = ec_impl->for_consumers ();¤			m_supplier_adm = ec_impl->for_suppliers ();¤¤			if (true == CORBA::is_nil (m_event_channel.in ())) {¤				LOG_E (("RTE Service not found!\n"));¤			} else {¤				try {¤					CORBA::Object_var naming_obj = m_orb->resolve_initial_references ("NameService");¤					CosNaming::NamingContext_var naming_server = CosNaming::NamingContext::_narrow (naming_obj.in ());¤					if (!CORBA::is_nil (naming_server)) {¤						CosNaming::Name name;¤						name.length (1);¤						name[0].id = static_cast<const char*>("EventService");¤						naming_server->rebind (name, m_event_channel.in ());¤					} else {¤						LOG_W (("NSSingletonTarget::init: NameService not found"));¤					}¤				} catch (CORBA::ORB::InvalidName&) {¤					LOG_W (("NSSingletonTarget::init: NameService not found"));¤				}¤			}¤¤			m_rte_supplier = new RTEventSupplier (m_poa.in (), m_supplier_adm.in ());¤		} else {¤			CORBA::Object_var naming_obj = m_orb->resolve_initial_references ("NameService");¤			CosNaming::NamingContext_var naming_server = CosNaming::NamingContext::_narrow (naming_obj.in ());¤¤			CosNaming::Name name;¤			name.length (1);¤			name[0].id = static_cast<const char*>("EventService");¤			CORBA::Object_var obj = naming_server->resolve (name);¤			m_event_channel = RtecEventChannelAdmin::EventChannel::_narrow (obj.in ());¤¤			m_consumer_adm = m_event_channel->for_consumers ();¤			m_supplier_adm = m_event_channel->for_suppliers ();¤		}¤¤	} catch (const CORBA::Exception& ex) {¤		LOG_CEX ((ex, "in GCL::NotifyService::init"));¤		throw NotifyService::InternalError ();¤	} catch (...) {¤		LOG_E (("in GCL::NotifyService::init"));¤		throw NotifyService::InternalError ();¤	}¤	//#UC END# *44A142C901B5_44A13F9E035B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"44A232E501A5,44F291A301AD"))
+		    quid       	"44A142C901B5"
+		    documentation 	"запуск сервиса"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44B2080D028F"
+		    documentation 	"фабричный метод"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "InternalError"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"C9A0D5BA-3097-4C8C-A252-0BD8EA52539E")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular"))
+	    quid       	"44A232E501A5"
+	    documentation 	"Внутренняя ошибка, возникающая по вине сервиса."
+	    stereotype 	"Exception"
+	    language   	"MDA Generator")
+	(object Class "Supplier"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"fctr.cpp:*44B2076B03C844A13F9E035B_44B2083C03C8_IMPL*"
+		    value      	(value Text 
+|//#UC START# *44B2076B03C844A13F9E035B_44B2083C03C8_IMPL*¤	NotifyService::Supplier* supplier = Manager_i::Singleton::instance ();¤	supplier->addref ();¤	return supplier;¤	//#UC END# *44B2076B03C844A13F9E035B_44B2083C03C8_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44B2076B03C8_44B2083C03C8_44B26F310177_BASE_INIT*"
+		    value      	"//#UC START# *44B2076B03C8_44B2083C03C8_44B26F310177_BASE_INIT*¤//#UC END# *44B2076B03C8_44B2083C03C8_44B26F310177_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44B2076B03C8_44B2083C03C8_44B26F310177_BODY*"
+		    value      	(value Text 
+|//#UC START# *44B2076B03C8_44B2083C03C8_44B26F310177_BODY*¤	//#UC END# *44B2076B03C8_44B2083C03C8_44B26F310177_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"5B7A4030-B3CE-4040-92CF-9BBDB4ACF845"))
+	    quid       	"44B2076B03C8"
+	    documentation 	"Интерфейс для посылки сообщений."
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "send_common_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44B207CC001E_44A13F9E035B*"
+			    value      	(value Text 
+|//#UC START# *44B207CC001E_44A13F9E035B*¤	¤	//#UC END# *44B207CC001E_44A13F9E035B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44B207CC001E_44B26F310177*"
+			    value      	(value Text 
+|//#UC START# *44B207CC001E_44B26F310177*¤	Manager_i& mng = Manager_iServantFactory::make ();¤¤	std::vector<ProxyConsumer_var> consumers_set_snap;¤	{¤		GUARD (mng.m_subscribe_event_mutex);¤		for (Manager_i::ProxyConsumersMap::iterator it = mng.m_consumers_set.begin (); it != mng.m_consumers_set.end (); ++it) {¤			if (it->second.et == PN_NOTIFY_TO_ALL) {¤				consumers_set_snap.push_back (ProxyConsumer_var (Core::IObject::_duplicate (it->first)));¤			}¤		}¤	}¤	for (unsigned int i = 0; i < consumers_set_snap.size (); i++) {¤		consumers_set_snap[i]->push_event (notify);¤	}¤	consumers_set_snap.clear ();¤¤¤	if (0 == mng.m_rte_supplier.ptr ()) {¤		throw NotifyService::NotInitialized ();¤	}¤¤	try {¤		mng.m_rte_supplier->send_common_notify (notify);¤	} catch (...) {¤		throw NotifyService::InternalError ();¤	}¤	//#UC END# *44B207CC001E_44B26F310177*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"44A232E501A5,44F291A301AD")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true"))
+		    quid       	"44B207CC001E"
+		    documentation 	"Послать обычное сообщение, которое будет получено всем получателям."
+		    stereotype 	"oneway"
+		    parameters 	(list Parameters
+			(object Parameter "notify"
+			    quid       	"4538C6B000DA"
+			    type       	"any"
+			    quidu      	"3DBFFE040134"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "send_personal_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44B207DD0147_44A13F9E035B*"
+			    value      	(value Text 
+|//#UC START# *44B207DD0147_44A13F9E035B*¤	¤	//#UC END# *44B207DD0147_44A13F9E035B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44B207DD0147_44B26F310177*"
+			    value      	(value Text 
+|//#UC START# *44B207DD0147_44B26F310177*¤	Manager_i& mng = Manager_iServantFactory::make ();¤	std::vector<ProxyConsumer_var> consumers_set_snap;¤	{¤		GUARD (mng.m_subscribe_event_mutex);¤		for (Manager_i::ProxyConsumersMap::iterator it = mng.m_consumers_set.begin (); it != mng.m_consumers_set.end (); ++it) {¤			if (it->second.et == PN_NOTIFY_TO_ONE && it->second.id == prs_id) {¤				consumers_set_snap.push_back (ProxyConsumer_var (Core::IObject::_duplicate (it->first)));¤			}¤		}¤	}¤	for (unsigned int i = 0; i < consumers_set_snap.size (); i++) {¤		consumers_set_snap[i]->push_event (notify);¤	}¤	consumers_set_snap.clear ();¤	if (0 == mng.m_rte_supplier.ptr ()) {¤		throw NotifyService::NotInitialized ();¤	}¤¤	try {¤		mng.m_rte_supplier->send_personal_notify (notify, prs_id);¤	} catch (...) {¤		throw NotifyService::InternalError ();¤	}¤	//#UC END# *44B207DD0147_44B26F310177*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"44A232E501A5,44F291A301AD"))
+		    quid       	"44B207DD0147"
+		    documentation 	"Послать персональное сообщение, которое будет получено только получателем, который при подписке на сообщения указал заданный prs_id"
+		    stereotype 	"oneway"
+		    parameters 	(list Parameters
+			(object Parameter "notify"
+			    quid       	"4538C71200AB"
+			    type       	"any"
+			    quidu      	"3DBFFE040134")
+			(object Parameter "prs_id"
+			    quid       	"4538C7120138"
+			    type       	"PersonalID"
+			    quidu      	"44A11981000F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44B2083C03C8"
+		    documentation 	"фабричный метод"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "NotInitialized"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"8C055EDE-D055-47ED-8E4E-54B0B9894F1D"))
+	    quid       	"44F291A301AD"
+	    documentation 	"Сервис не проинициализирован (не запущен)"
+	    stereotype 	"Exception"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272"))
+	    quid       	"44A118FF00CB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	191
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::GSI::NotifyService::Consumer" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(496, 930)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(197, 874)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	598
+			justify    	0
+			label      	"Consumer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(197, 824)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	598
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"44A1190D0167"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(197, 935)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	594
+			justify    	1)
+		    width      	616
+		    height     	236
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GSI::NotifyService::PersonalID" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(651, 248)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(529, 232)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"PersonalID")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(529, 182)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	241
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"44A11981000F"
+		    width      	262
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::long" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(248, 248)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(167, 200)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFD7002C2"
+		    height     	121
+		    autoResize 	TRUE)
+		(object InheritView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44A1199C032C"
+		    client     	@2
+		    supplier   	@3
+		    vertices   	(list Points
+			(519, 248)
+			(338, 248))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GSI::NotifyService::Manager" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1736, 589)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1530, 480)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	412
+			justify    	0
+			label      	"Manager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1530, 430)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	412
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"44A13E3702DE"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(1530, 541)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	409
+			justify    	1)
+		    width      	430
+		    height     	342
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GSI::NotifyService::InternalError" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(735, 1209)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(577, 1181)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"InternalError")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(577, 1131)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	313
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"44A232E501A5"
+		    width      	334
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GSI::NotifyService::Supplier" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(682, 589)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(43, 480)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1278
+			justify    	0
+			label      	"Supplier")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(43, 430)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1278
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"44B2076B03C8"
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(43, 541)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	1275
+			justify    	1)
+		    width      	1296
+		    height     	342
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GSI::NotifyService::NotInitialized" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(330, 1206)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(172, 1178)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"NotInitialized")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(172, 1128)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	313
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"44F291A301AD"
+		    width      	334
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @9
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"44A13E3702DE"))
+		    location   	(2298, 588)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(2035, 529)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	490
+			justify    	1
+			label      	
+|FOR OPER. "make"
+|Target stereotype: cached
+			)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	550
+		    height     	131)
+		(object AttachView "" @10
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@9
+		    supplier   	@5
+		    vertices   	(list Points
+			(2022, 588)
+			(1951, 588))
+		    line_style 	0)))))

@@ -1,0 +1,33 @@
+{$Define DebugRelease}
+{$Define FlushTbl}  //dtDefine.inc
+{.$Define EverestRelease}
+{.$Define MonoUser}
+{.$Define NOJOKE}
+{$Define _m0DEBUG1}
+{$Define _m0LOGSAV1}
+{$Define _m0MSGBOX1} //показывать сообщение об exception пользователю
+{$Define ddWriteGarantAttributes} //ddDefine.inc
+{$Define DebugStackTrace}
+{$Define l3OldRegExpOff}
+{.$Define DisableNSRCOut} //откручивает возможность выливки в NSRC
+{.$Define StackInExeption}
+{$Define evDualSpell}
+{$Define evNotUseTreePara}
+{$Define k2NoTagTree}
+{$Define l3TraceAllocStub}
+{$Define evNeedWaitHeight} //форматирующая псевдотреада
+
+{$Define ReadPropErrorToLog} //ReadProperty Error to write log and not Show
+                             //Используется в Classes.pas, где его нужно определять ТОЖЕ
+
+//{$Define VersionCommands}
+{.$Define SilentAttrSet} // отключить запись в лог операций изменения документов
+{.$Define m3UseForkStreamToOldBase} // включает сохранение документов паралельно в старое и новое хранилища
+{.$Define m3UseOldBase}
+{.$Define m3LogLocks} // писать в лог залочки/отлочки в новом хранилище
+{$Undef  l3TraceMemAllocStat} //чето Шурино, который обещал потом отключить у себя Срет в лог двумя колонками чисел
+{$Undef  l3AssertSimpleMMCanFreeBlocks} //чето Шурино
+
+{$Define evRealPaint} //выделение в редакторе будет синее
+{$Define l3RealPaint}
+

@@ -1,0 +1,24 @@
+project (T_Gready) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_Gready {
+	exename = gready
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += MIN_MEM_CONTEXT
+
+	after += Core
+	libs += Core
+	after += GCL
+	libs += GCL
+
+	after += cchlp1
+	after += cchlp2
+	after += gkdb_gudll
+	after += gctx_tools
+	after += vcontrol_ggu
+
+	libs += cchlp1
+	libs += cchlp2
+	libs += gkdb_gudll
+	libs += gctx_tools
+	libs += vcontrol_ggu
+}

@@ -1,0 +1,76 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE ru.garant.extensions SYSTEM "../ru.garant/extensions.dtd">
+
+<project
+	name = "bootstrap.buildScriptsUpdater"
+	basedir = "."
+	default = "default"
+>
+
+	<!--
+		apache `ant` script [http://ant.apache.org]
+
+		required third party jars {
+			bsf.jar:               [http://jakarta.apache.org/bsf]
+			commons-logging-*.jar: [http://jakarta.apache.org/commons/logging]
+
+			js.jar:                [http://www.mozilla.org/rhino]
+		}
+	-->
+
+<!-- external uses { -->
+	<!-- properties { -->
+		&ru.garant.extensions.properties.cvsRoot;
+		&ru.garant.extensions.properties.cvsUpdateMaxCyclesCount;
+		&ru.garant.extensions.properties.workRootDir;
+	<!-- } properties -->
+
+	<!-- scriptdefs { -->
+		&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
+		&ru.garant.extensions.scriptdefs.updateCvsByList;
+
+<!-- } scriptdefs -->
+<!-- } external uses -->
+
+<!-- properties { -->
+	<property
+		name = "properties.cvsDirsetList"
+		value = "build_scripts"
+	/>
+
+	<property
+		name = "properties.cvsRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+<!-- } properties -->
+
+<!-- targets { -->
+	<target
+		name = "default"
+		depends = "updateCvs"
+	>
+<!--
+		// do nothing
+-->
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // default -->
+
+	<target
+		name = "updateCvs"
+	>
+<!-- -->
+		<ru.garant.extensions.scriptdefs.updateCvsByList
+			cvs.dirset.list = "${properties.cvsDirsetList}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+		/>
+<!-- -->
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // updateCvs -->
+<!-- } targets -->
+
+</project> <!-- // bootstrap.buildScriptsUpdater -->

@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\MANUAL\ARCHIVARIUS.USERGUIDE\Archivarius.UserGuide.hmxz /tsk=FullBuild:Archivarius.UserGuide(federal) /tsk=FullBuild:Archivarius.UserGuide(regions) /tsk=FullBuild:Archivarius.UserGuide(r)_!DAILY

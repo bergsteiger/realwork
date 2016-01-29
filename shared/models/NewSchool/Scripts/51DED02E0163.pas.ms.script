@@ -1,0 +1,44 @@
+// UnrefcountedListPrim 51DED02E0163 Impurity Class
+
+FORWARD ME_51DED02E0163
+
+: ME_51DED062003D
+ CONST UID '51DED062003D'
+ CONST Name 'l3Items_IsUnrefcounted'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_51DED062003D l3Items_IsUnrefcounted
+
+INCLUDE '51DEB07E03E4.pas.ms.script'
+
+: ME_51DED02E0163
+ CONST UID '51DED02E0163'
+ CONST Name 'UnrefcountedListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY 'Список значений без какого то бы ни было подсчёта ссылок' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_51DEB07E03E4 // List
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_51DECB820261 // IsSame
+ ]
+ ; // Implemented
+ : Children
+   [ ME_51DED062003D // l3Items_IsUnrefcounted
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_51DED02E0163 UnrefcountedListPrim

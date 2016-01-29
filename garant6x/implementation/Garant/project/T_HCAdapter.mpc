@@ -1,0 +1,87 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/T_HCAdapter.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<AdapterTarget::Category>> garant6x::HCAdapter
+//
+// Библиотека для взаимодействия сервера консультаций и ПО отдела правовой поддержки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_HCAdapter) : project_generic_core_corba, project_subsystem_windows {
+	sharedname = HCAdapter
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += CommonUtils
+	libs  += CommonUtils
+	after += CoreOld_corba_client
+	libs  += CoreOld_corba_client
+	after += GCI
+	after += GCI_tie
+	libs  += GCI
+	libs  += GCI_tie
+	after += GCL
+	libs  += GCL
+	after += GSI
+	libs  += GSI
+	after += GblConsultingC_corba
+	libs  += GblConsultingC_corba
+	after += GblPilotC_corba
+	libs  += GblPilotC_corba
+	after += HCAdapterLib
+	after += HCAdapterLib_tie
+	libs  += HCAdapterLib
+	libs  += HCAdapterLib_tie
+	after += XercesHelpers
+	libs  += XercesHelpers
+	after += xerces-c
+	libs  += xerces-c
+
+	//#UC START# *442BEE8500AB_CUSTOM_DEPENDENSES*
+	macros += _MPCXC_TARGET_CLIENT
+	after += IdlCompilationSet
+	
+	after += GslDataPipeC_corba
+	libs  += GslDataPipeC_corba
+
+	dynamicflags += _GBLADAPTER_TRACE_REF=0
+	dynamicflags += _GBLADAPTER_DLL
+
+	Source_Files {
+		Version {
+			./../../../../garantServer/src/Business/GblConsulting/Version/ConsultingVersion.cpp
+		}
+	}
+	//#UC END# *442BEE8500AB_CUSTOM_DEPENDENSES*
+	includes += ../../../../
+
+	Header_Files {
+		Std_Headers {
+			./../HCAdapter/HCAdapter.h
+			./../HCAdapter/HCAdapter_tie.h
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../HCAdapter/HCAdapter.cpp
+			./../HCAdapter/HCAdapter_tie.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../HCAdapter/HCAdapter_vi.rc
+		./../HCAdapter/HCAdapter_vi.rch
+		
+		//#UC START# *442BEE8500AB_RESOURCE_FILES*
+	//#UC END# *442BEE8500AB_RESOURCE_FILES*
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

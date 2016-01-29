@@ -1,0 +1,1 @@
+start java org.openorb.ots.Server -ior -ORBInitRef NameService=corbaloc::1.2@localhost:5566/NameService -ORBDebug 5

@@ -1,0 +1,85 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMCore/StandardLikePackages/VCMLibrary.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::VCMTemplates::VCMCore::StandardLikePackages::VCMLibrary
+//
+// нет документации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMLibrary::Category
+implementation @ <<VCMLibrary>>
+//? нет документации
+//= Library::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p gui=prj|rtl|gui ? Тип библиотеки --- prj - библиотека специфичная для проекта rtl - утилитная библиотека gui - библиотека представления
+//p vendor:s=none ? определяет префикс разработчика
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{gui}"!="%S{!gui}"}%f_up_prefix(%S) *gui* = *%S{gui}* - Тип библиотеки --- prj - библиотека специфичная для проекта rtl - утилитная библиотека gui - библиотека представления
+ ?inherited
+ if ( ( %S get_up ( 'gui' ) ) %!= ( %S get_up_def ( 'gui' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *gui* = *'
+  %S get_up ( 'gui' ) '* - Тип библиотеки --- prj - библиотека специфичная для проекта rtl - утилитная библиотека gui - библиотека представления'
+//	][{"%S{vendor}"!="%S{!vendor}"}%f_up_prefix(%S) *vendor* = *%S{vendor}* - определяет префикс разработчика
+ end // if
+ if ( ( %S get_up ( 'vendor' ) ) %!= ( %S get_up_def ( 'vendor' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *vendor* = *'
+  %S get_up ( 'vendor' ) '* - определяет префикс разработчика'
+//	]
+ end // if
+
+// нет документации
+//%f _IsVCMLib
+; // wiki_up_print
+
+: IsVCMLib OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4947E3CB034Cfor4947E36801B6*
+//	true
+ true
+//#UC END# *4947E3CB034Cfor4947E36801B6*
+; // IsVCMLib
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Library::Category
+// Имя файла библиотеки
+//%f _pas_LibUnitName
+: pas_LibUnitName OBJECT IN %S
+//#UC START# *4954DBDD00A3for4947E36801B6*
+//	%f_N(%P)_%f_N(%S)_vcmlib.info
+//	%PN_%SN_vcmlib.info
+ %P |N '_'
+ %S |N '_vcmlib.info'
+//#UC END# *4954DBDD00A3for4947E36801B6*
+; // pas_LibUnitName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMLibrary>>
+

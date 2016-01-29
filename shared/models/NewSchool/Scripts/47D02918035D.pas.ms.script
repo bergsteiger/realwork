@@ -1,0 +1,186 @@
+// l3Date 47D02918035D UtilityPack Class
+
+FORWARD ME_47D02918035D
+
+: ME_4E8EDFCA01C0
+ CONST UID '4E8EDFCA01C0'
+ CONST Name 'TStDate'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "finished" false
+
+ @SELF
+; // ME_4E8EDFCA01C0 TStDate
+
+: ME_554C8DC4028F
+ CONST UID '554C8DC4028F'
+ CONST Name 'TStDayType'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_554C8DC4028F TStDayType
+
+: ME_554C8E0102AB
+ CONST UID '554C8E0102AB'
+ CONST Name 'TDaysOfWeek'
+ CONST Class 'Class'
+ CONST Stereotype 'SetOf'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_554C8DC4028F // TStDayType
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_554C8E0102AB TDaysOfWeek
+
+: ME_5593952A0301
+ CONST UID '5593952A0301'
+ CONST Name 'TStTime'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "finished" false
+
+ @SELF
+; // ME_5593952A0301 TStTime
+
+FORWARD ME_4F575D8E0256
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_870234795B83
+ CONST UID '870234795B83'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода ExpandYear' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_870234795B83 DoIt
+
+: ME_4F575D8E0256
+ CONST UID '4F575D8E0256'
+ CONST Name 'ExpandYear'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_870234795B83 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F575D8E0256 ExpandYear
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47D029360065
+ CONST UID '47D029360065'
+ CONST Name 'FourDigitYear'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_47D029360065 FourDigitYear
+
+: ME_47D029310101
+ CONST UID '47D029310101'
+ CONST Name 'DefDateFormat'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_47D029360065 // FourDigitYear
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47D029310101 DefDateFormat
+
+: ME_47D0298E0086
+ CONST UID '47D0298E0086'
+ CONST Name 'BlanksChar'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFE6F0305 // char
+ ;
+
+ @SELF
+; // ME_47D0298E0086 BlanksChar
+
+: ME_47D0298E00B6
+ CONST UID '47D0298E00B6'
+ CONST Name 'FourDigitYear'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_47D0298E00B6 FourDigitYear
+
+: ME_47D029840351
+ CONST UID '47D029840351'
+ CONST Name 'DefDateMask'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_47D0298E0086 // BlanksChar
+ ME_47D0298E00B6 // FourDigitYear
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47D029840351 DefDateMask
+
+: ME_47D02918035D
+ CONST UID '47D02918035D'
+ CONST Name 'l3Date'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F575D8E0256 // ExpandYear
+ ME_47D029310101 // DefDateFormat
+ ME_47D029840351 // DefDateMask
+ ]
+ ; // Operations
+ : Children
+   [ ME_4E8EDFCA01C0 // TStDate
+ ME_554C8DC4028F // TStDayType
+ ME_554C8E0102AB // TDaysOfWeek
+ ME_5593952A0301 // TStTime
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_47D02918035D l3Date

@@ -1,0 +1,287 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/HighLayers/MDALibrary.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::MetaTemplate::Meta::HighLayers::MDALibrary
+//
+// Библиотека шаблонов
+// ---
+// Функцианальная завершенная группа шаблонов для какой-либо предметной области
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: MDALibrary::Category
+implementation @ <<MDALibrary>>
+//? Библиотека шаблонов
+//? Функцианальная завершенная группа шаблонов для какой-либо предметной области
+//> MDALayer::Category
+
+//= Мета-MDA::MDAGenerator
+//= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_mda_library.gif
+//L code_mda_library
+// Параметры визуализации
+//$ C 140,215,250
+//$ l 90,210,245
+//$ f 90,210,245
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for46E155F80242*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for46E155F80242*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor46E155F80242*
+//#UC END# *4705CBD6003Efor46E155F80242*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for46E155F80242*
+//#UC END# *470484D50138for46E155F80242*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E155F80242*
+//= Requirements::Category;forth_structure
+%call-other-gen ( 'Requirements' 'forth_structure' )
+//#UC END# *4F368B80039Efor46E155F80242*
+; // forth_structure
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E155F80242*
+//C /%SN:%SU
+//O %SN
+//S %SN
+
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Использует билиотеки шаблонов:
+   '{info}Использует билиотеки шаблонов:'
+//	<{}{%SM=%DM}* %f_k_link(%D)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if ( ( %S |M ) %== ( %D |M ) ) then
+    begin
+     '* '
+     [%f] k_link %( %D )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for D
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Используется из билиотек шаблонов:
+   '{info}Используется из билиотек шаблонов:'
+//	<{}{%SM=%aM}{Sp}* %f_k_link(%a)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %S |M ) %== ( %a |M ) ) then
+    begin
+     '* '
+     [%f] k_link %( %a )% 
+//	>{info}][\
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+//	%f_k_common_elem_docs(%S)][{%mx=true&%Cx=true}
+   [%f] k_common_elem_docs %( %S )% 
+  end // if
+  NOP
+  if ( ( %m |x ) %==  true AND 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма билиотеки шаблонов:_
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%m
+   begin
+    OBJECT IN %m
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( '----'#13#10 )
+     '_'
+     if ( ( %m |N ) %!= 'Main' ) then
+     begin
+      %m |N 
+     end // if
+     else
+     begin
+      'Основная' 
+     end // else
+     ' диаграмма билиотеки шаблонов:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>]][
+
+     ++! l_Counter
+    end // if
+   end // for m
+  end // if
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав библиотеки шаблонов[
+  'h2. Состав библиотеки шаблонов'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Слои шаблонов:_<
+   '_Слои шаблонов:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for46E155F80242*
+; // wiki
+
+
+// реализация абстрактного стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E155F80242*
+//P
+//C /%SN
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *46E28D830109for46E155F80242*
+; // mda
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<MDALibrary>>
+

@@ -1,0 +1,50 @@
+// Tl3DataRefList 4773DD0B02A3 SimpleClass Class
+
+INCLUDE '47B5877A02EE.pas.ms.script'
+
+INCLUDE '47BC3A07027F.pas.ms.script'
+
+FORWARD ME_4773DD0B02A3
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47B58BA10267
+ CONST UID '47B58BA10267'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'ref'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_47B58BA10267 ItemType
+
+: ME_4773DD0B02A3
+ CONST UID '4773DD0B02A3'
+ CONST Name 'Tl3DataRefList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Список ссылок на куски памяти. При своём освобождении освобождает хранимые куски памяти. Эта память должна быть выделена функцией l3System.GetLocalMem.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B5877A02EE // l3DataRefList
+ ME_47BC3A07027F // Tl3SimpleDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_47B58BA10267 // ItemType
+ ]
+ ; // Attributes
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.02.2008 10:10'
+
+ @SELF
+; // ME_4773DD0B02A3 Tl3DataRefList

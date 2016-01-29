@@ -1,0 +1,27 @@
+USES
+	QuickTestsUtils.script
+;
+
+OBJECT VAR l_Editor
+
+PROCEDURE "Перейти к таблице"
+	 14 раза "Нажать вниз"
+	 focused:control:push >>> l_Editor
+	 3 раза ( l_Editor pop:Editor:ScrollLineDown )
+;
+
+PROCEDURE "Выделить таблицу и создать блок"
+	"Обработать сообщения"
+	0 0 8 3 l_Editor pop:editor:SelectCellsVertical
+	"Создать блок из выделенного"
+;
+
+Тест TK233734230
+	Параметры: ( "Широкая форма" ) 
+	Выполнить (  
+				"Перейти к таблице" 
+				"Выделить таблицу и создать блок"
+				)
+;
+
+TK233734230

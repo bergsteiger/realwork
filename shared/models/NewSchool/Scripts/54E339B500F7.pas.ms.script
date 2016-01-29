@@ -1,0 +1,289 @@
+// TncsSynchroClientTransporter 54E339B500F7 SimpleClass Class
+
+INCLUDE '54E333CD0130.pas.ms.script'
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_54E339B500F7
+
+INCLUDE '545229E7037D.pas.ms.script'
+
+: ME_54E33B0E00EE
+ CONST UID '54E33B0E00EE'
+ CONST Name 'f_TCPClient'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_54522A0E031D // TncsTCPClient
+ ;
+
+ @SELF
+; // ME_54E33B0E00EE f_TCPClient
+
+FORWARD ME_54E33A870172
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_862671167DA3
+ CONST UID '862671167DA3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Create' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_862671167DA3 DoIt
+
+: ME_54E33A870172
+ CONST UID '54E33A870172'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_862671167DA3 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54E33A870172 Create
+
+FORWARD ME_54E33A920344
+
+: ME_E4A4A4C34FF3
+ CONST UID 'E4A4A4C34FF3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TncsSynchroClientTransporter.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5465A598039E // IncsClientTransporter
+ ;
+
+ @SELF
+; // ME_E4A4A4C34FF3 DoIt
+
+: ME_54E33A920344
+ CONST UID '54E33A920344'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_54E33A870172 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5465A598039E // IncsClientTransporter
+ ]
+ ; // Implements
+ : Operations
+   [ ME_E4A4A4C34FF3 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_544A1FD802E9 // Connect
+ ME_544A1FF00062 // Disconnect
+ ME_5464B4E900DA // Send
+ ME_5464B52F02D5 // WaitForReply
+ ME_5465AB2B00CA // Connected
+ ME_546608F101DE // ClientID
+ ME_5486B96A0025 // Processing
+ ME_548FEF4F002E // SessionID
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_54E33A920344 Make
+
+FORWARD ME_54E33B3A02CB
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_19DBEB7D791C
+ CONST UID '19DBEB7D791C'
+ CONST Name 'ASender'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_19DBEB7D791C ASender
+
+: ME_E5DEF80404EF
+ CONST UID 'E5DEF80404EF'
+ CONST Name 'AStatus'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_E5DEF80404EF AStatus
+
+: ME_7BD7456C1F1E
+ CONST UID '7BD7456C1F1E'
+ CONST Name 'AStatusText'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_7BD7456C1F1E AStatusText
+
+: ME_205DA59B7639
+ CONST UID '205DA59B7639'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_19DBEB7D791C // ASender
+ ME_E5DEF80404EF // AStatus
+ ME_7BD7456C1F1E // AStatusText
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_205DA59B7639 DoIt
+
+: ME_54E33B3A02CB
+ CONST UID '54E33B3A02CB'
+ CONST Name 'TransportStatus'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_205DA59B7639 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54E33B3A02CB TransportStatus
+
+FORWARD ME_54E33B5E0245
+
+: ME_6662E852ACFF
+ CONST UID '6662E852ACFF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода TransportConnected' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_6662E852ACFF DoIt
+
+: ME_54E33B5E0245
+ CONST UID '54E33B5E0245'
+ CONST Name 'TransportConnected'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_6662E852ACFF // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54E33B5E0245 TransportConnected
+
+FORWARD ME_54E33EA40163
+
+: ME_9367E3A2B13B
+ CONST UID '9367E3A2B13B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода BeforeHandshake' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9367E3A2B13B DoIt
+
+: ME_54E33EA40163
+ CONST UID '54E33EA40163'
+ CONST Name 'BeforeHandshake'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_9367E3A2B13B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54E33EA40163 BeforeHandshake
+
+: ME_54E339B500F7
+ CONST UID '54E339B500F7'
+ CONST Name 'TncsSynchroClientTransporter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54E333CD0130 // TncsSynchroTransporter
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5465A598039E // IncsClientTransporter
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_54E33B0E00EE // f_TCPClient
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54E33A870172 // Create
+ ME_54E33A920344 // Make
+ ME_54E33B3A02CB // TransportStatus
+ ME_54E33B5E0245 // TransportConnected
+ ME_54E33EA40163 // BeforeHandshake
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_544A1FD802E9 // Connect
+ ME_544A1FF00062 // Disconnect
+ ME_54E3353000D8 // HandShake
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54E339B500F7 TncsSynchroClientTransporter

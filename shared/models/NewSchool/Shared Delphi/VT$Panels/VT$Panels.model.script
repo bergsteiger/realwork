@@ -1,0 +1,657 @@
+<<Library>> VT$Panels
+ %UID '547CC9D40158'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4D5E61FC01F0' /* AFW$Core */
+  U$ '561F9F7D02A7' /* ScriptEngine */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'vtDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4D5E61FC01F0' /* AFW$Core */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Views>> " Panels"
+   %UID '4A7960CC03A4'
+   %DEPENDS
+    U$ '467BA8C8017E' /* afwControl */
+    U$ '467C0CAA02AB' /* l3InternalInterfaces */
+    U$ '4728A7020026' /* Types */
+    U$ '476F78840219' /* Messages */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4799EC9300AF' /* l3Defaults */
+    U$ '49EF33F700C2' /* ControlsMixIns */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '55C4AEC801CA' /* Graphics */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+    U$ '4D5E61FC01F0' /* AFW$Core */
+    U$ '547CC9D40158' /* VT$Panels */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<GuiControl>> TvtSizeablePanel
+      %UID '4A7961300264'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+     ; // TvtSizeablePanel
+     <<GuiControl>> TvtPanel
+      %UID '4A7961A701CF'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "need UC" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790B4F00236' /* AFW */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4D5E61FC01F0' /* AFW$Core */
+       U$ '547CC9D40158' /* VT$Panels */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '50FD1AE5027A' /* TvtCustomPanel */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "89E2FBBDF8E0"
+         %UID '89E2FBBDF8E0'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // 89E2FBBDF8E0
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID 'F6B746148AA5'
+         %SUMMARY 'Регистрация TvtPanel' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<GuiControl>> TvtCustomPanelPrim
+         %UID '50FD3A9003A4'
+         %META
+          %upv "base wnd class" 'CWnd'
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790B4F00236' /* AFW */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '48BBF1470238' /* TafwTextControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "3F098AE8CB8C"
+            %UID '3F098AE8CB8C'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 3F098AE8CB8C
+         ; // %LINKS
+         %ATTRIBUTES
+           PROTECTED <<property>> BevelInner
+            %UID '50FD17EC01F0'
+            %SUMMARY 'default bvNone;' ;
+            %TARGET U$ '50FD17B50177' /* TPanelBevel */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // BevelInner
+           PROTECTED <<property>> BevelOuter
+            %UID '50FD1813022C'
+            %SUMMARY 'default bvRaised;' ;
+            %TARGET U$ '50FD17B50177' /* TPanelBevel */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // BevelOuter
+           PROTECTED FINAL <<property>> Alignment
+            %UID '50FD18B600A0'
+            %SUMMARY 'default taCenter;' ;
+            %TARGET U$ '4A840F5703AC' /* TAlignment */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Alignment
+           PROTECTED <<property>> BevelWidth
+            %UID '50FD19A80171'
+            %SUMMARY 'default 1;' ;
+            %TARGET U$ '50FD194A022A' /* TBevelWidth */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // BevelWidth
+           PROTECTED FINAL <<property>> BorderWidth
+            %UID '50FD19BE011A'
+            %SUMMARY 'default 0;' ;
+            %TARGET U$ '50FD196E008A' /* TBorderWidth */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // BorderWidth
+           PROTECTED FINAL <<property>> FullRepaint
+            %UID '50FD1A480027'
+            %SUMMARY 'default True;' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // FullRepaint
+           SUMMONED PRIVATE <<Attribute>> f_BevelInner
+            %UID 'EC4C10C44C7C'
+            %SUMMARY 'Поле для свойства BevelInner' ;
+            %TARGET U$ '50FD17B50177' /* TPanelBevel */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // f_BevelInner
+           SUMMONED PRIVATE <<Attribute>> f_BevelOuter
+            %UID 'F51416D363A3'
+            %SUMMARY 'Поле для свойства BevelOuter' ;
+            %TARGET U$ '50FD17B50177' /* TPanelBevel */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // f_BevelOuter
+           SUMMONED PRIVATE <<Attribute>> f_Alignment
+            %UID 'D8625D7F0E1B'
+            %SUMMARY 'Поле для свойства Alignment' ;
+            %TARGET U$ '4A840F5703AC' /* TAlignment */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Alignment
+           SUMMONED PRIVATE <<Attribute>> f_BevelWidth
+            %UID '878336BEB415'
+            %SUMMARY 'Поле для свойства BevelWidth' ;
+            %TARGET U$ '50FD194A022A' /* TBevelWidth */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // f_BevelWidth
+           SUMMONED PRIVATE <<Attribute>> f_BorderWidth
+            %UID '93C40A4B3830'
+            %SUMMARY 'Поле для свойства BorderWidth' ;
+            %TARGET U$ '50FD196E008A' /* TBorderWidth */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // f_BorderWidth
+           SUMMONED PRIVATE <<Attribute>> f_FullRepaint
+            %UID '729A0FF633D9'
+            %SUMMARY 'Поле для свойства FullRepaint' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_FullRepaint
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'CDFDE6F852B8'
+            %SUMMARY 'Регистрация TvtCustomPanelPrim' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TvtCustomPanelPrim
+        <<GuiControl>> TvtCustomPanel
+         %UID '50FD1AE5027A'
+         %META
+          %upv "base wnd class" 'CWnd'
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4D5E61FC01F0' /* AFW$Core */
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49EF346400A4' /* afwShortcutsHandler */
+          U$ '50FD3A9003A4' /* TvtCustomPanelPrim */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '47D1602000C6' /* Create */
+          U$ '48C6C044025E' /* Paint */
+          U$ '48C7925A02E5' /* CreateParams */
+          U$ '5028E66702B0' /* AlignControls */
+          U$ '50FD31EE009B' /* SetParentBackground */
+         ; // %OVERRIDES
+         %LINKS
+           <<uses>> "50FE994E0078"
+            %UID '50FE994E0078'
+            %TARGET U$ '4799ED060093' /* l3Defaults */
+           ; // 50FE994E0078
+           <<uses>> "50FE9CE1009A"
+            %UID '50FE9CE1009A'
+            %TARGET U$ '47D15712022D' /* Graphics */
+           ; // 50FE9CE1009A
+           <<uses>> "50FE9E44021F"
+            %UID '50FE9E44021F'
+            %TARGET U$ '47878E0E0191' /* l3String */
+           ; // 50FE9E44021F
+           <<uses>> "50FE9EB402C7"
+            %UID '50FE9EB402C7'
+            %TARGET U$ '47752AF90375' /* afwFacade */
+           ; // 50FE9EB402C7
+           <<uses>> "50FE9EFE0042"
+            %UID '50FE9EFE0042'
+            %TARGET U$ '4CC842140217' /* Themes */
+           ; // 50FE9EFE0042
+           SUMMONED <<uses>> "1B0577E51991"
+            %UID '1B0577E51991'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 1B0577E51991
+         ; // %LINKS
+         %ATTRIBUTES
+           PROTECTED FINAL <<property>> OnResize
+            %UID '50FD1AC70323'
+            %TARGET U$ '47881B22005A' /* TNotifyEvent */
+            %META
+             %upv "ifndef" 'Delphi7'
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // OnResize
+           FINAL <<property>> FixW2kWMSize
+            %UID '50FD305F022B'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+             %upv "writes field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // FixW2kWMSize
+           PRIVATE <<Attribute>> f_ParentBackgroundSet
+            %UID '50FD340201CD'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "ifdef" 'Delphi7'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_ParentBackgroundSet
+           PRIVATE <<Attribute>> f_In64Hack
+            %UID '50FD3423013B'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_In64Hack
+           PRIVATE <<Attribute>> fakefakefake
+            %UID '5100C07B03BD'
+            %TARGET U$ '5100BFCF039D' /* Tl3DefaultsFakeType */
+            %META
+             %upv "ifdef" 'fakefake'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // fakefakefake
+           PRIVATE <<Attribute>> fakefakefakefakefake
+            %UID '5100C0AA02AC'
+            %TARGET U$ '46A611BA02F3' /* TFontStyle */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // fakefakefakefakefake
+           SUMMONED PRIVATE <<Attribute>> f_OnResize
+            %UID '407D4ED104B0'
+            %SUMMARY 'Поле для свойства OnResize' ;
+            %TARGET U$ '47881B22005A' /* TNotifyEvent */
+            %META
+             %upv "ifndef" 'Delphi7'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_OnResize
+           SUMMONED PRIVATE <<Attribute>> f_FixW2kWMSize
+            %UID '66FE139639E6'
+            %SUMMARY 'Поле для свойства FixW2kWMSize' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_FixW2kWMSize
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PROTECTED <<method>> Resize
+            %UID '50FD3279019E'
+            %META
+             %upv "ifndef" 'Delphi7'
+            ; // %META
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '246F80DD1B07'
+               %SUMMARY 'Сигнатура метода Resize' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Resize
+           PROTECTED FINAL <<method>> DrawFrame
+            %UID '50FD336F020B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '50FD337900A3'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> CN
+                  %UID '50FD338002F0'
+                  %TARGET U$ '4727449A00A2' /* Il3Canvas */
+                  %TOBEINCLUDED
+                   U$ '4790D09A0378' /* L3 */
+                  ; // %TOBEINCLUDED
+                 ; // CN
+                 <<inout>> Rect
+                  %UID '50FD3380030C'
+                  %TARGET U$ '4728A7190065' /* TRect */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Rect
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // DrawFrame
+           PRIVATE FINAL <<message>> CMTextChanged
+            %UID '50FD355100B9'
+            %META
+             %upv "Message ID" 'CM_TEXTCHANGED'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Message
+               %UID '50FD356300C8'
+               %TARGET U$ '476F78A602B2' /* TMessage */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Message
+            ; // %PARAMETERS
+           ; // CMTextChanged
+           PRIVATE FINAL <<message>> WMSize
+            %UID '50FD356F0225'
+            %META
+             %upv "Message ID" 'WM_SIZE'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Message
+               %UID '50FD3579028E'
+               %TARGET U$ '4E9574A2008E' /* TWMSize */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Message
+            ; // %PARAMETERS
+           ; // WMSize
+           PRIVATE FINAL <<message>> WMWindowPosChanged
+            %UID '50FD3584018B'
+            %META
+             %upv "Message ID" 'WM_WINDOWPOSCHANGED'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Message
+               %UID '50FD358C010D'
+               %TARGET U$ '4B6C68FF03BB' /* TWMWindowPosChanged */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Message
+            ; // %PARAMETERS
+           ; // WMWindowPosChanged
+           PRIVATE FINAL <<message>> WMEraseBkgnd
+            %UID '50FD3594029E'
+            %META
+             %upv "Message ID" 'WM_ERASEBKGND'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Message
+               %UID '50FD359C02E9'
+               %TARGET U$ '4F86F32B0299' /* TWMEraseBkgnd */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Message
+            ; // %PARAMETERS
+           ; // WMEraseBkgnd
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '71D63B464597'
+            %SUMMARY 'Регистрация TvtCustomPanel' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TvtCustomPanel
+      ; // %CHILDREN
+     ; // TvtPanel
+     <<GuiControl>> TvtProportionalPanel
+      %UID '4A7AD11C028B'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '547CC9D40158' /* VT$Panels */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<GuiControl>> TvtProportionalCustomPanel
+         %UID '4F71F9080285'
+         %META
+          %upv "base wnd class" 'CWnd'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4A7AD11C028B' /* TvtProportionalPanel */
+         ; // %INHERITS
+        ; // TvtProportionalCustomPanel
+      ; // %CHILDREN
+     ; // TvtProportionalPanel
+     <<GuiControl>> TvtCustomPreviewPanel
+      %UID '4C2238D10107'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790B4F00236' /* AFW */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48BBE37E00A2' /* TafwCustomCommonControl */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "B620CCF60AB7"
+         %UID 'B620CCF60AB7'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // B620CCF60AB7
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID 'B535CFCF119D'
+         %SUMMARY 'Регистрация TvtCustomPreviewPanel' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TvtCustomPreviewPanel
+     <<GuiControl>> TvtPreviewPanel
+      %UID '4C2238BC037D'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '547CC9D40158' /* VT$Panels */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C2238D10107' /* TvtCustomPreviewPanel */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "F8643F11B997"
+         %UID 'F8643F11B997'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // F8643F11B997
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '57BA4B02CA37'
+         %SUMMARY 'Регистрация TvtPreviewPanel' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TvtPreviewPanel
+     <<GuiControl>> TvtCustomCommonPanel
+      %UID '52B99162037C'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '547CC9D40158' /* VT$Panels */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A7961A701CF' /* TvtPanel */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "3AA6FF5FB622"
+         %UID '3AA6FF5FB622'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // 3AA6FF5FB622
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '4E1440C54E93'
+         %SUMMARY 'Регистрация TvtCustomCommonPanel' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TvtCustomCommonPanel
+   ; // %CHILDREN
+  ; // " Panels"
+ ; // %CHILDREN
+; // VT$Panels

@@ -1,0 +1,114 @@
+// OvcCmd 4A3FAF1003DA Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A3FAF1003DA
+
+: ME_4A3FAF1F00EC
+ CONST UID '4A3FAF1F00EC'
+ CONST Name 'Command Tables'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A3FAF1003DA // OvcCmd
+ ;
+ CONST "spell names" false
+
+ref; // ME_4A3FAF1F00EC Command Tables
+
+FORWARD ME_515181D600DD
+
+: ME_515182080271
+ CONST UID '515182080271'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_515182080271 Sender
+
+: ME_515182080287
+ CONST UID '515182080287'
+ CONST Name 'Command'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ ;
+
+ref; // ME_515182080287 Command
+
+: ME_515182020122
+ CONST UID '515182020122'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_515181D600DD // TUserCommandEvent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_515182080271 // Sender
+ ME_515182080287 // Command
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_515182020122 DoIt
+
+: ME_515181D600DD
+ CONST UID '515181D600DD'
+ CONST Name 'TUserCommandEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A3FAF1003DA // OvcCmd
+ ;
+ : Operations
+   @ ( ME_515182020122 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_515181D600DD TUserCommandEvent
+
+: ME_4A3FAF1003DA
+ CONST UID '4A3FAF1003DA'
+ CONST Name 'OvcCmd'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47540FF802AC' '47540FF802AC.pas.ms.script' // Orpheus
+ ;
+ : Children
+   @ ( ME_515181D600DD // TUserCommandEvent
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_4A3FAF1F00EC // Command Tables
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcCmd.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A3FAF1003DA.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A3FAF1003DA.pas.ms.script.runner'
+
+ref; // ME_4A3FAF1003DA OvcCmd

@@ -1,0 +1,66 @@
+// Tm3BaseArcStream 53FF2D7500EB SimpleClass Class
+
+FORWARD ME_53FF2D7500EB
+
+: ME_53FF2DA80270
+ CONST UID '53FF2DA80270'
+ CONST Name 'Tm3BaseArcStreamHeader'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "need UC" true
+ CONST "packed" true
+
+ @SELF
+; // ME_53FF2DA80270 Tm3BaseArcStreamHeader
+
+INCLUDE '53FDCEC40006.pas.ms.script'
+
+INCLUDE '53FDFADD027F.pas.ms.script'
+
+: ME_53FF590600E8
+ CONST UID '53FF590600E8'
+ CONST Name 'HeaderType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_53FF2DA80270 // Tm3BaseArcStreamHeader
+ ;
+
+ @SELF
+; // ME_53FF590600E8 HeaderType
+
+: ME_53FF2D7500EB
+ CONST UID '53FF2D7500EB'
+ CONST Name 'Tm3BaseArcStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53FDCEC40006 // m3CustomHeaderStream
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_53FF590600E8 // HeaderType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_53FDFAF900ED // HeaderID
+ ME_53FF37DC003A // DefaultHeaderValue
+ ]
+ ; // Implemented
+ : Children
+   [ ME_53FF2DA80270 // Tm3BaseArcStreamHeader
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53FF2D7500EB Tm3BaseArcStream

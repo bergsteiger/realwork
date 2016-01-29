@@ -1,0 +1,192 @@
+// tfwMainDictionaryWordsPack 55ED48FA02A9 ScriptKeywordsPack Class
+
+FORWARD ME_55ED48FA02A9
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_FA2C6FCB48FD
+
+: ME_880723EE1245
+ CONST UID '880723EE1245'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_880723EE1245 aCtx
+
+INCLUDE '55A0005D02CC.pas.ms.script'
+
+: ME_880723EE1246
+ CONST UID '880723EE1246'
+ CONST Name 'aMainDictionary'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55A0005D02CC // TtfwMainDictionary
+ ;
+
+ @SELF
+; // ME_880723EE1246 aMainDictionary
+
+: ME_E184DB3F75A6
+ CONST UID 'E184DB3F75A6'
+ CONST Name 'CompiledCode'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:MainDictionary:CompiledCode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+ : Parameters
+   [ ME_880723EE1245 // aCtx
+ ME_880723EE1246 // aMainDictionary
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E184DB3F75A6 CompiledCode
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_6072D7D1FAF0
+ CONST UID '6072D7D1FAF0'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_MainDictionary_CompiledCode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_6072D7D1FAF0 Ini_Reg
+
+: ME_FA2C6FCB48FD
+ CONST UID 'FA2C6FCB48FD'
+ CONST Name 'pop_MainDictionary_CompiledCode'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:MainDictionary:CompiledCode'#13#10'*Тип результата:* TtfwWord'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TtfwWord'#13#10' aMainDictionary pop:MainDictionary:CompiledCode >>> l_TtfwWord'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E184DB3F75A6 // CompiledCode
+ ME_6072D7D1FAF0 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:MainDictionary:CompiledCode'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_FA2C6FCB48FD pop_MainDictionary_CompiledCode
+
+: ME_55ED491201A9
+ CONST UID '55ED491201A9'
+ CONST Name 'CompiledCode'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55ED491201A9 CompiledCode
+
+: ME_D5BFB26EDCEB
+ CONST UID 'D5BFB26EDCEB'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D5BFB26EDCEB Reg_TtfwContext
+
+: ME_FE73D1F28F48
+ CONST UID 'FE73D1F28F48'
+ CONST Name 'Reg_TtfwMainDictionary'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwMainDictionary' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_FE73D1F28F48 Reg_TtfwMainDictionary
+
+: ME_6ED160B5946B
+ CONST UID '6ED160B5946B'
+ CONST Name 'Reg_TtfwWord'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_6ED160B5946B Reg_TtfwWord
+
+: ME_55ED48FA02A9
+ CONST UID '55ED48FA02A9'
+ CONST Name 'tfwMainDictionaryWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55A0005D02CC // TtfwMainDictionary
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_55ED491201A9 // CompiledCode
+ ME_D5BFB26EDCEB // Reg_TtfwContext
+ ME_FE73D1F28F48 // Reg_TtfwMainDictionary
+ ME_6ED160B5946B // Reg_TtfwWord
+ ]
+ ; // Operations
+ : Children
+   [ ME_FA2C6FCB48FD // pop_MainDictionary_CompiledCode
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_55ED48FA02A9 tfwMainDictionaryWordsPack

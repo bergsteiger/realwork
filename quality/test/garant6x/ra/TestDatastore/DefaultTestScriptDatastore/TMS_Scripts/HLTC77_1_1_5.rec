@@ -1,0 +1,19 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+
+Sub Main
+   
+    CUR_STATE=ST_NONE_STANDART
+    Call NeedState (ST_PPR_6x)
+    Window Click, "CurrentWindow","Coords=560,185"
+    Window SetContext, "Caption={√¿–¿Õ*}", ""
+    InputKeys "^{ENTER}"
+    Window SetContext, "Caption={√¿–¿Õ*}", ""
+    InputKeys "{ENTER}"
+    Window SetContext, "Caption={√¿–¿Õ*}", ""
+    ListBox Click, "ObjectIndex=4", "Coords=8,8"
+    Dim ListCount%
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call StrComp2Log(CSTR(ListCount),"12932")
+    CUR_STATE=ST_NONE_STANDART
+End Sub

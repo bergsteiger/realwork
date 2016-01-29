@@ -1,0 +1,24 @@
+project (T_MorphoAdapter_java) : project_generic_core, project_subsystem_console {
+	sharedname = MorphoAdapter_java
+
+	after += Core
+	libs  += Core
+
+	after += GCL
+	libs  += GCL
+
+	after += Morpho
+	libs  += Morpho
+
+	includes += "C:/Program Files/Java/jdk1.6.0_31/include"
+	includes += "C:/Program Files/Java/jdk1.6.0_31/include/win32"
+
+	Header_Files {
+		./../Adapters/Java/ru_garant_SolrExtensions_MorphoAdapter.h
+
+	}
+
+	Source_Files {
+		./../Adapters/Java/ru_garant_SolrExtensions_MorphoAdapter.cpp
+	}
+}

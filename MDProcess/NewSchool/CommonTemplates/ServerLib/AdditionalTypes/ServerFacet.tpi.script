@@ -1,0 +1,1107 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/ServerLib/AdditionalTypes/ServerFacet.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::ServerLib::AdditionalTypes::ServerFacet
+//
+// Серверный фасет
+// ---
+// Серверный фасетный интерфейс, тоже, что и Facet, только используется в серверных компонентах
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ServerFacet::Class
+implementation @ <<ServerFacet>>
+//? Серверный фасет
+//? Серверный фасетный интерфейс, тоже, что и Facet, только используется в серверных компонентах
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= WithFactory::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_server_facet.gif
+//L code_server_facet
+// Параметры визуализации
+//$ C 215,215,255
+//$ l 10,10,255
+//$ f 10,10,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F7348002E*
+//c          {}
+//r {"<{}{%GS!=ServerFacet}{%GC}>"!="0"}:                      {%SS can inherit only from ServerFacet}
+//r {"%Rx"="true"}:                                            {%SS can't realize something}
+//r {<{}{%CC=Attribute&%Cl=ref}{C}>!=0}:                       {%SS не может иметь ref связи}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+//r {<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}:    {%SS не используется ни одним прецедентом}
+
+//#UC END# *4704C0E30186for470F7348002E*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for470F7348002E*
+//#UC END# *4705C54B01F4for470F7348002E*
+; // fctr.cpp
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for470F7348002E*
+//#UC END# *4705C5490109for470F7348002E*
+; // fctr.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F7348002E*
+//F [{"%Sa"="abstract"}abstract ]interface %SN;
+//	<#%FF
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%F
+ begin
+  OBJECT IN %F
+  if true then
+  begin
+   out_indent %F |F 
+//	>%f_docs(%S)\
+
+   ++! l_Counter
+  end // if
+ end // for F
+ [%f] docs %( %S )% 
+//	#[{"%Sa"="abstract"}abstract ]interface %SN[: <{, }%f_type(%G)>] {<{}{%f_is_factory(%C)=false}{Sn}[
+ out_indent if ( ( %S |a ) %== 'abstract' ) then
+ begin
+  'abstract ' 
+ end // if
+ 'interface '
+ %S |N if NOT-EMPTY
+ begin
+  ': '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+ ' {'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_factory %( %C )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	%CX]>
+    %C |X 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	#};
+ out_indent '};'
+//#UC END# *47022BBE0261for470F7348002E*
+; // idl
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F7348002E*
+//O []
+//#UC END# *470321C1038Afor470F7348002E*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F7348002E*
+//O []
+//#UC END# *470321950119for470F7348002E*
+; // java
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: ServerFacet::Class::property::Attribute
+end. // <<ServerFacet>>
+
+implementation @ :: <<ServerFacet>> <<property>> ;
+//? Атрибут интерфейса
+//? для данного атрибута будут сгенерированы методы получения и установки его значения.
+//= InterfaceGeneratorWithJava::MDAGenerator
+//= CommonAttribute::MDAGenerator
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//e a
+// - возможность использовать исключения
+//a a
+// - тип абстракции
+//Y code_property.gif
+//L code_property
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+//A const
+// - стереотипы "цели" (типа/результата)
+//l l
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for471F1A6501A5*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% //	[{"%Ex"="false"&"%ex"="false"}#%f_attr(%S) %SN;
+//	][{"%Ex"="true"|"%ex"="true"}\
+
+//	[{%t_need_ro(%S)=true}#%f_iget_attr(%S) get_%SN (%S%f_accessor_args())[
+ if ( ( [%t] need_ro %( %S )% ) %==  true ) then
+ begin
+  out_indent [%f] iget_attr %( %S )% ' get_'
+  %S |N ' ('
+  %S %f accessor_args %( )% ')'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	#	raises (<{, }%f_type(%E)>)];
+   out_indent '	raises ('
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+   ')' 
+  end // if
+  NOP
+  ';'
+//	][{%t_need_rw(%S)=true}#void set_%SN (%f_iset_attr(%S) %SN[, %S%f_accessor_args()])[
+ end // if
+ if ( ( [%t] need_rw %( %S )% ) %==  true ) then
+ begin
+  out_indent 'void set_'
+  %S |N ' ('
+  [%f] iset_attr %( %S )% ' '
+  %S |N if NOT-EMPTY
+  begin
+   ', '
+   %S %f accessor_args %( )% 
+  end // if
+  NOP
+  ')'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	#	raises (<{, }%f_type(%e)>)];
+   out_indent '	raises ('
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%e
+   begin
+    OBJECT IN %e
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %e )% 
+     ++! l_Counter
+    end // if
+   end // for e
+   ')' 
+  end // if
+  NOP
+  ';'
+//	]
+ end // if
+//#UC END# *47022BBE0261for471F1A6501A5*
+; // idl
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for471F1A6501A5*
+//#UC END# *470321950119for471F1A6501A5*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor471F1A6501A5*
+//#UC END# *470321C1038Afor471F1A6501A5*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for471F1A6501A5*
+//#UC END# *4705C5490109for471F1A6501A5*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for471F1A6501A5*
+//#UC END# *4705C54B01F4for471F1A6501A5*
+; // fctr.cpp
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471F1A6501A5*
+//	property
+ 'property'
+//#UC END# *4705CBD6003Efor471F1A6501A5*
+; // wiki_child_kind
+
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+//%f _need_ro_accessor
+: need_ro_accessor OBJECT IN %S
+//#UC START# *49782FB50256for471F1A6501A5*
+//	true
+ true
+//#UC END# *49782FB50256for471F1A6501A5*
+; // need_ro_accessor
+
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+//%f _need_rw_accessor
+: need_rw_accessor OBJECT IN %S
+//#UC START# *49782FBC0027for471F1A6501A5*
+//	true
+ true
+//#UC END# *49782FBC0027for471F1A6501A5*
+; // need_rw_accessor
+
+
+// Вложенные стереотипы
+//: ServerFacet::Class::property::Attribute::Attribute
+end. // :: <<ServerFacet>> <<property>> ;
+
+implementation @ :: <<ServerFacet>> <<property>> Attribute ;
+//? ключ
+// Параметры стереотипа
+//Y code_attr_key.gif
+//L code_attr_key
+//T 
+// - может не иметь "цели" (типа/результата)
+//A const
+// - стереотипы "цели" (типа/результата)
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for471F1C250167*
+//#UC END# *47022BBE0261for471F1C250167*
+; // idl
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for471F1C250167*
+//#UC END# *470321950119for471F1C250167*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor471F1C250167*
+//#UC END# *470321C1038Afor471F1C250167*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for471F1C250167*
+//#UC END# *4705C5490109for471F1C250167*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for471F1C250167*
+//#UC END# *4705C54B01F4for471F1C250167*
+; // fctr.cpp
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: ServerFacet::Class::readonly::Attribute
+; // st_space_key
+
+end. // :: <<ServerFacet>> <<property>> Attribute ;
+
+implementation @ :: <<ServerFacet>> <<readonly>> ;
+//? Атрибут только для чтения
+//? для данного атрибута будет сгенерирован только метод получения его значения. Если тип атрибута интерфейс - то он будет возвращаться как константный.
+//= ServerFacet::Class::property::Attribute
+
+// Параметры стереотипа
+//e g
+// - возможность использовать исключения
+//Y code_readonly_attr.gif
+//L code_readonly_attr
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+//%f _need_ro_accessor
+; // st_space_key
+
+: need_ro_accessor OBJECT IN %S
+//#UC START# *49782FB50256for471F1C480232*
+//	true
+ true
+//#UC END# *49782FB50256for471F1C480232*
+; // need_ro_accessor
+
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+//%f _need_rw_accessor
+: need_rw_accessor OBJECT IN %S
+//#UC START# *49782FBC0027for471F1C480232*
+//	false
+ false
+//#UC END# *49782FBC0027for471F1C480232*
+; // need_rw_accessor
+
+
+//: ServerFacet::Class::writeonly::Attribute
+end. // :: <<ServerFacet>> <<readonly>> ;
+
+implementation @ :: <<ServerFacet>> <<writeonly>> ;
+//? Атрибут только для записи
+//? для данного атрибута будут сгенерирован только метод установки его значения.
+//= ServerFacet::Class::property::Attribute
+
+// Параметры стереотипа
+//e s
+// - возможность использовать исключения
+//Y code_writeonly_attr.gif
+//L code_writeonly_attr
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+//%f _need_ro_accessor
+; // st_space_key
+
+: need_ro_accessor OBJECT IN %S
+//#UC START# *49782FB50256for471F1C7903D8*
+//	false
+ false
+//#UC END# *49782FB50256for471F1C7903D8*
+; // need_ro_accessor
+
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+//%f _need_rw_accessor
+: need_rw_accessor OBJECT IN %S
+//#UC START# *49782FBC0027for471F1C7903D8*
+//	true
+ true
+//#UC END# *49782FBC0027for471F1C7903D8*
+; // need_rw_accessor
+
+
+//: ServerFacet::Class::Operation
+end. // :: <<ServerFacet>> <<writeonly>> ;
+
+implementation @ :: <<ServerFacet>> <<Operation>> ;
+//? Метод интерфейса
+//? Согласно спецификации CORBA и мапингу в C++ все удаленные методы не константные.
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//e g
+// - возможность использовать исключения
+//a a
+// - тип абстракции
+//Y code_method.gif
+//L code_method
+//T 
+// - может не иметь "цели" (типа/результата)
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+//A const|cached|const,cached
+// - стереотипы "цели" (типа/результата)
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for471F1CC2035B*
+//P
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#[{"%SS"="oneway"}{%f_ret(%S)}oneway void] %SN (<{, }%CX>)[
+ out_indent if ( ( %S |S ) %== 'oneway' ) then
+ begin
+  'oneway void' 
+ end // if
+ else
+ begin
+  [%f] ret %( %S )% 
+ end // else
+ ' '
+ %S |N ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+ ')'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#	raises (<{, }%f_type(%E)>)];
+  out_indent '	raises ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')' 
+ end // if
+ NOP
+ ';'
+//#UC END# *47022BBE0261for471F1CC2035B*
+; // idl
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for471F1CC2035B*
+//#UC END# *470321950119for471F1CC2035B*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor471F1CC2035B*
+//#UC END# *470321C1038Afor471F1CC2035B*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for471F1CC2035B*
+//#UC END# *4705C5490109for471F1CC2035B*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for471F1CC2035B*
+//#UC END# *4705C54B01F4for471F1CC2035B*
+; // fctr.cpp
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471F1CC2035B*
+//c                              {}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+//#UC END# *4704C0E30186for471F1CC2035B*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471F1CC2035B*
+//	method
+ 'method'
+//#UC END# *4705CBD6003Efor471F1CC2035B*
+; // wiki_child_kind
+
+
+// Вложенные стереотипы
+//: ServerFacet::Class::Operation::Parameter
+end. // :: <<ServerFacet>> <<Operation>> ;
+
+implementation @ :: <<ServerFacet>> <<Operation>> ;
+//? Параметр операции
+//= C++ Фабрики::MDAGenerator
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for471F1D56006D*
+//P
+//	%f_arg_full_decl(%S)
+ [%f] arg_full_decl %( %S )% 
+//#UC END# *47022BBE0261for471F1D56006D*
+; // idl
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for471F1D56006D*
+//#UC END# *470321950119for471F1D56006D*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor471F1D56006D*
+//#UC END# *470321C1038Afor471F1D56006D*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for471F1D56006D*
+//= idl
+%call-other-gen ( 'idl' )
+//#UC END# *4705C5490109for471F1D56006D*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for471F1D56006D*
+//= idl
+%call-other-gen ( 'idl' )
+//#UC END# *4705C54B01F4for471F1D56006D*
+; // fctr.cpp
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471F1D56006D*
+//= idl
+%call-other-gen ( 'idl' )
+//#UC END# *47022C88029Ffor471F1D56006D*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor471F1D56006D*
+//= idl
+%call-other-gen ( 'idl' )
+//#UC END# *47022CB8034Bfor471F1D56006D*
+; // cpp
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[InterfaceGeneratorWithJava::MDAGenerator]f_wiki_up_print()
+ call-inherited:: 'InterfaceGeneratorWithJava' wiki_up_print %( )%
+
+
+
+//: ServerFacet::Class::friend::ClassDependency
+; // wiki_up_print
+
+end. // :: <<ServerFacet>> <<Operation>> ;
+
+implementation @ :: <<ServerFacet>> <<friend>> ;
+//? Друг
+//? Определяет что интерфейс (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+//? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_friend.gif
+//L code_dep_friend
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for471F1FEC0109*
+//#UC END# *47022BBE0261for471F1FEC0109*
+; // idl
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for471F1FEC0109*
+//#UC END# *470321950119for471F1FEC0109*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor471F1FEC0109*
+//#UC END# *470321C1038Afor471F1FEC0109*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for471F1FEC0109*
+//#UC END# *4705C5490109for471F1FEC0109*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for471F1FEC0109*
+//#UC END# *4705C54B01F4for471F1FEC0109*
+; // fctr.cpp
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471F1FEC0109*
+//	friend
+ 'friend'
+//#UC END# *4705CBD6003Efor471F1FEC0109*
+; // wiki_child_kind
+
+
+//: ServerFacet::Class::oneway::Operation
+end. // :: <<ServerFacet>> <<friend>> ;
+
+implementation @ :: <<ServerFacet>> <<oneway>> ;
+//? Асинхронная операция
+//? Вызов операции будет выполнен асинхронна. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения. По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<oneway,chg>>. Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.
+//= ServerFacet::Class::Operation
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471F202802EE*
+//c             {}
+//r	{<{}{%CS=out|%CS=inout&%t_class_type(%C%T)=false}{C}>!=0|%TN!=void}: {%SM can't contain inout/out parameters or return result}
+//#UC END# *4704C0E30186for471F202802EE*
+; // constraint
+
+
+// Вложенные стереотипы
+//: ServerFacet::Class::oneway::Operation::Parameter
+end. // :: <<ServerFacet>> <<oneway>> ;
+
+implementation @ :: <<ServerFacet>> <<oneway>> Parameter ;
+//? Параметр операции
+//= ServerFacet::Class::Operation::Parameter
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: ServerFacet::Class::oneway,chg::Operation
+; // st_space_key
+
+end. // :: <<ServerFacet>> <<oneway>> Parameter ;
+
+implementation @ :: <<ServerFacet>> <<oneway,chg>> ;
+//? Асинхронная неконстантная операция
+//? Вызов операции будет выполнен асинхронно. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+//? Неконстантная операция может изменять состояние своего объекта.
+//= ServerFacet::Class::oneway::Operation
+
+// Параметры стереотипа
+//Y code_method.gif
+//L code_method
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: ServerFacet::Class::chg::Operation
+; // st_space_key
+
+end. // :: <<ServerFacet>> <<oneway,chg>> ;
+
+implementation @ :: <<ServerFacet>> <<chg>> ;
+//? Неконстантный метод интерфейса
+//? Согласно спецификации CORBA и мапингу в C++ все удаленные методы не константные.
+//= ServerFacet::Class::Operation
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+// Вложенные стереотипы
+//: ServerFacet::Class::chg::Operation::Parameter
+; // st_space_key
+
+end. // :: <<ServerFacet>> <<chg>> ;
+
+implementation @ :: <<ServerFacet>> <<chg>> Parameter ;
+//? параметр операции
+//= ServerFacet::Class::Operation::Parameter
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: ServerFacet::Class::supply::ClassDependency
+; // st_space_key
+
+end. // :: <<ServerFacet>> <<chg>> Parameter ;
+
+implementation @ :: <<ServerFacet>> <<supply>> ;
+//? Поставщик
+//? Данная связь означает, что элемент источник является поставщиком данных, определяемых целью связи.
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_supply.gif
+//L code_dep_supply
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for47FC905C012A*
+//	%f_dump_supply_idl(%S)
+ [%f] dump_supply_idl %( %S )% 
+//#UC END# *47022BBE0261for47FC905C012A*
+; // idl
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47FC905C012A*
+//#UC END# *470321950119for47FC905C012A*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47FC905C012A*
+//#UC END# *470321C1038Afor47FC905C012A*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47FC905C012A*
+//#UC END# *4705C5490109for47FC905C012A*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47FC905C012A*
+//#UC END# *4705C54B01F4for47FC905C012A*
+; // fctr.cpp
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47FC905C012A*
+//c                                                   {}
+//r {"%TM"!="ServerEvent::Class"}:                    {целью связи может быть только ServerEvent}
+//r {%f_check_multiply_supply(%S)=false}:             {%PS уже является поставщиком %TS}
+//#UC END# *4704C0E30186for47FC905C012A*
+; // constraint
+
+
+//: ServerFacet::Class::consume::ClassDependency
+end. // :: <<ServerFacet>> <<supply>> ;
+
+implementation @ :: <<ServerFacet>> <<consume>> ;
+//? Получатель
+//? Данная связь означает, что элемент источник является "потребителем" данных, определяемых целью связи.
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_consume.gif
+//L code_dep_consume
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for47FC910001F7*
+//	%f_dump_consume_idl(%S)
+ [%f] dump_consume_idl %( %S )% 
+//#UC END# *47022BBE0261for47FC910001F7*
+; // idl
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47FC910001F7*
+//#UC END# *470321950119for47FC910001F7*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47FC910001F7*
+//#UC END# *470321C1038Afor47FC910001F7*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47FC910001F7*
+//#UC END# *4705C5490109for47FC910001F7*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47FC910001F7*
+//#UC END# *4705C54B01F4for47FC910001F7*
+; // fctr.cpp
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47FC910001F7*
+//c                                      {}
+//r {"%TM"!="ServerEvent::Class"}:       {целью связи может быть только ServerEvent}
+//r {%f_check_multiply_consumer(%S)=false}:             {%PS уже является получателем %TS}
+//#UC END# *4704C0E30186for47FC910001F7*
+; // constraint
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<ServerFacet>> <<consume>> ;
+

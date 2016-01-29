@@ -1,0 +1,1330 @@
+<<Library>> Chat
+ %UID '4A66B91A01E4'
+ %SUMMARY 'Внутренняя механика (контроллеры+данные)' ;
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A8734039C' /* EVD */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '521C9DA50125' /* "Application Resources" */
+  U$ '54B90AC6014B' /* StringUtils */
+  U$ '55B62380030A' /* Logging */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '55B62380030A' /* Logging */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> ChatTypes
+   %UID '4A66B9840002'
+   %DEPENDS
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '45EEAA96039C' /* Security */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Enum>> TnsContactType
+      %UID '4A66B9D20178'
+      %SUMMARY 'Тип активности контакта' ;
+      %ATTRIBUTES
+        <<Attribute>> ctActive
+         %UID '4A66BA0A0073'
+         %SUMMARY 'Залогинен' ;
+        ; // ctActive
+        <<Attribute>> ctInactive
+         %UID '4A66BA230145'
+         %SUMMARY 'Отлогинен' ;
+        ; // ctInactive
+      ; // %ATTRIBUTES
+     ; // TnsContactType
+     <<Enum>> TContactListFilterTypes
+      %UID '4A66BA3A0268'
+      %SUMMARY 'Тип фильтра списка контактов' ;
+      %ATTRIBUTES
+        <<Attribute>> clftNone
+         %UID '4A66BA650020'
+         %SUMMARY 'Все контакты' ;
+        ; // clftNone
+        <<Attribute>> clftActive
+         %UID '4A66BA7C02F8'
+         %SUMMARY 'Только залогиненные' ;
+        ; // clftActive
+      ; // %ATTRIBUTES
+     ; // TContactListFilterTypes
+     <<Typedef>> TbsUserID
+      %UID '4A66BABA015C'
+      %SUMMARY 'ID пользователя' ;
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49DC72D80235' /* Uid */
+      ; // %INHERITS
+     ; // TbsUserID
+   ; // %CHILDREN
+  ; // ChatTypes
+  <<Interfaces>> ChatInterfaces
+   %UID '4A66DD3C01E8'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '4A66B9840002' /* ChatTypes */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4A66B91A01E4' /* Chat */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> InsChatMessage
+      %UID '4A66DD7401CD'
+      %TOBEINCLUDED
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> Title
+         %UID '4A66DD9D0246'
+         %TARGET U$ '46A5B0060013' /* IStream */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // Title
+        ABSTRACT LINK <<readonly>> Body
+         %UID '4A66DDAD0124'
+         %TARGET U$ '46A5B0060013' /* IStream */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // Body
+      ; // %ATTRIBUTES
+     ; // InsChatMessage
+     <<Facet>> InsChatMessages
+      %UID '4A66DDC1023C'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> MessagesCount
+         %UID '4A66DDD60130'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // MessagesCount
+        ABSTRACT LINK <<readonly>> Message
+         %UID '4A66DDE10034'
+         %TARGET U$ '4A66DD7401CD' /* InsChatMessage */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %INDEXES
+          %INDEX anIndex %TARGET U$ '46A606AC03B2' /* Integer */
+          ;
+         ; // %INDEXES
+        ; // Message
+      ; // %ATTRIBUTES
+     ; // InsChatMessages
+     <<Facet>> IbsAbstractChatWindow
+      %UID '4A6EA4C503DA'
+      %TOBEINCLUDED
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> UserID
+         %UID '4A6EA502033A'
+         %TARGET U$ '4A66BABA015C' /* TbsUserID */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // UserID
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> ActivateChatWindow
+         %UID '4A6EA50801BA'
+        ; // ActivateChatWindow
+      ; // %OPERATIONS
+     ; // IbsAbstractChatWindow
+     <<Facet>> IbsChatWindow
+      %UID '4A6D714D0252'
+      %TOBEINCLUDED
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A6EA4C503DA' /* IbsAbstractChatWindow */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4A6EA502033A' /* UserID */
+       U$ '4A6EA50801BA' /* ActivateChatWindow */
+      ; // %REALIZES
+      %OPERATIONS
+        ABSTRACT <<Operation>> NewMessagesReceived
+         %UID '4A6D71700008'
+        ; // NewMessagesReceived
+        ABSTRACT <<Operation>> HistoryCleaned
+         %UID '4A7C023702A5'
+        ; // HistoryCleaned
+      ; // %OPERATIONS
+     ; // IbsChatWindow
+     <<Facet>> IbsChatHistoryWindow
+      %UID '4A6EA4E900C3'
+      %TOBEINCLUDED
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A6EA4C503DA' /* IbsAbstractChatWindow */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4A6EA502033A' /* UserID */
+       U$ '4A6EA50801BA' /* ActivateChatWindow */
+      ; // %REALIZES
+     ; // IbsChatHistoryWindow
+     <<Facet>> IbsContactList
+      %UID '4A728A3C01FC'
+      %OPERATIONS
+        ABSTRACT <<Operation>> NotifyContactListChanged
+         %UID '4A728A4900FD'
+        ; // NotifyContactListChanged
+      ; // %OPERATIONS
+     ; // IbsContactList
+     <<Facet>> IbsChatDispatcher
+      %UID '4A66DEE901C9'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4A66B91A01E4' /* Chat */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> ChatSupported
+         %UID '4A66DF0603DC'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ChatSupported
+        ABSTRACT LINK <<readonly>> HasUnreadedMessages
+         %UID '4A6D94A501CE'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // HasUnreadedMessages
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> MakeContactList
+         %UID '4A66DF2101AE'
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> ForAdd
+            %UID '4A66DF24033E'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // ForAdd
+         ; // %PARAMETERS
+        ; // MakeContactList
+        ABSTRACT <<Operation>> OpenChatWindow
+         %UID '4A66DF2D03BC'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4A66DF580211'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // OpenChatWindow
+        ABSTRACT <<Operation>> GetContactType
+         %UID '4A66DF3E0086'
+         %TARGET U$ '4A66B9D20178' /* TnsContactType */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4A66DF43011A'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // GetContactType
+        ABSTRACT <<Operation>> SendMessage
+         %UID '4A66DF64023C'
+         %TARGET U$ '4A66DD7401CD' /* InsChatMessage */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> Recip
+            %UID '4A66DF6B0398'
+            %TARGET U$ '4A66BABA015C' /* TbsUserID */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // Recip
+           <<in>> aMessage
+            %UID '4A66DF6B03B7'
+            %TARGET U$ '46A5B0060013' /* IStream */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aMessage
+         ; // %PARAMETERS
+        ; // SendMessage
+        ABSTRACT <<Operation>> GetMessages
+         %UID '4A66DF74032C'
+         %TARGET U$ '4A66DDC1023C' /* InsChatMessages */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anUID
+            %UID '4A66DF780289'
+            %TARGET U$ '4A66BABA015C' /* TbsUserID */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // anUID
+           <<in>> MinCount
+            %UID '4A66DF7802A8'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // MinCount
+         ; // %PARAMETERS
+        ; // GetMessages
+        ABSTRACT <<Operation>> StartProcessing
+         %UID '4A66DF820028'
+        ; // StartProcessing
+        ABSTRACT <<Operation>> MessagesReceived
+         %UID '4A66DF8F036E'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anUID
+            %UID '4A66DF920137'
+            %TARGET U$ '4A66BABA015C' /* TbsUserID */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // anUID
+         ; // %PARAMETERS
+        ; // MessagesReceived
+        ABSTRACT <<Operation>> AddUser
+         %UID '4A69981E0203'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4A69A8190238'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // AddUser
+        ABSTRACT <<Operation>> DeleteUser
+         %UID '4A6998430245'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4A69A81E0194'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // DeleteUser
+        ABSTRACT <<Operation>> ShowAddUserDialog
+         %UID '4A69985B00A8'
+        ; // ShowAddUserDialog
+        ABSTRACT <<Operation>> RegisterChatWindow
+         %UID '4A6D7187013A'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aWindow
+            %UID '4A6D71A10381'
+            %TARGET U$ '4A6D714D0252' /* IbsChatWindow */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // aWindow
+         ; // %PARAMETERS
+        ; // RegisterChatWindow
+        ABSTRACT <<Operation>> UnRegisterChatWindow
+         %UID '4A6D71A600F9'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aWindow
+            %UID '4A6D71BF0322'
+            %TARGET U$ '4A6D714D0252' /* IbsChatWindow */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // aWindow
+         ; // %PARAMETERS
+        ; // UnRegisterChatWindow
+        ABSTRACT <<Operation>> OpenAllUnreaded
+         %UID '4A6D988D034B'
+        ; // OpenAllUnreaded
+        ABSTRACT <<Operation>> OpenChatHistory
+         %UID '4A6EAC57017D'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4A6EAC6002D6'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // OpenChatHistory
+        ABSTRACT <<Operation>> RegisterChatHistory
+         %UID '4A6EAC6C0043'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aWindow
+            %UID '4A6EAC7C0113'
+            %TARGET U$ '4A6EA4E900C3' /* IbsChatHistoryWindow */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // aWindow
+         ; // %PARAMETERS
+        ; // RegisterChatHistory
+        ABSTRACT <<Operation>> UnRegisterChatHistory
+         %UID '4A6EAC80032F'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aWindow
+            %UID '4A6EAC87016F'
+            %TARGET U$ '4A6EA4E900C3' /* IbsChatHistoryWindow */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // aWindow
+         ; // %PARAMETERS
+        ; // UnRegisterChatHistory
+        ABSTRACT <<Operation>> OpenChatHistoryByID
+         %UID '4A6EBE8E030F'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anUID
+            %UID '4A6EC1420051'
+            %TARGET U$ '4A66BABA015C' /* TbsUserID */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // anUID
+         ; // %PARAMETERS
+        ; // OpenChatHistoryByID
+        ABSTRACT <<Operation>> ClearHistory
+         %UID '4A6FFBF30190'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anUID
+            %UID '4A6FFC020149'
+            %TARGET U$ '4A66BABA015C' /* TbsUserID */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // anUID
+         ; // %PARAMETERS
+        ; // ClearHistory
+        ABSTRACT <<Operation>> ContactListChanged
+         %UID '4A728A25029E'
+        ; // ContactListChanged
+        ABSTRACT <<Operation>> RegisterContactList
+         %UID '4A728A620307'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aList
+            %UID '4A728A7801DA'
+            %TARGET U$ '4A728A3C01FC' /* IbsContactList */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // aList
+         ; // %PARAMETERS
+        ; // RegisterContactList
+        ABSTRACT <<Operation>> UnRegisterContactList
+         %UID '4A728A7D031A'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aList
+            %UID '4A728A8203CD'
+            %TARGET U$ '4A728A3C01FC' /* IbsContactList */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // aList
+         ; // %PARAMETERS
+        ; // UnRegisterContactList
+      ; // %OPERATIONS
+     ; // IbsChatDispatcher
+     <<Exception>> EnsUnknownChatUser
+      %UID '4C2C503400B6'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4787A405013D' /* Exception */
+      ; // %INHERITS
+     ; // EnsUnknownChatUser
+   ; // %CHILDREN
+  ; // ChatInterfaces
+  <<Unit>> ChatImpl
+   %UID '4A66EB280367'
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '45ED58CF03E6' /* Logging */
+    U$ '45EEAA96039C' /* Security */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '476BE0350329' /* Styles */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47BB24D30205' /* "Стандартные примеси" */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '48F747EC0073' /* Common */
+    U$ '4A40991F003F' /* ChatInterfaces */
+    U$ '4A66B9840002' /* ChatTypes */
+    U$ '4A66DD3C01E8' /* ChatInterfaces */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4ACF68160358' /* Users$CommonForAdminAndF1 */
+    U$ '4B0A60DF01F2' /* Logging */
+    U$ '521C9DA50125' /* "Application Resources" */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4A66B91A01E4' /* Chat */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '55B62380030A' /* Logging */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsChatMessage
+      %UID '4A66EB5F010C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A66B91A01E4' /* Chat */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4A66DD7401CD' /* InsChatMessage */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4A66DD9D0246' /* Title */
+       U$ '4A66DDAD0124' /* Body */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Title
+         %UID '4A66ED03034C'
+         %TARGET U$ '46A5B0060013' /* IStream */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_Title
+        PRIVATE <<Attribute>> f_Body
+         %UID '4A66ED1400D0'
+         %TARGET U$ '46A5B0060013' /* IStream */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_Body
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4A66EC1A00BB'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTitle
+            %UID '4A66EC2C010B'
+            %TARGET U$ '46A5B0060013' /* IStream */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTitle
+           <<in>> aBody
+            %UID '4A66EC2C011B'
+            %TARGET U$ '46A5B0060013' /* IStream */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aBody
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '4A66EC320056'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTitle
+            %UID '4A66EC370232'
+            %TARGET U$ '46A5B0060013' /* IStream */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTitle
+           <<in>> aBody
+            %UID '4A66EC370251'
+            %TARGET U$ '46A5B0060013' /* IStream */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aBody
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsChatMessage
+     <<SimpleClass>> TnsChatMessages
+      %UID '4A66F04303C3'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4A66DDC1023C' /* InsChatMessages */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47B57D830369' /* l3InterfaceRefList */
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4A66DDD60130' /* MessagesCount */
+       U$ '4A66DDE10034' /* Message */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4A66F06503AC'
+         %TARGET U$ '4A66DD7401CD' /* InsChatMessage */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TnsChatMessages
+     <<SimpleClass>> TnsChatTreeStruct
+      %UID '4A680DA6013C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677FF4B0036' /* Data */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4A66B91A01E4' /* Chat */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4906E96C0364' /* TnsUserTreeStruct */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48FF64F60078' /* ReAqurieUnfilteredRoot */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4A68157A0373"
+         %UID '4A68157A0373'
+         %TARGET U$ '4901E66D024F' /* InsUserFlagsFilters */
+        ; // 4A68157A0373
+        <<uses>> "4A6815E601BD"
+         %UID '4A6815E601BD'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4A6815E601BD
+        <<uses>> "4A681608005F"
+         %UID '4A681608005F'
+         %TARGET U$ '45EED47801AA' /* UserFilterFlags */
+        ; // 4A681608005F
+        <<uses>> "4A6818000083"
+         %UID '4A6818000083'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 4A6818000083
+        <<uses>> "4A6818BB03CA"
+         %UID '4A6818BB03CA'
+         %TARGET U$ '4901E8E20154' /* TnsUserFlagsFilter */
+        ; // 4A6818BB03CA
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> FindDataType
+         %UID '4A6EAB870154'
+         %TARGET U$ '4A66BABA015C' /* TbsUserID */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // FindDataType
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<static>> Make
+         %UID '4A680DCB0084'
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> ForAdd
+            %UID '4A680EAC019C'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // ForAdd
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsChatTreeStruct
+     <<SimpleClass>> TnsBaseChatWindowList
+      %UID '4A6D72AD01D4'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+       U$ '4A6FFCC00354' /* l3InterfacePtrListPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B07CF403D0' /* IsSameItems */
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4A6D72C0006E'
+         %TARGET U$ '4A6D714D0252' /* IbsChatWindow */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TnsBaseChatWindowList
+     <<Impurity>> AbstactChatWindowList
+      %UID '4A6EAB540196'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B47E230134' /* l3Searcher */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B9BAFD01F4' /* CompareItemWithData */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> FindDataType
+         %UID '4A6EAF9802AE'
+         %TARGET U$ '4A66BABA015C' /* TbsUserID */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // FindDataType
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Operation>> FindChatWindow
+         %UID '4A6EAC0F00A9'
+         %TARGET U$ '47A1B1500302' /* ItemType */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anUserID
+            %UID '4A6EAF740394'
+            %TARGET U$ '47B9BBB401D0' /* FindDataType */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // anUserID
+         ; // %PARAMETERS
+        ; // FindChatWindow
+      ; // %OPERATIONS
+     ; // AbstactChatWindowList
+     <<SimpleClass>> TnsUserIDList
+      %UID '4A6D957701B6'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47A1B04702C2' /* l3AtomicList */
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+      ; // %INHERITS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4A6D958E002A'
+         %TARGET U$ '4A66BABA015C' /* TbsUserID */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TnsUserIDList
+     <<SimpleClass>> TnsBaseChatHistoryList
+      %UID '4A6EAA6901F5'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+       U$ '4A6FFCC00354' /* l3InterfacePtrListPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B07CF403D0' /* IsSameItems */
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4A6EAAC7018D'
+         %TARGET U$ '4A6EA4E900C3' /* IbsChatHistoryWindow */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TnsBaseChatHistoryList
+     <<SimpleClass>> TnsChatHistoryList
+      %UID '4A6EAAEC023C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A6EAA6901F5' /* TnsBaseChatHistoryList */
+       U$ '4A6EAB540196' /* AbstactChatWindowList */
+      ; // %INHERITS
+     ; // TnsChatHistoryList
+     <<SimpleClass>> TnsChatWindowList
+      %UID '4A6D7E35012C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A6D72AD01D4' /* TnsBaseChatWindowList */
+       U$ '4A6EAB540196' /* AbstactChatWindowList */
+      ; // %INHERITS
+     ; // TnsChatWindowList
+     <<SimpleClass>> TnsContactListNotifiers
+      %UID '4A728AA70019'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B57D630029' /* l3InterfacePtrList */
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+      ; // %INHERITS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4A728B16037C'
+         %TARGET U$ '4A728A3C01FC' /* IbsContactList */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TnsContactListNotifiers
+     <<SimpleClass>> TbsChatDispatcherPrim
+      %UID '4A682A110387'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A66B91A01E4' /* Chat */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4A66DEE901C9' /* IbsChatDispatcher */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4A66DF0603DC' /* ChatSupported */
+       U$ '4A66DF2101AE' /* MakeContactList */
+       U$ '4A66DF2D03BC' /* OpenChatWindow */
+       U$ '4A66DF3E0086' /* GetContactType */
+       U$ '4A66DF64023C' /* SendMessage */
+       U$ '4A66DF74032C' /* GetMessages */
+       U$ '4A66DF820028' /* StartProcessing */
+       U$ '4A66DF8F036E' /* MessagesReceived */
+       U$ '4A69981E0203' /* AddUser */
+       U$ '4A6998430245' /* DeleteUser */
+       U$ '4A69985B00A8' /* ShowAddUserDialog */
+       U$ '4A6D7187013A' /* RegisterChatWindow */
+       U$ '4A6D71A600F9' /* UnRegisterChatWindow */
+       U$ '4A6D94A501CE' /* HasUnreadedMessages */
+       U$ '4A6D988D034B' /* OpenAllUnreaded */
+       U$ '4A6EAC57017D' /* OpenChatHistory */
+       U$ '4A6EAC6C0043' /* RegisterChatHistory */
+       U$ '4A6EAC80032F' /* UnRegisterChatHistory */
+       U$ '4A6EBE8E030F' /* OpenChatHistoryByID */
+       U$ '4A6FFBF30190' /* ClearHistory */
+       U$ '4A728A25029E' /* ContactListChanged */
+       U$ '4A728A620307' /* RegisterContactList */
+       U$ '4A728A7D031A' /* UnRegisterContactList */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4A68447C035E"
+         %UID '4A68447C035E'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 4A68447C035E
+        <<uses>> "4A6845CC03D3"
+         %UID '4A6845CC03D3'
+         %TARGET U$ '4981AC0701C1' /* ComObj */
+        ; // 4A6845CC03D3
+        <<uses>> "4A684EB60172"
+         %UID '4A684EB60172'
+         %TARGET U$ '4A409BC300FB' /* UserInfo */
+        ; // 4A684EB60172
+        <<uses>> "4A684EDC0338"
+         %UID '4A684EDC0338'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4A684EDC0338
+        <<uses>> "4A684EF502C2"
+         %UID '4A684EF502C2'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 4A684EF502C2
+        <<uses>> "4A684F100075"
+         %UID '4A684F100075'
+         %TARGET U$ '4A680DA6013C' /* TnsChatTreeStruct */
+        ; // 4A684F100075
+        <<uses>> "4A684FF8000B"
+         %UID '4A684FF8000B'
+         %TARGET U$ '48F473650362' /* Tl3MemoryStream */
+        ; // 4A684FF8000B
+        <<uses>> "4A68504A03DB"
+         %UID '4A68504A03DB'
+         %TARGET U$ '4A66F04303C3' /* TnsChatMessages */
+        ; // 4A68504A03DB
+        <<uses>> "4A68504E024F"
+         %UID '4A68504E024F'
+         %TARGET U$ '4A66EB5F010C' /* TnsChatMessage */
+        ; // 4A68504E024F
+        <<uses>> "4A685468012B"
+         %UID '4A685468012B'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 4A685468012B
+        <<uses>> "4A6854BB0316"
+         %UID '4A6854BB0316'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 4A6854BB0316
+        <<uses>> "4A6854E40101"
+         %UID '4A6854E40101'
+         %TARGET U$ '4A6854C70390' /* nsTypes */
+        ; // 4A6854E40101
+        <<uses>> "4A68551503DE"
+         %UID '4A68551503DE'
+         %TARGET U$ '45EED730037A' /* ProfileNode */
+        ; // 4A68551503DE
+        <<uses>> "4A6855410108"
+         %UID '4A6855410108'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+        ; // 4A6855410108
+        <<uses>> "4A685BA60129"
+         %UID '4A685BA60129'
+         %TARGET U$ '48EA3BDD0023' /* ActiveXConsts */
+        ; // 4A685BA60129
+        <<uses>> "4A68609702D2"
+         %UID '4A68609702D2'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4A68609702D2
+        <<uses>> "4A68629000B3"
+         %UID '4A68629000B3'
+         %TARGET U$ '4A6860C40384' /* nsNotifiers */
+        ; // 4A68629000B3
+        <<uses>> "4A703CDD01BF"
+         %UID '4A703CDD01BF'
+         %TARGET U$ '477515240332' /* Tafw */
+        ; // 4A703CDD01BF
+        <<uses>> "4A7A7FCC01FF"
+         %UID '4A7A7FCC01FF'
+         %TARGET U$ '476BE0660328' /* Standard */
+        ; // 4A7A7FCC01FF
+        <<uses>> "4AAA2A8F02F8"
+         %UID '4AAA2A8F02F8'
+         %TARGET U$ '4A6854C70390' /* nsTypes */
+        ; // 4AAA2A8F02F8
+        <<uses>> "4AAA8228005B"
+         %UID '4AAA8228005B'
+         %TARGET U$ '45ED58FF0201' /* LogEvent */
+        ; // 4AAA8228005B
+        <<uses>> "4B13BCCA0349"
+         %UID '4B13BCCA0349'
+         %TARGET U$ '4B13BC920384' /* TnsChatWindowOpensCountEvent */
+        ; // 4B13BCCA0349
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Processing
+         %UID '4A685CDF01A4'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Processing
+        PRIVATE <<Attribute>> f_ChatList
+         %UID '4A6D73020062'
+         %TARGET U$ '4A6D7E35012C' /* TnsChatWindowList */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // f_ChatList
+        PRIVATE <<Attribute>> f_Unreaded
+         %UID '4A6D95A40342'
+         %TARGET U$ '4A6D957701B6' /* TnsUserIDList */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // f_Unreaded
+        PRIVATE <<Attribute>> f_HistoryList
+         %UID '4A6EAC2901C7'
+         %TARGET U$ '4A6EAAEC023C' /* TnsChatHistoryList */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // f_HistoryList
+        PRIVATE <<Attribute>> f_ContactLists
+         %UID '4A728B480290'
+         %TARGET U$ '4A728AA70019' /* TnsContactListNotifiers */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // f_ContactLists
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<Operation>> DoOpenChatWindow
+         %UID '4A682A8303CA'
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anUID
+            %UID '4A682A8C019A'
+            %TARGET U$ '4A66BABA015C' /* TbsUserID */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // anUID
+         ; // %PARAMETERS
+        ; // DoOpenChatWindow
+        FINAL <<factory>> Make
+         %UID '4A682A9203C2'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+        PRIVATE FINAL <<Operation>> MakeTitle
+         %UID '4A685BF20264'
+         %TARGET U$ '46A5B0060013' /* IStream */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4A66B91A01E4' /* Chat */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anUID
+            %UID '4A685C0B0058'
+            %TARGET U$ '4A66BABA015C' /* TbsUserID */
+            %TOBEINCLUDED
+             U$ '4A66B91A01E4' /* Chat */
+            ; // %TOBEINCLUDED
+           ; // anUID
+           <<in>> aDate
+            %UID '4A685C0B0087'
+            %TARGET U$ '47272C8B0128' /* TDateTime */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aDate
+         ; // %PARAMETERS
+        ; // MakeTitle
+        PRIVATE FINAL <<Operation>> GetUserID
+         %UID '4A69A53F0275'
+         %TARGET U$ '4A66BABA015C' /* TbsUserID */
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4A69A5550196'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // GetUserID
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TnsChatWindowOpensCountEvent
+         %UID '4B13BC920384'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+          %upv "singleton" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4B13A1A2000F' /* TnsCounterEvent */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4B13A26203DB' /* EventID */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED FINAL <<static>> Exists
+            %UID 'F352A3F61A72'
+            %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Exists
+         ; // %OPERATIONS
+        ; // TnsChatWindowOpensCountEvent
+      ; // %CHILDREN
+     ; // TbsChatDispatcherPrim
+     <<SimpleClass>> TbsChatDispatcher
+      %UID '4A683EC401BB'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4A66B91A01E4' /* Chat */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A682A110387' /* TbsChatDispatcherPrim */
+      ; // %INHERITS
+      %OPERATIONS
+        FINAL <<factory>> Make
+         %UID '4A683F3A039D'
+         %TARGET U$ '4A66DEE901C9' /* IbsChatDispatcher */
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A66B91A01E4' /* Chat */
+         ; // %TOBEINCLUDED
+        ; // Make
+        SUMMONED FINAL <<static>> Exists
+         %UID 'C53EE16C4BCF'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TbsChatDispatcher
+   ; // %CHILDREN
+  ; // ChatImpl
+ ; // %CHILDREN
+; // Chat

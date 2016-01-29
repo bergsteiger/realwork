@@ -1,0 +1,320 @@
+// Aspects 4F4B48E5029E Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F4B48E5029E
+
+FORWARD ME_4F33E5FD009E
+
+FORWARD ME_4F33E3A20056
+
+: ME_6D4CC94022BF
+ CONST UID '6D4CC94022BF'
+ CONST Name 'aFI'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_480F377B0271' '4678209200A6.pas.ms.script' // TnevFormatInfoPrim
+ ;
+
+ref; // ME_6D4CC94022BF aFI
+
+: ME_3FB2C3BE585B
+ CONST UID '3FB2C3BE585B'
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E1C67860321' '4678209200A6.pas.ms.script' // TnevDecorType
+ ;
+
+ref; // ME_3FB2C3BE585B aType
+
+: ME_7637D6AAAE38
+ CONST UID '7637D6AAAE38'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Разрешает ли контейтер документа применять указанное декорирование' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F33E3A20056 // GetAllowsThisDecor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_6D4CC94022BF // aFI
+ ME_3FB2C3BE585B // aType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_7637D6AAAE38 DoIt
+
+: ME_4F33E3A20056
+ CONST UID '4F33E3A20056'
+ CONST Name 'GetAllowsThisDecor'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F33E5FD009E // nevDocumentContainerDecorationRules
+ ;
+ : Inherits
+   @ ( WL 'ME_4F33E2A30116' '4678209200A6.pas.ms.script' // AllowsThisDecor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_7637D6AAAE38 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F33E3A20056 GetAllowsThisDecor
+
+: ME_4F33E2A30116_ME_4F33E5FD009E
+ CONST UID '4F33E2A30116'
+ CONST Name 'AllowsThisDecor'
+ : Original WL 'ME_4F33E2A30116' '4678209200A6.pas.ms.script' // AllowsThisDecor
+ ;
+ : Implementor ME_4F33E5FD009E // nevDocumentContainerDecorationRules
+ ;
+ref; // ME_4F33E2A30116_ME_4F33E5FD009E AllowsThisDecor
+
+: ME_4F33E5FD009E
+ CONST UID '4F33E5FD009E'
+ CONST Name 'nevDocumentContainerDecorationRules'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F4B48E5029E // Aspects
+ ;
+ : Implements
+   @ ( WL 'ME_4F33E5480364' '4678209200A6.pas.ms.script' // MnevDocumentContainerDecorationRules
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4F33E3A20056 // GetAllowsThisDecor
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4F33E2A30116_ME_4F33E5FD009E // AllowsThisDecor
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas'
+ CONST extprop:pas:TypeName '_nevDocumentContainerDecorationRules_'
+
+ref; // ME_4F33E5FD009E nevDocumentContainerDecorationRules
+
+: ME_4F33E6C302BD
+ CONST UID '4F33E6C302BD'
+ CONST Name 'MnevDocumentContainerDecorationRules'
+ CONST Class class_Class
+ : Stereotype st_MixInMirror ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F4B48E5029E // Aspects
+ ;
+ : Inherits
+   @ ( ME_4F33E5FD009E // nevDocumentContainerDecorationRules
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4F33E6C302BD MnevDocumentContainerDecorationRules
+
+FORWARD ME_4F33E7CF0393
+
+: ME_4F33F0130375
+ CONST UID '4F33F0130375'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F33E7CF0393 // nsEditionsDecorationRules
+ ;
+ : Target WL 'ME_4E677FA10009' '48492FC0029D.pas.ms.script' // FooterForChangesInfo
+ ;
+
+ref; // ME_4F33F0130375 
+
+: ME_4F33F57C00BE
+ CONST UID '4F33F57C00BE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F33E7CF0393 // nsEditionsDecorationRules
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4F33F57C00BE 
+
+: ME_4F33E3A20056_ME_4F33E7CF0393
+ CONST UID '4F33E3A20056'
+ CONST Name 'GetAllowsThisDecor'
+ : Original ME_4F33E3A20056 // GetAllowsThisDecor
+ ;
+ : Implementor ME_4F33E7CF0393 // nsEditionsDecorationRules
+ ;
+ref; // ME_4F33E3A20056_ME_4F33E7CF0393 GetAllowsThisDecor
+
+: ME_4F33E7CF0393
+ CONST UID '4F33E7CF0393'
+ CONST Name 'nsEditionsDecorationRules'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Правила оформления декораций для СР и ОИД' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F4B48E5029E // Aspects
+ ;
+ : Implements
+   @ ( ME_4F33E6C302BD // MnevDocumentContainerDecorationRules
+ ) .SequenceCode.It
+ ; // Implements
+ : Overridden
+   @ ( ME_4F33E3A20056_ME_4F33E7CF0393 // GetAllowsThisDecor
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F33F0130375 // 
+ ME_4F33F57C00BE // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas'
+ CONST extprop:pas:TypeName '_nsEditionsDecorationRules_'
+
+ref; // ME_4F33E7CF0393 nsEditionsDecorationRules
+
+FORWARD ME_4F4B4B10001B
+
+: ME_4F4B4D6E03C5
+ CONST UID '4F4B4D6E03C5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F4B4B10001B // PrintViewDecorationRules
+ ;
+ : Target WL 'ME_4E677FA10009' '48492FC0029D.pas.ms.script' // FooterForChangesInfo
+ ;
+
+ref; // ME_4F4B4D6E03C5 
+
+: ME_4F4B4D7303C2
+ CONST UID '4F4B4D7303C2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F4B4B10001B // PrintViewDecorationRules
+ ;
+ : Target WL 'ME_4E1C5F2700BE' '48492FC0029D.pas.ms.script' // HeaderForChangesInfo
+ ;
+
+ref; // ME_4F4B4D7303C2 
+
+: ME_4F4B680A01CD
+ CONST UID '4F4B680A01CD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F4B4B10001B // PrintViewDecorationRules
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4F4B680A01CD 
+
+: ME_4F33E3A20056_ME_4F4B4B10001B
+ CONST UID '4F33E3A20056'
+ CONST Name 'GetAllowsThisDecor'
+ : Original ME_4F33E3A20056 // GetAllowsThisDecor
+ ;
+ : Implementor ME_4F4B4B10001B // PrintViewDecorationRules
+ ;
+ref; // ME_4F33E3A20056_ME_4F4B4B10001B GetAllowsThisDecor
+
+: ME_4F4B4B10001B
+ CONST UID '4F4B4B10001B'
+ CONST Name 'PrintViewDecorationRules'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Правила вывода декораций на печать' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F4B48E5029E // Aspects
+ ;
+ : Inherits
+   @ ( ME_4F33E7CF0393 // nsEditionsDecorationRules
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4F33E3A20056_ME_4F4B4B10001B // GetAllowsThisDecor
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F4B4D6E03C5 // 
+ ME_4F4B4D7303C2 // 
+ ME_4F4B680A01CD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas'
+ CONST extprop:pas:TypeName '_PrintViewDecorationRules_'
+
+ref; // ME_4F4B4B10001B PrintViewDecorationRules
+
+: ME_4F4B48E5029E
+ CONST UID '4F4B48E5029E'
+ CONST Name 'Aspects'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4F33E5FD009E // nevDocumentContainerDecorationRules
+ ME_4F33E6C302BD // MnevDocumentContainerDecorationRules
+ ME_4F33E7CF0393 // nsEditionsDecorationRules
+ ME_4F4B4B10001B // PrintViewDecorationRules
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F4B48E5029E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F4B48E5029E.pas.ms.script.runner'
+
+ref; // ME_4F4B48E5029E Aspects

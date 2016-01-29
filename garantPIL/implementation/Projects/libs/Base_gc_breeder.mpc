@@ -1,0 +1,29 @@
+project : project-common-defines, project-common-includes, project_generic_core, project_subsystem_windows {
+
+	macros += BRDR32
+	macros += INC_DONGLE_DLL
+	macros += NEW_AND_OLD_PASSWORD
+
+	macros -= INSTLL_CIB
+	macros -= NO_GSSCREEN
+
+	macros += ONLY_NORM_INDEX
+	macros += QUICK_NEW_DOC
+
+	Header_Files {
+		./../../component/cpp/libs/gc/src/dbproc.h
+		./../../component/cpp/libs/gc/src/dbproc.mf.h
+		./../../component/cpp/libs/gc/src/dbproc.mh.h
+		./../../component/cpp/libs/gc/src/gclog.h
+		./../../component/cpp/libs/gc/src/gl.h
+		./../../component/cpp/libs/gc/src/topic_t.h
+	}
+
+	Source_Files {
+		./../../component/cpp/libs/gc/src/dbproc.cpp
+		./../../component/cpp/libs/gc/src/dbproc.mf.cpp
+		./../../component/cpp/libs/gc/src/gclog.cpp
+		./../../component/cpp/libs/gc/src/glproc.cpp
+//		./../../component/cpp/libs/gc/src/unixdummies.cpp // link against gkdb
+	}
+}

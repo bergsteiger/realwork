@@ -1,0 +1,155 @@
+// vcmLocalInterfaces 49942FB2017D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49942FB2017D
+
+FORWARD ME_491471C8038F
+
+: ME_491471F80112
+ CONST UID '491471F80112'
+ CONST Name 'DataChanged'
+ CONST Class class_Operation
+ %SUMMARY 'данные изменились' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_491471C8038F // IvcmFormSetDataSourceListener
+ ;
+
+ref; // ME_491471F80112 DataChanged
+
+: ME_491471C8038F
+ CONST UID '491471C8038F'
+ CONST GUID '5F7A6BE6-C326-4A36-8B7C-F3F8140E0CE6'
+ CONST Name 'IvcmFormSetDataSourceListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий бизнес объекта сборки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49942FB2017D // vcmLocalInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_491471F80112 // DataChanged
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_491471C8038F IvcmFormSetDataSourceListener
+
+FORWARD ME_499303230362
+
+: ME_49930330017B
+ CONST UID '49930330017B'
+ CONST Name 'FullWidth'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'полная ширина dock-а toolbar-ов с учетом того, что dock может быть'#13#10'           вставлен еще в какой-нибудь компонент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_499303230362 // IvcmDock
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_49930330017B FullWidth
+
+: ME_4993033E03CC
+ CONST UID '4993033E03CC'
+ CONST Name 'FullHeight'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'полная высота dock-а toolbar-ов с учетом того, что dock может быть'#13#10'           вставлен еще в какой-нибудь компонент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_499303230362 // IvcmDock
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4993033E03CC FullHeight
+
+: ME_4993035101C9
+ CONST UID '4993035101C9'
+ CONST Name 'Pos'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'позиция dock-а на форме' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_499303230362 // IvcmDock
+ ;
+ : Target WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ ;
+ CONST "pm" true
+
+ref; // ME_4993035101C9 Pos
+
+: ME_499303230362
+ CONST UID '499303230362'
+ CONST GUID 'D8BE3620-B1A8-4165-8332-BBD4DA958592'
+ CONST Name 'IvcmDock'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'интерфейс поддерживаемый dock-ом toolbar-ов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49942FB2017D // vcmLocalInterfaces
+ ;
+ : Attributes
+   @ ( ME_49930330017B // FullWidth
+ ME_4993033E03CC // FullHeight
+ ME_4993035101C9 // Pos
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_499303230362 IvcmDock
+
+: ME_49942FB2017D
+ CONST UID '49942FB2017D'
+ CONST Name 'vcmLocalInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Локальные интерфейсы VCM' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_491471C8038F // IvcmFormSetDataSourceListener
+ ME_499303230362 // IvcmDock
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "path prefix" '/implementation'
+ CONST "started" '12.02.2009 17:19'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmLocalInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49942FB2017D.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49942FB2017D.pas.ms.script.runner'
+
+ref; // ME_49942FB2017D vcmLocalInterfaces

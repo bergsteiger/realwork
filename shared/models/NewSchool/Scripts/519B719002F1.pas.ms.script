@@ -1,0 +1,67 @@
+// dt_Sab 519B719002F1 UtilityPack Class
+
+FORWARD ME_519B719002F1
+
+: ME_519B71FD024C
+ CONST UID '519B71FD024C'
+ CONST GUID '2312E8B1-47E7-4451-AA07-3A9E4E07812D'
+ CONST Name 'IValueSetFiller'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_519B71FD024C IValueSetFiller
+
+FORWARD ME_559D266C032B
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_3ABFA89841A4
+ CONST UID '3ABFA89841A4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода MakeSab' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3ABFA89841A4 DoIt
+
+: ME_559D266C032B
+ CONST UID '559D266C032B'
+ CONST Name 'MakeSab'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_3ABFA89841A4 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_559D266C032B MakeSab
+
+: ME_519B719002F1
+ CONST UID '519B719002F1'
+ CONST Name 'dt_Sab'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_559D266C032B // MakeSab
+ ]
+ ; // Operations
+ : Children
+   [ ME_519B71FD024C // IValueSetFiller
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_519B719002F1 dt_Sab

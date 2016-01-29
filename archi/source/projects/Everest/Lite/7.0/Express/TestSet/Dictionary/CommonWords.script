@@ -1,0 +1,146 @@
+USES
+ axiom:push
+ axiom:Control
+ axiom:Editor
+ axiom:Form
+ axiom:Para
+ axiom:EVD
+ 
+ ArchiSystem.script
+	EverestControls.script
+;
+
+// CommonWords.script
+// Общие слова для Everest и Арчи
+
+PROCEDURE "Подготовить главную форму" 
+ push:MainForm pop:Control:Top := 0
+ push:MainForm pop:Control:Left := 0
+ push:MainForm pop:Control:Width := 1015
+ push:MainForm pop:Control:Height := 815
+;
+
+PROCEDURE "Подготовить короткую главную форму" 
+ push:MainForm pop:Control:Top := 0
+ push:MainForm pop:Control:Left := 0
+ push:MainForm pop:Control:Width := 1015
+ push:MainForm pop:Control:Height := 600
+;
+
+PROCEDURE "Подготовить главную форму для вставки разрыва" 
+ push:MainForm pop:Control:Top := 0
+ push:MainForm pop:Control:Left := 0
+ push:MainForm pop:Control:Width := 1125
+ push:MainForm pop:Control:Height := 815
+;
+
+PROCEDURE "Подготовить широкую главную форму" 
+ push:MainForm pop:Control:Top := 0
+ push:MainForm pop:Control:Left := 0
+ push:MainForm pop:Control:Width := 1200
+ push:MainForm pop:Control:Height := 815
+;
+
+PROCEDURE "Подготовить главную форму c шириной и высотой" INTEGER IN aWidth INTEGER IN aHeight
+	push:MainForm pop:Control:Top := 0
+    push:MainForm pop:Control:Left := 0
+    push:MainForm pop:Control:Width := aWidth
+    push:MainForm pop:Control:Height := aHeight
+;
+
+PROCEDURE "Подготовить узкую форму" 
+	 push:MainForm pop:Control:Top := 0
+	 push:MainForm pop:Control:Left := 0
+	 push:MainForm pop:Control:Width := 800
+	 push:MainForm pop:Control:Height := 815
+;
+
+PROCEDURE "Выравнивание границ ячеек с сохранением в лог"
+ focused:control:push pop:editor:AlignCellsBoundary
+; 
+
+PROCEDURE "Развернуть окно"
+	wsMaximized focused:control:push pop:Control:GetParentForm pop:form:SetWindowState 
+;
+
+PROCEDURE "Выключить все флаги"
+ OBJECT VAR l_Editor
+ focused:control:push >>> l_Editor 
+ l_Editor pop:Editor:WebStyle := false
+ l_Editor pop:Editor:DrawSpecial := false
+ l_Editor pop:Editor:ShowDocumentParts := false
+;
+
+PROCEDURE "Вставить простую таблицу и заполнить ячейки"
+ 3 3 focused:control:push pop:editor:InsertTable
+ VAR l_CellIndex
+ 0 >>> l_CellIndex
+ 9 LOOP (
+  ++! l_CellIndex 
+  l_CellIndex IntToStr emitstring 
+  "Нажать вправо"
+ ) 
+;
+
+PROCEDURE "Вставить таблицу и заполнить ячейки" OBJECT IN anEditor INTEGER IN aColCount INTEGER IN aRowCount
+ aColCount aRowCount anEditor pop:editor:InsertTable
+ INTEGER VAR l_CellIndex
+ INTEGER VAR l_Count 
+ aRowCount aColCount * >>> l_Count 
+ 0 >>> l_CellIndex
+ l_Count LOOP (
+  ++! l_CellIndex 
+  l_CellIndex IntToStr emitstring 
+  "Нажать вправо"
+ ) 
+;
+
+PROCEDURE "Установить стиль на таблицу" IN aStyle IN anEditor
+ aStyle anEditor pop:editor:SetStyle2Table
+;
+
+PROCEDURE "Свернуть окно"
+	wsMinimized focused:control:push pop:Control:GetParentForm pop:form:SetWindowState 
+;
+
+PROCEDURE "Установить стиль на блок" IN aStyle IN anEditor
+ aStyle anEditor pop:editor:SetStyle2Block
+;
+
+PROCEDURE "Свернуть блок" IN aParaID
+ OBJECT VAR l_Para
+ OBJECT VAR l_Editor
+ focused:control:push >>> l_Editor
+ aParaID l_Editor pop:editor:GetParaByID >>> l_Para
+ evd::ti_Collapsed true l_Editor l_Para Para:BoolW 
+;
+
+PROCEDURE окно_редактора:установить_блок
+	acInsertBlock arMainActionList push:MainForm pop:form:ExecuteAction
+;
+
+PROCEDURE "Нажать ОКBtn"
+     "Контрол по имени {('OKBtn')}- в стек" pop:Control:Click
+;
+
+PROCEDURE "Создать блок из выделенного"
+	ProcessMessages 
+	 @ ( окно_редактора:установить_блок ) MODAL "Нажать ОКBtn"
+;
+
+PROCEDURE "Выделить блок" INTEGER IN aMoveBefore INTEGER IN aMoveIn
+	 aMoveBefore LOOP "Нажать вниз"
+	 "В начало строки"
+	 "Начать выделение"
+	 aMoveIn LOOP "Нажать вниз"
+	 "В конец строки"
+	 "Закончить выделение"
+; 
+
+PROCEDURE "Спрятать каретку редактора" OBJECT IN anEditor
+	anEditor pop:Editor:CaretVisible := false
+;
+
+PROCEDURE "Показать каретку редактора" OBJECT IN anEditor
+	anEditor pop:Editor:CaretVisible := true
+;

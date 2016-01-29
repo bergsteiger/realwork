@@ -1,0 +1,208 @@
+// Containers 55784AD301C2 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55784AD301C2
+
+FORWARD ME_55784B4C022C
+
+: ME_55784B710001
+ CONST UID '55784B710001'
+ CONST Name 'TestAddAndDelete'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+
+ref; // ME_55784B710001 TestAddAndDelete
+
+: ME_55784B550170
+ CONST UID '55784B550170'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ : Target WL 'ME_5576DE3A03D7' '4F4734A40270.pas.ms.script' // TtfwParserTokenList
+ ;
+
+ref; // ME_55784B550170 
+
+: ME_55784B9E02C7
+ CONST UID '55784B9E02C7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55784B9E02C7 
+
+: ME_5578558B002F
+ CONST UID '5578558B002F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ : Target WL 'ME_47CC4CCC02FA' '47913B47006E.pas.ms.script' // Tl3InterfacedString
+ ;
+
+ref; // ME_5578558B002F 
+
+: ME_557855A402CC
+ CONST UID '557855A402CC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_557855A402CC 
+
+: ME_55785C3000B0
+ CONST UID '55785C3000B0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ : Target WL 'ME_52EF740F00AE' '4C1B474600AD.pas.ms.script' // Tl3TokenType
+ ;
+
+ref; // ME_55785C3000B0 
+
+: ME_5579365B0378
+ CONST UID '5579365B0378'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ : Target WL 'ME_55793634010B' '557936190075.pas.ms.script' // TtestCConstDelphiString
+ ;
+
+ref; // ME_5579365B0378 
+
+: ME_55793D580017
+ CONST UID '55793D580017'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_55793D580017 
+
+: ME_19D640C8416E
+ CONST UID '19D640C8416E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_19D640C8416E 
+
+: ME_4C937013031D_ME_55784B4C022C
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ref; // ME_4C937013031D_ME_55784B4C022C GetFolder
+
+: ME_4DAED6F60146_ME_55784B4C022C
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_55784B4C022C // TtfwParserTokenListTest
+ ;
+ref; // ME_4DAED6F60146_ME_55784B4C022C GetModelElementGUID
+
+: ME_55784B4C022C
+ CONST UID '55784B4C022C'
+ CONST Name 'TtfwParserTokenListTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55784AD301C2 // Containers
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_55784B710001 // TestAddAndDelete
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_55784B4C022C // GetFolder
+ ME_4DAED6F60146_ME_55784B4C022C // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55784B550170 // 
+ ME_55784B9E02C7 // 
+ ME_5578558B002F // 
+ ME_557855A402CC // 
+ ME_55785C3000B0 // 
+ ME_5579365B0378 // 
+ ME_55793D580017 // 
+ ME_19D640C8416E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\tfwParserTokenListTest.pas'
+
+ref; // ME_55784B4C022C TtfwParserTokenListTest
+
+: ME_55784AD301C2
+ CONST UID '55784AD301C2'
+ CONST Name 'Containers'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_55784B4C022C // TtfwParserTokenListTest
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_4C1B474600AD' '4C1B474600AD.pas.ms.script' // Parser
+ WL 'ME_4F4734A40270' '4F4734A40270.pas.ms.script' // Parser
+ WL 'ME_557936190075' '557936190075.pas.ms.script' // TestStrings
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55784AD301C2.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55784AD301C2.pas.ms.script.runner'
+
+ref; // ME_55784AD301C2 Containers

@@ -1,0 +1,513 @@
+<<MDALibrary>> VCMModelLayer
+ %UID '4B5F4952010E'
+ %SUMMARY 'Слой модели VCM' ;
+ %DEPENDS
+  U$ '46E801C00348' /* Core */
+  U$ '47022A100167' /* CommonLang */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '4B62DE6100ED' /* VCMCore */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '46E801C00348' /* Core */
+  U$ '47022A100167' /* CommonLang */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '4B62DE6100ED' /* VCMCore */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<MDALayer>> Reflectable
+   %UID '50182A3C02D2'
+   %DEPENDS
+    U$ '4729C4880157' /* Interface */
+    U$ '478DF69F0205' /* InterfacesMetamodel */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '47022A100167' /* CommonLang */
+    U$ '4729C41D032C' /* DelphiLang */
+    U$ '4B5F4952010E' /* VCMModelLayer */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<MDAClass>> Reflectable
+      %UID '501824040339'
+      %ATTRIBUTES
+       <<tribool>> reflectable
+        %UID '501824410316'
+        %VALUE 'undefined'
+       ; // reflectable
+      ; // %ATTRIBUTES
+      %OPERATIONS
+       BOOLEAN FUNCTION IsReflectable OBJECT IN %S
+        %UID '50182457013D'
+        %TARGET U$ '3DBFFE100240' /* boolean */
+       ; // IsReflectable
+      ; // %OPERATIONS
+     ; // Reflectable
+     [EXPORT] <<Reflectable>>
+     <<MDAClass>> ReflectablePureMixIn
+      %UID '50191492035D'
+      %TOBEINCLUDED
+       U$ '47022A100167' /* CommonLang */
+       U$ '4729C41D032C' /* DelphiLang */
+       U$ '4B5F4952010E' /* VCMModelLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49D0EBE60338' /* PureMixIn */
+      ; // %INHERITS
+      %CHILDREN
+       
+       <<MDAAttribute>> readonly
+        %UID '501915BD0369'
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+         U$ '4B5F4952010E' /* VCMModelLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '470F549D033C' /* readonly */
+         U$ '501824040339' /* Reflectable */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '47022BBE0261' /* idl */
+         U$ '47022C0F01E4' /* idl_ami */
+         U$ '47022CB8034B' /* cpp */
+         U$ '47022CCF00EA' /* i.h */
+         U$ '470321C1038A' /* fctr.java */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '55B8D28B0157' /* rc.pas */
+         U$ '55B8D2F80145' /* rc.script.pas */
+         U$ '55B8DD9C0301' /* res.cmd.pas */
+        ; // %REALIZES
+       ; // readonly
+       <<MDAAttribute>> property
+        %UID '501915CD01DE'
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+         U$ '4B5F4952010E' /* VCMModelLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '470F544503C8' /* property */
+         U$ '501824040339' /* Reflectable */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '47022BBE0261' /* idl */
+         U$ '47022C0F01E4' /* idl_ami */
+         U$ '47022CB8034B' /* cpp */
+         U$ '47022CCF00EA' /* i.h */
+         U$ '470321C1038A' /* fctr.java */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '55B8D28B0157' /* rc.pas */
+         U$ '55B8D2F80145' /* rc.script.pas */
+         U$ '55B8DD9C0301' /* res.cmd.pas */
+        ; // %REALIZES
+       ; // property
+       <<MDAAttribute>> writeonly
+        %UID '501915DD0234'
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+         U$ '4B5F4952010E' /* VCMModelLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '470F54C402CE' /* writeonly */
+         U$ '501824040339' /* Reflectable */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '47022BBE0261' /* idl */
+         U$ '47022C0F01E4' /* idl_ami */
+         U$ '47022CB8034B' /* cpp */
+         U$ '47022CCF00EA' /* i.h */
+         U$ '470321C1038A' /* fctr.java */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '55B8D28B0157' /* rc.pas */
+         U$ '55B8D2F80145' /* rc.script.pas */
+         U$ '55B8DD9C0301' /* res.cmd.pas */
+        ; // %REALIZES
+       ; // writeonly
+      ; // %CHILDREN
+     ; // ReflectablePureMixIn
+     [EXPORT] <<ReflectablePureMixIn>>
+   ; // %CHILDREN
+  ; // Reflectable
+  <<MDALayer>> ModelElements
+   %UID '492E955C02EC'
+   %SUMMARY 'Интерфейсные элементы' ;
+   %DEPENDS
+    U$ '46E80398003B' /* "Abstract" */
+    U$ '470384F502CE' /* BaseTypes */
+    U$ '4729C4880157' /* Interface */
+    U$ '478DF69F0205' /* InterfacesMetamodel */
+    U$ '50182A3C02D2' /* Reflectable */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E801C00348' /* Core */
+    U$ '47022A100167' /* CommonLang */
+    U$ '4729C41D032C' /* DelphiLang */
+    U$ '4B5F4952010E' /* VCMModelLayer */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDAClass>> UseCaseController
+      %UID '492E97E60140'
+      %SUMMARY 'Контроллер логики прецедента' ;
+      %META
+       %upv "abstraction type" 'ra'
+       %upv "personal label" 'code_vcm_usecase_controller'
+       %upv "visualization bg color" 13011097
+       %upv "visualization f-font color" 12420235
+       %upv "visualization f-line color" 12615808
+       %upv "visualization font color" 0
+       %upv "visualization line color" 0
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47022A100167' /* CommonLang */
+       U$ '4729C41D032C' /* DelphiLang */
+       U$ '4B5F4952010E' /* VCMModelLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '499D6E6D0319' /* Facet */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4704C0E30186' /* constraint */
+       U$ '4947F8AD02A1' /* pas_TypeName */
+       U$ '494B7E8B02B1' /* IsUseCaseController */
+       U$ '4B2A19E3038B' /* DoSpell */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4953DAC30080"
+        %UID '4953DAC30080'
+        %TARGET U$ '499D6E6D0319' /* Facet */
+       ; // 4953DAC30080
+       <<include>> "4A37A52E0080"
+        %UID '4A37A52E0080'
+        %TARGET U$ '4A379BB60099' /* Area */
+       ; // 4A37A52E0080
+       <<include>> "4A37D66902E1"
+        %UID '4A37D66902E1'
+        %TARGET U$ '492E980503DD' /* ViewAreaController */
+       ; // 4A37D66902E1
+       <<include>> "50111F17024E"
+        %UID '50111F17024E'
+        %TARGET U$ '50111EBB0016' /* SynchroViewArea */
+       ; // 50111F17024E
+      ; // %LINKS
+      %CHILDREN
+       
+       <<MDAAttribute>> area
+        %UID '492EAC6D029A'
+        %SUMMARY 'Область ввода'#13#10'---'#13#10'Логика прецендента (UseCaseController) собирается из логики областей вывода.'#13#10''#13#10'Типы связи:'#13#10'link - прецедент сам содержит область вывода'#13#10'reference - ссылка на область вывода содержится в "данных прецедента" и порождается ещё свойства типа IvcmFormDataSourceRef.'#13#10''#13#10'Байда с reference нужна для поддержки существующего положения вещей с сохранением данных прецедента в историю, оставшейся в Наследство от Морозова. Обсуждение - [$127762441].' ;
+        %META
+         %upv "link type" 'lr'
+        ; // %META
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '470F549D033C' /* readonly */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '47022BBE0261' /* idl */
+         U$ '47022C0F01E4' /* idl_ami */
+         U$ '47022CB8034B' /* cpp */
+         U$ '47022CCF00EA' /* i.h */
+         U$ '470321C1038A' /* fctr.java */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '55B8D28B0157' /* rc.pas */
+         U$ '55B8D2F80145' /* rc.script.pas */
+         U$ '55B8DD9C0301' /* res.cmd.pas */
+        ; // %REALIZES
+        %OVERRIDES
+         U$ '4774D2A20372' /* intf3.pas */
+         U$ '494BB3A201A2' /* pas_MethodBodyPrim */
+         U$ '4A3665370285' /* IsVCMArea */
+         U$ '4A37945D011F' /* IsVCMAreaLink */
+        ; // %OVERRIDES
+        %ATTRIBUTES
+         <<bool>> pm
+          %UID '492EAF13023F'
+          %SUMMARY 'выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель' ;
+          %VALUE true
+         ; // pm
+         <<tribool>> "Need Has"
+          %UID '500D0C2F02EB'
+          %SUMMARY 'Определяет, что надо генерировать свойство NeedXXX, где XXX - имя Area' ;
+          %VALUE 'undefined'
+         ; // "Need Has"
+         <<tribool>> required
+          %UID '50215980008F'
+          %SUMMARY 'Определяет, что данную зону надо обязательно открывать при открытии прецедента' ;
+          %VALUE 'undefined'
+         ; // required
+        ; // %ATTRIBUTES
+       ; // area
+       <<MDADependency>> "injects to"
+        %UID '5011502C019D'
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+        ; // %TOBEINCLUDED
+        %IMPLEMENTS
+         U$ '47148374038A' /* ClassBaseGenerator */
+        ; // %IMPLEMENTS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '47022C88029F' /* h */
+         U$ '47022CB8034B' /* cpp */
+         U$ '47022CCF00EA' /* i.h */
+         U$ '470321950119' /* java */
+         U$ '470321C1038A' /* fctr.java */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '4705CBD6003E' /* wiki_child_kind */
+         U$ '470F1571031C' /* intf.pas */
+         U$ '470F15B800CB' /* impl.pas */
+         U$ '477398E501C0' /* intf2.pas */
+         U$ '55B8D28B0157' /* rc.pas */
+         U$ '55B8D2F80145' /* rc.script.pas */
+         U$ '55B8DD9C0301' /* res.cmd.pas */
+        ; // %REALIZES
+        %ATTRIBUTES
+         <<bool>> "needs default form"
+          %UID '5011505501F9'
+          %VALUE false
+         ; // "needs default form"
+        ; // %ATTRIBUTES
+        %OPERATIONS
+         BOOLEAN FUNCTION IsInjectsTo OBJECT IN %S
+          %UID '50123F830077'
+          %TARGET U$ '3DBFFE100240' /* boolean */
+         ; // IsInjectsTo
+        ; // %OPERATIONS
+       ; // "injects to"
+       <<MDADependency>> "reflected by"
+        %UID '5011434D0313'
+        %SUMMARY 'Ссылка на интерфейс для рефлексии'#13#10'---'#13#10'Определяет что контроллер сохраняет свои данные в указанный интерфейс' ;
+        %TOBEINCLUDED
+         U$ '4B5F4952010E' /* VCMModelLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '5011502C019D' /* "injects to" */
+        ; // %INHERITS
+        %OPERATIONS
+         BOOLEAN FUNCTION IsReflectedBy OBJECT IN %S
+          %UID '50123F9502DF'
+          %TARGET U$ '3DBFFE100240' /* boolean */
+         ; // IsReflectedBy
+        ; // %OPERATIONS
+       ; // "reflected by"
+       <<MDADependency>> "inited by"
+        %UID '50123F750281'
+        %SUMMARY 'Ссылка на интерфейс для инициализации'#13#10'---'#13#10'Определяет, что данные объекты инициализируются указанным интерфейсом' ;
+        %TOBEINCLUDED
+         U$ '4B5F4952010E' /* VCMModelLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '5011502C019D' /* "injects to" */
+        ; // %INHERITS
+       ; // "inited by"
+       <<MDAAttribute>> readonly
+        %UID '501818650280'
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+         U$ '4B5F4952010E' /* VCMModelLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '470F549D033C' /* readonly */
+         U$ '501824040339' /* Reflectable */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '47022BBE0261' /* idl */
+         U$ '47022C0F01E4' /* idl_ami */
+         U$ '47022CB8034B' /* cpp */
+         U$ '47022CCF00EA' /* i.h */
+         U$ '470321C1038A' /* fctr.java */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '55B8D28B0157' /* rc.pas */
+         U$ '55B8D2F80145' /* rc.script.pas */
+         U$ '55B8DD9C0301' /* res.cmd.pas */
+        ; // %REALIZES
+       ; // readonly
+       <<MDAAttribute>> writeonly
+        %UID '50181882031B'
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+         U$ '4B5F4952010E' /* VCMModelLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '470F54C402CE' /* writeonly */
+         U$ '501824040339' /* Reflectable */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '47022BBE0261' /* idl */
+         U$ '47022C0F01E4' /* idl_ami */
+         U$ '47022CB8034B' /* cpp */
+         U$ '47022CCF00EA' /* i.h */
+         U$ '470321C1038A' /* fctr.java */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '55B8D28B0157' /* rc.pas */
+         U$ '55B8D2F80145' /* rc.script.pas */
+         U$ '55B8DD9C0301' /* res.cmd.pas */
+        ; // %REALIZES
+       ; // writeonly
+       <<MDAAttribute>> property
+        %UID '5018188F009D'
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+         U$ '4B5F4952010E' /* VCMModelLayer */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '470F544503C8' /* property */
+         U$ '501824040339' /* Reflectable */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '47022BBE0261' /* idl */
+         U$ '47022C0F01E4' /* idl_ami */
+         U$ '47022CB8034B' /* cpp */
+         U$ '47022CCF00EA' /* i.h */
+         U$ '470321C1038A' /* fctr.java */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '55B8D28B0157' /* rc.pas */
+         U$ '55B8D2F80145' /* rc.script.pas */
+         U$ '55B8DD9C0301' /* res.cmd.pas */
+        ; // %REALIZES
+       ; // property
+      ; // %CHILDREN
+     ; // UseCaseController
+     [EXPORT] <<UseCaseController>>
+     <<MDAClass>> ViewAreaController
+      %UID '492E980503DD'
+      %SUMMARY 'Контроллер области ввода' ;
+      %META
+       %upv "abstraction type" 'ra'
+       %upv "personal label" 'code_vcm_viewarea_controller'
+       %upv "visualization bg color" 15908010
+       %upv "visualization f-font color" 12615680
+       %upv "visualization f-line color" 12615680
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4729C41D032C' /* DelphiLang */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '499D6E6D0319' /* Facet */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4704C0E30186' /* constraint */
+       U$ '4947F8AD02A1' /* pas_TypeName */
+       U$ '497DF8C8028E' /* IsViewAreaController */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4953DADA00E3"
+        %UID '4953DADA00E3'
+        %TARGET U$ '499D6E6D0319' /* Facet */
+       ; // 4953DADA00E3
+      ; // %LINKS
+     ; // ViewAreaController
+     [EXPORT] <<ViewAreaController>>
+     <<MDAClass>> Area
+      %UID '4A379BB60099'
+      %SUMMARY 'Область ввода' ;
+      %META
+       %upv "visualization bg color" 15908010
+       %upv "visualization f-font color" 12615680
+       %upv "visualization f-line color" 12615680
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4B5F4952010E' /* VCMModelLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '471723E1037A' /* WikiImplClass */
+       U$ '492EAC6D029A' /* area */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+       U$ '494BDD190361' /* pas_ResultTypeName */
+       U$ '49CB3EE70382' /* IsClassInner */
+       U$ '4A37945D011F' /* IsVCMAreaLink */
+       U$ '4A37B6A9016F' /* IsAttribute */
+       U$ '4BA9EBAE0254' /* IsClassImplementableElement */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+       <<tribool>> "is reference"
+        %UID '50002BAD01CD'
+        %VALUE 'undefined'
+       ; // "is reference"
+      ; // %ATTRIBUTES
+     ; // Area
+     [EXPORT] <<Area>>
+     <<MDAClass>> SynchroViewArea
+      %UID '50111EBB0016'
+      %SUMMARY 'Область вывода "Синхронного просмотра"' ;
+      %TOBEINCLUDED
+       U$ '4B5F4952010E' /* VCMModelLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A379BB60099' /* Area */
+      ; // %INHERITS
+     ; // SynchroViewArea
+     [EXPORT] <<SynchroViewArea>>
+   ; // %CHILDREN
+  ; // ModelElements
+  <<MDALayer>> ModelPackages
+   %UID '4B62E09600D1'
+   %DEPENDS
+    U$ '492E955C02EC' /* ModelElements */
+    U$ '4B62DE9C006C' /* StandardLikePackages */
+    U$ '50182A3C02D2' /* Reflectable */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4B5F4952010E' /* VCMModelLayer */
+    U$ '4B62DE6100ED' /* VCMCore */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDACategory>> ControllerInterfaces
+      %UID '492E96FD00A7'
+      %SUMMARY 'Интерфейсы контроллеров' ;
+      %META
+       %upv "personal label" 'code_vcm_controller_interfaces'
+       %upv "visualization bg color" 16636008
+       %upv "visualization f-font color" 16711808
+       %upv "visualization f-line color" 16711808
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B62DE6100ED' /* VCMCore */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '494F7E5C0301' /* VCMInterfacesLike */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4948F2EE0334' /* pas_IntfUses */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "492E98780300"
+        %UID '492E98780300'
+        %TARGET U$ '492E97E60140' /* UseCaseController */
+       ; // 492E98780300
+       <<include>> "492E98810034"
+        %UID '492E98810034'
+        %TARGET U$ '492E980503DD' /* ViewAreaController */
+       ; // 492E98810034
+       <<include>> "5019152B0344"
+        %UID '5019152B0344'
+        %TARGET U$ '50191492035D' /* ReflectablePureMixIn */
+       ; // 5019152B0344
+      ; // %LINKS
+     ; // ControllerInterfaces
+     [EXPORT] <<ControllerInterfaces>>
+   ; // %CHILDREN
+  ; // ModelPackages
+ ; // %CHILDREN
+; // VCMModelLayer

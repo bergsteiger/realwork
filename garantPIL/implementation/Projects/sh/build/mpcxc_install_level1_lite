@@ -1,0 +1,65 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_install_level1_lite <confirm>"
+exit
+fi
+
+if test "$USER" = "compile"; then
+echo "User $USER must not run this script."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT; see doc for details."
+exit
+fi
+
+if test "$MPCXC_MIRROR_HOME" = ""; then
+echo "You must export MPCXC_HOME; see doc for details."
+exit
+fi
+
+echo "mpcxc_install_level1_lite ..."
+
+taoace_target=`$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/uname2target.rb`
+
+if test "$taoace_target" = "" ; then
+echo "mpcxc_make_target: FATAL: target platform = $taoace_target not supported."
+exit
+fi	  
+
+build_conf=$1
+
+if test "$build_conf" != "y" ; then
+echo "Optimize using $build_conf"
+taoace_target=$taoace_target"_"$build_conf
+else
+echo "Optimize using static"
+taoace_target=$taoace_target"_static"
+fi
+
+echo "target = $taoace_target"
+
+rm -rf $MPCXC_ROOT/src/ace
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/ace $MPCXC_ROOT/src/ace
+
+rm -rf $MPCXC_ROOT/src/loki
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/loki $MPCXC_ROOT/src/loki
+
+rm -rf $MPCXC_ROOT/src/bzlib
+ln -s $MPCXC_MIRROR_HOME/pilotcvs/src/bzlib $MPCXC_ROOT/src/bzlib
+
+
+rm -f $MPCXC_ROOT/out/$taoace_target/lib/libACE*.*
+rm -f $MPCXC_ROOT/out/$taoace_target/lib/libbzlib*.*
+
+cur_dir=$PWD
+cd $MPCXC_MIRROR_HOME/pilotcvs/out/$taoace_target/lib
+mkdir -p $MPCXC_ROOT/out/$taoace_target/lib
+find . -type f -name "libACE*.*" -exec ln -s -f $PWD/{} $MPCXC_ROOT/out/$taoace_target/lib/{} \;
+find . -type f -name "libbzlib*.*" -exec ln -s -f $PWD/{} $MPCXC_ROOT/out/$taoace_target/lib/{} \;
+cd $cur_dir
+
+echo "You can make:"
+echo "update_cvs mlma32ru garant_tools."

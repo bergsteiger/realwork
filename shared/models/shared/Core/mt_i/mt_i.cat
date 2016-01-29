@@ -1,0 +1,3254 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "mt_i"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.cpp)"
+	    value      	"w:/shared/Core/impl/mt_i/ThreadPool_i_factory.cpp::4502939F0280")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.h)"
+	    value      	"w:/shared/Core/impl/mt_i/ThreadPool_i_factory.h::4502939F0280")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/shared/Core/impl/mt_i/ThreadPool_i.h::4502939F0280")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/shared/Core/impl/mt_i/ThreadPool_i.cpp::4502939F0280")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"C++ èíòåðôåéñû è ðåàëèçàöèÿ|Äîêóìåíòàöèÿ")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/MessageBlock_box|45F069AA0383::4502939F0280;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/Message|45F04DCE0354::4502939F0280;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/ThreadResultData|45F051A2021B::4502939F0280;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i|4502939F0280::4502939F0280;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/MessageBlock_box|45F069AA0383::4502939F0280;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/Message|45F04DCE0354::4502939F0280;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/ThreadResultData|45F051A2021B::4502939F0280;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i|4502939F0280::4502939F0280
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i|45EFED160344
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16657497837"))
+    quid       	"45EFED160344"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"45EFED92023A"
+	    supplier   	"Logical View::shared::Core::mt"
+	    quidu      	"4500341F0251")
+	(object Visibility_Relationship
+	    quid       	"45F0478303E0"
+	    supplier   	"Logical View::shared::Core::sys"
+	    quidu      	"4500359F003E"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ThreadPool_i"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4502939F0280_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4502939F0280_CUSTOM_INCLUDES*¤#include "shared/Core/fix/mpcxc.h"¤//#UC END# *4502939F0280_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4502939F0280*"
+		    value      	(value Text 
+|//#UC START# *4502939F0280*¤const size_t ThreadPool::MESSAGE_BLOCK_LEN = sizeof (ACE_THR_FUNC) + sizeof (void*) + sizeof (ThreadHandle);¤¤const int ThreadPool::THREADS_COUNTS = 8;¤¤void ThreadPool::activate (int n_threads) {¤	// Create the pool of worker threads.	¤	if (this->ACE_Task<ACE_MT_SYNCH>::activate (THR_NEW_LWP | THR_JOINABLE | THR_INHERIT_SCHED, n_threads, true) == -1) {¤		LOG_E (("Thread_Pool::Thread_Pool::activate failed.errno=%d", errno));¤	}¤}¤¤ThreadPool::ThreadPool (bool separate_thread_manager) ¤	: ACE_Task<ACE_MT_SYNCH> ()¤	, m_busy_thr_count (0) ¤	, m_separate_thr_mng (0)¤{¤	if (separate_thread_manager) {¤		m_separate_thr_mng = new ACE_Thread_Manager ();¤		this->thr_mgr (m_separate_thr_mng);¤	}¤}¤¤void ThreadPool::check_and_activate () {¤	if (!this->thr_count ()) {¤		this->activate (THREADS_COUNTS);¤	}¤}¤¤int ThreadPool::spawn_thread (ACE_THR_FUNC func, const void* param, ThreadHandle* pth) {¤	this->check_and_activate ();¤¤	if (!func) {¤		LOG_E (("spawn_thread::ERROR: func is 0"));¤		return -1;¤	}¤¤	if (pth && this->create_thread_handle (pth) == -1) {¤		LOG_E (("spawn_thread::ERROR: can not create thread handle."));¤		return -1;¤	}¤¤	// Allocate a new message.¤	ThreadPool::MessageBlock* mb¤		= new ThreadPool::MessageBlock (ThreadPool::MESSAGE_BLOCK_LEN);¤¤	ACE_OS::memcpy (mb->rd_ptr (), &func, sizeof (ACE_THR_FUNC));¤	ACE_OS::memcpy (mb->rd_ptr () + sizeof (ACE_THR_FUNC), &param, sizeof (void*));¤	ThreadHandle dummy = 0;¤	ACE_OS::memcpy (¤		mb->rd_ptr () + sizeof (ACE_THR_FUNC) + sizeof (void*)¤		, pth ? pth : &dummy¤		, sizeof (ThreadHandle)¤	);¤¤	// Send a normal message to the waiting threads and continue¤	// producing.¤	mb->wr_ptr (ThreadPool::MESSAGE_BLOCK_LEN);¤¤	// Pass the message to the Thread_Pool.¤	if (this->put (mb) == -1) {¤		mb->release ();¤		if (pth && this->destroy_thread_handle (*pth) == -1) {¤			LOG_E (("spawn_thread::ERROR: can not destroy thread handle."));¤		}¤		LOG_E (("spawn_thread::ERROR: ThreadPool::put"));¤		return -1;¤	}¤	return 0;¤}¤¤int ThreadPool::shutdown_all_threads () {¤	//LOG_D (("ThreadPool::shutdown_all_threads..."));¤	int res = 0;¤	// Send a shutdown message to the waiting threads and exit.¤	for (int i = this->thr_count (); i > 0; --i) {¤		// Enqueue a 0 message to flag each consumer to¤		// shutdown.¤		ThreadPool::MessageBlock* mb = new ThreadPool::MessageBlock;¤		if (this->put (mb) == -1) {¤			mb->release ();¤			LOG_E (("shutdown_pool::ERROR: ThreadPool::put"));¤			res = -1;¤		}¤	}¤	// Wait for all the threads to reach their exit point.¤	if (this->wait () == -1) {¤		LOG_E (("ThreadPool::shutdown_all_threads:ERROR: ThreadPool::wait"));¤		res = -1;¤	}¤	return res;¤}¤¤int ThreadPool::destroy_all_thread_handles () {¤	GUARD (m_thread_results_mutex)¤	const size_t handles_count = m_thread_results.size ();¤	if (handles_count > 0) {¤		LOG_E (("ThreadPool::destroy_all_thread_handles: handles count is %d. Someone forget to join.", handles_count));¤		for (ThreadResult_map::iterator it = m_thread_results.begin ()¤			; it != m_thread_results.end ()¤			; ++it¤		) {¤			ThreadResult& tr = it->second;¤			if (!tr.event) {¤				LOG_E (("ThreadPool::destroy_all_thread_handles: thread handle event is 0."));¤			} else {¤				ACE_Time_Value tv;¤				if (tr.event->wait (&tv) == -1) {¤					LOG_E (("ThreadPool::destroy_all_thread_handles: thread handle event is not signaled."));¤				}¤			}¤			delete tr.event;¤		}¤		m_thread_results.clear ();¤	}¤	return 0;¤}¤¤int ThreadPool::close (u_long) {¤	return 0;¤}¤¤int ThreadPool::create_thread_handle (ThreadHandle* pth) {¤	if (!pth) {¤		return -1;¤	}¤	ACE_Manual_Event* event = new ACE_Manual_Event;¤	*pth = event;¤	GUARD (m_thread_results_mutex)¤	ThreadResult& tr = m_thread_results [event];¤	tr.event = event;¤	return 0;¤}¤¤int ThreadPool::set_thread_result (ThreadHandle th, ACE_THR_FUNC_RETURN res) {¤	GUARD (m_thread_results_mutex)¤	ThreadResult_map::iterator it = m_thread_results.find (th);¤	if (it == m_thread_results.end ()) {¤		return -1;¤	}¤	ThreadResult& tr = it->second;¤	tr.res = res;¤	tr.event->signal ();¤	return 0;¤}¤¤int ThreadPool::get_thread_result (ThreadHandle th, ACE_THR_FUNC_RETURN* res) {¤	ACE_Manual_Event* event = 0;¤	{¤		GUARD (m_thread_results_mutex)¤		ThreadResult_map::iterator it = m_thread_results.find (th);¤		if (it == m_thread_results.end ()) {¤			return -1;¤		}¤		ThreadResult& tr = it->second;¤		event = tr.event;¤	}¤	if (!event) {¤		return -1;¤	}¤	event->wait ();¤	if (res) {¤		GUARD (m_thread_results_mutex)¤		ThreadResult_map::const_iterator it = m_thread_results.find (th);¤		if (it == m_thread_results.end ()) {¤			return -1;¤		}¤		const ThreadResult& tr = it->second;¤		*res = tr.res;¤	}¤	return this->destroy_thread_handle (th);¤}¤¤int ThreadPool::set_thread_flag (ThreadHandle th, ThreadFlags::Type flags) {¤	GUARD (m_thread_results_mutex)¤	ThreadResult_map::iterator it = m_thread_results.find (th);¤	if (it == m_thread_results.end ()) {¤		return -1;¤	}¤	ThreadResult& tr = it->second;¤	tr.flags = flags;¤	return 0;¤}¤¤int ThreadPool::get_thread_flag (ThreadHandle th, ThreadFlags::Type& flags) const {¤	GUARD (m_thread_results_mutex)¤	ThreadResult_map::const_iterator it = m_thread_results.find (th);¤	if (it == m_thread_results.end ()) {¤		return -1;¤	}¤	const ThreadResult& tr = it->second;¤	flags = tr.flags;¤	return 0;¤}¤¤int ThreadPool::add_thread (ACE_thread_t t_id, ThreadHandle th) {¤	GUARD (m_threads_mutex)¤	std::pair <Thread_map::iterator, bool> res¤		= m_threads.insert (Thread_map::value_type (t_id, th));¤	return res.second ? 0 : -1;¤}¤¤int ThreadPool::remove_thread (ACE_thread_t t_id) {¤	GUARD (m_threads_mutex)¤	return m_threads.erase (t_id) ? 0 : -1;¤}¤¤int ThreadPool::get_thread_handle (ACE_thread_t t_id, ThreadHandle& th) const {¤	GUARD (m_threads_mutex)¤	Thread_map::const_iterator it = m_threads.find (t_id);¤	if (it == m_threads.end ()) {¤		return -1;¤	}¤	th = it->second;¤	return 0;¤}¤¤int ThreadPool::put (ThreadPool::MessageBlock* mb, ACE_Time_Value* tv) {¤	//LOG_D (("ThreadPool::put"));¤	int res = this->putq (mb, tv);¤	if (res != -1) {¤		m_busy_thr_count++;¤	}¤	return res;¤}¤¤// Iterate <n_iterations> time printing off a message and "waiting"¤// for all other threads to complete this iteration.¤int ThreadPool::svc () {¤	//LOG_D (("Thread_Pool::svc: start thread."));¤¤	// Note that the <ACE_Task::svc_run> method automatically adds us to¤	// the Thread_Manager when the thread begins.¤¤	// Keep looping, reading a message out of the queue, until we get a¤	// message with a length == 0, which signals us to quit.¤	for (;;) {¤		MessageBlock_var mb; // We're responsible for deallocating this.¤		if (this->getq (mb.out ()) == -1) {¤			LOG_E (("Thread_Pool::svc: getq got result -1, exiting"));¤			break;¤		}¤		//AutoAtomicCounter acu (m_busy_thr_count);¤¤		const size_t mb_len = mb->length ();¤		if (!mb_len) {¤			//LOG_D (("Thread_Pool::svc: signals us to quit."));¤			m_busy_thr_count--;¤			break;¤		} else if (mb_len != MESSAGE_BLOCK_LEN) {¤			LOG_E (("Thread_Pool::svc: message length = %d. Got BAD message, exiting.", mb_len));¤			m_busy_thr_count--;¤			break;¤		}¤		ACE_THR_FUNC func = 0;¤		ACE_OS::memcpy (&func, mb->rd_ptr (), sizeof (ACE_THR_FUNC));¤		void* param = 0;¤		ACE_OS::memcpy (&param, mb->rd_ptr () + sizeof (ACE_THR_FUNC), sizeof (void*));¤		ThreadHandle th = 0;¤		ACE_OS::memcpy (¤			&th¤			, mb->rd_ptr () + sizeof (ACE_THR_FUNC) + sizeof (void*)¤			, sizeof (ThreadHandle)¤		);¤		if (!func) {¤			LOG_E (("Thread_Pool::svc: func is 0, exiting."));¤			m_busy_thr_count--;¤			break;¤		} else {¤			if (th) {¤				if (add_thread (ACE_OS::thr_self (), th)) {¤					LOG_E (("Thread_Pool::svc: add_thread fail."));¤				}¤			}¤			mpcxc_set_se_handler ();¤			ACE_THR_FUNC_RETURN res = func (param);¤			if (th) {¤				set_thread_result (th, res);¤				if (remove_thread (ACE_OS::thr_self ())) {¤					LOG_E (("Thread_Pool::svc: remove_thread fail."));¤				}¤			}¤		}¤		m_busy_thr_count--;¤	}¤	// Note that the <ACE_Task::svc_run> method automatically removes us¤	// from the <ACE_Thread_Manager> when the thread exits.¤	return 0;¤}¤¤//#UC END# *4502939F0280*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4502939F0280_DESTR_BODY*"
+		    value      	(value Text 
+|//#UC START# *4502939F0280_DESTR_BODY*¤	// Ê ìîìåíòó âûçîâà äåñòðóêòîðà âñå ïîòîêè äîëæíû áûòü óíè÷òîæåíû¤	GDS_ASSERT (this->thr_count () == 0);¤	{¤		GUARD (m_thread_results_mutex);¤		m_thread_results.clear ();¤	}¤	{¤		GUARD (m_threads_mutex);¤		m_threads.clear ();¤	}¤¤	delete m_separate_thr_mng;¤	//#UC END# *4502939F0280_DESTR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4502939F0280_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4502939F0280_CUSTOM_INCLUDES*¤#include <map>¤#include "shared/Core/GDS/ObjectCounter.h"¤¤namespace Core {¤	namespace ThreadFlags {¤		typedef unsigned Type;¤¤		const Type CANCEL = 0x00000001;¤	} // namespace ThreadFlags¤}¤//#UC END# *4502939F0280_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4502939F0280*"
+		    value      	(value Text 
+|//#UC START# *4502939F0280*¤public:¤	static ThreadPool* make () {¤		return new ThreadPool(true);¤	}¤¤	friend struct DeleteDestructor<ThreadPool>;¤¤	void activate (int n_threads);¤¤	int shutdown_all_threads ();¤¤	int spawn_thread (ACE_THR_FUNC func, const void* param, ThreadHandle* pth = 0);¤¤	int get_thread_result (ThreadHandle th, ACE_THR_FUNC_RETURN* res); // serve as join¤¤	int get_thread_flag (ThreadHandle th, ThreadFlags::Type& flags) const;¤¤	int set_thread_flag (ThreadHandle th, ThreadFlags::Type flags);¤		¤	int get_thread_handle (ACE_thread_t t_id, ThreadHandle& th) const;¤¤private:¤	static const size_t MESSAGE_BLOCK_LEN;¤¤	static const int THREADS_COUNTS;¤¤	typedef ACE_Message_Block MessageBlock;¤	¤	struct MessageBlockDestructor {¤		static void destroy (MessageBlock* p) {¤			p->release ();¤		}¤	};¤	typedef Core::Box <MessageBlock, MessageBlockDestructor> MessageBlock_var;¤¤	virtual int put (MessageBlock* mb, ACE_Time_Value* tv = 0);¤¤	void check_and_activate ();¤¤	// for joinable threads¤	int set_thread_result (ThreadHandle th, ACE_THR_FUNC_RETURN res);¤	¤	int create_thread_handle (ThreadHandle* th);¤	¤	int add_thread (ACE_thread_t t_id, ThreadHandle th);¤	¤	int remove_thread (ACE_thread_t t_id);¤	¤	int destroy_all_thread_handles ();¤	¤	ThreadPool (bool separate_thread_manager = false);¤	¤	virtual int svc ();¤	¤	virtual int close (u_long);¤¤private:¤	struct ThreadResult {¤		ThreadFlags::Type flags;¤		ACE_THR_FUNC_RETURN res;¤		ACE_Manual_Event* event;¤		ThreadResult () : res (ACE_THR_FUNC_RETURN(-1)), event ((ACE_Manual_Event*)(0)), flags (ThreadFlags::Type(0)) {¤		}¤	};¤	¤	typedef std::map <ThreadHandle, ThreadResult> ThreadResult_map;¤	¤	ThreadResult_map m_thread_results;¤	¤	typedef std::map <ACE_thread_t, ThreadHandle> Thread_map;¤	¤	Thread_map m_threads;¤//#UC END# *4502939F0280*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"i.h:*4502939F0280_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4502939F0280_CUSTOM_INCLUDES*¤//#UC END# *4502939F0280_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"i.h:*4502939F0280*"
+		    value      	"//#UC START# *4502939F0280*¤//#UC END# *4502939F0280*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"i.h:*4502939F0280_DESTR_BODY*"
+		    value      	(value Text 
+|//#UC START# *4502939F0280_DESTR_BODY*¤	if (this->shutdown_all_threads () == -1) {¤		LOG_E (("shutdown_pool:ERROR: ThreadPool::destroy_all_thread_handles"));¤	}	¤	if (this->destroy_all_thread_handles () == -1) {¤		LOG_E (("shutdown_pool:ERROR: ThreadPool::destroy_all_thread_handles"));¤	}¤	//#UC END# *4502939F0280_DESTR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need ref count"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need unsorted less"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"ifdef"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no base class"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need assign op"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need copy ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/Core/impl/mt_i/ThreadPool_i.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/impl/mt_i/ThreadPool_i.h")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"TODO"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory key"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.cpp)"
+		    value      	"w:/shared/Core/impl/mt_i/ThreadPool_i_factory.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.h)"
+		    value      	"w:/shared/Core/impl/mt_i/ThreadPool_i_factory.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NESTED GENERATED WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/MessageBlock_box|45F069AA0383::45F069AA0383;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/Message|45F04DCE0354::45F04DCE0354;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/ThreadResultData|45F051A2021B::45F051A2021B;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/MessageBlock_box|45F069AA0383::45F069AA0383;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/Message|45F04DCE0354::45F04DCE0354;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/ThreadResultData|45F051A2021B::45F051A2021B
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i|4502939F0280
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"C++ èíòåðôåéñû è ðåàëèçàöèÿ|Äîêóìåíòàöèÿ")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16657510490"))
+	    quid       	"4502939F0280"
+	    documentation 	"ïóë ïîòîêîâ"
+	    stereotype 	"Servant"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"45041ECF0109"
+		    supplier   	"Logical View::external::ace::Task::ACE_Task<ACE_MT_SYNCH>"
+		    quidu      	"45041E04038A"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"45EFED6F0344"
+		    supplier   	"Logical View::shared::Core::mt::ThreadPool"
+		    quidu      	"45EFED4D0298"))
+	    operations 	(list Operations
+		(object Operation "free_thread_resource"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4502ED9303C8*"
+			    value      	(value Text 
+|//#UC START# *4502ED9303C8*¤	GUARD (m_thread_results_mutex)¤	ThreadResult_map::iterator it = m_thread_results.find (th);¤	if (it == m_thread_results.end ()) {¤		return false;¤	}¤	¤	m_thread_results.erase (it);¤	return true;¤	//#UC END# *4502ED9303C8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"i.h:*4502ED9303C8*"
+			    value      	(value Text 
+|//#UC START# *4502ED9303C8*¤	GUARD (m_thread_results_mutex)¤	ThreadResult_map::iterator it = m_thread_results.find (th);¤	if (it == m_thread_results.end ()) {¤		return -1;¤	}¤	ThreadResult& tr = it->second;¤	delete tr.event;¤	m_thread_results.erase (it);¤	return 0;¤	//#UC END# *4502ED9303C8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"45EFEBF60018")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657522914"))
+		    quid       	"4502ED9303C8"
+		    documentation 	"îñâîáîæäàåò ñâÿçàííûå ñ ïîòîêîì ðåñóðñû"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "th"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657523219"))
+			    quid       	"466A974B00FA"
+			    type       	"ThreadHandle"
+			    quidu      	"45EFEA8001FC"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "get_thread_result"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"45EFEBF60018")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45EFF1C5017F*"
+			    value      	(value Text 
+|//#UC START# *45EFF1C5017F*¤	¤	//íóæíî äîæäàòüñÿ çàâåðøåíèÿ ïîòîêà¤	this->wait_thread (th);	¤	ThreadResult res;¤	{¤		GUARD (m_thread_results_mutex)¤		ThreadResult_map::const_iterator it = m_thread_results.find (th);¤		if (it == m_thread_results.end ()) {¤			throw UnmanagedThread ();¤		}¤		¤		res = it->second.res;¤	}¤	this->free_thread_resource (th);¤	return res;¤	//#UC END# *45EFF1C5017F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45EFEBD60325")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657523674"))
+		    quid       	"45EFF1C5017F"
+		    documentation 	"âîçâðàùàåò ðåçóëüòàò âûïîëíåíèÿ ïîñëåäíåãî çàäàíèÿ óêàçàííûì ïîòîêîì"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "th"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657523975"))
+			    quid       	"466A9AF900AB"
+			    type       	"ThreadHandle"
+			    quidu      	"45EFEA8001FC"))
+		    result     	"ThreadResult"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"45EFEBD60325")
+		(object Operation "get_thread_flag"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"45EFEBF60018")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45EFF2170102*"
+			    value      	(value Text 
+|//#UC START# *45EFF2170102*¤	GUARD (m_thread_results_mutex)¤	ThreadResult_map::const_iterator it = m_thread_results.find (th);¤	if (it == m_thread_results.end ()) {¤		throw UnmanagedThread ();¤	}¤	return it->second.flags;¤	//#UC END# *45EFF2170102*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45F0467102C7")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657524392"))
+		    quid       	"45EFF2170102"
+		    documentation 	"âîçâðàùàåò òåêóùåå ñîñòîÿíèå ôëàãîâ äëÿ ïîòîêà"
+		    parameters 	(list Parameters
+			(object Parameter "th"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657524689"))
+			    quid       	"466A9B05031C"
+			    type       	"ThreadHandle"
+			    quidu      	"45EFEA8001FC"))
+		    result     	"ThreadFlag"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"45F0467102C7")
+		(object Operation "set_thread_flag"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"45EFEBF60018")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F04AC602A8*"
+			    value      	(value Text 
+|//#UC START# *45F04AC602A8*¤	GUARD (m_thread_results_mutex)¤	ThreadResult_map::iterator it = m_thread_results.find (th);¤	if (it == m_thread_results.end ()) {¤		throw UnmanagedThread();¤	}¤	it->second.flags = flag;¤	//#UC END# *45F04AC602A8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657525113"))
+		    quid       	"45F04AC602A8"
+		    documentation 	"óñòàíàâëèâàåò çíà÷åíèå ôëàãîâ ïîòîêà"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "th"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657525440"))
+			    quid       	"466A9FFB01A5"
+			    type       	"ThreadHandle"
+			    quidu      	"45EFEA8001FC")
+			(object Parameter "flag"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45F0467102C7")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657525816"))
+			    quid       	"466A9FFB0271"
+			    type       	"ThreadFlag"
+			    quidu      	"45F0467102C7"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "put"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F04EBB0289*"
+			    value      	(value Text 
+|//#UC START# *45F04EBB0289*¤	int res = this->putq (mb, 0);¤	if (res != -1) {¤		m_busy_thr_count++;¤		return true;¤	} else {¤		return false;¤	}¤	//#UC END# *45F04EBB0289*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657526227"))
+		    quid       	"45F04EBB0289"
+		    documentation 	"ïåðåäàåò çàäà÷ó â ïîòîê äëÿ âûïîëíåíèÿ è óâåëè÷èâàåò êîë-âî çàíÿòûõ ïîòîêîâ"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "inout mb"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45F04E4D0018")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657526543"))
+			    quid       	"466AA0AD02BF"
+			    type       	"ACE_Message_Block"
+			    quidu      	"45F04E4D0018"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "check_and_activate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F04F0500A4*"
+			    value      	(value Text 
+|//#UC START# *45F04F0500A4*¤	if (!this->thr_count ()) {¤		this->reserve (DEFAULT_THREADS_COUNTS);¤	}¤	//#UC END# *45F04F0500A4*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657526953"))
+		    quid       	"45F04F0500A4"
+		    documentation 	"ðåçåðâèðóåò íåîáõîäèìîå êîë-âî ïîòîêêîâ â ïóëå"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "set_thread_result"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F0506B0085*"
+			    value      	(value Text 
+|//#UC START# *45F0506B0085*¤	GUARD (m_thread_results_mutex)¤¤	ThreadResult_map::iterator it = m_thread_results.find (th);¤	if (it == m_thread_results.end ()) {¤		return false;¤	}¤	it->second.res = res;¤	it->second.event->signal ();¤	¤	return true;¤	//#UC END# *45F0506B0085*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657527324"))
+		    quid       	"45F0506B0085"
+		    documentation 	"óñòàíàâëèâàåò çíà÷åíèå ðåçóëüòàòà âûïîëíåíîé ïîòîêîì ðàáîòû"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "th"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657527623"))
+			    quid       	"466AA0DE0232"
+			    type       	"ThreadHandle"
+			    quidu      	"45EFEA8001FC")
+			(object Parameter "res"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEBD60325")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657527999"))
+			    quid       	"466AA0DE02BF"
+			    type       	"ThreadResult"
+			    quidu      	"45EFEBD60325"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "create_thread_handle"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F050CD02A8*"
+			    value      	(value Text 
+|//#UC START# *45F050CD02A8*¤	ThreadHandle ret = ++m_last_thread_number;¤	¤	GUARD (m_thread_results_mutex)¤	ThreadData& tr = m_thread_results [ret];¤	tr.event = new ACE_Manual_Event;¤	¤	return ret;¤	//#UC END# *45F050CD02A8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45EFEA8001FC")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657528424"))
+		    quid       	"45F050CD02A8"
+		    documentation 	"àëëîöèðóåò íîâûé õåíäë (â âèäå óêàçàòåëÿ íà Event (os), äëÿ âîçìîæíîñòè îæèäàíèÿ åãî çàâåðøåíèÿ (ïî event)"
+		    stereotype 	"chg"
+		    result     	"ThreadHandle"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"45EFEA8001FC")
+		(object Operation "add_thread"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F050FB03B1*"
+			    value      	(value Text 
+|//#UC START# *45F050FB03B1*¤	GUARD (m_threads_mutex)¤	std::pair <Thread_map::iterator, bool> res = m_threads.insert (Thread_map::value_type (t_id, th));¤	return res.second;¤	//#UC END# *45F050FB03B1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657528775"))
+		    quid       	"45F050FB03B1"
+		    documentation 	"Äîáàâëÿåò â ïóë âíåøíèé ïîòîê "
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "t_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45F054DE02D7")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657529076"))
+			    quid       	"466AA21701B5"
+			    type       	"ACE_thread_t"
+			    quidu      	"45F054DE02D7")
+			(object Parameter "th"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657529472"))
+			    quid       	"466AA2170242"
+			    type       	"ThreadHandle"
+			    quidu      	"45EFEA8001FC"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "remove_thread"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F0513801EC*"
+			    value      	(value Text 
+|//#UC START# *45F0513801EC*¤	ThreadHandle th = BAD_HANDLE;¤	{¤		GUARD (m_threads_mutex);¤		Thread_map::iterator it = m_threads.find (t_id);¤		if (it != m_threads.end ()) {¤			th = it->second;¤			m_threads.erase (it);¤		}¤	}¤	//ïðè óäàëåíèè ïîòîêà èç ïóëà íóæíî óäàëèòü ñîáûòèå, ñâÿçàííîå ñ ïîòîêîì¤	{¤		GUARD(m_thread_results_mutex);¤		ThreadResult_map::iterator it = m_thread_results.find (th);¤		if (it != m_thread_results.end () && !it->second.event.is_nil ()) {¤			//ñîáûòèå áîëüøå íå íóæíî¤			it->second.event = 0;¤		}¤	}¤	//#UC END# *45F0513801EC*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657529888"))
+		    quid       	"45F0513801EC"
+		    documentation 	"óäàîÿåò èç ïóëà ïîòîê"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "t_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45F054DE02D7")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657530189"))
+			    quid       	"466AA2200242"
+			    type       	"ACE_thread_t"
+			    quidu      	"45F054DE02D7"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "svc"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F05156021B*"
+			    value      	(value Text 
+|//#UC START# *45F05156021B*¤	//LOG_D (("Thread_Pool::svc: start thread."));¤¤	// Note that the <ACE_Task::svc_run> method automatically adds us to¤	// the Thread_Manager when the thread begins.¤	try {¤		Core::Root::LibHomeManagerFactory::get ().init_thread ();¤	} catch (Core::Root::NoActiveFactory&) {¤	}¤¤	// Keep looping, reading a message out of the queue, until we get a¤	// message with a length == 0, which signals us to quit.¤	for (;;) {¤		MessageBlock_box mb; // We're responsible for deallocating this.¤		if (this->getq (mb.out ()) == -1) {¤			LOG_E (("ThreadPool_i::svc - getq got result -1, exiting"));¤			break;¤		}¤		//AutoAtomicCounter acu (m_busy_thr_count);¤¤		const size_t mb_len = mb->length ();¤		if (!mb_len) {¤			//LOG_D (("Thread_Pool::svc: signals us to quit."));¤			m_busy_thr_count--;¤			break;¤		} else if (mb_len != sizeof(Message)) {¤			LOG_E (("ThreadPool_i::svc - message length = %d. Got BAD message, exiting.", mb_len));¤			m_busy_thr_count--;¤			break;¤		}¤¤		Message* msg = reinterpret_cast<Message*>(mb->rd_ptr ());¤		¤		if (!msg->func) {¤			LOG_E (("ThreadPool_i::svc - func is 0, exiting."));¤			m_busy_thr_count--;¤			break;¤		} else {¤			if (msg->th) {¤				if (!add_thread (ACE_OS::thr_self (), msg->th)) {¤					LOG_E (("ThreadPool_i::svc - add_thread fail."));¤				}¤			}¤			mpcxc_set_se_handler ();¤			ACE_THR_FUNC_RETURN res = msg->func (msg->param);¤			if (msg->th) {¤				set_thread_result (msg->th, res);¤				remove_thread (ACE_OS::thr_self ());¤			}¤		}¤		m_busy_thr_count--;¤	}¤¤	try {¤		Core::Root::LibHomeManagerFactory::get().finalize_thread();¤	} catch (Core::Root::NoActiveFactory&) {¤	}¤	// Note that the <ACE_Task::svc_run> method automatically removes us¤	// from the <ACE_Thread_Manager> when the thread exits.¤	return 0;¤	//#UC END# *45F05156021B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A61050251")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657530606"))
+		    quid       	"45F05156021B"
+		    documentation 	
+|Iterate <n_iterations> time printing off a message and "waiting" for all other threads to complete this iteration.
+		    
+		    stereotype 	"chg"
+		    result     	"integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"450A61050251")
+		(object Operation "wait_thread"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*496F2D31028C*"
+			    value      	(value Text 
+|//#UC START# *496F2D31028C*¤	Core::Box<ACE_Manual_Event> thread_event;¤	{¤		GUARD (m_thread_results_mutex)¤		ThreadResult_map::iterator it = m_thread_results.find (th);¤		if (it == m_thread_results.end ()) {¤			throw UnmanagedThread ();¤		}¤		thread_event = it->second.event;¤	}¤¤	if (!thread_event.is_nil ()) {¤		thread_event->wait ();¤	}¤	//#UC END# *496F2D31028C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657530958"))
+		    quid       	"496F2D31028C"
+		    documentation 	"æä¸ò çàâåðøåíèÿ ðàáîòû ïîòîêà"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "th"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657531307"))
+			    quid       	"496F2D5202F0"
+			    type       	"ThreadHandle"
+			    quidu      	"45EFEA8001FC"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "busy_thr_count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450E69CC0213")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657520241"))
+		    quid       	"45113C980241"
+		    type       	"unsigned atomic"
+		    quidu      	"450E69CC0213"
+		    initv      	"0")
+		(object ClassAttribute "separate_thr_mng"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45126D450137")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657520604"))
+		    quid       	"45F056BD03D1"
+		    type       	"ACE_Thread_Manager"
+		    quidu      	"45126D450137"
+		    initv      	"0")
+		(object ClassAttribute "last_thread_number"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450E69CC0213")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657520976"))
+		    quid       	"496F2D5F0265"
+		    documentation 	
+|íîìåð ïîñëåäíåãî "îòöåïëåííîãî" ïîòîêà
+		    
+		    type       	"unsigned atomic"
+		    quidu      	"450E69CC0213"
+		    initv      	"0"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"
+	    parameters 	(list Parameters
+		(object Parameter "_Mutex "
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657531727"))
+		    quid       	"4503F08101E4"
+		    initv      	" ACE_MT_SYNCH"))
+	    nestedClasses 	(list nestedClasses
+		(object Class "ThreadFlag"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657511091"))
+		    quid       	"45F0467102C7"
+		    documentation 	"Äîïóñòèìûå ôëàãè ïîòîêà"
+		    stereotype 	"BitMask"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"45F0491C0334"
+			    supplier   	"Logical View::Primitives::unsigned long"
+			    quidu      	"3DBFFDE101CA"))
+		    exportControl 	"Private"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "CANCEL"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657511390"))
+			    quid       	"45F046F30018"
+			    exportControl 	"Public"
+			    Containment 	"By Value")))
+		(object Class "ThreadConstants"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657512068"))
+		    quid       	"45F04C650112"
+		    documentation 	"îáùèå êîíñòàíòû"
+		    stereotype 	"Constants"
+		    exportControl 	"Private"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "DEFAULT_THREADS_COUNTS"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFDE101CA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657512366"))
+			    quid       	"45F04CDE0150"
+			    documentation 	"Êîëè÷åñòâî ïîòîêîâ â ïóëå êîòîðûì îí èíèöèàëèçèðóåòñÿ ïî óìîë÷àíèþ"
+			    type       	"unsigned long"
+			    quidu      	"3DBFFDE101CA"
+			    initv      	"8"
+			    exportControl 	"Public"
+			    Containment 	"By Value")))
+		(object Class "Message"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Need assign op"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Need copy ctor"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Need init ctor"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"need UC"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"need dctor"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"force usage"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/Message|45F04DCE0354
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657513040"))
+		    quid       	"45F04DCE0354"
+		    documentation 	
+|ñòðóêóòðà ñîîáùåíèÿ äëÿ ïåðåäà÷è "çàäà÷è" â ïîòîê
+		    
+		    stereotype 	"Struct"
+		    exportControl 	"Private"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "func"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"450297450148")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657513337"))
+			    quid       	"45F04DE20150"
+			    documentation 	"ôóíêöèÿ äëÿ âûïîëíåíèÿ ðàáîòû"
+			    type       	"ACE_THR_FUNC"
+			    quidu      	"450297450148"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "param"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3ECB343C024C")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657513739"))
+			    quid       	"45F04DF201CD"
+			    documentation 	"ïàðàìåòðû ôóíêöèè"
+			    type       	"pointer"
+			    quidu      	"3ECB343C024C"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "th"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657514148"))
+			    quid       	"45F04E090018"
+			    documentation 	"ïðèñâîåííûé õåíäë ïîòîêà"
+			    type       	"ThreadHandle"
+			    quidu      	"45EFEA8001FC"
+			    exportControl 	"Public"
+			    Containment 	"By Value")))
+		(object Class "ThreadData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45F051A2021B_DEF_INIT_CTOR*"
+			    value      	(value Text 
+|//#UC START# *45F051A2021B_DEF_INIT_CTOR*¤			//#UC END# *45F051A2021B_DEF_INIT_CTOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/ThreadData|45F051A2021B
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16662116144"))
+		    quid       	"45F051A2021B"
+		    documentation 	"Äàííûå ñâÿçàííûå ñ ïîòîêîì"
+		    stereotype 	"Struct"
+		    exportControl 	"Private"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "flags"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45F0467102C7")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657515196"))
+			    quid       	"45F051BD0140"
+			    documentation 	"ôëàãè ïîòîêà"
+			    type       	"ThreadFlag"
+			    quidu      	"45F0467102C7"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "res"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEBD60325")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657515631"))
+			    quid       	"45F051D50315"
+			    documentation 	"ðåçóëüòàò âûïîëíåíèÿ ðàáîòû"
+			    type       	"ThreadResult"
+			    quidu      	"45EFEBD60325"
+			    initv      	"THREAD_RESULT_OK"
+			    exportControl 	"Public"
+			    Containment 	"By Value")
+			(object ClassAttribute "event"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45F053E80075")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657516024"))
+			    quid       	"45F051E80298"
+			    documentation 	"Event (os) äëÿ ñèíõðîíèçàöèè"
+			    type       	"ACE_Manual_Event"
+			    quidu      	"45F053E80075"
+			    exportControl 	"Public"
+			    Containment 	"By Reference")))
+		(object Class "ThreadResult_map"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16662121352"))
+		    quid       	"45F052550334"
+		    documentation 	"ìàïà äàííûõ ïîòîêà ïî åãî õåíäëó, çàïîëíÿåòñÿ ïðè àëëîêàöèè íîâîãî õåíäëà"
+		    stereotype 	"Map"
+		    exportControl 	"Private")
+		(object Class "Thread_map"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16662122408"))
+		    quid       	"45F0529F0160"
+		    documentation 	"Ìàïà ïîòîêàîâ - ñâÿçü ñ õåíäëîì ÷åðåõ ðåàëüíûé (âíåøíèé) èäåíòèôèêàòîð ïîòîêà"
+		    stereotype 	"Map"
+		    exportControl 	"Private")
+		(object Class "MessageBlock_box"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Need deallocator"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"h:*45F069AA0383*"
+			    value      	(value Text 
+|//#UC START# *45F069AA0383*¤	content->release ();¤	//#UC END# *45F069AA0383*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"force usage"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/mt_i/ThreadPool_i/MessageBlock_box|45F069AA0383
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657519716"))
+		    quid       	"45F069AA0383"
+		    documentation 	"Áàêñ äëÿ ñïåöèôè÷åñêîãî óäàëåíèÿ ñîáùåíèé"
+		    stereotype 	"Deallocator"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"45F069F602A8"
+			    supplier   	"Logical View::external::ace::Thread_Manager::ACE_Message_Block"
+			    quidu      	"45F04E4D0018"))
+		    exportControl 	"Private")))
+	(object Association "$UNNAMED$0"
+	    quid       	"45F052630066"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657517133"))
+		    quid       	"45F0526301FC"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i::ThreadData"
+		    quidu      	"45F051A2021B"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45EFEA8001FC")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657517475"))
+			    quid       	"45F0526B01AE"
+			    type       	"ThreadHandle"
+			    exportControl 	"Public"
+			    Containment 	"By Value"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"45F0526301FE"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i::ThreadResult_map"
+		    quidu      	"45F052550334"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"45F0527802E6"
+	    roles      	(list role_list
+		(object Role "thread_results"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657521380"))
+		    quid       	"45F052790121"
+		    label      	"thread_results"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i::ThreadResult_map"
+		    quidu      	"45F052550334"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$4"
+		    quid       	"45F052790123"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i"
+		    quidu      	"4502939F0280"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$5"
+	    quid       	"45F052B002C7"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$6"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657518638"))
+		    quid       	"45F052B10289"
+		    supplier   	"Logical View::shared::Core::mt::ThreadHandle"
+		    quidu      	"45EFEA8001FC"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "k"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"45F054DE02D7")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16657518967"))
+			    quid       	"45F052B601CD"
+			    type       	"ACE_thread_t"
+			    exportControl 	"Public"
+			    Containment 	"By Value"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$7"
+		    quid       	"45F052B1028B"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i::Thread_map"
+		    quidu      	"45F0529F0160"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$8"
+	    quid       	"45F052C300E3"
+	    roles      	(list role_list
+		(object Role "threads"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657521756"))
+		    quid       	"45F052C30306"
+		    label      	"threads"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i::Thread_map"
+		    quidu      	"45F0529F0160"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$9"
+		    quid       	"45F052C30308"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i"
+		    quidu      	"4502939F0280"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$10"
+	    quid       	"4511362001B4"
+	    roles      	(list role_list
+		(object Role "thread_results_mutex"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is mutable"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657522125"))
+		    quid       	"451136200398"
+		    label      	"thread_results_mutex"
+		    supplier   	"Logical View::shared::Core::sys::synch::Mutex"
+		    quidu      	"4511350E00AA"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$11"
+		    quid       	"4511362003A8"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i"
+		    quidu      	"4502939F0280"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$12"
+	    quid       	"4511364A00F8"
+	    roles      	(list role_list
+		(object Role "threads_mutex"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is mutable"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16657522518"))
+		    quid       	"4511364A029E"
+		    label      	"threads_mutex"
+		    supplier   	"Logical View::shared::Core::sys::synch::Mutex"
+		    quidu      	"4511350E00AA"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$13"
+		    quid       	"4511364A02AE"
+		    supplier   	"Logical View::shared::Core::mt_i::ThreadPool_i"
+		    quidu      	"4502939F0280"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"45003426009C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	637
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::external::ace::Task::ACE_Task<ACE_MT_SYNCH>" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"434")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"496")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"614")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(984, 207)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(686, 179)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	596
+			justify    	0
+			label      	"• ACE_Task<ACE_MT_SYNCH>")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(686, 129)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	596
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"45041E04038A"
+		    width      	614
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt::ThreadPool" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"960")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"495")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"290")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(1509, 207)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1350, 179)
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"• ThreadPool")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1350, 129)
+			anchor     	10
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"45EFED4D0298"
+		    width      	336
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::sys::synch::Mutex" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1116")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"1923")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"278")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"178"))
+		    location   	(1665, 1635)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	2313060
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1543, 1607)
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"Mutex")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1543, 1557)
+			anchor     	10
+			nlines     	1
+			max_width  	241
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	2313060
+		    fill_color 	16777215
+		    quidu      	"4511350E00AA"
+		    width      	262
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::ThreadResult_map" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1891")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"1333")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"396")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(2439, 1044)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6572835
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(2250, 1016)
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"ThreadResult_map")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(2250, 966)
+			anchor     	10
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"<<Map>>")
+		    icon_style 	"Label"
+		    line_color 	6572835
+		    fill_color 	16777215
+		    quidu      	"45F052550334"
+		    width      	396
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::Thread_map" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1891")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"961")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"318")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(2439, 672)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6572835
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(2289, 644)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"Thread_map")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(2289, 594)
+			anchor     	10
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"<<Map>>")
+		    icon_style 	"Label"
+		    line_color 	6572835
+		    fill_color 	16777215
+		    quidu      	"45F0529F0160"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"774")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"1209")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"1440")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"892"))
+		    location   	(1323, 921)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(617, 512)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1412
+			justify    	0
+			label      	"• ThreadPool_i")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(617, 462)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1412
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12842435
+		    quidu      	"4502939F0280"
+		    width      	1430
+		    height     	942
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @7
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"560,762;476,586"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45041ECF0109"
+		    client     	@6
+		    supplier   	@1
+		    vertices   	(list Points
+			(1098, 449)
+			(1026, 297))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$10" @8
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"1079,1654;1079,1834"))
+		    location   	(1628, 1468)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4511362001B4"
+		    roleview_list 	(list RoleViews
+			(object RoleView "thread_results_mutex" @9
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"LineVertices"
+				    value      	"1079,1744;1079,1834"))
+			    Parent_View 	@8
+			    location   	(659, 868)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @10
+				Parent_View 	@9
+				location   	(1391, 1498)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	427
+				justify    	0
+				label      	"-thread_results_mutex"
+				pctDist    	0.398058
+				height     	238
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"451136200398"
+			    client     	@8
+			    supplier   	@3
+			    vertices   	(list Points
+				(1628, 1468)
+				(1628, 1544))
+			    line_style 	3
+			    origin_attachment 	(1628, 1468)
+			    terminal_attachment 	(1628, 1544))
+			(object RoleView "$UNNAMED$11" @11
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"LineVertices"
+				    value      	"1079,1744;1079,1654"))
+			    Parent_View 	@8
+			    location   	(659, 868)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4511362003A8"
+			    client     	@8
+			    supplier   	@6
+			    vertices   	(list Points
+				(1628, 1468)
+				(1628, 1392))
+			    line_style 	3
+			    origin_attachment 	(1628, 1468)
+			    terminal_attachment 	(1628, 1392))))
+		(object AssociationViewNew "$UNNAMED$12" @12
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"1232,1655;1232,1834"))
+		    location   	(1781, 1468)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4511364A00F8"
+		    roleview_list 	(list RoleViews
+			(object RoleView "threads_mutex" @13
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"LineVertices"
+				    value      	"1232,1744;1232,1834"))
+			    Parent_View 	@12
+			    location   	(341, 586)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @14
+				Parent_View 	@13
+				location   	(1937, 1507)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	292
+				justify    	0
+				label      	"-threads_mutex"
+				pctDist    	0.509434
+				height     	156
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4511364A029E"
+			    client     	@12
+			    supplier   	@3
+			    vertices   	(list Points
+				(1781, 1468)
+				(1781, 1545))
+			    line_style 	3
+			    origin_attachment 	(1781, 1468)
+			    terminal_attachment 	(1781, 1545))
+			(object RoleView "$UNNAMED$13" @15
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"LineVertices"
+				    value      	"1232,1744;1232,1655"))
+			    Parent_View 	@12
+			    location   	(341, 586)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4511364A02AE"
+			    client     	@12
+			    supplier   	@6
+			    vertices   	(list Points
+				(1781, 1468)
+				(1781, 1391))
+			    line_style 	3
+			    origin_attachment 	(1781, 1468)
+			    terminal_attachment 	(1781, 1391))))
+		(object RealizeView "" @16
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"890,762;935,585"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45EFED6F0344"
+		    client     	@6
+		    supplier   	@2
+		    vertices   	(list Points
+			(1444, 449)
+			(1484, 297))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$3" @17
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"1494,1287;1692,1309"))
+		    location   	(2139, 1010)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45F0527802E6"
+		    roleview_list 	(list RoleViews
+			(object RoleView "thread_results" @18
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"LineVertices"
+				    value      	"1593,1299;1692,1309"))
+			    Parent_View 	@17
+			    location   	(651, -137)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @19
+				Parent_View 	@18
+				location   	(2204, 900)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	287
+				justify    	0
+				label      	"-thread_results"
+				pctDist    	0.516493
+				height     	118
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"45F052790121"
+			    client     	@17
+			    supplier   	@4
+			    vertices   	(list Points
+				(2139, 1010)
+				(2240, 1020))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$4" @20
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"LineVertices"
+				    value      	"1593,1299;1494,1287"))
+			    Parent_View 	@17
+			    location   	(651, -137)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"45F052790123"
+			    client     	@17
+			    supplier   	@6
+			    vertices   	(list Points
+				(2139, 1010)
+				(2038, 998))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$8" @21
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"1494,1046;1731,994"))
+		    location   	(2158, 733)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45F052C300E3"
+		    roleview_list 	(list RoleViews
+			(object RoleView "threads" @22
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"LineVertices"
+				    value      	"1612,1021;1731,994"))
+			    Parent_View 	@21
+			    location   	(670, -414)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @23
+				Parent_View 	@22
+				location   	(2175, 676)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	157
+				justify    	0
+				label      	"-threads"
+				pctDist    	0.242996
+				height     	53
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"45F052C30306"
+			    client     	@21
+			    supplier   	@5
+			    vertices   	(list Points
+				(2158, 733)
+				(2279, 705))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$9" @24
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"LineVertices"
+				    value      	"1612,1021;1494,1046"))
+			    Parent_View 	@21
+			    location   	(670, -414)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"45F052C30308"
+			    client     	@21
+			    supplier   	@6
+			    vertices   	(list Points
+				(2158, 733)
+				(2038, 759))
+			    line_style 	0)))
+		(object Label @25
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F052550334"))
+		    location   	(2247, 1095)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object Label @26
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F0529F0160"))
+		    location   	(2286, 723)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"4502939F0280")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4756BA540150"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	1050
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::ThreadFlag" @27
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(411, 441)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@27
+			location   	(261, 384)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"ThreadFlag")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@27
+			location   	(261, 334)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"<<BitMask>>")
+		    icon_style 	"Label"
+		    fill_color 	15781360
+		    quidu      	"45F0467102C7"
+		    width      	318
+		    height     	238
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::ThreadConstants" @28
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(774, 924)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@28
+			location   	(276, 867)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	996
+			justify    	0
+			label      	"ThreadConstants")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@28
+			location   	(276, 817)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	996
+			justify    	0
+			label      	"<<Constants>>")
+		    icon_style 	"Label"
+		    fill_color 	16119285
+		    quidu      	"45F04C650112"
+		    width      	1014
+		    height     	238
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::MessageBlock_box" @29
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1002, 525)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@29
+			location   	(808, 497)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"MessageBlock_box")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@29
+			location   	(808, 447)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"<<Deallocator>>")
+		    icon_style 	"Label"
+		    fill_color 	16765695
+		    quidu      	"45F069AA0383"
+		    width      	406
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::Message" @30
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1134, 1392)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@30
+			location   	(894, 1260)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	480
+			justify    	0
+			label      	"• Message")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@30
+			location   	(894, 1210)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	480
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"45F04DCE0354"
+		    width      	498
+		    height     	388
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::ThreadResult_map" @31
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1767, 831)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@31
+			location   	(1578, 778)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"ThreadResult_map")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@31
+			location   	(1578, 728)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"<<Map>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"45F052550334"
+		    width      	396
+		    height     	230
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::ThreadData" @32
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1764, 291)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@32
+			location   	(1335, 159)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	858
+			justify    	0
+			label      	"• ThreadData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@32
+			location   	(1335, 109)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	858
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"45F051A2021B"
+		    width      	876
+		    height     	388
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @33
+		    location   	(1765, 600)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45F052630066"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$2" @34
+			    Parent_View 	@33
+			    location   	(1447, 381)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @35
+				Parent_View 	@34
+				location   	(1808, 692)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"45F0526301FE"
+			    client     	@33
+			    supplier   	@31
+			    vertices   	(list Points
+				(1765, 600)
+				(1766, 715))
+			    line_style 	0
+			    label      	(object SegLabel @36
+				Parent_View 	@34
+				location   	(1767, 675)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	354
+				justify    	0
+				label      	"key : ThreadHandle"
+				pctDist    	0.900000
+				height     	12
+				orientation 	0))
+			(object RoleView "$UNNAMED$1" @37
+			    Parent_View 	@33
+			    location   	(1447, 381)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @38
+				Parent_View 	@37
+				location   	(1806, 508)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"45F0526301FC"
+			    client     	@33
+			    supplier   	@32
+			    vertices   	(list Points
+				(1765, 600)
+				(1764, 485))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::shared::Core::mt_i::ThreadPool_i::Thread_map" @39
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(288, 1749)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@39
+			location   	(138, 1696)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"Thread_map")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@39
+			location   	(138, 1646)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"<<Map>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"45F0529F0160"
+		    width      	318
+		    height     	230
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::mt::ThreadHandle" @40
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(273, 1212)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	2313060
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@40
+			location   	(134, 1184)
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"ThreadHandle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@40
+			location   	(134, 1134)
+			anchor     	10
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	2313060
+		    fill_color 	16777215
+		    quidu      	"45EFEA8001FC"
+		    width      	296
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$5" @41
+		    location   	(279, 1467)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45F052B002C7"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$7" @42
+			    Parent_View 	@41
+			    location   	(9, 1347)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @43
+				Parent_View 	@42
+				location   	(325, 1599)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"45F052B1028B"
+			    client     	@41
+			    supplier   	@39
+			    vertices   	(list Points
+				(279, 1467)
+				(283, 1633))
+			    line_style 	0
+			    label      	(object SegLabel @44
+				Parent_View 	@42
+				location   	(282, 1593)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	316
+				justify    	0
+				label      	"k : ACE_thread_t"
+				pctDist    	0.900000
+				height     	12
+				orientation 	0))
+			(object RoleView "$UNNAMED$6" @45
+			    Parent_View 	@41
+			    location   	(9, 1347)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @46
+				Parent_View 	@45
+				location   	(317, 1335)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"45F052B10289"
+			    client     	@41
+			    supplier   	@40
+			    vertices   	(list Points
+				(279, 1467)
+				(274, 1302))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::external::ace::Thread_Manager::ACE_Message_Block" @47
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1005, 162)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@47
+			location   	(775, 134)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"• ACE_Message_Block")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@47
+			location   	(775, 84)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"45F04E4D0018"
+		    width      	478
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @48
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45F069F602A8"
+		    client     	@29
+		    supplier   	@47
+		    vertices   	(list Points
+			(1002, 434)
+			(1004, 252))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Primitives::unsigned long" @49
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(408, 123)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@49
+			location   	(239, 77)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	338
+			justify    	0
+			label      	"unsigned long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFDE101CA"
+		    width      	356
+		    height     	117
+		    autoResize 	TRUE)
+		(object InheritView "" @50
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45F0491C0334"
+		    client     	@27
+		    supplier   	@49
+		    vertices   	(list Points
+			(409, 321)
+			(408, 181))
+		    line_style 	0)
+		(object Label @51
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F0467102C7"))
+		    location   	(258, 522)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object Label @52
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F04C650112"))
+		    location   	(276, 1005)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object Label @53
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F069AA0383"))
+		    location   	(804, 576)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object Label @54
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F04DCE0354"))
+		    location   	(891, 1548)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object Label @55
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F052550334"))
+		    location   	(1575, 909)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object Label @56
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F0529F0160"))
+		    location   	(135, 1827)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")
+		(object Label @57
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"45F051A2021B"))
+		    location   	(1332, 447)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")))))

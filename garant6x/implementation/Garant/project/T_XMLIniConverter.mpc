@@ -1,0 +1,61 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/T_XMLIniConverter.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ExeTarget::Category>> garant6x::XMLIniConverter
+//
+// Утилита конвертации ini-файлов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_XMLIniConverter) : project_generic_core, project_subsystem_console {
+	exename = XMLIniConverter
+	
+	includes += ../../../../
+	
+	after += Core
+	libs  += Core
+	
+
+	after += XMLIniConverterLib
+	libs  += XMLIniConverterLib
+	after += xerces-c
+	libs  += xerces-c
+	after += GCL
+	libs  += GCL
+	after += XercesHelpers
+	libs  += XercesHelpers
+	after += xerces-c
+	libs  += xerces-c
+	after += XercesHelpers
+	libs  += XercesHelpers
+	after += xerces-c
+	libs  += xerces-c
+
+	
+	Header_Files {
+		Std_Headers {
+			
+		}
+	}
+	
+	Inline_Files {
+		Std_Inlines {
+			
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../XMLIniConverter/XMLIniConverter_main.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../XMLIniConverter/XMLIniConverter_vi.rc
+		./../XMLIniConverter/XMLIniConverter_vi.rch
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

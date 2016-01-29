@@ -1,0 +1,912 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/AccessorsSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::AccessorsSupport
+//
+// вспомогательные функции для генерации акцессоров
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерация метода чтения атрибута
+//f _read_accessor_h
+: read_accessor_h OBJECT IN %S
+//#UC START# *47C666640090*
+//	%f_init_accessor_attr(%S,%1)\
+ [%f] init_accessor_attr %( %S %, %1 )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	][{%TU!=%{__ATTR__}%TU}%f_error("Не соответсвие типов одноименных свойств (%PN::%SN и %{__ATTR__}%PN::%{__ATTR__}N)")]\
+ end // if
+ NOP
+ if ( ( %T |U ) %!= ( ( get_global_var ( '__ATTR__' )  ->T |U ) ) ) then
+ begin
+  [%f] error %( 'Не соответсвие типов одноименных свойств ('
+  %P |N '::'
+  %S |N ' и '
+  ( get_global_var ( '__ATTR__' )  ->P |N ) '::'
+  ( get_global_var ( '__ATTR__' ) |N ) ')' )% 
+ end // if
+//	[{%t_is_static_accessor(%S)=true}{#[{%Sa!=final}virtual ]%f_iget_attr(%{__ATTR__}) get_%SN (%{__ATTR__}%f_accessor_args("true"))[ %f_op_const_spec(%{__ATTR__})][ /*throw <{, }%f_type(%E)>*/][{%Sa=abstract} = 0];}\
+ if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+ begin
+//	#static %f_iget_attr(%{__ATTR__}) get_%SN (%{__ATTR__}%f_accessor_args("true"))[ /*<{, }%f_type(%E)>*/];][
+  out_indent 'static '
+  [%f] iget_attr %( ( get_global_var ( '__ATTR__' ) ) )% ' get_'
+  %S |N ' ('
+  ( get_global_var ( '__ATTR__' ) %f accessor_args %( true )% ) ')'
+  if NOT-EMPTY
+  begin
+   ' /*'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+   '*/' 
+  end // if
+  NOP
+  ';' 
+ end // if
+ else
+ begin
+  out_indent if ( ( %S |a ) %!= 'final' ) then
+  begin
+   'virtual ' 
+  end // if
+  [%f] iget_attr %( ( get_global_var ( '__ATTR__' ) ) )% ' get_'
+  %S |N ' ('
+  ( get_global_var ( '__ATTR__' ) %f accessor_args %( true )% ) ')'
+  if NOT-EMPTY
+  begin
+   ' '
+   [%f] op_const_spec %( ( get_global_var ( '__ATTR__' ) ) )% 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   ' /*throw '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+   '*/' 
+  end // if
+  NOP
+  if ( ( %S |a ) %== 'abstract' ) then
+  begin
+   ' = 0' 
+  end // if
+  ';' 
+ end // else
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+
+//f _init_accessor_attr
+; // read_accessor_h
+
+: init_accessor_attr OBJECT IN %S
+//	%f_clear_list(__OP_LIST__)\
+ [%f] clear_list %( '__OP_LIST__' )% 
+//	%f_copy_list(%1N,__OP_LIST__)\
+ [%f] copy_list %( %1 |N %, '__OP_LIST__' )% 
+//	%f_set_var(__SELF_R__,"%f_read_accessor_signature(%S)")\
+ [%f] set_var %( '__SELF_R__' %, [%f] read_accessor_signature %( %S )% )% 
+//	%f_set_var(__ATTR__,S)\
+ [%f] set_var %( '__ATTR__' %, 'S' )% 
+//	<{}{%f_is_empty(__OP_LIST__)=false}{W}[%f_pop_first_to_var(__OP_LIST__,__OP__)\
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( '__OP_LIST__' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( '__OP_LIST__' %, '__OP__' )% 
+//	[{%t_need_ro(%{__OP__})=true&%f_read_accessor_signature(%{__OP__})=%{__SELF_R__}N}%f_set_var(__ATTR__,{__OP__})]]>
+    if ( ( [%t] need_ro %( ( get_global_var ( '__OP__' ) ) )% ) %==  true AND 
+      ( ( [%f] read_accessor_signature %( ( get_global_var ( '__OP__' ) ) )% ) %== ( ( get_global_var ( '__SELF_R__' ) |N ) )  ) ) then
+    begin
+     [%f] set_var %( '__ATTR__' %, '{__OP__}' )% 
+    end // if
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//#UC END# *47C666640090*
+; // init_accessor_attr
+
+
+// генерация метода чтения атрибута
+//f _read_accessor_cpp
+: read_accessor_cpp OBJECT IN %S
+//#UC START# *47C666750027*
+//	%f_init_accessor_attr(%S,%1)\
+ [%f] init_accessor_attr %( %S %, %1 )% 
+//	[{%Sa!=abstract}\
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+//	[%S%f_open_ifdef()
+  if NOT-EMPTY
+  begin
+   %S %f open_ifdef %( )% 
+//	][{"%1U"!=""}{%f_set_var(OWNER,P)}%f_set_var(OWNER,1)]\
+  end // if
+  NOP
+  if ( ( %1 |U ) %!= '' ) then
+  begin
+   [%f] set_var %( 'OWNER' %, 1 )% 
+  end // if
+  else
+  begin
+   [%f] set_var %( 'OWNER' %, 'P' )% 
+  end // else
+//	[{%{__ATTR__}%T%PU=%{OWNER}U}{%f_init_scope(%{OWNER})}%f_init_scope(%{__ATTR__}%T)]\
+  if ( ( ( get_global_var ( '__ATTR__' )  ->T ->P |U  ) ) %== ( ( get_global_var ( 'OWNER' ) |U ) ) ) then
+  begin
+   [%f] init_scope %( ( get_global_var ( '__ATTR__' )  ->T ) )% 
+  end // if
+  else
+  begin
+   [%f] init_scope %( ( get_global_var ( 'OWNER' ) ) )% 
+  end // else
+//	%f_templ_header(%{OWNER})[{%t_is_static_accessor(%S)=true}{%f_iget_attr(%{__ATTR__}) [{%{OWNER}%PC=Class}%f_type(%{OWNER}%P)::]%f_type(%{OWNER})::get_%SN (%{__ATTR__}%f_accessor_args("true"))[ %f_op_const_spec(%{__ATTR__})][ /*throw <{, }%f_type(%E)>*/] {
+  [%f] templ_header %( ( get_global_var ( 'OWNER' ) ) )% if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+  begin
+   '}'
+//	%f_iget_attr(%{__ATTR__}) [{%{OWNER}%PC=Class}%f_type(%{OWNER}%P)::]%f_type(%{OWNER})::get_%SN (%{__ATTR__}%f_accessor_args("true"))[ /*throw <{, }%f_type(%E)>*/] {
+   [%f] iget_attr %( ( get_global_var ( '__ATTR__' ) ) )% ' '
+   if ( ( ( get_global_var ( 'OWNER' )  ->P |C ) ) %== 'Class' ) then
+   begin
+    [%f] type %( ( get_global_var ( 'OWNER' )  ->P ) )% '::' 
+   end // if
+   [%f] type %( ( get_global_var ( 'OWNER' ) ) )% '::get_'
+   %S |N ' ('
+   ( get_global_var ( '__ATTR__' ) %f accessor_args %( true )% ) ')'
+   if NOT-EMPTY
+   begin
+    ' /*throw '
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+    '*/' 
+   end // if
+   NOP
+   ' {'
+//		%U[{_GET_ACCESSOR}
+   '	'
+   %Usersection (
+    '_GET_ACCESSOR' 
+   )
+   (
+    #13#10
+
+//		[{%S{needs field}!=false}{throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);}return %f_read_return_impl(%S,%{__ATTR__});]
+    '	'
+    if ( ( %S get_up ( 'needs field' ) ) %!=  false ) then
+    begin
+     'return '
+     [%f] read_return_impl %( %S %, ( get_global_var ( '__ATTR__' ) ) )% ';' 
+    end // if
+    else
+    begin
+     'throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);' 
+    end // else
+//		]
+    '	' 
+   ) // Usersection
+ //	}]%f_shift_scope(false)[
+   '}' 
+  end // if
+  else
+  begin
+   [%f] iget_attr %( ( get_global_var ( '__ATTR__' ) ) )% ' '
+   if ( ( ( get_global_var ( 'OWNER' )  ->P |C ) ) %== 'Class' ) then
+   begin
+    [%f] type %( ( get_global_var ( 'OWNER' )  ->P ) )% '::' 
+   end // if
+   [%f] type %( ( get_global_var ( 'OWNER' ) ) )% '::get_'
+   %S |N ' ('
+   ( get_global_var ( '__ATTR__' ) %f accessor_args %( true )% ) ')'
+   if NOT-EMPTY
+   begin
+    ' '
+    [%f] op_const_spec %( ( get_global_var ( '__ATTR__' ) ) )% 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    ' /*throw '
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%E
+    begin
+     OBJECT IN %E
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] type %( %E )% 
+      ++! l_Counter
+     end // if
+    end // for E
+    '*/' 
+   end // if
+   NOP
+   ' {'
+//		%U[{_GET_ACCESSOR}
+   '	'
+   %Usersection (
+    '_GET_ACCESSOR' 
+   )
+   (
+    #13#10
+
+//		[{%S{needs field}=false}{return %f_read_return_impl(%S,%{__ATTR__});}throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);]
+    '	'
+    if ( ( %S get_up ( 'needs field' ) ) %==  false ) then
+    begin
+     'throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);' 
+    end // if
+    else
+    begin
+     'return '
+     [%f] read_return_impl %( %S %, ( get_global_var ( '__ATTR__' ) ) )% ';' 
+    end // else
+//		]
+    '	' 
+   ) // Usersection
+ //	}}\
+  end // else
+  [%f] shift_scope %( false )% if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_close_ifdef()]]
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+ end // if
+
+//f _read_return_impl
+; // read_accessor_cpp
+
+: read_return_impl OBJECT IN %S
+//	%t_read_return_impl(%S,"%Sl","[{%t_is_static_accessor(%S)=true}{m_%SN}[{%f_can_be_static(%S)=false}{s_%SN}%f_to_borland(%SN)Singleton::instance ()-\>ptr]]","%t_accessor_return_type(%1%T,"%f_accessor_ret_st(%1)")")
+ [%t] read_return_impl %( %S %, %S |l %, if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+ begin
+  if ( ( [%f] can_be_static %( %S )% ) %==  false ) then
+  begin
+   [%f] to_borland %( %S |N )% 'Singleton::instance ()->ptr' 
+  end // if
+  else
+  begin
+   's_'
+   %S |N 
+  end // else
+ end // if
+ else
+ begin
+  'm_'
+  %S |N 
+ end // else
+%,  [%t] accessor_return_type %( %1 ->T  %, [%f] accessor_ret_st %( %1 )% )% )% 
+
+//f _accessor_return_value
+; // read_return_impl
+
+: accessor_return_value OBJECT IN %S
+//	[{%f_is_server_type(%T)=false}{const_cast\<%f_iget_attr(%S)\>(%1N)}%1N]
+ if ( ( [%f] is_server_type %( %T )% ) %==  false ) then
+ begin
+  %1 |N 
+ end // if
+ else
+ begin
+  'const_cast<'
+  [%f] iget_attr %( %S )% '>('
+  %1 |N ')' 
+ end // else
+
+//t _read_return_impl
+; // accessor_return_value
+
+<<transformator>> read_return_impl OBJECT IN %S
+//c                            {agr}          {lnk}                                       {ref}
+//r "%3N"="value":             {%2N}          {*%2N}                                      {*%2N}
+//r "%3N"="pointer":           {*%2N}         {%f_accessor_return_value(%S,"%2N")}        {%f_accessor_return_value(%S,"%2N.in ()")}
+//r "%3N"="reference":         {%2N}          {*%2N}                                      {*%2N}
+//r {""=""}:                   {%2N}          {%2N}                                       {%2N}
+
+//t _accessor_return_type
+; // read_return_impl
+
+<<transformator>> accessor_return_type OBJECT IN %S
+//c                                            {}                                                 {const}                                       {const,cached}
+//r {%SS=Typedef&%GN=string}:                  {value}                                            {value}                                       {reference}
+//r "%f_is_fixed_simple(%S)"="true":           {value}                                            {value}                                       {value}
+//r "%SN"="c-string":                          {pointer}                                          {value}                                       {reference}
+//r "%f_is_fixed_complex(%S)"="true":          {[{%f_is_server_type(%S)=false}{value}pointer]}    {value}                                       {reference}
+//r "%f_is_not_fixed_simple(%S)"="true":       {value}                                            {value}                                       {value}
+//r "%f_is_not_fixed_complex(%S)"="true":      {pointer}                                          {value}                                       {reference}
+//r "%t_refcounted(%S)"="true":                {pointer}                                          {pointer}                                     {reference}
+
+
+
+//f _init_scope
+; // accessor_return_type
+
+: init_scope OBJECT IN %S
+//	[{%t_class_type(P)=true}{%f_set_var(__SCOPE,P)}%f_set_var(__SCOPE,{SERV})]
+ if ( ( [%t] class_type %( 'P' )% ) %==  true ) then
+ begin
+  [%f] set_var %( '__SCOPE' %, '{SERV}' )% 
+ end // if
+ else
+ begin
+  [%f] set_var %( '__SCOPE' %, 'P' )% 
+ end // else
+//#UC END# *47C666750027*
+; // init_scope
+
+
+// генерация метода чтения атрибута
+//f _read_accessor_java
+: read_accessor_java OBJECT IN %S
+//#UC START# *47C6667C0395*
+//	[%S#f_dump_annotations("#")
+ if NOT-EMPTY
+ begin
+  %S %?f dump_annotations %( out_indent )% 
+//	]#[%t_abstract_type(%S)]%t_visibility(%S)[{%t_is_static_accessor(%S)=true}static ]%f_attr(%S) %f_to_java(get_%SN) (%S%f_accessor_args())[ throws <{, }%f_type(%E)>][{%Sa!=abstract} {
+ end // if
+ NOP
+ out_indent if NOT-EMPTY
+ begin
+  [%t] abstract_type %( %S )% 
+ end // if
+ NOP
+ [%t] visibility %( %S )% if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+ begin
+  'static ' 
+ end // if
+ [%f] attr %( %S )% ' '
+ [%f] to_java %( 'get_'
+ %S |N )% ' ('
+ %S %f accessor_args %( )% ')'
+ if NOT-EMPTY
+ begin
+  ' throws '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+ end // if
+ NOP
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  ' {'
+//	#	%U[{_GET_ACCESSOR}
+  out_indent '	'
+  %Usersection (
+   '_GET_ACCESSOR' 
+  )
+  (
+   #13#10
+
+//	#	[{%S{needs field}=false}{return %f_to_java([{%t_is_static_accessor(%S)=true}s_]%SN)_}throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ()];
+   out_indent '	'
+   if ( ( %S get_up ( 'needs field' ) ) %==  false ) then
+   begin
+    'throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ()' 
+   end // if
+   else
+   begin
+    'return '
+    [%f] to_java %( if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+    begin
+     's_' 
+    end // if
+    %S |N )% '_' 
+   end // else
+   ';'
+//	#	]
+   out_indent '	' 
+  ) // Usersection
+ //	#}]
+  out_indent '}' 
+ end // if
+//#UC END# *47C6667C0395*
+; // read_accessor_java
+
+
+// генерации метода записи атрибута
+//f _write_accessor_h
+: write_accessor_h OBJECT IN %S
+//#UC START# *47C666AD01D0*
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	][{%t_is_static_accessor(%S)=true}{#[{%Sa!=final}virtual ]void set_%SN (%t_arg(%T,"%f_arg_specificator(%S)") %SN[, %S%f_accessor_args()])[{%S{is mutable}=true} const][ /*throw <{, }%f_type(%e)>*/][{%Sa=abstract} = 0];}\
+ end // if
+ NOP
+ if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+ begin
+//	#static void set_%SN (%t_arg(%T,"in") %SN[, %S%f_accessor_args()])[ /*<{, }%f_type(%e)>*/];][
+  out_indent 'static void set_'
+  %S |N ' ('
+  [%t] arg %( %T %, 'in' )% ' '
+  %S |N if NOT-EMPTY
+  begin
+   ', '
+   %S %f accessor_args %( )% 
+  end // if
+  NOP
+  ')'
+  if NOT-EMPTY
+  begin
+   ' /*'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%e
+   begin
+    OBJECT IN %e
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %e )% 
+     ++! l_Counter
+    end // if
+   end // for e
+   '*/' 
+  end // if
+  NOP
+  ';' 
+ end // if
+ else
+ begin
+  out_indent if ( ( %S |a ) %!= 'final' ) then
+  begin
+   'virtual ' 
+  end // if
+  'void set_'
+  %S |N ' ('
+  [%t] arg %( %T %, [%f] arg_specificator %( %S )% )% ' '
+  %S |N if NOT-EMPTY
+  begin
+   ', '
+   %S %f accessor_args %( )% 
+  end // if
+  NOP
+  ')'
+  if ( ( %S get_up ( 'is mutable' ) ) %==  true ) then
+  begin
+   ' const' 
+  end // if
+  if NOT-EMPTY
+  begin
+   ' /*throw '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%e
+   begin
+    OBJECT IN %e
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %e )% 
+     ++! l_Counter
+    end // if
+   end // for e
+   '*/' 
+  end // if
+  NOP
+  if ( ( %S |a ) %== 'abstract' ) then
+  begin
+   ' = 0' 
+  end // if
+  ';' 
+ end // else
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+
+//f _arg_specificator
+; // write_accessor_h
+
+: arg_specificator OBJECT IN %S
+//	[{%Sl=agr&%t_refcounted(%T)=false}{[{%f_is_fixed_simple(%T)=false&%t_is_container(%T)=false&%f_is_server_type(%T)=false&%Ss!=const}{in}[{%Ss!=const&%t_refcounted(%T)=true&%f_is_server_type(%T)=false}{in}inout]]}in]
+ if ( ( %S |l ) %== 'agr' AND 
+   ( ( [%t] refcounted %( %T )% ) %==  false  ) ) then
+ begin
+  'in' 
+ end // if
+ else
+ begin
+  if ( ( [%f] is_fixed_simple %( %T )% ) %==  false AND 
+    ( ( [%t] is_container %( %T )% ) %==  false  ) AND 
+    ( ( [%f] is_server_type %( %T )% ) %==  false  ) AND 
+    ( ( %S |s ) %!= 'const'  ) ) then
+  begin
+   if ( ( %S |s ) %!= 'const' AND 
+     ( ( [%t] refcounted %( %T )% ) %==  true  ) AND 
+     ( ( [%f] is_server_type %( %T )% ) %==  false  ) ) then
+   begin
+    'inout' 
+   end // if
+   else
+   begin
+    'in' 
+   end // else
+  end // if
+  else
+  begin
+   'in' 
+  end // else
+ end // else
+//#UC END# *47C666AD01D0*
+; // arg_specificator
+
+
+// генерации метода записи атрибута
+//f _write_accessor_cpp
+: write_accessor_cpp OBJECT IN %S
+//#UC START# *47C6670B0197*
+//	[{%T%PU=%PU&%TU!=%PU}%f_shift_scope(true)]\
+//	[{%Sa!=abstract}\
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+//	[%S%f_open_ifdef()
+  if NOT-EMPTY
+  begin
+   %S %f open_ifdef %( )% 
+//	][{"%1U"!=""}{%f_set_var(OWNER,P)}%f_set_var(OWNER,1)]%f_templ_header(%{OWNER})[{%t_is_static_accessor(%S)=true}{void [{%{OWNER}%PC=Class}%f_type(%{OWNER}%P)::]%f_type(%{OWNER})::set_%SN (%t_arg(%T,"%f_arg_specificator(%S)") %SN[, %S%f_accessor_args()])[{%S{is mutable}=true} const][ /*throw <{, }%f_type(%e)>*/] {
+  end // if
+  NOP
+  if ( ( %1 |U ) %!= '' ) then
+  begin
+   [%f] set_var %( 'OWNER' %, 1 )% 
+  end // if
+  else
+  begin
+   [%f] set_var %( 'OWNER' %, 'P' )% 
+  end // else
+  [%f] templ_header %( ( get_global_var ( 'OWNER' ) ) )% if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+  begin
+   '}'
+//	void [{%{OWNER}%PC=Class}%f_type(%{OWNER}%P)::]%f_type(%{OWNER})::set_%SN (%t_arg(%T,"%f_arg_specificator(%S)") %SN[, %S%f_accessor_args()])[ /*throw <{, }%f_type(%e)>*/] {
+   'void '
+   if ( ( ( get_global_var ( 'OWNER' )  ->P |C ) ) %== 'Class' ) then
+   begin
+    [%f] type %( ( get_global_var ( 'OWNER' )  ->P ) )% '::' 
+   end // if
+   [%f] type %( ( get_global_var ( 'OWNER' ) ) )% '::set_'
+   %S |N ' ('
+   [%t] arg %( %T %, [%f] arg_specificator %( %S )% )% ' '
+   %S |N if NOT-EMPTY
+   begin
+    ', '
+    %S %f accessor_args %( )% 
+   end // if
+   NOP
+   ')'
+   if NOT-EMPTY
+   begin
+    ' /*throw '
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%e
+    begin
+     OBJECT IN %e
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] type %( %e )% 
+      ++! l_Counter
+     end // if
+    end // for e
+    '*/' 
+   end // if
+   NOP
+   ' {'
+//		%U[{_SET_ACCESSOR}
+   '	'
+   %Usersection (
+    '_SET_ACCESSOR' 
+   )
+   (
+    #13#10
+
+//		[{%S{needs field}=false}{[{%f_can_be_static(%S)=true}{%f_to_borland(%SN)Singleton::instance ()-\>ptr = [{%t_refcounted(%T)=true}{%SN}%f_type(%T)::_duplicate(%SN)]}s_%SN = [{%Sl=ref&%t_refcounted(%T)=true}{%SN}%f_type(%T)::_duplicate(%SN)]];}throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);]
+    '	'
+    if ( ( %S get_up ( 'needs field' ) ) %==  false ) then
+    begin
+     'throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);' 
+    end // if
+    else
+    begin
+     if ( ( [%f] can_be_static %( %S )% ) %==  true ) then
+     begin
+      's_'
+      %S |N ' = '
+      if ( ( %S |l ) %== 'ref' AND 
+        ( ( [%t] refcounted %( %T )% ) %==  true  ) ) then
+      begin
+       [%f] type %( %T )% '::_duplicate('
+       %S |N ')' 
+      end // if
+      else
+      begin
+       %S |N 
+      end // else
+     end // if
+     else
+     begin
+      [%f] to_borland %( %S |N )% 'Singleton::instance ()->ptr = '
+      if ( ( [%t] refcounted %( %T )% ) %==  true ) then
+      begin
+       [%f] type %( %T )% '::_duplicate('
+       %S |N ')' 
+      end // if
+      else
+      begin
+       %S |N 
+      end // else
+     end // else
+     ';' 
+    end // else
+//		]
+    '	' 
+   ) // Usersection
+ //	}]%f_shift_scope(false)[
+   '}' 
+  end // if
+  else
+  begin
+   'void '
+   if ( ( ( get_global_var ( 'OWNER' )  ->P |C ) ) %== 'Class' ) then
+   begin
+    [%f] type %( ( get_global_var ( 'OWNER' )  ->P ) )% '::' 
+   end // if
+   [%f] type %( ( get_global_var ( 'OWNER' ) ) )% '::set_'
+   %S |N ' ('
+   [%t] arg %( %T %, [%f] arg_specificator %( %S )% )% ' '
+   %S |N if NOT-EMPTY
+   begin
+    ', '
+    %S %f accessor_args %( )% 
+   end // if
+   NOP
+   ')'
+   if ( ( %S get_up ( 'is mutable' ) ) %==  true ) then
+   begin
+    ' const' 
+   end // if
+   if NOT-EMPTY
+   begin
+    ' /*throw '
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%e
+    begin
+     OBJECT IN %e
+     if true then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] type %( %e )% 
+      ++! l_Counter
+     end // if
+    end // for e
+    '*/' 
+   end // if
+   NOP
+   ' {'
+//		%U[{_SET_ACCESSOR}
+   '	'
+   %Usersection (
+    '_SET_ACCESSOR' 
+   )
+   (
+    #13#10
+
+//		[{%S{needs field}=false}{m_%SN = [{%Sl=ref&%t_refcounted(%T)=true}{%SN}%f_type(%T)::_duplicate(%SN)];}throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);]
+    '	'
+    if ( ( %S get_up ( 'needs field' ) ) %==  false ) then
+    begin
+     'throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);' 
+    end // if
+    else
+    begin
+     'm_'
+     %S |N ' = '
+     if ( ( %S |l ) %== 'ref' AND 
+       ( ( [%t] refcounted %( %T )% ) %==  true  ) ) then
+     begin
+      [%f] type %( %T )% '::_duplicate('
+      %S |N ')' 
+     end // if
+     else
+     begin
+      %S |N 
+     end // else
+     ';' 
+    end // else
+//		]
+    '	' 
+   ) // Usersection
+ //	}}\
+  end // else
+  [%f] shift_scope %( false )% if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_close_ifdef()]]
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+ end // if
+//#UC END# *47C6670B0197*
+; // write_accessor_cpp
+
+
+// генерации метода записи атрибута
+//f _write_accessor_java
+: write_accessor_java OBJECT IN %S
+//#UC START# *47C6671500DC*
+//	[%S#f_dump_annotations("#")
+ if NOT-EMPTY
+ begin
+  %S %?f dump_annotations %( out_indent )% 
+//	]#[%t_abstract_type(%S)]%t_visibility(%S)[{%t_is_static_accessor(%S)=true}static ]void %f_to_java(set_%SN) (final %f_attr(%S) %f_to_java(%SN)[, %S%f_accessor_args()])[ throws <{, }%f_type(%e)>][{%Sa!=abstract} {
+ end // if
+ NOP
+ out_indent if NOT-EMPTY
+ begin
+  [%t] abstract_type %( %S )% 
+ end // if
+ NOP
+ [%t] visibility %( %S )% if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+ begin
+  'static ' 
+ end // if
+ 'void '
+ [%f] to_java %( 'set_'
+ %S |N )% ' (final '
+ [%f] attr %( %S )% ' '
+ [%f] to_java %( %S |N )% if NOT-EMPTY
+ begin
+  ', '
+  %S %f accessor_args %( )% 
+ end // if
+ NOP
+ ')'
+ if NOT-EMPTY
+ begin
+  ' throws '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%e
+  begin
+   OBJECT IN %e
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %e )% 
+    ++! l_Counter
+   end // if
+  end // for e
+ end // if
+ NOP
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  ' {'
+//	#	%U[{_SET_ACCESSOR}
+  out_indent '	'
+  %Usersection (
+   '_SET_ACCESSOR' 
+  )
+  (
+   #13#10
+
+//	#	[{%S{needs field}=false}{%f_to_java([{%t_is_static_accessor(%S)=true}s_]%SN)_ = %f_to_java(%SN)}throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ()];
+   out_indent '	'
+   if ( ( %S get_up ( 'needs field' ) ) %==  false ) then
+   begin
+    'throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ()' 
+   end // if
+   else
+   begin
+    [%f] to_java %( if ( ( [%t] is_static_accessor %( %S )% ) %==  true ) then
+    begin
+     's_' 
+    end // if
+    %S |N )% '_ = '
+    [%f] to_java %( %S |N )% 
+   end // else
+   ';'
+//	#	]
+   out_indent '	' 
+  ) // Usersection
+ //	#}]
+  out_indent '}' 
+ end // if
+//#UC END# *47C6671500DC*
+; // write_accessor_java
+
+
+// возвращает true - если метод доступа должен быть статическим
+//t _is_static_accessor
+<<transformator>> is_static_accessor OBJECT IN %S
+//#UC START# *47C668A10247*
+//c                                 {}
+//r {"%SC"="Attribute"}:            {[{}{false}%S#f_is_static()]}
+//r {""=""}:                        {false}
+//#UC END# *47C668A10247*
+; // is_static_accessor
+
+
+// возвращает true, если нужно генерить readonly акцессор
+//t _need_ro
+<<transformator>> need_ro OBJECT IN %S
+//#UC START# *47CE9E06011B*
+//c                              {}
+//r {"%SC"="Attribute"}:                     {[{}{false}%S#f_need_ro_accessor()]}
+//r {""=""}:                        {false}
+//#UC END# *47CE9E06011B*
+; // need_ro
+
+
+// возвращает true, если нужно генерить rw-акцессор
+//t _need_rw
+<<transformator>> need_rw OBJECT IN %S
+//#UC START# *47CE9E3A00FB*
+//c                               {}
+//r {"%SC"="Attribute"}:          {[{}{false}%S#f_need_rw_accessor()]}
+//r {""=""}:                      {false}
+//#UC END# *47CE9E3A00FB*
+; // need_rw
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

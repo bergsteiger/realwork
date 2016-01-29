@@ -1,0 +1,18 @@
+USES
+ axiom:Wnd
+;
+
+PROCEDURE "Убедиться, что контрол - КЗ" OBJECT IN aCtrl
+ aCtrl ЯВЛЯЕТСЯ class::TevQueryCardEditor ?ASSURE 'Контрол не является КЗ'
+;
+
+PROCEDURE "Восстановить все настройки текущей конфигурации"
+ //заглушка
+; // "Восстановить все настройки текущей конфигурации"
+
+PROCEDURE "Установить окно оболочки на передний план"
+  VAR l_Handle
+  'ГАРАНТ аэро - Создание индивидуальной ленты ' FindWindowByCaption =: l_Handle
+  l_Handle 0 ?!= ?ASSURE 'Не нашли окно с Праймом!'
+  l_Handle wnd:SetForeground
+;

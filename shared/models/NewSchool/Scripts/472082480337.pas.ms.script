@@ -1,0 +1,52 @@
+// m3 472082480337 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_472082480337
+ CONST UID '472082480337'
+ CONST Name 'm3'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'Ѕиблиотека дл€ работы с хранилищем представл€ющим реализацию виртуальной файловой системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABA2360025A' '4ABA2360025A.pas.ms.script' // Shared Delphi For Archi
+ ;
+ : Children
+   @ ( WL 'ME_472082A400B8' '472082A400B8.pas.ms.script' // m3Interfaces
+ WL 'ME_4720862F0238' '4720862F0238.pas.ms.script' // m3StorageInterfaces
+ WL 'ME_5485B0D1026C' '5485B0D1026C.pas.ms.script' // Streams
+ WL 'ME_5485C15F0072' '5485C15F0072.pas.ms.script' // HeaderStream
+ WL 'ME_48294AA903A6' '48294AA903A6.pas.ms.script' // m3CoreObjects
+ WL 'ME_5485BC6B01F7' '5485BC6B01F7.pas.ms.script' // Storage
+ WL 'ME_5485BB9703CE' '5485BB9703CE.pas.ms.script' // Indexer
+ WL 'ME_5486E32B0191' '5486E32B0191.pas.ms.script' // StorageHolder
+ WL 'ME_54870DB502F5' '54870DB502F5.pas.ms.script' // ArchiveStreams
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'm3Define.inc'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi For Archi\m3\m3.model.script'
+ CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\472082480337.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\472082480337.pas.ms.script.runner'
+
+ref; // ME_472082480337 m3

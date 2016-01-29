@@ -1,0 +1,193 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ћодуль: "w:/MDProcess/CommonTemplates/CommonLang/Library/MPCSupport.tpi"
+// √енераци€ мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Library::MPCSupport
+//
+// набор вспомагательных функций дл€ генерации mpc/mwc
+//
+//
+// ¬се права принадлежат ќќќ Ќѕѕ "√арант-—ервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// дампит зависимости от библиотек
+f _mpc_lib_dep
+//#UC START# *470372D303D8*
+	<{\n\t}{%De=false&%DS!=Requirements|"%D{native name}"!=""&%DS!=Requirements}after += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+		libs  += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+	[{%DS=ServerLibrary&%t_target(%S)=true}
+		after += %DN
+		libs  += %DN
+	]>
+//#UC END# *470372D303D8*
+
+// дампит код mpc файла библиотеки
+f _library_mpc_base
+//#UC START# *47037358005D*
+	%f_set_var(MPC_BASE,S)\
+		includes += %f_root_relative_path(%S)
+	[{%S{need UC}=true}
+		%U[{_CUSTOM_DEPENDENCES}
+		]]
+	[{"<{}{%DS!=Requirements}{%DC}>"!="0"}[	%f_mpc_lib_dep(%S)]]
+	[<{}{%C<{}{%AM=Grammar::Class}{%AC}>!=0}{%CSn}\
+		Grammar_Files (%CN) {
+	%C<{}{}{%ASn}[{"%f_normolized_path(g.cpp,A)"!=""}\
+			gflags += -o %f_normolized_dir(g.cpp,A)%f_set_var(PATH,"%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,)")
+			%f_normolized_path(g.cpp,A) \>\> %{PATH}NLexer.hpp %{PATH}NLexer.cpp %{PATH}NParser.hpp %{PATH}NParser.cpp
+	]>
+		}
+	>]	Header_Files {
+			Std_Headers {
+			[	%f_normolized_path(fctr.h,S)
+			][	%f_normolized_path(h,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			][	%f_normolized_path(p.h,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(h,A)
+			][	%f_normolized_path(fctr.h,A)
+			][	%f_normolized_path(p.h,A)
+			][	%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.hpp),%AN.,%ANParser.)
+				%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.hpp),%AN.,%ANLexer.)
+			]>}
+		>[%{MPC_BASE}%f_specific_h_files_list()
+		]}
+	
+		Inline_Files {
+			Std_Inlines {
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(i.h,C)
+			]>}
+		<{}{%CC=Category&%CS!=ServerInterface}{Sn}
+			%CN {
+			[	%f_normolized_path(i.h,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(i.h,A)
+			]>}
+		>}
+	
+		Source_Files {
+			Std_Sources {
+			[	%f_normolized_path(fctr.cpp,S)
+			][	%f_normolized_path(cpp,S)
+			][	%f_normolized_path(p.cpp,S)
+			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			][	%f_normolized_path(p.cpp,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(p.cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(cpp,A)
+			][	%f_normolized_path(fctr.cpp,A)
+			][	%f_normolized_path(p.cpp,A)
+			][	%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.cpp),%AN.,%ANParser.)
+				%f_str_replace(%f_str_replace(%f_normolized_path(g.cpp,A),.cpp.g,.cpp),%AN.,%ANLexer.)
+			]>}
+		>[%{MPC_BASE}%f_specific_cpp_files_list()
+		]}[{"<{}{%CM=ComInterfaces::Category}{C}>"!="0"}
+		
+		<{}{}{%CSn}%f_set_var(ODL_PATH,"%f_normolized_path(odl,C)")ODL_Files (%CN) {
+			[%f_normolized_path(odl,C)
+			]
+		}
+		>]
+//#UC END# *47037358005D*
+
+// генерим include ко всем LibHome библиотек от которых зависим (рекурсивно)
+f _inc_all_dep
+//#UC START# *470387C0004E*
+	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}\#include "%f_delsubstr_from_begin(%Dd,1)/LibHome.h"
+	[{%DS=ServerLibrary&%t_target(%S)=true}\#include "%f_delsubstr_from_begin(%Dd,1)/ServerLibHome.h"
+	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_inc_all_dep(%D)]>
+//#UC END# *470387C0004E*
+
+// генерим код регистрации  всех LibHome библиотек от которых зависим (рекурсивно)
+f _reg_all_dep
+//#UC START# *470387F903C8*
+	%f_clear_list(REG_ALL_DEP)\
+	%f_clear_list(REG_ALL_DEP_SERVER)\
+	%f_reg_all_dep_i(%S)\
+	%f_sort_list(REG_ALL_DEP,u)\
+	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,CYCLE_ITEM)\
+	[	%{CYCLE_ITEM}%f_open_ifdef()
+	]		lhm.registrate_lib_home (&%{CYCLE_ITEM}N::LibHomeFactory::get ());[{%f_exists_in_list(REG_ALL_DEP_SERVER,{CYCLE_ITEM})=true}
+			lhm.registrate_lib_home (&%{CYCLE_ITEM}N::ServerLibHomeFactory::get ());][
+		%{CYCLE_ITEM}%f_close_ifdef()]
+	]>%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)
+
+f _reg_all_dep_i
+	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}[{%f_exists_in_list(REG_ALL_DEP,D)=false}%f_add_to_list(REG_ALL_DEP,D)]\
+	[{%DS=ServerLibrary&%t_target(%S)=true}[{%f_exists_in_list(REG_ALL_DEP_SERVER,D)=false}%f_add_to_list(REG_ALL_DEP_SERVER,D)]\
+	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_reg_all_dep_i(%D)]>
+//#UC END# *470387F903C8*
+
+// генерим дополнительные команды includes к бибилиотекам
+f _mpc_all_includes
+//#UC START# *47038820034B*
+	%f_clear_list(MPC_INLUDES)\
+	%f_collect_mpc_all_includes(%S)\
+	%f_sort_list(MPC_INLUDES,n)\
+	%f_unique_list(MPC_INLUDES)\
+	<{}{%f_is_empty(MPC_INLUDES)=false}{W}%f_pop_first_to_var(MPC_INLUDES,_INC_)[	includes += %{_INC_}N
+	]>%f_clear_list(MPC_INLUDES)
+
+f _collect_mpc_all_includes
+	<{}{%De=false&%DS!=Requirements|"%D{native includes path}"!=""&%DS!=Requirements}[{%De=true}%f_add_to_list(MPC_INLUDES,"%D{native includes path}")][{%DS!=ServerLibrary|%t_target(%S)=true}%f_collect_mpc_all_includes(%D,"zzz")]>
+//#UC END# *47038820034B*
+
+// генерим дополнительные путь к бибилиотекам (libpaths)
+f _mpc_all_libpaths
+//#UC START# *4703882D008C*
+	%f_clear_list(MPC_LIBPATH)\
+	%f_collect_mpc_all_libpaths(%S)\
+	%f_sort_list(MPC_LIBPATH,n)\
+	%f_unique_list(MPC_LIBPATH)\
+	<{}{%f_is_empty(MPC_LIBPATH)=false}{W}%f_pop_first_to_var(MPC_LIBPATH,_LIBPATH_)[	libpaths += %{_LIBPATH_}N
+	]>%f_clear_list(MPC_LIBPATH)
+
+f _collect_mpc_all_libpaths
+	<{}{%De=false&%DS!=Requirements|"%D{native lib path}"!=""&%DS!=Requirements}[{%De=true}%f_add_to_list(MPC_LIBPATH,"%D{native lib path}")][{%DS!=ServerLibrary|%t_target(%S)=true}%f_collect_mpc_all_libpaths(%D,"zzz")]>
+//#UC END# *4703882D008C*
+
+// генерим зависимости от всех библиотек, от которых зависим (рекурсивно)
+f _mpc_all_dep
+//#UC START# *47038859005D*
+	<{}{%De=false&%DS!=Requirements|"%D{native name}"!=""&%DS!=Requirements}	after += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+		libs  += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]][
+		lit_libs += %D{lit_libs}]
+	[{%DS=ServerLibrary&%t_target(%S)=true}	after += %DN
+		libs  += %DN[
+		lit_libs += %D{lit_libs}]
+	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_mpc_all_dep(%D,"zzz")]>
+
+//нужно ли линковатьс€ с библиотекой ANTLR
+f _mpc_need_antrl_proj
+	[{"%f_mpc_need_antrl_proj_impl(%S)"!=""}{false}true]
+
+f _mpc_need_antrl_proj_impl
+	<{}{%De=false&%DS!=Requirements|"%D{native name}"!=""&%DS!=Requirements}[{"%DM"!="ServerLibrary::Category"}[{%D<{}{%AM=Grammar::Class}{%AC}>!=0}.]]\
+	[{"%DM"="ServerLibrary::Category"&%t_target(%S)=true}[{%D<{}{%AM=Grammar::Class}{%AC}>!=0}.]]\
+	[{%DS!=ServerLibrary|%t_target(%S)=true}%f_mpc_need_antrl_proj_impl(%D,"zzz")]>
+//#UC END# *47038859005D*
+
+// определ€ет содержат ли пакеты, ото которых зависит (рекурсивно) Self элементы со стереотип
+// Views, озвращает true, или false
+f _contain_views
+//#UC START# *47046BEC03A9*
+	[{"<%d<{}{%AS=Views}{C}>>"!="0"}{false}true]
+//#UC END# *47046BEC03A9*
+
+// нужно ли генерить в mpc-шник список idl-ей
+f _need_mpc_idl
+//#UC START# *471604E5008C*
+	[{%SM=ServerInterfaces::Category|%SM=Impl::Category}{false}[{%S%f_need_idl()=true}{false}true]]
+//#UC END# *471604E5008C*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

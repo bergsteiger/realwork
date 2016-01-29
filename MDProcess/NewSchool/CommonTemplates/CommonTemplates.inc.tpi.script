@@ -1,0 +1,666 @@
+//////////////////////////////////////////////////////////////////////////////////
+// includes
+//# ./../MetaTemplate/MetaTemplate.inc.tpi
+USES
+ 'G:\NewSchool\MetaTemplate\MetaTemplate.inc.tpi.script'
+;
+//# ./../CoreTemplates/CoreTemplates.inc.tpi
+USES
+ 'G:\NewSchool\CoreTemplates\CoreTemplates.inc.tpi.script'
+;
+//# ./AllGenerators/OtherGens/CORBA IDL.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\OtherGens\CORBA IDL.tpi.script'
+;
+//# ./AllGenerators/OtherGens/Скрипт для сборки.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\OtherGens\Скрипт для сборки.tpi.script'
+;
+//# ./AllGenerators/OtherGens/IDLImpl.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\OtherGens\IDLImpl.tpi.script'
+;
+//# ./AllGenerators/СppGens/C++ интерфейсы и реализация.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\СppGens\C++ интерфейсы и реализация.tpi.script'
+;
+//# ./AllGenerators/СppGens/Проектные файлы C++.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\СppGens\Проектные файлы C++.tpi.script'
+;
+//# ./AllGenerators/СppGens/COM.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\СppGens\COM.tpi.script'
+;
+//# ./AllGenerators/СppGens/C++ Фабрики.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\СppGens\C++ Фабрики.tpi.script'
+;
+//# ./AllGenerators/JavaGens/Java.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\JavaGens\Java.tpi.script'
+;
+//# ./AllGenerators/JavaGens/Проектные файлы Java.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\JavaGens\Проектные файлы Java.tpi.script'
+;
+//# ./AllGenerators/DelphiGens/Дельфи-DLL Адаптер.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\DelphiGens\Дельфи-DLL Адаптер.tpi.script'
+;
+//# ./AllGenerators/DelphiGens/Delphi интерфейсы и реализация.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\DelphiGens\Delphi интерфейсы и реализация.tpi.script'
+;
+//# ./AllGenerators/DelphiGens/Дельфи-DLL Адаптер проектные файлы.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\DelphiGens\Дельфи-DLL Адаптер проектные файлы.tpi.script'
+;
+//# ./AllGenerators/WebGens/Генерация для Web.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\WebGens\Генерация для Web.tpi.script'
+;
+//# ./AllGenerators/WebGens/Генерация Velocity.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\WebGens\Генерация Velocity.tpi.script'
+;
+//# ./AllGenerators/WebGens/Генерация JavaScript.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\AllGenerators\WebGens\Генерация JavaScript.tpi.script'
+;
+//# ./SettingsLib/SettingsLayer/Settings.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\SettingsLib\SettingsLayer\Settings.tpi.script'
+;
+//# ./CommonLang/BaseTypes/ClassBaseGenerator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\ClassBaseGenerator.tpi.script'
+;
+//# ./CommonLang/BaseTypes/CommonAttribute.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\CommonAttribute.tpi.script'
+;
+//# ./CommonLang/BaseTypes/CommonFunctions.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\CommonFunctions.tpi.script'
+;
+//# ./CommonLang/BaseTypes/PasUtils.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\PasUtils.tpi.script'
+;
+//# ./CommonLang/BaseTypes/TieSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\TieSupport.tpi.script'
+;
+//# ./CommonLang/BaseTypes/InterfaceGenerator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\InterfaceGenerator.tpi.script'
+;
+//# ./CommonLang/BaseTypes/InterfaceGeneratorWithJava.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\InterfaceGeneratorWithJava.tpi.script'
+;
+//# ./CommonLang/BaseTypes/JavaUtils.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\JavaUtils.tpi.script'
+;
+//# ./CommonLang/BaseTypes/AccessorsSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\AccessorsSupport.tpi.script'
+;
+//# ./CommonLang/BaseTypes/NotificationSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\NotificationSupport.tpi.script'
+;
+//# ./CommonLang/BaseTypes/Annotate.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\Annotate.tpi.script'
+;
+//# ./CommonLang/BaseTypes/UsesContainer.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\UsesContainer.tpi.script'
+;
+//# ./CommonLang/BaseTypes/CallingConventionsHolder.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\CallingConventionsHolder.tpi.script'
+;
+//# ./CommonLang/BaseTypes/ClassBase.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\ClassBase.tpi.script'
+;
+//# ./CommonLang/BaseTypes/Iterator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\Iterator.tpi.script'
+;
+//# ./CommonLang/BaseTypes/facetiterator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\BaseTypes\facetiterator.tpi.script'
+;
+//# ./CommonLang/Target/WikiTargetImpl.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\WikiTargetImpl.tpi.script'
+;
+//# ./CommonLang/Target/InstallerTarget.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\InstallerTarget.tpi.script'
+;
+//# ./CommonLang/Target/AbstractTarget.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\AbstractTarget.tpi.script'
+;
+//# ./CommonLang/Target/CustomFile.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\CustomFile.tpi.script'
+;
+//# ./CommonLang/Target/CustomDirectory.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\CustomDirectory.tpi.script'
+;
+//# ./CommonLang/Target/TargetSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\TargetSupport.tpi.script'
+;
+//# ./CommonLang/Target/ExeTarget.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\ExeTarget.tpi.script'
+;
+//# ./CommonLang/Target/AdapterTarget.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\AdapterTarget.tpi.script'
+;
+//# ./CommonLang/Target/AdapterTargetUnion.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\AdapterTargetUnion.tpi.script'
+;
+//# ./CommonLang/Target/ComTarget.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\ComTarget.tpi.script'
+;
+//# ./CommonLang/Target/AdapterRoot.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\AdapterRoot.tpi.script'
+;
+//# ./CommonLang/Target/AdapterRootPackage.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Target\AdapterRootPackage.tpi.script'
+;
+//# ./CommonLang/Containers/Const Iterator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\Const Iterator.tpi.script'
+;
+//# ./CommonLang/Containers/ContainerGenerator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\ContainerGenerator.tpi.script'
+;
+//# ./CommonLang/Containers/BaseContainer.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\BaseContainer.tpi.script'
+;
+//# ./CommonLang/Containers/BaseMap.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\BaseMap.tpi.script'
+;
+//# ./CommonLang/Containers/Map.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\Map.tpi.script'
+;
+//# ./CommonLang/Containers/HashMap.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\HashMap.tpi.script'
+;
+//# ./CommonLang/Containers/MultiMap.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\MultiMap.tpi.script'
+;
+//# ./CommonLang/Containers/Vector.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\Vector.tpi.script'
+;
+//# ./CommonLang/Containers/UnsortedSet.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\UnsortedSet.tpi.script'
+;
+//# ./CommonLang/Containers/Set.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\Set.tpi.script'
+;
+//# ./CommonLang/Containers/Queue.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\Queue.tpi.script'
+;
+//# ./CommonLang/Containers/List.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\List.tpi.script'
+;
+//# ./CommonLang/Containers/UnsortedMap.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\UnsortedMap.tpi.script'
+;
+//# ./CommonLang/Containers/Support.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\Support.tpi.script'
+;
+//# ./CommonLang/Containers/Array.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\Array.tpi.script'
+;
+//# ./CommonLang/Containers/FixedArray.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\FixedArray.tpi.script'
+;
+//# ./CommonLang/Containers/AllContainerInclude.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\AllContainerInclude.tpi.script'
+;
+//# ./CommonLang/Containers/Deque.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Containers\Deque.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/Typedef.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\Typedef.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/Constants.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\Constants.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/Enum.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\Enum.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/Exception.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\Exception.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/Struct.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\Struct.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/Union.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\Union.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/BitMask.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\BitMask.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/InstanceDef.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\InstanceDef.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/Support.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\Support.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/ImpurityParamType.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\ImpurityParamType.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/ValueMapper.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\ValueMapper.tpi.script'
+;
+//# ./CommonLang/InterfaceTypes/ConstantArray.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfaceTypes\ConstantArray.tpi.script'
+;
+//# ./CommonLang/Functors/FunctorBase.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Functors\FunctorBase.tpi.script'
+;
+//# ./CommonLang/Functors/Support.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Functors\Support.tpi.script'
+;
+//# ./CommonLang/Functors/UnaryFunctor.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Functors\UnaryFunctor.tpi.script'
+;
+//# ./CommonLang/Functors/Predicate.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Functors\Predicate.tpi.script'
+;
+//# ./CommonLang/Functors/BinaryFunctor.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Functors\BinaryFunctor.tpi.script'
+;
+//# ./CommonLang/Functors/BinaryPredicate.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Functors\BinaryPredicate.tpi.script'
+;
+//# ./CommonLang/Functors/Function.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Functors\Function.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/WithFactory.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\WithFactory.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/FactoryMemory.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\FactoryMemory.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/AbstractInterface.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractInterface.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/AbstractFacet.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/Interface.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\Interface.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/FactoriesSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\FactoriesSupport.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/LocalInterface.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\LocalInterface.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/Facet.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\Facet.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/Event.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\Event.tpi.script'
+;
+//# ./CommonLang/InterfacesMetamodel/PureMixIn.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\InterfacesMetamodel\PureMixIn.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/TypeConvertor.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\TypeConvertor.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/CustomFactory.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\CustomFactory.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/AbstractImplInclude.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\AbstractImplInclude.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/UtilityPack.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\UtilityPack.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/Servant.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\Servant.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/ServantSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\ServantSupport.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/AbstractClass.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\AbstractClass.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/Box.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\Box.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/TemplateFunctions.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\TemplateFunctions.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/SimpleClassSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\SimpleClassSupport.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/UtilityClass.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\UtilityClass.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/SimpleClass.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\SimpleClass.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/Deallocator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\Deallocator.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/Environment.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\Environment.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/Impurity.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\Impurity.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/MixInMirror.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\MixInMirror.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/method.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\method.tpi.script'
+;
+//# ./CommonLang/ImplementationTypes/localmethod.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ImplementationTypes\localmethod.tpi.script'
+;
+//# ./CommonLang/StateMachineClasses/StateMachine.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\StateMachineClasses\StateMachine.tpi.script'
+;
+//# ./CommonLang/StateMachineClasses/TransitionEvent.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\StateMachineClasses\TransitionEvent.tpi.script'
+;
+//# ./CommonLang/StateMachineClasses/Support.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\StateMachineClasses\Support.tpi.script'
+;
+//# ./CommonLang/StateMachineClasses/State.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\StateMachineClasses\State.tpi.script'
+;
+//# ./CommonLang/ViewsItems/GuiControl.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ViewsItems\GuiControl.tpi.script'
+;
+//# ./CommonLang/ViewsItems/Dialog.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ViewsItems\Dialog.tpi.script'
+;
+//# ./CommonLang/ViewsItems/PropertySheet.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ViewsItems\PropertySheet.tpi.script'
+;
+//# ./CommonLang/ViewsItems/PropertyPage.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ViewsItems\PropertyPage.tpi.script'
+;
+//# ./CommonLang/ViewsItems/Resource.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ViewsItems\Resource.tpi.script'
+;
+//# ./CommonLang/ViewsItems/ViewsSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\ViewsItems\ViewsSupport.tpi.script'
+;
+//# ./CommonLang/COM/ComInterface.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\COM\ComInterface.tpi.script'
+;
+//# ./CommonLang/COM/ComServant.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\COM\ComServant.tpi.script'
+;
+//# ./CommonLang/PackagesIncludes/CommonPackageInclude.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\PackagesIncludes\CommonPackageInclude.tpi.script'
+;
+//# ./CommonLang/PackagesIncludes/AbstractUnitBase.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\PackagesIncludes\AbstractUnitBase.tpi.script'
+;
+//# ./CommonLang/PackagesIncludes/InterfacePackageBase.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\PackagesIncludes\InterfacePackageBase.tpi.script'
+;
+//# ./CommonLang/PackagesIncludes/AbstractImplBase.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\PackagesIncludes\AbstractImplBase.tpi.script'
+;
+//# ./CommonLang/PackagesIncludes/ImplSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\PackagesIncludes\ImplSupport.tpi.script'
+;
+//# ./CommonLang/SpecPackages/Views.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\SpecPackages\Views.tpi.script'
+;
+//# ./CommonLang/SpecPackages/ComInterfaces.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\SpecPackages\ComInterfaces.tpi.script'
+;
+//# ./CommonLang/Packages/Support.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Packages\Support.tpi.script'
+;
+//# ./CommonLang/Packages/Interfaces.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Packages\Interfaces.tpi.script'
+;
+//# ./CommonLang/Packages/Impl.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Packages\Impl.tpi.script'
+;
+//# ./CommonLang/Packages/Unit.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Packages\Unit.tpi.script'
+;
+//# ./CommonLang/Library/LibSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Library\LibSupport.tpi.script'
+;
+//# ./CommonLang/Library/LibExecutor.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Library\LibExecutor.tpi.script'
+;
+//# ./CommonLang/Library/WikiSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Library\WikiSupport.tpi.script'
+;
+//# ./CommonLang/Library/MPCSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Library\MPCSupport.tpi.script'
+;
+//# ./CommonLang/Library/LibraryGenerator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Library\LibraryGenerator.tpi.script'
+;
+//# ./CommonLang/Library/ConfigSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Library\ConfigSupport.tpi.script'
+;
+//# ./CommonLang/Library/Library.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\CommonLang\Library\Library.tpi.script'
+;
+//# ./ServerLib/Interceptors/ClientInterceptor.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\Interceptors\ClientInterceptor.tpi.script'
+;
+//# ./ServerLib/Interceptors/ServerInterceptor.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\Interceptors\ServerInterceptor.tpi.script'
+;
+//# ./ServerLib/Interceptors/CurrentSlot.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\Interceptors\CurrentSlot.tpi.script'
+;
+//# ./ServerLib/AdditionalTypes/Valuetype.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\AdditionalTypes\Valuetype.tpi.script'
+;
+//# ./ServerLib/AdditionalTypes/ServerFacet.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\AdditionalTypes\ServerFacet.tpi.script'
+;
+//# ./ServerLib/AdditionalTypes/ServerFactoryOperationInternal.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\AdditionalTypes\ServerFactoryOperationInternal.tpi.script'
+;
+//# ./ServerLib/AdditionalTypes/ServerEvent.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\AdditionalTypes\ServerEvent.tpi.script'
+;
+//# ./ServerLib/AdditionalTypes/ServerInterface.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\AdditionalTypes\ServerInterface.tpi.script'
+;
+//# ./ServerLib/High/ServerInterfaces.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\High\ServerInterfaces.tpi.script'
+;
+//# ./ServerLib/High/ServerLibrary.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\High\ServerLibrary.tpi.script'
+;
+//# ./ServerLib/Redifinition/LibSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\ServerLib\Redifinition\LibSupport.tpi.script'
+;
+//# ./WebLang/VMs/VM.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\WebLang\VMs\VM.tpi.script'
+;
+//# ./WebLang/VMs/Decorator.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\WebLang\VMs\Decorator.tpi.script'
+;
+//# ./WebLang/JSs/JSUnit.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\WebLang\JSs\JSUnit.tpi.script'
+;
+//# ./WebLang/HighLayers/WebLibrary.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\WebLang\HighLayers\WebLibrary.tpi.script'
+;
+//# ./WebLang/HighLayers/HtmlUnit.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\WebLang\HighLayers\HtmlUnit.tpi.script'
+;
+//# ./Testing/Elements/ClassInner.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Testing\Elements\ClassInner.tpi.script'
+;
+//# ./Testing/Elements/TestClass.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Testing\Elements\TestClass.tpi.script'
+;
+//# ./Testing/Elements/TestCase.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Testing\Elements\TestCase.tpi.script'
+;
+//# ./Testing/Elements/Test.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Testing\Elements\Test.tpi.script'
+;
+//# ./Testing/Elements/TestCaseMixIn.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Testing\Elements\TestCaseMixIn.tpi.script'
+;
+//# ./Testing/Units/TestUnit.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Testing\Units\TestUnit.tpi.script'
+;
+//# ./Testing/Libraries/TestLibrary.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Testing\Libraries\TestLibrary.tpi.script'
+;
+//# ./Integrated/Root/Project.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Integrated\Root\Project.tpi.script'
+;
+//# ./Integrated/Root/ProjectSupport.tpi
+USES
+ 'G:\NewSchool\CommonTemplates\Integrated\Root\ProjectSupport.tpi.script'
+;

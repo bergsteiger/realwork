@@ -1,0 +1,1 @@
+"%PROGRAMFILES%\Automated QA\TestExecute 7\Bin\testexecute.exe" "C:\works\webTesting\TC7\TestPrj\IntranetSuite\intranetsuite.pjs" /run /project:Intranet /unit:Search /routine:Test1 /exit /SilentMode

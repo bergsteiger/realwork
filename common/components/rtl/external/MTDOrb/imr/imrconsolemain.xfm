@@ -1,0 +1,51 @@
+object fmMain: TfmMain
+  Left = 192
+  Top = 158
+  Width = 372
+  Height = 350
+  VertScrollBar.Range = 337
+  HorzScrollBar.Range = 363
+  Caption = 'IMR console'
+  Color = clBackground
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object edIMRLocation: TEdit
+    Left = 64
+    Top = 8
+    Width = 217
+    Height = 21
+    TabOrder = 0
+    Text = 'corbaloc::safonov:10501/ImplementationRepository'
+  end
+  object lIMRLocation: TLabel
+    Left = 8
+    Top = 16
+    Width = 44
+    Height = 13
+    Caption = 'Location:'
+  end
+  object btConnect: TButton
+    Left = 288
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Connect'
+    TabOrder = 2
+    OnClick = btConnectClick
+  end
+  object lvImplementationList: TListView
+    Left = 8
+    Top = 40
+    Width = 353
+    Height = 297
+    Columns = <
+      item
+        Caption = 'Implementation'
+        Width = 250
+      end>
+    TabOrder = 3
+    ViewStyle = vsReport
+  end
+end

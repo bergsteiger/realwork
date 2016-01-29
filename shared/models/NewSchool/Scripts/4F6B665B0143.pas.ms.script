@@ -1,0 +1,335 @@
+// PrimParent 4F6B665B0143 VCMContainer Class
+
+FORWARD ME_4F6B665B0143
+
+FORWARD ME_4F6B6B7D01BB
+
+: ME_4F6B6BA30248
+ CONST UID '4F6B6BA30248'
+ CONST Name 'ParentZone$Zone'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMFormZone'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4F6B6B7D01BB // ParentZone
+ ]
+ ; // Inherits
+ CONST "CanClose" 'undefined'
+ CONST "MergeBottomTollbarWithContainer" false
+ CONST "MergeTopTollbarWithContainer" false
+ CONST "Need UC" 'undefined'
+ CONST "ZoneType" 'Parent'
+
+ @SELF
+; // ME_4F6B6BA30248 ParentZone$Zone
+
+FORWARD ME_4F72C32000CF
+
+FORWARD ME_672DFEB48E47
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_16A2E323DD7A
+ CONST UID '16A2E323DD7A'
+ CONST Name 'utHistoryName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Строковый идентификатор пользовательского типа "История навигации"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''utHistory'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_16A2E323DD7A utHistoryName
+
+: ME_3231A2453A3C
+ CONST UID '3231A2453A3C'
+ CONST Name 'utHistory'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'История навигации' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value 0
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" true
+
+ @SELF
+; // ME_3231A2453A3C utHistory
+
+: ME_672DFEB48E47
+ CONST UID '672DFEB48E47'
+ CONST Name 'utHistoryConstants'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Константы для типа формы utHistory' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_16A2E323DD7A // utHistoryName
+ ME_3231A2453A3C // utHistory
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_672DFEB48E47 utHistoryConstants
+
+INCLUDE '4EE1DBBB013C.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_971AF1DC9566
+
+: ME_47E72C47881D
+ CONST UID '47E72C47881D'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_FormUserType_utHistory' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_47E72C47881D Ini_Reg
+
+: ME_971AF1DC9566
+ CONST UID '971AF1DC9566'
+ CONST Name 'Tkw_FormUserType_utHistory'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для типа формы utHistory' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4EE1DBBB013C // TtfwInteger
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_47E72C47881D // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4EE1DC8903BB // GetInteger
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::utHistory'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_971AF1DC9566 Tkw_FormUserType_utHistory
+
+: ME_4F72C32000CF
+ CONST UID '4F72C32000CF'
+ CONST Name 'utHistory'
+ CONST Class 'Class'
+ CONST Stereotype 'UserType'
+ %SUMMARY 'История навигации' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_971AF1DC9566 // Tkw_FormUserType_utHistory
+ ]
+ ; // Children
+ : Constants
+   [ ME_672DFEB48E47 // utHistoryConstants
+ ]
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+
+ @SELF
+; // ME_4F72C32000CF utHistory
+
+FORWARD ME_20823EC4821C
+
+: ME_72FF019EBB87
+ CONST UID '72FF019EBB87'
+ CONST Name 'utHistoryCaption'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Заголовок пользовательского типа "История навигации"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''История навигации'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_72FF019EBB87 utHistoryCaption
+
+: ME_20823EC4821C
+ CONST UID '20823EC4821C'
+ CONST Name 'utHistoryLocalConstants'
+ CONST Class 'Class'
+ CONST Stereotype 'LocalConst'
+ %SUMMARY 'Локализуемые константы для типа формы utHistory' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_72FF019EBB87 // utHistoryCaption
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ @SELF
+; // ME_20823EC4821C utHistoryLocalConstants
+
+FORWARD ME_495780055CD7
+
+INCLUDE '4B3B36EC03B2.pas.ms.script'
+
+: ME_AE552CC92C2B
+ CONST UID 'AE552CC92C2B'
+ CONST Name 'utHistoryCaption'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Заголовок пользовательского типа "История навигации"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''utHistoryCaption''; rValue : ''История навигации'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_AE552CC92C2B utHistoryCaption
+
+: ME_495780055CD7
+ CONST UID '495780055CD7'
+ CONST Name 'LCImplutHistoryLocalConstants'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Локализуемые строки utHistoryLocalConstants' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_AE552CC92C2B // utHistoryCaption
+ ]
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+
+ @SELF
+; // ME_495780055CD7 LCImplutHistoryLocalConstants
+
+: ME_4F6B6B7D01BB
+ CONST UID '4F6B6B7D01BB'
+ CONST Name 'ParentZone'
+ CONST Class 'Class'
+ CONST Stereotype 'Control'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "ControlClass" 'none'
+ CONST "need Caption" 'undefined'
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ @SELF
+; // ME_4F6B6B7D01BB ParentZone
+
+: ME_F0B072DF088C
+ CONST UID 'F0B072DF088C'
+ CONST Name 'f_ParentZone'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ParentZone' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+
+ @SELF
+; // ME_F0B072DF088C f_ParentZone
+
+: ME_CA820491E8FE
+ CONST UID 'CA820491E8FE'
+ CONST Name 'Init_utHistoryCaption'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_utHistoryCaption' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CA820491E8FE Init_utHistoryCaption
+
+: ME_370A4B3F1187
+ CONST UID '370A4B3F1187'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация PrimParent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_370A4B3F1187 Ini_Reg_Class
+
+: ME_4F6B665B0143
+ CONST UID '4F6B665B0143'
+ CONST Name 'PrimParent'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMContainer'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_4F6B6B7D01BB // ParentZone
+ ME_F0B072DF088C // f_ParentZone
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_CA820491E8FE // Init_utHistoryCaption
+ ME_370A4B3F1187 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Children
+   [ ME_4F6B6BA30248 // ParentZone$Zone
+ ME_4F72C32000CF // utHistory
+ ME_20823EC4821C // utHistoryLocalConstants
+ ]
+ ; // Children
+ : Constants
+   [ ME_495780055CD7 // LCImplutHistoryLocalConstants
+ ]
+ ; // Constants
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+
+ @SELF
+; // ME_4F6B665B0143 PrimParent

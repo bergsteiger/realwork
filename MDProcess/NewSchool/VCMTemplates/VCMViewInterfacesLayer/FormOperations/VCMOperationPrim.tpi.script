@@ -1,0 +1,919 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/FormOperations/VCMOperationPrim.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::FormOperations::VCMOperationPrim
+//
+// Операция
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMOperationPrim::Class
+implementation @ <<VCMOperationPrim>>
+//? Операция
+//= OperationsPublisher::Class
+//= Документация::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a a
+// - тип абстракции
+//Y code_vcm_operation.gif
+//L code_vcm_operation
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p no prefix:b=false ? Нет префикса у имени. Костыль для [$133891300]
+//p is FormActivate:b=false ? Это операция переключения активных форм. [$136258958]. Или операция контрола. Не генерируется Execute
+//p has states:b=false ? Определяет, что операция имеет состояния, текущее из которых должна определять форма. См. OnGetState
+//p is query:b=false ? Определает, что операция является запросом к агрегации о возможности сделать что-то. Или операция контрола. Не генерируется Test
+//p LongProcess:b=false ? 
+//p AutoLock:b=false ? 
+//p AutoFocus:b=false ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{no prefix}"!="%S{!no prefix}"}%f_up_prefix(%S) *no prefix* = *%S{no prefix}* - Нет префикса у имени. Костыль для \[$133891300\]
+ ?inherited
+ if ( ( %S get_up ( 'no prefix' ) ) %!= ( %S get_up_def ( 'no prefix' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *no prefix* = *'
+  %S get_up ( 'no prefix' ) '* - Нет префикса у имени. Костыль для [$133891300]'
+//	][{"%S{is FormActivate}"!="%S{!is FormActivate}"}%f_up_prefix(%S) *is FormActivate* = *%S{is FormActivate}* - Это операция переключения активных форм. \[$136258958\]. Или операция контрола. Не генерируется Execute
+ end // if
+ if ( ( %S get_up ( 'is FormActivate' ) ) %!= ( %S get_up_def ( 'is FormActivate' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is FormActivate* = *'
+  %S get_up ( 'is FormActivate' ) '* - Это операция переключения активных форм. [$136258958]. Или операция контрола. Не генерируется Execute'
+//	][{"%S{has states}"!="%S{!has states}"}%f_up_prefix(%S) *has states* = *%S{has states}* - Определяет, что операция имеет состояния, текущее из которых должна определять форма. См. OnGetState
+ end // if
+ if ( ( %S get_up ( 'has states' ) ) %!= ( %S get_up_def ( 'has states' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *has states* = *'
+  %S get_up ( 'has states' ) '* - Определяет, что операция имеет состояния, текущее из которых должна определять форма. См. OnGetState'
+//	][{"%S{is query}"!="%S{!is query}"}%f_up_prefix(%S) *is query* = *%S{is query}* - Определает, что операция является запросом к агрегации о возможности сделать что-то. Или операция контрола. Не генерируется Test
+ end // if
+ if ( ( %S get_up ( 'is query' ) ) %!= ( %S get_up_def ( 'is query' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is query* = *'
+  %S get_up ( 'is query' ) '* - Определает, что операция является запросом к агрегации о возможности сделать что-то. Или операция контрола. Не генерируется Test'
+//	][{"%S{LongProcess}"!="%S{!LongProcess}"}%f_up_prefix(%S) *LongProcess* = *%S{LongProcess}*
+ end // if
+ if ( ( %S get_up ( 'LongProcess' ) ) %!= ( %S get_up_def ( 'LongProcess' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *LongProcess* = *'
+  %S get_up ( 'LongProcess' ) '*'
+//	][{"%S{AutoLock}"!="%S{!AutoLock}"}%f_up_prefix(%S) *AutoLock* = *%S{AutoLock}*
+ end // if
+ if ( ( %S get_up ( 'AutoLock' ) ) %!= ( %S get_up_def ( 'AutoLock' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *AutoLock* = *'
+  %S get_up ( 'AutoLock' ) '*'
+//	][{"%S{AutoFocus}"!="%S{!AutoFocus}"}%f_up_prefix(%S) *AutoFocus* = *%S{AutoFocus}*
+ end // if
+ if ( ( %S get_up ( 'AutoFocus' ) ) %!= ( %S get_up_def ( 'AutoFocus' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *AutoFocus* = *'
+  %S get_up ( 'AutoFocus' ) '*'
+//	]
+ end // if
+
+// нет документации
+//%f _IsVCMOperation
+; // wiki_up_print
+
+: IsVCMOperation OBJECT IN %S
+//#UC START# *494FCCFC00A6for494F818000E6*
+//	true
+ true
+//#UC END# *494FCCFC00A6for494F818000E6*
+; // IsVCMOperation
+
+
+//%f _IsInternalVCMOperation
+: IsInternalVCMOperation OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4A96B425021Afor494F818000E6*
+//	false
+ false
+//#UC END# *4A96B425021Afor494F818000E6*
+; // IsInternalVCMOperation
+
+
+//%f _Spell
+: Spell OBJECT IN %S
+//#UC START# *4AE58E3801A3for494F818000E6*
+//#UC END# *4AE58E3801A3for494F818000E6*
+; // Spell
+
+
+// Нужен ли код операции
+//%f _NeedsOpCode
+: NeedsOpCode OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4C80E64501B5for494F818000E6*
+//@ %SU
+//	[{%P<{}{%aC=Dependency&%aS=uses}{C}>!=0|<{}{%aC=Dependency&%aS=uses}{C}>!=0}{\
+ if ( ( %P
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%a
+   begin
+    OBJECT IN %a
+    if ( ( %a |C ) %== 'Dependency' AND 
+     ( ( %a |S ) %== 'uses'  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for a
+   l_Counter
+
+  ) // bind
+ )   %!= 0 OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%a
+  begin
+   OBJECT IN %a
+   if ( ( %a |C ) %== 'Dependency' AND 
+    ( ( %a |S ) %== 'uses'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for a
+  l_Counter
+  %!= 0  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *4C80E64501B5for494F818000E6*
+; // NeedsOpCode
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+//%f _OperationsToFuncImpl
+: OperationsToFuncImpl OBJECT IN %S
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9F9502BBfor494F818000E6*
+//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")!=true}\
+ if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %P )% '_'
+  [%f] N %( %S )% )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")\
+  [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %P )% '_'
+  [%f] N %( %S )% )% 
+//	[{%S%f_NeedsOpCode()=true}\
+  if ( ( %S %f NeedsOpCode %( )% ) %==  true ) then
+  begin
+//	%f_pas_OpenMethodImplementation("opcode_%f_N(%P)_%f_N(%S)",%1)\
+   [%f] pas_OpenMethodImplementation %( 'opcode_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% %, %1 )% 
+//	class function %f_pas_TypeName(%1).opcode_%f_N(%P)_%f_N(%S) : TvcmOpID;
+   'class function '
+   [%f] pas_TypeName %( %1 )% '.opcode_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% ' : TvcmOpID;'
+//	begin
+   'begin'
+//	 Result := g_opcode_%f_N(%P)_%f_N(%S);
+   ' Result := g_opcode_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% ';'
+//	 Assert((Result.rEnID \> 0) AND (Result.rOpID \> 0));
+   ' Assert((Result.rEnID > 0) AND (Result.rOpID > 0));'
+//	end;\
+   'end;'
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4A8E9F9502BBfor494F818000E6*
+; // OperationsToFuncImpl
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в функции
+//%f _OperationsToFuncIntf
+: OperationsToFuncIntf OBJECT IN %S
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9D5E0038for494F818000E6*
+//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")!=true}\
+ if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %P )% '_'
+  [%f] N %( %S )% )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")\
+  [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %P )% '_'
+  [%f] N %( %S )% )% 
+//	[{%S%f_NeedsOpCode()=true}\
+  if ( ( %S %f NeedsOpCode %( )% ) %==  true ) then
+  begin
+//	\n   class function opcode_%f_N(%P)_%f_N(%S) : TvcmOpID;
+   #13#10'   class function opcode_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% ' : TvcmOpID;'
+//	     \{ %PD -\> %SD \}\
+   '     { '
+   %P |D ' -> '
+   %S |D ' }'
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4A8E9D5E0038for494F818000E6*
+; // OperationsToFuncIntf
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Определяет необходимые uses для операций
+//%f _OperationsToUses
+: OperationsToUses OBJECT IN %S
+//#UC START# *4A82DDA6016Afor494F818000E6*
+//	%f_pas_PutToUses(%P%P)
+ [%f] pas_PutToUses %( %P ->P  )% 
+//#UC END# *4A82DDA6016Afor494F818000E6*
+; // OperationsToUses
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в секцию Var
+//%f _OperationsToVar
+: OperationsToVar OBJECT IN %S
+//#UC START# *4A8E9D3A01FEfor494F818000E6*
+//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")!=true}\
+ if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %P )% '_'
+  [%f] N %( %S )% )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")\
+  [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %P )% '_'
+  [%f] N %( %S )% )% 
+//	[{%S%f_NeedsOpCode()=true}\
+  if ( ( %S %f NeedsOpCode %( )% ) %==  true ) then
+  begin
+//	\n g_opcode_%f_N(%P)_%f_N(%S) : TvcmOpID;\
+   #13#10' g_opcode_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% ' : TvcmOpID;'
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4A8E9D3A01FEfor494F818000E6*
+; // OperationsToVar
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Публикует операции
+//%f _PublishOperations
+: PublishOperations OBJECT IN %S
+//#UC START# *4A770F770199for494F818000E6*
+//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")!=true}\
+ if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %P )% '_'
+  [%f] N %( %S )% )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%P)_%f_N(%S)")\
+  [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %P )% '_'
+  [%f] N %( %S )% )% 
+//	\n\
+  #13#10
+//	[{%S%f_NeedsOpCode()=true}\
+  if ( ( %S %f NeedsOpCode %( )% ) %==  true ) then
+  begin
+//	 g_opcode_%f_N(%P)_%f_N(%S) :=\n \
+   ' g_opcode_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% ' :='#13#10' '
+//	]\
+  end // if
+//	 [{%S%f_IsInternalVCMOperation()=true}{\
+  ' '
+  if ( ( %S %f IsInternalVCMOperation %( )% ) %==  true ) then
+  begin
+//	PublishInternalOperation]\
+   'PublishInternalOperation' 
+  end // if
+  else
+  begin
+//	PublishOperation}\
+   'PublishOperation' 
+  end // else
+//	(en_%f_N(%P),
+  '(en_'
+  [%f] N %( %P )% ','
+//	                    op_%f_N(%S),
+  '                    op_'
+  [%f] N %( %S )% ','
+//	                    en_cap%f_N(%P),
+  '                    en_cap'
+  [%f] N %( %P )% ','
+//	                    op_cap%f_N(%S)[{%S{no prefix}=true}, true]);\
+  '                    op_cap'
+  [%f] N %( %S )% if ( ( %S get_up ( 'no prefix' ) ) %==  true ) then
+  begin
+   ', true' 
+  end // if
+  ');'
+//	[{"%S{ImageIndex}"!=""}\
+  if ( ( %S get_up ( 'ImageIndex' ) ) %!= '' ) then
+  begin
+//	\n SetOperationImageIndex(
+   #13#10' SetOperationImageIndex('
+//	                    en_%f_N(%P),
+   '                    en_'
+   [%f] N %( %P )% ','
+//	                    op_%f_N(%S),
+   '                    op_'
+   [%f] N %( %S )% ','
+//	                    %S{ImageIndex}[{%S{no prefix}=true}, true]);\
+   '                    '
+   %S get_up ( 'ImageIndex' ) if ( ( %S get_up ( 'no prefix' ) ) %==  true ) then
+   begin
+    ', true' 
+   end // if
+   ');'
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	<{}{%CS=VCMOperationState}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'VCMOperationState' ) then
+  begin
+//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_STATES_LIST,"%f_N(%P)_%f_N(%S)_%f_N(%C)")!=true}\
+   if ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_STATES_LIST' %, [%f] N %( %P )% '_'
+    [%f] N %( %S )% '_'
+    [%f] N %( %C )% )% ) %!=  true ) then
+   begin
+//	%f_add_to_list(PUBLISHED_OPERATIONS_STATES_LIST,"%f_N(%P)_%f_N(%S)_%f_N(%C)")\
+    [%f] add_to_list %( 'PUBLISHED_OPERATIONS_STATES_LIST' %, [%f] N %( %P )% '_'
+    [%f] N %( %S )% '_'
+    [%f] N %( %C )% )% 
+//	[\n %C#f_open_ifdef()]\
+    if NOT-EMPTY
+    begin
+     #13#10' '
+     %C %?f open_ifdef %( )% 
+    end // if
+    NOP
+//	\n  with PublishOperationState(en_%f_N(%P), op_%f_N(%S), '%f_N(%C)'[{%S{no prefix}=true}, true]) do
+    #13#10'  with PublishOperationState(en_'
+    [%f] N %( %P )% ', op_'
+    [%f] N %( %S )% ', '''
+    [%f] N %( %C )% ''''
+    if ( ( %S get_up ( 'no prefix' ) ) %==  true ) then
+    begin
+     ', true' 
+    end // if
+    ') do'
+//	  begin\
+    '  begin'
+//	\n   st_user_%f_N(%P)_%f_N(%S)_%f_N(%C) := StateIndex;\
+    #13#10'   st_user_'
+    [%f] N %( %P )% '_'
+    [%f] N %( %S )% '_'
+    [%f] N %( %C )% ' := StateIndex;'
+//	[\n   Caption := '%CD';]\
+    if NOT-EMPTY
+    begin
+     #13#10'   Caption := '''
+     %C |D ''';' 
+    end // if
+    NOP
+//	[\n   Hint := '%C{Hint}';]\
+    if NOT-EMPTY
+    begin
+     #13#10'   Hint := '''
+     %C get_up ( 'Hint' ) ''';' 
+    end // if
+    NOP
+//	[\n   ImageIndex := %C{ImageIndex};]\
+    if NOT-EMPTY
+    begin
+     #13#10'   ImageIndex := '
+     %C get_up ( 'ImageIndex' ) ';' 
+    end // if
+    NOP
+//	[{%C{Enabled}!=undefined}\n   Enabled := %C{Enabled};]\
+    if ( ( %C get_up ( 'Enabled' ) ) %!= 'undefined' ) then
+    begin
+     #13#10'   Enabled := '
+     %C get_up ( 'Enabled' ) ';' 
+    end // if
+//	[{%C{Visible}!=undefined}\n   Visible := %C{Visible};]\
+    if ( ( %C get_up ( 'Visible' ) ) %!= 'undefined' ) then
+    begin
+     #13#10'   Visible := '
+     %C get_up ( 'Visible' ) ';' 
+    end // if
+//	[{%C{Checked}!=undefined}\n   Checked := %C{Checked};]
+    if ( ( %C get_up ( 'Checked' ) ) %!= 'undefined' ) then
+    begin
+     #13#10'   Checked := '
+     %C get_up ( 'Checked' ) ';' 
+    end // if
+//	  end;//with PublishOperationState(en_%f_N(%P), op_%f_N(%S), '%f_N(%C)'[{%S{no prefix}=true}, true])\
+    '  end;//with PublishOperationState(en_'
+    [%f] N %( %P )% ', op_'
+    [%f] N %( %S )% ', '''
+    [%f] N %( %C )% ''''
+    if ( ( %S get_up ( 'no prefix' ) ) %==  true ) then
+    begin
+     ', true' 
+    end // if
+    ')'
+//	[\n %C#f_close_ifdef()]\
+    if NOT-EMPTY
+    begin
+     #13#10' '
+     %C %?f close_ifdef %( )% 
+    end // if
+    NOP
+//	]\
+   end // if
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A770F770199for494F818000E6*
+; // PublishOperations
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for494F818000E6*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for494F818000E6*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor494F818000E6*
+//	method
+ 'method'
+//#UC END# *4705CBD6003Efor494F818000E6*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for494F818000E6*
+//#UC END# *470484D50138for494F818000E6*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит ключевое слова типа абстракности
+// 
+// RealizeType = o|r|f
+// Modification = get|set|area|arearef
+//%f _pas_AbstractionKeyword
+: pas_AbstractionKeyword OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3
+//#UC START# *494BF05502ACfor494F818000E6*
+//	[{"%2N"="r"}{\
+ if ( ( %2 |N ) %== 'r' ) then
+ begin
+//	[{%3N!=callgate}\
+  if ( ( %3 |N ) %!= 'callgate' ) then
+  begin
+
+//	 virtual;\
+//	]\
+  end // if
+//	]
+ end // if
+ else
+ begin
+//	[{"%2N"="o"}\
+  if ( ( %2 |N ) %== 'o' ) then
+  begin
+//	 override;\
+   ' override;'
+//	]\
+  end // if
+//	}\
+ end // else
+//#UC END# *494BF05502ACfor494F818000E6*
+; // pas_AbstractionKeyword
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+//%f _pas_MethodImplementation
+: pas_MethodImplementation OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for494F818000E6*
+//	[{%2N!=o}\
+ if ( ( %2 |N ) %!= 'o' ) then
+ begin
+//	[{%f_exists_in_list(REALIZED_METHODS,"%f_N(%1)_%f_N(%P)_%f_N(%S)")!=true}\
+  if ( ( [%f] exists_in_list %( 'REALIZED_METHODS' %, [%f] N %( %1 )% '_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% )% ) %!=  true ) then
+  begin
+//	%f_add_to_list(REALIZED_METHODS,"%f_N(%1)_%f_N(%P)_%f_N(%S)")\
+   [%f] add_to_list %( 'REALIZED_METHODS' %, [%f] N %( %1 )% '_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% )% 
+
+//	[{%S{is query}!=true}%S%f_pas_DoMethodImplementation(%1,%2,"test")]\
+   if ( ( %S get_up ( 'is query' ) ) %!=  true ) then
+   begin
+    %S %f pas_DoMethodImplementation %( %1 %, %2 %, 'test' )% 
+   end // if
+//	[{%S{has states}=true}%S%f_pas_DoMethodImplementation(%1,%2,"getstate")]\
+   if ( ( %S get_up ( 'has states' ) ) %==  true ) then
+   begin
+    %S %f pas_DoMethodImplementation %( %1 %, %2 %, 'getstate' )% 
+   end // if
+//	[{%S{is FormActivate}!=true|%S%f_IsInternalVCMOperation()=true}%S%f_pas_DoMethodImplementation(%1,%2,"exec")]\
+   if ( ( %S get_up ( 'is FormActivate' ) ) %!=  true OR 
+     ( ( %S %f IsInternalVCMOperation %( )% ) %==  true  ) ) then
+   begin
+    %S %f pas_DoMethodImplementation %( %1 %, %2 %, 'exec' )% 
+   end // if
+
+
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *494BEC7C03E5for494F818000E6*
+; // pas_MethodImplementation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+//%f _pas_MethodInterface
+: pas_MethodInterface OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor494F818000E6*
+//	[{%2N!=o}\
+ if ( ( %2 |N ) %!= 'o' ) then
+ begin
+//	[{%f_exists_in_list(REALIZED_METHODS,"%f_N(%1)_%f_N(%P)_%f_N(%S)")!=true}\
+  if ( ( [%f] exists_in_list %( 'REALIZED_METHODS' %, [%f] N %( %1 )% '_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% )% ) %!=  true ) then
+  begin
+//	%f_add_to_list(REALIZED_METHODS,"%f_N(%1)_%f_N(%P)_%f_N(%S)")\
+   [%f] add_to_list %( 'REALIZED_METHODS' %, [%f] N %( %1 )% '_'
+   [%f] N %( %P )% '_'
+   [%f] N %( %S )% )% 
+
+//	%f_set_var(NEED_LF,"false")\
+   [%f] set_var %( 'NEED_LF' %, false )% 
+//	[{%S{is query}!=true}\
+   if ( ( %S get_up ( 'is query' ) ) %!=  true ) then
+   begin
+//	%S%f_pas_DoMethodInterface(%1,%2,"test")\
+    %S %f pas_DoMethodInterface %( %1 %, %2 %, 'test' )% 
+//	%f_set_var(NEED_LF,"true")\
+    [%f] set_var %( 'NEED_LF' %, true )% 
+//	]\
+   end // if
+
+
+//	[{%S{has states}=true}\
+   if ( ( %S get_up ( 'has states' ) ) %==  true ) then
+   begin
+//	[{%{NEED_LF}N=true}\n%f_set_var(NEED_LF,"false")]\
+    if ( ( ( get_global_var ( 'NEED_LF' ) |N ) ) %==  true ) then
+    begin
+     #13#10
+     [%f] set_var %( 'NEED_LF' %, false )% 
+    end // if
+//	%S%f_pas_DoMethodInterface(%1,%2,"getstate")\
+    %S %f pas_DoMethodInterface %( %1 %, %2 %, 'getstate' )% 
+//	%f_set_var(NEED_LF,"true")\
+    [%f] set_var %( 'NEED_LF' %, true )% 
+//	]\
+   end // if
+
+
+//	[{%S{is FormActivate}!=true|%S%f_IsInternalVCMOperation()=true}\
+   if ( ( %S get_up ( 'is FormActivate' ) ) %!=  true OR 
+     ( ( %S %f IsInternalVCMOperation %( )% ) %==  true  ) ) then
+   begin
+//	[{%{NEED_LF}N=true}\n%f_set_var(NEED_LF,"false")]\
+    if ( ( ( get_global_var ( 'NEED_LF' ) |N ) ) %==  true ) then
+    begin
+     #13#10
+     [%f] set_var %( 'NEED_LF' %, false )% 
+    end // if
+//	%S%f_pas_DoMethodInterface(%1,%2,"exec")\
+    %S %f pas_DoMethodInterface %( %1 %, %2 %, 'exec' )% 
+//	%f_set_var(NEED_LF,"true")\
+    [%f] set_var %( 'NEED_LF' %, true )% 
+//	]\
+   end // if
+
+
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *494BEC6A038Afor494F818000E6*
+; // pas_MethodInterface
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя метода
+//%f _pas_MethodName
+: pas_MethodName OBJECT IN %S
+// параметры: Modification: a-string = %1
+//#UC START# *494BD6C80075for494F818000E6*
+//	%f_N(%P)_%f_N(%S)[{%1N=exec}{[{%1N=getstate}{[{%1N=test}_Test]}_GetState]}_Execute]
+ [%f] N %( %P )% '_'
+ [%f] N %( %S )% if ( ( %1 |N ) %== 'exec' ) then
+ begin
+  '_Execute' 
+ end // if
+ else
+ begin
+  if ( ( %1 |N ) %== 'getstate' ) then
+  begin
+   '_GetState' 
+  end // if
+  else
+  begin
+   if ( ( %1 |N ) %== 'test' ) then
+   begin
+    '_Test' 
+   end // if
+  end // else
+ end // else
+//#UC END# *494BD6C80075for494F818000E6*
+; // pas_MethodName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Параметры операции
+//%f _pas_Params
+: pas_Params OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor494F818000E6*
+//	[{%1N=exec}{\
+ if ( ( %1 |N ) %== 'exec' ) then
+ begin
+//	const aParams: IvcmExecuteParamsPrim\
+  'const aParams: IvcmExecuteParamsPrim'
+//	]
+ end // if
+ else
+ begin
+//	[{%1N=getstate}{\
+  if ( ( %1 |N ) %== 'getstate' ) then
+  begin
+//	var State: TvcmOperationStateIndex\
+   'var State: TvcmOperationStateIndex'
+//	]\
+  end // if
+  else
+  begin
+//	[{%1N=test}{\
+   if ( ( %1 |N ) %== 'test' ) then
+   begin
+//	const aParams: IvcmTestParamsPrim\
+    'const aParams: IvcmTestParamsPrim'
+//	]\
+   end // if
+   else
+   begin
+//	%S%[inherited]f_pas_Params(%1)\
+    call-inherited pas_Params %( %1 )%
+//	}\
+   end // else
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *494BDCF3030Efor494F818000E6*
+; // pas_Params
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа результата функции
+//%f _pas_ResultTypeName
+: pas_ResultTypeName OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for494F818000E6*
+//	[{"%1N"=""}\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+//	%S%[inherited]f_pas_ResultTypeName(%1)\
+  call-inherited pas_ResultTypeName %( %1 )%
+//	]
+ end // if
+//#UC END# *494BDD190361for494F818000E6*
+; // pas_ResultTypeName
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor494F818000E6*
+//#UC END# *470F15B800CBfor494F818000E6*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor494F818000E6*
+//	   \
+ '   '
+//	[{%S{is FormActivate}!=true}{\
+ if ( ( %S get_up ( 'is FormActivate' ) ) %!=  true ) then
+ begin
+//	[{%S{is query}!=true}{\
+  if ( ( %S get_up ( 'is query' ) ) %!=  true ) then
+  begin
+//	operation\
+   'operation'
+//	]\
+  end // if
+  else
+  begin
+//	query}\
+   'query' 
+  end // else
+//	]\
+ end // if
+ else
+ begin
+//	FormActivate}\
+  'FormActivate' 
+ end // else
+//	 %f_N(%S)\
+ ' '
+ [%f] N %( %S )% 
+//	[(%S%f_pas_Params(""))][: %S%f_pas_ResultTypeName()]\
+ if NOT-EMPTY
+ begin
+  '('
+  %S %f pas_Params %( '' )% ')' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  ': '
+  %S %f pas_ResultTypeName %( )% 
+ end // if
+ NOP
+//	;\
+ ';'
+//	[{%S{has states}=true} has states;\
+ if ( ( %S get_up ( 'has states' ) ) %==  true ) then
+ begin
+  ' has states;'
+//	]\
+ end // if
+//	[\n     \{* %SD \}]\
+ if NOT-EMPTY
+ begin
+  #13#10'     {* '
+  %S |D ' }' 
+ end // if
+ NOP
+//	<[\n%CX]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if NOT-EMPTY
+   begin
+    #13#10
+    %C |X 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F1571031Cfor494F818000E6*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for494F818000E6*
+//#UC END# *477398E501C0for494F818000E6*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for494F818000E6*
+//#UC END# *55B8D28B0157for494F818000E6*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for494F818000E6*
+//#UC END# *55B8D2F80145for494F818000E6*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for494F818000E6*
+//#UC END# *55B8DD9C0301for494F818000E6*
+; // res.cmd.pas
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for494F818000E6*
+//#UC END# *46E6D4BB0339for494F818000E6*
+; // wiki
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for494F818000E6*
+//	%S%f_Spell()
+ %S %f Spell %( )% 
+//#UC END# *4A41A13D03D5for494F818000E6*
+; // spell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMOperationPrim>>
+

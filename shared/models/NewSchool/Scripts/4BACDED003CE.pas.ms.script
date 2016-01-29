@@ -1,0 +1,963 @@
+// RTF 4BACDED003CE TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BACDED003CE
+
+FORWARD ME_4BACDEF50001
+
+FORWARD ME_4BACDF18014F
+
+: ME_4BACE041012A
+ CONST UID '4BACE041012A'
+ CONST Name 'Writer'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4BACDF18014F // SomeFormatToRTF
+ ;
+ : Target WL 'ME_4B72BB480373' '48F4BA770180.pas.ms.script' // TevRTFObjectGenerator
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4BACE041012A Writer
+
+: ME_4BACE7BB02CC
+ CONST UID '4BACE7BB02CC'
+ CONST Name 'Filer'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4BACDF18014F // SomeFormatToRTF
+ ;
+ : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4BACE7BB02CC Filer
+
+: ME_4BACDF3801BA
+ CONST UID '4BACDF3801BA'
+ CONST Name 'aReader'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482D6EB4003A' '482D6E960087.pas.ms.script' // Tk2CustomFileReader
+ ;
+
+ref; // ME_4BACDF3801BA aReader
+
+: ME_4BACEE630109
+ CONST UID '4BACEE630109'
+ CONST Name 'NeedCheck'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BACEE630109 NeedCheck
+
+: ME_4BACDF31038F
+ CONST UID '4BACDF31038F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4BACDF18014F // SomeFormatToRTF
+ ;
+ : Parameters
+   @ ( ME_4BACDF3801BA // aReader
+ ME_4BACEE630109 // NeedCheck
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BACDF31038F DoIt
+
+: ME_4BACDF720302
+ CONST UID '4BACDF720302'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BACDF18014F // SomeFormatToRTF
+ ;
+ : Target WL 'ME_4B72BB480373' '48F4BA770180.pas.ms.script' // TevRTFObjectGenerator
+ ;
+
+ref; // ME_4BACDF720302 
+
+: ME_4BACDF18014F
+ CONST UID '4BACDF18014F'
+ CONST Name 'SomeFormatToRTF'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4BACDEF50001 // RTFWriterTest
+ ;
+ : Attributes
+   @ ( ME_4BACE041012A // Writer
+ ME_4BACE7BB02CC // Filer
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4BACDF31038F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4BACDF720302 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4BACDF18014F SomeFormatToRTF
+
+FORWARD ME_4BACE0B20173
+
+: ME_4BACE0F202B2
+ CONST UID '4BACE0F202B2'
+ CONST Name 'Reader'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4BACE0B20173 // EVDtoRTF
+ ;
+ : Target WL 'ME_483E80FA0312' '483E80C9025F.pas.ms.script' // TevdNativeReader
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4BACE0F202B2 Reader
+
+: ME_4BACE0CD0080
+ CONST UID '4BACE0CD0080'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4BACE0CD0080 aFileName
+
+: ME_4BACEE6A00EB
+ CONST UID '4BACEE6A00EB'
+ CONST Name 'NeedCheck'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BACEE6A00EB NeedCheck
+
+: ME_4BACE0C602E2
+ CONST UID '4BACE0C602E2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4BACE0B20173 // EVDtoRTF
+ ;
+ : Parameters
+   @ ( ME_4BACE0CD0080 // aFileName
+ ME_4BACEE6A00EB // NeedCheck
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BACE0C602E2 DoIt
+
+: ME_4BACE117008D
+ CONST UID '4BACE117008D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BACE0B20173 // EVDtoRTF
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4BACE117008D 
+
+: ME_4BACE0B20173
+ CONST UID '4BACE0B20173'
+ CONST Name 'EVDtoRTF'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4BACDEF50001 // RTFWriterTest
+ ;
+ : Attributes
+   @ ( ME_4BACE0F202B2 // Reader
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4BACE0C602E2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4BACE117008D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4BACE0B20173 EVDtoRTF
+
+FORWARD ME_4CD126A5012A
+
+: ME_4CD126AD02F4
+ CONST UID '4CD126AD02F4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CD126A5012A // UseExternalLinks
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4CD126AD02F4 DoIt
+
+: ME_4CD126A5012A
+ CONST UID '4CD126A5012A'
+ CONST Name 'UseExternalLinks'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BACDEF50001 // RTFWriterTest
+ ;
+ : Operations
+   @ ( ME_4CD126AD02F4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4CD126A5012A UseExternalLinks
+
+: ME_E5D9F182EB7D
+ CONST UID 'E5D9F182EB7D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BACDEF50001 // RTFWriterTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_E5D9F182EB7D 
+
+: ME_4C937013031D_ME_4BACDEF50001
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4BACDEF50001 // RTFWriterTest
+ ;
+ref; // ME_4C937013031D_ME_4BACDEF50001 GetFolder
+
+: ME_4DAED6F60146_ME_4BACDEF50001
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4BACDEF50001 // RTFWriterTest
+ ;
+ref; // ME_4DAED6F60146_ME_4BACDEF50001 GetModelElementGUID
+
+: ME_4BACDEF50001
+ CONST UID '4BACDEF50001'
+ CONST Name 'RTFWriterTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BACDED003CE // RTF
+ ;
+ : Inherits
+   @ ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4BACDF18014F // SomeFormatToRTF
+ ME_4BACE0B20173 // EVDtoRTF
+ ME_4CD126A5012A // UseExternalLinks
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4BACDEF50001 // GetFolder
+ ME_4DAED6F60146_ME_4BACDEF50001 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_E5D9F182EB7D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\RTFWriterTest.pas'
+ CONST extprop:pas:TypeName 'TRTFWriterTest'
+
+ref; // ME_4BACDEF50001 RTFWriterTest
+
+FORWARD ME_4BACF173038C
+
+: ME_4BACF19600F5
+ CONST UID '4BACF19600F5'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4BACF173038C // EVDtoRTFWriterTest
+ ;
+
+ref; // ME_4BACF19600F5 DoIt
+
+: ME_76E095E724DF
+ CONST UID '76E095E724DF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BACF173038C // EVDtoRTFWriterTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_76E095E724DF 
+
+: ME_4C937013031D_ME_4BACF173038C
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4BACF173038C // EVDtoRTFWriterTest
+ ;
+ref; // ME_4C937013031D_ME_4BACF173038C GetFolder
+
+: ME_4DAED6F60146_ME_4BACF173038C
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4BACF173038C // EVDtoRTFWriterTest
+ ;
+ref; // ME_4DAED6F60146_ME_4BACF173038C GetModelElementGUID
+
+: ME_4BACF173038C
+ CONST UID '4BACF173038C'
+ CONST Name 'EVDtoRTFWriterTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест преобразования EVD в RTF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BACDED003CE // RTF
+ ;
+ : Inherits
+   @ ( ME_4BACDEF50001 // RTFWriterTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4BACF19600F5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4BACF173038C // GetFolder
+ ME_4DAED6F60146_ME_4BACF173038C // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_76E095E724DF // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoRTFWriterTest.pas'
+ CONST extprop:pas:TypeName 'TEVDtoRTFWriterTest'
+
+ref; // ME_4BACF173038C EVDtoRTFWriterTest
+
+FORWARD ME_4C971BF80183
+
+FORWARD ME_4C971C6C0182
+
+: ME_4C971C8400AD
+ CONST UID '4C971C8400AD'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4C971C8400AD aFileName
+
+: ME_4C971C7B008B
+ CONST UID '4C971C7B008B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C971C6C0182 // RTFtoEVD
+ ;
+ : Parameters
+   @ ( ME_4C971C8400AD // aFileName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C971C7B008B DoIt
+
+: ME_4C971E400046
+ CONST UID '4C971E400046'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C971C6C0182 // RTFtoEVD
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4C971E400046 
+
+: ME_4C971F590233
+ CONST UID '4C971F590233'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C971C6C0182 // RTFtoEVD
+ ;
+ : Target WL 'ME_4C971BD4031B' '48EA3D1F0232.pas.ms.script' // TddRTFReader
+ ;
+
+ref; // ME_4C971F590233 
+
+: ME_4C971C6C0182
+ CONST UID '4C971C6C0182'
+ CONST Name 'RTFtoEVD'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4C971BF80183 // RTFReaderTest
+ ;
+ : Operations
+   @ ( ME_4C971C7B008B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4C971E400046 // 
+ ME_4C971F590233 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4C971C6C0182 RTFtoEVD
+
+FORWARD ME_4D5BE2F500AD
+
+: ME_4D5BE31100FF
+ CONST UID '4D5BE31100FF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5BE2F500AD // GetEnablePictures
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4D5BE31100FF DoIt
+
+: ME_4D5BE2F500AD
+ CONST UID '4D5BE2F500AD'
+ CONST Name 'GetEnablePictures'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C971BF80183 // RTFReaderTest
+ ;
+ : Operations
+   @ ( ME_4D5BE31100FF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4D5BE2F500AD GetEnablePictures
+
+: ME_24CC4318557E
+ CONST UID '24CC4318557E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C971BF80183 // RTFReaderTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_24CC4318557E 
+
+: ME_4C937013031D_ME_4C971BF80183
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C971BF80183 // RTFReaderTest
+ ;
+ref; // ME_4C937013031D_ME_4C971BF80183 GetFolder
+
+: ME_4DAED6F60146_ME_4C971BF80183
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C971BF80183 // RTFReaderTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C971BF80183 GetModelElementGUID
+
+: ME_4C971BF80183
+ CONST UID '4C971BF80183'
+ CONST Name 'RTFReaderTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BACDED003CE // RTF
+ ;
+ : Inherits
+   @ ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4C971C6C0182 // RTFtoEVD
+ ME_4D5BE2F500AD // GetEnablePictures
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C971BF80183 // GetFolder
+ ME_4DAED6F60146_ME_4C971BF80183 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_24CC4318557E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.09.2010 12:32'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\RTFReaderTest.pas'
+ CONST extprop:pas:TypeName 'TRTFReaderTest'
+
+ref; // ME_4C971BF80183 RTFReaderTest
+
+FORWARD ME_4C971C2203DD
+
+: ME_4C971C540358
+ CONST UID '4C971C540358'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C971C2203DD // RTFtoEVDWriterTest
+ ;
+
+ref; // ME_4C971C540358 DoIt
+
+: ME_14F693B6C2A3
+ CONST UID '14F693B6C2A3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C971C2203DD // RTFtoEVDWriterTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_14F693B6C2A3 
+
+: ME_4C937013031D_ME_4C971C2203DD
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4C971C2203DD // RTFtoEVDWriterTest
+ ;
+ref; // ME_4C937013031D_ME_4C971C2203DD GetFolder
+
+: ME_4DAED6F60146_ME_4C971C2203DD
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4C971C2203DD // RTFtoEVDWriterTest
+ ;
+ref; // ME_4DAED6F60146_ME_4C971C2203DD GetModelElementGUID
+
+: ME_4C971C2203DD
+ CONST UID '4C971C2203DD'
+ CONST Name 'RTFtoEVDWriterTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BACDED003CE // RTF
+ ;
+ : Inherits
+   @ ( ME_4C971BF80183 // RTFReaderTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4C971C540358 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4C971C2203DD // GetFolder
+ ME_4DAED6F60146_ME_4C971C2203DD // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_14F693B6C2A3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.09.2010 12:32'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\RTFtoEVDWriterTest.pas'
+ CONST extprop:pas:TypeName 'TRTFtoEVDWriterTest'
+
+ref; // ME_4C971C2203DD RTFtoEVDWriterTest
+
+FORWARD ME_4CA616760108
+
+: ME_282B335D6099
+ CONST UID '282B335D6099'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA616760108 // EVDwithFormulasToRTFWriterTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_282B335D6099 
+
+: ME_4C937013031D_ME_4CA616760108
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CA616760108 // EVDwithFormulasToRTFWriterTest
+ ;
+ref; // ME_4C937013031D_ME_4CA616760108 GetFolder
+
+: ME_4CA45DAA01BA_ME_4CA616760108
+ CONST UID '4CA45DAA01BA'
+ CONST Name 'EtalonNeedsComputerName'
+ : Original WL 'ME_4CA45DAA01BA' '4B2A112B011A.pas.ms.script' // EtalonNeedsComputerName
+ ;
+ : Implementor ME_4CA616760108 // EVDwithFormulasToRTFWriterTest
+ ;
+ref; // ME_4CA45DAA01BA_ME_4CA616760108 EtalonNeedsComputerName
+
+: ME_4DAED6F60146_ME_4CA616760108
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CA616760108 // EVDwithFormulasToRTFWriterTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CA616760108 GetModelElementGUID
+
+: ME_4CA616760108
+ CONST UID '4CA616760108'
+ CONST Name 'EVDwithFormulasToRTFWriterTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест преобразования EVD с формулами в RTF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BACDED003CE // RTF
+ ;
+ : Inherits
+   @ ( ME_4BACF173038C // EVDtoRTFWriterTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CA616760108 // GetFolder
+ ME_4CA45DAA01BA_ME_4CA616760108 // EtalonNeedsComputerName
+ ME_4DAED6F60146_ME_4CA616760108 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_282B335D6099 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '01.10.2010 21:12'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\EVDwithFormulasToRTFWriterTest.pas'
+ CONST extprop:pas:TypeName 'TEVDwithFormulasToRTFWriterTest'
+
+ref; // ME_4CA616760108 EVDwithFormulasToRTFWriterTest
+
+FORWARD ME_514C0F2903BB
+
+: ME_514C0F5E0247
+ CONST UID '514C0F5E0247'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_514C0F2903BB // DOCtoEVDWriterTest
+ ;
+
+ref; // ME_514C0F5E0247 DoIt
+
+: ME_4721D2D0B340
+ CONST UID '4721D2D0B340'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_514C0F2903BB // DOCtoEVDWriterTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_4721D2D0B340 
+
+: ME_4C937013031D_ME_514C0F2903BB
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_514C0F2903BB // DOCtoEVDWriterTest
+ ;
+ref; // ME_4C937013031D_ME_514C0F2903BB GetFolder
+
+: ME_4DAED6F60146_ME_514C0F2903BB
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_514C0F2903BB // DOCtoEVDWriterTest
+ ;
+ref; // ME_4DAED6F60146_ME_514C0F2903BB GetModelElementGUID
+
+: ME_514C0F2903BB
+ CONST UID '514C0F2903BB'
+ CONST Name 'DOCtoEVDWriterTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BACDED003CE // RTF
+ ;
+ : Inherits
+   @ ( ME_4C971BF80183 // RTFReaderTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_514C0F5E0247 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_514C0F2903BB // GetFolder
+ ME_4DAED6F60146_ME_514C0F2903BB // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4721D2D0B340 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\DOCtoEVDWriterTest.pas'
+ CONST extprop:pas:TypeName 'TDOCtoEVDWriterTest'
+
+ref; // ME_514C0F2903BB DOCtoEVDWriterTest
+
+FORWARD ME_538C2F3502BB
+
+: ME_538C2F9F0008
+ CONST UID '538C2F9F0008'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538C2F3502BB // RTFtoEVDWithiddenTextExtractor
+ ;
+ : Target WL 'ME_538C1D82017A' '4B324F930103.pas.ms.script' // Tdd_lcHiddenTextExtractor
+ ;
+
+ref; // ME_538C2F9F0008 
+
+: ME_756863C941BD
+ CONST UID '756863C941BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_538C2F3502BB // RTFtoEVDWithiddenTextExtractor
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_756863C941BD 
+
+: ME_4C07BCBE01F2_ME_538C2F3502BB
+ CONST UID '4C07BCBE01F2'
+ CONST Name 'SetFilters'
+ : Original WL 'ME_4C07BCBE01F2' '4BACDD97014B.pas.ms.script' // SetFilters
+ ;
+ : Implementor ME_538C2F3502BB // RTFtoEVDWithiddenTextExtractor
+ ;
+ref; // ME_4C07BCBE01F2_ME_538C2F3502BB SetFilters
+
+: ME_4C937013031D_ME_538C2F3502BB
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_538C2F3502BB // RTFtoEVDWithiddenTextExtractor
+ ;
+ref; // ME_4C937013031D_ME_538C2F3502BB GetFolder
+
+: ME_4DAED6F60146_ME_538C2F3502BB
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_538C2F3502BB // RTFtoEVDWithiddenTextExtractor
+ ;
+ref; // ME_4DAED6F60146_ME_538C2F3502BB GetModelElementGUID
+
+: ME_538C2F3502BB
+ CONST UID '538C2F3502BB'
+ CONST Name 'RTFtoEVDWithiddenTextExtractor'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BACDED003CE // RTF
+ ;
+ : Inherits
+   @ ( ME_4C971C2203DD // RTFtoEVDWriterTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C07BCBE01F2_ME_538C2F3502BB // SetFilters
+ ME_4C937013031D_ME_538C2F3502BB // GetFolder
+ ME_4DAED6F60146_ME_538C2F3502BB // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_538C2F9F0008 // 
+ ME_756863C941BD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\RTFtoEVDWithiddenTextExtractor.pas'
+ CONST extprop:pas:TypeName 'TRTFtoEVDWithiddenTextExtractor'
+
+ref; // ME_538C2F3502BB RTFtoEVDWithiddenTextExtractor
+
+: ME_4BACDED003CE
+ CONST UID '4BACDED003CE'
+ CONST Name 'RTF'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_4BACDEF50001 // RTFWriterTest
+ ME_4BACF173038C // EVDtoRTFWriterTest
+ ME_4C971BF80183 // RTFReaderTest
+ ME_4C971C2203DD // RTFtoEVDWriterTest
+ ME_4CA616760108 // EVDwithFormulasToRTFWriterTest
+ ME_514C0F2903BB // DOCtoEVDWriterTest
+ ME_538C2F3502BB // RTFtoEVDWithiddenTextExtractor
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_482D6E960087' '482D6E960087.pas.ms.script' // Readers
+ WL 'ME_483E80C9025F' '483E80C9025F.pas.ms.script' // Readers
+ WL 'ME_48EA3D1F0232' '48EA3D1F0232.pas.ms.script' // Readers
+ WL 'ME_48F4BA770180' '48F4BA770180.pas.ms.script' // Writers
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B324F930103' '4B324F930103.pas.ms.script' // Filters
+ WL 'ME_4BACDD97014B' '4BACDD97014B.pas.ms.script' // Write
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4BACDED003CE.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4BACDED003CE.pas.ms.script.runner'
+
+ref; // ME_4BACDED003CE RTF

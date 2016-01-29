@@ -1,0 +1,1413 @@
+///////////////////////////////////////////////////////////////////////////////
+// Работа с командным меню приложения
+///////////////////////////////////////////////////////////////////////////////
+
+uses common, DocumentWork, exceptions, RunPrograms;
+
+
+function ClickByMainMenuItem(const itemPath: string; const isCloseMenu: boolean = true) : Boolean; forward;
+function ClickByMainMenuItem_NonTabbed(const itemPath: string; const isCloseMenu: boolean = true; _n : integer = -1) : Boolean; forward;
+function ClickByMainMenuItem_Tabbed(const sItemPath: string; const isCloseMenu: boolean = true) : Boolean; forward;
+function _ClickByTabbedMainMenuItem(const sItemPath: string; const isCloseMenu: boolean = true;const isClickOnLastElement : Boolean = true) : OleVariant; forward;
+procedure CloseMainMenu(closeByKeyboard: boolean = false); forward;
+
+
+const
+  EX_MENU_ITEM_NOT_FOUND = 'Не получилось найти элемент меню';
+  EX_MENU_ITEM_NOT_VISIBLE = 'Элемент меню не виден (не доступен)';
+  EX_MENU_ITEM_NOT_ENABLED = 'Элемент меню не активен';
+  EX_POPUP_MENU_NOT_EXISTS = 'Всплывающее меню не найдено';
+
+
+procedure _____MENU_WORK;begin;end;  
+
+{
+  TYPE: Работа с меню
+  DESC: Возвращает объект элемента меню по его названию
+  RESULT:
+  REMARK: Выбрасывает EX_MENU_ITEM_NOT_FOUND если элемент меню не найден
+}
+function GetMenuItemByName(
+  const menuItem: OleVariant; // menuItem
+  const itemName: String; // имя элемента меню
+  const isSilent : boolean = false
+): OleVariant;
+var
+ i;
+ childMenuItem, itemCaption;
+begin
+  Result := nil;
+  try
+    if (menuItem.Caption <> itemName) then
+    begin
+    	for i:= 0 to menuItem.Count - 1 do
+      begin 
+      	childMenuItem := menuItem.Items[i];
+        itemCaption := childMenuItem.Caption;
+        itemCaption := StringReplace(itemCaption, '&' , '', 1 OR 2); // удаляем амперсанды
+      	if StringCompare(itemName, itemCaption) then
+        begin
+        	Result := childMenuItem;
+          break;
+        end;
+      end;
+    end
+    else
+    	Result := menuItem;
+      
+    if Result = nil then
+      Raise(EX_MENU_ITEM_NOT_FOUND);     
+  except
+    if NOT isSilent then Log.Message('GetMenuItemByName: ' + ExceptionMessage, 'itemName: "' + itemName + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise(ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Возвращает объект элемента меню по пути к нему
+  RESULT:
+  REMARK: Если нельзя найти какой-нибудь промежуточный элемент, то выбрасываем EX_MENU_ITEM_NOT_FOUND
+}
+function GetMenuItemByPath(
+  const menuRoot: OleVariant; // объект меню того окна, на котором вызывается меню 
+  const itemPath: String;  // путь типа 'Пункт1\Подпункт1'
+  const isSilent : boolean = false
+): OleVariant;
+var
+ i;
+ itemNames;
+ foundedItem;
+begin
+  // у TvcmMenuItem .Items - индексированное свойство, она сама является корнем 
+  if MenuRoot.VCLClass <> 'TvcmMenuItem' then    
+    MenuRoot := MenuRoot.Items;
+    
+  Result := nil;
+  try
+    itemNames := common.String2Array(itemPath, '\');
+    foundedItem := menuRoot; 
+    for i:= VarArrayLowBound(itemNames, 1) to VarArrayHighBound(itemNames, 1) do
+    	foundedItem := GetMenuItemByName(foundedItem, itemNames[i]); 
+    Result := foundedItem;
+  except
+    if NOT isSilent then Log.Message('GetMenuItemByPath: ' + ExceptionMessage, 'itemPath: "' + itemPath + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise (ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Возвращает полный путь к элементу, чтобы можно было использовать в w.PopupMenu.Click(GetMenuItemPathByPath(...));
+  RESULT: Путь к элементу меню в виде [1|2|3]
+  REMARK:
+    Проверяет элемент на доступность и видимость 
+    Если элемент (или промежуточные) не найдены: EX_MENU_ITEM_NOT_FOUND
+    Если элемент (или промежуточные) не виден: EX_MENU_ITEM_NOT_VISIBLE
+    Если элемент (или промежуточные) не активны: EX_MENU_ITEM_NOT_ENABLED
+}
+function GetMenuItemPathByPath(
+  const MenuRoot: OleVariant; // объект меню того окна, на котором вызывается меню
+  const ItemPath: String; // путь типа 'Пункт1\Подпункт1'
+  const getActualIndex: boolean = true; // возвращать реальный индекс элемента (проверяются предыдущие на невидимость)
+  const checkForVisibility : boolean = true; // проверять на видимость искомый пункт меню
+  const checkForEnabled : boolean = true; // проверять на активность искомый пункт меню  
+  const isSilent : boolean = false
+) : String;
+var
+ i, j, k;    
+ itemNames;
+ foundedItem;
+begin
+  try
+    // у TvcmMenuItem .Items - индексированное свойство, она сама является корнем
+    if MenuRoot.VCLClass <> 'TvcmMenuItem' then    
+      MenuRoot := MenuRoot.Items;
+      
+    Result := '[';
+    
+    itemNames := common.String2Array(ItemPath, '\');
+    foundedItem := MenuRoot; 
+    for i:= VarArrayLowBound(itemNames, 1) to VarArrayHighBound(itemNames, 1) do
+    begin
+    	foundedItem := GetMenuItemByName(foundedItem, itemNames[i], isSilent);
+    	if (checkForVisibility) AND (NOT foundedItem.Visible) then
+	    	Raise(EX_MENU_ITEM_NOT_VISIBLE)
+    	else if (checkForEnabled) AND (NOT foundedItem.Enabled) then
+      	Raise(EX_MENU_ITEM_NOT_ENABLED)
+      else if getActualIndex then
+      begin
+        j := foundedItem.MenuIndex;
+      	for k := 0 to foundedItem.MenuIndex do
+        	if NOT foundedItem.Parent.Items[k].Visible then j := j - 1;
+        Result := Result + '|' + IntToStr(j);
+      end
+      else
+    		Result := Result + '|' + IntToStr(foundedItem.MenuIndex);
+    end;
+    if (Result <> '') then
+    begin
+    	Result := Result + ']';
+      Result := StringReplace(Result, '[|', '[', 1);
+      Result := StringReplace(Result, ']|', ']', 1);
+    end;
+  except
+    if NOT isSilent then Log.Message('GetMenuItemPathByPath: ' + ExceptionMessage, 'itemPath : "' + itemPath + '"',  pmNormal, GetLogAttr('EXCEPTION'));  
+    Raise (ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Говорит, есть ли окно всплывающего меню
+  RESULT:
+  REMARK:
+}
+function IsPopupMenuExists: boolean;
+var w : OleVariant;
+begin
+  try
+    w := GetActiveProcess(Options.Run.Timeout div 30).WaitWindow('#32768', '', -1, 0);
+    Result := w.Exists AND w.Visible;
+  except
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Говорит, отмечен ли пункт меню
+  RESULT:
+  REMARK:
+}
+function ClosePopupMenu(
+  const wndWithMenu : OleVariant  = nil
+): Boolean;
+  const
+    FUNCTION_NAME = 'ClosePopupMenu';
+  var 
+    w : OleVariant;
+begin
+  try
+    Result := NOT IsPopupMenuExists;
+    if NOT Result then
+    begin
+      w := GetActiveProcess(Options.Run.Timeout div 30).WaitWindow('#32768', '', -1, 0);      
+      if IsExists(w) then Sys.Keys('[Esc]');      
+      Result := NOT IsPopupMenuExists;      
+    end;      
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));  
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+function GetMainMenuItemByName(
+  const oMenuWindow : OleVariant; // окно главного меню или его раскрывающегося меню
+  const sName : String // имя пункта
+) : OleVariant; // элемент меню типа TvcmMenuForChromeLikeItem                      
+  const
+    FUNCTION_NAME = 'GetMainMenuItemByName';
+  var
+    i : Integer;      
+begin
+  try    
+    if not IsExists(oMenuWindow) then
+      Raise(EX_MENU_ITEM_NOT_FOUND);
+      
+    sName := StringReplace(sName, '&' , '', 1 OR 2); // удаляем амперсанды 
+    for i := 0 to oMenuWindow.ItemCount-1 do
+    begin
+      Result := oMenuWindow.Items[i];      
+      if StringCompare(sName, Result.rItem.Caption) then
+        Exit;
+    end;
+    Raise(EX_MENU_ITEM_NOT_FOUND);            
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'sName: ' + sName, pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Говорит, доступен ли пункт главного меню
+  RESULT:
+  REMARK:
+}
+function IsMenuItemEnabled(
+  menuRoot: OleVariant; 
+  const itemPath: String // путь к элементу меню
+): Boolean;
+  var 
+    itemPathToClick, lastItemName : String;
+    isMainMenu : boolean;
+    oMenuItem;
+begin
+  try
+    isMainMenu := StringCompare('*MainMenu*', menuRoot.VCLClass);
+    if isMainMenu then
+    begin
+      if VarToBool(gbl_F1ShellTabsEnabled) then
+      begin
+        try
+          oMenuItem := _ClickByTabbedMainMenuItem(itemPath, false, false);
+          Result := oMenuItem.rItem.Enabled;
+        finally
+          CloseMainMenu;
+        end;
+        Exit;
+      end
+      else
+      begin
+        // прокликиваем по меню, для его обновления
+        itemPathToClick := itemPath;
+        Delete(itemPathToClick, 1+Length(itemPathToClick) - Length(AnsiStrRScan(itemPathToClick, '\')), Length(itemPathToClick));
+      
+        if ClickByMainMenuItem_NonTabbed(itemPathToClick) then
+          GetMainWindow.MainMenu.Close;
+      end;
+    end;
+
+    GetMenuItemPathByPath(menuRoot, itemPath, true, true, true, true);
+    Result := true;
+  except 
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Говорит, доступен ли пункт попап-меню
+  RESULT:
+  REMARK:
+}
+function IsPopupMenuItemExists(
+  wndWithMenu: OleVariant;
+  const itemPath: String;
+  const isCloseMenu : boolean = false
+): Boolean;
+  var
+    menuRoot : OleVariant;
+begin
+  Result := false;
+  try  
+    try
+      if NOT IsPopupMenuExists then Exit;
+
+      if IsSupported(wndWithMenu, 'QCPopupMenu') then 
+        menuRoot := wndWithMenu.QCPopupMenu
+      else if StringCompare('*ButtonPopupMenu*', wndWithMenu.VCLClass) then
+      begin
+        menuRoot := wndWithMenu;
+        wndWithMenu := GetParentObject(menuRoot, 2);
+      end
+      else
+        Raise('На переданном окне (' + wndWithMenu.FullName + ') не удается найти объект меню.');
+            
+      GetMenuItemPathByPath(menuRoot, itemPath, true, true, true, true);      
+      Result := true;
+    finally
+      if isCloseMenu then ClosePopupMenu(wndWithMenu);  
+    end;  
+  except
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Говорит, отмечен ли пункт меню
+  RESULT:
+  REMARK:
+}
+function IsMenuItemChecked(
+  menuRoot: OleVariant;
+  const itemPath: String;
+  const isMainMenuObsolete : boolean = false // НЕ ИСПОЛЬЗУЕТСЯ 
+): Boolean;
+  var 
+    itemPathToClick, lastItemName : String;
+    isMainMenu : boolean;
+    oMenuItem;
+begin
+  try
+    Result := false;
+    isMainMenu := StringCompare('*MainMenu*', menuRoot.VCLClass);
+    if isMainMenu then
+      if VarToBool(gbl_F1ShellTabsEnabled) then
+      begin
+        try
+          oMenuItem := _ClickByTabbedMainMenuItem(itemPath, false, false);        
+          Result := oMenuItem.rItem.Checked;
+        finally
+          CloseMainMenu;
+        end;
+        Exit;
+      end
+      else
+      begin
+        // прокликиваем по меню, для его обновления
+        itemPathToClick := itemPath;
+        Delete(itemPathToClick, 1+Length(itemPathToClick) - Length(AnsiStrRScan(itemPathToClick, '\')), Length(itemPathToClick) );
+            
+        if ClickByMainMenuItem_NonTabbed(itemPathToClick) then
+          GetMainWindow.MainMenu.Close;
+      end;               
+
+    Result := GetMenuItemByPath(menuRoot, itemPath).Checked;
+  except
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Кликает на элементе в всплывающем меню.
+  RESULT:
+  REMARK: Меню нужно открыть до вызова функции! 
+}
+function ClickByPopupMenuItem(
+  const wnd : OleVariant; // окно, на котором вызывается меню
+  const itemPath : String; // путь к элементу меню
+  const isCloseMenu: boolean = true // эакрывать ли меню, если клик не прошел
+) : boolean;
+var
+  w, path, menuRoot, i;
+begin
+	Result := false;
+  try
+    Delay(Options.Run.Timeout div 30); // иначе иногда меню не успевает прогрузиться
+    
+    if NOT IsExists(wnd) then Raise(EX_OBJECT_NOT_EXISTS);
+    if NOT IsPopupMenuExists then Raise(EX_POPUP_MENU_NOT_EXISTS);
+
+    if IsSupported(wnd, 'QCPopupMenu') then 
+      menuRoot := wnd.QCPopupMenu
+    else   
+    if StringCompare('Tvcm*PopupMenu*', wnd.VCLClass) then
+    begin
+      menuRoot := wnd;
+      for i := 1 to 2 do
+      begin 
+        wnd := GetParentObject(wnd, 1);
+        if IsSupported(wnd, 'PopupMenu') then
+          break;
+        
+        //if i = 2 then 
+        //  Raise('Не получилось найти попап-меню на переданном окне (' + wnd.FullName + ').');
+      end;  
+    end
+    else
+      Raise('На переданном окне (' + wnd.FullName + ') не получается кликнуть по попап-меню.');
+
+    path := GetMenuItemPathByPath(menuRoot, itemPath);  
+    Log.Picture(Sys.Desktop.Picture, 'Скриншот экрана перед кликом по всплывающему меню', 'Кликаем по элементу: ' + path);
+    wnd.PopupMenu.Click(path);
+
+    Result := true;
+  except
+    if (IsPopupMenuExists) AND (isCloseMenu) then
+      ClosePopupMenu(wnd);
+    Log.Message('ClickByPopupMenuItem: ' + ExceptionMessage, 'itemPath : "' + itemPath + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Открывает и кликает на элементе в всплывающем меню.
+  RESULT:
+  REMARK:
+}
+function OpenAndClickByPopupMenuItem(
+  const wnd : OleVariant; // окно, на котором вызывается меню 
+  const itemPath : String; // путь к элементу меню
+  const isCloseMenu: boolean = true;
+  const paramStr: String = ''
+) : boolean;
+var
+  paramList: OleVariant;
+begin
+  try
+    paramList := ParseParamString(paramStr);
+    
+    if not IsExists(wnd) then
+      Raise('Не найдено окно для вызова попап меню');
+
+    // Для vgScene кликаем по-своему
+    if IsSupported(wnd, 'VCLClass') and StringCompare('Tvg*', wnd.VCLClass) then
+    begin
+      ClickOnVgSceneObject(wnd, 'ClickKey:=RIGHT');
+      wnd := FindParentVgSceneObj(wnd).Parent;
+      if not IsExists(wnd) then
+        Raise('Не найдено окно родителя для вызова попап меню');
+      Result := ClickByPopupMenuItem(wnd, itemPath, isCloseMenu);
+    end
+    else
+    begin 
+      if VarToBool(GetParam(paramList, 'ClickByMouse', 'false')) then
+        wnd.ClickR(wnd.Width div 2, wnd.Height div 2)
+      else
+        wnd.Keys('[Apps]');
+      Result := ClickByPopupMenuItem(wnd, itemPath, isCloseMenu);
+    end;
+  except
+    Result := false;
+    Log.Message('OpenAndClickByPopupMenuItem: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+
+function GetDropDownMenuWindow(
+  const iHOrder : Integer = 0
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetDropDownMenuWindow';    
+  var
+    oProcess; 
+    arrProps, arrValues;   
+begin
+  try 
+    arrProps := ['WndClass', 'Visible'];
+    arrValues := ['TvcmDropDownMenuForChromeLike', 'True'];  
+    oProcess := GetActiveProcess;
+    
+    if iHOrder = 0 then
+    begin
+      //oProcess.Refresh;
+      Result := oProcess.FindChild(arrProps, arrValues);
+    end  
+    else  
+      Result := FindSimilarWindow(oProcess, arrProps, arrValues, iHOrder, 0);
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Закрывает главное меню 
+  RESULT:
+  REMARK: Работает только в режиме вкладок!!! 
+}
+procedure CloseMainMenu(closeByKeyboard: boolean = false);
+  const
+    FUNCTION_NAME = 'CloseMainMenu';
+  var
+    w;  
+begin
+  try
+    if IsExists(GetDropDownMenuWindow) then
+    begin
+      // быстрее через клавиатуру
+      if closeByKeyboard then
+        Sys.Keys('[Esc]')
+      else
+      begin
+        // единственно возможная для клика точка, смещение +-1 приводит к переключению на 1ую вкладку
+        // если опять отъедет можно переделать на клик в области меню (1, 1):
+        //w := GetMainContainer('ContainerIndex:=1').Window('TvcmMainMenuStripForChromeLike');
+        //w.Click(1, 1);
+        
+        w := GetTabSetControl(GetMainContainer('ContainerIndex:=1'));
+        w.Click(0, 0);
+      end;
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Кликает на элементе главного меню программы в режиме вкладок 
+  RESULT:
+  REMARK: Служебная функция, не использовать в скриптах напрямую!  
+}
+function _ClickByTabbedMainMenuItem(
+  const sItemPath: string; // путь к элементу меню
+  const isCloseMenu: boolean = true; // эакрывать ли меню
+  const isClickOnLastElement : Boolean = true // кликать ли по последнему элементу и вернуть открывшееся меню, либо не кликать и вернуть этот элемент. Нужно для реализации других функций
+) : OleVariant;
+  const
+    FUNCTION_NAME = '_ClickByTabbedMainMenuItem';
+  var 
+    arrPathElements : OleVariant;
+    oMainMenu, oCurrMenu, oCurrItem, oNewMenu : OleVariant;
+    sElementName;
+    hasChilds, isFirstTry, isFirstDropDown;
+    x, y, screenX, screenY, i, iLowBound, iHighBound;
+begin
+  try
+    Result := nil;
+
+    arrPathElements := String2Array(sItemPath, '\');
+
+    // ищем активное окно (контейнер)     
+    oMainMenu := GetMainContainer('ContainerIndex:=1');
+    if not IsExists(oMainMenu) then
+      Raise('Активное окно оболочки не найдено!');
+    oMainMenu := oMainMenu.Window('TvcmMainMenuStripForChromeLike');
+    
+    oCurrMenu := oMainMenu;
+    iLowBound := VarArrayLowBound(arrPathElements, 1);
+    iHighBound := VarArrayHighBound(arrPathElements, 1);
+    try
+      for i := iLowBound to iHighBound do
+      begin
+        // перемещаем мышку в окно выпадающего меню, а то если мы будем ее двигать
+        // сразу к нужному элементу, то мы можем сначала пойти мимо окна
+        // и оно закроется. А так будущее движение будет в границах окна 
+        if i > iLowBound then // работает с выпадающими меню      
+          if i = iLowBound + 1 then // работаем с первым выпадающим меню
+            // перемещаем мышку вертикально вниз
+            SlideMouse(Sys_Desktop.MouseX, oCurrMenu.ScreenTop + 1)
+          else
+            // перемещаем мышку горизонтально вправо
+            SlideMouse(oCurrMenu.ScreenLeft + 1, Sys_Desktop.MouseY);
+      
+        // получаем элемент с нужным именем    
+        sElementName := arrPathElements[i];
+        oCurrItem := GetMainMenuItemByName(oCurrMenu, sElementName);
+      
+        if (i = iHighBound) and (not isClickOnLastElement) then
+        begin
+          Result := oCurrItem;
+          Exit;
+        end;
+      
+        // определяем координаты элемента меню на меню 
+        with oCurrItem.rRect do
+        begin
+          x := (Right + Left) div 2;
+          y := (Bottom + Top) div 2;        
+        end;
+        hasChilds := oCurrItem.rItem.Count > 0;
+      
+        // перемещаем мышку на элемент меню и двигаем ее там
+        screenX := x; screenY := y;
+        common.ClientToScreen(oCurrMenu, screenX, screenY);      
+        SlideMouse(screenX, screenY);
+        Delay(300);
+        SlideMouse(screenX + 1, screenY + 1);
+        Delay(300);
+      
+        if (not hasChilds) or (i = iLowBound) then
+        begin      
+          // кликаем по элементу
+          Log.Picture(Sys_Desktop.Picture, 'Скриншот экрана перед кликом по меню', 'Кликаем по элементу: ' + sElementName); 
+          oCurrMenu.Click(x, y);
+          Delay(100);
+        end
+        else
+          Log.Picture(Sys_Desktop.Picture, 'Скриншот экрана после наведения мыши', 'Кликаем по элементу: ' + sElementName);
+
+        // получаем выпавшее окно меню (правое i+1 по порядку)
+        isFirstTry := True;
+        while True do
+        begin            
+          oNewMenu := GetDropDownMenuWindow(i - iLowBound + 1);
+          if not IsExists(oNewMenu) then 
+          begin
+            if not hasChilds then
+              break // нового окна и не должно быть            
+            else
+              // новое окно должно быть
+              if isFirstTry then
+              begin
+                // окошко что-то не появилось, наверное, надо кликнуть и попробовать еще раз
+                Log.Picture(Sys_Desktop.Picture, 'Скриншот экрана перед кликом по меню', 'Кликаем по элементу: ' + sElementName);
+                oCurrMenu.Click(x, y);
+                Delay(200);
+                isFirstTry := False;
+              end
+              else          
+                Raise('Должно было открыться еще одно выпадающее окно, а не открылось');
+          end
+          else
+            if not hasChilds then
+              // окно есть, а не должно быть, странно
+              Raise('После клика на элементе у которого нет детей осталось выпадающее окно!')
+            else  
+              break // ага, окно должно быть, все ок
+        end;  
+        oCurrMenu := oNewMenu;
+        oNewMenu := nil;      
+      end;
+
+      Result := oCurrMenu;
+
+    finally
+      if isCloseMenu then
+        CloseMainMenu;
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'sItemPath : "' + sItemPath + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if ExceptionMessage = EX_MENU_ITEM_NOT_FOUND then Raise; // нужно для корректного результата в случае отсутствия пункта меню  
+    CommonExceptionHandler;
+  end;  
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Кликает на элементе главного меню программы в режиме вкладок 
+  RESULT:
+  REMARK: 
+}
+function ClickByMainMenuItem_Tabbed(
+  const sItemPath: string; // путь к элементу меню
+  const isCloseMenu: boolean = true // эакрывать ли меню, если клик не прошел  
+) : Boolean;
+  const
+    FUNCTION_NAME = 'ClickByMainMenuItem_Tabbed';
+begin
+  try
+    _ClickByTabbedMainMenuItem(sItemPath, isCloseMenu); 
+    Result := true;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'sItemPath : "' + sItemPath + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;  
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Кликает на элементе главного меню программы в режиме без вкладок 
+  RESULT:
+  REMARK: 
+}
+function ClickByMainMenuItem_NonTabbed(
+  const itemPath: string; // путь к элементу меню
+  const isCloseMenu: boolean = true; // эакрывать ли меню, если клик не прошел  
+  _n : integer = -1 // служебная переменная, не использовать!
+) : Boolean;
+  const
+    FUNCTION_NAME = 'ClickByMainMenuItem_NonTabbed';
+  var 
+    path : String;
+    nToEsc : integer;
+    w : OleVariant;
+begin
+  try
+    Result := false;
+    
+    path := AnsiStrRScan(itemPath, '\');
+    if (path <> '') then
+    begin
+      path := Copy(itemPath, 1, Length(itemPath) - Length(path));
+      if NOT ClickByMainMenuItem_NonTabbed(path, isCloseMenu, 0) then Raise('Не получилось кликнуть!');
+    end;
+    
+   	w := GetMainWindow;
+    path := GetMenuItemPathByPath(w.Menu, itemPath);
+    Log.Picture(Sys_Desktop.Picture, 'Скриншот экрана перед кликом по меню', 'Кликаем по элементу: ' + path);
+    
+    ProcessKiller(FUNCTION_NAME, 'START', Options.Run.Timeout, w);      
+    try            
+      w.MainMenu.Click( path );    
+
+      if isCloseMenu and (_n = 0) then //Sys.Keys('~')
+        w.MainMenu.Close;
+        
+      Result := true;  
+    finally
+      ProcessKiller(FUNCTION_NAME, 'STOP');      
+    end;        
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'itemPath : "' + itemPath + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;  
+end;
+
+
+function ClickByMainMenuItem(
+  const itemPath: string; // путь к элементу меню
+  const isCloseMenu: boolean = true // эакрывать ли меню, если клик не прошел  
+) : Boolean;
+  const
+    FUNCTION_NAME = 'ClickByMainMenuItem';
+begin
+  try
+    if VarToBool(gbl_F1ShellTabsEnabled) then
+      Result := ClickByMainMenuItem_Tabbed(itemPath, isCloseMenu)
+    else
+      Result := ClickByMainMenuItem_NonTabbed(itemPath, isCloseMenu);       
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'itemPath : "' + itemPath + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;  
+end;
+
+procedure ClickByMainMenuItem_Test;
+  const
+    FUNCTION_NAME = 'ClickByMainMenuItem_Test';
+  var
+    oMenu;        
+begin
+  try
+  {  oMenu := ClickByMainMenuItem('Файл');
+    
+    oMenu := ClickByMainMenuItem('Файл\Основное меню');
+    oMenu := ClickByMainMenuItem('Файл\Выбор конфигурации');
+    oMenu := ClickByMainMenuItem('Файл\Выбор конфигурации\Расширенная');}
+    
+    Log.Message(IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурации\Расширенная'));
+    Log.Message(IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурации\Основная'));
+    
+    oMenu := ClickByMainMenuItem('Файл\Выбор конфигурации\Основная');
+    
+    Log.Message(IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурации\Расширенная'));
+    Log.Message(IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурации\Основная'));
+ 
+    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+procedure _____END_MENU_WORK;begin;end;
+
+{
+  TYPE:
+  DESC: Открытие вкладки Мои документы и перевод туда фокуса на первый элемент
+  RESULT:
+  REMARK:
+
+}
+function OpenMyDocTab(
+  isPressHome: boolean = true
+): OleVariant;
+var
+  wnd;
+begin
+  Result := NonExObj;
+  try
+    GetMainWindow.SetFocus;
+    // пытаемся получить вкладку
+    wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "Мои документы"');
+    // если она отсутствует, то открываем
+    if NOT IsExists(wnd) then
+    begin
+      if NOT ClickByMainMenuItem('Вид\Мои документы') then 
+        Raise('Не получилось кликнуть в меню по "Вид\Мои документы"');
+      // опять получаем, теперь она точно должна существовать
+      wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "Мои документы"');
+      if NOT IsExists(wnd) then // нет, значит какой-то глюк
+        Raise('Вкладка навигатора "Мои документы" не найдена, даже после попытки ее открытия!'); 
+    end;  
+    // активируем вкладку
+    if SwitchToNavigatorPage('Мои документы') then
+    begin
+      Result := wnd;
+    	Result.SetFocus;
+      if isPressHome then Sys.Keys ('[Home]');
+    end
+    else
+      Raise('Не получилось переключиться во вкладку "Мои документы"');
+  except
+    Log.Warning('OpenMyDocTab: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Открытие вкладки Мои документы и перевод туда фокуса на первый элемент
+  RESULT:
+  REMARK:
+}
+function OpenJurnalTab(
+  isPressHome: boolean = true
+): OleVariant;
+var
+  wnd;
+begin
+  Result := NonExObj;
+  try
+    GetMainWindow.SetFocus;
+    // пытаемся получить вкладку
+    wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "ЖУРНАЛ РАБОТЫ"');
+    // если она отсутствует, то открываем
+    if NOT IsExists(wnd) then
+    begin
+      if NOT ClickByMainMenuItem('Вид\Журнал Работы') then 
+        Raise('Не получилось кликнуть в меню по "Вид\Журнал Работы"');
+      // опять получаем, теперь она точно должна существовать
+      wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "ЖУРНАЛ РАБОТЫ"');
+      if NOT IsExists(wnd) then // нет, значит какой-то глюк
+        Raise('Вкладка навигатора "Журнал Работы" не найдена, даже после попытки ее открытия!'); 
+    end;  
+    // активируем вкладку
+    if SwitchToNavigatorPage('Журнал Работы') then
+    begin
+      Result := wnd;
+    	Result.SetFocus;
+      if isPressHome then Sys.Keys ('[Home]');
+    end
+    else
+      Raise('Не получилось переключиться во вкладку "Журнал Работы"');
+  except
+    Log.Warning('OpenJurnalTab: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Открытие вкладки Меню и перевод туда фокуса на первый элемент
+  RESULT:
+  REMARK:
+}
+function OpenMenuTab(
+  const isPressHome : boolean = true
+) : OleVariant;
+var
+  wnd;
+begin
+  Result := NonExObj;
+  try
+    GetMainWindow.SetFocus;
+    
+    wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МЕНЮ"');
+    if NOT IsExists(wnd) then
+    begin
+      if NOT ClickByMainMenuItem('Вид\Меню (вкладка)') then 
+        Raise('Не получилось кликнуть в меню по "Вид\Меню (вкладка)"');
+      wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МЕНЮ"');
+      if NOT IsExists(wnd) then 
+        Raise('Вкладка "Меню" не найдена, даже после попытки ее открытия!');
+    end;
+    
+    if SwitchToNavigatorPage('Меню') then
+    begin
+      Result := wnd;
+    	Result.SetFocus;
+    	if isPressHome then Sys.Keys ('[Home]');
+    end
+    else
+      Raise('Не получилось переключиться во вкладку "Меню"');
+  except
+    Log.Warning('OpenMenuTab: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Открытие вкладки Конфигурации
+  RESULT:
+  REMARK:
+}
+function OpenConfigurationsTab(
+  isPressHome: boolean = true
+): OleVariant;
+var
+  wnd;
+begin
+  Result := NonExObj;
+  try
+    GetMainWindow.SetFocus;
+    // пытаемся получить вкладку
+    wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "КОНФИГУРАЦИИ"');
+    // если она отсутствует, то открываем
+    if NOT IsExists(wnd) then
+    begin
+      if NOT ClickByMainMenuItem('Вид\Список конфигураций') then 
+        Raise('Не получилось кликнуть в меню по "Вид\Список конфигураций"');
+      // опять получаем, теперь она точно должна существовать
+      wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "КОНФИГУРАЦИИ"');
+      if NOT IsExists(wnd) then // нет, значит какой-то глюк
+        Raise('Вкладка навигатора "Конфигурации" не найдена, даже после попытки ее открытия!');
+    end;  
+    // активируем вкладку
+    if SwitchToNavigatorPage('Конфигурации') then
+    begin
+      Result := wnd;
+    	Result.SetFocus;
+      if isPressHome then Sys.Keys ('[Home]');
+    end
+
+    else
+      Raise('Не получилось переключиться во вкладку "Конфигурации"');
+  except
+    Log.Warning('OpenConfigurationsTab: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Открытие вкладки Редакции
+  RESULT:
+  REMARK:
+}
+function OpenEditionsTab(
+  isPressHome: boolean = false
+): OleVariant;
+var
+  wnd;
+begin
+  Result := NonExObj;
+  try
+    GetMainWindow.SetFocus;
+    if NOT SwitchToNavigatorPage('Редакции') then
+      if NOT ClickByMainMenuItem('Документы\Список редакций') then 
+        Raise('Не получилось кликнуть в меню по "Документы\Список редакций"')
+      else
+      begin
+        wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"');
+        if IsExists(wnd) then
+        begin
+          Result := wnd;
+        	Result.SetFocus;
+        	if isPressHome then wnd.Keys ('[Home]');
+        end
+        else
+          Raise('Не найдена вкладка "Редакции"');
+      end;
+  except
+    Result := false;
+    Log.Warning('OpenEditionsTab: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC: Открытие вкладки Панель задач
+  RESULT:
+  REMARK:
+
+}
+function OpenTasksPanel(
+  isPressHome: boolean = true
+): OleVariant;
+var
+  wnd;
+begin
+  Result := NonExObj;
+  try
+    GetMainWindow.SetFocus;
+    // пытаемся получить вкладку
+    wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "ПАНЕЛЬ ЗАДАЧ"');
+    // если она отсутствует, то открываем
+    if NOT IsExists(wnd) then
+    begin
+      if NOT ClickByMainMenuItem('Вид\Панель задач') then 
+        Raise('Не получилось кликнуть в меню по "Вид\Панель задач"');
+      // опять получаем, теперь она точно должна существовать
+      wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "ПАНЕЛЬ ЗАДАЧ"');
+      if NOT IsExists(wnd) then // нет, значит какой-то глюк
+        Raise('ВКЛАДКА НАВИГАТОРА "ПАНЕЛЬ ЗАДАЧ" не найдена, даже после попытки ее открытия!'); 
+    end;  
+    // активируем вкладку
+    if SwitchToNavigatorPage('Панель задач') then
+    begin
+      Result := wnd;
+    	Result.SetFocus;
+      if isPressHome then Sys.Keys ('[Home]');
+    end
+    else
+      Raise('Не получилось переключиться на вкладку "Панель задач"');
+  except
+    Log.Warning('OpenTasksPanel: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Закрытие вкладки Панель задач
+  RESULT:
+  REMARK:
+
+}
+function CloseTasksPanel : boolean;
+begin  
+  try
+    GetMainWindow.SetFocus;
+    // проверяем по пункту главного меню (временно, потом надо сделать по нормальному)
+    if IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Вид\Панель задач',true) then
+      //Закрываем панель задач  
+      ClickByMainMenuItem('Вид\Панель задач')
+    else
+    begin
+      //Открываем\Закрываем панель задач (что бы точно быть уверенным, что она закрыта)
+      ClickByMainMenuItem('Вид\Панель задач');
+      ClickByMainMenuItem('Вид\Панель задач');
+    end;
+    if IsExists(GetFromNavigator('ВКЛАДКА НАВИГАТОРА "ПАНЕЛЬ ЗАДАЧ"')) then // не закрылась, значит какой-то глюк
+      Raise('ВКЛАДКА НАВИГАТОРА "ПАНЕЛЬ ЗАДАЧ" найдена, хотя доложна быть закрыта!'); 
+    result := true;
+  except
+    Log.Warning('CloseTasksPanel: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Открытие вкладки Фильтр
+  RESULT:
+  REMARK:
+}
+function OpenFilterTab : boolean;
+begin
+  Result := false;
+  try
+    GetMainWindow.SetFocus;
+    if NOT SwitchToNavigatorPage('Фильтры') then
+      if NOT ClickByMainMenuItem('Вид\Фильтры (вкладка)') then 
+        Raise('Не получилось кликнуть в меню по "Вид\Фильтры (вкладка)"');
+    Result := true;    
+  except
+    Log.Warning('OpenFilterTab: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC: Открытие вкладки Фильтр и перевод туда фокуса на первый элемент
+  RESULT:
+  REMARK:
+}
+function OpenFilterTabEx : OleVariant;
+var
+  wnd;
+begin
+  Result := NonExObj;
+  try
+    if NOT OpenFilterTab then Raise('Не получилось открыть вкладку "Фильтры"!');
+    
+    wnd := GetFilterTree;  
+    if IsExists(wnd) then
+    begin
+      Result := wnd;
+    	Result.SetFocus;
+    	Sys.Keys ('[Home]');
+    end
+    else
+      Raise('Не получилось найти вкладку "Фильтры"');
+  except
+    Log.Warning('OpenFilterTabEx: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end; 
+end;  
+
+{
+Открытие закладки "Справка к списку" и перевод туда фокуса
+}
+function OpenListHelpTab: OleVariant;
+var
+  w;
+begin
+try
+  Result := nil;
+  //GetMainWindow.SetFocus;  
+  SwitchToPage(GetFromList('ЗАКЛАДКИ'),'СПРАВКА К СПИСКУ');
+  w := GetFromList('СПРАВКА К СПИСКУ');
+  if not IsExists(w) then
+    Raise('Не получилось открыть "СПРАВКА К СПИСКУ"');
+  w.SetFocus;
+  Result := w;
+except
+  Log.Error('OpenListHelpTab: ' + ExceptionMessage);
+  CommonExceptionHandler;
+end; 
+end;
+
+{
+  TYPE: Работа с меню
+  DESC: Кликаем по одной из трех кнопок панели синхронного просмотра "Открыть в текущем окне"
+  RESULT:
+  REMARK:
+}
+function OpenCurrentList(
+  listWnd : OleVariant = nil
+) : boolean;
+var
+  w;
+begin
+  try
+    Result := true;
+{
+    if listWnd = nil then
+      Raise('Не передан объект синхронного просмотра или списка!');
+    listWnd.SetFocus;
+}
+    w := FindWindowByPath(GetFromMainWindow('CHILD ZONE'), 'WNDCLASS:=TToolBar;Visible:=true;MAXDEPTH:=5', false);
+    if not IsExists(w) then
+      Raise('Не найден Верхний правый тулбар из области Синхронного просмотра или СКР');
+
+    if not ClickToolbarButton(w, 'Открыть в текущем окне') then
+      Raise('Не получилось открыть текущий список в текущем окне');
+  except
+    Log.Message('OpenCurrentList: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+
+const
+  SORT_ASCENDING = 'по возрастанию';
+  SORT_DESCENDING = 'по убыванию';
+  SORT_BY_JUROR_STRENGTH = 'по юридической силе';
+  SORT_BY_PUBLICATION_DATE = 'по дате издания';
+  SORT_BY_EDITION_DATE = 'по дате последнего изменения';
+  SORT_BY_RELEVANCE = 'по степени соответствия';
+
+{
+  TYPE: Работа со списком
+  DESC: Возвращает тип сортировки
+  RESULT:
+  REMARK:
+}
+function GetSortType : String;
+  var
+    mainWnd, menuItem, mainMenu : OleVariant;
+    i : integer;
+begin
+  try
+    Result := '';
+    mainWnd := GetMainWindow;
+    mainMenu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');
+    mainWnd.SetFocus;
+    if IsMenuItemEnabled(mainMenu, 'Документы\Сортировать список') then
+    begin
+      menuItem := GetMenuItemByPath(mainMenu, 'Документы\Сортировать список');
+      for i := 0 to menuItem.Count - 1 do
+        if menuItem.Items[i].Checked then
+        begin
+          Result := menuItem.Items[i].Caption;
+          break;
+        end;
+      if (Result <> '') AND NOT ((Result = SORT_BY_JUROR_STRENGTH) OR (Result = SORT_BY_PUBLICATION_DATE) OR (Result = SORT_BY_EDITION_DATE) OR (Result = SORT_BY_RELEVANCE)) then
+        Log.Warning('Активен пункт меню "' + Result + '", но он не найден среди констант!', '',  pmNormal, GetLogAttr('EXCEPTION'));
+    end;  
+  except
+    Log.Message('GetSortType: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Возвращает направление сортировки
+  RESULT:
+  REMARK:
+}
+function GetSortDirection : String;
+  var
+    mainWnd, menuItem, mainMenu : OleVariant;
+    i : integer;
+begin
+  try
+    Result := '';
+    mainWnd := GetMainWindow;
+    mainMenu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');
+    mainWnd.SetFocus;
+    if IsMenuItemEnabled(mainMenu, 'Документы\Сортировать список') then
+    begin
+      if IsMenuItemEnabled(mainMenu, 'Документы\Отсортировано по убыванию') AND NOT IsMenuItemEnabled(mainMenu, 'Документы\Отсортировано по возрастанию') then
+        Result := SORT_DESCENDING
+      else 
+      if NOT IsMenuItemEnabled(mainMenu, 'Документы\Отсортировано по убыванию') AND IsMenuItemEnabled(mainMenu, 'Документы\Отсортировано по возрастанию') then
+        Result := SORT_ASCENDING;
+    end;   
+  except
+    Log.Message('GetSortType: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Устанавливает параметры сортировки
+  RESULT:
+  REMARK:
+}
+function SetSortParams(
+  const sortType : String = '';
+  const sortDirection : String = ''
+) : boolean;
+  var mainWnd : OleVariant;
+      pathToClick : String;
+      isSetDirection, isSetType : boolean;
+begin
+  try
+    Result := false; 
+    isSetType := false; 
+    isSetDirection := false;
+    
+    case sortType of
+      SORT_BY_JUROR_STRENGTH, SORT_BY_PUBLICATION_DATE, SORT_BY_EDITION_DATE, SORT_BY_RELEVANCE :
+        begin
+          isSetType := GetSortType = sortType;
+          if NOT isSetType then 
+            if NOT ClickByMainMenuItem('Документы\Сортировать список\' + sortType) then
+              Log.Warning('Не получилось кликнуть по пункту меню "Документы\Сортировать список\' + sortType + '"')
+            else
+              isSetType := GetSortType = sortType;
+        end;
+      '': isSetType := true;
+    else
+      Log.Warning('Тип сортировки не распознан!', sortType);
+    end;      
+
+    case sortDirection of
+      SORT_ASCENDING, SORT_DESCENDING :
+        begin
+          isSetDirection := GetSortDirection = sortDirection;
+          if NOT isSetDirection then 
+          begin
+            pathToClick := 'Документы\Отсортировано ' + Choose( sortDirection = SORT_ASCENDING, SORT_DESCENDING, SORT_ASCENDING);
+            if NOT ClickByMainMenuItem(pathToClick) then
+              Log.Warning('Не получилось кликнуть по пункту меню "'+ pathToClick + '"')
+            else
+              isSetDirection := GetSortDirection = sortDirection;  
+          end;
+        end;    
+      '': isSetDirection := true;
+    else
+      Log.Warning('Тип сортировки не распознан!', sortDirection);
+    end;        
+        
+    Result := isSetDirection AND isSetType;
+    if NOT Result then 
+      Log.Error('SetSortParams: Не удалось установить нужные параметры сортировки.', 'sortType: "' + sortType + '"' + EndOfLine + EndOfLine + 'sortDirection: "' + sortDirection + '"');
+  except
+    Log.Message('SetSortParams: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+
+//выбираем в главном меню в списке пункт "Открывать в извлечениях"
+procedure SelectMainMenuOpenDocPart(const Press:Boolean = True);
+const
+  C_DOCPART = 'Документы\Открывать документы в*';
+var
+	w;
+begin
+  w := GetMainWindow;
+  w.SetFocus;
+  if IsMenuItemEnabled(w.Menu, C_DOCPART) and (IsMenuItemChecked(w.Menu, C_DOCPART) <> Press)
+    then
+    ClickByMainMenuItem(C_DOCPART);
+end;
+
+{
+  Открытие вкладки Меню и перевод туда фокуса на первый элемент.
+  Расширенная функция возбуждает исключение в случае ошибки.
+}
+function OpenMenuTabEx : OleVariant;
+begin
+  try
+    Result := NonExObj;
+    Result := OpenMenuTab(true);
+    if not IsExists(Result) then
+      Raise (EX_CANNOT_OPEN_MENU_TAB);
+  except
+    Log.Error ('OpenMenuTabEx: '+ExceptionMessage);
+    Raise (ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  Открывает вкладку "Меню" и позиционируется на элементе дерева
+}
+function PositionMenuTab(const mPath: String): OleVariant;
+var
+  w;
+  menuTab;
+begin
+  try
+    Result := NonExObj;
+    w := GetMainWindow;
+    w.SetFocus;
+    menuTab := OpenMenuTabEx;
+    Position_Internal(menuTab, mPath);
+    Result := menuTab;
+  except
+    Log.Error ('PositionMenuTab: ' + ExceptionMessage);
+    raise (ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  Раздочивает/залочивает (отлепляет/прилепляет) тулбар
+}
+function UnlockToolbars(
+  wishedState : boolean = true // true - разлочить, false - залочить
+); 
+var
+  toolBar : OleVariant;
+  item;
+begin
+try
+  toolBar := GetFromMainWindow('ТУЛБАР');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить ТУЛБАР');
+  toolBar.ClickR(1,1);
+	if (IsMenuItemChecked(toolBar.QCPopupMenu, 'Закрепить панели инструментов') = wishedState) then 
+  begin
+    if NOT ClickByPopUpMenuItem(toolBar, 'Закрепить панели инструментов') then 
+      Raise('Не удалось кликнуть в контекстном меню к тулбару "Закрепить панели инструментов"');
+  end
+  else
+  	Sys.Keys('[Esc]');
+  result := true;  
+except
+  Log.Message('UnlockToolbars: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;    
+end;
+
+//Открытие вкладки Документы на контроле
+function OpenDocUnderControlTab(doOpen: boolean = true): OleVariant;
+var
+  onControlTab;
+begin
+  Result := nil;
+  
+  if doOpen then
+    if not IsMenuItemChecked(GetMainWindow.Menu, 'Вид\*Документы*на*контроле*') then
+      ClickByMainMenuItem('Вид\*Документы*на*контроле*');
+
+  onControlTab := GetFromNaviGator('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ"');
+  if IsExists(onControlTab) then 
+  begin
+    onControlTab.SetFocus;
+    Result := onControlTab;
+  end;
+end;

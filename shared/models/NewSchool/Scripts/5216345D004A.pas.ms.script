@@ -1,0 +1,177 @@
+// Document 5216345D004A VCMFormsPack Class
+
+FORWARD ME_5216345D004A
+
+FORWARD ME_17DC451B397C
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_7E02813732BE
+ CONST UID '7E02813732BE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_7E02813732BE DoIt
+
+: ME_17DC451B397C
+ CONST UID '17DC451B397C'
+ CONST Name 'DocumentPrintAndExportDefaultSetting'
+ CONST Class 'Class'
+ CONST Stereotype 'FactoryMethod'
+ %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_7E02813732BE // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_17DC451B397C DocumentPrintAndExportDefaultSetting
+
+FORWARD ME_D176CCBDE51D
+
+: ME_6C5B11C83EB4
+ CONST UID '6C5B11C83EB4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_6C5B11C83EB4 DoIt
+
+: ME_D176CCBDE51D
+ CONST UID 'D176CCBDE51D'
+ CONST Name 'DocumentPrintAndExportCustomSetting'
+ CONST Class 'Class'
+ CONST Stereotype 'FactoryMethod'
+ %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_6C5B11C83EB4 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_D176CCBDE51D DocumentPrintAndExportCustomSetting
+
+FORWARD ME_12B83765C323
+
+: ME_A2652701B978
+ CONST UID 'A2652701B978'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_A2652701B978 DoIt
+
+: ME_12B83765C323
+ CONST UID '12B83765C323'
+ CONST Name 'DocumentPrintAndExportFontSizeSetting'
+ CONST Class 'Class'
+ CONST Stereotype 'FactoryMethod'
+ %SUMMARY 'Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_A2652701B978 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_12B83765C323 DocumentPrintAndExportFontSizeSetting
+
+FORWARD ME_930B9F1EF1E3
+
+: ME_314AC70DE38A
+ CONST UID '314AC70DE38A'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_314AC70DE38A aValue
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_C3418A62E3D9
+ CONST UID 'C3418A62E3D9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_314AC70DE38A // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_C3418A62E3D9 DoIt
+
+: ME_930B9F1EF1E3
+ CONST UID '930B9F1EF1E3'
+ CONST Name 'WriteDocumentPrintAndExportFontSizeSetting'
+ CONST Class 'Class'
+ CONST Stereotype 'FactoryMethod'
+ %SUMMARY 'Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_C3418A62E3D9 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_930B9F1EF1E3 WriteDocumentPrintAndExportFontSizeSetting
+
+: ME_5216345D004A
+ CONST UID '5216345D004A'
+ CONST Name 'Document'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMFormsPack'
+ %SUMMARY 'Документ' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_17DC451B397C // DocumentPrintAndExportDefaultSetting
+ ME_D176CCBDE51D // DocumentPrintAndExportCustomSetting
+ ME_12B83765C323 // DocumentPrintAndExportFontSizeSetting
+ ME_930B9F1EF1E3 // WriteDocumentPrintAndExportFontSizeSetting
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5216345D004A Document

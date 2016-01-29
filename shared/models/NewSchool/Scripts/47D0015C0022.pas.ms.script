@@ -1,0 +1,640 @@
+// evControlParaConst 47D0015C0022 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47D0015C0022
+
+FORWARD ME_47D0018D03D9
+
+: ME_47D0019E00FF
+ CONST UID '47D0019E00FF'
+ CONST Name 'evCheckableControls'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value '[ev_ctCheckEdit, ev_ctRadioEdit]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47D0019E00FF evCheckableControls
+
+: ME_47DE2DC30383
+ CONST UID '47DE2DC30383'
+ CONST Name 'evFlatBTNControls'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value '[ev_ctButton, ev_ctStateButton]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2DC30383 evFlatBTNControls
+
+: ME_47DE2DCD006D
+ CONST UID '47DE2DCD006D'
+ CONST Name 'evButtonControls'
+ CONST Class class_Attribute
+ %SUMMARY 'Компоненты, которые ведут себя как кнопки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value 'evFlatBTNControls + [ev_ctCollapsedPanel]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2DCD006D evButtonControls
+
+: ME_47DE2DE00062
+ CONST UID '47DE2DE00062'
+ CONST Name 'evButtonStyleControls'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value 'evButtonControls + evCheckableControls'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2DE00062 evButtonStyleControls
+
+: ME_47DE2DE90249
+ CONST UID '47DE2DE90249'
+ CONST Name 'evControlsWithButtons'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value '[ev_ctCombo, ev_ctEllipsesEdit, ev_ctSpinedit,ev_ctCalEdit]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2DE90249 evControlsWithButtons
+
+: ME_47DE2DF90183
+ CONST UID '47DE2DF90183'
+ CONST Name 'evTextLabel'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value '[ev_ctLabel, ev_ctTextParaLabel]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2DF90183 evTextLabel
+
+: ME_47DE2E01001E
+ CONST UID '47DE2E01001E'
+ CONST Name 'evLabelControls'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value 'evTextLabel + [ev_ctPictureLabel]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2E01001E evLabelControls
+
+: ME_47DE2E0800EB
+ CONST UID '47DE2E0800EB'
+ CONST Name 'evNotEditableControls'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value 'evButtonStyleControls + evLabelControls'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2E0800EB evNotEditableControls
+
+: ME_47DE2E1300CC
+ CONST UID '47DE2E1300CC'
+ CONST Name 'evSimpleEditors'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value '[ev_ctEdit, ev_ctEmailEdit, ev_ctMemoEdit, ev_ctPhoneEdit]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2E1300CC evSimpleEditors
+
+: ME_47DE2E1F0269
+ CONST UID '47DE2E1F0269'
+ CONST Name 'evEditControls'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value 'evControlsWithButtons + evSimpleEditors'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2E1F0269 evEditControls
+
+: ME_47DE2E27022E
+ CONST UID '47DE2E27022E'
+ CONST Name 'evMaskedControls'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value '[ev_ctCalEdit]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2E27022E evMaskedControls
+
+: ME_47DE2E2F00E4
+ CONST UID '47DE2E2F00E4'
+ CONST Name 'evTextControls'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D0018D03D9 // Control Types
+ ;
+ CONST Value 'evEditControls + evLabelControls'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2E2F00E4 evTextControls
+
+: ME_47D0018D03D9
+ CONST UID '47D0018D03D9'
+ CONST Name 'Control Types'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D0015C0022 // evControlParaConst
+ ;
+ : Attributes
+   @ ( ME_47D0019E00FF // evCheckableControls
+ ME_47DE2DC30383 // evFlatBTNControls
+ ME_47DE2DCD006D // evButtonControls
+ ME_47DE2DE00062 // evButtonStyleControls
+ ME_47DE2DE90249 // evControlsWithButtons
+ ME_47DE2DF90183 // evTextLabel
+ ME_47DE2E01001E // evLabelControls
+ ME_47DE2E0800EB // evNotEditableControls
+ ME_47DE2E1300CC // evSimpleEditors
+ ME_47DE2E1F0269 // evEditControls
+ ME_47DE2E27022E // evMaskedControls
+ ME_47DE2E2F00E4 // evTextControls
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47D0018D03D9 Control Types
+
+FORWARD ME_47DE2D1B0386
+
+: ME_47DE2D2B01FB
+ CONST UID '47DE2D2B01FB'
+ CONST Name 'BefSpace'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 128'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D2B01FB BefSpace
+
+: ME_47DE2D3B0003
+ CONST UID '47DE2D3B0003'
+ CONST Name 'BefBtbSpase'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 64'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D3B0003 BefBtbSpase
+
+: ME_47DE2D4B02ED
+ CONST UID '47DE2D4B02ED'
+ CONST Name 'BefUpSpase'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 32'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D4B02ED BefUpSpase
+
+: ME_47DE2D5A0186
+ CONST UID '47DE2D5A0186'
+ CONST Name 'RightMemoSpase'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 32'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D5A0186 RightMemoSpase
+
+: ME_47DE2D6800EC
+ CONST UID '47DE2D6800EC'
+ CONST Name 'HalfBefSpace'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 16'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D6800EC HalfBefSpace
+
+: ME_47DE2D7300CC
+ CONST UID '47DE2D7300CC'
+ CONST Name 'ControlWidth'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 8'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D7300CC ControlWidth
+
+: ME_47DE2D7F02C5
+ CONST UID '47DE2D7F02C5'
+ CONST Name 'ComboBtnWidth'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 6'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D7F02C5 ComboBtnWidth
+
+: ME_47DE2D8D01E2
+ CONST UID '47DE2D8D01E2'
+ CONST Name 'BtnWidth'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 4'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D8D01E2 BtnWidth
+
+: ME_47DE2D980092
+ CONST UID '47DE2D980092'
+ CONST Name 'AfterPictureLabel'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 32'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2D980092 AfterPictureLabel
+
+: ME_47DE2DAC03C0
+ CONST UID '47DE2DAC03C0'
+ CONST Name 'BefPictureLabel'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2D1B0386 // Margins
+ ;
+ CONST Value 'l3Inch div 2'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2DAC03C0 BefPictureLabel
+
+: ME_47DE2D1B0386
+ CONST UID '47DE2D1B0386'
+ CONST Name 'Margins'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D0015C0022 // evControlParaConst
+ ;
+ : Attributes
+   @ ( ME_47DE2D2B01FB // BefSpace
+ ME_47DE2D3B0003 // BefBtbSpase
+ ME_47DE2D4B02ED // BefUpSpase
+ ME_47DE2D5A0186 // RightMemoSpase
+ ME_47DE2D6800EC // HalfBefSpace
+ ME_47DE2D7300CC // ControlWidth
+ ME_47DE2D7F02C5 // ComboBtnWidth
+ ME_47DE2D8D01E2 // BtnWidth
+ ME_47DE2D980092 // AfterPictureLabel
+ ME_47DE2DAC03C0 // BefPictureLabel
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47DE2D1B0386 Margins
+
+FORWARD ME_47DE2E6302F5
+
+: ME_47DE2EB60072
+ CONST UID '47DE2EB60072'
+ CONST Name 'evParaCtrlKeys'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2E6302F5 // Keys
+ ;
+ CONST Value '[VK_ESCAPE, VK_RETURN, VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,VK_HOME, VK_END]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2EB60072 evParaCtrlKeys
+
+: ME_47DE2ECA0054
+ CONST UID '47DE2ECA0054'
+ CONST Name 'evCalParaCtrlKey'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2E6302F5 // Keys
+ ;
+ CONST Value '[Ord(''t''), Ord(''T''), Ord(''e''), Ord(''E'')]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2ECA0054 evCalParaCtrlKey
+
+: ME_4AB0BFF2006B
+ CONST UID '4AB0BFF2006B'
+ CONST Name 'VK_ESCAPE'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2E6302F5 // Keys
+ ;
+ CONST Value 'VK_ESCAPE'
+ : ValueType WL 'ME_4AB0BFAD0370' '4AB0C3F60375.pas.ms.script' // Chars
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4AB0BFF2006B VK_ESCAPE
+
+: ME_47DE2E6302F5
+ CONST UID '47DE2E6302F5'
+ CONST Name 'Keys'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D0015C0022 // evControlParaConst
+ ;
+ : Attributes
+   @ ( ME_47DE2EB60072 // evParaCtrlKeys
+ ME_47DE2ECA0054 // evCalParaCtrlKey
+ ME_4AB0BFF2006B // VK_ESCAPE
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47DE2E6302F5 Keys
+
+FORWARD ME_47DE2ED20119
+
+: ME_47DE2EDF001A
+ CONST UID '47DE2EDF001A'
+ CONST Name 'evErrorColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2ED20119 // Colors
+ ;
+ CONST Value 'clRed'
+ : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2EDF001A evErrorColor
+
+: ME_47DE2EE501B4
+ CONST UID '47DE2EE501B4'
+ CONST Name 'evValidColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2ED20119 // Colors
+ ;
+ CONST Value 'clWindowText'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2EE501B4 evValidColor
+
+: ME_47DE2ED20119
+ CONST UID '47DE2ED20119'
+ CONST Name 'Colors'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D0015C0022 // evControlParaConst
+ ;
+ : Attributes
+   @ ( ME_47DE2EDF001A // evErrorColor
+ ME_47DE2EE501B4 // evValidColor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47DE2ED20119 Colors
+
+FORWARD ME_47DE2EF00383
+
+: ME_47DE2EFE03B0
+ CONST UID '47DE2EFE03B0'
+ CONST Name 'evMemoLineCount'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2EF00383 // Other
+ ;
+ CONST Value 5
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2EFE03B0 evMemoLineCount
+
+: ME_47DE2F0A0391
+ CONST UID '47DE2F0A0391'
+ CONST Name 'evLineSeparateChar'
+ CONST Class class_Attribute
+ %SUMMARY 'Разделитель строк при вставке пробела' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47DE2EF00383 // Other
+ ;
+ CONST Value ''' '''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47DE2F0A0391 evLineSeparateChar
+
+: ME_47DE2EF00383
+ CONST UID '47DE2EF00383'
+ CONST Name 'Other'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D0015C0022 // evControlParaConst
+ ;
+ : Attributes
+   @ ( ME_47DE2EFE03B0 // evMemoLineCount
+ ME_47DE2F0A0391 // evLineSeparateChar
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47DE2EF00383 Other
+
+: ME_47D0015C0022
+ CONST UID '47D0015C0022'
+ CONST Name 'evControlParaConst'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Constants
+   @ ( ME_47D0018D03D9 // Control Types
+ ME_47DE2D1B0386 // Margins
+ ME_47DE2E6302F5 // Keys
+ ME_47DE2ED20119 // Colors
+ ME_47DE2EF00383 // Other
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '13.11.2004 13:23'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlParaConst.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47D0015C0022.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47D0015C0022.pas.ms.script.runner'
+
+ref; // ME_47D0015C0022 evControlParaConst

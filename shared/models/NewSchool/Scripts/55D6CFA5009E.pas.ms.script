@@ -1,0 +1,61 @@
+// TpgDataProviderParams 55D6CFA5009E SimpleClass Class
+
+INCLUDE '54F9A60200A8.pas.ms.script'
+
+FORWARD ME_55D6CFA5009E
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_E83633B0ED06
+ CONST UID 'E83633B0ED06'
+ CONST Name 'DataServerHostName'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_452257A0036F // a-string
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_E83633B0ED06 DataServerHostName
+
+: ME_1BA3D1428743
+ CONST UID '1BA3D1428743'
+ CONST Name 'DataServerPort'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_1BA3D1428743 DataServerPort
+
+: ME_55D6CFA5009E
+ CONST UID '55D6CFA5009E'
+ CONST Name 'TpgDataProviderParams'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54F9A60200A8 // TdaDataProviderParams
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_E83633B0ED06 // DataServerHostName
+ ME_1BA3D1428743 // DataServerPort
+ ]
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55D6CFA5009E TpgDataProviderParams

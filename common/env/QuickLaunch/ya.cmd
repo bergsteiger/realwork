@@ -1,0 +1,1 @@
+call ie.cmd "http://ya.ru"

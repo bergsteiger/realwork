@@ -1,0 +1,42 @@
+USES
+ Testing.ms.dict
+;
+
+VOID IMMEDIATE operator :=
+  ^@ IN aLeft
+  ^ IN aRight
+ 
+ %SUMMARY 'Присваивает слову aLeft значение aRight' ;
+ aRight CompileValue
+ aLeft CompileRef
+ @ pop:Word:SetValue CompileValue
+; // :=
+
+/*{//VOID operator :=
+operator :=
+// - пока так, иначе конструкция Ctx:Engine pop:ScriptEngine:CascadeDict := false - не работает, т.к. Ctx:Engine снимается со стека уже в контексте := И срабатывает КОНТРОЛЬ СТЕКА
+  ^@ IN aLeft
+  ^ IN aRight
+ 
+ %SUMMARY 'Присваивает слову aLeft значение aRight' ;
+ aRight DO >>>^ aLeft
+; // :=}*/
+
+Test&Dump SetPropertyTest
+
+Ctx:Engine pop:ScriptEngine:CascadeDict := true
+Ctx:Engine pop:ScriptEngine:CascadeDict .
+
+Ctx:Engine pop:ScriptEngine:CascadeDict := false
+Ctx:Engine pop:ScriptEngine:CascadeDict .
+
+Ctx:Engine pop:ScriptEngine:CascadeDict := true
+Ctx:Engine pop:ScriptEngine:CascadeDict .
+
+//true >>> ( Ctx:Engine pop:ScriptEngine:CascadeDict )
+
+Ctx:Engine true @ pop:ScriptEngine:CascadeDict pop:Word:SetValue
+
+; // SetPropertyTest
+
+SetPropertyTest

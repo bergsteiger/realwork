@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="child list">
+			<Prp name="item count" type="I" value="0"/>
+		</Node>
+		<Node name="config">
+			<Prp name="node name" type="S" value="ActiveXObjects"/>
+		</Node>
+		<Node name="test data"/>
+		<Prp name="type" type="S" value="{E2A0922E-4FB3-40D2-BDEC-ED1BACEF1690}"/>
+		<Prp name="typename" type="S" value="ActiveX Objects"/>
+		<Prp name="key" type="S" value="{E6F49A79-ADC3-4959-87CA-91CB1003C70C}"/>
+		<Prp name="version" type="I" value="1"/>
+		<Prp name="signature" type="S" value="{E2A0922E-4FB3-40D2-BDEC-ED1BACEF1690}"/>
+	</Node>
+</Nodes>

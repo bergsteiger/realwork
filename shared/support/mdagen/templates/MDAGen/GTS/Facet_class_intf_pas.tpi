@@ -1,0 +1,18 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ intf.pas
+/ Генератор в интерфейсные секции на Delphi.
+# ../CommonLang/pasDefine
+//#UC START# *46AB60DF00B2*
+F #%SN = interface;\n#\{ - предварительное описание %SN. \}\n\n
+	[{"%S{conditional}"!=""}\{$IfDef %S{conditional}\}\n]\
+	%f_pas_OpenType(%S)\
+	<%FF>\
+	#%SN = interface[(%f_pas_InterfaceAncestor(%S))]
+	# \{* %SD \}
+	#  \['{%SG}'\]
+	<%CX\n>\
+	%f_with_gen_id(impl.pas,<%CX\n>)>\
+	#end;//%SN\
+	[{"%S{conditional}"!=""}\n\{$EndIf %S{conditional}\}]
+	
+//#UC END# *46AB60DF00B2*

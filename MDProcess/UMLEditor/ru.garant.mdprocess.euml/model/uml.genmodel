@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ru.garant.mdprocess.euml/src"
+    modelPluginID="ru.garant.mdprocess.euml" modelName="Uml" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>uml.ecore</foreignModel>
+  <genPackages prefix="Euml" disposableProviderFactory="true" ecorePackage="uml.ecore#/">
+    <genClasses ecoreClass="uml.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Package/classes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Package/packages"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Class">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Class/dependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Class/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Class/operations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Class/realizations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Class/generalizations"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Dependecy"/>
+    <genClasses ecoreClass="uml.ecore#//Attribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Attribute/type"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Operation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Operation/returnType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uml.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uml.ecore#//Relations">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Relations/target"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Generalization"/>
+    <genClasses ecoreClass="uml.ecore#//Realization"/>
+  </genPackages>
+</genmodel:GenModel>

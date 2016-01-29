@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: ./clean_out_only <target>"
+exit
+fi
+
+echo "clean_out_only $1 ..."
+
+target=$1
+
+find ./out/$target -type f -exec rm -f {} \; 
+
+echo "end."

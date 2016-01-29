@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<project name="NewServerLibrary" basedir=".">
+	<property environment="env"/>
+	<property name="build.dir" value="w:/build/target"/>
+	
+	<target name="gcomp">
+	</target>
+	<target name ="makejar">
+		<mkdir dir="${build.dir}/jar"/>
+		<ant antfile="W:/shared/java/project/CoreSrv/build.xml" target="makejar" inheritAll="false"/>
+		<jar destfile="${build.dir}/jar/NewServerLibrary.jar">
+			<fileset dir ="${build.dir}/classes">
+				<include name="ru/garant/TestModel/NewServerLibrary/"/>
+			</fileset>
+		</jar>
+	</target>
+	
+</project>

@@ -1,0 +1,239 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/InstanceDef.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::InstanceDef
+//
+// Инстанцирование
+// ---
+// Определение инстанцированого шаблона. Инстанцирует конеретными типами указанный шаблон,
+// определяет соотвествующий тип (typedef). Базовый шаблон определяется связью реализации, типы
+// инстанцирования как атрибуты с именами соотвествующими аргумантам шаблона.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: InstanceDef::Class
+implementation @ <<InstanceDef>>
+//? Инстанцирование
+//? Определение инстанцированого шаблона. Инстанцирует конеретными типами указанный шаблон, определяет соотвествующий тип (typedef). Базовый шаблон определяется связью реализации, типы инстанцирования как атрибуты с именами соотвествующими аргумантам шаблона.
+//< *::Class,*::Category
+
+//= C++ интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_inst_def.gif
+//L code_inst_def
+// Параметры визуализации
+//$ C 235,255,220
+//$ l 50,174,10
+//$ f 50,175,10
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+ ?inherited
+ if ( ( %S get_up ( 'force usage' ) ) %!= ( %S get_up_def ( 'force usage' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force usage* = *'
+  %S get_up ( 'force usage' ) '* - явно определяет, что элемент будет кем-то использован (нужно для проверки)'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47134EBE030D*
+//c             {}
+//r {"%RK"!="ParameterizedClass"}:                                                                                           {%SS must specify ParametrasedClass as base realization relation}
+//r {%f_set_var(SELF,S)"%R<{, }{"%CC"="Parameter"&"%CI"=""}{%C}%f_set_var(ARG,C)[{"%{SELF}<{}{"%{ARG}N"="%CN"}{C}>"!="1"}.]>"!=""}:   {%SS must specify all arguments defined in base %SN}
+//r {%S{force usage}=false&%ax=false&<{}{%P{Full MDP}=true}{C}>!=0}:                                                         {%SS ни кем не используется}
+//#UC END# *4704C0E30186for47134EBE030D*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47134EBE030D*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	][{%PC!=Category}%f_set_var(SELF,S)%R<{\n}{"%CC"="Parameter"}{%C}%f_set_var(ARG,C)%{SELF}<{}{"%{ARG}N"="%CN"&%C%TM!=UMLPrimitive::Class}#%C%TF>>
+ end // if
+ NOP
+ if ( ( %P |C ) %!= 'Category' ) then
+ begin
+  [%f] set_var %( 'SELF' %, 'S' )% %R
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Parameter' ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10 )
+     [%f] set_var %( 'ARG' %, 'C' )% ( get_global_var ( 'SELF' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( ( get_global_var ( 'ARG' ) |N ) ) %== ( %C |N ) AND 
+        ( ( %C ->T |M  ) %!= 'UMLPrimitive::Class'  ) ) then
+       begin
+        out_indent %C ->T |F  
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+ //	#%RF
+  out_indent %R |F 
+//	]#typedef %f_type(%R)\< %f_instdef_args(%S) \> %SN;[
+ end // if
+ out_indent 'typedef '
+ [%f] type %( %R )% '< '
+ [%f] instdef_args %( %S )% ' > '
+ %S |N ';'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47022C88029Ffor47134EBE030D*
+; // h
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47134EBE030D*
+//G %PU
+//#UC END# *46E6D4BB0339for47134EBE030D*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: InstanceDef::Class::Attribute
+end. // <<InstanceDef>>
+
+implementation @ :: <<InstanceDef>> <<Attribute>> ;
+//? параметр инстанцирования шаблона
+// Параметры стереотипа
+//Y code_attr.gif
+//L code_attr
+//l l
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47134F7702BF*
+//#UC END# *46E6D4BB0339for47134F7702BF*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47134F7702BF*
+//#UC END# *47022C88029Ffor47134F7702BF*
+; // h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: InstanceDef::Class::uses::ClassDependency
+; // st_space_key
+
+end. // :: <<InstanceDef>> <<Attribute>> ;
+
+implementation @ :: <<InstanceDef>> <<uses>> ;
+//? Использование
+// Параметры стереотипа
+//Y code_dep_uses.gif
+//L code_dep_uses
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47134F91007D*
+//#UC END# *46E6D4BB0339for47134F91007D*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47134F91007D*
+//#UC END# *47022C88029Ffor47134F91007D*
+; // h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<InstanceDef>> <<uses>> ;
+

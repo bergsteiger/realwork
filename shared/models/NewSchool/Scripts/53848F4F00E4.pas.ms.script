@@ -1,0 +1,264 @@
+// TddTaskClassManager 53848F4F00E4 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_53848F4F00E4
+
+INCLUDE '53848F0F027F.pas.ms.script'
+
+: ME_53848F6802A9
+ CONST UID '53848F6802A9'
+ CONST Name 'f_ClassList'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_53848F0F027F // TddTaskRecordList
+ ;
+
+ @SELF
+; // ME_53848F6802A9 f_ClassList
+
+FORWARD ME_538490A701EF
+
+INCLUDE '532046D302C2.pas.ms.script'
+
+: ME_538490CB00CC
+ CONST UID '538490CB00CC'
+ CONST Name 'aClassType'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_532047140237 // TcsTaskType
+ ;
+
+ @SELF
+; // ME_538490CB00CC aClassType
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_538490CB00DE
+ CONST UID '538490CB00DE'
+ CONST Name 'aDescription'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_538490CB00DE aDescription
+
+INCLUDE '52FA49C7022C.pas.ms.script'
+
+: ME_538490B902AD
+ CONST UID '538490B902AD'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_53170EB30071 // TddTaskClass
+ ;
+ : Parameters
+   [ ME_538490CB00CC // aClassType
+ ME_538490CB00DE // aDescription
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_538490B902AD DoIt
+
+: ME_538490A701EF
+ CONST UID '538490A701EF'
+ CONST Name 'GetClass'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_538490B902AD // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_538490A701EF GetClass
+
+FORWARD ME_538490D80145
+
+: ME_538490FF03E4
+ CONST UID '538490FF03E4'
+ CONST Name 'aType'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_532047140237 // TcsTaskType
+ ;
+
+ @SELF
+; // ME_538490FF03E4 aType
+
+: ME_53849100000F
+ CONST UID '53849100000F'
+ CONST Name 'aClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_53170EB30071 // TddTaskClass
+ ;
+
+ @SELF
+; // ME_53849100000F aClass
+
+: ME_538491000022
+ CONST UID '538491000022'
+ CONST Name 'aDescription'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_538491000022 aDescription
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_538490ED03DB
+ CONST UID '538490ED03DB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_538490FF03E4 // aType
+ ME_53849100000F // aClass
+ ME_538491000022 // aDescription
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_538490ED03DB DoIt
+
+: ME_538490D80145
+ CONST UID '538490D80145'
+ CONST Name 'RegisterClass'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_538490ED03DB // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_538490D80145 RegisterClass
+
+FORWARD ME_5384910E011E
+
+: ME_5384912003D4
+ CONST UID '5384912003D4'
+ CONST Name 'aTaskType'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_532047140237 // TcsTaskType
+ ;
+
+ @SELF
+; // ME_5384912003D4 aTaskType
+
+: ME_5384911D006B
+ CONST UID '5384911D006B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5384912003D4 // aTaskType
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5384911D006B DoIt
+
+: ME_5384910E011E
+ CONST UID '5384910E011E'
+ CONST Name 'Registered'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5384911D006B // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5384910E011E Registered
+
+: ME_8489C2653986
+ CONST UID '8489C2653986'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_8489C2653986 Exists
+
+: ME_53848F4F00E4
+ CONST UID '53848F4F00E4'
+ CONST Name 'TddTaskClassManager'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_53848F6802A9 // f_ClassList
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_538490A701EF // GetClass
+ ME_538490D80145 // RegisterClass
+ ME_5384910E011E // Registered
+ ME_8489C2653986 // Exists
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_53848F4F00E4 TddTaskClassManager

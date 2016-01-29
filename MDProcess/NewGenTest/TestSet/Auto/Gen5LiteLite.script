@@ -1,0 +1,68 @@
+USES
+ 'W:\shared\models\NewSchool\Templates\MDALike.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Core.tpl.script'
+;
+
+  <<MDALayer>> Interface
+   %UID '4729C4880157'
+   %DOCUMENTATION 'слой шаблонов, описывающих интерфейсные типы'
+   %CHILDREN
+    
+     <<MDAClass>> facetmethod
+      %UID '4E82C72002E9'
+      %DOCUMENTATION 'Метод интерфейса'
+      %META
+       %upv "abstraction type" 'a'
+       %upv "implementable" true
+       %upv "inherite constraints" false
+       %upv "personal label" 'code_method'
+       %upv "visability type" '+#'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47022A100167' /* CommonLang */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49CB43D403C5' /* method */
+      ; // %INHERITS
+      %REALIZES
+       U$ '49F5795900EC' /* dfm */
+      ; // %REALIZES
+      %CHILDREN
+       
+       <<MDAOperation>> operation
+        %UID '4E82C7620176'
+        %DOCUMENTATION 'Сигнатура метода'
+        %META
+         %upv "abstraction type" 'f'
+         %upv "empty target" true
+         %upv "has exception" 'g'
+         %upv "implementable" false
+         %upv "personal label" 'code_method'
+         %upv "unstereotyped" true
+         %upv "visability type" '-'
+        ; // %META
+        %TOBEINCLUDED
+         U$ '47022A100167' /* CommonLang */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '49CB473A0201' /* operation */
+        ; // %INHERITS
+       ; // operation
+      ; // %CHILDREN
+     ; // facetmethod
+     [EXPORT] <<facetmethod>>
+   ;
+  ;
+     
+Test Gen
+ help
+;
+
+Gen

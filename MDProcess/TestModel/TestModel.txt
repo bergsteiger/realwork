@@ -1,0 +1,3129 @@
+package <<Project>> "TestModel" {
+		up "Full MDP" = "false";
+		up "build share" = "";
+		up "children prefix" = "";
+		up "create project" = "true";
+		up "elements prefix" = "";
+		up "finished" = "true";
+		up "fix version" = "0";
+		up "force usage" = "false";
+		up "full constraint" = "true";
+		up "ifdef" = "";
+		up "ifndef" = "";
+		up "is namespace" = "false";
+		up "major version" = "1";
+		up "minor version" = "0";
+		up "need UC" = "false";
+		up "package prefix" = "ru.garant";
+		up "root path suffix" = "";
+		up "space key" = "MDP";
+		up "space name" = "MDProcess";
+
+	package <<Library>> "BasicTests" {
+			up "children prefix" = "";
+			up "defines" = "";
+			up "elements prefix" = "";
+			up "exec mode" = "concluded";
+			up "finished" = "true";
+			up "gui" = "tie";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "is namespace" = "true";
+			up "native includes path" = "";
+			up "native lib path" = "";
+			up "native name" = "";
+			up "need UC" = "false";
+			up "vendor" = "/Garant";
+
+			package <<ComInterfaces>> "NewComInterfaces" {
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "false";
+					up "need UC" = "false";
+
+					class <<ComInterface>> "NewComInterface"
+					{
+						up "ThreadingModel" = "Apartment";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+					};
+
+			};
+			package <<Interfaces>> "NewInterfaces" {
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+					class <<Facet>> "NewFacet"
+					{
+						up "call way" = "forth";
+						up "children prefix" = "";
+						up "debug tie log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "native definition" = "none";
+
+					};
+					class <<Struct>> "NewStruct"
+					{
+						up "Need copy ctor" = "false";
+						up "Need init ctor" = "false";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "packed" = "false";
+
+							final agr attribute "new_attribute" : "Primitives::long" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+
+					};
+					abstract class <<Interface>> "BaseInterface"
+					{
+						up "TODO" = "";
+						up "author" = "";
+						up "call way" = "forth";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "debug tie log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "native definition" = "none";
+						up "need UC" = "false";
+						up "single impl" = "false";
+
+							abstract lnk attribute <<property>> "lnk_long_p" : "Primitives::long" {
+								up "calling conventions" = "none";
+								up "children prefix" = "";
+								up "debug log" = "false";
+								up "debug tie log" = "false";
+								up "dll export" = "true";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force use const arg" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is default" = "false";
+								up "pm" = "false";
+
+							};
+							abstract agr attribute <<property>> "agr_long_p" : "Primitives::long" {
+								up "calling conventions" = "none";
+								up "children prefix" = "";
+								up "debug log" = "false";
+								up "debug tie log" = "false";
+								up "dll export" = "true";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force use const arg" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is default" = "false";
+								up "pm" = "false";
+
+							};
+							abstract lnk attribute <<property>> "lnk_struct_p" : "NewInterfaces::BasicTests::TestModel::NewStruct" {
+								up "calling conventions" = "none";
+								up "children prefix" = "";
+								up "debug log" = "false";
+								up "debug tie log" = "false";
+								up "dll export" = "true";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force use const arg" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is default" = "false";
+								up "pm" = "false";
+
+							};
+							abstract agr attribute <<property>> "agr_struct_p" : "NewInterfaces::BasicTests::TestModel::NewStruct" {
+								up "calling conventions" = "none";
+								up "children prefix" = "";
+								up "debug log" = "false";
+								up "debug tie log" = "false";
+								up "dll export" = "true";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force use const arg" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is default" = "false";
+								up "pm" = "false";
+
+							};
+
+					};
+					class <<Vector>> "MySyperData"
+					{
+						up "children prefix" = "";
+						up "debug tie log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							agr attribute "" : "Primitives::long long";
+
+					};
+					class <<Interface>> "DerivedInterface"
+						extends "NewInterfaces::BasicTests::TestModel::BaseInterface"
+					{
+						up "TODO" = "";
+						up "author" = "";
+						up "call way" = "forth";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "debug tie log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "native definition" = "none";
+						up "need UC" = "false";
+						up "single impl" = "false";
+
+							abstract operation <<factory>> "factory" () {
+								up "children prefix" = "";
+								up "const_type" = "read-write";
+								up "dll export" = "true";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force use const arg" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+
+							};
+							abstract operation "my_func" (in "a": "NewInterfaces::BasicTests::TestModel::MySyperData") {
+								up "Must throw in error" = "true";
+								up "calling conventions" = "none";
+								up "children prefix" = "";
+								up "debug log" = "false";
+								up "debug tie log" = "false";
+								up "dll export" = "true";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force overload" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+
+							};
+
+					};
+
+			};
+			protected package <<Impl>> "NewImpl" {
+					dependency "BasicTests::TestModel::NewInterfaces";
+
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "path prefix" = "";
+
+					class <<BinaryFunctor>> "NewBinaryFunctor"
+					{
+						up "const functor" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							lnk attribute <<first param>> "str_first" : "Primitives::string";
+							lnk attribute <<second param>> "str_chg_second" : "Primitives::string" ["chg"];
+							lnk attribute <<result>> "atr_result" : "Primitives::a-string";
+
+					};
+					class <<BinaryPredicate>> "NewBinaryPredicate"
+					{
+						up "const functor" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							lnk attribute <<first param>> "str_chg_first" : "Primitives::string" ["chg"];
+							lnk attribute <<second param>> "str_second" : "Primitives::string";
+
+					};
+					class <<Predicate>> "NewPredicate"
+					{
+						up "const functor" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							lnk attribute <<param>> "str_param" : "Primitives::string";
+
+					};
+					class <<Environment>> "NewEnvironment"
+					{
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+					};
+					class <<FunctorBase>> "NewFunctorBase"
+					{
+						up "const functor" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+					};
+					abstract class <<LocalInterface>> "BaseLocal"
+					{
+						up "TODO" = "";
+						up "author" = "";
+						up "call way" = "forth";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "debug tie log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "native definition" = "none";
+						up "need UC" = "false";
+						up "single impl" = "false";
+
+					};
+					class <<Struct>> "Deallocator"
+					{
+						up "Need copy ctor" = "false";
+						up "Need init ctor" = "false";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "packed" = "false";
+
+					};
+					class <<LocalInterface>> "DerivedLocal"
+						extends "NewImpl::BasicTests::TestModel::BaseLocal" implements "NewInterfaces::BasicTests::TestModel::DerivedInterface"
+					{
+						up "TODO" = "";
+						up "author" = "";
+						up "call way" = "forth";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "debug tie log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "native definition" = "none";
+						up "need UC" = "false";
+						up "single impl" = "false";
+
+					};
+					class <<UnaryFunctor>> "NewUnaryFunctor"
+					{
+						up "const functor" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							lnk attribute <<param>> "str_param" : "Primitives::string";
+							lnk attribute <<result>> "astr_result" : "Primitives::a-string";
+
+					};
+					class <<Servant>> "NoDefFactoryServant"
+						implements "NewImpl::BasicTests::TestModel::DerivedLocal"
+					{
+						up "Factory auto reg" = "true";
+						up "Factory default impl" = "false";
+						up "Servant Pool" = "none";
+						up "TODO" = "";
+						up "debug log" = "false";
+						up "factory priority" = "0";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "singleton" = "false";
+
+							private class <<CustomFactory>> "NewCustomFactory"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+
+					};
+					class <<Box>> "NewBox"
+						extends "NewImpl::BasicTests::TestModel::NewPredicate"
+					{
+						up "Need deallocator" = "false";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							lnk attribute <<deallocator>> "" : "NewImpl::BasicTests::TestModel::Deallocator";
+
+					};
+					class <<Servant>> "NewServant"
+						implements "NewImpl::BasicTests::TestModel::DerivedLocal"
+					{
+						up "Factory auto reg" = "true";
+						up "Factory default impl" = "true";
+						up "Servant Pool" = "none";
+						up "TODO" = "";
+						up "debug log" = "false";
+						up "factory priority" = "0";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "singleton" = "false";
+
+					};
+
+			};
+			package <<LibSupport>> "NewLibSupport" {
+					dependency "BasicTests::TestModel::NewComInterfaces";
+
+					up "ifdef" = "";
+					up "ifndef" = "";
+
+					class <<ClientInterceptor>> "NewClientInterceptor"
+					{
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+					};
+					class <<CurrentSlot>> "NewCurrentSlot"
+					{
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+					};
+					class <<LibExecutor>> "NewLibExecutor"
+					{
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "need UC" = "false";
+						up "type" = "server\\stand alone";
+
+					};
+					class <<ServerInterceptor>> "NewServerInterceptor"
+					{
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+					};
+					class <<Settings>> "NewSettings"
+					{
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							ref attribute "my_unsigned_long" : "Primitives::unsigned long" = "10" {
+								up "in config" = "true";
+								up "is_required" = "false";
+
+							};
+
+					};
+
+			};
+			package <<Interfaces>> "NativeTypesSmallTest" {
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+					class <<Constants>> "NewConstants"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							ref attribute "LONG" : "Primitives::long" = "1" {
+								up "AutoInc" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "forced type" = "none";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is define" = "false";
+								up "suffix expr" = "";
+
+							};
+							agr attribute "STRING" : "Primitives::string" = "this is string" {
+								up "AutoInc" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "forced type" = "none";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is define" = "false";
+								up "suffix expr" = "";
+
+							};
+							agr attribute "ASTRING" : "Primitives::a-string" = "this is a-string" {
+								up "AutoInc" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "forced type" = "none";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is define" = "false";
+								up "suffix expr" = "";
+
+							};
+
+					};
+					class <<ConstantArray>> "CharConstantsArray"
+						extends "Primitives::char"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							ref attribute "a" : "Primitives::void" = "a";
+							ref attribute "b" : "Primitives::void" = "b";
+							ref attribute "c" : "Primitives::void" = "c";
+
+					};
+					class <<Enum>> "NewEnum"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							agr attribute "A" : "Primitives::void" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							agr attribute "B" : "Primitives::void" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							agr attribute "C" : "Primitives::void" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+
+					};
+					class <<Exception>> "NewException"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "false";
+						up "force what" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is_runtime" = "false";
+
+							private agr attribute "attr" : "Primitives::a-string" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is mutable" = "false";
+								up "smart pointer" = "false";
+
+							};
+							final agr attribute <<property>> "property" : "Primitives::a-string" {
+								up "calling conventions" = "none";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force use const arg" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is default" = "false";
+								up "is mutable" = "false";
+								up "needs field" = "true";
+								up "pm" = "true";
+								up "reads field" = "false";
+								up "smart pointer" = "false";
+								up "writes field" = "false";
+
+							};
+							final agr attribute <<readonly>> "ro_property" : "Primitives::a-string" {
+								up "calling conventions" = "none";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force use const arg" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is default" = "false";
+								up "is mutable" = "false";
+								up "needs field" = "true";
+								up "pm" = "true";
+								up "reads field" = "false";
+								up "smart pointer" = "false";
+								up "writes field" = "false";
+
+							};
+							final agr attribute <<writeonly>> "wo_property" : "Primitives::a-string" {
+								up "calling conventions" = "none";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force use const arg" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "is default" = "false";
+								up "is mutable" = "false";
+								up "needs field" = "true";
+								up "pm" = "true";
+								up "reads field" = "false";
+								up "smart pointer" = "false";
+								up "writes field" = "false";
+
+							};
+							operation <<ctor>> "void_ctor" () {
+								up "children prefix" = "";
+								up "debug log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+
+							};
+
+					};
+					class <<Struct>> "FullCharStruct"
+					{
+						up "Need copy ctor" = "true";
+						up "Need init ctor" = "true";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "need UC" = "false";
+						up "need dctor" = "true";
+						up "packed" = "false";
+
+							final agr attribute "char_agr" : "Primitives::char" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							final agr attribute "const_char_agr" : "Primitives::char" ["const"] {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							agr attribute "ref_char_agr" : "Primitives::char" ["ref"] {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							agr attribute "constref_char_agr" : "Primitives::char" ["const,ref"] {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							ref attribute "char_ref" : "Primitives::char" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							ref attribute "const_char_ref" : "Primitives::char" ["const"] {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							lnk attribute "char_lnk" : "Primitives::char" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							lnk attribute "const_char_lnk" : "Primitives::char" ["const"] {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							lnk attribute "ref_char_lnk" : "Primitives::char" ["ref"] {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							lnk attribute "constref_char_lnk" : "Primitives::char" ["const,ref"] {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							operation <<ctor>> "void_ctor" () {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+
+							};
+
+					};
+					class <<Typedef>> "NewEnumT"
+						extends "NativeTypesSmallTest::BasicTests::TestModel::NewEnum"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "false";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Union>> "NewUnion"
+					{
+						up "Need less" = "false";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "packed" = "false";
+
+							agr attribute "a_long" : "Primitives::long" = "A" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							agr attribute "b_new_enum_t" : "NativeTypesSmallTest::BasicTests::TestModel::NewEnumT" = "B" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							agr attribute "c_astring" : "Primitives::a-string" = "C" {
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							agr attribute <<switch>> "" : "NativeTypesSmallTest::BasicTests::TestModel::NewEnum";
+
+					};
+
+			};
+			package <<Views>> "NewViews" {
+					dependency "BasicTests::TestModel::NewComInterfaces";
+
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "false";
+					up "need UC" = "";
+					up "path prefix" = "";
+
+					class <<Resource>> "NewResource"
+					{
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+					};
+					class <<GuiControl>> "NewGuiControl"
+					{
+						up "Need assign op" = "false";
+						up "Need copy ctor" = "false";
+						up "Refcount" = "none";
+						up "author" = "";
+						up "base wnd class" = "CWnd";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "need objcounter" = "true";
+						up "no hands" = "false";
+						up "non virtual base" = "false";
+						up "singleton" = "false";
+						up "started" = "";
+
+					};
+					class <<PropertyPage>> "NewPropertyPage"
+					{
+						up "Need assign op" = "false";
+						up "Need copy ctor" = "false";
+						up "Refcount" = "none";
+						up "author" = "";
+						up "base wnd class" = "CWnd";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "need objcounter" = "true";
+						up "no hands" = "false";
+						up "non virtual base" = "false";
+						up "resizeable" = "false";
+						up "singleton" = "false";
+						up "started" = "";
+
+					};
+					class <<PropertySheet>> "NewPropertySheet"
+					{
+						up "Need assign op" = "false";
+						up "Need copy ctor" = "false";
+						up "Refcount" = "none";
+						up "author" = "";
+						up "base wnd class" = "CWnd";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "need objcounter" = "true";
+						up "no hands" = "false";
+						up "non virtual base" = "false";
+						up "resizeable" = "false";
+						up "singleton" = "false";
+						up "started" = "";
+
+					};
+
+			};
+			protected package <<Impl>> "NewImpl1" {
+					dependency "BasicTests::TestModel::NewComInterfaces";
+
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "path prefix" = "";
+
+					class <<ComServant>> "NewComServant"
+						implements "NewComInterfaces::BasicTests::TestModel::NewComInterface"
+					{
+						up "Factory auto reg" = "true";
+						up "Factory default impl" = "true";
+						up "Is ActiveX" = "false";
+						up "Servant Pool" = "none";
+						up "TODO" = "";
+						up "debug log" = "false";
+						up "factory priority" = "0";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "singleton" = "false";
+
+					};
+
+			};
+			package <<Unit>> "ComplexTypesSmallTest" {
+					dependency "BasicTests::TestModel::NativeTypesSmallTest";
+
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "false";
+					up "path prefix" = "";
+
+					class <<Impurity>> "NewImpurity"
+					{
+						up "Need assign op" = "false";
+						up "Need copy ctor" = "false";
+						up "Refcount" = "none";
+						up "author" = "";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "need objcounter" = "true";
+						up "no hands" = "false";
+						up "non virtual base" = "false";
+						up "singleton" = "false";
+						up "started" = "";
+
+					};
+					abstract class <<ImpurityParamType>> "NewImpurityParamType"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+					};
+					class <<TypeConvertor>> "NewTypeConvertor"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is sorted" = "false";
+
+							private agr attribute <<Type1>> "type1" : "Primitives::long" {
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+							private agr attribute <<Type2>> "type2" : "Primitives::a-string" {
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+							};
+
+					};
+					class <<UtilityClass>> "NewUtilityClass"
+					{
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "need UC" = "false";
+						up "non virtual base" = "false";
+
+					};
+					final class <<UtilityPack>> "NewUtilityPack"
+					{
+						up "author" = "";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is namespace" = "false";
+						up "local helper" = "false";
+						up "need UC" = "false";
+						up "need impl-file" = "false";
+						up "need inline-file" = "false";
+						up "no hands" = "false";
+						up "started" = "";
+						up "weak" = "false";
+
+							class <<SimpleClass>> "NewSimpleClass1"
+							{
+								up "Need assign op" = "false";
+								up "Need copy ctor" = "false";
+								up "Refcount" = "none";
+								up "author" = "";
+								up "children prefix" = "";
+								up "debug log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "local supervisor" = "false";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "need objcounter" = "true";
+								up "no hands" = "false";
+								up "non virtual base" = "false";
+								up "singleton" = "false";
+								up "started" = "";
+
+							};
+							class <<BitMask>> "NewBitMask"
+								extends "Primitives::short"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									agr attribute "A3" : "Primitives::void" = "3";
+									agr attribute "A7" : "Primitives::void" = "7";
+
+							};
+							class <<BitMask>> "DerivedBitMask"
+								extends "Primitives::long" implements "NewUtilityPack::ComplexTypesSmallTest::BasicTests::TestModel::NewBitMask"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									agr attribute "A9" : "Primitives::void" = "9";
+
+							};
+							class <<Function>> "NewFunction"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "of object" = "false";
+
+									final operation "func" (in "a": "Primitives::long", inout "b": "Primitives::char") {
+										up "children prefix" = "";
+										up "elements prefix" = "";
+										up "finished" = "true";
+										up "ifdef" = "";
+										up "ifndef" = "";
+
+
+									};
+
+							};
+							class <<SimpleClass>> "NewSimpleClass"
+							{
+								up "Need assign op" = "false";
+								up "Need copy ctor" = "false";
+								up "Refcount" = "none";
+								up "author" = "";
+								up "children prefix" = "";
+								up "debug log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "local supervisor" = "false";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "need objcounter" = "true";
+								up "no hands" = "false";
+								up "non virtual base" = "false";
+								up "singleton" = "false";
+								up "started" = "";
+
+							};
+							class <<InstanceDef>> "NewInstanceDef"
+								implements "NewUtilityPack::ComplexTypesSmallTest::BasicTests::TestModel::NewSimpleClass1"
+							{
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute "T1" : "Primitives::long";
+									agr attribute "T2" : "NewUtilityPack::ComplexTypesSmallTest::BasicTests::TestModel::NewSimpleClass";
+
+							};
+
+					};
+					class <<Settings>> "NewSettings"
+					{
+						up "ifdef" = "";
+						up "ifndef" = "";
+
+							ref attribute "my_long" : "Primitives::long" {
+								up "in config" = "true";
+								up "is_required" = "false";
+
+							};
+							lnk attribute "my_bool" : "Primitives::boolean" {
+								up "in config" = "true";
+								up "is_required" = "false";
+
+							};
+							agr attribute "my_enum" : "NativeTypesSmallTest::BasicTests::TestModel::NewEnum" {
+								up "in config" = "true";
+								up "is_required" = "false";
+
+							};
+
+					};
+
+			};
+			package <<Interfaces>> "PrimitveTypesFullTest" {
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+					class <<Typedef>> "AStringT"
+						extends "Primitives::a-string"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "AWStringT"
+						extends "Primitives::a-wstring"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "AnyT"
+						extends "Primitives::any"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "ArbitaryStringT"
+						extends "Primitives::arbitrary string"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "AtomicT"
+						extends "Primitives::atomic"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "BooleanT"
+						extends "Primitives::boolean"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "CStringT"
+						extends "Primitives::c-string"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "UnsignedCharT"
+						extends "Primitives::unsigned char"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "TriboolT"
+						extends "Primitives::tribool"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "CharT"
+						extends "Primitives::char"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "StringT"
+						extends "Primitives::string"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "UnsignedIntegerT"
+						extends "Primitives::unsigned integer"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "StateMachineT"
+						extends "Primitives::state machine"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "OctetT"
+						extends "Primitives::octet"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "TimeT"
+						extends "Primitives::time"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "ObjectT"
+						extends "Primitives::object"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "MutexT"
+						extends "Primitives::mutex"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "LongT"
+						extends "Primitives::long"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "PointerT"
+						extends "Primitives::pointer"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "IdentifierT"
+						extends "Primitives::identifier"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "LongLongT"
+						extends "Primitives::long long"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "DoubleT"
+						extends "Primitives::double"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "UnsignedAtomicT"
+						extends "Primitives::unsigned atomic"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "ShortT"
+						extends "Primitives::short"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "IntegerT"
+						extends "Primitives::integer"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "FloatT"
+						extends "Primitives::float"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "VoidT"
+						extends "Primitives::void"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "UnsignedongLongT"
+						extends "Primitives::unsigned long long"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "UnsignedLongT"
+						extends "Primitives::unsigned long"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "SizeT"
+						extends "Primitives::size"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "UnsortedShortT"
+						extends "Primitives::unsigned short"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "ExceptionT"
+						extends "Primitives::exception"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "HThreadT"
+						extends "Primitives::hthread"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "FixedT"
+						extends "Primitives::fixed"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "WStringT"
+						extends "Primitives::wstring"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+					class <<Typedef>> "WCharT"
+						extends "Primitives::wchar"
+					{
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is default ancestor" = "false";
+						up "isClassRef" = "false";
+						up "isPointer" = "false";
+						up "newRTTI" = "false";
+
+					};
+
+			};
+			package <<Interfaces>> "SimpleTypeContainers" {
+					dependency "BasicTests::TestModel::NativeTypesSmallTest";
+
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+			};
+			package <<Unit>> "PrimitiveContainers" {
+					dependency "BasicTests::TestModel::PrimitveTypesFullTest";
+
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "false";
+					up "path prefix" = "";
+
+					final class <<UtilityPack>> "VectorsLageTest"
+					{
+						up "author" = "";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is namespace" = "false";
+						up "local helper" = "false";
+						up "need UC" = "false";
+						up "need impl-file" = "false";
+						up "need inline-file" = "false";
+						up "no hands" = "false";
+						up "started" = "";
+						up "weak" = "false";
+
+							class <<Vector>> "BoolAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									agr attribute "" : "Primitives::boolean";
+
+							};
+							class <<Struct>> "CharRefAllocator"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Struct>> "ShortRefAllocator"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Struct>> "DubleLnkAllocator"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Struct>> "LongMultyAllocator"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Vector>> "LongRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::LongMultyAllocator";
+									ref attribute "" : "Primitives::long";
+
+							};
+							class <<Vector>> "LongLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::LongMultyAllocator";
+									lnk attribute "" : "Primitives::long";
+
+							};
+							class <<Vector>> "CharAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									agr attribute "" : "Primitives::char";
+									lnk attribute <<allocator>> "" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::CharRefAllocator";
+
+							};
+							class <<Vector>> "ShortRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::ShortRefAllocator";
+									ref attribute "" : "Primitives::short";
+
+							};
+							class <<Vector>> "DoubleLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::DubleLnkAllocator";
+									lnk attribute "" : "Primitives::double";
+
+							};
+							class <<Vector>> "LongAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::LongMultyAllocator";
+									agr attribute "" : "Primitives::long";
+
+							};
+							class <<Struct>> "MultyAllocator"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Vector>> "AStrAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									agr attribute "" : "Primitives::a-string";
+
+							};
+							class <<Vector>> "AStrRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									ref attribute "" : "Primitives::a-string";
+
+							};
+							class <<Vector>> "AStrLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									lnk attribute "" : "Primitives::a-string";
+
+							};
+							class <<Vector>> "StrLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									lnk attribute "" : "Primitives::string";
+
+							};
+							class <<Vector>> "StrRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									ref attribute "" : "Primitives::string";
+
+							};
+							class <<Vector>> "StrAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									agr attribute "" : "Primitives::string";
+
+							};
+							class <<Vector>> "PointerAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									agr attribute "" : "Primitives::pointer";
+
+							};
+							class <<Vector>> "PointerRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									ref attribute "" : "Primitives::pointer";
+
+							};
+							class <<Vector>> "PointerLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									lnk attribute "" : "Primitives::pointer";
+
+							};
+							class <<Vector>> "IdentifierAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									agr attribute "" : "Primitives::identifier";
+
+							};
+							class <<Vector>> "IdentifierRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									ref attribute "" : "Primitives::identifier";
+
+							};
+							class <<Vector>> "IdentifierLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									lnk attribute "" : "Primitives::identifier";
+
+							};
+							class <<Vector>> "ObjectRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									ref attribute "" : "Primitives::object";
+
+							};
+							class <<Vector>> "ObjectLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									lnk attribute "" : "Primitives::object";
+
+							};
+							class <<Vector>> "ExceptionAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									agr attribute "" : "Primitives::exception";
+
+							};
+							class <<Vector>> "ExceptionRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									ref attribute "" : "Primitives::exception";
+
+							};
+							class <<Vector>> "ExceptionLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::MultyAllocator";
+									lnk attribute "" : "Primitives::exception";
+
+							};
+							class <<Struct>> "SizeMultyAllocator"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Vector>> "SizeAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									ref attribute "data" : "Primitives::size";
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::SizeMultyAllocator";
+
+							};
+							class <<Vector>> "SizeRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::SizeMultyAllocator";
+									ref attribute "data" : "Primitives::size";
+
+							};
+							class <<Vector>> "SizeLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::SizeMultyAllocator";
+									ref attribute "data" : "Primitives::size";
+
+							};
+							class <<Vector>> "ConstSizeAgrVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::SizeMultyAllocator";
+									ref attribute "data" : "Primitives::size" ["const"];
+
+							};
+							class <<Vector>> "ConstSizeRefVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::SizeMultyAllocator";
+									ref attribute "data" : "Primitives::size" ["const"];
+
+							};
+							class <<Vector>> "ConstSizeLnkVector"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "VectorsLageTest::PrimitiveContainers::BasicTests::TestModel::SizeMultyAllocator";
+									ref attribute "data" : "Primitives::size" ["const"];
+
+							};
+
+					};
+					final class <<UtilityPack>> "MapsSmalTest"
+					{
+						up "author" = "";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is namespace" = "false";
+						up "local helper" = "false";
+						up "need UC" = "false";
+						up "need impl-file" = "false";
+						up "need inline-file" = "false";
+						up "no hands" = "false";
+						up "started" = "";
+						up "weak" = "false";
+
+							class <<Struct>> "MultiAllocAndComp"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Struct>> "StringHash"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Struct>> "LongLongAllocator"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Struct>> "StringComparator"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Struct>> "StringComplntegerAlloc"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<UnsortedMap>> "ConstLnkStringToConstLnkBoolUnsortedMap"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::MultiAllocAndComp";
+									lnk attribute <<compare>> "comp" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::MultiAllocAndComp";
+									lnk attribute "" : "Primitives::boolean" ["const"] {
+										key "": "Primitives::boolean";
+
+									};
+
+							};
+							class <<Map>> "StringAgrToLongLongAgrMap"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									agr attribute "" : "Primitives::long long" {
+										key "": "Primitives::long long";
+
+									};
+									lnk attribute <<allocator>> "" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::LongLongAllocator";
+									lnk attribute <<compare>> "" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::StringComparator";
+
+							};
+							class <<Map>> "StringRefToLongRefMap"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									ref attribute "" : "Primitives::long" {
+										key "": "Primitives::long";
+
+									};
+									lnk attribute <<compare>> "" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::StringComparator";
+
+							};
+							class <<Map>> "StringLnkToIntegerLnkMap"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute "" : "Primitives::integer" {
+										key "": "Primitives::integer";
+
+									};
+									lnk attribute <<allocator>> "" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::StringComplntegerAlloc";
+									lnk attribute <<compare>> "" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::StringComplntegerAlloc";
+
+							};
+							class <<MultiMap>> "ConstRefStringToConstRefFloatMultiMap"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::MultiAllocAndComp";
+									lnk attribute <<compare>> "comp" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::MultiAllocAndComp";
+									ref attribute "" : "Primitives::float" ["const"] {
+										key "": "Primitives::float";
+
+									};
+
+							};
+							class <<HashMap>> "ConstAgrStringToCinstAgrAStringHashMap"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute <<allocator>> "alloc" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::MultiAllocAndComp";
+									lnk attribute <<compare>> "comp" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::MultiAllocAndComp";
+									ref attribute <<hasher>> "hash" : "MapsSmalTest::PrimitiveContainers::BasicTests::TestModel::StringHash";
+									agr attribute "" : "Primitives::a-string" ["const"] {
+										key "": "Primitives::a-string";
+
+									};
+
+							};
+							class <<Map>> "AgrCharToAgrDoubleMap"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									agr attribute "" : "Primitives::double" {
+										key "": "Primitives::double";
+
+									};
+
+							};
+
+					};
+					final class <<UtilityPack>> "OtherSmallTest"
+					{
+						up "author" = "";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "is namespace" = "false";
+						up "local helper" = "false";
+						up "need UC" = "false";
+						up "need impl-file" = "false";
+						up "need inline-file" = "false";
+						up "no hands" = "false";
+						up "started" = "";
+						up "weak" = "false";
+
+							class <<Struct>> "MultiSupport"
+							{
+								up "Need copy ctor" = "false";
+								up "Need init ctor" = "false";
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "false";
+								up "ifdef" = "";
+								up "ifndef" = "";
+								up "need UC" = "false";
+								up "need dctor" = "false";
+								up "packed" = "false";
+
+							};
+							class <<Queue>> "StringRefQueue"
+							{
+								up "children prefix" = "";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									ref attribute "data" : "Primitives::string";
+
+							};
+							class <<Set>> "CharLnkSet"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									lnk attribute "data" : "Primitives::char";
+									lnk attribute <<allocator>> "alloc" : "OtherSmallTest::PrimitiveContainers::BasicTests::TestModel::MultiSupport";
+									lnk attribute <<compare>> "comp" : "OtherSmallTest::PrimitiveContainers::BasicTests::TestModel::MultiSupport";
+
+							};
+							class <<List>> "AStringAgrList"
+							{
+								up "children prefix" = "";
+								up "debug tie log" = "false";
+								up "elements prefix" = "";
+								up "finished" = "true";
+								up "force usage" = "true";
+								up "ifdef" = "";
+								up "ifndef" = "";
+
+									agr attribute "data" : "Primitives::a-string";
+									lnk attribute <<allocator>> "alloc" : "OtherSmallTest::PrimitiveContainers::BasicTests::TestModel::MultiSupport";
+
+							};
+
+					};
+
+			};
+			package <<Interfaces>> "StateMachine" {
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+					class <<StateMachine>> "NewStateMachine"
+					{
+					};
+
+			};
+			package <<Interfaces>> "Notifies" {
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+					class <<Event>> "NewEvent"
+					{
+						up "Need copy ctor" = "false";
+						up "Need init ctor" = "false";
+						up "children prefix" = "";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "force usage" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "packed" = "false";
+
+					};
+
+			};
+			package <<Interfaces>> "ComplexTypeContainers" {
+					dependency "BasicTests::TestModel::ComplexTypesSmallTest";
+
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+			};
+			package <<Interfaces>> "InterfaceContainers" {
+					dependency "BasicTests::TestModel::NewInterfaces";
+
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+			};
+			package <<Unit>> "RefcountTest" {
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "false";
+					up "path prefix" = "";
+
+					class <<SimpleClass>> "RecountNone"
+					{
+						up "Need assign op" = "false";
+						up "Need copy ctor" = "false";
+						up "Refcount" = "none";
+						up "author" = "";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "need objcounter" = "true";
+						up "no hands" = "false";
+						up "non virtual base" = "false";
+						up "singleton" = "false";
+						up "started" = "";
+
+					};
+					class <<SimpleClass>> "RecountStandart"
+					{
+						up "Need assign op" = "false";
+						up "Need copy ctor" = "false";
+						up "Refcount" = "standart";
+						up "author" = "";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "need objcounter" = "true";
+						up "no hands" = "false";
+						up "non virtual base" = "false";
+						up "singleton" = "false";
+						up "started" = "";
+
+					};
+					class <<SimpleClass>> "RecountSelf"
+					{
+						up "Need assign op" = "false";
+						up "Need copy ctor" = "false";
+						up "Refcount" = "self";
+						up "author" = "";
+						up "children prefix" = "";
+						up "debug log" = "false";
+						up "elements prefix" = "";
+						up "finished" = "true";
+						up "ifdef" = "";
+						up "ifndef" = "";
+						up "local supervisor" = "false";
+						up "need UC" = "false";
+						up "need dctor" = "false";
+						up "need objcounter" = "true";
+						up "no hands" = "false";
+						up "non virtual base" = "false";
+						up "singleton" = "false";
+						up "started" = "";
+
+					};
+
+			};
+
+	};
+	package <<TestLibrary>> "SubTestLibrary" {
+			up "children prefix" = "";
+			up "defines" = "";
+			up "elements prefix" = "";
+			up "exec mode" = "concluded";
+			up "finished" = "true";
+			up "gui" = "gui";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "is namespace" = "true";
+			up "native includes path" = "";
+			up "native lib path" = "";
+			up "native name" = "";
+			up "need UC" = "false";
+			up "vendor" = "/Garant";
+
+			package <<TestUnit>> "NewTestUnit" {
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "false";
+					up "path prefix" = "";
+
+			};
+			package <<Unit>> "NewUnit" {
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "false";
+					up "path prefix" = "";
+
+			};
+
+	};
+	package <<ServerLibrary>> "SubServerLibrary" {
+			up "children prefix" = "";
+			up "defines" = "";
+			up "elements prefix" = "";
+			up "exec mode" = "idle";
+			up "finished" = "true";
+			up "gui" = "tie";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "is namespace" = "true";
+			up "native includes path" = "";
+			up "native lib path" = "";
+			up "native name" = "";
+			up "need UC" = "false";
+			up "old gcm" = "false";
+			up "vendor" = "/Garant";
+
+			protected package <<Impl>> "NewImpl" {
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "path prefix" = "";
+
+			};
+			package <<ServerInterfaces>> "NewServerInterfaces" {
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+
+			};
+			package <<Views>> "NewViews" {
+					up "children prefix" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "false";
+					up "need UC" = "";
+					up "path prefix" = "";
+
+			};
+			package <<Interfaces>> "NewInterfaces" {
+					up "author" = "";
+					up "children prefix" = "";
+					up "debug tie log" = "false";
+					up "defines" = "";
+					up "elements prefix" = "";
+					up "finished" = "true";
+					up "ifdef" = "";
+					up "ifndef" = "";
+					up "is namespace" = "true";
+					up "need UC" = "false";
+					up "no hands" = "false";
+					up "path prefix" = "";
+					up "started" = "";
+					up "weak" = "false";
+
+			};
+			package <<LibSupport>> "NewLibSupport" {
+					up "ifdef" = "";
+					up "ifndef" = "";
+
+			};
+
+	};
+	package <<WebLibrary>> "SubWebLibrary" {
+			package <<HtmlUnit>> "NewHtmlUnit" {
+			};
+			package <<JSUnit>> "NewJSUnit" {
+			};
+
+	};
+	package <<Library>> "NewLibrary" {
+			dependency "TestModel::BasicTests";
+			dependency "TestModel::SubTestLibrary";
+			dependency "TestModel::SubServerLibrary";
+			dependency "TestModel::SubWebLibrary";
+
+			up "children prefix" = "";
+			up "defines" = "";
+			up "elements prefix" = "";
+			up "exec mode" = "concluded";
+			up "finished" = "true";
+			up "gui" = "tie";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "is namespace" = "true";
+			up "native includes path" = "";
+			up "native lib path" = "";
+			up "native name" = "";
+			up "need UC" = "false";
+			up "vendor" = "/Garant";
+
+	};
+	package <<Requirements>> "NewRequirements" {
+			dependency "TestModel::SubRequirements";
+
+			package <<Problems>> "NewProblems" {
+					class <<UserNeeds>> "NewUserNeeds"
+					{
+					};
+
+			};
+			package <<Features>> "NewFeatures" {
+					dependency "NewRequirements::TestModel::NewProblems";
+
+					class <<Feature>> "NewFeature"
+						implements "NewProblems::NewRequirements::TestModel::NewUserNeeds"
+					{
+					};
+
+			};
+			package <<UseCases>> "NewUseCases" {
+					dependency "SubRequirements::TestModel::NewUseCases";
+					dependency "NewRequirements::TestModel::NewFeatures";
+
+					class <<Actor>> "NewActor"
+					{
+							dependency "NewUseCases::NewRequirements::TestModel::NewUseCase";
+
+					};
+					class <<UseCase>> "NewUseCase"
+						implements "NewFeatures::NewRequirements::TestModel::NewFeature"
+					{
+							dependency <<extend>> "NewUseCases::SubRequirements::TestModel::NewUseCase";
+
+					};
+
+			};
+
+	};
+	package <<ServerLibrary>> "NewServerLibrary" {
+			dependency "TestModel::BasicTests";
+			dependency "TestModel::SubTestLibrary";
+			dependency "TestModel::SubServerLibrary";
+			dependency "TestModel::SubWebLibrary";
+
+			up "children prefix" = "";
+			up "defines" = "";
+			up "elements prefix" = "";
+			up "exec mode" = "idle";
+			up "finished" = "true";
+			up "gui" = "tie";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "is namespace" = "true";
+			up "native includes path" = "";
+			up "native lib path" = "";
+			up "native name" = "";
+			up "need UC" = "false";
+			up "old gcm" = "false";
+			up "vendor" = "/Garant";
+
+	};
+	package <<TestLibrary>> "NewTestLibrary" {
+			dependency "TestModel::BasicTests";
+			dependency "TestModel::SubTestLibrary";
+			dependency "TestModel::SubServerLibrary";
+			dependency "TestModel::SubWebLibrary";
+
+			up "children prefix" = "";
+			up "defines" = "";
+			up "elements prefix" = "";
+			up "exec mode" = "concluded";
+			up "finished" = "true";
+			up "gui" = "gui";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "is namespace" = "true";
+			up "native includes path" = "";
+			up "native lib path" = "";
+			up "native name" = "";
+			up "need UC" = "false";
+			up "vendor" = "/Garant";
+
+	};
+	package <<WebLibrary>> "NewWebLibrary" {
+			dependency "TestModel::BasicTests";
+			dependency "TestModel::SubTestLibrary";
+			dependency "TestModel::SubServerLibrary";
+			dependency "TestModel::SubWebLibrary";
+
+	};
+	package <<AdapterTarget>> "NewAdapterTarget" {
+			dependency "TestModel::NewLibrary";
+			dependency "TestModel::NewServerLibrary";
+			dependency "TestModel::NewTestLibrary";
+
+			up "CONFIG_UC" = "false";
+			up "children prefix" = "";
+			up "elements prefix" = "";
+			up "finished" = "true";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "load strategy" = "static";
+			up "old format" = "false";
+
+	};
+	package <<ComTarget>> "NewComTarget" {
+			dependency "TestModel::NewLibrary";
+			dependency "TestModel::NewServerLibrary";
+			dependency "TestModel::NewTestLibrary";
+			dependency "TestModel::NewWebLibrary";
+
+			up "CONFIG_UC" = "false";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "need UC" = "false";
+			up "old format" = "false";
+
+	};
+	package <<ExeTarget>> "NewExeTarget" {
+			dependency "TestModel::NewLibrary";
+			dependency "TestModel::NewServerLibrary";
+			dependency "TestModel::NewTestLibrary";
+			dependency "TestModel::NewWebLibrary";
+
+			up "CONFIG_UC" = "false";
+			up "external name" = "";
+			up "ifdef" = "";
+			up "ifndef" = "";
+			up "old format" = "false";
+			up "thread pool size" = "";
+
+	};
+	package <<InstallerTarget>> "NewInstallerTarget" {
+			dependency "TestModel::NewAdapterTarget";
+			dependency "TestModel::NewComTarget";
+
+	};
+	package <<Requirements>> "SubRequirements" {
+			dependency "TestModel::NewRequirements";
+
+			package <<Problems>> "NewProblems" {
+					class <<UserNeeds>> "NewUserNeeds"
+					{
+					};
+					class <<UserNeeds>> "NewUserNeeds1"
+					{
+					};
+
+			};
+			package <<Features>> "SubFeatures" {
+					dependency "SubRequirements::TestModel::NewProblems";
+
+					class <<Feature>> "NewFeature"
+						implements "NewProblems::SubRequirements::TestModel::NewUserNeeds"
+					{
+					};
+
+			};
+			package <<Features>> "NewFeatures" {
+					dependency "SubRequirements::TestModel::NewProblems";
+					dependency "SubRequirements::TestModel::SubFeatures";
+
+					class <<Feature>> "NewFeature"
+						extends "SubFeatures::SubRequirements::TestModel::NewFeature" implements "NewProblems::SubRequirements::TestModel::NewUserNeeds", "NewProblems::SubRequirements::TestModel::NewUserNeeds1"
+					{
+							class <<Feature>> "NewNestedFeature"
+							{
+							};
+							class <<Feature>> "NewNestedFeature1"
+							{
+							};
+							class <<Feature>> "NewNestedFeature2"
+							{
+							};
+
+					};
+
+			};
+			package <<UseCases>> "NewUseCases" {
+					dependency "SubRequirements::TestModel::NewFeatures";
+					dependency "SubRequirements::TestModel::SubUseCases";
+
+					class <<Actor>> "NewActor"
+					{
+							dependency "NewUseCases::SubRequirements::TestModel::NewUseCase";
+
+					};
+					class <<UseCase>> "NewUseCase"
+						implements "NewFeatures::SubRequirements::TestModel::NewFeature"
+					{
+							class <<UseCase>> "NewNestedUseCase"
+								implements "NewFeature::NewFeatures::SubRequirements::TestModel::NewNestedFeature"
+							{
+									dependency <<extend>> "NewUseCase::NewUseCases::SubRequirements::TestModel::NewNestedUseCase2";
+									dependency <<include>> "NewUseCase::NewUseCases::SubRequirements::TestModel::NewNestedUseCase1";
+
+							};
+							class <<UseCase>> "NewNestedUseCase1"
+								implements "NewFeature::NewFeatures::SubRequirements::TestModel::NewNestedFeature1"
+							{
+							};
+							class <<UseCase>> "NewNestedUseCase2"
+							{
+									dependency <<follow>> "NewUseCase::NewUseCases::SubRequirements::TestModel::NewNestedUseCase1";
+
+							};
+							dependency <<follow>> "SubUseCases::SubRequirements::TestModel::NewUseCase3";
+
+					};
+
+			};
+			package <<UseCases>> "SubUseCases" {
+					dependency "NewRequirements::TestModel::NewUseCases";
+					dependency "SubRequirements::TestModel::SubFeatures";
+
+					class <<Actor>> "NewActor"
+					{
+							dependency "SubUseCases::SubRequirements::TestModel::NewUseCase";
+							dependency "SubUseCases::SubRequirements::TestModel::NewUseCase3";
+
+					};
+					class <<Actor>> "NewActor1"
+					{
+					};
+					class <<UseCase>> "NewUseCase"
+						implements "SubFeatures::SubRequirements::TestModel::NewFeature"
+					{
+							dependency <<include>> "SubUseCases::SubRequirements::TestModel::NewUseCase1";
+							dependency <<extend>> "SubUseCases::SubRequirements::TestModel::NewUseCase2";
+							dependency <<extend>> "NewUseCases::NewRequirements::TestModel::NewUseCase";
+
+					};
+					class <<UseCase>> "NewUseCase1"
+					{
+					};
+					class <<UseCase>> "NewUseCase2"
+					{
+					};
+					class <<UseCase>> "NewUseCase3"
+						implements "SubFeatures::SubRequirements::TestModel::NewFeature"
+					{
+							dependency <<follow>> "SubUseCases::SubRequirements::TestModel::NewUseCase";
+							dependency <<notify>> "SubUseCases::SubRequirements::TestModel::NewActor1";
+
+					};
+
+			};
+
+	};
+
+};

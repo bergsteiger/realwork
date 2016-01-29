@@ -1,0 +1,1146 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////// HLTC 337: Консультации ////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork;
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+{
+HLTC337.5: Консультации(правовая поддержка)
+  Можно вызвать из ОМ(кнопка Задать вопрос эксперту), главного меню(помощь) и навигатора.
+}
+function  HLTC337_5_1_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  
+  GoToMainMenu;
+  if not IsExists(GetFromMainMenu('КНОПКА "ЗАДАТЬ ВОПРОС ЭКСПЕРТУ"')) then
+    Result := ErrorResult('Не найдена КНОПКА "ЗАДАТЬ ВОПРОС ЭКСПЕРТУ" из области ОМ')
+  else
+  begin
+    GetFromMainMenu('КНОПКА "ЗАДАТЬ ВОПРОС ЭКСПЕРТУ"').Click;
+    if not IsExists(GetFromLawSupport('КАРТОЧКА ЗАПРОСА')) then
+      Result := ErrorResult('Не получилось открыть Правовую поддержку через КНОПКУ "ЗАДАТЬ ВОПРОС ЭКСПЕРТУ" из области ОМ');
+  end;
+  
+  if not (GoToMainMenu and
+          OpenObjectFromFolder('Правовая поддержка онлайн', OpenMenuTab) and
+          IsExists(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'))) then
+    Result := ErrorResult('Не получилось открыть Правовую поддержку из Вкладки меню');
+
+  if not (GoToMainMenu and
+          ClickByMainMenuItem('Помощь\Правовая поддержка онлайн') and
+          IsExists(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'))) then
+    Result := ErrorResult('Не получилось открыть Правовую поддержку из Главного меню');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC337.5.2.1: Карточка запроса представляет из себя
+  поле для ввода запроса,
+  ФИО пользователя, 
+  код города, 
+  контактный телефон, 
+  e-mail, 
+  пояснительный текст, 
+  ссылку  «правила работы со службой ППО» 
+  и ссылку для проверки связи с СК.
+HLTC337.5.2.2: Проверить, что в поле с вопросом можно вставлять текст из буфера, состоящий из нескольких абзацев.
+HLTC337.5.2.3: Все поля, кроме E-mail обязательны для заполнения.
+HLTC337.5.2.4: Между тулбаром и заголовком раздела КЗ «Контактные данные», располагается шапка, содержащая иконку Правовой поддержки онлайн и название КЗ: «Правовая поддержка онлайн».
+}
+function  HLTC337_5_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGIN_NAME = 'HLTC337_5_2';
+  CONTEXT = 'Вопрос в службу правовой поддержки';
+begin
+try
+  Result := true;
+  
+  if not RestartF1Shell(3, Options.Run.Timeout div 3, LOGIN_NAME, LOGIN_NAME) then
+    Raise('Не получилось перезапустить оболочку с логином/паролем "' + LOGIN_NAME + '"');
+
+  if not GoToLawSupport then
+    Raise('КЗ Правовая поддержка онлайн не открылась');
+  if not IsExists(GetFromLawSupport('ЗАГОЛОВОК КЗ')) then
+    Result := ErrorResult('Заголовок КЗ "Правовая поддержка онлайн" не найден или изменился');
+
+  if SendConsultation (
+                                [
+                              	  CARD_LAW_SUPPORT, ([([
+                                  FD_CITY_CODE, ([
+                                		'0123456789']) ]),([
+                                  FD_USER_PHONE, ([
+                                		'0123456789']) ]),([
+                                	FD_USER_EMAIL, ([
+                                		'gensnet@garant.ru']) ]),([
+                                	FD_LAW_SUPPORT_TEXT, ([
+                                		CONTEXT]) ]) ])
+                                ]
+                              ) then 
+    Result := ErrorResult('Получилось отправить незаполненный запрос консультации');
+
+  if not SendConsultation (
+                                [
+                              	  CARD_LAW_SUPPORT, ([([
+                                	FD_USER_NAME, ([
+                                		'Фамилия Имя Отчество пользователя системой консалтинга']) ]),([
+                                  FD_CITY_CODE, ([
+                                		'0123456789']) ]),([
+                                  FD_USER_PHONE, ([
+                                		'0123456789']) ]),([
+                                	FD_USER_EMAIL, ([
+                                		'gensnet@garant.ru']) ]),([
+                                	FD_LAW_SUPPORT_TEXT, ([
+                                		CONTEXT]) ]) ])
+                                ]
+                              ) then
+    Result := ErrorResult('Возникла ошибка при заполнении полей КЗ и последующей отправки консультации');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  CloseF1Shell;
+end;
+
+{
+  HLTC337.5.2.6: Ссылка "Правилах работы со службой Правовой поддержки онлайн" должна вызывать хэлп на странице:
+    Руководство - Правовая поддержка онлайн - Правила работы со службой "Правовая поддержка онлайн"
+}
+function ClickByLawSupportHelpHyperlink: boolean;
+const
+  FUNCTION_NAME = 'ClickByLawSupportHelpHyperlink: ';
+var
+  w, y;
+begin
+  try
+    w := GetFromLawSupport('КАРТОЧКА ЗАПРОСА');
+    if not IsExists(w) then
+      Raise('Карточка запроса ППО не найдена!');
+    if w.width < 480 then
+      y := 165 
+    else
+    if w.width < 640 then
+      y: = 123    
+    else
+    if w.width < 768 then
+      y: = 105    
+    else
+    if w.width < 915 then
+      y: = 86
+    else
+      y: = 68;
+
+    SlideMouse(0, 0);
+    ResetUserInactivity;
+
+    w.SetFocus;
+    Delay(Options.Run.Timeout div 30);    
+    Result := MoveMouseToObject(w, 'start_law_support_help_hyperlink.bmp', 48, y+2, true, 10);
+    
+    //потом можно убрать задержку
+    Delay(Options.Run.Timeout div 10);
+    Log.Picture(Sys_Desktop.Picture, FUNCTION_NAME + 'Скриншот через секунды после клика.');
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+function  HLTC337_5_2_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTENTS_TEXT = '*Руководство*Правовая поддержка онлайн*Правила работы со службой "Правовая поддержка онлайн"';
+var
+  wHelp, wHelpContents;
+begin
+try
+  Result := true;
+
+  if not GoToLawSupport then
+    Raise('КЗ Правовая поддержка онлайн не открылась');
+  if not (ClickByLawSupportHelpHyperlink or ClickByLawSupportHelpHyperlink) then
+    Raise('Не получилось кликнуть по ссылке вызова справки в КЗ ППО');
+
+  wHelp := GetFromShell('ФОРМА ОКНА СПРАВКИ');
+  if not IsExists(wHelp) then
+    Raise('После клика по ссылке вызова справки не открылась "ФОРМА ОКНА СПРАВКИ"');  
+  try
+    wHelpContents := GetFromShell('ФОРМА ОКНА СПРАВКИ, СОДЕРЖАНИЕ');
+    if not IsExists(wHelpContents) then
+      Raise('Не найдено "ФОРМА ОКНА СПРАВКИ, СОДЕРЖАНИЕ"');
+    if not StringCompare(CONTENTS_TEXT, wHelpContents.wSelection) then
+      Raise('После клика по ссылке вызова справки в КЗ ППО, открылся неправильный пункт справки: "' + wHelpContents.wSelection + '", ожидали: "' + CONTENTS_TEXT + '"');
+  finally
+    wHelp.Close;  
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC337.5.5.1: Во все поиски(ППР, Поиск по обзору зак-ва) добавлена кнопка «правовая поддержка онлайн»
+    (в окно с сообщением о том, что ничего не найдено), при нажатию на которую открывается карточка консультаций.
+  HLTC337.5.5.3: При нажатии этой кнопки в ППР подставляются реквизиты из "неудачного запроса" в 
+    запрос правовой поддержки, предваряя его словами "Поиск документа:"  
+}
+function  IsLawSupportActive: boolean;
+begin
+  Result := true;
+  if not ((WaitForWarningWindow(-1, '', true, '#Обратиться к специалистам*') <> '') and IsExists(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'))) then
+    Result := ErrorResult('IsLawSupportActive: Не получилось открыть Правовую поддержку из окна предупреждения об отсутствующей информации');
+end;
+
+function  HLTC337_5_5_Execute(var  current_state: OleVariant): OleVariant;
+  const
+    FUNCTION_NAME = 'HLTC337_5_5_Execute';
+begin
+try
+  Result := true;
+
+  if not RestartF1Shell(3, Options.Run.Timeout div 3, FUNCTION_NAME, FUNCTION_NAME) then
+    Raise('Не получилось перезапустить оболочку с логином/паролем "' + FUNCTION_NAME + '"');              
+
+  if not FillPPRCard(
+    [                
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'супер мега медвед хай']) ])
+      ]) 
+    ]
+  ) then Raise('Не получилось перейти и заполнить КЗ ППР');                                                                                       
+  //делаем поиск    
+  Sys.Keys('^[Enter]');
+  Result := IsLawSupportActive and Result;
+  
+  if not CompareQueryCardData(
+          [
+           CARD_LAW_SUPPORT, ([([
+           FD_LAW_SUPPORT_TEXT, ([
+            'Поиск документа:' + #10 + 'СЛОВА В НАЗВАНИИ - супер мега медвед хай' + #10 +'Искать в недействующих редакциях - Нет']) ]) ])
+          ], ExtractQueryCardData(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'))
+  ) then
+    Result := ErrorResult('КЗ Правовой поддержки отличается после неудачного запроса ППР');
+
+  if not FillAnalyticReviewCard(
+      [
+      	CARD_PPOIZ, ([([
+      	FD_SOURCE, ([
+      		'[ИЛИ]Органы власти Волгоградской области']) ]) ]) 
+      ]
+  ) then Raise('Не получилось перейти и заполнить КЗ ППОИЗ');
+  //делаем поиск
+  Sys.Keys('^[Enter]');
+  Result := IsLawSupportActive and Result; 
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC337.5.5.2: Если блока консультаций в базе нет, этой кнопки не будет.
+}
+function  IsLawSupportNoActive: boolean;
+begin
+  Result := true;
+  if WaitForWarningWindow(-1, '*отсутствует информация*') = '' then
+    Result := ErrorResult('IsLawSupportNoActive: Неправильное сообщение о неудачном поиске на базе без консультаций');
+end;
+
+function  HLTC337_5_5_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC337_5_5_2_Execute';
+begin
+try
+  Result := true;
+
+  if not FillPPRCard(
+    [                
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'документ 16']) ])
+      ]) 
+    ]
+  ) then Raise('Не получилось перейти и заполнить КЗ ППР');                                                                                       
+  Sys.Keys('^[Enter]');
+  Result := IsLawSupportNoActive and Result;
+  
+  if not FillAnalyticReviewCard(
+      [
+      	CARD_PPOIZ, ([([
+      	FD_SOURCE, ([
+      		'[ИЛИ]Органы законодательной власти России и СССР']) ]) ]) 
+      ]
+  ) then Raise('Не получилось перейти и заполнить КЗ ППОИЗ');
+  Sys.Keys('^[Enter]');
+  Result := IsLawSupportNoActive and Result; 
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC337.5.3.4: Если текст запроса пустой, выдается сообщение Отсутствует текст запроса.
+  HLTC337.5.3.6: Если в момент нажатия кнопки «Отправить запрос» поля «ФИО пользователя», «Код города» и «Контактный телефон» остались незаполненными, пользователю выдается сообщение о необходимости заполнить эти поля.
+  HLTC337.5.3.7: Значения этих полей должны запоминаться в настройках пользователя и автоматически подставляться при всех последующих вызовах этой карточки.
+  HLTC337.5.4: Введенный запрос нельзя сохранять в мои документы.
+  HLTC337.5.6: По кнопке <Очистить> очищается поле ввода.
+  HLTC337.5.7.1: в текстовом поле длина запроса – 6000 символов
+  HLTC337.5.7.2: код города – 10 символов
+  HLTC337.5.7.3: контактный телефон – 20 символов
+}
+function HLTC337_5_7_Execute(var  current_state: OleVariant): OleVariant;
+const 
+  SAVE_QUERY = 'HLTC337_5_7';
+  symbols_10 = '1234567890';
+var
+  lawDataTemp, lawData, lawDataEmpty, lawDataTextEmpty;
+  i, j, info, fieldName, symbolMaxCount, clipbrd;
+
+begin
+try
+  Result := true;
+  lawData := [
+              CARD_LAW_SUPPORT, ([([
+            	FD_USER_NAME, ([
+            		'ФИО']) ]),([
+              FD_CITY_CODE, ([
+            		'0123456789']) ]),([
+              FD_USER_PHONE, ([
+            		'01234567890123456789']) ]),([
+              FD_USER_EMAIL, ([
+            		'garant@garant.ru']) ]),([          
+            	FD_LAW_SUPPORT_TEXT, ([
+            		'Просто текст консультации']) ]) ])
+              ];
+  if not RestartF1Shell(3, Options.Run.Timeout div 6, SAVE_QUERY, SAVE_QUERY) then
+    Raise('Не получилось перезапустить оболочку, завершаем скрипт');
+  if not ReminderAway then
+    ErrorResult('Не получилось переместить значек (медаль) предупреждения!');
+  if not GoToLawSupport then
+    Raise('КЗ Правовая поддержка (Консультации) не открылась');
+  
+  lawDataTemp := ExtractQueryCardData(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'), false);
+  if not FillLawSupportCard(lawData) then 
+    Raise('Не могу заполнить карточку правовой поддержки!');
+  if not ClickToolbarButton( GetFromLawSupport('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Очистить' ) then 
+    Result := ErrorResult('Не получилось кликнуть по кнопке Очистить');
+  if not CompareQueryCardData(lawDataTemp, ExtractQueryCardData(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'), false)) then
+    Raise('КЗ не очистилась после нажатия Очистить');
+  //
+  for i := 1 to 3 do 
+  begin
+    case i of
+    1:  begin
+          fieldName := 'FD_USER_NAME';  
+          lawDataEmpty := [
+              CARD_LAW_SUPPORT, ([([
+            	FD_USER_NAME, ([
+            		'']) ]),([
+              FD_CITY_CODE, ([
+            		'0123456789']) ]),([
+              FD_USER_PHONE, ([
+            		'01234567890123456789']) ]),([
+              FD_USER_EMAIL, ([
+            		'']) ]),([
+            	FD_LAW_SUPPORT_TEXT, ([
+            		'12345']) ]) ])
+              ];
+        end;                
+    2:  begin
+          fieldName := 'FD_CITY_CODE';
+          lawDataEmpty := [
+                  CARD_LAW_SUPPORT, ([([
+                	FD_USER_NAME, ([
+                		'ФИО']) ]),([
+                  FD_CITY_CODE, ([
+                		'']) ]),([
+                  FD_USER_PHONE, ([
+                		'01234567890123456789']) ]),([
+                  FD_USER_EMAIL, ([
+                		'']) ]),([
+                	FD_LAW_SUPPORT_TEXT, ([
+                		'12345']) ]) ])
+                  ];
+        end;                  
+    3:  begin
+          fieldName := 'FD_USER_PHONE';
+          lawDataEmpty := [
+                  CARD_LAW_SUPPORT, ([([
+                	FD_USER_NAME, ([
+                		'ФИО']) ]),([
+                  FD_CITY_CODE, ([
+                		'0123456789']) ]),([
+                  FD_USER_PHONE, ([
+                		'']) ]),([
+                  FD_USER_EMAIL, ([
+                		'']) ]),([
+                	FD_LAW_SUPPORT_TEXT, ([
+                		'12345']) ]) ])
+                  ];
+        end;                
+    end;
+    info := GetParam( SendConsultation( lawDataEmpty, 'IsExtendedResult:=true' ), 'ErrorMsgText', '');
+    if not StringCompare('*Отсутствуют контактные данные*', info) then
+      Result := ErrorResult('Для пустого поля "' + fieldName + '" не найдено или изменился тип информационного окна сообщения об ошибке "Отсутствуют контактные данные..."');
+  end;
+  //
+  lawDataTextEmpty := [
+            CARD_LAW_SUPPORT, ([([
+          	FD_USER_NAME, ([
+          		'ФИО']) ]),([
+            FD_CITY_CODE, ([
+          		'0123456789']) ]),([
+            FD_USER_PHONE, ([
+          		'01234567890123456789']) ]),([
+            FD_USER_EMAIL, ([
+          		'garant@garant.ru']) ]),([          
+          	FD_LAW_SUPPORT_TEXT, ([
+          		'']) ]) ])
+            ];
+  info := GetParam( SendConsultation( lawDataTextEmpty, 'IsExtendedResult:=true' ), 'InfoMsgText', '');
+  if not StringCompare('*введите текст запроса*', info) then
+    Result := ErrorResult('Не найдено или изменился тип информационного окна сообщения "Пожалуйста,  введите текст запроса."');
+  //
+  if SendConsultation( lawData ) then
+  begin
+    if GoToMainMenu and GoToLawSupport then
+    begin
+      if not CompareQueryCardData(lawDataTextEmpty, ExtractQueryCardData(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'), false)) then
+        Result := ErrorResult('КЗ Правовой поддержки отличается, видимо не сохраняются поля "ФИО пользователя" или "Код города" или "Контактный телефон"');
+    end
+    else
+      Result := ErrorResult('Не получилось зайти в ОМ, а потом в Правовую поддержку');    
+  end
+  else
+    Result := ErrorResult('Не получилось отправить консультацию!');
+  //  
+  for j := 1 to 3 do
+  begin
+    case j of
+      1:
+      begin
+        fieldName := FD_LAW_SUPPORT_TEXT;
+        symbolMaxCount := 6000;
+        clipbrd := ''; for i := 1 to 600 do clipbrd := clipbrd + symbols_10;
+      end;
+      2:
+      begin
+        fieldName := FD_CITY_CODE;
+        symbolMaxCount := 10;
+        clipbrd := '0123456789'; 
+      end;
+      3:
+      begin
+        fieldName := FD_USER_PHONE;
+        symbolMaxCount := 20;
+        clipbrd := '01234567890123456789'; 
+      end;
+    end;
+    if not PositionInQueryCard(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'), fieldName, [GetFieldFirstControl(fieldName)]) then
+      Raise('Не получилось спозиционироваться на поле ввода запроса консультации');
+    if ClearField(GetFromLawSupport('КАРТОЧКА ЗАПРОСА')) then
+    begin
+      ClipboardClean;
+      Sys.Clipboard := clipbrd;
+      PasteFromClipboard(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'), 'HowToPaste:=POPUPMENU');                         
+      if (WaitForErrorWindow(Options.Run.Timeout div 30) <> '') then
+        Result := ErrorResult('Найдено окно с ошибкой!');
+      Sys.Keys('1');  
+      if (WaitForErrorWindow(Options.Run.Timeout div 30) = '') then
+        Result := ErrorResult('Не найдено окно с ошибкой, введено более ' + IntToStr(symbolMaxCount) + ' символов');
+    end
+    else
+      Result := ErrorResult('Не получилось очистить поле "' + fieldName + '"');
+  end;                     
+    
+  if SimpleSaveToFolders(SAVE_QUERY) then
+    Result := ErrorResult('Есть возможность сохранения Консультации в Мои документы!');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC337.5.2: Карточка запроса представляет из себя поле для ввода запроса, пояснительный текст и ссылку – правила оказания консультаций.
+HLTC337.5.3: Отправка запроса на консультацию.
+  HLTC337.5.3.1: По кнопке «Отправить запрос» проверяется доступность сервиса консультаций. При недоступности по техническим причинам(нет интернета) и при недоступности сервера валидации вызывается диалог «Отсутствует связь с интернет-сервисом. Отправка запроса в косультационную службу невозможна. Повторите свой запрос позднее». Проверить показ этого сообщения при недоступности сервера консультаций, сервера валидации и при недоступности их обоих.
+  HLTC337.5.3.2: Если сервис доступен, запрос отправляется на сервер консультаций, показывается информационное окно с текстом об успешной отправке запроса и очищается поле ввода.
+  
+//отправить несколько запросов
+HLTC337.5.12: Пользователь может отправлять различные запросы без ограничений на их количество, оценки ответа, время ответа от службы консультаций и т.д.  
+HLTC337.5.13: Отправленные запросы хранятся в папке Мои консультации в подпапке «Запросы в обработке» до получения ответа. Консультации в этой папке могут быть открыты только если получено уведомление, в противном случае показывается сообщение «Ваш запрос на получение консультации находится в обработке».
+
+HLTC337.5.14: Получение уведомления.
+  HLTC337.5.14.1: Перед полноценным ответом для платных консультаций приходит уведомление с вопросом оплатить консультационную услугу.
+  HLTC337.5.14.2: При этом должна быть мигающая иконка, сообщающая об этом уведомлении.
+  HLTC337.5.14.3: Жирное выделение в имени запроса в папке «Запросы в обработке» должно сняться.
+  HLTC337.5.14.4: В самой форме уведомления должен содержаться текст запроса, время его обработки и вопрос к пользователю согласен ли он оплатить данную консультацию(да, нет).
+  HLTC337.5.14.6: Если пользователь подтверждает готовность оплатить консультацию, то ему выводится сообщение «Ваш запрос передан в службу Правовой поддержки для обработки. При получении ответа система оповестит Вас отдельным информационным сообщением.», консультация получает статус «ожидание ответа», ссылки на подтверждение оплаты пропадают.
+
+HLTC337.5.16: Получение ответа на консультацию
+  HLTC337.5.16.7: Оценка консультации
+    HLTC337.5.16.7.1: Поставить оценку консультации можно несколькими способами:
+      HLTC337.5.16.7.1.1: Нажав на ссылку непосредственно в форме ответа.
+      HLTC337.5.16.7.1.2: Из контекстного меню к консультации во вкладке «Мои документы» в папке «Ответы».
+      HLTC337.5.16.7.1.3: При выходе из консультации(смена просматриваемого объекта в основной области). При этом выдается сообщение "Нам очень важно Ваше мнение, просим Вас оценить предоставленный ответ. Перейти в диалог оценки ответа? Всегда показывать диалог оценки ответа при выходе? Да/Нет/Отмена (и чекбокс "больше не показывать")".
+    HLTC337.5.16.7.2: Диалог оценки консультации содержит несколько радиобаттонов с оценками, текстовое поле и кнопки Оценить и Отмена.  
+    HLTC337.5.16.7.3: Ограничение на длину комментария – 6000 символов.
+    HLTC337.5.16.7.4: При повторной оценке консультации выдается соответствующее сообщение.  
+    HLTC337.5.16.7.5: После оценки консультации ссылка оценить консультацию пропадает и в контекстном меню в моих документах эта операция отсутствует.
+    
+  HLTC337.5.16.9: С консультациями в папке Ответы пользователь может делать следующие действия: открыть для просмотра, проставить оценку, удалить.  
+  HLTC337.5.16.1: Запросы, на которые получены ответы автоматически перемещаются в подпапку «Ответы»с иконкой закрытого конверта и жирным шрифтом.
+  HLTC337.5.16.2: В момент получения полноценного ответа пользователю показывается соответствующая иконка в оболочке с хинтом «Получены ответы службы Правовой поддержки». Она будет висеть до тех пор, пока в папке полученные будут непрочитанные консультации.
+  HLTC337.5.16.3: При нажатии на эту иконку автоматически открывается вкладка мои документы, происходит позиционирование и разворачивание папки «Мои консультации».
+  HLTC337.5.16.4: При клике на ответ-консультацию иконка меняется на открытый конверт, выделение меняется с жирного на обычный текст и открывается форма ответа, содержащая следующую информацию: имя пользователя, время ответа, сложность консультации(в часах), остаток времени(в часах), сам текст ответа, имя специалиста, ссылка на оценку ответа, список документов с вхождениями(может отсутствовать).
+  HLTC337.5.16.5: С текстом ответа доступны следующие операции(через кнопки на панели инструментов): сохранение в файл, экспорт в word, поиск контекста, предварительный просмотр, печать.  
+  HLTC337.5.16.6: Если открытая форма консультации содержит список, то пользователь может модифицировать его аналогично любому другому списку системы. При повторном открытии ответа список будет представлен в первоначальном виде. Проверить работу с большим списком(сохранение, скроллирование, предварительный просмотр).  
+HLTC337.5.17: Ответы на запрос получаются от сервера по таймеру. Время ответа можно задать в инишнике в секции [F1Server Params] параметром –ConsultingServerCheckTimeout. Время задается в секундах(по умолчанию 900, т.е. 15 мин).
+}         
+
+const
+  DEL_ITER_MAX = 16;
+  END_ITER = 3;
+  N = 3;  
+  
+  CS_RATE_FROM_POPMENU = 1;
+  CS_RATE_FROM_CONTEXT = 2;
+  CS_RATE_FROM_OUT = 3;
+
+
+function CreateAndSendRandomConsultations(var cons_text, cons_rate_type): boolean;
+const
+  FUNCTION_NAME = 'CreateAndSendRandomConsultations: ';
+var
+  i, res, info, state, queryText;
+  law_data;
+begin
+try
+  Result := true;
+	for i := VarArrayLowBound(cons_text, 1) to VarArrayHighBound(cons_text, 1) do
+  begin
+    //Формируем типы оценки консультаций
+    case i of
+      2: cons_rate_type[i] := 'FROM TEXT';
+      3: cons_rate_type[i] := 'FROM LEAVEING CONSULTATION';
+    else
+      cons_rate_type[i] := 'FROM POPUPMENU';      
+    end; 
+
+    cons_text[i] := 'Случайный запрос-' + IntToStr(Random(1048576));
+    law_data :=
+    [
+  	  CARD_LAW_SUPPORT, ([([
+    	FD_USER_NAME, ([
+    		'Фамилия Имя Отчество пользователя системой консалтинга']) ]),([
+      FD_CITY_CODE, ([
+    		'0123456789']) ]),([
+      FD_USER_PHONE, ([
+    		'0123456789']) ]),([
+    	FD_USER_EMAIL, ([
+    		'gensnet@garant.ru']) ]),([
+    	FD_LAW_SUPPORT_TEXT, ([
+    		cons_text[i]]) ]) ])
+    ];
+
+    res := SendConsultation(law_data, 'IsExtendedResult:=true');
+    //проверим только для первого элемента 
+    queryText := GetObjectText(GetFromLawSupport('КАРТОЧКА ЗАПРОСА').Selection);
+    if (i = 1) and (queryText <> '') then
+      Result := ErrorResult(FUNCTION_NAME + 'Поле ввода запроса не очищается после отправки консультации. Текст: "' + queryText + '"');
+    info := GetParam(res, 'InfoMsgText', '');
+    if GetParam(res, 'Result', false) then
+    begin
+      state := GetConsultationStatus(cons_text[i]);
+      if (state <> CS_PROCESSING_NO_NOTIFY) and (state <> CS_PROCESSING_WITH_NOTIFY) then
+      begin
+        Result := ErrorResult(FUNCTION_NAME + 'Отправленная консультация c текстом запроса "' + cons_text[i] + '" находится в состоянии с кодом "' + GetConsultationStatusName(state) + '"');
+        break;
+      end;
+    end
+    else
+    begin
+      Result := ErrorResult(FUNCTION_NAME + 'Отправка консультации c текстом запроса "' + cons_text[i] + '" завершилась неудачей. Текст информационного окна: "' + info + '"');
+      break;
+    end;
+  end;
+except
+  Result := false;  
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function ConfirmAllConsultations(var cons_text): boolean;
+const
+  FUNCTION_NAME = 'ConfirmAllConsultations: ';
+var
+  i;
+begin
+try
+  Result := true;
+	for i := VarArrayLowBound(cons_text, 1) to VarArrayHighBound(cons_text, 1) do
+  begin
+    if not ConfirmConsultation(cons_text[i]) then
+      Result := ErrorResult(FUNCTION_NAME + 'Не получилось подтвердить оплату консультации с именем "' + cons_text[i] + '"');
+  end;
+except
+  Result := false;  
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function DeleteAllAswersOnConsultation: boolean;
+const
+  FUNCTION_NAME = 'DeleteAllAswersOnConsultation: ';
+var
+  i;
+begin
+try
+  Result := false;
+  Result := not IsExists(PositionOnConsultation('*', 'ANSWERS'));
+  if not Result then
+  begin
+    i := 0;
+    while IsExists(PositionOnConsultation('*', 'ANSWERS')) and (i < DEL_ITER_MAX) do
+    begin
+      DelWithConfirm;
+      inc(i);
+    end;
+  Result := not IsExists(PositionOnConsultation('*', 'ANSWERS'));
+  end; 
+except
+  Result := false;  
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function CheckConsultationGroupStatus(cons_text, statustype: OleVariant; doWait: boolean = true): boolean;
+const
+  FUNCTION_NAME = 'CheckConsultationGroupStatus: ';
+var
+  i, j, st, w, wc;
+begin
+try
+  j := 0;
+  w := OpenMyDocTab;
+  repeat
+    if doWait then Delay(60*1000);
+    Result := true;
+		for i := VarArrayLowBound(cons_text, 1) to VarArrayHighBound(cons_text, 1) do    
+    begin
+      //Временно, заточка, пока не исправили ошибку!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //GoToMainMenu;
+      //
+      st := GetConsultationStatus(cons_text[i]);
+      if st <> statustype then
+      begin
+        Result := false;
+        if j = END_ITER then 
+          Log.Error(FUNCTION_NAME + 'Статус консультации "' + cons_text[i] + '" находится в коде "' + GetConsultationStatusName(st) + '", а должен в "' + GetConsultationStatusName(statustype) + '"');
+      end;
+      wc := PositionOnConsultation(cons_text[i]);
+      if not IsExists(wc) then
+         wc := PositionOnConsultation(cons_text[i]);
+      if not IsExists(wc) then
+        Log.Error(FUNCTION_NAME + 'Не получилось спозиционироваться на консультации "' + cons_text[i] + '"')
+      else
+      begin
+        if (st <> CS_ANSWER_READ) and (st <> CS_NOT_FOUND) and (st <> CS_UNKNOWN)
+           and OpenAndClickByPopUpMenuItem(wc, 'Оценить отве*') then
+        begin
+          Result := ErrorResult(FUNCTION_NAME + 'Найден пункт меню "Оценить ответ" для неоткрытого (или уже прочитанного) ответа на консультации');
+          Sys.Keys('[Esc]');
+        end;
+      end;
+    end;
+    inc(j);
+  until Result or (j > END_ITER);
+except
+  Result := false;  
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+
+function OpenAndRateAllConsultations(cons_text, cons_rate_type): boolean;
+const
+  FUNCTION_NAME = 'OpenAndRateAllConsultations: ';
+  CONSNAME = 'Консультация: ';
+var
+  i, j, consEditor, markRate, textTmp;
+begin
+try
+  Result := true;
+  textTmp := ''; for j := 1 to 60 do textTmp := textTmp + SYMBOLS_100;
+
+	for i := VarArrayLowBound(cons_text, 1) to VarArrayHighBound(cons_text, 1) do
+  begin
+    consEditor := ReadConsultation(cons_text[i]);
+    if not (IsExists(consEditor) and StringCompare('*' + cons_text[i] + '*', CopyToclipboard(consEditor, 'ALL'))) then
+      Result := ErrorResult(FUNCTION_NAME + 'Консультация "' + cons_text[i] + '" не открылась или не содержит своего названия в тексте');
+    if not StringCompare('*' + CONSNAME + cons_text[i] + '*)', GetFromProperties('', 'ПОЛЕ "ПРИМЕЧАНИЕ"', true)) then
+      Result := ErrorResult(FUNCTION_NAME + 'Не получили (или оно отличается от названия) примечание Консультации "' + cons_text[i] + '"');
+      
+    case i of
+      2: markRate := CS_RATE_NOT_SURE;
+      3: markRate := CS_RATE_TWO;
+    else
+      markRate := CS_RATE_FIVE;
+    end;
+
+    if (i = 1) then
+    begin
+      // проверяем ограничение в 6000 символов для первой консультации, оценка должна пройти    
+      if (not RateConsultation(cons_text[i], markRate, textTmp + 'sdgdfgdfgsd', 'HowToRate:=' + cons_rate_type[i])) then
+        Result := ErrorResult(FUNCTION_NAME + 'Не получилось поставить с ограничением в 6000 символов оценку "' + markRate + '" через "' + cons_rate_type[i] + '" для консультации "' + cons_text[i] + '". Либо текст оценки не обрезается до 6000 символов, либо оценка не работает!');
+    end
+    else
+    begin
+      // для всех кроме первой консультации
+      if not RateConsultation(cons_text[i], markRate, textTmp, 'HowToRate:=' + cons_rate_type[i]) then
+      begin 
+        Result := ErrorResult(FUNCTION_NAME + 'Не получилось поставить оценку "' + markRate + '" через "' + cons_rate_type[i] + '" для консультации "' + cons_text[i] + '"');
+        Sys.Keys('[F2]');
+        WaitForConfirmationWindow(Options.Run.Timeout div 5, 'Отмена');            
+      end
+      else
+      if RateConsultation(cons_text[i], markRate, SYMBOLS_100, 'HowToRate:=FROM TEXT') then
+        Result := ErrorResult(FUNCTION_NAME + 'Получилось повторно поставить оценку "' + markRate + '"  через ссылку "оценить ответ" для консультации "' + cons_text[i] + '"');
+    end;
+  end;
+except
+  Result := false;  
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function OpenConsultationByClickOnNotifyIcon(var cons_text): boolean;
+const
+  FUNCTION_NAME = 'OpenConsultationByClickOnNotifyIcon: ';
+var 
+  i, text_w, message_str;
+begin
+try
+  Result := true;
+  if not ClickOnVgSceneObject(GetFromMainWindow('ЗНАЧОК: ОТВЕТ НА КОНСУЛЬТАЦИИ')) then
+    Result := ErrorResult(FUNCTION_NAME + 'Не получилось кликнуть по ЗНАЧКУ ОТВЕТ НА КОНСУЛЬТАЦИИ')
+  else
+  begin
+    text_w := GetFromMainWindow('ОКНО СООБЩЕНИЯ ЗНАЧКА ОТВЕТ НА КОНСУЛЬТАЦИИ');
+    if not IsExists(text_w) then
+      Result := ErrorResult(FUNCTION_NAME + 'Не найдено "ОКНО СООБЩЕНИЯ ЗНАЧКА ОТВЕТ НА КОНСУЛЬТАЦИИ"')
+    else
+    begin
+      message_str := 'Получены ответы или уведомления от службы Правовой поддержки онлайн. Перейти к тексту ответа.';
+      if not StringCompare(message_str, text_w.Selection.CurrentObjectText) then
+        Result := ErrorResult(FUNCTION_NAME + 'Содержимое информационного сообщения значка консультации "' + text_w.Selection.CurrentObjectText + '" не совпадает с эталоном "' + message_str + '"');
+      // кликаем по ссылке "Перейти к тексту ответа", заданной XY
+      for i := VarArrayLowBound(cons_text, 1) to VarArrayHighBound(cons_text, 1) do
+      begin      
+        if not CloseConsultingReminder then
+          Result := ErrorResult(FUNCTION_NAME + 'Не получилось кликнуть по ссылке "Перейти к тексту ответа"');
+        WaitForConfirmationWindow(Options.Run.Timeout div 5, 'Отмена');
+      end;
+    end;
+  end;
+  if not Result then
+    Raise('Не получилось перейти к тексту пришедшего уведомления (ответа) консультации');
+except
+  Result := false;  
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+-ConsultingServerCheckTimeout=30
+//Emu
+IntervalAfterNotification=160000
+CheckInterval=5000           
+}
+function  HLTC337_5_3_Execute(var  current_state: OleVariant): OleVariant;
+  const
+    hintCaption = 'Получены ответы или уведомления от службы Правовой поддержки онлайн';
+    FUNCTION_NAME = 'HLTC337_5_3_Execute';
+  var
+    i, j, iconAnswers;
+    cons_text, cons_rate_type: array[1 .. N] of string;
+begin
+try
+  Result := true;
+  if not RestartF1Shell(3, Options.Run.Timeout div 3, FUNCTION_NAME, FUNCTION_NAME) then
+    Raise('Не получилось перезапустить оболочку с логином/паролем "' + FUNCTION_NAME + '"');   
+  
+  if not StopCsChecker then
+    Raise('Не получилось остановить автоответчик!');
+  if not DeleteAllAswersOnConsultation then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не получилось удалить все ответы на конcультации');
+
+  //1. Отправляем запросы консультаций   
+  if CreateAndSendRandomConsultations(cons_text, cons_rate_type) then
+    Log.Message(FUNCTION_NAME + ': ' + 'Консультации упешно отправлены')
+  else
+    Raise('Не получилось отправить все консультации!');
+    
+  //2. Тексты консультаций отправлены, ждем прихода нотификаций
+  if not StartCsChecker then
+    Raise('Не получилось включить автоответчик!');
+  if not CheckConsultationGroupStatus(cons_text, CS_PROCESSING_WITH_NOTIFY) then
+    Raise('Не на все консультации пришли нотификации, продолжение скрипта невозможно');
+  //2.1 Проверяем значек уведомления о пришедщих нотификациях  
+  if not GoToMainMenu then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не получилось открыть ОМ');
+  if not IsExists(GetFromMainWindow('ЗНАЧОК: ОТВЕТ НА КОНСУЛЬТАЦИИ')) then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Нет значка после прихода уведомлений на оплату консультаций!');
+  // отключаем на новых vg-говномедальках
+  { 
+  else
+  begin
+    if not (CloseConsultingReminder and IsExists(GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ'))) then
+      Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не найден текст уведомления (ответа) консультации после клика на иконке');
+  end;
+  }    
+
+  //3. Подтверждаем все консультации
+  if not StopCsChecker then
+    Raise('Не получилось остановить автоответчик!');
+  if not ConfirmAllConsultations(cons_text) then
+    Raise('Не все консультации получилось подтведить на оплату!');
+  //3.1 Значок должен пропасть после подтверждения консультаций
+  if IsExists(GetFromMainWindow('ЗНАЧОК: ОТВЕТ НА КОНСУЛЬТАЦИИ')) then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Найден значек, когда все уведомления на оплату консультаций подтверждены!');
+    
+  //4. Проверяем все ли подтверждены
+  if not CheckConsultationGroupStatus(cons_text, CS_PROCESSING_CONFIRM, false) then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не у всех консультаций статус подтвержденной к оплате консультации!');
+    
+  //5. Ждем ответы          
+  if not StartCsChecker then
+    Raise('Не получилось включить автоответчик!');
+  if not CheckConsultationGroupStatus(cons_text, CS_ANSWER_UNREAD) then
+    Raise('Не на все консультации пришли ответы, продолжение скрипта невозможно');
+  //5.1 Проверяем хинт и значек уведомления о пришедщих ответах  
+  if not IsExists(OpenMenuTab) then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не получилось открыть вкладку Меню');
+  if not IsExists(GetFromMainWindow('ЗНАЧОК: ОТВЕТ НА КОНСУЛЬТАЦИИ')) then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Нет медали "Получен ответ на консультацию"')
+  else
+  begin
+    iconAnswers := GetFromMainWindow('ЗНАЧОК: ОТВЕТ НА КОНСУЛЬТАЦИИ');      
+    if not StringCompare(
+          GetHintTextByCoords(iconAnswers.ScreenLeft + iconAnswers.Width div 2,
+                              iconAnswers.ScreenTop + iconAnswers.Height div 2), hintCaption) then
+      Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не найден правильный хинт на синем значке: "' + hintCaption + '"');
+    if not (OpenConsultationByClickOnNotifyIcon(cons_text) and IsExists(GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ'))) then
+      Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не найден текст уведомительной консультации после клика на иконке!');
+  end;    
+  
+  //6 Открываем ответы для просмотра и оценки
+  if not OpenAndRateAllConsultations(cons_text, cons_rate_type) then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не получилось открыть все ответы (или правильно их оценить)');
+  //6.1 Значок должен пропасть после просмотра всех ответов  
+  if IsExists(GetFromMainWindow('ЗНАЧОК: ОТВЕТ НА КОНСУЛЬТАЦИИ')) then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Видна медалька "Получен ответ на консультацию" после просмотра всех ответов (консультаций)');
+  if IsExists(GetFromMainWindow('ОКНО СООБЩЕНИЯ ЗНАЧКА ОТВЕТ НА КОНСУЛЬТАЦИИ')) then    
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Информационное сообщение значка консультации не закрылось!');
+  //6.2 Проверяем, что все ответы прочитаны
+  if not CheckConsultationGroupStatus(cons_text, CS_ANSWER_READ, false) then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не все ответы на консультации с соответствующей иконкой'); 
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  if not DeleteAllAswersOnConsultation then
+    Result := ErrorResult(FUNCTION_NAME + ': ' + 'Не получилось удалить все ответы на конcультации');
+  StartCsChecker;
+  GoToMainMenu;
+end;
+
+{
+  HLTC337.5.3.1: По кнопке «Отправить запрос» система помещает его в папку "исходящие запросы" и дает пользователю возможность работать с системой дальше. Затем система автоматически пытается отправить запрос. Проверяется доступность сервиса консультаций.
+    HLTC337.5.3.1.1: При недоступности по техническим причинам(нет интернета) и при недоступности сервера валидации вызывается диалог «Ошибка связи при попытке отправить запрос на сервер службы Правовой поддержки. Ваш запрос сохранен в папке "Мои консультации", система будет автоматически повторять попытку его передачи.
+    HLTC337.5.3.5: Пользователь может в любой момент удалить запрос из папки "Исходящие запросы", тем самым отказавшись от попыток его дальшнейшей отправки
+}
+function  HLTC337_5_3_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONS_NAME = 'HLTC337_5_3_1';
+var
+  info;
+begin
+try
+  Result := true;
+
+  CloseF1Shell;  
+  if not SetValueToGarantINI('F1Server Params', '-ConsultingServerAddress',  'notvalid.garant.ru') then
+    Raise('Не получилось прописать несуществующий СК в garant.ini');    
+  if not RestartF1Shell(3, Options.Run.Timeout div 3, CONS_NAME, CONS_NAME) then
+    Raise('Не получилось перезапустить оболочку с логином/паролем "' + FUNCTION_NAME + '"');   
+
+  info := GetParam( SendConsultation([
+                    	  CARD_LAW_SUPPORT, ([([
+                      	FD_USER_NAME, ([
+                      		'ФИО']) ]),([
+                        FD_CITY_CODE, ([
+                      		'0123456789']) ]),([
+                        FD_USER_PHONE, ([
+                      		'01234567890123456789']) ]),([
+                      	FD_USER_EMAIL, ([
+                      		CONS_NAME]) ]),([
+                      	FD_LAW_SUPPORT_TEXT, ([
+                      		CONS_NAME]) ]) ])
+                      ], 'IsExtendedResult:=true'),
+                   'WarningMsgText', '');
+  if not StringCompare('*Ошибка связи*', info) then
+    Raise('При попытке отправить запрос на несуществующий СК, не было сообщения об ошибке связи. Текст появившегося сообщения: "' + info + '"');
+  if not DeleteConsultation(CONS_NAME, 'OUTBOX') then
+    Raise('Не получилось удалить запрос консультации "' + CONS_NAME + '" из папки Исходящие');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+HLTC337.5.3.8: Проверка условий подключения к услуге ППО
+  HLTC337.5.3.8.1: При клике на эту ссылку показывается окно с подтверждением отправки запроса.
+  HLTC337.5.3.8.2: Автоматически формируется и отправляется запрос на консультацию с текстом: "Проверить условия подключения к услуге Правовая поддержка онлайн".
+  HLTC337.5.3.8.3: При отправке запроса не проверяется заполненность полей, но если они заполнены, то эти данные также отправляются.
+  HLTC337.5.3.8.4: После отправки запроса показывается сообщение об успешной отправке.
+}
+function ClickByLawSupportTestHyperlink: boolean;
+const
+  FUNCTION_NAME = 'ClickByLawSupportTestHyperlink: ';
+begin
+  try
+    Result := MoveMouseToObject(GetFromLawSupport('КАРТОЧКА ЗАПРОСА'), 'start_law_support_test_hyperlink.bmp', 10, 16, true);
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+function  HLTC337_5_3_8_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'HLTC337_5_3_8_Execute';
+var
+  confirmation_string;
+begin
+try
+  Result := true;
+  if not RestartF1Shell(3, Options.Run.Timeout div 3, FUNCTION_NAME, FUNCTION_NAME) then
+    Raise('Не получилось перезапустить оболочку с логином/паролем "' + FUNCTION_NAME + '"');   
+  
+  if not GoToLawSupport then
+    Raise('Не получилось открыть КЗ Правовой поддержки');
+  if not ClickByLawSupportTestHyperlink then
+    Raise('Не получилось кликнуть по ссылке "Проверить условия подключения..."');
+  //проверка нажатия 'Нет'
+  confirmation_string := WaitForConfirmationWindow(Options.Run.Timeout div 10, 'Нет');
+  if confirmation_string = '' then
+    Result := Errorresult('Окно подтверждения "Отправить запрос на проверку условий подключения услуги Правовая поддержка онлайн?" не найдено!');
+  
+  if not ClickByLawSupportTestHyperlink then
+    Raise('Не получилось кликнуть по ссылке "Проверить условия подключения..."');
+  //проверка нажатия 'Да'
+  confirmation_string := WaitForConfirmationWindow(Options.Run.Timeout div 10);
+  if confirmation_string = '' then
+    Result := Errorresult('Окно подтверждения "Отправить запрос на проверку условий подключения услуги Правовая поддержка онлайн?" не найдено!');
+  confirmation_string := WaitForInfoWindow(Options.Run.Timeout div 10);
+  if confirmation_string = '' then
+    Result := Errorresult('Инфо окно с успешным результатом отправки тестового запроса не было найдено!');
+except
+  Result := false;
+  Log.Error('HLTC337_5_8_Execute: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  if not DeleteAllAswersOnConsultation then
+    ErrorResult('Не получилось удалить все ответы на конcультации');
+  GoToMainMenu;
+end;
+
+{
+  HLTC337.5.14.7: Если пользователь отказывается от предложенной оплаты, то ему выводится 
+  сообщение «Вы отказались от получения консультации эксперта службы Правового консалтинга. 
+  Ваш запрос перемещен в папку «Ответы» в разделе «Мои консультации».», консультация  
+  перемещается в папку «Ответы». Ее можно открыть и прочитать, т.к. она будет содержать бесплатный ответ.
+  HLTC337.5.16.6: Если открытая форма консультации содержит список, то пользователь может 
+  модифицировать его аналогично любому другому списку системы. При повторном открытии ответа список 
+  будет представлен в первоначальном виде. Проверить работу с большим списком(сохранение, 
+  скроллирование, предварительный просмотр).
+  HLTC337.5.16.5: С текстом ответа доступны следующие операции(через кнопки на панели инструментов): 
+  сохранение в файл, экспорт в word, поиск контекста, предварительный просмотр, печать.
+}
+function  HLTC337_5_14_7_Execute(var  current_state: OleVariant): OleVariant;
+  const
+    FUNCTION_NAME = 'HLTC337_5_14_7_Execute';
+  var
+    consList;
+    cons_text, cons_rate_type: array[1 .. 1] of string;
+begin
+try
+  Result := true;
+  if not RestartF1Shell(3, Options.Run.Timeout div 3, FUNCTION_NAME, FUNCTION_NAME) then
+    Raise('Не получилось перезапустить оболочку с логином/паролем "' + FUNCTION_NAME + '"');   
+
+  //1. Отправляем запрос консультации
+  if CreateAndSendRandomConsultations(cons_text, cons_rate_type) then
+    Log.Message('Консультация упешно отправлена')
+  else
+    Raise('Не получилось отправить консультацию!');
+  //2. Тексты консультаций отправлены, ждем прихода нотификаций
+  if not CheckConsultationGroupStatus(cons_text, CS_PROCESSING_WITH_NOTIFY) then
+    Raise('Не пришла нотификация консультации, продолжение скрипта невозможно');
+  //3. Не подтверждаем консультацию
+  if not ConfirmConsultation(cons_text[1], 'ConfirmLinkName:=' + CS_LINK_NO) then
+    Raise('Не получилось НЕ подтведить консультацию с именем "' + cons_text[1] + '" на оплату!');
+  //4. Смотрим ее в папке ответы          
+  if not CheckConsultationGroupStatus(cons_text, CS_ANSWER_READ, false) then
+    Raise('Не найдена НЕ подтвержденная консультация (ответы), продолжение скрипта невозможно');
+  //5. Открываем консультацию
+  if not IsExists(ReadConsultation(cons_text[1])) then
+    Result := ErrorResult('Не получилось открыть конультацию "' + cons_text[1] + '" из папки "Ответы"');
+  //5.1 Проверяем имя сохраняемого файла ответа    
+  Result := CheckSavedFileName(GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ'), 'Текст консультации*')
+            and Result;
+  //5.2 Экспортируем в Word
+  if not ExportToWord(GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ'), ['*' + cons_text[1] + '*', '*Ваш запрос:*']) then
+    Result := ErrorResult('Не получилось экспортировать конультацию "' + cons_text[1] + '" в Word');    
+              
+  //6. Проверяем список документов к консультации
+  if not SwitchToPage(GetFromConsultations('ЗАКЛАДКИ'), 'Список') then
+    Result := ErrorResult('Не получилось открыть список из конультации "' + cons_text[1] + '"')
+  else
+  begin
+    consList := GetFromConsultations('СПИСОК');
+    if not IsExists(consList) then
+      Result := ErrorResult('Не найден спиок документов в неподтвержденной консультации')
+    else
+    begin
+      if not FindInList(
+        [
+        ([FL_EXISTS_INT, 'Конституция Российской Федерации*']),    
+        ([FL_EXISTS_INT, 'Договор "О создании Союзного государства"*']),    
+        ([FL_NUMBER_BIG, '54'])
+        ], consList) then 
+        Result := ErrorResult('Список документов в консультации не соответствует эталону!');
+      //6.1 Проверяем имя сохраняемого файла списка
+      Result := CheckSavedFileName(consList, 'Список документов к ответу Правовой поддержки онлайн на вопрос*' + cons_text[1] + '*')
+                and Result;
+      //6.2 Удаляем все документы списка
+      PressKeyWithCheck(['^a'], consList);
+      DelWithConfirm;
+      if not IsExists(GetFromConsultations('ПУСТОЙ СПИСОК')) then
+        Result := ErrorResult('После удаления всех документов списка не найден .');
+    end;
+  end;
+
+  //7. Удаляем консультацию  
+  if not (IsExists(PositionOnConsultation(cons_text[1], 'ANSWERS')) and DelWithConfirm) then
+    Result := ErrorResult('Не получилось удалить конультацию "' + cons_text[1] + '" из папки "Ответы"');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC337.5.14.8: Консультации в папке «Неподтвержденные» пользователь может открыть или удалить.
+  HLTC337.5.3.1.2: При недоступности по организационным причинам(не пройдена авторизация на сервере валидаций) выдается сообщение "Услуга не активирована. Обратитесь в обслуживающую Вас организацию. <dialer.inf>" и запрос помещается в папку неподтвержденные.  
+}
+// Расчитан на невалидированную базу!!!
+function  HLTC337_5_14_8_Execute(var  current_state: OleVariant): OleVariant;
+  const
+    FUNCTION_NAME = 'HLTC337_5_14_8_Execute';
+    CONSULTATION_NAME = FUNCTION_NAME;
+  var
+    resStatus;
+begin
+try
+  Result := true;
+  if not RestartF1Shell(3, Options.Run.Timeout div 3, FUNCTION_NAME, FUNCTION_NAME) then
+    Raise('Не получилось перезапустить оболочку с логином/паролем "' + FUNCTION_NAME + '"');
+       
+  //Отправляем
+  if SendConsultation (
+      [
+    	  CARD_LAW_SUPPORT, ([([
+      	FD_USER_NAME, ([
+      		'Фамилия Имя Отчество пользователя системой консалтинга']) ]),([
+        FD_CITY_CODE, ([
+      		'0123456789']) ]),([
+        FD_USER_PHONE, ([
+      		'0123456789']) ]),([
+      	FD_USER_EMAIL, ([
+      		'gensnet@garant.ru']) ]),([
+      	FD_LAW_SUPPORT_TEXT, ([
+      		CONSULTATION_NAME]) ]) ])
+      ]) then Raise('Получилось отправить консультацию на невалидированной базе (от 27 сентября, проверьте базу)');
+  
+    //Проверяем, должна поместиться в папку "Неподтвержденные"  
+    resStatus := GetConsultationStatus(CONSULTATION_NAME);
+    if resStatus <> CS_UNCONFIRMED then
+      Result := ErrorResult('Статус консультации "' + CONSULTATION_NAME + '" находится в коде "' + GetConsultationStatusName(resStatus) + '", а должен в "' + GetConsultationStatusName(CS_UNCONFIRMED) + '"');
+
+    //Открываем консультацию
+    if not IsExists(ReadConsultation(CONSULTATION_NAME)) then
+      Result := ErrorResult('Не получилось открыть конультацию "' + CONSULTATION_NAME + '" из папки "Неподтверженные"');
+    
+    //Удаляем консультацию  
+    if not (IsExists(PositionOnConsultation(CONSULTATION_NAME, 'UNCONFIRMED')) and DelWithConfirm) then
+      Result := ErrorResult('Не получилось удалить конультацию "' + CONSULTATION_NAME + '" из папки "Неподтверженные"');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests337;
+var i, p, w, textTmp;
+begin
+//  HLTC337_5_1_Execute(p);
+//  HLTC337_5_2_Execute(p);
+//  HLTC337_5_2_6_Execute(p);
+//  HLTC337_5_3_Execute(p);
+//  HLTC337_5_3_1_Execute(p);
+//  HLTC337_5_3_8_Execute(p);
+//  HLTC337_5_5_Execute(p);
+//  HLTC337_5_5_2_Execute(p);
+//  HLTC337_5_7_Execute(p);
+//  HLTC337_5_14_7_Execute(p);
+//  HLTC337_5_14_8_Execute(p);
+///////////////////////////////////////
+    
+
+
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+end;

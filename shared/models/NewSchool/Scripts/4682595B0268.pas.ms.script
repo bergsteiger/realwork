@@ -1,0 +1,4358 @@
+// l3TreeInterfaces 4682595B0268 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4682595B0268
+
+: ME_47AAFE470329
+ CONST UID '47AAFE470329'
+ CONST GUID '4A85EA5F-CCB1-4250-A410-635227213794'
+ CONST Name 'Il3Nodes'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'контейнер узлов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+
+ref; // ME_47AAFE470329 Il3Nodes
+
+FORWARD ME_46825C5A01B6
+
+: ME_46A44F6B035E_ME_46825C5A01B6
+ CONST UID '46A44F6B035E'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_46A44F6B035E' '4677FBA70343.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_46825C5A01B6 // Il3NotifySource
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44F6B035E_ME_46825C5A01B6 Subscribe
+
+: ME_46A44FFE0143_ME_46825C5A01B6
+ CONST UID '46A44FFE0143'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_46A44FFE0143' '4677FBA70343.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_46825C5A01B6 // Il3NotifySource
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44FFE0143_ME_46825C5A01B6 Unsubscribe
+
+: ME_46825C5A01B6
+ CONST UID '46825C5A01B6'
+ CONST GUID '714F2774-DCFE-4ACE-B48B-1EE8885A6170'
+ CONST Name 'Il3NotifySource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Объект, рассылающий нотификацию об изменении структуры.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_46A44F6B035E_ME_46825C5A01B6 // Subscribe
+ ME_46A44FFE0143_ME_46825C5A01B6 // Unsubscribe
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_46825C5A01B6 Il3NotifySource
+
+FORWARD ME_468259900322
+
+FORWARD ME_4772530401CA
+
+: ME_47AB08460041
+ CONST UID '47AB08460041'
+ CONST Name 'rMultiSelection'
+ CONST Class class_Attribute
+ %SUMMARY 'выделен один или много' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4772530401CA // Tl3TreeData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47AB08460041 rMultiSelection
+
+: ME_47AB0AA60186
+ CONST UID '47AB0AA60186'
+ CONST Name 'rNode'
+ CONST Class class_Attribute
+ %SUMMARY 'выбранный узел.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4772530401CA // Tl3TreeData
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47AB0AA60186 rNode
+
+: ME_47AB0ABF0342
+ CONST UID '47AB0ABF0342'
+ CONST Name 'rNodes'
+ CONST Class class_Attribute
+ %SUMMARY 'выбранные узлы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4772530401CA // Tl3TreeData
+ ;
+ : Target ME_47AAFE470329 // Il3Nodes
+ ;
+
+ref; // ME_47AB0ABF0342 rNodes
+
+: ME_4772530401CA
+ CONST UID '4772530401CA'
+ CONST Name 'Tl3TreeData'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Запись с данными о перемещаемом объекте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_47AB08460041 // rMultiSelection
+ ME_47AB0AA60186 // rNode
+ ME_47AB0ABF0342 // rNodes
+ ) .SequenceCode.It
+ ; // Attributes
+ : Forwarded
+   @ ( ME_468259900322 // Il3SimpleNode
+ ) .SequenceCode.It
+ ; // Forwarded
+
+ref; // ME_4772530401CA Tl3TreeData
+
+: ME_477242700004
+ CONST UID '477242700004'
+ CONST Name 'Flags'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_477242700004 Flags
+
+: ME_4772429202E4
+ CONST UID '4772429202E4'
+ CONST Name 'ThisChildrenCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'число дочерних элементов, БЕЗ детей всех вложенные.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4772429202E4 ThisChildrenCount
+
+: ME_477242A40219
+ CONST UID '477242A40219'
+ CONST Name 'IndexInParent'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'индекс узла в родительском.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_477242A40219 IndexInParent
+
+: ME_47723E8C0086
+ CONST UID '47723E8C0086'
+ CONST Name 'Text'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'текст узла.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A455F7018F' '4677FBA70343.pas.ms.script' // Tl3PCharLenPrim
+ ;
+ CONST "pm" false
+
+ref; // ME_47723E8C0086 Text
+
+: ME_4772408A0361
+ CONST UID '4772408A0361'
+ CONST Name 'Parent'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'родительский узел.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST "pm" false
+
+ref; // ME_4772408A0361 Parent
+
+: ME_477240B10267
+ CONST UID '477240B10267'
+ CONST Name 'Child'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'первый дочерний элемент.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST "pm" false
+
+ref; // ME_477240B10267 Child
+
+: ME_477241AC00B9
+ CONST UID '477241AC00B9'
+ CONST Name 'Next'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Следующий сосед.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST "pm" false
+
+ref; // ME_477241AC00B9 Next
+
+FORWARD ME_4772423302AF
+
+: ME_4772424200A7
+ CONST UID '4772424200A7'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4772423302AF // Flag
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4772424200A7 anIndex
+
+: ME_4772423302AF
+ CONST UID '4772423302AF'
+ CONST Name 'Flag'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Attributes
+   @ ( ME_4772424200A7 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_4772423302AF Flag
+
+: ME_47B5759A03C0
+ CONST UID '47B5759A03C0'
+ CONST Name 'Prev'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Предыдущий сосед.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST "pm" false
+
+ref; // ME_47B5759A03C0 Prev
+
+: ME_47723CDB00A4
+ CONST UID '47723CDB00A4'
+ CONST Name 'IsFirst'
+ CONST Class class_Operation
+ %SUMMARY 'это первый узел внутри родителя?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47723CDB00A4 IsFirst
+
+: ME_47723CFF0148
+ CONST UID '47723CFF0148'
+ CONST Name 'IsLast'
+ CONST Class class_Operation
+ %SUMMARY 'это последний узел внутри родителя?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47723CFF0148 IsLast
+
+: ME_47723D0F0392
+ CONST UID '47723D0F0392'
+ CONST Name 'HasChild'
+ CONST Class class_Operation
+ %SUMMARY 'есть ли дочерние узлы?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47723D0F0392 HasChild
+
+: ME_47723D1D03D6
+ CONST UID '47723D1D03D6'
+ CONST Name 'MaybeChild'
+ CONST Class class_Operation
+ %SUMMARY 'может ли иметь дочерние узлы?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47723D1D03D6 MaybeChild
+
+: ME_47723D2E0051
+ CONST UID '47723D2E0051'
+ CONST Name 'GetLevel'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47723D2E0051 GetLevel
+
+: ME_47723D4103D3
+ CONST UID '47723D4103D3'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47723D4103D3 aNode
+
+: ME_47723D3B0058
+ CONST UID '47723D3B0058'
+ CONST Name 'GetLevelFor'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_47723D4103D3 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47723D3B0058 GetLevelFor
+
+: ME_47723D590146
+ CONST UID '47723D590146'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47723D590146 aNode
+
+: ME_47723D4C0360
+ CONST UID '47723D4C0360'
+ CONST Name 'IsSame'
+ CONST Class class_Operation
+ %SUMMARY 'сравнивает ноды.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_47723D590146 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47723D4C0360 IsSame
+
+: ME_47723DB901CA
+ CONST UID '47723DB901CA'
+ CONST Name 'IsDisappeared'
+ CONST Class class_Operation
+ %SUMMARY 'True если интерфейс на удаленную ноду,'#13#10'             применяется в виртуальных нодах - указателях на данные.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47723DB901CA IsDisappeared
+
+: ME_47723DD802A8
+ CONST UID '47723DD802A8'
+ CONST Name 'aUserParam'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_47723DD802A8 aUserParam
+
+: ME_47723DD1008F
+ CONST UID '47723DD1008F'
+ CONST Name 'BeginMove'
+ CONST Class class_Operation
+ %SUMMARY 'начать перемещение узла.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Parameters
+   @ ( ME_47723DD802A8 // aUserParam
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47723DD1008F BeginMove
+
+: ME_47723DE50370
+ CONST UID '47723DE50370'
+ CONST Name 'aUserParam'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_47723DE50370 aUserParam
+
+: ME_47723DE0009F
+ CONST UID '47723DE0009F'
+ CONST Name 'EndMove'
+ CONST Class class_Operation
+ %SUMMARY 'закончить перемещение узла.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Parameters
+   @ ( ME_47723DE50370 // aUserParam
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47723DE0009F EndMove
+
+: ME_47723DED006A
+ CONST UID '47723DED006A'
+ CONST Name 'Delete'
+ CONST Class class_Operation
+ %SUMMARY 'удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47723DED006A Delete
+
+: ME_4A68012202AE
+ CONST UID '4A68012202AE'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4772530401CA // Tl3TreeData
+ ;
+
+ref; // ME_4A68012202AE aData
+
+: ME_47A86F070101
+ CONST UID '47A86F070101'
+ CONST Name 'CanAcceptData'
+ CONST Class class_Operation
+ %SUMMARY 'может ли узел принять данные' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4A68012202AE // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47A86F070101 CanAcceptData
+
+: ME_4A6801290282
+ CONST UID '4A6801290282'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4772530401CA // Tl3TreeData
+ ;
+
+ref; // ME_4A6801290282 aData
+
+: ME_47A86F1C016B
+ CONST UID '47A86F1C016B'
+ CONST Name 'DropData'
+ CONST Class class_Operation
+ %SUMMARY 'принять данные' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4A6801290282 // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47A86F1C016B DropData
+
+: ME_47ADA09C019B
+ CONST UID '47ADA09C019B'
+ CONST Name 'CanMove'
+ CONST Class class_Operation
+ %SUMMARY 'определяет возможность перемещения узла' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468259900322 // Il3SimpleNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47ADA09C019B CanMove
+
+: ME_468259900322
+ CONST UID '468259900322'
+ CONST GUID 'EA766D65-F343-4EF0-913E-70F7ACEAD59D'
+ CONST Name 'Il3SimpleNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Узел дерева.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_477242700004 // Flags
+ ME_4772429202E4 // ThisChildrenCount
+ ME_477242A40219 // IndexInParent
+ ME_47723E8C0086 // Text
+ ME_4772408A0361 // Parent
+ ME_477240B10267 // Child
+ ME_477241AC00B9 // Next
+ ME_4772423302AF // Flag
+ ME_47B5759A03C0 // Prev
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_47723CDB00A4 // IsFirst
+ ME_47723CFF0148 // IsLast
+ ME_47723D0F0392 // HasChild
+ ME_47723D1D03D6 // MaybeChild
+ ME_47723D2E0051 // GetLevel
+ ME_47723D3B0058 // GetLevelFor
+ ME_47723D4C0360 // IsSame
+ ME_47723DB901CA // IsDisappeared
+ ME_47723DD1008F // BeginMove
+ ME_47723DE0009F // EndMove
+ ME_47723DED006A // Delete
+ ME_47A86F070101 // CanAcceptData
+ ME_47A86F1C016B // DropData
+ ME_47ADA09C019B // CanMove
+ ) .SequenceCode.It
+ ; // Operations
+ : Injected
+   @ ( WL 'ME_3D9666E90F19' '54EF44350184.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+
+ref; // ME_468259900322 Il3SimpleNode
+
+FORWARD ME_468274930190
+
+: ME_4772433F0008
+ CONST UID '4772433F0008'
+ CONST Name 'CanExpandCollapseAll'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468274930190 // Il3SimpleRootNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4772433F0008 CanExpandCollapseAll
+
+: ME_4772434B01BB
+ CONST UID '4772434B01BB'
+ CONST Name 'anExpand'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4772434B01BB anExpand
+
+: ME_47724349030A
+ CONST UID '47724349030A'
+ CONST Name 'ExpandCollapseAll'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_468274930190 // Il3SimpleRootNode
+ ;
+ : Parameters
+   @ ( ME_4772434B01BB // anExpand
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47724349030A ExpandCollapseAll
+
+: ME_47723CDB00A4_ME_468274930190
+ CONST UID '47723CDB00A4'
+ CONST Name 'IsFirst'
+ : Original ME_47723CDB00A4 // IsFirst
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723CDB00A4_ME_468274930190 IsFirst
+
+: ME_47723CFF0148_ME_468274930190
+ CONST UID '47723CFF0148'
+ CONST Name 'IsLast'
+ : Original ME_47723CFF0148 // IsLast
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723CFF0148_ME_468274930190 IsLast
+
+: ME_47723D0F0392_ME_468274930190
+ CONST UID '47723D0F0392'
+ CONST Name 'HasChild'
+ : Original ME_47723D0F0392 // HasChild
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D0F0392_ME_468274930190 HasChild
+
+: ME_47723D1D03D6_ME_468274930190
+ CONST UID '47723D1D03D6'
+ CONST Name 'MaybeChild'
+ : Original ME_47723D1D03D6 // MaybeChild
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D1D03D6_ME_468274930190 MaybeChild
+
+: ME_47723D2E0051_ME_468274930190
+ CONST UID '47723D2E0051'
+ CONST Name 'GetLevel'
+ : Original ME_47723D2E0051 // GetLevel
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D2E0051_ME_468274930190 GetLevel
+
+: ME_47723D3B0058_ME_468274930190
+ CONST UID '47723D3B0058'
+ CONST Name 'GetLevelFor'
+ : Original ME_47723D3B0058 // GetLevelFor
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D3B0058_ME_468274930190 GetLevelFor
+
+: ME_47723D4C0360_ME_468274930190
+ CONST UID '47723D4C0360'
+ CONST Name 'IsSame'
+ : Original ME_47723D4C0360 // IsSame
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D4C0360_ME_468274930190 IsSame
+
+: ME_47723DB901CA_ME_468274930190
+ CONST UID '47723DB901CA'
+ CONST Name 'IsDisappeared'
+ : Original ME_47723DB901CA // IsDisappeared
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723DB901CA_ME_468274930190 IsDisappeared
+
+: ME_47723DD1008F_ME_468274930190
+ CONST UID '47723DD1008F'
+ CONST Name 'BeginMove'
+ : Original ME_47723DD1008F // BeginMove
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723DD1008F_ME_468274930190 BeginMove
+
+: ME_47723DE0009F_ME_468274930190
+ CONST UID '47723DE0009F'
+ CONST Name 'EndMove'
+ : Original ME_47723DE0009F // EndMove
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723DE0009F_ME_468274930190 EndMove
+
+: ME_47723DED006A_ME_468274930190
+ CONST UID '47723DED006A'
+ CONST Name 'Delete'
+ : Original ME_47723DED006A // Delete
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723DED006A_ME_468274930190 Delete
+
+: ME_47723E8C0086_ME_468274930190
+ CONST UID '47723E8C0086'
+ CONST Name 'Text'
+ : Original ME_47723E8C0086 // Text
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47723E8C0086_ME_468274930190 Text
+
+: ME_4772408A0361_ME_468274930190
+ CONST UID '4772408A0361'
+ CONST Name 'Parent'
+ : Original ME_4772408A0361 // Parent
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772408A0361_ME_468274930190 Parent
+
+: ME_477240B10267_ME_468274930190
+ CONST UID '477240B10267'
+ CONST Name 'Child'
+ : Original ME_477240B10267 // Child
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477240B10267_ME_468274930190 Child
+
+: ME_477241AC00B9_ME_468274930190
+ CONST UID '477241AC00B9'
+ CONST Name 'Next'
+ : Original ME_477241AC00B9 // Next
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477241AC00B9_ME_468274930190 Next
+
+: ME_4772423302AF_ME_468274930190
+ CONST UID '4772423302AF'
+ CONST Name 'Flag'
+ : Original ME_4772423302AF // Flag
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772423302AF_ME_468274930190 Flag
+
+: ME_477242700004_ME_468274930190
+ CONST UID '477242700004'
+ CONST Name 'Flags'
+ : Original ME_477242700004 // Flags
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477242700004_ME_468274930190 Flags
+
+: ME_4772429202E4_ME_468274930190
+ CONST UID '4772429202E4'
+ CONST Name 'ThisChildrenCount'
+ : Original ME_4772429202E4 // ThisChildrenCount
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772429202E4_ME_468274930190 ThisChildrenCount
+
+: ME_477242A40219_ME_468274930190
+ CONST UID '477242A40219'
+ CONST Name 'IndexInParent'
+ : Original ME_477242A40219 // IndexInParent
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_477242A40219_ME_468274930190 IndexInParent
+
+: ME_47A86F070101_ME_468274930190
+ CONST UID '47A86F070101'
+ CONST Name 'CanAcceptData'
+ : Original ME_47A86F070101 // CanAcceptData
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47A86F070101_ME_468274930190 CanAcceptData
+
+: ME_47A86F1C016B_ME_468274930190
+ CONST UID '47A86F1C016B'
+ CONST Name 'DropData'
+ : Original ME_47A86F1C016B // DropData
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47A86F1C016B_ME_468274930190 DropData
+
+: ME_47ADA09C019B_ME_468274930190
+ CONST UID '47ADA09C019B'
+ CONST Name 'CanMove'
+ : Original ME_47ADA09C019B // CanMove
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47ADA09C019B_ME_468274930190 CanMove
+
+: ME_47B5759A03C0_ME_468274930190
+ CONST UID '47B5759A03C0'
+ CONST Name 'Prev'
+ : Original ME_47B5759A03C0 // Prev
+ ;
+ : Implementor ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47B5759A03C0_ME_468274930190 Prev
+
+: ME_468274930190
+ CONST UID '468274930190'
+ CONST GUID 'C15542CB-D1E5-4FC7-8303-3A3CB315C46D'
+ CONST Name 'Il3SimpleRootNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( ME_468259900322 // Il3SimpleNode
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4772433F0008 // CanExpandCollapseAll
+ ME_47724349030A // ExpandCollapseAll
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47723CDB00A4_ME_468274930190 // IsFirst
+ ME_47723CFF0148_ME_468274930190 // IsLast
+ ME_47723D0F0392_ME_468274930190 // HasChild
+ ME_47723D1D03D6_ME_468274930190 // MaybeChild
+ ME_47723D2E0051_ME_468274930190 // GetLevel
+ ME_47723D3B0058_ME_468274930190 // GetLevelFor
+ ME_47723D4C0360_ME_468274930190 // IsSame
+ ME_47723DB901CA_ME_468274930190 // IsDisappeared
+ ME_47723DD1008F_ME_468274930190 // BeginMove
+ ME_47723DE0009F_ME_468274930190 // EndMove
+ ME_47723DED006A_ME_468274930190 // Delete
+ ME_47723E8C0086_ME_468274930190 // Text
+ ME_4772408A0361_ME_468274930190 // Parent
+ ME_477240B10267_ME_468274930190 // Child
+ ME_477241AC00B9_ME_468274930190 // Next
+ ME_4772423302AF_ME_468274930190 // Flag
+ ME_477242700004_ME_468274930190 // Flags
+ ME_4772429202E4_ME_468274930190 // ThisChildrenCount
+ ME_477242A40219_ME_468274930190 // IndexInParent
+ ME_47A86F070101_ME_468274930190 // CanAcceptData
+ ME_47A86F1C016B_ME_468274930190 // DropData
+ ME_47ADA09C019B_ME_468274930190 // CanMove
+ ME_47B5759A03C0_ME_468274930190 // Prev
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_468274930190 Il3SimpleRootNode
+
+FORWARD ME_47723C090340
+
+: ME_47723C20027A
+ CONST UID '47723C20027A'
+ CONST Name 'Intf'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47723C20027A Intf
+
+: ME_47723C1901BA
+ CONST UID '47723C1901BA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47723C090340 // Tl3SimpleNodeAction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_47723C20027A // Intf
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47723C1901BA DoIt
+
+: ME_47723C090340
+ CONST UID '47723C090340'
+ CONST Name 'Tl3SimpleNodeAction'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Подитеративная функция для перебора элементов дерева. Если возвращает true, то процесс перебора узлов прекращается.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_47723C1901BA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" false
+
+ref; // ME_47723C090340 Tl3SimpleNodeAction
+
+FORWARD ME_46825C710250
+
+: ME_46825CAA0125
+ CONST UID '46825CAA0125'
+ CONST Name 'RootNode'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'корень дерева.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_46825C710250 // Il3RootSource
+ ;
+ : Target ME_468274930190 // Il3SimpleRootNode
+ ;
+ CONST "pm" false
+
+ref; // ME_46825CAA0125 RootNode
+
+: ME_46A44F6B035E_ME_46825C710250
+ CONST UID '46A44F6B035E'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_46A44F6B035E' '4677FBA70343.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_46825C710250 // Il3RootSource
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44F6B035E_ME_46825C710250 Subscribe
+
+: ME_46A44FFE0143_ME_46825C710250
+ CONST UID '46A44FFE0143'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_46A44FFE0143' '4677FBA70343.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_46825C710250 // Il3RootSource
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44FFE0143_ME_46825C710250 Unsubscribe
+
+: ME_46825C710250
+ CONST UID '46825C710250'
+ CONST GUID '5E3068EC-8647-4D64-B5AD-F85B3B91CF7D'
+ CONST Name 'Il3RootSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Источник корня дерева.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( ME_46825C5A01B6 // Il3NotifySource
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_46825CAA0125 // RootNode
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_46A44F6B035E_ME_46825C710250 // Subscribe
+ ME_46A44FFE0143_ME_46825C710250 // Unsubscribe
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_46825C710250 Il3RootSource
+
+FORWARD ME_46827C88016E
+
+: ME_46827CAF03CD
+ CONST UID '46827CAF03CD'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'идентификатор узла.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_46827C88016E // Il3HandleNode
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" false
+
+ref; // ME_46827CAF03CD Handle
+
+: ME_46827C88016E
+ CONST UID '46827C88016E'
+ CONST GUID 'C581B66C-0E13-4B43-B8D0-3BCD989E28CA'
+ CONST Name 'Il3HandleNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Узел дерева с целочисленным идентификатором.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_46827CAF03CD // Handle
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_46827C88016E Il3HandleNode
+
+FORWARD ME_47724B6500F6
+
+: ME_47724B9402ED
+ CONST UID '47724B9402ED'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47724B6500F6 // Il3TreeFilters
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_47724B9402ED Context
+
+: ME_47724B7F0260
+ CONST UID '47724B7F0260'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_47724B7F0260 aValue
+
+: ME_47724B790382
+ CONST UID '47724B790382'
+ CONST Name 'SetContext'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47724B6500F6 // Il3TreeFilters
+ ;
+ : Target ME_47724B6500F6 // Il3TreeFilters
+ ;
+ : Parameters
+   @ ( ME_47724B7F0260 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47724B790382 SetContext
+
+: ME_47724B87036B
+ CONST UID '47724B87036B'
+ CONST Name 'Clone'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47724B6500F6 // Il3TreeFilters
+ ;
+ : Target ME_47724B6500F6 // Il3TreeFilters
+ ;
+
+ref; // ME_47724B87036B Clone
+
+: ME_47724B6500F6
+ CONST UID '47724B6500F6'
+ CONST GUID '949D1B99-493A-463D-A028-EFB087BD61D4'
+ CONST Name 'Il3TreeFilters'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'фильтры реально установленные на дереве' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_47724B9402ED // Context
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_47724B790382 // SetContext
+ ME_47724B87036B // Clone
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47724B6500F6 Il3TreeFilters
+
+FORWARD ME_46835C350296
+
+: ME_47724EF80325
+ CONST UID '47724EF80325'
+ CONST Name 'ParamsChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46835C350296 // Il3ContextFilterParamsNotifier
+ ;
+
+ref; // ME_47724EF80325 ParamsChanged
+
+: ME_46835C350296
+ CONST UID '46835C350296'
+ CONST GUID '7CFF12FA-1670-4D53-A10B-64E0870D7B54'
+ CONST Name 'Il3ContextFilterParamsNotifier'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'нотификатор о том что параметры изменились.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_47724EF80325 // ParamsChanged
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_46835C350296 Il3ContextFilterParamsNotifier
+
+FORWARD ME_46835C6F02E0
+
+: ME_486343A00282
+ CONST UID '486343A00282'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_486343A00282 aContext
+
+: ME_486343A002B1
+ CONST UID '486343A002B1'
+ CONST Name 'DiffStart'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_486343A002B1 DiffStart
+
+: ME_4772521703E3
+ CONST UID '4772521703E3'
+ CONST Name 'IsSameContext'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46835C6F02E0 // Il3ContextFilterTarget
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_486343A00282 // aContext
+ ME_486343A002B1 // DiffStart
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4772521703E3 IsSameContext
+
+: ME_46835C6F02E0
+ CONST UID '46835C6F02E0'
+ CONST GUID '3A5CC96E-BA9A-44A8-970A-24D6D90B2211'
+ CONST Name 'Il3ContextFilterTarget'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'проверяет что контекст тот же самый.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_4772521703E3 // IsSameContext
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_46835C6F02E0 Il3ContextFilterTarget
+
+FORWARD ME_46835CB60115
+
+: ME_47724F150104
+ CONST UID '47724F150104'
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46835C350296 // Il3ContextFilterParamsNotifier
+ ;
+
+ref; // ME_47724F150104 aSubscriber
+
+: ME_47724F120028
+ CONST UID '47724F120028'
+ CONST Name 'Subscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46835CB60115 // Il3ContextFilterParamsNotifySource
+ ;
+ : Parameters
+   @ ( ME_47724F150104 // aSubscriber
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47724F120028 Subscribe
+
+: ME_47724F210207
+ CONST UID '47724F210207'
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46835C350296 // Il3ContextFilterParamsNotifier
+ ;
+
+ref; // ME_47724F210207 aSubscriber
+
+: ME_47724F1E0180
+ CONST UID '47724F1E0180'
+ CONST Name 'UnSubscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46835CB60115 // Il3ContextFilterParamsNotifySource
+ ;
+ : Parameters
+   @ ( ME_47724F210207 // aSubscriber
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47724F1E0180 UnSubscribe
+
+: ME_46835CB60115
+ CONST UID '46835CB60115'
+ CONST GUID 'D5B63786-ACB2-41F7-ABF7-67A7A0A3AD84'
+ CONST Name 'Il3ContextFilterParamsNotifySource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'источник нотификации о том что параметры изменились.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_47724F120028 // Subscribe
+ ME_47724F1E0180 // UnSubscribe
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_46835CB60115 Il3ContextFilterParamsNotifySource
+
+: ME_4770F6E2015F
+ CONST UID '4770F6E2015F'
+ CONST Name 'Il3Base'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый предок.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "is default ancestor" true
+
+ref; // ME_4770F6E2015F Il3Base
+
+FORWARD ME_47723A1001D6
+
+: ME_47723A1E0342
+ CONST UID '47723A1E0342'
+ CONST Name 'imExpandOnly'
+ CONST Class class_Attribute
+ %SUMMARY 'перебирать только открытые узлы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$01'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723A1E0342 imExpandOnly
+
+: ME_47723A2A0369
+ CONST UID '47723A2A0369'
+ CONST Name 'imCheckResult'
+ CONST Class class_Attribute
+ %SUMMARY 'проверять результат, возвращаемый подитеративной функцией (см. Tl3NodeAction)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$02'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723A2A0369 imCheckResult
+
+: ME_47723A390254
+ CONST UID '47723A390254'
+ CONST Name 'imOneLevel'
+ CONST Class class_Attribute
+ %SUMMARY 'перебрать только один уровень' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$04'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723A390254 imOneLevel
+
+: ME_47723A470090
+ CONST UID '47723A470090'
+ CONST Name 'imParentNeed'
+ CONST Class class_Attribute
+ %SUMMARY 'включить RootSubNode в список перебираемых' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$08'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723A470090 imParentNeed
+
+: ME_47723A5402C7
+ CONST UID '47723A5402C7'
+ CONST Name 'imNoSubRoot'
+ CONST Class class_Attribute
+ %SUMMARY 'RootSubNode - точка начала, но не корень, так же перебираются узлы расположенные на том же уровне, что и RootSubNode и выше него' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$10'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723A5402C7 imNoSubRoot
+
+: ME_47723A6403A2
+ CONST UID '47723A6403A2'
+ CONST Name 'imChildsBefore'
+ CONST Class class_Attribute
+ %SUMMARY 'перебрать все дочерние узлы перед их родителем, т.е. дети перебираются вперед' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$20'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723A6403A2 imChildsBefore
+
+: ME_47723A7402AD
+ CONST UID '47723A7402AD'
+ CONST Name 'imNoChilds'
+ CONST Class class_Attribute
+ %SUMMARY 'не перебирать дочерние узлы, используется во внутренних процедурах' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$40'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723A7402AD imNoChilds
+
+: ME_47723A8401B6
+ CONST UID '47723A8401B6'
+ CONST Name 'imNoHidden'
+ CONST Class class_Attribute
+ %SUMMARY 'не перебирать невидимые, поддерживается только процедурами Tl3Tree' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$80'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723A8401B6 imNoHidden
+
+: ME_480C6E2B031F
+ CONST UID '480C6E2B031F'
+ CONST Name 'imLeavesOnly'
+ CONST Class class_Attribute
+ %SUMMARY 'перебирать только "листьевые" узлы (у которых нет детей)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723A1001D6 // IterMode
+ ;
+ CONST Value '$100'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_480C6E2B031F imLeavesOnly
+
+: ME_47723A1001D6
+ CONST UID '47723A1001D6'
+ CONST Name 'IterMode'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_47723A1E0342 // imExpandOnly
+ ME_47723A2A0369 // imCheckResult
+ ME_47723A390254 // imOneLevel
+ ME_47723A470090 // imParentNeed
+ ME_47723A5402C7 // imNoSubRoot
+ ME_47723A6403A2 // imChildsBefore
+ ME_47723A7402AD // imNoChilds
+ ME_47723A8401B6 // imNoHidden
+ ME_480C6E2B031F // imLeavesOnly
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47723A1001D6 IterMode
+
+FORWARD ME_47723AA10142
+
+: ME_47723AB200E1
+ CONST UID '47723AB200E1'
+ CONST Name 'nfSelected'
+ CONST Class class_Attribute
+ %SUMMARY 'узел выделен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$0001'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723AB200E1 nfSelected
+
+: ME_47723ABE000F
+ CONST UID '47723ABE000F'
+ CONST Name 'nfSelModified'
+ CONST Class class_Attribute
+ %SUMMARY 'выделение узла изменена' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$0002'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723ABE000F nfSelModified
+
+: ME_47723ACA03E5
+ CONST UID '47723ACA03E5'
+ CONST Name 'nfChildSelected'
+ CONST Class class_Attribute
+ %SUMMARY 'у узла есть выделенные дочерние узлы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$0004'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723ACA03E5 nfChildSelected
+
+: ME_47723AD80230
+ CONST UID '47723AD80230'
+ CONST Name 'nfExpanded'
+ CONST Class class_Attribute
+ %SUMMARY 'узел раскрыт' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$0008'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723AD80230 nfExpanded
+
+: ME_47723AE60017
+ CONST UID '47723AE60017'
+ CONST Name 'nfReadOnly'
+ CONST Class class_Attribute
+ %SUMMARY 'узел не для редактирования' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$0010'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723AE60017 nfReadOnly
+
+: ME_47723AFF0182
+ CONST UID '47723AFF0182'
+ CONST Name 'nfHidden'
+ CONST Class class_Attribute
+ %SUMMARY 'узел не отображается' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$0020'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723AFF0182 nfHidden
+
+: ME_47723B810257
+ CONST UID '47723B810257'
+ CONST Name 'nfItemModified'
+ CONST Class class_Attribute
+ %SUMMARY 'узел модифицирован' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$00010000'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723B810257 nfItemModified
+
+: ME_47723B8E036D
+ CONST UID '47723B8E036D'
+ CONST Name 'nfHasChild'
+ CONST Class class_Attribute
+ %SUMMARY 'у узла есть дочерние узлы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$00020000'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723B8E036D nfHasChild
+
+: ME_47723B9F005B
+ CONST UID '47723B9F005B'
+ CONST Name 'nfWasDisappear'
+ CONST Class class_Attribute
+ %SUMMARY 'узел был удален, cm. IsDisappeared' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$00040000'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723B9F005B nfWasDisappear
+
+: ME_47723BAC0286
+ CONST UID '47723BAC0286'
+ CONST Name 'nfUserDefined2'
+ CONST Class class_Attribute
+ %SUMMARY 'флаг для использования "пользователем". Смысл определяется конкретной реализацией' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$20000000'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723BAC0286 nfUserDefined2
+
+: ME_47723BBC02BC
+ CONST UID '47723BBC02BC'
+ CONST Name 'nfUserDefined1'
+ CONST Class class_Attribute
+ %SUMMARY 'флаг для использования "пользователем". Смысл определяется конкретной реализацией' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723AA10142 // flags in tree
+ ;
+ CONST Value '$40000000'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723BBC02BC nfUserDefined1
+
+: ME_47723AA10142
+ CONST UID '47723AA10142'
+ CONST Name 'flags in tree'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'TNode.Flags const' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_47723AB200E1 // nfSelected
+ ME_47723ABE000F // nfSelModified
+ ME_47723ACA03E5 // nfChildSelected
+ ME_47723AD80230 // nfExpanded
+ ME_47723AE60017 // nfReadOnly
+ ME_47723AFF0182 // nfHidden
+ ME_47723B810257 // nfItemModified
+ ME_47723B8E036D // nfHasChild
+ ME_47723B9F005B // nfWasDisappear
+ ME_47723BAC0286 // nfUserDefined2
+ ME_47723BBC02BC // nfUserDefined1
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47723AA10142 flags in tree
+
+FORWARD ME_47723BD702D6
+
+: ME_47723BE70257
+ CONST UID '47723BE70257'
+ CONST Name 'l3_NeedCountView'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723BD702D6 // CountView
+ ;
+ CONST Value '-1'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723BE70257 l3_NeedCountView
+
+: ME_47723BF00233
+ CONST UID '47723BF00233'
+ CONST Name 'l3_DelayedCountView'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723BD702D6 // CountView
+ ;
+ CONST Value '-2'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723BF00233 l3_DelayedCountView
+
+: ME_47723BF700EE
+ CONST UID '47723BF700EE'
+ CONST Name 'l3_NotChangeCountView'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47723BD702D6 // CountView
+ ;
+ CONST Value '-3'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_47723BF700EE l3_NotChangeCountView
+
+: ME_47723BD702D6
+ CONST UID '47723BD702D6'
+ CONST Name 'CountView'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_47723BE70257 // l3_NeedCountView
+ ME_47723BF00233 // l3_DelayedCountView
+ ME_47723BF700EE // l3_NotChangeCountView
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47723BD702D6 CountView
+
+FORWARD ME_46825CC00249
+
+: ME_477248FE005A
+ CONST UID '477248FE005A'
+ CONST Name 'ShowRoot'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'показывать ли корень?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_477248FE005A ShowRoot
+
+: ME_4772490E02F7
+ CONST UID '4772490E02F7'
+ CONST Name 'CountView'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'полное количество видимых элементов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4772490E02F7 CountView
+
+: ME_4772491C01C5
+ CONST UID '4772491C01C5'
+ CONST Name 'SelectCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'количество выделенных узлов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4772491C01C5 SelectCount
+
+FORWARD ME_4772495902EE
+
+: ME_47724966015C
+ CONST UID '47724966015C'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4772495902EE // Flags
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47724966015C anIndex
+
+: ME_4772495902EE
+ CONST UID '4772495902EE'
+ CONST Name 'Flags'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'флаги узлов по видимому индексу [0..CountView-1].' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Attributes
+   @ ( ME_47724966015C // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_4772495902EE Flags
+
+FORWARD ME_477249AB0057
+
+: ME_477249BC0154
+ CONST UID '477249BC0154'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_477249AB0057 // Select
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_477249BC0154 anIndex
+
+: ME_477249AB0057
+ CONST UID '477249AB0057'
+ CONST Name 'Select'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'признак видимости узлов по видимому индексу [0..CountView-1].' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Attributes
+   @ ( ME_477249BC0154 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_477249AB0057 Select
+
+FORWARD ME_477249EB02D9
+
+: ME_477249FF0029
+ CONST UID '477249FF0029'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_477249EB02D9 // Nodes
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_477249FF0029 anIndex
+
+: ME_477249EB02D9
+ CONST UID '477249EB02D9'
+ CONST Name 'Nodes'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'возвращает узел по видимому индексу [0..CountView-1].' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ : Attributes
+   @ ( ME_477249FF0029 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_477249EB02D9 Nodes
+
+: ME_4772448C01D2
+ CONST UID '4772448C01D2'
+ CONST Name 'CursorTop'
+ CONST Class class_Operation
+ %SUMMARY 'переставить курсор на первый видимый элемент.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+
+ref; // ME_4772448C01D2 CursorTop
+
+: ME_477244AD00BC
+ CONST UID '477244AD00BC'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477244AD00BC aNode
+
+: ME_477244AD00E7
+ CONST UID '477244AD00E7'
+ CONST Name 'aSubRootNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST Value 'nil'
+ : ValueType ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477244AD00E7 aSubRootNode
+
+: ME_4772449B00A1
+ CONST UID '4772449B00A1'
+ CONST Name 'GetIndex'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает видимый индекс aNode относительно aSubRootNode или корня.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_477244AD00BC // aNode
+ ME_477244AD00E7 // aSubRootNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4772449B00A1 GetIndex
+
+: ME_477244C5025E
+ CONST UID '477244C5025E'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477244C5025E aNode
+
+: ME_477244BA0074
+ CONST UID '477244BA0074'
+ CONST Name 'GetLevel'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает уровень узла относительно корня.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_477244C5025E // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477244BA0074 GetLevel
+
+: ME_477244D4030B
+ CONST UID '477244D4030B'
+ CONST Name 'aMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A61AF500BE' '4677FBA70343.pas.ms.script' // Tl3SetBitType
+ ;
+
+ref; // ME_477244D4030B aMode
+
+: ME_477244CE02AE
+ CONST UID '477244CE02AE'
+ CONST Name 'SelectAllNodes'
+ CONST Class class_Operation
+ %SUMMARY 'выделяет/развыделяет все узлы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Parameters
+   @ ( ME_477244D4030B // aMode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477244CE02AE SelectAllNodes
+
+: ME_4772450000A9
+ CONST UID '4772450000A9'
+ CONST Name 'aFirstIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_4772450000A9 aFirstIndex
+
+: ME_4772450000DB
+ CONST UID '4772450000DB'
+ CONST Name 'aLastIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_4772450000DB aLastIndex
+
+: ME_47724500010F
+ CONST UID '47724500010F'
+ CONST Name 'aMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A61AF500BE' '4677FBA70343.pas.ms.script' // Tl3SetBitType
+ ;
+
+ref; // ME_47724500010F aMode
+
+: ME_477245000142
+ CONST UID '477245000142'
+ CONST Name 'aCleanOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_477245000142 aCleanOther
+
+: ME_477244DD0292
+ CONST UID '477244DD0292'
+ CONST Name 'SelectInterval'
+ CONST Class class_Operation
+ %SUMMARY 'выделяет/развыделяет узлы на указанном интервале.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Parameters
+   @ ( ME_4772450000A9 // aFirstIndex
+ ME_4772450000DB // aLastIndex
+ ME_47724500010F // aMode
+ ME_477245000142 // aCleanOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477244DD0292 SelectInterval
+
+: ME_477245240160
+ CONST UID '477245240160'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477245240160 aNode
+
+: ME_47724524019A
+ CONST UID '47724524019A'
+ CONST Name 'aMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A61AF500BE' '4677FBA70343.pas.ms.script' // Tl3SetBitType
+ ;
+
+ref; // ME_47724524019A aMode
+
+: ME_4772452401D0
+ CONST UID '4772452401D0'
+ CONST Name 'aForceMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4772452401D0 aForceMode
+
+: ME_47724512002D
+ CONST UID '47724512002D'
+ CONST Name 'ChangeExpand'
+ CONST Class class_Operation
+ %SUMMARY 'меняет развернутость узла.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_477245240160 // aNode
+ ME_47724524019A // aMode
+ ME_4772452401D0 // aForceMode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47724512002D ChangeExpand
+
+: ME_4772453E0124
+ CONST UID '4772453E0124'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST Value 'nil'
+ : ValueType ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_4772453E0124 aNode
+
+: ME_4772453E015F
+ CONST UID '4772453E015F'
+ CONST Name 'anExpand'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4772453E015F anExpand
+
+: ME_4772453E019B
+ CONST UID '4772453E019B'
+ CONST Name 'aDeepLevel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ;
+
+ref; // ME_4772453E019B aDeepLevel
+
+: ME_4772452E002D
+ CONST UID '4772452E002D'
+ CONST Name 'ExpandSubDir'
+ CONST Class class_Operation
+ %SUMMARY 'развернуть/свернуть узлы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Parameters
+   @ ( ME_4772453E0124 // aNode
+ ME_4772453E015F // anExpand
+ ME_4772453E019B // aDeepLevel
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4772452E002D ExpandSubDir
+
+: ME_477245670164
+ CONST UID '477245670164'
+ CONST Name 'aParentNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477245670164 aParentNode
+
+: ME_4772456701A3
+ CONST UID '4772456701A3'
+ CONST Name 'aMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A61AF500BE' '4677FBA70343.pas.ms.script' // Tl3SetBitType
+ ;
+
+ref; // ME_4772456701A3 aMode
+
+: ME_4772456701E2
+ CONST UID '4772456701E2'
+ CONST Name 'aFlagsMask'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4772456701E2 aFlagsMask
+
+: ME_477245670223
+ CONST UID '477245670223'
+ CONST Name 'anIterMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_477245670223 anIterMode
+
+: ME_477245520298
+ CONST UID '477245520298'
+ CONST Name 'SetBranchFlag'
+ CONST Class class_Operation
+ %SUMMARY 'зачем-то используется визуалкой в ExpandNode.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Parameters
+   @ ( ME_477245670164 // aParentNode
+ ME_4772456701A3 // aMode
+ ME_4772456701E2 // aFlagsMask
+ ME_477245670223 // anIterMode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477245520298 SetBranchFlag
+
+: ME_477245870163
+ CONST UID '477245870163'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477245870163 aNode
+
+: ME_4772457D032A
+ CONST UID '4772457D032A'
+ CONST Name 'CountViewItemsInSubDir'
+ CONST Class class_Operation
+ %SUMMARY 'зачем-то используется визуалкой в ShowMoreChildrenOnScreen.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_477245870163 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4772457D032A CountViewItemsInSubDir
+
+: ME_477245AB0379
+ CONST UID '477245AB0379'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477245AB0379 aNode
+
+: ME_477245A20228
+ CONST UID '477245A20228'
+ CONST Name 'IsRoot'
+ CONST Class class_Operation
+ %SUMMARY 'является ли узел корневым для дерева.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_477245AB0379 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477245A20228 IsRoot
+
+: ME_477245BC010D
+ CONST UID '477245BC010D'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477245BC010D aNode
+
+: ME_477245B301DE
+ CONST UID '477245B301DE'
+ CONST Name 'IsExpanded'
+ CONST Class class_Operation
+ %SUMMARY 'раскрыт ли узел.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_477245BC010D // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477245B301DE IsExpanded
+
+: ME_477245CE02D9
+ CONST UID '477245CE02D9'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477245CE02D9 aNode
+
+: ME_477245C40171
+ CONST UID '477245C40171'
+ CONST Name 'IsFirstVis'
+ CONST Class class_Operation
+ %SUMMARY 'является ли узел первым видимым в ветке.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_477245CE02D9 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477245C40171 IsFirstVis
+
+: ME_477245E4014B
+ CONST UID '477245E4014B'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477245E4014B aNode
+
+: ME_477245D9031B
+ CONST UID '477245D9031B'
+ CONST Name 'IsLastVis'
+ CONST Class class_Operation
+ %SUMMARY 'является ли узел последним видимым в ветке.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_477245E4014B // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477245D9031B IsLastVis
+
+: ME_477245FD0098
+ CONST UID '477245FD0098'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477245FD0098 aNode
+
+: ME_477245F301AE
+ CONST UID '477245F301AE'
+ CONST Name 'HasVisibleChildren'
+ CONST Class class_Operation
+ %SUMMARY 'есть ли видимые дети у aNode.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_477245FD0098 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477245F301AE HasVisibleChildren
+
+: ME_4772460E0015
+ CONST UID '4772460E0015'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_4772460E0015 aNode
+
+: ME_477246040221
+ CONST UID '477246040221'
+ CONST Name 'GetLines'
+ CONST Class class_Operation
+ %SUMMARY 'маска для рисования линий (надо смотреть реализацию).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4772460E0015 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477246040221 GetLines
+
+: ME_4772461601C6
+ CONST UID '4772461601C6'
+ CONST Name 'Wake'
+ CONST Class class_Operation
+ %SUMMARY 'проснись!!! Типа начали рисовать.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4772461601C6 Wake
+
+: ME_4772463403E0
+ CONST UID '4772463403E0'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_4772463403E0 aNode
+
+: ME_477246350051
+ CONST UID '477246350051'
+ CONST Name 'aDirection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A61B410280' '4677FBA70343.pas.ms.script' // Tl3Direction
+ ;
+
+ref; // ME_477246350051 aDirection
+
+: ME_477246270133
+ CONST UID '477246270133'
+ CONST Name 'MoveNode'
+ CONST Class class_Operation
+ %SUMMARY 'переместить узел.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4772463403E0 // aNode
+ ME_477246350051 // aDirection
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477246270133 MoveNode
+
+: ME_477246570010
+ CONST UID '477246570010'
+ CONST Name 'aFirstNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477246570010 aFirstNode
+
+: ME_47724657006C
+ CONST UID '47724657006C'
+ CONST Name 'aSrchStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
+ ;
+
+ref; // ME_47724657006C aSrchStr
+
+: ME_4772465700C9
+ CONST UID '4772465700C9'
+ CONST Name 'aIterMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4772465700C9 aIterMode
+
+: ME_477246440037
+ CONST UID '477246440037'
+ CONST Name 'SearchNameBegin'
+ CONST Class class_Operation
+ %SUMMARY 'зачем-то используется визуалкой в CharToItem.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ : Parameters
+   @ ( ME_477246570010 // aFirstNode
+ ME_47724657006C // aSrchStr
+ ME_4772465700C9 // aIterMode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477246440037 SearchNameBegin
+
+: ME_4772467A028D
+ CONST UID '4772467A028D'
+ CONST Name 'aFirstNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_4772467A028D aFirstNode
+
+: ME_4772467A02ED
+ CONST UID '4772467A02ED'
+ CONST Name 'aSrchStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
+ ;
+
+ref; // ME_4772467A02ED aSrchStr
+
+: ME_4772467A034D
+ CONST UID '4772467A034D'
+ CONST Name 'aIterMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4772467A034D aIterMode
+
+: ME_4772465F0276
+ CONST UID '4772465F0276'
+ CONST Name 'SearchNameOccur'
+ CONST Class class_Operation
+ %SUMMARY 'зачем-то используется визуалкой в SearchOccurStr,  который сейчас никем не используется.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ : Parameters
+   @ ( ME_4772467A028D // aFirstNode
+ ME_4772467A02ED // aSrchStr
+ ME_4772467A034D // aIterMode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4772465F0276 SearchNameOccur
+
+: ME_477246970127
+ CONST UID '477246970127'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477246970127 aNode
+
+: ME_477246860169
+ CONST UID '477246860169'
+ CONST Name 'MakeNodeVisible'
+ CONST Class class_Operation
+ %SUMMARY 'зачем-то используется визуалкой в CharToItem, видимо для перемещения курсора на узел.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_477246970127 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477246860169 MakeNodeVisible
+
+: ME_477246AE0302
+ CONST UID '477246AE0302'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477246AE0302 aNode
+
+: ME_477246A40174
+ CONST UID '477246A40174'
+ CONST Name 'GetPrev'
+ CONST Class class_Operation
+ %SUMMARY 'предыдущий узел. Зачем-то используется в CharToItem.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ : Parameters
+   @ ( ME_477246AE0302 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477246A40174 GetPrev
+
+: ME_477246DA0352
+ CONST UID '477246DA0352'
+ CONST Name 'Action'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47723C090340 // Tl3SimpleNodeAction
+ ;
+
+ref; // ME_477246DA0352 Action
+
+: ME_477246DA03BB
+ CONST UID '477246DA03BB'
+ CONST Name 'IterMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_477246DA03BB IterMode
+
+: ME_477246DB003D
+ CONST UID '477246DB003D'
+ CONST Name 'aSubRootNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST Value 'nil'
+ : ValueType ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_477246DB003D aSubRootNode
+
+: ME_477246C70141
+ CONST UID '477246C70141'
+ CONST Name 'SimpleIterateF'
+ CONST Class class_Operation
+ %SUMMARY 'перебрать все узлы и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ : Parameters
+   @ ( ME_477246DA0352 // Action
+ ME_477246DA03BB // IterMode
+ ME_477246DB003D // aSubRootNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477246C70141 SimpleIterateF
+
+: ME_477246E802B1
+ CONST UID '477246E802B1'
+ CONST Name 'IsChanging'
+ CONST Class class_Operation
+ %SUMMARY 'дерево находится в фазе обновления.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_477246E802B1 IsChanging
+
+: ME_477246F7039B
+ CONST UID '477246F7039B'
+ CONST Name 'Changing'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+
+ref; // ME_477246F7039B Changing
+
+: ME_4772470100BC
+ CONST UID '4772470100BC'
+ CONST Name 'Changed'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+
+ref; // ME_4772470100BC Changed
+
+: ME_48F8DB270010
+ CONST UID '48F8DB270010'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_48F8DB270010 aNode
+
+: ME_48F8DB2700AD
+ CONST UID '48F8DB2700AD'
+ CONST Name 'aBitmap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_48F8DB2700AD aBitmap
+
+: ME_47A86EA80292
+ CONST UID '47A86EA80292'
+ CONST Name 'MakeDataObject'
+ CONST Class class_Operation
+ %SUMMARY 'сделать объект данных дерева, используется при перемещении элементов дерева в другие компоненты' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
+ ;
+ : Parameters
+   @ ( ME_48F8DB270010 // aNode
+ ME_48F8DB2700AD // aBitmap
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47A86EA80292 MakeDataObject
+
+: ME_47BAD3170384
+ CONST UID '47BAD3170384'
+ CONST Name 'aTargetNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47BAD3170384 aTargetNode
+
+: ME_47BAD3180029
+ CONST UID '47BAD3180029'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4772530401CA // Tl3TreeData
+ ;
+
+ref; // ME_47BAD3180029 aData
+
+: ME_47BAD3080349
+ CONST UID '47BAD3080349'
+ CONST Name 'CanAcceptData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_47BAD3170384 // aTargetNode
+ ME_47BAD3180029 // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47BAD3080349 CanAcceptData
+
+: ME_47BAD32E0397
+ CONST UID '47BAD32E0397'
+ CONST Name 'aTargetNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47BAD32E0397 aTargetNode
+
+: ME_47BAD32F003D
+ CONST UID '47BAD32F003D'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4772530401CA // Tl3TreeData
+ ;
+
+ref; // ME_47BAD32F003D aData
+
+: ME_47BAD32501E2
+ CONST UID '47BAD32501E2'
+ CONST Name 'DropData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_47BAD32E0397 // aTargetNode
+ ME_47BAD32F003D // aData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47BAD32501E2 DropData
+
+: ME_46825CAA0125_ME_46825CC00249
+ CONST UID '46825CAA0125'
+ CONST Name 'RootNode'
+ : Original ME_46825CAA0125 // RootNode
+ ;
+ : Implementor ME_46825CC00249 // Il3SimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46825CAA0125_ME_46825CC00249 RootNode
+
+: ME_46A44F6B035E_ME_46825CC00249
+ CONST UID '46A44F6B035E'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_46A44F6B035E' '4677FBA70343.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_46825CC00249 // Il3SimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44F6B035E_ME_46825CC00249 Subscribe
+
+: ME_46A44FFE0143_ME_46825CC00249
+ CONST UID '46A44FFE0143'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_46A44FFE0143' '4677FBA70343.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_46825CC00249 // Il3SimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44FFE0143_ME_46825CC00249 Unsubscribe
+
+: ME_46825CC00249
+ CONST UID '46825CC00249'
+ CONST GUID 'CABAE851-B96A-4BD6-8310-3154F8C3D53F'
+ CONST Name 'Il3SimpleTree'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( ME_46825C710250 // Il3RootSource
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_477248FE005A // ShowRoot
+ ME_4772490E02F7 // CountView
+ ME_4772491C01C5 // SelectCount
+ ME_4772495902EE // Flags
+ ME_477249AB0057 // Select
+ ME_477249EB02D9 // Nodes
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4772448C01D2 // CursorTop
+ ME_4772449B00A1 // GetIndex
+ ME_477244BA0074 // GetLevel
+ ME_477244CE02AE // SelectAllNodes
+ ME_477244DD0292 // SelectInterval
+ ME_47724512002D // ChangeExpand
+ ME_4772452E002D // ExpandSubDir
+ ME_477245520298 // SetBranchFlag
+ ME_4772457D032A // CountViewItemsInSubDir
+ ME_477245A20228 // IsRoot
+ ME_477245B301DE // IsExpanded
+ ME_477245C40171 // IsFirstVis
+ ME_477245D9031B // IsLastVis
+ ME_477245F301AE // HasVisibleChildren
+ ME_477246040221 // GetLines
+ ME_4772461601C6 // Wake
+ ME_477246270133 // MoveNode
+ ME_477246440037 // SearchNameBegin
+ ME_4772465F0276 // SearchNameOccur
+ ME_477246860169 // MakeNodeVisible
+ ME_477246A40174 // GetPrev
+ ME_477246C70141 // SimpleIterateF
+ ME_477246E802B1 // IsChanging
+ ME_477246F7039B // Changing
+ ME_4772470100BC // Changed
+ ME_47A86EA80292 // MakeDataObject
+ ME_47BAD3080349 // CanAcceptData
+ ME_47BAD32501E2 // DropData
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46825CAA0125_ME_46825CC00249 // RootNode
+ ME_46A44F6B035E_ME_46825CC00249 // Subscribe
+ ME_46A44FFE0143_ME_46825CC00249 // Unsubscribe
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_46825CC00249 Il3SimpleTree
+
+FORWARD ME_47724373032C
+
+: ME_4772439803BF
+ CONST UID '4772439803BF'
+ CONST Name 'anOldRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468274930190 // Il3SimpleRootNode
+ ;
+
+ref; // ME_4772439803BF anOldRoot
+
+: ME_4772439803DD
+ CONST UID '4772439803DD'
+ CONST Name 'aNewRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468274930190 // Il3SimpleRootNode
+ ;
+
+ref; // ME_4772439803DD aNewRoot
+
+: ME_477243870072
+ CONST UID '477243870072'
+ CONST Name 'RootChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47724373032C // Il3RootSpy
+ ;
+ : Parameters
+   @ ( ME_4772439803BF // anOldRoot
+ ME_4772439803DD // aNewRoot
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477243870072 RootChanged
+
+: ME_47724373032C
+ CONST UID '47724373032C'
+ CONST GUID '0C8B183A-508A-405D-938C-062F9BD183C3'
+ CONST Name 'Il3RootSpy'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Объект, следящий за изменением корня.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_477243870072 // RootChanged
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47724373032C Il3RootSpy
+
+FORWARD ME_477243CF0296
+
+: ME_47724422008F
+ CONST UID '47724422008F'
+ CONST Name 'aOperation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47724422008F aOperation
+
+: ME_4772442200B1
+ CONST UID '4772442200B1'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_4772442200B1 aNode
+
+: ME_477244190062
+ CONST UID '477244190062'
+ CONST Name 'Notify'
+ CONST Class class_Operation
+ %SUMMARY 'прошла операция.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_477243CF0296 // Il3NodeNotifyRecipient
+ ;
+ : Parameters
+   @ ( ME_47724422008F // aOperation
+ ME_4772442200B1 // aNode
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477244190062 Notify
+
+: ME_477243CF0296
+ CONST UID '477243CF0296'
+ CONST GUID '7C2B1160-C7E3-4D53-B3D3-E3787BE5650F'
+ CONST Name 'Il3NodeNotifyRecipient'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Подписчик для получения нотификации об операции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_477244190062 // Notify
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_477243CF0296 Il3NodeNotifyRecipient
+
+FORWARD ME_46835C050374
+
+: ME_47724BB000A5
+ CONST UID '47724BB000A5'
+ CONST Name 'CloneFilters'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46835C050374 // Il3FilterableTree
+ ;
+ : Target ME_47724B6500F6 // Il3TreeFilters
+ ;
+
+ref; // ME_47724BB000A5 CloneFilters
+
+: ME_47724C0802C0
+ CONST UID '47724C0802C0'
+ CONST Name 'aFilters'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47724B6500F6 // Il3TreeFilters
+ ;
+
+ref; // ME_47724C0802C0 aFilters
+
+: ME_47724C0802E6
+ CONST UID '47724C0802E6'
+ CONST Name 'aCurrentNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47724C0802E6 aCurrentNode
+
+: ME_47724C08030C
+ CONST UID '47724C08030C'
+ CONST Name 'aSyncIndex'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ %SUMMARY 'Нода для синхронизации. Индекс этой ноды в'#13#10'                                   фильтрованном вью, будет возвращен в'#13#10'                                   параметре sync_index.' ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47724C08030C aSyncIndex
+
+: ME_47724C080334
+ CONST UID '47724C080334'
+ CONST Name 'aAutoOpen'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ %SUMMARY 'Раскрывать узлы с фильтром автоматически.'#13#10'                                   Узлы, часть детей которых отфильтрованно,'#13#10'                                   будут автоматически раскрываться.' ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47724C080334 aAutoOpen
+
+: ME_47724C08035D
+ CONST UID '47724C08035D'
+ CONST Name 'CalcPartialContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ %SUMMARY 'пытаться вычислить максимальный контекстный фильтр,'#13#10'                                   который еще вернет данные' ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_47724C08035D CalcPartialContext
+
+: ME_47724BE60202
+ CONST UID '47724BE60202'
+ CONST Name 'MakeFiltered'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46835C050374 // Il3FilterableTree
+ ;
+ : Target ME_46825CC00249 // Il3SimpleTree
+ ;
+ : Parameters
+   @ ( ME_47724C0802C0 // aFilters
+ ME_47724C0802E6 // aCurrentNode
+ ME_47724C08030C // aSyncIndex
+ ME_47724C080334 // aAutoOpen
+ ME_47724C08035D // CalcPartialContext
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47724BE60202 MakeFiltered
+
+: ME_46835C050374
+ CONST UID '46835C050374'
+ CONST GUID '7AF1524E-84FD-4159-A755-DC621F06355E'
+ CONST Name 'Il3FilterableTree'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'дерево умеющее накладывать фильтры.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_47724BB000A5 // CloneFilters
+ ME_47724BE60202 // MakeFiltered
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_46835C050374 Il3FilterableTree
+
+FORWARD ME_47724E7F0261
+
+: ME_47724E930100
+ CONST UID '47724E930100'
+ CONST Name 'WordPosition'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47724E7F0261 // Il3ContextFilterParams
+ ;
+ : Target WL 'ME_46A61BCB033D' '4677FBA70343.pas.ms.script' // Tl3WordPosition
+ ;
+
+ref; // ME_47724E930100 WordPosition
+
+: ME_47724E9D014D
+ CONST UID '47724E9D014D'
+ CONST Name 'WordOrder'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47724E7F0261 // Il3ContextFilterParams
+ ;
+ : Target WL 'ME_46A61C340026' '4677FBA70343.pas.ms.script' // Tl3WordOrder
+ ;
+
+ref; // ME_47724E9D014D WordOrder
+
+: ME_47724EA70354
+ CONST UID '47724EA70354'
+ CONST Name 'TreeLevelDist'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47724E7F0261 // Il3ContextFilterParams
+ ;
+ : Target WL 'ME_46A61C8B002B' '4677FBA70343.pas.ms.script' // Tl3TreeLevelDist
+ ;
+
+ref; // ME_47724EA70354 TreeLevelDist
+
+: ME_47724E7F0261
+ CONST UID '47724E7F0261'
+ CONST GUID '1E1132A2-C8C3-4E5C-BDF6-4A139CAE0A71'
+ CONST Name 'Il3ContextFilterParams'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'параметры с которыми будет накладывается контекстный фильтр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_47724E930100 // WordPosition
+ ME_47724E9D014D // WordOrder
+ ME_47724EA70354 // TreeLevelDist
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47724E7F0261 Il3ContextFilterParams
+
+FORWARD ME_477250E7033C
+
+: ME_477250FC0040
+ CONST UID '477250FC0040'
+ CONST Name 'RequestReapply'
+ CONST Class class_Operation
+ %SUMMARY 'Желательно переприменить фильтр.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_477250E7033C // Il3ContextFilterNotifier
+ ;
+
+ref; // ME_477250FC0040 RequestReapply
+
+: ME_4772510D0043
+ CONST UID '4772510D0043'
+ CONST Name 'RequestClearAndTurnOff'
+ CONST Class class_Operation
+ %SUMMARY 'Дерево выключило на себе фильтр.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_477250E7033C // Il3ContextFilterNotifier
+ ;
+
+ref; // ME_4772510D0043 RequestClearAndTurnOff
+
+: ME_4772511D0316
+ CONST UID '4772511D0316'
+ CONST Name 'RequestCheckValid'
+ CONST Class class_Operation
+ %SUMMARY 'Дерево поменялось - нужно проверить валидность фильтра.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_477250E7033C // Il3ContextFilterNotifier
+ ;
+
+ref; // ME_4772511D0316 RequestCheckValid
+
+: ME_477250E7033C
+ CONST UID '477250E7033C'
+ CONST GUID 'EF53023B-C2D6-4224-A775-9A8EF7BE1814'
+ CONST Name 'Il3ContextFilterNotifier'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'нотификатор об изменении контекстного фильтра' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_477250FC0040 // RequestReapply
+ ME_4772510D0043 // RequestClearAndTurnOff
+ ME_4772511D0316 // RequestCheckValid
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_477250E7033C Il3ContextFilterNotifier
+
+FORWARD ME_477251BA00B2
+
+: ME_477251D200E3
+ CONST UID '477251D200E3'
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_477250E7033C // Il3ContextFilterNotifier
+ ;
+
+ref; // ME_477251D200E3 aSubscriber
+
+: ME_477251CC02BD
+ CONST UID '477251CC02BD'
+ CONST Name 'SubscribeToContextFilter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_477251BA00B2 // Il3ContextFilterNotifySource
+ ;
+ : Parameters
+   @ ( ME_477251D200E3 // aSubscriber
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477251CC02BD SubscribeToContextFilter
+
+: ME_477251E7013B
+ CONST UID '477251E7013B'
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_477250E7033C // Il3ContextFilterNotifier
+ ;
+
+ref; // ME_477251E7013B aSubscriber
+
+: ME_477251E203DD
+ CONST UID '477251E203DD'
+ CONST Name 'UnSubscribeFromContextFilter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_477251BA00B2 // Il3ContextFilterNotifySource
+ ;
+ : Parameters
+   @ ( ME_477251E7013B // aSubscriber
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477251E203DD UnSubscribeFromContextFilter
+
+: ME_477251BA00B2
+ CONST UID '477251BA00B2'
+ CONST GUID '92B574FC-96C1-4508-BC37-684311D65FE9'
+ CONST Name 'Il3ContextFilterNotifySource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'источник нотификации о том что параметры изменились' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_477251CC02BD // SubscribeToContextFilter
+ ME_477251E203DD // UnSubscribeFromContextFilter
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_477251BA00B2 Il3ContextFilterNotifySource
+
+FORWARD ME_4772523A0047
+
+: ME_4772524F0087
+ CONST UID '4772524F0087'
+ CONST Name 'Unfold'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4772523A0047 // Il3ContextFilterTargetContainer
+ ;
+ : Target ME_46835C6F02E0 // Il3ContextFilterTarget
+ ;
+
+ref; // ME_4772524F0087 Unfold
+
+: ME_4772523A0047
+ CONST UID '4772523A0047'
+ CONST GUID '8B89EA3D-277D-4AA6-A26F-462135D512CD'
+ CONST Name 'Il3ContextFilterTargetContainer'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контайнер для проверяльшика' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_4772524F0087 // Unfold
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4772523A0047 Il3ContextFilterTargetContainer
+
+FORWARD ME_477252690111
+
+: ME_4772528102DF
+ CONST UID '4772528102DF'
+ CONST Name 'IsSleep'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_477252690111 // Il3Wake
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4772528102DF IsSleep
+
+: ME_477252760154
+ CONST UID '477252760154'
+ CONST Name 'Wake'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_477252690111 // Il3Wake
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_477252760154 Wake
+
+: ME_477252690111
+ CONST UID '477252690111'
+ CONST GUID 'DDC74AB7-2345-43E4-A26F-6BCC7C0781B1'
+ CONST Name 'Il3Wake'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_4772528102DF // IsSleep
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_477252760154 // Wake
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_477252690111 Il3Wake
+
+FORWARD ME_477252BF0380
+
+: ME_477252C801B5
+ CONST UID '477252C801B5'
+ CONST Name 'Tree'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_477252BF0380 // Il3SimpleTreeSource
+ ;
+ : Target ME_46825CC00249 // Il3SimpleTree
+ ;
+ CONST "pm" false
+
+ref; // ME_477252C801B5 Tree
+
+: ME_477252BF0380
+ CONST UID '477252BF0380'
+ CONST GUID 'EA6A9D1A-ED3B-4B60-8F32-93F9558BF579'
+ CONST Name 'Il3SimpleTreeSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_477252C801B5 // Tree
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_477252BF0380 Il3SimpleTreeSource
+
+FORWARD ME_477252DD00C1
+
+: ME_477252F2025A
+ CONST UID '477252F2025A'
+ CONST Name 'aCountView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_477252F2025A aCountView
+
+: ME_477252EB01CD
+ CONST UID '477252EB01CD'
+ CONST Name 'CountViewChanged'
+ CONST Class class_Operation
+ %SUMMARY 'прошла операция.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_477252DD00C1 // Il3CountViewChangeRecipient
+ ;
+ : Parameters
+   @ ( ME_477252F2025A // aCountView
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_477252EB01CD CountViewChanged
+
+: ME_477252DD00C1
+ CONST UID '477252DD00C1'
+ CONST GUID '55350BB2-0AF6-4C25-8B69-85E2F918F722'
+ CONST Name 'Il3CountViewChangeRecipient'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Подписчик для получения нотификации об изменении количества видимых элементов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Operations
+   @ ( ME_477252EB01CD // CountViewChanged
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_477252DD00C1 Il3CountViewChangeRecipient
+
+FORWARD ME_4682740E0167
+
+: ME_4682742C0340
+ CONST UID '4682742C0340'
+ CONST Name 'Parent'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'родительский узел.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4682740E0167 // Il3SimpleInternalNode
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST "pm" false
+
+ref; // ME_4682742C0340 Parent
+
+: ME_4682740E0167
+ CONST UID '4682740E0167'
+ CONST GUID 'FD586615-B68E-4E35-BDB7-61F0E556D023'
+ CONST Name 'Il3SimpleInternalNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_4682742C0340 // Parent
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4682740E0167 Il3SimpleInternalNode
+
+: ME_47725360003C
+ CONST UID '47725360003C'
+ CONST Name 'Pl3TreeData'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'указатель на данные о перемещаемом объекте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( ME_4772530401CA // Tl3TreeData
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_47725360003C Pl3TreeData
+
+FORWARD ME_46825CE0014B
+
+: ME_47724ACC023A
+ CONST UID '47724ACC023A'
+ CONST Name 'Action'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47723C090340 // Tl3SimpleNodeAction
+ ;
+
+ref; // ME_47724ACC023A Action
+
+: ME_47724ACC025F
+ CONST UID '47724ACC025F'
+ CONST Name 'FlagMask'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ ;
+
+ref; // ME_47724ACC025F FlagMask
+
+: ME_47724ACC0284
+ CONST UID '47724ACC0284'
+ CONST Name 'IterMode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47724ACC0284 IterMode
+
+: ME_47724ACC02AB
+ CONST UID '47724ACC02AB'
+ CONST Name 'aSubRootNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ CONST Value 'nil'
+ : ValueType ME_468259900322 // Il3SimpleNode
+ ;
+
+ref; // ME_47724ACC02AB aSubRootNode
+
+: ME_53170C4502BE
+ CONST UID '53170C4502BE'
+ CONST Name 'aCheckResult'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53170C4502BE aCheckResult
+
+: ME_47724AB70207
+ CONST UID '47724AB70207'
+ CONST Name 'FlagIterateF'
+ CONST Class class_Operation
+ %SUMMARY 'перебрать все узлы, удовлетворяющие FlagMask, и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+ : Parameters
+   @ ( ME_47724ACC023A // Action
+ ME_47724ACC025F // FlagMask
+ ME_47724ACC0284 // IterMode
+ ME_47724ACC02AB // aSubRootNode
+ ME_53170C4502BE // aCheckResult
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47724AB70207 FlagIterateF
+
+: ME_46825CAA0125_ME_46825CE0014B
+ CONST UID '46825CAA0125'
+ CONST Name 'RootNode'
+ : Original ME_46825CAA0125 // RootNode
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46825CAA0125_ME_46825CE0014B RootNode
+
+: ME_46A44F6B035E_ME_46825CE0014B
+ CONST UID '46A44F6B035E'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_46A44F6B035E' '4677FBA70343.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44F6B035E_ME_46825CE0014B Subscribe
+
+: ME_46A44FFE0143_ME_46825CE0014B
+ CONST UID '46A44FFE0143'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_46A44FFE0143' '4677FBA70343.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44FFE0143_ME_46825CE0014B Unsubscribe
+
+: ME_4772448C01D2_ME_46825CE0014B
+ CONST UID '4772448C01D2'
+ CONST Name 'CursorTop'
+ : Original ME_4772448C01D2 // CursorTop
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4772448C01D2_ME_46825CE0014B CursorTop
+
+: ME_4772449B00A1_ME_46825CE0014B
+ CONST UID '4772449B00A1'
+ CONST Name 'GetIndex'
+ : Original ME_4772449B00A1 // GetIndex
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4772449B00A1_ME_46825CE0014B GetIndex
+
+: ME_477244BA0074_ME_46825CE0014B
+ CONST UID '477244BA0074'
+ CONST Name 'GetLevel'
+ : Original ME_477244BA0074 // GetLevel
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477244BA0074_ME_46825CE0014B GetLevel
+
+: ME_477244CE02AE_ME_46825CE0014B
+ CONST UID '477244CE02AE'
+ CONST Name 'SelectAllNodes'
+ : Original ME_477244CE02AE // SelectAllNodes
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477244CE02AE_ME_46825CE0014B SelectAllNodes
+
+: ME_477244DD0292_ME_46825CE0014B
+ CONST UID '477244DD0292'
+ CONST Name 'SelectInterval'
+ : Original ME_477244DD0292 // SelectInterval
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477244DD0292_ME_46825CE0014B SelectInterval
+
+: ME_47724512002D_ME_46825CE0014B
+ CONST UID '47724512002D'
+ CONST Name 'ChangeExpand'
+ : Original ME_47724512002D // ChangeExpand
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724512002D_ME_46825CE0014B ChangeExpand
+
+: ME_4772452E002D_ME_46825CE0014B
+ CONST UID '4772452E002D'
+ CONST Name 'ExpandSubDir'
+ : Original ME_4772452E002D // ExpandSubDir
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4772452E002D_ME_46825CE0014B ExpandSubDir
+
+: ME_477245520298_ME_46825CE0014B
+ CONST UID '477245520298'
+ CONST Name 'SetBranchFlag'
+ : Original ME_477245520298 // SetBranchFlag
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477245520298_ME_46825CE0014B SetBranchFlag
+
+: ME_4772457D032A_ME_46825CE0014B
+ CONST UID '4772457D032A'
+ CONST Name 'CountViewItemsInSubDir'
+ : Original ME_4772457D032A // CountViewItemsInSubDir
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4772457D032A_ME_46825CE0014B CountViewItemsInSubDir
+
+: ME_477245A20228_ME_46825CE0014B
+ CONST UID '477245A20228'
+ CONST Name 'IsRoot'
+ : Original ME_477245A20228 // IsRoot
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477245A20228_ME_46825CE0014B IsRoot
+
+: ME_477245B301DE_ME_46825CE0014B
+ CONST UID '477245B301DE'
+ CONST Name 'IsExpanded'
+ : Original ME_477245B301DE // IsExpanded
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477245B301DE_ME_46825CE0014B IsExpanded
+
+: ME_477245C40171_ME_46825CE0014B
+ CONST UID '477245C40171'
+ CONST Name 'IsFirstVis'
+ : Original ME_477245C40171 // IsFirstVis
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477245C40171_ME_46825CE0014B IsFirstVis
+
+: ME_477245D9031B_ME_46825CE0014B
+ CONST UID '477245D9031B'
+ CONST Name 'IsLastVis'
+ : Original ME_477245D9031B // IsLastVis
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477245D9031B_ME_46825CE0014B IsLastVis
+
+: ME_477245F301AE_ME_46825CE0014B
+ CONST UID '477245F301AE'
+ CONST Name 'HasVisibleChildren'
+ : Original ME_477245F301AE // HasVisibleChildren
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477245F301AE_ME_46825CE0014B HasVisibleChildren
+
+: ME_477246040221_ME_46825CE0014B
+ CONST UID '477246040221'
+ CONST Name 'GetLines'
+ : Original ME_477246040221 // GetLines
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477246040221_ME_46825CE0014B GetLines
+
+: ME_4772461601C6_ME_46825CE0014B
+ CONST UID '4772461601C6'
+ CONST Name 'Wake'
+ : Original ME_4772461601C6 // Wake
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4772461601C6_ME_46825CE0014B Wake
+
+: ME_477246270133_ME_46825CE0014B
+ CONST UID '477246270133'
+ CONST Name 'MoveNode'
+ : Original ME_477246270133 // MoveNode
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477246270133_ME_46825CE0014B MoveNode
+
+: ME_477246440037_ME_46825CE0014B
+ CONST UID '477246440037'
+ CONST Name 'SearchNameBegin'
+ : Original ME_477246440037 // SearchNameBegin
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477246440037_ME_46825CE0014B SearchNameBegin
+
+: ME_4772465F0276_ME_46825CE0014B
+ CONST UID '4772465F0276'
+ CONST Name 'SearchNameOccur'
+ : Original ME_4772465F0276 // SearchNameOccur
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4772465F0276_ME_46825CE0014B SearchNameOccur
+
+: ME_477246860169_ME_46825CE0014B
+ CONST UID '477246860169'
+ CONST Name 'MakeNodeVisible'
+ : Original ME_477246860169 // MakeNodeVisible
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477246860169_ME_46825CE0014B MakeNodeVisible
+
+: ME_477246A40174_ME_46825CE0014B
+ CONST UID '477246A40174'
+ CONST Name 'GetPrev'
+ : Original ME_477246A40174 // GetPrev
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477246A40174_ME_46825CE0014B GetPrev
+
+: ME_477246C70141_ME_46825CE0014B
+ CONST UID '477246C70141'
+ CONST Name 'SimpleIterateF'
+ : Original ME_477246C70141 // SimpleIterateF
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477246C70141_ME_46825CE0014B SimpleIterateF
+
+: ME_477246E802B1_ME_46825CE0014B
+ CONST UID '477246E802B1'
+ CONST Name 'IsChanging'
+ : Original ME_477246E802B1 // IsChanging
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477246E802B1_ME_46825CE0014B IsChanging
+
+: ME_477246F7039B_ME_46825CE0014B
+ CONST UID '477246F7039B'
+ CONST Name 'Changing'
+ : Original ME_477246F7039B // Changing
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_477246F7039B_ME_46825CE0014B Changing
+
+: ME_4772470100BC_ME_46825CE0014B
+ CONST UID '4772470100BC'
+ CONST Name 'Changed'
+ : Original ME_4772470100BC // Changed
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4772470100BC_ME_46825CE0014B Changed
+
+: ME_477248FE005A_ME_46825CE0014B
+ CONST UID '477248FE005A'
+ CONST Name 'ShowRoot'
+ : Original ME_477248FE005A // ShowRoot
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477248FE005A_ME_46825CE0014B ShowRoot
+
+: ME_4772490E02F7_ME_46825CE0014B
+ CONST UID '4772490E02F7'
+ CONST Name 'CountView'
+ : Original ME_4772490E02F7 // CountView
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772490E02F7_ME_46825CE0014B CountView
+
+: ME_4772491C01C5_ME_46825CE0014B
+ CONST UID '4772491C01C5'
+ CONST Name 'SelectCount'
+ : Original ME_4772491C01C5 // SelectCount
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772491C01C5_ME_46825CE0014B SelectCount
+
+: ME_4772495902EE_ME_46825CE0014B
+ CONST UID '4772495902EE'
+ CONST Name 'Flags'
+ : Original ME_4772495902EE // Flags
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772495902EE_ME_46825CE0014B Flags
+
+: ME_477249AB0057_ME_46825CE0014B
+ CONST UID '477249AB0057'
+ CONST Name 'Select'
+ : Original ME_477249AB0057 // Select
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477249AB0057_ME_46825CE0014B Select
+
+: ME_477249EB02D9_ME_46825CE0014B
+ CONST UID '477249EB02D9'
+ CONST Name 'Nodes'
+ : Original ME_477249EB02D9 // Nodes
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477249EB02D9_ME_46825CE0014B Nodes
+
+: ME_47A86EA80292_ME_46825CE0014B
+ CONST UID '47A86EA80292'
+ CONST Name 'MakeDataObject'
+ : Original ME_47A86EA80292 // MakeDataObject
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47A86EA80292_ME_46825CE0014B MakeDataObject
+
+: ME_47BAD3080349_ME_46825CE0014B
+ CONST UID '47BAD3080349'
+ CONST Name 'CanAcceptData'
+ : Original ME_47BAD3080349 // CanAcceptData
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47BAD3080349_ME_46825CE0014B CanAcceptData
+
+: ME_47BAD32501E2_ME_46825CE0014B
+ CONST UID '47BAD32501E2'
+ CONST Name 'DropData'
+ : Original ME_47BAD32501E2 // DropData
+ ;
+ : Implementor ME_46825CE0014B // Il3ExpandedSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47BAD32501E2_ME_46825CE0014B DropData
+
+: ME_46825CE0014B
+ CONST UID '46825CE0014B'
+ CONST GUID '705500C4-0F50-4079-9A00-CAF8F9D01E69'
+ CONST Name 'Il3ExpandedSimpleTree'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево с расширенной функциональностью.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Inherits
+   @ ( ME_46825CC00249 // Il3SimpleTree
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_47724AB70207 // FlagIterateF
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46825CAA0125_ME_46825CE0014B // RootNode
+ ME_46A44F6B035E_ME_46825CE0014B // Subscribe
+ ME_46A44FFE0143_ME_46825CE0014B // Unsubscribe
+ ME_4772448C01D2_ME_46825CE0014B // CursorTop
+ ME_4772449B00A1_ME_46825CE0014B // GetIndex
+ ME_477244BA0074_ME_46825CE0014B // GetLevel
+ ME_477244CE02AE_ME_46825CE0014B // SelectAllNodes
+ ME_477244DD0292_ME_46825CE0014B // SelectInterval
+ ME_47724512002D_ME_46825CE0014B // ChangeExpand
+ ME_4772452E002D_ME_46825CE0014B // ExpandSubDir
+ ME_477245520298_ME_46825CE0014B // SetBranchFlag
+ ME_4772457D032A_ME_46825CE0014B // CountViewItemsInSubDir
+ ME_477245A20228_ME_46825CE0014B // IsRoot
+ ME_477245B301DE_ME_46825CE0014B // IsExpanded
+ ME_477245C40171_ME_46825CE0014B // IsFirstVis
+ ME_477245D9031B_ME_46825CE0014B // IsLastVis
+ ME_477245F301AE_ME_46825CE0014B // HasVisibleChildren
+ ME_477246040221_ME_46825CE0014B // GetLines
+ ME_4772461601C6_ME_46825CE0014B // Wake
+ ME_477246270133_ME_46825CE0014B // MoveNode
+ ME_477246440037_ME_46825CE0014B // SearchNameBegin
+ ME_4772465F0276_ME_46825CE0014B // SearchNameOccur
+ ME_477246860169_ME_46825CE0014B // MakeNodeVisible
+ ME_477246A40174_ME_46825CE0014B // GetPrev
+ ME_477246C70141_ME_46825CE0014B // SimpleIterateF
+ ME_477246E802B1_ME_46825CE0014B // IsChanging
+ ME_477246F7039B_ME_46825CE0014B // Changing
+ ME_4772470100BC_ME_46825CE0014B // Changed
+ ME_477248FE005A_ME_46825CE0014B // ShowRoot
+ ME_4772490E02F7_ME_46825CE0014B // CountView
+ ME_4772491C01C5_ME_46825CE0014B // SelectCount
+ ME_4772495902EE_ME_46825CE0014B // Flags
+ ME_477249AB0057_ME_46825CE0014B // Select
+ ME_477249EB02D9_ME_46825CE0014B // Nodes
+ ME_47A86EA80292_ME_46825CE0014B // MakeDataObject
+ ME_47BAD3080349_ME_46825CE0014B // CanAcceptData
+ ME_47BAD32501E2_ME_46825CE0014B // DropData
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_46825CE0014B Il3ExpandedSimpleTree
+
+FORWARD ME_49F719740145
+
+: ME_49F719AD02E3
+ CONST UID '49F719AD02E3'
+ CONST Name 'Data'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49F719740145 // Il3ExtItemNode
+ ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+ CONST "pm" false
+
+ref; // ME_49F719AD02E3 Data
+
+: ME_49F719C20251
+ CONST UID '49F719C20251'
+ CONST Name 'DataSize'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49F719740145 // Il3ExtItemNode
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_49F719C20251 DataSize
+
+: ME_49F719740145
+ CONST UID '49F719740145'
+ CONST GUID '9A362763-3CCF-4E69-9B9D-1B92253D0A85'
+ CONST Name 'Il3ExtItemNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Нода из связанного словаря. А место ли ей в этом модуле?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4682595B0268 // l3TreeInterfaces
+ ;
+ : Attributes
+   @ ( ME_49F719AD02E3 // Data
+ ME_49F719C20251 // DataSize
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_49F719740145 Il3ExtItemNode
+
+: ME_4682595B0268
+ CONST UID '4682595B0268'
+ CONST Name 'l3TreeInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы дерева.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ ;
+ : Children
+   @ ( ME_47AAFE470329 // Il3Nodes
+ ME_46825C5A01B6 // Il3NotifySource
+ ME_4772530401CA // Tl3TreeData
+ ME_468259900322 // Il3SimpleNode
+ ME_468274930190 // Il3SimpleRootNode
+ ME_47723C090340 // Tl3SimpleNodeAction
+ ME_46825C710250 // Il3RootSource
+ ME_46827C88016E // Il3HandleNode
+ ME_47724B6500F6 // Il3TreeFilters
+ ME_46835C350296 // Il3ContextFilterParamsNotifier
+ ME_46835C6F02E0 // Il3ContextFilterTarget
+ ME_46835CB60115 // Il3ContextFilterParamsNotifySource
+ ME_4770F6E2015F // Il3Base
+ ME_46825CC00249 // Il3SimpleTree
+ ME_47724373032C // Il3RootSpy
+ ME_477243CF0296 // Il3NodeNotifyRecipient
+ ME_46835C050374 // Il3FilterableTree
+ ME_47724E7F0261 // Il3ContextFilterParams
+ ME_477250E7033C // Il3ContextFilterNotifier
+ ME_477251BA00B2 // Il3ContextFilterNotifySource
+ ME_4772523A0047 // Il3ContextFilterTargetContainer
+ ME_477252690111 // Il3Wake
+ ME_477252BF0380 // Il3SimpleTreeSource
+ ME_477252DD00C1 // Il3CountViewChangeRecipient
+ ME_4682740E0167 // Il3SimpleInternalNode
+ ME_47725360003C // Pl3TreeData
+ ME_46825CE0014B // Il3ExpandedSimpleTree
+ ME_49F719740145 // Il3ExtItemNode
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_47723A1001D6 // IterMode
+ ME_47723AA10142 // flags in tree
+ ME_47723BD702D6 // CountView
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '22.04.2004 11:27'
+ CONST "weak" true
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4682595B0268.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4682595B0268.pas.ms.script.runner'
+
+ref; // ME_4682595B0268 l3TreeInterfaces

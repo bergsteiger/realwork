@@ -1,0 +1,211 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ViewsItems/Dialog.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ViewsItems::Dialog
+//
+// Диалог
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Dialog::Class
+? Диалог
+= GuiControl::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_gui_dialog.gif
+L code_gui_dialog
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p resizeable:b=false ? Может ли диалог изменять свой размер
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{resizeable}"!="%S{!resizeable}"}%f_up_prefix(%S) *resizeable* = *%S{resizeable}* - Может ли диалог изменять свой размер
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа AbstractClass::Class
+// реализация специфических методов стереотипа
+%f _auto_self_methods_cpp
+//#UC START# *471728BE01B5for4714408B03B9*
+	[%S%f_refcount_methods_cpp()
+	]BEGIN_MESSAGE_MAP(%f_type(%S), %f_base_dlg_class(%S))[{%S{resizeable}=true&%Sa!=abstract}
+		ON_WM_CREATE()]
+		%U[{_MESSAGE_MAP}
+		]
+	END_MESSAGE_MAP()
+	
+	[{%Sa!=abstract}IMPLEMENT_[{%SS!=PropertyPage}{DYNCREATE}DYNAMIC](%SN, C%SS)
+	
+	]void %f_type(%S)::DoDataExchange(CDataExchange* pDX) {
+		C%SS::DoDataExchange(pDX);
+		%U[{_DO_DATA_EXCHANGE}
+		]
+	}
+	
+	BOOL %f_type(%S)::OnInitDialog () {
+		BOOL ret = %f_base_dlg_class(%S)::OnInitDialog();
+		try {
+			%U[{_ON_INIT_DLG}
+			][{%S{resizeable}=true&%Sa!=abstract}
+	
+/			m_layout_helper = new WinGUI::LayoutHelper;
+/			m_layout_helper-\>layout_style () = WinGUI::LayoutHelper::DEFAULT_LAYOUT;
+/			m_layout_helper-\>attach_wnd(*this);
+/			m_layout_helper-\>add_child_controls();
+/	
+			this-\>init_constraint ();
+			UpdateLayout ();
+	]
+		} catch (...) {
+			::MessageBox (
+				0
+				, "В процессе инициализации диалога \\"%SN\\" произошло неизвестное исключение"
+				, "Ошибка"
+				, MB_ICONEXCLAMATION
+			);
+			this-\>EndDialog (IDCANCEL);
+		}
+		return ret;
+	}[{%S{resizeable}=true&%Sa!=abstract}
+	
+	int %f_type(%S)::OnCreate(LPCREATESTRUCT create_struct) {
+		this-\>ModifyStyle (DS_MODALFRAME, WS_THICKFRAME);
+		
+		return %f_base_dlg_class(%S)::OnCreate (create_struct);
+	}
+	
+	void %f_type(%S)::init_constraint () {
+		%U[{_CUSTOM_CONTROLS_CONSTRAINT}
+		]
+	}]
+//#UC END# *471728BE01B5for4714408B03B9*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// определение специфических методов стереотипа
+%f _auto_self_methods_h
+//#UC START# *471728C000FAfor4714408B03B9*
+	[%S%f_refcount_methods_h()
+	]#	DECLARE_MESSAGE_MAP()
+	
+	[{%Sa!=abstract}#	DECLARE_[{%SS!=PropertyPage}{DYNCREATE}DYNAMIC](%SN)
+	
+	]#	virtual void DoDataExchange(CDataExchange* pDX);
+	
+	#	BOOL OnInitDialog ();[{%S{resizeable}=true&%Sa!=abstract}
+	
+	#	int OnCreate(LPCREATESTRUCT create_struct);
+	
+	#	void init_constraint ();]
+//#UC END# *471728C000FAfor4714408B03B9*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// выводит список наследования
+%f _base_class_decl
+//#UC START# *471728C103A9for4714408B03B9*
+	: [{}{public %S%f_get_wnd_class()}<{, }{%GS=%SS}public %f_type(%G)>]<{}{%GS!=%SS}, public %f_type(%G)> 
+//#UC END# *471728C103A9for4714408B03B9*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// реализация контсуктора и деструктора
+%f _ctor_n_dctor_cpp
+//#UC START# *471728C301D4for4714408B03B9*
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// constructors and destructor\
+	[{}{
+	
+	%f_type(%S)::%SN ([{%Sa=abstract}UINT templ_id])
+		: %f_addit_init(%S)
+	%U[{_CTOR_BASE_INIT!cpp!}
+	]
+	{
+		%U[{_CTOR!cpp!}
+		]
+	}
+	}[<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+	
+	%CX>][
+	
+	%f_dump_cpp_derrived_constr_cpp(%S)]][
+	
+	%f_servant_cpp_destructor_cpp(%S)
+	]
+//#UC END# *471728C301D4for4714408B03B9*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// выводит определение конструктора и деструктора
+%f _ctor_n_dctor_h
+//#UC START# *471728C5005Dfor4714408B03B9*
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// constructors and destructor
+	[{%Sa!=abstract&%SS!=PropertySheet}public:
+	#	enum { IDD = IDD_%f_to_upper(%f_to_omg(%SN)) };
+	
+	][{}{#public:
+	#	%SN ([{%Sa=abstract}UINT templ_id]);
+	
+	}[public:
+	<{}{"%CC"="Operation"&"%CS"="ctor"&"%CV"="PublicAccess"}{Sn}%CX
+	
+	>][#protected:
+	<{}{"%CC"="Operation"&"%CS"="ctor"&"%CV"!="PublicAccess"}{Sn}%CX
+	
+	>][%f_dump_cpp_derrived_constr_h(%S)]]#public:
+	#	[{%Sa!=final}virtual ]~%SN ();
+	]
+//#UC END# *471728C5005Dfor4714408B03B9*
+
+// перекрытие базового стереотипа GuiControl::Class
+// возвращает базовый класс окна (диалог, список т.д)
+%f _get_wnd_class
+//#UC START# *4714440600BBfor4714408B03B9*
+	[{%S{resizeable}=false}{WinGUI::ETSLayout}C]%SS
+//#UC END# *4714440600BBfor4714408B03B9*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4714408B03B9*
+r {%ax=false&<{}{%aS=Dialog|%aS=PropertyPage|%aS=PropertySheet|%a%PS=PropertyPage|%a%PS=PropertySheet|%a%PS=Dialog}{C}>=0&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%a#f_IsUseCase()=true}{C}>=0}: {%SS ни кем (включая прецеденты) не используется %ax<{,}%aN-%aS-%aC>}
+r {<{}{%GS=%SS&%S{resizeable}=true&%G{resizeable}!=true}{%GC}>!=0}:              {Resizeable %SS can't inherit from non resizeable %SS}
+//#UC END# *4704C0E30186for4714408B03B9*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Dialog::Class::ctor::Operation
+= ClassBase::Class::ctor::Operation
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassBase::Class::ctor::Operation
+// генерация кода инициализации
+%f _addit_init
+//#UC START# *471444AD001Ffor4BFB75D502BD*
+	%f_addit_init(%P)
+//#UC END# *471444AD001Ffor4BFB75D502BD*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

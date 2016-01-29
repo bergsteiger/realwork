@@ -1,0 +1,781 @@
+// ComponentsProcessingPack 54F452710048 ScriptKeywordsPack Class
+
+FORWARD ME_54F452710048
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_D0FE9D22441B
+
+: ME_08463B6EF668
+ CONST UID '08463B6EF668'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_08463B6EF668 aCtx
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_08463B6EF669
+ CONST UID '08463B6EF669'
+ CONST Name 'aComponent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_08463B6EF669 aComponent
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_08463B6EF66A
+ CONST UID '08463B6EF66A'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_08463B6EF66A anIndex
+
+: ME_2E270C931823
+ CONST UID '2E270C931823'
+ CONST Name 'GetComponent'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Component:GetComponent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_479878FA0103 // TComponent
+ ;
+ : Parameters
+   [ ME_08463B6EF668 // aCtx
+ ME_08463B6EF669 // aComponent
+ ME_08463B6EF66A // anIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_2E270C931823 GetComponent
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_9066F0A0BA8E
+ CONST UID '9066F0A0BA8E'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Component_GetComponent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9066F0A0BA8E Ini_Reg
+
+: ME_D0FE9D22441B
+ CONST UID 'D0FE9D22441B'
+ CONST Name 'pop_Component_GetComponent'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Component:GetComponent'#13#10'*Тип результата:* TComponent'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TComponent'#13#10' anIndex aComponent pop:Component:GetComponent >>> l_TComponent'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_2E270C931823 // GetComponent
+ ME_9066F0A0BA8E // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Component:GetComponent'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_D0FE9D22441B pop_Component_GetComponent
+
+FORWARD ME_4F10E1D50761
+
+: ME_03CA2456E82E
+ CONST UID '03CA2456E82E'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_03CA2456E82E aCtx
+
+: ME_03CA2456E82F
+ CONST UID '03CA2456E82F'
+ CONST Name 'aComponent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_03CA2456E82F aComponent
+
+: ME_03CA2456E830
+ CONST UID '03CA2456E830'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_03CA2456E830 aName
+
+: ME_61724DDB4B2B
+ CONST UID '61724DDB4B2B'
+ CONST Name 'FindComponent'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Component:FindComponent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_479878FA0103 // TComponent
+ ;
+ : Parameters
+   [ ME_03CA2456E82E // aCtx
+ ME_03CA2456E82F // aComponent
+ ME_03CA2456E830 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_61724DDB4B2B FindComponent
+
+: ME_F706699E5DCD
+ CONST UID 'F706699E5DCD'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Component_FindComponent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F706699E5DCD Ini_Reg
+
+: ME_4F10E1D50761
+ CONST UID '4F10E1D50761'
+ CONST Name 'pop_Component_FindComponent'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Component:FindComponent'#13#10'*Тип результата:* TComponent'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TComponent'#13#10' aName aComponent pop:Component:FindComponent >>> l_TComponent'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_61724DDB4B2B // FindComponent
+ ME_F706699E5DCD // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Component:FindComponent'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F10E1D50761 pop_Component_FindComponent
+
+INCLUDE '5619169603BE.pas.ms.script'
+
+FORWARD ME_3B829E298F09
+
+: ME_95101D1AC89D
+ CONST UID '95101D1AC89D'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_95101D1AC89D aCtx
+
+: ME_95101D1AC89E
+ CONST UID '95101D1AC89E'
+ CONST Name 'aComponent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_95101D1AC89E aComponent
+
+: ME_A4B08EBFFC24
+ CONST UID 'A4B08EBFFC24'
+ CONST Name 'ComponentCount'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Component:ComponentCount' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_95101D1AC89D // aCtx
+ ME_95101D1AC89E // aComponent
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_A4B08EBFFC24 ComponentCount
+
+: ME_1A17E0414BEC
+ CONST UID '1A17E0414BEC'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Component_ComponentCount' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_1A17E0414BEC Ini_Reg
+
+: ME_3B829E298F09
+ CONST UID '3B829E298F09'
+ CONST Name 'pop_Component_ComponentCount'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Component:ComponentCount'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aComponent pop:Component:ComponentCount >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A4B08EBFFC24 // ComponentCount
+ ME_1A17E0414BEC // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Component:ComponentCount'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_3B829E298F09 pop_Component_ComponentCount
+
+FORWARD ME_722F6A69957B
+
+: ME_44F2E4941E04
+ CONST UID '44F2E4941E04'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_44F2E4941E04 aCtx
+
+: ME_44F2E4941E05
+ CONST UID '44F2E4941E05'
+ CONST Name 'aComponent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_44F2E4941E05 aComponent
+
+: ME_9E2CF131AE8C
+ CONST UID '9E2CF131AE8C'
+ CONST Name 'Owner'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Component:Owner' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_479878FA0103 // TComponent
+ ;
+ : Parameters
+   [ ME_44F2E4941E04 // aCtx
+ ME_44F2E4941E05 // aComponent
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_9E2CF131AE8C Owner
+
+: ME_6AC4545E61E5
+ CONST UID '6AC4545E61E5'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Component_Owner' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_6AC4545E61E5 Ini_Reg
+
+: ME_722F6A69957B
+ CONST UID '722F6A69957B'
+ CONST Name 'pop_Component_Owner'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Component:Owner'#13#10'*Тип результата:* TComponent'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TComponent'#13#10' aComponent pop:Component:Owner >>> l_TComponent'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_9E2CF131AE8C // Owner
+ ME_6AC4545E61E5 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Component:Owner'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_722F6A69957B pop_Component_Owner
+
+FORWARD ME_4DE6AA14F838
+
+: ME_52DB6CB8740A
+ CONST UID '52DB6CB8740A'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_52DB6CB8740A aCtx
+
+: ME_52DB6CB8740B
+ CONST UID '52DB6CB8740B'
+ CONST Name 'aComponent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_52DB6CB8740B aComponent
+
+: ME_FDA0EFB1E431
+ CONST UID 'FDA0EFB1E431'
+ CONST Name 'Name'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Component:Name' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_52DB6CB8740A // aCtx
+ ME_52DB6CB8740B // aComponent
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_FDA0EFB1E431 Name
+
+: ME_C2527CC0BFA5
+ CONST UID 'C2527CC0BFA5'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Component_Name' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_C2527CC0BFA5 Ini_Reg
+
+: ME_4DE6AA14F838
+ CONST UID '4DE6AA14F838'
+ CONST Name 'pop_Component_Name'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Component:Name'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aComponent pop:Component:Name >>> l_String'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_FDA0EFB1E431 // Name
+ ME_C2527CC0BFA5 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Component:Name'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4DE6AA14F838 pop_Component_Name
+
+: ME_54F9BC580257
+ CONST UID '54F9BC580257'
+ CONST Name 'ComponentCount'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "mapped" true
+
+ @SELF
+; // ME_54F9BC580257 ComponentCount
+
+: ME_54F9BC800082
+ CONST UID '54F9BC800082'
+ CONST Name 'Owner'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_479878FA0103 // TComponent
+ ;
+ CONST "mapped" true
+
+ @SELF
+; // ME_54F9BC800082 Owner
+
+: ME_54F9BC9801F3
+ CONST UID '54F9BC9801F3'
+ CONST Name 'Name'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "mapped" true
+
+ @SELF
+; // ME_54F9BC9801F3 Name
+
+: ME_54F9BCC40035
+ CONST UID '54F9BCC40035'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54F9BCC40035 anIndex
+
+: ME_54F9BCB401D4
+ CONST UID '54F9BCB401D4'
+ CONST Name 'GetComponent'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_479878FA0103 // TComponent
+ ;
+ : Parameters
+   [ ME_54F9BCC40035 // anIndex
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_54F9BCB401D4 GetComponent
+
+: ME_54F9BCFD026C
+ CONST UID '54F9BCFD026C'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_54F9BCFD026C aName
+
+: ME_54F9BCE8003D
+ CONST UID '54F9BCE8003D'
+ CONST Name 'FindComponent'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_479878FA0103 // TComponent
+ ;
+ : Parameters
+   [ ME_54F9BCFD026C // aName
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_54F9BCE8003D FindComponent
+
+: ME_918356319D5F
+ CONST UID '918356319D5F'
+ CONST Name 'ComponentCount'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_918356319D5F ComponentCount
+
+: ME_ECF2AFE484DC
+ CONST UID 'ECF2AFE484DC'
+ CONST Name 'Owner'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_479878FA0103 // TComponent
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_ECF2AFE484DC Owner
+
+: ME_65A5CCEFB4C4
+ CONST UID '65A5CCEFB4C4'
+ CONST Name 'Name'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_65A5CCEFB4C4 Name
+
+: ME_D7E5F7392CDB
+ CONST UID 'D7E5F7392CDB'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D7E5F7392CDB Reg_TtfwContext
+
+: ME_0CA8FFFB4DC2
+ CONST UID '0CA8FFFB4DC2'
+ CONST Name 'Reg_TComponent'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TComponent' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_0CA8FFFB4DC2 Reg_TComponent
+
+: ME_A6D70549C356
+ CONST UID 'A6D70549C356'
+ CONST Name 'Reg_Integer'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Integer' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_A6D70549C356 Reg_Integer
+
+: ME_F6AA0A2352AB
+ CONST UID 'F6AA0A2352AB'
+ CONST Name 'Reg_String'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F6AA0A2352AB Reg_String
+
+: ME_54F452710048
+ CONST UID '54F452710048'
+ CONST Name 'ComponentsProcessingPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_479878FA0103 // TComponent
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_54F9BC580257 // ComponentCount
+ ME_54F9BC800082 // Owner
+ ME_54F9BC9801F3 // Name
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54F9BCB401D4 // GetComponent
+ ME_54F9BCE8003D // FindComponent
+ ME_918356319D5F // ComponentCount
+ ME_ECF2AFE484DC // Owner
+ ME_65A5CCEFB4C4 // Name
+ ME_D7E5F7392CDB // Reg_TtfwContext
+ ME_0CA8FFFB4DC2 // Reg_TComponent
+ ME_A6D70549C356 // Reg_Integer
+ ME_F6AA0A2352AB // Reg_String
+ ]
+ ; // Operations
+ : Children
+   [ ME_D0FE9D22441B // pop_Component_GetComponent
+ ME_4F10E1D50761 // pop_Component_FindComponent
+ ME_3B829E298F09 // pop_Component_ComponentCount
+ ME_722F6A69957B // pop_Component_Owner
+ ME_4DE6AA14F838 // pop_Component_Name
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_54F452710048 ComponentsProcessingPack

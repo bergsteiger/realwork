@@ -1,0 +1,88 @@
+'$Include "sqautil.sbh"
+
+Function FZ_211_selling(tip As Integer, netID As Integer, isDelta As Integer, freqID As Integer)
+'tip 0..36
+'netID 0..2
+'isDelta 0..1
+'freqID 0..6
+        Dim j, bmax, bmin, bcur As Integer
+        Dim v1() As String
+        
+'коммерческая поставка
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect 42
+    
+        Window SetContext, "CurrentWindow", ""
+        GenericObject DblClick, "Class=TWinControl;ClassIndex=1", "Coords=10,7"
+        InputKeys "{TAB}{TAB}"
+'choose product type
+        ComboBox Click, "ObjectIndex=4", "Coords=260,8"
+        For j=0 to (tip mod 7)    
+            InputKeys "{DOWN}"
+        Next j
+        For j=1 to int(tip/7)    
+            InputKeys "{PGDN}"
+        Next j
+        ComboBox Click, "ObjectIndex=4", "Coords=260,8"
+      
+        InputKeys "{TAB}{TAB}"
+'choose net
+        For j=0 to netID
+            InputKeys "{DOWN}"
+        Next j
+'choose update type
+        InputKeys "{TAB}{DOWN}"
+        if isDelta = 1 then 
+            InputKeys "{DOWN}"
+        end if
+        
+'choose freq update
+        InputKeys "{TAB}"
+        For j=0 to freqID
+            InputKeys "{DOWN}"
+        Next j
+'choose bases
+        InputKeys "{TAB}"
+        if rnd<0.5 then
+        'Зак-во России
+            For j=0 to 7
+                InputKeys "{DOWN}"
+            Next       
+            InputKeys " "
+        end if 
+add_base:     
+        InputKeys "{HOME}"
+        if rnd>0.5 then 
+            For j=0 to rnd*12
+                InputKeys "{PGDN}"
+            Next       
+        elseIf rnd>0.4 then
+                InputKeys "{PGDN}"
+        end if        
+        For j=0 to rnd*12
+            InputKeys "{DOWN}"
+        Next       
+        InputKeys " "
+        
+    'v1(1)=Вес с 2 по 2
+    'v1(2)=Набрано: 1
+        bmin = SQAGetPropertyArrayAsString("Type=StatusBar;ObjectIndex=1", "PartText", v1())
+        bmin = Val( GetField$(v1(1),3," ") )
+        bmax = Val( GetField$(v1(1),5," ") )
+        bcur = Val( GetField$(v1(2),2," ") )
+
+        if bmin>bcur or bcur=0 then goto add_base
+        if (bmin=bcur) and (bmin<>bmax) and rnd<0.3 then goto add_base
+        if (bmax>bcur) and (bmin<>bmax) and rnd<0.3 then goto add_base
+
+
+        InputKeys "{ENTER}"
+'Save changes           
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect 14
+End Function
+
+
+Sub Main
+    Call FZ_211_selling(1,1,0,1)
+End Sub

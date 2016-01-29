@@ -1,0 +1,233 @@
+// Tl3SearchNode 4E5CDF9303B7 SimpleClass Class
+
+INCLUDE '4E5CDE950027.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_4E5CDF9303B7
+
+INCLUDE '4E5CDF6B0356.pas.ms.script'
+
+: ME_4E5CDFAA0331
+ CONST UID '4E5CDFAA0331'
+ CONST Name 'f_Children'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4E5CDF6B0356 // Tl3SearchNodePrimList
+ ;
+
+ @SELF
+; // ME_4E5CDFAA0331 f_Children
+
+FORWARD ME_4E5CDFED0163
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4E5CE00802F1
+ CONST UID '4E5CE00802F1'
+ CONST Name 'anIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4E5CE00802F1 anIndex
+
+: ME_4E5CDFED0163
+ CONST UID '4E5CDFED0163'
+ CONST Name 'Children'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4E5CDF9303B7 // Tl3SearchNode
+ ;
+ : Attributes
+   [ ME_4E5CE00802F1 // anIndex
+ ]
+ ; // Attributes
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_4E5CDFED0163 Children
+
+: ME_4E5CE35201C3
+ CONST UID '4E5CE35201C3'
+ CONST Name 'ChildrenCount'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_4E5CE35201C3 ChildrenCount
+
+FORWARD ME_4E5CE02103C4
+
+: ME_4E5CE0370387
+ CONST UID '4E5CE0370387'
+ CONST Name 'aChild'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4E5CDF9303B7 // Tl3SearchNode
+ ;
+
+ @SELF
+; // ME_4E5CE0370387 aChild
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4E5CE02D0286
+ CONST UID '4E5CE02D0286'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4E5CE0370387 // aChild
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4E5CE02D0286 DoIt
+
+: ME_4E5CE02103C4
+ CONST UID '4E5CE02103C4'
+ CONST Name 'AddChild'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4E5CE02D0286 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4E5CE02103C4 AddChild
+
+FORWARD ME_4E5DDB4401B4
+
+: ME_4E5DDCA201A3
+ CONST UID '4E5DDCA201A3'
+ CONST Name 'aPos'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4E5DDCA201A3 aPos
+
+: ME_4E5DDC8A006A
+ CONST UID '4E5DDC8A006A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4E5DDCA201A3 // aPos
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4E5DDC8A006A DoIt
+
+: ME_4E5DDB4401B4
+ CONST UID '4E5DDB4401B4'
+ CONST Name 'Split'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'разделяет ноду на две, разделяя текст пополам, хвостик текста переносит в новую ноду, которую добавляет себе в дети, в неё же уезжают все текущие дети и данные' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4E5DDC8A006A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4E5DDB4401B4 Split
+
+FORWARD ME_4E672AF8013E
+
+: ME_4E672B2D0358
+ CONST UID '4E672B2D0358'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4E672B2D0358 DoIt
+
+: ME_4E672AF8013E
+ CONST UID '4E672AF8013E'
+ CONST Name 'DropChildren'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4E672B2D0358 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4E672AF8013E DropChildren
+
+: ME_4E5CDF9303B7
+ CONST UID '4E5CDF9303B7'
+ CONST Name 'Tl3SearchNode'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4E5CDE950027 // Tl3SearchNodePrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4E5CDFAA0331 // f_Children
+ ME_4E5CDFED0163 // Children
+ ME_4E5CE35201C3 // ChildrenCount
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4E5CE02103C4 // AddChild
+ ME_4E5DDB4401B4 // Split
+ ME_4E672AF8013E // DropChildren
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4E5CDF9303B7 Tl3SearchNode

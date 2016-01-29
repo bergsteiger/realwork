@@ -1,0 +1,657 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "EmailNotification"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/EmailNotification|48C90ADA037A
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19031807255"))
+    quid       	"48C90ADA037A"
+    documentation 	"пакет интерфейсов поддержки нотификаций по почте"
+    stereotype 	"Interfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"48C90C8E028D"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.mail"
+	    quidu      	"48C90C3D024E")
+	(object Visibility_Relationship
+	    quid       	"4B7EA00100D1"
+	    supplier   	"Logical View::external::JavaTypes::javax.mail"
+	    quidu      	"4B7E9EF101A0")
+	(object Visibility_Relationship
+	    quid       	"4B7EA2EE014F"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages"
+	    quidu      	"4614919300FA"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "EmailGateway"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EmailNotification/EmailGateway.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/EmailNotification/EmailGateway|48C90B2301DE
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EmailNotification/EmailGatewayFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48C90B2301DE_48F6EBB50297_48C90CD200D7_BODY*"
+		    value      	(value Text 
+|//#UC START# *48C90B2301DE_48F6EBB50297_48C90CD200D7_BODY*¤		//#UC END# *48C90B2301DE_48F6EBB50297_48C90CD200D7_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039112239"))
+	    quid       	"48C90B2301DE"
+	    documentation 	"обобщенный интерфейс для посылки email нотификаций"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "send"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48C90B61002B_48C90CD200D7*"
+			    value      	(value Text 
+|//#UC START# *48C90B61002B_48C90CD200D7*¤		for(String key : queue_.keySet()){¤			getCurrentEmailSender().addEmail(queue_.get(key));¤		}¤		clear();¤		//#UC END# *48C90B61002B_48C90CD200D7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011275360"))
+		    quid       	"48C90B61002B"
+		    documentation 	"посылает каждому пользователю сообщения"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "clear"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48C90BF703B1_48C90CD200D7*"
+			    value      	(value Text 
+|//#UC START# *48C90BF703B1_48C90CD200D7*¤		for (Entry<String, TreeSet<PriorityEmail>> e : queue_.entrySet()) {¤			e.getValue().clear();¤		}¤		queue_.clear();¤		//#UC END# *48C90BF703B1_48C90CD200D7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011275731"))
+		    quid       	"48C90BF703B1"
+		    documentation 	"очищает очередь сообщений"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "queue_email"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48C90DB50278_48C90CD200D7*"
+			    value      	(value Text 
+|//#UC START# *48C90DB50278_48C90CD200D7*¤		queueEmail(email.getTo(), new PriorityEmail(email));¤		return this;¤		//#UC END# *48C90DB50278_48C90CD200D7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48C90B2301DE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011276074"))
+		    quid       	"48C90DB50278"
+		    documentation 	"ставит сообщение в очередь"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "email"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"48C90C630052")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011276407"))
+			    quid       	"48C90DD30184"
+			    type       	"Email"
+			    quidu      	"48C90C630052"))
+		    result     	"EmailGateway"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48C90B2301DE")
+		(object Operation "create"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48F6EBB50297_48F6EBB50297_48C90CD200D7_BODY*"
+			    value      	(value Text 
+|//#UC START# *48F6EBB50297_48F6EBB50297_48C90CD200D7_BODY*¤		//#UC END# *48F6EBB50297_48F6EBB50297_48C90CD200D7_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011276817"))
+		    quid       	"48F6EBB50297"
+		    documentation 	"документация отсутствует"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "create_email"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48F6F355018F_48C90CD200D7*"
+			    value      	(value Text 
+|//#UC START# *48F6F355018F_48C90CD200D7*¤		Email mail = new Email(email);¤		mail.setFrom("mdc@garant.ru");¤		mail.setFromName("MDC");¤		mail.setSubject(subject);¤		mail.setBody(body);¤		mail.setMimeType(EMAIL_CONTENT_TYPE);¤		mail.setEncoding(EMAIL_ENCODING);¤		return mail;¤		//#UC END# *48F6F355018F_48C90CD200D7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48C90C630052")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011277170"))
+		    quid       	"48F6F355018F"
+		    documentation 	"создает инициализированный объект Email по заданным теме, телу и строке адреса"
+		    parameters 	(list Parameters
+			(object Parameter "subject"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011277487"))
+			    quid       	"48F6F3CA00E6"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "body"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011277842"))
+			    quid       	"48F6F3CA0111"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "email"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011278216"))
+			    quid       	"48F6F454010B"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"Email"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48C90C630052")
+		(object Operation "create_email"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48C90C630052")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B7EA00A0291_48C90CD200D7*"
+			    value      	(value Text 
+|//#UC START# *4B7EA00A0291_48C90CD200D7*¤		Email mail = createEmail(subject, body, email);¤		try {¤			MimeMultipart multipart = new MimeMultipart();¤			for(Attachment attachment : attachments){¤				multipart.addBodyPart(createFilePart(attachment));¤			}¤			mail.setMultipart(multipart);¤			return mail;¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalArgumentException(e);¤		}¤		//#UC END# *4B7EA00A0291_48C90CD200D7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011278629"))
+		    quid       	"4B7EA00A0291"
+		    documentation 	"создает письмо со вложением"
+		    parameters 	(list Parameters
+			(object Parameter "subject"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011278927"))
+			    quid       	"4B7EA09702B7"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "body"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011279300"))
+			    quid       	"4B7EA09702FF"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "email"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011279652"))
+			    quid       	"4B7EA097032F"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "attachments"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"29372429283")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4E6608380384"))
+			    quid       	"4E6608B7031D"
+			    type       	"AttachmentList"
+			    quidu      	"4E6608380384"))
+		    result     	"Email"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48C90C630052")
+		(object Operation "create_empty"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48C90B2301DE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B90BFB4019E_48C90CD200D7*"
+			    value      	(value Text 
+|//#UC START# *4B90BFB4019E_48C90CD200D7*¤		return EmailGateway.Factory.create();¤		//#UC END# *4B90BFB4019E_48C90CD200D7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011280428"))
+		    quid       	"4B90BFB4019E"
+		    documentation 	"создает ту же реализацию шлюза"
+		    result     	"EmailGateway"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48C90B2301DE"))
+	    language   	"MDA Generator")
+	(object Class "AttachmentList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"29245486125")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4E6608380384"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"29284449844"))
+	    quid       	"4E66085F01A4"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"29287689362")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4E66085F0352"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::Attachment"
+		    quidu      	"47EB6AF400A1"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"4E66085F0355"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::EmailNotification::AttachmentList"
+		    quidu      	"4E6608380384"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48C90B0B0134"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EmailNotification::EmailGateway" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1188, 330)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(323, 133)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1730
+			justify    	0
+			label      	"EmailGateway")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(323, 83)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1730
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"48C90B2301DE"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(323, 194)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	8
+			max_width  	1804
+			justify    	1)
+		    width      	1748
+		    height     	518
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::Attachment" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2745, 618)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(2463, 590)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	564
+			justify    	0
+			label      	"• Attachment")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(2463, 540)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	564
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"47EB6AF400A1"
+		    width      	582
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EmailNotification::AttachmentList" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2796, 1011)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(2638, 982)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"AttachmentList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(2638, 932)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4E6608380384"
+		    width      	334
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @4
+		    location   	(2769, 813)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4E66085F01A4"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @5
+			    Parent_View 	@4
+			    location   	(-27, -198)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E66085F0352"
+			    client     	@4
+			    supplier   	@2
+			    vertices   	(list Points
+				(2769, 813)
+				(2756, 708))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @6
+			    Parent_View 	@4
+			    location   	(-27, -198)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E66085F0355"
+			    client     	@4
+			    supplier   	@3
+			    vertices   	(list Points
+				(2769, 813)
+				(2782, 919))
+			    line_style 	0)))))))

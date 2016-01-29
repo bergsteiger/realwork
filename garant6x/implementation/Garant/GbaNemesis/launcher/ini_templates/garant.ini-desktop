@@ -1,0 +1,272 @@
+[Default]
+Application=F1Shell.run
+CommandLine=$(CommandLineParams)
+;CommandLine=-F1ShellLogin "%USERNAME%" $(CommandLineParams)
+CreateDesktopShortcuts=Yes
+CurrentDirectory=$(ExecuteRoot)\apps
+EmulatorKey=HKEY_CURRENT_USER
+EmulatorPath=Software\Garant.F1
+EmulatorValue=1
+EmulatorValueName=NetEmulatorMode
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-ConsultingTransportConfig "%(SettingsCurrentDirectory)\garant.ini" -GCMConfigFile "$(ThisIniFileName)" -GCMSettingsPath "%(SettingsCurrentDirectory)" -GPMAdapterConfigSection "F1Server Params" -XMLBackupPath "%(SettingsCurrentDirectory)\xmlbackup" -XMLLoadPath1 "%(SettingsCurrentDirectory)\xmllocal"
+RegistryValueName=ApplicationAdapterOptions
+ShowCreateDesktopShortcutsDialog=Yes
+WhiteListKey=HKEY_CURRENT_USER
+WhiteListPath=Software\Garant.F1
+WhiteListValue=%(WhiteList)
+WhiteListValueName=NetEmulatorWhiteList
+
+[Downloader]
+AccessType=0
+IdComplect=
+Login=
+Path=
+ProxyAdress=
+ProxyAuthentication=0
+ProxyLogin=
+ProxyPassword=
+ProxyPort=
+Pswd=
+Queries Flags=0
+
+[F1Admin]
+Application=F1Admin.run
+CommandLine=$(CommandLineParams)
+CreateDesktopShortcuts=Yes
+CurrentDirectory=$(ExecuteRoot)\apps
+EmulatorKey=HKEY_CURRENT_USER
+EmulatorPath=Software\Garant.F1
+EmulatorValue=1
+EmulatorValueName=NetEmulatorMode
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-ConsultingTransportConfig "%(SettingsCurrentDirectory)\garant.ini" -GCMConfigFile "$(ThisIniFileName)" -GCMSettingsPath "%(SettingsCurrentDirectory)" -GPMAdapterConfigSection "F1Server Params" -XMLBackupPath "%(SettingsCurrentDirectory)\xmlbackup" -XMLLoadPath1 "%(SettingsCurrentDirectory)\xmllocal"
+RegistryValueName=ApplicationAdapterOptions
+ShowCreateDesktopShortcutsDialog=Yes
+WhiteListKey=HKEY_CURRENT_USER
+WhiteListPath=Software\Garant.F1
+WhiteListValue=%(WhiteList)
+WhiteListValueName=NetEmulatorWhiteList
+
+[F1ConsultingChecker]
+Application=F1ConsultingChecker.run
+CommandLine=-ConsultingTransportConfig "%(SettingsCurrentDirectory)\garant.ini" -GCMConfigFile "$(ThisIniFileName)" -GPMAdapterConfigSection "F1Server Params" -ORBLogFile "$(ExecuteRoot)\logs\checker.log" $(CommandLineParams)
+CurrentDirectory=$(ExecuteRoot)\apps\$(Os)
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+
+[F1ConsultingChecker-4All]
+Application=F1ConsultingChecker.run
+CommandLine=-ConsultingTransportConfig "%(SettingsSourceDirectory)\garant.ini" -GCMConfigFile "$(ThisIniFileName)" -GPMAdapterConfigSection "F1Server Params" -ORBLogFile "$(ExecuteRoot)\logs\checker.log" -NotWriteSynchronizeParam $(CommandLineParams)
+CurrentDirectory=$(ExecuteRoot)\apps\$(Os)
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+
+[F1DataSetup]
+Application=F1Shell.run
+CommandLine=-RunDataInstaller -GCMConfigFile "$(ThisIniFileName)" -GPMF1DataSetupConfigSection "F1DataSetup Params" %(F1ServerLocaleEng) $(CommandLineParams)
+CurrentDirectory=$(ExecuteRoot)\apps
+EmulatorKey=HKEY_CURRENT_USER
+EmulatorPath=Software\Garant.F1
+EmulatorValue=1
+EmulatorValueName=NetEmulatorMode
+EnableInstallationStatusSaving=1
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-ConsultingTransportConfig "%(SettingsCurrentDirectory)\garant.ini" -GCMConfigFile "$(ThisIniFileName)" -GCMSettingsPath "%(SettingsCurrentDirectory)" -GPMAdapterConfigSection "F1Server Params" -XMLBackupPath "%(SettingsCurrentDirectory)\xmlbackup" -XMLLoadPath1 "%(SettingsCurrentDirectory)\xmllocal"
+RegistryValueName=ApplicationAdapterOptions
+WhiteListKey=HKEY_CURRENT_USER
+WhiteListPath=Software\Garant.F1
+WhiteListValue=%(WhiteList)
+WhiteListValueName=NetEmulatorWhiteList
+
+[F1DataSetup Params]
+-DSDataPath=C:\\
+-DSHost=datasetup.garant.ru
+-GPMAdditionalSection=GCM Params
+
+[F1DataUpd]
+Application=F1Shell.run
+CommandLine=-RunDataUpdater -GCMConfigFile "$(ThisIniFileName)" -GPMF1DataUpdConfigSection "F1DataUpd Params" %(F1ServerLocaleEng) $(CommandLineParams)
+CurrentDirectory=$(ExecuteRoot)\apps
+EmulatorKey=HKEY_CURRENT_USER
+EmulatorPath=Software\Garant.F1
+EmulatorValue=1
+EmulatorValueName=NetEmulatorMode
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-ConsultingTransportConfig "%(SettingsCurrentDirectory)\garant.ini" -GCMConfigFile "$(ThisIniFileName)" -GCMSettingsPath "%(SettingsCurrentDirectory)" -GPMAdapterConfigSection "F1Server Params" -XMLBackupPath "%(SettingsCurrentDirectory)\xmlbackup" -XMLLoadPath1 "%(SettingsCurrentDirectory)\xmllocal"
+RegistryValueName=ApplicationAdapterOptions
+WhiteListKey=HKEY_CURRENT_USER
+WhiteListPath=Software\Garant.F1
+WhiteListValue=%(WhiteList)
+WhiteListValueName=NetEmulatorWhiteList
+
+[F1DataUpd Params]
+-DUDeltaDefaultPath=C:\Program Files\Garant-Nemesis\delta
+-EnableGu7trOptimization=1
+-EnableGuMergeOptimization=1
+-GPMAdditionalSection=GCM Params
+
+[F1Download]
+Application=F1Shell.run
+CommandLine=-RunDownloader -GCMConfigFile "$(ThisIniFileName)" -GPMF1DownloadConfigSection "F1Download Params" %(F1ServerLocaleEng) $(CommandLineParams)
+CurrentDirectory=$(ExecuteRoot)\apps
+EmulatorKey=HKEY_CURRENT_USER
+EmulatorPath=Software\Garant.F1
+EmulatorValue=1
+EmulatorValueName=NetEmulatorMode
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-ConsultingTransportConfig "%(SettingsCurrentDirectory)\garant.ini" -GCMConfigFile "$(ThisIniFileName)" -GCMSettingsPath "%(SettingsCurrentDirectory)" -GPMAdapterConfigSection "F1Server Params" -XMLBackupPath "%(SettingsCurrentDirectory)\xmlbackup" -XMLLoadPath1 "%(SettingsCurrentDirectory)\xmllocal"
+RegistryValueName=ApplicationAdapterOptions
+WhiteListKey=HKEY_CURRENT_USER
+WhiteListPath=Software\Garant.F1
+WhiteListValue=%(WhiteList)
+WhiteListValueName=NetEmulatorWhiteList
+
+[F1Download Params]
+-GPMAdditionalSection=GCM Params
+
+[F1Prime]
+Application=F1Prime.run
+CommandLine=$(CommandLineParams)
+CreateDesktopShortcuts=Yes
+CurrentDirectory=$(ExecuteRoot)\apps
+EmulatorKey=HKEY_CURRENT_USER
+EmulatorPath=Software\Garant.F1
+EmulatorValue=1
+EmulatorValueName=NetEmulatorMode
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1
+RegistryValue=-GCMConfigFile "$(ThisIniFileName)" -GCMSettingsPath "%(SettingsCurrentDirectory)" -GPMAdapterConfigSection "F1Server Params" -XMLBackupPath "%(SettingsCurrentDirectory)\xmlbackup" -XMLLoadPath1 "%(SettingsCurrentDirectory)\xmllocal"
+RegistryValueName=ApplicationAdapterOptions
+ShowCreateDesktopShortcutsDialog=Yes
+WhiteListKey=HKEY_CURRENT_USER
+WhiteListPath=Software\Garant.F1
+WhiteListValue=%(WhiteList)
+WhiteListValueName=NetEmulatorWhiteList
+
+[F1Server Params]
+-ArchiveServer=http://service.garant.ru/archive/
+;-AutoShowHelp=0
+-BasePointerCacheSize=1
+-ConsultingClientEnable=1
+-ConsultingClientProxyEnable=0
+-ConsultingServerAddress=consulting1.garant.ru
+-ConsultingServerCheckTimeout=900
+-ConsultingServerPort=80
+-ConsultingServerWaitTimeout=60
+-DRRequestTimeout=30
+-DRServer=http://revision.garant.ru
+;-DisableInternetAgent=1
+-DocumentServer=http://mobileonline.garant.ru
+-EOEnable=0
+;-EnableIntegration=1
+-GCMActiveDataPath=2
+-GCMBooksServer=http://mirror2.garant.ru/webclient/index.dsp
+-GCMDataPath1=C:\Program Files\Garant-Nemesis\data1
+-GCMDataPath2=C:\Program Files\Garant-Nemesis\data2
+-GCMORBPoolThreads=3
+-GCMSMTPServer=$SMTP_SERVER_NAME$
+-GCMSMTPServerLogin=$SMTP_SERVER_LOGIN$
+-GCMSMTPServerPassword=$SMTP_SERVER_PASSWORD$
+-GCMSMTPServerPort=$SMTP_SERVER_PORT$
+-GPMAdditionalSection=GCM Params
+-IntegrationComplectID=
+-Locale=ru_RU.CP1251
+-LocalePath=C:\Program Files\Garant-Nemesis\apps
+-LoggingBackup=1
+-LoggingLevel=0
+-PrimeServer=http://service.garant.ru/anketa
+;-RevisionCheckEnabled=0
+-RulesPath=C:\Program Files\Garant-Nemesis\apps
+-SBEBackupDir=C:\Program Files\Garant-Nemesis\logs\backups
+-SBELogFile=C:\Program Files\Garant-Nemesis\logs\garant.log
+;-SBEMaxLogFileSize=10485760
+;-SBEMaxLogFreeSize=32768
+-SettingsFlushTimeout=600
+-TPTFiniValue=0
+-TPTInitValue=0
+-TPTUCrcValue=0
+-XMLBackupDelay=7
+-XMLBackupEnable=1
+-XMLLoadPath2=C:\Program Files\Garant-Nemesis\settings-xml
+;-XMLRestoreBackup=1
+-XMLSavePath=C:\Program Files\Garant-Nemesis\settings-xml
+
+[F1UsersSave Params]
+-ConsultingClientEnable=0
+-GPMAdditionalSection=F1Server Params
+
+[GCM Params]
+-GPMAdditionalSection=ORB Params
+
+[Launcher]
+CleanerDisplayName=$(LocaleCleanerName)
+CleanerPublisher=$(LocalePublisher)
+CleanerRegistryKey=HKEY_CURRENT_USER
+CleanerRegistryPath=Software\Microsoft\Windows\CurrentVersion\Uninstall\%(ProductId)
+CleanerUninstallString=%(SettingsCurrentDirectory)\gclean.exe
+ConsultingCheckerApplication=F1ConsultingChecker.run
+ConsultingCheckerCommandLine=-ConsultingTransportConfig "%(SettingsCurrentDirectory)\garant.ini" -GCMConfigFile "$(ThisIniFileName)" -GPMAdapterConfigSection "F1Server Params" -ORBLogFile "%TEMP%\F1ConsultingChecker.log" -AutoTest -NotShowDialog
+ConsultingCheckerCurrentDirectory=$(ExecuteRoot)\apps\$(Os)
+ConsultingConfigCommon=%(SettingsSourceDirectory)\garant.ini
+ConsultingConfigCurrent=%(SettingsCurrentDirectory)\garant.ini
+ConsultingConfigProxySynchronize=1
+DealerInfFile=$(OriginalRoot)\data%(F1ServerActiveDataPath)\dealer.inf
+DefaultDirectory=$(DefaultPath)\Garant-Local
+;LocalCacheEnabled=0
+LocaleKey=HKEY_CURRENT_USER
+LocalePath=Software\Garant.F1
+LocaleValue=%(F1ServerLocale)
+LocaleValueName=Locale
+ProxyHostIniFileName=%(ConsultingConfigCurrent)
+;RegistrationEnabled=0
+RegistryKey=HKEY_CURRENT_USER
+RegistryPath=Software\Garant.F1-Launcher
+SettingsCurrentDirectory=$(InstallRoot)\settings
+SettingsExportApplication=F1UsersSave.exe
+SettingsExportCommandLine=%(SettingsExportCommandLineFile)
+SettingsExportCommandLineFile=%(SettingsPreviousDirectory)\xmltools\F1UsersSave.exe.ini
+SettingsExportCurrentDirectory=%(SettingsPreviousDirectory)\xmltools\$(Os)
+SettingsPreviousDirectory=$(InstallRoot)\settings-previous
+SettingsSourceDirectory=$(ExecuteRoot)\settings
+SettingsVersion={B9E437DB-60C1-4C24-8B99-8338292DE519}
+ShowInstallRootDialog=No
+UnRegistrationEnabled=1
+WhiteList=%(F1ServerConsultingServerAddress) datasetup.garant.ru mirror.garant.ru mirror2.garant.ru service.garant.ru %(DownloaderProxyHost) %(DRServer) %(ProxyHost) $(AllProxyEnvHost) $(HttpProxyEnvHost) $(WinInetProxyHost)
+WhiteListKey=HKEY_CURRENT_USER
+WhiteListPath=Software\Garant.F1
+WhiteListValue=%(WhiteList)
+WhiteListValueName=NetEmulatorWhiteList
+
+[LauncherDesktopShortcuts]
+$(LocaleProductName)=$(ThisApplication)
+
+[LauncherForceCreateFolders]
+Folder01=%(SettingsCurrentDirectory)\xmllocal
+
+[LauncherRegistration]
+Item01=$(ExecuteRoot)\apps\F1Shell.dll|MSOIntegrationEnabled
+
+[LauncherUnRegistration]
+Item01=$(ExecuteRoot)\apps\F1Shell.dll|MSOIntegrationEnabled
+;Item02=$(ExecuteRoot)\apps\F1Shell.dll
+
+[LauncherUpdates]
+Item01=settings\gclean.exe
+Item02=settings\gclean.ini
+
+[ORB Params]
+;-ORBDebugLevel=10
+-ORBDottedDecimalAddresses=1
+-ORBUseSharedProfiles=1
+
+[Version]
+-IniFile=19
+-Product=desktop
+-ProductId={12D1BC8A-9734-4906-8FB5-85BA197DAA05}
+

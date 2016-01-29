@@ -1,0 +1,67 @@
+// dt_Err 555F034A01B6 UtilityPack Class
+
+FORWARD ME_555F034A01B6
+
+: ME_55D47A1500CB
+ CONST UID '55D47A1500CB'
+ CONST Name 'EHtErrors'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "finished" false
+
+ @SELF
+; // ME_55D47A1500CB EHtErrors
+
+FORWARD ME_555F035A031E
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_11590E1AD349
+ CONST UID '11590E1AD349'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода HT' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_11590E1AD349 DoIt
+
+: ME_555F035A031E
+ CONST UID '555F035A031E'
+ CONST Name 'HT'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_11590E1AD349 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_555F035A031E HT
+
+: ME_555F034A01B6
+ CONST UID '555F034A01B6'
+ CONST Name 'dt_Err'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_555F035A031E // HT
+ ]
+ ; // Operations
+ : Children
+   [ ME_55D47A1500CB // EHtErrors
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_555F034A01B6 dt_Err

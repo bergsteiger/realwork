@@ -1,0 +1,266 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMProjectLayer/ProjectDefinitions/VCMGUI.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::VCMTemplates::VCMProjectLayer::ProjectDefinitions::VCMGUI
+//
+// GUI-приложение
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMGUI::Category
+implementation @ <<VCMGUI>>
+//? GUI-приложение
+//> !
+//> VCMViews::Category
+//> VCMApplication::Class
+
+//= VCMSubsystem::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_vcm_gui.gif
+//L code_vcm_gui
+// Параметры визуализации
+//$ C 195,245,195
+//$ l 80,245,90
+//$ f 80,245,90
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p HelpFile:s ? 
+//p needs second icon:b=true ? 
+//p F1Like:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{HelpFile}"!="%S{!HelpFile}"}%f_up_prefix(%S) *HelpFile* = *%S{HelpFile}*
+ ?inherited
+ if ( ( %S get_up ( 'HelpFile' ) ) %!= ( %S get_up_def ( 'HelpFile' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *HelpFile* = *'
+  %S get_up ( 'HelpFile' ) '*'
+//	][{"%S{needs second icon}"!="%S{!needs second icon}"}%f_up_prefix(%S) *needs second icon* = *%S{needs second icon}*
+ end // if
+ if ( ( %S get_up ( 'needs second icon' ) ) %!= ( %S get_up_def ( 'needs second icon' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *needs second icon* = *'
+  %S get_up ( 'needs second icon' ) '*'
+//	][{"%S{F1Like}"!="%S{!F1Like}"}%f_up_prefix(%S) *F1Like* = *%S{F1Like}*
+ end // if
+ if ( ( %S get_up ( 'F1Like' ) ) %!= ( %S get_up_def ( 'F1Like' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *F1Like* = *'
+  %S get_up ( 'F1Like' ) '*'
+//	]
+ end // if
+
+//%f _IsVCMGUI
+; // wiki_up_print
+
+: IsVCMGUI OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AA8B1FA0167for4A8925B00009*
+//	true
+ true
+//#UC END# *4AA8B1FA0167for4A8925B00009*
+; // IsVCMGUI
+
+
+//%f _OutExtIntfUses
+: OutExtIntfUses OBJECT IN %S
+//#UC START# *4DA3016E0023for4A8925B00009*
+//	[{%S{F1Like}!=false}\
+ if ( ( %S get_up ( 'F1Like' ) ) %!=  false ) then
+ begin
+//	%f_pas_PutToUses("nsApplication")\
+  [%f] pas_PutToUses %( 'nsApplication' )% 
+//	]\
+ end // if
+//	%f_pas_PutToUses("l3ExceptionsLog")
+ [%f] pas_PutToUses %( 'l3ExceptionsLog' )% 
+//	%f_pas_PutToUses("eeDocumentSchema")\
+//	%f_pas_PutToUses("evExtFormat")\
+//	%f_pas_PutToUses("l3MouseWheelHelper")\
+//	%f_pas_PutToUses("vtMultylineHint")
+//#UC END# *4DA3016E0023for4A8925B00009*
+; // OutExtIntfUses
+
+
+//%f _OutApplicationBody
+: OutApplicationBody OBJECT IN %S
+//#UC START# *4DA3018D0398for4A8925B00009*
+//	 StdRes.TdmStdRes.Run(str_%f_N(%S)Title, '[%S{HelpFile}.chm]');
+ ' StdRes.TdmStdRes.Run(str_'
+ [%f] N %( %S )% 'Title, '''
+ if NOT-EMPTY
+ begin
+  %S get_up ( 'HelpFile' ) '.chm' 
+ end // if
+ NOP
+ ''');'
+//#UC END# *4DA3018D0398for4A8925B00009*
+; // OutApplicationBody
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4A8925B00009*
+//	%S%[inherited]\
+ inherited
+//	<{}{%C#f_IsVCMApplication()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsVCMApplication %( )% ) %==  true ) then
+  begin
+//	[{"%{evExtFormat}N"=""}%f_find_element(evExtFormat,evExtFormat)]\
+   if ( ( ( get_global_var ( 'evExtFormat' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'evExtFormat' %, 'evExtFormat' )% 
+   end // if
+//	%C%f_make_accessable(%{evExtFormat}U)\
+   %C %f make_accessable %( ( get_global_var ( 'evExtFormat' ) |U ) )% 
+//	%f_addCDep(%C,%{evExtFormat})\
+   [%f] addCDep %( %C %, ( get_global_var ( 'evExtFormat' ) ) )% 
+//	[{%Ca=final}\
+   if ( ( %C |a ) %== 'final' ) then
+   begin
+//	[{"%{StdRes}N"=""}%f_find_element(47F260EC02C7,StdRes)]\
+    if ( ( ( get_global_var ( 'StdRes' ) |N ) ) %== '' ) then
+    begin
+     [%f] find_element %( '47F260EC02C7' %, 'StdRes' )% 
+    end // if
+//	%C%f_make_accessable(%{StdRes}U)\
+    %C %f make_accessable %( ( get_global_var ( 'StdRes' ) |U ) )% 
+//	%f_addCDep(%C,%{StdRes})\
+    [%f] addCDep %( %C %, ( get_global_var ( 'StdRes' ) ) )% 
+//	]\
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	<{}{%CS=VCMTestTarget}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'VCMTestTarget' ) then
+  begin
+//	%C<{}{%C#f_IsVCMApplication()=true}\
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C %?f IsVCMApplication %( )% ) %==  true ) then
+     begin
+//	[{"%{evExtFormat}N"=""}%f_find_element(evExtFormat,evExtFormat)]\
+      if ( ( ( get_global_var ( 'evExtFormat' ) |N ) ) %== '' ) then
+      begin
+       [%f] find_element %( 'evExtFormat' %, 'evExtFormat' )% 
+      end // if
+//	%C%f_make_accessable(%{evExtFormat}U)\
+      %C %f make_accessable %( ( get_global_var ( 'evExtFormat' ) |U ) )% 
+//	%f_addCDep(%C,%{evExtFormat})\
+      [%f] addCDep %( %C %, ( get_global_var ( 'evExtFormat' ) ) )% 
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ //	>
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4B2A19E3038Bfor4A8925B00009*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor4A8925B00009*
+//	%f_N(%S)
+ [%f] N %( %S )% 
+//#UC END# *4948065C01DFfor4A8925B00009*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа VCMSubsystem::Category
+//%f _pas_OutUnitFile
+: pas_OutUnitFile OBJECT IN %S
+//#UC START# *4AA8B17E0178for4A8925B00009*
+//	%f_clear_list(TOTAL_USES)\
+ [%f] clear_list %( 'TOTAL_USES' )% 
+//	%f_pas_OpenUnitInterface(%S)\
+ [%f] pas_OpenUnitInterface %( %S )% 
+//	%f_pas_PutToUses("ControlResizeBugFix")\
+ [%f] pas_PutToUses %( 'ControlResizeBugFix' )% 
+//	%S%f_OutExtIntfUses()\
+ %S %f OutExtIntfUses %( )% 
+//	%S%f_pas_TotalUses()\
+ %S %f pas_TotalUses %( )% 
+//	%f_pas_PutToUses("l3MouseWheelHelper")\
+ [%f] pas_PutToUses %( 'l3MouseWheelHelper' )% 
+//	%f_pas_CloseUses(%S)\
+ [%f] pas_CloseUses %( %S )% 
+//	%f_clear_TotalUses(%S)\
+ [%f] clear_TotalUses %( %S )% 
+//	
+//	\{$R %f_N(%S).res\}\
+ '{$R '
+ [%f] N %( %S )% '.res}'
+//	[{%S{needs second icon}=true}\n\{$R main_icon2.res\} // вторая иконка приложения]
+ if ( ( %S get_up ( 'needs second icon' ) ) %==  true ) then
+ begin
+  #13#10'{$R main_icon2.res} // вторая иконка приложения' 
+ end // if
+//	
+//	begin
+ 'begin'
+//	%S%f_OutApplicationBody()\
+ %S %f OutApplicationBody %( )% 
+//	%f_pas_CloseUnit(%S)
+ [%f] pas_CloseUnit %( %S )% 
+//#UC END# *4AA8B17E0178for4A8925B00009*
+; // pas_OutUnitFile
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMGUI>>
+

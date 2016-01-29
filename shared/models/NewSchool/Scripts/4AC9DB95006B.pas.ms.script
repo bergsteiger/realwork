@@ -1,0 +1,92 @@
+// nscArrangeGridCell 4AC9DB95006B UtilityPack Class
+
+FORWARD ME_4AC9DB95006B
+
+: ME_4AC9D9F9028E
+ CONST UID '4AC9D9F9028E'
+ CONST Name 'TnscHideFieldCell'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4AC9D9F9028E TnscHideFieldCell
+
+FORWARD ME_4ACA309200D3
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+: ME_4ACA318803CB
+ CONST UID '4ACA318803CB'
+ CONST Name 'aControl'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E1201703C3 // TControl
+ ;
+
+ @SELF
+; // ME_4ACA318803CB aControl
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4ACA31830369
+ CONST UID '4ACA31830369'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'vctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4ACA318803CB // aControl
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4ACA31830369 Create
+
+: ME_4ACA309200D3
+ CONST UID '4ACA309200D3'
+ CONST Name 'TagControlCell'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4ACA31830369 // Create
+ ]
+ ; // Operations
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4ACA309200D3 TagControlCell
+
+: ME_4AC9DB95006B
+ CONST UID '4AC9DB95006B'
+ CONST Name 'nscArrangeGridCell'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Ячейки сетки контролов' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4AC9D9F9028E // TnscHideFieldCell
+ ME_4ACA309200D3 // TagControlCell
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_4AC9DB95006B nscArrangeGridCell

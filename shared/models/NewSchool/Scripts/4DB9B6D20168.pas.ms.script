@@ -1,0 +1,179 @@
+// TtfwNewWord 4DB9B6D20168 SimpleClass Class
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+FORWARD ME_4DB9B6D20168
+
+FORWARD ME_4F219629036A
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_4F21969B01AB
+ CONST UID '4F21969B01AB'
+ CONST Name 'aWordToFinish'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEF23D00EE // TtfwKeyWord
+ ;
+
+ @SELF
+; // ME_4F21969B01AB aWordToFinish
+
+INCLUDE '52D3C5F90029.pas.ms.script'
+
+: ME_4F21969B0202
+ CONST UID '4F21969B0202'
+ CONST Name 'aCompiled'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52D3C5F90029 // TkwCompiledWordPrim
+ ;
+
+ @SELF
+; // ME_4F21969B0202 aCompiled
+
+: ME_4F21969B0257
+ CONST UID '4F21969B0257'
+ CONST Name 'aContext'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_4F21969B0257 aContext
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4F21966F0162
+ CONST UID '4F21966F0162'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F21969B01AB // aWordToFinish
+ ME_4F21969B0202 // aCompiled
+ ME_4F21969B0257 // aContext
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F21966F0162 DoIt
+
+: ME_4F219629036A
+ CONST UID '4F219629036A'
+ CONST Name 'FinishDefinitionOfNewWord'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Завершает определение вновь созданного слова' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F21966F0162 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F219629036A FinishDefinitionOfNewWord
+
+FORWARD ME_4F37B3F10318
+
+: ME_4F37B4110018
+ CONST UID '4F37B4110018'
+ CONST Name 'aContext'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_4F37B4110018 aContext
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_4F37B40A0021
+ CONST UID '4F37B40A0021'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_4F37B4110018 // aContext
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F37B40A0021 DoIt
+
+: ME_4F37B3F10318
+ CONST UID '4F37B3F10318'
+ CONST Name 'GetNewWordName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F37B40A0021 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F37B3F10318 GetNewWordName
+
+: ME_CE9F45AA51E6
+ CONST UID 'CE9F45AA51E6'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwNewWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_CE9F45AA51E6 Ini_Reg_Class
+
+: ME_4DB9B6D20168
+ CONST UID '4DB9B6D20168'
+ CONST Name 'TtfwNewWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4DB6C8F30161 // TtfwCompilingWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4F219629036A // FinishDefinitionOfNewWord
+ ME_4F37B3F10318 // GetNewWordName
+ ME_CE9F45AA51E6 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB6CDDA038B // BeforeCompile
+ ME_4DB6CE2302C9 // AfterCompile
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.09.2011 22:50'
+
+ @SELF
+; // ME_4DB9B6D20168 TtfwNewWord

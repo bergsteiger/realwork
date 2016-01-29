@@ -1,0 +1,78 @@
+// TtfwMappedArrayView 52E6733C0163 SimpleClass Class
+
+FORWARD ME_52E6733C0163
+
+INCLUDE '52E666BC0270.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_52EA87EA0325
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_9C66D4F8F409
+ CONST UID '9C66D4F8F409'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwMapLambda' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_9C66D4F8F409 Ini_Reg_Class
+
+: ME_52EA87EA0325
+ CONST UID '52EA87EA0325'
+ CONST Name 'TtfwMapLambda'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52EA8AD102B0 // TtfwTwoLambdas
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_9C66D4F8F409 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52EA87EA0325 TtfwMapLambda
+
+: ME_52E6733C0163
+ CONST UID '52E6733C0163'
+ CONST Name 'TtfwMappedArrayView'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52E666BC0270 // TtfwLambdedArrayView
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_52EA8EE702FA // TwoLabdasClass
+ ]
+ ; // Implemented
+ : Children
+   [ ME_52EA87EA0325 // TtfwMapLambda
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52E6733C0163 TtfwMappedArrayView

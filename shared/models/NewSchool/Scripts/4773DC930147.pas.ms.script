@@ -1,0 +1,165 @@
+// Tl3LongintListPrim 4773DC930147 SimpleClass Class
+
+INCLUDE '47A1B04702C2.pas.ms.script'
+
+INCLUDE '47BC3A07027F.pas.ms.script'
+
+INCLUDE '47B17CBC0356.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_4773DC930147
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4B8922C902AD
+ CONST UID '4B8922C902AD'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4B8922C902AD ItemType
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_47AAC5B80132
+ CONST UID '47AAC5B80132'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E150FF028A // TStream
+ ;
+
+ @SELF
+; // ME_47AAC5B80132 aStream
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_47AAC5B30149
+ CONST UID '47AAC5B30149'
+ CONST Name 'Load'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47AAC5B80132 // aStream
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47AAC5B30149 Load
+
+: ME_47AAC5C1025B
+ CONST UID '47AAC5C1025B'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E150FF028A // TStream
+ ;
+
+ @SELF
+; // ME_47AAC5C1025B aStream
+
+: ME_47AAC5BE01E3
+ CONST UID '47AAC5BE01E3'
+ CONST Name 'Save'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47AAC5C1025B // aStream
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47AAC5BE01E3 Save
+
+: ME_47AAC7EF0074
+ CONST UID '47AAC7EF0074'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47AAC7EF0074 anIndex
+
+: ME_47AAC7E50323
+ CONST UID '47AAC7E50323'
+ CONST Name 'Delete'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'удалить элемент с индексом Index.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47AAC7EF0074 // anIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47AAC7E50323 Delete
+
+: ME_4773DC930147
+ CONST UID '4773DC930147'
+ CONST Name 'Tl3LongintListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Список целых чисел.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47A1B04702C2 // l3AtomicList
+ ME_47BC3A07027F // Tl3SimpleDataContainer
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B17CBC0356 // l3Storable
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4B8922C902AD // ItemType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_47AAC5B30149 // Load
+ ME_47AAC5BE01E3 // Save
+ ME_47AAC7E50323 // Delete
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47B17EEC020C // SaveToStream
+ ME_47B19BBB00BA // LoadFromStream
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.02.2008 11:44'
+
+ @SELF
+; // ME_4773DC930147 Tl3LongintListPrim

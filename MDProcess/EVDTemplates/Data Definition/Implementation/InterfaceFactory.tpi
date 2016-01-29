@@ -1,0 +1,183 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Implementation/InterfaceFactory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Implementation::InterfaceFactory
+//
+// Фабрика интерфейсов для тегов
+// ---
+// Определяет класс для выбора конкретных экземпляров, реализующий интерфейс инструмента для тега.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: InterfaceFactory::Class
+? Фабрика интерфейсов для тегов
+? Определяет класс для выбора конкретных экземпляров, реализующий интерфейс инструмента для тега.
+= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4856767D006A*
+	%S%[inherited]\
+
+	%S%f_set_var(NeedsCOMQT,"false")\
+	%S%f_set_var(NeedsQT,"false")\
+
+	<{}{%aC=Dependency&%aS=injects}{Sg}\
+
+	[{%a{injects as}=interface|%a{injects as}=mapper}{\
+	%S%f_set_var(NeedsQT,"true")\
+	}\
+	%a%P<{}{%CC=Dependency&"%CS"="injects this"}{Sg}\
+	%1%f_make_accessable(%C%TU)\
+	%f_addCDep(%1,%C%T)\
+
+	%1%f_set_var(NeedsCOMQT,"true")\
+
+	>\
+	]\
+	>\
+
+	[{%S%{NeedsQT}N=true}\
+
+	[{"%{Tk2InterfaceFactory.QueryTool}N"=""}%f_find_element(4D63D26D033F,Tk2InterfaceFactory.QueryTool)]\
+	%S%f_add_override(%{Tk2InterfaceFactory.QueryTool}U)\
+
+	%{Tk2InterfaceFactory.QueryTool}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Tk2InterfaceFactory.QueryTool},%S)_var,\
+	 {-}\
+	)\
+	%{Tk2InterfaceFactory.QueryTool}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Tk2InterfaceFactory.QueryTool},%S)_impl,\
+	 Result := true;
+
+	<{}{%aC=Dependency&%aS=injects&%a{injects as}!=interface&%a{injects as}!=mapper}{Sg}\
+	[ %a%P#f_open_ifdef()\n]\
+	 if ID.EQ(\
+	[{%a{injects as}=cursor}{\
+	ev_iidBlock\
+	}\
+	ev_iidCursor\
+	]\
+	) then
+	  I := %f_pas_TypeName(%a%P).Create(aTag)
+	 else
+	[ %a%P#f_close_ifdef()\n]\
+	>\
+
+	  Result := inherited QueryTool(aTag%f_comma(%S) ID%f_comma(%S) I);\
+	)\
+
+	]\
+
+	[{%S%{NeedsCOMQT}N=true}\
+
+	%f_set_var(Factory_Self,S)\
+
+	[{"%{Tk2InterfaceFactory.COMQueryTool}N"=""}%f_find_element(53CCBDA5026D,Tk2InterfaceFactory.COMQueryTool)]\
+	%S%f_add_override(%{Tk2InterfaceFactory.COMQueryTool}U)\
+
+	%{Tk2InterfaceFactory.COMQueryTool}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Tk2InterfaceFactory.COMQueryTool},%S)_var,\
+	 {-}\
+	)\
+	%{Tk2InterfaceFactory.COMQueryTool}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Tk2InterfaceFactory.COMQueryTool},%S)_impl,\
+	 Result := true;
+
+	%f_clear_list(INJECTED)\
+	%f_SpellInjections(%S,"interface")\
+	%f_SpellInjections(%S,"mapper")\
+	%f_SpellInjections(%S,"interface","G")\
+
+	  Result := inherited %{Tk2InterfaceFactory.COMQueryTool}N(aTag%f_comma(%S) aIID%f_comma(%S) theTool%f_comma(%S) aProcessor);\
+	)\
+
+	]
+
+f _SpellInjections
+	%f_set_var(ExtList,"%2N")\
+	<{}{%aC=Dependency&%aS=injects&%a{injects as}=%1N}{Sg}\
+
+	%f_set_var(IsMapper,"false")\
+	[{%a{injects as}=mapper}\
+	%f_set_var(IsMapper,"true")\
+	]\
+
+	%a%P<{}{%CC=Dependency&"%CS"="injects this"}{Sg}\
+
+	[{"%{ExtList}N"="G"}{\
+	%f_SpellInjection(%S,%C,%C%T,%{IsMapper})\
+	}\
+	%f_set_var(Link,C)\
+	%f_set_var(Self,S)\
+	%C%T<{}{%ga!=abstract&%gS!=Typedef}{%g}\
+	%f_SpellInjection(%{Self},%{Link},%g,%{IsMapper},%{ExtList})\
+	>\
+	]\
+
+	>\
+	>
+
+f _SpellInjection
+	[{%f_exists_in_list(INJECTED,2)!=true}\
+	%f_add_to_list(INJECTED,2)\
+	[{%t_interface(%2)=true}\
+	[{"%f_pas_TypeName(%2)"!="IUnknown"&"%f_pas_TypeName(%2)"!="Il3TagRef"&"%f_pas_TypeName(%2)"!="Ik2Tag"}\
+
+	[{"%4N"!=""}\
+	[{"%{Factory_Self}N"!=""}\
+	%{Factory_Self}%f_make_accessable(%2U)\
+	%f_addCDep(%{Factory_Self},%2)\
+	]\
+	]\
+
+	[ %S#f_open_ifdef()\n]\
+	 if aIID.EQ(%f_pas_TypeName(%2)) then
+	[{%3N=true}{\
+	  %f_pas_TypeName(%2)(theTool) := %f_pas_TypeName(%S).Make(aTag\
+	[{%1{needs processor}=true}\
+	%f_comma(%S) aProcessor\
+	]\
+	\
+	)
+	}\
+	  Result := %f_pas_TypeName(%S).Make(aTag%f_comma(%S) aIID%f_comma(%S) theTool%f_comma(%S) aProcessor)
+	]\
+	 else
+	[ %S#f_close_ifdef()\n]\
+	]\
+	]\
+	]
+//#UC END# *4B2A19E3038Bfor4856767D006A*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+%f _pas_ImplUses
+//#UC START# *4948EB2601FAfor4856767D006A*
+	%S%[inherited]\
+	<{}{%aC=Dependency&%aS=injects}{Sg}\
+	%f_pas_PutToUses(%a%P)\
+	>
+//#UC END# *4948EB2601FAfor4856767D006A*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4856767D006A*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for4856767D006A*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,26 @@
+HKCR
+{
+	QCFileComponents.QCComponentsFactory.1 = s 'QCComponentsFactory Class'
+	{
+		CLSID = s '{4D1DB86A-5827-418D-BE54-CDD11446C73C}'
+	}
+	QCFileComponents.QCComponentsFactory = s 'QCComponentsFactory Class'
+	{
+		CLSID = s '{4D1DB86A-5827-418D-BE54-CDD11446C73C}'
+		CurVer = s 'QCFileComponents.QCComponentsFactory.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4D1DB86A-5827-418D-BE54-CDD11446C73C} = s 'QCComponentsFactory Class'
+		{
+			ProgID = s 'QCFileComponents.QCComponentsFactory.1'
+			VersionIndependentProgID = s 'QCFileComponents.QCComponentsFactory'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{AA5B6FB8-FC61-4A34-ABDA-734282E7FE43}'
+		}
+	}
+}

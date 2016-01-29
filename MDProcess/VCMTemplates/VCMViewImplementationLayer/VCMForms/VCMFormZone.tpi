@@ -1,0 +1,67 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/VCMForms/VCMFormZone.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::VCMForms::VCMFormZone
+//
+// Зона внутри формы
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: VCMFormZone::Class
+? Зона внутри формы
+< *::Class,*::Category
+
+= VCMZonePrim::Class
+= CanCloseHolder::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+// Параметры визуализации
+$ C 255,173,91
+$ l 255,104,32
+$ F 0,0,0
+$ f 255,173,91
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p MergeTopTollbarWithContainer:b=false ? 
+p MergeBottomTollbarWithContainer:b=false ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S%[VCMZonePrim::Class]f_wiki_up_print()[{"%S{CanClose}"!="%S{!CanClose}"}%f_up_prefix(%S) *CanClose* = *%S{CanClose}* - Можно ли закрывать формы данного типа
+	][{"%S{MergeTopTollbarWithContainer}"!="%S{!MergeTopTollbarWithContainer}"}%f_up_prefix(%S) *MergeTopTollbarWithContainer* = *%S{MergeTopTollbarWithContainer}*
+	][{"%S{MergeBottomTollbarWithContainer}"!="%S{!MergeBottomTollbarWithContainer}"}%f_up_prefix(%S) *MergeBottomTollbarWithContainer* = *%S{MergeBottomTollbarWithContainer}*
+	]
+
+// Определяет зоны
+%f _pas_DefineZones
+//#UC START# *4A79821E02AAfor4A797F2E017E*
+	[{%G%f_NeedPutToDFM()=true}\
+	\n# item
+	#   Control = %GN
+	#   ZoneType = vcm_zt%S{ZoneType}
+	[{%S{CanClose}!=undefined}\
+	[{%S{CanClose}=true}{\
+	#   CanClose = vcm_ccDisable
+	}\
+	#   CanClose = vcm_ccEnable
+	]\
+	]\
+	# end\
+	]
+//#UC END# *4A79821E02AAfor4A797F2E017E*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

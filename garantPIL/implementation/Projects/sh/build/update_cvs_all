@@ -1,0 +1,33 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: update_cvs_all <confirm>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT."
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH."
+exit
+fi
+
+# cd to MPCXC_ROOT is checked in update_cvs
+
+$MPCXC_SH/update_cvs garantPIL BGARANT_NEMESIS
+$MPCXC_SH/update_cvs garantPIL/implementation/component/cpp/include HEAD
+$MPCXC_SH/update_cvs garantPIL/implementation/component/cpp/libs HEAD
+$MPCXC_SH/update_cvs garantPIL/implementation/component/cpp/tools HEAD
+$MPCXC_SH/update_cvs garantPIL/implementation/component/cpp/External HEAD
+$MPCXC_SH/update_cvs garant6x HEAD
+$MPCXC_SH/update_cvs shared HEAD
+$MPCXC_SH/update_cvs storage HEAD
+
+$MPCXC_SH/update_cvs common/components/rtl/Garant/evd HEAD
+
+echo "ln -s Makefile"
+rm -f $MPCXC_ROOT/Makefile
+cp $MPCXC_SH/Makefile $MPCXC_ROOT/Makefile

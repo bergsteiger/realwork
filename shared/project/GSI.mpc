@@ -1,0 +1,84 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/GSI.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> shared::GSI
+//
+// Garant Server Interfaces - общие интерфейсы повторного использования, использующие CORBA
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (GSI) : project_generic_core_corba {
+	sharedname = GSI
+	staticname = GSI
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../
+
+
+	Header_Files {
+		Std_Headers {
+			./../GSI/LibHome.h
+		}
+	
+		NotifyService {
+			./../GSI/NotifyService/NotifyService.h
+			./../GSI/NotifyService/NotifyServiceFactories.h
+		}
+	
+		NotifyService_i {
+			./../GSI/impl/NotifyService_i/NotifyService_i.h
+			./../GSI/impl/NotifyService_i/NotifyService_iFactories.h
+			./../GSI/impl/NotifyService_i/AutoStopListenConsumer.h
+			./../GSI/impl/NotifyService_i/Consumer_i.h
+			./../GSI/impl/NotifyService_i/Manager_i.h
+			./../GSI/impl/NotifyService_i/Manager_i_factory.h
+			./../GSI/impl/NotifyService_i/Environment.h
+			./../GSI/impl/NotifyService_i/ProxyConsumer.h
+			./../GSI/impl/NotifyService_i/RTEventListener.h
+			./../GSI/impl/NotifyService_i/RTEventSupplier.h
+			./../GSI/impl/NotifyService_i/Supplier_i.h
+			./../GSI/impl/NotifyService_i/Supplier_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		NotifyService {
+		}
+	
+		NotifyService_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../GSI/LibHome.cpp
+		}
+	
+		NotifyService {
+			./../GSI/NotifyService/NotifyService.cpp
+			./../GSI/NotifyService/NotifyServiceFactories.cpp
+		}
+	
+		NotifyService_i {
+			./../GSI/impl/NotifyService_i/NotifyService_i.cpp
+			./../GSI/impl/NotifyService_i/NotifyService_iFactories.cpp
+			./../GSI/impl/NotifyService_i/Consumer_i.cpp
+			./../GSI/impl/NotifyService_i/Manager_i.cpp
+			./../GSI/impl/NotifyService_i/Manager_i_factory.cpp
+			./../GSI/impl/NotifyService_i/ProxyConsumer.cpp
+			./../GSI/impl/NotifyService_i/RTEventListener.cpp
+			./../GSI/impl/NotifyService_i/RTEventSupplier.cpp
+			./../GSI/impl/NotifyService_i/Supplier_i.cpp
+			./../GSI/impl/NotifyService_i/Supplier_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

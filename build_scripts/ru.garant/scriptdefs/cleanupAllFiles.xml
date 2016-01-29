@@ -1,0 +1,64 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		none
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.cleanupAllFiles"
+	language = "javascript"
+>
+	<attribute name = "root.dir"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_rootDirectory = (
+				attributes.get ("root.dir")
+			);
+
+			if (a_rootDirectory != null) {
+				var l_rootDirectoryFile = new File (a_rootDirectory);
+				var l_rootDirectoryPath = l_rootDirectoryFile.getPath ();
+
+				a_rootDirectory = l_rootDirectoryPath;
+			}
+
+			var l_mkdirTask = project.createTask ("mkdir"); {
+				l_mkdirTask.setDir (new File (a_rootDirectory));
+
+				l_mkdirTask.reconfigure ();
+			}
+
+			l_mkdirTask.execute ();
+
+			var l_deleteTask = project.createTask ("delete"); {
+				var l_deleteTaskFileset = project.createDataType ("fileset"); {
+					l_deleteTaskFileset.setDir (new File (a_rootDirectory));
+					l_deleteTaskFileset.setDefaultexcludes (false);
+                    l_deleteTaskFileset.setIncludes ("**/**");
+				}
+
+				l_deleteTask.setIncludeEmptyDirs (false);
+				l_deleteTask.addFileset (l_deleteTaskFileset);
+				l_deleteTask.setQuiet (true);
+
+				l_deleteTask.reconfigure ();
+			}
+
+			l_deleteTask.execute ();
+		}
+	]]>
+</scriptdef>

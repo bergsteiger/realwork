@@ -1,0 +1,188 @@
+///////////////////////////////////////////////////////////////////////////////
+// Функции по работе с датамаи и времени, + привествуются функции для
+// перемещение во времени и пространстве
+///////////////////////////////////////////////////////////////////////////////
+
+uses common;
+{
+  Возвращает текущее календарное число
+}
+function GetCurrentDay: Integer;
+var
+  curYear, curMonth, curDay: Integer;
+begin
+  try
+    Utilities.DecodeDate( Utilities.Date, curYear, curMonth, curDay );
+    Result := curDay;
+  except
+    log.error (ExceptionMessage);
+    raise ('GetCurDay: '+ExceptionMessage);
+  CommonExceptionHandler;  
+  end;
+end;
+
+{
+  Возвращает текущий час
+}
+function GetCurrentHour: Integer;
+var
+  curHour, curMin, curSec, curMSec: Integer;
+begin
+  try
+    Utilities.DecodeTime( Utilities.Time, curHour, curMin, curSec, curMSec );
+    Result := curHour;
+  except
+    log.error (ExceptionMessage);
+    raise ('GetCurHour: '+ExceptionMessage);
+  CommonExceptionHandler;  
+  end;
+end;
+
+{
+  Возвращает текущую минуту
+}
+function GetCurrentMinute: Integer;
+var
+  curHour, curMin, curSec, curMSec: Integer;
+begin
+  try
+    Utilities.DecodeTime( Utilities.Time, curHour, curMin, curSec, curMSec );
+    Result := curMin;
+  except
+    log.error (ExceptionMessage);
+    raise ('GetCurMinute: '+ExceptionMessage);
+  CommonExceptionHandler;  
+  end;
+end;
+
+{
+  Определеяет надо ли ждать следующего дня для остановки клиента
+  НЕОБХОДИМО запускать сразу после запуска скрипта
+}
+function NeedWaitNextDay (
+  mStopHour: Integer;
+  mStopMinute: Integer = 0
+) : Boolean;
+begin
+  try
+    Result := 
+      (GetCurrentHour > mStopHour )  
+      OR ((GetCurrentHour = mStopHour ) AND (GetCurrentMinute >= mStopMinute));
+  except
+    log.error (ExceptionMessage);
+    raise ('NeedWaitNextDay: '+ExceptionMessage);
+  CommonExceptionHandler;
+  end;
+end;
+
+{
+  Выдает True если текущее время превышает заданное
+  mStopHour - время которого надо дождаться
+  mStartDay - число когда был запущен скрипт
+  waitNextDay, если True то ждем когда сменится число и тогда проверяем
+  время.
+}
+function IsTimeExceed(
+  mStopHour: Integer;
+  mStopMinute: Integer;
+  mStartDay: Integer; 
+  waitNextDay: Boolean
+): Boolean;
+begin
+  try
+    Result := True;
+    if waitNextDay then
+      if mStartDay = GetCurrentDay then
+      begin
+        Result := False;
+        Exit;
+      end;
+        
+    Result := 
+      (GetCurrentHour > mStopHour )  
+      OR ((GetCurrentHour = mStopHour ) AND (GetCurrentMinute >= mStopMinute));    
+  except
+    log.error (ExceptionMessage);
+    raise ('IsTimeExceed: '+ExceptionMessage);
+  CommonExceptionHandler;    
+  end;
+end;
+
+{
+  Определеяет надо ли ждать следующего дня для остановки клиента
+  НЕОБХОДИМО запускать сразу после запуска скрипта
+}
+function IsNeedWaitNextDay (
+  const strTime : String
+) : Boolean;
+  var
+    time : OleVariant;
+    currHour, currMinute, givenHour, givenMinute, dummy : integer;
+begin
+  Result := false;
+  try
+    time := StrToTime(strTime);
+    DecodeTime(Utilities.Now, currHour, currMinute, dummy, dummy);
+    DecodeTime(time, givenHour, givenMinute, dummy, dummy);
+    
+    Result := 
+      (currHour > givenHour )  
+      OR ((currHour = givenHour ) AND (currMinute >= givenMinute));
+  except
+    Log.Message('IsNeedWaitNextDay: ' + ExceptionMessage, '' , 4);
+     CommonExceptionHandler;
+  end;
+end;  
+
+{
+  TYPE: Определяет, вышло ли время
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function IsTimeHasRunOut(
+  stopAt : float
+) : boolean;
+begin
+  try
+    Result := ((stopAt - Utilities.Now) < 0);
+  except
+    Log.Message('IsTimeHasRunOut: ' + ExceptionMessage, '' , 4);
+    CommonExceptionHandler;
+    Result := false;
+  end;  
+end;
+
+{
+function IsTimeHasRunOut(
+  const strStopTime : String; // время когда останавливаться. час и минуты, например 12:34
+  const startDateTime : OleVariant // переменная, в которую сохранено Now при запуске проекта
+) : boolean;
+  var 
+    stopTime, nowDateTime : OleVariant;
+    currHour, currMinute, givenHour, givenMinute, dummy, currDay, startDay : integer;
+    isWaitNextDay : boolean;
+begin
+  try
+    Result := false;
+    if strStopTime = '' then Exit;
+    
+    stopTime := Utilities.StrToTime(strStopTime);
+    nowDateTime := Utilities.Now;
+    
+    Utilities.DecodeTime(nowDateTime, currHour, currMinute, dummy, dummy);
+    Utilities.DecodeTime(stopTime, givenHour, givenMinute, dummy, dummy);
+    isWaitNextDay := (currHour > givenHour ) OR ((currHour = givenHour ) AND (currMinute >= givenMinute));
+    
+    Utilities.DecodeDate(startDateTime, dummy, dummy, startDay );
+    Utilities.DecodeDate(nowDateTime, dummy, dummy, currDay );
+    
+    if isWaitNextDay AND ( startDay = currDay ) then Exit;
+    
+    Result := isWaitNextDay;
+  except
+    Log.Message('IsTimeHasRunOut: ' + ExceptionMessage, '' , 4);
+    CommonExceptionHandler;
+  end;               
+end;
+}

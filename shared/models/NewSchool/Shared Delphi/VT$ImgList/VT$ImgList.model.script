@@ -1,0 +1,2505 @@
+<<Library>> VT$ImgList
+ %UID '4FD078CD00F6'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4ACDBBED0241' /* ImageEn */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'vtDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4ACDBBED0241' /* ImageEn */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> vtInterfaces
+   %UID '4F8BEB580354'
+   %DEPENDS
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '55C4AEC801CA' /* Graphics */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4FD078CD00F6' /* VT$ImgList */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Enum>> TvtPILBpp
+      %UID '4FD06F5A01D8'
+      %ATTRIBUTES
+        <<Attribute>> bpp24
+         %UID '4FD06F6E0255'
+        ; // bpp24
+        <<Attribute>> bpp8
+         %UID '4FD06F75008E'
+        ; // bpp8
+        <<Attribute>> bpp4
+         %UID '4FD06F7D001B'
+        ; // bpp4
+      ; // %ATTRIBUTES
+     ; // TvtPILBpp
+     <<Enum>> TvtPILSize
+      %UID '4FD06F1F020E'
+      %ATTRIBUTES
+        <<Attribute>> ps16x16
+         %UID '4FD06F340178'
+        ; // ps16x16
+        <<Attribute>> ps32x32
+         %UID '4FD06F3C001C'
+        ; // ps32x32
+        <<Attribute>> ps24x24
+         %UID '4FD06F47025A'
+        ; // ps24x24
+      ; // %ATTRIBUTES
+     ; // TvtPILSize
+     <<SetOf>> TvtPILSizes
+      %UID '4FD06FF6027F'
+      %TOBEINCLUDED
+       U$ '4FD078CD00F6' /* VT$ImgList */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4FD06F1F020E' /* TvtPILSize */
+      ; // %INHERITS
+     ; // TvtPILSizes
+     <<Facet>> IvtFlashImageList
+      %UID '4F950C5102A8'
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4FD078CD00F6' /* VT$ImgList */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<facetmethod>> SaveImageToStream
+         %UID '53282D3E0350'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53282D8A02D8'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStream
+               %UID '53282DB601DD'
+               %TARGET U$ '47E150FF028A' /* TStream */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStream
+              <<in>> aIndex
+               %UID '53282DB601F6'
+               %TARGET U$ '4788207F0056' /* TImageIndex */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // aIndex
+              <<in>> aBpp
+               %UID '53282DB6020F'
+               %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+               %TOBEINCLUDED
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+              ; // aBpp
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SaveImageToStream
+        ABSTRACT <<Operation>> Draw
+         %UID '4F950C6D03BE'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> Canvas
+            %UID '4F950E74024D'
+            %TARGET U$ '46A4659D003A' /* TCanvas$Stub */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // Canvas
+           <<in>> X
+            %UID '4F950E74029B'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // X
+           <<in>> Y
+            %UID '4F950E7402F5'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Y
+           <<in>> Index
+            %UID '4F950E74033F'
+            %TARGET U$ '4788207F0056' /* TImageIndex */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // Index
+           <<in>> Enabled
+            %UID '4F950E740392'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE true
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Enabled
+           <<in>> HalfTransparent
+            %UID '4F950E750008'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE true
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // HalfTransparent
+         ; // %PARAMETERS
+        ; // Draw
+      ; // %OPERATIONS
+     ; // IvtFlashImageList
+   ; // %CHILDREN
+  ; // vtInterfaces
+  <<Unit>> vtImgLists
+   %UID '4FD078FF017D'
+   %DEPENDS
+    U$ '4678193C009C' /* l3Types */
+    U$ '467C0CAA02AB' /* l3InternalInterfaces */
+    U$ '46A5E026007E' /* l3Core */
+    U$ '473C3BEE0334' /* l3Canvas */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '4ACDBC26003C' /* Source */
+    U$ '4F8BEB580354' /* vtInterfaces */
+    U$ '537B83AD01F0' /* l3Math */
+    U$ '556F09AA036E' /* l3PrinterInterfaces */
+    U$ '55C4AEC801CA' /* Graphics */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4ACDBBED0241' /* ImageEn */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '4FD078CD00F6' /* VT$ImgList */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> vtPngImgListUtils
+      %UID '4FD1F6B00129'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4ACDBBED0241' /* ImageEn */
+       U$ '4FD078CD00F6' /* VT$ImgList */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4FD1F7A1035D"
+         %UID '4FD1F7A1035D'
+         %TARGET U$ '4B0FFBFC0188' /* hyieutils */
+        ; // 4FD1F7A1035D
+        <<uses>> "4FD1F7AB0394"
+         %UID '4FD1F7AB0394'
+         %TARGET U$ '47D15062022A' /* Tl3Bitmap */
+        ; // 4FD1F7AB0394
+        <<uses>> "4FD1F7FC0339"
+         %UID '4FD1F7FC0339'
+         %TARGET U$ '469FA03900D4' /* Tl3IteratorAction */
+        ; // 4FD1F7FC0339
+        <<uses>> "4FD1F94A0353"
+         %UID '4FD1F94A0353'
+         %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+        ; // 4FD1F94A0353
+        <<uses>> "4FD1F94E0297"
+         %UID '4FD1F94E0297'
+         %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+        ; // 4FD1F94E0297
+        <<uses>> "4FD1FA420063"
+         %UID '4FD1FA420063'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 4FD1FA420063
+        <<uses>> "4FD1FA4E00C7"
+         %UID '4FD1FA4E00C7'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 4FD1FA4E00C7
+        <<uses>> "4FD202CF01F4"
+         %UID '4FD202CF01F4'
+         %TARGET U$ '47A066980016' /* l3MinMax */
+        ; // 4FD202CF01F4
+        <<uses>> "4FD20AEF01B8"
+         %UID '4FD20AEF01B8'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 4FD20AEF01B8
+        <<uses>> "4FD21138002A"
+         %UID '4FD21138002A'
+         %TARGET U$ '4ACDC4220115' /* hyiedefs */
+        ; // 4FD21138002A
+      ; // %LINKS
+      %ATTRIBUTES
+        <<Attribute>> g_PILList
+         %UID '4FD1EC9A0369'
+         %TARGET U$ '4773DBBD000D' /* Tl3ObjectList */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // g_PILList
+        <<Attribute>> g_AlphaBlendFunc
+         %UID '4FD1EF0100BD'
+         %TARGET U$ '4FD1D52C02D7' /* TAlphaBlendFunc */
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+        ; // g_AlphaBlendFunc
+        PRIVATE <<Attribute>> g_ScreenColorDepth
+         %UID '4FD1EF4C02B3'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_ScreenColorDepth
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> PrepareAlphaBitmap
+         %UID '4FD1F66B03D5'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '4ACDBBED0241' /* ImageEn */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F68702AE'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '4ACDBBED0241' /* ImageEn */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSource
+               %UID '4FD1F68A036B'
+               %TARGET U$ '4FD0890501F9' /* TIEBitmap */
+               %TOBEINCLUDED
+                U$ '4ACDBBED0241' /* ImageEn */
+               ; // %TOBEINCLUDED
+              ; // aSource
+              <<in>> aDest
+               %UID '4FD1F68A0391'
+               %TARGET U$ '47D15723038A' /* TBitmap */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // aDest
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // PrepareAlphaBitmap
+        FINAL <<method>> AlphaBlend
+         %UID '4FD1F6FB00AF'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F7160282'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> DestDC
+               %UID '4FD1F7370186'
+               %TARGET U$ '46A46A35004F' /* hDC */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DestDC
+              <<in>> X
+               %UID '4FD1F73701D2'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // X
+              <<in>> Y
+               %UID '4FD1F7370241'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Y
+              <<in>> Width
+               %UID '4FD1F73702A1'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Width
+              <<in>> Height
+               %UID '4FD1F7370300'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Height
+              <<in>> SrcDC
+               %UID '4FD1F7370367'
+               %TARGET U$ '46A46A35004F' /* hDC */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // SrcDC
+              <<in>> XSrc
+               %UID '4FD1F73703C7'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // XSrc
+              <<in>> YSrc
+               %UID '4FD1F7380048'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // YSrc
+              <<in>> SrcWidth
+               %UID '4FD1F73800AA'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // SrcWidth
+              <<in>> SrcHeight
+               %UID '4FD1F738010C'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // SrcHeight
+              <<in>> BlendFunc
+               %UID '4FD1F7380166'
+               %TARGET U$ '4FD1D65F0393' /* TBlendFunction */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // BlendFunc
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AlphaBlend
+        FINAL <<method>> CalcTransparenctColor
+         %UID '4FD1F75F023A'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F767019E'
+            %TARGET U$ '476130E5023C' /* Byte */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTransparensy
+               %UID '4FD1F76D01C8'
+               %TARGET U$ '476130E5023C' /* Byte */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTransparensy
+              <<in>> HalfTransparent
+               %UID '4FD1F76D01ED'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // HalfTransparent
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CalcTransparenctColor
+        FINAL <<method>> IterateExistingImageListsF
+         %UID '4FD1F77B0267'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4FD1FD7B035E"
+            %UID '4FD1FD7B035E'
+            %TARGET U$ '469FA03900D4' /* Tl3IteratorAction */
+           ; // 4FD1FD7B035E
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F78D01D6'
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anAction
+               %UID '4FD1F79001F9'
+               %TARGET U$ '469FA03900D4' /* Tl3IteratorAction */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // anAction
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IterateExistingImageListsF
+        FINAL <<method>> AddImageListCreator
+         %UID '4FD1F81F02CF'
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F828026E'
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aCreator
+               %UID '4FD1F82B0075'
+               %TARGET U$ '4FD1F8AE0282' /* PvtImageListCreatorProc */
+               %TOBEINCLUDED
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+              ; // aCreator
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AddImageListCreator
+        FINAL <<method>> AddImageListCreatorPrim
+         %UID '4FD1F900009A'
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F90800CC'
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aCreator
+               %UID '4FD1F90A004D'
+               %TARGET U$ '4FD1F885007C' /* TvtImageListCreatorProc */
+               %TOBEINCLUDED
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+              ; // aCreator
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AddImageListCreatorPrim
+        FINAL <<method>> GetAnother$1$4FD1F96300AF
+         %UID '4FD1F96300AF'
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4FD1F9770300
+            %UID '4FD1F9770300'
+            %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSize
+               %UID '4FD1F97A0327'
+               %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+               %TOBEINCLUDED
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+              ; // aSize
+            ; // %PARAMETERS
+           ; // DoIt$4FD1F9770300
+         ; // %OPERATIONS
+        ; // GetAnother$1$4FD1F96300AF
+        FINAL <<method>> GetAnother$2$4FD1F98902AB
+         %UID '4FD1F98902AB'
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4FD1F9940361
+            %UID '4FD1F9940361'
+            %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aBpp
+               %UID '4FD1F99D02A2'
+               %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+               %TOBEINCLUDED
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+              ; // aBpp
+            ; // %PARAMETERS
+           ; // DoIt$4FD1F9940361
+         ; // %OPERATIONS
+        ; // GetAnother$2$4FD1F98902AB
+        FINAL <<method>> GetScreenColorDepth
+         %UID '4FD1F9AA00E5'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F9B70107'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetScreenColorDepth
+        FINAL <<method>> AutoDetectColorDepth
+         %UID '4FD1F9CB0196'
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F9D30126'
+            %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AutoDetectColorDepth
+        FINAL <<method>> SetColorDepthGlobal
+         %UID '4FD1F9E601E9'
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "53B269150316"
+            %UID '53B269150316'
+            %TARGET U$ '4ACB4A41034D' /* vtPngImgList */
+           ; // 53B269150316
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FD1F9F20010'
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aBpp
+               %UID '4FD1F9F502AA'
+               %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+               %TOBEINCLUDED
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+              ; // aBpp
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SetColorDepthGlobal
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Function>> TvtImageListCreatorProc
+         %UID '4FD1F885007C'
+         %META
+          %upv "of object" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '4FD1F8990015'
+            %TARGET U$ '4807745602C8' /* TObject */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TvtImageListCreatorProc
+        <<Typedef>> PvtImageListCreatorProc
+         %UID '4FD1F8AE0282'
+         %META
+          %upv "isPointer" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD1F885007C' /* TvtImageListCreatorProc */
+         ; // %INHERITS
+        ; // PvtImageListCreatorProc
+        <<Function>> TAlphaBlendFunc
+         %UID '4FD1D52C02D7'
+         %META
+          %upv "of object" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> Do
+            %UID '4FD1D53E0124'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> DestDC
+               %UID '4FD1D58A0168'
+               %TARGET U$ '46A46A35004F' /* hDC */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DestDC
+              <<in>> X
+               %UID '4FD1D58A018B'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // X
+              <<in>> Y
+               %UID '4FD1D58A01AF'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Y
+              <<in>> Width
+               %UID '4FD1D58A01D3'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Width
+              <<in>> Height
+               %UID '4FD1D58A01F8'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Height
+              <<in>> SrcDC
+               %UID '4FD1D58A021C'
+               %TARGET U$ '46A46A35004F' /* hDC */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // SrcDC
+              <<in>> XSrc
+               %UID '4FD1D58A0242'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // XSrc
+              <<in>> YSrc
+               %UID '4FD1D58A0267'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // YSrc
+              <<in>> SrcWidth
+               %UID '4FD1D58A028D'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // SrcWidth
+              <<in>> SrcHeight
+               %UID '4FD1D58A02B4'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // SrcHeight
+              <<in>> BlendFunc
+               %UID '4FD1D58A02ED'
+               %TARGET U$ '4FD1D65F0393' /* TBlendFunction */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // BlendFunc
+            ; // %PARAMETERS
+           ; // Do
+         ; // %OPERATIONS
+        ; // TAlphaBlendFunc
+        <<SimpleClass>> TvtilCreators
+         %UID '4FD31272000C'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+          %upv "singleton" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47BB38C40154' /* Tl3ProcedureList */
+         ; // %INHERITS
+         %OPERATIONS
+           FINAL <<method>> IsAssigned
+            %UID '4FD318100335'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> Do
+               %UID '4FD3185E022F'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Do
+            ; // %OPERATIONS
+           ; // IsAssigned
+           SUMMONED FINAL <<static>> Exists
+            %UID '02386B48CCD2'
+            %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Exists
+         ; // %OPERATIONS
+        ; // TvtilCreators
+        <<SimpleClass>> ImgLibraryManager
+         %UID '502518C60255'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+          %upv "singleton" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49E7754802A9' /* Tl3ProtoObject */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '479731C50290' /* Cleanup */
+          U$ '47A042E100E2' /* InitFields */
+         ; // %OVERRIDES
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_ImgDLL
+            %UID '502518FC0040'
+            %TARGET U$ '46A465F9028C' /* THandle */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_ImgDLL
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           SUMMONED FINAL <<static>> Exists
+            %UID 'CBF39F4EB492'
+            %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Exists
+         ; // %OPERATIONS
+        ; // ImgLibraryManager
+        <<Array>> TaBPPGlyphs
+         %UID '4FD0893B0006'
+         %META
+          %upv "array type" 'dynamic'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4ACDBBED0241' /* ImageEn */
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD06F5A01D8' /* TvtPILBpp */
+         ; // %INHERITS
+         %ATTRIBUTES
+           <<Attribute>> type
+            %UID '4FD0896C038B'
+            %TARGET U$ '4FD0890501F9' /* TIEBitmap */
+            %TOBEINCLUDED
+             U$ '4ACDBBED0241' /* ImageEn */
+            ; // %TOBEINCLUDED
+           ; // type
+         ; // %ATTRIBUTES
+        ; // TaBPPGlyphs
+        <<Array>> TaPILSizes
+         %UID '4FD0758E0318'
+         %META
+          %upv "array type" 'dynamic'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4FD06F1F020E' /* TvtPILSize */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4FD06F1F020E' /* TvtPILSize */
+         ; // %INHERITS
+         %ATTRIBUTES
+           <<Attribute>> type
+            %UID '4FD08649028E'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // type
+         ; // %ATTRIBUTES
+        ; // TaPILSizes
+        <<Constants>> "vtPngImgList Constants"
+         %UID '4FD0822D01BF'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           <<Attribute>> PILSize
+            %UID '4FD0823D03A6'
+            %TARGET U$ '4FD0758E0318' /* TaPILSizes */
+            %VALUE '(16, 32, 24)'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // PILSize
+           <<Attribute>> cDefaultAvailableSizes
+            %UID '4FD0826D014D'
+            %VALUE '[ps16x16, ps32x32, ps24x24]'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cDefaultAvailableSizes
+         ; // %ATTRIBUTES
+        ; // "vtPngImgList Constants"
+        <<Typedef>> TBitmap
+         %UID '4FD2087201A3'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47D15723038A' /* TBitmap */
+         ; // %INHERITS
+        ; // TBitmap
+        <<Constants>> "vtPngImgList const2"
+         %UID '4FD1EB5903D2'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           <<Attribute>> cFullAlpha
+            %UID '4FD1EB7402D8'
+            %VALUE 255
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cFullAlpha
+           <<Attribute>> cDisabledAlpha
+            %UID '4FD1EB86009A'
+            %VALUE 192
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cDisabledAlpha
+           <<Attribute>> OldPILSize
+            %UID '4FD20EDD001E'
+            %TARGET U$ '4FD0758E0318' /* TaPILSizes */
+            %VALUE '(18, 34, 26)'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // OldPILSize
+         ; // %ATTRIBUTES
+        ; // "vtPngImgList const2"
+      ; // %CHILDREN
+     ; // vtPngImgListUtils
+     FINAL <<UtilityPack>> vtPngImgList
+      %UID '4ACB4A41034D'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4ACDBBED0241' /* ImageEn */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '4FD078CD00F6' /* VT$ImgList */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4FD08CCC0250"
+         %UID '4FD08CCC0250'
+         %TARGET U$ '4FD0890501F9' /* TIEBitmap */
+        ; // 4FD08CCC0250
+        <<uses>> "4FD08CEC03C4"
+         %UID '4FD08CEC03C4'
+         %TARGET U$ '4B0FFBFC0188' /* hyieutils */
+        ; // 4FD08CEC03C4
+        <<uses>> "4FD1F55203E0"
+         %UID '4FD1F55203E0'
+         %TARGET U$ '47D15062022A' /* Tl3Bitmap */
+        ; // 4FD1F55203E0
+        <<uses>> "4FD210CE0087"
+         %UID '4FD210CE0087'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 4FD210CE0087
+        <<uses>> "4FD21134010D"
+         %UID '4FD21134010D'
+         %TARGET U$ '4ACDC4220115' /* hyiedefs */
+        ; // 4FD21134010D
+        <<uses>> "4FD211E80283"
+         %UID '4FD211E80283'
+         %TARGET U$ '4ACDBE7800FD' /* imageenio */
+        ; // 4FD211E80283
+        <<uses>> "4FD224EC03C4"
+         %UID '4FD224EC03C4'
+         %TARGET U$ '4773DBBD000D' /* Tl3ObjectList */
+        ; // 4FD224EC03C4
+        <<uses>> "50254E88005F"
+         %UID '50254E88005F'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 50254E88005F
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> g_BlendOp
+         %UID '4FD1DF240385'
+         %TARGET U$ '4FD1D65F0393' /* TBlendFunction */
+         %VALUE '(BlendOp: AC_SRC_OVER; BlendFlags: 0; SourceConstantAlpha: cFullAlpha; AlphaFormat: AC_SRC_ALPHA)'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_BlendOp
+      ; // %ATTRIBUTES
+      %CHILDREN
+       
+        <<SimpleClass>> TvtNonFixedPngImageListPrim
+         %UID '4ACB4A5201FC'
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4ACDBBED0241' /* ImageEn */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4F950C5102A8' /* IvtFlashImageList */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '473DA2AF0168' /* TCustomImageList */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4F950C6D03BE' /* Draw */
+          U$ '53282D3E0350' /* SaveImageToStream */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '47D1602000C6' /* Create */
+          U$ '48077504027E' /* Destroy */
+          U$ '4FD08E8503DC' /* Change */
+          U$ '4FD08EF002D0' /* DefineProperties */
+          U$ '4FD08F7F01AD' /* ReadData */
+          U$ '4FD08FA7008C' /* WriteData */
+          U$ '4FD092040227' /* WriteState */
+          U$ '4FD093CB025F' /* DoDraw */
+          U$ '4FD0944D0202' /* ImageExtent */
+          U$ '4FD095D20217' /* IsSmart */
+         ; // %OVERRIDES
+         %ATTRIBUTES
+           FINAL <<readonly>> Count
+            %UID '4FD088870303'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" true
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Count
+           PRIVATE <<Attribute>> f_Glyph
+            %UID '4FD08989000B'
+            %TARGET U$ '4FD0893B0006' /* TaBPPGlyphs */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_Glyph
+           FINAL <<property>> CurBPP
+            %UID '4FD089B50350'
+            %SUMMARY 'default bpp24' ;
+            %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // CurBPP
+           PRIVATE <<Attribute>> f_OldHeight
+            %UID '4FD08A7D0127'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_OldHeight
+           PRIVATE <<Attribute>> f_OldWidth
+            %UID '4FD08A870152'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_OldWidth
+           PRIVATE <<Attribute>> f_NeedPrepareAlphaDrawCache
+            %UID '4FD08AFA01F4'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_NeedPrepareAlphaDrawCache
+           PRIVATE <<Attribute>> f_Rebuilding
+            %UID '4FD08B2D0172'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Rebuilding
+           PRIVATE <<Attribute>> f_DrawCache
+            %UID '4FD226770108'
+            %TARGET U$ '4FD2087201A3' /* TBitmap */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_DrawCache
+           PRIVATE <<Attribute>> f_AlphaDrawCache
+            %UID '4FD22685016F'
+            %TARGET U$ '4FD2087201A3' /* TBitmap */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_AlphaDrawCache
+           SUMMONED PRIVATE <<Attribute>> f_Count
+            %UID 'A8A10D6BF8F9'
+            %SUMMARY 'Поле для свойства Count' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Count
+           SUMMONED PRIVATE <<Attribute>> f_CurBPP
+            %UID 'C3953E20E2A0'
+            %SUMMARY 'Поле для свойства CurBPP' ;
+            %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_CurBPP
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<method>> CalcCount
+            %UID '4FD08DA20340'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD08DAC0278'
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // CalcCount
+           PRIVATE FINAL <<method>> ResizeAll
+            %UID '4FD08DBD02AD'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD08DD103C5'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aCount
+                  %UID '4FD08DD30285'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aCount
+               ; // %PARAMETERS
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // ResizeAll
+           PRIVATE FINAL <<method>> CanAlphaDraw
+            %UID '4FD08E070341'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD08E150038'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aBpp
+                  %UID '4FD08E24012C'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // aBpp
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CanAlphaDraw
+           PRIVATE FINAL <<method>> ClearAlphaDrawCache
+            %UID '4FD08E3902B2'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD08E3E03DE'
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // ClearAlphaDrawCache
+           FINAL <<method>> ClearCache
+            %UID '4FD08E4F0057'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD08E5501E0'
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // ClearCache
+           FINAL <<method>> AddItem
+            %UID '4FD092660354'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD092780078'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AddItem
+           FINAL <<method>> Delete
+            %UID '4FD09329032F'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD09343024F'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aIndex
+                  %UID '4FD0934C0030'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aIndex
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Delete
+           FINAL <<method>> AddImage
+            %UID '4FD0947D03BE'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4ACDBBED0241' /* ImageEn */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD094950041'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4ACDBBED0241' /* ImageEn */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index
+                  %UID '4FD0949D015F'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index
+                 <<in>> Bpp
+                  %UID '4FD0949D0187'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Bpp
+                 <<in>> Image
+                  %UID '4FD0949D01B0'
+                  %TARGET U$ '4FD0890501F9' /* TIEBitmap */
+                  %TOBEINCLUDED
+                   U$ '4ACDBBED0241' /* ImageEn */
+                  ; // %TOBEINCLUDED
+                 ; // Image
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AddImage
+           FINAL <<method>> GetImage
+            %UID '4FD094A5039B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4ACDBBED0241' /* ImageEn */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD094AF01A1'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4ACDBBED0241' /* ImageEn */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index
+                  %UID '4FD094B201CF'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index
+                 <<in>> Bpp
+                  %UID '4FD094B201F7'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Bpp
+                 <<in>> Image
+                  %UID '4FD094B2023B'
+                  %TARGET U$ '4FD0890501F9' /* TIEBitmap */
+                  %TOBEINCLUDED
+                   U$ '4ACDBBED0241' /* ImageEn */
+                  ; // %TOBEINCLUDED
+                 ; // Image
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetImage
+           FINAL <<method>> Clear
+            %UID '4FD094BC00C9'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD094C60083'
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // Clear
+           FINAL <<method>> DrawGlyphSpecified$1$4FD094DB01A3
+            %UID '4FD094DB01A3'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$4FD094EB0330
+               %UID '4FD094EB0330'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4790D09A0378' /* L3 */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index
+                  %UID '4FD094F80290'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index
+                 <<const>> Canvas
+                  %UID '4FD094F802B8'
+                  %TARGET U$ '4727449A00A2' /* Il3Canvas */
+                  %TOBEINCLUDED
+                   U$ '4790D09A0378' /* L3 */
+                  ; // %TOBEINCLUDED
+                 ; // Canvas
+                 <<in>> Bpp
+                  %UID '4FD094F802E1'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Bpp
+                 <<in>> X
+                  %UID '4FD094F8030C'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '4FD094F80335'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+                 <<in>> Enabled
+                  %UID '4FD094F80365'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Enabled
+               ; // %PARAMETERS
+              ; // DoIt$4FD094EB0330
+            ; // %OPERATIONS
+           ; // DrawGlyphSpecified$1$4FD094DB01A3
+           FINAL <<method>> DrawGlyphSpecified$2$4FD095010268
+            %UID '4FD095010268'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$4FD09518004A
+               %UID '4FD09518004A'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index
+                  %UID '4FD0953C00D5'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index
+                 <<in>> Canvas
+                  %UID '4FD0953C00FE'
+                  %TARGET U$ '46A46A030333' /* TCanvas */
+                  %TOBEINCLUDED
+                   U$ '4E2F0E1B03BB' /* L3$Domain */
+                  ; // %TOBEINCLUDED
+                 ; // Canvas
+                 <<in>> Bpp
+                  %UID '4FD0953C0127'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Bpp
+                 <<in>> X
+                  %UID '4FD0953C0152'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '4FD0953C017C'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+                 <<in>> Enabled
+                  %UID '4FD0953C01A7'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Enabled
+                 <<in>> HalfTransparent
+                  %UID '4FD0953C01E5'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %VALUE false
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // HalfTransparent
+               ; // %PARAMETERS
+              ; // DoIt$4FD09518004A
+            ; // %OPERATIONS
+           ; // DrawGlyphSpecified$2$4FD095010268
+           FINAL <<method>> SaveImage
+            %UID '4FD0969703D3'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD096A9031A'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<const>> aFilename
+                  %UID '4FD096BA00DC'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aFilename
+                 <<in>> aIndex
+                  %UID '4FD096BA0104'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aIndex
+                 <<in>> aBpp
+                  %UID '4FD096BA012E'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // aBpp
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SaveImage
+           FINAL <<method>> Exchange
+            %UID '4FD0A70C03C5'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0A71F0002'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index1
+                  %UID '4FD0A7280243'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index1
+                 <<in>> Index2
+                  %UID '4FD0A728026B'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index2
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Exchange
+           FINAL <<method>> ImageExtent
+            %UID '5025442B0365'
+            %META
+             %upv "ifdef" 'DesignTimeLibrary'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '502544440230'
+               %TARGET U$ '4769570D0204' /* TPoint */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> anIndex
+                  %UID '502544490043'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // anIndex
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ImageExtent
+         ; // %OPERATIONS
+        ; // TvtNonFixedPngImageListPrim
+        <<Array>> TvtBPPGlyphs
+         %UID '4FD0AB9600D4'
+         %META
+          %upv "array type" 'dynamic'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4ACDBBED0241' /* ImageEn */
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD06F5A01D8' /* TvtPILBpp */
+         ; // %INHERITS
+         %ATTRIBUTES
+           <<Attribute>> type
+            %UID '4FD0ABD80393'
+            %TARGET U$ '4FD0890501F9' /* TIEBitmap */
+            %TOBEINCLUDED
+             U$ '4ACDBBED0241' /* ImageEn */
+            ; // %TOBEINCLUDED
+           ; // type
+         ; // %ATTRIBUTES
+        ; // TvtBPPGlyphs
+        <<Array>> TvtSizeBPPGlyphs
+         %UID '4FD0AC3802E3'
+         %META
+          %upv "array type" 'dynamic'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD06F1F020E' /* TvtPILSize */
+         ; // %INHERITS
+         %ATTRIBUTES
+           <<Attribute>> type
+            %UID '4FD0AC6602C1'
+            %TARGET U$ '4FD0AB9600D4' /* TvtBPPGlyphs */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // type
+         ; // %ATTRIBUTES
+        ; // TvtSizeBPPGlyphs
+        <<Array>> TvtPILSizeBitmapArray
+         %UID '4FD0ADA2017D'
+         %META
+          %upv "array type" 'dynamic'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD06F1F020E' /* TvtPILSize */
+         ; // %INHERITS
+         %ATTRIBUTES
+           <<Attribute>> type
+            %UID '4FD0ADB10375'
+            %TARGET U$ '4FD2087201A3' /* TBitmap */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // type
+         ; // %ATTRIBUTES
+        ; // TvtPILSizeBitmapArray
+        <<Array>> TvtPILSizeBoolArray
+         %UID '4FD0AD7200F2'
+         %META
+          %upv "array type" 'dynamic'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD06F1F020E' /* TvtPILSize */
+         ; // %INHERITS
+         %ATTRIBUTES
+           <<Attribute>> type
+            %UID '4FD0AD940052'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // type
+         ; // %ATTRIBUTES
+        ; // TvtPILSizeBoolArray
+        <<SimpleClass>> TvtPngImageListPrim
+         %UID '4FD0A98C01BD'
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4ACDBBED0241' /* ImageEn */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4F950C5102A8' /* IvtFlashImageList */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '473DA2AF0168' /* TCustomImageList */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4F950C6D03BE' /* Draw */
+          U$ '53282D3E0350' /* SaveImageToStream */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '47D1602000C6' /* Create */
+          U$ '48077504027E' /* Destroy */
+          U$ '4FD08E8503DC' /* Change */
+          U$ '4FD08EF002D0' /* DefineProperties */
+          U$ '4FD08F7F01AD' /* ReadData */
+          U$ '4FD08FA7008C' /* WriteData */
+          U$ '4FD092040227' /* WriteState */
+          U$ '4FD093CB025F' /* DoDraw */
+          U$ '4FD0944D0202' /* ImageExtent */
+          U$ '4FD095D20217' /* IsSmart */
+         ; // %OVERRIDES
+         %ATTRIBUTES
+           <<property>> AvailableSizes
+            %UID '4FD0A9FC01F1'
+            %TARGET U$ '4FD06FF6027F' /* TvtPILSizes */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // AvailableSizes
+           PRIVATE <<Attribute>> f_ChangeOn
+            %UID '4FD0AA5F00D7'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_ChangeOn
+           <<readonly>> Count
+            %UID '4FD0AA8C002B'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" true
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Count
+           PRIVATE <<Attribute>> f_Glyph
+            %UID '4FD0AC8D0076'
+            %TARGET U$ '4FD0AC3802E3' /* TvtSizeBPPGlyphs */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_Glyph
+           FINAL <<property>> CurBPP
+            %UID '4FD0ACBB038A'
+            %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // CurBPP
+           FINAL <<property>> CurSize
+            %UID '4FD0ACFD0363'
+            %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // CurSize
+           PRIVATE <<Attribute>> f_DrawCache
+            %UID '4FD0AEA701C2'
+            %TARGET U$ '4FD0ADA2017D' /* TvtPILSizeBitmapArray */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_DrawCache
+           PRIVATE <<Attribute>> f_AlphaDrawCache
+            %UID '4FD0AEB10321'
+            %TARGET U$ '4FD0ADA2017D' /* TvtPILSizeBitmapArray */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_AlphaDrawCache
+           PRIVATE <<Attribute>> f_NeedPrepareAlphaDrawCache
+            %UID '4FD0AEF3005E'
+            %TARGET U$ '4FD0AD7200F2' /* TvtPILSizeBoolArray */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_NeedPrepareAlphaDrawCache
+           PRIVATE <<Attribute>> f_Rebuilding
+            %UID '4FD0AF1B035C'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Rebuilding
+           SUMMONED PRIVATE <<Attribute>> f_AvailableSizes
+            %UID 'C8282939AE8E'
+            %SUMMARY 'Поле для свойства AvailableSizes' ;
+            %TARGET U$ '4FD06FF6027F' /* TvtPILSizes */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_AvailableSizes
+           SUMMONED PRIVATE <<Attribute>> f_Count
+            %UID '48D2C51A5913'
+            %SUMMARY 'Поле для свойства Count' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Count
+           SUMMONED PRIVATE <<Attribute>> f_CurBPP
+            %UID '95E415AAB9A7'
+            %SUMMARY 'Поле для свойства CurBPP' ;
+            %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_CurBPP
+           SUMMONED PRIVATE <<Attribute>> f_CurSize
+            %UID '8B47C9A1D240'
+            %SUMMARY 'Поле для свойства CurSize' ;
+            %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_CurSize
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<method>> CalcCount
+            %UID '4FD0B13F0065'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0B157001E'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> UseNewSizes
+                  %UID '4FD0B1590168'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %VALUE true
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // UseNewSizes
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CalcCount
+           PRIVATE FINAL <<method>> ResizeAll
+            %UID '4FD0B1C601D7'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0B1CF008A'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aCount
+                  %UID '4FD0B1D20051'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aCount
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ResizeAll
+           PRIVATE FINAL <<method>> CanAlphaDraw
+            %UID '4FD0B1FB01EA'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> doIt
+               %UID '4FD0B202033C'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aBpp
+                  %UID '4FD0B20700C9'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // aBpp
+                 <<in>> aSize
+                  %UID '4FD0B20700F2'
+                  %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // aSize
+               ; // %PARAMETERS
+              ; // doIt
+            ; // %OPERATIONS
+           ; // CanAlphaDraw
+           PRIVATE FINAL <<method>> ClearAlphaDrawCache
+            %UID '4FD0B21900E8'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD0B21F007A'
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // ClearAlphaDrawCache
+           FINAL <<method>> ClearCache
+            %UID '4FD0B23002E8'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD0B2350243'
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // ClearCache
+           FINAL <<method>> AddItem
+            %UID '4FD0B2980233'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0B2A6015C'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AddItem
+           FINAL <<method>> Delete
+            %UID '4FD0B2F50112'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0B2FE0361'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aIndex
+                  %UID '4FD0B3010180'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aIndex
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Delete
+           FINAL <<method>> AddImage
+            %UID '4FD0B3500288'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4ACDBBED0241' /* ImageEn */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0B3590378'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4ACDBBED0241' /* ImageEn */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index
+                  %UID '4FD0B35C0254'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index
+                 <<in>> Size
+                  %UID '4FD0B35C027D'
+                  %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Size
+                 <<in>> Bpp
+                  %UID '4FD0B35C02A6'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Bpp
+                 <<in>> Image
+                  %UID '4FD0B35C02CF'
+                  %TARGET U$ '4FD0890501F9' /* TIEBitmap */
+                  %TOBEINCLUDED
+                   U$ '4ACDBBED0241' /* ImageEn */
+                  ; // %TOBEINCLUDED
+                 ; // Image
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AddImage
+           FINAL <<method>> DrawGlyphSpecified$1$4FD0B37801F0
+            %UID '4FD0B37801F0'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$4FD0B394038B
+               %UID '4FD0B394038B'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4790D09A0378' /* L3 */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index
+                  %UID '4FD0B39E026A'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index
+                 <<const>> Canvas
+                  %UID '4FD0B39E0297'
+                  %TARGET U$ '4727449A00A2' /* Il3Canvas */
+                  %TOBEINCLUDED
+                   U$ '4790D09A0378' /* L3 */
+                  ; // %TOBEINCLUDED
+                 ; // Canvas
+                 <<in>> Size
+                  %UID '4FD0B39E02C4'
+                  %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Size
+                 <<in>> Bpp
+                  %UID '4FD0B39E0305'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Bpp
+                 <<in>> X
+                  %UID '4FD0B39E037F'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '4FD0B39F001A'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+                 <<in>> Enabled
+                  %UID '4FD0B39F0087'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Enabled
+               ; // %PARAMETERS
+              ; // DoIt$4FD0B394038B
+            ; // %OPERATIONS
+           ; // DrawGlyphSpecified$1$4FD0B37801F0
+           FINAL <<method>> Exchange
+            %UID '4FD0B43A020D'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0B44601C6'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index1
+                  %UID '4FD0B44D0363'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index1
+                 <<in>> Index2
+                  %UID '4FD0B44D038D'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index2
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Exchange
+           FINAL <<method>> _RepairSizes
+            %UID '4FD0B4640341'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD0B4730181'
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // _RepairSizes
+           FINAL <<method>> Clear
+            %UID '4FD0B4D500C1'
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> new_operation
+               %UID '4FD0B4DF00FA'
+              ; // new_operation
+            ; // %OPERATIONS
+           ; // Clear
+           FINAL <<method>> CopySizeToSize
+            %UID '4FD0B4EF00CE'
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> CopySizeToSize
+               %UID '4FD0B4FF02F2'
+               %TOBEINCLUDED
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aSizeFrom
+                  %UID '4FD0B50902D1'
+                  %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // aSizeFrom
+                 <<in>> aSizeTo
+                  %UID '4FD0B50902FB'
+                  %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // aSizeTo
+               ; // %PARAMETERS
+              ; // CopySizeToSize
+            ; // %OPERATIONS
+           ; // CopySizeToSize
+           FINAL <<method>> SaveImage
+            %UID '4FD0B54000ED'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0B54B0128'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<const>> aFilename
+                  %UID '4FD0B55101B2'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aFilename
+                 <<in>> aIndex
+                  %UID '4FD0B55101DD'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aIndex
+                 <<in>> aSize
+                  %UID '4FD0B5510207'
+                  %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // aSize
+                 <<in>> aBpp
+                  %UID '4FD0B5510232'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // aBpp
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SaveImage
+           FINAL <<method>> DrawGlyphSpecified$2$4FD0B8CB02B7
+            %UID '4FD0B8CB02B7'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$4FD0B8D603AC
+               %UID '4FD0B8D603AC'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+                U$ '4FD078CD00F6' /* VT$ImgList */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Index
+                  %UID '4FD0B8E40060'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Index
+                 <<in>> Canvas
+                  %UID '4FD0B8E4008B'
+                  %TARGET U$ '46A46A030333' /* TCanvas */
+                  %TOBEINCLUDED
+                   U$ '4E2F0E1B03BB' /* L3$Domain */
+                  ; // %TOBEINCLUDED
+                 ; // Canvas
+                 <<in>> Size
+                  %UID '4FD0B8E400B8'
+                  %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Size
+                 <<in>> Bpp
+                  %UID '4FD0B8E400E5'
+                  %TARGET U$ '4FD06F5A01D8' /* TvtPILBpp */
+                  %TOBEINCLUDED
+                   U$ '4FD078CD00F6' /* VT$ImgList */
+                  ; // %TOBEINCLUDED
+                 ; // Bpp
+                 <<in>> X
+                  %UID '4FD0B8E40113'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // X
+                 <<in>> Y
+                  %UID '4FD0B8E40140'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Y
+                 <<in>> Enabled
+                  %UID '4FD0B8E4016E'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Enabled
+                 <<in>> HalfTransparent
+                  %UID '4FD0B8E4019F'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %VALUE false
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // HalfTransparent
+               ; // %PARAMETERS
+              ; // DoIt$4FD0B8D603AC
+            ; // %OPERATIONS
+           ; // DrawGlyphSpecified$2$4FD0B8CB02B7
+           FINAL <<method>> ImageExtent
+            %UID '502543E60239'
+            %META
+             %upv "ifdef" 'DesignTimeLibrary'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5025440D021F'
+               %TARGET U$ '4769570D0204' /* TPoint */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> anIndex
+                  %UID '5025441103D6'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // anIndex
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ImageExtent
+         ; // %OPERATIONS
+        ; // TvtPngImageListPrim
+        <<SimpleClass>> TvtFixedSizeProxyPngImageListPrim
+         %UID '4FD0BFBC00F9'
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4F950C5102A8' /* IvtFlashImageList */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '473DA2AF0168' /* TCustomImageList */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4F950C6D03BE' /* Draw */
+          U$ '53282D3E0350' /* SaveImageToStream */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '47D1602000C6' /* Create */
+          U$ '48077504027E' /* Destroy */
+          U$ '4FD093CB025F' /* DoDraw */
+          U$ '4FD095D20217' /* IsSmart */
+         ; // %OVERRIDES
+         %ATTRIBUTES
+           FINAL <<property>> FixedSize
+            %UID '4FD0C074032D'
+            %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // FixedSize
+           FINAL <<property>> OriginalImgList
+            %UID '4FD0C0CB027B'
+            %TARGET U$ '4FD0A98C01BD' /* TvtPngImageListPrim */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // OriginalImgList
+           PRIVATE <<Attribute>> f_ImageChangeLink
+            %UID '4FD0C16101F3'
+            %TARGET U$ '47881A17009F' /* TChangeLink */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // f_ImageChangeLink
+           <<readonly>> Count
+            %UID '4FD0C1BF0313'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Count
+           SUMMONED PRIVATE <<Attribute>> f_FixedSize
+            %UID '46300F4F7DC7'
+            %SUMMARY 'Поле для свойства FixedSize' ;
+            %TARGET U$ '4FD06F1F020E' /* TvtPILSize */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_FixedSize
+           SUMMONED PRIVATE <<Attribute>> f_OriginalImgList
+            %UID '731B7FD51CF8'
+            %SUMMARY 'Поле для свойства OriginalImgList' ;
+            %TARGET U$ '4FD0A98C01BD' /* TvtPngImageListPrim */
+            %TOBEINCLUDED
+             U$ '4FD078CD00F6' /* VT$ImgList */
+            ; // %TOBEINCLUDED
+           ; // f_OriginalImgList
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<method>> ImageListChange
+            %UID '4FD0C2760204'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4FD0C27F027A'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Sender
+                  %UID '4FD0C287009E'
+                  %TARGET U$ '4807745602C8' /* TObject */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Sender
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ImageListChange
+         ; // %OPERATIONS
+        ; // TvtFixedSizeProxyPngImageListPrim
+        <<SimpleClass>> TvtNonFixedPngImageList
+         %UID '4FD224430014'
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4ACB4A5201FC' /* TvtNonFixedPngImageListPrim */
+         ; // %INHERITS
+        ; // TvtNonFixedPngImageList
+        <<SimpleClass>> TvtPngImageList
+         %UID '4FD2246B017B'
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD0A98C01BD' /* TvtPngImageListPrim */
+         ; // %INHERITS
+        ; // TvtPngImageList
+        <<SimpleClass>> TvtFixedSizeProxyPngImageList
+         %UID '4FD2248F001B'
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD0BFBC00F9' /* TvtFixedSizeProxyPngImageListPrim */
+         ; // %INHERITS
+        ; // TvtFixedSizeProxyPngImageList
+        <<Typedef>> TBitmap
+         %UID '53B2693C02EA'
+         %TOBEINCLUDED
+          U$ '4FD078CD00F6' /* VT$ImgList */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4FD2087201A3' /* TBitmap */
+         ; // %INHERITS
+        ; // TBitmap
+      ; // %CHILDREN
+     ; // vtPngImgList
+   ; // %CHILDREN
+  ; // vtImgLists
+ ; // %CHILDREN
+; // VT$ImgList

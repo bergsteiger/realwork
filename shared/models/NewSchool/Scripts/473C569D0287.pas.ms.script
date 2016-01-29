@@ -1,0 +1,205 @@
+// afwTypes 473C569D0287 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_473C569D0287
+
+FORWARD ME_473C5701008C
+
+: ME_473C57110125
+ CONST UID '473C57110125'
+ CONST Name 'rNumber'
+ CONST Class class_Attribute
+ %SUMMARY 'номер страницы начиная с 0' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_473C5701008C // TafwPrintPage
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C57110125 rNumber
+
+: ME_473C5701008C
+ CONST UID '473C5701008C'
+ CONST Name 'TafwPrintPage'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'инфо для печати страницы документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_473C569D0287 // afwTypes
+ ;
+ : Attributes
+   @ ( ME_473C57110125 // rNumber
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_473C5701008C TafwPrintPage
+
+FORWARD ME_473C571F02A2
+
+: ME_473C57290238
+ CONST UID '473C57290238'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_473C571F02A2 // TafwPrintPagesArray
+ ;
+ : Target ME_473C5701008C // TafwPrintPage
+ ;
+
+ref; // ME_473C57290238 
+
+: ME_473C571F02A2
+ CONST UID '473C571F02A2'
+ CONST Name 'TafwPrintPagesArray'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Массив страниц preview.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_473C569D0287 // afwTypes
+ ;
+ : Attributes
+   @ ( ME_473C57290238 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_473C571F02A2 TafwPrintPagesArray
+
+FORWARD ME_473C573902F9
+
+: ME_473C57470123
+ CONST UID '473C57470123'
+ CONST Name 'afw_piAll'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_473C573902F9 // TafwPagesInterval
+ ;
+
+ref; // ME_473C57470123 afw_piAll
+
+: ME_473C574D0059
+ CONST UID '473C574D0059'
+ CONST Name 'afw_piOdd'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_473C573902F9 // TafwPagesInterval
+ ;
+
+ref; // ME_473C574D0059 afw_piOdd
+
+: ME_473C575202C3
+ CONST UID '473C575202C3'
+ CONST Name 'afw_piEven'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_473C573902F9 // TafwPagesInterval
+ ;
+
+ref; // ME_473C575202C3 afw_piEven
+
+: ME_473C573902F9
+ CONST UID '473C573902F9'
+ CONST Name 'TafwPagesInterval'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интервал печати.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_473C569D0287 // afwTypes
+ ;
+ : Attributes
+   @ ( ME_473C57470123 // afw_piAll
+ ME_473C574D0059 // afw_piOdd
+ ME_473C575202C3 // afw_piEven
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_473C573902F9 TafwPagesInterval
+
+FORWARD ME_475FEDD003AD
+
+: ME_475FEDEC0200
+ CONST UID '475FEDEC0200'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_475FEDD003AD // TafwCommands
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_475FEDEC0200 
+
+: ME_475FEDD003AD
+ CONST UID '475FEDD003AD'
+ CONST Name 'TafwCommands'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_473C569D0287 // afwTypes
+ ;
+ : Attributes
+   @ ( ME_475FEDEC0200 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "array type" 'dynamic'
+ CONST "force usage" true
+
+ref; // ME_475FEDD003AD TafwCommands
+
+: ME_473C569D0287
+ CONST UID '473C569D0287'
+ CONST Name 'afwTypes'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Базовые типы библиотеки AFW.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ ;
+ : Children
+   @ ( ME_473C5701008C // TafwPrintPage
+ ME_473C571F02A2 // TafwPrintPagesArray
+ ME_473C573902F9 // TafwPagesInterval
+ ME_475FEDD003AD // TafwCommands
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '30.12.2004 13:38'
+ CONST "weak" true
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwTypes.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\473C569D0287.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\473C569D0287.pas.ms.script.runner'
+
+ref; // ME_473C569D0287 afwTypes

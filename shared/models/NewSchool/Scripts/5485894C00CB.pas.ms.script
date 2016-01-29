@@ -1,0 +1,226 @@
+// Tm3TempEnumStatStg 5485894C00CB SimpleClass Class
+
+INCLUDE '548588F802A3.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_5485894C00CB
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_54858D380031
+ CONST UID '54858D380031'
+ CONST Name 'FStream'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_54858D380031 FStream
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_54858D6603CF
+ CONST UID '54858D6603CF'
+ CONST Name 'FItemsCount'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54858D6603CF FItemsCount
+
+: ME_54858D74025B
+ CONST UID '54858D74025B'
+ CONST Name 'FItemsIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54858D74025B FItemsIndex
+
+FORWARD ME_54858CC10221
+
+: ME_54858CEC0249
+ CONST UID '54858CEC0249'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_54858CEC0249 aStream
+
+: ME_54858CE0009E
+ CONST UID '54858CE0009E'
+ CONST Name 'aCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54858CE0009E aCount
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54858CD100ED
+ CONST UID '54858CD100ED'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54858CEC0249 // aStream
+ ME_54858CE0009E // aCount
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54858CD100ED DoIt
+
+: ME_54858CC10221
+ CONST UID '54858CC10221'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54858CD100ED // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54858CC10221 Create
+
+FORWARD ME_54858CF50041
+
+: ME_BD63E632F5BE
+ CONST UID 'BD63E632F5BE'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_BD63E632F5BE aStream
+
+: ME_AA87F4B368F3
+ CONST UID 'AA87F4B368F3'
+ CONST Name 'aCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_AA87F4B368F3 aCount
+
+: ME_109FE7A01ECB
+ CONST UID '109FE7A01ECB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики Tm3TempEnumStatStg.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_54523014032A // IEnumStatStg
+ ;
+ : Parameters
+   [ ME_BD63E632F5BE // aStream
+ ME_AA87F4B368F3 // aCount
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_109FE7A01ECB DoIt
+
+: ME_54858CF50041
+ CONST UID '54858CF50041'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_54858CC10221 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_54523014032A // IEnumStatStg
+ ]
+ ; // Implements
+ : Operations
+   [ ME_109FE7A01ECB // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_54858CF50041 Make
+
+: ME_5485894C00CB
+ CONST UID '5485894C00CB'
+ CONST Name 'Tm3TempEnumStatStg'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_548588F802A3 // Tm3BaseEnumStatStg
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_54858D380031 // FStream
+ ME_54858D6603CF // FItemsCount
+ ME_54858D74025B // FItemsIndex
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54858CC10221 // Create
+ ME_54858CF50041 // Make
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5485894C00CB Tm3TempEnumStatStg

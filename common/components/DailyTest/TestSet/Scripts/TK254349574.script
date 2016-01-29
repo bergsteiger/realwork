@@ -1,0 +1,20 @@
+USES
+ EditorTools.script 
+;
+
+: K254349574
+ OBJECT VAR l_TextForm
+ class::TTextLoadForm .Create >>> l_TextForm
+ TRY 
+  l_TextForm pop:Control:Show
+  "Загрузить документ в {(l_TextForm)}"  
+  ProcessMessages
+  7 LOOP ( 'Tab' key )
+  ProcessMessages
+  "Сравнить текст с эталоном"
+ FINALLY  
+  l_TextForm pop:Control:Handle AskWindowToCloseItself
+ END  
+;
+
+K254349574

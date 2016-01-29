@@ -1,0 +1,1146 @@
+// Processors 47ECB04A01F8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47ECB04A01F8
+
+FORWARD ME_47F252060091
+
+FORWARD ME_4F5C4EB20139
+
+: ME_47C5B14F00F1_ME_4F5C4EB20139
+ CONST UID '47C5B14F00F1'
+ CONST Name 'GetActiveObject'
+ : Original WL 'ME_47C5B14F00F1' '47913B47006E.pas.ms.script' // GetActiveObject
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ref; // ME_47C5B14F00F1_ME_4F5C4EB20139 GetActiveObject
+
+: ME_47C5B15D0015_ME_4F5C4EB20139
+ CONST UID '47C5B15D0015'
+ CONST Name 'ExecutedOperation'
+ : Original WL 'ME_47C5B15D0015' '47913B47006E.pas.ms.script' // ExecutedOperation
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ref; // ME_47C5B15D0015_ME_4F5C4EB20139 ExecutedOperation
+
+: ME_47C5B16C010D_ME_4F5C4EB20139
+ CONST UID '47C5B16C010D'
+ CONST Name 'Undo'
+ : Original WL 'ME_47C5B16C010D' '47913B47006E.pas.ms.script' // Undo
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ref; // ME_47C5B16C010D_ME_4F5C4EB20139 Undo
+
+: ME_47C5B17B0053_ME_4F5C4EB20139
+ CONST UID '47C5B17B0053'
+ CONST Name 'Redo'
+ : Original WL 'ME_47C5B17B0053' '47913B47006E.pas.ms.script' // Redo
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ref; // ME_47C5B17B0053_ME_4F5C4EB20139 Redo
+
+: ME_47C5B18A0183_ME_4F5C4EB20139
+ CONST UID '47C5B18A0183'
+ CONST Name 'Clear'
+ : Original WL 'ME_47C5B18A0183' '47913B47006E.pas.ms.script' // Clear
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ref; // ME_47C5B18A0183_ME_4F5C4EB20139 Clear
+
+: ME_47C5B1A20200_ME_4F5C4EB20139
+ CONST UID '47C5B1A20200'
+ CONST Name 'CanUndo'
+ : Original WL 'ME_47C5B1A20200' '47913B47006E.pas.ms.script' // CanUndo
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ CONST "pm" true
+ref; // ME_47C5B1A20200_ME_4F5C4EB20139 CanUndo
+
+: ME_47C5B1B30355_ME_4F5C4EB20139
+ CONST UID '47C5B1B30355'
+ CONST Name 'CanRedo'
+ : Original WL 'ME_47C5B1B30355' '47913B47006E.pas.ms.script' // CanRedo
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ CONST "pm" true
+ref; // ME_47C5B1B30355_ME_4F5C4EB20139 CanRedo
+
+: ME_47C5B1C500AC_ME_4F5C4EB20139
+ CONST UID '47C5B1C500AC'
+ CONST Name 'Last'
+ : Original WL 'ME_47C5B1C500AC' '47913B47006E.pas.ms.script' // Last
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ CONST "pm" false
+ref; // ME_47C5B1C500AC_ME_4F5C4EB20139 Last
+
+: ME_47C5B1D302B9_ME_4F5C4EB20139
+ CONST UID '47C5B1D302B9'
+ CONST Name 'Empty'
+ : Original WL 'ME_47C5B1D302B9' '47913B47006E.pas.ms.script' // Empty
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ CONST "pm" false
+ref; // ME_47C5B1D302B9_ME_4F5C4EB20139 Empty
+
+: ME_47C5B1E90326_ME_4F5C4EB20139
+ CONST UID '47C5B1E90326'
+ CONST Name 'Disabled'
+ : Original WL 'ME_47C5B1E90326' '47913B47006E.pas.ms.script' // Disabled
+ ;
+ : Implementor ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ;
+ CONST "pm" false
+ref; // ME_47C5B1E90326_ME_4F5C4EB20139 Disabled
+
+: ME_4F5C4EB20139
+ CONST UID '4F5C4EB20139'
+ CONST Name 'TevCustomUndoBuffer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый класс для реализации Undo-буфера.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F252060091 // evUndoB
+ ;
+ : Implements
+   @ ( WL 'ME_47C5B145018F' '47913B47006E.pas.ms.script' // Ik2UndoBuffer
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_47C5B14F00F1_ME_4F5C4EB20139 // GetActiveObject
+ ME_47C5B15D0015_ME_4F5C4EB20139 // ExecutedOperation
+ ME_47C5B16C010D_ME_4F5C4EB20139 // Undo
+ ME_47C5B17B0053_ME_4F5C4EB20139 // Redo
+ ME_47C5B18A0183_ME_4F5C4EB20139 // Clear
+ ME_47C5B1A20200_ME_4F5C4EB20139 // CanUndo
+ ME_47C5B1B30355_ME_4F5C4EB20139 // CanRedo
+ ME_47C5B1C500AC_ME_4F5C4EB20139 // Last
+ ME_47C5B1D302B9_ME_4F5C4EB20139 // Empty
+ ME_47C5B1E90326_ME_4F5C4EB20139 // Disabled
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4F5C4EB20139 TevCustomUndoBuffer
+
+: ME_47F2522D0368
+ CONST UID '47F2522D0368'
+ CONST Name 'TevUndoBuffer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для реализации Undo-буфера.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F252060091 // evUndoB
+ ;
+ : Inherits
+   @ ( ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '05.06.1997 12:07'
+
+ref; // ME_47F2522D0368 TevUndoBuffer
+
+FORWARD ME_552BAA150205
+
+: ME_552BAA3102AE
+ CONST UID '552BAA3102AE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F252060091 // evUndoB
+ ;
+ : Target ME_552BAA150205 // evStandardActions
+ ;
+
+ref; // ME_552BAA3102AE 
+
+: ME_47F252060091
+ CONST UID '47F252060091'
+ CONST Name 'evUndoB'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47ECB04A01F8 // Processors
+ ;
+ : Children
+   @ ( ME_4F5C4EB20139 // TevCustomUndoBuffer
+ ME_47F2522D0368 // TevUndoBuffer
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_552BAA3102AE // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '05.06.1997 12:07'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evUndoB.pas'
+
+ref; // ME_47F252060091 evUndoB
+
+FORWARD ME_47F351BC0145
+
+FORWARD ME_47F351E50367
+
+: ME_482D91730258
+ CONST UID '482D91730258'
+ CONST Name 'BeepOnParaLimit'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F351E50367 // TevCustomProcessor
+ ;
+
+ref; // ME_482D91730258 BeepOnParaLimit
+
+: ME_47C6AD3B02E8_ME_47F351E50367
+ CONST UID '47C6AD3B02E8'
+ CONST Name 'BruttoCharLimit'
+ : Original WL 'ME_47C6AD3B02E8' '47C5207602D1.pas.ms.script' // BruttoCharLimit
+ ;
+ : Implementor ME_47F351E50367 // TevCustomProcessor
+ ;
+ CONST "pm" true
+ref; // ME_47C6AD3B02E8_ME_47F351E50367 BruttoCharLimit
+
+: ME_47C6AD4F02BE_ME_47F351E50367
+ CONST UID '47C6AD4F02BE'
+ CONST Name 'TextParaLimit'
+ : Original WL 'ME_47C6AD4F02BE' '47C5207602D1.pas.ms.script' // TextParaLimit
+ ;
+ : Implementor ME_47F351E50367 // TevCustomProcessor
+ ;
+ CONST "pm" true
+ref; // ME_47C6AD4F02BE_ME_47F351E50367 TextParaLimit
+
+: ME_47C6AD7E0136_ME_47F351E50367
+ CONST UID '47C6AD7E0136'
+ CONST Name 'ClearStat'
+ : Original WL 'ME_47C6AD7E0136' '47C5207602D1.pas.ms.script' // ClearStat
+ ;
+ : Implementor ME_47F351E50367 // TevCustomProcessor
+ ;
+ref; // ME_47C6AD7E0136_ME_47F351E50367 ClearStat
+
+: ME_47C6AD8C01C2_ME_47F351E50367
+ CONST UID '47C6AD8C01C2'
+ CONST Name 'TextParaCount'
+ : Original WL 'ME_47C6AD8C01C2' '47C5207602D1.pas.ms.script' // TextParaCount
+ ;
+ : Implementor ME_47F351E50367 // TevCustomProcessor
+ ;
+ CONST "pm" true
+ref; // ME_47C6AD8C01C2_ME_47F351E50367 TextParaCount
+
+: ME_47C6ADA101B8_ME_47F351E50367
+ CONST UID '47C6ADA101B8'
+ CONST Name 'BruttoCharCount'
+ : Original WL 'ME_47C6ADA101B8' '47C5207602D1.pas.ms.script' // BruttoCharCount
+ ;
+ : Implementor ME_47F351E50367 // TevCustomProcessor
+ ;
+ CONST "pm" true
+ref; // ME_47C6ADA101B8_ME_47F351E50367 BruttoCharCount
+
+: ME_47C6ADAE0303_ME_47F351E50367
+ CONST UID '47C6ADAE0303'
+ CONST Name 'NettoCharCount'
+ : Original WL 'ME_47C6ADAE0303' '47C5207602D1.pas.ms.script' // NettoCharCount
+ ;
+ : Implementor ME_47F351E50367 // TevCustomProcessor
+ ;
+ CONST "pm" true
+ref; // ME_47C6ADAE0303_ME_47F351E50367 NettoCharCount
+
+: ME_4D077BE80280_ME_47F351E50367
+ CONST UID '4D077BE80280'
+ CONST Name 'BitmapParaCount'
+ : Original WL 'ME_4D077BE80280' '47C5207602D1.pas.ms.script' // BitmapParaCount
+ ;
+ : Implementor ME_47F351E50367 // TevCustomProcessor
+ ;
+ CONST "pm" true
+ref; // ME_4D077BE80280_ME_47F351E50367 BitmapParaCount
+
+: ME_47F351E50367
+ CONST UID '47F351E50367'
+ CONST Name 'TevCustomProcessor'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик операций.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F351BC0145 // evOpProc
+ ;
+ : Inherits
+   @ ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_47C6AD2A0130' '47C5207602D1.pas.ms.script' // InevDocumentLimits
+ WL 'ME_47C6AD6101DA' '47C5207602D1.pas.ms.script' // InevDocumentInfo
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_482D91730258 // BeepOnParaLimit
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47C6AD3B02E8_ME_47F351E50367 // BruttoCharLimit
+ ME_47C6AD4F02BE_ME_47F351E50367 // TextParaLimit
+ ME_47C6AD7E0136_ME_47F351E50367 // ClearStat
+ ME_47C6AD8C01C2_ME_47F351E50367 // TextParaCount
+ ME_47C6ADA101B8_ME_47F351E50367 // BruttoCharCount
+ ME_47C6ADAE0303_ME_47F351E50367 // NettoCharCount
+ ME_4D077BE80280_ME_47F351E50367 // BitmapParaCount
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.10.1997 15:22'
+
+ref; // ME_47F351E50367 TevCustomProcessor
+
+FORWARD ME_47F3521002C7
+
+: ME_4843D3020153
+ CONST UID '4843D3020153'
+ CONST Name 'GetNeedReplaceQuotes'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4843D3020153 GetNeedReplaceQuotes
+
+: ME_48E4CBB903B9
+ CONST UID '48E4CBB903B9'
+ CONST Name 'aParent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_48E4CBB903B9 aParent
+
+: ME_48E4CBBA0003
+ CONST UID '48E4CBBA0003'
+ CONST Name 'aChild'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_48E4CBBA0003 aChild
+
+: ME_48E4CBBA0031
+ CONST UID '48E4CBBA0031'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E4CCF4018C' '4678193C009C.pas.ms.script' // Tl3Operation
+ ;
+
+ref; // ME_48E4CBBA0031 anOp
+
+: ME_48E4CBBA0062
+ CONST UID '48E4CBBA0062'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BDEBA0308' '4678209200A6.pas.ms.script' // TnevParaIndex
+ ;
+
+ref; // ME_48E4CBBA0062 anIndex
+
+: ME_48E4CB990000
+ CONST UID '48E4CB990000'
+ CONST Name 'DoCheckParaOp'
+ CONST Class class_Operation
+ %SUMMARY 'проверить операцию с параграфом' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ : Parameters
+   @ ( ME_48E4CBB903B9 // aParent
+ ME_48E4CBBA0003 // aChild
+ ME_48E4CBBA0031 // anOp
+ ME_48E4CBBA0062 // anIndex
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48E4CB990000 DoCheckParaOp
+
+: ME_48E4CBD6038B
+ CONST UID '48E4CBD6038B'
+ CONST Name 'DoAfterUndoRedo'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+
+ref; // ME_48E4CBD6038B DoAfterUndoRedo
+
+: ME_48E4CC000240
+ CONST UID '48E4CC000240'
+ CONST Name 'Parent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_48E4CC000240 Parent
+
+: ME_48E4CC000279
+ CONST UID '48E4CC000279'
+ CONST Name 'Child'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_48E4CC000279 Child
+
+: ME_48E4CC0002B0
+ CONST UID '48E4CC0002B0'
+ CONST Name 'Op'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E4CCF4018C' '4678193C009C.pas.ms.script' // Tl3Operation
+ ;
+
+ref; // ME_48E4CC0002B0 Op
+
+: ME_48E4CBE8018B
+ CONST UID '48E4CBE8018B'
+ CONST Name 'DoParaOp'
+ CONST Class class_Operation
+ %SUMMARY 'завершить операцию с параграфом' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ : Parameters
+   @ ( ME_48E4CC000240 // Parent
+ ME_48E4CC000279 // Child
+ ME_48E4CC0002B0 // Op
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48E4CBE8018B DoParaOp
+
+: ME_46A44F6B035E_ME_47F3521002C7
+ CONST UID '46A44F6B035E'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_46A44F6B035E' '4677FBA70343.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A44F6B035E_ME_47F3521002C7 Subscribe
+
+: ME_46A44FFE0143_ME_47F3521002C7
+ CONST UID '46A44FFE0143'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_46A44FFE0143' '4677FBA70343.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A44FFE0143_ME_47F3521002C7 Unsubscribe
+
+: ME_46A5BC28010A_ME_47F3521002C7
+ CONST UID '46A5BC28010A'
+ CONST Name 'StartOp'
+ : Original WL 'ME_46A5BC28010A' '47913B47006E.pas.ms.script' // StartOp
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BC28010A_ME_47F3521002C7 StartOp
+
+: ME_46A5BC7F0065_ME_47F3521002C7
+ CONST UID '46A5BC7F0065'
+ CONST Name 'FinishOp'
+ : Original WL 'ME_46A5BC7F0065' '47913B47006E.pas.ms.script' // FinishOp
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BC7F0065_ME_47F3521002C7 FinishOp
+
+: ME_46A5BCC4008C_ME_47F3521002C7
+ CONST UID '46A5BCC4008C'
+ CONST Name 'LastOp'
+ : Original WL 'ME_46A5BCC4008C' '47913B47006E.pas.ms.script' // LastOp
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BCC4008C_ME_47F3521002C7 LastOp
+
+: ME_46A5BCF5008C_ME_47F3521002C7
+ CONST UID '46A5BCF5008C'
+ CONST Name 'InOp'
+ : Original WL 'ME_46A5BCF5008C' '47913B47006E.pas.ms.script' // InOp
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BCF5008C_ME_47F3521002C7 InOp
+
+: ME_46A5BD1103B8_ME_47F3521002C7
+ CONST UID '46A5BD1103B8'
+ CONST Name 'Lock'
+ : Original WL 'ME_46A5BD1103B8' '47913B47006E.pas.ms.script' // Lock
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BD1103B8_ME_47F3521002C7 Lock
+
+: ME_46A5BD22025E_ME_47F3521002C7
+ CONST UID '46A5BD22025E'
+ CONST Name 'Unlock'
+ : Original WL 'ME_46A5BD22025E' '47913B47006E.pas.ms.script' // Unlock
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BD22025E_ME_47F3521002C7 Unlock
+
+: ME_46A5BD3B0390_ME_47F3521002C7
+ CONST UID '46A5BD3B0390'
+ CONST Name 'Undo'
+ : Original WL 'ME_46A5BD3B0390' '47913B47006E.pas.ms.script' // Undo
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BD3B0390_ME_47F3521002C7 Undo
+
+: ME_46A5BD570141_ME_47F3521002C7
+ CONST UID '46A5BD570141'
+ CONST Name 'Redo'
+ : Original WL 'ME_46A5BD570141' '47913B47006E.pas.ms.script' // Redo
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BD570141_ME_47F3521002C7 Redo
+
+: ME_46A5BD730033_ME_47F3521002C7
+ CONST UID '46A5BD730033'
+ CONST Name 'CheckInsert'
+ : Original WL 'ME_46A5BD730033' '47913B47006E.pas.ms.script' // CheckInsert
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BD730033_ME_47F3521002C7 CheckInsert
+
+: ME_46A5BE7101DD_ME_47F3521002C7
+ CONST UID '46A5BE7101DD'
+ CONST Name 'CheckDelete'
+ : Original WL 'ME_46A5BE7101DD' '47913B47006E.pas.ms.script' // CheckDelete
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BE7101DD_ME_47F3521002C7 CheckDelete
+
+: ME_46A5BEA30171_ME_47F3521002C7
+ CONST UID '46A5BEA30171'
+ CONST Name 'NotifyCompleted'
+ : Original WL 'ME_46A5BEA30171' '47913B47006E.pas.ms.script' // NotifyCompleted
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BEA30171_ME_47F3521002C7 NotifyCompleted
+
+: ME_46A5BEBE0116_ME_47F3521002C7
+ CONST UID '46A5BEBE0116'
+ CONST Name 'NotifyInsert'
+ : Original WL 'ME_46A5BEBE0116' '47913B47006E.pas.ms.script' // NotifyInsert
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BEBE0116_ME_47F3521002C7 NotifyInsert
+
+: ME_46A5BEF7038F_ME_47F3521002C7
+ CONST UID '46A5BEF7038F'
+ CONST Name 'NotifyDelete'
+ : Original WL 'ME_46A5BEF7038F' '47913B47006E.pas.ms.script' // NotifyDelete
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5BEF7038F_ME_47F3521002C7 NotifyDelete
+
+: ME_46A5CD010120_ME_47F3521002C7
+ CONST UID '46A5CD010120'
+ CONST Name 'DefaultStyle'
+ : Original WL 'ME_46A5CD010120' '47913B47006E.pas.ms.script' // DefaultStyle
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" true
+ref; // ME_46A5CD010120_ME_47F3521002C7 DefaultStyle
+
+: ME_46A5CD2E0161_ME_47F3521002C7
+ CONST UID '46A5CD2E0161'
+ CONST Name 'CanUndo'
+ : Original WL 'ME_46A5CD2E0161' '47913B47006E.pas.ms.script' // CanUndo
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" true
+ref; // ME_46A5CD2E0161_ME_47F3521002C7 CanUndo
+
+: ME_46A5CD5102A2_ME_47F3521002C7
+ CONST UID '46A5CD5102A2'
+ CONST Name 'CanRedo'
+ : Original WL 'ME_46A5CD5102A2' '47913B47006E.pas.ms.script' // CanRedo
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" true
+ref; // ME_46A5CD5102A2_ME_47F3521002C7 CanRedo
+
+: ME_46A5CE3E009A_ME_47F3521002C7
+ CONST UID '46A5CE3E009A'
+ CONST Name 'MarkModified'
+ : Original WL 'ME_46A5CE3E009A' '47913B47006E.pas.ms.script' // MarkModified
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5CE3E009A_ME_47F3521002C7 MarkModified
+
+: ME_46A5CE5C0057_ME_47F3521002C7
+ CONST UID '46A5CE5C0057'
+ CONST Name 'InvertModified'
+ : Original WL 'ME_46A5CE5C0057' '47913B47006E.pas.ms.script' // InvertModified
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5CE5C0057_ME_47F3521002C7 InvertModified
+
+: ME_46A5CE6A00BB_ME_47F3521002C7
+ CONST UID '46A5CE6A00BB'
+ CONST Name 'GetModified'
+ : Original WL 'ME_46A5CE6A00BB' '47913B47006E.pas.ms.script' // GetModified
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_46A5CE6A00BB_ME_47F3521002C7 GetModified
+
+: ME_46A5CE840343_ME_47F3521002C7
+ CONST UID '46A5CE840343'
+ CONST Name 'InUndo'
+ : Original WL 'ME_46A5CE840343' '47913B47006E.pas.ms.script' // InUndo
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" false
+ref; // ME_46A5CE840343_ME_47F3521002C7 InUndo
+
+: ME_46A5CE9A03B3_ME_47F3521002C7
+ CONST UID '46A5CE9A03B3'
+ CONST Name 'SaveUndo'
+ : Original WL 'ME_46A5CE9A03B3' '47913B47006E.pas.ms.script' // SaveUndo
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" false
+ref; // ME_46A5CE9A03B3_ME_47F3521002C7 SaveUndo
+
+: ME_46A5CEB0018E_ME_47F3521002C7
+ CONST UID '46A5CEB0018E'
+ CONST Name 'DeleteMapped'
+ : Original WL 'ME_46A5CEB0018E' '47913B47006E.pas.ms.script' // DeleteMapped
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" true
+ref; // ME_46A5CEB0018E_ME_47F3521002C7 DeleteMapped
+
+: ME_46A5CEC900F4_ME_47F3521002C7
+ CONST UID '46A5CEC900F4'
+ CONST Name 'Optimize'
+ : Original WL 'ME_46A5CEC900F4' '47913B47006E.pas.ms.script' // Optimize
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" true
+ref; // ME_46A5CEC900F4_ME_47F3521002C7 Optimize
+
+: ME_46A5CEF30267_ME_47F3521002C7
+ CONST UID '46A5CEF30267'
+ CONST Name 'InIOProcess'
+ : Original WL 'ME_46A5CEF30267' '47913B47006E.pas.ms.script' // InIOProcess
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" true
+ref; // ME_46A5CEF30267_ME_47F3521002C7 InIOProcess
+
+: ME_46A5CF0902C3_ME_47F3521002C7
+ CONST UID '46A5CF0902C3'
+ CONST Name 'Processor'
+ : Original WL 'ME_46A5CF0902C3' '47913B47006E.pas.ms.script' // Processor
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" true
+ref; // ME_46A5CF0902C3_ME_47F3521002C7 Processor
+
+: ME_4843CBDB0253_ME_47F3521002C7
+ CONST UID '4843CBDB0253'
+ CONST Name 'NeedReplaceQuotes'
+ : Original WL 'ME_4843CBDB0253' '47913B47006E.pas.ms.script' // NeedReplaceQuotes
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_4843CBDB0253_ME_47F3521002C7 NeedReplaceQuotes
+
+: ME_48A4297E0341_ME_47F3521002C7
+ CONST UID '48A4297E0341'
+ CONST Name 'CheckReadOnly'
+ : Original WL 'ME_48A4297E0341' '47913B47006E.pas.ms.script' // CheckReadOnly
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_48A4297E0341_ME_47F3521002C7 CheckReadOnly
+
+: ME_48A564120005_ME_47F3521002C7
+ CONST UID '48A564120005'
+ CONST Name 'DisableReadonly'
+ : Original WL 'ME_48A564120005' '47913B47006E.pas.ms.script' // DisableReadonly
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_48A564120005_ME_47F3521002C7 DisableReadonly
+
+: ME_48A564160056_ME_47F3521002C7
+ CONST UID '48A564160056'
+ CONST Name 'EnableReadOnly'
+ : Original WL 'ME_48A564160056' '47913B47006E.pas.ms.script' // EnableReadOnly
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_48A564160056_ME_47F3521002C7 EnableReadOnly
+
+: ME_48A570180217_ME_47F3521002C7
+ CONST UID '48A570180217'
+ CONST Name 'ReadOnly'
+ : Original WL 'ME_48A570180217' '47913B47006E.pas.ms.script' // ReadOnly
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" true
+ref; // ME_48A570180217_ME_47F3521002C7 ReadOnly
+
+: ME_4919465D0139_ME_47F3521002C7
+ CONST UID '4919465D0139'
+ CONST Name 'UndoBuffer'
+ : Original WL 'ME_4919465D0139' '47913B47006E.pas.ms.script' // UndoBuffer
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ CONST "pm" false
+ref; // ME_4919465D0139_ME_47F3521002C7 UndoBuffer
+
+: ME_4A68941501A3_ME_47F3521002C7
+ CONST UID '4A68941501A3'
+ CONST Name 'NotifyPropChanged'
+ : Original WL 'ME_4A68941501A3' '47913B47006E.pas.ms.script' // NotifyPropChanged
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_4A68941501A3_ME_47F3521002C7 NotifyPropChanged
+
+: ME_4CEBD62101DA_ME_47F3521002C7
+ CONST UID '4CEBD62101DA'
+ CONST Name 'CheckOn'
+ : Original WL 'ME_4CEBD62101DA' '47913B47006E.pas.ms.script' // CheckOn
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_4CEBD62101DA_ME_47F3521002C7 CheckOn
+
+: ME_4CEBD62D01E8_ME_47F3521002C7
+ CONST UID '4CEBD62D01E8'
+ CONST Name 'CheckOff'
+ : Original WL 'ME_4CEBD62D01E8' '47913B47006E.pas.ms.script' // CheckOff
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_4CEBD62D01E8_ME_47F3521002C7 CheckOff
+
+: ME_4CECE9470154_ME_47F3521002C7
+ CONST UID '4CECE9470154'
+ CONST Name 'IsCheckOff'
+ : Original WL 'ME_4CECE9470154' '47913B47006E.pas.ms.script' // IsCheckOff
+ ;
+ : Implementor ME_47F3521002C7 // TevCustomUndoProcessor
+ ;
+ref; // ME_4CECE9470154_ME_47F3521002C7 IsCheckOff
+
+: ME_47F3521002C7
+ CONST UID '47F3521002C7'
+ CONST Name 'TevCustomUndoProcessor'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик операций с возможностью Undo & Redo.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F351BC0145 // evOpProc
+ ;
+ : Inherits
+   @ ( ME_47F351E50367 // TevCustomProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_469F7AAD0070' '47913B47006E.pas.ms.script' // Il3OpPackMode
+ WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4843D3020153 // GetNeedReplaceQuotes
+ ME_48E4CB990000 // DoCheckParaOp
+ ME_48E4CBD6038B // DoAfterUndoRedo
+ ME_48E4CBE8018B // DoParaOp
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46A44F6B035E_ME_47F3521002C7 // Subscribe
+ ME_46A44FFE0143_ME_47F3521002C7 // Unsubscribe
+ ME_46A5BC28010A_ME_47F3521002C7 // StartOp
+ ME_46A5BC7F0065_ME_47F3521002C7 // FinishOp
+ ME_46A5BCC4008C_ME_47F3521002C7 // LastOp
+ ME_46A5BCF5008C_ME_47F3521002C7 // InOp
+ ME_46A5BD1103B8_ME_47F3521002C7 // Lock
+ ME_46A5BD22025E_ME_47F3521002C7 // Unlock
+ ME_46A5BD3B0390_ME_47F3521002C7 // Undo
+ ME_46A5BD570141_ME_47F3521002C7 // Redo
+ ME_46A5BD730033_ME_47F3521002C7 // CheckInsert
+ ME_46A5BE7101DD_ME_47F3521002C7 // CheckDelete
+ ME_46A5BEA30171_ME_47F3521002C7 // NotifyCompleted
+ ME_46A5BEBE0116_ME_47F3521002C7 // NotifyInsert
+ ME_46A5BEF7038F_ME_47F3521002C7 // NotifyDelete
+ ME_46A5CD010120_ME_47F3521002C7 // DefaultStyle
+ ME_46A5CD2E0161_ME_47F3521002C7 // CanUndo
+ ME_46A5CD5102A2_ME_47F3521002C7 // CanRedo
+ ME_46A5CE3E009A_ME_47F3521002C7 // MarkModified
+ ME_46A5CE5C0057_ME_47F3521002C7 // InvertModified
+ ME_46A5CE6A00BB_ME_47F3521002C7 // GetModified
+ ME_46A5CE840343_ME_47F3521002C7 // InUndo
+ ME_46A5CE9A03B3_ME_47F3521002C7 // SaveUndo
+ ME_46A5CEB0018E_ME_47F3521002C7 // DeleteMapped
+ ME_46A5CEC900F4_ME_47F3521002C7 // Optimize
+ ME_46A5CEF30267_ME_47F3521002C7 // InIOProcess
+ ME_46A5CF0902C3_ME_47F3521002C7 // Processor
+ ME_4843CBDB0253_ME_47F3521002C7 // NeedReplaceQuotes
+ ME_48A4297E0341_ME_47F3521002C7 // CheckReadOnly
+ ME_48A564120005_ME_47F3521002C7 // DisableReadonly
+ ME_48A564160056_ME_47F3521002C7 // EnableReadOnly
+ ME_48A570180217_ME_47F3521002C7 // ReadOnly
+ ME_4919465D0139_ME_47F3521002C7 // UndoBuffer
+ ME_4A68941501A3_ME_47F3521002C7 // NotifyPropChanged
+ ME_4CEBD62101DA_ME_47F3521002C7 // CheckOn
+ ME_4CEBD62D01E8_ME_47F3521002C7 // CheckOff
+ ME_4CECE9470154_ME_47F3521002C7 // IsCheckOff
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.10.1997 15:22'
+
+ref; // ME_47F3521002C7 TevCustomUndoProcessor
+
+: ME_47F351BC0145
+ CONST UID '47F351BC0145'
+ CONST Name 'evOpProc'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчики операций.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47ECB04A01F8 // Processors
+ ;
+ : Children
+   @ ( ME_47F351E50367 // TevCustomProcessor
+ ME_47F3521002C7 // TevCustomUndoProcessor
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '07.10.1997 15:22'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evOpProc.pas'
+
+ref; // ME_47F351BC0145 evOpProc
+
+: ME_482D8ABE024B
+ CONST UID '482D8ABE024B'
+ CONST Name 'TevNotifiedProcessor'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECB04A01F8 // Processors
+ ;
+ : Inherits
+   @ ( ME_47F3521002C7 // TevCustomUndoProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '01.12.2005 06:21'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evNotifiedProcessor.pas'
+
+ref; // ME_482D8ABE024B TevNotifiedProcessor
+
+: ME_47F35FBA0208
+ CONST UID '47F35FBA0208'
+ CONST Name 'TevDefaultContext'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECB04A01F8 // Processors
+ ;
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '25.10.2000 16:46'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evDefaultContext.pas'
+
+ref; // ME_47F35FBA0208 TevDefaultContext
+
+: ME_47ECB0850387
+ CONST UID '47ECB0850387'
+ CONST Name 'TevPreviewProcessor'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECB04A01F8 // Processors
+ ;
+ : Inherits
+   @ ( ME_482D8ABE024B // TevNotifiedProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '01.12.2005 06:21'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evPreviewProcessor.pas'
+
+ref; // ME_47ECB0850387 TevPreviewProcessor
+
+: ME_482D8A7101CE
+ CONST UID '482D8A7101CE'
+ CONST Name 'TevCustomEditorWindowProcessor'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECB04A01F8 // Processors
+ ;
+ : Inherits
+   @ ( ME_482D8ABE024B // TevNotifiedProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '21.07.2005 08:46'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditorWindowProcessor.pas'
+
+ref; // ME_482D8A7101CE TevCustomEditorWindowProcessor
+
+: ME_47F35EA70305
+ CONST UID '47F35EA70305'
+ CONST Name 'TevEditorWindowProcessor'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECB04A01F8 // Processors
+ ;
+ : Inherits
+   @ ( ME_482D8A7101CE // TevCustomEditorWindowProcessor
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '21.07.2005 08:46'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evEditorWindowProcessor.pas'
+
+ref; // ME_47F35EA70305 TevEditorWindowProcessor
+
+: ME_552BAA4B0206
+ CONST UID '552BAA4B0206'
+ CONST Name 'TevOperation'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_552BAA150205 // evStandardActions
+ ;
+
+ref; // ME_552BAA4B0206 TevOperation
+
+: ME_552BAA150205
+ CONST UID '552BAA150205'
+ CONST Name 'evStandardActions'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47ECB04A01F8 // Processors
+ ;
+ : Children
+   @ ( ME_552BAA4B0206 // TevOperation
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "ifdef" 'evNeedDisp'
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evStandardActions.pas'
+
+ref; // ME_552BAA150205 evStandardActions
+
+: ME_47ECB04A01F8
+ CONST UID '47ECB04A01F8'
+ CONST Name 'Processors'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_47F252060091 // evUndoB
+ ME_47F351BC0145 // evOpProc
+ ME_482D8ABE024B // TevNotifiedProcessor
+ ME_47F35FBA0208 // TevDefaultContext
+ ME_47ECB0850387 // TevPreviewProcessor
+ ME_482D8A7101CE // TevCustomEditorWindowProcessor
+ ME_47F35EA70305 // TevEditorWindowProcessor
+ ME_552BAA150205 // evStandardActions
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47ECB04A01F8.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47ECB04A01F8.pas.ms.script.runner'
+
+ref; // ME_47ECB04A01F8 Processors

@@ -1,0 +1,106 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/T_MDAGenerator.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ComTarget::Category>> MDProcess::MDAGenerator
+//
+// цель сборки - com-dll плагина к Rose
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_MDAGenerator) : project_generic_core_corba, project_subsystem_windows {
+	sharedname = MDAGenerator
+	
+	includes += ../../
+	
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += MDAAddinLib
+	libs  += MDAAddinLib
+	after += GCL
+	libs  += GCL
+	after += MDAModel
+	libs  += MDAModel
+	after += GCI
+	libs  += GCI
+	after += GCL
+	libs  += GCL
+	after += GCL
+	libs  += GCL
+	after += RosePackageLocking_cs
+	libs  += RosePackageLocking_cs
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+	after += cximage
+	libs  += cximage
+	after += WinGUI
+	libs  += WinGUI
+	after += GCL
+	libs  += GCL
+	after += cximage
+	libs  += cximage
+	after += RosePackageLocking_cs
+	libs  += RosePackageLocking_cs
+	after += WinGUI
+	libs  += WinGUI
+	after += GCL
+	libs  += GCL
+	after += cximage
+	libs  += cximage
+	after += LinkSupport_cs
+	libs  += LinkSupport_cs
+
+
+	//#UC START# *45DDD5F001A5_CUSTOM_DEPENDENSES*
+	//#UC END# *45DDD5F001A5_CUSTOM_DEPENDENSES*
+
+	Header_Files {
+		Std_Headers {
+			./../MDAGenerator/Resource.h
+			./../MDAGenerator/MDAGenerator.h
+		}
+	
+	}			
+
+	Source_Files {
+		AAAFix {
+			w:/shared/Core/fix/__ace_inc.cpp
+		}
+		
+		Std_Sources {
+			./../MDAGenerator/MDAGenerator.cpp
+		}
+				
+	}
+	
+	Resource_Files {
+		Std_Resources {
+			./MDAGenerator.def
+		}
+		
+		./../MDAGenerator/MDAGenerator_vi.rc
+		./../MDAGenerator/MDAGenerator_vi.rch
+		
+		Addin {
+			./../MDAAddinLib/Addin/Addin.rgs
+		}
+		
+		./../MDAGenerator/MDAGenerator.rc
+		./../MDAGenerator/MDAGenerator.rc2
+		
+		./../../shared/WinGUI/Controls/CommonControls.rc
+		
+		./../../shared/WinGUI/OptionTreeControls/OptionTreeRes.rc
+		//#UC START# *45DDD5F001A5CUSTOM_RESOURCE*
+		//#UC END# *45DDD5F001A5CUSTOM_RESOURCE*
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

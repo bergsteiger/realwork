@@ -1,0 +1,131 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		ru.garant.extensions.properties.moleboxTargetMaxCyclesCount
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.moleboxTarget"
+	language = "javascript"
+>
+	<attribute name = "molebox.target"/>
+	<attribute name = "molebox.target.root.dir"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_moleboxTarget = (
+				attributes.get ("molebox.target")
+			);
+
+			var a_moleboxTargetRootDir = (
+				attributes.get ("molebox.target.root.dir")
+			);
+
+			if (a_moleboxTargetRootDir != null) {
+				var l_moleboxTargetRootDirFile = new File (a_moleboxTargetRootDir);
+				var l_moleboxTargetRootDirPath = l_moleboxTargetRootDirFile.getPath ();
+
+				a_moleboxTargetRootDir = l_moleboxTargetRootDirPath;
+			}
+
+			var l_moleboxTargetFile = new File (a_moleboxTargetRootDir, a_moleboxTarget);
+			var l_moleboxTargetPath = l_moleboxTargetFile.getPath ();
+
+			project.log (
+				(
+					"\t"
+					+ "Molebox target `"+ l_moleboxTargetPath+ "`"
+				)
+				, project.MSG_INFO
+			);
+
+			var l_moleboxTargetMaxCyclesCount = project.getProperty ("ru.garant.extensions.properties.moleboxTargetMaxCyclesCount");
+
+			var l_moleboxTargetOutput = "";
+			var l_moleboxTargetResult = "0";
+
+			var l_moleboxBreakCycle = false;
+
+			for (
+				var l_moleboxTargetCycleIndex = 0
+				; ((!l_moleboxBreakCycle) && (l_moleboxTargetCycleIndex < l_moleboxTargetMaxCyclesCount))
+				; ++l_moleboxTargetCycleIndex
+			) {
+				if (l_moleboxTargetCycleIndex != 0) {
+					project.createTask ("sleep").doSleep (1000); // one second
+
+					project.log (
+						(
+							"\t"
+							+ "Molebox target is not stable and will be repeated again (lasterror = "+ l_moleboxTargetResult+ ")"
+						)
+						, project.MSG_WARN
+					);
+				}
+
+				{
+					var l_execTask = project.createTask ("exec"); {
+						l_execTask.setDir (new File (a_moleboxTargetRootDir));
+						l_execTask.setExecutable ("mxbpack.exe");
+						l_execTask.setFailIfExecutionFails (true);
+						l_execTask.setFailonerror (false);
+						l_execTask.setLogError (true);
+
+						l_execTask.setProject (project.createSubProject ());
+
+						l_execTask.setOutputproperty ("moleboxTargetOutput");
+						l_execTask.setResultProperty ("moleboxTargetResult");
+
+						var l_execTaskArg = l_execTask.createArg (); {
+							l_execTaskArg.setLine (
+								"~~ \"@"+ l_moleboxTargetPath+ ".mxb\""
+							);
+						}
+
+						l_execTask.reconfigure ();
+					}
+
+					l_execTask.execute ();
+
+					l_moleboxTargetOutput = l_execTask.getProject ().getProperty ("moleboxTargetOutput");
+					l_moleboxTargetResult = l_execTask.getProject ().getProperty ("moleboxTargetResult");
+				}
+
+				if (!l_moleboxTargetOutput.isEmpty ()) {
+					project.log (
+						"\n"
+						+ l_moleboxTargetOutput
+					);
+				}
+
+				l_moleboxBreakCycle = (l_moleboxTargetResult.compareToIgnoreCase ("0") == 0);
+			}
+
+			if (l_moleboxTargetResult.compareToIgnoreCase ("0") != 0) {
+				var l_failTask = project.createTask ("fail"); {
+					l_failTask.setMessage (
+						"\t"
+						+ "Too many molebox target operation cycles (count = "+ l_moleboxTargetCycleIndex+ ")"
+					);
+
+					l_failTask.reconfigure ();
+				}
+
+				l_failTask.execute ();
+			}
+		}
+	]]>
+</scriptdef>

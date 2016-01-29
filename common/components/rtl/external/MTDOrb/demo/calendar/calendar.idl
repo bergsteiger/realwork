@@ -1,0 +1,17 @@
+
+valuetype datetest {
+  factory create (in unsigned short dd,
+		  in unsigned short mm,
+		  in unsigned short yyyy);
+
+  boolean equal (in datetest other);
+  short compare (in datetest other);
+  public unsigned short day,month,year;
+};
+
+
+interface Calendar {
+  void insert  (in datetest when, in string what);
+  boolean find_date (in datetest when, out string what);
+  boolean find_note (in string what, out datetest when);
+};

@@ -1,0 +1,983 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/UseCase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$CoreTemplates::CoreTemplates::RequirementsLib::Requirements::UseCase
+//
+// Прецедент
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UseCase::Class
+implementation @ <<UseCase>>
+//? Прецедент
+//> UseCase::Class
+//> UseCaseRequirement::Class
+//> UseCaseSetting::Class
+//> UseCaseTagRequirement::Class
+
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a ra
+// - тип абстракции
+//Y usecase.gif
+//L usecase
+// Параметры визуализации
+//$ C 255,230,190
+//$ l 190,90,30
+//$ f 190,90,30
+//$ i i
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _DoSpell
+; // st_space_key
+
+: DoSpell OBJECT IN %S
+//#UC START# *4E302A8B026Cfor470478900251*
+//#UC END# *4E302A8B026Cfor470478900251*
+; // DoSpell
+
+
+//%f _IsUseCase
+: IsUseCase OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E65E5750233for470478900251*
+//	true
+ true
+//#UC END# *4E65E5750233for470478900251*
+; // IsUseCase
+
+
+//%f _DumpUCforReq
+: DumpUCforReq OBJECT IN %S
+//#UC START# *4E65FF1C02C9for470478900251*
+//	<{\n}{}{r}[%PN]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for downto %S%P
+ begin
+  OBJECT IN %P
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+   if NOT-EMPTY
+   begin
+    %P |N 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for P
+//	%SN
+ %S |N 
+//	%SD\
+ %S |D 
+//	[\nРеализуется элементами:
+ if NOT-EMPTY
+ begin
+  #13#10'Реализуется элементами:'
+//	<{\n}	%f_DumpUCElement(%L)>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%L
+  begin
+   OBJECT IN %L
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    '	'
+    [%f] DumpUCElement %( %L )% 
+    ++! l_Counter
+   end // if
+  end // for L
+//	]\
+ end // if
+ NOP
+//	[\nИспользуется элементами:
+ if NOT-EMPTY
+ begin
+  #13#10'Используется элементами:'
+//	<{\n}{%aC=Dependency}{Sg}	[(%aS) ]%f_DumpUCElement(%a%P)>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%ag
+  begin
+   OBJECT IN %a
+   if ( ( %a |C ) %== 'Dependency' ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    '	'
+    if NOT-EMPTY
+    begin
+     '('
+     %a |S ') ' 
+    end // if
+    NOP
+    [%f] DumpUCElement %( %a ->P  )% 
+    ++! l_Counter
+   end // if
+  end // for a
+//	]\
+ end // if
+ NOP
+//	[\nИспользует элементы:
+ if NOT-EMPTY
+ begin
+  #13#10'Использует элементы:'
+//	<{\n}{%CC=Dependency}{Sg}	[(%CS) ]%f_DumpUCElement(%C%T)>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cg
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Dependency' ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    '	'
+    if NOT-EMPTY
+    begin
+     '('
+     %C |S ') ' 
+    end // if
+    NOP
+    [%f] DumpUCElement %( %C ->T  )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	]\
+ end // if
+ NOP
+//	[\nВключает прецеденты:
+ if NOT-EMPTY
+ begin
+  #13#10'Включает прецеденты:'
+//	<{\n}{%C#f_IsUseCase()=true}{Sn}	%f_DumpUCElement(%C)>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsUseCase %( )% ) %==  true ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    '	'
+    [%f] DumpUCElement %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	]\
+ end // if
+ NOP
+//	[\nЗначения:
+ if NOT-EMPTY
+ begin
+  #13#10'Значения:'
+//	<{\n}{%CS=UseCaseSettingValue}{Sn}	%f_DumpUCElement(%C)>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'UseCaseSettingValue' ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    '	'
+    [%f] DumpUCElement %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+ NOP
+
+//f _DumpUCElement
+; // DumpUCforReq
+
+end. // <<UseCase>>
+
+: DumpUCElement OBJECT IN %S
+//	%SN (%SU ver %SA)<[ из %PN]>
+ %S |N ' ('
+ %S |U ' ver '
+ %S |A ')'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%P
+ begin
+  OBJECT IN %P
+  if true then
+  begin
+   if NOT-EMPTY
+   begin
+    ' из '
+    %P |N 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for P
+//#UC END# *4E65FF1C02C9for470478900251*
+; // DumpUCElement
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+implementation @ <<UseCase>>
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470478900251*
+//c                              {}
+//r {%f_set_var(SELF,S)"<{}{%rS=Feature}{C}>"="0"&"<{}{%c#f_IsUseCase()=true&"%c<{"%CM"="UseCase::Class::include::ClassDependency"|"%CM"="UseCase::Class::extend::ClassDependency"&"%C%TU"="%{SELF}U}{C}>"!="0"}{C}>"="0"}: {%SS должен реализовывать как миниму один Feature}
+//r {<{}{%GS!=%SS}{C}>!=0}: {%SS может наследоваться только от другого %SS}
+//r {%f_used_by_actor_anyway(%S)=false&%P#f_IsUseCase()!=true}: {%SS должен быть использован (непосредственно или через другие %SS) хотябы одним Актером}
+//r {<{}{%RS!=Feature}{C}>!=0}: {%SS может реализовывать только UserNeeds}
+//#UC END# *4704C0E30186for470478900251*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470478900251*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	\n\{toc\}
+ #13#10'{toc}'
+//	[%f_k_common_elem_docs(%S)
+ if NOT-EMPTY
+ begin
+  [%f] k_common_elem_docs %( %S )% 
+//	
+  #13#10
+
+//	]\
+ end // if
+ NOP
+//	[
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	{tip}Специализирует:
+  '{tip}Специализирует:'
+//	<* %f_k_link_wp(%G,%S)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    '* '
+    [%f] k_link_wp %( %G %, %S )% 
+//	>{tip}][{%Rx=true}
+
+    ++! l_Counter
+   end // if
+  end // for G
+  '{tip}' 
+ end // if
+ NOP
+ if ( ( %R |x ) %==  true ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{info}Реализует возможность:
+  '{info}Реализует возможность:'
+//	<* %f_k_link_wp(%R,%S)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if true then
+   begin
+    '* '
+    [%f] k_link_wp %( %R %, %S )% 
+//	>{info}][
+
+    ++! l_Counter
+   end // if
+  end // for R
+  '{info}' 
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	{info}Реализуется элементами:
+  '{info}Реализуется элементами:'
+
+//	<{}{%LS=UseCase}* %f_k_link_wp(%L,%S)
+//	<* %f_k_link_wp(%L,%S)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%L
+  begin
+   OBJECT IN %L
+   if true then
+   begin
+    '* '
+    [%f] k_link_wp %( %L %, %S )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for L
+//	<{}{%CS=realized_by}* %f_k_link_wp(%C%T,%S)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'realized_by' ) then
+   begin
+    '* '
+    [%f] k_link_wp %( %C ->T  %, %S )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	{info}][
+  '{info}' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	\{toggle-cloak:id=Links\} \{_\}Связи\{_\}
+  '{toggle-cloak:id=Links} {_}Связи{_}'
+//	\{cloak:id=Links\}[
+  '{cloak:id=Links}'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Специализирован:_
+   '_Специализирован:_'
+//	<* %f_k_link_wp(%Z,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Z
+   begin
+    OBJECT IN %Z
+    if true then
+    begin
+     '* '
+     [%f] k_link_wp %( %Z %, %S )% 
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for Z
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Следует после прецедентов:_
+   '_Следует после прецедентов:_'
+//	<{}{%CC=Dependency&%CS=follow}{Sp}* %f_k_link_wp(%C%T,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cp
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Dependency' AND 
+     ( ( %C |S ) %== 'follow'  ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Вызывается из прецедентов:_
+   '_Вызывается из прецедентов:_'
+//	[{%P#f_IsUseCase()=true}* Смотри родительский прецидент %f_k_link(%P)
+   if ( ( %P %?f IsUseCase %( )% ) %==  true ) then
+   begin
+    '* Смотри родительский прецидент '
+    [%f] k_link %( %P )% 
+//	]<{}{%aC=Dependency&%a%PS!=Actor&%aS!=notify&%aS!=follow}{Sp}* %f_k_link_wp(%a%P,%S) (%aS)
+   end // if
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |C ) %== 'Dependency' AND 
+     ( ( %a ->P |S  ) %!= 'Actor'  ) AND 
+     ( ( %a |S ) %!= 'notify'  ) AND 
+     ( ( %a |S ) %!= 'follow'  ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %a ->P  %, %S )% ' ('
+     %a |S ')'
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for a
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Непосредственно вызывается актером:_
+   '_Непосредственно вызывается актером:_'
+//	<{}{%aC=Dependency&%a%PS=Actor}{Sp}* %a%PN
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |C ) %== 'Dependency' AND 
+     ( ( %a ->P |S  ) %== 'Actor'  ) ) then
+    begin
+     '* '
+     %a ->P |N  
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for a
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Включает прецеденты:_
+   '_Включает прецеденты:_'
+//	<{}{%CC=Dependency&%CS!=notify&%CS!=follow&%CS!=realized_by}* %f_k_link_wp(%C%T,%S) (%CS)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Dependency' AND 
+     ( ( %C |S ) %!= 'notify'  ) AND 
+     ( ( %C |S ) %!= 'follow'  ) AND 
+     ( ( %C |S ) %!= 'realized_by'  ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %C ->T  %, %S )% ' ('
+     %C |S ')'
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Нотифицирует:_
+   '_Нотифицирует:_'
+//	<{}{%CC=Dependency&%CS=notify}* %f_k_link_wp(%C%T,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Dependency' AND 
+     ( ( %C |S ) %== 'notify'  ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+//	>]
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	\{cloak\}
+  '{cloak}'
+//	]
+ end // if
+ NOP
+//	[{<{}{%mC=ScenarioDiagram}{C}>=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%m
+  begin
+   OBJECT IN %m
+   if ( ( %m |C ) %== 'ScenarioDiagram' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for m
+  l_Counter
+  %== 0 ) then
+ begin
+//	%f_set_var(HAS_SCENARIO,"false")\
+  [%f] set_var %( 'HAS_SCENARIO' %, false )% 
+//	]\
+ end // if
+ else
+ begin
+//	%f_set_var(HAS_SCENARIO,"true")\
+  [%f] set_var %( 'HAS_SCENARIO' %, true )% 
+//	}\
+ end // else
+
+//	[{%S#f_IsUseCaseRequirement()!=true&"<{}{%C#f_IsUseCaseRequirement()=true}{C}>"="0"&"%Lx"!="true"}{\
+ if ( ( %S %?f IsUseCaseRequirement %( )% ) %!=  true AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsUseCaseRequirement %( )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0  ) AND 
+   ( ( %L |x ) %!= true  ) ) then
+ begin
+//	%f_set_var(NEED_WARNING,"true")\
+  [%f] set_var %( 'NEED_WARNING' %, true )% 
+//	]\
+ end // if
+ else
+ begin
+//	%f_set_var(NEED_WARNING,"false")\
+  [%f] set_var %( 'NEED_WARNING' %, false )% 
+//	}\
+ end // else
+
+//	[{%{HAS_SCENARIO}N=true|%{NEED_WARNING}N=true}\
+ if ( ( ( get_global_var ( 'HAS_SCENARIO' ) |N ) ) %==  true OR 
+   ( ( ( get_global_var ( 'NEED_WARNING' ) |N ) ) %==  true  ) ) then
+ begin
+//	\{toggle-cloak:id=Sequence\} \{_\}Диаграмма выполнения\{_\}
+  '{toggle-cloak:id=Sequence} {_}Диаграмма выполнения{_}'
+//	\{cloak:id=Sequence\}[{%{HAS_SCENARIO}N!=true}
+  '{cloak:id=Sequence}'
+  if ( ( ( get_global_var ( 'HAS_SCENARIO' ) |N ) ) %!=  true ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{warning}Прецедент не спроектирован!
+   '{warning}Прецедент не спроектирован!'
+//	{warning}][{%{HAS_SCENARIO}N=true}
+   '{warning}' 
+  end // if
+  if ( ( ( get_global_var ( 'HAS_SCENARIO' ) |N ) ) %==  true ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	<{----\n}{%mC=ScenarioDiagram}%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%m
+   begin
+    OBJECT IN %m
+    if ( ( %m |C ) %== 'ScenarioDiagram' ) then
+    begin
+     if ( l_Counter >0 ) then ( '----'#13#10 )
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>]
+
+     ++! l_Counter
+    end // if
+   end // for m
+  end // if
+//	\{cloak\}\
+  '{cloak}'
+//	]\
+ end // if
+//	[{<{}{%mC=ClassDiagram}{C}>!=0&%Cx=true}
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%m
+  begin
+   OBJECT IN %m
+   if ( ( %m |C ) %== 'ClassDiagram' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for m
+  l_Counter
+  %!= 0 AND 
+   ( ( %C |x ) %==  true  ) ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	<{----\n}{%mC=ClassDiagram}_[{%mN!=Main}{Основная}%mN] диаграмма элемента:_
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%m
+  begin
+   OBJECT IN %m
+   if ( ( %m |C ) %== 'ClassDiagram' ) then
+   begin
+    if ( l_Counter >0 ) then ( '----'#13#10 )
+    '_'
+    if ( ( %m |N ) %!= 'Main' ) then
+    begin
+     %m |N 
+    end // if
+    else
+    begin
+     'Основная' 
+    end // else
+    ' диаграмма элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+    [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+    %m |U '.jpg}'
+//	>]\
+
+    ++! l_Counter
+   end // if
+  end // for m
+ end // if
+//	%f_Dump_Reqs(%S)\
+ [%f] Dump_Reqs %( %S )% 
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+
+//f _Dump_Reqs
+; // wiki
+
+end. // <<UseCase>>
+
+: Dump_Reqs OBJECT IN %S
+//	[
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	h1. Дополнительные требования
+  'h1. Дополнительные требования'
+//	<{}{}{%C}%f_Dump_Req(%C,%S)>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    [%f] Dump_Req %( %C %, %S )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+ NOP
+
+//f _Dump_Req
+; // Dump_Reqs
+
+: Dump_Req OBJECT IN %S
+//	[{%S#f_IsUseCaseRequirement()=true}{\
+ if ( ( %S %?f IsUseCaseRequirement %( )% ) %==  true ) then
+ begin
+//	* [{"%Lx"="true"|<{}{%CS=realized_by}{C}>!=0}{(x)}(/)] %f_k_link_wp(%S,%1)\n\
+  '* '
+  if ( ( %L |x ) %== true OR 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'realized_by' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0  ) ) then
+  begin
+   '(/)' 
+  end // if
+  else
+  begin
+   '(x)' 
+  end // else
+  ' '
+  [%f] k_link_wp %( %S %, %1 )% #13#10
+//	[**  %SD\n]\
+  if NOT-EMPTY
+  begin
+   '**  '
+   %S |D #13#10 
+  end // if
+  NOP
+//	]\
+ end // if
+ else
+ begin
+//	[{%S#f_IsUseCase()=true&%S%PU=%1U}\
+  if ( ( %S %?f IsUseCase %( )% ) %==  true AND 
+    ( ( %S ->P |U  ) %== ( %1 |U )  ) ) then
+  begin
+//	\nh2. %f_k_link_wp(%S,%1)\n\
+   #13#10'h2. '
+   [%f] k_link_wp %( %S %, %1 )% #13#10
+//	]\
+  end // if
+//	}\
+ end // else
+//	<{}{}{%C}%f_Dump_Req(%C,%1)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   [%f] Dump_Req %( %C %, %1 )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *46E6D4BB0339for470478900251*
+; // Dump_Req
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+implementation @ <<UseCase>>
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for470478900251*
+//	<%CX>\
+//	%S%f_DoSpell()\
+ %S %f DoSpell %( )% 
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A41A13D03D5for470478900251*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: UseCase::Class::include::ClassDependency
+end. // <<UseCase>>
+
+implementation @ :: <<UseCase>> <<include>> ;
+//? Включение
+//? Прецедент включает другой прецидент безусловно
+//= Документация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_include.gif
+//L code_dep_include
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470479110280*
+//#UC END# *46E6D4BB0339for470479110280*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470479110280*
+//c                              {}
+//r {%T#f_IsUseCase()!=true}: {%SS может быть связан только с UseCase'ом}
+//#UC END# *4704C0E30186for470479110280*
+; // constraint
+
+
+//: UseCase::Class::extend::ClassDependency
+end. // :: <<UseCase>> <<include>> ;
+
+implementation @ :: <<UseCase>> <<extend>> ;
+//? Расширение
+//? Прецедент включает другой прецидент по какому-либо условию
+//= UseCase::Class::include::ClassDependency
+
+// Параметры стереотипа
+//Y code_dep_extend.gif
+//L code_dep_extend
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: UseCase::Class::notify::ClassDependency
+; // st_space_key
+
+end. // :: <<UseCase>> <<extend>> ;
+
+implementation @ :: <<UseCase>> <<notify>> ;
+//? Сообщение
+//? Прецедент передает какое-либо сообщение (нотификацию) Актеру
+//= Документация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_notify.gif
+//L code_dep_notify
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4704795200AB*
+//#UC END# *46E6D4BB0339for4704795200AB*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4704795200AB*
+//c                              {}
+//r {%TS!=Actor}: {%SS может быть связан только с Актером}
+//#UC END# *4704C0E30186for4704795200AB*
+; // constraint
+
+
+//: UseCase::Class::follow::ClassDependency
+end. // :: <<UseCase>> <<notify>> ;
+
+implementation @ :: <<UseCase>> <<follow>> ;
+//? Иногда хочется показать что выполнение одного прецедента может быть только после выполнения другого. Но при этом это не связанная цепочка действий (как в случае include или extend), а скорее возможность быть выполненным (по свое цепочке) только посдле отработки другого прецедента (напрямую с данным не связанным).
+//= Документация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for48E35B39018E*
+//#UC END# *46E6D4BB0339for48E35B39018E*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for48E35B39018E*
+//c                              {}
+//r {%T#f_IsUseCase()!=true}: {%SS может быть связан только с UseCase'ом}
+//#UC END# *4704C0E30186for48E35B39018E*
+; // constraint
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<UseCase>> <<follow>> ;
+

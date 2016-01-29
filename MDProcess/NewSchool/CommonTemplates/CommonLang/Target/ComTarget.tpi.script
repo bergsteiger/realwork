@@ -1,0 +1,1240 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/ComTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::ComTarget
+//
+// COM DLL
+// ---
+// Длл для интеграции с внешним COM-приложением
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ComTarget::Category
+implementation @ <<ComTarget>>
+//? COM DLL
+//? Длл для интеграции с внешним COM-приложением
+//= AbstractTarget::Category
+//= COM::MDAGenerator
+//= C++ Фабрики::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_com_target.gif
+//L code_com_target
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 195,245,195
+//$ l 80,245,80
+//$ f 80,245,90
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[AbstractTarget::Category]f_wiki_up_print()[{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+ call-inherited:: 'AbstractTarget' wiki_up_print %( )%
+ if ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '* - явно включает генерацию дополнительных секций Юзер-Кода'
+//	][{"%S{ifdef}"!="%S{!ifdef}"}%f_up_prefix(%S) *ifdef* = *%S{ifdef}* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+ end // if
+ if ( ( %S get_up ( 'ifdef' ) ) %!= ( %S get_up_def ( 'ifdef' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ifdef* = *'
+  %S get_up ( 'ifdef' ) '* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.'
+//	][{"%S{ifndef}"!="%S{!ifndef}"}%f_up_prefix(%S) *ifndef* = *%S{ifndef}* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+ end // if
+ if ( ( %S get_up ( 'ifndef' ) ) %!= ( %S get_up_def ( 'ifndef' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ifndef* = *'
+  %S get_up ( 'ifndef' ) '* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47046A7002FD*
+//c                                          {}
+//r {<{}{%aS!=InstallerTarget}{CSp}>!=0}:    {%SS can't be used as target of dependence}
+//r {"%f_com_constraint(%S)"="false"}:       {%SS can't depend on packages wich contains more than 1 ComInterfaces::Category together.}
+//r {"%f_check_duplicate_params(%S,"LIB")"!=""}:     {Duplicate Attribute in diffrent Setting container:%f_check_duplicate_params(%S,"LIB")}
+//r {"%f_check_duplicate_params(%S,"TARGET")"!=""}:     {Duplicate Attribute in diffrent Setting container in one Target:%f_check_duplicate_params(%S,"TARGET")}
+//r {"%f_check_non_overload_member(%S)"!=""}:           {Non overided members found:%f_check_non_overload_member(%S)}
+//#UC END# *4704C0E30186for47046A7002FD*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47046A7002FD*
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//C /%SN
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4705C54B01F4for47046A7002FD*
+; // fctr.cpp
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47046A7002FD*
+//= fctr.cpp
+%call-other-gen ( 'fctr.cpp' )
+//#UC END# *4705C5490109for47046A7002FD*
+; // fctr.h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47046A7002FD*
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//C /%SN
+//O %SN.cpp
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	\#include "shared/Core/sys/start_stop.h"
+ '#include "shared/Core/sys/start_stop.h"'
+//	\#include "shared/Core/fix/win_afx.h"
+ '#include "shared/Core/fix/win_afx.h"'
+//	\#include "shared/Core/GDS/MemoryWatcher.h"
+ '#include "shared/Core/GDS/MemoryWatcher.h"'
+//	\#include "shared/Core/GDS/ObjectWatcher.h"
+ '#include "shared/Core/GDS/ObjectWatcher.h"'
+//	[{"%f_use_mem_pool(%S)"="true"}\#include "shared/Core/mng/PoolMemoryManager.h"
+ if ( ( [%f] use_mem_pool %( %S )% ) %== true ) then
+ begin
+  '#include "shared/Core/mng/PoolMemoryManager.h"'
+//	][{"%f_use_obj_pool(%S)"="true"}\#include "shared/Core/mng/PoolObjectManager.h"
+ end // if
+ if ( ( [%f] use_obj_pool %( %S )% ) %== true ) then
+ begin
+  '#include "shared/Core/mng/PoolObjectManager.h"'
+//	]\#include [{%f_use_server(%S)=true}{"shared/Core/impl/Root_i/StdLibHomeManager_factory.h"}"shared/CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.h"]
+ end // if
+ '#include '
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  'shared/CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.h' 
+ end // if
+ else
+ begin
+  'shared/Core/impl/Root_i/StdLibHomeManager_factory.h' 
+ end // else
+//	\#include "shared/Core/impl/ParamsImpl/ParamManagerImpl_factory.h"
+ '#include "shared/Core/impl/ParamsImpl/ParamManagerImpl_factory.h"'
+//	[%f_inc_all_dep(%S)
+ if NOT-EMPTY
+ begin
+  [%f] inc_all_dep %( %S )% 
+//	][{%f_use_event_service(%S)}\#include "orbsvcs/orbsvcs/Event/EC_Default_Factory.h"
+ end // if
+ NOP
+ if ( ( [%f] use_event_service %( %S )% ) ) then
+ begin
+  '#include "orbsvcs/orbsvcs/Event/EC_Default_Factory.h"'
+//	\#include "orbsvcs/Event/EC_Dispatching_Task.h"
+  '#include "orbsvcs/Event/EC_Dispatching_Task.h"'
+//	
+  #13#10
+
+//	\#if !defined (ACE_WIN32) || (defined (ACE_WIN32) && defined (ACE_AS_STATIC_LIBS))
+  '#if !defined (ACE_WIN32) || (defined (ACE_WIN32) && defined (ACE_AS_STATIC_LIBS))'
+//	ACE_STATIC_SVC_REQUIRE (TAO_EC_Default_Factory);
+  'ACE_STATIC_SVC_REQUIRE (TAO_EC_Default_Factory);'
+//	ACE_STATIC_SVC_REQUIRE (TAO_EC_Simple_Queue_Full_Action);
+  'ACE_STATIC_SVC_REQUIRE (TAO_EC_Simple_Queue_Full_Action);'
+//	\#endif
+  '#endif'
+//	]
+ end // if
+//	/////////////////////ComServant includes//////////////////////
+ '/////////////////////ComServant includes//////////////////////'
+//	<%d<{}{%AM=ComServant::Class}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'ComServant::Class' ) then
+     begin
+      '#include '
+      [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A |L )% %, %A )% 
+//	>>
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+
+//	%U[{_CUSTOM_INC}
+ %Usersection (
+  '_CUSTOM_INC' 
+ )
+ (
+  #13#10
+
+//	][
+
+ ) // Usersection
+  if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	
+//	ATL::CComModule _Module;
+ 'ATL::CComModule _Module;'
+//	
+//	BEGIN_OBJECT_MAP(ObjectMap)
+ 'BEGIN_OBJECT_MAP(ObjectMap)'
+//	
+//		<%d<{}{%AM=ComServant::Class}OBJECT_ENTRY(CLSID_Co%A%RN, %A<%NN::>%AN)
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'ComServant::Class' ) then
+     begin
+      'OBJECT_ENTRY(CLSID_Co'
+      %A ->R |N  ', '
+      %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%N
+       begin
+        OBJECT IN %N
+        if true then
+        begin
+         %N |N '::' 
+         ++! l_Counter
+        end // if
+       end // for N
+
+      ) // bind
+       %A |N ')'
+//		>>
+      '	' 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+//	END_OBJECT_MAP()
+ 'END_OBJECT_MAP()'
+//	
+//	class %SNApp: public CWinApp {
+ 'class '
+ %S |N 'App: public CWinApp {'
+//	public:
+ 'public:'
+//		virtual BOOL InitInstance();
+ '	virtual BOOL InitInstance();'
+//		
+ '	'
+//		virtual int ExitInstance();
+ '	virtual int ExitInstance();'
+//		
+ '	'
+//		DECLARE_MESSAGE_MAP()
+ '	DECLARE_MESSAGE_MAP()'
+//	};
+ '};'
+//	
+//	BEGIN_MESSAGE_MAP(%SNApp, CWinApp)
+ 'BEGIN_MESSAGE_MAP('
+ %S |N 'App, CWinApp)'
+//	END_MESSAGE_MAP()
+ 'END_MESSAGE_MAP()'
+//	
+//	%SNApp theApp;
+ %S |N 'App theApp;'
+//	
+//	class ComThreadInit: public virtual Core::Root::ThreadInitializer, public virtual Core::RefCountObjectBase {
+ 'class ComThreadInit: public virtual Core::Root::ThreadInitializer, public virtual Core::RefCountObjectBase {'
+//		// Вызывается при создании потока
+ '	// Вызывается при создании потока'
+//		void thread_init () {
+ '	void thread_init () {'
+//			::CoInitialize (0);
+ '		::CoInitialize (0);'
+//		}
+ '	}'
+//	
+//		// вызывается при завершении потока
+ '	// вызывается при завершении потока'
+//		void thread_finalize () {
+ '	void thread_finalize () {'
+//			::CoUninitialize ();
+ '		::CoUninitialize ();'
+//		}
+ '	}'
+//	};
+ '};'
+//	
+//	Core::Mutex COMDllInintializator::s_init_mutex;
+ 'Core::Mutex COMDllInintializator::s_init_mutex;'
+//	unsigned long COMDllInintializator::s_count = 0;
+ 'unsigned long COMDllInintializator::s_count = 0;'
+//	
+//	void COMDllInintializator::init () {
+ 'void COMDllInintializator::init () {'
+//		GUARD (s_init_mutex);
+ '	GUARD (s_init_mutex);'
+//		if (s_count++ != 0) {
+ '	if (s_count++ != 0) {'
+//			return;
+ '		return;'
+//		}
+ '	}'
+//		
+ '	'
+//		Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+ '	Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();'
+//		Core::Var\<ComThreadInit\> cti = new ComThreadInit ();
+ '	Core::Var<ComThreadInit> cti = new ComThreadInit ();'
+//		lhm.registrate_thread_initializer (cti.in());
+ '	lhm.registrate_thread_initializer (cti.in());'
+//	
+//	[	{
+ if NOT-EMPTY
+ begin
+  '	{'
+//	%f_reg_all_dep(%S)	}
+  [%f] reg_all_dep %( %S )% '	}'
+//	
+  #13#10
+
+//	]	try {
+ end // if
+ NOP
+ '	try {'
+//			lhm.execute ();
+ '		lhm.execute ();'
+//		} catch (Core::Root::HomeManagerInitError&) {
+ '	} catch (Core::Root::HomeManagerInitError&) {'
+//			LOG_W (("Server uninitialized - working in standalone mode"));
+ '		LOG_W (("Server uninitialized - working in standalone mode"));'
+//		} CATCH_LOG_AND_DO ("while HomeManager processed", return;)
+ '	} CATCH_LOG_AND_DO ("while HomeManager processed", return;)'
+//	}
+ '}'
+//		
+ '	'
+//	void COMDllInintializator::done () {
+ 'void COMDllInintializator::done () {'
+//		GUARD (s_init_mutex);
+ '	GUARD (s_init_mutex);'
+//		if (--s_count != 0) {
+ '	if (--s_count != 0) {'
+//			return;
+ '		return;'
+//		}
+ '	}'
+//		Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+ '	Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();'
+//		lhm.finalize ();
+ '	lhm.finalize ();'
+//	}
+ '}'
+//	
+//	BOOL %SNApp::InitInstance() {
+ 'BOOL '
+ %S |N 'App::InitInstance() {'
+//		Core::init ();
+ '	Core::init ();'
+//		<{}{%de=false}%d<{}{%AM=ComInterfaces::Category}_Module.Init(ObjectMap, m_hInstance, &LIBID_%ANLib);
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if ( ( %d |e ) %==  false ) then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'ComInterfaces::Category' ) then
+     begin
+      '_Module.Init(ObjectMap, m_hInstance, &LIBID_'
+      %A |N 'Lib);'
+//		>>
+      '	' 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+//		{
+ '	{'
+//			[{%f_use_server(%S)=true}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory_var f = new [{%f_use_server(%S)=true}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory ();
+ '		'
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  'CoreSrv::Root_i::Corba' 
+ end // if
+ else
+ begin
+  'Core::Root_i::Std' 
+ end // else
+ 'LibHomeManager_factory_var f = new '
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  'CoreSrv::Root_i::Corba' 
+ end // if
+ else
+ begin
+  'Core::Root_i::Std' 
+ end // else
+ 'LibHomeManager_factory ();'
+//			f-\>registrate_me(0);
+ '		f->registrate_me(0);'
+//		}
+ '	}'
+//		{
+ '	{'
+//			Core::ParamsImpl::ParamManagerImpl_factory_var f = new Core::ParamsImpl::ParamManagerImpl_factory ();
+ '		Core::ParamsImpl::ParamManagerImpl_factory_var f = new Core::ParamsImpl::ParamManagerImpl_factory ();'
+//			f-\>registrate_me(0);
+ '		f->registrate_me(0);'
+//		}
+ '	}'
+//		try {
+ '	try {'
+//			Core::ParamManagerInitData init = {"%SN", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\\\Software\\\\Garant\\\\%PN\\\\%SN"};
+ '		Core::ParamManagerInitData init = {"'
+ %S |N '", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\Software\\Garant\\'
+ %P |N '\\'
+ %S |N '"};'
+//			Core::ParamManagerFactory::get ().init (Core::ParamConvert::make_arg_list (0, 0), init);
+ '		Core::ParamManagerFactory::get ().init (Core::ParamConvert::make_arg_list (0, 0), init);'
+//		} CATCH_AND_LOG ("while init ParamManager executed")
+ '	} CATCH_AND_LOG ("while init ParamManager executed")'
+//		return CWinApp::InitInstance();
+ '	return CWinApp::InitInstance();'
+//	}
+ '}'
+//	
+//	int %SNApp::ExitInstance() {
+ 'int '
+ %S |N 'App::ExitInstance() {'
+//		_Module.Term();
+ '	_Module.Term();'
+//		Core::fini ();
+ '	Core::fini ();'
+//		return CWinApp::ExitInstance();
+ '	return CWinApp::ExitInstance();'
+//	}
+ '}'
+//	
+//	// Used to determine whether the DLL can be unloaded by OLE
+ '// Used to determine whether the DLL can be unloaded by OLE'
+//	STDAPI DllCanUnloadNow () {
+ 'STDAPI DllCanUnloadNow () {'
+//	    AFX_MANAGE_STATE (AfxGetStaticModuleState ());
+ '    AFX_MANAGE_STATE (AfxGetStaticModuleState ());'
+//	    return (AfxDllCanUnloadNow () == S_OK && _Module.GetLockCount () == 0) ? S_OK : S_FALSE;
+ '    return (AfxDllCanUnloadNow () == S_OK && _Module.GetLockCount () == 0) ? S_OK : S_FALSE;'
+//	}
+ '}'
+//	
+//	// Returns a class factory to create an object of the requested type
+ '// Returns a class factory to create an object of the requested type'
+//	STDAPI DllGetClassObject (REFCLSID rclsid, REFIID riid, LPVOID* ppv) {
+ 'STDAPI DllGetClassObject (REFCLSID rclsid, REFIID riid, LPVOID* ppv) {'
+//	    AFX_MANAGE_STATE (AfxGetStaticModuleState ());
+ '    AFX_MANAGE_STATE (AfxGetStaticModuleState ());'
+//	    return _Module.GetClassObject (rclsid, riid, ppv);
+ '    return _Module.GetClassObject (rclsid, riid, ppv);'
+//	}
+ '}'
+//	
+//	// DllRegisterServer - Adds entries to the system registry
+ '// DllRegisterServer - Adds entries to the system registry'
+//	STDAPI DllRegisterServer () {
+ 'STDAPI DllRegisterServer () {'
+//	    AFX_MANAGE_STATE (AfxGetStaticModuleState ());
+ '    AFX_MANAGE_STATE (AfxGetStaticModuleState ());'
+//	    return _Module.RegisterServer (TRUE);
+ '    return _Module.RegisterServer (TRUE);'
+//	}
+ '}'
+//	
+//	// DllUnregisterServer - Removes entries from the system registry
+ '// DllUnregisterServer - Removes entries from the system registry'
+//	STDAPI DllUnregisterServer () {
+ 'STDAPI DllUnregisterServer () {'
+//	    AFX_MANAGE_STATE (AfxGetStaticModuleState ());
+ '    AFX_MANAGE_STATE (AfxGetStaticModuleState ());'
+//	    return _Module.UnregisterServer (TRUE);
+ '    return _Module.UnregisterServer (TRUE);'
+//	}<{}{"%CM"!="Settings::Class"}{%C}%CX>
+ '}'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %!= 'Settings::Class' ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47022CB8034Bfor47046A7002FD*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47046A7002FD*
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//C /%SN
+//O %SN.h
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	\#include "shared/Core/sys/std_inc.h"
+ '#include "shared/Core/sys/std_inc.h"'
+//	\#include "shared/Core/fix/win_afx.h"
+ '#include "shared/Core/fix/win_afx.h"'
+//	\#include "Resource.h"[
+ '#include "Resource.h"'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+
+//	extern ATL::CComModule _Module;	
+ 'extern ATL::CComModule _Module;	'
+//	
+//	static const char* DLL_VERSION = "%P{major version}.%P{minor version}.%P{fix version}";
+ 'static const char* DLL_VERSION = "'
+ %P get_up ( 'major version' ) '.'
+ %P get_up ( 'minor version' ) '.'
+ %P get_up ( 'fix version' ) '";'
+//	
+//	static const long DLL_BUILD_NUM = %PA;<%CX>
+ 'static const long DLL_BUILD_NUM = '
+ %P |A ';'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	
+//	class COMDllInintializator {
+ 'class COMDllInintializator {'
+//	public:
+ 'public:'
+//		static void init ();
+ '	static void init ();'
+//		static void done ();
+ '	static void done ();'
+//	
+//	private:
+ 'private:'
+//		static Core::Mutex s_init_mutex;
+ '	static Core::Mutex s_init_mutex;'
+//		static unsigned long s_count;
+ '	static unsigned long s_count;'
+//	};
+ '};'
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+//#UC END# *47022C88029Ffor47046A7002FD*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47046A7002FD*
+//= fctr.cpp
+%call-other-gen ( 'fctr.cpp' )
+//#UC END# *47022CCF00EAfor47046A7002FD*
+; // i.h
+
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генерация файла экспорта определений для COM DLL (.def)
+//+ com.def
+<<generator>> com.def OBJECT IN %S
+//#UC START# *470320C1030Dfor47046A7002FD*
+//P
+//O %SN.def
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	LIBRARY "%SN.dll"
+ 'LIBRARY "'
+ %S |N '.dll"'
+//	
+//	EXPORTS
+ 'EXPORTS'
+//		DllCanUnloadNow     PRIVATE
+ '	DllCanUnloadNow     PRIVATE'
+//		DllGetClassObject   PRIVATE
+ '	DllGetClassObject   PRIVATE'
+//		DllRegisterServer   PRIVATE
+ '	DllRegisterServer   PRIVATE'
+//		DllUnregisterServer PRIVATE<%CX>
+ '	DllUnregisterServer PRIVATE'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470320C1030Dfor47046A7002FD*
+; // com.def
+
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генерация файла опрделений для регистрации COM DLL (.rgs)
+//+ com.rgs
+<<generator>> com.rgs OBJECT IN %S
+//#UC START# *470320E002CEfor47046A7002FD*
+//P
+//C /%SN
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+
+//#UC END# *470320E002CEfor47046A7002FD*
+; // com.rgs
+
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генератор ODL-файла спецификации COM-интерфейса (.odl)
+//+ odl
+<<generator>> odl OBJECT IN %S
+//#UC START# *47032097038Afor47046A7002FD*
+//= fctr.cpp
+%call-other-gen ( 'fctr.cpp' )
+//#UC END# *47032097038Afor47046A7002FD*
+; // odl
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
+//+ mpc
+<<generator>> mpc OBJECT IN %S
+//#UC START# *47031E41002Efor47046A7002FD*
+//P
+//O T_%SN.mpc
+//X X:/support/bin/mwc_comp.bat %Po
+//X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd T_%SN dll
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	project (T_%SN) : project_generic_core[{%f_use_server(%S)=true}_corba], project_subsystem_windows[{%f_mpc_need_antrl_proj(%S)=true}, project_antlr] {
+ 'project (T_'
+ %S |N ') : project_generic_core'
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  '_corba' 
+ end // if
+ ', project_subsystem_windows'
+ if ( ( [%f] mpc_need_antrl_proj %( %S )% ) %==  true ) then
+ begin
+  ', project_antlr' 
+ end // if
+ ' {'
+//		sharedname = %SN
+ '	sharedname = '
+ %S |N 
+//		
+ '	'
+//		includes += %f_root_relative_path(%S)
+ '	includes += '
+ [%f] root_relative_path %( %S )% 
+//		
+ '	'
+//		after += Core
+ '	after += Core'
+//		libs  += Core
+ '	libs  += Core'
+//		[{%f_use_server(%S)=true}after += CoreSrv_cs
+ '	'
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  'after += CoreSrv_cs'
+//		libs  += CoreSrv_cs
+  '	libs  += CoreSrv_cs'
+//		after += CoreSrv
+  '	after += CoreSrv'
+//		libs  += CoreSrv][
+  '	libs  += CoreSrv' 
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	%f_mpc_all_dep(%S)]
+  [%f] mpc_all_dep %( %S )% 
+ end // if
+ NOP
+//	
+//		%U[{_CUSTOM_DEPENDENSES}
+ '	'
+ %Usersection (
+  '_CUSTOM_DEPENDENSES' 
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //	
+//		Header_Files {
+ '	Header_Files {'
+//			Std_Headers {
+ '		Std_Headers {'
+//				./../%SN/Resource.h
+ '			./../'
+ %S |N '/Resource.h'
+//			[	%f_normolized_path(h,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'h' %, 'S' )% 
+//			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+  '		' 
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'h' %, 'C' )% 
+//			][	%f_normolized_path(fctr.h,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.h' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{"%CC"="Category"}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(h,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'h' %, 'C' )% 
+//			][	%f_normolized_path(fctr.h,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.h' %, 'C' )% 
+//			]%C<{}{}{%ASn}[	%f_normolized_path(h,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'h' %, 'A' )% 
+//			][	%f_normolized_path(fctr.h,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'fctr.h' %, 'A' )% 
+//			]>[{%S{need UC}=true}%U[{_%CN_Manual_Headers}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+   begin
+    %Usersection (
+     '_'
+     %C |N '_Manual_Headers' 
+    )
+    (
+     #13#10
+
+//			]
+     '		' 
+    ) // Usersection
+ //			]}
+    '		' 
+   end // if
+   '}'
+//		>[{%S{need UC}=true}
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  #13#10
+
+//			Rest_Headers {
+  '		Rest_Headers {'
+//			%U[{_Rest_Manual_Headers}
+  '		'
+  %Usersection (
+   '_Rest_Manual_Headers' 
+  )
+  (
+   #13#10
+
+//			]
+   '		' 
+  ) // Usersection
+ //			}]
+  '		}' 
+ end // if
+//		}			
+ '	}			'
+//	
+//		Source_Files {
+ '	Source_Files {'
+//			AAAFix {
+ '		AAAFix {'
+//				w:/shared/Core/fix/__ace_inc.cpp
+ '			w:/shared/Core/fix/__ace_inc.cpp'
+//			}
+ '		}'
+//			
+ '		'
+//			Std_Sources {
+ '		Std_Sources {'
+//			[	%f_normolized_path(cpp,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'cpp' %, 'S' )% 
+//			]<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+  '		' 
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %!= 'Category' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'cpp' %, 'C' )% 
+//			][%f_normolized_path(fctr.cpp,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    [%f] normolized_path %( 'fctr.cpp' %, 'C' )% 
+//			]>}
+    '		' 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//		<{}{%CC=Category&%CS!=Requirements}{Sn}
+ '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Cn
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Category' AND 
+   ( ( %C |S ) %!= 'Requirements'  ) ) then
+  begin
+   #13#10
+
+//			%CN {
+   '		'
+   %C |N ' {'
+//			[	%f_normolized_path(cpp,C)
+   '		'
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'cpp' %, 'C' )% 
+//			][	%f_normolized_path(fctr.cpp,C)
+    '		' 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    '	'
+    [%f] normolized_path %( 'fctr.cpp' %, 'C' )% 
+//			]%C<{}{}{%ASn}[	%f_normolized_path(cpp,A)
+    '		' 
+   end // if
+   NOP
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'cpp' %, 'A' )% 
+//			][	%f_normolized_path(fctr.cpp,A)
+       '		' 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       '	'
+       [%f] normolized_path %( 'fctr.cpp' %, 'A' )% 
+//			]>[{%S{need UC}=true}%U[{_%CN_Manual_Sources}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+    if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+   begin
+    %Usersection (
+     '_'
+     %C |N '_Manual_Sources' 
+    )
+    (
+     #13#10
+
+//			]
+     '		' 
+    ) // Usersection
+ //			]}
+    '		' 
+   end // if
+   '}'
+//		>			
+   '	' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '			'
+//		}
+ '	}'
+//		
+ '	'
+//		Resource_Files {
+ '	Resource_Files {'
+//			Std_Resources {
+ '		Std_Resources {'
+//			[	%f_normolized_path(com.def,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'com.def' %, 'S' )% 
+//			]}
+  '		' 
+ end // if
+ NOP
+ '}'
+//			
+ '		'
+//			%f_normolized_path(vi.rc,S)
+ '		'
+ [%f] normolized_path %( 'vi.rc' %, 'S' )% 
+//			%f_normolized_path(vi.rch,S)
+ '		'
+ [%f] normolized_path %( 'vi.rch' %, 'S' )% 
+//			
+ '		'
+//			<{}{%dS!=Requirements}%d<{}{"%f_normolized_path(com.rgs,C)"!=""}{%CSn}[%CN {
+ '		'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if ( ( %d |S ) %!= 'Requirements' ) then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%Cn
+    begin
+     OBJECT IN %C
+     if ( ( [%f] normolized_path %( 'com.rgs' %, 'C' )% ) %!= '' ) then
+     begin
+      if NOT-EMPTY
+      begin
+       %C |N ' {'
+//			[	%f_normolized_path(com.rgs,C)
+       '		'
+       if NOT-EMPTY
+       begin
+        '	'
+        [%f] normolized_path %( 'com.rgs' %, 'C' )% 
+//			]}
+        '		' 
+       end // if
+       NOP
+       '}'
+//			
+       '		'
+//			]>>[{%f_contain_views(%S)=true}./../%SN/%SN.rc
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+ if ( ( [%f] contain_views %( %S )% ) %==  true ) then
+ begin
+  './../'
+  %S |N '/'
+  %S |N '.rc'
+//			./../%SN/%SN.rc2
+  '		./../'
+  %S |N '/'
+  %S |N '.rc2'
+//			]<{}{%dS!=Requirements}%d<{}{%AM=Resource::Class}
+  '		' 
+ end // if
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if ( ( %d |S ) %!= 'Requirements' ) then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'Resource::Class' ) then
+     begin
+      #13#10
+
+//			[%f_normolized_path(rc,A)
+      '		'
+      if NOT-EMPTY
+      begin
+       [%f] normolized_path %( 'rc' %, 'A' )% 
+//			]>>%U[{CUSTOM_RESOURCE}
+       '		' 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+ %Usersection (
+  'CUSTOM_RESOURCE' 
+ )
+ (
+  #13#10
+
+//			]
+  '		' 
+ ) // Usersection
+ //		}
+ '	}'
+//	}
+ '}'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//	]
+ ']'
+//#UC END# *47031E41002Efor47046A7002FD*
+; // mpc
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ComTarget>>
+

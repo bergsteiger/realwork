@@ -1,0 +1,30 @@
+macro WHILE
+   ^ IN aCondition
+   ^ IN aWhatToDo
+ 
+ %SUMMARY '¬ыполн€ет слово aWhatToDo пока условие aCondition истинно ' ;
+ aCondition CompileRef
+ aWhatToDo CompileRef
+ @ WHILEDO CompileValue
+ //@ ( aCondition DO ) @ ( aWhatToDo DO ) WHILEDO
+; // WHILE
+
+/*{operator WHILE
+   ^ IN aCondition
+   ^ IN aWhatToDo
+ 
+ %SUMMARY '¬ыполн€ет слово aWhatToDo пока условие aCondition истинно ' ;
+ aCondition aWhatToDo WHILEDO 
+ //@ ( aCondition DO ) @ ( aWhatToDo DO ) WHILEDO
+; // WHILE}*/
+
+USES
+ Testing.ms.dict
+;
+
+Test&Dump WhileTest
+
+ 10 WHILE ( ?DUP !=0 ) ( DUP . -- )
+;
+
+WhileTest 

@@ -1,0 +1,40 @@
+USES
+ axiom:Tests
+;
+
+: TestReadLines
+
+ : TestFile STRING IN aIn
+  STRING VAR cOut 
+  aIn '.out' Cat =: cOut
+  
+  script:FileName sysutils:ExtractFileName '' sysutils:ChangeFileExt ' ' Cat cOut sysutils:ExtractFileName Cat =: cOut
+  
+  FILE VAR l_In
+  aIn File:OpenRead =: l_In
+  TRY
+   FILE VAR l_Out
+   cOut File:OpenWrite =: l_Out
+   TRY
+   
+   : DoLine W-STRING IN aStr
+    aStr l_Out File:WriteWStrLn
+   ;
+   
+   l_In File:ReadLines DoLine
+   
+   FINALLY
+    nil =: l_Out
+   END 
+  FINALLY 
+   nil =: l_In
+  END 
+  
+  cOut '%' tests:CheckEtalon
+ ;
+ 
+ 'Project.tpi' TestFile
+ 'Delphi интерфейсы и реализация.tpi' TestFile
+;
+
+TestReadLines

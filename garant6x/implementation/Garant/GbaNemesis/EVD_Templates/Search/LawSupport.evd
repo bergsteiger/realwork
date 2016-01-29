@@ -1,0 +1,62 @@
+%producer 'ЭВЕРЕСТ 1.0.0.816' date '20.01.2005'
+%format version 0.132 revision date '31/05/2004' brackets { }
+: QueryCard = {
+ CardType = ev_qtSearchWithLawSupport
+ Subs = {
+  Children = 1
+  : = {
+   Handle = Sub
+   Children = 1
+   : = {
+    Handle = 1
+   }
+  }
+ }
+ Children = 1
+ : ControlsBlock = {
+  Handle = 1
+  Flat = False
+  ShortName = 'Запрос'
+  Children = 2
+  : Table = {
+   Children = 4
+   : ReqRow = {
+    ReqID = 'AT_CONSULTATION_TEXT'
+    Required = True
+    Children = 1
+    : = {
+     Frame = {
+     }
+     Width = 6060
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Height = 2000
+      Justification = ev_itLeft
+      Type = ev_ctMemoEdit
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_CONSULTATION_DESCRIPTION'
+    ReqKind = ev_rkDescription
+    Enabled = False
+    Children = 2
+    : = {
+    Frame = {
+     }
+     Width = 8867
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctPictureLabel
+      Flat = True
+      ImageIndex = 0
+      Text = 'Вводите слова и фразы полностью, без сокращений, например, «бухгалтерский учет векселей», «заполнение налоговой декларации». В результате будут найдены документы, в которых указанное слово встречается во всех формах и падежах (например, для слова «налоговой» найдутся «налоговые», «налоговым» и т.д.). Если Вы хотите найти точное вхождение, поставьте в конце слова восклицательный знак «!» (например, «учет!»). Чтобы найти все слова, начинающиеся с введенных Вами букв, поставьте в конце звездочку «*». Например, введя «налог*», Вы найдете документы, содержащие все формы как для слова «налог», так и для «налоговый», «налогообложение».'
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,55 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_install_tao <path_to_install> <path_to_TAO>"
+exit
+fi
+
+echo "mpcxc_install_tao ..."
+
+path_to_install=$1
+path_to_TAO=$2
+
+export MPCXC_ROOT=$path_to_install
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path
+
+rm -rf $MPCXC_ROOT/src/TAO
+rm -rf $MPCXC_ROOT/src/TAO/../ACEXML
+rm -rf $MPCXC_ROOT/src/TAO/../apps
+rm -rf $MPCXC_ROOT/src/TAO/../Kokyu
+rm -rf $MPCXC_ROOT/src/TAO/../protocols
+
+cp -Rf $path_to_TAO $MPCXC_ROOT/src
+cp -Rf $path_to_TAO/../ACEXML $MPCXC_ROOT/src
+cp -Rf $path_to_TAO/../apps $MPCXC_ROOT/src
+cp -Rf $path_to_TAO/../Kokyu $MPCXC_ROOT/src
+cp -Rf $path_to_TAO/../protocols $MPCXC_ROOT/src
+
+find $MPCXC_ROOT/src/TAO -type d -exec chmod 755 {} \;
+find $MPCXC_ROOT/src/TAO -type f -exec chmod 644 {} \;
+
+find $MPCXC_ROOT/src/TAO/../ACEXML -type d -exec chmod 755 {} \;
+find $MPCXC_ROOT/src/TAO/../ACEXML -type f -exec chmod 644 {} \;
+
+find $MPCXC_ROOT/src/TAO/../apps -type d -exec chmod 755 {} \;
+find $MPCXC_ROOT/src/TAO/../apps -type f -exec chmod 644 {} \;
+
+find $MPCXC_ROOT/src/TAO/../Kokyu -type d -exec chmod 755 {} \;
+find $MPCXC_ROOT/src/TAO/../Kokyu -type f -exec chmod 644 {} \;
+
+find $MPCXC_ROOT/src/TAO/../protocols -type d -exec chmod 755 {} \;
+find $MPCXC_ROOT/src/TAO/../protocols -type f -exec chmod 644 {} \;
+
+$MPCXC_SH/fix_config_mpb_mpc $MPCXC_ROOT/src/TAO
+$MPCXC_SH/fix_config_mpb_mpc $MPCXC_ROOT/src/TAO/../ACEXML
+$MPCXC_SH/fix_config_mpb_mpc $MPCXC_ROOT/src/TAO/../apps
+$MPCXC_SH/fix_config_mpb_mpc $MPCXC_ROOT/src/TAO/../Kokyu
+$MPCXC_SH/fix_config_mpb_mpc $MPCXC_ROOT/src/TAO/../protocols
+
+$MPCXC_SH/fix_di_tao_source $MPCXC_ROOT/src/TAO/tao/DynamicInterface/Request.cpp
+$MPCXC_SH/fix_di_tao_source $MPCXC_ROOT/src/TAO/orbsvcs/orbsvcs/CosEvent/CEC_ProxyPushSupplier.cpp
+
+echo "You may run mpcxc_full_rebuild_tao."
+
+echo "end."

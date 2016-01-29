@@ -1,0 +1,763 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////// HLTC 199: Фильтрация //////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork;
+
+{
+HLTC199.1: Создание фильтра
+  HLTC199.1.3.2: Проверить создание фильтра в конфигурации 6.х
+  HLTC199.1.1: Проверить, что при загруженном списке на вкладке фильтр доступна кнопка «Создать новый фильтр».
+  HLTC199.1.2.2: В КЗ создания фильтра, между заголовком окна и заголовком КЗ «Контекстный поиск», расположена шапка, содержащая иконку фильтра и текст «Фильтр»
+}             
+function  HLTC199_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FILTERNAME = 'HLTC199_1';
+var
+  cardData, filterList;
+begin
+try
+  Result := true;
+  cardData := 
+    [
+  	CARD_FILTER, ([([
+  	FD_MU_REG_STATUS, ([
+  		'Зарегистрированные']) ]),([
+  	FD_MEANING, ([
+  		'Общие']) ]),([
+  	FD_STATUS, ([
+  		'Действующие']) ]),([
+  	FD_INOPERATIVE_EDITION, ([
+  		'Да']) ]),([
+  	FD_KIND_OF_INFORMATION, ([
+  		'[ИЛИ]Формы документов']) ]), ([
+  	FD_INFORMATIONAL_BLOCK, ([
+  		'Международное право (Россия - СНГ)']) ]) ]) 
+    ];
+  if not SelectConfiguration(CONFIGURATION_STANDART) then
+    Raise('Не получилось вернуться к Стандартной конфигурации');
+  if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+    Raise('Не получилось открыть спикок ' + LIST_MAIN);
+    
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+  filterList := GetFromList('СПИСОК ФИЛЬТРОВ');
+  
+  if not ClickToolbarButton(
+                    GetFromNavigator('ТУЛБАР "ФИЛЬТРЫ (ВКЛАДКА)"'),
+                    'Создать новый фильтр*') then
+    Raise('Не получилось кликнуть по кнопке Создать новый фильтр');
+  if not IsExists(GetFromFilterDialog('ЗАГОЛОВОК КЗ')) then
+    Result := ErrorResult('Заголовок КЗ "Фильтр" не найден или изменился');
+
+  if not CreateFilter(filterList, FILTERNAME, cardData, 'IsOpenNewDialog:=false') then
+    Raise('Не получилось создать фильтр ' + FILTERNAME);
+
+  if not IsExists(OpenMenuTab) then
+    Raise('Не получилось открыть вкладку Меню');
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+
+  filterList := GetFromList('СПИСОК ФИЛЬТРОВ');
+  if not Position_Internal(filterList, FILTERNAME, DELIM_CHAR, false, 'IsPressHome:=true') then
+    Raise('После создания, фильтр ' + FILTERNAME + ' почему-то не найден');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DeleteAllInMyDoc;
+  GoToMainMenu;
+end;
+
+{
+HLTC199.2: Загрузка фильтра из папок
+  HLTC199.2.1: Проверить, что получить фильтр можно добавлением запроса из папки, для этого необходимо создать и сохранить обычный запрос ППР. 
+      Затем на вкладке «Фильтры» нажать на кнопку «Добавить фильтр из сохраненных запросов», при этом появляется окно выбора запроса, после выбора которого появляется окно для ввода названия фильтра
+    HLTC199.2.1.1: После выбора добавления фильтра из запроса он появляется в списке на вкладке фильтры
+  HLTC199.2.2: Проверить, что можно добавить в фильтры один и тот же запрос
+  HLTC199.2.3: Проверить, что добавить запрос в список фильтров можно выбрав пункт контекстного меню «Добавить фильтр из сохраненных запросов» из Мои документы
+}
+function  AddFilterFromQuery(filtername: string): OleVariant;
+var
+  w;
+begin
+  try
+    if not OpenFilterTab then
+      Raise('Не получилось открыть список фильтров');
+
+    if not (SwitchToNavigatorPage('Фильтры') and
+            ClickToolbarButton(
+                      GetFromNavigator('ТУЛБАР "ФИЛЬТРЫ (ВКЛАДКА)"'),
+                      'Добавить фильтр*')  ) then
+      Raise('Не получилось кликнуть по кнопке Добавить фильтр из сохраненных запросов');
+    w := GetFromShell('ДИАЛОГ ОТКРЫТИЯ ИЗ ПАПОК');
+    OpenObjectFromFolder(MY_DOCS_PATH + filtername, GetFromFolderForm('ДЕРЕВО ПАПОК', w));
+
+    if not IsExists(GetFromShell('ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА')) then
+      Raise('Не найдено ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА');
+    GetFromShell('ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА').Keys('[End]' + keyPause + '![Home]' + keyPause + filtername + '^[Enter]');
+    Result := not IsExists(GetFromShell('ДИАЛОГ СОХРАНЕНИЯ ФИЛЬТРА'));
+  except
+    Result := false;
+    Log.Error('AddFilterFromQuery:' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+function  HLTC199_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FILTERNAME = 'HLTC199_2';
+var
+  cardData, filterList;
+begin
+try
+  cardData := 
+    [
+  	CARD_FILTER, ([([
+  	FD_MU_REG_STATUS, ([
+  		'Зарегистрированные']) ]),([
+  	FD_INOPERATIVE_EDITION, ([
+  		'Да']) ]),([
+  	FD_KIND_OF_INFORMATION, ([
+  		'[ИЛИ]Формы документов']) ]) ]) 
+    ];
+  if not FillPPRCard(cardData) then
+    Raise('Не получилось заполнить карточку запроса ППР');
+
+  if not SimpleSaveToFolders(FILTERNAME) then
+    Raise('Не получилось сохранить запрос ППР');
+
+  if not AddFilterFromQuery(FILTERNAME) then
+    Raise('Не получилось добавить в фильтры ранее сохраненный запрос ' + filtername);
+  if not AddFilterFromQuery(FILTERNAME) then 
+    Raise('Не получилось ДВАЖДЫ добавить в фильтры ранее сохраненный запрос ' + filtername);
+
+  if not Position_Internal(GetFromPPR('СПИСОК ФИЛЬТРОВ'), FILTERNAME, DELIM_CHAR, false, 'IsPressHome:=true') then
+    Raise('Не найден фильтр: ' + FILTERNAME);
+  if not Position_Internal(GetFromPPR('СПИСОК ФИЛЬТРОВ'), FILTERNAME) then
+    Raise('Не найден 2ой фильтр: ' + FILTERNAME);
+  if not CheckSelectedListItemIcon(GetFromPPR('СПИСОК ФИЛЬТРОВ'), 'filter.bmp') then
+    Raise('Неправильная иконка у значка фильтра');
+  Result := true;       
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DeleteAllInMyDoc;
+  GoToMainMenu;
+end;
+
+{
+  HLTC199.2.4: Проверить, что удалить запрос из списка фильтров можно сняв галку в пункте контекстного меню «Использовать как фильтр»
+}
+function  HLTC199_2_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FILTERNAME = 'HLTC199_2_4';
+var
+  cardData, filterList;
+begin
+try
+  cardData := 
+    [
+  	CARD_FILTER, ([([
+  	FD_MU_REG_STATUS, ([
+  		'Зарегистрированные']) ]),([
+  	FD_KIND_OF_INFORMATION, ([
+  		'[ИЛИ]Формы документов']) ]) ]) 
+    ];
+  if not GoToPPR then
+    Raise('Не получилось открыть ППР');
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+  filterList := GetFromPPR('СПИСОК ФИЛЬТРОВ');
+  
+  if not CreateFilter(filterList, FILTERNAME, cardData) then
+    Raise('Не получилось создать фильтр ' + FILTERNAME);
+  if not Position_Internal(OpenMyDocTab, MY_DOCS_PATH + FILTERNAME, DELIM_CHAR, true, 'IsPressHome:=true') then
+    Raise('Не найден фильтр ' + FILTERNAME + ' в ' + MY_DOCS_PATH);
+  Sys.Keys('[Apps]');
+  if not ClickByPopupMenuItem(GetFolderTree, 'Использовать как фильтр') then
+    Raise('Не получилось кликнуть (снять галку) по пункту попап "Использовать как фильтр"');
+  Result := CheckSelectedListItemIcon(GetFolderTree, 'query.bmp');
+  if not Result then
+    Raise('Неправильная иконка у значка фильтра ' + FILTERNAME);
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DeleteAllInMyDoc;
+  GoToMainMenu;
+end;
+
+{
+  HLTC199.3.1.3 : Если в комплекте нет хотя бы одного указанного в фильтре реквизита, при попытке применить фильтр должно выдаваться сообщение: 
+    «Фильтр не может быть применен. Один из указанных в фильтре реквизитов отсутствует в установленном у вас комплекте». И фильтр не должен применяться.
+    Проверить можно переключением с тестовой базы на minibase, выбрав атрибут «Раздел\Тема атрибут My Class D».
+}
+function  HLTC199_3_1_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FILTERNAME = 'HLTC199_3_1_3';
+var
+  cardData, filterList;
+begin
+try
+  cardData := 
+    [
+  	CARD_FILTER, ([([
+  	FD_THEME, ([
+  		'[ИЛИ]My Class D']) ])]) 
+    ];
+  if not IsExists(GetListOfAllDocuments) then
+    Raise('Не получилось построить список всех документов');
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+  filterList := GetFromPPR('СПИСОК ФИЛЬТРОВ');
+
+  if not CreateFilter(filterList, FILTERNAME, cardData) then
+    Raise('Не получилось создать фильтр "' + FILTERNAME + '"');
+  if not WorkWithFilters(filterList, 'set', '+' + FILTERNAME) then
+    Raise('Не получилось применить фильтр "' + FILTERNAME + '"');
+                           
+  if not SwitchDataBase(DBT_MINI_NO_PRIME, 'IsSwitchOnTheFly:=true') then
+    Raise('Не получилось переключиться на базу "' + DBT_MINI_NO_PRIME + '"');  
+  
+  if not IsExists(GetListOfAllDocuments) then
+    Raise('Не получилось построить список всех документов');
+  filterList := GetFromPPR('СПИСОК ФИЛЬТРОВ');
+  Result := not WorkWithFilters(filterList, 'set', '+' + FILTERNAME);    
+  if not Result then
+    Raise('Получилось применить фильтр "' + FILTERNAME + '" на базе с отсутствующем реквизитом');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DeleteAllInMyDoc;
+  GoToMainMenu;
+end;
+
+{
+  HLTC199.3.3: Проверить, что в системе есть предустановленные фильтры
+    У нового пользователя вкладка "Фильтры" непустая.
+    Эти фильтры можно применять/отменять, и они как-то влияют на список.
+  HLTC199.3.4: Проверить, что нельзя удалять предустановленные фильтры (не должна быть активна кнопка на тулбаре и неактивна операция в контекстном меню)
+}
+function DefaultFilterCheck(filtername: string): boolean;
+var
+  filterList, docsCount;
+const
+  FUNCTION_NAME = 'DefaultFilterCheck: ';
+begin
+try
+  Result := true;
+  Log.Message(FUNCTION_NAME + 'Проверяем фильтр "' + filtername + '"', '' ,  pmNormal, GetLogAttr('YELLOW'));  
+  if not (IsExists(GetListOfAllDocuments) and SwitchToNavigatorPage('Фильтры')) then
+    Raise('Не получилось открыть вкладку Фильтры в списке документов');
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+  docsCount := CountElementInList(GetList);
+  
+  filterList := GetFromList('СПИСОК ФИЛЬТРОВ');
+  if not IsExists(filterList) then
+    Raise('Вкладка фильтры не найдена!');
+  if not Position_Internal(filterList, filtername, DELIM_CHAR, true, 'IsPressHome:=true') then
+    Raise('Не найден фильтр "' + filtername + '" в списке фильтров ППР');
+  if DelWithConfirm then
+    Result := ErrorResult(FUNCTION_NAME + 'Удалился стандартный фильтр "' + filtername + '"');
+
+  if not WorkWithFilters(filterList, 'set', '+' + filtername) then
+    Raise('Не получилось применить фильтр "' + filtername + '"');    
+  if docsCount = CountElementInList(GetList) then
+    Raise('После применения фильтра "' + filtername + '", количество документов в списке не изменилось: ' + IntToStr(docsCount));
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function  HLTC199_3_3_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  Result := DefaultFilterCheck('*действующие') and Result;
+  Result := DefaultFilterCheck('*проводки*') and Result;
+  Result := DefaultFilterCheck('*книги') and Result;
+  Result := DefaultFilterCheck('*формы документов') and Result;
+  Result := DefaultFilterCheck('*Практика арбитражных судов*') and Result;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC199.3.8: Проверить удаление фильтра (команда «Удалить»):
+  HLTC199.3.8.1: Попробовать удалить НЕприменённый фильтр – система удаляет его списка фильтров, а в папках у соответствующего запроса меняется иконка на иконку запроса.
+  HLTC199.3.8.2: Проверить удаление активного фильтра. Если пользователь пытается удалить активный фильтр, то система выдает ему предупреждение об этом, и в случае подтверждения удаления сначала делает его неактивным, но реальное удаление происходит только когда фильтр станет не активным.  
+  HLTC199.3.8.3: Проверить удаление неприменённого фильтра, когда в списке есть применённые другие фильтры.
+  HLTC199.3.8.4: Проверить удаление применённого фильтра, когда в списке есть другие применённые фильтры.  
+}
+function CreateAndDeleteFilter(filterList, filtername, cardData; IsSetFilter, IsThisFilter):boolean;
+const
+  enablefilter = '*Формы*';
+var                                                                                   
+  tempfilter;  
+begin                           
+
+try
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+
+  if not (SwitchToNavigatorPage('Фильтры') and CreateFilter(filterList, filtername, cardData)) then
+    Raise('Не получилось создать фильтр ' + filtername);
+    
+  if IsThisFilter then 
+    tempfilter := filtername
+  else
+    tempfilter := enablefilter;
+    
+  if IsSetFilter then 
+    WorkWithFilters(filterList, 'set', '+' + tempfilter)
+  else
+    WorkWithFilters(filterList, 'set', '-' + tempfilter);
+
+  Result := DeleteFilter(filtername);
+  if IsSetFilter and IsThisFilter then // сделано т.к. активный фильтр удалится только после деактивации 
+    Result := Result and WorkWithFilters(filterList, 'set', '-' + tempfilter);    
+except
+  Result := false;
+  Log.Error('CreateAndDeleteFilter:' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function  HLTC199_3_7_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FILTERNAME = 'HLTC199_3_7';
+var
+  cardData, filterData, filterList;
+begin
+try
+  Result := true;
+  cardData := 
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_TEXT, ([
+    		'1']) ]) ]) 
+    ];
+  filterData := 
+    [
+    	CARD_FILTER, ([([
+    	FD_WORDS_IN_TEXT, ([
+    		'1998']) ]) ]) 
+    ];
+
+  if not SearchInPPR(cardData) then 
+    Raise('Не получилось произвести ППР');
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+  filterList := GetFromList('СПИСОК ФИЛЬТРОВ');
+
+  if not IsExists(filterList) then
+    Log.Error('Список фильтров в списке не открылся');
+
+  //HLTC199.3.8.1: Попробовать удалить неприменённый фильтр  – система удаляет его из списка фильтров
+  Log.Picture(GetMainWindow, 'HLTC199.3.7.1');
+  if not CreateAndDeleteFilter(filterList, FILTERNAME, filterData, false, false) then
+    Raise('Не получилось удалить фильтр ' + filtername + ' из списка фильтров ППР');
+  //HLTC199.3.8.2: Проверить удаление активного фильтра. Если пользователь пытается удалить активный фильтр, то система выдает ему обычное предупреждение об удалении фильтра, 
+  //но реальное удаление происходит только когда фильтр станет не активным.  
+  Log.Picture(GetMainWindow, 'HLTC199.3.7.2');  
+  if not CreateAndDeleteFilter(filterList, FILTERNAME, filterData, true, true) then
+    Raise('Не получилось удалить активный фильтр ' + filtername);
+  //HLTC199.3.8.3: Проверить, удаление НЕприменённого фильтра, когда в списке есть применённые другие фильтры
+  Log.Picture(GetMainWindow, 'HLTC199.3.7.3');      
+  if not CreateAndDeleteFilter(filterList, FILTERNAME, filterData, true, false) then
+    Raise('Не получилось удалить фильтр ' + filtername + ' с другим примененным фильтром');
+  //HLTC199.3.8.4: Проверить удаление применённого фильтра, когда в списке есть другие применённые фильтры
+  Log.Picture(GetMainWindow, 'HLTC199.3.7.4');
+  if not CreateAndDeleteFilter(filterList, FILTERNAME, filterData, true, true) then
+    Raise('Не получилось удалить активный фильтр ' + filtername);
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC199.3.5: Проверить, что можно отменить фильтрацию. Для этого в списке применить несколько фильтров, а затем выбрать операцию «Отменить все фильтры» (либо кнопка на тулбаре, либо пункт контекстного меню).
+  При этом все фильтры выключаются и список возвращается в исходное состояние.
+HLTC199.3.6: Проверить, что если в результате фильтрации получается пустой список - система сообщает об этом пользователю, автоматически исключает последний выбранный фильтр из числа активных.
+}
+function  HLTC199_3_5_Execute(var  current_state: OleVariant): OleVariant;
+var
+  listtree, filterList, countAllDocs, countDocs;
+begin
+try
+  Result := true;
+  listtree := GetListOfAllDocuments;
+  if not IsExists(listtree) then
+    Raise('Список не найден!');
+  countAllDocs := CountElementInList(listtree);
+
+
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+  filterList := GetFromList('СПИСОК ФИЛЬТРОВ');
+  
+  if not (WorkWithFilters(filterList, 'set', '+*федеральные акты*') and 
+          WorkWithFilters(filterList, 'set', '+*действующие*')) then
+    Raise('Не получилось применить фильтры');
+
+  if WorkWithFilters(filterList, 'set', '+*книги*') then
+    Result := ErrorResult('Не было окна с сообщением о пустом списке');
+    
+  countDocs := CountElementInList(listtree);
+  if countAllDocs = countDocs then
+    Result := ErrorResult('Количество документов не изменилось после включения фильтров. Не должно быть равно:' + IntToStr(countAllDocs) + '. В списке:' + IntToStr(countDocs));
+    
+  if not OpenAndClickByPopupMenuItem(filterList, 'Отменить все фильтры') then
+    Raise('Не получилось кликнуть по пункту попап "Отменить все фильтры"');
+
+  countDocs := CountElementInList(listtree);  
+  if countAllDocs <> countDocs then
+    Result := ErrorResult('Количество документов изменилось после вкл/откл фильтров. Должно быть равно:' + IntToStr(countAllDocs) + '. В списке:' + IntToStr(countDocs)) and Result;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC199.3.10: Проверить работу фильтров, при построении списка из ППР – система должна сообщать о том, что найдено <количество> документов с использованием <Имя фильтра>...
+  HLTC199.3.10.1: Проверить, что при построении такого списка к нему применены те же фильтры, что и при его построении из ППР.
+}
+function ApplyFilters(filterList: OleVariant): boolean;
+begin
+try
+  Result := WorkWithFilters(filterList, 'set', '+' + '*действующие*') and
+            WorkWithFilters(filterList, 'set', '+' + '*книги*');
+except
+  Result := false;
+  Log.Error('ApplyFilters: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+
+end;
+
+function  HLTC199_10_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  listtree, countDocsInList, countPPRDocs;
+begin
+try
+  Result := true;
+  listtree := GetListOfAllDocuments;
+  if not IsExists(listtree) then
+    Raise('Список не найден!');
+
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+  if not ApplyFilters(GetFromList('СПИСОК ФИЛЬТРОВ')) then
+    Raise('Не получилось применить фильтры в списке');
+  countDocsInList := CountElementInList(listtree);
+  
+  if not (GoToPPR and OpenFilterTab and ApplyFilters(GetFromPPR('СПИСОК ФИЛЬТРОВ')) and SearchInPPR('', 'IsFillCard:=false')) then
+    Raise('Не получилось построить список с примененными фильтрами в ППР');
+  countPPRDocs := CountElementInList(GetList);
+  
+  if countDocsInList <> countPPRDocs then
+    Result := ErrorResult('Разное количество документов после применения фильтров в списке и в ППР. В списке: ' + IntToStr(countDocsInList) + '; В ППР: ' + IntToStr(countPPRDocs)) and Result;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC199.3.9.1: При перезаписи отредактированного предустановленного фильтра система должна предложить сохранить фильтр под другим именем (так как предустановленный фильтр доступен только для чтения)
+}
+function  HLTC199_3_9_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FILTERNAME = 'HLTC199_3_9_1';
+var
+  filterData, filterList, i;
+begin
+try
+  filterData :=
+    [
+  	CARD_FILTER, ([([
+  	FD_TYPE, ([
+  		'[ИЛИ]Комментарии']) ]), ([
+  	FD_ACCEPTANCE_DATE_FROM, ([
+  		'06.03.1997']) ]) , ([
+  	FD_ACCEPTANCE_DATE_TO, EMPTY_FIELD_VALUES ]), ([
+  	FD_INOPERATIVE_EDITION, ([
+  		'Да']) ]) ]) 
+    ];
+    
+  GoToPPR;
+  if not OpenFilterTab then
+    Raise('Не получилось открыть список фильтров');
+  filterList := GetFromPPR('СПИСОК ФИЛЬТРОВ');
+  
+  if not IsExists(filterList) then
+    Raise('Не найден список фильтров в ППР');
+  if not CreateFilter(filterList, FILTERNAME, filterData) then
+    Raise('Не получилось создать фильтр в ППР ' + FILTERNAME);
+  if not EditFilter(filterList, FILTERNAME, filterData, 'NewFullFilterName:=' + FILTERNAME + '1') then
+    Raise('Не получилось отредактировать и сохранить пользовательский фильтр');
+
+  Result := EditFilter(filterList, 'Действующие ', filterData, 'NewFullFilterName:=' + FILTERNAME + '2');
+  if not Result then
+    Raise('Не получилось отредактировать и сохранить шаблонный фильтр Действующие');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DeleteAllInMyDoc;
+  GoToMainMenu;
+end;
+
+{
+  HLTC199.3.11.1: Проверить, что на вкладке фильтры из контекстного меню можно выбрать автоматическое применение любого фильтра.
+  HLTC199.3.11.3: Выбрать автоматическое применение одного или нескольких фильтров. Проверить, что при любом поиске и при открытии списка из папок к полученному списку будет применено выбранное количество нужных фильтров.
+  HLTC199.3.11.5: Снять все автоматические фильтры. Проверить, что при любом поиске и при открытии списка из папок к полученному списку не будет применен ни один фильтр.
+  HLTC199.3.11.6: Проверить, что в ППР, если у фильтра выставлена опция применять автоматически, но сам фильтр не выставлен, то при нажатии кнопки «Очистить» фильтр становится выставленным.
+}
+function  HLTC199_3_11_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME  = 'HLTC199_3_11_1';
+var
+  filters, filterListStr, i;
+begin
+try
+  try
+    Result := true;
+    filters := ['*действующие*', '*книги*'];
+    
+    if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+
+    //HLTC199.3.11.1
+    GoToPPR;
+    if not OpenFilterTab then
+      Raise('Не получилось открыть список фильтров');
+    for i := VarArrayLowBound(filters, 1) to VarArrayHighBound(filters, 1) do
+      if not WorkWithFilters(GetFilterTree, 'set', '*' + filters[i]) then
+        Raise('Не получилось выставить автоматическое применение фильтра "' + filters[i] + '"');
+
+    //HLTC199.3.11.6
+    filterListStr := WorkWithFilters(GetFilterTree, 'get');
+    if filterListStr <> '' then
+      Raise('После автоматического применения фильтров, некоторые оказались уже включенными: ' + filterListStr);
+    if not ClickToolbarButton(GetFromPPR('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Очистить') then
+      Raise('Не получилось кликнуть по "Очистить" в КЗ ППР');
+    filterListStr := WorkWithFilters(GetFilterTree, 'get');
+    for i := VarArrayLowBound(filters, 1) to VarArrayHighBound(filters, 1) do
+      if not StringCompare('*' + filters[i] + '*', filterListStr) then
+        Result := ErrorResult('Не найден примененный автоматически фильтр "' + filters[i] + '"');
+
+    //HLTC199.3.11.3
+    if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+      Raise('Не получилось открыть "' + LIST_MAIN + '"');
+    if not FindInList( [([FL_NUMBER, '4'])] ) then
+      Result := ErrorResult('Список не соответствует, видимо фильтры не применяются автоматически');
+
+    //HLTC199.3.11.5
+    GoToPPR;
+    if not OpenFilterTab then
+      Raise('Не получилось открыть список фильтров');
+    for i := VarArrayLowBound(filters, 1) to VarArrayHighBound(filters, 1) do
+      if not WorkWithFilters(GetFilterTree, 'set', '*' + filters[i]) then
+        Raise('Не получилось снять автоматическое применение фильтра "' + filters[i] + '"');
+    GoToPPR;
+    filterListStr := WorkWithFilters(GetFilterTree, 'get');
+    if filterListStr <> '' then
+      Raise('Автоматическое применение было выключено не для всех фильтров, список оставшихся примененных фильтров: ' + filterListStr);
+  finally
+    CloseF1Shell;
+  end;  
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC199.3.11.4: Создать новый фильтр. Выбрать его автоматическое применение. Проверить, что при любом поиске и при открытии списка из папок к полученному списку будет применен этот фильтр.
+}
+function  HLTC199_3_11_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME  = 'HLTC199_3_11_4';
+var
+  filterData;
+begin
+try
+  try
+    Result := true;
+
+    if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+
+    filterData := 
+      [
+      	CARD_PPR, ([([
+      	FD_TYPE, ([
+      		'[И]Кодекс',
+      		'[И]Закон']) ]),([
+      	FD_REGULATION_TERRITORY, ([
+      		'[ИЛИ]Российская Федерация']) ]) ]) 
+      ];
+    if not GoToPPR then
+      Raise('Не получилось открыть ППР');
+    if not OpenFilterTab then
+      Raise('Не получилось открыть список фильтров');
+    if not CreateFilter(GetFromPPR('СПИСОК ФИЛЬТРОВ'), LOGINNAME, filterData) then
+      Raise('Не получилось создать фильтр ' + LOGINNAME);
+    if not WorkWithFilters(GetFilterTree, 'set', '*' + LOGINNAME) then
+      Raise('Не получилось выставить автоматическое применение фильтра "' + LOGINNAME + '"');
+
+    if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+      Raise('Не получилось открыть "' + LIST_MAIN + '"');
+    if not FindInList( [([FL_NUMBER, '2'])] ) then
+      Result := ErrorResult('Список не соответствует, видимо созданный фильтр ' + LOGINNAME + ' не применяются автоматически');
+  finally
+    CloseF1Shell;
+  end;  
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC199.3.11.7: Если при поиске все документы отфильтрованы, то выдается соответствующее сообщение с предложением построить список без учета фильтров.
+  HLTC199.3.11.8: Если при открытии списка из папок(или при применении фильтров вручную) все документы отфильтрованы, то в основном окне выдается соответствующий текст со списком примененных фильтров и ссылкой отменить все фильтры.
+}
+function  HLTC199_3_11_7_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME  = 'HLTC199_3_11_7';
+var
+  filters, formInfo, i;
+begin
+try
+  try
+    Result := true;
+    filters := ['*высшие суды*', '*книги*', '*формы документов*'];
+    
+    if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+
+    GoToPPR;
+    if not OpenFilterTab then
+      Raise('Не получилось открыть список фильтров');
+    for i := VarArrayLowBound(filters, 1) to VarArrayHighBound(filters, 1) do
+      if not WorkWithFilters(GetFilterTree, 'set', '*' + filters[i]) then
+        Raise('Не получилось выставить автоматическое применение фильтра "' + filters[i] + '"');
+
+    //HLTC199.3.11.7
+    GoToPPR;
+    formInfo := SearchInPPR('', 'IsFillCard:=false;IsReturnMessageForm:=true');
+    if not (GetParam(formInfo, WFMF_RES_MSGTYPE, MFT_UNKNOWN) = MFT_CONFIRMATION) then
+      Result := ErrorResult('Не найдено окно с предупреждением, что в результате поиска с примененными фильтрами, нет ни одного найденного документа.' +
+                            GetParam(formInfo, WFMF_RES_MSGTYPE, MFT_UNKNOWN) + ': ' + GetParam(formInfo, WFMF_RES_MSGTEXT, ''));
+
+    //HLTC199.3.11.8
+    if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+      Raise('Не получилось открыть "' + LIST_MAIN + '"');
+    if not IsExists(GetFromList('ОБЛАСТЬ ПУСТОГО РЕЗУЛЬТАТА ФИЛЬТРА')) then
+    	Result := ErrorResult('Не найдено окно пустого результата фильтрации для автоматически применяемых фильтров');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+finally
+  CloseF1Shell;
+end;  
+end;
+
+{
+  HLTC199.3.11.9: Сделать все фильтры автоприменяемыми, и открыть документ 5012941. Оболочка не должна упасть.
+}
+function  HLTC199_3_11_9_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGINNAME  = 'HLTC199_3_11_9';
+  DOCNUM = 5012941;
+var
+  filters, i;
+begin
+try
+  try
+    Result := true;
+    filters := [
+      '*Статьи из СМИ*',
+      '*Книги*',
+      '*Формы документов*',
+      '*Вопросы-ответы из СМИ*',
+      '*Энциклопедии решений*',
+      '*Правовой консалтинг*',
+      '*Бухгалтерские проводки*',
+      '*Федеральные акты*',
+      '*Письма Минфина и ФНС*',
+      '*Региональные акты*',
+      '*Высшие суды*',
+      '*Практика арбитражных судов*',
+      '*Энциклопедия судебной практики*',
+      '*Вступающие в силу после*',
+      '*Изданные после*',
+      '*Только действующие*'
+    ];
+
+    if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+      Raise('Не получилось перезапустить оболочку под пользователем "' + LOGINNAME + '"');
+
+    GoToPPR;
+    if not OpenFilterTab then
+      Raise('Не получилось открыть список фильтров');
+    for i := VarArrayLowBound(filters, 1) to VarArrayHighBound(filters, 1) do
+      if not WorkWithFilters(GetFilterTree, 'set', '*' + filters[i]) then
+        Raise('Не получилось выставить автоматическое применение фильтра "' + filters[i] + '"');
+
+    if not OpenDocByNumber(DOCNUM) then
+      Raise('Не получилось открыть документ № ' + IntToStr(DOCNUM));
+    if not GoToMainMenu then
+      Raise('Не получилось открыть ОМ');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+finally
+  CloseF1Shell;
+end;  
+end;
+
+procedure RunMyTests199;
+var i, p, w;
+begin
+//  _SimpleGetCardData_;  exit;
+//  HLTC199_1_Execute(p);
+//  HLTC199_2_Execute(p);
+//  HLTC199_2_4_Execute(p);  
+//  HLTC199_3_1_3_Execute(p);
+//  HLTC199_3_3_Execute(p);  
+//  HLTC199_3_7_Execute(p);
+//  HLTC199_3_5_Execute(p);
+//  HLTC199_3_9_1_Execute(p);
+//  HLTC199_3_11_1_Execute(p);
+//  HLTC199_3_11_4_Execute(p);
+//  HLTC199_3_11_7_Execute(p);
+//  HLTC199_3_11_9_Execute(p);
+//  HLTC199_10_1_Execute(p);
+///////////////////////////////////////////
+  HLTC199_3_11_4_Execute(p); 
+ 
+  
+
+
+
+
+
+
+
+end;

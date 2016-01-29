@@ -1,0 +1,545 @@
+uses MenuWork, States, common, RunPrograms, FoldersWork, SettingsWork,
+		 Graphics, DocumentWork, FileWork, ListWork, Clicks, st_common, exceptions, ExcelWork;
+
+
+procedure For_OIT17951;
+var i, j : integer;
+    r : OleVariant;
+    pathToLog : String;
+    pServ : OleVariant;
+begin
+  try 
+    // нужна старая тестовая база
+    pathToLog := 'c:\docopen3.log';
+    //
+    pServ := Sys.Process('F1Server');
+    CloseF1Shell(5, 5000);
+    AppendFile(pathToLog + '.csv', 'после гашения оболочки;0;0;' + IntToStr(pServ.MemUsage) + ';'+ IntToStr(pServ.VMSize) );      
+    StartF1Shell;
+    AppendFile(pathToLog + '.csv', 'после запуска оболочки;0;0;' + IntToStr(pServ.MemUsage) + ';'+ IntToStr(pServ.VMSize) );      
+    LoginAnyhow('memuse3', 'memuse3');
+    AppendFile(pathToLog + '.csv', 'после логина;0;0;' + IntToStr(pServ.MemUsage) + ';'+ IntToStr(pServ.VMSize) );      
+    DocumentsOpen(pathToLog, 300, 1000 );
+  except
+    Log.Error('Exception', ExceptionMessage);
+  end;
+end;
+
+// отдает текущее время и дату в определенном формате для формирования имен файлов
+function GetDateTimeInStr : String ;
+begin
+  Utilities.DateTimeToString(Result, 'dd-mmm-yyyy hh-nn-ss' , Utilities.Now); 
+end;
+
+
+{
+  Устанавливаем настройки проекта. Нужна, чтобы вручную не выставлять параметры
+  работы скрипта...
+}
+
+const
+  DEFAULT_DELAY = 300;
+  DEFAULT_TIMEOUT = 30000;
+
+procedure InitOptions;
+  var
+    pngSettings : OleVariant;
+begin
+  //блок настроек секции Run
+  Options.Run.Delay := DEFAULT_DELAY; //время между командами во  время выполнения скрипта
+  Options.Run.Timeout := DEFAULT_TIMEOUT; //время, которое ожидается появление окна
+  // установка формата картинок для лога
+  try
+    Log.Enabled := true;
+    //Options.Log.ImageFormat := 'PNG'; 
+    pngSettings := Log.CreatePictureConfiguration('PNG');
+    pngSettings.CompressionLevel := 7;
+    Log.SetDefaultPictureConfiguration( pngSettings );
+  except
+    Log.Warning('Произошла ошибка при установке параметров лога.', ExceptionMessage);
+  end;
+end;
+
+//
+const
+  PATH_TO_LOG = '\\developer\public\4ushakov\daily_logs\'; // путь должен оканчиваться слэшем!
+  // параметры коммандной строки
+  MT_CMD_KEY = 'mem_test_op'; // название параметра командной строки для указания нужного действия
+  MT_PATH_TO_PSTOOLS_CMD_KEY = 'ps_tools_path'; // название параметра ком. строки для передачи пути к pstools
+  MT_ITER_COUNT_CMD_KEY = 'iter_count'; // параметр для задания числа итераций
+  MT_MAIL_MSG = 'mail_msg'; // это сообщение будет добавлено в итоговое письмо
+  MT_FILE_SUFFIX = 'file_suffix'; // Эта строка будет добавлена к имени файла (не должна содержать служебных символов)
+  // список действий
+  MT_DOC_OPEN = 'Открытие_документов';
+  MT_LIST_OPEN = 'Открытие_списков';
+  MT_SEARCH_PPR = 'Поиски_по_ППР';
+  MT_SEARCH_PPR_1 = 'Поиски_по_ППР_1_контекст';
+  MT_LOGIN_LOGOUT_SAME_USER = 'Логин_логаут_одним_пользователем';
+  MT_SEND_LOGS = 'Выслать_логи';
+  // параметры компа, на котором запущен сервер
+  MT_COMPUTER = 'p4core10-vm1';
+//  MT_COMPUTER = 'ushakov';
+  MT_USER = 'qc';
+  MT_PASSWORD = '22222';
+  MT_PROCESS = 'F1Server';
+  // различные задержки
+  WAIT_FOR_F1_CLOSE = 5000;
+  MT_DELAY_AFTER_DOCOPEN = 2000;
+
+
+// запускает оболочку и логинится, при этом меряет память
+// до, после запуска и после логина
+function DoLoginWithMemLog(
+  login : String;
+  password : String;
+  logFileName : String;
+  psListParams : String
+) : Boolean;
+  const
+    CSV_HEADER = 'Время;Состояние;Private Memory клиента (Кб);Virtual Size клиента (Кб);Private Memory сервера (Кб);Virtual Size сервера (Кб)';
+  var
+    servMem, servVMem, oldValue : integer;
+    p, pServ : OleVariant;
+begin
+  try
+    oldValue := Options.Run.Delay;
+    Options.Run.Delay := 400;
+    Result := false;
+    //
+    pServ := Sys.WaitProcess(MT_PROCESS);
+    GetProcessMem(pServ, psListParams, servMem, servVMem );
+    AppendFileWithTime(logFileName, 'перед запуском оболочки;0;0;' + IntToStr(servMem) + ';'+ IntToStr(servVMem), CSV_HEADER );
+    //
+    if NOT StartF1Shell then Exit;
+    p := GetF1ShellProcess(Options.Run.Timeout, 4, false);
+    if NOT IsExists(p) then Raise('Процесс F1Shell не найден!');
+    Delay(Options.Run.Timeout div 2);
+    GetProcessMem(pServ, psListParams, servMem, servVMem );
+    AppendFileWithTime(logFileName, 'после запуска оболочки;' + IntToStr(p.MemUsage) + ';' + IntToStr(p.VMSize) + ';' + IntToStr(servMem) + ';'+ IntToStr(servVMem), CSV_HEADER );
+    //
+    LoginAnyhow(login, password);
+    Delay(Options.Run.Timeout div 2);
+    GetProcessMem(pServ, psListParams, servMem, servVMem );
+    AppendFileWithTime(logFileName, 'после логина;' + IntToStr(p.MemUsage) + ';' + IntToStr(p.VMSize) + ';' + IntToStr(servMem) + ';'+ IntToStr(servVMem), CSV_HEADER );
+    //
+    Result := true;
+    Options.Run.Delay := oldValue;
+  except
+    Log.Message('DoLoginWithMemLog: ' + ExceptionMessage, '' , 4);
+    Result := false;
+  end;
+end;
+
+
+procedure Main;
+  const
+    MAX_RUNTIME = 2*3600*1000; //in msec
+    COMPS_WITH_EXCEL = ';ushakov.garant.ru';
+    WHAT_EXCLUDE = ',\/:;!@#$%^&*()';
+  var
+    i, j, currLine, closeAttempts, iterCount : integer;
+    r : OleVariant;
+    pathToLog, login, password, memOperation, baseLogName, psListParams, tmpStr : String;
+    pServ : OleVariant;
+    fileSuffix, mailMsg : String;
+begin
+  try 
+    InitOptions;
+    //                  
+    psListParams := '"' + GetPathTo(PATH_TO_PSTOOLS) + 'pslist.exe";'+MT_COMPUTER+';'+MT_USER+';'+MT_PASSWORD+';'+MT_PROCESS;
+    login := 'memuse';
+    password := login;
+    pathToLog := IncludeTrailingBackslash( PATH_TO_LOG );
+    memOperation := GetValueFromCmdLine(MT_CMD_KEY);
+    try
+      iterCount := StrToInt( GetValueFromCmdLine(MT_ITER_COUNT_CMD_KEY) );
+    except
+      iterCount := 1;
+    end;
+    
+    fileSuffix := GetValueFromCmdLine(MT_FILE_SUFFIX);
+    if fileSuffix <> '' then
+    begin
+      for i := 1 to Length(WHAT_EXCLUDE) do
+        fileSuffix := StringReplace(fileSuffix, WHAT_EXCLUDE[i], '', 1 or 2);    
+      fileSuffix := '.' + fileSuffix;
+    end;    
+    
+    mailMsg := GetValueFromCmdLine(MT_MAIL_MSG);
+        
+    // гасим оболочку, на всякий случай
+    closeAttempts := 5;
+    CloseF1Shell(closeAttempts, WAIT_FOR_F1_CLOSE); 
+    // папка, в которую будем писать логи
+    baseLogName := IncludeTrailingBackslash( pathToLog + '_working'); //FormatDateTime('dd-mm-yyyy', Utilities.Now ) );
+    ForceFile(baseLogName);
+    //
+    case memOperation of
+      MT_DOC_OPEN:
+      begin
+        baseLogName := baseLogName + MT_DOC_OPEN + fileSuffix;
+        DeleteFiles(baseLogName + '*.*');
+        if NOT ForceFile(baseLogName) then Raise('Не могу открыть файл ' + baseLogName + ' на запись!');
+        
+        for i := 1 to 3 do
+        begin
+          // стартуем оболочку
+          DoLoginWithMemLog(login, password, baseLogName + '.login_mem.csv', psListParams);
+          
+          // делаем тест
+          DocumentsOpen(
+            baseLogName, // сюда пишем лог
+            iterCount, // столько открываем документов
+            MT_DELAY_AFTER_DOCOPEN, // столько ждем после открытия очередного документа
+            psListParams, // параметры PsList
+            MAX_RUNTIME // работаем не более этого времени
+          );
+            
+          // гасим оболочку
+          closeAttempts := 5;
+          CloseF1Shell(closeAttempts, WAIT_FOR_F1_CLOSE);  
+        end;  
+        
+        DrawChartByExcel( baseLogName + '.log.csv', baseLogName + '.xls',
+          'Потребление памяти при последовательносм открытии документов',
+          'Private Memory клиента (Кб);Virtual Size клиента (Кб);Private Memory сервера (Кб);Virtual Size сервера (Кб)',
+          'Открыто документов',
+          COMPS_WITH_EXCEL
+        );
+        
+      end;
+      
+      MT_LIST_OPEN:
+      begin
+        baseLogName := baseLogName + MT_LIST_OPEN + fileSuffix;
+        DeleteFiles(baseLogName + '*.*');
+        if NOT ForceFile(baseLogName) then Raise('Не могу открыть файл ' + baseLogName + ' на запись!');
+        // стартуем оболочку
+        DoLoginWithMemLog(login, password, baseLogName + '.login_mem.csv', psListParams);
+        // делаем тест
+        ListOpen(
+          baseLogName, // сюда пишем лог
+          iterCount, // столько списков открываем
+          300, // задержка между действиями
+          MAX_RUNTIME,
+          psListParams // параметры psList
+        );
+
+        DrawChartByExcel( baseLogName + '.log.csv', baseLogName + '.xls',
+          'Потребление памяти при открытии элементов по рубрикатору',
+          'Private Memory клиента (Кб);Virtual Size клиента (Кб);Private Memory сервера (Кб);Virtual Size сервера (Кб)',
+          'Номер итерации',
+          COMPS_WITH_EXCEL
+        );
+      end;      
+      
+      MT_SEARCH_PPR:
+      begin
+        baseLogName := baseLogName + MT_SEARCH_PPR + fileSuffix;
+        DeleteFiles(baseLogName + '*.*');
+        if NOT ForceFile(baseLogName) then Raise('Не могу открыть файл ' + baseLogName + ' на запись!');
+        // стартуем оболочку
+        DoLoginWithMemLog(login, password, baseLogName + '.login_mem.csv', psListParams);
+        
+        GoToPPR;
+        // делаем тест
+        TestSearch(
+          '\\developer\public\4ushakov\Context\context.txt', // отсюда берем контексты
+          baseLogName, // сюда пишем лог
+          iterCount, // столько поисков делаем
+          true, // открываем ли КЗ по истории (true) или по F7 (false)
+          MAX_RUNTIME, // столько работаем
+          psListParams // параметры psList
+        );
+
+        DrawChartByExcel( baseLogName + '.log.csv', baseLogName + '.xls',
+          'Потребление памяти при поисках по ППР',
+          'Private Memory клиента (Кб);Virtual Size клиента (Кб);Private Memory сервера (Кб);Virtual Size сервера (Кб)',
+          'Номер итерации',
+          COMPS_WITH_EXCEL
+        );
+      end;
+
+      MT_SEARCH_PPR_1:
+      begin
+        baseLogName := baseLogName + MT_SEARCH_PPR_1 + fileSuffix;
+        DeleteFiles(baseLogName + '*.*');
+        if NOT ForceFile(baseLogName) then Raise('Не могу открыть файл ' + baseLogName + ' на запись!');
+        
+        for i := 1 to 2 do
+        begin
+          // стартуем оболочку
+          DoLoginWithMemLog(login, password, baseLogName + '.login_mem.csv', psListParams);
+          
+          GoToPPR;
+          // делаем тест
+          TestSearch(
+            '\\developer\public\4ushakov\Context\1.txt', // отсюда берем контексты
+            baseLogName, // сюда пишем лог
+            iterCount, // столько поисков делаем
+            true, // открываем ли КЗ по истории (true) или по F7 (false)
+            MAX_RUNTIME, // столько работаем
+            psListParams // параметры psList
+          );
+          // гасим оболочку
+          closeAttempts := 5;
+          CloseF1Shell(closeAttempts, WAIT_FOR_F1_CLOSE);  
+        end;
+
+        DrawChartByExcel( baseLogName + '.log.csv', baseLogName + '.xls',
+          'Потребление памяти при поисках одного и того же контекста по ППР',
+          'Private Memory клиента (Кб);Virtual Size клиента (Кб);Private Memory сервера (Кб);Virtual Size сервера (Кб)',
+          'Номер итерации',
+          COMPS_WITH_EXCEL
+        );        
+      end;
+
+      MT_LOGIN_LOGOUT_SAME_USER:
+      begin
+        baseLogName := baseLogName + MT_LOGIN_LOGOUT_SAME_USER + fileSuffix;
+        DeleteFiles(baseLogName + '*.*');
+        if NOT ForceFile(baseLogName) then Raise('Не могу открыть файл ' + baseLogName + ' на запись!');
+        // делаем тест
+        AppendFileWithTime(baseLogName + '.log.csv', 'Начало');
+        for i := 1 to iterCount do
+        begin
+          DoLoginWithMemLog(login, password, baseLogName + '.log.csv' , psListParams);
+          Delay(Options.Run.Timeout div 4);
+          closeAttempts := 5;
+          CloseF1Shell(closeAttempts, WAIT_FOR_F1_CLOSE);
+          Delay(Options.Run.Timeout div 4);  
+        end;  
+        AppendFileWithTime(baseLogName + '.log.csv', 'Окончание');        
+        
+        DrawChartByExcel( baseLogName + '.log.csv', baseLogName + '.xls',
+          'Потребление памяти при логинах/логаутах',
+          'Private Memory сервера (Кб);Virtual Size сервера (Кб)',
+          'Состояние',
+          COMPS_WITH_EXCEL
+        );
+      end; 
+      
+      MT_SEND_LOGS :
+      begin
+        SendMailByBlat(
+          'AutoTest@garant.ru',
+          'qc@garant.ru',
+          'AutoTest: Результаты потребления памяти',
+          'К этому письму должны быть приаттачены автоматически сгенерированные графики потребления памяти. Если их нет, значит что-то пошло не так.' + 
+             + EndOfLine + EndOfLine + mailMsg,
+          '"' + baseLogName + Choose(fileSuffix <> '', '*' + fileSuffix, '') + '*.xls"'
+        );
+        Delay( Options.Run.Timeout );
+        BuiltIn.CopyFiles( baseLogName + '*.*', baseLogName + '..\' + FormatDateTime('dd-mm-yyyy',Utilities.Now) + '\' + FormatDateTime('hh-nn-ss' ,Utilities.Now) + '\*.*', false);
+        DeleteFiles( baseLogName + '*.*' );        
+      end;
+      
+    else
+      Raise('Задан некорректный параметр <memOperation>: ' + memOperation);
+    end;
+    
+    // гасим оболочку
+    closeAttempts := 5;
+    CloseF1Shell(closeAttempts, WAIT_FOR_F1_CLOSE);  
+
+  except
+    Log.Error('Main: ', ExceptionMessage);
+  end;
+end;
+
+
+procedure SimpleTestSearch_WithLoginLogout;
+var i, closeAttempts : integer;
+    login, password, baseLogName : String;
+    
+begin
+  InitOptions;
+  login := 'memtest';
+  password := login;
+  
+  baseLogName := '\\ushakov\share\' + GetDateTimeInStr + '.18134.TestSearch.log';
+  for i := 1 to 9 do
+  begin
+    Delay(Options.Run.Timeout div 10);
+    closeAttempts := 5;
+    CloseF1Shell(closeAttempts, WAIT_FOR_F1_CLOSE);
+    Delay(Options.Run.Timeout div 10); 
+    
+    DoLoginWithMemLog(login + IntToStr(i), password + IntToStr(i), baseLogName + '.csv', '');
+    
+    TestSearch(
+      '\\ushakov\share\q\search111.txt', // отсюда берем контексты
+      baseLogName, // сюда пишем лог
+      15, // столько поисков делаем
+      false, // открываем ли КЗ по истории (true) или по F7 (false)
+      3600*1000, // столько работаем
+      '' // параметры psList
+    );
+ 
+    Log.SaveTestAs(Log.Results.Count - 1,  PATH_TO_LOG + memOperation);
+  end; 
+end;
+
+procedure SimpleTestSearch;
+var i, closeAttempts : integer;
+    login, password, baseLogName : String;
+    
+begin
+  InitOptions;
+  login := 'memtest';
+  password := login;
+                                  
+  baseLogName := '\\ushakov\share\' + GetDateTimeInStr + '.build_147.search_new.log';
+    
+  DoLoginWithMemLog(login, password, baseLogName + '.csv', '');
+    
+  TestSearch(
+    '\\ushakov\share\q\search_new.txt', // отсюда берем контексты
+    baseLogName, // сюда пишем лог
+    80, // столько поисков делаем
+    false, // открываем ли КЗ по истории (true) или по F7 (false)
+    3600*1000, // столько работаем
+    '' // параметры psList
+  );
+ 
+end;
+
+function temporary123;
+  var p, w : OleVariant;
+begin
+  try
+    Log.Message('1');
+  except
+    Log.Message('' + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+
+procedure temporary;
+  var
+    locator, wmiService, procs;
+begin
+  locator := Sys.OleObject ('WbemScripting.SWbemLocator');
+  wmiService := locator.ConnectServer('p4core10', 'root/cimv2', 'qc', '22222');
+  
+  procs := wmiService.ExecQuery('SELECT * FROM Win32_Process WHERE name=''F1Server.exe'' '); 
+end;
+
+procedure ComplexTest;
+const MAX_RUNTIME = 540000*1000; //in msec
+var i, j, k,  currLine, closeAttempts, iterCount : integer;
+    r : OleVariant;
+    pathToLog, login, password, memOperation, baseLogName, psListParams, tmpStr, strKeys : String;
+    pServ : OleVariant;
+begin
+  Log.LockEvents(10);
+  try 
+    InitGlobalVars;        
+    //
+    psListParams := '"' + GetPathTo(PATH_TO_PSTOOLS) + 'pslist.exe";'+ 'blueeye2.garant.ru' +';'+ 'qc' +';'+ '22222' +';'+ 'F1Server';
+    InitOptions;
+    login := 'memuse';
+    password := login;
+    pathToLog := IncludeTrailingBackslash( PATH_TO_LOG );
+    //memOperation := MT_LOGIN_LOGOUT_SAME_USER;
+    
+    for j := 1 to 5 do 
+    begin
+      // гасим оболочку, на всякий случай
+      closeAttempts := 5;
+      CloseF1Shell(closeAttempts, WAIT_FOR_F1_CLOSE); 
+      //
+      baseLogName := pathToLog + 'COMPLEX_TEST\' + GetDateTimeInStr;
+      if NOT ForceFile(baseLogName) then Raise('Не могу открыть файл ' + baseLogName + ' на запись!');
+      
+      // стартуем оболочку
+      DoLoginWithMemLog(login, password, baseLogName + '.login_mem.csv', psListParams);
+      
+      //
+      AppendFile(baseLogName + '.log', 'DocOpen. Начало.');
+      strKeys := '';
+      for k := 1 to 20 do strKeys := strKeys + '[PageDown][P300]';
+      // делаем тест
+      DocumentsOpen(
+        baseLogName + '.log', // сюда пишем лог
+        10, // столько открываем документов
+        MT_DELAY_AFTER_DOCOPEN, // столько ждем после открытия очередного документа
+        psListParams, // параметры PsList
+        MAX_RUNTIME, // работаем не более этого времени
+        strKeys);
+      AppendFileWithTime(baseLogName + '.log', 'TestSearch. Окончание');    
+      
+      //
+      AppendFileWithTime(baseLogName + '.log', 'TestSearch. Начало');  
+      // делаем тест
+      TestSearch(
+        '\\developer\public\4ushakov\Context\context.txt', // отсюда берем контексты
+        baseLogName + '.log', // сюда пишем лог
+        50, // столько поисков делаем
+        true, // открываем ли КЗ по истории (true) или по F7 (false)
+        MAX_RUNTIME, // столько работаем
+        psListParams // параметры psList
+      );
+      AppendFileWithTime(baseLogName + '.log', 'TestSearch. Окончание.');  
+      
+      //
+      AppendFileWithTime(baseLogName + '.log', 'ListOpen. Начало');      
+      // делаем тест
+      ListOpen(
+        baseLogName + '.log', // сюда пишем лог
+        100, // столько списков открываем
+        300, // задержка между действиями
+        MAX_RUNTIME,
+        psListParams // параметры psList
+      );
+      AppendFileWithTime(baseLogName + '.log', 'ListOpen. Окончание.');   
+   
+      //
+      AppendFileWithTime(baseLogName + '.csv', 'Login/Logout. Начало');
+      for i := 1 to iterCount do
+      begin
+        DoLoginWithMemLog(login, password, baseLogName + '.csv' , psListParams);
+// The following line was changed by TestComplete:
+//         Sys.Delay(Options.Run.Timeout div 4);
+        Delay(Options.Run.Timeout div 4);
+        closeAttempts := 5;
+        CloseF1Shell(closeAttempts, WAIT_FOR_F1_CLOSE);
+// The following line was changed by TestComplete:
+//         Sys.Delay(Options.Run.Timeout div 4);  
+        Delay(Options.Run.Timeout div 4);  
+      end;  
+      AppendFileWithTime(baseLogName + '.csv', 'Login/Logout. Окончание'); 
+           
+    end;
+
+  except
+    Log.Error('Main: ', ExceptionMessage);
+  end;
+end;
+
+function temporaryLog;
+  var 
+    p, w : OleVariant;
+    currDetails, currData : OleVariant;
+    i,j : integer;
+begin
+  try
+    Log.CreateNode('Node 1');
+    for i := 1 to 1 do Log.Error(i);
+    Sys.Keys('1');
+    Log.Message( ExtractOpenNodeMessages('', EndOfLine) );
+
+{    currDetails := Log.Results.Items(Log.Results.Count - 1).Details;  
+    currDetails := currDetails.Items(currDetails.Count-1);
+    for i := currDetails.Count-1 downto 0 do
+    begin
+      currData := currDetails.Items(i).Data;
+      for j := 0 to currData.Count - 1 do
+        Log.Message(currData.Names(j), currData.Values(j) );
+    end;  
+ }   
+    
+  except
+    Log.Message('' + ExceptionMessage, '' , 4);
+  end;               
+end;

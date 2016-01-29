@@ -1,0 +1,440 @@
+// m3DB 4742D9F50189 UtilityPack Class
+
+FORWARD ME_4742D9F50189
+
+FORWARD ME_4742DABA03A9
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4742DBC902B8
+ CONST UID '4742DBC902B8'
+ CONST Name 'm3_brpIndexed'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_4742DBC902B8 m3_brpIndexed
+
+: ME_4742DBD00109
+ CONST UID '4742DBD00109'
+ CONST Name 'm3_brpModified'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_4742DBD00109 m3_brpModified
+
+: ME_4742DABA03A9
+ CONST UID '4742DABA03A9'
+ CONST Name 'Tm3BaseRangeParam'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ %SUMMARY 'Параметры выборки.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_4742DBC902B8 // m3_brpIndexed
+ ME_4742DBD00109 // m3_brpModified
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_4742DABA03A9 Tm3BaseRangeParam
+
+: ME_4742E289002E
+ CONST UID '4742E289002E'
+ CONST Name 'Tm3BaseRangeParams'
+ CONST Class 'Class'
+ CONST Stereotype 'SetOf'
+ %SUMMARY 'Параметры выборки.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4742DABA03A9 // Tm3BaseRangeParam
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_4742E289002E Tm3BaseRangeParams
+
+INCLUDE '4742DC5C0219.pas.ms.script'
+
+INCLUDE '4720831F012D.pas.ms.script'
+
+: ME_4742DD750368
+ CONST UID '4742DD750368'
+ CONST Name 'Tm3BaseRange'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Базовая реализация выборки документов.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4742DC5C0219 // Tm3BaseObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4727181C02DD // Im3DBRange
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_472718E303CA // Mul
+ ME_472719650005 // Iterate
+ ME_47271A4301A1 // IterateF
+ ME_47271A8703B1 // IterateF
+ ME_47271A9E01AC // CopyTo
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4742DD750368 Tm3BaseRange
+
+FORWARD ME_4742DC00005E
+
+: ME_4742E29F0333
+ CONST UID '4742E29F0333'
+ CONST Name 'Params'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ %SUMMARY 'Параметры выборки.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_4742E289002E // Tm3BaseRangeParams
+ ;
+ CONST "pm" false
+
+ @SELF
+; // ME_4742E29F0333 Params
+
+: ME_4742DC00005E
+ CONST UID '4742DC00005E'
+ CONST GUID '156B14ED-B943-4DFC-9FED-CD8C32BAF936'
+ CONST Name 'Im3BaseRangeParamsSource'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Параметры выборки.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_4742E29F0333 // Params
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_4742DC00005E Im3BaseRangeParamsSource
+
+: ME_4742DE0B0327
+ CONST UID '4742DE0B0327'
+ CONST Name 'Tm3DocListRange'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Реализация выборки документов, по списку номеров.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4742DD750368 // Tm3BaseRange
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4742DE0B0327 Tm3DocListRange
+
+: ME_555B4E46039A
+ CONST UID '555B4E46039A'
+ CONST Name 'Tm3BaseParametricRange'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4742DD750368 // Tm3BaseRange
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4742DC00005E // Im3BaseRangeParamsSource
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_4742E29F0333 // Params
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_555B4E46039A Tm3BaseParametricRange
+
+FORWARD ME_4742CA25034B
+
+FORWARD ME_47446B3703A8
+
+: ME_47446B430297
+ CONST UID '47446B430297'
+ CONST Name 'clsDeleted'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_47446B430297 clsDeleted
+
+: ME_47446B4B0253
+ CONST UID '47446B4B0253'
+ CONST Name 'clsModified'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_47446B4B0253 clsModified
+
+: ME_47446B3703A8
+ CONST UID '47446B3703A8'
+ CONST Name 'Tm3CommonListSelector'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_47446B430297 // clsDeleted
+ ME_47446B4B0253 // clsModified
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_47446B3703A8 Tm3CommonListSelector
+
+INCLUDE '49BFBC690162.pas.ms.script'
+
+: ME_47446C8302F1
+ CONST UID '47446C8302F1'
+ CONST Name 'aListSelector'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47446B3703A8 // Tm3CommonListSelector
+ ;
+
+ @SELF
+; // ME_47446C8302F1 aListSelector
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47446C83034C
+ CONST UID '47446C83034C'
+ CONST Name 'anID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47446C83034C anID
+
+: ME_47446C83039C
+ CONST UID '47446C83039C'
+ CONST Name 'aInsert'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_47446C83039C aInsert
+
+: ME_47446C7401CD
+ CONST UID '47446C7401CD'
+ CONST Name 'SetList'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Исправляет список aListSelector.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47446C8302F1 // aListSelector
+ ME_47446C83034C // anID
+ ME_47446C83039C // aInsert
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47446C7401CD SetList
+
+: ME_4742CA25034B
+ CONST UID '4742CA25034B'
+ CONST Name 'Tm3CustomDB'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Базовая реализация хранилища документов.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_49BFBC690162 // Tm3PrimDB
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_472084690055 // Im3DB
+ ]
+ ; // Implements
+ : Operations
+   [ ME_47446C7401CD // SetList
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47271FFF00D9 // IndexedFiles
+ ME_4727201800DF // ModifiedFiles
+ ME_4727203C02FE // AllFiles
+ ME_47272B6400D4 // InProcess
+ ME_47272B8403DD // Stopped
+ ME_47272B980395 // Stop
+ ME_47272BAA0251 // Purge
+ ME_47272BBF01F7 // Update
+ ME_47272BD7022E // FlushLists
+ ME_47272C0C0284 // Start
+ ME_47272C1D02C4 // Finish
+ ME_47272C6B008C // LastElapsed
+ ME_47272E7903B3 // GetDocument
+ ME_49BE895B01ED // FreeVersions
+ ME_49BFC6640310 // ModifyModified
+ ME_4BC8352E02D3 // FilesInList
+ ME_4FA16B78016F // DeleteVersion
+ ME_4FA16B91036A // DeleteMain
+ ME_4FBB76D701DC // RenameMain
+ ME_4FBB76F50376 // RenameVersion
+ ME_4FBB827801E4 // Rename
+ ME_5419A76B0193 // CompareVersionWithBackup
+ ME_5419A79201B8 // CopyBackupToVersion
+ ME_5419A7AA002A // CopyVersionToBackup
+ ME_541AE1C4006F // ExtractMainTo
+ ME_541AE4C701CE // ExtractVersionTo
+ ME_541AF7940108 // ExtractBackupTo
+ ME_5551D4570112 // IsExclusive
+ ME_555330090162 // GetBackupStorage
+ ME_5553302501A8 // GetVersionsStorage
+ ME_555361A80058 // MainStorage
+ ME_555373BC008A // LastElapsed
+ ME_555373EC02D1 // Stopped
+ ME_555379B30054 // Yield
+ ME_55537EB101A3 // TuneFiler
+ ME_555382D401F9 // ModifyDeleted
+ ME_5553831A0253 // InProcess
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5553685D006D // AsDB
+ ]
+ ; // Overridden
+ : Children
+   [ ME_47446B3703A8 // Tm3CommonListSelector
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4742CA25034B Tm3CustomDB
+
+: ME_4742CA9702AE
+ CONST UID '4742CA9702AE'
+ CONST Name 'Tm3DB'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4742CA25034B // Tm3CustomDB
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_49BFD4CE0235 // MainStorage
+ ME_49BFD4F3013E // GetVersionsStorage
+ ME_49BFD52D0076 // GetBackupStorage
+ ME_49C2496903D4 // Start
+ ME_49C249810227 // Finish
+ ME_49C75F73038A // StartEx
+ ME_49C75F8C02B9 // CloseBase
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4742CA9702AE Tm3DB
+
+: ME_4742DDB90351
+ CONST UID '4742DDB90351'
+ CONST Name 'Tm3BiCompBaseRange'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Вован - с тебя документация.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_555B4E46039A // Tm3BaseParametricRange
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4742DDB90351 Tm3BiCompBaseRange
+
+: ME_4742D9F50189
+ CONST UID '4742D9F50189'
+ CONST Name 'm3DB'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Реализация хранилища документов Архивариуса.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4742DABA03A9 // Tm3BaseRangeParam
+ ME_4742E289002E // Tm3BaseRangeParams
+ ME_4742DD750368 // Tm3BaseRange
+ ME_4742DC00005E // Im3BaseRangeParamsSource
+ ME_4742DE0B0327 // Tm3DocListRange
+ ME_555B4E46039A // Tm3BaseParametricRange
+ ME_4742CA25034B // Tm3CustomDB
+ ME_4742CA9702AE // Tm3DB
+ ME_4742DDB90351 // Tm3BiCompBaseRange
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В. ©'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '17.08.2004 19:14'
+
+ @SELF
+; // ME_4742D9F50189 m3DB

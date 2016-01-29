@@ -1,0 +1,37 @@
+// **********************************************************************
+//
+// Copyright (c) 2001 - 2002
+// MT Tools
+// Samara, Russia
+//
+// All Rights Reserved
+// 
+// **********************************************************************
+ 
+#ifndef TIME_BASE_IDL
+#define TIME_BASE_IDL
+
+#pragma prefix "omg.org"
+
+module TimeBase
+{
+    typedef unsigned long long TimeT;
+    typedef TimeT InaccuracyT;
+    typedef short TdfT;
+
+    struct UtcT
+    {
+	TimeT time;
+	unsigned long inacclo;
+	unsigned short inacchi;
+	TdfT tdf;
+    };
+
+    struct IntervalT
+    {
+	TimeT lower_bound;
+	TimeT upper_bound;
+    };
+};
+
+#endif

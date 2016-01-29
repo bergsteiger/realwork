@@ -1,0 +1,49 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/ServerGate/Comm/Comm.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::ServerGate::Comm
+//
+// Коммуникационные иинтерфейсы для взаимодействия с внешними агентами
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___COMM_IDL__
+#define ___COMM_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#include "MDProcess/ServerGate/Contents/Contents.idl"
+#pragma prefix "garant.ru"
+
+module ServerGate {
+
+module Comm {
+	// Внешний коммуникационный интерфейс для "слушателя" сборок. Данный интерфейс должен быть
+	// реализован внешним приложением для получения сообщения с основного сервера MDP об успешном
+	// завершении сборки.
+	interface BuildListner {
+		// сигнал о том что сборка завершена. Вызывает сигнал сервер MDP в качестве параметра передается
+		// интерфейс ндлс джоступа к странице сборки
+		void build_success (in Contents::KPage build_page, in string build_path, in boolean is_modified);
+	};
+
+	// factory manager server interface for BuildListner
+	interface BuildListnerFactoryManagerSrv {
+		// возвращает зарегистрированный в системе "тестировщик сборок"
+		BuildListner get ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module ServerGate
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

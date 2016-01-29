@@ -1,0 +1,74 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    
+
+    InputKeys "{F7}"
+    DelayFor 1000
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=14,8"
+    InputKeys "^{ENTER}"
+    Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+    InputKeys "{ENTER}"
+ 
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=4", "Coords=11,20"
+    Dim ListCount%,FolderCount%
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call Click_SaveAs
+    
+    
+    
+    
+    Dim QueryName$
+    
+    QueryName="Все документы"
+    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+    InputKeys QueryName
+    Toolbar Click, "Text=Выбор действия", "Coords=28,10"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=11,135"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    ListBox Click, "ObjectIndex=1", "Coords=38,8"
+    if Position_by_Text("CurrentFocus",QueryName)<>0 then
+        SQALogMessage sqaPass, "Элемент создался", "Элемент с именем """+QueryName+""" создался"
+        InputKeys "{ENTER}"   
+   else
+        SQALogMessage sqaFail, "Элемент не создался", "Элемент с именем """+QueryName+""" не создался"
+        exit sub
+   end if
+   ListBox Click, "ObjectIndex=4", "Coords=7,12"
+   SQAGetProperty "CurrentFocus","ItemCount",FolderCount
+   if FolderCount=ListCount then
+     SQALogMessage sqaPass, "Список загружен", "Список загрузился, элементов: "+CStr(FolderCount)+" ;было элементов: "+CStr(ListCount)
+   
+   else
+        SQALogMessage sqaFail, "Список загружен с ошибкой", "Список загрузился, но элементов: "+CStr(FolderCount)+" ;было элементов: "+CStr(ListCount)
+   end if
+   
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=11,135"
+    'GenericObject Click, "Class=TvcmToolbar;ClassIndex=5", "Coords=13,10"
+    ListBox Click, "ObjectIndex=1", "Coords=138,8"
+    if Position_by_Text("CurrentFocus",QueryName)<>0 then
+        SQALogMessage sqaPass, "Элемент создался", "Элемент с именем """+QueryName+""" создался"
+        InputKeys "{DELETE}"   
+        Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+        InputKeys "{ENTER}"
+        
+   else
+        SQALogMessage sqaFail, "Элемент не создался", "Элемент с именем """+QueryName+""" не создался"
+        exit sub
+   end if
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   'GenericObject Click, "Class=TvcmToolbar;ClassIndex=5", "Coords=15,14"
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   MenuIDSelect 12
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,36"
+end Sub

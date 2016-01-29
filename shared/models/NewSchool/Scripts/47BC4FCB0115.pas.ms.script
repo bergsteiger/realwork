@@ -1,0 +1,59 @@
+// DT 47BC4FCB0115 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_47BC4FCB0115
+ CONST UID '47BC4FCB0115'
+ CONST Name 'DT'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'Классы для работы с HyTech в Архивариусе и его смежных утилитах.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABA2360025A' '4ABA2360025A.pas.ms.script' // Shared Delphi For Archi
+ ;
+ : Children
+   @ ( WL 'ME_47BC50280350' '47BC50280350.pas.ms.script' // Dictionary
+ WL 'ME_5069A3DE03D5' '5069A3DE03D5.pas.ms.script' // Autolink
+ WL 'ME_519B70FC02AB' '519B70FC02AB.pas.ms.script' // DataAccess
+ WL 'ME_519B75D1009E' '519B75D1009E.pas.ms.script' // Tables
+ WL 'ME_519B797A0048' '519B797A0048.pas.ms.script' // Servers
+ WL 'ME_51B1C73B0056' '51B1C73B0056.pas.ms.script' // ImportExport
+ WL 'ME_52FBA554014B' '52FBA554014B.pas.ms.script' // Users
+ WL 'ME_52FCABBD02EE' '52FCABBD02EE.pas.ms.script' // Query
+ WL 'ME_537F6D320018' '537F6D320018.pas.ms.script' // Containers
+ WL 'ME_537F78280242' '537F78280242.pas.ms.script' // DbInfo
+ WL 'ME_5450CFDA02FF' '5450CFDA02FF.pas.ms.script' // Mail
+ WL 'ME_555331D10378' '555331D10378.pas.ms.script' // Core
+ WL 'ME_559D0BE101B4' '559D0BE101B4.pas.ms.script' // dtIntf
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_543244050044' '543244050044.pas.ms.script' // DA
+ WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'DtDefine.inc'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "ifndef" 'Nemesis'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi For Archi\DT\DT.model.script'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\DT_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47BC4FCB0115.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47BC4FCB0115.pas.ms.script.runner'
+
+ref; // ME_47BC4FCB0115 DT

@@ -1,0 +1,1234 @@
+// nscNewInterfaces 490838E10313 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490838E10313
+
+FORWARD ME_4908393001C5
+
+: ME_4908394101EB
+ CONST UID '4908394101EB'
+ CONST Name 'Active'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4908393001C5 // InscContextFilterState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4908394101EB Active
+
+: ME_4908395B027E
+ CONST UID '4908395B027E'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4908393001C5 // InscContextFilterState
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_4908395B027E Context
+
+: ME_4908396C014C
+ CONST UID '4908396C014C'
+ CONST Name 'ActiveContext'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4908393001C5 // InscContextFilterState
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_4908396C014C ActiveContext
+
+: ME_4908397A033F
+ CONST UID '4908397A033F'
+ CONST Name 'CaretPos'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4908393001C5 // InscContextFilterState
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4908397A033F CaretPos
+
+: ME_490839F50038
+ CONST UID '490839F50038'
+ CONST Name 'NeedRefilterTree'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4908393001C5 // InscContextFilterState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_490839F50038 NeedRefilterTree
+
+: ME_4908393001C5
+ CONST UID '4908393001C5'
+ CONST GUID '4FEA5B19-4FA8-4681-86A8-7712B950A926'
+ CONST Name 'InscContextFilterState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Состояние контекстного фильтра' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Attributes
+   @ ( ME_4908394101EB // Active
+ ME_4908395B027E // Context
+ ME_4908396C014C // ActiveContext
+ ME_4908397A033F // CaretPos
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_490839F50038 // NeedRefilterTree
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4908393001C5 InscContextFilterState
+
+FORWARD ME_490839920096
+
+: ME_4B1668560397
+ CONST UID '4B1668560397'
+ CONST Name 'aHandle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B1668560397 aHandle
+
+: ME_4B16685603E5
+ CONST UID '4B16685603E5'
+ CONST Name 'aFilterName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4B16685603E5 aFilterName
+
+: ME_4B166857003B
+ CONST UID '4B166857003B'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4908393001C5 // InscContextFilterState
+ ;
+
+ref; // ME_4B166857003B aState
+
+: ME_490839BA0073
+ CONST UID '490839BA0073'
+ CONST Name 'ContextCanBeChanged'
+ CONST Class class_Operation
+ %SUMMARY 'событие возможной смены контекста. Генерируется при уходе фокуса из'#13#10'             поля ввода и уничтожении компонента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_490839920096 // InscContextFilterListener
+ ;
+ : Parameters
+   @ ( ME_4B1668560397 // aHandle
+ ME_4B16685603E5 // aFilterName
+ ME_4B166857003B // aState
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_490839BA0073 ContextCanBeChanged
+
+: ME_4B16685E02A0
+ CONST UID '4B16685E02A0'
+ CONST Name 'aHandle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B16685E02A0 aHandle
+
+: ME_4B165B44032D
+ CONST UID '4B165B44032D'
+ CONST Name 'FilterRemoving'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_490839920096 // InscContextFilterListener
+ ;
+ : Parameters
+   @ ( ME_4B16685E02A0 // aHandle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4B165B44032D FilterRemoving
+
+: ME_490839920096
+ CONST UID '490839920096'
+ CONST GUID 'BF8E1FFC-F292-46FE-80CA-64806B40588B'
+ CONST Name 'InscContextFilterListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий контекстного фильтра' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Operations
+   @ ( ME_490839BA0073 // ContextCanBeChanged
+ ME_4B165B44032D // FilterRemoving
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_490839920096 InscContextFilterListener
+
+FORWARD ME_496B78080016
+
+: ME_496B781903E3
+ CONST UID '496B781903E3'
+ CONST Name 'TabActivate'
+ CONST Class class_Operation
+ %SUMMARY 'Cобытие активации вкладки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B78080016 // InscPageControlNotification
+ ;
+
+ref; // ME_496B781903E3 TabActivate
+
+: ME_496B78080016
+ CONST UID '496B78080016'
+ CONST GUID '2E50A778-1920-4AB5-8647-2FA1426CCCAD'
+ CONST Name 'InscPageControlNotification'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Для уведомления о событиях компонента с вкладками' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Operations
+   @ ( ME_496B781903E3 // TabActivate
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_496B78080016 InscPageControlNotification
+
+FORWARD ME_498035FA00E9
+
+: ME_498035FF034C
+ CONST UID '498035FF034C'
+ CONST Name 'nsc_ttkNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_498035FA00E9 // TnscToolTipKind
+ ;
+
+ref; // ME_498035FF034C nsc_ttkNone
+
+: ME_498036040369
+ CONST UID '498036040369'
+ CONST Name 'nsc_ttkInformation'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_498035FA00E9 // TnscToolTipKind
+ ;
+
+ref; // ME_498036040369 nsc_ttkInformation
+
+: ME_4980360B0392
+ CONST UID '4980360B0392'
+ CONST Name 'nsc_ttkWarning'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_498035FA00E9 // TnscToolTipKind
+ ;
+
+ref; // ME_4980360B0392 nsc_ttkWarning
+
+: ME_498036100285
+ CONST UID '498036100285'
+ CONST Name 'nsc_ttkError'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_498035FA00E9 // TnscToolTipKind
+ ;
+
+ref; // ME_498036100285 nsc_ttkError
+
+: ME_498035FA00E9
+ CONST UID '498035FA00E9'
+ CONST Name 'TnscToolTipKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Attributes
+   @ ( ME_498035FF034C // nsc_ttkNone
+ ME_498036040369 // nsc_ttkInformation
+ ME_4980360B0392 // nsc_ttkWarning
+ ME_498036100285 // nsc_ttkError
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_498035FA00E9 TnscToolTipKind
+
+FORWARD ME_498036360179
+
+FORWARD ME_4980350B00FA
+
+: ME_4980370D001D
+ CONST UID '4980370D001D'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" false
+
+ref; // ME_4980370D001D Caption
+
+: ME_4980371E0167
+ CONST UID '4980371E0167'
+ CONST Name 'UseToolTip'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4980371E0167 UseToolTip
+
+: ME_4980372D0191
+ CONST UID '4980372D0191'
+ CONST Name 'RequireAutoPopup'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4980372D0191 RequireAutoPopup
+
+: ME_4980373B02B6
+ CONST UID '4980373B02B6'
+ CONST Name 'AutoPopupTimeout'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+ CONST "pm" false
+
+ref; // ME_4980373B02B6 AutoPopupTimeout
+
+: ME_4980374B0266
+ CONST UID '4980374B0266'
+ CONST Name 'TootTipKind'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Target ME_498035FA00E9 // TnscToolTipKind
+ ;
+ CONST "pm" false
+
+ref; // ME_4980374B0266 TootTipKind
+
+: ME_4ADC59C6003B
+ CONST UID '4ADC59C6003B'
+ CONST Name 'ShowCaption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4ADC59C6003B ShowCaption
+
+: ME_4BCEAF1A00EE
+ CONST UID '4BCEAF1A00EE'
+ CONST Name 'Enabled'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4BCEAF1A00EE Enabled
+
+: ME_5060385E0190
+ CONST UID '5060385E0190'
+ CONST Name 'SubscribedList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Target ME_498036360179 // InscStatusBarItemDefsList
+ ;
+ CONST "pm" false
+
+ref; // ME_5060385E0190 SubscribedList
+
+FORWARD ME_5060388903AB
+
+: ME_50603893038C
+ CONST UID '50603893038C'
+ CONST Name 'aServer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4980350B00FA // InscStatusBarItemDef
+ ;
+
+ref; // ME_50603893038C aServer
+
+: ME_50603891018D
+ CONST UID '50603891018D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5060388903AB // SubscribeOnNotification
+ ;
+ : Parameters
+   @ ( ME_50603893038C // aServer
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_50603891018D DoIt
+
+: ME_5060388903AB
+ CONST UID '5060388903AB'
+ CONST Name 'SubscribeOnNotification'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Operations
+   @ ( ME_50603891018D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5060388903AB SubscribeOnNotification
+
+: ME_4980350B00FA
+ CONST UID '4980350B00FA'
+ CONST GUID 'F1A38933-0087-4D5E-ABE9-F1D39315F958'
+ CONST Name 'InscStatusBarItemDef'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Attributes
+   @ ( ME_4980370D001D // Caption
+ ME_4980371E0167 // UseToolTip
+ ME_4980372D0191 // RequireAutoPopup
+ ME_4980373B02B6 // AutoPopupTimeout
+ ME_4980374B0266 // TootTipKind
+ ME_4ADC59C6003B // ShowCaption
+ ME_4BCEAF1A00EE // Enabled
+ ME_5060385E0190 // SubscribedList
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5060388903AB // SubscribeOnNotification
+ ) .SequenceCode.It
+ ; // Operations
+ : Forwarded
+   @ ( ME_498036360179 // InscStatusBarItemDefsList
+ ) .SequenceCode.It
+ ; // Forwarded
+
+ref; // ME_4980350B00FA InscStatusBarItemDef
+
+: ME_498036520375
+ CONST UID '498036520375'
+ CONST Name 'Count'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_498036360179 // InscStatusBarItemDefsList
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_498036520375 Count
+
+FORWARD ME_4980367803E7
+
+: ME_4980368A0302
+ CONST UID '4980368A0302'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4980367803E7 // Items
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4980368A0302 anIndex
+
+: ME_4980367803E7
+ CONST UID '4980367803E7'
+ CONST Name 'Items'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_498036360179 // InscStatusBarItemDefsList
+ ;
+ : Target ME_4980350B00FA // InscStatusBarItemDef
+ ;
+ : Attributes
+   @ ( ME_4980368A0302 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "pm" true
+
+ref; // ME_4980367803E7 Items
+
+: ME_498036480167
+ CONST UID '498036480167'
+ CONST Name 'aDef'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4980350B00FA // InscStatusBarItemDef
+ ;
+
+ref; // ME_498036480167 aDef
+
+: ME_4980364202E5
+ CONST UID '4980364202E5'
+ CONST Name 'Add'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_498036360179 // InscStatusBarItemDefsList
+ ;
+ : Parameters
+   @ ( ME_498036480167 // aDef
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4980364202E5 Add
+
+: ME_498036360179
+ CONST UID '498036360179'
+ CONST GUID 'A7A6F65A-CECA-46D4-A878-F1330AF47317'
+ CONST Name 'InscStatusBarItemDefsList'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Attributes
+   @ ( ME_498036520375 // Count
+ ME_4980367803E7 // Items
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4980364202E5 // Add
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_498036360179 InscStatusBarItemDefsList
+
+FORWARD ME_498036AD03AB
+
+: ME_498036B8002E
+ CONST UID '498036B8002E'
+ CONST Name 'Items'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_498036AD03AB // InscStatusBarItemsProvider
+ ;
+ : Target ME_498036360179 // InscStatusBarItemDefsList
+ ;
+ CONST "pm" false
+
+ref; // ME_498036B8002E Items
+
+: ME_498036AD03AB
+ CONST UID '498036AD03AB'
+ CONST GUID 'FC82FD20-A8E7-406B-9BCA-1D42AEE15833'
+ CONST Name 'InscStatusBarItemsProvider'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Attributes
+   @ ( ME_498036B8002E // Items
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_498036AD03AB InscStatusBarItemsProvider
+
+FORWARD ME_498036CB01D2
+
+: ME_498036D800C7
+ CONST UID '498036D800C7'
+ CONST Name 'aProvider'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_498036AD03AB // InscStatusBarItemsProvider
+ ;
+
+ref; // ME_498036D800C7 aProvider
+
+: ME_498036D4036F
+ CONST UID '498036D4036F'
+ CONST Name 'RegisterProvider'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_498036CB01D2 // InscStatusBarItemsVisualizer
+ ;
+ : Parameters
+   @ ( ME_498036D800C7 // aProvider
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_498036D4036F RegisterProvider
+
+: ME_498036E302BC
+ CONST UID '498036E302BC'
+ CONST Name 'aProvider'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_498036AD03AB // InscStatusBarItemsProvider
+ ;
+
+ref; // ME_498036E302BC aProvider
+
+: ME_498036E00030
+ CONST UID '498036E00030'
+ CONST Name 'UnregisterProvider'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_498036CB01D2 // InscStatusBarItemsVisualizer
+ ;
+ : Parameters
+   @ ( ME_498036E302BC // aProvider
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_498036E00030 UnregisterProvider
+
+: ME_498036CB01D2
+ CONST UID '498036CB01D2'
+ CONST GUID 'AB7E2AE6-1CC8-4CC0-B297-E7834151CAB9'
+ CONST Name 'InscStatusBarItemsVisualizer'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Operations
+   @ ( ME_498036D4036F // RegisterProvider
+ ME_498036E00030 // UnregisterProvider
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_498036CB01D2 InscStatusBarItemsVisualizer
+
+FORWARD ME_4FE9F428027C
+
+: ME_4FE9F49C0299
+ CONST UID '4FE9F49C0299'
+ CONST Name 'Operation'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ : Target WL 'ME_4683D016009C' '467BAB7F021E.pas.ms.script' // TvcmOpSelector
+ ;
+ CONST "pm" false
+
+ref; // ME_4FE9F49C0299 Operation
+
+: ME_4980370D001D_ME_4FE9F428027C
+ CONST UID '4980370D001D'
+ CONST Name 'Caption'
+ : Original ME_4980370D001D // Caption
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ CONST "pm" false
+ref; // ME_4980370D001D_ME_4FE9F428027C Caption
+
+: ME_4980371E0167_ME_4FE9F428027C
+ CONST UID '4980371E0167'
+ CONST Name 'UseToolTip'
+ : Original ME_4980371E0167 // UseToolTip
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ CONST "pm" false
+ref; // ME_4980371E0167_ME_4FE9F428027C UseToolTip
+
+: ME_4980372D0191_ME_4FE9F428027C
+ CONST UID '4980372D0191'
+ CONST Name 'RequireAutoPopup'
+ : Original ME_4980372D0191 // RequireAutoPopup
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ CONST "pm" false
+ref; // ME_4980372D0191_ME_4FE9F428027C RequireAutoPopup
+
+: ME_4980373B02B6_ME_4FE9F428027C
+ CONST UID '4980373B02B6'
+ CONST Name 'AutoPopupTimeout'
+ : Original ME_4980373B02B6 // AutoPopupTimeout
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ CONST "pm" false
+ref; // ME_4980373B02B6_ME_4FE9F428027C AutoPopupTimeout
+
+: ME_4980374B0266_ME_4FE9F428027C
+ CONST UID '4980374B0266'
+ CONST Name 'TootTipKind'
+ : Original ME_4980374B0266 // TootTipKind
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ CONST "pm" false
+ref; // ME_4980374B0266_ME_4FE9F428027C TootTipKind
+
+: ME_4ADC59C6003B_ME_4FE9F428027C
+ CONST UID '4ADC59C6003B'
+ CONST Name 'ShowCaption'
+ : Original ME_4ADC59C6003B // ShowCaption
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ CONST "pm" false
+ref; // ME_4ADC59C6003B_ME_4FE9F428027C ShowCaption
+
+: ME_4BCEAF1A00EE_ME_4FE9F428027C
+ CONST UID '4BCEAF1A00EE'
+ CONST Name 'Enabled'
+ : Original ME_4BCEAF1A00EE // Enabled
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ CONST "pm" false
+ref; // ME_4BCEAF1A00EE_ME_4FE9F428027C Enabled
+
+: ME_5060385E0190_ME_4FE9F428027C
+ CONST UID '5060385E0190'
+ CONST Name 'SubscribedList'
+ : Original ME_5060385E0190 // SubscribedList
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ CONST "pm" false
+ref; // ME_5060385E0190_ME_4FE9F428027C SubscribedList
+
+: ME_5060388903AB_ME_4FE9F428027C
+ CONST UID '5060388903AB'
+ CONST Name 'SubscribeOnNotification'
+ : Original ME_5060388903AB // SubscribeOnNotification
+ ;
+ : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
+ ;
+ref; // ME_5060388903AB_ME_4FE9F428027C SubscribeOnNotification
+
+: ME_4FE9F428027C
+ CONST UID '4FE9F428027C'
+ CONST GUID '30B59FB0-01BE-4CA3-930C-70209C211197'
+ CONST Name 'InscStatusBarOperationDef'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Inherits
+   @ ( ME_4980350B00FA // InscStatusBarItemDef
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4FE9F49C0299 // Operation
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4980370D001D_ME_4FE9F428027C // Caption
+ ME_4980371E0167_ME_4FE9F428027C // UseToolTip
+ ME_4980372D0191_ME_4FE9F428027C // RequireAutoPopup
+ ME_4980373B02B6_ME_4FE9F428027C // AutoPopupTimeout
+ ME_4980374B0266_ME_4FE9F428027C // TootTipKind
+ ME_4ADC59C6003B_ME_4FE9F428027C // ShowCaption
+ ME_4BCEAF1A00EE_ME_4FE9F428027C // Enabled
+ ME_5060385E0190_ME_4FE9F428027C // SubscribedList
+ ME_5060388903AB_ME_4FE9F428027C // SubscribeOnNotification
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "ifndef" 'NoVCM'
+
+ref; // ME_4FE9F428027C InscStatusBarOperationDef
+
+FORWARD ME_4FEC3BB5027F
+
+FORWARD ME_4FF314BE007F
+
+: ME_4FF315020158
+ CONST UID '4FF315020158'
+ CONST Name 'spLeft'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FF314BE007F // TsbdSeparatorPos
+ ;
+
+ref; // ME_4FF315020158 spLeft
+
+: ME_4FF3151100F2
+ CONST UID '4FF3151100F2'
+ CONST Name 'spMiddle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FF314BE007F // TsbdSeparatorPos
+ ;
+
+ref; // ME_4FF3151100F2 spMiddle
+
+: ME_4FF3151A02FA
+ CONST UID '4FF3151A02FA'
+ CONST Name 'spRight'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FF314BE007F // TsbdSeparatorPos
+ ;
+
+ref; // ME_4FF3151A02FA spRight
+
+: ME_4FF314BE007F
+ CONST UID '4FF314BE007F'
+ CONST Name 'TsbdSeparatorPos'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ : Attributes
+   @ ( ME_4FF315020158 // spLeft
+ ME_4FF3151100F2 // spMiddle
+ ME_4FF3151A02FA // spRight
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4FF314BE007F TsbdSeparatorPos
+
+: ME_4FF315450358
+ CONST UID '4FF315450358'
+ CONST Name 'SeparatorPos'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ : Target ME_4FF314BE007F // TsbdSeparatorPos
+ ;
+ CONST "pm" false
+
+ref; // ME_4FF315450358 SeparatorPos
+
+: ME_4FF3157D0385
+ CONST UID '4FF3157D0385'
+ CONST Name 'IsSeparatorVisible'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4FF3157D0385 IsSeparatorVisible
+
+: ME_4FF3159402B4
+ CONST UID '4FF3159402B4'
+ CONST Name 'Width'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4FF3159402B4 Width
+
+: ME_4980370D001D_ME_4FEC3BB5027F
+ CONST UID '4980370D001D'
+ CONST Name 'Caption'
+ : Original ME_4980370D001D // Caption
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ CONST "pm" false
+ref; // ME_4980370D001D_ME_4FEC3BB5027F Caption
+
+: ME_4980371E0167_ME_4FEC3BB5027F
+ CONST UID '4980371E0167'
+ CONST Name 'UseToolTip'
+ : Original ME_4980371E0167 // UseToolTip
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ CONST "pm" false
+ref; // ME_4980371E0167_ME_4FEC3BB5027F UseToolTip
+
+: ME_4980372D0191_ME_4FEC3BB5027F
+ CONST UID '4980372D0191'
+ CONST Name 'RequireAutoPopup'
+ : Original ME_4980372D0191 // RequireAutoPopup
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ CONST "pm" false
+ref; // ME_4980372D0191_ME_4FEC3BB5027F RequireAutoPopup
+
+: ME_4980373B02B6_ME_4FEC3BB5027F
+ CONST UID '4980373B02B6'
+ CONST Name 'AutoPopupTimeout'
+ : Original ME_4980373B02B6 // AutoPopupTimeout
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ CONST "pm" false
+ref; // ME_4980373B02B6_ME_4FEC3BB5027F AutoPopupTimeout
+
+: ME_4980374B0266_ME_4FEC3BB5027F
+ CONST UID '4980374B0266'
+ CONST Name 'TootTipKind'
+ : Original ME_4980374B0266 // TootTipKind
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ CONST "pm" false
+ref; // ME_4980374B0266_ME_4FEC3BB5027F TootTipKind
+
+: ME_4ADC59C6003B_ME_4FEC3BB5027F
+ CONST UID '4ADC59C6003B'
+ CONST Name 'ShowCaption'
+ : Original ME_4ADC59C6003B // ShowCaption
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ CONST "pm" false
+ref; // ME_4ADC59C6003B_ME_4FEC3BB5027F ShowCaption
+
+: ME_4BCEAF1A00EE_ME_4FEC3BB5027F
+ CONST UID '4BCEAF1A00EE'
+ CONST Name 'Enabled'
+ : Original ME_4BCEAF1A00EE // Enabled
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ CONST "pm" false
+ref; // ME_4BCEAF1A00EE_ME_4FEC3BB5027F Enabled
+
+: ME_5060385E0190_ME_4FEC3BB5027F
+ CONST UID '5060385E0190'
+ CONST Name 'SubscribedList'
+ : Original ME_5060385E0190 // SubscribedList
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ CONST "pm" false
+ref; // ME_5060385E0190_ME_4FEC3BB5027F SubscribedList
+
+: ME_5060388903AB_ME_4FEC3BB5027F
+ CONST UID '5060388903AB'
+ CONST Name 'SubscribeOnNotification'
+ : Original ME_5060388903AB // SubscribeOnNotification
+ ;
+ : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ;
+ref; // ME_5060388903AB_ME_4FEC3BB5027F SubscribeOnNotification
+
+: ME_4FEC3BB5027F
+ CONST UID '4FEC3BB5027F'
+ CONST GUID '7600F2A4-90B6-4661-AFDF-3E6EFC638004'
+ CONST Name 'InscStatusBarDelimiterDef'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Inherits
+   @ ( ME_4980350B00FA // InscStatusBarItemDef
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4FF315450358 // SeparatorPos
+ ME_4FF3157D0385 // IsSeparatorVisible
+ ME_4FF3159402B4 // Width
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4980370D001D_ME_4FEC3BB5027F // Caption
+ ME_4980371E0167_ME_4FEC3BB5027F // UseToolTip
+ ME_4980372D0191_ME_4FEC3BB5027F // RequireAutoPopup
+ ME_4980373B02B6_ME_4FEC3BB5027F // AutoPopupTimeout
+ ME_4980374B0266_ME_4FEC3BB5027F // TootTipKind
+ ME_4ADC59C6003B_ME_4FEC3BB5027F // ShowCaption
+ ME_4BCEAF1A00EE_ME_4FEC3BB5027F // Enabled
+ ME_5060385E0190_ME_4FEC3BB5027F // SubscribedList
+ ME_5060388903AB_ME_4FEC3BB5027F // SubscribeOnNotification
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_4FF314BE007F // TsbdSeparatorPos
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_4FEC3BB5027F InscStatusBarDelimiterDef
+
+FORWARD ME_52B333A8015C
+
+FORWARD ME_52B9761F024B
+
+: ME_52B981250046
+ CONST UID '52B981250046'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B9761F024B // OpenDocument
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52B981250046 DoIt
+
+: ME_52B9761F024B
+ CONST UID '52B9761F024B'
+ CONST Name 'OpenDocument'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52B333A8015C // InscBaseSearchPromptNode
+ ;
+ : Operations
+   @ ( ME_52B981250046 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52B9761F024B OpenDocument
+
+FORWARD ME_52B977E30154
+
+: ME_52B978470198
+ CONST UID '52B978470198'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52B977E30154 // IsLinkOnDocument
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52B978470198 DoIt
+
+: ME_52B977E30154
+ CONST UID '52B977E30154'
+ CONST Name 'IsLinkOnDocument'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52B333A8015C // InscBaseSearchPromptNode
+ ;
+ : Operations
+   @ ( ME_52B978470198 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52B977E30154 IsLinkOnDocument
+
+: ME_52B333A8015C
+ CONST UID '52B333A8015C'
+ CONST GUID '6B2CAEE8-1173-4C45-9204-0F32EF856714'
+ CONST Name 'InscBaseSearchPromptNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490838E10313 // nscNewInterfaces
+ ;
+ : Operations
+   @ ( ME_52B9761F024B // OpenDocument
+ ME_52B977E30154 // IsLinkOnDocument
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52B333A8015C InscBaseSearchPromptNode
+
+: ME_490838E10313
+ CONST UID '490838E10313'
+ CONST Name 'nscNewInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы компонентов проекта "Немезис"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ ;
+ : Children
+   @ ( ME_4908393001C5 // InscContextFilterState
+ ME_490839920096 // InscContextFilterListener
+ ME_496B78080016 // InscPageControlNotification
+ ME_498035FA00E9 // TnscToolTipKind
+ ME_4980350B00FA // InscStatusBarItemDef
+ ME_498036360179 // InscStatusBarItemDefsList
+ ME_498036AD03AB // InscStatusBarItemsProvider
+ ME_498036CB01D2 // InscStatusBarItemsVisualizer
+ ME_4FE9F428027C // InscStatusBarOperationDef
+ ME_4FEC3BB5027F // InscStatusBarDelimiterDef
+ ME_52B333A8015C // InscBaseSearchPromptNode
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '29.10.2008 13:20'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscNewInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\490838E10313.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\490838E10313.pas.ms.script.runner'
+
+ref; // ME_490838E10313 nscNewInterfaces

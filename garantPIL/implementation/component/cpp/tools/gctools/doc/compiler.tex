@@ -1,0 +1,45 @@
+\documentstyle[russian,a4,supertabular]{article}
+\title{Опции компилятора}
+\author{Алик Курдюков}
+\begin{document}
+\thispagestyle{empty}
+\pagestyle{empty}
+\maketitle
+Описанные ниже команды содержатся в текстовом файде передаваемом как опция 
+компилятора в виде
+
+{\tt gc <{\it имя файла}>}
+
+\begin{center}
+\tablefirsthead{%
+	\hline
+	Название & Возможные значения & Комментарии \\
+	\hline
+}
+\begin{supertabular}{|l|l|p{4cm}|}
+{\tt ClassFile} & {\tt <путь и имя файла>} & Имя файла классов \\ \hline
+{\tt BelongFile} & {\tt <путь и имя файла>} & Имя файла belong-ов \\ \hline
+{\tt KeywordFile} & {\tt <путь и имя файла>} & Имя файла ключевых слов \\ \hline
+{\tt SuffixesFile} & {\tt <путь и имя файла>} & Файл суффиксов \\ \hline
+{\tt OutFiles} & {\tt <путь и имя файла>} & Выходной мета-файл \\ \hline
+{\tt RevisionDate} & {\tt <дата >} & Дата ревизии, которая будет проставлена в базе \\\hline
+{\tt SourcesFile} & {\tt <путь и имя файла>} & Файл co списком источников \\\hline
+{\tt TypesFile} & {\tt <путь и имя файла>} & Файл со списком типов \\\hline
+{\tt WarningsFile} & {\tt <путь и имя файла>} & Файл со списком предупреждений \\\hline
+{\tt CatFile} & {\tt <путь и имя файла>} & Файл со списком nsrc \\\hline
+{\tt LogFile} & {\tt <путь и имя файла>} & Файл, в который будет писаться log \\\hline
+{\tt PriorityTableFile} & {\tt <путь и имя файла>} & Файл с таблицей приоритетов \\\hline
+{\tt BelongsList} & {\tt <список id сегментов>} &  Список id сегментов, 
+								включенных в данную компиляцию \\\hline
+{\tt MFCompressLevel} & {\tt <число из 1..9>} & Уровень сжатия meta-файла 
+					1-минимальный, 9-максимальный \\\hline
+{\tt EnableStdout} & {\tt <yes/no>} &  {\it устарело} \\\hline
+{\tt CheckReference} & {\tt <yes/no>} &  Включить/выключить проверку ссылок. 
+					По умолчанию: выкл.\\\hline
+{\tt NDTCompress} & {\tt <число из 1..9>} &  Уровень сжатия meta-файла 
+				1-минимальный, 9-максимальный\\\hline
+{\tt LogEncoding} & {\tt win, dos, koi, mac} & Кодировка русских букв для log \\
+\hline
+\end{supertabular}
+\end{center}
+\end{document}

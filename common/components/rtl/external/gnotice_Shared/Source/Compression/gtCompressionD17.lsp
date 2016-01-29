@@ -1,0 +1,1 @@
+-+D:\work\eDocEngine4\Trunk\Shared\Source\Compression\gtDZLIB3.o -+D:\Program Files\DelphiXE3\lib\Win64\release\SysInit.o 

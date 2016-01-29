@@ -1,0 +1,17 @@
+'Продажа классика текущему клиенту со скидкой на продажу 1.01 и на обновление 1.05
+Sub Main
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 48
+    
+    Window SetContext, "CurrentWindow", ""
+    InputKeys "{DOWN}{DOWN}{TAB}{TAB}{DOWN}{TAB}{DOWN}{TAB}{DOWN}{TAB} {DOWN} "
+    InputKeys "{TAB}1.01{TAB}{DOWN}{TAB}"
+    DelayFor 10 'Без этого АРМ лажается
+    InputKeys "1.05{TAB}{DOWN}{DOWN}{DOWN}"
+    GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=10,13"
+    InputKeys "{PGUP}{PGUP}{PGUP}{PGUP}{PGUP}{UP}{UP}{LEFT}{LEFT}{ENTER}{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 21
+
+End Sub

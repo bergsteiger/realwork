@@ -1,0 +1,933 @@
+// Source 540013B002E1 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_540013B002E1
+
+FORWARD ME_5400153B0321
+
+: ME_5400158A013C
+ CONST UID '5400158A013C'
+ CONST Name 'TgtPDFEngine'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5400153B0321 // gtPDFEng
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_5400158A013C TgtPDFEngine
+
+: ME_5400153B0321
+ CONST UID '5400153B0321'
+ CONST Name 'gtPDFEng'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_540013B002E1 // Source
+ ;
+ : Children
+   @ ( ME_5400158A013C // TgtPDFEngine
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\eDocEngine\Source\NOT_FINISHED_gtPDFEng.pas'
+
+ref; // ME_5400153B0321 gtPDFEng
+
+FORWARD ME_540015650122
+
+FORWARD ME_540015B6019D
+
+: ME_540015BF0327
+ CONST UID '540015BF0327'
+ CONST Name 'muPixels'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015B6019D // TgtUnitType
+ ;
+
+ref; // ME_540015BF0327 muPixels
+
+: ME_540015C7031D
+ CONST UID '540015C7031D'
+ CONST Name 'muInches'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015B6019D // TgtUnitType
+ ;
+
+ref; // ME_540015C7031D muInches
+
+: ME_540015D002A6
+ CONST UID '540015D002A6'
+ CONST Name 'muMM'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015B6019D // TgtUnitType
+ ;
+
+ref; // ME_540015D002A6 muMM
+
+: ME_540015D90377
+ CONST UID '540015D90377'
+ CONST Name 'muPoints'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015B6019D // TgtUnitType
+ ;
+
+ref; // ME_540015D90377 muPoints
+
+: ME_540015E10209
+ CONST UID '540015E10209'
+ CONST Name 'muTwips'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015B6019D // TgtUnitType
+ ;
+
+ref; // ME_540015E10209 muTwips
+
+: ME_540015B6019D
+ CONST UID '540015B6019D'
+ CONST Name 'TgtUnitType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_540015650122 // gtCstDocEng
+ ;
+ : Attributes
+   @ ( ME_540015BF0327 // muPixels
+ ME_540015C7031D // muInches
+ ME_540015D002A6 // muMM
+ ME_540015D90377 // muPoints
+ ME_540015E10209 // muTwips
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_540015B6019D TgtUnitType
+
+FORWARD ME_540015F20245
+
+: ME_540015FB0324
+ CONST UID '540015FB0324'
+ CONST Name 'Letter'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540015FB0324 Letter
+
+: ME_540016030174
+ CONST UID '540016030174'
+ CONST Name 'LetterSmall'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016030174 LetterSmall
+
+: ME_5400160A03DE
+ CONST UID '5400160A03DE'
+ CONST Name 'Tabloid'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400160A03DE Tabloid
+
+: ME_54001613000D
+ CONST UID '54001613000D'
+ CONST Name 'Ledger'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_54001613000D Ledger
+
+: ME_5400161D006C
+ CONST UID '5400161D006C'
+ CONST Name 'Legal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400161D006C Legal
+
+: ME_5400162502A5
+ CONST UID '5400162502A5'
+ CONST Name 'Statement'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400162502A5 Statement
+
+: ME_5400162E025E
+ CONST UID '5400162E025E'
+ CONST Name 'Executive'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400162E025E Executive
+
+: ME_540016360280
+ CONST UID '540016360280'
+ CONST Name 'A3'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016360280 A3
+
+: ME_5400163E02D5
+ CONST UID '5400163E02D5'
+ CONST Name 'A4'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400163E02D5 A4
+
+: ME_540016460167
+ CONST UID '540016460167'
+ CONST Name 'A4Small'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016460167 A4Small
+
+: ME_54001652035B
+ CONST UID '54001652035B'
+ CONST Name 'A5'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_54001652035B A5
+
+: ME_5400165A00D2
+ CONST UID '5400165A00D2'
+ CONST Name 'B4'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400165A00D2 B4
+
+: ME_5400166103D5
+ CONST UID '5400166103D5'
+ CONST Name 'B5'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400166103D5 B5
+
+: ME_54001669038A
+ CONST UID '54001669038A'
+ CONST Name 'Folio'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_54001669038A Folio
+
+: ME_540016710341
+ CONST UID '540016710341'
+ CONST Name 'Quarto'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016710341 Quarto
+
+: ME_5400167A0068
+ CONST UID '5400167A0068'
+ CONST Name 'ps10X14'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400167A0068 ps10X14
+
+: ME_540016840089
+ CONST UID '540016840089'
+ CONST Name 'ps11X17'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016840089 ps11X17
+
+: ME_5400168C03AA
+ CONST UID '5400168C03AA'
+ CONST Name 'Note'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400168C03AA Note
+
+: ME_5400169503DC
+ CONST UID '5400169503DC'
+ CONST Name 'Env10'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400169503DC Env10
+
+: ME_5400169D0133
+ CONST UID '5400169D0133'
+ CONST Name 'Env11'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400169D0133 Env11
+
+: ME_540016A5024F
+ CONST UID '540016A5024F'
+ CONST Name 'Env12'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016A5024F Env12
+
+: ME_540016AD039E
+ CONST UID '540016AD039E'
+ CONST Name 'Env14'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016AD039E Env14
+
+: ME_540016B5029F
+ CONST UID '540016B5029F'
+ CONST Name 'CSheet'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016B5029F CSheet
+
+: ME_540016BC021A
+ CONST UID '540016BC021A'
+ CONST Name 'DSheet'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016BC021A DSheet
+
+: ME_540016C4003C
+ CONST UID '540016C4003C'
+ CONST Name 'ESheet'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016C4003C ESheet
+
+: ME_540016D50049
+ CONST UID '540016D50049'
+ CONST Name 'EnvDL'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016D50049 EnvDL
+
+: ME_540016DD00CB
+ CONST UID '540016DD00CB'
+ CONST Name 'EnvC5'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016DD00CB EnvC5
+
+: ME_540016E5013E
+ CONST UID '540016E5013E'
+ CONST Name 'EnvC3'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540016E5013E EnvC3
+
+: ME_5400179600B9
+ CONST UID '5400179600B9'
+ CONST Name 'EnvC4'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400179600B9 EnvC4
+
+: ME_5400179F01B4
+ CONST UID '5400179F01B4'
+ CONST Name 'EnvC6'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400179F01B4 EnvC6
+
+: ME_540017A70272
+ CONST UID '540017A70272'
+ CONST Name 'EnvC65'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017A70272 EnvC65
+
+: ME_540017AE0351
+ CONST UID '540017AE0351'
+ CONST Name 'EnvB4'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017AE0351 EnvB4
+
+: ME_540017B60132
+ CONST UID '540017B60132'
+ CONST Name 'EnvB5'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017B60132 EnvB5
+
+: ME_540017BE01FF
+ CONST UID '540017BE01FF'
+ CONST Name 'EnvB6'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017BE01FF EnvB6
+
+: ME_540017C80115
+ CONST UID '540017C80115'
+ CONST Name 'EnvItaly'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017C80115 EnvItaly
+
+: ME_540017E101DF
+ CONST UID '540017E101DF'
+ CONST Name 'EnvMonarch'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017E101DF EnvMonarch
+
+: ME_540017E9030B
+ CONST UID '540017E9030B'
+ CONST Name 'EnvPersonal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017E9030B EnvPersonal
+
+: ME_540017F1006F
+ CONST UID '540017F1006F'
+ CONST Name 'FanfoldUS'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017F1006F FanfoldUS
+
+: ME_540017FB0204
+ CONST UID '540017FB0204'
+ CONST Name 'FanfoldStdGerman'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_540017FB0204 FanfoldStdGerman
+
+: ME_5400180400CD
+ CONST UID '5400180400CD'
+ CONST Name 'ISOB4'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400180400CD ISOB4
+
+: ME_5400180C0311
+ CONST UID '5400180C0311'
+ CONST Name 'Custom'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540015F20245 // TgtPaperSize
+ ;
+
+ref; // ME_5400180C0311 Custom
+
+: ME_540015F20245
+ CONST UID '540015F20245'
+ CONST Name 'TgtPaperSize'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_540015650122 // gtCstDocEng
+ ;
+ : Attributes
+   @ ( ME_540015FB0324 // Letter
+ ME_540016030174 // LetterSmall
+ ME_5400160A03DE // Tabloid
+ ME_54001613000D // Ledger
+ ME_5400161D006C // Legal
+ ME_5400162502A5 // Statement
+ ME_5400162E025E // Executive
+ ME_540016360280 // A3
+ ME_5400163E02D5 // A4
+ ME_540016460167 // A4Small
+ ME_54001652035B // A5
+ ME_5400165A00D2 // B4
+ ME_5400166103D5 // B5
+ ME_54001669038A // Folio
+ ME_540016710341 // Quarto
+ ME_5400167A0068 // ps10X14
+ ME_540016840089 // ps11X17
+ ME_5400168C03AA // Note
+ ME_5400169503DC // Env10
+ ME_5400169D0133 // Env11
+ ME_540016A5024F // Env12
+ ME_540016AD039E // Env14
+ ME_540016B5029F // CSheet
+ ME_540016BC021A // DSheet
+ ME_540016C4003C // ESheet
+ ME_540016D50049 // EnvDL
+ ME_540016DD00CB // EnvC5
+ ME_540016E5013E // EnvC3
+ ME_5400179600B9 // EnvC4
+ ME_5400179F01B4 // EnvC6
+ ME_540017A70272 // EnvC65
+ ME_540017AE0351 // EnvB4
+ ME_540017B60132 // EnvB5
+ ME_540017BE01FF // EnvB6
+ ME_540017C80115 // EnvItaly
+ ME_540017E101DF // EnvMonarch
+ ME_540017E9030B // EnvPersonal
+ ME_540017F1006F // FanfoldUS
+ ME_540017FB0204 // FanfoldStdGerman
+ ME_5400180400CD // ISOB4
+ ME_5400180C0311 // Custom
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_540015F20245 TgtPaperSize
+
+FORWARD ME_540018290381
+
+: ME_5400183801D4
+ CONST UID '5400183801D4'
+ CONST Name 'ifBMP'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540018290381 // TgtOutputImageFormat
+ ;
+
+ref; // ME_5400183801D4 ifBMP
+
+: ME_540018410158
+ CONST UID '540018410158'
+ CONST Name 'ifJPEG'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540018290381 // TgtOutputImageFormat
+ ;
+
+ref; // ME_540018410158 ifJPEG
+
+: ME_5400188D03B7
+ CONST UID '5400188D03B7'
+ CONST Name 'ifGIF'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540018290381 // TgtOutputImageFormat
+ ;
+
+ref; // ME_5400188D03B7 ifGIF
+
+: ME_5400189600FA
+ CONST UID '5400189600FA'
+ CONST Name 'ifPNG'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540018290381 // TgtOutputImageFormat
+ ;
+
+ref; // ME_5400189600FA ifPNG
+
+: ME_5400189D0294
+ CONST UID '5400189D0294'
+ CONST Name 'ifMetafile'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540018290381 // TgtOutputImageFormat
+ ;
+
+ref; // ME_5400189D0294 ifMetafile
+
+: ME_540018A50268
+ CONST UID '540018A50268'
+ CONST Name 'ifCCITT3'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540018290381 // TgtOutputImageFormat
+ ;
+
+ref; // ME_540018A50268 ifCCITT3
+
+: ME_540018B00257
+ CONST UID '540018B00257'
+ CONST Name 'ifCCITT4'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_540018290381 // TgtOutputImageFormat
+ ;
+
+ref; // ME_540018B00257 ifCCITT4
+
+: ME_540018290381
+ CONST UID '540018290381'
+ CONST Name 'TgtOutputImageFormat'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_540015650122 // gtCstDocEng
+ ;
+ : Attributes
+   @ ( ME_5400183801D4 // ifBMP
+ ME_540018410158 // ifJPEG
+ ME_5400188D03B7 // ifGIF
+ ME_5400189600FA // ifPNG
+ ME_5400189D0294 // ifMetafile
+ ME_540018A50268 // ifCCITT3
+ ME_540018B00257 // ifCCITT4
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_540018290381 TgtOutputImageFormat
+
+: ME_540015650122
+ CONST UID '540015650122'
+ CONST Name 'gtCstDocEng'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_540013B002E1 // Source
+ ;
+ : Children
+   @ ( ME_540015B6019D // TgtUnitType
+ ME_540015F20245 // TgtPaperSize
+ ME_540018290381 // TgtOutputImageFormat
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\eDocEngine\Source\NOT_FINISHED_gtCstDocEng.pas'
+
+ref; // ME_540015650122 gtCstDocEng
+
+FORWARD ME_5444D9540164
+
+FORWARD ME_5444D962024C
+
+: ME_5444D97101F6
+ CONST UID '5444D97101F6'
+ CONST Name 'etfNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5444D962024C // TgtTTFontEmbedding
+ ;
+
+ref; // ME_5444D97101F6 etfNone
+
+: ME_5444D988018D
+ CONST UID '5444D988018D'
+ CONST Name 'etfFull'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5444D962024C // TgtTTFontEmbedding
+ ;
+
+ref; // ME_5444D988018D etfFull
+
+: ME_5444D9910278
+ CONST UID '5444D9910278'
+ CONST Name 'etfSubset'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5444D962024C // TgtTTFontEmbedding
+ ;
+
+ref; // ME_5444D9910278 etfSubset
+
+: ME_5444D962024C
+ CONST UID '5444D962024C'
+ CONST Name 'TgtTTFontEmbedding'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5444D9540164 // gtCstPDFEng
+ ;
+ : Attributes
+   @ ( ME_5444D97101F6 // etfNone
+ ME_5444D988018D // etfFull
+ ME_5444D9910278 // etfSubset
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_5444D962024C TgtTTFontEmbedding
+
+: ME_5444D9540164
+ CONST UID '5444D9540164'
+ CONST Name 'gtCstPDFEng'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_540013B002E1 // Source
+ ;
+ : Children
+   @ ( ME_5444D962024C // TgtTTFontEmbedding
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\eDocEngine\Source\NOT_FINISHED_gtCstPDFEng.pas'
+
+ref; // ME_5444D9540164 gtCstPDFEng
+
+: ME_540013B002E1
+ CONST UID '540013B002E1'
+ CONST Name 'Source'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5400135F0192' '5400135F0192.pas.ms.script' // eDocEngine
+ ;
+ : Children
+   @ ( ME_5400153B0321 // gtPDFEng
+ ME_540015650122 // gtCstDocEng
+ ME_5444D9540164 // gtCstPDFEng
+ ) .SequenceCode.It
+ ; // Children
+ CONST "path prefix" '/Source'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\540013B002E1.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\540013B002E1.pas.ms.script.runner'
+
+ref; // ME_540013B002E1 Source

@@ -1,0 +1,66 @@
+// Tm3BaseHashInfoStream 53FF322603A8 SimpleClass Class
+
+FORWARD ME_53FF322603A8
+
+: ME_53FF324503AD
+ CONST UID '53FF324503AD'
+ CONST Name 'Tm3HashInfoStreamHeader'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "need UC" true
+ CONST "packed" true
+
+ @SELF
+; // ME_53FF324503AD Tm3HashInfoStreamHeader
+
+INCLUDE '53FDCEC40006.pas.ms.script'
+
+INCLUDE '53FDFADD027F.pas.ms.script'
+
+: ME_53FF59120160
+ CONST UID '53FF59120160'
+ CONST Name 'HeaderType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_53FF324503AD // Tm3HashInfoStreamHeader
+ ;
+
+ @SELF
+; // ME_53FF59120160 HeaderType
+
+: ME_53FF322603A8
+ CONST UID '53FF322603A8'
+ CONST Name 'Tm3BaseHashInfoStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53FDCEC40006 // m3CustomHeaderStream
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_53FF59120160 // HeaderType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_53FDFAF900ED // HeaderID
+ ME_53FF37DC003A // DefaultHeaderValue
+ ]
+ ; // Implemented
+ : Children
+   [ ME_53FF324503AD // Tm3HashInfoStreamHeader
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53FF322603A8 Tm3BaseHashInfoStream

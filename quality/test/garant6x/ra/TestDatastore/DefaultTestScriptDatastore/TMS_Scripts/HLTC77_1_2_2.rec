@@ -1,0 +1,28 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Dim ListArray(1 to 1) as String
+Sub FillArray
+    ListArray(1)="Федеральный закон от 31 марта 1999 г. N 69-ФЗ ""О газоснабжении в Российской Федерации"""           
+'    ListArray(2)="Федеральный закон от 31 марта 1999 г. N 69-ФЗ ""О газоснабжении в Российской Федерации"". Часть Третья Статьи 7"           
+end sub
+Sub Main
+    call FillArray
+    CUR_STATE=ST_NONE_STANDART
+    Call NeedState (ST_PPS_6x)
+    ListBox Click, "ObjectIndex=5", "Coords=53,10"
+    Dim sText$
+    sText="Акции\акции организаций газоснабжения"
+    if Position_Internal_Add("CurrentFocus",sText)<>0 then
+       InputKeys "{ENTER}"
+    else
+        SQALogMessage sqaFail, "Реквезит не найден", "Не смог найти реквизит"
+    end if
+
+    InputKeys "^{ENTER}"
+    Dim ListCount%
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call StrComp2Log(CSTR(ListCount),"1")
+    call CheckItemNames(ListArray,"{DOWN}",0,ListCount,1)
+    'ListBox Click, "ObjectIndex=4", "Index=0;Index=0;Coords=11,32"
+    CUR_STATE=ST_NONE_STANDART
+End Sub

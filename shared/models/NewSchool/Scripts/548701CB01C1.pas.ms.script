@@ -1,0 +1,97 @@
+// m3DBContainers 548701CB01C1 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_548701CB01C1
+
+FORWARD ME_48294B450060
+
+: ME_48294BD9005C
+ CONST UID '48294BD9005C'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_48294B450060 // Tm3StorageElementIDList
+ ;
+ : Target WL 'ME_4828623D0134' '4720862F0238.pas.ms.script' // Im3StorageElementIDList
+ ;
+
+ref; // ME_48294BD9005C ListType
+
+: ME_47A042E100E2_ME_48294B450060
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_48294B450060 // Tm3StorageElementIDList
+ ;
+ref; // ME_47A042E100E2_ME_48294B450060 InitFields
+
+: ME_48294B450060
+ CONST UID '48294B450060'
+ CONST Name 'Tm3StorageElementIDList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_548701CB01C1 // m3DBContainers
+ ;
+ : Inherits
+   @ ( WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ WL 'ME_47CED1980057' '47BB24D30205.pas.ms.script' // l3InterfacedList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_48294BD9005C // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_47A042E100E2_ME_48294B450060 // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageElementIDList.pas'
+
+ref; // ME_48294B450060 Tm3StorageElementIDList
+
+: ME_548701CB01C1
+ CONST UID '548701CB01C1'
+ CONST Name 'm3DBContainers'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_548712F60101' '548712F60101.pas.ms.script' // m3$DB
+ ;
+ : Children
+   @ ( ME_48294B450060 // Tm3StorageElementIDList
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4720862F0238' '4720862F0238.pas.ms.script' // m3StorageInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\548701CB01C1.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\548701CB01C1.pas.ms.script.runner'
+
+ref; // ME_548701CB01C1 m3DBContainers

@@ -1,0 +1,261 @@
+// k2CoreMixins 49A5895D00AF Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49A5895D00AF
+
+FORWARD ME_47AC58810008
+
+: ME_47AC6DDC0383
+ CONST UID '47AC6DDC0383'
+ CONST Name 'f_Parent'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC58810008 // k2ParentedTagObject
+ ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_47AC6DDC0383 f_Parent
+
+: ME_49A522310209
+ CONST UID '49A522310209'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47AC58810008 // k2ParentedTagObject
+ ;
+ : Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.pas.ms.script' // k2Base
+ ;
+
+ref; // ME_49A522310209 
+
+: ME_532812640195
+ CONST UID '532812640195'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47AC58810008 // k2ParentedTagObject
+ ;
+ : Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.pas.ms.script' // Tk2NullTagImpl
+ ;
+
+ref; // ME_532812640195 
+
+: ME_479731C50290_ME_47AC58810008
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_47AC58810008 // k2ParentedTagObject
+ ;
+ref; // ME_479731C50290_ME_47AC58810008 Cleanup
+
+: ME_53343980014A_ME_47AC58810008
+ CONST UID '53343980014A'
+ CONST Name 'TagOwner'
+ : Original WL 'ME_53343980014A' '47913B47006E.pas.ms.script' // TagOwner
+ ;
+ : Implementor ME_47AC58810008 // k2ParentedTagObject
+ ;
+ CONST "pm" true
+ref; // ME_53343980014A_ME_47AC58810008 TagOwner
+
+: ME_47AC58810008
+ CONST UID '47AC58810008'
+ CONST Name 'k2ParentedTagObject'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тег, имещий ссылку на родителя.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A5895D00AF // k2CoreMixins
+ ;
+ : Implements
+   @ ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
+ WL 'ME_532878C00034' '47913B47006E.pas.ms.script' // Ml3VariantMirror
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_47AC6DDC0383 // f_Parent
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_479731C50290_ME_47AC58810008 // Cleanup
+ ME_53343980014A_ME_47AC58810008 // TagOwner
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_49A522310209 // 
+ ME_532812640195 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '08.02.2008 16:27'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas'
+ CONST extprop:pas:TypeName '_k2ParentedTagObject_'
+
+ref; // ME_47AC58810008 k2ParentedTagObject
+
+FORWARD ME_47AC6AEE0094
+
+: ME_4D0A3D330197
+ CONST UID '4D0A3D330197'
+ CONST Name 'f_Owner'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_4D0A3D330197 f_Owner
+
+: ME_4A4E24EF02AF
+ CONST UID '4A4E24EF02AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ : Target WL 'ME_4A4E24A103BD' '49A58A1A03C4.pas.ms.script' // Tk2TypeTable
+ ;
+
+ref; // ME_4A4E24EF02AF 
+
+: ME_4A6433A502FE
+ CONST UID '4A6433A502FE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A6433A502FE 
+
+: ME_53281279015E
+ CONST UID '53281279015E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ : Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.pas.ms.script' // Tk2NullTagImpl
+ ;
+
+ref; // ME_53281279015E 
+
+: ME_479F2B3302C1_ME_47AC6AEE0094
+ CONST UID '479F2B3302C1'
+ CONST Name 'BeforeAddToCache'
+ : Original WL 'ME_479F2B3302C1' '47913B47006E.pas.ms.script' // BeforeAddToCache
+ ;
+ : Implementor ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ref; // ME_479F2B3302C1_ME_47AC6AEE0094 BeforeAddToCache
+
+: ME_53343980014A_ME_47AC6AEE0094
+ CONST UID '53343980014A'
+ CONST Name 'TagOwner'
+ : Original WL 'ME_53343980014A' '47913B47006E.pas.ms.script' // TagOwner
+ ;
+ : Implementor ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ CONST "pm" true
+ref; // ME_53343980014A_ME_47AC6AEE0094 TagOwner
+
+: ME_47AC6AEE0094
+ CONST UID '47AC6AEE0094'
+ CONST Name 'k2OwnedTagObject'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тег имеющий ссылку на владельца' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A5895D00AF // k2CoreMixins
+ ;
+ : Implements
+   @ ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
+ WL 'ME_532878C00034' '47913B47006E.pas.ms.script' // Ml3VariantMirror
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4D0A3D330197 // f_Owner
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_479F2B3302C1_ME_47AC6AEE0094 // BeforeAddToCache
+ ME_53343980014A_ME_47AC6AEE0094 // TagOwner
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4A4E24EF02AF // 
+ ME_4A6433A502FE // 
+ ME_53281279015E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '02.12.2005 17:16'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas'
+ CONST extprop:pas:TypeName '_k2OwnedTagObject_'
+
+ref; // ME_47AC6AEE0094 k2OwnedTagObject
+
+: ME_49A5895D00AF
+ CONST UID '49A5895D00AF'
+ CONST Name 'k2CoreMixins'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Базовый примеси' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Children
+   @ ( ME_47AC58810008 // k2ParentedTagObject
+ ME_47AC6AEE0094 // k2OwnedTagObject
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4BC83B8301E5' '4BC83B8301E5.pas.ms.script' // k2PureMixIns
+ WL 'ME_5326D70401F3' '5326D70401F3.pas.ms.script' // l3Variants
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49A5895D00AF.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49A5895D00AF.pas.ms.script.runner'
+
+ref; // ME_49A5895D00AF k2CoreMixins

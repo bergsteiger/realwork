@@ -1,0 +1,45 @@
+uses common;
+
+function IsTextBlackAndWhite(HandleWindowWithText: OleVariant): OleVariant;
+var
+	p, w, s : OleVariant;
+  r, dc, i, j: OleVariant;
+  left, top, right, bottom: OleVariant;
+  color: OleVariant; 
+  IfBlackAndWhite: OleVariant;
+  BitMap;
+  hDC, memDC, memBM;
+  
+begin   
+	hDC := Win32API.GetDC(HandleWindowWithText);
+  memDC := Win32API.CreateCompatibleDC ( hDC );
+  
+  r := Win32API.TRect;
+  Win32API.GetWindowRect(HandleWindowWithText, r);
+
+  left := r.left;
+  top := r.top;
+  right := r.right;
+  bottom := r.bottom;
+
+  memBM := Win32API.CreateCompatibleBitmap (hDC, right - left, bottom - top);
+  
+  SelectObject ( memDC, memBM );
+  
+  IfBlackAndWhite := true;
+	for i := 0 to (right - left - 1) do
+  begin
+  	for j := 0 to (bottom - top - 1) do
+    begin
+    	color := Win32API.GetPixel(memDC, i, j);
+      if (color = Win32API.CLR_INVALID) then
+      	break;
+      color := color and $FFFFFF;
+      IfBlackAndWhite := IfBlackAndWhite and ((color = $0) or (color = $0FFFFFF));
+    end;
+  end;
+  Win32API.ReleaseDC(HandleWindowWithText, hDC);
+  Win32API.DeleteObject(memBM);
+	Result := IfBlackAndWhite;	
+end;
+

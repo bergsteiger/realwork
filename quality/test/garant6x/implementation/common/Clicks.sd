@@ -1,0 +1,429 @@
+uses common, MenuWork, RunPrograms, DocumentWork, States;
+
+{
+  TYPE: Работа с Мышью
+  DESC: Нажимает LBUTTOM. Перетягивает мышь относительно её текущей позиции. Отпускает LBUTTOM. Возможно совместн с 
+  кнопками Ctrl и Shift;
+  RESULT:
+  REMARK: Ф-ция работает аналогично стандартной Drag
+}                    
+function DragExt(
+  obj: OleVariant;  //Объект, на котором будет вызвана функция. Если nil, то объектом является экран
+                    // и следовательно клиентские координаты будут уже экранными.
+  clientX: Integer; // Клиентская координата Х
+  clientY: Integer; // Клиентская координата Y
+  toX: Integer = 0; //смещение по Х 
+  toY: Integer = 0; //смещение по Y
+  Shift: string = ''; //Принимает значения skShift или skCtrl
+  const step : integer = 1;
+  isVertical_horizontal_Draw:  boolean = false //Если true - то сначала тянем вертикально, затем горизонтально
+) : boolean;     
+var 
+  i, d : interger;     
+  isPositive; //Если true, значит значение положительное, иначе отрицательное.
+begin
+  try                                
+    if obj <> nil then common.ClientToScreen( obj, ClientX, ClientY);
+    Sys.Desktop.MouseX := clientX;
+    Sys.Desktop.MouseY := clientY; 
+    Delay(Options.Run.Delay);
+    case Shift of                                       
+      'skCtrl'  : WIN32Api.keybd_event( WIN32Api.VK_CONTROL, 0, KEYEVENTF_EXTENDEDKEY OR 0, 0 );
+      'skShift' : WIN32Api.keybd_event( WIN32Api.VK_SHIFT, 0, KEYEVENTF_EXTENDEDKEY OR 0, 0 );  
+      '':;                 
+      else Raise('Передано неправильное значение параметра Shift');
+    end;
+    if NOT isVertical_horizontal_Draw then
+    begin      
+      Sys.Desktop.MouseDown(VK_LBUTTON,clientX, clientY);
+      Delay(Options.Run.Delay);
+      SlideMouse(clientX + toX, clientY + toY);      
+      Delay(Options.Run.Delay);
+      Sys.Desktop.MouseUp(VK_LBUTTON, clientX + toX, clientY + toY );
+    end
+    else
+    begin
+      Sys.Desktop.MouseDown(VK_LBUTTON,clientX, clientY);
+      Delay(Options.Run.Delay);      
+      SlideMouse(clientX, clientY + toY);
+      Delay(Options.Run.Delay);      
+      Sys.Desktop.MouseUp(VK_LBUTTON, clientX + toX, clientY + toY );
+    end;  
+    case Shift of
+      'skCtrl'  : 
+        begin
+          WIN32Api.keybd_event( WIN32Api.VK_CONTROL, 0, KEYEVENTF_EXTENDEDKEY OR KEYEVENTF_KEYUP, 0 );
+          Sys.Keys('^'); // иногда кнопка не отпускается, тогда нее нажатие отпускает ее
+        end;  
+      'skShift' :
+        begin
+          WIN32Api.keybd_event( WIN32Api.VK_SHIFT, 0, KEYEVENTF_EXTENDEDKEY OR KEYEVENTF_KEYUP, 0 );  
+          Sys.Keys('!'); // иногда кнопка не отпускается, тогда нее нажатие отпускает ее
+        end;  
+       '':;                 
+    end;      
+    Delay(Options.Run.Timeout div 60); 
+    result := true;
+  except
+    Log.Message('DragExt: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION')); 
+    result := false;
+    CommonExceptionHandler;
+  end;
+end;    
+
+
+{
+  TYPE: Работа с Мышью (перетягивание элементов в моих документах)
+  DESC: Нажимает LBUt на starnElement --> Тянет мышь до endElement --> отпускает LBut
+  RESULT: 
+  REMARK: Можно использовать только для перетягивания элементов из папки в папку
+}                    
+function DragElementInFolder(
+  elementStart: string; //полный путь к начальному элементу(тому, который надо перетянуть),   
+                        //например: Мои документы\Папка1
+  elementEnd: string //полный путь к конечному элементу(тому, в который надо перетащить),   
+) : boolean;     
+var
+  obj;
+  x1, x2, y1, y2;
+  dX, dY;
+  elementEndNew;
+  xx, yy;
+begin
+try
+  if elementStart = '' then Raise('Папаметр elemenStart не распознан!');
+  if elementEnd = '' then Raise('Папаметр elemenEnd не распознан!');
+  obj := OpenMyDocTab;
+  if NOT Position_Internal(obj, elementStart, DELIM_CHAR, true, 'isPressHome:=true') then
+    Raise('Не удалось спозиционироваться в Моих документах на элемент :' + elementStart);
+  if NOT GetTextSelectionCoords(obj, x1, y1) then
+    Raise('Не удалось найти выделенный элемент в Моих Документах');
+  if NOT Position_Internal(obj, elementEnd, DELIM_CHAR, true, 'isPressHome:=true') then
+    Raise('Не удалось спозиционироваться в Моих документах на элемент :' + elementEnd);
+  if NOT GetTextSelectionCoords(obj, x2, y2) then
+    Raise('Не удалось найти выделенный элемент в Моих Документах');
+  dX := x2 - x1;
+  dY := y2 - y1;
+  if NOT DragExt(obj, x1 , y1, dX, dY) then Raise('Не удалось перетенуть элемент при помощи DragExt');
+  //Если в конечной папке существует элемент с т.ж. именем и типом, то выдаётся окно с Ошибкой. 
+  //Здесь мы его гасим.
+  if WaitForErrorWindow(Options.Run.Timeout div 60) <> 'Элемент с таким именем уже*' then  
+    Log.Warning('Элемент с таким именем и типом уже существует. Выдалось окно с ошибкой.');
+  elementEndNew := AnsiStrRScan(elementStart, '\');  
+  elementEndNew := elementEnd + elementEndNew; 
+  if NOT ( (NOT Position_Internal(obj, elementStart,  DELIM_CHAR, true, 'isPressHome:=true')) AND  
+           (    Position_Internal(obj, elementEndNew, DELIM_CHAR, true, 'isPressHome:=true')) ) then
+  begin
+    Log.Warning('Элемент: ' + elementStart + 'не переместился в папку: ' + elementEnd);
+    Raise;
+  end;
+  result := true;
+except
+  Log.Message('DragElementInFolder: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: Общие
+  DESC: Переход по истории
+  RESULT: Удалось ли кликнуть
+  REMARK:
+}
+function GoByHistory(
+  direction : String; // куда, вперед или назад
+  itemName : String = '' // если указано, то кликаем не просто по кнопке, а вызываем список истории и там ищем указанный элемент
+) : boolean;
+  var isOnList : boolean;
+      res : OleVariant;
+begin
+  Result := false;
+  try
+    isOnList := NOT(itemName = '');
+    direction := AnsiUpperCase(direction);  
+    case direction of
+      'ВПЕРЕД', 'ВПЕРЁД', 'FORWARD':
+        res := ClickToolbarButton( GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Вперед', 'ClickForPopupMenu:=' + Choose(isOnList, 'true', 'false') );
+      'НАЗАД', 'BACK':
+        res := ClickToolbarButton( GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Назад', 'ClickForPopupMenu:=' + Choose(isOnList, 'true', 'false') );
+    else
+      Raise('Параметр не распознан!');    
+    end;
+    if isOnList then // если кликаем на полосе вызова меню
+      Result := IsPopupMenuExists AND ClickByPopupMenuItem(res, itemName)
+    else
+      Result := res;
+  except
+    Log.Message('GoByHistory: ' + ExceptionMessage, 'direction: "' + direction + '", itemName "' + itemName + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+const RES_800_600 = 0;
+const RES_1024_768 = 1;
+const RES_1280_1024 = 2;
+const RES_UNDEFINED = -1;
+{
+Это библиотека содержит функции для работы с мышью, т.е клики мышью по 
+конкретным координатам.
+Все координаты определены для разрешения 1024*768, если в системе другое
+разрешение, то координаты пересчитываются соответствующим образом
+}
+
+function GetResolution: OleVariant;
+var
+	width, height: integer;
+begin
+  Result := RES_UNDEFINED;
+  width := Win32API.GetSystemMetrics(SM_CXSCREEN);
+  height := Win32API.GetSystemMetrics(SM_CYSCREEN);
+  if ((width = 800) and (height = 600)) then
+  	Result := RES_800_600;
+  if ((width = 1024) and (height = 768)) then
+  	Result := RES_1024_768;
+	if ((width = 1280) and (height = 1024)) then
+  	Result := RES_1280_1024;
+end;
+
+{
+  Функция перемещает значок об устаревании базы
+}
+function MoveReminder(
+  where : String // куда перемещать
+): Boolean;
+var
+  w;
+  localX, localY;
+  screenX, screenY;
+  movX, movY;
+  needMove;
+  infoWin;
+  mReminder, vgParentReminder;
+  mResolution;
+  screenWidth, screenHeight;
+  targetX, targetY;
+  oldDelay;
+begin
+  try
+    Result := False;
+    
+    if VarToBool(gbl_F1ShellTabsEnabled) then
+    begin
+      w := GetMainContainer;
+      w.Maximize;
+    end
+    else
+    begin
+      w := GetMainWindow;
+      w.Maximize;
+    end;
+
+    mReminder := GetFromMainWindow('ЗНАЧОК: ИНФОРМАЦИОННЫЙ БАНК УСТАРЕЛ', 'TimeOut:=' + IntToStr(Options.Run.Timeout div 30) );
+    if (NOT IsExists(mReminder)) OR (NOT mReminder.Visible) then
+    begin
+      Log.Message('Значок о устаревании информационого банка не найден или не виден!');
+      Exit;
+    end;
+
+    vgParentReminder := FindParentVgSceneObj(mReminder);
+    if not IsExists(vgParentReminder) then
+      Raise('Родительский объект VgScene не найден!');
+
+    localX := mReminder.Width div 2; // определяем координаты центра значка
+    localY := mReminder.Height div 2;
+
+    screenX := localX;
+    screenY := localY;
+    common.ClientToScreen(vgParentReminder, screenX, screenY);
+
+    screenWidth := Win32API.GetSystemMetrics(SM_CXSCREEN);
+    screenHeight := Win32API.GetSystemMetrics(SM_CYSCREEN);
+
+    case AnsiUpperCase(where) of
+      'TOP-LEFT' :
+        begin
+          targetX := 0;
+          targetY := 62;
+        end;     
+      'TOP-RIGHT' :
+        begin
+          targetX := screenWidth - localX;
+          targetY := 62;
+        end;
+      'BOTTOM-RIGHT' :
+        begin
+          targetX := screenWidth - localX;
+          targetY := w.Height - localY - 8;
+        end;
+      'BOTTOM-LEFT' :
+        begin
+          targetX := 0;
+          targetY := w.Height - localY - 8;
+        end;     
+    else
+      Raise('Неизвестное значение where: ' + where);
+    end;
+    
+    movX := targetX - screenX;
+    movY := targetY - screenY;
+    needMove := (movX <> 0) OR (movY <> 0);
+
+    if needMove then
+    begin
+      Log.Message('Текущие координаты центра значка предупреждения: X='+IntToStr(screenX)+' Y='+IntToStr(screenY));
+      //DragExt(mReminder,localX, localY, movX, movY);
+      vgParentReminder.Drag(localX, localY, movX, movY); 
+      common.ClientToScreen(vgParentReminder, localX, localY);
+      Log.Message('Кординаты центра значка после перемещения: X='+IntToStr(localX)+' Y='+IntToStr(localY));  
+     
+      infoWin := WaitForInfoWindow(Options.Run.Timeout div 20);
+      if infoWin <> '' then Log.Warning ('Не должно появляться окно предупреждения', 'Появилось окно с сообщением ' + infoWin);
+    end;  
+    Result := True;
+  except
+    Log.Message('MoveReminder: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+DESK:  Закрывает медальку поступившей консультации
+REMARK: Функция кликает по медальки консультации, переходит на просмотр консультации и потом возвращается в ОМ
+}
+function CloseConsultingReminder: Boolean;
+var  
+  mReminder;  
+begin
+  try       
+    Result := False;   
+
+    mReminder := GetFromMainWindow('ЗНАЧОК: ОТВЕТ НА КОНСУЛЬТАЦИИ','TimeOut:=1000');
+    if NOT IsExists(mReminder) then
+      Raise('Значок ОТВЕТ НА КОНСУЛЬТАЦИИ не найден!');
+    
+    if not ClickOnVgSceneObject(mReminder{, 'ClickKey:=LEFT_LL'}) then
+      Raise('Не получилось кликнуть по значку ОТВЕТ НА КОНСУЛЬТАЦИИ');
+
+    mReminder := GetFromMainWindow('ОКНО СООБЩЕНИЯ ЗНАЧКА ОТВЕТ НА КОНСУЛЬТАЦИИ');
+    if not IsExists(mReminder) then
+      Raise('Не найдено "ОКНО СООБЩЕНИЯ ЗНАЧКА ОТВЕТ НА КОНСУЛЬТАЦИИ"');
+    if not ClickXYOnVgSceneObject(mReminder, 300, 40) then
+      Raise('Не получилось кликнуть по ссылке "Перейти к тексту ответа"');
+
+    Result := True;
+  except
+    Log.Message('CloseConsultingReminder: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+function ReminderTopRight: Boolean;
+begin
+  Result := MoveReminder('top-right');
+end;
+
+function ReminderAway: Boolean;
+var w;
+begin
+  try
+    Result := true;
+
+    w := GetFromMainWindow('ОКНО СООБЩЕНИЯ ЛЮБОГО ЗНАЧКА', 'TimeOut:=1000');
+    if IsExists(w) then
+    begin
+      if VarToBool(gbl_F1ShellTabsEnabled) then
+        w := GetMainContainer
+      else
+        w := GetMainwindow;    
+
+      if IsExists(w) then
+      begin
+        // таким образом скрываются баллоны
+        w.Minimize;
+        w.Restore;
+        Result := MoveReminder('top-left');
+      end;
+    end;
+    
+    //Result := MoveReminder('bottom-left'); или MoveReminder('top-right') не подходит! 
+    //Result := MoveReminder('bottom-right');
+    //Result := MoveReminder('top-left');
+  except
+    Result := false;
+    Log.Error('ReminderAway: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+////////////// ФУНКЦИИ НИЖЕ КРИВЫЕ, И ВРЯД ЛИ НУЖНЫ ////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+function IsLargeFont: OleVariant;
+var
+	dc;
+begin
+  dc := Win32API.GetDC(0);
+  Result := (Win32API.GetDeviceCaps(dc, Win32API.LOGPIXELSX) > 96);
+  Win32API.ReleaseDC(0, dc);
+end;
+
+
+//клик мышкой по координатам
+procedure MouseClick(const x, y: integer);
+var
+  p, w;
+begin
+try
+	 Sys.Desktop.MouseX := x;
+   Sys.Desktop.MouseY := y;
+   Sys.Desktop.MouseDown(VK_LBUTTON, x, y);
+   Delay(Options.Run.Timeout div 10);
+   Sys.Desktop.MouseUp(VK_LBUTTON, x, y);
+except
+  raise (ExceptionMessage);
+  CommonExceptionHandler;
+end;  
+end;
+
+{-= Клики по кнопкам нижнего окна \ фрэйма (скр, синхронный просмотр и т.д.)}
+
+{
+  TYPE: Работа с Мышью
+  DESC: Заменяет стандартный метод Click. Нажимает LBUTTOM.
+  RESULT:
+  REMARK: Ф-ция работает аналогично стандартной Drag
+}                    
+function ClickExt(
+  wnd;            //окно в котором кликаем
+  x: integer = 0; //координата х (client)
+  y: integer = 0; //координата y (client)
+  button: integer = 1 //это VK_LBUTTON - левая кнопка мыши
+): boolean;
+var                          
+  sx, sy;
+begin
+try
+  if not IsExists(wnd) then Raise('Объект (окно) в котором кликаем не существует!');
+  if (x = 0) and (y = 0) then
+  begin
+    sx := wnd.Width div 2;
+    sy := wnd.Height div 2;
+  end
+  else
+  begin
+    sx := x;
+    sy := y;
+  end;
+  common.ClientToScreen(wnd, sx, sy);
+  Sys.Desktop.MouseDown(button, sx, sy);
+  Delay(10);
+  Sys.Desktop.MouseUp(button, sx, sy);
+  Result:=true;
+except
+  Result:=false;
+  Log.Error('ClickExt: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;

@@ -1,0 +1,151 @@
+// TeeTagEditorTool 5487291700EB SimpleClass Class
+
+INCLUDE '49523C640160.pas.ms.script'
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5487291700EB
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_54872D000059
+ CONST UID '54872D000059'
+ CONST Name 'f_Document'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_54872D000059 f_Document
+
+: ME_54872D7C031E
+ CONST UID '54872D7C031E'
+ CONST Name 'Document'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_49523C96004A // IeeDocumentEx
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_54872D7C031E Document
+
+FORWARD ME_54872DB8021E
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+: ME_54872DD1002F
+ CONST UID '54872DD1002F'
+ CONST Name 'aTagWrap'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_532031160122 // Tl3Variant
+ ;
+
+ @SELF
+; // ME_54872DD1002F aTagWrap
+
+: ME_54872DD10049
+ CONST UID '54872DD10049'
+ CONST Name 'aDocument'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_49523C96004A // IeeDocumentEx
+ ;
+
+ @SELF
+; // ME_54872DD10049 aDocument
+
+: ME_54872DD10064
+ CONST UID '54872DD10064'
+ CONST Name 'aProcessor'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_54872DD10064 aProcessor
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54872DC901C4
+ CONST UID '54872DC901C4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54872DD1002F // aTagWrap
+ ME_54872DD10049 // aDocument
+ ME_54872DD10064 // aProcessor
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54872DC901C4 DoIt
+
+: ME_54872DB8021E
+ CONST UID '54872DB8021E'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54872DC901C4 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54872DB8021E Create
+
+: ME_5487291700EB
+ CONST UID '5487291700EB'
+ CONST Name 'TeeTagEditorTool'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_5319FB8800AC // IeeTool
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_54872D000059 // f_Document
+ ME_54872D7C031E // Document
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54872DB8021E // Create
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_46A5D4220369 // OwnerDead
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5487291700EB TeeTagEditorTool

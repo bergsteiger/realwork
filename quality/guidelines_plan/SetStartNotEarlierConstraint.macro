@@ -1,0 +1,7 @@
+Sub SetStartNotEarlierConstraint()
+'Macro Recorded Mon 17.12.01 by Alexis Koz.
+    For T = 1 To ActiveProject.Tasks.Count
+        ActiveProject.Tasks(T).ConstraintDate = ActiveProject.Tasks(T).Start
+        ActiveProject.Tasks(T).ConstraintType = pjSNET
+    Next T
+End Sub

@@ -1,0 +1,158 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/SimpleTemplates/SimpleTemplatesLibrary/Elements/UnitProducer.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAAbstractClass::Class>> MDProcess$ForDelphi::SimpleTemplates::SimpleTemplatesLibrary::Elements::UnitProducer
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UnitProducer::Class
+implementation @ <<UnitProducer>>
+//= Atomic::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _unitName
+; // st_space_key
+
+: unitName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *561D47DA0228for561D478F0224*
+//	%f_N(%S)
+ [%f] N %( %S )% 
+//#UC END# *561D47DA0228for561D478F0224*
+; // unitName
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for561D478F0224*
+//	%f_N(%S)
+ [%f] N %( %S )% 
+//#UC END# *4947F8AD02A1for561D478F0224*
+; // pas_TypeName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor561D478F0224*
+//	%S%f_unitName()
+ %S %f unitName %( )% 
+//#UC END# *4948065C01DFfor561D478F0224*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа PascalGenerator::Class
+//%f _fileName
+: fileName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *561D4544017Efor561D478F0224*
+//	%S%f_unitName().pas
+ %S %f unitName %( )% '.pas'
+//#UC END# *561D4544017Efor561D478F0224*
+; // fileName
+
+
+// перекрытие базового стереотипа PascalGenerator::Class
+//%f _generatePascal
+: generatePascal OBJECT IN %S
+//#UC START# *561D426A0246for561D478F0224*
+//	%f_start_new_file(%S)\
+ [%f] start_new_file %( %S )% 
+//	unit %S%f_unitName();
+ 'unit '
+ %S %f unitName %( )% ';'
+//	
+//	interface
+ 'interface'
+//	
+//	uses
+ 'uses'
+//	 l3IntfUses
+ ' l3IntfUses'
+//	 %U[{intf_uses}
+ ' '
+ %Usersection (
+  'intf_uses' 
+ )
+ (
+  #13#10
+
+//	 ]
+  ' ' 
+ ) // Usersection
+ //	;
+ ';'
+//	
+//	%U[{intf_code}
+ %Usersection (
+  'intf_code' 
+ )
+ (
+  #13#10
+
+//	]
+
+ ) // Usersection
+ //	
+//	implementation
+ 'implementation'
+//	
+//	uses
+ 'uses'
+//	 l3ImplUses
+ ' l3ImplUses'
+//	 %U[{impl_uses}
+ ' '
+ %Usersection (
+  'impl_uses' 
+ )
+ (
+  #13#10
+
+//	 ]
+  ' ' 
+ ) // Usersection
+ //	;
+ ';'
+//	
+//	%U[{impl_code}
+ %Usersection (
+  'impl_code' 
+ )
+ (
+  #13#10
+
+//	]
+
+ ) // Usersection
+ //	
+//	end.\
+ 'end.'
+//	%f_end_new_file(%S)
+ [%f] end_new_file %( %S )% 
+//#UC END# *561D426A0246for561D478F0224*
+; // generatePascal
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<UnitProducer>>
+

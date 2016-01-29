@@ -1,0 +1,2 @@
+MakeCo ObjectFromstackWords.rc.script
+brcc32 ObjectFromstackWords.rc

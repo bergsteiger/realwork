@@ -1,0 +1,122 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/serviceiterator.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::serviceiterator
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: serviceiterator::Class
+implementation @ <<serviceiterator>>
+//< *::Class,*::Category
+
+//= facetiterator::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//m f
+// - не может быть реализован/иметь перекрытую реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p needs result:tribool=undefined ? 
+//p needs index:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{needs result}"!="%S{!needs result}"}%f_up_prefix(%S) *needs result* = *%S{needs result}*
+ ?inherited
+ if ( ( %S get_up ( 'needs result' ) ) %!= ( %S get_up_def ( 'needs result' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *needs result* = *'
+  %S get_up ( 'needs result' ) '*'
+//	][{"%S{needs index}"!="%S{!needs index}"}%f_up_prefix(%S) *needs index* = *%S{needs index}*
+ end // if
+ if ( ( %S get_up ( 'needs index' ) ) %!= ( %S get_up_def ( 'needs index' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *needs index* = *'
+  %S get_up ( 'needs index' ) '*'
+//	]
+ end // if
+
+//%f _IsServiceIterator
+; // wiki_up_print
+
+: IsServiceIterator OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *551926140069for551925F00071*
+//	true
+ true
+//#UC END# *551926140069for551925F00071*
+; // IsServiceIterator
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация Spell'а для итератора
+//%f _IteratorSpell
+: IteratorSpell OBJECT IN %S
+//#UC START# *4BA884DD00A7for551925F00071*
+// - специально ничего не делаем
+//#UC END# *4BA884DD00A7for551925F00071*
+; // IteratorSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor551925F00071*
+// - специально ничего не делаем
+//#UC END# *49F5795900ECfor551925F00071*
+; // dfm
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor551925F00071*
+// - специально ничего не делаем
+//#UC END# *470F15B800CBfor551925F00071*
+; // impl.pas
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor551925F00071*
+// - специально ничего не делаем
+//#UC END# *470F1571031Cfor551925F00071*
+; // intf.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<serviceiterator>>
+

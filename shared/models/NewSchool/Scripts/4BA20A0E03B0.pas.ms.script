@@ -1,0 +1,124 @@
+// l3AsincMessageWindowRes 4BA20A0E03B0 UtilityPack Class
+
+FORWARD ME_4BA20A0E03B0
+
+FORWARD ME_4BA20A380097
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4BA20A4F018E
+ CONST UID '4BA20A4F018E'
+ CONST Name 'LongOperation'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Выполняется длительная операция...'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_4BA20A4F018E LongOperation
+
+: ME_4BA20A380097
+ CONST UID '4BA20A380097'
+ CONST Name 'Local'
+ CONST Class 'Class'
+ CONST Stereotype 'LocalConst'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_4BA20A4F018E // LongOperation
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'l3mm'
+ CONST "spell names" false
+
+ @SELF
+; // ME_4BA20A380097 Local
+
+FORWARD ME_BEFA87745B3B
+
+INCLUDE '4B3B36EC03B2.pas.ms.script'
+
+: ME_D5ADACB3DD45
+ CONST UID 'D5ADACB3DD45'
+ CONST Name 'LongOperation'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY '''Выполняется длительная операция...''' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''l3mmLongOperation''; rValue : ''Выполняется длительная операция...'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_D5ADACB3DD45 LongOperation
+
+: ME_BEFA87745B3B
+ CONST UID 'BEFA87745B3B'
+ CONST Name 'LCImplLocal'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_D5ADACB3DD45 // LongOperation
+ ]
+ ; // Attributes
+ CONST "children prefix" 'l3mm'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+
+ @SELF
+; // ME_BEFA87745B3B LCImplLocal
+
+: ME_83E81EDC67DE
+ CONST UID '83E81EDC67DE'
+ CONST Name 'Init_LongOperation'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_l3mmLongOperation' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_83E81EDC67DE Init_LongOperation
+
+: ME_4BA20A0E03B0
+ CONST UID '4BA20A0E03B0'
+ CONST Name 'l3AsincMessageWindowRes'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_83E81EDC67DE // Init_LongOperation
+ ]
+ ; // Operations
+ : Children
+   [ ME_4BA20A380097 // Local
+ ]
+ ; // Children
+ : Constants
+   [ ME_BEFA87745B3B // LCImplLocal
+ ]
+ ; // Constants
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '18.10.2010'
+
+ @SELF
+; // ME_4BA20A0E03B0 l3AsincMessageWindowRes

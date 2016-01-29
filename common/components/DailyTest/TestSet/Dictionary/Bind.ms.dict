@@ -1,0 +1,45 @@
+UNIT Bind.ms.dict
+
+PROCEDURE bind
+  STRING IN aName
+  
+ //Ctx:PushFinder pop:Word:Name Msg
+ //Ctx:PushFinder pop:Word:InnerDictionary Msg
+ 
+ if ( aName IsWordDeclared ) then
+ begin
+  //aName Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Dictionary Msg
+  //aName Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Dictionary
+  //Ctx:PushFinder pop:Word:InnerDictionary == Msg
+  
+  //aName Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Dictionary Msg
+  
+  //aName Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Dictionary pop:DictionaryEx:FileName Msg
+  
+  //Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary pop:DictionaryEx:FileName Msg
+  
+/*{  if (
+  aName Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Dictionary pop:DictionaryEx:FileName
+  Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary pop:DictionaryEx:FileName
+   ==
+  )}*/
+  if (
+  aName Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Dictionary
+  Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary
+   ==
+  )
+  then
+  begin
+   //'got' Msg
+   axiom:PushSymbol REDEFINITION
+  end
+  
+  //Ctx:PushFinder pop:Word:InnerDictionary Msg
+  
+  //axiom:PushSymbol REDEFINITION
+ end
+  
+ axiom:PushSymbol MACRO
+ aName Ctx:Parser:PushSymbol
+ axiom:PushSymbol ;
+; // bind

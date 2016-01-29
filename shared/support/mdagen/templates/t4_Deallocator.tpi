@@ -1,0 +1,48 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Deallocator
+//////////////////////////////////////////////////////////////////////////////////
+
+: Deallocator::Class
+? Авто-деаллокатор
+? Авто-деаллокатор с независимым счетчиком ссылок
+? Работает аналогично Box но для объектов с собственным счетчиком ссылок. Может использоваться для
+? локальног подсчета сслок с последующим вызовом специфическоого деаллокатора. Например для инстанцирования контейнеров
+? интерфейсов или эмуляции агригации интерфейсов.
+? Тип Deallocator'а определяется связью наследования.
+< *::Category, *::Class
+$ S
+$ s
+$ C 255,210,255
+$ l 155,5,155
+$ f 155,5,155
+
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+L code_deallocator
+Y t4_deallocator.gif
+%f _wiki_up_print
+%f _wiki_up_add_gen
+
+//////////////////////////////////////////////////////////////////////////////////
+%t _constraint
+c                              {}
+r "%t_refcounted(%G)"="false": {%SS can used only for RefCounted objects (like Interfaces,  Servants, or SimplClass with RefCount)}
+r "%Cx"="true":                {%SS cant have any operations or attributes}
+r %Rx=true:                    {%SS cant realize any other objects}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
+//////////////////////////////////////////////////////////////////////////////////
++ h
+	%f_docs(%S)\
+	struct %SNDeallocator {
+		static void destroy (%t_arg(%G,"inout") content) {
+		%U[
+			throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION); 
+		]
+		}
+	};
+	#typedef ::Core::Box\<%f_type(%G), %SNDeallocator, true\> %SN;

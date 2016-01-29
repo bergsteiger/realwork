@@ -1,0 +1,3216 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/MDAGenerator.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::MDAGenerator
+//
+// Абстрактный генератор
+// ---
+// Формулирует абстрактный генератор, определяющий генераторы для всех наследников, и формирующий
+// иерархию генераторов объединяя их в связанные группы, посредствам связи "group". Генераторы с
+// установленным свойством "internal" просто объединяют несколько генераторов посредством
+// наследования, не создавая никаких иерархий и групп.
+// 
+// Атрибуты генератора (и всех его логических потомков) трактуются как пользовательские свойства.
+// 
+// Функции как методы (генераторы, функции и трансформаторы) стереотипа. Функции могут
+// перекрываться аналогично виртуальным функциям в обычных ЯП.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: MDAGenerator::Class
+implementation @ <<MDAGenerator>>
+//? Абстрактный генератор
+//? Формулирует абстрактный генератор, определяющий генераторы для всех наследников, и формирующий иерархию генераторов объединяя их в связанные группы, посредствам связи "group". Генераторы с установленным свойством "internal" просто объединяют несколько генераторов посредством наследования, не создавая никаких иерархий и групп.
+//? 
+//? Атрибуты генератора (и всех его логических потомков) трактуются как пользовательские свойства.
+//? 
+//? Функции как методы (генераторы, функции и трансформаторы) стереотипа. Функции могут перекрываться аналогично виртуальным функциям в обычных ЯП.
+//< *::Class,*::Category
+
+//= Мета-MDA::MDAGenerator
+//= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a a
+// - тип абстракции
+//Y code_mda_generator.gif
+//L code_mda_generator
+// Параметры визуализации
+//$ C 255,225,215
+//$ l 250,115,75
+//$ f 250,115,75
+//d 1
+// - может иметь унаследованную реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p has exception:s ? элемент может иметь исключения (s - SET, g - GET, a - SET и GET) по умолчанию - g. Для элементов с данным стереотипом будут доступны диалоги установки исключений
+//p skip:b=false ? элемент будет/не будет пропущен (включая всех его потомков) из загрузки модели и кодогенерации.
+//p abstraction type:s ? Возможные типы абстракции  а=abstract; r=regular; f=final;
+//p visability type:s ? возможные типы видимости элемента + - public # - protected - - private i - implementation по умолчанию public
+//p personal label:s ? лейбл идентифицирующий элемент и определяющий его визуальное представление (иконку) в wiki и в навигаторе Розы
+//p internal:b=false ? Определяет, что генератор является внутренним и используется только для объединения других генераторов (через наследование). Для конкретных стереотипов этот признак означает, что стереотип не может быть использован при проектировании модели, т.е проектировщику он не будет доступен для выбора, но этот стереотип можно использовать для построения виртуальных элементов
+//p no auto copy:b=false ? Не создавать копии вложенных стереотипов
+//p make auto copies internal:b=false ? сделать все авто-копии внутренними (не доступными для проектировщика)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{has exception}"!="%S{!has exception}"}%f_up_prefix(%S) *has exception* = *%S{has exception}* - элемент может иметь исключения (s - SET, g - GET, a - SET и GET) по умолчанию - g. Для элементов с данным стереотипом будут доступны диалоги установки исключений
+ if ( ( %S get_up ( 'has exception' ) ) %!= ( %S get_up_def ( 'has exception' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *has exception* = *'
+  %S get_up ( 'has exception' ) '* - элемент может иметь исключения (s - SET, g - GET, a - SET и GET) по умолчанию - g. Для элементов с данным стереотипом будут доступны диалоги установки исключений'
+//	][{"%S{skip}"!="%S{!skip}"}%f_up_prefix(%S) *skip* = *%S{skip}* - элемент будет/не будет пропущен (включая всех его потомков) из загрузки модели и кодогенерации.
+ end // if
+ if ( ( %S get_up ( 'skip' ) ) %!= ( %S get_up_def ( 'skip' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *skip* = *'
+  %S get_up ( 'skip' ) '* - элемент будет/не будет пропущен (включая всех его потомков) из загрузки модели и кодогенерации.'
+//	][{"%S{abstraction type}"!="%S{!abstraction type}"}%f_up_prefix(%S) *abstraction type* = *%S{abstraction type}* - Возможные типы абстракции  а=abstract; r=regular; f=final;
+ end // if
+ if ( ( %S get_up ( 'abstraction type' ) ) %!= ( %S get_up_def ( 'abstraction type' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *abstraction type* = *'
+  %S get_up ( 'abstraction type' ) '* - Возможные типы абстракции  а=abstract; r=regular; f=final;'
+//	][{"%S{visability type}"!="%S{!visability type}"}%f_up_prefix(%S) *visability type* = *%S{visability type}* - возможные типы видимости элемента + - public # - protected - - private i - implementation по умолчанию public
+ end // if
+ if ( ( %S get_up ( 'visability type' ) ) %!= ( %S get_up_def ( 'visability type' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *visability type* = *'
+  %S get_up ( 'visability type' ) '* - возможные типы видимости элемента + - public '
+  out_indent ' - protected - - private i - implementation по умолчанию public'
+//	][{"%S{personal label}"!="%S{!personal label}"}%f_up_prefix(%S) *personal label* = *%S{personal label}* - лейбл идентифицирующий элемент и определяющий его визуальное представление (иконку) в wiki и в навигаторе Розы
+ end // if
+ if ( ( %S get_up ( 'personal label' ) ) %!= ( %S get_up_def ( 'personal label' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *personal label* = *'
+  %S get_up ( 'personal label' ) '* - лейбл идентифицирующий элемент и определяющий его визуальное представление (иконку) в wiki и в навигаторе Розы'
+//	][{"%S{internal}"!="%S{!internal}"}%f_up_prefix(%S) *internal* = *%S{internal}* - Определяет, что генератор является внутренним и используется только для объединения других генераторов (через наследование). Для конкретных стереотипов этот признак означает, что стереотип не может быть использован при проектировании модели, т.е проектировщику он не будет доступен для выбора, но этот стереотип можно использовать для построения виртуальных элементов
+ end // if
+ if ( ( %S get_up ( 'internal' ) ) %!= ( %S get_up_def ( 'internal' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *internal* = *'
+  %S get_up ( 'internal' ) '* - Определяет, что генератор является внутренним и используется только для объединения других генераторов (через наследование). Для конкретных стереотипов этот признак означает, что стереотип не может быть использован при проектировании модели, т.е проектировщику он не будет доступен для выбора, но этот стереотип можно использовать для построения виртуальных элементов'
+//	][{"%S{no auto copy}"!="%S{!no auto copy}"}%f_up_prefix(%S) *no auto copy* = *%S{no auto copy}* - Не создавать копии вложенных стереотипов
+ end // if
+ if ( ( %S get_up ( 'no auto copy' ) ) %!= ( %S get_up_def ( 'no auto copy' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *no auto copy* = *'
+  %S get_up ( 'no auto copy' ) '* - Не создавать копии вложенных стереотипов'
+//	][{"%S{make auto copies internal}"!="%S{!make auto copies internal}"}%f_up_prefix(%S) *make auto copies internal* = *%S{make auto copies internal}* - сделать все авто-копии внутренними (не доступными для проектировщика)
+ end // if
+ if ( ( %S get_up ( 'make auto copies internal' ) ) %!= ( %S get_up_def ( 'make auto copies internal' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *make auto copies internal* = *'
+  %S get_up ( 'make auto copies internal' ) '* - сделать все авто-копии внутренними (не доступными для проектировщика)'
+//	]
+ end // if
+
+// Генерирует полное имя стереотипа
+//%f _st_name
+; // wiki_up_print
+
+: st_name OBJECT IN %S
+//#UC START# *46E2BB3103B9for46E1540F00AB*
+//	%SN::%S%f_st_class_name()
+ %S |N '::'
+ %S %f st_class_name %( )% 
+//#UC END# *46E2BB3103B9for46E1540F00AB*
+; // st_name
+
+
+// Определяет необходимость создания описания стереотипа
+//%f _need_st_define
+: need_st_define OBJECT IN %S
+//#UC START# *46E2BB9400EAfor46E1540F00AB*
+//	[{<{}{%Ca!=abstract&%CS!=group}{C}>=0}{true}{false}]
+//	true
+ true
+//#UC END# *46E2BB9400EAfor46E1540F00AB*
+; // need_st_define
+
+
+// генерирует декларацию равенства для всех подстереотиппов, унаследованных от базовых стереотипов
+//%f _sub_st_auto_copy
+: sub_st_auto_copy OBJECT IN %S
+//#UC START# *46E3EDE002DEfor46E1540F00AB*
+//	[{%SM=MDAClass::Class&%1M=MDAAttribute::Class}{\
+//	[{""!=""}{\
+ if ( '' %!= '' ) then
+ begin
+//	]
+ end // if
+ else
+ begin
+//	[{%S{no auto copy}=true}{\
+  if ( ( %S get_up ( 'no auto copy' ) ) %==  true ) then
+  begin
+//	]\
+  end // if
+  else
+  begin
+//	%f_set_var(FIRST_PARENT,1)\
+   [%f] set_var %( 'FIRST_PARENT' %, 1 )% 
+//	%f_clear_list(SUB_STEREOTYPES)\
+   [%f] clear_list %( 'SUB_STEREOTYPES' )% 
+//	%f_set_var(IS_REDEFINITION,"%f_is_sub_redefinition_for(%{CONTEXT},%{FIRST_PARENT})")\
+   [%f] set_var %( 'IS_REDEFINITION' %, [%f] is_sub_redefinition_for %( ( get_global_var ( 'CONTEXT' ) ) %, ( get_global_var ( 'FIRST_PARENT' ) ) )% )% 
+//	%f_sub_st_auto_copy_i(%1,"EXCLUDE_FOR_AUTO_COPY")\
+   [%f] sub_st_auto_copy_i %( %1 %, 'EXCLUDE_FOR_AUTO_COPY' )% 
+//	%1<%f_sub_st_auto_copy_i(%g,"EXCLUDE_FOR_AUTO_COPY")>\
+   %1
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if true then
+     begin
+      [%f] sub_st_auto_copy_i %( %g %, 'EXCLUDE_FOR_AUTO_COPY' )% 
+      ++! l_Counter
+     end // if
+    end // for g
+
+   ) // bind
+ //	%1<%f_sub_st_auto_copy_i(%r,"EXCLUDE_FOR_AUTO_COPY")>\
+   %1
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%r
+    begin
+     OBJECT IN %r
+     if true then
+     begin
+      [%f] sub_st_auto_copy_i %( %r %, 'EXCLUDE_FOR_AUTO_COPY' )% 
+      ++! l_Counter
+     end // if
+    end // for r
+
+   ) // bind
+ //	%f_clear_list(SUB_STEREOTYPES)}\
+   [%f] clear_list %( 'SUB_STEREOTYPES' )% 
+  end // else
+//	}\
+ end // else
+
+//f _sub_st_auto_copy_i
+; // sub_st_auto_copy
+
+end. // <<MDAGenerator>>
+
+: sub_st_auto_copy_i OBJECT IN %S
+//	%f_set_var(EXCLUDE_LIST_NAME,1)\
+ [%f] set_var %( 'EXCLUDE_LIST_NAME' %, 1 )% 
+//	[<{}{%AC=Class&%AN!=generator}%f_set_var(ST_NAME,"%f_str_replace(%A%f_sub_st_name(%{FIRST_PARENT}),%{FIRST_PARENT}N,%{CONTEXT}N)")\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |C ) %== 'Class' AND 
+    ( ( %A |N ) %!= 'generator'  ) ) then
+   begin
+    [%f] set_var %( 'ST_NAME' %, [%f] str_replace %( %A %f sub_st_name %( ( get_global_var ( 'FIRST_PARENT' ) ) )% %, ( get_global_var ( 'FIRST_PARENT' ) |N ) %, ( get_global_var ( 'CONTEXT' ) |N ) )% )% 
+//	[{%{CONTEXT}<{}{%AC=Class&%A%f_sub_st_name(%{CONTEXT})=%{ST_NAME}N}{%AC}>=0}%f_set_var(SUB_ST_NAME,"%A%f_sub_st_name(%{CONTEXT})")\
+    if ( ( ( get_global_var ( 'CONTEXT' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%A
+      begin
+       OBJECT IN %A
+       if ( ( %A |C ) %== 'Class' AND 
+        ( ( %A %f sub_st_name %( ( get_global_var ( 'CONTEXT' ) ) )% ) %== ( ( get_global_var ( 'ST_NAME' ) |N ) )  ) ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for A
+      l_Counter
+
+     ) // bind
+)      %== 0 ) then
+    begin
+     [%f] set_var %( 'SUB_ST_NAME' %, %A %f sub_st_name %( ( get_global_var ( 'CONTEXT' ) ) )% )% 
+//	[{%f_exists_in_list(%{EXCLUDE_LIST_NAME}N,"%{SUB_ST_NAME}N")=false}[{%f_exists_in_list(SUB_STEREOTYPES,"%{SUB_ST_NAME}N")=false}%f_add_to_list(SUB_STEREOTYPES,"%{SUB_ST_NAME}N")\
+     if ( ( [%f] exists_in_list %( ( get_global_var ( 'EXCLUDE_LIST_NAME' ) |N ) %, ( get_global_var ( 'SUB_ST_NAME' ) |N ) )% ) %==  false ) then
+     begin
+      if ( ( [%f] exists_in_list %( 'SUB_STEREOTYPES' %, ( get_global_var ( 'SUB_ST_NAME' ) |N ) )% ) %==  false ) then
+      begin
+       [%f] add_to_list %( 'SUB_STEREOTYPES' %, ( get_global_var ( 'SUB_ST_NAME' ) |N ) )% 
+//	[{%Aa!=final&%Aa!=abstract|%A%PU=%{CONTEXT}U}\
+       if ( ( %A |a ) %!= 'final' AND 
+         ( ( %A |a ) %!= 'abstract'  ) OR 
+         ( ( %A ->P |U  ) %== ( ( get_global_var ( 'CONTEXT' ) |U ) )  ) ) then
+       begin
+//	: %{SUB_ST_NAME}N[{%{CONTEXT}%f_is_internal_auto_copy(%A)=true}*][{%{IS_REDEFINITION}N=true&%A<{}{%PU=%{FIRST_PARENT}U}{%PC}>=0} (redefinition)]
+        ': '
+        ( get_global_var ( 'SUB_ST_NAME' ) |N ) if ( ( ( get_global_var ( 'CONTEXT' ) %f is_internal_auto_copy %( %A )% ) ) %==  true ) then
+        begin
+         '*' 
+        end // if
+        if ( ( ( get_global_var ( 'IS_REDEFINITION' ) |N ) ) %==  true AND 
+          ( ( %A
+         bind ( 
+          OBJECT VAR %S
+          INTEGER VAR l_Counter l_Counter := 0
+          for %S%P
+          begin
+           OBJECT IN %P
+           if ( ( %P |U ) %== ( ( get_global_var ( 'FIRST_PARENT' ) |U ) ) ) then
+           begin
+
+            ++! l_Counter
+           end // if
+          end // for P
+          l_Counter
+
+         ) // bind
+ )          %== 0  ) ) then
+        begin
+         ' (redefinition)' 
+        end // if
+//	= %A%f_sub_st_name(%{FIRST_PARENT})
+        '= '
+        %A %f sub_st_name %( ( get_global_var ( 'FIRST_PARENT' ) ) )% 
+//	%U[{_OVERRIDE_%AU_FOR_%{CONTEXT}U}
+        %Usersection (
+         '_OVERRIDE_'
+         %A |U '_FOR_'
+         ( get_global_var ( 'CONTEXT' ) |U ) 
+        )
+        (
+         #13#10
+
+//	]
+
+        ) // Usersection
+ //	
+        #13#10
+
+//	]]]]>]
+       end // if
+      end // if
+     end // if
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for A
+ end // if
+ NOP
+
+//f _is_sub_redefinition_for
+; // sub_st_auto_copy_i
+
+: is_sub_redefinition_for OBJECT IN %S
+//	%f_clear_list(SELF_REDEF_BASES)\
+ [%f] clear_list %( 'SELF_REDEF_BASES' )% 
+//	%f_collect_base_of_redefinion(%S,"SELF_REDEF_BASES")\
+ [%f] collect_base_of_redefinion %( %S %, 'SELF_REDEF_BASES' )% 
+//	[{%1<{}{%f_is_redefinition_for(%S,%R)=true&%f_exists_in_list(SELF_REDEF_BASES,R)=true}{%RC}>!=0}{false}true]\
+ if ( ( %1
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( [%f] is_redefinition_for %( %S %, %R )% ) %==  true AND 
+     ( ( [%f] exists_in_list %( 'SELF_REDEF_BASES' %, 'R' )% ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+
+  ) // bind
+ )   %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//	%f_clear_list(SELF_REDEF_BASES)
+ [%f] clear_list %( 'SELF_REDEF_BASES' )% 
+
+//собираем все базовые классы для всех элементов, которые переопределяет текущий в один список
+//f _collect_base_of_redefinion
+; // is_sub_redefinition_for
+
+: collect_base_of_redefinion OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_base_of_redefinion: Не задан идентификатор списка!")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_base_of_redefinion: Не задан идентификатор списка!' )% 
+ end // if
+//	%f_set_var(LIST_ID,1)\
+ [%f] set_var %( 'LIST_ID' %, 1 )% 
+//	<{}{%f_is_redefinition_for(%S,%R)=true}%R<%G[%f_add_to_list(%{LIST_ID}N,S)]>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%f] is_redefinition_for %( %S %, %R )% ) %==  true ) then
+  begin
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%G
+    begin
+     OBJECT IN %G
+     if true then
+     begin
+      %G
+      bind ( 
+       OBJECT VAR %S
+       if NOT-EMPTY
+       begin
+        [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'S' )% 
+       end // if
+       NOP
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for G
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for R
+
+//#UC END# *46E3EDE002DEfor46E1540F00AB*
+; // collect_base_of_redefinion
+
+
+// возвращает имя (идентификатор) класса стереотипа
+//%f _st_class_name
+implementation @ <<MDAGenerator>>
+: st_class_name OBJECT IN %S
+//#UC START# *46E7AE5B00A8for46E1540F00AB*
+//	%SS
+ %S |S 
+//#UC END# *46E7AE5B00A8for46E1540F00AB*
+; // st_class_name
+
+
+// выводит определение всех UP
+//%f _define_up
+: define_up OBJECT IN %S
+//#UC START# *46E7BDF301F1for46E1540F00AB*
+//	[v %S{visability type}\n/ - типы видимости
+ if NOT-EMPTY
+ begin
+  'v '
+  %S get_up ( 'visability type' ) #13#10'/ - типы видимости'
+//	][e %S{has exception}\n/ - возможность использовать исключения
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  'e '
+  %S get_up ( 'has exception' ) #13#10'/ - возможность использовать исключения'
+//	][{%S{skip}=true}K \n/ - будет пропущен при загрузке модели
+ end // if
+ NOP
+ if ( ( %S get_up ( 'skip' ) ) %==  true ) then
+ begin
+  'K '#13#10'/ - будет пропущен при загрузке модели'
+//	][a %S{abstraction type}\n/ - тип абстракции
+ end // if
+ if NOT-EMPTY
+ begin
+  'a '
+  %S get_up ( 'abstraction type' ) #13#10'/ - тип абстракции'
+//	][Y %S{personal label}.gif
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  'Y '
+  %S get_up ( 'personal label' ) '.gif'
+//	][L %S{personal label}
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  'L '
+  %S get_up ( 'personal label' ) 
+//	]
+ end // if
+ NOP
+//#UC END# *46E7BDF301F1for46E1540F00AB*
+; // define_up
+
+
+// Возвращает вид стереотипа : main, sub
+//%f _st_kind
+: st_kind OBJECT IN %S
+//#UC START# *47130CC40213for46E1540F00AB*
+//#UC END# *47130CC40213for46E1540F00AB*
+; // st_kind
+
+
+// возвращает true, если элемент является переопределением уже существующего стереотипа
+//%f _is_redefinition
+: is_redefinition OBJECT IN %S
+//#UC START# *4986D3AD00DAfor46E1540F00AB*
+//	[{<{}{%f_is_redefinition_for(%S,%R)=true}{%RC}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( [%f] is_redefinition_for %( %S %, %R )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4986D3AD00DAfor46E1540F00AB*
+; // is_redefinition
+
+
+// собирает в список <<list_id>> базовые стереотипы элемента
+//%f _collect_base_stereotypes
+: collect_base_stereotypes OBJECT IN %S
+// параметры: list_id: a-string = %1
+//#UC START# *4986D3D1021Cfor46E1540F00AB*
+//	[{"%1N"=""}%f_error("_collect_base_stereotypes: Не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_base_stereotypes: Не задан идентификатор списка' )% 
+ end // if
+//	%f_set_var(__BASE_ST_LIST_ID__,"%1N")\
+ [%f] set_var %( '__BASE_ST_LIST_ID__' %, %1 |N )% 
+//	<{}{%G%f_need_st_define()=true&%f_is_redefinitions_of_relations(%S,%G)=false}%f_add_to_list(%{__BASE_ST_LIST_ID__}N,G)>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if ( ( %G %f need_st_define %( )% ) %==  true AND 
+   ( ( [%f] is_redefinitions_of_relations %( %S %, %G )% ) %==  false  ) ) then
+  begin
+   [%f] add_to_list %( ( get_global_var ( '__BASE_ST_LIST_ID__' ) |N ) %, 'G' )% 
+   ++! l_Counter
+  end // if
+ end // for G
+//	<{}{%R%f_need_st_define()=true&%f_is_redefinitions_of_relations(%S,%R)=false&%f_is_redefinition_for(%S,%R)=false}%f_add_to_list(%{__BASE_ST_LIST_ID__}N,R)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R %f need_st_define %( )% ) %==  true AND 
+   ( ( [%f] is_redefinitions_of_relations %( %S %, %R )% ) %==  false  ) AND 
+   ( ( [%f] is_redefinition_for %( %S %, %R )% ) %==  false  ) ) then
+  begin
+   [%f] add_to_list %( ( get_global_var ( '__BASE_ST_LIST_ID__' ) |N ) %, 'R' )% 
+   ++! l_Counter
+  end // if
+ end // for R
+//#UC END# *4986D3D1021Cfor46E1540F00AB*
+; // collect_base_stereotypes
+
+
+// генерит список наследования для стереотипа
+//%f _dump_inherit_list
+: dump_inherit_list OBJECT IN %S
+//#UC START# *4986D44803C1for46E1540F00AB*
+//	%f_clear_list(BASE_LIST)\
+ [%f] clear_list %( 'BASE_LIST' )% 
+//	%S%f_collect_base_stereotypes("BASE_LIST")\
+ %S %f collect_base_stereotypes %( 'BASE_LIST' )% 
+//	%f_clear_list(MAIN_BASE)\
+ [%f] clear_list %( 'MAIN_BASE' )% //	<{, }{%CC=Dependency&"%CS"="main hierarchy"}%CC-%CS>
+
+//	<{}{%f_is_empty(BASE_LIST)=false}{W}[%f_pop_first_to_var(BASE_LIST,BASE)= %{BASE}%f_st_name()
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'BASE_LIST' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'BASE_LIST' %, 'BASE' )% '= '
+    ( get_global_var ( 'BASE' ) %f st_name %( )% ) 
+//	]>
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//#UC END# *4986D44803C1for46E1540F00AB*
+; // dump_inherit_list
+
+
+// Алгоритм формирования списка генераторов, которые должны быть определены на стереотипе.
+// Результат "складывается" в список с идентифкатором определяемым параметром list_id.
+//%f _collect_generators
+: collect_generators OBJECT IN %S
+// параметры: list_id: string = %1
+//#UC START# *499B91DB0171for46E1540F00AB*
+//	[{"%1N"=""}%f_error("_collect_generators: Не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_generators: Не задан идентификатор списка' )% 
+ end // if
+//	<{}{%CC=Operation&%CS=generator&%Ca!=abstract}[{%f_exists_in_list(%1N,C)=false}%f_add_to_list(%1N,C)]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Operation' AND 
+   ( ( %C |S ) %== 'generator'  ) AND 
+   ( ( %C |a ) %!= 'abstract'  ) ) then
+  begin
+   if ( ( [%f] exists_in_list %( %1 |N %, 'C' )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( %1 |N %, 'C' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%oC=Operation&%oS=generator}[{%f_exists_in_list(%1N,o)=false}%f_add_to_list(%1N,o)]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%o
+ begin
+  OBJECT IN %o
+  if ( ( %o |C ) %== 'Operation' AND 
+   ( ( %o |S ) %== 'generator'  ) ) then
+  begin
+   if ( ( [%f] exists_in_list %( %1 |N %, 'o' )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( %1 |N %, 'o' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for o
+//	<{}{%OC=Operation&%OS=generator}[{%f_exists_in_list(%1N,O)=false}%f_add_to_list(%1N,O)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%O
+ begin
+  OBJECT IN %O
+  if ( ( %O |C ) %== 'Operation' AND 
+   ( ( %O |S ) %== 'generator'  ) ) then
+  begin
+   if ( ( [%f] exists_in_list %( %1 |N %, 'O' )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( %1 |N %, 'O' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for O
+//#UC END# *499B91DB0171for46E1540F00AB*
+; // collect_generators
+
+
+// дампит стереотип, определяющий основную ветку наследования, этот стереотип используется для
+// разрешения неоднозначностей при вызове функций и трасформаторов, в случае множественного
+// наследования.
+//%f _dump_main_hierarchy
+: dump_main_hierarchy OBJECT IN %S
+//#UC START# *49F970B601B4for46E1540F00AB*
+//	<{}{%CC=Dependency&"%CS"="main hierarchy"}! %C%T%f_st_name()>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Dependency' AND 
+   ( ( %C |S ) %== 'main hierarchy'  ) ) then
+  begin
+   '! '
+   %C ->T %f st_name %( )%  
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *49F970B601B4for46E1540F00AB*
+; // dump_main_hierarchy
+
+
+// собирает в список с заданным идентификатором имена стереотипов (A::Class), которые НЕ должны
+// включаться в элемент
+//%f _collect_exclude_for_auto_copy
+: collect_exclude_for_auto_copy OBJECT IN %S
+// параметры: list_id: string = %1
+//#UC START# *4AE5851A019Bfor46E1540F00AB*
+//	[{"%1N"=""}%f_error("_collect_exclude_for_auto_copy: Не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_exclude_for_auto_copy: Не задан идентификатор списка' )% 
+ end // if
+//	%f_collect_exclude_for_auto_copy_i(%S,%1)\
+ [%f] collect_exclude_for_auto_copy_i %( %S %, %1 )% 
+//	%S<%f_collect_exclude_for_auto_copy_i(%g,%2)>\
+ %S
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if true then
+   begin
+    [%f] collect_exclude_for_auto_copy_i %( %g %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for g
+
+ ) // bind
+ //	%S<%f_collect_exclude_for_auto_copy_i(%r,%2)>
+ %S
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%r
+  begin
+   OBJECT IN %r
+   if true then
+   begin
+    [%f] collect_exclude_for_auto_copy_i %( %r %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for r
+
+ ) // bind
+ 
+//f _collect_exclude_for_auto_copy_i
+; // collect_exclude_for_auto_copy
+
+end. // <<MDAGenerator>>
+
+: collect_exclude_for_auto_copy_i OBJECT IN %S
+//	<{}{%CC=Dependency&%CS=exclude auto copy}%f_add_to_list(%1N,"%C%T%f_sub_st_name(%{CONTEXT})")>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Dependency' AND 
+   ( ( %C |S ) %== 'exclude auto copy'  ) ) then
+  begin
+   [%f] add_to_list %( %1 |N %, %C ->T %f sub_st_name %( ( get_global_var ( 'CONTEXT' ) ) )%  )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4AE5851A019Bfor46E1540F00AB*
+; // collect_exclude_for_auto_copy_i
+
+
+// нужно ли помечать авто-копируемый элемент как внутренний
+//%f _is_internal_auto_copy
+implementation @ <<MDAGenerator>>
+: is_internal_auto_copy OBJECT IN %S
+// параметры: copy: pointer = %1
+//#UC START# *4B21010C008Ffor46E1540F00AB*
+//	[{%S{make auto copies internal}=true|%1{internal}=true}{false}true]
+ if ( ( %S get_up ( 'make auto copies internal' ) ) %==  true OR 
+   ( ( %1 get_up ( 'internal' ) ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4B21010C008Ffor46E1540F00AB*
+; // is_internal_auto_copy
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for46E1540F00AB*
+//c                                                                            {}
+//r {<{}{%R%f_need_st_define()=true&%R%f_st_name()!=%S%f_st_name()}{C}>!=0}:   {%S%f_st_name() can realize only other defined %S%f_st_name()}
+//r {"%S{personal label}"=""&%f_is_include_anywhere(%S)=true&<{}{"%g{personal label}"!=""}{%rC}>=0&<{}{"%r{personal label}"!=""}{%rC}>=0}:                 {Не задан параметр personal label}
+//r {%f_check_personal_label(%S)=false}:                                       {Не задан параметр personal label}
+
+//f _check_sub_stereotype_uniqueness
+; // constraint
+
+end. // <<MDAGenerator>>
+
+: check_sub_stereotype_uniqueness OBJECT IN %S
+//	%f_clear_list(INHERITED_SUB_ST)\
+ [%f] clear_list %( 'INHERITED_SUB_ST' )% 
+//	%f_clear_list(INHERITED_SUB_ST_NAMES)\
+ [%f] clear_list %( 'INHERITED_SUB_ST_NAMES' )% 
+//	%f_set_var(CONTEXT,S)\
+ [%f] set_var %( 'CONTEXT' %, 'S' )% 
+//	%f_collect_inherited_sub_st(%S,%{INHERITED_SUB_ST})\
+ [%f] collect_inherited_sub_st %( %S %, ( get_global_var ( 'INHERITED_SUB_ST' ) ) )% 
+//	[{"%{INHERITED_SUB_ST}<{}{}{%C}%{INHERITED_SUB_ST_NAMES}[{%f_exists_in_list(INHERITED_SUB_ST_NAMES,"%C%f_sub_st_name(%{CONTEXT})")=false}{.}%f_add_to_list("%C%f_sub_st_name(%{CONTEXT})")]>"=""}{\
+ if ( ( ( get_global_var ( 'INHERITED_SUB_ST' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     ( get_global_var ( 'INHERITED_SUB_ST_NAMES' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      if ( ( [%f] exists_in_list %( 'INHERITED_SUB_ST_NAMES' %, %C %f sub_st_name %( ( get_global_var ( 'CONTEXT' ) ) )% )% ) %==  false ) then
+      begin
+       [%f] add_to_list %( %C %f sub_st_name %( ( get_global_var ( 'CONTEXT' ) ) )% )% 
+      end // if
+      else
+      begin
+       '.' 
+      end // else
+
+     ) // bind
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+)   %== '' ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+
+//f _is_include_anywhere
+; // check_sub_stereotype_uniqueness
+
+: is_include_anywhere OBJECT IN %S
+//	[{<{}{%aS=include&%aC=Dependency}{%aC}>!=0|%S%f_st_kind()=sub}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%a
+  begin
+   OBJECT IN %a
+   if ( ( %a |S ) %== 'include' AND 
+    ( ( %a |C ) %== 'Dependency'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for a
+  l_Counter
+  %!= 0 OR 
+   ( ( %S %f st_kind %( )% ) %== 'sub'  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _check_personal_label
+; // is_include_anywhere
+
+: check_personal_label OBJECT IN %S
+//	[{"%S{personal label}"=""&%f_is_include_anywhere(%S)=true&<{}{"%g{personal label}"!=""}{%gC}>=0&<{}{"%r{personal label}"=""}{%rC}>=0}{true}false]
+ if ( ( %S get_up ( 'personal label' ) ) %== '' AND 
+   ( ( [%f] is_include_anywhere %( %S )% ) %==  true  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if ( ( %g get_up ( 'personal label' ) ) %!= '' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for g
+  l_Counter
+  %== 0  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%r
+  begin
+   OBJECT IN %r
+   if ( ( %r get_up ( 'personal label' ) ) %== '' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for r
+  l_Counter
+  %== 0  ) ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+
+//f _check_personal_visualization
+; // check_personal_label
+
+: check_personal_visualization OBJECT IN %S
+//	[{%f_is_visualization_exist(%S)=false&%f_is_include_anywhere(%S)=true&<{}{%f_is_visualization_exist(%g)=true}{%gC}>=0&<{}{%f_is_visualization_exist(%r)=true}{%rC}>=0}{true}false]
+ if ( ( [%f] is_visualization_exist %( %S )% ) %==  false AND 
+   ( ( [%f] is_include_anywhere %( %S )% ) %==  true  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if ( ( [%f] is_visualization_exist %( %g )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for g
+  l_Counter
+  %== 0  ) AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%r
+  begin
+   OBJECT IN %r
+   if ( ( [%f] is_visualization_exist %( %r )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for r
+  l_Counter
+  %== 0  ) ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+
+//f _is_visualization_exist
+; // check_personal_visualization
+
+: is_visualization_exist OBJECT IN %S
+//	[{"%S{visualization bg color}"=""}{true}false]
+ if ( ( %S get_up ( 'visualization bg color' ) ) %== '' ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+
+//f _is_visualization_exist1
+; // is_visualization_exist
+
+: is_visualization_exist1 OBJECT IN %S
+//	[{"%S{visualization bg color}"=""|"%S{visualization f-font color}"=""|"%S{visualization f-font color}"=""}{true}false]
+ if ( ( %S get_up ( 'visualization bg color' ) ) %== '' OR 
+   ( ( %S get_up ( 'visualization f-font color' ) ) %== ''  ) OR 
+   ( ( %S get_up ( 'visualization f-font color' ) ) %== ''  ) ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *4704C0E30186for46E1540F00AB*
+; // is_visualization_exist1
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+implementation @ <<MDAGenerator>>
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor46E1540F00AB*
+//#UC END# *4705CBD6003Efor46E1540F00AB*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for46E1540F00AB*
+//#UC END# *470484D50138for46E1540F00AB*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E1540F00AB*
+//P
+//#UC END# *4F368B80039Efor46E1540F00AB*
+; // forth_structure
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E1540F00AB*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{info}Используется в реализации прецедентов:
+   '{info}Используется в реализации прецедентов:'
+//	<{}{%aM=UseCase::Class}{Sg}* %f_k_link_wp(%a,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ag
+   begin
+    OBJECT IN %a
+    if ( ( %a |M ) %== 'UseCase::Class' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{tip}Специализирует:
+   '{tip}Специализирует:'
+//	<* %f_k_link_wp(%G,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+     '* '
+     [%f] k_link_wp %( %G %, %S )% 
+//	>{tip}][
+
+     ++! l_Counter
+    end // if
+   end // for G
+   '{tip}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{info}Реализует генераторы:
+   '{info}Реализует генераторы:'
+//	<{}{%R%f_st_name()!=%S%f_st_name()}* %f_k_link_wp(%R,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R %f st_name %( )% ) %!= ( %S %f st_name %( )% ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %R %, %S )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for R
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Перекрывает стереотипы:
+   '{info}Перекрывает стереотипы:'
+//	<{}{%R%f_st_name()=%S%f_st_name()}* %f_k_link_wp(%R,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R %f st_name %( )% ) %== ( %S %f st_name %( )% ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %R %, %S )% 
+//	>{info}][\
+
+     ++! l_Counter
+    end // if
+   end // for R
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+//	%f_k_common_elem_docs(%S)][
+   [%f] k_common_elem_docs %( %S )% 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Специализирован:_
+   '_Специализирован:_'
+//	<* %f_k_link_wp(%Z,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Z
+   begin
+    OBJECT IN %Z
+    if true then
+    begin
+     '* '
+     [%f] k_link_wp %( %Z %, %S )% 
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for Z
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Реализован:_
+   '_Реализован:_'
+//	<* %f_k_link_wp(%L,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%L
+   begin
+    OBJECT IN %L
+    if true then
+    begin
+     '* '
+     [%f] k_link_wp %( %L %, %S )% 
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for L
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Может быть включен в:_
+   '_Может быть включен в:_'
+//	<{}{%aS=include}{Sp}* %f_k_link_wp(%a%P,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %== 'include' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %a ->P  %, %S )% 
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for a
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Может содержать:_
+   '_Может содержать:_'
+//	<{}{%CS=include&%CC=Dependency}* %f_k_link_wp(%C%T,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'include' AND 
+     ( ( %C |C ) %== 'Dependency'  ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+//	>][{%mx=true&%Cx=true}
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if ( ( %m |x ) %==  true AND 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма слоя шаблонов:_
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%m
+   begin
+    OBJECT IN %m
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( '----'#13#10 )
+     '_'
+     if ( ( %m |N ) %!= 'Main' ) then
+     begin
+      %m |N 
+     end // if
+     else
+     begin
+      'Основная' 
+     end // else
+     ' диаграмма слоя шаблонов:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>]][
+
+     ++! l_Counter
+    end // if
+   end // for m
+  end // if
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав элемента[
+  'h2. Состав элемента'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Вложенные стереотипы:_<{}{%CC=Class}
+   '_Вложенные стереотипы:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Class' ) then
+    begin
+     #13#10
+
+//	%f_k_type_dump(%C)>][
+     [%f] k_type_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Генераторы:_<{}{%CC=Operation&%CS=generator}
+   '_Генераторы:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Operation' AND 
+     ( ( %C |S ) %== 'generator'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)[
+     [%f] k_method_dump %( %C )% if NOT-EMPTY
+     begin
+      #13#10
+
+//	Идентификатор языка: %C{lang id}][
+      'Идентификатор языка: '
+      %C get_up ( 'lang id' ) 
+     end // if
+     NOP
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	Заменитель для символа табулятора: %C{tab replace}]>][
+      'Заменитель для символа табулятора: '
+      %C get_up ( 'tab replace' ) 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Методы стереотипа:_<{}{%CC=Operation&%CS!=generator}
+   '_Методы стереотипа:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Operation' AND 
+     ( ( %C |S ) %!= 'generator'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)>][
+     [%f] k_method_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Реализует абстрактные методы_:<{}{%oC=Operation}
+   '_Реализует абстрактные методы_:'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%o
+   begin
+    OBJECT IN %o
+    if ( ( %o |C ) %== 'Operation' ) then
+    begin
+     #13#10
+
+//	\# %f_k_link_wp(%o,%S)>][
+     '# '
+     [%f] k_link_wp %( %o %, %S )% 
+     ++! l_Counter
+    end // if
+   end // for o
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Переопределяет методы_:<{}{%OC=Operation}
+   '_Переопределяет методы_:'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%O
+   begin
+    OBJECT IN %O
+    if ( ( %O |C ) %== 'Operation' ) then
+    begin
+     #13#10
+
+//	\# %f_k_link_wp(%O,%S)>][
+     '# '
+     [%f] k_link_wp %( %O %, %S )% 
+     ++! l_Counter
+    end // if
+   end // for O
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Пользовательские свойства:_<{}{%CC=Attribute}
+   '_Пользовательские свойства:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' ) then
+    begin
+     #13#10
+
+//	%f_k_attr_dump(%C)>][
+     [%f] k_attr_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Реализует абстрактные атрибуты_:<{}{%oC=Attribute}
+   '_Реализует абстрактные атрибуты_:'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%o
+   begin
+    OBJECT IN %o
+    if ( ( %o |C ) %== 'Attribute' ) then
+    begin
+     #13#10
+
+//	\# %f_k_link_wp(%o,%S)>][
+     '# '
+     [%f] k_link_wp %( %o %, %S )% 
+     ++! l_Counter
+    end // if
+   end // for o
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Переопределяет атрибуты:<{}{%OC=Attribute}
+   '_Переопределяет атрибуты:'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%O
+   begin
+    OBJECT IN %O
+    if ( ( %O |C ) %== 'Attribute' ) then
+    begin
+     #13#10
+
+//	\# %f_k_link_wp(%O,%S)>]]<%CX>
+     '# '
+     [%f] k_link_wp %( %O %, %S )% 
+     ++! l_Counter
+    end // if
+   end // for O
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for46E1540F00AB*
+; // wiki
+
+
+// реализация абстрактного стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E1540F00AB*
+//P
+//O [{%S%f_need_st_define()=true}%SN.tpi]
+//	[{%S%f_need_st_define()=true}\
+ if ( ( %S %f need_st_define %( )% ) %==  true ) then
+ begin
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	
+  #13#10
+
+//	: %S%f_st_name()[{%S{internal}=true}*][{%S%f_is_redefinition()=true} (redefinition)]
+  ': '
+  %S %f st_name %( )% if ( ( %S get_up ( 'internal' ) ) %==  true ) then
+  begin
+   '*' 
+  end // if
+  if ( ( %S %f is_redefinition %( )% ) %==  true ) then
+  begin
+   ' (redefinition)' 
+  end // if
+//	[? %f_str_replace(%f_str_replace(%SD,\n---,),\n,\n? )
+  if NOT-EMPTY
+  begin
+   '? '
+   [%f] str_replace %( [%f] str_replace %( %S |D %, #13#10'---' %, )% %, #13#10 %, #13#10'? ' )% 
+//	][%f_dump_include_constraint(%S)
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   [%f] dump_include_constraint %( %S )% 
+//	][%S%f_dump_inherit_list()
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   %S %f dump_inherit_list %( )% 
+//	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Основная ветка наследования
+   '// Основная ветка наследования'
+//	%S%f_dump_main_hierarchy()
+   %S %f dump_main_hierarchy %( )% 
+//	
+   #13#10
+
+//	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Параметры стереотипа
+   '// Параметры стереотипа'
+//	%S%f_define_up()
+   %S %f define_up %( )% 
+//	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Пользовательские свойства
+   '// Пользовательские свойства'
+//	
+   #13#10
+
+//	<{}{%CC=Attribute}%CX
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' ) then
+    begin
+     %C |X 
+//	>
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	]%f_set_var(CONTEXT,S)[////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  end // if
+  NOP
+  [%f] set_var %( 'CONTEXT' %, 'S' )% if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Генераторы
+   '// Генераторы'
+//	
+   #13#10
+
+//	<{\n}{%CC=Operation&%CS=generator&%Ca!=abstract}{}[%CX
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Operation' AND 
+     ( ( %C |S ) %== 'generator'  ) AND 
+     ( ( %C |a ) %!= 'abstract'  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10 )
+     if NOT-EMPTY
+     begin
+      %C |X 
+//	]>
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Трансформаторы стереотипа
+   '// Трансформаторы стереотипа'
+//	
+   #13#10
+
+//	<{\n}{%CC=Operation&%CS=transformator&%Ca!=abstract}{}[%CX
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Operation' AND 
+     ( ( %C |S ) %== 'transformator'  ) AND 
+     ( ( %C |a ) %!= 'abstract'  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10 )
+     if NOT-EMPTY
+     begin
+      %C |X 
+//	
+      #13#10
+
+//	]>][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Функции стереотипа
+   '// Функции стереотипа'
+//	
+   #13#10
+
+//	[\%f _st_space_key
+   if NOT-EMPTY
+   begin
+    '%f _st_space_key'
+//	%f_set_var(SPACE_KEY,"%S{space key}")\
+    [%f] set_var %( 'SPACE_KEY' %, %S get_up ( 'space key' ) )% 
+//	<{}{"%P{space key}"!=""&"%{SPACE_KEY}N"=""}{%Pr}%f_set_var(SPACE_KEY,"%P{space key}")>\
+    INTEGER VAR l_Counter l_Counter := 0
+    for downto %S%P
+    begin
+     OBJECT IN %P
+     if ( ( %P get_up ( 'space key' ) ) %!= '' AND 
+      ( ( ( get_global_var ( 'SPACE_KEY' ) |N ) ) %== ''  ) ) then
+     begin
+      [%f] set_var %( 'SPACE_KEY' %, %P get_up ( 'space key' ) )% 
+      ++! l_Counter
+     end // if
+    end // for P
+//		%{SPACE_KEY}N
+    '	'
+    ( get_global_var ( 'SPACE_KEY' ) |N ) 
+//	
+    #13#10
+
+//	][%f_dump_wiki_up_print(%S)
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    [%f] dump_wiki_up_print %( %S )% 
+//	
+    #13#10
+
+//	]<{\n}{%CC=Operation&"%CS"=""&%Ca!=abstract}{}[%CX
+   end // if
+   NOP
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Operation' AND 
+     ( ( %C |S ) %== ''  ) AND 
+     ( ( %C |a ) %!= 'abstract'  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10 )
+     if NOT-EMPTY
+     begin
+      %C |X 
+//	]>
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Унаследованная реализация
+   '// Унаследованная реализация'
+//	
+   #13#10
+
+//	<{}{%oS!=generator&%oC!=Class}{Sp}// реализация абстрактного стереотипа %o%P%f_st_name()
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%op
+   begin
+    OBJECT IN %o
+    if ( ( %o |S ) %!= 'generator' AND 
+     ( ( %o |C ) %!= 'Class'  ) ) then
+    begin
+     '// реализация абстрактного стереотипа '
+     %o ->P %f st_name %( )%  
+//	%oX
+     %o |X 
+//	
+     #13#10
+
+//	><{}{%OS!=generator&%OC!=Class}{Sp}// перекрытие базового стереотипа %O%P%f_st_name()
+
+     ++! l_Counter
+    end // if
+   end // for o
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Op
+   begin
+    OBJECT IN %O
+    if ( ( %O |S ) %!= 'generator' AND 
+     ( ( %O |C ) %!= 'Class'  ) ) then
+    begin
+     '// перекрытие базового стереотипа '
+     %O ->P %f st_name %( )%  
+//	%OX
+     %O |X 
+//	
+     #13#10
+
+//	><{}{%oS=generator}{Sp}// реализация абстрактного стереотипа %o%P%f_st_name()
+
+     ++! l_Counter
+    end // if
+   end // for O
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%op
+   begin
+    OBJECT IN %o
+    if ( ( %o |S ) %== 'generator' ) then
+    begin
+     '// реализация абстрактного стереотипа '
+     %o ->P %f st_name %( )%  
+//	%oX
+     %o |X 
+//	
+     #13#10
+
+//	><{}{%OS=generator}{Sp}// перекрытие базового стереотипа %O%P%f_st_name()
+
+     ++! l_Counter
+    end // if
+   end // for o
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Op
+   begin
+    OBJECT IN %O
+    if ( ( %O |S ) %== 'generator' ) then
+    begin
+     '// перекрытие базового стереотипа '
+     %O ->P %f st_name %( )%  
+//	%OX
+     %O |X 
+//	
+     #13#10
+
+//	>][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+     ++! l_Counter
+    end // if
+   end // for O
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Вложенные стереотипы
+   '// Вложенные стереотипы'
+//	
+   #13#10
+
+//	<{}{%CC=Class}%CX>]\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Class' ) then
+    begin
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	[////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  if NOT-EMPTY
+  begin
+   '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Исключенные вложенные стереотипы
+   '// Исключенные вложенные стереотипы'
+//	%S%f_dump_excluded_sub_stereotypes()]
+   %S %f dump_excluded_sub_stereotypes %( )% 
+  end // if
+  NOP
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ end // if
+
+//%f _dump_excluded_sub_stereotypes
+; // mda
+
+: dump_excluded_sub_stereotypes OBJECT IN %S
+//	%f_clear_list(INHERITED_SUB_ST)\
+ [%f] clear_list %( 'INHERITED_SUB_ST' )% 
+//	%f_set_var(CONTEXT,S)\
+ [%f] set_var %( 'CONTEXT' %, 'S' )% 
+//	%f_clear_list(CONTEXT_BASES)\
+ [%f] clear_list %( 'CONTEXT_BASES' )% 
+//
+//	%f_clear_list(SUBSTEREOTYPES_NAMES)\
+ [%f] clear_list %( 'SUBSTEREOTYPES_NAMES' )% 
+//	<{}{%CC=Class}%{SUBSTEREOTYPES_NAMES}%f_add_to_list("%C%f_st_name()")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Class' ) then
+  begin
+   ( get_global_var ( 'SUBSTEREOTYPES_NAMES' ) %f add_to_list %( %C %f st_name %( )% )% ) 
+   ++! l_Counter
+  end // if
+ end // for C
+//
+//	%f_collect_all_bases(%S,%{CONTEXT_BASES})\
+ [%f] collect_all_bases %( %S %, ( get_global_var ( 'CONTEXT_BASES' ) ) )% 
+//	%f_collect_inherited_sub_st(%S,%{INHERITED_SUB_ST},%S)\
+ [%f] collect_inherited_sub_st %( %S %, ( get_global_var ( 'INHERITED_SUB_ST' ) ) %, %S )% 
+////
+//	%f_sort_list(INHERITED_SUB_ST,"%f_extends_number_with_prefix("%f_get_position_in_list(%{CONTEXT_BASES},%P,"100")","3")")\
+ [%f] sort_list %( 'INHERITED_SUB_ST' %, [%f] extends_number_with_prefix %( [%f] get_position_in_list %( ( get_global_var ( 'CONTEXT_BASES' ) ) %, %P %, 100 )% %, 3 )% )% 
+////
+//	%{INHERITED_SUB_ST}<{\n}{}{%C}%f_set_var(SUB_ST_PARENT,C%P)%C<{}{%f_kind_of(P,MDAMainStereotype::Class)=true}{%P}%f_set_var(SUB_ST_PARENT,P)>\
+ ( get_global_var ( 'INHERITED_SUB_ST' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    [%f] set_var %( 'SUB_ST_PARENT' %, 'C'
+    %P )% %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%P
+     begin
+      OBJECT IN %P
+      if ( ( [%f] kind_of %( 'P' %, 'MDAMainStereotype::Class' )% ) %==  true ) then
+      begin
+       [%f] set_var %( 'SUB_ST_PARENT' %, 'P' )% 
+       ++! l_Counter
+      end // if
+     end // for P
+
+    ) // bind
+ //	%f_set_var(CURRENT_SUB_ST_NAME,"%{CONTEXT}%f_make_st_name_for(%C)")\
+    [%f] set_var %( 'CURRENT_SUB_ST_NAME' %, ( get_global_var ( 'CONTEXT' ) %f make_st_name_for %( %C )% ) )% 
+//	[{%f_exists_in_list(SUBSTEREOTYPES_NAMES,"%{CURRENT_SUB_ST_NAME}N")=false}%{SUBSTEREOTYPES_NAMES}%f_add_to_list("%{CURRENT_SUB_ST_NAME}N")\
+    if ( ( [%f] exists_in_list %( 'SUBSTEREOTYPES_NAMES' %, ( get_global_var ( 'CURRENT_SUB_ST_NAME' ) |N ) )% ) %==  false ) then
+    begin
+     ( get_global_var ( 'SUBSTEREOTYPES_NAMES' ) %f add_to_list %( ( get_global_var ( 'CURRENT_SUB_ST_NAME' ) |N ) )% ) 
+//	~ %{CURRENT_SUB_ST_NAME}N\
+     '~ '
+     ( get_global_var ( 'CURRENT_SUB_ST_NAME' ) |N ) 
+//это хак, для того, чтобы автоматически скопировать подстереотипы, который наследуемый подстереотип наследует от своего базового подстереотипа (если такие есть)
+//	%f_clear_list(INHERITED_SUB_SUB_ST)\
+     [%f] clear_list %( 'INHERITED_SUB_SUB_ST' )% 
+//	%f_collect_inherited_sub_st(%C,%{INHERITED_SUB_SUB_ST},%C)\
+     [%f] collect_inherited_sub_st %( %C %, ( get_global_var ( 'INHERITED_SUB_SUB_ST' ) ) %, %C )% 
+//	%f_sort_list(INHERITED_SUB_SUB_ST,"%f_extends_number_with_prefix("%f_get_position_in_list(%{CONTEXT_BASES},%P,"100")"0,"3")")\
+     [%f] sort_list %( 'INHERITED_SUB_SUB_ST' %, [%f] extends_number_with_prefix %( [%f] get_position_in_list %( ( get_global_var ( 'CONTEXT_BASES' ) ) %, %P %, 100 )% 0 %, 3 )% )% 
+//	%f_set_var(CURRENT_BASE,C)\
+     [%f] set_var %( 'CURRENT_BASE' %, 'C' )% 
+//	[
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	%{INHERITED_SUB_SUB_ST}<{\n}~ %f_str_replace(%C%f_st_name(),%C%P%f_st_name(),%{CONTEXT}%f_make_st_name_for(%{CURRENT_BASE}))>]]>
+      ( get_global_var ( 'INHERITED_SUB_SUB_ST' ) ) 
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if true then
+        begin
+         if ( l_Counter >0 ) then ( #13#10 )
+         '~ '
+         [%f] str_replace %( %C %f st_name %( )% %, %C ->P %f st_name %( )%  %, ( get_global_var ( 'CONTEXT' ) %f make_st_name_for %( ( get_global_var ( 'CURRENT_BASE' ) ) )% ) )% 
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+     end // if
+     NOP
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+
+//S - list
+//1 - arg
+//2 - 0 replacer
+//f _get_position_in_list
+; // dump_excluded_sub_stereotypes
+
+end. // <<MDAGenerator>>
+
+: get_position_in_list OBJECT IN %S
+//	[{}{[{}{0}%2N]}<{}{}{%C}[{%CU=%1U}%Cn]>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( ( %C |U ) %== ( %1 |U ) ) then
+    begin
+     %C |n 
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   %2 |N 
+  end // if
+  NOP
+  else
+  begin
+   0 
+  end // else
+ end // else
+
+//f _collect_all_bases
+; // get_position_in_list
+
+: collect_all_bases OBJECT IN %S
+//	<{}{}{%R}[{%f_exists_in_list(%1N,R)=false}%1%f_add_to_list(R)%f_collect_all_bases(%R,%1)]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   if ( ( [%f] exists_in_list %( %1 |N %, 'R' )% ) %==  false ) then
+   begin
+    %1 %f add_to_list %( 'R' )% [%f] collect_all_bases %( %R %, %1 )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for R
+//	<{}{}{%G}[{%f_exists_in_list(%1N,G)=false}%1%f_add_to_list(G)%f_collect_all_bases(%G,%1)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+   if ( ( [%f] exists_in_list %( %1 |N %, 'G' )% ) %==  false ) then
+   begin
+    %1 %f add_to_list %( 'G' )% [%f] collect_all_bases %( %G %, %1 )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for G
+
+//%f _make_st_name_for
+; // collect_all_bases
+
+implementation @ <<MDAGenerator>>
+: make_st_name_for OBJECT IN %S
+//	%1%f_sub_st_name(%S)
+ %1 %f sub_st_name %( %S )% 
+
+//требует установленной переменной CONTEXT
+//f _collect_inherited_sub_st
+; // make_st_name_for
+
+end. // <<MDAGenerator>>
+
+: collect_inherited_sub_st OBJECT IN %S
+//	<{}{%oC=Class}%f_collect_inherited_sub_st_impl(%o,%1,%2)>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%o
+ begin
+  OBJECT IN %o
+  if ( ( %o |C ) %== 'Class' ) then
+  begin
+   [%f] collect_inherited_sub_st_impl %( %o %, %1 %, %2 )% 
+   ++! l_Counter
+  end // if
+ end // for o
+//	<{}{%OC=Class}%f_collect_inherited_sub_st_impl(%O,%1,%2)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%O
+ begin
+  OBJECT IN %O
+  if ( ( %O |C ) %== 'Class' ) then
+  begin
+   [%f] collect_inherited_sub_st_impl %( %O %, %1 %, %2 )% 
+   ++! l_Counter
+  end // if
+ end // for O
+
+//f _collect_inherited_sub_st_impl
+; // collect_inherited_sub_st
+
+: collect_inherited_sub_st_impl OBJECT IN %S
+//	%f_set_var(ST_NAME,"%2%f_make_st_name_for(%S)")\
+ [%f] set_var %( 'ST_NAME' %, %2 %f make_st_name_for %( %S )% )% 
+//	[{%2<{}{%AC=Class&%A%f_sub_st_name(%S)=%{ST_NAME}N}{%AC}>=0}%1%f_add_to_list(S)\
+ if ( ( %2
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |C ) %== 'Class' AND 
+     ( ( %A %f sub_st_name %( %S )% ) %== ( ( get_global_var ( 'ST_NAME' ) |N ) )  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for A
+   l_Counter
+
+  ) // bind
+ )   %== 0 ) then
+ begin
+  %1 %f add_to_list %( 'S' )% 
+//	%f_collect_inherited_sub_st(%S,%1)\
+//	<{}{%CC=Class}%f_collect_inherited_sub_st_impl(%C,%1,%2)>]
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Class' ) then
+   begin
+    [%f] collect_inherited_sub_st_impl %( %C %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+
+
+//проверяет, что %S переопределяет элемент, который наследуется от элемента, переопределяемого %1
+// A <---- B
+// ^       ^
+// |       |
+//  A'<-----B'
+//%f_is_redefinitions_of_relations(B',A) - вернёт true
+//f _is_redefinitions_of_relations
+; // collect_inherited_sub_st_impl
+
+: is_redefinitions_of_relations OBJECT IN %S
+//	%f_clear_list(SELF_REDEFS)\
+ [%f] clear_list %( 'SELF_REDEFS' )% 
+//	%f_clear_list(1_REDEFS)\
+ [%f] clear_list %( '1_REDEFS' )% 
+//	%f_collect_redefinitions(%S,"SELF_REDEFS")\
+ [%f] collect_redefinitions %( %S %, 'SELF_REDEFS' )% 
+//	%f_collect_redefinitions(%1,"1_REDEFS")\
+ [%f] collect_redefinitions %( %1 %, 1 '_REDEFS' )% 
+//	[{"<{}{%f_is_empty(SELF_REDEFS)=false}{W}%f_pop_first_to_var(SELF_REDEFS,ITEM)\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'SELF_REDEFS' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'SELF_REDEFS' %, 'ITEM' )% 
+//	%{ITEM}<{}{%f_exists_in_list(1_REDEFS,g)=true}{%g}.>>"!=""}{false}true]\
+    ( get_global_var ( 'ITEM' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%g
+     begin
+      OBJECT IN %g
+      if ( ( [%f] exists_in_list %( '1_REDEFS' %, 'g' )% ) %==  true ) then
+      begin
+       '.' 
+       ++! l_Counter
+      end // if
+     end // for g
+
+    ) // bind
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+  %!= '' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//	%f_clear_list(SELF_REDEFS)\
+ [%f] clear_list %( 'SELF_REDEFS' )% 
+//	%f_clear_list(1_REDEFS)
+ [%f] clear_list %( '1_REDEFS' )% 
+
+//собирает в один список все элементы, котоырй переопределяет данный
+//f _collect_redefinitions
+; // is_redefinitions_of_relations
+
+: collect_redefinitions OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_redefinitions: Не задан идентифкатор списка!")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_redefinitions: Не задан идентифкатор списка!' )% 
+ end // if
+//	%f_set_var(__LIST_ID__,1)\
+ [%f] set_var %( '__LIST_ID__' %, 1 )% 
+//	<{}{%f_is_redefinition_for(%S,%R)=true}%f_add_to_list(%{__LIST_ID__}N,R)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( [%f] is_redefinition_for %( %S %, %R )% ) %==  true ) then
+  begin
+   [%f] add_to_list %( ( get_global_var ( '__LIST_ID__' ) |N ) %, 'R' )% 
+   ++! l_Counter
+  end // if
+ end // for R
+
+//возвращает true, если %S переопределяет %1
+//f _is_redefinition_for
+; // collect_redefinitions
+
+: is_redefinition_for OBJECT IN %S
+//	[{%1%f_need_st_define()=true&%1%f_st_name()=%S%f_st_name()}{false}true]
+ if ( ( %1 %f need_st_define %( )% ) %==  true AND 
+   ( ( %1 %f st_name %( )% ) %== ( %S %f st_name %( )% )  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _dump_include_constraint
+; // is_redefinition_for
+
+: dump_include_constraint OBJECT IN %S
+//	[{%S{inherite constraints}=false}\> !
+ if ( ( %S get_up ( 'inherite constraints' ) ) %==  false ) then
+ begin
+  '> !'
+//	][{}{[{%f_is_inherit_includes(%S)=false&%Sa!=abstract}\< *::Class,*::Category\n]}<{}{%CC=Dependency&%CS=include}\> %C%T%f_st_name()[{%C{internal}=true}*]
+ end // if
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Dependency' AND 
+    ( ( %C |S ) %== 'include'  ) ) then
+   begin
+    '> '
+    %C ->T %f st_name %( )%  if ( ( %C get_up ( 'internal' ) ) %==  true ) then
+    begin
+     '*' 
+    end // if
+//	>]
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ else
+ begin
+  if ( ( [%f] is_inherit_includes %( %S )% ) %==  false AND 
+    ( ( %S |a ) %!= 'abstract'  ) ) then
+  begin
+   '< *::Class,*::Category'#13#10 
+  end // if
+ end // else
+
+///проверяем, что стереотип уже наследует связь включения
+//f _is_inherit_includes
+; // dump_include_constraint
+
+: is_inherit_includes OBJECT IN %S
+//	[{%S{inherite constraints}=true&<{}{%g%f_need_st_define()=true&%g<{}{%CC=Dependency&%CS=include}{C}>!=0}{C}>!=0}{[{%S{inherite constraints}=true&<{}{%r%f_need_st_define()=true&%r<{}{%CC=Dependency&%CS=include}{C}>!=0}{C}>!=0}{false}true]}\
+ if ( ( %S get_up ( 'inherite constraints' ) ) %==  true AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if ( ( %g %f need_st_define %( )% ) %==  true AND 
+    ( ( %g
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Dependency' AND 
+      ( ( %C |S ) %== 'include'  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+ )    %!= 0  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for g
+  l_Counter
+  %!= 0  ) ) then
+ begin
+//	true]
+   true 
+ end // if
+ else
+ begin
+  if ( ( %S get_up ( 'inherite constraints' ) ) %==  true AND 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%r
+   begin
+    OBJECT IN %r
+    if ( ( %r %f need_st_define %( )% ) %==  true AND 
+     ( ( %r
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Dependency' AND 
+       ( ( %C |S ) %== 'include'  ) ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for C
+     l_Counter
+
+    ) // bind
+ )     %!= 0  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for r
+   l_Counter
+   %!= 0  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // else
+//#UC END# *46E28D830109for46E1540F00AB*
+; // is_inherit_includes
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: MDAGenerator::Class::generator::Operation
+implementation @ :: <<MDAGenerator>> <<generator>> ;
+//? генератор
+//? определяет конкретный целевой генератор
+// Параметры стереотипа
+//a ar
+// - тип абстракции
+//Y code_mda_op_generator.gif
+//L code_mda_op_generator
+//T 
+// - может не иметь "цели" (типа/результата)
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+
+// Пользовательские свойства
+//p encoding=default|utf8|koi8-r|cp866 ? Кодировка выходного файла, по-умолчанию cp1251
+//p ifdef_suffix:s ? суффикс используемый при генерации деректив #ifdef
+//p lang id:s ? идентификатор языка
+//p newline replace:s ? Заменитель переноса строки. Если необходимо использовать специальные символы, то заменитель можно задать как последовательность кодов символов в шестнадцатиричном виде. Например заменитель 0D0A эквивалентен \n. Если не удалось распарсить последовательность, то заменителем будет просто строка, например: 0D123 так и останется 0D123. Вместо пробела следует использовать последовательность "\s".
+//p tab replace:s ? задает строку заменитель для символа табулятора. Если задан, то в результирующем файле все табуляторы будут заменены на указанную строку. Вместо пробела следует использовать последовательность "\s".
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E3DB9001C5*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	+ %SN
+ '+ '
+ %S |N 
+//	[{"%S{tab replace}"!=""}R %f_str_replace(%S{tab replace},\\s,%f_space(%S))
+ if ( ( %S get_up ( 'tab replace' ) ) %!= '' ) then
+ begin
+  'R '
+  [%f] str_replace %( %S get_up ( 'tab replace' ) %, '\s' %, [%f] space %( %S )% )% 
+//	][{"%S{newline replace}"!=""}N %f_str_replace(%S{newline replace},\\s,%f_space(%S))
+ end // if
+ if ( ( %S get_up ( 'newline replace' ) ) %!= '' ) then
+ begin
+  'N '
+  [%f] str_replace %( %S get_up ( 'newline replace' ) %, '\s' %, [%f] space %( %S )% )% 
+//	][{"%S{encoding}"!=""&%S{encoding}!=default}c %S{encoding}
+ end // if
+ if ( ( %S get_up ( 'encoding' ) ) %!= '' AND 
+   ( ( %S get_up ( 'encoding' ) ) %!= 'default'  ) ) then
+ begin
+  'c '
+  %S get_up ( 'encoding' ) 
+//	]%U[{for%{CONTEXT}U}
+ end // if
+ %Usersection (
+  'for'
+  ( get_global_var ( 'CONTEXT' ) |U ) 
+ )
+ (
+  #13#10
+
+//	]
+
+ ) // Usersection
+ //#UC END# *46E28D830109for46E3DB9001C5*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E3DB9001C5*
+//#UC END# *46E6D4BB0339for46E3DB9001C5*
+; // wiki
+
+
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E3DB9001C5*
+//P
+//#UC END# *4F368B80039Efor46E3DB9001C5*
+; // forth_structure
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{tab replace}"!="%S{!tab replace}"}%f_up_prefix(%S) *tab replace* = *%S{tab replace}* - задает строку заменитель для символа табулятора. Если задан, то в результирующем файле все табуляторы будут заменены на указанную строку. Вместо пробела следует использовать последовательность "\\s".
+ if ( ( %S get_up ( 'tab replace' ) ) %!= ( %S get_up_def ( 'tab replace' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *tab replace* = *'
+  %S get_up ( 'tab replace' ) '* - задает строку заменитель для символа табулятора. Если задан, то в результирующем файле все табуляторы будут заменены на указанную строку. Вместо пробела следует использовать последовательность "\s".'
+//	][{"%S{lang id}"!="%S{!lang id}"}%f_up_prefix(%S) *lang id* = *%S{lang id}* - идентификатор языка
+ end // if
+ if ( ( %S get_up ( 'lang id' ) ) %!= ( %S get_up_def ( 'lang id' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *lang id* = *'
+  %S get_up ( 'lang id' ) '* - идентификатор языка'
+//	][{"%S{ifdef_suffix}"!="%S{!ifdef_suffix}"}%f_up_prefix(%S) *ifdef_suffix* = *%S{ifdef_suffix}* - суффикс используемый при генерации деректив #ifdef
+ end // if
+ if ( ( %S get_up ( 'ifdef_suffix' ) ) %!= ( %S get_up_def ( 'ifdef_suffix' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ifdef_suffix* = *'
+  %S get_up ( 'ifdef_suffix' ) '* - суффикс используемый при генерации деректив '
+  out_indent 'ifdef'
+//	][{"%S{newline replace}"!="%S{!newline replace}"}%f_up_prefix(%S) *newline replace* = *%S{newline replace}* - Заменитель переноса строки. Если необходимо использовать специальные символы, то заменитель можно задать как последовательность кодов символов в шестнадцатиричном виде. Например заменитель 0D0A эквивалентен \\n. Если не удалось распарсить последовательность, то заменителем будет просто строка, например: 0D123 так и останется 0D123. Вместо пробела следует использовать последовательность "\\s".
+ end // if
+ if ( ( %S get_up ( 'newline replace' ) ) %!= ( %S get_up_def ( 'newline replace' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *newline replace* = *'
+  %S get_up ( 'newline replace' ) '* - Заменитель переноса строки. Если необходимо использовать специальные символы, то заменитель можно задать как последовательность кодов символов в шестнадцатиричном виде. Например заменитель 0D0A эквивалентен \n. Если не удалось распарсить последовательность, то заменителем будет просто строка, например: 0D123 так и останется 0D123. Вместо пробела следует использовать последовательность "\s".'
+//	][{"%S{encoding}"!="%S{!encoding}"}%f_up_prefix(%S) *encoding* = *%S{encoding}* - Кодировка выходного файла, по-умолчанию cp1251
+ end // if
+ if ( ( %S get_up ( 'encoding' ) ) %!= ( %S get_up_def ( 'encoding' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *encoding* = *'
+  %S get_up ( 'encoding' ) '* - Кодировка выходного файла, по-умолчанию cp1251'
+//	]
+ end // if
+
+
+//: MDAGenerator::Class::Operation
+; // wiki_up_print
+
+end. // :: <<MDAGenerator>> <<generator>> ;
+
+implementation @ :: <<MDAGenerator>> <<Operation>> ;
+//? функция стереотипа
+//? определяет пользовательскую функцию принадлежащую стереотипу
+// Параметры стереотипа
+//a ar
+// - тип абстракции
+//Y code_mda_op_function.gif
+//L code_mda_op_function
+//T 
+// - может не иметь "цели" (типа/результата)
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E3DB3B001F*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	\%f _%SN\
+ '%f _'
+ %S |N 
+//	%f_set_var(Count,"1")[
+//	// параметры: <{, }%CN: %C%TN = \%%{Count}N\
+//	%f_set_var(Count,"%f_evaluate(%{Count}N+1)")>]
+//	[
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	// параметры: <{, }%CN: %C%TN = \%%Cn>]\
+  '// параметры: '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    %C |N ': '
+    %C ->T |N  ' = %'
+    %C |n 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//	[{%TN!=void}
+ if ( ( %T |N ) %!= 'void' ) then
+ begin
+  #13#10
+
+//	// возвращаемый результат: %TN]
+  '// возвращаемый результат: '
+  %T |N 
+ end // if
+//	%U[{for%{CONTEXT}U}
+ %Usersection (
+  'for'
+  ( get_global_var ( 'CONTEXT' ) |U ) 
+ )
+ (
+  #13#10
+
+//	]
+
+ ) // Usersection
+ //#UC END# *46E28D830109for46E3DB3B001F*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E3DB3B001F*
+//#UC END# *46E6D4BB0339for46E3DB3B001F*
+; // wiki
+
+
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E3DB3B001F*
+//P
+//#UC END# *4F368B80039Efor46E3DB3B001F*
+; // forth_structure
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::transformator::Operation
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<Operation>> ;
+
+implementation @ :: <<MDAGenerator>> <<transformator>> ;
+//? Трансформатор
+//? Задает пользовательский трансформатор принадлежащий стереотипу
+// Параметры стереотипа
+//a ar
+// - тип абстракции
+//Y code_mda_op_transformator.gif
+//L code_mda_op_transformator
+//T 
+// - может не иметь "цели" (типа/результата)
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E3F93A0128*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	\%t _%SN
+ '%t _'
+ %S |N 
+//	%U[{for%{CONTEXT}U}
+ %Usersection (
+  'for'
+  ( get_global_var ( 'CONTEXT' ) |U ) 
+ )
+ (
+  #13#10
+
+//	c          {}
+  'c          {}'
+//	r {""=""}: {}
+  'r {'' ='' }: {}'
+//	]
+
+ ) // Usersection
+ //#UC END# *46E28D830109for46E3F93A0128*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E3F93A0128*
+//#UC END# *46E6D4BB0339for46E3F93A0128*
+; // wiki
+
+
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E3F93A0128*
+//P
+//#UC END# *4F368B80039Efor46E3F93A0128*
+; // forth_structure
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::UserProperty::Attribute
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<transformator>> ;
+
+implementation @ :: <<MDAGenerator>> <<UserProperty>> ;
+//? базовый класс для пользовательских свойств
+//= Мета-MDA::MDAGenerator
+
+// Параметры стереотипа
+//Y code_mda_attr_up.gif
+//L code_mda_attr_up
+//T 
+// - может не иметь "цели" (типа/результата)
+//m f
+// - не может быть реализован/иметь перекрытую реализацию
+//l a
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46EFD6DC0192*
+//#UC END# *46E28D830109for46EFD6DC0192*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46EFD6DC0192*
+//#UC END# *46E6D4BB0339for46EFD6DC0192*
+; // wiki
+
+
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46EFD6DC0192*
+//P
+//#UC END# *4F368B80039Efor46EFD6DC0192*
+; // forth_structure
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for46EFD6DC0192*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for46EFD6DC0192*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor46EFD6DC0192*
+//#UC END# *4705CBD6003Efor46EFD6DC0192*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for46EFD6DC0192*
+//#UC END# *470484D50138for46EFD6DC0192*
+; // wiki_up_add_gen
+
+
+//: MDAGenerator::Class::bool::Attribute
+end. // :: <<MDAGenerator>> <<UserProperty>> ;
+
+implementation @ :: <<MDAGenerator>> <<bool>> ;
+//? UP-бинарное значение
+//? Задает пользовательское свойство типа бинарное значение "on/off"
+//= MDAGenerator::Class::UserProperty::Attribute
+
+// Параметры стереотипа
+//m f
+// - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E6B9A10135*
+//	p %SN:b=[{%SI=true|%SI=1}{false}true] ? %f_str_replace(%SD,\n,%f_space(%S))
+ 'p '
+ %S |N ':b='
+ if ( ( %S |I ) %==  true OR 
+   ( ( %S |I ) %== 1  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+ ' ? '
+ [%f] str_replace %( %S |D %, #13#10 %, [%f] space %( %S )% )% 
+//#UC END# *46E28D830109for46E6B9A10135*
+; // mda
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::string::Attribute
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<bool>> ;
+
+implementation @ :: <<MDAGenerator>> <<string>> ;
+//? UP-строка
+//? Задает пользовательское свойство типа "строка"
+//= MDAGenerator::Class::UserProperty::Attribute
+
+// Параметры стереотипа
+//m f
+// - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E6B9AC02FA*
+//	p %SN:s[=%SI] ? %f_str_replace(%SD,\n,%f_space(%S))
+ 'p '
+ %S |N ':s'
+ if NOT-EMPTY
+ begin
+  '='
+  %S |I 
+ end // if
+ NOP
+ ' ? '
+ [%f] str_replace %( %S |D %, #13#10 %, [%f] space %( %S )% )% 
+//#UC END# *46E28D830109for46E6B9AC02FA*
+; // mda
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::include::ClassDependency
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<string>> ;
+
+implementation @ :: <<MDAGenerator>> <<include>> ;
+//? Разрешение использования
+//? Связь разрешающая использование одного стереотипра (цель связи) внутри другого (рожитель связи).
+// Параметры стереотипа
+//Y code_mda_dep_include.gif
+//L code_mda_dep_include
+
+// Пользовательские свойства
+//p internal:b=false ? определяет, что пользователь не может использовать стереотип, на который указывает (но можно использовать в суммонинге)
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E6CB280164*
+//#UC END# *46E28D830109for46E6CB280164*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E6CB280164*
+//#UC END# *46E6D4BB0339for46E6CB280164*
+; // wiki
+
+
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E6CB280164*
+//P
+//#UC END# *4F368B80039Efor46E6CB280164*
+; // forth_structure
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{internal}"!="%S{!internal}"}%f_up_prefix(%S) *internal* = *%S{internal}* - определяет, что пользователь не может использовать стереотип, на который указывает (но можно использовать в суммонинге)
+ if ( ( %S get_up ( 'internal' ) ) %!= ( %S get_up_def ( 'internal' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *internal* = *'
+  %S get_up ( 'internal' ) '* - определяет, что пользователь не может использовать стереотип, на который указывает (но можно использовать в суммонинге)'
+//	]
+ end // if
+
+
+//: MDAGenerator::Class::group::ClassDependency
+; // wiki_up_print
+
+end. // :: <<MDAGenerator>> <<include>> ;
+
+implementation @ :: <<MDAGenerator>> <<group>> ;
+//? Родительская группа
+//? Определяет родительскую "группу" для генераторов
+// Параметры стереотипа
+//Y code_mda_dep_group.gif
+//L code_mda_dep_group
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E7DE3F03A6*
+//#UC END# *46E28D830109for46E7DE3F03A6*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E7DE3F03A6*
+//#UC END# *46E6D4BB0339for46E7DE3F03A6*
+; // wiki
+
+
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E7DE3F03A6*
+//P
+//#UC END# *4F368B80039Efor46E7DE3F03A6*
+; // forth_structure
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::list::Attribute
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<group>> ;
+
+implementation @ :: <<MDAGenerator>> <<list>> ;
+//? UP-список
+//? Задает пользовательское свойство типа "список"
+//= MDAGenerator::Class::UserProperty::Attribute
+
+// Параметры стереотипа
+//m f
+// - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E6B6890396*
+//	p %SN=%SI ? %f_str_replace(%SD,\n,%f_space(%S))
+ 'p '
+ %S |N '='
+ %S |I ' ? '
+ [%f] str_replace %( %S |D %, #13#10 %, [%f] space %( %S )% )% 
+//#UC END# *46E28D830109for46E6B6890396*
+; // mda
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::file::Attribute
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<list>> ;
+
+implementation @ :: <<MDAGenerator>> <<file>> ;
+//? UP-файл
+//? Задает пользовательское свойство типа "имя файла" (с возможностьб выбора стандартными средствами)
+//= MDAGenerator::Class::UserProperty::Attribute
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46FE5AA001E5*
+//	p %SN:file=[=%SI] ? %f_str_replace(%SD,\n,%f_space(%S))
+ 'p '
+ %S |N ':file='
+ if NOT-EMPTY
+ begin
+  '='
+  %S |I 
+ end // if
+ NOP
+ ' ? '
+ [%f] str_replace %( %S |D %, #13#10 %, [%f] space %( %S )% )% 
+//#UC END# *46E28D830109for46FE5AA001E5*
+; // mda
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::color::Attribute
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<file>> ;
+
+implementation @ :: <<MDAGenerator>> <<color>> ;
+//? UP-цвет
+//? Задает пользовательское свойство типа "цвет" в формате RGB (с возможностьб выбора стандартными средствами)
+//= MDAGenerator::Class::UserProperty::Attribute
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46FE5AED032D*
+//	p %SN:color[=%SI] ? %f_str_replace(%SD,\n,%f_space(%S))
+ 'p '
+ %S |N ':color'
+ if NOT-EMPTY
+ begin
+  '='
+  %S |I 
+ end // if
+ NOP
+ ' ? '
+ [%f] str_replace %( %S |D %, #13#10 %, [%f] space %( %S )% )% 
+//#UC END# *46E28D830109for46FE5AED032D*
+; // mda
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::tribool::Attribute
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<color>> ;
+
+implementation @ :: <<MDAGenerator>> <<tribool>> ;
+//? UP-булево значение с 3-мя состояними
+//? Задает пользовательское свойство с тремя состояниями "true/false/undefined"
+//= MDAGenerator::Class::UserProperty::Attribute
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for470E033101F4*
+//	p %SN:tribool=[{%SI=true|%SI=1}{[{%SI=false|%SI=0}{undefined}false]}true] ? %f_str_replace(%SD,\n,%f_space(%S))
+ 'p '
+ %S |N ':tribool='
+ if ( ( %S |I ) %==  true OR 
+   ( ( %S |I ) %== 1  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  if ( ( %S |I ) %==  false OR 
+    ( ( %S |I ) %== 0  ) ) then
+  begin
+    false 
+  end // if
+  else
+  begin
+   'undefined' 
+  end // else
+ end // else
+ ' ? '
+ [%f] str_replace %( %S |D %, #13#10 %, [%f] space %( %S )% )% 
+//#UC END# *46E28D830109for470E033101F4*
+; // mda
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::main hierarchy::ClassDependency
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<tribool>> ;
+
+implementation @ :: <<MDAGenerator>> <<"main hierarchy">> ;
+//? Основная ветка иерархии
+//? цель данной связи определяет основного предка для стереотипа, этот основной элемент будет использоваться при разрешении неоднозначности при вызове метода на стереотипе-источнике
+// Параметры стереотипа
+//Y code_mda_dep_main_hierarchy.gif
+//L code_mda_dep_main_hierarchy
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for49F847A30327*
+//#UC END# *46E28D830109for49F847A30327*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for49F847A30327*
+//#UC END# *46E6D4BB0339for49F847A30327*
+; // wiki
+
+
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor49F847A30327*
+//P
+//#UC END# *4F368B80039Efor49F847A30327*
+; // forth_structure
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::exclude auto copy::ClassDependency
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<"main hierarchy">> ;
+
+implementation @ :: <<MDAGenerator>> <<"exclude auto copy">> ;
+//? элементы, на которые указывают такие связи не копируется из родителя
+// Параметры стереотипа
+//Y code_mda_dep.gif
+//L code_mda_dep
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for4AE5844A0278*
+//#UC END# *46E28D830109for4AE5844A0278*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4AE5844A0278*
+//#UC END# *46E6D4BB0339for4AE5844A0278*
+; // wiki
+
+
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor4AE5844A0278*
+//P
+//#UC END# *4F368B80039Efor4AE5844A0278*
+; // forth_structure
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAGenerator::Class::text::Attribute
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<"exclude auto copy">> ;
+
+implementation @ :: <<MDAGenerator>> <<text>> ;
+//? UP-текст
+//? Задает пользовательское свойство типа "текст"
+//= MDAGenerator::Class::UserProperty::Attribute
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for4D6CD5FA03E7*
+//	p %SN:text[=%SI] ? %f_str_replace(%SD,\n,%f_space(%S))
+ 'p '
+ %S |N ':text'
+ if NOT-EMPTY
+ begin
+  '='
+  %S |I 
+ end // if
+ NOP
+ ' ? '
+ [%f] str_replace %( %S |D %, #13#10 %, [%f] space %( %S )% )% 
+//#UC END# *46E28D830109for4D6CD5FA03E7*
+; // mda
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<MDAGenerator>> <<text>> ;
+

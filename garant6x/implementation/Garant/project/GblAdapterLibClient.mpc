@@ -1,0 +1,58 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/GblAdapterLibClient.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> garant6x::GblAdapterLibClient
+//
+// Реализация кода, специфичная для клиентского адаптера
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (GblAdapterLibClient) : project_generic_core_corba {
+	sharedname = GblAdapterLibClient
+	staticname = GblAdapterLibClient
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../../../
+
+	//#UC START# *474E8E58022D_CUSTOM_DEPENDENCES*
+	includes += ../../../../garantServer/src
+	//#UC END# *474E8E58022D_CUSTOM_DEPENDENCES*
+	after += GblAdapterLib
+	libs  += GblAdapterLib
+
+	Header_Files {
+		Std_Headers {
+			./../GblAdapterLibClient/LibHome.h
+		}
+	
+		Start_i {
+			./../GblAdapterLibClient/impl/Start_i/Client.h
+			./../GblAdapterLibClient/impl/Start_i/Client_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Start_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../GblAdapterLibClient/LibHome.cpp
+		}
+	
+		Start_i {
+			./../GblAdapterLibClient/impl/Start_i/Client.cpp
+			./../GblAdapterLibClient/impl/Start_i/Client_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

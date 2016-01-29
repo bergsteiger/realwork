@@ -1,0 +1,2329 @@
+INCLUDE 'classRelations.ms.dict'
+
+INCLUDE 'MDProcess_CoreTemplates.tpi.script'
+EXPORTS MDProcess_CoreTemplates.tpi.script
+
+: gen_mda
+ CONST UID '46E28D830109'
+ CONST Name 'mda'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_mda
+
+: gen_mda.inc
+ CONST UID '4A09484300C6'
+ CONST Name 'mda.inc'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_mda.inc
+
+: gen_tpi.script
+ CONST UID '5655E2B600CA'
+ CONST Name 'tpi.script'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_tpi.script
+
+: st_MDAGenerator
+ CONST UID '46E1540F00AB'
+ CONST Name 'MDAGenerator'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAGenerator
+
+: st_generator::Operation
+ CONST UID '46E3DB9001C5'
+ CONST Name 'generator'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_generator::Operation
+
+: st_transformator::Operation
+ CONST UID '46E3F93A0128'
+ CONST Name 'transformator'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_transformator::Operation
+
+: st_UserProperty::Attribute
+ CONST UID '46EFD6DC0192'
+ CONST Name 'UserProperty'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_UserProperty::Attribute
+
+: st_bool::Attribute Inherits ( st_UserProperty::Attribute )
+ CONST UID '46E6B9A10135'
+ CONST Name 'bool'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_bool::Attribute
+
+: st_string::Attribute Inherits ( st_UserProperty::Attribute )
+ CONST UID '46E6B9AC02FA'
+ CONST Name 'string'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_string::Attribute
+
+: st_include::Dependency
+ CONST UID '46E6CB280164'
+ CONST Name 'include'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_include::Dependency
+
+: st_group::Dependency
+ CONST UID '46E7DE3F03A6'
+ CONST Name 'group'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_group::Dependency
+
+: st_list::Attribute Inherits ( st_UserProperty::Attribute )
+ CONST UID '46E6B6890396'
+ CONST Name 'list'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_list::Attribute
+
+: st_file::Attribute Inherits ( st_UserProperty::Attribute )
+ CONST UID '46FE5AA001E5'
+ CONST Name 'file'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_file::Attribute
+
+: st_color::Attribute Inherits ( st_UserProperty::Attribute )
+ CONST UID '46FE5AED032D'
+ CONST Name 'color'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_color::Attribute
+
+: st_tribool::Attribute Inherits ( st_UserProperty::Attribute )
+ CONST UID '470E033101F4'
+ CONST Name 'tribool'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_tribool::Attribute
+
+: st_main_hierarchy::Dependency
+ CONST UID '49F847A30327'
+ CONST Name 'main_hierarchy'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_main_hierarchy::Dependency
+
+: st_exclude_auto_copy::Dependency
+ CONST UID '4AE5844A0278'
+ CONST Name 'exclude_auto_copy'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_exclude_auto_copy::Dependency
+
+: st_text::Attribute Inherits ( st_UserProperty::Attribute )
+ CONST UID '4D6CD5FA03E7'
+ CONST Name 'text'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_text::Attribute
+
+: st_MDAMainStereotype Inherits ( st_MDAGenerator )
+ CONST UID '46E7B7700193'
+ CONST Name 'MDAMainStereotype'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAMainStereotype
+
+: st_MDAClass Inherits ( st_MDAMainStereotype )
+ CONST UID '46E1537802AF'
+ CONST Name 'MDAClass'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAClass
+
+: st_MDASubStereotype Inherits ( st_MDAGenerator )
+ CONST UID '46E7ADBC0377'
+ CONST Name 'MDASubStereotype'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDASubStereotype
+
+: st_MDASubChild Inherits ( st_MDASubStereotype )
+ CONST UID '46E7ACEF00E7'
+ CONST Name 'MDASubChild'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDASubChild
+
+: st_MDADependency Inherits ( st_MDASubStereotype )
+ CONST UID '46E6C0CB0116'
+ CONST Name 'MDADependency'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDADependency
+
+: st_MDAUtilityPack
+ CONST UID '46E6CEA300A8'
+ CONST Name 'MDAUtilityPack'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAUtilityPack
+
+REDEFINITION : st_transformator::Operation
+ CONST UID '46E81A760106'
+ CONST Name 'transformator'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_transformator::Operation
+
+: st_MDAOperation Inherits ( st_MDASubChild )
+ CONST UID '46E3D9F10271'
+ CONST Name 'MDAOperation'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAOperation
+
+: st_MDAAttribute Inherits ( st_MDASubChild )
+ CONST UID '46E40915033C'
+ CONST Name 'MDAAttribute'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAAttribute
+
+: st_MDACategory Inherits ( st_MDAMainStereotype )
+ CONST UID '46E1538400EA'
+ CONST Name 'MDACategory'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDACategory
+
+: st_MDAStateMachine Inherits ( st_MDASubChild )
+ CONST UID '470F42DA003E'
+ CONST Name 'MDAStateMachine'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAStateMachine
+
+: st_MDAState Inherits ( st_MDASubChild )
+ CONST UID '470F4363008C'
+ CONST Name 'MDAState'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAState
+
+: st_MDAStateAction Inherits ( st_MDASubChild )
+ CONST UID '470F43B201E4'
+ CONST Name 'MDAStateAction'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAStateAction
+
+: st_MDATransition Inherits ( st_MDASubChild )
+ CONST UID '470F44760251'
+ CONST Name 'MDATransition'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDATransition
+
+: st_MDATransitionAttribute Inherits ( st_MDASubChild )
+ CONST UID '470F44DC0138'
+ CONST Name 'MDATransitionAttribute'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDATransitionAttribute
+
+: st_MDAParameter Inherits ( st_MDASubStereotype )
+ CONST UID '470F58AF0138'
+ CONST Name 'MDAParameter'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAParameter
+
+: st_MDAAbstractClass Inherits ( st_MDAGenerator )
+ CONST UID '485A71080391'
+ CONST Name 'MDAAbstractClass'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAAbstractClass
+
+: st_MDATemplates
+ CONST UID '46E13A69005D'
+ CONST Name 'MDATemplates'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_MDATemplates
+
+: st_MDALayer
+ CONST UID '46E1534D0399'
+ CONST Name 'MDALayer'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_MDALayer
+
+: st_MDALibrary
+ CONST UID '46E155F80242'
+ CONST Name 'MDALibrary'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_MDALibrary
+
+: st_MDAReport
+ CONST UID '4725C5D4004E'
+ CONST Name 'MDAReport'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MDAReport
+
+: st_report::Operation
+ CONST UID '4725C6630128'
+ CONST Name 'report'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_report::Operation
+
+REDEFINITION : st_group::Dependency
+ CONST UID '4725C75E002E'
+ CONST Name 'group'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_group::Dependency
+
+: gen_idl
+ CONST UID '47022BBE0261'
+ CONST Name 'idl'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_idl
+
+: gen_idl_ami
+ CONST UID '47022C0F01E4'
+ CONST Name 'idl_ami'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_idl_ami
+
+: gen_ant.xml
+ CONST UID '47032F9601A5'
+ CONST Name 'ant.xml'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_ant.xml
+
+: gen_ant.bat
+ CONST UID '47032FA101E4'
+ CONST Name 'ant.bat'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_ant.bat
+
+: st_IDLImpl
+ CONST UID '471445E501F4'
+ CONST Name 'IDLImpl'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_IDLImpl
+
+: gen_h
+ CONST UID '47022C88029F'
+ CONST Name 'h'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_h
+
+: gen_cpp
+ CONST UID '47022CB8034B'
+ CONST Name 'cpp'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_cpp
+
+: gen_i.h
+ CONST UID '47022CCF00EA'
+ CONST Name 'i.h'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_i.h
+
+: gen_mpc
+ CONST UID '47031E41002E'
+ CONST Name 'mpc'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_mpc
+
+: gen_mpc2
+ CONST UID '47031E850177'
+ CONST Name 'mpc2'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_mpc2
+
+: gen_s.reg
+ CONST UID '47031EA5002E'
+ CONST Name 's.reg'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_s.reg
+
+: gen_s.ini
+ CONST UID '47031EDE0138'
+ CONST Name 's.ini'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_s.ini
+
+: gen_vi.rc
+ CONST UID '47031EF6005D'
+ CONST Name 'vi.rc'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_vi.rc
+
+: gen_vi.rch
+ CONST UID '47031F13004E'
+ CONST Name 'vi.rch'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_vi.rch
+
+: gen_rc
+ CONST UID '471442BE033C'
+ CONST Name 'rc'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_rc
+
+: gen_odl
+ CONST UID '47032097038A'
+ CONST Name 'odl'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_odl
+
+: gen_com.def
+ CONST UID '470320C1030D'
+ CONST Name 'com.def'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_com.def
+
+: gen_com.rgs
+ CONST UID '470320E002CE'
+ CONST Name 'com.rgs'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_com.rgs
+
+: gen_fctr.h
+ CONST UID '4705C5490109'
+ CONST Name 'fctr.h'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_fctr.h
+
+: gen_fctr.cpp
+ CONST UID '4705C54B01F4'
+ CONST Name 'fctr.cpp'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_fctr.cpp
+
+: gen_java
+ CONST UID '470321950119'
+ CONST Name 'java'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_java
+
+: gen_fctr.java
+ CONST UID '470321C1038A'
+ CONST Name 'fctr.java'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_fctr.java
+
+: gen_output.project
+ CONST UID '47032220003E'
+ CONST Name 'output.project'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_output.project
+
+: gen_output.xml
+ CONST UID '4703223D01A5'
+ CONST Name 'output.xml'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_output.xml
+
+: gen_build.xml
+ CONST UID '47032262037A'
+ CONST Name 'build.xml'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_build.xml
+
+: gen_output.classpath
+ CONST UID '470322910119'
+ CONST Name 'output.classpath'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_output.classpath
+
+: gen_Makejar.launch
+ CONST UID '470322DF03A9'
+ CONST Name 'Makejar.launch'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_Makejar.launch
+
+: gen_dll.h
+ CONST UID '47032EC4032C'
+ CONST Name 'dll.h'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_dll.h
+
+: gen_dll.cpp
+ CONST UID '47032ED002DE'
+ CONST Name 'dll.cpp'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_dll.cpp
+
+: gen_pas
+ CONST UID '470F152700FA'
+ CONST Name 'pas'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_pas
+
+: gen_intf.pas
+ CONST UID '470F1571031C'
+ CONST Name 'intf.pas'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_intf.pas
+
+: gen_impl.pas
+ CONST UID '470F15B800CB'
+ CONST Name 'impl.pas'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_impl.pas
+
+: gen_intf2.pas
+ CONST UID '477398E501C0'
+ CONST Name 'intf2.pas'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_intf2.pas
+
+: gen_intf3.pas
+ CONST UID '4774D2A20372'
+ CONST Name 'intf3.pas'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_intf3.pas
+
+: gen_dfm
+ CONST UID '49F5795900EC'
+ CONST Name 'dfm'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_dfm
+
+: gen_rc.pas
+ CONST UID '55B8D28B0157'
+ CONST Name 'rc.pas'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_rc.pas
+
+: gen_rc.script.pas
+ CONST UID '55B8D2F80145'
+ CONST Name 'rc.script.pas'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_rc.script.pas
+
+: gen_res.cmd.pas
+ CONST UID '55B8DD9C0301'
+ CONST Name 'res.cmd.pas'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_res.cmd.pas
+
+: gen_pas.script
+ CONST UID '563244E50325'
+ CONST Name 'pas.script'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_pas.script
+
+: gen_pas.script.runner
+ CONST UID '563CBCC10243'
+ CONST Name 'pas.script.runner'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_pas.script.runner
+
+: gen_mpc.dll
+ CONST UID '470F252801D4'
+ CONST Name 'mpc.dll'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_mpc.dll
+
+: gen_vm
+ CONST UID '477394DD0114'
+ CONST Name 'vm'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_vm
+
+: gen_js
+ CONST UID '477395290327'
+ CONST Name 'js'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_js
+
+: st_Settings Inherits ( st_WikiImplClass )
+ CONST UID '48A27E2101E1'
+ CONST Name 'Settings'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Settings
+
+: st_UsesContainer
+ CONST UID '4B2A2ADB0305'
+ CONST Name 'UsesContainer'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UsesContainer
+
+: st_uses::Dependency
+ CONST UID '47049B5902FD'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_CallingConventionsHolder
+ CONST UID '4B72B660033E'
+ CONST Name 'CallingConventionsHolder'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_CallingConventionsHolder
+
+: st_ClassBase Inherits ( st_WikiImplClass st_UsesContainer )
+ CONST UID '4705C18D0261'
+ CONST Name 'ClassBase'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ClassBase
+
+: st_template::Attribute
+ CONST UID '47049B3F008C'
+ CONST Name 'template'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_template::Attribute
+
+: st_chg::Operation
+ CONST UID '47049A480157'
+ CONST Name 'chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_chg::Operation
+
+: st_ctor::Operation
+ CONST UID '47049AA3038A'
+ CONST Name 'ctor'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_ctor::Operation
+
+: st_oneway::Operation
+ CONST UID '47049A720399'
+ CONST Name 'oneway'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_oneway::Operation
+
+: st_oneway,chg::Operation Inherits ( st_oneway::Operation )
+ CONST UID '47049A880271'
+ CONST Name 'oneway,chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_oneway,chg::Operation
+
+: st_static::Operation
+ CONST UID '47049ADD02FD'
+ CONST Name 'static'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_static::Operation
+
+: st_static::Attribute
+ CONST UID '4705C24F008C'
+ CONST Name 'static'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_static::Attribute
+
+: st_friend::Dependency
+ CONST UID '4705E460003E'
+ CONST Name 'friend'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_friend::Dependency
+
+: st_property::Attribute Inherits ( st_CallingConventionsHolder )
+ CONST UID '4773ED2300A0'
+ CONST Name 'property'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_property::Attribute
+
+: st_readonly::Attribute Inherits ( st_property::Attribute )
+ CONST UID '4773ED64017E'
+ CONST Name 'readonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_readonly::Attribute
+
+: st_writeonly::Attribute Inherits ( st_property::Attribute )
+ CONST UID '4773ED880366'
+ CONST Name 'writeonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_writeonly::Attribute
+
+: st_static_property::Attribute Inherits ( st_property::Attribute )
+ CONST UID '47CE829D00F6'
+ CONST Name 'static_property'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_static_property::Attribute
+
+: st_static_readonly::Attribute Inherits ( st_static_property::Attribute )
+ CONST UID '47CE82CB018D'
+ CONST Name 'static_readonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_static_readonly::Attribute
+
+: st_static_writeonly::Attribute Inherits ( st_static_property::Attribute )
+ CONST UID '47CE842F03CC'
+ CONST Name 'static_writeonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_static_writeonly::Attribute
+
+: st_consume::Dependency
+ CONST UID '47FC942F02A9'
+ CONST Name 'consume'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_consume::Dependency
+
+: st_supply::Dependency
+ CONST UID '47FC94300102'
+ CONST Name 'supply'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_supply::Dependency
+
+: st_Iterator Inherits ( st_WikiImplClass st_UsesContainer )
+ CONST UID '470F016F00CB'
+ CONST Name 'Iterator'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Iterator
+
+: st_element_type::Attribute
+ CONST UID '4BAA2F1D02EA'
+ CONST Name 'element_type'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_element_type::Attribute
+
+: st_in::Attribute
+ CONST UID '4BAA436D03BD'
+ CONST Name 'in'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_in::Attribute
+
+: st_index_type::Attribute
+ CONST UID '4BC3191F03A1'
+ CONST Name 'index_type'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_index_type::Attribute
+
+: st_result_type::Attribute
+ CONST UID '546C958701E5'
+ CONST Name 'result_type'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_result_type::Attribute
+
+: st_facetiterator Inherits ( st_Iterator )
+ CONST UID '52E285EC027B'
+ CONST Name 'facetiterator'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_facetiterator
+
+: st_WikiTargetImpl
+ CONST UID '47188B1503B9'
+ CONST Name 'WikiTargetImpl'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_WikiTargetImpl
+
+: st_InstallerTarget
+ CONST UID '470469A6035B'
+ CONST Name 'InstallerTarget'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_InstallerTarget
+
+: st_AbstractTarget Inherits ( st_WikiTargetImpl )
+ CONST UID '4715CA6D02CE'
+ CONST Name 'AbstractTarget'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_AbstractTarget
+
+: st_CustomFile
+ CONST UID '47048BA5035B'
+ CONST Name 'CustomFile'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_CustomFile
+
+: st_CustomDirectory
+ CONST UID '47048BD902EE'
+ CONST Name 'CustomDirectory'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_CustomDirectory
+
+: st_ExeTarget Inherits ( st_AbstractTarget )
+ CONST UID '470382290251'
+ CONST Name 'ExeTarget'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_ExeTarget
+
+: st_AdapterTarget Inherits ( st_AbstractTarget )
+ CONST UID '47046C6B02FD'
+ CONST Name 'AdapterTarget'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_AdapterTarget
+
+: st_AdapterTargetUnion Inherits ( st_AdapterTarget )
+ CONST UID '4739321200EA'
+ CONST Name 'AdapterTargetUnion'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_AdapterTargetUnion
+
+: st_ComTarget Inherits ( st_AbstractTarget )
+ CONST UID '47046A7002FD'
+ CONST Name 'ComTarget'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_ComTarget
+
+: st_AdapterRoot
+ CONST UID '4F0F7133009C'
+ CONST Name 'AdapterRoot'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_AdapterRoot
+
+: st_export::Dependency
+ CONST UID '4F0F71EF03C8'
+ CONST Name 'export'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_export::Dependency
+
+: st_AdapterRootPackage
+ CONST UID '4F0F7EE902FD'
+ CONST Name 'AdapterRootPackage'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_AdapterRootPackage
+
+: st_Const_Iterator Inherits ( st_Iterator )
+ CONST UID '470F01DB0148'
+ CONST Name 'Const_Iterator'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Const_Iterator
+
+: st_BaseContainer
+ CONST UID '470F07F9004E'
+ CONST Name 'BaseContainer'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_BaseContainer
+
+: st_BaseMap Inherits ( st_BaseContainer )
+ CONST UID '470F01FA031C'
+ CONST Name 'BaseMap'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_BaseMap
+
+: st_allocator::Attribute
+ CONST UID '470F02CE005D'
+ CONST Name 'allocator'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_allocator::Attribute
+
+: st_Map Inherits ( st_BaseMap )
+ CONST UID '470F05F10399'
+ CONST Name 'Map'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Map
+
+: st_compare::Attribute
+ CONST UID '470F030E00BB'
+ CONST Name 'compare'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_compare::Attribute
+
+: st_HashMap Inherits ( st_Map )
+ CONST UID '470F067B0138'
+ CONST Name 'HashMap'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_HashMap
+
+: st_hasher::Attribute
+ CONST UID '470F06C102EE'
+ CONST Name 'hasher'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_hasher::Attribute
+
+: st_MultiMap Inherits ( st_Map )
+ CONST UID '470F0379030D'
+ CONST Name 'MultiMap'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MultiMap
+
+: st_Vector Inherits ( st_BaseContainer )
+ CONST UID '470F096E0203'
+ CONST Name 'Vector'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Vector
+
+REDEFINITION : st_allocator::Attribute Inherits ( st_allocator::Attribute )
+ CONST UID '470F0B1202FD'
+ CONST Name 'allocator'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_allocator::Attribute
+
+: st_UnsortedSet Inherits ( st_BaseContainer )
+ CONST UID '470F0922033C'
+ CONST Name 'UnsortedSet'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UnsortedSet
+
+REDEFINITION : st_allocator::Attribute Inherits ( st_allocator::Attribute )
+ CONST UID '470F0ADC006D'
+ CONST Name 'allocator'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_allocator::Attribute
+
+REDEFINITION : st_compare::Attribute Inherits ( st_compare::Attribute )
+ CONST UID '494636A40261'
+ CONST Name 'compare'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_compare::Attribute
+
+REDEFINITION : st_hasher::Attribute Inherits ( st_hasher::Attribute )
+ CONST UID '494636C30135'
+ CONST Name 'hasher'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_hasher::Attribute
+
+: st_Set Inherits ( st_Vector )
+ CONST UID '470F08DC0157'
+ CONST Name 'Set'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Set
+
+REDEFINITION : st_compare::Attribute Inherits ( st_compare::Attribute )
+ CONST UID '470F090503B9'
+ CONST Name 'compare'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_compare::Attribute
+
+: st_Queue Inherits ( st_BaseContainer )
+ CONST UID '470F0B9902BF'
+ CONST Name 'Queue'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Queue
+
+: st_List Inherits ( st_Vector )
+ CONST UID '470F0BDF0271'
+ CONST Name 'List'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_List
+
+: st_UnsortedMap Inherits ( st_HashMap )
+ CONST UID '470F050F01B5'
+ CONST Name 'UnsortedMap'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UnsortedMap
+
+: st_Array Inherits ( st_Vector )
+ CONST UID '4A0D1146004D'
+ CONST Name 'Array'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Array
+
+: st_FixedArray Inherits ( st_BaseContainer )
+ CONST UID '4A10F31901C6'
+ CONST Name 'FixedArray'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_FixedArray
+
+: st_Deque Inherits ( st_BaseContainer )
+ CONST UID '5086903001FE'
+ CONST Name 'Deque'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Deque
+
+: st_Typedef
+ CONST UID '470F144E000F'
+ CONST Name 'Typedef'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Typedef
+
+: st_Constants
+ CONST UID '470F16EE0242'
+ CONST Name 'Constants'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Constants
+
+: st_injects::Dependency
+ CONST UID '55BF20350026'
+ CONST Name 'injects'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_injects::Dependency
+
+: st_Enum
+ CONST UID '470F198F0000'
+ CONST Name 'Enum'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Enum
+
+: st_Exception Inherits ( st_WikiImplClass )
+ CONST UID '470F1AB702CE'
+ CONST Name 'Exception'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Exception
+
+REDEFINITION : st_ctor::Operation
+ CONST UID '470F1B49030D'
+ CONST Name 'ctor'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_ctor::Operation
+
+: st_sequence::Attribute
+ CONST UID '470F1BD700CB'
+ CONST Name 'sequence'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_sequence::Attribute
+
+REDEFINITION : st_property::Attribute Inherits ( st_property::Attribute )
+ CONST UID '4787A55D00FD'
+ CONST Name 'property'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_property::Attribute
+
+REDEFINITION : st_readonly::Attribute Inherits ( st_readonly::Attribute )
+ CONST UID '4787A67F030D'
+ CONST Name 'readonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_readonly::Attribute
+
+REDEFINITION : st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
+ CONST UID '4787A6A0002B'
+ CONST Name 'writeonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_writeonly::Attribute
+
+: st_Struct Inherits ( st_WikiImplClass )
+ CONST UID '470F33CD0242'
+ CONST Name 'Struct'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Struct
+
+REDEFINITION : st_ctor::Operation
+ CONST UID '470F36C70128'
+ CONST Name 'ctor'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_ctor::Operation
+
+REDEFINITION : st_sequence::Attribute
+ CONST UID '470F36E20261'
+ CONST Name 'sequence'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_sequence::Attribute
+
+: st_Union
+ CONST UID '470F3839033C'
+ CONST Name 'Union'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Union
+
+: st_switch::Attribute
+ CONST UID '470F3908000F'
+ CONST Name 'switch'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_switch::Attribute
+
+: st_BitMask
+ CONST UID '470F39A900EA'
+ CONST Name 'BitMask'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_BitMask
+
+: st_InstanceDef
+ CONST UID '47134EBE030D'
+ CONST Name 'InstanceDef'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_InstanceDef
+
+REDEFINITION : st_uses::Dependency
+ CONST UID '47134F91007D'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_ImpurityParamType
+ CONST UID '47A1ABD80383'
+ CONST Name 'ImpurityParamType'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ImpurityParamType
+
+: st_ValueMapper
+ CONST UID '4B97725D025B'
+ CONST Name 'ValueMapper'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ValueMapper
+
+: st_ConstantArray Inherits ( st_ValueMapper )
+ CONST UID '47FDE8610215'
+ CONST Name 'ConstantArray'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ConstantArray
+
+: st_FunctorBase
+ CONST UID '4713197703A9'
+ CONST Name 'FunctorBase'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_FunctorBase
+
+REDEFINITION : st_uses::Dependency
+ CONST UID '471326540280'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+REDEFINITION : st_ctor::Operation Inherits ( st_ctor::Operation )
+ CONST UID '482BD31C000D'
+ CONST Name 'ctor'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_ctor::Operation
+
+: st_UnaryFunctor Inherits ( st_FunctorBase )
+ CONST UID '471326A40232'
+ CONST Name 'UnaryFunctor'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UnaryFunctor
+
+: st_result::Attribute
+ CONST UID '471327120119'
+ CONST Name 'result'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_result::Attribute
+
+: st_param::Attribute
+ CONST UID '4713275603C8'
+ CONST Name 'param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_param::Attribute
+
+: st_Predicate Inherits ( st_FunctorBase )
+ CONST UID '47132786033C'
+ CONST Name 'Predicate'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Predicate
+
+REDEFINITION : st_param::Attribute
+ CONST UID '471327AE037A'
+ CONST Name 'param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_param::Attribute
+
+: st_BinaryFunctor Inherits ( st_FunctorBase )
+ CONST UID '471327DD0222'
+ CONST Name 'BinaryFunctor'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_BinaryFunctor
+
+REDEFINITION : st_result::Attribute
+ CONST UID '471327F701F4'
+ CONST Name 'result'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_result::Attribute
+
+: st_first_param::Attribute
+ CONST UID '4713280A0000'
+ CONST Name 'first_param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_first_param::Attribute
+
+: st_second_param::Attribute
+ CONST UID '4713282601D4'
+ CONST Name 'second_param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_second_param::Attribute
+
+: st_BinaryPredicate Inherits ( st_FunctorBase )
+ CONST UID '47132852037A'
+ CONST Name 'BinaryPredicate'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_BinaryPredicate
+
+REDEFINITION : st_first_param::Attribute
+ CONST UID '4713288E0128'
+ CONST Name 'first_param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_first_param::Attribute
+
+REDEFINITION : st_second_param::Attribute
+ CONST UID '4713289D02AF'
+ CONST Name 'second_param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_second_param::Attribute
+
+: st_Function
+ CONST UID '47679DF1032E'
+ CONST Name 'Function'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Function
+
+: st_FactoryMemory
+ CONST UID '4753C0BC029E'
+ CONST Name 'FactoryMemory'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_FactoryMemory
+
+: st_common_key::Attribute
+ CONST UID '4753C0D40361'
+ CONST Name 'common_key'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_common_key::Attribute
+
+REDEFINITION : st_uses::Dependency
+ CONST UID '47577B900144'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_AbstractInterface
+ CONST UID '47174CE200AB'
+ CONST Name 'AbstractInterface'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_AbstractInterface
+
+: st_factory::Operation
+ CONST UID '497483770297'
+ CONST Name 'factory'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_factory::Operation
+
+: st_AbstractFacet Inherits ( st_WikiImplClass )
+ CONST UID '470F704E00AB'
+ CONST Name 'AbstractFacet'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_AbstractFacet
+
+REDEFINITION : st_property::Attribute Inherits ( st_CallingConventionsHolder )
+ CONST UID '470F544503C8'
+ CONST Name 'property'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_property::Attribute
+
+REDEFINITION : st_readonly::Attribute Inherits ( st_property::Attribute )
+ CONST UID '470F549D033C'
+ CONST Name 'readonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_readonly::Attribute
+
+REDEFINITION : st_writeonly::Attribute Inherits ( st_property::Attribute )
+ CONST UID '470F54C402CE'
+ CONST Name 'writeonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_writeonly::Attribute
+
+REDEFINITION : st_friend::Dependency
+ CONST UID '470F659B001F'
+ CONST Name 'friend'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_friend::Dependency
+
+REDEFINITION : st_oneway::Operation
+ CONST UID '470F56670000'
+ CONST Name 'oneway'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_oneway::Operation
+
+REDEFINITION : st_oneway,chg::Operation Inherits ( st_oneway::Operation )
+ CONST UID '470F56EA0000'
+ CONST Name 'oneway,chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_oneway,chg::Operation
+
+REDEFINITION : st_chg::Operation
+ CONST UID '470F5718031C'
+ CONST Name 'chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_chg::Operation
+
+REDEFINITION : st_consume::Dependency
+ CONST UID '47FCA95F01DC'
+ CONST Name 'consume'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_consume::Dependency
+
+REDEFINITION : st_supply::Dependency
+ CONST UID '47FCA95F0314'
+ CONST Name 'supply'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_supply::Dependency
+
+REDEFINITION : st_static::Operation
+ CONST UID '4BA7AADE00D2'
+ CONST Name 'static'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_static::Operation
+
+: st_Interface Inherits ( st_AbstractFacet st_AbstractInterface )
+ CONST UID '470F512D003E'
+ CONST Name 'Interface'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Interface
+
+: st_factory_op::Operation Inherits ( st_factory::Operation )
+ CONST UID '4B793D19026F'
+ CONST Name 'factory_op'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_factory_op::Operation
+
+REDEFINITION : st_factory::Operation Inherits ( st_factory_op::Operation )
+ CONST UID '470F576D0203'
+ CONST Name 'factory'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_factory::Operation
+
+: st_remover::Operation
+ CONST UID '470F5814038A'
+ CONST Name 'remover'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_remover::Operation
+
+: st_factory_switch::Attribute
+ CONST UID '47B13201031D'
+ CONST Name 'factory_switch'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_factory_switch::Attribute
+
+: st_multi_factory::Operation Inherits ( st_factory::Operation )
+ CONST UID '470F57A80119'
+ CONST Name 'multi_factory'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_multi_factory::Operation
+
+: st_finder::Operation Inherits ( st_factory_op::Operation )
+ CONST UID '4B793D9001F1'
+ CONST Name 'finder'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_finder::Operation
+
+: st_LocalInterface Inherits ( st_Interface )
+ CONST UID '47A2D6A00142'
+ CONST Name 'LocalInterface'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_LocalInterface
+
+: st_Facet Inherits ( st_AbstractFacet )
+ CONST UID '49A3CF30020F'
+ CONST Name 'Facet'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Facet
+
+: st_impurity_value::Attribute
+ CONST UID '47D80D1E0359'
+ CONST Name 'impurity_value'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_impurity_value::Attribute
+
+REDEFINITION : st_injects::Dependency
+ CONST UID '55BF3FB50305'
+ CONST Name 'injects'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_injects::Dependency
+
+: st_Event Inherits ( st_Struct )
+ CONST UID '47FE08A903E0'
+ CONST Name 'Event'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Event
+
+: st_PureMixIn Inherits ( st_Facet )
+ CONST UID '47D8087B0111'
+ CONST Name 'PureMixIn'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_PureMixIn
+
+: st_impurity_param::Attribute
+ CONST UID '47D809DF007B'
+ CONST Name 'impurity_param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_impurity_param::Attribute
+
+: st_TypeConvertor Inherits ( st_WikiImplClass )
+ CONST UID '47133FB701C5'
+ CONST Name 'TypeConvertor'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_TypeConvertor
+
+REDEFINITION : st_uses::Dependency
+ CONST UID '4713412100BB'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_Type1::Attribute
+ CONST UID '4713415B002E'
+ CONST Name 'Type1'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_Type1::Attribute
+
+: st_Type2::Attribute Inherits ( st_Type1::Attribute )
+ CONST UID '4713417E0109'
+ CONST Name 'Type2'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_Type2::Attribute
+
+: st_Functor2::Attribute
+ CONST UID '471342FC030D'
+ CONST Name 'Functor2'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_Functor2::Attribute
+
+: st_Functor1::Attribute Inherits ( st_Functor2::Attribute )
+ CONST UID '471342D401C5'
+ CONST Name 'Functor1'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_Functor1::Attribute
+
+: st_CustomFactory
+ CONST UID '4713515300CB'
+ CONST Name 'CustomFactory'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_CustomFactory
+
+REDEFINITION : st_uses::Dependency
+ CONST UID '4713517E037A'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_AbstractImplInclude
+ CONST UID '47170ED00213'
+ CONST Name 'AbstractImplInclude'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_AbstractImplInclude
+
+: st_UtilityPack Inherits ( st_AbstractImplInclude st_WikiImplClass )
+ CONST UID '4713540402CE'
+ CONST Name 'UtilityPack'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UtilityPack
+
+REDEFINITION : st_uses::Dependency Inherits ( st_uses::Dependency )
+ CONST UID '4713552800CB'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_ini::Operation
+ CONST UID '478668780062'
+ CONST Name 'ini'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_ini::Operation
+
+: st_fini::Operation
+ CONST UID '478668A902B5'
+ CONST Name 'fini'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_fini::Operation
+
+: st_Servant Inherits ( st_ClassBase st_IDLImpl st_AbstractImplInclude )
+ CONST UID '47144D340251'
+ CONST Name 'Servant'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Servant
+
+REDEFINITION : st_switch::Attribute
+ CONST UID '47B1884300A7'
+ CONST Name 'switch'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_switch::Attribute
+
+: st_AbstractClass Inherits ( st_AbstractImplInclude st_WikiImplClass )
+ CONST UID '4717284C01C5'
+ CONST Name 'AbstractClass'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_AbstractClass
+
+: st_Box
+ CONST UID '4714685D005D'
+ CONST Name 'Box'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Box
+
+: st_deallocator::Attribute
+ CONST UID '471468EC031C'
+ CONST Name 'deallocator'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_deallocator::Attribute
+
+: st_TemplateFunctions
+ CONST UID '47148FF9033C'
+ CONST Name 'TemplateFunctions'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_TemplateFunctions
+
+REDEFINITION : st_chg::Operation Inherits ( st_chg::Operation )
+ CONST UID '4714912A00FA'
+ CONST Name 'chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_chg::Operation
+
+REDEFINITION : st_oneway::Operation Inherits ( st_oneway::Operation )
+ CONST UID '4714913A003E'
+ CONST Name 'oneway'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_oneway::Operation
+
+REDEFINITION : st_oneway,chg::Operation Inherits ( st_oneway,chg::Operation )
+ CONST UID '471491410186'
+ CONST Name 'oneway,chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_oneway,chg::Operation
+
+REDEFINITION : st_static::Operation Inherits ( st_static::Operation )
+ CONST UID '471491500261'
+ CONST Name 'static'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_static::Operation
+
+: st_UtilityClass Inherits ( st_AbstractClass )
+ CONST UID '471352960232'
+ CONST Name 'UtilityClass'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UtilityClass
+
+REDEFINITION : st_uses::Dependency Inherits ( st_uses::Dependency )
+ CONST UID '478328E60019'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+REDEFINITION : st_friend::Dependency Inherits ( st_friend::Dependency )
+ CONST UID '478328E8015D'
+ CONST Name 'friend'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_friend::Dependency
+
+: st_SimpleClass Inherits ( st_ClassBase st_IDLImpl st_AbstractClass )
+ CONST UID '471466900128'
+ CONST Name 'SimpleClass'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_SimpleClass
+
+REDEFINITION : st_impurity_value::Attribute
+ CONST UID '47A1B60702B1'
+ CONST Name 'impurity_value'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_impurity_value::Attribute
+
+REDEFINITION : st_ini::Operation Inherits ( st_static::Operation )
+ CONST UID '4B3881150067'
+ CONST Name 'ini'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_ini::Operation
+
+REDEFINITION : st_fini::Operation Inherits ( st_static::Operation )
+ CONST UID '4B38812400E4'
+ CONST Name 'fini'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_fini::Operation
+
+: st_Deallocator Inherits ( st_WikiImplClass )
+ CONST UID '471DE4B30222'
+ CONST Name 'Deallocator'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Deallocator
+
+: st_Environment
+ CONST UID '471DE69E000F'
+ CONST Name 'Environment'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Environment
+
+: st_Impurity Inherits ( st_SimpleClass )
+ CONST UID '479136C103CF'
+ CONST Name 'Impurity'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Impurity
+
+REDEFINITION : st_impurity_param::Attribute
+ CONST UID '47A1AE090224'
+ CONST Name 'impurity_param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_impurity_param::Attribute
+
+: st_inline::Operation
+ CONST UID '47B078C20056'
+ CONST Name 'inline'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_inline::Operation
+
+: st_override::Operation
+ CONST UID '47B09B8D034D'
+ CONST Name 'override'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_override::Operation
+
+: st_MixInMirror Inherits ( st_WikiImplClass )
+ CONST UID '4A5CB5A6037E'
+ CONST Name 'MixInMirror'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MixInMirror
+
+: st_method Inherits ( st_WikiImplClass st_UsesContainer )
+ CONST UID '49CB43D403C5'
+ CONST Name 'method'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_method
+
+: st_var::Attribute
+ CONST UID '49CB56A601B9'
+ CONST Name 'var'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_var::Attribute
+
+: st_globalvar::Attribute Inherits ( st_var::Attribute )
+ CONST UID '4B72F4DD0345'
+ CONST Name 'globalvar'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_globalvar::Attribute
+
+: st_call::Dependency Inherits ( st_uses::Dependency )
+ CONST UID '4BB0B8710126'
+ CONST Name 'call'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_call::Dependency
+
+: st_localmethod Inherits ( st_method )
+ CONST UID '49CB758B0318'
+ CONST Name 'localmethod'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_localmethod
+
+: st_StateMachine Inherits ( st_WikiImplClass )
+ CONST UID '470F3B8B032C'
+ CONST Name 'StateMachine'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_StateMachine
+
+: st_TransitionEvent Inherits ( st_SimpleClass )
+ CONST UID '470F3D32029F'
+ CONST Name 'TransitionEvent'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_TransitionEvent
+
+: st_State Inherits ( st_SimpleClass )
+ CONST UID '475F8CC801A5'
+ CONST Name 'State'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_State
+
+: st_GuiControl Inherits ( st_SimpleClass )
+ CONST UID '47143E02006D'
+ CONST Name 'GuiControl'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_GuiControl
+
+: st_Dialog Inherits ( st_GuiControl )
+ CONST UID '4714408B03B9'
+ CONST Name 'Dialog'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Dialog
+
+REDEFINITION : st_ctor::Operation Inherits ( st_ctor::Operation )
+ CONST UID '4BFB75D502BD'
+ CONST Name 'ctor'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_ctor::Operation
+
+: st_PropertySheet Inherits ( st_Dialog )
+ CONST UID '4714421402DE'
+ CONST Name 'PropertySheet'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_PropertySheet
+
+: st_PropertyPage Inherits ( st_Dialog )
+ CONST UID '471442330148'
+ CONST Name 'PropertyPage'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_PropertyPage
+
+: st_Resource
+ CONST UID '4714425A0109'
+ CONST Name 'Resource'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Resource
+
+: st_define::Attribute
+ CONST UID '4714430C004E'
+ CONST Name 'define'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_define::Attribute
+
+: st_ComInterface Inherits ( st_WikiImplClass )
+ CONST UID '470F75220177'
+ CONST Name 'ComInterface'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ComInterface
+
+REDEFINITION : st_property::Attribute Inherits ( st_property::Attribute )
+ CONST UID '470F75EC03C8'
+ CONST Name 'property'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_property::Attribute
+
+REDEFINITION : st_readonly::Attribute Inherits ( st_readonly::Attribute )
+ CONST UID '470F761D0280'
+ CONST Name 'readonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_readonly::Attribute
+
+REDEFINITION : st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
+ CONST UID '470F7634000F'
+ CONST Name 'writeonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_writeonly::Attribute
+
+REDEFINITION : st_friend::Dependency Inherits ( st_friend::Dependency )
+ CONST UID '470F7665005D'
+ CONST Name 'friend'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_friend::Dependency
+
+REDEFINITION : st_chg::Operation Inherits ( st_chg::Operation )
+ CONST UID '470F7681002E'
+ CONST Name 'chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_chg::Operation
+
+: st_ComServant Inherits ( st_Servant )
+ CONST UID '471740DE003E'
+ CONST Name 'ComServant'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ComServant
+
+: st_CommonPackageInclude Inherits ( st_WikiPackageImpl )
+ CONST UID '4714A311037A'
+ CONST Name 'CommonPackageInclude'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_CommonPackageInclude
+
+: st_AbstractUnitBase Inherits ( st_WikiPackageImpl )
+ CONST UID '47149A85038A'
+ CONST Name 'AbstractUnitBase'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_AbstractUnitBase
+
+: st_InterfacePackageBase Inherits ( st_CommonPackageInclude )
+ CONST UID '4712EA5402DE'
+ CONST Name 'InterfacePackageBase'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_InterfacePackageBase
+
+: st_AbstractImplBase Inherits ( st_AbstractUnitBase st_CommonPackageInclude )
+ CONST UID '4714A0260109'
+ CONST Name 'AbstractImplBase'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_AbstractImplBase
+
+: st_Views Inherits ( st_AbstractImplBase )
+ CONST UID '47048F1701F4'
+ CONST Name 'Views'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Views
+
+: st_ComInterfaces Inherits ( st_InterfacePackageBase )
+ CONST UID '470488F50280'
+ CONST Name 'ComInterfaces'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_ComInterfaces
+
+: st_Interfaces Inherits ( st_InterfacePackageBase )
+ CONST UID '4704865603A9'
+ CONST Name 'Interfaces'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Interfaces
+
+: st_Impl Inherits ( st_AbstractImplBase )
+ CONST UID '4704917C01F4'
+ CONST Name 'Impl'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Impl
+
+: st_Unit Inherits ( st_AbstractUnitBase )
+ CONST UID '47048FBD0213'
+ CONST Name 'Unit'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Unit
+
+: st_LibSupport Inherits ( st_WikiPackageImpl )
+ CONST UID '470482B401B5'
+ CONST Name 'LibSupport'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_LibSupport
+
+: st_LibExecutor Inherits ( st_WikiImplClass )
+ CONST UID '470483F102AF'
+ CONST Name 'LibExecutor'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_LibExecutor
+
+REDEFINITION : st_uses::Dependency Inherits ( st_uses::Dependency )
+ CONST UID '4713487C033C'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_Library
+ CONST UID '470361CD0148'
+ CONST Name 'Library'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Library
+
+: st_ClientInterceptor Inherits ( st_WikiImplClass )
+ CONST UID '471349EE01E4'
+ CONST Name 'ClientInterceptor'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ClientInterceptor
+
+REDEFINITION : st_uses::Dependency
+ CONST UID '47134AA601A5'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_connect::Dependency
+ CONST UID '47134AB3003E'
+ CONST Name 'connect'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_connect::Dependency
+
+: st_ServerInterceptor Inherits ( st_ClientInterceptor )
+ CONST UID '47134AE700FA'
+ CONST Name 'ServerInterceptor'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ServerInterceptor
+
+: st_CurrentSlot
+ CONST UID '47134AFB01E4'
+ CONST Name 'CurrentSlot'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_CurrentSlot
+
+: st_Valuetype Inherits ( st_WikiImplClass )
+ CONST UID '470EFE1E037A'
+ CONST Name 'Valuetype'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Valuetype
+
+REDEFINITION : st_factory::Operation
+ CONST UID '470EFFAD0119'
+ CONST Name 'factory'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_factory::Operation
+
+: st_ServerFacet Inherits ( st_WikiImplClass )
+ CONST UID '470F7348002E'
+ CONST Name 'ServerFacet'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ServerFacet
+
+REDEFINITION : st_property::Attribute
+ CONST UID '471F1A6501A5'
+ CONST Name 'property'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_property::Attribute
+
+REDEFINITION : st_readonly::Attribute Inherits ( st_property::Attribute )
+ CONST UID '471F1C480232'
+ CONST Name 'readonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_readonly::Attribute
+
+REDEFINITION : st_writeonly::Attribute Inherits ( st_property::Attribute )
+ CONST UID '471F1C7903D8'
+ CONST Name 'writeonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_writeonly::Attribute
+
+REDEFINITION : st_friend::Dependency
+ CONST UID '471F1FEC0109'
+ CONST Name 'friend'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_friend::Dependency
+
+REDEFINITION : st_oneway::Operation
+ CONST UID '471F202802EE'
+ CONST Name 'oneway'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_oneway::Operation
+
+REDEFINITION : st_oneway,chg::Operation Inherits ( st_oneway::Operation )
+ CONST UID '471F2F9801D4'
+ CONST Name 'oneway,chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_oneway,chg::Operation
+
+REDEFINITION : st_chg::Operation
+ CONST UID '47BABD2E01C1'
+ CONST Name 'chg'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_chg::Operation
+
+REDEFINITION : st_supply::Dependency
+ CONST UID '47FC905C012A'
+ CONST Name 'supply'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_supply::Dependency
+
+REDEFINITION : st_consume::Dependency
+ CONST UID '47FC910001F7'
+ CONST Name 'consume'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_consume::Dependency
+
+: st_ServerEvent Inherits ( st_Struct )
+ CONST UID '47FC8DC20143'
+ CONST Name 'ServerEvent'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ServerEvent
+
+: st_ServerInterface Inherits ( st_ServerFacet st_AbstractInterface )
+ CONST UID '470F71BF03C8'
+ CONST Name 'ServerInterface'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_ServerInterface
+
+REDEFINITION : st_remover::Operation
+ CONST UID '471F1823007D'
+ CONST Name 'remover'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_remover::Operation
+
+REDEFINITION : st_factory::Operation Inherits ( st_factory::Operation )
+ CONST UID '471F1E100186'
+ CONST Name 'factory'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_factory::Operation
+
+REDEFINITION : st_multi_factory::Operation Inherits ( st_multi_factory::Operation )
+ CONST UID '471F1E81034B'
+ CONST Name 'multi_factory'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_multi_factory::Operation
+
+REDEFINITION : st_factory_switch::Attribute Inherits ( st_factory_switch::Attribute )
+ CONST UID '47B133E102FA'
+ CONST Name 'factory_switch'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_factory_switch::Attribute
+
+: st_ServerInterfaces Inherits ( st_InterfacePackageBase )
+ CONST UID '4704926100AB'
+ CONST Name 'ServerInterfaces'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_ServerInterfaces
+
+: st_ServerLibrary Inherits ( st_Library )
+ CONST UID '47037635038A'
+ CONST Name 'ServerLibrary'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_ServerLibrary
+
+REDEFINITION : st_LibSupport Inherits ( st_LibSupport )
+ CONST UID '478E252A02D1'
+ CONST Name 'LibSupport'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_LibSupport
+
+: st_VM Inherits ( st_WikiImplClass )
+ CONST UID '4704BC82002E'
+ CONST Name 'VM'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_VM
+
+: st_macro::Operation
+ CONST UID '4772795A0375'
+ CONST Name 'macro'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_macro::Operation
+
+REDEFINITION : st_include::Dependency
+ CONST UID '4773ACE201C0'
+ CONST Name 'include'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_include::Dependency
+
+: st_Decorator Inherits ( st_VM )
+ CONST UID '473A908D00DA'
+ CONST Name 'Decorator'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Decorator
+
+: st_JSUnit Inherits ( st_WikiPackageImpl )
+ CONST UID '4773773E02F8'
+ CONST Name 'JSUnit'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_JSUnit
+
+: st_WebLibrary
+ CONST UID '4773C42B0029'
+ CONST Name 'WebLibrary'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_WebLibrary
+
+: st_HtmlUnit Inherits ( st_WikiPackageImpl )
+ CONST UID '4774C47A00F5'
+ CONST Name 'HtmlUnit'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_HtmlUnit
+
+: st_TestClass Inherits ( st_WikiImplClass )
+ CONST UID '499972740320'
+ CONST Name 'TestClass'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_TestClass
+
+REDEFINITION : st_property::Attribute
+ CONST UID '4999824C0371'
+ CONST Name 'property'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_property::Attribute
+
+REDEFINITION : st_readonly::Attribute Inherits ( st_property::Attribute )
+ CONST UID '499982880154'
+ CONST Name 'readonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_readonly::Attribute
+
+REDEFINITION : st_writeonly::Attribute Inherits ( st_property::Attribute )
+ CONST UID '499982B000C6'
+ CONST Name 'writeonly'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_writeonly::Attribute
+
+REDEFINITION : st_uses::Dependency
+ CONST UID '49998E19015C'
+ CONST Name 'uses'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_uses::Dependency
+
+: st_TestCase Inherits ( st_SimpleClass )
+ CONST UID '4B2A19080274'
+ CONST Name 'TestCase'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_TestCase
+
+: st_Test Inherits ( st_WikiImplClass st_UsesContainer )
+ CONST UID '4B2A197A00D5'
+ CONST Name 'Test'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Test
+
+: st_TestCaseMixIn Inherits ( st_AbstractImplInclude st_TestCase )
+ CONST UID '51E0319001F4'
+ CONST Name 'TestCaseMixIn'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_TestCaseMixIn
+
+REDEFINITION : st_impurity_param::Attribute Inherits ( st_impurity_param::Attribute )
+ CONST UID '51E034BD007A'
+ CONST Name 'impurity_param'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_impurity_param::Attribute
+
+REDEFINITION : st_inline::Operation Inherits ( st_inline::Operation )
+ CONST UID '51E034D30202'
+ CONST Name 'inline'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_inline::Operation
+
+: st_TestUnit Inherits ( st_Unit )
+ CONST UID '4999717102EE'
+ CONST Name 'TestUnit'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_TestUnit
+
+: st_TestLibrary Inherits ( st_Library )
+ CONST UID '499971A80065'
+ CONST Name 'TestLibrary'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_TestLibrary
+
+: st_Project Inherits ( st_Project )
+ CONST UID '46E13AC200BB'
+ CONST Name 'Project'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Project
+
+REDEFINITION : st_Project Inherits ( st_Project )
+ CONST UID '4742D0D30277'
+ CONST Name 'Project'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Project
+

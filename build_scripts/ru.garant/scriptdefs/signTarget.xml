@@ -1,0 +1,149 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		ru.garant.extensions.properties.signDescription
+		ru.garant.extensions.properties.signDescriptionURL
+		ru.garant.extensions.properties.signSHA1
+		ru.garant.extensions.properties.signTargetMaxCyclesCount
+		ru.garant.extensions.properties.signTimestampServer
+
+		ru.garant.extensions.scriptdefs.copyFile
+		ru.garant.extensions.scriptdefs.removeFile
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.signTarget"
+	language = "javascript"
+>
+	<attribute name = "sign.target"/>
+	<attribute name = "sign.target.root.dir"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_signTarget = (
+				attributes.get ("sign.target")
+			);
+
+			var a_signTargetRootDir = (
+				attributes.get ("sign.target.root.dir")
+			);
+
+			if (a_signTargetRootDir != null) {
+				var l_signTargetRootDirFile = new File (a_signTargetRootDir);
+				var l_signTargetRootDirPath = l_signTargetRootDirFile.getPath ();
+
+				a_signTargetRootDir = l_signTargetRootDirPath;
+			}
+
+			var l_signTargetFile = new File (a_signTargetRootDir, a_signTarget);
+			var l_signTargetPath = l_signTargetFile.getPath ();
+
+			project.log (
+				(
+					"\t"
+					+ "Sign target `"+ l_signTargetPath+ "`"
+				)
+				, project.MSG_INFO
+			);
+
+			var l_signTargetMaxCyclesCount = project.getProperty ("ru.garant.extensions.properties.signTargetMaxCyclesCount");
+
+			var l_signTargetOutput = "";
+			var l_signTargetResult = "0";
+
+			var l_signBreakCycle = false;
+
+			for (
+				var l_signTargetCycleIndex = 0
+				; ((!l_signBreakCycle) && (l_signTargetCycleIndex < l_signTargetMaxCyclesCount))
+				; ++l_signTargetCycleIndex
+			) {
+				if (l_signTargetCycleIndex != 0) {
+					project.createTask ("sleep").doSleep (1000); // one second
+
+					project.log (
+						(
+							"\t"
+							+ "Sign target is not stable and will be repeated again (lasterror = "+ l_signTargetResult+ ")"
+						)
+						, project.MSG_WARN
+					);
+				}
+
+				{
+					var l_execTask = project.createTask ("exec"); {
+						l_execTask.setDir (new File (a_signTargetRootDir));
+						l_execTask.setExecutable ("signcode.exe");
+						l_execTask.setFailIfExecutionFails (true);
+						l_execTask.setFailonerror (false);
+						l_execTask.setLogError (true);
+
+						l_execTask.setProject (project.createSubProject ());
+
+						l_execTask.setOutputproperty ("signTargetOutput");
+						l_execTask.setResultProperty ("signTargetResult");
+
+						var l_execTaskArg = l_execTask.createArg (); {
+							var l_signDescription = project.getProperty ("ru.garant.extensions.properties.signDescription");
+							var l_signDescriptionURL = project.getProperty ("ru.garant.extensions.properties.signDescriptionURL");
+							var l_signSHA1 = project.getProperty ("ru.garant.extensions.properties.signSHA1");
+							var l_signTimestampServer = project.getProperty ("ru.garant.extensions.properties.signTimestampServer");
+
+							l_execTaskArg.setLine (
+								"-a \"md5\""
+								+ " -sha1 \""+ l_signSHA1+ "\""
+                                + " -i \""+ l_signDescription+ " ("+ l_signDescriptionURL+ ")"+ "\""
+								+ " -t \""+ l_signTimestampServer+ "\""
+								+ " -tr \"120\""
+								+ " -tw \"5\""
+								+ " \""+ l_signTargetPath+ "\""
+							);
+						}
+
+						l_execTask.reconfigure ();
+					}
+
+					l_execTask.execute ();
+
+					l_signTargetOutput = l_execTask.getProject ().getProperty ("signTargetOutput");
+					l_signTargetResult = l_execTask.getProject ().getProperty ("signTargetResult");
+				}
+
+				if (!l_signTargetOutput.isEmpty ()) {
+					project.log (
+						"\n"
+						+ l_signTargetOutput
+					);
+				}
+
+				l_signBreakCycle = (l_signTargetResult.compareToIgnoreCase ("0") == 0);
+			}
+
+			if (l_signTargetResult.compareToIgnoreCase ("0") != 0) {
+				var l_failTask = project.createTask ("fail"); {
+					l_failTask.setMessage (
+						"\t"
+						+ "Too many sign target operation cycles (count = "+ l_signTargetCycleIndex+ ")"
+					);
+
+					l_failTask.reconfigure ();
+				}
+
+				l_failTask.execute ();
+			}
+		}
+	]]>
+</scriptdef>

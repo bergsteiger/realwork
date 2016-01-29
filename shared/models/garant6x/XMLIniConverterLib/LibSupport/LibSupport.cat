@@ -1,0 +1,539 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "LibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/garant6x/implementation/Garant/XMLIniConverterLib/ConverterStarter.h::45E43FDF02CE")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/garant6x/implementation/Garant/XMLIniConverterLib/ConverterStarter.cpp::45E43FDF02CE")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Ìîäåëü ïðîåêòà "garant6x"/XMLIniConverterLib/LibSupport/ConverterStarter|45E43FDF02CE::45E43FDF02CE
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Ìîäåëü ïðîåêòà "garant6x"/XMLIniConverterLib/LibSupport|45E43F5D033C
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19774320062"))
+    quid       	"45E43F5D033C"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"45E44CAC03B9"
+	    supplier   	"Logical View::garant6x::XMLIniConverterLib::IniConverter"
+	    quidu      	"455B0B78008C"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ConverterStarter"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/garant6x/implementation/Garant/XMLIniConverterLib/ConverterStarter.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/garant6x/implementation/Garant/XMLIniConverterLib/ConverterStarter.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E43FDF02CE*"
+		    value      	(value Text 
+|//#UC START# *45E43FDF02CE*¤		IniConverter::RulesManager_var rules_manager = IniConverter::RulesManagerFactory::make ();¤		std::string ini_path = Core::ParamManagerFactory::get ().get_string ("-f");¤		if (ini_path.empty ()) {¤			this->usage ();¤			this->set_current_status(Core::Root::ES_FINISHED);¤			return;¤		}¤¤		// ÷òåíèå ïóòè äëÿ äåëüòû (áûëî â ñòàðîì êîíâåðòåðå, ïåðåíåñåíî äëÿ ñîâìåñòèìîñòè)¤		std::string update_path = Core::ParamManagerFactory::get ().get_string ("-u");¤		if (!update_path.empty ()) {¤			rules_manager->set_variable (IniConverter::UPDATE_PATH, update_path);¤		} else {¤			size_t position = ini_path.find_last_of (ACE_DIRECTORY_SEPARATOR_CHAR);¤			if (position == std::string::npos) {¤				update_path += ".";¤				update_path += ACE_DIRECTORY_SEPARATOR_CHAR;¤			} else {¤				update_path = ini_path.substr (0, position + 1);¤			}¤		}¤		if (update_path[update_path.size () - 1] != ACE_DIRECTORY_SEPARATOR_CHAR) {¤			update_path += ACE_DIRECTORY_SEPARATOR_CHAR;¤		}¤		update_path += "delta";¤		rules_manager->set_variable (IniConverter::UPDATE_PATH, update_path);¤¤		IniConverter::IniFile_var old_file;¤		try {¤			old_file = IniConverter::IniFileFactory::make (ini_path.c_str ());¤		} catch (IniConverter::FileReadingError&) {¤			this->set_current_status(Core::Root::ES_ERROR);¤			return;¤		}¤¤		// ÷òåíèå ïóòåé ê íîâîìó èíèøíèêó è ïðàâèëàì¤		std::string new_ini_path = Core::ParamManagerFactory::get ().get_string ("-n");¤		std::string xml_path = Core::ParamManagerFactory::get ().get_string ("-x");¤		if (new_ini_path.empty () || xml_path.empty ()) {¤			// ïîëó÷àåì ïóòü ê òåêóùåìó áèíàðíèêó¤			char path [PATH_MAX + 1];¤			this->get_app_path (path, PATH_MAX + 1);¤			size_t path_len = std::strlen (path);¤			if (!path_len) {¤				std::cerr << "Can't find path to current executable" << std::endl;¤				this->set_current_status(Core::Root::ES_ERROR);¤				return;¤			}¤			if (path[path_len - 1] != ACE_DIRECTORY_SEPARATOR_CHAR) {¤				path[path_len++] = ACE_DIRECTORY_SEPARATOR_CHAR;¤				path[path_len] = 0;¤			}¤¤			// ïîëó÷àåì âåðñèþ ñòàðîãî èíèøíèêà¤			IniConverter::Parameter* parameter = old_file->get_cached_parameter ("[Version]", "-Product");¤			if (parameter) {¤				this->create_path (path, "ini", parameter->get_value (), new_ini_path);¤				this->create_path (path, "xml", parameter->get_value (), xml_path);¤			} else {¤				std::cerr << "Can't find -Product option in [Version] section in old ini file" << std::endl;¤				this->set_current_status(Core::Root::ES_ERROR);¤				return;¤			}¤		}¤¤		XercesHelpers::XercesHelper::instance (); // èíèöèàëèçèðóåì áèáëèîòåêó xerces¤		IniConverter::IniFile_var new_file;¤		try {¤			new_file = IniConverter::IniFileFactory::make (new_ini_path.c_str ());¤		} catch (IniConverter::FileReadingError&) {¤			this->set_current_status(Core::Root::ES_ERROR);¤			return;¤		}¤		// ïðèìåíÿåì ïðàâèëà¤		try {¤			rules_manager->init (xml_path.c_str ());¤			rules_manager->apply (old_file.ptr (), new_file.ptr ());¤		} catch (...) {¤			std::cerr << "Error occured while parsing xml file "<< xml_path << std::endl;¤			std::cerr << "Use ONLY new ini file" << std::endl;¤			this->print_result (ini_path.c_str (), new_file.ptr ());¤			this->set_current_status(Core::Root::ES_ERROR);¤			return;¤		}¤		// çàòåì ñëèâàåì èíôîðìàöèþ èç èíèøíèêîâ¤		old_file->merge (new_file.in ());¤		// âûëèâàåì ðåçóëüòàò¤		this->print_result (ini_path.c_str (), new_file.ptr ());¤		//#UC END# *45E43FDF02CE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E43FDF02CE_FINI*"
+		    value      	(value Text 
+|//#UC START# *45E43FDF02CE_FINI*¤	//#UC END# *45E43FDF02CE_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Ìîäåëü ïðîåêòà "garant6x"/XMLIniConverterLib/LibSupport/ConverterStarter|45E43FDF02CE
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E43FFD0213*"
+		    value      	(value Text 
+|//#UC START# *45E43FFD0213*¤	if (result.empty ()) {¤		result = path;¤		result += extension;¤		result += ACE_DIRECTORY_SEPARATOR_CHAR;¤		result += version;¤		result += ".";¤		result += extension;¤	}¤	//#UC END# *45E43FFD0213*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E43FFB03D8*"
+		    value      	(value Text 
+|//#UC START# *45E43FFB03D8*¤	buf [0] = '\0';¤¤	char app_path [PATH_MAX + 1];¤	DWORD res = GetModuleFileName (GetModuleHandle (0)¤								  , app_path¤								  , sizeof (app_path));¤	if (!res) {¤		return;¤	}¤¤	char drive [_MAX_DRIVE];¤	char dir [_MAX_DIR];¤	_splitpath (app_path, drive, dir, 0, 0);¤	if ((strlen (drive) + strlen (dir)) >= len) {¤		return;¤	}¤	_makepath (buf, drive, dir, 0, 0);¤	//#UC END# *45E43FFB03D8*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E44CCE01E4*"
+		    value      	(value Text 
+|//#UC START# *45E44CCE01E4*¤	std::ofstream result_file (path);¤	if (result_file) {¤		file->print (result_file);¤	} else {¤		std::cerr << "Can't write result to the ini file " << path << std::endl;¤	}¤	//#UC END# *45E44CCE01E4*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E43FF903C8*"
+		    value      	(value Text 
+|//#UC START# *45E43FF903C8*¤	std::cout << "usage: IniConverter -f <file> [-u <path>] [-n <path>] [-x <path>]\n" << std::endl;¤	std::cout << "-f <file>     : path to ini file to convert" << std::endl;¤	std::cout << "-u <path>     : path to data update, default is ini file dir" << std::endl;¤	std::cout << "-n <file>     : path to ini file for new version, default is ./ini/[VERSION-TYPE].ini" << std::endl;¤	std::cout << "-x <file>     : path to xml rules, default is ./xml/[VERSION-TYPE].xml" << std::endl;¤	//#UC END# *45E43FF903C8*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E43FDF02CE_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *45E43FDF02CE_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *45E43FDF02CE_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E43FDF02CE_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *45E43FDF02CE_CUSTOM_INCLUDES*¤#include "shared/Core/Params/Params.h"¤#include "shared/XercesHelpers/wrappers/XercesHelper.h"¤//#UC END# *45E43FDF02CE_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E43FDF02CE_CUSTOM_BODY*"
+		    value      	"//#UC START# *45E43FDF02CE_CUSTOM_BODY*¤//#UC END# *45E43FDF02CE_CUSTOM_BODY*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*45E43FDF02CE_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *45E43FDF02CE_CUSTOM_INCLUDES*¤//#UC END# *45E43FDF02CE_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*45E43FDF02CE*"
+		    value      	"//#UC START# *45E43FDF02CE*¤//#UC END# *45E43FDF02CE*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19774333612"))
+	    quid       	"45E43FDF02CE"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19774338112"))
+		    quid       	"45E4881F000F"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::std::fstream::ifstream"
+		    quidu      	"45C8A1FC03B9"))
+	    operations 	(list Operations
+		(object Operation "usage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45E43FF903C8*"
+			    value      	(value Text 
+|//#UC START# *45E43FF903C8*¤	std::cout << "usage: IniConverter -f <file> [-u <path>] [-n <path>] [-x <path>]\n" << std::endl;¤	std::cout << "-f <file>     : path to ini file to convert" << std::endl;¤	std::cout << "-u <path>     : path to data update, default is ini file dir" << std::endl;¤	std::cout << "-n <file>     : path to ini file for new version, default is ./ini/[VERSION-TYPE].ini" << std::endl;¤	std::cout << "-x <file>     : path to xml rules, default is ./xml/[VERSION-TYPE].xml" << std::endl;¤	//#UC END# *45E43FF903C8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19774333912"))
+		    quid       	"45E43FF903C8"
+		    documentation 	"îïèñàíèå êîìàíäíîé ñòðîêè óòèëèòû"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_app_path"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45E43FFB03D8*"
+			    value      	(value Text 
+|//#UC START# *45E43FFB03D8*¤	buf [0] = '\0';¤¤	char app_path [PATH_MAX + 1];¤	DWORD res = GetModuleFileName (GetModuleHandle (0)¤								  , app_path¤								  , sizeof (app_path));¤	if (!res) {¤		return;¤	}¤¤	char drive [_MAX_DRIVE];¤	char dir [_MAX_DIR];¤	_splitpath (app_path, drive, dir, 0, 0);¤	if ((strlen (drive) + strlen (dir)) >= len) {¤		return;¤	}¤	_makepath (buf, drive, dir, 0, 0);¤	//#UC END# *45E43FFB03D8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19774334253"))
+		    quid       	"45E43FFB03D8"
+		    documentation 	"ïîëó÷èòü ïóòü ê êàòàëîãó ñ áèíàðíèêîì. ìåòîä íåïåðåíîñèì."
+		    parameters 	(list Parameters
+			(object Parameter "inout buf"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19774334542"))
+			    quid       	"45E43FFC000F"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "len"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4538E9230233")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19774334884"))
+			    quid       	"45E43FFC005D"
+			    type       	"size"
+			    quidu      	"4538E9230233"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "create_path"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45E43FFD0213*"
+			    value      	(value Text 
+|//#UC START# *45E43FFD0213*¤	if (result.empty ()) {¤		result = path;¤		result += extension;¤		result += ACE_DIRECTORY_SEPARATOR_CHAR;¤		result += version;¤		result += ".";¤		result += extension;¤	}¤	//#UC END# *45E43FFD0213*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19774335297"))
+		    quid       	"45E43FFD0213"
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19774335588"))
+			    quid       	"45E43FFD0232"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "extension"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19774335930"))
+			    quid       	"45E43FFD0271"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "version"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19774336289"))
+			    quid       	"45E43FFD0290"
+			    type       	"a-string"
+			    quidu      	"452257A0036F")
+			(object Parameter "inout result"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19774336633"))
+			    quid       	"45E43FFD02CE"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "print_result"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45E44CCE01E4*"
+			    value      	(value Text 
+|//#UC START# *45E44CCE01E4*¤	std::ofstream result_file (path);¤	if (result_file) {¤		file->print (result_file);¤	} else {¤		std::cerr << "Can't write result to the ini file " << path << std::endl;¤	}¤	//#UC END# *45E44CCE01E4*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19774337037"))
+		    quid       	"45E44CCE01E4"
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19774337328"))
+			    quid       	"45E44CE5006D"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "file"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"455B0BA20232")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19774337675"))
+			    quid       	"45E44CE500BB"
+			    type       	"IniFile"
+			    quidu      	"455B0BA20232"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"45E43F71009C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::XMLIniConverterLib::LibSupport::ConverterStarter" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"899")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"672")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"1580")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"392"))
+		    location   	(899, 672)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(141, 545)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1516
+			justify    	0
+			label      	"• ConverterStarter")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(141, 495)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1516
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"45E43FDF02CE"
+		    width      	1534
+		    height     	378
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::std::fstream::ifstream" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"665")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"230")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"262")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(665, 230)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(535, 198)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	260
+			justify    	0
+			label      	"ifstream")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(535, 148)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	258
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"45C8A1FC03B9"
+		    width      	278
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"794,475;712,320"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(757, 423)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.406745
+			height     	9
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"45E4881F000F"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(797, 482)
+			(714, 324))
+		    line_style 	0)))))

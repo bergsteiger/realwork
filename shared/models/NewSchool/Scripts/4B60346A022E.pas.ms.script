@@ -1,0 +1,297 @@
+// TnscTreeViewHotTruck 4B60346A022E GuiControl Class
+
+FORWARD ME_4B60346A022E
+
+FORWARD ME_559BCDD6010D
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_559BCDE801B7
+ CONST UID '559BCDE801B7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_559BCDE801B7 DoIt
+
+: ME_559BCDD6010D
+ CONST UID '559BCDD6010D'
+ CONST Name 'TOnAllowHotTruck'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_559BCDE801B7 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_559BCDD6010D TOnAllowHotTruck
+
+INCLUDE '499C26240034.pas.ms.script'
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_559BCE1402D5
+ CONST UID '559BCE1402D5'
+ CONST Name 'OnAllowHotTruck'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_559BCDD6010D // TOnAllowHotTruck
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_559BCE1402D5 OnAllowHotTruck
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_559BCE3F0233
+ CONST UID '559BCE3F0233'
+ CONST Name 'AllowTrucking'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_559BCE3F0233 AllowTrucking
+
+: ME_559BCE60027E
+ CONST UID '559BCE60027E'
+ CONST Name 'HotTruckIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_559BCE60027E HotTruckIndex
+
+: ME_17FC3522B761
+ CONST UID '17FC3522B761'
+ CONST Name 'f_OnAllowHotTruck'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства OnAllowHotTruck' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_559BCDD6010D // TOnAllowHotTruck
+ ;
+
+ @SELF
+; // ME_17FC3522B761 f_OnAllowHotTruck
+
+: ME_125ED7C721FA
+ CONST UID '125ED7C721FA'
+ CONST Name 'f_AllowTrucking'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства AllowTrucking' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_125ED7C721FA f_AllowTrucking
+
+: ME_E2D86F1A6986
+ CONST UID 'E2D86F1A6986'
+ CONST Name 'f_HotTruckIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства HotTruckIndex' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_E2D86F1A6986 f_HotTruckIndex
+
+FORWARD ME_559BCE89021B
+
+: ME_559BCE930009
+ CONST UID '559BCE930009'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_559BCE930009 aValue
+
+: ME_559BCE900315
+ CONST UID '559BCE900315'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_559BCE930009 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_559BCE900315 DoIt
+
+: ME_559BCE89021B
+ CONST UID '559BCE89021B'
+ CONST Name 'SetHotTruckIndex'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_559BCE900315 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_559BCE89021B SetHotTruckIndex
+
+FORWARD ME_559BCE9C0001
+
+: ME_50D79565E579
+ CONST UID '50D79565E579'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода UpdateTruckFromCursor' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_50D79565E579 DoIt
+
+: ME_559BCE9C0001
+ CONST UID '559BCE9C0001'
+ CONST Name 'UpdateTruckFromCursor'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_50D79565E579 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_559BCE9C0001 UpdateTruckFromCursor
+
+INCLUDE '476F78840219.pas.ms.script'
+
+: ME_559BCEBB010C
+ CONST UID '559BCEBB010C'
+ CONST Name 'Message'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476F78A602B2 // TMessage
+ ;
+
+ @SELF
+; // ME_559BCEBB010C Message
+
+: ME_559BCEAE01E8
+ CONST UID '559BCEAE01E8'
+ CONST Name 'CMMouseLeave'
+ CONST Class 'Operation'
+ CONST Stereotype 'message'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_559BCEBB010C // Message
+ ]
+ ; // Parameters
+ CONST "Message ID" 'CM_MOUSELEAVE'
+
+ @SELF
+; // ME_559BCEAE01E8 CMMouseLeave
+
+: ME_7D3722F85D10
+ CONST UID '7D3722F85D10'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TnscTreeViewHotTruck' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_7D3722F85D10 Ini_Reg_Class
+
+: ME_4B60346A022E
+ CONST UID '4B60346A022E'
+ CONST Name 'TnscTreeViewHotTruck'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_499C26240034 // TnscTreeView
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_559BCE1402D5 // OnAllowHotTruck
+ ME_559BCE3F0233 // AllowTrucking
+ ME_559BCE60027E // HotTruckIndex
+ ME_17FC3522B761 // f_OnAllowHotTruck
+ ME_125ED7C721FA // f_AllowTrucking
+ ME_E2D86F1A6986 // f_HotTruckIndex
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_559BCE89021B // SetHotTruckIndex
+ ME_559BCE9C0001 // UpdateTruckFromCursor
+ ME_559BCEAE01E8 // CMMouseLeave
+ ME_7D3722F85D10 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_47D1602000C6 // Create
+ ]
+ ; // Overridden
+ : Children
+   [ ME_559BCDD6010D // TOnAllowHotTruck
+ ]
+ ; // Children
+ CONST "base wnd class" 'CWnd'
+ CONST "ifdef" 'Nemesis'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4B60346A022E TnscTreeViewHotTruck

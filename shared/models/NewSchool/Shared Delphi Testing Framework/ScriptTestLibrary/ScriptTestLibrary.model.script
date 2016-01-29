@@ -1,0 +1,288 @@
+<<TestLibrary>> ScriptTestLibrary
+ %UID '4DC3D1BC0060'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifndef" 'NoScripts'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<TestUnit>> ScriptTestUnit
+   %UID '4DC3D21E006E'
+   %DEPENDS
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B30FC850092' /* VCM_TFW */
+    U$ '550198F60382' /* VCMHelpers */
+    U$ '5506D079035B' /* AFWServices */
+    U$ '5506D09003AB' /* EverestServices */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '550012C403C4' /* L3$AFW */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<TestCase>> TCustomInsiderScripter
+      %UID '4DC3D2590217'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DAECE5D0060' /* TvcmInsiderTest */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C937013031D' /* GetFolder */
+       U$ '4DAED6F60146' /* GetModelElementGUID */
+       U$ '4DC263E8038F' /* GetScriptName */
+       U$ '4DCA41A20364' /* FileNameForOutput */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "5501A45D03A8"
+         %UID '5501A45D03A8'
+         %TARGET U$ '5501A3AE02AA' /* Tl3DispatcherHelper */
+        ; // 5501A45D03A8
+        <<uses>> "5506FE66032F"
+         %UID '5506FE66032F'
+         %TARGET U$ '5506D3B202FA' /* Tl3MessagesService */
+        ; // 5506FE66032F
+        <<uses>> "5506FEC703BD"
+         %UID '5506FEC703BD'
+         %TARGET U$ '5506FEA6012A' /* Tl3DocumentsCacheService */
+        ; // 5506FEC703BD
+        SUMMONED <<uses>> "018DBE345891"
+         %UID '018DBE345891'
+         %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+        ; // 018DBE345891
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<method>> Run
+         %UID '4DC3D2E00153'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DC3D30203BF'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Run
+        FINAL <<Test>> DoIt
+         %UID '4DC3D3150155'
+        ; // DoIt
+        PROTECTED ABSTRACT <<Operation>> Prepare
+         %UID '4DC3DE630030'
+         %SUMMARY 'Вызывается в начале DoIt' ;
+        ; // Prepare
+      ; // %OPERATIONS
+     ; // TCustomInsiderScripter
+   ; // %CHILDREN
+  ; // ScriptTestUnit
+  <<Unit>> AutoTests
+   %UID '4DC246E40002'
+   %SUMMARY 'Поддержка подключаемых тестов на основе скриптов' ;
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B30FC850092' /* VCM_TFW */
+    U$ '4DC3D21E006E' /* ScriptTestUnit */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TAutoTest
+      %UID '4DC247C80356'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DC3D2590217' /* TCustomInsiderScripter */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DC3D2E00153' /* Run */
+       U$ '4DC3DE630030' /* Prepare */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4DC25BD50125"
+         %UID '4DC25BD50125'
+         %TARGET U$ '4DDA4CFE00E8' /* ExtractFilePath */
+        ; // 4DC25BD50125
+        <<uses>> "4DC39ECD00B1"
+         %UID '4DC39ECD00B1'
+         %TARGET U$ '4DC39DD201D4' /* TTestMethod */
+        ; // 4DC39ECD00B1
+      ; // %LINKS
+     ; // TAutoTest
+     FINAL <<UtilityPack>> CustomAutoTestsSuite
+      %UID '4DC24CA4037E'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4B2A0D4A006F' /* DUnit */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TCustomAutoTestSuite
+         %UID '4DC40A7E00C8'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A0D4A006F' /* DUnit */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4DC24566022C' /* TTestSuite */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DC38C96018E' /* AddTests */
+          U$ '4DCCD004030E' /* DoHasScriptChildren */
+         ; // %OVERRIDES
+         %LINKS
+           <<uses>> "4DC40C22000B"
+            %UID '4DC40C22000B'
+            %TARGET U$ '4C44691E00D2' /* FileFromCurrent */
+           ; // 4DC40C22000B
+           <<uses>> "4DC40C2600E0"
+            %UID '4DC40C2600E0'
+            %TARGET U$ '4DDA4CFE00E8' /* ExtractFilePath */
+           ; // 4DC40C2600E0
+           <<uses>> "4DC41B0A014B"
+            %UID '4DC41B0A014B'
+            %TARGET U$ '4BA7BE3B0114' /* l3LocalStub */
+           ; // 4DC41B0A014B
+           <<uses>> "4DC42054007C"
+            %UID '4DC42054007C'
+            %TARGET U$ '4DC25D9502BB' /* ProcessFilesWithMask */
+           ; // 4DC42054007C
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> GetDataFolder
+            %UID '4EA50B95037D'
+            %SUMMARY 'Возвращает папку с данными для создания тестов.' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4EA50BF00299'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetDataFolder
+           PROTECTED <<method>> GetExt
+            %UID '4EA50C04021B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4EA50C2100BF'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetExt
+           PRIVATE FINAL <<method>> CheckExists
+            %UID '506D80B002A6'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '506D81590085'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<const>> aDirName
+                  %UID '506D816E00C1'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aDirName
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CheckExists
+           PRIVATE FINAL <<method>> Try2FindTest
+            %UID '506D8174020F'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '506D81890103'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<const>> aTestName
+                  %UID '506D818E03C9'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aTestName
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Try2FindTest
+         ; // %OPERATIONS
+        ; // TCustomAutoTestSuite
+      ; // %CHILDREN
+     ; // CustomAutoTestsSuite
+   ; // %CHILDREN
+  ; // AutoTests
+ ; // %CHILDREN
+; // ScriptTestLibrary

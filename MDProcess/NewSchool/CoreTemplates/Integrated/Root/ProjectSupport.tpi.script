@@ -1,0 +1,156 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Integrated/Root/ProjectSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$CoreTemplates::CoreTemplates::Integrated::Root::ProjectSupport
+//
+// вспомогательные функции
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// используется ли Main элементом
+//f _used_by_main
+: used_by_main OBJECT IN %S
+//#UC START# *49F9A30300D5*
+//	[{<{}{%c%PU=%X%MU}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%c
+  begin
+   OBJECT IN %c
+   if ( ( %c ->P |U  ) %== ( %X ->M |U  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for c
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *49F9A30300D5*
+; // used_by_main
+
+
+// возвращает true, если для элемента не нужна документация
+//f _dont_need_doc
+: dont_need_doc OBJECT IN %S
+//#UC START# *49F9A30D0012*
+//@ %SU
+//	[{%t_dont_need_doc_impl(%S)=true}{false}true]
+ if ( ( [%t] dont_need_doc_impl %( %S )% ) %==  true ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _is_mda
+; // dont_need_doc
+
+: is_mda OBJECT IN %S
+//	[{%SS=MDATemplates}{[{<{}{%PS=MDATemplates}{%PC}>!=0}{false}true]}true]
+ if ( ( %S |S ) %== 'MDATemplates' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%P
+   begin
+    OBJECT IN %P
+    if ( ( %P |S ) %== 'MDATemplates' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for P
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // else
+
+
+//t _dont_need_doc_impl
+; // is_mda
+
+<<transformator>> dont_need_doc_impl OBJECT IN %S
+//c                                                   {}
+//r %f_old_dont_doc(%S)=true:                         {true}
+//r %SC=StateMachine:                                 {true}
+//r %SC=Transition:                                   {true}
+//r %SC=Action:                                       {true}
+//r %SC=TransitionEvent&%PC=Transition:               {true}
+//r %SC=Parameter:                                    {true}
+//r %SS=AdapterRoot:                                  {true}
+//r %SS=AdapterRootPackage:                           {true}
+//r %SC=Attribute&%f_attrs_need_doc(%S)=false:        {true}
+//r ""="":                                            {false}
+
+//f _old_dont_doc
+; // dont_need_doc_impl
+
+: old_dont_doc OBJECT IN %S
+//	[{%PS=Vector|%PS=Map|%PS=Set|%PS=Queue|%PS=UnsortedSet|%PS=UnsortedMap|%SS=CustomFile|%SS=ctor|%SS=Servant|%SS=ComServant|%SS=Actor|%SS=Impl|%SC=Dependency}{false}true]
+ if ( ( %P |S ) %== 'Vector' OR 
+   ( ( %P |S ) %== 'Map'  ) OR 
+   ( ( %P |S ) %== 'Set'  ) OR 
+   ( ( %P |S ) %== 'Queue'  ) OR 
+   ( ( %P |S ) %== 'UnsortedSet'  ) OR 
+   ( ( %P |S ) %== 'UnsortedMap'  ) OR 
+   ( ( %S |S ) %== 'CustomFile'  ) OR 
+   ( ( %S |S ) %== 'ctor'  ) OR 
+   ( ( %S |S ) %== 'Servant'  ) OR 
+   ( ( %S |S ) %== 'ComServant'  ) OR 
+   ( ( %S |S ) %== 'Actor'  ) OR 
+   ( ( %S |S ) %== 'Impl'  ) OR 
+   ( ( %S |C ) %== 'Dependency'  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *49F9A30D0012*
+; // old_dont_doc
+
+
+// возвращает true, если для атрибута нужна документация
+//f _attrs_need_doc
+: attrs_need_doc OBJECT IN %S
+//#UC START# *49F9A3150217*
+//	%t_attrs_need_doc_i(%S)
+ [%t] attrs_need_doc_i %( %S )% 
+
+//t _attrs_need_doc_i
+; // attrs_need_doc
+
+<<transformator>> attrs_need_doc_i OBJECT IN %S
+//c                                    {}
+//r %SS=factory switch:                {false}
+//r %SS=switch:                        {false}
+//r ""="":                             {[{%t_interface(%P)=true|%PS=Enum|%PS=Constants|%PS=Struct|%PS=Union&%SS!=switch&%SS!=factory switch}{false}true]}
+//#UC END# *49F9A3150217*
+; // attrs_need_doc_i
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

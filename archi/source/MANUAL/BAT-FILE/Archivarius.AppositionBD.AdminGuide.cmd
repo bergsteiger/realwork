@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" "D:\MANUAL(CVS)\archi\source\MANUAL\APPOSITION BD.ADMINGUIDE\Archivarius.AppositionBD.hmxz" "/tsk=Recent Publishes:Archivarius.AppositionBD.AdminGuide" "/tsk=Recent Publishes:AppositionBD_!DAILY"

@@ -1,0 +1,625 @@
+uses
+  Main, common, commonEventHandlers, DocumentWork,
+  FileWork, FoldersWork, MenuWork,  SettingsWork, States, Clicks;
+
+    
+  
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.2: В окне должны быть реализованы следующие возможности:  
+      HLTC189.2.2.11: Проверить увеличение/уменьшение размера шрифтов в окне просмотра.
+
+Кнопки будут доступны только если в настройках указано:
+ Настройки конфигурации - Поведение системы - Печать и экспорт - Использовать для экспорта и печати размер шрифта, отображаемого на экране
+ (по умолчанию выбран другой пункт)
+      
+!!Проверить, когда всё прогрузилось и когда ещё не прогрузилось
+}
+function HLTC189_2_2_11_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  i;
+  j;
+  toolBar;
+  buttonName;  
+begin
+try
+  result := SetSettings ([(['ПОВЕДЕНИЕ СИСТЕМЫ', 'ПЕЧАТЬ И ЭКСПОРТ\ИСПОЛЬЗОВАТЬ ДЛЯ ЭКСПОРТА И ПЕЧАТИ РАЗМЕР ШРИФТА ОТОБРАЖАЕМОГО НА ЭКРАНЕ [RADIOBUTTON]', true])]);
+  
+  if NOT OpenDocByNumber(10003000) then Raise('Не удалось открыть документ по номеру');  
+  toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');  
+  if NOT IsExists(toolBar) then Raise('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  if NOT GoToPreview then Raise('Не удалось открыть превью документа');  
+  for i := 1 to 10 do
+  begin
+    for j := 1 to 2 do
+    begin
+      if (i mod 2) <> 0 then buttonName := 'Увеличить шрифт' else buttonName := 'Уменьшить шрифт';    
+      if NOT ClickToolbarButton (toolBar, buttonName) then
+        Raise('Не удалось кликнуть по кнопке : ' + buttonName);
+    end;    
+  end;
+  if NOT isCorrectPreview(30 * 1000) then
+  begin
+    Log.Error('Превью построилось не корректно после того, как меняли размер шрифта на НЕпрогруженном превью!');
+    Raise('Превью построилось не корректно после того, как меняли размер шрифта на НЕпрогруженном превью!');
+  end;
+  
+  
+  if NOT OpenDocByNumber(10003000) then Raise('Не удалось открыть документ по номеру');  
+  if NOT GoToPreview then Raise('Не удалось открыть превью документа');
+  if NOT isCorrectPreview(30 * 1000) then Raise('Не удалось получить корректное окно превью');                                                                         
+  for i := 1 to 10 do
+  begin
+    for j := 1 to 2 do
+    begin
+      if (i mod 2) <> 0 then buttonName := 'Увеличить шрифт' else buttonName := 'Уменьшить шрифт';    
+      if NOT ClickToolbarButton (toolBar, buttonName) then
+        Raise('Не удалось кликнуть по кнопке : ' + buttonName);
+    end;    
+  end;    
+  
+  if NOT isCorrectPreview(30 * 1000) then
+  begin
+    Log.Error('Превью построилось не корректно после того, как меняли размер шрифта на прогруженном превью!');
+    Raise('Превью построилось не корректно после того, как меняли размер шрифта на прогруженном превью!');
+  end; 
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_2_11_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.1: Проверить, что предварительный просмотр доступен для всех «печатаемых» объектов:  
+      HLTC189.2.1.1: Документ
+        HLTC189.2.1.1.1: Текст документа 
+}
+function HLTC189_2_1_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;
+begin 
+try
+  etalonPreview := 'previewDoc1055132.bmp';
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');
+  if NOT GoToPreview then Raise('Не удалось открыть превью документа');  
+  if NOT IsEtalonPreview(etalonPreview) then
+  begin
+    Log.Error('Превью не эталонно!'); 
+    Raise('Превью не эталонно!');
+  end;  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_1_1_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.1: Проверить, что предварительный просмотр доступен для всех «печатаемых» объектов:  
+      HLTC189.2.1.1: Документ
+        HLTC189.2.1.1.2: Справка к документу 
+}
+function HLTC189_2_1_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;
+  referenceWnd;
+begin 
+try
+  etalonPreview := 'preview_Reference1055132.bmp';
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');
+  referenceWnd := OpenInDocument('СПРАВКА');  
+  if NOT IsExists(referenceWnd) then Raise('Не удалось открыть вкладку СПРАВКА!');
+  referenceWnd.SetFocus;
+  if NOT GoToPreview then Raise('Не удалось открыть превью Справки к документу');  
+  if NOT IsEtalonPreview(etalonPreview) then
+  begin
+    Log.Error('Превью не эталонно!'); 
+    Raise('Превью не эталонно!');
+  end;  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_1_1_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.1: Проверить, что предварительный просмотр доступен для всех «печатаемых» объектов:  
+      HLTC189.2.1.1: Документ
+        HLTC189.2.1.1.3: Атрибуты
+}
+function HLTC189_2_1_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;
+  attributeWnd;
+begin 
+try
+  etalonPreview := 'preview_Attribute1055132.bmp';
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');
+  attributeWnd := OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ');  
+  if NOT IsExists(attributeWnd) then Raise('Не удалось открыть вкладку ИНФОРМАЦИЯ О ДОКУМЕНТЕ!');
+  attributeWnd.SetFocus;
+  if NOT GoToPreview then Raise('Не удалось открыть превью ИНФОРМАЦИЯ О ДОКУМЕНТЕ');  
+  if NOT IsEtalonPreview(etalonPreview) then
+  begin
+    Log.Error('Превью не эталонно!'); 
+    Raise('Превью не эталонно!');
+  end;  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_1_1_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.1: Проверить, что предварительный просмотр доступен для всех «печатаемых» объектов:  
+      HLTC189.2.1.2: Список
+        HLTC189.2.1.2.1: Список документов
+}
+function HLTC189_2_1_2_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;
+  wnd;
+begin 
+try
+  etalonPreview := 'preview_list.bmp';
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  Sys.Keys('конституция');  
+  Sys.Keys('^[Enter]');
+  
+  wnd := GetFromList('СПИСОК ДОКУМЕНТОВ');  
+  if NOT IsExists(wnd) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ!');
+  wnd.SetFocus;
+  if NOT GoToPreview then Raise('Не удалось открыть превью СПИСОК ДОКУМЕНТОВ');  
+  if NOT IsEtalonPreview(etalonPreview) then
+  begin
+    Log.Error('Превью не эталонно!'); 
+    Raise('Превью не эталонно!');
+  end;  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_1_2_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.1: Проверить, что предварительный просмотр доступен для всех «печатаемых» объектов:  
+      HLTC189.2.1.2: Список
+        HLTC189.2.1.2.2: Список респондентов/корреспондентов
+}
+function HLTC189_2_1_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;
+  wnd;
+begin 
+try
+  etalonPreview := 'preview_list_skr.bmp';
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');
+  wnd := OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ');  
+  if NOT IsExists(wnd) then Raise('Не удалось открыть вкладку ССЫЛКИ НА ДОКУМЕНТ!');
+  wnd.SetFocus;
+  if NOT GoToPreview then Raise('Не удалось открыть превью ССЫЛКИ НА ДОКУМЕНТ');  
+  if NOT IsEtalonPreview(etalonPreview) then
+  begin
+    Log.Error('Превью не эталонно!'); 
+    Raise('Превью не эталонно!');
+  end;  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_1_2_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.1: Проверить, что предварительный просмотр доступен для всех «печатаемых» объектов:  
+      HLTC189.2.1.2: Список
+        HLTC189.2.1.2.3: Список лекарственных препаратов
+}
+function HLTC189_2_1_2_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;
+  wnd;
+begin 
+try
+  etalonPreview := 'preview_med_products.bmp';
+  if NOT GoToMedicalProducts then Raise('Не удалось открыть Список МЕД Препаратов');
+  
+  if NOT GoToPreview then Raise('Не удалось открыть превью Список МЕД Препаратов');  
+  if NOT IsEtalonPreview(etalonPreview) then
+  begin
+    Log.Error('Превью не эталонно!'); 
+    Raise('Превью не эталонно!');
+  end;  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_1_2_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.1: Проверить, что предварительный просмотр доступен для всех «печатаемых» объектов:  
+      HLTC189.2.1.3: Толкование термина
+}
+function HLTC189_2_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;
+  wnd;
+begin 
+try
+  etalonPreview := 'preview_TS.bmp';
+  if NOT GoToDictionary then Raise('Не удалось открыть Толковый словарь');
+  
+  if NOT GoToPreview then Raise('Не удалось открыть Превью Толковый словарь!');  
+  if NOT IsEtalonPreview(etalonPreview) then
+  begin
+    Log.Error('Превью не эталонно!'); 
+    Raise('Превью не эталонно!');
+  end;  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_1_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.2: В окне должны быть реализованы следующие возможности:
+      HLTC189.2.2.2: Увеличение масштаба просмотра
+      HLTC189.2.2.3: Уменьшение масштаба просмотра
+      HLTC189.2.2.4: Масштабирование по ширине листа
+}
+function HLTC189_2_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;  
+  wnd;                                                          
+  toolBar;
+  i;
+begin 
+try
+  etalonPreview := 'preview_Scale_Big.bmp';
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');
+  if NOT GoToPreview then Raise('Не удалось открыть превью документа');
+  //Проверяем Увеличение масштаба
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');  
+  if NOT ClickToolbarButton(toolBar, 'Приблизить*') then
+    Raise('Не удалось на тулбаре превью нажать "Приблизить"');  
+  if NOT IsEtalonPreview(etalonPreview, 'showOnWidthPage:=false') then
+  begin
+    Log.Error('Превью не эталонно на Увеличенном масштабе!'); 
+    Raise('Превью не эталонно на Увеличенном масштабе!');
+  end;
+  //Проверяем Уменьшение масштаба
+  etalonPreview := 'preview_Scale_Small.bmp';
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');
+  for i := 1 to 2 do  
+    if NOT ClickToolbarButton(toolBar, 'Отдалить*') then
+      Raise('Не удалось на тулбаре превью нажать "Отдалить"');
+  if NOT IsEtalonPreview(etalonPreview, 'showOnWidthPage:=false') then
+  begin
+    Log.Error('Превью не эталонно на Уменьшенном масштабе!'); 
+    Raise('Превью не эталонно на Уменьшенном масштабе!');
+  end;
+  //Проверяем Масштабирование по ширине
+  etalonPreview := 'previewDoc1055132.bmp';
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');  
+  if NOT ClickToolbarButton(toolBar, 'По ширине листа*', 'SetToState:=pressed') then
+    Raise('Не удалось на тулбаре превью нажать "По ширине листа "');  
+  if NOT IsEtalonPreview(etalonPreview, 'showOnWidthPage:=false') then
+  begin
+    Log.Error('Превью не эталонно при масштабировании страницы по ширине!'); 
+    Raise('Превью не эталонно при масштабировании страницы по ширине!');
+  end;
+          
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_2_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.2: В окне должны быть реализованы следующие возможности:
+      HLTC189.2.2.5: Показ страницы целиком
+}
+function HLTC189_2_2_5_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;  
+  wnd;                                                          
+  toolBar;  
+begin 
+try
+  etalonPreview := 'preview_Scale_AllPage.bmp';
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');
+  if NOT GoToPreview then Raise('Не удалось открыть превью документа');
+  
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');  
+  if NOT ClickToolbarButton(toolBar, 'Страница Целиком*', 'SetToState:=pressed') then
+    Raise('Не удалось на тулбаре превью нажать "Страница Целиком"');  
+  if NOT IsEtalonPreview(etalonPreview, 'showOnWidthPage:=false') then
+  begin
+    Log.Error('Превью не эталонно при показе страницы целиком!'); 
+    Raise('Превью не эталонно при показе страницы целиком!'); 
+  end;
+          
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_2_2_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.2: В окне должны быть реализованы следующие возможности:
+      HLTC189.2.2.6: Возможность переключать режим показа с цветного на чёрно-белый, и обратно
+}
+function HLTC189_2_2_6_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;  
+  wnd;                                                          
+  toolBar;    
+  i;
+  paramString;
+  strToLog;
+  strToLogBut;
+begin 
+try  
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');
+  if NOT GoToPreview then Raise('Не удалось открыть превью документа');  
+  //ЧБ
+  for i := 1 to 3 do
+  begin
+    if i <> 2 then
+    begin
+      //ЧБ
+      etalonPreview := 'previewDoc1055132.bmp';
+      paramString := 'SetToState:=released';
+      strToLog := 'НЕ ЦВЕТНОЙ';
+      strToLogBut := 'отжать';
+    end
+    else
+    begin  
+      //Цвет
+      etalonPreview := 'preview_color.bmp';
+      paramString := 'SetToState:=pressed';
+      strToLog := 'ЦВЕТНОЙ';
+      strToLogBut := 'нажать'; 
+    end;
+    toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');
+    if NOT IsExists(toolBar) then Raise('Не удалось получить "ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ""');    
+    if NOT ClickToolbarButton(toolBar, 'Показывать цветным*', paramString) then
+      Raise('Не удалось на тулбаре превью ' + strToLogBut + ' "Показывать цветным"');      
+    if NOT IsEtalonPreview(etalonPreview, 'showClolorPage:=false') then
+    begin
+      Log.Error('Превью не эталонно при показе ' + strToLog + ' страницы!'); 
+      Raise('Превью не эталонно при показе ' + strToLog + ' страницы!'); 
+    end;
+  end;
+  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_2_6_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.2: В окне должны быть реализованы следующие возможности:
+      HLTC189.2.2.7: Проверить, что если предварительный просмотр был вызван из документа, при наличии выделенного 
+      фрагмента, то есть возможность переключения между просмотр всего документа и выделенным фрагментом.
+}
+function HLTC189_2_2_7_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;
+  etalonPreviewFragment;                                                            
+  toolBar;
+  button;  
+begin 
+try
+  etalonPreview := 'previewDoc1055132.bmp';  
+  etalonPreviewFragment := 'preview_selected_Fragment.bmp';
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');
+  Sys.Keys('[Home]' + keyPause + '![End]');  
+  if NOT GoToPreview then Raise('Не удалось открыть превью документа');
+  //Проверяем, нажата ли кнопка
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');
+  button := GetToolBarObject(toolBar, 'BUTTON', 'Показывать выделенный фрагмент');
+  if NOT IsExists(button) then
+    Raise('Не удалось найти кнопку "Показывать выделенный фрагмент"!');
+  if NOT button.Down then
+  begin
+    Log.Error('При вызове превью на выделенном фрагменте кнопка "Показывать выделенный фрагмент" не нажата!');
+    Raise('При вызове превью на выделенном фрагменте кнопка "Показывать выделенный фрагмент" не нажата!');
+  end;
+  if NOT IsEtalonPreview(etalonPreviewFragment) then
+  begin
+    Log.Error('Превью не эталонно при показе выделенного фрагмента!'); 
+    Raise('Превью не эталонно при показе выделенного фрагмента!'); 
+  end;  
+  //Включаем показ всего документа
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');  
+  if NOT ClickToolbarButton(toolBar, 'Показывать выделенный фрагмент*', 'SetToState:=released') then
+    Raise('Не удалось на тулбаре превью отжать "Показывать выделенный фрагмент"');  
+  if NOT IsEtalonPreview(etalonPreview) then
+  begin
+    Log.Error('Превью не эталонно при показе страницы целиком!'); 
+    Raise('Превью не эталонно при показе страницы целиком!'); 
+  end;
+  //опть включаем показ фрагмента
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');
+  if NOT ClickToolbarButton(toolBar, 'Показывать выделенный фрагмент*', 'SetToState:=pressed') then
+    Raise('Не удалось на тулбаре превью нажать "Показывать выделенный фрагмент"');  
+  if NOT IsEtalonPreview(etalonPreviewFragment) then
+  begin
+    Log.Error('Превью не эталонно при показе выделенного фрагмента!'); 
+    Raise('Превью не эталонно при показе выделенного фрагмента!'); 
+  end;        
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_2_7_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.2: В окне должны быть реализованы следующие возможности:
+      HLTC189.2.2.10: Проверить, что при печати документа со справкой есть возможность переключать 
+      режим просмотра Документ/Документ со справкой. Проверить переходы по истории.
+}
+function HLTC189_2_2_10_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreviewReference;
+  etalonPreview;                                                              
+  toolBar;    
+begin 
+try
+  etalonPreviewReference := 'preview_Reference1055132.bmp';
+  etalonPreview := 'previewDoc1055132.bmp';    
+  if NOT OpenDocByNumber(1055132) then Raise('Не удалось открыть документ по номеру');    
+  if NOT GoToPreview then Raise('Не удалось открыть превью документа');
+  //Включаем просмотр справки
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');    
+  if NOT ClickToolbarButton(toolBar, 'Печатать документ/справку*', 'SetToState:=pressed') then
+    Raise('Не удалось на тулбаре превью нажать "Печатать документ/справку"');  
+  if NOT IsEtalonPreview(etalonPreviewReference) then
+  begin
+    Log.Error('Превью не эталонно при показе СПРАВКИ!'); 
+    Raise('Превью не эталонно при показе СПРАВКИ!'); 
+  end;
+  //опть включаем показ документа  
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');
+  if NOT ClickToolbarButton(toolBar, 'Печатать документ/справку*', 'SetToState:=released') then
+    Raise('Не удалось на тулбаре превью отжать "Печатать документ/справку"');  
+  if NOT IsEtalonPreview(etalonPreview, 'isRestoreDefaultSettings:=false;isCloseSheets:=false') then
+  begin
+    Log.Error('Превью не эталонно при показе документа!'); 
+    Raise('Превью не эталонно при показе документа!'); 
+  end;
+  //Включаем просмотр справки
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');    
+  if NOT ClickToolbarButton(toolBar, 'Печатать документ/справку*', 'SetToState:=pressed') then
+    Raise('Не удалось на тулбаре превью нажать "Печатать документ/справку"');  
+  if NOT IsEtalonPreview(etalonPreviewReference, 'isRestoreDefaultSettings:=false;isCloseSheets:=false') then
+  begin
+    Log.Error('Превью не эталонно при показе СПРАВКИ!'); 
+    Raise('Превью не эталонно при показе СПРАВКИ!'); 
+  end;
+  //Идём назад\вперё по истории
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти по истории НАЗАД');
+  if NOT GoByHistory('ВПЕРЕД') then Raise('Не удалось перейти по истории ВПЕРЕД');
+  //Проверяем, что корректно вернулись в превью справки   
+  if NOT IsEtalonPreview(etalonPreviewReference, 'isRestoreDefaultSettings:=false;isCloseSheets:=false') then
+  begin
+    Log.Error('Превью не эталонно при показе СПРАВКИ позле возврата по истории!'); 
+    Raise('Превью не эталонно при показе СПРАВКИ позле возврата по истории!'); 
+  end;
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_2_10_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC189: Печать
+  HLTC189.2: Предварительный просмотр
+    HLTC189.2.5: Проверить предварительный просмотр документов с переворотом страниц(2001, 2002).
+}
+function HLTC189_2_5_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  etalonPreview;  
+  docName;
+  i;
+begin 
+try  
+  for i := 0 to 1 do
+  begin
+    case i of
+      0: begin  etalonPreview := 'previewDoc2001.bmp'; docName := 2001; end;
+      1: begin  etalonPreview := 'previewDoc2002.bmp'; docName := 2002; end;
+    end;  
+    if NOT OpenDocByNumber(docName) then Raise('Не удалось открыть документ по номеру');
+    if NOT GoToPreview then Raise('Не удалось открыть превью документа:' + intToStr(docName) );  
+    if NOT IsEtalonPreview(etalonPreview) then
+    begin
+      Log.Error('Превью документа: ' + intToStr(docName) + ' с переворотом страниц не эталонно!'); 
+      Raise('Превью документа: ' + intToStr(docName) + ' с переворотом страниц не эталонно!');
+    end;
+  end;  
+  
+  result := true;
+except    
+  Log.Message( 'HLTC189_2_5_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));  
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+  
+//--------------------------------------------------------------------
+procedure test;
+var
+  cur : OleVariant;
+  res;
+  button;
+  i;
+begin
+  Log.Message(  HLTC189_2_2_11_Execute(cur) );
+  //Log.Message(  HLTC189_2_1_1_1_Execute(cur) );
+  //Log.Message(  HLTC189_2_1_1_2_Execute(cur) );
+  //Log.Message(  HLTC189_2_1_1_3_Execute(cur) );  
+  //Log.Message(  HLTC189_2_1_2_1_Execute(cur) );
+  //Log.Message(  HLTC189_2_1_2_2_Execute(cur) );
+  //Log.Message(  HLTC189_2_1_2_3_Execute(cur) );  
+  //Log.Message(  HLTC189_2_1_3_Execute(cur) );
+  
+  //Log.Message(  HLTC189_2_2_2_Execute(cur) );
+  //Log.Message(  HLTC189_2_2_5_Execute(cur) );
+  //Log.Message(  HLTC189_2_2_6_Execute(cur) );
+  //Log.Message(  HLTC189_2_2_7_Execute(cur) );
+  //Log.Message(  HLTC189_2_2_10_Execute(cur) );
+  //  Log.Message(  HLTC189_2_5_Execute(cur) );
+  
+end;

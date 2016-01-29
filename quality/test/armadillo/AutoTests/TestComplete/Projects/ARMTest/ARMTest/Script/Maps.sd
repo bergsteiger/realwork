@@ -1,0 +1,710 @@
+// ТСМЙЖХХ ОПНХГБНДЪР ЯННРБЕРЯРБХЪ ЛЕФДС ВЕКНБЕВЕЯЙХЛХ МЮГБЮМХЪЛХ Х ОСРЪЛХ Й НАЗЕЙРЮЛ
+
+uses func, search;
+
+var gbl_NonExObj73495793465823794659 : OleVariant;
+function NonExObj : OleVariant;
+begin
+  if VarType(gbl_NonExObj73495793465823794659) = varEmpty then
+    gbl_NonExObj73495793465823794659 := Utils.CreateStubObject;//Sys.WaitChild(-1);
+  Result := gbl_NonExObj73495793465823794659;
+end;
+
+
+
+
+// ДХЮКНЦ ЯНГДЮМХЪ МНБНЦН ЙКХЕМРЮ
+function GetFromAddClient(
+  whatToGet : String
+) : OleVariant;
+var
+  MainW;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmAddClient');
+    if not IsExists(MainW) then Raise('НЙМН "бМЕЯЕМХЕ ХМТНПЛЮЖХХ Н МНБНЛ ЙКХЕМРЕ" МЕ НРЙПШРН');
+
+      case whatToGet of
+        '' :
+          Result := MainW;
+        'мюхлемнбюмхе':
+          Result := MainW.VCLObject('edShortClientName');
+        'опетхйя':
+          Result := MainW.VCLObject('cb_Prefix');
+        'йюрецнпхъ':
+          Result := MainW.VCLObject('cb_UCategory');
+        'мюя.осмйр', 'мюя. осмйр':
+          Result := MainW.VCLObject('f_CityBox').VCLObject('cb_City');
+        'хмдейя':
+          Result := MainW.VCLObject('edPostIndex');
+        'юдпея':
+          Result := MainW.VCLObject('edPostAddress');
+        'лемедфеп':
+          Result := MainW.VCLObject('cbManager');
+        'йспэеп':
+          Result := MainW.VCLObject('cb_Courier');  
+        'опхмърэ', 'опхлемхрэ', 'нй', 'OK':
+          Result := MainW.VCLObject('btnOK');
+        'нрлемю', 'CANCEL':
+          Result := MainW.VCLObject('btnCancel');                                      
+          
+          
+               
+      else 
+        Raise('МЕ ДНОСЯРХЛШИ ОЮПЮЛЕРП');    
+      end;
+      
+    if not IsExists(Result) then 
+      Raise('нАЗЕЙРЮ "' + whatToGet + '" МЕ ЯСЫЕЯРБСЕР');            
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;    
+
+// ЦКЮБМНЕ НЙМН
+function GetFromMainWindow(
+  whatToGet : String
+) : OleVariant;
+var
+  MainW, Seek, i, j, toolbar;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmMain');
+    if not IsExists(MainW) then Raise('НЙМН "бМЕЯЕМХЕ ХМТНПЛЮЖХХ Н МНБНЛ ЙКХЕМРЕ" МЕ НРЙПШРН');
+    Seek := '';
+
+//  arm.frmMain.pClientList.gwClientList.Cells[0, 0]  
+      case whatToGet of
+      // РСКАЮП (ОН ЛНЕЛС АЕГМЮД╦ФМН МЕПЮАНВХИ)
+        'янупюмхрэ хглемемхъ':
+            Seek := 'яНУПЮМХРЭ';
+        'нрлемхрэ хглемемхъ':
+            Seek := 'нРЛЕМХРЭ';          
+        'днаюбхрэ мнбнцн йкхемрю':
+            Seek := 'дНАЮБХРЭ';          
+        'намнбхрэ яохянй йкхемрнб':
+            Seek := 'нАМНБХРЭ';          
+        'ме онйюгшбюрэ йкхемрнб аег бхдхлшу опндсйрнб':
+            Seek := 'мЕ ОНЙЮГШБЮРЭ ЙКХЕМРНБ АЕГ БХДХЛШУ ОПНДСЙРНБ';          
+        'йнмрейярмши онхяй':
+            Seek := 'йНМРЕЙЯРМШИ ОНХЯЙ';          
+        'пюяьхпеммши онхяй':
+            Seek := 'пЮЯЬХПЕММШИ ОНХЯЙ'; 
+        'йнмрейяр':
+          Result := MainW.VCLObject('pClientList').VCLObject('Panel7').VCLObject('btnContecstSearch');
+        'онке йнмрейяр':
+          Result := MainW.VCLObject('pClientList').VCLObject('Panel7').VCLObject('edContecst');
+        'яохянй йкхемрнб':
+          Result := MainW.VCLObject('pClientList').VCLObject('gwClientList');
+        // опндсйрш с йкхемрю
+        'яохянй опндсйрнб', 'опндсйрш с йкхемрю/яохянй опндсйрнб':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('gvClientComplectList');
+        'янярюб щйгелокъпю', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/янярюб щйгелокъпю':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('gvClientComplectIBList');          
+        
+        'гюлемхрэ акнй', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/гюлемхрэ акнй':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('btn_ChangeIB');
+        'рхо опндсйрю', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/рхо опндсйрю':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_Product');          
+        'рхо опндсйрю', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/рхо опндсйрю...':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_Product').VCLObject('TEditButton').FullName;          
+        'мюгбюмхе щйгелокъпю', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/мюгбюмхе щйгелокъпю':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ed_ProductName');
+        'яеребни йнщттхжхемр', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/яеребни йнщттхжхемр':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_Networks');          
+        'яеребни йнщттхжхемр...', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/яеребни йнщттхжхемр...':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_Networks').VCLObject('TEditButton');          
+        'бепяхъ дюммшу', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/бепяхъ дюммшу':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('cb_Version');
+        'пецскъпмнярэ', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/пецскъпмнярэ':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_Regularity');          
+        'пецскъпмнярэ...', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/пецскъпмнярэ...':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_Regularity').VCLObject('TEditButton');          
+        'яоняна намнбкемхъ', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/яоняна намнбкемхъ':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_UpdateType');
+        'яоняна намнбкемхъ...', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/яоняна намнбкемхъ...':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_UpdateType').VCLObject('TEditButton');
+        'вюярнрю намнбкемхъ', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/вюярнрю намнбкемхъ':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('cb_UpdateInterval');          
+        'кхжемгхнммше мюярпнийх', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/кхжемгхнммше мюярпнийх':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_IntranetSets');          
+        'ййй', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/йпсомше йнпонпюрхбмше йкхемрш':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_GreatClient');          
+        'ййй...', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/йпсомше йнпонпюрхбмше йкхемрш...':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('ce_GreatClient').VCLObject('TEditButton');          
+        'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/гю яв╗р по':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('gb_UpdDiscount').VCLObject('ce_UpdateSelfDiscount');          
+        'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/гю яв╗р моо+по':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('gb_UpdDiscount').VCLObject('ce_UpdateDiscount');          
+        'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/нанямнбюмхе яйхднй', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/НАНЯМНБЮМХЕ ЯЙХДНЙ 1':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('gb_UpdDiscount').VCLObject('ed_UpdateSelfDicountReason');          
+        'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/нанямнбюмхе яйхднй...', 'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/НАНЯМНБЮМХЕ ЯЙХДНЙ 1...':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('gb_UpdDiscount').VCLObject('ed_UpdateSelfDicountReason').VCLObject('TEditButton');          
+        'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/нанямнбюмхе яйхднй 2':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('gb_UpdDiscount').VCLObject('ed_UpdateDicountReason');
+        'опндсйрш с йкхемрю/нямнбмше оюпюлерпш/нанямнбюмхе яйхднй 2...':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('gb_UpdDiscount').VCLObject('ed_UpdateDicountReason').VCLObject('TEditButton');          
+        // реумхвеяйхе оюпюлерпш          
+        'опндсйрш с йкхемрю/реумхвеяйхе оюпюлерпш/яоняна днярюбйх':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('gbCommonTechParams').VCLObject('edDeliveryType');          
+        'опндсйрш с йкхемрю/реумхвеяйхе оюпюлерпш/дхярпхасрхб':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('gbCommonTechParams').VCLObject('edDistribType');          
+        'опндсйрш с йкхемрю/реумхвеяйхе оюпюлерпш/мняхрекэ':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('gbCommonTechParams').VCLObject('edMedia');          
+        'опндсйрш с йкхемрю/реумхвеяйхе оюпюлерпш/рхо яепбепю':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('gbCommonTechParams').VCLObject('ed_ServType');          
+        'опндсйрш с йкхемрю/реумхвеяйхе оюпюлерпш/дюрю пебхгхх':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('gbCommonTechParams').VCLObject('edRevision');          
+        'опндсйрш с йкхемрю/реумхвеяйхе оюпюлерпш/рхо хмярюккъжхх':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('pTexnical1').VCLObject('gbMainPartWh').VCLObject('edInstallType1');
+        'опндсйрш с йкхемрю/реумхвеяйхе оюпюлерпш/яоняна гюыхрш':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('pTexnical1').VCLObject('gbMainPartWh').VCLObject('edSecurityType1');          
+        // хярнпхъ опндсйрю
+        'хярнпхъ опндсйрю', 'опндсйрш с йкхемрю/хярнпхъ опндсйрю/хярнпхъ опндсйрю', 'опндсйрш с йкхемрю/хярнпхъ опндсйрю':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdHistory').VCLObject('vtl_ComplectEvents');          
+        // гюйюгш
+        'нрйпшрэ бшдекеммше гюйюгш б лнмхрнпе', 'опндсйрш с йкхемрю/гюйюгш/нрйпшрэ бшдекеммше гюйюгш б лнмхрнпе':
+          Seek := 'лНМХРНП';          
+        'щйяонпрхпнбюрэ бшдекеммше гюйюгш б тюик', 'опндсйрш с йкхемрю/гюйюгш/щйяонпрхпнбюрэ бшдекеммше гюйюгш б тюик':
+          Seek := 'щЙЯОНПР';
+        'гюйюгш', 'опндсйрш с йкхемрю/гюйюгш/гюйюгш', 'опндсйрш с йкхемрю/гюйюгш':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsOrders').VCLObject('vtl_ComplectOrders');          
+        // намнбкемхъ 
+        'намнбкемхъ', 'опндсйрш с йкхемрю/намнбкемхъ/намнбкемхъ', 'опндсйрш с йкхемрю/намнбкемхъ':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsProdUpdates').VCLObject('vtl_ComplectUpdates');  
+        // хмдхбхдсбюкэмше онданпйх 
+        'хмдхбхдсбюкэмше онданпйх', 'опндсйрш с йкхемрю/хмдхбхдсбюкэмше онданпйх/хмдхбхдсбюкэмше онданпйх', 'опндсйрш с йкхемрю/хмдхбхдсбюкэмше онданпйх':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsPersonalSets').VCLObject('vtl_PersonalSets');  
+        'оюпюлерпш онданпйх', 'опндсйрш с йкхемрю/хмдхбхдсбюкэмше онданпйх/оюпюлерпш онданпйх':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsPersonalSets').VCLObject('pcPersonalSets').VCLObject('tbPersonalSet_Param').VCLObject('vtl_PersonalSet_Param');  
+        'хмдхбхдсбюкэмше онданпйх', 'опндсйрш с йкхемрю/хмдхбхдсбюкэмше онданпйх/хмдхбхдсбюкэмше онданпйх':
+          Result := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsPersonalSets').VCLObject('pcPersonalSets').VCLObject('tbPersonalSet_Events').VCLObject('vtl_PersonalSet_Event');  
+        
+               
+      else 
+        Raise('МЕ ДНОСЯРХЛШИ ОЮПЮЛЕРП "' + whatToGet + '"');    
+      end;
+            
+      if Seek <> ''
+        then
+          begin
+            for i := 1 to 4 do
+              begin
+                case i of
+                  1 : toolbar := MainW.VCLObject('TBDock1').VCLObject('tbControls');
+                  2 : toolbar := MainW.VCLObject('TBDock1').VCLObject('tbClient');
+                  3 : toolbar := MainW.VCLObject('TBDock1').VCLObject('tbSearch');
+                  4 : toolbar := MainW.VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsProducts').VCLObject('Panel1').VCLObject('Panel2').VCLObject('pcCurrentProduct').VCLObject('tsOrders').VCLObject('tbComplectOrdersDock').VCLObject('tbComplectOrders');
+                end;
+                 
+                for j := 0 to (toolbar.Items.Count -1) do
+                  if toolbar.Items.Items[j].Caption = Seek
+                    then 
+                      Result := toolbar.Items.Items[j];
+              end;
+          end;
+      
+//    if not IsExists(Result) then 
+//      Raise('нАЗЕЙРЮ "' + whatToGet + '" МЕ ЯСЫЕЯРБСЕР');            
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;    
+
+
+// ГЮЙКЮДЙЮ "ПЕЙБХГХРШ ЙКХЕМРЮ" ЦКЮБМНЦН НЙМЮ
+function GetFromClientParams(
+  whatToGet : String
+) : OleVariant;
+var
+  MainW, Seek, i, j, toolbar;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmMain').VCLObject('pInfo').VCLObject('pcAllParams').VCLObject('tsClientParams');
+    if not IsExists(MainW) then Raise('ГЮЙКЮДЙЮ "пЕЙБХГХРШ ЙКХЕМРЮ" МЕ НРЙПШРЮ');
+
+      case whatToGet of
+            
+        'мюхлемнбюмхе':
+          Result := MainW.VCLObject('GroupBox2').VCLObject('edShortClientName');
+        'йюрецнпхъ':
+          Result := MainW.VCLObject('GroupBox2').VCLObject('cb_UCategory');          
+        'мнлеп йюпрнвйх', 'мнлеп':
+          Result := MainW.VCLObject('GroupBox2').VCLObject('edUserCardnum');          
+        'опетхйя':
+          Result := MainW.VCLObject('GroupBox2').VCLObject('cb_Prefix');          
+        'онкмне мюхлемнбюмхе':
+          Result := MainW.VCLObject('GroupBox2').VCLObject('mmLongClientName');          
+        'CB онкмне мюхлемнбюмхе', 'яб онкмне мюхлемнбюмхе', 'ва онкмне мюхлемнбюмхе': // CheckBox
+          Result := MainW.VCLObject('GroupBox2').VCLObject('chbClientNameLong');          
+        'йнмрюйрмне кхжн':
+          Result := MainW.VCLObject('GroupBox4').VCLObject('gwQuoterList');          
+        'днаюбхрэ':
+          Result := MainW.VCLObject('GroupBox4').VCLObject('btnAddQuoter');          
+        'хглемхрэ':
+          Result := MainW.VCLObject('GroupBox4').VCLObject('btnEditQuoter');          
+        'сдюкхрэ':
+          Result := MainW.VCLObject('GroupBox4').VCLObject('btnDelQuoter');          
+        'E-MAIL', 'лшкн':
+          Result := MainW.VCLObject('edEMail');          
+        'опхлевюмхе':
+          Result := MainW.VCLObject('mmClientPrim');          
+        'рекетнмш дкъ опеяр', 'рекетнмш':
+          Result := MainW.VCLObject('GroupBox3').VCLObject('hlPhonesList');          
+        'днаюбхрэ рекетнм':
+          Result := MainW.VCLObject('GroupBox3').VCLObject('btnAddPhone');
+        'сдюкхрэ рекетнм':
+          Result := MainW.VCLObject('GroupBox3').VCLObject('btnDelPhone');          
+                    
+          
+               
+      else 
+        Raise('МЕ ДНОСЯРХЛШИ ОЮПЮЛЕРП');    
+      end;
+            
+    if not IsExists(Result) then 
+      Raise('нАЗЕЙРЮ "' + whatToGet + '" МЕ ЯСЫЕЯРБСЕР');            
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;  
+
+// ДХЮКНЦ ОПНДЮФХ ОПНДСЙРЮ
+function GetFromAddProduct(
+  whatToGet : String
+) : OleVariant;
+var
+  MainW;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmSales');
+    if not IsExists(MainW) then Raise('НЙМН "ууу ОНЯРЮБЙЮ ЙКХЕМРС N" МЕ НРЙПШРН');
+
+      case whatToGet of
+        // НЯМНБМШЕ ОЮПЮЛЕРПШ
+        'дюрю опндюфх', 'дюрю':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('pOpepations').VCLObject('dtDateSale');
+        '15':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('pOpepations').VCLObject('dtDateSale').VCLObject('TEditButton');
+        'нрберярбеммши':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('pOpepations').VCLObject('cb_Courier');
+        'рхо опндсйрю':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('cb_Product');
+        'мюгбюмхе щйгелокъпю', 'мюгбюмхе':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('edUserProductName');
+        'яеребни йнщттхжхемр', 'йнщттхжхемр':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('cb_Net');
+        'бепяхъ дюммшу', 'бепяхъ':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('cb_Version');
+        'яоняна намнбкемхъ':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('cb_UpdateType');
+        'вюярнрю юнамнбкемхъ', 'вюярнрю':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('cb_UpdateInterval');  
+        'цняребни днярсо':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('f_IntranetSet').VCLObject('GroupBox').VCLObject('cb_Guest_Account');
+        'бяецн св╗рмшу гюохяеи', 'бяецн свермшу гюохяеи':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('f_IntranetSet').VCLObject('GroupBox').VCLObject('se_Profile_Count');                                      
+        'люйя. пюанвху леяр':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('f_IntranetSet').VCLObject('GroupBox').VCLObject('se_Max_User_Count');                                      
+        'опхбхкецхпнбюммшу':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('f_IntranetSet').VCLObject('GroupBox').VCLObject('se_Vip_Count');                                      
+        'янярюб щйгелокъпю', 'янярюб':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('gwIBList');                                      
+        'яйхдйю мю ноепюжхч', 'яйхдйю':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('pSalesDisconts').VCLObject('ceBuyDiscount');                                      
+        'нанямнбюмхе яйхдйх', 'нанямнбюмхе':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('pSalesDisconts').VCLObject('cb_DisType');                                      
+        'тхкэрп':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('f_FilterList').VCLObject('cb_Filter'); 
+        'ядекюрэ тхкэрпнл он слнкявюмхч':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('f_FilterList').VCLObject('btnDefaultFilter'); 
+        'нрлемхрэ тхкэрп':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdMainParams').VCLObject('f_FilterList').VCLObject('btnClearFilter'); 
+        'опхмърэ', 'нй', 'OK':
+          Result := MainW.VCLObject('btnOK'); 
+        'нрлемю':
+          Result := MainW.VCLObject('btnCancel'); 
+        // РЕУМХВЕЯЙХЕ ОЮПЮЛЕРПШ                                     
+        'яоняна днярюбйх':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('pTexnical1').VCLObject('gbCommonTechParams').VCLObject('cb_TransType'); 
+        'рхо дхярпхасрхбю':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('pTexnical1').VCLObject('gbCommonTechParams').VCLObject('cb_DistrType'); 
+        'мняхрекэ':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('pTexnical1').VCLObject('gbCommonTechParams').VCLObject('cb_Media'); 
+        'рхо яепбепю':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('pTexnical1').VCLObject('gbCommonTechParams').VCLObject('cb_ServType'); 
+        'рхо хмярюккъжхх':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('pTexnical1').VCLObject('gbMainPart').VCLObject('cb_InstType_1'); 
+        'яоняна гюыхрш':
+          Result := MainW.VCLObject('pcCurrentProduct').VCLObject('tsProdTechParam').VCLObject('pTexnical1').VCLObject('gbMainPart').VCLObject('cb_SecType_1'); 
+          
+          
+               
+      else 
+        Raise('МЕ ДНОСЯРХЛШИ ОЮПЮЛЕРП');    
+      end;
+      
+    if not IsExists(Result) then 
+      Raise('нАЗЕЙРЮ "' + whatToGet + '" МЕ ЯСЫЕЯРБСЕР');            
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;    
+
+
+// МЮЯРПНИЙХ 
+function GetFromSettings(
+  whatToGet : String
+) : OleVariant;
+var
+  MainW;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmViewProductsSettings');
+    if not IsExists(MainW) then Raise('НЙМН "МЮЯРПНИЙХ юпл по" МЕ НРЙПШРН');
+
+      case whatToGet of
+        // БХД
+        'юйрхбмшу':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox2').VCLObject('rbViewActiveClients');
+        'меюйрхбмшу':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox2').VCLObject('rbViewInactiveClients');
+        'сдюк╗ммшу':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox2').VCLObject('rbViewDeletedClients');
+        'ме онйюгшбюрэ йкхемрнб аег бхдхлшу опндсйрнб', 'ме онйюгшбюрэ':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox2').VCLObject('chkNoComplects');
+        'деиярбсчыхе':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('rbViewActiveProducts');
+        'сдюк╗ммше':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('rbViewDeletedProducts');
+        'йнллепвеяйхе опндсйрш', 'йнллепвеяйхе':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('chkIncludeCommerce');
+        'мейнллепвеяйхе опндсйрш', 'мейнллепвеяйхе':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('chkIncludeNotCommerce');
+        'нгмюйнлхрекэмше опндсйрш', 'нгмюйнлхрекэмше':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('chkIncludeFamiliarization');
+        'делн-бепяхх', 'делн':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('chkIncludeDemo');
+        'опегемрюжхнммше бепяхх', 'опегемрюжхнммше':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('chkIncludePresent');
+        'бмсрпеммхе бепяхх', 'бмсрпеммхе':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('chkIncludeInternal');
+        'пюяяшкйх опюил', 'опюил':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsViewSettings').VCLObject('GroupBox1').VCLObject('chkIncludePrime');
+        // ОКЮМХПНБЫХЙ   
+        'бйкчвхрэ б окюм намнбкемхе декэрни':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsPlanSettings').VCLObject('chkAddDeltasToPlan');
+        // ЮБРНОНДАНП
+        'пд рейсыюъ дюрю +', 'пд рейсыюъ дюрю':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsOrderSettings').VCLObject('gbDateVariants').VCLObject('rbCurrentPlus');
+        'рейсыюъ дюрю +', 'рейсыюъ дюрю':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsOrderSettings').VCLObject('gbDateVariants').VCLObject('rxspDays');
+        'пд акхфюиьхи':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsOrderSettings').VCLObject('gbDateVariants').VCLObject('rbWeekDay');
+        'акхфюиьхи':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsOrderSettings').VCLObject('gbDateVariants').VCLObject('cbWeekDay');
+        'бепяхъ дюммшу он слнквюмхч', 'бепяхъ дюммшу':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsOrderSettings').VCLObject('Panel2').VCLObject('cb_Version');
+        'юбрнлюрхвеяйне нопедекемхе мнлепю йюпрнвйх':
+          Result := MainW.VCLObject('pcViewSettings').VCLObject('tsOrderSettings').VCLObject('Panel1').VCLObject('chkAutoEnterUsrCNum');
+        //        
+        'опхмърэ', 'опхлемхрэ', 'нй', 'OK':
+          Result := MainW.VCLObject('btnOK');
+        'нрлемю', 'CANCEL':
+          Result := MainW.VCLObject('btnCancel');                                      
+               
+      else 
+        Raise('МЕ ДНОСЯРХЛШИ ОЮПЮЛЕРП - "' + whatToGet + '"');    
+      end;
+      
+    if not IsExists(Result) then 
+      Raise('нАЗЕЙРЮ "' + whatToGet + '" МЕ ЯСЫЕЯРБСЕР');            
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;     
+
+// ДХЮКНЦ ЙНМРЕЙЯРМНЦН ОНХЯЙЮ
+function GetFromKontext(
+  whatToGet : String
+) : OleVariant;
+var
+  MainW;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmMainTextSearch');
+    if not IsExists(MainW) then Raise('НЙМН "йНМРЕЙЯРМШИ ОНХЯЙ" МЕ НРЙПШРН');
+
+      case whatToGet of
+        '':
+          Result := MainW;      
+        'рейяр':
+          Result := MainW.VCLObject('edSearchContecst');
+        'ббепу':
+          Result := MainW.VCLObject('btnSearchUP');
+        'бмхг':
+          Result := MainW.VCLObject('btnSearchDown');
+        'опхмърэ', 'нй', 'OK':
+          Result := MainW.VCLObject('btnOK');
+        'нрлемю', 'CANCEL':
+          Result := MainW.VCLObject('btnCancel');
+               
+      else 
+        Raise('МЕ ДНОСЯРХЛШИ ОЮПЮЛЕРП');    
+      end;
+      
+    if not IsExists(Result) then 
+      Raise('нАЗЕЙРЮ "' + whatToGet + '" МЕ ЯСЫЕЯРБСЕР');            
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;  
+
+// ДХЮКНЦ ПЮЯЬХПЕММНЦН ОНХЯЙЮ
+function GetFromExtSearch(
+  whatToGet : String
+) : OleVariant;
+var
+  MainW, Btns;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmSearch').VCLObject('pcSearch');
+    Btns := Sys.Process('Armadillo').VCLObject('frmSearch');
+    if not IsExists(MainW) then Raise('НЙМН "пЮЯЬХПЕММШИ ОНХЯЙ" МЕ НРЙПШРН');
+
+      case whatToGet of
+        '':
+          Result := MainW;
+        // ПЕЙБХГХРШ ЙКХЕМРЮ   
+        //// ЙКХЕМР 
+        'пейбхгхрш йкхемрю/мюхлемнбюмхе':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBClients').VCLObject('edClientName');
+        'пейбхгхрш йкхемрю/мнлеп йюпрнвйх':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBClients').VCLObject('edCardNum');
+        'пейбхгхрш йкхемрю/йюрецнпхъ':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBClients').VCLObject('cb_UCategory');
+        'пейбхгхрш йкхемрю/хмм':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBClients').VCLObject('edINN');
+        'пейбхгхрш йкхемрю/ярюрся':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBClients').VCLObject('cb_ClientState');                  
+        'пейбхгхрш йкхемрю/опетхйя':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBClients').VCLObject('cb_Prefix');
+        //// НАЯКСФХБЮМХЕ 
+        'пейбхгхрш йкхемрю/лемедфеп':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBManagers').VCLObject('cbManager');
+        'пейбхгхрш йкхемрю/йспэеп':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBManagers').VCLObject('cb_Courier');
+        'пейбхгхрш йкхемрю/рнкэйн нямнбмше':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBManagers').VCLObject('chkMain');
+        //// ЮДПЕЯ Х ЙНМРЮЙРМНЕ КХЖН
+        'пейбхгхрш йкхемрю/мюя.осмйр', 'пейбхгхрш йкхемрю/мюя. осмйр':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBRepresentatives').VCLObject('f_CityBox').VCLObject('cb_City');
+        'пейбхгхрш йкхемрю/мюя.осмйр ...', 'пейбхгхрш йкхемрю/мюя. осмйр ...':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBRepresentatives').VCLObject('f_CityBox').VCLObject('btnSelectCity');
+        'пейбхгхрш йкхемрю/юдпея':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBRepresentatives').VCLObject('edAddress');  
+        'пейбхгхрш йкхемрю/йнмрюйрмне кхжн':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBRepresentatives').VCLObject('edRepresentative');
+        'пейбхгхрш йкхемрю/рекетнм':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBRepresentatives').VCLObject('edPhone');      
+        //// ДНЦНБНПШ
+        'пейбхгхрш йкхемрю/опедлер/опхлевюмхе', 'пейбхгхрш йкхемрю/опедлер':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('edContract');  
+        'пейбхгхрш йкхемрю/гюйкчв╗м я':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('dtDogBeginFrom');  
+        'пейбхгхрш йкхемрю/гюйкчв╗м я 15':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('dtDogBeginFrom').VCLObject('TEditButton');  
+        'пейбхгхрш йкхемрю/гюйкчв╗м он':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('dtDogBeginTo');  
+        'пейбхгхрш йкхемрю/гюйкчв╗м он 15':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('dtDogBeginTo').VCLObject('TEditButton');  
+        'пейбхгхрш йкхемрю/нйнмвюмхе я':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('dtDogEndFrom');  
+        'пейбхгхрш йкхемрю/нйнмвюмхе я 15':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('dtDogEndFrom').VCLObject('TEditButton');  
+        'пейбхгхрш йкхемрю/нйнмвюмхе он':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('dtDogEndTo');  
+        'пейбхгхрш йкхемрю/нйнмвюмхе он 15':
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContracts').VCLObject('dtDogEndTo').VCLObject('TEditButton');  
+        //// НАЫХИ ЙНМРЕЙЯРМШИ ОНХЯЙ
+        'пейбхгхрш йкхемрю/хяйюрэ':                             
+          Result := MainW.VCLObject('tsClient').VCLObject('GrBContextSearch').VCLObject('edCntSearch1');
+        // ОПНДСЙРШ
+        //// ОПНДСЙРШ
+        'опндсйрш/опндсйрш':
+          Result := MainW.VCLObject('tsProduct').VCLObject('gbProducts').VCLObject('vo_Complects');  
+        'опндсйрш/ID опндсйрю':
+          Result := MainW.VCLObject('tsProduct').VCLObject('gbProducts').VCLObject('ed_UC_ID');
+        'опндсйрш/яеребни йнщттхжхемр':
+          Result := MainW.VCLObject('tsProduct').VCLObject('gbProducts').VCLObject('clb_Net');                                 
+        'опндсйрш/бепяхъ дюммшу':
+          Result := MainW.VCLObject('tsProduct').VCLObject('gbProducts').VCLObject('cb_Version');
+        'опндсйрш/пецскъпмнярэ':
+          Result := MainW.VCLObject('tsProduct').VCLObject('gbProducts').VCLObject('cb_Regularity'); 
+        //// ЯНЯРЮБ
+        'опндсйрш/янярюб':
+          Result := MainW.VCLObject('tsProduct').VCLObject('GroupBox2').VCLObject('vo_Segments');  
+        'опндсйрш/тхкэрп':
+          Result := MainW.VCLObject('tsProduct').VCLObject('GroupBox2').VCLObject('f_FilterList').VCLObject('cb_Filter');
+        'опндсйрш/ядекюрэ тхкэрпнл он слнквюмхч':
+          Result := MainW.VCLObject('tsProduct').VCLObject('GroupBox2').VCLObject('f_FilterList').VCLObject('btnDefaultFilter');                                 
+        'опндсйрш/нрлемхрэ тхкэрп':
+          Result := MainW.VCLObject('tsProduct').VCLObject('GroupBox2').VCLObject('f_FilterList').VCLObject('btnClearFilter');
+        'опндсйрш/бундхр унръ аш ндхм':
+          Result := MainW.VCLObject('tsProduct').VCLObject('GroupBox2').VCLObject('PSegmentState').VCLObject('RBSegAny'); 
+        'опндсйрш/бундър бяе':
+          Result := MainW.VCLObject('tsProduct').VCLObject('GroupBox2').VCLObject('PSegmentState').VCLObject('RBSegAll'); 
+        'опндсйрш/ме бундхр мхвецн':
+          Result := MainW.VCLObject('tsProduct').VCLObject('GroupBox2').VCLObject('PSegmentState').VCLObject('RBSegNot'); 
+        // НОЕПЮЖХХ Х ЙЙЙ       
+        //// ййй
+        'ноепюжхх х ййй/ййй', 'ноепюжхх х ййй/йпсомше йнпонпюрхбмше йкхемрш':
+          Result := MainW.VCLObject('tsOperation').VCLObject('GroupBox5').VCLObject('vo_GreatClients');  
+        //// НОЕПЮЖХХ 
+        'ноепюжхх х ййй/оепхнд я':
+          Result := MainW.VCLObject('tsOperation').VCLObject('GrBOperation').VCLObject('dtOperationFrom');  
+        'ноепюжхх х ййй/оепхнд я 15':
+          Result := MainW.VCLObject('tsOperation').VCLObject('GrBOperation').VCLObject('dtOperationFrom').VCLObject('TEditButton');  
+        'ноепюжхх х ййй/оепхнд он':
+          Result := MainW.VCLObject('tsOperation').VCLObject('GrBOperation').VCLObject('dtOperationTo');
+        'ноепюжхх х ййй/оепхнд он 15':
+          Result := MainW.VCLObject('tsOperation').VCLObject('GrBOperation').VCLObject('dtOperationTo').VCLObject('TEditButton');
+        'ноепюжхх х ййй/ноепюжхъ':
+          Result := MainW.VCLObject('tsOperation').VCLObject('GrBOperation').VCLObject('cb_EventType');                                 
+        'ноепюжхх х ййй/йспэеп':  
+          Result := MainW.VCLObject('tsOperation').VCLObject('GrBOperation').VCLObject('cb_OperationCourier'); 
+        'ноепюжхх х ййй/опюбнбюъ онддепфйю, рейсыюъ яуелю', 'оо', 'опюбнбюъ онддепфйю':
+          Result := MainW.VCLObject('tsOperation').VCLObject('GroupBox6').VCLObject('clb_Consulting'); 
+        // НАМНБКЕМХЪ Х ГЮЙЮГШ
+        //// НАМНБКЕМХЪ
+        'намнбкемхъ х гюйюгш/яоняна намнбкемхъ':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('cb_UpdateType');  
+        'намнбкемхъ х гюйюгш/вюярнрю намнбкемхъ':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('cb_UpdateInterval');
+        'намнбкемхъ х гюйюгш/яоняна днярюбйх':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('clb_TransType');                                 
+        'намнбкемхъ х гюйюгш/гю яв╗р по нр':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('ce_UpdateSelfDiscountFrom');
+        'намнбкемхъ х гюйюгш/гю яв╗р по дн':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('ce_UpdateSelfDiscountTo'); 
+        'намнбкемхъ х гюйюгш/нанямнбюмхе яйхдйх по':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('cb_UpdSelfDisType');
+        'намнбкемхъ х гюйюгш/гю яв╗р моо+по нр':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('ce_UpdateDiscountFrom');                                 
+        'намнбкемхъ х гюйюгш/гю яв╗р моо+по дн':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('ce_UpdateDiscountTo');
+        'намнбкемхъ х гюйюгш/нанямнбюмхе яйхдйх моо+по':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox1').VCLObject('cb_UpdDisType');
+        //// ОЮПЮЛЕРПШ ДХЯРПХАСРХБЮ
+        'намнбкемхъ х гюйюгш/рхо дхярпхасрхбю':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox4').VCLObject('cb_DistrType');  
+        'намнбкемхъ х гюйюгш/рхо яепбепю':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox4').VCLObject('cb_ServType');
+        'намнбкемхъ х гюйюгш/яоняна гюыхрш':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox4').VCLObject('clb_SecType');                                 
+        'намнбкемхъ х гюйюгш/рхо хмярюккъжхх':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox4').VCLObject('cb_InstType');
+        'намнбкемхъ х гюйюгш/мняхрекэ':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox4').VCLObject('clb_Media');
+        //// ХМДХБХДСЮКЭМШЕ ОНДАНПЙХ 
+        'намнбкемхъ х гюйюгш/щкейрпнммюъ онврю', 'намнбкемхъ х гюйюгш/E-MAIL':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox3').VCLObject('edPersSerEMail'); 
+        'намнбкемхъ х гюйюгш/пюяяшкюрэ он E-MAIL':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox3').VCLObject('chkPersSerActive');
+        'намнбкемхъ х гюйюгш/бшякюрэ оевюрмсч тнплс':
+          Result := MainW.VCLObject('tsUpdates').VCLObject('GroupBox3').VCLObject('chkSendPrintForm');
+        // ЙМНОЙХ
+        'нвхярхрэ':
+          Result := Btns.VCLObject('btnClean'); 
+        'бепмсрэяъ':
+          Result := Btns.VCLObject('btnRestore');
+        'хяйюрэ':
+          Result := Btns.VCLObject('btnSearch');
+        'нрлемю':
+          Result := Btns.VCLObject('BitBtn2');
+        
+      else 
+        Raise('МЕ ДНОСЯРХЛШИ ОЮПЮЛЕРП');    
+      end;
+      
+    if not IsExists(Result) then 
+      Raise('нАЗЕЙРЮ "' + whatToGet + '" МЕ ЯСЫЕЯРБСЕР');            
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;    
+
+
+
+// ДХЮКНЦ ПЮЯЬХПЕММНЦН ОНХЯЙЮ
+function GetFromHardChange(
+  whatToGet : String
+) : OleVariant;
+var
+  MainW, Btns;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);                                          
+    MainW := Sys.Process('Armadillo').VCLObject('frmChangeKIB');
+    if not IsExists(MainW) then Raise('НЙМН "яКНФМШИ ОЕПЕУНД Я йха МЮ йха" МЕ НРЙПШРН');
+
+      case whatToGet of
+        '':
+          Result := MainW;
+        // РЮАКХЖШ 
+        'хлечыхеяъ опндсйрш':
+          Result := MainW.VCLObject('GroupBox1').VCLObject('hlSourceProducts');
+        'оепеирх мю', 'оепеирх мю...':
+          Result := MainW.VCLObject('GroupBox2').VCLObject('hlChangedProducts');
+          
+        // ЙМНОЙХ
+        'днаюбхрэ мнбши опндсйр', 'днаюбхрэ':
+          Result := MainW.VCLObject('btnAddProduct');
+        'педйюрхпнбюрэ оюпюлерпш опндсйрю', 'педюйрхпнбюрэ':
+          Result := MainW.VCLObject('btnEditProduct');
+        'сдюкхрэ опндсйр', 'сдюкхрэ':
+          Result := MainW.VCLObject('btnDelProduct');
+          
+        //  
+        'дюрю ноепюжхх':
+          Result := MainW.VCLObject('Panel2').VCLObject('dtDateChange');
+        '15':
+          Result := MainW.VCLObject('Panel2').VCLObject('dtDateChange').VCLObject('TEditButton');
+        'нрберярбеммиши':
+          Result := MainW.VCLObject('Panel2').VCLObject('cb_Courier');
+        'яйхдйю мю ноепюжхч', 'яйхдйю':
+          Result := MainW.VCLObject('pOperationDiscounts').VCLObject('edDiscount');
+        'наняммнбюмхе':
+          Result := MainW.VCLObject('pOperationDiscounts').VCLObject('cb_DisType');
+          
+        // ЙМНОЙХ 
+        'опхмърэ', 'нй', 'OK':
+          Result := MainW.VCLObject('btnOK');
+        'нрлемю':
+          Result := MainW.VCLObject('BitBtn2');
+        
+      else 
+        Raise('МЕ ДНОСЯРХЛШИ ОЮПЮЛЕРП');    
+      end;
+      
+    if not IsExists(Result) then 
+      Raise('нАЗЕЙРЮ "' + whatToGet + '" МЕ ЯСЫЕЯРБСЕР');            
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);
+  end;
+end;    

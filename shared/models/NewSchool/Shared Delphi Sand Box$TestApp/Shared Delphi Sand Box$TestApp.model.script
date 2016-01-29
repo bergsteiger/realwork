@@ -1,0 +1,148 @@
+%DISABLE_CASCADE_DICT
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation1.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation2.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\EVD.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\VCM.tpl.script'
+;
+
+USES
+ 'w:\shared\models\NewSchool\Shared Delphi Low Level\Shared Delphi Low Level.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Testing Framework\Shared Delphi Testing Framework.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Sand Box$App\Shared Delphi Sand Box$App.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Rtl\Shared Delphi Rtl.model.script'
+;
+
+FINAL <<VCMTestProject>> "Shared Delphi Sand Box$TestApp"
+ %UID '5230224E02A3'
+ %SUMMARY '“есты к тестовому приложению "песочницы"' ;
+ %DEPENDS
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47913B47006E' /* l3CoreObjects */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A0D6A0077' /* Source */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4B2A112B011A' /* Source */
+  U$ '4B30CC420206' /* "Shared Delphi Testing Framework" */
+  U$ '4B30FC850092' /* VCM_TFW */
+  U$ '4CA0BB31027B' /* BridgeToKviaCORBA */
+  U$ '5130499D0080' /* "DUnit Script Support" */
+  U$ '5130776E01BE' /* DUnitKeyWordsSupport */
+  U$ '521648D102D3' /* "Shared Delphi Sand Box$App" */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %DEPENDS
+ %META
+  %upv "Full MDP" false
+  %upv "create project" true
+  %upv "defines" 'sbtDefine.inc'
+  %upv "fix version" 0
+  %upv "force usage" true
+  %upv "full constraint" true
+  %upv "major version" 1
+  %upv "minor version" 0
+  %upv "package prefix" 'ru.garant'
+  %upv "root path suffix" '/components/SandBox/VCM'
+  %upv "space key" 'SHD'
+  %upv "space name" 'Shared (delphi)'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4B30CC420206' /* "Shared Delphi Testing Framework" */
+  U$ '4F79CCD4016C' /* "VCM$ Applications Testing" */
+  U$ '5130499D0080' /* "DUnit Script Support" */
+  U$ '521648D102D3' /* "Shared Delphi Sand Box$App" */
+  U$ '521649450152' /* VCMSandBox */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<VCMTestTarget>> VCMSandBox
+   %UID '523023C2008D'
+   %DEPENDS
+    U$ '4773D64E036C' /* l3Base */
+    U$ '4787A405013D' /* Exception */
+    U$ '4B2A0D8A03A0' /* TextTestRunner */
+    U$ '4B2A0D9401CC' /* GUITestRunner */
+    U$ '4B2A6D4303A9' /* KTestRunner */
+    U$ '4CA0BB8600CF' /* TKBridge */
+    U$ '4DAECE5D0060' /* TvcmInsiderTest */
+    U$ '4DC24756009A' /* TAutoTestsSuite */
+    U$ '4F79CCD4016C' /* "VCM$ Applications Testing" */
+    U$ '4F79CD2603DF' /* AppTestingSupport */
+    U$ '521649450152' /* VCMSandBox */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "console" false
+    %upv "is insider test" false
+    %upv "need UC in project" false
+    %upv "no scripts" 'undefined'
+    %upv "old format" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4F79CCD4016C' /* "VCM$ Applications Testing" */
+    U$ '5130499D0080' /* "DUnit Script Support" */
+    U$ '521649450152' /* VCMSandBox */
+    U$ '5230224E02A3' /* "Shared Delphi Sand Box$TestApp" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<VCMTestApplication>> VCMSandBoxTest
+      %UID '523024100274'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4F79CCD4016C' /* "VCM$ Applications Testing" */
+       U$ '521649450152' /* VCMSandBox */
+       U$ '5230224E02A3' /* "Shared Delphi Sand Box$TestApp" */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4F79CD9F015F' /* VCMAppTester */
+       U$ '521649770277' /* VCMSandBox */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4F79BCC902C5' /* CalcBatchMode */
+      ; // %REALIZES
+      %CHILDREN
+       
+        SUMMONED <<Typedef>> TvcmApplicationRef
+         %UID '0D7FA6427FD9'
+         %SUMMARY '—сылка на приложение дл€ DesignTime редакторов' ;
+         %TOBEINCLUDED
+          U$ '5230224E02A3' /* "Shared Delphi Sand Box$TestApp" */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '523024100274' /* VCMSandBoxTest */
+         ; // %INHERITS
+        ; // TvcmApplicationRef
+      ; // %CHILDREN
+     ; // VCMSandBoxTest
+   ; // %CHILDREN
+  ; // VCMSandBox
+ ; // %CHILDREN
+; // "Shared Delphi Sand Box$TestApp"

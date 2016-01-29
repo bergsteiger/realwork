@@ -1,0 +1,78 @@
+// k2Facade 480DBA6900E6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480DBA6900E6
+
+FORWARD ME_480DBA760390
+
+: ME_480DBAAB02AD
+ CONST UID '480DBAAB02AD'
+ CONST Name 'Tk2'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_480DBA760390 // k2Facade
+ ;
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '01.04.2005 17:36'
+
+ref; // ME_480DBAAB02AD Tk2
+
+: ME_480DBA760390
+ CONST UID '480DBA760390'
+ CONST Name 'k2Facade'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейсы библиотеки K2, предназначенные для унифицированного общения с таблицами тегов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_480DBA6900E6 // k2Facade
+ ;
+ : Children
+   @ ( ME_480DBAAB02AD // Tk2
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '01.04.2005 17:36'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2Facade.pas'
+
+ref; // ME_480DBA760390 k2Facade
+
+: ME_480DBA6900E6
+ CONST UID '480DBA6900E6'
+ CONST Name 'k2Facade'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Children
+   @ ( ME_480DBA760390 // k2Facade
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\480DBA6900E6.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\480DBA6900E6.pas.ms.script.runner'
+
+ref; // ME_480DBA6900E6 k2Facade

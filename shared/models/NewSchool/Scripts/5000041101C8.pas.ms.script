@@ -1,0 +1,294 @@
+// Layouts 5000041101C8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5000041101C8
+
+FORWARD ME_500004240202
+
+FORWARD ME_500004A60200
+
+: ME_500004AD033A
+ CONST UID '500004AD033A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_500004A60200 // MakeControls
+ ;
+
+ref; // ME_500004AD033A DoIt
+
+: ME_500004A60200
+ CONST UID '500004A60200'
+ CONST Name 'MakeControls'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_500004240202 // vcmLayout
+ ;
+ : Operations
+   @ ( ME_500004AD033A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_500004A60200 MakeControls
+
+FORWARD ME_5000105E028C
+
+: ME_5000106F02B3
+ CONST UID '5000106F02B3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5000105E028C // InitEntities
+ ;
+
+ref; // ME_5000106F02B3 DoIt
+
+: ME_5000105E028C
+ CONST UID '5000105E028C'
+ CONST Name 'InitEntities'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'инициализирует сущности не из dfm.'#13#10'             Нужно для перекрытия потомками при переносе VCM на модель' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_500004240202 // vcmLayout
+ ;
+ : Operations
+   @ ( ME_5000106F02B3 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5000105E028C InitEntities
+
+FORWARD ME_5000109C01F9
+
+: ME_500010B50393
+ CONST UID '500010B50393'
+ CONST Name 'anOld'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+
+ref; // ME_500010B50393 anOld
+
+: ME_500010B503CA
+ CONST UID '500010B503CA'
+ CONST Name 'aNew'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+
+ref; // ME_500010B503CA aNew
+
+: ME_500010A903B1
+ CONST UID '500010A903B1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5000109C01F9 // SignalDataSourceChanged
+ ;
+ : Parameters
+   @ ( ME_500010B50393 // anOld
+ ME_500010B503CA // aNew
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_500010A903B1 DoIt
+
+: ME_5000109C01F9
+ CONST UID '5000109C01F9'
+ CONST Name 'SignalDataSourceChanged'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_500004240202 // vcmLayout
+ ;
+ : Operations
+   @ ( ME_500010A903B1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5000109C01F9 SignalDataSourceChanged
+
+FORWARD ME_501174B10018
+
+: ME_501174C30385
+ CONST UID '501174C30385'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_501174B10018 // GetIsMainObjectForm
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_501174C30385 DoIt
+
+: ME_501174B10018
+ CONST UID '501174B10018'
+ CONST Name 'GetIsMainObjectForm'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_500004240202 // vcmLayout
+ ;
+ : Operations
+   @ ( ME_501174C30385 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_501174B10018 GetIsMainObjectForm
+
+: ME_4B62D10B031B
+ CONST UID '4B62D10B031B'
+ CONST Name 'SetControlsResources'
+ CONST Class class_Operation
+ %SUMMARY 'Установить контролам ресурсы для интернационализации' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_500004240202 // vcmLayout
+ ;
+
+ref; // ME_4B62D10B031B SetControlsResources
+
+: ME_4AE1948900DE
+ CONST UID '4AE1948900DE'
+ CONST Name 'EntitiesInited'
+ CONST Class class_Operation
+ %SUMMARY 'Вызывается после того как все операции зарегистрированы' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_500004240202 // vcmLayout
+ ;
+
+ref; // ME_4AE1948900DE EntitiesInited
+
+: ME_4A8E8F2E0195
+ CONST UID '4A8E8F2E0195'
+ CONST Name 'InitControls'
+ CONST Class class_Operation
+ %SUMMARY 'Процедура инициализации контролов. Для перекрытия в потомках' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_500004240202 // vcmLayout
+ ;
+
+ref; // ME_4A8E8F2E0195 InitControls
+
+: ME_497469EF0306
+ CONST UID '497469EF0306'
+ CONST Name 'anOld'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_497841510139' '4982BE090383.pas.ms.script' // IvcmViewAreaController
+ ;
+
+ref; // ME_497469EF0306 anOld
+
+: ME_497469EF0354
+ CONST UID '497469EF0354'
+ CONST Name 'aNew'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_497841510139' '4982BE090383.pas.ms.script' // IvcmViewAreaController
+ ;
+
+ref; // ME_497469EF0354 aNew
+
+: ME_497469C90140
+ CONST UID '497469C90140'
+ CONST Name 'NotifyDataSourceChanged'
+ CONST Class class_Operation
+ %SUMMARY 'Изменился источник данных. Для перекрытия в потомках' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_500004240202 // vcmLayout
+ ;
+ : Parameters
+   @ ( ME_497469EF0306 // anOld
+ ME_497469EF0354 // aNew
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_497469C90140 NotifyDataSourceChanged
+
+: ME_500004240202
+ CONST UID '500004240202'
+ CONST Name 'vcmLayout'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5000041101C8 // Layouts
+ ;
+ : Operations
+   @ ( ME_500004A60200 // MakeControls
+ ME_5000105E028C // InitEntities
+ ME_5000109C01F9 // SignalDataSourceChanged
+ ME_501174B10018 // GetIsMainObjectForm
+ ME_4B62D10B031B // SetControlsResources
+ ME_4AE1948900DE // EntitiesInited
+ ME_4A8E8F2E0195 // InitControls
+ ME_497469C90140 // NotifyDataSourceChanged
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" true
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmLayout.imp.pas'
+ CONST extprop:pas:TypeName '_vcmLayout_'
+
+ref; // ME_500004240202 vcmLayout
+
+: ME_5000041101C8
+ CONST UID '5000041101C8'
+ CONST Name 'Layouts'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ ;
+ : Children
+   @ ( ME_500004240202 // vcmLayout
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "path prefix" '/implementation/Visual'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5000041101C8.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5000041101C8.pas.ms.script.runner'
+
+ref; // ME_5000041101C8 Layouts

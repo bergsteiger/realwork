@@ -1,0 +1,145 @@
+// TtfwInitCodeWord 55A7DA0200C0 SimpleClass Class
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '55A4E9940396.pas.ms.script'
+
+FORWARD ME_55A7DA0200C0
+
+INCLUDE '55A4FCDC01B8.pas.ms.script'
+
+: ME_55A7DA1F029C
+ CONST UID '55A7DA1F029C'
+ CONST Name 'Dictionary'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_55A7DA1F029C Dictionary
+
+: ME_2F8D349DBA03
+ CONST UID '2F8D349DBA03'
+ CONST Name 'f_Dictionary'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Dictionary' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ @SELF
+; // ME_2F8D349DBA03 f_Dictionary
+
+FORWARD ME_55A7DB260310
+
+: ME_55A7DB3901E7
+ CONST UID '55A7DB3901E7'
+ CONST Name 'aDictionary'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ @SELF
+; // ME_55A7DB3901E7 aDictionary
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55A7DB2D0259
+ CONST UID '55A7DB2D0259'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55A7DB3901E7 // aDictionary
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55A7DB2D0259 DoIt
+
+: ME_55A7DB260310
+ CONST UID '55A7DB260310'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55A7DB2D0259 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55A7DB260310 Create
+
+: ME_D9ADA330E051
+ CONST UID 'D9ADA330E051'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwInitCodeWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_D9ADA330E051 Ini_Reg_Class
+
+: ME_55A7DA0200C0
+ CONST UID '55A7DA0200C0'
+ CONST Name 'TtfwInitCodeWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DAEED140007 // TtfwWord
+ ME_55A4E9940396 // tfwCodeCompiler
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_55A7DA1F029C // Dictionary
+ ME_2F8D349DBA03 // f_Dictionary
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55A7DB260310 // Create
+ ME_D9ADA330E051 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4F4161BC0024 // DoDefineInParameter
+ ME_52B43311021D // InnerDictionary
+ ME_52D56341033B // GetNewWordDefinitor
+ ME_52D5637A031E // GetKeywordFinder
+ ME_52D56A980103 // DoCompileInParameterPopCode
+ ME_55A7D34102A0 // DoCheckWord
+ ME_55ACE5210310 // GetKeywordByName
+ ME_55ACF0F5025D // GetParentFinder
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55A7DA0200C0 TtfwInitCodeWord

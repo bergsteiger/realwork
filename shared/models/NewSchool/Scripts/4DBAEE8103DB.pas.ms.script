@@ -1,0 +1,58 @@
+// CASE 4DBAEE8103DB ScriptKeyword Class
+
+INCLUDE '4DBAEF29031F.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4DBAEE8103DB
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5A6B4DDB0CFA
+ CONST UID '5A6B4DDB0CFA'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация CASE' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5A6B4DDB0CFA Ini_Reg
+
+: ME_4DBAEE8103DB
+ CONST UID '4DBAEE8103DB'
+ CONST Name 'CASE'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Аналог Case из Delphi'#13#10'{code}'#13#10' CASE'#13#10'  1 ( 1 . )'#13#10'  2 ( 2 . )'#13#10'  DEFAULT ( ''else'' . )'#13#10' ENDCASE'#13#10'{code}' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DBAEF29031F // TtfwBeginLikeWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5A6B4DDB0CFA // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DB6C99F026E // EndBracket
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DBAEE0D028D // CompiledWordClass
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 21:00'
+
+ @SELF
+; // ME_4DBAEE8103DB CASE

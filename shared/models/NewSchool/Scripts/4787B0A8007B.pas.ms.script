@@ -1,0 +1,367 @@
+// l3Except 4787B0A8007B Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4787B0A8007B
+
+: ME_4787B0FD0379
+ CONST UID '4787B0FD0379'
+ CONST Name 'El3Exception'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B0FD0379 El3Exception
+
+: ME_4787B10A00A3
+ CONST UID '4787B10A00A3'
+ CONST Name 'El3CannotModify'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B0FD0379 // El3Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B10A00A3 El3CannotModify
+
+: ME_4787B117012D
+ CONST UID '4787B117012D'
+ CONST Name 'El3Error'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B0FD0379 // El3Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B117012D El3Error
+
+: ME_4787B12303D6
+ CONST UID '4787B12303D6'
+ CONST Name 'El3Warning'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B0FD0379 // El3Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B12303D6 El3Warning
+
+: ME_4787B12F02DF
+ CONST UID '4787B12F02DF'
+ CONST Name 'El3NotFound'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B117012D // El3Error
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B12F02DF El3NotFound
+
+: ME_4787B153031D
+ CONST UID '4787B153031D'
+ CONST Name 'El3Abort'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B117012D // El3Error
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B153031D El3Abort
+
+: ME_4787B164020E
+ CONST UID '4787B164020E'
+ CONST Name 'El3AbortLoad'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B153031D // El3Abort
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B164020E El3AbortLoad
+
+: ME_4787B1730240
+ CONST UID '4787B1730240'
+ CONST Name 'El3FilerError'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B117012D // El3Error
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B1730240 El3FilerError
+
+: ME_4787B1840013
+ CONST UID '4787B1840013'
+ CONST Name 'El3ReadError'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B1730240 // El3FilerError
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B1840013 El3ReadError
+
+: ME_4787B1960023
+ CONST UID '4787B1960023'
+ CONST Name 'El3NoLoggedException'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'предок ошибок, которые в лог не попадают (см. l3ExceptionsLog)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B0FD0379 // El3Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B1960023 El3NoLoggedException
+
+: ME_4787B1A70282
+ CONST UID '4787B1A70282'
+ CONST Name 'El3InfoException'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'предок ошибок для информационных целей (внутренее использование)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B0FD0379 // El3Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B1A70282 El3InfoException
+
+: ME_4787B1BA031F
+ CONST UID '4787B1BA031F'
+ CONST Name 'El3DuplicateItem'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'дублирование элемента в списке' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B0FD0379 // El3Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B1BA031F El3DuplicateItem
+
+: ME_4787B1D60282
+ CONST UID '4787B1D60282'
+ CONST Name 'El3ConvertError'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B0FD0379 // El3Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4787B1D60282 El3ConvertError
+
+FORWARD ME_4787B1F20043
+
+: ME_4787B1FE01AA
+ CONST UID '4787B1FE01AA'
+ CONST Name 'l3_excAbortLoad'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4787B1F20043 // Error Messages
+ ;
+ CONST Value '''Прервана загрузка документа.'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4787B1FE01AA l3_excAbortLoad
+
+: ME_4787B1F20043
+ CONST UID '4787B1F20043'
+ CONST Name 'Error Messages'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сообщения об ошибках.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Attributes
+   @ ( ME_4787B1FE01AA // l3_excAbortLoad
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4787B1F20043 Error Messages
+
+: ME_4E8316290291
+ CONST UID '4E8316290291'
+ CONST Name 'El3BadPictureFormat'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B117012D // El3Error
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4E8316290291 El3BadPictureFormat
+
+: ME_53FC91F501F6
+ CONST UID '53FC91F501F6'
+ CONST Name 'El3AbortLoadFilter'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B164020E // El3AbortLoad
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_53FC91F501F6 El3AbortLoadFilter
+
+: ME_540EE8C0039E
+ CONST UID '540EE8C0039E'
+ CONST Name 'El3BadDataInPara'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4787B0A8007B // l3Except
+ ;
+ : Inherits
+   @ ( ME_4787B0FD0379 // El3Exception
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_540EE8C0039E El3BadDataInPara
+
+: ME_4787B0A8007B
+ CONST UID '4787B0A8007B'
+ CONST Name 'l3Except'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Базовые исключения L3.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ ;
+ : Children
+   @ ( ME_4787B0FD0379 // El3Exception
+ ME_4787B10A00A3 // El3CannotModify
+ ME_4787B117012D // El3Error
+ ME_4787B12303D6 // El3Warning
+ ME_4787B12F02DF // El3NotFound
+ ME_4787B153031D // El3Abort
+ ME_4787B164020E // El3AbortLoad
+ ME_4787B1730240 // El3FilerError
+ ME_4787B1840013 // El3ReadError
+ ME_4787B1960023 // El3NoLoggedException
+ ME_4787B1A70282 // El3InfoException
+ ME_4787B1BA031F // El3DuplicateItem
+ ME_4787B1D60282 // El3ConvertError
+ ME_4E8316290291 // El3BadPictureFormat
+ ME_53FC91F501F6 // El3AbortLoadFilter
+ ME_540EE8C0039E // El3BadDataInPara
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_4787B1F20043 // Error Messages
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '22.04.1998 11:18'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Except.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4787B0A8007B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4787B0A8007B.pas.ms.script.runner'
+
+ref; // ME_4787B0A8007B l3Except

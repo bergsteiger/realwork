@@ -1,0 +1,55 @@
+// CloseBracket 52D6AC0F0186 ScriptKeyword Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_52D6AC0F0186
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_9500ED19BA57
+ CONST UID '9500ED19BA57'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация CloseBracket' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_9500ED19BA57 Ini_Reg_Class
+
+: ME_52D6AC0F0186
+ CONST UID '52D6AC0F0186'
+ CONST Name 'CloseBracket'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_9500ED19BA57 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB6D7F70155 // IsImmediate
+ ME_52D6ABCB0026 // IsCloseBracket
+ ]
+ ; // Overridden
+ CONST "is immediate" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52D6AC0F0186 CloseBracket

@@ -1,0 +1,54 @@
+This file summarizes changes made between Orpheus versions 2.13 and
+2.14.  It is of interest primarily to users who have upgraded from a
+previous version.
+
+
+Changes that may cause compiler errors
+---------------------------------------------------------------------
+The AsBcd property of the entry fields (and the UseSysTools define in
+OVC.INC) were removed to avoid compatibility problems when using
+Delphi 3.0 packages and Systools. The change means that projects
+that use the AsBcd property won't compile without some minor changes.
+The changes should only involve switching to use the AsExtended
+property and converting to/from BCD format within your code. The
+SysTools StBcd unit provides the routines to accomplish this (BcdExt
+and ExtBcd).
+
+The MoveableComponents define in OVC.INC and the functionality that
+it provided were removed. If your application depended on run-time
+movement of components descending from TOvcBase, you can restore this
+behavior by reinserting the removed code from a previous copy of
+the OVCBASE.PAS unit and recompiling your application.
+
+
+Bugs fixed
+---------------------------------------------------------------------
+OVCABTN
+  - Glyph is not allowed to be empty
+OVCAE
+  - Calling SetFocus focuses other controls
+OVCBASE
+  - Can't use controls on an active form
+  - ValidateEntryFields validates hidden and disabled fields
+OVCDBAE
+  - Calling SetFocus focuses other controls
+OVCDBTBL
+  - OnDblClick fired prior to default windows handling
+  - OnExit not fired when <Enter> pressed w/ EntorToTab on
+OVCEDIT
+  - AutoIndent creep when line has trailing blanks
+OVCEDITN
+  - Concatenating long lines causes integer overflow error
+OVCEF
+  - Default popup menu disables field
+  - Validation invoked when menu selected
+  - Popup menu items cause Db exception
+  - Insert/Overwrite toggle doesn't work if datasources not in edit mode
+  - Using the SelectedText property causes an exception
+OVCMISC
+  - AsFloat fails if CaretToEnd is false
+OVCNBK
+  - Inserting a page prior to current page causes display problems
+OVCTIMER
+  - On-Time timer not removed immediately
+

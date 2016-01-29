@@ -1,0 +1,604 @@
+ABSTRACT <<VCMControllers>> Tree
+ %UID '493FAECB025F'
+ %SUMMARY 'Работа с древесными структурами' ;
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4799D29F033F' /* Implementation */
+  U$ '47E9EEC60260' /* Model */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '4D4927B5008B' /* VT$Core */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '4D4927B5008B' /* VT$Core */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> TreeInterfaces
+   %UID '491DD2830110'
+   %SUMMARY 'Интерфейсы для работы с деревьями' ;
+   %DEPENDS
+    U$ '467C0CAA02AB' /* l3InternalInterfaces */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '490838E10313' /* nscNewInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '14.11.2008 22^23'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '490838AA02D0' /* Nemesis */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<PureMixIn>> InsContextFilter
+      %UID '492D901E03E1'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '490838AA02D0' /* Nemesis */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> CurrentContextFilter
+         %UID '492D9071038D'
+         %TARGET U$ '4908393001C5' /* InscContextFilterState */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+        ; // CurrentContextFilter
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> FiltrateByContext
+         %UID '492D90AA0118'
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTreeSource
+            %UID '492D90B00089'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTreeSource
+           <<in>> aCurrentNode
+            %UID '492D90B000B5'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aCurrentNode
+           <<in>> aFilter
+            %UID '492D90B00102'
+            %TARGET U$ '4908393001C5' /* InscContextFilterState */
+            %TOBEINCLUDED
+             U$ '490838AA02D0' /* Nemesis */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+           <<out>> aCurrent
+            %UID '492D90B0014B'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aCurrent
+         ; // %PARAMETERS
+        ; // FiltrateByContext
+      ; // %OPERATIONS
+     ; // InsContextFilter
+     <<ViewAreaController>> IdsSimpleTree
+      %UID '47E9F96B035A'
+      %SUMMARY 'Бизнес объекта формы с деревом.' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> ImageList
+         %UID '491DD57603A3'
+         %SUMMARY 'иконки для дерева' ;
+         %TARGET U$ '4728C6AC0070' /* Il3ImageList */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // ImageList
+        ABSTRACT LINK <<property>> SimpleTree
+         %UID '491DD5A10199'
+         %SUMMARY 'дерево. Почему не readonly?' ;
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // SimpleTree
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> CurrentChanged
+         %UID '491DD5C90095'
+         %SUMMARY 'изменился текущий узел дерева. По умолчанию включён режим отложенного'#13#10'           обновления текущего, чтобы не обновлялось свзянное представление при'#13#10'           быстром перемещении. Когда пользователь в дереве открывает элемент'#13#10'           отложенное обновление нужно выключать' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '491DD5DB002E'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+           <<in>> aUpdateWithDelay
+            %UID '491DD5DB0074'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE true
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aUpdateWithDelay
+         ; // %PARAMETERS
+        ; // CurrentChanged
+      ; // %OPERATIONS
+     ; // IdsSimpleTree
+   ; // %CHILDREN
+  ; // TreeInterfaces
+  <<ControllerUnit>> Tree
+   %UID '47F282AE0082'
+   %SUMMARY 'Пакет работы с деревом.' ;
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '467C0CAA02AB' /* l3InternalInterfaces */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '47F485150151' /* vtCommon */
+    U$ '490838E10313' /* nscNewInterfaces */
+    U$ '49083E150027' /* CoreObjects */
+    U$ '4908A8A20107' /* OldTree */
+    U$ '491DD2830110' /* TreeInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '4E1447600037' /* Common */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '467A75D90346' /* VT */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '490838AA02D0' /* Nemesis */
+    U$ '493FAECB025F' /* Tree */
+    U$ '4D4927B5008B' /* VT$Core */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<ViewAreaControllerImp>> dsSimpleTree
+      %UID '47F0C1410011'
+      %SUMMARY 'Бизнес объект формы с деревом' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2005/8/3 13:49:6'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '493FAECB025F' /* Tree */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47E9F96B035A' /* IdsSimpleTree */
+       U$ '48FEE95F0124' /* InsDropListener */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '492ACB4100B2' /* vcmFormDataSource */
+      ; // %INHERITS
+      %REALIZES
+       U$ '48FEE96D03AD' /* DataDropped */
+       U$ '491DD57603A3' /* ImageList */
+       U$ '491DD5A10199' /* SimpleTree */
+       U$ '491DD5C90095' /* CurrentChanged */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '491476B001D3' /* MakeDisplayName */
+       U$ '492BF7900310' /* DoInit */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49213D2F022C"
+         %UID '49213D2F022C'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49213D2F022C
+        <<uses>> "49213D43000B"
+         %UID '49213D43000B'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 49213D43000B
+        <<uses>> "49213DF003D2"
+         %UID '49213DF003D2'
+         %TARGET U$ '47F4853203E7' /* vtUtils */
+        ; // 49213DF003D2
+        <<uses>> "49213E4B014A"
+         %UID '49213E4B014A'
+         %TARGET U$ '49213DFA02CB' /* vtStdRes */
+        ; // 49213E4B014A
+        <<uses>> "49213F660021"
+         %UID '49213F660021'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+        ; // 49213F660021
+        <<uses>> "49213F8900AA"
+         %UID '49213F8900AA'
+         %TARGET U$ '490AF9B0039B' /* TnsNewCachableNode */
+        ; // 49213F8900AA
+        <<uses>> "49214101032A"
+         %UID '49214101032A'
+         %TARGET U$ '46782E7F0307' /* Il3ChangeNotifier */
+        ; // 49214101032A
+        <<uses>> "4921556703C9"
+         %UID '4921556703C9'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 4921556703C9
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_SimpleTree
+         %UID '49213F16029F'
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_SimpleTree
+        PROTECTED FINAL <<readonly>> IsFirstMake
+         %UID '49213F3B016B'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsFirstMake
+        PRIVATE FINAL <<property>> MovingCurrent
+         %UID '4921515002F6'
+         %SUMMARY 'текущий перемещаемый в дереве, которым ещё не было обновлено связанное'#13#10'           представление' ;
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // MovingCurrent
+        PRIVATE FINAL <<property>> PrevMovingCurrent
+         %UID '4921518E034B'
+         %SUMMARY 'предыдущий текущий узел в дереве, используется для определения конца'#13#10'          перемещения' ;
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // PrevMovingCurrent
+        PRIVATE FINAL <<property>> ChangeCurrentTime
+         %UID '492151D003A5'
+         %SUMMARY 'время последнего обновления текущего' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ChangeCurrentTime
+        PRIVATE FINAL <<readonly>> UpdateCurrentTimer
+         %UID '492152570031'
+         %TARGET U$ '48C7C96E0135' /* TTimer */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+        ; // UpdateCurrentTimer
+        PRIVATE FINAL <<property>> Current
+         %UID '492155A70263'
+         %SUMMARY 'текущий узел, данные которого показываются в связанном представлении'#13#10'           (например список и зона синхронного просмотра)' ;
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // Current
+        SUMMONED PRIVATE <<Attribute>> f_IsFirstMake
+         %UID '76C96E16F9AE'
+         %SUMMARY 'Поле для свойства IsFirstMake' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_IsFirstMake
+        SUMMONED PRIVATE <<Attribute>> f_MovingCurrent
+         %UID '6092E5FD1D1B'
+         %SUMMARY 'Поле для свойства MovingCurrent' ;
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_MovingCurrent
+        SUMMONED PRIVATE <<Attribute>> f_PrevMovingCurrent
+         %UID '8F8EDD7BEDF2'
+         %SUMMARY 'Поле для свойства PrevMovingCurrent' ;
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_PrevMovingCurrent
+        SUMMONED PRIVATE <<Attribute>> f_ChangeCurrentTime
+         %UID '595F4F25F8BA'
+         %SUMMARY 'Поле для свойства ChangeCurrentTime' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_ChangeCurrentTime
+        SUMMONED PRIVATE <<Attribute>> f_UpdateCurrentTimer
+         %UID '3FD724E7BD28'
+         %SUMMARY 'Поле для свойства UpdateCurrentTimer' ;
+         %TARGET U$ '48C7C96E0135' /* TTimer */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+        ; // f_UpdateCurrentTimer
+        SUMMONED PRIVATE <<Attribute>> f_Current
+         %UID '007199D6BEFC'
+         %SUMMARY 'Поле для свойства Current' ;
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_Current
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED <<Operation>> DoCurrentChanged
+         %UID '47F0C1BF0314'
+         %SUMMARY 'сменился текущий.' ;
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '492D5B7903AC'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // DoCurrentChanged
+        PROTECTED <<Operation>> MakeImageList
+         %UID '47F465F80149'
+         %SUMMARY '- создать иконки дерева.' ;
+         %TARGET U$ '4728C6AC0070' /* Il3ImageList */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // MakeImageList
+        PROTECTED ABSTRACT <<Operation>> MakeSimpleTree
+         %UID '47F4C2B9014A'
+         %SUMMARY 'Создать данные дерева' ;
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // MakeSimpleTree
+        PROTECTED <<Operation>> UpdateSimpleTree
+         %UID '47FC718400FA'
+         %SUMMARY '- обновить данные дерева.' ;
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aOld
+            %UID '492D5B7300F4'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aOld
+           <<in>> aNew
+            %UID '47FC72AF006B'
+            %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNew
+         ; // %PARAMETERS
+        ; // UpdateSimpleTree
+        PRIVATE FINAL <<Operation>> OnUpdateCurrent
+         %UID '492140830112'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aSender
+            %UID '4921408502B7'
+            %TARGET U$ '4807745602C8' /* TObject */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aSender
+         ; // %PARAMETERS
+        ; // OnUpdateCurrent
+        PRIVATE FINAL <<Operation>> MovingFinished
+         %UID '49214097027A'
+         %SUMMARY 'перемещение закончено' ;
+        ; // MovingFinished
+        PROTECTED <<Operation>> DoDataDropped
+         %UID '49215CE702B9'
+        ; // DoDataDropped
+        PROTECTED FINAL <<Operation>> RefreshSimpleTree
+         %UID '4978163E03A0'
+         %SUMMARY 'обнуляет SimpleTree и получает его заново' ;
+         %TARGET U$ '46825CC00249' /* Il3SimpleTree */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // RefreshSimpleTree
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE <<Constants>> Times
+         %UID '4921543D025B'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> ns_UpdateTime
+            %UID '4921544B0190'
+            %SUMMARY 'время с момента обновления текущего после которого можно снова обновлять связанное представление' ;
+            %VALUE 100
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // ns_UpdateTime
+         ; // %ATTRIBUTES
+        ; // Times
+      ; // %CHILDREN
+     ; // dsSimpleTree
+     <<Impurity>> nsContextFilter
+      %UID '492D91B7037E'
+      %SUMMARY 'Контекстный фильтр' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '26.11.2008 21:13'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '490838AA02D0' /* Nemesis */
+       U$ '493FAECB025F' /* Tree */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492D901E03E1' /* InsContextFilter */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '492D9071038D' /* CurrentContextFilter */
+       U$ '492D90AA0118' /* FiltrateByContext */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "492D93380239"
+         %UID '492D93380239'
+         %TARGET U$ '4908462903E0' /* TnscContextFilterState */
+        ; // 492D93380239
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_CurrentContextFilter
+         %UID '492D9200028F'
+         %TARGET U$ '4908393001C5' /* InscContextFilterState */
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+        ; // f_CurrentContextFilter
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED <<override>> Cleanup
+         %UID '492D92370149'
+         %META
+          %upv "is static" false
+         ; // %META
+        ; // Cleanup
+      ; // %OPERATIONS
+     ; // nsContextFilter
+     FINAL <<UtilityPack>> nsLogicOperationToFlags
+      %UID '49243E5C035C'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<Operation>> GetOperationIterator
+         %UID '49243E6B0354'
+        ; // GetOperationIterator
+      ; // %OPERATIONS
+     ; // nsLogicOperationToFlags
+   ; // %CHILDREN
+  ; // Tree
+ ; // %CHILDREN
+; // Tree

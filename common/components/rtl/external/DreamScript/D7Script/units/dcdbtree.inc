@@ -1,0 +1,4 @@
+  {$IFDEF USEBDE}
+    {$DEFINE WITHPARAMS}
+  {$ENDIF}
+

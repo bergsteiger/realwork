@@ -1,0 +1,937 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Containers"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/RandomAccess/Containers|49CB8C6000D9
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"W:/labs/TestRandomAccess/RandomAccess/Containers/Containers.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"W:/labs/TestRandomAccess/RandomAccess/Containers/ContainersFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (fctr.cpp)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"W:/labs/TestRandomAccess/RandomAccess/Containers/ContainersFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (fctr.h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"W:/labs/TestRandomAccess/RandomAccess/Containers/Containers.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (cpp)"
+	    value      	"file"))
+    quid       	"49CB8C6000D9"
+    documentation 	"Containers"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Vector"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49CB8B1C02FB/Home/Ìîäåëü ïðîåêòà "TestRandomAccess"/RandomAccess/Containers/Vector|49CB8C940353
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_49CB8E230189_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB8CA802B7_49CB8E230189_BASE_INIT*¤: m_io_vector (0)¤, m_io_file (0)¤, m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB8CA802B7_49CB8E230189_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_49CB8E230189_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB8CA802B7_49CB8E230189_BODY*¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	GDS_ASSERT (element_size <= Containers::ELEM_SIZE);¤	m_io_file = new stxxl::syscall_file (file_name, stxxl::file::RDWR | stxxl::file::CREAT);¤	m_io_vector = new vector_type (m_io_file.in ());¤	LOG_I (("%s (): vector_size = %Q", GDS_CURRENT_FUNCTION, vector_size));¤	m_io_vector->resize (vector_size);¤	//#UC END# *49CB8C940353_49CB8CA802B7_49CB8E230189_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_49CB8E7F003B_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB8CA802B7_49CB8E7F003B_BASE_INIT*¤: m_file_for_mem (0)¤, m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB8CA802B7_49CB8E7F003B_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_49CB8E7F003B_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB8CA802B7_49CB8E7F003B_BODY*¤	LOG_I (("%s (): MEM_BUF_SIZE = %d, MEM_BUF_NUMBER = %d, total virtual mem = %4.4f Mb", GDS_CURRENT_FUNCTION, MEM_BUF_SIZE, MEM_BUF_NUMBER, double (MEM_BUF_SIZE)*double (MEM_BUF_NUMBER)/1024.0/1024.0));¤	LOG_I (("%s (): vector_size = %Q, element_size = %Q", GDS_CURRENT_FUNCTION, vector_size, element_size));¤	GDS_ASSERT (element_size <= Containers::ELEM_SIZE);¤	Containers::Offset64 file_size = ((vector_size*element_size)/MEM_BUF_SIZE)*MEM_BUF_SIZE+MEM_BUF_SIZE;¤	LOG_I (("%s (): file_size = %Q", GDS_CURRENT_FUNCTION, file_size));¤	m_file_for_mem = GCI::MMap::FileForMemFactory::create (file_name, file_size, 0);¤	m_memory_cache.resize (MEM_BUF_NUMBER);¤	//#UC END# *49CB8C940353_49CB8CA802B7_49CB8E7F003B_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_49CB8E230189_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB93190173_49CB8E230189_BASE_INIT*¤: m_io_vector (0)¤, m_io_file (0)¤, m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB93190173_49CB8E230189_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_49CB8E230189_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB93190173_49CB8E230189_BODY*¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	GDS_ASSERT (element_size <= Containers::ELEM_SIZE);¤	m_io_file = new stxxl::syscall_file (file_name, stxxl::file::RDWR);¤	m_io_vector = new vector_type (m_io_file.in ());¤	Containers::Offset64 file_vector_size = m_io_vector->size ();¤	LOG_I (("%s (): vector_size = %Q, file_vector_size = %Q", GDS_CURRENT_FUNCTION, vector_size, file_vector_size));¤	//#UC END# *49CB8C940353_49CB93190173_49CB8E230189_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_49CB8E230189_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB935403A4_49CB8E230189_BASE_INIT*¤: m_io_vector (0)¤, m_io_file (0)¤//#UC END# *49CB8C940353_49CB935403A4_49CB8E230189_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_49CB8E230189_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB935403A4_49CB8E230189_BODY*¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	GDS_ASSERT (element_size <= Containers::ELEM_SIZE);¤	//#UC END# *49CB8C940353_49CB935403A4_49CB8E230189_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_49CB8E7F003B_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB93190173_49CB8E7F003B_BASE_INIT*¤: m_file_for_mem (0)¤, m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB93190173_49CB8E7F003B_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_49CB8E7F003B_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB93190173_49CB8E7F003B_BODY*¤	LOG_I (("%s (): MEM_BUF_SIZE = %d, MEM_BUF_NUMBER = %d, total virtual mem = %4.4f Mb", GDS_CURRENT_FUNCTION, MEM_BUF_SIZE, MEM_BUF_NUMBER, double (MEM_BUF_SIZE)*double (MEM_BUF_NUMBER)/1024.0/1024.0));¤	LOG_I (("%s (): vector_size = %Q, element_size = %Q", GDS_CURRENT_FUNCTION, vector_size, element_size));¤	GDS_ASSERT (element_size <= Containers::ELEM_SIZE);¤	Containers::Offset64 file_size = ((vector_size*element_size)/MEM_BUF_SIZE)*MEM_BUF_SIZE+MEM_BUF_SIZE;¤	LOG_I (("%s (): file_size = %Q", GDS_CURRENT_FUNCTION, file_size));¤	m_file_for_mem = GCI::MMap::FileForMemFactory::open (file_name, 0, 0);¤	m_memory_cache.resize (MEM_BUF_NUMBER);¤	//#UC END# *49CB8C940353_49CB93190173_49CB8E7F003B_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_49CB8E7F003B_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB935403A4_49CB8E7F003B_BASE_INIT*¤//#UC END# *49CB8C940353_49CB935403A4_49CB8E7F003B_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_49CB8E7F003B_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB935403A4_49CB8E7F003B_BODY*¤	LOG_I (("%s (): MEM_BUF_SIZE = %d, MEM_BUF_NUMBER = %d, total virtual mem = %4.4f Mb", GDS_CURRENT_FUNCTION, MEM_BUF_SIZE, MEM_BUF_NUMBER, double (MEM_BUF_SIZE)*double (MEM_BUF_NUMBER)/1024.0/1024.0));¤	GDS_ASSERT (element_size <= Containers::ELEM_SIZE);¤	//#UC END# *49CB8C940353_49CB935403A4_49CB8E7F003B_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_49D0A74A009E_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB8CA802B7_49D0A74A009E_BASE_INIT*¤: m_file_for_mem (0)¤, m_memory (0)¤, m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB8CA802B7_49D0A74A009E_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_49D0A74A009E_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB8CA802B7_49D0A74A009E_BODY*¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	LOG_I (("%s (): vector_size = %Q, element_size = %Q", GDS_CURRENT_FUNCTION, vector_size, element_size));¤	GDS_ASSERT (element_size <= Containers::ELEM_SIZE);¤	Containers::Offset64 mmap_size = ((vector_size * element_size) / 65536) * 65536 + 65536;¤	LOG_I (("%s (): mmap_size = %Q", GDS_CURRENT_FUNCTION, mmap_size));¤	m_file_for_mem = GCI::MMap::FileForMemFactory::create (file_name, mmap_size, 0);¤	size_t ins_ofs = 0;¤	m_memory = m_file_for_mem->get_memory (0, (size_t) mmap_size, ins_ofs); // WARNING to remember about one HUGE block of mmap-memory¤	GDS_ASSERT (ins_ofs == 0);¤	//#UC END# *49CB8C940353_49CB8CA802B7_49D0A74A009E_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_49D0A74A009E_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB93190173_49D0A74A009E_BASE_INIT*¤: m_file_for_mem (0)¤, m_memory (0)¤, m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB93190173_49D0A74A009E_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_49D0A74A009E_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB93190173_49D0A74A009E_BODY*¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	LOG_I (("%s (): vector_size = %Q, element_size = %Q", GDS_CURRENT_FUNCTION, vector_size, element_size));¤	GDS_ASSERT (element_size <= Containers::ELEM_SIZE);¤	Containers::Offset64 mmap_size = ((vector_size * element_size) / 65536) * 65536 + 65536;¤	LOG_I (("%s (): mmap_size = %Q", GDS_CURRENT_FUNCTION, mmap_size));¤	m_file_for_mem = GCI::MMap::FileForMemFactory::open (file_name, 0, 0);¤	size_t ins_ofs = 0;¤	m_memory = m_file_for_mem->get_memory (0, (size_t) mmap_size, ins_ofs); // WARNING to remember about one HUGE block of mmap-memory¤	GDS_ASSERT (ins_ofs == 0);¤	//#UC END# *49CB8C940353_49CB93190173_49D0A74A009E_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_49D0A74A009E_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB935403A4_49D0A74A009E_BASE_INIT*¤//#UC END# *49CB8C940353_49CB935403A4_49D0A74A009E_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_49D0A74A009E_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB935403A4_49D0A74A009E_BODY*¤	//#UC END# *49CB8C940353_49CB935403A4_49D0A74A009E_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4A7968C3000A_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB8CA802B7_4A7968C3000A_BASE_INIT*¤: m_tree (0)¤, m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB8CA802B7_4A7968C3000A_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4A7968C3000A_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB8CA802B7_4A7968C3000A_BODY*¤	LOG_I (("%s (create): garant_tavl_allocator_default", GDS_CURRENT_FUNCTION));¤	m_tree = tavl_create (compare_ints64, NULL, &garant_tavl_allocator_default);¤	if (m_tree == NULL) {¤		LOG_E (("%s (): out of mem in tavl_create", GDS_CURRENT_FUNCTION));¤	}¤	//#UC END# *49CB8C940353_49CB8CA802B7_4A7968C3000A_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4A7968C3000A_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB93190173_4A7968C3000A_BASE_INIT*¤: m_tree (0)¤//#UC END# *49CB8C940353_49CB93190173_4A7968C3000A_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4A7968C3000A_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB93190173_4A7968C3000A_BODY*¤	//#UC END# *49CB8C940353_49CB93190173_4A7968C3000A_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4A7968C3000A_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB935403A4_4A7968C3000A_BASE_INIT*¤: m_tree (0)¤//#UC END# *49CB8C940353_49CB935403A4_4A7968C3000A_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4A7968C3000A_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB935403A4_4A7968C3000A_BODY*¤	//#UC END# *49CB8C940353_49CB935403A4_4A7968C3000A_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4A800B6B03AC_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB8CA802B7_4A800B6B03AC_BASE_INIT*¤: m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB8CA802B7_4A800B6B03AC_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4A800B6B03AC_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB8CA802B7_4A800B6B03AC_BODY*¤	//#UC END# *49CB8C940353_49CB8CA802B7_4A800B6B03AC_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4A800B6B03AC_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB93190173_4A800B6B03AC_BASE_INIT*¤: m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB93190173_4A800B6B03AC_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4A800B6B03AC_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB93190173_4A800B6B03AC_BODY*¤	//#UC END# *49CB8C940353_49CB93190173_4A800B6B03AC_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4A800B6B03AC_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB935403A4_4A800B6B03AC_BASE_INIT*¤: m_element_size (element_size)¤//#UC END# *49CB8C940353_49CB935403A4_4A800B6B03AC_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4A800B6B03AC_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB935403A4_4A800B6B03AC_BODY*¤	//#UC END# *49CB8C940353_49CB935403A4_4A800B6B03AC_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4A9FAB0E0023_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB8CA802B7_4A9FAB0E0023_BASE_INIT*¤: m_element_size (element_size)¤, m_map (64*1024*1024, 64*1024*1024)¤//#UC END# *49CB8C940353_49CB8CA802B7_4A9FAB0E0023_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4A9FAB0E0023_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB8CA802B7_4A9FAB0E0023_BODY*¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	//#UC END# *49CB8C940353_49CB8CA802B7_4A9FAB0E0023_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4A9FAB0E0023_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB93190173_4A9FAB0E0023_BASE_INIT*¤: m_element_size (element_size)¤, m_map (64*1024*1024, 64*1024*1024)¤//#UC END# *49CB8C940353_49CB93190173_4A9FAB0E0023_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4A9FAB0E0023_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB93190173_4A9FAB0E0023_BODY*¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	//#UC END# *49CB8C940353_49CB93190173_4A9FAB0E0023_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4A9FAB0E0023_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB935403A4_4A9FAB0E0023_BASE_INIT*¤: m_element_size (element_size)¤, m_map (64*1024*1024, 64*1024*1024)¤//#UC END# *49CB8C940353_49CB935403A4_4A9FAB0E0023_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4A9FAB0E0023_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB935403A4_4A9FAB0E0023_BODY*¤	LOG_I (("%s ()", GDS_CURRENT_FUNCTION));¤	//#UC END# *49CB8C940353_49CB935403A4_4A9FAB0E0023_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4AC0996E0036_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB8CA802B7_4AC0996E0036_BASE_INIT*¤: m_element_size (element_size)¤, m_fd (NULL)¤, m_vector_size (vector_size)¤, m_vector_cnt (0)¤//#UC END# *49CB8C940353_49CB8CA802B7_4AC0996E0036_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4AC0996E0036_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB8CA802B7_4AC0996E0036_BODY*¤	LOG_I (("%s (%s, %Q, %Q) O_CREAT GAR_AIO_MAX_WRITE_COUNTER = %u", GDS_CURRENT_FUNCTION, file_name, vector_size, element_size, GAR_AIO_MAX_WRITE_COUNTER));¤	//gar_aio_heap_init ();¤	m_fd = gar_aio_open (file_name, O_RDWR | O_CREAT, (long long) (vector_size * element_size));¤	//#UC END# *49CB8C940353_49CB8CA802B7_4AC0996E0036_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4AC0996E0036_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB93190173_4AC0996E0036_BASE_INIT*¤: m_element_size (element_size)¤, m_fd (NULL)¤, m_vector_size (vector_size)¤, m_vector_cnt (0)¤//#UC END# *49CB8C940353_49CB93190173_4AC0996E0036_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4AC0996E0036_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB93190173_4AC0996E0036_BODY*¤	LOG_I (("%s (%s, %Q, %Q) GAR_AIO_MAX_WRITE_COUNTER = %u", GDS_CURRENT_FUNCTION, file_name, vector_size, element_size, GAR_AIO_MAX_WRITE_COUNTER));¤	//gar_aio_heap_init ();¤	m_fd = gar_aio_open (file_name, O_RDWR, (long long) (vector_size * element_size));¤	//#UC END# *49CB8C940353_49CB93190173_4AC0996E0036_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4AC0996E0036_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB935403A4_4AC0996E0036_BASE_INIT*¤: m_element_size (element_size)¤, m_fd (NULL)¤//#UC END# *49CB8C940353_49CB935403A4_4AC0996E0036_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4AC0996E0036_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB935403A4_4AC0996E0036_BODY*¤	LOG_I (("%s (not implemented)", GDS_CURRENT_FUNCTION));¤	//#UC END# *49CB8C940353_49CB935403A4_4AC0996E0036_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4AC099940298_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB8CA802B7_4AC099940298_BASE_INIT*¤: m_element_size (element_size)¤, m_fd (NULL)¤, m_vector_size (vector_size)¤, m_vector_cnt (0)¤//#UC END# *49CB8C940353_49CB8CA802B7_4AC099940298_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB8CA802B7_4AC099940298_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB8CA802B7_4AC099940298_BODY*¤	LOG_I (("%s (%s, %Q, %Q) O_CREAT", GDS_CURRENT_FUNCTION, file_name, vector_size, element_size));¤	m_fd = gar_sio_open (file_name, O_RDWR | O_CREAT, (long long) (vector_size * element_size));¤	m_page_size = OpenFlags::get_page_size();¤	m_page.resize(m_page_size);¤	m_repeat_count = OpenFlags::get_repeat_count();¤	m_paging = OpenFlags::get_paging();¤	//#UC END# *49CB8C940353_49CB8CA802B7_4AC099940298_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4AC099940298_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB93190173_4AC099940298_BASE_INIT*¤: m_element_size (element_size)¤, m_fd (NULL)¤, m_vector_size (vector_size)¤, m_vector_cnt (0)¤//#UC END# *49CB8C940353_49CB93190173_4AC099940298_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB93190173_4AC099940298_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB93190173_4AC099940298_BODY*¤	LOG_I (("%s (%s, %Q, %Q)", GDS_CURRENT_FUNCTION, file_name, vector_size, element_size));¤	m_fd = gar_sio_open (file_name, O_RDWR, (long long) (vector_size * element_size));¤	m_page_size = OpenFlags::get_page_size();¤	m_page.resize(m_page_size);¤	m_repeat_count = OpenFlags::get_repeat_count();¤	m_paging = OpenFlags::get_paging();¤	//#UC END# *49CB8C940353_49CB93190173_4AC099940298_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4AC099940298_BASE_INIT*"
+		    value      	"//#UC START# *49CB8C940353_49CB935403A4_4AC099940298_BASE_INIT*¤: m_element_size (element_size)¤, m_fd (NULL)¤//#UC END# *49CB8C940353_49CB935403A4_4AC099940298_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49CB8C940353_49CB935403A4_4AC099940298_BODY*"
+		    value      	(value Text 
+|//#UC START# *49CB8C940353_49CB935403A4_4AC099940298_BODY*¤	LOG_I (("%s (not implemented)", GDS_CURRENT_FUNCTION));¤	m_page_size = OpenFlags::get_page_size();¤	m_page.resize(m_page_size);¤	m_repeat_count = OpenFlags::get_repeat_count();¤	m_paging = OpenFlags::get_paging();¤	//#UC END# *49CB8C940353_49CB935403A4_4AC099940298_BODY*
+		    )))
+	    quid       	"49CB8C940353"
+	    documentation 	"Vector"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "create"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49CB8CA802B7"
+		    documentation 	"ñîçäàåò âåêòîð ñî ñëó÷àéíûì äîòñóïîì, óêàçûâàåòñÿ ðàçìåð âåêòîðà âûðàæåííûé â êîë-âå åãî ýëåìåíòîâ è ðàçìåð îòäåëüíîãî ýëåìåíòà"
+		    stereotype 	"multi factory"
+		    parameters 	(list Parameters
+			(object Parameter "file_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"49CB8D1003C5"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "vector_size"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49CB96BA00A7"))
+			    quid       	"49CB8D11000C"
+			    type       	"Offset64"
+			    quidu      	"49CB96BA00A7")
+			(object Parameter "element_size"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49CB96BA00A7"))
+			    quid       	"49CB8D2701FB"
+			    type       	"Offset64"
+			    quidu      	"49CB96BA00A7"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_value"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8D2701DC_49CB8E230189*"
+			    value      	(value Text 
+|//#UC START# *49CB8D2701DC_49CB8E230189*¤	data_type d = (*m_io_vector) [vector_type::size_type (pos)];¤	memcpy (value, d.buf, (size_t) m_element_size);¤	//#UC END# *49CB8D2701DC_49CB8E230189*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8D2701DC_49CB8E7F003B*"
+			    value      	(value Text 
+|//#UC START# *49CB8D2701DC_49CB8E7F003B*¤	this->do_buffered_access (pos, value, false);¤	//#UC END# *49CB8D2701DC_49CB8E7F003B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8D2701DC_49D0A74A009E*"
+			    value      	(value Text 
+|//#UC START# *49CB8D2701DC_49D0A74A009E*¤	memcpy (value, (char*) m_memory->get_base_addr () + pos * m_element_size, (size_t) m_element_size);¤	//#UC END# *49CB8D2701DC_49D0A74A009E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8D2701DC_4A7968C3000A*"
+			    value      	(value Text 
+|//#UC START# *49CB8D2701DC_4A7968C3000A*¤	TAVLKeyData tkd (pos, value, (size_t) m_element_size);¤	void* p = tavl_find (m_tree, &tkd);¤	if (p == NULL) {¤		LOG_E (("%s (): not found key = %Q", GDS_CURRENT_FUNCTION, tkd.key));¤	} else {¤		TAVLKeyData* p1 = (TAVLKeyData*) p;¤		memcpy (value, p1->data, (size_t) m_element_size);¤	}¤	//#UC END# *49CB8D2701DC_4A7968C3000A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8D2701DC_4A800B6B03AC*"
+			    value      	(value Text 
+|//#UC START# *49CB8D2701DC_4A800B6B03AC*¤	Container::const_iterator it = m_map.find (pos);¤	if (it != m_map.end ()) {¤		ACE_OS::memcpy (value, it->second.buf, (size_t) m_element_size);¤	} else {¤		LOG_E (("%s (): not found key = %Q", GDS_CURRENT_FUNCTION, pos));¤	}¤	//#UC END# *49CB8D2701DC_4A800B6B03AC*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8D2701DC_4A9FAB0E0023*"
+			    value      	(value Text 
+|//#UC START# *49CB8D2701DC_4A9FAB0E0023*¤	Container::const_iterator it = m_map.find (pos);¤	if (it != m_map.end ()) {¤		ACE_OS::memcpy (value, &it->second.buffer[0], (size_t) m_element_size);¤	} else {¤		LOG_E (("%s (): not found key = %Q", GDS_CURRENT_FUNCTION, pos));¤	}¤	//#UC END# *49CB8D2701DC_4A9FAB0E0023*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8D2701DC_4AC0996E0036*"
+			    value      	(value Text 
+|//#UC START# *49CB8D2701DC_4AC0996E0036*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *49CB8D2701DC_4AC0996E0036*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8D2701DC_4AC099940298*"
+			    value      	(value Text 
+|//#UC START# *49CB8D2701DC_4AC099940298*¤	long long ofs = (long long) (pos * m_element_size);¤	for(unsigned long i = 0; i < m_repeat_count; i++) {¤		gar_sio_lseek (m_fd, ofs, FILE_BEGIN);¤		gar_sio_read (m_fd, value, (unsigned int) m_element_size);¤	}¤	//#UC END# *49CB8D2701DC_4AC099940298*
+			    )))
+		    quid       	"49CB8D2701DC"
+		    documentation 	"çàãðóæàåò çíà÷åíèå èç âåêòîðà ïî ïåðåäàííîìó óêàçàòåëþ"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "pos"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49CB96BA00A7"))
+			    quid       	"49CB8D790021"
+			    type       	"Offset64"
+			    quidu      	"49CB96BA00A7")
+			(object Parameter "inout value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3ECB343C024C"))
+			    quid       	"49CB8D79004F"
+			    type       	"pointer"
+			    quidu      	"3ECB343C024C"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "set_value"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8DA401BF_49CB8E230189*"
+			    value      	(value Text 
+|//#UC START# *49CB8DA401BF_49CB8E230189*¤	data_type d;¤	memcpy (d.buf, value, (size_t) m_element_size);¤	(*m_io_vector) [vector_type::size_type (pos)] = d;¤	//#UC END# *49CB8DA401BF_49CB8E230189*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8DA401BF_49CB8E7F003B*"
+			    value      	(value Text 
+|//#UC START# *49CB8DA401BF_49CB8E7F003B*¤	this->do_buffered_access (pos, value, true);¤	//#UC END# *49CB8DA401BF_49CB8E7F003B*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8DA401BF_49D0A74A009E*"
+			    value      	(value Text 
+|//#UC START# *49CB8DA401BF_49D0A74A009E*¤	memcpy ((char*) m_memory->get_base_addr () + pos * m_element_size, value, (size_t) m_element_size);¤	//#UC END# *49CB8DA401BF_49D0A74A009E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8DA401BF_4A7968C3000A*"
+			    value      	(value Text 
+|//#UC START# *49CB8DA401BF_4A7968C3000A*¤//unsigned char* cv = (unsigned char*) value;¤//cv [0] = (unsigned char) (pos % 256);¤	TAVLKeyData* p1 = (TAVLKeyData*) (*garant_tavl_allocator_default.libavl_malloc) (&garant_tavl_allocator_default, sizeof (TAVLKeyData));¤	TAVLKeyData tavl_data (pos, value, (size_t) m_element_size);¤	memcpy (p1, &tavl_data, sizeof (TAVLKeyData));¤	void** p = tavl_probe (m_tree, p1);¤	if (p == NULL) {¤		LOG_E (("%s (): out of mem in tavl_probe", GDS_CURRENT_FUNCTION));¤	} else {¤		if (*p != p1) {¤			memcpy (p1->data, value, (size_t) m_element_size);¤			(*garant_tavl_allocator_default.libavl_free) (&garant_tavl_allocator_default, p1);¤		}¤	}¤	//#UC END# *49CB8DA401BF_4A7968C3000A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8DA401BF_4A800B6B03AC*"
+			    value      	(value Text 
+|//#UC START# *49CB8DA401BF_4A800B6B03AC*¤	ACE_OS::memcpy (m_map[pos].buf, value, (size_t) m_element_size);¤	//#UC END# *49CB8DA401BF_4A800B6B03AC*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8DA401BF_4A9FAB0E0023*"
+			    value      	(value Text 
+|//#UC START# *49CB8DA401BF_4A9FAB0E0023*¤	ACE_OS::memcpy (&m_map[pos].buffer[0], value, (size_t) m_element_size);¤	//#UC END# *49CB8DA401BF_4A9FAB0E0023*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8DA401BF_4AC0996E0036*"
+			    value      	(value Text 
+|//#UC START# *49CB8DA401BF_4AC0996E0036*¤	long long ofs = (long long) (pos * m_element_size);¤	gar_aio_write (m_fd, value, (unsigned int) m_element_size, ofs);¤¤	++m_vector_cnt;¤	if (m_vector_cnt == m_vector_size) {¤		LOG_I (("%s (m_vector_cnt = %Q): gar_aio_close", GDS_CURRENT_FUNCTION, m_vector_cnt));¤		gar_aio_close (m_fd);¤	}¤	//#UC END# *49CB8DA401BF_4AC0996E0036*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CB8DA401BF_4AC099940298*"
+			    value      	(value Text 
+|//#UC START# *49CB8DA401BF_4AC099940298*¤	long long ofs = (long long) (pos * m_element_size);¤	gar_sio_lseek (m_fd, ofs, FILE_BEGIN);¤	gar_sio_write (m_fd, value, (unsigned int) m_element_size);¤¤	++m_vector_cnt;¤	if (m_vector_cnt == m_vector_size) {¤		LOG_I (("%s (m_vector_cnt = %Q): gar_sio_close", GDS_CURRENT_FUNCTION, m_vector_cnt));¤		gar_sio_close (m_fd);¤	}¤	//#UC END# *49CB8DA401BF_4AC099940298*
+			    )))
+		    quid       	"49CB8DA401BF"
+		    documentation 	"ñîõðàíÿåò çíà÷åíèå â âåêòîð ïî ïåðåäàííîìó óêàçàòåëþ"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "pos"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49CB96BA00A7"))
+			    quid       	"49CB8DAC026E"
+			    type       	"Offset64"
+			    quidu      	"49CB96BA00A7")
+			(object Parameter "inout value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3ECB343C024C"))
+			    quid       	"49CB8DAC029D"
+			    type       	"pointer"
+			    quidu      	"3ECB343C024C"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "open"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49CB93190173"
+		    documentation 	"open"
+		    stereotype 	"multi factory"
+		    parameters 	(list Parameters
+			(object Parameter "file_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"49CB93430313"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "inout vector_size"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49CB96BA00A7"))
+			    quid       	"49CB93430390"
+			    type       	"Offset64"
+			    quidu      	"49CB96BA00A7")
+			(object Parameter "element_size"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49CB96BA00A7"))
+			    quid       	"49CB93440006"
+			    type       	"Offset64"
+			    quidu      	"49CB96BA00A7"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "open_ro"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49CB935403A4"
+		    documentation 	"open_ro"
+		    stereotype 	"multi factory"
+		    parameters 	(list Parameters
+			(object Parameter "file_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"49CB93690112"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "inout vector_size"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49CB96BA00A7"))
+			    quid       	"49CB976303AE"
+			    type       	"Offset64"
+			    quidu      	"49CB96BA00A7")
+			(object Parameter "element_size"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49CB96BA00A7"))
+			    quid       	"49CB936901FC"
+			    type       	"Offset64"
+			    quidu      	"49CB96BA00A7"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "impl_selector"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"49CB902701D8"
+		    documentation 	"impl_selector"
+		    stereotype 	"factory switch"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "element_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*49CBB93C038A_49CB8E7F003B_GET*"
+			    value      	(value Text 
+|//#UC START# *49CBB93C038A_49CB8E7F003B_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *49CBB93C038A_49CB8E7F003B_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"49CB96BA00A7"))
+		    quid       	"49CBB93C038A"
+		    documentation 	"ðàçìåð ýëåìåíòà âåêòîðà â áàéòàõ"
+		    stereotype 	"readonly"
+		    type       	"Offset64"
+		    quidu      	"49CB96BA00A7"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "Offset64"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"49CB96BA00A7"
+	    documentation 	"Offset64"
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"49CB96D703A4"
+		    supplier   	"Logical View::Primitives::unsigned long long"
+		    quidu      	"3DBFFDF10213"))
+	    language   	"MDA Generator")
+	(object Class "Boundaries"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"49CCCF9102CF"
+	    documentation 	"ãðàíè÷íûå çíà÷åíèÿ"
+	    stereotype 	"Constants"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "ELEM_SIZE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"49CCCFB0031B"
+		    documentation 	"ðàçìåð ýëåìåíòà êîíòåéíåðà åñëè íåëüçÿ óñòàíîâèòü â run-time (íàïðèìåð äëÿ øàáëîííûõ êëàññîâ)"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"48"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"49CB8C8F00DC"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::TestRandomAccess::RandomAccess::Containers::Vector" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1161, 360)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(255, 163)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1812
+			justify    	0
+			label      	"Vector")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(255, 113)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1812
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"49CB8C940353"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(255, 224)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	8
+			max_width  	1840
+			justify    	1)
+		    width      	1830
+		    height     	518
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::TestRandomAccess::RandomAccess::Containers::Offset64" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1185, 909)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1055, 888)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	260
+			justify    	0
+			label      	"Offset64")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1055, 838)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	258
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"49CB96BA00A7"
+		    width      	278
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::unsigned long long" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1749, 906)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1526, 860)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	446
+			justify    	0
+			label      	"unsigned long long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFDF10213"
+		    width      	464
+		    height     	117
+		    autoResize 	TRUE)
+		(object InheritView "" @4
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49CB96D703A4"
+		    client     	@2
+		    supplier   	@3
+		    vertices   	(list Points
+			(1324, 908)
+			(1516, 906))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::TestRandomAccess::RandomAccess::Containers::Boundaries" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(384, 894)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6579300
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(225, 873)
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"Boundaries")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(225, 823)
+			anchor     	10
+			nlines     	1
+			max_width  	315
+			justify    	0
+			label      	"<<Constants>>")
+		    icon_style 	"Label"
+		    line_color 	6579300
+		    fill_color 	16777215
+		    quidu      	"49CCCF9102CF"
+		    width      	336
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)))))

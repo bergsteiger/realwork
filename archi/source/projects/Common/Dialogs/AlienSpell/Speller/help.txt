@@ -1,0 +1,402 @@
+TSpellChecker
+
+TSpellChecker implements MS Office 97 compatible spell-checker. 
+
+Unit
+spellers
+
+Description
+TSpellChecker is non-visual component, which enables spelling check in 
+your applications.
+
+-----------------------------------------------------------------------
+TSpellChecker properties
+	Active
+	Caption
+	FinishMessage
+	Language
+	MisspellFont
+	Options
+	ShowFinishMessage
+	SpellMode
+
+TSpellChecker methods
+	CheckText
+	CheckMemo
+	Close
+	GetVariants
+	IsKnownWord
+	Open
+
+TSpellChecker events
+	OnChangeText
+	OnClose
+	OnMisspelling
+	OnOpen
+
+-----------------------------------------------------------------------
+TSpellChecker.Active
+Determines whether spell-checker is active.
+
+property Active: Boolean;
+
+Description
+If Active is True, the spell-checker is active and can execute spelling 
+check. Published properties can be changed only when Active is False. 
+All methods with except of Open are available only when Active is True. 
+Methods Open and Close affects the value of Active. When changing, 
+events OnOpen and OnClose occurs. 
+
+-----------------------------------------------------------------------
+TSpellChecker.Caption
+Defines caption for speller dialog.
+
+property Caption: TCaption;
+
+Description
+In interactive mode defines caption for speller dialog window. Symbols 
+"%s" can be used to substitute language name.
+
+-----------------------------------------------------------------------
+TSpellChecker.FinishMessage
+Defines text of message box after spelling check is finished.
+
+property FinishMessage: String;
+
+Description
+In interactive mode message box can be shown after spelling check is 
+complete if ShowFinishMessage property is True. In this case 
+FinishMessage defines text of the maessage box.
+
+-----------------------------------------------------------------------
+TSpellChecker.Language
+Defines language for spelling check.
+
+type
+  TLanguage = 0..$FFFF;
+
+property Language: TLanguage;
+
+Description
+The property defines language for which spelling check is executed. Can 
+be changed when Active is False. The value can be any valid system 
+LCID, but spelling check will work only when corresponding spell 
+checker is properly installed in MS Office (use GetSpellLanguages to 
+get list of installed spell-checkers). In Object Inspector value of 
+Language can bet set by four ways:
+- type decimal or hexadecimal value of LCID, e.g. $409, 1049;
+- type three-letter standard abbreviation of language name, e.g. ENU, 
+  RUS;
+- type English name of language, e.g. English (United States), Russian;
+- type language name in your native language (more exactly, native for 
+  your Windows).
+In run-time you can use some constants to set value of Language.
+
+const
+  langAfrikaans = TLanguage(1078);
+  langAlbanian = TLanguage(1052);
+  langArabic = TLanguage(1025);
+  langBasque = TLanguage(1069);
+  langBelgianDutch = TLanguage(2067);
+  langBelgianFrench = TLanguage(2060);
+  langBrazilianPortuguese = TLanguage(1046);
+  langBulgarian = TLanguage(1026);
+  langByelorussian = TLanguage(1059);
+  langCatalan = TLanguage(1027);
+  langCroatian = TLanguage(1050);
+  langCzech = TLanguage(1029);
+  langDanish = TLanguage(1030);
+  langDutch = TLanguage(1043);
+  langEnglishAUS = TLanguage(3081);
+  langEnglishCanadian = TLanguage(4105);
+  langEnglishNewZealand = TLanguage(5129);
+  langEnglishSouthAfrica = TLanguage(7177);
+  langEnglishUK = TLanguage(2057);
+  langEnglishUS = TLanguage(1033);
+  langEstonian = TLanguage(1061);
+  langFaeroese = TLanguage(1080);
+  langFarsi = TLanguage(1065);
+  langFinnish = TLanguage(1035);
+  langFinnishSwedish = TLanguage(2077);
+  langFrench = TLanguage(1036);
+  langFrenchCanadian = TLanguage(3084);
+  langGerman = TLanguage(1031);
+  langGreek = TLanguage(1032);
+  langHebrew = TLanguage(1037);
+  langHungarian = TLanguage(1038);
+  langItalian = TLanguage(1040);
+  langIcelandic = TLanguage(1039);
+  langIndonesian = TLanguage(1057);
+  langJapanese = TLanguage(1041);
+  langKorean = TLanguage(1042);
+  langLatvian = TLanguage(1062);
+  langLithuanian = TLanguage(1063);
+  langMacedonian = TLanguage(1071);
+  langMalaysian = TLanguage(1086);
+  langMexicanSpanish = TLanguage(2058);
+  langNorwegianBokmol = TLanguage(1044);
+  langNorwegianNynorsk = TLanguage(2068);
+  langPolish = TLanguage(1045);
+  langPortuguese = TLanguage(2070);
+  langRomanian = TLanguage(1048);
+  langRussian = TLanguage(1049);
+  langSerbianCyrillic = TLanguage(3098);
+  langSerbianLatin = TLanguage(2074);
+  langSesotho = TLanguage(1072);
+  langSimplifiedChinese = TLanguage(2052);
+  langSlovak = TLanguage(1051);
+  langSlovenian = TLanguage(1060);
+  langSpanish = TLanguage(1034);
+  langSpanishModernSort = TLanguage(3082);
+  langSwedish = TLanguage(1053);
+  langSwissFrench = TLanguage(4108);
+  langSwissGerman = TLanguage(2055);
+  langSwissItalian = TLanguage(2064);
+  langThai = TLanguage(1054);
+  langTraditionalChinese = TLanguage(1028);
+  langTsonga = TLanguage(1073);
+  langTswana = TLanguage(1074);
+  langTurkish = TLanguage(1055);
+  langUkrainian = TLanguage(1058);
+  langVenda = TLanguage(1075);
+  langVietnamese = TLanguage(1066);
+  langXhosa = TLanguage(1076);
+  langZulu = TLanguage(1077);
+
+-----------------------------------------------------------------------
+TSpellChecker.MisspellFont
+Defines character attributes for misspellings.
+
+type
+  TMisspellFontOption = (mfoName, mfoSize, mfoHeight, mfoColor, 
+mfoPitch, mfoStyle);
+
+  TMisspellFontOptions = set of TMisspellFontOption;
+
+  TMisspellFont = class(TFont)
+  published
+    property MisspellOptions: TMisspellFontOptions;
+  end;
+
+property MisspellFont: TMisspellFont;
+
+Description
+When checking RichText in non-intercative modes, MisspellFont is used 
+to mark misspellings. Property MisspellOptions of MisppellFont defines 
+which elements of character formatting will be used:
+
+mfoName:	typeface name will be applied;
+mfoSize:	character size will be applied;
+mfoHeight:	character height will be applied;
+mfoColor:	color will be applied;
+mfoPitch:	pitch will be applied;
+mfoStyle:	font style will be applied.
+
+-----------------------------------------------------------------------
+TSpellChecker.Options
+Defines options of spell-checker.
+
+type
+  TSpellOption = (spoSuggestFromUserDict, spoIgnoreAllCaps, 
+spoIgnoreMixedDigits, spoIgnoreRomanNumerals, spoFindUncappedSentences, 
+spoFindMissingSpaces, spoFindRepeatWord, spoFindExtraSpaces, 
+spoFindSpacesBeforePunc, spoFindSpacesAfterPunc, spoRateSuggestions, 
+spoFindInitialNumerals);
+
+  TSpellOptions = set of TSpellOption;
+
+property Options: TSpellOptions;
+
+Description
+Options of spell-checker are described in CSAPI.DOC. If you not 
+satisfied by names of constants, please try to find the document 
+anywhere on Internet. I wasn't able.
+
+-----------------------------------------------------------------------
+TSpellChecker.ShowFinishMessage
+Defines whether message box after spelling check is shown.
+
+property ShowFinishMessage: Boolean;
+
+Description
+In interactive mode message box can be shown after spelling check is 
+complete if ShowFinishMessage property is True. In this case 
+FinishMessage defines text of the maessage box.
+
+-----------------------------------------------------------------------
+TSpellChecker.SpellMode
+Defines mode for spelling check.
+
+type
+  TSpellMode = (smInteractive, smBackground, smParallel);
+
+property SpellMode: TSpellMode;
+
+Description
+Behaviour of SpellChecker depends on value of SpellMode.
+
+smInteractive:	For any misspelling dialog window is shown, where 
+user can select alternatives or type in proper variant or 
+add word to dictionary. 
+smBackground:	Spell-checker marks all misspellings with MisspellFont.
+smParallel:	Same as smBackground, but executed in parallel thread.
+
+In all modes OnMisspelling and OnChangeText events occurs. 
+
+-----------------------------------------------------------------------
+TSpellChecker.CheckText
+Checks TStrings object.
+
+procedure CheckText(Text: TStrings);
+
+Description
+Performs spelling check of Text in background mode. For OnMisspelling 
+and OnChangeText events BufPos are positions in Text.Text decremented 
+by 1. If you want to check memo strings, do not use Memo.Lines but use 
+Paragraphs(Memo). 
+
+-----------------------------------------------------------------------
+TSpellChecker.CheckMemo
+Checks TCustomMemo object or its descendants.
+
+procedure CheckMemo(Memo: TCustomMemo);
+
+Description
+Performs spelling check of Memo using SpellMode.
+
+Tip
+Set Memo.HideSelection to False to see misspellings in Memo.
+
+-----------------------------------------------------------------------
+TSpellChecker.Close
+Closes SpellChecker object.
+
+procedure Close;
+
+Description
+Closing of SpellChecker allows to change properties of object and sets 
+Active to False. OnClose event also ocurs.
+
+-----------------------------------------------------------------------
+TSpellChecker.GetVariants
+Returns suggestions for unknown word.
+
+procedure GetVariants(Word: String; Variants: TStrings);
+
+Description
+Fills Variants with alternatives of Word. If Word isn't misspelling, 
+Variants is empty list.
+
+-----------------------------------------------------------------------
+TSpellChecker.IsKnownWord
+Determines whether word is known.
+
+function IsKnownWord(Word: String): Boolean;
+
+Description
+Returns True when Word doesn't contain misspellings.
+
+-----------------------------------------------------------------------
+TSpellChecker.Open
+Opens SpellChecker object.
+
+procedure Open;
+
+Description
+Opening of SpellChecker allows to execute spelling check and sets 
+Active to True. OnOpen event also ocurs.
+
+-----------------------------------------------------------------------
+TSpellChecker.OnChangeText
+OnChangeText occurs when spell-checker is to change misspelling with 
+alternative.
+
+type
+  TChangeTextEvent = procedure(Sender: TObject; BufPos, Len: Integer; 
+NewWord: String) of object;
+
+property OnChangeText: TChangeTextEvent;
+
+Description
+The event occurs whenever user pushs Change or Change All in speller 
+dialog window. In last case event occurs for every occurence of 
+misspelled word in the checked text. BufPos is zero-based start 
+position of misspelling in text (like SelStart property of TMemo). When 
+occurs in CheckText, BufPos must be incremented by 1 to obtain string 
+index. Len is length of misspelling (like SelLength property of TMemo). 
+NewWord is selected suggestion or typed alternative.
+
+-----------------------------------------------------------------------
+TSpellChecker.OnCLose
+OnClose occurs when method Close is called.
+
+property OnClose: TNotifyEvent; 
+
+-----------------------------------------------------------------------
+TSpellChecker.OnMisspelling
+OnMisspelling occurs when misspelling is found.
+
+type
+  TSpellReturnCode = (srNoErrors, srUnknownInputWord, 
+srReturningChangeAlways, srReturningChangeOnce, srInvalidHyphenation, 
+srErrorCapitalization, srWordConsideredAbbreviation, 
+srHyphChangesSpelling, srNoMoreSuggestions, 
+srMoreInfoThanBufferCouldHold, srNoSentenceStartCap, srRepeatWord, 
+srExtraSpaces, srMissingSpace, srInitialNumeral);
+
+  TMisspellEvent = procedure (Sender: TObject; SRC: TSpellReturnCode; 
+BufPos, Len: Integer) of object;
+
+property OnMisspelling: TMisspellEvent;
+
+Description
+The event occurs whenever spell-checker found misspelling in checked 
+text. SRC describes type of misspelling. Description of constants are 
+in CSAPI.DOC. If you not satisfied by names of constants, please try to 
+find the document anywhere on Internet. I wasn't able. BufPos is zero-
+based start position of misspelling in text (like SelStart property of 
+TMemo). When occurs in CheckText, BufPos must be incremented by 1 to 
+obtain string index. Len is length of misspelling (like SelLength 
+property of TMemo).
+
+-----------------------------------------------------------------------
+TSpellChecker.OnOpen
+OnOpen occurs when method Open is called.
+
+property OnOpen: TNotifyEvent;
+
+-----------------------------------------------------------------------
+Paragraphs
+Returns content of TMemo.
+
+function Paragraphs(Memo: TCustomMemo): TStrings;
+
+Description
+In difference to TMemo.Lines, which returns wrapped strings, Paragraphs 
+returns every paragraph as line. 
+
+-----------------------------------------------------------------------
+GetSpellLanguages
+Fills string list with names of installed spell-checkers.
+
+type
+  TLangOption = (loLocalized, loEnglish, loNative, loAbbrev);
+
+function GetSpellLanguages(Languages: TStrings; Option: TLangOption): 
+Integer;
+
+Description
+Use GetSpellLanguages to get list of installed spell-checkers in 
+Languages parameter. Languages.Items contains names of installed 
+languages as defined in Option and Languages.Objects contains 
+corresponding language identifiers, which can be used by the next way:
+
+  SpellChecker.Language:= TLanguage(Languages.Objects[N]);
+
+Option defines which names of languages you want:
+
+loLocalized	Names in your native language.
+loEnglish	English names of languages.
+loNative	Names of languages in that languages.
+loAbbrev	Three-letter abbreviated names.
+

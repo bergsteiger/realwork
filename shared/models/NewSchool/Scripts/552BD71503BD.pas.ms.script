@@ -1,0 +1,249 @@
+// PictureEtalonsWorkingPack 552BD71503BD ScriptKeywordsPack Class
+
+FORWARD ME_552BD71503BD
+
+INCLUDE '561BAC4B0005.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_0624C398EE8C
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_EB10DD6ECB57
+ CONST UID 'EB10DD6ECB57'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация EnabledSaveRTFPictures' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_EB10DD6ECB57 Ini_Reg
+
+: ME_0624C398EE8C
+ CONST UID '0624C398EE8C'
+ CONST Name 'EnabledSaveRTFPictures'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта EnabledSaveRTFPictures'#13#10'{panel}Включить режим сохранения картинок при импорте из RTF/DOC/DOCX. Нужно вызывать перед каждой выливкой из RTF, т.к.флаг сбрасывается.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' EnabledSaveRTFPictures'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_561BAC4B0005 // TtfwGlobalKeyWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_EB10DD6ECB57 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'EnabledSaveRTFPictures'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_0624C398EE8C EnabledSaveRTFPictures
+
+FORWARD ME_8682318410BD
+
+: ME_199289C112A2
+ CONST UID '199289C112A2'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_199289C112A2 aCtx
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_199289C112A3
+ CONST UID '199289C112A3'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_199289C112A3 aValue
+
+: ME_03229B3839D8
+ CONST UID '03229B3839D8'
+ CONST Name 'GeneratePDFForEtalon'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта GeneratePDFForEtalon' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_199289C112A2 // aCtx
+ ME_199289C112A3 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_03229B3839D8 GeneratePDFForEtalon
+
+: ME_6B17D8C8414B
+ CONST UID '6B17D8C8414B'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация GeneratePDFForEtalon' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_6B17D8C8414B Ini_Reg
+
+: ME_8682318410BD
+ CONST UID '8682318410BD'
+ CONST Name 'GeneratePDFForEtalon'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта GeneratePDFForEtalon'#13#10'{panel}*Формат*:'#13#10'{code}'#13#10'aFlag GeneratePDFForEtalon'#13#10'{code}'#13#10'где aFlag - true или false.'#13#10'Включить/выключить режим генерации текстового PDF, который удобно использовать для сравнения. Нужно выставлять при каждом экспорте, т.к.флаг сбрасывается в False.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue GeneratePDFForEtalon'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_561BAC4B0005 // TtfwGlobalKeyWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_03229B3839D8 // GeneratePDFForEtalon
+ ME_6B17D8C8414B // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'GeneratePDFForEtalon'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_8682318410BD GeneratePDFForEtalon
+
+: ME_552BD761009D
+ CONST UID '552BD761009D'
+ CONST Name 'EnabledSaveRTFPictures'
+ CONST Class 'Operation'
+ CONST Stereotype 'globalkeyword'
+ %SUMMARY 'Включить режим сохранения картинок при импорте из RTF/DOC/DOCX. Нужно вызывать перед каждой выливкой из RTF, т.к.флаг сбрасывается.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_552BD761009D EnabledSaveRTFPictures
+
+: ME_552BDFB9027B
+ CONST UID '552BDFB9027B'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_552BDFB9027B aValue
+
+: ME_552BD7870165
+ CONST UID '552BD7870165'
+ CONST Name 'GeneratePDFForEtalon'
+ CONST Class 'Operation'
+ CONST Stereotype 'globalkeyword'
+ %SUMMARY '*Формат*:'#13#10'{code}'#13#10'aFlag GeneratePDFForEtalon'#13#10'{code}'#13#10'где aFlag - true или false.'#13#10'Включить/выключить режим генерации текстового PDF, который удобно использовать для сравнения. Нужно выставлять при каждом экспорте, т.к.флаг сбрасывается в False.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_552BDFB9027B // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_552BD7870165 GeneratePDFForEtalon
+
+: ME_974C69B47546
+ CONST UID '974C69B47546'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_974C69B47546 Reg_TtfwContext
+
+: ME_F2169A43C125
+ CONST UID 'F2169A43C125'
+ CONST Name 'Reg_Boolean'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Boolean' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F2169A43C125 Reg_Boolean
+
+: ME_552BD71503BD
+ CONST UID '552BD71503BD'
+ CONST Name 'PictureEtalonsWorkingPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_552BD761009D // EnabledSaveRTFPictures
+ ME_552BD7870165 // GeneratePDFForEtalon
+ ME_974C69B47546 // Reg_TtfwContext
+ ME_F2169A43C125 // Reg_Boolean
+ ]
+ ; // Operations
+ : Children
+   [ ME_0624C398EE8C // EnabledSaveRTFPictures
+ ME_8682318410BD // GeneratePDFForEtalon
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_552BD71503BD PictureEtalonsWorkingPack

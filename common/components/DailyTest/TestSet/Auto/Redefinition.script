@@ -1,0 +1,54 @@
+USES
+ CodeDump.script
+;
+
+: B
+ 1 .
+; // B
+ 
+REDEFINITION
+: B
+ INHERITED
+ ( INHERITED )
+ 2 .
+; // B
+ 
+Test RedefinitionTest
+
+/*{IMMEDIATE VOID operator INHERITED
+ OBJECT VAR l_Redef
+ Ctx:WordDefiningNow pop:Word:Redefines >>> l_Redef
+ l_Redef pop:object:IsNil ! ?ASSURE 'Не найдено переопределяемое слово'
+ l_Redef CompileValue
+; // INHERITED}*/
+
+ : A
+  1 .
+ ; // A
+ 
+/*{ [EXECUTE]
+ ( 
+  Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary pop:DictionaryEx:FileName .
+  'A' Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Dictionary .
+  'A' Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Word pop:Word:Name .
+  
+  'B' Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Dictionary .
+  'B' Ctx:PushFinder pop:KeywordFinder:KeywordByName pop:KeyWord:Word pop:Word:Name .
+ )}*/
+ 
+ REDEFINITION
+ : A
+  INHERITED
+  ( INHERITED )
+  2 .
+ ; // A 
+ 
+ A
+ B
+
+ @SELF DumpElement
+ @SELF __DumpMembers
+ 
+; // RedefinitionTest
+
+RedefinitionTest

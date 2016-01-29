@@ -1,0 +1,343 @@
+// DocumentPrintAndExportSettingRes BF4B3EC98238 UtilityPack Class
+
+FORWARD ME_BF4B3EC98238
+
+FORWARD ME_E8BC1A653B58
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_A61E8D41990A
+ CONST UID 'A61E8D41990A'
+ CONST Name 'pi_Document_PrintAndExport'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Идентификатор настройки "Печать и экспорт"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Документ/Печать и экспорт'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_A61E8D41990A pi_Document_PrintAndExport
+
+: ME_A879321D38FF
+ CONST UID 'A879321D38FF'
+ CONST Name 'pi_Document_PrintAndExport_Default'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Идентификатор настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Документ/Печать и экспорт/Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_A879321D38FF pi_Document_PrintAndExport_Default
+
+: ME_717E9B229419
+ CONST UID '717E9B229419'
+ CONST Name 'pi_Document_PrintAndExport_Custom'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Идентификатор настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Документ/Печать и экспорт/Использовать для экспорта и печати следующий размер шрифта'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_717E9B229419 pi_Document_PrintAndExport_Custom
+
+: ME_E8BC1A653B58
+ CONST UID 'E8BC1A653B58'
+ CONST Name 'PrintAndExportKey'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_A61E8D41990A // pi_Document_PrintAndExport
+ ME_A879321D38FF // pi_Document_PrintAndExport_Default
+ ME_717E9B229419 // pi_Document_PrintAndExport_Custom
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_E8BC1A653B58 PrintAndExportKey
+
+FORWARD ME_71E8DA4CA041
+
+: ME_BCA2A38BF93A
+ CONST UID 'BCA2A38BF93A'
+ CONST Name 'PrintAndExport'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Печать и экспорт' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Печать и экспорт'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_BCA2A38BF93A PrintAndExport
+
+: ME_71E8DA4CA041
+ CONST UID '71E8DA4CA041'
+ CONST Name 'PrintAndExportName'
+ CONST Class 'Class'
+ CONST Stereotype 'LocalConst'
+ %SUMMARY 'Имя настройки "Печать и экспорт"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_BCA2A38BF93A // PrintAndExport
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ @SELF
+; // ME_71E8DA4CA041 PrintAndExportName
+
+FORWARD ME_388416AEE17F
+
+: ME_DC23E7241A75
+ CONST UID 'DC23E7241A75'
+ CONST Name 'Default'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Использовать для экспорта и печати размер шрифта, отображаемого на экране' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_DC23E7241A75 Default
+
+: ME_007C95804CDA
+ CONST UID '007C95804CDA'
+ CONST Name 'Custom'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Использовать для экспорта и печати следующий размер шрифта'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_007C95804CDA Custom
+
+: ME_388416AEE17F
+ CONST UID '388416AEE17F'
+ CONST Name 'PrintAndExportValues'
+ CONST Class 'Class'
+ CONST Stereotype 'LocalConst'
+ %SUMMARY 'Значения для настройки "Печать и экспорт"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_DC23E7241A75 // Default
+ ME_007C95804CDA // Custom
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "elements prefix" 'PrintAndExport'
+ CONST "spell names" false
+
+ @SELF
+; // ME_388416AEE17F PrintAndExportValues
+
+FORWARD ME_75C8F116B965
+
+INCLUDE '4B3B36EC03B2.pas.ms.script'
+
+: ME_1437673574AE
+ CONST UID '1437673574AE'
+ CONST Name 'Default'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Использовать для экспорта и печати размер шрифта, отображаемого на экране' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Default''; rValue : ''Использовать для экспорта и печати размер шрифта, отображаемого на экране'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_1437673574AE Default
+
+: ME_7D280AF0CD3B
+ CONST UID '7D280AF0CD3B'
+ CONST Name 'Custom'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Custom''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_7D280AF0CD3B Custom
+
+: ME_75C8F116B965
+ CONST UID '75C8F116B965'
+ CONST Name 'LCImplPrintAndExportValues'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Локализуемые строки PrintAndExportValues' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_1437673574AE // Default
+ ME_7D280AF0CD3B // Custom
+ ]
+ ; // Attributes
+ CONST "elements prefix" 'str_PrintAndExport'
+ CONST "spell names" false
+
+ @SELF
+; // ME_75C8F116B965 LCImplPrintAndExportValues
+
+FORWARD ME_CEF7B7B86777
+
+: ME_E8376B9EC4C6
+ CONST UID 'E8376B9EC4C6'
+ CONST Name 'PrintAndExport'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Печать и экспорт' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport''; rValue : ''Печать и экспорт'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_E8376B9EC4C6 PrintAndExport
+
+: ME_CEF7B7B86777
+ CONST UID 'CEF7B7B86777'
+ CONST Name 'LCImplPrintAndExportName'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Локализуемые строки PrintAndExportName' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_E8376B9EC4C6 // PrintAndExport
+ ]
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+
+ @SELF
+; // ME_CEF7B7B86777 LCImplPrintAndExportName
+
+: ME_60A8CEC78BB7
+ CONST UID '60A8CEC78BB7'
+ CONST Name 'Init_Default'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_PrintAndExport_Default' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_60A8CEC78BB7 Init_Default
+
+: ME_0A1498B7269F
+ CONST UID '0A1498B7269F'
+ CONST Name 'Init_Custom'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_PrintAndExport_Custom' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_0A1498B7269F Init_Custom
+
+: ME_2E5B9D8D53C8
+ CONST UID '2E5B9D8D53C8'
+ CONST Name 'Init_PrintAndExport'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_PrintAndExport' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2E5B9D8D53C8 Init_PrintAndExport
+
+: ME_BF4B3EC98238
+ CONST UID 'BF4B3EC98238'
+ CONST Name 'DocumentPrintAndExportSettingRes'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Ресурсы для настройки "Печать и экспорт"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_60A8CEC78BB7 // Init_Default
+ ME_0A1498B7269F // Init_Custom
+ ME_2E5B9D8D53C8 // Init_PrintAndExport
+ ]
+ ; // Operations
+ : Children
+   [ ME_71E8DA4CA041 // PrintAndExportName
+ ME_388416AEE17F // PrintAndExportValues
+ ]
+ ; // Children
+ : Constants
+   [ ME_E8BC1A653B58 // PrintAndExportKey
+ ME_75C8F116B965 // LCImplPrintAndExportValues
+ ME_CEF7B7B86777 // LCImplPrintAndExportName
+ ]
+ ; // Constants
+ CONST "no hands" false
+
+ @SELF
+; // ME_BF4B3EC98238 DocumentPrintAndExportSettingRes

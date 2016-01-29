@@ -1,0 +1,277 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Активность: Спроектировать подсистему</title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="Top"></a><a name="XE_design_subsystem__designing"></a>Активность: Спроектировать подсистему</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Задать поведение интерфейсов подсистемы в терминах взаимодействий классов подсистемы.</li>
+      <li>Задокументировать внутреннюю структуру подсистемы.</li>
+      <li>Задать реализации между интерфейсами подсистемы и ее классами.</li>
+      <li>Определить зависимости с другими подсистемами</li>
+      <li>Создать IDL-описания интерфейсов подсистемы</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Шаги</font></strong></small>
+    <ul>
+      <li><a href="#Distribute Subsystem behavior">Распределить поведение подсистемы по элементам.</a></li>
+      <li><a href="#Document Subsystem Elements">Задокументировать элементы подсистемы</a></li>
+      <li><a href="#Describe Subsystem Dependencies"><font size="3">Описать зависимости подсистемы</font></a></li>
+      <li><a href="#Create IDL"><font size="3">Создать IDL-описания интерфейсов подсистемы</font></a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"> <small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/environment/pa_design.htm">Инструкция проектирования</a></li>
+      <li><a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектная модель</a> и <a href="../../artifacts/analysisndesign/pa_anmod.htm">Модель анализа</a>, с описанием реализаций прецедентов и выделенными подсистемами и интерфейсами</li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектная модель</a></li>
+      <li>IDL-описания интерфейсов системы</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_dsgnr.htm">Проектировщик</a></td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"> 
+	<small><font face="Arial"> <strong>Связи:</strong> </font> </small> 
+Подсистемы и их интерфейсы выявляются в ходе <a href="ac_ssdec.htm">Активности: Провести декомпозицию системы</a> и 
+<a href="ac_iddes.htm">Активности: Определить проектные элементы</a> </td>
+  </tr>
+</table>
+</center></div>
+
+<p>Следуйте <a href="../../library/name_rules.htm">Правилам именования</a> элементов модели при
+проведении работ по проектированию.
+
+
+
+<h3><a name="XE_design_subsystem__distributing_behavior_on_subsystem_elements"></a><a name="Distribute Subsystem behavior"><font size="4">Распределить поведение подсистемы по элементам</font></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" height="1" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li><font size="3">Задать внутреннее поведение подсистемы.</font></li>
+      <li><font size="3">Определить новые классы или подсистемы, необходимые джля удовлетворения требований подсистемы.</font></li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<font size="3">
+<p>Внешнее поведение подсистемы задается интерфейсами, которые она реализует.
+Операции реализовываются:
+<ul>
+  <li>классами подсистемы; эти операции могут требовать взаимодействия с другими классами
+или подсистемами.</li>
+  <li>интерфейсами подсистем внутри данной подсистемы.</li>
+</ul>
+<p>Взаимодействие элементов модели в подсистеме должны быть обозначены на диаграммах
+последовательностей, которые показывают, как реализовывается поведение подсистемы. Диаграмма 
+закрепляется на моджели за подсистемой. и используется при проектировании внутреннего
+поведения подсистемы.</p>
+<p>если поведение подсистемы очень зависит от состояний, лучше использовать для
+показа поведения диаграммы состояний.</p>
+<p>В подсистеме могут быть независимые потоки выполнения (нити), представленные активными классами.
+
+<p><font size="3">Внутренняя диаграмма последовательностей показывает, как классы обеспечивают интерфейсы
+подсистемы, что должно произойти внутри подсистемы, чтобы обеспечивть неообходимую функциональность,
+какие классы посылают сообщения из системы. Диаграммы помогают облегчить процесс понимания
+подсистемы, возможно в плане вторичного использования.
+<p>Создание новых классов, активных классов и подсистем должно повлечь переосмысление границ и 
+содержания подсистемы. </font><a href="ac_iddes.htm">Активность:
+Определить проектные элементы</a><font size="3"> должна периодически инициироваться для нахождения 
+новых ответственностей.
+<h3><a name="Document Subsystem Elements"><b><font size="4">Задокументировать элементы подсистемы</font></b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" height="1" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Задокументировать внутреннюю организацию подсистемы.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>Создайте одну или несколько диаграмм классов, показывающих содержащиеся в подсистеме элементы, их
+взаимоотношения. Несколько диаграмм позволяет уменьшить комплексность и улучшить читабельность
+диаграммы.</p>
+<p><font size="3">Дополнительно, диаграммы состояний могут помочь задокументировать
+состояния подсистемы.
+
+<h3><a name="Describe Subsystem Dependencies"><b><font size="4">
+Описать зависимости подсистемы</font></b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" height="1" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Задокументировать интерфейсы, от которых зависит подсистема.</li>
+    </ul>
+    </td>
+  </tr>
+</font>
+</table>
+</center></div>
+
+<font size="3">
+<p>Когда элемент, находящийся в подсистеме использует поведение элемента другой подсистемы,
+зависимость создается между подсистемами. Для упрощения дальнейшего вторичного использования подсистемы
+и уменьшения зависимостей, эта зависимость выражается в зависимости отдельных
+интерфейсов подсистемы, не всей подсистемы и не отдельных, содержащихся в ней элементов.
+<p>Причина вот в чем:
+<ul>
+  <li>Мы хотим получить возможность замены одного элемента другим, сохраняя поведение подсистемы.</li>
+  <li>Мы даем проектировщику большую свободу в проектировании внутренностей подсистемы, задавая лишь
+внешнее корректное поведение.</li>
+</ul>
+<p>При создании зависимостей, удостоверьтесь, что нет прямых взаимосвязей или взаимодействий между
+элементами, находящимися внутри подсистемы и элементами других подсистем. Также проверьте,
+что нет круговых зависимостей между интерфейсами и подсистемами. Подсистема не должна одновременно
+реализовывать интерфейс и зависеть от него.
+<p><font size="3">Когда существует возможность потенциальной замены одной подсистемы другой (
+имеющих похожие интерфейсы), зависимость может быть показана к интерфейсу, реализумому подсистемой,
+нежели к самой подсистеме. Это позволит элементам, использующим интерфейс, обращаться к любому 
+элементу модели (классу или подсистеме), который реализует тот же интерфейс. Использование
+зависимостей интерфейсов позволяет более гибко проектировать и изменять проектные элементы.
+
+
+<h3><a name="Create IDL">Создать IDL-описания интерфейсов подсистемы</a></h3>
+<p>После проектирования подсистемы на модели появляются все внешние интерфейсы в виде UML-классов в нотации CORBA, 
+которые реализует эта подсистема.
+<p>Далее на основании модели создаются IDL-описания интерфейсов.
+
+<p>При переходе от проектирования к реализации мы получаем модель проектируемой системы, описанной 
+на языке описаний интерфейсов IDL. Для таких файлов вводятся следующие требования:
+<ul>
+<li>
+Необходимо определять префикс <b>&quot;garant.ru&quot;</b> для всех интерфейсов, используя для этого команду:
+<FONT style="FONT: 9pt/12pt Courier New">
+<br>#pragma prefix &quot;garant.ru&quot;</font>
+</li>
+<li>
+Для IDL-компиляторов, которые не поддерживают локальные интерфейсы необходимо определение пустого дефайна "local":
+<FONT style="FONT: 9pt/12pt Courier New">
+<br>#ifdef  _JACORB_IDL
+<br>#define local
+<br>#endif
+</font>
+</li>
+</ul>
+
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технолдогий ПУ НПП Гарант-Сервис</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+</body>
+
+</html>

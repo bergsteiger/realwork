@@ -1,0 +1,266 @@
+// l3VirtualNode 4ADDF36E0055 UtilityPack Class
+
+FORWARD ME_4ADDF36E0055
+
+FORWARD ME_4B1CE7E10351
+
+INCLUDE '54C61BFC0342.pas.ms.script'
+
+INCLUDE '476BF10A0280.pas.ms.script'
+
+FORWARD ME_4ADDF3930121
+
+: ME_4ADEEFA60355
+ CONST UID '4ADEEFA60355'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476BF22B03E1 // Il3Node
+ ;
+
+ @SELF
+; // ME_4ADEEFA60355 aValue
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4ADEEFA00164
+ CONST UID '4ADEEFA00164'
+ CONST Name 'Set__ChildNode'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4ADEEFA60355 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4ADEEFA00164 Set__ChildNode
+
+: ME_4B1CE7F6012A
+ CONST UID '4B1CE7F6012A'
+ CONST Name 'ChildNodeClass'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B1CE7E10351 // Rl3CustomVirtualNode
+ ;
+
+ @SELF
+; // ME_4B1CE7F6012A ChildNodeClass
+
+: ME_4B1CE80502F1
+ CONST UID '4B1CE80502F1'
+ CONST Name 'ParentNodeClass'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4B1CE7E10351 // Rl3CustomVirtualNode
+ ;
+
+ @SELF
+; // ME_4B1CE80502F1 ParentNodeClass
+
+: ME_4DFF155F00B8
+ CONST UID '4DFF155F00B8'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476BF22B03E1 // Il3Node
+ ;
+
+ @SELF
+; // ME_4DFF155F00B8 aValue
+
+: ME_4DFF154E0063
+ CONST UID '4DFF154E0063'
+ CONST Name 'Set__ParentNode'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_4DFF155F00B8 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DFF154E0063 Set__ParentNode
+
+: ME_4DFF157601A1
+ CONST UID '4DFF157601A1'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476BF22B03E1 // Il3Node
+ ;
+
+ @SELF
+; // ME_4DFF157601A1 aValue
+
+: ME_4DFF15710135
+ CONST UID '4DFF15710135'
+ CONST Name 'Set__PrevNode'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_4DFF157601A1 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DFF15710135 Set__PrevNode
+
+: ME_4DFF15B803A4
+ CONST UID '4DFF15B803A4'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476BF22B03E1 // Il3Node
+ ;
+
+ @SELF
+; // ME_4DFF15B803A4 aValue
+
+: ME_4DFF15B3015B
+ CONST UID '4DFF15B3015B'
+ CONST Name 'Set__NextNode'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_4DFF15B803A4 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DFF15B3015B Set__NextNode
+
+: ME_4ADDF3930121
+ CONST UID '4ADDF3930121'
+ CONST Name 'Tl3CustomVirtualNode'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4ADDDFD50118 // Tl3CustomNode
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4ADEEFA00164 // Set__ChildNode
+ ME_4B1CE7F6012A // ChildNodeClass
+ ME_4B1CE80502F1 // ParentNodeClass
+ ME_4DFF154E0063 // Set__ParentNode
+ ME_4DFF15710135 // Set__PrevNode
+ ME_4DFF15B3015B // Set__NextNode
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47710C6002AA // Remove
+ ME_47710E730361 // AllChildrenCount
+ ME_4771102F01C3 // NextNode
+ ME_477110580184 // PrevNode
+ ME_4771108100D0 // ParentNode
+ ME_477110A2026C // ChildNode
+ ME_54C78A1E033E // DoGetIndexInParent
+ ME_54C78E1002BE // Get__ParentNode
+ ME_54C78E2702B3 // Get__ChildNode
+ ME_54C78E370213 // Get__NextNode
+ ME_54C78E440118 // Get__PrevNode
+ ME_54C78EA30198 // GetLevelForParent
+ ME_54C78F15023E // Flag
+ ME_54C78F5702CE // IsFirstNode
+ ME_54C78F8902C6 // IsLastNode
+ ME_54C791DB001D // Remove
+ ME_54C8DFF102DD // IterateChild
+ ME_54C8E1F30128 // DoGetNumInParent
+ ME_54C8E22F0223 // DoReleaseChilds
+ ME_54C8E23B01AB // ReleaseChildsPrim
+ ME_54C8E4A8037A // DoIncAllChildrenCount
+ ME_54C8E5660144 // DoGetChildByNumber
+ ME_54C8E5AF00F8 // DoIterate
+ ME_54C8E60703B6 // DoInsertChildBefore
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4ADDF3930121 Tl3CustomVirtualNode
+
+: ME_4B1CE7E10351
+ CONST UID '4B1CE7E10351'
+ CONST Name 'Rl3CustomVirtualNode'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4ADDF3930121 // Tl3CustomVirtualNode
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_4B1CE7E10351 Rl3CustomVirtualNode
+
+: ME_4ADDF380009E
+ CONST UID '4ADDF380009E'
+ CONST Name 'Tl3VirtualFlagsNode'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4ADDF3930121 // Tl3CustomVirtualNode
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_4DFF154E0063 // Set__ParentNode
+ ME_4DFF15710135 // Set__PrevNode
+ ME_4DFF15B3015B // Set__NextNode
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4ADDF380009E Tl3VirtualFlagsNode
+
+: ME_4ADDF36E0055
+ CONST UID '4ADDF36E0055'
+ CONST Name 'l3VirtualNode'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4ADDF3930121 // Tl3CustomVirtualNode
+ ME_4B1CE7E10351 // Rl3CustomVirtualNode
+ ME_4ADDF380009E // Tl3VirtualFlagsNode
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_4ADDF36E0055 l3VirtualNode

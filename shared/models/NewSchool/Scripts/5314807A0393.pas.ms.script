@@ -1,0 +1,53 @@
+// Tl3FontManagerPrim 5314807A0393 SimpleClass Class
+
+INCLUDE '53147FD702AC.pas.ms.script'
+
+INCLUDE '53148D6A00AE.pas.ms.script'
+
+INCLUDE '4B891136016F.pas.ms.script'
+
+FORWARD ME_5314807A0393
+
+INCLUDE '484CE8FF0292.pas.ms.script'
+
+: ME_53149339029A
+ CONST UID '53149339029A'
+ CONST Name 'StringType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_484CE8FF0292 // Tl3LogFont
+ ;
+
+ @SELF
+; // ME_53149339029A StringType
+
+: ME_5314807A0393
+ CONST UID '5314807A0393'
+ CONST Name 'Tl3FontManagerPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53147FD702AC // Tl3FontManagerPrimPrim
+ ME_53148D6A00AE // l3DictionaryPrimPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_53149339029A // StringType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_5304D6C5002B // ItemToWStr
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5314807A0393 Tl3FontManagerPrim

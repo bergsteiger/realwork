@@ -1,0 +1,753 @@
+%producer everest2everest date '30.06.2005'
+%format version 0.132 revision date '31/05/2004' brackets { }
+: QueryCard = {
+ BackColor = clBtnFace
+ Subs = {
+  Children = 1
+  : = {
+   Handle = Sub
+   Children = 4
+   : = {
+    Handle = 1
+   }
+   : = {
+    Handle = 2
+   }
+   : = {
+    Handle = 3
+   }
+  }
+ }
+ Children = 3
+ : ControlsBlock = {
+  Handle = 1
+  ShortName = 'Параметры комплекта'
+  Children = 1
+  : Table = {
+   Children = 5
+   : ReqRow = {
+    ReqID = 'dt_ComplectName'
+    Children = 3
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itRight
+      Text = 'Наименование комплекта'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 6053
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 590
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_ClientRegNum'
+    Children = 3
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itRight
+      Text = 'Регистрационный номер клиента'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 6053
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 590
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      Upper = True
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_DealerName'
+    Children = 3
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itRight
+      Text = 'Наименование обслуживающей организации'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 6053
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 590
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_ComplectName'
+    Children = 3
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itRight
+      Text = 'Наименование комплекта'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 6053
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 590
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_ComplectVer'
+    Children = 3
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itRight
+      Text = 'Версия комплекта'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 6053
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 590
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+   }
+  }
+ }
+ : ControlsBlock = {
+  Handle = 2
+  ShortName = 'Тематические параметры'
+  Children = 1
+  : Table = {
+   Children = 6
+   : ReqRow = {
+    ReqID = 'dt_ThemesName'
+    Required = True
+    Children = 3
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itRight
+      Text = 'Название'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 5933
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 584
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_ThemesName'
+    Required = True
+    Children = 5
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Segments = {
+       Children = 1
+       : = {
+        Handle = Hyperlinks
+        Children = 1
+        : HyperLink = {
+         Handle = 1753328416
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         Style = -8
+         Finish = 14
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Вид информации'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 593
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'SelectBTN'
+      Type = ev_ctStateButton
+      StateIndex = 37
+      Flat = True
+      ImageIndex = 37
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 5933
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctCombo
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 584
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 585
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'AddBTN'
+      Type = ev_ctButton
+      StateIndex = 58
+      Flat = True
+      ImageIndex = 58
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_AnnoUser'
+    Required = True
+    Children = 5
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Segments = {
+       Children = 1
+       : = {
+        Handle = Hyperlinks
+        Children = 1
+        : HyperLink = {
+         Handle = 1753328416
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         Style = -8
+         Finish = 14
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Ваша профессия'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 593
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'SelectBTN'
+      Type = ev_ctStateButton
+      StateIndex = 37
+      Flat = True
+      ImageIndex = 37
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 5933
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctCombo
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 584
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 585
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'AddBTN'
+      Type = ev_ctButton
+      StateIndex = 58
+      Flat = True
+      ImageIndex = 58
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_AnnoOrg'
+    Required = True
+    Children = 5
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Segments = {
+       Children = 1
+       : = {
+        Handle = Hyperlinks
+        Children = 1
+        : HyperLink = {
+         Handle = 1753328416
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         Style = -8
+         Finish = 27
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Специфика вашей организации'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 593
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'SelectBTN'
+      Type = ev_ctStateButton
+      StateIndex = 37
+      Flat = True
+      ImageIndex = 37
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 5933
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctCombo
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 584
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 585
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'AddBTN'
+      Type = ev_ctButton
+      StateIndex = 58
+      Flat = True
+      ImageIndex = 58
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_AnnoInterest'
+    Required = True
+    Children = 5
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Segments = {
+       Children = 1
+       : = {
+        Handle = Hyperlinks
+        Children = 1
+        : HyperLink = {
+         Handle = 1753328416
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         Style = -8
+         Finish = 22
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Сфера интересов'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 593
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'SelectBTN'
+      Type = ev_ctStateButton
+      StateIndex = 37
+      Flat = True
+      ImageIndex = 37
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 5933
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctCombo
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 584
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 585
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'AddBTN'
+      Type = ev_ctButton
+      StateIndex = 58
+      Flat = True
+      ImageIndex = 58
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'dt_AnnoTax'
+    Required = True
+    Children = 5
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Segments = {
+       Children = 1
+       : = {
+        Handle = Hyperlinks
+        Children = 1
+        : HyperLink = {
+         Handle = 1143347604
+         Font = {
+          Underline = True
+          ForeColor = clBlue
+         }
+         Style = -8
+         Finish = 27
+        }
+       }
+      }
+      Justification = ev_itRight
+      Text = 'Особенности налогообложения'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 593
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'SelectBTN'
+      Type = ev_ctStateButton
+      StateIndex = 37
+      Flat = True
+      ImageIndex = 37
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 5933
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctCombo
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 584
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 585
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'AddBTN'
+      Type = ev_ctButton
+      StateIndex = 58
+      Flat = True
+      ImageIndex = 58
+     }
+    }
+   }
+  }
+ }
+ : ControlsBlock = {
+  Handle = 3
+  ShortName = 'Параметры рассылки'
+  Children = 1
+  : Table = {
+   Children = 1
+   : ReqRow = {
+    ReqID = 'dt_EmailFormat'
+    Children = 3
+    : = {
+     Frame = {
+     }
+     Width = 2222
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itRight
+      Text = 'E-mail рассылки'
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 5945
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctEdit
+     }
+    }
+    : = {
+     Frame = {
+     }
+     Width = 608
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Name = 'DeleteBTN'
+      Type = ev_ctButton
+      StateIndex = 5
+      Flat = True
+      ImageIndex = 5
+     }
+    }
+   }
+  }
+ }
+}

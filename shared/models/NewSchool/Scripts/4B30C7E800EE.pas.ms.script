@@ -1,0 +1,430 @@
+// TextLoad 4B30C7E800EE VCMForm Class
+
+FORWARD ME_4B30C7E800EE
+
+FORWARD ME_A419F118ED8E
+
+FORWARD ME_F55226819ABA
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_8B4700D8D19D
+ CONST UID '8B4700D8D19D'
+ CONST Name 'ut_TextLoadName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Строковый идентификатор пользовательского типа "Форма для загрузки документа"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''ut_TextLoad'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_8B4700D8D19D ut_TextLoadName
+
+: ME_63C1058E6938
+ CONST UID '63C1058E6938'
+ CONST Name 'ut_TextLoad'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Форма для загрузки документа' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value 0
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" true
+
+ @SELF
+; // ME_63C1058E6938 ut_TextLoad
+
+: ME_F55226819ABA
+ CONST UID 'F55226819ABA'
+ CONST Name 'ut_TextLoadConstants'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Константы для типа формы ut_TextLoad' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_8B4700D8D19D // ut_TextLoadName
+ ME_63C1058E6938 // ut_TextLoad
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_F55226819ABA ut_TextLoadConstants
+
+INCLUDE '4EE1DBBB013C.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4338AD16B0E8
+
+: ME_BF8343AB12DA
+ CONST UID 'BF8343AB12DA'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Tkw_FormUserType_ut_TextLoad' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_BF8343AB12DA Ini_Reg
+
+: ME_4338AD16B0E8
+ CONST UID '4338AD16B0E8'
+ CONST Name 'Tkw_FormUserType_ut_TextLoad'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово словаря для типа формы ut_TextLoad' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4EE1DBBB013C // TtfwInteger
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_BF8343AB12DA // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4EE1DC8903BB // GetInteger
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::ut_TextLoad'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4338AD16B0E8 Tkw_FormUserType_ut_TextLoad
+
+: ME_A419F118ED8E
+ CONST UID 'A419F118ED8E'
+ CONST Name 'ut_TextLoad'
+ CONST Class 'Class'
+ CONST Stereotype 'UserType'
+ %SUMMARY 'Форма для загрузки документа' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4338AD16B0E8 // Tkw_FormUserType_ut_TextLoad
+ ]
+ ; // Children
+ : Constants
+   [ ME_F55226819ABA // ut_TextLoadConstants
+ ]
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+
+ @SELF
+; // ME_A419F118ED8E ut_TextLoad
+
+FORWARD ME_247EE1BD7B9F
+
+FORWARD ME_19EFA77EC8BE
+
+: ME_D92F0FC5FE9E
+ CONST UID 'D92F0FC5FE9E'
+ CONST Name 'fm_TextLoadForm'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Идентификатор формы TTextLoadForm' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '(rFormID : (rName : ''TextLoadForm''; rID : 0); rFactory : nil)'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_D92F0FC5FE9E fm_TextLoadForm
+
+: ME_19EFA77EC8BE
+ CONST UID '19EFA77EC8BE'
+ CONST Name 'TextLoadIDs'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_D92F0FC5FE9E // fm_TextLoadForm
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_19EFA77EC8BE TextLoadIDs
+
+: ME_247EE1BD7B9F
+ CONST UID '247EE1BD7B9F'
+ CONST GUID '0D52D59A-6EBD-46A6-AA44-2467ABBFDC5C'
+ CONST Name 'TextLoad$Def'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMFormDefinition'
+ %SUMMARY 'Идентификатор формы TextLoad' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Constants
+   [ ME_19EFA77EC8BE // TextLoadIDs
+ ]
+ ; // Constants
+
+ @SELF
+; // ME_247EE1BD7B9F TextLoad$Def
+
+FORWARD ME_49067E2E67AB
+
+: ME_824498D15E5A
+ CONST UID '824498D15E5A'
+ CONST Name 'ut_TextLoadCaption'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Заголовок пользовательского типа "Форма для загрузки документа"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''Форма для загрузки документа'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_824498D15E5A ut_TextLoadCaption
+
+: ME_49067E2E67AB
+ CONST UID '49067E2E67AB'
+ CONST Name 'ut_TextLoadLocalConstants'
+ CONST Class 'Class'
+ CONST Stereotype 'LocalConst'
+ %SUMMARY 'Локализуемые константы для типа формы ut_TextLoad' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_824498D15E5A // ut_TextLoadCaption
+ ]
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ @SELF
+; // ME_49067E2E67AB ut_TextLoadLocalConstants
+
+FORWARD ME_2D707537C087
+
+INCLUDE '4B3B36EC03B2.pas.ms.script'
+
+: ME_1FD1A5E1E95F
+ CONST UID '1FD1A5E1E95F'
+ CONST Name 'ut_TextLoadCaption'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Заголовок пользовательского типа "Форма для загрузки документа"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_TextLoadCaption''; rValue : ''Форма для загрузки документа'')'
+ : ValueType ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_1FD1A5E1E95F ut_TextLoadCaption
+
+: ME_2D707537C087
+ CONST UID '2D707537C087'
+ CONST Name 'LCImplut_TextLoadLocalConstants'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'Локализуемые строки ut_TextLoadLocalConstants' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_1FD1A5E1E95F // ut_TextLoadCaption
+ ]
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+
+ @SELF
+; // ME_2D707537C087 LCImplut_TextLoadLocalConstants
+
+INCLUDE '4C9B20790302.pas.ms.script'
+
+: ME_4B322A36019F
+ CONST UID '4B322A36019F'
+ CONST Name 'Text'
+ CONST Class 'Class'
+ CONST Stereotype 'Control'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "ControlClass" 'none'
+ CONST "need Caption" 'undefined'
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ @SELF
+; // ME_4B322A36019F Text
+
+: ME_4B322AC50048
+ CONST UID '4B322AC50048'
+ CONST Name 'TextSource'
+ CONST Class 'Class'
+ CONST Stereotype 'Component'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "ComponentClass" 'none'
+ CONST "need Caption" false
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "put to dfm" false
+
+ @SELF
+; // ME_4B322AC50048 TextSource
+
+: ME_5D7EB05F56C5
+ CONST UID '5D7EB05F56C5'
+ CONST Name 'f_Text'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Text' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+
+ @SELF
+; // ME_5D7EB05F56C5 f_Text
+
+: ME_FAFD94FBDA41
+ CONST UID 'FAFD94FBDA41'
+ CONST Name 'f_TextSource'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства TextSource' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+
+ @SELF
+; // ME_FAFD94FBDA41 f_TextSource
+
+: ME_2883AB55F4A2
+ CONST UID '2883AB55F4A2'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TextLoad' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_2883AB55F4A2 Ini_Reg_Class
+
+: ME_BCFB2D9FB614
+ CONST UID 'BCFB2D9FB614'
+ CONST Name 'Ini_FormFactory_TextLoad$Def'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация фабрики формы TextLoad' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_BCFB2D9FB614 Ini_FormFactory_TextLoad$Def
+
+: ME_A9D816C88B84
+ CONST UID 'A9D816C88B84'
+ CONST Name 'Init_ut_TextLoadCaption'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Инициализация str_ut_TextLoadCaption' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_A9D816C88B84 Init_ut_TextLoadCaption
+
+: ME_4B30C7E800EE
+ CONST UID '4B30C7E800EE'
+ CONST Name 'TextLoad'
+ CONST Class 'Class'
+ CONST Stereotype 'VCMForm'
+ %SUMMARY 'Форма для загрузки документа' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4C9B20790302 // PrimTextLoad
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_247EE1BD7B9F // TextLoad$Def
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4B322A36019F // Text
+ ME_4B322AC50048 // TextSource
+ ME_5D7EB05F56C5 // f_Text
+ ME_FAFD94FBDA41 // f_TextSource
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_2883AB55F4A2 // Ini_Reg_Class
+ ME_BCFB2D9FB614 // Ini_FormFactory_TextLoad$Def
+ ME_A9D816C88B84 // Init_ut_TextLoadCaption
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4C9B21D20187 // TextSource
+ ME_4C9B21E400A4 // Text
+ ]
+ ; // Implemented
+ : Children
+   [ ME_A419F118ED8E // ut_TextLoad
+ ME_247EE1BD7B9F // TextLoad$Def
+ ME_49067E2E67AB // ut_TextLoadLocalConstants
+ ]
+ ; // Children
+ : Constants
+   [ ME_2D707537C087 // LCImplut_TextLoadLocalConstants
+ ]
+ ; // Constants
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '22.12.2009 16:32'
+
+ @SELF
+; // ME_4B30C7E800EE TextLoad

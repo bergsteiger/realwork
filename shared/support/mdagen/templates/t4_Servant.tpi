@@ -1,0 +1,1359 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Servant
+//////////////////////////////////////////////////////////////////////////////////
+
+: Servant::Class::uses::ClassDependency
+? Использование
+? Определяет что сервант (источник) использует указанный объект (цель) каким-либо образом (в том числе создает его через фабрики, есль цель-сервант).
+? НА основе данной связи будет сгенерированы пути включения файлов используемого объекта (для цели-серванта так же будет сгенерирована специальная фабрика возвращающая не интерфейс а сервант).
+
+%f _wiki_child_kind
+	uses
+
+: Servant::Class::friend::ClassDependency
+? Друг
+? Определяет что сервант (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+
+%f _wiki_child_kind
+	friend
+
+
+: Servant::Class
+$ C 195,245,195
+$ l 10,195,10
+$ f 10,195,10
+
+? Сервант
+? Класс реализации какого-либо интерфейса. Сервант обязан реализовывать один или несколько интерфейсов. Сам или косвенно через наследование от других сервантов. Сервант может определять собственные данные и методы (не реализующие интерфейс) а так же вложенные типы.
+? Пользовательские свойства могут определять наличие или отсутствие у серванта дефолтного конструктора, является ли сервант синглетоном (т.е. в системе может существовать только один объект данного класса), использование ПУЛА (одного из двух типов), дополнительную генерацию ЛОГИРОВАНИЯ всех операцй серванта.
+? также можно указать что сервант является ЛОКАЛЬНЫМ СУПЕРВИЗОРОМ - в этом случае ему будут доступны все скрытые части всех других классов существующих в его неймспейсе.
+? "Абстрактный" сервант - не может быть создан (т.е. должен использоваться как примесь)
+? "Финальный" сервант, напротив не может быть использован в качестве базового класса.
+
+< *::Category, Valuetype::Class, TestInterface::Class, TestServant::Class, Interface::Class
+< Servant::Class, UMLPrimitive::Class
+< Environment::Class, Iterator::Class, Const Iterator::Class, UtilityPack::Class
+< GuiControl::Class, Dialog::Class, PropertySheet::Class, PropertyPage::Class, ComInterface::Class, ComServant::Class
+< Actor::Class, UserNeeds::Class, Feature::Class, UseCase::Class
+< CServletPlugin::Class, CListenerPlugin::Class, CMacroPlugin::Class, CComponentPlugin::Class, CJobPlugin::Class, CTriggerPlugin::Class, CVelocityContextPlugin::Class, VM::Class, CXWorkPlugin::Class, CActionPlugin::Class, XPackage::Class, CSpringPlugin::Class, CExtractorPlugin::Class, CLifecyclePlugin::Class
+< EvdTag::Class
+< EvdStruct::Class
+< EvdAtom::Class
+< Event::Class
+< Resource::Class
+
+p Servant Pool=none|obj|mem ? определяет Пулл используемый для создания экземпляров серванта. obj - PoolObjectManager (объектный пулл - кеширует сами экземпляры объектов); mem - PoolMemoryManager (пул памяти - кеширует память под объекты)
+p singleton:b=false ? определяет что сервант является синглетоном
+p debug log:b=false ? включает генерацию вывода в лог обращений ко всем методам серванта
+p local supervisor:b=false ? определяет что данный сервант имет доуступ ко всем закрытым частям других классов своего пакета
+p Factory default impl:b=true ? включает генерацию дефолтной реализации фабричных методов - вызов напрямую перенаправляется в соответствующий конструктор серванта. При включенной данной опции наличее не дефолтных на моделе запрещенно, вместо этого все конструкторы будут генериться а основе сигнатуры фабричных методов.
+p Factory auto reg:b=true ? генерация кода регистрации фабрики в секции регистрации всех используемых в приложении фабрик
+p Factory key ? опеределяет строковый идентификатор для фабрики данного серванта (используется для МНОЖЕСТВЕННЫХ фабрик)
+p Need unsorted less:b=false ? генерация перегруженного метода для определения идентичности объекта в несортированных контейнерах
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p TODO:s ? напоминалка что-то сделать
+d 1
+a raf
+v +#
+W
+L code_servant
+Y t4_servant.gif
+
+%f _wiki_up_print
+	[{%S{Servant Pool}!=none}* пул экземпляров: %S{Servant Pool}
+	][{%S{singleton}=true}* является синглетоном
+	][{%S{local supervisor}=true}* является локальным супервизором (имет доуступ ко всем закрытым частям других классов своего пакета)
+	][{%S{Factory default impl}=false}* с пользовательской реализацией фабрики
+	][{%S{Factory auto reg}=false}* без автоматической регистрации фабрики
+	][{"%S{Factory key}"!=""}* Ключ для мульти фабрики: %S{Factory key}
+	]
+
+%f _wiki_up_add_gen
+	[{%S{Need unsorted less}=true}* метод для определения идентичности объекта в несортированных контейнерах
+	]
+
+f _is_interface
+	[{%t_check_type(%S,"Interface::Class")=true|%t_check_type(%S,"ServerInterface::Class")=true}{false}true]
+
+f _dump_realize_root_i
+	[{%f_is_interface(%S)=true}{[{%Rx=true}<%f_dump_realize_root_i(%R)>]}[{%Gx=true}{[{"%{TEMP_ROOT}N"!="%SN::%SU"}%f_set_var(TEMP_ROOT,"%SN::%SU")%{TEMP_ROOT}N]}<%f_dump_realize_root_i(%G)>]]
+
+/	[{%Rx=true}{[{%f_is_interface(%S)=true&"%{TEMP_ROOT}N"!="%SN::%SU"}%f_set_var(TEMP_ROOT,"%SN::%SU")%{TEMP_ROOT}N]}<%f_dump_realize_root_i(%G)>]
+
+f _dump_realize_root
+	%f_set_var(TEMP_ROOT,"")%f_dump_realize_root_i(%S)
+
+f _dump_realize_root_by_realize
+	%f_dump_realize_root(%S)
+
+f _dump_realize_root_by_inherit
+	[{%Gx=true}<%f_dump_realize_root(%G)>]
+
+f _is_derived_from
+	%f_set_var(TEMP_ARG,1)[{<{}{%rU=%{TEMP_ARG}U}>!=0}{false}true]
+
+f _check_realize_root_i
+	[{%f_is_interface(%S)=true}{[{%Rx=true}<%f_check_realize_root_i(%R)>]}[{%Gx=true}{[{%f_is_derived_from(%{DIRECT_INT},%S)=false}%SN]}<%f_check_realize_root_i(%G)>]]
+
+f _check_realize_root
+	%f_set_var(DEBUG,"")%f_set_var(DEBUG,"%f_check_realize_root_i(%S)")[{"%{DEBUG}N"!=""}{true}false]
+
+f _check_inherit_int
+	[{<{}{%f_check_realize_root(%G)!=true}{C}>=0}{false}true]
+
+f _check_inherit_base
+	%f_set_var(ROOT,"%f_dump_realize_root(%g)")\
+	%f_set_var(DEBUG,"")\
+	[{"<{}{%f_set_var(G_ROOT,"%f_dump_realize_root(%g)")"%{G_ROOT}N"!=""&"%{G_ROOT}N"!="%{ROOT}N"}.>"=""}{false}true]
+
+f _check_realize_base
+	%f_set_var(ROOT,"%f_dump_realize_root(%R)")\
+	%f_set_var(DEBUG,"")\
+	[{"<{}{%f_set_var(R_ROOT,"%f_dump_realize_root(%R)")"%{R_ROOT}N"!=""&"%{R_ROOT}N"!="%{ROOT}N"}.>"=""}{false}true]
+
+f _dump_debug_inherit
+	/%f_set_var(ROOT,"%f_dump_realize_root(%g)")<{;}{%f_set_var(G_ROOT,"%f_dump_realize_root(%g)")"%{G_ROOT}N"!=""&"%{G_ROOT}N"!="%{ROOT}N"}%{ROOT}N!=%{G_ROOT}N>/
+
+f _dump_debug_realize
+	/%f_set_var(ROOT,"%f_dump_realize_root(%R)")<{;}{%f_set_var(G_ROOT,"%f_dump_realize_root(%R)")"%{G_ROOT}N"!=""&"%{G_ROOT}N"!="%{ROOT}N"}%{ROOT}N!=%{G_ROOT}N>/
+
+f _supply_realize_constraint
+	%f_set_var(REALIZE_CNT,"<{}{%f_is_interface(%R)=true}{%RC}>")\
+	%f_set_var(INHERIT_CNT,"<{}{}{%GC}>")\
+	%f_set_var(MORE_THEN_ONE_INT,"%f_number_cmp("%{REALIZE_CNT}N","1","\>")")\
+	%f_set_var(MORE_THEN_ONE_BASE,"%f_number_cmp("%{INHERIT_CNT}N","1","\>")")\
+	%f_set_var(DIRECT_INT,R)\
+	[{%f_true(%{MORE_THEN_ONE_INT})=true}{[{%Rx=true}{[{%f_true(%{MORE_THEN_ONE_BASE})=true}{true}[{%f_check_inherit_base(%S)=true}{1false%f_dump_debug_inherit(%S)}true]]}[{%Gx=true}{true}[{%f_check_inherit_int(%S)=true}{2!%{DEBUG}N!}true]]]}[{%f_check_realize_base(%S)=true}{3false%f_dump_debug_realize(%S)}true]]
+//////////////////////////////////////////////////////////////////////////////////
+%t _constraint
+c                              {}
+r {<{}{%f_is_interface(%r)=true}{C}>=0&"<%r<{}{%f_is_interface(%r)=true}.>>"=""}:                                                                                                                    {%SS must implement at least one of Interface or ServerInterface}
+r "<{}{%ra!=abstract&%f_is_interface(%r)=true}{C}>"="0"&"%Sa"!="abstract"&"<%r<{}{%ra!=abstract&%f_is_interface(%r)=true}.>>"=""&"[{"<{}{%f_is_interface(%r)=true}{C}>"!="0"}{false}true]"="true":   {Not abstract %SS can't implement abstract Interface only}
+r "%Sa"="final"&"%Lx"="true"|"%Sa"="final"&"%Zx"="true":                                                                                                                                             {Final class can't be used as base class}
+r "%S{Servant Pool}"="obj"&"%f_has_not_default_ctor(%S)"="true":                                                                                                                                     {Class under Object Pool can't have not default constructors}
+r "%S{Servant Pool}"!="none"&"%S{singleton}"="true":                                                                                                                                                 {Singleton can't use any Pools}
+r "%S{Factory default impl}"="true"&"%Rx"="true"&"%f_has_factory_methods(%S)"="true"&"<{}{"%CS"="ctor"}{%CC}>"!="0":                                                                                 {%SS's Factory default implementaion can't combine with any other defined constructors}
+r "%S{singleton}"="true"&"%f_has_not_default_fctr(%S)"="true":                                                                                                                                       {Singleton can't implement interfaces with factories with args)}
+r {"%S{singleton}"="true"&"%f_has_not_default_ctor(%S)"="true"}:                                                                                                                                     {Singleton can't have not default constructor}
+r {<{}{%f_is_interface(%R)=false&%t_check_type(%R,"Facet::Class")=false&%t_check_type(%R,"ServerFacet::Class")=false&%RK!=ParameterizedClass&%t_check_type(%R,"StateMachine::Class")=false}{C}>!=0}:                                               {%SS can implement Interfaces, Facet, ServerFacet, StateMachine or Parameterized Class only (for other use generalization)}
+r {<{}{%t_check_type(%G,"%SM")=false&%t_simple_class(%G)=false}{C}>!=0}:                                                                                                          {%SS can inherit SimpleClass or other Servant only (for other use realization)}
+r <{}{%f_is_interface(%R)=true}{C}>!=0&<{}{%f_is_interface(%R)=true}{C}>!=1&"<{}{%R%Gx=false}.>"!=".":                                                                                               {%SS can't directly implement more then one Interface}
+r "%f_has_overloaded_ctors(%S)"="true"&"%S{Factory default impl}"="true"&"%f_has_factory_methods(%S)"="true":                                                                                        {%SS's Factory default implementaion can't combine with overwrited base constructors}
+r {<{}{%f_template_specify(%S,%G)=false}{C%G}>!=0|<{}{%f_template_specify(%S,%R)=false}{C%R}>!=0}:                                                                                                   {%SS must specify all arguments defined in base}
+r "%Sa"!="abstract"&"%f_has_factory_methods(%S)"="false"&"%f_need_servant_factory(%S)"="false":                                                                                                      {%SS that implement facet and not used by somebody and haven't ctor must be abstract}
+r %f_supply_realize_constraint(%S)!=true:                                                                                                                                                            {%SS can't recursively implement different Interfaces %f_supply_realize_constraint(%S)}
+r {<{}{%t_check_type(%G,"ServerInterface::Class")=true}{C}>!=0&<{}{%PS=ServerLibrary}{C}>=0}:                                                                                                        {Реализация серверных интерфейсов возможна только внутри серверных библиотек}
+r {%SK=ParameterizedClass&%Sa!=abstract}:                                                                                                                                                            {Шаблонный %SS должен быть абстрактным}
+
+f _dump_base_poa
+	[POA_%f_full_name(%S)]
+
+%f _base_class_decl
+	<{\n	, }{%RS!=ServerFacet&%RS!=ServerInterface}virtual public [{%f_use_as_srv_type(%{SERV})=false}{[{%f_use_as_srv_type(%R)=true}{%f_type(%R)%f_dump_parameterized_list(%R)}%f_dump_base_poa(%R)]}%f_type(%R)%f_dump_parameterized_list(%R)]>\
+	%f_set_var(FACET_COUNT,"<{}{%RS=ServerFacet|%RS=ServerInterface}{C}>")[{%{FACET_COUNT}N!=0&%f_realize_more_than_one_facet(%{SERV})=true}[{<{}{%RS!=ServerFacet&%RS!=ServerInterface}{C}>!=0}\n\t, ]virtual public %f_dump_base_poa(%{SERV})Combine]\
+	[{%{FACET_COUNT}N!=0&%f_realize_more_than_one_facet(%{SERV})=false}[{<{}{%RS!=ServerFacet&%RS!=ServerInterface}{C}>!=0}\n\t, ]<{\n	, }{%RS=ServerFacet|%RS=ServerInterface}virtual public [{%f_use_as_srv_type(%{SERV})=false}{[{%f_use_as_srv_type(%R)=true}{%f_type(%R)%f_dump_parameterized_list(%R)}%f_dump_base_poa(%R)]}%f_type(%R)%f_dump_parameterized_list(%R)]>]\
+	[{"%Rx"="true"}\n\t, ][{"<{}{"%GM"="Servant::Class"}{C}>"="0"}\
+	virtual public [{%f_use_as_srv_type(%{SERV})=false}{::CoreSrv::RefCountServantBase}::Core::RefCountObjectBase][{"%Gx"="true"}\n\t, ]]
+
+%f _self_forward
+	[{"%SK"!="ParameterizedClass"}class %SN; // self forward Var
+	typedef ::Core::Var\<%SN\> %SN_var;
+	typedef ::Core::Var\<const %SN\> %SN_cvar;
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
+%f _servant_content
+
+%f _h_includes
+	%f_include_factory_by_uses(%{SERV})<{}{}[\#include %f_dump_include_path(%wL,%w)
+	]><{}{}[{%f_use_as_srv_type(%{SERV})=true&%f_use_as_srv_type(%R)=true&%f_realize_more_than_one_facet(%{SERV})=false}\
+	%f_set_var(IDL_PATH,"%f_with_gen_id(idl,%RW)")[\#include "%f_str_replace(%{IDL_PATH}N,.idl,S.h)"
+	]]>[{%f_use_as_srv_type(%{SERV})=true&%f_realize_more_than_one_facet(%{SERV})=true}\
+	%f_set_var(IDL_PATH,"%f_with_gen_id(idl,%PW)")[\#include "%f_str_replace(%{IDL_PATH}N,.idl,S.h)"
+	]]
+
+%f _activate_and_ret
+	[{%f_use_as_srv_type(%{SERV})=false}{return ret-\>_this ();}return ret._retn ();]
+
+f _java_constraint
+	[{"<{}{}{%SC}>"!="0"}{true}[{"<{}{}{%SC}>"!="1"}{true}false]]
+
+f _java_base_srv
+	[{%Gx=true|<{}{%f_is_server_type(%R)=true}{%RC}>!=1}{<{}{%f_is_server_type(%R)=true} extends %f_type(%R)POA>[ implements <{, }{%f_is_server_type(%R)=false&%t_check_type(%R,"StateMachine::Class")=false}%f_type(%R)>[, %f_dump_servant_sm_interfaces_list(%S)]]}%f_error(Java class %SN can't realize more than one server interface)]
+
+f _java_base
+	[{%f_java_constraint(%G)=false}{< extends %f_type(%G)>[ implements <{, }{%t_check_type(%R,"StateMachine::Class")=false}{%R}%f_type(%R)>[{<{}{%t_check_type(%R,"StateMachine::Class")=false}{%RC}>!=0}{[%f_dump_servant_sm_interfaces_list(%S)]}[, %f_dump_servant_sm_interfaces_list(%S)]]]}%f_error(Java class %SN can't extend more than one class)]
+
+%f _java_base_class_decl
+	[{%f_use_as_srv_type(%S)=false}{%f_java_base_srv(%S)}%f_java_base(%S)]
+
+%f _java_servant_import_self
+
+%f _servant_content_java
+
+f _can_dump_attr
+	true
+
+f _servant_import
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= CoreClass::Class;wiki
+
++ java
+S class %SN;
+O [{%f_is_server_type(%S)=false}%SN.java]
+	%f_output_constraint(%S)\
+	[{%f_is_server_type(%S)=false}\
+# t0_header
+	%f_set_var(SERV,S)%f_set_var(SELF,S)%f_set_var(SERVANT,S)package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	%f_servant_import(%S)%f_includes_by_contents_java(%S)[%S%f_java_servant_import_self(%S)
+	]
+	%U[{_CUSTOM_IMPORT}
+	]
+	
+	%U[{_CUSTOM_CLASS_DEFINITION}
+	]
+	
+	%t_visibility(%S,"%XU")%t_abstract_type(%S)class %SN%S%f_java_base_class_decl(%S) {
+	
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declorations
+	<{}{"%CC"="Class"&%CS!=TemplateFunctions}%CX
+	>]%f_set_var(SERV,S)%f_set_var(SELF,S)%f_set_var(SERVANT,S)[// static member methods and data
+	<{}{"%CS"="static"}{Sp}
+	%CX
+	>][{%f_has_self_factory_methods(%S)=true}\
+	[	// factories id
+		public static class FactoriesID {
+	%f_dump_all_fctr_id_java(%S)	};
+	]][[{"%S{Factory default impl}"="true"}{[{%f_count_ctor(%S)=0&"%S{Factory default impl}"="false"}\n]}
+	%f_dump_all_fctr_def_impl_java(%S)\
+	][{"%S{Factory default impl}"!="true"|"%rx"="false"|%f_has_factory_methods(%S)=false}[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}%f_dump_empty_ctor_java(%S)\n]}
+	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+	>][%f_dump_cpp_servant_derrived_constr_java(%S)]]
+	][//////////////////////////////////////////////////////////////////////////////////////////
+	// self data
+	<{\n\n}{"%CC"="Attribute"&"%CS"!="static"&%f_can_dump_attr(%C%T)=true}%CX>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self methods
+	<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"}{Sp}
+	%CX
+	>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self data accessors
+	[<{}{"%CC"="Attribute"&"%CV"="PublicAccess"&%CS!=template}{Sn}
+		final public [{%CS=static}static ]%f_attr(%C) %f_to_borland(%CN) () {
+			return [{%CS=static}s_]%CN;
+		}[{"%C{Readonly accessor}"="false"}
+	
+		final public [{%CS=static}static ]void set%f_to_borland(%CN) (final %f_attr(%C) %CN_) {
+			[{%CS=static}s_]%CN = %CN_;
+		}]
+	>][<{}{"%CC"="Attribute"&"%CV"="ProtectedAccess"&%CS!=template}{Sn}
+		final protected [{%CS=static}static ]%f_attr(%C) %f_to_borland(%CN) () {
+			return [{%CS=static}s_]%CN;
+		}[{"%C{Readonly accessor}"="false"}
+	
+		final protected [{%CS=static}static ]void %f_to_borland(%CN) (final %f_attr(%C) %CN_) {
+			[{%CS=static}s_]%CN = %CN_;
+		}]
+	>]][%f_dump_java_derrived_impl(%S)
+	][%S%f_servant_content_java(%S)
+	]%f_shift_intend(1)%f_dump_servant_sm_java(%S)%f_shift_intend(-1)\
+		%U[{_CUSTOM_METHODS_AND_DATA}
+		]
+	
+	} //class %SN
+	
+# t0_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
+f _dump_all_base_fctrs_java
+	<{, }{%RS=Interface|%RS=ServerInterface}%f_type(%R)FactoryManager.%RNAbstractFactory>[{<{}{%RS=Interface|%RS=ServerInterface}{C}>=0}<%f_dump_all_base_fctrs_java(%G)>]
+	
+%f _fctr_base_class_java
+	 implements %f_dump_all_base_fctrs_java(%S)
+
+%f _dump_all_incl_base_fctrs_java
+	<{}{%RS=Interface|%RS=ServerInterface}%f_with_gen_id(java,%f_java_import(%R))
+	import %f_dump_java_package(%R).%RNFactoryManager;
+	>%f_java_core_exceptions()
+	[{%Rx=false}<%G%f_dump_all_incl_base_fctrs_java()>]
+
+f _dump_fctr_remover_java
+	[{"%1N"!="servant"}\
+	[{"%{SERV}{Factory default impl}"!="true"}[#%f_str_split(%SD,#// )
+	]]#public void %SN (%t_arg(%{INT},"in") obj_<, %f_arg_full_decl(%C)>)[\n#\tthrows [{%f_use_as_srv_type(%{SERV})=true}{ForeignObject}ru.garant.shared.CoreSrv.ForeignObject]<, %f_type(%E)>\n#]{
+		[{"%{SERV}{Factory default impl}"="true"}{#%U[{%{SERV}U_%SU_IMPL}
+		#]\n}[{%f_use_as_srv_type(%{SERV})=true}#%{SERV}N lsrv = null;
+		#byte\[\] oid = null;
+		#try {
+		#	oid = %{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHome>.get().get_orb_facet().get_root_poa().reference_to_id (obj_);
+	
+		#	org.omg.PortableServer.Servant srv = %{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHome>.get().get_orb_facet().get_root_poa().reference_to_servant (obj_);
+		#	lsrv = (%{SERV}N)srv;
+		#} catch (java.lang.Throwable ex) {
+		#	Logs.LOG_SEX(ex);
+		#}
+	
+		#if (lsrv == null) {
+		#	throw new ru.garant.shared.CoreSrv.ForeignObject ();
+		#}
+		#lsrv.%SN (%S<{, }%f_arg_full_decl(%C)>);
+		#try {
+			#%{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHome>.get().get_orb_facet().get_root_poa().deactivate_object (oid);
+		#} catch (java.lang.Throwable ex) {
+		#	Logs.LOG_SEX(ex);
+		#}]
+	]#}]
+
+f _dump_fctr_java
+	<{}{%f_is_factory(%C)=true&%CC=Operation}[{%CS!=remover}{%f_dump_fctr_remover_java(%C,"%1N")}
+		#[{"%1N"="servant"}{public final %t_ret(%{INT})}public final static %t_ret(%{__SERVANT},"%Cs")] %CN (%C<{, }%f_arg_full_decl(%C)>)[ throws %C<{, }%f_type(%E)>] {
+	[{"%{SERV}{Factory default impl}"="true"}{		#%U[{%{SERV}U_%CU_[{"%1N"="servant"}SERVANT_]IMPL}[{"%1N"="servant"}\n		return null;]\n		#]}[{%f_use_as_srv_type(%{SERV})=true}{	#	return new %{SERV}N (%C<{, }%CN>[{"%f_equal_ctor(%{SERV},%C)"="true"}[{"%C%Cx"="true"}, ]new %{SERV}N.FactoriesID.%f_to_borland(%CN) ()]);}	#	try {
+/ ERROR HERE!!!!
+		#		org.omg.CORBA.Object obj = %{SERV}<{}{%PM=Library::Category|%PM=ServerLibrary::Category}{%P}%f_dump_java_package(%P).%PN.LibHome>.get().get_orb_facet().get_root_poa().servant_to_reference(new %{SERV}N (%C<{, }%CN>));
+/		#		org.omg.CORBA.Object obj = %f_dump_java_package(%P).ServerLibHome.get().get_orb_facet().get_root_poa().servant_to_reference(new %{SERV}N (%C<{, }%CN>));
+		#		return [{"%1N"="servant"}{%f_type(%{INT})}%f_type(%{__SERVANT})]Helper.narrow(obj);
+		#	} catch (Exception e) {
+		#		Logs.LOG_SEX(e);
+		#	}
+		#	return null;]]
+		#}
+	]>
+f _dump_all_fctr_java
+	%f_set_var(ARG,1)<%f_set_var(INT,R)%f_dump_fctr_java(%R,%{ARG})%R<{}{"%ga"="abstract"}%f_dump_fctr_java(%g,%{ARG})>>\
+	[{%Rx=false}<%f_dump_all_fctr_java(%G,%1)>]
+
+f _dump_all_registr_fctrs_java
+	[{}{<%f_dump_all_registr_fctrs_java(%G)>}<{}{%RS=Interface|%RS=ServerInterface}	%f_type(%R)FactoryManager.register_factory (this, priority);
+	>]
+
++ fctr.java
+? Заголовок реализации фабрик интерфейса <{}{%t_check_type(%R,"StateMachine::Class")=false}%RN> для серванта %SN
+O [{"%f_has_factory_methods(%S)"="true"}%SNFactoryImpl.java]
+	%f_output_constraint(%S)\
+	[{"%f_has_factory_methods(%S)"="true"}\
+# t0_header
+	%f_set_var(SERV,S)
+	package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	
+	[%S%f_dump_all_incl_base_fctrs_java()]%f_java_core_exceptions(%S)
+	
+	/// Interface-factory implementation for %SN
+	public final class %SNFactoryImpl%S%f_fctr_base_class_java(){
+	[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}	/// Servant-factory implementation for %SN
+		public static class %SNServantFactoryImpl {
+	%f_set_var(__SERVANT,S)%f_dump_all_fctr_java(%S,"servant")
+		} //%SNServantFactoryImpl
+	]
+		public %SNFactoryImpl () {
+		}
+	
+		public final void registrate_me (short priority) throws DuplicatedFactoryKey {
+		%f_dump_all_registr_fctrs_java(%S)
+		}
+	
+		public final String key () {
+			return new String ("[{"%S{Factory key}"!=""}{%SN}%S{Factory key}]");
+		}
+	%f_dump_all_fctr_java(%S)
+	}
+/	%Sp
+# t0_footer
+	]
+
++ h
+? Заголовок реализации класса серванта для интерфеса %RN
+F class %SN;
+S class %SN
+O %SN.h
+	%f_output_constraint(%S)\
+# t0_h_header	
+	%f_std_inc(%S)%f_set_var(SERV,S)%f_set_var(SELF,S)
+	%f_includes_by_contents(%S)\
+	%S%f_h_includes()\
+	[{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	][
+	// forward decls for defined friends
+	<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}%a%PP\t%a%PF
+	%a%Pp
+	>]
+	%SP
+	<%WF
+	>%S%f_self_forward()
+	[[{%f_has_factory_methods(%S)=true}class %SN_factory;
+	][{%f_need_servant_factory(%S)=true}class %SNServantFactory;
+	]
+	]%f_docs(%S)\
+	[{"%SK"="ParameterizedClass"}template \<<{, }{"%CC"="Parameter"}%CX>\>%f_set_var(INST,S)	
+	]class [{%SS=ComServant}ATL_NO_VTABLE ]%SN:
+		%S%f_base_class_decl(%S)<{\n\t, }virtual public %f_type(%G)%f_dump_parameterized_list(%G)>
+	{
+		SET_OBJECT_COUNTER (%SN)
+	[{"%f_has_factory_methods(%S)"="true"}	friend class %SN_factory; // self factory
+	][{%f_need_servant_factory(%S)=true}	friend class %SNServantFactory;
+	][{%f_has_self_factory_methods(%S)=true}\
+	[protected:
+		// factories id
+		struct FactoriesID {
+	%f_dump_all_fctr_id(%S)	};
+	]][<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}	friend class %f_type(%a%P); // defined friend
+	>][%P<{}{"%CU"!="%{SELF}U"&"%C{local supervisor}"="true"}	friend class %f_type(%C);// local supervisor
+	>][{"%S{Servant Pool}"="mem"}
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// Memory Pool initialization
+	private:
+		typedef ::Core::PoolMemoryManager\<%SN\>::PoolMemoryManagerSingleton Pool%SN;
+		typedef ::Core::PoolMemoryManager\<%SN\> Pool;
+		friend class ::Core::PoolMemoryManager\<%SN\>;
+		void* operator new (size_t cs) {              
+			return Pool%SN::instance()-\>malloc(cs);
+		}
+		void operator delete (void* p) {
+			Pool%SN::instance()-\>free(p);
+		}
+	][{"%S{Servant Pool}"="obj"}
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// Object Pool initialization
+	private:
+		typedef ::Core::PoolObjectManager\<%SN_tie\>::PoolObjectManagerSingleton Pool%SNSing;
+		typedef ::Core::PoolObjectManager\<%SN_tie\> Pool;
+		friend class ::Core::PoolObjectManager\<%SN_tie\>;
+		
+		inline static %SN* make_object_ () {
+			return Pool%SNSing::instance()-\>new_obj();
+		}
+		
+		inline static void release_object_ (%SN* obj) {
+			Pool%SNSing::instance()-\>release_obj(obj);
+		}
+		
+		[{"%Sa"!="final"}virtual ]void init ();
+		
+		[{"%Sa"!="final"}virtual ]void done ();
+	][{"%S{singleton}"="true"}
+		// singleton declaration
+		typedef ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+		friend class ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	
+	][[{"<{}{"%CC"="Class"&%CM!=CustomFactory::Class&%CS!=TemplateFunctions}{C}>"!="0"}
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested declorations[{"<{}{"%CC"="Class"&%CS!=TemplateFunctions}{C}>"!="0"}
+	%f_visibility_spec(%C)%f_set_var(PREV_C,C)]
+	<{}{"%CC"="Class"&%CS!=TemplateFunctions}\
+	[{%f_visibility_spec(%C)!=%f_visibility_spec(%{PREV_C})}%f_visibility_spec(%C)\n]%CX%f_set_var(PREV_C,C)
+	
+	>]]%f_set_var(SERV,S)%f_set_var(SELF,S)[//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods and data
+	[public:<{}{"%CS"="static"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][protected:<{}{"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][private:<{}{"%CS"="static"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]]//////////////////////////////////////////////////////////////////////////////////////////
+	// constructors and destructor
+	[{%f_use_as_srv_type(%S)=false|%Re=false}{public}[{"%Sa"!="final"}{private}protected]]:[{"%S{Factory default impl}"="true"}{[{%f_count_ctor(%S)=0}\n]}
+	%f_dump_all_fctr_def_impl_h(%S)\
+	][{"%S{Factory default impl}"!="true"|"%rx"="false"|%f_has_factory_methods(%S)=false}[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}\t%{SELF}N ();\n\n]}
+	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+	
+	>][%f_dump_cpp_servant_derrived_constr_h(%S)]]#	[{%Sa!=final}virtual ]~%SN ();
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self methods
+	[public:<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	][protected:<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	][private:<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]][//////////////////////////////////////////////////////////////////////////////////////////
+	// oneway methods impl
+	private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_h(%C)
+	>
+	protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_h(%C)
+	>
+	][//////////////////////////////////////////////////////////////////////////////////////////
+	// self data
+	private:
+	<{\n\n}{"%CC"="Attribute"&"%CS"!="static"}{Sn}%CX>
+	]%f_self_data_accessor(%S)\
+	[%f_dump_cpp_derrived_impl_h(%S)
+	][%S%f_servant_content(%S)
+	][{%S{need UC}=true}
+	%U[
+	]
+	]}; // class %SN
+	
+	%Sp[
+	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+# t0_h_footer
+
+//////////////////////////////////////////////////////////////////////////////////
++ cpp
+P
+S class %SN;
+O [{"%SK"!="ParameterizedClass"}%SN.cpp]
+	%f_output_constraint(%S)\
+	[{"%SK"!="ParameterizedClass"}\
+# t0_header
+	%f_servant_impl_body(%S)
+# t0_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
++ i.h
+? Файл inline реализации класса серванта для интерфеса %RN
+P
+O [{%f_need_inline_file(%S)=true}%SN.i.h]
+	%f_output_constraint(%S)\
+	[{%f_need_inline_file(%S)=true}\
+# t0_header
+	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+	[{%SK!=ParameterizedClass}{%f_servant_impl_body(%S)}
+	%f_std_inc(%S)
+	%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+	><{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	][{%A%TS=Servant}\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+	]>][{"%S{local supervisor}"="true"}%f_set_var(SELF,S)// as local supervisor
+	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+	>][{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	]
+	%SP
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested implementation<{}{"%CC"="Class"}[
+	%CX
+	]>]%f_set_var(SERV,S)%f_set_var(SELF,S)[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	<{}{"%CS"="static"}
+	%CX
+	>
+	]//////////////////////////////////////////////////////////////////////////////////////////
+	// constructors and destructor[{"%S{Factory default impl}"!="true"|"%rx"="false"}[<{}{"%CC"="Operation"&"%CS"="ctor"&"%Ca"="inline"}{Sn}
+	
+	%CX>]][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self implementation<{}{"%CC"="Operation"&"%CS"!="factory"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%Ca"="inline"}{Sn}
+	
+	%CX>]
+	
+	%Sp		
+	]
+# t0_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
+f _dump_all_base_fctrs	
+	<{}{%RS=Interface|%RS=ServerInterface}[{%1N=true}\n\t], virtual public %f_type(%R)AbstractFactory>[{<{}{%RS=Interface|%RS=ServerInterface}{C}>=0}[{%Gx=true}{<%f_dump_all_base_fctrs(%R,"%1N")>}<%f_dump_all_base_fctrs(%G,"%1N")>]]
+
+%f _fctr_base_class
+	%f_set_var(SRV_FACTORY,": virtual public ::Core::RefCountObjectBase%f_dump_all_base_fctrs(%S,"false")")\
+	%f_set_var(OP_LEN,"%f_string_length("class %SN_factory%{SRV_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true}{%{SRV_FACTORY}N }:\n\tvirtual public ::Core::RefCountObjectBase%f_dump_all_base_fctrs(%S,"true")\n]
+
+%f _dump_all_incl_base_fctrs
+	<{}{%RS=Interface|%RS=ServerInterface}\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%RW),%R)
+	>[{%Rx=false}<{}{%GS=Servant}%G%f_dump_all_incl_base_fctrs()>]
+
+f _dump_friend_decl
+	[{%SK=ParameterizedClass}{[{%SM=InstanceDef::Class}{	friend class %SN;}	friend class %f_type(%R)\< %f_instdef_args(%S) \>;]}\
+/	<{\n}{}{%L}%f_set_var(SELF_T,{SELF})%f_set_var(SELF,L)	friend class %f_type(%L%R)%f_dump_parameterized_list(%L%R);%f_set_var(SELF,{SELF_T})>]
+		template \<<{, }{"%CC"="Parameter"}%CX>\> friend class %SN;]<{}{%RK=ParameterizedClass}
+	%f_dump_friend_decl(%R)
+	>
+
+f _dump_friend_frwd
+	[{%SM!=InstanceDef::Class}[{%SK=ParameterizedClass}{class %SN; //forward friend}\
+	template \<<{, }{"%CC"="Parameter"}%CX>\> class %SN; //forward friend]]
+
++ fctr.h
+? Заголовк реализации фабрик интерфеса %RN для серванта %SN
+S class %SN
+O [{"%f_has_factory_methods(%S)"="true"|%f_need_servant_factory(%S)=true}%SN_factory.h]
+	%f_output_constraint(%S)\
+	[{"%f_has_factory_methods(%S)"="true"|%f_need_servant_factory(%S)=true}\
+# t0_h_header
+	%f_std_inc(%S)%f_set_var(SERV,S)
+	[%S%f_dump_all_incl_base_fctrs()][\#include %f_dump_include_path(%f_with_gen_id(h,%PL),%P)
+	][// by \<\<uses\>\> back dependencies
+	[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}[\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	]]]
+	%SP
+	[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}\
+	/// Servant-factory implementation for %SN
+	[<{}{"%aS"="uses"&"%aC"="Dependency"}{Sp}%f_dump_friend_frwd(%a%P)
+	>]class %SNServantFactory {
+	<{}{"%aS"="uses"&"%aC"="Dependency"}{Sp}%f_dump_friend_decl(%a%P)
+	>%f_set_var(__SERVANT,S)%f_shift_scope(true)[{"%f_has_factory_methods(%S)"="true"}{%f_dump_ctor_fctr_h(%S)\};}%f_dump_all_fctr_h(%S,"servant")%f_dump_ctor_fctr_h(%S)};]%f_shift_scope(false)
+	
+	][{"%f_has_factory_methods(%S)"="true"}/// Interface-factory implementation for %SN
+	class %SN_factory%S%f_fctr_base_class(){[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}
+		friend class %SNServantFactory;
+	]
+	public:
+		%SN_factory ();
+	
+		void registrate_me (Core::Root::FactoryPriority priority) /*throw (Core::Root::DuplicatedFactoryKey)*/;
+	
+	protected:[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}
+		static %SN_factory* s_instance;
+	]
+		const char* key () const;
+	%f_shift_scope(true)%f_dump_all_fctr_h(%S)%f_shift_scope(false)
+	};
+	
+	typedef ::Core::Var\<%SN_factory\> %SN_factory_var;
+	]
+	%Sp[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}
+	// TypeTraits specializations
+	namespace Core {	
+	template \<\>
+	struct TypeTraits \<%f_full_name(%S)\> {
+		typedef %f_full_name(%S)ServantFactory Factory;
+	};
+	} // namespace Core
+	]
+# t0_h_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
+%f _reg_me_impl
+	%f_dump_all_registr_fctrs(%S)[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}\
+		s_instance = this;
+	]
+
+%f _key_impl
+	return "[{"%S{Factory key}"!=""}{%SN}%S{Factory key}]";
+
++ fctr.cpp
+S class %SN
+O [{"%f_has_factory_methods(%S)"="true"|%f_need_servant_factory(%S)=true}%SN_factory.cpp]
+	%f_output_constraint(%S)\
+	[{"%f_has_factory_methods(%S)"="true"|%f_need_servant_factory(%S)=true}\
+# t0_header
+	%f_std_inc(%S)%f_set_var(SERV,S)
+	\#include "%f_with_gen_id(fctr.h,%SL)"
+	\#include "%f_with_gen_id(h,%SL)"[{%f_use_as_srv_type(%S)=true}
+	\#include "%f_with_gen_id(h,%P%PL)"][{<{}{%CM=CustomFactory::Class}{C}>!=0}
+	%U[{CUSTOM_INLUDE}
+	]]
+	%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+	>
+	%SP
+	[{"%f_has_factory_methods(%S)"="true"}[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}\
+	%SN_factory* %SN_factory::s_instance = 0;
+	
+	]%SN_factory::%SN_factory () {
+	}
+	
+	%f_set_var(REG_ME,"void %SN_factory::registrate_me (Core::Root::FactoryPriority priority) /*throw (Core::Root::DuplicatedFactoryKey)*/ {")\
+	%f_set_var(OP_LEN,"%f_string_length("%{REG_ME}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true}{%{REG_ME}N}void %SN_factory::registrate_me (\n\tCore::Root::FactoryPriority priority\n) /*throw (\n\tCore::Root::DuplicatedFactoryKey\n)*/ {]
+	%S%f_reg_me_impl()}
+	
+	const char* %SN_factory::key () const {
+		%S%f_key_impl()
+	}%f_set_var(SERV,S)%f_dump_all_fctr_cpp(%S)][{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}\
+	%f_shift_scope(true)[{"%f_has_factory_methods(%S)"="true"}{%f_dump_ctor_fctr_cpp(%S)}%f_dump_all_fctr_cpp(%S,"servant")[\n\n%f_dump_ctor_fctr_cpp(%S)]]%f_shift_scope(false)]
+	
+	%Sp
+# t0_footer
+	]
+
++ idl
+F [{"%Sa"="abstract"}abstract ]interface %SN;
+	<#%FF
+	>%f_docs(%S)\
+	#[{"%Sa"="abstract"}abstract ]interface %SNCombine[: <{, }{%f_is_server_type(%R)=true}%f_type(%R)>] {
+	#};
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::Parameter
+T
+%f _wiki_child_kind
+	inst_arg
+
++ h
+	[{%SS=withref|%SS=primitive|%SS=in}{%SS}[{%t_simple(%S)=true}{class}typename]] %SN[ = %SI ]
+
++ i.h
+	[{%SS=withref|%SS=primitive|%SS=in}{%SS}[{%t_simple(%S)=true}{class}typename]] %SN
+
++ fctr.h
+= i.h
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::Operation
+? Константный метод
+? По умолчанию все методы константные. Дл того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<chg>>
+? Если используется константный класс, то на нем могут быть вызванны только константные методы.
+T
+e
+A const|cached|const,cached
+a raf
+v -#+
+m t
+p debug log:b=false ? включает генерацию вывода в лог обращений данному методу
+L code_const_method
+Y t5_const_method.gif
+
+%t _constraint
+c                                                                               {}
+r {%Ss=cached&%SS!=chg&%SS!=oneway,chg&%SS!=static}: {const function cant return non const cached value}
+
+%f _wiki_child_kind
+	method
+
++ h
+	%f_servant_cpp_operation_h(%S)
+
++ cpp
+	%f_servant_cpp_operation_cpp(%S)
+
++ i.h
+= cpp
+
++ java
+	%f_servant_java_operation(%S,"servant")
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::chg::Operation
+? Неконстантный метод
+? Метод который может изменить сосояние объекта своего класса.
+= Servant::Class::Operation
+L code_method
+Y t5_method.gif
+
+%t _constraint
+c                                                                               {}
+r ""="": {}
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::oneway::Operation
+? Асинхронная операция
+? Вызов операции будет выполнен асинхронна. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+? По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<oneway,chg>>
+= Servant::Class::Operation
+p separate thread pool=none|per class|per object|per operation|user defined ? определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод
+a raf
+A
+L code_const_method
+Y t5_const_method.gif
+
+%t _constraint
+c             {}
+r	{<{}{%CS=out|%CS=inout&%t_class_type(%C%T)=false}{C}>!=0|%TN!=void}: {%SM can't contain inout/out parameters or return result}
+
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::oneway,chg::Operation
+? Асинхронная неконстантная операция
+? Вызов операции будет выполнен асинхронно. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+? Неконстантная операция может изменять состояние своего объекта
+= Servant::Class::oneway::Operation
+L code_method
+Y t5_method.gif
+
+%t _constraint
+c                                                                               {}
+r ""="": {}
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::ctor::Operation
+? Конструктор
+? Конструктор объектов класса
+= Servant::Class::Operation
+a rf
+A
+L code_factory
+Y t5_factory.gif
+
+%t _constraint
+c                                                                               {}
+r ""="": {}
+
+%f _wiki_child_kind
+	mng
+
+%f _addit_init
+
+f _need_explicit
+	%f_set_var(ARG_NUM,"<{}{}{%CC}>")\
+	%f_set_var(ARG_ALL_STR,"<{}{"%CN"!=""}.>")\
+	%f_set_var(ARG_DEF_ALL_STR,"<{}{"%CI"!=""}{%C}.>")\
+	[{%{ARG_NUM}N!=0}{false}[{%{ARG_NUM}N=1}{[{"%{ARG_ALL_STR}N"="%{ARG_DEF_ALL_STR}N"}{[{"%CI"=""&"%f_delsubstr_from_end(%{ARG_ALL_STR}N,1)"="%{ARG_DEF_ALL_STR}N"}{false}true]}true]}true]]
+/	[{%{ARG_NUM}N=1}{\
+/	["%{ARG_ALL_STR}N"="%{ARG_DEF_ALL_STR}N"]{[{"%CI"!=""&"%f_delsubstr_from_end(%{ARG_ALL_STR}N,1)"="%{ARG_DEF_ALL_STR}N"}{%{ARG_DEF_ALL_STR}N|%{ARG_ALL_STR}N}true]}true}true]\
+/	]
+
+f _dump_explicit
+	[{%f_need_explicit(%S)=true}explicit ]
++ h
+	%f_docs(%S)\
+	%f_set_var(CTOR,"#%f_dump_explicit(%S)%{SERV}N (<{, }%f_arg_full_decl(%C)>);")\
+	%f_set_var(OP_LEN,"%f_string_length("%{CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{CTOR}N}#%f_dump_explicit(%S)%{SERV}N (\n\t\t<{\n\t\t, }%f_arg_full_decl(%C)>\n\t);]
+
++ cpp
+	%f_docs(%S)\
+	%f_set_var(CTOR,"%f_templ_header(%{SERV})%f_function_scope(%{SERV})%{SERV}N (<{, }%f_arg_full_decl(%C)>)[ : %S%f_addit_init()[{"%S%f_addit_init()"!=""&%{SERV}<{}{"%CI"!=""}{C}>!=0}, ]%{SERV}<{, }{"%CI"!=""}m_%CN (%CI)>]")\
+	%f_set_var(OP_LEN,"%f_string_length("%{CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{CTOR}N}%f_templ_header(%{SERV})%f_function_scope(%{SERV})%{SERV}N (\n\t<{\n\t, }%f_arg_full_decl(%C)>\n)[ :\n\t%S%f_addit_init()[{"%S%f_addit_init()"!=""&%{SERV}<{}{"%CI"!=""}{C}>!=0}\n\t, ]%{SERV}<{\n\t, }{"%CI"!=""}m_%CN (%CI)>]]
+	%U[{_BASE_INIT[{"%{SERV}U"!="%PU"}_%{SERV}U]!cpp!}
+	]
+	{%f_start_func_cpp(%S,"%PN::%PN")
+		%U[{_BODY[{"%{SERV}U"!="%PU"}_%{SERV}U]!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	%f_end_func_cpp(%S)}
+
++ i.h
+= cpp
+
++ java
+	%f_docs(%S)\
+	#%t_visibility(%S)%{SERV}N (<{, }%f_arg_full_decl(%C)>) {%f_start_func_cpp(%S,"%PN::%PN")
+	#	%U[{_BODY[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}
+	#	]
+	#%f_end_func_cpp(%S)}
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::static::Operation
+? Статический метод
+? Статический метод является методом класса а не объекта. Статический метод может иметь лдоступ только к статическим данным класса, и моджет быть вызван на самом классе а не на его экземпляре.
+= Servant::Class::Operation
+m f
+a r
+L code_static_method
+Y t5_static_method.gif
+
+%f _wiki_child_kind
+	static_method
+
+%t _constraint
+c                                                                               {}
+r ""="": {}
+
++ h
+	%f_docs(%S)\
+	[{%PS=TemplateFunctions}#%f_templ_header(%P)]\
+	#static %f_ret(%S) %SN (<{, }%f_arg_full_decl(%C)>)[
+	#	/*throw (<{, }%E<%NN::>%EN>)*/];
+
++ cpp
+	%f_docs(%S)\
+	%f_templ_header(%{SERV})\
+	[{%PS=TemplateFunctions}%f_templ_header(%P)]\
+	%f_ret(%S) %f_function_scope(%{SERV})%SN (<{, }%f_arg_full_decl(%C)>) [
+		/*throw (<{, }%E<%NN::>%EN>)*/
+	]{%f_start_func_cpp(%S,"%{SERV}N::%SN")
+		%f_s_c_op_c_uc(%S)
+	%f_end_func_cpp(%S)}
+
++ i.h
+= cpp
+
++ java
+	%f_servant_java_operation(%S,"servant")
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::Operation::Parameter
++ h
++ cpp
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::Attribute
+? Член данных
+? Член данных серванта всегда генерируеться в приватную часть класса, однако в зависимости от области видимости выставленного на можели, для члена данных могут быть сгенерированны функции-акссессоры.
+T
+m f
+v -+#i
+A const
+l arl
+p Readonly accessor:b=false ? определяет что для данного атрибута будут генерится только readonly-акссесоры
+p debug log:b=false ? включает генерацию вывода в лог обращений к данному атрибуту
+Y t5_attr.gif
+
+%t _constraint
+c                              {}
+r "%f_has_int_attr_to_impl(%P,%S)"="false": {Implemented %SM must have link to Interface Atribute with a same name}
+
+%f _wiki_child_kind
+	attr
+
+%f _accessor
+	#[{"%Sl"!="lnk"|"%Ss"!="const"}const ]%f_attr(%S)[{"%Sl"="lnk"|"%TN"="string"&"%Sl"="agr"}{&} const] %SN () const {
+	#	return m_%SN;
+	#}[{"%S{Readonly accessor}"="false"}
+		
+	#%f_attr(%S)& %SN () {
+	#	return m_%SN;
+	#}]
+
+L code_attr
+
++ h
+	%f_docs(%S)\
+	#%f_attr(%S) m_[{}{%f_to_omg(%TN)}%SN];
+
++ cpp
+	[{"%SS"="cached"}%f_cached_servant_attribute_cpp(%S)]
+
++ java
+	%f_docs(%S)\
+	#private %f_attr(%S) [{}{%f_to_borland(%TN)}%SN][{%f_can_be_init(%S)=true}{;} = init_%SN ();
+	
+	#static private %f_attr(%S) init_%SN () {
+	#	%U[{_INIT_%SN}
+	#	return %f_attr_init_java(%S);
+	#	]
+	#}]
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::mutable::Attribute
+? Мутирующий атрибут
+? Данный стереотип указывает что атрибюут может изменяться даже при выполнении константных методов. Например, любой КЕШ должен являться мутирующим.
+= Servant::Class::Attribute
++ h
+	%f_docs(%S)\
+	#mutable %f_attr(%S) m_[{}{%f_to_omg(%TN)}%SN];
+
+: Servant::Class::static::Attribute
+? Статический атрибут
+? Статический атрибюут является членом данных класса а не объекта.
+= Servant::Class::Attribute
+L code_static_attr
+Y t5_static_attr.gif
+
+%f _wiki_child_kind
+	static_attr
+	
+%f _accessor
+	[{%f_can_be_static(%S)=true}#static [{%S{Readonly accessor}=true}const ]%f_attr(%S)& %SN () {
+	#	return s_%SN;
+	#}]
+
++ h
+	%f_docs(%S)\
+	[{%f_can_be_static(%S)=true}#static %f_attr(%S) s_[{}{%f_to_omg(%TN)}%SN];]\
+	[{%f_can_be_static(%S)!=true}#typedef ACE_Singleton \<%f_type(%T), ACE_SYNCH_RECURSIVE_MUTEX\> %f_to_borland(%SN)Singleton;]
+
++ cpp
+	[{%f_can_be_static(%S)=true}%f_docs(%S)\
+	%f_set_var(__SCOPE,S)%f_attr(%S) %PN::s_[{}{%f_to_omg(%TN)}%SN][ = %SI];]
+
+f _can_be_static
+	[{%Sl=agr&"[{%t_class_type(%T)=true|%f_has_not_fixed_complex(%T)=true}{false}true]"="true"}{true}false]
+
++ java
+	%f_docs(%S)\
+	#private static %f_attr(%S) s_[{}{%f_to_omg(%TN)}%SN][ = %f_init(%S)];
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::cached::Attribute
+? Кешированный член данных
+? Вместо непосредственной агригации атрибута с указанным типом, будет снгенерированны специальные методы доступа к нему. При первом обращении в общей памяти-кеше будет создан экземпляр данного атрибута и связан с экземпляром класса, созавшего его.
+? Данный паттерн необходимо использовать для атрибутов векроятность доступа к которым не высока, а требования к памяти критичны.
+
+= Servant::Class::Attribute
+
++ h
+	%f_cached_servant_attribute_h(%S)
+
+//////////////////////////////////////////////////////////////////////////////////
+: Servant::Class::template::Attribute
+? параметр инстанцирования шаблона
+? имя должно совпадать с именем аргумента шаблона
+? должен использоваться ТОЛЬКО в параметризированных классах или наследниках от таких классов
+l l
+A const
+
+%f _wiki_child_kind
+	inst_arg
+
+f _need_template_arg
+	[{"%S<{}{"%RK"="ParameterizedClass"}{C}>"="0"&"%S<{}{"%GK"="ParameterizedClass"}{C}>"="0"&"%SK"!="ParameterizedClass"}{false}true]
+
+%t _constraint
+c             {}
+r {"%f_need_template_arg(%P)"="true"}: {%SS Attribute must use only in ParameterizedClass or in Class that Generaliztion or Realization another ParameterizedClass}
+
++ h	
++ cpp
+	
+/////////////////////////////////////////////////////////////////////////////
+// suport function
+f _servant_impl_body
+	%f_set_var(SELF,S)%f_set_var(SERV,S)
+	%f_std_inc(%S)
+	<{}{%PS=Library|%PS=ServerLibrary}\#include "%f_with_gen_id(h,%PL)"
+	>[{"%SK"!="ParameterizedClass"}\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	]%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+	><{}{%PM=DLL::Category}\#include %f_dump_include_path(%f_with_gen_id(h,%PL),%P)
+	><{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	][{%A%TS=Servant|%A%TS=SrvServant}\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+	]>][// by \<\<friend\>\> dependencies
+	<{}{"%AS"="friend"&"%AC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>][{"%S{local supervisor}"="true"}%f_set_var(SELF,S)// as local supervisor
+	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+	>][{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	]
+	%SP[{%S{need UC}=true}
+	%U[
+	]
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// nested implementation<{}{"%CC"="Class"&%CS!=TemplateFunctions}[
+	%CX
+	]>]%f_set_var(SERV,S)%f_set_var(SELF,S)[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// static member methods
+	<{}{"%CS"="static"}
+	%CX
+	>
+	]
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// constructors and destructor[{"%S{Factory default impl}"="true"}%f_dump_all_fctr_def_impl_cpp(%S)]\
+	[{"%S{Factory default impl}"="false"|"%rx"="false"|%f_has_factory_methods(%S)=false}[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}\n\n%f_dump_empty_ctor_cpp(%S)]}<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+	
+	%CX>][
+	
+	%f_dump_cpp_derrived_constr_cpp(%S)]][{}
+	
+	%f_servant_cpp_destructor_cpp(%S)
+	][{"%S{Servant Pool}"="obj"}
+	void %SN::init () {
+		%U[{_INIT_BODY}
+		]
+	}
+	
+	void %SN::done () {
+		%U[{_DONE_BODY}
+		]
+	}
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self implementation<{}{"%CC"="Operation"&"%CS"!="factory"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"}{Sn}
+	
+	%CX>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+	>][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// template methods implementation
+	<{}{"%CS"="TemplateFunctions"}{Sn}
+	%CX
+	>]
+	%f_dump_cpp_derrived_impl_cpp(%S)
+	%Sp
+
+//////////////////////////////////////////////////////////////////////////////////
+f _dump_fctr_h_i
+	%f_set_var(SRV_FACTORY_OP,"[{"%1N"="servant"}{%t_ret(%{INT})}static %t_ret(%{__SERVANT},"%Ss")] %SN (%S<{, }%f_arg_full_decl(%C)>)[ /*throw (%S<{, }%f_type(%E)>)*/];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}[{"%1N"="servant"}{%t_ret(%{INT})}static %t_ret(%{__SERVANT},"%Ss")] %SN (\n\t\t%S<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[ /*throw (\n\t\t%S<{\n\t\t, }%f_type(%E)>\n\t)*/];]
+
+f _dump_fctr_h_rm_i
+	%f_set_var(SRV_FACTORY_OP,"[{"%1N"="servant"}static ]void %SN ([{"%1N"="servant"}{%t_arg(%{INT},"in")}%t_arg(%{__SERVANT},"in")] obj_%S<, %f_arg_full_decl(%C)>)[ /*throw (%S<{, }%f_type(%E)>)*/];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}[{"%1N"="servant"}static ]void %SN (\n\t\t[{"%1N"="servant"}{%t_arg(%{INT},"in")}%t_arg(%{__SERVANT},"in")] obj_%S<\n\t\t, %f_arg_full_decl(%C)>\n\t)[ /*throw (\n\t\t%S<{\n\t\t, }%f_type(%E)>\n\t)*/];]
+
+f _dump_fctr_h
+	<{}{"%f_is_factory(%C)"="true"}{%C}
+		[{%CS!=remover}{%f_dump_fctr_h_rm_i(%C,"%1N")}%f_dump_fctr_h_i(%C,"%1N")]
+	>
+
+f _dump_factories_id_parent
+	[{%RK=ParameterizedClass}{[{"%XU"="fctr.cpp"}%SN::]}%RN%f_set_var(SELF,S)%f_dump_parameterized_list(%R)::]
+
+f _dump_fctr_header_cpp_i
+	%f_set_var(SRV_FACTORY_OP,"%t_ret(%{INT}) %{SERV}N_factory::%SN (%S<{, }%f_arg_full_decl(%C)>)[ /*throw (%S<{, }%f_type(%E)>)*/]")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}%t_ret(%{INT}) %{SERV}N_factory::%SN (\n\t%S<{\n\t, }%f_arg_full_decl(%C)>\n)[ /*throw (\n\t%S<{\n\t, }%f_type(%E)>\n)*/]]
+
+f _dump_fctr_rm_header_cpp_i
+	%f_set_var(SRV_FACTORY_OP,"void %{SERV}N_factory::%SN (%t_arg(%{INT},"in") obj_%S<, %f_arg_full_decl(%C)>)[ /*throw (%S<{, }%f_type(%E)>)*/]")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}void %{SERV}N_factory::%SN (\n\t%t_arg(%{INT},"in") obj_%S<\n\t, %f_arg_full_decl(%C)>\n)[ /*throw (\n\t%S<{\n\t, }%f_type(%E)>\n)*/]]
+
+f _dump_fctr_remover_cpp
+	[{"%1N"!="servant"}\
+	[{"%{SERV}{Factory default impl}"!="true"}[%f_str_split(%SD,#// )
+	]]%f_dump_fctr_rm_header_cpp_i(%S) {
+		[{"%{SERV}{Factory default impl}"="true"}{%U[{%{SERV}U_%SU_IMPL}
+		]}[{%f_use_as_srv_type(%{SERV})=true}%{SERV}N_var lsrv = 0;
+		PortableServer::ObjectId_var oid;
+		try {
+			oid = LibHome::get().get_orb_facet().get_root_poa().reference_to_id (obj_);
+			
+			PortableServer::ServantBase_var srv = LibHome::get().get_orb_facet().get_root_poa().reference_to_servant (obj_);
+			lsrv = dynamic_cast\<%{SERV}N*\>(srv.in());
+			if (!lsrv.is_nil()) {
+				lsrv-\>addref ();
+			}
+		} CATCH_AND_LOG ("%{SERV}N_factory::%SN - while getting servant from reference"); /*PortableServer::POA::WrongAdapter&*/
+	
+		if (!lsrv) {
+			throw CoreSrv::ForeignObject ();
+		}
+		lsrv-\>%SN (%S<{, }%f_arg_full_decl(%C)>);
+		LibHome::get().get_orb_facet().get_root_poa().deactivate_object (oid);]
+	}]]
+
+f _dump_fctr_cpp
+	<{}{"%f_is_factory(%C)"="true"}{%C}
+	
+	[{%CS!=remover}{%f_dump_fctr_remover_cpp(%C)}[{"%1N"!="servant"}[{"%{SERV}{Factory default impl}"!="true"}[%f_str_split(%CD,#// )
+	]]%f_dump_fctr_header_cpp_i(%C) {
+		[{"%{SERV}{Factory default impl}"="true"}{%U[{%{SERV}U_%CU_IMPL}
+		]}[{"%{SERV}{singleton}"="true"}{%f_var(%{SERV}) ret = new %{SERV}N (%C<{, }%CN>\
+	[{"%f_equal_ctor(%{SERV},%C)"="true"}[{"%C%Cx"="true"}, ]%f_dump_factories_id_parent(%{SERV})FactoriesID::%f_to_borland(%CN)()]);
+		%{SERV}%f_activate_and_ret()}\
+		%f_var(%{SERV}) ret = %{SERV}N::Singleton::instance();
+		ret-\>addref();
+		return ret._sretn();]]
+	}]\
+	[{"%1N"="servant"}%t_ret(%{SERV},"%Cs") %{SERV}NServantFactory::%CN (%C<{, }%f_arg_full_decl(%C)>)[ /*throw (%C<{, }%f_type(%E)>)*/] {
+	[{%Cs!=cached&%Cs!=const,cached}	if (%{SERV}N_factory::s_instance) {
+			return dynamic_cast\<%t_ret(%{SERV})\>(\
+	[{%{INT}S=ServerInterface}LibHome::get().get_orb_facet().get_root_poa().reference_to_servant (]\
+	%{SERV}N_factory::s_instance-\>%CN (%C<{, }%CN>)[{%{INT}S=ServerInterface})]);
+		} else {
+			throw Core::Root::NoActiveFactory (%{SERV}["%P%PN::%PN::%SN_factory"]);
+		}
+	]\
+	[{%Cs=cached|%Cs=const,cached}	try {
+			return dynamic_cast\<%{SERV}N&\> (\
+	[{%{INT}S=ServerInterface}*LibHome::get().get_orb_facet().get_root_poa().reference_to_servant (&]\
+	%f_type(%{SERV}%R)Factory::%CN (%C<{, }%CN>[{%CS=multi factory}[{%C%Cx=true}, ]"[{"%{SERV}{Factory key}"!=""}{%{SERV}N}%{SERV}{Factory key}]"]\
+	)[{%{INT}S=ServerInterface})]);
+		} catch (std::bad_cast& ) {
+			throw Core::Root::NoActiveFactory (%{SERV}["%P%PN::%PN::%SN_factory"]);
+		}
+	]}]]>
+
+f _fctr_def_impl_h_i
+	%f_set_var(OPERATION_FACTORY,"%{SELF}N (%S<{, }%f_arg_full_decl(%C)>[{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"}, ]%f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id]);")\
+	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}%{SELF}N (\n\t\t%S<{\n\t\t, }%f_arg_full_decl(%C)>[{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"}\n\t\t, ]%f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id]\n\t);]
+
+f _fctr_def_impl_rm_h_i
+	%f_set_var(SRV_FACTORY_OP,"virtual void %SN (%S<{, }%f_arg_full_decl(%C)>)[ /*throw (%S<{, }%f_type(%E)>)*/];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}virtual void %SN (\n\t\t%S<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[ /*throw (\n\t\t%S<{\n\t\t, }%f_type(%E)>\n\t)*/];]
+
+f _fctr_def_impl_h
+	<{}{"%f_is_factory(%C)"="true"}{%C}	[{%CS!=remover}{%f_fctr_def_impl_rm_h_i(%C)}%f_fctr_def_impl_h_i(%C)]
+	
+	>
+
+f _fctr_def_impl_java
+	<{}{"%f_is_factory(%C)"="true"}{%C}[{%CS!=remover}	public %{SELF}N (%C<{, }%f_arg_full_decl(%C)>[{"%f_equal_ctor(%{SELF},%C)"="true"}[{"%C%Cx"="true"}, ]FactoriesID.%f_to_borland(%CN) factory_id]) \
+	{%f_start_func_cpp(%{SELF},"%{SELF}N")
+			%U[{_%CU_%{SELF}U_BODY}
+			]
+		%f_end_func_cpp(%{SELF})}
+	
+	][{%CS=remover}	// remover (logical destructor) function
+		public void %CN (%C<{, }%f_arg_full_decl(%C)>)[ throws %C<{, }%f_type(%E)>] {%f_start_func_cpp(%C,"%{SELF}N::%CN")
+			%U[{_%CU_%{SELF}U}
+			]
+		%f_end_func_cpp(%{SELF})}
+	]>
+
+f _fctr_id
+	<{}{%f_is_factory(%C)=true&%CS!=remover&%f_equal_ctor(%{SELF},%C)=true}{%C}		class %f_to_borland(%CN) {}; // %PN::%SN::%CN
+	>
+
+f _equal_ctor
+	[{"%f_dump_equal_ctor(%S,%1)"!=""}{false}true]
+
+f _dump_equal_ctor
+	[{"<{}{"%f_has_equal_fctr(%R,%1)"="true"}{%RC}>"!="0"}.]\
+	<%R[{"<{}{"%ga"="abstract"&"%f_has_equal_fctr(%g,%2)"="true"}{%gC}>"!="0"}.]>\
+	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_equal_ctor(%R,%1)>]}<%f_dump_equal_ctor(%G,%1)>]
+
+f _has_equal_fctr
+/	[{"<{}{%f_is_factory(%C)=true&%CS!=remover&%C<%CS%C%TN>=%1<%CS%C%TN>&%CU!=%1U}{%CC}>"!="0"}{false}true]
+	[{"<{}{%f_is_factory(%C)=true&%CS!=remover&%C<%f_arg_full_decl(%C)>=%1<%f_arg_full_decl(%C)>&%CU!=%1U}{%CC}>"!="0"}{false}true]
+
+f _same_base_realize
+	[{"%S{Factory default impl}"="true"&"%f_dump_same_base_realize(%S,%1)"!=""}{false}true]
+
+f _dump_same_base_realize
+	[{"<{}{"%f_is_same_base_realize(%R,%1)"="true"}{%RC}>"!="0"}.]\
+	<%R[{"<{}{"%f_is_same_base_realize(%g,%2)"="true"}{%gC}>"!="0"}.]>\
+	<%g[{"<{}{"%f_is_same_base_realize(%R,%2)"="true"}{%RC}>"!="0"}.]>\
+	<%g<%R[{"<{}{"%f_is_same_base_realize(%g,%3)"="true"}{%gC}>"!="0"}.]>>
+
+f _is_same_base_realize
+	[{"%SU"="%1U"}{false}true]
+
+f _fctr_def_impl_header_cpp_i
+	%f_set_var(HEADER_FUN,"%f_templ_header(%{SELF})%f_function_scope(%{SELF})%{SELF}N (%S<{, }%f_arg_full_decl(%C)>[{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"}, ]%f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id])[{"%S%Cx"="true"}{[ : %{SELF}<{, }{"%CC"="Attribute"&"%CI"!=""}m_%CN (%CI)>]}[{"%f_same_base_realize(%{SELF}%G,%{SELF_OP})"="true"} : %f_type(%{SELF}%G)(%S<{, }%CN>[{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"}, ]%f_type(%{SELF}%G)::FactoriesID::%f_to_borland(%SN)()])]]")\
+	%f_set_var(OP_LEN,"%f_string_length("%{HEADER_FUN}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{HEADER_FUN}N}%{SELF}N::%{SELF}N (\n\t%S<{\n\t, }%f_arg_full_decl(%C)>[{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"}\n\t, ]%f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id]\n)[{"%S%Cx"="true"}{[ :\n\t%{SELF}<{\n\t, }{"%CC"="Attribute"&"%CI"!=""}m_%CN (%CI)>]}[{"%f_same_base_realize(%{SELF}%G,%{SELF_OP})"="true"} :\n\t%f_type(%{SELF}%G)(\n\t\t%S<{\n\t\t, }%CN>[{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"}\n\t\t, ]%f_type(%{SELF}%G)::FactoriesID::%f_to_borland(%SN)()]\n\t)]]]
+
+f _fctr_def_rm_impl_header_cpp_i
+	%f_set_var(SRV_FACTORY_OP,"void %{SELF}N::%SN (%S<{, }%f_arg_full_decl(%C)>)[ /*throw (%S<{, }%f_type(%E)>)*/] {")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}void %{SELF}N::%SN (\n\t\t%S<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[ /*throw (\n\t\t%S<{\n\t\t, }%f_type(%E)>\n\t)*/] {]
+
+f _fctr_def_rm_impl_cpp
+	// remover (logical destructor) function
+	%f_fctr_def_rm_impl_header_cpp_i(%S)\
+	%f_start_func_cpp(%S,"%{SELF}N::%SN")
+		%U[{_%SU_%{SELF}U}
+		]
+	%f_end_func_cpp(%S)}]>
+
+f _fctr_def_impl_cpp
+	<{}{"%f_is_factory(%C)"="true"}{%C}
+	%f_set_var(SELF_OP,S)
+	[{%CS!=remover}{%f_fctr_def_rm_impl_cpp(%C)}%f_fctr_def_impl_header_cpp_i(%C)
+	%U[{_%CU_%{SELF}U_BASE_INIT}
+	]
+	{%f_start_func_cpp(%{SELF},"%{SELF}N::%{SELF}N")
+		%U[{_%CU_%{SELF}U_BODY}
+		]
+	%f_end_func_cpp(%{SELF})}]>
+
+f _has_int_attr_to_impl
+	[{"%1C"="Attribute"&"%1V"="ImplementationAccess"}{true}[{"<{}{"%oC"="Attribute"&"%oN"="%1N"&"%f_is_interface(%o%P)"="true"}{%o}.>"!=""}{false}true]]
+
+f _has_not_default_fctr
+	[{"%S{Factory default impl}"="true"}[{"%f_dump_all_fctr_args(%S)"!=""}{false}true]]
+
+f _dump_all_fctr_args
+	<%f_dump_fctr_args(%R)%R<{}{"%ga"="abstract"}%f_dump_fctr_args(%g)>><%g<%f_dump_fctr_args(%R)%R<{}{"%ga"="abstract"}%f_dump_fctr_args(%g)>>>
+
+f _has_not_default_ctor
+	[{"%S{Factory default impl}"!="true"}[{"%f_dump_all_ctor_args(%S)"!=""}{false}true]]
+
+f _dump_all_ctor_args
+	<{}{"%CS"="ctor"}%C<%CN>>
+
+f _dump_fctr_args
+	<{}{"%f_is_factory(%C)"="true"}%C<%CN>>
+
+f _dump_all_fctr_def_impl_cpp
+	<%f_fctr_def_impl_cpp(%R)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_cpp(%g)>>\
+	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_def_impl_cpp(%R)>]}<%f_dump_all_fctr_def_impl_cpp(%G)>]
+
+f _dump_all_fctr_def_impl_h
+	<%f_fctr_def_impl_h(%R)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_h(%g)>>\
+	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_def_impl_h(%R)>]}<%f_dump_all_fctr_def_impl_h(%G)>]
+
+f _dump_all_fctr_def_impl_java
+	<%f_fctr_def_impl_java(%R)%R<{}{"%ga"="abstract"}%f_fctr_def_impl_java(%g)>>\
+	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_def_impl_java(%R)>]}<%f_dump_all_fctr_def_impl_java(%G)>]
+
+f _dump_all_fctr_id
+	<%f_fctr_id(%R)%R<{}{"%ga"="abstract"}%f_fctr_id(%g)>>[{%Rx=false}<%f_dump_all_fctr_id(%G)>]
+
+f _fctr_id_java
+	<{}{%f_is_factory(%C)=true&%CS!=remover&%f_equal_ctor(%{SELF},%C)=true}{%C}		public static class %f_to_borland(%CN) {}; // %PN::%SN::%CN
+	>
+f _dump_all_fctr_id_java
+	<%f_fctr_id_java(%R)%R<{}{"%ga"="abstract"}%f_fctr_id_java(%g)>>[{%Rx=false}<%f_dump_all_fctr_id_java(%G)>]
+
+f _visibility_spec
+	[{%SV=PublicAccess}public:]\
+	[{%SV=ProtectedAccess}protected:]\
+	[{%SV=PrivateAccess}private:]
+
+f _dump_all_fctr_h
+	%f_set_var(ARG,1)<%f_set_var(INT,R)%f_dump_fctr_h(%R,%{ARG})%R<{}{"%ga"="abstract"}%f_dump_fctr_h(%g,%{ARG})>>\
+	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_h(%R,%{ARG})>]}<%f_dump_all_fctr_h(%G,%{ARG})>]
+
+f _dump_all_registr_fctrs
+	[{}{<%f_dump_all_registr_fctrs(%G)>}<{}{%RS=Interface|%RS=ServerInterface}	%f_type(%R)FactoryManager::register_factory (this, priority);
+	>]
+
+f _dump_all_fctr_cpp
+	%f_set_var(ARG,1)<%f_set_var(INT,R)%f_dump_fctr_cpp(%R,%{ARG})%R<{}{"%ga"="abstract"}%f_dump_fctr_cpp(%g,%{ARG})>>\
+	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_dump_all_fctr_cpp(%R,%{ARG})>]}<%f_dump_all_fctr_cpp(%G,%{ARG})>]
+
+f _count_ctor
+	[<{}{"%CC"="Operation"&"%CS"="ctor"}{C}>]
+
+f _dump_ctor_fctr_h
+	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+		static %t_ret(%{__SERVANT},"%Cs") %CN (%C<{, }%f_arg_full_decl(%C)>)[ /*throw (%C<{, }%f_type(%E)>)*/];
+	>
+	
+f _dump_ctor_fctr_cpp
+	<{\n\n}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%t_ret(%{SERV},"%Cs") %{SERV}NServantFactory::%CN (%C<{, }%f_arg_full_decl(%C)>)[ /*throw (%C<{, }%f_type(%E)>)*/] {
+		[{"%{SERV}{Factory default impl}"="true"}{%U[{%{SERV}U_%CU_IMPL}
+		]}%f_var(%{SERV}) ret = new %{SERV}N (%C<{, }%CN>);
+		[{%f_use_as_srv_type(%{SERV})=true}[{%f_realize_more_than_one_facet(%{SERV})=false}{%f_full_name(%{SERV})Combine}%f_type(%R)]_var ref = ret-\>_this ();]
+		return ret._retn ();]
+	}>
+
+f _dump_empty_ctor_cpp
+	
+	%{SELF}N::%{SELF}N ()[ : %{SELF}<{, }{"%CC"="Attribute"&"%CI"!=""}m_%CN (%CI)>]
+	%U[{_EMPTY_CTOR_%{SELF}U_BASE_INIT}
+	]
+	{%f_start_func_cpp(%{SELF},"%{SELF}N::%{SELF}N")
+		%U[{_EMPTY_CTOR_%{SELF}U_BODY}
+		]
+	%f_end_func_cpp(%{SELF})}
+
+f _dump_empty_ctor_java
+	#	%t_visibility(%S,"%XU")%{SELF}N () {%f_start_func_cpp(%{SELF},"%{SELF}N")
+	#		%U[{_EMPTY_CTOR_%{SELF}U_BODY}
+	#		]
+	#	%f_end_func_cpp(%{SELF})}
+
+f _need_servant_factory
+	[{%f_count_ctor(%S)!=0&<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}{false}true]
+
+f _need_empty_ctor
+	[{"<{}{"%CC"="Attribute"&"%CI"!=""}{C}>"!="0"&"%S{Factory default impl}"="false"}{false}true]

@@ -1,0 +1,282 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "Documents"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/Documents|4AB7619D0004
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19032145632"))
+    quid       	"4AB7619D0004"
+    documentation 	"интерфейсы для работы с документом"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DocumentManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/Documents/DocumentManager|4AB762F60374
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/Documents/DocumentManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/Documents/DocumentManagerFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039050948"))
+	    quid       	"4AB762F60374"
+	    documentation 	"набор дополнительной функциональности (к PageManager) , например, удаление всех потомков"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB763530077_4AB763530077_4AB769A3030E_BODY*"
+			    value      	(value Text 
+|//#UC START# *4AB763530077_4AB763530077_4AB769A3030E_BODY*¤		//#UC END# *4AB763530077_4AB763530077_4AB769A3030E_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB763530077_4AB763530077_4AB764100225_BODY*"
+			    value      	(value Text 
+|//#UC START# *4AB763530077_4AB763530077_4AB764100225_BODY*¤		//#UC END# *4AB763530077_4AB763530077_4AB764100225_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011679951"))
+		    quid       	"4AB763530077"
+		    documentation 	"фабрика"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "remove_descendants"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB763AB0156_48D0BDDF0274*"
+			    value      	(value Text 
+|//#UC START# *4AB763AB0156_48D0BDDF0274*¤		throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();¤		//#UC END# *4AB763AB0156_48D0BDDF0274*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB763AB0156_4AB769A3030E*"
+			    value      	(value Text 
+|//#UC START# *4AB763AB0156_4AB769A3030E*¤		Page p = (Page) ContainerManager.Factory.get().getPageManager().getAbstractPage(pageId);¤		final List<Page> descendents = p.getDescendents();¤		int count = descendents.size();¤		int i = 0;¤		for (Page curPage : descendents) {¤			if (false == CommonRequestManager.Factory.get().isRequest(curPage.getId())) {¤				ContainerManager.Factory.get().getPageManager().trashPage(curPage);¤			} else {¤				ContainerManager.Factory.get().getPageManager().movePageAsChild(curPage, p);¤			}¤			Logs.LOG_D("removeDescendants: page removed (" + (++i) + "/" + count + ")");¤		}¤		//#UC END# *4AB763AB0156_4AB769A3030E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB763AB0156_4AB764100225*"
+			    value      	(value Text 
+|//#UC START# *4AB763AB0156_4AB764100225*¤		Page p = (Page)ContainerManager.Factory.get().getPageManager().getAbstractPage(pageId);¤		Logs.LOG_I(¤			"RemoveChildren::doRemoveDescendants: pageId = " + p + " parentTitle="¤			+ p.getTitle()¤		);¤		¤		List descendentsList = p.getDescendents();¤		int removedPage = 0;¤		int descendantsCount = descendentsList.size();¤		for (int i = 0; i < descendantsCount; ++i) {¤			removePage(descendentsList, i);¤			++removedPage;¤		}¤		Logs.LOG_I("RemoveChildren::doRemoveDescendants: finished OK. Was removed " + removedPage);¤		//#UC END# *4AB763AB0156_4AB764100225*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011680312"))
+		    quid       	"4AB763AB0156"
+		    documentation 	"удалает всех потомков указанной страницы в корзину"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011680639"))
+			    quid       	"4AB76403029F"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "remove_page_with_descendants"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB8859D00F9_4AB769A3030E*"
+			    value      	(value Text 
+|//#UC START# *4AB8859D00F9_4AB769A3030E*¤		Page page = (Page) ContainerManager.Factory.get().getPageManager().getAbstractPage(pageId);¤		final List<Page> descendents = page.getDescendents();¤		int count = descendents.size();¤		int i = 0;¤		for (Page curPage : descendents) {¤			if (false == CommonRequestManager.Factory.get().isRequest(curPage.getId())) {¤				ContainerManager.Factory.get().getPageManager().trashPage(curPage);¤			} else {¤				ContainerManager.Factory.get().getPageManager().movePageAsChild(curPage, page.getParent());¤			}¤¤			if (i % 10 == 0) {¤				Logs.LOG_D("removeDescendants: page removed (" + (++i) + "/" + count + ")");¤			}¤		}¤		ContainerManager.Factory.get().getPageManager().trashPage(page);¤		//#UC END# *4AB8859D00F9_4AB769A3030E*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB8859D00F9_4AB764100225*"
+			    value      	(value Text 
+|//#UC START# *4AB8859D00F9_4AB764100225*¤		throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();¤		//#UC END# *4AB8859D00F9_4AB764100225*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011681051"))
+		    quid       	"4AB8859D00F9"
+		    documentation 	"удалает страницу, а также всех ее потомков в корзину"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011681353"))
+			    quid       	"4AB885EC02B5"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4AB762D80167"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::Documents::DocumentManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(789, 438)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(203, 335)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1172
+			justify    	0
+			label      	"DocumentManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(203, 285)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1172
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4AB762F60374"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(203, 396)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	1186
+			justify    	1)
+		    width      	1190
+		    height     	330
+		    annotation 	8
+		    autoResize 	TRUE)))))

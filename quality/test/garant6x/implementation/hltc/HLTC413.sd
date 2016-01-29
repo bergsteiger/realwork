@@ -1,0 +1,1327 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////// HLTC 413: Автоматические тесты  ///////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork;
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+//Константы для групп скриптов Base_Switcher
+const
+  STATE_PPR   = 1;
+  STATE_PPS   = 2;
+  STATE_PPIO  = 3;
+  STATE_TC    = 4;
+  STATE_LENTA = 5;  
+  STATE_DOC_CHANGED = 6;
+
+{
+Скрипт проверяет стабильность работы оболочки при переключении БД на лету
+}
+function ListTest: boolean;
+begin
+try
+  Result := true; 
+  if not (OpenDocByNumber(10003000) and OpenDocByNumber(2001) and OpenDocByNumber(4444) and
+          OpenDocByNumber(10064072) and OpenDocByNumber(455333)) then
+    Result := ErrorResult('Документ не открылся!');
+except
+  Result := false;
+  Log.Error('ListTest: ' + ExceptionMessage,'',  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end; 
+
+function SearchTest: boolean;
+var
+  cardData, ppsData;
+begin
+try
+  Result := true;
+  if not IsExists(GetListOfAllDocuments) then
+    Result := ErrorResult('Не построился список всех документов');
+  //  
+  cardData := 
+  [
+	CARD_PPR, ([([
+	FD_TYPE, ([
+		'[ИЛИ]Выписка',
+		'[И]Приказ']) ]),([
+	FD_INOPERATIVE_EDITION, ([
+		'Да']) ]) ]) 
+  ];
+  if not SearchInPPR(cardData) then
+    Result := ErrorResult('Не прошел ППР');  
+  ppsData := ['Акцизы\при ввозе товаров из СНГ'];
+  //
+  if not SearchInPPS(ppsData) then
+    Result := ErrorResult('Не прошел ППC');
+  if not GoToPPR then
+    Result := ErrorResult('Не попали в ППР');    
+  if not GoToPPIO then
+    Result := ErrorResult('Не попали в ППИО');    
+
+  if not GoToPPIO then
+    Result := ErrorResult('Не попали в ППИО');    
+    
+  if not GoToDictionary then
+    Result := ErrorResult('Не попали в ТС');
+   
+except
+  Result := false;
+  Log.Error('SearchTest: ' + ExceptionMessage,'',  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end; 
+
+
+function DocumentTest: boolean;
+const
+  DOC_NUM = 10003000;
+var
+  obj;
+  i;
+  str;
+  toolBar;
+begin
+  result := false;
+try
+  if NOT OpenDocByNumber(DOC_NUM) then 
+    Raise('Не удалось открыть документ по номеру');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then 
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+
+  for i := 1 to 3 do
+  begin
+    Sys.Keys('[Down][Down]');
+    if NOT InsertComment(obj, 'комментарий...' +  IntToStr(i)) then 
+      Raise('Не удалось установить комментарий №' + IntToStr(i));
+  end;
+  if NOT SetBookMark('закладка...' + IntToStr(i)) then 
+    Raise('Не удалось сохранить закладку №' + IntToStr(i));
+  PressKeyNCount('^z', 5);
+ 
+  if not IsExists(GetEditor) then
+    Raise('Не найден текст документа!');
+  str := CopyToClipBoard(obj, 'ПЕРВАЯ СТРОКА В ДОКУМЕНТЕ', 'Trim:=true');
+  if NOT StringCompare(str, 'КОНСТИТУЦИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ') then 
+    Raise('После контекстного поиска оказались не в эталонном месте документа');
+  if NOT GoByHistory('НАЗАД') then 
+    Raise('Не удалось перейти НАЗАД по истории');
+  if NOT CreateFolderFrom(true, 'Мои документы', 'папка') then 
+    Raise('Не удалось создать папку');
+
+  Result := true;
+except
+  Result := false;
+  Log.Error('DocumentTest: ' + ExceptionMessage,'',  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  if NOT OpenDocByNumber(DOC_NUM) then 
+    Raise('Не удалось открыть документ по номеру');
+  if DeleteAllUserCommentsFromContents < 1 then
+    Log.Warning('Не было удалено ни одного комментария');
+  if NOT DeleteAllInMyDoc then
+    Log.Warning('Не удалось удалить все объекты из моих документов');
+end; 
+
+
+function  BASE_SWITCHER_Execute(var  current_state: OleVariant): OleVariant;
+var
+  i, base_type;
+begin
+try
+  Result := true;
+  for i:= 1 to 2 do
+  begin
+    //
+  {
+    case i of
+      1:begin
+        base_type := DBT_OLD;
+      end;
+      2:begin
+        base_type := DBT_NEW;
+      end;
+      3:begin
+        base_type := DBT_OLD;
+      end;
+    end;  
+  }
+    base_type := DBT_OTHER;
+    //
+    if not GoToMainMenu then
+      Result := ErrorResult('ОМ не открылось!');
+    
+    if i mod 2 = 0 then
+    begin
+      if not IsExists(GetListOfAllDocuments) then
+        Result := ErrorResult('Не построился список всех документов');
+    end
+    else
+    begin
+      if not OpenDocByNumber(2001) then
+        Result := ErrorResult('Документ не открылся!'); 
+    end;
+    
+    if NOT SwitchDataBase(base_type, 'IsSwitchOnTheFly:=true') then 
+      Raise('Не удалось переключить базу на другую, осталась БД: ' + GetDataBaseType('ACTIVE'));
+
+    Log.Message('Текущая БД: ' + GetDataBaseType('ACTIVE'));
+
+    //Теперь тестим
+    if not SearchTest then
+      Result := ErrorResult('Тесты на поиски не прошли!');
+    if not ListTest then
+      Result := ErrorResult('Тесты списков не прошли!');
+    if not DocumentTest then
+      Result := ErrorResult('Тесты документа не прошли!');
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  if NOT SwitchDataBase(DBT_OLD, 'IsSwitchOnTheFly:=true') then
+    Log.Error('Не смогли вернуться к СТАРОЙ БД' + GetDataBaseType('ACTIVE'));
+  GoToMainMenu;
+end;
+
+
+function BaseSwitchCycle: boolean;
+begin
+try
+  Result := SwitchDataBase(DBT_OTHER, 'IsSwitchOnTheFly:=true');
+  Delay(Options.Run.Timeout);  
+  Result := SwitchDataBase(DBT_OLD, 'IsSwitchOnTheFly:=true') and result;
+  if not Result then Raise('Не удалось переключить базу на другую, осталась БД: ' + GetDataBaseType('ACTIVE'));
+except
+  Result := false;
+  Log.Error('BaseSwitchCycle: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;   
+end;
+
+
+function SetF1State(i: integer = 0): boolean;
+const
+  DOC_NUM = 9003;
+begin
+try
+  Result := true;   
+  case i of
+    STATE_PPR:
+      begin
+        Log.Message('Переходим в состояние ППР');
+        if not GoToPPR then Raise('Не получилось зайти в ППР');
+      end;
+    STATE_PPS:
+      begin
+        Log.Message('Переходим в состояние ППC');
+        if not GoToPPR then Raise('Не получилось зайти в ППC');
+      end;
+    STATE_PPIO:
+      begin
+        Log.Message('Переходим в состояние ППИО');
+        if not GoToPPIO then Raise('Не получилось зайти в ППИО');
+      end;
+    STATE_TC:
+      begin
+        Log.Message('Переходим в состояние ТС');
+        if not GoToDictionary then Raise('Не получилось зайти в ТС');
+      end;
+    STATE_LENTA: 
+      begin
+        Log.Message('Переходим в состояние Обзора ленты новостей');
+        if not GoToAnalyticReview then Raise('Не получилось зайти в Обзор ленты новостей');
+      end;
+    STATE_DOC_CHANGED: 
+      begin
+        Log.Message('Переходим в состояние "Открыт изменяемый документ"');
+        if not OpenDocByNumber(DOC_NUM) then Raise('Не получилось открыть изменяемый документ: ' +  IntToStr(DOC_NUM));
+      end;  
+    else
+    begin
+      Log.Message('Переходим в состояние "ОМ"');
+      if not GoToMainMenu then Raise('Не получилось зайти в ОМ');
+    end;
+ 
+  end;
+except
+  Result := false;
+  Log.Error('BaseSwitchCycle: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;   
+end;
+
+
+function  BASE_SWITCHER2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  i;
+begin
+try
+  Result := true;
+  for i:=1 to 6 do
+  begin
+    Log.Message('Начинаем итерацию № ' + IntToStr(i), GetLogAttr('YELLOW'));    
+    Result := SetF1State(i) and Result;
+    if not BaseSwitchCycle then Raise('Возникла ошибка во время переключения базы');
+    if not GoToMainmenu then Raise('Не получилось зайти в ОМ');
+    Result := SetF1State(i) and Result;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  if NOT SwitchDataBase(DBT_OLD, 'IsSwitchOnTheFly:=true') then
+    Log.Error('Не смогли вернуться к СТАРОЙ БД. Текущая: ' + GetDataBaseType('ACTIVE'));
+  GetMainWindow.SetFocus;
+  GoToMainMenu;
+end;
+
+//Скрипт, который просто тупо открываеи Изменяемый документ на разных базах, и 20 раз переключает базу туда-сюда
+function  BASE_SWITCHER_DOC_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LOGIN = 'BASE_SWITCHER_DOC';
+var
+  i;
+begin
+try
+  Result := true;
+  //Убираем из инишника Бекапирование логов(по просьбе Цветкова)
+  if NOT StopF1Server then 
+    Raise('Не удалось остановить сервер(для изменения параметра в инишнике)!');
+  SetValueToGarantINI('F1Server Params', '-LoggingBackup', '0');
+  if NOT StartF1Server then 
+    Raise('Не удалось запустить сервер(для изменения параметра в инишнике)!');
+  if not RestartF1Shell(3, Options.Run.Timeout div 3, LOGIN, LOGIN) then
+    Raise('Не удалось запустить оболочку!');  
+  
+  for i:=1 to 5 do
+  begin
+    Log.Message('Начинаем итерацию № ' + IntToStr(i), GetLogAttr('YELLOW'));
+    Result := SetF1State(STATE_DOC_CHANGED) and Result;
+    if not BaseSwitchCycle then Raise('В состоянии "Открытого изменяющегося документа" возникла ошибка во время переключения базы');
+    if not GoToMainmenu then Raise('Не получилось зайти в ОМ');    
+  end;
+except
+  Result := false;
+    Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  if NOT SwitchDataBase(DBT_OLD, 'IsSwitchOnTheFly:=true') then
+    Log.Error('Не смогли вернуться к СТАРОЙ БД. Текущая:' + GetDataBaseType('ACTIVE'));
+  GetMainWindow.SetFocus;
+  GoToMainMenu;
+end;
+
+{
+  Проверка стабильности работы F1Shell
+  Через каждый час активируем оболочку, выполняем поиск, сворачиваем. Делаем так ITER_COUNT раз.
+}
+function  F1SHELL_TEST1_Execute(var  current_state: OleVariant): OleVariant;
+CONST
+ITER_COUNT = 10;
+var
+  doOper, count, i;
+  cardData, ppsData;
+begin
+try
+  Result := true;
+  count := 0;
+  repeat
+    inc(count);
+    GetMainWindow.SetFocus;
+    for i := 1 to 2 do
+    begin
+      doOper := Random(4)+1;
+      case i of
+      1:begin
+          GoToMainMenu;
+          GetListOfAllDocuments;
+        end;
+      2:begin
+          GoToMainMenu;
+          cardData := 
+          [
+        	CARD_PPR, ([([
+        	FD_TYPE, ([
+        		'[ИЛИ]Выписка',
+        		'[И]Приказ']) ]),([
+        	FD_INOPERATIVE_EDITION, ([
+        		'Да']) ]) ]) 
+          ];
+          SearchInPPR(cardData);  
+          OpenDocByNumber(4444);
+        end;
+      3:begin
+          GoToMainMenu;
+          ppsData := ['Акции\акции организаций газоснабжения'];
+          SearchInPPS(ppsData);
+        end;
+      4:begin
+          GoToMainMenu;
+          OpenDocByNumber(10003000);
+          OpenDocByNumber(2001);
+        end;        
+      end;
+    end;
+    GetMainWindow.Minimize;
+    Delay(3600*1000);
+  until count >= ITER_COUNT;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' , 4);
+end;
+  if NOT SwitchDataBase(DBT_OLD, 'IsSwitchOnTheFly:=true') then
+    Log.Error('Не смогли вернуться к СТАРОЙ БД. Текущая: ' + GetDataBaseType('ACTIVE'));
+  GetMainWindow.SetFocus;
+  GoToMainMenu;
+end;
+
+function  F1_LOG4000_Execute(var  current_state: OleVariant): OleVariant;
+const
+  USERSCOUNT = 4000;
+  BEGCOUNT = 1;
+var
+  i;
+begin
+try
+  Result := false;
+  i := BEGCOUNT;
+  CloseF1Shell(3, Options.Run.Timeout div 6);
+  StartF1Shell('', 5);
+  while (i < BEGCOUNT + USERSCOUNT) do
+  begin
+    if not LoginNewUser(Utilities.IntToStr(i), '') then
+      Log.Error('Не получилось создать пользователя "' + Utilities.IntToStr(i) + '"');
+    CloseF1Shell(3, Options.Run.Timeout div 6);
+    StartF1Shell('', 3);      
+    inc(i);      
+  end;
+  //
+  Result := (i = BEGCOUNT + USERSCOUNT);
+  Log.Message('OK. Создано ' + Utilities.IntToStr(i-1) +  ' пользователей.');  
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' , 4);
+end; 
+end;
+
+
+// циклическая проверка AV при открытии настроек 
+function  F1_AV_ON_OPEN_SETTINGS_Execute(var  current_state: OleVariant): OleVariant;
+  var i, j, LOGINNAME, msg : OleVariant;
+begin
+  try
+    LOGINNAME := '1';
+    for i := 1 to 100 do 
+    begin
+      if not RestartF1Shell(3, Options.Run.Timeout div 5, LOGINNAME, LOGINNAME) then
+        Raise('Не получилось перезапустить оболочку под тем же пользователем "' + LOGINNAME + '"');
+      for j := 1 to 10 do 
+      begin
+        if NOT IsExists(GoToSettings) then
+          Raise('Не получилось открыть настройки!');
+        GetFromSettings('ФОРМА "НАСТРОЙКИ"').Close;
+
+        msg := GetParam(WaitForAnyMessageWindow('', Options.Run.Timeout div 10, '', 'OK'), WFMF_RES_MSGTEXT, '');
+        if msg <> '' then
+          Raise(msg);
+      end;
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+//Набор простых тестов для определения работоспособности оболочки
+//Проверяем открытие документа по номеру
+function  OpenDocuments_Execute(var  current_state: OleVariant): OleVariant;
+var
+  user_name;
+begin
+  try
+    Result := false;
+    user_name := CompName;
+    
+    Log.Message('Запускаем оболочку и логинимся пользователем "' + USER_NAME + '", пароль "' + USER_NAME + '"', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not RestartF1Shell(3, Options.Run.Timeout div 6, USER_NAME, USER_NAME) then
+      Raise('Не получилось запустить оболочку и залогиниться!');  
+  
+    Log.Message('Открываем по номеру "Конституция РФ"', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not OpenDocByNumber(10003000) then
+      Raise('Не смогли открыть по номеру "Конституция РФ"');
+    
+    Log.Message('Открываем по номеру "Документ 2001"', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not OpenDocByNumber(2001) then
+      Raise('Не смогли открыть по номеру "Документ 2001"');
+    
+    Result := true;
+  except
+    Result := false;
+    Log.Error('OpenDocuments_Execute: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end; 
+end;
+
+//Проверяем открытие/закрытие новых вкладок/окон системы
+function  OpenTabsAndWindows_Execute(var  current_state: OleVariant): OleVariant;
+const
+  WINDOWS_COUNT = 1;
+  TABS_COUNT = 2;
+var
+  user_name;
+  i;
+begin
+  try
+    Result := true;
+    user_name := 'Tabs_' + CompName;      
+
+    Log.Message('Запускаем оболочку и логинимся пользователем "' + user_name + '", пароль "' + user_name + '"', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not RestartF1Shell(3, Options.Run.Timeout div 6, user_name, user_name) then
+      Raise('Не получилось запустить оболочку и залогиниться!');  
+
+    Log.Message('Открываем ' + IntToStr(WINDOWS_COUNT) + ' новых окон(а)', '',  pmNormal, GetLogAttr('YELLOW'));
+    for i := 1 to WINDOWS_COUNT do
+      if not OpenNewContainerWindow then
+      begin
+        Result := ErrorResult('Не получилось открыть новое окно № ' + IntToStr(i));
+        break;
+      end;
+
+    Log.Message('Открываем ' + IntToStr(TABS_COUNT) + ' новых вкладок(и)', '',  pmNormal, GetLogAttr('YELLOW'));
+    for i := 1 to TABS_COUNT do
+      if not OpenNewTab('IsCheckTabsCount:=false') then
+      begin
+        Result := ErrorResult('Не получилось открыть новую вкладку № ' + IntToStr(i));
+        break;
+      end;
+
+    Log.Message('Закрываем все вкладки кроме одной', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not CloseTabsExceptOne then
+      Result := ErrorResult('Не смогли закрыть все вкладки кроме одной!');
+
+    Log.Message('Закрываем все окна кроме одного', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not CloseContainerWindowExceptOne then
+      Result := ErrorResult('Не смогли закрыть все окна кроме одного!');
+      
+    Log.Message('Проверяем живучесть оболочки, открываем одну вкладку', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not OpenNewTab('IsCheckTabsCount:=false') then
+      Result := ErrorResult('Не смогли открыть вкладку после закрытия окон(а)!');
+
+    CloseF1Shell;          
+  except
+    Result := false;
+    Log.Error('OpenTabsAndWindows_Execute: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end; 
+end;
+
+//Проверяем открытие/закрытие новых вкладок/окон системы и фокус после этого
+function  OpenTabsAndFocus_Execute(var  current_state: OleVariant): OleVariant;
+var
+  user_name;
+  i, how;
+begin
+  try
+    Result := true;
+    user_name := 'TabsFocus_' + CompName;
+
+    if not RestartF1Shell(3, Options.Run.Timeout div 6, user_name, user_name) then
+      Raise('Не получилось запустить оболочку и залогиниться!');  
+
+    if not IsExists(GetListOfAllDocuments) then
+      Result := ErrorResult('Не построился список всех документов');
+    for i := 1 to 4 do 
+    begin
+      case i of
+        1: how := 'MOUSE';
+        2: how := 'MOUSE'; // 'MOUSE-MIDDLE'; http://mdp.garant.ru/pages/viewpage.action?pageId=580700204
+        3: how := 'KEYBOARD';
+        4: how := 'KEYBOARD2';
+      end;
+      
+      if not OpenDocFromList('*', GetList) then
+        Result := ErrorResult('Не получилось открыть первый документ списка для метода закрытия "' + how + '"');
+      if not CloseTabIfNeeded('How:=' + how) or IsExists(GetEditor) then
+        Raise('Не получилось закрыть вкладку для метода закрытия "' + how + '"');
+      if not GetList.Focused then 
+        Result := ErrorResult('Фокус НЕ в списке после закрытия вкладки (документа) для метода закрытия "' + how + '"');
+    end;
+
+    CloseF1Shell;          
+  except
+    Result := false;
+    Log.Error('OpenTabsAndFocus_Execute: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end; 
+end;
+
+//Проверяем построение списка документов и открытие документа из него
+function  GetListOfAllDocuments_Execute(var  current_state: OleVariant): OleVariant;
+var
+  user_name;
+  listTree;
+begin
+  try
+    Result := false;
+    user_name := CompName;
+
+    Log.Message('Запускаем оболочку и логинимся пользователем "' + USER_NAME + '", пароль "' + USER_NAME + '"', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not RestartF1Shell(3, Options.Run.Timeout div 6, USER_NAME, USER_NAME) then
+      Raise('Не получилось запустить оболочку и залогиниться!');
+    
+    Log.Message('Строим Список всех документов 1-ый раз', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not IsExists(GetListOfAllDocuments) then
+      Raise('Не смогли построить Список всех документов 1-ый раз');
+    
+    Log.Message('Открываем Основное меню', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not GoToMainMenu then
+      Raise('Не смогли открыть Основное меню');
+         
+    Log.Message('Строим Список всех документов 2-ой раз', '',  pmNormal, GetLogAttr('YELLOW'));
+    listTree := GetListOfAllDocuments;
+    if not IsExists(listTree) then
+      Raise('Не смогли построить Список всех документов 2-ой раз');
+
+    Log.Message('Открываем первый документ ("Конституция РФ") из Списка всех документов', '',  pmNormal, GetLogAttr('YELLOW'));
+    OpenDocFromList;
+    if not IsExists(GetEditor) then
+      Raise('Не смогли открыть документ из списка по нажатию клавиши "Enter" (текст документа не найден)');  
+              
+    Result := true;
+  except
+    Result := false;
+    Log.Error('GetListOfAllDocuments_Execute: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+  GoToMainMenuWithCloseTabsExceptOne;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+{
+  TYPE: Проверка БП
+  DESC: Выполнение поисков по самым популярным запросам  
+  RESULT:
+  REMARK:
+}
+function  BaseSearchSeries_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'BaseSearchSeries_Execute'; 
+var
+  i, contextsArray, logErrors;
+begin
+try
+  Result := true;
+  
+  contextsArray :=
+  [
+    'налоговый кодекс',
+    '3-ндфл',
+    'трудовой кодекс',
+    'гражданский кодекс',
+    'нк',
+    'оквэд',
+    'гк',
+    'годовой отчет',
+    'ндс',
+    'декларация по транспортному налогу',
+    'бератор',
+    'пбу 6/01',
+    '4-фсс',
+    'енвд',
+    '2-ндфл',
+    'транспортный налог',
+    'мрот',
+    'тк',
+    '94-фз',
+    'ндфл',
+    'коап',
+    'план счетов',
+    'суточные',
+    'закон о защите прав потребителей',
+    'есн',
+    'ставка рефинансирования',
+    'статья 395 гк',
+    'уголовный кодекс',
+    'жилищный кодекс',
+    'бюджетный кодекс',
+    'кбк',
+    'трудовой договор',
+    '302-п',
+    'земельный кодекс',
+    'декларация по налогу на прибыль',
+    'гк рф',
+    'конституция',
+    'налог на имущество',
+    'налог на прибыль',
+    'гпк',
+    'доверенность',
+    'производственный календарь',
+    'командировочные расходы',
+    'счет-фактура',
+    'пбу 18/02',
+    'пбу',
+    'правила дорожного движения',
+    'о защите прав потребителей',
+    '131-фз',
+    'отпуск',
+    'об исполнительном производстве',
+    '914',
+    'город',
+    'Банкротство',
+    'курсовые разницы',
+    'сличительная ведомость',
+    'гражданско процессуальный',
+    'служ',
+    'обязательн* страхов* социальн*',
+    'экономическая классификация расходов',
+    'аффилированные лица',
+    'оплата больничного',
+    'кадастровой оценки',
+    'декларация по ндс',
+    'Форма 4-ФСС',
+    'гос служб',
+    'о архитектурной деятельности',
+    'формы бухгалтерской отчетности',
+    'Общероссийский классификатор видов экономической деятельности',
+    'векселя',
+    '47 НК',
+    'о пенсионном обеспечении',
+    'О садоводческих огородных и дачных объединениях',
+    'электрон*',
+    'Коллективный договор',
+    'производ',
+    'ПБУ 5',
+    'прокур',
+    'налог на имущество юридических лиц',
+    'декларация по ЕСН',
+    'расчет пособия по временной нетрудоспособности',
+    'О коммерческой тайне',
+    'изнасилование',
+    'налоговая отчетность',
+    'форма 4-ФСС РФ',
+    'П-4',
+    'договор безвозмездного пользования',
+    'средняя заработная плата',
+    'Единый тарифно-квалификационный справочник работ и профессий рабочих',
+    'ОС',
+    'плата за негативное воздействие на окружающую среду',
+    'ДЕКЛАРАЦИЯ',
+    'О конкуренции',
+    'авансовые платежи',
+    'Снип',
+    'совмещение',
+    'КОДЕКС НАЛОГОВЫЙ',
+    'Тарифно-квалификационный справочник',
+    'Справочник базовых цен на инженерно-геологические изыскания',
+    'кассовая дисциплина',
+    'подотчет',
+    'выплат',
+    'строит*'
+  ];
+
+	for i := VarArrayLowBound(contextsArray, 1) to VarArrayHighBound(contextsArray, 1) do
+  begin
+    Log.Message(FUNCTION_NAME + ': Делаем базовый поиск контекста: "' + contextsArray[i] + '"', '',  pmNormal, GetLogAttr('YELLOW'));
+    if not BaseSearch(nil, contextsArray[i], 'searchType:=' + SRCH_BASE) then
+      Result := ErrorResult(FUNCTION_NAME + ': Базовый поиск контекста: "' + contextsArray[i] + '" не прошел');
+
+    if not IsExists(GetF1ShellProcess) then
+      Raise('Не найден процесс оболочки, прекращаем поиски!');
+  end;
+  CloseF1Shell;
+  
+  // проверяем лог на ошибки
+  logErrors := ProcessingLogForErrors(nil, nil, 'isFromLastLogPositionCounter:=true;isSaveLastPositionCounter:=false;IsAnalyseAllLogs:=true');
+  
+  if Result then
+    Log.Message('Поиски контекстов пройдены!'); 
+  if (logErrors <> '') then
+    Result := ErrorResult(FUNCTION_NAME + ': В логах после поисков найдены ошибки. Строки с ошибками: ' + EndOfLine + logErrors);
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+end; 
+end;
+
+function  BaseSearchSeries_FS_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'BaseSearchSeries_FS_Execute'; 
+var
+  p;
+begin
+try
+  Result := BaseSearchSeries_Execute(p); 
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+end; 
+end;
+
+function  BaseSearchSeries_Server_Execute(var  current_state: OleVariant): OleVariant;
+const
+  FUNCTION_NAME = 'BaseSearchSeries_Server_Execute'; 
+var
+  p;
+begin
+try
+  Result := BaseSearchSeries_Execute(p); 
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+end; 
+end;
+
+//Тесты по проверке F1UsersSave и F1UsersMake///////////////////////////////////
+{
+  HLTC413.1.1: Нужно проверить, что в логе нет ошибок и записей «can't find external face».
+    "C:\Program Files\garant-nemesis\settings\xmltools\winNT\F1UsersSave.exe" -XMLType XT_ALL -GCMConfigFile "C:\Program Files\Garant-Nemesis\garant.ini" -LocalePath "C:\Program Files\Garant-Nemesis\settings\xmltools\winNT" -RulesPath "C:\Program Files\Garant-Nemesis\settings\xmltools\winNT" -XMLSavePath "C:\Program Files\garant-nemesis\settings-xml"
+  !!! Запускать на КС !!!
+}
+function  F1UsersSaveTest_Execute(var  current_state: OleVariant): OleVariant;
+var
+  p, i, pathToF1, f1usersave_name, f1usersave_params, logErrors;
+begin
+try
+  try
+    Result := true;
+    if not StopF1Server then 
+      Raise('Не удалось остановить сервер F1!');
+
+    pathToF1 := IncludeTrailingBackslash(GetF1Directory('SERVER'));
+    if not DirectoryExists(pathToF1) then
+      Raise('Каталог сервера F1 не найден "' + pathToF1 + '"');
+
+    f1usersave_name := pathToF1 + 'settings\xmltools\winNT\F1UsersSave.exe';
+    if not FileExists(f1usersave_name) then
+      Raise('Файл "' + f1usersave_name + '" не найден')
+    else
+      f1usersave_name := '"' + f1usersave_name + '"';
+    f1usersave_params := ' -XMLType XT_ALL -GCMConfigFile "' + pathToF1 + 'garant.ini" -LocalePath "' + pathToF1 + 'settings\xmltools\winNT" -RulesPath "' + pathToF1 + 'settings\xmltools\winNT" -XMLSavePath "' + pathToF1 + 'settings-xml"';
+
+    if Win32API.WinExec(f1usersave_name + f1usersave_params, Win32API.SW_SHOW) < 32 then
+      Result := ErrorResult('Возникла ошибка при запуске: ' + f1usersave_name + f1usersave_params);
+    
+    i := 0;
+    repeat
+      Inc(i);
+      Delay(Options.Run.Timeout);
+      p := Sys.WaitProcess('F1UsersSave', Options.Run.Timeout div 30);
+    until (not IsExists(p)) or (i > 5);  
+        
+    if IsExists(p) then
+    begin
+      Result := ErrorResult('Процесс F1UsersSave.exe не завершился!');
+      p.Terminate;
+    end;
+    logErrors := ProcessingLogForErrors(nil, nil, 'IsFromLastServerStart:=true;isSaveLastPositionCounter:=false');
+    if (logErrors <> '') then
+      Result := ErrorResult('После работы "F1UsersSave" в логе найдены ошибки, строки с ошибками: ' + EndOfLine + logErrors);
+  finally
+    StartF1Server;
+  end;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  HLTC413.2.1: Проверить:
+  !daily-GARANTF1-7_0x\support\apps\winNT\F1UsersMake.exe -GCMSettingsPath "C:\Program Files\garant-nemesis\settings" -Locale "ru"
+  Нужно проверить список файлов в каталоге -GCMSettingsPath, который предварительно нужно полностью очистить:
+
+    data_fdb.k
+    data_prb.k
+    data_udb.k
+    data_fdb.s
+    data_prb.s
+    data_udb.s
+    
+  !!! Запускать на Десктопе !!!    
+}
+function  F1UsersMakeTest_Execute(var  current_state: OleVariant): OleVariant;
+var
+  p, buildPath, pathToF1, settingsPath, f1usersmake_name, f1usersmake_params, arrayNames;
+begin
+try
+  Result := true;
+
+  CloseF1Shell;
+  
+  buildPath := TestStandParams('get', 'BuildPath');
+  if (buildPath = GEP_EMPTY_VALUE) or IsEmpty(buildPath) then
+    Raise('Параметр "BuildPath" не найден');
+  if not DirectoryExists(buildPath) then
+    Raise('Возможно еще идет процесс сборки, каталог не найден "' + buildPath + '"');
+
+  pathToF1 := IncludeTrailingBackslash(GetF1Directory);
+  if not DirectoryExists(pathToF1) then
+    Raise('Каталог сервера F1 не найден "' + pathToF1 + '"');
+
+  // указываем несуществующую папку, иначе убрать удаление папки ниже
+  settingsPath := pathToF1 + 'settings_f1usersmaketest';
+  CreateDir(settingsPath);
+  try
+    if not DirectoryExists(settingsPath) then
+      Raise('Каталог настроек не найден "' + settingsPath + '"');
+    if not DeleteFiles(settingsPath + '\*.*') then
+      Raise('Не получилось очистить каталог настроек "' + settingsPath + '"');
+
+    f1usersmake_name := IncludeTrailingBackslash(buildPath) + 'support\apps\winNT\F1UsersMake.exe';
+    if not FileExists(f1usersmake_name) then
+      Raise('Файл "' + f1usersmake_name + '" не найден');
+    f1usersmake_name := '"' + f1usersmake_name + '"';
+
+    f1usersmake_params := ' -GCMSettingsPath "' + settingsPath + '" -Locale "ru"';
+
+    if Win32API.WinExec(f1usersmake_name + f1usersmake_params, Win32API.SW_SHOW) < 32 then
+      Result := ErrorResult('Возникла ошибка при запуске: ' + f1usersave_name + f1usersave_params);
+
+    Delay(Options.Run.Timeout);
+    p := Sys.WaitProcess('F1UsersMake', Options.Run.Timeout div 30);
+    if IsExists(p) then
+    begin
+      p.Window('*').Keys('[Esc]');
+      Delay(Options.Run.Timeout div 10);
+      if IsExists(p) then 
+        p.Terminate;    
+    end;
+
+    if not DeleteFiles(settingsPath + '\*.tmp') then
+      Raise('Не получилось очистить каталог "' + settingsPath + '" от "*.tmp" файлов');
+
+    arrayNames := GetFileList(settingsPath, '*', 0);
+    if not IsArray(arrayNames) then
+      Raise('Не получилось считать список файлов настроек или каталог пуст');
+
+    SortArray(arrayNames);
+    settingsPath := IncludeTrailingBackslash(settingsPath); 
+
+    if not CompareArray([
+                          settingsPath + 'data_prb.k',
+                          settingsPath + 'data_prb.s',
+                          settingsPath + 'data_udb.k',
+                          settingsPath + 'data_udb.s'
+                        ], arrayNames, true, true) then
+      Result := ErrorResult('F1UsersMake.exe отработал неправильно, список файлов настроек отличается');
+    finally
+      RemoveFoldersExt(settingsPath);
+    end;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  Тест получения респондентов к части документа
+  Реализация запроса: http://mdp.garant.ru/pages/viewpage.action?pageId=251337322    
+}
+function  F1RespondentEntrysTest_Execute(var  current_state: OleVariant): OleVariant;
+var 
+  doBreak, listResp, lastDocIndex;
+  countOfOpenedDocs, countOfOpenedEntrys;
+begin
+  try
+    Result := true;  
+    if not IsExists(GetListOfAllDocuments) then
+      Raise('Не получилось построить список всех документов!');  
+    if not OpenObjectFromFolder('*', GetList) then
+      Raise('Не получилось открыть первый документ в списке!');
+      
+    countOfOpenedDocs := 1;
+    countOfOpenedEntrys := 0;
+    doBreak := false;
+    repeat
+      //listResp := OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА');
+      //вместо OpenInDocument быстро вызываем через нажатие:
+      Sys.Keys('^[F8]');      
+      listResp := GetFromEditor('ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+      if IsExists(listResp) then
+      begin
+        lastDocIndex := -1;
+        while lastDocIndex <> listResp.CurrentNodeIndex do
+        begin
+          if not IsExists(listResp) then break;
+          lastDocIndex := listResp.CurrentNodeIndex;
+          if listResp.CurrentNodeLevel = 1 then
+          begin   
+            listResp.Keys('[Right][Right][Right]');
+            if listResp.CurrentNodeLevel = 1 then
+              listResp.Keys('[Down]');
+          end
+          else
+            listResp.Keys('[Down]');
+      
+          if listResp.CurrentNodeLevel = 2 then
+          begin
+            listResp.Keys('[Enter]');
+            Inc(countOfOpenedEntrys);
+            Log.Message('-Открыли вхождение № ' + IntToStr(countOfOpenedEntrys));                      
+
+            if IsExists(listResp) then
+              Log.Warning('-Вкладка респондентов почему-то осталась существовать для вхождения №: ' + IntToStr(countOfOpenedEntrys));
+            if not GoByHistory('НАЗАД') then
+              Log.Warning('-Не получилось вернуться по истории Назад');
+          end;
+          
+          listResp := GetFromEditor('ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"'); 
+        end;
+      end
+      else
+        Log.Message('Не получилось открыть СПИСОК ССЫЛОК ИЗ ДОКУМЕНТА');
+
+      if not ClickStatusBarButton('СЛЕДУЮЩИЙ ДОКУМЕНТ В СПИСКЕ') then
+      begin
+        Log.Warning('Не получилось перейти к следующему документу в списке');
+        doBreak := true;
+      end
+      else
+      begin
+        Inc(countOfOpenedDocs);
+        Log.Message('Перешли к документу списка № ' + IntToStr(countOfOpenedDocs));              
+      
+        if IsExists(GetList) then
+          GoByHistory('ВПЕРЕД');
+      end;
+           
+    until doBreak;
+
+    Result := doBreak;
+    Log.Message('Всего было открыто вхождений: ' + IntToStr(countOfOpenedEntrys));
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  Тест для заполнения выбора множества ситуаций в КЗ ППС
+  Для повторения сбоя: http://http://mdp.garant.ru/pages/viewpage.action?pageId=476813025    
+}
+function  F1Search_ManyInPPS_Execute(var  current_state: OleVariant): OleVariant;
+const
+  COUNT_ITER = 50;
+  COUNT = 500;
+var 
+  w, c, i;
+begin
+  try
+    for c := 1 to COUNT_ITER do
+    begin
+      if not GoToPPS then
+        Raise('Не получилось перейти в КЗ ППС');
+      w := GetFromPPS('СИТУАЦИИ ОСНОВНОГО УРОВНЯ');
+      w.SetFocus;
+      for i := 1 to COUNT do
+        w.Keys('[Ins]');
+      w.Keys('^[Enter]');
+      Delay(Options.Run.Timeout);
+    end;
+
+    Result := true;
+    Log.Message('Можно смотреть в лог garant.log');
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  Тест для проверки зависания ГМ
+  Для повторения ошибки: http://mdp.garant.ru/pages/viewpage.action?pageId=564990275
+}
+function  F1MainMenuHang_Execute(var  current_state: OleVariant): OleVariant;
+const
+  COUNT_ITER = 100;
+var 
+  w, i, str;
+begin
+  try
+    Result := true;
+
+    for i := 1 to COUNT_ITER do
+    begin
+      if i mod 2 = 0 then
+      begin
+        str := 'Документы';
+        GetListOfAllDocuments;
+      end
+      else
+      begin
+        str := 'Правка';
+        GoToMainMenu('МЕНЮ');
+      end;
+
+      w := GetMainContainer;
+      if not IsExists(w) then
+      begin
+        Result := ErrorResult('Окно контейнера почему-то не найдено!');
+        continue;
+      end;
+
+      w.Minimize; // w.Window('TChromeLikeLegacyMinimizeCaptionButton').Click;
+      Delay(Random(60000));
+      w.Restore;
+      
+      if not ClickByMainMenuItem(str) then
+        Result := ErrorResult('Не получилось кликнуть по главному меню на ' + IntToStr(i) + '-раз!');
+    end;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  Тест для проверки ошибки LIOOB или AV
+  Для повторения ошибки: http://mdp.garant.ru/pages/viewpage.action?pageId=564992075
+}
+function  F1TabsTest_Execute(var  current_state: OleVariant): OleVariant;
+const
+  COUNT_ITER = 5;
+var 
+  i, j, how;
+  p1, w1;
+begin
+{
+  p1 := Sys.Process('F1Shell');
+  w1 := p1.vcmTabbedContainerForm.Window('TFormFrameDecorator').TabSetScene;
+
+  Delay(2000);
+  Sys.Keys('[F3]');
+  Delay(2000);
+  Sys.Keys('[Down][Enter]');
+  Delay(2000);
+
+  Sys.Keys('[F3]');
+  Delay(2000);  
+  Sys.Keys('[Down][Enter]');
+  Delay(2000);  
+
+  w1.Click(91, 10);
+  Delay(2000);    
+  w1.Click(344, 12);
+
+  Exit;
+}
+
+  try
+    Result := true;
+    
+    // закрываем лишние вкладки перед запуском
+    CloseTabsExceptOne;
+    
+    for i := 1 to COUNT_ITER do
+    begin
+      ClearWindowCache(true);
+      if not GotoMainMenu then
+        Result := ErrorResult('Не получилось открыть ОМ на ' + IntToStr(i) + '-раз!');      
+      
+      //for j := 1 to 2 do
+      for j := 1 to MAX_WINDOW_TABS - 1 do
+      begin
+        // открываем ленту Прайм вручную, так быстрее
+        Sys.Keys('[F3]');
+        
+        //WaitForInfoWindow(Options.Run.Timeout div 10);
+        WaitForConfirmationWindow(Options.Run.Timeout div 10, '#*все*');
+      end;
+      // последнюю вкладку открываем в текущей, т.к. должен быть достигнут максимум вкладок
+      ClearWindowCache(true);      
+      if not GoToPrime('', false, true) then
+        Result := ErrorResult('Не получилось открыть "ПРАЙМ. Моя новостная лента" в новой (но уже в текущей максимально допустимой) вкладке!');
+
+      // переключаемся на вкладку ОМ
+      if not SwitchToTab('TabName:=*меню*') then
+        Result := ErrorResult('Не получилось переключиться на вкладку ОМ на ' + IntToStr(i) + '-раз!');
+
+      // не чистим кэш окон, так быстрее
+      case i mod 3 of
+        0: how := 'MOUSE';
+        1: how := 'KEYBOARD';
+        2: how := 'KEYBOARD2';
+      end;
+      if not CloseTabsExceptOne('How:=' + how) then
+        Result := ErrorResult('Не получилось закрыть все вкладки на ' + IntToStr(i) + '-раз!');
+    end;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+  CloseF1Shell;
+end;
+
+{
+  Тест для сравнения поисков на старой и новой F1
+  http://mdp.garant.ru/pages/viewpage.action?pageId=476813079&focusedCommentId=507421314#comment-507421314
+  
+  1. Сначала запускаем F1Search_CreateList для 2х разных сборок, меняя каталог с результами.
+  2. Затем запускаем F1Search_CompareLists и смотрим различия.
+}
+const
+  FOLDER_413_1 = 'C:\!!SEARCH\';
+  FILENAME_CONTEXTS_413_1 = FOLDER_413_1 + 'contexts.txt';
+  FILENAME_REPORT_413_1 = FOLDER_413_1 + 'report_search.txt';
+  FILENAME_REPORT_COMPARE_413_1 = FOLDER_413_1 + 'report_compare.txt';
+  FILENAME_REPORT_COMPARE_FULL_413_1 = FOLDER_413_1 + 'report_compare_full.txt';
+  FOLDER_413_1_RES1 = FOLDER_413_1 + 'v709\';
+  FOLDER_413_1_RES2 = FOLDER_413_1 + 'v710\';
+  DIGITS_413_1 = 4;
+  
+procedure WriteToLogAndReport(fn, s: string; isWriteDate: boolean = true; isWriteToLog: boolean = true);
+var
+  date_text;
+begin
+  if isWriteToLog then
+    Log.Message(s, '', pmNormal, GetLogAttr('YELLOW'));
+
+  date_text := '';
+  if isWriteDate then date_text := DateTimeToStr(aqDateTime.Now) + ': ';
+  AppendFile(fn, date_text + s);
+end;
+
+function F1Search_CreateList(var  current_state: OleVariant): OleVariant;
+var 
+  arr_contexts, arr_ind, list_text, log_text, i, j;
+begin
+  try
+    Result := true;
+
+    arr_contexts := String2Array(GetFileBody(FILENAME_CONTEXTS_413_1));
+    if not IsArray(arr_contexts) or (ArrayLength(arr_contexts) < 1) then
+      Raise('Входной файл с контекстами не найден или пуст!');
+
+//    arr_ind := [129, 146, 240, 304, 340, 392, 439];
+//    for j := VarArrayLowBound(arr_ind, 1) to VarArrayHighBound(arr_ind, 1) do    
+
+	  for i := VarArrayLowBound(arr_contexts, 1) to VarArrayHighBound(arr_contexts, 1) do    
+    begin
+      //i := arr_ind[j];
+      if not BaseSearch(nil, arr_contexts[i], 'IsCloseWindow:=false') then
+      begin
+        log_text := 'НЕ прошел';
+        list_text := '';
+      end
+      else
+      begin
+        log_text := 'прошел (найдено: ' + IntToStr(CountElementInList(GetList)) + ')';
+        list_text := Array2String(GetElementsFromTree(GetList, false, 'IsAddNumber:=true;IsAddRelevance:=true'), EndOfLine {#13});
+      end;
+      WriteToLogAndReport(FILENAME_REPORT_413_1, 'БП поиск контекста № ' + IntToStr(i) + ': "' + arr_contexts[i] + '" ' + log_text);
+      //прописываем каталог результатов
+      SetFileBody(FOLDER_413_1_RES1 + Format('%.*d', [DIGITS_413_1, i]) + '.txt', list_text);
+    end;
+    WriteToLogAndReport(FILENAME_REPORT_413_1, 'Закончили' + EndOfLine + EndOfLine);
+  except
+    Result := false;
+    Log.Error('F1Search_CreateList: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+function F1Search_CompareLists(var  current_state: OleVariant): OleVariant;
+var 
+  arr_contexts, arr_list1, arr_list2, i, log_text;
+begin
+  try
+    Result := true;
+
+    arr_contexts := String2Array(GetFileBody(FILENAME_CONTEXTS_413_1));
+    if not IsArray(arr_contexts) or (ArrayLength(arr_contexts) < 1) then
+      Raise('Входной файл с контекстами не найден или пуст!');
+    
+	  for i := VarArrayLowBound(arr_contexts, 1) to VarArrayHighBound(arr_contexts, 1) do
+    //for i := VarArrayLowBound(arr_contexts, 1) to 332 do
+    begin
+      arr_list1 := String2Array(GetFileBody(FOLDER_413_1_RES1 + Format('%.*d', [DIGITS_413_1, i]) + '.txt'));
+      arr_list2 := String2Array(GetFileBody(FOLDER_413_1_RES2 + Format('%.*d', [DIGITS_413_1, i]) + '.txt'));
+      if not CompareArray(arr_list1, arr_list2, false) then
+      begin
+        Result := false;      
+        log_text := 'Поиск №' + IntToStr(i) + ': "' + arr_contexts[i] + '" отличается'; 
+
+        // короткий лог
+        WriteToLogAndReport(FILENAME_REPORT_COMPARE_413_1, log_text); 
+        
+        // полный лог
+        WriteToLogAndReport(FILENAME_REPORT_COMPARE_FULL_413_1, log_text, false, false);
+        WriteToLogAndReport(FILENAME_REPORT_COMPARE_FULL_413_1, Array2String(common.Difference(arr_list1, arr_list2), EndOfLine) + EndOfLine + EndOfLine, false, false);
+      end;
+    end;
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+function F1Search_Super(var  current_state: OleVariant): OleVariant;
+const
+  COUNTS = 100;
+  TIMEOUT = 1000;
+  CONTEXT = '1*';   
+var 
+  i;
+begin
+  try
+    Result := true;
+
+	  for i := 1 to COUNTS do    
+    begin
+      if not BaseSearch(nil, CONTEXT, 'IsCloseWindow:=false') then
+        Raise('Не получилось выполнить поиск');
+
+      if i mod 2 = 0 then
+      begin
+        GotoMainMenu;
+        
+        if not EnterContextInBaseSearch(CONTEXT, 'IsDoSearch:=true') then
+          Raise('Не получилось выполнить поиск');
+        if WaitForProgressIndicatorAbsence(Options.Run.Timeout div 4) then
+          Raise('Не найден прогресс-индикатор БП');
+        Delay(TIMEOUT);
+        Sys.Keys('[Esc]');
+        WaitForWarningWindow(Options.Run.Timeout div 10);
+      end;
+    end;
+  except
+    Result := false;
+    Log.Error('F1SearchSuper: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests413;
+var i, p, w, textTmp;
+begin
+//  BASE_SWITCHER_Execute(p);
+//  BASE_SWITCHER2_Execute(p);
+//  F1SHELL_TEST1_Execute(p);
+//  F1_LOG4000_Execute(p);
+//  F1_AV_ON_OPEN_SETTINGS_Execute(p);
+//  BASE_SWITCHER_DOC_Execute(p);
+//  OpenDocuments_Execute(p);
+//  OpenTabsAndWindows_Execute(p);
+//  OpenTabsAndFocus_Execute(p);
+//  GetListOfAllDocuments_Execute(p);
+//  BaseSearchSeries_Execute(p);
+//  F1UsersSaveTest_Execute(p);
+//  F1UsersMakeTest_Execute(p);
+//  F1Search_ManyInPPS_Execute(p);
+//  F1Search_Super(p);
+
+//  F1MainMenuHang_Execute(p);
+//  F1TabsTest_Execute(p);
+
+//  F1Search_CreateList(p);
+//  F1Search_CompareLists(p);
+///////////////////////////////////////
+//  OpenTabsAndFocus_Execute(p);
+
+
+
+
+
+
+
+
+
+
+
+  
+end;

@@ -1,0 +1,353 @@
+// afwNavigation 4A23935A0282 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A23935A0282
+
+: ME_47C5BD35000A
+ CONST UID '47C5BD35000A'
+ CONST GUID 'BDF9CD19-9AAF-4640-9784-CA3543E38558'
+ CONST Name 'IevMoniker'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфейс для указателей на различные объекты.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23935A0282 // afwNavigation
+ ;
+
+ref; // ME_47C5BD35000A IevMoniker
+
+FORWARD ME_4A23BB9A02AC
+
+: ME_4A23BBBA02D6
+ CONST UID '4A23BBBA02D6'
+ CONST Name 'URL'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'URL - на который указывает интерфейс' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4A23BB9A02AC // IevURLMoniker
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" true
+
+ref; // ME_4A23BBBA02D6 URL
+
+: ME_4A23BB9A02AC
+ CONST UID '4A23BB9A02AC'
+ CONST GUID '3206517A-BB84-41F5-8A25-68032ADA08A9'
+ CONST Name 'IevURLMoniker'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для объектов указывающих на URL' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23935A0282 // afwNavigation
+ ;
+ : Inherits
+   @ ( ME_47C5BD35000A // IevMoniker
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A23BBBA02D6 // URL
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4A23BB9A02AC IevURLMoniker
+
+FORWARD ME_4A23BBD90274
+
+: ME_4A23BBF30230
+ CONST UID '4A23BBF30230'
+ CONST Name 'ID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'идентификатор объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4A23BBD90274 // IevIDMoniker
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4A23BBF30230 ID
+
+: ME_4A23BBD90274
+ CONST UID '4A23BBD90274'
+ CONST GUID 'EF7CCAA9-BCF1-4206-9EE5-A7A952D0E3BA'
+ CONST Name 'IevIDMoniker'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Адрес объекта, имеющего целочисленный идентификатор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23935A0282 // afwNavigation
+ ;
+ : Inherits
+   @ ( ME_47C5BD35000A // IevMoniker
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A23BBF30230 // ID
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4A23BBD90274 IevIDMoniker
+
+FORWARD ME_4A23BC0D0331
+
+: ME_4A23BBF30230_ME_4A23BC0D0331
+ CONST UID '4A23BBF30230'
+ CONST Name 'ID'
+ : Original ME_4A23BBF30230 // ID
+ ;
+ : Implementor ME_4A23BC0D0331 // IevHyperlinkMoniker
+ ;
+ CONST "pm" true
+ref; // ME_4A23BBF30230_ME_4A23BC0D0331 ID
+
+: ME_4A23BC0D0331
+ CONST UID '4A23BC0D0331'
+ CONST GUID 'FB504C38-BA7D-41CD-8E7F-BB64B9BF1E9D'
+ CONST Name 'IevHyperlinkMoniker'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Объект, указывающий на гипертекстовую ссылку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23935A0282 // afwNavigation
+ ;
+ : Inherits
+   @ ( ME_4A23BBD90274 // IevIDMoniker
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4A23BBF30230_ME_4A23BC0D0331 // ID
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4A23BC0D0331 IevHyperlinkMoniker
+
+: ME_4CDD38E601A5
+ CONST UID '4CDD38E601A5'
+ CONST Name 'TafwAddress'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23935A0282 // afwNavigation
+ ;
+ : Inherits
+   @ ( WL 'ME_48F4941A0249' '48F4E61C0060.pas.ms.script' // Address
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4CDD38E601A5 TafwAddress
+
+FORWARD ME_48F4940C01C0
+
+: ME_49E6009D02ED
+ CONST UID '49E6009D02ED'
+ CONST Name 'EQ'
+ CONST Class class_Operation
+ %SUMMARY 'Проверяет адреса на совпадение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48F4940C01C0 // TevAddress
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49E6009D02ED EQ
+
+: ME_49E604FE0347
+ CONST UID '49E604FE0347'
+ CONST Name 'C'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48F4940C01C0 // TevAddress
+ ;
+
+ref; // ME_49E604FE0347 C
+
+: ME_48F4940C01C0
+ CONST UID '48F4940C01C0'
+ CONST Name 'TevAddress'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23935A0282 // afwNavigation
+ ;
+ : Inherits
+   @ ( ME_4CDD38E601A5 // TafwAddress
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_49E6009D02ED // EQ
+ ME_49E604FE0347 // C
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_48F4940C01C0 TevAddress
+
+FORWARD ME_47C5BD43008C
+
+: ME_49DC81920264
+ CONST UID '49DC81920264'
+ CONST Name 'anEffects'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49DC7BDE0398' '467823B7002C.pas.ms.script' // TafwJumpToEffects
+ ;
+
+ref; // ME_49DC81920264 anEffects
+
+: ME_49DC819202A2
+ CONST UID '49DC819202A2'
+ CONST Name 'aMoniker'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47C5BD35000A // IevMoniker
+ ;
+
+ref; // ME_49DC819202A2 aMoniker
+
+: ME_47C5BD5B00AE
+ CONST UID '47C5BD5B00AE'
+ CONST Name 'JumpTo'
+ CONST Class class_Operation
+ %SUMMARY 'перейти по адресу aMoniker.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47C5BD43008C // IevMonikerSink
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_49DC81920264 // anEffects
+ ME_49DC819202A2 // aMoniker
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47C5BD5B00AE JumpTo
+
+: ME_47C5BD43008C
+ CONST UID '47C5BD43008C'
+ CONST GUID 'A88DA8DE-D158-4163-91AD-DB6EF4D0F71D'
+ CONST Name 'IevMonikerSink'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для реализации перехода по адресу.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23935A0282 // afwNavigation
+ ;
+ : Operations
+   @ ( ME_47C5BD5B00AE // JumpTo
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47C5BD43008C IevMonikerSink
+
+FORWARD ME_4A23C8F40181
+
+: ME_4A23C92103C2
+ CONST UID '4A23C92103C2'
+ CONST Name 'Address'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4A23C8F40181 // IevAddressMoniker
+ ;
+ : Target ME_48F4940C01C0 // TevAddress
+ ;
+ CONST "pm" true
+
+ref; // ME_4A23C92103C2 Address
+
+: ME_4A23C8F40181
+ CONST UID '4A23C8F40181'
+ CONST GUID '948913E4-9AAA-41E3-9007-F5C66BDE954C'
+ CONST Name 'IevAddressMoniker'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Адрес точки входа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A23935A0282 // afwNavigation
+ ;
+ : Inherits
+   @ ( ME_47C5BD35000A // IevMoniker
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4A23C92103C2 // Address
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4A23C8F40181 IevAddressMoniker
+
+: ME_4A23935A0282
+ CONST UID '4A23935A0282'
+ CONST Name 'afwNavigation'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Навиация между объектами системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ ;
+ : Children
+   @ ( ME_47C5BD35000A // IevMoniker
+ ME_4A23BB9A02AC // IevURLMoniker
+ ME_4A23BBD90274 // IevIDMoniker
+ ME_4A23BC0D0331 // IevHyperlinkMoniker
+ ME_4CDD38E601A5 // TafwAddress
+ ME_48F4940C01C0 // TevAddress
+ ME_47C5BD43008C // IevMonikerSink
+ ME_4A23C8F40181 // IevAddressMoniker
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_48F4E61C0060' '48F4E61C0060.pas.ms.script' // Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '01.06.2009 12:38'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwNavigation.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A23935A0282.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A23935A0282.pas.ms.script.runner'
+
+ref; // ME_4A23935A0282 afwNavigation

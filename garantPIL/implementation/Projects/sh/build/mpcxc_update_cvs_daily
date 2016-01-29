@@ -1,0 +1,43 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_update_cvs_daily <confirm>"
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+echo "mpcxc_update_cvs_daily ..."
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT; see doc for details."
+exit
+fi
+
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path
+
+$MPCXC_SH/update_cvs garantPIL
+$MPCXC_SH/update_cvs garant6x
+$MPCXC_SH/update_cvs storage
+$MPCXC_SH/update_cvs shared
+
+$MPCXC_SH/update_cvs common/components/rtl/Garant/evd
+
+$MPCXC_SH/clean_bakcvs_only
+
+chmod 755 $future_scripts_path/*
+
+$MPCXC_SH/mpcxc_fix_mwc_mpc shared
+$MPCXC_SH/mpcxc_fix_mwc_mpc garant6x
+$MPCXC_SH/mpcxc_fix_mwc_mpc common
+$MPCXC_SH/mpcxc_fix_mwc_mpc storage
+
+$MPCXC_SH/mpcxc_fix_mwc_mpc common/components/rtl/Garant/evd
+
+cp -f $MPCXC_ROOT/src/shared/support/mpc/make/bzlib/bzlib.mpc $MPCXC_ROOT/src/bzlib/src/
+
+echo "ln -s Makefile"
+rm -f $MPCXC_ROOT/Makefile
+cp $MPCXC_SH/Makefile $MPCXC_ROOT/Makefile
+
+echo "end."

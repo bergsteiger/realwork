@@ -1,0 +1,3841 @@
+///////////////////////////////////////////////////////////////////////////////
+//	Модуль для работы с документом                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+uses Clicks, common, RunPrograms, SettingsWork, MenuWork, ListWork, FileWork, FoldersWork, exceptions, States, SearchWork;
+
+function ScrollBarClick(obj: OleVariant; direction: string; count: integer = 1): boolean; forward;
+function OpenDocByNumberEx(const number: longint;  const isInternalNumber : boolean = true): boolean; forward;      
+function CheckTimeMachineIcons(existsicon: boolean): boolean; forward;
+function OpenDocFromList(const docname: String = ''; list : OleVariant = nil; const paramString : String = ''): boolean; forward;
+      
+{
+  TYPE: Работа с документом
+  DESC: Возвращает редактор
+  RESULT:
+  REMARK:
+}
+function GetEditor: Window;
+begin
+  Result := nil;
+  try
+    Result := GetFromEditor('ТЕКСТ ДОКУМЕНТА'); 	
+  except
+    Raise(ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+
+function GetEditorInSynchroView: Window;
+var
+ p, w;
+ Editor, TextFormWnd; 
+begin
+  Result := nil;
+  try
+   	Result := GetFromSynchroView('ТЕКСТ ДОКУМЕНТА'); 	
+  except
+    Raise(ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Открывает документ по номеру
+  RESULT: True, если не было предупреждения.
+  REMARK:
+}
+function OpenDocByNumberEx(
+  const number: longint;
+  const isInternalNumber : boolean = true
+) : boolean;
+const
+  FUNCTION_NAME = 'OpenDocByNumberEx';
+var
+	p, w, tmp;
+  warningMessage : String;
+  i, j : integer;
+begin
+  try
+    p := GetF1ShellProcess;
+    GetMainWindow.SetFocus;
+
+    // пытаемся открыть несколько раз
+    for i := 1 to 6 do
+    begin
+      w := NonExObj;
+      case i of 
+        1,2,4,6 :
+          begin
+            Sys.Keys('~n');
+            w := FindWindowByPath(p, 'NAME:=DocNumberQueryForm;WNDCLASS:=TDocNumberQueryForm;TimeOut:=' + IntToStr(Options.Run.Timeout div 20), false);
+          end;  
+        5 : GoToPPR; 
+        3 : ClickByMainMenuItem('Файл');   
+      end;
+      if IsExists(w) then break;
+    end;
+        
+    if NOT IsExists(w) then Raise('Не получилось найти диалог открытия документа по номеру!');
+   
+    w.Activate;
+    Sys.Keys(Utilities.IntToStr(number));
+{
+    //---->временная заточка
+    tmp := Sys.Clipboard;
+    Sys.Clipboard := Utilities.IntToStr(number); 
+    Sys.Keys('^v[Home][End]');
+    if VarType(tmp) = varOleStr then Sys.Clipboard := tmp;
+    //----<
+}    
+    w.cbInternal.Checked := isInternalNumber;
+    if not StringCompare(Utilities.IntToStr(number), w.edNumber.wText) then
+      Raise('Номер документа (' + w.edNumber.wText + ') в окне ввода, НЕ соответствует вводимому (' + Utilities.IntToStr(number) + ')');
+  	Sys.Keys('[Enter]');
+    Delay(Options.Run.Timeout div 15);
+    warningMessage := WaitForWarningWindow(Options.Run.Timeout div 30, '', true, '#Вернуться*', true);    
+    Result := (warningMessage = '');
+    if NOT Result  then
+      Log.Warning('Документ с номером ' + Utilities.IntToStr(number) + ' не найден', 'Полное сообщение: "' + warningMessage + '"')
+    else
+      Log.Message('Открыли документ с номером ' + Utilities.IntToStr(number), '',  pmNormal, GetLogAttr('SILVER'));
+  except
+    Log.Message(FUNCTION_NAME + ' : ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Открывает документ по номеру
+  RESULT: True, если не было предупреждения.
+  REMARK: Фактически дублирует OpenDocByNumberEx
+}
+function OpenDocByNumber(
+  const number: longint;
+  const doCtrlHome : boolean = false;
+  const isInternalNumber : boolean = true
+): boolean;
+begin
+  try
+    Result := OpenDocByNumberEx(number, isInternalNumber);
+    
+    if Result AND doCtrlHome then Sys.Keys('^[Home]');
+  except
+    Log.Message('OpenDocByNumber: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Открытие документа из списка
+  RESULT:
+  REMARK: Больше предназначена для открытия документа в новой вкладке
+    'IsClearCache' - чистить ли оконный кэш, false может понадобиться для ускорения процесса
+    'How' - варианты открытия документа, см. функцию
+}
+function OpenDocFromList(
+  const docname: String = '';
+  list : OleVariant = nil;
+  const paramString : String = ''
+): boolean;
+var
+  paramList, x, y;
+  how, isClearCache, isCloseMaxDocsMessage;
+begin
+  try
+    Result := false;
+    if list = nil then
+      list := GetList;
+    if NOT IsExists(list) then
+      Raise('Родительское окно списка не существует');
+    list.SetFocus;
+
+    paramList := ParseParamString(paramString);    
+    how := AnsiUpperCase(GetParam(paramList, 'How', 'keyboard'));
+    isClearCache := VarToBool(GetParam(paramList, 'IsClearCache', 'true'));
+    isCloseMaxDocsMessage := VarToBool(GetParam(paramList, 'IsCloseMaxDocsMessage', 'true'));
+
+    if (docname <> '')  and (not Position_Internal(list, docname, DELIM_CHAR, true, 'IsPressHome:=true')) then
+      Raise('Не найден документ: "' + docname + '"');;
+
+    case how of
+      'KEYBOARD' :
+        begin 
+          list.Keys('[Enter]');
+        end;
+      'MOUSE' :
+        begin 
+          if not GetTextSelectionCoords(list, x, y) then
+            Raise('Не найден активный элемент списка, кликать некуда!');
+          list.Click(x + 5, y +5);
+        end;
+      'POPUP-NEWTAB' :
+        begin
+          if not OpenAndClickByPopupMenuItem(list, 'Открыть*новой*вкладке') then
+            Raise('Не получилось открыть документ через пункт попап-меню "Открыть документ в новой вкладке"');
+        end;
+      'POPUP-NEWWND' :
+        begin
+          if not OpenAndClickByPopupMenuItem(list, 'Открыть*новом*окне') then
+            Raise('Не получилось открыть документ через пункт попап-меню "Открыть документ в новом окне"');
+        end;
+      'CLICK_BY_LIST_PATTERN' :
+        begin
+          if not MoveMouseToObject(list, LIST_PATTERN, 2, 0, true) then
+            Raise('Не получилось кликнуть по иконке элемента списка');
+        end;
+      'DBL_CLICK_BY_LIST_PATTERN' :
+        begin
+          if not MoveMouseToObject(list, LIST_PATTERN, 2, 0, false) then
+            Raise('Не получилось кликнуть по иконке элемента списка');            
+          list.DblClick(Sys_Desktop.MouseX, Sys_Desktop.MouseY);
+        end;
+    else
+      Raise('Параметр How не распознан!');    
+    end;  
+
+    if VarToBool(gbl_F1ShellTabsEnabled) and VarToBool(gbl_F1ShellOpenDocsInNewTab) then
+    begin
+      if isCloseMaxDocsMessage then
+        WaitForConfirmationWindow(Options.Run.Timeout div 30, '#Открыть в текущем окне');
+
+      if isClearCache then
+        ClearWindowCache;
+    end;
+          
+    Result := true;      
+  except
+    Log.Message('OpenDocFromList: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+
+const
+  SRCH_IN_ALL =  'Везде';
+  SRCH_IN_DOC =  'В документе';
+  SRCH_IN_LIST_DOC_NAMES =  'Список: в названиях';
+  SRCH_IN_LIST = 'Список: в документах';
+  SRCH_IN_LIST_REFINE_LIST = 'Уточнить список';
+  SRCH_BASE = 'Базовый поиск';
+
+  SRCH_BASE_THEME_ALL_DOCS = 'Все документы';
+  SRCH_BASE_THEME_ACTS = 'Акты органов власти';  
+  SRCH_BASE_THEME_JUDICAL_PRACTICS = 'Судебная практика';
+  SRCH_BASE_THEME_FORM_DOCS = 'Формы документов';
+  SRCH_BASE_THEME_ALL_COMMENTS = 'Комментарии';
+  SRCH_BASE_THEME_PROJECTS_OF_LAWS = 'Проекты законов';
+  SRCH_BASE_THEME_USER = 'Пользовательский';    
+{
+  DESK: Открывает окно базового поиска
+}
+function OpenBaseSearch(
+  searchType: string = SRCH_IN_DOC//Как открываем: как контекстный поиск(Правка\Контекстный поиск) либо как базовый(Поиск\Базовый поиск)
+): OleVariant;
+var 
+  i, searchWnd;
+begin
+try     
+  for i := 1 to 4 do
+  begin
+    case searchType of
+      SRCH_BASE,  //Базовый поиск
+      SRCH_BASE_THEME_ALL_DOCS, 
+      SRCH_BASE_THEME_ACTS,
+      SRCH_BASE_THEME_JUDICAL_PRACTICS, 
+      SRCH_BASE_THEME_FORM_DOCS, 
+      SRCH_BASE_THEME_ALL_COMMENTS,
+      SRCH_BASE_THEME_USER:
+        ClickByMainMenuItem('Поиск\Базовый поиск');
+
+      SRCH_IN_LIST,//Контекстный поиск в списке
+      SRCH_IN_LIST_REFINE_LIST:
+        ClickByMainMenuItem('Анализ\Уточнить список');
+        
+      SRCH_IN_LIST_DOC_NAMES,      
+      SRCH_IN_DOC://Контекстный поиск в документе
+        case i of 
+          1, 3  : Sys.Keys('^f');
+          2, 4  : ClickByMainMenuItem('Правка\Поиск контекста...'); 
+        end;
+      else
+        Raise('Передан не правильный параметр');  
+    end;      
+    searchWnd := GetFromBaseSearch('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"');
+    if IsExists(searchWnd) then break;
+  end;
+  result := searchWnd;
+except
+  Log.Message('OpenBaseSearch: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));  
+  Raise;
+  CommonExceptionHandler;
+end;
+end;
+
+//Открывает окно контекстного поиска
+function OpenContextSearch : OleVariant;
+begin
+  try   
+    Result := OpenBaseSearch;
+  except
+    Log.Message('OpenContextSearch: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Базовый поиск
+  DESC: Делает контекст для поиска валидным 
+  RESULT:
+  REMARK: 
+    Результат работы функции должен удовлетворять HLTC77.2.7.1.1
+    Неудовлетворяющие символы заменяются пробелами
+}
+function MakeContextValid(
+  context : String
+) : OleVariant;
+  var 
+    i : integer;
+begin
+  try
+    Result := '';
+    context := ' ' + context + ' ';  
+    for i := 2 to Length(context)-1 do
+      case context[i] of
+        // это не извращение, а необходимость, красивые конструкции типа 'A'..'Z' не всегда работают
+        '0','1','2','3','4','5','6','7','8','9',
+        'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+        'a','b','c','d','e','f','g','h','i','l','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+        'А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я',
+        'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',
+        ' ', '№', '"':
+          Result := Result + context[i];
+        '.', '/', '-' : // проверяем, находится ли символ между цифрами
+          if (Ord(context[i-1]) >= Ord('0')) AND (Ord(context[i-1]) <= Ord('9'))
+             AND (Ord(context[i+1]) >= Ord('0')) AND (Ord(context[i+1]) <= Ord('9')) then
+            Result := Result + context[i]
+          else    
+            Result := Result + ' ';
+        '!', '*' : // проверяем находятся ли эти символы в конце слова
+          if (context[i-1] <> '') AND (context[i+1] = ' ') then
+            Result := Result + context[i]
+          else
+            Result := Result + ' ';
+      else
+        Result := Result + ' ';
+      end;  
+  except
+    Log.Message('MakeContextValid: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+ TYPE: Базовый поиск
+ DESK: Очистка поля ввода БП 
+ RESULT:
+ REMARK:
+}
+function ClearContextInBaseSearch : boolean;
+  var w;
+begin
+  try
+    Result := false;
+    w := GetFromBaseSearch('КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    if not IsExists(w) then
+      Raise('Не найден КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    w.Keys(KeyPause +'[End]'+ KeyPause + '![Home]' + KeyPause + '[Del]');
+    Result := GetValueFromBaseSearch = '';
+  except
+    Result := false;
+    Log.Message('ClearContextInBaseSearch: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+ TYPE: Базовый поиск
+ DESK: Ввод теста в поле ввода БП 
+ RESULT:
+ REMARK:
+}
+function EnterContextInBaseSearch(
+  text: string;
+  const paramString : String = ''
+) : boolean;
+var paramList, isDoClear, isDoSearch, w;
+begin
+  try
+    Result := true;
+    
+    paramList := ParseParamString(paramString);
+    isDoClear := VarToBool( GetParam(paramList, 'IsDoClear', 'true') );         
+    isDoSearch := VarToBool( GetParam(paramList, 'IsDoSearch', 'false') );
+
+    w := GetFromBaseSearch('КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    if not IsExists(w) then
+      Raise('Не найден КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    if isDoClear then 
+      w.Keys(KeyPause +'[End]'+ KeyPause + '![Home]' + KeyPause + '[Del]');
+    w.Keys(text);
+    if isDoSearch then 
+      w.Keys(KeyPause +'[Enter]');
+  except
+    Result := false;
+    Log.Message('EnterContextInBaseSearch: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+ TYPE: Базовый поиск
+ DESK: Проверка доступности переключения видов информации на панели БП 
+ RESULT:
+ REMARK:
+}
+function IsKindsInBaseSearchEnabled : boolean;
+var w;
+begin
+  try
+    Result := false;
+    Delay(Options.Run.Timeout div 10);     // на случай, если вызываем в скрипте без задержки
+    w := FindWindowByPath(
+      GetFromBaseSearch('ОБЛАСТЬ ОБЪЕКТОВ ФОРМЫ', GetFromMainWindow('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"')),
+      'VCLCLASS:=TvgRadioButton;Enabled:=true', false
+    );
+    Result := IsExists(w);
+  except
+    Result := false;
+    Log.Message('IsKindsInBaseSearchEnabled: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+ TYPE: Базовый поиск
+ DESK: Получение текущего установленного названия вида информации на панели БП 
+ RESULT:
+ REMARK:
+}
+function GetKindInBaseSearch : String;
+var w;
+begin
+  try
+    Result := '';
+    w := FindWindowByPath(
+      GetFromBaseSearch('ОБЛАСТЬ ОБЪЕКТОВ ФОРМЫ', GetFromMainWindow('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"')),
+      'VCLCLASS:=TvgRadioButton;IsChecked:=true', false
+    );
+    if not IsExists(w) then
+      Raise('Выбранный вид правовой информации не найден!');
+    Result := w.Text;
+  except
+    Result := '';
+    Log.Message('GetKindInBaseSearch: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+ TYPE: Базовый поиск
+ DESK: Выбор вида информации на панели БП 
+ RESULT:
+ REMARK:
+}
+function SetKindInBaseSearch(
+  kind : String;
+  const paramString : String = ''
+) : Boolean;
+var paramList, isSetByClick, w;
+begin
+  try
+    Result := false;
+    
+    paramList := ParseParamString(paramString);
+    isSetByClick := VarToBool( GetParam(paramList, 'IsSetByClick', 'false') );         
+
+    w := FindWindowByPath(
+      GetFromBaseSearch('ОБЛАСТЬ ОБЪЕКТОВ ФОРМЫ', GetFromMainWindow('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"')),
+      'VCLCLASS:=TvgRadioButton;TEXT:=' + kind, false
+    );
+    if not IsExists(w) then
+      Raise('Кнопка вида правовой информации "' + kind + '" не найдена на панели БП');
+      
+    if isSetByClick then
+    begin
+      if not ClickOnVgSceneObject(w) then
+        Raise('Не получилось кликнуть по кнопке вида правовой информации "' + kind + '"');
+    end
+    else
+      w.IsChecked := true;
+    Result := w.IsChecked;
+  except
+    Result := false;
+    Log.Message('SetKindInBaseSearch: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+ TYPE: Базовый поиск
+ DESK: Кликаем по ссылке примера в поле запроса БП 
+ RESULT:
+ REMARK:
+}
+function ClickOnExampleInBaseSearch: Boolean;
+var w;
+begin
+  try
+    Result := true;
+    w := GetFromBaseSearch('КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    if not IsExists(w) then 
+      Raise('КОМБОБОКС "БАЗОВЫЙ ПОИСК" не найден'); 
+    w.Keys('[End]'+ KeyPause + '![Home]' + KeyPause + '[Del]');
+    w.Click(202, 16);
+  except
+    Result := false;
+    Log.Message('ClickOnExampleInBaseSearch: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+ TYPE: 
+ DESK: Производится базовый поиск
+ RESULT:
+ REMARK:
+}
+function BaseSearch(
+  wnd : OleVariant;// окно, в которое будем ставить фокус, и в котором будем искать  
+  context : String; // контекст, который будем искать
+  const paramString : String = '' // строка параметров
+) : boolean;
+  const
+    ID_KEY_BUTTON = 'BUTTON';
+    ID_SEARCH_COMPLETED = 1;
+    ID_SEARCH_IF_CONFIRM = 2;
+    ID_FRAGMENT_VIEWED = 3;
+    ID_INCORRECT_CHARACTER = 4;
+    ID_NO_CONTEXT = 5;
+    ID_UNKNOWN_CONTEXT = 6;
+    ID_NOTHING_FOUNDED = 7;
+    ID_CONTEXT_NOT_FOUND = 8;
+    ID_IF_ERROR_CONTEXT = 9;
+    ID_CONTEXT_HIDE = 10;
+    
+  var
+    paramList : OleVariant;
+    res, isOpenOnlyIfNotFound, isOpenWindow, isCloseWindow, isSelectFromCombobox, isContinueSearch, 
+    p_IsExtendedResult, p_IsMakeContextValid, p_IsInsertByClipboard, p_IsContinueAfterMisprint, p_IsContinueSearchIfConfirm : boolean;
+
+    i, timeOut : integer;
+    infoMsg, oldContext, contextForSysKeys  : String;
+    searchWnd, w : OleVariant;
+    knownForms, mfData, confirmButtonName : OleVariant;
+    
+    searchType, searchKey, button;
+begin
+  try
+    { парсим параметры }
+    paramList := ParseParamString(paramString);
+    searchType := VarToStr( GetParam(paramList, 'searchType', SRCH_BASE) );
+    searchKey := VarToStr( GetParam(paramList, 'searchKey', ID_KEY_BUTTON) );
+    
+    isOpenOnlyIfNotFound := VarToBool( GetParam(paramList, 'IsOpenOnlyIfNotFound', 'false') ); // сначала пытаемся найти существующее окно, а если не нашли, то открываем         
+    isOpenWindow := VarToBool( GetParam(paramList, 'IsOpenWindow', 'true') );
+    isCloseWindow := VarToBool( GetParam(paramList, 'IsCloseWindow', 'true') );
+    isSelectFromCombobox := VarToBool( GetParam(paramList, 'IsSelectFromCombobox', 'false') );
+    isContinueSearch := VarToBool( GetParam(paramList, 'IsContinueSearch', 'false') );
+    timeOut := VarToInteger( GetParam(paramList, 'WaitTimeOut', VarToStr(Options.Run.Timeout div 10) ) );
+    p_IsExtendedResult := VarToBool( GetParam(paramList, 'IsExtendedResult', 'false') );
+    p_IsMakeContextValid := VarToBool( GetParam(paramList, 'IsMakeContextValid', 'false') );
+    p_IsInsertByClipboard := VarToBool( GetParam(paramList, 'IsInsertByClipboard', 'false') );
+    p_IsContinueAfterMisprint := VarToBool( GetParam(paramList, 'IsContinueAfterMisprint', 'true') );
+    p_IsContinueSearchIfConfirm := VarToBool(GetParam(paramList, 'IsContinueSearchIfConfirm', 'false')); 
+    if p_IsContinueSearchIfConfirm then
+      confirmButtonName := 'Да'
+    else
+      confirmButtonName := 'Нет';
+             
+    knownForms := [
+      ([MFT_CONFIRMATION, '*в*списке*нет*документов*провести*поиск*по*всему*?*', confirmButtonName, ID_SEARCH_IF_CONFIRM]),
+      ([MFT_CONFIRMATION, '*искомый*контекст*не*найден*провести*поиск*по*всему*?*', confirmButtonName, ID_SEARCH_IF_CONFIRM]),
+      ([MFT_CONFIRMATION, '*документов*вида*информац*не*найдено*провести*поиск*по*всем*?*', confirmButtonName, ID_SEARCH_IF_CONFIRM]),
+      ([MFT_INFO, '*поиск завершен*', 'OK', ID_SEARCH_COMPLETED]),
+      ([MFT_INFO, '*просмотр*фрагмента закончен*', 'OK', ID_FRAGMENT_VIEWED]),
+      ([MFT_INFO, '*Введите*описание*своего*вопроса*поиска*', 'OK', ID_NO_CONTEXT]),
+      ([MFT_ERROR, 'Символ*"*"*', 'OK', ID_INCORRECT_CHARACTER]),
+      ([MFT_ERROR, 'Системе не удалось распознать контекст*запрос не может быть выполнен*', 'OK', ID_UNKNOWN_CONTEXT]),
+      ([MFT_WARNING, 'Информация*запрос*отсутствует*', SEARCH_CONTINUE_NAME, ID_NOTHING_FOUNDED]),
+      ([MFT_INFO, 'Искомый контекст находится в скрытом тексте. Для его просмотра включите показ комментариев и повторите поиск.*', 'OK', ID_CONTEXT_HIDE])
+    ];
+
+    if p_IsContinueAfterMisprint then
+      AddToArray(knownForms, [MFT_CONFIRMATION, '*запрос*не*дать*коррект*', '#Продолжить*', ID_IF_ERROR_CONTEXT])
+    else
+      AddToArray(knownForms, [MFT_CONFIRMATION, '*запрос*не*дать*коррект*', '#Вернуться*редактировать*запрос*', ID_IF_ERROR_CONTEXT]);
+
+    { приводим контекст к валидному, если сказано }
+    if p_IsMakeContextValid then
+    begin
+      oldContext := context;
+      context := MakeContextValid(context);
+      if ( oldContext <> context ) then
+        Log.Warning('BaseSearch: Исходный контекст содержал недопустимые символы или их сочетания и был приведен к верному!', 'Исходный контекст: ' + EndOfLine + oldContext + EndOfLine + EndOfLine + EndOfLine + 'Новый контекст: ' + EndOfLine + context);
+    end;  
+    
+    if NOT isContinueSearch then
+    begin
+      { начинаем }
+      if (wnd <> nil) OR ( 
+          (searchType <> SRCH_BASE) AND 
+          (searchType <> SRCH_BASE_THEME_ALL_DOCS) AND 
+          (searchType <> SRCH_BASE_THEME_ACTS) AND
+          (searchType <> SRCH_BASE_THEME_JUDICAL_PRACTICS) AND
+          (searchType <> SRCH_BASE_THEME_FORM_DOCS) AND
+          (searchType <> SRCH_BASE_THEME_ALL_COMMENTS) AND
+          (searchType <> SRCH_BASE_THEME_USER)
+        )
+        then
+      begin  {эти операции имеют смысл только в случае если поиск в списке или в документе. Ну или если юзер сам передал окно.} 
+        if NOT IsExists(wnd) then Raise('Окно не существует!');
+        { открываем окно контекстного поиска }
+        wnd.SetFocus;
+      end;
+      if isOpenOnlyIfNotFound then
+        try 
+          searchWnd := GetFromBaseSearch('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"');
+        except
+          searchWnd := NonExObj;
+        end;
+      if isOpenWindow 
+        AND ((NOT isOpenOnlyIfNotFound) OR (isOpenOnlyIfNotFound AND (NOT IsExists(searchWnd)))) then
+      begin
+        { открываем окно }
+        searchWnd := OpenBaseSearch(searchType);
+        //Проверяем, что для требуемого вида поиска соответствует вкладка пайджконтрола "Тем"
+        if  (searchType = SRCH_BASE_THEME_ALL_DOCS) 
+          OR  (searchType = SRCH_BASE_THEME_ACTS)  
+          OR  (searchType = SRCH_BASE_THEME_JUDICAL_PRACTICS)
+          OR  (searchType = SRCH_BASE_THEME_FORM_DOCS)
+          OR  (searchType = SRCH_BASE_THEME_ALL_COMMENTS)
+          OR  (searchType = SRCH_BASE_THEME_USER)
+          then
+        begin
+          //очищаем, чтобы не случился ложный поиск
+          GetFromBaseSearch('КОМБОБОКС "БАЗОВЫЙ ПОИСК"').Keys(KeyPause +'[End]'+ KeyPause + '![Home]' + KeyPause + '[Del]');
+          if not SetKindInBaseSearch(searchType) then
+            Raise('Не удалось выбрать вид информации "' + searchType + '" на панели БП');        
+        end;  
+        //Проверяем, что для требуемого вида поиска правильно соответствует "Область поиска"
+        if (searchType = SRCH_IN_LIST) or (searchType = SRCH_IN_DOC) or (searchType = SRCH_IN_LIST_DOC_NAMES) then
+        begin
+          w := GetFromBaseSearch('КОМБОБОКС "ОБЛАСТЬ ПОИСКА"');
+          if not IsExists(w) then
+            Raise('КОМБОБОКС "ОБЛАСТЬ ПОИСКА" не найден');
+          if not SelectInCombobox(w, searchType) then
+            Raise('Не получилось выбрать нужную область поиска "' + searchType + '"');
+        end;
+      end    
+      else { ищем существующее } 
+        searchWnd := GetFromBaseSearch('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"');
+      if NOT IsExists(searchWnd) then Raise('Не получилось найти окно Базового поиска!');
+      { заполняем контекст }
+      if context <> '' then  
+      begin
+        w := GetFromBaseSearch('КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+        if NOT isSelectFromCombobox then
+        begin
+          for i := 1 to 3 do
+          begin
+            w.SetFocus;
+            contextForSysKeys := StringReplaceExt(context, ['!'], ['!!']);
+            Sys.Keys(KeyPause +'[End]'+ KeyPause + '![Home]' + KeyPause + '[Del]' + KeyPause + KeyPause + KeyPause);
+            if p_IsInsertByClipboard then
+            begin
+              Sys.Clipboard := contextForSysKeys; 
+              Sys.Keys('^v');
+            end
+            else
+              Sys.Keys(contextForSysKeys);  
+            Sys.Keys('[Del]'); // нажимаем Del для того, чтобы не всплыл ранее введенный контекст
+            //Проверяем, что ввёлся именно Эталонный контекст
+            if StringCompare(context, common.GetWindowText(w.Handle)) then
+              break;          
+          end;//for  
+        end
+        else
+          if NOT SelectInCombobox(w, context) then
+            Raise('Не получилось выбрать в комбобоксе указанный контекст');
+      end;    
+    end
+    else
+    begin
+      searchWnd := GetFromBaseSearch('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"');
+      if NOT IsExists(searchWnd) then 
+        Raise('Было сказано продолжить поиск, но панель Базового поиска не найдена!');
+    end;  
+
+    { ищем }
+    if searchKey = ID_KEY_BUTTON then
+    begin 
+{ // пока будем просто нажимать клавишу, а то что-то кнопка бывает не нажимается
+      button := GetFromBaseSearch('КНОПКА "НАЙТИ"');
+      //Сделано пока так, потому что иногда непонятно почему теряются кнопка "Найти"
+      if not (IsExists(button) and ClickOnVgSceneObject(button, 'IsNotClickIfOutWidth:=true')) then
+      begin
+        Log.Warning('Не удалось получить или кликнуть по КНОПКЕ "НАЙТИ", тогда нажимаем ^[Enter]');
+        Sys.Keys('^[Enter]');
+      end;
+}
+      if IsExists(searchWnd) then
+        searchWnd.Keys('^[Enter]')
+      else
+        Sys.Keys('^[Enter]');
+    end
+    else
+      Sys.Keys(searchKey);
+
+    res := false;
+    for i := 1 to 2 do 
+      if ((i = 1) OR (res)) then // проверкку выполняем в первый раз или во второй но при условии что в первый раз форм не найдено и прогресс индикатор тоже не найден          
+        if CheckForKnownMessageForms(knownForms, mfData, timeOut div 2) then
+        begin
+          res := false; { если мессадж форма, то считаем что поиск не удался, кроме  ID_IF_ERROR_CONTEXT}
+          infoMsg := GetParam(mfData, WFMF_RES_MSGTEXT);
+          case GetParam(mfData, 'CFKMF_ID', -1 ) of
+            ID_SEARCH_COMPLETED, ID_FRAGMENT_VIEWED, ID_NOTHING_FOUNDED, ID_CONTEXT_NOT_FOUND, ID_CONTEXT_HIDE : ; { поиск окончился неудачей }
+            ID_SEARCH_IF_CONFIRM:
+            begin
+              if CheckForKnownMessageForms(knownForms, mfData, timeOut) then
+              begin
+                if (GetParam(mfData, WFMF_RES_MSGTEXT) <> '') then 
+                  infoMsg := GetParam(mfData, WFMF_RES_MSGTEXT);
+              end
+              else
+                if p_IsContinueSearchIfConfirm then
+                  res := true;
+            end;
+            ID_IF_ERROR_CONTEXT:
+            begin
+              if CheckForKnownMessageForms(knownForms, mfData, timeOut) then
+              begin
+                if (GetParam(mfData, WFMF_RES_MSGTEXT) <> '') then 
+                  infoMsg := GetParam(mfData, WFMF_RES_MSGTEXT);
+              end
+              else
+                if p_IsContinueAfterMisprint then 
+                  res := true;
+            end; 
+            ID_INCORRECT_CHARACTER, ID_UNKNOWN_CONTEXT, ID_NO_CONTEXT :
+              Log.Warning('BaseSearch: При попытке поиска контекста "' + context + '" было получено окошко ошибки в котором написано: "' + GetParam(mfData, WFMF_RES_MSGTEXT) + '"');
+          end;
+        end
+        else { ждем прогресс индикатор}
+        begin
+          res := WaitForProgressIndicatorAbsence;
+        end;  
+      
+    if p_IsExtendedResult then
+    begin
+      SetParam(Result, 'IsSearchCompleted', NOT res );
+      SetParam(Result, 'InfoMsgText', infoMsg );
+    end;      
+    
+    { закрываем окно }
+    if isCloseWindow OR (isContinueSearch AND NOT res) then
+    begin    
+      button := GetFromBaseSearch('КНОПКА "ЗАКРЫТЬ"');
+      if NOT IsExists(button) then 
+      begin
+        Log.Warning('Не удалось получить КНОПКА "ЗАКРЫТЬ", пытаемся закрыть БП шаманством');
+        searchWnd := GetFromMainWindow('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"');
+        searchWnd.Click(searchWnd.width -12, 14);// Кликаем в то место, где должна быть кнопка "Закрыть"
+      end
+      else
+        if button.Enabled then ClickOnVgSceneObject(button); //Если открыто не ОМ, тогда закрываем базовый поиск
+      if IsExists(wnd) then wnd.SetFocus;//Возвращаем фокус в то окно, в котором производили поиск
+    end;  
+    
+    if p_IsExtendedResult then
+      SetParam(Result, 'Result', res)
+    else  
+      Result := res;
+  except
+    Log.Message('BaseSearch: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    if isCloseWindow AND IsExists(GetFromBaseSearch('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"')) then
+    begin
+      button := GetFromBaseSearch('КНОПКА "ЗАКРЫТЬ"'); 
+      if IsExists(button) AND button.Enabled then ClickOnVgSceneObject(button);       
+    end;     
+    if p_IsExtendedResult then
+      SetParam(Result, 'Result', false)
+    else  
+      Result := false;
+    if (Pos(EX_CANNOT_FIND_WINDOW, ExceptionMessage) <> 0) then
+      Raise(ExceptionMessage);  
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESK: Базовый поиск по ТЕме
+  RESULT:
+  REMARK:
+}
+function BaseSearchInTheme(
+  wnd : OleVariant;
+  context : String;
+  theme : String = '';
+  const paramString : string = ''
+) : boolean;
+begin
+try
+  if theme = '' then Raise('Не передан необходимы параметр!');
+  paramString := paramString + ';searchType:=' + theme;
+  Result := BaseSearch(wnd, context, paramString);
+except
+  Result := false;
+  Log.Error('BaseSearchInTheme: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE:
+  DESK: Базовый поиск в документе
+  RESULT:
+  REMARK:
+}
+function BaseSearchInDocument(
+  wnd : OleVariant;
+  context : String;
+  const paramString : string = ''
+) : boolean;
+begin
+try
+  paramString := paramString + ';searchType:=' + SRCH_IN_DOC; 
+  Result := BaseSearch(wnd, context, paramString);
+except
+  Result := false;
+  Log.Error('BaseSearchInDocument: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE:
+  DESK: Базовый поиск в списке
+  RESULT:
+  REMARK:
+}
+function BaseSearchInList(
+  wnd : OleVariant;
+  context : String;
+  const paramString : string = ''
+) : boolean;
+begin
+try
+  paramString := paramString + ';searchType:=' + SRCH_IN_LIST; 
+  Result := BaseSearch(wnd, context, paramString);
+except
+  Result := false;
+  Log.Error('BaseSearchInList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE:
+  DESK: Базовый поиск в списке
+  RESULT:
+  REMARK:
+}
+function BaseSearchInDocNames(
+  wnd : OleVariant;
+  context : String;
+  const paramString : string = ''
+) : boolean;
+begin
+try
+  paramString := paramString + ';searchType:=' + SRCH_IN_LIST_DOC_NAMES; 
+  Result := BaseSearch(wnd, context, paramString);
+except
+  Result := false;
+  Log.Error('BaseSearchInDocNames: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE:
+  DESC: Проверка выделенных контекстов после поиска внутри документа
+  RESULT: false - если одно из переданных слов из массива не выделено в документе
+  REMARK:
+}
+function CheckHighlightWords(editor, arrayWords: OleVariant): boolean;
+const
+  FUNCTION_NAME = 'CheckHighlightWords: ';
+var
+  i, clipbrd: OleVariant;
+begin
+  try
+    Result := true;
+    if not IsExists(editor) then
+      Raise('Окно документа (редактора) не найдено!');
+    if not IsArray(arrayWords) then arrayWords := [VarToStr(arrayWords)];
+    
+    clipbrd := CopyToClipboard(editor);
+    for i := VarArrayLowBound(arrayWords, 1) to VarArrayHighBound(arrayWords, 1) do
+      if not StringCompare(arrayWords[i], clipbrd) then
+      begin
+        Result := false;
+        Log.Warning(FUNCTION_NAME + 'В документе не выделены слова: "' + arrayWords[i] + '"');
+      end;
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Активируем/деактивируем вкладку "Синхронный просмотр" в списке
+  RESULT:
+  REMARK:
+}
+function ShowSynchroView(
+  const isHide: Boolean = false // скрыть или показать
+) : boolean;
+var
+  pageCtrl;
+begin
+  //GetMainWindow.SetFocus;
+  pageCtrl := GetFromList('закладки');
+  if NOT isHide then
+    Result := SwitchToPage(pageCtrl, 'Синхронный просмотр')
+  else
+    Result := SwitchToPage(pageCtrl, 'Список');
+end;
+
+
+// Копирует кусок документа, видимый на экране, в буфер обмена. Выделяет мышью.
+// Изменяет положение курсора
+function CopyDocToClipboard(const x: integer = 7; const y: integer = 10): String;
+var
+  p, w: OleVariant;
+  y1 : integer; 
+  const DELAY_AFTER_CLICK=700; // задержка после клика, чтобы дать оболочке время отреагировать
+begin
+  w := GetEditor;
+  w.SetFocus; 
+  Sys.Clipboard := '';
+  common.ClientToScreen(w, x, y);
+  if w.HScroll.Max = w.HScroll.Min then
+ 	  y1 := w.Height + y - 25 // скроллбара нет
+  else
+  	y1 := w.Height + y - 25 - 20; // делаем поправку на наличие скроллбара
+	Sys.Desktop.MouseX := x;
+  Sys.Desktop.MouseY := y;    
+  Sys.Desktop.MouseDown(VK_LBUTTON, x, y);
+  Delay( DELAY_AFTER_CLICK );
+  while Sys.Desktop.MouseY < y1 do
+  	Sys.Desktop.MouseY := Sys.Desktop.MouseY + 9;
+  Delay( DELAY_AFTER_CLICK );
+  Sys.Desktop.MouseUp(VK_LBUTTON, x, Sys.Desktop.MouseY);
+
+  Delay( DELAY_AFTER_CLICK );
+  Sys.Keys('^c[Up]');
+  Result := Sys.Clipboard;
+  common.ClipboardClean;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Перевод фокуса на первый элемент оглавления
+  RESULT: Окно оглавления
+  REMARK: 
+}
+function SetFocusToContents(
+  const inContentsTree: OleVariant = nil // при необходимости передаем свое оглавление 
+): OleVariant;
+var contentsTree;
+begin
+  try      
+    Result := NonExObj; //выставляем Result равным "empty object" чтобы можно было на результате дёрнуть Exists
+    if (inContentsTree = nil) then 
+      contentsTree := GetFromEditor('ВКЛАДКА НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"')
+    else
+      contentsTree := inContentsTree; 
+    if IsExists(contentsTree) AND contentsTree.Visible then
+    begin
+    	contentsTree.SetFocus;	
+      Sys.Keys('[Home]');
+      Result := contentsTree;
+    end;
+  except
+    Log.Message('SetFocusToContents: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с документов/служебные
+  DESC: Служебная функция, не для прямого использования
+  RESULT:
+  REMARK:
+}      
+function _OpenInDoc(
+  const pageName : String; // название закладки
+  const menuPath : String;
+  const key : String
+) : OleVariant;
+  var
+    ed : OleVariant;
+    i : integer;
+begin
+  try
+    Result := NonExObj;
+    ed := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    ed.SetFocus;
+    for i := 1 to 3 do
+    begin
+      case i of
+        2 : // клавиатура
+        begin
+          if key = '' then continue;
+          Sys.Keys(key);
+          WaitForConfirmationWindow(Options.Run.Timeout div 15);
+        end;  
+        3 : // меню
+        begin
+          if menuPath = '' then continue;
+          if NOT ClickByMainMenuItem(menuPath) then continue;
+          WaitForConfirmationWindow(Options.Run.Timeout div 15);          
+        end;  
+        1 : // активация вкладки
+          if NOT SwitchToPage( GetFromEditor('ЗАКЛАДКИ'), pageName) then continue;
+      end; 
+      Result := GetFromEditor('ВКЛАДКА "' + pageName + '"');
+      if (IsExists(Result) AND Result.Visible) then 
+        Exit
+      else
+        continue;  
+    end;
+  except
+    Log.Message('_OpenInDoc: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise(ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end; 
+
+{
+  TYPE: Работа с документом
+  DESC: Функция производит всякие действия с документом: открывает справку, скр, спиок редакций...
+  RESULT: Возвращает окна
+  REMARK:
+}
+function OpenInDocument(
+  whatToOpen : String
+): OleVariant;
+begin
+  try
+    Result:= NonExObj;
+    //GetMainWindow.SetFocus;
+    whatToOpen := AnsiUpperCase(whatToOpen);
+    
+    case whatToOpen of // что можем открыть
+      'ТЕКСТ' : Result := _OpenInDoc('ТЕКСТ', '', '' );
+      'ССЫЛКИ НА ДОКУМЕНТ': Result := _OpenInDoc('ССЫЛКИ НА ДОКУМЕНТ', 'Документы\ССЫЛКИ НА ДОКУМЕНТ', '~[F8]' );
+      'ССЫЛКИ ИЗ ДОКУМЕНТА': Result := _OpenInDoc('ССЫЛКИ ИЗ ДОКУМЕНТА', 'Документы\ССЫЛКИ ИЗ ДОКУМЕНТА', '^[F8]' );
+      'СПРАВКА' : Result := _OpenInDoc('СПРАВКА', 'Документы\Справка к документу', '[F8]' );
+      'ИНФОРМАЦИЯ О ДОКУМЕНТЕ' : Result := _OpenInDoc('ИНФОРМАЦИЯ О ДОКУМЕНТЕ', 'Документы\Информация о документе', '~i' );
+      'АННОТАЦИЯ' : Result := _OpenInDoc('АННОТАЦИЯ', 'Документы\Аннотация', '![F8]' );
+      'ПРЕДУПРЕЖДЕНИЕ' : Result := _OpenInDoc('ПРЕДУПРЕЖДЕНИЕ', '', '' );
+      'ПОХОЖИЕ ДОКУМЕНТЫ' : Result := _OpenInDoc('ПОХОЖИЕ ДОКУМЕНТЫ', 'Документы\Похожие документы', '~S' );      
+      'СТРУКТУРА ДОКУМЕНТА' :
+        begin
+          if NOT SwitchToNavigatorPage('Структура документа') then         
+              Exit;
+          Result := GetFromEditor('ВКЛАДКА НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"');
+        end;
+      'ДЕРЕВО "ЗАКЛАДКИ"':
+        begin
+          if NOT SwitchToNavigatorPage('Структура документа') then         
+              Exit;              
+          Result := GetFromNavigator('ДЕРЕВО "ЗАКЛАДКИ" СО ВКЛАДКИ НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"');
+        end;  
+      'ДЕРЕВО "МОИ КОММЕНТАРИИ"' :
+        begin
+          if NOT SwitchToNavigatorPage('Структура документа') then         
+              Exit;              
+          Result := GetFromNavigator('ДЕРЕВО "МОИ КОММЕНТАРИИ" СО ВКЛАДКИ НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"');
+        end; 
+      'СПИСОК РЕДАКЦИЙ' :
+        begin
+          if NOT SwitchToNavigatorPage('Редакции') then
+            if NOT ClickByMainMenuItem('Документы\Список редакций') then
+              Exit;
+          Result := GetFromEditor('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"');
+        end; 
+    else 
+      Raise('Параметр не распознан!');
+    end;
+  except
+    Log.Message('OpenInDocument: ' + ExceptionMessage, 'whatToOpen: "' + whatToOpen + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Перевод фокуса в текст документа
+  RESULT:
+  REMARK:
+}
+function SetFocusToDocumentText: Boolean;
+var
+  editor, TextFormWnd;
+begin
+  try
+    Result := False;
+    //GetMainWindow.SetFocus;
+    editor := GetEditor;  
+    if IsExists(editor) then
+    begin
+      editor.SetFocus;
+      Result := True;
+    end
+    else
+      Raise('Не переведен фокус в текст документа');
+  except
+    Log.Error ('SetFocusToDocumentText: ' + ExceptionMessage);
+    Raise (ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Вставка комментария
+  RESULT: True, если вроде бы удалось создать комментарий
+  REMARK:
+    paramString (содержит список параметров в виде par1:=val1;par2:=val2 ) :
+      HowToCreate := (keyboard|popupmenu) - как создавать комментарий (клавиатурой, или через попап-меню)
+        по-умолчанию : keyboard
+      HowToInsert := (keyboard|clipboard) - как вставлять комментарий (набивать или ставлять через буфер)
+        по-умолчанию : keyboard
+}
+function InsertComment(
+  const editorWnd : OleVariant; // окно, в котором будем ставить комментарий
+  const comment : String; // текст комментария (или кнопочки, которые нажмутся в комментарии)
+  const paramString : String = '' // строка параметров
+) : boolean;
+  var
+    paramList : OleVariant;
+    howToCreate, howToInsert : String;
+begin
+  Result := false;
+  try
+    if NOT IsExists(editorWnd) then Raise('Окно редактора не существует!');
+    { парсим строку параметров }
+    paramList := ParseParamString(paramString);
+    howToCreate := AnsiUpperCase( GetParam(paramList, 'HowToCreate', 'keyboard') );
+    howToInsert := AnsiUpperCase( GetParam(paramList, 'HowToInsert', 'keyboard') );    
+    {}
+    editorWnd.SetFocus;    
+    { создаем комментарий }
+    case howToCreate of
+      'KEYBOARD' : Sys.Keys('[Enter]');
+      'POPUPMENU' :
+        begin
+          Sys.Keys('[Apps]');
+          if NOT ClickByPopupMenuItem(editorWnd, 'Добавить мой комментарий') then
+            Raise('Не получилось кликнуть по "Добавить мой комментарий"');
+        end;
+    else
+      Raise('Параметр howToCreate не распознан!');
+    end;
+    WaitForConfirmationWindow(Options.Run.Timeout div 20, 'Да', '*показ*комментариев*выключен*хотите*включить*' );  
+    { проверяем, что его создали }
+    Sys.Keys('[Apps]');
+    if NOT IsPopupMenuItemExists(editorWnd, 'Удалить комментарий', true) then Raise('Не смогли создать комментарий!');
+    { вставляем текст комментария }
+    case howToInsert of
+      'KEYBOARD'  : Sys.Keys( comment );
+      'CLIPBOARD' :
+        begin
+          Sys.Clipboard := comment;
+          case howToCreate of
+            'KEYBOARD' : Sys.Keys('^v');
+            'POPUPMENU' : 
+              begin
+                Sys.Keys('[Apps]');
+                if NOT ClickByPopupMenuItem(editorWnd, 'Вставить') then
+                  Raise('Не получилось кликнуть по "Вставить"');
+              end;
+          end; 
+          Sys.Clipboard := '';
+        end;   
+    else
+      Raise('Параметр howToInsert не распознан!');
+    end;  
+    Result := true;
+  except
+    Log.Message('InsertComment: ' + ExceptionMessage, 'comment: "' + comment + '"' + EndOfLine + 'paramString: "' + paramString + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    if IsExists(editorWnd) then Log.Picture(editorWnd, ExceptionMessage);
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{ Константы для работы с группой функция работы с комментариями}
+const
+  MODE_SHOWN = 'Показан';
+  MODE_HIDDEN = 'Скрыт';  
+  USER_COMMENTS = 'Комментарии пользователя';
+  JUROR_COMMENTS = 'Юридические комментарии';
+
+{
+  TYPE: Работа с документом
+  DESC: Получает режим комментариев
+  RESULT: Значение констант: MODE_SHOWN или MODE_HIDDEN, или пустая строка, если не удалось определить
+  REMARK:
+}
+function GetCommentsMode(
+  const editorWnd : OleVariant; // окно редактора
+  const whichComment : String // какие комментарии: пользователя или юридические (константы: USER_COMMENT|JUROR_COMMENT)
+) : String;
+  var toolBar, editorForm, button : OleVariant;
+begin
+  try
+    Result := '';  
+    if NOT IsExists(editorWnd) then Raise('Окно редактора не существует');
+    { приводим окно редактора к текст-форме и получаем тулбар}
+    editorForm := _ConvertEditorToEditorParent(editorWnd);
+    toolBar := GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"', editorForm);
+    { получаем кнопку и узнаем ее состояние }
+    case whichComment of 
+      USER_COMMENTS  : button := GetToolbarButton(toolBar, '*мои комментарии*');
+      JUROR_COMMENTS : button := GetToolbarButton(toolBar, '*комментарии ГАРАНТа*');
+    else
+      Raise('Параметр whichComment нк распознан!');    
+    end;
+    {}
+    if IsExists(button) then
+      Result := Choose( button.Down, MODE_SHOWN, MODE_HIDDEN)
+    else
+      Raise('Кнопка не найдена!');  
+  except
+    Log.Message('GetCommentsMode: ' + ExceptionMessage, 'whichComment : "' + whichComment + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := '';
+    CommonExceptionHandler;
+  end;               
+end;
+ 
+{
+  TYPE: Работа с документом
+  DESC: Устанавливает режим комментариев
+  RESULT: True, если установили в нужный режим
+  REMARK:
+}
+function SetCommentsMode(
+  const editorWnd : OleVariant; // окно редактора
+  const whichComment : String; // какие комментарии: пользователя или юридические (константы: USER_COMMENT|JUROR_COMMENT)
+  const wishedMode : String // желаемый режим: скрыть или показать (константы: MODE_SHOWN|MODE_HIDDEN)
+) : boolean;
+  var toolBar, editorForm, button : OleVariant;
+begin
+  try
+    Result := false;  
+    if NOT IsExists(editorWnd) then Raise('Окно редактора не существует');
+    { приводим окно редактора к текст-форме и получаем тулбар}
+    editorForm := _ConvertEditorToEditorParent(editorWnd);
+    toolBar := GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"', editorForm);
+    if (wishedMode <> MODE_HIDDEN) AND (wishedMode <> MODE_SHOWN) then Raise('Параметр wishedMode не распознан!');
+    { получаем кнопку }
+    case whichComment of 
+      USER_COMMENTS  : button := GetToolbarButton(toolBar, '*мои комментарии*');
+      JUROR_COMMENTS : button := GetToolbarButton(toolBar, '*комментарии ГАРАНТа*');
+    else
+      Raise('Параметр whichComment не распознан!');    
+    end;
+    {}
+    if IsExists(button) then
+    begin
+      if button.Down <> (wishedMode=MODE_SHOWN) then button.Click;
+      Result := (GetCommentsMode(editorWnd, whichComment) = wishedMode);  
+    end    
+    else
+      Raise('Кнопка не найдена!');  
+  except
+    Log.Message('SetCommentsMode: ' + ExceptionMessage, 'whichComment : "' + whichComment + '"; wishedMode : "' + wishedMode + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+Позиционирование на элементе Оглавления
+}
+function GoToContentsItem (const path: String;
+  const inContentsTree: Window = nil): Boolean;
+var
+  p, w;
+  res;
+  TextFormWnd, ContentsFormWnd;
+  ContentsTree; 
+begin
+  res := False;
+  ContentsTree := SetFocusToContents (inContentsTree);
+  if ContentsTree.Exists then
+  begin
+		res := Position_Internal ( ContentsTree, path);
+  end;
+  Result := res;
+end;
+
+//сохранение документа в файл в заданном формате
+//перед сохранением очищаем Журнал Работы - в документе перед сохранением
+//не должно быть закладок, иначе информация о них может попасть в сохраняемый файл
+//и он не совпадёт с эталоном...
+const
+  SAVE_EXPORT_XML_ALL = '_xmlall_';
+  SAVE_EXPORT_XML_SELECTED = '_xmlselected_';
+  
+	SAVE_PLAIN_TEXT = '.txt';
+	SAVE_HTML = '.htm';
+	SAVE_RTF = '.rtf';
+  SAVE_XML = '.xml';
+  
+function SaveDocToFile(editor: OleVariant; 
+                        const PathFile: String;
+												const Format: integer = SAVE_HTML;
+                        const OnlySelectedFragment: OleVariant = 0;{cbUnchecked}
+                        const ClearJurnal: Boolean = true): Boolean;
+const
+  DELIM = '\';
+var
+  saveWnd, fileNameSaveWnd, fileTypeSaveWnd;
+  checkBox, error_exists_count;
+begin
+try
+	Result := false;
+  if ClearJurnal then	JurnalClear;
+  if not IsExists(editor) then
+    Raise('Не найдено окно редактора');
+  editor.SetFocus;
+  
+  if (Format = SAVE_EXPORT_XML_ALL) then
+    OpenAndClickByPopUpMenuItem(editor, 'Экспорт списка в XML\Весь список')
+  else
+  if (Format = SAVE_EXPORT_XML_SELECTED) then
+    OpenAndClickByPopUpMenuItem(editor, 'Экспорт списка в XML\Выделенные документы')
+  else
+    ClickByMainMenuItem('Файл\Сохранить в файл*');
+
+  saveWnd := GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"');
+  if not IsExists(saveWnd) then
+  begin
+    Log.Warning('SaveDocToFile: ' + 'Не найден ДИАЛОГ "СОХРАНИТЬ КАК"');
+    saveWnd := GetFromShell('ДИАЛОГ "SAVE AS"');
+    if not IsExists(saveWnd) then 
+      Raise('Не найден ДИАЛОГ "SAVE AS"');
+  end; 
+  saveWnd.Activate;
+
+  if (Format <> SAVE_EXPORT_XML_ALL) and (Format <> SAVE_EXPORT_XML_SELECTED) then
+  begin
+    fileTypeSaveWnd := GetFromStdSaveDialog('КОМБОБОКС "ТИП ФАЙЛА"');
+    if not IsExists(fileTypeSaveWnd) then 
+      Raise('Не найден КОМБОБОКС "ТИП ФАЙЛА"');
+    case format of
+    	SAVE_PLAIN_TEXT: fileTypeSaveWnd.ClickItem('Только текст');
+    	SAVE_RTF: fileTypeSaveWnd.ClickItem('Документ RTF');
+    	SAVE_HTML: fileTypeSaveWnd.ClickItem('Документ HTML');
+      SAVE_XML: fileTypeSaveWnd.ClickItem('XML');
+    end;
+
+    fileNameSaveWnd := GetFromStdSaveDialog('КОМБОБОКС "ИМЯ ФАЙЛА"');  
+    if not IsExists(fileNameSaveWnd) then 
+      Raise('Не найден КОМБОБОКС "ИМЯ ФАЙЛА"');
+    fileNameSaveWnd.SetFocus;
+    //pathFile := StringReplace(pathFile, '~', '~~', 1);  
+    //pathFile := StringReplace(pathFile, '[', '[[', 1);
+    if Pos(DELIM, pathFile) <> 0 then
+    begin
+      fileNameSaveWnd.Window('Edit').wText := Utilities.ExtractFilePath(pathFile);
+      fileNameSaveWnd.Keys('[Enter]');    
+    end;
+    fileNameSaveWnd.Window('Edit').wText := Utilities.ExtractFileName(pathFile);
+
+    CheckBox := GetFromStdSaveDialog('ЧЕКБОКС "ТОЛЬКО ВЫДЕЛЕННЫЙ ФРАГМЕНТ"', Options.Run.Timeout div 60);
+    if IsExists(CheckBox) AND CheckBox.Enabled AND ( (CheckBox.wState = 1) <> OnlySelectedFragment) then
+    	CheckBox.ClickButton(OnlySelectedFragment);
+
+    GetFromStdSaveDialog('КНОПКА "СОХРАНИТЬ"').ClickButton;
+    if WaitForErrorWindow(Options.Run.Timeout div 30, '*') <> '' then
+      Raise('Возникла ошибка при сохранении файла "' + PathFile + '"');
+    if WaitForWarningWindow(Options.Run.Timeout div 30, '*более*10000*документов*') <> '' then
+    begin
+      Result := ErrorResult('Невозможно сохранить список "' + PathFile + '", содержащий более 10000 документов');
+      GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"',Options.Run.Timeout div 60).Keys('[Esc]');
+      exit;
+    end; 
+
+    if IsExists(GetFromStdSaveDialog('ПОДТВЕРЖДЕНИЕ "СОХРАНИТЬ КАК"', Options.Run.Timeout div 60)) then
+    	GetFromStdSaveDialog('КНОПКА ПОДТВЕРЖДЕНИЕ "ДА"').ClickButton;
+
+    Delay(500);
+    error_exists_count := 0;
+    while (IsExists(GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"', Options.Run.Timeout div 60)) and (error_exists_count < 4)) do
+    begin
+      GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"',Options.Run.Timeout div 60).SetFocus;
+      GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"',Options.Run.Timeout div 60).Keys('[Esc]');
+      Inc(error_exists_count);    
+    end;    
+    if error_exists_count > 0 then
+      Raise('Возникла ошибка при сохранении файла, диалог сохранения остался открытым, пришлось его закрыть "' + PathFile + '"');  
+  end
+  else
+  begin
+    fileNameSaveWnd := saveWnd.Window('ComboBoxEx32', '', 1).Window('ComboBox', '', 1);
+    if not IsExists(fileNameSaveWnd) then 
+      Raise('Не найден КОМБОБОКС "ИМЯ ФАЙЛА"');
+
+    fileNameSaveWnd.SetFocus;
+    if Pos(DELIM, pathFile) <> 0 then
+    begin
+      fileNameSaveWnd.Window('Edit').wText := Utilities.ExtractFilePath(pathFile);
+      fileNameSaveWnd.Keys('[Enter]');    
+    end;
+    fileNameSaveWnd.Window('Edit').wText := Utilities.ExtractFileName(pathFile);
+    if Utilities.FileExists(pathFile) then 
+      Utilities.DeleteFile(pathFile);
+    fileNameSaveWnd.Keys('[Enter]');
+    if WaitForErrorWindow(Options.Run.Timeout div 30, '*') <> '' then
+      Raise('Возникла ошибка при сохранении файла "' + PathFile + '"');  
+  end;  
+  
+	editor.SetFocus;
+  Result := WaitForErrorWindow(Options.Run.Timeout div 30, '*') = '';
+except  
+	Result := false;
+  Log.Error('SaveDocToFile: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));  
+  Raise(ExceptionMessage);
+  CommonExceptionHandler;
+end;  
+end;
+
+
+//сохранение картинки в файл в заданном формате
+//перед сохранением очищаем Журнал Работы - в документе перед сохранением
+const
+	SAVE_BMP = '.bmp';
+	SAVE_GIF = '.gif';
+	SAVE_JPG = '.jpg';
+
+function SavePictureToFile(editor: OleVariant; const PathFile: String
+												; const Format: integer = SAVE_BMP
+                       ): Boolean;
+const
+  DELIM = '\';
+var
+  saveWnd, fileNameSaveWnd, fileTypeSaveWnd;
+  checkBox, error_exists_count;
+begin
+try
+	Result := false;
+  if not IsExists(editor) then
+    Raise('Не найдено окно редактора');
+  editor.SetFocus;
+  ClickByMainMenuItem('Файл\Сохранить в файл*');
+
+  saveWnd := GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"');
+  if not IsExists(saveWnd) then 
+    Raise('Не найден ДИАЛОГ "СОХРАНИТЬ КАК"');
+  saveWnd.Activate;
+  
+  fileTypeSaveWnd := GetFromStdSaveDialog('КОМБОБОКС "ТИП ФАЙЛА"');
+  if not IsExists(fileTypeSaveWnd) then 
+    Raise('Не найден КОМБОБОКС "ТИП ФАЙЛА"');
+  case format of
+  	SAVE_BMP: fileTypeSaveWnd.ClickItem('Изображения BMP');
+  	SAVE_GIF: fileTypeSaveWnd.ClickItem('Изображения GIF');
+  	SAVE_JPG: fileTypeSaveWnd.ClickItem('Изображения JPEG');
+  end;
+  
+  fileNameSaveWnd := GetFromStdSaveDialog('КОМБОБОКС "ИМЯ ФАЙЛА"');  
+  if not IsExists(fileNameSaveWnd) then 
+    Raise('Не найден КОМБОБОКС "ИМЯ ФАЙЛА"');
+  fileNameSaveWnd.SetFocus;
+//  pathFile := StringReplace(pathFile, '~', '~~', 1);  
+//  pathFile := StringReplace(pathFile, '[', '[[', 1);
+  if Pos(DELIM, pathFile) <> 0 then
+  begin
+    fileNameSaveWnd.Window('Edit').wText := Utilities.ExtractFilePath(pathFile);
+    fileNameSaveWnd.Keys('[Enter]');    
+  end;
+  fileNameSaveWnd.Window('Edit').wText := Utilities.ExtractFileName(pathFile);
+
+  GetFromStdSaveDialog('КНОПКА "СОХРАНИТЬ"').ClickButton;
+  if IsExists(GetFromStdSaveDialog('ПОДТВЕРЖДЕНИЕ "СОХРАНИТЬ КАК"', Options.Run.Timeout div 60)) then
+  	GetFromStdSaveDialog('КНОПКА ПОДТВЕРЖДЕНИЕ "ДА"').ClickButton;
+   
+  Delay(500);
+  error_exists_count := 0;
+  while (IsExists(GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"', Options.Run.Timeout div 60)) and (error_exists_count < 4)) do
+  begin
+    GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"',Options.Run.Timeout div 60).SetFocus;
+    GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"',Options.Run.Timeout div 60).Keys('[Esc]');
+    Inc(error_exists_count);    
+  end;    
+  if error_exists_count > 0 then
+    Raise('Возникла ошибка при сохранении файла, диалог сохранения остался открытым, пришлось его закрыть "' + PathFile + '"');  
+  //
+ 	editor.SetFocus;    
+  Result := WaitForErrorWindow(Options.Run.Timeout div 30, 'Не удаётся создать файл*') = '';
+except  
+	Result := false;
+  Log.Error('SavePictureToFile: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));  
+  Raise(ExceptionMessage);
+  CommonExceptionHandler;
+end;  
+end;
+ 
+//проверяет имя файла в диалоге сохранения
+function CheckSavedFileName(w: OleVariant; sname: string): boolean;
+var
+  savewnd, savename;
+begin
+try
+  Result := True;
+  if not IsExists(w) then
+    Raise('Окно редактора не найдено!');
+  w.SetFocus;
+  ClickByMainMenuItem('Файл\Сохранить в файл*');
+  savewnd := GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"');
+  if not IsExists(savewnd) then
+    Raise('Не найден диалог сохранения файла!');
+  savename := GetFromStdSaveDialog('КОМБОБОКС "ИМЯ ФАЙЛА"').Window('Edit').wText;
+  Result := StringCompare(sname, savename);
+  if not Result then
+    Log.Error('Имя сохраняемого файла "' + savename + '",' + EndOfLine + EndOfLine + 'должно быть "' + sname + '"');
+  savewnd.Close;
+except
+  Result := False;
+  Log.Error('CheckSavedFileName: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+// Ищет значки пользователских комментариев, кликает по ним, и в контекстном меню
+// выбирает "удалить" (можно выбрать номер пункта). 
+// Возвращает количество удаленных комментариев.
+// ScrollAllDoc - скроллировать ли документ до конца, или ограничится видимой областью
+function DeleteAllUserComments(const ScrollAllDoc: boolean = true; const MaxComments: integer = 100; const isCtrlHome : boolean = true) : integer;
+//MaxComments - по достижении этого количества комментариев прекращаем
+// работу, так как, скорее всего, зациклились и глючим.
+var
+	w, EditorWnd, SubPanelWnd : OleVariant;
+  findRes;  
+begin
+	Result := 0;
+  w := GetMainWindow;
+
+  EditorWnd := GetEditor;
+  EditorWnd.SetFocus;
+	if isCtrlHome then Sys.Keys('^[Home]');
+  
+  SubPanelWnd := GetParentObject(EditorWnd).SubPanel; {w.Window('TeeSubPanel', '', 1)}
+  while (true) do
+  begin  	
+    while Assign(findRes, Regions.Find(SubPanelWnd, 'User_Comments.bmp', 0, 0, true, false, 0)) <> nil do 
+    begin
+    	SubPanelWnd.ClickR(findRes.Left, findRes.Top);
+      if w.PopupMenu.Count <> 0 then // если меню вроде-бы есть
+      begin
+  			ClickByPopupMenuItem(SubPanelWnd, 'Удалить комментарий');
+        Result := Result + 1;
+      end;
+      if Result > MaxComments then
+      	Exit;
+    end;
+    
+    if (not ScrollAllDoc) then
+    	break;
+		
+    if (EditorWnd.VScroll.Pos >= (EditorWnd.VScroll.Max - 1)) then
+    	break;
+      
+		if EditorWnd.VScroll.Pos >= (EditorWnd.VScroll.Max - 100) then
+    	EditorWnd.VScroll.Pos := EditorWnd.VScroll.Max
+    else	
+    	Sys.Keys('[PageDown]');
+  end;
+end;
+
+{
+  //сохранение в файл в заданном формате c последующей сверкой файла с эталоном
+  //перед сохранением очищаем Журнал Работы - в документе перед сохранением
+}
+function SaveAndCompareFiles(w, typedoc: OleVariant; fethalon: string; IsPicture: boolean = false; IsSetOnlySelectedUnChecked: boolean = true): boolean;
+var
+  pathTofile, res;
+begin
+try
+  pathTofile := GetTempDirectory + fethalon;
+  if IsPicture then
+    res := SavePictureToFile(w, pathTofile, typedoc)
+  else
+    res := SaveDocToFile(w, pathTofile, typedoc, IsSetOnlySelectedUnChecked);
+  if not Res then
+    Raise('Не получилось сохранить файл ' + pathTofile);
+  {if IsPicture then
+    Result := CompareGarantFiles(pathTofile, fethalon, 'IsWriteFileToLog:=false')
+  else
+    Result := CompareGarantFiles(pathTofile, fethalon);
+  }
+  Result := CompareGarantFiles(pathTofile, fethalon, 'IsWriteFileToLog:=false');
+ 
+  if not Result then
+  begin
+    Log.Message('Путь к временному каталогу: "' + pathTofile + '"');
+    Raise('Формат сохранения в файл ' + typedoc + ' стал отличаться от эталона ' + fethalon);
+  end;
+except
+  Result := False;
+  Log.Error('SaveAndCompareFiles: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+{
+  TYPE: Работа с документом
+  DESC: Проверка наличия подсветки контекстов в документе после поиска
+  RESULT: 
+  REMARK:
+}
+function IsTextHighlight(editor: OleVariant = nil): boolean;
+var
+  w;
+begin
+try
+  if editor <> nil then
+    w := editor
+  else
+    w := GetEditor;
+  if not IsExists(w) then
+    Raise('Окно редактора не найдено!');
+   
+  Result := Regions.Find(w, 'start_highlight.bmp', 0, 0, true) <> nil;
+except
+  Result := False;
+  Log.Error('IsTextHighlight: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Удаляет все комментарии из структуры документа
+  RESULT: Количество удаленных комментариев
+  REMARK:
+}
+function DeleteAllUserCommentsFromContents : integer;  
+  const
+    COMMENT_MAX_COUNT = 20;
+  var
+    contentsTree;
+begin
+  try
+  	Result := 0;    
+    contentsTree:=GetFromNavigator('ДЕРЕВО "МОИ КОММЕНТАРИИ" СО ВКЛАДКИ НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"');                 
+    while (IsExists(contentsTree)) and (Result < COMMENT_MAX_COUNT) do
+    begin
+      contentsTree.SetFocus;
+    	Sys.Keys('[Home][Del]');      
+      Result := Result + 1;
+      contentsTree:=GetFromNavigator(NAV_LEFT +'ДЕРЕВО "МОИ КОММЕНТАРИИ" СО ВКЛАДКИ НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"');//rykov: добавлен ЛЕВЫЙ НАВИГАТОР. Как правило навигатор левый. Что бы за зря не тратить время на остальных навигаторах.  
+    end;
+    if Result >= COMMENT_MAX_COUNT then
+      Raise('Превышено допустимое число комментариев к удалению, либо комментарии не удаляются в структуре документа');
+  except
+    Result := 0;
+    Log.Message('DeleteAllUserCommentsFromContents: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+//жмём PageDown пока не доберёмся до конца документа
+function ScrollAllDoc(
+  editorWnd: oleVariant;  
+  const direction: String = 'DOWN'  // Направление перемещения: DOWN, UP
+): boolean;
+var  
+  oldPos;
+  key;
+begin
+try
+  result := IsExists(editorWnd);
+  if NOT result then 
+    Raise('Не удалось обнаружить объект "editorWnd"');
+	editorWnd.SetFocus;  
+  result := false;
+  oldPos := editorWnd.VScroll.Pos;  
+  case direction of 
+    'DOWN': key := '[PageDown]';
+    'UP'  : key := '[PageUp]';
+    else Raise('Передан неправильный параметр: ' + direction);
+  end;            
+  while NOT result do 
+  begin
+    Sys.Keys(key);
+    result := oldPos = EditorWnd.VScroll.Pos;
+    oldPos := EditorWnd.VScroll.Pos;    
+  end;                           
+except
+  result := false;
+  Log.Message('ScrollAllDoc: ' + ExceptionMessage,'',  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;   
+end;  
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Перевод фокуса на первый элемент оглавления
+  RESULT: Окно оглавления
+  REMARK: В случае неудачи возбуждает исключение
+}
+function SetFocusToContentsEx : OleVariant;
+  var
+    contentsTree;
+begin
+  try
+    //GetMainWindow.SetFocus;
+    contentsTree := GetFromEditor('ВКЛАДКА НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"');  
+    if IsExists(contentsTree) AND contentsTree.Visible then
+    begin
+    	contentsTree.SetFocus;	
+      Sys.Keys('[Home]');
+      Result := contentsTree;
+    end
+    else
+      Raise (EX_CANNOT_FOCUS_CONTENTS_TAB);
+  except
+    Log.Error ('SetFocusToContentsEx: '+ExceptionMessage);
+    Raise (ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Удаление комментария пользователя на вкладке "Структура документа"
+  RESULT:
+  REMARK:
+}
+procedure DeleteUserCommentFromContents (
+  const userCommentName: String // имя комментария (обычно первый абзац комментария)
+);
+const
+  userCommentsFolder = 'Мои комментарии';
+var
+  docStructure;
+begin
+  try
+    docStructure := SetFocusToContentsEx;
+    if Position_Internal(docStructure, userCommentsFolder+'\'+userCommentName) then
+    begin
+      Sys.Keys ('[Del]');
+      WaitForConfirmationWindow(Options.Run.Timeout div 30 , 'Да');
+    end;  
+  except
+    Log.Error ('DelateUserCommentFromContents: '+ExceptionMessage);
+    raise (ExceptionMessage);
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Удаление закладки на вкладке "Структура документа"
+  RESULT:
+  REMARK:
+}
+procedure DeleteBookmarkFromContents (
+  const bookmarkName: String // название закладки
+);
+const
+  bookmarksFolder = 'Закладки';
+var
+  docStructure;
+begin
+  try
+    docStructure := SetFocusToContentsEx;
+    if Position_Internal (docStructure, bookmarksFolder+'\'+bookmarkName) then
+    begin
+      Sys.Keys ('[Del]');
+      WaitForConfirmationWindow(Options.Run.Timeout div 2, 'Да'); 
+    end;  
+  except
+    Log.Error ('DeleteBookmarkFromContents: '+ExceptionMessage);
+    raise (ExceptionMessage);
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Возвращает координаты начала выделения в тексте
+  REMARK: 
+}  
+function GetTextSelectionCoords(
+  obj: OleVariant;  //Объект, на котором будет вызвана функция
+  var x: integer;
+  var y: integer;
+  click : boolean = false // кликать или нет  
+ ) : boolean;     
+var 
+  screenX, screenY: integer;   
+begin
+try
+  SlideMouse(1, 1);
+  result := FindPicture(obj, 'start_selection.bmp', x, y);
+  y := y + 7;  
+
+  if not result then
+    Raise('Не удалось найти выделенный текст');
+    
+  if click then
+  begin
+    if not IsExists(obj) then
+      Raise('Не удалось найти окно, в котором нужно кликнуть');
+    screenX := x;
+    screenY := y;
+    common.ClientToScreen(obj, ScreenX, ScreenY);
+    SlideMouse(screenX, screenY);    
+    obj.Click(x, y);         
+  end;
+  
+  result := true;
+except
+  Log.Message('GetTextSelectionCoords: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;  
+end;
+end;       
+
+{
+DESK:Возращает координаты искомого контекста
+}
+function GetCoordsSearchContext(
+  obj: OleVariant;  //Объект, на котором будет вызвана функция
+  context : string;
+  var x: integer;
+  var y: integer;
+  click : boolean = false; // кликать или нет
+  paramString : string = ''  
+ ) : boolean;     
+var 
+  screenX, screenY: integer;
+  paramList;
+  isScrollUp;
+  scroll;   
+begin
+try
+  paramList := ParseParamString(paramString);
+  isScrollUp :=VarToBool( GetParam(paramList, 'isScrollUp', false) );
+
+  if NOT BaseSearchInDocument(obj, context, paramString + ';IsContinueSearchIfConfirm:=false') then Raise ('Не удалось найти искомый контекст');
+  {Если перед поиском координат выделенного контекста нужно проскролироваться вверх} 
+  if isScrollUp then   
+    if NOT ScrollBarClick(obj, 'ВВЕРХ') then Raise('Не удалось проскролироваться вверх');
+  if NOT GetTextSelectionCoords (obj, x, y, click) then Raise('Не удалось найти выделенный текст');
+  result := true;
+except
+  Log.Message('GetCoordsSearchContext: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;  
+end;
+end;
+
+{
+  TYPE: Для работы с текстом 
+  DESC: Выделяет строку путём Перетягивания мыью  
+}
+function SelectStringByMouse(
+  const wnd : OleVariant // окно на котором вызывается функция
+): boolean;  
+var
+  y;
+begin  
+  try
+    result := IsExists(wnd) and wnd.Visible;
+    if NOT (result and IsSupported(wnd, 'Selection') and IsSupported(wnd.Selection, 'Caret')) then 
+      Raise('Переданный объект не существует!');
+    y := wnd.Selection.Caret.Y + (wnd.Selection.Caret.InsCaretType.CaretHeight div 2);  
+    result := y >= 0;
+    if NOT result then Raise ('Координа курсора не считалась или имеет некорректное значение');
+    result := DragExt(wnd, 0, y, wnd.Width - 16, 0, '', 5 );
+    if NOT result then Raise('Не удалось выделить строку');
+  except
+    Log.Message('SelectedString: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    result := false;
+    CommonExceptionHandler;
+  end;  
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Переход по гиперссылке в тексте документа
+  RESULT:
+  REMARK: Если гиперссылка в тексте пользовательского комментария, тогда эта ф-ци не будет работать, тогда испрльзовать GoByHyperLink  
+}  
+function ClickByHyperLink(
+  wnd: OleVariant;  //Окно редактора с текстом, на котором будет вызвана функция
+  hyperName : string; //название гиперссылки  
+  rightButt : boolean = false; // кликать правой кнопкой
+  const dX : integer = 0; //смещение по ось Х
+  const dY : integer = 0;  //смещение по ось Y
+  errorOnNoHint : boolean = true
+ ) : boolean;     
+var 
+  x, y, screenX, screenY: integer;  
+  cursor;
+begin      
+try
+  if not IsExists(wnd) then Raise('Окно не существует!');
+  
+  if NOT GetCoordsSearchContext(wnd, hyperName, x, y) then Raise ('Не удалось найти координаты искомой гиперссылки');
+  
+  x := x + dX + 10;
+  y := y + dY + 4;
+
+  if (GetHintTextByCoords(x, y, wnd) = '') then
+  begin
+    if errorOnNoHint then 
+      Raise('Возможно неактивная ссылка, переход невозможен (не имеет хинта)')
+    else
+      Log.Warning('Возможно неактивная ссылка (не имеет хинта)');
+  end;
+
+  wnd.SetFocus;
+  screenX := x;
+  screenY := y;
+  common.ClientToScreen(wnd, ScreenX, ScreenY);
+  SlideMouse(screenX , screenY);
+  
+  Delay(512);
+  if not rightButt then wnd.Click(x, y) else wnd.ClickR(x, y);
+  
+  result := true;
+except
+  Log.Warning('ClickByHyperLink: ' + ExceptionMessage, 'Название гиперссылки: ' + hyperName,  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;       
+
+{
+  TYPE: Работа с документом
+  DESC: Переход по гиперссылке в тексте документа
+  RESULT:
+  REMARK: До вызова функции курсор должен уже находится внутри гиперссылки
+}  
+function GoByHyperLink(
+  wnd: OleVariant //Окно редактора с текстом, на котором будет вызвана функция  
+ ) : boolean;     
+var 
+  x, y, screenX, screenY: integer;  
+  cursor;
+begin      
+try
+  if NOT IsExists(wnd) then Raise('Окно не существует!');
+  wnd.SetFocus;
+  Sys.Keys('~[Enter]');    
+  result := true;
+except
+  Log.Warning('ClickByHyperLink: ' + ExceptionMessage, 'Название гиперссылки: ' + hyperName,  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;   
+
+{
+  TYPE: Документ
+  DESC: Клик в тексте документа по первой букве указанного контекста
+  RESULT:
+  REMARK:
+} 
+function ClickOnContext(
+  const wnd : OleVariant; //Объект, на котором вызывается ф-ция 
+  const context : string; //Искомый контекст
+  const rightButt : boolean = false; // кликать правой кнопкой
+  const dX : integer = 0; //смещение по ось Х
+  const dY : integer = 0;  //смещение по ось Y
+  paramString: string = ''
+): boolean;
+var 
+  x, y;
+  str;
+begin
+try         
+  if not IsExists(wnd) then Raise('Окно не существует!');
+  
+  if NOT GetCoordsSearchContext(wnd, context, x, y, false, paramString) then Raise ('Не удалось найти координаты искомого контекста');
+      
+  Inc(x, 7);  
+  x := x + dX;
+  y := y + dY;
+  result := (x >= 0) AND (y >= 0);
+  if NOT result then Raise('Координаты отрицательные либо не корректного типа');
+  if not rightButt then wnd.Click(x, y) else wnd.ClickR(x, y);
+  result := true;
+except  
+  Log.Message('ClickOnContext: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Функция ставит ссылку для выделенного фрагмента или по месту курсора 
+  в тексте пользовательского комментария на объект
+  RESULT:
+  REMARK:
+}
+function SetHyperLink(   
+  const obj : OleVariant;  // объект окна, на котором есть попап-меню
+  const path : String  // Объект, на который ставиться ссылка (например: Мои докуметы\Закладка)
+): Boolean;
+var
+  folderForm; 
+begin
+  try
+    result := false;
+    //obj.SetFocus;
+    Sys.Keys('[Apps]');    
+    Log.Picture(obj, 'Перед кликом по "Поставить ссылку"');    
+    if NOT ClickByPopupMenuItem(obj, 'Поставить ссылку...') then
+      Raise('Не удалось вызвать контекстную операцию "Поставить ссылку..."');
+    folderForm := GetFromShell('ДИАЛОГ УСТАНОВКИ ГИПЕРССЫЛКИ');
+    if IsExists(folderForm) then 
+    begin
+      if Position_Internal(GetFromFolderForm('ДЕРЕВО ПАПОК', folderForm), path) then
+        result := ClickToolbarButton( GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderForm), 'Ок')
+      else
+      begin
+        Log.Error('Не получилось спозиционироваться по пути "' + path + '"');  
+        ClickToolbarButton( GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderForm), 'Отмена');
+      end;  
+    end        
+    else
+      Log.Error('Не получилось найти окно диалога сохранения!');      
+  except
+    Log.Message('SetHyperLink: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Функция изменяет ссылку в тексте пользовательского комментария на  объект
+  RESULT:
+  REMARK:
+}
+function ChangeHyperLink(   
+  const obj : OleVariant;  // объект окна, на котором есть попап-меню
+  const path : String  // Объект, на который ставиться ссылка (например: Мои докуметы\Закладка)
+): Boolean;
+var
+  folderForm; 
+begin
+  try
+    result := false;
+    Sys.Keys('[Apps]');    
+    if NOT ClickByPopupMenuItem(obj, 'Изменить ссылку*') then
+      Raise('Не удалось вызвать контекстную операцию "Изменить ссылку..."');
+    folderForm := GetFromShell('ДИАЛОГ ИЗМЕНЕНИЯ ГИПЕРССЫЛКИ');
+    if IsExists(folderForm) then 
+    begin
+      if Position_Internal(GetFromFolderForm('ДЕРЕВО ПАПОК', folderForm), path) then
+        result := ClickToolbarButton( GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderForm), 'Ок')
+      else
+      begin
+        Log.Error('Не получилось спозиционироваться по пути "' + path + '"');  
+        ClickToolbarButton( GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderForm), 'Отмена');
+      end;  
+    end        
+    else
+      Log.Error('Не получилось найти окно диалога сохранения!');      
+  except
+    Log.Message('ChangeHyperLink: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Документ
+  DESC: Клик в тексте документа рядом с указанной иконкой на САБ панели
+  RESULT:
+  REMARK: 
+} 
+function ClickNearIconOnSubInDocument(
+  obj  : OleVariant; //Объект, на котором вызывается ф-ция 
+  icon : string;          //Какая иконка( комментарий пользователя/ комментарий гаранта/ закладка);
+  sub  : OleVariant = nil;  //САБ панель
+  rightButt : boolean = false; //если true, тогда кликаем правой кнопкой
+  isSetSettings : boolean = true //выставлять ли в настройках  показа комментариев = включен
+): boolean;
+var
+  iconName: string;
+  x, y: integer;
+begin                                   
+try
+  case icon of                               
+    'КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ':
+      begin 
+        iconName := 'User_Comments.bmp';
+        if isSetSettings then 
+          result := SetSettings ([(['ДОКУМЕНТ\МЕТКИ НА ПОЛЯХ', 'КОММЕНТРАРИИ ПОЛЬЗОВАТЕЛЯ [CHECKBOX]', true])]) 
+        else
+          result := true;
+      end;  
+    'КОММЕНТАРИЙ ГАРАНТА':
+      begin
+        iconName := 'Juridical_Comments.bmp';
+        if isSetSettings then
+          result := SetSettings ([(['ДОКУМЕНТ\МЕТКИ НА ПОЛЯХ', 'КОММЕНТАРИИ ГАРАНТА [CHECKBOX]', true])])
+        else
+          result := true;     
+      end;      
+    'ЗАКЛАДКА':
+      begin                 
+        iconName := 'BookMark.bmp';
+        result := true;
+      end;  
+    'ФРАГМЕНТ ДОКУМЕТА':
+      begin                 
+        iconName := 'block.bmp';
+        result := true;
+      end;  
+    'ОПЕРАЦИИ КО ВСЕМ ДОКУМЕНТОМ':
+      begin                 
+        iconName := 'blockFromAllDoc.bmp';
+        result := true;
+      end;  
+    'ВЕРСИОННЫЕ КОММЕНТАРИИ':
+    begin
+      iconName := 'Ver_Comments_off.bmp';
+      result := true;    
+    end;  
+  end;   
+  if NOT result then Raise('Не удалось в Настройках конфигурации включит показ иконок польз. и юр. комментариев на СУБ панели');
+           
+  result := IsExists(obj) AND obj.Visible;
+  if NOT result then Raise('Переданный объект не существует');
+  if sub = nil then
+  begin
+    sub := GetFromEditor('САБ ПАНЕЛЬ', GetParentObject(obj));    
+    result := IsExists(sub) AND sub.Visible;
+    if NOT result then Raise('Не удалось получить САБ панель к ТЕКСТУ ДОКУМЕТА');
+  end;
+  result := MoveMouseToObject(sub, iconName, 0, 0);
+  if NOT result then Raise('Не удалось найти иконку "' + icon + '" на САБ панели');
+  y := Sys.Desktop.MouseY; 
+  x := Sys.Desktop.MouseX;
+  common.ScreenToClient(obj, x, y);
+  if (icon = 'КОММЕНТАРИЙ ГАРАНТА') OR (icon = 'КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ')then
+  begin
+    if rightButt then  obj.ClickR(obj.Width - 20, y) else obj.Click(obj.Width - 20, y);  
+    Sys.Keys('[Home]');
+  end  
+  else  
+    if (icon = 'ВЕРСИОННЫЕ КОММЕНТАРИИ') then
+    begin
+      if rightButt then  obj.ClickR(1, y + 10) else obj.Click(1, y + 10);  
+      Sys.Keys('[Home]');
+    end
+    else
+    begin
+      if rightButt then obj.ClickR(1, y) else obj.Click(1, y);    
+    end;      
+except  
+  Log.Message('ClickNearIconOnSubInDocument: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Документ
+  DESC: 
+  RESULT:
+  REMARK: 
+} 
+function IsCorrectPreview(
+  timeOut : integer = 0; //Задержка, показывающая за cколько времени должно постороится превью   (млс)
+  preview  : OleVariant = nil; //Объект предварительного просмотра
+  isPrimeWindow : boolean = false
+): boolean;                            
+const
+  TEXT = 'Объем распечатки в листах:*';
+var
+  iconName: string;
+  x, y: integer;
+  timeLimit;
+  sbText;
+  res;
+begin                                   
+try
+  if preview = nil then preview := GetFromMainWindow('ПРЕВЬЮ');
+  if NOT ( IsExists(preview) AND preview.Visible ) then
+    Raise('Не удалось обнаружить окно Предварительного просмотра');
+  if timeOut = 0 then timeOut := Options.Run.Timeout;
+  timeLimit := Win32API.GetTickCount + timeOut;
+  res := false;
+  while timeLimit > Win32API.GetTickCount do
+  begin
+    if isPrimeWindow then
+      sbText := GetPrimeStatusBarText
+    else
+      sbText := GetStatusBarText;    
+    if StringCompare(TEXT, sbText) then  begin  res := true;  break;  end; 
+    Delay(1000);
+  end;
+  if NOT res then
+  begin
+    Log.Error('Текст статусбара в превью при истечении таймаута не равен эталонному', sbText);
+    Raise;
+  end;
+  if NOT MoveMouseToObject(preview, 'end_comment.bmp', 0, 0) then
+  begin
+    Log.Error('В окне превью не удалось найти горизонтальную полосу');
+    Raise('В окне превью не удалось найти горизонтальную полосу');
+  end;
+  result := true;  
+except  
+  Log.Message('IsCorrectPreview: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Документ
+  DESC: 
+  RESULT:
+  REMARK: 
+} 
+function IsEtalonPreview(
+  pathToPreviewScrin : string = '';
+  paramString : string = '';  
+  timeOut : integer = 30000    
+): boolean;
+var
+  p, mainWnd;
+  button;
+  i;
+  res;
+  toolBar;  
+  x, y;
+  paramList;
+  showOnWidthPage, showClolorPage;
+begin                                   
+try
+  paramList := ParseParamString(paramString);
+  showOnWidthPage := BuiltIn.VarToBool( GetParam(paramList, 'showOnWidthPage', true) );
+  showClolorPage := BuiltIn.VarToBool( GetParam(paramList, 'showClolorPage', true ) ); 
+
+  if VarToBool(gbl_F1ShellTabsEnabled) then
+    mainWnd := GetMainContainer 
+  else
+    mainWnd := GetMainWindow;
+  mainWnd.Maximize;
+
+  if NOT SetDefaultSettings then 
+    Raise('Не удалось установить настройки по Дефолту!');
+  Delay(1000);        
+  if pathToPreviewScrin = '' then Raise('IsEtalonPreview: Не укащан путь к эталонному скриншоту превью!');    
+  if NOT isCorrectPreview(timeOut) then Raise('Перевью не корректно!');
+     
+  SlideMouse(10, 10);  
+  toolBar := GetFromPreview('ТУЛБАР "ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР ПЕЧАТИ"');
+  if showOnWidthPage then
+    if NOT ClickToolbarButton(toolBar, 'По ширине листа*', 'SetToState:=pressed') then
+      Raise('Не удалось на тулбаре превью нажать "По ширине листа"');
+  if showClolorPage then    
+    if NOT ClickToolbarButton(toolBar, 'Показывать цветным*', 'SetToState:=released') then
+      Raise('Не удалось на тулбаре превью отжать "Показывать цветным"');
+  res := true;
+  i := 0;  
+  while res do
+  begin     
+    button:=  GetFromNavigator('КНОПКА "ЗАКРЫТЬ"');
+    if IsExists(button) then button.Click;    
+    res := IsExists(button) AND (i < 10);
+    inc(i); 
+  end; 
+         
+  if NOT FindPicture(GetFromMainWindow('ПРЕВЬЮ'), pathToPreviewScrin, x , y ) then   
+  begin
+    Log.Error('Скриншот ПРЕВЬЮ не совпадает с эталонным, возможно ПРЕВЬЮ отрисовалось некорректно!');
+    Raise('Скриншот ПРЕВЬЮ не совпадает с эталонным, возможно ПРЕВЬЮ отрисовалось некорректно!');
+  end;
+  result := true;  
+except  
+  Log.Message('IsEtalonPreview: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+  TYPE: Документ
+  DESC: Установка курсора в верхнее место в облости видимости документа
+  RESULT:
+  REMARK: 
+} 
+function PositionCursorInHomeUpperString(
+  obj  : OleVariant //Объект документа
+): boolean;
+begin                                   
+try
+  if NOT IsExists(obj) then Raise('Передан не существующий объект');
+  obj.Click(obj.Width - 19{ширина скролл бара}, 1);
+  Sys.Keys('[Home]');  
+  result := true;
+except  
+  Log.Message('PositionCursorInHomeUpperStringt: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Документ
+  DESC: Получает координаты курсора
+  RESULT:
+  REMARK: 
+} 
+function GetCaretCoord(
+  obj  : OleVariant; //Объект документа
+  var x : integer;
+  var y : integer
+): boolean;
+begin                                   
+try
+  if NOT IsExists(obj) then Raise('Передан не существующий объект!');
+  x := obj.Selection.Caret.X;
+  y := obj.Selection.Caret.Y;
+  result := true;
+except  
+  Log.Message('GetCaretCoord: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Документ
+  DESC: Кликает на "кнопке со стрелочкой" на скроллБаре 
+  RESULT:
+  REMARK: 
+} 
+function ScrollBarClick(
+  obj  : OleVariant; //Объект, на котором есть СкроллБар
+  direction : string;//Направление, куда скролировать(вверх\вниз\влево\вправо)
+  count : integer = 1//Количество кликов
+): boolean;
+var 
+  x, y;
+  i;
+begin                                   
+try
+  if NOT IsExists(obj) then Raise('Передан не существующий объект!');
+  if count < 1 then Raise('Значение параметра "count" передано не корректно: ' + IntToStr(count));
+  case AnsiUpperCase(direction) of
+    'ВВЕРХ':
+    begin
+      if obj.VScroll.Max = 0 then Raise('Вертикального СкроллБара не существует');
+      x := obj.Width - 8;
+      y := 8;
+    end;
+    'ВНИЗ':
+    begin
+      if obj.VScroll.Max = 0 then Raise('Вертикального СкроллБара не существует');
+      x := obj.Width - 4;
+      if obj.HScroll.Max = 1 {т.к. в TC глюк с obj.HScroll.Max}then y := obj.Height - 8 else y := obj.Height - 14;
+    end;
+    'ВЛЕВО':
+    begin
+      if obj.HScroll.Max = 1{т.к. в TC глюк с obj.HScroll.Max} then Raise('Горизонтального СкроллБара не существует');
+      x := 8;
+      y := obj.Height - 8;
+    end;
+    'ВПРАВО':
+    begin
+      if obj.HScroll.Max = 1{т.к. в TC глюк с obj.HScroll.Max} then Raise('Горизонтального СкроллБара не существует');
+      if obj.VScroll.Max = 0 then  x := obj.Width - 8 else x := obj.Width - 24;
+      y := obj.Height - 8;
+    end;
+    else Raise('Значение параметра "direction" передано не корректно: ' + direction);       
+  end;//case  
+  for i := 1 to count do
+  begin
+    obj.click(x, y);
+    Delay(Options.Run.Timeout div 60);
+  end;    
+  result := true;
+except  
+  Log.Message('ScrollInDocument: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Документ (для Стандартной конфигурации)
+  DESC: Устанавливается режим показа в извлечениях
+  RESULT: false\true. Удалось ли включить режим показа в извлечениях
+  REMARK: 
+} 
+const
+  EXTRACTIONS_ON = 'Режим показа извлечений включен';
+  EXTRACTIONS_OFF = 'Режим показа извлечений выключен';
+  EXTRACTIONS_UNDEFINED = 'Режим показа извлечений не определён';
+  EXTRACTIONS_DISABLE = 'Режим показа извлечений дизейбл';
+  
+function SetExtractionsModeStd(
+  const whatToDo : string; //Включить\Выключить режим показа извлечений  
+        obj : OleVariant  //Объект документа
+): boolean;
+var
+  toolbar;
+begin                                   
+try 
+  result := IsExists(obj) AND (obj.WndClass = 'TnscEditor');
+  if NOT result then Raise('Передан неправильный объект');
+  toolbar := GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"', GetParentObject(obj));
+  result := IsExists(toolbar);
+  if NOT result then Raise('Не удалось получить Тулбар Документа');  
+  //obj := GetToolBarObject(toolbar, 'BUTTON', 'Показать извлечения');
+  obj := FindWindowByPath(toolBar, 'NAME:=bt_enDocument_opShowFullText');
+  result := IsExists(obj);
+  if NOT result then Raise('Не удалось получить кнопку: "Показать извлечения"');
+  case AnsiUpperCase(whatToDo) of
+    'ON', 'ПОКАЗАТЬ ИЗВЛЕЧЕНИЯ':
+      begin
+        result := obj.NativeDelphiObject.Enabled;
+        if NOT result then Raise('кнопка "Показать/Скрыть" не активна');
+        if NOT obj.Down then obj.Click;
+        result := obj.Down;
+        if NOT result then Raise('Не удалось нажать кнопку "Показать/Скрыть извлечения"');
+      end;
+    'OFF', 'СКРЫТЬ ИЗВЛЕЧЕНИЯ':
+      begin
+        result := obj.NativeDelphiObject.Enabled;
+        if NOT result then Raise('кнопка "Показать/Скрыть" не активна');
+        if obj.Down then obj.Click;
+        result := NOT obj.Down;        
+        if NOT result then Raise('Не удалось отжать кнопку "Показать/Скрыть извлечения"');      
+      end;    
+    else
+      Raise('Передан неправильный параметр whatToGet');
+  end; 
+except    
+  Log.Message('SetExtractionsModeStd: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Документ (для облегчённой конфигурации)
+  DESC: Устанавливается режим показа в извлечениях
+  RESULT: false\true. Удалось ли включить режим показа в извлечениях
+  REMARK: 
+} 
+
+function SetExtractionsModeLight(
+  const whatToDo : string; //Включить\Выключить режим показа извлечений  
+        obj : OleVariant  //Объект документа
+): boolean;
+var
+  badge;
+  tasksPanel;
+  str;
+begin                                   
+try 
+  if NOT IsExists(obj) AND (obj.WndClass = 'TnscEditor') then Raise('Передан неправильный объект');
+  badge := GetFromEditor('ЗНАЧОК: ДОКУМЕНТ ПРЕДСТАВЛЕН В ИЗВЛЕЧЕНИЯХ', GetParentObject(obj));
+  
+  case AnsiUpperCase(whatToDo) of
+    'ON', 'ПОКАЗАТЬ ИЗВЛЕЧЕНИЯ':
+      begin
+        if NOT IsExists(badge) then 
+        begin
+          tasksPanel := OpenTasksPanel; 
+          if NOT isExists(tasksPanel) then Raise('Не удалось открыть Панель Задач');
+                       
+          if NOT OpenItemInTasksPanel('Документ', 'Показать извлечения') then 
+            Raise('Не удалось вызвать нужную операцию "Показать извлечения" из панель задач');
+        end; 
+      end;
+    'OFF', 'СКРЫТЬ ИЗВЛЕЧЕНИЯ':
+      begin
+        if IsExists(badge) then 
+        begin
+          tasksPanel := OpenTasksPanel; 
+          if NOT isExists(tasksPanel) then Raise('Не удалось открыть Панель Задач');
+          if NOT OpenItemInTasksPanel('Документ', 'Показать полный текст') then 
+            Raise('Не удалось вызвать нужную операцию "Показать полный текст" из панель задач');
+        end;      
+      end;
+  else
+      Raise('Передан неправильный параметр whatToGet');
+  end;
+  result := true; 
+except    
+  Log.Message('SetExtractionsModeLight: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Документ
+  DESC: Устанавливается режим показа в извлечениях
+  RESULT: false\true. Удалось ли включить режим показа в извлечениях
+  REMARK: 
+} 
+function SetExtractionsMode(
+  const whatToDo : string; //Включить\Выключить режим показа извлечений  
+        obj : OleVariant  //Объект документа
+): boolean;
+var
+  toolbar;
+begin                                   
+try 
+  if IsLightConfiguration then
+  begin
+    if NOT SetExtractionsModeLight(whatToDo, obj) then 
+      Raise('Не удалось установить необходимый "' + whatToDo + '" режим показа извлечений для облегчённой конфигурации');
+  end
+  else
+    if NOT SetExtractionsModeStd(whatToDo, obj) then 
+      Raise('Не удалось установить необходимый "' + whatToDo + '" режим показа извлечений для стандартной конфигурации');
+  result := true;    
+except    
+  Log.Message('SetExtractionsMode: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+{
+  TYPE: Документ(для стандартной конфигурации)
+  DESC: Возврашается режим показа в извлечениях
+  RESULT: EXTRACTIONS_ON- включен, EXTRACTIONS_OFF- выключен, EXTRACTIONS_UNDEFINED- не определён.
+  REMARK: 
+} 
+function GetExtractionsModeStd(
+  obj : OleVariant //Объект документа
+): string;
+var
+  badge;
+begin                                   
+try 
+  result := IsExists(obj) AND (obj.WndClass = 'TnscEditor');
+  if NOT result then Raise('Передан неправильный объект');
+  obj := GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"', GetParentObject(obj));
+  result := IsExists(obj);
+  if NOT result then Raise('Не удалось получить Тулбар Документа');
+//obj := GetToolBarObject(obj, 'BUTTON', 'Показать извлечения');
+  obj := FindWindowByPath(obj, 'NAME:=bt_enDocument_opShowFullText');  
+  result := IsExists(obj);
+  if NOT result then Raise('Не удалось получить кнопку: "Показать извлечения"');  
+  badge := GetFromEditor('ЗНАЧОК: ДОКУМЕНТ ПРЕДСТАВЛЕН В ИЗВЛЕЧЕНИЯХ');
+  if obj.NativeDelphiObject.Enabled AND obj.Down then
+  begin
+    if IsExists(badge) AND badge.Visible then
+      result := EXTRACTIONS_ON
+    else Raise('Кнопка "Показать\скрыть извлечения" нажата, но значок "Внимание! Документ представлен в извлечениях" не найден');
+  end  
+  else
+  begin
+    if NOT obj.NativeDelphiObject.Enabled then
+      result := EXTRACTIONS_DISABLE
+    else
+      result := EXTRACTIONS_OFF;
+  end;  
+except    
+  Log.Message('GetExtractionsModeStd: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := EXTRACTIONS_UNDEFINED;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Документ(для стандартной конфигурации)
+  DESC: Возврашается режим показа в извлечениях
+  RESULT: EXTRACTIONS_ON- включен, EXTRACTIONS_OFF- выключен, EXTRACTIONS_UNDEFINED- не определён.
+  REMARK: 
+} 
+function GetExtractionsModeLight(
+  obj : OleVariant //Объект документа
+): string;
+var
+  badge;
+begin                                   
+try 
+  if NOT IsExists(obj) AND (obj.WndClass = 'TnscEditor') then Raise('Передан неправильный объект');    
+  badge := GetFromEditor('ЗНАЧОК: ДОКУМЕНТ ПРЕДСТАВЛЕН В ИЗВЛЕЧЕНИЯХ', GetParentObject(obj));
+  if IsExists(badge) AND badge.Visible then
+    result := EXTRACTIONS_ON
+  else
+    result := EXTRACTIONS_OFF;   
+except    
+  Log.Message('GetExtractionsModeLight: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := EXTRACTIONS_UNDEFINED;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+  TYPE: Документ
+  DESC: Возврашается режим показа в извлечениях
+  RESULT: EXTRACTIONS_ON- включен, EXTRACTIONS_OFF- выключен, EXTRACTIONS_UNDEFINED- не определён.
+  REMARK: 
+} 
+function GetExtractionsMode(
+  obj : OleVariant //Объект документа
+): string;
+var
+  badge;
+begin                                   
+try
+  if NOT ( IsExists(obj) AND obj.Visible ) then Raise('Передан не правильный объект');
+  if IsLightConfiguration then
+    result := GetExtractionsModeLight(obj)
+  else
+    result := GetExtractionsModeStd(obj);    
+    
+except    
+  Log.Message('GetExtractionsMode: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := EXTRACTIONS_UNDEFINED;
+  CommonExceptionHandler;             
+end;
+end;
+
+const
+  HSCROLLBAR = 'Горизонтальный';
+  VSCROLLBAR = 'Вертикальный';
+{
+  DESK: Говорит, существует ли тулбар заданного типа
+}  
+function IsExistsScrollBar(
+  wnd: OleVariant;
+  scrollBarType: string
+): boolean;//если сужествует - true
+begin
+try
+  if NOT IsExists(wnd) then Raise('Переданное окно не существует');
+  case scrollBarType of
+    HSCROLLBAR: Result := (wnd.WndStyles AND Win32API.WS_HSCROLL) <> 0;
+    VSCROLLBAR: Result := (wnd.WndStyles AND Win32API.WS_VSCROLL) <> 0;
+    else  Raise('Передали не корректные параметры');
+  end;   
+except
+  Log.Message('IsExistsScrollBar: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;  
+  CommonExceptionHandler;
+end;  
+end;
+
+{
+  DESK: Закрывается форма контекстного поиска
+}
+procedure CloseContextSearchForm;
+var
+  obj;
+begin
+try
+  obj := GetFromBaseSearch('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"');
+  if isExists(obj) then
+  begin
+    obj := GetFromBaseSearch('КНОПКА "ЗАКРЫТЬ"');
+    if NOT IsExists(obj) then Raise('Не удалось получить КНОПКА "ЗАКРЫТЬ"');
+    if NOT obj.Enabled then Raise('КНОПКА "ЗАКРЫТЬ" не активна, м.б. даннаф ф-ция вызывается при открытом ОМ');
+    obj.Click;
+  end;
+except
+  Log.Message('CloseContextSearchForm: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;  
+  CommonExceptionHandler;
+end;  
+end;
+
+{
+  DESK: Открываем графический режим
+}
+function OpenGraphicMode(
+  doc : OleVariant
+): boolean;
+var
+  obj;
+begin
+try
+  if IsLightConfiguration then
+  begin
+    obj := OpenTasksPanel; 
+    if NOT isExists(obj) then Raise('Не удалось открыть Панель Задач');
+    if NOT OpenItemInTasksPanel('Документ', 'Графическая копия официальной публикации') then 
+      Raise('Не удалось вызвать нужную операцию из панель задач');
+  end
+  else
+  begin
+    if NOT IsExists(doc) then Raise('Переданный объект не существует');
+    obj := GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"', GetParentObject(doc));
+    if NOT IsExists(obj) then Raise('Не удалось получить Тулбар Документа');   
+    if NOT ClickToolbarButton (obj, 'Графическая копия официальной публикации') then 
+      Raise('Не удалось на тулбаре нажать кнопку "Графическая копия официальной публикации"');
+  end;
+  
+  result := true;  
+except
+  Log.Message('OpenGraphicMode: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;    
+end;
+
+{
+  DESK: Процедура тупо закрывает окно базового поиска
+}
+function CloseBaseSearch: boolean;
+var
+  button;
+begin
+try
+  button := GetFromBaseSearch('КНОПКА "ЗАКРЫТЬ"');
+  if NOT IsExists(button) then 
+    Log.Message('При попытке закрытия лиалога базового поиска Не удалось получить КНОПКА "ЗАКРЫТЬ"')
+  else
+    //Если открыто не ОМ, тогда закрываем базовый поиск
+    if button.Enabled then
+      ClickOnVgSceneObject(button);
+  Result := not IsExists(GetFromBaseSearch('КОМБОБОКС "БАЗОВЫЙ ПОИСК"'));
+except
+  Result := false;
+  Log.Message('CloseBaseSearch: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;    
+end;
+
+const
+  ONCONTROL_STATE_ON  = 'Документ на контроле';
+  ONCONTROL_STATE_OFF = 'Документ снят с контроля';
+  ONCONTROL_STATE_UNDEFINED = 'Состояние "Документ на контроле" не определёно';
+  
+{
+DESK: Функция возвращает состояния документа: на контроле он или нет:
+RESULT: 
+  ONCONTROL_STATE_ON - документ поставлен на контроль
+  ONCONTROL_STATE_OFF - документ снят с контроля
+  ONCONTROL_STATE_UNDEFINED - по каким то причинам внутри ф-ции вывалилось исключение, результат - неопределён
+}
+function GetDocOnControlState(
+  docNumber: longint = 0;
+  const isInternalNumber : boolean = true
+) : string;
+begin
+try
+  if NOT (docnumber = 0) then
+   if not OpenDocByNumber(docnumber, false, isInternalNumber) then
+     Raise('Не получилось открыть документ по номеру "' + IntToStr(docnumber) + '"');     
+  if NOT IsExists(GetEditor) then
+    Raise('Не наден редактор для документа "' + IntToStr(docnumber) + '"');
+  if GetToolbarButton(GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), '* контрол*').Down then
+    Result := ONCONTROL_STATE_ON
+  else
+    Result := ONCONTROL_STATE_OFF; 
+except
+  Result:= ONCONTROL_STATE_UNDEFINED;
+  Log.Error('GetDocOnControlState:' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;  
+  
+  
+{
+DESK: Функция ставит\снимает документ с контроля
+  state = ONCONTROL_STATE_ON - поставить документ на контроль
+  state = ONCONTROL_STATE_OFF - снять документ с контроля
+RESULT: true - удалось корректно поставить\снять документ на\с контроль
+  false - НЕ удалось корректно поставить\снять документ на\с контроль   
+}
+function SetDocOnControlState(
+  state : string = '';
+  docNumber: longint = 0;
+  const isInternalNumber : boolean = true
+) : string;
+var
+  toolbar;
+begin
+try
+  if state = '' then state := ONCONTROL_STATE_ON;  
+  if NOT (docNumber = 0) then
+   if NOT OpenDocByNumber(docnumber, false, isInternalNumber) then
+     Raise('Не получилось открыть документ по номеру "' + IntToStr(docnumber) + '"');
+  toolBar := GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить тулбар документа');
+  case state of
+    ONCONTROL_STATE_ON:
+      if NOT (GetDocOnControlState = ONCONTROL_STATE_ON) then
+      begin        
+        if NOT ClickToolbarButton(toolbar, 'Поставить на контроль*', 'SetToState:=pressed') then
+          Raise('Не получилось поставить документ на контроль"');
+        if WaitForInfoWindow(Options.Run.Timeout div 8) = '' then 
+          Raise('Не удалось погасить информационное окно, сообщающие о постановке документа на контроль');  
+      end; 
+    ONCONTROL_STATE_OFF:
+      if NOT (GetDocOnControlState = ONCONTROL_STATE_OFF) then
+      begin
+        if NOT ClickToolbarButton(toolbar, 'Снять с контроля*') then
+          Raise('Не удалось снять документ с контроля');
+        if WaitForConfirmationWindow(Options.Run.Timeout div 30, 'Да') = '' then 
+          Raise('Не удалось погасить окно подтверждения, сообщающие о снятии документа с контроля');
+      end;
+    else
+      Raise('Не удалось распознать параметр state');
+  end;  
+  Result := true;
+except
+  Result := false;
+  Log.Error('SetDocOnControlState: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  DESK: Удаление всех документов с контроля
+}
+function DelAllDocsFromControl: boolean;
+const
+  MAX_DOCS_COUNT = 100;
+var
+  i, onControlTab;
+begin
+  try
+    Result := true;
+    onControlTab := OpenDocUnderControlTab;
+    if not IsExists(onControlTab) then
+      Raise('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ" не найдена');
+
+    i:=0;
+    repeat
+      Inc(i);
+      onControlTab.Keys('[Del]');
+      WaitForConfirmationWindow(Options.Run.Timeout div 32);
+    until StringCompare('На контроль не поставлено*', common.GetWindowText(onControlTab.Handle)) or (i >= MAX_DOCS_COUNT);
+
+    if i >= MAX_DOCS_COUNT then
+      Raise('Не найдена строка "На контроль не поставлено ни одного документа"')
+    else
+      Log.Message('DelAllDocsFromControl: Успешно удалены все документы, стоявшие на контроле');
+  except
+    Result := false;
+    Log.Error('DelAllDocsFromControl: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+  
+{
+  TYPE: Экспорт документа в Word
+  DESC: 
+  RESULT: boolean - получилось провести экпорт или нет
+  REMARK: 
+} 
+function ExportToWord(editor: OleVariant = nil; arrayWords: OleVariant = nil; toolbar: OleVariant = nil; doclick: boolean = true): boolean;
+const
+  WORD_BUTT = 'Экспорт в*\В*документ*';
+var
+  i, p, w, clipbrd;
+begin
+try
+  Result := true;
+  if doclick then
+  begin  
+    if not IsExists(editor) then editor := GetEditor;
+    if not IsExists(editor) then
+      Raise('Не существует окна, в котором необходимо произвести Экспорт в Word');
+    editor.SetFocus;
+    
+    if toolbar = nil then
+    begin
+      if not ClickByMainMenuItem('Файл\'+ WORD_BUTT) then
+        Raise('Не получилось кликнуть в главном меню по ' + WORD_BUTT);
+    end
+    else
+    begin
+      if not ClickToolbarButton(toolbar, WORD_BUTT) then
+        Raise('Не получилось кликнуть по кнопке на тулбаре ' + WORD_BUTT);
+    end;
+    if WaitForConfirmationWindow(Options.Run.Timeout div 8, 'Да') = '' then
+      Log.Warning('Не было окна предупреждения об экспорте документа в Word');
+  end;      
+  
+  p := Sys.WaitProcess('WINWORD',Options.Run.Timeout div 4);
+  if not IsExists(p) then
+  begin
+    p := Sys.WaitProcess('wordpad',Options.Run.Timeout div 4);
+    w := FindWindowByPath(p, 'WNDCLASS:=RICHEDIT50W;WNDCAPTION:=*-*WordPad*;MAXDEPTH:=3');    
+  end
+  else
+    w := FindWindowByPath(p, 'WNDCLASS:=OpusApp;WNDCAPTION:=*-*Microsoft Word*;MAXDEPTH:=5');
+    //w := FindWindowByPath(p, 'WNDCLASS:=_WwG;WNDCAPTION:=*Microsoft Word*;MAXDEPTH:=5');   
+  
+  if not IsExists(w) then Raise('Word почему-то не открылся или не найден');
+  
+  if IsArray(arrayWords) then
+  begin
+    w.Activate;
+    clipbrd := CopyToClipboard(w, 'ALL', 'HowToCopy:=KEYBOARD');
+  
+    for i := VarArrayLowBound(arrayWords,1) to VarArrayHighBound(arrayWords,1) do
+      if not StringCompare(arrayWords[i], clipbrd) then
+        Result := ErrorResult('В экспортируемом документе Word не найдены слова: "' + arrayWords[i] + '"');
+  end;
+  p.Close;
+except
+  Log.Error('ExportToWord: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  GetMainWindow.SetFocus;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: Экспорт документа в WordPad 
+  DESC: 
+  RESULT: boolean - получилось провести экпорт или нет
+  REMARK: Так как возможно в дальнейшем откажемся от ворда, тогда надо будет проверят на вордПаде 
+} 
+function ExportToWordPad(editor: OleVariant = nil; arrayWords: OleVariant = nil; toolbar: OleVariant = nil; doclick: boolean = true): boolean;
+const
+  WORD_BUTT = 'Экспорт в*\В*документ*';
+var
+  i, p, w, clipbrd;
+begin
+try
+  Result := true;
+  if doclick then
+  begin  
+    if not IsExists(editor) then editor := GetEditor;
+    if not IsExists(editor) then
+      Raise('Не существует окна, в котором необходимо произвести Экспорт в Word');
+    editor.SetFocus;
+    
+    if toolbar = nil then
+    begin
+      if not ClickByMainMenuItem('Файл\'+ WORD_BUTT) then
+        Raise('Не получилось кликнуть в главном меню по ' + WORD_BUTT);
+    end
+    else
+    begin
+      if not ClickToolbarButton(toolbar, WORD_BUTT) then
+        Raise('Не получилось кликнуть по кнопке на тулбаре ' + WORD_BUTT);
+    end;
+    if WaitForConfirmationWindow(Options.Run.Timeout div 8, 'Да') = '' then
+      Log.Warning('Не было окна предупреждения об экспорте документа в Word');
+  end;      
+  
+  p := Sys.WaitProcess('WORDPAD',Options.Run.Timeout div 4);
+  w := FindWindowByPath(p, 'WNDCAPTION:=*-*WordPad*;MAXDEPTH:=5');
+  //w := FindWindowByPath(p, 'WNDCLASS:=_WwG;WNDCAPTION:=*Microsoft Word*;MAXDEPTH:=5');   
+  
+  if not IsExists(w) then Raise('WordPad почему-то не открылся или не найден');
+  
+  if IsArray(arrayWords) then
+  begin
+    w.Activate;
+    clipbrd := CopyToClipboard(w, 'ALL', 'HowToCopy:=KEYBOARD');
+  
+    for i := VarArrayLowBound(arrayWords,1) to VarArrayHighBound(arrayWords,1) do
+      if not StringCompare(arrayWords[i], clipbrd) then
+        Result := ErrorResult('В экспортируемом документе WordPad не найдены слова: "' + arrayWords[i] + '"');
+  end;
+  p.Close;
+except
+  Log.Error('ExportToWordPad: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  GetMainWindow.SetFocus;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: Работа с документом
+  DESC: Выделение текста комментария
+  RESULT:
+  REMARK: 
+}  
+function SelectComment(
+  targetWindow: OleVariant;  //Окно редактора с текстом, на котором будет вызвана функция
+  isReturnTextComment: boolean = false//если true, тоглда result= текст комментария, иначе result:boolean(выделили\не выделили)
+ ) : OleVariant;     
+
+const
+  pathToImageStart = 'start_comment.bmp';
+  pathToImageEnd = 'end_comment.bmp';  
+var
+  x1, y1;
+  x2, y2;
+  dX, dY;
+begin  
+try
+  if NOT FindPicture( targetWindow , pathToImageStart , x1 , y1 ) then
+    Raise('Не удалось найти эталонную картинку начала комментария "-- Мой комментарий------"' );
+  //if NOT FindPicture( targetWindow, pathToImageEnd , x2 , y2 , 0, y1+10 ) then
+  if NOT FindPicture( targetWindow, pathToImageEnd , x2 , y2) then
+    Raise('Не удалось найти эталонную картинку конца комментария "------------------------"' );
+  x1 := x1 + 10;
+  y1 := y1 + 10;  
+  dX := 0;
+  dY := y2 - y1 + 10;
+  targetWindow.SetFocus;
+  if NOT DragExt( targetWindow, x1 , y1 , dX , dY ) then
+    Raise('Не удалось сделать выделение при помощи DragExt');
+  if (isReturnTextComment) then
+    result := CopyToClipboard(targetWindow)//копируем выделенный текст коментария
+  else    
+    result := true;
+except
+  Log.Message('SelectComment: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  if (isReturnTextComment) then 
+    result := '' 
+  else 
+    result := false;
+  CommonExceptionHandler;  
+end;
+end;
+
+
+{
+  TYPE: Работа с документом
+  DESC: Проверка на наличие комментария в документе
+  RESULT: true, если комментарий существует
+  REMARK: 
+}  
+function IsExistsComment(
+  name : string = '' //Текст комментария, если не задан, то не проверяем на соответствие текста
+ ) : boolean;
+var
+  obj;
+  sub;  
+  x, y;
+begin
+try
+  
+  if NOT SetSettings ([(['ДОКУМЕНТ\МЕТКИ НА ПОЛЯХ', 'КОММЕНТРАРИИ ПОЛЬЗОВАТЕЛЯ [CHECKBOX]', true])]) then
+    Raise('Не удалось в настройках включить показ КОММЕНТРАРИИ ПОЛЬЗОВАТЕЛЯ [CHECKBOX');  
+  sub := GetFromEditor('САБ ПАНЕЛЬ');
+  if NOT IsExists(sub) then Raise('Не удалось получит САБ панель');
+  obj := OpenInDocument('ТЕКСТ');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ  документа!');
+  
+  if  (name = '') then
+    result :=(
+       MoveMouseToObject(sub, 'User_Comments.bmp') AND
+       FindPicture( obj , 'start_comment.bmp', x , y ) 
+    )  
+  else
+    result := ( 
+      MoveMouseToObject(sub, 'User_Comments.bmp') AND
+      FindPicture( obj , 'start_comment.bmp', x , y ) AND
+      (SelectComment(obj, true) = name)//проверяем еще на соответствие текста комментария 
+    );
+
+except
+  Log.Message('isExistsComment: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;
+end;
+end; 
+
+{
+  TYPE: Работа с документом
+  DESC: Проверка на наличие комментария в документе
+  RESULT: false, если комментарий существует
+  REMARK: 
+}  
+function IsNotExistsComment(
+  name : string = '' // не используется  
+ ) : boolean;
+var
+  obj;
+  sub;
+  wnd;
+  x, y;
+begin
+try
+  
+  result := SetSettings ([(['ДОКУМЕНТ\МЕТКИ НА ПОЛЯХ', 'КОММЕНТРАРИИ ПОЛЬЗОВАТЕЛЯ [CHECKBOX]', true])]);
+  if NOT result then Raise('Не удалось в настройках включить показ КОММЕНТРАРИИ ПОЛЬЗОВАТЕЛЯ [CHECKBOX');
+  
+  sub := GetFromEditor('САБ ПАНЕЛЬ');
+  if NOT IsExists(sub) then Raise('Не удалось получить САБ ПАНЕЛЬ');
+  
+//  obj := OpenInDocument('СТРУКТУРА ДОКУМЕНТА');//Теперь при удалении коментария удаляется и вкладка Структура документа
+//  if NOT IsExists(obj) then Raise('Не удалось открыть СТРУКТУРА ДОКУМЕНТА');
+  wnd := OpenInDocument('ТЕКСТ');
+  if NOT IsExists(wnd) then Raise('Не удалось получить ТЕКСТ');  
+  
+  result := 
+    ( NOT MoveMouseToObject(sub, 'User_Comments.bmp') ) AND
+//      ( NOT Position_Internal(obj, 'Мои комментарии\' + name, '\', true) ) AND
+    ( NOT FindPicture( wnd , 'start_comment.bmp', x , y ) );
+  
+except
+  Log.Message('isNotExistsComment: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;
+end;
+end; 
+
+
+procedure _____TIME_MACHINE;begin;end;
+
+const
+  TM_GREEN_ON = 1;
+  TM_RED_INACTIVE = 2;
+  TM_RED_NOTCONNECT = 4;
+  TM_YELLOW_WARN = 8;
+  TM_YELLOW_INACTIVE = 16;
+
+  REDACTION_MENU_BASE = 'Документы\';
+  REDACTION_MENU_ACTIVE = 'Актуальная редакция';
+  REDACTION_MENU_PREV = 'Предыдущая редакция';
+  REDACTION_MENU_NEXT = 'Следующая редакция'; 
+
+  REDACTION_HINT_INACTIVE = 'Внимание! Настоящая редакция документа не действует';
+  REDACTION_EMPTY_DATE = '  .  .    ';
+  REDACTION_FIRST = '*первоначальная*';
+
+{
+  TYPE: Работа с машиной времени
+  DESC: Закрытие диалога МВ
+  RESULT:
+  REMARK: 
+}  
+function CloseTimeMachine: boolean;
+begin
+  try
+    if IsExists(GetFromShell('ФОРМА МАШИНЫ ВРЕМЕНИ', Options.Run.Timeout div 10)) then
+      GetFromShell('ФОРМА МАШИНЫ ВРЕМЕНИ', Options.Run.Timeout div 10).Keys('[Esc]');
+
+    Result := not IsExists(GetFromShell('ФОРМА МАШИНЫ ВРЕМЕНИ', Options.Run.Timeout div 10)); 
+    if not Result then
+      Raise('Найдена форма настройки МВ, видимо не закрылась');      
+  except
+    Result := false;
+    Log.Warning('CloseTimeMachine: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  TYPE: Работа с машиной времени
+  DESC: Открытие диалога МВ
+  RESULT:
+  REMARK: 
+}  
+function OpenTimeMachine(
+  how : String = ''
+): boolean;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    if not IsExists(GetFromShell('ФОРМА МАШИНЫ ВРЕМЕНИ', Options.Run.Timeout div 10)) then
+    begin
+      how := Utilities.AnsiUpperCase(how);
+      GetMainWindow.SetFocus;
+      case how of
+        'МЕНЮ', '1' : ClickByMainMenuItem('Анализ\В*ключить*Машин*Времен*');
+        'ПОПАП МЕНЮ "ИЗМЕНЕНИЯ В ДОКУМЕНТЕ"', '2' :
+          ClickByPopupMenuItem(                                                             
+            ClickToolbarButton( GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), 'Изменения в документе', 'ClickForPopupMenu:=true'),
+            'Маш*врем*'
+          );
+        'ПОПАП МЕНЮ В ДОКУМЕНТЕ', '3' :        
+          OpenAndClickByPopupMenuItem(GetEditor, 'В*ключить*Машин*Времен*');
+        '': 
+          for how_i := 1 to 3 do
+          begin
+            how := VarToString(how_i);
+            Result := OpenTimeMachine(how);
+            if IsExists(Result) OR IsTrue(Result) then Exit; //break не нужно, чтобы лишний раз не проверять существование формы
+          end;  
+      else
+        Raise('Параметр не распознан!');
+      end;
+    end;
+   
+    Result := IsExists(GetFromShell('ФОРМА МАШИНЫ ВРЕМЕНИ', Options.Run.Timeout div 10));     
+    if not Result then
+      Raise('Не найдена форма настройки МВ');      
+  except
+    Result := false;
+    Log.Message('OpenTimeMachine: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+function OnTimeMachineWithDate(date: string): boolean;
+var
+  w, rb;
+begin
+  try
+    try
+      if not IsExists(GetEditor) then
+      begin
+        Delay(Options.Run.Timeout div 10);
+        if not IsExists(GetEditor) then
+          Raise('Не найден текст документа');
+      end;
+
+      if not OpenTimeMachine then
+        Raise('Не получилось открыть ФОРМУ МАШИНЫ ВРЕМЕНИ'); 
+                
+      w := GetFromTimeMachine('ПОЛЕ ВВОДА ДАТЫ');
+      if not IsExists(w) then
+        Raise('Не найдено поле ввода даты');
+    
+      date := StringReplace(date, '.', '', 1);      
+      if date = '' then
+      begin 
+        rb := GetFromTimeMachine('РАДИОКНОПКА "ВЫКЛЮЧИТЬ МВ И ПЕРЕЙТИ В АКТУАЛЬНУЮ РЕДАКЦИЮ"');
+        if IsExists(rb) then
+          rb.Click
+        else
+        begin
+          //сообщать об ошибке только если не включена МВ
+          if IsExists(GetFromEditor('ЗНАЧОК: МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА')) then
+            Raise('РАДИОКНОПКА "ВЫКЛЮЧИТЬ МВ И ПЕРЕЙТИ В АКТУАЛЬНУЮ РЕДАКЦИЮ" формы МВ не найдена')
+          else
+            Result := true;
+            exit;           
+        end;
+      end
+      else
+      begin 
+        w.Keys(date);
+      end;
+      
+      w := GetFromTimeMachine('КНОПКА "ОК"');
+      if IsExists(w) then
+        w.Click
+      else
+        Raise('"Кнопка "ОК" формы МВ не найдена'); 
+
+      Result := WaitForErrorWindow(Options.Run.Timeout div 30) = '';
+      if not Result then
+        Raise('Дата календаря ввелась с ошибкой!');
+      
+      if IsExists(GetFromShell('ФОРМА МАШИНЫ ВРЕМЕНИ', Options.Run.Timeout div 10)) then
+        Raise('Найдена форма настройки МВ после нажатия "Ок", она должна была закрыться!');      
+          
+      Result := CheckTimeMachineIcons(date <> '') and Result;
+  finally
+    CloseTimeMachine;
+  end;
+except
+  Result := false;
+  Log.Error('OnTimeMachineWithDate: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function OffTimeMachine: boolean;
+var                    
+  w, rb;
+begin
+  try
+    try
+      Result := OnTimeMachineWithDate('');
+    finally
+      CloseTimeMachine;
+    end;
+  except
+    Result := false;
+    Log.Error('OffTimeMachine: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+function OnTimeMachineOnFirstRedaction: boolean;
+var
+  w, rb;
+begin
+  try
+    try
+      if not IsExists(GetEditor) then
+        Raise('Не найден текст документа');
+
+      if not OpenTimeMachine then
+        Raise('Не получилось открыть ФОРМУ МАШИНЫ ВРЕМЕНИ'); 
+       
+      rb := GetFromTimeMachine('РАДИОКНОПКА "ВКЛЮЧИТЬ МВ С НАЧАЛА ДЕЙСТВИЯ ТЕКУЩЕЙ РЕДАКЦИИ"');
+      if IsExists(rb) and rb.Enabled then
+        rb.Click
+      else
+        Raise('Активная РАДИОКНОПКА "ВКЛЮЧИТЬ МВ С НАЧАЛА ДЕЙСТВИЯ ТЕКУЩЕЙ РЕДАКЦИИ" формы МВ не найдена');
+      
+      w := GetFromTimeMachine('КНОПКА "ОК"');
+      if IsExists(w) then
+        w.Click
+      else
+        Raise('"Кнопка "ОК" формы МВ не найдена'); 
+
+      Result := WaitForErrorWindow(Options.Run.Timeout div 30) = '';
+      if not Result then
+        Raise('Возникла всплывающее окно с ошибкой!');
+    finally
+      CloseTimeMachine;
+    end;        
+  except
+    Result := false;
+    Log.Error('OnTimeMachineOnFirstRedaction: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  TYPE: Работа с машиной времени
+  DESC: Проверка наличия значков МВ
+  RESULT:
+  REMARK: 
+}  
+function CheckExistsTMIcons(existsicon: integer; isNotExists: boolean = true): boolean;
+var
+  s: string;
+begin
+  try
+    Result := true;
+    if isNotExists then
+      s := 'Не отображен '
+    else
+      s := 'Отображен ';
+
+    if (existsicon and TM_GREEN_ON <> 0) and
+      (isNotExists xor IsExists(GetFromEditor('ЗНАЧОК: МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА'))) then
+        Result := ErrorResult(s + 'Значок МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА');
+    
+    if (existsicon and TM_RED_INACTIVE <> 0) and
+      (isNotExists xor IsExists(GetFromEditor('ЗНАЧОК: НАСТОЯЩИЙ ДОКУМЕНТ УТРАТИЛ СИЛУ'))) then
+        Result := ErrorResult(s + 'Значок НАСТОЯЩИЙ ДОКУМЕНТ УТРАТИЛ СИЛУ');
+
+    if (existsicon and TM_RED_NOTCONNECT <> 0) and
+      (isNotExists xor IsExists(GetFromEditor('ЗНАЧОК: НАСТОЯЩИЙ ДОКУМЕНТ НЕ ПОДКЛЮЧЕН К МАШИНЕ ВРЕМЕНИ'))) then
+        Result := ErrorResult(s + 'Значок НАСТОЯЩИЙ ДОКУМЕНТ НЕ ПОДКЛЮЧЕН К МАШИНЕ ВРЕМЕНИ');
+
+    if (existsicon and TM_YELLOW_WARN <> 0) and
+      (isNotExists xor IsExists(GetFromEditor('ЗНАЧОК: ПРЕДУПРЕЖДЕНИЕ ДЛЯ ДЕЙСТВУЮЩЕЙ РЕДАКЦИИ'))) then
+        Result := ErrorResult(s + 'Значок ПРЕДУПРЕЖДЕНИЕ ДЛЯ ДЕЙСТВУЮЩЕЙ РЕДАКЦИИ');
+
+    if (existsicon and TM_YELLOW_INACTIVE <> 0) and
+      (isNotExists xor IsExists(GetFromEditor('ЗНАЧОК: РЕДАКЦИЯ НЕ ДЕЙСТВУЕТ'))) then
+        Result := ErrorResult(s + 'Значок РЕДАКЦИЯ НЕ ДЕЙСТВУЕТ');
+
+  except
+    Result := false;
+    Log.Error('CheckExistsTMIcons: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end; 
+end;
+
+{
+  TYPE: Работа с машиной времени
+  DESC: Проверка отсутствия значков МВ
+  RESULT:
+  REMARK: 
+}  
+function CheckNotExistsTMIcons(existsicon: integer): boolean;
+begin
+  Result := CheckExistsTMIcons(existsicon, false);
+end;
+
+{
+  TYPE: Работа с машиной времени
+  DESC: Определение даты с которой включена МВ
+  RESULT:
+  REMARK: 
+}  
+function GetTimeMachineDate: String;
+var 
+  w;
+begin
+  try
+    if not OpenTimeMachine then
+      Raise('Не получилось открыть ФОРМУ МАШИНЫ ВРЕМЕНИ'); 
+    w := GetFromTimeMachine('ПОЛЕ ВВОДА ДАТЫ');  
+    if not IsExists(w) then
+      Result := ''
+    else
+      Result := w.Text;
+    CloseTimeMachine;
+  except
+    Result := '';
+    Log.Warning('GetTimeMachineDate: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+function CheckTimeMachineIcons(existsicon: boolean): boolean;
+var
+  dateText;
+begin
+  try
+    Result := true;
+    if not existsicon then
+    begin
+      if IsExists(GetFromEditor('ЗНАЧОК: МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА')) then
+        Result := ErrorResult('Найден Значек МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА');
+      
+      dateText := GetTimeMachineDate;
+      if (dateText <> '') and (dateText <> redaction_empty_date) then
+        Result := ErrorResult('Поле ввода даты календаря не найдено или текст не пустой (МВ включена с даты, хотя не должна)!');
+    end
+    else
+    begin
+      if not IsExists(GetFromEditor('ЗНАЧОК: МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА')) then
+        Result := ErrorResult('Нет Значка МАШИНА ВРЕМЕНИ ВКЛЮЧЕНА');  
+
+      dateText := GetTimeMachineDate;
+      if (dateText <> '') and (dateText = redaction_empty_date) then
+        Result := ErrorResult('Поле ввода даты календаря не найдено или текст пустой!');
+    end;
+  except
+    Result := false;
+    Log.Error('CheckTimeMachineIcons: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end; 
+end;
+
+{
+  TYPE: Работа с машиной времени
+  DESC: Сверка названия и иконки редакции
+  RESULT:
+  REMARK: 
+}  
+function CheckCurrentRedaction(icon, name: string; currNumber: integer = 0; allCount: integer = 0): boolean;
+var
+  w, n;
+begin
+  try
+    Result := true;
+    w := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"');
+    //GetMainWindow.Refresh; 
+    if not IsExists(w) then
+    begin
+      ClickByMainMenuItem('Документы\Список редакций');
+      ClickByMainMenuItem('Вид\Меню*');
+      ClickByMainMenuItem('Документы\Список редакций');
+      w := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"');
+      if not IsExists(w) then
+        Raise('Не получилось открыть Вкладку Редакции');
+    end;
+    
+    if not SwitchToNavigatorPage('Редакции') then
+      Raise('Вкладка Редакции не открылась');
+    w := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"');
+    if (name <> '') and (not StringCompare(name, common.GetWindowText(w.Handle))) then
+      Result := ErrorResult('Название редакции "' + common.GetWindowText(w.Handle) + '" отличается от эталонного "' + name + '"');
+
+    if not CheckSelectedListItemIcon(w, icon) then
+      Result := ErrorResult('Неправильная иконка "' + icon + '" у значка редакции на вкладке "Редакции"');
+
+    //костыль: if IsExists(GetEditor) then GetEditor.SetFocus;
+    w.SetFocus;        
+    if currNumber <> 0 then
+    begin
+      n := GetCurrListElementParam(w, 'ТЕКУЩАЯ РЕДАКЦИЯ');  
+      if currNumber <> n then
+        Result := ErrorResult('Номер текущей редакции "' + common.GetWindowText(w.Handle) + '" отличается. Есть ' + VarToString(n) + ', должен быть ' + VarToString(currNumber));
+    end;
+
+    if allCount <> 0 then
+    begin
+      n := GetCurrListElementParam(w, 'ВСЕГО РЕДАКЦИЙ');  
+      if allCount <> n then
+        Result := ErrorResult('Общее количество редакций "' + common.GetWindowText(w.Handle) + '" отличается. Есть ' + VarToString(n) + ', должен быть ' + VarToString(allCount));
+    end;
+  except
+    Result := false;
+    Log.Error('CheckCurrentRedaction: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end; 
+end;
+
+function ClickPopUpByRedationIcon(itemname : string): boolean;
+begin
+try
+  if not ClickOnVgSceneObject(GetFromEditor('ЗНАЧОК: РЕДАКЦИЯ НЕ ДЕЙСТВУЕТ'), 'ClickKey:=Right') then
+    Raise('Не получилось вызвать попап меню на Значке Редакция не действует');
+  Result := ClickByPopUpMenuItem(GetFromEditor('ЗНАЧОК: ЛИНИЯ ЗНАЧКОВ'), itemname);
+  if not Result then
+    Raise('Не получилось кликнуть по пункту попап меню ' + itemname);
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+end;
+
+function CheckRedactionInDoc(num: integer; datetext, iconname, redname: string): boolean;
+var
+  w;
+begin
+try
+  if not OpenDocByNumber(num) then
+    Raise('Не получилось открыть документ №' + IntToStr(num));
+  if not OnTimeMachineWithDate(datetext) then
+    Raise('Не получилось включить МВ с даты ' + datetext);
+  Result := CheckCurrentRedaction(iconname, redname);
+except
+  Result := false;
+  Log.Error('CheckRedactionInDoc: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end; 
+end;
+
+function SelectRedaction(name: string): boolean;
+var
+  w;
+begin
+  try
+    if not IsExists(GetFromNavigator('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"')) then
+    begin
+      ClickByMainMenuItem('Документы\Список редакций');
+      ClickByMainMenuItem('Документы\Список редакций');
+      ClickByMainMenuItem('Документы\Список редакций');
+      if not SwitchToNavigatorPage('Редакции') then
+        Raise('Не получилось открыть Вкладку Редакции');
+    end;
+
+    w := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"');
+    if not IsExists(w) then
+      Raise('Не найдена Вкладка НАВИГАТОРА "РЕДАКЦИИ"');
+   
+    w.ClickM; //instead SetFocus 
+    w.Keys('[Home]');
+    
+    Result := Position_By_Text(w, name, false, true);
+  except
+    Result := false;
+    Log.Error('SelectRedaction: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end; 
+end;
+
+{
+В цикле в документах ставятся закладки и комментарии
+}
+function CheckedAddBookmarkAndComment: OleVariant;
+const
+  FUNCTION_NAME = 'CheckedAddBookmarkAndComment';  
+var
+  doc;
+  list;
+  i, j;  
+begin 
+try
+  //GetListofAllDocuments;
+  OpenObjectFromFolder(LIST_MAIN, OpenMenuTab);  
+ { for i := 1 to 2000 do
+  begin
+    list := GetFromList('СПИСОК ДОКУМЕНТОВ');
+    list.SetFocus;
+    if i > 1 then Sys.Keys('[Down]');
+    if NOT IsExists(list) then Raise('Не удалось получить список :' + IntToStr(i));
+    PressKeyWithCheck(['[Enter]']); 
+    doc := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    if NOT IsExists(doc) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+    for j := 1 to 3 do
+    begin
+      InsertComment(doc, IntToStr(i));
+      SetBookmark(IntToStr(i) + '_' + IntToStr(j));
+      Sys.Keys('[PageDown]');
+    end;
+    GoByHistory('BACK');
+  end;}
+  list := GetFromList('СПИСОК ДОКУМЕНТОВ');  
+  if NOT IsExists(list) then Raise('Не удалось получить список по первой Ветки.');
+  list.SetFocus;
+  PressKeyWithCheck(['[Enter]']);
+  for i := 1 to 2000 do
+  begin   
+    doc := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    if NOT IsExists(doc) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');    
+    InsertComment(doc, IntToStr(i));
+ //   SetBookmark(IntToStr(i));
+    PressKeyWithCheck(['^[Right]']);    
+  end;  
+  
+except  
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;  
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+  TYPE: Работа с комментариями
+  DESC: Выделение комментария и копирование его текста в буфер
+  RESULT: Возвращаем текст комментария
+  REMARK: В случае неудачи возвращаем ' '
+}
+function SelectTextComment(
+	objRedactor: oleVariant = '';//Объект редактора, ТЕКСТ или СПРАВКА или ещё что то, в котором стоит комментарий
+	countPressKeyForSelection: integer = 1;//Сколько раз нажимаем Down, что бы выделить весь текст комментария
+  key: string = ''
+): string;
+begin
+try     
+	if objRedactor = '' then 
+		objRedactor := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if not IsExists(objRedactor) then
+    Raise('Окно редактора не найдено!');     
+
+  if key = '' then  key := '![Down]';      
+  objRedactor.SetFocus;  
+    
+  // проверка актуальна для 7.7.1, где стал разный цвет фона комментария на разных конфигурацях
+  // рассчитываем, что черная полоса в 'start_comment.bmp' по Y = 2
+  if NOT MoveMouseToObject(objRedactor, 'start_comment.bmp', 3, 3, true) OR 
+     (objRedactor.Picture.Pixels(gbl_MoveMouseToObject_X + 5, gbl_MoveMouseToObject_Y + 1) = 
+      objRedactor.Picture.Pixels(gbl_MoveMouseToObject_X + 25, gbl_MoveMouseToObject_Y + 1)) then
+    Raise('Не удалось найти иконку начала комментария start_comment.bmp');
+
+  PressKeyNCount(key, countPressKeyForSelection);
+  Result := CopyToClipboard(objRedactor,'','Trim := true');   
+except
+  Result := '';
+  Log.Error('SelectTextComment: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end; 
+end;
+
+{
+  TYPE: Работа со вкладкой структура документа
+  DESC: Открывается и дочится вкладка "Структура документа"
+  RESULT: удалось или нет
+}
+function ShowStructuraDocument(): boolean;
+var
+  structuraTree;
+  toolbarButton;
+  docingButton;  
+begin
+try
+  if NOT OpenDocByNumber('10003000') then Raise('Не удалось открыть 10003000 по Alt+N');    
+  toolbarButton := GetToolbarButton(GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), 'Структура документа');
+  if NOT IsExists(toolbarButton) then Raise('Не удалось получить кнопку "Структура документа"');
+  if NOT toolbarButton.Down then
+  begin  
+    if NOT ClickToolbarButton (GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), 'Структура документа') then
+        Raise('Не удалось кликнуть на тулбаре документа по кнопке Структура документа');
+  end;       
+  //Дочим
+  docingButton := GetFromNavigator(NAV_FLOATING + 'КНОПКА "ПРИКРЕПИТЬ НАВИГАТОР"');
+  if IsExists(docingButton) then docingButton.Click;        
+  structuraTree:=GetFromNavigator('ВКЛАДКА НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"');
+  if NOT IsExists(structuraTree) then 
+     Raise('Не удалось получить вкладку "СТРУКТУРА ДОКУМЕНТА"!');     
+  GoToMainMenu;
+  Result := true;   
+except
+  Result := false;
+  Log.Error('ShowStructuraDocument: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;    
+end;
+
+{
+  TYPE: Работа с ААК
+  DESC: отдаёт текст левого Оглавления ААК
+  RESULT: 
+}
+function GetTextLeftPanelAAK(
+  leftPanelAAK: oleVariant
+): string;
+begin
+try
+  Result := leftPanelAAK.Selection.CurrentObjectText;
+
+except
+  Result := '';
+  Log.Error('GetTextLeftPanelAAK: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;    
+end;
+
+
+{
+  TYPE: Работа с ААК
+  DESC: кликаем  по ссылкам из левого Оглавления ААК, при этом проверяем, что ссылка подсветилась синей плашкой
+  RESULT: текст сслыки, на которую кликнули | если не получилось, возвращаем ''
+  REMARK: Если перед началом работы функции курсор уже находится над ссылкой, 
+    тогда ищется СЛЕДУЮЩАЯ по порядку ссылка и клик производится именно на ней  
+}
+function ClickOnNextLinkInLeftPanelAAK(  
+  leftPanelAAK: oleVariant;
+  direction: string = 'DOWN'; //направление движения мыши ВВЕРХ/ВНИЗ
+  how: string ='FROM_CURRENT_POINT';//движимся от граничной точки(начала\конца) либо от текущей точки
+  indexLink: integer = 1//На какую ссылку по счёту переходить|1 - следующая, 2- через одну и так далее
+): string;
+const
+  STEP = 10;
+var
+  x;
+  y_start, y, y_end;
+  hintWnd;
+  previousCursorPositionOnLink;
+  currentCursorPositionOnLink; //true - курсор на ссылке, false - курсор не на ссылке
+  x_plashka, y_plashka; 
+  x_client, y_client; 
+  currentIndexLink; 
+begin
+try  
+  Result := '';
+  currentIndexLink := 1;
+  if  (how = 'FROM_CURRENT_POINT') then//ищем ссылку от текущих координат курсора
+  begin         
+    x := Sys_Desktop.MouseX;
+    y := Sys_Desktop.MouseY;
+  end
+  else
+    if  (how = 'FROM_BOUNDS_POINT') then//ищем ссылку от граничной точки(начала\конца)
+    begin         
+      x := leftPanelAAK.ScreenLeft + (leftPanelAAK.Width div 2);
+      if (direction = 'DOWN') then 
+        y := leftPanelAAK.ScreenTop;
+      if (direction = 'UP') then 
+        y := leftPanelAAK.ScreenTop + leftPanelAAK.Height;
+    end;
+  y_start := y;
+  //Проверяем, что перд началом работы курсор НЕ нассылке, если нет хинта, считаем что курсор НЕ на ссылке.
+  hintWnd := GetFromShell('ОКНО ХИНТА', Options.Run.TimeOut div 60);
+  previousCursorPositionOnLink := (IsExists(hintWnd) AND hintWnd.Visible);
+  //если курсор на ссылке, тогда ищем следующую ссылку
+  if (direction = 'DOWN') then
+  begin
+    y_end := leftPanelAAK.ScreenTop + leftPanelAAK.Height;               
+    while (y <= y_end) do
+    begin
+      y := y + STEP;                  
+      SlideMouse(x, y);
+      Delay(100);//задержка, что бы хинт успел отрисоваться, если он есть            
+      hintWnd := GetFromShell('ОКНО ХИНТА', Options.Run.TimeOut div 60);
+      currentCursorPositionOnLink := (IsExists(hintWnd) AND hintWnd.Visible);          
+      if NOT previousCursorPositionOnLink then// если курсор перед началом работы функции уже на ссылке, тогда идём дальше          
+      begin
+        if currentCursorPositionOnLink then//Если появился хинт и , тогда считаем что перешли на ССЫЛКУ тогда пробуем кликнуть
+          if (indexLink = currentIndexLink) then//Если ссылка нужная по счёту(по умолчанию первая) тогда выполняем клик        
+          begin
+            Log.Message('Обнаружили хинт: ' + hintWnd.FullName + '. Считаем что ссылка есть и кликаем по ней.');
+            Sys.Desktop.MouseDown(1, x, y);//VK_LBUTTON
+            Delay(10);
+            Sys.Desktop.MouseUp(1, x, y);//VK_LBUTTON
+            x_client := x;
+            y_client := y;
+            common.ScreenToClient(leftPanelAAK, x_client, y_client);
+            if NOT FindPicture(leftPanelAAK, 'start_selection.bmp', x_plashka, y_plashka, 0, y_client-45, -1, 45) then//Ищем плашку в области вокург ссылки
+              Result := ''
+            else
+              Result := leftPanelAAK.Selection.CurrentObjectText;
+            //Возвращаем курсор после поиска плашки на предыдущие место
+            SlideMouse(x, y);      
+            break;          
+          end 
+          else
+            inc(currentIndexLink);
+      end;
+      previousCursorPositionOnLink := currentCursorPositionOnLink;  
+    end;//while  
+  end;//if DOWN    
+  if (direction = 'UP') then
+  begin
+    y_end := leftPanelAAK.ScreenTop;
+    while (y >= y_end) do
+    begin                
+      y := y - STEP;        
+      SlideMouse(x, y);
+      Delay(100);//задержка, что бы хинт успел отрисоваться, если он есть
+      hintWnd := GetFromShell('ОКНО ХИНТА', Options.Run.TimeOut div 60);
+      currentCursorPositionOnLink := (IsExists(hintWnd) AND hintWnd.Visible);          
+      if NOT previousCursorPositionOnLink then// если курсор перед началом работы функции уже на ссылке, тогда идём дальше          
+      begin
+        if currentCursorPositionOnLink then//Если появился хинт, тогда считаем что перешли на ССЫЛКУ и выполняем клик
+          if (indexLink = currentIndexLink) then//Если ссылка нужная по счёту(по умолчанию первая) тогда выполняем клик          
+          begin
+            Log.Message('Обнаружили хинт: ' + hintWnd.FullName);
+            Sys.Desktop.MouseDown(1, x, y);//VK_LBUTTON
+            Delay(10);
+            Sys.Desktop.MouseUp(1, x, y);//VK_LBUTTON
+            x_client := x;
+            y_client := y;
+            common.ScreenToClient(leftPanelAAK, x_client, y_client);
+            if NOT FindPicture(leftPanelAAK, 'start_selection.bmp', x_plashka, y_plashka, 0, y_client-45, -1, 45) then
+              Result := ''
+            else
+              Result := leftPanelAAK.Selection.CurrentObjectText;
+            //Возвращаем курсор после поиска плашки на предыдущие место
+            SlideMouse(x, y);  
+            break;          
+          end
+          else
+            inc(currentIndexLink);
+      end;
+      previousCursorPositionOnLink := currentCursorPositionOnLink;  
+    end;//while  
+  end;//if UP    
+except
+  Result := '';
+  Log.Error('GetTextLeftPanelAAK: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;    
+end;
+
+{
+  TYPE: Работа с Оценкой документа
+  DESC: проверяет, существуют ли соответствующие кнопки : Нравится\Не нравится в статусбаре, проверяет их начально состояние - отжаты
+  RESULT: 
+}
+function IsExistsLikesButtonsOnStatusbar(): boolean;
+var
+  like_button, dislike_button;
+  x, y; 
+begin
+try
+  like_button := GetFromMainWindow('СТАТУСБАР: КНОПКА НРАВИТСЯ');
+  if NOT IsExists(like_button) then Raise('Не удалось найти "СТАТУСБАР: КНОПКА НРАВИТСЯ"');  
+  dislike_button := GetFromMainWindow('СТАТУСБАР: КНОПКА НЕ НРАВИТСЯ');
+  if NOT IsExists(like_button) then Raise('Не удалось найти "СТАТУСБАР: КНОПКА НЕ НРАВИТСЯ"');  
+  //проверяем что по дефолту Like отжата   
+  if NOT FindPicture(like_button, 'like_released.bmp', x, y) then
+  begin
+    Log.Error('Не удалось найти иконку like_released.bmp на "СТАТУСБАР: КНОПКА НРАВИТСЯ", значит кнопка не отжата!');
+    Raise;
+  end;
+  //проверяем что по дефолту disLike отжата
+  if NOT FindPicture(dislike_button, 'dislike_released.bmp', x, y) then
+  begin
+    Log.Error('Не удалось найти иконку dislike_released.bmp на "СТАТУСБАР: КНОПКА НЕ НРАВИТСЯ", значит кнопка не отжата!');
+    Raise;
+  end;
+  Result := true;
+except
+  Result := false;
+  Log.Error('IsExistsLikesButtonsOnStatusbar: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;    
+end;

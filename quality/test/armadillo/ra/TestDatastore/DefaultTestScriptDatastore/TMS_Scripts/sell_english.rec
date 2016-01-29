@@ -1,0 +1,22 @@
+'$Include "Datapool222.sbh"
+'Продажа английского комплекта
+Sub Main
+    Dim ClientName As String
+    ClientName$ = GetValue222$
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 48
+    
+    Window SetContext, "CurrentWindow", ""
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{TAB}{TAB}{DOWN}{TAB}{TAB}{DOWN}{TAB}{DOWN} {DOWN} "
+    InputKeys "{DOWN} {TAB}30.30{TAB}{DOWN}{TAB}{TAB}{TAB}"
+    GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=11,13"
+    InputKeys "{PGUP}{PGUP}{UP}{UP}{UP}{ENTER}{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 21
+
+End Sub

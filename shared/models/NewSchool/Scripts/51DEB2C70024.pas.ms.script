@@ -1,0 +1,646 @@
+// FinalContainersTests 51DEB2C70024 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DEB2C70024
+
+FORWARD ME_51E80DD30125
+
+FORWARD ME_51E03FE602DF
+
+: ME_51E03FFB0289
+ CONST UID '51E03FFB0289'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_param::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_51E80DD30125 // ListTest
+ ;
+ : Target ME_51E03FE602DF // ListType
+ ;
+
+ref; // ME_51E03FFB0289 ListType
+
+FORWARD ME_51E80E0D030D
+
+: ME_51E80E1B0036
+ CONST UID '51E80E1B0036'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Создаёт список для тестирования' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51E80E0D030D // CreateList
+ ;
+ : Target ME_51E03FE602DF // ListType
+ ;
+
+ref; // ME_51E80E1B0036 DoIt
+
+: ME_51E80E0D030D
+ CONST UID '51E80E0D030D'
+ CONST Name 'CreateList'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_51E80DD30125 // ListTest
+ ;
+ : Operations
+   @ ( ME_51E80E1B0036 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_51E80E0D030D CreateList
+
+: ME_51E810C90005
+ CONST UID '51E810C90005'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51E80DD30125 // ListTest
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_51E810C90005 
+
+: ME_DCF4C41FE2F3
+ CONST UID 'DCF4C41FE2F3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51E80DD30125 // ListTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_DCF4C41FE2F3 
+
+: ME_51E80DD30125
+ CONST UID '51E80DD30125'
+ CONST Name 'ListTest'
+ CONST Class class_Class
+ : Stereotype st_TestCaseMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51DEB2C70024 // FinalContainersTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_51E03FFB0289 // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_51E80E0D030D // CreateList
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_51E810C90005 // 
+ ME_DCF4C41FE2F3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\ListTest.imp.pas'
+ CONST extprop:pas:TypeName '_ListTest_'
+
+ref; // ME_51E80DD30125 ListTest
+
+FORWARD ME_51E03FC80111
+
+: ME_51E03FE602DF
+ CONST UID '51E03FE602DF'
+ CONST Name 'ListType'
+ CONST Class class_Class
+ : Stereotype st_ImpurityParamType ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+ CONST extprop:pas:TypeName '_ListType_'
+
+ref; // ME_51E03FE602DF ListType
+
+: ME_51DEB319037C
+ CONST UID '51DEB319037C'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+
+ref; // ME_51DEB319037C DoIt
+
+: ME_51DED6FC03C1
+ CONST UID '51DED6FC03C1'
+ CONST Name 'TestTwoLists'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+
+ref; // ME_51DED6FC03C1 TestTwoLists
+
+: ME_51E6AC74038B
+ CONST UID '51E6AC74038B'
+ CONST Name 'TestInsert'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+
+ref; // ME_51E6AC74038B TestInsert
+
+FORWARD ME_51E6ADE0016E
+
+: ME_51E6ADED001F
+ CONST UID '51E6ADED001F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51E6ADE0016E // RandomItem
+ ;
+ : Target WL 'ME_51DEB1B30171' '51DEB06A03CB.pas.ms.script' // ItemType
+ ;
+
+ref; // ME_51E6ADED001F DoIt
+
+: ME_51E6ADE0016E
+ CONST UID '51E6ADE0016E'
+ CONST Name 'RandomItem'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+ : Operations
+   @ ( ME_51E6ADED001F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_51E6ADE0016E RandomItem
+
+: ME_51E6B4260008
+ CONST UID '51E6B4260008'
+ CONST Name 'TestInsertAt0'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+
+ref; // ME_51E6B4260008 TestInsertAt0
+
+: ME_51E7F6EF0285
+ CONST UID '51E7F6EF0285'
+ CONST Name 'DeleteTest'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест удаления элемента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+
+ref; // ME_51E7F6EF0285 DeleteTest
+
+: ME_51E80DC50154
+ CONST UID '51E80DC50154'
+ CONST Name 'AddTest'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест добавления элемента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+
+ref; // ME_51E80DC50154 AddTest
+
+: ME_51E8127802AF
+ CONST UID '51E8127802AF'
+ CONST Name 'RemoveTest'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тест удаления элемента по значению' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+
+ref; // ME_51E8127802AF RemoveTest
+
+: ME_51DEB33D01CF
+ CONST UID '51DEB33D01CF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_51DEB33D01CF 
+
+: ME_6B20F79B7683
+ CONST UID '6B20F79B7683'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51E03FC80111 // AtomicListTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_6B20F79B7683 
+
+: ME_51E03FC80111
+ CONST UID '51E03FC80111'
+ CONST Name 'AtomicListTest'
+ CONST Class class_Class
+ : Stereotype st_TestCaseMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51DEB2C70024 // FinalContainersTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ ME_51E80DD30125 // ListTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_51DEB319037C // DoIt
+ ME_51DED6FC03C1 // TestTwoLists
+ ME_51E6AC74038B // TestInsert
+ ME_51E6ADE0016E // RandomItem
+ ME_51E6B4260008 // TestInsertAt0
+ ME_51E7F6EF0285 // DeleteTest
+ ME_51E80DC50154 // AddTest
+ ME_51E8127802AF // RemoveTest
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_51E03FE602DF // ListType
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_51DEB33D01CF // 
+ ME_6B20F79B7683 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" false
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\AtomicListTest.imp.pas'
+ CONST extprop:pas:TypeName '_AtomicListTest_'
+
+ref; // ME_51E03FC80111 AtomicListTest
+
+FORWARD ME_51DEE8E9025A
+
+: ME_51E0403E02B9
+ CONST UID '51E0403E02B9'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_51DEE8E9025A // Int64ListTest
+ ;
+ : Target WL 'ME_51DEE8B7025B' '51DEB22001AC.pas.ms.script' // TInt64List
+ ;
+
+ref; // ME_51E0403E02B9 ListType
+
+: ME_913ABF76AABB
+ CONST UID '913ABF76AABB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51DEE8E9025A // Int64ListTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_913ABF76AABB 
+
+: ME_51DEE8E9025A
+ CONST UID '51DEE8E9025A'
+ CONST Name 'Int64ListTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51DEB2C70024 // FinalContainersTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ ME_51E03FC80111 // AtomicListTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_51E0403E02B9 // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_913ABF76AABB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\Int64ListTest.pas'
+ CONST extprop:pas:TypeName 'TInt64ListTest'
+
+ref; // ME_51DEE8E9025A Int64ListTest
+
+FORWARD ME_51DEB2FA00B0
+
+: ME_51E040210339
+ CONST UID '51E040210339'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_51DEB2FA00B0 // IntegerListTest
+ ;
+ : Target WL 'ME_51DEB249012E' '51DEB22001AC.pas.ms.script' // TIntegerList
+ ;
+
+ref; // ME_51E040210339 ListType
+
+: ME_09767302DBF8
+ CONST UID '09767302DBF8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51DEB2FA00B0 // IntegerListTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_09767302DBF8 
+
+: ME_51DEB2FA00B0
+ CONST UID '51DEB2FA00B0'
+ CONST Name 'IntegerListTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51DEB2C70024 // FinalContainersTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ ME_51E03FC80111 // AtomicListTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_51E040210339 // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_09767302DBF8 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\IntegerListTest.pas'
+ CONST extprop:pas:TypeName 'TIntegerListTest'
+
+ref; // ME_51DEB2FA00B0 IntegerListTest
+
+FORWARD ME_51E80B08039E
+
+: ME_51E80DF20117
+ CONST UID '51E80DF20117'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_51E80B08039E // IUnknownRefListTest
+ ;
+ : Target WL 'ME_51E80A960173' '51DEB22001AC.pas.ms.script' // TIUnknownRefList
+ ;
+
+ref; // ME_51E80DF20117 ListType
+
+: ME_51E80B2F02CF
+ CONST UID '51E80B2F02CF'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51E80B08039E // IUnknownRefListTest
+ ;
+
+ref; // ME_51E80B2F02CF DoIt
+
+: ME_6A3768B452CC
+ CONST UID '6A3768B452CC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51E80B08039E // IUnknownRefListTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_6A3768B452CC 
+
+: ME_51E80B08039E
+ CONST UID '51E80B08039E'
+ CONST Name 'IUnknownRefListTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51DEB2C70024 // FinalContainersTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ ME_51E80DD30125 // ListTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_51E80DF20117 // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_51E80B2F02CF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_6A3768B452CC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\IUnknownRefListTest.pas'
+ CONST extprop:pas:TypeName 'TIUnknownRefListTest'
+
+ref; // ME_51E80B08039E IUnknownRefListTest
+
+FORWARD ME_51DEE67C003A
+
+: ME_51E040300369
+ CONST UID '51E040300369'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_51DEE67C003A // ByteListTest
+ ;
+ : Target WL 'ME_51DEE6440352' '51DEB22001AC.pas.ms.script' // TByteList
+ ;
+
+ref; // ME_51E040300369 ListType
+
+: ME_95057C180634
+ CONST UID '95057C180634'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51DEE67C003A // ByteListTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_95057C180634 
+
+: ME_51DEE67C003A
+ CONST UID '51DEE67C003A'
+ CONST Name 'ByteListTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51DEB2C70024 // FinalContainersTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ ME_51E03FC80111 // AtomicListTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_51E040300369 // ListType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_95057C180634 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\ByteListTest.pas'
+ CONST extprop:pas:TypeName 'TByteListTest'
+
+ref; // ME_51DEE67C003A ByteListTest
+
+: ME_51DEB2C70024
+ CONST UID '51DEB2C70024'
+ CONST Name 'FinalContainersTests'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5155865B01B6' '5155865B01B6.pas.ms.script' // SandBoxTest
+ ;
+ : Children
+   @ ( ME_51E80DD30125 // ListTest
+ ME_51E03FC80111 // AtomicListTest
+ ME_51DEE8E9025A // Int64ListTest
+ ME_51DEB2FA00B0 // IntegerListTest
+ ME_51E80B08039E // IUnknownRefListTest
+ ME_51DEE67C003A // ByteListTest
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_51DEB06A03CB' '51DEB06A03CB.pas.ms.script' // STLLike
+ WL 'ME_51DEB22001AC' '51DEB22001AC.pas.ms.script' // FinalContainers
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\51DEB2C70024.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51DEB2C70024.pas.ms.script.runner'
+
+ref; // ME_51DEB2C70024 FinalContainersTests

@@ -1,0 +1,812 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ActionSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/ConfluenceCore/ActionSupport|4A36615700F0
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16663595855")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	""))
+    quid       	"4A36615700F0"
+    documentation 	"Функциональность для пост/преобработки экшана"
+    stereotype 	"Interfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4B59411E02AE"
+	    supplier   	"Logical View::external::JavaTypes::Lang"
+	    quidu      	"474D4C0101B0"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "PostProcessor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/ConfluenceCore/ActionSupport/PostProcessor|4A36617F01C7
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ActionSupport/PostProcessorFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ActionSupport/PostProcessor.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16663598685"))
+	    quid       	"4A36617F01C7"
+	    documentation 	"Предназначен для выполнения асинхронных задач после коммита транзакции основного экшана. Выполняются только те задачи, которые были добавлены в список в рамках контекста основного экшана."
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4A3661C20048_4A3661C20048_4A3663BA00DA_BODY*"
+			    value      	(value Text 
+|//#UC START# *4A3661C20048_4A3661C20048_4A3663BA00DA_BODY*¤		//#UC END# *4A3661C20048_4A3661C20048_4A3663BA00DA_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659575448"))
+		    quid       	"4A3661C20048"
+		    documentation 	"кэшированная фабрика"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "add_task"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4A36626C0071_4A3663BA00DA*"
+			    value      	(value Text 
+|//#UC START# *4A36626C0071_4A3663BA00DA*¤		List<PostProcessorTask> tasks = (List<PostProcessorTask>) ActionContextThreadLocalFactory.Factory.get().getContext().get(TASK_LIST_KEY);¤		if (tasks == null) {¤			tasks = new ArrayList<PostProcessorTask>();¤			ActionContextThreadLocalFactory.Factory.get().getContext().put(TASK_LIST_KEY, tasks);¤		}¤		tasks.add(task);¤		//#UC END# *4A36626C0071_4A3663BA00DA*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659575820"))
+		    quid       	"4A36626C0071"
+		    documentation 	"добавляет задачу"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "task"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"15949637449")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4A83AEE0035D"))
+			    quid       	"4CB2DA7A0003"
+			    type       	"PostProcessorTask"
+			    quidu      	"4A83AEE0035D"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "InitScriptManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ActionSupport/InitScriptManagerFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ActionSupport/InitScriptManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16664030108")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/ConfluenceCore/ActionSupport/InitScriptManager|4C91B5CC02DC
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4C91B5CC02DC"
+	    documentation 	"содержит необходимые инициализирующие команды для перехода на новую версию К"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "execute"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4C91B6230244_4C91B6AE0175*"
+			    value      	(value Text 
+|//#UC START# *4C91B6230244_4C91B6AE0175*¤		//renderAction();¤		//#UC END# *4C91B6230244_4C91B6AE0175*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"calling conventions"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug tie log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"force overload"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"47720AA401AF")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659577453"))
+		    quid       	"4C91B6230244"
+		    documentation 	"выполняет инициализирующие команды"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4C91B87802D9_4C91B87802D9_4C91B6AE0175_BODY*"
+			    value      	(value Text 
+|//#UC START# *4C91B87802D9_4C91B87802D9_4C91B6AE0175_BODY*¤		//#UC END# *4C91B87802D9_4C91B87802D9_4C91B6AE0175_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659577802"))
+		    quid       	"4C91B87802D9"
+		    documentation 	"возвращает кэшированный экземпляр"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "version"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4C91B6450353_4C91B6AE0175_GET*"
+			    value      	(value Text 
+|//#UC START# *4C91B6450353_4C91B6AE0175_GET*¤		return "К - GarDoc.DR1";¤		//#UC END# *4C91B6450353_4C91B6AE0175_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659577050"))
+		    quid       	"4C91B6450353"
+		    documentation 	"отдает свою версию"
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "ActionContext"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"14194908531")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/ConfluenceCore/ActionSupport/ActionContext|4D6232BA02A2
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ActionSupport/ActionContext.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file"))
+	    quid       	"4D6232BA02A2"
+	    documentation 	"содержит имя и контекст выполняемого экшана, в контексте можно хранить юзерские данные как пару ключ-значение"
+	    stereotype 	"Facet"
+	    operations 	(list Operations
+		(object Operation "put"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"14450341604")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4D6233BA001D_4D62357E0126*"
+			    value      	(value Text 
+|//#UC START# *4D6233BA001D_4D62357E0126*¤		contextMap_.put(key, value);¤		//#UC END# *4D6233BA001D_4D62357E0126*
+			    )))
+		    quid       	"4D6233BA001D"
+		    documentation 	"put"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"14484244095")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4D6233DB03B2"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"14484274659")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4242EBBB03B9"))
+			    quid       	"4D6233DB03D0"
+			    type       	"object"
+			    quidu      	"4242EBBB03B9"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"14495798879")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4242EBBB03B9")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4D6233E701E2_4D62357E0126*"
+			    value      	(value Text 
+|//#UC START# *4D6233E701E2_4D62357E0126*¤		return contextMap_.get(key);¤		//#UC END# *4D6233E701E2_4D62357E0126*
+			    )))
+		    quid       	"4D6233E701E2"
+		    documentation 	"get"
+		    parameters 	(list Parameters
+			(object Parameter "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"14531364691")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4D62340B0037"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"object"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4242EBBB03B9")
+		(object Operation "remove_all"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"15199249660")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4D6236A602F4_4D62357E0126*"
+			    value      	(value Text 
+|//#UC START# *4D6236A602F4_4D62357E0126*¤		contextMap_.clear();¤		//#UC END# *4D6236A602F4_4D62357E0126*
+			    )))
+		    quid       	"4D6236A602F4"
+		    documentation 	"удаляет все данные из контекста"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"14355859134")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4D62335B0238_4D62357E0126_GET*"
+			    value      	(value Text 
+|//#UC START# *4D62335B0238_4D62357E0126_GET*¤		HttpServletRequest reqHTTP = ServletActionContext.getRequest();¤		if (reqHTTP != null) {¤			String actionName = reqHTTP.getRequestURL().substring(reqHTTP.getRequestURL().lastIndexOf("/") + 1);¤			return actionName;¤		}	¤		return null;¤		//#UC END# *4D62335B0238_4D62357E0126_GET*
+			    )))
+		    quid       	"4D62335B0238"
+		    documentation 	"имя"
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "ActionContextThreadLocalFactory"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"14545143453")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ActionSupport/ActionContextThreadLocalFactory.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/ConfluenceCore/ActionSupport/ActionContextThreadLocalFactory|4D623418033F
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ActionSupport/ActionContextThreadLocalFactoryFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file"))
+	    quid       	"4D623418033F"
+	    documentation 	"фабрика возвращающая ActionContext из трэд локал переменной"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"14658999929")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4D62348A0289_4D62348A0289_4D62355B03C7_BODY*"
+			    value      	(value Text 
+|//#UC START# *4D62348A0289_4D62348A0289_4D62355B03C7_BODY*¤		//#UC END# *4D62348A0289_4D62348A0289_4D62355B03C7_BODY*
+			    )))
+		    quid       	"4D62348A0289"
+		    documentation 	"получить фабрику"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "context"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"14628457193")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4D6232BA02A2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4D62346C0073_4D62355B03C7_GET*"
+			    value      	(value Text 
+|//#UC START# *4D62346C0073_4D62355B03C7_GET*¤		return actionContext.get();¤		//#UC END# *4D62346C0073_4D62355B03C7_GET*
+			    )))
+		    quid       	"4D62346C0073"
+		    documentation 	"контекст"
+		    stereotype 	"readonly"
+		    type       	"ActionContext"
+		    quidu      	"4D6232BA02A2"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4A366179027C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::ActionSupport::PostProcessor" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(606, 207)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(180, 128)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	852
+			justify    	0
+			label      	"• PostProcessor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(180, 83)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	852
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4A36617F01C7"
+		    width      	870
+		    height     	270
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::ActionSupport::InitScriptManager" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1170, 624)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(897, 521)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	546
+			justify    	0
+			label      	"InitScriptManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(897, 476)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	546
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4C91B5CC02DC"
+		    width      	564
+		    height     	318
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::ActionSupport::ActionContext" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2295, 630)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1902, 490)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	786
+			justify    	0
+			label      	"• ActionContext")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1902, 445)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	786
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4D6232BA02A2"
+		    width      	804
+		    height     	392
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::ActionSupport::ActionContextThreadLocalFactory" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3285, 600)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(2935, 521)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	700
+			justify    	0
+			label      	"ActionContextThreadLocalFactory")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(2935, 476)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	700
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4D623418033F"
+		    width      	718
+		    height     	270
+		    annotation 	8
+		    autoResize 	TRUE)))))

@@ -1,0 +1,219 @@
+%producer 'ЭВЕРЕСТ (lite) 1.0.0.109' date '18.10.2001'
+%format version 0.122 revision date '31/05/2001' brackets { }
+: Document = {
+ Subs = {
+  Children = 1
+  : DocSubLayer = {
+   Handle = Sub
+   Children = 1
+  }
+ }
+ Children = 61
+ : TextPara = {
+  Style = -3
+  Text = 'Проект структуры хранения evd-файлов в структурированном хранилище (IStorage).'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'В корневом хранилище создаем поток с названием main - для записи текста документа.'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'Если в процессе записи открывается блок, то в текущем хранилище создаем подхранилище (IStorage) с именем, совпадающим с идентификатором блока (Handle). В текущем потоке записываем ссылку на это подхранилище. Собственно тело блока начинаем писать в созданное подхранилище, в его поток main. По мере вложенности блоков получаем рекурсию описанного процесса.'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'Таким образом - получаем возможность читать блоки по идентификатором отдельно от целого документа.'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'Пример в метаформате:'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = 'root.main:'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ': Document = {'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' : TextPara = {'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = '  Text = ‘Параграф в документе.’'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' } '
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' : Block = <60>1>'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = '}'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = 'root.1.main:'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ': Block = {'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' Handle = 1'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' : TextPara = {'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = '  Text = ‘Параграф в блоке №1’'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' }'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' : Block = <60>2>'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' : Block = <60>3>'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = '}'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = 'root.1.2.main:'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ': Block = {'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' Handle = 2'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' : TextPara = {'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = '  Text = ‘Параграф в блоке №2’'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' }'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = '}'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = 'root.1.3.main:'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ': Block = {'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' Handle = 3'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' : TextPara = {'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = '  Text = ‘Параграф в блоке №3’'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = ' }'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = '}'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+ }
+ : TextPara = {
+  Text = 'Таким же образом можно записывать и графические объекты - в отдельные потоки текущего хранилища. Как формировать имена данных потоков - надо подумать.'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'Отдельно напрашивается сохранение списка точек входа (Sub’ов) в потоке subs и гипертекстовых ссылок в потоке hyperlinks.'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'В каком виде записывать список точек входа в поток subs (линейном или структурированном) - вопрос пока открытый.'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'Также в каждом подхранилище (для блоков и собственно документа) можно ввести подхранилище Attributes, в котором хранить информацию о шапке объекта, ключевых словах, классах и т.п.'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'В подхранилище Attributes можно сделать поток summary, в котором хранить Name, ShortName, InternalHandle, ExternalHandle. А также потоки (или подхранилища) Keywords, Classes и т. п.'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Text = 'Пример:'
+ }
+ : TextPara = {
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = 'root.Attributes.summary:'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = 'InternalHandle = 2'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = 'ShortName = ‘Гражданский кодекс’'
+ }
+ : TextPara = {
+  Justification = ev_itPreformatted
+  Text = 'Name = ‘Гражданский кодекс РФ...’'
+ }
+ : TextPara = {
+  Text = ''
+ }
+}

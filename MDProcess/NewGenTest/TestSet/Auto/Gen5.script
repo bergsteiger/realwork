@@ -1,0 +1,45 @@
+USES
+ 'W:\shared\models\NewSchool\F1.root.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\MDALike.tpl.script'
+;
+
+Test Gen
+ 
+ : OUTPRIM IN %S
+  %SN .
+  %SS .
+  %S %ST %ST |N .
+ ;
+ 
+ : OUTSAFE IN %S
+  %S NotValid ? EXIT
+  %S OUTPRIM
+ ;
+ 
+ : OUTSAFEGEN IN %S
+  %S NotValid ? EXIT
+  %S%G ==> ( IN %S %S OUTPRIM %S %G ==> ( @SELF DO ) )
+ ;
+ 
+ : OUT IN %S
+  %S OUTPRIM
+  %S%R ==> OUTPRIM
+  %S%G ==> OUTPRIM
+  %S%Attrs ==> ( @SELF DO )
+  %S%Ops ==> ( @SELF DO )
+  %S%C ==> ( @SELF DO )
+  %S%T OUTSAFE
+  %S%T OUTSAFEGEN
+  %S%Lnks ==> ( IN %S %S OUTSAFE %S %T OUTSAFE )
+ ;
+ 
+ //@ "Shared Delphi" %C ==> OUT
+ @ F1 OUT
+ //@ MDProcess$ForDelphi %C ==> OUT
+ //@ MDProcess$ForF1 %C ==> OUT
+;
+
+Gen

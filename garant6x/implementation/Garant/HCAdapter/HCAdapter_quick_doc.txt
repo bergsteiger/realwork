@@ -1,0 +1,93 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/HCAdapter/HCAdapter_quick_doc.txt"
+// Быстрая документация (описание с модели)
+// Generated from UML model, root element: <<DLL::Category>> garant6x::HCAdapter
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	***** <<Interface::Category>> HCInterfaces *****
+	 описание: Интерфейсы для взаимодействия с отделом Пащака
+		***** <<Exception::Class>> CantFindXerces *****
+		 описание: Не смогли загрузить библиотеку для работы с XML
+		***** <<Interface::Class>> IConsultingData *****
+		 описание: Интерфейс для получения и подтверждения факта получения запроса.
+			Operation: data_received - Подтверждение получения данных текущего запроса. При вызове этого метода запрос помечается как переданный на обработку (при получении оценки, как полностью обработанный).
+			Operation: get_data - Получение данных запроса. Возвращается запрос (оценка) в XML формате (описание см в реквизите).
+		***** <<Interface::Class>> IConsultingRequests *****
+		 описание: Интерфейс для получения запросов от пользователей и их оценок.
+			Dependency: 
+			Dependency: 
+			Operation: get_next_mark - Получение очередной оценки на запрос. При вызове этой операции происходит передача объекта "Оценка" для получения данных. До тех пор пока не будет проведен вызов DataRecieved, эта операция будет возвращать этот запрос. Если нет ни одного нового запроса, получившего оценку пользователя, возвращается нулевой объект. 
+				Parameter: data
+			Operation: get_next_query
+				Parameter: data
+			Operation: get_offline_query - получить xml для запроса, доставленного не через СК. Ошибки: RV_EMPTY - неправильный номер карточки или продукта, RV_ERROR - ошибка при доступе к АРМ-у или СК.
+				Parameter: card_id
+				Parameter: data
+				Parameter: product_id
+				Parameter: query
+			Operation: make
+			Operation: set_answer - Ответ на запрос или предварительное уведомление о сроках обработки запроса. Ответ оформлен в XML формате (описание cм. в реквизите). Варианты возвращаемых значений: [0] - если ответ успешно помещен в базу. [1] - если запрос в базе уже помечен, как отвеченный. [-1] - если серверу не удалось прочесть ответ, или положить его в базу, или произошел еще какой-то внутренний сбой. В этом случае необходимо повторить попытку отдачи ответа. [-2] - если формат ответа не соответствует "ожиданиям" сервера. 
+				Parameter: answer
+		***** <<Interface::Class>> OfflineData *****
+		 описание: Консультации, доставляемые вручную.
+			Operation: make
+				Parameter: xml_stream
+		***** <<Interface::Class>> OnlineData *****
+		 описание: Консультации, проходящие через СК. Имеют уникальный идентификатор.
+			Operation: make
+				Parameter: consultation_id
+				Parameter: xml_stream
+		***** <<Enum::Class>> ResultValue *****
+		 описание: Возможные значения возвращаемых значений функции : [0] - если ответ успешно помещен в базу. [1] - если запрос в базе уже помечен, как отвеченный. [2] - если на данный момент нет запросов данного типа [-1] - если серверу не удалось прочесть ответ, или положить его в базу, или произошел еще какой-то внутренний сбой. В этом случае необходимо повторить попытку отдачи ответа. [-2] - если формат ответа не соответствует "ожиданиям" сервера. 
+			Attribute: RV_BAD_XML
+			Attribute: RV_DUPLICATED
+			Attribute: RV_EMPTY
+			Attribute: RV_ERROR
+			Attribute: RV_SUCCESS
+	***** <<Impl::Category>> HCInterfaces_i *****
+	 описание: Классы, реализующие интерфейсы.
+		***** <<Servant::Class>> ConsultingData *****
+		 описание: 
+			Attribute: consultation_id
+			Operation: get_cached_consultation_id
+			Attribute: xml_stream
+		***** <<Servant::Class>> ConsultingRequests_i *****
+		 описание: 
+			Dependency: 
+			Operation: commit_result_to_set_answer_result - Конвертер результата записи в базу
+				Parameter: value
+			Operation: create_stream_by_xml - Кладёт полученный xml документ в поток
+				Parameter: xml_manager
+			Operation: create_xml_estimation - Генерит xml для полученной оценки
+				Parameter: estimation
+			Operation: create_xml_request
+				Parameter: date
+				Parameter: extended_info
+				Parameter: id
+				Parameter: query
+				Parameter: status
+				Parameter: time
+				Parameter: user_info
+			Operation: set_xml_date - Генерит дату в формате xml
+				Parameter: day
+				Parameter: document
+				Parameter: month
+				Parameter: parent
+				Parameter: xerces_adapter
+				Parameter: year
+			Operation: set_xml_root_params - Установка рутового тега для генерируемого xml
+				Parameter: consultation_id
+				Parameter: document
+				Parameter: xerces_adapter
+		***** <<Servant::Class>> MarkConsultingData_i *****
+		 описание: Реализация интерфейса оценки.
+		***** <<Servant::Class>> OfflineConsultingData_i *****
+		 описание: Реализация работы консультаций, доставляемых вручную.
+		***** <<Servant::Class>> QueryConsultingData_i *****
+		 описание: Реализация интерфейса запроса.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,605 @@
+// StdCtrls 48C78D5402A6 UtilityPack Class
+
+FORWARD ME_48C78D5402A6
+
+FORWARD ME_48C78D6601CC
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_48C78D7502DD
+ CONST UID '48C78D7502DD'
+ CONST Name 'ssNone'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_48C78D7502DD ssNone
+
+: ME_48C78D7B03BF
+ CONST UID '48C78D7B03BF'
+ CONST Name 'ssHorizontal'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_48C78D7B03BF ssHorizontal
+
+: ME_48C78D8202A8
+ CONST UID '48C78D8202A8'
+ CONST Name 'ssVertical'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_48C78D8202A8 ssVertical
+
+: ME_48C78D8903CF
+ CONST UID '48C78D8903CF'
+ CONST Name 'ssBoth'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_48C78D8903CF ssBoth
+
+: ME_48C78D6601CC
+ CONST UID '48C78D6601CC'
+ CONST Name 'TScrollStyle'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ %SUMMARY 'Identifies a set of scrollbars by their orientation' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_48C78D7502DD // ssNone
+ ME_48C78D7B03BF // ssHorizontal
+ ME_48C78D8202A8 // ssVertical
+ ME_48C78D8903CF // ssBoth
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_48C78D6601CC TScrollStyle
+
+: ME_4AE858B300E5
+ CONST UID '4AE858B300E5'
+ CONST Name 'TCheckBoxState'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4AE858B300E5 TCheckBoxState
+
+: ME_4D5E5A3A0186
+ CONST UID '4D5E5A3A0186'
+ CONST Name 'TButton'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4D5E5A3A0186 TButton
+
+: ME_4DF7762A02B0
+ CONST UID '4DF7762A02B0'
+ CONST Name 'TScrollBar'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4DF7762A02B0 TScrollBar
+
+INCLUDE '47E11FC3021E.pas.ms.script'
+
+FORWARD ME_4F29268F035C
+
+FORWARD ME_4F2A44BC0297
+
+: ME_4F2A861800C4
+ CONST UID '4F2A861800C4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4F2A861800C4 DoIt
+
+: ME_4F2A44BC0297
+ CONST UID '4F2A44BC0297'
+ CONST Name 'AdjustBounds'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F2A861800C4 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F2A44BC0297 AdjustBounds
+
+FORWARD ME_4F2A45C40091
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4F2A85850321
+ CONST UID '4F2A85850321'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4F2A85850321 DoIt
+
+: ME_4F2A45C40091
+ CONST UID '4F2A45C40091'
+ CONST Name 'GetLabelText'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F2A85850321 // DoIt
+ ]
+ ; // Operations
+ CONST "ifdef" 'l3HackedVCL'
+
+ @SELF
+; // ME_4F2A45C40091 GetLabelText
+
+FORWARD ME_4F2A461702D8
+
+INCLUDE '4728A7020026.pas.ms.script'
+
+: ME_4F2A85ED0267
+ CONST UID '4F2A85ED0267'
+ CONST Name 'Rect'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4728A7190065 // TRect
+ ;
+
+ @SELF
+; // ME_4F2A85ED0267 Rect
+
+: ME_4F2A85ED02AE
+ CONST UID '4F2A85ED02AE'
+ CONST Name 'Flags'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4F2A85ED02AE Flags
+
+: ME_4F2A85E80030
+ CONST UID '4F2A85E80030'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F2A85ED0267 // Rect
+ ME_4F2A85ED02AE // Flags
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F2A85E80030 DoIt
+
+: ME_4F2A461702D8
+ CONST UID '4F2A461702D8'
+ CONST Name 'DoDrawText'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F2A85E80030 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F2A461702D8 DoDrawText
+
+: ME_EFABDC777242
+ CONST UID 'EFABDC777242'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TCustomLabel' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_EFABDC777242 Ini_Reg_Class
+
+: ME_4F29268F035C
+ CONST UID '4F29268F035C'
+ CONST Name 'TCustomLabel'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4F2A5AA1012C // TGraphicControl
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4F2A44BC0297 // AdjustBounds
+ ME_4F2A45C40091 // GetLabelText
+ ME_4F2A461702D8 // DoDrawText
+ ME_EFABDC777242 // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F29268F035C TCustomLabel
+
+FORWARD ME_4F69BC9C014A
+
+: ME_3E909EE4DED1
+ CONST UID '3E909EE4DED1'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TRadioButton' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_3E909EE4DED1 Ini_Reg_Class
+
+: ME_4F69BC9C014A
+ CONST UID '4F69BC9C014A'
+ CONST Name 'TRadioButton'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_3E909EE4DED1 // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" true
+
+ @SELF
+; // ME_4F69BC9C014A TRadioButton
+
+: ME_4F9161AE00F2
+ CONST UID '4F9161AE00F2'
+ CONST Name 'TCustomCheckBox'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F9161AE00F2 TCustomCheckBox
+
+: ME_4F91677002D7
+ CONST UID '4F91677002D7'
+ CONST Name 'TCheckBox'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4F9161AE00F2 // TCustomCheckBox
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F91677002D7 TCheckBox
+
+: ME_502211F903A8
+ CONST UID '502211F903A8'
+ CONST Name 'TScrollCode'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_502211F903A8 TScrollCode
+
+FORWARD ME_50220F69008D
+
+: ME_50220F870025
+ CONST UID '50220F870025'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_50220F870025 DoIt
+
+: ME_50220F69008D
+ CONST UID '50220F69008D'
+ CONST Name 'TScrollEvent'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_50220F870025 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_50220F69008D TScrollEvent
+
+: ME_5049DA5F0069
+ CONST UID '5049DA5F0069'
+ CONST Name 'TCustomCombo'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5049DA5F0069 TCustomCombo
+
+: ME_5049DA2A035D
+ CONST UID '5049DA2A035D'
+ CONST Name 'TCustomComboBox'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5049DA5F0069 // TCustomCombo
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ @SELF
+; // ME_5049DA2A035D TCustomComboBox
+
+: ME_5049CD720050
+ CONST UID '5049CD720050'
+ CONST Name 'TComboBox'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5049DA2A035D // TCustomComboBox
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ @SELF
+; // ME_5049CD720050 TComboBox
+
+FORWARD ME_52A9AE070267
+
+FORWARD ME_554CAA8400E5
+
+: ME_3BA8D050EEF2
+ CONST UID '3BA8D050EEF2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Change' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3BA8D050EEF2 DoIt
+
+: ME_554CAA8400E5
+ CONST UID '554CAA8400E5'
+ CONST Name 'Change'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_3BA8D050EEF2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_554CAA8400E5 Change
+
+: ME_E6ABAF26E235
+ CONST UID 'E6ABAF26E235'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TCustomEdit' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_E6ABAF26E235 Ini_Reg_Class
+
+: ME_52A9AE070267
+ CONST UID '52A9AE070267'
+ CONST Name 'TCustomEdit'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47E124E90272 // TWinControl
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_554CAA8400E5 // Change
+ ME_E6ABAF26E235 // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52A9AE070267 TCustomEdit
+
+: ME_52148BC6031D
+ CONST UID '52148BC6031D'
+ CONST Name 'TComboBoxStyle'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_52148BC6031D TComboBoxStyle
+
+: ME_522F5DBC01E5
+ CONST UID '522F5DBC01E5'
+ CONST Name 'TListBox'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_522F5DBC01E5 TListBox
+
+FORWARD ME_517C0FF50380
+
+: ME_3D4DDD4081C1
+ CONST UID '3D4DDD4081C1'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TEdit' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_3D4DDD4081C1 Ini_Reg_Class
+
+: ME_517C0FF50380
+ CONST UID '517C0FF50380'
+ CONST Name 'TEdit'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52A9AE070267 // TCustomEdit
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_3D4DDD4081C1 // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_517C0FF50380 TEdit
+
+: ME_48C78D5402A6
+ CONST UID '48C78D5402A6'
+ CONST Name 'StdCtrls'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_48C78D6601CC // TScrollStyle
+ ME_4AE858B300E5 // TCheckBoxState
+ ME_4D5E5A3A0186 // TButton
+ ME_4DF7762A02B0 // TScrollBar
+ ME_4F29268F035C // TCustomLabel
+ ME_4F69BC9C014A // TRadioButton
+ ME_4F9161AE00F2 // TCustomCheckBox
+ ME_4F91677002D7 // TCheckBox
+ ME_502211F903A8 // TScrollCode
+ ME_50220F69008D // TScrollEvent
+ ME_5049DA5F0069 // TCustomCombo
+ ME_5049DA2A035D // TCustomComboBox
+ ME_5049CD720050 // TComboBox
+ ME_52A9AE070267 // TCustomEdit
+ ME_52148BC6031D // TComboBoxStyle
+ ME_522F5DBC01E5 // TListBox
+ ME_517C0FF50380 // TEdit
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_48C78D5402A6 StdCtrls

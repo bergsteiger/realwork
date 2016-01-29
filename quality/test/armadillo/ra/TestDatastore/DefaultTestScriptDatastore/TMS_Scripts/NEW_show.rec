@@ -1,0 +1,400 @@
+'$include "sqautil.sbh"
+'Заведение нового клиента
+Sub fz_211_new_client(clientName as String, commerceType as Integer)
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    GenericObject Click, "Text=Клиенты", "Coords=10,17"
+    
+    Window SetContext, "Caption=Внесение информации о новом клиенте", ""
+    if commerceType=0 then
+        InputKeys ClientName$+"{TAB}{TAB}{DOWN}{TAB}{DOWN}{TAB}{TAB}3"
+    else
+        InputKeys ClientName$+"{TAB}{TAB}{DOWN}{DOWN}{DOWN}{TAB}{DOWN}{TAB}{TAB}3"
+    end if
+    InputKeys "{TAB}wr{TAB}{DOWN}{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 14
+End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub fz_211_sell(postavkaID As Integer, tip As Integer, netID As Integer, isDelta As Integer, freqID As Integer)
+'postavkaID 42 -коммерческая 45-некоммерч 46-ознакомит 47-демо
+'tip 0..36 тип продукта
+'netID 0..2
+'isDelta 0..1
+'freqID 0..6
+        Dim j, bmax, bmin, bcur As Integer
+        Dim v1() As String
+        
+        'коммерческая поставка
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect postavkaID
+        
+        'в триальной версии - тестовый период.
+        if postavkaID=46 then
+            Window SetContext, "CurrentWindow", ""
+            InputKeys "{ENTER}"
+        end if
+    
+        'окно продажи
+        Window SetContext, "CurrentWindow", ""
+        GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=8,7"
+        GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=8,7"
+        InputKeys "{TAB}{TAB}"
+
+        'выбор типа
+        InputKeys "%{DOWN}"
+        For j=0 to (tip mod 7)    
+            InputKeys "{DOWN}"
+        Next j
+        For j=1 to int(tip/7)    
+            InputKeys "{PGDN}"
+        Next j
+        InputKeys "%{UP}"
+      
+        InputKeys "{TAB}{TAB}"
+
+        'сеть
+        For j=0 to netID
+            InputKeys "{DOWN}"
+        Next j
+        
+        'способ обновления
+        if tip<37 then
+            InputKeys "{TAB}{DOWN}"
+            if isDelta = 1 then 
+                InputKeys "{DOWN}"
+            end if
+        end if 
+            
+        'частота
+        InputKeys "{TAB}"
+        For j=0 to freqID
+            InputKeys "{DOWN}"
+        Next j
+
+        'выбор баз
+        InputKeys "{TAB}"
+        if rnd<0.5 then
+        'Зак-во России
+            For j=0 to 6
+                InputKeys "{DOWN}"
+            Next       
+            InputKeys " "
+        end if 
+add_base:     
+        InputKeys "{HOME}"
+        if rnd>0.5 then 
+            For j=0 to rnd*12
+                InputKeys "{PGDN}"
+            Next       
+        elseIf rnd>0.4 then
+                InputKeys "{PGDN}"
+        end if        
+        For j=0 to rnd*12
+            InputKeys "{DOWN}"
+        Next       
+        InputKeys " "
+        
+    'v1(1)=Вес с 2 по 2
+    'v1(2)=Набрано: 1
+        bmin = SQAGetPropertyArrayAsString("Type=StatusBar;ObjectIndex=1", "PartText", v1())
+        bmin = Val( GetField$(v1(1),3," ") )
+        bmax = Val( GetField$(v1(1),5," ") )
+        bcur = Val( GetField$(v1(2),2," ") )
+
+        if bmin>bcur or bcur=0 then goto add_base
+        if (bmin=bcur) and (bmin<>bmax) and rnd<0.3 then goto add_base
+        if (bmax>bcur) and (bmin<>bmax) and rnd<0.3 then goto add_base
+
+
+        InputKeys "{ENTER}"
+'Save changes           
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect 14
+End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'Заказ продукта
+'isDelta 0..1
+'deliveryID 0..2
+'isGroup 0..1
+'nositelID 0..4
+'isWork 0..1
+'secID 0..2
+'isSeparate 0-не разд 1-разд 2-разные носители
+Sub fz_211_order(isDelta As Integer, deliveryID as Integer, isGroup As Integer, nositelID as Integer, isWork as Integer, secID as Integer, isSeparate as Integer)
+    Dim j As Integer
+    Dim State As String
+    
+    'выходим из режима редактирования
+     Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+     MenuIDSelect 13
+     MenuIDSelect 90
+     
+     'заказ - переходим на техпараметры и заполняем
+     Window SetContext, "Caption={Параметры заказа *}", ""
+     TabControl Click, "ObjectIndex=1;\;ItemText=Технические параметры", ""
+     InputKeys "{TAB}{TAB}"
+     
+     'тип доставки
+     for j=0 to deliveryID
+        InputKeys "{DOWN}"
+     next j
+     
+     'персональный - групповой
+     InputKeys "{TAB}{DOWN}"
+     if isGroup=1 then InputKeys "{DOWN}"
+     
+     'носитель
+     InputKeys "{TAB}"
+     for j=0 to nositelID
+        InputKeys "{DOWN}"
+     next j
+     
+     'тип инсталляции - персональный
+     if isGroup=0 then
+        InputKeys "{TAB}{DOWN}{DOWN}{DOWN}"
+        if isWork=0 then
+            InputKeys "{UP}"
+            'защита
+            InputKeys "{TAB}"
+            for j=0 to secID
+                InputKeys "{DOWN}"
+            next j
+            'колво дискет
+            if secID=0 then 
+                InputKeys "{TAB}"+Str$(int(rnd*4)+1)
+            end if
+        end if
+        if isSeparate<>0 then
+            j=SQAGetPropertyAsString("Type=CheckBox;Text=Разделить на части","Enabled",State)
+            if State$<>"False" then CheckBox Click, "Text=Разделить на части"
+            if isSeparate=2 then
+                j=SQAGetPropertyAsString("Type=CheckBox;Text=Запись на разные носители","Enabled",State)
+                if State$<>"False" then CheckBox Click, "Text=Запись на разные носители"
+            end if
+        end if
+    'тип инсталляции груповой   логнос - первый из списка
+    else
+        InputKeys "{TAB}{DOWN}"
+        if secID=2 then InputKeys "{DOWN}"
+        InputKeys "{ENTER}"
+    end if
+    
+    PushButton Click, "Text=Включить"
+    
+    'вкл режим редактирования
+     Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+     MenuIDSelect 13
+End Sub
+
+Sub Delete_product(Is_commerce As Integer)
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    if Is_commerce=42 then
+        MenuIDSelect 65
+        Window SetContext, "Caption=Выбор нового владельца продукта", ""
+        ListView Click, "ObjectIndex=1", "Coords=111,22"
+        GenericObject DblClick, "Class=TWinControl;ClassIndex=1", "Coords=16,9"
+        PushButton Click, "Text=Принять"
+    else
+        MenuIDSelect 66
+        Window SetContext, "Class=TfRgnDialog", ""
+        GenericObject Click, "Text=Да", "Coords=16,8"
+    end if
+End Sub
+
+Sub GoToClient(ClientName as String)
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    EditBox Click, "ObjectIndex=9", "Coords=2,9"
+    InputKeys "{HOME}+{END}{DELETE}" & ClientName
+End Sub
+
+
+Sub HideClient
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 32
+    
+    Window SetContext, "Class=TfRgnDialog", ""
+    GenericObject Click, "Text=Да", "Coords=40,18"
+End Sub
+
+Sub RemoveClient
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 40
+    Window SetContext, "Class=TfRgnDialog", ""
+    GenericObject Click, "Text=Да", "Coords=30,10"
+    Window SetContext, "Caption=Передача клиента", ""
+    ComboBox Click, "ObjectIndex=1", "Coords=120,1"
+    ComboListBox Click, "ObjectIndex=1", "Text=Региональный партнер"
+    EditBox Click, "ObjectIndex=1", "Coords=71,16"
+    InputKeys "c:\temp{ENTER}"
+    Window SetContext, "Class=TfRgnDialog", ""
+    InputKeys "{ENTER}"
+End Sub
+
+Sub Main
+    Dim i, Result As Integer
+
+    Call fz_211_new_client ("Многокомплектный4", 1)
+    for i=0 to 50
+        Call fz_211_sell (45, 0, 0, 0, 0)
+'Заказ продукта
+'isDelta 0..1
+'deliveryID 0..2
+'isGroup 0..1
+'nositelID 0..4
+'isWork 0..1
+'secID 0..2
+'isSeparate 0-не разд 1-разд 2-разные носители
+        Call fz_211_order (0,1,1,0,0,0,0)
+    next
+End Sub
+
+Sub MainCon
+    Call fz_211_new_client ("Временный0", 1)
+    
+    Call fz_211_new_client ("Спецклиент1", 1)
+    Call fz_211_sell (42, 0, 0, 0, 0)
+    Call fz_211_sell (42, 1, 0, 0, 0)
+    Call Delete_product(42)
+    Call GoToClient ("Спецклиент1")
+    Call fz_211_sell (42, 7, 0, 0, 0)
+    Call Delete_product(42)
+    Call GoToClient ("Спецклиент1")
+    Call fz_211_sell (45, 2, 0, 0, 0)
+    Call fz_211_sell (45, 11, 0, 0, 0)
+    Call fz_211_sell (45, 4, 0, 0, 0)
+    Call Delete_product(45)
+    Call GoToClient ("Спецклиент1")
+    Call fz_211_sell (46, 5, 0, 0, 0)
+    Call fz_211_sell (46, 13, 0, 0, 0)
+    Call Delete_product(46)
+    Call GoToClient ("Спецклиент1")
+    Call fz_211_sell (47, 8, 0, 0, 0)
+    Call fz_211_sell (47, 18, 0, 0, 0)
+    Call Delete_product(47)
+    Call GoToClient ("Спецклиент1")
+
+    Call fz_211_new_client ("Спецклиент2", 1)
+    Call fz_211_sell (42, 0, 0, 0, 0)
+    Call fz_211_sell (45, 2, 0, 0, 0)
+    Call fz_211_sell (45, 11, 0, 0, 0)
+    Call fz_211_sell (46, 5, 0, 0, 0)
+    Call fz_211_sell (47, 8, 0, 0, 0)
+
+    Call fz_211_new_client ("Спецклиент3", 1)
+    Call fz_211_sell (42, 1, 0, 0, 0)
+    Call Delete_product(42)
+    Call GoToClient ("Спецклиент3")
+    Call fz_211_sell (42, 7, 0, 0, 0)
+    Call Delete_product(42)
+    Call GoToClient ("Спецклиент3")
+    Call fz_211_sell (45, 4, 0, 0, 0)
+    Call Delete_product(45)
+    Call GoToClient ("Спецклиент3")
+    Call fz_211_sell (46, 13, 0, 0, 0)
+    Call Delete_product(46)
+    Call GoToClient ("Спецклиент3")
+    Call fz_211_sell (47, 18, 0, 0, 0)
+    Call Delete_product(47)
+    Call GoToClient ("Спецклиент3")
+    Call RemoveClient
+    
+    Call fz_211_new_client ("Спецклиент4", 1)
+    Call fz_211_sell (42, 0, 0, 0, 0)
+    
+    Call fz_211_new_client ("Спецклиент5", 1)
+    Call fz_211_sell (42, 0, 0, 0, 0)
+    Call Delete_product(42)
+    Call GoToClient ("Спецклиент5")
+
+    Call fz_211_new_client ("Спецклиент6", 1)
+    Call fz_211_sell (45, 0, 0, 0, 0)
+
+    Call fz_211_new_client ("Спецклиент7", 1)
+    Call fz_211_sell (45, 0, 0, 0, 0)
+    Call Delete_product(45)
+    Call GoToClient ("Спецклиент7")
+    Call RemoveClient
+
+    Call fz_211_new_client ("Спецклиент8", 1)
+    Call fz_211_sell (46, 0, 0, 0, 0)
+
+    Call fz_211_new_client ("Спецклиент9", 1)
+    Call fz_211_sell (46, 0, 0, 0, 0)
+    Call Delete_product(46)
+    Call GoToClient ("Спецклиент9")
+
+    Call fz_211_new_client ("Спецклиент10", 1)
+    Call fz_211_sell (47, 0, 0, 0, 0)
+
+    Call fz_211_new_client ("Спецклиент11", 1)
+    Call fz_211_sell (47, 0, 0, 0, 0)
+    Call Delete_product(47)
+    Call GoToClient ("Спецклиент11")
+
+    Call fz_211_new_client ("Спецклиент12", 1)
+
+    Call fz_211_new_client ("Спецклиент13", 1)
+    Call fz_211_sell (42, 0, 0, 0, 0)
+    Call Delete_product(42)
+    Call GoToClient ("Спецклиент13")
+    Call fz_211_sell (45, 2, 0, 0, 0)
+    Call Delete_product(45)
+    Call GoToClient ("Спецклиент13")
+    Call fz_211_sell (45, 11, 0, 0, 0)
+    Call Delete_product(45)
+    Call GoToClient ("Спецклиент13")
+    Call fz_211_sell (46, 5, 0, 0, 0)
+    Call Delete_product(46)
+    Call GoToClient ("Спецклиент13")
+    Call fz_211_sell (47, 8, 0, 0, 0)
+    Call Delete_product(47)
+    Call GoToClient ("Спецклиент13")
+
+    Call fz_211_new_client ("Спецклиент14", 1)
+    Call fz_211_sell (42, 0, 0, 0, 0)
+    Call fz_211_sell (42, 1, 0, 0, 0)
+    Call Delete_product(42)
+    Call GoToClient ("Спецклиент14")
+    Call fz_211_sell (42, 7, 0, 0, 0)
+    Call Delete_product(42)
+    Call GoToClient ("Спецклиент14")
+    Call fz_211_sell (45, 2, 0, 0, 0)
+    Call fz_211_sell (45, 11, 0, 0, 0)
+    Call fz_211_sell (45, 4, 0, 0, 0)
+    Call Delete_product(45)
+    Call GoToClient ("Спецклиент14")
+    Call fz_211_sell (46, 5, 0, 0, 0)
+    Call fz_211_sell (46, 13, 0, 0, 0)
+    Call Delete_product(46)
+    Call GoToClient ("Спецклиент14")
+    Call fz_211_sell (47, 8, 0, 0, 0)
+    Call fz_211_sell (47, 18, 0, 0, 0)
+    Call Delete_product(47)
+    Call GoToClient ("Спецклиент14")
+    Call HideClient
+    
+    Call fz_211_new_client ("Спецклиент15", 1)
+    Call fz_211_sell (42, 0, 0, 0, 0)
+    Call fz_211_sell (45, 2, 0, 0, 0)
+    Call fz_211_sell (45, 11, 0, 0, 0)
+    Call fz_211_sell (46, 5, 0, 0, 0)
+    Call fz_211_sell (47, 8, 0, 0, 0)
+    Call HideClient
+
+    Call fz_211_new_client ("Спецклиент16", 1)
+    Call fz_211_sell (42, 0, 0, 0, 0)
+    Call fz_211_sell (47, 18, 0, 0, 0)
+    Call Delete_product(47)
+    Call GoToClient ("Спецклиент16")
+    Call HideClient
+
+    Call fz_211_new_client ("Спецклиент17", 1)
+    Call fz_211_sell (45, 0, 0, 0, 0)
+    Call Delete_product(45)
+    Call GoToClient ("Спецклиент17")
+    Call HideClient
+
+End Sub

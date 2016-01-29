@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{d354d6c5-3b45-4e81-90b6-9a0990f7c520}</ProjectGuid>
+    <MainSource>gtPDBase.dpk</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>..\..\Lib\D11\gtPDBase.bpl</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DcuOutput>..\..\Lib\D11</DCC_DcuOutput>
+    <DCC_ObjOutput>..\..\Lib\D11</DCC_ObjOutput>
+    <DCC_HppOutput>..\..\Lib\D11</DCC_HppOutput>
+    <DCC_BplOutput>..\..\Lib\D11</DCC_BplOutput>
+    <DCC_DcpOutput>..\..\Lib\D11</DCC_DcpOutput>
+    <DCC_UnitSearchPath>..\..\Lib\D11</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\..\Lib\D11</DCC_ResourcePath>
+    <DCC_ObjPath>..\..\Lib\D11</DCC_ObjPath>
+    <DCC_IncludePath>..\..\Lib\D11</DCC_IncludePath>
+    <DCC_IOChecking>False</DCC_IOChecking>
+    <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>Package</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><Package_Options><Package_Options Name="ImplicitBuild">False</Package_Options><Package_Options Name="DesigntimeOnly">False</Package_Options><Package_Options Name="RuntimeOnly">True</Package_Options><Package_Options Name="PackageDescription">Gnostice Base Protable Document</Package_Options></Package_Options><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1033</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">gtPDBase.dpk</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="gtPDBase.dpk">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\..\vclcontainsPDBaseDocin.dcp" />
+    <DCCReference Include="..\Utils\gtLoggerPackage.dcp" />
+    <DCCReference Include="..\Utils\gtStreams.dcp" />
+    <DCCReference Include="..\Utils\rtl.dcp" />
+    <DCCReference Include="..\Utils\vcl.dcp" />
+    <DCCReference Include="FileStructure\PDReader.pas" />
+    <DCCReference Include="FileStructure\PDWriter.pas" />
+    <DCCReference Include="FileStructure\PDXRef.pas" />
+    <DCCReference Include="FileStructure\PDXRefEntry.pas" />
+    <DCCReference Include="Parser\PDLexer.pas" />
+    <DCCReference Include="Parser\PDParser.pas" />
+    <DCCReference Include="PDArray.pas" />
+    <DCCReference Include="PDBaseDoc.pas" />
+    <DCCReference Include="PDBaseExceptions.pas" />
+    <DCCReference Include="PDBaseObject.pas" />
+    <DCCReference Include="PDBoolean.pas" />
+    <DCCReference Include="PDCollection.pas" />
+    <DCCReference Include="PDCommand.pas" />
+    <DCCReference Include="PDConsts.pas" />
+    <DCCReference Include="PDDictionary.pas" />
+    <DCCReference Include="PDEOF.pas" />
+    <DCCReference Include="PDError.pas" />
+    <DCCReference Include="PDFilterManager.pas" />
+    <DCCReference Include="PDIndirectRef.pas" />
+    <DCCReference Include="PDInteger.pas" />
+    <DCCReference Include="PDName.pas" />
+    <DCCReference Include="PDNull.pas" />
+    <DCCReference Include="PDReal.pas" />
+    <DCCReference Include="PDStream.pas" />
+    <DCCReference Include="PDString.pas" />
+  </ItemGroup>
+</Project>

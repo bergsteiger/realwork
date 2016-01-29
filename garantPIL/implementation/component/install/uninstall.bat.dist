@@ -1,0 +1,12 @@
+cd "##INSTALL_PATH##\"
+
+@set PATH=Web\bin;%PATH%
+@set PYTHONPATH=Web\lib
+
+@python "##INSTALL_PATH##\run.py" uninstall
+
+cd "##INSTALL_PATH##\Web\Instance\bin"
+
+call "##INSTALL_PATH##\Web\Instance\bin\stopservice.bat"
+call "##INSTALL_PATH##\Web\Instance\bin\removeservice.bat"
+

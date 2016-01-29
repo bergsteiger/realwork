@@ -1,0 +1,2068 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/Exception.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::Exception
+//
+// Исключение
+// ---
+// Тип исключения, может содержать атрибуты. Однако не все генераторы их поддерживают. Например для
+// метамодели ДЛЛ-Адаптера исключение не могут содержать данных.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Exception::Class
+implementation @ <<Exception>>
+//? Исключение
+//? Тип исключения, может содержать атрибуты. Однако не все генераторы их поддерживают. Например для метамодели ДЛЛ-Адаптера исключение не могут содержать данных.
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= InterfaceGeneratorWithJava::MDAGenerator
+//= Генерация JavaScript::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//a ra
+// - тип абстракции
+//Y code_exception.gif
+//L code_exception
+// Параметры визуализации
+//$ C 255,150,150
+//$ l 255,10,10
+//$ f 255,10,10
+//E
+// - является исключением
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+//p is_runtime:b=false ? Для Java определяет что исключение будет типа run-time
+//p force what:b=false ? Принудительно генерить реадизацию метода возвращающего информацию об исключении
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+ ?inherited
+ if ( ( %S get_up ( 'force usage' ) ) %!= ( %S get_up_def ( 'force usage' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force usage* = *'
+  %S get_up ( 'force usage' ) '* - явно определяет, что элемент будет кем-то использован (нужно для проверки)'
+//	][{"%S{is_runtime}"!="%S{!is_runtime}"}%f_up_prefix(%S) *is_runtime* = *%S{is_runtime}* - Для Java определяет что исключение будет типа run-time
+ end // if
+ if ( ( %S get_up ( 'is_runtime' ) ) %!= ( %S get_up_def ( 'is_runtime' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is_runtime* = *'
+  %S get_up ( 'is_runtime' ) '* - Для Java определяет что исключение будет типа run-time'
+//	][{"%S{force what}"!="%S{!force what}"}%f_up_prefix(%S) *force what* = *%S{force what}* - Принудительно генерить реадизацию метода возвращающего информацию об исключении
+ end // if
+ if ( ( %S get_up ( 'force what' ) ) %!= ( %S get_up_def ( 'force what' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force what* = *'
+  %S get_up ( 'force what' ) '* - Принудительно генерить реадизацию метода возвращающего информацию об исключении'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F1AB702CE*
+//c                              {}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}:                                       {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+//r {%Sa=abstract&<{}{%P{Full MDP}=true}{C}>!=0&%S{force usage}=false&%Lx=false}:                            {Абстрактное %SS ни кем не специализируется}
+//r {%Sa!=abstract&<{}{%P{Full MDP}=true}{C}>!=0&%S{force usage}=false&<{}{%aC!=Class}{C}>=0}:               {%SS ни кем не используется}
+//#UC END# *4704C0E30186for470F1AB702CE*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F1AB702CE*
+//	%f_set_var(SERV,S)\
+ [%f] set_var %( 'SERV' %, 'S' )% 
+//	[%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  %S %f open_ifdef %( )% 
+//	][%f_self_data_accessor(%S)[<{}{%CS=ctor}[
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  [%f] self_data_accessor %( %S )% if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'ctor' ) then
+    begin
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	%CX]>
+      %C |X 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+//	][
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%f_dump_attr_init_ctor_cpp(%S)][{<{}{%CC=Attribute&%C{needs field}!=false}{%CC}>!=0}
+   [%f] dump_attr_init_ctor_cpp %( %S )% 
+  end // if
+  NOP
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+   #13#10
+
+//	%f_function_scope(%S)~%SN () throw () {
+   [%f] function_scope %( %S )% '~'
+   %S |N ' () throw () {'
+//	}
+   '}'
+//	][{%Sa!=abstract}
+  end // if
+  if ( ( %S |a ) %!= 'abstract' ) then
+  begin
+   #13#10
+
+//	const char* %f_function_scope(%S)uid () const /*throw ()*/ {
+   'const char* '
+   [%f] function_scope %( %S )% 'uid () const /*throw ()*/ {'
+//		return "%SG";
+   '	return "'
+   %S |G ';'
+//	}
+   '}'
+//	][{%f_need_what(%S)=true}
+  end // if
+  if ( ( [%f] need_what %( %S )% ) %==  true ) then
+  begin
+   #13#10
+
+//	const char* %f_function_scope(%S)what () const throw () {
+   'const char* '
+   [%f] function_scope %( %S )% 'what () const throw () {'
+//	%f_exception_what_impl(%S)
+   [%f] exception_what_impl %( %S )% 
+//	}
+   '}'
+//	]
+  end // if
+//	][
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+
+//f _exception_what
+; // cpp
+
+end. // <<Exception>>
+
+: exception_what OBJECT IN %S
+//	%SN (%f_str_replace(%SD,%f_dump_q(%S),%f_dump_escq(%S)))
+ %S |N ' ('
+ [%f] str_replace %( %S |D %, [%f] dump_q %( %S )% %, [%f] dump_escq %( %S )% )% ')'
+
+//f _exception_what_impl
+; // exception_what
+
+: exception_what_impl OBJECT IN %S
+//		%U[{_WHAT_IMPL}
+ '	'
+ %Usersection (
+  '_WHAT_IMPL' 
+ )
+ (
+  #13#10
+
+//	[{%f_need_specific_what(%S)=true}{	return "%f_exception_what(%S)";}\
+  if ( ( [%f] need_specific_what %( %S )% ) %==  true ) then
+  begin
+//		ACE_OS::snprintf (
+   '	ACE_OS::snprintf ('
+//			m_message
+   '		m_message'
+//			, 256
+   '		, 256'
+//			, "%f_exception_what(%S)<{}{%CC=Attribute&%C{needs field}!=false&%f_attr_has_printf_field(%C)=true}, %CN=\%%t_printf_field(%C%T)>"<{}{%CC=Attribute&%C{needs field}!=false&%f_attr_has_printf_field(%C)=true}
+   '		, "'
+   [%f] exception_what %( %S )% 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C get_up ( 'needs field' ) ) %!=  false  ) AND 
+     ( ( [%f] attr_has_printf_field %( %C )% ) %==  true  ) ) then
+    begin
+     ', '
+     %C |N '=%'
+     [%t] printf_field %( %C ->T  )% 
+     ++! l_Counter
+    end // if
+   end // for C
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C get_up ( 'needs field' ) ) %!=  false  ) AND 
+     ( ( [%f] attr_has_printf_field %( %C )% ) %==  true  ) ) then
+    begin
+     #13#10
+
+//			, m_%CN[{%C%TN=a-string|%C%TN=w-string}{[{%C%TN=tribool}.value]}.c_str ()]>
+     '		, m_'
+     %C |N if ( ( %C ->T |N  ) %== 'a-string' OR 
+       ( ( %C ->T |N  ) %== 'w-string'  ) ) then
+     begin
+      '.c_str ()' 
+     end // if
+     else
+     begin
+      if ( ( %C ->T |N  ) %== 'tribool' ) then
+      begin
+       '.value' 
+      end // if
+     end // else
+
+     ++! l_Counter
+    end // if
+   end // for C
+//		);
+   '	);'
+//		return m_message;]
+   '	return m_message;' 
+  end // if
+  else
+  begin
+   '	return "'
+   [%f] exception_what %( %S )% ';' 
+  end // else
+//		]
+  '	' 
+ ) // Usersection
+ 
+//f _need_what
+; // exception_what_impl
+
+: need_what OBJECT IN %S
+//	[{%f_need_specific_what(%S)=true|%S{force what}=true}{[{%Sa!=abstract&<{}{%f_need_what(%G)=true}{%GC}>=0}{false}true]}true]
+ if ( ( [%f] need_specific_what %( %S )% ) %==  true OR 
+   ( ( %S get_up ( 'force what' ) ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  if ( ( %S |a ) %!= 'abstract' AND 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( [%f] need_what %( %G )% ) %==  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %== 0  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // else
+
+//f _need_specific_what
+; // need_what
+
+: need_specific_what OBJECT IN %S
+//	[{<{}{%CC=Attribute&%C{needs field}!=false&%f_attr_has_printf_field(%C)=true}{%CC}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C get_up ( 'needs field' ) ) %!=  false  ) AND 
+    ( ( [%f] attr_has_printf_field %( %C )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//f _attr_has_printf_field
+; // need_specific_what
+
+: attr_has_printf_field OBJECT IN %S
+//	[{%Sl=agr&"%t_printf_field(%T)"!=""}{false}true]
+ if ( ( %S |l ) %== 'agr' AND 
+   ( ( [%t] printf_field %( %T )% ) %!= ''  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//t _printf_field
+; // attr_has_printf_field
+
+<<transformator>> printf_field OBJECT IN %S
+//@ %SU
+//c                                  {}
+//r "%SN"="short":                   {d}
+//r "%SN"="size":                    {d}
+//r "%SN"="integer":                 {d}
+//r "%SN"="long":                    {d}
+//r "%SN"="atomic":                  {d}
+//r "%SN"="unsigned atomic":         {u}
+//r "%SN"="long long":               {Q}
+//r "%SN"="unsigned short":          {u}
+//r "%SN"="unsigned integer":        {u}
+//r "%SN"="unsigned long":           {u}
+//r "%SN"="unsigned long long":      {u}
+//r "%SN"="unsigned char":           {u}
+//r "%SN"="float":                   {f}
+//r "%SN"="double":                  {f}
+//r "%SN"="boolean":                 {d}
+//r "%SN"="tribool":                 {d}
+//r "%SN"="char":                    {d}
+//r "%SN"="wchar":                   {d}
+//r "%SN"="hthread":                 {d}
+//r "%SN"="octet":                   {d}
+//r "%SN"="a-string":                {s}
+//r "%SN"="a-wstring":               {S}
+//r "%SN"="string":                  {s}
+//r "%SN"="wstring":                 {S}
+//r "%SN"="c-string":                {s}
+//r "%SM"="Enum::Class":             {d}
+//r "%SM"="Typedef::Class":          {[{%Gx=true}{}%t_printf_field(%G)]}
+//r ""="":                           {}
+
+//f _dump_attr_init_ctor_cpp
+; // printf_field
+
+: dump_attr_init_ctor_cpp OBJECT IN %S
+//	[{%f_need_attr_init_ctor(%S)=true}\
+ if ( ( [%f] need_attr_init_ctor %( %S )% ) %==  true ) then
+ begin
+//	%f_function_scope(%S)%f_attr_init_ctor_header(%S)
+  [%f] function_scope %( %S )% [%f] attr_init_ctor_header %( %S )% 
+//	[	: %f_dump_attr_init_ctor_init_block(%S)
+  if NOT-EMPTY
+  begin
+   '	: '
+   [%f] dump_attr_init_ctor_init_block %( %S )% 
+//	]%U[{_BASE_INIT}
+  end // if
+  NOP
+  %Usersection (
+   '_BASE_INIT' 
+  )
+  (
+   #13#10
+
+//	]
+
+  ) // Usersection
+ //	{
+  '{'
+//		%U[{_BODY}
+  '	'
+  %Usersection (
+   '_BODY' 
+  )
+  (
+   #13#10
+
+//		]
+   '	' 
+  ) // Usersection
+ //	}
+  '}'
+//	]
+ end // if
+
+//f _dump_attr_init_ctor_h
+; // dump_attr_init_ctor_cpp
+
+: dump_attr_init_ctor_h OBJECT IN %S
+//	[{%f_need_attr_init_ctor(%S)=true}\
+ if ( ( [%f] need_attr_init_ctor %( %S )% ) %==  true ) then
+ begin
+//	#	%f_attr_init_ctor_header(%S);]
+  out_indent '	'
+  [%f] attr_init_ctor_header %( %S )% ';' 
+ end // if
+
+//f _dump_attr_init_ctor_init_block
+; // dump_attr_init_ctor_h
+
+: dump_attr_init_ctor_init_block OBJECT IN %S
+//	%f_set_var(NEED_COMMA,"false")\
+ [%f] set_var %( 'NEED_COMMA' %, false )% 
+//	<{, }{%f_need_attr_init_ctor(%G)=true}%GN (%G<{, }{%CC=Attribute&%C{needs field}!=false}%CN>)%f_set_var(NEED_COMMA,"true")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if ( ( [%f] need_attr_init_ctor %( %G )% ) %==  true ) then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   %G |N ' ('
+   %G
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' AND 
+      ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+    ')'
+   [%f] set_var %( 'NEED_COMMA' %, true )% 
+   ++! l_Counter
+  end // if
+ end // for G
+//	<{}{%CC=Attribute&%C{needs field}!=false}[{%{NEED_COMMA}N=true}{%f_set_var(NEED_COMMA,"true")}, ]m_%CN (%CN)>%f_set_var(NEED_COMMA,"false")
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Attribute' AND 
+   ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+  begin
+   if ( ( ( get_global_var ( 'NEED_COMMA' ) |N ) ) %==  true ) then
+   begin
+    ', ' 
+   end // if
+   else
+   begin
+    [%f] set_var %( 'NEED_COMMA' %, true )% 
+   end // else
+   'm_'
+   %C |N ' ('
+   %C |N ')' 
+   ++! l_Counter
+  end // if
+ end // for C
+ [%f] set_var %( 'NEED_COMMA' %, false )% 
+
+//f _attr_init_ctor_header
+; // dump_attr_init_ctor_init_block
+
+: attr_init_ctor_header OBJECT IN %S
+//	%f_set_var(NEED_COMMA,"false")\
+ [%f] set_var %( 'NEED_COMMA' %, false )% 
+//	%SN (<{, }{%CC=Attribute&%C{needs field}!=false}%t_arg(%C%T,"in",%C) %CN%f_set_var(NEED_COMMA,"true")>\
+ %S |N ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Attribute' AND 
+   ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%t] arg %( %C ->T  %, 'in"' %, %C )% ' '
+   %C |N [%f] set_var %( 'NEED_COMMA' %, true )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<%G<{}{%CC=Attribute&%C{needs field}!=false}[{%{NEED_COMMA}N=true}{%f_set_var(NEED_COMMA,"true")}, ]%t_arg(%C%T,"in",%C) %CN>>)%f_set_var(NEED_COMMA,"false")
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+   %G
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' AND 
+      ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+     begin
+      if ( ( ( get_global_var ( 'NEED_COMMA' ) |N ) ) %==  true ) then
+      begin
+       ', ' 
+      end // if
+      else
+      begin
+       [%f] set_var %( 'NEED_COMMA' %, true )% 
+      end // else
+      [%t] arg %( %C ->T  %, 'in"' %, %C )% ' '
+      %C |N 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for G
+ ')'
+ [%f] set_var %( 'NEED_COMMA' %, false )% 
+
+//f _need_attr_init_ctor
+; // attr_init_ctor_header
+
+: need_attr_init_ctor OBJECT IN %S
+//	[{<{}{%CC=Attribute&%C{needs field}!=false}{%CC}>!=0&<{}{%CS=ctor}{%CC}>=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'ctor' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+//	[{<{}{%f_need_attr_init_ctor(%G)=true}{%GC}>!=0}{false}true]}true]
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( [%f] need_attr_init_ctor %( %G )% ) %==  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // else
+
+//[{%f_need_specific_what(%S)=true}{[{%Sa!=abstract&<{}{%f_need_what(%G)=true}{%GC}>=0}{false}true]}true]
+//#UC END# *47022CB8034Bfor470F1AB702CE*
+; // need_attr_init_ctor
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+implementation @ <<Exception>>
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F1AB702CE*
+//	%f_set_var(SERV,S)\
+ [%f] set_var %( 'SERV' %, 'S' )% 
+//	%f_set_var(VISIBILITY,"")\
+ [%f] set_var %( 'VISIBILITY' %, '' )% 
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#class %SN : [{}{public ::Core::Exception}<{, }public %f_type(%G)>] {
+ end // if
+ NOP
+ out_indent 'class '
+ %S |N ' : '
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    'public '
+    [%f] type %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+ else
+ begin
+  'public ::Core::Exception' 
+ end // else
+ ' {'
+//	[%f_exception_operations_h(%S)
+ if NOT-EMPTY
+ begin
+  [%f] exception_operations_h %( %S )% 
+//	][#private:[{<{}{%CC=Attribute&%C{needs field}!=false&%f_attr_has_printf_field(%C)=true}{%CC}>!=0}
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  out_indent 'private:'
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C get_up ( 'needs field' ) ) %!=  false  ) AND 
+     ( ( [%f] attr_has_printf_field %( %C )% ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+   #13#10
+
+//	#	mutable char m_message\[256\];]<{}{%CS!=ctor}[
+   out_indent '	mutable char m_message[256];' 
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'ctor' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//	%CX]>
+     %C |X 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]#};[
+ end // if
+ NOP
+ out_indent '};'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+
+//f _exception_operations_h
+; // h
+
+end. // <<Exception>>
+
+: exception_operations_h OBJECT IN %S
+//	%f_clear_list(PUBLIC)\
+ [%f] clear_list %( 'PUBLIC' )% 
+//	%f_clear_list(PROTECTED)\
+ [%f] clear_list %( 'PROTECTED' )% 
+//	%f_clear_list(PRIVATE)\
+ [%f] clear_list %( 'PRIVATE' )% 
+//	<{}{%CS=ctor}%f_add_to_list(PUBLIC,"%CX")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'ctor' ) then
+  begin
+   [%f] add_to_list %( 'PUBLIC' %, %C |X )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//	[{%f_need_attr_init_ctor(%S)=true&%Sa=abstract}{%f_add_to_list(PUBLIC,"%f_dump_attr_init_ctor_h(%S)")}%f_add_to_list(PROTECTED,"%f_dump_attr_init_ctor_h(%S)")]\
+ if ( ( [%f] need_attr_init_ctor %( %S )% ) %==  true AND 
+   ( ( %S |a ) %== 'abstract'  ) ) then
+ begin
+  [%f] add_to_list %( 'PROTECTED' %, [%f] dump_attr_init_ctor_h %( %S )% )% 
+ end // if
+ else
+ begin
+  [%f] add_to_list %( 'PUBLIC' %, [%f] dump_attr_init_ctor_h %( %S )% )% 
+ end // else
+//	[{<{}{%CC=Attribute&%C{needs field}!=false}{%CC}>!=0}%f_add_to_list(PUBLIC,"#	virtual ~%SN () throw ();")]\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  [%f] add_to_list %( 'PUBLIC' %, out_indent '	virtual ~'
+  %S |N ' () throw ();' )% 
+ end // if
+//	[{%f_need_what(%S)=true}%f_add_to_list(PUBLIC,"#	const char* what () const throw ();")]\
+ if ( ( [%f] need_what %( %S )% ) %==  true ) then
+ begin
+  [%f] add_to_list %( 'PUBLIC' %, out_indent '	const char* what () const throw ();' )% 
+ end // if
+//	[{%Sa!=abstract}%f_add_to_list(PRIVATE,"#	const char* uid () const /*throw ()*/;")]\
+ if ( ( %S |a ) %!= 'abstract' ) then
+ begin
+  [%f] add_to_list %( 'PRIVATE' %, out_indent '	const char* uid () const /*throw ()*/;' )% 
+ end // if
+//	[#public:
+ if NOT-EMPTY
+ begin
+  out_indent 'public:'
+//	<{\n\n}{%f_is_empty(PUBLIC)=false}{W}[%f_pop_first_to_var(PUBLIC,OP)%{OP}N]>
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'PUBLIC' )% ) %==  false ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10#13#10 )
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'PUBLIC' %, 'OP' )% ( get_global_var ( 'OP' ) |N ) 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	
+  #13#10
+
+//	][#protected:
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  out_indent 'protected:'
+//	<{\n\n}{%f_is_empty(PROTECTED)=false}{W}[%f_pop_first_to_var(PROTECTED,OP)%{OP}N]>
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'PROTECTED' )% ) %==  false ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10#13#10 )
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'PROTECTED' %, 'OP' )% ( get_global_var ( 'OP' ) |N ) 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	
+  #13#10
+
+//	][#private:
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  out_indent 'private:'
+//	<{\n\n}{%f_is_empty(PRIVATE)=false}{W}[%f_pop_first_to_var(PRIVATE,OP)%{OP}N]>
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'PRIVATE' )% ) %==  false ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10#13#10 )
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( 'PRIVATE' %, 'OP' )% ( get_global_var ( 'OP' ) |N ) 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	][%f_self_data_accessor(%S)]
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  [%f] self_data_accessor %( %S )% 
+ end // if
+ NOP
+
+//f _update_visibility
+; // exception_operations_h
+
+: update_visibility OBJECT IN %S
+//	[{%{VISIBILITY}N!=%1N}%f_set_var(VISIBILITY,"%1N")%{VISIBILITY}N]
+ if ( ( ( get_global_var ( 'VISIBILITY' ) |N ) ) %!= ( %1 |N ) ) then
+ begin
+  [%f] set_var %( 'VISIBILITY' %, %1 |N )% ( get_global_var ( 'VISIBILITY' ) |N ) 
+ end // if
+
+//#UC END# *47022C88029Ffor470F1AB702CE*
+; // update_visibility
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+implementation @ <<Exception>>
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F1AB702CE*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#exception %SN {<
+ out_indent 'exception '
+ %S |N ' {'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   #13#10
+
+//	%CX>
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	#};
+ out_indent '};'
+//#UC END# *47022BBE0261for470F1AB702CE*
+; // idl
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F1AB702CE*
+//R  
+//	[{%SV!=PublicAccess}%f_with_gen_id(intf.pas,%S%f_pas_OutClassInterface())]\
+ if ( ( %S |V ) %!= 'PublicAccess' ) then
+ begin
+  [%f] with_gen_id %( 'intf.pas' %, %S %f pas_OutClassInterface %( )% )% 
+ end // if
+//	%f_pas_OutClassImplementation(%S)
+ [%f] pas_OutClassImplementation %( %S )% 
+//#UC END# *470F15B800CBfor470F1AB702CE*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F1AB702CE*
+//R  
+//	[{%SV=PublicAccess}%S%f_pas_OutClassInterface()]
+ if ( ( %S |V ) %== 'PublicAccess' ) then
+ begin
+  %S %f pas_OutClassInterface %( )% 
+ end // if
+//#UC END# *470F1571031Cfor470F1AB702CE*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F1AB702CE*
+//S class %SN;
+//O [{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false}%SN.java]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_is_server_type(%S)=false}[{%t_nested_scope_def(%P)=false}\
+ if ( ( [%f] is_server_type %( %S )% ) %==  false ) then
+ begin
+  if ( ( [%t] nested_scope_def %( %P )% ) %==  false ) then
+  begin
+//	%f_header(%S)
+   [%f] header %( %S )% 
+//	%f_set_var(SERVANT,S)package %f_dump_java_package(%S);
+   [%f] set_var %( 'SERVANT' %, 'S' )% 'package '
+   [%f] dump_java_package %( %S )% ';'
+//	[
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	%f_java_dump_import_block(%S)
+    [%f] java_dump_import_block %( %S )% 
+//	]
+   end // if
+   NOP
+//	]#%t_visibility(%S,"%XU")[{%t_nested_scope_def(%P)=true}static ]%t_abstract_type(%S)class %SN [{}{extends java.lang.[{%S{is_runtime}=true}Runtime]Exception} extends %f_type(%G)] {
+  end // if
+  out_indent [%t] visibility %( %S %, %X |U )% if ( ( [%t] nested_scope_def %( %P )% ) %==  true ) then
+  begin
+   'static ' 
+  end // if
+  [%t] abstract_type %( %S )% 'class '
+  %S |N ' '
+  if NOT-EMPTY
+  begin
+   ' extends '
+   [%f] type %( %G )% 
+  end // if
+  NOP
+  else
+  begin
+   'extends java.lang.'
+   if ( ( %S get_up ( 'is_runtime' ) ) %==  true ) then
+   begin
+    'Runtime' 
+   end // if
+   'Exception' 
+  end // else
+  ' {'
+//	%f_set_var(SERV,S)
+  [%f] set_var %( 'SERV' %, 'S' )% 
+//	#	%t_visibility(%S,"%XU")%SN ([{%Sa=abstract}String message]) {
+  out_indent '	'
+  [%t] visibility %( %S %, %X |U )% %S |N ' ('
+  if ( ( %S |a ) %== 'abstract' ) then
+  begin
+   'String message' 
+  end // if
+  ') {'
+//	#		super ([{%Sa!=abstract}{message}"%f_exception_what(%S)"]);[{<{}{%CC=Attribute&%C{needs field}!=false}{%CC}>!=0}
+  out_indent '		super ('
+  if ( ( %S |a ) %!= 'abstract' ) then
+  begin
+   [%f] exception_what %( %S )% 
+  end // if
+  else
+  begin
+   'message' 
+  end // else
+  ');'
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+   #13#10
+
+//	#		%U[{_INIT_CTOR}
+   out_indent '		'
+   %Usersection (
+    '_INIT_CTOR' 
+   )
+   (
+    #13#10
+
+//	#		]]
+    out_indent '		' 
+   ) // Usersection
+   end // if
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	#	%t_visibility(%S,"%XU")%SN ([{%Sa=abstract}String message, ]java.lang.Throwable cause) {
+  out_indent '	'
+  [%t] visibility %( %S %, %X |U )% %S |N ' ('
+  if ( ( %S |a ) %== 'abstract' ) then
+  begin
+   'String message, ' 
+  end // if
+  'java.lang.Throwable cause) {'
+//	#		super ([{%Sa!=abstract}{message}"%f_exception_what(%S)"], cause);[{<{}{%CC=Attribute&%C{needs field}!=false}{%CC}>!=0}
+  out_indent '		super ('
+  if ( ( %S |a ) %!= 'abstract' ) then
+  begin
+   [%f] exception_what %( %S )% 
+  end // if
+  else
+  begin
+   'message' 
+  end // else
+  ', cause);'
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+   #13#10
+
+//	#		%U[{_CAUSE_INIT_CTOR}
+   out_indent '		'
+   %Usersection (
+    '_CAUSE_INIT_CTOR' 
+   )
+   (
+    #13#10
+
+//	#		]]
+    out_indent '		' 
+   ) // Usersection
+   end // if
+//	#	}[{%f_need_attr_init_ctor(%S)=true}
+  out_indent '	}'
+  if ( ( [%f] need_attr_init_ctor %( %S )% ) %==  true ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	#	%f_attr_init_ctor_header_java(%S) {
+   out_indent '	'
+   [%f] attr_init_ctor_header_java %( %S )% ' {'
+//	%f_dump_attr_init_ctor_init_block_java(%S)
+   [%f] dump_attr_init_ctor_init_block_java %( %S )% 
+//	#	}
+   out_indent '	}'
+//	][{<{}{%t_is_accessor(%C)=true&%C{needs field}!=false}{%CC}>!=0|%S{force what}=true}
+  end // if
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( [%t] is_accessor %( %C )% ) %==  true AND 
+     ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 OR 
+    ( ( %S get_up ( 'force what' ) ) %==  true  ) ) then
+  begin
+   #13#10
+
+//	#	public String getMessage () {
+   out_indent '	public String getMessage () {'
+//	#		%U[{_GET_MESSAGE}
+   out_indent '		'
+   %Usersection (
+    '_GET_MESSAGE' 
+   )
+   (
+    #13#10
+
+//	#		[{<{}{%CC=Attribute&%C{needs field}!=false}{%CC}>!=0}{return super.getMessage ();}return %f_specfic_message_java(%S);]
+    out_indent '		'
+    if ( 
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Attribute' AND 
+       ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for C
+     l_Counter
+     %!= 0 ) then
+    begin
+     'return '
+     [%f] specfic_message_java %( %S )% ';' 
+    end // if
+    else
+    begin
+     'return super.getMessage ();' 
+    end // else
+//	#		]
+    out_indent '		' 
+   ) // Usersection
+ //	#	}][<{}{%CS=ctor}
+   out_indent '	}' 
+  end // if
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'ctor' ) then
+    begin
+     #13#10
+
+//	%CX
+     %C |X 
+//	>]%f_self_data_accessor(%S)[<{}{%CS!=ctor}
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  [%f] self_data_accessor %( %S )% if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'ctor' ) then
+    begin
+     #13#10
+
+//	%CX>
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+//	]
+  end // if
+  NOP
+//	#} // %SN[{%t_nested_scope_def(%P)=false}
+  out_indent '} // '
+  %S |N if ( ( [%t] nested_scope_def %( %P )% ) %==  false ) then
+  begin
+   #13#10
+
+//	%f_footer(%S)
+   [%f] footer %( %S )% 
+//	]]
+  end // if
+ end // if
+
+
+//f _specfic_message_java
+; // java
+
+end. // <<Exception>>
+
+: specfic_message_java OBJECT IN %S
+//	"%f_exception_what(%S)"<{}{%CC=Attribute&%C{needs field}!=false} + ", %CN=" + %f_to_java(%CN)_>
+ '"'
+ [%f] exception_what %( %S )% '"'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Attribute' AND 
+   ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+  begin
+   ' + ", '
+   %C |N '=" + '
+   [%f] to_java %( %C |N )% '_' 
+   ++! l_Counter
+  end // if
+ end // for C
+
+//f _dump_attr_init_ctor_init_block_java
+; // specfic_message_java
+
+: dump_attr_init_ctor_init_block_java OBJECT IN %S
+//	%f_set_var(HAS_SUPER,"false")\
+ [%f] set_var %( 'HAS_SUPER' %, false )% 
+//	#		%U[{_BODY}
+ out_indent '		'
+ %Usersection (
+  '_BODY' 
+ )
+ (
+  #13#10
+
+//	<{}{%f_need_attr_init_ctor(%G)=true}%f_set_var(HAS_SUPER,"true")#		super (%G<{, }{%CC=Attribute&%C{needs field}!=false}%f_to_java(%CN)>);
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( [%f] need_attr_init_ctor %( %G )% ) %==  true ) then
+   begin
+    [%f] set_var %( 'HAS_SUPER' %, true )% out_indent '		super ('
+    %G
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Attribute' AND 
+       ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       [%f] to_java %( %C |N )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+     ');'
+//	>[{%{HAS_SUPER}N=false}#		super ("%f_exception_what(%S)"<{}{%CC=Attribute&%C{needs field}!=false} + ", %CN=" + %f_to_java(%CN)>);
+
+    ++! l_Counter
+   end // if
+  end // for G
+  if ( ( ( get_global_var ( 'HAS_SUPER' ) |N ) ) %==  false ) then
+  begin
+   out_indent '		super ("'
+   [%f] exception_what %( %S )% 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+    begin
+     ' + ", '
+     %C |N '=" + '
+     [%f] to_java %( %C |N )% 
+     ++! l_Counter
+    end // if
+   end // for C
+   ');'
+//	]<{}{%CC=Attribute&%C{needs field}!=false}#		%f_to_java(%CN)_ = %f_to_java(%CN);
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+   begin
+    out_indent '		'
+    [%f] to_java %( %C |N )% '_ = '
+    [%f] to_java %( %C |N )% ';'
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	#		]
+  out_indent '		' 
+ ) // Usersection
+ 
+//f _attr_init_ctor_header_java
+; // dump_attr_init_ctor_init_block_java
+
+: attr_init_ctor_header_java OBJECT IN %S
+//	%f_set_var(NEED_COMMA,"false")\
+ [%f] set_var %( 'NEED_COMMA' %, false )% 
+//	public %SN (<{, }{%CC=Attribute&%C{needs field}!=false}%t_arg(%C%T,"in",%C) %f_to_java(%CN)%f_set_var(NEED_COMMA,"true")>\
+ 'public '
+ %S |N ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Attribute' AND 
+   ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%t] arg %( %C ->T  %, 'in"' %, %C )% ' '
+   [%f] to_java %( %C |N )% [%f] set_var %( 'NEED_COMMA' %, true )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<%G<{}{%CC=Attribute&%C{needs field}!=false}[{%{NEED_COMMA}N=true}{%f_set_var(NEED_COMMA,"true")}, ]%t_arg(%C%T,"in",%C) %f_to_java(%CN)>>)%f_set_var(NEED_COMMA,"false")
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+   %G
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' AND 
+      ( ( %C get_up ( 'needs field' ) ) %!=  false  ) ) then
+     begin
+      if ( ( ( get_global_var ( 'NEED_COMMA' ) |N ) ) %==  true ) then
+      begin
+       ', ' 
+      end // if
+      else
+      begin
+       [%f] set_var %( 'NEED_COMMA' %, true )% 
+      end // else
+      [%t] arg %( %C ->T  %, 'in"' %, %C )% ' '
+      [%f] to_java %( %C |N )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for G
+ ')'
+ [%f] set_var %( 'NEED_COMMA' %, false )% 
+
+//#UC END# *470321950119for470F1AB702CE*
+; // attr_init_ctor_header_java
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+implementation @ <<Exception>>
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F1AB702CE*
+//	[%f_pas_OpenType(%S)\n]\
+ if NOT-EMPTY
+ begin
+  [%f] pas_OpenType %( %S )% #13#10 
+ end // if
+ NOP
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	%f_type(%S) = class (Exception);
+ [%f] type %( %S )% ' = class (Exception);'
+//#UC END# *470F152700FAfor470F1AB702CE*
+; // pas
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for470F1AB702CE*
+//	<%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%S%f_DoSpell()
+ %S %f DoSpell %( )% 
+//#UC END# *4A41A13D03D5for470F1AB702CE*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Exception::Class::ctor::Operation
+end. // <<Exception>>
+
+implementation @ :: <<Exception>> <<ctor>> ;
+//? Конструктор
+//? Конструктор объектов класса-исключения
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//v +#
+// - типы видимости
+//a r
+// - тип абстракции
+//Y code_factory.gif
+//L code_factory
+//T 
+// - может не иметь "цели" (типа/результата)
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+
+// Пользовательские свойства
+//p debug log:b=false ? включает генерацию вывода в лог обращений данному методу
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F1B49030D*
+//#UC END# *47022BBE0261for470F1B49030D*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F1B49030D*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#%PN (<{, }%f_arg_full_decl(%C)>);
+ out_indent %P |N ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] arg_full_decl %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ');'
+//#UC END# *47022C88029Ffor470F1B49030D*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F1B49030D*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	%f_function_scope(%P)%PN (<{, }%f_arg_full_decl(%C)>)[
+ [%f] function_scope %( %P )% %P |N ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] arg_full_decl %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ')'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	 : %P<{, }{"%CI"!=""}m_%CN (%CI)>]
+  ' : '
+  %P
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |I ) %!= '' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     'm_'
+     %C |N ' ('
+     %C |I ')' 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+  end // if
+ NOP
+//	%U[{_BASE_INIT[{"%{SERV}U"!="%PU"}_%{SERV}U]}
+ %Usersection (
+  '_BASE_INIT'
+  if ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) then
+  begin
+   '_'
+   ( get_global_var ( 'SERV' ) |U ) 
+  end // if
+
+ )
+ (
+  #13#10
+
+//	]
+
+ ) // Usersection
+ //	{%f_start_func_cpp(%S,"%PN::%PN")
+ '{'
+ [%f] start_func_cpp %( %S %, %P |N '::'
+ %P |N )% 
+//		%U[{_BODY[{"%{SERV}U"!="%PU"}_%{SERV}U]}
+ '	'
+ %Usersection (
+  '_BODY'
+  if ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) then
+  begin
+   '_'
+   ( get_global_var ( 'SERV' ) |U ) 
+  end // if
+
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //	%f_end_func_cpp(%S)}
+ [%f] end_func_cpp %( %S )% '}'
+//#UC END# *47022CB8034Bfor470F1B49030D*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F1B49030D*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#%t_visibility(%S,"%XU")%{SERV}N (<{, }%f_arg_full_decl(%C)>) {%f_start_func_cpp(%S,"%PN")
+ out_indent [%t] visibility %( %S %, %X |U )% ( get_global_var ( 'SERV' ) |N ) ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   [%f] arg_full_decl %( %C )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ') {'
+ [%f] start_func_cpp %( %S %, %P |N )% 
+//	#	%U[{_BODY[{"%{SERV}U"!="%PU"}_%{SERV}U]}
+ out_indent '	'
+ %Usersection (
+  '_BODY'
+  if ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) then
+  begin
+   '_'
+   ( get_global_var ( 'SERV' ) |U ) 
+  end // if
+
+ )
+ (
+  #13#10
+
+//	#	]
+  out_indent '	' 
+ ) // Usersection
+ //	#%f_end_func_cpp(%S)}
+ out_indent [%f] end_func_cpp %( %S )% '}'
+//#UC END# *470321950119for470F1B49030D*
+; // java
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F1B49030D*
+//#UC END# *470F152700FAfor470F1B49030D*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F1B49030D*
+//R  
+//	%S%f_pas_MethodInterface()
+ %S %f pas_MethodInterface %( )% 
+//#UC END# *470F1571031Cfor470F1B49030D*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F1B49030D*
+//R  
+//	%S%f_pas_MethodImplementation()
+ %S %f pas_MethodImplementation %( )% 
+//#UC END# *470F15B800CBfor470F1B49030D*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений данному методу
+ ?inherited
+ if ( ( %S get_up ( 'debug log' ) ) %!= ( %S get_up_def ( 'debug log' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *debug log* = *'
+  %S get_up ( 'debug log' ) '* - включает генерацию вывода в лог обращений данному методу'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // wiki_up_print
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470F1B49030D*
+//	mng
+ 'mng'
+//#UC END# *4705CBD6003Efor470F1B49030D*
+; // wiki_child_kind
+
+
+//: Exception::Class::Attribute
+end. // :: <<Exception>> <<ctor>> ;
+
+implementation @ :: <<Exception>> <<Attribute>> ;
+//? атрибут исключения
+//= ClassBase::Class::Attribute
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//v -
+// - типы видимости
+//Y code_attr.gif
+//L code_attr
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F1B890000*
+//	#[{"%SS"="sequence"}{%T<%NN::>%TN}sequence \<%T<%NN::>%TN\>] %SN;[ // %f_str_replace(%SD,\n,%f_space(%S))]
+ out_indent if ( ( %S |S ) %== 'sequence' ) then
+ begin
+  'sequence <'
+  %T
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%N
+   begin
+    OBJECT IN %N
+    if true then
+    begin
+     %N |N '::' 
+     ++! l_Counter
+    end // if
+   end // for N
+
+  ) // bind
+   %T |N '>' 
+ end // if
+ else
+ begin
+  %T
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%N
+   begin
+    OBJECT IN %N
+    if true then
+    begin
+     %N |N '::' 
+     ++! l_Counter
+    end // if
+   end // for N
+
+  ) // bind
+   %T |N 
+ end // else
+ ' '
+ %S |N ';'
+ if NOT-EMPTY
+ begin
+  ' // '
+  [%f] str_replace %( %S |D %, #13#10 %, [%f] space %( %S )% )% 
+ end // if
+ NOP
+//#UC END# *47022BBE0261for470F1B890000*
+; // idl
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[ClassBase::Class::Attribute]f_wiki_up_print()
+ call-inherited:: 'ClassBase::Attribute' wiki_up_print %( )%
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F1B890000*
+//c                              {}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+//#UC END# *4704C0E30186for470F1B890000*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor470F1B890000*
+//	%S%[ClassBase::Class::Attribute]f_DoSpell()
+ call-inherited:: 'ClassBase::Attribute' DoSpell %( )%
+//#UC END# *4B2A19E3038Bfor470F1B890000*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это свойство.
+//%f _IsProp
+: IsProp OBJECT IN %S
+//#UC START# *493D2D510282for470F1B890000*
+//	false
+ false
+//#UC END# *493D2D510282for470F1B890000*
+; // IsProp
+
+
+//: Exception::Class::sequence::Attribute
+end. // :: <<Exception>> <<Attribute>> ;
+
+implementation @ :: <<Exception>> <<sequence>> ;
+//? Атрибут-массив
+//? Определяет атрибут как неограниченный массив элементов заданного типа
+//= Exception::Class::Attribute
+
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_sequence_attr.gif
+//L code_sequence_attr
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: Exception::Class::property::Attribute
+; // st_space_key
+
+end. // :: <<Exception>> <<sequence>> ;
+
+implementation @ :: <<Exception>> <<property>> ;
+//? Свойство исключения.
+//= ClassBase::Class::property::Attribute
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for4787A55D00FD*
+//#UC END# *47022BBE0261for4787A55D00FD*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for4787A55D00FD*
+//#UC END# *47022C0F01E4for4787A55D00FD*
+; // idl_ami
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor4787A55D00FD*
+//#UC END# *47032EC4032Cfor4787A55D00FD*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor4787A55D00FD*
+//#UC END# *47032ED002DEfor4787A55D00FD*
+; // dll.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor4787A55D00FD*
+//#UC END# *470F152700FAfor4787A55D00FD*
+; // pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[ClassBase::Class::property::Attribute]f_wiki_up_print()
+ call-inherited:: 'ClassBase::property::Attribute' wiki_up_print %( )%
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // wiki_up_print
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4787A55D00FD*
+//	%S%[ClassBase::Class::property::Attribute]f_DoSpell()
+ call-inherited:: 'ClassBase::property::Attribute' DoSpell %( )%
+//#UC END# *4B2A19E3038Bfor4787A55D00FD*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это свойство.
+//%f _IsProp
+: IsProp OBJECT IN %S
+//#UC START# *493D2D510282for4787A55D00FD*
+//	true
+ true
+//#UC END# *493D2D510282for4787A55D00FD*
+; // IsProp
+
+
+//: Exception::Class::readonly::Attribute
+end. // :: <<Exception>> <<property>> ;
+
+implementation @ :: <<Exception>> <<readonly>> ;
+//? readonly свойство исключения
+//= ClassBase::Class::readonly::Attribute
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+//%f _IsReadOnlyProp
+; // st_space_key
+
+: IsReadOnlyProp OBJECT IN %S
+//#UC START# *4948F9190291for4787A67F030D*
+//	true
+ true
+//#UC END# *4948F9190291for4787A67F030D*
+; // IsReadOnlyProp
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+//%f _IsWriteOnlyProp
+: IsWriteOnlyProp OBJECT IN %S
+//#UC START# *4948F93D038Afor4787A67F030D*
+//	false
+ false
+//#UC END# *4948F93D038Afor4787A67F030D*
+; // IsWriteOnlyProp
+
+
+//: Exception::Class::writeonly::Attribute
+end. // :: <<Exception>> <<readonly>> ;
+
+implementation @ :: <<Exception>> <<writeonly>> ;
+//? writeonly свойство исключения
+//= ClassBase::Class::writeonly::Attribute
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+//%f _IsReadOnlyProp
+; // st_space_key
+
+: IsReadOnlyProp OBJECT IN %S
+//#UC START# *4948F9190291for4787A6A0002B*
+//	false
+ false
+//#UC END# *4948F9190291for4787A6A0002B*
+; // IsReadOnlyProp
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+//%f _IsWriteOnlyProp
+: IsWriteOnlyProp OBJECT IN %S
+//#UC START# *4948F93D038Afor4787A6A0002B*
+//	true
+ true
+//#UC END# *4948F93D038Afor4787A6A0002B*
+; // IsWriteOnlyProp
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Exception>> <<writeonly>> ;
+

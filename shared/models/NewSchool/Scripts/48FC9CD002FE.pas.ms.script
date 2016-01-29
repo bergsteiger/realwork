@@ -1,0 +1,116 @@
+// l3LockedChangePrim 48FC9CD002FE Impurity Class
+
+INCLUDE '4A5CC1A80100.pas.ms.script'
+
+INCLUDE '4A5CBFAB03AF.pas.ms.script'
+
+FORWARD ME_48FC9CD002FE
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_48FC9D1101DC
+ CONST UID '48FC9D1101DC'
+ CONST Name 'ChangeCount'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_48FC9D1101DC ChangeCount
+
+: ME_8A7E5D3767BC
+ CONST UID '8A7E5D3767BC'
+ CONST Name 'f_ChangeCount'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства ChangeCount' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_8A7E5D3767BC f_ChangeCount
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_48FC9D1F016E
+ CONST UID '48FC9D1F016E'
+ CONST Name 'FireChanging'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_48FC9D1F016E FireChanging
+
+: ME_48FC9D300237
+ CONST UID '48FC9D300237'
+ CONST Name 'FireChanged'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_48FC9D300237 FireChanged
+
+: ME_48FC9D5E0310
+ CONST UID '48FC9D5E0310'
+ CONST Name 'IsChanging'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_48FC9D5E0310 IsChanging
+
+: ME_48FC9CD002FE
+ CONST UID '48FC9CD002FE'
+ CONST Name 'l3LockedChangePrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_4A5CC1A80100 // Ml3Changing
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_48FC9D1101DC // ChangeCount
+ ME_8A7E5D3767BC // f_ChangeCount
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_48FC9D1F016E // FireChanging
+ ME_48FC9D300237 // FireChanged
+ ME_48FC9D5E0310 // IsChanging
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_54D9E08D0212 // DoChanged
+ ME_54D9E09D018D // DoChanging
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.10.2005 09:49'
+
+ @SELF
+; // ME_48FC9CD002FE l3LockedChangePrim

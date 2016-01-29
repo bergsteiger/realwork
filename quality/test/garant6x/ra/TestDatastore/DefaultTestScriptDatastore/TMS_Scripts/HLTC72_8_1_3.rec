@@ -1,0 +1,47 @@
+'$Include "global.sbl"
+Dim ListArray(1 to 8) as String
+Sub FillArray
+    ListArray(1)="Протокол к Соглашению об обеспечении"
+    ListArray(2)="Соглашение об обеспечении радиолокационного опознавания воздушных"
+    ListArray(3)="Воздушный кодекс РФ от 19 марта 1997 г. N 60-ФЗ"
+    ListArray(4)="Земельный кодекс Российской Федерации от 25 октября 2001 г"
+    ListArray(5)="Федеральный закон от 26 мая 1997 г. N 85-ФЗ"
+    ListArray(6)="Федеральный закон от 23 июня 1995 г. N 93-ФЗ"
+    ListArray(7)="Закон РСФСР от 19 декабря 1991 г. N 2060-I"
+    ListArray(8)="Программа действий Российской Федерации и Республики Беларусь"
+                   
+end sub
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    call FillArray
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=66,9"
+    GenericObject Click, "Text=Документы", "Coords=59,11"
+    ListBox Click, "ObjectIndex=4", "Coords=146,364"
+    ListBox Click, "ObjectIndex=4", "Coords=120,12"
+    InputKeys "{HOME}"
+    'сортировка по дате
+    
+    ComboBox Click, "ObjectIndex=2", "Coords=124,14"
+    
+    Window SetContext, "Class=TSubTree", "Activate=0"
+    Window Click, "", "Coords=94,5"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""   
+   ' call Click_ChangeDirection
+    ListBox Click, "ObjectIndex=5", "Coords=9,26"
+    
+    
+    InputKeys "{HOME}"
+    Dim ItemCount%,i%
+    Dim CurrText$
+    SQAGetProperty "CurrentFocus","ItemCount",ItemCount
+    call CheckItemNames(ListArray,"{DOWN}",0,ItemCount,1)
+    
+    'проверяем
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+
+End Sub

@@ -1,0 +1,954 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "HttpProxy"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/HttpProxy|49B8BB930171
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"name"
+	    value      	"HttpProxy package")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"vendor name"
+	    value      	"ÎÎÎ ÍÏÏ 'Ãàðàíò-Ñåðâèñ'")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"vendor url"
+	    value      	"www.garant.ru")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19011440545"))
+    quid       	"49B8BB930171"
+    documentation 	"ïàêåò, ñîäåðæàùèé êëàññû äëÿ ïðîêñèðîâàíèÿ http çàïðîñîâ ê äðóãèì ñàéòàì"
+    stereotype 	"KPlugins"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49B8BDF50198"
+	    supplier   	"Logical View::external::JavaTypes::javax.servlet.http.impl"
+	    quidu      	"49B8BDA9034B"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ContentGrabber"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/HttpProxy/ContentGrabber.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49B8BE860316_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49B8BE860316_CUSTOM_IMPORT*¤¤import java.net.URL;¤import java.util.LinkedList;¤import java.util.List;¤import java.util.Map;¤¤import org.apache.commons.httpclient.Header;¤import org.apache.commons.httpclient.HttpClient;¤import org.apache.commons.httpclient.HttpStatus;¤import org.apache.commons.httpclient.NameValuePair;¤import org.apache.commons.httpclient.cookie.CookiePolicy;¤import org.apache.commons.httpclient.methods.GetMethod;¤import org.apache.commons.httpclient.methods.PostMethod;¤¤//#UC END# *49B8BE860316_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49B8BE860316_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49B8BE860316_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49B8BE860316_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49B8BE860316_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49B8BE860316_CUSTOM_METHODS_AND_DATA*¤	¤	private static final String DEFAULT_CHARSET = "UTF-8";¤	¤	private URL urlObj_ = null;¤	¤	private HttpClient client_ = null;¤	¤	public ContentGrabber(ContentParameters params) throws Exception {¤		this(params, null);¤	}¤	¤	public ContentGrabber(ContentParameters params, LoginParameters loginParams) throws Exception {¤		try {¤			init(params);¤			boolean login = loginParams != null ? login(loginParams) : true;¤			if (login) {¤				recieveContent(urlObj_.getPath(), params.getParameters());¤			} else {¤				Logs.LOG_W("ContentGrabber::ctor - Login failed!");¤			}¤		} catch (Exception e) {¤			Logs.LOG_E("ContentGrabber::ctor - Error obtaining content from " + params.getUrl() + ": " + e);¤			throw e;¤		}¤	}¤	¤	private void init (ContentParameters params) throws Exception {¤		urlObj_ = new URL(params.getUrl());¤¤		client_ = new HttpClient();¤		client_.getHostConfiguration().setHost(urlObj_.getHost(), urlObj_.getPort(), urlObj_.getProtocol());¤		client_.getParams().setCookiePolicy(CookiePolicy.BROWSER_COMPATIBILITY);¤		client_.getParams().setContentCharset(DEFAULT_CHARSET);¤	}¤	¤	private boolean login (LoginParameters loginParams) throws Exception {¤		PostMethod authPost = new PostMethod(loginParams.getFormPath());¤		authPost.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=" + DEFAULT_CHARSET);¤		authPost.addParameters(createMethodParameters(loginParams.getParameters()));¤		¤		try {¤			client_.executeMethod(authPost);¤		} finally {¤			authPost.releaseConnection();¤		}¤		¤		int statusCode = authPost.getStatusCode();¤		return statusCode == HttpStatus.SC_MOVED_TEMPORARILY¤				|| statusCode == HttpStatus.SC_MOVED_PERMANENTLY¤				|| statusCode == HttpStatus.SC_SEE_OTHER¤				|| statusCode == HttpStatus.SC_TEMPORARY_REDIRECT;¤	}¤	¤	private void recieveContent (String url, Map<String, List<String>> params) throws Exception {¤		GetMethod redirect = new GetMethod(url);¤		redirect.setQueryString(createMethodParameters(params));¤¤		try {¤			client_.executeMethod(redirect);¤			content_ = redirect.getResponseBodyAsString();¤		} finally {¤			redirect.releaseConnection();¤		}¤		¤		Header contentTypeHeader = redirect.getResponseHeader("content-type");¤		if (contentTypeHeader != null) {¤			contentType_ = contentTypeHeader.getValue();¤		}¤¤		Header contentLengthHeader = redirect.getResponseHeader("content-length");¤		if (contentLengthHeader != null) {¤			contentLength_ = Integer.parseInt(contentLengthHeader.getValue());¤		}¤	}¤	¤	private NameValuePair[] createMethodParameters (Map<String, List<String>> parameters) {¤		List<NameValuePair> params = new LinkedList<NameValuePair>();¤		for (Map.Entry<String, List<String>> entry : parameters.entrySet()) {¤			for (String value : entry.getValue()) {¤				params.add(new NameValuePair(entry.getKey(), value));¤			}¤		}¤		return params.toArray(new NameValuePair[params.size()]);¤	}¤	¤	//#UC END# *49B8BE860316_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/HttpProxy/ContentGrabber|49B8BE860316
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038703119"))
+	    quid       	"49B8BE860316"
+	    documentation 	"îòâå÷àåò çà ïîëó÷åíèå îòâåòà îò óäàëåííîãî ñåðâåðà ïî êîíêðåðíîìó URL"
+	    stereotype 	"SimpleClass"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011460604"))
+		    quid       	"4A2E5F500155"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::HttpProxy::LoginParameters"
+		    quidu      	"4A2E5F1501C3")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011461035"))
+		    quid       	"4A2E63DB028B"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::HttpProxy::ContentParameters"
+		    quidu      	"4A2E63AE0158"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "content"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49B8C0730372_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49B8C0730372_GET_ACCESSOR*¤		return content_;¤		//#UC END# *49B8C0730372_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011459479"))
+		    quid       	"49B8C0730372"
+		    documentation 	"êîíòåíò îòâåòà"
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "content_type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49B8C0B600E7_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49B8C0B600E7_GET_ACCESSOR*¤		return contentType_;¤		//#UC END# *49B8C0B600E7_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011459844"))
+		    quid       	"49B8C0B600E7"
+		    documentation 	"òèï êîíòåíòà"
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "content_length"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49B8C1210110_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *49B8C1210110_GET_ACCESSOR*¤		return contentLength_;¤		//#UC END# *49B8C1210110_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011460205"))
+		    quid       	"49B8C1210110"
+		    documentation 	"äëèííà îòâåòà"
+		    stereotype 	"readonly"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ProxyServlet"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need assign op"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need copy ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need ref count"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need objcounter"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no hands"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"non virtual base"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/HttpProxy/ProxyServlet.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49B8C1590155_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49B8C1590155_CUSTOM_IMPORT*¤¤import java.io.IOException;¤import java.util.HashMap;¤import java.util.List;¤import java.util.Map;¤¤import javax.servlet.ServletException;¤¤import javax.servlet.http.HttpServletRequest;¤import javax.servlet.http.HttpServletResponse;¤¤import java.util.Arrays;¤¤//#UC END# *49B8C1590155_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49B8C1590155_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49B8C1590155_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49B8C1590155_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49B8C1590155_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49B8C1590155_CUSTOM_METHODS_AND_DATA*¤	¤	public static final String TARGET_URL = ".targetUrl.";¤	¤	@Override¤	protected void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException,¤			IOException {¤¤		String targetUrl = request.getParameter(TARGET_URL);¤		if (targetUrl == null) {¤			throw new ServletException("the " + TARGET_URL + " parameter must be provided");¤		}¤¤		Map<String, String[]> sourceParams = request.getParameterMap();¤		Map<String, List<String>> params = new HashMap<String, List<String>>();¤		for (Map.Entry<String, String[]> param : sourceParams.entrySet()) {¤			params.put(param.getKey(), Arrays.asList(param.getValue()));¤		}¤		params.remove(TARGET_URL);¤		¤		try {¤			ContentGrabber grabber = new ContentGrabber(new ContentParameters(targetUrl, params));¤			if (grabber.getContentType() != null) {¤				response.setContentType(grabber.getContentType());¤			}¤			response.setContentLength(grabber.getContentLength());¤			response.getWriter().print(grabber.getContent());¤		} catch (Exception e) {¤			Logs.LOG_E("ProxyServlet::doGet - can't get content by url: '" + targetUrl + "'");¤			throw new ServletException(e);¤		}¤	}¤	¤	//#UC END# *49B8C1590155_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/HttpProxy/ProxyServlet|49B8C1590155
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038705425"))
+	    quid       	"49B8C1590155"
+	    documentation 	"ñïåöèàëüíûé ñåðâëåò, ïåðåàäðåñóþùèé çàïðîñû ê äðóãèì ñàéòàì è ïîëó÷àþùèé îò íèõ îòâåòû"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"49B8C1880061"
+		    supplier   	"Logical View::external::JavaTypes::javax.servlet.http.impl::HttpServlet"
+		    quidu      	"49B8BDC202B2"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011461941"))
+		    quid       	"49B8C19C0232"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::HttpProxy::ContentGrabber"
+		    quidu      	"49B8BE860316"))
+	    language   	"MDA Generator")
+	(object Class "LoginParameters"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/HttpProxy/LoginParameters.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/HttpProxy/LoginParameters|4A2E5F1501C3
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E5F1501C3_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A2E5F1501C3_CUSTOM_IMPORT*¤¤import java.util.List;¤import java.util.Map;¤¤//#UC END# *4A2E5F1501C3_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E5F1501C3_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A2E5F1501C3_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4A2E5F1501C3_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E5F1501C3_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A2E5F1501C3_CUSTOM_METHODS_AND_DATA*¤	¤	private String formPath_;¤¤	public String getFormPath () {¤		return formPath_;¤	}¤¤	public LoginParameters(String formPath, Map<String, List<String>> params) {¤		super(params);¤		formPath_ = formPath;¤	}¤	¤	//#UC END# *4A2E5F1501C3_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027526441"))
+	    quid       	"4A2E5F1501C3"
+	    documentation 	"îïðåäåëÿåò ïàðàìåòðû ôîðìû äëÿ îñóùåñòâåíèÿ ëîãèíà ïåðåä ïîëó÷åíèåì êîíòåíòà"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A2E641E03AF"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::HttpProxy::AbstractContentParameters"
+		    quidu      	"4A2E640A014D"))
+	    language   	"MDA Generator")
+	(object Class "ContentParameters"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/HttpProxy/ContentParameters.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/HttpProxy/ContentParameters|4A2E63AE0158
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E63AE0158_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A2E63AE0158_CUSTOM_IMPORT*¤¤import java.util.List;¤import java.util.Map;¤¤//#UC END# *4A2E63AE0158_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E63AE0158_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A2E63AE0158_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4A2E63AE0158_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E63AE0158_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A2E63AE0158_CUSTOM_METHODS_AND_DATA*¤	¤	private String url_;¤¤	public String getUrl () {¤		return url_;¤	}¤¤	public ContentParameters(String url, Map<String, List<String>> params) {¤		super(params);¤		url_ = url;¤	}¤	¤	//#UC END# *4A2E63AE0158_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027527611"))
+	    quid       	"4A2E63AE0158"
+	    documentation 	"ñîäåðæèò ïàðàìåòðû ïîëó÷åíèÿ êîíòåíòà"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A2E641D0067"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::HttpProxy::AbstractContentParameters"
+		    quidu      	"4A2E640A014D"))
+	    language   	"MDA Generator")
+	(object Class "AbstractContentParameters"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/HttpProxy/AbstractContentParameters|4A2E640A014D
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/HttpProxy/AbstractContentParameters.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E640A014D_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A2E640A014D_CUSTOM_IMPORT*¤¤import java.util.HashMap;¤import java.util.List;¤import java.util.Map;¤¤//#UC END# *4A2E640A014D_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E640A014D_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A2E640A014D_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4A2E640A014D_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A2E640A014D_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A2E640A014D_CUSTOM_METHODS_AND_DATA*¤	¤	private Map<String, List<String>> params_ = new HashMap<String, List<String>>();¤¤	public Map<String, List<String>> getParameters () {¤		return params_;¤	}¤	¤	protected AbstractContentParameters() {¤	}¤	¤	protected AbstractContentParameters(Map<String, List<String>> params) {¤		params_ = params;¤	}¤	¤	//#UC END# *4A2E640A014D_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027531600"))
+	    quid       	"4A2E640A014D"
+	    documentation 	" äëÿ ðàáîòû ñ ðàçíûìè òèïàìè ôîðì"
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"49B8BCD902EC"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	478
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::HttpProxy::ContentGrabber" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(855, 381)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(504, 272)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	702
+			justify    	0
+			label      	"• ContentGrabber")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(504, 222)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	702
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"49B8BE860316"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(504, 333)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	703
+			justify    	1)
+		    width      	720
+		    height     	342
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::JavaTypes::javax.servlet.http.impl::HttpServlet" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1914, 225)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1713, 197)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"• HttpServlet")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1713, 147)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"49B8BDC202B2"
+		    width      	420
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::HttpProxy::ProxyServlet" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1914, 618)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1741, 589)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	346
+			justify    	0
+			label      	"• ProxyServlet")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1741, 539)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	346
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"49B8C1590155"
+		    width      	364
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @4
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49B8C1880061"
+		    client     	@3
+		    supplier   	@2
+		    vertices   	(list Points
+			(1914, 526)
+			(1914, 315))
+		    line_style 	0)
+		(object UsesView "" @5
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @6
+			Parent_View 	@5
+			location   	(1463, 448)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.547477
+			height     	66
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"49B8C19C0232"
+		    client     	@3
+		    supplier   	@1
+		    vertices   	(list Points
+			(1731, 576)
+			(1215, 460))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::HttpProxy::LoginParameters" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1020, 954)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(815, 924)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"• LoginParameters")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(815, 874)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12842465
+		    quidu      	"4A2E5F1501C3"
+		    width      	428
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @8
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @9
+			Parent_View 	@8
+			location   	(1063, 675)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A2E5F500155"
+		    client     	@1
+		    supplier   	@7
+		    vertices   	(list Points
+			(903, 552)
+			(992, 861))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::HttpProxy::ContentParameters" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(531, 960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(335, 931)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	392
+			justify    	0
+			label      	"ContentParameters")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(335, 881)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	392
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A2E63AE0158"
+		    width      	410
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @11
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @12
+			Parent_View 	@11
+			location   	(775, 769)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A2E63DB028B"
+		    client     	@1
+		    supplier   	@10
+		    vertices   	(list Points
+			(758, 552)
+			(581, 868))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::HttpProxy::AbstractContentParameters" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(816, 1404)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(543, 1375)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	546
+			justify    	0
+			label      	"AbstractContentParameters")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(543, 1325)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	546
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A2E640A014D"
+		    width      	564
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @14
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A2E641D0067"
+		    client     	@10
+		    supplier   	@13
+		    vertices   	(list Points
+			(589, 1051)
+			(756, 1312))
+		    line_style 	0)
+		(object InheritView "" @15
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A2E641E03AF"
+		    client     	@7
+		    supplier   	@13
+		    vertices   	(list Points
+			(977, 1046)
+			(857, 1312))
+		    line_style 	0)))))

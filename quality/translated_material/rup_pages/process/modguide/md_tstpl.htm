@@ -1,0 +1,2625 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Promt98 Translation System-->
+<HTML>
+ 
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Windows-1251">
+<META HTTP-EQUIV="Translator" CONTENT="Promt98 Translation System">  
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+ 
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">  
+<meta name="ProgId" content="FrontPage.Editor.Document">  
+<title> Руководство: План Тестирования</title> 
+<meta http-equiv="Content-Type" content="text/html">  
+  
+<meta name="Microsoft Border" content="rb">  </head> 
+<body>
+<a href="_md_tstpl.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<h2 class="banner"> <a name="Top"></a>Руководство: План
+Тестирования</h2> 
+<p class="banner">Guidelines: Test Plan</p> 
+<div align="center">
+
+<center>  
+<table border="1" width="587" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td width="99" valign="middle" bordercolor="#808080" align="center"> 
+<font face="Arial" size="2"><strong> План Тестирования</strong></font>
+<p>&nbsp;</p>
+  <p>
+<font face="Arial" size="2"><strong><br>
+</strong></font><font face="Arial" size="2"><strong>Test Plan
+    </strong></font></p>
+ </td> 
+<td width="474" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"> <strong>План</strong> 
+  <b>тестирования</b> содержит информацию о цели и
+  задачах тестирования в проекте. Также план
+  тестирования определяет стратегии, которые нужно использовать
+  для реализации и выполнения тестирования, и
+  необходимые ресурсы.
+  <p>The
+    <strong>test plan</strong> contains information about the purpose and goals
+    of testing within the project. Additionally, the test plan identifies the
+    strategies to be used to implement and execute testing, and the resources
+    needed.</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h5> Разделы</h5> 
+ 
+<p> Topics</p> 
+<ul>
+ 
+<li> <a href="#Overview">Краткий обзор</a></li> 
+<li> <a href="#Identifying Requirements for Test">Определение Требований
+  к Тестам</a> 
+<ul>
+ 
+<li> <a href="#Requirements for Functional Tests">Требования к
+  Функциональным Тестам</a></li> 
+<li> <a href="#Requirements for System Performance Tests">Требования
+  к Тестам Производительности</a></li> 
+<li> <a href="#Requirements for Reliability Tests">Требования к
+  Тестам Надежности</a></li> 
+
+</ul>
+</li> 
+<li> <a href="#Assess Risk and Establish Test Priorities">Оцените Риск, и Установите
+  Приоритеты Теста</a> 
+<ul>
+ 
+<li> <a href="#Assess Risk">Оцените Риск</a></li> 
+<li> <a href="#Determine Operational Profile">Определите
+  Функциональный разрез</a></li> 
+<li> <a href="#Establish Test Priority">Установите
+  Приоритеты Теста</a></li> 
+
+</ul>
+</li> 
+<li> <a href="#Test Strategy">Стратегия Теста</a> 
+<ul>
+ 
+<li> <a href="#Type of Test and Objective">Тип Теста и Цель</a></li> 
+<li> <a href="#Test Stage">Стадия Теста</a></li> 
+<li> <a href="#Technique">Техника</a></li> 
+<li> <a href="#Completion Criteria">Критерии Завершения</a></li> 
+<li> <a href="#Special Considerations">Специальные Соображения</a></li> 
+
+</ul>
+</li> 
+
+</ul>
+<ul>
+  <li><a href="#Overview">Overview</a></li>
+  <li><a href="#Identifying Requirements for Test">Identifying Requirements for
+    Tests</a>
+    <ul>
+      <li><a href="#Requirements for Functional Tests">Requirements for
+        Functional Tests</a></li>
+      <li><a href="#Requirements for System Performance Tests">Requirements for
+        Performance Tests</a></li>
+      <li><a href="#Requirements for Reliability Tests">Requirements for
+        Reliability Tests</a></li>
+    </ul>
+  </li>
+  <li><a href="#Assess Risk and Establish Test Priorities">Assess Risk and
+    Establish Test Priorities</a>
+    <ul>
+      <li><a href="#Assess Risk">Assess Risk</a></li>
+      <li><a href="#Determine Operational Profile">Determine Operational Profile</a></li>
+      <li><a href="#Establish Test Priority">Establish Test Priorities</a></li>
+    </ul>
+  </li>
+  <li><a href="#Test Strategy">Test Strategy</a>
+    <ul>
+      <li><a href="#Type of Test and Objective">Type of Test and Objective</a></li>
+      <li><a href="#Test Stage">Test Stage</a></li>
+      <li><a href="#Technique">Technique</a></li>
+      <li><a href="#Completion Criteria">Completion Criteria</a></li>
+      <li><a href="#Special Considerations">Special Considerations</a></li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h3> <a name="Overview">Краткий обзор</a> 
+<map name="FPMap0">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap0" width="26" height="20"> </h3> 
+<p> <a name="Overview">Overview</a> </p> 
+<p>
+Цель тест-плана состоит в том, чтобы свести
+воедино цели тестирования. Очень важно,
+чтобы этот документ был создан как можно
+раньше. Создайте его в первых итерациях
+стадии Разработки,&nbsp;и это не будет очень
+рано. Желательно, чтобы разработка тест-плана
+шла итеративно, с добавлением новых
+разделов по мере доступности информации.
+</p>
+<p>The purpose of the test plan is to communicate the intent of the testing
+activities. It is critical that this document be created as early as possible.
+Generating this artifact early in one of the first iterations of the Elaboration
+phase would not be too early. It may be desirable to develop the test plan
+iteratively, adding sections as the information is available.
+</p>
+<p>Тщательно должно проводиться
+установление четких связей между
+возможностями
+тестирования, стратегиями теста. Эта информация определяет цель и границы
+объема работ теста, что и как будет
+тестировано, и какие ресурсы для этого
+необходимы. Четкое формулирование этой
+информации ускорит обзор, обратную связь, и
+утверждение объема работ теста.
+</p>
+<p>Care should be taken in clearly communicating the scope of testing, the
+requirements for test, the test strategies, and the resource needs. This
+information identifies the purpose and boundaries of the test effort, what will
+be tested, how it will be tested, and what resources are needed for testing.
+Stating this information clearly, will expedite the review, feedback, and
+approval of the test effort.
+</p>
+<p>В начале проекта должен быть создан план
+тестирования, определяющий&nbsp; все предназначенное для проекта
+тестирование, и который называется "Основной
+План Тестирования". По мере планирования
+каждой итерации, создается более точный "План
+Тестирования Итерации" (или несколько планов
+тестирования, упорядоченных по типу теста), содержащий только данные,
+имеющие отношение к итерации&nbsp; (требования для
+теста, стратегии теста, ресурсы, и т.д.).
+Дополнительно эта информация может быть включена в
+<a href="../artifact/ar_itpln.htm">План Итерации</a>, при
+этом последний не станет слишком трудным для
+управления или использования.
+</p>
+<p>&nbsp;&nbsp;At the outset of the project, a test plan identifying the overall intended
+testing for the project should be created, called the &quot;Master Test
+Plan.&quot; As each iteration is planned, a more precise &quot;Iteration Test
+Plan&quot; is created (or several test plans, organized by type of test),
+containing only the data (requirements for test, test strategies, resources,
+etc.) that pertain to the iteration. Alternately, this information may be
+included in the <a href="../artifact/ar_itpln.htm">Iteration Plan</a>, if it
+does not make the iteration plan too difficult to manage or use.&nbsp;
+</p>
+<p>
+Ниже приведены некоторые руководства для лучшего
+определения и передачи требований к тесту, рисков,
+приоритетов и стратегий
+теста.
+</p>
+<p>Below are some guidelines to better identify and communicate the requirements
+for test, test risks and priorities, and test strategies.
+</p>
+<h3> <a name="Identifying Requirements for Test">Определение Требований
+к Тестам</a><map name="FPMap1">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap1" width="26" height="20"> </h3> 
+<p> <a name="Identifying Requirements for Test">Identifying Requirements for
+Test</a> </p> 
+<p>
+Требования к тесту определяют то, что будет
+тестировано. Они являются особой целью
+теста. Имеется несколько общих правил,
+которые необходимо применять при выявлении
+требований для теста:<p>Requirements for test identify what will be tested. They are the specific
+target of a test. There are a few general rules to apply when deriving
+requirements for test: 
+<ul>
+ 
+<li> Требование к тесту должно быть доступным
+  для наблюдения, с измеряемым характером
+  изменений. Если требование к тесту не
+  поддается наблюдению или не может быть измеренным,
+  то оно и не может быть оценено для определения было ли требование удовлетворено.</li> 
+<li> Между каждым прецедентом или дополнительным требованием системы и
+  требованием к тесту нет соотношения
+  один к одному. Прецеденты часто
+  будут иметь более одного требования к
+  тесту, в то время как некоторые дополнительные требования
+  будут порождать одно или более требований
+  к тесту, а некоторые не произведут ни одного (такие
+  как требования маркетинга или упаковки).</li> 
+
+</ul>
+<ul>
+  <li>The requirement for test must be an observable, measurable behavior. If
+    the requirement for test cannot be observed or measured, it can't can be
+    assessed to determine if the requirement has been satisfied.</li>
+  <li>There is not a one-to-one relationship between each use case or
+    supplemental requirement of a system and a requirement for test. Use cases
+    will often have more than one requirement for test, while some supplemental
+    requirements will derive one or more requirements for test and others will
+    derive none (such as marketing or packaging requirements).</li>
+</ul>
+<p>
+Требования к тесту могут быть получены из многих источников, включая
+прецеденты, модели прецедентов, дополнительные спецификации, требования проекта, деловые случаи, интервью с конечными пользователями и
+документ программной архитектуры. Все они должны быть рассмотрены,
+чтобы собрать информацию,&nbsp; используемую
+для определения требований к тесту.
+</p>
+<p>The requirements for test may be derived from many sources, including use
+cases, use-case models, supplemental specifications, design requirements,
+business cases, interviews with end-users, and the software architecture
+document. All of these should be reviewed to gather information that is used to
+identify the requirements for test.
+</p>
+<h4> <a name="Requirements for Functional Tests">Требования к
+Функциональным Тестам</a> <map name="FPMap2">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap2" width="26" height="20"> </h4> 
+<p> <a name="Requirements for Functional Tests">Requirements for Functional
+Tests</a> </p> 
+<p>
+Функциональные требования к тесту, как
+подразумевают их названия, выявляются из описаний функциональных
+изменений цели тестов. Как минимум&nbsp; каждый
+прецедент должен порождать хотя бы одно требование
+к тесту. Более подробный список требований
+к тесту включил бы по крайней мере одно требование
+к тесту для каждого потока событий прецедента.
+</p>
+<p>Functional requirements for test, as their name implies, are derived from
+descriptions of the target-of-test's functional behaviors. At a minimum, each
+use case should derive at least one requirement for test. A more detailed list
+of requirements for test would include at least one requirement for test for
+each use case flow of events.
+</p>
+<h4> <a name="Requirements for System Performance Tests">Требования к
+Тестам Производительности
+</a> 
+<map name="FPMap3">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap3" width="26" height="20"> </h4> 
+<p> <a name="Requirements for System Performance Tests">Requirements for
+Performance Tests</a> </p> 
+<p>
+Требования эффективности к тесту
+выводятся из&nbsp;изменений производительности,
+определенных целью
+тестов . Как правило,
+производительность определяется как
+показатель времени ответа и/или
+использования ресурса, измеряемое при различных условиях,
+включающих<p>Performance requirements for test are derived from the target-of-test's
+specified performance behaviors. Typically, performance is stated as a measure
+of response time and/or resource usage, as measured under various conditions,
+including 
+<ul>
+ 
+<li> Различные объемы работ и/или состояния системы</li> 
+<li> Различные прецеденты</li> 
+<li> Различные конфигурации</li> 
+
+</ul>
+<ul>
+  <li>different workloads and/or system conditions</li>
+  <li>different use cases</li>
+  <li>different configurations</li>
+</ul>
+<p>
+Требования к производительности описаны в Дополнительных Спецификациях. Рассмотрите эти материалы,
+придавая особое внимание утверждениям,
+включающим следующее:
+</p>
+<p>Requirements for performance are described in the Supplementary
+Specifications. Review these materials, paying especial attention to statements
+that include the following:
+</p>
+<ul>
+ 
+<li> Установки времени, такого как время ответа или согласования по
+  времени профилей</li> 
+<li> Утверждения, указывающие, что
+  определенное количество событий или
+  прецедентов должно произойти в
+  определенный период времени</li> 
+<li> Утверждения, сравнивающие поведение одного
+  элемента по отношению к другому</li> 
+<li> Утверждения, сравнивающие поведение
+  приложения в одной конфигурации к таковому
+  в другой конфигурации</li> 
+<li> Эксплуатационная надежность (означает время
+  до отказа или MTTF) в течение определенного периода времени</li> 
+<li> Конфигурации или ограничения</li> 
+
+</ul>
+<ul>
+  <li>statements of time, such as response time or timing profiles</li>
+  <li>statements indicating that a number of events or use cases must occur in a
+    stated period of time</li>
+  <li>statements comparing the behavior of one item to another</li>
+  <li>statements comparing the application behavior on one configuration to that
+    of another</li>
+  <li>operational reliability (mean time to failure or MTTF) over a period of
+    time</li>
+  <li>configurations or constraints</li>
+</ul>
+<p>
+Вы должны получить по крайней мере одно требование
+к тесту для каждого утверждения в спецификации,&nbsp;
+в которой информация отражается так,
+как было указано выше.
+</p>
+<p>You should derive at least one requirement for test for each statement in the
+specification which reflects information such that listed above.
+</p>
+<h4> <a name="Requirements for Reliability Tests">Требования к
+Тестам Надежности</a> 
+<map name="FPMap5">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap5" width="26" height="20"> </h4> 
+<p> <a name="Requirements for Reliability Tests">Requirements for Reliability
+Tests</a> &nbsp; </p> 
+<p>
+Требования Надежности к тесту выводятся из нескольких источников, стандартно описанных
+в Дополнительных Спецификациях,
+Руководстве по Интерфейсу пользователя,
+Руководстве по Проекту, и Руководстве по
+Программированию.
+</p>
+<p>Reliability requirements for test are derived several sources, typically
+described in Supplementary Specifications, User-Interface Guidelines, Design
+Guidelines, and Programming Guidelines.
+</p>
+<p>
+Рассмотрите эти артефакты, и особое внимание
+уделите утверждениям, которые включают следующее:<p>Review these artifacts and pay especial attention to statements that include
+the following: 
+<ul>
+ 
+<li> Надежность установок или
+  резистентность к отказу, ошибки при
+  выполнении (такие как нехватка памяти)</li> 
+<li> Установки, отображающие целостность и структуру
+  кода (согласованность с языком и
+  синтаксисом)</li> 
+<li> Установки касающиеся использования ресурса</li> 
+
+</ul>
+<ul>
+  <li>statements reliability or resistance to failure, run-time errors (such as
+    memory leaks)</li>
+  <li>statements indicating code integrity and structure (compliance to language
+    and syntax)</li>
+  <li>statements regarding resource usage</li>
+</ul>
+<p>Из каждого утверждения в артефактах,
+отражающих перечисленную
+выше информацию, должно быть получено по крайней мере одно требование
+к тесту.
+</p>
+<p>At least one requirement for test should be derived from each statement in
+the artifacts that reflects information listed above.
+</p>
+<p>
+Для успешного тестирования требуется, чтобы в
+тесте были уравновешены такие
+факторы, как ограничения ресурсов и риски.
+Для этого объем работ теста должен быть
+упорядочен по приоритетам так, чтобы наиболее важные, существенные, или
+наиболее подверженные рискам прецеденты или компоненты были
+тестированы раньше других. Чтобы произвести
+упорядочение по приоритетам нужно
+выполнить оценку риска и
+функциональный разрез, которые
+используются в качестве основания для установления приоритета
+теста.
+</p>
+<p>Successful testing requires that the test effort successfully balance factors
+such as resource constraints and risks. To accomplish this, the test effort
+should be prioritized so that the most important, significant, or riskiest use
+cases or components are tested first. To prioritize the test effort, a risk
+assessment and operational profile are performed and used as the basis for
+establishing the test priority.
+</p>
+<p>В следующих разделах описывается как определить приоритет
+теста.
+</p>
+<p>The following sections describe how to determine test priority.
+</p>
+<h3> <a name="Assess Risk and Establish Test Priorities">Оцените Риск, и Установите
+Приоритеты Теста</a> 
+<map name="FPMap6">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap6" width="26" height="20"> </h3> 
+<p> <a name="Assess Risk and Establish Test Priorities">Assess Risk and
+Establish Test Priorities</a> </p> 
+<p>Определение требований к тесту - это только часть
+определения того, что будет тестировано. Также должно быть выполнено
+упорядочение по приоритетам того, что будет
+тестировано и в
+каком порядке это будет произведено. Этот
+действие выполняется по нескольким причинам,
+включающим:<p>Identifying the requirements for test is only part of identifying what will
+be tested. Prioritizing what will be tested and in what order should also be
+performed. This step is done for several reasons, including: 
+<ul>
+ 
+<li> Обеспечить, чтобы действия теста были сосредоточены на
+  наиболее подходящих требованиях к тесту</li> 
+<li> Обеспечить, чтобы  наиболее важные, существенные, или
+  наиболее подверженные рискам требования к
+  тесту были выявлены как можно раньше</li> 
+<li> Обеспечить, чтобы любые зависимости (последовательность, данные, и т.д.)
+  были учтены в тестировании</li> 
+
+</ul>
+<ul>
+  <li>ensure the test efforts are focused on the most appropriate requirements
+    for test</li>
+  <li>ensure the most critical, significant, or riskiest requirements for test
+    are addressed as early as possible</li>
+  <li>ensure that any dependencies (sequence, data, etc.) are accounted for in
+    the testing</li>
+</ul>
+<p>
+Оценка риска и установление приоритетов теста
+выполняются в три этапа:<p>There are three steps to assessing risk and establishing the test priorities: 
+<ul>
+ 
+<li> <a href="#Assess Risk">Оцените Риск</a></li> 
+<li> <a href="#Determine Operational Profile">Определите
+  Функциональный разрез</a></li> 
+<li> <a href="#Establish Test Priority">Установите Приоритет
+  Теста</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Assess Risk">Assess Risk</a></li>
+  <li><a href="#Determine Operational Profile">Determine Operational Profile</a></li>
+  <li><a href="#Establish Test Priority">Establish Test Priority</a></li>
+</ul>
+<p>Ниже приводится руководство для каждого из этих трех
+этапов:
+</p>
+<p>
+Guidelines for each of these three steps are provided below:
+</p>
+<h4> <a name="Assess Risk">Оцените Риск</a> 
+<map name="FPMap7">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap7" width="26" height="20"> </h4> 
+<p> <a name="Assess Risk">Assess Risk</a> </p> 
+<p>
+Установление приоритета для теста начинается с оценки риска.
+Прецеденты или компоненты, которые
+вызывают самый большой риск по причине отказа или имеют высокую вероятность отказа,
+должны быть проверенны одними из первых.
+</p>
+<p>Establishing the priority for test begins with the assessment of risk. Use
+cases or components that pose the greatest risk due to failure or have a high
+probability of failure should be amongst the first use cases tested.
+</p>
+<p>
+Начните с определения и описания
+показателей величины риска, которые будут использоваться,
+таких как:<p>Begin by identifying and describing the risk magnitude indicators that will
+be used, such as: 
+<ul>
+ 
+<li> H - высокий риск, недопустимый. Серьезное внешнее
+  воздействие. Компания будет нести большие финансовые потери, ответственность, или невосстанавливаемую потерю репутации.</li> 
+<li> M - средний риск, допустимый, но нежелательный. Минимальное внешнее
+  воздействие, компания может страдать материально, но
+  имеет место ограниченная ответственность или потеря репутации.</li> 
+<li> L - низкий риск, допустимый. Отсутствие или&nbsp;
+  небольшое внешнее воздействие, компания
+  не имеет или имеет небольшие финансовые
+  потери или ответственность. Репутация
+  компании
+  не затронута.</li> 
+
+</ul>
+<ul>
+  <li>H - high risk, not tolerable. Severe external exposure. The company will
+    suffer great financial losses, liability, or un-recoverable loss of
+    reputation.</li>
+  <li>M - medium risk, tolerable, but not desirable. Minimal external exposure,
+    the company may suffer financially, but there is limited liability or loss
+    of reputation.</li>
+  <li>L - low risk, tolerable. Little or no external exposure, company has
+    little or no financial loss or liability. Company's reputation unaffected.</li>
+</ul>
+<p>
+После определения показателей величины риска, внесите в
+цель теста каждый прецедент или компонент. Для каждого
+прецедента или компонента в вашем списке,
+определите показатель величины риска, и
+обоснуйте (в кратком утверждении) выбранную
+Вами величину.
+</p>
+<p>After identifying the risk magnitude indicators, list each use case or
+component in the target-of-test. For each use case or component in your list,
+identify a risk magnitude indicator, and justify (in a brief statement) the
+value you selected.
+</p>
+<p>
+Имеются три перспективы, которые могут использоваться для оценки риска:
+<p>
+There are three perspectives that can be used for assessing risk: 
+<ul>
+ 
+<li> <a href="#Effect">Эффект</a> - воздействие или последствие
+  отказа указанного прецедента (требования, и т.д.)&nbsp;</li> 
+<li> <a href="#Cause">Причина</a> - нежелательный результат, вызванный отказом
+  прецедента</li> 
+<li> <a href="#Likelihood">Вероятность</a> - вероятность
+  отказа прецедента.</li> 
+
+</ul>
+<ul>
+  <li><a href="#Effect">Effect</a> - the impact or consequence of a specified
+    use case (requirement, etc.) failing</li>
+  <li><a href="#Cause">Cause</a> - an undesirable outcome caused by the failure
+    of a use case</li>
+  <li><a href="#Likelihood">Likelihood</a> - the probability of a use case
+    failing.</li>
+</ul>
+<p>
+Выберите одну перспективу, определите
+показатель величины риска, и обоснуйте ваш выбор. Не
+обязательно определять показатель для каждой перспективы риска. Однако,
+предполагается, что если был выявлен низкий
+показатель риска, то надо попытаться
+оценить элемент по другой перспективе риска, чтобы
+подтвердить, что
+у элемента действительно низкий риск.
+</p>
+<p> However, it suggested that, if a low indicator was identified, try
+evaluating the item from a different risk perspective to ensure the item is
+really a low risk.
+</p>
+<p>
+Ниже более детально описана оценка риска с
+помощью этих трех перспектив.
+</p>
+<p>Below are greater details on assessing risk by these three perspectives.</p>
+<h5> <a name="Effect">Эффект</a> 
+<map name="FPMap8">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap8" width="26" height="20"> </h5> 
+<p> <a name="Effect">Effect</a> </p> 
+<p>
+Чтобы оценить риск по Эффекту, определите
+условие, событие, или действие, и
+попробуйте определить его воздействие. Задайте
+вопрос:
+</p>
+<p>
+To assess risk by Effect, identify a condition, event, or action and try to
+determine its impact. Ask the question:
+</p>
+<blockquote>  
+<p>
+" Что случилось бы если ___________? "
+</p>
+
+  <p>&quot;What would happen if ___________?&quot;</p>
+
+</blockquote>
+<p>
+Например:
+<p>
+For example: 
+<ul>
+ 
+<li> " Что случилось бы, если при инсталляции нового программного обеспечения,
+  системе бы не хватило места диске? "</li> 
+<li> " Что случилось бы, если связь с
+  Интернетом
+  была бы потеряна в процессе запроса сделки
+  (трансакции) ? "</li> 
+<li> " Что случилось бы, если связь Интернета была
+  бы потеряна при&nbsp; выполнении сделки закупки? "</li> 
+<li> " Что случиться, если пользователь введет
+  неожидаемое значение? "
+</li> 
+
+</ul>
+<p>&nbsp;</p>
+<ul>
+ 
+  <li>&quot;What would happen if while installing the new software, the system
+    runs out of disk space?&quot;</li>
+  <li>&quot;What would happen if the Internet connection is lost during an
+    inquiry transaction?&quot;</li>
+  <li>&quot;What would happen if the Internet connection was lost during a
+    purchase transaction?&quot;</li>
+  <li>&quot;What would happen if the user enters an unexpected value?&quot;
+  </li>
+
+</ul>
+<p>
+Ниже приведена стандартная таблица
+обоснования этих элементов:
+</p>
+<p>Below is a sample justification matrix for these items:
+</p>
+<div align="center">
+
+<center>  
+<table border="2" width="90%">  
+<tr>  
+<td align="center" width="20%"> Описание
+  <p>&nbsp;</p>
+  <p>Description</p>
+</td> 
+<td align="center" width="20%"> Фактор Снижения Риска
+  <p>Risk Mitigation Factor</p>
+</td> 
+<td align="center" width="60%"> Обоснование
+  <p>&nbsp;</p>
+  <p>Justification</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Недостаточно места
+  на диске в течение инсталляции
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>Insufficient disk space during
+    install</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Инсталляция программного обеспечения
+  дает пользователю первое впечатление от изделия. Любые нежелательные результаты,
+  такие как перечисленные ниже, будут
+  разрушать систему пользователя, установленное программное обеспечение, и
+  вызывать отрицательное впечатление у
+  пользователя:
+  <p>Installing the software provides the user with
+    the first impression of the product. Any undesirable outcomes, such as those
+    listed below would degrade the user's system, the installed software, and
+    communicate a negative impression to the user:</p>
+<ul>
+ 
+<li> Программное обеспечение частично
+  устанавливается (некоторые файлы, некоторые
+  исходные данные регистрации), при этом установленное программное обеспечение
+  остается в
+  нестабильном состоянии или</li> 
+<li> Прерывание инсталляции оставляет систему в
+  нестабильном состоянии</li> 
+
+</ul>
+    <ul>
+      <li>software is partially installed (some files, some registry entries),
+        which leaves the installed software in an unstable condition, or</li>
+      <li>the installation halts leaving the system in an unstable state</li>
+    </ul>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Связь Интернета,
+  потерянна в течение запроса
+  <p>Internet connection lost during
+    inquiry</p>
+</td> 
+<td align="center" width="20%" valign="top"> L</td> 
+<td align="left" width="60%" valign="top"> Ни одно из
+  повреждений, следующее из потерянной связи не
+  влияет на данные или базу данных.
+  Определено, что потерянная связь может
+  оставлять отрицательное впечатление у
+  пользователя.
+  <p>No damage resulting from the lost
+    connection is done to the data or database. It is recognized that a lost
+    connection may communicate a negative impression to the user.</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Связь Интернета, потерянная в
+  процессе покупки
+  <p>Internet connection lost during
+    purchase</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Любые потери связи или сделки, которые кончаются
+  указанными ниже результатами,  недопустимы, поскольку они увеличивают
+  дополнительные затраты и снижают прибыль:
+  <p>Any lost connections or transactions that
+    result in the outcomes listed below are unacceptable, as they increase the
+    overhead costs and decrease profits:</p>
+<ul>
+ 
+<li> Поврежденная база данных</li> 
+<li> Частичный заказ</li> 
+<li> Потеря данных или заказа</li> 
+<li> Многократные (повторяемые) заказы</li> 
+
+</ul>
+    <ul>
+      <li>corrupted database</li>
+      <li>partial order</li>
+      <li>lost data or order</li>
+      <li>multiple orders (replicated)</li>
+    </ul>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Введено неожидаемое
+  значение
+  <p>Unexpected value entered</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Любые сделки, которые
+  приводят к результатам, перечисленным в
+  расположенном ниже списке,  недопустимы:
+  <p>Any transactions that result in the outcomes
+    listed below are unacceptable:</p>
+<ul>
+ 
+<li> Поврежденная база данных</li> 
+<li> Неверные данные</li> 
+
+</ul>
+    <ul>
+      <li>corrupted database</li>
+      <li>inaccurate data</li>
+    </ul>
+  <p>&nbsp;
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h5> <a name="Cause">Причина</a> 
+<map name="FPMap9">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap9" width="26" height="20"> </h5> 
+ 
+<p> <a name="Cause">Cause</a> </p> 
+<p>
+Оценка риска по Причине является противоположностью
+оценке по Эффекту. Начните с установки нежелательного случая или
+условия, и
+определите набор событий, которые могли бы
+позволить условию существовать. Задайте вопрос типа:
+</p>
+<p>Assessing risk by Cause is the opposite of by Effect. Begin by stating an
+undesirable event or condition, and identify the set of events that could have
+permitted the condition to exist. Ask a question such as:
+</p>
+<blockquote>  
+<p>
+" Как могло ___________ случиться?
+</p>
+
+<p>&quot;How could ___________ happen?
+</p>
+
+</blockquote>
+<p>
+Например:
+<p>For example:
+<ul>
+ 
+<li> " Как могли только некоторые из файлов,
+  оказаться в системе и не была завершена
+  регистрация? "</li> 
+<li> " Как сделка могла быть не отражена должным образом в центральной базе данных?</li> 
+<li> " Как может отчет&nbsp; о процессе составления счетов
+  отражать только некоторые из записей в базе данных, которые
+  осуществляют желательные критерии? "</li> 
+
+</ul>
+<ul>
+  <li>&quot;How could only some of the files be on the system and not all the
+    registry entries made?&quot;</li>
+  <li>&quot;How could a transaction not be reflected properly in the central
+    database?</li>
+  <li>&quot;How could the billing cycle statement reflect only some of records
+    in the database that fulfill the desired criteria?&quot;</li>
+</ul>
+<p>
+Ниже приведена типичная таблица
+обоснований этих элементов:
+</p>
+<p>Below is a sample justification matrix for these items:
+</p>
+<div align="center">
+
+<center>  
+<table border="2" width="90%">  
+<tr>  
+<td align="center" width="20%"> Описание
+  <p>&nbsp;</p>
+  <p>Description</p>
+</td> 
+<td align="center" width="20%"> Фактор Снижения Риска
+  <p>Risk Mitigation Factor</p>
+</td> 
+<td align="center" width="60%"> Обоснование
+  <p>&nbsp;</p>
+  <p>Justification</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Отсутствующие/прикладные файлы и
+  исходные данные регистрации
+  <p>Missing / application files and
+    registry entries</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Приводит приложение (и
+  возможно систему) в состояние непригодности.
+  Инсталляция - первое представление
+  приложения, видимое пользователями. Если
+  инсталляция терпит неудачу, по любой причине,
+  то пользователь рассматривает программное обеспечение
+  в неблагоприятном свете.<br>
+  Renders the application (and potentially the
+    system) un-usable. Installation is the first view of the application seen by
+    the users. If installation fails, for any reason, the user views the
+    software unfavorably.<br>
+  <p>
+Возможные причины этого состояния включают:<p>Possible causes of this condition include: 
+<ul>
+ 
+<li> Процесс инсталляции не установил все файлы и
+  не корректно обновил&nbsp; регистрационные
+  данные</li> 
+<li> Процесс инсталляции был приостановлен из-за вмешательства пользователя (чтобы
+  осуществить отмену или выход)</li> 
+<li> Процесс инсталляции был приостановлен из-за программного обеспечения/вмешательства аппаратных средств ЭВМ (недостаточно
+  места на диске, неподдерживаемая конфигурация, и т.д.)</li> 
+<li> Процесс инсталляции был&nbsp;
+  приостановлен из-за неизвестных условий</li> 
+<li> Пользователь удалил файлы/исходные
+  регистрационные данные</li> 
+
+</ul>
+    <ul>
+      <li>the installation process did not install all the files and update the
+        registry correctly</li>
+      <li>the installation process halted due to user intervention (cancel or
+        exit)</li>
+      <li>the installation process halted due to software / hardware
+        intervention (insufficient disk space, unsupported configuration, etc.)</li>
+      <li>the installation process halted due to unknown conditions</li>
+      <li>the user deleted files / registry entries</li>
+    </ul>
+  <p>
+Из этих причин, только последняя не может быть обнаружена и обработана процессом установки.<p>Of these causes, only the last one cannot be detected and handled by the
+    installation process.</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Частичный заказ
+  <p>Partial order</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Частичные заказы, которые не могут быть выполнены,
+  приводят к потере доходов и клиентов.
+  <p>Partial orders cannot be fulfilled, resulting
+    in lost revenue and lost customers.</p>
+<p>
+Возможные причины включают: 
+<p>
+Possible causes include: 
+<ul>
+ 
+<li> Соединение с Интернетом было прервано из-за действия пользователя (разъединение
+  модема, выключение PC, и т.д.)</li> 
+<li> Соединение с Интернетом было прервано из-за
+  межсетевого протокола (IP)</li> 
+<li> Соединение с Интернетом было прервано из-за
+  действия служащего (разъединение модема,
+  выключение питания сервера, и т.д.)</li> 
+
+</ul>
+    <ul>
+      <li>Internet connection lost due to user action (disconnect modem, turn
+        off PC, etc.)</li>
+      <li>Internet connection lost due to IP</li>
+      <li>Internet connect lost due to employee action (disconnect modem, turn
+        off power to servers, etc.)</li>
+    </ul>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Поврежденные данные / база данных
+  <p>Corrupt data / database</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Поврежденные данные не могут
+  быть допущенными ни по какой причине.
+  <p>Corrupt data cannot be tolerated for any
+    reason. 
+<p>
+Возможные причины включают: 
+<p>
+Possible causes include: 
+<ul>
+ 
+<li> Записываемая в базе данных&nbsp; сделка не
+  была закончена/совершена из-за вмешательства пользователя</li> 
+<li> Сделка, фиксируемая в базе данных не
+  была закончена/совершена из-за потери связи
+  с Интернетом</li> 
+<li> При осуществлении пользователь вводит&nbsp;
+  некорректные данные&nbsp;</li> 
+<li> Методы/утилиты доступа к базе данных&nbsp;</li> 
+<li> База данных не заполнена должным образом (при
+  первичном приписывании значений)</li> 
+
+</ul>
+    <ul>
+      <li>Transaction that writes to the database not completed / committed due
+        to user intervention</li>
+      <li>Transaction that writes to the database not completed / committed due
+        to lost Internet connection</li>
+      <li>User enters invalid data in transaction</li>
+      <li>Database access methods / utilities</li>
+      <li>Database not properly populated (when initially instantiated)</li>
+    </ul>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Повторные заказы</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Повторные заказы увеличивают
+  накладные расходы компании и уменьшают прибыль
+  из-за затрат, связанных с посылкой, обработкой, и пополнением запасов.
+  <p>Replicated orders increase the company overhead
+    and diminish profits via the costs associated with shipping, handling, and
+    restocking.</p>
+<p>
+Возможные причины включают: 
+<p>
+Possible causes include: 
+<ul>
+ 
+<li> Сделка, которая вносит заказ в базу данных,
+  повторяется из-за вмешательства пользователя, пользователь дважды
+  инициирует заказ -
+  отсутствует подтверждение входа</li> 
+<li> Сделка, которая вносит заказ в базу данных,
+  повторяется не из-за вмешательства пользователя (процесс восстановления
+  разорванной связи с Интернетом, восстановление
+  базы данных)</li> 
+
+</ul>
+    <ul>
+      <li>Transaction that writes order to the database replicated due to user
+        intervention, user enters order twice - no confirmation of entry</li>
+      <li>Transaction that writes order to the database replicated due to
+        non-user intervention (recovery process from lost Internet connection,
+        restore of database)</li>
+    </ul>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Ошибочные данные для заказа
+  <p>Inaccurate data for an order</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Любые заказы, которые не могут быть
+  завершены или несут дополнительные
+  накладные расходы,  не приемлемы.
+  <p>Any orders that cannot be completed or incur
+    additional overhead costs are not acceptable.</p>
+  <p>
+Возможные причины: 
+<p>
+Possible causes include: 
+<ul>
+ 
+<li> Сделка Заказа не закончена/совершена из-за вмешательства пользователя</li> 
+<li> Сделка Заказа не закончена/совершена из-за
+  разрыва связи с Интернетом</li> 
+<li> Пользователь вводит некорректные данные</li> 
+
+</ul>
+    <ul>
+      <li>Order transaction is not completed / committed due to user
+        intervention</li>
+      <li>Order transaction is not completed / committed due to lost Internet
+        connection</li>
+      <li>User enters invalid data</li>
+    </ul>
+  <p>&nbsp;
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Неверное число
+  записей, отраженных в утверждении
+  <p>Wrong number of records reflected
+    in statement</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%" valign="top"> Деловые решения и
+  дебиторская задолженность зависимы от
+  точности этих сообщений.
+  <p>Business decisions and accounts
+    receivable are dependent upon the accuracy of these reports.</p>
+  <p>
+Возможные причины: 
+<p>
+Possible causes include: 
+<ul>
+ 
+<li> Неверный поиск/критерии поиска</li> 
+<li> Неправильная установка языка
+  структурированных запросов (SQL)</li> 
+<li> Поврежденные данные в базе данных</li> 
+<li> Неправильные данные в базе данных</li> 
+
+</ul>
+    <ul>
+      <li>Incorrect search / select criteria</li>
+      <li>Incorrect SQL statement</li>
+      <li>Corrupt data in database</li>
+      <li>Incorrect data in database</li>
+    </ul>
+  <p>&nbsp;
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h5> <a name="Likelihood">Вероятность</a> 
+<map name="FPMap10">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap10" width="26" height="20"> </h5> 
+<p>
+Оценка риска по Вероятности должна
+определять вероятность
+того, что прецедент (или компонент,
+реализующий прецедент) потерпит неудачу. Вероятность обычно основана на внешних факторах
+таких как:<p>Assessing risk by Likelihood is to determine the probability that a use case
+(or component implementing a use case) will fail. The probability is usually
+based on an external factors such as: 
+<ul>
+ 
+<li> Частота(ы) и/или плотность отказа&nbsp;</li> 
+<li> Частота изменений</li> 
+<li> Сложность</li> 
+<li> Происхождение/Разработчик</li> 
+
+</ul>
+<ul>
+  <li>Failure rate(s) and / or density</li>
+  <li>Rate of change</li>
+  <li>Complexity</li>
+  <li>Origination / Originator</li>
+</ul>
+<p>Следует отметить, что при использовании этой перспективы риска,
+показатели величины риска связаны с вероятностью отказа,
+а не с эффектом или воздействием  отказа на
+структуру, как это было при оценке риска
+по Эффекту и Причине.
+</p>
+<p>It should be noted, that when using this risk perspective, the risk magnitude
+indicators are related to the probability of a failure, not the effect or impact
+the failure has on the organization as was used in assessing risk by Effect and
+Cause.
+</p>
+<p>Как показано ниже корреляции между этими факторами и вероятностью отказа
+существуют:
+</p>
+<p>Correlations between these factors and the probability of a failure exist, as
+identified below:
+</p>
+<div align="center">
+
+<center>  
+<table border="2" width="90%">  
+<tr>  
+<td align="center" width="214"> Внешний Фактор
+  <p>External Factor</p>
+</td> 
+<td align="center" width="453"> Вероятность
+  <p>Probability</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="214"> Частота&nbsp; и/или плотность
+  выявления Отказа
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>Failure discovery rate<br>
+    and / or density</p>
+</td> 
+<td align="left" width="453"> Вероятность отказа увеличивается
+  с увеличением частоты или плотности
+  выявления отказа. Дефекты имеют тенденцию
+  накапливаться, поэтому, как только частота
+  или число дефектов (плотность)&nbsp;
+  увеличиваются в прецеденте или компоненте,
+  то вероятность обнаружения другого дефекта также
+  увеличивается. Также при оценке риска c
+  использованием этого фактора должны
+  рассматриваться частота выявления и плотность
+  дефектов в предыдущих версиях, поскольку
+  их высокие значения указывают
+  на высокую вероятность дополнительных отказов.
+  <p>The probability of a failure increases as the
+    failure discovery rates or density increases. Defects tend to congregate,
+    therefore, as the rate of discovery or the number of defects (density)
+    increases in a use case or component, the probability of finding another
+    defect also increases. Discovery rates and density from previous releases
+    should also be considered when assessing risk using this factor, as previous
+    high discovery rates or densities indicate a high probability of additional
+    failures.</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="214"> Частота изменений
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>Rate of change</p>
+</td> 
+<td align="left" width="453"> Вероятность отказа&nbsp;
+  увеличивается с
+  увеличением частоты изменений в
+  прецеденте или его компоненте. Поэтому,
+  с ростом числа изменений также
+  увеличивается и вероятность появления
+  дефекта. Каждый раз&nbsp;при
+  изменении&nbsp; кода, имеется риск "введения"
+  в него другого дефекта.
+  <p>The probability of a failure increases as the
+    rate of change to the use case or component increases. Therefore, as the
+    number of changes increases, so too does the probability that a defect has
+    been introduced. Every time a change is made to the code, there is the risk
+    of &quot;injecting&quot; another defect it.</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="214"> Сложность
+  <p>&nbsp;</p>
+  <p>Complexity</p>
+</td> 
+<td align="left" width="453"> Вероятность отказа увеличивается
+  с увеличением показателя сложности
+  прецедента или компонента.
+  <p>The probability of a failure increases as the
+    measure of complexity of the use case or component increases.</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="214"> Происхождение/Разработчик
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>Origination / Originator</p>
+</td> 
+<td align="left" width="453"> Квалификация и опыт того,
+  кем и где был произведен код, может увеличивать или
+  уменьшать вероятность отказа.<br>
+Использование компонентов третьего лица
+  обычно уменьшает вероятность отказа. Однако, это было бы
+  верно только в том случае, если компонент третьего лица был
+  сертифицирован (соответствовал вашим требованиям,
+  на основании формального тестирования или
+  опыта).<br>
+Вероятность отказа обычно уменьшается с
+  увеличением знаний и навыков исполнителя. Однако, такие факторы как использование новых инструментов, технологий, или
+  работа за нескольких исполнителей могут увеличивать вероятность отказа даже
+  у самых лучших рабочих.
+  <p>Knowledge and experience of where the code
+    originated and by whom can increase or decrease the probability of a
+    failure.<br>
+    The use of third party components typically decreases the probability of
+    failure. However, this is only true if the third party component has been
+    certified (meets your requirements, either through formal test or
+    experience).<br>
+    The probability of failure typically decreases with the increased knowledge
+    and skills of the implementer. However, such factors as the use of new
+    tools, technologies, or acting as multiple workers may increase the
+    probability of a failure even by the best workers.</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+ &nbsp;
+</p>
+<p>
+Например:
+<p>
+For example: 
+<ul>
+ 
+<li> Инсталляция нового программного обеспечения</li> 
+<li> "Ранее нами было отмечено наличие
+  множества дефектов в компонентах,
+  использовавшихся для реализации прецедентов 1, 10, и 12, и наши клиенты
+  требовали большого числа изменений в прецедентах 14 и 19."</li> 
+
+</ul>
+<ul>
+  <li>Installing the new software</li>
+  <li>&quot;Historically we've found many defects in the components used to
+    implement use cases 1, 10, and 12, and our customers requested many changes
+    in use case 14 and 19.&quot;</li>
+</ul>
+<p>
+Ниже представлена стандартная таблица
+обоснований этих элементов:
+</p>
+<p>Below is a sample justification matrix for these items:
+</p>
+<div align="center">
+
+<center>  
+<table border="2" width="90%">  
+<tr>  
+<td align="center" width="20%"> Описание
+  <p>&nbsp;</p>
+  <p>Description</p>
+</td> 
+<td align="center" width="20%"> Фактор Снижения Риска
+  <p>Risk Mitigation Factor</p>
+</td> 
+<td align="center" width="60%"> Обоснование
+  <p>&nbsp;</p>
+  <p>Justification</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Инсталляция нового программного обеспечения
+  <p>&nbsp;</p>
+  <p>Installing new software</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%"> Мы пишем нашу собственную
+  служебную программу инсталляции.
+  <p>We are writing our own installation utility.</p>
+  <p>Что делает невозможным использование
+  приложения.
+  Инсталляция - первое представление
+  приложения, видимое пользователями. Если
+  инсталляция терпит неудачу,
+  то независимо от причины пользователь рассматривает программное обеспечение
+  в неблагоприятном свете.<p>Renders the use of the application
+  un-usable. Installation is the first
+    view of the application seen by the users. If installation fails, for any
+    reason, the user views the software unfavorably.</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Инсталляция нового программного обеспечения
+  <p>Installing new software</p>
+</td> 
+<td align="center" width="20%" valign="top"> L</td> 
+<td align="left" width="60%"> Мы используем коммерчески успешную
+  служебную программу инсталляции.
+  <p>We are using a commercially successful
+    installation utility.</p>
+  <p>Несмотря на то, что неудавшаяся
+  инсталляция делает невозможным использование
+  приложения, выбранная служебная программа
+  инсталляции была получена от продавца, который достиг
+  первого места на рынке со своим продуктом и
+  находился в бизнесе в течение более чем четырех лет. Наша оценка их
+  продукта, показывает, что он соответствует нашим
+  требованиям, и клиенты удовлетворены их
+  продуктом, продавцом, и уровнем их обслуживания и поддержки.<p>While failed installation renders the use of the application
+  un-usable,
+    the installation utility selected is from a vendor that has achieved the
+    number one market share with their product and has been in business for over
+    four years. Our evaluation of their indicates that the product meets our
+    needs and clients are satisfied with their product, the vendor, and their
+    level of service and support.</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Высокая частота
+  выявления отказа/ плотность дефектов в
+  прецедентах 1, 10, 12.
+  <p>High failure discovery rates /
+    defect densities in use cases 1, 10, 12.</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%" valign="top"> Из-за высоких
+  частот выявления отказа и плотности
+  дефектов в предыдущих версиях, прецеденты 1, 10, и 12 считаются
+  прецедентами с высоким риском.
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>Due to the previous high failure
+    discovery rates and defect density use cases 1, 10, and 12 are considered
+    high risk.</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Требования
+  изменений в прецедентах 14 и 19.
+  <p>Change Requests in use cases 14
+    and 19.</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%" valign="top"> Большое число изменений к этим
+  прецедентам увеличивает вероятность
+  проникновения дефектов в код.
+  <p>&nbsp;</p>
+  <p>A high number of changes to these
+    use cases increases the probability of injecting defects into the code.</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h3> <a name="Determine Operational Profile">Определите
+Функциональный разрез</a> <map name="FPMap11">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap11" width="26" height="20"> </h3> 
+ 
+<p> <a name="Determine Operational Profile">Determine Operational Profile</a> </p> 
+<p>
+Следующим шагом в оценке риска и установления приоритета
+теста является определение
+функционального разреза цели тестов.
+</p>
+<p>
+The next step in assessing risk and establishing a test priority is to
+determine the target-of-test's operational profile.
+</p>
+<p>
+Начните с определения и описания
+показателей величины функционального
+разреза, которые будут использоваться,
+таких как:<p>Begin by identifying and describing the operational profile magnitude
+indicators that will be used, such as: 
+<ul>
+ 
+<li> H - используемый достаточно часто, много раз
+  за период или многими актерами или
+  прецедентами.</li> 
+<li> M - часто используемый , несколько раз за период или несколькими актерами или
+  прецедентами.</li> 
+<li> L - нечасто используемый или используемый очень немногими актерами или
+  прецедентами.</li> 
+
+</ul>
+<ul>
+  <li>H - used quite frequently, many times per period or by many actors or use
+    cases.</li>
+  <li>M - used frequently, several times per period or by several actors or use
+    cases.</li>
+  <li>L - infrequently used or used by very few actors or use cases.</li>
+</ul>
+<p>Показатель функционального разреза, который Вы
+выбираете, должен быть основан на частоте
+выполнения прецедента или компонента, включая:<p>The operational profile indicator you select should be based upon the
+frequency a use case or component is executed, including: 
+<ul>
+ 
+<li> Число раз, когда ОДИН актер (или
+  прецедент) выполняет прецедент (или компонент)
+  за данный период времени, или</li> 
+<li> Число АКТЕРОВ (или прецедентов) которые выполняют
+  прецедент (или компонент)</li> 
+
+</ul>
+<ul>
+  <li>the number of times ONE actor (or use case) executes the use case (or
+    component) in a given period of time, or</li>
+  <li>the number of ACTORS (or use cases) that execute the use case (or
+    component)</li>
+</ul>
+<p>
+Как правило, чем чаще используется прецедент или компонент, тем выше
+показатель функционального разреза.
+</p>
+<p>Typically, the greater the number of times a use case or component is used,
+the higher the operational profile indicator.
+</p>
+<p>
+После определения показателей величины функционального
+разреза, которые нужно использовать, внесите в цель испытания
+каждый прецедент или компонент. Определите
+показатель функционального разреза для
+каждого элемента в вашем списке и
+определите ваше обоснование для величины
+показателя. Для этой оценки может использоваться
+информация из документа анализа рабочей нагрузки (См. <a href="../artifact/ar_wlmod.htm">Артефакт: Документ Анализа Рабочей нагрузки</a>).
+</p>
+<p>After identifying the operational profile magnitude indicators to be used,
+list each use case or component in the target-of-test. Determine an operational
+profile indicator for each item in your list and a state your justification for
+the indicator value. Information from the workload analysis document (See <a href="../artifact/ar_wlmod.htm">Artifact:
+Workload Analysis Document</a>) may be used for this assessment.
+</p>
+<p>
+Примеры:
+<p>
+Examples: 
+<ul>
+ 
+<li> Инсталляция нового программного обеспечения</li> 
+<li> Заказ элементов по каталогу on-line&nbsp;</li> 
+<li> Клиенты, осведомляющиеся относительно их заказа
+  on-line после размещения заказа&nbsp;</li> 
+<li> Диалог выбора элемента</li> 
+
+</ul>
+<ul>
+  <li>Installing new software</li>
+  <li>Ordering items from the on-line catalog</li>
+  <li>Customers inquiring about their order on-line after order is placed</li>
+  <li>Item selection dialog</li>
+</ul>
+<p>
+ &nbsp;
+</p>
+<div align="center">
+
+<center>  
+<table border="2" width="90%">  
+<tr>  
+<td align="center" width="20%"> Описание
+  <p>&nbsp;</p>
+  <p>Description</p>
+</td> 
+<td align="center" width="20%"> Фактор Функционального
+  разреза
+  <p>Operational Profile Factor</p>
+</td> 
+<td align="center" width="60%"> Обоснование
+  <p>&nbsp;</p>
+  <p>Justification</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Инсталляция нового программного обеспечения
+  <p>Installing new software</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%" valign="top"> Выполняется
+  однократно (типично), но многими пользователями.
+  Тем не менее без инсталляции приложение не
+  может быть использовано.
+  <p>Performed once (typically), but by
+    many users. Without installation however, application is unusable.</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Заказ элементов из каталога
+  <p>Ordering items from the catalog</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%" valign="top"> Это - наиболее общий
+  прецедент, выполняемый пользователями.
+  <p>This is the most common use case
+    executed by users.</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Клиенты,
+  осведомляющиеся относительно заказов
+  <p>Customers inquiring about orders</p>
+</td> 
+<td align="center" width="20%" valign="top"> L</td> 
+<td align="left" width="60%" valign="top"> Немного клиентов
+  осведомляются относительно их заказов после того, как они
+  были размещены
+  <p>Few customers inquire about their
+    orders after they are placed</p>
+</td> 
+</tr> 
+<tr>  
+<td align="left" width="20%" valign="top"> Диалог выбора
+  элемента
+  <p>Item selection dialog</p>
+</td> 
+<td align="center" width="20%" valign="top"> H</td> 
+<td align="left" width="60%" valign="top"> Этот диалог используется клиентами для размещения заказов
+  и завхозами для пополнения ассортимента.
+  <p>This dialog is used by customers
+    for placing orders and by inventory clerks to replenish stock.</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+ &nbsp;
+</p>
+<h3> <a name="Establish Test Priority">Установите Приоритет
+Теста</a> 
+<map name="FPMap12">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap12" width="26" height="20"> </h3> 
+<p> <a name="Establish Test Priority">Establish Test Priority</a> </p> 
+<p>Последним шагом в оценке риска и установлении приоритета
+теста является установление приоритета
+теста.
+</p>
+<p>The last step in the assessing risk and establishing a test priority is to
+establish the test priority.
+</p>
+<p>
+Начните с определения и описания
+показателей величины приоритета теста, которые будут использоваться,
+таких как: 
+<ul>
+ 
+<li> H - обязан быть тестированным</li> 
+<li> M - должен быть тестирован только после того, как все H
+  элементы будут тестированы</li> 
+<li> L - может быть тестирован, но только после
+  того, как все H и М элементы будут
+  тестированы</li> 
+
+</ul>
+<ul>
+  <li>H - must be tested</li>
+  <li>M - should be tested, will test only after all H items are tested</li>
+  <li>L - might be tested, but not until all H and M items have been tested</li>
+</ul>
+<p>
+После определения показателей величины
+приоритета теста, которые нужно использовать, внесите в
+цель теста каждый прецедент или компонент. Определите
+показатель приоритета теста для каждого
+элемента в вашем списке и сформулируйте ваше
+обоснование. Ниже приведены некоторые
+руководства для определения показателя
+приоритета теста.
+</p>
+<p>After identifying the test priority magnitude indicators to be used, list
+each use case or component in the target-of-test. Determine a test priority
+indicator for each item in your list and a state your justification. Below are
+some guidelines for determining a test priority indicator.
+</p>
+<p>
+Примите во внимание нижеследующее при определении
+показателей приоритета теста для каждого
+элемента:
+<p>
+Consider the following when determining the test priority indicators for each
+item: 
+<ul>
+ 
+<li> Значение показателя величины риска
+  определенное ранее</li> 
+<li> Значение величины функционального
+  разреза определенное ранее</li> 
+<li> Описания актера (актеры опытны? терпимы к
+  рабочему окружению?, и т.д.)</li> 
+<li> Договорные обязательства (будет ли цель
+  теста приемлема, если прецедент или компонент не
+  будут поставлены?)</li> 
+
+</ul>
+<ul>
+  <li>the risk magnitude indicator value you identified earlier</li>
+  <li>the operational profile magnitude value you identified earlier</li>
+  <li>the actor descriptions (are the actors experienced?, tolerant of
+    work-arounds?, etc.)</li>
+  <li>contractual obligations (will the target-of-test be acceptable if a use
+    case or component is not delivered?)</li>
+</ul>
+<p>
+Стратегии для установления приоритета
+теста включают:
+<p>
+Strategies for establishing a test priority include: 
+<ul>
+ 
+<li> Используйте самое высоко оцененное
+  значение фактора (риск, функциональный
+  разрез, и т.д.) для каждого элемента в
+  качестве общего приоритета.</li> 
+<li> Определите один оцененный фактор (риск,
+  функциональный разрез, или другой) как являющийся наиболее
+  существенным, и используйте значение этого фактора как приоритет.</li> 
+<li> Используйте комбинацию оцененных факторов, чтобы
+  определить приоритет.</li> 
+<li> Использование весовой схемы, где
+  отдельные факторы взвешены,
+  и их значения и приоритет&nbsp; вычислены на
+  основании их веса</li> 
+
+</ul>
+<ul>
+  <li>Use the highest assessed factor (risk, operational profile, etc.) value
+    for each item as the overall priority.</li>
+  <li>Identify one assessed factor (risk, operational profile, other) as being
+    the most significant and use that factor's value as the priority.</li>
+  <li>Use a combination of assessed factors to identify the priority.</li>
+  <li>Using a weighting schema where individual factors are weighed, and their
+    values and priority calculated based upon the weight.</li>
+</ul>
+<p>
+Примеры:
+<p>
+Examples: 
+<ul>
+ 
+<li> Инсталляция нового программного обеспечения</li> 
+<li> Заказ элементов из on-line каталога</li> 
+<li> Клиенты, осведомляющиеся относительно их заказа
+  on-line после размещения заказа</li> 
+<li> Диалог Выбора Элемента</li> 
+
+</ul>
+<ul>
+  <li>Installing new software</li>
+  <li>Ordering items from the on-line catalog</li>
+  <li>Customers inquiring about their order on-line after order is placed</li>
+  <li>Item Selection Dialog</li>
+</ul>
+<h4> Приоритет при использовании максимально
+высоко оцененного значения для определения приоритета:</h4> 
+<p> Priority when the highest assessed value is used to determine priority:</p> 
+<div align="center">
+
+<center>  
+<table border="1" width="597">  
+<tr>  
+<td valign="top" align="center" width="99"> Элемент
+  <p>Item</p>
+</td> 
+<td align="center" valign="top" width="92"> Риск
+  <p>Risk</p>
+</td> 
+<td align="center" valign="top" width="124"> Функциональный разрез
+  <p>Operational Profile
+</td> 
+<td align="center" valign="top" width="79"> Актер
+  <p>Actor</p>
+</td> 
+<td valign="top" align="center" width="85"> Контракт
+  <p>Contract</p>
+</td> 
+<td valign="top" align="center" width="78"> Приоритет
+  <p>Priority</p>
+</td> 
+</tr> 
+<tr>  
+<td width="99" valign="top" align="center"> Инсталляция нового программного обеспечения
+  <p>Installing new software</p>
+</td> 
+<td width="92" valign="top" align="center"> H</td> 
+<td width="124" valign="top" align="center"> H</td> 
+<td width="79" valign="top" align="center"> L</td> 
+<td width="85" valign="top" align="center"> H</td> 
+<td width="78" valign="top" align="center"> H</td> 
+</tr> 
+<tr>  
+<td width="99" valign="top" align="center"> Заказ элементов из каталога
+  <p>Ordering items from catalog</p>
+</td> 
+<td width="92" valign="top" align="center"> H</td> 
+<td width="124" valign="top" align="center"> H</td> 
+<td width="79" valign="top" align="center"> H</td> 
+<td width="85" valign="top" align="center"> H</td> 
+<td width="78" valign="top" align="center"> H</td> 
+</tr> 
+<tr>  
+<td width="99" valign="top" align="center"> Запросы Клиента
+  <p>Customer Inquiries</p>
+</td> 
+<td width="92" valign="top" align="center"> L</td> 
+<td width="124" valign="top" align="center"> L</td> 
+<td width="79" valign="top" align="center"> L</td> 
+<td width="85" valign="top" align="center"> L</td> 
+<td width="78" valign="top" align="center"> L</td> 
+</tr> 
+<tr>  
+<td width="99" valign="top" align="center"> Диалог Выбора
+  Элемента
+  <p>Item Selection Dialog</p>
+</td> 
+<td width="92" valign="top" align="center"> L</td> 
+<td width="124" valign="top" align="center"> H</td> 
+<td width="79" valign="top" align="center"> L</td> 
+<td width="85" valign="top" align="center"> L</td> 
+<td width="78" valign="top" align="center"> H</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h4> Приоритет при использовании максимально
+высоко оцененного значения одного фактора (Риск)
+для определения приоритета:</h4> 
+<p>Priority when the highest assessed value for one factor (Risk) is used to
+determine priority:</p> 
+<div align="center">
+
+<center>  
+<table border="1" width="90%">  
+<tr>  
+<td valign="top" align="center"> Элемент
+  <p>Item</p>
+</td> 
+<td align="center" valign="top"> Риск
+  <p>Risk</p>
+</td> 
+<td align="center" valign="top"> Функциональный разрез
+  <p>Operational Profile</p>
+</td> 
+<td align="center" valign="top"> Актер
+  <p>Actor</p>
+</td> 
+<td valign="top" align="center"> Контракт
+  <p>Contract</p>
+</td> 
+<td valign="top" align="center"> Приоритет
+  <p>Priority</p>
+</td> 
+</tr> 
+<tr>  
+<td width="20%" valign="top" align="center"> Инсталляция нового программного обеспечения
+  <p>Installing new software</p>
+</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+</tr> 
+<tr>  
+<td width="20%" valign="top" align="center"> Заказ элементов из каталога
+  <p>Ordering items from catalog</p>
+</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+</tr> 
+<tr>  
+<td width="20%" valign="top" align="center"> Запросы Клиента
+  <p>Customer Inquiries</p>
+</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+</tr> 
+<tr>  
+<td width="20%" valign="top" align="center"> Диалог Выбора
+  Элемента
+  <p>Item Selection Dialog</p>
+</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+<td width="20%" valign="top" align="center"> H</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+<td width="20%" valign="top" align="center"> L</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h4> Приоритет при использовании весового
+значения для вычисления приоритета:</h4> 
+<p>Priority when a weighting value is used to calculate the priority:</p> 
+<p>
+(Обратите внимание: в таблице приведенной ниже, H = 5, М = 3, и L = 1.
+Значение Общей Взвешенной Величины большее чем 30
+является элементом теста Высокого приоритета,
+значения между 20 и 30 включительно - Среднего приоритета, и
+значения меньше 20 - Низкого).
+</p>
+<p>(Note: in the matrix below, H = 5, M = 3, and L = 1. A Total Weighted value
+greater than 30 is a High priority test item, values between 20 and 30 inclusive
+are a Medium priority, and values less than 20 are Low).
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="579">  
+<tr>  
+<td valign="top" align="center" width="121"> Элемент
+  <p>Item</p>
+</td> 
+<td align="center" valign="top" width="32"> Риск (x 3)
+  <p>Risk&nbsp;</p>
+</td> 
+<td align="center" valign="top" width="122"> Функциональный
+  разрез (x 2)
+  <p>Operational Profile</p>
+</td> 
+<td align="center" valign="top" width="40"> Актер (x 1)
+  <p>Actor&nbsp;</p>
+</td> 
+<td valign="top" align="center" width="64"> Контракт (x 3)
+  <p>Contract&nbsp;</p>
+</td> 
+<td valign="top" align="center" width="82"> Взвешенное
+  Значение&nbsp;
+  <p>Weighted Value</p>
+</td> 
+<td valign="top" align="center" width="76"> Приоритет
+  <p>Priority</p>
+</td> 
+</tr> 
+<tr>  
+<td width="121" valign="top" align="center"> Инсталляция нового программного обеспечения
+  <p>Installing new software</p>
+</td> 
+<td width="32" valign="top" align="center"> 5 (15)</td> 
+<td width="122" valign="top" align="center"> 5 (10)</td> 
+<td width="40" valign="top" align="center"> 1 (1)</td> 
+<td width="64" valign="top" align="center"> 5 (15)</td> 
+<td width="82" valign="top" align="center"> 41</td> 
+<td width="76" valign="top" align="center"> H (2)</td> 
+</tr> 
+<tr>  
+<td width="121" valign="top" align="center"> Заказ элементов из каталога
+  <p>Ordering items from catalog</p>
+</td> 
+<td width="32" valign="top" align="center"> 5 (15)</td> 
+<td width="122" valign="top" align="center"> 5 (10)</td> 
+<td width="40" valign="top" align="center"> 5 (5)</td> 
+<td width="64" valign="top" align="center"> 5 (15)</td> 
+<td width="82" valign="top" align="center"> 45</td> 
+<td width="76" valign="top" align="center"> H (1)</td> 
+</tr> 
+<tr>  
+<td width="121" valign="top" align="center"> Запросы Клиента
+  <p>Customer Inquiries</p>
+</td> 
+<td width="32" valign="top" align="center"> 1 (3)</td> 
+<td width="122" valign="top" align="center"> 1 (2)</td> 
+<td width="40" valign="top" align="center"> 1 (1)</td> 
+<td width="64" valign="top" align="center"> 1 (3)</td> 
+<td width="82" valign="top" align="center"> 9</td> 
+<td width="76" valign="top" align="center"> L (4)</td> 
+</tr> 
+<tr>  
+<td width="121" valign="top" align="center"> Диалог Выбора Элемента
+  <p>Item Selection Dialog</p>
+</td> 
+<td width="32" valign="top" align="center"> 1 (3)</td> 
+<td width="122" valign="top" align="center"> 5 (10)</td> 
+<td width="40" valign="top" align="center"> 1 (1)</td> 
+<td width="64" valign="top" align="center"> 1 (3)</td> 
+<td width="82" valign="top" align="center"> 17</td> 
+<td width="76" valign="top" align="center"> L (3)</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+ &nbsp;
+</p>
+<h3> <a name="Test Strategy">Стратегия Теста</a> 
+<map name="FPMap13">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap13" width="26" height="20"> </h3> 
+<p> <a name="Test Strategy">Test Strategy</a> </p> 
+<p> Стратегия Теста описывает общий подход и цели определенного
+объема работ теста.
+</p>
+<p>The Test Strategy describes the general approach and objectives of a specific
+test effort.
+</p>
+<p>
+Хорошая стратегия теста должна содержать следующее:
+<p>
+A good test strategy should contain the following: 
+<ul>
+ 
+<li> <a href="#Type of Test and Objective">Тип теста, который будет
+  реализован, и его цель</a></li> 
+<li> <a href="#Test Stage">Стадия, в которой тест будет
+  реализован</a></li> 
+<li> <a href="#Technique">Техника</a></li> 
+<li> <a href="#Completion Criteria">Измерение и критерии
+  используемые для оценки результатов теста и
+  завершенности теста</a></li> 
+<li> <a href="#Special Considerations">Любые специальные соображения, которые затрагивают
+  объем работ теста, описанный в стратегии
+  теста</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Type of Test and Objective">type of test to be implemented and
+    its objective</a></li>
+  <li><a href="#Test Stage">stage in which test will be implemented</a></li>
+  <li><a href="#Technique">technique</a></li>
+  <li><a href="#Completion Criteria">measurement and criteria used to assess
+    test results and test completion</a></li>
+  <li><a href="#Special Considerations">any special considerations that affect
+    the test effort described in the test strategy</a></li>
+</ul>
+<h4> <a name="Type of Test and Objective">Тип и Цель Теста</a>&nbsp;
+<map name="FPMap14">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap14" width="26" height="20"> </h4> 
+<p><a name="Type of Test and Objective">Type of Test and Objective</a> </p> 
+<p>Ясно сформулируйте тип и цели
+реализуемого теста. Это уменьшит
+путаницу и минимизирует недоразумения (тем более, что некоторые
+тесты могут выглядеть очень похожими). Ясно
+должна
+быть сформулирована цель - почему выполняется
+тест.
+</p>
+<p>State clearly the type of test being implemented and the objective of the
+test. Explicitly stating this information reduces confusion and minimizes
+misunderstandings (especially since some tests may look very similar). The
+objective should state clearly why the test is being executed.
+</p>
+<p>
+Примеры:
+</p>
+<p>
+Examples:
+</p>
+<blockquote>  
+<p>
+"Функциональный Тест. Функциональный тест
+сосредоточен на выполнении последующих прецедентов
+из интерфейса пользователя, реализованных в цели теста."
+</p>
+
+<p>&quot;Functional Test. The functional test focuses on executing the
+  following use cases implemented in the target-of-test, from the user
+  interface.&quot;
+</p>
+
+</blockquote>
+<blockquote>  
+<p>
+"Тест Производительности. Тест
+производительности для&nbsp; системы сосредоточен на измерении времени
+ответа для прецедентов 2, 4, и 8 - 10. Для этих
+тестов&nbsp;используется рабочая нагрузка одного актера,
+выполняющего эти прецеденты, при
+отсутствии какой-либо другой рабочей нагрузки
+для тестирующей системы."
+</p>
+<p>&quot;Performance Test. The performance test for the system will focus on
+  measuring response time for use cases 2, 4, and 8 - 10. For these tests, a
+  workload of one actor, executing these use cases without any other workload on
+  the test system will be used.&quot;
+</p>
+<p>
+" Тест Конфигурации. Тест Конфигурации будет
+реализован для определения и оценки
+поведения&nbsp;
+цели теста в трех различных конфигурациях,
+сравнивая параметры производительности с
+таковыми в нашей эталонной конфигурации."
+</p>
+
+<p>&quot;Configuration Test. Configuration testing will be implemented to
+  identify and evaluate the behavior of the target-of-test on three different
+  configurations, comparing the performance characteristics to our benchmark
+  configuration.&quot;
+</p>
+
+</blockquote>
+<h4> <a name="Test Stage">Стадия Теста</a> 
+<map name="FPMap15">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap15" width="26" height="20"> </h4> 
+<p> <a name="Test Stage">Test Stage</a> </p> 
+<p>Четко определите стадию, в которой
+тестирование будет выполнено. Ниже
+определены стадии, в которых выполняется
+общее тестирование:
+</p>
+<p>Clearly state the stage in which the test will be executed. Identified below
+are the stages in which common test are executed:
+</p>
+<div align="center">
+
+<center>  
+<table border="1" width="80%">  
+<tr>  
+<td width="20%">  
+<pre>  </pre> 
+</td> 
+<td width="80%" colspan="4" align="center"> Стадия Теста
+  <p>Stage of Test</p>
+</td> 
+</tr> 
+<tr>  
+<td width="20%"> Тип Теста
+  <p>Type of Tests</p>
+</td> 
+<td width="20%" align="center"> Модуль программы (?)
+  <p>Unit</p>
+</td> 
+<td width="20%" align="center"> Интеграция
+  <p>Integration</p>
+</td> 
+<td width="20%" align="center"> Система
+  <p>System</p>
+</td> 
+<td width="20%" align="center"> Принятие
+  <p>Acceptance</p>
+</td> 
+</tr> 
+<tr>  
+<td width="20%"> Функциональные тесты<p>
+( Конфигурация, Функция, Инсталляция, Безопасность, Объем)
+  <p>Functional Tests
+    <p>(Configuration, Function, Installation, Security, Volume)</td> 
+<td width="20%" align="center"> X</td> 
+<td width="20%" align="center"> X</td> 
+<td width="20%" align="center"> X</td> 
+<td width="20%" align="center"> X</td> 
+</tr> 
+<tr>  
+<td width="20%"> Тесты производительности 
+<p>
+(Профили производительности индивидуальных компонентов)
+</p>
+  Performance Tests
+    <p>(performance profiles of individual components)</p>
+</td> 
+<td width="20%" align="center"> X</td> 
+<td width="20%" align="center"> X</td> 
+<td width="20%" align="center"> ( X) 
+<p align="left">
+Необязательно или когда тесты
+производительности системы раскрывают дефекты 
+<p align="left">
+optional or when system performance tests disclose defects</td> 
+<td width="20%" align="center">  
+<pre>  </pre> 
+</td> 
+</tr> 
+<tr>  
+<td width="20%"> Тесты Производительности&nbsp;<p>
+(Загрузка, Напряжение, Конкуренция)
+  <p>Performance Tests
+    <p>(Load, Stress, Contention)</td> 
+<td width="20%" align="center">  
+<pre>  </pre> 
+</td> 
+<td width="20%" align="center">  
+<pre>  </pre> 
+</td> 
+<td width="20%" align="center"> X</td> 
+<td width="20%" align="center"> X</td> 
+</tr> 
+<tr>  
+<td width="20%"> Надежность<p>
+(Целостность, Структура)
+  <p>Reliability
+    <p>(Integrity, Structure)</td> 
+<td width="20%" align="center"> X</td> 
+<td width="20%" align="center"> X</td> 
+<td width="20%" align="center"> ( X)<p align="left">Необязательно или когда другие
+  тесты раскрывают дефекты<p align="left">optional or when others tests disclose defects</td> 
+<td width="20%" align="center">  
+<pre>  </pre> 
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<p>
+ &nbsp;
+</p>
+<h4> <a name="Technique">Техника</a> 
+<map name="FPMap16">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap16" width="26" height="20"> </h4> 
+<p> <a name="Technique">Technique</a> </p> 
+<p>
+Техника должна описывать, как будет
+реализовано и выполнено тестирование.
+Включая то, что будет тестировано, основные действия, которые будут приняты в
+процессе выполнения теста, и метод(ы) ,
+которые будут использованы для оценки
+результатов.
+</p>
+<p>The technique should describe how testing will be implemented and executed.
+Include what will be tested, the major actions to be taken during test
+execution, and the method(s) used to evaluate the results.
+</p>
+<p>
+Пример:
+</p>
+<p>
+Example:
+</p>
+<blockquote>  
+<p>Функциональный Тест:
+</p>
+
+<p>Functional Test:
+</p>
+
+</blockquote>
+<blockquote>  
+<ul>
+ 
+<li> Для каждого прецедентного потока
+  событий будет определен репрезентативный набор
+  сделок, каждая из которых представляет
+  действия предпринятые актером при
+  выполнении прецедента.</li> 
+<li> Минимум два прецедента будут
+  разработаны для каждой сделки; один
+  прецедент, чтобы отразить положительное состояние и один
+  для отражения отрицательного (недопустимого)
+  состояния.</li> 
+<li> В первой итерации, прецеденты 1 - 4, и 12 будут
+  тестированы,&nbsp; следующим образом: 
+<ul>
+ 
+<li> Прецедент 1: 
+<ul>
+ 
+<li> Прецедент 1 начинается с актера, уже зарегистрированного в
+  приложении и в основном окне, и заканчивается, когда пользователь
+  выбирает команду СОХРАНИТЬ.</li> 
+<li> Каждая тест-установка будет реализована
+  и выполнена с&nbsp; использованием Rational Robot.</li> 
+<li> Проверка и оценка выполнения каждой
+  тест-установки будут выполнены с
+  использованием следующих методов: 
+<ul>
+ 
+<li> Выполнение тест-сценария (успешно ли выполняется
+  каждый тест-сценарий, так как
+  хотелось?)</li> 
+<li> Методы проверки Существования Окна или Данных Объекта
+  (реализованных
+  в тест-сценариях) будут использоваться для
+  проверки того, что при выполнении теста
+  ключевые окна отображаются и что указанные данные&nbsp;
+  захвачены/отображены&nbsp; в цели теста.</li> 
+<li> База данных цели тестов (используется Microsoft
+  Access) будет проверена до и после
+  теста, чтобы удостовериться, что изменения, выполненные в
+  процессе теста точно отражены в данных.</li> 
+
+</ul>
+</li> 
+
+</ul>
+</li> 
+
+</ul>
+</li> 
+
+</ul>
+  <ul>
+    <li>For each use case flow of events, a representative set of transactions
+      will identified, each representing the actions taken by the actor when the
+      use case is executed.</li>
+    <li>A minimum of two test cases will be developed for each transaction; one
+      test case to reflect the positive condition and one to reflect the
+      negative (unacceptable) condition.</li>
+    <li>In the first iteration, use cases 1 - 4, and 12 will be tested, in the
+      following manner:
+      <ul>
+        <li>Use Case 1:
+          <ul>
+            <li>Use Case 1 begins with the actor already logged into the
+              application and at the main window, and terminates when the user
+              has specified SAVE.</li>
+            <li>Each test case will be implemented and executed using Rational
+              Robot.</li>
+            <li>Verification and assessment of execution for each test case will
+              be done using the following methods:
+              <ul>
+                <li>Test script execution (did each test script execute
+                  successfully and as desired?)</li>
+                <li>Window Existence, or Object Data verification methods
+                  (implemented in the test scripts) will be used to verify that
+                  key windows display and specified data is captured / displayed
+                  by the target-of-test during test execution.</li>
+                <li>The target-of-test's database (using Microsoft Access) will
+                  be examined before the test and again after the test to verify
+                  that the changes executed during the test are accurately
+                  reflected in the data.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+<p>
+Тест Производительности:
+<p>
+Performance Test: 
+<ul>
+ 
+<li> Для каждого прецедента репрезентативный
+  набор сделок, определенных в документе анализа рабочей нагрузки, будет
+  реализован и выполнен с&nbsp; использованием
+      Rational Performance Studio (vu? сценарии) и Rational Robot (сценарии
+  графического интерфейса пользователя (GUI)).</li> 
+<li> По крайней мере три рабочих нагрузки будут отражены в
+  тест-сценариях, и при выполнении теста
+  планируется следующее: 
+<ul>
+ 
+<li> Нагрузочный объем работ: 750 пользователей (менеджеры 15%, продажи 50%, маркетинг 35%)</li> 
+<li> Пиковая рабочая нагрузка: 350 пользователей (менеджеры 10%, продажи 60%, маркетинг 30%)</li> 
+<li> Номинальная рабочая нагрузка: 150 пользователей (менеджеры 2%, продажи 75%, маркетинг 23%)</li> 
+
+</ul>
+</li> 
+<li> Тест-сценарии, используемые для
+  выполнения каждой сделки, будут иметь соответствующие таймеры
+  для определения времен
+  ответа, таких как время всей сделки (как определено в
+  документе анализа объема работ), и время
+  действия ключевой сделки или времена процесса.</li> 
+<li> Тест-сценарии выполнят объемы работ в течение одного часа (если
+  в документе анализа объема работ не
+  выбрано другое).</li> 
+<li> Проверка и оценка выполнения для каждого
+  теста (объема работ) будут включать: 
+<ul>
+ 
+<li> Выполнение теста будет контролироваться
+  с использованием гистограмм состояния (чтобы проверить, что
+  тест и объемы работ выполняются как
+  ожидалось и как хотелось)</li> 
+<li> Выполнение тест-сценария (каждый ли тест-сценарий выполняется успешно и
+  так как
+  хотелось?)</li> 
+<li> Захват и оценка определенных времен
+  ответа&nbsp; использует следующие сообщения: 
+<ul>
+ 
+<li> Перцентиль Производительности</li> 
+<li> Время Ответа</li> 
+
+</ul>
+</li> 
+
+</ul>
+</li> 
+
+</ul>
+
+  <ul>
+    <li>For each use case, a representative set of transactions, as identified
+      in the workload analysis document will be implemented and executed using
+      Rational Performance Studio (vu scripts) and Rational Robot (GUI scripts).</li>
+    <li>At least three workloads will be reflected in the test scripts and test
+      execution schedules including the following:
+      <ul>
+        <li>Stressed workload: 750 users (15 % managers, 50 % sales, 35 %
+          marketing)</li>
+        <li>Peak workload: 350 users (10 % managers, 60 % sales, 30 % marketing)</li>
+        <li>Nominal workload: 150 users (2 % managers, 75% sales, 23 %
+          marketing)</li>
+      </ul>
+    </li>
+    <li>Test scripts used to execute each transaction will include the
+      appropriate timers to capture response times, such as total transaction
+      time (as defined in the workload analysis document), and key transaction
+      activity or process times.</li>
+    <li>The test scripts will execute the workloads for one hour (unless noted
+      differently by the workload analysis document).</li>
+    <li>Verification and assessment of execution for each test execution (of a
+      workload) will include:
+      <ul>
+        <li>Test execution will be monitored using state histograms (to verify
+          that the test and workloads are executing as expected and desired)</li>
+        <li>Test script execution (did each test script execute successfully and
+          as desired?)</li>
+        <li>Capture and evaluation of the identified response times using the
+          following reports:
+          <ul>
+            <li>Performance Percentile</li>
+            <li>Response Time</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+<p>
+ &nbsp;
+</p>
+
+</blockquote>
+<h4> <a name="Completion Criteria">Критерии Завершения</a> 
+<map name="FPMap17">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map>
+<img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap17" width="26" height="20"> </h4> 
+<p> <a name="Completion Criteria">Completion Criteria</a> </p> 
+<p>Определение Критериев Завершения имеет
+две цели 
+<p>
+Completion criteria are stated to for two purposes: 
+<ul>
+ 
+<li> Определить приемлемое качество изделия</li> 
+<li> Определить когда объем работ теста был успешно
+  реализован</li> 
+
+</ul>
+<ul>
+  <li>identify acceptable product quality</li>
+  <li>identify when the test effort has been successfully implemented</li>
+</ul>
+<p>
+Ясное формулирование критериев завершения должно
+включать следующие элементы:
+<p>
+A clear statement of completion criteria should include the following items: 
+<ul>
+ 
+<li> Функция, поведение, или измеряемое условие</li> 
+<li> Метод измерения</li> 
+<li> Критерии или степень соответствия измерению</li> 
+
+</ul>
+<ul>
+  <li>function, behavior, or condition being measured</li>
+  <li>method of measurement</li>
+  <li>criteria or degree of conformance to measurement</li>
+</ul>
+<p>
+Пример 1
+<p>
+Example 1 
+<ul>
+ 
+<li> Все запланированные тест-установки были выполнены</li> 
+<li> Все выявленные дефекты были
+  переведены в согласованные на основании
+  решения</li> 
+<li> Все запланированные тест-установки были
+  повторно выполнены, и все известные дефекты были
+  переведены в согласованные, и никаких
+  новых дефектов обнаружено не было</li> 
+
+</ul>
+<ul>
+  <li>All planned test cases have been executed</li>
+  <li>All identified defects have been addressed to an agreed upon resolution</li>
+  <li>All planned test cases have been re-executed and all known defects have
+    been addressed as agreed upon, and no new defects have been discovered</li>
+</ul>
+<p>
+Пример 2
+<p>
+Example 2 
+<ul>
+ 
+<li> Все Тест-установки высокого приоритета были выполнены.</li> 
+<li> Все выявленные дефекты были
+  переведены в согласованные на основании
+  решения.</li> 
+<li> Вся Серьезность 1 или 2 дефекта была
+  разрешена (статус = установленный или
+  отложенный).</li> 
+<li> Все тест-установки высокого приоритета были
+  повторно выполнены, и все известные дефекты
+  переведены в согласованные, и никаких
+  новых дефектов обнаружено не было.</li> 
+
+</ul>
+<ul>
+  <li>All high priority test cases have been executed.</li>
+  <li>All identified defects have been addressed to an agreed upon resolution.</li>
+  <li>All Severity 1 or 2 defects have been resolved (status = fixed or
+    postponed).</li>
+  <li>All high priority test cases have been re-executed and all known defects
+    have addressed as agreed upon, and no new defects have been discovered.</li>
+</ul>
+<p>
+Пример 3
+<p>
+Example 3 
+<ul>
+ 
+<li> Все запланированные тест-установки были выполнены.</li> 
+<li> Все выявленные дефекты были
+  переведены в согласованные на основании
+  решения.</li> 
+<li> Вся Серьезность 1 или 2 дефекта была
+  разрешена (статус = проверенный или
+  отложенный).</li> 
+<li> Все тест-установки высокого приоритета были
+  повторно выполнены, и все известные дефекты
+  были переведены в согласованные, и никаких
+  новых дефектов обнаружено не было.</li> 
+
+</ul>
+<ul>
+  <li>All planned test cases have been executed.</li>
+  <li>All identified defects have been addressed to an agreed upon resolution.</li>
+  <li>All Severity 1 or 2 defects have been resolved (status = verified or
+    postponed).</li>
+  <li>All high priority test cases have been re-executed and all known defects
+    have addressed as agreed upon, and no new defects have been discovered.</li>
+</ul>
+<h4> <a name="Special Considerations">Специальные Соображения</a><img src="../../images/top.gif" alt="Top.gif (974 байта)" border="0" usemap="#FPMap18" width="26" height="20">
+ </h4> 
+<h4> <map name="FPMap18">
+ 
+<area href="#Top" shape="default" coords>
+ 
+<area href="#Top" shape="rect" coords="0, 1, 25, 19">
+
+</map><a name="Special Considerations">Special Considerations</a> &nbsp;
+ </h4> 
+<p>
+Этот раздел должен определить любые влияния или зависимости, которые могут, воздействие или влиять на
+объем работ теста, описанном в стратегии
+теста. Влияния могли бы включать: 
+<p>
+This section should identify any influences or dependencies which may impact
+or influence the test effort describe in the test strategy. Influences might
+include: 
+<ul>
+ 
+<li> Человеческие ресурсы (такие как
+  доступность или необходимость в не
+  связанных с тестом ресурсах для поддержки/участия
+  в тесте)</li> 
+<li> Ограничения, (такие как ограничения оборудования или
+  доступность, или потребности/недостаток специального оборудования)</li> 
+<li> Специальные требования, такие как
+  планирование
+  теста или доступ к системам</li> 
+
+</ul>
+<ul>
+  <li>human resources (such as availability or need for non-test resources to
+    support / participate in test)</li>
+  <li>constraints, (such as equipment limitations or availability, or the need /
+    lack of special equipment)</li>
+  <li>special requirements, such as test scheduling or access to systems</li>
+</ul>
+<p>
+Примеры:
+<p>
+Examples: 
+<ul>
+ 
+<li> Базы данных тестов будут требовать поддержки
+  разработчика/администратора базы данных
+  для создания, модернизации и обновления
+  данных теста.</li> 
+<li> Тестирование&nbsp; производительности
+  системы будет использовать серверы в существующей сети (которая поддерживает не
+  связанный с тестом трафик). Тестирование будет
+  нуждаться в планировании через какое-то
+  время, чтобы
+  гарантировать, что не будет никакого не
+  связанного с тестом трафика в сети.</li> 
+<li> Цель теста должна согласовывать по
+  времени систему
+  наследования (или имитировать
+  синхронизацию) для полнофункционального
+  тестирования, которое&nbsp; в последствие будет
+  реализовано и выполнено</li> 
+
+</ul>
+<ul>
+  <li>Test databases will require the support of a database designer /
+    administrator to create, update, and refresh test data.</li>
+  <li>System performance testing will use the servers on the existing network
+    (which supports non-test traffic). Testing will need to be scheduled after
+    hours to ensure no non-test traffic on the network.</li>
+  <li>The target-of-test must synchronize the legacy system (or synchronization
+    simulated) for full functional testing to be implemented and executed</li>
+</ul>
+<p>
+ &nbsp;
+</p>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+
+
+</body>
+ 
+</HTML>

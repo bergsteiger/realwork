@@ -1,0 +1,166 @@
+project {
+	Define_Custom(FLEX) {
+		automatic = 0
+		inputext = .flex
+		command = dir
+	}
+	includes += ./../../component/cpp/libs/gc/src
+	includes += ./../../component/cpp/libs/gctx/src
+	includes += ./../../component/cpp/libs/gchange/include
+	includes += ./../../component/cpp/libs/lex/include
+	includes += ./../../component/cpp/tools/gctools/src
+	Header_Files {
+		./../../component/cpp/tools/gctools/src/belongs.h
+		./../../component/cpp/tools/gctools/src/blobtable.h
+		./../../component/cpp/tools/gctools/src/cacheIndex.h
+		./../../component/cpp/tools/gctools/src/classes.h
+		./../../component/cpp/tools/gctools/src/complect.h
+		./../../component/cpp/tools/gctools/src/dbproc.m-reader.h
+		./../../component/cpp/tools/gctools/src/dbproc.m-to-gkdb.h
+		./../../component/cpp/tools/gctools/src/dbproc.m-writer.h
+		./../../component/cpp/tools/gctools/src/fstringer.h
+		./../../component/cpp/tools/gctools/src/garcomp.h
+		./../../component/cpp/tools/gctools/src/gcini.h
+		./../../component/cpp/tools/gctools/src/loadStringMap.h
+		./../../component/cpp/tools/gctools/src/MyPipe.h
+		./../../component/cpp/tools/gctools/src/publish.h
+		./../../component/cpp/tools/gctools/src/sources.h
+		./../../component/cpp/tools/gctools/src/sttop.h
+	}
+	
+	Source_Files {
+		./../../component/cpp/libs/VControl/src/vapi.c
+
+		./../../component/cpp/libs/gctx/src/ctxwords.cpp
+		./../../component/cpp/libs/gctx/src/gctx_func.cpp
+		./../../component/cpp/libs/gctx/src/u_int64_t.CtxLongSet.Map.cpp
+		./../../component/cpp/libs/gctx/src/u_int64_t.CtxLongSet.SplayMap.cpp
+
+		./../../component/cpp/libs/gc/src/dbproc.cpp
+		./../../component/cpp/libs/gc/src/dbproc.mf.cpp
+		./../../component/cpp/libs/gc/src/gclog.cpp
+
+		./../../component/cpp/libs/lex/src/lex_basis.cpp
+		./../../component/cpp/libs/lex/src/lex_operator.cpp
+		./../../component/cpp/libs/lex/src/lex_parser.cpp
+
+	        ./../../../../common/components/rtl/Garant/EVD/EeGenerator_i.cpp
+        	./../../../../common/components/rtl/Garant/EVD/evddata.cpp
+	        ./../../../../common/components/rtl/Garant/EVD/EvdReader.cpp
+
+		./../../component/cpp/libs/endt/Common.cpp
+		./../../component/cpp/libs/endt/EndtReader.cpp
+		./../../component/cpp/libs/endt/EndtWriter.cpp
+		./../../component/cpp/libs/endt/EndtParser.cpp
+		./../../component/cpp/libs/endt/NsrcGenerator.cpp
+		./../../component/cpp/libs/endt/RefFilter.cpp
+		./../../component/cpp/libs/endt/Helpers.cpp
+		./../../component/cpp/libs/endt/EndtBuilder.cpp	
+		./../../component/cpp/libs/endt/EndtGenerator_i.cpp
+		./../../component/cpp/libs/endt/EndtWriter_i.cpp
+		./../../component/cpp/libs/endt/Writers.cpp
+		./../../component/cpp/libs/endt/IsVersionComment.cpp
+		./../../component/cpp/libs/endt/TableDecompile.cpp
+
+		./../../component/cpp/libs/cchlp/src/advlog.cpp
+		./../../component/cpp/libs/cchlp/src/clTreeNode.Set.cpp
+		./../../component/cpp/libs/cchlp/src/clTreeNode.SplayNode.cpp
+		./../../component/cpp/libs/cchlp/src/clTreeNode.SplaySet.cpp
+		./../../component/cpp/libs/cchlp/src/date.Set.cpp
+		./../../component/cpp/libs/cchlp/src/date.SplayNode.cpp
+		./../../component/cpp/libs/cchlp/src/date.SplaySet.cpp
+		./../../component/cpp/libs/cchlp/src/errhandler.cpp
+		./../../component/cpp/libs/cchlp/src/FString.caddr_t.Map.cpp
+		./../../component/cpp/libs/cchlp/src/FString.caddr_t.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/fstring.cpp
+		./../../component/cpp/libs/cchlp/src/FString.FString.Map.cpp
+		./../../component/cpp/libs/cchlp/src/FString.FString.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/FString.long.Map.cpp
+		./../../component/cpp/libs/cchlp/src/FString.long.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/FString.Set.cpp
+		./../../component/cpp/libs/cchlp/src/FString.SplayNode.cpp
+		./../../component/cpp/libs/cchlp/src/FString.SplaySet.cpp
+		./../../component/cpp/libs/cchlp/src/hnode.cpp
+		./../../component/cpp/libs/cchlp/src/Logger.cpp
+		./../../component/cpp/libs/cchlp/src/long.caddr_t.Map.cpp
+		./../../component/cpp/libs/cchlp/src/long.caddr_t.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/long.long.Map.cpp
+		./../../component/cpp/libs/cchlp/src/long.long.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/long.longSplaySet.Map.cpp
+		./../../component/cpp/libs/cchlp/src/long.longSplaySet.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/long.Set.cpp
+		./../../component/cpp/libs/cchlp/src/long.SplayNode.cpp
+		./../../component/cpp/libs/cchlp/src/long.SplaySet.cpp
+		./../../component/cpp/libs/cchlp/src/long.VHSet.cpp
+		./../../component/cpp/libs/cchlp/src/recode.cpp
+		./../../component/cpp/libs/cchlp/src/stringz.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.caddr_t.Map.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.caddr_t.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.FString.Map.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.FString.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.FString.VHMap.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.Set.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.SplayNode.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.SplaySet.cpp
+		./../../component/cpp/libs/cchlp/src/u_int32_t.VHSet.cpp
+		./../../component/cpp/libs/cchlp/src/u_int64_t.Set.cpp
+		./../../component/cpp/libs/cchlp/src/u_int64_t.SplayNode.cpp
+		./../../component/cpp/libs/cchlp/src/u_int64_t.SplaySet.cpp
+		./../../component/cpp/libs/cchlp/src/u_int64_t.u_int16_t.Map.cpp
+		./../../component/cpp/libs/cchlp/src/u_int64_t.u_int16_t.SplayMap.cpp
+		./../../component/cpp/libs/cchlp/src/u_int64_t.VHSet.cpp
+
+		./../../component/cpp/libs/gchange/src/context.cpp
+		./../../component/cpp/libs/gchange/src/parser.cpp
+		./../../component/cpp/libs/gkdb/src/basemask.cpp
+		./../../component/cpp/libs/gkdb/src/btiter.cpp
+		./../../component/cpp/libs/gkdb/src/btree.cpp
+		./../../component/cpp/libs/gkdb/src/collect.cpp
+		./../../component/cpp/libs/gkdb/src/doccol.cpp
+		./../../component/cpp/libs/gkdb/src/dociter.cpp
+		./../../component/cpp/libs/gkdb/src/document.cpp
+		./../../component/cpp/libs/gkdb/src/dummies.cpp
+		./../../component/cpp/libs/gkdb/src/garutils.cpp
+		./../../component/cpp/libs/gkdb/src/hindex.cpp
+		./../../component/cpp/libs/gkdb/src/index.cpp
+		./../../component/cpp/libs/gkdb/src/indices.cpp
+		./../../component/cpp/libs/gkdb/src/ncpf.cpp
+		./../../component/cpp/libs/gkdb/src/newdoc.cpp
+		./../../component/cpp/libs/gkdb/src/refcol.cpp
+		./../../component/cpp/libs/gkdb/src/streams.cpp
+		./../../component/cpp/tools/gctools/src/belongs.cpp
+		./../../component/cpp/tools/gctools/src/blobtable.cpp
+		./../../component/cpp/tools/gctools/src/cacheIndex.cpp
+		./../../component/cpp/tools/gctools/src/classes.cpp
+		./../../component/cpp/tools/gctools/src/complect.cpp
+		./../../component/cpp/tools/gctools/src/dbproc.m-reader.cpp
+		./../../component/cpp/tools/gctools/src/dbproc.m-to-gkdb.cpp
+		./../../component/cpp/tools/gctools/src/dbproc.m-writer.cpp
+		./../../component/cpp/tools/gctools/src/fstringer.cpp
+		./../../component/cpp/tools/gc/src/garcomp.cpp
+		./../../component/cpp/tools/gctools/src/gcini.cpp
+		./../../component/cpp/tools/gctools/src/gcpass1.cpp
+		./../../component/cpp/tools/gctools/src/kwfile.cpp
+		./../../component/cpp/tools/gctools/src/loadStringMap.cpp
+		./../../component/cpp/tools/gctools/src/MyPipe.cpp
+		./../../component/cpp/tools/gctools/src/normfile.cpp
+		./../../component/cpp/tools/gctools/src/nsrcparser.cpp
+		./../../component/cpp/tools/gctools/src/publish.cpp
+		./../../component/cpp/tools/gctools/src/sources.cpp
+		./../../component/cpp/tools/gctools/src/sttop.cpp
+		./../../../../common/components/rtl/Garant/EVD/evddata.cpp
+	}
+
+	FLEX_Files {
+		./../../component/cpp/tools/gctools/src/belongs.flex
+		./../../component/cpp/tools/gctools/src/blobtable.flex
+		./../../component/cpp/tools/gctools/src/classes.flex
+		./../../component/cpp/tools/gctools/src/complect.flex
+		./../../component/cpp/tools/gctools/src/gcini.flex
+		./../../component/cpp/tools/gctools/src/kwfile.flex
+		./../../component/cpp/tools/gctools/src/loadStringMap.flex
+		./../../component/cpp/tools/gctools/src/normfile.flex
+		./../../component/cpp/tools/gctools/src/sources.flex
+		./../../component/cpp/tools/gctools/src/sttop.flex
+	}
+}

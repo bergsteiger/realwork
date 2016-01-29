@@ -1,0 +1,194 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Структурировать модель прецедентов </title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="Top"></a>Активность: Создать модель прецедентов</h2>
+<div align="center"><center>
+
+<table border="1" cellspacing="0" cellpadding="2" width="85%">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Выделить абстрактные прецеденты (под абстрактным понимается прецедент, который напрямую не выполняется пользователем системы).
+Например, выделяется общее поведение для ряда прецедентов, опциальное поведение, исключения, поведение, которое будет разработано позже, в более поздних итерациях, 
+выделяемое в отдельный прецедент</li>
+      <li>Найти новых абстрактных актеров, чтобы задать роли, которые могут быть выполнены несколькими
+актерами.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Шаги</font></strong></small>
+    <ul>
+      <li><a href="#Create model elements">Создать элементы модели</a></li>
+      <li><a href="#Establish Include-Relationships Between Use Cases">Создать зависимости типа INCLUDE</a></li>
+      <li><a href="#Establish Extend-Relationships Between Use Cases">Создать зависимости типа EXTEND</a></li>
+      <li><a href="#Establish Generalizations Between Use Cases">Показать наследование прецедентов</a></li>
+      <li><a href="#Establish Generalizations Between Actors">Показать наследование актеров</a></li>
+      <li><a href="#Evaluate Your Results">Оценить результаты</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/environment/pa_design.htm">Инструкция проектирования</a></li>
+      <li><a href="../../artifacts/requirements/pa_ucspec.htm">Спецификации прецедентов</a></li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/requirements/pa_ucspec.htm">Прецеденты</a>, уточнение существующих, выделение новых абстрактных.</li>
+      <li><a href="../../artifacts/requirements/pa_ucmod.htm">Модель прецедентов</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_sysan.htm">Аналитик</a></td>
+  </tr>
+</table>
+</center></div>
+
+<p>Инструкция проектирования в части моделирования прецедентов содержит указания и ограничения по проведению данного типа работ.
+<h3><a name="Create model elements">Создать элементы модели</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Исходя из всех <a href="../../artifacts/requirements/pa_ucspec.htm">спецификаций прецедентов</a>, Аналитик 
+должен выделить актеров и создать для каждого из них элемент модели, т.е. класс со стереотипом <i>Actor</i> или 
+<i>System Actor</i>. Также для каждой спецификации прецедента необходимо создать элемент модели (класс) 
+со стереотипом <i>use-case</i>, который нужно связать с помощью ссылки с соответствующей спецификацией 
+в базе RequisitePro проекта, а также с документом, в котором эта спецификация описана.
+
+<h3><a name="Establish Include-Relationships Between Use Cases">Создать зависимости типа INCLUDE</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Связь типа INCLUDE между прецедентами говорит о том, что поток событий базового прецедента
+в обязательном порядке должен быть расширен потоком включенного прецедента.
+<p>В базовом прецеденте должны быть указаны точки расширения - места в описании прецедента, в которых начинается 
+использование сценария, описанного в расширяющем прецеденте.
+<p>Такая связь может помочь:
+<ul>
+  <li>Изолировать и выделить сложные детали, не изменив смысла прецедента.</li>
+  <li>Улучшение связности путем выделения поведения, характерного для нескольких прецедентов.</li>
+</ul>
+<h3><a name="XE_extend-relationship__establish_between_use_cases"></a><a name="Establish Extend-Relationships Between Use Cases">Создать зависимости типа EXTEND</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Если прецедент имеет части поведения опциального или исключительного характера,
+это поведение может быть выделено в отдельный, расширяющий прецедент.
+<p>Сложные подпотоки и опциальное поведение - первый признак необходимости выделения 
+прецедентов-расширений. После выделения расширений, поток событий прецедента должен 
+заметно упроститься. Однако необходимо проверить, что он все еще закончен и понятен.
+<h3><a name="XE_use-case-generalization__establish_between_use_cases"></a><a name="Establish Generalizations Between Use Cases">Показать наследование прецедентов</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Если несколько прецедентов имеют общие черты в структуре и поведении, 
+возможно, нужно выделить базовый прецедент и унаследовать от него дочерние.
+
+<p>Наследование показывает, что выполнение дочернего прецедента идет как по описанию его потока,
+так и по описанию потока базового прецедента.
+<p>Наследование оправдано, когда имеется минимум два дочерних прецедента.
+<p>Только дочерние прецеденты могут ссылаться на родительские.
+<p>В потоке дочернего прецедента необходимо указать, как  будет изменена последовательность событий
+базового прецедента.
+<h3><a name="XE_actor-generalization__establishing"></a><a name="Establish Generalizations Between Actors">Показать наследование актеров</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Актеры могут иметь общие характеристики, которые позволяют использовать наследование.
+Эту часть работ лучше всего выполнить в самых первых вариантах модели прецедентов.
+Обычно наследование актеров используется, когда несколько актеров могут выполнять одни и те 
+же прецеденты, но существуют прецеденты доступные для одного или части из них</p>
+<h3><a name="Evaluate Your Results">Оцените ваши результаты</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>В результате построения модели прецедентов, на ней должны появиться классы, описывающие актеров, и классы, 
+описывающие прецеденты. Также должны быть определены все необходимые отношения и взаимодействия 
+между такими классами, которые должны быть показаны на соответствующих основных [main] диаграммах пакетов.
+
+<p>Вы должны постоянно обсуждать использование include-, extend- связей, наследование
+с другими специалистами-аналитиками.</p>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+</body>
+
+</html>

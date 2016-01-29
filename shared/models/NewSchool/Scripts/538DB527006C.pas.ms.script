@@ -1,0 +1,126 @@
+// TcsIdIOHandlerAdapter 538DB527006C SimpleClass Class
+
+INCLUDE '538DDC890328.pas.ms.script'
+
+INCLUDE '538DB4F00335.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_538DB527006C
+
+: ME_538DB5180011
+ CONST UID '538DB5180011'
+ CONST Name 'f_IOHandler'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_538DB5180011 f_IOHandler
+
+FORWARD ME_538DB5610283
+
+: ME_538DB5780375
+ CONST UID '538DB5780375'
+ CONST Name 'aIOHandler'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_538DB5780375 aIOHandler
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_538DB5740231
+ CONST UID '538DB5740231'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_538DB5780375 // aIOHandler
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_538DB5740231 DoIt
+
+: ME_538DB5610283
+ CONST UID '538DB5610283'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_538DB5740231 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_538DB5610283 Create
+
+: ME_538DB527006C
+ CONST UID '538DB527006C'
+ CONST Name 'TcsIdIOHandlerAdapter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_538DB5180011 // f_IOHandler
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_538DB5610283 // Create
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_538DB5C7002E // WriteBufferFlush
+ ME_538DB5E90386 // ReadChar
+ ME_538DB61100CA // ReadCardinal
+ ME_538DB62D02C7 // ReadDateTime
+ ME_538DB6520024 // ReadLn
+ ME_538DB66D02EB // ReadInt64
+ ME_538DB69000E7 // ReadStream
+ ME_538DB78C01B0 // ReadInteger
+ ME_538DB7A4016D // ReadSmallInt
+ ME_538DB7E00144 // WriteLn
+ ME_538DB804015E // WriteCardinal
+ ME_538DB83B021B // WriteInt64
+ ME_538DB86700DB // WriteStream
+ ME_538DB8970317 // WriteChar
+ ME_538DB8BA00D1 // WriteSmallInt
+ ME_538DB8DF029E // WriteInteger
+ ME_538DB9070097 // WriteDateTime
+ ME_538DB93002B5 // Connected
+ ME_538DB9810192 // WriteFile
+ ME_538DB9C40271 // WriteBufferOpen
+ ME_538DB9F30058 // WriteBufferClose
+ ME_538DBA0B009F // WriteBufferClear
+ ME_54536C8F036B // WaitForReadData
+ ME_5476EDF200B5 // InputBufferClear
+ ME_54F5C07302CC // WriteLargeStr
+ ME_54F5C09C0302 // ReadLargeStr
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_538DB527006C TcsIdIOHandlerAdapter

@@ -1,0 +1,468 @@
+// vcmWritersInterfaces 499D629D026C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499D629D026C
+
+FORWARD ME_4993017001FE
+
+: ME_4993019403B2
+ CONST UID '4993019403B2'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4993019403B2 aString
+
+: ME_499301950007
+ CONST UID '499301950007'
+ CONST Name 'anUF'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499301BF0067' '499EAAE502A8.pas.ms.script' // IvcmUserFriendlyControl
+ ;
+
+ref; // ME_499301950007 anUF
+
+: ME_499301950048
+ CONST UID '499301950048'
+ CONST Name 'aNeedClose'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_499301950048 aNeedClose
+
+: ME_4993017B02FC
+ CONST UID '4993017B02FC'
+ CONST Name 'SaveUF'
+ CONST Class class_Operation
+ %SUMMARY 'сохраняет объект в поток' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4993017001FE // IvcmXMLWriter
+ ;
+ : Parameters
+   @ ( ME_4993019403B2 // aString
+ ME_499301950007 // anUF
+ ME_499301950048 // aNeedClose
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4993017B02FC SaveUF
+
+: ME_499301B103A5
+ CONST UID '499301B103A5'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_499301B103A5 aString
+
+: ME_499301B103E3
+ CONST UID '499301B103E3'
+ CONST Name 'anUF'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499301BF0067' '499EAAE502A8.pas.ms.script' // IvcmUserFriendlyControl
+ ;
+
+ref; // ME_499301B103E3 anUF
+
+: ME_499301B20044
+ CONST UID '499301B20044'
+ CONST Name 'aSuffix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_499301B20044 aSuffix
+
+: ME_499301B20089
+ CONST UID '499301B20089'
+ CONST Name 'aNeedClose'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_499301B20089 aNeedClose
+
+: ME_4993019F0030
+ CONST UID '4993019F0030'
+ CONST Name 'SaveUF'
+ CONST Class class_Operation
+ %SUMMARY 'сохраняет объект в поток' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4993017001FE // IvcmXMLWriter
+ ;
+ : Parameters
+   @ ( ME_499301B103A5 // aString
+ ME_499301B103E3 // anUF
+ ME_499301B20044 // aSuffix
+ ME_499301B20089 // aNeedClose
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4993019F0030 SaveUF
+
+: ME_46A4570E03B6_ME_4993017001FE
+ CONST UID '46A4570E03B6'
+ CONST Name 'OpenLevel'
+ : Original WL 'ME_46A4570E03B6' '4677FBA70343.pas.ms.script' // OpenLevel
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A4570E03B6_ME_4993017001FE OpenLevel
+
+: ME_46A4572900A8_ME_4993017001FE
+ CONST UID '46A4572900A8'
+ CONST Name 'OpenLevel'
+ : Original WL 'ME_46A4572900A8' '4677FBA70343.pas.ms.script' // OpenLevel
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A4572900A8_ME_4993017001FE OpenLevel
+
+: ME_46A4582102FE_ME_4993017001FE
+ CONST UID '46A4582102FE'
+ CONST Name 'OpenSubLevel'
+ : Original WL 'ME_46A4582102FE' '4677FBA70343.pas.ms.script' // OpenSubLevel
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A4582102FE_ME_4993017001FE OpenSubLevel
+
+: ME_46A458B402B9_ME_4993017001FE
+ CONST UID '46A458B402B9'
+ CONST Name 'CloseLevel'
+ : Original WL 'ME_46A458B402B9' '4677FBA70343.pas.ms.script' // CloseLevel
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A458B402B9_ME_4993017001FE CloseLevel
+
+: ME_46A458C900A6_ME_4993017001FE
+ CONST UID '46A458C900A6'
+ CONST Name 'CS'
+ : Original WL 'ME_46A458C900A6' '4677FBA70343.pas.ms.script' // CS
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A458C900A6_ME_4993017001FE CS
+
+: ME_46A458E501A1_ME_4993017001FE
+ CONST UID '46A458E501A1'
+ CONST Name 'CS'
+ : Original WL 'ME_46A458E501A1' '4677FBA70343.pas.ms.script' // CS
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A458E501A1_ME_4993017001FE CS
+
+: ME_46A4590A000A_ME_4993017001FE
+ CONST UID '46A4590A000A'
+ CONST Name 'CS'
+ : Original WL 'ME_46A4590A000A' '4677FBA70343.pas.ms.script' // CS
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A4590A000A_ME_4993017001FE CS
+
+: ME_46A4592B0292_ME_4993017001FE
+ CONST UID '46A4592B0292'
+ CONST Name 'Start'
+ : Original WL 'ME_46A4592B0292' '4677FBA70343.pas.ms.script' // Start
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A4592B0292_ME_4993017001FE Start
+
+: ME_46A4594100A9_ME_4993017001FE
+ CONST UID '46A4594100A9'
+ CONST Name 'Finish'
+ : Original WL 'ME_46A4594100A9' '4677FBA70343.pas.ms.script' // Finish
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_46A4594100A9_ME_4993017001FE Finish
+
+: ME_55AE34DE0208_ME_4993017001FE
+ CONST UID '55AE34DE0208'
+ CONST Name 'PutData'
+ : Original WL 'ME_55AE34DE0208' '4677FBA70343.pas.ms.script' // PutData$1
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_55AE34DE0208_ME_4993017001FE PutData$1
+
+: ME_55AE35A20380_ME_4993017001FE
+ CONST UID '55AE35A20380'
+ CONST Name 'PutData'
+ : Original WL 'ME_55AE35A20380' '4677FBA70343.pas.ms.script' // PutData$2
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_55AE35A20380_ME_4993017001FE PutData$2
+
+: ME_55AE36180354_ME_4993017001FE
+ CONST UID '55AE36180354'
+ CONST Name 'PutData'
+ : Original WL 'ME_55AE36180354' '4677FBA70343.pas.ms.script' // PutData$3
+ ;
+ : Implementor ME_4993017001FE // IvcmXMLWriter
+ ;
+ref; // ME_55AE36180354_ME_4993017001FE PutData$3
+
+: ME_4993017001FE
+ CONST UID '4993017001FE'
+ CONST GUID 'CBFEDC57-720D-40AD-A4F7-F5B8014CDD36'
+ CONST Name 'IvcmXMLWriter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499D629D026C // vcmWritersInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_46A456CF0239' '4677FBA70343.pas.ms.script' // Il3XMLWriter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4993017B02FC // SaveUF
+ ME_4993019F0030 // SaveUF
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46A4570E03B6_ME_4993017001FE // OpenLevel
+ ME_46A4572900A8_ME_4993017001FE // OpenLevel
+ ME_46A4582102FE_ME_4993017001FE // OpenSubLevel
+ ME_46A458B402B9_ME_4993017001FE // CloseLevel
+ ME_46A458C900A6_ME_4993017001FE // CS
+ ME_46A458E501A1_ME_4993017001FE // CS
+ ME_46A4590A000A_ME_4993017001FE // CS
+ ME_46A4592B0292_ME_4993017001FE // Start
+ ME_46A4594100A9_ME_4993017001FE // Finish
+ ME_55AE34DE0208_ME_4993017001FE // PutData$1
+ ME_55AE35A20380_ME_4993017001FE // PutData$2
+ ME_55AE36180354_ME_4993017001FE // PutData$3
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4993017001FE IvcmXMLWriter
+
+FORWARD ME_499301C803BB
+
+: ME_46A4570E03B6_ME_499301C803BB
+ CONST UID '46A4570E03B6'
+ CONST Name 'OpenLevel'
+ : Original WL 'ME_46A4570E03B6' '4677FBA70343.pas.ms.script' // OpenLevel
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A4570E03B6_ME_499301C803BB OpenLevel
+
+: ME_46A4572900A8_ME_499301C803BB
+ CONST UID '46A4572900A8'
+ CONST Name 'OpenLevel'
+ : Original WL 'ME_46A4572900A8' '4677FBA70343.pas.ms.script' // OpenLevel
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A4572900A8_ME_499301C803BB OpenLevel
+
+: ME_46A4582102FE_ME_499301C803BB
+ CONST UID '46A4582102FE'
+ CONST Name 'OpenSubLevel'
+ : Original WL 'ME_46A4582102FE' '4677FBA70343.pas.ms.script' // OpenSubLevel
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A4582102FE_ME_499301C803BB OpenSubLevel
+
+: ME_46A458B402B9_ME_499301C803BB
+ CONST UID '46A458B402B9'
+ CONST Name 'CloseLevel'
+ : Original WL 'ME_46A458B402B9' '4677FBA70343.pas.ms.script' // CloseLevel
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A458B402B9_ME_499301C803BB CloseLevel
+
+: ME_46A458C900A6_ME_499301C803BB
+ CONST UID '46A458C900A6'
+ CONST Name 'CS'
+ : Original WL 'ME_46A458C900A6' '4677FBA70343.pas.ms.script' // CS
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A458C900A6_ME_499301C803BB CS
+
+: ME_46A458E501A1_ME_499301C803BB
+ CONST UID '46A458E501A1'
+ CONST Name 'CS'
+ : Original WL 'ME_46A458E501A1' '4677FBA70343.pas.ms.script' // CS
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A458E501A1_ME_499301C803BB CS
+
+: ME_46A4590A000A_ME_499301C803BB
+ CONST UID '46A4590A000A'
+ CONST Name 'CS'
+ : Original WL 'ME_46A4590A000A' '4677FBA70343.pas.ms.script' // CS
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A4590A000A_ME_499301C803BB CS
+
+: ME_46A4592B0292_ME_499301C803BB
+ CONST UID '46A4592B0292'
+ CONST Name 'Start'
+ : Original WL 'ME_46A4592B0292' '4677FBA70343.pas.ms.script' // Start
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A4592B0292_ME_499301C803BB Start
+
+: ME_46A4594100A9_ME_499301C803BB
+ CONST UID '46A4594100A9'
+ CONST Name 'Finish'
+ : Original WL 'ME_46A4594100A9' '4677FBA70343.pas.ms.script' // Finish
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_46A4594100A9_ME_499301C803BB Finish
+
+: ME_4993017B02FC_ME_499301C803BB
+ CONST UID '4993017B02FC'
+ CONST Name 'SaveUF'
+ : Original ME_4993017B02FC // SaveUF
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_4993017B02FC_ME_499301C803BB SaveUF
+
+: ME_4993019F0030_ME_499301C803BB
+ CONST UID '4993019F0030'
+ CONST Name 'SaveUF'
+ : Original ME_4993019F0030 // SaveUF
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_4993019F0030_ME_499301C803BB SaveUF
+
+: ME_55AE34DE0208_ME_499301C803BB
+ CONST UID '55AE34DE0208'
+ CONST Name 'PutData'
+ : Original WL 'ME_55AE34DE0208' '4677FBA70343.pas.ms.script' // PutData$1
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_55AE34DE0208_ME_499301C803BB PutData$1
+
+: ME_55AE35A20380_ME_499301C803BB
+ CONST UID '55AE35A20380'
+ CONST Name 'PutData'
+ : Original WL 'ME_55AE35A20380' '4677FBA70343.pas.ms.script' // PutData$2
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_55AE35A20380_ME_499301C803BB PutData$2
+
+: ME_55AE36180354_ME_499301C803BB
+ CONST UID '55AE36180354'
+ CONST Name 'PutData'
+ : Original WL 'ME_55AE36180354' '4677FBA70343.pas.ms.script' // PutData$3
+ ;
+ : Implementor ME_499301C803BB // IvcmContentWriter
+ ;
+ref; // ME_55AE36180354_ME_499301C803BB PutData$3
+
+: ME_499301C803BB
+ CONST UID '499301C803BB'
+ CONST GUID 'B3B7A382-6741-405C-B3B1-E17342070E45'
+ CONST Name 'IvcmContentWriter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499D629D026C // vcmWritersInterfaces
+ ;
+ : Inherits
+   @ ( ME_4993017001FE // IvcmXMLWriter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_46A4570E03B6_ME_499301C803BB // OpenLevel
+ ME_46A4572900A8_ME_499301C803BB // OpenLevel
+ ME_46A4582102FE_ME_499301C803BB // OpenSubLevel
+ ME_46A458B402B9_ME_499301C803BB // CloseLevel
+ ME_46A458C900A6_ME_499301C803BB // CS
+ ME_46A458E501A1_ME_499301C803BB // CS
+ ME_46A4590A000A_ME_499301C803BB // CS
+ ME_46A4592B0292_ME_499301C803BB // Start
+ ME_46A4594100A9_ME_499301C803BB // Finish
+ ME_4993017B02FC_ME_499301C803BB // SaveUF
+ ME_4993019F0030_ME_499301C803BB // SaveUF
+ ME_55AE34DE0208_ME_499301C803BB // PutData$1
+ ME_55AE35A20380_ME_499301C803BB // PutData$2
+ ME_55AE36180354_ME_499301C803BB // PutData$3
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_499301C803BB IvcmContentWriter
+
+: ME_499D629D026C
+ CONST UID '499D629D026C'
+ CONST Name 'vcmWritersInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы писателей' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_4993017001FE // IvcmXMLWriter
+ ME_499301C803BB // IvcmContentWriter
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "path prefix" '/implementation'
+ CONST "started" '19.02.2009 16:46'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmWritersInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499D629D026C.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499D629D026C.pas.ms.script.runner'
+
+ref; // ME_499D629D026C vcmWritersInterfaces

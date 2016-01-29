@@ -1,0 +1,268 @@
+// L3 for VCM 4B8BBF7101B8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8BBF7101B8
+
+FORWARD ME_4B8BBFF302E1
+
+: ME_4B8BC02E0031
+ CONST UID '4B8BC02E0031'
+ CONST Name 'l3Items_NeedsBeforeFreeItem'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B8BBFF302E1 // Tl3StringMapPrim
+ ;
+
+ref; // ME_4B8BC02E0031 l3Items_NeedsBeforeFreeItem
+
+: ME_4B8BC0380287
+ CONST UID '4B8BC0380287'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Undef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B8BBFF302E1 // Tl3StringMapPrim
+ ;
+
+ref; // ME_4B8BC0380287 l3Items_NoSort
+
+: ME_4B8BBFF302E1
+ CONST UID '4B8BBFF302E1'
+ CONST Name 'Tl3StringMapPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B8BBF7101B8 // L3 for VCM
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B88F8D6025A' '47913B47006E.pas.ms.script' // l3StringList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Children
+   @ ( ME_4B8BC02E0031 // l3Items_NeedsBeforeFreeItem
+ ME_4B8BC0380287 // l3Items_NoSort
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '01.03.2010 16:24'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\Implementation\l3StringMapPrim.pas'
+
+ref; // ME_4B8BBFF302E1 Tl3StringMapPrim
+
+FORWARD ME_4B8BC059018C
+
+: ME_4B8BC08B0006
+ CONST UID '4B8BC08B0006'
+ CONST Name 'l3Items_NeedsBeforeFreeItem'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B8BC059018C // Tl3StringMap
+ ;
+
+ref; // ME_4B8BC08B0006 l3Items_NeedsBeforeFreeItem
+
+: ME_4B8BC095003F
+ CONST UID '4B8BC095003F'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Undef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B8BC059018C // Tl3StringMap
+ ;
+
+ref; // ME_4B8BC095003F l3Items_NoSort
+
+: ME_4B8BC0C70029
+ CONST UID '4B8BC0C70029'
+ CONST Name 'f_Hi'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B8BC059018C // Tl3StringMap
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B8BC0C70029 f_Hi
+
+FORWARD ME_4B8BC0D40179
+
+: ME_4B8BC25903CB
+ CONST UID '4B8BC25903CB'
+ CONST Name 'Item'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4B8BC0D40179 // ResolveString
+ ;
+ : Target WL 'ME_4B8BC15601E8' '4B893514021E.pas.ms.script' // Tl3KeyWord
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4B8BC25903CB Item
+
+: ME_4B8BC0F90271
+ CONST UID '4B8BC0F90271'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4B8BC0F90271 aString
+
+: ME_4B8BC0EE03D0
+ CONST UID '4B8BC0EE03D0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B8BC0D40179 // ResolveString
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4B8BC0F90271 // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4B8BC0EE03D0 DoIt
+
+: ME_4B8BC166016E
+ CONST UID '4B8BC166016E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B8BC0D40179 // ResolveString
+ ;
+ : Target WL 'ME_4B8BC15601E8' '4B893514021E.pas.ms.script' // Tl3KeyWord
+ ;
+
+ref; // ME_4B8BC166016E 
+
+: ME_4B8BC0D40179
+ CONST UID '4B8BC0D40179'
+ CONST Name 'ResolveString'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возвращает идентификатор строки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B8BC059018C // Tl3StringMap
+ ;
+ : Attributes
+   @ ( ME_4B8BC25903CB // Item
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4B8BC0EE03D0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4B8BC166016E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4B8BC0D40179 ResolveString
+
+: ME_4B8BC059018C
+ CONST UID '4B8BC059018C'
+ CONST Name 'Tl3StringMap'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B8BBF7101B8 // L3 for VCM
+ ;
+ : Inherits
+   @ ( ME_4B8BBFF302E1 // Tl3StringMapPrim
+ WL 'ME_53036F2101D3' '47913B47006E.pas.ms.script' // l3Dictionary
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4B8BC0C70029 // f_Hi
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4B8BC0D40179 // ResolveString
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4B8BC08B0006 // l3Items_NeedsBeforeFreeItem
+ ME_4B8BC095003F // l3Items_NoSort
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '01.03.2010 16:25'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\Implementation\l3StringMap.pas'
+
+ref; // ME_4B8BC059018C Tl3StringMap
+
+: ME_4B8BBF7101B8
+ CONST UID '4B8BBF7101B8'
+ CONST Name 'L3 for VCM'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_4B8BBFF302E1 // Tl3StringMapPrim
+ ME_4B8BC059018C // Tl3StringMap
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B893514021E' '4B893514021E.pas.ms.script' // Pretty Things
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "path prefix" '/Implementation'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B8BBF7101B8.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B8BBF7101B8.pas.ms.script.runner'
+
+ref; // ME_4B8BBF7101B8 L3 for VCM

@@ -1,0 +1,1 @@
+start "" "%SystemRoot%\system32\SnippingTool.exe"

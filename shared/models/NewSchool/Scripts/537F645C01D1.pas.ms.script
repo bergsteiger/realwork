@@ -1,0 +1,202 @@
+// TCsReplyProceduresPrim 537F645C01D1 SimpleClass Class
+
+INCLUDE '52FBB30A01C6.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_537F645C01D1
+
+INCLUDE '537F63D60108.pas.ms.script'
+
+: ME_537F64680304
+ CONST UID '537F64680304'
+ CONST Name 'f_List'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_537F63D60108 // TCsProcWithIdList
+ ;
+
+ @SELF
+; // ME_537F64680304 f_List
+
+INCLUDE '47877EB202FB.pas.ms.script'
+
+: ME_53959A4900AA
+ CONST UID '53959A4900AA'
+ CONST Name 'f_Synchronizer'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4807861D0118 // TMultiReadExclusiveWriteSynchronizer
+ ;
+
+ @SELF
+; // ME_53959A4900AA f_Synchronizer
+
+FORWARD ME_53959A720000
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_53959A7B028D
+ CONST UID '53959A7B028D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_53959A7B028D DoIt
+
+: ME_53959A720000
+ CONST UID '53959A720000'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53959A7B028D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53959A720000 Create
+
+FORWARD ME_53959ABC03D4
+
+INCLUDE '537F63590169.pas.ms.script'
+
+: ME_53959AD20374
+ CONST UID '53959AD20374'
+ CONST Name 'aQueryId'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_537F63760334 // TCsQueryId
+ ;
+
+ @SELF
+; // ME_53959AD20374 aQueryId
+
+INCLUDE '537F6306025B.pas.ms.script'
+
+: ME_53959ACF011C
+ CONST UID '53959ACF011C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_537F6306025B // TCsProcWithId
+ ;
+ : Parameters
+   [ ME_53959AD20374 // aQueryId
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_53959ACF011C DoIt
+
+: ME_53959ABC03D4
+ CONST UID '53959ABC03D4'
+ CONST Name 'ListItemBy'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53959ACF011C // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53959ABC03D4 ListItemBy
+
+FORWARD ME_53959B1400E0
+
+: ME_53959B3000BB
+ CONST UID '53959B3000BB'
+ CONST Name 'aQueryId'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_537F63760334 // TCsQueryId
+ ;
+
+ @SELF
+; // ME_53959B3000BB aQueryId
+
+: ME_53959B2C0049
+ CONST UID '53959B2C0049'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_537F63170355 // TCsReplyProc
+ ;
+ : Parameters
+   [ ME_53959B3000BB // aQueryId
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_53959B2C0049 DoIt
+
+: ME_53959B1400E0
+ CONST UID '53959B1400E0'
+ CONST Name 'ProcBy'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53959B2C0049 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53959B1400E0 ProcBy
+
+: ME_537F645C01D1
+ CONST UID '537F645C01D1'
+ CONST Name 'TCsReplyProceduresPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Класс для регистрации "ответных процедур" сервера для запросов от клиента' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_52FBB30A01C6 // TCsObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_537F64680304 // f_List
+ ME_53959A4900AA // f_Synchronizer
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_53959A720000 // Create
+ ME_53959ABC03D4 // ListItemBy
+ ME_53959B1400E0 // ProcBy
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_537F645C01D1 TCsReplyProceduresPrim

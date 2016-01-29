@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/BasicTests/NativeTypesSmallTest/NativeTypesSmallTest_tie.cpp"
+// С++ TIE-обвязка для DLL (_tie.cpp)
+// Generated from UML model, root element: <<Interfaces::Category>> TestModel::BasicTests::NativeTypesSmallTest
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "shared/Core/sys/std_inc.h"
+#include "TestModel/BasicTests/NativeTypesSmallTest/NativeTypesSmallTest_tie.h"
+
+namespace BasicTests {
+namespace NativeTypesSmallTest {
+
+} // namespace NativeTypesSmallTest
+} // namespace BasicTests
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,33 @@
+
+USES
+ 'W:\shared\models\NewSchool\Templates\TemplatesCore.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\MDALike.tpl.script'
+;
+
+: "Развешиваем всем элементам модели переменные"
+
+ PROCEDURE DoMember OBJECT IN anElement
+  anElement -> "Имя переменной" := 'Значение переменной'
+  // - добавляем элементу переменную и заполняем её значением
+  anElement -> "Имя переменной 2" := ( anElement |U )
+  // - добавляем элементу вторую переменную и заполняем её значением UID
+ ; // DoMember
+ 
+ for %A DoMember 
+;
+
+USES
+ 'W:\shared\models\NewSchool\All.root.script'
+;
+
+EtalonNeedsXE
+TRY
+ "Развешиваем всем элементам модели переменные"
+ // - временно закомментировал, т.к. получаются нестабильные эталоны
+ //   вообще говоря надо использовать DisableForHelp
+FINALLY
+ help
+END 

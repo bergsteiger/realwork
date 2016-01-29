@@ -1,0 +1,71 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART    
+    Dim CountList%,CountList_Folder%
+    Dim ListDoc() as String
+    call Goto_Spisok
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=195,82"
+    'GenericObject Click, "Class=TvcmToolbar;ClassIndex=104", "Coords=9,11"
+    InputKeys "{HOME}"
+    InputKeys "{Num+}"
+    
+    SQAGetProperty "CurrentFocus","ItemCount",CountList
+    ReDim ListDoc(1 to CountList)
+    for i=1 to CountList
+        SQAGetProperty "CurrentFocus","Text",ListDoc(i)
+        InputKeys "{DOWN}"
+    next i
+    'Сохраняем список в папку
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    call Click_SaveAs
+    Dim List$
+    List="Список"
+    call SaveDlg("Мои документы",List)
+'    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+'    GenericObject Click, "Text=Выбор действия", "Coords=65,9"
+'    'Загружаем список из папки
+'    Window SetContext, "Caption={ГАРАНТ*}", ""
+'   ' Window SetContext, "Caption=ГАРАНТ 6 - Сохраненный список : Получен переходом по рубрикатору: Правовой навигатор\Документы\Гражданское право, приватизация\Публично-правовые образования", ""
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=4,141"
+    ListBox Click, "ObjectIndex=1", "Coords=21,6"
+    call Position_Internal("CurrentFocus","Мои документы\"&List)
+    InputKeys "{ENTER}"
+    'DelayFor 1500    
+   
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=195,82"
+    InputKeys "{HOME}"
+    InputKeys "{Num+}"
+
+   
+    
+    SQAGetProperty "CurrentFocus","ItemCount",CountList_Folder
+    if CountList_Folder<>CountList then
+         SQALogMessage sqaFail, "Ошибка", "Количество элементов разное: "+ CStr(CountList_Folder) + "а, должно быть: " + CStr(CountList)
+    else
+        InputKeys "{DOWN}{UP}"
+         call CheckItemNames(ListDoc,"{DOWN}",0,UBound(ListDoc))
+    end if            
+    
+'    Window SetContext, "Caption={ГАРАНТ*}", ""
+'    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=7,131"
+'    ListBox Click, "ObjectIndex=1", "Coords=21,6"
+'    call Position_by_Text("CurrentFocus",List)
+'    InputKeys "{DELETE}"
+'    
+'    
+'    Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+'    PushButton Click, "Text=Да"
+    call DeleteFolder(List,2)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=9,50"
+    MenuIDSelect 12
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    'call Goto_Spisok
+  
+End Sub

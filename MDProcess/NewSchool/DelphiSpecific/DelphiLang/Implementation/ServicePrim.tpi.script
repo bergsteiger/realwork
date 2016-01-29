@@ -1,0 +1,77 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/ServicePrim.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAAbstractClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::ServicePrim
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ServicePrim::Class
+implementation @ <<ServicePrim>>
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _BeforeClassSpell
+; // st_space_key
+
+: BeforeClassSpell OBJECT IN %S
+//#UC START# *5502C6A200F5for5502BA9C0354*
+//#UC END# *5502C6A200F5for5502BA9C0354*
+; // BeforeClassSpell
+
+
+//%f _AfterClassSpell
+: AfterClassSpell OBJECT IN %S
+//#UC START# *5502CBD4031Efor5502BA9C0354*
+//#UC END# *5502CBD4031Efor5502BA9C0354*
+; // AfterClassSpell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor5502BA9C0354*
+//	[{%Gx!=true}\
+ if ( ( %G |x ) %!=  true ) then
+ begin
+//	[{"%{Tl3ProtoObject}N"=""}%f_find_element(49E7754802A9,Tl3ProtoObject)]\
+  if ( ( ( get_global_var ( 'Tl3ProtoObject' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '49E7754802A9' %, 'Tl3ProtoObject' )% 
+  end // if
+//	%S%f_make_accessable(%{Tl3ProtoObject}U)\
+  %S %f make_accessable %( ( get_global_var ( 'Tl3ProtoObject' ) |U ) )% 
+//	%f_addG(%S,%{Tl3ProtoObject})\
+  [%f] addG %( %S %, ( get_global_var ( 'Tl3ProtoObject' ) ) )% 
+//	]\
+ end // if
+//	%S%f_set_up(singleton,true)\
+ %S %f set_up %( 'singleton' %, true )% 
+//	%S%f_BeforeClassSpell()\
+ %S %f BeforeClassSpell %( )% 
+//	%S%[inherited]\
+ inherited
+//	%S%f_AfterClassSpell()
+ %S %f AfterClassSpell %( )% 
+//#UC END# *4B2A19E3038Bfor5502BA9C0354*
+; // DoSpell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ServicePrim>>
+

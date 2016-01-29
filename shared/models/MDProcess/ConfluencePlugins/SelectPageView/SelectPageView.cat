@@ -1,0 +1,130 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "SelectPageView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/SelectPageView|4A237E80034B
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19032921022"))
+    quid       	"4A237E80034B"
+    documentation 	"содержит html и js код для поддержки выбора страницы"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "formparameters-selectpage"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/SelectPageView/formparameters-selectpage.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4A237F120231_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4A237F120231_CUSTOM_CONTENT*¤<script language="javascript">¤    function setBasePartCheckFilter(e, exclusive) {¤		var current_url = "$req.getRequestURL()?";¤		var pageId = '$action.pageId';¤		if(pageId != '0'){¤			current_url+= "pageId=$action.pageId&";¤		}¤		var nameForm = '$!formname';¤		if(nameForm != ''){¤			current_url+= "formname=$formname&";¤		}¤		var currentSpace = '$!currentspace';¤		if(currentSpace != ''){¤			current_url+= "currentspace=$currentspace&";¤		}¤¤		current_url+= "fieldname=$fieldname&mode=$mode$urlSuffixWithFilters";¤		var new_url = "";¤		if(exclusive == false) {¤			var new_fpg = "&filterPageGroup=" + e;¤       		new_url = current_url.replace (/&filterPageGroup=\w*/, new_fpg);¤		} else {¤			var new_exclusive = "&filterExclusivePageGroups=" + e;¤							¤			if(current_url.indexOf(new_exclusive) >= 0)¤				new_url = current_url.replace (new_exclusive, '');¤			else¤    			new_url = current_url + new_exclusive;¤		}¤		return 	new_url;¤    }¤</script>¤¤			#set($uriString = $req.getRequestURI())¤			#set($pageId = "$!action.pageId")¤			#if($pageId != '0')¤				#set($pageString = "pageId=$action.pageId&")¤			#else¤				#set($pageString = "")¤			#end¤			#if($formname)¤				#set($formString = "formname=$formname&")¤			#else¤				#set($formString = "")¤			#end¤¤##UC_END*4A237F120231_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/SelectPageView/formparameters-selectpage|4A237F120231
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19032928723"))
+	    quid       	"4A237F120231"
+	    documentation 	"формирование параметров для выбора страницы"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4A237F0E003D"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SelectPageView::formparameters-selectpage" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(705, 363)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(422, 334)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	566
+			justify    	0
+			label      	"formparameters-selectpage")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(422, 284)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	566
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4A237F120231"
+		    width      	584
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)))))

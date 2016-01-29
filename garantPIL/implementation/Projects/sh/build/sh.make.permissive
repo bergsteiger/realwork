@@ -1,0 +1,36 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: sh.make.permissive never must be run manually."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+root_workspace_dir=$1
+
+echo "sh.make.permissive"
+
+tmp_curdir=$PWD
+cd $MPCXC_ROOT/$root_workspace_dir
+date
+
+export ACE_ROOT=$MPCXC_ROOT/src
+export TAO_ROOT=$ACE_ROOT/TAO
+
+echo make locally
+gcc -v
+make CC="gcc -fpermissive -x none" CXX="gcc -fpermissive -x none"  2>&1 | $MPCXC_SH/mk_filter.rb
+
+date
+cd $tmp_curdir
+
+echo "end."

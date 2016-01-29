@@ -1,0 +1,230 @@
+//////////////////////////////////////////////////////////////////////////////////
+// UtilityPack
+//////////////////////////////////////////////////////////////////////////////////
+
+: UtilityPack::Class
+? Утилитный набор
+? Набор утилитных функций и типов
+< *::Category, ValueType::Class, Interface::Class, TestInterface::Class, UMLPrimitive::Class
+< TestInterface::Class, Iterator::Class, Const Iterator::Class
+< UtilityClass::Class, SimpleClass::Class, Servant::Class, Environment::Class, UtilityPack::Class
+< GuiControl::Class, Dialog::Class, PropertySheet::Class, PropertyPage::Class, ComInterface::Class, ComServant::Class
+< Actor::Class, UserNeeds::Class, Feature::Class, UseCase::Class
+< CServletPlugin::Class, CListenerPlugin::Class, CMacroPlugin::Class, CComponentPlugin::Class, CJobPlugin::Class, CTriggerPlugin::Class, CVelocityContextPlugin::Class, VM::Class, CXWorkPlugin::Class, CActionPlugin::Class, XPackage::Class, CSpringPlugin::Class, CExtractorPlugin::Class, CLifecyclePlugin::Class
+< EvdTag::Class
+< EvdStruct::Class
+< EvdAtom::Class
+< Event::Class
+< Resource::Class
+
+$ C 255,215,215
+$ l 255,10,10
+$ f 255,10,10
+a f
+
+p need impl-file:b=false ? явно включает генерацию файла реализации (cpp)
+p need inline-file:b=false ? явно включает генерацию файла inline-реализации (i.h)
+p ifdef:s ? определяет условный признак компиляции
+p is namespace:b=false ? определяет является ли модуль неймспейсом
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p local helper:b=false ? указывает что данный набор явлется "локальным помошником" т.е. используется практически всеми другими элементам (рекомендуется использовать это свойство вместо явного указания большого кол-ва связей типа uses)
+
+L code_utility_pack
+Y t4_utility_pack.gif
+
+%f _wiki_up_print
+	[{%S{is namespace}=true}* является неймспейсом
+	][{%S{local helper}=true}* явлется "локальным помошником" (используется практически всеми другими элементам)
+	]
+
+%f _wiki_up_add_gen
+
+%t _constraint
+c                              {}
+r {%Cx=false&%S{need UC}=false}: {%SS не содержит ни каких типов}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+f _need_pack_file
+	[{%S{need UC}=true|<{}{%CC!=Class}{C}>!=0}{false}true]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
+////////пока не генерим файлы для java
++ java
+P
+O [{%f_need_pack_file(%S)=true}%SN.java]
+	%f_output_constraint(%S)\
+	[{%f_need_pack_file(%S)=true}{<{}{%CC=Class}%CX>}\
+# t0_header
+	package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	
+	%f_servant_import(%S)%f_includes_by_contents_java(%S)[{%S{need UC}=true}
+	%U[{_USER_INCLUDES}
+	]
+	]
+	%t_visibility(%S,"%XU")%t_abstract_type(%S)class %SN {
+	<{}{%CV=PublicAccess}%f_set_var(SERV,S)[%CX
+	
+	]>[{%S{need UC}=true}	%U[{_USER_DEFINITION}
+		]
+	]
+	} // class %SN
+# t0_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ h
+/? Файл декларации утилитного набора %SN[- %SD]
+P
+O %SN.h
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+# t0_h_header
+/ HACK for damned mpcxc
+	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%SN!=mpcxc&%SN!=PragmaWarningDisable}%f_std_inc(%S)
+	]%f_includes_by_contents(%S)<{}{%CM=UtilityPack::Class::ClassDependency}{}[\#include %f_dump_include_path(%C%TL,%C%T)
+	]><\#include %f_dump_include_path(%wL,%w)
+	>[{%S{need UC}=true}
+	%U[{_USER_INCLUDES}
+	]
+	]
+/ HACK for damned mpcxc
+	[{%SN!=mpcxc&%SN!=PragmaWarningDisable}%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]]
+	<{}{%CV=PublicAccess}%f_set_var(SERV,S)[%CX
+	
+	]>[{%S{need UC}=true}%U[{_USER_DEFINITION}
+	]
+	]
+/ HACK for damned mpcxc
+	[{%SN!=mpcxc&%SN!=PragmaWarningDisable}[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp][
+	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+# t0_h_footer
+
++ cpp
+? Файл реализации утилитного набора %SN
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+O [{%f_need_cpp_file_for_utility_pack(%S)=true}%SN.cpp]
+	%f_output_constraint(%S)\
+	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%f_need_cpp_file_for_utility_pack(%S)=true}\
+# t0_header
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	<{}{"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>][{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	][{%S{need UC}=true}
+	%U[
+	]
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// private member declaration<{}{"%CV"="PrivateAccess"&"%CC"="Operation"|"%CV"="PrivateAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+	
+	%f_with_gen_id(h,%CX)]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// public member implementation<{}{"%CV"="PublicAccess"&"%CC"="Operation"|"%CV"="PublicAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+	
+	%CX]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// private member implementation<{}{"%CV"="PrivateAccess"&"%CC"="Operation"|"%CV"="PrivateAccess"&"%CC"!="Operation"&%CS!=TemplateFunctions}{Sn}[
+	
+	%CX]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// template member implementation<{}{%CS=TemplateFunctions}{Sn}[
+	%CX]>
+	][{"%S{is namespace}"="true"}
+	} // namespace %SN]
+	%Sp
+# t0_footer
+	]
+
++ i.h
+? Файл inline реализации утилитного набора %SN
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+O [{%f_need_inline_file(%S)=true}%SN.i.h]
+	%f_output_constraint(%S)\
+	[{%f_need_inline_file(%S)=true}\
+# t0_header
+	%f_set_var(SELF,S)%f_set_var(SERV,S)<{}{%CM=UtilityPack::Class::uses::ClassDependency}{}[\#include %f_dump_include_path(%f_with_gen_id(h,%C%TL),%C%T)
+	]>[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[{"%f_with_gen_id(h,%A%PO)"=""}\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+	]>][{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+	]
+	]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	][{%S{need UC}=true}
+	%U[
+	]
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// private member declaration<{}{"%CV"="PrivateAccess"&"%CC"!="Operation"}{Sn}[
+	
+	%f_with_gen_id(h,%CX)]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// public member implementation<{}{"%CV"="PublicAccess"&"%CC"!="Operation"}{Sn}[
+	
+	%CX]>
+	][
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// private member implementation<{}{"%CV"="PrivateAccess"&"%CC"!="Operation"}{Sn}[
+	
+	%CX]>
+	][{"%S{is namespace}"="true"}
+	} // namespace %SN]
+	%Sp
+# t0_footer
+	]
+
+f _need_cpp_file_for_utility_pack
+	[{"%S{need impl-file}"="true"|"<{}{%t_has_impl(%C)=true}{C}>"!="0"}{false}true]
+
+: UtilityPack::Class::ClassDependency
+? Зависимость
+? Определяет что интерфейсная часть утилитного набор (источник) зависит от указанного объект (цель) каким-либо образом.
+? НА основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+%f _wiki_child_kind
+	uses
+
+: UtilityPack::Class::uses::ClassDependency
+? Использование
+? Определяет что реализация утилитного набора (источник) использует указанный объект (цель) каким-либо образом.
+? НА основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+%f _wiki_child_kind
+	uses
+
+: UtilityPack::Class::Operation
+= Servant::Class::Operation
+a r
+v +-
+%f _wiki_child_kind
+	static_method
+
+: UtilityPack::Class::Operation::Parameter
+= Servant::Class::Operation::Parameter
+
+: UtilityPack::Class::Attribute
+= Servant::Class::Attribute
+v +-
+l arl
++ h
+	%f_docs(%S)\
+	#%f_attr(%S) [{}{%f_to_omg(%TN)}%SN][ = %SI];

@@ -1,0 +1,174 @@
+workspace (garant_tools_unix_static) {
+	cmdline += -ti lib_exe:make-exe-generic-static
+	cmdline += -ti lib:make-exe-generic-static
+	cmdline += -static
+
+	./targets_tools/T_GC.mpc
+	./targets_tools/T_GCtx.mpc
+	./targets_tools/T_GCCheck.mpc
+	./targets_tools/T_GChange.mpc
+	./targets_tools/T_GGU.mpc
+	./targets_tools/T_GGRev.mpc
+	./targets_tools/T_GGDlt.mpc
+	./targets_tools/T_GL.mpc
+	./targets_tools/T_GM.mpc
+	./targets_tools/T_GSplit.mpc
+	./targets_tools/T_Baseinfo.mpc
+	./targets_tools/T_Addannos.mpc
+	./targets_tools/T_Enumparas.mpc
+	./targets_tools/T_Fixannos.mpc
+	./targets_tools/T_Fixbases.mpc
+	./targets_tools/T_Fixnames.mpc
+	./targets_tools/T_Gdm.mpc
+	./targets_tools/T_Gkdbcmp.mpc
+	./targets_tools/T_Gkdumpi.mpc
+	./targets_tools/T_Gkdumpkw.mpc
+	./targets_tools/T_Gkgetdoc.mpc
+	./targets_tools/T_GOpt.mpc
+	./targets_tools/T_GPack.mpc
+	./targets_tools/T_Gready.mpc
+	./targets_tools/T_Gregtst.mpc
+	./targets_tools/T_Gsetname.mpc
+	./targets_tools/T_Gsetrev.mpc
+	./targets_tools/T_Gstatus.mpc
+	./targets_tools/T_Hisync.mpc
+	./targets_tools/T_Newcorrs2.mpc
+	./targets_tools/T_AddSyns.mpc
+	./targets_tools/T_Newrefs.mpc
+	./targets_tools/T_Newrefs2.mpc
+	./targets_tools/T_Newrefs2_part.mpc
+	./targets_tools/T_Samedocs_part.mpc
+	./targets_tools/T_EndtConvertor.mpc
+	./targets_tools/T_EndtRefFilter.mpc
+	./targets_tools/T_Gdec.mpc
+	./targets_tools/T_Fastrev.mpc
+	./targets_tools/T_Handmask.mpc
+	./targets_tools/T_Samedocs.mpc
+	./targets_tools/T_DemoBase.mpc
+	./targets_tools/T_Checkevd.mpc
+	./targets_tools/T_Fixclass6.mpc
+	./targets_tools/T_Iddchange.mpc
+	./targets_tools/T_CalcSearchResults.mpc
+	./targets_tools/T_DumpCaseCode.mpc
+	./targets_tools/T_Kindcorr_regpart.mpc
+	./targets_tools/T_Kindcorr_super.mpc
+	./targets_tools/T_Newcorrs2_post.mpc
+	./targets_tools/T_Fix_newcorr.mpc
+	./targets/T_CSAdapter.mpc
+
+	static_projects {
+		cmdline += -ti lib:make-exe-generic-static
+		cmdline += -static
+
+		/home/vlad/pilotcvs/src/shared/project/Core.mpc
+		/home/vlad/pilotcvs/src/shared/project/GCL.mpc
+		/home/vlad/pilotcvs/src/shared/project/ContextSearch.mpc
+
+		/home/vlad/pilotcvs/src/garantPIL/implementation/component/cpp/garantCore/project/DBExt.mpc
+		/home/vlad/pilotcvs/src/garantPIL/implementation/component/cpp/garantCore/project/SearchAdapterLib.mpc
+
+		./libs_tools/gkdb_tools.mpc
+		./libs_tools/dummies_tools.mpc
+		./libs_tools/gsscreen_tools.mpc
+		./libs_tools/delta_tools.mpc
+		./libs_tools/cchlp_tools.mpc
+		./libs_tools/gctx_tools.mpc
+		./libs_tools/gc_tools.mpc
+		./libs_tools/mrglib_tools.mpc
+		./libs_tools/vcontrol_tools.mpc
+		./libs_tools/gchange_tools.mpc
+		./libs_tools/lex_tools.mpc
+
+		./libs/endt.mpc
+		./libs/evd.mpc
+
+		./libs_tools/cchlp1_tools.mpc
+		./libs_tools/cchlp_enumparas.mpc
+		./libs_tools/gkdb_enumparas.mpc
+		./libs_tools/gctx_enumparas.mpc
+		./libs_tools/gsscreen_enumparas.mpc
+		./libs_tools/vcontrol_enumparas.mpc
+
+		./libs_tools/gkdb_gc.mpc
+		./libs_tools/gctx_gc.mpc
+		./libs_tools/gc_gc.mpc
+		./libs_tools/vcontrol_gc.mpc
+		./libs_tools/gsscreen_gc.mpc
+		./libs_tools/cchlp_gc.mpc
+
+		./libs_tools/gkdb_gc_check.mpc
+		./libs_tools/gctx_gc_check.mpc
+		./libs_tools/gc_gc_check.mpc
+		./libs_tools/vcontrol_gc_check.mpc
+		./libs_tools/gsscreen_gc_check.mpc
+		./libs_tools/cchlp_gc_check.mpc
+
+		./libs_tools/gkdb_gl.mpc
+		./libs_tools/gctx_gl.mpc
+		./libs_tools/mrglib_gl.mpc
+		./libs_tools/gc_gl.mpc
+		./libs_tools/vcontrol_gl.mpc
+		./libs_tools/gsscreen_gl.mpc
+		./libs_tools/cchlp_gl.mpc
+
+		./libs_tools/gkdb_gm.mpc
+		./libs_tools/gctx_gm.mpc
+		./libs_tools/mrglib_gm.mpc
+		./libs_tools/vcontrol_gm.mpc
+		./libs_tools/gsscreen_gm.mpc
+		./libs_tools/cchlp_gm.mpc
+
+		./libs_tools/gkdb_gsplit.mpc
+		./libs_tools/gctx_gsplit.mpc
+		./libs_tools/mrglib_gsplit.mpc
+		./libs_tools/vcontrol_gsplit.mpc
+		./libs_tools/gsscreen_gsplit.mpc
+		./libs_tools/cchlp_gsplit.mpc
+		./libs_tools/gc_gsplit.mpc
+
+		./libs_tools/cchlp_gpack.mpc
+		./libs_tools/delta_gpack.mpc
+		./libs_tools/gsscreen_gpack.mpc
+		./libs_tools/gkdb_gpack.mpc
+		./libs_tools/gctx_gpack.mpc
+		./libs_tools/mrglib_gpack.mpc
+		./libs_tools/vcontrol_gpack.mpc
+
+		./libs_tools/cchlp_gctx.mpc
+		./libs_tools/gsscreen_gctx.mpc
+		./libs_tools/gkdb_gctx.mpc
+		./libs_tools/gctx_gctx.mpc
+		./libs_tools/mrglib_gctx.mpc
+		./libs_tools/vcontrol_gctx.mpc
+
+		./libs_tools/cchlp_ggu.mpc
+		./libs_tools/delta_ggu.mpc
+		./libs_tools/gsscreen_ggu.mpc
+		./libs_tools/gkdb_ggu.mpc
+		./libs_tools/gctx_ggu.mpc
+		./libs_tools/mrglib_ggu.mpc
+		./libs_tools/vcontrol_ggu.mpc
+
+		./libs_tools/cchlp_ggrev.mpc
+		./libs_tools/delta_ggrev.mpc
+		./libs_tools/gsscreen_ggrev.mpc
+		./libs_tools/gkdb_ggrev.mpc
+		./libs_tools/gctx_ggrev.mpc
+		./libs_tools/mrglib_ggrev.mpc
+		./libs_tools/vcontrol_ggrev.mpc
+
+		./libs_tools/delta_gdm.mpc
+		./libs_tools/cchlp_gdm.mpc
+		./libs_tools/gkdb_gdm.mpc
+		./libs_tools/gctx_gdm.mpc
+
+		./libs_tools/gmcsources_gm.mpc
+		./libs_tools/hisynccsources_hisync.mpc
+		./libs_tools/gsplitcsources_gsplit.mpc
+
+		./libs_tools/mrglib_hisync.mpc
+
+		./libs_tools/zlib_tools.mpc
+	}
+}
+

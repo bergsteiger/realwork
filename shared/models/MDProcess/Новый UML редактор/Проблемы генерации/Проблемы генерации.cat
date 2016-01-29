@@ -1,0 +1,351 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Проблемы генерации"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Новый UML редактор/Проблемы генерации|4A1CD967011A
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19036241962"))
+    quid       	"4A1CD967011A"
+    documentation 	"Проблемы имеющие место быть при генерации артефактов с модели"
+    stereotype 	"Problems"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4A1CD98601E9"
+	    supplier   	"Logical View::MDProcess::Новый UML редактор::Основные проблемы"
+	    quidu      	"4A1B8CDB0276"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Отличия в мета-метамодели Розы и генератора"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Новый UML редактор/Проблемы генерации/Отличия в мета-метамодели Розы и генератора|4A1A4B4A016A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036202706"))
+	    quid       	"4A1A4B4A016A"
+	    documentation 	
+|Метамодель Розы отлична от используемой в генераторе - это приводит к необходимости "переливания" из одной модели в другую, что неудобно и вызывается значительные потери производительности
+	    
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Значение по-умолчанию просто строка"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Новый UML редактор/Проблемы генерации/Отличия в мета-метамодели Розы и генератора/Значение по-умолчанию просто строка|4A1F5A2C00FE
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19036208002"))
+		    quid       	"4A1F5A2C00FE"
+		    documentation 	"В текущей мета-мета модели значение по-умолчанию для атрибутов, параметров операций - это просто строка, что очень неудобно, т.к необходимо связывать значение по-умолчанию с реальным элементом, для это сейчас происходит специальный парсинг этой строчки и поиск нужно элемента."
+		    stereotype 	"UserNeeds")
+		(object Class "Нельзя задать свойства на перегружаемом методе"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Новый UML редактор/Проблемы генерации/Отличия в мета-метамодели Розы и генератора/Нельзя задать свойства на перегружаемом методе|4A1FC75B0001
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19036209065"))
+		    quid       	"4A1FC75B0001"
+		    documentation 	"При реализации методов интерфейсов бывает необходимость для конкретного класса, для конкретной перегружаемой операции задать UP - сейчас это невозможно."
+		    stereotype 	"UserNeeds")))
+	(object Class "Для генерации части модели необходимо строить дерево для всей модели"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Новый UML редактор/Проблемы генерации/Для генерации части модели необходимо строить дерево для всей модели|4A1CDA500155
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036205868"))
+	    quid       	"4A1CDA500155"
+	    documentation 	"Для генерации маленькой части модели необходимо построить дерево для всей модели - это может занимать значительное время"
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4A1CD98A0075"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::Новый UML редактор::Проблемы генерации::Отличия в мета-метамодели Розы и генератора" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(735, 291)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(242, 270)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	986
+			justify    	0
+			label      	"Отличия в мета-метамодели Розы и генератора")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(242, 220)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	986
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4A1A4B4A016A"
+		    width      	1004
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Новый UML редактор::Проблемы генерации::Для генерации части модели необходимо строить дерево для всей модели" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(936, 1248)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(189, 1227)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1494
+			justify    	0
+			label      	"Для генерации части модели необходимо строить дерево для всей модели")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(189, 1177)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1494
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4A1CDA500155"
+		    width      	1512
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"4A1A4B4A016A")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4A1F5B0102F7"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::Новый UML редактор::Проблемы генерации::Отличия в мета-метамодели Розы и генератора::Значение по-умолчанию просто строка" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(708, 399)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(288, 372)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	840
+			justify    	0
+			label      	"Значение по-умолчанию просто строка")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(288, 322)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	840
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4A1F5A2C00FE"
+		    width      	858
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Новый UML редактор::Проблемы генерации::Отличия в мета-метамодели Розы и генератора::Нельзя задать свойства на перегружаемом методе" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(789, 831)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(275, 803)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1028
+			justify    	0
+			label      	"Нельзя задать свойства на перегружаемом методе")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(275, 753)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1028
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4A1FC75B0001"
+		    width      	1046
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)))))

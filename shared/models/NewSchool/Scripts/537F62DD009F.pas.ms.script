@@ -1,0 +1,125 @@
+// TCsDataPipe 537F62DD009F SimpleClass Class
+
+INCLUDE '538DC31F03A5.pas.ms.script'
+
+FORWARD ME_537F62DD009F
+
+FORWARD ME_538DE0DC02BD
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_538DE0F20306
+ CONST UID '538DE0F20306'
+ CONST Name 'aToPath'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_538DE0F20306 aToPath
+
+: ME_538DE0EC0268
+ CONST UID '538DE0EC0268'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_538DE0F20306 // aToPath
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_538DE0EC0268 DoIt
+
+: ME_538DE0DC02BD
+ CONST UID '538DE0DC02BD'
+ CONST Name 'ReadFolder'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_538DE0EC0268 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_538DE0DC02BD ReadFolder
+
+FORWARD ME_538DE100010F
+
+: ME_538DE111032D
+ CONST UID '538DE111032D'
+ CONST Name 'aFolderName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_538DE111032D aFolderName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_538DE10D02BE
+ CONST UID '538DE10D02BE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_538DE111032D // aFolderName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_538DE10D02BE DoIt
+
+: ME_538DE100010F
+ CONST UID '538DE100010F'
+ CONST Name 'WriteFolder'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_538DE10D02BE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_538DE100010F WriteFolder
+
+: ME_537F62DD009F
+ CONST UID '537F62DD009F'
+ CONST Name 'TCsDataPipe'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_538DC31F03A5 // TCsDataPipePrim
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_538DE0DC02BD // ReadFolder
+ ME_538DE100010F // WriteFolder
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_537F62DD009F TCsDataPipe

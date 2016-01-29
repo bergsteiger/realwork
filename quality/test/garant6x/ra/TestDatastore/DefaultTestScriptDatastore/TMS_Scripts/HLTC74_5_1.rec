@@ -1,0 +1,15 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+   Dim FolderName$
+   FolderName="Empty Folder"
+    
+   
+   call CreateFolder("Мои документы",FolderName)
+   call DeleteFolder("Мои документы\"+FolderName)
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=15,52"
+   
+End Sub

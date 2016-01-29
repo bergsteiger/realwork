@@ -1,0 +1,32 @@
+USES
+	QuickTestsUtils.script
+;
+
+OBJECT VAR g_Editor
+
+PROCEDURE "Установить курсор в таблицу"
+	8 раз "Нажать вниз"
+	"Обработать сообщения"
+;
+
+PROCEDURE "Выделить диапазон ячеек"
+	0 3 3 3 g_Editor pop:editor:SelectCells
+	g_Editor pop:editor:CopyAndPaste2DocumentBottom
+;
+
+PROCEDURE "Выделить ячейку и сбросить выделение"
+	1 2 g_Editor pop:editor:SelectCellByMouse
+	"Нажать вниз"
+;
+
+Тест TK338005013
+	Параметры: ( "Документ с таблицей с Head-ячейками в соседних строках" "Проверка EVD документа" )
+	Выполнить (
+		 focused:control:push >>> g_Editor
+		 "Установить курсор в таблицу"
+		 "Выделить ячейку и сбросить выделение"
+		 "Выделить диапазон ячеек"		
+	)
+;
+
+TK338005013

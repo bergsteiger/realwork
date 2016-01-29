@@ -1,0 +1,259 @@
+// Tl3FormatObjectInfoHelper 551BCBFD0240 Service Class
+
+FORWARD ME_551BCBFD0240
+
+FORWARD ME_6FB88E211F27
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_18E0BD886492
+ CONST UID '18E0BD886492'
+ CONST Name 'anObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_18E0BD886492 anObject
+
+: ME_18E0BD886493
+ CONST UID '18E0BD886493'
+ CONST Name 'aShortInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_18E0BD886493 aShortInfo
+
+INCLUDE '5012BFDC0300.pas.ms.script'
+
+: ME_18E0BD886494
+ CONST UID '18E0BD886494'
+ CONST Name 'anObjectPropFound'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5320560B0287 // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+
+ @SELF
+; // ME_18E0BD886494 anObjectPropFound
+
+: ME_D4A861440DBF
+ CONST UID 'D4A861440DBF'
+ CONST Name 'Format'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_18E0BD886492 // anObject
+ ME_18E0BD886493 // aShortInfo
+ ME_18E0BD886494 // anObjectPropFound
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_D4A861440DBF Format
+
+: ME_6FB88E211F27
+ CONST UID '6FB88E211F27'
+ CONST Name 'Ml3FormatObjectInfoHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3FormatObjectInfoHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_D4A861440DBF // Format
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_6FB88E211F27 Ml3FormatObjectInfoHelper
+
+: ME_5DD0A3AA9AB2
+ CONST UID '5DD0A3AA9AB2'
+ CONST GUID 'ABD71A64-8BB2-4F31-9E8A-D6E19C4EB16A'
+ CONST Name 'Il3FormatObjectInfoHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3FormatObjectInfoHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_D4A861440DBF // Format
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_5DD0A3AA9AB2 Il3FormatObjectInfoHelper
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_AAFCC3202173
+ CONST UID 'AAFCC3202173'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3FormatObjectInfoHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_AAFCC3202173 Alien
+
+: ME_5CDD3FE24911
+ CONST UID '5CDD3FE24911'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
+ ;
+
+ @SELF
+; // ME_5CDD3FE24911 f_Alien
+
+: ME_551BE08301D7
+ CONST UID '551BE08301D7'
+ CONST Name 'anObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_551BE08301D7 anObject
+
+: ME_551BE083021B
+ CONST UID '551BE083021B'
+ CONST Name 'aShortInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_551BE083021B aShortInfo
+
+: ME_551BE083025F
+ CONST UID '551BE083025F'
+ CONST Name 'anObjectPropFound'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5320560B0287 // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+
+ @SELF
+; // ME_551BE083025F anObjectPropFound
+
+: ME_551BCC1F00E6
+ CONST UID '551BCC1F00E6'
+ CONST Name 'Format'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_551BE08301D7 // anObject
+ ME_551BE083021B // aShortInfo
+ ME_551BE083025F // anObjectPropFound
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_551BCC1F00E6 Format
+
+: ME_23A498EC50FA
+ CONST UID '23A498EC50FA'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_23A498EC50FA Exists
+
+: ME_551BCBFD0240
+ CONST UID '551BCBFD0240'
+ CONST Name 'Tl3FormatObjectInfoHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_AAFCC3202173 // Alien
+ ME_5CDD3FE24911 // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_551BCC1F00E6 // Format
+ ME_23A498EC50FA // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_D4A861440DBF // Format
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_551BCBFD0240 Tl3FormatObjectInfoHelper

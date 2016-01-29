@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<META HTTP-EQUIV="Content-language" CONTENT="en">
+	<META NAME="Robots" CONTENT="ALL; FOLLOW">
+	<META name="description" content="SYNAPSE - Synchronous TCP/IP Library for Delphi">
+	<META name="keywords" content="Synapse, TCP/IP, Socket, Synchronous, Blocking">
+	<title>SYNAPSE - Synchronous TCP/IP Library for Delphi</title>
+</head>
+<body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+
+<CENTER>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue">
+<B>SYNAPSE - Synchronous TCP/IP Library for Delphi</B>
+</FONT>
+<br>
+Other related information can be found at <A HREF="http://www.ararat.cz/synapse/">http://www.ararat.cz/synapse/</A>
+</CENTER>
+<hr>
+<font face="sans-serif" size="+2" color="Blue"><b>HTTP guide</b></font><p>
+<b>Class:</b> THTTPSend<p>
+<b>RFC:</b> 1945, 2616<p>
+<b>Features:</b>
+<ul>
+	<li>low-level component
+	<li>support any HTTP method (GET, SEND,...)
+	<li>support any level of HTTP protocol (0.9, 1.0, 1.1)
+	<li>support any query headers and any response from server
+	<li>support for higher-level method (ANY method!) with automaticly build all necessary headers.
+	<li>not support for keep-alives.
+</ul>
+<b>Typical use:</b><p>
+
+<ul>
+	<li>In all cases you must have <i>HTTPsend</i> in your <b>uses</b>.
+	<li>For simple implement most used HTTP method GET, call function <i>get</i>. Not need any more. This function create needed object, complete query from given <i>host</i> and <i>URI</i> parameter, and return response of server.
+	<li>If you can control any query headers or any HTTP method, see example:<p> 
+<font size="-1">
+<font color="Teal"><I>
+{you must create object for HTTP session}
+</I></FONT><br>
+HTTP:=THTTPSend.Create;<br>
+<B>try</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{set address of HTTP server for qurey}
+  </I></FONT><br>
+  &nbsp;&nbsp;HTTP.HTTPHost:=HTTPHost;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{send query to HTTP server and get response}
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>if not</B> HTTP.Request(StringListWithQuery,StringListForResponse) <B>then</B>
+  <font color="Teal"><I>
+  {error connecting to server. If error on server (i.e. page not found), you must decode Response.}
+  </I></FONT>;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{remember, response begin with response headers and then requested resource...}
+  </I></FONT><br>
+  <B>finally</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{destroy HTTP object}
+  </I></FONT><br>
+  &nbsp;&nbsp;HTTP.Free;<br>
+  <B>end</B>;
+</font>
+</ul>
+
+<hr>
+</body>
+</html>
+

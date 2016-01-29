@@ -1,0 +1,332 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// ExeTarget
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ExeTarget::Category
+$ C 195,245,195
+$ l 80,245,90
+$ f 80,245,80
+? Исполнимый модуль
+? Определяет исполнимый файл - агригацию серверных компонент (и других модулей компиляции).
+> CustomFile::Class , CustomDirectory::Class
+D
+Y target.gif
+
+p thread pool size:s ? определяет кол-во потоков в Пуле Потоков приложения
+p external name:s ? внешнее имя изсполнимого модуля
+
+%f _wiki_up_print
+	[{"%S{thread pool size}"!=""}* кол-во потоков в Пуле Потоков приложения: _%S{thread pool size}_
+	][{"%S{external name}"!=""}* внешнее имя исполнимого модуля: _%S{external name}_
+	]
+
+%t _constraint
+c             {}
+r {"%ax"="true"}: {%SS cant be used as target of dependence}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+C /%SN:%SU
+O %SN
+L code_exe_target
+# MDAGen/Core/t0_wiki_header
+	[
+	{info}Включает реализацию требоваий:%f_collect_req(%S)
+	<{}{%f_exist_in_list(REQS,d)=true}* %f_k_link(%d)
+	>{info}][
+	
+	{info}Состоит из модулей:
+	%f_link_all_dep(%S)
+	{info}][{%mx=true&%Cx=true}
+	
+	Диаграмма пакета:
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	]<%CX>
+
+f _collect_req
+	%f_clear_list(REQS)\
+	%f_collect_req_i(%S)
+
+f _collect_req_i
+	<[{%DS=Requirements}{%f_collect_req_i(%D)}%f_add_to_list(REQS,D)]>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ mpc
+P
+O T_%SN.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd T_%SN utility
+	%f_output_constraint(%S)\
+# t0_header
+	project (T_%SN) : project_generic_core[{%f_use_server(%S)=true}_corba], project_subsystem_console {
+		exename = %SN
+		
+		includes += %f_root_relative_path(%S)
+		[
+	%f_mpc_all_includes(%S)][
+	%f_mpc_all_libpaths(%S)]
+		after += Core
+		libs  += Core
+		[{%f_use_server(%S)=true}after += CoreSrv_cs
+		libs  += CoreSrv_cs
+		after += CoreSrv
+		libs  += CoreSrv][
+	
+	%f_mpc_all_dep(%S)]
+		
+		Header_Files {
+			Std_Headers {
+				%f_normolized_path(h,S)
+			}
+		}
+		
+		Inline_Files {
+			Std_Inlines {
+				%f_normolized_path(i.h,S)
+			}
+		}
+	
+		Source_Files {
+			Std_Sources {
+				%f_normolized_path(cpp,S)
+			}
+		}
+		
+		Resource_Files {
+			%f_normolized_path(vi.rc,S)
+			%f_normolized_path(vi.rch,S)
+		}
+	}
+# t0_footer
+
+f _inc_all_dep
+	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}\#include "%f_delsubstr_from_begin(%Dd,1)/LibHome.h"
+	[{%DS=ServerLibrary&%t_target(%S)=true}\#include "%f_delsubstr_from_begin(%Dd,1)/ServerLibHome.h"
+	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_inc_all_dep(%D)]>
+
+f _reg_all_dep
+	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}		lhm.registrate_lib_home (&%DN::LibHome::get());
+	[{%DS=ServerLibrary&%t_target(%S)=true}		lhm.registrate_lib_home (&%DN::ServerLibHome::get());
+	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_reg_all_dep(%D)]>
+
+//генерим дополнительные команды includes к бибилиотекам (Libpaths)
+f _mpc_all_includes
+	<{}{%De=false&%DS!=Requirements|"%D{native includes path}"!=""&%DS!=Requirements}\
+	[{%De=true}	includes += %D{native includes path}
+	]][{%DS!=ServerLibrary|%t_target(%S)=true}%f_mpc_all_includes(%D,"zzz")]>
+
+//генерим дополнительные путь к бибилиотекам (Libpaths)
+f _mpc_all_libpaths
+	<{}{%De=false&%DS!=Requirements|"%D{native lib path}"!=""&%DS!=Requirements}\
+	[{%De=true}	libpaths += %D{native lib path}
+	]][{%DS!=ServerLibrary|%t_target(%S)=true}%f_mpc_all_libpaths(%D,"zzz")]>
+
+f _mpc_all_dep
+	<{}{%De=false&%DS!=Requirements|"%D{native name}"!=""&%DS!=Requirements}	after += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]]
+		libs  += [{%De=false}{%D{native name}}%DN[{"%DM"="ServerLibrary::Category"}_cs]][
+		lit_libs += %D{lit_libs}]
+	[{%DS=ServerLibrary&%t_target(%S)=true}	after += %DN
+		libs  += %DN[
+		lit_libs += %D{lit_libs}]
+	][{%DS!=ServerLibrary|%t_target(%S)=true}%f_mpc_all_dep(%D,"zzz")]>
+
+f _link_all_dep
+	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}[{%DS!=ServerLibrary|%t_target(%S)=true}* %f_k_link(%D)
+	%f_link_all_dep(%D)]>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ cpp
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+O %SN_main.cpp
+	%f_output_constraint(%S)\
+# t0_header
+	\#include "shared/Core/sys/start_stop.h"
+	%f_std_inc(%S)
+	\#include "shared/Core/GDS/MemoryWatcher.h"
+	\#include "shared/Core/GDS/ObjectWatcher.h"	
+	[{"%f_use_mem_pool(%S)"="true"}\#include "shared/Core/mng/PoolMemoryManager.h"
+	][{"%f_use_obj_pool(%S)"="true"}\#include "shared/Core/mng/PoolObjectManager.h"
+	]\#include [{%f_use_server(%S)=true}{"shared/Core/impl/Root_i/StdLibHomeManager_factory.h"}"shared/CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.h"]
+	[%f_inc_all_dep(%S)
+	]
+	
+	/// main-function wrapper
+	class MainFunction {
+	public:
+		static int execute (int argc, char** argv) {
+			int ret_code = 0;
+			Core::init();
+	
+			Core::select_log_format_set (Core::LFI_DEBUG_MT);
+	
+			{
+				[{%f_use_server(%S)=true}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory_var f = new [{%f_use_server(%S)=true}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory ();
+				f-\>registrate_me(0);
+			}
+	
+			try {
+				Core::ParamManagerInitData init = {"%SN", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\\\Software\\\\Garant\\\\%PN\\\\%SN"};
+				Core::ParamManager::instance ()-\>init (argv, argc, init);
+			} CATCH_AND_LOG ("while init ParamManager executed")
+	
+			Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+	
+	[%f_reg_all_dep(%S)
+	]		try {
+				lhm.execute ();
+				lhm.wait_all ();
+			} CATCH_AND_LOG ("while HomeManager processed")
+		
+			lhm.finalize ();
+	
+			Core::fini();
+			return ret_code;
+		}
+	};
+	
+	int main (int argc, char** argv) {
+		return MainFunction::execute (argc, argv);
+	}<%CX>
+# t0_footer
+
++ vi.rc
+C /%SN
+O %SN_vi.rc
+	%f_output_constraint(%S)\
+	// Microsoft Visual C++ generated resource script.
+	//
+	\#include "%f_with_gen_id(vi.rch,%SO)"
+	
+	\#define APSTUDIO_READONLY_SYMBOLS
+	/////////////////////////////////////////////////////////////////////////////
+	//
+	// Generated from the TEXTINCLUDE 2 resource.
+	//
+	
+	/////////////////////////////////////////////////////////////////////////////
+	\#undef APSTUDIO_READONLY_SYMBOLS
+	
+	/////////////////////////////////////////////////////////////////////////////
+	// Russian resources
+	
+	\#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+	\#ifdef _WIN32
+	LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+	\#pragma code_page(1251)
+	\#endif //_WIN32
+	
+	/////////////////////////////////////////////////////////////////////////////
+	//
+	// Version
+	//
+	
+	VS_VERSION_INFO VERSIONINFO
+	 FILEVERSION %P{major version},%P{minor version},%P{fix version},%PA
+	 PRODUCTVERSION %P{major version},%P{minor version},%P{fix version},%PA
+	 FILEFLAGSMASK 0x3fL
+	\#ifdef _DEBUG
+	 FILEFLAGS 0x1L
+	\#else
+	 FILEFLAGS 0x0L
+	\#endif
+	 FILEOS 0x4L
+	 FILETYPE 0x[{%SS=ExeTarget}{2}1]L
+	 FILESUBTYPE 0x0L
+	BEGIN
+	    BLOCK "StringFileInfo"
+	    BEGIN
+	        BLOCK "041904b0"
+	        BEGIN
+	            VALUE "Comments", "[{"%PD"!=""}{%PN}%PD] - [{"%SD"!=""}{%SN}%f_to_lower(%f_substr_from_begin(%SD,1))%f_delsubstr_from_begin(%SD,1)]"
+	            VALUE "CompanyName", "ООО НПП ""ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ"""
+	            VALUE "FileDescription", "[{"%SD"!=""}{%SN}%f_to_upper(%f_substr_from_begin(%SD,1))%f_delsubstr_from_begin(%SD,1)]"
+	            VALUE "FileVersion", "%P{major version}.%P{minor version}.%P{fix version}.%PA"
+	            VALUE "InternalName", "%SN"
+	            VALUE "LegalCopyright", "(C) ООО НПП ""ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ"", 1990-2015"
+	            VALUE "LegalTrademarks", "Система ГАРАНТ"
+	            VALUE "ModelVersion", "%PA"
+	            VALUE "OriginalFilename", "[{"%S{external name}"!=""}{%SN}%S{external name}].[{%SS=ExeTarget}{dll}exe]"
+	            VALUE "ProductName", "[{"%PD"!=""}{%PN}%PD]"
+	            VALUE "ProductVersion", "%P{major version}"
+	        END
+	    END
+	    BLOCK "VarFileInfo"
+	    BEGIN
+	        VALUE "Translation", 0x419, 1200
+	    END
+	END
+	
+	
+	\#ifdef APSTUDIO_INVOKED
+	/////////////////////////////////////////////////////////////////////////////
+	//
+	// TEXTINCLUDE
+	//
+	
+	1 TEXTINCLUDE 
+	BEGIN
+	    "%f_with_gen_id(vi.rch,%SO)\\0"
+	END
+	
+	2 TEXTINCLUDE 
+	BEGIN
+	    "\\0"
+	END
+	
+	3 TEXTINCLUDE 
+	BEGIN
+	    "\\r\\n"
+	    "\\0"
+	END
+	
+	\#endif    // APSTUDIO_INVOKED
+	
+	\#endif    // Russian resources
+	/////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	\#ifndef APSTUDIO_INVOKED
+	/////////////////////////////////////////////////////////////////////////////
+	//
+	// Generated from the TEXTINCLUDE 3 resource.
+	//
+	
+	
+	/////////////////////////////////////////////////////////////////////////////
+	\#endif    // not APSTUDIO_INVOKED
+	
+	
+
++ vi.rch
+C /%SN
+O %SN_vi.rch
+	%f_output_constraint(%S)\
+	//{{NO_DEPENDENCIES}}
+	// Microsoft Visual C++ generated include file.
+	// Used by %f_with_gen_id(vi.rc,%SO)
+	//
+	
+	\#include \<windows.h\>
+	
+	// Next default values for new objects
+	// 
+	\#ifdef APSTUDIO_INVOKED
+	\#ifndef APSTUDIO_READONLY_SYMBOLS
+	\#define _APS_NEXT_RESOURCE_VALUE        101
+	\#define _APS_NEXT_COMMAND_VALUE         40001
+	\#define _APS_NEXT_CONTROL_VALUE         1000
+	\#define _APS_NEXT_SYMED_VALUE           101
+	\#endif
+	\#endif
+	
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// support functions
+
+f _use_mem_pool
+	[{"<{}{"%A{Servant Pool}"="mem"}{%AC}>"!="0"}{[{"<{}{"%DM"="Library::Category"&"%f_use_mem_pool(%D)"="true"}{%DC}>"!="0"}{false}true]}true]
+
+f _use_obj_pool
+	[{"<{}{"%A{Servant Pool}"="obj"}{%AC}>"!="0"}{[{"<{}{"%DM"="Library::Category"&"%f_use_obj_pool(%D)"="true"}{%DC}>"!="0"}{false}true]}true]

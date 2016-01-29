@@ -1,0 +1,29 @@
+
+Sub Main
+    Dim Result As Integer
+
+    'Initially Recorded: 27.06.2002  17:54:38
+    'Script Name: change_IB
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 55
+    
+    Window SetContext, "Caption=Замена блока в КИБ", ""
+    InputKeys "{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}"
+    ListView Click, "ObjectIndex=1", "Coords=187,21"
+    Window Click, "", "Coords=300,192"
+    ListView ScrollPageDown, "ObjectIndex=2", ""
+    ListView ScrollPageDown, "ObjectIndex=2", ""
+    InputKeys "{TAB}"
+    ListView VScrollTo, "ObjectIndex=2", "Position=0"
+    ListView Click, "ObjectIndex=2;\;ItemIndex=0", "Coords=113,12"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    Window Click, "", "Coords=316,141"
+    Window Click, "", "Coords=310,139"
+    ListView Click, "Text=;\;ItemIndex=6", "Coords=47,6"
+    Window Click, "", "Coords=309,135"
+    ListView Click, "Text=;\;ItemIndex=7", "Coords=40,9"
+    Window Click, "", "Coords=310,144"
+    GenericObject DblClick, "Class=TWinControl;ClassIndex=1", "Coords=13,5"
+
+End Sub

@@ -1,0 +1,299 @@
+
+<html>
+
+<head>
+<title>Activity: Describe Distribution</title>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<h2 class="banner"><a name="Top"></a>Activity: Describe Distribution</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>To describe how the functionality of the system is distributed across
+        physical nodes. Required only for distributed systems.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Steps</font></strong></small>
+    <ul>
+      <li><a href="#Define the network configuration">Define the Network
+        Configuration</a></li>
+      <li><a href="#Allocate processes to the various nodes.">Allocate Processes
+        to Nodes</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Input
+    Artifacts:</strong></font></small>
+    <ul>
+      <li>Process View of the <a href="../artifact/ar_sadoc.htm">Software
+        Architecture Document</a></li>
+      <li><a href="../artifact/ar_impmd.htm">Implementation Model</a></li>
+      <li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Resulting
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><align="left"><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+      <li>
+        <p align="left">Deployment View of the <a href="../artifact/ar_sadoc.htm">Software
+        Architecture Document</a></p>
+      </li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Role:</small>
+    </font></strong><a href="../workers/wk_archt.htm">Software Architect</a></td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="25" colspan="2" style="text-indent: 4px" bordercolor="#808080"><small><font face="Arial"><strong>Concepts:
+    </strong></font></small><a href="../workflow/ana_desi/co_dpatt.htm">Distribution
+    Patterns</a></td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="25" colspan="2" style="text-indent: 4px" bordercolor="#808080"><small><font face="Arial"><strong>Tool
+    Mentor: </strong></font></small>
+    <ul>
+      <li><a href="../../toolment/rose/tm_dist.htm">Documenting the Deployment
+        View Using Rational Rose</a></li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p><table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+<tr>
+<td valign="top" colspan="2" bordercolor="#808080"><small><font face="Arial"><strong>Workflow Details:</strong></font></small><ul>
+<li><b><a href="../workflow/ovu_and.htm">Core Workflow: Analysis & Design</a></b></li><ul>
+<li><a href="../workflow/ana_desi/wfs_and2.htm">Refine the Architecture</a></li>
+</ul>
+</ul>
+</td>
+</tr>
+</table>
+<!-- Linked to Workflow End -->
+</center></div>
+
+<font size="3">
+<p>The distribution of processes across two or more nodes requires a closer
+examination of the patterns of inter-process communication in the system. Often,
+there is a naïve perception that distribution of processing can ‘off-load’
+work from one machine onto a second. In practice, the additional inter-process
+communication workload can easily negate any gains made from workload
+distribution if the process and node boundaries are not considered carefully.</p>
+<p>Distribution is one area where the sum can be, and usually is, less than the
+sum of the parts. Achieving real benefits to distribution requires work and
+careful planning.</p>
+<p>Nevertheless, there are many cases where the system workload cannot be
+handled by one processor. This can be due to special processing requirements, as
+in the case of digital signal processing, which may require specialized and
+dedicated processors. It may also result from inherent scaling concerns, where
+the large numbers of concurrent users are simply too many to support on any
+single processor, or it may result from economic concerns, where the price
+performance of smaller, cheaper processors cannot be matched in larger models.</p>
+</font>
+<h3><a name="XE_network_configuration__defining"></a><a name="Define the network configuration">Define
+the Network Configuration</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" height="1" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>To understand the configuration and topology of the network.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<font size="3">
+<p>The topology of the network and the capabilities and characteristics of the
+processors and devices on the network will determine the nature and degree of
+distribution possible in the system.</p>
+</font>
+<p><font size="3">The following information needs to be captured:</font>
+<ul>
+  <li><font size="3">The physical layout of the network, including locations</font></li>
+  <li><font size="3">The nodes on the network, their configurations and
+    capabilities. The configuration includes both the hardware and the software
+    installed on the nodes, the number of processors, the amount of disk space,
+    the amount of memory, the amount of swap, etc. Hardware installed on the
+    node can be represented using 'devices'.</font></li>
+  <li><font size="3">The bandwidth of each segment on the network.</font></li>
+  <li><font size="3">The existence of any redundant pathways on the network
+    (this will aid in providing fault tolerance capabilities.</font></li>
+  <li><font size="3">The primary purpose of the node. This includes:</font></li>
+  <ul>
+    <li><font size="3">workstation nodes used by end users</font></li>
+    <li><font size="3">server nodes on which &quot;headless&quot; processing
+      occurs (to simplify server configuration, server components can be packed
+      into a &quot;headless&quot; image, which contains no user interface
+      components)</font></li>
+    <li><font size="3">special configurations used for development and test.</font></li>
+    <li><font size="3">Other specialized processors</font></li>
+  </ul>
+  <li><font size="3">IP design and facilities (for example, DNS, VPN), if IP
+    network exists</font></li>
+  <li><font size="3">The part the Internet plays in the solution.</font></li>
+</ul>
+<p class="exampleheading">Example</p>
+<p class="example">The following diagram illustrates the Deployment View for the
+ATM</p>
+<p align="center"><img src="images/dist1.gif" width="594" height="456"></p>
+<p class="picturetext">Deployment View for the ATM</p>
+<p class="example">The diagram illustrates two Nodes (the ATM itself, which is
+the focus of this example), and the ATM Network Server, through which all
+connections to the inter-bank network are made. Though the ATM Network Server is
+out of scope for the builders of the ATM, we show it here to illustrate how
+network bandwidth can be documented. The diagram also shows the processes and
+threads which execute on the ATM Node, which are discussed in the next step <a href="#Allocate processes to the various nodes.">Allocate
+processes to nodes.</a></p>
+<p class="example">Note the use of annotation to document processor and network
+capacity. Such documentation can also be presented in the documentation fields
+of the Node (or the devices), in which case it is not displayed in the diagram.</p>
+<h3><a name="XE_process__allocating_to_node"></a><a name="XE_node__allocating_processes_to"></a><a name="Allocate processes to the various nodes.">Allocate
+Processes to Nodes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td width="365" height="1" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>To distribute the workload of the system.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>Processes should be allocated to nodes so as to minimize the amount of
+cross-network traffic; processes which interact to a great degree should be
+co-located on the same node; processes which interact less frequently can reside
+on different nodes. The crucial decision, and one that sometimes requires
+iteration, is where to draw the line.</p>
+<p>Allocation takes into account:
+<ul>
+  <li>Node capacity (in terms of memory and processing power)</li>
+  <li>Communication medium bandwidth (bus, LANs, WANs)</li>
+  <li>Availability of hardware and communication links, rerouting</li>
+  <li>Requirements for redundancy and fault-tolerance</li>
+  <li>Response time requirements</li>
+  <li>Throughput requirements</li>
+  <li>…and so on.</li>
+</ul>
+<p class="exampleheading">Example</p>
+<p class="example">The previous example diagram, the <strong>Deployment View for
+the ATM</strong>, illustrates for the ATM Node the allocation of processes onto
+the node. There is a single process (ATM Main), which in turn consists of three
+separate threads of control (Customer Interface, ATM Network Interface, and
+Device Controller).<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+<p><img src="../../images/rup1.gif" border="0" alt="Display Rational Unified Process using frames" name="Home" border="0" width="20" height="110"></a></p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; <img border="0" src="../../_borders/rupversion.gif" width="63" height="7"></small></small></font>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

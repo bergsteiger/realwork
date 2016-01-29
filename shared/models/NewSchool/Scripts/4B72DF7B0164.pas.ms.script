@@ -1,0 +1,406 @@
+// eeRenderFormula 4B72DF7B0164 UtilityPack Class
+
+FORWARD ME_4B72DF7B0164
+
+FORWARD ME_53BEAD8B03B2
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_53BEAD9D023D
+ CONST UID '53BEAD9D023D'
+ CONST Name 'ee_rtPNG'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_53BEAD9D023D ee_rtPNG
+
+: ME_53BEADA600F9
+ CONST UID '53BEADA600F9'
+ CONST Name 'ee_rtBMP'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_53BEADA600F9 ee_rtBMP
+
+: ME_53BEADB0032C
+ CONST UID '53BEADB0032C'
+ CONST Name 'ee_rtRawBMP'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_53BEADB0032C ee_rtRawBMP
+
+: ME_53BEAD8B03B2
+ CONST UID '53BEAD8B03B2'
+ CONST Name 'TeeRenderTarget'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_53BEAD9D023D // ee_rtPNG
+ ME_53BEADA600F9 // ee_rtBMP
+ ME_53BEADB0032C // ee_rtRawBMP
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_53BEAD8B03B2 TeeRenderTarget
+
+: ME_4EF06C6C014A
+ CONST UID '4EF06C6C014A'
+ CONST Name 'TnevDocumentContainerHack'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4EF06C6C014A TnevDocumentContainerHack
+
+FORWARD ME_4EF0A285035D
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+: ME_4EF0A2D0018B
+ CONST UID '4EF0A2D0018B'
+ CONST Name 'aText'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_532031160122 // Tl3Variant
+ ;
+
+ @SELF
+; // ME_4EF0A2D0018B aText
+
+: ME_4EF0A2D001D7
+ CONST UID '4EF0A2D001D7'
+ CONST Name 'aFormula'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_532031160122 // Tl3Variant
+ ;
+
+ @SELF
+; // ME_4EF0A2D001D7 aFormula
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4EF0A2D00229
+ CONST UID '4EF0A2D00229'
+ CONST Name 'aZoom'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4EF0A2D00229 aZoom
+
+INCLUDE '467C0CAA02AB.pas.ms.script'
+
+: ME_4EF0A2C8007C
+ CONST UID '4EF0A2C8007C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476F70910097 // Il3Bitmap
+ ;
+ : Parameters
+   [ ME_4EF0A2D0018B // aText
+ ME_4EF0A2D001D7 // aFormula
+ ME_4EF0A2D00229 // aZoom
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4EF0A2C8007C DoIt
+
+: ME_4EF0A285035D
+ CONST UID '4EF0A285035D'
+ CONST Name 'DoRender'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Собствеено рендерит формулу' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4EF0A2C8007C // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4EF0A285035D DoRender
+
+FORWARD ME_53BE8DDD026E
+
+: ME_53BE8DF20355
+ CONST UID '53BE8DF20355'
+ CONST Name 'aBuf'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4771179900D8 // PChar
+ ;
+
+ @SELF
+; // ME_53BE8DF20355 aBuf
+
+: ME_53BE8DF2037F
+ CONST UID '53BE8DF2037F'
+ CONST Name 'aSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_53BE8DF2037F aSize
+
+: ME_53BE8DF203A5
+ CONST UID '53BE8DF203A5'
+ CONST Name 'aNumber'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_53BE8DF203A5 aNumber
+
+: ME_53BE8DF203CA
+ CONST UID '53BE8DF203CA'
+ CONST Name 'aZoom'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_53BE8DF203CA aZoom
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_53BE8DF30005
+ CONST UID '53BE8DF30005'
+ CONST Name 'aPicture'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_53BE8DF30005 aPicture
+
+: ME_53BE8DEB01F2
+ CONST UID '53BE8DEB01F2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_53BE8DF20355 // aBuf
+ ME_53BE8DF2037F // aSize
+ ME_53BE8DF203A5 // aNumber
+ ME_53BE8DF203CA // aZoom
+ ME_53BE8DF30005 // aPicture
+ ]
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ @SELF
+; // ME_53BE8DEB01F2 DoIt
+
+: ME_53BE8DDD026E
+ CONST UID '53BE8DDD026E'
+ CONST Name 'RenderFormula'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53BE8DEB01F2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53BE8DDD026E RenderFormula
+
+FORWARD ME_4B72DF930061
+
+: ME_4B72DFD700C7
+ CONST UID '4B72DFD700C7'
+ CONST Name 'aBuf'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4771179900D8 // PChar
+ ;
+
+ @SELF
+; // ME_4B72DFD700C7 aBuf
+
+: ME_4B72DFD700FE
+ CONST UID '4B72DFD700FE'
+ CONST Name 'aSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4B72DFD700FE aSize
+
+: ME_4B72DFD70121
+ CONST UID '4B72DFD70121'
+ CONST Name 'aNumber'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4B72DFD70121 aNumber
+
+: ME_4CBD727500B5
+ CONST UID '4CBD727500B5'
+ CONST Name 'aZoom'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4CBD727500B5 aZoom
+
+: ME_4B72DFD70141
+ CONST UID '4B72DFD70141'
+ CONST Name 'aPicture'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_4B72DFD70141 aPicture
+
+: ME_53BEADCD01B8
+ CONST UID '53BEADCD01B8'
+ CONST Name 'aTarget'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_53BEAD8B03B2 // TeeRenderTarget
+ ;
+
+ @SELF
+; // ME_53BEADCD01B8 aTarget
+
+: ME_4B72DF9E00A6
+ CONST UID '4B72DF9E00A6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_4B72DFD700C7 // aBuf
+ ME_4B72DFD700FE // aSize
+ ME_4B72DFD70121 // aNumber
+ ME_4CBD727500B5 // aZoom
+ ME_4B72DFD70141 // aPicture
+ ME_53BEADCD01B8 // aTarget
+ ]
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ @SELF
+; // ME_4B72DF9E00A6 DoIt
+
+: ME_4B72DF930061
+ CONST UID '4B72DF930061'
+ CONST Name 'RenderFormulaPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4B72DF9E00A6 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4B72DF930061 RenderFormulaPrim
+
+: ME_4B72DF7B0164
+ CONST UID '4B72DF7B0164'
+ CONST Name 'eeRenderFormula'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4EF0A285035D // DoRender
+ ME_53BE8DDD026E // RenderFormula
+ ME_4B72DF930061 // RenderFormulaPrim
+ ]
+ ; // Operations
+ : Children
+   [ ME_53BEAD8B03B2 // TeeRenderTarget
+ ME_4EF06C6C014A // TnevDocumentContainerHack
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '27.11.2007 15:32'
+
+ @SELF
+; // ME_4B72DF7B0164 eeRenderFormula

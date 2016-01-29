@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/java/src/java/ru/garant/TestModel/BasicTests/NativeTypesSmallTest/CharConstantsArray.java"
+// генератор классов, интерфейсов на java (.java)
+// Generated from UML model, root element: <<ConstantArray::Class>> TestModel::BasicTests::NativeTypesSmallTest::CharConstantsArray
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+package ru.garant.TestModel.BasicTests.NativeTypesSmallTest;
+
+public class CharConstantsArray {
+	public static final char CharConstantsArray [] = {a, b, c};
+} // CharConstantsArray
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,1180 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "PageSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"debug tie log"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"need UC"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"no hands"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"weak"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"All")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:45ED9AFC026A/Home/Модель проекта "shared"/ConfluenceCore/PageSupport|4980301200CF
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16663539063"))
+    quid       	"4980301200CF"
+    documentation 	"расширяет функциональность пакета com.atlassian.confluence.pages"
+    stereotype 	"Interfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"498030A00035"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages"
+	    quidu      	"4614919300FA")
+	(object Visibility_Relationship
+	    quid       	"50C71A0D037D"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.labels"
+	    quidu      	"46487E80005C")
+	(object Visibility_Relationship
+	    quid       	"5360CAE80108"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.mail"
+	    quidu      	"4E55163E0315"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "GarPageManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/PageSupport/GarPageManagerFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/PageSupport/GarPageManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:45ED9AFC026A/Home/Модель проекта "shared"/ConfluenceCore/PageSupport/GarPageManager|498030F502EC
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16663542022"))
+	    quid       	"498030F502EC"
+	    documentation 	"расширяет фунциональность интерфейса PageManager"
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"498031AB0335"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::PageManager"
+		    quidu      	"461492B70119"))
+	    operations 	(list Operations
+		(object Operation "get_permission_pages"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*498031BA03C0_4980322F03C0*"
+			    value      	(value Text 
+|//#UC START# *498031BA03C0_4980322F03C0*¤		if(spaceIds.isEmpty()) {¤			return Collections.emptyList();¤		}¤		¤		StringBuilder qb = new StringBuilder();¤		qb.append("select distinct page from AbstractPage as page where page.space.id in(:spaceIds) ");¤		qb.append("and page.contentStatus='current' and page.originalVersion is null ");¤		qb.append("and 0!=(select count(cps.id) from ContentPermissionSet as cps ");¤		qb.append("where page.id=cps.owningContent.id and cps.type='").append(contentPermission).append("')");¤		¤		Map<String, Object> params = new HashMap<String, Object>(1);¤		params.put("spaceIds", spaceIds);¤		¤		final Set<AbstractPage> topRestrictedPages = ¤			new HashSet<AbstractPage>((List<AbstractPage>) (List<?>) QueryHelper.getListByQuery(qb.toString(), params));¤		final Set<AbstractPage> result = new HashSet<AbstractPage>();¤		¤		for(AbstractPage topRestrictedPage : topRestrictedPages) {¤			// add to hashset - add without duplicates¤			result.add(topRestrictedPage);¤			if(topRestrictedPage instanceof Page){¤				result.addAll(((Page)topRestrictedPage).getDescendents());¤			}¤		}¤		return new ArrayList<AbstractPage>(result);¤		//#UC END# *498031BA03C0_4980322F03C0*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"54CF620D00CF")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659416514"))
+		    quid       	"498031BA03C0"
+		    documentation 	"возвращает список страниц из указанного спейса, имеющих заданное ограничение на контент"
+		    parameters 	(list Parameters
+			(object Parameter "space_ids"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4982A45002A7")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16659416844"))
+			    quid       	"4982A41D0236"
+			    type       	"SpaceIdList"
+			    quidu      	"4982A45002A7")
+			(object Parameter "content_permission"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16659417210"))
+			    quid       	"498031BC0363"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"AbstractPageList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4980330801E4_4980330801E4_4980322F03C0_BODY*"
+			    value      	(value Text 
+|//#UC START# *4980330801E4_4980330801E4_4980322F03C0_BODY*¤		//#UC END# *4980330801E4_4980330801E4_4980322F03C0_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659417621"))
+		    quid       	"4980330801E4"
+		    documentation 	"возвращает кэшированный экземпляр"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_page_fast"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4991346B00B4_4980322F03C0*"
+			    value      	(value Text 
+|//#UC START# *4991346B00B4_4980322F03C0*¤		Page ret = null;¤		try {¤			Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			Iterator it = session.createQuery(¤				"SELECT c"¤				+ " FROM Page AS c"¤				+ " WHERE c.title=" + "\'" + pageTitle + "\'"¤				+ " AND c.space.id=" + ContainerManager.Factory.get().getSpaceManager().getSpace(spaceKey).getId()¤				+ " AND c.contentStatus='current' and c.originalVersion is null"¤			).iterate();¤			if (it.hasNext()) {¤				return (Page)it.next();¤			}¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤		return ret;¤		//#UC END# *4991346B00B4_4980322F03C0*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"461492D402CE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659417963"))
+		    quid       	"4991346B00B4"
+		    documentation 	"заменяет медленный способ (getPage(spaceКey, pageTitle))  получения страницы по тайтлу в спэйсе"
+		    parameters 	(list Parameters
+			(object Parameter "space_key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16659418274"))
+			    quid       	"499135050327"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "page_title"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16659418623"))
+			    quid       	"49913505034B"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"Page"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"461492D402CE")
+		(object Operation "get_root_space_pages"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4A263C830274_4980322F03C0*"
+			    value      	(value Text 
+|//#UC START# *4A263C830274_4980322F03C0*¤		String query = "from AbstractPage page where page.originalVersion is null and "¤											+ "page.contentStatus = 'current' and "¤											+ "lower(page.space.key) = :spaceKey and "¤											+ "(page.space.homePage != page or page.space.homePage is null) and "¤											+ "page.parent is null";¤		Map<String, Object> params = new HashMap<String, Object>(1);¤		params.put("spaceKey", spaceKey);¤		return (List<AbstractPage>) (List<?>) QueryHelper.getListByQuery(query, params);¤		//#UC END# *4A263C830274_4980322F03C0*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"54CF620D00CF")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659419468"))
+		    quid       	"4A263C830274"
+		    documentation 	
+|возвращает страницы без родителя, которые "висят" в корне спейса, за исключением домашней страницы спейса
+		    
+		    parameters 	(list Parameters
+			(object Parameter "space_key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16659419776"))
+			    quid       	"4A263CDA01B6"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"AbstractPageList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"54CF620D00CF")
+		(object Operation "change_label"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1355224348707710")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*50C7151C029D_4980322F03C0*"
+			    value      	(value Text 
+|//#UC START# *50C7151C029D_4980322F03C0*¤/* 		for(Labelling labelling : (List<Labelling>)page.getLabellings()){¤			if(labelling.getLabel().equals(currentLabel)){¤				page.removeLabelling(labelling);¤				try {¤					ContainerManager.Factory.get().getSession().delete(labelling);¤				} catch (Exception e) {¤					Logs.LOG_SEX(e);¤				}¤			}¤		}¤ 		*/¤ 		Labelling currentLabelling = null;¤		for(Labelling labelling : (List<Labelling>)page.getLabellings()){¤			if(labelling.getLabel().equals(currentLabel)){¤				currentLabelling = labelling;¤			}¤		}¤		if(currentLabelling != null){¤			page.removeLabelling(currentLabelling);¤			ContainerManager.Factory.get().getEventManager().publishEvent(new LabelRemoveEvent(currentLabel, page));¤			try {¤				ContainerManager.Factory.get().getSession().delete(currentLabelling);¤			} catch (Exception e) {¤				Logs.LOG_SEX(e);¤			}¤¤/*			HibernateListener listener = new HibernateListener();¤			try {¤				LockMode mode = ContainerManager.Factory.get().getSession().getCurrentLockMode(currentLabelling);¤				if(ContainerManager.Factory.get().getSession().contains(currentLabelling) && mode.equals(LockMode.WRITE)){¤					ContainerManager.Factory.get().getSessionFactory().evictCollection("com.atlassian.confluence.core.ContentEntityObject.labellings", currentLabelling.getId());¤					ContainerManager.Factory.get().getSessionFactory().evictCollection("com.atlassian.confluence.core.ContentEntityObject.labellings", currentLabelling.getContent().getId());¤					ContainerManager.Factory.get().getSession().evict(currentLabelling);¤					ContainerManager.Factory.get().getSession().flush();¤					boolean isc = ContainerManager.Factory.get().getSession().contains(currentLabelling);¤					if(isc == false){¤						Coherence¤//						listener.onDelete(currentLabelling, currentLabelling.getId(), null, null, null);¤//						ContainerManager.Factory.get().getSession().lock(currentLabelling, LockMode.NONE);¤						//Labelling l = (Labelling)ContainerManager.Factory.get().getSession().get(Labelling.class, currentLabelling.getId());¤						int p = 1;¤					}¤				}else{¤					ContainerManager.Factory.get().getSession().delete(currentLabelling);¤				}¤			} catch (Exception e) {¤				Logs.LOG_SEX(e);¤			}*/¤		} ¤¤		Labelling new_labelling = new Labelling(newLabel, page, AuthenticatedUserThreadLocal.getUsername());¤		Date creationDate = new Date();¤		new_labelling.setCreationDate(creationDate);¤		new_labelling.setLastModificationDate(creationDate);¤		page.addLabelling(new_labelling);¤		ContainerManager.Factory.get().getEventManager().publishEvent(new LabelAddEvent(newLabel, page));¤		//#UC END# *50C7151C029D_4980322F03C0*
+			    )))
+		    quid       	"50C7151C029D"
+		    documentation 	"поменять у страницы лейбл с одного на другой"
+		    parameters 	(list Parameters
+			(object Parameter "page"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1355224563905684")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"461492D402CE"))
+			    quid       	"50C715F30389"
+			    type       	"Page"
+			    quidu      	"461492D402CE")
+			(object Parameter "current_label"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1355224563968085")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47661B8F0213"))
+			    quid       	"50C715F303C8"
+			    type       	"Label"
+			    quidu      	"47661B8F0213")
+			(object Parameter "new_label"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1355224564014886")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47661B8F0213"))
+			    quid       	"50C715F4000E"
+			    type       	"Label"
+			    quidu      	"47661B8F0213"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "PageList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16659420406"))
+	    quid       	"49802EDF010A"
+	    documentation 	"список страниц"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Class "SpaceIdList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16659421400"))
+	    quid       	"4982A45002A7"
+	    documentation 	"?????"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Class "GarMailContentManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1398851628805631")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"call way"
+		    value      	"forth")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug tie log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is default ancestor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"native definition"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"single impl"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/PageSupport/GarMailContentManagerFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/PageSupport/GarMailContentManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file"))
+	    quid       	"5360C82C0325"
+	    documentation 	"расширяет фунциональность интерфейса MailContentManager"
+	    stereotype 	"Interface"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1398851907685585"))
+		    quid       	"5360C94302AC"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.mail::MailContentManager"
+		    quidu      	"4E84811E03A2"))
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1398851688760061")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*5360C86802F0_5360C86802F0_5360C9CC00A7_BODY*"
+			    value      	(value Text 
+|//#UC START# *5360C86802F0_5360C86802F0_5360C9CC00A7_BODY*¤		//#UC END# *5360C86802F0_5360C86802F0_5360C9CC00A7_BODY*
+			    )))
+		    quid       	"5360C86802F0"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "AbstractPageList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1422877197208559")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"54CF620D00CF"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"49802EF10179"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659420782"))
+		    quid       	"49802EF10385"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::Page"
+		    quidu      	"461492D402CE"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"49802EF10388"
+		    supplier   	"Logical View::shared::ConfluenceCore::PageSupport::PageList"
+		    quidu      	"49802EDF010A"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"4982A45C0390"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$4"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659421730"))
+		    quid       	"4982A45D00F3"
+		    supplier   	"Logical View::Primitives::long long"
+		    quidu      	"3DBFFD860205"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"4982A45D00F5"
+		    supplier   	"Logical View::shared::ConfluenceCore::PageSupport::SpaceIdList"
+		    quidu      	"4982A45002A7"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$6"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1422877262247280"))
+	    quid       	"54CF624D0354"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$7"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1422877264039384")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"54CF624E00F4"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::AbstractPage"
+		    quidu      	"4741B69000F0"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$8"
+		    quid       	"54CF624E00F6"
+		    supplier   	"Logical View::shared::ConfluenceCore::PageSupport::AbstractPageList"
+		    quidu      	"54CF620D00CF"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"498030ED0370"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	167
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::PageSupport::GarPageManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(993, 738)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(108, 579)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1770
+			justify    	0
+			label      	"• GarPageManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(108, 529)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1770
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"498030F502EC"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(108, 640)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	1768
+			justify    	1)
+		    width      	1788
+		    height     	442
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::PageManager" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(480, 234)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(197, 206)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	566
+			justify    	0
+			label      	"• PageManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(197, 156)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	566
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"461492B70119"
+		    width      	584
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"498031AB0335"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(767, 516)
+			(572, 324))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::PageSupport::PageList" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2232, 615)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(2136, 585)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	192
+			justify    	0
+			label      	"PageList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(2136, 535)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	192
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"49802EDF010A"
+		    width      	210
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::long long" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2655, 255)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(2532, 215)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	246
+			justify    	0
+			label      	"long long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFD860205"
+		    width      	264
+		    height     	105
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::PageSupport::SpaceIdList" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2712, 645)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(2590, 616)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"SpaceIdList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(2590, 566)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4982A45002A7"
+		    width      	262
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$3" @7
+		    location   	(2679, 430)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4982A45C0390"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$4" @8
+			    Parent_View 	@7
+			    location   	(-33, -215)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4982A45D00F3"
+			    client     	@7
+			    supplier   	@5
+			    vertices   	(list Points
+				(2679, 430)
+				(2662, 307))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$5" @9
+			    Parent_View 	@7
+			    location   	(-33, -215)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4982A45D00F5"
+			    client     	@7
+			    supplier   	@6
+			    vertices   	(list Points
+				(2679, 430)
+				(2697, 553))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.labels::Label" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(777, 1584)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(496, 1556)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	562
+			justify    	0
+			label      	"• Label")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(496, 1506)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	562
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"47661B8F0213"
+		    width      	580
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::PageSupport::GarMailContentManager" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2346, 1701)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(2108, 1642)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	476
+			justify    	0
+			label      	"GarMailContentManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(2108, 1592)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	476
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"5360C82C0325"
+		    compartment 	(object Compartment
+			Parent_View 	@11
+			location   	(2108, 1703)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	375
+			justify    	1)
+		    width      	494
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.mail::MailContentManager" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2400, 1290)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(2130, 1262)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	540
+			justify    	0
+			label      	"• MailContentManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(2130, 1212)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	540
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4E84811E03A2"
+		    width      	558
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @13
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"5360C94302AC"
+		    client     	@11
+		    supplier   	@12
+		    vertices   	(list Points
+			(2360, 1579)
+			(2386, 1380))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::PageSupport::AbstractPageList" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1503, 1509)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(1327, 1480)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	352
+			justify    	0
+			label      	"AbstractPageList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(1327, 1430)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	352
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"54CF620D00CF"
+		    width      	370
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::AbstractPage" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1470, 1203)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(1188, 1175)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	564
+			justify    	0
+			label      	"• AbstractPage")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(1188, 1125)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	564
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4741B69000F0"
+		    width      	582
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$6" @16
+		    location   	(1485, 1355)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"54CF624D0354"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$7" @17
+			    Parent_View 	@16
+			    location   	(-18, -154)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"54CF624E00F4"
+			    client     	@16
+			    supplier   	@15
+			    vertices   	(list Points
+				(1485, 1355)
+				(1479, 1293))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$8" @18
+			    Parent_View 	@16
+			    location   	(-18, -154)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"54CF624E00F6"
+			    client     	@16
+			    supplier   	@14
+			    vertices   	(list Points
+				(1485, 1355)
+				(1492, 1417))
+			    line_style 	0)))))))

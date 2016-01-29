@@ -1,0 +1,127 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/HashMap.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::HashMap
+//
+// Хеш-карта
+// ---
+// Индексный контейнер с заданным ключем. Индекс построен на ХЕШ-таблице.
+// Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа
+// определяется ключем связи со этим атрибутом.
+// Дополнительно могут быть указанны тип аллокатора данных, тип функтора-сравнения и тип хеш-
+// функции, как атрибуты со стереотипами <<allocator>>, <<compare>> и <<hasher>> соотвественно.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: HashMap::Class*
+implementation @ <<HashMap>>
+//? Хеш-карта
+//? Индексный контейнер с заданным ключем. Индекс построен на ХЕШ-таблице.
+//? Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.
+//? Дополнительно могут быть указанны тип аллокатора данных, тип функтора-сравнения и тип хеш-функции, как атрибуты со стереотипами <<allocator>>, <<compare>> и <<hasher>> соотвественно.
+//= Map::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа BaseContainer::Class
+// сгенерить определение контэйнера для C++
+//%f _dump_container_def_h
+; // st_space_key
+
+: dump_container_def_h OBJECT IN %S
+//#UC START# *49015EE401E1for470F067B0138*
+//	%f_dump_container_fwds_h(%S)\
+ [%f] dump_container_fwds_h %( %S )% 
+//	%f_docs(%S)\
+ [%f] docs %( %S )% //	#typedef std::hash_map \< %f_key_dump(%S), %f_data_dump(%S)%f_hasher_dump(%S)%f_equalto_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+
+//	%f_set_var(TYPEDEF,"#typedef std::hash_map \<%f_key_dump(%S)\n#\t, %f_data_dump(%S)[\n#\t, %f_hasher_dump(%S)][\n#\t, %f_equalto_dump(%S)][\n#\t, %f_allocator_dump(%S)]\> %SN;")\
+ [%f] set_var %( 'TYPEDEF' %, out_indent 'typedef std::hash_map <'
+ [%f] key_dump %( %S )% #13#10
+ out_indent #9 %, ' '
+ [%f] data_dump %( %S )% if NOT-EMPTY
+ begin
+  #13#10
+  out_indent #9', '
+  [%f] hasher_dump %( %S )% 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+  out_indent #9', '
+  [%f] equalto_dump %( %S )% 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+  out_indent #9', '
+  [%f] allocator_dump %( %S )% 
+ end // if
+ NOP
+ '> '
+ %S |N ';' )% 
+//	%f_str_replace(%f_str_replace(%{TYPEDEF}N,\>\>,\> \>),\>\>,\> \>)
+ [%f] str_replace %( [%f] str_replace %( ( get_global_var ( 'TYPEDEF' ) |N ) %, '>>' %, '> >' )% %, '>>' %, '> >' )% 
+//#UC END# *49015EE401E1for470F067B0138*
+; // dump_container_def_h
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F067B0138*
+//c                           {}
+//r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+//r "<{}{"%CS"="hasher"}{C}>"!="1"&"<{}{"%CS"="hasher"}{C}>"!="0": {%SS can provide only one Hasher type (by \<\<compare\>\> link)}
+//r "<{}{"%CS"=""&"%C%Cx"="true"}{C}>"!="1": {%SS must provide one Key type (by subkey in Data type link)}
+//r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+//r "<{}{"%CS"=""&"%C%Cl"="agr"&%f_is_foreign_target(%C)=true}{%CC}>"!="0"&"<{}{"%CS"="hasher"}{C}>"="0": {%SS with agrigaited foreign Key type must provide Hasher type %CN %C%CN %C%C%TN}
+//#UC END# *4704C0E30186for470F067B0138*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: HashMap::Class::hasher::Attribute
+end. // <<HashMap>>
+
+implementation @ :: <<HashMap>> <<hasher>> ;
+//? Функтор ХЭШ функции контейнера
+// Параметры стереотипа
+//Y code_hasher.gif
+//L code_hasher
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<HashMap>> <<hasher>> ;
+

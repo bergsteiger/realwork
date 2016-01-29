@@ -1,0 +1,121 @@
+// lulin1 4D551198021D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D551198021D
+
+FORWARD ME_4D5511DB011D
+
+: ME_4D55121700BA
+ CONST UID '4D55121700BA'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4D5511DB011D // TvgSceneList
+ ;
+ : Target WL 'ME_4D550C5B0341' '4D550C220363.pas.ms.script' // IvgScene
+ ;
+
+ref; // ME_4D55121700BA ItemType
+
+: ME_47B07CF403D0_ME_4D5511DB011D
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_4D5511DB011D // TvgSceneList
+ ;
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_4D5511DB011D IsSameItems
+
+: ME_47B2C42A0163_ME_4D5511DB011D
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4D5511DB011D // TvgSceneList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4D5511DB011D AssignItem
+
+: ME_47B99D4503A2_ME_4D5511DB011D
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4D5511DB011D // TvgSceneList
+ ;
+ref; // ME_47B99D4503A2_ME_4D5511DB011D CompareExistingItems
+
+: ME_4D5511DB011D
+ CONST UID '4D5511DB011D'
+ CONST Name 'TvgSceneList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D551198021D // lulin1
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4A6FFCC00354' '47913B47006E.pas.ms.script' // l3InterfacePtrListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4D55121700BA // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_4D5511DB011D // IsSameItems
+ ME_47B2C42A0163_ME_4D5511DB011D // AssignItem
+ ME_47B99D4503A2_ME_4D5511DB011D // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '11.02.2011 13:39'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgSceneList.pas'
+
+ref; // ME_4D5511DB011D TvgSceneList
+
+: ME_4D551198021D
+ CONST UID '4D551198021D'
+ CONST Name 'lulin1'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
+ ;
+ : Children
+   @ ( ME_4D5511DB011D // TvgSceneList
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4D550C220363' '4D550C220363.pas.ms.script' // vgInterfaces
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D551198021D.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D551198021D.pas.ms.script.runner'
+
+ref; // ME_4D551198021D lulin1

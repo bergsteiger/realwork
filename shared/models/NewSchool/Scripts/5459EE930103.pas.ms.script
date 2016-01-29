@@ -1,0 +1,276 @@
+// Tl3WideStringManager 5459EE930103 SimpleClass Class
+
+INCLUDE '545A25F5016C.pas.ms.script'
+
+FORWARD ME_5459EE930103
+
+FORWARD ME_54B9097403A0
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_54B909840374
+ CONST UID '54B909840374'
+ CONST Name 'aBlockSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54B909840374 aBlockSize
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54B9098000E3
+ CONST UID '54B9098000E3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54B909840374 // aBlockSize
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B9098000E3 DoIt
+
+: ME_54B9097403A0
+ CONST UID '54B9097403A0'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B9098000E3 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B9097403A0 Create
+
+FORWARD ME_54B9099101F5
+
+: ME_54B909A80349
+ CONST UID '54B909A80349'
+ CONST Name 'aString'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_54B909A80349 aString
+
+: ME_54B909A0012D
+ CONST UID '54B909A0012D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4FA284CE011F // PWideChar
+ ;
+ : Parameters
+   [ ME_54B909A80349 // aString
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B909A0012D DoIt
+
+: ME_54B9099101F5
+ CONST UID '54B9099101F5'
+ CONST Name 'AllocString'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'распредел€ет строку' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B909A0012D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B9099101F5 AllocString
+
+FORWARD ME_54B909CF01F6
+
+: ME_54B909E800FE
+ CONST UID '54B909E800FE'
+ CONST Name 'theString'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4FA284CE011F // PWideChar
+ ;
+
+ @SELF
+; // ME_54B909E800FE theString
+
+: ME_54B909E40064
+ CONST UID '54B909E40064'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54B909E800FE // theString
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B909E40064 DoIt
+
+: ME_54B909CF01F6
+ CONST UID '54B909CF01F6'
+ CONST Name 'FreeString'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'освобождает строку' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B909E40064 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B909CF01F6 FreeString
+
+FORWARD ME_54B909F900AB
+
+: ME_54B90A190179
+ CONST UID '54B90A190179'
+ CONST Name 'aString'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4FA284CE011F // PWideChar
+ ;
+
+ @SELF
+; // ME_54B90A190179 aString
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_54B90A140315
+ CONST UID '54B90A140315'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+ : Parameters
+   [ ME_54B90A190179 // aString
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B90A140315 DoIt
+
+: ME_54B909F900AB
+ CONST UID '54B909F900AB'
+ CONST Name 'StringAsPCharLen'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'приводит строку к Tl3PChatLen' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B90A140315 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54B909F900AB StringAsPCharLen
+
+FORWARD ME_54B90A41007F
+
+: ME_54B90A650303
+ CONST UID '54B90A650303'
+ CONST Name 'aString'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4FA284CE011F // PWideChar
+ ;
+
+ @SELF
+; // ME_54B90A650303 aString
+
+: ME_54B90A600110
+ CONST UID '54B90A600110'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_498849D803A8 // WideString
+ ;
+ : Parameters
+   [ ME_54B90A650303 // aString
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B90A600110 DoIt
+
+: ME_54B90A41007F
+ CONST UID '54B90A41007F'
+ CONST Name 'StringAsWideString'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'приводит строку к WideString' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B90A600110 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54B90A41007F StringAsWideString
+
+: ME_5459EE930103
+ CONST UID '5459EE930103'
+ CONST Name 'Tl3WideStringManager'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'ћенеджер Unicode-строк' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_545A25F5016C // Tl3SizedPoolManager
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_54B9097403A0 // Create
+ ME_54B9099101F5 // AllocString
+ ME_54B909CF01F6 // FreeString
+ ME_54B909F900AB // StringAsPCharLen
+ ME_54B90A41007F // StringAsWideString
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5459EE930103 Tl3WideStringManager

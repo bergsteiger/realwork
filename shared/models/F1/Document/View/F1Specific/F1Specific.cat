@@ -1,0 +1,435 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "F1Specific"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis,key:NMS,guid:4AC23B8E0397/Home/Ìîäåëü ïðîåêòà "F1 Core"/Base Operations/View/F1Specific|495237D80268
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (intf.pas)"
+	    value      	"w:/garant6x/implementation/Garant/GbaNemesis/View/Base_Operations_F1Specific_Controls.pas")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (intf.pas)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis,key:NMS,guid:4A781B3A003E/Home/Ìîäåëü ïðîåêòà "F1"/F1Shell/View/F1Specific/File|4952380301A6::4952380301A6
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"13075132058"))
+    quid       	"495237D80268"
+    documentation 	"Îïåðàöèè, ñïåöèôè÷íûå äëÿ F1"
+    stereotype 	"VCMControls"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"495237F3034B"
+	    supplier   	"Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Usual"
+	    quidu      	"494F898C013E"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "File"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis,key:NMS,guid:4AC23B8E0397/Home/Ìîäåëü ïðîåêòà "F1 Core"/Base Operations/View/F1Specific/File|4952380301A6
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"3041ED2E-9529-4DC4-A83B-0367A48DC97B")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13075260592"))
+	    quid       	"4952380301A6"
+	    documentation 	"Ôàéë"
+	    stereotype 	"VCMOperations"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4952381701AB"
+		    supplier   	"Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::File"
+		    quidu      	"49521D8203A0"))
+	    operations 	(list Operations
+		(object Operation "ToMSWord"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_495118ED00F6test_var*"
+			    value      	"//#UC START# *495238EB0160_495118ED00F6test_var*¤//#UC END# *495238EB0160_495118ED00F6test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_495118ED00F6test_impl*"
+			    value      	"//#UC START# *495238EB0160_495118ED00F6test_impl*¤ File_Save_Test(aParams);¤ TnsToMSWordOp.Test(aParams);¤//#UC END# *495238EB0160_495118ED00F6test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_495118ED00F6exec_var*"
+			    value      	"//#UC START# *495238EB0160_495118ED00F6exec_var*¤var¤ lExportSelection : Boolean;¤const¤ cMap: array [Boolean] of TnsExportKind = (ekShell, ekActiveWord);¤//#UC END# *495238EB0160_495118ED00F6exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_495118ED00F6exec_impl*"
+			    value      	"//#UC START# *495238EB0160_495118ED00F6exec_impl*¤ lExportSelection := Text.HasSelection;¤ // Ýêñïîðòèðîâàòü âûäåëåííûå ôðàãìåíòû â Word¤ if (lExportSelection) then¤  case vcmMessageDlg(qr_ExportSelectionToWord, []) of¤    -1:¤     // - âûäåëåíèå¤     ;¤    -2:¤     lExportSelection := False;¤    mrCancel:¤     Exit;¤  end;¤¤ DocumentExport(cMap[aParams.ItemIndex>1], lExportSelection);¤//#UC END# *495238EB0160_495118ED00F6exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4AE1A69E0156test_var*"
+			    value      	"//#UC START# *495238EB0160_4AE1A69E0156test_var*¤//#UC END# *495238EB0160_4AE1A69E0156test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4AE1A69E0156test_impl*"
+			    value      	"//#UC START# *495238EB0160_4AE1A69E0156test_impl*¤ File_Save_Test(aParams);¤ TnsToMSWordOp.Test(aParams);¤//#UC END# *495238EB0160_4AE1A69E0156test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4AE1A69E0156exec_var*"
+			    value      	"//#UC START# *495238EB0160_4AE1A69E0156exec_var*¤var¤ lExportSelection : Boolean;¤const¤ cMap: array [Boolean] of TnsExportKind = (ekShell, ekActiveWord);¤//#UC END# *495238EB0160_4AE1A69E0156exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4AE1A69E0156exec_impl*"
+			    value      	"//#UC START# *495238EB0160_4AE1A69E0156exec_impl*¤ lExportSelection := Text.HasSelection;¤ // Ýêñïîðòèðîâàòü âûäåëåííûå ôðàãìåíòû â Word¤ if (lExportSelection) then¤  case MessageDlg(str_ExportSelectionToWord) of¤    -1:¤     // - âûäåëåíèå¤     ;¤    -2:¤     lExportSelection := False;¤    mrCancel:¤     Exit;¤  end;//case MessageDlg(str_ExportSelectionToWord)¤ DocumentExport(cMap[aParams.ItemIndex>1], lExportSelection);¤//#UC END# *495238EB0160_4AE1A69E0156exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4C46AA3401DBtest_var*"
+			    value      	"//#UC START# *495238EB0160_4C46AA3401DBtest_var*¤//#UC END# *495238EB0160_4C46AA3401DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4C46AA3401DBtest_impl*"
+			    value      	"//#UC START# *495238EB0160_4C46AA3401DBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤ TnsToMSWordOp.Test(aParams);¤//#UC END# *495238EB0160_4C46AA3401DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4C46AA3401DBexec_var*"
+			    value      	"//#UC START# *495238EB0160_4C46AA3401DBexec_var*¤var¤ //l_PathName   : Il3CString;¤ l_Output: TnsGetGenOutputStruct;¤ l_Stream     : IStream;¤ l_Visualizer : IafwLongProcessVisualizer;¤ l_ExportSelection : Boolean;¤//#UC END# *495238EB0160_4C46AA3401DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4C46AA3401DBexec_impl*"
+			    value      	"//#UC START# *495238EB0160_4C46AA3401DBexec_impl*¤ if Assigned(dsList) then¤ try¤  l_ExportSelection := tvList.TreeView.Tree.SelectedCount > 1;¤  if (l_ExportSelection) then¤   case MessageDlg(str_ListExportSelectionToWord) of¤     -1:¤      ;¤     -2:¤      l_ExportSelection := False;¤     mrCancel:¤      Exit;¤   end;//case MessageDlg(str_ListExportSelectionToWord)¤¤  if (ApproxExportCount(l_ExportSelection) > c_MaxTotalDocumentInListLimit) then¤   if not afw.Application.IsInternal or¤      not afw.Settings.LoadBoolean(pi_List_ExportWORestrictions,¤                                   dv_List_ExportWORestrictions) then¤   begin¤    Say(war_TryToExportTooManyTotalDocs, [c_MaxTotalDocumentInListLimit]);¤    Exit;¤   end;//not afw.Application.IsInternal¤¤   // Ýêñïîðòèðîâàòü â Word¤//  l_PathName := nsMakeTemporaryFileName(nsPrepareFileName(CreateListName(l_ExportSelection)),¤//   nsGetFileFormatExt(ns_ffRTF), False);¤  l_Output := TnsGetGenOutputStruct_Create(¤    nsMakeTemporaryFileName(nsPrepareFileName(CreateListName(l_ExportSelection)),¤    nsGetFileFormatExt(ns_ffRTF), False)¤     );¤  l_Visualizer := bsMakeExportVisualizer(vcmCStr(str_ExportListVisualizer));¤  try¤   l_Stream := dsList.ListAsText(CalcSaveListKind, l_ExportSelection);¤   try¤    nsEvdStreamSaveAs(l_Stream, l_Output, ns_ffRTF, False);¤    TnsListExportToWordEvent.Log(dsList.List, ApproxExportCount(l_ExportSelection), l_ExportSelection);¤   finally¤    l_Stream := nil;¤   end;//try..finally¤  finally¤   l_Visualizer := nil;¤  end;//try..finally¤  if not TnsToMSWordOp.Execute(l_Output.rName, aParams) then¤   Say(err_CannotOpen, [dsList.ListName]);¤ except¤  on E: Exception do¤   l3System.Exception2Log(E);¤ end;//if Assigned(dsDocumentList) then¤//#UC END# *495238EB0160_4C46AA3401DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_497EE4EB00CBtest_var*"
+			    value      	"//#UC START# *495238EB0160_497EE4EB00CBtest_var*¤//#UC END# *495238EB0160_497EE4EB00CBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_497EE4EB00CBtest_impl*"
+			    value      	"//#UC START# *495238EB0160_497EE4EB00CBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤ TnsToMSWordOp.Test(aParams);¤//#UC END# *495238EB0160_497EE4EB00CBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_497EE4EB00CBexec_var*"
+			    value      	"//#UC START# *495238EB0160_497EE4EB00CBexec_var*¤var¤ l_ExportSelection : Boolean;¤const¤ cMap: array [Boolean] of TnsExportKind = (ekShell, ekActiveWord);¤//#UC END# *495238EB0160_497EE4EB00CBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_497EE4EB00CBexec_impl*"
+			    value      	"//#UC START# *495238EB0160_497EE4EB00CBexec_impl*¤ l_ExportSelection := HasSelection;¤ // Ýêñïîðòèðîâàòü âûäåëåííûå ôðàãìåíòû â Word¤ if (l_ExportSelection) then¤  case MessageDlg(str_ListExportSelectionToWord) of¤    -1:¤     // - âûäåëåíèå¤     ;¤    -2:¤     l_ExportSelection := False;¤    mrCancel:¤     Exit;¤  end;¤¤ if (ApproxExportCount(l_ExportSelection) > c_MaxTotalDocumentInListLimit) then¤  if not afw.Application.IsInternal or not afw.Settings.LoadBoolean(pi_List_ExportWORestrictions, dv_List_ExportWORestrictions) then¤  begin¤   Say(war_TryToExportTooManyTotalDocs, [c_MaxTotalDocumentInListLimit]);¤   Exit;¤  end;¤¤ ListExport(cMap[aParams.ItemIndex>1], l_ExportSelection);¤//#UC END# *495238EB0160_497EE4EB00CBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4C878FA60351test_var*"
+			    value      	"//#UC START# *495238EB0160_4C878FA60351test_var*¤//#UC END# *495238EB0160_4C878FA60351test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4C878FA60351test_impl*"
+			    value      	"//#UC START# *495238EB0160_4C878FA60351test_impl*¤ aParams.Op.Flag[vcm_ofEnabled] := (ContentsTree.Total > 0);¤ nsDisableOperationInTrialMode(aParams);¤ TnsToMSWordOp.Test(aParams);¤//#UC END# *495238EB0160_4C878FA60351test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4C878FA60351exec_var*"
+			    value      	"//#UC START# *495238EB0160_4C878FA60351exec_var*¤¤ function lp_CreateFileName(const aName: Il3CString): Il3CString;¤ begin¤  Result := nsPrepareFileName(vcmFmt(str_ContentsPrintTitle, [aName]));¤ end;//lp_CreateFileName¤¤var¤ //l_PathName : Il3CString;¤ l_Output: TnsGetGenOutputStruct;¤ l_Stream   : Tl3Stream;¤ l_F        : TnsFileFormat;¤ l_G        : Tk2CustomFileGenerator;¤ l_H        : Tk2TagGenerator;¤//#UC END# *495238EB0160_4C878FA60351exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495238EB0160_4C878FA60351exec_impl*"
+			    value      	"//#UC START# *495238EB0160_4C878FA60351exec_impl*¤ if (BaseContents <> nil) then¤ begin¤  with BaseContents.DocInfo do¤   l_Output := TnsGetGenOutputStruct_Create(¤                 nsMakeTemporaryFileName(lp_CreateFileName(DocShortName), '.rtf')¤               );  ¤  l_F := ns_ffRTF;¤  l_Stream := Tl3NamedTextStream.Create(l3PStr(l_Output.rName), l3_fmWrite, 0);¤  try¤   if nsGetGen(l_Output, l_F, l_G, l_H) then¤    try¤     l_G.Filer.Mode := l3_fmWrite;¤     l_G.Filer.Stream := l_Stream;¤     try¤      l_H.Start;¤      try¤       MakeEVD.Store(nil, l_H);¤      finally¤       l_H.Finish;¤      end;//try..finally¤     finally¤      l_G.Filer.Stream := nil;¤     end;//try..finally¤    finally¤     FreeAndNil(l_G);¤     FreeAndNil(l_H);¤    end;//try..finally¤   FreeAndNil(l_Stream);¤   TnsToMSWordOp.Execute(l_Output.rName, aParams);¤  finally¤   FreeAndNil(l_Stream);¤  end;//try..finally¤ end;//(BaseContents <> nil)¤//#UC END# *495238EB0160_4C878FA60351exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13075262071"))
+		    quid       	"495238EB0160"
+		    documentation 	"Ýêñïîðò â Word"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "SendMailAsAttachment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_495118ED00F6test_var*"
+			    value      	"//#UC START# *495253870002_495118ED00F6test_var*¤//#UC END# *495253870002_495118ED00F6test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_495118ED00F6test_impl*"
+			    value      	"//#UC START# *495253870002_495118ED00F6test_impl*¤ NotEmptyDocumentWithTrialModeTest(aParams);¤//#UC END# *495253870002_495118ED00F6test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_495118ED00F6exec_var*"
+			    value      	"//#UC START# *495253870002_495118ED00F6exec_var*¤var¤ l_ExportSelection : Boolean;¤//#UC END# *495253870002_495118ED00F6exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_495118ED00F6exec_impl*"
+			    value      	"//#UC START# *495253870002_495118ED00F6exec_impl*¤ l_ExportSelection := Text.HasSelection;¤ // Ýêñïîðòèðîâàòü âûäåëåííûå ôðàãìåíòû â Word¤ if (l_ExportSelection) then¤  case vcmMessageDlg(qr_DocumentEMailSelection, []) of¤    -1:¤     ; // âûäåëåíèå¤    -2:¤     l_ExportSelection := False;¤    mrCancel:¤     Exit;¤  end;¤ DocumentExport(ekEMail, l_ExportSelection);¤//#UC END# *495253870002_495118ED00F6exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"no prefix"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4AE1A69E0156test_var*"
+			    value      	"//#UC START# *495253870002_4AE1A69E0156test_var*¤//#UC END# *495253870002_4AE1A69E0156test_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4AE1A69E0156test_impl*"
+			    value      	"//#UC START# *495253870002_4AE1A69E0156test_impl*¤ NotEmptyDocumentWithTrialModeTest(aParams);¤//#UC END# *495253870002_4AE1A69E0156test_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4AE1A69E0156exec_var*"
+			    value      	"//#UC START# *495253870002_4AE1A69E0156exec_var*¤var¤ l_ExportSelection : Boolean;¤//#UC END# *495253870002_4AE1A69E0156exec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4AE1A69E0156exec_impl*"
+			    value      	"//#UC START# *495253870002_4AE1A69E0156exec_impl*¤ l_ExportSelection := Text.HasSelection;¤ // Ýêñïîðòèðîâàòü âûäåëåííûå ôðàãìåíòû â Word¤ if (l_ExportSelection) then¤  case MessageDlg(str_DocumentEMailSelection) of¤    -1:¤     ; // âûäåëåíèå¤    -2:¤     l_ExportSelection := False;¤    mrCancel:¤     Exit;¤  end;//case MessageDlg(str_DocumentEMailSelection)¤ DocumentExport(ekEMail, l_ExportSelection);¤//#UC END# *495253870002_4AE1A69E0156exec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4C46AA3401DBtest_var*"
+			    value      	"//#UC START# *495253870002_4C46AA3401DBtest_var*¤//#UC END# *495253870002_4C46AA3401DBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4C46AA3401DBtest_impl*"
+			    value      	"//#UC START# *495253870002_4C46AA3401DBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *495253870002_4C46AA3401DBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4C46AA3401DBexec_var*"
+			    value      	"//#UC START# *495253870002_4C46AA3401DBexec_var*¤var¤ //l_PathName   : Il3CString;¤ l_Output: TnsGetGenOutputStruct;¤ l_Stream     : IStream;¤ l_Visualizer : IafwLongProcessVisualizer;¤ l_ExportSelection : Boolean;¤//#UC END# *495253870002_4C46AA3401DBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4C46AA3401DBexec_impl*"
+			    value      	"//#UC START# *495253870002_4C46AA3401DBexec_impl*¤ if Assigned(dsList) then¤ try¤  l_ExportSelection := tvList.TreeView.Tree.SelectedCount > 1;¤  if (l_ExportSelection) then¤   case MessageDlg(str_ListEMailSelection) of¤     -1:¤      ;¤     -2:¤      l_ExportSelection := False;¤     mrCancel:¤      Exit;¤   end;//case MessageDlg(str_ListEMailSelection)¤   // Ýêñïîðòèðîâàòü â Word¤//  l_PathName := nsMakeTemporaryFileName(nsPrepareFileName(CreateListName(l_ExportSelection)),¤//   nsGetFileFormatExt(ns_ffRTF), False);¤  l_Output := TnsGetGenOutputStruct_Create(¤   nsMakeTemporaryFileName(nsPrepareFileName(CreateListName(l_ExportSelection)),¤   nsGetFileFormatExt(ns_ffRTF), False)¤  );¤  l_Visualizer := bsMakeEMailVisualizer;¤  try¤   l_Stream := dsList.ListAsText(CalcSaveListKind, l_ExportSelection);¤   try¤    nsEvdStreamSaveAs(l_Stream, l_Output, ns_ffRTF, False);¤   finally¤    l_Stream := nil;¤   end;//try..finally¤  finally¤   l_Visualizer := nil;¤  end;//try..finally¤  try¤   nsSendAttachedFile(l_Output.rName);¤   TnsSendListByEmailEvent.Log(dsList.List, ApproxExportCount(l_ExportSelection),¤    l_ExportSelection);¤  except¤   on EDefaultMailCLientAbsent do¤    Say(err_DefaultMailCLientAbsent);¤  end;//try..except¤ except¤  on E: Exception do¤   l3System.Exception2Log(E);¤ end;//if Assigned(dsDocumentList) then¤//#UC END# *495253870002_4C46AA3401DBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_497EE4EB00CBtest_var*"
+			    value      	"//#UC START# *495253870002_497EE4EB00CBtest_var*¤//#UC END# *495253870002_497EE4EB00CBtest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_497EE4EB00CBtest_impl*"
+			    value      	"//#UC START# *495253870002_497EE4EB00CBtest_impl*¤ ListOpsWithTrialModeTest(aParams);¤//#UC END# *495253870002_497EE4EB00CBtest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_497EE4EB00CBexec_var*"
+			    value      	"//#UC START# *495253870002_497EE4EB00CBexec_var*¤var¤ l_ExportSelection : Boolean;¤//#UC END# *495253870002_497EE4EB00CBexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_497EE4EB00CBexec_impl*"
+			    value      	"//#UC START# *495253870002_497EE4EB00CBexec_impl*¤ l_ExportSelection := HasSelection;¤ // Ýêñïîðòèðîâàòü âûäåëåííûå ôðàãìåíòû â Word¤ if (l_ExportSelection) then¤  case MessageDlg(str_ListEMailSelection) of¤    -1:¤     ; // âûäåëåíèå¤    -2:¤     l_ExportSelection := False;¤    mrCancel:¤     Exit;¤  end;¤ ListExport(ekEMail, l_ExportSelection);¤//#UC END# *495253870002_497EE4EB00CBexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4A9D51C4026Ftest_var*"
+			    value      	"//#UC START# *495253870002_4A9D51C4026Ftest_var*¤//#UC END# *495253870002_4A9D51C4026Ftest_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4A9D51C4026Ftest_impl*"
+			    value      	"//#UC START# *495253870002_4A9D51C4026Ftest_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495253870002_4A9D51C4026Ftest_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4A9D51C4026Fexec_var*"
+			    value      	"//#UC START# *495253870002_4A9D51C4026Fexec_var*¤//#UC END# *495253870002_4A9D51C4026Fexec_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*495253870002_4A9D51C4026Fexec_impl*"
+			    value      	"//#UC START# *495253870002_4A9D51C4026Fexec_impl*¤ !!! Needs to be implemented !!!¤//#UC END# *495253870002_4A9D51C4026Fexec_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13075263352"))
+		    quid       	"495253870002"
+		    documentation 	"Ïîñëàòü ïî e-mail"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4952380101CC"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::F1 Core::Base Operations::View::F1Specific::File" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(282, 531)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(45, 475)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	474
+			justify    	0
+			label      	"• File")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(45, 425)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	474
+			justify    	0
+			label      	"<<VCMOperations>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4952380301A6"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(45, 536)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	512
+			justify    	1)
+		    width      	492
+		    height     	236
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Usual::File" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(276, 144)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16744448
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(80, 116)
+			nlines     	1
+			max_width  	392
+			justify    	0
+			label      	"File")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(80, 66)
+			anchor     	10
+			nlines     	1
+			max_width  	392
+			justify    	0
+			label      	"<<VCMOperations>>")
+		    icon_style 	"Label"
+		    line_color 	16744448
+		    fill_color 	16777215
+		    quidu      	"49521D8203A0"
+		    width      	410
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4952381701AB"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(279, 412)
+			(276, 234))
+		    line_style 	0)))))

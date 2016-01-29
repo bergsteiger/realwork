@@ -1,0 +1,154 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Провести отладку и профайлинг кода </title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+<h2 class="banner"><a name="Top"></a><a name="XE_implementation_subsystem__planning_integration_of"></a>Активность: Провести отладку и профайлинг кода</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td colspan="2" height="35" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Выявить и исправить ошибки, связанные с неверным функционированием и потерями памяти.</li>
+      <li>Подготовить компоненты к интеграции.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="255" height="25" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/implementation/ar_comp.htm">Подсистемы (Компоненты)</a>, уже реализованные в рамках <a href="../../artifacts/implementation/pa_impmod.htm">Модели реализации</a>.</li>
+      <li><a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектная Модель</a>.</li>
+      <li><a href="../../artifacts/implementation/pa_buildplan.htm">План интеграции</a></li>
+    </ul>
+    </td>
+    <td width="255" height="25" style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li>Отлаженные <a href="../../artifacts/implementation/ar_comp.htm">Подсистемы (Компоненты)</a></li>
+      <li>Отчет о производительности компоненты</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="596" valign="top" height="19" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small></font></strong><a href="../../workers/wk_implm.htm">Программист-реализатор</a></td>
+  </tr>
+</table>
+</center></div>
+<h3>Провести отладку и профайлинг подсистемы</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>После того, как подсистема реализована, следует провести предварительную проверку перед передачей в Группу качества для 
+проведения независимого тестирования. Такая проверка снижает риск необходимости вторичной передачи выпуска 
+на тестирование и выявляет основные грубые ошибки.
+<p>Профайлинг (определение утечек памяти) и поиск ряда ошибок осуществляется специальными утилитами, например, Rational Quantify/Purify или средствами из пакета Sleuth.
+<p>Законченной компонентой считается та, которая успешна прошла все тесты под профайлером. Ответственность за 
+проведение профайлинга возлагается на разработчика. Менеджер проекта рассматривает по запросам Группы качества
+ситуации, когда данная работа не была выполнена или была выполнена плохо, что привело к задержкам в тестировании
+подсистемы Группой качества.
+<p>Разработчик, после того как закончил реализацию компоненты, создает для нее определенный набор тестов,
+проверяющих ее основную функциональность и запускает эти тесты под Purify для выявления ошибок и утечек памяти, 
+а затем под Quantify для выявления узких мест в производительности. 
+<p>После чего передает компоненту (со всеми исправленными ошибками найденными Purify) в Группу Качества на компонентное тестирование 
+и создает Отчет о производительности.
+
+<h3><a name="Verify interconnections">Проверить совместную работу подсистемы</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Согласно плану интеграции, следует проверить взаимодействие реализованной подсистемы с другими подсистемами,
+которые должны быть подготовлены в ходе итерации. Проверяется стыковка подсистем и проводятся отладочные действия
+в случае обнаружения несогласованности в их работе.
+<p>При проверке следует удостовериться в согласованности компоненты с внешними интерфейсами, т.е. ее готовности к интеграции.
+Связи подсистемы с другими подсистемами описана в <a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектной Модели</a>
+
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+</body>
+
+</html>

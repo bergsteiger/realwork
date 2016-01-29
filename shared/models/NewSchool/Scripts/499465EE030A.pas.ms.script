@@ -1,0 +1,196 @@
+// vcmToolbarsInterfaces 499465EE030A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499465EE030A
+
+FORWARD ME_49525BCE0355
+
+: ME_4992FC5700E5
+ CONST UID '4992FC5700E5'
+ CONST Name 'BeforeCustomize'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается перед вызовом окна редактирования панелей инструментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ ;
+
+ref; // ME_4992FC5700E5 BeforeCustomize
+
+: ME_49525BCE0355
+ CONST UID '49525BCE0355'
+ CONST GUID '68687746-F997-4BEC-BD6B-BDCFBD82726B'
+ CONST Name 'IvcmToolbarsCustomizeListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий настройки панелей инструментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499465EE030A // vcmToolbarsInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4992FC5700E5 // BeforeCustomize
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_49525BCE0355 IvcmToolbarsCustomizeListener
+
+FORWARD ME_4992FC6D03E1
+
+: ME_4992FC7D0152
+ CONST UID '4992FC7D0152'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ ;
+
+ref; // ME_4992FC7D0152 aListener
+
+: ME_4992FC7A0212
+ CONST UID '4992FC7A0212'
+ CONST Name 'AddListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ ;
+ : Parameters
+   @ ( ME_4992FC7D0152 // aListener
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4992FC7A0212 AddListener
+
+: ME_4992FC8C0020
+ CONST UID '4992FC8C0020'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ ;
+
+ref; // ME_4992FC8C0020 aListener
+
+: ME_4992FC8900E1
+ CONST UID '4992FC8900E1'
+ CONST Name 'RemoveListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ ;
+ : Parameters
+   @ ( ME_4992FC8C0020 // aListener
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4992FC8900E1 RemoveListener
+
+: ME_4992FC6D03E1
+ CONST UID '4992FC6D03E1'
+ CONST GUID '30A12550-6409-4E0E-B7FD-817414AE3CC2'
+ CONST Name 'IvcmToolbarsCustomizeNotify'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Уведомляет о событиях редактирования панели инструментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499465EE030A // vcmToolbarsInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4992FC7A0212 // AddListener
+ ME_4992FC8900E1 // RemoveListener
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4992FC6D03E1 IvcmToolbarsCustomizeNotify
+
+FORWARD ME_4992FC9F029B
+
+: ME_4992FCAD02D1
+ CONST UID '4992FCAD02D1'
+ CONST Name 'Notify'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4992FC9F029B // IvcmToolbarsCustomize
+ ;
+ : Target ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ ;
+ CONST "pm" true
+
+ref; // ME_4992FCAD02D1 Notify
+
+: ME_4992FC9F029B
+ CONST UID '4992FC9F029B'
+ CONST GUID '4A5A5457-01CE-4FFF-B872-7633827158D4'
+ CONST Name 'IvcmToolbarsCustomize'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка панелей инструментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499465EE030A // vcmToolbarsInterfaces
+ ;
+ : Inherits
+   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4992FCAD02D1 // Notify
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4992FC9F029B IvcmToolbarsCustomize
+
+: ME_499465EE030A
+ CONST UID '499465EE030A'
+ CONST Name 'vcmToolbarsInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для работы с панелями инструментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ ME_4992FC9F029B // IvcmToolbarsCustomize
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '12.02.2008 21:10'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmToolbarsInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499465EE030A.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499465EE030A.pas.ms.script.runner'
+
+ref; // ME_499465EE030A vcmToolbarsInterfaces

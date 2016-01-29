@@ -1,0 +1,229 @@
+// TtfwRTTIProperty 55C861DE03D5 SimpleClass Class
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_55C861DE03D5
+
+INCLUDE '4767743E00E5.pas.ms.script'
+
+: ME_55C86232024B
+ CONST UID '55C86232024B'
+ CONST Name 'f_PropType'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4767749802D1 // PTypeInfo
+ ;
+
+ @SELF
+; // ME_55C86232024B f_PropType
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55C862B80051
+ CONST UID '55C862B80051'
+ CONST Name 'f_Class'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476775CB036A // TClass
+ ;
+
+ @SELF
+; // ME_55C862B80051 f_Class
+
+: ME_55C867FB0314
+ CONST UID '55C867FB0314'
+ CONST Name 'f_PropName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55C867FB0314 f_PropName
+
+FORWARD ME_55C8626500B1
+
+: ME_55C8628B0243
+ CONST UID '55C8628B0243'
+ CONST Name 'aClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476775CB036A // TClass
+ ;
+
+ @SELF
+; // ME_55C8628B0243 aClass
+
+: ME_55C8628B026B
+ CONST UID '55C8628B026B'
+ CONST Name 'aPropInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55C8617A0259 // PPropInfo
+ ;
+
+ @SELF
+; // ME_55C8628B026B aPropInfo
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55C8626F0344
+ CONST UID '55C8626F0344'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55C8628B0243 // aClass
+ ME_55C8628B026B // aPropInfo
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55C8626F0344 DoIt
+
+: ME_55C8626500B1
+ CONST UID '55C8626500B1'
+ CONST Name 'Register'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55C8626F0344 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_55C8626500B1 Register
+
+FORWARD ME_55C862D0004D
+
+: ME_55C862D90271
+ CONST UID '55C862D90271'
+ CONST Name 'aClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476775CB036A // TClass
+ ;
+
+ @SELF
+; // ME_55C862D90271 aClass
+
+: ME_55C862D90299
+ CONST UID '55C862D90299'
+ CONST Name 'aPropInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55C8617A0259 // PPropInfo
+ ;
+
+ @SELF
+; // ME_55C862D90299 aPropInfo
+
+: ME_55C862D70167
+ CONST UID '55C862D70167'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55C862D90271 // aClass
+ ME_55C862D90299 // aPropInfo
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55C862D70167 DoIt
+
+: ME_55C862D0004D
+ CONST UID '55C862D0004D'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55C862D70167 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55C862D0004D Create
+
+: ME_272EC384336E
+ CONST UID '272EC384336E'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwRTTIProperty' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_272EC384336E Ini_Reg_Class
+
+: ME_55C861DE03D5
+ CONST UID '55C861DE03D5'
+ CONST Name 'TtfwRTTIProperty'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_55C86232024B // f_PropType
+ ME_55C862B80051 // f_Class
+ ME_55C867FB0314 // f_PropName
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55C8626500B1 // Register
+ ME_55C862D0004D // Create
+ ME_272EC384336E // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DC2E05B03DD // ReallyNeedRegister
+ ME_52CFC11603C8 // ResultTypeInfo
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55C861DE03D5 TtfwRTTIProperty

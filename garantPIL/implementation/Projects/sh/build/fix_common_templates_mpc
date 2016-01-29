@@ -1,0 +1,30 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: fix_common_templates_mpc <fix_confirm>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the shell scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+echo "fix_common_templates_mpc ..."
+
+all_src_path=$1
+
+find $all_src_path -type f -name "*.mpc" -exec $MPCXC_SH/fix_replace {} "W:" "\$(MPCXC_ROOT)/src" WHOLE_WORD \;
+find $all_src_path -type f -name "*.mpc" -exec $MPCXC_SH/fix_replace {} "w:" "\$(MPCXC_ROOT)/src" WHOLE_WORD \;
+
+find $all_src_path -type f -name "*.mpc" -exec $MPCXC_SH/fix_replace {} "win32" "linux" WHOLE_WORD \;
+
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "W:" "$MPCXC_ROOT/src" WHOLE_WORD \;
+find $all_src_path -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "w:" "$MPCXC_ROOT/src" WHOLE_WORD \;
+
+echo "end."

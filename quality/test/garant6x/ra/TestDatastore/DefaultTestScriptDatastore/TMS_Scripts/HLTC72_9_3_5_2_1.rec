@@ -1,0 +1,47 @@
+'$Include "global.sbl"
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=66,9"
+    GenericObject Click, "Text=Документы", "Coords=59,11"
+    ListBox Click, "ObjectIndex=4", "Coords=146,364"
+    ListBox Click, "ObjectIndex=4", "Coords=120,12"
+    InputKeys "{HOME}"
+    Dim ItemCount%,i%
+    Dim CurrText$
+    InputKeys "{HOME}{DOWN}{DOWN}"
+    InputKeys "^f"
+    
+    Window SetContext, "Caption={Поиск контекста*}", ""
+    if SQAFindObject("Type=PushButton;Text=Показать параметры") = 0 then
+    Select Case isContextFindFolded
+    Case 1
+       PushButton Click, "Text=Показать параметры"
+       isContextFindFolded=0
+    Case ELse
+       PushButton Click, "Text=Показать параметры"
+       isContextFindFolded=0 
+    End Select
+    end if
+    RadioButton Click, "Text=Вверх"
+    RadioButton Click, "Text=Везде"
+    ComboEditBox Click, "ObjectIndex=1", ""
+    InputKeys "{END}+{HOME}"
+    InputKeys "Протокол"
+    PushButton Click, "Text=Искать"
+    PushButton Click, "Text=Закрыть"
+    Window SetContext, "Caption={ГАРАНТ*}", ""   
+    'ListBox Click, "ObjectIndex=5", "Coords=9,26"
+  
+    SQAGetProperty "CurrentFocus","Text",CurrText
+    call StrComp2Log("Протокол",CurrText,1)
+    
+    'проверяем
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+
+End Sub

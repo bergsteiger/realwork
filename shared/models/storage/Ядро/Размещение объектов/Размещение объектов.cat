@@ -1,0 +1,424 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Размещение объектов"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Размещение объектов|49A54A5200C7
+	    )
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"49A54A5200C7"
+    documentation 	"Сценарии размещения объектов внутри БД (создание, доступ, кластеризация и т.д.)"
+    stereotype 	"UseCases"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49A54A7F03C1"
+	    supplier   	"Logical View::Storage::Ядро::Способы организации данных"
+	    quidu      	"49A531E903D2"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Статический выбор алгоритма размещения"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Размещение объектов/Статический выбор алгоритма размещения|49A54B400059
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A54B400059"
+	    documentation 	"На основе метаинформации из модели генерируется код использующий наиболее подходящий алгоритм размещения"
+	    stereotype 	"UseCase"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49A54B9303A1"
+		    stereotype 	"extend"
+		    supplier   	"Logical View::Storage::Ядро::Размещение объектов::Размещение на основе MMAP"
+		    quidu      	"49A54B700060")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49A54BAB00EC"
+		    stereotype 	"extend"
+		    supplier   	"Logical View::Storage::Ядро::Размещение объектов::Размещение на основе MPHF"
+		    quidu      	"49A54B9D00AC"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49A54C8D0198"
+		    supplier   	"Logical View::Storage::Ядро::Способы организации данных::Дифференцированные алгоритмы размещения объектов"
+		    quidu      	"49A54C1C0135"))
+	    language   	"MDA Generator")
+	(object Class "USF"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"49A54B5401F8"
+	    stereotype 	"Actor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49A54B650179"
+		    supplier   	"Logical View::Storage::Ядро::Размещение объектов::Статический выбор алгоритма размещения"
+		    quidu      	"49A54B400059"))
+	    language   	"MDA Generator")
+	(object Class "Размещение на основе MMAP"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Размещение объектов/Размещение на основе MMAP|49A54B700060
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A54B700060"
+	    documentation 	"Данные объектов распалагаются линейно друг за другом, смещение определяется как произведение ключа на размер объекта."
+	    stereotype 	"UseCase"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49A54BF301E6"
+		    supplier   	"Logical View::Storage::Ядро::Способы организации данных::Дифференцированные алгоритмы размещения объектов::Системные ключи"
+		    quidu      	"49A5323B028D"))
+	    language   	"MDA Generator")
+	(object Class "Размещение на основе MPHF"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Размещение объектов/Размещение на основе MPHF|49A54B9D00AC
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A54B9D00AC"
+	    documentation 	"На статическом множесте произвольных ключей строится MPHF функция, переводящая любюой ключь из множества в линейный индекс. Значение функции сохраняется в БД и используется при адресации к данным. Сами данные лежат последовательно друг за другом."
+	    stereotype 	"UseCase"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49A54BF8003F"
+		    supplier   	"Logical View::Storage::Ядро::Способы организации данных::Дифференцированные алгоритмы размещения объектов::Случайные ключи на фиксированном множестве"
+		    quidu      	"49A5328F01D4"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A54B3C02BB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Размещение объектов::Статический выбор алгоритма размещения" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1011, 693)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1010, 835)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	982
+			justify    	0
+			label      	"Статический выбор алгоритма размещения")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    fill_color 	12510975
+		    quidu      	"49A54B400059"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Размещение объектов::USF" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(303, 690)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(195, 693)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	216
+			justify    	0
+			label      	"USF")
+		    icon       	"Actor"
+		    icon_style 	"Decoration"
+		    fill_color 	16766935
+		    quidu      	"49A54B5401F8"
+		    width      	234
+		    height     	192
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A54B650179"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(420, 690)
+			(895, 689))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Размещение объектов::Размещение на основе MMAP" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1740, 450)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1739, 592)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	989
+			justify    	0
+			label      	"Размещение на основе MMAP")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    fill_color 	12510975
+		    quidu      	"49A54B700060"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @5
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @6
+			Parent_View 	@5
+			location   	(1318, 566)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<extend>>"
+			pctDist    	0.586916
+			height     	22
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49A54B9303A1"
+		    client     	@1
+		    supplier   	@4
+		    vertices   	(list Points
+			(1123, 653)
+			(1626, 483))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Размещение объектов::Размещение на основе MPHF" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1758, 861)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1757, 1003)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	997
+			justify    	0
+			label      	"Размещение на основе MPHF")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    fill_color 	12510975
+		    quidu      	"49A54B9D00AC"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @8
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @9
+			Parent_View 	@8
+			location   	(1340, 758)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<extend>>"
+			pctDist    	0.413745
+			height     	6
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49A54BAB00EC"
+		    client     	@1
+		    supplier   	@7
+		    vertices   	(list Points
+			(1123, 716)
+			(1644, 833))
+		    line_style 	0)))))

@@ -1,0 +1,226 @@
+// Tl3SimpleTree 48724DAD02E0 SimpleClass Class
+
+INCLUDE '46780E690001.pas.ms.script'
+
+INCLUDE '47F07AE10156.pas.ms.script'
+
+INCLUDE '4682595B0268.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_48724DAD02E0
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_487257A90066
+ CONST UID '487257A90066'
+ CONST Name 'f_ShowRoot'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_487257A90066 f_ShowRoot
+
+: ME_48724FA903A1
+ CONST UID '48724FA903A1'
+ CONST Name 'f_Root'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Корень дерева' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_468274930190 // Il3SimpleRootNode
+ ;
+
+ @SELF
+; // ME_48724FA903A1 f_Root
+
+: ME_48724FF0025B
+ CONST UID '48724FF0025B'
+ CONST Name 'aRoot'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_468274930190 // Il3SimpleRootNode
+ ;
+
+ @SELF
+; // ME_48724FF0025B aRoot
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_48724FD5009D
+ CONST UID '48724FD5009D'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'ctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_48724FF0025B // aRoot
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_48724FD5009D Create
+
+: ME_48724FF9005E
+ CONST UID '48724FF9005E'
+ CONST Name 'aRoot'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_468274930190 // Il3SimpleRootNode
+ ;
+
+ @SELF
+; // ME_48724FF9005E aRoot
+
+: ME_48724FF40314
+ CONST UID '48724FF40314'
+ CONST Name 'Make'
+ CONST Class 'Operation'
+ CONST Stereotype 'factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_48724FF9005E // aRoot
+ ]
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_48724FF40314 Make
+
+: ME_4872520F032B
+ CONST UID '4872520F032B'
+ CONST Name 'aOld'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_468274930190 // Il3SimpleRootNode
+ ;
+
+ @SELF
+; // ME_4872520F032B aOld
+
+: ME_4872520F036F
+ CONST UID '4872520F036F'
+ CONST Name 'aNew'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_468274930190 // Il3SimpleRootNode
+ ;
+
+ @SELF
+; // ME_4872520F036F aNew
+
+: ME_487252020055
+ CONST UID '487252020055'
+ CONST Name 'RootChanged'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4872520F032B // aOld
+ ME_4872520F036F // aNew
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_487252020055 RootChanged
+
+: ME_48724DAD02E0
+ CONST UID '48724DAD02E0'
+ CONST Name 'Tl3SimpleTree'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY '"Простое" дерево.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_46780E690001 // Tl3CacheableBase
+ ME_47F07AE10156 // l3NotifierBase
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_46825CC00249 // Il3SimpleTree
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_487257A90066 // f_ShowRoot
+ ME_48724FA903A1 // f_Root
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_48724FD5009D // Create
+ ME_48724FF40314 // Make
+ ME_487252020055 // RootChanged
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_46825CAA0125 // RootNode
+ ME_4772448C01D2 // CursorTop
+ ME_4772449B00A1 // GetIndex
+ ME_477244BA0074 // GetLevel
+ ME_477244CE02AE // SelectAllNodes
+ ME_477244DD0292 // SelectInterval
+ ME_47724512002D // ChangeExpand
+ ME_4772452E002D // ExpandSubDir
+ ME_477245520298 // SetBranchFlag
+ ME_4772457D032A // CountViewItemsInSubDir
+ ME_477245A20228 // IsRoot
+ ME_477245B301DE // IsExpanded
+ ME_477245C40171 // IsFirstVis
+ ME_477245D9031B // IsLastVis
+ ME_477245F301AE // HasVisibleChildren
+ ME_477246040221 // GetLines
+ ME_4772461601C6 // Wake
+ ME_477246270133 // MoveNode
+ ME_477246440037 // SearchNameBegin
+ ME_4772465F0276 // SearchNameOccur
+ ME_477246860169 // MakeNodeVisible
+ ME_477246A40174 // GetPrev
+ ME_477246C70141 // SimpleIterateF
+ ME_477246E802B1 // IsChanging
+ ME_477246F7039B // Changing
+ ME_4772470100BC // Changed
+ ME_477248FE005A // ShowRoot
+ ME_4772490E02F7 // CountView
+ ME_4772491C01C5 // SelectCount
+ ME_4772495902EE // Flags
+ ME_477249AB0057 // Select
+ ME_477249EB02D9 // Nodes
+ ME_47A86EA80292 // MakeDataObject
+ ME_47BAD3080349 // CanAcceptData
+ ME_47BAD32501E2 // DropData
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.07.2008 21:07'
+
+ @SELF
+; // ME_48724DAD02E0 Tl3SimpleTree

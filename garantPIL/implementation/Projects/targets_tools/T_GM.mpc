@@ -1,0 +1,34 @@
+project (T_GM) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_GM {
+	exename = gm
+	
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += STORE_FORM_N
+	macros += MIN_MEM_CONTEXT
+
+	after += Core
+	libs += Core
+	after += GCL
+	libs += GCL
+
+	after += vcontrol_ggu
+	after += gkdb_gudll
+	after += gctx_gm
+	after += cchlp1
+	after += cchlp2
+	after += gsscreen_gm
+	after += mrglib_gm
+	after += gmcsources_gm
+	after += dummies_tools
+	
+	libs += vcontrol_ggu
+	libs += gkdb_gudll
+	libs += gctx_gm
+	libs += cchlp1
+	libs += cchlp2
+	libs += gsscreen_gm
+	libs += mrglib_gm
+	libs += gmcsources_gm
+	libs += dummies_tools
+}
+

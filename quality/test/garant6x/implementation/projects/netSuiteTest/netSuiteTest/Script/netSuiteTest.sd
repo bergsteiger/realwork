@@ -1,0 +1,1055 @@
+uses TimeWorks, common, commonEventHandlers, FileWork, RunPrograms;
+
+const    
+  STOP_HOUR_1 = 8; // в этот час останавливается 1 проект
+  STOP_MINUTE_1 = 0;
+      
+  STOP_HOUR_2 = 4;
+  STOP_HOUR_3 = 6;
+  STOP_HOUR_4 = 8;
+      
+function RestartEnabledComputers( const jobName : String; const maxTimeOut : integer) : boolean; forward;      
+// убиваем оболочки, тестэкзекьюты, скриншотеры. и перезапускаем tcrea.exe, который тоже почему-то умудряется падать
+procedure PreliminaryClean(jobName : String = 'MainJob'); forward;
+
+function StateToString(
+  const state : integer
+): String;
+begin
+  try
+    Result := 'Undefined';
+    case state of
+      ns_Idle : Result := 'ns_Idle';
+      ns_Initializing : Result := 'ns_Initializing';
+      ns_Running : Result := 'ns_Running';
+      ns_Synchronizing : Result := 'ns_Synchronizing';
+      ns_WaitingForCriticalSection : Result := 'ns_WaitingForCriticalSection';
+      ns_WorkingWithinCriticalSection : Result := 'ns_WorkingWithinCriticalSection';
+    else
+      Log.Warning( VarToString(state) );  
+    end;  
+  except
+    Log.Message('StateToString: ' + ExceptionMessage, '', 4);
+  end;
+end;
+
+// отдельная функция для выбора типов версий продукта на тестовых стендах
+function GetTagArrayForTestStands(commonParam: String; isConsole: boolean): OleVariant;
+begin
+	if isConsole then
+    Result := [
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' , 
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE'  ,
+      commonParam + EndOfLine + 'IsSwitchDBForScript := false' + EndOfLine + 'DBSwitchFactor := 25' + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE'  ,
+
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'IsSwitchDBForScript := false' + EndOfLine + 'DBSwitchFactor := 25' + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE'  ,
+      
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE',
+      
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE',
+
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE',
+      
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER_CONSOLE' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP_CONSOLE'
+    ]
+	else
+    Result := [
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' , 
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP'  ,
+      commonParam + EndOfLine + 'IsSwitchDBForScript := false' + EndOfLine + 'DBSwitchFactor := 25' + EndOfLine + 'WhichProductInit := PN_SERVER'  ,
+
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'IsSwitchDBForScript := false' + EndOfLine + 'DBSwitchFactor := 25' + EndOfLine + 'WhichProductInit := PN_SERVER'  ,
+      
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP',
+      
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP',
+      
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP',
+      
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_FILESERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_SERVER' ,
+      commonParam + EndOfLine + 'WhichProductInit := PN_DESKTOP'
+    ];
+end;
+
+// запускает активные задачи с указанным путем
+procedure RunTasks(
+  const path : OleVariant; // путь к скрипту
+  const timeDelay : integer = -1; // задержка между запуском задач
+  const tag : OleVariant = ''; // тэг (параметр, передаваемый в запускаемый скрипт)
+  const routine : OleVariant = ''; // функция которую запускаем
+  const jobName : String = 'MainJob';
+  const skipVerify : boolean = false; // пропускать проверку на включенность
+  const isCheckOnly : boolean = false
+);
+var 
+  tasks, job : OleVariant;
+  i, counter : integer;
+  str : String;
+  isAnyEnabled : boolean;
+begin
+  counter := 0;
+  isAnyEnabled := false;
+  if -1 = timeDelay then timeDelay := 2*60*1000;
+  try
+    job := NetworkSuite.Jobs.ItemByName[jobName];
+    tasks := job.Tasks;
+    for i := 0 to tasks.Count - 1 do
+      if tasks.Items[i].Active then
+        if (skipVerify) OR (tasks.Items[i].Host.Verify) then
+        begin
+          try
+            isAnyEnabled := true;
+            if IsArray(path) then
+              tasks.Items[i].ProjectPath := GetFromArray(path, counter)
+            else
+              tasks.Items[i].ProjectPath := path;
+                
+            if IsArray(routine) then
+              tasks.Items[i].Test := GetFromArray(routine, counter)
+            else
+              tasks.Items[i].Test := routine;  
+                
+            if IsArray(tag) then 
+            begin
+              str := GetFromArray( tag, counter );
+              if ('index out of bounds' = str) then str := '';
+              tasks.Items[i].Tag := str;
+            end  
+            else
+              tasks.Items[i].Tag := tag;
+              
+            if isCheckOnly then 
+            begin // просто печатаем параметры, котороые будут переданы
+              Log.Message(IntToStr(i));
+              Log.Message('host = "' + tasks.Items[i].Host.Address + '"');
+              Log.Message('path = "' + tasks.Items[i].ProjectPath + '"');
+              Log.Message('tag = "' + tasks.Items[i].Tag + '"');
+              Log.Message('routine = "' + tasks.Items[i].Test + '"');
+            end
+            else
+            begin // реально запускаем тесты
+              if (timeDelay <> 0) then
+              begin
+                //tasks.Items[i].Run(false);
+                Runner.CallObjectMethodAsync(tasks.Items[i], 'Run', false);
+                if ( tasks.Items[i].State <> ns_Idle ) then
+                  Log.Message('На компьютере ' + tasks.Items[i].Host.Address + ' состояние задачи после запуска: "' + StateToString(tasks.Items[i].State) + '"' );
+                Delay(timeDelay);
+                Log.Message('На компьютере ' + tasks.Items[i].Host.Address + ' состояние задачи после таймаута в ' + IntToStr(timeDelay) +  ' мсек. : "' + StateToString(tasks.Items[i].State) + '"' );
+              end;
+            end;  
+            counter := counter + 1;
+          except
+            Log.Error('RunTasks. Эксепшн при операции над ' + IntToStr(i) + '-м заданием ("' + tasks.Items[i].Name + '").', ExceptionMessage);
+          end;  
+        end
+        else
+        begin
+          Log.Warning('На компьютере ' + tasks.Items[i].Host.Address + ' не запущен tcrea.exe или машина выключена. Инактивируем задачу для данной машины.');
+          tasks.Items[i].Active := false;
+        end;  
+    
+    if (timeDelay = 0) AND isAnyEnabled then job.Run(false);            
+  except
+    Log.Error('RunTasks: ', ExceptionMessage);
+  end;
+end;
+
+// запускает задачу на указанном компьютере
+procedure RunTaskOnSpecifiedComputer(
+  const computerName : String;
+  const path : OleVariant; // путь к скрипту
+  const tag : OleVariant = ''; // тэг (параметр, передаваемый в запускаемый скрипт)
+  const routine : OleVariant = ''; // функция которую запускаем
+  const jobName : String = 'MainJob';
+  const skipVerify : boolean = false; // пропускать проверку на включенность
+  const isCheckOnly : boolean = false
+);
+var tasks : OleVariant;
+    i : integer;
+    str : String;
+begin
+  try
+    tasks := NetworkSuite.Jobs.ItemByName[jobName].Tasks;
+    for i := 0 to tasks.Count - 1 do
+      if IsSupported(tasks.Items[i].Host, 'Address') AND StringCompare(computerName, tasks.Items[i].Host.Address) then
+        if (tasks.Items[i].Host.Verify) OR (skipVerify) then
+          begin
+            try
+              tasks.Items[i].Path := path;
+              tasks.Items[i].Routine := routine;  
+              tasks.Items[i].Tag := tag;
+              
+              if isCheckOnly then 
+              begin // просто печатаем параметры, котороые будут переданы
+                Log.Message(IntToStr(i));
+                Log.Message('host = "' + tasks.Items[i].Host.Address + '"');
+                Log.Message('path = "' + tasks.Items[i].Path + '"');
+                Log.Message('tag = "' + tasks.Items[i].Tag + '"');
+                Log.Message('routine = "' + tasks.Items[i].Routine + '"');
+
+              end
+              else
+                tasks.Items[i].Run(false);
+
+              if ( tasks.Items[i].State <> ns_Idle ) then
+                Log.Message('На компьютере ' + tasks.Items[i].Host.Address + ' состояние задачи после запуска: "' + StateToString(tasks.Items[i].State) + '"' );
+            except
+              Log.Error('RunTaskOnSpecifiedComputer. Эксепшн при операции над ' + IntToStr(i) + '-м заданием ("' + tasks.Items[i].Name + '").', ExceptionMessage);
+            end;  
+          end
+        else
+          Log.Warning('На компьютере ' + tasks.Items[i].Host.Address + ' не запущен tcrea.exe или машина выключена.');  
+  except
+    Log.Error('RunTaskOnSpecifiedComputer: ', ExceptionMessage);
+  end;
+end;
+
+// запускает утилиту из pstools на указанном компе
+procedure RunPSTool( 
+  const hostName : String;
+  psTool : String;
+  const params : OleVariant;
+  const timeDelay : integer = 5000
+);
+  var 
+    login, password, ipAddr, batFileName, batFileBody, command : String;
+    i : integer;
+    pathToTool;
+begin
+  try
+    hostName := AnsiUpperCase(hostName);
+    case hostName of
+      'STRELKA.GARANT.RU':
+        begin
+          login := 'qc';
+          password := '22222';
+        end   
+      else
+        begin
+          login := 'qc';
+          password := '22222';
+        end;
+    end;    
+
+    try
+      ipAddr := QCPlugin.GetIPByHostName(hostName);
+    except
+      ipAddr := hostName;
+    end;
+    
+    psTool := AnsiUpperCase(psTool);
+            
+    pathToTool := '';
+    case psTool of
+      'START REMOTE INTERACTIVE':
+        pathToTool := 'call "' + ExpandUNCFileName(GetPathTo(PATH_TO_UTILS) + 'Bat\start_program.bat') + '" ' + hostName + ' ' + login + ' ' + password + ' ';
+      'START' : 
+        pathToTool := '';
+      'RESTART':
+        begin
+					if StringCompare('TESTCLIENT-W8*', hostName) then
+	          pathToTool := 'shutdown.exe -r -f -t 15'  // отказываемся от неработающего psshutdown на W8, хотя на W10 работает
+					else
+          	pathToTool := '"' + ExpandUNCFileName(GetPathTo(PATH_TO_PSTOOLS) + 'psshutdown.exe') + '" -accepteula -r -f -t 15';
+
+          params := [''];
+        end;
+      'SETREADY': 
+        begin
+          //pathToTool := 'echo Ready file > "' + ExpandUNCFileName(GetPathTo(PATH_TO_READY_FOLDER)) + hostName + '"';
+
+					//создаем файл, если машина после перезапуска работает меньше 1000 сек
+          pathToTool := '"' + ExpandUNCFileName(GetPathTo(PATH_TO_READY_TOOL) + 'CreateFileIfPCRestarted.exe') + '" "' + ExpandUNCFileName(GetPathTo(PATH_TO_READY_FOLDER)) + hostName + '" 1000';
+          params := [''];
+        end
+    else
+      pathToTool := '"' + ExpandUNCFileName(GetPathTo(PATH_TO_PSTOOLS) + psTool + '.exe') + '" -accepteula ';
+    end;     
+        
+    // создаем bat-файл
+    batFileBody := '';    
+    for i := VarArrayLowBound(params, 1) to VarArrayHighBound(params, 1) do
+    begin
+      if (psTool = 'START') AND (PosCI('.bat', params[i]) <> 0) then
+        batFileBody := batFileBody + 'call ';
+      batFileBody := batFileBody + pathToTool + params[i] + EndOfLine;
+    end;  
+    batFileBody := batFileBody + 'del %~f0';
+    // сохраняем его     
+    batFileName := IncludeTrailingBackslash( GetTempDirectory ) + GetRandomString(12) + '.bat';
+    DeleteFile(batFileName);
+    SaveStrToFile(batFileName, batFileBody);    
+          
+    command := '"' + GetPathTo(PATH_TO_PSTOOLS) + 'psexec.exe" -accepteula \\' + ipAddr + ' -u "' + login + '" -p "' + password + '" -c -i -d "' + batFileName + '"';
+    i := Win32API.WinExec(command, Win32API.SW_HIDE);  
+   	//Log.Message(command, batFileBody);
+
+    if (i < 33) then
+		begin
+			Log.Error('WinExec запустилась с ошибкой. Путь команды в сообщении ниже. Код возврата ' + VarToString(i));
+	    Log.Message(command, batFileBody);
+		end;
+    Delay(timeDelay);
+  except
+    Log.Error('RunPSTool: ' + ExceptionMessage);
+  end;
+end;
+
+// запускаем утилиту из pstools на активных задачах
+procedure RunPSToolOnEnabledTasks(
+  const psTool : String;
+  const params : String;
+  const jobName : String;
+  const timeDelay : integer = 0
+);
+var tasks, task : OleVariant;
+    i, j : integer;
+begin
+  try
+    tasks := NetworkSuite.Jobs.ItemByName[jobName].Tasks;
+    for i := 0 to tasks.Count - 1 do
+    begin
+      task := tasks.Items[i];
+      if task.Active then
+      begin
+        try
+					for j := 1 to 2 do //может это поможет, а то не всегда пускается
+					begin
+	          if IsArray(params) then
+	            RunPSTool(task.Host.Address, psTool, params, timeDelay)
+	          else 
+	            RunPSTool(task.Host.Address, psTool, [params], timeDelay);
+						Delay(100);
+					end;
+        except
+          Log.Error('RunPSToolOnEnabledTasks. Эксепшн при операции над ' + IntToStr(i) + '-м заданием ("' + task.Name + '").', ExceptionMessage);
+        end;  
+      end;
+    end;  
+  except
+    Log.Error('RunPSToolOnEnabledTasks: ', ExceptionMessage);
+  end;
+end;
+
+// останавливает задачи, состояние которых не idle, а хост уже не доступен (значит висим, или TC не обновляет данные)
+procedure StopHungedTasks;
+var tasks : OleVariant;
+    i : integer;
+begin
+  try
+    tasks := NetworkSuite.Jobs.Items[0].Tasks;
+    for i := 0 to tasks.Count - 1 do
+      if tasks.Items[i].State <> ns_Idle then
+      begin
+        try
+          if FALSE = tasks.Items[i].Host.Verify then
+             tasks.Items[i].Stop;                                                              
+        except
+          Log.Error('StopHungedTasks. Эксепшн при операции над ' + IntToStr(i) + '-м заданием ("' + tasks.Items[i].Name + '").', ExceptionMessage);
+        end;    
+      end;                  
+  except
+    Log.Error('StopHungedTasks: ', ExceptionMessage);
+  end;
+end;
+
+{
+  TYPE: Работа со строками
+  DESC: Повторяет указанную строку указанное количество раз, может разделять строки разделителем.
+  RESULT: 
+  REMARK:
+}
+function RepeatString(
+  const str : String; // повторяемая строка
+  const count : integer = 1; // сколько раз ее надо повторить
+  const delimiter : String = '' // в конце его не будет
+) : String;
+  var i : integer;
+begin
+  Result := '';
+  for i := 1 to count do
+  begin
+    Result := Result + str;
+    if (i <> count) then
+      Result := Result + delimiter;
+  end;    
+end;
+
+procedure UpdateQCPlugin(
+  jobName : String
+);
+begin
+  RunPSToolOnEnabledTasks('start', '"' + ExpandUNCFileName(GetPathTo(PATH_TO_UTILS) + 'Bat\copy_qcplugin.bat') + '"', jobName);  
+end; 
+
+procedure UpdateTCRegistration(
+  jobName : String
+);
+begin
+  RunPSToolOnEnabledTasks('start', '"' + ExpandUNCFileName(GetPathTo(PATH_TO_UTILS) + 'TCRegistration\copy_tcreg.bat') + '"', jobName);
+end;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+procedure ___VARIOUS___; begin end;
+
+procedure KillTestExecute;
+begin
+  RunPSToolOnEnabledTasks('pskill', 'TestExecute', 'For Various');
+  Delay(10000);
+//RunPSToolOnEnabledTasks('pskill', 'tcrea', 'For Various');
+end;
+
+procedure KillF1Shell;
+begin
+  RunPSToolOnEnabledTasks('pskill', 'F1Shell', 'For Various');
+  Delay(10000);
+//RunPSToolOnEnabledTasks('pskill', 'tcrea', 'For Various');
+end;
+
+procedure KillHypersnap;
+begin
+  RunPSToolOnEnabledTasks('pskill', 'hsdx', 'For Various');
+  Delay(10000);
+//RunPSToolOnEnabledTasks('pskill', 'tcrea', 'For Various');
+end;
+
+function RestartTCREA(
+  jobName : String
+) : OleVariant;
+begin
+  RunPSToolOnEnabledTasks('pskill', 'tcrea', jobName);
+  Delay(50*1000);
+  RunPSToolOnEnabledTasks('start remote interactive', '"' + ExpandUNCFileName(GetPathTo(PATH_TO_UTILS) + 'Bat\start_tcreas.bat') + '"', jobName);
+  Delay(60*1000); // это чтобы успели проинициализироваться        
+end;
+
+procedure PreliminaryClean(
+  jobName : String = 'MainJob'
+);
+begin
+  RunPSToolOnEnabledTasks('pskill', [
+    'TestExecute',
+    'TestManager',
+    'TestComplete',
+    'F1Shell',
+    'F1Shell.run',
+    'hsdx',
+    'BuTest',
+    'dwwin',
+    'iexplore',
+    'drwtsn32'
+  ], jobName);
+  Delay(30*1000);
+  RestartTCREA(jobName);
+end;
+
+
+const
+  PATH_TO_BAT_FILES = 'c:\';
+
+function RestartEnabledComputers(
+  const jobName : String;
+  const maxTimeOut : integer 
+) : boolean;
+  const
+    FUNCTION_NAME = 'RestartEnabledComputers';
+  var
+    tasks : OleVariant; 
+    i, deadLine : integer;  
+    lastCheck, verified : boolean;
+begin
+  try
+    Result := false;
+    
+    RunPSToolOnEnabledTasks('pskill', 'f1shell.run', jobName);
+    RunPSToolOnEnabledTasks('pskill', 'testcomplete', jobName);
+    RunPSToolOnEnabledTasks('pskill', 'testexecute',  jobName);
+
+    ///////////////////////////////////////////////
+    // перезапускаем
+    RunPSToolOnEnabledTasks('restart', '', jobName);
+    // ждем пока начнется и завершится перезагрузка
+    Delay(5*60*1000);
+    ///////////////////////////////////////////////
+
+    // ждем либо таймаут, либо пока все машины не станут активными
+    tasks := NetworkSuite.Jobs.ItemByName[jobName].Tasks;
+    deadLine := Win32API.GetTickCount + maxTimeOut;    
+    repeat
+      Result := true;
+      lastCheck := Win32API.GetTickCount > deadLine;
+
+      for i := 0 to (tasks.Count - 1) do
+        if tasks.Items[i].Active then
+        begin
+          try
+            verified := tasks.Items[i].Host.Verify;
+          except
+            verified := false;
+          end;
+
+          if not verified then
+          begin
+            Result := false;
+            if lastCheck then
+            begin
+              Log.Warning('Выключаем подвисшую машину ' + tasks.Items[i].Host.Name + ' (' + tasks.Items[i].Host.Address + ')');
+              tasks.Items[i].Active := false;
+            end
+            else
+            begin
+              Log.Message('Еще не перезапустился ' + tasks.Items[i].Host.Name + ' (' + tasks.Items[i].Host.Address + ')');
+              break;
+            end;
+          end;
+        end;  
+
+      if NOT Result then Delay(60*1000);
+    until lastCheck OR Result;
+
+    // создаем файлы готовности машин и выключаем неперегрузившиеся машины
+    if Utilities.ForceDirectories(GetPathTo(PATH_TO_READY_FOLDER)) then
+    begin
+      if not EmptyFolder(GetPathTo(PATH_TO_READY_FOLDER)) then
+        Log.Warning('Не получилось полностью очистить каталог с файлами готовности: ' + GetPathTo(PATH_TO_READY_FOLDER))
+      else
+			begin
+        RunPSToolOnEnabledTasks('setready', '', jobName);
+		    Delay(10000);
+        
+        // выключаем неперегрузившиеся машины
+	      for i := 0 to (tasks.Count - 1) do
+	        if tasks.Items[i].Active then
+	          if not CheckFileExist(GetPathTo(PATH_TO_READY_FOLDER) + tasks.Items[i].Host.Address) then
+	            begin
+	              Log.Warning('Выключаем неперегрузившуюся машину ' + tasks.Items[i].Host.Name + ' (' + tasks.Items[i].Host.Address + ')');
+	              tasks.Items[i].Active := false;
+	              Result := false;
+	            end;
+			end;
+    end
+    else
+      Log.Warning('Каталог с файлами готовности машин не найден: ' + GetPathTo(PATH_TO_READY_FOLDER));
+
+    Delay(5000);         
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end; 
+
+procedure ___ONLY_START_OR_STOP_TESTS__; begin end;
+
+{
+  TYPE:
+  DESC:  Запускает на удаленных машинах батник, который в свою очередь запускает пускач
+  RESULT:
+  REMARK:
+}
+procedure StartRunnerOnly;
+  const 
+		FUNCTION_NAME = 'StartRunnerOnly: ';
+    JOB_NAME = 'For Runner';
+  var
+    path, routine, commonParam : String;
+begin
+  try
+    Log.Message('Начали выполнять StartRunnerOnly.');
+
+    Log.Message(FUNCTION_NAME + 'Перезагружаем машины');    
+    if RestartEnabledComputers(JOB_NAME, 5*60*1000) then
+      Log.Message(FUNCTION_NAME + 'Перезагрузка выполнена успешно')
+    else
+      Log.Warning(FUNCTION_NAME + 'Перезагрузка выполнена неуспешно, некоторые машины недоступны!');
+
+    // Указываем параметры запуска 
+    path := '\\strelka.garant.ru\qc\for_RunnerTC6\Scripts\implementation\Projects\InstallStandAndRun\InstallStandAndRun\InstallStandAndRun.mds';
+    routine := 'InstallStandAndRun\Script\RunPrograms\NSWrapperStartRunner';
+    
+    commonParam :=
+      'PathToBatFiles := ' + PATH_TO_BAT_FILES + EndOfLine +
+			'IsRestartRunner := true' + EndOfLine	// быстрый перезапуск с удалением результатов уже пройденных скриптов
+    ;      
+
+    // Запускаем
+    RunTasks(path, 0, commonParam, routine, JOB_NAME);
+
+    Delay(30*1000);    
+
+    NetworkSuite.WaitForState(ns_Idle, 30*60*1000);
+
+    //RunPSToolOnEnabledTasks('pskill', 'iexplore', JOB_NAME);
+    Log.Message('Закончили выполнять StartRunnerOnly.');
+  except
+    Log.Message(FUNCTION_NAME + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Запускает на удаленных машинах батник, который останавливает пускач, через файл с командой stop
+  RESULT:
+  REMARK:
+}
+procedure TryStopRunnerOnly;
+  const 
+		FUNCTION_NAME = 'TryStopRunnerOnly: ';
+    JOB_NAME = 'For Runner';
+begin
+  try
+    Log.Message('Начали выполнять TryStopRunnerOnly.');
+ 
+	  RunPSToolOnEnabledTasks('start', '"' + PATH_TO_BAT_FILES + STOP_RUNNER_BAT + '"', JOB_NAME);
+
+    Log.Message('Закончили выполнять TryStopRunnerOnly.');
+  except
+    Log.Message(FUNCTION_NAME + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Перезапускает все удаленные машины
+  RESULT:
+  REMARK:
+}
+procedure RestartEnabledComputersOnly;
+  const 
+		FUNCTION_NAME = 'RestartEnabledComputersOnly: ';
+    JOB_NAME = 'For Runner';
+begin
+  try
+    Log.Message('Начали выполнять RestartEnabledComputersOnly.');
+
+    if RestartEnabledComputers(JOB_NAME, 5*60*1000) then
+      Log.Message(FUNCTION_NAME + 'Перезагрузка выполнена успешно.')
+    else
+      Log.Warning(FUNCTION_NAME + 'Перезагрузка выполнена неуспешно, некоторые машины недоступны!');
+
+    Log.Message('Закончили выполнять RestartEnabledComputersOnly.');
+  except
+    Log.Message(FUNCTION_NAME + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+
+procedure ____START_TESTS__; begin end;
+
+{
+  TYPE:
+  DESC: Распределенные тесты.
+  RESULT:
+  REMARK:
+}
+procedure StartDistributedTests;
+  const 
+		FUNCTION_NAME = 'StartDistributedTests: ';
+    JOB_NAME = 'For Runner';
+  var
+    path, tag, routine, commonParam : String;
+    tagArr, paramList, sspContext : OleVariant;
+    i : integer;
+    dayOfWeek;
+    forConsultationSend;
+    forLogAnalysis;
+    forCheckedAddBookmarkAndComment;
+    forLoginLogout;
+    forDocModifications;
+    forOpenDocs;
+    forLikeDocs;
+begin
+  try
+    forLikeDocs := 
+      'TestProcedure := DistributedTests.DoLikes_Dislike_InDoc' + EndOfLine + 
+      'InnerIterCount := 100' + EndOfLine +
+      'OuterIterCount := 100' + EndOfLine;
+    forOpenDocs := 
+      'TestProcedure := DistributedTests.DoOpenDocs' + EndOfLine + 
+      'InnerIterCount := 100' + EndOfLine +
+      'OuterIterCount := 100' + EndOfLine;
+    forConsultationSend := 
+      'TestProcedure := DistributedTests.DoConsultationSend' + EndOfLine + 
+      'InnerIterCount := 100' + EndOfLine +
+      'OuterIterCount := 100' + EndOfLine;  
+    forLogAnalysis :=
+      'TestProcedure := DistributedTests.DoLogAnalysator' + EndOfLine +
+      'FileName := \\strelka\qc\for_RunnerTC6\SharedPath\PL\g2_lm_garant.log' + EndOfLine +   
+      'MaxCountUsers := 30' + EndOfLine +
+      'OnlyNecessaryUsers := ''' + EndOfLine + 								
+      'InnerIterCount := 1' + EndOfLine +
+      'OuterIterCount := 1' + EndOfLine + 
+      'IsStartF1Shell := false' + EndOfLine +
+      'IsCloseF1ShellAtEnd := false' + EndOfLine;
+    forCheckedAddBookmarkAndComment :=     
+      'TestProcedure := DistributedTests.DoAddBookmarkAndComment' + EndOfLine +       								
+      'InnerIterCount := 1' + EndOfLine +
+      'OuterIterCount := 1' + EndOfLine;
+    forLoginLogout :=
+      'TestProcedure := DistributedTests.DoRandomDelay' + EndOfLine +
+      'DoRandomDelay_MaxDelay := 0' + EndOfLine +        								
+      'InnerIterCount := 1' + EndOfLine +
+      'OuterIterCount := 1000' + EndOfLine;    
+    forDocModifications :=
+      'TestProcedure := DistributedTests.GuiDocumentModifications' + EndOfLine + 
+      'IsDeleteAfterInsert := true' + EndOfLine +
+      'IsRandomizeNames := true' + EndOfLine +
+      'InnerIterCount := 200' + EndOfLine +
+      'OuterIterCount := 200' + EndOfLine;
+ 
+      
+  
+    Log.Message(FUNCTION_NAME + 'Начали выполнять StartDistributedTests.');
+    _InitLogFileCopy(Log.Path + 'TestLog.Dub.Txt');
+    
+    Log.Message(FUNCTION_NAME + 'Перезагружаем машины');    
+    if RestartEnabledComputers(JOB_NAME, 5*60*1000) then
+      Log.Message(FUNCTION_NAME + 'Перезагрузка выполнена успешно')
+    else
+      Log.Warning(FUNCTION_NAME + 'Перезагрузка выполнена неуспешно, некоторые машины недоступны!');
+  
+//		UpdateQCPlugin(JOB_NAME);
+//		UpdateTCRegistration(JOB_NAME);
+    
+    Utilities.DateTimeToString(dayOfWeek, 'ddd', Utilities.Now);
+    
+    // Указываем параметры запуска 
+    path := '\\strelka.garant.ru\qc\for_RunnerTC6\Scripts\implementation\Projects\DistributedTestsRunner\DistributedTestsRunner\DistributedTestsRunner.mds';
+    routine := 'DistributedTestsRunner\Script\DistributedTestsRunner\StartDistributedTestsRunner';
+    
+    commonParam :=
+      'PathToF1Shell := \\strelka.garant.ru\qc\client\' + EndOfLine + 
+      'StopTime := ' + VarToString(Int(Now) + 1 + EncodeTime(STOP_HOUR_1, STOP_MINUTE_1, 0, 0)) + EndOfLine + 
+      'LoginSuffix:=' + dayOfWeek + EndOfLine + 
+      'SDTR_ProjectToRun:=\\strelka.garant.ru\qc\for_RunnerTC6\Scripts\implementation\Projects\DistributedTestsRunner\DistributedTestsRunner\DistributedTestsRunner.mds' + EndOfLine +
+      'SDTR_Project := DistributedTestsRunner' + EndOfLine +
+      'SDTR_Unit := DistributedTestsRunner' + EndOfLine +
+      'SDTR_Routine := Main' + EndOfLine +
+      'SDTR_DelayAfterRun := 60000' + EndOfLine +            
+      'SharedPath := \\strelka.garant.ru\QC\for_RunnerTC6\SharedPath\DTR_' + FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now) + EndOfLine +
+      //
+      'SSP_IsUseOurSyncroPoints := true' + EndOfLine +
+      'SSP_DelayAfterSyncPointRegister := 150000' + EndOfLine +
+      'SSP_BeginSPTimeout := 300000' + EndOfLine +
+      'SSP_EndSPTimeout := 900000' + EndOfLine;
+    
+    tagArr := String2Array(
+      RepeatString( 
+        commonParam + forLikeDocs
+        //commonParam + forDocModifications
+        , 50, '~'),
+      '~');
+    
+    paramList := ParseParamString(commonParam, true, EndOfLine);
+            
+    // Запускаем
+    StarterSynchroPoints(SSPOP_INIT, sspContext, paramList);
+    
+    //RunTasks(path, -1, tagArr, routine, JOB_NAME, true, true );
+    RunTasks(path, 0, tagArr, routine, JOB_NAME);
+
+    // Ждем пока проект запустится
+		if not NetworkSuite.WaitForState(ns_Running, 5*60*1000) then
+		begin
+		  //NetworkSuite.Stop;
+			Raise('Не получилось запустить проект по какой-то причине, останавливаемся. Возможно на какой-то из машин нет доступа на \\STRELKA или неправильно настроена сеть!');
+		end
+    else
+      Log.Message(FUNCTION_NAME + 'Скрипты успешно запустились!', '',  pmNormal, GetLogAttr('GREEN'));
+
+    Log.Message(FUNCTION_NAME + 'Начинаем ждать синхронизации машин и остановки проекта.');
+    //StarterSynchroPoints(SSPOP_WAIT_ON_END_SP, sspContext); //не нужно пока
+    NetworkSuite.WaitForState(ns_Idle, 60*60*1000);
+
+    Log.Message(FUNCTION_NAME + 'Закончили выполнять StartDistributedTests.');
+  except
+    Log.Message(FUNCTION_NAME + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Нагрузочные тесты. 
+  RESULT:
+  REMARK:
+}
+procedure StartPayloadTests;
+  const 
+	  FUNCTION_NAME = 'StartPayloadTests: ';
+    JOB_NAME = 'For Runner';
+  var
+    path, tag, routine, commonParam : String;
+    tagArr, paramList, sspContext : OleVariant;
+    i : integer;
+begin
+  try
+    Log.Message(FUNCTION_NAME + 'Начали выполнять StartPayloadTests.');
+    _InitLogFileCopy(Log.Path + 'TestLog.Dub.Txt');
+    
+    Log.Message(FUNCTION_NAME + 'Перезагружаем машины');    
+    if RestartEnabledComputers(JOB_NAME, 5*60*1000) then
+      Log.Message(FUNCTION_NAME + 'Перезагрузка выполнена успешно')
+    else
+      Log.Warning(FUNCTION_NAME + 'Перезагрузка выполнена неуспешно, некоторые машины недоступны!');
+   
+//		UpdateQCPlugin(JOB_NAME);
+//		UpdateTCRegistration(JOB_NAME);
+    
+   { // убиваем TestComplete и все остальное
+    RunPSToolOnEnabledTasks('pskill', 'cmd', JOB_NAME);
+    Delay(10000);
+    
+    PreliminaryClean(JOB_NAME); }   
+  
+    // Указываем параметры запуска 
+    path := '\\strelka.garant.ru\qc\for_RunnerTC6\Scripts\implementation\Projects\InstallStandAndRun\InstallStandAndRun\InstallStandAndRun.mds';
+    routine := 'InstallStandAndRun\Script\RunPrograms\NSWrapperInstallStand';
+    
+    commonParam :=
+      'PathToBatFiles:=' + PATH_TO_BAT_FILES + EndOfLine +
+      'TagStr := T_GARANTF1-*' + EndOfLine +
+
+      
+      'BuildPath := \\builds-store.garant.ru\garant-nemesis\deployment\!daily-GARANTF1-7_12\' + EndOfLine +
+      'InstallerPath := \\builds-store.garant.ru\garant-nemesis\deployment\!daily-GARANTF1-7_12-installer\' + EndOfLine +
+      'DataBasesPath := \\builds-store.garant.ru\garant-nemesis\deployment\data\7.12\' + EndOfLine +
+
+      'DestinationPath := C:\TestStand\' + EndOfLine + 
+			'IsRunOnBigDatabase := true' + EndOfLine +
+			'IsUseProcessKiller := true' + EndOfLine +
+      'IsDownload := false' + EndOfLine + 
+      'IsStartRunner := true' + EndOfLine + 
+      'Mode := MODE_NETWORK' + EndOfLine + 
+      'ScriptSelectParams := 6_4_Ready=Yes|Monitored;Actions<>Запускает сервер|Останавливает сервер|Переключает базу|Устанавливает базу|Использует инсталлятор;DataBase=Старая|Все равно' + EndOfLine +
+      'SharedPath := \\strelka.garant.ru\QC\for_RunnerTC6\SharedPath\_PT_' + FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now) + EndOfLine + 
+      'Permission_ChangeDatabase := true' + EndOfLine +
+      'Permission_StopServer := true' + EndOfLine +
+      'Permission_UseMSOffice := true' + EndOfLine +
+      'Permission_ShareGarantFolders := true' + EndOfLine + 
+      'IsWaitForTestsBuildSuccess := false' + EndOfLine +
+      // 
+      'IsDownloadDatabases := false' + EndOfLine + 
+      'IsRefreshTracedHLTC := false' + EndOfLine + 
+      'PathToF1Shell := \\strelka\qc\client\' + EndOfLine + 
+      'IsDBCheckAndSwitch := false' + EndOfLine + 
+      'IsSwitchDBForScript := false' + EndOfLine +
+      'GoToNeededStateAttempts := 3' + EndOfLine +
+      'PathToLogsBackupDir:=\\strelka.garant.ru\QC\for_RunnerTC6\LogsBackup\' + EndOfLine +       
+      'IsNeverSetNotContinue := true' + EndOfLine +
+      'IsRefreshScripts := false' + EndOfLine +
+
+      'IsRandomize := true' + EndOfLine +
+      //'BeginScriptName := ' + EndOfLine + //полезно использовать с IsRandomize=false
+      'IsSendMail := true' + EndOfLine + 
+      'WorkTag := WT_PAYLOAD' + EndOfLine +
+      //
+      'SSP_IsUseOurSyncroPoints := true' + EndOfLine +
+      'SSP_DelayAfterSyncPointRegister := 150000' + EndOfLine +
+      'SSP_BeginSPTimeout := 300000' + EndOfLine +
+      'SSP_EndSPTimeout := 900000' + EndOfLine        
+    ;
+    
+    paramList := ParseParamString(commonParam, true, EndOfLine);
+            
+    // Запускаем
+    StarterSynchroPoints(SSPOP_INIT, sspContext, paramList);   
+       
+    RunTasks(path, 0, commonParam, routine, JOB_NAME );
+
+    // Ждем пока проект запустится
+		if not NetworkSuite.WaitForState(ns_Running, 5*60*1000) then
+		begin
+		  //NetworkSuite.Stop;
+			Raise('Не получилось запустить проект по какой-то причине, останавливаемся. Возможно на какой-то из машин нет доступа на \\STRELKA или неправильно настроена сеть!');
+		end
+    else
+      Log.Message(FUNCTION_NAME + 'Скрипты успешно запустились!', 'BuildPath: ' + GetParam(paramList, 'BuildPath') + EndOfLine +  'InstallerPath: ' + GetParam(paramList, 'InstallerPath') + EndOfLine + 'DataBasesPath: ' + GetParam(paramList, 'DataBasesPath'),  pmNormal, GetLogAttr('GREEN'));
+
+    Log.Message(FUNCTION_NAME + 'Начинаем ждать синхронизации машин и остановки проекта.');
+    //StarterSynchroPoints(SSPOP_WAIT_ON_END_SP, sspContext); //не нужно пока
+    NetworkSuite.WaitForState(ns_Idle, 60*60*1000);
+
+    Log.Message(FUNCTION_NAME + 'Закончили выполнять StartPayloadTests.');
+  except
+    Log.Message(FUNCTION_NAME + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Ежедневные тесты всех версий продукта.
+  RESULT:
+  REMARK:
+}
+procedure StartDailyTests;
+  const 
+	  FUNCTION_NAME = 'StartDailyTests: ';
+    JOB_NAME = 'For Runner';
+  var
+    tagArr, paramList, sspContext : OleVariant;
+    path, tag, routine, commonParam, sharedPath: String;
+    isInterleavingByDay, isUseOurSynchroPoints : boolean;
+    i : integer;
+begin
+  try
+    _InitLogFileCopy(Log.Path + 'TestLog.Dub.Txt');
+    Log.Message(FUNCTION_NAME + 'Начали выполнять StartDailyTests.');
+
+    Log.Message(FUNCTION_NAME + 'Перезагружаем машины.');    
+    // PreliminaryClean(JOB_NAME); // можно вместо перезагрузки
+    if RestartEnabledComputers(JOB_NAME, 5*60*1000) then
+      Log.Message(FUNCTION_NAME + 'Перезагрузка выполнена успешно.')
+    else
+      Log.Warning(FUNCTION_NAME + 'Перезагрузка выполнена неуспешно, некоторые машины недоступны!');
+
+//    UpdateQCPlugin(JOB_NAME);
+    UpdateTCRegistration(JOB_NAME);
+  
+    isUseOurSynchroPoints := true;
+    // Указываем параметры запуска 
+    path := '\\strelka.garant.ru\qc\for_RunnerTC6\Scripts\implementation\Projects\InstallStandAndRun\InstallStandAndRun\InstallStandAndRun.mds';
+    routine := 'InstallStandAndRun\Script\RunPrograms\NSWrapperInstallStand'; 
+    
+    commonParam :=
+//    'F1Settings := \\developer.garant.ru\public\4qc\settings_autotest\' + EndOfLine +
+      'PathToBatFiles:=' + PATH_TO_BAT_FILES + EndOfLine +
+      'TagStr := T_GARANTF1-*' + EndOfLine +
+      
+//      'BuildPath := \\p3single05.garant.ru\works\nemesis\T_GARANTF1-7_12_0_015\!daily-GARANTF1-7_12\' + EndOfLine +
+//      'InstallerPath := \\p3single05.garant.ru\works\nemesis\T_GARANTF1-7_12_0_015\!daily-GARANTF1-7_12-installer\' + EndOfLine +
+            
+      'BuildPath := \\builds-store.garant.ru\garant-nemesis\deployment\!daily-GARANTF1-7_12\' + EndOfLine +
+      'InstallerPath := \\builds-store.garant.ru\garant-nemesis\deployment\!daily-GARANTF1-7_12-installer\' + EndOfLine +
+      'DataBasesPath := \\builds-store.garant.ru\garant-nemesis\deployment\data\7.12\' + EndOfLine +
+
+
+      'DestinationPath := C:\TestStand\' + EndOfLine +
+			'IsRunOnBigDatabase := false' + EndOfLine +
+			'IsUseProcessKiller := false' + EndOfLine +
+      'IsDownload := true' + EndOfLine + 
+      'IsStartRunner := true' + EndOfLine +
+      'Mode := MODE_NETWORK' + EndOfLine + 
+      'ScriptSelectParams := 6_4_Ready=Yes|Monitored' + EndOfLine + 
+      'IsRandomize := true' + EndOfLine +
+      'MaxTCRestartsCount := 10' + EndOfLine + 
+      'SharedPath := \\strelka.garant.ru\QC\for_RunnerTC6\SharedPath\' + FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now) + EndOfLine + 
+      'Permission_ChangeDatabase := true' + EndOfLine +
+      'Permission_StopServer := true' + EndOfLine +
+      'Permission_UseMSOffice := true' + EndOfLine +
+      'Permission_ShareGarantFolders := true' + EndOfLine +
+      'WhichDatabaseInit := DBT_OLD' + EndOfLine +
+      'GoToNeededStateAttempts := 2' + EndOfLine +        
+      'IsWaitForTestsBuildSuccess := false' + EndOfLine +
+      'IsSetNotContinueOnlyAtAllDone := true' + EndOfLine + 
+      'PathToLogsBackupDir:=\\strelka.garant.ru\QC\for_RunnerTC6\LogsBackup\' + EndOfLine + 
+      'WorkTag := WT_DAILY' + EndOfLine +
+      //
+      'SSP_IsUseOurSyncroPoints := true' + EndOfLine +
+      'SSP_DelayAfterSyncPointRegister := 150000' + EndOfLine +
+      'SSP_BeginSPTimeout := 300000' + EndOfLine +
+      'SSP_EndSPTimeout := 900000' + EndOfLine             
+    ;
+    
+    // Чередование запуска обычной / консольной версии
+    // isInterleavingByDay := true - четные дни месяца - обычная, нечетные - консольная
+    // isInterleavingByDay := false - всегда обычная
+    isInterleavingByDay := false;
+		tagArr := GetTagArrayForTestStands(commonParam, isInterleavingByDay and (GetCurrentDay mod 2 <> 0));
+
+ 		// Запуск консольной версии принудительно
+		//tagArr := GetTagArrayForTestStands(commonParam, true);
+
+    // Запускаем
+    paramList := ParseParamString(commonParam, true, EndOfLine);
+    StarterSynchroPoints(SSPOP_INIT, sspContext, paramList);   
+
+    RunTasks(path, 0, tagArr, routine, JOB_NAME);
+
+    // Ждем пока проект запустится
+		if not NetworkSuite.WaitForState(ns_Running, 5*60*1000) then
+		begin
+		  //NetworkSuite.Stop;
+			Raise('Не получилось запустить проект по какой-то причине, останавливаемся. Возможно на какой-то из машин нет доступа на \\STRELKA или неправильно настроена сеть!');
+		end
+    else
+      Log.Message(FUNCTION_NAME + 'Скрипты успешно запустились!', 'BuildPath: ' + GetParam(paramList, 'BuildPath') + EndOfLine +  'InstallerPath: ' + GetParam(paramList, 'InstallerPath') + EndOfLine + 'DataBasesPath: ' + GetParam(paramList, 'DataBasesPath'),  pmNormal, GetLogAttr('GREEN'));
+
+    Log.Message(FUNCTION_NAME + 'Начинаем ждать синхронизации машин и остановки проекта.');
+    //StarterSynchroPoints(SSPOP_WAIT_ON_END_SP, sspContext); //не нужно пока
+    NetworkSuite.WaitForState(ns_Idle, 20*60*60*1000);
+    
+    Log.Message(FUNCTION_NAME + 'Закончили выполнять StartDailyTests.');
+  except
+		Log.Error(FUNCTION_NAME + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;

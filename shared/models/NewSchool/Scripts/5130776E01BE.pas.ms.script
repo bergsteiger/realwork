@@ -1,0 +1,256 @@
+// DUnitKeyWordsSupport 5130776E01BE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5130776E01BE
+
+FORWARD ME_51307830007E
+
+: ME_5130789403E4
+ CONST UID '5130789403E4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+ ;
+ : Target WL 'ME_51304A1F02AD' '51304A0E0192.pas.ms.script' // kwKeyWordsPack
+ ;
+
+ref; // ME_5130789403E4 
+
+: ME_51307830007E
+ CONST UID '51307830007E'
+ CONST Name 'TAutoTestSuiteWithDUnitSupport'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5130776E01BE // DUnitKeyWordsSupport
+ ;
+ : Inherits
+   @ ( WL 'ME_4DC40A7E00C8' '4DC246E40002.pas.ms.script' // TCustomAutoTestSuite
+ ) .SequenceCode.It
+ ; // Inherits
+ : Dependencies
+   @ ( ME_5130789403E4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\AutoTestSuiteWithDUnitSupport.pas'
+
+ref; // ME_51307830007E TAutoTestSuiteWithDUnitSupport
+
+FORWARD ME_4DC24756009A
+
+: ME_4DC40BF302B4
+ CONST UID '4DC40BF302B4'
+ CONST Name 'Register'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DC24756009A // TAutoTestsSuite
+ ;
+
+ref; // ME_4DC40BF302B4 Register
+
+FORWARD ME_4E297BC401BE
+
+: ME_4E297BDC02DD
+ CONST UID '4E297BDC02DD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DC24756009A // TAutoTestsSuite
+ ;
+ : Target ME_4E297BC401BE // TDailyAutoTest
+ ;
+
+ref; // ME_4E297BDC02DD 
+
+: ME_4EA66EA40392
+ CONST UID '4EA66EA40392'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DC24756009A // TAutoTestsSuite
+ ;
+ : Target WL 'ME_4EA66E6C038E' '4B2A0D6A0077.pas.ms.script' // RegisterTest
+ ;
+
+ref; // ME_4EA66EA40392 
+
+: ME_4F9A4FD70148_ME_4DC24756009A
+ CONST UID '4F9A4FD70148'
+ CONST Name 'DoGetSubFolder'
+ : Original WL 'ME_4F9A4FD70148' '4B2A0D6A0077.pas.ms.script' // DoGetSubFolder
+ ;
+ : Implementor ME_4DC24756009A // TAutoTestsSuite
+ ;
+ref; // ME_4F9A4FD70148_ME_4DC24756009A DoGetSubFolder
+
+: ME_4DC24756009A
+ CONST UID '4DC24756009A'
+ CONST Name 'TAutoTestsSuite'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поддержка тестов-скриптов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5130776E01BE // DUnitKeyWordsSupport
+ ;
+ : Inherits
+   @ ( ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4DC40BF302B4 // Register
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4F9A4FD70148_ME_4DC24756009A // DoGetSubFolder
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4E297BDC02DD // 
+ ME_4EA66EA40392 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\AutoTestsSuite.pas'
+
+ref; // ME_4DC24756009A TAutoTestsSuite
+
+: ME_4E36909200B9
+ CONST UID '4E36909200B9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E297BC401BE // TDailyAutoTest
+ ;
+ : Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.pas.ms.script' // ExtractFilePath
+ ;
+
+ref; // ME_4E36909200B9 
+
+: ME_4C937013031D_ME_4E297BC401BE
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4E297BC401BE // TDailyAutoTest
+ ;
+ref; // ME_4C937013031D_ME_4E297BC401BE GetFolder
+
+: ME_4DB03121022B_ME_4E297BC401BE
+ CONST UID '4DB03121022B'
+ CONST Name 'ResolveScriptFilePath'
+ : Original WL 'ME_4DB03121022B' '4DAEEA14018A.pas.ms.script' // ResolveScriptFilePath
+ ;
+ : Implementor ME_4E297BC401BE // TDailyAutoTest
+ ;
+ref; // ME_4DB03121022B_ME_4E297BC401BE ResolveScriptFilePath
+
+: ME_4DC395670274_ME_4E297BC401BE
+ CONST UID '4DC395670274'
+ CONST Name 'IsScript'
+ : Original WL 'ME_4DC395670274' '4B2A0D6A0077.pas.ms.script' // IsScript
+ ;
+ : Implementor ME_4E297BC401BE // TDailyAutoTest
+ ;
+ref; // ME_4DC395670274_ME_4E297BC401BE IsScript
+
+: ME_4DC399CA00BC_ME_4E297BC401BE
+ CONST UID '4DC399CA00BC'
+ CONST Name 'Create'
+ : Original WL 'ME_4DC399CA00BC' '4B2A0D6A0077.pas.ms.script' // Create
+ ;
+ : Implementor ME_4E297BC401BE // TDailyAutoTest
+ ;
+ref; // ME_4DC399CA00BC_ME_4E297BC401BE Create
+
+: ME_4E297BC401BE
+ CONST UID '4E297BC401BE'
+ CONST Name 'TDailyAutoTest'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Автотест с поддержкой создаваемых форм.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5130776E01BE // DUnitKeyWordsSupport
+ ;
+ : Inherits
+   @ ( WL 'ME_4DC247C80356' '4DC246E40002.pas.ms.script' // TAutoTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4C937013031D_ME_4E297BC401BE // GetFolder
+ ME_4DB03121022B_ME_4E297BC401BE // ResolveScriptFilePath
+ ME_4DC395670274_ME_4E297BC401BE // IsScript
+ ME_4DC399CA00BC_ME_4E297BC401BE // Create
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4E36909200B9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\DailyAutoTest.pas'
+
+ref; // ME_4E297BC401BE TDailyAutoTest
+
+: ME_5130776E01BE
+ CONST UID '5130776E01BE'
+ CONST Name 'DUnitKeyWordsSupport'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5130499D0080' '5130499D0080.pas.ms.script' // DUnit Script Support
+ ;
+ : Children
+   @ ( ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+ ME_4DC24756009A // TAutoTestsSuite
+ ME_4E297BC401BE // TDailyAutoTest
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4DC246E40002' '4DC246E40002.pas.ms.script' // AutoTests
+ WL 'ME_51304A0E0192' '51304A0E0192.pas.ms.script' // DUnit Keywords
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5130776E01BE.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5130776E01BE.pas.ms.script.runner'
+
+ref; // ME_5130776E01BE DUnitKeyWordsSupport

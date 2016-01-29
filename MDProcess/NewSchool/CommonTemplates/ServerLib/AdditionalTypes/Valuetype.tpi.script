@@ -1,0 +1,361 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/ServerLib/AdditionalTypes/Valuetype.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::ServerLib::AdditionalTypes::Valuetype
+//
+// Интерфейс-значение
+// ---
+// Используется только в OMG IDL.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Valuetype::Class
+implementation @ <<Valuetype>>
+//? Интерфейс-значение
+//? Используется только в OMG IDL.
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= CORBA IDL::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a arf
+// - тип абстракции
+//Y code_valuetype.gif
+//L code_valuetype
+// Параметры визуализации
+//$ C 220,200,255
+//$ l 125,40,230
+//$ f 125,40,230
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470EFE1E037A*
+//c                              {}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+//r {%ax=false}: {%SS ни кем не используется}
+//#UC END# *4704C0E30186for470EFE1E037A*
+; // constraint
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470EFE1E037A*
+//F [{"%Sa"="abstract"}abstract ]valuetype %SN;
+//	<#%FF
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%F
+ begin
+  OBJECT IN %F
+  if true then
+  begin
+   out_indent %F |F 
+//	>%f_docs(%S)\
+
+   ++! l_Counter
+  end // if
+ end // for F
+ [%f] docs %( %S )% 
+//	#[{"%Sa"="abstract"}abstract ]valuetype %SN[: <{,}%f_type(%G)>] {<
+ out_indent if ( ( %S |a ) %== 'abstract' ) then
+ begin
+  'abstract ' 
+ end // if
+ 'valuetype '
+ %S |N if NOT-EMPTY
+ begin
+  ': '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ',' )
+    [%f] type %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+ ' {'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   #13#10
+
+//	%CX>
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	#};
+ out_indent '};'
+//#UC END# *47022BBE0261for470EFE1E037A*
+; // idl
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Valuetype::Class::Operation
+end. // <<Valuetype>>
+
+implementation @ :: <<Valuetype>> <<Operation>> ;
+//? операция Valuetype
+//= CORBA IDL::MDAGenerator
+
+// Параметры стереотипа
+//e g
+// - возможность использовать исключения
+//Y code_method.gif
+//L code_method
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470EFF4F02BF*
+//#UC END# *47022BBE0261for470EFF4F02BF*
+; // idl
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470EFF4F02BF*
+//c                              {}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+//#UC END# *4704C0E30186for470EFF4F02BF*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470EFF4F02BF*
+//	method
+ 'method'
+//#UC END# *4705CBD6003Efor470EFF4F02BF*
+; // wiki_child_kind
+
+
+// Вложенные стереотипы
+//: Valuetype::Class::Operation::Parameter
+end. // :: <<Valuetype>> <<Operation>> ;
+
+implementation @ :: <<Valuetype>> <<Operation>> ;
+//? параметр операции
+//= CORBA IDL::MDAGenerator
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for471848A0038A*
+//P
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#%f_ret(%S) %SN (<{, }%CX>)[
+ out_indent [%f] ret %( %S )% ' '
+ %S |N ' ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+ ')'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#	raises (<{, }%f_type(%E)>)];
+  out_indent '	raises ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')' 
+ end // if
+ NOP
+ ';'
+//#UC END# *47022BBE0261for471848A0038A*
+; // idl
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: Valuetype::Class::factory::Operation
+; // st_space_key
+
+end. // :: <<Valuetype>> <<Operation>> ;
+
+implementation @ :: <<Valuetype>> <<factory>> ;
+//? Фабричныей метод
+//= Valuetype::Class::Operation
+
+// Параметры стереотипа
+//Y code_factory.gif
+//L code_factory
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470EFFAD0119*
+//	mng
+ 'mng'
+//#UC END# *4705CBD6003Efor470EFFAD0119*
+; // wiki_child_kind
+
+
+//: Valuetype::Class::Attribute
+end. // :: <<Valuetype>> <<factory>> ;
+
+implementation @ :: <<Valuetype>> <<Attribute>> ;
+//? атрибут ValueType'а
+//= CORBA IDL::MDAGenerator
+
+// Параметры стереотипа
+//Y code_property.gif
+//L code_property
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470EFFEB0242*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#[{"%SV"="PublicAccess"}{private}public] %f_type(%T) %SN;
+ out_indent if ( ( %S |V ) %== 'PublicAccess' ) then
+ begin
+  'public' 
+ end // if
+ else
+ begin
+  'private' 
+ end // else
+ ' '
+ [%f] type %( %T )% ' '
+ %S |N ';'
+//#UC END# *47022BBE0261for470EFFEB0242*
+; // idl
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470EFFEB0242*
+//c                              {}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS не должно совпадать с именем %P%SS}
+//#UC END# *4704C0E30186for470EFFEB0242*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470EFFEB0242*
+//	property
+ 'property'
+//#UC END# *4705CBD6003Efor470EFFEB0242*
+; // wiki_child_kind
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Valuetype>> <<Attribute>> ;
+

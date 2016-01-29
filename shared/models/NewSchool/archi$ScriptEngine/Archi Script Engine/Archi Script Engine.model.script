@@ -1,0 +1,142 @@
+<<Library>> "Archi Script Engine"
+ %UID '4E5B88E60142'
+ %DOCUMENTATION 'Скриптовый движок для Арчи.'
+ %DEPENDS
+  U$ '4DE7653F03E5' /* "Archi Insider Test Support" */
+  U$ '4DFB490B0209' /* Main */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E25512D01C0' /* Utils */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4DE7653F03E5' /* "Archi Insider Test Support" */
+  U$ '4DFB490B0209' /* Main */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E25512D01C0' /* Utils */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> ScriptEngine
+   %UID '4E5B891C01DE'
+   %DEPENDS
+    U$ '4DAEEA14018A' /* "Scripting Axiomatics" */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4DE629810132' /* Scripting */
+    U$ '4DEF302C0007' /* ScriptEngine */
+    U$ '4DFB49C40350' /* MainWindows */
+    U$ '4E4B99A60349' /* Tools */
+    U$ '4F2275C00012' /* ScriptingKeywordsCore */
+    U$ '4F3E3F5F0160' /* PrimitiveWords */
+    U$ '4F5DA07B02CD' /* EditorKeyWords */
+    U$ '4F6195640184' /* CommonArchiWords */
+    U$ '54F079B5035C' /* CompiledWords */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4DE7653F03E5' /* "Archi Insider Test Support" */
+    U$ '4DFB490B0209' /* Main */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '4E25512D01C0' /* Utils */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TArchiScriptEngine
+      %UID '4DE34290028F'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E1F0EB100C4' /* ScriptEngine */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DEF306102FF' /* TtfwScriptEngineEX */
+      ; // %INHERITS
+      %LINKS
+        <<uses>> "4DFB4117021C"
+         %UID '4DFB4117021C'
+         %TARGET U$ '4DFB406602B7' /* arEditorUtils */
+        ; // 4DFB4117021C
+        <<uses>> "4E244CDD0017"
+         %UID '4E244CDD0017'
+         %TARGET U$ '4E244C8400D2' /* arDialogsPack */
+        ; // 4E244CDD0017
+        <<uses>> "4E4A19EA0246"
+         %UID '4E4A19EA0246'
+         %TARGET U$ '4E4A1982012A' /* CommonArchiWords */
+        ; // 4E4A19EA0246
+        <<uses>> "4E4BAE0A0022"
+         %UID '4E4BAE0A0022'
+         %TARGET U$ '4DB6CA4F010D' /* TkwCompiledWord */
+        ; // 4E4BAE0A0022
+        <<uses>> "4E4BB3C80256"
+         %UID '4E4BB3C80256'
+         %TARGET U$ '4DB0091E033E' /* TtfwContext */
+        ; // 4E4BB3C80256
+        <<uses>> "4E5C93FC005E"
+         %UID '4E5C93FC005E'
+         %TARGET U$ '4E5C937F00B2' /* "TkwDocumentSpravka" */
+        ; // 4E5C93FC005E
+        <<uses>> "4E78CAF1036F"
+         %UID '4E78CAF1036F'
+         %TARGET U$ '4DAEED140007' /* TtfwWord */
+        ; // 4E78CAF1036F
+        <<uses>> "4F5DA17F0065"
+         %UID '4F5DA17F0065'
+         %TARGET U$ '4F5DA0BF025A' /* kwEditorKeyWordsPack */
+        ; // 4F5DA17F0065
+        <<uses>> "4F61983F0193"
+         %UID '4F61983F0193'
+         %TARGET U$ '4F619597030C' /* kwCommonArchiWords */
+        ; // 4F61983F0193
+      ; // %LINKS
+     ; // TArchiScriptEngine
+     <<ScriptKeyword>> "TkwDocumentSpravka"
+      %UID '4E5C937F00B2'
+      %META
+       %upv "NameForScript" 'оп::Документ_Справка_к_документу'
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '53EDC0E701BC' /* TtfwRegisterableWord */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAEEDE10285' /* DoDoIt */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4E5C948602EE"
+         %UID '4E5C948602EE'
+         %TARGET U$ '4DFB4D5E0084' /* TMainForm */
+        ; // 4E5C948602EE
+        <<uses>> "4E5C9A0F007F"
+         %UID '4E5C9A0F007F'
+         %TARGET U$ '4DFB4B01001D' /* TDocEditorWindow */
+        ; // 4E5C9A0F007F
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '0C0F245B60D3'
+         %DOCUMENTATION 'Регистрация TkwDocumentSpravka'
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "TkwDocumentSpravka"
+   ; // %CHILDREN
+  ; // ScriptEngine
+ ; // %CHILDREN
+; // "Archi Script Engine"

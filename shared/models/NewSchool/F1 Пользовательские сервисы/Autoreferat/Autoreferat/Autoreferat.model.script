@@ -1,0 +1,790 @@
+<<VCMControllers>> Autoreferat
+ %UID '49411E4001AB'
+ %SUMMARY 'Работа с новостной лентой' ;
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4954FAA00232' /* Search */
+  U$ '4982BE090383' /* vcmControllers */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '53BA5A5D03A0' /* TabInterface */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4954FAA00232' /* Search */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '53BA5A5D03A0' /* TabInterface */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> AutoreferatInterfaces
+   %UID '492F0586030C'
+   %SUMMARY 'Интерфейсы для работы с новостной лентой' ;
+   %DEPENDS
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '491DAF4202EE' /* SearchInterfaces */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '27.11.2008 23:40'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '49411E4001AB' /* Autoreferat */
+    U$ '4954FAA00232' /* Search */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<ViewAreaController>> IdsNewsLine
+      %UID '492FDE16013B'
+      %SUMMARY 'Новостная лента' ;
+     ; // IdsNewsLine
+     <<UseCaseController>> IsdsAutoreferat
+      %UID '492F071B02AC'
+      %TOBEINCLUDED
+       U$ '49411E4001AB' /* Autoreferat */
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47EA0F8D010D' /* IsdsBaseDocument */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4925978F00FA' /* ChangeDocument */
+       U$ '492597A602F6' /* MakeGotoPointData */
+       U$ '4DF9D63B0360' /* DocInfo */
+       U$ '50002EC80001' /* dsDocument */
+       U$ '5111C2BAF24F' /* HasDocument */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT LINK <<area>> MakeNewsLineFakeDS
+         %UID '492F060800A2'
+         %SUMMARY 'Фиктивный бизнес объект новостной ленты' ;
+         %TARGET U$ '492FDE16013B' /* IdsNewsLine */
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '49411E4001AB' /* Autoreferat */
+         ; // %TOBEINCLUDED
+        ; // MakeNewsLineFakeDS
+      ; // %ATTRIBUTES
+     ; // IsdsAutoreferat
+   ; // %CHILDREN
+  ; // AutoreferatInterfaces
+  <<ControllerUnit>> Autoreferat
+   %UID '491C3ADB03A5'
+   %SUMMARY 'Работа с авторефератом' ;
+   %DEPENDS
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '4570511E038A' /* Document */
+    U$ '4678209200A6' /* nevBase */
+    U$ '467FC9F80281' /* DocumentTagNodes */
+    U$ '4680E826036D' /* eeDocumentContainer */
+    U$ '46A0E6C5023A' /* ActiveX */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799EC9300AF' /* l3Defaults */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47EA50050263' /* BaseDocument */
+    U$ '47ECA80B000D' /* Generators */
+    U$ '483E80C9025F' /* Readers */
+    U$ '48492FC0029D' /* Standard */
+    U$ '484A470100DD' /* Standard */
+    U$ '48F747EC0073' /* Common */
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '492F0586030C' /* AutoreferatInterfaces */
+    U$ '4982BE090383' /* vcmControllers */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B1FC2FF03CD' /* DocumentInterfaces */
+    U$ '4C1B915E0261' /* "Version Info" */
+    U$ '4C6A7BA001A5' /* F1DocumentContainers */
+    U$ '4C6E92E9016E' /* F1TagDataProviderInterface */
+    U$ '53A402C7010D' /* TabbedInterfaceSupport */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677FF4B0036' /* Data */
+    U$ '467A8734039C' /* EVD */
+    U$ '4680C57D01E9' /* Business */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '49411E4001AB' /* Autoreferat */
+    U$ '4C6A65ED0374' /* F1DocumentProcessing */
+    U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+    U$ '53BA5A5D03A0' /* TabInterface */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<ViewAreaControllerImp>> TdsAutoreferat
+      %UID '491C3B8D00D8'
+      %SUMMARY 'Автореферат' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '06.10.2005 14.52'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4926CAF40166' /* dsBaseDocument */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '491C263E03AF' /* GetIsReadOnly */
+       U$ '491C264C02C2' /* GetTimeMachineOff */
+       U$ '4C6AB38800F3' /* MakeContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CE693DF0188"
+         %UID '4CE693DF0188'
+         %TARGET U$ '4CE6937D031D' /* TnsAutoreferatDocumentContainer */
+        ; // 4CE693DF0188
+      ; // %LINKS
+     ; // TdsAutoreferat
+     <<UseCaseControllerImp>> TsdsAutoreferat
+      %UID '492FDB1603A9'
+      %SUMMARY 'Бизнес объект сборки "Автореферат"' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2005/10/06 12:32:24'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '49411E4001AB' /* Autoreferat */
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492F071B02AC' /* IsdsAutoreferat */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47EA106D035E' /* sdsBaseDocument */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47F3778403D9' /* MakeData */
+       U$ '4925B1EC0100' /* BaseDocumentClass */
+       U$ '492F060800A2' /* MakeNewsLineFakeDS */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '47F37DF001FE' /* DataExchange */
+       U$ '4938F7E702B7' /* ClearAreas */
+       U$ '53B3BF9C00EF' /* DoGetFormSetImageIndex */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "492FDB5A0045"
+         %UID '492FDB5A0045'
+         %TARGET U$ '491C3B8D00D8' /* TdsAutoreferat */
+        ; // 492FDB5A0045
+        <<uses>> "492FDCBF00F3"
+         %UID '492FDCBF00F3'
+         %TARGET U$ '492FDE91018F' /* TdsNewsLine */
+        ; // 492FDCBF00F3
+        <<uses>> "4B220CE40177"
+         %UID '4B220CE40177'
+         %TARGET U$ '4B220C2B001F' /* TdBaseDocument */
+        ; // 4B220CE40177
+        <<uses>> "53D7681800D2"
+         %UID '53D7681800D2'
+         %TARGET U$ '53BA488F00D8' /* nsTabbedInterfaceTypes */
+        ; // 53D7681800D2
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> SetDataType
+         %UID '494166980337'
+         %TARGET U$ '47EB3BD9015F' /* IdBaseDocument */
+         %TOBEINCLUDED
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+        ; // SetDataType
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '4947B0ED0257'
+         %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+         %TOBEINCLUDED
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID 'C66D5963BB53'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsAutoreferat' ;
+         %TARGET U$ '492F071B02AC' /* IsdsAutoreferat */
+         %TOBEINCLUDED
+          U$ '49411E4001AB' /* Autoreferat */
+         ; // %TOBEINCLUDED
+        ; // SetType
+        SUMMONED PRIVATE <<Attribute>> f_MakeNewsLineFakeDS
+         %UID '2FEDB764C09C'
+         %SUMMARY 'Поле для области вывода MakeNewsLineFakeDS' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_MakeNewsLineFakeDS
+      ; // %ATTRIBUTES
+     ; // TsdsAutoreferat
+     <<ViewAreaControllerImp>> TdsNewsLine
+      %UID '492FDE91018F'
+      %SUMMARY 'Новостная лента' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '28.11.2008 15:06'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '49411E4001AB' /* Autoreferat */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492FDE16013B' /* IdsNewsLine */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47ECE94D03D4' /* vcmFormDataSourcePrim */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '55097FF5008E' /* GetIsDataAvailable */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "552F96310012"
+         %UID '552F96310012'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 552F96310012
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> FormDataSourceType
+         %UID '492FE27F0348'
+         %TARGET U$ '492FDE16013B' /* IdsNewsLine */
+         %TOBEINCLUDED
+          U$ '49411E4001AB' /* Autoreferat */
+         ; // %TOBEINCLUDED
+        ; // FormDataSourceType
+      ; // %ATTRIBUTES
+     ; // TdsNewsLine
+     <<SimpleClass>> TnsAutoreferatDocumentContainer
+      %UID '4CE6937D031D'
+      %SUMMARY 'Контейнер документа для автореферата' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '19.11.2010 18:11'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '4C6A65ED0374' /* F1DocumentProcessing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4680E83D00C8' /* TeeDocumentContainer */
+       U$ '4C6A955F00D6' /* nsDocumentContainer */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47F27DA80172' /* GetDocument */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CE694170303"
+         %UID '4CE694170303'
+         %TARGET U$ '4C5AA5CA02DF' /* DocumentTextProvider */
+        ; // 4CE694170303
+        <<uses>> "4CE694F60218"
+         %UID '4CE694F60218'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 4CE694F60218
+        <<uses>> "4CE69B10002A"
+         %UID '4CE69B10002A'
+         %TARGET U$ '4C6A750F024E' /* TnsF1DocumentTagNode */
+        ; // 4CE69B10002A
+        <<uses>> "4CE69B4E0106"
+         %UID '4CE69B4E0106'
+         %TARGET U$ '4B1E8FAE0380' /* DefDataAdapter$4B1E8FAE0380 */
+        ; // 4CE69B4E0106
+        <<uses>> "4CE69D890370"
+         %UID '4CE69D890370'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 4CE69D890370
+        <<uses>> "4CE69DB5024E"
+         %UID '4CE69DB5024E'
+         %TARGET U$ '45EEB6520191' /* Document */
+        ; // 4CE69DB5024E
+        <<uses>> "4CE6A35B0292"
+         %UID '4CE6A35B0292'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4CE6A35B0292
+        <<uses>> "4D08D839027A"
+         %UID '4D08D839027A'
+         %TARGET U$ '47ECA82403AC' /* Tk2DocumentBuffer */
+        ; // 4D08D839027A
+        <<uses>> "4D08D87003DA"
+         %UID '4D08D87003DA'
+         %TARGET U$ '483E80FA0312' /* TevdNativeReader */
+        ; // 4D08D87003DA
+        <<uses>> "4D08DF2201C5"
+         %UID '4D08DF2201C5'
+         %TARGET U$ '4981AC0701C1' /* ComObj */
+        ; // 4D08DF2201C5
+        <<uses>> "4D08DF31023D"
+         %UID '4D08DF31023D'
+         %TARGET U$ '46A5AFF103CA' /* IStream */
+        ; // 4D08DF31023D
+        <<uses>> "4D08DF800102"
+         %UID '4D08DF800102'
+         %TARGET U$ '4C1B918900FD' /* Ver */
+        ; // 4D08DF800102
+        <<uses>> "4D08E325033F"
+         %UID '4D08E325033F'
+         %TARGET U$ '485669C9009D' /* LeafPara */
+        ; // 4D08E325033F
+        <<uses>> "4D08E343021D"
+         %UID '4D08E343021D'
+         %TARGET U$ '48579E4A003C' /* ParaList */
+        ; // 4D08E343021D
+        <<uses>> "4D08EEF00040"
+         %UID '4D08EEF00040'
+         %TARGET U$ '485683750360' /* TextPara */
+        ; // 4D08EEF00040
+        <<uses>> "4D08EFC50292"
+         %UID '4D08EFC50292'
+         %TARGET U$ '4799ED060093' /* l3Defaults */
+        ; // 4D08EFC50292
+        <<uses>> "4D1092C503D8"
+         %UID '4D1092C503D8'
+         %TARGET U$ '456EB454018E' /* CanNotFindData */
+        ; // 4D1092C503D8
+        <<uses>> "4D6E0CF50054"
+         %UID '4D6E0CF50054'
+         %TARGET U$ '4D6E0C4A001F' /* TnsAnnotationHeaderTagNode */
+        ; // 4D6E0CF50054
+        <<uses>> "4D6E58D701E1"
+         %UID '4D6E58D701E1'
+         %TARGET U$ '4D6E58B300D2' /* TnsF1AutoreferatDocumentTagNode */
+        ; // 4D6E58D701E1
+      ; // %LINKS
+     ; // TnsAutoreferatDocumentContainer
+     <<SimpleClass>> TnsAnnotationHeaderTagNode
+      %UID '4D6E0C4A001F'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '02.03.2011 12:22'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C6A750F024E' /* TnsF1DocumentTagNode */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4CED5CEF011A' /* NodeChildrenCount */
+       U$ '5335815D03DC' /* ChildrenCount */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4D6E0D700068"
+         %UID '4D6E0D700068'
+         %TARGET U$ '4D6E0D500395' /* TnsAnnotationHeaderTagData */
+        ; // 4D6E0D700068
+        <<uses>> "4D6E12E601C8"
+         %UID '4D6E12E601C8'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4D6E12E601C8
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '4D6E0CA20143'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D6E0CAA00B3'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anIndex
+               %UID '4D6E0CCA00B7'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIndex
+              <<in>> aLeafCount
+               %UID '4D6E0CCA00EF'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aLeafCount
+              <<in>> aDoc
+               %UID '4D6E0CCA011C'
+               %TARGET U$ '45EEB6520191' /* Document */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aDoc
+              <<in>> anAnno
+               %UID '4D6FA23601E0'
+               %TARGET U$ '534572370056' /* Tl3Tag */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // anAnno
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<method>> Make
+         %UID '4D6E0CDD033D'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '535E669E02D8'
+            %TARGET U$ '5346BD53015A' /* Il3TagRef */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anIndex
+               %UID '535E66A40326'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIndex
+              <<in>> aLeafCount
+               %UID '535E66A40361'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aLeafCount
+              <<in>> aDoc
+               %UID '535E66A40382'
+               %TARGET U$ '45EEB6520191' /* Document */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aDoc
+              <<in>> anAnno
+               %UID '535E66A403A4'
+               %TARGET U$ '534572370056' /* Tl3Tag */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // anAnno
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsAnnotationHeaderTagNode
+     <<SimpleClass>> TnsAnnotationHeaderTagData
+      %UID '4D6E0D500395'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '02.03.2011 12:27'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '49411E4001AB' /* Autoreferat */
+       U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4C6E935500EF' /* If1TagDataProvider */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AE5CA2D0034' /* Tl3CProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4C6EA2B000F6' /* Caption */
+       U$ '4C6EA2D1023E' /* Style */
+       U$ '4C6EA2F700DA' /* ExternalID */
+       U$ '4C6EA8390114' /* TypeID */
+       U$ '4C6EAB57003B' /* wStyle */
+       U$ '4C6EB42D017A' /* AllParaChildrenCount */
+       U$ '4C6EB4470246' /* ChildrenCount */
+       U$ '4C6EB48D0004' /* CreateNewNode */
+       U$ '4C6EB4E70277' /* FirstChild */
+       U$ '4C722FCA0397' /* BuildSubs */
+       U$ '4C723CF1024D' /* SiblingByIndex */
+       U$ '4C7240410220' /* Next */
+       U$ '4C99D2C600BC' /* AsDocumentTextProvider */
+       U$ '4CEFAFB700D1' /* Comment */
+       U$ '4D0F4C9E0379' /* TechComment */
+       U$ '4D6E5C270068' /* IsProviderGot */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4D6E12FF0363"
+         %UID '4D6E12FF0363'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 4D6E12FF0363
+        <<uses>> "4D6E23E80359"
+         %UID '4D6E23E80359'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4D6E23E80359
+        <<uses>> "535E6615032F"
+         %UID '535E6615032F'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 535E6615032F
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Doc
+         %UID '4D6E0DE1028F'
+         %TARGET U$ '45EEB6520191' /* Document */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Doc
+        PRIVATE <<Attribute>> f_Index
+         %UID '4D6E0E0000C7'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Index
+        PRIVATE <<Attribute>> f_Anno
+         %UID '4D6FA25D00D1'
+         %TARGET U$ '534572370056' /* Tl3Tag */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Anno
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '4D6E0DA7024B'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D6E0DAF030D'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anIndex
+               %UID '4D6E0DB1003F'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIndex
+              <<in>> aDoc
+               %UID '4D6E0DB100A1'
+               %TARGET U$ '45EEB6520191' /* Document */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aDoc
+              <<in>> anAnno
+               %UID '4D6FA26C0294'
+               %TARGET U$ '534572370056' /* Tl3Tag */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // anAnno
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '4D6E0DB90031'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '49411E4001AB' /* Autoreferat */
+          U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4C6E935500EF' /* If1TagDataProvider */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4D6E0DA7024B' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4C6EA2B000F6' /* Caption */
+          U$ '4C6EA2D1023E' /* Style */
+          U$ '4C6EA2F700DA' /* ExternalID */
+          U$ '4C6EA8390114' /* TypeID */
+          U$ '4C6EAB57003B' /* wStyle */
+          U$ '4C6EB42D017A' /* AllParaChildrenCount */
+          U$ '4C6EB4470246' /* ChildrenCount */
+          U$ '4C6EB48D0004' /* CreateNewNode */
+          U$ '4C6EB4E70277' /* FirstChild */
+          U$ '4C722FCA0397' /* BuildSubs */
+          U$ '4C723CF1024D' /* SiblingByIndex */
+          U$ '4C7240410220' /* Next */
+          U$ '4C99D2C600BC' /* AsDocumentTextProvider */
+          U$ '4CEFAFB700D1' /* Comment */
+          U$ '4D0F4C9E0379' /* TechComment */
+          U$ '4D6E5C270068' /* IsProviderGot */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'E99FD7D39F3C'
+            %SUMMARY 'Сигнатура фабрики TnsAnnotationHeaderTagData.Make' ;
+            %TARGET U$ '4C6E935500EF' /* If1TagDataProvider */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> anIndex
+               %UID 'B3EAFB72E881'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIndex
+              SUMMONED <<in>> aDoc
+               %UID 'BA3C2F9D8BCE'
+               %TARGET U$ '45EEB6520191' /* Document */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aDoc
+              SUMMONED <<in>> anAnno
+               %UID '53106E5D9980'
+               %TARGET U$ '534572370056' /* Tl3Tag */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // anAnno
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsAnnotationHeaderTagData
+     <<SimpleClass>> TnsF1AutoreferatDocumentTagNode
+      %UID '4D6E58B300D2'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '02.03.2011 17:48'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4C6A750F024E' /* TnsF1DocumentTagNode */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4C6D1D450332' /* DoGetSubAtom */
+       U$ '4CED5CEF011A' /* NodeChildrenCount */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4D6E5E40036C"
+         %UID '4D6E5E40036C'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4D6E5E40036C
+        <<uses>> "4D6E5F9602FC"
+         %UID '4D6E5F9602FC'
+         %TARGET U$ '4C6D1B070024' /* TnsNodeState */
+        ; // 4D6E5F9602FC
+      ; // %LINKS
+     ; // TnsF1AutoreferatDocumentTagNode
+   ; // %CHILDREN
+  ; // Autoreferat
+ ; // %CHILDREN
+; // Autoreferat

@@ -1,0 +1,187 @@
+// TeeNode 4AE8269E010D SimpleClass Class
+
+INCLUDE '46780E690001.pas.ms.script'
+
+INCLUDE '4912DD020283.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '4A60B2220398.pas.ms.script'
+
+FORWARD ME_4AE8269E010D
+
+INCLUDE '4682595B0268.pas.ms.script'
+
+: ME_54C4FCB50221
+ CONST UID '54C4FCB50221'
+ CONST Name 'f_Node'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ @SELF
+; // ME_54C4FCB50221 f_Node
+
+FORWARD ME_54C4FE700267
+
+: ME_54C4FE7D0362
+ CONST UID '54C4FE7D0362'
+ CONST Name 'aNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ @SELF
+; // ME_54C4FE7D0362 aNode
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54C4FE7B00CB
+ CONST UID '54C4FE7B00CB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54C4FE7D0362 // aNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54C4FE7B00CB DoIt
+
+: ME_54C4FE700267
+ CONST UID '54C4FE700267'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54C4FE7B00CB // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54C4FE700267 Create
+
+FORWARD ME_54C4FE8501CA
+
+: ME_54C512C1021E
+ CONST UID '54C512C1021E'
+ CONST Name 'aNode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_468259900322 // Il3SimpleNode
+ ;
+
+ @SELF
+; // ME_54C512C1021E aNode
+
+: ME_54C5083201BD
+ CONST UID '54C5083201BD'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4912DD2C0082 // IeeNode
+ ;
+ : Parameters
+   [ ME_54C512C1021E // aNode
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54C5083201BD DoIt
+
+: ME_54C4FE8501CA
+ CONST UID '54C4FE8501CA'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54C5083201BD // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54C4FE8501CA Make
+
+: ME_4AE8269E010D
+ CONST UID '4AE8269E010D'
+ CONST Name 'TeeNode'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_46780E690001 // Tl3CacheableBase
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4912DD2C0082 // IeeNode
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_54C4FCB50221 // f_Node
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54C4FE700267 // Create
+ ME_54C4FE8501CA // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5481A1AD011A // Text
+ ME_5481A1C0038D // ID
+ ME_5481A1D103AF // HasChild
+ ME_5481A1DD0225 // IsFirst
+ ME_5481A1EA00F3 // IsLast
+ ME_5481A22C010D // ChildNode
+ ME_5481A2410045 // ParentNode
+ ME_5481A2510256 // NextNode
+ ME_5481A26001CF // PrevNode
+ ME_5481A29002A5 // AllChildrenCount
+ ME_5481A2990264 // ThisChildrenCount
+ ME_5481A2AF0022 // InsertChild
+ ME_5481A2C20167 // InsertChildBefore
+ ME_5481A2D702C7 // Changing
+ ME_5481A2DF0031 // Changed
+ ME_5481A2E8004B // Remove
+ ME_5481A2F3014C // Delete
+ ME_5481A2FC0099 // RemoveChildren
+ ME_5481A30602F5 // Move
+ ME_5481A3190230 // RelocateChild
+ ME_5481A34602C4 // SortChilds
+ ME_5481A3590043 // GetLevelForParent
+ ME_5481A3900306 // Iterate
+ ME_5481A3D0039F // IterateF
+ ME_5481B02B03C1 // IsSameNode
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_4A60B23E00C3 // COMQueryInterface
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4AE8269E010D TeeNode

@@ -1,0 +1,275 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormInner/Control.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::Control
+//
+// Визуальный контрол
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Control::Class
+implementation @ <<Control>>
+//? Визуальный контрол
+//> Control::Class
+//> ControlOverride::Class
+
+//= FormInner::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+// Параметры визуализации
+//$ C 255,192,203
+//$ l 165,42,0
+//$ f 165,42,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p ControlClass=none|TeeButton|TeeCheckBox|TeeEditor|TeeEditorWithoutOperations|TeeMemoWithEditOperations|TeeRadioButton|TeeTreeView|TElPopupButton|TevMemo|TevQueryCardEditor|TnscComboBox|TnscComboBoxWithPwdChar|TnscComboBoxWithReadOnly|TnscContextFilter|TnscEdit|TnscEditor|TnscHideField|TnscLister|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TnscTreeView|TnscTreeViewHotTruck|TnscTreeViewWithAdapterDragDrop|TvtButton|TvtCheckBox|TvtColorBox|TvtComboBoxQS|TvtDblClickDateEdit|TvtFocusLabel|TvtGradientWaitbar|TvtGroupBox|TvtLabel|TvtLister|TvtScrollBar|TvtSizeablePanel|TvtSplitter|TvtPanel|TvtProportionalPanel|TBevel|TImage|TImageEnView|TPaintBox|TRadioButton|TScrollBox|TvtRadioButton|TComboBox|TvtComboBox|TBitBtn ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{ControlClass}"!="%S{!ControlClass}"}%f_up_prefix(%S) *ControlClass* = *%S{ControlClass}*
+ ?inherited
+ if ( ( %S get_up ( 'ControlClass' ) ) %!= ( %S get_up_def ( 'ControlClass' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ControlClass* = *'
+  %S get_up ( 'ControlClass' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // wiki_up_print
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4A794CA201BF*
+//	%S%f_CheckG()\
+ %S %f CheckG %( )% 
+
+//	%S%[inherited]\
+ inherited
+
+//	<%C#f_DoSpell()>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C %?f DoSpell %( )% 
+   ++! l_Counter
+  end // if
+ end // for C
+
+//f _loc_GetFinished
+; // DoSpell
+
+end. // <<Control>>
+
+: loc_GetFinished OBJECT IN %S
+//	%S{finished}
+ %S get_up ( 'finished' ) 
+
+//%f _CheckG
+; // loc_GetFinished
+
+implementation @ <<Control>>
+: CheckG OBJECT IN %S
+//	[{%S%f_IsOverride()!=true}\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	[{%Gx!=true}\
+  if ( ( %G |x ) %!=  true ) then
+  begin
+//	[{%S{ControlClass}!=none&"%S{ControlClass}"!=""}\
+   if ( ( %S get_up ( 'ControlClass' ) ) %!= 'none' AND 
+     ( ( %S get_up ( 'ControlClass' ) ) %!= ''  ) ) then
+   begin
+//	%f_find_element(%S{ControlClass},l_Elem)\
+    [%f] find_element %( %S get_up ( 'ControlClass' ) %, 'l_Elem' )% 
+//	%S%f_make_accessable(%{l_Elem}U)\
+    %S %f make_accessable %( ( get_global_var ( 'l_Elem' ) |U ) )% 
+//	%f_addG(%S,%{l_Elem})\
+    [%f] addG %( %S %, ( get_global_var ( 'l_Elem' ) ) )% 
+//	]\
+   end // if
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4B2A19E3038Bfor4A794CA201BF*
+; // CheckG
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя владельца метода
+//%f _pas_MethodOwnerName
+: pas_MethodOwnerName OBJECT IN %S
+//#UC START# *49CB3C99034Bfor4A794CA201BF*
+//	%P%f_pas_MethodOwnerName(%S)
+ %P %f pas_MethodOwnerName %( %S )% 
+//#UC END# *49CB3C99034Bfor4A794CA201BF*
+; // pas_MethodOwnerName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию методов для свойства
+//%f _pas_PropertyMethodImplementation
+: pas_PropertyMethodImplementation OBJECT IN %S
+//#UC START# *4A7ADF4E0277for4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	%S%[inherited]f_pas_PropertyMethodImplementation(%1,%2,%3)]\
+  call-inherited pas_PropertyMethodImplementation %( %1 %, %2 %, %3 )%
+ end // if
+//	<{}{%C#f_IsControl()=true}%C%f_pas_PropertyMethodImplementation(%1,%2,%3)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsControl %( )% ) %==  true ) then
+  begin
+   %C %f pas_PropertyMethodImplementation %( %1 %, %2 %, %3 )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A7ADF4E0277for4A794CA201BF*
+; // pas_PropertyMethodImplementation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс методов для свойства
+//%f _pas_PropertyMethodInterface
+: pas_PropertyMethodInterface OBJECT IN %S
+//#UC START# *4A7ADF400052for4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	%S%[inherited]f_pas_PropertyMethodInterface(%1,%2,%3)]\
+  call-inherited pas_PropertyMethodInterface %( %1 %, %2 %, %3 )%
+ end // if
+//	<{}{%C#f_IsControl()=true}[\n%C%f_pas_PropertyMethodInterface(%1,%2,%3)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsControl %( )% ) %==  true ) then
+  begin
+   if NOT-EMPTY
+   begin
+    #13#10
+    %C %f pas_PropertyMethodInterface %( %1 %, %2 %, %3 )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A7ADF400052for4A794CA201BF*
+; // pas_PropertyMethodInterface
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// документация отсутствует
+//%f _pas_dump_Property
+: pas_dump_Property OBJECT IN %S
+//#UC START# *4A7ADFAE0118for4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	%S%[inherited]]\
+  inherited
+ end // if
+//	<{}{%C#f_IsControl()=true}[\n%C%f_pas_dump_Property()]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsControl %( )% ) %==  true ) then
+  begin
+   if NOT-EMPTY
+   begin
+    #13#10
+    %C %f pas_dump_Property %( )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A7ADFAE0118for4A794CA201BF*
+; // pas_dump_Property
+
+
+// перекрытие базового стереотипа ClassBase::Class::property::Attribute
+// Выводит поле для свойства
+//%f _pas_OutField
+: pas_OutField OBJECT IN %S
+//#UC START# *4A797AC90346for4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	%S%[inherited]]\
+  inherited
+ end // if
+//	<[\n%C#f_pas_OutField()]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if NOT-EMPTY
+   begin
+    #13#10
+    %C %?f pas_OutField %( )% 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//%f _SpellField
+; // pas_OutField
+
+: SpellField OBJECT IN %S
+//	[{%S%f_IsOverride()!=true}\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	%S%[inherited]]
+  inherited
+ end // if
+//	<[\n%C#f_SpellField()\
+//	]>
+//#UC END# *4A797AC90346for4A794CA201BF*
+; // SpellField
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+//~ Control::Class::property::Attribute::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Control>>
+

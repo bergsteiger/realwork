@@ -1,0 +1,4416 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/AbstractFacet.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::AbstractFacet
+//
+// Базовый стереотип фасета
+// ---
+// Определяет свойства и элементы общие для всех стереотипов, определяеющих поведение.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: AbstractFacet::Class
+implementation @ <<AbstractFacet>>
+//? Базовый стереотип фасета
+//? Определяет свойства и элементы общие для всех стереотипов, определяеющих поведение.
+//> Enum::Class
+//> Constants::Class
+
+//= WikiImplClass::Class
+//= WithFactory::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#
+// - типы видимости
+//Y code_facet.gif
+//L code_facet
+// Параметры визуализации
+//$ C 215,215,255
+//$ l 10,10,255
+//$ f 10,10,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p call way=forth|back|both ? Указывает тип интерфейса экспортируемого из компоненты. forth - прямой (интерфейс реализуется внутри ДЛЛ); back - обратный (callback interface, реализуется клиентом компоненты); both - возможны оба варианта реализации интерфейса (на данный момент не поддерживается)
+//p is default ancestor:b=false ? является ли предком по-умолчанию
+//p native definition=none|C++ interface|DLL outside ? определяет что интерфейс является "родным" (внешне определенным в пространстве видимости применения пакета). C++ interface - родной для С++ реализации компоненты; DLL outside - родной для клиента компоненты
+//p debug tie log:b=false ? Нужно ли генерить код логирования вызовов всех  определённых tie-методов
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{call way}"!="%S{!call way}"}%f_up_prefix(%S) *call way* = *%S{call way}* - Указывает тип интерфейса экспортируемого из компоненты. forth - прямой (интерфейс реализуется внутри ДЛЛ); back - обратный (callback interface, реализуется клиентом компоненты); both - возможны оба варианта реализации интерфейса (на данный момент не поддерживается)
+ ?inherited
+ if ( ( %S get_up ( 'call way' ) ) %!= ( %S get_up_def ( 'call way' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *call way* = *'
+  %S get_up ( 'call way' ) '* - Указывает тип интерфейса экспортируемого из компоненты. forth - прямой (интерфейс реализуется внутри ДЛЛ); back - обратный (callback interface, реализуется клиентом компоненты); both - возможны оба варианта реализации интерфейса (на данный момент не поддерживается)'
+//	][{"%S{is default ancestor}"!="%S{!is default ancestor}"}%f_up_prefix(%S) *is default ancestor* = *%S{is default ancestor}* - является ли предком по-умолчанию
+ end // if
+ if ( ( %S get_up ( 'is default ancestor' ) ) %!= ( %S get_up_def ( 'is default ancestor' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is default ancestor* = *'
+  %S get_up ( 'is default ancestor' ) '* - является ли предком по-умолчанию'
+//	][{"%S{native definition}"!="%S{!native definition}"}%f_up_prefix(%S) *native definition* = *%S{native definition}* - определяет что интерфейс является "родным" (внешне определенным в пространстве видимости применения пакета). C++ interface - родной для С++ реализации компоненты; DLL outside - родной для клиента компоненты
+ end // if
+ if ( ( %S get_up ( 'native definition' ) ) %!= ( %S get_up_def ( 'native definition' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *native definition* = *'
+  %S get_up ( 'native definition' ) '* - определяет что интерфейс является "родным" (внешне определенным в пространстве видимости применения пакета). C++ interface - родной для С++ реализации компоненты; DLL outside - родной для клиента компоненты'
+//	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Нужно ли генерить код логирования вызовов всех  определённых tie-методов
+ end // if
+ if ( ( %S get_up ( 'debug tie log' ) ) %!= ( %S get_up_def ( 'debug tie log' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *debug tie log* = *'
+  %S get_up ( 'debug tie log' ) '* - Нужно ли генерить код логирования вызовов всех  определённых tie-методов'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F704E00AB*
+//c          {}
+//r {"<{}{%t_check_type(%G,"%SM")=false}{%GC}>"!="0"}:   {%SS can inherit only from Facet}
+//r {<{}{%t_check_type(%R,"Facet::Class")=false&%R#f_IsPureMixIn()!=true&%t_check_type(%R,"StateMachine::Class")=false}{%RC}>!=0}:        {%SS can realize only StateMachine}
+//r {<{}{%CC=Attribute&%Cl=ref}{C}>!=0}:                                          {%SS не может иметь ref связи}
+//r {%Sa!=abstract&%f_need_check_access(%S)=true&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%a#f_IsUseCase()=true}{C}>=0}: {%SS не используется ни в одном прецеденте}
+
+//проверяет, что фасет находится в классе реализации и видимость его не Public
+//f _need_check_access
+; // constraint
+
+end. // <<AbstractFacet>>
+
+: need_check_access OBJECT IN %S
+//	[{%t_nested_scope_def(%P)=true}{true}[{%SV=PublicAccess}{false}true]]
+ if ( ( [%t] nested_scope_def %( %P )% ) %==  true ) then
+ begin
+  if ( ( %S |V ) %== 'PublicAccess' ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *4704C0E30186for470F704E00AB*
+; // need_check_access
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент может реализовываться классом
+//%f _ClassImplementable
+implementation @ <<AbstractFacet>>
+: ClassImplementable OBJECT IN %S
+//#UC START# *49551CA202CFfor470F704E00AB*
+//	true
+ true
+//#UC END# *49551CA202CFfor470F704E00AB*
+; // ClassImplementable
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является интерфейсом
+//%f _IsInterface
+: IsInterface OBJECT IN %S
+//#UC START# *49809333028Cfor470F704E00AB*
+//	true
+ true
+//#UC END# *49809333028Cfor470F704E00AB*
+; // IsInterface
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for470F704E00AB*
+//#UC END# *4705C54B01F4for470F704E00AB*
+; // fctr.cpp
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for470F704E00AB*
+//#UC END# *4705C5490109for470F704E00AB*
+; // fctr.h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F704E00AB*
+//F class %SN;
+//	%f_set_var(INT,S)%f_set_var(SERV,S)[
+ [%f] set_var %( 'INT' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% if NOT-EMPTY
+ begin
+  #13#10
+
+//	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  '// oneway methods impl'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'oneway'  ) OR 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) then
+   begin
+    #13#10
+
+//	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+    [%f] servant_cpp_oneway_operation_thr_cpp %( %C )% 
+//	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+
+    ++! l_Counter
+   end // if
+  end // for C
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'oneway'  ) OR 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) then
+   begin
+    #13#10
+
+//	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+    [%f] servant_cpp_oneway_operation_impl_cpp %( %C )% 
+//	>]
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//#UC END# *47022CB8034Bfor470F704E00AB*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F704E00AB*
+//F class %SN;
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#%SF
+ end // if
+ NOP
+ out_indent %S |F 
+//	[{%S{no_root_class}=false}#typedef ::Core::Var\<%SN\> %SN_var;
+ if ( ( %S get_up ( 'no_root_class' ) ) %==  false ) then
+ begin
+  out_indent 'typedef ::Core::Var<'
+  %S |N '> '
+  %S |N '_var;'
+//	#typedef ::Core::Var\<const %SN\> %SN_cvar;
+  out_indent 'typedef ::Core::Var<const '
+  %S |N '> '
+  %S |N '_cvar;'
+//	][
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	<#%FF
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%F
+  begin
+   OBJECT IN %F
+   if true then
+   begin
+    out_indent %F |F 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for F
+//	]%f_docs(%S)\
+ end // if
+ NOP
+ [%f] docs %( %S )% 
+//	#class %SN[
+ out_indent 'class '
+ %S |N if NOT-EMPTY
+ begin
+  #13#10
+
+//	#	%S%f_inheritance_dump()]
+  out_indent '	'
+  %S %f inheritance_dump %( )% 
+ end // if
+ NOP
+//	#{
+ out_indent '{'
+//	[#public:<{}{}{Sn}[
+ if NOT-EMPTY
+ begin
+  out_indent 'public:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//	%CX
+     %C |X 
+//	]>][
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	// oneway methods impl
+  '// oneway methods impl'
+//	private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  'private:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'oneway'  ) OR 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) then
+   begin
+    #13#10
+
+//	%f_servant_cpp_oneway_operation_thr_h(%C)
+    [%f] servant_cpp_oneway_operation_thr_h %( %C )% 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  'protected:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'oneway'  ) OR 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) then
+   begin
+    #13#10
+
+//	%f_servant_cpp_oneway_operation_impl_h(%C)
+    [%f] servant_cpp_oneway_operation_impl_h %( %C )% 
+//	>]#};][
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ out_indent '};]'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+
+//%f _inheritance_dump
+; // h
+
+: inheritance_dump OBJECT IN %S
+//	[: [{}{[{%S{no_root_class}=false}virtual public ::Core::IObject]}<{\n#\t, }virtual public %f_type(%G)>]]
+ if NOT-EMPTY
+ begin
+  ': '
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( #13#10
+     out_indent #9', ' )
+     'virtual public '
+     [%f] type %( %G )% 
+     ++! l_Counter
+    end // if
+   end // for G
+  end // if
+  NOP
+  else
+  begin
+   if ( ( %S get_up ( 'no_root_class' ) ) %==  false ) then
+   begin
+    'virtual public ::Core::IObject' 
+   end // if
+  end // else
+ end // if
+ NOP
+//#UC END# *47022C88029Ffor470F704E00AB*
+; // inheritance_dump
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F704E00AB*
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F15B800CBfor470F704E00AB*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F704E00AB*
+//F %f_pas_OutInterfaceForward(%S)
+//	[{%f_exists_in_list(GENERATED_INTF,S)!=true}\
+ if ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, 'S' )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(GENERATED_INTF,S)\
+  [%f] add_to_list %( 'GENERATED_INTF' %, 'S' )% 
+//	<{}{%f_exists_in_list(GENERATED_INTF,G)!=true&%f_pas_IsSameUnit(%S%P,%G%P))=true}[%GX\n]>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, 'G' )% ) %!=  true AND 
+    ( ( [%f] pas_IsSameUnit %( %S ->P  %, %G ->P  )% ) ')' %==  true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %G |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for P
+//	[\n%S%f_open_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	[<{}{%CC=Class&%C%GU=%SU}\n%CF>]\
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Class' AND 
+     ( ( %C ->G |U  ) %== ( %S |U )  ) ) then
+    begin
+     #13#10
+     %C |F 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	[<{}{%CC=Class&%C%GU!=%SU&%C%f_IsClassInner()!=true}%CX\n>]\
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Class' AND 
+     ( ( %C ->G |U  ) %!= ( %S |U )  ) AND 
+     ( ( %C %f IsClassInner %( )% ) %!=  true  ) ) then
+    begin
+     %C |X #13#10 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	%f_pas_OpenType(%S)\
+  [%f] pas_OpenType %( %S )% 
+
+//	[{%t_impl_class(%P)=true|%P#f_IsInterface()=true}\
+  if ( ( [%t] impl_class %( %P )% ) %==  true OR 
+    ( ( %P %?f IsInterface %( )% ) %==  true  ) ) then
+  begin
+//	[{<{}{%CC=Attribute&%C%TU=%PU}{C}>!=0}{\
+   if ( 
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Attribute' AND 
+      ( ( %C ->T |U  ) %== ( %P |U )  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+    %!= 0 ) then
+   begin
+//	%PF]\
+    %P |F 
+   end // if
+   else
+   begin
+//	[{<{}{%CC=Operation&%C%TU=%PU}{C}>!=0}{\
+    if ( 
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Operation' AND 
+       ( ( %C ->T |U  ) %== ( %P |U )  ) ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for C
+     l_Counter
+     %!= 0 ) then
+    begin
+     %P |F 
+    end // if
+    else
+    begin
+//	[{<{}{%CC=Operation&%C<{}{%C%TU=%1%PU}{C}>!=0}{C}>!=0}%PF]\
+     if ( 
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |C ) %== 'Operation' AND 
+        ( ( %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( %C ->T |U  ) %== ( %1 ->P |U  ) ) then
+         begin
+
+          ++! l_Counter
+         end // if
+        end // for C
+        l_Counter
+
+       ) // bind
+ )        %!= 0  ) ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for C
+      l_Counter
+      %!= 0 ) then
+     begin
+      %P |F 
+     end // if
+//	}%PF]\
+    end // else
+//	}\
+   end // else
+//	]\
+  end // if
+
+
+//	<{}{%CC=Operation}%C<{}{%C%TU!=%1U&%f_pas_IsSameUnit(%C%T%P,%1%P)=true&%C%TS=SetOf}[%C%TX\n\n]>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' ) then
+   begin
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C ->T |U  ) %!= ( %1 |U ) AND 
+       ( ( [%f] pas_IsSameUnit %( %C ->T ->P   %, %1 ->P  )% ) %==  true  ) AND 
+       ( ( %C ->T |S  ) %== 'SetOf'  ) ) then
+      begin
+       if NOT-EMPTY
+       begin
+        %C ->T |X  #13#10#13#10 
+       end // if
+       NOP
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for C
+//	<{}{%CC=Operation}%C<{}{%C%TU!=%1U&%f_pas_IsSameUnit(%C%T%P,%1%P)=true&%C%TS=Enum}[%C%TX\n\n]>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' ) then
+   begin
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C ->T |U  ) %!= ( %1 |U ) AND 
+       ( ( [%f] pas_IsSameUnit %( %C ->T ->P   %, %1 ->P  )% ) %==  true  ) AND 
+       ( ( %C ->T |S  ) %== 'Enum'  ) ) then
+      begin
+       if NOT-EMPTY
+       begin
+        %C ->T |X  #13#10#13#10 
+       end // if
+       NOP
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for C
+//	<{}{%CC=Operation}%C<{}{%C%TU!=%1U&%f_pas_IsSameUnit(%C%T%P,%1%P)=true&%C%TS=Typedef}[%C%TX\n\n]>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' ) then
+   begin
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C ->T |U  ) %!= ( %1 |U ) AND 
+       ( ( [%f] pas_IsSameUnit %( %C ->T ->P   %, %1 ->P  )% ) %==  true  ) AND 
+       ( ( %C ->T |S  ) %== 'Typedef'  ) ) then
+      begin
+       if NOT-EMPTY
+       begin
+        %C ->T |X  #13#10#13#10 
+       end // if
+       NOP
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for C
+//	<{}{%CC=Operation}%C<{}{%C%TU!=%1U&%f_pas_IsSameUnit(%C%T%P,%1%P)=true&%C%T#f_IsInterface()=true}%C%TF>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' ) then
+   begin
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C ->T |U  ) %!= ( %1 |U ) AND 
+       ( ( [%f] pas_IsSameUnit %( %C ->T ->P   %, %1 ->P  )% ) %==  true  ) AND 
+       ( ( %C ->T %?f IsInterface %( )%  ) %==  true  ) ) then
+      begin
+       %C ->T |F  
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for C
+
+// - генерируем предварительные описания параметров
+
+
+//	<{}{%CS=impurity value}%f_set_var(%CN,"%f_pas_TypeName(%C%T)")>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'impurity value' ) then
+   begin
+    [%f] set_var %( %C |N %, [%f] pas_TypeName %( %C ->T  )% )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	 %f_pas_TypeName(%S) = interface[(%f_pas_InterfaceAncestor(%S)[\{, <{, }{%R#f_IsPureMixIn()!=true}%f_pas_TypeName(%R)>\}])]\
+  ' '
+  [%f] pas_TypeName %( %S )% ' = interface'
+  if NOT-EMPTY
+  begin
+   '('
+   [%f] pas_InterfaceAncestor %( %S )% if NOT-EMPTY
+   begin
+    '{, '
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R %?f IsPureMixIn %( )% ) %!=  true ) then
+     begin
+      if ( l_Counter >0 ) then ( ', ' )
+      [%f] pas_TypeName %( %R )% 
+      ++! l_Counter
+     end // if
+    end // for R
+    '}' 
+   end // if
+   NOP
+   ')' 
+  end // if
+  NOP
+//	[\n  \{* %f_Doc(%S) \}]
+  if NOT-EMPTY
+  begin
+   #13#10'  {* '
+   [%f] Doc %( %S )% ' }' 
+  end // if
+  NOP
+//	   \['{%SG}'\]
+  '   [''{'
+  %S |G '}'']'
+//	%f_pas_OutFacetBody(%S)\
+  [%f] pas_OutFacetBody %( %S )% 
+//	<{}{%R#f_IsPureMixIn()=true}[  // %RN\n\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R %?f IsPureMixIn %( )% ) %==  true ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '  // '
+     %R |N #13#10
+//	%f_pas_OutFacetBody(%R)]\
+     [%f] pas_OutFacetBody %( %R )% 
+    end // if
+    NOP
+//	%R<{}{%g#f_IsPureMixIn()=true}[  // %gN\n\
+    %R
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%g
+     begin
+      OBJECT IN %g
+      if ( ( %g %?f IsPureMixIn %( )% ) %==  true ) then
+      begin
+       if NOT-EMPTY
+       begin
+        '  // '
+        %g |N #13#10
+//	%f_pas_OutFacetBody(%g)]>\
+        [%f] pas_OutFacetBody %( %g )% 
+       end // if
+       NOP
+
+       ++! l_Counter
+      end // if
+     end // for g
+
+    ) // bind
+ //	%R<{}{%r#f_IsPureMixIn()=true}[  // %rN\n\
+    %R
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%r
+     begin
+      OBJECT IN %r
+      if ( ( %r %?f IsPureMixIn %( )% ) %==  true ) then
+      begin
+       if NOT-EMPTY
+       begin
+        '  // '
+        %r |N #13#10
+//	%f_pas_OutFacetBody(%r)]>\
+        [%f] pas_OutFacetBody %( %r )% 
+       end // if
+       NOP
+
+       ++! l_Counter
+      end // if
+     end // for r
+
+    ) // bind
+ //	>\
+
+    ++! l_Counter
+   end // if
+  end // for R
+//	 end;//%f_pas_TypeName(%S)\
+  ' end;//'
+  [%f] pas_TypeName %( %S )% 
+//	%f_add_to_list(FORWARDED_INTF,S)\
+  [%f] add_to_list %( 'FORWARDED_INTF' %, 'S' )% 
+
+//	%S%f_pas_ForwardPointers()\
+  %S %f pas_ForwardPointers %( )% 
+
+//	[<{}{%CC=Class&%C%GU=%SU&%C%f_IsClassInner()!=true}\n%CX>]\
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Class' AND 
+     ( ( %C ->G |U  ) %== ( %S |U )  ) AND 
+     ( ( %C %f IsClassInner %( )% ) %!=  true  ) ) then
+    begin
+     #13#10
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	[\n%S%f_close_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   %S %f close_ifdef %( )% 
+  end // if
+  NOP
+//	<{}{%CS=impurity value}%f_set_var(%CN,"")>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'impurity value' ) then
+   begin
+    [%f] set_var %( %C |N %, '' )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+//#UC END# *470F1571031Cfor470F704E00AB*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F704E00AB*
+//#UC END# *470321C1038Afor470F704E00AB*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F704E00AB*
+//O %SN.java
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	%f_set_var(INT,S)package %f_java_type_package(%S,"%SN");
+ [%f] set_var %( 'INT' %, 'S' )% 'package '
+ [%f] java_type_package %( %S %, %S |N )% ';'
+//	
+//	<%C<%f_java_import(%w)
+//	>>
+//	<{}{"%iC"!="Category"}{%i}%f_java_import(%i)
+//	><{}{"%f_set_var(ARG,C)%{INT}<{}{%iU=%{ARG}%TU}{C}>"="0"&%CC=Attribute&%C%TM!=UMLPrimitive::Class&%f_can_dump_attr(%C%T)=true}{%C}%f_java_import(%C%T)
+//	>
+//	[{"%f_has_factory_methods(%S)"="true"}%f_java_core_exceptions(%S)
+ if ( ( [%f] has_factory_methods %( %S )% ) %== true ) then
+ begin
+  [%f] java_core_exceptions %( %S )% 
+//	][%f_java_dump_import_block(%S)
+ end // if
+ if NOT-EMPTY
+ begin
+  [%f] java_dump_import_block %( %S )% 
+//	][{%f_is_server_type(%S)=true}
+ end // if
+ NOP
+ if ( ( [%f] is_server_type %( %S )% ) %==  true ) then
+ begin
+  #13#10
+
+//	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHomeFactory;
+  'import '
+  [%f] dump_java_package %( %P )% '.'
+  %P ->P %f name_prefix %( )%  'LibHomeFactory;'
+//	]
+ end // if
+//	%t_visibility(%S,"%XU")interface %SN[
+ [%t] visibility %( %S %, %X |U )% 'interface '
+ %S |N if NOT-EMPTY
+ begin
+  #13#10
+
+//		extends <{\t\t, }%f_type(%G)
+  '	extends '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #9#9', ' )
+    [%f] type %( %G )% 
+//	>[{%Gx=true&%Rx=true}\t\t, ]<{\t\t, }%f_type(%R)[{%{INT}S=LocalInterface&%f_use_as_srv_type(%R)=true}Operations]
+
+    ++! l_Counter
+   end // if
+  end // for G
+  if ( ( %G |x ) %==  true AND 
+    ( ( %R |x ) %==  true  ) ) then
+  begin
+   #9#9', ' 
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( #9#9', ' )
+    [%f] type %( %R )% if ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'LocalInterface' AND 
+      ( ( [%f] use_as_srv_type %( %R )% ) %==  true  ) ) then
+    begin
+     'Operations' 
+    end // if
+//	>][{%Gx=false&%Rx=false} ]{
+
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+ if ( ( %G |x ) %==  false AND 
+   ( ( %R |x ) %==  false  ) ) then
+ begin
+  ' ' 
+ end // if
+ '{'
+//	[#<{}{"%f_is_factory(%C)"="false"&%CV=PublicAccess}{Sn}[
+ if NOT-EMPTY
+ begin
+  out_indent 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %== false AND 
+    ( ( %C |V ) %== 'PublicAccess'  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//	%CX
+     %C |X 
+//	]>][%f_shift_intend(1)
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  [%f] shift_intend %( 1 )% 
+//	%f_dump_private_interface_java(%S)%f_shift_intend(-1)][%f_shift_intend(1)
+  [%f] dump_private_interface_java %( %S )% [%f] shift_intend %( -1 )% 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  [%f] shift_intend %( 1 )% 
+//	%f_dump_java_factory(%S)%f_shift_intend(-1)]
+  [%f] dump_java_factory %( %S )% [%f] shift_intend %( -1 )% 
+ end // if
+ NOP
+//	} //interface %SN
+ '} //interface '
+ %S |N 
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *470321950119for470F704E00AB*
+; // java
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F704E00AB*
+//P
+//	[%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  %S %f open_ifdef %( )% 
+//	]%f_set_var(INT,S)\
+ end // if
+ NOP
+ [%f] set_var %( 'INT' %, 'S' )% 
+//	%f_set_var(SERV,"")\
+ [%f] set_var %( 'SERV' %, '' )% 
+//	[{"%S{call way}"!="back"}%f_tie_object_refcount_base_cpp(%S)
+ if ( ( %S get_up ( 'call way' ) ) %!= 'back' ) then
+ begin
+  [%f] tie_object_refcount_base_cpp %( %S )% 
+//	
+  #13#10
+
+//	][{"%S{native definition}"!="DLL outside"}{// user defined TIE-wrapper for native outside interafce
+ end // if
+ if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+ begin
+  [%f] set_var %( 'OWNER' %, 'S' )% if NOT-EMPTY
+  begin
+   [%f] dump_tie_operation_cpp %( %S )% 
+//	]<{}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}[%CX\n\n]>][{"%S{call way}"="back"}
+  end // if
+  NOP
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %== false AND 
+    ( ( %C get_up ( 'dll export' ) ) %== true  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10#13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ else
+ begin
+  '// user defined TIE-wrapper for native outside interafce'
+//	%U[
+  %Usersection (
+
+  )
+  (
+   #13#10
+
+//	]
+
+  ) // Usersection
+ //	}%f_set_var(OWNER,S)[%f_dump_tie_operation_cpp(%S)
+ end // else
+ if ( ( %S get_up ( 'call way' ) ) %== 'back' ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	%SN_callback_tie::%SN_callback_tie () : m_impl(NULL), m_counter (1) {
+  %S |N '_callback_tie::'
+  %S |N '_callback_tie () : m_impl(NULL), m_counter (1) {'
+//	}
+  '}'
+//	
+  #13#10
+
+//	unsigned long %SN_callback_tie::release () const {
+  'unsigned long '
+  %S |N '_callback_tie::release () const {'
+//		long const counter = --m_counter;
+  '	long const counter = --m_counter;'
+//	
+  #13#10
+
+//		if (counter == 0) {
+  '	if (counter == 0) {'
+//			m_counter = 1;
+  '		m_counter = 1;'
+//			m_impl-\>release();
+  '		m_impl->release();'
+//			m_impl = NULL;
+  '		m_impl = NULL;'
+//			MyPool::instance()-\>release_obj(const_cast\<%SN_callback_tie* const\>(this));
+  '		MyPool::instance()->release_obj(const_cast<'
+  %S |N '_callback_tie* const>(this));'
+//		}
+  '	}'
+//		return counter;
+  '	return counter;'
+//	}
+  '}'
+//	
+  #13#10
+
+//	unsigned long %SN_callback_tie::addref () const {
+  'unsigned long '
+  %S |N '_callback_tie::addref () const {'
+//			return ++m_counter;
+  '		return ++m_counter;'
+//		}
+  '	}'
+//	
+  #13#10
+
+//	unsigned long %SN_callback_tie::ref_count () const {
+  'unsigned long '
+  %S |N '_callback_tie::ref_count () const {'
+//		return m_counter.value ();
+  '	return m_counter.value ();'
+//	}
+  '}'
+//	
+  #13#10
+
+//	void %SN_callback_tie::init () {
+  'void '
+  %S |N '_callback_tie::init () {'
+//	}
+  '}'
+//	
+  #13#10
+
+//	void %SN_callback_tie::done () {
+  'void '
+  %S |N '_callback_tie::done () {'
+//		m_impl = NULL;
+  '	m_impl = NULL;'
+//	}
+  '}'
+//	
+  #13#10
+
+//	void I%SN_tie::make_cpp (const I%SN_tie* obj, %SN*& ret_, bool interface_addref) {
+  'void I'
+  %S |N '_tie::make_cpp (const I'
+  %S |N '_tie* obj, '
+  %S |N '*& ret_, bool interface_addref) {'
+//		if (!obj) {
+  '	if (!obj) {'
+//			ret_ = NULL;
+  '		ret_ = NULL;'
+//		} else {
+  '	} else {'
+//			%SN_callback_tie* ret = %SN_callback_tie::MyPool::instance()-\>new_obj();
+  '		'
+  %S |N '_callback_tie* ret = '
+  %S |N '_callback_tie::MyPool::instance()->new_obj();'
+//			ret-\>m_impl = const_cast\<I%SN_tie*\>(obj);
+  '		ret->m_impl = const_cast<I'
+  %S |N '_tie*>(obj);'
+//			ret-\>m_impl-\>addref ();
+  '		ret->m_impl->addref ();'
+//			ret_ = ret;
+  '		ret_ = ret;'
+//		}
+  '	}'
+//	}
+  '}'
+//	
+  #13#10
+
+//	void I%SN_tie::make_tie (I%SN_tie* obj, %SN_callback_tie*& ret_) {
+  'void I'
+  %S |N '_tie::make_tie (I'
+  %S |N '_tie* obj, '
+  %S |N '_callback_tie*& ret_) {'
+//		if (!obj) {
+  '	if (!obj) {'
+//			ret_ = NULL;
+  '		ret_ = NULL;'
+//		} else {
+  '	} else {'
+//			//ret_ = MyPool::instance()-\>new_obj();
+  '		//ret_ = MyPool::instance()->new_obj();'
+//			//ret_-\>m_impl = obj;
+  '		//ret_->m_impl = obj;'
+//		}
+  '	}'
+//	}][
+  '}' 
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47032ED002DEfor470F704E00AB*
+; // dll.cpp
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F704E00AB*
+//F class I%SN_tie;\nclass %SN_tie;
+//	[%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  %S %f open_ifdef %( )% 
+//	]<%FF
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%F
+ begin
+  OBJECT IN %F
+  if true then
+  begin
+   %F |F 
+//	
+   #13#10
+
+//	>%f_set_var(INT,S)\
+
+   ++! l_Counter
+  end // if
+ end // for F
+ [%f] set_var %( 'INT' %, 'S' )% 
+//	%f_set_var(SERV,"")\
+ [%f] set_var %( 'SERV' %, '' )% 
+//	[{"%S{call way}"="forth"}%f_select_main_base(%S)\
+ if ( ( %S get_up ( 'call way' ) ) %== 'forth' ) then
+ begin
+  [%f] select_main_base %( %S )% 
+//	class I%SN_tie: public [{"%S{native definition}"!="DLL outside"}{::Core::TIEBase}[{"%{MAIN_BASE}U"!=""}{::Core::IIObject_tie}%f_type(%{MAIN_BASE})]] {
+  'class I'
+  %S |N '_tie: public '
+  if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+  begin
+   if ( ( ( get_global_var ( 'MAIN_BASE' ) |U ) ) %!= '' ) then
+   begin
+    [%f] type %( ( get_global_var ( 'MAIN_BASE' ) ) )% 
+   end // if
+   else
+   begin
+    '::Core::IIObject_tie' 
+   end // else
+  end // if
+  else
+  begin
+   '::Core::TIEBase' 
+  end // else
+  ' {'
+//	[public:[{"%S{native definition}"!="DLL outside"}
+  if NOT-EMPTY
+  begin
+   'public:'
+   if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+   begin
+    #13#10
+
+//	<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}[{%CC=Operation}{%f_tie_attribute_dll_h(%C,"interface")}%f_tie_operation_dll_h(%C,"interface")]>
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%Cn
+    begin
+     OBJECT IN %C
+     if ( ( [%f] is_factory %( %C )% ) %== false AND 
+      ( ( %C get_up ( 'dll export' ) ) %== true  ) ) then
+     begin
+      if ( l_Counter >0 ) then ( #13#10#13#10 )
+      if ( ( %C |C ) %== 'Operation' ) then
+      begin
+       [%f] tie_operation_dll_h %( %C %, 'interface' )% 
+      end // if
+      else
+      begin
+       [%f] tie_attribute_dll_h %( %C %, 'interface' )% 
+      end // else
+
+      ++! l_Counter
+     end // if
+    end // for C
+//	][{"%S{native definition}"="DLL outside"}
+   end // if
+   if ( ( %S get_up ( 'native definition' ) ) %== 'DLL outside' ) then
+   begin
+    #13#10
+
+//	// user defined TIE-wrapper for native outside interafce
+    '// user defined TIE-wrapper for native outside interafce'
+//		%U[{_INTERFACE}
+    '	'
+    %Usersection (
+     '_INTERFACE' 
+    )
+    (
+     #13#10
+
+//		]
+     '	' 
+    ) // Usersection
+ //	]]};
+   end // if
+  end // if
+  NOP
+  '};'
+//	
+  #13#10
+
+//	class __declspec (dllexport) %SN_tie: public I%SN_tie {
+  'class __declspec (dllexport) '
+  %S |N '_tie: public I'
+  %S |N '_tie {'
+//		SET_OBJECT_COUNTER (%SN_tie)
+  '	SET_OBJECT_COUNTER ('
+  %S |N '_tie)'
+//	protected:
+  'protected:'
+//	%f_tie_object_refcount_base_h(%S)
+  [%f] tie_object_refcount_base_h %( %S )% 
+//	
+  #13#10
+
+//	protected:
+  'protected:'
+//	[{"%S{native definition}"!="DLL outside"}{// user defined TIE-wrapper for native outside interafce
+  if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] dump_tie_operation_h %( %S )% 
+//	]<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}%CX>]
+   end // if
+   NOP
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( [%f] is_factory %( %C )% ) %== false AND 
+     ( ( %C get_up ( 'dll export' ) ) %== true  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10#13#10 )
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  else
+  begin
+   '// user defined TIE-wrapper for native outside interafce'
+//		%U[
+   '	'
+   %Usersection (
+
+   )
+   (
+    #13#10
+
+//		]
+    '	' 
+   ) // Usersection
+ //	}[%f_dump_tie_operation_h(%S)
+  end // else
+//	};][{"%S{call way}"="back"}
+  '};' 
+ end // if
+ if ( ( %S get_up ( 'call way' ) ) %== 'back' ) then
+ begin
+  #13#10
+
+//	class I%SN_tie;
+  'class I'
+  %S |N '_tie;'
+//	
+  #13#10
+
+//	// callback only cpp-wraper
+  '// callback only cpp-wraper'
+//	class %SN_callback_tie : virtual public %SN, virtual public ::Core::IObject {
+  'class '
+  %S |N '_callback_tie : virtual public '
+  %S |N ', virtual public ::Core::IObject {'
+//		SET_OBJECT_COUNTER (%SN_callback_tie)
+  '	SET_OBJECT_COUNTER ('
+  %S |N '_callback_tie)'
+//		friend class I%SN_tie;
+  '	friend class I'
+  %S |N '_tie;'
+//	protected:
+  'protected:'
+//		virtual unsigned long addref () const;
+  '	virtual unsigned long addref () const;'
+//	
+  #13#10
+
+//		virtual unsigned long ref_count () const;
+  '	virtual unsigned long ref_count () const;'
+//	
+  #13#10
+
+//	public:
+  'public:'
+//		virtual unsigned long release () const;
+  '	virtual unsigned long release () const;'
+//	[<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}%f_cpp_children_cb_tie_h(%C)>>
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for downto %S%g
+   begin
+    OBJECT IN %g
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( #13#10#13#10 )
+     %g
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%Cn
+      begin
+       OBJECT IN %C
+       if ( ( [%f] is_factory %( %C )% ) %== false AND 
+        ( ( %C get_up ( 'dll export' ) ) %== true  ) ) then
+       begin
+        if ( l_Counter >0 ) then ( #13#10#13#10 )
+        [%f] cpp_children_cb_tie_h %( %C )% 
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for g
+//	]<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}%f_cpp_children_cb_tie_h(%C)>
+  end // if
+  NOP
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %== false AND 
+    ( ( %C get_up ( 'dll export' ) ) %== true  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10#13#10 )
+    [%f] cpp_children_cb_tie_h %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	
+  #13#10
+
+//		%SN_callback_tie ();
+  '	'
+  %S |N '_callback_tie ();'
+//	
+  #13#10
+
+//		mutable ACE_Atomic_Op \<ACE_Thread_Mutex, long\> m_counter;
+  '	mutable ACE_Atomic_Op <ACE_Thread_Mutex, long> m_counter;'
+
+
+//	// For ObjectPool's objects initialization and destruction
+  '// For ObjectPool's objects initialization and destruction'
+//	public:
+  'public:'
+//		void init ();
+  '	void init ();'
+//	
+  #13#10
+
+//		void done ();
+  '	void done ();'
+//	
+  #13#10
+
+//	protected:
+  'protected:'
+//		typedef ::Core::PoolObjectManager\<%SN_callback_tie\>::PoolObjectManagerSingleton MyPool;
+  '	typedef ::Core::PoolObjectManager<'
+  %S |N '_callback_tie>::PoolObjectManagerSingleton MyPool;'
+//		typedef ::Core::PoolObjectManager\<%SN_callback_tie\> Pool;
+  '	typedef ::Core::PoolObjectManager<'
+  %S |N '_callback_tie> Pool;'
+//		friend class ::Core::PoolObjectManager\<%SN_callback_tie\>;
+  '	friend class ::Core::PoolObjectManager<'
+  %S |N '_callback_tie>;'
+
+//		//static MyPool s_obj_pool;
+//		
+  '	'
+//	public:
+  'public:'
+//		mutable I%SN_tie* m_impl;
+  '	mutable I'
+  %S |N '_tie* m_impl;'
+//	};
+  '};'
+//	
+  #13#10
+
+//	// callback only abstarct interface
+  '// callback only abstarct interface'
+//	class I%SN_tie {
+  'class I'
+  %S |N '_tie {'
+//	public:
+  'public:'
+//		virtual unsigned long __stdcall query_interface (const ::Core::ComIID& iid, void*& object) = 0;	
+  '	virtual unsigned long __stdcall query_interface (const ::Core::ComIID& iid, void*& object) = 0;	'
+//		virtual unsigned long __stdcall addref () const = 0;
+  '	virtual unsigned long __stdcall addref () const = 0;'
+//		virtual unsigned long __stdcall release () const = 0;
+  '	virtual unsigned long __stdcall release () const = 0;'
+//	
+  #13#10
+
+//	[%f_dump_tie_operation_h(%S)
+  if NOT-EMPTY
+  begin
+   [%f] dump_tie_operation_h %( %S )% 
+//	]<{\n\n}{"%f_is_factory(%C)"="false"}{Sn}%CX>
+  end // if
+  NOP
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %== false ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10#13#10 )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+//	
+  #13#10
+
+//		static void make_cpp (const I%SN_tie* obj, %SN*& ret_, bool interface_addref = false);
+  '	static void make_cpp (const I'
+  %S |N '_tie* obj, '
+  %S |N '*& ret_, bool interface_addref = false);'
+//	
+  #13#10
+
+//		static void make_tie (I%SN_tie* obj, %SN_callback_tie*& ret_);
+  '	static void make_tie (I'
+  %S |N '_tie* obj, '
+  %S |N '_callback_tie*& ret_);'
+//	};
+  '};'
+//	][
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ end // if
+ NOP
+
+//выбираем главного предка интерфейса
+//f _select_main_base
+; // dll.h
+
+end. // <<AbstractFacet>>
+
+: select_main_base OBJECT IN %S
+//	%f_set_var(MAIN_BASE,"")\
+ [%f] set_var %( 'MAIN_BASE' %, '' )% 
+//	[{%Rx=true}[{<{}{}{%RC}>!=1}{%f_set_var(MAIN_BASE,R)}<{}{%t_check_type(%R,"Interface::Class")=true|%t_check_type(%R,"Facet::Class")=true}{%R}%f_set_var(MAIN_BASE,R)>]]\
+ if ( ( %R |x ) %==  true ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for R
+   l_Counter
+   %!= 1 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( [%t] check_type %( %R %, 'Interface::Class' )% ) %==  true OR 
+     ( ( [%t] check_type %( %R %, 'Facet::Class' )% ) %==  true  ) ) then
+    begin
+     [%f] set_var %( 'MAIN_BASE' %, 'R' )% 
+     ++! l_Counter
+    end // if
+   end // for R
+  end // if
+  else
+  begin
+   [%f] set_var %( 'MAIN_BASE' %, 'R' )% 
+  end // else
+ end // if
+//	[{%Rx=false}[{<{}{}{%GC}>!=1}{%f_set_var(MAIN_BASE,G)}<{}{%t_check_type(%G,"Interface::Class")=true}{%Gr}%f_set_var(MAIN_BASE,G)>]]
+ if ( ( %R |x ) %==  false ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %!= 1 ) then
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for downto %S%G
+   begin
+    OBJECT IN %G
+    if ( ( [%t] check_type %( %G %, 'Interface::Class' )% ) %==  true ) then
+    begin
+     [%f] set_var %( 'MAIN_BASE' %, 'G' )% 
+     ++! l_Counter
+    end // if
+   end // for G
+  end // if
+  else
+  begin
+   [%f] set_var %( 'MAIN_BASE' %, 'G' )% 
+  end // else
+ end // if
+
+//f _dump_tie_operation_h
+; // select_main_base
+
+: dump_tie_operation_h OBJECT IN %S
+//	%f_select_main_base(%S)\
+ [%f] select_main_base %( %S )% 
+//	[{"%{MAIN_BASE}U"!=""}%f_dump_tie_operation_h(%{MAIN_BASE})\
+ if ( ( ( get_global_var ( 'MAIN_BASE' ) |U ) ) %!= '' ) then
+ begin
+  [%f] dump_tie_operation_h %( ( get_global_var ( 'MAIN_BASE' ) ) )% 
+//	%f_select_main_base(%S)\
+  [%f] select_main_base %( %S )% 
+//	%{MAIN_BASE}<{\n\n}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"&%f_op_already_exist(%C)=false}[{%CC=Operation}{%f_tie_attribute_dll_h(%C)}\
+  ( get_global_var ( 'MAIN_BASE' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( [%f] is_factory %( %C )% ) %!= true AND 
+     ( ( %C get_up ( 'dll export' ) ) %== true  ) AND 
+     ( ( [%f] op_already_exist %( %C )% ) %==  false  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10#13#10 )
+     if ( ( %C |C ) %== 'Operation' ) then
+     begin
+//	%f_tie_operation_dll_h(%C)]>]
+      [%f] tie_operation_dll_h %( %C )% 
+     end // if
+     else
+     begin
+      [%f] tie_attribute_dll_h %( %C )% 
+     end // else
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+ end // if
+
+//f _dump_inherit_tie_operation_h
+; // dump_tie_operation_h
+
+: dump_inherit_tie_operation_h OBJECT IN %S
+//	<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"&%f_op_already_exist(%C)=false}[{%CC=Operation}{%f_tie_attribute_dll_h(%C)}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for downto %S%g
+ begin
+  OBJECT IN %g
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( #13#10#13#10 )
+   %g
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( [%f] is_factory %( %C )% ) %!= true AND 
+      ( ( %C get_up ( 'dll export' ) ) %== true  ) AND 
+      ( ( [%f] op_already_exist %( %C )% ) %==  false  ) ) then
+     begin
+      if ( l_Counter >0 ) then ( #13#10#13#10 )
+      if ( ( %C |C ) %== 'Operation' ) then
+      begin
+//	%f_tie_operation_dll_h(%C)]>>
+       [%f] tie_operation_dll_h %( %C )% 
+      end // if
+      else
+      begin
+       [%f] tie_attribute_dll_h %( %C )% 
+      end // else
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for g
+
+//f _dump_tie_operation_cpp
+; // dump_inherit_tie_operation_h
+
+: dump_tie_operation_cpp OBJECT IN %S
+//	%f_select_main_base(%S)\
+ [%f] select_main_base %( %S )% 
+//	[{"%{MAIN_BASE}U"!=""}%f_dump_tie_operation_cpp(%{MAIN_BASE})\
+ if ( ( ( get_global_var ( 'MAIN_BASE' ) |U ) ) %!= '' ) then
+ begin
+  [%f] dump_tie_operation_cpp %( ( get_global_var ( 'MAIN_BASE' ) ) )% 
+//	%f_select_main_base(%S)\
+  [%f] select_main_base %( %S )% 
+//	%{MAIN_BASE}<{\n\n}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"&%f_op_already_exist(%C)=false}[{%CC=Operation}{%f_tie_attribute_dll_cpp_impl(%C)}\
+  ( get_global_var ( 'MAIN_BASE' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( [%f] is_factory %( %C )% ) %!= true AND 
+     ( ( %C get_up ( 'dll export' ) ) %== true  ) AND 
+     ( ( [%f] op_already_exist %( %C )% ) %==  false  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10#13#10 )
+     if ( ( %C |C ) %== 'Operation' ) then
+     begin
+//	%f_tie_operation_dll_cpp_impl(%C)]>]
+      [%f] tie_operation_dll_cpp_impl %( %C )% 
+     end // if
+     else
+     begin
+      [%f] tie_attribute_dll_cpp_impl %( %C )% 
+     end // else
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+ end // if
+
+//f _dump_inherit_tie_operation_cpp
+; // dump_tie_operation_cpp
+
+: dump_inherit_tie_operation_cpp OBJECT IN %S
+//	<{\n\n}{}{r}%g<{\n\n}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"&%f_op_already_exist(%C)=false}[{%CC=Operation}{%f_tie_attribute_dll_cpp_impl(%C)}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for downto %S%g
+ begin
+  OBJECT IN %g
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( #13#10#13#10 )
+   %g
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( [%f] is_factory %( %C )% ) %!= true AND 
+      ( ( %C get_up ( 'dll export' ) ) %== true  ) AND 
+      ( ( [%f] op_already_exist %( %C )% ) %==  false  ) ) then
+     begin
+      if ( l_Counter >0 ) then ( #13#10#13#10 )
+      if ( ( %C |C ) %== 'Operation' ) then
+      begin
+//	%f_tie_operation_dll_cpp_impl(%C)]>>
+       [%f] tie_operation_dll_cpp_impl %( %C )% 
+      end // if
+      else
+      begin
+       [%f] tie_attribute_dll_cpp_impl %( %C )% 
+      end // else
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for g
+
+//f _op_already_exist
+; // dump_inherit_tie_operation_cpp
+
+: op_already_exist OBJECT IN %S
+//	%f_clear_list(INT_OPS_TIE)\
+ [%f] clear_list %( 'INT_OPS_TIE' )% 
+//	%{INT}<{}{"%f_is_factory(%C)"!="true"&"%C{dll export}"="true"}\
+ ( get_global_var ( 'INT' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %!= true AND 
+    ( ( %C get_up ( 'dll export' ) ) %== true  ) ) then
+   begin
+//	[{%CC=Operation}{%f_add_to_list(INT_OPS_TIE,"%f_tie_attribute_dll_h(%C)")}%f_add_to_list(INT_OPS_TIE,"%f_tie_operation_dll_h(%C)")]>\
+    if ( ( %C |C ) %== 'Operation' ) then
+    begin
+     [%f] add_to_list %( 'INT_OPS_TIE' %, [%f] tie_operation_dll_h %( %C )% )% 
+    end // if
+    else
+    begin
+     [%f] add_to_list %( 'INT_OPS_TIE' %, [%f] tie_attribute_dll_h %( %C )% )% 
+    end // else
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+//	[{%SC=Operation}{%f_exists_in_list(INT_OPS_TIE,"%f_tie_attribute_dll_h(%S)")}%f_exists_in_list(INT_OPS_TIE,"%f_tie_operation_dll_h(%S)")]
+ if ( ( %S |C ) %== 'Operation' ) then
+ begin
+  [%f] exists_in_list %( 'INT_OPS_TIE' %, [%f] tie_operation_dll_h %( %S )% )% 
+ end // if
+ else
+ begin
+  [%f] exists_in_list %( 'INT_OPS_TIE' %, [%f] tie_attribute_dll_h %( %S )% )% 
+ end // else
+//	%f_arg(ARG,1)[{"%{INT}<{}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"&%t_tie_ops_is_equal(%C,%{ARG})=true}{%C}>"=""}{true}false]
+//#UC END# *47032EC4032Cfor470F704E00AB*
+; // op_already_exist
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+implementation @ <<AbstractFacet>>
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F704E00AB*
+//F [{"%S{native definition}"!="DLL outside"}[%f_pas_OpenType(%S)\n]#I%SN = interface;\n#\{ - предварительное описание I%SN. \}\n\n]
+//	[%f_pas_OpenType(%S)\n]\
+ if NOT-EMPTY
+ begin
+  [%f] pas_OpenType %( %S )% #13#10 
+ end // if
+ NOP
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[{"%S{native definition}"!="DLL outside"}{// %SN - must be native for DLL outside
+ if ( ( %S get_up ( 'native definition' ) ) %!= 'DLL outside' ) then
+ begin
+  out_indent 'I'
+  %S |N ' = interface ('
+  [%f] select_main_base %( %S )% if ( ( ( get_global_var ( 'MAIN_BASE' ) |U ) ) %!= '' ) then
+  begin
+   [%f] type %( ( get_global_var ( 'MAIN_BASE' ) ) )% 
+  end // if
+  else
+  begin
+   'IInterface' 
+  end // else
+  ') [''{'
+  %S |G '}'']'
+//	[{"%{MAIN_BASE}U"=""&"%S{call way}"!="back"}#	function DontUseMe: Pointer;
+  if ( ( ( get_global_var ( 'MAIN_BASE' ) |U ) ) %== '' AND 
+    ( ( %S get_up ( 'call way' ) ) %!= 'back'  ) ) then
+  begin
+   out_indent '	function DontUseMe: Pointer;'
+//	]<{\n\n}{"%f_is_factory(%C)"="false"&"%C{dll export}"="true"}{Sn}%CX>
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( [%f] is_factory %( %C )% ) %== false AND 
+    ( ( %C get_up ( 'dll export' ) ) %== true  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10#13#10 )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+//	#end;]
+  out_indent 'end;' 
+ end // if
+ else
+ begin
+  '// '
+  %S |N ' - must be native for DLL outside'
+//	}#I%SN = interface (%f_select_main_base(%S)[{"%{MAIN_BASE}U"!=""}{IInterface}%f_type(%{MAIN_BASE})]) \['{%SG}'\]
+ end // else
+//#UC END# *470F152700FAfor470F704E00AB*
+; // pas
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for470F704E00AB*
+//R  
+//	<{\n}{%CS!=UseCaseController}%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %!= 'UseCaseController' ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	- на самом деле тут статические методы выводятся
+//#UC END# *4774D2A20372for470F704E00AB*
+; // intf3.pas
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for470F704E00AB*
+//	<%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%S%f_DoSpell()
+ %S %f DoSpell %( )% 
+//#UC END# *4A41A13D03D5for470F704E00AB*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: AbstractFacet::Class::property::Attribute
+end. // <<AbstractFacet>>
+
+implementation @ :: <<AbstractFacet>> <<property>> ;
+//? Атрибут интерфейса
+//? для данного атрибута будут сгенерированы методы получения и установки его значения.
+//= CallingConventionsHolder::Class
+//= InterfaceGeneratorWithJava::MDAGenerator
+//= CommonAttribute::MDAGenerator
+
+// Параметры стереотипа
+//v +#
+// - типы видимости
+//e a
+// - возможность использовать исключения
+//a a
+// - тип абстракции
+//Y code_property.gif
+//L code_property
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+//A const
+// - стереотипы "цели" (типа/результата)
+//l la
+// - возможные типы связи атрибута
+
+// Пользовательские свойства
+//p debug log:b=false ? включает генерацию вывода в лог обращений к методам реализующим доступ к данному атрибуту
+//p debug tie log:b=false ? Нужно ли генерить код логирования вызовов tie-методов доступа к атрибуту
+//p dll export:b=true ? определяет что данный атрибут будет экспортироваться наружу компоненты
+//p force use const arg:b=false ? Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.
+//p is default:b=false ? определяем атрибут по-умолчанию
+//p pm:b=false ? выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F544503C8*
+//	%f_interface_attribute_h(%S)
+ [%f] interface_attribute_h %( %S )% 
+//#UC END# *47022C88029Ffor470F544503C8*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F544503C8*
+//#UC END# *47022CB8034Bfor470F544503C8*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F544503C8*
+//	%f_interface_attribute_java(%S)
+ [%f] interface_attribute_java %( %S )% 
+//#UC END# *470321950119for470F544503C8*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F544503C8*
+//#UC END# *470321C1038Afor470F544503C8*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F544503C8*
+//	%f_tie_attribute_dll_h(%S)
+ [%f] tie_attribute_dll_h %( %S )% 
+//#UC END# *47032EC4032Cfor470F544503C8*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F544503C8*
+//	%f_tie_attribute_dll_cpp_impl(%S)
+ [%f] tie_attribute_dll_cpp_impl %( %S )% 
+
+//f _tie_attribute_dll_cpp_impl
+; // dll.cpp
+
+end. // :: <<AbstractFacet>> <<property>> ;
+
+: tie_attribute_dll_cpp_impl OBJECT IN %S
+//	[{"%P{call way}"="back"}{%f_tie_attribute_dll_cpp(%S)}%f_cb_tie_attribute_dll_cpp(%S)]
+ if ( ( %P get_up ( 'call way' ) ) %== 'back' ) then
+ begin
+  [%f] cb_tie_attribute_dll_cpp %( %S )% 
+ end // if
+ else
+ begin
+  [%f] tie_attribute_dll_cpp %( %S )% 
+ end // else
+//#UC END# *47032ED002DEfor470F544503C8*
+; // tie_attribute_dll_cpp_impl
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+implementation @ :: <<AbstractFacet>> <<property>> ;
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for470F544503C8*
+//#UC END# *4705C5490109for470F544503C8*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for470F544503C8*
+//#UC END# *4705C54B01F4for470F544503C8*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F544503C8*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[{"%SS"!="writeonly"}#[{"%t_simple(%T)"="true"}{procedure Get%f_to_borland(%SN) (%t_arg(%T,"out"))}function Get%f_to_borland(%SN) (): %f_iget_attr(%S)]; stdcall;][{"%SS"!="readonly"&"%SS"!="area"}
+ if ( ( %S |S ) %!= 'writeonly' ) then
+ begin
+  out_indent if ( ( [%t] simple %( %T )% ) %== true ) then
+  begin
+   'function Get'
+   [%f] to_borland %( %S |N )% ' (): '
+   [%f] iget_attr %( %S )% 
+  end // if
+  else
+  begin
+   'procedure Get'
+   [%f] to_borland %( %S |N )% ' ('
+   [%t] arg %( %T %, 'out' )% ')' 
+  end // else
+  '; stdcall;' 
+ end // if
+ if ( ( %S |S ) %!= 'readonly' AND 
+   ( ( %S |S ) %!= 'area'  ) ) then
+ begin
+  #13#10
+
+//	#procedure Set%f_to_borland(%SN) (%f_iset_attr(%S)); stdcall;]
+  out_indent 'procedure Set'
+  [%f] to_borland %( %S |N )% ' ('
+  [%f] iset_attr %( %S )% '); stdcall;' 
+ end // if
+//#UC END# *470F152700FAfor470F544503C8*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F544503C8*
+//R  
+//	%S%f_pas_PropertyMethodInterface()
+ %S %f pas_PropertyMethodInterface %( )% 
+//#UC END# *470F1571031Cfor470F544503C8*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F544503C8*
+//#UC END# *470F15B800CBfor470F544503C8*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470F544503C8*
+//R  
+//	%S%f_pas_dump_Property()
+ %S %f pas_dump_Property %( )% 
+//#UC END# *477398E501C0for470F544503C8*
+; // intf2.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[InterfaceGeneratorWithJava::MDAGenerator]f_wiki_up_print()[{"%S{dll export}"!="%S{!dll export}"}%f_up_prefix(%S) *dll export* = *%S{dll export}* - определяет что данный атрибут будет экспортироваться наружу компоненты
+ call-inherited:: 'InterfaceGeneratorWithJava' wiki_up_print %( )%
+ if ( ( %S get_up ( 'dll export' ) ) %!= ( %S get_up_def ( 'dll export' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *dll export* = *'
+  %S get_up ( 'dll export' ) '* - определяет что данный атрибут будет экспортироваться наружу компоненты'
+//	][{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений к методам реализующим доступ к данному атрибуту
+ end // if
+ if ( ( %S get_up ( 'debug log' ) ) %!= ( %S get_up_def ( 'debug log' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *debug log* = *'
+  %S get_up ( 'debug log' ) '* - включает генерацию вывода в лог обращений к методам реализующим доступ к данному атрибуту'
+//	][{"%S{pm}"!="%S{!pm}"}%f_up_prefix(%S) *pm* = *%S{pm}* - выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+ end // if
+ if ( ( %S get_up ( 'pm' ) ) %!= ( %S get_up_def ( 'pm' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *pm* = *'
+  %S get_up ( 'pm' ) '* - выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель'
+//	][{"%S{is default}"!="%S{!is default}"}%f_up_prefix(%S) *is default* = *%S{is default}* - определяем атрибут по-умолчанию
+ end // if
+ if ( ( %S get_up ( 'is default' ) ) %!= ( %S get_up_def ( 'is default' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is default* = *'
+  %S get_up ( 'is default' ) '* - определяем атрибут по-умолчанию'
+//	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Нужно ли генерить код логирования вызовов tie-методов доступа к атрибуту
+ end // if
+ if ( ( %S get_up ( 'debug tie log' ) ) %!= ( %S get_up_def ( 'debug tie log' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *debug tie log* = *'
+  %S get_up ( 'debug tie log' ) '* - Нужно ли генерить код логирования вызовов tie-методов доступа к атрибуту'
+//	][{"%S{force use const arg}"!="%S{!force use const arg}"}%f_up_prefix(%S) *force use const arg* = *%S{force use const arg}* - Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.
+ end // if
+ if ( ( %S get_up ( 'force use const arg' ) ) %!= ( %S get_up_def ( 'force use const arg' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force use const arg* = *'
+  %S get_up ( 'force use const arg' ) '* - Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.'
+//	][{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - Соглашения о вызове
+ end // if
+ if ( ( %S get_up ( 'calling conventions' ) ) %!= ( %S get_up_def ( 'calling conventions' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *calling conventions* = *'
+  %S get_up ( 'calling conventions' ) '* - Соглашения о вызове'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // wiki_up_print
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470F544503C8*
+//	property
+ 'property'
+//#UC END# *4705CBD6003Efor470F544503C8*
+; // wiki_child_kind
+
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+//%f _need_ro_accessor
+: need_ro_accessor OBJECT IN %S
+//#UC START# *49782FB50256for470F544503C8*
+//	true
+ true
+//#UC END# *49782FB50256for470F544503C8*
+; // need_ro_accessor
+
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+//%f _need_rw_accessor
+: need_rw_accessor OBJECT IN %S
+//#UC START# *49782FBC0027for470F544503C8*
+//	true
+ true
+//#UC END# *49782FBC0027for470F544503C8*
+; // need_rw_accessor
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это свойство.
+//%f _IsProp
+: IsProp OBJECT IN %S
+//#UC START# *493D2D510282for470F544503C8*
+//	true
+ true
+//#UC END# *493D2D510282for470F544503C8*
+; // IsProp
+
+
+// Вложенные стереотипы
+//: AbstractFacet::Class::property::Attribute::Attribute
+end. // :: <<AbstractFacet>> <<property>> ;
+
+implementation @ :: <<AbstractFacet>> <<property>> Attribute ;
+//? ключ
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_attr_key.gif
+//L code_attr_key
+//T 
+// - может не иметь "цели" (типа/результата)
+//A in|inout
+// - стереотипы "цели" (типа/результата)
+//l l
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F55370280*
+//#UC END# *47022C88029Ffor470F55370280*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F55370280*
+//#UC END# *47022CB8034Bfor470F55370280*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F55370280*
+//#UC END# *470321950119for470F55370280*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F55370280*
+//#UC END# *470321C1038Afor470F55370280*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F55370280*
+//#UC END# *47032EC4032Cfor470F55370280*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F55370280*
+//#UC END# *47032ED002DEfor470F55370280*
+; // dll.cpp
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for470F55370280*
+//#UC END# *4705C5490109for470F55370280*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for470F55370280*
+//#UC END# *4705C54B01F4for470F55370280*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F55370280*
+//#UC END# *470F152700FAfor470F55370280*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F55370280*
+//#UC END# *470F1571031Cfor470F55370280*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F55370280*
+//#UC END# *470F15B800CBfor470F55370280*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470F55370280*
+//#UC END# *477398E501C0for470F55370280*
+; // intf2.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: AbstractFacet::Class::readonly::Attribute
+; // st_space_key
+
+end. // :: <<AbstractFacet>> <<property>> Attribute ;
+
+implementation @ :: <<AbstractFacet>> <<readonly>> ;
+//? Атрибут только для чтения
+//? для данного атрибута будет сгенерирован только метод получения его значения. Если тип атрибута интерфейс - то он будет возвращаться как константный.
+//= AbstractFacet::Class::property::Attribute
+
+// Параметры стереотипа
+//e g
+// - возможность использовать исключения
+//Y code_readonly_attr.gif
+//L code_readonly_attr
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+//%f _need_ro_accessor
+; // st_space_key
+
+: need_ro_accessor OBJECT IN %S
+//#UC START# *49782FB50256for470F549D033C*
+//	true
+ true
+//#UC END# *49782FB50256for470F549D033C*
+; // need_ro_accessor
+
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+//%f _need_rw_accessor
+: need_rw_accessor OBJECT IN %S
+//#UC START# *49782FBC0027for470F549D033C*
+//	false
+ false
+//#UC END# *49782FBC0027for470F549D033C*
+; // need_rw_accessor
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+//%f _IsReadOnlyProp
+: IsReadOnlyProp OBJECT IN %S
+//#UC START# *4948F9190291for470F549D033C*
+//	true
+ true
+//#UC END# *4948F9190291for470F549D033C*
+; // IsReadOnlyProp
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+//%f _IsWriteOnlyProp
+: IsWriteOnlyProp OBJECT IN %S
+//#UC START# *4948F93D038Afor470F549D033C*
+//	false
+ false
+//#UC END# *4948F93D038Afor470F549D033C*
+; // IsWriteOnlyProp
+
+
+// Вложенные стереотипы
+//: AbstractFacet::Class::readonly::Attribute::Attribute
+end. // :: <<AbstractFacet>> <<readonly>> ;
+
+implementation @ :: <<AbstractFacet>> <<readonly>> Attribute ;
+//? ключ
+//= AbstractFacet::Class::property::Attribute::Attribute
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for49794A25023E*
+//#UC END# *46E6D4BB0339for49794A25023E*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor49794A25023E*
+//#UC END# *470F1571031Cfor49794A25023E*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor49794A25023E*
+//#UC END# *470F15B800CBfor49794A25023E*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for49794A25023E*
+//#UC END# *477398E501C0for49794A25023E*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for49794A25023E*
+//#UC END# *55B8D28B0157for49794A25023E*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for49794A25023E*
+//#UC END# *55B8D2F80145for49794A25023E*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for49794A25023E*
+//#UC END# *55B8DD9C0301for49794A25023E*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for49794A25023E*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for49794A25023E*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor49794A25023E*
+//#UC END# *4705CBD6003Efor49794A25023E*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for49794A25023E*
+//#UC END# *470484D50138for49794A25023E*
+; // wiki_up_add_gen
+
+
+
+//: AbstractFacet::Class::writeonly::Attribute
+end. // :: <<AbstractFacet>> <<readonly>> Attribute ;
+
+implementation @ :: <<AbstractFacet>> <<writeonly>> ;
+//? Атрибут только для записи
+//? для данного атрибута будут сгенерирован только метод установки его значения.
+//= AbstractFacet::Class::property::Attribute
+
+// Параметры стереотипа
+//e s
+// - возможность использовать исключения
+//Y code_writeonly_attr.gif
+//L code_writeonly_attr
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+//%f _need_ro_accessor
+; // st_space_key
+
+: need_ro_accessor OBJECT IN %S
+//#UC START# *49782FB50256for470F54C402CE*
+//	false
+ false
+//#UC END# *49782FB50256for470F54C402CE*
+; // need_ro_accessor
+
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+//%f _need_rw_accessor
+: need_rw_accessor OBJECT IN %S
+//#UC START# *49782FBC0027for470F54C402CE*
+//	true
+ true
+//#UC END# *49782FBC0027for470F54C402CE*
+; // need_rw_accessor
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+//%f _IsReadOnlyProp
+: IsReadOnlyProp OBJECT IN %S
+//#UC START# *4948F9190291for470F54C402CE*
+//	false
+ false
+//#UC END# *4948F9190291for470F54C402CE*
+; // IsReadOnlyProp
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+//%f _IsWriteOnlyProp
+: IsWriteOnlyProp OBJECT IN %S
+//#UC START# *4948F93D038Afor470F54C402CE*
+//	true
+ true
+//#UC END# *4948F93D038Afor470F54C402CE*
+; // IsWriteOnlyProp
+
+
+// Вложенные стереотипы
+//: AbstractFacet::Class::writeonly::Attribute::Attribute
+end. // :: <<AbstractFacet>> <<writeonly>> ;
+
+implementation @ :: <<AbstractFacet>> <<writeonly>> Attribute ;
+//? ключ
+//= AbstractFacet::Class::property::Attribute::Attribute
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for49794A40013F*
+//#UC END# *46E6D4BB0339for49794A40013F*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor49794A40013F*
+//#UC END# *470F1571031Cfor49794A40013F*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor49794A40013F*
+//#UC END# *470F15B800CBfor49794A40013F*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for49794A40013F*
+//#UC END# *477398E501C0for49794A40013F*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for49794A40013F*
+//#UC END# *55B8D28B0157for49794A40013F*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for49794A40013F*
+//#UC END# *55B8D2F80145for49794A40013F*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for49794A40013F*
+//#UC END# *55B8DD9C0301for49794A40013F*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for49794A40013F*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for49794A40013F*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor49794A40013F*
+//#UC END# *4705CBD6003Efor49794A40013F*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for49794A40013F*
+//#UC END# *470484D50138for49794A40013F*
+; // wiki_up_add_gen
+
+
+
+//: AbstractFacet::Class::friend::ClassDependency
+end. // :: <<AbstractFacet>> <<writeonly>> Attribute ;
+
+implementation @ :: <<AbstractFacet>> <<friend>> ;
+//? Друг
+//? Определяет что интерфейс (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+//? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_friend.gif
+//L code_dep_friend
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F659B001F*
+//#UC END# *47022C88029Ffor470F659B001F*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F659B001F*
+//#UC END# *47022CB8034Bfor470F659B001F*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F659B001F*
+//#UC END# *470321950119for470F659B001F*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F659B001F*
+//#UC END# *470321C1038Afor470F659B001F*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F659B001F*
+//#UC END# *47032EC4032Cfor470F659B001F*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F659B001F*
+//#UC END# *47032ED002DEfor470F659B001F*
+; // dll.cpp
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for470F659B001F*
+//#UC END# *4705C5490109for470F659B001F*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for470F659B001F*
+//#UC END# *4705C54B01F4for470F659B001F*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F659B001F*
+//#UC END# *470F152700FAfor470F659B001F*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F659B001F*
+//#UC END# *470F1571031Cfor470F659B001F*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F659B001F*
+//#UC END# *470F15B800CBfor470F659B001F*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470F659B001F*
+//	friend
+ 'friend'
+//#UC END# *4705CBD6003Efor470F659B001F*
+; // wiki_child_kind
+
+
+//: AbstractFacet::Class::Operation
+end. // :: <<AbstractFacet>> <<friend>> ;
+
+implementation @ :: <<AbstractFacet>> <<Operation>> ;
+//? Константный метод интерфейса
+//? По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<chg>>. Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.
+//= CallingConventionsHolder::Class
+//= C++ интерфейсы и реализация::MDAGenerator
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//v +#
+// - типы видимости
+//e g
+// - возможность использовать исключения
+//a a
+// - тип абстракции
+//Y code_const_method.gif
+//L code_const_method
+//T 
+// - может не иметь "цели" (типа/результата)
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+//A const|cached|const,cached
+// - стереотипы "цели" (типа/результата)
+
+// Пользовательские свойства
+//p Must throw in error:b=true ? оределяет тип "граничного" обработчика исключений. Если флаг установлен, то все исключения будут мапится и пробрасываться. Если нет, то некотрый класс исключений... короче я чего то запутался чего там присходит в этом случае.. нужно по исходникам смотреть (Exception.h/cpp)
+//p debug log:b=false ? включает генерацию вывода в лог обращений к реализации данной операции
+//p debug tie log:b=false ? Нужно ли генерить логирование вызова tie-метода
+//p dll export:b=true ? определяет что данный метод будет экспортироваться наружу компоненты
+//p force overload:b=false ? Определяет, что метод перегружен.
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F556F0196*
+//	%f_set_var(SERV,P)%f_servant_cpp_operation_h(%S)
+ [%f] set_var %( 'SERV' %, 'P' )% [%f] servant_cpp_operation_h %( %S )% 
+//#UC END# *47022C88029Ffor470F556F0196*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F556F0196*
+//#UC END# *47022CB8034Bfor470F556F0196*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F556F0196*
+//	[{"%SS"!="factory"&"%SS"!="multi factory"}%f_interface_java_operation(%S)]
+ if ( ( %S |S ) %!= 'factory' AND 
+   ( ( %S |S ) %!= 'multi factory'  ) ) then
+ begin
+  [%f] interface_java_operation %( %S )% 
+ end // if
+//#UC END# *470321950119for470F556F0196*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F556F0196*
+//#UC END# *470321C1038Afor470F556F0196*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F556F0196*
+//	%f_tie_operation_dll_h(%S,"servant")
+ [%f] tie_operation_dll_h %( %S %, 'servant' )% 
+
+//f _tie_operation_dll_h
+; // dll.h
+
+end. // :: <<AbstractFacet>> <<Operation>> ;
+
+: tie_operation_dll_h OBJECT IN %S
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#virtual %f_dll_cpp_ret(%S) __stdcall %SN_%SU (%f_dll_cpp_params_h(%S))[{"%SS"!="chg"&"%SS"!="oneway,chg"} const][ /*throw (<{, }%f_type(%E)>)*/][{%1N=interface}{[{"%P{call way}"="back"} = 0]} = 0];[
+ end // if
+ NOP
+ out_indent 'virtual '
+ [%f] dll_cpp_ret %( %S )% ' __stdcall '
+ %S |N '_'
+ %S |U ' ('
+ [%f] dll_cpp_params_h %( %S )% ')'
+ if ( ( %S |S ) %!= 'chg' AND 
+   ( ( %S |S ) %!= 'oneway,chg'  ) ) then
+ begin
+  ' const' 
+ end // if
+ if NOT-EMPTY
+ begin
+  ' /*throw ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+  ')*/' 
+ end // if
+ NOP
+ if ( ( %1 |N ) %== 'interface' ) then
+ begin
+  ' = 0' 
+ end // if
+ else
+ begin
+  if ( ( %P get_up ( 'call way' ) ) %== 'back' ) then
+  begin
+   ' = 0' 
+  end // if
+ end // else
+ ';'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47032EC4032Cfor470F556F0196*
+; // tie_operation_dll_h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+implementation @ :: <<AbstractFacet>> <<Operation>> ;
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F556F0196*
+//	%f_tie_operation_dll_cpp_impl(%S)
+ [%f] tie_operation_dll_cpp_impl %( %S )% 
+
+//f _tie_operation_dll_cpp_impl
+; // dll.cpp
+
+end. // :: <<AbstractFacet>> <<Operation>> ;
+
+: tie_operation_dll_cpp_impl OBJECT IN %S
+//	[{"%P{call way}"="back"}{%f_tie_operation_dll_cpp(%S)}%f_cb_tie_operation_dll_cpp(%S)]
+ if ( ( %P get_up ( 'call way' ) ) %== 'back' ) then
+ begin
+  [%f] cb_tie_operation_dll_cpp %( %S )% 
+ end // if
+ else
+ begin
+  [%f] tie_operation_dll_cpp %( %S )% 
+ end // else
+//#UC END# *47032ED002DEfor470F556F0196*
+; // tie_operation_dll_cpp_impl
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+implementation @ :: <<AbstractFacet>> <<Operation>> ;
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for470F556F0196*
+//#UC END# *4705C5490109for470F556F0196*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for470F556F0196*
+//#UC END# *4705C54B01F4for470F556F0196*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F556F0196*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#[{"%f_dll_pas_ret(%S)"=""}{function}procedure] %f_to_borland(%SN) (%f_delphi_op_params(%S))%f_dll_pas_ret(%S);%f_delphi_overload(%S) stdcall;[ // can raise <{, }%f_type(%E)>]
+ out_indent if ( ( [%f] dll_pas_ret %( %S )% ) %== '' ) then
+ begin
+  'procedure' 
+ end // if
+ else
+ begin
+  'function' 
+ end // else
+ ' '
+ [%f] to_borland %( %S |N )% ' ('
+ [%f] delphi_op_params %( %S )% ')'
+ [%f] dll_pas_ret %( %S )% ';'
+ [%f] delphi_overload %( %S )% ' stdcall;'
+ if NOT-EMPTY
+ begin
+  ' // can raise '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+ end // if
+ NOP
+
+//#UC END# *470F152700FAfor470F556F0196*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F556F0196*
+//R  
+//	%S%f_pas_MethodInterface()
+ %S %f pas_MethodInterface %( )% 
+//#UC END# *470F1571031Cfor470F556F0196*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F556F0196*
+//#UC END# *470F15B800CBfor470F556F0196*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[InterfaceGeneratorWithJava::MDAGenerator]f_wiki_up_print()[{"%S{dll export}"!="%S{!dll export}"}%f_up_prefix(%S) *dll export* = *%S{dll export}* - определяет что данный метод будет экспортироваться наружу компоненты
+ call-inherited:: 'InterfaceGeneratorWithJava' wiki_up_print %( )%
+ if ( ( %S get_up ( 'dll export' ) ) %!= ( %S get_up_def ( 'dll export' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *dll export* = *'
+  %S get_up ( 'dll export' ) '* - определяет что данный метод будет экспортироваться наружу компоненты'
+//	][{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений к реализации данной операции
+ end // if
+ if ( ( %S get_up ( 'debug log' ) ) %!= ( %S get_up_def ( 'debug log' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *debug log* = *'
+  %S get_up ( 'debug log' ) '* - включает генерацию вывода в лог обращений к реализации данной операции'
+//	][{"%S{Must throw in error}"!="%S{!Must throw in error}"}%f_up_prefix(%S) *Must throw in error* = *%S{Must throw in error}* - оределяет тип "граничного" обработчика исключений. Если флаг установлен, то все исключения будут мапится и пробрасываться. Если нет, то некотрый класс исключений... короче я чего то запутался чего там присходит в этом случае.. нужно по исходникам смотреть (Exception.h/cpp)
+ end // if
+ if ( ( %S get_up ( 'Must throw in error' ) ) %!= ( %S get_up_def ( 'Must throw in error' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Must throw in error* = *'
+  %S get_up ( 'Must throw in error' ) '* - оределяет тип "граничного" обработчика исключений. Если флаг установлен, то все исключения будут мапится и пробрасываться. Если нет, то некотрый класс исключений... короче я чего то запутался чего там присходит в этом случае.. нужно по исходникам смотреть (Exception.h/cpp)'
+//	][{"%S{force overload}"!="%S{!force overload}"}%f_up_prefix(%S) *force overload* = *%S{force overload}* - Определяет, что метод перегружен.
+ end // if
+ if ( ( %S get_up ( 'force overload' ) ) %!= ( %S get_up_def ( 'force overload' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force overload* = *'
+  %S get_up ( 'force overload' ) '* - Определяет, что метод перегружен.'
+//	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Нужно ли генерить логирование вызова tie-метода
+ end // if
+ if ( ( %S get_up ( 'debug tie log' ) ) %!= ( %S get_up_def ( 'debug tie log' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *debug tie log* = *'
+  %S get_up ( 'debug tie log' ) '* - Нужно ли генерить логирование вызова tie-метода'
+//	][{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - Соглашения о вызове
+ end // if
+ if ( ( %S get_up ( 'calling conventions' ) ) %!= ( %S get_up_def ( 'calling conventions' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *calling conventions* = *'
+  %S get_up ( 'calling conventions' ) '* - Соглашения о вызове'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // wiki_up_print
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470F556F0196*
+//	method
+ 'method'
+//#UC END# *4705CBD6003Efor470F556F0196*
+; // wiki_child_kind
+
+
+// Вложенные стереотипы
+//: AbstractFacet::Class::Operation::Parameter
+end. // :: <<AbstractFacet>> <<Operation>> ;
+
+implementation @ :: <<AbstractFacet>> <<Operation>> ;
+//? параметр операции
+//= C++ Фабрики::MDAGenerator
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//Y code_operation_param.gif
+//L code_operation_param
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F59EE00AB*
+//P
+//	%f_arg_full_decl(%S)
+ [%f] arg_full_decl %( %S )% 
+//#UC END# *47022C88029Ffor470F59EE00AB*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F59EE00AB*
+//P
+//	%f_arg_full_decl(%S)
+ [%f] arg_full_decl %( %S )% 
+//#UC END# *47022CB8034Bfor470F59EE00AB*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F59EE00AB*
+//	%f_arg_full_decl(%S)
+ [%f] arg_full_decl %( %S )% 
+//#UC END# *470321950119for470F59EE00AB*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F59EE00AB*
+//	%f_arg_full_decl(%S)
+ [%f] arg_full_decl %( %S )% 
+//#UC END# *470321C1038Afor470F59EE00AB*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F59EE00AB*
+//#UC END# *47032EC4032Cfor470F59EE00AB*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F59EE00AB*
+//#UC END# *47032ED002DEfor470F59EE00AB*
+; // dll.cpp
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for470F59EE00AB*
+//P
+//	%f_arg_full_decl(%S)
+ [%f] arg_full_decl %( %S )% 
+//#UC END# *4705C5490109for470F59EE00AB*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for470F59EE00AB*
+//P
+//	%f_arg_full_decl(%S)
+ [%f] arg_full_decl %( %S )% 
+//#UC END# *4705C54B01F4for470F59EE00AB*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F59EE00AB*
+//	%f_error("dirrect call to Generate op-params for delphi")
+ [%f] error %( 'dirrect call to Generate op-params for delphi' )% 
+//#UC END# *470F152700FAfor470F59EE00AB*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F59EE00AB*
+//#UC END# *470F1571031Cfor470F59EE00AB*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F59EE00AB*
+//#UC END# *470F15B800CBfor470F59EE00AB*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[InterfaceGeneratorWithJava::MDAGenerator]f_wiki_up_print()
+ call-inherited:: 'InterfaceGeneratorWithJava' wiki_up_print %( )%
+
+
+
+//: AbstractFacet::Class::oneway::Operation
+; // wiki_up_print
+
+end. // :: <<AbstractFacet>> <<Operation>> ;
+
+implementation @ :: <<AbstractFacet>> <<oneway>> ;
+//? Асинхронная операция
+//? Вызов операции будет выполнен асинхронна. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+//? По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<oneway,chg>>.
+//? Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.
+//= AbstractFacet::Class::Operation
+
+// Пользовательские свойства
+//p separate thread pool=none|per class|per object|per operation|user defined ? определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{separate thread pool}"!="%S{!separate thread pool}"}%f_up_prefix(%S) *separate thread pool* = *%S{separate thread pool}* - определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод
+ ?inherited
+ if ( ( %S get_up ( 'separate thread pool' ) ) %!= ( %S get_up_def ( 'separate thread pool' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *separate thread pool* = *'
+  %S get_up ( 'separate thread pool' ) '* - определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F56670000*
+//c             {}
+//r	{<{}{%CS=out|%CS=inout&%t_class_type(%C%T)=false}{C}>!=0|%TN!=void}: {%SM can't contain inout/out parameters or return result}
+//#UC END# *4704C0E30186for470F56670000*
+; // constraint
+
+
+// Вложенные стереотипы
+//: AbstractFacet::Class::oneway::Operation::Parameter
+end. // :: <<AbstractFacet>> <<oneway>> ;
+
+implementation @ :: <<AbstractFacet>> <<oneway>> Parameter ;
+//? параметр
+//= AbstractFacet::Class::Operation::Parameter
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F641E0157*
+//#UC END# *46E6D4BB0339for470F641E0157*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F641E0157*
+//#UC END# *47022BBE0261for470F641E0157*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for470F641E0157*
+//#UC END# *47022C0F01E4for470F641E0157*
+; // idl_ami
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor470F641E0157*
+//#UC END# *47022CCF00EAfor470F641E0157*
+; // i.h
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F641E0157*
+//#UC END# *47032EC4032Cfor470F641E0157*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F641E0157*
+//#UC END# *47032ED002DEfor470F641E0157*
+; // dll.cpp
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F641E0157*
+//#UC END# *470F1571031Cfor470F641E0157*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F641E0157*
+//#UC END# *470F15B800CBfor470F641E0157*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470F641E0157*
+//#UC END# *477398E501C0for470F641E0157*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for470F641E0157*
+//#UC END# *55B8D28B0157for470F641E0157*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for470F641E0157*
+//#UC END# *55B8D2F80145for470F641E0157*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for470F641E0157*
+//#UC END# *55B8DD9C0301for470F641E0157*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F641E0157*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for470F641E0157*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470F641E0157*
+//#UC END# *4705CBD6003Efor470F641E0157*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for470F641E0157*
+//#UC END# *470484D50138for470F641E0157*
+; // wiki_up_add_gen
+
+
+
+//: AbstractFacet::Class::oneway,chg::Operation
+end. // :: <<AbstractFacet>> <<oneway>> Parameter ;
+
+implementation @ :: <<AbstractFacet>> <<oneway,chg>> ;
+//? Асинхронная неконстантная операция
+//? Вызов операции будет выполнен асинхронно. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+//? Неконстантная операция может изменять состояние своего объекта.
+//= AbstractFacet::Class::oneway::Operation
+
+// Параметры стереотипа
+//Y code_method.gif
+//L code_method
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+// Вложенные стереотипы
+//: AbstractFacet::Class::oneway,chg::Operation::Parameter
+; // st_space_key
+
+end. // :: <<AbstractFacet>> <<oneway,chg>> ;
+
+implementation @ :: <<AbstractFacet>> <<oneway,chg>> Parameter ;
+//? параметр
+//= AbstractFacet::Class::Operation::Parameter
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F6469008C*
+//#UC END# *46E6D4BB0339for470F6469008C*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F6469008C*
+//#UC END# *47022BBE0261for470F6469008C*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for470F6469008C*
+//#UC END# *47022C0F01E4for470F6469008C*
+; // idl_ami
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor470F6469008C*
+//#UC END# *47022CCF00EAfor470F6469008C*
+; // i.h
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F6469008C*
+//#UC END# *47032EC4032Cfor470F6469008C*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F6469008C*
+//#UC END# *47032ED002DEfor470F6469008C*
+; // dll.cpp
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F6469008C*
+//#UC END# *470F1571031Cfor470F6469008C*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F6469008C*
+//#UC END# *470F15B800CBfor470F6469008C*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470F6469008C*
+//#UC END# *477398E501C0for470F6469008C*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for470F6469008C*
+//#UC END# *55B8D28B0157for470F6469008C*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for470F6469008C*
+//#UC END# *55B8D2F80145for470F6469008C*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for470F6469008C*
+//#UC END# *55B8DD9C0301for470F6469008C*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F6469008C*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for470F6469008C*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470F6469008C*
+//#UC END# *4705CBD6003Efor470F6469008C*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for470F6469008C*
+//#UC END# *470484D50138for470F6469008C*
+; // wiki_up_add_gen
+
+
+
+//: AbstractFacet::Class::chg::Operation
+end. // :: <<AbstractFacet>> <<oneway,chg>> Parameter ;
+
+implementation @ :: <<AbstractFacet>> <<chg>> ;
+//? Неконстантный метод
+//? Метод который может изменять состояние своего объекта
+//= AbstractFacet::Class::Operation
+
+// Параметры стереотипа
+//Y code_method.gif
+//L code_method
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+// Вложенные стереотипы
+//: AbstractFacet::Class::chg::Operation::Parameter
+; // st_space_key
+
+end. // :: <<AbstractFacet>> <<chg>> ;
+
+implementation @ :: <<AbstractFacet>> <<chg>> Parameter ;
+//? параметр
+//= AbstractFacet::Class::Operation::Parameter
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F6452002E*
+//#UC END# *46E6D4BB0339for470F6452002E*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F6452002E*
+//#UC END# *47022BBE0261for470F6452002E*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for470F6452002E*
+//#UC END# *47022C0F01E4for470F6452002E*
+; // idl_ami
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor470F6452002E*
+//#UC END# *47022CCF00EAfor470F6452002E*
+; // i.h
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F6452002E*
+//#UC END# *47032EC4032Cfor470F6452002E*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F6452002E*
+//#UC END# *47032ED002DEfor470F6452002E*
+; // dll.cpp
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F6452002E*
+//#UC END# *470F1571031Cfor470F6452002E*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F6452002E*
+//#UC END# *470F15B800CBfor470F6452002E*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470F6452002E*
+//#UC END# *477398E501C0for470F6452002E*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for470F6452002E*
+//#UC END# *55B8D28B0157for470F6452002E*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for470F6452002E*
+//#UC END# *55B8D2F80145for470F6452002E*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for470F6452002E*
+//#UC END# *55B8DD9C0301for470F6452002E*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F6452002E*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for470F6452002E*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470F6452002E*
+//#UC END# *4705CBD6003Efor470F6452002E*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for470F6452002E*
+//#UC END# *470484D50138for470F6452002E*
+; // wiki_up_add_gen
+
+
+
+//: AbstractFacet::Class::consume::ClassDependency
+end. // :: <<AbstractFacet>> <<chg>> Parameter ;
+
+implementation @ :: <<AbstractFacet>> <<consume>> ;
+//? Получатель
+//? Данная связь означает, что элемент источник является "потребителем" данных, определяемых целью связи.
+//= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_consume.gif
+//L code_dep_consume
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47FCA95F01DC*
+//	%f_dump_consume_interface_h(%S)
+ [%f] dump_consume_interface_h %( %S )% 
+//#UC END# *47022C88029Ffor47FCA95F01DC*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47FCA95F01DC*
+//#UC END# *47022CB8034Bfor47FCA95F01DC*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47FCA95F01DC*
+//	%f_dump_consume_interface_java(%S)
+ [%f] dump_consume_interface_java %( %S )% 
+//#UC END# *470321950119for47FCA95F01DC*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47FCA95F01DC*
+//#UC END# *470321C1038Afor47FCA95F01DC*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor47FCA95F01DC*
+//#UC END# *47032EC4032Cfor47FCA95F01DC*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor47FCA95F01DC*
+//#UC END# *47032ED002DEfor47FCA95F01DC*
+; // dll.cpp
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47FCA95F01DC*
+//#UC END# *4705C5490109for47FCA95F01DC*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47FCA95F01DC*
+//#UC END# *4705C54B01F4for47FCA95F01DC*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor47FCA95F01DC*
+//#UC END# *470F152700FAfor47FCA95F01DC*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47FCA95F01DC*
+//#UC END# *470F1571031Cfor47FCA95F01DC*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47FCA95F01DC*
+//#UC END# *470F15B800CBfor47FCA95F01DC*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47FCA95F01DC*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for47FCA95F01DC*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47FCA95F01DC*
+//#UC END# *4705CBD6003Efor47FCA95F01DC*
+; // wiki_child_kind
+
+
+//: AbstractFacet::Class::supply::ClassDependency
+end. // :: <<AbstractFacet>> <<consume>> ;
+
+implementation @ :: <<AbstractFacet>> <<supply>> ;
+//? Поставщик
+//? Данная связь означает, что элемент источник является поставщиком данных, определяемых целью связи.
+//= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_supply.gif
+//L code_dep_supply
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47FCA95F0314*
+//	%f_dump_supply_interface_h(%S)
+ [%f] dump_supply_interface_h %( %S )% 
+//#UC END# *47022C88029Ffor47FCA95F0314*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47FCA95F0314*
+//#UC END# *47022CB8034Bfor47FCA95F0314*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47FCA95F0314*
+//	%f_dump_supply_interface_java(%S)
+ [%f] dump_supply_interface_java %( %S )% 
+//#UC END# *470321950119for47FCA95F0314*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47FCA95F0314*
+//#UC END# *470321C1038Afor47FCA95F0314*
+; // fctr.java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor47FCA95F0314*
+//#UC END# *47032EC4032Cfor47FCA95F0314*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor47FCA95F0314*
+//#UC END# *47032ED002DEfor47FCA95F0314*
+; // dll.cpp
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47FCA95F0314*
+//#UC END# *4705C5490109for47FCA95F0314*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47FCA95F0314*
+//#UC END# *4705C54B01F4for47FCA95F0314*
+; // fctr.cpp
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor47FCA95F0314*
+//#UC END# *470F152700FAfor47FCA95F0314*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47FCA95F0314*
+//#UC END# *470F1571031Cfor47FCA95F0314*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47FCA95F0314*
+//#UC END# *470F15B800CBfor47FCA95F0314*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47FCA95F0314*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for47FCA95F0314*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47FCA95F0314*
+//#UC END# *4705CBD6003Efor47FCA95F0314*
+; // wiki_child_kind
+
+
+//: AbstractFacet::Class::static::Operation
+end. // :: <<AbstractFacet>> <<supply>> ;
+
+implementation @ :: <<AbstractFacet>> <<static>> ;
+//? Статический метод
+//? Метод-helper для интерфейса. Не зависит от того, кто реализует интерфейс
+//= AbstractFacet::Class::Operation
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_static_method.gif
+//L code_static_method
+//m f
+// - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4BA7AADE00D2*
+//#UC END# *46E6D4BB0339for4BA7AADE00D2*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for4BA7AADE00D2*
+//#UC END# *47022BBE0261for4BA7AADE00D2*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for4BA7AADE00D2*
+//#UC END# *47022C0F01E4for4BA7AADE00D2*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4BA7AADE00D2*
+//#UC END# *47022CB8034Bfor4BA7AADE00D2*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4BA7AADE00D2*
+//#UC END# *47022CCF00EAfor4BA7AADE00D2*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4BA7AADE00D2*
+//#UC END# *470321C1038Afor4BA7AADE00D2*
+; // fctr.java
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4BA7AADE00D2*
+//	%S%f_pas_MethodInterface()
+//#UC END# *470F1571031Cfor4BA7AADE00D2*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4BA7AADE00D2*
+//	%S%f_pas_MethodImplementation()
+ %S %f pas_MethodImplementation %( )% 
+//#UC END# *470F15B800CBfor4BA7AADE00D2*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4BA7AADE00D2*
+//#UC END# *477398E501C0for4BA7AADE00D2*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4BA7AADE00D2*
+//#UC END# *55B8D28B0157for4BA7AADE00D2*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4BA7AADE00D2*
+//#UC END# *55B8D2F80145for4BA7AADE00D2*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4BA7AADE00D2*
+//#UC END# *55B8DD9C0301for4BA7AADE00D2*
+; // res.cmd.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for4BA7AADE00D2*
+//	%S%f_pas_MethodInterface()
+ %S %f pas_MethodInterface %( )% 
+//#UC END# *4774D2A20372for4BA7AADE00D2*
+; // intf3.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4BA7AADE00D2*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4BA7AADE00D2*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4BA7AADE00D2*
+//#UC END# *470484D50138for4BA7AADE00D2*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor4BA7AADE00D2*
+//	%S%[inherited]\
+ inherited
+//	%f_pas_PutToUses("l3Base")
+ [%f] pas_PutToUses %( 'l3Base' )% 
+//#UC END# *4948EB2601FAfor4BA7AADE00D2*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Разделитель имени метода
+//%f _pas_MethodOwnerDelim
+: pas_MethodOwnerDelim OBJECT IN %S
+//#UC START# *4999789602FFfor4BA7AADE00D2*
+//#UC END# *4999789602FFfor4BA7AADE00D2*
+; // pas_MethodOwnerDelim
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя владельца метода
+//%f _pas_MethodOwnerName
+: pas_MethodOwnerName OBJECT IN %S
+//#UC START# *49CB3C99034Bfor4BA7AADE00D2*
+//#UC END# *49CB3C99034Bfor4BA7AADE00D2*
+; // pas_MethodOwnerName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<AbstractFacet>> <<static>> ;
+

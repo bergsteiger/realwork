@@ -1,0 +1,137 @@
+// TpgDataConverter 55E42F2D027B SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '55DAD4150001.pas.ms.script'
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+FORWARD ME_55E42F2D027B
+
+FORWARD ME_55E42F4600AD
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_52704437F7AB
+ CONST UID '52704437F7AB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Create' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_52704437F7AB DoIt
+
+: ME_55E42F4600AD
+ CONST UID '55E42F4600AD'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52704437F7AB // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55E42F4600AD Create
+
+FORWARD ME_55E42F5E03A2
+
+: ME_F046495DEAB2
+ CONST UID 'F046495DEAB2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TpgDataConverter.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_55E41C6E00E2 // IpgDataConverter
+ ;
+
+ @SELF
+; // ME_F046495DEAB2 DoIt
+
+: ME_55E42F5E03A2
+ CONST UID '55E42F5E03A2'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55E42F4600AD // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_55E41C6E00E2 // IpgDataConverter
+ ]
+ ; // Implements
+ : Operations
+   [ ME_F046495DEAB2 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_555995210007 // AllocateParamBuffer
+ ME_5559955500DF // ParamToDataBase
+ ME_55599596005B // ParamFromDataBase
+ ME_5559D14D02D1 // FreeParamBuffer
+ ME_5627650001E5 // ToInteger
+ ME_56276513038B // ToLargeInt
+ ME_56276521027B // ToStDate
+ ME_562765320349 // ToStTime
+ ME_5627654202D2 // ToString
+ ME_562E129A00BB // ToByte
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_55E42F5E03A2 Make
+
+: ME_55E42F2D027B
+ CONST UID '55E42F2D027B'
+ CONST Name 'TpgDataConverter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_55E41C6E00E2 // IpgDataConverter
+ ]
+ ; // Implements
+ : Operations
+   [ ME_55E42F4600AD // Create
+ ME_55E42F5E03A2 // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_555995210007 // AllocateParamBuffer
+ ME_5559955500DF // ParamToDataBase
+ ME_55599596005B // ParamFromDataBase
+ ME_5559D14D02D1 // FreeParamBuffer
+ ME_5627650001E5 // ToInteger
+ ME_56276513038B // ToLargeInt
+ ME_56276521027B // ToStDate
+ ME_562765320349 // ToStTime
+ ME_5627654202D2 // ToString
+ ME_562E129A00BB // ToByte
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55E42F2D027B TpgDataConverter

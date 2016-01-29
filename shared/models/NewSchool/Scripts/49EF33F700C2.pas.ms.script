@@ -1,0 +1,269 @@
+// ControlsMixIns 49EF33F700C2 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EF33F700C2
+
+FORWARD ME_49EF346400A4
+
+FORWARD ME_49EF3805033D
+
+: ME_49EF3840010F
+ CONST UID '49EF3840010F'
+ CONST Name 'Controller'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_49EF3805033D // IsHandledShortcut
+ ;
+ : Target WL 'ME_475415C50224' '4754101B004F.pas.ms.script' // TOvcController
+ ;
+ CONST "IsResult" false
+
+ref; // ME_49EF3840010F Controller
+
+: ME_49EF3A040211
+ CONST UID '49EF3A040211'
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_49EF3A040211 Msg
+
+: ME_49EF39FE00FF
+ CONST UID '49EF39FE00FF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EF3805033D // IsHandledShortcut
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_49EF3A040211 // Msg
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_49EF39FE00FF DoIt
+
+: ME_49EF382C0359
+ CONST UID '49EF382C0359'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EF3805033D // IsHandledShortcut
+ ;
+ : Target WL 'ME_475415C50224' '4754101B004F.pas.ms.script' // TOvcController
+ ;
+
+ref; // ME_49EF382C0359 
+
+: ME_49EF389C023A
+ CONST UID '49EF389C023A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EF3805033D // IsHandledShortcut
+ ;
+ : Target WL 'ME_48D2191902CB' '48D21909003A.pas.ms.script' // ActionCodes
+ ;
+
+ref; // ME_49EF389C023A 
+
+: ME_49EF3805033D
+ CONST UID '49EF3805033D'
+ CONST Name 'IsHandledShortcut'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик ShortCut''ов' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ : Attributes
+   @ ( ME_49EF3840010F // Controller
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_49EF39FE00FF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_49EF382C0359 // 
+ ME_49EF389C023A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_49EF3805033D IsHandledShortcut
+
+FORWARD ME_4EBD2EE8031A
+
+: ME_4EBD2EFA0105
+ CONST UID '4EBD2EFA0105'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4EBD2EE8031A // IsSomePopupWasClosed
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4EBD2EFA0105 DoIt
+
+: ME_4EBD2EE8031A
+ CONST UID '4EBD2EE8031A'
+ CONST Name 'IsSomePopupWasClosed'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ : Operations
+   @ ( ME_4EBD2EFA0105 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4EBD2EE8031A IsSomePopupWasClosed
+
+: ME_49EF38EF015D
+ CONST UID '49EF38EF015D'
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_49EF38EF015D Message
+
+: ME_49EF38CC0345
+ CONST UID '49EF38CC0345'
+ CONST Name 'WndProc'
+ CONST Class class_Operation
+ : Stereotype st_override::Operation ;
+ %SUMMARY 'Оконная процедура' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ : Parameters
+   @ ( ME_49EF38EF015D // Message
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "is static" false
+
+ref; // ME_49EF38CC0345 WndProc
+
+: ME_49EF392D0372
+ CONST UID '49EF392D0372'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ : Target WL 'ME_47979588035F' '4799D29F033F.pas.ms.script' // CM_Messages
+ ;
+
+ref; // ME_49EF392D0372 
+
+: ME_49EF3BBF027E
+ CONST UID '49EF3BBF027E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_49EF3BBF027E 
+
+: ME_4F2ABB6902B9
+ CONST UID '4F2ABB6902B9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4F2ABB6902B9 
+
+: ME_49EF346400A4
+ CONST UID '49EF346400A4'
+ CONST Name 'afwShortcutsHandler'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик ShortCut''ов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EF33F700C2 // ControlsMixIns
+ ;
+ : Operations
+   @ ( ME_49EF3805033D // IsHandledShortcut
+ ME_4EBD2EE8031A // IsSomePopupWasClosed
+ ME_49EF38CC0345 // WndProc
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_49EF392D0372 // 
+ ME_49EF3BBF027E // 
+ ME_4F2ABB6902B9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '22.04.2009 19:15'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas'
+ CONST extprop:pas:TypeName '_afwShortcutsHandler_'
+
+ref; // ME_49EF346400A4 afwShortcutsHandler
+
+: ME_49EF33F700C2
+ CONST UID '49EF33F700C2'
+ CONST Name 'ControlsMixIns'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ %SUMMARY 'Примеси для контролов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D5E61FC01F0' '4D5E61FC01F0.pas.ms.script' // AFW$Core
+ ;
+ : Children
+   @ ( ME_49EF346400A4 // afwShortcutsHandler
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4754101B004F' '4754101B004F.pas.ms.script' // OvcBase
+ WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_48D21909003A' '48D21909003A.pas.ms.script' // OvcConst
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "path prefix" '/implementation'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49EF33F700C2.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49EF33F700C2.pas.ms.script.runner'
+
+ref; // ME_49EF33F700C2 ControlsMixIns

@@ -1,0 +1,413 @@
+<<VCMControllers>> PrimListControllers
+ %UID '4DC170560325'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4A7C099B004F' /* View */
+  U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4ED757140004' /* PrimListAndDocumentControllers */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4A7C099B004F' /* View */
+  U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4ED757140004' /* PrimListAndDocumentControllers */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerUnit>> PrimListControllersRealization
+   %UID '4DC1708D032D'
+   %DEPENDS
+    U$ '4570511E038A' /* Document */
+    U$ '4678209200A6' /* nevBase */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '48492FC0029D' /* Standard */
+    U$ '48F747EC0073' /* Common */
+    U$ '491B305A0096' /* DocumentAndListInterfaces */
+    U$ '499EAAE502A8' /* vcmUserControls */
+    U$ '4A7C0BB70162' /* "Base Forms" */
+    U$ '4B9A1E7F0036' /* UnderControlInterfaces */
+    U$ '4ED7573300EA' /* PrimListAndDocumentControllersRealization */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677FF4B0036' /* Data */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4A7C099B004F' /* View */
+    U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+    U$ '4D1B64E70031' /* BusinessInterfaces */
+    U$ '4ED757140004' /* PrimListAndDocumentControllers */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Impurity>> nsListWarningGenerator
+      %UID '4DC1671402AB'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '04.05.2011 18:48'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DC14229028D' /* WarningGenerator */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '493E4F7E039B' /* Generate */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4DC167600076"
+         %UID '4DC167600076'
+         %TARGET U$ '4DA8763E0201' /* WarningUserTypes */
+        ; // 4DC167600076
+        <<uses>> "4DC167670376"
+         %UID '4DC167670376'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 4DC167670376
+        <<uses>> "4DC1676B024D"
+         %UID '4DC1676B024D'
+         %TARGET U$ '4DB988EC015B' /* bsEditorAddPara */
+        ; // 4DC1676B024D
+        <<uses>> "4DC1676E02F7"
+         %UID '4DC1676E02F7'
+         %TARGET U$ '4B1E8FAE0380' /* DefDataAdapter$4B1E8FAE0380 */
+        ; // 4DC1676E02F7
+        <<uses>> "4DC167A4028A"
+         %UID '4DC167A4028A'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 4DC167A4028A
+        <<uses>> "4ED75A3100D0"
+         %UID '4ED75A3100D0'
+         %TARGET U$ '4ED7576E02F7' /* TnsDocumentWarningGenerator */
+        ; // 4ED75A3100D0
+        <<uses>> "4ED773240143"
+         %UID '4ED773240143'
+         %TARGET U$ '4DB97E660273' /* remListModified */
+        ; // 4ED773240143
+        <<uses>> "4ED7791A02B3"
+         %UID '4ED7791A02B3'
+         %TARGET U$ '4B9A2AB603D4' /* IucpUnderControl */
+        ; // 4ED7791A02B3
+        <<uses>> "4EDCFD6E006F"
+         %UID '4EDCFD6E006F'
+         %TARGET U$ '4EDCFD4D037C' /* TnsListWarningGenerator */
+        ; // 4EDCFD6E006F
+      ; // %LINKS
+     ; // nsListWarningGenerator
+     <<SimpleClass>> TnsListWarningGenerator
+      %UID '4EDCFD4D037C'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '05.12.2011 21:20'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4797632D0273' /* Everest */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+       U$ '4D1B64E70031' /* BusinessInterfaces */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4EDCFD67036F"
+         %UID '4EDCFD67036F'
+         %TARGET U$ '4ED7576E02F7' /* TnsDocumentWarningGenerator */
+        ; // 4EDCFD67036F
+        <<uses>> "4EDCFDF80047"
+         %UID '4EDCFDF80047'
+         %TARGET U$ '4DB97E660273' /* remListModified */
+        ; // 4EDCFDF80047
+        <<uses>> "4EDCFDFA03E1"
+         %UID '4EDCFDFA03E1'
+         %TARGET U$ '4DA8763E0201' /* WarningUserTypes */
+        ; // 4EDCFDFA03E1
+        <<uses>> "4EDCFDFF005F"
+         %UID '4EDCFDFF005F'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 4EDCFDFF005F
+        <<uses>> "4EDCFE02013F"
+         %UID '4EDCFE02013F'
+         %TARGET U$ '4ED7576E02F7' /* TnsDocumentWarningGenerator */
+        ; // 4EDCFE02013F
+        <<uses>> "4EDCFE0500C8"
+         %UID '4EDCFE0500C8'
+         %TARGET U$ '4B1E8FAE0380' /* DefDataAdapter$4B1E8FAE0380 */
+        ; // 4EDCFE0500C8
+        <<uses>> "4EDCFE080228"
+         %UID '4EDCFE080228'
+         %TARGET U$ '4B9A2AB603D4' /* IucpUnderControl */
+        ; // 4EDCFE080228
+        <<uses>> "4EDCFE0B0336"
+         %UID '4EDCFE0B0336'
+         %TARGET U$ '4DB988EC015B' /* bsEditorAddPara */
+        ; // 4EDCFE0B0336
+        <<uses>> "4EDCFE0F013E"
+         %UID '4EDCFE0F013E'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 4EDCFE0F013E
+        <<uses>> "4EDD0573008A"
+         %UID '4EDD0573008A'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4EDD0573008A
+        <<uses>> "4EDD060F02E9"
+         %UID '4EDD060F02E9'
+         %TARGET U$ '4DB993ED02C1' /* TnsWarningSub */
+        ; // 4EDD060F02E9
+        <<uses>> "4EDD061701F8"
+         %UID '4EDD061701F8'
+         %TARGET U$ '4DB9936C03DD' /* TnsWarningLinkHandle */
+        ; // 4EDD061701F8
+        <<uses>> "4F5E21F901F2"
+         %UID '4F5E21F901F2'
+         %TARGET U$ '4F5E12C20114' /* BaloonWarningUserTypes */
+        ; // 4F5E21F901F2
+        SUMMONED <<uses>> "088CECBBA990"
+         %UID '088CECBBA990'
+         %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+        ; // 088CECBBA990
+        SUMMONED <<uses>> "B9562A4F5A84"
+         %UID 'B9562A4F5A84'
+         %TARGET U$ '4E01D1E002AE' /* Tl3MessageID */
+        ; // B9562A4F5A84
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> Generate
+         %UID '4EDCFD7E0323'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4797632D0273' /* Everest */
+          U$ '47E9EEC60260' /* Model */
+          U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+          U$ '4D1B64E70031' /* BusinessInterfaces */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4EDCFD8C0171'
+            %TARGET U$ '4921866C01A1' /* TWarningTypeSet */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4790C3B8021E' /* VCM */
+             U$ '4797632D0273' /* Everest */
+             U$ '47E9EEC60260' /* Model */
+             U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+             U$ '4D1B64E70031' /* BusinessInterfaces */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aWarning
+               %UID '4EDE035602CC'
+               %TARGET U$ '4921869901CF' /* IdsWarning */
+               %TOBEINCLUDED
+                U$ '4D1B64E70031' /* BusinessInterfaces */
+               ; // %TOBEINCLUDED
+              ; // aWarning
+              <<in>> aDoc
+               %UID '4EDCFD940066'
+               %TARGET U$ '45EEB6520191' /* Document */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aDoc
+              <<in>> aGen
+               %UID '4EDCFD9400B1'
+               %TARGET U$ '47CC38040095' /* InevTagGenerator */
+               %TOBEINCLUDED
+                U$ '4797632D0273' /* Everest */
+               ; // %TOBEINCLUDED
+              ; // aGen
+              <<in>> aUserType
+               %UID '4EDCFD9400FB'
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aUserType
+              <<in>> anUnderControl
+               %UID '4EDCFD940166'
+               %TARGET U$ '4B9A2AB603D4' /* IucpUnderControl */
+               %TOBEINCLUDED
+                U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+               ; // %TOBEINCLUDED
+              ; // anUnderControl
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Generate
+        SUMMONED PRIVATE FINAL <<ini>> Init_ListModified
+         %UID 'BA6494A8E652'
+         %SUMMARY 'Инициализация str_lstListModified' ;
+        ; // Init_ListModified
+        SUMMONED PRIVATE FINAL <<ini>> Init_ListFiltered
+         %UID 'F84428B50B57'
+         %SUMMARY 'Инициализация str_lstListFiltered' ;
+        ; // Init_ListFiltered
+        SUMMONED PRIVATE FINAL <<ini>> Init_SwitchFiltersOff
+         %UID '8C60142BFE57'
+         %SUMMARY 'Инициализация str_lstSwitchFiltersOff' ;
+        ; // Init_SwitchFiltersOff
+        SUMMONED PRIVATE FINAL <<ini>> Init_TimeMachineOn
+         %UID '9CFE89B97CD9'
+         %SUMMARY 'Инициализация str_lstTimeMachineOn' ;
+        ; // Init_TimeMachineOn
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE FINAL <<LocalConst>> Local
+         %UID '4DB98E7B0358'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "children prefix" 'lst'
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> ListModified
+            %UID '4DB98E85011C'
+            %VALUE '''Список изменён'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // ListModified
+           <<Attribute>> ListFiltered
+            %UID '4DB992EB01F7'
+            %VALUE '''Список отфильтрован. Отменить все фильтры'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // ListFiltered
+           <<Attribute>> SwitchFiltersOff
+            %UID '4DB99BB60038'
+            %VALUE '''Отменить все фильтры'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // SwitchFiltersOff
+           <<Attribute>> TimeMachineOn
+            %UID '4DBADBF300F4'
+            %VALUE '''Машина времени включена на дату %s'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // TimeMachineOn
+         ; // %ATTRIBUTES
+        ; // Local
+        SUMMONED PRIVATE <<Constants>> LCImplLocal
+         %UID '459AC4484A02'
+         %SUMMARY 'Локализуемые строки Local' ;
+         %META
+          %upv "children prefix" 'lst'
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> ListModified
+            %UID '7F98396F948A'
+            %SUMMARY '''Список изменён''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''lstListModified''; rValue : ''Список изменён'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // ListModified
+           SUMMONED <<Attribute>> ListFiltered
+            %UID 'B316DC25A661'
+            %SUMMARY '''Список отфильтрован. Отменить все фильтры''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''lstListFiltered''; rValue : ''Список отфильтрован. Отменить все фильтры'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // ListFiltered
+           SUMMONED <<Attribute>> SwitchFiltersOff
+            %UID '881D5232D517'
+            %SUMMARY '''Отменить все фильтры''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''lstSwitchFiltersOff''; rValue : ''Отменить все фильтры'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // SwitchFiltersOff
+           SUMMONED <<Attribute>> TimeMachineOn
+            %UID '6768AC3ED1A3'
+            %SUMMARY '''Машина времени включена на дату %s''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''lstTimeMachineOn''; rValue : ''Машина времени включена на дату %s'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // TimeMachineOn
+         ; // %ATTRIBUTES
+        ; // LCImplLocal
+      ; // %CHILDREN
+     ; // TnsListWarningGenerator
+   ; // %CHILDREN
+  ; // PrimListControllersRealization
+ ; // %CHILDREN
+; // PrimListControllers

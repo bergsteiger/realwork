@@ -1,0 +1,111 @@
+//////////////////////////////////////////////////////////////////////////////////
+// TestInterface (class)
+//////////////////////////////////////////////////////////////////////////////////
+
+: TestInterface::Class::friend::ClassDependency
+? Друг
+? Определяет что сервант (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+
+
+: TestInterface::Class
+? Интерфейс класса.
+? Определяет интерфейсы теста.
+< *::Category, *::Class
+a arf
+p call way=forth|back|both ? указывает тип интерфейса експортируемого из компоненты. forth - прямой (интерфейс реализуется внутри ДЛЛ); back - обратный (callback interface, реализуется клиентом компоненты); both - возможны оба варианта реализации интерфейса (на данный момент не поддерживается)
+p native definition=none|C++ interface|DLL outside ? определяет что интерфейс является "родным" (внешне определенным в пространстве видимости применения пакета). C++ interface - родной для С++ реализации компоненты; DLL outside - родной для клиента компоненты
+p debug log:b=false ? включает генерацию вывода в лог обращений ко всем методам реализации интерфейса
+$ C 162,207,221
+$ l 10,10,255
+$ f 10,10,255
++ idl
+F [{"%Sa"="abstract"}abstract ]interface %SN;
+	<#%FF
+	>%f_docs(%S)\
+	#[{"%Sa"="abstract"}abstract ]interface %SN[: <{, }%f_type(%G)>] {<
+	%CX>
+	#};
+
++ h
+F class %SN;
+	<#%FF
+	>%f_docs(%S)\
+	#class %SN[{"%S{native definition}"!="C++ interface"}{
+		// native cpp user's definition
+		%U[
+		]
+	}
+	#	: [{}{virtual public GTFLib::GTFInterfaces::ITest}<{\n#\t, }virtual public %GN><
+	#	, virtual public %RN>]
+	#{
+	[#public:<{}{"%f_is_factory(%C)"="false"}[
+	%CX
+	]>]]#};]
+	
+	#typedef ::Core::Var\<%SN\> %SN_var;
+	#typedef ::Core::Var\<const %SN\> %SN_cvar;[{"%f_has_factory_methods(%S)"="true"}
+	
+	// factory interface wrapper for %SN
+	class %SNFactory {
+	[	<{}{"%aM"="Interface::Class::friend::ClassDependency"}{Sp}%a%P<friend class %f_type(%L); // friend's servants
+		>><{}{"%ga"="abstract"}%g<{}{"%aM"="Interface::Class::friend::ClassDependency"}{Sp}%a%P<friend class %f_type(%L); // friend's servants
+		>>>
+	][%f_set_var(INT,S)public:<{}{"%CS"="factory"&"%CV"="PublicAccess"}{%C}
+	%f_dump_single_fctr_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%CV"="PublicAccess"}{%C}
+	%f_dump_single_fctr_h(%C)
+	>>][protected:<{}{"%CS"="factory"&"%CV"!="PublicAccess"}{%C}
+	%f_dump_single_fctr_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%CV"!="PublicAccess"}{%C}
+	%f_dump_single_fctr_h(%C)
+	>>][public:<{}{"%CS"="multi factory"&"%CV"="PublicAccess"}{%C}
+	%f_dump_multi_fctr_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&"%CV"="PublicAccess"}{%C}
+	%f_dump_multi_fctr_h(%C)
+	>>][protected:<{}{"%CS"="multi factory"&"%CV"!="PublicAccess"}{%C}
+	%f_dump_multi_fctr_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"&"%CV"!="PublicAccess"}{%C}
+	%f_dump_multi_fctr_h(%C)
+	>>]};]
+
++ cpp
+F class %SN;
+	[{"%f_has_factory_methods(%S)"="true"}// factory interface wrapper for %SN\
+	%f_set_var(INT,S)\
+	<{}{"%f_is_factory(%C)"="true"}{%C}
+	[{"%CS"="factory"}{%f_dump_multi_fctr_cpp(%C)}%f_dump_single_fctr_cpp(%C)]
+	><{}{"%ga"="abstract"}%g<{}{"%f_is_factory(%C)"="true"}{%C}
+	[{"%CS"="factory"}{%f_dump_multi_fctr_cpp(%C)}%f_dump_single_fctr_cpp(%C)]
+	>>
+	]
+
+
+: TestInterface::Class::Attribute
+= Interface::Class::Attribute
+
+: TestInterface::Class::readonly::Attribute
+= Interface::Class::readonly::Attribute
+
+: TestInterface::Class::external::Attribute
+? External param - this param can set outside model
+
+: TestInterface::Class::incoming::Attribute
+? Входной параметр
+? Определяет что для запуска теста необходим параметр
+
+: TestInterface::Class::outgoing::Attribute
+? Выходной параметр
+? Определяет параметр, который тест может вернуть в результате своей работы
+
+: TestInterface::Class::writeonly::Attribute
+= Interface::Class::writeonly::Attribute
+
+: TestInterface::Class::Operation
+= Interface::Class::Operation
+
+: TestInterface::Class::oneway::Operation
+= Interface::Class::oneway::Operation
+
+: TestInterface::Class::chg::Operation
+= Interface::Class::chg::Operation

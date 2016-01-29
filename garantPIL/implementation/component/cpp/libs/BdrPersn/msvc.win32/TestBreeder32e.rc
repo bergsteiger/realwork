@@ -1,0 +1,699 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DESIGNED            BITMAP                  "..\\..\\..\\tools\\update\\res\\2060.bmp"
+IDB_GARANT              BITMAP                  "..\\..\\..\\tools\\update\\res\\garant.bmp"
+IDB_BITMAP_ICONS        BITMAP                  "res\\icons.bmp"
+IDB_PROGRESS            BITMAP                  "res\\Progress.bmp"
+
+IDI_COPYPASSWORD	ICON                    "res\\copy.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LOGIN_DLG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Data Setup Wizard: authorization"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,180,65,125,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,180,85,125,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Next >",ID_NEXT,150,190,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         131,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,6,9,95,169
+    CONTROL         132,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Enter for for your identification as a GARANT user.",IDC_STATIC,110,10,195,20
+    LTEXT           "Notice: you must have permiissons for full system update.",IDC_STATIC,110,35,195,20
+    LTEXT           "User name:",IDC_STATIC,110,68,70,8
+    LTEXT           "Password:",IDC_STATIC,110,87,65,8
+END
+
+IDD_WAITUSERS DIALOG  0, 0, 302, 37
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Data Setup Wizard"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Waiting for release data by users. Please, wait...",IDC_STATIC,35,7,260,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITSERVER DIALOG  0, 0, 302, 37
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Data Setup Wizard. Data copying"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Database is copying to the server. Please, wait...",IDC_STATIC,35,7,260,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITXML DIALOG  0, 0, 322, 40
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Data setup wizard"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Checking and updating the settings. Please wait...",IDC_STATIC,35,7,280,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITSERVERSTART DIALOG  0, 0, 322, 40
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Data setup wizard"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "The application's server is in process of initialization. Please wait...",IDC_STATIC,35,7,280,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITGARANTRU DIALOG  0, 0, 322, 40
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Setup authorization in progress. Please wait...",IDC_STATIC,35,10,280,22,SS_CENTERIMAGE
+END
+
+IDD_WAITSERVERSTART2 DIALOG  0, 0, 322, 40
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE
+CAPTION "Data setup wizard"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "The application's server is in process of initialization. Please wait...",IDC_STATIC,10,10,300,22,SS_CENTERIMAGE
+END
+
+IDD_UPDATECOMPLETE DIALOG  0, 0, 232, 38
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "System is switching to the new version of database. Please, wait...",IDC_STATIC,5,11,220,18
+END
+
+IDD_SYNCUPDATE DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Data setup wizard"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next >",ID_NEXT,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         131,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,6,9,20,20
+    CONTROL         132,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,21,16
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Database installer is ready for database update. Disconnect active users for update?",IDC_STATIC,110,10,195,45
+    CONTROL         "No",IDC_RADIONO,"Button",BS_AUTORADIOBUTTON,110,75,30,10
+    CONTROL         "Yes",IDC_RADIOYES,"Button",BS_AUTORADIOBUTTON,110,60,26,10
+END
+
+IDD_SELECTBASEFOLDER DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Data Setup Wizasrd"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next >",ID_NEXT,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         131,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,6,9,20,20
+    CONTROL         132,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,21,16
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Database installer will install selected informational bank in indicated folder and then copy it to the server.",IDC_STATIC,110,10,200,25
+    LTEXT           "To choose another folder press ""Browse"" button.",IDC_STATIC,110,40,200,20
+    GROUPBOX        "Folder",IDC_STATIC,110,145,200,30
+    LTEXT           "C:\\",IDC_PATH,117,158,128,8
+    PUSHBUTTON      "Browse...",IDC_BROWSE,250,155,50,14
+    LTEXT           "%ld (%ld) Mb required for installation",IDC_NEED,110,62,200,10
+    LTEXT           "%ld Mb free on selected disk.",IDC_FREE,110,77,200,8
+END
+
+IDD_INTERNET_ACCESS_SETTINGS DIALOGEX 0, 0, 301, 151
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Internet settings"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Use settings from the system register",IDC_RADIO_OPEN_TYPE_PRECONFIG, "Button",BS_AUTORADIOBUTTON | WS_GROUP,14,16,183,10
+    CONTROL         "Use proxy server",IDC_RADIO_OPEN_TYPE_PROXY, "Button",BS_AUTORADIOBUTTON,14,29,119,10
+    EDITTEXT        IDC_EDIT_PROXY_NAME,46,57,92,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PROXY_PORT,46,75,37,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Accept",IDOK,187,130,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,243,130,50,14
+    GROUPBOX        "Type of internet access",IDC_STATIC,7,4,286,114
+    CTEXT           "Port:",IDC_STATIC,20,78,20,8
+    RTEXT           "Host:",IDC_STATIC,20,59,19,8
+    CONTROL         IDB_GARANT,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,7,128,37,16
+    GROUPBOX        "Proxy server",IDC_STATIC,15,44,269,66
+    CONTROL         "Authorization",IDC_CHECK_PROXY_AUTHENTICATION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,151,94,60,10
+    LTEXT           "Login:",IDC_STATIC,151,59,24,8
+    LTEXT           "Password:",IDC_STATIC,151,78,32,8
+    EDITTEXT        IDC_EDIT_PROXY_LOGIN,198,57,77,14,ES_AUTOHSCROLL
+    GROUPBOX        "",IDC_STATIC,145,44,139,66
+    EDITTEXT        IDC_EDIT_PROXY_PASSWORD,198,75,77,14,ES_PASSWORD | ES_AUTOHSCROLL
+END
+
+IDD_TESTBREEDER32 DIALOGEX 0, 0, 343, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Data Setup Wizard"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Static",IDC_MSG_DEALER,115,44,221,63
+    LISTBOX         IDC_LIST2,110,122,225,57,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | NOT WS_VISIBLE | WS_DISABLED | WS_VSCROLL
+    CONTROL         "Tree1",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | WS_BORDER | WS_TABSTOP,110,34,225,78
+    PUSHBUTTON      "&Settings",IDC_INET_SETTINGS,121,190,50,14
+    DEFPUSHBUTTON   "&Next >",ID_NEXT,176,190,50,14
+    DEFPUSHBUTTON   "&Cancel",IDCANCEL,231,190,50,14
+    DEFPUSHBUTTON   "&Help",ID_HELP,286,190,50,14
+    LTEXT           "",IDC_PROCESS_MSG,110,9,200,8,0,WS_EX_NOPARENTNOTIFY | WS_EX_TOPMOST | WS_EX_TOOLWINDOW
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,110,20,225,8
+    CONTROL         131,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,6,9,20,20
+    CONTROL         132,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,21,16
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,331,1,WS_EX_STATICEDGE
+    GROUPBOX        "",IDC_STATIC_01,109,113,226,40
+    LTEXT           "",IDC_MSG_0,114,118,217,8,SS_NOPREFIX
+    LTEXT           "",IDC_MSG_1,114,130,217,8
+    LTEXT           "",IDC_MSG_2,114,142,217,8
+    CONTROL         "",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP | WS_TABSTOP,114,104,217,8
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_TABSTOP,114,127,217,8
+    EDITTEXT        IDC_EDIT_ANSWER,147,82,83,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "copy",ID_COPYPASSWORD,304,41,25,14,BS_ICON
+    GROUPBOX        "",IDC_STATIC_02,110,34,225,68
+    LTEXT           "",IDC_STATIC_03,110,112,225,10
+    DEFPUSHBUTTON   "&Browse",IDC_BROWSE,280,161,50,14
+    GROUPBOX        " Distribution kit found in: ",IDC_RADIO6,109,153,226,26
+    CONTROL         "",IDC_STATIC_AD1, "Static", SS_LEFTNOWORDWRAP | WS_GROUP,114,164,164,8
+END
+
+IDD_TRIAL_DLG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Data Setup Wizard"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next >",ID_NEXT,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    CONTROL         131,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,6,9,20,20
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "&Help",ID_HELP,260,190,50,14
+    CONTROL         132,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,21,16
+    LTEXT           "Install trial version of GARANT?",IDC_PROCESS_MSG,110,8,200,10
+    CONTROL         "    N&o",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,137,39,37,10
+    CONTROL         "    &Yes",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,137,63,34,10
+    EDITTEXT        IDC_EDIT_ANSWER,239,83,26,12,ES_AUTOHSCROLL
+    LTEXT           "days",IDC_STATIC_AD1,269,85,17,8
+    LTEXT           "Trial period:",IDC_STATIC_AD0,157,85,79,8
+END
+
+IDD_TRIAL_DLG1 DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Data Setup Wizard"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Next >",ID_NEXT,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    CONTROL         131,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,6,9,20,20
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         132,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,21,16
+    LTEXT           "Install trial version of GARANT?",IDC_PROCESS_MSG,110,8,200,10
+    CONTROL         "    N&o",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,137,41,37,10
+    CONTROL         "    &60 days (maximum)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,137,76,92,10
+    CONTROL         "    &30 days (default)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,137,111,105,10
+    CONTROL         "    &Yes",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,137,141,34,10
+    EDITTEXT        IDC_EDIT_ANSWER,174,139,17,13,ES_AUTOHSCROLL
+END
+
+IDD_BROWSEDLG DIALOG  0, 0, 261, 86
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Attention!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Browse",IDOK,62,65,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,147,65,50,14
+    LTEXT           "",IDC_STATIC_AD0,7,7,247,57
+END
+
+
+IDD_DIALOG_BRC DIALOGEX 0, 0, 230, 93
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Data Setup Wizard"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST2,0,0,229,66,LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | LBS_NODATA | LBS_NOSEL | WS_DISABLED | NOT WS_BORDER | WS_VSCROLL,WS_EX_TRANSPARENT
+    LTEXT           "\nНе читается файл дистрибутива.\n\n<Обзор> - выбор другого каталога с исходным дистрибутивом для продолжения установки.",IDC_STATIC_AD1,6,7,218,53,0,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "Ok",ID_NEXT,118,72,50,14
+    PUSHBUTTON      "Cancel",IDCLOSE,172,72,50,14
+    PUSHBUTTON      "Browse",IDC_BROWSE,6,72,50,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_TESTBREEDER32, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_TRIAL_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_TRIAL_DLG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_BROWSEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 54
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "Data Setup Wizard"
+    IDS_SELECT_FOLDER       "Select your folder"
+    IDS_NEXT_SPF            "Insert disk with the file - %s"
+    IDS_EXIT_TITLE          "Cancel setup"
+    IDS_EXIT_MSG            "Do you want to cancel setup ?"
+    IDS_FLOPPY_ERR          "Key diskette write error"
+    IDS_QTITLE              "Data Setup Wizard"
+    IDS_MSG_0               "Choose set"
+    IDS_MSG_1               "Installation set can not be null"
+    IDS_MSG_2               "You have chosen an illegal combination of data"
+    IDS_MSG_3               "Set can not be cut in the data segments' collection"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSG_20              "Password-reply"
+    IDS_MSG_21              "Key diskette"
+    IDS_MSG_50              "Electronic switch processing error"
+    IDS_MSG_51              "The set was correctly installed"
+    IDS_MSG_60              "?"
+    IDS_MSG_61              "Preparing, please wait ..."
+    IDS_MSG_62              "Unidentified error. Retry setup once more."
+    IDS_MSG_63              "Preparing, please wait ..."
+    IDS_MSG_64              "Not available"
+    IDS_MSG_65              "Analyzing diskette ..."
+    IDS_MSG_66              "Diskette inserted"
+    IDS_MSG_67              "Available"
+    IDS_MSG_68              "Diskette not available"
+    IDS_MSG_60A             "Nonexistent set"
+    IDS_BAD_INST_SRC        "The Set can not be (re)installed. There is no data on the disk to update the set.\n\nPlease, input the path to the distribution disk manually."
+    IDS_NOT_FIND_INST_SRC   "Distribution disk not available.\n\nPlease, input the path to the distribution disk manually."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_FRMT0               "To be setup:\t%s"
+    IDS_FRMT1               "Required for setup:\t%d Mb"
+    IDS_FRMT2               "Available on the disk:\t%d Mb"
+    IDS_FRMT3               "Setup authorization %s"
+    IDS_FRMT20              "Device status:\t\t%s"
+    IDS_FRMT21              "Labels available:\t\t%s"
+    IDS_FRMT30              "Password:   %s"
+    IDS_FRMT31              "Reply:"
+    IDS_FRMT31A             "Reply:\t\t\tpositive"
+    IDS_FRMT41              ".\\KEYDISK.PIF %s %s %d"
+    IDS_FRMT01              "Required for setup:\t%s"
+    IDS_FRMT50              "%s"
+    IDS_FRMT51              "%s"
+    IDS_FRMT52              "Setup took:\t\t%d min. %d sec."
+    IDS_MSG_69              "Analyzing electronic switch ..."
+    IDS_MSG_70              "Protection file is damaged or not available"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSG_71              "Can not open GARANT.INI."
+    IDS_MSG_72              "GARANT trial version not to be updated. Please call your service company."
+    IDS_MSG_73              "Analyzing data ..."
+    IDS_MSG_74              "Searching sets on the distribution disk ..."
+    IDS_MSG_75              "Client set choosing"
+    IDS_FRMT4               "Update authorization %s"
+    IDS_MSG_76              "Critical error. Repeat setup once more."
+    IDS_MSG_77              "Do you want to unpack data with setup ?\n\nPacked set:\t\t%d Mb\nUnpacked set:\t\t%d Mb\nAvailable on the disk:\t%d Mb\n\nWarning: Batch update not available for packed data."
+    IDS_FRMT1A              "Required for setup:\t%d (%d) Mb"
+    IDS_MSG_78              "Write error %s.\n\nThere is not enough space in the directory Data"
+    IDS_MSG_79              "You input wrong value."
+    IDS_MSG_80              "Exit"
+    IDS_NEXT_DISK           "Insert disk N %s"
+    IDS_MSG_81              "Waiting for release data by users"
+    IDS_MSG_82              "At the current moment data are used by users.\nInstallation of new data is impossible.\n\nWait for data release ?"
+    IDS_MSG_83              "There is not enough space in the directory Data.\n\n Continue install ?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSG_84              "The set can not be updated with this distribution disk.\nYou can not get the required data set,\nbecause the databank is located on several compact disks.\n\nPlease, indicate the path to the other distribution disk."
+    IDS_MSG_85              "Read error %s."
+    IDS_MSG_86              "Try again"
+    IDS_MSG_87              "\tLogin:\t\t\t%s"
+    IDS_MSG_88              "\tPassword:"
+    IDS_MSG_89              "Incorrect password."
+    IDS_MSG_90              "Password: %.3s-%.3s-%.3s-%.3s-%.3s-%.3s-%.3s"
+    IDS_MSG_91              "Incorrect user name and/or password."
+    IDS_MSG_92              "User with this name already working in system."
+    IDS_MSG_93              "User is blocked. Consult to system administrator.."
+    IDS_MSG_94              "Error opening database."
+    IDS_TRANSIENT           "There is no connection with the server."
+    IDS_SERVER_NOT_FOUND    "Application server is inaccessible."
+    IDS_BAD_NETWORK_CONFIG  "There is no response from the application server. Perhaps client firewall blocks incoming calls."
+    IDS_IP_ADDRESS_NOT_FOUND "Incorrect IP address."
+    IDS_DATANOTFOUND        "Incorrect parameters."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_FORBIDDEN           "There are no rights to complete operation."
+    IDS_NOMORE_CONNECTIONS  "Incorrent login/password or incorrect rights"
+    IDS_MSG_95              "Error: can get information about user"
+    IDS_MSG_96              "Данный комплект предназначен для использования в %s режиме, в то время как установленные оболочки предполагают работу в %s режиме.\nУстановка данных невозможна. Вы можете устранить несоответствие, переустановив оболочки, соответствующие выбранному комплекту."
+    IDS_MSG_97              "локальном"
+    IDS_MSG_98              "однопользовательском сетевом"
+    IDS_MSG_99              "многопользовательском"
+    IDS_MSG_100             "%s\n\nPlease call your service company to get the reply to your password, and then input the reply into the reply field.\n\n Reply:"
+    IDS_MSG_101             "can't read file "
+    IDS_MSG_102             "absent file "
+    IDS_MSG_103             "Your service company:"
+    IDS_MSG_104             "Segment structure of the selected set does not match the distributive disk content. For this reason installation is impossible."
+
+    IDS_MSG_VERSION_EXIT    "Program version in the distribution is older than the installed one. Data installation impossible."
+    IDS_MSG_VERSION_NEW     "Later program version found in the distribution. Reinstall the shell.\n"
+    IDS_MSG_VERSION_OLDER   "Program version in the distribution is older than the installed one. You may be installing out-dated information.\nExit?"
+    IDS_MSG_VERSION_BUGFIX  "Later program version found in the distribution. We recommend that you close data installation wizard and reinstall the shell.\nExit?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_XMLIMPORT           "Dear user! Process of check and actualization of base of adjustments is running."
+    IDS_AUTHORIZATION       "Authorization"
+    IDS_FATAL_END           "The database is updating or the previous attempt has been failed. Close program?"
+    IDS_ERROR_LOAD_SECOND_APPLICATION "The database installer is already run."
+    IDS_AUTHORIZATION_EXEPTION 
+                            "An authorization is failed. Call to GARANT Company."
+    IDS_COPYING_FILE        "Copying file %s"
+    IDS_INSTALL_BASE_EXEPTION 
+                            "A database installation system is failed. Call to GARANT Company. The database have been not installed."
+    IDS_BASE_COPY_ERROR     "Database copying pipe: error during creation."
+    IDS_COPY_DATA_ERROR     "Error copying database."
+    IDS_ENOUGH_ROOM         "Not enough room for database copying."
+    IDS_SETUP_DATA          "Setup"
+    IDS_CANT_UPDATE_BASE    "Cant update base for trial version."
+    IDS_ATTENTION           "Attention"
+    IDS_NEED_BYTES          "? Mb required for installation"
+    IDS_NEED_BYTES_SPLIT    "%ld (%ld) Mb required for installation"
+    IDS_FREE_SPACE          "%ld Mb free on selected disk"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CANT_WRITE_TO_DIR   "Can't write to directory %s.\nCheck user's rights to record and modification in files of this catalogue."
+    IDS_SERVER_IS_STARTING  "The application's server is in process of initialization. Try to start the program later!"
+
+    IDS_ERROR_PROXY_ADDR_EMPTY "Proxy address not entered."
+    IDS_ERROR_PROXY_PORT_EMPTY "Proxy port not entered."
+    IDS_BAD_PROXYPORT       "Parameters for connection to internet incorrectly given."
+    IDS_ERROR_PROXY_LOGIN_EMPTY 
+                            "User login for authorization of proxy not entered."
+    IDS_ERROR_PROXY_PASSWORD_EMPTY 
+                            "User password for authorization of proxy not entered."
+    IDS_FZ_NET_ERROR	"Data to be installed is not matching your type of GARANT network version. Installing process cannot be continued."
+
+    IDS_COPYPASSWORD        "Copy password to the clipboard"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 255, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Data Setup Wizard"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Version 7.10",IDC_STATIC,40,15,121,8,SS_NOPREFIX
+    LTEXT           "(C) SIE ""GARANT-SERVICE-UNIVERSITY"" LLC, 1990-2015",IDC_STATIC,39,32,209,8
+    DEFPUSHBUTTON   "OK",IDOK,198,7,50,14,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 7,12,0,0
+ PRODUCTVERSION 7,12,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", """GARANT"" - english resources"
+            VALUE "CompanyName", "SIE ""GARANT-SERVICE-UNIVERSITY"" LLC"
+            VALUE "FileDescription", """GARANT"" - english resources"
+            VALUE "FileVersion", "7.12.0.0"
+            VALUE "InternalName", "Breeder_eng"
+            VALUE "LegalCopyright", "(C) SIE ""GARANT-SERVICE-UNIVERSITY"" LLC, 1990-2015"
+            VALUE "LegalTrademarks", "GARANT system"
+            VALUE "OriginalFilename", "F1DataSetup_eng.dll"
+            VALUE "ProductName", "GARANT"
+            VALUE "ProductVersion", "7"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Zimbabwe) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENW)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_ZIMBABWE
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOGEX 0, 0, 187, 92
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+CAPTION "HDD Specification"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "",IDC_STATIC_1,7,7,173,78,0,WS_EX_DLGMODALFRAME
+    GROUPBOX        "Login",IDC_STATIC_2,14,17,160,28
+    GROUPBOX        "Password",IDC_STATIC_3,14,49,160,28
+    EDITTEXT        IDC_LOGIN,19,28,149,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASS,19,60,150,12,ES_PASSWORD | ES_AUTOHSCROLL
+END
+
+IDD_NEWNAME DIALOG  0, 0, 177, 47
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Input file name"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,63,26,50,14
+    EDITTEXT        IDC_EDIT1,7,7,163,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 85
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\TestBreeder32.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\TestBreeder32.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (Zimbabwe) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\TestBreeder32.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

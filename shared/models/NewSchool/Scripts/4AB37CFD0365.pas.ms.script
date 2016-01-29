@@ -1,0 +1,61 @@
+// Tm4WordIDStrListPrim 4AB37CFD0365 SimpleClass Class
+
+INCLUDE '47B5A0AE03CC.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_4AB37CFD0365
+
+INCLUDE '4AB37C3E00BA.pas.ms.script'
+
+: ME_4AB37D1D01CE
+ CONST UID '4AB37D1D01CE'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_4AB37C3E00BA // Tm4WordIDStr
+ ;
+
+ @SELF
+; // ME_4AB37D1D01CE ItemType
+
+: ME_4AB37CFD0365
+ CONST UID '4AB37CFD0365'
+ CONST Name 'Tm4WordIDStrListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Список списков идентификаторов слов' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B5A0AE03CC // l3ObjectRefListPrim
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4AB37D1D01CE // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B935AF0066 // FillItem
+ ME_47B94A5C006E // FreeItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.09.2009 16:36'
+
+ @SELF
+; // ME_4AB37CFD0365 Tm4WordIDStrListPrim

@@ -1,0 +1,1 @@
+for /R %1 %%i in (*.res.cmd) do call W:\common\env\.call.cmd %%~di%%~pi %%i

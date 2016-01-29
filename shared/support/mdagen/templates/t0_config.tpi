@@ -1,0 +1,22 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// configuration functions
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+f _idl_prefix
+	garant.ru
+
+f _idl_pre_include
+	\#define CORBA3
+
+f _start_func_cpp
+	[{"%S{debug log}"="true"|"%P{debug log}"="true"}\n\tLOG_D (("%1N"));]
+/	\n\t_GDS_SET_CONTEXT (CONTEXT, "%1N")
+
+f _end_func_cpp
+/	\t_GDS_RES_CONTEXT (CONTEXT)\n
+
+f _start_file_cpp
+	\#pragma warning (disable:4284)
+	\#pragma warning (disable:4786)
+/	
+/	\#include "utils/Profiling.h"

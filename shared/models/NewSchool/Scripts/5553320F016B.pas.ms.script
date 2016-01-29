@@ -1,0 +1,75 @@
+// HT_Const 5553320F016B UtilityPack Class
+
+FORWARD ME_5553320F016B
+
+: ME_5553322F03C9
+ CONST UID '5553322F03C9'
+ CONST Name 'SAB'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "finished" false
+
+ @SELF
+; // ME_5553322F03C9 SAB
+
+: ME_555C84FC0026
+ CONST UID '555C84FC0026'
+ CONST Name 'ThtTblHandle'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "finished" false
+
+ @SELF
+; // ME_555C84FC0026 ThtTblHandle
+
+: ME_559FA10A0133
+ CONST UID '559FA10A0133'
+ CONST Name 'OPEL'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "finished" false
+
+ @SELF
+; // ME_559FA10A0133 OPEL
+
+: ME_559FA11803DC
+ CONST UID '559FA11803DC'
+ CONST Name 'LPOPEL'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_559FA10A0133 // OPEL
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_559FA11803DC LPOPEL
+
+: ME_5553320F016B
+ CONST UID '5553320F016B'
+ CONST Name 'HT_Const'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_5553322F03C9 // SAB
+ ME_555C84FC0026 // ThtTblHandle
+ ME_559FA10A0133 // OPEL
+ ME_559FA11803DC // LPOPEL
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_5553320F016B HT_Const

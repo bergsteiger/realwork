@@ -1,0 +1,150 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/Testing/Elements/TestCase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::Testing::Elements::TestCase
+//
+// Тестовый сценарий
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: TestCase::Class
+? Тестовый сценарий
+> Test::Class
+> method::Class
+
+= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_test_case.gif
+L code_test_case
+// Параметры визуализации
+$ C 255,192,203
+$ l 50,205,50
+$ f 255,104,32
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4B2A19080274*
+	%S%[inherited]\
+
+	[{"%SD"=""}\
+
+	%f_set_var(POS,"%f_string_find(%SN,_)")\
+	%f_set_var(NAME,"[{%{POS}N!=-1}{%SN}%f_substr_from_begin(%SN,%{POS}N)]")\
+
+	[{%f_substr_from_begin(%{NAME}N,1)=K}{\
+	[{%f_substr_from_begin(%{NAME}N,1)=TK}\
+	[{%f_consist_of(%f_cut_prefix(%{NAME}N,TK),1234567890)=true}\
+	%S%f_set_documentation(\{RequestLink:%f_cut_prefix(%{NAME}N,TK)\})\
+	]\
+	]\
+	}\
+	[{%f_consist_of(%f_cut_prefix(%{NAME}N,K),1234567890)=true}\
+	%S%f_set_documentation(\{RequestLink:%f_cut_prefix(%{NAME}N,K)\})\
+	]\
+	]\
+	]\
+
+	[{%S#f_IsMixIn()!=true|%Sa!=abstract}\
+	[{%Gx!=true|<{}{%G#f_IsMixIn()!=true}{C}>=0}\
+	[{%P%P%PS=VCMTestProject}{\
+	[{<{}{%CS=uses&%C%T#f_IsVCMForm()=true}{C}>=0}{\
+	[{"%{TVCMBaseTest}N"=""}%f_find_element(TVCMBaseTest,TVCMBaseTest)]\
+	%S%f_make_accessable(%{TVCMBaseTest}U)\
+	%f_addG(%S,%{TVCMBaseTest})\
+	}\
+	[{%f_IsSandBox(%S)!=true}{\
+	[{"%{TTestCase}N"=""}%f_find_element(TTestCase,TTestCase)]\
+	%S%f_make_accessable(%{TTestCase}U)\
+	%f_addG(%S,%{TTestCase})\
+	}\
+	[{"%{TBaseTest}N"=""}%f_find_element(TBaseTest,TBaseTest)]\
+	%S%f_make_accessable(%{TBaseTest}U)\
+	%f_addG(%S,%{TBaseTest})\
+	]\
+	]\
+	}\
+	[{"%{TvcmInsiderTest}N"=""}%f_find_element(4DAECE5D0060,TvcmInsiderTest)]\
+	%S%f_make_accessable(%{TvcmInsiderTest}U)\
+	%f_addG(%S,%{TvcmInsiderTest})\
+	]\
+	]\
+	]\
+
+	[{"%{TestFrameWork}N"=""}%f_find_element(TestFrameWork,TestFrameWork)]\
+	%S%f_make_accessable(%{TestFrameWork}U)\
+	%f_addCDep(%S,%{TestFrameWork})\
+
+//	[{%GN!=TTestCase}\
+	[{%S#f_InheritsFrom("TBaseTest")=true}\
+	[{"%{TAbstractTest.GetFolder}N"=""}%f_find_element(4C937013031D,TAbstractTest.GetFolder)]\
+	%S%f_add_override(4C937013031D)\
+	%{TAbstractTest.GetFolder}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TAbstractTest.GetFolder},%S)_var,\
+	 {-}\
+	)\
+	%{TAbstractTest.GetFolder}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TAbstractTest.GetFolder},%S)_impl,\
+	 Result := '%PN';\
+	)
+
+	[{"%{TAbstractTest.GetModelElementGUID}N"=""}%f_find_element(4DAED6F60146,TAbstractTest.GetModelElementGUID)]\
+	%S%f_add_override(4DAED6F60146)\
+	%{TAbstractTest.GetModelElementGUID}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TAbstractTest.GetModelElementGUID},%S)_var,\
+	 {-}\
+	)\
+	%{TAbstractTest.GetModelElementGUID}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TAbstractTest.GetModelElementGUID},%S)_impl,\
+	 Result := '%SU';\
+	)\
+	]
+//#UC END# *4B2A19E3038Bfor4B2A19080274*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _pas_BeforeClassEnd
+//#UC START# *4A9293AE02DCfor4B2A19080274*
+	%S%[inherited]
+//#UC END# *4A9293AE02DCfor4B2A19080274*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _pas_BeforeCloseUnit
+//#UC START# *4B2A253F0051for4B2A19080274*
+	%S%[inherited]
+//#UC END# *4B2A253F0051for4B2A19080274*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит секции инициализации
+%f _pas_OutIni
+//#UC START# *4B3886890063for4B2A19080274*
+	%S%[inherited]\
+	[{%Sa!=abstract&%S#f_IsMixIn()!=true}\
+	\n TestFramework.RegisterTest(%f_pas_TypeName(%S).Suite);\
+	]
+//#UC END# *4B3886890063for4B2A19080274*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+%f _pas_TypeName
+//#UC START# *4947F8AD02A1for4B2A19080274*
+	[{%S#f_IsMixIn()!=true}{\
+	%S%[inherited]\
+	}\
+	T%f_cut_prefix(%SN,T)\
+	]
+//#UC END# *4947F8AD02A1for4B2A19080274*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

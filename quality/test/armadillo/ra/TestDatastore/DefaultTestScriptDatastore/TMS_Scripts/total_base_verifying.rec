@@ -1,0 +1,421 @@
+
+Sub Main
+    Dim Result As Integer
+    Dim TextFromFile As String
+    Dim TextFromString As String
+    Dim TextFromStringSmall As String
+    Dim FromObject As String
+    Dim FromObjectSmall As String
+    Dim ClientNumber As String
+    Dim TempStr As String
+    Dim i,j,IsOk As Integer
+    Dim Belongs(1 To 255) As String    
+    Dim BelongsFromObject(1 to 255) As String
+    Dim BelongsCount As Integer
+    Dim SellDate As Variant    
+    Dim SellDateFromObject As Variant
+    Dim Skidka, Skidka2 As Double
+    'Initially Recorded: 29.05.2002  16:59:46
+    'Script Name: Проверка клиентов в АРМ (сравнение с данными из файла csv)
+    
+    'Открываем на чтение csv с belongsами и зачитываем в память
+    Open "W:\segm.csv" For Input Access Read Shared As #20
+    Do While Not Eof(20)
+        Line Input #20, TextFromFile$
+        i = Val(GetField$(TextFromFile$,2,";"))
+        Belongs$(i) = GetField$(TextFromFile$,1,";")
+    Loop
+    Close #20
+
+    'Открываем на чтение Основной csv
+    Open "E:\work\Armadillo\DateBase\CL_0602_Baxmat.csv" For Input Access Read Shared As #20
+    'Пропускаем первые три строки
+    Line Input #20, TextFromFile$
+    Line Input #20, TextFromFile$
+    Line Input #20, TextFromFile$
+    
+    'Это для теста
+    'for i=1 to 49
+    '    Line Input #20, TextFromFile$
+    'next i
+    
+    'Чтем файл до конца по строкам, которые кладем в TextFromFile$
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    Do While Not Eof(20)
+        Line Input #20, TextFromFile$
+        
+        'В ClientNumber$ кладем значения из ячейки 3 (ID клиента)
+        ClientNumber$ = GetField$(TextFromFile$, 3, ";")
+        
+        'Позиционируемся в АРМе на клиента с таким же ID - поиск по контексту
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        PushButton Click, "Text=Контекст"
+        Window SetContext, "Caption=Контекстный поиск", ""
+        InputKeys ClientNumber$
+        PushButton Click, "ObjectIndex=3"
+        PushButton Click, "ObjectIndex=4"
+        PushButton Click, "Text=Принять"
+
+'ЗАКЛАДКА РЕКВИЗИТЫ
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        TabControl Click, "ObjectIndex=1;\;ItemIndex=1", ""
+    'ПРОВЕРЯЕМ ИМЯ КЛИЕНТА (Реквизиты - Наименование)
+        'В TextFromString$ кладем значения из ячейки 4 (имя клиента)
+        TextFromString$ = GetField$(TextFromFile$, 4, ";")
+        'В FromObject$ читаем из EditBoxa 
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=2", "Text", FromObject)
+        'Так как имеются проблемы с форматом csv имя клиента делим по пробелам и ищем эти части имени в прочитанном из csv имени клиента
+        'FromObjectSmall - часть имени. IsOK булева переменная.
+        i = 1
+        do
+            if FromObject$<>"" then FromObjectSmall$ = GetField$(FromObject$, i, """")
+            if FromObjectSmall$<>"" then 
+                i = i+1
+                IsOk = InStr( TextFromString$, FromObjectSmall$)
+            end if
+        loop while IsOk and FromObjectSmall$<>""
+        'Если различаются имена - пишем в лог 
+        if IsOk=0 then SQALogMessage sqaWarning, "Имена клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ КАТЕГОРИЮ (Реквизиты - Категория)
+        'В TextFromString$ кладем значения из ячейки 6 (категория)
+        TextFromString$ = GetField$(TextFromFile$, 6, ";")
+        'В FromObject$ читаем из EditBoxa 
+        Result = SQAGetPropertyAsString("Type=ComboBox;ObjectIndex=2", "Text", FromObject)
+        'Если пустая строка из файла - то Коммерческие
+        if Trim$(TextFromString$) = "" then TextFromString$="Коммерческие"
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Категории клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ПРЕФИКС (Реквизиты - Префикс)
+        'В TextFromString$ кладем значения из ячейки 5
+        TextFromString$ = GetField$(TextFromFile$, 5, ";")
+        'В FromObject$ читаем из EditBoxa 
+        Result = SQAGetPropertyAsString("Type=ComboBox;ObjectIndex=1", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Префиксы клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ИМЯ КЛИЕНТА (Реквизиты - Полное наименование)
+        'В TextFromString$ кладем значения из ячейки 4 (имя клиента)
+        TextFromString$ = GetField$(TextFromFile$, 4, ";")
+        'В FromObject$ читаем из RichEdita
+        Result = SQAGetPropertyAsString("Type=RichEdit;ObjectIndex=2", "Text", FromObject)
+        'Так как имеются проблемы с форматом csv имя клиента делим по пробелам и ищем эти части имени в прочитанном из csv имени клиента
+        'FromObjectSmall - часть имени. IsOK булева переменная.
+        i = 1
+        do
+            if FromObject$<>"" then FromObjectSmall$ = GetField$(FromObject$, i, """")
+            if FromObjectSmall$<>"" then 
+                i = i+1
+                IsOk = InStr( TextFromString$, FromObjectSmall$)
+            end if
+        loop while IsOk and FromObjectSmall$<>""
+        'Если различаются имена - пишем в лог 
+        if IsOk=0 then SQALogMessage sqaWarning, "Полные имена клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ EMAIL
+        TextFromString$ = GetField$(TextFromFile$, 10, ";")
+        'В FromObject$ читаем из EditBoxa 
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=1", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Emailы клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ФАМИЛИЮ, ИМЯ, ОТЧЕСТВО КОНТАКТНОГО ЛИЦА
+        ListView Click, "ObjectIndex=1", "Coords=0,0"
+        InputKeys "{DOWN}{PGUP}{PGUP}{PGUP}"
+        Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=1", "Text", FromObject)
+        'Фамилии
+        if FromObject$<>"" then FromObjectSmall$ = GetField$(FromObject$, 2, ";")       
+        TextFromString$ = Trim$(GetField$(TextFromFile$, 7, ";"))
+        if TextFromString$ <> FromObjectSmall$ then SQALogMessage sqaWarning, "Фамилии КонтЛиц различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObjectSmall$
+        'Если есть фамилия - то IsOk=1
+        if TextFromString$<>"" then IsOk=1 else IsOk=0
+        'Имя
+        if FromObject$<>"" then FromObjectSmall$ = GetField$(FromObject$, 3, ";")       
+        TextFromString$ = Trim$(GetField$(TextFromFile$, 8, ";"))
+        if IsOk and TextFromString$ <> FromObjectSmall$ then SQALogMessage sqaWarning, "Имена КонтЛиц различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObjectSmall$
+        'Отчество
+        if FromObject$<>"" then FromObjectSmall$ = GetField$(FromObject$, 4, ";")       
+        TextFromString$ = Trim$(GetField$(TextFromFile$, 9, ";"))
+        if IsOk and TextFromString$ <> FromObjectSmall$ then SQALogMessage sqaWarning, "Отчества КонтЛиц различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObjectSmall$
+        'Проверяем единственность контактного лица
+        InputKeys "{DOWN}"
+        Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=1", "Text", FromObjectSmall)
+        if FromObject$ <> FromObjectSmall$ then SQALogMessage sqaWarning, "Найдено несколько контактных лиц у ID: "+ClientNumber$, "Должно быть одно"
+    'ПРОВЕРЯЕМ ТЕЛЕФОНЫ
+        TextFromString$ = GetField$(TextFromFile$, 11, ";")
+        ListView Click, "ObjectIndex=2", "Coords=0,0"
+        InputKeys "{DOWN}{PGUP}{PGUP}{PGUP}"
+        i = -1 'i = количество телефонов в АРМ
+        FromObject$ = ""
+        Do
+            TempStr$=FromObject$
+            Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=2", "Text", FromObject)
+            if FromObject$<>"" then FromObjectSmall$ = GetField$(FromObject$, 3, ";") else FromObjectSmall$ = ""
+            if TextFromString$<>"" and FromObjectSmall$="" then SQALogMessage sqaWarning, "Телефоны отсутствует ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObjectSmall$
+            if TextFromString$="" and FromObjectSmall$<>"" then SQALogMessage sqaWarning, "Лишний телефон ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObjectSmall$
+            if TextFromString$<>"" and InStr(TextFromString$, FromObjectSmall$)=0 then SQALogMessage sqaWarning, "Телефоны различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObjectSmall$
+            InputKeys "{DOWN}"
+            i = i+1
+        Loop While TempStr$<>FromObject$
+        j = 0 'j=количество телефонов в CSV
+        Do
+            if TextFromString$<>"" then 
+                IsOk=InStr(TextFromString$, ",")
+                if IsOk>0 then TextFromString$ = Mid$(TextFromString$, IsOk+1)
+                j = j+1
+            end if
+        Loop While IsOk>0 and TextFromString$<>""
+        if i<>j then SQALogMessage sqaWarning, "Количество телефонов различно ID: "+ClientNumber$, "CSV: " + Str(j)+" АРМ: " + Str(i)
+
+'ЗАКЛАДКА ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        TabControl Click, "ObjectIndex=1;\;ItemIndex=2", ""
+    'ПРОВЕРЯЕМ НАС. ПУНКТ
+        TextFromString$ = GetField$(TextFromFile$, 12, ";")
+        'В FromObject$ читаем из ComboBoxa
+        Result = SQAGetPropertyAsString("Type=ComboBox;ObjectIndex=1", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if UCase$(TextFromString$) <> UCase$(FromObject$) then SQALogMessage sqaWarning, "Города клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ИНДЕКС
+        TextFromString$ = GetField$(TextFromFile$, 13, ";")
+        'В FromObject$ читаем из EditBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=2", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Индексы клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ АДРЕС
+        TextFromString$ = GetField$(TextFromFile$, 14, ";")
+        'В FromObject$ читаем из EditBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=1", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if Trim$(TextFromString$) <> Trim$(FromObject$) then SQALogMessage sqaWarning, "Адреса клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ЮР ГОРОД
+        TextFromString$ = GetField$(TextFromFile$, 15, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=ComboBox;ObjectIndex=2", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if UCase$(TextFromString$) <> UCase$(FromObject$) then SQALogMessage sqaWarning, "Юргорода клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ЮР ИНДЕКС
+        TextFromString$ = GetField$(TextFromFile$, 16, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=4", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Юриндексы клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ЮР АДРЕС
+        TextFromString$ = GetField$(TextFromFile$, 17, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=3", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if Trim$(TextFromString$) <> Trim$(FromObject$) then SQALogMessage sqaWarning, "Юрадреса клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ НАЗВАНИЯ БАНКОВ
+        TextFromString$ = GetField$(TextFromFile$, 18, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=ComboBox;ObjectIndex=3", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        i = 1
+        do
+            if FromObject$<>"" then FromObjectSmall$ = GetField$(FromObject$, i, " ")
+            if FromObjectSmall$<>"" then 
+                i = i+1
+                IsOk = InStr( TextFromString$, FromObjectSmall$)
+            end if
+        loop while IsOk and FromObjectSmall$<>""
+        'Если различаются имена - пишем в лог 
+        if FromObject$="" and TextFromString$="" then IsOk=1
+        if IsOk=0 then SQALogMessage sqaWarning, "Названия банков клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ БИК
+        TextFromString$ = GetField$(TextFromFile$, 20, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=8", "Text", FromObject)
+        'Если различаются БИК но все атрибуты на месте - пишем в лог 
+        if TextFromString$ <> FromObject$ then 
+            if GetField$(TextFromFile$, 18, ";")<>"" then
+                SQALogMessage sqaWarning, "БИК клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+            end if
+        end if
+    'ПРОВЕРЯЕМ АДРЕС БАНКОВ
+        TextFromString$ = GetField$(TextFromFile$, 19, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=6", "Text", FromObject)
+        'Если различаются имена но все атрибуты на месте - пишем в лог 
+        if TextFromString$ <> FromObject$ then 
+            if GetField$(TextFromFile$, 18, ";")<>"" then
+                SQALogMessage sqaWarning, "Банковский адрес клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+            end if
+        end if
+    'ПРОВЕРЯЕМ КОРРСЧЕТ
+        TextFromString$ = GetField$(TextFromFile$, 21, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=7", "Text", FromObject)
+        'Если различаются имена но все атрибуты на месте - пишем в лог 
+        if TextFromString$ <> FromObject$ then 
+            if GetField$(TextFromFile$, 18, ";")<>"" then
+                SQALogMessage sqaWarning, "Коррсчет клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+            end if
+        end if
+    'ПРОВЕРЯЕМ ИНН
+        TextFromString$ = GetField$(TextFromFile$, 22, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=5", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "ИНН клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ОКПО
+        TextFromString$ = GetField$(TextFromFile$, 23, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=9", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "ОКПО клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ ОКОНХ
+        TextFromString$ = GetField$(TextFromFile$, 24, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=RichEdit;ObjectIndex=2", "Text", FromObject)
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "ОКОНХ клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+    'ПРОВЕРЯЕМ РАССЧЕТ
+        TextFromString$ = GetField$(TextFromFile$, 25, ";")
+        'В FromObject$ читаем из ComboBox
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=10", "Text", FromObject)
+
+        'Если различаются имена - пишем в лог 
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Рассчет клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+
+
+'ЗАКЛАДКА ВЗАИМОДЕЙСТВИЕ
+    'ЛОГИН
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        TabControl Click, "ObjectIndex=1;\;ItemIndex=3", ""
+        Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=2", "Text", FromObject)
+        TextFromString$ = GetField$(TextFromFile$, 26, ";")
+        if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Логины клиентов различны ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+
+'ЗАКЛАДКА ПРОДУКТЫ У КЛИЕНТА
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        TabControl Click, "ObjectIndex=1;\;ItemIndex=0", ""
+        'ПОЛЕ ПРОДУКТ- УСТАНАВЛИВАЕМ НА НУЖНОГО ИЛИ ОРЕМ ЧТО НУЖНОГО НЕТ
+        TextFromString$ = GetField$(TextFromFile$, 27, ";") 'название
+        SellDate = CVDate(GetField$(TextFromFile$, 31, ";")) 'дата продажи
+        ListView Click, "ObjectIndex=5", "Coords=0,0"
+        InputKeys "{DOWN}{PGUP}{PGUP}{PGUP}{LEFT}{LEFT}{LEFT}{LEFT}{LEFT}"
+        FromObject$ = ""
+        IsOk=0
+        Do
+            TempStr$ = FromObject$
+            Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=5", "Text", FromObject$)
+            if FromObject$<>"" then 
+                FromObjectSmall$ = GetField$(FromObject$, 3, ";")
+                SellDateFromObject = CVDate(GetField$(FromObject$, 5, ";"))
+            end if 
+            if FromObjectSmall$=TextFromString$ and SellDateFromObject=SellDate then IsOk=1 else InputKeys "{DOWN}"
+        Loop While IsOk=0 and TempStr$<>FromObject$
+        If IsOk=0 then 
+            SQALogMessage sqaWarning, "Не найдено продукта у клиента ID: "+ClientNumber$, "CSV: " + TextFromString$
+        else
+   'ВСЕ ЧТО НИЖЕ ПРОИЗВОДИТСЯ КОГДА ПРОДУКТ НАЙДЕН
+   'ПОДЗАКЛАДКА ОСНОВНЫЕ ПАРАМЕТРЫ 
+            TabControl Click, "ObjectIndex=2;\;ItemIndex=3", ""
+            'СЕТЬ
+            TextFromString$ = GetField$(TextFromFile$, 29, ";") 
+            if Trim$(TextFromString$)="сеть" then TextFromString$="Многопользовательская сетевая"
+            if Trim$(TextFromString$)="лок" then TextFromString$="Локальная"
+            if Trim$(TextFromString$)="одноп.сеть" then TextFromString$="Однопользовательская сетевая"
+            Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=4", "Text", FromObject)
+            if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Типы сети продукта различны у клиента ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+            'РЕГУЛЯРНОСТЬ
+            TextFromString$ = GetField$(TextFromFile$, 30, ";")
+            if Trim$(TextFromString$)="рег" then TextFromString$="Регулярный"
+            if Trim$(TextFromString$)="нерег" then TextFromString$="Нерегулярный"
+            Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=3", "Text", FromObject)
+            'если ИнФарм или английские - то одна строка иначе 2.
+            TextFromStringSmall$ = Trim$(GetField$(TextFromFile$, 28, ";"))
+            if TextFromStringSmall$="9" or TextFromStringSmall$="10" or TextFromStringSmall$="11" or TextFromStringSmall$="25" or TextFromStringSmall$="27" or TextFromStringSmall$="42" or TextFromStringSmall$="43" or TextFromStringSmall$="44" then TextFromString$=""
+            if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Регулярность продукта различна у клиента ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+            'СПОСОБ ОБНОВЛЕНИЯ
+            TextFromString$ = GetField$(TextFromFile$, 37, ";")
+            if Trim$(TextFromString$)="" then TextFromString$="Целиком"
+            Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=2", "Text", FromObject)
+            if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Способ обновления продукта различен у клиента ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+            'СКИДКА ОБНОВЛЕНИЯ
+            TextFromString$ = GetField$(TextFromFile$, 34, ";")
+            Result = SQAGetPropertyAsString("Type=EditBox;ObjectIndex=5", "Text", FromObject)
+            if Trim$(FromObject$)="" then FromObject$="0"
+            if TextFromString$ <> FromObject$ then SQALogMessage sqaWarning, "Скидка на обновление различна у клиента ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+            'ОБОСНОВАНИЕ СКИДКИ ОБНОВЛЕНИЯ
+            Result = SQAGetPropertyAsString("Type=ComboBox;ObjectIndex=2", "Text", FromObjectSmall)
+            if FromObject$<>"0" then
+                TextFromString$ = GetField$(TextFromFile$, 35, ";")
+                if Trim$(TextFromString$)="" then TextFromString$="Прочее (за счет РП)"
+                if Trim$(FromObjectSmall$)<>TextFromString$ then SQALogMessage sqaWarning, "Скидка обновления 0% но есть обоснование. Клиент ID: "+ClientNumber$, " АРМ: " + FromObject$
+            else
+                if Trim$(FromObjectSmall$)<>"" then SQALogMessage sqaWarning, "Скидка обновления 0% но есть обоснование. Клиент ID: "+ClientNumber$, " АРМ: " + FromObjectSmall$
+            end if
+            'СОСТАВ ЭКЗЕМПЛЯРА
+            ListView Click, "ObjectIndex=1", "Coords=0,0"
+            InputKeys "{DOWN}{PGUP}{PGUP}{PGUP}"
+            Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=1", "Text", FromObject)
+            'Заполняем BelongsFromObject, BelongsCount - количество
+            'Предыдущий считанный ИБ будем запоминать в FromObjectSmall$ - это будет условием выхода из цикла
+            FromObjectSmall$ = ""
+            BelongsCount=0
+            While FromObjectSmall$<>FromObject$
+                BelongsCount = BelongsCount+1
+                BelongsFromObject$(BelongsCount) = FromObject$
+                FromObjectSmall$=FromObject$
+                InputKeys"{DOWN}"
+                Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=1", "Text", FromObject)
+            Wend
+            'Из файла прочли        
+            TextFromString$ = GetField$(TextFromFile$, 36, ";")
+            'i будет количеством сегментов в Csv-файле
+            'IsOk будет текущим номером сегмента из Csv-файла
+            if TextFromString$<>"" then
+                i = 0
+                IsOk = Val(GetField$(TextFromString$, i+1, ","))
+            else
+                IsOk = 0
+            end if 
+            While IsOk<>0
+                'Ищем среди прочитанных в АРМ Result=1 если нашли
+                Result = 0
+                For j=1 to BelongsCount
+                    'a$ = Belongs$(IsOk)
+                    'b$ = BelongsFromObject$(j)
+                    if Belongs$(IsOk)=BelongsFromObject$(j) then 
+                        Result=1
+                        Exit For
+                    end if 
+                Next j
+                if Result=0 then SQALogMessage sqaWarning, "У клиента не найден продукт ID: "+ClientNumber$, "CSV: " + Str$(IsOk)
+                'Получаем следующий сегмент
+                i = i+1
+                IsOk = Val(GetField$(TextFromString$,i+1,","))
+            Wend       
+            if BelongsCount<>i then SQALogMessage sqaWarning, "Разное количество продуктов у клиента ID: "+ClientNumber$, "CSV: " + Str$(i) + "АРМ: " + Str$(BelongsCount)
+   'ПОДЗАКЛАДКА ИСТОРИЯ ПРОДУКТА
+            TabControl Click, "ObjectIndex=2;\;ItemIndex=2", ""
+            ListView Click, "ObjectIndex=1", "Coords=0,0"
+            InputKeys "{DOWN}{PGUP}{PGUP}{PGUP}{LEFT}{LEFT}{LEFT}{LEFT}{LEFT}{LEFT}{LEFT}"
+            InputKeys "{RIGHT}{RIGHT}"
+            'КОЛИЧЕСТВО СТРОК ДОЛЖНО БЫТЬ 2 у ОБЫЧНЫХ
+            i=-1
+            Do
+                FromObject$=FromObjectSmall$+TempStr$
+                InputKeys "{LEFT}"
+                Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=1", "Text", TempStr)
+                InputKeys "{RIGHT}"
+                Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=1", "Text", FromObjectSmall)
+                InputKeys "{DOWN}"
+                i = i+1
+            Loop While FromObject$<>FromObjectSmall$+TempStr$
+            'если ИнФарм или английские - то одна строка иначе 2.
+            TextFromString$ = Trim$(GetField$(TextFromFile$, 28, ";"))
+            if TextFromString$="27" or TextFromString$="42" or TextFromString$="43" or TextFromString$="44" then i=i+1
+            if i<>2 then SQALogMessage sqaWarning, "Количество записей в истории продукта неправильное. ID: "+ClientNumber$, ""
+               
+            'ПОСЛЕДНЯЯ ЗАПИСЬ ДОЛЖНА БЫТЬ ПРОДАЖА
+            if FromObjectSmall$<>"Продажа (новый клиент)" and FromObjectSmall$<>"Допродажа" then SQALogMessage sqaWarning, "Последняя запись в истории клиента - не продажа ID: "+ClientNumber$, ""
+            'СКИДКА НА ПРОДАЖУ
+            InputKeys "{RIGHT}{RIGHT}{RIGHT}{RIGHT}"
+            Result = SQAGetPropertyAsString("Type=ListView;ObjectIndex=1", "Text", FromObject)
+            TextFromString$ = GetField$(TextFromFile$, 32, ";")
+            Skidka = Val(TextFromString$)
+            Skidka2 = Val(FromObject$)
+            if Skidka<>Skidka2 then SQALogMessage sqaWarning, "Скидка на продажу различна у клиента ID: "+ClientNumber$, "CSV: " + TextFromString$+" АРМ: " + FromObject$
+        end if
+    Loop
+    Close #20
+End Sub

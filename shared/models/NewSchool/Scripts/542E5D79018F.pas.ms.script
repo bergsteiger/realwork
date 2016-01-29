@@ -1,0 +1,525 @@
+// Tm3StorageHolder 542E5D79018F SimpleClass Class
+
+INCLUDE '4AE5CA2D0034.pas.ms.script'
+
+INCLUDE '4720862F0238.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_542E5D79018F
+
+: ME_542E5DA401CB
+ CONST UID '542E5DA401CB'
+ CONST Name 'f_Storage'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4720937500A4 // Im3IndexedStorage
+ ;
+
+ @SELF
+; // ME_542E5DA401CB f_Storage
+
+INCLUDE '542176490191.pas.ms.script'
+
+: ME_542E5DD80163
+ CONST UID '542E5DD80163'
+ CONST Name 'f_StorageClass'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5422B2A502EB // Rm3CommonStorage
+ ;
+
+ @SELF
+; // ME_542E5DD80163 f_StorageClass
+
+: ME_542E66010214
+ CONST UID '542E66010214'
+ CONST Name 'Access'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_542E66010214 Access
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_542E82C10111
+ CONST UID '542E82C10111'
+ CONST Name 'FileName'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_498849D803A8 // WideString
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_542E82C10111 FileName
+
+: ME_542E875B02BA
+ CONST UID '542E875B02BA'
+ CONST Name 'SharedMode'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_542E875B02BA SharedMode
+
+INCLUDE '543FBAC30068.pas.ms.script'
+
+: ME_543FBC830019
+ CONST UID '543FBC830019'
+ CONST Name 'f_RootStreamManager'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_543FBAC30068 // Tm3RootStreamManagerPrim
+ ;
+
+ @SELF
+; // ME_543FBC830019 f_RootStreamManager
+
+: ME_1A45496CD57E
+ CONST UID '1A45496CD57E'
+ CONST Name 'f_Access'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Access' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_1A45496CD57E f_Access
+
+: ME_7D72493722CE
+ CONST UID '7D72493722CE'
+ CONST Name 'f_FileName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства FileName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_7D72493722CE f_FileName
+
+: ME_A3E652F9DB9B
+ CONST UID 'A3E652F9DB9B'
+ CONST Name 'f_SharedMode'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства SharedMode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_A3E652F9DB9B f_SharedMode
+
+FORWARD ME_542E5E1A037B
+
+: ME_542E5E8D02E9
+ CONST UID '542E5E8D02E9'
+ CONST Name 'aStorageClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5422B2A502EB // Rm3CommonStorage
+ ;
+
+ @SELF
+; // ME_542E5E8D02E9 aStorageClass
+
+: ME_542E5E8D031D
+ CONST UID '542E5E8D031D'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_542E5E8D031D anAccess
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_542E5E8D034A
+ CONST UID '542E5E8D034A'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_542E5E8D034A aStream
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_542E5E4200B5
+ CONST UID '542E5E4200B5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_542E5E8D02E9 // aStorageClass
+ ME_542E5E8D031D // anAccess
+ ME_542E5E8D034A // aStream
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_542E5E4200B5 DoIt
+
+: ME_542E5E1A037B
+ CONST UID '542E5E1A037B'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_542E5E4200B5 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_542E5E1A037B Create
+
+FORWARD ME_542E5E2F020B
+
+: ME_E63B22178EC6
+ CONST UID 'E63B22178EC6'
+ CONST Name 'aStorageClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5422B2A502EB // Rm3CommonStorage
+ ;
+
+ @SELF
+; // ME_E63B22178EC6 aStorageClass
+
+: ME_6F57AB49BC7E
+ CONST UID '6F57AB49BC7E'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_6F57AB49BC7E anAccess
+
+: ME_2F2A2463C167
+ CONST UID '2F2A2463C167'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_2F2A2463C167 aStream
+
+: ME_B2ED1285DF00
+ CONST UID 'B2ED1285DF00'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики Tm3StorageHolder.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_542E5D380067 // Im3StorageHolder
+ ;
+ : Parameters
+   [ ME_E63B22178EC6 // aStorageClass
+ ME_6F57AB49BC7E // anAccess
+ ME_2F2A2463C167 // aStream
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_B2ED1285DF00 DoIt
+
+: ME_542E5E2F020B
+ CONST UID '542E5E2F020B'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_542E5E1A037B // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_542E5D380067 // Im3StorageHolder
+ ]
+ ; // Implements
+ : Operations
+   [ ME_B2ED1285DF00 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_542E5D4E01DD // Storage
+ ME_542E736E0204 // StoreToCache
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_542E5E2F020B Make
+
+FORWARD ME_542E6E450028
+
+: ME_542E6EC50125
+ CONST UID '542E6EC50125'
+ CONST Name 'aFileName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_498849D803A8 // WideString
+ ;
+
+ @SELF
+; // ME_542E6EC50125 aFileName
+
+: ME_542E6EC5015B
+ CONST UID '542E6EC5015B'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_542E6EC5015B anAccess
+
+: ME_542E6EC50183
+ CONST UID '542E6EC50183'
+ CONST Name 'aType'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5417FCC40029 // Tm3StorageType
+ ;
+
+ @SELF
+; // ME_542E6EC50183 aType
+
+: ME_542E6EC501C3
+ CONST UID '542E6EC501C3'
+ CONST Name 'aSharedMode'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_542E6EC501C3 aSharedMode
+
+: ME_542E6EC5021F
+ CONST UID '542E6EC5021F'
+ CONST Name 'theStorage'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4720937500A4 // Im3IndexedStorage
+ ;
+
+ @SELF
+; // ME_542E6EC5021F theStorage
+
+: ME_542E6E6E0151
+ CONST UID '542E6E6E0151'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_542E6EC50125 // aFileName
+ ME_542E6EC5015B // anAccess
+ ME_542E6EC50183 // aType
+ ME_542E6EC501C3 // aSharedMode
+ ME_542E6EC5021F // theStorage
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_542E6E6E0151 DoIt
+
+: ME_542E6E450028
+ CONST UID '542E6E450028'
+ CONST Name 'GetFromCache'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_542E6E6E0151 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_542E6E450028 GetFromCache
+
+FORWARD ME_542E95A901B7
+
+: ME_542E96860046
+ CONST UID '542E96860046'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_542E96860046 anAccess
+
+: ME_542E966E00C9
+ CONST UID '542E966E00C9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4720937500A4 // Im3IndexedStorage
+ ;
+ : Parameters
+   [ ME_542E96860046 // anAccess
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_542E966E00C9 DoIt
+
+: ME_542E95A901B7
+ CONST UID '542E95A901B7'
+ CONST Name 'ReopenStorage'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_542E966E00C9 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_542E95A901B7 ReopenStorage
+
+: ME_542E5D79018F
+ CONST UID '542E5D79018F'
+ CONST Name 'Tm3StorageHolder'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4AE5CA2D0034 // Tl3CProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_542E5D380067 // Im3StorageHolder
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_542E5DA401CB // f_Storage
+ ME_542E5DD80163 // f_StorageClass
+ ME_542E66010214 // Access
+ ME_542E82C10111 // FileName
+ ME_542E875B02BA // SharedMode
+ ME_543FBC830019 // f_RootStreamManager
+ ME_1A45496CD57E // f_Access
+ ME_7D72493722CE // f_FileName
+ ME_A3E652F9DB9B // f_SharedMode
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_542E5E1A037B // Create
+ ME_542E5E2F020B // Make
+ ME_542E6E450028 // GetFromCache
+ ME_542E95A901B7 // ReopenStorage
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_542E5D4E01DD // Storage
+ ME_542E736E0204 // StoreToCache
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_542E5D79018F Tm3StorageHolder

@@ -1,0 +1,93 @@
+CONST gPath 'W:\common\components\SearchTest\TestSet' // путь к директории TestSet, где лежит SearchProfiler.cmd
+CONST cTimeLimit 0 //5000 // пороговое значение в милисекундах, для которого графики не строятся, чем больше значение, тем меньше графиков
+CONST cEtalonLimit 20
+
+STRING VAR l_MarkFile
+
+gPath '\doneMark.tmp' Cat =: l_MarkFile
+l_MarkFile DeleteFile DROP
+
+[ gPath '\SearchProfiler.cmd ' gPath ] strings:Cat WinExec
+
+WHILE ( l_MarkFile sysutils:FileExists ! ) 
+ ( 100 SLEEP )
+
+l_MarkFile DeleteFile DROP
+
+CONST "Пустая строка" ''
+
+BOOLEAN VAR l_WasException
+false =: l_WasException
+
+ARRAY VAR l_Files
+
+: "Сравнить с эталонами" STRING IN aMask
+
+ VAR l_EtalonCount
+ l_EtalonCount := 0
+
+ : "Сравнить с эталонами 1" STRING IN aPath
+  @ (
+   STRING IN aFile
+   
+   if ( l_EtalonCount МЕНЬШЕ cEtalonLimit ) then
+    TRY 
+     aFile '.etalon' Cat aFile "Пустая строка" tests:CheckOutputWithInput 
+    EXCEPT
+     true =: l_WasException
+     ++! l_EtalonCount
+     STRING VAR l_File
+     aFile sysutils:ExtractFileName =: l_File
+     [ #13#10 '# ' '[[^' l_File '.diff.log.uni' ']]' ' / ' '[[^' l_File '.sdiff.log.uni' ']]' ] strings:Cat >>>[] l_Files
+     ' ' >>>[] l_Files
+    END 
+  ) aMask aPath ProcessFilesWithMask
+ ;
+ 
+ gPath '\Result\Contexts\' Cat "Сравнить с эталонами 1"
+ gPath '\Result\Other\' Cat "Сравнить с эталонами 1"
+;
+
+: "Записать время" STRING IN aMask
+
+ : "Записать время 1" STRING IN aPath
+  @ (
+   STRING IN aFile
+
+   FILE VAR l_In
+   aFile file:OpenRead =: l_In
+   TRY
+   
+    : DoLine W-STRING IN aStr
+     STRING VAR l_Str
+     STRING VAR l_Str1
+     aStr WString:ToString =: l_Str
+     ';' string:RSplitTo! l_Str
+     l_Str =: l_Str1 
+     =: l_Str
+     //[ l_Str1 ' ' l_Str ] strings:Cat .
+     
+     INTEGER VAR vTime
+     l_Str StrToInt =: vTime
+     ( vTime cTimeLimit > ) ?
+      ( l_Str1 '' vTime TimeToLog )
+    ;
+    
+    l_In file:ReadLines DoLine
+    
+   FINALLY 
+    nil =: l_In
+   END 
+   
+  ) aMask aPath ProcessFilesWithMask
+ ;
+ 
+ gPath '\Result\Contexts\' Cat "Записать время 1"
+ gPath '\Result\Other\' Cat "Записать время 1"
+;
+
+'*.ctx' "Сравнить с эталонами"
+'*.oth' "Сравнить с эталонами"
+'*.rt' "Записать время"
+
+l_WasException ! [ 'Были несовпадения с эталонами: ' l_Files strings:Cat ] strings:Cat ASSERTS

@@ -1,0 +1,214 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormInner/ControlPrim.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::ControlPrim
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ControlPrim::Class
+= ClassBase::Class::readonly::Attribute
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p put to dfm:b=true ? Выводить ли контрол в dfm, или создавать в MakeControls
+p need Caption:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{put to dfm}"!="%S{!put to dfm}"}%f_up_prefix(%S) *put to dfm* = *%S{put to dfm}* - Выводить ли контрол в dfm, или создавать в MakeControls
+	][{"%S{need Caption}"!="%S{!need Caption}"}%f_up_prefix(%S) *need Caption* = *%S{need Caption}*
+	]
+
+%f _NeedPutToDFM
+// возвращаемый результат: boolean
+//#UC START# *4B5DC1FE0191for4B5DC1D50227*
+@ %SU
+	[{%S{put to dfm}!=true}{\
+	[{%P#f_IsControl()=true}{\
+	true\
+	}\
+	[{%P%f_NeedPutToDFM()=true}{\
+	false\
+	}\
+	true\
+	]\
+	]\
+	}\
+	false\
+	]
+//#UC END# *4B5DC1FE0191for4B5DC1D50227*
+
+%f _NeedPutToMakeControls
+// возвращаемый результат: boolean
+//#UC START# *4B5DC202039Dfor4B5DC1D50227*
+@ %SU
+	[{%S%f_NeedPutToDFM()!=true}{\
+	[{<{}{%C#f_NeedPutToMakeControls()=true}{C}>!=0}{false}true]\
+	}\
+	true]
+//#UC END# *4B5DC202039Dfor4B5DC1D50227*
+
+%f _PutToMakeControls
+//#UC START# *4B5DC20802E2for4B5DC1D50227*
+	[\n%S%f_open_ifdef()]\
+	[{%S%f_NeedPutToDFM()!=true}\
+	[{%S%f_IsOverride()!=true}\
+	\n %f_pas_FieldName(%S) := %S%f_pas_ResultTypeName().Create(\
+	[{%S#f_InheritsFrom("TvgReminder")=true}{\
+	Self\
+	}\
+	[{%P#f_IsVCMForm()!=true}{Self}%P%f_pas_AttrName()]\
+	]\
+	);\
+	\n %f_pas_FieldName(%S).Name := '%S%f_pas_AttrName()';\
+	]\
+	[{%S#f_InheritsFrom("TvgReminder")!=true}\
+	[{%SS!=Component}\n %f_pas_FieldName(%S).Parent := [{%P#f_IsVCMForm()!=true}{Self}%P%f_pas_AttrName()];]\
+	[{"%SD"!=""&%S{need Caption}!=false}\n %f_pas_FieldName(%S).Caption := '%SD';]\
+	]\
+	]\
+	[<{}{%ZS=VCMFormZone}\n\
+	 with DefineZone(vcm_zt%Z{ZoneType}, \
+	[{%S%f_NeedPutToDFM()!=true}{\
+	%f_N(%S)\
+	}\
+	%f_pas_FieldName(%S)\
+//	%S%f_pas_AttrName()\
+	]\
+	) do
+	 begin
+	[{%Z{MergeTopTollbarWithContainer}=true}\
+	  FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
+	]\
+	[{%Z{MergeBottomTollbarWithContainer}=true}\
+	  FormStyle.Toolbars.Bottom.MergeWithContainer := vcm_bTrue;
+	]\
+	[{%Z{CanClose}!=undefined}\
+	[{%Z{CanClose}=true}{\
+	  CanClose := vcm_ccDisable;
+	}\
+	  CanClose := vcm_ccEnable;
+	]\
+	]\
+	[{%Z{Need UC}=true}\
+	  %f_with_gen_id(intf.pas,%U[\n  !!!\n  ])
+	]\
+	 end;//with DefineZone(vcm_zt%Z{ZoneType}, %f_pas_FieldName(%S))\
+	>]\
+	[\n%S%f_close_ifdef()]\
+	<%C#f_PutToMakeControls()>
+//#UC END# *4B5DC20802E2for4B5DC1D50227*
+
+// Выводит представление контрола в DFM
+%f _ToDFM
+//#UC START# *4B5DC20D00F0for4B5DC1D50227*
+	[{%S%f_NeedPutToDFM()=true}\
+	[{%f_exists_in_list(FORM_CONTROLS,"%S%f_pas_AttrName()")=false}\
+	%f_add_to_list(FORM_CONTROLS,"%S%f_pas_AttrName()")\
+	\n# object %S%f_pas_AttrName(): %S%f_pas_ResultTypeName()\
+	[{"%SD"!=""&%S{need Caption}!=false}\n#  Caption = '%SD']\
+	<%C#f_ToDFM()>\
+	[{%S%f_IsOverride()=true}\
+	<{}{}{r}%g<%C#f_ToDFM()>>\
+	]
+	# end\
+	]\
+	]
+//#UC END# *4B5DC20D00F0for4B5DC1D50227*
+
+// Выводит определение полей
+%f _ToFields
+//#UC START# *4B5DC210037Dfor4B5DC1D50227*
+	[{%S%f_NeedPutToDFM()=true}\
+	[{%S%f_IsOverride()!=true}\
+	\n  %S%f_pas_AttrName(): %S%f_pas_ResultTypeName();\
+	]\
+	<%C#f_ToFields()>\
+	]
+//#UC END# *4B5DC210037Dfor4B5DC1D50227*
+
+// Выводит необходимые включения
+%f _ToIntfUses
+//#UC START# *4B5DC214020Efor4B5DC1D50227*
+	%f_pas_PutToUses(%S%T)
+//#UC END# *4B5DC214020Efor4B5DC1D50227*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является контролом
+%f _IsControl
+// возвращаемый результат: boolean
+//#UC START# *4A794AED0078for4B5DC1D50227*
+	true
+//#UC END# *4A794AED0078for4B5DC1D50227*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Читаем ли из поля
+%f _ReadsField
+// возвращаемый результат: boolean
+//#UC START# *4ACB78A4017Ffor4B5DC1D50227*
+	[{%S%f_NeedPutToDFM()!=true}{false}true]
+//#UC END# *4ACB78A4017Ffor4B5DC1D50227*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// документация отсутствует
+%f _pas_AttrIndexes
+//#UC START# *49998CA903A8for4B5DC1D50227*
+//#UC END# *49998CA903A8for4B5DC1D50227*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя атрибута
+%f _pas_AttrName
+//#UC START# *494B9868000Afor4B5DC1D50227*
+	[{%S%f_IsOverride()!=true}{\
+	%G%f_pas_AttrName()}\
+	%SN]
+//#UC END# *494B9868000Afor4B5DC1D50227*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+%f _pas_MethodBodyPrim
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for4B5DC1D50227*
+	\n\
+	begin
+	 if (%f_pas_FieldName(%S) = nil) then
+	  %f_pas_FieldName(%S) := FindComponent('%SN') As %S%f_pas_ResultTypeName();
+	 Result := %f_pas_FieldName(%S);
+	end;
+//#UC END# *494BB3A201A2for4B5DC1D50227*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет - нужно ли определять поле данных для свойства.
+%f _pas_NeedsField
+//#UC START# *4A796BE403D6for4B5DC1D50227*
+	true
+//#UC END# *4A796BE403D6for4B5DC1D50227*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа результата функции
+%f _pas_ResultTypeName
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for4B5DC1D50227*
+	[{%S%f_IsOverride()!=true}{\
+	%G%f_pas_ResultTypeName()}\
+	%f_pas_TypeName(%T)]
+//#UC END# *494BDD190361for4B5DC1D50227*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

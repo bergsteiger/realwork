@@ -1,0 +1,315 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/UseCase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$CoreTemplates::CoreTemplates::RequirementsLib::Requirements::UseCase
+//
+// Прецедент
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: UseCase::Class
+? Прецедент
+> UseCase::Class
+> UseCaseRequirement::Class
+> UseCaseSetting::Class
+> UseCaseTagRequirement::Class
+
+= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +
+/ - типы видимости
+a ra
+/ - тип абстракции
+Y usecase.gif
+L usecase
+// Параметры визуализации
+$ C 255,230,190
+$ l 190,90,30
+$ f 190,90,30
+$ i i
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _DoSpell
+//#UC START# *4E302A8B026Cfor470478900251*
+//#UC END# *4E302A8B026Cfor470478900251*
+
+%f _IsUseCase
+// возвращаемый результат: boolean
+//#UC START# *4E65E5750233for470478900251*
+	true
+//#UC END# *4E65E5750233for470478900251*
+
+%f _DumpUCforReq
+//#UC START# *4E65FF1C02C9for470478900251*
+	<{\n}{}{r}[%PN]>
+	%SN
+	%SD\
+	[\nРеализуется элементами:
+	<{\n}	%f_DumpUCElement(%L)>\
+	]\
+	[\nИспользуется элементами:
+	<{\n}{%aC=Dependency}{Sg}	[(%aS) ]%f_DumpUCElement(%a%P)>\
+	]\
+	[\nИспользует элементы:
+	<{\n}{%CC=Dependency}{Sg}	[(%CS) ]%f_DumpUCElement(%C%T)>\
+	]\
+	[\nВключает прецеденты:
+	<{\n}{%C#f_IsUseCase()=true}{Sn}	%f_DumpUCElement(%C)>\
+	]\
+	[\nЗначения:
+	<{\n}{%CS=UseCaseSettingValue}{Sn}	%f_DumpUCElement(%C)>\
+	]
+
+f _DumpUCElement
+	%SN (%SU ver %SA)<[ из %PN]>
+//#UC END# *4E65FF1C02C9for470478900251*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470478900251*
+c                              {}
+r {%f_set_var(SELF,S)"<{}{%rS=Feature}{C}>"="0"&"<{}{%c#f_IsUseCase()=true&"%c<{"%CM"="UseCase::Class::include::ClassDependency"|"%CM"="UseCase::Class::extend::ClassDependency"&"%C%TU"="%{SELF}U}{C}>"!="0"}{C}>"="0"}: {%SS должен реализовывать как миниму один Feature}
+r {<{}{%GS!=%SS}{C}>!=0}: {%SS может наследоваться только от другого %SS}
+r {%f_used_by_actor_anyway(%S)=false&%P#f_IsUseCase()!=true}: {%SS должен быть использован (непосредственно или через другие %SS) хотябы одним Актером}
+r {<{}{%RS!=Feature}{C}>!=0}: {%SS может реализовывать только UserNeeds}
+//#UC END# *4704C0E30186for470478900251*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470478900251*
+C /%SN:%SU
+O %SN
+S %SN
+	%f_wiki_header(%S)
+	\n\{toc\}
+	[%f_k_common_elem_docs(%S)
+	
+	]\
+	[
+	{tip}Специализирует:
+	<* %f_k_link_wp(%G,%S)
+	>{tip}][{%Rx=true}
+	
+	{info}Реализует возможность:
+	<* %f_k_link_wp(%R,%S)
+	>{info}][
+	{info}Реализуется элементами:
+//	<{}{%LS=UseCase}* %f_k_link_wp(%L,%S)
+	<* %f_k_link_wp(%L,%S)
+	>\
+	<{}{%CS=realized_by}* %f_k_link_wp(%C%T,%S)
+	>\
+	{info}][
+	\{toggle-cloak:id=Links\} \{_\}Связи\{_\}
+	\{cloak:id=Links\}[
+	
+	_Специализирован:_
+	<* %f_k_link_wp(%Z,%S)
+	>][
+	
+	_Следует после прецедентов:_
+	<{}{%CC=Dependency&%CS=follow}{Sp}* %f_k_link_wp(%C%T,%S)
+	>][
+	
+	_Вызывается из прецедентов:_
+	[{%P#f_IsUseCase()=true}* Смотри родительский прецидент %f_k_link(%P)
+	]<{}{%aC=Dependency&%a%PS!=Actor&%aS!=notify&%aS!=follow}{Sp}* %f_k_link_wp(%a%P,%S) (%aS)
+	>][
+	
+	_Непосредственно вызывается актером:_
+	<{}{%aC=Dependency&%a%PS=Actor}{Sp}* %a%PN
+	>][
+	
+	_Включает прецеденты:_
+	<{}{%CC=Dependency&%CS!=notify&%CS!=follow&%CS!=realized_by}* %f_k_link_wp(%C%T,%S) (%CS)
+	>][
+	
+	_Нотифицирует:_
+	<{}{%CC=Dependency&%CS=notify}* %f_k_link_wp(%C%T,%S)
+	>]
+	\{cloak\}
+	]
+	[{<{}{%mC=ScenarioDiagram}{C}>=0}{\
+	%f_set_var(HAS_SCENARIO,"true")\
+	}\
+	%f_set_var(HAS_SCENARIO,"false")\
+	]\
+
+	[{%S#f_IsUseCaseRequirement()!=true&"<{}{%C#f_IsUseCaseRequirement()=true}{C}>"="0"&"%Lx"!="true"}{\
+	%f_set_var(NEED_WARNING,"false")\
+	}\
+	%f_set_var(NEED_WARNING,"true")\
+	]\
+
+	[{%{HAS_SCENARIO}N=true|%{NEED_WARNING}N=true}\
+	\{toggle-cloak:id=Sequence\} \{_\}Диаграмма выполнения\{_\}
+	\{cloak:id=Sequence\}[{%{HAS_SCENARIO}N!=true}
+	
+	{warning}Прецедент не спроектирован!
+	{warning}][{%{HAS_SCENARIO}N=true}
+	
+	<{----\n}{%mC=ScenarioDiagram}%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]
+	\{cloak\}\
+	]\
+	[{<{}{%mC=ClassDiagram}{C}>!=0&%Cx=true}
+	
+	<{----\n}{%mC=ClassDiagram}_[{%mN!=Main}{Основная}%mN] диаграмма элемента:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]\
+	%f_Dump_Reqs(%S)\
+	<%CX>
+	%f_wiki_footer(%S)
+
+f _Dump_Reqs
+	[
+	h1. Дополнительные требования
+	<{}{}{%C}%f_Dump_Req(%C,%S)>\
+	]
+
+f _Dump_Req
+	[{%S#f_IsUseCaseRequirement()=true}{\
+	[{%S#f_IsUseCase()=true&%S%PU=%1U}\
+	\nh2. %f_k_link_wp(%S,%1)\n\
+	]\
+	}\
+	* [{"%Lx"="true"|<{}{%CS=realized_by}{C}>!=0}{(x)}(/)] %f_k_link_wp(%S,%1)\n\
+	[**  %SD\n]\
+	]\
+	<{}{}{%C}%f_Dump_Req(%C,%1)>
+//#UC END# *46E6D4BB0339for470478900251*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for470478900251*
+//	<%CX>\
+	%S%f_DoSpell()\
+	<%CX>
+//#UC END# *4A41A13D03D5for470478900251*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: UseCase::Class::include::ClassDependency
+? Включение
+? Прецедент включает другой прецидент безусловно
+= Документация::MDAGenerator
+
+// Параметры стереотипа
+Y code_dep_include.gif
+L code_dep_include
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470479110280*
+//#UC END# *46E6D4BB0339for470479110280*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470479110280*
+c                              {}
+r {%T#f_IsUseCase()!=true}: {%SS может быть связан только с UseCase'ом}
+//#UC END# *4704C0E30186for470479110280*
+
+: UseCase::Class::extend::ClassDependency
+? Расширение
+? Прецедент включает другой прецидент по какому-либо условию
+= UseCase::Class::include::ClassDependency
+
+// Параметры стереотипа
+Y code_dep_extend.gif
+L code_dep_extend
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: UseCase::Class::notify::ClassDependency
+? Сообщение
+? Прецедент передает какое-либо сообщение (нотификацию) Актеру
+= Документация::MDAGenerator
+
+// Параметры стереотипа
+Y code_dep_notify.gif
+L code_dep_notify
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4704795200AB*
+//#UC END# *46E6D4BB0339for4704795200AB*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4704795200AB*
+c                              {}
+r {%TS!=Actor}: {%SS может быть связан только с Актером}
+//#UC END# *4704C0E30186for4704795200AB*
+
+: UseCase::Class::follow::ClassDependency
+? Иногда хочется показать что выполнение одного прецедента может быть только после выполнения другого. Но при этом это не связанная цепочка действий (как в случае include или extend), а скорее возможность быть выполненным (по свое цепочке) только посдле отработки другого прецедента (напрямую с данным не связанным).
+= Документация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for48E35B39018E*
+//#UC END# *46E6D4BB0339for48E35B39018E*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48E35B39018E*
+c                              {}
+r {%T#f_IsUseCase()!=true}: {%SS может быть связан только с UseCase'ом}
+//#UC END# *4704C0E30186for48E35B39018E*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

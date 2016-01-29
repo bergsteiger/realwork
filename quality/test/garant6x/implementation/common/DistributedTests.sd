@@ -1,0 +1,1832 @@
+uses Clicks, common, DocumentWork, exceptions, FileWork, FoldersWork, ListWork, MenuWork, RunPrograms,
+ SearchWork, SettingsWork, st_common, States, TimeWorks, HLTC337, ParsingLogs;
+
+procedure ___SEARCH_AND_DOCS_OPEN; begin end;
+
+// шевелит мышкой, чтобы скринсейвер отключился, если он есть
+procedure StirMouse;
+begin
+  Sys_Desktop.MouseX := Sys_Desktop.MouseX + 5;
+  Sys_Desktop.MouseX := Sys_Desktop.MouseX - 5;
+  Sys_Desktop.MouseY := Sys_Desktop.MouseY + 5;
+  Sys_Desktop.MouseY := Sys_Desktop.MouseY - 5;
+end;
+
+// делает поиск по контексту, строит список и открывает в нем первые numOfDocs документов
+procedure Stability_1(
+  logFileName : String // путь к лог-файлу
+  ; const srcContextFile : String // путь к файлу с контекстами для поиска
+  ; var currLine : integer // номер строки в файле с контекстами из которой читается контекст для поиска
+  ; const maxNumOfDocs : integer = 10 // с начала списка открываем не более этого количества документов
+  ; paramList : OleVariant = ''
+  );
+  const
+    SP_PRE = 'SP_PRE';
+    SP_SEARCH = 'SP_SEARCH';
+    SP_DOC_OPEN = 'SP_DOC_OPEN'; 
+  var 
+    p, w, w1, toolBar, pprCardData, docWnd, stopWatch : OleVariant;
+		searchStr, oldCaption, actsLogFileName, currCaption : String;
+		i, j : integer;
+    par_StopTime;
+    par_OpenDocDelay;
+    par_IsSyncOnSearch;
+    par_IsSyncOnDocOpen;
+    par_QuorumDelta;
+    par_TimeAfterRegistration;
+    par_SynchroTimeOut;
+begin
+  try 
+    par_TimeAfterRegistration := VarToInteger( GetParam(paramList,
+      'TimeAfterRegistration',
+      Options.Run.Timeout*10 
+    ));
+    par_SynchroTimeOut := VarToInteger( GetParam(paramList,
+      'SynchroTimeOut',
+      Options.Run.Timeout*5 
+    ));
+    par_StopTime := StrToFloat( GetParam(paramList,
+      'StopTime',
+      FloatToStr(Utilities.Now + 1) ) 
+    );
+    par_OpenDocDelay := StrToInt( GetParam(paramList,
+      'OpenDocDelay',
+      IntToStr(Options.Run.Timeout div 4)
+    ) );
+    par_IsSyncOnSearch := VarToBool( GetParam(paramList,
+      'IsSyncOnSearch',
+      'false'
+    ) );
+    par_IsSyncOnDocOpen := VarToBool( GetParam(paramList,
+      'IsSyncOnDocOpen',
+      'false'
+    ) );
+    par_QuorumDelta := VarToInteger( GetParam(paramList,
+      'QuorumDelta',
+      '1' 
+    ));
+    SynchroObjectsParams('set', SO_SP_QUORUM_DELTA, par_QuorumDelta);    
+
+    
+    // если еще не зарегистрированы ...
+    if( par_IsSyncOnSearch OR par_IsSyncOnDocOpen) then
+    begin
+      if (NOT SynchroPoint('IS REGISTERED', SP_PRE)) then
+      begin
+        // .. то регистрируемся и ждем 
+        if NOT SynchroPoint('REGISTER', SP_PRE) then 
+          Raise('Не смогли зарегистрироваться в точке синхронизации ' + SP_PRE);      
+        Log.Message('Произвели регистрацию в точке синхронизации ' + SP_PRE);
+        if NOT SynchroPoint('REGISTER', SP_SEARCH) 
+          then Raise('Не смогли зарегистрироваться в точке синхронизации ' + SP_SEARCH);
+        Log.Message('Произвели регистрацию в точке синхронизации ' + SP_SEARCH);
+        if NOT SynchroPoint('REGISTER', SP_DOC_OPEN) 
+          then Raise('Не смогли зарегистрироваться в точке синхронизации ' + SP_DOC_OPEN);
+        Log.Message('Произвели регистрацию в точке синхронизации ' + SP_DOC_OPEN);
+        //      
+        Delay(par_TimeAfterRegistration);
+      end;
+
+      // ожидаем синхронизации
+      Log.Message('Ожидаем предварительной синхронизации');
+      if SynchroPoint('SYNCHRONIZE', SP_PRE, par_SynchroTimeOut) then
+        Log.Message('Синхронизация удалась')
+      else
+        Log.Error('Синхронизаций не удалась! Тест может выполняться некорректно!');      
+    end;          
+       
+    actsLogFileName := logFileName + '.actions.csv';
+    // начали
+    p := GetF1ShellProcess;
+    w := GetMainWindow;
+    w.Activate;
+    if NOT IsExists(p) then Raise('Не найдена оболочка!');
+    // формируем имя лог-файла из исходного пути и имени машины
+
+    AppendFileWithTime(logFileName, '=============== Скрипт начат ===============');
+    DoScreenShot('Stability_1. Начало.');
+    // делаем поиск
+  	searchStr := st_common.GetNextLine(srcContextFile, currLine); // получили контекст для поиска
+    AppendFileWithTime(logFileName, EndOfLine + 'Будем искать: "' + searchStr + '"' + EndOfLine + 'Потребление памяти: ' + IntToStr(p.MemUsage) + ' Кб, виртуальной: ' +IntToStr(p.VMSize) + 'Кб');
+    AppendFileWithTime(logFileName + '.csv', IntToStr(p.MemUsage) + ';' +IntToStr(p.VMSize));    
+    // делаем поиск
+    if par_IsSyncOnSearch then
+      if SynchroPoint('SYNCHRONIZE', SP_SEARCH, par_SynchroTimeOut) then
+        Log.Message('Успешно синхронизировались перед поиском.')
+      else
+        Log.Error('Не удалось синхронизироваться перед поиском!');
+          
+    if NOT BaseSearch(nil, searchStr, 'IsCloseWindow:=false;IsOpenOnlyIfNotFound:=true') then {DoSearch('Слова в тексте', searchStr, true, false, true, actsLogFileName)}
+    begin
+      AppendFileWithTime(logFileName, EndOfLine + 'Ничего не нашли или провалились в документ.');
+      Log.Error('Не могу получить список');
+      Exit;
+    end;
+    DoScreenShot('Stability_1. После поиска.');
+    AppendFileWithTime(logFileName,  EndOfLine + 'Получили список. В статусной строке написано : "' + common.GetWindowText(GetFromMainWindow('СТАТУСБАР').Handle) + '". Заголовок окна оболочки: "' + w.WndCaption + '"' + EndOfLine + 'Потребление памяти: ' + IntToStr(p.MemUsage) + ' Кб, виртуальной: ' + IntToStr(p.VMSize) + 'Кб');
+    AppendFileWithTime(logFileName + '.csv', IntToStr(p.MemUsage) + ';' +IntToStr(p.VMSize));
+    
+   // входим в документ из списка
+    w1 := GetList;
+    if NOT IsExists(w1) then Raise('Не могу найти окно списка');
+    w1.SetFocus;
+    DoScreenShot('Stability_1. Получили список. Перевели фокус в список.');
+    AppendFileWithTime(actsLogFileName, CompName + ';Stability_1;Вошли в список.');
+    if maxNumOfDocs > 0 then 
+    begin
+      // открываем документы
+      i := 1; 
+      repeat
+        currCaption := '';
+        oldCaption := w.WndCaption;        
+        StirMouse;
+        // синхронизируемся перед открытием документа
+        if par_IsSyncOnDocOpen then
+          if SynchroPoint('SYNCHRONIZE', SP_DOC_OPEN, par_SynchroTimeOut) then
+            Log.Message('Успешно синхронизировались перед открытием документа.')
+          else  
+            Log.Error('Не удалось синхронизироваться перед открытием документа!');
+            
+        // открываем следующий документ    
+        if (i <> 1) then 
+        begin // если не первый документ
+          AppendFileWithTime(actsLogFileName, CompName + ';Stability_1;Собрались кликнуть на кнопку "Следующий документ в списке".');
+          // открываем следующий документ
+          docWnd.SetFocus;
+          Sys.Keys('^[Right]');
+          // ждем пока не поменятся текст документа или пока не истечет таймаут
+          stopWatch := HISUtils.StopWatch;
+          stopWatch.Start;
+          currCaption := w.WndCaption;          
+          while (oldCaption = currCaption) AND (stopWatch.Split < (Options.Run.Timeout div 6)) do
+          begin
+            Delay(Options.Run.Timeout div 100);
+            currCaption := w.WndCaption;           
+          end;   
+        end  
+        else
+        begin // это еще список, надо открыть документ
+          AppendFileWithTime(actsLogFileName, CompName + ';Stability_1;Собрались нажать Enter на документе в списке.');
+          Sys.Keys('[Home][Enter]');
+        end;  
+        AppendFileWithTime(actsLogFileName, CompName + ';Stability_1;Предыдущая операция выполнилась и вернула управление в скрипт. Открываем ' + IntToStr(i) + '-й документ.');
+        //
+        DoScreenShot('Stability_1. Открываем ' + IntToStr(i) + '-й документ.');
+        Delay(par_OpenDocDelay);
+        docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+        if NOT IsExists(docWnd) then
+          docWnd := GetFromFlashEditor('ТЕКСТ ДОКУМЕНТА "ФЛЭШ"');
+        // действия при открытии первого документа                               
+        if (i = 1) then
+        begin
+          w1 := GetFromEditor('текст документа');;
+          if NOT IsExists(w1) then 
+            w1 := GetFromFlashEditor('ТЕКСТ ДОКУМЕНТА "ФЛЭШ"');
+          if NOT IsExists(w1) then
+            Raise('Не могу найти окно документа');
+          AppendFileWithTime(actsLogFileName, CompName + ';Stability_1;Открыли 1-й документ, нашли окно редактора.');
+        end;
+        // пишем данные в лог
+        DoScreenShot('Stability_1. Считаем, что открыли ' + IntToStr(i) + '-й документ.');
+        AppendFileWithTime(actsLogFileName, CompName + ';Stability_1;Считаем, что открыли ' + IntToStr(i) + '-й документ.');
+        AppendFileWithTime(logFileName, EndOfLine + 'Открыли ' + IntToStr(i) + '-й документ в списке. Заголовок окна оболочки: "' + w.WndCaption + '"' + EndOfLine + 'Потребление памяти: ' + IntToStr(p.MemUsage) + ' Кб, виртуальной: ' +IntToStr(p.VMSize) + 'Кб');   
+        AppendFileWithTime(logFileName + '.csv', IntToStr(p.MemUsage) + ';' +IntToStr(p.VMSize));
+        Log.Message('Открыт ' + IntToStr(i) + '-й документ.', 'Заголовок окна оболочки: "' + w.WndCaption + '".');
+        // идем дальше
+        i := i + 1;                               
+        // выходим если кнопка задизейблена или открыли нужное количество документов
+      until (i > maxNumOfDocs) OR (currCaption = oldCaption) OR IsTimeHasRunOut(par_StopTime);
+    end;
+    // закончили
+    AppendFileWithTime(logFileName, '=============== Скрипт окончен ===============' + EndOfLine);
+    DoScreenShot('Stability_1. Окончание.');
+  except
+    Log.Error('Stability_1: ', ExceptionMessage);
+    Raise(ExceptionMessage);
+  end;
+end;
+
+// делает то же что и Stability_1, но еще все сохраняет в папки
+procedure Stability_2(
+  logFileName : String // путь к лог-файлу
+  ; const srcContextFile : String // путь к файлу с контекстами для поиска
+  ; var currLine : integer // номер строки в файле с контекстами из которой читается контекст для поиска
+  ; const maxNumOfDocs : integer = 10 // с начала списка открываем не более этого количества документов
+  ; const isSaveToFolder : boolean = true
+  ); 
+var p, w, w1 : OleVariant;
+		searchStr, tempStr : String;
+		i, OPEN_DOC_DELAY : integer;
+begin
+  OPEN_DOC_DELAY := Options.Run.Timeout div 4;
+  try 
+    // начали
+    p := Sys.Process('F1Shell');
+    w := p.nsMainWindow;
+    w.Activate;
+    if NOT p.Exists then Raise('Не найдена оболочка!');
+    // формируем имя лог-файла из исходного пути и имени машины
+
+    AppendFileWithTime(logFileName, '=============== Скрипт начат ===============');
+    
+   // делаем поиск
+  	searchStr := GetNextLine(srcContextFile, currLine); // получили контекст для поиска
+    AppendFileWithTime(logFileName, EndOfLine + 'Перешли в ППР. Будем искать: "' + searchStr + '"' + EndOfLine + 'Потребление памяти: ' + IntToStr(p.MemUsage) + ' Кб, виртуальной: ' +IntToStr(p.VMSize) + 'Кб');
+    AppendFileWithTime(logFileName + '.csv', IntToStr(p.MemUsage) + ';' +IntToStr(p.VMSize));
+    // вбиваем контекст в ППР и делаем поиск
+    if NOT DoSearch('Слова в тексте', searchStr, true, isSaveToFolder) then
+    begin
+      AppendFileWithTime(logFileName, EndOfLine + 'Ничего не нашли или провалились в документ.');
+      Log.Error('Не могу получить список');
+      Exit;
+    end;
+    AppendFileWithTime(logFileName,  EndOfLine + 'Получили список. В статусной строке написано : "' + GetWindowText(w.StatusBar.Handle) + '". Заголовок окна оболочки: "' + w.WndCaption + '"' + EndOfLine + 'Потребление памяти: ' + IntToStr(p.MemUsage) + ' Кб, виртуальной: ' +IntToStr(p.VMSize) + 'Кб');
+    AppendFileWithTime(logFileName + '.csv', IntToStr(p.MemUsage) + ';' +IntToStr(p.VMSize));
+    
+   // входим в документ из списка
+    w1 := GetList;
+    if NOT w1.Exists then Raise('Не могу найти окно списка');
+    w1.SetFocus;
+    if maxNumOfDocs > 0 then 
+    begin
+      Sys.Keys('[Home][Enter]'); // входим в документ
+      Delay(Options.Run.Timeout div 6); // ждем подгрузки документа
+      w1 := GetEditor;
+      if NOT w1.Exists then Raise('Не могу найти окно документа'); 
+      i := 1;
+      Log.Message('Открыт ' + IntToStr(i) + '-й документ.', 'Заголовок окна оболочки: "' + w.WndCaption + '".');
+     // открываем документы, пока список не закончится 
+      // получаем кнопку "Следующий документ в списке"
+      w1 := w1.Parent.tbTextFormTop.btopNextDocumentInList;
+      while w1.Native.Enabled do
+      begin
+        if i > maxNumOfDocs then break;
+        AppendFileWithTime(logFileName, EndOfLine + 'Открыли ' + IntToStr(i) + '-й документ в списке. Заголовок окна оболочки: "' + w.WndCaption + '"' + EndOfLine + 'Потребление памяти: ' + IntToStr(p.MemUsage) + ' Кб, виртуальной: ' +IntToStr(p.VMSize) + 'Кб');   
+        AppendFileWithTime(logFileName + '.csv', IntToStr(p.MemUsage) + ';' +IntToStr(p.VMSize));
+        // открываем следующий документ
+        w1.Click;
+        Delay(OPEN_DOC_DELAY);
+        i := i + 1;
+        Log.Message('Открыт ' + IntToStr(i) + '-й документ.', 'Заголовок окна оболочки: "' + w.WndCaption + '".');
+        // сохраням документ в папки, если надо
+        if isSaveToFolder then 
+        begin
+          DateTimeToString(tempStr, 'yyyymmddhhnnsszzz' , Utilities.Now);
+          SimpleSaveToFolders( 'документ ' + tempStr );
+        end;
+      end;
+    end;
+    // закончили
+    AppendFileWithTime(logFileName, '=============== Скрипт окончен ===============' + EndOfLine);
+  except
+    Log.Error('Stability_1: ', ExceptionMessage);
+    Raise(ExceptionMessage);
+  end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+procedure SearchAndDocsOpen(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+  var
+    pathToLogFile, srcContextFile : String;
+    docsToOpen, lastLine  : integer;
+begin
+  
+  // вытаскиваем общие параметры
+  srcContextFile := GetParam(paramList,
+    'SrcContextFile',
+    '\\strelka.garant.ru\qc\context.txt');
+    
+  docsToOpen := StrToInt( GetParam(paramList,
+    'DocsToOpen',
+    '5') ); 
+    
+  pathToLogFile := GetParam(paramList,
+    'BaseLogName',
+    '\\strelka.garant.ru\QC\usr.list\' + CompName );
+      
+  pathToLogFile := pathToLogFile + '.procedure_log';
+  
+  // вытаскиваем локальные параметры функции
+  lastLine := StrToInt( GetParam(context,
+    'LastLine',
+    '1') );
+  
+  // сама функция
+  Stability_1(pathToLogFile, srcContextFile, lastLine, docsToOpen, paramList);
+  
+  // кладем обратно эти параметры
+  SetParam(context, 'LastLine', IntToStr(lastLine) );
+end;
+
+procedure Test_SearchAndDocsOpen;
+  var
+    paramString, paramList, context;
+begin
+  //ProductVersion('set', PRODUCT_VERSION_7_1);
+  
+  paramString := 
+    'SrcContextFile := \\strelka.garant.ru\qc-ro\contexts\слова в тексте' + EndOfLine +
+    //'SrcContextFile := c:\111.txt' + EndOfLine +
+    'DocsToOpen := 3' + EndOfLine +
+    'OpenDocDelay := 3000' + EndOfLine +
+    'TimeAfterRegistration := 0' + EndOfLine +
+    'IsSyncOnSearch := true' + EndOfLine +
+    'IsSyncOnDocOpen := true' + EndOfLine +
+    '' + EndOfLine;
+
+  
+  SynchroObjectsParams('set', SO_ALL_SHARED_PATH, '\\strelka.garant.ru\qc\for_runnerTC5\SharedPath\temp\');
+  
+  paramList := ParseParamString(paramString, true, EndOfLine);
+  
+  SearchAndDocsOpen(paramList, context);   
+end;
+
+procedure ___LOGIN20000_TEST; begin end;
+
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    Задача http://mdp.garant.ru/pages/viewpage.action?pageId=135601977
+}
+procedure RunDistributedLogin20000(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+var
+  i, j;
+  usersCount, begCount, indexId;  
+begin
+  try
+    usersCount := StrToInt( GetParam(paramList, 'UsersCount', '20000') );
+    begCount := StrToInt( GetParam(paramList, 'BegCount', '1') ); 
+    indexId := StrToInt( GetParam(paramList, 'IndexId', '1') );  
+  
+    j:= 0;
+    CloseF1Shell(3, Options.Run.Timeout div 6);
+    
+    repeat
+      i := GetSyncedAutoincrementIndex(indexId, begCount);
+      inc(j);
+
+      if not StartF1Shell('', 3) then
+        Raise('Не получилось запустить оболочку!');          
+      if not LoginNewUser(Utilities.IntToStr(i), '') then
+        Log.Error('Не получилось создать пользователя: "' + Utilities.IntToStr(i) + '"');
+      if not OpenDocByNumber(10003000) then
+        Log.Error('Не получилось открыть документ (10003000)');
+      if not GoToMainMenu then
+        Log.Error('Не получилось открыть ОМ');
+      
+      CloseF1Shell(3, Options.Run.Timeout div 6);
+    until (i >= usersCount + begCount);
+
+    Log.Message('Обработано пользователей: ' + Utilities.IntToStr(j) +  '. Закончили на пользователе: ' + Utilities.IntToStr(i));
+  except
+    Log.Error(ExceptionMessage, '' , 4);
+  end; 
+end;
+
+procedure Test_RunDistributedLogin20000;
+  var
+    paramString, paramList, context;
+begin
+  paramString := 
+    'UsersCount := 20000' + EndOfLine +
+    'BegCount := 1' + EndOfLine +
+    'IndexId := 1' + EndOfLine +
+    '' + EndOfLine;
+  paramList := ParseParamString(paramString, true, EndOfLine);
+
+  SynchroObjectsParams('set', SO_ALL_SHARED_PATH, '\\strelka.garant.ru\qc\for_runnerTC5\SharedPath\temp\');
+
+  RunDistributedLogin20000(paramList, context);
+end;
+
+
+procedure ___GUI_DOCUMENT_MODIFICATIONS; begin end;
+
+{
+  Открытие по номеру документа и установка закладки и комментария
+  пользователя на произвольной позиции
+}
+procedure GUIDocumentModification (const docNumber: LongInt; const bookmarkName, userComment: String);
+const
+  SHIFT_COUNT = 10;
+  //COMMENT_TEXT = 'Комментарий_пользователя';
+var
+  CustomShift: Integer; // На сколько скрином смещаемся вниз по PgDown
+begin
+  try
+    //Randomize;
+    
+    if OpenDocByNumberEx (docNumber) then
+    begin
+      CustomShift := Random(SHIFT_COUNT) + 1;
+      SetFocusToDocumentText;
+      Log.Message ('Press [PageDown]: '+IntToStr(CustomShift)+ ' times');
+      PressKeyNCount( '[PageDown]', CustomShift);
+        
+      // это вставка для того, чтобы можно было ставить либо только комментарии, либо только закладки
+      if (bookmarkName = '') AND (userComment <> '') then
+      begin
+        SetFocusToDocumentText;
+        Sys.Keys ('[Enter]');
+        Sys.Keys (userComment);
+      end
+      else if (bookmarkName <> '') AND (userComment = '') then
+      begin
+        //if NOT SimpleSaveToFolders (bookmarkName) then
+        if NOT SetBookmark(bookmarkName, '', 'Мои документы', true, GetFromEditor('ТЕКСТ ДОКУМЕНТА') ) then
+          raise ('Не удалось установить закладку');
+        WaitForConfirmationWindow(Options.Run.Timeout div 30);
+      end
+      else // конец вставки
+      begin    
+        // а это так было первоначально
+        // SimpleSaveToFolders (bookmarkName) then
+        if SetBookmark(bookmarkName, '', 'Мои документы', true, GetFromEditor('ТЕКСТ ДОКУМЕНТА') ) then 
+        begin
+          WaitForConfirmationWindow(Options.Run.Timeout div 30);        
+          SetFocusToDocumentText;
+          Sys.Keys ('[Enter]');
+          Sys.Keys (userComment);
+        end
+        else
+          raise ('Не удалось установить закладку');
+       end;   
+    end
+    else
+      raise ('Не удалось открыть документ по номеру');
+  except
+    Log.Error ('RunCustomTests: '+ExceptionMessage);
+    raise (ExceptionMessage);
+  end;
+end;
+
+{
+  Сценарий теста
+  Получили документ номер Н1, сместились по рандому, поставили закладку, вставили комментарий
+  Получили документ номер Н2
+    сделали то же самое
+  удалили ранеепоставленную закладку на Н1
+  Получили документ номер Н1
+  удалили ранее введенный комментарий
+  удалили ранеепоставленную закладку на Н2
+  Получили документ номер Н2
+  удалили ранее введенный комментарий  
+}
+procedure TestDocumentsModifications(
+  const DOC_NUM1 : integer;
+  const BOOKMARK_NAME1 : String;
+  const USER_COMMENT1 : String;
+  const DOC_NUM2 : integer;
+  const BOOKMARK_NAME2 : String;
+  const USER_COMMENT2 : String;
+  const isDeleteAfterInsert : Boolean = true;
+  const isRandomizeNames : Boolean = false
+);
+{const
+  DOC_NUM1 = 10003000;
+  BOOKMARK_NAME1 = 'Конституция';
+  USER_COMMENT1 = 'комментарий_в_Конституции';  
+    
+  DOC_NUM2 = 1055132;
+  BOOKMARK_NAME2 = 'Договор_о_создании';
+  USER_COMMENT2 = 'комментарий_в_Договоре';
+}  
+var
+  docStructure;
+begin
+  try
+    if isRandomizeNames then
+    begin
+      BOOKMARK_NAME1 := BOOKMARK_NAME1 + GetRandomString;
+      BOOKMARK_NAME2 := BOOKMARK_NAME2 + GetRandomString;
+      USER_COMMENT1 := USER_COMMENT1 + GetRandomString;
+      USER_COMMENT2 := USER_COMMENT2 + GetRandomString;
+    end;    
+  
+    Log.Message ( 'Ставим закладку и комментарий в документе '+ IntToStr(DOC_NUM1) );
+    GUIDocumentModification (DOC_NUM1, BOOKMARK_NAME1, USER_COMMENT1);
+    Log.Message ( 'Ставим закладку и комментарий в документе '+ IntToStr(DOC_NUM2) );
+    GUIDocumentModification (DOC_NUM2, BOOKMARK_NAME2, USER_COMMENT2);
+    
+    if (isDeleteAfterInsert) then
+    begin
+      if BOOKMARK_NAME1 <> '' then 
+      begin
+        Log.Message ( 'Удаляем закладку ' + BOOKMARK_NAME1);
+        if USER_COMMENT1 = '' then
+        begin
+          OpenDocByNumberEx(DOC_NUM1);
+          DeleteBookmarkFromContents(BOOKMARK_NAME1);
+        end  
+        else  
+          DeleteObjectFromFolder('Мои документы\' + BOOKMARK_NAME1);
+      end;  
+    
+      if USER_COMMENT1 <> '' then
+      begin
+        Log.Message ('Удаляем комментарий '+USER_COMMENT1+' в документе '+ IntToStr(DOC_NUM1) );
+        OpenDocByNumberEx(DOC_NUM1); 
+        DeleteUserCommentFromContents (USER_COMMENT1);
+      end;  
+    
+      if BOOKMARK_NAME2 <> '' then
+      begin
+        Log.Message ( 'Удаляем закладку ' + BOOKMARK_NAME2);
+        if USER_COMMENT2 = '' then
+        begin
+          OpenDocByNumberEx(DOC_NUM2);
+          DeleteBookmarkFromContents(BOOKMARK_NAME2);
+        end  
+        else
+          DeleteObjectFromFolder('Мои документы\' + BOOKMARK_NAME2);
+      end;  
+
+      if USER_COMMENT2 <> '' then
+      begin 
+        Log.Message ('Удаляем комментарий '+USER_COMMENT2+' в документе '+ IntToStr(DOC_NUM2) );
+        OpenDocByNumberEx (DOC_NUM2);
+        DeleteUserCommentFromContents (USER_COMMENT2);
+      end;  
+    end;  
+  except
+    Log.Error (ExceptionMessage);
+  end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+procedure GuiDocumentModifications(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+begin
+  TestDocumentsModifications(
+    StrToInt( GetParam(paramList, 'DOC_NUM1', '10003000')),
+    GetParam(paramList, 'BOOKMARK_NAME1', 'Конституция'),
+    GetParam(paramList, 'USER_COMMENT1', 'комментарий_в_Конституции'),
+    StrToInt( GetParam(paramList, 'DOC_NUM2', '1055132')),
+    GetParam(paramList, 'BOOKMARK_NAME2', 'Договор_о_создании'),
+    GetParam(paramList, 'USER_COMMENT2', 'комментарий_в_Договоре'),
+    VarToBool(GetParam(paramList, 'IsDeleteAfterInsert', true)),
+    VarToBool(GetParam(paramList, 'IsRandomizeNames', false))
+  );
+end;
+
+procedure Test_GuiDocumentModifications;
+  var 
+    paramString, paramList, context, i;
+begin
+  paramString := 
+    'IsDeleteAfterInsert:=false' + EndOfLine +
+    'IsRandomizeNames:=true';
+  paramList := ParseParamString(paramString, true, EndOfLine);
+  
+  for i := 1 to 10 do
+    GuiDocumentModifications(paramList, context);
+end;
+
+procedure ___VARIOUS; begin end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+procedure SetCommentsInOneDoc(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+  var
+    p_DocNumber, p_IterationsCount, p_CommentsNumber, p_ShiftMin, p_ShiftMax : integer;
+    docWnd : OleVariant;
+    i, j : integer;
+begin
+  try 
+    p_DocNumber := StrToInt( GetParam(paramList, 'DocNumber', '-1') );
+    if p_DocNumber = -1 then
+      Raise('Не задан номер документа!');
+    p_IterationsCount := StrToInt( GetParam(paramList, 'IterationsCount', '-1') );      
+    if p_IterationsCount = -1 then
+      Raise('Не задано число итераций!');
+    p_CommentsNumber := StrToInt( GetParam(paramList, 'CommentsNumber', '1') );
+    p_ShiftMin := StrToInt( GetParam(paramList, 'ShiftMin', '0') );
+    p_ShiftMax := StrToInt( GetParam(paramList, 'ShiftMax', '10') );
+      
+    for i := 1 to p_IterationsCount do
+    begin
+      OpenDocByNumber(p_DocNumber, true);
+      docWnd := OpenInDocument('ТЕКСТ');
+      
+      for j :=1 to p_CommentsNumber do
+      begin
+        PressKeyNCount('[Down]', p_ShiftMin + Random(p_ShiftMax - p_ShiftMin + 1) );
+        InsertComment(docWnd, 'мой клевый комментарий' + EndOfLine + 'из двух строк');        
+      end;
+      
+      DeleteAllUserCommentsFromContents;
+      GoToMainMenu;
+    end;  
+    
+  except
+    Log.Message('SetCommentsInOneDoc: ' + ExceptionMessage, '' , 4);
+    CommonExceptionHandler;
+  end;               
+end;
+
+
+procedure PostTestProc_Wait(
+  const paramList : OleVariant
+);
+  var
+    timeToWait  : integer;
+    isGoToMainMenu : boolean;
+begin
+  try  
+    Log.Message('PostTestProc_Wait.Begin');
+    
+    
+    // вытаскиваем общие параметры
+    timeToWait := StrToInt( GetParam(paramList,
+      'PostTestProc_Wait_TimeToWait',
+      '60000'
+    ) );
+    
+    isGoToMainMenu := VarToBool( GetParam(paramList,
+      'PostTestProc_Wait_IsGoToMainMenu',
+      'true'
+    ) );
+    
+    
+    //
+    if isGoToMainMenu then GoToMainMenu;
+    
+    Delay(timeToWait);
+
+    Log.Message('PostTestProc_Wait.End');
+  except
+    Log.Message('PostTestProc_Wait: ' + ExceptionMessage, '' , 4);
+    CommonExceptionHandler;
+  end;   
+end;
+
+procedure ___ETALON_JURIST; begin end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+procedure EtalonJurist(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+  var 
+    menuTab;
+    queryData;
+    list;
+    filterList;
+    timeUnit;
+    editor;
+    x, y;
+begin
+  try
+    timeUnit := Options.Run.Timeout div 30;
+
+
+    // ***** просматриваем Новые документы *****
+    menuTab := OpenMenuTab;
+    if NOT IsExists(menuTab) then
+      Raise('Не смогли открыть вкладку "Меню"');
+    if NOT OpenObjectFromFolder('Справочная информация\Новые документы\Документы*\Новые документы', menuTab) then
+      Raise('Не смогли открыть список новых документов');
+    
+    Delay( 22*timeUnit );
+      
+    
+    // ***** делаем Поиск ППР*****
+    queryData := [
+    	CARD_PPR, ([ ([
+    	FD_TYPE, ([
+    		'[ИЛИ]Рекомендации']) ]),([
+    	FD_THEME, ([
+    		'[ИЛИ]Международное право, международные отношения\Права человека, гражданство\Международное сотрудничество в области обеспечения прав человека']) ]) ]) 
+    ];   
+    if NOT SearchInPPR(queryData) then Raise('Поиск ППР не удался');
+    
+    // ***** просматриваем Новые документы *****
+    menuTab := OpenMenuTab;
+    if NOT IsExists(menuTab) then 
+      Raise('Не смогли открыть вкладку "Меню"');
+    if NOT OpenObjectFromFolder('Справочная информация\Новые документы\Документы*\Новые документы', menuTab) then 
+      Raise('Не смогли открыть нужный элемент в рубрикаторе');
+    Delay( 18*timeUnit );
+    list := OpenInList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(list) then
+      Raise('Не удалось открыть список');
+    Delay(7*timeUnit);
+    
+    // ***** Открываем документ в списке *****        
+    PressKeyNCount('[Down]', 4 );
+    Sys.Keys('[Enter]');
+    if NOT IsExists( GetFromEditor('ТЕКСТ ДОКУМЕНТА') ) then
+      Raise('Окно с текстом документа не найдено');
+      
+    // ***** Открываем справку к документу *****
+    if NOT IsExists( OpenInDocument('СПРАВКА') ) then
+      Raise('Не смогли открыть справку к документу');
+    Delay( 3*timeUnit );
+    // ***** Переходим назад по истории (в список)
+    if NOT GoByHistory('Назад') then
+      Raise('Не смогли перейти по истории назад');
+    Delay( 10*timeUnit );
+    
+    // ***** Фильтруем список *****
+    filterList := GetFromList('СПИСОК ФИЛЬТРОВ');
+    if NOT WorkWithFilters(filterList, 'set', '+Комментарии, разъяснения, схемы;+Кроме индивидуальных;+Федеральные акты (кроме индивидуальных)' ) then
+      Raise('Не удалось отфильтровать список');
+    Delay(5*timeUnit);
+    
+    // ***** Переходим в документ *****
+    OpenInList('СПИСОК ДОКУМЕНТОВ');
+    Sys.Keys('[Enter]');
+    Delay( 12*timeUnit );
+
+    // ***** делаем Поиск ППР*****
+    queryData := [
+    	CARD_PPR, ([ ([
+    	FD_TYPE, ([
+    		'[ИЛИ]Постановление']) ]),([
+    	FD_SOURCE, ([
+    		'[ИЛИ]Правительство России и СССР']) ]) ]) 
+    ];   
+    if NOT SearchInPPR(queryData) then Raise('Поиск ППР не удался');
+    Delay(5*timeUnit);
+  // ***** Фильтруем список *****
+  filterList := GetFromList('СПИСОК ФИЛЬТРОВ');
+  if NOT WorkWithFilters(filterList, 'set', '+Федеральные акты (кроме индивидуальных);+Формы документов' ) then
+    Raise('Не удалось отфильтровать список');
+  Delay(5*timeUnit);
+
+   
+    // ***** делаем Поиск ППС*****
+    queryData := ['Правительство РФ']; 
+    if NOT SearchInPPS(queryData) then Raise('Поиск ППС не удался');
+    Delay(6*timeUnit);
+    
+    // ***** просматриваем Новые документы *****
+    menuTab := OpenMenuTab;
+    if NOT IsExists(menuTab) then 
+      Raise('Не смогли открыть вкладку "Меню"');
+    if NOT OpenObjectFromFolder('Справочная информация\Новые документы\Документы*\Новые документы', menuTab) then 
+      Raise('Не смогли открыть нужный элемент в рубрикаторе');
+    list := OpenInList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(list) then
+      Raise('Не удалось открыть список');
+    Delay(3*timeUnit);
+    
+    // ***** Просматриваем справку к списку
+    if NOT IsExists( OpenInList('СПРАВКА К СПИСКУ') ) then
+      Raise('Не смогли открыть справку к списку');
+    Delay(20*timeUnit);    
+
+    // ***** Открываем документ в списке *****        
+    list := OpenInList('СПИСОК ДОКУМЕНТОВ');  
+    PressKeyNCount('[Down]', 2 );
+    Sys.Keys('[Enter]');
+    editor := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    if NOT IsExists( editor ) then
+      Raise('Окно с текстом документа не найдено');
+    Delay(4*timeUnit);
+    
+    // ***** Переходим по ссылке в документе *****
+    PressKeyNCount('~[Down]', 2);
+//    Sys.Keys('~[Enter]');
+    GetTextSelectionCoords(editor, x, y, true);
+    Delay(5*timeUnit);
+     // ***** Открываем справку к документу *****
+    if NOT IsExists( OpenInDocument('СПРАВКА') ) then
+      Raise('Не удалось открыть справку к документу');
+    Delay(9*timeUnit);
+    // ***** Открываем список респондентов *****
+    list := OpenInDocument('РЕСПОНДЕНТЫ');
+    if NOT IsExists( list ) then
+      Raise('Не удалось список респондентов к документу');
+    Delay(15*timeUnit);  
+    // ***** Открываем документ в списке респонлентов *****  
+    list.SetFocus;
+    //OpenObjectFromFolder('Налоговый кодекс*', list);
+    Sys.Keys('[Enter]');
+    if NOT IsExists( GetFromEditor('ТЕКСТ ДОКУМЕНТА') ) then
+      Raise('Окно с текстом документа не найдено');
+    Delay(15*timeUnit);
+
+    // ***** По истории назад ****
+    if NOT GoByHistory('Назад') then Raise('Не смогли перейти по истории назад');
+    
+    // ***** Открываем список корреспондентов *****
+    list := OpenInDocument('КОРРЕСПОНДЕНТЫ');
+    if NOT IsExists( list ) then
+      Raise('Не удалось список корреспондентов к документу');
+    Delay(3*timeUnit);
+    // ***** Открываем документ в списке корреспонлентов *****  
+    list.SetFocus;
+    //OpenObjectFromFolder('Кодекс Российской Федерации об административных правонарушениях*', list);
+    Sys.Keys('[Down][Down][Down][Enter]');
+    if NOT IsExists( GetFromEditor('ТЕКСТ ДОКУМЕНТА') ) then
+      Raise('Окно с текстом документа не найдено');
+    Delay(40*timeUnit);  
+
+    // ***** По истории назад ****
+    if NOT GoByHistory('Назад') then Raise('Не смогли перейти по истории назад');
+    // ***** Открываем список корреспондентов *****
+    list := OpenInDocument('КОРРЕСПОНДЕНТЫ');
+    if NOT IsExists( list ) then
+      Raise('Не удалось список корреспондентов к документу');
+    Delay(3*timeUnit);
+    // ***** Открываем документ в списке корреспонлентов *****  
+    list.SetFocus;
+    Sys.Keys('[Home][Enter]');
+    Delay(30*timeUnit);
+
+    // ***** просматриваем Новые документы *****
+    menuTab := OpenMenuTab;
+    if NOT IsExists(menuTab) then 
+      Raise('Не смогли открыть вкладку "Меню"');
+    if NOT OpenObjectFromFolder('Справочная информация\Новые документы\Документы*\Документы, в которые были внесены изменения', menuTab) then 
+      Raise('Не смогли открыть нужный элемент в рубрикаторе');
+    list := OpenInList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(list) then
+      Raise('Не удалось открыть список');
+    Delay(30*timeUnit);
+    
+    // **** Открываем документ *****
+    list.SetFocus;
+    Sys.Keys('[Enter]');
+    editor := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    if NOT IsExists( editor ) then
+      Raise('Окно с текстом документа не найдено');
+    Delay(30*timeUnit);  
+    // ***** Переходим по ссылке в документе *****
+    Sys.Keys('~[Down]');
+    //Sys.Keys('~[Enter]');
+    GetTextSelectionCoords(editor, x, y, true);
+    Delay(20*timeUnit);
+    // **** Смотрим аттрибуты документа *****
+    list := OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+    if NOT IsExists( list ) then
+      Raise('Не удалось открыть список аттрибутов документа '); 
+    Delay(50*timeUnit); 
+
+    // ***** делаем Поиск ППР*****
+    queryData := [
+    	CARD_PPR, ([ ([
+    	FD_NUMBER, ([
+    		'0131П-П4']) ]) ]) 
+    ];   
+    if NOT SearchInPPR(queryData) then Raise('Поиск ППР не удался');
+    Delay(5*timeUnit);  
+
+    // ***** Открываем документ *****
+    list := OpenInList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(list) then
+      Raise('Не удалось открыть список');  
+    list.SetFocus;
+    Sys.Keys('[Enter]');
+    if NOT IsExists( GetFromEditor('ТЕКСТ ДОКУМЕНТА') ) then
+      Raise('Окно с текстом документа не найдено');  
+    Delay(4*timeUnit);    
+    // **** Смотрим аттрибуты документа *****
+    list := OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+    if NOT IsExists( list ) then
+      Raise('Не удалось открыть список аттрибутов документа ');     
+    Delay(5*timeUnit);
+
+    // ***** просматриваем Новые документы *****
+    menuTab := OpenMenuTab;
+    if NOT IsExists(menuTab) then 
+      Raise('Не смогли открыть вкладку "Меню"');
+    if NOT OpenObjectFromFolder('Справочная информация\Новые документы\Документы*\Документы, в которые были внесены изменения', menuTab) then 
+      Raise('Не смогли открыть нужный элемент в рубрикаторе');
+    list := OpenInList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(list) then
+      Raise('Не удалось открыть список');
+    Delay(30*timeUnit);  
+
+    // **** Открываем документ *****
+    list.SetFocus;
+    OpenObjectFromFolder('Федеральный закон от 31 декабря*', list);
+    if NOT IsExists( GetFromEditor('ТЕКСТ ДОКУМЕНТА') ) then
+      Raise('Окно с текстом документа не найдено');
+    Delay(10*timeUnit);   
+    // **** Смотрим аттрибуты документа *****
+    list := OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+    if NOT IsExists( list ) then
+      Raise('Не удалось открыть список аттрибутов документа ');     
+    Delay(10*timeUnit);  
+    
+    // ***** делаем Поиск ППС*****
+    queryData := ['Авария', 'Статистическая отчетность. АПК']; 
+    if NOT SearchInPPS(queryData) then Raise('Поиск ППС не удался');
+    Delay(5*timeUnit);
+    
+    // ***** Сортируем список *****
+    if NOT SetSortParams(SORT_BY_PUBLICATION_DATE, SORT_ASCENDING ) then
+      Raise('Не смогли установить параметры сортировки');
+      
+    
+  except
+    Log.Message('EtalonJurist: ' + ExceptionMessage, '' , 4);
+    CommonExceptionHandler;
+  end;  
+end;
+
+function temporary;
+  var p, w : OleVariant;
+begin
+  try
+    EtalonJurist(p,p);
+  except
+    Log.Message('' + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+procedure _____A; begin end;
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+procedure CyclicCommentsAndFolders(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+  const
+    MAIN_LIST_NAME = 'Список из 10 документов';
+    MAIN_LIST_PATH = 'Мои документы\' + MAIN_LIST_NAME;
+  var
+    myDocTab, list, editor, edVscroll : OleVariant;
+    i, counter, j : integer;
+    ctxt_IsFirstRun : boolean;
+    par_StopTime;
+    oldDocName, currDocName : String;
+    par_BookmarksCount, par_CommentsCount; 
+begin
+  try
+    par_StopTime := StrToFloat( GetParam(paramList,
+      'StopTime',
+      FloatToStr(Utilities.Now + 1) ) 
+    );
+    par_CommentsCount := VarToInteger( GetParam(paramList,
+      'CommentsCount',
+      '10')
+    );
+    par_BookmarksCount := VarToInteger( GetParam(paramList,
+      'BookmarksCount',
+      '10')
+    );
+          
+    // открываем список из 10 документов    
+    GoToMainMenu;
+    myDocTab := OpenMyDocTab;    
+    if NOT OpenObjectFromFolder(MAIN_LIST_PATH, myDocTab) then
+    begin // если не получилось то создаем
+      //создаем список из 10 документов, с которым будем работать дальше
+      if NOT OpenObjectFromFolder('Общие\Предустановленные данные\Кодексы\Кодексы*', myDocTab) then
+        Raise('Не смогли открыть список Кодексов');
+      list := OpenInList('СПИСОК ДОКУМЕНТОВ');
+      Sys.Keys('[Home]');
+      PressKeyNCount('[Down]', 10);
+      Sys.Keys('![End]');
+      DelWithConfirm;      
+      SimpleSaveToFolders(MAIN_LIST_NAME);
+
+      // проверяем
+      GoToMainMenu;
+      myDocTab := OpenMyDocTab;      
+      if NOT OpenObjectFromFolder(MAIN_LIST_PATH, myDocTab) then
+        Raise('Не смогли создать список 10 документов');      
+    end;  
+    
+    //
+    list := OpenInList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(list) then Raise('Не найден открытый список 10 документов!');
+    
+    while NOT IsTimeHasRunOut(par_StopTime) do
+    begin
+      // открываем документ
+      Sys.Keys('[Enter]');
+      editor := OpenInDocument('ТЕКСТ');
+      if NOT IsExists(editor) then
+        Raise('Редактор не найден!');
+       edVscroll := editor.VScroll;
+        
+      // ставим закладки и комментарии
+      for i := 0 to (par_CommentsCount + par_BookmarksCount - 1) do
+      begin // 10 закладок и 10 комментариев
+        if IsTimeHasRunOut(par_StopTime) then break;        
+        // позиционируемся на место, в которое будем ставить закладку/комментарий
+        PressKeyNCount('[PageDown]', Random(10));
+        if (edVscroll.Pos = edVscroll.Max) then Sys.Keys('^[Home]');
+        PressKeyNCount('[Down]', Random(10));
+        
+        // ставим нужную вещь
+        if ( i < par_CommentsCount)
+        then // комментарии
+          Sys.Keys('[Enter]' + GetRandomString(32) )
+        else // закладки
+          if NOT SetBookmark( GetRandomString(32) ) then 
+            Log.Error('Не удалось поставить закладку');
+      end;
+      
+      // возвращаемся по истории назад в список
+      GoByHistory('назад');
+      
+      // позиционируемся на следующий документ в списке
+      list := OpenInList('СПИСОК ДОКУМЕНТОВ');
+      oldDocName := GetWindowText(list.Handle);
+      Sys.Keys('[Down]');
+      currDocName := GetWindowText(list.Handle);
+      if (oldDocName = currDocName) then Sys.Keys('[Home]');
+    end;
+        
+  except
+    Log.Message('CyclicCommentsAndFolders: ' + ExceptionMessage, '' , 4);
+    CommonExceptionHandler;
+  end;  
+end;
+
+procedure _____EmptyLinks;begin end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+procedure ClicksOnEmptyLinks(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+  const
+    FUNCTION_NAME = 'ClicksOnEmptyLinks';
+    SP_PRE = 'SP_PRE';
+    SP_CLICK = 'SP_CLICK';
+  
+  var
+    par_TimeAfterRegistration;
+    par_QuorumDelta;
+    par_SynchroTimeOut; 
+    arrLinksContext;
+    i, x, y, screenX, screenY;
+    editor;         
+begin
+  try
+
+    //
+    par_TimeAfterRegistration := VarToInteger( GetParam(paramList,
+      'TimeAfterRegistration',
+      Options.Run.Timeout*10 ));
+    par_QuorumDelta := VarToInteger( GetParam(paramList,
+      'QuorumDelta',
+      '1' ));
+    par_SynchroTimeOut := VarToInteger( GetParam(paramList,
+      'SynchroTimeOut',
+      Options.Run.Timeout*5 ));   
+    SynchroObjectsParams('set', SO_SP_QUORUM_DELTA, par_QuorumDelta);   
+    
+    arrLinksContext := [
+      'Декларацию о',
+      'Федеральный закон от 31 мая',
+      'Федеративным и иными договорами',
+      'Определение Конституционного Суда',
+      'Федеральный закон от 19 мая 1995 г. N 82-ФЗ',
+      'Федеральный закон от 11 июля 2001 г. N 95-ФЗ',
+      'официальному опубликованию. Неопубликованные',
+      'Федеральный закон от 26 сентября 1997 г. N 125-ФЗ',
+      'сведений, составляющих государственную тайну, определяется федеральным законом',
+      'Федеральный закон от 12 января 1996 г. N 10-ФЗ',
+      'Федеральный конституционный закон от 10 октября 1995 г. N 2-ФКЗ',
+      'Федеральный закон от 26 ноября 1996 г. N 138-ФЗ',
+      'Федеральный закон от 23 ноября 1995 г. N 175-ФЗ',
+      'Закон СССР от 11 марта',
+      'федеральным законом случаях имеет право на замену ее',
+      'Указом Президента РФ от 9 июня 2001 г. N 679',
+      'Федеральный конституционный закон от 17 декабря 2001 г. N 6-ФКЗ',
+      'Федеральный закон от 30 апреля 1999 г. N 82-ФЗ',
+      'Федеральный конституционный закон от 31 декабря 1996 г. N 1-ФКЗ',
+      'Федеральный закон от 4 марта 1998 г. N 33-ФЗ'
+    ];
+    // ------------------------
+  
+    // если еще не зарегистрированы ...
+    if (NOT SynchroPoint('IS REGISTERED', SP_PRE)) then
+    begin
+      // .. то регистрируемся и ждем 
+      if NOT SynchroPoint('REGISTER', SP_PRE) then Raise('Не смогли зарегистрироваться в точке синхронизации ' + SP_PRE);      
+      Log.Message('Произвели регистрацию в точке синхронизации ' + SP_PRE);
+      if NOT SynchroPoint('REGISTER', SP_CLICK) then Raise('Не смогли зарегистрироваться в точке синхронизации ' + SP_CLICK);
+      Log.Message('Произвели регистрацию в точке синхронизации ' + SP_CLICK);
+      //      
+      Delay(par_TimeAfterRegistration);
+    end;
+    
+    // ожидаем синхронизации
+    Log.Message('Ожидаем предварительной синхронизации');
+    if SynchroPoint('SYNCHRONIZE', SP_PRE, par_SynchroTimeOut) then
+      Log.Message('Синхронизация удалась')
+    else
+      Log.Error('Синхронизаций не удалась! Тест может выполняться некорректно!');
+   
+      
+    // теперь открываем Конституцию
+    if NOT OpenDocByNumber(10003000) then Raise('Не смогли открыть Конституцию РФ!');
+    //
+    for i := VarArrayLowBound(arrLinksContext, 1) to VarArrayHighBound(arrLinksContext, 1) do
+    begin
+      editor := GetFromEditor('ТЕКСТ ДОКУМЕНТА'); 
+      // ищем контекст
+      if NOT GetCoordsSearchContext( editor, arrLinksContext[i], x, y, false, 'IsMakeContextValid:=true' ) then
+      begin
+        Log.Error('Не удалось найти контекст "' + arrLinksContext[i] + '"!');
+        continue;
+      end;
+      // перемещаем мышку к найденной ссылке
+      x := x + 4;
+      screenX := x;
+      screenY := y;
+      common.ClientToScreen(editor, ScreenX, ScreenY);
+      SlideMouse(screenX, screenY);
+      // синхронизируемся
+      if NOT SynchroPoint('SYNCHRONIZE', SP_CLICK, par_SynchroTimeOut) then
+        Log.Error('Не удалось синхронизироваться перед кликом!');
+      editor.Click(x,y);
+      //
+      WaitForWarningWindow(Options.Run.Timeout);  
+    end; 
+      
+    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+procedure Test_ClicksOnEmptyLinks;
+  var
+    paramString;
+    paramList;
+    context;
+begin
+  paramString := 
+    'TimeAfterRegistration := 0' + EndOfLine;
+  
+  SynchroObjectsParams('set', SO_ALL_SHARED_PATH, '\\strelka.garant.ru\qc\for_runnerTC5\SharedPath\temp\');    
+  paramList := ParseParamString(paramString, true, EndOfLine);
+  
+  ClicksOnEmptyLinks(paramList, context);   
+
+end;
+
+procedure _____BaseSearch;begin end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+procedure DoBaseSearchByContexts(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+  const
+    FUNCTION_NAME = 'DoBaseSearchByContexts';    
+    CS_TIMEOUT = 10*60*1000;
+  var
+    par_PathToContextFile;
+    par_SharedPath;
+    //
+    mapUsedContexts, c_mapFileName;
+    arrContexts, currContext, contextFileObj;
+    i, isLogFolderOpened;
+    cName;
+    sessionID;
+    CS_NAME;
+    fso;  
+    counterFileName, counterFileObj, currCounter;  
+begin
+  try
+    fso := Sys.OleObject('Scripting.FileSystemObject');
+    //
+    sessionID := GetParam(context, 'SessionID', 1);
+    CS_NAME := 'CS.' + VarToString(sessionID); 
+    //
+    par_PathToContextFile := GetParam(paramList,
+      'PathToContextFile',
+      '');
+    if (par_PathToContextFile = '') then Raise('Путь к файлу с контекстами должен быть задан!');
+    if NOT FileExists(par_PathToContextFile) then Raise('Файл с контекстами не найден!');
+    
+    par_SharedPath := IncludeTrailingBackslash( GetParam(paramList,
+      'SharedPath',
+      '') );
+    counterFileName := par_SharedPath + 'counter_file.' + VarToString(sessionID);
+    if EnterCriticalSectionByFile(CS_NAME, CS_TIMEOUT) then
+    begin
+      if NOT fso.FileExists(counterFileName) then
+        fso.OpenTextFile(counterFileName, 2, true).WriteLine('1');
+      LeaveCriticalSectionByFile(CS_NAME);
+    end;    
+    c_mapFileName := par_SharedPath + 'used_contexts.' + VarToString(sessionID);
+    //
+    OpenBaseSearch(SRCH_BASE);
+    //
+    contextFileObj := fso.OpenTextFile(par_PathToContextFile, 1);
+    while (NOT contextFileObj.atEndOfStream) do
+    begin
+            
+      if EnterCriticalSectionByFile(CS_NAME, CS_TIMEOUT) then
+      begin 
+        try 
+          currContext := '';
+          currCounter := VarToInteger( fso.OpenTextFile(counterFileName, 1).ReadLine() );
+          if contextFileObj.Line <= currCounter then
+          begin // если позиция на которой находимся меньше или равна последней считанной позиции
+            while (NOT contextFileObj.atEndOfStream) do
+              if (contextFileObj.Line = currCounter) then
+              begin // встали на позицию с которой надо читать                
+                currContext := contextFileObj.ReadLine();
+                // сохраняем позицию с которой надо будет читать следующему
+                fso.OpenTextFile(counterFileName, 2).WriteLine(VarToString(contextFileObj.Line));
+                if (currContext <> '') then 
+                  break; 
+              end  
+              else
+                contextFileObj.SkipLine();
+          end
+          else
+            Raise('contextFileObj.Line > currCounter, а это невозможно!');
+                  
+          if (currContext = '') AND (contextFileObj.atEndOfStream) then 
+            break; // файл закончился      
+        finally
+          LeaveCriticalSectionByFile(CS_NAME);
+        end; //try
+      end
+      else
+      begin // почему-то не вошли в критическую секцию
+        Log.Error('Не удалось войти в критическую секцию до истечения таймаута!');
+        continue;
+      end;
+      
+      // -- к этой строке у нас в currContext есть контекст, который еще не выполнялся никакой машиной
+        
+      Log.AppendFolder('Выполняется поиск контекста "' + currContext + '"');
+      try
+        //
+        if NOT BaseSearch(nil, currContext, 'IsCloseWindow:=false;IsOpenWindow:=false') then
+        begin
+          Log.Warning('Поиск не удался!');
+          Log.Picture(Sys_Desktop, 'Поиск не удался!');
+        end;  
+      finally
+        Log.PopLogFolder();
+      end; // try
+        
+    end; // while
+    
+    SetParam(context, 'SessionID', sessionID+1);
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+procedure Test_DoBaseSearchByContexts;
+  var
+    paramString;
+    paramList;
+    context;
+begin
+  paramString := 
+    'SharedPath:=\\strelka.garant.ru\qc\for_runnerTC5\SharedPath\temp\' + EndOfLine + 
+    'PathToContextFile:=\\strelka.garant.ru\QC\Contexts\объединенный список.txt';
+  
+  SynchroObjectsParams('set', SO_ALL_SHARED_PATH, '\\strelka.garant.ru\qc\for_runnerTC5\SharedPath\temp\');    
+  paramList := ParseParamString(paramString, true, EndOfLine);
+  
+  DoBaseSearchByContexts(paramList, context);   
+end;
+
+
+procedure ____CONS_SEND;begin end;
+
+procedure DoConsultationSend(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+  const
+    FUNCTION_NAME = 'DoConsultationSend';
+    SEND_COUNT = 100;
+  var
+    currSt, i : OleVariant;     
+begin
+  try
+    for i := 1 to SEND_COUNT do
+    begin
+      if i = 1 then
+        SendConsultation (
+                                  [
+                                	  CARD_LAW_SUPPORT, ([([
+                                  	FD_USER_NAME, ([
+                                  		'0']) ]),([
+                                    FD_CITY_CODE, ([
+                                  		'0']) ]),([
+                                    FD_USER_PHONE, ([
+                                  		'0']) ]),([
+                                  	FD_USER_EMAIL, ([
+                                  		'0@0.ru']) ]),([
+                                  	FD_LAW_SUPPORT_TEXT, ([
+                                  		'0']) ]) ])
+                                  ]
+                                )
+      else
+      begin
+        Sys.Keys('1^[Enter]');
+        WaitForInfoWindow(Options.Run.Timeout div 100);
+        WaitForWarningWindow(Options.Run.Timeout div 100);
+        WaitForErrorWindow(Options.Run.Timeout div 100);
+      end;
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+{
+  DESK: Запускает анализатор логов
+}
+procedure DoLogAnalysator(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+
+const
+  FUNCTION_NAME = 'DoLogAnalysator';
+var
+  fileName;
+  maxCountUsers;
+  onlyNecessaryUsers;      
+begin
+  try
+    //    
+    fileName := GetParam(paramList, 'FileName', '\\STRELKA\qc\for_RunnerTC6\SharedPath\PL\g2_lm_garant.log ');
+    maxCountUsers := VarToInteger( GetParam(paramList, 'MaxCountUsers', '30') );     
+    onlyNecessaryUsers := GetParam(paramList, 'OnlyNecessaryUsers', '' );
+    PL_RunScripts(fileName, maxCountUsers, onlyNecessaryUsers);
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+{
+  DESK: Запускает скрипт, который ставит коментарии и закладки в документах
+}
+procedure DoAddBookmarkAndComment(
+  const paramList : OleVariant;  
+  var context : OleVariant
+);
+  const
+    FUNCTION_NAME = 'DoAddBookmarkAndComment';
+      
+begin
+  try
+    Log.Message('Запускаем CheckedAddBookmarkAndComment');    
+    CheckedAddBookmarkAndComment;
+    Log.Message('Выполнели CheckedAddBookmarkAndComment');
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+{
+  DESK: Запускает скрипт, который открывает и скролирует документы из списка в случайном порядке
+}
+procedure DoOpenDocs(
+  const paramList : OleVariant;  
+  var context : OleVariant
+);
+const
+  FUNCTION_NAME = 'DoOpenDocs';
+var
+  docs;
+  i;
+  j, highBound;      
+begin
+try
+  randomize;
+  docs := [6180620, 12172249, 70274668, 2321756, 12172249, 12181300, 396998, 70196480, 70266454, 58070348, 58070201, 5373450, 12128809, 3939401, 11900239, 3939401, 58109684, 5167886, 3990146, 3990152, 3990153, 5112941, 4049854, 4049854, 4049646, 12121087, 12175003, 12163041, 70137872, 58087124, 12180897, 59607810, 58096164, 70270488, 70199668, 58095335, 70109900, 70244624, 59696457, 2167986, 70207766, 70267076, 186117, 12148555, 58076289, 58076243, 58076290, 58076289, 12181695, 12148555, 58091423, 10164072, 70248270, 58091423, 58091423, 5809451, 10106035, 179941, 58072128, 58072009, 58072097, 58072100, 10106035, 58072103, 1353667, 58098900, 10106035, 136364, 179941, 12136227, 55070966, 12125268, 10103342, 70194860, 12134976, 10106035, 10106035, 10100758, 70277058, 58098900, 8120584, 10103342, 70194860, 58202891, 10106035, 5179800, 70226504, 5649590, 58093916, 10106035, 70156856, 59696032, 59604316, 58108951, 5809909, 5745071, 12168109, 12171455, 12148554, 70196980, 58074013, 70185480, 70103036, 57790282, 12127194, 70175442, 70175442, 70196980, 55063652, 5814771, 5813120, 54017911, 58095040, 199524, 179358, 55005380, 198224, 55063047, 199524, 58095771, 12187698, 12187698, 55063047, 55063047, 390729, 55005508, 390542, 55063047, 5854413, 55005508, 10900200, 997729, 58107264, 58072183, 58072178, 58072034, 70131392, 12125178, 12177762, 58165495, 57790282, 5179162, 5179162, 57789708, 149900, 57861979, 58070089, 10164072, 70210578, 58070344, 4029129, 5761961, 149999, 28998355];
+  
+  for i := VarArrayLowBound(docs, 1) to VarArrayHighBound(docs, 1) do
+  begin
+    highBound := VarArrayHighBound(docs, 1); 
+    j := random(highBound);  
+    OpenDocByNumber(docs[j], false, false);
+    ScrollAllDoc(GetFromEditor('ТЕКСТ ДОКУМЕНТА'));
+    DeleteElementFromArray(docs, j);
+  end;
+except
+  Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;   
+end;
+
+{
+  DESK: 
+    Строим список документов, в которых можно лайкать - это документы по типу Комментарии.
+    Открываем случайный документ из этого списка и лайкаем\дизхлайкаем случайное количкство раз.
+    Переходим к следующему случайному документу и так далее.   
+}
+procedure DoLikes_Dislike_InDoc(
+  const paramList : OleVariant;  
+  var context : OleVariant
+);
+const
+  FUNCTION_NAME = 'DoLikes_Dislike_InDoc';
+var  
+  i;
+  j;
+  queryData;
+  list;
+  nextDoc;
+  like_button, dislike_button;         
+begin
+try
+  randomize;  
+  
+   queryData :=
+    [
+    	CARD_PPR, ([([
+    	FD_TYPE, ([
+    		'[ИЛИ]Комментарии']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];      
+  if NOT SearchInPPR(queryData) then Raise('Поиск ППР не удался');
+  list := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  //открываем 1-й документ из списка
+  OpenObjectFromFolder('*', list);
+  
+  nextDoc := GetFromMainWindow('СТАТУСБАР: КНОПКА СЛЕДУЮЩИЙ ДОКУМЕНТ В СПИСКЕ');
+  if NOT IsExists(nextDoc) then Raise('Не удалось получить: СТАТУСБАР: КНОПКА СЛЕДУЮЩИЙ ДОКУМЕНТ В СПИСКЕ');  
+  like_button := GetFromMainWindow('СТАТУСБАР: КНОПКА НРАВИТСЯ');
+  if NOT IsExists(like_button) then Raise('Не удалось получить СТАТУСБАР: КНОПКА НРАВИТСЯ');
+  dislike_button := GetFromMainWindow('СТАТУСБАР: КНОПКА НЕ НРАВИТСЯ');
+  if NOT IsExists(dislike_button) then Raise('Не удалось получить СТАТУСБАР: КНОПКА НЕ НРАВИТСЯ');
+      
+  for i := 0 to 1000 do
+  begin      
+    //кликаем рандомайзное число раз от 0 до 5 поочередно like\dislike
+    for j:= 0 to random(5) do
+    begin
+      like_button.Click();
+      dislike_button.Click();
+    end;
+    //переходим рандомайзное число раз к следующему документу в списке
+    for j:= 0 to random(5) do
+      nextDoc.Click();
+  end;
+except
+  Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;   
+end;
+
+procedure ____EMPTY_TEST_PROCEDURE;begin end;
+
+procedure DoTestYar(
+  const paramList : OleVariant;
+  var context : OleVariant
+);
+  const
+    FUNCTION_NAME = 'DoTestYar';
+  var
+    currSt, p : OleVariant;     
+begin
+  try
+{    OpenDocuments_Execute(currSt);
+    GetListOfAllDocuments_Execute(currSt);
+  HLTC71_1_1_Execute(p);
+  HLTC71_1_2_Execute(p);
+  HLTC71_1_7_1_Execute(p);
+  HLTC71_1_7_2_Execute(p);
+  HLTC71_1_8_Execute(p);
+}  
+  HLTC71_3_1_1_1_Execute(p);
+  HLTC71_3_1_1_2_Execute(p);
+  HLTC71_3_1_1_3_Execute(p);
+  HLTC71_3_1_1_4_Execute(p);
+  HLTC71_3_1_1_5_Execute(p);
+  HLTC71_3_1_2_1_Execute(p);
+  HLTC71_3_1_2_2_Execute(p);
+  HLTC71_3_1_2_3_Execute(p);
+  HLTC71_3_1_2_4_Execute(p);
+  HLTC71_3_1_2_5_Execute(p);
+  HLTC71_3_1_2_6_Execute(p);
+  HLTC71_3_1_3_1_Execute(p);
+  HLTC71_3_1_3_2_Execute(p);
+  HLTC71_3_1_3_3_Execute(p);
+  HLTC71_3_1_3_4_Execute(p);
+  HLTC71_3_1_4_1_Execute(p);
+  HLTC71_3_1_5_Execute(p);
+  HLTC71_3_1_6_Execute(p); 
+//3.04
+  HLTC71_7_1_Execute(p);        //ошибка в оболочке
+  HLTC71_7_2_Execute(p);        //ошибка в оболочке
+//4.04
+  HLTC71_7_3_Execute(p);   
+  HLTC71_7_6_1_1_1_Execute(p);  
+  HLTC71_7_6_1_1_2_Execute(p);  
+  HLTC71_7_6_1_1_3_Execute(p);  
+  HLTC71_7_6_1_1_4_Execute(p);  
+  HLTC71_7_6_1_2_1_Execute(p);
+  HLTC71_7_6_1_2_2_Execute(p);
+  HLTC71_7_6_1_2_3_Execute(p);
+  HLTC71_7_6_1_3_1_Execute(p);
+  HLTC71_7_6_1_3_2_Execute(p);
+  HLTC71_7_6_1_3_3_Execute(p);
+  HLTC71_7_6_1_3_4_Execute(p);
+  HLTC71_7_6_1_4_1_Execute(p);
+  HLTC71_7_6_1_4_2_Execute(p);
+  HLTC71_7_6_1_4_3_Execute(p);
+  HLTC71_7_6_2_1_1_Execute(p);
+  HLTC71_7_6_2_2_1_Execute(p);
+  HLTC71_7_6_2_2_2_Execute(p);  
+  HLTC71_7_6_2_8_1_Execute(p);  //ошибка в оболочке
+  HLTC71_7_6_2_9_1_Execute(p);  //ошибка в оболочке
+  HLTC71_7_6_2_9_2_Execute(p);  //ошибка в оболочке
+  HLTC71_7_6_2_9_3_Execute(p);  //ошибка в оболочке
+  HLTC71_7_6_2_9_4_Execute(p);
+  HLTC71_7_6_2_10_1_Execute(p); //ошибка в оболочке
+  HLTC71_7_6_2_11_1_Execute(p); //ошибка в оболочке 
+  HLTC71_7_6_2_12_1_Execute(p); //ошибка в оболочке
+
+//5.04
+  HLTC71_7_6_5_1_1_Execute(p);
+  HLTC71_7_6_5_1_2_Execute(p);
+  HLTC71_7_6_5_1_3_Execute(p);
+  HLTC71_7_6_5_1_4_Execute(p);
+  HLTC71_7_6_5_1_5_Execute(p);
+  HLTC71_7_6_5_1_6_Execute(p);
+  HLTC71_7_6_5_2_1_Execute(p);
+  HLTC71_7_6_5_3_1_Execute(p);
+  HLTC71_7_6_5_3_2_Execute(p);  
+  HLTC71_7_6_5_3_3_Execute(p);  
+  HLTC71_7_6_5_3_4_Execute(p);
+  HLTC71_7_6_5_3_6_Execute(p);  
+  HLTC71_7_6_5_3_7_Execute(p);
+  HLTC71_7_6_5_3_8_Execute(p);  
+  HLTC71_7_6_5_3_9_Execute(p);  
+  HLTC71_7_6_5_3_10_Execute(p);  
+  HLTC71_7_6_5_3_11_Execute(p); //Не работает в оболочке
+  HLTC71_7_6_5_3_12_Execute(p);  
+  HLTC71_7_6_5_3_13_Execute(p);  
+  HLTC71_7_6_5_3_14_Execute(p);
+  HLTC71_7_6_5_3_15_Execute(p);
+//10.04
+  HLTC71_7_6_6_1_1_Execute(p);
+  HLTC71_7_6_6_2_1_Execute(p);
+  HLTC71_7_6_6_3_1_Execute(p);
+  HLTC71_7_6_6_4_1_Execute(p);  
+  HLTC71_7_6_6_5_1_Execute(p);    
+//13.04
+  HLTC71_1_5_1_3_Execute(p);
+  HLTC71_1_5_2_3_Execute(p);
+  HLTC71_1_9_2_1_Execute(p);
+  HLTC71_1_9_2_2_Execute(p);
+  HLTC71_1_10_Execute(p);
+  HLTC71_1_14_Execute(p);
+  HLTC71_2_Execute(p);
+  HLTC71_7_4_3_Execute(p);
+
+
+  HLTC72_1_1_5_Execute(p);
+  HLTC72_1_2_1_Execute(p);
+  HLTC72_1_3_1_Execute(p);
+  HLTC72_1_5_1_Execute(p);
+  HLTC72_1_6_2_Execute(p);
+  HLTC72_1_6_3_Execute(p);
+  HLTC72_3_1_Execute(p);
+  HLTC72_3_2_Execute(p);
+  HLTC72_3_3_Execute(p);
+  HLTC72_3_8_Execute(p);  
+//  
+  HLTC72_4_1_1_Execute(p);
+  HLTC72_4_1_3_Execute(p);
+  HLTC72_4_1_4_Execute(p);
+  HLTC72_4_2_Execute(p);
+  HLTC72_5_1_1_Execute(p);
+  HLTC72_5_1_5_Execute(p);
+  HLTC72_5_1_6_Execute(p);
+  HLTC72_5_1_4_Execute(p);
+  HLTC72_5_2_1_Execute(p);
+  HLTC72_5_2_3_Execute(p);
+  HLTC72_5_2_5_Execute(p);
+  HLTC72_5_3_Execute(p);
+  HLTC72_8_1_2_Execute(p);
+  HLTC72_8_1_6_Execute(p);
+  HLTC72_8_1_7_Execute(p);
+//14.03
+  HLTC72_8_7_2_1_Execute(p);
+  HLTC72_10_1_2_Execute(p);
+  HLTC72_10_1_1_Execute(p);
+  HLTC72_10_6_Execute(p);
+  HLTC72_12_1_1_Execute(p);
+  HLTC72_14_1_Execute(p);
+//15.03
+  HLTC72_14_2_Execute(p);
+  HLTC72_14_6_1_1_Execute(p);
+  HLTC72_14_6_1_2_Execute(p);
+  HLTC72_14_6_1_3_Execute(p);
+  HLTC72_14_6_1_4_Execute(p);
+  HLTC72_19_1_Execute(p);
+  HLTC72_19_6_Execute(p);
+//16.03
+  HLTC72_21_2_Execute(p);
+  HLTC72_21_3_Execute(p);
+  HLTC72_21_4_Execute(p);
+  HLTC72_21_5_Execute(p);
+  HLTC72_21_7_Execute(p);  
+  HLTC72_25_1_Execute(p);
+  HLTC72_25_2_Execute(p);
+  HLTC72_25_5_2_Execute(p);
+  HLTC72_25_5_3_Execute(p);
+  HLTC72_25_8_1_Execute(p);
+//17.03  
+  HLTC72_25_8_2_Execute(p);
+  HLTC72_25_8_3_Execute(p);  
+  HLTC72_25_8_4_Execute(p);  
+  HLTC72_25_9_Execute(p);
+  HLTC72_25_11_1_Execute(p);
+  HLTC72_25_11_2_Execute(p);  
+  HLTC72_25_11_3_Execute(p);  
+//20.03
+  HLTC72_33_Execute(p);
+  HLTC72_35_1_Execute(p);
+  HLTC72_35_2_Execute(p);
+  HLTC72_35_3_Execute(p);
+  HLTC72_35_4_Execute(p);
+  HLTC72_35_5_Execute(p);
+  HLTC72_8_11_3_1_Execute(p);
+  HLTC72_8_11_3_2_Execute(p);
+//21.03
+  HLTC72_8_11_3_3_Execute(p);
+  HLTC72_8_11_1_Execute(p);
+  HLTC72_11_2_1_Execute(p);
+  HLTC72_11_2_2_Execute(p);
+  HLTC72_11_2_3_Execute(p);  
+  HLTC72_11_2_5_Execute(p);
+  HLTC72_11_3_1_Execute(p);   //ошибка в оболочке
+  HLTC72_11_3_2_Execute(p);  
+  HLTC72_11_3_3_Execute(p);
+//22.03
+  HLTC72_11_4_1_Execute(p);
+  HLTC72_11_4_2_Execute(p); //ошибка в оболочке
+  HLTC72_11_4_3_Execute(p); //ошибка в оболочке
+  HLTC72_12_1_3_Execute(p);
+  HLTC72_16_1_1_Execute(p);
+  HLTC72_16_1_2_Execute(p);    
+  HLTC72_16_1_3_Execute(p);
+//23.03
+  HLTC72_1_4_2_Execute(p);  //ошибка в оболочке
+  HLTC72_2_4_1_Execute(p);
+  HLTC72_2_4_2_Execute(p);
+  HLTC72_3_6_Execute(p);
+  HLTC72_5_1_3_Execute(p);  //ошибка в оболочке
+  HLTC72_6_1_Execute(p);
+  HLTC72_6_3_1_Execute(p);
+  HLTC72_6_3_2_Execute(p);
+//24.03  
+  HLTC72_6_4_Execute(p);
+  HLTC72_32_1_Execute(p);
+  HLTC72_10_5_Execute(p);
+  HLTC72_9_14_Execute(p);
+///////////////////////////////////следующие функции только для F1 без Турбо
+  HLTC72_9_3_5_1_1_Execute(p);
+  HLTC72_9_3_5_1_2_Execute(p);  
+  HLTC72_9_3_5_2_1_Execute(p);
+  HLTC72_9_3_5_2_2_Execute(p);  
+////////
+  HLTC72_25_12_1_Execute(p);      //ошибка в оболочке
+  HLTC72_25_12_3_1_Execute(p);   //ошибка в оболочке CQ20148
+  HLTC72_25_12_3_2_Execute(p);  //отъехало   //ошибка в оболочке CQ20148
+//27.03    
+  HLTC72_9_15_Execute(p);
+  HLTC72_9_5_2_Execute(p);
+  HLTC72_9_11_Execute(p);
+  HLTC72_9_12_Execute(p);
+  HLTC72_36_1_Execute(p);
+//17.04
+  HLTC72_9_5_6_Execute(p);
+  HLTC72_9_5_7_Execute(p);    
+  HLTC72_10_5_4_Execute(p);
+  HLTC72_10_5_3_Execute(p);
+//04.05
+  HLTC72_1_1_2_Execute(p);
+  HLTC72_1_1_6_Execute(p);
+  HLTC72_6_5_Execute(p);
+
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+procedure DoEmptyTestProcedure(
+  const paramList : OleVariant;  
+  var context : OleVariant
+);
+  const
+    FUNCTION_NAME = 'EmptyTestProcedure';
+begin
+  try
+
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+procedure DoRandomDelay(
+  const paramList : OleVariant;  
+  var context : OleVariant
+);
+  const
+    FUNCTION_NAME = 'DoRandomDelay';
+  var
+   maxDelay;    
+begin
+  try
+    maxDelay := VarToInteger( GetParam(paramList, 'DoRandomDelay_MaxDelay', 0) );
+    if (maxDelay <> 0) then
+      Delay( Random(maxDelay) );
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+procedure ____LOGIN_LOGOUT_PROCEDURE;begin end;
+
+procedure DoLoginLogout(
+  const paramList : OleVariant;  
+  var context : OleVariant
+);
+  const
+    FUNCTION_NAME = 'DoLoginLogout';
+    PN_LOGIN = FUNCTION_NAME + '_Login';
+    PN_PASSWORD = FUNCTION_NAME + '_Password';
+    PN_GROUP_SIZE = FUNCTION_NAME + '_GroupSize';  
+  var
+    login, password;
+    groupSize;    
+begin
+  try
+    p_Login := GetParam(paramList, PN_LOGIN, CompName);
+    p_Password := GetParam(paramList, PN_PASSWORD, login);
+    //p_GroupSize   
+  
+    maxDelay := VarToInteger( GetParam(paramList, 'DoRandomDelay_MaxDelay', 0) );
+    if (maxDelay <> 0) then
+      Delay( Random(maxDelay) );
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+

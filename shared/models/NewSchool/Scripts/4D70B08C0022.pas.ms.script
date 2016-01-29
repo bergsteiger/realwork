@@ -1,0 +1,202 @@
+// NSRCUtils 4D70B08C0022 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D70B08C0022
+
+FORWARD ME_4D70B17C001C
+
+FORWARD ME_4D70B0D50358
+
+: ME_4D70C53302A4
+ CONST UID '4D70C53302A4'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4D70C53302A4 aFileName
+
+: ME_4D70B2AF0288
+ CONST UID '4D70B2AF0288'
+ CONST Name 'ExtractFileEvent'
+ CONST Class class_Operation
+ %SUMMARY 'Событие выливки внешнего файла.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4D70B0D50358 // ItstNSRCListener
+ ;
+ : Parameters
+   @ ( ME_4D70C53302A4 // aFileName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D70B2AF0288 ExtractFileEvent
+
+: ME_4D70B0D50358
+ CONST UID '4D70B0D50358'
+ CONST GUID 'A89ABBCC-F4DD-4B5B-8AA4-50EA93C9907A'
+ CONST Name 'ItstNSRCListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D70B17C001C // TtstNSRCGenerator
+ ;
+ : Operations
+   @ ( ME_4D70B2AF0288 // ExtractFileEvent
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4D70B0D50358 ItstNSRCListener
+
+: ME_4D70C549028D
+ CONST UID '4D70C549028D'
+ CONST Name 'f_Listener'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4D70B17C001C // TtstNSRCGenerator
+ ;
+ : Target ME_4D70B0D50358 // ItstNSRCListener
+ ;
+
+ref; // ME_4D70C549028D f_Listener
+
+: ME_54EEDFDB0273
+ CONST UID '54EEDFDB0273'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4D70B0D50358 // ItstNSRCListener
+ ;
+
+ref; // ME_54EEDFDB0273 aListener
+
+: ME_4D70B25B0190
+ CONST UID '4D70B25B0190'
+ CONST Name 'LinkNSRCListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D70B17C001C // TtstNSRCGenerator
+ ;
+ : Parameters
+   @ ( ME_54EEDFDB0273 // aListener
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D70B25B0190 LinkNSRCListener
+
+: ME_54EEDFEB013B
+ CONST UID '54EEDFEB013B'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4D70B0D50358 // ItstNSRCListener
+ ;
+
+ref; // ME_54EEDFEB013B aListener
+
+: ME_4D70B2A203B9
+ CONST UID '4D70B2A203B9'
+ CONST Name 'UnlinkNSRCListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D70B17C001C // TtstNSRCGenerator
+ ;
+ : Parameters
+   @ ( ME_54EEDFEB013B // aListener
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D70B2A203B9 UnlinkNSRCListener
+
+: ME_4D70C8250128_ME_4D70B17C001C
+ CONST UID '4D70C8250128'
+ CONST Name 'SaveObjFileName'
+ : Original WL 'ME_4D70C8250128' '47ECB8BD00A8.pas.ms.script' // SaveObjFileName
+ ;
+ : Implementor ME_4D70B17C001C // TtstNSRCGenerator
+ ;
+ CONST "ifdef" 'nsTest'
+ref; // ME_4D70C8250128_ME_4D70B17C001C SaveObjFileName
+
+: ME_4D70B17C001C
+ CONST UID '4D70B17C001C'
+ CONST Name 'TtstNSRCGenerator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обертка над TddGenerator для чтения данных о внешних файлах и запоминания их в тесте для последующей проверки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D70B08C0022 // NSRCUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_4B59FBCA0096' '47ECB8BD00A8.pas.ms.script' // TddNSRCGenerator
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4D70C549028D // f_Listener
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4D70B25B0190 // LinkNSRCListener
+ ME_4D70B2A203B9 // UnlinkNSRCListener
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4D70C8250128_ME_4D70B17C001C // SaveObjFileName
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4D70B0D50358 // ItstNSRCListener
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\tstNSRCGenerator.pas'
+
+ref; // ME_4D70B17C001C TtstNSRCGenerator
+
+: ME_4D70B08C0022
+ CONST UID '4D70B08C0022'
+ CONST Name 'NSRCUtils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Классы-обертки для работы с NSRC' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_4D70B17C001C // TtstNSRCGenerator
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D70B08C0022.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D70B08C0022.pas.ms.script.runner'
+
+ref; // ME_4D70B08C0022 NSRCUtils

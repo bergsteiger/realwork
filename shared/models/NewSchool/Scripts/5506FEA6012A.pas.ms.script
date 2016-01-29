@@ -1,0 +1,165 @@
+// Tl3DocumentsCacheService 5506FEA6012A Service Class
+
+FORWARD ME_5506FEA6012A
+
+FORWARD ME_62280531B792
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_0AC8DEBDD602
+ CONST UID '0AC8DEBDD602'
+ CONST Name 'Clear'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_0AC8DEBDD602 Clear
+
+: ME_62280531B792
+ CONST UID '62280531B792'
+ CONST Name 'Ml3DocumentsCacheService'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3DocumentsCacheService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_0AC8DEBDD602 // Clear
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_62280531B792 Ml3DocumentsCacheService
+
+: ME_8089B05A548A
+ CONST UID '8089B05A548A'
+ CONST GUID 'A7573672-88C4-4CF0-8F63-F2AD42FA8794'
+ CONST Name 'Il3DocumentsCacheService'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3DocumentsCacheService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_62280531B792 // Ml3DocumentsCacheService
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_0AC8DEBDD602 // Clear
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_8089B05A548A Il3DocumentsCacheService
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_F334FE8B4BEF
+ CONST UID 'F334FE8B4BEF'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3DocumentsCacheService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_8089B05A548A // Il3DocumentsCacheService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_F334FE8B4BEF Alien
+
+: ME_B6E7C8738D7E
+ CONST UID 'B6E7C8738D7E'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_8089B05A548A // Il3DocumentsCacheService
+ ;
+
+ @SELF
+; // ME_B6E7C8738D7E f_Alien
+
+: ME_5506FEB701D1
+ CONST UID '5506FEB701D1'
+ CONST Name 'Clear'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5506FEB701D1 Clear
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_3944D7EA4F9D
+ CONST UID '3944D7EA4F9D'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_3944D7EA4F9D Exists
+
+: ME_5506FEA6012A
+ CONST UID '5506FEA6012A'
+ CONST Name 'Tl3DocumentsCacheService'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_62280531B792 // Ml3DocumentsCacheService
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_F334FE8B4BEF // Alien
+ ME_B6E7C8738D7E // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5506FEB701D1 // Clear
+ ME_3944D7EA4F9D // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_0AC8DEBDD602 // Clear
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_62280531B792 // Ml3DocumentsCacheService
+ ME_8089B05A548A // Il3DocumentsCacheService
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_5506FEA6012A Tl3DocumentsCacheService

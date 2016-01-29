@@ -1,0 +1,3738 @@
+// VCLHelpers 55001317029B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55001317029B
+
+FORWARD ME_550013770000
+
+FORWARD ME_5514099B0316
+
+: ME_551409C00088
+ CONST UID '551409C00088'
+ CONST Name 'aMenu'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+
+ref; // ME_551409C00088 aMenu
+
+: ME_551409B6017E
+ CONST UID '551409B6017E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ ;
+ : Parameters
+   @ ( ME_551409C00088 // aMenu
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_551409B6017E DoIt
+
+: ME_5514099B0316
+ CONST UID '5514099B0316'
+ CONST Name 'Tl3PopupMenuHelperCallback'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Operations
+   @ ( ME_551409B6017E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_5514099B0316 Tl3PopupMenuHelperCallback
+
+FORWARD ME_E654F73164D2
+
+: ME_E1CC92564CEE
+ CONST UID 'E1CC92564CEE'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_E1CC92564CEE aControl
+
+: ME_E1CC92564CEF
+ CONST UID 'E1CC92564CEF'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_E1CC92564CEF aPoint
+
+: ME_1FF8AE53688A
+ CONST UID '1FF8AE53688A'
+ CONST Name 'GetPopupMenu'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_E654F73164D2 // Ml3PopupMenuHelper
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ : Parameters
+   @ ( ME_E1CC92564CEE // aControl
+ ME_E1CC92564CEF // aPoint
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_1FF8AE53688A GetPopupMenu
+
+: ME_1873E626AAA8
+ CONST UID '1873E626AAA8'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_1873E626AAA8 aControl
+
+: ME_1873E626AAA9
+ CONST UID '1873E626AAA9'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_1873E626AAA9 aPoint
+
+: ME_1873E626AAAA
+ CONST UID '1873E626AAAA'
+ CONST Name 'aCallback'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ ;
+
+ref; // ME_1873E626AAAA aCallback
+
+: ME_E1C719B751DC
+ CONST UID 'E1C719B751DC'
+ CONST Name 'GetPopupMenuForComponentInfo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_E654F73164D2 // Ml3PopupMenuHelper
+ ;
+ : Parameters
+   @ ( ME_1873E626AAA8 // aControl
+ ME_1873E626AAA9 // aPoint
+ ME_1873E626AAAA // aCallback
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_E1C719B751DC GetPopupMenuForComponentInfo
+
+: ME_E654F73164D2
+ CONST UID 'E654F73164D2'
+ CONST Name 'Ml3PopupMenuHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3PopupMenuHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Operations
+   @ ( ME_1FF8AE53688A // GetPopupMenu
+ ME_E1C719B751DC // GetPopupMenuForComponentInfo
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_E654F73164D2 Ml3PopupMenuHelper
+
+FORWARD ME_04CE71F4AB07
+
+: ME_1FF8AE53688A_ME_04CE71F4AB07
+ CONST UID '1FF8AE53688A'
+ CONST Name 'GetPopupMenu'
+ : Original ME_1FF8AE53688A // GetPopupMenu
+ ;
+ : Implementor ME_04CE71F4AB07 // Il3PopupMenuHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_1FF8AE53688A_ME_04CE71F4AB07 GetPopupMenu
+
+: ME_E1C719B751DC_ME_04CE71F4AB07
+ CONST UID 'E1C719B751DC'
+ CONST Name 'GetPopupMenuForComponentInfo'
+ : Original ME_E1C719B751DC // GetPopupMenuForComponentInfo
+ ;
+ : Implementor ME_04CE71F4AB07 // Il3PopupMenuHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_E1C719B751DC_ME_04CE71F4AB07 GetPopupMenuForComponentInfo
+
+: ME_04CE71F4AB07
+ CONST UID '04CE71F4AB07'
+ CONST GUID '0FC02FC0-1297-4100-A3A7-8D342CAD75B2'
+ CONST Name 'Il3PopupMenuHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3PopupMenuHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Implements
+   @ ( ME_E654F73164D2 // Ml3PopupMenuHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_1FF8AE53688A_ME_04CE71F4AB07 // GetPopupMenu
+ ME_E1C719B751DC_ME_04CE71F4AB07 // GetPopupMenuForComponentInfo
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_04CE71F4AB07 Il3PopupMenuHelper
+
+: ME_EFA6EAF6766C
+ CONST UID 'EFA6EAF6766C'
+ CONST Name 'TControlFriend'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Друг для TControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Inherits
+   @ ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ref; // ME_EFA6EAF6766C TControlFriend
+
+: ME_A59886A74A23
+ CONST UID 'A59886A74A23'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3PopupMenuHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Target ME_04CE71F4AB07 // Il3PopupMenuHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_A59886A74A23 Alien
+
+: ME_2D9D17149A5C
+ CONST UID '2D9D17149A5C'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Target ME_04CE71F4AB07 // Il3PopupMenuHelper
+ ;
+
+ref; // ME_2D9D17149A5C f_Alien
+
+: ME_5506BF9E033F
+ CONST UID '5506BF9E033F'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_5506BF9E033F aControl
+
+: ME_5506BF9E038C
+ CONST UID '5506BF9E038C'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_5506BF9E038C aPoint
+
+: ME_5506BF830025
+ CONST UID '5506BF830025'
+ CONST Name 'GetPopupMenu'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ : Parameters
+   @ ( ME_5506BF9E033F // aControl
+ ME_5506BF9E038C // aPoint
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5506BF830025 GetPopupMenu
+
+: ME_5506BFC00110
+ CONST UID '5506BFC00110'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_5506BFC00110 aControl
+
+: ME_5513F50501E2
+ CONST UID '5513F50501E2'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_5513F50501E2 aPoint
+
+: ME_551409E3015F
+ CONST UID '551409E3015F'
+ CONST Name 'aCallback'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ ;
+
+ref; // ME_551409E3015F aCallback
+
+: ME_5506BFB302ED
+ CONST UID '5506BFB302ED'
+ CONST Name 'GetPopupMenuForComponentInfo'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Parameters
+   @ ( ME_5506BFC00110 // aControl
+ ME_5513F50501E2 // aPoint
+ ME_551409E3015F // aCallback
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5506BFB302ED GetPopupMenuForComponentInfo
+
+: ME_0928230ED8B8
+ CONST UID '0928230ED8B8'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_0928230ED8B8 Exists
+
+: ME_5500148103D9
+ CONST UID '5500148103D9'
+ CONST Class class_Dependency
+ : Stereotype st_friend::Dependency ;
+ : Parent ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_5500148103D9 
+
+: ME_1FF8AE53688A_ME_550013770000
+ CONST UID '1FF8AE53688A'
+ CONST Name 'GetPopupMenu'
+ : Original ME_1FF8AE53688A // GetPopupMenu
+ ;
+ : Implementor ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_1FF8AE53688A_ME_550013770000 GetPopupMenu
+
+: ME_E1C719B751DC_ME_550013770000
+ CONST UID 'E1C719B751DC'
+ CONST Name 'GetPopupMenuForComponentInfo'
+ : Original ME_E1C719B751DC // GetPopupMenuForComponentInfo
+ ;
+ : Implementor ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_E1C719B751DC_ME_550013770000 GetPopupMenuForComponentInfo
+
+: ME_5000565C019C_ME_550013770000
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_550013770000 // Tl3PopupMenuHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_550013770000 ClearFields
+
+: ME_550013770000
+ CONST UID '550013770000'
+ CONST Name 'Tl3PopupMenuHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_E654F73164D2 // Ml3PopupMenuHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_A59886A74A23 // Alien
+ ME_2D9D17149A5C // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5506BF830025 // GetPopupMenu
+ ME_5506BFB302ED // GetPopupMenuForComponentInfo
+ ME_0928230ED8B8 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_1FF8AE53688A_ME_550013770000 // GetPopupMenu
+ ME_E1C719B751DC_ME_550013770000 // GetPopupMenuForComponentInfo
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_550013770000 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_5514099B0316 // Tl3PopupMenuHelperCallback
+ ME_E654F73164D2 // Ml3PopupMenuHelper
+ ME_04CE71F4AB07 // Il3PopupMenuHelper
+ ME_EFA6EAF6766C // TControlFriend
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_5500148103D9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3PopupMenuHelper.pas'
+
+ref; // ME_550013770000 Tl3PopupMenuHelper
+
+FORWARD ME_55014D810077
+
+FORWARD ME_622F6A2DA951
+
+: ME_951E20C5C5A6
+ CONST UID '951E20C5C5A6'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_951E20C5C5A6 aControl
+
+: ME_A1E64DB467E3
+ CONST UID 'A1E64DB467E3'
+ CONST Name 'Close'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_622F6A2DA951 // Ml3CloseFormHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_951E20C5C5A6 // aControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_A1E64DB467E3 Close
+
+: ME_622F6A2DA951
+ CONST UID '622F6A2DA951'
+ CONST Name 'Ml3CloseFormHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3CloseFormHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ : Operations
+   @ ( ME_A1E64DB467E3 // Close
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_622F6A2DA951 Ml3CloseFormHelper
+
+FORWARD ME_7ED31A3A9A99
+
+: ME_A1E64DB467E3_ME_7ED31A3A9A99
+ CONST UID 'A1E64DB467E3'
+ CONST Name 'Close'
+ : Original ME_A1E64DB467E3 // Close
+ ;
+ : Implementor ME_7ED31A3A9A99 // Il3CloseFormHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_A1E64DB467E3_ME_7ED31A3A9A99 Close
+
+: ME_7ED31A3A9A99
+ CONST UID '7ED31A3A9A99'
+ CONST GUID 'A031440F-1B01-4D9B-A86B-5F4E065BE1E9'
+ CONST Name 'Il3CloseFormHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3CloseFormHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ : Implements
+   @ ( ME_622F6A2DA951 // Ml3CloseFormHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_A1E64DB467E3_ME_7ED31A3A9A99 // Close
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_7ED31A3A9A99 Il3CloseFormHelper
+
+: ME_F6AF6D2F477A
+ CONST UID 'F6AF6D2F477A'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3CloseFormHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ : Target ME_7ED31A3A9A99 // Il3CloseFormHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_F6AF6D2F477A Alien
+
+: ME_4B1B99FAC447
+ CONST UID '4B1B99FAC447'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ : Target ME_7ED31A3A9A99 // Il3CloseFormHelper
+ ;
+
+ref; // ME_4B1B99FAC447 f_Alien
+
+: ME_5506BFFA037E
+ CONST UID '5506BFFA037E'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_5506BFFA037E aControl
+
+: ME_5506BFF50385
+ CONST UID '5506BFF50385'
+ CONST Name 'Close'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5506BFFA037E // aControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5506BFF50385 Close
+
+: ME_80168DE90672
+ CONST UID '80168DE90672'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_80168DE90672 Exists
+
+: ME_5501605B0022
+ CONST UID '5501605B0022'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+
+ref; // ME_5501605B0022 
+
+: ME_A1E64DB467E3_ME_55014D810077
+ CONST UID 'A1E64DB467E3'
+ CONST Name 'Close'
+ : Original ME_A1E64DB467E3 // Close
+ ;
+ : Implementor ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_A1E64DB467E3_ME_55014D810077 Close
+
+: ME_5000565C019C_ME_55014D810077
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_55014D810077 // Tl3CloseFormHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_55014D810077 ClearFields
+
+: ME_55014D810077
+ CONST UID '55014D810077'
+ CONST Name 'Tl3CloseFormHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_622F6A2DA951 // Ml3CloseFormHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_F6AF6D2F477A // Alien
+ ME_4B1B99FAC447 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5506BFF50385 // Close
+ ME_80168DE90672 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_A1E64DB467E3_ME_55014D810077 // Close
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_55014D810077 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_622F6A2DA951 // Ml3CloseFormHelper
+ ME_7ED31A3A9A99 // Il3CloseFormHelper
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_5501605B0022 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CloseFormHelper.pas'
+
+ref; // ME_55014D810077 Tl3CloseFormHelper
+
+FORWARD ME_551442110069
+
+FORWARD ME_2B0D8771E8B2
+
+: ME_1B4D9FCCF6EF
+ CONST UID '1B4D9FCCF6EF'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
+ ;
+
+ref; // ME_1B4D9FCCF6EF anAction
+
+: ME_781F06EEA149
+ CONST UID '781F06EEA149'
+ CONST Name 'Format'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_1B4D9FCCF6EF // anAction
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_781F06EEA149 Format
+
+: ME_2B0D8771E8B2
+ CONST UID '2B0D8771E8B2'
+ CONST Name 'Ml3FormatActionInfoHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3FormatActionInfoHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ : Operations
+   @ ( ME_781F06EEA149 // Format
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_2B0D8771E8B2 Ml3FormatActionInfoHelper
+
+FORWARD ME_19259CFA643D
+
+: ME_781F06EEA149_ME_19259CFA643D
+ CONST UID '781F06EEA149'
+ CONST Name 'Format'
+ : Original ME_781F06EEA149 // Format
+ ;
+ : Implementor ME_19259CFA643D // Il3FormatActionInfoHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_781F06EEA149_ME_19259CFA643D Format
+
+: ME_19259CFA643D
+ CONST UID '19259CFA643D'
+ CONST GUID 'CBBE7B8C-EED1-4A7B-ADB2-361BE86A2A05'
+ CONST Name 'Il3FormatActionInfoHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3FormatActionInfoHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ : Implements
+   @ ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_781F06EEA149_ME_19259CFA643D // Format
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_19259CFA643D Il3FormatActionInfoHelper
+
+: ME_AA18E44208D9
+ CONST UID 'AA18E44208D9'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3FormatActionInfoHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ : Target ME_19259CFA643D // Il3FormatActionInfoHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_AA18E44208D9 Alien
+
+: ME_128EEA84FC35
+ CONST UID '128EEA84FC35'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ : Target ME_19259CFA643D // Il3FormatActionInfoHelper
+ ;
+
+ref; // ME_128EEA84FC35 f_Alien
+
+: ME_5514426501EC
+ CONST UID '5514426501EC'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
+ ;
+
+ref; // ME_5514426501EC anAction
+
+: ME_5514424D01A2
+ CONST UID '5514424D01A2'
+ CONST Name 'Format'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_5514426501EC // anAction
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5514424D01A2 Format
+
+: ME_E2D013D864C7
+ CONST UID 'E2D013D864C7'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_E2D013D864C7 Exists
+
+: ME_781F06EEA149_ME_551442110069
+ CONST UID '781F06EEA149'
+ CONST Name 'Format'
+ : Original ME_781F06EEA149 // Format
+ ;
+ : Implementor ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_781F06EEA149_ME_551442110069 Format
+
+: ME_5000565C019C_ME_551442110069
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_551442110069 ClearFields
+
+: ME_551442110069
+ CONST UID '551442110069'
+ CONST Name 'Tl3FormatActionInfoHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_AA18E44208D9 // Alien
+ ME_128EEA84FC35 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5514424D01A2 // Format
+ ME_E2D013D864C7 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_781F06EEA149_ME_551442110069 // Format
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_551442110069 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ ME_19259CFA643D // Il3FormatActionInfoHelper
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormatActionInfoHelper.pas'
+
+ref; // ME_551442110069 Tl3FormatActionInfoHelper
+
+FORWARD ME_551542E902F5
+
+FORWARD ME_5515434903D6
+
+: ME_55154410019B
+ CONST UID '55154410019B'
+ CONST Name 'aLinkData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55154410019B aLinkData
+
+: ME_5515436B02F8
+ CONST UID '5515436B02F8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5515434903D6 // Tl3WikiLinkClicked
+ ;
+ : Parameters
+   @ ( ME_55154410019B // aLinkData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5515436B02F8 DoIt
+
+: ME_5515434903D6
+ CONST UID '5515434903D6'
+ CONST Name 'Tl3WikiLinkClicked'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Operations
+   @ ( ME_5515436B02F8 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_5515434903D6 Tl3WikiLinkClicked
+
+FORWARD ME_59B170ED03AC
+
+: ME_9FEE7453B595
+ CONST UID '9FEE7453B595'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_9FEE7453B595 aText
+
+: ME_9FEE7453B596
+ CONST UID '9FEE7453B596'
+ CONST Name 'aClickCallback'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5515434903D6 // Tl3WikiLinkClicked
+ ;
+
+ref; // ME_9FEE7453B596 aClickCallback
+
+: ME_03211FE23BF3
+ CONST UID '03211FE23BF3'
+ CONST Name 'Say'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ ;
+ : Parameters
+   @ ( ME_9FEE7453B595 // aText
+ ME_9FEE7453B596 // aClickCallback
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_03211FE23BF3 Say
+
+: ME_6E0C463C6133
+ CONST UID '6E0C463C6133'
+ CONST Name 'aLinkText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_6E0C463C6133 aLinkText
+
+: ME_6E0C463C6134
+ CONST UID '6E0C463C6134'
+ CONST Name 'aLinkData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_6E0C463C6134 aLinkData
+
+: ME_5AFFFDE1F6AB
+ CONST UID '5AFFFDE1F6AB'
+ CONST Name 'FormatLink'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_6E0C463C6133 // aLinkText
+ ME_6E0C463C6134 // aLinkData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5AFFFDE1F6AB FormatLink
+
+: ME_454847872576
+ CONST UID '454847872576'
+ CONST Name 'aCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_454847872576 aCaption
+
+: ME_454847872577
+ CONST UID '454847872577'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_454847872577 aText
+
+: ME_3CDB8D32C712
+ CONST UID '3CDB8D32C712'
+ CONST Name 'FormatCloak'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_454847872576 // aCaption
+ ME_454847872577 // aText
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_3CDB8D32C712 FormatCloak
+
+: ME_CDCC556698E5
+ CONST UID 'CDCC556698E5'
+ CONST Name 'CanUseWiki'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_CDCC556698E5 CanUseWiki
+
+: ME_59B170ED03AC
+ CONST UID '59B170ED03AC'
+ CONST Name 'Ml3HugeMessageDlgWithWikiHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3HugeMessageDlgWithWikiHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Operations
+   @ ( ME_03211FE23BF3 // Say
+ ME_5AFFFDE1F6AB // FormatLink
+ ME_3CDB8D32C712 // FormatCloak
+ ME_CDCC556698E5 // CanUseWiki
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_59B170ED03AC Ml3HugeMessageDlgWithWikiHelper
+
+FORWARD ME_765520F9F4F4
+
+: ME_03211FE23BF3_ME_765520F9F4F4
+ CONST UID '03211FE23BF3'
+ CONST Name 'Say'
+ : Original ME_03211FE23BF3 // Say
+ ;
+ : Implementor ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_03211FE23BF3_ME_765520F9F4F4 Say
+
+: ME_3CDB8D32C712_ME_765520F9F4F4
+ CONST UID '3CDB8D32C712'
+ CONST Name 'FormatCloak'
+ : Original ME_3CDB8D32C712 // FormatCloak
+ ;
+ : Implementor ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_3CDB8D32C712_ME_765520F9F4F4 FormatCloak
+
+: ME_5AFFFDE1F6AB_ME_765520F9F4F4
+ CONST UID '5AFFFDE1F6AB'
+ CONST Name 'FormatLink'
+ : Original ME_5AFFFDE1F6AB // FormatLink
+ ;
+ : Implementor ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5AFFFDE1F6AB_ME_765520F9F4F4 FormatLink
+
+: ME_CDCC556698E5_ME_765520F9F4F4
+ CONST UID 'CDCC556698E5'
+ CONST Name 'CanUseWiki'
+ : Original ME_CDCC556698E5 // CanUseWiki
+ ;
+ : Implementor ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_CDCC556698E5_ME_765520F9F4F4 CanUseWiki
+
+: ME_765520F9F4F4
+ CONST UID '765520F9F4F4'
+ CONST GUID 'E19F61CE-9AEF-409B-814C-B75941D1010E'
+ CONST Name 'Il3HugeMessageDlgWithWikiHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3HugeMessageDlgWithWikiHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Implements
+   @ ( ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_03211FE23BF3_ME_765520F9F4F4 // Say
+ ME_3CDB8D32C712_ME_765520F9F4F4 // FormatCloak
+ ME_5AFFFDE1F6AB_ME_765520F9F4F4 // FormatLink
+ ME_CDCC556698E5_ME_765520F9F4F4 // CanUseWiki
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_765520F9F4F4 Il3HugeMessageDlgWithWikiHelper
+
+: ME_B33E4E9D6324
+ CONST UID 'B33E4E9D6324'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3HugeMessageDlgWithWikiHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_B33E4E9D6324 Alien
+
+: ME_1753B166638D
+ CONST UID '1753B166638D'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
+ ;
+
+ref; // ME_1753B166638D f_Alien
+
+: ME_551543BA03AF
+ CONST UID '551543BA03AF'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_551543BA03AF aText
+
+: ME_551543BA03CD
+ CONST UID '551543BA03CD'
+ CONST Name 'aClickCallback'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5515434903D6 // Tl3WikiLinkClicked
+ ;
+
+ref; // ME_551543BA03CD aClickCallback
+
+: ME_55154391001C
+ CONST UID '55154391001C'
+ CONST Name 'Say'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Parameters
+   @ ( ME_551543BA03AF // aText
+ ME_551543BA03CD // aClickCallback
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55154391001C Say
+
+: ME_55154DDE0202
+ CONST UID '55154DDE0202'
+ CONST Name 'aLinkText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55154DDE0202 aLinkText
+
+: ME_55154DDE0223
+ CONST UID '55154DDE0223'
+ CONST Name 'aLinkData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55154DDE0223 aLinkData
+
+: ME_55154DC20217
+ CONST UID '55154DC20217'
+ CONST Name 'FormatLink'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_55154DDE0202 // aLinkText
+ ME_55154DDE0223 // aLinkData
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55154DC20217 FormatLink
+
+: ME_551572F601EA
+ CONST UID '551572F601EA'
+ CONST Name 'aCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_551572F601EA aCaption
+
+: ME_551572F60231
+ CONST UID '551572F60231'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_551572F60231 aText
+
+: ME_551572DE021E
+ CONST UID '551572DE021E'
+ CONST Name 'FormatCloak'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_551572F601EA // aCaption
+ ME_551572F60231 // aText
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_551572DE021E FormatCloak
+
+: ME_55157F5F013E
+ CONST UID '55157F5F013E'
+ CONST Name 'CanUseWiki'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_55157F5F013E CanUseWiki
+
+: ME_2461F5AACB7B
+ CONST UID '2461F5AACB7B'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_2461F5AACB7B Exists
+
+: ME_55154EAC01BE
+ CONST UID '55154EAC01BE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_55154EAC01BE 
+
+: ME_55154EB0028E
+ CONST UID '55154EB0028E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_55154EB0028E 
+
+: ME_55154EC0027C
+ CONST UID '55154EC0027C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_55154EC0027C 
+
+: ME_55154F03034C
+ CONST UID '55154F03034C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_48C78D5402A6' '4799D29F033F.pas.ms.script' // StdCtrls
+ ;
+
+ref; // ME_55154F03034C 
+
+: ME_551572D4034A
+ CONST UID '551572D4034A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ : Target WL 'ME_48C7C95C0221' '4799D29F033F.pas.ms.script' // ExtCtrls
+ ;
+
+ref; // ME_551572D4034A 
+
+: ME_03211FE23BF3_ME_551542E902F5
+ CONST UID '03211FE23BF3'
+ CONST Name 'Say'
+ : Original ME_03211FE23BF3 // Say
+ ;
+ : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_03211FE23BF3_ME_551542E902F5 Say
+
+: ME_3CDB8D32C712_ME_551542E902F5
+ CONST UID '3CDB8D32C712'
+ CONST Name 'FormatCloak'
+ : Original ME_3CDB8D32C712 // FormatCloak
+ ;
+ : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_3CDB8D32C712_ME_551542E902F5 FormatCloak
+
+: ME_5AFFFDE1F6AB_ME_551542E902F5
+ CONST UID '5AFFFDE1F6AB'
+ CONST Name 'FormatLink'
+ : Original ME_5AFFFDE1F6AB // FormatLink
+ ;
+ : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5AFFFDE1F6AB_ME_551542E902F5 FormatLink
+
+: ME_CDCC556698E5_ME_551542E902F5
+ CONST UID 'CDCC556698E5'
+ CONST Name 'CanUseWiki'
+ : Original ME_CDCC556698E5 // CanUseWiki
+ ;
+ : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_CDCC556698E5_ME_551542E902F5 CanUseWiki
+
+: ME_5000565C019C_ME_551542E902F5
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_551542E902F5 ClearFields
+
+: ME_551542E902F5
+ CONST UID '551542E902F5'
+ CONST Name 'Tl3HugeMessageDlgWithWikiHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_B33E4E9D6324 // Alien
+ ME_1753B166638D // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55154391001C // Say
+ ME_55154DC20217 // FormatLink
+ ME_551572DE021E // FormatCloak
+ ME_55157F5F013E // CanUseWiki
+ ME_2461F5AACB7B // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_03211FE23BF3_ME_551542E902F5 // Say
+ ME_3CDB8D32C712_ME_551542E902F5 // FormatCloak
+ ME_5AFFFDE1F6AB_ME_551542E902F5 // FormatLink
+ ME_CDCC556698E5_ME_551542E902F5 // CanUseWiki
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_551542E902F5 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_5515434903D6 // Tl3WikiLinkClicked
+ ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_55154EAC01BE // 
+ ME_55154EB0028E // 
+ ME_55154EC0027C // 
+ ME_55154F03034C // 
+ ME_551572D4034A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3HugeMessageDlgWithWikiHelper.pas'
+
+ref; // ME_551542E902F5 Tl3HugeMessageDlgWithWikiHelper
+
+FORWARD ME_551AA9BD01EE
+
+FORWARD ME_8F612712D29F
+
+FORWARD ME_29DCAB941EB5
+
+: ME_EEA66CD23213
+ CONST UID 'EEA66CD23213'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_EEA66CD23213 anItem
+
+: ME_41DE64DA5AB2
+ CONST UID '41DE64DA5AB2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Тип подитеративной функции для Ml3IterateComponentParents.IterateF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_EEA66CD23213 // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_41DE64DA5AB2 DoIt
+
+: ME_29DCAB941EB5
+ CONST UID '29DCAB941EB5'
+ CONST Name 'Ml3IterateComponentParents_IterateF_Action'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип подитеративной функции для Ml3IterateComponentParents.IterateF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_8F612712D29F // Ml3IterateComponentParents
+ ;
+ : Operations
+   @ ( ME_41DE64DA5AB2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" false
+
+ref; // ME_29DCAB941EB5 Ml3IterateComponentParents_IterateF_Action
+
+FORWARD ME_3410F441967F
+
+: ME_24C2D2F69431
+ CONST UID '24C2D2F69431'
+ CONST Name 'aComponent'
+ CONST Class class_Attribute
+ : Stereotype st_in::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_3410F441967F // IterateF
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_24C2D2F69431 aComponent
+
+: ME_C55E2E29D333
+ CONST UID 'C55E2E29D333'
+ CONST Class class_Attribute
+ : Stereotype st_element_type::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_3410F441967F // IterateF
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_C55E2E29D333 
+
+: ME_C4546DACFBEA
+ CONST UID 'C4546DACFBEA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_3410F441967F // IterateF
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_C4546DACFBEA 
+
+: ME_D01235270F76
+ CONST UID 'D01235270F76'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_3410F441967F // IterateF
+ ;
+ : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
+ ;
+
+ref; // ME_D01235270F76 
+
+: ME_3410F441967F
+ CONST UID '3410F441967F'
+ CONST Name 'IterateF'
+ CONST Class class_Class
+ : Stereotype st_facetiterator ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_8F612712D29F // Ml3IterateComponentParents
+ ;
+ : Attributes
+   @ ( ME_24C2D2F69431 // aComponent
+ ME_C55E2E29D333 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_C4546DACFBEA // 
+ ME_D01235270F76 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+ CONST extprop:pas:TypeName 'Ml3IterateComponentParents_IterateF_Action'
+
+ref; // ME_3410F441967F IterateF
+
+: ME_C3947A7CDC61
+ CONST UID 'C3947A7CDC61'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
+ ;
+
+ref; // ME_C3947A7CDC61 anAction
+
+: ME_40223A2E3EEA
+ CONST UID '40223A2E3EEA'
+ CONST Name 'L2_Ml3IterateComponentParents_IterateF_Action'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_8F612712D29F // Ml3IterateComponentParents
+ ;
+ : Target ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
+ ;
+ : Parameters
+   @ ( ME_C3947A7CDC61 // anAction
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST extprop:isGlobal true
+ CONST extprop:isAsm true
+
+ref; // ME_40223A2E3EEA L2_Ml3IterateComponentParents_IterateF_Action
+
+: ME_8F612712D29F
+ CONST UID '8F612712D29F'
+ CONST Name 'Ml3IterateComponentParents'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3IterateComponentParents' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
+ ;
+ : Operations
+   @ ( ME_3410F441967F // IterateF
+ ME_40223A2E3EEA // L2_Ml3IterateComponentParents_IterateF_Action
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_8F612712D29F Ml3IterateComponentParents
+
+FORWARD ME_7D793C9B4E2A
+
+: ME_3410F441967F_ME_7D793C9B4E2A
+ CONST UID '3410F441967F'
+ CONST Name 'IterateF'
+ : Original ME_3410F441967F // IterateF
+ ;
+ : Implementor ME_7D793C9B4E2A // Il3IterateComponentParents
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+ref; // ME_3410F441967F_ME_7D793C9B4E2A IterateF
+
+: ME_7D793C9B4E2A
+ CONST UID '7D793C9B4E2A'
+ CONST GUID '5A7F04AD-BABF-4265-8160-3A5BDA277D22'
+ CONST Name 'Il3IterateComponentParents'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3IterateComponentParents' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
+ ;
+ : Implements
+   @ ( ME_8F612712D29F // Ml3IterateComponentParents
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_3410F441967F_ME_7D793C9B4E2A // IterateF
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_7D793C9B4E2A Il3IterateComponentParents
+
+: ME_A40B60CED801
+ CONST UID 'A40B60CED801'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3IterateComponentParents' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
+ ;
+ : Target ME_7D793C9B4E2A // Il3IterateComponentParents
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_A40B60CED801 Alien
+
+: ME_33A73AC9104F
+ CONST UID '33A73AC9104F'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
+ ;
+ : Target ME_7D793C9B4E2A // Il3IterateComponentParents
+ ;
+
+ref; // ME_33A73AC9104F f_Alien
+
+FORWARD ME_551AAAFB036B
+
+: ME_551AB83701BC
+ CONST UID '551AB83701BC'
+ CONST Name 'aComponent'
+ CONST Class class_Attribute
+ : Stereotype st_in::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_551AAAFB036B // Iterate
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_551AB83701BC aComponent
+
+: ME_551AB59F02E1
+ CONST UID '551AB59F02E1'
+ CONST Class class_Attribute
+ : Stereotype st_element_type::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_551AAAFB036B // Iterate
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_551AB59F02E1 
+
+: ME_551C4D0802D4
+ CONST UID '551C4D0802D4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551AAAFB036B // Iterate
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_551C4D0802D4 
+
+: ME_551AAAFB036B
+ CONST UID '551AAAFB036B'
+ CONST Name 'Iterate'
+ CONST Class class_Class
+ : Stereotype st_serviceiterator ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
+ ;
+ : Attributes
+   @ ( ME_551AB83701BC // aComponent
+ ME_551AB59F02E1 // 
+ ) .SequenceCode.It
+ ; // Attributes
+ : Dependencies
+   @ ( ME_551C4D0802D4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+
+ref; // ME_551AAAFB036B Iterate
+
+: ME_0F4F88FFEF30
+ CONST UID '0F4F88FFEF30'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_0F4F88FFEF30 Exists
+
+: ME_3410F441967F_ME_551AA9BD01EE
+ CONST UID '3410F441967F'
+ CONST Name 'IterateF'
+ : Original ME_3410F441967F // IterateF
+ ;
+ : Implementor ME_551AA9BD01EE // Tl3IterateComponentParents
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+ref; // ME_3410F441967F_ME_551AA9BD01EE IterateF
+
+: ME_5000565C019C_ME_551AA9BD01EE
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_551AA9BD01EE // Tl3IterateComponentParents
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_551AA9BD01EE ClearFields
+
+: ME_551AA9BD01EE
+ CONST UID '551AA9BD01EE'
+ CONST Name 'Tl3IterateComponentParents'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_8F612712D29F // Ml3IterateComponentParents
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_A40B60CED801 // Alien
+ ME_33A73AC9104F // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_551AAAFB036B // Iterate
+ ME_0F4F88FFEF30 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_3410F441967F_ME_551AA9BD01EE // IterateF
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_551AA9BD01EE // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_8F612712D29F // Ml3IterateComponentParents
+ ME_7D793C9B4E2A // Il3IterateComponentParents
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3IterateComponentParents.pas'
+
+ref; // ME_551AA9BD01EE Tl3IterateComponentParents
+
+FORWARD ME_551AB8CA014A
+
+FORWARD ME_A24A217A2949
+
+: ME_938AE659321C
+ CONST UID '938AE659321C'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_938AE659321C aPoint
+
+: ME_938AE659321D
+ CONST UID '938AE659321D'
+ CONST Name 'aComponent'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_938AE659321D aComponent
+
+: ME_938AE659321E
+ CONST UID '938AE659321E'
+ CONST Name 'aBindedControl'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_938AE659321E aBindedControl
+
+: ME_77F02E022F3C
+ CONST UID '77F02E022F3C'
+ CONST Name 'GetComponent'
+ CONST Class class_Operation
+ %SUMMARY 'aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ ;
+ : Parameters
+   @ ( ME_938AE659321C // aPoint
+ ME_938AE659321D // aComponent
+ ME_938AE659321E // aBindedControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_77F02E022F3C GetComponent
+
+: ME_A24A217A2949
+ CONST UID 'A24A217A2949'
+ CONST Name 'Ml3GetComponentFromPointHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3GetComponentFromPointHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ;
+ : Operations
+   @ ( ME_77F02E022F3C // GetComponent
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_A24A217A2949 Ml3GetComponentFromPointHelper
+
+FORWARD ME_90623703A4D4
+
+: ME_77F02E022F3C_ME_90623703A4D4
+ CONST UID '77F02E022F3C'
+ CONST Name 'GetComponent'
+ : Original ME_77F02E022F3C // GetComponent
+ ;
+ : Implementor ME_90623703A4D4 // Il3GetComponentFromPointHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_77F02E022F3C_ME_90623703A4D4 GetComponent
+
+: ME_90623703A4D4
+ CONST UID '90623703A4D4'
+ CONST GUID '8A45EBEB-1919-4ED9-AE29-39A44F9B3F6E'
+ CONST Name 'Il3GetComponentFromPointHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3GetComponentFromPointHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ;
+ : Implements
+   @ ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_77F02E022F3C_ME_90623703A4D4 // GetComponent
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_90623703A4D4 Il3GetComponentFromPointHelper
+
+: ME_6F7428A13918
+ CONST UID '6F7428A13918'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3GetComponentFromPointHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ;
+ : Target ME_90623703A4D4 // Il3GetComponentFromPointHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_6F7428A13918 Alien
+
+: ME_5FB63B69F422
+ CONST UID '5FB63B69F422'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ;
+ : Target ME_90623703A4D4 // Il3GetComponentFromPointHelper
+ ;
+
+ref; // ME_5FB63B69F422 f_Alien
+
+: ME_551ABA3E0014
+ CONST UID '551ABA3E0014'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_551ABA3E0014 aPoint
+
+: ME_551AD6E100CF
+ CONST UID '551AD6E100CF'
+ CONST Name 'aComponent'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_551AD6E100CF aComponent
+
+: ME_551AD6E100F1
+ CONST UID '551AD6E100F1'
+ CONST Name 'aBindedControl'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_551AD6E100F1 aBindedControl
+
+: ME_551ABA0A0154
+ CONST UID '551ABA0A0154'
+ CONST Name 'GetComponent'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ %SUMMARY 'aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ;
+ : Parameters
+   @ ( ME_551ABA3E0014 // aPoint
+ ME_551AD6E100CF // aComponent
+ ME_551AD6E100F1 // aBindedControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_551ABA0A0154 GetComponent
+
+: ME_5A11208B85B8
+ CONST UID '5A11208B85B8'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5A11208B85B8 Exists
+
+: ME_77F02E022F3C_ME_551AB8CA014A
+ CONST UID '77F02E022F3C'
+ CONST Name 'GetComponent'
+ : Original ME_77F02E022F3C // GetComponent
+ ;
+ : Implementor ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_77F02E022F3C_ME_551AB8CA014A GetComponent
+
+: ME_5000565C019C_ME_551AB8CA014A
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_551AB8CA014A ClearFields
+
+: ME_551AB8CA014A
+ CONST UID '551AB8CA014A'
+ CONST Name 'Tl3GetComponentFromPointHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_6F7428A13918 // Alien
+ ME_5FB63B69F422 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_551ABA0A0154 // GetComponent
+ ME_5A11208B85B8 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_77F02E022F3C_ME_551AB8CA014A // GetComponent
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_551AB8CA014A // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ ME_90623703A4D4 // Il3GetComponentFromPointHelper
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetComponentFromPointHelper.pas'
+
+ref; // ME_551AB8CA014A Tl3GetComponentFromPointHelper
+
+FORWARD ME_551BCBFD0240
+
+FORWARD ME_6FB88E211F27
+
+: ME_18E0BD886492
+ CONST UID '18E0BD886492'
+ CONST Name 'anObject'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_18E0BD886492 anObject
+
+: ME_18E0BD886493
+ CONST UID '18E0BD886493'
+ CONST Name 'aShortInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_18E0BD886493 aShortInfo
+
+: ME_18E0BD886494
+ CONST UID '18E0BD886494'
+ CONST Name 'anObjectPropFound'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5320560B0287' '5012CA2D0012.pas.ms.script' // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+
+ref; // ME_18E0BD886494 anObjectPropFound
+
+: ME_D4A861440DBF
+ CONST UID 'D4A861440DBF'
+ CONST Name 'Format'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_18E0BD886492 // anObject
+ ME_18E0BD886493 // aShortInfo
+ ME_18E0BD886494 // anObjectPropFound
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_D4A861440DBF Format
+
+: ME_6FB88E211F27
+ CONST UID '6FB88E211F27'
+ CONST Name 'Ml3FormatObjectInfoHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3FormatObjectInfoHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Operations
+   @ ( ME_D4A861440DBF // Format
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_6FB88E211F27 Ml3FormatObjectInfoHelper
+
+FORWARD ME_5DD0A3AA9AB2
+
+: ME_D4A861440DBF_ME_5DD0A3AA9AB2
+ CONST UID 'D4A861440DBF'
+ CONST Name 'Format'
+ : Original ME_D4A861440DBF // Format
+ ;
+ : Implementor ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_D4A861440DBF_ME_5DD0A3AA9AB2 Format
+
+: ME_5DD0A3AA9AB2
+ CONST UID '5DD0A3AA9AB2'
+ CONST GUID 'ABD71A64-8BB2-4F31-9E8A-D6E19C4EB16A'
+ CONST Name 'Il3FormatObjectInfoHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3FormatObjectInfoHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Implements
+   @ ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_D4A861440DBF_ME_5DD0A3AA9AB2 // Format
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_5DD0A3AA9AB2 Il3FormatObjectInfoHelper
+
+: ME_AAFCC3202173
+ CONST UID 'AAFCC3202173'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3FormatObjectInfoHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_AAFCC3202173 Alien
+
+: ME_5CDD3FE24911
+ CONST UID '5CDD3FE24911'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
+ ;
+
+ref; // ME_5CDD3FE24911 f_Alien
+
+: ME_551BE08301D7
+ CONST UID '551BE08301D7'
+ CONST Name 'anObject'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_551BE08301D7 anObject
+
+: ME_551BE083021B
+ CONST UID '551BE083021B'
+ CONST Name 'aShortInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_551BE083021B aShortInfo
+
+: ME_551BE083025F
+ CONST UID '551BE083025F'
+ CONST Name 'anObjectPropFound'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5320560B0287' '5012CA2D0012.pas.ms.script' // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+
+ref; // ME_551BE083025F anObjectPropFound
+
+: ME_551BCC1F00E6
+ CONST UID '551BCC1F00E6'
+ CONST Name 'Format'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_551BE08301D7 // anObject
+ ME_551BE083021B // aShortInfo
+ ME_551BE083025F // anObjectPropFound
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_551BCC1F00E6 Format
+
+: ME_23A498EC50FA
+ CONST UID '23A498EC50FA'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_23A498EC50FA Exists
+
+: ME_551BCC1303DA
+ CONST UID '551BCC1303DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+
+ref; // ME_551BCC1303DA 
+
+: ME_551BCCE303C0
+ CONST UID '551BCCE303C0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_551BCCE303C0 
+
+: ME_551BCD5B036A
+ CONST UID '551BCD5B036A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target WL 'ME_47E76250004C' '4799D29F033F.pas.ms.script' // ActnList
+ ;
+
+ref; // ME_551BCD5B036A 
+
+: ME_551BCDCA01B5
+ CONST UID '551BCDCA01B5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target WL 'ME_4F82F2A000A1' '4767743E00E5.pas.ms.script' // GetObjectProp
+ ;
+
+ref; // ME_551BCDCA01B5 
+
+: ME_551BE05B00B1
+ CONST UID '551BE05B00B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target WL 'ME_5012BFDC0300' '5012CA2D0012.pas.ms.script' // l3RTTI
+ ;
+
+ref; // ME_551BE05B00B1 
+
+: ME_551BE86403E7
+ CONST UID '551BE86403E7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ;
+
+ref; // ME_551BE86403E7 
+
+: ME_551BE8F600B4
+ CONST UID '551BE8F600B4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_551BE8F600B4 
+
+: ME_D4A861440DBF_ME_551BCBFD0240
+ CONST UID 'D4A861440DBF'
+ CONST Name 'Format'
+ : Original ME_D4A861440DBF // Format
+ ;
+ : Implementor ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_D4A861440DBF_ME_551BCBFD0240 Format
+
+: ME_5000565C019C_ME_551BCBFD0240
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_551BCBFD0240 ClearFields
+
+: ME_551BCBFD0240
+ CONST UID '551BCBFD0240'
+ CONST Name 'Tl3FormatObjectInfoHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_AAFCC3202173 // Alien
+ ME_5CDD3FE24911 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_551BCC1F00E6 // Format
+ ME_23A498EC50FA // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_D4A861440DBF_ME_551BCBFD0240 // Format
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_551BCBFD0240 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_551BCC1303DA // 
+ ME_551BCCE303C0 // 
+ ME_551BCD5B036A // 
+ ME_551BCDCA01B5 // 
+ ME_551BE05B00B1 // 
+ ME_551BE86403E7 // 
+ ME_551BE8F600B4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormatObjectInfoHelper.pas'
+
+ref; // ME_551BCBFD0240 Tl3FormatObjectInfoHelper
+
+FORWARD ME_55226C5F035A
+
+FORWARD ME_358069CF953D
+
+: ME_FC96CEF34C46
+ CONST UID 'FC96CEF34C46'
+ CONST Name 'GetCapture'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_358069CF953D // Ml3GetCaptureHelper
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_FC96CEF34C46 GetCapture
+
+: ME_358069CF953D
+ CONST UID '358069CF953D'
+ CONST Name 'Ml3GetCaptureHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3GetCaptureHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ : Operations
+   @ ( ME_FC96CEF34C46 // GetCapture
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_358069CF953D Ml3GetCaptureHelper
+
+FORWARD ME_23B04EF2BA04
+
+: ME_FC96CEF34C46_ME_23B04EF2BA04
+ CONST UID 'FC96CEF34C46'
+ CONST Name 'GetCapture'
+ : Original ME_FC96CEF34C46 // GetCapture
+ ;
+ : Implementor ME_23B04EF2BA04 // Il3GetCaptureHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_FC96CEF34C46_ME_23B04EF2BA04 GetCapture
+
+: ME_23B04EF2BA04
+ CONST UID '23B04EF2BA04'
+ CONST GUID '37325DBC-4527-4860-8B30-E4FA121B0FC5'
+ CONST Name 'Il3GetCaptureHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3GetCaptureHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ : Implements
+   @ ( ME_358069CF953D // Ml3GetCaptureHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_FC96CEF34C46_ME_23B04EF2BA04 // GetCapture
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_23B04EF2BA04 Il3GetCaptureHelper
+
+: ME_EC748CF7BFB4
+ CONST UID 'EC748CF7BFB4'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3GetCaptureHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ : Target ME_23B04EF2BA04 // Il3GetCaptureHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_EC748CF7BFB4 Alien
+
+: ME_CBB0543C43F4
+ CONST UID 'CBB0543C43F4'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ : Target ME_23B04EF2BA04 // Il3GetCaptureHelper
+ ;
+
+ref; // ME_CBB0543C43F4 f_Alien
+
+: ME_55226C7E01C4
+ CONST UID '55226C7E01C4'
+ CONST Name 'GetCapture'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_55226C7E01C4 GetCapture
+
+: ME_BBCF167A72A2
+ CONST UID 'BBCF167A72A2'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_BBCF167A72A2 Exists
+
+: ME_5523DAD002EB
+ CONST UID '5523DAD002EB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_5523DAD002EB 
+
+: ME_FC96CEF34C46_ME_55226C5F035A
+ CONST UID 'FC96CEF34C46'
+ CONST Name 'GetCapture'
+ : Original ME_FC96CEF34C46 // GetCapture
+ ;
+ : Implementor ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_FC96CEF34C46_ME_55226C5F035A GetCapture
+
+: ME_5000565C019C_ME_55226C5F035A
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_55226C5F035A // Tl3GetCaptureHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_55226C5F035A ClearFields
+
+: ME_55226C5F035A
+ CONST UID '55226C5F035A'
+ CONST Name 'Tl3GetCaptureHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_358069CF953D // Ml3GetCaptureHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_EC748CF7BFB4 // Alien
+ ME_CBB0543C43F4 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55226C7E01C4 // GetCapture
+ ME_BBCF167A72A2 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_FC96CEF34C46_ME_55226C5F035A // GetCapture
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_55226C5F035A // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_358069CF953D // Ml3GetCaptureHelper
+ ME_23B04EF2BA04 // Il3GetCaptureHelper
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_5523DAD002EB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetCaptureHelper.pas'
+
+ref; // ME_55226C5F035A Tl3GetCaptureHelper
+
+FORWARD ME_5522D7A90252
+
+FORWARD ME_EFEB3610D6E5
+
+: ME_2C21E4297A48
+ CONST UID '2C21E4297A48'
+ CONST Name 'aComponent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_2C21E4297A48 aComponent
+
+: ME_BB0BB5CAA29B
+ CONST UID 'BB0BB5CAA29B'
+ CONST Name 'GetBounds'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+ : Parameters
+   @ ( ME_2C21E4297A48 // aComponent
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_BB0BB5CAA29B GetBounds
+
+: ME_EFEB3610D6E5
+ CONST UID 'EFEB3610D6E5'
+ CONST Name 'Ml3GetComponentBoundsHelper'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3GetComponentBoundsHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ : Operations
+   @ ( ME_BB0BB5CAA29B // GetBounds
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_EFEB3610D6E5 Ml3GetComponentBoundsHelper
+
+FORWARD ME_DFD91650A75C
+
+: ME_BB0BB5CAA29B_ME_DFD91650A75C
+ CONST UID 'BB0BB5CAA29B'
+ CONST Name 'GetBounds'
+ : Original ME_BB0BB5CAA29B // GetBounds
+ ;
+ : Implementor ME_DFD91650A75C // Il3GetComponentBoundsHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_BB0BB5CAA29B_ME_DFD91650A75C GetBounds
+
+: ME_DFD91650A75C
+ CONST UID 'DFD91650A75C'
+ CONST GUID 'B081F2FC-089F-4E17-A5BC-DE28732B26EB'
+ CONST Name 'Il3GetComponentBoundsHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3GetComponentBoundsHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ : Implements
+   @ ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_BB0BB5CAA29B_ME_DFD91650A75C // GetBounds
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_DFD91650A75C Il3GetComponentBoundsHelper
+
+: ME_5523CE450325
+ CONST UID '5523CE450325'
+ CONST Name 'EmptyRect'
+ CONST Class class_Attribute
+ : Stereotype st_static::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+ CONST Value '(Left: 0; Top: 0; Right: 0; Bottom: 0)'
+ : ValueType WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_5523CE450325 EmptyRect
+
+: ME_412CE1E38B75
+ CONST UID '412CE1E38B75'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3GetComponentBoundsHelper' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ : Target ME_DFD91650A75C // Il3GetComponentBoundsHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_412CE1E38B75 Alien
+
+: ME_413F9C6CA746
+ CONST UID '413F9C6CA746'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ : Target ME_DFD91650A75C // Il3GetComponentBoundsHelper
+ ;
+
+ref; // ME_413F9C6CA746 f_Alien
+
+: ME_5522D7EF02AB
+ CONST UID '5522D7EF02AB'
+ CONST Name 'aComponent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_5522D7EF02AB aComponent
+
+: ME_5522D7D800FE
+ CONST UID '5522D7D800FE'
+ CONST Name 'GetBounds'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+ : Parameters
+   @ ( ME_5522D7EF02AB // aComponent
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5522D7D800FE GetBounds
+
+: ME_BCAE6B2DCC1E
+ CONST UID 'BCAE6B2DCC1E'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_BCAE6B2DCC1E Exists
+
+: ME_5522D89E03B2
+ CONST UID '5522D89E03B2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_5522D89E03B2 
+
+: ME_BB0BB5CAA29B_ME_5522D7A90252
+ CONST UID 'BB0BB5CAA29B'
+ CONST Name 'GetBounds'
+ : Original ME_BB0BB5CAA29B // GetBounds
+ ;
+ : Implementor ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_BB0BB5CAA29B_ME_5522D7A90252 GetBounds
+
+: ME_5000565C019C_ME_5522D7A90252
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_5522D7A90252 ClearFields
+
+: ME_5522D7A90252
+ CONST UID '5522D7A90252'
+ CONST Name 'Tl3GetComponentBoundsHelper'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_5523CE450325 // EmptyRect
+ ME_412CE1E38B75 // Alien
+ ME_413F9C6CA746 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5522D7D800FE // GetBounds
+ ME_BCAE6B2DCC1E // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_BB0BB5CAA29B_ME_5522D7A90252 // GetBounds
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_5522D7A90252 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
+ ME_DFD91650A75C // Il3GetComponentBoundsHelper
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_5522D89E03B2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetComponentBoundsHelper.pas'
+
+ref; // ME_5522D7A90252 Tl3GetComponentBoundsHelper
+
+FORWARD ME_556F24A80035
+
+FORWARD ME_556F25860097
+
+: ME_25FD6EF29149
+ CONST UID '25FD6EF29149'
+ CONST Name 'TControlFriend'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Друг для TControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ : Inherits
+   @ ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" false
+
+ref; // ME_25FD6EF29149 TControlFriend
+
+: ME_556F25FC0213
+ CONST UID '556F25FC0213'
+ CONST Name 'f_Control'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_556F25FC0213 f_Control
+
+FORWARD ME_556F25D20367
+
+: ME_556F25E303CC
+ CONST UID '556F25E303CC'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_556F25E303CC aControl
+
+: ME_556F25D801C0
+ CONST UID '556F25D801C0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_556F25D20367 // Create
+ ;
+ : Parameters
+   @ ( ME_556F25E303CC // aControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_556F25D801C0 DoIt
+
+: ME_556F25D20367
+ CONST UID '556F25D20367'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ : Operations
+   @ ( ME_556F25D801C0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_556F25D20367 Create
+
+FORWARD ME_556F25ED00C2
+
+: ME_AF36E77E7476
+ CONST UID 'AF36E77E7476'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_AF36E77E7476 aControl
+
+: ME_DBEF40918C62
+ CONST UID 'DBEF40918C62'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики Tl3ControlFontInfo.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_556F25ED00C2 // Make
+ ;
+ : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
+ ;
+ : Parameters
+   @ ( ME_AF36E77E7476 // aControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_DBEF40918C62 DoIt
+
+: ME_556F25ED00C2
+ CONST UID '556F25ED00C2'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ : Inherits
+   @ ( ME_556F25D20367 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_DBEF40918C62 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_556F25ED00C2 Make
+
+: ME_556F25AF0144
+ CONST UID '556F25AF0144'
+ CONST Class class_Dependency
+ : Stereotype st_friend::Dependency ;
+ : Parent ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_556F25AF0144 
+
+: ME_556F3C8C0144
+ CONST UID '556F3C8C0144'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_556F3C8C0144 
+
+: ME_46A60D7A02E4_ME_556F25860097
+ CONST UID '46A60D7A02E4'
+ CONST Name 'Size'
+ : Original WL 'ME_46A60D7A02E4' '4677FBA70343.pas.ms.script' // Size
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60D7A02E4_ME_556F25860097 Size
+
+: ME_46A60E2802E4_ME_556F25860097
+ CONST UID '46A60E2802E4'
+ CONST Name 'Name'
+ : Original WL 'ME_46A60E2802E4' '4677FBA70343.pas.ms.script' // Name
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60E2802E4_ME_556F25860097 Name
+
+: ME_46A60E58013F_ME_556F25860097
+ CONST UID '46A60E58013F'
+ CONST Name 'Bold'
+ : Original WL 'ME_46A60E58013F' '4677FBA70343.pas.ms.script' // Bold
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60E58013F_ME_556F25860097 Bold
+
+: ME_46A60E740045_ME_556F25860097
+ CONST UID '46A60E740045'
+ CONST Name 'Italic'
+ : Original WL 'ME_46A60E740045' '4677FBA70343.pas.ms.script' // Italic
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60E740045_ME_556F25860097 Italic
+
+: ME_46A60EA6032C_ME_556F25860097
+ CONST UID '46A60EA6032C'
+ CONST Name 'Underline'
+ : Original WL 'ME_46A60EA6032C' '4677FBA70343.pas.ms.script' // Underline
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60EA6032C_ME_556F25860097 Underline
+
+: ME_46A60EBF03BE_ME_556F25860097
+ CONST UID '46A60EBF03BE'
+ CONST Name 'Strikeout'
+ : Original WL 'ME_46A60EBF03BE' '4677FBA70343.pas.ms.script' // Strikeout
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60EBF03BE_ME_556F25860097 Strikeout
+
+: ME_46A60ED90325_ME_556F25860097
+ CONST UID '46A60ED90325'
+ CONST Name 'ForeColor'
+ : Original WL 'ME_46A60ED90325' '4677FBA70343.pas.ms.script' // ForeColor
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60ED90325_ME_556F25860097 ForeColor
+
+: ME_46A60EF300C9_ME_556F25860097
+ CONST UID '46A60EF300C9'
+ CONST Name 'BackColor'
+ : Original WL 'ME_46A60EF300C9' '4677FBA70343.pas.ms.script' // BackColor
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60EF300C9_ME_556F25860097 BackColor
+
+: ME_46A60F63035F_ME_556F25860097
+ CONST UID '46A60F63035F'
+ CONST Name 'Pitch'
+ : Original WL 'ME_46A60F63035F' '4677FBA70343.pas.ms.script' // Pitch
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60F63035F_ME_556F25860097 Pitch
+
+: ME_46A60F89031E_ME_556F25860097
+ CONST UID '46A60F89031E'
+ CONST Name 'Index'
+ : Original WL 'ME_46A60F89031E' '4677FBA70343.pas.ms.script' // Index
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A60F89031E_ME_556F25860097 Index
+
+: ME_479731C50290_ME_556F25860097
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_556F25860097 Cleanup
+
+: ME_556F25860097
+ CONST UID '556F25860097'
+ CONST Name 'Tl3ControlFontInfo'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_556F24A80035 // Tl3ControlFontService
+ ;
+ : Inherits
+   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_556F25FC0213 // f_Control
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_556F25D20367 // Create
+ ME_556F25ED00C2 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46A60D7A02E4_ME_556F25860097 // Size
+ ME_46A60E2802E4_ME_556F25860097 // Name
+ ME_46A60E58013F_ME_556F25860097 // Bold
+ ME_46A60E740045_ME_556F25860097 // Italic
+ ME_46A60EA6032C_ME_556F25860097 // Underline
+ ME_46A60EBF03BE_ME_556F25860097 // Strikeout
+ ME_46A60ED90325_ME_556F25860097 // ForeColor
+ ME_46A60EF300C9_ME_556F25860097 // BackColor
+ ME_46A60F63035F_ME_556F25860097 // Pitch
+ ME_46A60F89031E_ME_556F25860097 // Index
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_556F25860097 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_25FD6EF29149 // TControlFriend
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_556F25AF0144 // 
+ ME_556F3C8C0144 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_556F25860097 Tl3ControlFontInfo
+
+FORWARD ME_6CEEDAAA8451
+
+: ME_0F97AE3EC352
+ CONST UID '0F97AE3EC352'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_0F97AE3EC352 aControl
+
+: ME_B31F486B3A13
+ CONST UID 'B31F486B3A13'
+ CONST Name 'GetFont'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_6CEEDAAA8451 // Ml3ControlFontService
+ ;
+ : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
+ ;
+ : Parameters
+   @ ( ME_0F97AE3EC352 // aControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_B31F486B3A13 GetFont
+
+: ME_6CEEDAAA8451
+ CONST UID '6CEEDAAA8451'
+ CONST Name 'Ml3ControlFontService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3ControlFontService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_556F24A80035 // Tl3ControlFontService
+ ;
+ : Operations
+   @ ( ME_B31F486B3A13 // GetFont
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_6CEEDAAA8451 Ml3ControlFontService
+
+FORWARD ME_5B1EBFCEA918
+
+: ME_B31F486B3A13_ME_5B1EBFCEA918
+ CONST UID 'B31F486B3A13'
+ CONST Name 'GetFont'
+ : Original ME_B31F486B3A13 // GetFont
+ ;
+ : Implementor ME_5B1EBFCEA918 // Il3ControlFontService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_B31F486B3A13_ME_5B1EBFCEA918 GetFont
+
+: ME_5B1EBFCEA918
+ CONST UID '5B1EBFCEA918'
+ CONST GUID '04DBC214-58B9-46AE-ADC2-A02B5FFF1CE1'
+ CONST Name 'Il3ControlFontService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3ControlFontService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_556F24A80035 // Tl3ControlFontService
+ ;
+ : Implements
+   @ ( ME_6CEEDAAA8451 // Ml3ControlFontService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_B31F486B3A13_ME_5B1EBFCEA918 // GetFont
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_5B1EBFCEA918 Il3ControlFontService
+
+: ME_CE4655B375ED
+ CONST UID 'CE4655B375ED'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3ControlFontService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_556F24A80035 // Tl3ControlFontService
+ ;
+ : Target ME_5B1EBFCEA918 // Il3ControlFontService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_CE4655B375ED Alien
+
+: ME_A1050C164039
+ CONST UID 'A1050C164039'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_556F24A80035 // Tl3ControlFontService
+ ;
+ : Target ME_5B1EBFCEA918 // Il3ControlFontService
+ ;
+
+ref; // ME_A1050C164039 f_Alien
+
+: ME_556F24EF0347
+ CONST UID '556F24EF0347'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_556F24EF0347 aControl
+
+: ME_556F24D50369
+ CONST UID '556F24D50369'
+ CONST Name 'GetFont'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556F24A80035 // Tl3ControlFontService
+ ;
+ : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
+ ;
+ : Parameters
+   @ ( ME_556F24EF0347 // aControl
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_556F24D50369 GetFont
+
+: ME_7CD1AC5EB531
+ CONST UID '7CD1AC5EB531'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556F24A80035 // Tl3ControlFontService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_7CD1AC5EB531 Exists
+
+: ME_B31F486B3A13_ME_556F24A80035
+ CONST UID 'B31F486B3A13'
+ CONST Name 'GetFont'
+ : Original ME_B31F486B3A13 // GetFont
+ ;
+ : Implementor ME_556F24A80035 // Tl3ControlFontService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_B31F486B3A13_ME_556F24A80035 GetFont
+
+: ME_5000565C019C_ME_556F24A80035
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_556F24A80035 // Tl3ControlFontService
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_556F24A80035 ClearFields
+
+: ME_556F24A80035
+ CONST UID '556F24A80035'
+ CONST Name 'Tl3ControlFontService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55001317029B // VCLHelpers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_6CEEDAAA8451 // Ml3ControlFontService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_CE4655B375ED // Alien
+ ME_A1050C164039 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_556F24D50369 // GetFont
+ ME_7CD1AC5EB531 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_B31F486B3A13_ME_556F24A80035 // GetFont
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_556F24A80035 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_556F25860097 // Tl3ControlFontInfo
+ ME_6CEEDAAA8451 // Ml3ControlFontService
+ ME_5B1EBFCEA918 // Il3ControlFontService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ControlFontService.pas'
+
+ref; // ME_556F24A80035 Tl3ControlFontService
+
+: ME_55001317029B
+ CONST UID '55001317029B'
+ CONST Name 'VCLHelpers'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
+ ;
+ : Children
+   @ ( ME_550013770000 // Tl3PopupMenuHelper
+ ME_55014D810077 // Tl3CloseFormHelper
+ ME_551442110069 // Tl3FormatActionInfoHelper
+ ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
+ ME_551AA9BD01EE // Tl3IterateComponentParents
+ ME_551AB8CA014A // Tl3GetComponentFromPointHelper
+ ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ME_55226C5F035A // Tl3GetCaptureHelper
+ ME_5522D7A90252 // Tl3GetComponentBoundsHelper
+ ME_556F24A80035 // Tl3ControlFontService
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+ WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_5012CA2D0012' '5012CA2D0012.pas.ms.script' // l3TestUtils
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoVCL'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55001317029B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55001317029B.pas.ms.script.runner'
+
+ref; // ME_55001317029B VCLHelpers

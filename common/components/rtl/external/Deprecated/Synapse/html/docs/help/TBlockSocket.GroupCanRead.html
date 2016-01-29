@@ -1,0 +1,23 @@
+<Html><Head><Title>TBlockSocket.GroupCanRead</Title></Head><Body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+<!---1--->
+<font face="Arial">
+<P Align="left"><BIG><B>TBlockSocket.GroupCanRead</B></BIG><BR>
+
+<A href="TBlockSocket.html">TBlockSocket</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P><B>function</B> GroupCanRead(Const SocketList: TList; Timeout: Integer; Const CanReadList: TList): Boolean;<B></B><BR>
+<BR>
+<B>Unit</B><BR>
+<A href="blcksock.html">blcksock</A><BR>
+<BR>
+<B>Description</B><BR>
+This function is for check for incoming data on set of sockets.<BR>
+<BR>
+Whitch sockets is checked is decribed by SocketList Tlist  with TBlockSocket objects. TList may have maximal number of objects defined by FD_SETSIZE constant.<BR>
+<BR>
+Return TRUE, if you can from some socket read any data or is incoming connection on TCP based socket. Status is tested for time Timeout (in milliseconds). If value in Timeout is 0, status is only tested and continue. If value in Timeout is -1, run is breaked and waiting for read data maybe forever.<BR>
+<BR>
+If is returned TRUE, CanReadList TList is filled by all TBlockSocket obejcts withch waiting for read.<BR>
+<BR>
+<BR>
+<B>See also:</B><BR>
+<A href="TBlockSocket.CanRead.html">CanRead</A><BR>
+</font></Body></Html>

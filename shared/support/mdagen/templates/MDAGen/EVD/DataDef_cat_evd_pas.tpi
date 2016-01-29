@@ -1,0 +1,76 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ evd.pas
+/ Генератор схемы EVD.
+//#UC START# *46A8E05F02FE*
+O %f_pas_UnitFileName(%S)
+R  
+	unit %f_pas_UnitName(%S);
+	\{* %SD \}
+	
+# ../PAS/pasCVS	
+
+	{$Include evDefine.inc}
+	
+	interface
+	
+	implementation
+	\
+	%f_set_var(WAS_USES,"0")\
+	%f_pas_Uses(%S,"Interface")\
+	%f_pas_Depends(%S,"EvdFactoryDef")\
+	%f_pas_OpenUses(%S)\
+	  l3Base,
+	
+	  k2Tags,
+	  k2Base,
+	  k2Std\
+	%f_pas_CloseUses(%S)\
+	
+	type
+	 TtmpTypes = record
+	   Ak2Long             : Tk2Type;
+	   Ak2String           : Tk2Type;
+	   Ak2OList            : Tk2Type;
+	   Ak2Boolean          : Tk2Type;
+	<{\n}{%CS!=EvdModifier}   %f_evd_TagVar(%C)   : Tk2Type;>
+	 end;//TtmpTypes
+	 PtmpTypes = ^TtmpTypes;
+	
+	var
+	  _StandardTypeTableIndex : Integer = -1;
+	
+	function evStandardTypeTable: Tk2TypeTable;
+	var
+	 Types         : PtmpTypes;
+	 l_CacheString : Tl3String;
+	begin
+	 l3System.GetLocalMemZ(Types, SizeOf(TtmpTypes));
+	 try
+	  Result := k2NewTypeTable;
+	  try
+	   if (_StandardTypeTableIndex \< 0) then begin
+	    l_CacheString := Tl3String.Create;
+	    l3Free(l_CacheString);
+	    // - hack - для того чтобы кеш объектов добавился раньше, чем таблица типов
+	    _StandardTypeTableIndex := l3System.AddGlobalObject(Result);
+	   end;//_StandardTypeTableIndex \< 0
+	   with Types^ do 
+	   begin
+	    Ak2Long  := Result\[k2_idLong\];
+	    Ak2String := Result\[k2_idString\];
+	    Ak2OList  := Result\[k2_idOList\];
+	    Ak2Boolean := Result\[k2_idBool\];
+	%f_shift_intend(+1)<%CX\n>%f_shift_intend(-1)
+	   end;//with Types^
+	   Result.Recalc;
+	  except
+	   l3Free(Result);
+	   raise;
+	  end;//try..except
+	 finally
+	  l3System.FreeLocalMem(Types);
+	 end;//try..finally
+	end;
+	
+	end.
+//#UC END# *46A8E05F02FE*

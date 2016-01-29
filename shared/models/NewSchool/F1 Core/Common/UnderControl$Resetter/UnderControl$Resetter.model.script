@@ -1,0 +1,848 @@
+<<VCMControllers>> UnderControl$Resetter
+ %UID '4BA08E8D00CD'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4799D29F033F' /* Implementation */
+  U$ '48561E5A01F7' /* "Специальные версии и возможности" */
+  U$ '521C9DA50125' /* "Application Resources" */
+  U$ '54B90AC6014B' /* StringUtils */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '48561E5A01F7' /* "Специальные версии и возможности" */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> UnderControlInterfaces
+   %UID '4B9A1E7F0036'
+   %DEPENDS
+    U$ '45EEAA800226' /* UnderControl */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<PureMixIn>> UnderControlBehaviour
+      %UID '4B9A2AE40040'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> HasControlStatus
+         %UID '4B9A2F95007C'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // HasControlStatus
+        ABSTRACT LINK <<readonly>> Controllable
+         %UID '4B9A2FB102EE'
+         %TARGET U$ '45EEC17501B5' /* Controllable */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Controllable
+        ABSTRACT LINK <<readonly>> ControlStatus
+         %UID '4B9A2FD30344'
+         %TARGET U$ '48FD996601CE' /* Longword */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ControlStatus
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> ClearControlStatus
+         %UID '4B9A2F660115'
+        ; // ClearControlStatus
+      ; // %OPERATIONS
+     ; // UnderControlBehaviour
+     <<ViewAreaController>> IucpUnderControl
+      %UID '4B9A2AB603D4'
+      %TOBEINCLUDED
+       U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4B9A2AE40040' /* UnderControlBehaviour */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '4B9A2F660115' /* ClearControlStatus */
+       U$ '4B9A2F95007C' /* HasControlStatus */
+       U$ '4B9A2FB102EE' /* Controllable */
+       U$ '4B9A2FD30344' /* ControlStatus */
+      ; // %REALIZES
+     ; // IucpUnderControl
+     <<Enum>> TnsDropControlStatus
+      %UID '4BA0A44B0062'
+      %ATTRIBUTES
+        <<Attribute>> dcsAfterReview
+         %UID '4BA0A45A0163'
+         %SUMMARY 'после просмотра' ;
+        ; // dcsAfterReview
+        <<Attribute>> dcsExitFromSystem
+         %UID '4BA0A46F0299'
+         %SUMMARY 'при выходе из системы' ;
+        ; // dcsExitFromSystem
+      ; // %ATTRIBUTES
+     ; // TnsDropControlStatus
+     <<SetOf>> TnsDropControlStatusSet
+      %UID '4BA0A48E0248'
+      %TOBEINCLUDED
+       U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4BA0A44B0062' /* TnsDropControlStatus */
+      ; // %INHERITS
+     ; // TnsDropControlStatusSet
+   ; // %CHILDREN
+  ; // UnderControlInterfaces
+  <<Unit>> UnderControlImpl
+   %UID '4B9A347B0217'
+   %DEPENDS
+    U$ '45EEAA800226' /* UnderControl */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47EA4BB502F9' /* afwMixIns */
+    U$ '48561FA8027F' /* "Версии системы" */
+    U$ '48F747EC0073' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B9A1E7F0036' /* UnderControlInterfaces */
+    U$ '521C9DA50125' /* "Application Resources" */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '48561E5A01F7' /* "Специальные версии и возможности" */
+    U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Impurity>> UnderControlBehaviour
+      %UID '4B9A34C4007A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790B4F00236' /* AFW */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4B9A2AB603D4' /* IucpUnderControl */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47EA4BEF0140' /* afwApplicationDataUpdate */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B9A2F660115' /* ClearControlStatus */
+       U$ '4B9A2F95007C' /* HasControlStatus */
+       U$ '4B9A2FB102EE' /* Controllable */
+       U$ '4B9A2FD30344' /* ControlStatus */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '47EA4E9002C6' /* FinishDataUpdate */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4BA09E450045"
+         %UID '4BA09E450045'
+         %TARGET U$ '480F78BC0146' /* l3Utils */
+        ; // 4BA09E450045
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_HasControlStatus
+         %UID '4B9E1D6301C7'
+         %TARGET U$ '491BF08F035F' /* Tl3Bool */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_HasControlStatus
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> DoGetControllable
+         %UID '4B9A37C90253'
+         %TARGET U$ '45EEC17501B5' /* Controllable */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // DoGetControllable
+      ; // %OPERATIONS
+     ; // UnderControlBehaviour
+     FINAL <<UtilityPack>> ControlStatusUtils
+      %UID '4E7C528C00BE'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '48561E5A01F7' /* "Специальные версии и возможности" */
+       U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4E7C455C0147' /* "Сообщение об изменении документа в МГО должно зависеть от статуса документа" */
+      ; // %IMPLEMENTS
+      %LINKS
+        SUMMONED <<uses>> "F66B07F838ED"
+         %UID 'F66B07F838ED'
+         %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+        ; // F66B07F838ED
+        SUMMONED <<uses>> "AB1EEAB8FA7B"
+         %UID 'AB1EEAB8FA7B'
+         %TARGET U$ '4E01D1E002AE' /* Tl3MessageID */
+        ; // AB1EEAB8FA7B
+        SUMMONED <<uses>> "DE3D6F5F1396"
+         %UID 'DE3D6F5F1396'
+         %TARGET U$ '4AB0EE02004E' /* Dialogs */
+        ; // DE3D6F5F1396
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> bsControlStatusHint
+         %UID '4E7C52D400DA'
+         %SUMMARY 'возвращает хинт для статуса изменения объекта на контроле' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4E7C56D8037D"
+            %UID '4E7C56D8037D'
+            %TARGET U$ '45F118A10361' /* ControlStatus */
+           ; // 4E7C56D8037D
+           <<uses>> "4E7C5712031A"
+            %UID '4E7C5712031A'
+            %TARGET U$ '4ADF0823017C' /* l3IsNil$4ADF0823017C */
+           ; // 4E7C5712031A
+           <<uses>> "4E7C575E0107"
+            %UID '4E7C575E0107'
+            %TARGET U$ '4AC0B9CF018A' /* vcmCStr */
+           ; // 4E7C575E0107
+           <<uses>> "4E7C57B600F2"
+            %UID '4E7C57B600F2'
+            %TARGET U$ '47F260EC02C7' /* StdRes */
+           ; // 4E7C57B600F2
+           <<uses>> "4E7C95E902E1"
+            %UID '4E7C95E902E1'
+            %TARGET U$ '47F2612701D0' /* l3Bits */
+           ; // 4E7C95E902E1
+           <<uses>> "4E7C9FC002FB"
+            %UID '4E7C9FC002FB'
+            %TARGET U$ '4AA7888B0076' /* l3CStr */
+           ; // 4E7C9FC002FB
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4E7C52F00357'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStatus
+               %UID '4E7C530202C6'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStatus
+              <<in>> aNeedPrefix
+               %UID '4E7C9F4F03BE'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNeedPrefix
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // bsControlStatusHint
+        FINAL <<method>> bsFullControlStatusHint
+         %UID '4E7C531601A3'
+         %SUMMARY 'возвращает хинт для статуса изменения объекта на контроле' ;
+         %TOBEINCLUDED
+          U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoI
+            %UID '4E7C53FC018B'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aUC
+               %UID '4E7C5405006D'
+               %TARGET U$ '4B9A2AB603D4' /* IucpUnderControl */
+               %TOBEINCLUDED
+                U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+               ; // %TOBEINCLUDED
+              ; // aUC
+            ; // %PARAMETERS
+           ; // DoI
+         ; // %OPERATIONS
+        ; // bsFullControlStatusHint
+        SUMMONED PRIVATE FINAL <<ini>> Init_StatusChanged
+         %UID '84FC90BF51A0'
+         %SUMMARY 'Инициализация str_csStatusChanged' ;
+        ; // Init_StatusChanged
+        SUMMONED PRIVATE FINAL <<ini>> Init_DeletedStatusChanged
+         %UID '0802E51162A6'
+         %SUMMARY 'Инициализация str_csDeletedStatusChanged' ;
+        ; // Init_DeletedStatusChanged
+        SUMMONED PRIVATE FINAL <<ini>> Init_Deleted
+         %UID '519D7BEE02D4'
+         %SUMMARY 'Инициализация str_csDeleted' ;
+        ; // Init_Deleted
+        SUMMONED PRIVATE FINAL <<ini>> Init_Active
+         %UID '2E8B97DCFB28'
+         %SUMMARY 'Инициализация str_csActive' ;
+        ; // Init_Active
+        SUMMONED PRIVATE FINAL <<ini>> Init_Changed
+         %UID 'FADC1D53F082'
+         %SUMMARY 'Инициализация str_csChanged' ;
+        ; // Init_Changed
+        SUMMONED PRIVATE FINAL <<ini>> Init_Abolished
+         %UID '411B448CCAE8'
+         %SUMMARY 'Инициализация str_csAbolished' ;
+        ; // Init_Abolished
+        SUMMONED PRIVATE FINAL <<ini>> Init_Registered
+         %UID 'E0F4A2900CE1'
+         %SUMMARY 'Инициализация str_csRegistered' ;
+        ; // Init_Registered
+        SUMMONED PRIVATE FINAL <<ini>> Init_NotRegistered
+         %UID '0268EAE85CC6'
+         %SUMMARY 'Инициализация str_csNotRegistered' ;
+        ; // Init_NotRegistered
+        SUMMONED PRIVATE FINAL <<ini>> Init_Document
+         %UID '10065802647B'
+         %SUMMARY 'Инициализация str_csDocument' ;
+        ; // Init_Document
+        SUMMONED PRIVATE FINAL <<ini>> Init_Documentu
+         %UID '631D15571B2A'
+         %SUMMARY 'Инициализация str_csDocumentu' ;
+        ; // Init_Documentu
+        SUMMONED PRIVATE FINAL <<ini>> Init_DocumentEvents
+         %UID 'F3BCB5FD1767'
+         %SUMMARY 'Инициализация str_csDocumentEvents' ;
+        ; // Init_DocumentEvents
+        SUMMONED PRIVATE FINAL <<ini>> Init_InActualDocumentAction_Choice_OpenInternetVersion
+         %UID 'AA0FC427771B'
+         %SUMMARY 'Инициализация str_InActualDocumentAction_Choice_OpenInternetVersion' ;
+        ; // Init_InActualDocumentAction_Choice_OpenInternetVersion
+        SUMMONED PRIVATE FINAL <<ini>> Init_InActualDocumentAction_Choice_StayInCurrentEdition
+         %UID '5A3B9BE1F18E'
+         %SUMMARY 'Инициализация str_InActualDocumentAction_Choice_StayInCurrentEdition' ;
+        ; // Init_InActualDocumentAction_Choice_StayInCurrentEdition
+        SUMMONED PRIVATE FINAL <<ini>> Init_InActualDocumentAction
+         %UID '40C510CFD6F2'
+         %SUMMARY 'Инициализация str_InActualDocumentAction' ;
+        ; // Init_InActualDocumentAction
+        SUMMONED PRIVATE FINAL <<ini>> Init_InActualDocumentAction_CheckCaption
+         %UID '1B6C1E83917C'
+         %SUMMARY 'Инициализация str_InActualDocumentAction_CheckCaption' ;
+        ; // Init_InActualDocumentAction_CheckCaption
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE FINAL <<LocalConst>> Local
+         %UID '4E7C554A0284'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "children prefix" 'cs'
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> StatusChanged
+            %UID '4E7C555A023F'
+            %VALUE '''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // StatusChanged
+           <<Attribute>> DeletedStatusChanged
+            %UID '4E7C55820338'
+            %VALUE '''Статус документа на контроле изменился:  %s'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // DeletedStatusChanged
+           <<Attribute>> Deleted
+            %UID '4E7C583D0264'
+            %VALUE '''удален'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Deleted
+           <<Attribute>> Active
+            %UID '4E7C586B0222'
+            %VALUE '''вступил в силу'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Active
+           <<Attribute>> Changed
+            %UID '4E7C589D01BA'
+            %VALUE '''изменен'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Changed
+           <<Attribute>> Abolished
+            %UID '4E7C58C300DE'
+            %VALUE '''утратил силу'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Abolished
+           <<Attribute>> Registered
+            %UID '4E7C58E8008D'
+            %VALUE '''зарегистрирован в Минюсте РФ'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Registered
+           <<Attribute>> NotRegistered
+            %UID '4E7C5914002D'
+            %VALUE '''отказано в регистрации в Минюсте РФ'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // NotRegistered
+           <<Attribute>> Document
+            %UID '4E7C95F10128'
+            %VALUE '''Документ'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Document
+           <<Attribute>> Documentu
+            %UID '4E7C95FF0021'
+            %VALUE '''Документу'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Documentu
+           <<Attribute>> DocumentEvents
+            %UID '4E7C9F7303CD'
+            %VALUE '''С документом произошло несколько событий:'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // DocumentEvents
+         ; // %ATTRIBUTES
+        ; // Local
+        FINAL <<LocalConst>> Messages
+         %UID '4E7C9AAD02BE'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> InActualDocumentAction_CheckCaption
+            %UID '6DCA37526FE0'
+            %VALUE '''Не оповещать об изменениях в этом документе в пределах сеанса'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // InActualDocumentAction_CheckCaption
+         ; // %ATTRIBUTES
+         %CHILDREN
+          
+           <<Message>> InActualDocumentAction
+            %UID '4E7C9AC2004B'
+            %SUMMARY '''%s '' + #13#10 +'#13#10'''Актуальная информация представлена в интернет-версии системы ГАРАНТ''' ;
+            %META
+             %upv "AutoInc" false
+             %upv "CheckCaption" 'Не оповещать об изменениях в этом документе в пределах сеанса'
+             %upv "DlgType" 'Confirmation'
+             %upv "NeedCheck" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+            ; // %TOBEINCLUDED
+            %ATTRIBUTES
+              <<DefaultChoice>> "4E9E785B038F"
+               %UID '4E9E785B038F'
+               %TARGET U$ '4E9E77F903E0' /* StayInCurrentEdition */
+               %TOBEINCLUDED
+                U$ '4BA08E8D00CD' /* UnderControl$Resetter */
+               ; // %TOBEINCLUDED
+              ; // 4E9E785B038F
+            ; // %ATTRIBUTES
+            %CHILDREN
+             
+              PRIVATE FINAL <<Choices>> Choices
+               %UID '4E9E77B50184'
+               %META
+                %upv "Need map interface" false
+                %upv "Need mapping support" false
+                %upv "spell names" false
+               ; // %META
+               %CHILDREN
+                
+                 <<Choice>> OpenInternetVersion
+                  %UID '4E9E77D70291'
+                  %SUMMARY '''Открыть интернет-версию''' ;
+                  %META
+                   %upv "AutoInc" false
+                   %upv "forced type" 'none'
+                   %upv "is define" false
+                  ; // %META
+                 ; // OpenInternetVersion
+                 <<Choice>> StayInCurrentEdition
+                  %UID '4E9E77F903E0'
+                  %SUMMARY '''Остаться в текущей редакции''' ;
+                  %META
+                   %upv "AutoInc" false
+                   %upv "forced type" 'none'
+                   %upv "is define" false
+                  ; // %META
+                 ; // StayInCurrentEdition
+               ; // %CHILDREN
+              ; // Choices
+            ; // %CHILDREN
+           ; // InActualDocumentAction
+         ; // %CHILDREN
+        ; // Messages
+        SUMMONED PRIVATE <<Constants>> LCImplLocal
+         %UID 'BB12F0DF7C6B'
+         %SUMMARY 'Локализуемые строки Local' ;
+         %META
+          %upv "children prefix" 'cs'
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> StatusChanged
+            %UID '1B38A8E8ADEB'
+            %SUMMARY '''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csStatusChanged''; rValue : ''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // StatusChanged
+           SUMMONED <<Attribute>> DeletedStatusChanged
+            %UID '785E5AFA545B'
+            %SUMMARY '''Статус документа на контроле изменился:  %s''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csDeletedStatusChanged''; rValue : ''Статус документа на контроле изменился:  %s'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // DeletedStatusChanged
+           SUMMONED <<Attribute>> Deleted
+            %UID 'AC00531063DF'
+            %SUMMARY '''удален''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csDeleted''; rValue : ''удален'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Deleted
+           SUMMONED <<Attribute>> Active
+            %UID '4D9B91DE9EED'
+            %SUMMARY '''вступил в силу''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csActive''; rValue : ''вступил в силу'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Active
+           SUMMONED <<Attribute>> Changed
+            %UID 'A8523E3546A5'
+            %SUMMARY '''изменен''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csChanged''; rValue : ''изменен'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Changed
+           SUMMONED <<Attribute>> Abolished
+            %UID '4EED42B157CC'
+            %SUMMARY '''утратил силу''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csAbolished''; rValue : ''утратил силу'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Abolished
+           SUMMONED <<Attribute>> Registered
+            %UID '36BAF6381D87'
+            %SUMMARY '''зарегистрирован в Минюсте РФ''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csRegistered''; rValue : ''зарегистрирован в Минюсте РФ'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Registered
+           SUMMONED <<Attribute>> NotRegistered
+            %UID '8561CA04B06A'
+            %SUMMARY '''отказано в регистрации в Минюсте РФ''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csNotRegistered''; rValue : ''отказано в регистрации в Минюсте РФ'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // NotRegistered
+           SUMMONED <<Attribute>> Document
+            %UID '90776B738198'
+            %SUMMARY '''Документ''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csDocument''; rValue : ''Документ'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Document
+           SUMMONED <<Attribute>> Documentu
+            %UID '527551D88C50'
+            %SUMMARY '''Документу''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csDocumentu''; rValue : ''Документу'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Documentu
+           SUMMONED <<Attribute>> DocumentEvents
+            %UID 'A5C919926BC6'
+            %SUMMARY '''С документом произошло несколько событий:''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''csDocumentEvents''; rValue : ''С документом произошло несколько событий:'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // DocumentEvents
+         ; // %ATTRIBUTES
+        ; // LCImplLocal
+        SUMMONED PRIVATE <<Constants>> LCImpl_InActualDocumentAction_Choices
+         %UID '73E880B109D3'
+         %SUMMARY 'Варианты выбора для диалога InActualDocumentAction' ;
+         %META
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> InActualDocumentAction_Choice_OpenInternetVersion
+            %UID 'BC6AF7071962'
+            %SUMMARY '''Открыть интернет-версию''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_OpenInternetVersion''; rValue : ''Открыть интернет-версию'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // InActualDocumentAction_Choice_OpenInternetVersion
+           SUMMONED <<Attribute>> InActualDocumentAction_Choice_StayInCurrentEdition
+            %UID '40F0A9C57DE1'
+            %SUMMARY '''Остаться в текущей редакции''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_StayInCurrentEdition''; rValue : ''Остаться в текущей редакции'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // InActualDocumentAction_Choice_StayInCurrentEdition
+         ; // %ATTRIBUTES
+        ; // LCImpl_InActualDocumentAction_Choices
+        SUMMONED <<Constants>> LCImplMessages
+         %UID 'BB1F465D8814'
+         %SUMMARY 'Локализуемые строки Messages' ;
+         %META
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> InActualDocumentAction
+            %UID '40C3803B46F0'
+            %SUMMARY '''%s '' + #13#10 +'#13#10'''Актуальная информация представлена в интернет-версии системы ГАРАНТ''' ;
+            %TARGET U$ '4E01D1E002AE' /* Tl3MessageID */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction''; rValue : ''%s '' + #13#10 +'#13#10'''Актуальная информация представлена в интернет-версии системы ГАРАНТ'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // InActualDocumentAction
+           SUMMONED <<Attribute>> InActualDocumentAction_CheckCaption
+            %UID 'D44774EBE521'
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_CheckCaption''; rValue : ''Не оповещать об изменениях в этом документе в пределах сеанса'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // InActualDocumentAction_CheckCaption
+         ; // %ATTRIBUTES
+        ; // LCImplMessages
+      ; // %CHILDREN
+     ; // ControlStatusUtils
+   ; // %CHILDREN
+  ; // UnderControlImpl
+ ; // %CHILDREN
+; // UnderControl$Resetter

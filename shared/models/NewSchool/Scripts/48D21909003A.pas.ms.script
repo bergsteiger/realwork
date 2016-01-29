@@ -1,0 +1,70 @@
+// OvcConst 48D21909003A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48D21909003A
+
+FORWARD ME_48D2191902CB
+
+: ME_4AF81A0B005F
+ CONST UID '4AF81A0B005F'
+ CONST Name 'ccActionItem'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48D2191902CB // ActionCodes
+ ;
+ CONST Value '!'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4AF81A0B005F ccActionItem
+
+: ME_48D2191902CB
+ CONST UID '48D2191902CB'
+ CONST Name 'ActionCodes'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48D21909003A // OvcConst
+ ;
+ : Attributes
+   @ ( ME_4AF81A0B005F // ccActionItem
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_48D2191902CB ActionCodes
+
+: ME_48D21909003A
+ CONST UID '48D21909003A'
+ CONST Name 'OvcConst'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47540FF802AC' '47540FF802AC.pas.ms.script' // Orpheus
+ ;
+ : Constants
+   @ ( ME_48D2191902CB // ActionCodes
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcConst.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\48D21909003A.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48D21909003A.pas.ms.script.runner'
+
+ref; // ME_48D21909003A OvcConst

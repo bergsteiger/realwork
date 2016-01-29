@@ -1,0 +1,20 @@
+char*	KillSlashes( char *resultPath, char *srcPath );
+char*	ReplaceSlashes( char* aPath );
+char*	MakePath( char *path, char *dir, char *file );
+char*	ForceExt( char* name, char* ext );
+int		FileExist( char * name );
+DWORD	FileSize( CString aFileName );
+void	Dos2Win( CString& aString );
+void	Koi2Win( CString& aString );
+void	Dos2Win( char* aString );
+void	Win2Dos( char* aString );
+int		MyCreateDirectory( char* aFileName );
+void	RemoveDirectoryEx( char* aDirectory );
+void	RemoveDirectoryWithFiles( char* aDirectory );
+BOOL	IsPath( char* );
+void	TunePath( char* );
+BOOL	MyDeleteFile( char* );
+BOOL	MyDeleteFile( CString );
+
+LONGLONG		MyGetDiskFreeSpace( LPCTSTR );
+LPITEMIDLIST	PidlBrowse( HWND hwnd, int nCSIDL, LPSTR pszDisplayName, int aTitleID );

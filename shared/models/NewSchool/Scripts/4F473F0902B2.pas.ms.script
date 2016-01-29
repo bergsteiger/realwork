@@ -1,0 +1,1046 @@
+// CString 4F473F0902B2 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F473F0902B2
+
+FORWARD ME_4F473F4E01E5
+
+: ME_4F473FD603DD
+ CONST UID '4F473FD603DD'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F473F4E01E5 // TtfwCStringListPrim
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F473FD603DD ItemType
+
+: ME_4F4745DD0295
+ CONST UID '4F4745DD0295'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F473F4E01E5 // TtfwCStringListPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F4745DD0295 
+
+: ME_47B07CF403D0_ME_4F473F4E01E5
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_4F473F4E01E5 // TtfwCStringListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_4F473F4E01E5 IsSameItems
+
+: ME_47B2C42A0163_ME_4F473F4E01E5
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4F473F4E01E5 // TtfwCStringListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4F473F4E01E5 AssignItem
+
+: ME_47B99D4503A2_ME_4F473F4E01E5
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4F473F4E01E5 // TtfwCStringListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_4F473F4E01E5 CompareExistingItems
+
+: ME_4F473F4E01E5
+ CONST UID '4F473F4E01E5'
+ CONST Name 'TtfwCStringListPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F473F0902B2 // CString
+ ;
+ : Inherits
+   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F473FD603DD // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_4F473F4E01E5 // IsSameItems
+ ME_47B2C42A0163_ME_4F473F4E01E5 // AssignItem
+ ME_47B99D4503A2_ME_4F473F4E01E5 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_4F4745DD0295 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringListPrim.pas'
+
+ref; // ME_4F473F4E01E5 TtfwCStringListPrim
+
+FORWARD ME_4F473F370158
+
+: ME_4F47400E03D2
+ CONST UID '4F47400E03D2'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F473F370158 // TtfwCStringList
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4F47400E03D2 FindDataType
+
+: ME_4F4745B903B7
+ CONST UID '4F4745B903B7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F473F370158 // TtfwCStringList
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F4745B903B7 
+
+: ME_47B9BAFD01F4_ME_4F473F370158
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_4F473F370158 // TtfwCStringList
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47B9BAFD01F4_ME_4F473F370158 CompareItemWithData
+
+: ME_4F473F370158
+ CONST UID '4F473F370158'
+ CONST Name 'TtfwCStringList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F473F0902B2 // CString
+ ;
+ : Inherits
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ME_4F473F4E01E5 // TtfwCStringListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F47400E03D2 // FindDataType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_47B9BAFD01F4_ME_4F473F370158 // CompareItemWithData
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F4745B903B7 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringList.pas'
+
+ref; // ME_4F473F370158 TtfwCStringList
+
+FORWARD ME_4F473F9402D8
+
+FORWARD ME_4F47434A03C1
+
+: ME_4F4743540335
+ CONST UID '4F4743540335'
+ CONST Name 'cLimit'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F47434A03C1 // Local
+ ;
+ CONST Value 200
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4F4743540335 cLimit
+
+: ME_4F47434A03C1
+ CONST UID '4F47434A03C1'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Attributes
+   @ ( ME_4F4743540335 // cLimit
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4F47434A03C1 Local
+
+FORWARD ME_4F47405B02FD
+
+: ME_4F474078017C
+ CONST UID '4F474078017C'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4F474078017C aString
+
+: ME_4F47406503B6
+ CONST UID '4F47406503B6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F47405B02FD // C$1
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_4F474078017C // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F47406503B6 DoIt
+
+: ME_4F47405B02FD
+ CONST UID '4F47405B02FD'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_4F47406503B6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4F47405B02FD C$1
+
+FORWARD ME_4F47407D0052
+
+: ME_4F47409303C3
+ CONST UID '4F47409303C3'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4F47409303C3 aString
+
+: ME_4F474088020E
+ CONST UID '4F474088020E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F47407D0052 // C$2
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_4F47409303C3 // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F474088020E DoIt
+
+: ME_4F47407D0052
+ CONST UID '4F47407D0052'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_4F474088020E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4F47407D0052 C$2
+
+FORWARD ME_4F4740A802A8
+
+: ME_4F4740D00188
+ CONST UID '4F4740D00188'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47A8693601A1' '47913B47006E.pas.ms.script' // Tl3PrimString
+ ;
+
+ref; // ME_4F4740D00188 aString
+
+: ME_4F4740B5022C
+ CONST UID '4F4740B5022C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4740A802A8 // C$3
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_4F4740D00188 // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F4740B5022C DoIt
+
+: ME_4F4740A802A8
+ CONST UID '4F4740A802A8'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_4F4740B5022C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4F4740A802A8 C$3
+
+FORWARD ME_4F50782700AA
+
+: ME_4F50783E00B4
+ CONST UID '4F50783E00B4'
+ CONST Name 'aChar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
+
+ref; // ME_4F50783E00B4 aChar
+
+: ME_4F50783400E4
+ CONST UID '4F50783400E4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F50782700AA // C$Char
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_4F50783E00B4 // aChar
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F50783400E4 DoIt
+
+: ME_4F50782700AA
+ CONST UID '4F50782700AA'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_4F50783400E4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4F50782700AA C$Char
+
+FORWARD ME_559F726001FC
+
+: ME_559F729C0034
+ CONST UID '559F729C0034'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_559F729C0034 aString
+
+: ME_559F72750031
+ CONST UID '559F72750031'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает кешированную копию строки. Например для обработки после Cat' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559F726001FC // C$Cache
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_559F729C0034 // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_559F72750031 DoIt
+
+: ME_559F726001FC
+ CONST UID '559F726001FC'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_559F72750031 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_559F726001FC C$Cache
+
+FORWARD ME_56011A85035E
+
+: ME_56011AAC024C
+ CONST UID '56011AAC024C'
+ CONST Name 'theIndex'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56011AAC024C theIndex
+
+: ME_56011AAC026A
+ CONST UID '56011AAC026A'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_56011AAC026A aString
+
+: ME_56011A97015F
+ CONST UID '56011A97015F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56011A85035E // CacheString
+ ;
+ : Parameters
+   @ ( ME_56011AAC024C // theIndex
+ ME_56011AAC026A // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_56011A97015F DoIt
+
+: ME_56011A85035E
+ CONST UID '56011A85035E'
+ CONST Name 'CacheString'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_56011A97015F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_56011A85035E CacheString
+
+FORWARD ME_56028D1B01AC
+
+: ME_56028D31037C
+ CONST UID '56028D31037C'
+ CONST Name 'aA'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_56028D31037C aA
+
+: ME_56028D3103B8
+ CONST UID '56028D3103B8'
+ CONST Name 'aB'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_56028D3103B8 aB
+
+: ME_56028D2500F8
+ CONST UID '56028D2500F8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56028D1B01AC // Cat
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_56028D31037C // aA
+ ME_56028D3103B8 // aB
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_56028D2500F8 DoIt
+
+: ME_56028D1B01AC
+ CONST UID '56028D1B01AC'
+ CONST Name 'Cat'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_56028D2500F8 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_56028D1B01AC Cat
+
+FORWARD ME_56028DB8038D
+
+: ME_56028DE00283
+ CONST UID '56028DE00283'
+ CONST Name 'aStrings'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56028CF3004C' '4677FBA70343.pas.ms.script' // array of Il3CString
+ ;
+
+ref; // ME_56028DE00283 aStrings
+
+: ME_56028DD2010C
+ CONST UID '56028DD2010C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56028DB8038D // Cat$Many
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_56028DE00283 // aStrings
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_56028DD2010C DoIt
+
+: ME_56028DB8038D
+ CONST UID '56028DB8038D'
+ CONST Name 'Cat'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_56028DD2010C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_56028DB8038D Cat$Many
+
+FORWARD ME_56029758029D
+
+: ME_5602977701B8
+ CONST UID '5602977701B8'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_5602977701B8 aString
+
+: ME_5602976402C9
+ CONST UID '5602976402C9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56029758029D // ViewOf
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_5602977701B8 // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5602976402C9 DoIt
+
+: ME_56029758029D
+ CONST UID '56029758029D'
+ CONST Name 'ViewOf'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_5602976402C9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "force overload" true
+ CONST "is static" true
+
+ref; // ME_56029758029D ViewOf
+
+FORWARD ME_5602A7F8015D
+
+: ME_5602A812026A
+ CONST UID '5602A812026A'
+ CONST Name 'aA'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_5602A812026A aA
+
+: ME_5602A81202B0
+ CONST UID '5602A81202B0'
+ CONST Name 'aSep'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_5602A81202B0 aSep
+
+: ME_5602A812030A
+ CONST UID '5602A812030A'
+ CONST Name 'aB'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_5602A812030A aB
+
+: ME_5602A80201BB
+ CONST UID '5602A80201BB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5602A7F8015D // CatSep
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   @ ( ME_5602A812026A // aA
+ ME_5602A81202B0 // aSep
+ ME_5602A812030A // aB
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5602A80201BB DoIt
+
+: ME_5602A7F8015D
+ CONST UID '5602A7F8015D'
+ CONST Name 'CatSep'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   @ ( ME_5602A80201BB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_5602A7F8015D CatSep
+
+: ME_6C9A40E5B7F2
+ CONST UID '6C9A40E5B7F2'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_6C9A40E5B7F2 Exists
+
+: ME_4F47455900E4
+ CONST UID '4F47455900E4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4F47455900E4 
+
+FORWARD ME_4F4D38740342
+
+: ME_4F4D3884004D
+ CONST UID '4F4D3884004D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Target ME_4F4D38740342 // TtfwCStringArraySing
+ ;
+
+ref; // ME_4F4D3884004D 
+
+FORWARD ME_4F4D42D9035C
+
+: ME_4F4D42E70139
+ CONST UID '4F4D42E70139'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Target ME_4F4D42D9035C // TtfwCStringArraySing2
+ ;
+
+ref; // ME_4F4D42E70139 
+
+: ME_4F4D435B01F0
+ CONST UID '4F4D435B01F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Target WL 'ME_4F4D4341022C' '4678193C009C.pas.ms.script' // PWord
+ ;
+
+ref; // ME_4F4D435B01F0 
+
+: ME_47A042E100E2_ME_4F473F9402D8
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4F473F9402D8 InitFields
+
+: ME_4F473F9402D8
+ CONST UID '4F473F9402D8'
+ CONST Name 'TtfwCStringFactory'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F473F0902B2 // CString
+ ;
+ : Inherits
+   @ ( ME_4F473F370158 // TtfwCStringList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4F47405B02FD // C$1
+ ME_4F47407D0052 // C$2
+ ME_4F4740A802A8 // C$3
+ ME_4F50782700AA // C$Char
+ ME_559F726001FC // C$Cache
+ ME_56011A85035E // CacheString
+ ME_56028D1B01AC // Cat
+ ME_56028DB8038D // Cat$Many
+ ME_56029758029D // ViewOf
+ ME_5602A7F8015D // CatSep
+ ME_6C9A40E5B7F2 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47A042E100E2_ME_4F473F9402D8 // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Constants
+   @ ( ME_4F47434A03C1 // Local
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_4F47455900E4 // 
+ ME_4F4D3884004D // 
+ ME_4F4D42E70139 // 
+ ME_4F4D435B01F0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringFactory.pas'
+
+ref; // ME_4F473F9402D8 TtfwCStringFactory
+
+FORWARD ME_4F4D384500A3
+
+: ME_4F4D3E610203
+ CONST UID '4F4D3E610203'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F4D384500A3 // TtfwCStringArray
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4F4D3E610203 ItemType
+
+: ME_4F4D384500A3
+ CONST UID '4F4D384500A3'
+ CONST Name 'TtfwCStringArray'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F473F0902B2 // CString
+ ;
+ : Inherits
+   @ ( WL 'ME_4B86890E0307' '47913B47006E.pas.ms.script' // l3OpenArray
+ ME_4F473F370158 // TtfwCStringList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4F4D3E610203 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringArray.pas'
+
+ref; // ME_4F4D384500A3 TtfwCStringArray
+
+: ME_FC2DA21A902B
+ CONST UID 'FC2DA21A902B'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4D38740342 // TtfwCStringArraySing
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_FC2DA21A902B Exists
+
+: ME_4F4D38740342
+ CONST UID '4F4D38740342'
+ CONST Name 'TtfwCStringArraySing'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F473F0902B2 // CString
+ ;
+ : Inherits
+   @ ( ME_4F4D384500A3 // TtfwCStringArray
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_FC2DA21A902B // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringArraySing.pas'
+
+ref; // ME_4F4D38740342 TtfwCStringArraySing
+
+: ME_DF4B27867616
+ CONST UID 'DF4B27867616'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4D42D9035C // TtfwCStringArraySing2
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_DF4B27867616 Exists
+
+: ME_4F4D42D9035C
+ CONST UID '4F4D42D9035C'
+ CONST Name 'TtfwCStringArraySing2'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F473F0902B2 // CString
+ ;
+ : Inherits
+   @ ( ME_4F4D384500A3 // TtfwCStringArray
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_DF4B27867616 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringArraySing2.pas'
+
+ref; // ME_4F4D42D9035C TtfwCStringArraySing2
+
+: ME_4F473F0902B2
+ CONST UID '4F473F0902B2'
+ CONST Name 'CString'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_55C1EE2F01B7' '55C1EE2F01B7.pas.ms.script' // ScriptEngine$Parsing
+ ;
+ : Children
+   @ ( ME_4F473F4E01E5 // TtfwCStringListPrim
+ ME_4F473F370158 // TtfwCStringList
+ ME_4F473F9402D8 // TtfwCStringFactory
+ ME_4F4D384500A3 // TtfwCStringArray
+ ME_4F4D38740342 // TtfwCStringArraySing
+ ME_4F4D42D9035C // TtfwCStringArraySing2
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F473F0902B2.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F473F0902B2.pas.ms.script.runner'
+
+ref; // ME_4F473F0902B2 CString

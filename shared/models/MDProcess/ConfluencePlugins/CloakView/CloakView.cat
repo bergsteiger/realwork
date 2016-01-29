@@ -1,0 +1,130 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "CloakView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/CloakView|49BE22ED03E3
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19036186279"))
+    quid       	"49BE22ED03E3"
+    documentation 	"ñîäåðæèò êîä äëÿ ðàáîòû ñ ðàñêðûâàþùèìñÿ ýëåìåíòîì óïðàâëåíèÿ cloak"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "garcloak"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/CloakView/garcloak|49BE231F0080
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/CloakView/garcloak.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*49BE231F0080_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*49BE231F0080_CUSTOM_CONTENT*¤¤#requireResource("legacy.confluence.web.resources:prototype")¤¤<style type="text/css">¤	.garCloakToggle { /* Definition for state toggling image */¤		cursor:pointer;¤	}¤	.garCloakContent {¤		margin-left:15px;¤		margin-top:5px;¤	}¤</style>¤¤<script type="text/javascript">¤	¤	if(typeof(GarCloak) == "undefined") {¤¤    // fix IE bug: getElementById must be case sensitive by standard¤    // use browser sniffing to determine if IE or Opera¤    var bo = detectBrowser();¤    ¤	// fix both IE and Opera (adjust when they implement this method properly)¤	if(bo.ie || bo.opera) {¤       	  document.nativeGetElementById = document.getElementById;¤          //redefine it!¤          document.getElementById = function(id){¤            var elem = document.nativeGetElementById(id);¤            if(elem){¤              //verify it is a valid match!¤              if(elem.attributes['id'] && elem.attributes['id'].value == id){¤                //valid match!¤                return elem;¤              } else {¤                //not a valid match!¤                //the non-standard, document.all array has keys for all name'd, and id'd elements¤                //start at one, because we know the first match, is wrong!¤                for(var i=1;i<document.all(id).length;i++){¤				  if(document.all(id)[i].attributes['id'] && document.all(id)[i].attributes['id'].value == id){¤                    return document.all(id)[i];¤                  }¤                }¤              }¤            }¤            return null;¤          };¤    }¤	¤	var GarCloak = Class.create();¤	GarCloak.prototype = {¤		initialize: function(parentContainer, parentCloakId, cloakId, options) {¤			this.parentContainer = $(parentContainer);¤			if (!this.parentContainer) { ¤				throw new Error(parentContainer + ' not found');¤			}¤			¤			this.childCloaks = new Array();¤			if(parentCloakId) {¤				this.parentCloak = GarCloak.findById(parentCloakId);¤				if(this.parentCloak) {¤					var resultSearch = GarCloak._allCloaks.find(function(garCloak) {¤						return garCloak.cloakId == cloakId;¤					});¤					if(resultSearch == undefined){¤						this.parentCloak.childCloaks.push(this);¤					}¤				} else {¤					throw new Error('parent cloak wasn\'t found by id: \'' + parentCloakId + '\'');¤				}¤			}¤			¤			if($(cloakId)) {¤				throw new Error('Duplication id: \'' + cloakId + '\'');¤			}¤			¤			this.cloakId = cloakId;¤			this.waitImgId = this.cloakId + 'waitImg';¤			this.toggleTitleSpanId = this.cloakId + 'toggleTitleSpan';¤			this.toggleImgSpanId = this.cloakId + 'toggleImgSpan';¤			this.toggleImgId = this.cloakId + 'toggleImg';¤			this.titleCommentId = this.cloakId + 'commentId';¤			this.cloakContentId = this.cloakId + 'contentId';¤			¤			var defaultImgOpenedPath = this.TOGGLE_IMG_OPENED_PATH_DEFAULT;¤			var defaultImgClosedPath = this.TOGGLE_IMG_CLOSED_PATH_DEFAULT;¤			¤			this.options = Object.extend({¤					cloakTitle : '',¤					onOpen : function() {},¤					onClose : this._defaultOnClose.bind(this),¤					styleClass : '',¤					cloakContent : '',¤					userData : {},¤					titleIsToggable : true,¤					hasContent : true,¤					toggleImgClosedPath : defaultImgClosedPath,¤					toggleImgOpenedPath : defaultImgOpenedPath,¤					toggleImgClosedTooltip : '',¤					titleComment : '',¤					titleCommentStyleClass : ''¤				}, ¤				options¤			);¤			¤			this._build();¤			¤			if(this._hasContent()) {¤				if(this.options.titleIsToggable) {¤					Event.observe(this.toggleTitleSpanId, 'click', this._onclick.bind(this));¤				} else {¤					Event.observe(this.toggleImgSpanId, 'click', this._onclick.bind(this));¤				}¤			}¤			¤			GarCloak._addGlobal(this);¤		},¤		¤		_onclick : function(event) {¤			if(this.isOpened()) {¤				this.options.onClose(event, this);¤			} else { ¤				this.options.onOpen(event, this);¤			}¤		},¤		¤		_hasContent : function() {¤			if(!this.options.hasContent) {¤				return false;¤			}¤			return this.options.hasContent == true || this.options.hasContent == 'true';¤		},¤		¤		_build : function() {¤			var root = new Element('div', {'id' : this.cloakId });¤			var toggleTitleSpanId= new Element('span', {'id' : this.toggleTitleSpanId });¤			var toggleImgSpan = new Element('span', {'id' : this.toggleImgSpanId});¤			var toggleImg = new Element('img', {'id' : this.toggleImgId, 'src': this.options.toggleImgClosedPath, 'title' : this.options.toggleImgClosedTooltip});¤			var spanTitle = new Element('span').update('&nbsp;' + this.options.cloakTitle);¤			if(this.options.styleClass != '') {¤				spanTitle.addClassName(this.options.styleClass);¤			}¤			var waitImg = new Element('img', {'id' : this.waitImgId, 'src':'/images/icons/wait.gif', 'style' : 'display:none', 'alt':'Wait Image', 'border':'0', 'align':'absmiddle'});¤			¤			var titleComment = undefined;¤			if(this.options.titleComment != '') {¤				titleComment = new Element('span', {'id' : this.titleCommentId, 'class' : this.options.titleCommentStyleClass});¤				titleComment.update(this.options.titleComment);¤			}¤			¤			var contentDiv = new Element('div', {'id': this.cloakContentId, 'class' : this.CLOAK_CONTENT_CLASS_DEFAULT, 'style' : 'display:none;' });¤			if(this.options.cloakContent != '') {¤				contentDiv.update(this.options.cloakContent);¤			}¤			¤			if(this.options.titleIsToggable) {¤				toggleTitleSpanId.addClassName(this.CLOAK_CLASS_DEFAULT);¤			} else if(this._hasContent()) {¤				toggleImgSpan.addClassName(this.CLOAK_CLASS_DEFAULT);¤			}¤			¤			toggleImgSpan.insert(toggleImg);¤			toggleTitleSpanId.insert(toggleImgSpan);¤			toggleTitleSpanId.insert(spanTitle);¤			root.insert(toggleTitleSpanId);¤			root.insert('&nbsp;');¤			if(titleComment) {¤				root.insert(titleComment);¤				root.insert('&nbsp;');¤			}¤			root.insert(waitImg);¤			¤			this.parentContainer.insert(root);¤			this.parentContainer.insert(contentDiv);¤		},¤		¤		toggleCloak : function() {¤			if($(this.cloakContentId).visible()) {¤				$(this.toggleImgId).src = this.options.toggleImgClosedPath;¤			} else {¤				$(this.toggleImgId).src = this.options.toggleImgOpenedPath;¤			}¤			$(this.cloakContentId).toggle();¤			if($(this.titleCommentId)) {¤				$(this.titleCommentId).toggle();¤			}¤		},¤		¤		toggleWait : function() {¤			$(this.waitImgId).toggle(); ¤		},¤		¤		updateContent : function(content) {¤			try {¤				var newSpan = new Element('newSpan').update(content);¤				$(this.cloakContentId).update(newSpan);¤			} catch(e) {¤				// ie bug with innerHTML¤			}¤		},¤		¤		isOpened : function() {¤			return $(this.cloakContentId).visible();¤		},¤		¤		getUserData : function() {¤			return this.options.userData;¤		},¤		¤		getId : function() {¤			return this.cloakId;¤		},¤		¤		_defaultOnClose : function() {¤			this.toggleCloak();¤			this.updateContent('');¤		},¤		¤		CLOAK_CLASS_DEFAULT :'garCloakToggle',¤		CLOAK_CONTENT_CLASS_DEFAULT :'garCloakContent',¤		CLOAK_ID_DEFAULT : 'cloakId',¤		TOGGLE_IMG_OPENED_PATH_DEFAULT: '/download/resources/net.customware.confluence.plugin.composition:toggle-cloak/img/navigate_down_10.gif',¤		TOGGLE_IMG_CLOSED_PATH_DEFAULT: '/download/resources/net.customware.confluence.plugin.composition:toggle-cloak/img/navigate_right_10.gif'¤	};¤	¤	/* STATIC FUNCTIONS */ ¤	¤	GarCloak._allCloaks = new Array();¤	¤	GarCloak._addGlobal = function (garCloak) {¤		var currentCloak = GarCloak.findById(garCloak.cloakId);¤		if(currentCloak == false) {¤			GarCloak._allCloaks.push(garCloak);¤		}	¤	}¤	¤	GarCloak.openChildren = function(cloakId) {¤		GarCloak._toggleChildren(cloakId, true);¤	}¤	¤	GarCloak.closeChildren = function(cloakId) {¤		GarCloak._toggleChildren(cloakId, false);¤	}¤	¤	GarCloak._toggleChildren = function(cloakId, openState) {¤		var currentCloak = GarCloak.findById(cloakId);¤		if(currentCloak) {¤			currentCloak.childCloaks.each(function(garCloak) {¤				if(garCloak._hasContent() && garCloak.isOpened() != openState) {¤					garCloak._onclick(null);¤				}¤			});¤		}¤	}¤	¤	GarCloak._toggle = function(cloakId, openState) {¤		var currentCloak = GarCloak.findById(cloakId);¤		if(currentCloak) {¤			if(currentCloak._hasContent() && currentCloak.isOpened() != openState) {¤				currentCloak._onclick(null);¤			}¤		}¤	}¤	¤	GarCloak.open = function(cloakId) {¤		GarCloak._toggle(cloakId, true);¤	}¤	¤	GarCloak.findById = function(id) {¤		if(!GarCloak._allCloaks) {¤			return false;¤		}¤		var result = GarCloak._allCloaks.find(function(garCloak) {¤				return garCloak.cloakId == id;¤		});¤		return result ? result : false;¤	}¤	¤	} // if (!typeof(GarCloak))¤	¤</script>¤¤##UC_END*49BE231F0080_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036192287"))
+	    quid       	"49BE231F0080"
+	    documentation 	"ñîäåðæèò ñòèëè è js-êîä äëÿ êîìïîíåíòû cloak"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"49BE231B036E"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::CloakView::garcloak" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(615, 300)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(524, 271)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	182
+			justify    	0
+			label      	"garcloak")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(524, 221)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	182
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"49BE231F0080"
+		    width      	200
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)))))

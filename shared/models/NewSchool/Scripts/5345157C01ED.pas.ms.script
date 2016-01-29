@@ -1,0 +1,135 @@
+// l3VariantsContainers 5345157C01ED Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5345157C01ED
+
+FORWARD ME_534515CD039A
+
+: ME_534515FA0363
+ CONST UID '534515FA0363'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_534515CD039A // l3VariantListPrim
+ ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_534515FA0363 ItemType
+
+: ME_534516250014
+ CONST UID '534516250014'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_534515CD039A // l3VariantListPrim
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_534516250014 
+
+: ME_47B07CF403D0_ME_534515CD039A
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_534515CD039A // l3VariantListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_534515CD039A IsSameItems
+
+: ME_47B935AF0066_ME_534515CD039A
+ CONST UID '47B935AF0066'
+ CONST Name 'FillItem'
+ : Original WL 'ME_47B935AF0066' '47BB24D30205.pas.ms.script' // FillItem
+ ;
+ : Implementor ME_534515CD039A // l3VariantListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B935AF0066_ME_534515CD039A FillItem
+
+: ME_47B94A5C006E_ME_534515CD039A
+ CONST UID '47B94A5C006E'
+ CONST Name 'FreeItem'
+ : Original WL 'ME_47B94A5C006E' '47BB24D30205.pas.ms.script' // FreeItem
+ ;
+ : Implementor ME_534515CD039A // l3VariantListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B94A5C006E_ME_534515CD039A FreeItem
+
+: ME_534515CD039A
+ CONST UID '534515CD039A'
+ CONST Name 'l3VariantListPrim'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5345157C01ED // l3VariantsContainers
+ ;
+ : Inherits
+   @ ( WL 'ME_47B5786C033A' '47913B47006E.pas.ms.script' // l3RefList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_534515FA0363 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_534515CD039A // IsSameItems
+ ME_47B935AF0066_ME_534515CD039A // FillItem
+ ME_47B94A5C006E_ME_534515CD039A // FreeItem
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_534516250014 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas'
+ CONST extprop:pas:TypeName '_l3VariantListPrim_'
+
+ref; // ME_534515CD039A l3VariantListPrim
+
+: ME_5345157C01ED
+ CONST UID '5345157C01ED'
+ CONST Name 'l3VariantsContainers'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_534515CD039A // l3VariantListPrim
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5345157C01ED.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5345157C01ED.pas.ms.script.runner'
+
+ref; // ME_5345157C01ED l3VariantsContainers

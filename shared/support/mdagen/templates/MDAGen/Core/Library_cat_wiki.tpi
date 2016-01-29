@@ -1,0 +1,45 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+/ Генератор в wiki.
+//#UC START# *46AA1292031F*
+C /%SN:%SU
+O %SN
+L code_library
+S %SN
+
+# t0_wiki_header
+	[h2. Модель[
+	{info}Включает реализацию требоваий:%f_collect_req(%S)
+	<{}{%f_exist_in_list(REQS,d)=true}* %f_k_link(%d)
+	>{info}][
+	
+	{info}Использует модули:
+	<{}{%DS!=Requirements}* %f_k_link(%D)
+	>{info}][
+	
+	{info}Используется из модулей:
+	<{}{%t_target_ex(%a)!=true}{Sp}* %f_k_link(%a)
+	>{info}][
+	
+	{note}Дополнительные свойства:
+	%S%f_wiki_up_print(){note}][{%mx=true&%Cx=true}
+	
+	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма модуля:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]][
+	
+	h2. Состав модуля[
+	
+	_Интерфейсные пакеты:_<{}{%CS=Interface|%CS=ServerInterface|%CS=ComInterface}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>][
+	
+	_Утилитные пакеты:_<{}{%CS=Unit|%CS=Views}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>][
+	
+	_Пакеты реализации и вспомогательные пакеты:_<{}{%CS=Impl|%CS=LibSupport}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>]]<%CX>
+# t0_wiki_footer
+//#UC END# *46AA1292031F*

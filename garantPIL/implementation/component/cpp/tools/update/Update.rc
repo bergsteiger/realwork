@@ -1,0 +1,918 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Update.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Update.ico"
+IDI_BEHAND              ICON                    "res\\icon1.ico"
+IDI_BESTOP              ICON                    "res\\ico00001.ico"
+IDI_BEWARNING           ICON                    "res\\ico00002.ico"
+IDI_BEINFO              ICON                    "res\\ico00003.ico"
+IDI_E                   ICON                    "res\\e.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WELCOME_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Добро пожаловать!"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         135,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    LTEXT           "Добро пожаловать в программу пакетного пополнения Системы ГАРАНТ.",IDC_STATIC,110,6,200,19
+    LTEXT           "Настоятельно рекомендуется завершить все Windows-программы перед запуском программы обновления.",IDC_STATIC,110,30,200,25
+    LTEXT           "Нажмите кнопку ''Отмена'', чтобы выйти из программы пополнения. Чтобы продолжить работу, выберите кнопку ''Далее''.",IDC_STATIC,110,60,200,35
+    LTEXT           "ПРЕДУПРЕЖДЕНИЕ. Эта программа защищена законами об авторских правах и международными соглашениями. ",IDC_STATIC,110,100,195,25
+    LTEXT           "Несанкционированное воспроизведение или распространение этой программы или любой ее части может привести к применению строгих гражданских и уголовных санкций и будет преследоваться в судебном порядке в максимальных размерах, предусмотренных законом.",IDC_STATIC,110,130,200,50
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_FATALERROR_DIALOG DIALOG  0, 0, 237, 81
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Помощь",ID_HELP,95,60,0,0,NOT WS_VISIBLE | NOT WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,95,60,50,14
+    ICON            IDI_BEHAND,IDC_BEICON,10,10,20,20,SS_CENTERIMAGE
+    LTEXT           "",IDC_TEXT,40,10,190,45
+END
+
+IDD_SELECTDELTASFOLDER_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Выбор каталога с файлами пакетного пополнения"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    PUSHBUTTON      "&Обзор",IDC_BROWSE,250,155,50,14
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Выберите каталог, в котором находятся скачанные Вами файлы пакетного пополнения.",IDC_STATIC,110,6,200,19
+    LTEXT           "Для выбора другого каталога нажмите кнопку ""Обзор"".",IDC_STATIC,110,30,200,20
+    GROUPBOX        "Каталог",IDC_STATIC,110,145,200,30
+    CONTROL         "C:\\Garant\\Delta",IDC_DELTAPATH,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,117,158,128,8
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_CONFIRM_DIALOG DIALOG  0, 0, 237, 81
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Да",IDYES,66,60,50,14
+    PUSHBUTTON      "Нет",IDNO,122,60,50,14
+    ICON            IDI_BEHAND,IDC_BEICON,10,10,20,20,SS_CENTERIMAGE
+    LTEXT           "",IDC_TEXT,40,10,190,45
+END
+
+IDD_COPYFILES_DIALOG DIALOG  0, 0, 253, 50
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Копирование файлов"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_FILEPROGRESS,"msctls_progress32",WS_BORDER,5,13,240,8
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,102,31,50,14
+END
+
+IDD_PARTUPDATE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Возможно частичное обновление"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         "List2",IDC_MORE,"SysListView32",LVS_REPORT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,110,30,200,115
+    PUSHBUTTON      "E",IDC_E,60,190,25,14,BS_ICON
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Информационный банк от 10-10-1010 может быть обновлен по 12-12-1212.",IDC_PARTUPDATETEXT,110,6,200,19
+    LTEXT           "Нажмите ""Далее"" для обновления информационного банка.",IDC_STATIC,110,155,200,19
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_CANTUPDATE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Обновление невозможно"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Выход",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         "List2",IDC_MORE,"SysListView32",LVS_REPORT | LVS_NOSORTHEADER | WS_BORDER,110,20,200,155
+    PUSHBUTTON      "E",IDC_E,60,190,25,14,BS_ICON
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Обновление информационного банка невозможно.",IDC_STATIC,110,6,200,9
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_FULLUPDATE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Возможно полное обновление"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    LTEXT           "Возможно обновление информационного банка по текущую дату.",IDC_STATIC,110,6,200,19
+    LTEXT           "Нажмите ""Далее"" для обновления информационного банка.",IDC_STATIC,110,30,200,19
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_COLLECTPARTS_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Объединение томов"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14,WS_DISABLED
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "List1",IDC_PARTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | NOT WS_VISIBLE | WS_BORDER | WS_TABSTOP,110,30,200,145
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         "Progress1",IDC_FILEPROGRESS,"msctls_progress32",NOT WS_VISIBLE | WS_BORDER,110,40,200,8
+    LTEXT           "",IDC_ARCHIVE,110,30,200,10,NOT WS_VISIBLE
+    CONTROL         "Progress1",IDC_FILESPROGRESS,"msctls_progress32",WS_BORDER,110,15,200,8
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Всего проверяется файлов:",IDC_PARTSCOUNT,110,5,120,10
+    LTEXT           "В процессе объединения томов были ошибки. Желательно повторить процедуру их объединения.",IDC_WASERROR,110,5,200,20,NOT WS_VISIBLE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_BADDELTAS_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Проверка файлов пакетного обновления"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14,WS_DISABLED
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "List2",IDC_BADDELTAS,"SysListView32",LVS_REPORT | LVS_NOSORTHEADER | NOT WS_VISIBLE | WS_BORDER,110,30,200,145
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Некоторые из файлов пакетного пополнения имеют неверную версию или повреждены.",IDC_RESULT,110,5,200,19,NOT WS_VISIBLE
+    CONTROL         "Progress1",IDC_DELTAPROGRESS,"msctls_progress32",WS_BORDER,110,15,200,8
+    LTEXT           "Всего проверяется файлов пактного обновления:",IDC_DELTACOUNT,110,5,200,10
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_UNZIP_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Распаковка архивов"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14,WS_DISABLED
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "List1",IDC_BADZIPS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | NOT WS_VISIBLE | WS_BORDER | WS_TABSTOP,110,35,200,140
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         "Progress1",IDC_ZIPSPROGRESS,"msctls_progress32",WS_BORDER,110,15,200,8
+    LTEXT           "Всего распаковывается архивов:",IDC_ZIPSCOUNT,110,5,140,10
+    LTEXT           "В процессе распаковки архивов были ошибки. Необходимо повторить получение перечисленных ниже файлов.",IDC_WASERROR,110,5,200,30,NOT WS_VISIBLE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_RUNGUGL DIALOG  0, 0, 253, 50
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,5,13,240,8
+    LTEXT           "",IDC_MESSAGE,5,25,240,8
+    LTEXT           "",IDC_MESSAGE2,5,33,240,8
+END
+
+IDD_TRYOPENBASES_DIALOG DIALOG  0, 0, 253, 50
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Ожидается освобождение данных рабочими станциями"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Отмена",IDCANCEL,102,31,50,14
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,5,13,240,8
+END
+
+IDD_SELECTBACKUPFOLDER_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Запуск процедуры обновления."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Начать >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    PUSHBUTTON      "&Обзор...",IDC_BROWSE,250,155,50,14,WS_DISABLED
+    GROUPBOX        "Каталог",IDC_BACKUPGROUP,110,145,200,30,WS_DISABLED
+    LTEXT           "C:\\Garant\\Backup",IDC_BACKUPPATH,117,158,128,8,WS_DISABLED
+    LTEXT           "Программа готова обновить Ваш информационный банк.\nНажмите кнопку ""Начать"" для запуска процедуры обновления.",IDC_STATIC,110,5,200,25
+    CONTROL         "Создать резервную копию информационного банка (%ld МБайт).",IDC_DOBACKUP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,110,35,195,10
+    LTEXT           "Для выбора другого каталога нажмите кнопку ""Обзор"".",IDC_STATICHELP,110,55,200,20,WS_DISABLED
+    LTEXT           "Внимание! Среди доступных нет диска с требуемым свободным местом.",IDC_NODISKS,110,80,195,20,NOT WS_VISIBLE | WS_DISABLED
+END
+
+IDD_LOGIN_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Авторизация"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,185,60,120,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,185,80,120,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         135,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    LTEXT           "Введите имя, которое будет идентифицировать вас как пользователя системы ГАРАНТ.",IDC_STATIC,111,7,199,18
+    LTEXT           "Замечание: у вас должны быть права на проведение пакетного пополнения системы.",IDC_STATIC,110,30,200,20
+    LTEXT           "Имя пользователя:",IDC_STATIC,110,63,70,8
+    LTEXT           "Пароль:",IDC_STATIC,110,83,65,8,NOT WS_GROUP
+END
+
+IDD_SELECTBASEFOLDER_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Копирование информационного банка для последующего обновления."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Создать резервную копию. Обновление будет выполнено без прерывания работы пользователей.",IDC_RADIO1,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,110,32,195,18
+    CONTROL         "Отказаться от создания резервной копии информационного банка. Во время обновления работа пользователей с системой будет прервана.",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,110,53,195,24
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    LTEXT           "Программа готова сделать копию Вашего информационного банка для последующего обновления.",IDC_STATIC,110,5,200,20
+END
+
+IDD_WAITSERVER DIALOG  0, 0, 332, 36
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Мастер пакетного пополнения. Создание копии информационного банка"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Создается копия информационного банка. Подождите, пожалуйста...",IDC_STATIC,15,7,309,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITXML DIALOG  0, 0, 322, 40
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Мастер пакетного пополнения. Актуализация настроек"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Идет процесс проверки и актуализации базы настроек. Подождите, пожалуйста...",IDC_STATIC,35,7,280,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITSERVER2 DIALOG  0, 0, 318, 37
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Мастер пакетного пополнения. Освобождение данных"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Ожидается освобождение информационного банка. Подождите, пожалуйста...",IDC_STATIC,33,7,277,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_WAITSERVER1 DIALOG  0, 0, 302, 37
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Мастер пакетного пополнения. Копирование данных"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Информационный банк копируется на сервер. Подождите, пожалуйста...",IDC_STATIC,35,7,260,22,SS_CENTERIMAGE
+    ICON            "",IDC_IMAGE_PROGRESS,15,11,20,20
+END
+
+IDD_SELECTBASEFOLDEREX_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Копирование информационного банка для последующего обновления."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    LTEXT           "Программа готова сделать копию Вашего информационного банка в указанном каталоге для последующего обновления.",IDC_STATIC,110,5,200,25
+    LTEXT           "Для выбора другого каталога нажмите кнопку ""Обзор"".",IDC_STATIC,110,50,200,20
+    PUSHBUTTON      "&Обзор...",IDC_BROWSE,250,155,50,14
+    GROUPBOX        "Каталог",IDC_STATIC,110,145,200,30
+    CONTROL         "C:\\",IDC_BASEPATH,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,117,158,128,8
+    LTEXT           "Для создания копии требуется %ld МБайт.",IDC_BASESIZE,110,35,200,8
+END
+
+IDD_SELECTUPDATETYPE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Копирование обновленного банка на сервер."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    CONTROL         "Создать в каталоге, указанном в настройках, резервную копию существующего информационного банка. Обновление будет выполнено без прерывания работы пользователей.",IDC_RADIO1,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,110,35,200,35
+    CONTROL         "Отказаться от создания копии существующего информационного банка. Во время обновления работа пользователей с системой будет прервана.",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,110,75,195,25
+    LTEXT           "Программа готова выполнить копирование существующего информационного банка для последующего обновления:",IDC_STATIC,110,5,200,25
+END
+
+IDD_SELECTREMOTETYPE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Выбор способа обновления"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         133,-1,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",-1,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,-1,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    CONTROL         "Обновить информационный банк непосредственно на сервере.",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,110,30,195,17
+    CONTROL         "Скопировать информационный банк на локальный компьютер, обновить, затем скопировать обратно на сервер.",IDC_RADIO1,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,110,55,200,25
+    LTEXT           "Выберите предпочтительный для Вас способ обновления информационного банка.",-1,110,5,200,20
+END
+
+IDD_SELECTSERVERTYPE_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Серверное обновление "
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         133,-1,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",-1,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,-1,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    CONTROL         "Создать резервную копию. Обновление будет выполнено без прерывания работы пользователей.",IDC_RADIO1,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,110,35,200,15
+    CONTROL         "Отказаться от создания резервной копии информационного банка. Во время обновления работа пользователей с системой будет прервана.",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,110,59,195,25
+    LTEXT           "Выберите предпочтительный для Вас способ обновления информационного банка непосредственно на сервере.",-1,110,5,200,20
+END
+
+IDD_METHOD_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Выбор типа обновления"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Упрощенный (рекомендуется)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,110,25,119,10
+    CONTROL         "Расширенный",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,110,45,195,10
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14
+    DEFPUSHBUTTON   "Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    LTEXT           "Выберите тип обновления:",IDC_STATIC,110,5,200,10
+    LTEXT           "Чтобы узнать об отличиях предложенных типов обновления нажмите кнопку ""Помощь"".",IDC_STATIC,110,65,200,20
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_WELCOME_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_FATALERROR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_SELECTDELTASFOLDER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_CONFIRM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_COPYFILES_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 43
+    END
+
+    IDD_PARTUPDATE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_CANTUPDATE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_FULLUPDATE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_COLLECTPARTS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_BADDELTAS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_UNZIP_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_RUNGUGL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 43
+    END
+
+    IDD_TRYOPENBASES_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 245
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 45
+    END
+
+    IDD_SELECTBACKUPFOLDER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_LOGIN_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SELECTBASEFOLDER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_WAITSERVER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 29
+    END
+
+    IDD_WAITSERVER2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 32
+    END
+
+    IDD_WAITSERVER1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 30
+    END
+
+    IDD_SELECTBASEFOLDEREX_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SELECTUPDATETYPE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SELECTREMOTETYPE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SELECTSERVERTYPE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_METHOD_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#ifdef _GCD_CLIENT
+ // moved to `F1DataUpd.rc`
+#else
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 7,12,0,0
+ PRODUCTVERSION 7,12,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Гарант-Сервис-Университет\0"
+            VALUE "FileDescription", "Интерфейс пакетного пополнения\0"
+            VALUE "FileVersion", "7.12.0.0\0"
+            VALUE "InternalName", "Update\0"
+            VALUE "LegalCopyright", "(C) SIE ""GARANT-SERVICE-UNIVERSITY"" LLC, 1990-2015\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Update.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Update \0"
+            VALUE "ProductVersion", "7\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+#endif
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DESIGNED            BITMAP                  "res\\2060.bmp"
+IDB_GARANT              BITMAP                  "res\\garant.bmp"
+IDB_NTCOMPATIBLE        BITMAP                  "res\\2060.bmp"
+IDB_PROGRESS            BITMAP                  "res\\Progress.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_GARANTINI_NOTFOUND  "Отсутствует файл GARANT.INI"
+    IDS_BASESORG_NOTFOUND   "Файл защиты отсутствует."
+    IDS_SELECTFOLDERWITHDELTAS 
+                            "Выберите каталог с файлами пакетного пополнения:"
+    IDS_ERROR               "Ошибка"
+    IDS_CONFIRM             "Внимание"
+    IDS_SUREEXIT            "Вы действительно хотите выйти из программы пакетного пополнения?"
+    IDS_SURECANCELCOPY      "Вы действительно хотите прервать копирование файлов?"
+    IDS_ERROROPENINGFILE    "Ошибка открытия файла %s. Повторить?"
+    IDS_ERRORCREATINGFILE   "Ошибка создания файла %s. Повторить?"
+    IDS_ERRORREADINGFILE    "Ошибка чтения файла %s. Повторить?"
+    IDS_ERRORWRITINGFILE    "Ошибка записи файла %s. Повторить?"
+    IDS_UPDATERUN           "Запуск нескольких копий программы пакетного пополнения невозможен."
+    IDS_ERROROPENINGBASE    "Ошибка при открытии базы %s."
+    IDS_ERRORREADINGHERE    "Ошибка при чтении индекса HERE базы %s."
+    IDS_BASENOTGL           "К базе %s не был применен процесс построения основного меню."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_BASEPACKED          "База %s упакована. Такая база не может быть обновлена."
+    IDS_CANTFINDBASEINFO    "Невозможно определить информацию о сегменте %d базы %s."
+    IDS_BASESORGPRIMARY     "Файл защиты испорчен."
+    IDS_BASESORGBADCOMPLECT "Отсутствует информация об установленных комплектах."
+    IDS_BASEBADREVS         "Комплект, состоящий из сегментов различных ревизий, не может быть обновлен."
+    IDS_UPDATENO            "Обновление невозможно."
+    IDS_UPDATEPART          "Возможно частичное обновление."
+    IDS_UPDATEFULL          "Возможно полное обновление."
+    IDS_ABSENTPERIOD        "с %02d-%02d-%04d по %02d-%02d-%04d"
+    IDS_ABSENTPERIODFOR     "с %02d-%02d-%04d по %02d-%02d-%04d для ""%s"""
+    IDS_OLDDELTA            "старая дельта"
+    IDS_UNSEGS              "лишние сегменты"
+    IDS_DUP		    "входит в состав %s"
+    IDS_PARTDELTALISTTITLE  "Для обновления по текущую дату требуются дельты:"
+    IDS_NONEED              "Информационный банк не нуждается в обновлении."
+    IDS_ATTENTION           "Внимание"
+    IDS_NEEDDELTASTITLE     "Для обновления требуются дельты:"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_COLLECTPROGRESSTEXT "Архив: %s (%.2fМБ из %.2fМБ)"
+    IDS_PARTNOTFULL         "неполностью скачан"
+    IDS_PARTABSENT          "отсутствует"
+    IDS_COLLECTERRORS       "В процессе объединения томов были ошибки. Желательно повторить процедуру их объединения."
+    IDS_COLLECTCANCELED     "Процедура объединения томов была прервана."
+    IDS_COLLECTBADS         "Некоторые тома отсутствуют или повреждены. Необходимо скачать их повторно."
+    IDS_PARTTITLE           "Требуется том"
+    IDS_PARTDESC            "Описание"
+    IDS_FILESTOCHECK        "Всего проверяется файлов: %ld"
+    IDS_COLLECTBADSANDERRORS 
+                            "В процессе объединения томов были ошибки.\nНекоторые тома отсутствуют или повреждены."
+    IDS_COLLECTBADSANDCANCEL 
+                            "Процедура объединения томов была прервана.\nНекоторые тома отсутствуют или повреждены."
+    IDS_DELTABADSIZE        "неверный размер файла дельты"
+    IDS_DELTABADVER         "неверный формат файла дельты"
+    IDS_DELTATITLEHEADER    "Файл"
+    IDS_DELTASTOCHECK       "Всего проверяется файлов пакетного обновления: %ld"
+    IDS_ZIPSTOUNZIP         "Всего распаковывается архивов: %ld"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_UNZIPERRORS         "В процессе распаковки архивов были ошибки.\nВозможно, некоторые архивы повреждены или недостаточно свободного места для распаковки."
+    IDS_ZIPBADSANDCANCEL    "Процедура распаковки архивов была прервана.\nВозможно, некоторые архивы повреждены или недостаточно свободного места для распаковки."
+    IDS_UNZIPCANCELED       "Процедура распаковки архивов была прервана."
+    IDS_ZIPSTITLE           "Подозрительные архивы"
+    IDS_SURECANCELUNZIP     "Вы действительно хотите прервать распаковку архивов?"
+    IDS_SURECANCELCOLLECT   "Вы действительно хотите прервать процедуру объединения томов?"
+    IDS_BASEUPDATED         "Процесс пакетного пополнения успешно завершен.\nОбновление заняло %02ld:%02d:%02ld"
+    IDS_GUFAIL              "Ненормальное завершение программы обновления."
+    IDS_GLFAIL              "Ненормальное завершение программы создания рубрикатора."
+    IDS_GLTITLE             "Построение рубрикатора"
+    IDS_GUTITLE             "Обновление комплекта"
+    IDS_SURECANCELTRYEXIT   "Вы действительно хотите прервать процесс освобождения баз и выйти из программы пакетного пополнения?"
+    IDS_BASELOCKED          "Процесс освобождения баз не завершен.\nОбновление информационного банка не произведено."
+    IDS_COPYINGFILE         "Копируется файл %s"
+    IDS_SELECTFOLDERFORBACKUP "Выберите каталог для резервной копии данных."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CHECKBOXBACKUP      "Создать резервную копию комплекта (%ld МБайт)."
+    IDS_RESTORINGFILE       "Восстанавливается файл %s"
+    IDS_BASERESTORED        "Информационный банк ГАРАНТа был восстановлен из резервной копии.\nСистема продолжит работать со старыми данными."
+    IDS_BASENOTRESTORED     "Данные не восстановлены.\nФункционирование системы ГАРАНТ невозможно."
+    IDS_BASEDEAD            "Данные в процессе обновления были повреждены.\nФункционирование системы ГАРАНТ невозможно."
+    IDS_DELETEBACKUP        "Удалить резервную копию данных?"
+    IDS_UPDATERUNOTHER      "В настоящее время запущен процесс обновления данных или предыдущая попытка завершилась аварийно.\nЗавершить выполнение программы?"
+    IDS_PARTUPDATETEXT      "Информационный банк от %d-%d-%d может быть обновлен по %d-%d-%d."
+    IDS_BADPATCHVERSION     "Несовпадение версий: патч не может быть применен."
+    IDS_PATCHNOTAPPLIED     "В процессе применения патча возникли ошибки. Рекомендуется повторить его применение."
+    IDS_SHELLLOCKED         "Процесс освобождения данных и оболочек не завершен.\nОбновление оболочек и утилит не произведено."
+    IDS_UPDATENOLOG         "Обновление невозможно. Для обновления по текущую дату требуются дельты:"
+    IDS_PARTUPDATELOG       "Возможно частичное обновления. Для обновления по текущую дату требуются дельты:"
+    IDS_BADDELTASLOG        "Некоторые из файлов пакетного пополнения имеют неверную версию или повреждены:"
+    IDS_STARTBACKUPLOG      "Начато резервное копирование базы"
+    IDS_BACKUPREFUSAL	    "От создания резервной копии отказались"
+    IDS_ENDBACKUPLOG        "Закончено резервное копирование базы"
+    IDS_SELECTFOLDERFORBASECOPY 
+                            "Выберите каталог для копии информационного банка"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DOWNLOADDELTA       "Загрузить файлы пакетного пополнения"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSG_91              "Неверное имя пользователя и/или пароль."
+    IDS_MSG_92              "Пользователь с таким именем уже работает в системе."
+    IDS_MSG_93              "Пользователь заблокирован. Обратитесь к системному администратору."
+    IDS_MSG_94              "Ошибка открытия базы данных."
+    IDS_TRANSIENT           "Отсутствует соединение с сервером приложений."
+    IDS_SERVER_NOT_FOUND    "Сервер приложения недоступен.\nПродолжение работы с системой невозможно."
+    IDS_BAD_NETWORK_CONFIG  "Не пришел обратный вызов от сервера приложений, вероятно фаерволл клиента блокирует входящие вызовы."
+    IDS_IP_ADDRESS_NOT_FOUND "Неверный IP адрес."
+    IDS_DATANOTFOUND        "Неверные параметры."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SERVERCOPYFAILED    "Невозможно скопировать данные в указанный каталог. Проверьте настройки сервера."
+    IDS_FORBIDDEN           "Нет прав на выполнение операции"
+    IDS_MSG_95              "Ошибка получения информации о пользователе"
+    IDS_NOMORE_CONNECTIONS  "Данное соединение нарушает лицензионные настройки"
+    IDS_BADTOMFILE          "Неверное расширение в имени тома"
+    IDS_NOTENOUGHROOM       "Невозможно скопировать данные в указанный каталог. Недостаточно места"
+    IDS_SERVERCOPY2FAILED   "Не удалось дождаться освобождения базы пользователями."
+    IDS_BASEEXSIZE          "Для создания копии требуется %ld МБайт."
+    IDS_SELECTFOLDERFORBASEEX 
+                            "Выберите каталог для копии информационного банка:"
+    IDS_COPYPROCESSFAILED   "Ошибка при копировании данных"
+    IDS_NOTENOUGHROOM2      "Недостаточно места на диске для копирования комплекта"
+    IDS_ACCESSDENIED        "Access Denied"
+    IDS_CANNOTFINDDATA      "Ошибка при открытии установленного комплекта (отсутствует или поврежден)"
+    IDS_UPDATEFAILED        "Фатальная ошибка при обновлении базы"
+    IDS_FREESPACE           "Возможно, на сервере недостаточно места для копирования комплекта. Продолжить?"
+    IDS_COPYOK              "Данные скопированы на сервер "
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_COPY2CLIENT         "Данные скопированы на клиент "
+    IDS_SMALLFREESPACE      "Возможно, свободного места недостаточно для обновления данных. Продолжить?"
+    IDS_CANTWRITE           "Невозможно скопировать данные. Проверьте настройки сервера и права пользователя."
+    IDS_NOBASE              "Информационный банк для обновления не найден.\nВозможно файлы базы данных отсутствуют или повреждены."
+    IDS_CANTWRITE2          "Не удается определить размер информационного банка. Проверьте наличие у пользователя прав на запись."
+    IDS_XMLIMPORT           "Уважаемый пользователь! Идет процесс проверки и актуализации базы настроек."
+    IDS_NOTUPDATED          "Информационный банк ГАРАНТа не обновлен. Система продолжит работать со старыми данными."
+    IDS_SERVER_IS_STARTING  "Сервер приложения находится в процессе инициализации. Попробуйте войти в систему позже!"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Update.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

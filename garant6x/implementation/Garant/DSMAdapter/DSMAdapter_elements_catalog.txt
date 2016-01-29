@@ -1,0 +1,27 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/DSMAdapter/DSMAdapter_elements_catalog.txt"
+// Full Model's Elements Catalog (.txt)
+// Generated from UML model, root element: <<DLL::Category>> garant6x::DSMAdapter
+//
+// Интерфейсы машины Доброва
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	<<Interface>> DSMInterfaces (Interface::Category)
+		<<Interface>> IRegistrator (Interface::Class)
+			add_searcher (Interface::Class::Operation)
+				<<inout>> searcher (Interface::Class::Operation::Parameter)
+			<<factory>> make (Interface::Class::factory::Operation)
+		<<Interface>> ISearcher (Interface::Class)
+			execute_query (Interface::Class::Operation)
+				<<in>> answer (Interface::Class::Operation::Parameter)
+				<<in>> query (Interface::Class::Operation::Parameter)
+			is_alive (Interface::Class::Operation)
+	<<Impl>> DSMInterfaces_i (Impl::Category)
+		<<Servant>> Registrator_i (Servant::Class)
+			<<manage>>  (Servant::Class::manage::ClassDependency)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

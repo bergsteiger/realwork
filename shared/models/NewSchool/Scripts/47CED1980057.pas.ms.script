@@ -1,0 +1,79 @@
+// l3InterfacedList 47CED1980057 Impurity Class
+
+INCLUDE '47CEC8860198.pas.ms.script'
+
+INCLUDE '47BB26C70176.pas.ms.script'
+
+INCLUDE '47D810610398.pas.ms.script'
+
+FORWARD ME_47CED1980057
+
+FORWARD ME_4BB09A40008E
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4BB09A4A0311
+ CONST UID '4BB09A4A0311'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4BB09A4A0311 DoIt
+
+: ME_4BB09A40008E
+ CONST UID '4BB09A40008E'
+ CONST Name 'MakeI'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Implements
+   [ ME_47BB26C70176 // ListType
+ ]
+ ; // Implements
+ : Operations
+   [ ME_4BB09A4A0311 // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_4BB09A40008E MakeI
+
+: ME_47CED1980057
+ CONST UID '47CED1980057'
+ CONST Name 'l3InterfacedList'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47CEC8860198 // l3ListAssign
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47BB26C70176 // ListType
+ ME_4BB08B690185 // Ml3CountHolder
+ ]
+ ; // Implements
+ : Operations
+   [ ME_4BB09A40008E // MakeI
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4BB08B8902F2 // Count
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" true
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47CED1980057 l3InterfacedList

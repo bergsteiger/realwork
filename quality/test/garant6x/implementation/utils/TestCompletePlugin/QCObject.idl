@@ -1,0 +1,138 @@
+// QCObject.idl : IDL source for QCObject
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (QCObject.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(58B69288-F1FF-4306-B4CC-8D422850119D),
+	dual,
+	nonextensible,
+	helpstring("IQCShellWatchdog Interface"),
+	pointer_default(unique)
+]
+interface IQCShellWatchdog : IDispatch{
+	[id(1), helpstring("method Start")] HRESULT Start([out,retval] VARIANT_BOOL* result);
+	[id(2), helpstring("method Stop")] HRESULT Stop(void);
+	[propget, id(3), helpstring("property IsKillShell")] HRESULT IsKillShell([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(3), helpstring("property IsKillShell")] HRESULT IsKillShell([in] VARIANT_BOOL newVal);
+	[propget, id(4), helpstring("property HangTimeout")] HRESULT HangTimeout([out, retval] ULONG* pVal);
+	[propput, id(4), helpstring("property HangTimeout")] HRESULT HangTimeout([in] ULONG newVal);
+};
+
+[
+	object,
+	uuid(79A739D3-00BE-462A-8F32-A76AEF35D578),
+	dual,
+	nonextensible,
+	helpstring("IQCProcessKiller Interface"),
+	pointer_default(unique)
+]
+interface IQCProcessKiller : IDispatch{
+	[id(1), helpstring("method Start")] HRESULT Start(void);
+	[id(2), helpstring("method Stop")] HRESULT Stop(void);
+	[propget, id(3), helpstring("property HasKilled")] HRESULT HasKilled([out, retval] VARIANT_BOOL* pVal);
+	[propget, id(4), helpstring("property PID")] HRESULT PID([out, retval] ULONG* pVal);
+	[propput, id(4), helpstring("property PID")] HRESULT PID([in] ULONG newVal);
+	[propget, id(5), helpstring("property Delay")] HRESULT Delay([out, retval] ULONG* pVal);
+	[propput, id(5), helpstring("property Delay")] HRESULT Delay([in] ULONG newVal);
+};
+
+[
+	object,
+	uuid(8fd70fa3-b65d-4435-ad8b-c40476c7cdb5),
+	dual,
+	nonextensible,
+	helpstring("IQCObject Interface"),
+	pointer_default(unique)
+]
+interface IQCObject : IDispatch{
+
+	[id(1), helpstring("Ищет элемент в массиве.\n\r\tinArray - исходный массив\r\n\tvalue - искомое значение\r\n\tgivenIndexes - массив заданных индексов, например: элемент массива - p[i,j,k],\r\n для того чтобы найти элемент вдоль i задаем [x, 1, 2]. Здесь j=1, k=2.\r\n\tresult - индекс(вдоль которого искали) найденного элемента, или empty, если не найдено")]
+	HRESULT FindElementInArrayByOneDimension(
+		[in] VARIANT* inArray,
+		[in] VARIANT* value,
+		[in] VARIANT* givenIndexes,
+		[out,retval] VARIANT* result );
+
+	[id(2)]
+	HRESULT IsPluginEnabled( [out,retval] VARIANT* Result );
+
+	[id(3), helpstring("Преобразует массив в строку.\r\nПока работает только с простыми массивами (не содержащими других массивов)")]
+	HRESULT SerializeArray( [in] VARIANT* arr, [out,retval] VARIANT* Result);
+
+	[id(4), helpstring("Преобразует строку (преобразованный массив) в собственно массив")]
+	HRESULT UnSerializeArray( [in] VARIANT* str, [out,retval] VARIANT* Result);
+
+	[id(5), helpstring("Разбивает строку в массив по разделителям")]
+	HRESULT String2Array([in] BSTR str, [in] BSTR delimiter, [out,retval]VARIANT* Result);
+
+	[id(6), helpstring("Добавляет элемент в конец одномерного массива")]
+	HRESULT AddToArray( [in, out] VARIANT* arr, [in] VARIANT* value, [out,retval] VARIANT* Result);
+
+	[id(7), helpstring("То же самое, что и встроенная")]
+	HRESULT VarArrayRedim([in, out] VARIANT* arr, [in] VARIANT* highBound);
+
+	[id(8), helpstring("Возвращает элемент из массива по индексу. Индекс задается массивом.")]
+	HRESULT GetArrayElement( [in] VARIANT* arr, [in] VARIANT* index, [out,retval] VARIANT* Result );
+
+	[id(9), helpstring("Кладет элемент в массив по индексу. Индекс задается массивом.")]
+	HRESULT PutArrayElement([in] VARIANT* arr, [in] VARIANT* index, [in] VARIANT* value);
+
+	[id(10), helpstring("GetParam")]
+	HRESULT GetParam([in] VARIANT* paramList, [in] BSTR paramName, [in] VARIANT* defaultValue, [out,retval] VARIANT* result);
+
+	[id(11), helpstring("SetParam")]
+	HRESULT SetParam([in, out] VARIANT* paramList, [in] BSTR paramName, [in] VARIANT* value);
+
+	[id(12), helpstring("Возвращает IP-адрес машины по ее имени")]
+	HRESULT GetIPByHostName( [in]VARIANT* hostName, [out, retval] VARIANT* result );
+
+	[id(14), helpstring("Map")]
+	HRESULT Map( [in, out] VARIANT* mapObject, [in] const BSTR whatToDo, [in] VARIANT* key, [in] VARIANT* value,  [out, retval] VARIANT* result);
+
+	[id(16), helpstring("вспомогательная функция для записи BMP")]
+	HRESULT SaveBMPFile([in] BSTR fileName, [in] int hDC, [in] int hBitmap, [out, retval]VARIANT_BOOL* result);
+	[id(17), helpstring("method ShellWatchdog")] HRESULT ShellWatchdog([out,retval] IQCShellWatchdog** result);
+	[id(18), helpstring("method ProcessKiller")] HRESULT ProcessKiller([out,retval] IQCProcessKiller** result);	
+	[id(19), helpstring("method GetFileVerInfo")] HRESULT GetFileVerInfo([in] BSTR fileName, [in] BSTR infoName, [out,retval] BSTR* result);
+};
+
+
+[
+	uuid(f57897ce-2052-4478-8f85-666059d27d62),
+	version(1.0),
+	helpstring("QCObject 1.0 Type Library")
+]
+library QCObjectLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(2b62af48-bc35-4992-8955-bc815d7c4f55),
+		helpstring("QCObject Class")
+	]
+	coclass QCObject
+	{
+		[default] interface IQCObject;
+	};
+	[
+		uuid(12A34347-F93E-49CA-8770-525451F8E786),
+		helpstring("QCShellWatchdog Class")
+	]
+	coclass QCShellWatchdog
+	{
+		[default] interface IQCShellWatchdog;
+	};
+	[
+		uuid(7F813BD7-2BB8-443D-9011-7301ADD17B56),
+		helpstring("QCProcessKiller Class")
+	]
+	coclass QCProcessKiller
+	{
+		[default] interface IQCProcessKiller;
+	};
+};

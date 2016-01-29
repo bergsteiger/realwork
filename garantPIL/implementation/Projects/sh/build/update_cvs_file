@@ -1,0 +1,27 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: update_cvs_file <file_name>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+file_name=$1
+
+echo "update_cvs_file: $file_name"
+
+tmp_curdir=$PWD
+cd $MPCXC_ROOT
+
+export CVSROOT=":pserver:$MPCXC_CVS_USER@developer.garant.ru/export/home/cvs"
+
+cvs update -C $file_name
+
+cd $tmp_curdir
+
+echo "end."
+

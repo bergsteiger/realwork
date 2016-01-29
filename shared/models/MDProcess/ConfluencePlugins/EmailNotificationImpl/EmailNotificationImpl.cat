@@ -1,0 +1,245 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "EmailNotificationImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"VisabilityType"
+	    value      	"ImplementationAccess")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/EmailNotificationImpl|48C90C9703D9
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19032142621"))
+    quid       	"48C90C9703D9"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"48C90CCB01C3"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::EmailNotification"
+	    quidu      	"48C90ADA037A"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "CommonEmailGateway"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EmailNotificationImpl/CommonEmailGateway.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48C90CD200D7_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *48C90CD200D7_CUSTOM_IMPORT*¤import ru.garant.MDProcess.DocCardChange.DocCardSupport.DpoUvsHelper;¤import ru.garant.MDProcess.ArchiGate.Images.ImagesCreator;¤¤import java.io.IOException;¤import java.util.*;¤import java.util.Map.Entry;¤¤import javax.activation.DataHandler;¤import javax.mail.BodyPart;¤import javax.mail.MessagingException;¤import javax.mail.internet.MimeBodyPart;¤import javax.mail.internet.MimeMultipart;¤import javax.mail.internet.MimeUtility;¤import javax.mail.util.ByteArrayDataSource;¤¤import org.apache.commons.lang.StringUtils;¤¤import com.atlassian.confluence.pages.Attachment;¤import com.atlassian.confluence.pages.Attachment.Type;¤import com.atlassian.user.User;¤¤import ru.garant.shared.GCI.I18N.Messages;¤import ru.garant.shared.ConfluenceCore.ActionSupport.ActionContextThreadLocalFactory;¤import ru.garant.shared.ConfluenceCore.TaskSupport.EmailSenderTask;¤import ru.garant.shared.ConfluenceCore.TaskSupport.PostProcessorTask;¤import ru.garant.shared.ConfluenceCore.TaskSupport.PriorityEmail;¤//#UC END# *48C90CD200D7_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48C90CD200D7_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *48C90CD200D7_CUSTOM_CLASS_DEFINITION*¤//#UC END# *48C90CD200D7_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48C90CD200D7_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *48C90CD200D7_CUSTOM_METHODS_AND_DATA*¤	private EmailSenderTask getCurrentEmailSender() {¤		List<PostProcessorTask> tasks = (List<PostProcessorTask>)  ActionContextThreadLocalFactory.Factory.get().getContext().get(TASK_LIST_KEY);¤		if (tasks == null) {¤			Logs.LOG_D ("CommonEmailGateway::getCurrentEmailSender tasks == null");¤			tasks = new ArrayList<PostProcessorTask>();¤			 ActionContextThreadLocalFactory.Factory.get().getContext().put(TASK_LIST_KEY, tasks);¤		}¤		for(PostProcessorTask task : tasks){¤			if(task instanceof EmailSenderTask){¤				return (EmailSenderTask)task;¤			}¤		}¤		EmailSenderTask emailSenderTask = new EmailSenderTask();¤		tasks.add(emailSenderTask);¤		return emailSenderTask;¤	}¤	¤	protected static final String TASK_LIST_KEY = "DefaultPostProcessorImpl.TASK_LIST_KEY";¤//	protected static final String EMAIL_SENDER_KEY = "EmailSenderTask";¤	protected static final String EMAIL_ENCODING = "UTF-8";¤	protected static final String EMAIL_CONTENT_TYPE = "text/html";¤	¤	private final HashMap<String, TreeSet<PriorityEmail>> queue_ = new HashMap<String, TreeSet<PriorityEmail>>();¤	¤	protected void queueEmail (String address, PriorityEmail mail) {¤		if (StringUtils.isBlank(address) || mail == null) {¤			Logs.LOG_E("CommonEmailGateway::queueEmail - tries to queue an empty email");¤			return;¤		}¤		if (!queue_.containsKey(address)) {¤			queue_.put(address, new TreeSet<PriorityEmail>());¤		}¤		queue_.get(address).add(mail);¤	}¤	¤	¤	protected User getUserByName (String userName) {¤		return ContainerManager.Factory.get().getUserAccessor().getUser(userName);¤	}¤¤	private Messages i18n_;¤¤	private Messages getI18n () {¤		if (i18n_ == null) {¤			i18n_ = Messages.Factory.messages();¤		}¤		return i18n_;¤	}¤¤	protected String getText (String key) {¤		return getI18n().get(key);¤	}¤	¤	protected String getText (String key, String... params) {¤		return getI18n().get(key, Arrays.asList(params));¤	}¤	¤	protected BodyPart createFilePart (Attachment attachment) throws MessagingException, IOException {¤		BodyPart filePart = new MimeBodyPart();¤		final ByteArrayDataSource dataSource = new ByteArrayDataSource(attachment.getContentsAsStream(),¤				attachment.getContentType());¤		filePart.setDataHandler(new DataHandler(dataSource));¤		filePart.setFileName(MimeUtility.encodeText(attachment.getFileName()));¤		return filePart;¤	}¤	¤	¤	//#UC END# *48C90CD200D7_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/EmailNotificationImpl/CommonEmailGateway|48C90CD200D7
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need unsorted less"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EmailNotificationImpl/CommonEmailGatewayFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19032232141"))
+	    quid       	"48C90CD200D7"
+	    documentation 	"òèïîâàÿ ðåàëèçàöèÿ øëþçà îòïðàâêè ýëåêòðîííîé ïî÷òû"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"48C90D020328"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::EmailNotification::EmailGateway"
+		    quidu      	"48C90B2301DE"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"48C90CCC00AB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EmailNotificationImpl::CommonEmailGateway" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(615, 645)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(386, 616)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	458
+			justify    	0
+			label      	"CommonEmailGateway")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(386, 566)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	458
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"48C90CD200D7"
+		    width      	476
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EmailNotification::EmailGateway" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(420, 189)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(245, 161)
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"EmailGateway")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(245, 111)
+			anchor     	10
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"48C90B2301DE"
+		    width      	368
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48C90D020328"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(575, 553)
+			(458, 279))
+		    line_style 	0)))))

@@ -1,0 +1,202 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "W:/automation/validator/implementation/component/python/GblValidator.idl"
+// GCM IDL file (.idl)
+// Generated from UML model, root element: <<Interfaces::Category>> automation::validator::implementation::component::python::GblValidator
+// Интерфейсный пакет
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef __IMPLEMENTATION_COMPONENT_PYTHON_GBLVALIDATOR_IDL__
+#define __IMPLEMENTATION_COMPONENT_PYTHON_GBLVALIDATOR_IDL__
+#define CORBA3
+		
+
+#pragma prefix "garant.ru"
+
+
+module GblValidator {
+	// идентификатор пользователя для консультаций
+	struct ConsultingUserID {
+		// client_info из ядра
+		long complect_id;
+		// первое из трех чисел полученных деширфрацией пароля
+		long magic;
+		// нерасшифрованный  пароль
+		string password;
+	};
+
+	// результат проверки идентификатора пользователя
+	enum ValidationResult {
+		INVALID_ID // неизвестный идентификатор пользователя
+		, CONSULTING_AVAILABLE // пользователю разрешена услуга получения консультации
+		, CONSULTING_NOT_AVAILABLE // пользователю НЕ разрешена услуга получения консультации
+	};
+
+	// список имен блоков комплекта
+	typedef sequence<string> BlockNameList;
+
+	// Задаёт тип сетёвости комплекта.
+	enum ComplectType {
+		LOCAL_USER
+		, NET_ONE_USER
+		, NET_MULTIUSER
+		, INTRANET
+		, SKP
+		, MOBILE
+		, SUPERMOBILE
+		, WWW
+		, INTERNET
+	};
+
+	exception InvalidUserId {
+	};
+
+	// Идентификаторы блоков комплекта клиента
+	typedef sequence<long> BlockIDList;
+
+	// возбуждается при возникновении внутренней ошибки на севере валидации
+	exception InternalError {
+	};
+
+	typedef string CardNumber;
+
+	typedef string ProductNumber;
+
+	// Вид поставки комплекта
+	enum ComplectTrialType {
+		CTT_COMMERCIAL // Коммерческая
+		, CTT_NON_COMMERCIAL // Некоммерческая
+		, CTT_TRIAL // Ознакомительная
+		, CTT_DEMO // Демо
+		, CTT_PRESENT // Презентационная
+		, CTT_INTERNAL // Внутренняя
+	};
+
+	struct Date {
+		short year;
+		short month;
+		short day;
+	};
+
+	struct UserInfo {
+		// имя пользователя
+		string name;
+		// Номер карточки пользователя, в формате
+		// 2X-5Y-7Z, например 77-00001-0001231
+		string cardnum;
+		string supplier_org;
+		// город партнера
+		string supplier_city;
+		// Номер карточки обслуживающей организации (РП)
+		string supplier_cardnum;
+		string supplier_manager_name;
+		string supplier_manager_email;
+		string complect_name;
+		ComplectType complect_type;
+		// признак удаленности комплекта
+		boolean complect_is_deleted;
+		// Вид поставки
+		ComplectTrialType complect_trial_type;
+		// Регулярность комплекта на первое число следующего месяца
+		boolean complect_is_regular;
+		// идентификатор комплекта
+		long complect_id;
+		long consulting_type;
+		long next_consulting_type;
+		// поле для идентификации клиента, нужно для поддержки Гарант-Парка. (К213255599)
+		long magic_number;
+		// поле для идентификации клиента, нужно для поддержки Гарант-Парка. (К213255599)
+		long gpers_complect_id;
+		// версия комплекта
+		string complect_version;
+		unsigned long mgo_period;
+		BlockNameList block_list;
+		Date consulting_start_date;
+	};
+
+	struct SuperMobileUserInfo {
+		long status;
+		long single_login;
+		string login;
+		string password;
+		UserInfo user_info;
+		string block_list;
+	};
+
+	typedef sequence<string> PrimeInfo;
+
+
+
+	struct InternetUserInfo {
+		long service_id;
+		string stop_date;
+		SuperMobileUserInfo user_info;
+		PrimeInfo prime_info;
+	};
+
+	struct ParkUserID {
+		long complect_id;
+		long magic;
+	};
+
+	typedef sequence<octet> UnicodeString;
+
+	// Верификатор пользователя
+	// - проверяет переданный ID
+	// - возвращает информацию о комплекте пользователя
+	interface Validator {
+		ValidationResult validate_user (in ConsultingUserID id)
+			raises (InternalError);
+		// возвращает информацию о пользователе, его обслуживающей организации и имена блоков комплекта,
+		// соответсвующие переданным идентификаторам блоков
+		UserInfo get_user_info_ex (in ConsultingUserID id, in BlockIDList block_list)
+			raises (InvalidUserId, InternalError);
+		// возвращает информацию о пользователе, его обслуживающей организации и имена блоков комплекта
+		UserInfo get_user_info (in ConsultingUserID id)
+			raises (InvalidUserId, InternalError);
+		UserInfo get_park_user_info (in ParkUserID id);
+		// Получить информацию о пользователе, который обслуживается не через СК, а посредством оффлайн
+		// передачи данных.
+		UserInfo get_offline_user_info (in CardNumber card_number, in ProductNumber product_number)
+			raises (InvalidUserId, InternalError);
+		SuperMobileUserInfo validate_supermobile_user (in string key, in string client_info)
+			raises (InvalidUserId, InternalError);
+		InternetUserInfo validate_internet_user (in string login, in string password);
+		long internet_user_manage_password (in string login, in string password, in string email, in long action);
+		// K358982067
+		SuperMobileUserInfo validate_archiveonline_user (in string key)
+			raises (InvalidUserId, InternalError);
+		SuperMobileUserInfo validate_constructor_user (in string key)
+			raises (InvalidUserId, InternalError);
+		// получить список анкет ПРАЙМ
+		UnicodeString get_user_prime (in UnicodeString client_id)
+			raises (InvalidUserId, InternalError);
+		// сохранить анкету ПРАЙМ
+		UnicodeString set_user_prime (in UnicodeString info)
+			raises (InvalidUserId, InternalError);
+		// получение информации о пользователе по FLASH'id
+		UnicodeString get_internet_user_info (in UnicodeString login)
+			raises (InvalidUserId, InternalError);
+		// удалить анкету ПРАЙМ
+		long delete_user_prime (in UnicodeString client_id)
+			raises (InvalidUserId, InternalError);
+		// Валидация пользоваля МИВ для новой интернет версии
+		UnicodeString validate_miv_user (in UnicodeString options)
+			raises (InvalidUserId, InternalError);
+		// Обновление времени последней активности аккаунтов
+		UnicodeString update_users_activity (in UnicodeString data)
+			raises (InternalError);
+		// Валидация пользователей мобильной версии
+		InternetUserInfo validate_internet_pda_user (in string login, in string password, in string options);
+	};
+};
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

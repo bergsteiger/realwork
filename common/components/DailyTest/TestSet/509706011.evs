@@ -1,0 +1,810 @@
+%producer 'ГАРАНТ аэро' date '01.10.2012'
+%format version 0.141 revision date '18/06/2010' 
+: TextStyle = {
+ Handle = -1
+ Name = 'Текст'
+ Font = {
+  Name = 'Arial CYR'
+  Size = 13
+  Bold = False
+  Italic = False
+  Underline = False
+  Strikeout = False
+  ForeColor = clDefault
+  BackColor = clDefault
+ }
+ Visible = True
+ FirstIndent = 720
+ LeftIndent = 0
+ Justification = ev_itWidth
+ RightIndent = 0
+ SpaceBefore = 0
+ SpaceAfter = 0
+ Apply2Para = True
+}
+: TextStyle = {
+ Handle = -10
+ Name = 'Цветовое выделение'
+ Font = {
+  Name = @
+  Pitch = @
+  Size = @
+  Bold = True
+  Italic = @
+  Underline = @
+  Strikeout = @
+  ForeColor = $002F2826
+  BackColor = @
+  Index = @
+ }
+ Visible = @
+ Apply2Para = False
+}
+: TextStyle = {
+ Handle = -8
+ Name = 'Гипертекстовая ссылка'
+ Font = {
+  Bold = @
+  Underline = False
+  ForeColor = $00BE6B10
+ }
+ Style = -10
+}
+: TextStyle = {
+ Handle = -39
+ Name = 'Активная гипертекстовая ссылка'
+ Font = {
+  Underline = True
+ }
+ Style = -8
+}
+: TextStyle = {
+ Handle = -68
+ ShortName = 'Внимание'
+ Name = 'Внимание'
+ Font = {
+  BackColor = $00DAF3F5
+ }
+ LeftIndent = 420
+ RightIndent = 420
+ SpaceBefore = 240
+ SpaceAfter = 240
+}
+: TextStyle = {
+ Handle = -48
+ ShortName = 'Внимание: криминал!!'
+ Name = 'Внимание: криминал!!'
+ Style = -68
+}
+: TextStyle = {
+ Handle = -47
+ ShortName = 'Внимание: недобросовестность!'
+ Name = 'Внимание: недобросовестность!'
+ Style = -68
+}
+: TextStyle = {
+ Handle = -51
+ Name = 'Выделение для Базового Поиска'
+ Font = {
+  ForeColor = $00A95800
+ }
+ Style = -10
+}
+: TextStyle = {
+ Handle = -53
+ Name = 'Выделение для Базового Поиска (курсив)'
+ Font = {
+  Italic = True
+ }
+ Style = -51
+}
+: TextStyle = {
+ Handle = -29
+ Name = 'Основное меню (преемственное) '
+ Font = {
+  Name = 'Verdana'
+  Size = 12
+ }
+}
+: TextStyle = {
+ Handle = -33
+ Name = 'Заголовок'
+ Font = {
+  Bold = True
+  ForeColor = $00A95800
+  BackColor = clBtnFace
+ }
+ Style = -29
+}
+: TextStyle = {
+ Handle = -65531
+ Name = 'Основное меню (по умолчанию)'
+ Font = {
+  Size = 11
+ }
+}
+: TextStyle = {
+ Handle = -65533
+ Name = 'Заголовок '
+ Font = {
+  Name = 'Arial'
+  Size = 12
+  Bold = True
+  ForeColor = clBlack
+  BackColor = clWhite
+ }
+ Style = -65531
+}
+: TextStyle = {
+ Handle = -3
+ Name = 'Заголовок 1'
+ Font = {
+  Bold = True
+  ForeColor = $002F2826
+ }
+ FirstIndent = 0
+ Justification = ev_itCenter
+ SpaceBefore = 108
+ SpaceAfter = 108
+}
+: TextStyle = {
+ Handle = -4
+ Name = 'Заголовок 2'
+ Font = {
+ }
+ Style = -3
+}
+: TextStyle = {
+ Handle = -5
+ Name = 'Заголовок 3'
+ Font = {
+ }
+ Style = -4
+}
+: TextStyle = {
+ Handle = -6
+ Name = 'Заголовок 4'
+ Font = {
+ }
+ Style = -5
+}
+: TextStyle = {
+ Handle = -58
+ Name = 'Заголовок группы контролов'
+ Font = {
+  Bold = True
+  ForeColor = clBlack
+ }
+}
+: TextStyle = {
+ Handle = -66
+ Name = 'Заголовок группы редакций'
+ Font = {
+  Size = 11
+  Bold = True
+  ForeColor = clWhite
+ }
+ VisibleToUser = False
+}
+: TextStyle = {
+ Handle = -54
+ Name = 'Заголовок для информации об изменениях'
+ Font = {
+  Size = 10
+  Bold = False
+  BackColor = clWindow
+ }
+ Style = -3
+ SpaceBefore = 0
+}
+: TextStyle = {
+ Handle = -37
+ Name = 'Заголовок приложения'
+ Style = -10
+ Justification = ev_itRight
+ Apply2Para = True
+}
+: TextStyle = {
+ Handle = -59
+ Name = 'Заголовок распахивающейся части диалога'
+ Font = {
+  Size = 12
+  Italic = True
+  ForeColor = clNavy
+ }
+}
+: TextStyle = {
+ Handle = -43
+ Name = 'Заголовок своего сообщения'
+ Style = -10
+}
+: TextStyle = {
+ Handle = -15
+ Name = 'Заголовок статьи'
+ LeftIndent = 1612
+}
+: TextStyle = {
+ Handle = -44
+ Name = 'Заголовок чужого сообщения'
+ Font = {
+  ForeColor = clRed
+ }
+ Style = -10
+}
+: TextStyle = {
+ Handle = -71
+ Name = 'Заголовок ЭР (левое окно)'
+ Font = {
+  Size = 14
+  Bold = True
+  ForeColor = $002F2826
+ }
+ FirstIndent = 0
+ Justification = ev_itCenter
+ FirstLineIndent = 0
+ SpaceBefore = 300
+ SpaceAfter = 250
+}
+: TextStyle = {
+ Handle = -72
+ Name = 'Заголовок ЭР (правое окно)'
+ Style = -71
+ Justification = ev_itLeft
+ SpaceAfter = 0
+}
+: TextStyle = {
+ Handle = -34
+ Name = 'Интерактивный заголовок'
+ Font = {
+  Underline = True
+ }
+ Style = -33
+}
+: TextStyle = {
+ Handle = -63
+ Name = 'Интервал действия редакции'
+ Font = {
+  Bold = True
+  ForeColor = @
+ }
+ Style = -10
+ VisibleToUser = False
+}
+: TextStyle = {
+ Handle = -38
+ Name = 'Интерфейс'
+ Font = {
+  Name = 'Arial'
+  Size = 10
+  Bold = False
+  Italic = False
+  Underline = False
+  Strikeout = False
+  ForeColor = clWindowText
+  BackColor = clWindow
+ }
+ Visible = True
+ VisibleToUser = False
+}
+: TextStyle = {
+ Handle = -56
+ Name = 'Текст информации об изменениях'
+ Font = {
+  Size = 10
+  ForeColor = $00423835
+ }
+ LineSpacing = 100
+}
+: TextStyle = {
+ Handle = -52
+ ShortName = 'С изменениями и дополнениями от:'
+ Name = 'Информация об изменениях'
+ Font = {
+  BackColor = $00EDEFEA
+ }
+ Style = -56
+ FirstIndent = 360
+ LeftIndent = 360
+ RightIndent = 360
+ FirstLineIndent = 360
+ SpaceBefore = 180
+ Collapsed = True
+ Headers = {
+  : TextPara = {
+   Style = -54
+   Segments = {
+    Children = 2
+    : = {
+     Handle = Hyperlinks
+     : HyperLink = {
+      Start = 2
+      Finish = 28
+     }
+    }
+    : = {
+     Handle = Objects
+     : ObjectSegment = {
+      Start = 27
+      Finish = 28
+      : ImageListBitmap = {
+       Width = 240
+       Height = 240
+      }
+     }
+    }
+   }
+   Text = '(информация об изменениях >>)'
+  }
+ }
+ Footers = {
+  : TextPara = {
+   Style = -55
+   Segments = {
+    : = {
+     Handle = Hyperlinks
+     : HyperLink = {
+      Finish = 35
+      URL = 'script:оп::Документ_Справка_к_документу'
+      : = {
+      }
+     }
+    }
+   }
+   Text = 'Подробнее см. в справке к документу'
+  }
+ }
+}
+: TextStyle = {
+ Handle = -14
+ Name = 'Текст (справка)'
+ Font = {
+ }
+ FirstIndent = 170
+ LeftIndent = 170
+ Justification = ev_itLeft
+ RightIndent = 170
+}
+: TextStyle = {
+ Handle = -9
+ ShortName = 'ГАРАНТ:'
+ Name = 'Комментарий'
+ Font = {
+  Italic = False
+  ForeColor = $00423835
+  BackColor = $00F0F0F0
+ }
+ Style = -14
+ FirstIndent = 170
+ LeftIndent = 170
+ Justification = ev_itWidth
+ RightIndent = 0
+ SpaceBefore = 75
+ HeaderHasOwnSpace = False
+}
+: TextStyle = {
+ Handle = -22
+ ShortName = 'Информация об изменениях:'
+ Name = 'Информация об изменениях документа'
+ Font = {
+  Italic = True
+  ForeColor = $00423835
+  BackColor = $00F0F0F0
+ }
+ Style = -9
+}
+: TextStyle = {
+ Handle = -18
+ Name = 'Текст (лев. подпись)'
+ Font = {
+ }
+ FirstIndent = 0
+ Justification = ev_itLeft
+}
+: TextStyle = {
+ Handle = -27
+ Name = 'Колонтитул (левый)'
+ Font = {
+  Size = 8
+ }
+ Style = -18
+}
+: TextStyle = {
+ Handle = -19
+ Name = 'Текст (прав. подпись)'
+ Font = {
+ }
+ FirstIndent = 0
+ Justification = ev_itRight
+}
+: TextStyle = {
+ Handle = -28
+ Name = 'Колонтитул (правый)'
+ Font = {
+  Size = 8
+ }
+ Style = -19
+}
+: TextStyle = {
+ Handle = -23
+ Name = 'Комментарий пользователя'
+ Font = {
+  ForeColor = $00423835
+  BackColor = $00E0DFFF
+ }
+ Style = -9
+ Justification = ev_itLeft
+}
+: TextStyle = {
+ Handle = -46
+ ShortName = 'Куда обратиться?'
+ Name = 'Куда обратиться?'
+ Style = -68
+}
+: TextStyle = {
+ Handle = -12
+ Name = 'Моноширинный'
+ FirstIndent = 0
+ Justification = ev_itPreformatted
+ FirstLineIndent = 0
+}
+: TextStyle = {
+ Handle = -13
+ Name = 'Найденные слова'
+ Font = {
+  Bold = @
+  ForeColor = @
+  BackColor = $0080F5FF
+ }
+ Style = -10
+}
+: TextStyle = {
+ Handle = -69
+ Name = 'Напишите нам'
+ Font = {
+  Size = 11
+  BackColor = $00ADFFEF
+ }
+ FirstIndent = 180
+ LeftIndent = 180
+ RightIndent = 180
+ FirstLineIndent = 180
+ SpaceBefore = 90
+ SpaceAfter = 90
+ Collapsed = True
+ IsChangeableFont = False
+ VisibleToUser = False
+}
+: TextStyle = {
+ Handle = -25
+ Name = 'Не вступил в силу'
+ Font = {
+  Bold = False
+  Strikeout = False
+  ForeColor = clBlack
+  BackColor = $00E8EDD8
+ }
+ Style = -10
+}
+: TextStyle = {
+ Handle = -45
+ ShortName = 'Необходимые документы'
+ Name = 'Необходимые документы'
+ Style = -68
+ FirstIndent = 118
+}
+: TextStyle = {
+ Handle = -65
+ Name = 'Номер редакции'
+ Font = {
+  Bold = False
+  ForeColor = clSilver
+ }
+ Style = -63
+}
+: TextStyle = {
+ Handle = -17
+ Name = 'Нормальный (таблица)'
+ FirstIndent = 0
+ Justification = ev_itWidth
+ FirstLineIndent = 0
+}
+: TextStyle = {
+ Handle = -65530
+ Name = 'Обзор изменений документа 1'
+ Font = {
+  Italic = True
+  ForeColor = clPurple
+ }
+ FirstIndent = 0
+ Justification = ev_itCenter
+}
+: TextStyle = {
+ Handle = -65529
+ Name = 'Обзор изменений документа 2'
+ Style = -65530
+ Justification = ev_itLeft
+}
+: TextStyle = {
+ Handle = -35
+ Name = 'Объект'
+ Font = {
+  Name = 'Times New Roman'
+  Size = @
+  Bold = @
+  Italic = @
+  Underline = @
+  Strikeout = @
+  ForeColor = @
+  BackColor = @
+ }
+}
+: TextStyle = {
+ Handle = -2
+ Name = 'Таблицы (моноширинный)'
+ FirstIndent = 0
+ Justification = ev_itPreformatted
+}
+: TextStyle = {
+ Handle = -24
+ Name = 'Оглавление'
+ Font = {
+ }
+ Style = -2
+ FirstIndent = 140
+ LeftIndent = 140
+}
+: TextStyle = {
+ Handle = -36
+ Name = 'Опечатки'
+ Font = {
+  Name = @
+  Size = @
+  Bold = @
+  Italic = @
+  Underline = @
+  Strikeout = @
+  ForeColor = clRed
+  BackColor = @
+ }
+ Apply2Para = False
+}
+: TextStyle = {
+ Handle = -32
+ Name = 'Переменная часть'
+ Font = {
+  Size = 10
+  Bold = False
+  Underline = False
+ }
+ Style = -29
+}
+: TextStyle = {
+ Handle = -55
+ Name = 'Подвал для информации об изменениях'
+ Font = {
+  Size = 10
+  Bold = False
+ }
+ Style = -3
+}
+: TextStyle = {
+ Handle = -57
+ Name = 'Подзаголовок для информации об изменениях'
+ Font = {
+  Bold = True
+  ForeColor = $00423835
+ }
+ Style = -56
+}
+: TextStyle = {
+ Handle = -65535
+ Name = 'Подсказки для контекста'
+ Font = {
+  Bold = True
+  ForeColor = $02A95800
+  BackColor = $02BDF9FF
+ }
+}
+: TextStyle = {
+ Handle = -61
+ Name = 'Подчёркнуный текст'
+ Frame = 1
+}
+: TextStyle = {
+ Handle = -31
+ Name = 'Постоянная часть'
+ Font = {
+  Size = 11
+  Bold = False
+  Underline = False
+ }
+ Style = -29
+}
+: TextStyle = {
+ Handle = -65532
+ Name = 'Постоянная часть '
+ Font = {
+  Name = 'Arial'
+  Size = 11
+  ForeColor = $00A95800
+ }
+ Style = -65531
+}
+: TextStyle = {
+ Handle = -16
+ Name = 'Прижатый влево'
+ FirstIndent = 0
+ Justification = ev_itLeft
+ FirstLineIndent = 0
+}
+: TextStyle = {
+ Handle = -50
+ ShortName = 'Пример'
+ Name = 'Пример.'
+ Style = -68
+}
+: TextStyle = {
+ Handle = -49
+ ShortName = 'Примечание.'
+ Name = 'Примечание.'
+ Style = -68
+ HeaderHasOwnSpace = True
+}
+: TextStyle = {
+ Handle = -11
+ Name = 'Продолжение ссылки'
+ Font = {
+ }
+ Style = -8
+}
+: TextStyle = {
+ Handle = -64
+ Name = 'Редакция'
+ Font = {
+  Size = 10
+ }
+ FirstIndent = 0
+ LeftIndent = 370
+ Justification = ev_itLeft
+ VisibleToUser = False
+}
+: TextStyle = {
+ Handle = -26
+ Name = 'Словарная статья'
+ FirstIndent = 0
+ RightIndent = 118
+}
+: TextStyle = {
+ Handle = -65534
+ Name = 'Сравнение редакций'
+ Font = {
+  Bold = @
+  ForeColor = @
+ }
+ Style = -10
+}
+: TextStyle = {
+ Handle = -41
+ Name = 'Сравнение редакций. Добавленный фрагмент'
+ Font = {
+  ForeColor = clBlack
+  BackColor = $00FFD7C1
+ }
+ Style = -65534
+}
+: TextStyle = {
+ Handle = -42
+ Name = 'Сравнение редакций. Удаленный фрагмент'
+ Font = {
+  Strikeout = False
+  ForeColor = clBlack
+  BackColor = $0013C4C4
+ }
+ Style = -65534
+}
+: TextStyle = {
+ Handle = -60
+ Name = 'Ссылка на официальную публикацию'
+ Headers = {
+  : TextPara = {
+   Style = -9
+   Segments = {
+    : = {
+     Handle = Hyperlinks
+     : HyperLink = {
+      URL = 'script:оп::Документ_Графическая_копия_официальной_публикации'
+      : = {
+      }
+     }
+    }
+   }
+   Text = 'См. графическую копию официальной публикации'
+  }
+ }
+}
+: TextStyle = {
+ Handle = -67
+ Name = 'Структура документа'
+ Font = {
+  Size = 10
+ }
+ Style = -38
+ VisibleToUser = False
+}
+: TextStyle = {
+ Handle = -20
+ Name = 'Текст в таблице'
+ Style = -17
+ FirstIndent = 500
+ FirstLineIndent = 500
+ AllowHyphen = True
+}
+: TextStyle = {
+ Handle = -62
+ Name = 'Текст диалогов'
+ Font = {
+  BackColor = clDefault
+ }
+ Style = -38
+ VisibleToUser = False
+}
+: TextStyle = {
+ Handle = -70
+ Name = 'Текст ЭР (см. также)'
+ Font = {
+  Size = 11
+ }
+ FirstIndent = 0
+ Justification = ev_itLeft
+ FirstLineIndent = 0
+ SpaceBefore = 200
+}
+: TextStyle = {
+ Handle = -21
+ Name = 'Технический комментарий'
+ Font = {
+  ForeColor = $00313F46
+  BackColor = $00A6FFFF
+ }
+ FirstIndent = 0
+ Justification = ev_itLeft
+ FirstLineIndent = 0
+}
+: TextStyle = {
+ Handle = -7
+ Name = 'Утратил силу'
+ Font = {
+  Bold = False
+  Strikeout = True
+  ForeColor = $00006666
+ }
+ Style = -10
+}
+: TextStyle = {
+ Handle = -74
+ Name = 'Формула'
+ Font = {
+  BackColor = $00DAF3F5
+ }
+ LeftIndent = 420
+ RightIndent = 420
+ SpaceBefore = 240
+ SpaceAfter = 240
+}
+: TextStyle = {
+ Handle = -40
+ Name = 'Центрированный (таблица)'
+ Style = -17
+ Justification = ev_itCenter
+}
+: TextStyle = {
+ Handle = -73
+ Name = 'ЭР-содержание (правое окно)'
+ Font = {
+  Size = 13
+ }
+ FirstIndent = 0
+ Justification = ev_itLeft
+ FirstLineIndent = 0
+ SpaceBefore = 300
+}

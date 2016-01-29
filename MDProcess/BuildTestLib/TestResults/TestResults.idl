@@ -1,0 +1,90 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/BuildTestLib/TestResults/TestResults.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::BuildTestLib::TestResults
+//
+// разновидности результатов тестов - общий (generic), функциональный, нагрузочный..
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___TESTRESULTS_IDL__
+#define ___TESTRESULTS_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#pragma prefix "garant.ru"
+
+module BuildTestLib {
+
+module TestResults {
+	// дополнительные данные теста в виде массива, без явной расшифровки смысла значений
+	typedef sequence<string> ExtraDataArray;
+
+	// Общий (generic) тест
+	interface Test {
+		// название теста
+		string get_name ();
+		void set_name (in string name);
+
+		// признак прошел тест/не прошел
+		boolean get_passed ();
+		void set_passed (in boolean passed);
+
+		// путь-имя лог-файла для подцепления в аттач
+		string get_log_file ();
+		void set_log_file (in string log_file);
+
+		// ссылка в К на описание теста (скорее всего id страницы описания)
+		string get_description_link ();
+		void set_description_link (in string description_link);
+
+		// extra_data
+		ExtraDataArray get_extra_data ();
+		void set_extra_data (in ExtraDataArray extra_data);
+
+	};
+
+	// factory manager server interface for Test
+	interface TestFactoryManagerSrv {
+		// обычная фабрика создания объекта
+		Test make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	// Функциональный тест
+	interface FunctionalTest: Test {
+		// предупреждения - в sahi есть такое опнятие например
+		string get_exceptions ();
+		void set_exceptions (in string exceptions);
+
+		// продолжительность теста в секундах
+		double get_duration ();
+		void set_duration (in double duration);
+
+		// ошибки теста, например в sahi - "did not complete in NNN seconds"
+		string get_errors ();
+		void set_errors (in string errors);
+
+	};
+
+	// factory manager server interface for FunctionalTest
+	interface FunctionalTestFactoryManagerSrv {
+		// обычная фабрика создания объекта
+		FunctionalTest make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module BuildTestLib
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

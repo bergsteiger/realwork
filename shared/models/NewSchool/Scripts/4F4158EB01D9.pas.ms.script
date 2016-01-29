@@ -1,0 +1,720 @@
+// TkwLeftParam 4F4158EB01D9 SimpleClass Class
+
+FORWARD ME_4F4158EB01D9
+
+INCLUDE '52D3C5F90029.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_558D7FFE0092
+
+: ME_559A6AE50141
+ CONST UID '559A6AE50141'
+ CONST Name 'f_Value'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_55C0A4F9013F // TtfwStackValue
+ ;
+
+ @SELF
+; // ME_559A6AE50141 f_Value
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_478304909F0F
+ CONST UID '478304909F0F'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwObjRefParam' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_478304909F0F Ini_Reg_Class
+
+: ME_558D7FFE0092
+ CONST UID '558D7FFE0092'
+ CONST Name 'TkwObjRefParam'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_52D3C5F90029 // TkwCompiledWordPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_559A6AE50141 // f_Value
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_478304909F0F // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_52CFC11603C8 // ResultTypeInfo
+ ME_52D00B00031A // SetValuePrim
+ ME_52D399A00173 // GetValue
+ ME_52D399D40140 // IsVarLike
+ ME_52EA6A2C0111 // SetResultTypeInfo
+ ME_558D2BCA0324 // GetRef
+ ME_559A470F0288 // CanClearInRecursiveCalls
+ ME_559A4C5801D8 // IsInParam
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_558D7FFE0092 TkwObjRefParam
+
+FORWARD ME_559AA1BE0237
+
+: ME_70F7372CBD52
+ CONST UID '70F7372CBD52'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwRefParam' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_70F7372CBD52 Ini_Reg_Class
+
+: ME_559AA1BE0237
+ CONST UID '559AA1BE0237'
+ CONST Name 'TkwRefParam'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_558D7FFE0092 // TkwObjRefParam
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_70F7372CBD52 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_558D2BCA0324 // GetRef
+ ME_559A470F0288 // CanClearInRecursiveCalls
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_559AA1BE0237 TkwRefParam
+
+FORWARD ME_52E91D6202F4
+
+: ME_B0ACBB83C0F3
+ CONST UID 'B0ACBB83C0F3'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwRightParam' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_B0ACBB83C0F3 Ini_Reg_Class
+
+: ME_52E91D6202F4
+ CONST UID '52E91D6202F4'
+ CONST Name 'TkwRightParam'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_559AA1BE0237 // TkwRefParam
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_B0ACBB83C0F3 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_52CFC11603C8 // ResultTypeInfo
+ ME_52E91D9D0024 // IsRightParam
+ ME_52EA6A2C0111 // SetResultTypeInfo
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52E91D6202F4 TkwRightParam
+
+FORWARD ME_559A730E020E
+
+: ME_050ED1D6FBF7
+ CONST UID '050ED1D6FBF7'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwRightLiteralParam' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_050ED1D6FBF7 Ini_Reg_Class
+
+: ME_559A730E020E
+ CONST UID '559A730E020E'
+ CONST Name 'TkwRightLiteralParam'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52E91D6202F4 // TkwRightParam
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_050ED1D6FBF7 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_52CFC11603C8 // ResultTypeInfo
+ ME_52EA6A2C0111 // SetResultTypeInfo
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_559A730E020E TkwRightLiteralParam
+
+FORWARD ME_559A7B3C014E
+
+: ME_559A7B67005C
+ CONST UID '559A7B67005C'
+ CONST Name 'f_TypeInfo'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_559D504A0081 // TtfwWordInfo
+ ;
+
+ @SELF
+; // ME_559A7B67005C f_TypeInfo
+
+: ME_1FD213B3FE20
+ CONST UID '1FD213B3FE20'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwRightParamEx' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_1FD213B3FE20 Ini_Reg_Class
+
+: ME_559A7B3C014E
+ CONST UID '559A7B3C014E'
+ CONST Name 'TkwRightParamEx'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52E91D6202F4 // TkwRightParam
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_559A7B67005C // f_TypeInfo
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_1FD213B3FE20 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_52CFC11603C8 // ResultTypeInfo
+ ME_52EA6A2C0111 // SetResultTypeInfo
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_559A7B3C014E TkwRightParamEx
+
+FORWARD ME_53E377040339
+
+: ME_F8D904B038F1
+ CONST UID 'F8D904B038F1'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwLeftWordRefParam' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_F8D904B038F1 Ini_Reg_Class
+
+: ME_53E377040339
+ CONST UID '53E377040339'
+ CONST Name 'TkwLeftWordRefParam'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_559AA1BE0237 // TkwRefParam
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_F8D904B038F1 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_52CFC11603C8 // ResultTypeInfo
+ ME_52EA6A2C0111 // SetResultTypeInfo
+ ME_53E389100169 // IsLeftWordRefParam
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53E377040339 TkwLeftWordRefParam
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+FORWARD ME_55EF0C53018A
+
+: ME_55EF0C9C015C
+ CONST UID '55EF0C9C015C'
+ CONST Name 'f_WordInfo'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_559D504A0081 // TtfwWordInfo
+ ;
+
+ @SELF
+; // ME_55EF0C9C015C f_WordInfo
+
+FORWARD ME_55EF0D4E0363
+
+: ME_55EF0D5F0067
+ CONST UID '55EF0D5F0067'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_559D504A0081 // TtfwWordInfo
+ ;
+
+ @SELF
+; // ME_55EF0D5F0067 DoIt
+
+: ME_55EF0D4E0363
+ CONST UID '55EF0D4E0363'
+ CONST Name 'WI'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55EF0D5F0067 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55EF0D4E0363 WI
+
+FORWARD ME_55EF0D710242
+
+: ME_55EF0D8300DF
+ CONST UID '55EF0D8300DF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_559D504A0081 // TtfwWordInfo
+ ;
+
+ @SELF
+; // ME_55EF0D8300DF DoIt
+
+: ME_55EF0D710242
+ CONST UID '55EF0D710242'
+ CONST Name 'GetWordInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'abstractmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_55EF0D8300DF // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55EF0D710242 GetWordInfo
+
+: ME_55EF0C53018A
+ CONST UID '55EF0C53018A'
+ CONST Name 'TtfwRefParamWordInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_55EF0C9C015C // f_WordInfo
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55EF0D4E0363 // WI
+ ME_55EF0D710242 // GetWordInfo
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55EF0C53018A TtfwRefParamWordInfo
+
+FORWARD ME_55EF0CD701A0
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4B279D297D82
+ CONST UID '4B279D297D82'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4B279D297D82 Exists
+
+: ME_55EF0CD701A0
+ CONST UID '55EF0CD701A0'
+ CONST Name 'TkwObjRefParamWordInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_55EF0C53018A // TtfwRefParamWordInfo
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4B279D297D82 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55EF0D710242 // GetWordInfo
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55EF0CD701A0 TkwObjRefParamWordInfo
+
+FORWARD ME_55EF0CF00017
+
+: ME_E19011B4992F
+ CONST UID 'E19011B4992F'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_E19011B4992F Exists
+
+: ME_55EF0CF00017
+ CONST UID '55EF0CF00017'
+ CONST Name 'TkwLeftWordRefParamWordInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_55EF0C53018A // TtfwRefParamWordInfo
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E19011B4992F // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55EF0D710242 // GetWordInfo
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55EF0CF00017 TkwLeftWordRefParamWordInfo
+
+FORWARD ME_55EF0D18027B
+
+: ME_B8220C7B9766
+ CONST UID 'B8220C7B9766'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_B8220C7B9766 Exists
+
+: ME_55EF0D18027B
+ CONST UID '55EF0D18027B'
+ CONST Name 'TkwRightParamWordInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_55EF0C53018A // TtfwRefParamWordInfo
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_B8220C7B9766 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55EF0D710242 // GetWordInfo
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55EF0D18027B TkwRightParamWordInfo
+
+FORWARD ME_55EF1501024E
+
+: ME_A40E1DE19B71
+ CONST UID 'A40E1DE19B71'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_A40E1DE19B71 Exists
+
+: ME_55EF1501024E
+ CONST UID '55EF1501024E'
+ CONST Name 'TkwRightLiteralParamWordInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_55EF0C53018A // TtfwRefParamWordInfo
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A40E1DE19B71 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55EF0D710242 // GetWordInfo
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55EF1501024E TkwRightLiteralParamWordInfo
+
+INCLUDE '52D3E2EE0244.pas.ms.script'
+
+FORWARD ME_559A72E202EB
+
+: ME_559A72F4032E
+ CONST UID '559A72F4032E'
+ CONST Name 'aTypeInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559D504A0081 // TtfwWordInfo
+ ;
+
+ @SELF
+; // ME_559A72F4032E aTypeInfo
+
+: ME_559A72F4034C
+ CONST UID '559A72F4034C'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_559A72F4034C aCtx
+
+: ME_559A72ED0078
+ CONST UID '559A72ED0078'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DBAEDED0000 // RkwCompiledWordPrim
+ ;
+ : Parameters
+   [ ME_559A72F4032E // aTypeInfo
+ ME_559A72F4034C // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_559A72ED0078 DoIt
+
+: ME_559A72E202EB
+ CONST UID '559A72E202EB'
+ CONST Name 'ClassForCreate'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_559A72ED0078 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_559A72E202EB ClassForCreate
+
+: ME_9F8E0C4E7226
+ CONST UID '9F8E0C4E7226'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwLeftParam' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_9F8E0C4E7226 Ini_Reg_Class
+
+: ME_4F4158EB01D9
+ CONST UID '4F4158EB01D9'
+ CONST Name 'TkwLeftParam'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52D3C5F90029 // TkwCompiledWordPrim
+ ME_52D3E2EE0244 // kwCompiledVar
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_559A72E202EB // ClassForCreate
+ ME_9F8E0C4E7226 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_558D2BCA0324 // GetRef
+ ME_559A4C5801D8 // IsInParam
+ ]
+ ; // Overridden
+ : Children
+   [ ME_558D7FFE0092 // TkwObjRefParam
+ ME_559AA1BE0237 // TkwRefParam
+ ME_52E91D6202F4 // TkwRightParam
+ ME_559A730E020E // TkwRightLiteralParam
+ ME_559A7B3C014E // TkwRightParamEx
+ ME_53E377040339 // TkwLeftWordRefParam
+ ME_55EF0C53018A // TtfwRefParamWordInfo
+ ME_55EF0CD701A0 // TkwObjRefParamWordInfo
+ ME_55EF0CF00017 // TkwLeftWordRefParamWordInfo
+ ME_55EF0D18027B // TkwRightParamWordInfo
+ ME_55EF1501024E // TkwRightLiteralParamWordInfo
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F4158EB01D9 TkwLeftParam

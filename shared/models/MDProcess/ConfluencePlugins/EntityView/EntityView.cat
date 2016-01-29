@@ -1,0 +1,221 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "EntityView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/EntityView|4B1F49D102D6
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (vm)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19036692993"))
+    quid       	"4B1F49D102D6"
+    documentation 	"содержит основные velocity шаблоны для поддержания операций создания и редактирования наших сущностей, основанных на страницах К"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "createentity"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/EntityView/createentity.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/EntityView/createentity|4B1F4ACC0111
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4B1F4ACC0111_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4B1F4ACC0111_CUSTOM_CONTENT*¤¤<html>¤    <head>¤        <title>$garHelper.getText("title.add.${entityType}")</title>¤        <meta name="help-path" content="/includes/notation-quick-help.vm"/>¤    </head>¤	#includeCss("/includes/css/create-entity.css")¤	¤    #set ($decorator = $req.getParameter("inline"))¤¤    #if (!$decorator)¤        #set ($decorator = "space")¤    #end¤¤    #applyDecorator("root")¤        #decoratorParam("helper" $action.helper)¤        #decoratorParam("context" "${contentType}")¤        #decoratorParam("mode" "create-${contentType}")¤        #decoratorParam("help-path" "/includes/notation-quick-help.vm")¤        #decoratorParam("infopanel-width" "25%")¤¤        <content tag="spacekey">$spaceKey</content>¤¤		<body>¤            #parse ($action.createEntityFormTemplatePath)       ¤            <content tag="help-content">¤                #parse ("/pages/help/createpage.vm")¤            </content>¤        </body>¤    #end¤¤	#parse("/ConfluencePlugins/UserNotificationUnit/extendednotify.vm")¤</html>¤¤##UC_END*4B1F4ACC0111_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039334077"))
+	    quid       	"4B1F4ACC0111"
+	    documentation 	"корневой шаблон, с которого начинается построение формы создания сущности, основанной на странице К"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "createentity-preview"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/EntityView/createentity-preview|4B1FA02F0065
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/EntityView/createentity-preview.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4B1FA02F0065_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4B1FA02F0065_CUSTOM_CONTENT*¤¤<html>¤    <head>¤        <title>$garHelper.getText("preview.and.edit") &ndash; $title</title>¤    </head>¤¤    <body>¤        #parse ( "/template/includes/actionerrors.vm" )¤¤        #applyDecorator("root")¤            #decoratorParam("helper" $action.helper)¤            #decoratorParam("context" "space")¤            #decoratorParam("mode" "create-page")¤            #decoratorParam("help-path" "/includes/notation-quick-help.vm")¤            #decoratorParam("infopanel-width" "25%")¤¤            <div style="padding: 10px">¤¤            #parse ("/pages/includes/alert-preview-start.vm")¤            <div class="wiki-content wiki-content-preview">¤                $xHtmlContent¤            </div>¤            #parse ("/pages/includes/alert-preview-end.vm")¤¤            <form method="POST" action="docreate${entityType}.action?spaceKey=$generalUtil.urlEncode($spaceKey)">¤                #tag( "Hidden" "name='title'" "value=title" )¤                #tag( "Hidden" "name='content'" "value=content" )¤                #tag( "Hidden" "name='parentPageId'" "value=parentPageId" )¤                #if( $linkCreation )¤                    #tag( "Hidden" "name='linkCreation'" "value=linkCreation" )¤                #end¤¤            </form>¤¤            #parse ($action.createEntityFormTemplatePath)¤¤            </div>¤¤    		#parse ( "/breadcrumbs.vm" )¤    		#if ($helper.spaceKey)¤                <content tag="spacename">$helper.spaceName</content>¤                <content tag="spacekey">$helper.spaceKey</content>¤            #end¤        #end¤¤        <content tag="help-content">#parse ("/pages/help/createpage.vm")</content>¤		¤		#parse("/ConfluencePlugins/UserNotificationUnit/extendednotify.vm")¤    </body>¤</html>¤¤##UC_END*4B1FA02F0065_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039187457"))
+	    quid       	"4B1FA02F0065"
+	    documentation 	" создание сущности в режиме предпросмотра"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4B1F4AC60306"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EntityView::createentity" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(462, 240)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(337, 211)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	250
+			justify    	0
+			label      	"createentity")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(337, 161)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	250
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4B1F4ACC0111"
+		    width      	268
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EntityView::createentity-preview" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(522, 714)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(329, 683)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"createentity-preview")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(329, 633)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4B1FA02F0065"
+		    width      	404
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)))))

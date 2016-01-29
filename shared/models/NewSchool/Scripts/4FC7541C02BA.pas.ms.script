@@ -1,0 +1,283 @@
+// seModalSupport 4FC7541C02BA UtilityPack Class
+
+FORWARD ME_4FC7541C02BA
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '553F71BE03E0.pas.ms.script'
+
+FORWARD ME_553F737A02D6
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_AED6715B9AC0
+ CONST UID 'AED6715B9AC0'
+ CONST Name 'bind'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TseModalService' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_AED6715B9AC0 bind
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_3A499AB2229E
+ CONST UID '3A499AB2229E'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_3A499AB2229E Exists
+
+: ME_553F737A02D6
+ CONST UID '553F737A02D6'
+ CONST Name 'TseModalService'
+ CONST Class 'Class'
+ CONST Stereotype 'ServiceImplementation'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_09072C2825F1 // Il3ModalService
+ ]
+ ; // Implements
+ : Operations
+   [ ME_AED6715B9AC0 // bind
+ ME_3A499AB2229E // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_553F7345032E // HasModalWorker
+ ME_553F8EA30300 // ExecuteCurrentModalWorker
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_553F737A02D6 TseModalService
+
+FORWARD ME_4FC7549A03B6
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_4FC754B900F6
+ CONST UID '4FC754B900F6'
+ CONST Name 'aWorker'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_4FC754B900F6 aWorker
+
+: ME_4FC75511029A
+ CONST UID '4FC75511029A'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_4FC75511029A aCtx
+
+: ME_4FC754AA030E
+ CONST UID '4FC754AA030E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_4FC754B900F6 // aWorker
+ ME_4FC75511029A // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4FC754AA030E DoIt
+
+: ME_4FC7549A03B6
+ CONST UID '4FC7549A03B6'
+ CONST Name 'seAddModalWorker'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4FC754AA030E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4FC7549A03B6 seAddModalWorker
+
+FORWARD ME_4FC754C20096
+
+: ME_552631A303A5
+ CONST UID '552631A303A5'
+ CONST Name 'aModalExecute'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5526316402F9 // TseModalExecute
+ ;
+
+ @SELF
+; // ME_552631A303A5 aModalExecute
+
+: ME_4FC754ED01A6
+ CONST UID '4FC754ED01A6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_552631A303A5 // aModalExecute
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4FC754ED01A6 DoIt
+
+: ME_4FC754C20096
+ CONST UID '4FC754C20096'
+ CONST Name 'seExecuteCurrentModalWorker'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4FC754ED01A6 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4FC754C20096 seExecuteCurrentModalWorker
+
+FORWARD ME_4FC7749201E0
+
+: ME_4FC774AB0041
+ CONST UID '4FC774AB0041'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4FC774AB0041 DoIt
+
+: ME_4FC7749201E0
+ CONST UID '4FC7749201E0'
+ CONST Name 'seHasModalWorker'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4FC774AB0041 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4FC7749201E0 seHasModalWorker
+
+FORWARD ME_5193915002D8
+
+: ME_5193917C0187
+ CONST UID '5193917C0187'
+ CONST Name 'aCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_5193917C0187 aCount
+
+: ME_5193916B0370
+ CONST UID '5193916B0370'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5193917C0187 // aCount
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5193916B0370 DoIt
+
+: ME_5193915002D8
+ CONST UID '5193915002D8'
+ CONST Name 'seIsValidModalWorkersCount'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5193916B0370 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5193915002D8 seIsValidModalWorkersCount
+
+: ME_4FC7541C02BA
+ CONST UID '4FC7541C02BA'
+ CONST Name 'seModalSupport'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4FC7549A03B6 // seAddModalWorker
+ ME_4FC754C20096 // seExecuteCurrentModalWorker
+ ME_4FC7749201E0 // seHasModalWorker
+ ME_5193915002D8 // seIsValidModalWorkersCount
+ ]
+ ; // Operations
+ : Children
+   [ ME_553F737A02D6 // TseModalService
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_4FC7541C02BA seModalSupport

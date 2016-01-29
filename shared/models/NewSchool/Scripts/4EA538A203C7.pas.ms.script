@@ -1,0 +1,61 @@
+// MultyFileTests 4EA538A203C7 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA538A203C7
+
+: ME_4EA538D60064
+ CONST UID '4EA538D60064'
+ CONST Name 'TK294595323Suite'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EA538A203C7 // MultyFileTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4EA515800122' '4EA5156C00C8.pas.ms.script' // TCustomFolderTestSuite
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K294595323Suite.pas'
+
+ref; // ME_4EA538D60064 TK294595323Suite
+
+: ME_4EA538A203C7
+ CONST UID '4EA538A203C7'
+ CONST Name 'MultyFileTests'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D53DEED0062' '4D53DEED0062.pas.ms.script' // Archi Tests
+ ;
+ : Children
+   @ ( ME_4EA538D60064 // TK294595323Suite
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4D53DE3F00D1' '4D53DE3F00D1.pas.ms.script' // Filters
+ WL 'ME_4EA5156C00C8' '4EA5156C00C8.pas.ms.script' // FolderTestSupport
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4EA538A203C7.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4EA538A203C7.pas.ms.script.runner'
+
+ref; // ME_4EA538A203C7 MultyFileTests

@@ -1,0 +1,751 @@
+// Readers 482D6E960087 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482D6E960087
+
+FORWARD ME_482D6ED9000A
+
+FORWARD ME_4F68343D038D
+
+: ME_4F6834510218
+ CONST UID '4F6834510218'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F68343D038D // Read
+ ;
+
+ref; // ME_4F6834510218 DoIt
+
+: ME_4F68343D038D
+ CONST UID '4F68343D038D'
+ CONST Name 'Read'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_482D6ED9000A // Tk2CustomReader
+ ;
+ : Operations
+   @ ( ME_4F6834510218 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4F68343D038D Read
+
+: ME_482D6ED9000A
+ CONST UID '482D6ED9000A'
+ CONST Name 'Tk2CustomReader'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_482D6E960087 // Readers
+ ;
+ : Inherits
+   @ ( WL 'ME_482D6F380205' '47ECA80B000D.pas.ms.script' // Tk2CustomStackGenerator
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4F68343D038D // Read
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '22.09.1999 11:47'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomReader.pas'
+
+ref; // ME_482D6ED9000A Tk2CustomReader
+
+: ME_482D6EB4003A
+ CONST UID '482D6EB4003A'
+ CONST Name 'Tk2CustomFileReader'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_482D6E960087 // Readers
+ ;
+ : Inherits
+   @ ( ME_482D6ED9000A // Tk2CustomReader
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '22.09.1999 11:47'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomFileReader.pas'
+
+ref; // ME_482D6EB4003A Tk2CustomFileReader
+
+: ME_483E81520007
+ CONST UID '483E81520007'
+ CONST Name 'Tk2CustomFileParser'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый класс "читателей" тегов, обладающий парсером.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_482D6E960087 // Readers
+ ;
+ : Inherits
+   @ ( ME_482D6EB4003A // Tk2CustomFileReader
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '22.09.1999 11:47'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomFileParser.pas'
+
+ref; // ME_483E81520007 Tk2CustomFileParser
+
+FORWARD ME_555DB43B00BD
+
+FORWARD ME_30860C64BDA8
+
+: ME_9F46A5A9DAF5
+ CONST UID '9F46A5A9DAF5'
+ CONST Name 'GetReader'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_30860C64BDA8 // Mk2EVDReaderService
+ ;
+ : Target ME_482D6EB4003A // Tk2CustomFileReader
+ ;
+
+ref; // ME_9F46A5A9DAF5 GetReader
+
+: ME_A8321E95D8B4
+ CONST UID 'A8321E95D8B4'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_A8321E95D8B4 aFileName
+
+: ME_A8321E95D8B5
+ CONST UID 'A8321E95D8B5'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ ;
+
+ref; // ME_A8321E95D8B5 aFilter
+
+: ME_6A9002DE6C1A
+ CONST UID '6A9002DE6C1A'
+ CONST Name 'MakeReader'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_30860C64BDA8 // Mk2EVDReaderService
+ ;
+ : Target WL 'ME_46781657008C' '4677FBA70343.pas.ms.script' // Il3Reader
+ ;
+ : Parameters
+   @ ( ME_A8321E95D8B4 // aFileName
+ ME_A8321E95D8B5 // aFilter
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_6A9002DE6C1A MakeReader
+
+: ME_30860C64BDA8
+ CONST UID '30860C64BDA8'
+ CONST Name 'Mk2EVDReaderService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tk2EVDReaderService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ : Operations
+   @ ( ME_9F46A5A9DAF5 // GetReader
+ ME_6A9002DE6C1A // MakeReader
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_30860C64BDA8 Mk2EVDReaderService
+
+FORWARD ME_4EE7B78D5AA0
+
+: ME_6A9002DE6C1A_ME_4EE7B78D5AA0
+ CONST UID '6A9002DE6C1A'
+ CONST Name 'MakeReader'
+ : Original ME_6A9002DE6C1A // MakeReader
+ ;
+ : Implementor ME_4EE7B78D5AA0 // Ik2EVDReaderService
+ ;
+ref; // ME_6A9002DE6C1A_ME_4EE7B78D5AA0 MakeReader
+
+: ME_9F46A5A9DAF5_ME_4EE7B78D5AA0
+ CONST UID '9F46A5A9DAF5'
+ CONST Name 'GetReader'
+ : Original ME_9F46A5A9DAF5 // GetReader
+ ;
+ : Implementor ME_4EE7B78D5AA0 // Ik2EVDReaderService
+ ;
+ref; // ME_9F46A5A9DAF5_ME_4EE7B78D5AA0 GetReader
+
+: ME_4EE7B78D5AA0
+ CONST UID '4EE7B78D5AA0'
+ CONST GUID '0D7649DC-496C-4118-A5C9-0D36658FB2DC'
+ CONST Name 'Ik2EVDReaderService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tk2EVDReaderService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ : Implements
+   @ ( ME_30860C64BDA8 // Mk2EVDReaderService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_6A9002DE6C1A_ME_4EE7B78D5AA0 // MakeReader
+ ME_9F46A5A9DAF5_ME_4EE7B78D5AA0 // GetReader
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_4EE7B78D5AA0 Ik2EVDReaderService
+
+: ME_59EA6D934673
+ CONST UID '59EA6D934673'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Ik2EVDReaderService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ : Target ME_4EE7B78D5AA0 // Ik2EVDReaderService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_59EA6D934673 Alien
+
+: ME_F79659A87BE8
+ CONST UID 'F79659A87BE8'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ : Target ME_4EE7B78D5AA0 // Ik2EVDReaderService
+ ;
+
+ref; // ME_F79659A87BE8 f_Alien
+
+: ME_555DB53301DC
+ CONST UID '555DB53301DC'
+ CONST Name 'GetReader'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ : Target ME_482D6EB4003A // Tk2CustomFileReader
+ ;
+
+ref; // ME_555DB53301DC GetReader
+
+: ME_55701AA60342
+ CONST UID '55701AA60342'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55701AA60342 aFileName
+
+: ME_55701AA6037A
+ CONST UID '55701AA6037A'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ ;
+
+ref; // ME_55701AA6037A aFilter
+
+: ME_55701A7A01B4
+ CONST UID '55701A7A01B4'
+ CONST Name 'MakeReader'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ : Target WL 'ME_46781657008C' '4677FBA70343.pas.ms.script' // Il3Reader
+ ;
+ : Parameters
+   @ ( ME_55701AA60342 // aFileName
+ ME_55701AA6037A // aFilter
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55701A7A01B4 MakeReader
+
+: ME_EF20453ACC1B
+ CONST UID 'EF20453ACC1B'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_EF20453ACC1B Exists
+
+: ME_6A9002DE6C1A_ME_555DB43B00BD
+ CONST UID '6A9002DE6C1A'
+ CONST Name 'MakeReader'
+ : Original ME_6A9002DE6C1A // MakeReader
+ ;
+ : Implementor ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ref; // ME_6A9002DE6C1A_ME_555DB43B00BD MakeReader
+
+: ME_9F46A5A9DAF5_ME_555DB43B00BD
+ CONST UID '9F46A5A9DAF5'
+ CONST Name 'GetReader'
+ : Original ME_9F46A5A9DAF5 // GetReader
+ ;
+ : Implementor ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ref; // ME_9F46A5A9DAF5_ME_555DB43B00BD GetReader
+
+: ME_5000565C019C_ME_555DB43B00BD
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ref; // ME_5000565C019C_ME_555DB43B00BD ClearFields
+
+: ME_555DB43B00BD
+ CONST UID '555DB43B00BD'
+ CONST Name 'Tk2EVDReaderService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_482D6E960087 // Readers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_30860C64BDA8 // Mk2EVDReaderService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_59EA6D934673 // Alien
+ ME_F79659A87BE8 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_555DB53301DC // GetReader
+ ME_55701A7A01B4 // MakeReader
+ ME_EF20453ACC1B // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_6A9002DE6C1A_ME_555DB43B00BD // MakeReader
+ ME_9F46A5A9DAF5_ME_555DB43B00BD // GetReader
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_555DB43B00BD // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_30860C64BDA8 // Mk2EVDReaderService
+ ME_4EE7B78D5AA0 // Ik2EVDReaderService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2EVDReaderService.pas'
+
+ref; // ME_555DB43B00BD Tk2EVDReaderService
+
+FORWARD ME_555DCEA8017E
+
+FORWARD ME_57767888A990
+
+: ME_26782C1B9519
+ CONST UID '26782C1B9519'
+ CONST Name 'GetWriter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_57767888A990 // Mk2EVDWriterService
+ ;
+ : Target WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
+ ;
+
+ref; // ME_26782C1B9519 GetWriter
+
+: ME_6D37694A9AFF
+ CONST UID '6D37694A9AFF'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_6D37694A9AFF aFileName
+
+: ME_F7BF6A35E2B1
+ CONST UID 'F7BF6A35E2B1'
+ CONST Name 'MakeWriter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_57767888A990 // Mk2EVDWriterService
+ ;
+ : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ ;
+ : Parameters
+   @ ( ME_6D37694A9AFF // aFileName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_F7BF6A35E2B1 MakeWriter
+
+: ME_57767888A990
+ CONST UID '57767888A990'
+ CONST Name 'Mk2EVDWriterService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tk2EVDWriterService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ : Operations
+   @ ( ME_26782C1B9519 // GetWriter
+ ME_F7BF6A35E2B1 // MakeWriter
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_57767888A990 Mk2EVDWriterService
+
+FORWARD ME_45A65DABCE57
+
+: ME_26782C1B9519_ME_45A65DABCE57
+ CONST UID '26782C1B9519'
+ CONST Name 'GetWriter'
+ : Original ME_26782C1B9519 // GetWriter
+ ;
+ : Implementor ME_45A65DABCE57 // Ik2EVDWriterService
+ ;
+ref; // ME_26782C1B9519_ME_45A65DABCE57 GetWriter
+
+: ME_F7BF6A35E2B1_ME_45A65DABCE57
+ CONST UID 'F7BF6A35E2B1'
+ CONST Name 'MakeWriter'
+ : Original ME_F7BF6A35E2B1 // MakeWriter
+ ;
+ : Implementor ME_45A65DABCE57 // Ik2EVDWriterService
+ ;
+ref; // ME_F7BF6A35E2B1_ME_45A65DABCE57 MakeWriter
+
+: ME_45A65DABCE57
+ CONST UID '45A65DABCE57'
+ CONST GUID 'B93031D3-1115-441C-B788-BC5802B50265'
+ CONST Name 'Ik2EVDWriterService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tk2EVDWriterService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ : Implements
+   @ ( ME_57767888A990 // Mk2EVDWriterService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_26782C1B9519_ME_45A65DABCE57 // GetWriter
+ ME_F7BF6A35E2B1_ME_45A65DABCE57 // MakeWriter
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_45A65DABCE57 Ik2EVDWriterService
+
+: ME_2233968BE6D1
+ CONST UID '2233968BE6D1'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Ik2EVDWriterService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ : Target ME_45A65DABCE57 // Ik2EVDWriterService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_2233968BE6D1 Alien
+
+: ME_F474669A14A2
+ CONST UID 'F474669A14A2'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ : Target ME_45A65DABCE57 // Ik2EVDWriterService
+ ;
+
+ref; // ME_F474669A14A2 f_Alien
+
+: ME_555DCEC1021B
+ CONST UID '555DCEC1021B'
+ CONST Name 'GetWriter'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ : Target WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
+ ;
+
+ref; // ME_555DCEC1021B GetWriter
+
+: ME_55701AF401C9
+ CONST UID '55701AF401C9'
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55701AF401C9 aFileName
+
+: ME_55701AE20388
+ CONST UID '55701AE20388'
+ CONST Name 'MakeWriter'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ ;
+ : Parameters
+   @ ( ME_55701AF401C9 // aFileName
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55701AE20388 MakeWriter
+
+: ME_49CF7F750647
+ CONST UID '49CF7F750647'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49CF7F750647 Exists
+
+: ME_26782C1B9519_ME_555DCEA8017E
+ CONST UID '26782C1B9519'
+ CONST Name 'GetWriter'
+ : Original ME_26782C1B9519 // GetWriter
+ ;
+ : Implementor ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ref; // ME_26782C1B9519_ME_555DCEA8017E GetWriter
+
+: ME_F7BF6A35E2B1_ME_555DCEA8017E
+ CONST UID 'F7BF6A35E2B1'
+ CONST Name 'MakeWriter'
+ : Original ME_F7BF6A35E2B1 // MakeWriter
+ ;
+ : Implementor ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ref; // ME_F7BF6A35E2B1_ME_555DCEA8017E MakeWriter
+
+: ME_5000565C019C_ME_555DCEA8017E
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ref; // ME_5000565C019C_ME_555DCEA8017E ClearFields
+
+: ME_555DCEA8017E
+ CONST UID '555DCEA8017E'
+ CONST Name 'Tk2EVDWriterService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_482D6E960087 // Readers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_57767888A990 // Mk2EVDWriterService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_2233968BE6D1 // Alien
+ ME_F474669A14A2 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_555DCEC1021B // GetWriter
+ ME_55701AE20388 // MakeWriter
+ ME_49CF7F750647 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_26782C1B9519_ME_555DCEA8017E // GetWriter
+ ME_F7BF6A35E2B1_ME_555DCEA8017E // MakeWriter
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_555DCEA8017E // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_57767888A990 // Mk2EVDWriterService
+ ME_45A65DABCE57 // Ik2EVDWriterService
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2EVDWriterService.pas'
+
+ref; // ME_555DCEA8017E Tk2EVDWriterService
+
+: ME_482D6E960087
+ CONST UID '482D6E960087'
+ CONST Name 'Readers'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Children
+   @ ( ME_482D6ED9000A // Tk2CustomReader
+ ME_482D6EB4003A // Tk2CustomFileReader
+ ME_483E81520007 // Tk2CustomFileParser
+ ME_555DB43B00BD // Tk2EVDReaderService
+ ME_555DCEA8017E // Tk2EVDWriterService
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\482D6E960087.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\482D6E960087.pas.ms.script.runner'
+
+ref; // ME_482D6E960087 Readers

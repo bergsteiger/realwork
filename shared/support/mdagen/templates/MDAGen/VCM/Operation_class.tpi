@@ -1,0 +1,63 @@
+//////////////////////////////////////////////////////////////////////////////////
+// VCMOperation
+//////////////////////////////////////////////////////////////////////////////////
+
+: VCMOperation::Class
+? Операция сущности
+? Операция сущности.
+
+= VCMClass::Class
+
+< *::Class, *::Category
+
+/ параметры визуализации
+$ C 215,215,215
+$ l 200, 50, 50
+$ f 180, 80, 80
+$ S
+$ s
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+/ Генератор в wiki.
+= VCMClass::Class;wiki
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _vcm_pas_GetOperationHandlersImplementation
+/ override
+//#UC START# *46B8958B0196GetOperationHandlersImplementation*
+	procedure %1N.%PN_%SN_Execute(const aParams: IvcmExecuteParamsPrim);
+	begin
+	%U[{exec}\n aParams.CallControl;\n]
+	end;
+	\nprocedure %1N.%PN_%SN_Test(const aParams: IvcmTestParamsPrim);
+	begin
+	%U[{test}\n aParams.CallControl;\n]
+	end;\n
+//#UC END# *46B8958B0196GetOperationHandlersImplementation*
+
+%f _vcm_pas_GetOperationHandlersInterface
+/ override
+//#UC START# *46B8958B0196GetOperationHandlersInterface*
+	procedure %PN_%SN_Execute(const aParams: IvcmExecuteParamsPrim);\
+	\n  {-}\
+	\nprocedure %PN_%SN_Test(const aParams: IvcmTestParamsPrim);
+	  {-}
+//#UC END# *46B8958B0196GetOperationHandlersInterface*
+
+%f _vcm_pas_GetPublishEntityCode
+/ override
+//#UC START# *46B8958B0196GetPublishEntityCode*
+	 PublishOp('%PN', '%SN', %PN_%SN_Execute, %PN_%SN_Test);
+//#UC END# *46B8958B0196GetPublishEntityCode*
+
+%f _vcm_pas_IsOperation
+/ override
+//#UC START# *46B8958B0196IsOperation*
+	true
+//#UC END# *46B8958B0196IsOperation*
+
++ vcm.pas
+/ Генератор VCM.
+= VCMClass::Class;vcm.pas

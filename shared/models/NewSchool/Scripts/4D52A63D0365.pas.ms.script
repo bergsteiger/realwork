@@ -1,0 +1,508 @@
+// lulin 4D52A63D0365 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D52A63D0365
+
+FORWARD ME_4D52A6B50343
+
+: ME_4D52AACD032B
+ CONST UID '4D52AACD032B'
+ CONST Name 'l3Unknown_NoIUnknown'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D52A6B50343 // TvgPersistent
+ ;
+
+ref; // ME_4D52AACD032B l3Unknown_NoIUnknown
+
+: ME_4D52C5D9030A
+ CONST UID '4D52C5D9030A'
+ CONST Name '_UnknownForDesign'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D52A6B50343 // TvgPersistent
+ ;
+
+ref; // ME_4D52C5D9030A _UnknownForDesign
+
+: ME_4D52DB7B01D3
+ CONST UID '4D52DB7B01D3'
+ CONST Name 'Dummy'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D52DB7B01D3 Dummy
+
+: ME_4D52DB5D03BF
+ CONST UID '4D52DB5D03BF'
+ CONST Name 'Free'
+ CONST Class class_Operation
+ %SUMMARY 'Для ловли просто Free' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D52A6B50343 // TvgPersistent
+ ;
+ : Parameters
+   @ ( ME_4D52DB7B01D3 // Dummy
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D52DB5D03BF Free
+
+: ME_4D52A6B50343
+ CONST UID '4D52A6B50343'
+ CONST Name 'TvgPersistent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D52A63D0365 // lulin
+ ;
+ : Inherits
+   @ ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4D52DB5D03BF // Free
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4D52AACD032B // l3Unknown_NoIUnknown
+ ME_4D52C5D9030A // _UnknownForDesign
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '09.02.2011 17:38'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgPersistent.pas'
+
+ref; // ME_4D52A6B50343 TvgPersistent
+
+FORWARD ME_4D52A881018B
+
+: ME_4D52BFA10289
+ CONST UID '4D52BFA10289'
+ CONST Name '_UnknownIsComponent'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D52A881018B // TvgComponent
+ ;
+
+ref; // ME_4D52BFA10289 _UnknownIsComponent
+
+: ME_4D54139602F9
+ CONST UID '4D54139602F9'
+ CONST Name 'l3Unknown_NoIUnknown'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D52A881018B // TvgComponent
+ ;
+
+ref; // ME_4D54139602F9 l3Unknown_NoIUnknown
+
+: ME_4D52DB8D003A
+ CONST UID '4D52DB8D003A'
+ CONST Name 'Dummy'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D52DB8D003A Dummy
+
+: ME_4D52DB7F0148
+ CONST UID '4D52DB7F0148'
+ CONST Name 'Free'
+ CONST Class class_Operation
+ %SUMMARY 'Для ловли просто Free' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D52A881018B // TvgComponent
+ ;
+ : Parameters
+   @ ( ME_4D52DB8D003A // Dummy
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D52DB7F0148 Free
+
+: ME_4D52A881018B
+ CONST UID '4D52A881018B'
+ CONST Name 'TvgComponent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D52A63D0365 // lulin
+ ;
+ : Inherits
+   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4D52DB7F0148 // Free
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4D52BFA10289 // _UnknownIsComponent
+ ME_4D54139602F9 // l3Unknown_NoIUnknown
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '09.02.2011 17:45'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgComponent.pas'
+
+ref; // ME_4D52A881018B TvgComponent
+
+: ME_4D52D82E0312
+ CONST UID '4D52D82E0312'
+ CONST Name 'TvgAnyObjectList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Списсок указателей на объект. НИЧЕГО не освобождает' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D52A63D0365 // lulin
+ ;
+ : Inherits
+   @ ( WL 'ME_4773DBBD000D' '47913B47006E.pas.ms.script' // Tl3ObjectList
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '09.02.2011 21:09'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgAnyObjectList.pas'
+
+ref; // ME_4D52D82E0312 TvgAnyObjectList
+
+: ME_4D52D86D0330
+ CONST UID '4D52D86D0330'
+ CONST Name 'TvgPtrList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список указателей на куски памяти. Ничего не освобождает' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D52A63D0365 // lulin
+ ;
+ : Inherits
+   @ ( WL 'ME_4773DD2700DA' '47913B47006E.pas.ms.script' // Tl3DataPtrList
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '09.02.2011 21:10'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgPtrList.pas'
+
+ref; // ME_4D52D86D0330 TvgPtrList
+
+FORWARD ME_4D5413C00089
+
+: ME_4D5413F3033B
+ CONST UID '4D5413F3033B'
+ CONST Name 'l3Unknown_NoIUnknown'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+
+ref; // ME_4D5413F3033B l3Unknown_NoIUnknown
+
+: ME_4D5414420341
+ CONST UID '4D5414420341'
+ CONST Name '_UnknownForDesign'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+
+ref; // ME_4D5414420341 _UnknownForDesign
+
+: ME_4D54145903DE
+ CONST UID '4D54145903DE'
+ CONST Name 'Dummy'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D54145903DE Dummy
+
+: ME_4D54144F020F
+ CONST UID '4D54144F020F'
+ CONST Name 'Free'
+ CONST Class class_Operation
+ %SUMMARY 'Для ловли Free' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+ : Parameters
+   @ ( ME_4D54145903DE // Dummy
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D54144F020F Free
+
+: ME_4D5413C00089
+ CONST UID '4D5413C00089'
+ CONST Name 'TvgInterfacedPersistent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D52A63D0365 // lulin
+ ;
+ : Inherits
+   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ WL 'ME_47E1214E00F2' '4AB0997B00A2.pas.ms.script' // TInterfacedPersistent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4D54144F020F // Free
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4D5413F3033B // l3Unknown_NoIUnknown
+ ME_4D5414420341 // _UnknownForDesign
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '10.02.2011 19:35'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgInterfacedPersistent.pas'
+
+ref; // ME_4D5413C00089 TvgInterfacedPersistent
+
+FORWARD ME_4D5416AC01D1
+
+: ME_4D5416D403C3
+ CONST UID '4D5416D403C3'
+ CONST Name '_UnknownIsComponent'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5416AC01D1 // TvgCustomControl
+ ;
+
+ref; // ME_4D5416D403C3 _UnknownIsComponent
+
+: ME_4D5416E2012C
+ CONST UID '4D5416E2012C'
+ CONST Name 'l3Unknown_NoIUnknown'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5416AC01D1 // TvgCustomControl
+ ;
+
+ref; // ME_4D5416E2012C l3Unknown_NoIUnknown
+
+: ME_4D54174B0316
+ CONST UID '4D54174B0316'
+ CONST Name 'Dummy'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D54174B0316 Dummy
+
+: ME_4D54173D03B8
+ CONST UID '4D54173D03B8'
+ CONST Name 'Free'
+ CONST Class class_Operation
+ %SUMMARY 'Для ловли Free' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5416AC01D1 // TvgCustomControl
+ ;
+ : Parameters
+   @ ( ME_4D54174B0316 // Dummy
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D54173D03B8 Free
+
+: ME_EE12C721CF5E
+ CONST UID 'EE12C721CF5E'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TvgCustomControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5416AC01D1 // TvgCustomControl
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_EE12C721CF5E Ini_Reg_Class
+
+: ME_4B42C9674CCD
+ CONST UID '4B42C9674CCD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D5416AC01D1 // TvgCustomControl
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_4B42C9674CCD 
+
+: ME_4D5416AC01D1
+ CONST UID '4D5416AC01D1'
+ CONST Name 'TvgCustomControl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D52A63D0365 // lulin
+ ;
+ : Inherits
+   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4D54173D03B8 // Free
+ ME_EE12C721CF5E // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4D5416D403C3 // _UnknownIsComponent
+ ME_4D5416E2012C // l3Unknown_NoIUnknown
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4B42C9674CCD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '10.02.2011 19:47'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomControl.pas'
+
+ref; // ME_4D5416AC01D1 TvgCustomControl
+
+: ME_4D52A63D0365
+ CONST UID '4D52A63D0365'
+ CONST Name 'lulin'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
+ ;
+ : Children
+   @ ( ME_4D52A6B50343 // TvgPersistent
+ ME_4D52A881018B // TvgComponent
+ ME_4D52D82E0312 // TvgAnyObjectList
+ ME_4D52D86D0330 // TvgPtrList
+ ME_4D5413C00089 // TvgInterfacedPersistent
+ ME_4D5416AC01D1 // TvgCustomControl
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D52A63D0365.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D52A63D0365.pas.ms.script.runner'
+
+ref; // ME_4D52A63D0365 lulin

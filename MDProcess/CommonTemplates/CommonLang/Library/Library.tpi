@@ -1,0 +1,905 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Library/Library.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Library::Library
+//
+// Библиотека
+// ---
+// Определяет элемент линковки, содержащий все вложенные типы и интерфесы (разбитые на юниты) и их
+// закрытую реализацию
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Library::Category
+? Библиотека
+? Определяет элемент линковки, содержащий все вложенные типы и интерфесы (разбитые на юниты) и их закрытую реализацию
+> LibSupport::Category
+> Views::Category
+> Impl::Category
+> ComInterfaces::Category
+> Interfaces::Category
+> Unit::Category
+
+= LibraryGenerator::MDAGenerator
+= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_library.gif
+L code_library
+D
+/ - запрещена форвард-декларация
+// Параметры визуализации
+$ C 170,225,245
+$ l 10,100,195
+$ f 10,100,195
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p gui=tie|rtl|gui|prj ? Тип библиотеки --- tie - библиотека с реализацией на C++, используемая в Delphi rtl - утилитная библиотека gui - библиотека представления prj - библиотека специфичная для проекта
+p native name:s ? определяет MPC-имя для внешней (native) библиотеки
+p native lib path:s ? определяет путь где находится внешняя (native) библиотека
+p native includes path:s ? определяет путь где находится нужно искать дополнительные файлы внешней (native) библиотеки
+p exec mode=concluded|idle ? определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+p vendor:s=/Garant ? определяет префикс разработчика
+p defines:s ? определяет файл с условиями компиляции
+p is namespace:b=true ? определяет является ли модуль неймспейсом
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Трансформаторы стереотипа
+
+// нужно ли запускать выполенение LibHome
+%t _need_to_execute
+//#UC START# *47037023006Dfor470361CD0148*
+c                          {}
+r {server/stand alone}:    {true}
+r {both}:                  {true}
+r {""=""}:                 {false}
+//#UC END# *47037023006Dfor470361CD0148*
+
+
+// нужно ли регистрировать LibHome
+%t _need_to_reg
+//#UC START# *4703704402DEfor470361CD0148*
+c           {}
+r {""=""}:  {true}
+//#UC END# *4703704402DEfor470361CD0148*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+	][{"%S{gui}"!="%S{!gui}"}%f_up_prefix(%S) *gui* = *%S{gui}* - Тип библиотеки --- tie - библиотека с реализацией на C++, используемая в Delphi rtl - утилитная библиотека gui - библиотека представления prj - библиотека специфичная для проекта
+	][{"%S{native name}"!="%S{!native name}"}%f_up_prefix(%S) *native name* = *%S{native name}* - определяет MPC-имя для внешней (native) библиотеки
+	][{"%S{native lib path}"!="%S{!native lib path}"}%f_up_prefix(%S) *native lib path* = *%S{native lib path}* - определяет путь где находится внешняя (native) библиотека
+	][{"%S{native includes path}"!="%S{!native includes path}"}%f_up_prefix(%S) *native includes path* = *%S{native includes path}* - определяет путь где находится нужно искать дополнительные файлы внешней (native) библиотеки
+	][{"%S{exec mode}"!="%S{!exec mode}"}%f_up_prefix(%S) *exec mode* = *%S{exec mode}* - определяет режим исполнения Дома билиотеки. Concluded - дом завершится когда завершаться все исполнители. Idle - дом перейдет в сосотояние ожидания.
+	][{"%S{vendor}"!="%S{!vendor}"}%f_up_prefix(%S) *vendor* = *%S{vendor}* - определяет префикс разработчика
+	][{"%S{defines}"!="%S{!defines}"}%f_up_prefix(%S) *defines* = *%S{defines}* - определяет файл с условиями компиляции
+	][{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли модуль неймспейсом
+	]
+
+// подключает заколовок LibHome
+%f _include_base_libhome
+//#UC START# *47036D3D00ABfor470361CD0148*
+	[{%X{lid}=cpp}{import ru.garant.shared.Core.Root_i.StdLibHomeBase;}\#include "shared/Core/impl/Root_i/StdLibHomeBase.h"]
+//#UC END# *47036D3D00ABfor470361CD0148*
+
+// возвращает базовый класс LibHome, от которого должна наследоваться библиотека
+%f _base_libhome
+//#UC START# *47036DD50128for470361CD0148*
+	[{%X{lid}=cpp}{extends ru.garant.shared.Core.Root_i.StdLibHomeBase}virtual public Core::Root_i::StdLibHomeBase]
+//#UC END# *47036DD50128for470361CD0148*
+
+// возвращает namespace к LibHome
+%f _libhome
+//#UC START# *47036E60006Dfor470361CD0148*
+	[{%X{lid}=cpp}{ru.garant.shared.Core.Root.LibHome}Core::Root::LibHome]
+//#UC END# *47036E60006Dfor470361CD0148*
+
+// префикс перед именем LibHome
+%f _name_prefix
+//#UC START# *47036F0403A9for470361CD0148*
+//#UC END# *47036F0403A9for470361CD0148*
+
+// дампит код реализации интерцепоторов
+%f _interceptor_cpp
+//#UC START# *47036F1D0280for470361CD0148*
+//#UC END# *47036F1D0280for470361CD0148*
+
+// дампит код определения интерцепоторов
+%f _interceptor_h
+//#UC START# *47036F3A01B5for470361CD0148*
+//#UC END# *47036F3A01B5for470361CD0148*
+
+// дампит код интерцепторов на java
+%f _interceptor_java
+//#UC START# *47036F9A03B9for470361CD0148*
+//#UC END# *47036F9A03B9for470361CD0148*
+
+// дампит определение собственных методов LibHome
+%f _self_methods_h
+//#UC START# *47036FC002AFfor470361CD0148*
+//#UC END# *47036FC002AFfor470361CD0148*
+
+// дампит реализацию собственных методов LibHome
+%f _self_methods_cpp
+//#UC START# *47036FDC0280for470361CD0148*
+//#UC END# *47036FDC0280for470361CD0148*
+
+// дампит реализация собственных методов на java
+%f _self_methods_java
+//#UC START# *47036FED0128for470361CD0148*
+//#UC END# *47036FED0128for470361CD0148*
+
+// дампит дополнительные инклюды
+%f _add_cpp_inc
+//#UC START# *470370AC0261for470361CD0148*
+	[{%XU=cpp|%XU=h}[<{}{%C#f_IsInterfaces()=true|%CS=ServerInterfaces}%C<{}{%CS=Settings}\#include "%f_with_gen_id(h,%CL)"
+	>>]]
+//#UC END# *470370AC0261for470361CD0148*
+
+// дампит код установки метода запуска LibHome
+%f _set_exec_mode
+//#UC START# *470370E200ABfor470361CD0148*
+	[{%S{exec mode}=idle}[{%X{lid}!=java}{			this.setRequestedStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_IDLE);}	this-\>requested_status (Core::Root::ES_IDLE);]
+	]
+//#UC END# *470370E200ABfor470361CD0148*
+
+// генерация методов для работы с параметрами: вывод использования, проверка, что обязательные
+// параметры заданы
+%f _params_methods_h
+//#UC START# *492A99DD0033for470361CD0148*
+		void print_usage () const;[{%f_need_check_params(%S)=true}
+		
+		bool check_params () const;]
+//#UC END# *492A99DD0033for470361CD0148*
+
+// генерация методов для работы с параметрами: вывод использования, проверка, что обязательные
+// параметры заданы
+%f _params_methods_cpp
+//#UC START# *492A9A2101AAfor470361CD0148*
+	void %S%f_name_prefix()LibHomeImpl::print_usage () const {
+	<{}{"%AM"="Settings::Class"}{%A}[%A<{}{%CC=Attribute}{%C}[%C%f_print_usage()
+	]>]>
+	}
+	[{%f_need_check_params(%S)=true}
+	bool %S%f_name_prefix()LibHomeImpl::check_params () const {
+	%f_set_var(IS_FIRST,"true")\
+	<{}{"%AM"="Settings::Class"}[%A<{}{%CC=Attribute}{%C}[\
+		[{%{IS_FIRST}N=true}{res &}%f_set_var(IS_FIRST,"false")bool res ]= check_param\<%t_spec_check_param(%C)\> ("-%CN", [{%C{is_required}=true}{false}true]);
+	]>]>
+		return res;
+	}]
+
+t _spec_check_param
+c                                     {}
+r {%TS=UMLPrimitive&%TN=boolean}:     {unsigned long}
+r {%f_is_string(%T)=true}:            {std::string}
+r {""=""}:                            {%t_ret(%T,"in")}
+
+%f _global_methods_cpp
+	[{%f_need_check_params(%S)=true}\
+		template \<typename T\>
+		bool check_param (const char* key, bool is_requared) {
+			bool res = true;
+			if (Core::ParamManagerFactory::get ().is_exist (key)) {
+				std::string value = Core::ParamManagerFactory::get ().get_string (key);
+				try {
+					boost::lexical_cast\<T\> (value);
+				} catch (boost::bad_lexical_cast&) {
+					res = false;
+					LOG_E (("Неверное значение параметра \%s: \%s", key, value.c_str ()));
+				}
+			} else if (is_requared) {
+				res = false;
+				LOG_E(("Не задан обязательный параметр: \%s", key));
+			}
+			
+			return res;
+		}
+		
+		template \<\>
+		bool check_param\<std::string\> (const char* key, bool is_requared) {
+			if (is_requared && !Core::ParamManagerFactory::get ().is_exist (key)) {
+				LOG_E(("Не задан обязательный параметр \<\%s\>", key));
+				return false;
+			}
+			return true;
+		}%f_clear_list(ENUMS)
+		[<{}{%AM=Settings::Class}%A<{}{%CC=Attribute&%C%TS=Enum&%f_exists_in_list(ENUMS,"%C%TU")=false}{%C}%f_add_to_list(ENUMS,"%C%TU")
+		template \<\>
+		bool check_param\<%f_type(%C%T)\> (const char* key, bool is_requared) {
+			bool res = true;
+			if (Core::ParamManagerFactory::get ().is_exist (key)) {
+				res = false;
+				std::string value = Core::ParamManagerFactory::get ().get_string (key);
+		%C%T<{}{%CC=Attribute}		res |= value == "%CN";
+		>		if (!res) {
+					LOG_E (("Неверное значение параметра \%s: \%s", key, value.c_str ()));
+				}
+			} else if (is_requared) {
+				res = false;
+				LOG_E(("Не задан обязательный параметр: \%s", key));
+			}
+			return res;
+		}\
+	>>]]
+
+f _dump_params_includes
+	%f_clear_list(INCLUDES)\
+	<{}{%AM=Settings::Class}%A<{}{%CC=Attribute&%C%TS=Enum&%f_exists_in_list(INCLUDES,"%f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)")=false}{%C}%f_add_to_list(INCLUDES,"%C%TU")[\
+	\#include %f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)
+	]>>%f_clear_list(INCLUDES)
+
+f _need_check_params
+	[{%S%f_need_dump_params_methods()=true&<{}{%AM=Settings::Class&%A<{}{%CC=Attribute&[{%f_is_string(%C%T)=false|%C{is_required}=true}{false}true]}{%CC}>!=0}{%AC}>!=0}{false}true]
+
+f _check_enum
+	
+//#UC END# *492A9A2101AAfor470361CD0148*
+
+// возвращает true, если нужно генерить методы для работы с параметрами...
+%f _need_dump_params_methods
+//#UC START# *492A9D95027Cfor470361CD0148*
+	[{<{}{%AM=Settings::Class&%A<{%CC=Attribute}{%CC}>!=0}{%AC}>!=0}{false}true]
+//#UC END# *492A9D95027Cfor470361CD0148*
+
+// Метод генерирует дополнительную декларацию.
+%f _additional_declarations
+//#UC START# *492D3C81013Ffor470361CD0148*
+//#UC END# *492D3C81013Ffor470361CD0148*
+
+// Метод генерирует дополнительную реализацию.
+%f _addition_definitions
+//#UC START# *492D4842032Cfor470361CD0148*
+//#UC END# *492D4842032Cfor470361CD0148*
+
+// Метод генерирует дополнительную реализацию.
+%f _additional_def_java
+//#UC START# *492E98DB0075for470361CD0148*
+//#UC END# *492E98DB0075for470361CD0148*
+
+// Путь к библиотеке
+%f _pas_LibPath
+//#UC START# *494913390011for470361CD0148*
+	[{%S{gui}=true}{[{%S{gui}=false}{[{%S{gui}!=prj&%PS!=VCMTestProject}[{%S{gui}=tie&"%XU"!="intf.pas"}{/%S{gui}}]]}/rtl]}/gui]\
+	%t_pas_VendorPrefix(%S)[/%S%f_pas_DecorLibName()]
+//#UC END# *494913390011for470361CD0148*
+
+// Имя файла библиотеки
+%f _pas_LibUnitName
+//#UC START# *4954DBDD00A3for470361CD0148*
+	[{%P#f_IsVCMSubsystem()=true}%f_N(%P)_]%f_str_replace(%SN, ,_)_lib.info
+//#UC END# *4954DBDD00A3for470361CD0148*
+
+// Деокрирует имя библиотеки
+%f _pas_DecorLibName
+//#UC START# *49997EB002BAfor470361CD0148*
+	%f_str_replace(%f_N(%S), ,_)
+//#UC END# *49997EB002BAfor470361CD0148*
+
+// Проверка является ли библиотека базой данных
+%f _check_db_data
+//#UC START# *49B1081100FEfor470361CD0148*
+	false
+//#UC END# *49B1081100FEfor470361CD0148*
+
+// Перекрывается в переопределённом Library из PMM.
+%f _additional_pre_declarations
+//#UC START# *4A0AB21B0055for470361CD0148*
+//#UC END# *4A0AB21B0055for470361CD0148*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470361CD0148*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for470361CD0148*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470361CD0148*
+//#UC END# *4705CBD6003Efor470361CD0148*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for470361CD0148*
+//#UC END# *470484D50138for470361CD0148*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических cpp-шников (например хидере реализации хранения)
+%f _specific_cpp_files_list
+//#UC START# *47EA208B0009for470361CD0148*
+//#UC END# *47EA208B0009for470361CD0148*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических хидеров (например хидере реализации хранения)
+%f _specific_h_files_list
+//#UC START# *47EA1ED00157for470361CD0148*
+//#UC END# *47EA1ED00157for470361CD0148*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for470361CD0148*
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+C /%SN
+	<%CX>
+//#UC END# *4705C54B01F4for470361CD0148*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for470361CD0148*
+= fctr.cpp
+//#UC END# *4705C5490109for470361CD0148*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor470361CD0148*
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+C %S%f_pas_LibPath()
+//C /%SN
+O %S%f_name_prefix()LibHome.cpp
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	[{%f_need_check_params(%S)=true}\
+	\#include "boost/lexical_cast.hpp"
+	\#include "shared/Core/Params/Params.h"
+	]\#include "[{%XU=cpp}{%f_with_gen_id(fctr.h,%SL)}%f_with_gen_id(h,%SL)]"
+	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}\
+	[\#include "%f_with_gen_id(fctr.h,%AL)"
+	]]>[%f_dump_params_includes(%S)]<{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}\#include "%f_with_gen_id(h,%AL)"
+	>%S%f_add_cpp_inc()[
+	%S%f_open_ifdef()]
+	%SP[namespace %SN {
+	][
+	namespace {
+	%S%f_global_methods_cpp()
+	} //namespace
+	]
+	%S%f_self_methods_cpp()\
+	%S%f_interceptor_cpp()\
+	%S%f_libhome()& %S%f_name_prefix()LibHomeFactory::get () {
+		return %S%f_name_prefix()LibHomeImpl::Singleton::instance();
+	}
+	
+	%S%f_name_prefix()LibHomeImpl::%S%f_name_prefix()LibHomeImpl () {
+	%S%f_set_exec_mode()\
+	<{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}	this-\>get_executors ().insert (&%AN::get ());
+	>}
+	
+	void %S%f_name_prefix()LibHomeImpl::registrate_all_factories () const {
+		%U[{_ENVIRONMENTS_CONFIG}
+		]
+	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}
+	[	%A%f_open_ifdef()
+	]	[{%A{Factory auto reg}=true}{%U[{_CUSTOM_REGISTRATE_FOR_%AU_%AN}\n	]}\{
+			%f_type(%A)_factory_var fctr = new %f_type(%A)_factory ();
+			fctr-\>registrate_me([{}{0}%A{factory priority}]);
+		\}][
+		%A%f_close_ifdef()]
+		]>
+	}
+		
+	void %S%f_name_prefix()LibHomeImpl::finalize () {
+//	[<{}{%AM=Servant::Class}{r}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}[\
+//	%f_dump_all_fctr_mng_unreg(%A)
+//	]]>
+//	]\
+	}[{%S%f_need_dump_params_methods()=true}
+		
+	%S%f_params_methods_cpp()]
+	%S%f_addition_definitions()\
+	[} // namespace %SN
+	]%Sp<%CX>
+	%f_footer(%S)
+
+f _dump_all_fctr_mng_unreg
+	[{}{<%f_dump_all_fctr_mng_unreg(%G)>}<{\n}{%RS=Interface|%RS=ServerInterface}[{%RN!=LibHomeManager}	%f_type(%R)FactoryManager::unregister_all_factories ();]>]
+
+//#UC END# *47022CB8034Bfor470361CD0148*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470361CD0148*
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+C %S%f_pas_LibPath()
+//C /%SN
+O %S%f_name_prefix()LibHome.h
+	%f_output_constraint(%S)\
+	%f_h_header(%S)
+	%f_std_inc(%S)
+	%S%f_include_base_libhome()[
+	%S%f_open_ifdef()]
+	
+	%SP[namespace %SN {
+	][
+	%S%f_additional_pre_declarations()]
+	class %S%f_name_prefix()LibHomeFactory {
+	public:
+		static %S%f_libhome()& get ();
+	};
+	
+	class %S%f_name_prefix()LibHomeImpl : %S%f_base_libhome() {
+		SET_OBJECT_COUNTER (%S%f_name_prefix()LibHomeImpl)
+	[%S%f_interceptor_h()
+	
+	]%S%f_self_methods_h()
+	
+	private:
+		friend class %S%f_name_prefix()LibHomeFactory;
+		
+		REFCOUNT_SINGLETON(%S%f_name_prefix()LibHomeImpl)
+		
+		%S%f_name_prefix()LibHomeImpl ();
+	
+		void registrate_all_factories () const;
+		
+		void finalize ();[{%S%f_need_dump_params_methods()=true}
+		
+	%S%f_params_methods_h()]
+	};
+//	<{}{"%aM"="ComTarget::Category"|"%aM"="ExeTarget::Category"|"%aM"="AdapterTarget::Category"|"%aM"="AdapterTargetUnion::Category"}{%a}%f_add_to_list(TARGETS,a)>\
+//	<{}{%f_is_empty(TARGETS)=false}{W}[%f_pop_first_to_var(TARGETS,_TS_)%{_TS_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{}{%C}\
+//	[{%f_exists_in_list(LIBN,"%CN")=false}[{"%C%TN"!="string"}{std::string}%t_n(%C%T,"%X{lid}")]\
+//	 get_%f_to_omg(%CN());
+//	 
+//	void set_%f_to_omg(%CN([{"%C%TN"!="string"}{const std::string&}%t_arg(%C%T,"in")] value));
+//	
+//	]>>]>\
+	%S%f_additional_declarations()\
+	[} // namespace %SN
+	]%Sp<%CX>
+	%f_h_footer(%S)
+//#UC END# *47022C88029Ffor470361CD0148*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor470361CD0148*
+= fctr.cpp
+//#UC END# *47022CCF00EAfor470361CD0148*
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генерация файла опрделений для регистрации COM DLL (.rgs)
++ com.rgs
+//#UC START# *470320E002CEfor470361CD0148*
+P
+C /%SN
+	<%CX>
+//#UC END# *470320E002CEfor470361CD0148*
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генератор ODL-файла спецификации COM-интерфейса (.odl)
++ odl
+//#UC START# *47032097038Afor470361CD0148*
+= fctr.cpp
+//#UC END# *47032097038Afor470361CD0148*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470361CD0148*
+//#UC END# *47022BBE0261for470361CD0148*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
++ idl_ami
+//#UC START# *47022C0F01E4for470361CD0148*
+//#UC END# *47022C0F01E4for470361CD0148*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor470361CD0148*
+P
+C %S%f_pas_LibPath()
+	<%CX>
+//#UC END# *49F5795900ECfor470361CD0148*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470361CD0148*
+R  
+P
+C %S%f_pas_LibPath()
+O %S%f_pas_LibUnitName()
+	[{"%SO"!=""}%SN : %SS - %SD]
+	<%CX>
+//#UC END# *470F1571031Cfor470361CD0148*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for470361CD0148*
+//#UC END# *477398E501C0for470361CD0148*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for470361CD0148*
+//#UC END# *4774D2A20372for470361CD0148*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for470361CD0148*
+P
+C %S%f_pas_LibPath()
+	<%CX>
+//#UC END# *55B8D28B0157for470361CD0148*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for470361CD0148*
+P
+C %S%f_pas_LibPath()
+	<%CX>
+//#UC END# *55B8D2F80145for470361CD0148*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for470361CD0148*
+P
+C %S%f_pas_LibPath()
+	<%CX>
+//#UC END# *55B8DD9C0301for470361CD0148*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470361CD0148*
+P
+C [{%S{is namespace}=true}/%SN]
+	<%CX>
+//#UC END# *470321C1038Afor470361CD0148*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470361CD0148*
+P
+C [{%S{is namespace}=true}/%SN]
+O %S%f_name_prefix()LibHomeFactory.java
+	%f_header(%S)
+	package %f_dump_java_package(%S).%SN;
+	
+	[%f_dump_std_java_imports(%S)
+	][%f_java_core_exceptions(%S)
+	][%S%f_include_base_libhome()
+/	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}\
+/	[%f_with_gen_id(java,%f_java_import(%A))
+/	]]>%S%f_add_java_inc()
+	]
+	public class %S%f_name_prefix()LibHomeFactory {
+		public static %S%f_libhome() get () {
+			return %S%f_name_prefix()LibHomeImpl.getInstace ();
+		}
+		
+		private static class %S%f_name_prefix()LibHomeImpl %S%f_base_libhome() {
+		[
+		%S%f_interceptor_java()
+		]
+			private static %S%f_libhome() getInstace () {
+				return sInstance_;
+			}[
+			
+		%S%f_self_methods_java()]
+		
+			private %S%f_name_prefix()LibHomeImpl () {
+	%S%f_set_exec_mode()\
+	<{}{%AS=LibExecutor&%S%t_need_to_execute(%A{type})=true}			this.getExecutors ().add(%f_type(%A).get());
+	>		}
+		
+			public void registrateAllFactories () {
+				%U[{_ENVIRONMENTS_CONFIG}
+				]
+	<{}{%AM=Servant::Class|%AM=SrvServant::Class}[{%S%t_need_to_reg(%A)=true&%f_has_factory_methods(%A)=true}
+	[{%A{Factory auto reg}=true}{			%U[{_CUSTOM_REGISTRATE_FOR_%AU_%AN}\n			]}\
+				try {
+					%f_type(%A)FactoryImpl fctr = new %f_type(%A)FactoryImpl ();
+					fctr.registrateMe((short)[{}{0}%A{factory priority}]);
+				} catch (DuplicatedFactoryKey ex) {
+					Logs.LOG_SEX (ex);
+				}]
+	]>
+			}
+		
+			public void finalize () {
+			}
+		
+			private static %S%f_name_prefix()LibHomeImpl sInstance_ = new %S%f_name_prefix()LibHomeImpl ();
+		<%CX>
+		} // class %S%f_name_prefix()LibHomeImpl[
+		
+		%S%f_additional_def_java()]
+	} // class %S%f_name_prefix()LibHomeFactory
+	%f_footer(%S)
+
+f _dump_all_fctr_mng_unreg_java
+	[{}{<%f_dump_all_fctr_mng_unreg_java(%G)>}<{\n}{%RS=Interface|%RS=ServerInterface}[{%RN!=LibHomeManager}%f_type(%R)FactoryManager.unregisterAllFactories ();]>]
+
+//#UC END# *470321950119for470361CD0148*
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
++ forth_structure
+R  
+//#UC START# *4F368B80039Efor470361CD0148*
+= Requirements::Category;forth_structure
+//#UC END# *4F368B80039Efor470361CD0148*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor470361CD0148*
+= fctr.cpp
+//#UC END# *47032ED002DEfor470361CD0148*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor470361CD0148*
+= fctr.cpp
+//#UC END# *47032EC4032Cfor470361CD0148*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470361CD0148*
+P
+C /%f_N(%S)
+	<%CX>
+//#UC END# *470F152700FAfor470361CD0148*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер проектные файлы::MDAGenerator
+// MPC для TIE-обвязки (.mpc)
++ mpc.dll
+//#UC START# *470F252801D4for470361CD0148*
+P
+/C /%SN/targets
+O %SN_tie.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN_tie library
+	%f_header(%S)
+	project (%SN_tie) : project_generic_core[{%f_use_server(%S)=true}_corba] {
+		sharedname = %SN_tie
+		staticname = %SN_tie
+		
+		includes += %f_root_relative_path(%S)
+		
+		after += %SN
+		libs  += %SN
+		
+		Header_Files {
+			Std_Headers {
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(dll.h,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(dll.h,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(dll.h,A)
+			]>[{%S{need UC}=true}%U[{_%CN_Manual_Headers}
+			]
+			]}
+		>[{%S{need UC}=true}
+			Rest_Headers {
+			%U[{_Rest_Manual_Headers}
+			]
+			}]
+		}
+	[{%S{need UC}=true}
+		Inline_Files {
+			%U[{_Manual_Inlines}
+			]
+		}
+	]
+		Source_Files {
+			Std_Sources {				
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(dll.cpp,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(dll.cpp,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(dll.cpp,A)
+			]>[{%S{need UC}=true}%U[{_%CN_Manual_Sources}
+			]
+			]}
+		>[{%S{need UC}=true}
+			Rest_Sources {
+			%U[{_Rest_Manual_Sources}
+			]
+			}]
+		}
+	[{%S{need UC}=true}
+		Resource_Files {
+		%U[{_RESOURCE_FILES}
+		]
+		}]
+	}
+	%f_footer(%S)
+//#UC END# *470F252801D4for470361CD0148*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470361CD0148*
+C /%SN:%SU
+O %SN
+L code_library
+S %SN
+
+	%f_wiki_header(%S)
+	[h2. Модель[
+	{info}Включает реализацию требований:%f_collect_req(%S)
+	<{}{%f_exists_in_list(REQS,a)=true}* %f_k_link(%a)
+	>{info}][
+	
+	{info}Использует модули:
+	<{}{%DS!=Requirements}* %f_k_link(%D)
+	>{info}][
+	
+	{info}Используется из модулей:
+	<{}{%aS!=Requirements&%t_target_ex(%a)!=true}{Sp}* %f_k_link(%a)
+	>{info}][
+	
+	{info}Включается в таргеты:
+	<{}{%aS!=Requirements&%t_target_ex(%a)=true}{Sp}* %f_k_link(%a)
+	>{info}][\
+	%f_k_common_elem_docs(%S)][{%mx=true&%Cx=true}
+	
+	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма модуля:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]][
+	
+	h2. Состав модуля[
+	
+	_Интерфейсные пакеты:_<{}{%C#f_wiki_interface_package()=true}{%CSn}
+	\# *%f_k_link(%C)*
+	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+	
+	_Утилитные пакеты:_<{}{%C#f_wiki_utility_package()=true}{%CSn}
+	\# *%f_k_link(%C)*
+	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+	
+	_Схемы данных:_<{}{%C#f_data_scheme_package()=true}{%CSn}
+	\# *%f_k_link(%C)*
+	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+	
+	_Пакеты реализации и вспомогательные пакеты:_<{}{%C#f_wiki_impl_or_support_package()=true}{%CSn}
+	\# *%f_k_link(%C)*
+	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+	%f_wiki_footer(%S)
+//#UC END# *46E6D4BB0339for470361CD0148*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor470361CD0148*
+P
+O %SN.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN library
+	%f_header(%S)
+	project (%SN) : project_generic_core[{%f_use_server(%S)=true}_corba][{"<{}{%CM=ComInterfaces::Category}{C}>"!="0"}, project_compile_odl][{<{}{%AM=Grammar::Class}{%AC}>!=0}, project_compile_g] {
+		sharedname = %SN
+		staticname = %SN
+	[
+	%f_mpc_all_includes(%S)
+	%f_mpc_all_libpaths(%S)
+	][{%f_use_server(%S)=true&%SN!=Core&%SN!=CoreSrv}
+		after += CoreSrv_cs
+		libs  += CoreSrv_cs
+	]
+	%f_library_mpc_base(%S)
+	}
+	%f_footer(%S)
+//#UC END# *47031E41002Efor470361CD0148*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor470361CD0148*
+C /%SN
+P
+	<%CX>
+//#UC END# *471442BE033Cfor470361CD0148*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor470361CD0148*
+C /%SN
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+O build.xml
+	%f_output_constraint(%S)\
+	\<?xml version="1.0" encoding="windows-1251"?\>
+	\<project name="%SN" basedir="."\>
+		\<property environment="env"/\>
+		\<property name="build.dir" value="$\{env.JAVA_SOURCE_ROOT}/build/target"/\>
+		
+		\<target name="idlcomp"/\>
+		\<target name="gcomp"\>
+	%f_all_generators(%S)[{%f_exists_in_list(ALL_GENERATORS_ID,"g.java")=true}[<{}{"%f_with_gen_id(g.java,%Ao)"!=""}{%A}%f_gcomp_antlr(%A)
+		>]]\
+		\</target\>
+		\<target name="makejar"\>
+			\<mkdir dir="${build.dir}/jar"/\>
+			\<jar destfile="${build.dir}/jar/%SN.jar"\>
+				\<fileset dir ="${build.dir}/classes"\>
+					\<include name="%f_str_replace(%f_dump_java_package(%S),.,/)/%SN/"/\>
+				\</fileset\>[
+	%f_dump_file_set_dir(%S)]
+			\</jar\>
+		\</target\>
+		<%CX>
+	\</project\>
+
+f _dump_file_set_dir
+	%f_set_var(SELF,S)%f_clear_list(DIRS)\
+	[{<{}{"%f_with_gen_id(output.xml,%AO)"!=""}{%AC}>!=0}[{%f_exists_in_list(DIRS,"%f_with_gen_id(output.xml,%{SELF}R%{SELF}d)")=false}%f_add_to_list(DIRS,"%f_with_gen_id(output.xml,%{SELF}R%{SELF}d)")]]\
+	[{<{}{"%f_with_gen_id(vm,%AO)"!=""}{%AC}>!=0}[{%f_exists_in_list(DIRS,"%f_with_gen_id(vm,%{SELF}R%{SELF}d)")=false}%f_add_to_list(DIRS,"%f_with_gen_id(vm,%{SELF}R%{SELF}d)")]]\
+	[<{\n}{%f_is_empty(DIRS)=false}{W}%f_pop_last_to_var(DIRS,DIR)\
+				\<fileset dir ="%f_cut_postfix(%{DIR}N,/%{SELF}N)"\>
+					\<include name="%{SELF}N/*"/\>
+					\<include name="%{SELF}N/**/*"/\>
+				\</fileset\>>]
+//#UC END# *47032262037Afor470361CD0148*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for470361CD0148*
+C /%SN
+P
+	<%CX>
+//#UC END# *4703223D01A5for470361CD0148*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for470361CD0148*
+	<%CX>
+//#UC END# *4A41A13D03D5for470361CD0148*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

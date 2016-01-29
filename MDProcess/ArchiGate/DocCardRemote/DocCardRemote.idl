@@ -1,0 +1,238 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/ArchiGate/DocCardRemote/DocCardRemote.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::ArchiGate::DocCardRemote
+//
+// для работы с гардоком
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___DOCCARDREMOTE_IDL__
+#define ___DOCCARDREMOTE_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#pragma prefix "garant.ru"
+
+module ArchiGate {
+
+module DocCardRemote {
+	typedef sequence<string> StringList;
+
+	enum ImageType {
+		giZIP
+		, giTIF
+		, giDOC
+		, giRTF
+		, giNSR
+	};
+
+	typedef sequence<octet> ByteBuffer;
+
+	interface BigFileIterator {
+		ByteBuffer next (in long long chunkSizeInBytes);
+		void destroy ()
+			raises (CoreSrv::ForeignObject);
+	};
+
+	// factory manager server interface for BigFileIterator
+	interface BigFileIteratorFactoryManagerSrv {
+		BigFileIterator make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	struct Image {
+		ByteBuffer data;
+		ImageType type;
+		// источник публикования
+		string src_title;
+		// номер страницы
+		string src_page;
+		// номер источника опубликования
+		string src_number;
+		long long src_date_start;
+		long long src_date_end;
+		StringList labels;
+		BigFileIterator bigFile;
+	};
+
+	enum GardocStatus {
+		gsNEW
+		, gsUPDATED
+	};
+
+	// Какая-то логическая ошибка или разломана база, подробности в логе сервера и у разработчиков МДП
+	exception IllegalStateExceptionRemote {
+	};
+
+	enum GarDocType {
+		gtDoc
+		, gtRelated
+	};
+
+	enum GarDocUrgency {
+		guInVersion // в версию
+		, guQuickly // срочный
+		, guOrdinary // обычный
+		, guUnknown // неизвестно
+	};
+
+	// ImageList
+	typedef sequence<Image> ImageList;
+
+	// либо новый документ появился в арчи, либо информация по старому проапдейтилась
+	const string save_or_update = "save_or_update";
+
+	struct Gardoc {
+		// тип
+		string type;
+		string number;
+		// дата в формате ДД.ММ.ГГГГ, например 20.10.2011
+		long long date;
+		string title;
+		string mu_number;
+		long long mu_date;
+		StringList blocks;
+		// время (в миллисекундах) появления образа в К
+		long long timestamp;
+		string comment;
+		StringList ogv_list;
+		ImageList images;
+		// id запроса в К.
+		long long confluence_id;
+		long long topic;
+		GardocStatus state;
+		// если документ справка, то здесь передается текст справки, если нет, то пусто
+		string text;
+		// топик справки
+		long long related;
+		// тип документа
+		GarDocType gardoc_type;
+		// срочность
+		GarDocUrgency urgency;
+		// флажок, что надо выложить на сайт, нужен для оперативной обработки таких документов
+		boolean is_internet;
+	};
+
+	// список гардоков
+	typedef sequence<Gardoc> GardocList;
+
+	// событие
+	struct ArchiEvent {
+		// тип
+		string type;
+		Gardoc doc;
+	};
+
+	// слушатель событий из арчи
+	interface ArchiEventsListener {
+		// в арчи появился новый документ или обновился старый
+		void on_event (in ArchiEvent event);
+		// release
+		void release ()
+			raises (CoreSrv::ForeignObject);
+	};
+
+	// factory manager server interface for ArchiEventsListener
+	interface ArchiEventsListenerFactoryManagerSrv {
+		// make
+		ArchiEventsListener make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	interface Searcher2 {
+		void release ()
+			raises (CoreSrv::ForeignObject);
+		GardocList get_top_created_since (in long long date, in long maxCount, in string partnerId)
+			raises (IllegalStateExceptionRemote);
+		GardocList get_notop_created_since (in long long date, in long maxCount, in string partnerId)
+			raises (IllegalStateExceptionRemote);
+	};
+
+	// factory manager server interface for Searcher2
+	interface Searcher2FactoryManagerSrv {
+		Searcher2 make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	interface Utils {
+		void release ()
+			raises (CoreSrv::ForeignObject);
+		// Особенность работы сервера заключается в том что он сначало получает все документы с указанной
+		// даты в реализации Searcher2::get_xxxx, а потом выкидывает лишнее (например фильтрует по
+		// партнеру). Если время, которое подает клиент слишком старое, то фильрация может занимать
+		// несколько десятков минут. Поэтому клиенту предлагается в случае, если ему на
+		// Searcher2::get_xxxx не вернулся ни один документ, дернуть update_old_last_created_time и
+		// результат запомнить у себя.
+		// Сервер будет отнимать от текущего времени 30-ть минут и результат возвращать клиенту. Если
+		// получившееся время старше входного параметра, то просто отдается time.
+		long long update_old_last_created_time (in long long date)
+			raises (IllegalStateExceptionRemote);
+	};
+
+	// factory manager server interface for Utils
+	interface UtilsFactoryManagerSrv {
+		Utils make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	typedef sequence<long long> LongList;
+
+	interface GardocGetter {
+		void release ()
+			raises (CoreSrv::ForeignObject);
+		GardocList gardocs_by_topic_list (in LongList topicList)
+			raises (IllegalStateExceptionRemote);
+		GardocList gardocs_by_confluenceid_list (in LongList confluenceidList)
+			raises (IllegalStateExceptionRemote);
+	};
+
+	// factory manager server interface for GardocGetter
+	interface GardocGetterFactoryManagerSrv {
+		GardocGetter make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+
+	// ищет гардоки по различным критериям
+	interface Searcher {
+		// список новых зарегистрированных документов после date (время в секундах после 1-го января 1970
+		// года)
+		GardocList get_recently_created_since (in long long date)
+			raises (IllegalStateExceptionRemote);
+		// освобождает серверный ресурс, если не звать - сервер будет пухнуть.
+		void release ()
+			raises (CoreSrv::ForeignObject);
+		// список новых зарегистрированных документов после date (время в секундах после 1-го января 1970
+		// года). Возвращаются только документы, которые нужно срочно обработать.
+		GardocList get_top_created_since (in long long date, in long maxCount)
+			raises (IllegalStateExceptionRemote);
+		// Список новых зарегистрированных документов после date (время в секундах после 1-го января 1970
+		// года). Возвращаются только документы, которые НЕ нужно срочно обработать.
+		GardocList get_notop_created_since (in long long date, in long maxCount)
+			raises (IllegalStateExceptionRemote);
+	};
+
+	// factory manager server interface for Searcher
+	interface SearcherFactoryManagerSrv {
+		Searcher make ()
+			raises (CoreSrv::NoActiveFactory);
+
+	};
+};
+}; // module ArchiGate
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

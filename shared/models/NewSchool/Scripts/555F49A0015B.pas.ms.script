@@ -1,0 +1,264 @@
+// Tl3EtalonsService 555F49A0015B Service Class
+
+FORWARD ME_555F49A0015B
+
+: ME_2B5260926DBC
+ CONST UID '2B5260926DBC'
+ CONST Name 'Ml3EtalonsService'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3EtalonsService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_2B5260926DBC Ml3EtalonsService
+
+: ME_196A761AE947
+ CONST UID '196A761AE947'
+ CONST GUID '61640207-46D1-41DC-A087-0DC7D620B901'
+ CONST Name 'Il3EtalonsService'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3EtalonsService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_2B5260926DBC // Ml3EtalonsService
+ ]
+ ; // Implements
+
+ @SELF
+; // ME_196A761AE947 Il3EtalonsService
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_555F49BD0098
+ CONST UID '555F49BD0098'
+ CONST Name 'EtalonNeedsComputerName'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_555F49BD0098 EtalonNeedsComputerName
+
+: ME_555F49DE0060
+ CONST UID '555F49DE0060'
+ CONST Name 'EtalonNeedsOSName'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_555F49DE0060 EtalonNeedsOSName
+
+: ME_555F49FD0175
+ CONST UID '555F49FD0175'
+ CONST Name 'EtalonNeedsXE'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST "ifdef" 'XE'
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_555F49FD0175 EtalonNeedsXE
+
+: ME_555F4A16032F
+ CONST UID '555F4A16032F'
+ CONST Name 'EtalonNeeds64'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_555F4A16032F EtalonNeeds64
+
+: ME_95064D96554A
+ CONST UID '95064D96554A'
+ CONST Name 'f_EtalonNeedsComputerName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства EtalonNeedsComputerName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_95064D96554A f_EtalonNeedsComputerName
+
+: ME_1BDA27D16FFD
+ CONST UID '1BDA27D16FFD'
+ CONST Name 'f_EtalonNeedsOSName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства EtalonNeedsOSName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_1BDA27D16FFD f_EtalonNeedsOSName
+
+: ME_1EE50241244A
+ CONST UID '1EE50241244A'
+ CONST Name 'f_EtalonNeedsXE'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства EtalonNeedsXE' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST "ifdef" 'XE'
+
+ @SELF
+; // ME_1EE50241244A f_EtalonNeedsXE
+
+: ME_E43B28356AC7
+ CONST UID 'E43B28356AC7'
+ CONST Name 'f_EtalonNeeds64'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства EtalonNeeds64' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_E43B28356AC7 f_EtalonNeeds64
+
+: ME_398AECDF6266
+ CONST UID '398AECDF6266'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3EtalonsService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_196A761AE947 // Il3EtalonsService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_398AECDF6266 Alien
+
+: ME_AE5AF28778DD
+ CONST UID 'AE5AF28778DD'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_196A761AE947 // Il3EtalonsService
+ ;
+
+ @SELF
+; // ME_AE5AF28778DD f_Alien
+
+: ME_1455DA6EADE4
+ CONST UID '1455DA6EADE4'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_1455DA6EADE4 Exists
+
+: ME_555F49A0015B
+ CONST UID '555F49A0015B'
+ CONST Name 'Tl3EtalonsService'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_2B5260926DBC // Ml3EtalonsService
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_555F49BD0098 // EtalonNeedsComputerName
+ ME_555F49DE0060 // EtalonNeedsOSName
+ ME_555F49FD0175 // EtalonNeedsXE
+ ME_555F4A16032F // EtalonNeeds64
+ ME_95064D96554A // f_EtalonNeedsComputerName
+ ME_1BDA27D16FFD // f_EtalonNeedsOSName
+ ME_1EE50241244A // f_EtalonNeedsXE
+ ME_E43B28356AC7 // f_EtalonNeeds64
+ ME_398AECDF6266 // Alien
+ ME_AE5AF28778DD // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_1455DA6EADE4 // Exists
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_2B5260926DBC // Ml3EtalonsService
+ ME_196A761AE947 // Il3EtalonsService
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_555F49A0015B Tl3EtalonsService

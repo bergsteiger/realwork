@@ -1,0 +1,136 @@
+/**
+ * This IDL provides interfaces that support both transactional and non-transactional modes of operation
+ */
+ 
+#ifndef _CCS_IDL_
+#define _CCS_IDL_
+
+#include "CosTransactions.idl"
+
+#pragma prefix "omg.org"
+
+module CosConcurrencyControl
+{	
+	/**
+	 * The lock_mode type represents the types of lock that can be acquired on a resource
+	 */
+	enum lock_mode
+	{
+		read,
+		write,
+		upgrade,
+		intention_read,
+		intention_write
+	};
+	
+	/**
+	 * The LockNotHeld exception is raised when an operation to unlock or change the mode of a lock
+	 *  is called and the specified lock is not held
+	 */
+	exception LockNotHeld{};
+	
+	/**
+	 * The LockCoordinator interface enables a transaction service to drop all locks held
+	 *  by a transaction.
+	 */
+	interface LockCoordinator
+	{
+		/**
+		 * Releases all locks held by the transaction
+		 */
+		void drop_locks();
+	};
+	
+	/**
+	 * The LockSet interface provides operations to aquire and release locks on behalf of the 
+	 *  calling thread or transaction
+	 */
+	interface LockSet
+	{
+		/** 
+		 * Acquires a lock on the specified lock set in the specified mode
+		 */
+		void lock(in lock_mode mode);
+		
+		/**
+		 * Attempts to acquire a lock on the specified lock set.
+		 */
+		boolean try_lock(in lock_mode mode);
+		
+		/**
+		 * Drops a single lock on the specified lock set in the specified mode
+		 */
+		void unlock(in lock_mode mode) raises (LockNotHeld);
+		
+		/**
+		 * Changes the mode of a single lock
+		 */
+		void change_mode(in lock_mode held_mode, in lock_mode new_mode) raises (LockNotHeld);
+	};
+	
+	/**
+	 * The TransactionalLockSet interface provides operations to acquire and release locks on a lock set
+	 *  on behalf of a specific transaction. 
+	 */
+	interface TransactionalLockSet
+	{
+		/**
+		 * Acquires a lock on the specified lock set in the specified mode
+		 */
+		void lock(in CosTransactions::Coordinator current, in lock_mode mode);
+		
+		/**
+		 * Attempts to acquire a lock on the specified lock set
+		 */
+		boolean try_lock(in CosTransactions::Coordinator current, in lock_mode mode);
+		
+		/**
+		 * Drops a single lock on the specified lock set in the specified mode
+		 */
+		void unlock(in CosTransactions::Coordinator current, in lock_mode mode) raises (LockNotHeld);
+		
+		/**
+		 * Changes the mode of a single lock
+		 */
+		void change_mode(in CosTransactions::Coordinator current, in lock_mode held_mode, in lock_mode new_mode) raises (LockNotHeld);
+		
+		/**
+		 * Returns the lock coordinator associated with the specified transaction
+		 */
+		LockCoordinator get_coordinator(in CosTransactions::Coordinator which);
+	};
+	
+	/**
+	 * The LockSetFactory interface provides sets of operations that return new LockSet
+	 *  and TransactionalLockSet instances
+	 */
+	interface LockSetFactory
+	{
+		/**
+		 * Creates a new lock set and lock coordinator
+		 */
+		LockSet create();
+		
+		/**
+		 * Creates a new lock set that is related to an existing lock set.
+		 *  Related lock sets drop their locks together
+		 */
+		LockSet create_related(in LockSet which);
+		
+		/**
+		 * Creates a new transactional lock set and lock coordinator for explicit mode transactional clients
+		 */
+		TransactionalLockSet create_transactional();
+		
+		/**
+		 * Creates a new transactional lock set that is related to an existing lock set.
+		 *  Related lock sets drop their locks together.
+		 */
+		TransactionalLockSet create_transactional_related(in TransactionalLockSet which);
+		
+	};
+};
+
+#pragma prefix ""
+
+#endif

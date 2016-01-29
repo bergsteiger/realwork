@@ -1,0 +1,47 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/Annotate.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAAbstractClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::Annotate
+//
+// поддержка аннотаций
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Annotate::Class
+? поддержка аннотаций
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p annotation:s ? Имя аннотации. Несколько аннтоаций задаются через запятую: Ann1, Ann2
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{annotation}"!="%S{!annotation}"}%f_up_prefix(%S) *annotation* = *%S{annotation}* - Имя аннотации. Несколько аннтоаций задаются через запятую: Ann1, Ann2
+	]
+
+// генерит список аннтоаций
+%f _dump_annotations
+// параметры: tab: string = %1, is_override: boolean = %2
+//#UC START# *4A55CE3F03C5for4A55CDF90044*
+	%f_clear_list(ANNOTATIONS)\
+	%f_split_to_list(ANNOTATIONS,%S{annotation},%f_comma(%S))\
+	[{%PU!=%{SERV}U&%t_interface(%P)=false&%PS!=LocalInterface}%f_add_to_list(ANNOTATIONS,"Override")]\
+	[{%2N=true}%f_add_to_list(ANNOTATIONS,"Override")]\
+	%f_remove_from_list(ANNOTATIONS,"")\
+	%f_sort_list(ANNOTATIONS,n)%f_unique_list(ANNOTATIONS)\
+	%f_set_var(TAB,1)\
+	<{\n}{%f_is_empty(ANNOTATIONS)=false}{W}%f_pop_first_to_var(ANNOTATIONS,ANNOTATION)%{TAB}N%f_str_replace(@%{ANNOTATION}N, ,)>
+//#UC END# *4A55CE3F03C5for4A55CDF90044*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

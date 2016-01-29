@@ -1,0 +1,326 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// TestSuite
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: TestSuite::Category
+$ C 177,205,186
+$ l 10,195,10
+$ f 10,195,10
+? Тест
+? Пакет тестов.
+? Представляет собой тетсовый модуль.
+> Unit::Category, Interface::Category, Impl::Category
+p is namespace:b=false ? определяет является ли модуль нэймспеэсом
+p thread pool size:s ? определяет кол-во потоков в Пуле Потоков приложения
+p force use server:b=false ? определяет, что модуль использует сервер
+
++ mpc
+P
+/C /%SN/targets
+O %SN.mpc
+X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd %SN utility
+# ../t0_header
+	project (T_%SN) : project_generic_core[{%f_use_server(%S)=true}_corba], project_subsystem_console {
+		exename = %SN			
+		includes += %PR/
+		
+		after += GTFLib
+		libs  += GTFLib
+		
+		lit_libs += xerces-c_2
+		after += Core
+		libs  += Core
+		[{%f_use_server(%S)=true}after += CoreSrv_cs
+		libs  += CoreSrv_cs
+		after += CoreSrv
+		libs  += CoreSrv]
+	
+		%U[{_CUSTOM_TOP_DEPENDENCES}
+		]
+		<[{"%d%S{dynamic link only}"="true"&"%dM"="DLL::Category"}{
+		after += %dN[{"%dM"="ServerLibrary::Category"}_cs][{%f_use_server(%S)=true}]
+		libs  += %dN[{"%dM"="ServerLibrary::Category"}_cs][{%f_use_server(%S)=true}]
+		}]>
+		%U[{_CUSTOM_BOTTOM_DEPENDENCES}
+		]
+		
+		Header_Files {
+			Std_Headers {
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(h,C)
+			][	%f_normolized_path(fctr.h,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(h,A)
+			][	%f_normolized_path(fctr.h,A)
+			]>%U[{_%CN_Manual_Headers}
+			]
+			}
+		>
+			Rest_Headers {
+			%U[{_Rest_Manual_Headers}
+			]
+			}
+		}
+	
+		Inline_Files {
+			%U[{_Manual_Inlines}
+			]
+		}
+	
+		Source_Files {
+			Std_Sources {
+			%f_normolized_path(cpp,S)
+			<{}{"%CC"!="Category"}{Sn}[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]>}
+		<{}{"%CC"="Category"}{Sn}
+			%CN {
+			[	%f_normolized_path(cpp,C)
+			][	%f_normolized_path(fctr.cpp,C)
+			]%C<{}{}{%ASn}[	%f_normolized_path(cpp,A)
+			][	%f_normolized_path(fctr.cpp,A)
+			]>%U[{_%CN_Manual_Sources}
+			]
+			}
+		>
+			Rest_Sources {
+			%U[{_Rest_Manual_Sources}
+			]
+			}
+		}
+	
+		Resource_Files {
+		%U[{_RESOURCE_FILES}
+		]
+		}
+	}
+# ../t0_footer
+
++ h
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+O TestModelCommonParams.h
+# ../t0_h_header
+	%f_parameters_constrain(%S)%f_set_var(TEST_SUIT,S)%f_std_inc(%S)
+	\#include \<vector\>
+	\#include "shared/GCL/math/unbounded_ops.h"	
+	<{\n}{"%AM"="Interface::Category"}%A<{\n}\#include %f_dump_include_path(%DL,%D)>>
+	
+	/*//////////////////////////////////////////////////////////////////////////
+	Параметры принимаемые, возвращаемые тестами:
+	
+	<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%C<{}{"%sM"="TestInterface::Class::incoming::Attribute"}%s%PN-\>%{CUR_TYPE}N = %s%P<{}{"%CS"="incoming"&"%C%TU"="%{CUR_TYPE}U"}{C}
+	>
+	>>>>
+	<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%C<{}{"%sM"="TestInterface::Class::outgoing::Attribute"}%s%PN-\>%{CUR_TYPE}N = %s%P<{}{"%CS"="outgoing"&"%C%TU"="%{CUR_TYPE}U"}{C}
+	>
+	>>>>
+	<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%C<{}{"%sM"="TestInterface::Class::external::Attribute"}%s%PN-\>%{CUR_TYPE}N = %s%P<{}{"%CS"="external"&"%C%TU"="%{CUR_TYPE}U"}{C}
+	>
+	>>>>//////////////////////////////////////////////////////////////////////////*/	
+	class TestModelCommonParams {
+		friend ACE_Singleton\<TestModelCommonParams, ACE_SYNCH_MUTEX\>;
+	protected:
+		//default ctor
+		TestModelCommonParams () {
+			//default initialize history size and clean history<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%{TEST_SUIT}[{"<{}{"%AM"="TestInterface::Class"&"%f_use_type(%A,"incoming")"="true"}{C}>"!="0"}
+			set_%f_to_omg(%{CUR_TYPE}N)_history_size (1);
+			clean_%f_to_omg(%{CUR_TYPE}N) ();]>>
+		}
+		//default dtor
+		virtual ~TestModelCommonParams () {};	
+	private:
+		//data	
+		<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%{TEST_SUIT}[{"<{}{"%AM"="TestInterface::Class"&"%f_use_type(%A,"incoming")"="true"}{C}>"!="0"}		
+		std::vector\<%f_var(%{CUR_TYPE})\> m_%f_to_omg(%{CUR_TYPE}N);
+		unsigned long m_%f_to_omg(%{CUR_TYPE}N)_history_size;
+		]>
+		>
+	public:
+		//set methods for history size		
+		<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%{TEST_SUIT}[{"<{}{"%AM"="TestInterface::Class"&"%f_use_type(%A,"incoming")"="true"}{C}>"!="0"}
+		void set_%f_to_omg(%{CUR_TYPE}N)_history_size (unsigned long %f_to_omg(%{CUR_TYPE}N)_history_size) {
+			m_%f_to_omg(%{CUR_TYPE}N)_history_size = %f_to_omg(%{CUR_TYPE}N)_history_size * GCL_MAX (%{TEST_SUIT}<{, }{"%AM"="TestInterface::Class"&"%f_use_type(%A,"incoming")"="true"}%f_dump_link_count(%A,"incoming")>);//история умножается на количество связей
+		}]>
+		>
+		//get methods for slots
+		<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%{TEST_SUIT}[{"<{}{"%AM"="TestInterface::Class"&"%f_use_type(%A,"incoming")"="true"}{C}>"!="0"}
+		%t_ret(%{CUR_TYPE}) get_%f_to_omg(%{CUR_TYPE}N) () {
+			if (m_%f_to_omg(%{CUR_TYPE}N).empty ()) {
+				return 0;
+			}
+			return m_%f_to_omg(%{CUR_TYPE}N).back ()[{"%t_interface(%{CUR_TYPE})"="true"}._sretn ()];
+		}]>
+		>
+		//set methods for slots	
+		<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%{TEST_SUIT}[{"<{}{"%AM"="TestInterface::Class"&"%f_use_type(%A,"outgoing")"="true"}{C}>"!="0"}
+		void set_%f_to_omg(%{CUR_TYPE}N) (%t_arg(%{CUR_TYPE},"inout") %f_to_omg(%{CUR_TYPE}N)) {%{TEST_SUIT}[{"<{}{"%AM"="TestInterface::Class"&"%f_use_type(%A,"incoming")"="true"}{C}>"!="0"}{\n\t\t//Body empty because %{CUR_TYPE}N don't use as IN attribute}			
+			if (%f_to_omg(%{CUR_TYPE}N)) {
+				if (m_%f_to_omg(%{CUR_TYPE}N).size () \>= m_%f_to_omg(%{CUR_TYPE}N)_history_size) {
+					LOG_D(("%{CUR_TYPE}N history is full, history size: \%d", m_%f_to_omg(%{CUR_TYPE}N)_history_size));
+					m_%f_to_omg(%{CUR_TYPE}N).pop_back ();
+				}				
+				m_%f_to_omg(%{CUR_TYPE}N).push_back ([{"%t_interface(%{CUR_TYPE})"="true"}{%f_to_omg(%{CUR_TYPE}N)}%{CUR_TYPE}<%NN::>%{CUR_TYPE}N::_duplicate (%f_to_omg(%{CUR_TYPE}N))]);			
+			}]
+		}]>
+		>
+		//methods for clean slots
+		<{}%I<{}{"%CM"!="TestInterface::Class"&"%CC"="Class"}%f_set_var(CUR_TYPE,C)%{TEST_SUIT}[{"<{}{"%AM"="TestInterface::Class"&"%f_use_type(%A,"incoming")"="true"}{C}>"!="0"}
+		void clean_%f_to_omg(%{CUR_TYPE}N) () {
+			m_%f_to_omg(%{CUR_TYPE}N).clear ();
+		}]>
+		>
+	};
+	typedef ACE_Singleton\<TestModelCommonParams, ACE_SYNCH_MUTEX\> TestModelCommonParamsSingleton;		
+	<%CX>
+# ../t0_h_footer
+
++ cpp
+
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+O %SN_main.cpp
+# ../t0_h_header
+	\#include "shared/Core/sys/start_stop.h"
+	%f_std_inc(%S)
+	\#include "shared/Core/GDS/MemoryWatcher.h"
+	\#include "shared/Core/GDS/ObjectWatcher.h"
+	\#include "ace/Thread_Manager.h"
+	[{"%f_use_mem_pool(%S)"="true"}\#include "shared/Core/mng/PoolMemoryManager.h"
+	][{"%f_use_obj_pool(%S)"="true"}\#include "shared/Core/mng/PoolObjectManager.h"
+	]<{}{"%AM"="Servant::Class"}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%AL),%A)
+	]><%d<{}{"%AM"="Servant::Class"}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%AL),%A)
+	]>><{}{"%AM"="TestServant::Class"}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%AL),%A)
+	]><%d<{}{"%AM"="TestServant::Class"}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%AL),%A)
+	]>>
+	
+	\#include "GTF/GTFLib/impl/GTFImpl/GTFInit_i_factory.h"
+	
+/	INIT_ORDER_BEGIN
+/		INIT_MEMORY_WATCHER
+/		INIT_OBJECT_COUNTER
+/	[{"%f_use_mem_pool(%S)"="true"}	INIT_POOL_MEMORY_MANAGER
+/	][{"%f_use_obj_pool(%S)"="true"}	INIT_POOL_OBJECT_MANAGER
+/	]	INIT_OBJECT_WATCHER
+/	INIT_ORDER_END
+	
+	class MainFunction {
+	public:
+		static int execute (int argc, char** argv) {
+			int ret_code = 0;
+			Core::init();
+			
+			Core::ParamManagerInitData init = {"%SN", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\\\Software\\\\%PN\\\\%SN"};
+			Core::ParamManager::instance ()-\>init (argv, argc, init);
+	
+			MainFunction::register_all_factories ();
+			
+			[{"%S{thread pool size}"!=""}Core::ThreadPoolFactory::def().reserve (%S{thread pool size});
+	
+			]
+	
+			mcm-\>wait_all ();
+			
+			Core::fini();
+			return ret_code;
+		}
+	
+	protected:%f_shift_intend(1)
+		static %f_reg_all_factories(%S)
+		static %f_reg_all_test_factories(%S)
+		static %f_init_gtf(%S)
+	%f_shift_intend(-1)};
+	
+	int main (int argc, char** argv) {
+		return MainFunction::execute (argc, argv);
+	}<%CX>
+# ../t0_h_footer
+
+
++ fctr.h
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+	<%CX>
+
++ fctr.cpp
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+C /%SN
+	<%CX>
+
++ idl
+
++ xml
+C /%SN
+O %SNScenario.xml
+	\<?xml version="1.0" encoding="windows-1251" standalone="no" ?\>
+	\<TestSuite name="%SN"\>
+	\n<%CX>
+	\</TestSuite\>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// support functions
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+f _reg_all_test_factories
+	%f_set_var(SELF,S)void register_all_test_factories () {
+	#	<{}{"%AM"="TestServant::Class"}
+	#	%f_type(%A)_factory_var f_%f_to_omg(%AN) = new %f_type(%A)_factory ();
+	#	]f_%f_to_omg(%AN)-\>registrate_me(0);
+	#	><%d<{}{"%AM"="TestServant::Class"}
+	#	%f_type(%A)_factory_var f_%f_to_omg(%AN) = new %f_type(%A)_factory ();
+	#	]f_%f_to_omg(%AN)-\>registrate_me(0);
+	#	>>
+	#}
+
+f _init_gtf
+	%f_set_var(SELF,S)void init_gtf () {		
+	#	GTFLib::GTFImpl::GTFInit_i_factory_var f_gtfinit_i_factory = new GTFLib::GTFImpl::GTFInit_i_factory ();
+	#	f_gtfinit_i_factory-\>registrate_me(0);
+	#		
+	#	GTFLib::GTFInterfaces::IGTFInit_var gtf_init = GTFLib::GTFInterfaces::IGTFInitFactory::create ();
+	#	gtf_init-\>init ();
+	#}
+
+f _is_servant
+	[{"%SM"="Servant::Class"|"%SM"="Typedef::Class"&"%S[%GM]"="Servant::Class"}{false}true]
+
+f _parameters_constrain
+	<%I<{}{"%f_count_params(%C,"incoming")"!="0"&"%f_count_params(%C,"outgoing")"="0"}%f_error("%CN using as IN param, but no TestInterface that using %CN as OUT")>>
+f _count_params
+	<{}{"%sS"="%1N"}{C}>
+f _has_params
+	[{"%f_count_params(%C, "incoming")"!="0"|"%f_count_params(%C, "outgoing")"!="0"|"%f_count_params(%C, "external")"!="0"}{false}true]
+
+f _count_params2
+	<{}{"%sS"="%1N"}{C}>	
+
+f _link_count
+	[{"%f_dump_link_count(%S)"!="0"}%f_dump_link_count(%S)]
+
+f _dump_link_count     
+	<{}{"%CM"="TestInterface::Class::%1N::Attribute"&"%C%TU"="%{CUR_TYPE}U"}{C}>
+
+f _count_link
+	[{}{"%sM"="TestInterface::Class::incoming::Attribute"}%s%PN-\>%{CUR_TYPE}N = %s%P<{}{"%CS"="incoming"&"%C%TU"="%{CUR_TEST}U"}{C}]
+
+f _use_type
+	[{"<{}{"%CM"="TestInterface::Class::%1N::Attribute"&"%C%TU"="%{CUR_TYPE}U"}{C}>"!="0"}{false}true]
+
+f _dump_external_attr
+	[{%f_check_if_type(%s%T,"string")=true|%f_check_if_type(%s%T,"long")=true|%f_check_if_type(%s%T,"unsigned long")=true|%f_check_if_type(%s%T,"int")=true}																		
+						m_%f_to_omg(%{CUR_TYPE}N)_map.insert (%{CUR_TYPE}NMap::value_type(%f_to_omg(nd-\>get_attribute ("name")), nd-\>get_attribute ("%f_to_omg(%SN)"))));
+	]
+	
+f _dump_test_attr_doc
+	[<{}{"%CM"="TestInterface::Class::%1N::Attribute"&"%C%TU"="%{CUR_TYPE}U"}%f_str_split(%CD,\t// )>]

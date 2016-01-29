@@ -1,0 +1,75 @@
+Global CUR_STATE As Integer 'Отражает текущее состояние приложения
+
+'*** Описание состояний ***
+Const ST_MAIN_MENU As Integer = 0 'Основное меню
+Const ST_FIRST_BRANCH As Integer = 1 'Список полученный по первой ветке классификатора
+Const ST_PPR_6x As Integer = 2 'Поиск по реквизитам 6х
+Const ST_PPS_6x As Integer = 3 'Поиск по ситуации 6х
+
+'Неопределенное сотояние (например мы находимся в произвольном списке\документе)
+'Т.е. если скрипт перевел систему в нестандартное состояние, то выставляем данную константу,
+'чтобы затереть предыдущее стандартное состояние, которое требовал скрипт
+Const ST_NONE_STANDART As Integer = 100 
+
+'*** Объявдение функций перехода в требуемое состояние
+Declare Sub GO_MAIN_MENU 'Переход в основное меню
+Declare Sub GO_FIRST_BRANCH 'Переход к списку по первой ветке рубрикатора
+Declare Sub GO_ST_PPR_6x 'Переход в поиск по реквизитам
+Declare Sub GO_ST_PPS_6x 'Переход в поиск по ситуации
+'*** Реализация перехода в необходимре состояние
+Sub NeedState (st%)
+Dim Result%
+Dim msg$
+
+msg = "Текущее состояние: " + CStr(CUR_STATE) + " " + "Требуемое состояние: " + CStr(st)
+
+  If CUR_STATE = st Then
+    SQALogMessage sqaNone, "Остается текущее состояние",  msg
+  Else
+    SQALogMessage sqaNone, "Требуется смена состояния",  msg    
+    Select Case st
+      Case ST_MAIN_MENU
+        Call GO_MAIN_MENU
+        SQALogMessage sqaNone, "Состояние изменено",  msg    
+      Case ST_FIRST_BRANCH
+        Call GO_FIRST_BRANCH
+        SQALogMessage sqaNone, "Состояние изменено",  msg
+      Case ST_PPR_6x
+        Call GO_ST_PPR_6x 
+        SQALogMessage sqaNone, "Состояние изменено",  msg
+      Case ST_PPS_6x
+        Call GO_ST_PPS_6x 
+        SQALogMessage sqaNone, "Состояние изменено",  msg
+    End Select
+  End If
+End Sub
+
+'*** Реализация функций перехода в требуемое состояние
+Sub GO_MAIN_MENU
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  MenuIDSelect 12
+  CUR_STATE = ST_MAIN_MENU
+End Sub
+
+Sub GO_FIRST_BRANCH
+  Call NeedState (ST_MAIN_MENU)
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=76,11"
+  GenericObject Click, "Text=Документы", "Coords=58,11"
+  InputKeys "{ENTER}"
+  InputKeys "{ENTER}"
+  DelayFor (1500) 'Ждем загрузки списка
+  CUR_STATE = ST_FIRST_BRANCH
+End Sub
+
+Sub GO_ST_PPR_6x 
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  InputKeys "{F7}"
+  CUR_STATE = ST_PPR_6x
+end sub
+
+Sub GO_ST_PPS_6x 
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  InputKeys "{F5}"
+  CUR_STATE = ST_PPS_6x
+end sub

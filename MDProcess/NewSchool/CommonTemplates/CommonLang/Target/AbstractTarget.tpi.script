@@ -1,0 +1,417 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/AbstractTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::AbstractTarget
+//
+// абстрактный стереотип цели сборки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: AbstractTarget::Category
+implementation @ <<AbstractTarget>>
+//? абстрактный стереотип цели сборки
+//> CustomDirectory::Class
+//> CustomFile::Class
+//> Settings::Class
+
+//= WikiTargetImpl::Category
+//= Проектные файлы C++::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p old format:b=false ? включает генерацию дополнительного кода для совместимости со старым сервером
+//p CONFIG_UC:b=false ? Генерить юзер-секции в конфигурационный файл
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{old format}"!="%S{!old format}"}%f_up_prefix(%S) *old format* = *%S{old format}* - включает генерацию дополнительного кода для совместимости со старым сервером
+ if ( ( %S get_up ( 'old format' ) ) %!= ( %S get_up_def ( 'old format' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *old format* = *'
+  %S get_up ( 'old format' ) '* - включает генерацию дополнительного кода для совместимости со старым сервером'
+//	][{"%S{CONFIG_UC}"!="%S{!CONFIG_UC}"}%f_up_prefix(%S) *CONFIG_UC* = *%S{CONFIG_UC}* - Генерить юзер-секции в конфигурационный файл
+ end // if
+ if ( ( %S get_up ( 'CONFIG_UC' ) ) %!= ( %S get_up_def ( 'CONFIG_UC' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *CONFIG_UC* = *'
+  %S get_up ( 'CONFIG_UC' ) '* - Генерить юзер-секции в конфигурационный файл'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4715CA6D02CE*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4715CA6D02CE*
+; // constraint
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// настройки реестра (.reg)
+//+ s.reg
+<<generator>> s.reg OBJECT IN %S
+//#UC START# *47031EA5002Efor4715CA6D02CE*
+//O [%SN_init_regestry.reg]
+//	%f_config_reg(%S)
+ [%f] config_reg %( %S )% 
+//#UC END# *47031EA5002Efor4715CA6D02CE*
+; // s.reg
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rc)
+//+ vi.rc
+<<generator>> vi.rc OBJECT IN %S
+//#UC START# *47031EF6005Dfor4715CA6D02CE*
+//C /%SN
+//O %SN_vi.rc
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	// Microsoft Visual C++ generated resource script.
+ '// Microsoft Visual C++ generated resource script.'
+//	//
+ '//'
+//	\#include "%f_with_gen_id(vi.rch,%SO)"
+ '#include "'
+ [%f] with_gen_id %( 'vi.rch' %, %S |O )% '"'
+//	
+//	\#define APSTUDIO_READONLY_SYMBOLS
+ '#define APSTUDIO_READONLY_SYMBOLS'
+//	/////////////////////////////////////////////////////////////////////////////
+ '/////////////////////////////////////////////////////////////////////////////'
+//	//
+ '//'
+//	// Generated from the TEXTINCLUDE 2 resource.
+ '// Generated from the TEXTINCLUDE 2 resource.'
+//	//
+ '//'
+//	
+//	/////////////////////////////////////////////////////////////////////////////
+ '/////////////////////////////////////////////////////////////////////////////'
+//	\#undef APSTUDIO_READONLY_SYMBOLS
+ '#undef APSTUDIO_READONLY_SYMBOLS'
+//	
+//	/////////////////////////////////////////////////////////////////////////////
+ '/////////////////////////////////////////////////////////////////////////////'
+//	// Russian resources
+ '// Russian resources'
+//	
+//	\#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+ '#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)'
+//	\#ifdef _WIN32
+ '#ifdef _WIN32'
+//	LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+ 'LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT'
+//	\#pragma code_page(1251)
+ '#pragma code_page(1251)'
+//	\#endif //_WIN32
+ '#endif //_WIN32'
+//	
+//	/////////////////////////////////////////////////////////////////////////////
+ '/////////////////////////////////////////////////////////////////////////////'
+//	//
+ '//'
+//	// Version
+ '// Version'
+//	//
+ '//'
+//	
+//	VS_VERSION_INFO VERSIONINFO
+ 'VS_VERSION_INFO VERSIONINFO'
+//	 FILEVERSION %P{major version},%P{minor version},%P{fix version},%PA
+ ' FILEVERSION '
+ %P get_up ( 'major version' ) ','
+ %P get_up ( 'minor version' ) ','
+ %P get_up ( 'fix version' ) ','
+ %P |A 
+//	 PRODUCTVERSION %P{major version},%P{minor version},%P{fix version},%PA
+ ' PRODUCTVERSION '
+ %P get_up ( 'major version' ) ','
+ %P get_up ( 'minor version' ) ','
+ %P get_up ( 'fix version' ) ','
+ %P |A 
+//	 FILEFLAGSMASK 0x3fL
+ ' FILEFLAGSMASK 0x3fL'
+//	\#ifdef _DEBUG
+ '#ifdef _DEBUG'
+//	 FILEFLAGS 0x1L
+ ' FILEFLAGS 0x1L'
+//	\#else
+ '#else'
+//	 FILEFLAGS 0x0L
+ ' FILEFLAGS 0x0L'
+//	\#endif
+ '#endif'
+//	 FILEOS 0x4L
+ ' FILEOS 0x4L'
+//	 FILETYPE 0x[{%S#f_IsExeTarget()=true}{2}1]L
+ ' FILETYPE 0x'
+ if ( ( %S %?f IsExeTarget %( )% ) %==  true ) then
+ begin
+  1 
+ end // if
+ else
+ begin
+  2 
+ end // else
+ 'L'
+//	 FILESUBTYPE 0x0L
+ ' FILESUBTYPE 0x0L'
+//	BEGIN
+ 'BEGIN'
+//	    BLOCK "StringFileInfo"
+ '    BLOCK "StringFileInfo"'
+//	    BEGIN
+ '    BEGIN'
+//	        BLOCK "041904b0"
+ '        BLOCK "041904b0"'
+//	        BEGIN
+ '        BEGIN'
+//	            VALUE "Comments", "[{"%PD"!=""}{%PN}%PD] - [{"%SD"!=""}{%SN}%f_to_lower(%f_substr_from_begin(%SD,1))%f_delsubstr_from_begin(%SD,1)]"
+ '            VALUE "Comments", "'
+ if ( ( %P |D ) %!= '' ) then
+ begin
+  %P |D 
+ end // if
+ else
+ begin
+  %P |N 
+ end // else
+ ' - '
+ if ( ( %S |D ) %!= '' ) then
+ begin
+  [%f] to_lower %( [%f] substr_from_begin %( %S |D %, 1 )% )% [%f] delsubstr_from_begin %( %S |D %, 1 )% 
+ end // if
+ else
+ begin
+  %S |N 
+ end // else
+ '"'
+//	            VALUE "CompanyName", "ООО НПП ""ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ"""
+ '            VALUE "CompanyName", "ООО НПП ""ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ"""'
+//	            VALUE "FileDescription", "[{"%SD"!=""}{%SN}%f_to_upper(%f_substr_from_begin(%SD,1))%f_delsubstr_from_begin(%SD,1)]"
+ '            VALUE "FileDescription", "'
+ if ( ( %S |D ) %!= '' ) then
+ begin
+  [%f] to_upper %( [%f] substr_from_begin %( %S |D %, 1 )% )% [%f] delsubstr_from_begin %( %S |D %, 1 )% 
+ end // if
+ else
+ begin
+  %S |N 
+ end // else
+ '"'
+//	            VALUE "FileVersion", "%P{major version}.%P{minor version}.%P{fix version}.%PA"
+ '            VALUE "FileVersion", "'
+ %P get_up ( 'major version' ) '.'
+ %P get_up ( 'minor version' ) '.'
+ %P get_up ( 'fix version' ) '.'
+ %P |A '"'
+//	            VALUE "InternalName", "%SN"
+ '            VALUE "InternalName", "'
+ %S |N '"'
+//	            VALUE "LegalCopyright", "(C) ООО НПП ""ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ"", 1990-2015"
+ '            VALUE "LegalCopyright", "(C) ООО НПП ""ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ"", 1990-2015"'
+//	            VALUE "LegalTrademarks", "Система ГАРАНТ"
+ '            VALUE "LegalTrademarks", "Система ГАРАНТ"'
+//	            VALUE "ModelVersion", "%PA"
+ '            VALUE "ModelVersion", "'
+ %P |A '"'
+//	            VALUE "OriginalFilename", "[{"%S{external name}"!=""}{%SN}%S{external name}].[{%S#f_IsExeTarget()=true}{dll}exe]"
+ '            VALUE "OriginalFilename", "'
+ if ( ( %S get_up ( 'external name' ) ) %!= '' ) then
+ begin
+  %S get_up ( 'external name' ) 
+ end // if
+ else
+ begin
+  %S |N 
+ end // else
+ '.'
+ if ( ( %S %?f IsExeTarget %( )% ) %==  true ) then
+ begin
+  'exe' 
+ end // if
+ else
+ begin
+  'dll' 
+ end // else
+ '"'
+//	            VALUE "ProductName", "[{"%PD"!=""}{%PN}%PD]"
+ '            VALUE "ProductName", "'
+ if ( ( %P |D ) %!= '' ) then
+ begin
+  %P |D 
+ end // if
+ else
+ begin
+  %P |N 
+ end // else
+ '"'
+//	            VALUE "ProductVersion", "%P{major version}"
+ '            VALUE "ProductVersion", "'
+ %P get_up ( 'major version' ) '"'
+//	        END
+ '        END'
+//	    END
+ '    END'
+//	    BLOCK "VarFileInfo"
+ '    BLOCK "VarFileInfo"'
+//	    BEGIN
+ '    BEGIN'
+//	        VALUE "Translation", 0x419, 1200
+ '        VALUE "Translation", 0x419, 1200'
+//	    END
+ '    END'
+//	END
+ 'END'
+//	
+//	
+//	\#ifdef APSTUDIO_INVOKED
+ '#ifdef APSTUDIO_INVOKED'
+//	/////////////////////////////////////////////////////////////////////////////
+ '/////////////////////////////////////////////////////////////////////////////'
+//	//
+ '//'
+//	// TEXTINCLUDE
+ '// TEXTINCLUDE'
+//	//
+ '//'
+//	
+//	1 TEXTINCLUDE 
+ '1 TEXTINCLUDE '
+//	BEGIN
+ 'BEGIN'
+//	    "%f_with_gen_id(vi.rch,%SO)\\0"
+ '    "'
+ [%f] with_gen_id %( 'vi.rch' %, %S |O )% '\0"'
+//	END
+ 'END'
+//	
+//	2 TEXTINCLUDE 
+ '2 TEXTINCLUDE '
+//	BEGIN
+ 'BEGIN'
+//	    "\\0"
+ '    "\0"'
+//	END
+ 'END'
+//	
+//	3 TEXTINCLUDE 
+ '3 TEXTINCLUDE '
+//	BEGIN
+ 'BEGIN'
+//	    "\\r\\n"
+ '    "\r\n"'
+//	    "\\0"
+ '    "\0"'
+//	END
+ 'END'
+//	
+//	\#endif    // APSTUDIO_INVOKED
+ '#endif    // APSTUDIO_INVOKED'
+//	
+//	\#endif    // Russian resources
+ '#endif    // Russian resources'
+//	/////////////////////////////////////////////////////////////////////////////
+ '/////////////////////////////////////////////////////////////////////////////'
+//	
+//	
+//	
+//	\#ifndef APSTUDIO_INVOKED
+ '#ifndef APSTUDIO_INVOKED'
+//	/////////////////////////////////////////////////////////////////////////////
+ '/////////////////////////////////////////////////////////////////////////////'
+//	//
+ '//'
+//	// Generated from the TEXTINCLUDE 3 resource.
+ '// Generated from the TEXTINCLUDE 3 resource.'
+//	//
+ '//'
+//	
+//	
+//	/////////////////////////////////////////////////////////////////////////////
+ '/////////////////////////////////////////////////////////////////////////////'
+//	\#endif    // not APSTUDIO_INVOKED
+ '#endif    // not APSTUDIO_INVOKED'
+//	
+//	
+//#UC END# *47031EF6005Dfor4715CA6D02CE*
+; // vi.rc
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rch)
+//+ vi.rch
+<<generator>> vi.rch OBJECT IN %S
+//#UC START# *47031F13004Efor4715CA6D02CE*
+//C /%SN
+//O %SN_vi.rch
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	//{{NO_DEPENDENCIES}}
+ '//{{NO_DEPENDENCIES}}'
+//	// Microsoft Visual C++ generated include file.
+ '// Microsoft Visual C++ generated include file.'
+//	// Used by %f_with_gen_id(vi.rc,%SO)
+ '// Used by '
+ [%f] with_gen_id %( 'vi.rc' %, %S |O )% 
+//	//
+ '//'
+//	
+//	\#include \<windows.h\>
+ '#include <windows.h>'
+//	
+//	// Next default values for new objects
+ '// Next default values for new objects'
+//	// 
+ '// '
+//	\#ifdef APSTUDIO_INVOKED
+ '#ifdef APSTUDIO_INVOKED'
+//	\#ifndef APSTUDIO_READONLY_SYMBOLS
+ '#ifndef APSTUDIO_READONLY_SYMBOLS'
+//	\#define _APS_NEXT_RESOURCE_VALUE        101
+ '#define _APS_NEXT_RESOURCE_VALUE        101'
+//	\#define _APS_NEXT_COMMAND_VALUE         40001
+ '#define _APS_NEXT_COMMAND_VALUE         40001'
+//	\#define _APS_NEXT_CONTROL_VALUE         1000
+ '#define _APS_NEXT_CONTROL_VALUE         1000'
+//	\#define _APS_NEXT_SYMED_VALUE           101
+ '#define _APS_NEXT_SYMED_VALUE           101'
+//	\#endif
+ '#endif'
+//	\#endif
+ '#endif'
+//	
+//#UC END# *47031F13004Efor4715CA6D02CE*
+; // vi.rch
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<AbstractTarget>>
+

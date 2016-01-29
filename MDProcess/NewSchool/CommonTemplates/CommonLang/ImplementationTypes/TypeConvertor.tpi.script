@@ -1,0 +1,652 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/TypeConvertor.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::TypeConvertor
+//
+// Конвертор типов
+// ---
+// Однозначное соответствие (пока, потом может понадобится неоднозначное) между подмножествами 2-ух
+// типов данных. Используется для конвертирования перечислимых типов в строки и обратно при
+// сохранении/восстановлении xml, а также при конвертировании перечислимых типов.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TypeConvertor::Class
+implementation @ <<TypeConvertor>>
+//? Конвертор типов
+//? Однозначное соответствие (пока, потом может понадобится неоднозначное) между подмножествами 2-ух типов данных. Используется для конвертирования перечислимых типов в строки и обратно при сохранении/восстановлении xml, а также при конвертировании перечислимых типов.
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= ClassBaseGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_typeconv.gif
+//L code_typeconv
+// Параметры визуализации
+//$ C 240,205,240
+//$ l 120,40,120
+//$ f 120,40,120
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p is sorted:b=false ? свойство сортированности
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{is sorted}"!="%S{!is sorted}"}%f_up_prefix(%S) *is sorted* = *%S{is sorted}* - свойство сортированности
+ ?inherited
+ if ( ( %S get_up ( 'is sorted' ) ) %!= ( %S get_up_def ( 'is sorted' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is sorted* = *'
+  %S get_up ( 'is sorted' ) '* - свойство сортированности'
+//	]
+ end // if
+
+// возвращает тип данных для конвертирования
+//%f _get_type_attr
+; // wiki_up_print
+
+: get_type_attr OBJECT IN %S
+//#UC START# *4713450F030Dfor47133FB701C5*
+//	[<{}{%CM=TypeConvertor::Class::%1N::Attribute}%C%TN>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |M ) %== 'TypeConvertor::Class::( '
+   %1 |N ) '::Attribute' ) then
+   begin
+    %C ->T |N  
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//#UC END# *4713450F030Dfor47133FB701C5*
+; // get_type_attr
+
+
+// возвращает количество атрибутов у элемента с заданным стереотипом
+//%f _count_attr
+: count_attr OBJECT IN %S
+//#UC START# *4713458B01C5for47133FB701C5*
+//	[<{}{%CM=TypeConvertor::Class::%1N::Attribute}{C}>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |M ) %== 'TypeConvertor::Class::( '
+   %1 |N ) '::Attribute' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+ end // if
+ NOP
+//#UC END# *4713458B01C5for47133FB701C5*
+; // count_attr
+
+
+// проверяет огранчиение на использование функторов
+//%f _constraint_functor
+: constraint_functor OBJECT IN %S
+//#UC START# *471345FB005Dfor47133FB701C5*
+//	[{<{}{%CM=TypeConvertor::Class::%1N::Attribute}{C}>!=0}{true}[{<{}{%CM=TypeConvertor::Class::%1N::Attribute}{C}>=1}{false}true]]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |M ) %== 'TypeConvertor::Class::( '
+   %1 |N ) '::Attribute' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |M ) %== 'TypeConvertor::Class::( '
+    %1 |N ) '::Attribute' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %== 1 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *471345FB005Dfor47133FB701C5*
+; // constraint_functor
+
+
+// возвращает базовый класс для конвертора
+//%f _base_class
+: base_class OBJECT IN %S
+//#UC START# *471346E80242for47133FB701C5*
+//	Core::[{%S{is sorted}=true}{Unsorted}Sorted]TypeConverter\<[<{}{%CC=Attribute&%CS=Type1}%f_attr(%C)>, <{}{%CC=Attribute&%CS=Type2}%f_attr(%C)>[, <{}{%CC=Attribute&%CS=Functor1}%f_attr(%C)>][, <{}{%CC=Attribute&%CS=Functor2}%f_attr(%C)>][{%S%f_count_attr(%S,"Functor1")=0&[{%S%f_get_type_attr(%S,"Type1")=string|%S%f_get_type_attr(%S,"Type2")=string}{false}true]=true}, [{%{SELF}{is sorted}=true}{Core::ConstCharIsEqual}Core::ConstCharComparator]]]\>
+ 'Core::'
+ if ( ( %S get_up ( 'is sorted' ) ) %==  true ) then
+ begin
+  'Sorted' 
+ end // if
+ else
+ begin
+  'Unsorted' 
+ end // else
+ 'TypeConverter<'
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C |S ) %== 'Type1'  ) ) then
+   begin
+    [%f] attr %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ', '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( %C |S ) %== 'Type2'  ) ) then
+   begin
+    [%f] attr %( %C )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  if NOT-EMPTY
+  begin
+   ', '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C |S ) %== 'Functor1'  ) ) then
+    begin
+     [%f] attr %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   ', '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Attribute' AND 
+     ( ( %C |S ) %== 'Functor2'  ) ) then
+    begin
+     [%f] attr %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if ( ( %S %f count_attr %( %S %, 'Functor1' )% ) %== 0 AND 
+    ( if ( ( %S %f get_type_attr %( %S %, 'Type1' )% ) %== 'string' OR 
+     ( ( %S %f get_type_attr %( %S %, 'Type2' )% ) %== 'string'  ) ) then
+   begin
+     true 
+   end // if
+   else
+   begin
+     false 
+   end // else
+   %==  true  ) ) then
+  begin
+   ', '
+   if ( ( ( get_global_var ( 'SELF' ) get_up ( 'is sorted' ) ) ) %==  true ) then
+   begin
+    'Core::ConstCharComparator' 
+   end // if
+   else
+   begin
+    'Core::ConstCharIsEqual' 
+   end // else
+  end // if
+ end // if
+ NOP
+ '>'
+//#UC END# *471346E80242for47133FB701C5*
+; // base_class
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47133FB701C5*
+//c                              {}
+//r {<{}{%CM=TypeConvertor::Class::Type1::Attribute}{C}>!=1}: {%SS must specify Type1 data type}
+//r {<{}{%CM=TypeConvertor::Class::Type2::Attribute}{C}>!=1}: {%SS can specify Type2 data type}
+//r {%S%f_constraint_functor(%S,"Functor1")=false}: {%SS can specify only one Functor1 data type}
+//r {%S%f_constraint_functor(%S,"Functor2")=false}: {%SS can specify only one Functor2 data type}
+//r {%S%f_count_attr(%S,"Functor1")=0&%S%f_count_attr(%S,"Functor2")!=0}: {Can't use Functor2 without Functor1 %f_count_attr(%S,"Functor1") %f_count_attr(%S,"Functor2")}
+
+//#UC END# *4704C0E30186for47133FB701C5*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47133FB701C5*
+//F class %SN;
+//S class %SN;
+//O [{%t_nested_scope_def(%P)=false}%SN.h]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%t_nested_scope_def(%P)=false}{[#%S%f_open_ifdef()
+ if ( ( [%t] nested_scope_def %( %P )% ) %==  false ) then
+ begin
+//	%f_h_header(%S)
+  [%f] h_header %( %S )% 
+//	%f_std_inc(%S)%f_set_var(SERV,S)
+  [%f] std_inc %( %S )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	%f_includes_by_contents(%S)<\#include %f_dump_include_path(%wL,%w)
+  [%f] includes_by_contents %( %S )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%w
+  begin
+   OBJECT IN %w
+   if true then
+   begin
+    '#include '
+    [%f] dump_include_path %( %w |L %, %w )% 
+//	>\#include "shared/Core/data/[{%S{is sorted}=true}{Unsorted}Sorted]TypeConverter.h"
+
+    ++! l_Counter
+   end // if
+  end // for w
+  '#include "shared/Core/data/'
+  if ( ( %S get_up ( 'is sorted' ) ) %==  true ) then
+  begin
+   'Sorted' 
+  end // if
+  else
+  begin
+   'Unsorted' 
+  end // else
+  'TypeConverter.h"'
+//	[// by \<\<uses\>\> dependencies
+  if NOT-EMPTY
+  begin
+   '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%A%TW,%A%T)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |S ) %== 'uses' AND 
+     ( ( %A |C ) %== 'Dependency'  ) AND 
+     ( if ( ( %A ->P |U  ) %== ( %S |U ) OR 
+      ( ( %A ->P |o  ) %== ''  ) ) then
+    begin
+      true 
+    end // if
+    %== true  ) ) then
+    begin
+     if NOT-EMPTY
+     begin
+      '#include '
+      [%f] dump_include_path %( %A ->T |W  %, %A ->T  )% 
+//	]>][{%S{need UC}=true}
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for A
+  end // if
+  NOP
+  if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+  begin
+   #13#10
+
+//	%U[{_CUSTOM_INCLUDES}
+   %Usersection (
+    '_CUSTOM_INCLUDES' 
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	][
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	%SP]
+  %S |P 
+ end // if
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   out_indent %S %f open_ifdef %( )% 
+//	]}\
+  end // if
+  NOP
+ end // else
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	#class %SN : 
+ out_indent 'class '
+ %S |N ' : '
+//	#	public %S%f_base_class() {
+ out_indent '	public '
+ %S %f base_class %( )% ' {'
+//	#	protected:
+ out_indent '	protected:'
+//	#		void fill_array () {
+ out_indent '		void fill_array () {'
+//	#			%U[{_FILL_ARRAY_IMPLEMENTATION}
+ out_indent '			'
+ %Usersection (
+  '_FILL_ARRAY_IMPLEMENTATION' 
+ )
+ (
+  #13#10
+
+//	#			]
+  out_indent '			' 
+ ) // Usersection
+ //	#		}
+ out_indent '		}'
+//	#}; // class %SN
+ out_indent '}; // class '
+ %S |N //	#%f_get_type_attr(%{SELF},Type1)
+
+//	
+//	#typedef ACE_Singleton\<%SN, ACE_SYNCH_NULL_MUTEX\> %SNSingleton;[{%t_nested_scope_def(%P)=false}{[
+ out_indent 'typedef ACE_Singleton<'
+ %S |N ', ACE_SYNCH_NULL_MUTEX> '
+ %S |N 'Singleton;'
+ if ( ( [%t] nested_scope_def %( %P )% ) %==  false ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	%Sp
+  %S |p 
+//	%f_h_footer(%S)
+  [%f] h_footer %( %S )% 
+//	]
+ end // if
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	#%S%f_close_ifdef()]}
+   out_indent %S %f close_ifdef %( )% 
+  end // if
+  NOP
+ end // else
+//#UC END# *47022C88029Ffor47133FB701C5*
+; // h
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: TypeConvertor::Class::uses::ClassDependency
+end. // <<TypeConvertor>>
+
+implementation @ :: <<TypeConvertor>> <<uses>> ;
+//? Использование
+//? Определяет что источник использует указанный объект (цель) каким-либо образом (в том числе создает его через фабрики, есль цель-сервант). На основе данной связи будет сгенерированы пути включения файлов используемого объекта.
+//= C++ интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_uses.gif
+//L code_dep_uses
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4713412100BB*
+
+//#UC END# *47022C88029Ffor4713412100BB*
+; // h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4713412100BB*
+//#UC END# *4705CBD6003Efor4713412100BB*
+; // wiki_child_kind
+
+
+//: TypeConvertor::Class::Type1::Attribute
+end. // :: <<TypeConvertor>> <<uses>> ;
+
+implementation @ :: <<TypeConvertor>> <<Type1>> ;
+//? Первый тип данных для конвертирования
+//= C++ интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//v -+#
+// - типы видимости
+//Y code_attr.gif
+//L code_attr
+//A const
+// - стереотипы "цели" (типа/результата)
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4713415B002E*
+//#UC END# *47022C88029Ffor4713415B002E*
+; // h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4713415B002E*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4713415B002E*
+; // wiki_child_kind
+
+
+//: TypeConvertor::Class::Type2::Attribute
+end. // :: <<TypeConvertor>> <<Type1>> ;
+
+implementation @ :: <<TypeConvertor>> <<Type2>> ;
+//? Второй тип данных для конвертирования
+//= TypeConvertor::Class::Type1::Attribute
+
+// Параметры стереотипа
+//v -+#
+// - типы видимости
+//Y code_attr.gif
+//L code_attr
+//A const
+// - стереотипы "цели" (типа/результата)
+//l arl
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: TypeConvertor::Class::Functor2::Attribute
+; // st_space_key
+
+end. // :: <<TypeConvertor>> <<Type2>> ;
+
+implementation @ :: <<TypeConvertor>> <<Functor2>> ;
+//? Второй функтор сравенения/сортировки
+//= C++ интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//v -+#
+// - типы видимости
+//Y code_attr.gif
+//L code_attr
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471342FC030D*
+//#UC END# *47022C88029Ffor471342FC030D*
+; // h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471342FC030D*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor471342FC030D*
+; // wiki_child_kind
+
+
+//: TypeConvertor::Class::Functor1::Attribute
+end. // :: <<TypeConvertor>> <<Functor2>> ;
+
+implementation @ :: <<TypeConvertor>> <<Functor1>> ;
+//? Первый функтор сравенения/сортировки
+//= TypeConvertor::Class::Functor2::Attribute
+
+// Параметры стереотипа
+//v -+#
+// - типы видимости
+//Y code_attr.gif
+//L code_attr
+//l arl
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<TypeConvertor>> <<Functor1>> ;
+

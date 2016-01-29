@@ -1,0 +1,50 @@
+
+# Windows include makefile for demos
+
+
+#LIBS=Wsock32.LIB advapi32.lib user32.lib libc.lib 
+
+FLEX=h:\cygnus\cygwin-b20\H-i586-cygwin32\bin\flex.exe
+CC=cl
+LINK=link
+
+CC_DEFS=-DWIN32_LEAN_AND_MEAN $(DYNAMIC_CC_DEFS) -DWIN32 -DIT_EX_MACROS -ML
+
+CC_DEFS=$(CC_DEFS) /GX
+
+
+
+
+CC_FLAGS_CMN=/c /nologo $(CC_DEFS) $(MYCFLAGS)
+CC_FLAGS_REL=$(CC_FLAGS_CMN) /Ox
+CC_FLAGS_DBG=$(CC_FLAGS_CMN) /Od /Zi
+LINK_FLAGS_CMN=$(MYLFLAGS) /MAP
+LINK_FLAGS_REL=$(LINK_FLAGS_CMN)
+LINK_FLAGS_DBG=$(LINK_FLAGS_CMN) /DEBUG:FULL /DEBUGTYPE:BOTH
+
+!if "$(DEBUG)" == "YES"
+CC_FLAGS=$(CC_FLAGS_DBG)
+LINK_FLAGS=$(LINK_FLAGS_DBG)
+!else
+CC_FLAGS=$(CC_FLAGS_REL)
+LINK_FLAGS=$(LINK_FLAGS_REL)
+!endif
+
+LINK_FLAGS=$(LINK_FLAGS) /STACK:10485760,1048576 /nodefaultlib:msvcrt.lib
+
+.SUFFIXES: .CC .CPP .C .cc
+
+.CPP.OBJ:
+	$(CC) $(CC_FLAGS) $<
+.CXX.OBJ:
+	$(CC) $(CC_FLAGS) $<
+.CC.OBJ:
+	$(CC) $(CC_FLAGS) /Tp $<
+.cc.OBJ:
+	$(CC) $(CC_FLAGS) /Tp $<
+
+.C.OBJ:
+	$(CC) $(CC_FLAGS) /Tp $<
+
+
+

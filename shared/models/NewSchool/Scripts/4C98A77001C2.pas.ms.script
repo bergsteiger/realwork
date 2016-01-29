@@ -1,0 +1,199 @@
+// Win32API 4C98A77001C2 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C98A77001C2
+
+FORWARD ME_4C98A79C011D
+
+FORWARD ME_4C98A7AB00F5
+
+: ME_285FA762FD89
+ CONST UID '285FA762FD89'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода WTSGetActiveConsoleSessionId' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C98A7AB00F5 // WTSGetActiveConsoleSessionId
+ ;
+
+ref; // ME_285FA762FD89 DoIt
+
+: ME_4C98A7AB00F5
+ CONST UID '4C98A7AB00F5'
+ CONST Name 'WTSGetActiveConsoleSessionId'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C98A79C011D // JwaWinBase
+ ;
+ : Operations
+   @ ( ME_285FA762FD89 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4C98A7AB00F5 WTSGetActiveConsoleSessionId
+
+FORWARD ME_4C98AE5C02C8
+
+: ME_4C98AE620132
+ CONST UID '4C98AE620132'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C98A79C011D // JwaWinBase
+ ;
+ : Target ME_4C98AE5C02C8 // JwaNtStatus
+ ;
+
+ref; // ME_4C98AE620132 
+
+FORWARD ME_4C98AE6C0194
+
+: ME_4C98AE730336
+ CONST UID '4C98AE730336'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C98A79C011D // JwaWinBase
+ ;
+ : Target ME_4C98AE6C0194 // JwaWinNT
+ ;
+
+ref; // ME_4C98AE730336 
+
+FORWARD ME_4C98AE7D0126
+
+: ME_4C98AE86021A
+ CONST UID '4C98AE86021A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C98A79C011D // JwaWinBase
+ ;
+ : Target ME_4C98AE7D0126 // JwaWinType
+ ;
+
+ref; // ME_4C98AE86021A 
+
+: ME_4C98A79C011D
+ CONST UID '4C98A79C011D'
+ CONST Name 'JwaWinBase'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C98A77001C2 // Win32API
+ ;
+ : Operations
+   @ ( ME_4C98A7AB00F5 // WTSGetActiveConsoleSessionId
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4C98AE620132 // 
+ ME_4C98AE730336 // 
+ ME_4C98AE86021A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinBase.pas'
+
+ref; // ME_4C98A79C011D JwaWinBase
+
+: ME_4C98AE5C02C8
+ CONST UID '4C98AE5C02C8'
+ CONST Name 'JwaNtStatus'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C98A77001C2 // Win32API
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaNtStatus.pas'
+
+ref; // ME_4C98AE5C02C8 JwaNtStatus
+
+: ME_4C98AE6C0194
+ CONST UID '4C98AE6C0194'
+ CONST Name 'JwaWinNT'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C98A77001C2 // Win32API
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinNT.pas'
+
+ref; // ME_4C98AE6C0194 JwaWinNT
+
+: ME_4C98AE7D0126
+ CONST UID '4C98AE7D0126'
+ CONST Name 'JwaWinType'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C98A77001C2 // Win32API
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinType.pas'
+
+ref; // ME_4C98AE7D0126 JwaWinType
+
+: ME_4C98A77001C2
+ CONST UID '4C98A77001C2'
+ CONST Name 'Win32API'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.pas.ms.script' // JEDI
+ ;
+ : Children
+   @ ( ME_4C98A79C011D // JwaWinBase
+ ME_4C98AE5C02C8 // JwaNtStatus
+ ME_4C98AE6C0194 // JwaWinNT
+ ME_4C98AE7D0126 // JwaWinType
+ ) .SequenceCode.It
+ ; // Children
+ CONST "path prefix" '/Win32API'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C98A77001C2.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C98A77001C2.pas.ms.script.runner'
+
+ref; // ME_4C98A77001C2 Win32API

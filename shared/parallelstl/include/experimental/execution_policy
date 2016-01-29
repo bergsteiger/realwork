@@ -1,0 +1,125 @@
+#pragma once
+
+#ifndef _EXECUTION_POLICY_H_
+#define _EXECUTION_POLICY_H_ 1
+
+#include <memory>
+#include "impl/defines.h"
+
+_PSTL_NS1_BEGIN
+
+/// <summary>
+///     The parallel_execution_policy is intended to specify the parallel execution policy for algorithms.
+///     The specific scheduling strategy will be chosen by the implementation depending on the algorithm being used.
+/// </summary>
+class parallel_execution_policy
+{
+};
+
+/// <summary>
+///     The sequential_execution_policy is intend to specify the sequential exectution policy for algorithms.
+/// </summary>
+class sequential_execution_policy
+{
+};
+
+/// <summary>
+///     The parallel_vector_execution_policy is intend to specify the vector exectution policy for algorithms.
+/// </summary>
+class parallel_vector_execution_policy
+{
+};
+
+/// <summary>
+///     The is_execution_policy is intended to test if specified type is of execution policy type.
+/// </summary>
+template<class _Ty> struct is_execution_policy : false_type {};
+template<> struct is_execution_policy<parallel_execution_policy> : true_type{};
+template<> struct is_execution_policy<parallel_vector_execution_policy> : true_type{};
+template<> struct is_execution_policy<sequential_execution_policy> : true_type{};
+
+/// <summary>
+///     The execution_policy is intended to specify the dynmic exectution policy for algorithms.
+/// </summary>
+class execution_policy
+{
+	std::shared_ptr<void> _Policy_inner;
+	const std::type_info *_Policy_type;
+public:
+	/// <summary>
+	///     Constructs a new <c>execution_policy</c> object.
+	/// </summary>
+	/// <param name="_Policy">
+	///	   Speciefies the inner execution policy
+	/// </param>
+	template<class _ExPolicy>
+	execution_policy(const _ExPolicy& _Policy, typename std::enable_if<is_execution_policy<_ExPolicy>::value, _ExPolicy>::type* = nullptr)
+	{
+		static_assert(!std::is_same<_ExPolicy, execution_policy>::value, "Cannot assign dynamic execution policy.");
+		static_assert(is_execution_policy<_ExPolicy>::value, "Execution policy type required.");
+
+		_Policy_inner = std::make_shared<_ExPolicy>(_Policy);
+		_Policy_type = &typeid(_ExPolicy);
+	}
+
+	/// <summary>
+	///     Assigns a new execution policy to the object.
+	/// </summary>
+	/// <param name="_Policy">
+	///	   Speciefies policy object 
+	/// </param>
+	template<class _ExPolicy>
+	typename std::enable_if<is_execution_policy<_ExPolicy>::value, execution_policy>::type& operator=(const _ExPolicy & _Policy)
+	{
+		static_assert(!std::is_same<_ExPolicy, execution_policy>::value, "Cannot assign dynamic execution policy.");
+		static_assert(is_execution_policy<_ExPolicy>::value, "Execution policy type required.");
+
+		_Policy_inner = std::make_shared<_ExPolicy>(_Policy);
+		_Policy_type = &typeid(_ExPolicy);
+		return *this;
+	}
+
+	/// <summary>
+	///     Returns the type_info of the inner policy.
+	/// </summary>
+	const type_info& type() const _NOEXCEPT
+	{
+		return *_Policy_type;
+	}
+
+		/// <summary>
+		///     Returns the inner policy if type matches.
+		/// </summary>
+		template<typename _ExPolicy>
+	_ExPolicy* get() const _NOEXCEPT
+	{
+		static_assert(!std::is_same<_ExPolicy, execution_policy>::value, "Incorrect execution policy parameter.");
+		static_assert(is_execution_policy<_ExPolicy>::value, "Execution policy type required.");
+
+		if (*_Policy_type != typeid(_ExPolicy))
+			return nullptr;
+
+		return static_cast<_ExPolicy*>(_Policy_inner.get());
+	}
+};
+
+template<> struct is_execution_policy<execution_policy> : true_type{};
+
+/// <summary>
+///     Default parallel execution policy object.
+/// </summary>
+const parallel_execution_policy par{};
+
+/// <summary>
+///     Default vector execution policy object.
+/// </summary>
+const parallel_vector_execution_policy par_vec{};
+
+/// <summary>
+///     Default sequential execution policy object.
+/// </summary>
+const sequential_execution_policy seq{};
+
+_PSTL_NS1_END// std::experimental
+
+#endif // _EXECUTION_POLICY_H_

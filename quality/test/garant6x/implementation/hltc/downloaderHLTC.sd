@@ -1,0 +1,1578 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////// Тестирование Download /////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+uses  SettingsWork, FileWork, States, common, RunPrograms, Clicks;
+
+const INI_FILE = '\garant.ini';
+const LOG_FILE = '\logs\download.log';
+const LOGIN = 'hotline';
+const PASSWORD = 'gfhfljrc';
+const TEMP = 'c:\tmp'; // папка будет очищаться
+const ETALON_DELTA = 'c:\491471.zip';
+
+// должна быть доступна утилита unzip.exe
+// локальный прокси ...
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////// Разные функции ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+// функция убирает двойные слэши и слэш в конце строки
+function RemoveSlashes(param : String) : String;
+begin
+	Result := param;
+	Result := Utilities.StringReplace(Result, '\\', '\', 1);
+  Result := Utilities.ExcludeTrailingBackslash(Result);
+end;
+
+// приделывает спереди путь к Гаранту, если изначальный путь неполный (в нем нет
+// двоеточия) или он не начинается с '|' (в этом случае | удаляется)
+function GetFullPath(param : String) : String;
+begin
+	if param[1] = '|' then
+  	 Result := Utilities.StringReplace(param, '|', '', 0)
+  else
+		if Pos(':', param) = 0 then
+	  begin
+	    if param[1] <> '\' then
+	    	param := '\' + param;
+	  	Result := GetF1Directory + param;
+	  end
+	  else if Pos(':', param) = 1 then
+    begin
+    	Delete(param, 1, 1);
+    	Result := RemoveSlashes( Project.Path + param );
+    end
+    else
+      Result := param;
+end;
+
+// считает, сколько процессов сейчас запущено
+function CountProcess(const prcName : String) : integer;
+var i : integer;
+begin
+	Result := 0;
+	while Sys.WaitProcess(prcName, 0, false, Result+1).Exists do Result := Result + 1;
+end;  
+
+// чекит чекбоксы (которые не OpenApp)
+function CbCheck(const cb : OleVariant; const state : boolean) : boolean;
+begin
+	Result := cb.wChecked;
+	if Result <> state then cb.Click;
+end;
+
+// устанавливает настройки в диалоге по кнопке "Настройки"
+function SetSettings( const useProxy : OleVariant = false;
+										  const proxyName : String = '';
+                      const proxyPort : String = '';
+                      const proxyLogin : String = ''; // если пусто, то галка "Авторизация" снимается
+                      const proxyPassword : String = '';
+                      const loadFromServ : boolean = false;
+                      const dontSaveToCache : boolean = false ) : boolean;
+	var p, mainWnd, inetSettings : OleVariant;                      
+begin
+	Result := false;
+	p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+  if p.Exists then
+  begin
+    mainWnd := p.WaitWindow('#32770', 'Подключение к серверу пакетного пополнения', -1, Options.Run.Timeout div 3);
+    if mainWnd.Exists then
+    begin
+    	mainWnd.Activate;
+      mainWnd.Window('Button', '&Настройки').Click;
+      inetSettings := p.WaitWindow('#32770', 'Настройка доступа к Интернет');
+      if inetSettings.Exists then
+      begin
+      	inetSettings.Activate;
+      	if VarType(useProxy) <> varBoolean then
+        begin 
+        	if useProxy = 'check only' then
+	        begin
+  	      	Result := true;
+    	      inetSettings.Window('Button', 'Отменить').Click;
+      	    Exit;
+        	end;
+        end
+        else if useProxy then
+        begin
+    	  	CbCheck(inetSettings.Window('Button', 'Использовать Прокси Сервер'), true);
+          inetSettings.Window('Edit', '', 1).wText := proxyName;
+    	    inetSettings.Window('Edit', '', 2).wText := proxyPort;
+        end
+        else
+          CbCheck(inetSettings.Window('Button', 'Использовать настройки из системного реестра'), true);
+        if proxyLogin <> '' then
+        begin
+        	inetSettings.Window('Button', 'Авторизация').wState := 0;
+          inetSettings.Window('Edit', '', 3).wText := proxyLogin;
+          inetSettings.Window('Edit', '', 4).wText := proxyPassword;            
+          inetSettings.Window('Button', 'Авторизация').wState := 1;
+        end
+        else
+        	inetSettings.Window('Button', 'Авторизация').wState := 0;
+        inetSettings.Window('Button', 'Загрузка данных непосредственно сервера, даже если они кэшированы').wState := loadFromServ;
+        inetSettings.Window('Button', 'Не записывать полученную с сервера информацию в кэш').wState := dontSaveToCache;
+        inetSettings.Window('Button', '&Принять').Click;
+        Result := true;
+      end
+      else
+      	Log.Error('Не могу открыть или найти окно "Настройки".');
+    end
+    else
+    	Log.Error('Не найдено окно программы.');
+  end
+  else
+  	Log.Error('Не запущен (или не найден) процесс F1Downloader');
+end; 
+
+function DoLogin(const _login, _password : String; const returnMsg : boolean = false; const postError : boolean = true; waitTime : integer = -1 ) : OleVariant;
+	var w, w1, p, mainWnd, inetSettings : OleVariant;  
+begin
+	if waitTime = -1 then waitTime := Options.Run.Timeout div 4;
+	Result := false;
+	p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+  if p.Exists then
+  begin
+    mainWnd := p.WaitWindow('#32770', 'Подключение к серверу пакетного пополнения', -1, Options.Run.Timeout div 3);
+    if mainWnd.Exists then
+    begin
+      mainWnd.Activate;
+      mainWnd.Window('Edit', '', 1).wText := _login;
+      mainWnd.Window('Edit', '', 2).wText := _password;      
+      mainWnd.Window('Button', '&Далее >').Click;
+      w := p.WaitWindow('#32770', 'F1Download', -1, waitTime);
+      if w.Exists then
+      begin
+      	w.Activate;
+      	w1 := w.WaitWindow('Static', '', 2);
+        // проверяем , появилось ли окошко с предупреждением
+        if w1.Exists then 
+        	Result := NOT(
+          	StringCompare('*неверный ответ сервера*', w1.WndCaption) OR
+            StringCompare('*сервер пакетного пополнения не отвечает*', w1.WndCaption) OR
+            StringCompare('*неверный логин или пароль*', w1.WndCaption) );
+        if (Result = false ) AND postError then
+        	Log.Warning('Не удалось подключиться к серверу! Появилось окошко с сообщением: "' + w1.WndCaption + '".');
+        if returnMsg = true then Result := w1.WndCaption;
+        w.Close;
+      end
+      else
+      begin
+      	w := p.WaitWindow('#32770', 'Настройка параметров', -1, waitTime); // это окошко и должно появиться
+        Result := w.Exists;
+      end;
+    end
+    else
+    	Log.Error('Не найдено окно программы.');
+  end
+  else
+  	Log.Error('Не запущен (или не найден) процесс F1Downloader');	
+end;
+
+function DelFile(const fName : String) : boolean;
+begin
+  if Utilities.FileExists( fName ) then
+  	Result := Utilities.DeleteFile( fName )
+  else
+  	Result := true;
+end;
+
+// если контекст содержится в сообщении, то жмем Ок, иначе Cancel
+// возвращает сообщение
+function WaitConfirm(const context : String; const windowCaption : String = 'Внимание') : String;
+var p, wnd : OleVariant;
+begin
+ 	Result := '';
+	p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 6);
+  if p.Exists then
+  begin
+    wnd := p.WaitWindow('#32770', windowCaption, -1, Options.Run.Timeout * 6);
+    if wnd.Exists then
+    begin
+    	Result := wnd.Window('Static', '*', 2).WndCaption;
+      if StringCompare(context, Result) then
+    		GetWindow(wnd, 'WW:WndClass=Button;WndCaption=OK|WW:WndClass=Button;WndCaption=*Yes*|WW:WndClass=Button;WndCaption=*Да*', -1).Click
+      else  
+	      GetWindow(wnd, 'WW:WndClass=Button;WndCaption=Cancel|WW:WndClass=Button;WndCaption=*No*|WW:WndClass=Button;WndCaption=*Нет*', -1).Click
+    end;
+  end;
+end;
+
+procedure ExtractFileParams(const str : String; var fileName : String; var fileSize : integer);
+var i, y : integer;
+		tmp : String;
+begin
+	i := PosCI('.zip', str);
+  y := i + 3;
+  if i <> 0 then
+  begin
+  	while ( str[i] <> ' ' ) do i := i - 1;
+    fileName := Copy(str, i+1, y - i);
+    i := PosCI('размером: ', str);
+    if i <> 0 then begin
+	    i := i + 10;
+      y := i;
+    	while (str[y] <> ' ') do y := y + 1;
+      tmp := Copy(str, i, y - i);
+      if tmp = '' then 
+      	fileSize := -1
+      else
+	      fileSize := StrToInt( Copy(str, i, y - i) );
+    end;
+  end;
+end;
+
+// дата задается в виде dd.mm.yyyy
+function StringToDate(const strDate : String) : OleVariant;
+var oldFormat, oldSeparator : String;
+begin
+	oldFormat := Utilities.ShortDateFormat;
+  oldSeparator := Utilities.DateSeparator;
+  Utilities.DateSeparator := '.';
+  Utilities.ShortDateFormat := 'dd' + Utilities.DateSeparator + 'mm' + Utilities.DateSeparator + 'yyyy';
+  Result := StrToDate( strDate );
+  Utilities.DateSeparator := oldSeparator;
+  Utilities.ShortDateFormat := oldFormat;
+end;
+
+// устанавливает параметры окна "Настройка параметров". Возвращает массив параметров до установки.
+// путь задается относительно диска С
+function TuneParameters(const complect, dateFrom, dateTo, path : String  ) : OleVariant;
+var p, folderBrowser, mainWnd, inetSettings, comboComplect, dateControlFrom, dateControlTo : OleVariant;
+		strPath, temp : String;
+begin
+	Result := false;
+	p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+  if p.Exists then
+  begin
+    mainWnd := p.WaitWindow('#32770', 'Настройка параметров', -1, Options.Run.Timeout div 3);
+    if mainWnd.Exists then
+    begin
+    	// получили контролы
+      comboComplect := mainWnd.Window('ComboBox', '');
+      dateControlFrom := mainWnd.Window('SysDateTimePick32', '', 1);
+      dateControlTo := mainWnd.Window('SysDateTimePick32', '', 2); 
+      strPath := mainWnd.Window('Edit', '', 1).wText;
+      // засовывваем их значения в результат
+      AddToArray(Result, comboComplect.wText );
+      DateTimeToString(temp, 'dd.mm.yyyy', dateControlFrom.wDate );
+      AddToArray(Result, temp );
+      DateTimeToString(temp, 'dd.mm.yyyy', dateControlTo.wDate );
+      AddToArray(Result, temp );
+      AddToArray(Result, strPath );
+      // начинаем устанавливать параметры
+      comboComplect.SetFocus;
+      Sys.Keys('[Home]');
+      if complect <> '' then
+      	Position_By_Text(comboComplect, complect, false, true  );
+      if dateFrom <> '' then
+      	 dateControlFrom.wDate := StringToDate(dateFrom);
+      if dateTo <> '' then
+      	 dateControlTo.wDate := StringToDate(dateTo);
+      if path <> '' then
+      begin
+      	mainWnd.Window('Button', 'Обзор').Click; 
+        folderBrowser := p.WaitWindow('#32770', 'Browse For Folder', -1, Options.Run.Timeout div 6);
+        if NOT folderBrowser.Exists then
+        begin
+        	Log.Error('Не могу открыть диалог выбора папки!');
+          Exit;
+        end;
+        folderBrowser := folderBrowser.Window('SysTreeView32', 'Выбор рабочего каталога');
+        folderBrowser.SetFocus;
+        temp := StringReplace(path, '\', '|', 1 OR 2);
+        
+        Delay(3000);
+        folderBrowser.Click('|[0]|My Computer|[1]|' + temp);
+        if StringCompare('*'+temp+'*', folderBrowser.wSelection ) then
+        	folderBrowser.Parent.Window('Button', 'OK').Click
+        else
+        begin
+		     	folderBrowser.Select('|[0]|Мой компьютер|[1]|' + temp);
+          if StringCompare('*'+temp+'*', folderBrowser.wSelection ) then
+    	    	folderBrowser.Parent.Window('Button', 'OK').Click
+          else
+          	folderBrowser.Parent.Window('Button', 'Cancel').Click;
+        end;
+      end;   
+    end
+    else
+    	Log.Error('Не найдено окно "Настройка параметров"');
+  end
+  else
+  	Log.Error('Не запущен (или не найден) процесс F1Downloader');
+end;
+
+function WaitForMessageWindow(const timeout : integer = -1 ) : String;
+var p, wnd : OleVariant;
+begin
+	if timeout = -1 then timeout := Options.Run.Timeout div 3;
+	p := Sys.WaitProcess('F1Download', timeout);
+  if p.Exists then
+  begin
+    wnd := p.WaitWindow('#32770', 'F1Download', -1, timeout);
+    if wnd.Exists then
+    begin
+    	Result := wnd.Window('Static', '*', 2).WndCaption;
+      wnd.Window('Button', 'OK').Click;
+    end
+    else
+    	Result := '';  
+  end;
+end;
+
+// имена должны быть полные
+function CompareDeltas(const delta1, delta2 : String) : boolean;
+var unzipPath, tempPath : String;
+begin
+	tempPath := GetFullPath(TEMP);
+	unzipPath := GetFullPath(':..\utils\unzip.exe');
+	// распаковываем дельты
+  RunProcess(unzipPath, '-d "' + tempPath + '\delta1"' + ' "' + delta1 + '"', 600000);
+  RunProcess(unzipPath, '-d "' + tempPath + '\delta1"' + ' "' + tempPath + '\delta1\*.zip"', 600000);
+  DeleteFiles(tempPath + '\delta1\*.zip');
+  RunProcess(unzipPath, '-d "' + tempPath + '\delta2"' + ' "' + delta2 + '"', 600000);
+  RunProcess(unzipPath, '-d "' + tempPath + '\delta2"' + ' "' + tempPath + '\delta2\*.zip"', 600000);
+  DeleteFiles(tempPath + '\delta2\*.zip'); 
+  Delay( Options.Run.Timeout div 5 );
+  // сравниваем файлы
+  Result := CompareDirectory(tempPath + '\delta1', tempPath + '\delta1', '');
+  RemoveFolders(tempPath + '\delta1');
+  RemoveFolders(tempPath + '\delta2');
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////  Скрипты  /////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2
+	HLTC216.1: Запуск и временные файлы. 
+		HLTC216.1.1: Проверить, что если утилита пускается до установки данных - 
+    выдается корректное сообщение о том, что данные не установлены. 
+}
+function HLTC216_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var 
+	p, w, arrFiles : OleVariant;
+  dataPath, tempPath, buf, logFile : String;
+  i : integer;
+begin
+	try
+  	Result := false;
+    CloseF1Shell(6, Options.Run.Timeout div 6); // закрываем чтобы переместить данные
+    dataPath := GetValueFromGarantINI('F1Server Params', '-GCMDataPath' + GetValueFromGarantINI('F1Server Params', '-GCMActiveDataPath'));
+    tempPath := GetF1Directory + '\' + GetRandomString;
+    Utilities.CreateDir(tempPath);
+    // перемещаем файлы БД
+    arrFiles := GetFileList(dataPath, 'data*.*', 0);
+    if IsArray(arrFiles) then
+	    for i := VarArrayLowBound(arrFiles,1) to VarArrayHighBound(arrFiles,1) do
+	    	Files.Rename( arrFiles[i], tempPath + '\' + ExtractFileName(arrFiles[i]) );
+    // пускаем download  
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');    
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);  
+    p := Sys.WaitProcess('F1Shell', Options.Run.Timeout div 3);
+    // проверяем сообщение и лог
+    logFile := GetFullPath(LOG_FILE);
+    DeleteFile( logFile );
+    w := p.WaitWindow('TMessageForm', 'Ошибка', -1, Options.Run.Timeout div 3);
+    Result := w.Exists;
+    if NOT Result then
+    	Log.Error('Не появилось ссобщение об ошибке!')
+    else
+    begin
+    	w.Activate;
+      Sys.Keys('[Enter]');
+    end;
+    buf := GetFileBody( logFile );
+    if buf = '' then
+    	Log.Error('Лог-файл пуст, или не найден по пути: "' + logFile + '".')
+    else
+    	if NOT StringCompare('*отсутствуют*', buf) then Log.Error('В лог-файле не найдено сообщение о отсутствующих данных.');
+    CloseAllProcess('F1Download');
+    CloseAllProcess('F1Shell');
+    // перемещаем файлы обратно
+    arrFiles := GetFileList(tempPath, 'data*.*', 0);
+    if IsArray(arrFiles) then
+	    for i := VarArrayLowBound(arrFiles,1) to VarArrayHighBound(arrFiles,1) do
+  	  	Files.Rename( arrFiles[i], dataPath + '\' + ExtractFileName(arrFiles[i]) );
+    RemoveFolders(tempPath);
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2
+	HLTC216.1: Запуск и временные файлы. 
+		HLTC216.1.2: Проверить, что утилита корректно запускается как FAR-ом, так и 
+    черех меню <Пуск>.  
+}
+// под FAR - будем понимать запуск "download.exe"
+// под "меню Пуск" - запуск "garant.exe F1Download" (как в ярлыке)
+function HLTC216_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var 
+	p, w, arrFiles : OleVariant;
+  dataPath, tempPath, buf, logFile : String;
+  i : integer;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // типа FAR
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    w := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+    Result := w.Exists AND ( w.WndCaption = 'Подключение к серверу пакетного пополнения');
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // как через ярлык
+    Win32API.WinExec( GetFullPath('\garant.exe F1Download') , SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    w := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+    Result := Result AND w.Exists AND ( w.WndCaption = 'Подключение к серверу пакетного пополнения');
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2
+	HLTC216.1: Запуск и временные файлы. 
+		HLTC216.1.4:  Проверить, что если запушена оболочка (клиент-серверной версии),
+    то утилиту можно запустить несколько раз. То есть запустить утилиту, закрыть
+    ее кнопкой <Отмена>, запустить еще раз, закрыть кнопкой <Х>, запустить еще раз.
+    Убедиться, что в случае локальной или файл-серверной версий при попытке запустить
+    download при работающей оболочке выдается сообщение <Отсутствует соединение 
+    с сервером приложений>.
+}
+function Downloader_1_4_Execute(var  current_state: OleVariant): OleVariant;
+var 
+	p, w, arrFiles : OleVariant;
+  dataPath, tempPath, buf, logFile, ver : String;
+  i : integer;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем оболочку
+    StartF1Shell;
+// The following line was changed by TestComplete:
+//     if Sys.WaitProcess('F1Shell', Options.Run.Timeout div 3).Exists then Sys.Delay(Options.Run.Timeout div 3);
+    if Sys.WaitProcess('F1Shell', Options.Run.Timeout div 3).Exists then Delay(Options.Run.Timeout div 3);
+    // пускаем downloader
+    Result := true;
+    ver := GetValueFromGarantINI('Version', 'Product'); // определяем версию
+    for i := 1 to 3 do 
+    begin
+      Win32API.WinExec( GetFullPath('\garant.exe F1Download') , SW_HIDE);
+      p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+      w := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      if w.Exists then
+      begin
+	      if StringCompare('server', ver) then
+        begin
+		      Result := Result AND StringCompare( '*пакетного*', w.WndCaption);
+          if Result then
+          	case i of 
+           	1 :
+            	begin
+   		 	     		w.Window('Button', 'Отмена').Click;
+	   			      w := p.Window('#32770', 'F1Download');
+	       				w.Activate;
+	   			 		  w.Window('Button', '&Yes').Click;
+	         		end;
+            2 :
+	            begin	
+  	           	p.Close;
+    	          w := p.Window('#32770', 'F1Download');
+       					w.Activate;
+   				 		  w.Window('Button', '&Yes').Click;
+          	  end;
+            end;
+        end
+	      else if StringCompare('fileserver', ver) OR StringCompare('desktop', ver) then
+        begin
+	      	Result := Result AND StringCompare( 'Внимание', w.WndCaption);
+          if Result then
+          begin
+          	w := p.WaitWindow('#32770', 'Внимание');
+          	if w.Exists then
+            begin
+            	w.Activate;
+            	Sys.Keys('[Enter]');
+            end;
+            break;
+          end;
+        end;
+      end
+      else
+      	Result := false;
+    end;  
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2
+	HLTC216.1: Запуск и временные файлы. 
+		HLTC216.1.5:  Проверить, что нельзя запустить одновременно 2 утилиты downloader.
+    При запуске второй утилиты должно выдаваться сообщение <Запуск программы 
+    невозможен. Программа загрузки обновления уже запущена. Запуск второй копии невозможен>.
+} 
+function HLTC216_1_5_Execute(var  current_state: OleVariant): OleVariant;
+var 
+	p, w, arrFiles : OleVariant;
+  i, nShell, nDownloader : integer;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    w := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+    Result := w.Exists AND ( w.WndCaption = 'Подключение к серверу пакетного пополнения');
+	
+  	nShell := CountProcess('F1Shell');
+    nDownloader := CountProcess('F1Download');
+    // еще раз
+    if Result then
+    begin
+    	Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+// The following line was changed by TestComplete:
+//       Sys.Delay(Options.Run.Timeout div 5);
+      Delay(Options.Run.Timeout div 5);
+      // здесь по идее надо проверять сообщение, но его не выдается. 
+      // будем проверять количество запущенных процессов, оно не должно измениться
+      Result := (nShell = CountProcess('F1Shell')) AND (nDownloader = CountProcess('F1Download'));
+      if NOT Result then Log.Error('Возможна ошибка при запуске второй копии Downloader.');
+    end;
+    CloseAllProcess('F1Download', true, Options.Run.Timeout div 10); 
+    CloseAllProcess('F1Shell', true, Options.Run.Timeout div 10);
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+  	HLTC216.2.1: Проверить работу диалога Настроек.
+    	HLTC216.2.1.1: Выбрать <Использовать настройки из системного реестра>, а в
+      свойствах Explorer-а задать неправильный прокси-сервер или <не использовать
+      прокси>. Утилита должна выдать сообщение <Не удается соединиться в Web-сервером>
+      HLTC216.2.1.2: Выбрать <Использовать прокси> и задать неправильный прокси-
+      сервер. Причем как просто неправильный (например eee.garant.ru с портом 8834),
+      так и совсем неправильный, типа <еее> с портом <еее>. Утилита должна отвечать
+      что-то вразумительное в обоих случаях.
+      HLTC216.2.1.3: Проверить работу СheckBox-а <Параметры запроса>. 
+}
+function HLTC216_2_1_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, inetSettings : OleVariant;
+	  i, nShell, nDownloader : integer;
+	Label Quit;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    mainWnd := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+    Result := mainWnd.Exists AND ( mainWnd.WndCaption = 'Подключение к серверу пакетного пополнения');
+		if Result then
+    begin
+      // 1
+      Log.Message('Проверяем пункт 1');
+    	// выключаем прокси
+    	Storages.Registry('\Software\Microsoft\Windows\CurrentVersion\Internet Settings', HKEY_CURRENT_USER ).SetOption('ProxyEnable', 0);
+      mainWnd.Window('Button', '&Настройки', 1).Click;
+      inetSettings := p.WaitWindow('#32770', 'Настройка доступа к Интернет');
+      if inetSettings.Exists then
+      begin
+      	CbCheck(inetSettings.Window('Button', 'Использовать настройки из системного реестра'), true);
+        inetSettings.Window('Button', '&Принять').Click;
+      end
+      else
+      begin
+      	Log.Error('Не могу открыть или найти окно "Настройки".');
+        GoTo Quit;
+      end;
+      mainWnd.Window('Button', '&Далее >').Click;
+      w := p.WaitWindow('#32770', 'F1Download', -1, Options.Run.Timeout div 3);
+      if w.Exists then
+      begin
+      	w1 := w.WaitWindow('Static', '*Сервер пакетного пополнения не отвечает*');
+        Result := w1.Exists; // проверяем , появилось ли окошко с предупреждением
+        w.Close;
+      end
+      else
+      begin
+      	Log.Error('Не выдается (или не найдено) сообщение о невозможности подключиться к серверу. (1)');
+
+      	Result := false;
+      end;
+      // включаем прокси обратно  
+      Storages.Registry('\Software\Microsoft\Windows\CurrentVersion\Internet Settings', HKEY_CURRENT_USER ).SetOption('ProxyEnable', 0);
+      // 2
+      Log.Message('Проверяем пункт 2');
+      mainWnd.Window('Button', '&Настройки', 1).Click;
+      inetSettings := p.WaitWindow('#32770', 'Настройка доступа к Интернет');
+      if inetSettings.Exists then
+      begin
+      	CbCheck(inetSettings.Window('Button', 'Использовать Прокси Сервер'), true);
+        inetSettings.Window('Edit', '', 1).wText := 'incorrectproxy.garant.ru';
+        inetSettings.Window('Edit', '', 2).wText := '8834';
+        inetSettings.Window('Button', '&Принять').Click;
+      end
+      else
+      begin
+      	Log.Error('Не могу открыть или найти окно "Настройки".');
+        GoTo Quit;
+      end;
+      mainWnd.Window('Button', '&Далее >').Click;
+      w := p.WaitWindow('#32770', 'F1Download', -1, Options.Run.Timeout div 3);
+      if w.Exists then
+      begin
+      	w1 := w.WaitWindow('Static', '*Сервер пакетного пополнения не отвечает*');
+        Result := Result AND w1.Exists; // проверяем , появилось ли окошко с предупреждением
+        w.Close;
+      end
+      else
+      begin
+      	Log.Error('Не выдается (или не найдено) сообщение о невозможности подключиться к серверу. (2.1)');
+      	Result := false;
+      end;
+      	// теперб с вообще неправильным портом
+      mainWnd.Window('Button', '&Настройки', 1).Click;
+      inetSettings := p.WaitWindow('#32770', 'Настройка доступа к Интернет');
+      if inetSettings.Exists then
+      begin
+      	CbCheck(inetSettings.Window('Button', 'Использовать Прокси Сервер'), true);
+        inetSettings.Window('Edit', '', 1).wText := 'eee';
+        inetSettings.Window('Edit', '', 2).wText := 'eee';
+        inetSettings.Window('Button', '&Принять').Click;
+      end
+      else
+      begin
+      	Log.Error('Не могу открыть или найти окно "Настройки".');
+        GoTo Quit;
+      end;
+      mainWnd.Window('Button', '&Далее >').Click;
+      w := p.WaitWindow('#32770', 'F1Download', -1, Options.Run.Timeout div 3);
+      if w.Exists then
+      begin
+      	w1 := w.WaitWindow('Static', '*Сервер пакетного пополнения не отвечает*');
+        Result := Result AND w1.Exists; // проверяем , появилось ли окошко с предупреждением
+        w.Close;
+      end
+      else
+      begin
+      	Log.Error('Не выдается (или не найдено) сообщение о невозможности подключиться к серверу. (2.2)');
+      	Result := false;
+      end;  
+      // 3
+      	// хз как проверять
+    end;
+    Quit :
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+		HLTC216.2.2:  Проверить, что соединение с СПП происходит при обоих типах доступа
+    к Интернет (с корректными параметрами)
+    	HLTC216.2.2.1: <Использовать настройки из системного реестра>
+      	HLTC216.2.2.1.1: в том числе в случае, если в  сетевом имени машины
+        присутствует сочетание <server>.
+}
+function HLTC216_2_2_1_1_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, inetSettings : OleVariant;
+	  i, nShell, nDownloader : integer;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(false);
+    Result := DoLogin(LOGIN, PASSWORD);
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+		HLTC216.2.2:  Проверить, что соединение с СПП происходит при обоих типах доступа
+    к Интернет (с корректными параметрами)
+    	HLTC216.2.2.1: <Использовать настройки из системного реестра>
+        HLTC216.2.2.2.1: в том числе в случае, если в wins-имени машины присутствует
+        сочетание <server>.
+				HLTC216.2.2.2.2: В том числе, если для входа на Прокси Сервер требуется 
+        авторизация. 
+        Smax: Как это сделать я не знаю - никогда не делал. 
+        Ах222: Поговорить с Админами.
+} // можно юзать локальный прокси-сервак
+function 	HLTC216_2_2_1_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, inetSettings : OleVariant;
+	  i : integer;
+    bool : boolean;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    Result := DoLogin(LOGIN, PASSWORD);
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'localhost', '808', 'user1', 'user1'); // для локального серва
+    Result := Result AND DoLogin(LOGIN, PASSWORD);
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2.3: Проверить работу диалога регистрации. 
+		HLTC216.2.3.1: При правильном логин-пароле должно происходить соединение с 
+    СПП. При этом происходит переход на диалог <Настройка параметров> и в 
+    garant.ini записывается секция downloader, содержащая логин и шифрованный 
+    пароль. Проверить, что шифрованный.
+}    
+function HLTC216_2_3_1_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1 : OleVariant;
+	  iniLogin, iniPass : String;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    Result := DoLogin(LOGIN, PASSWORD);
+    if Result then
+    begin
+    	iniLogin := GetValueFromGarantINI('Downloader', 'Login');
+      iniPass := GetValueFromGarantINI('Downloader', 'Pswd');
+      Result := ( iniLogin = LOGIN ) AND ( iniPass <> PASSWORD );
+      if iniPass = PASSWORD then Log.Error('В garant.ini сохранился нешифрованный пароль.');
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2.3: Проверить работу диалога регистрации. 
+		HLTC216.2.3.2: При неправильном логин-пароле выводится сообщение: <Download.
+    Неверный логин или пароль. Убедитесь, что клавиша Caps Lock не включена и 
+    символы введены в латинской раскладке>.   
+}
+function HLTC216_2_3_2_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1 : OleVariant;
+    str : String;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    str := DoLogin('incorrectlogin', 'incorrectpassword', true, false);
+    Result := StringCompare('*Неверный*логин*или*пароль*Убедитесь*что*клавиша*Caps*Lock*не*включена*и*символы*введены*в*латинской*раскладке*', str);
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2.3: Проверить работу диалога регистрации. 
+		HLTC216.2.3.3: По кнопке <Настройки> происходит переход в диалог <Настройка 
+    доступа в Интернет>  
+}
+function HLTC216_2_3_3_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1 : OleVariant;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    Result := SetSettings('check only');
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2.3: Проверить работу диалога регистрации. 
+		HLTC216.2.3.4: По кнопке <Далее> происходит попытка соединиться с СПП, и 
+    если соединение успешно - происходит переход в диалог <Настройка параметров>
+}
+function HLTC216_2_3_4_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1 : OleVariant;
+	  iniLogin, iniPass : String;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    Result := DoLogin(LOGIN, PASSWORD);
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2.3: Проверить работу диалога регистрации. 
+		HLTC216.2.3.5: По кнопке <Помощь> (и по F1) происходит вызов соответствующей
+    страницы помощи.
+}
+function HLTC216_2_3_5_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd : OleVariant;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    mainWnd := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+    Result := mainWnd.Exists AND ( mainWnd.WndCaption = 'Подключение к серверу пакетного пополнения');
+		if Result then
+    begin
+    	// проверяем по кнопке "Помощь"
+    	mainWnd.Window('Button', '&Помощь').Click;
+      w1 := p.WaitWindow('*HH*', 'Установка и обновление', -1 , Options.Run.Timeout div 4);
+      if NOT w1.Exists then Log.Error('По кнопке "Помощь" помощь не вызывается.');
+      Result := w1.Exists;  
+      if w1.Exists then w1.Close;
+      // проверяем по F1
+      mainWnd.SetFocus;
+      Sys.Keys('[F1]');
+      w1 := p.WaitWindow('*HH*', 'Установка и обновление', -1 , Options.Run.Timeout div 4);
+      if NOT w1.Exists then Log.Error('По F1 помощь не вызывается.');
+      Result := Result AND w1.Exists;
+      if w1.Exists then w1.Close;
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2  
+	HLTC216.2.3: Проверить работу диалога регистрации. 
+		HLTC216.2.3.6: По кнопке <Отмена> утилита завершает работу.
+}
+function HLTC216_2_3_6_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd : OleVariant;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    mainWnd := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+    Result := mainWnd.Exists AND ( mainWnd.WndCaption = 'Подключение к серверу пакетного пополнения');
+		if Result then
+    begin
+    	mainWnd.Window('Button', 'Отмена').Click;
+      w1 := p.WaitWindow('#32770', 'F1Download', -1, Options.Run.Timeout div 6);
+      if w1.Exists then
+      begin
+      	w1.Activate;
+        w1.Window('Button', '&Yes').Click; 
+      end;	
+// The following line was changed by TestComplete:
+//       Sys.Delay(Options.Run.Timeout div 6); // ждем завершения процесса
+      Delay(Options.Run.Timeout div 6); // ждем завершения процесса
+      Result := NOT p.Exists;
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+		HLTC216.2.4: Проверить работу диалога Настройки параметров
+			HLTC216.2.4.1: В combobox-е комплектов должен быть список комплектов для 
+      тестового клиента. Проверить, что данный список читаем.
+}
+function HLTC216_2_4_1_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd : OleVariant;
+    str : String;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	mainWnd := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3).WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      str := mainWnd.Window('ComboBox', '', 1).wItemList;
+      // проверяем, что в комбобоксе есть знакомые буквы
+      Result := (Pos('Гарант', str ) <> 0) AND (Pos('Максимум', str ) <> 0) AND (Pos('Эталон', str ) <> 0); 
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+		HLTC216.2.4: Проверить работу диалога Настройки параметров
+			HLTC216.2.4.2: В поле <Обновление с> должна стоять дата ревизии установленного
+      комплекта (в оболочке эта дата показывается в <Информации о комплекте>). 
+			HLTC216.2.4.3: В поле <Обновление по> должна стоять текущая дата СПП
+}
+// последний пункт проверять не будем. там используется стандартный виндовый 
+// контрол, доверимся мелкокомягким.
+function HLTC216_2_4_2_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd : OleVariant;
+    str : String;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	mainWnd := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3).WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      // это для тестовой базы, конечно же
+      DateTimeToString(str, 'dd.mm.yyyy', mainWnd.Window('SysDateTimePick32', '', 1).wDate );
+      Result := ( str = '24.09.2004' );
+      // а тут д.б. текущая дата
+      Result := Result AND mainWnd.Window('SysDateTimePick32', '', 2).wDate = Utilities.Date;
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+		HLTC216.2.4: Проверить работу диалога Настройки параметров
+			HLTC216.2.4.5: Проверить, что если для комплекта не предусмотрено обновление
+      за выбранный интервал дат (видимо, с сервера нужно удалить соответствующие
+      дельты или задать нулевой интервал дат) - выдается сообщение <Для комплекта
+      ... за период с : по ... обновление не предусмотрено. Проверьте правильность
+      интервала дат.>
+			HLTC216.2.4.9: Проверить, корректность работы с датами. То есть, если <дата
+      с> больше <даты по> и/или <дата по> превышает текущую дату - при нажатии на
+      кнопку <Начать> должно  выводиться сообщение <Введен неправильный интервал
+      дат. Дата <по> должна быть больше даты <с> и не превышать текущей даты>.
+}
+function HLTC216_2_4_5_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str : String;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');  
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	mainWnd := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3).WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      arrParam := TuneParameters('Гарант-Практик(Ф)', '1.1.1950', '1.1.1951', '' );
+      mainWnd.Window('Button', '&Начать >').Click;
+      Result := StringCompare('*за период*обновление не предусмотрено*', WaitForMessageWindow );
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	mainWnd := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3).WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      TuneParameters('Гарант-Практик(Ф)', '1.1.1990', '1.1.1989', '' );
+      mainWnd.Window('Button', '&Начать >').Click;
+      Result := Result AND StringCompare('*введен недопустимый интервал дат*', WaitForMessageWindow );
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+		HLTC216.2.4: Проверить работу диалога Настройки параметров
+			HLTC216.2.4.6: В поле Каталог при первом запуске должен быть каталог по 
+      умолчанию, т.е. :\GARANT\DELTA
+			HLTC216.2.4.7: Проверить, что при изменении каталога дельта будет скачиваться
+      именно туда. Проверить, что если указанного каталога не существует - он будет создан.
+			HLTC216.2.4.8: Проверить, что файл download.log создается в каталоге LOGS.    
+}
+// проверять создание каталога не будем т.к. каталог создается пользователем явно.
+function HLTC216_2_4_6_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, fName, logFile, temp : String;
+    fSize : integer;
+  const NEWPATH = 'delta1234';
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download'); 
+    logFile := GetFullPath(LOG_FILE);
+    DelFile( logFile ); 
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	mainWnd := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3).WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      mainWnd.Activate;
+      RemoveFolders('c:\' + NEWPATH); 
+      CreateDir('c:\' + NEWPATH);
+      arrParam := TuneParameters('Гарант-Практик(Ф)', '24.09.2004', '10.09.2005', NEWPATH );
+     	Result := true;
+      // фиг знает, как определять, первый это запуск или нет.
+//      if NOT StringCompare( GetFullPath('\delta') + '\' ,GetFromArray(arrParam, -1 )) then
+//      begin
+//      	Log.Error('Каталог по-умолчанию - неверный');
+//        Result := false;
+//      end;
+      mainWnd.Window('Button', '&Начать >').Click;
+      str := WaitConfirm('*можете скачать*');  // теперь началачь качаться дельта
+      ExtractFileParams(str, fName, fSize);
+// The following line was changed by TestComplete:
+//       Sys.Delay(Options.Run.Timeout div 5); // ждем немного, что бы хоть что-нибудь скачалось
+      Delay(Options.Run.Timeout div 5); // ждем немного, что бы хоть что-нибудь скачалось
+      // прибиваем все
+	    CloseAllProcess('F1Shell');
+  		CloseAllProcess('F1Download');
+      // проверяем...
+      temp := 'c:\' + NEWPATH + '\' + fName;
+      if NOT CheckFileExist(temp) then
+      begin
+      	Log.Error('Дельта не скачивается по указанному пути: ', temp );
+        Result := false;
+      end;
+      if NOT CheckFileExist( logfile ) then
+      begin
+      	Log.Error('Лог-файл не найден по пути: ', logfile );
+        Result := false;
+      end;
+      RemoveFolders('c:\' + NEWPATH);
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+ 
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+		HLTC216.2.4: Проверить работу диалога Настройки параметров
+			HLTC216.2.4.10: Проверить функционирование кнопок внизу диалога. По кнопке
+      <Назад> происходит возврат в диалог <Подключение к СПП>. По кнопке <Начать>
+      происходит запрос к СПП. По кнопке <Помощь> вызывается соответствующая страница
+      помощи. По кнопке <Отмена> происходит завершение работы утилиты (при условии
+      положительного ответа на подтверждение).   
+}  
+// проверять "Начать" не будем, т.к. оно везде проверяется
+function HLTC216_2_4_10_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, logFile : String;
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download'); 
+    logFile := GetFullPath(LOG_FILE);
+    DelFile( logFile ); 
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    	mainWnd := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      mainWnd.Activate;
+      // проверяем кнопку "Помощь"
+      mainWnd.Window('Button', '&Помощь').Click;
+      w1 := p.WaitWindow('*HH*', 'Установка и обновление', -1 , Options.Run.Timeout div 4);
+      Result := w1.Exists;
+      if NOT w1.Exists then	Log.Error('По кнопке "Помощь" помощь не вызывается.');
+      // проверяем кнопку "Назад"
+      mainWnd.Activate;
+      mainWnd.Window('Button', '< &Назад').Click;
+      w1 := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      Result := Result AND StringCompare('*серверу пакетного*', w1.WndCaption);
+      // проверяем кнопку "Отмена"
+      DoLogin(LOGIN, PASSWORD);
+      mainWnd := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      mainWnd.Activate;
+      mainWnd.Window('Button', 'Отмена').Click;
+      w1 := p.WaitWindow('#32770', 'F1Download', -1, Options.Run.Timeout div 6);
+      if w1.Exists then
+      begin
+      	w1.Activate;
+        w1.Window('Button', '&Yes').Click; 
+      end;	
+// The following line was changed by TestComplete:
+//       Sys.Delay(Options.Run.Timeout div 6); // ждем завершения процесса  
+      Delay(Options.Run.Timeout div 6); // ждем завершения процесса  
+      Result := Result AND (NOT p.Exists);
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+  	HLTC216.2.5: Утилита перед собственно скачиванием должна сообщить какой файл
+    скачиваем и его размер.  
+}
+function HLTC216_2_5_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, logFile, fName : String;
+    fSize : integer;
+  const NEWPATH = 'delta1234';
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download'); 
+    logFile := GetFullPath(LOG_FILE);
+    DelFile( logFile ); 
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	RemoveFolders('c:\' + NEWPATH); 
+      CreateDir('c:\' + NEWPATH);
+      mainWnd := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3).WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      mainWnd.Activate;
+      TuneParameters('Гарант-Практик(Ф)', '24.09.2004', '10.09.2005', '' );
+      mainWnd.Window('Button', '&Начать >').Click;
+      str := WaitConfirm('fhffhfffff');
+      ExtractFileParams(str, fName, fSize);
+      Result := (fName <> '') AND (fSize <> -1 );
+      CloseAllProcess('F1Download');
+      RemoveFolders('c:\' + NEWPATH);
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+	  HLTC216.2.6: После скачивания проверить корректность информации в логе.
+}   
+function Downloader_2_6_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, logFile, fName : String;
+    fSize : integer;
+  const NEWPATH = 'delta1234';
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download'); 
+    logFile := GetFullPath(LOG_FILE);
+    DelFile( logFile ); 
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	RemoveFolders('c:\' + NEWPATH); 
+      CreateDir('c:\' + NEWPATH);
+      p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+      mainWnd := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      mainWnd.Activate;
+      TuneParameters('Гарант-Практик(Ф)', '24.09.2004', '10.09.2005', '' );
+      mainWnd.Window('Button', '&Начать >').Click;
+      str := WaitConfirm('*можете скачать*');
+      ExtractFileParams(str, fName, fSize);
+      w1 := p.WaitWindow('#32770', 'Загрузка завершена', -1, Options.Run.Timeout * 10);
+      if w1.Exists then // загрузка успешно завершилась
+      begin
+      	str := GetFileBody(logFile);
+        if str <> '' then
+        	Result := StringCompare('*закачка обновления*гарант-практик(ф)*' + fName + '*' + IntToStr(fSize) +  '*Загрузка файлов обновления успешно завершена*', str);
+      end;
+      RemoveFolders('c:\' + NEWPATH);
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+  	HLTC216.2.7: Проверить, что возможно прервать процесс скачивания (кнопка <Отмена>).
+  	HLTC216.2.8: Проверить, что при этом пишется в лог.
+}   
+function HLTC216_2_7_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, logFile, fName : String;
+    fSize : integer;
+  const NEWPATH = 'delta1234';
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download'); 
+    logFile := GetFullPath(LOG_FILE);
+    DelFile( logFile ); 
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+    	RemoveFolders('c:\' + NEWPATH); 
+      CreateDir('c:\' + NEWPATH);
+      p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+      mainWnd := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      mainWnd.Activate;
+      TuneParameters('Гарант-Практик(Ф)', '24.09.2004', '10.09.2005', '' );
+      mainWnd.Window('Button', '&Начать >').Click;
+      str := WaitConfirm('*можете скачать*');
+      ExtractFileParams(str, fName, fSize);
+// The following line was changed by TestComplete:
+//       Sys.Delay(Options.Run.Timeout div 1.5);
+      Delay(Options.Run.Timeout div 1.5);
+      mainWnd := p.WaitWindow('#32770', '*Загрузка*', -1, Options.Run.Timeout div 3);
+      mainWnd.Window('Button', 'Отмена').Click;
+      WaitConfirm('*прервать закачку*', 'F1Download');
+      w1 := p.WaitWindow('#32770', 'Загрузка завершена', -1, Options.Run.Timeout div 5);
+      if w1.Exists then
+      	Result := w1.WaitWindow('Static', '*прерван*').Exists AND StringCompare('*процесс закачки*был прерван*', GetFileBody(logFile) ) ;
+      RemoveFolders('c:\' + NEWPATH);
+    end;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.2: Проверить работу в диалоговом режиме (функционирование всех диалогов,
+  скачано то, что нужно)
+  	2.10. Проверяем, что скачано то что нужно.
+}
+// в доке нет, но проверять надо.
+function HLTC216_2_10_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, logFile, tempPath : String;
+    i : integer;
+begin
+	try       
+  	tempPath := 'c:\deltaDown';
+    Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+    // очищаем лог и временный каталог
+    logFile := GetFullPath(LOG_FILE);
+    DelFile( logFile );
+    RemoveFolders(tempPath); 
+    CreateDir(tempPath);
+    // пускаем downloader
+    Win32API.WinExec( GetFullPath('\download.exe') , SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    if DoLogin(LOGIN, PASSWORD) then
+    begin
+      p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+      mainWnd := p.WaitWindow('#32770', '', -1, Options.Run.Timeout div 3);
+      mainWnd.Activate;
+      TuneParameters('Гарант-Практик(Ф)', '24.09.2004', '21.09.2005', 'deltaDown' );
+      mainWnd.Window('Button', '&Начать >').Click;
+      str := WaitConfirm('*можете скачать*');
+      w1 := p.WaitWindow('#32770', 'Загрузка завершена', -1, Options.Run.Timeout * 10);
+      if w1.Exists then // загрузка успешно завершилась
+      	Result := CompareDeltas(ETALON_DELTA, GetFromArray(GetFileList(tempPath, '*.zip'), 0)  );
+      RemoveFolders(tempPath);
+    end; 
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.10: Проверить работу в автоматическом режиме, то есть с параметром -AUTO
+  (с параметрами по умолчанию).  
+		HLTC216.10.1: Проверить, что происходит и что пишется в лог, если перед 
+    запуском в автоматическом режиме установлены неправильные настройки доступа 
+    в Интернет (В диалоге настроек написать прокси <ееею.garant.ru> на порту <1234>).
+}  
+function HLTC216_10_1_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, logFile : String;
+    i : integer;
+  const MAXTIMEOUT = 1000*60*20; // 20 минут  
+begin
+	try
+  	Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+    // задаем неверные настройки
+    Win32API.WinExec( GetFullPath('\download.exe'), SW_HIDE);
+    SetSettings(true, 'eee.garant.ru', '1234');
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+    logFile := GetFullPath(LOG_FILE);
+    DelFile( logFile ); 
+    // запускаем прогу в авто режиме
+    Win32API.WinExec( GetFullPath('\download.exe') + ' -auto' , SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    // ждем пока прога сделает свои грязные дела
+    i := Win32API.GetTickCount() + MAXTIMEOUT;
+    while (p.Exists) AND (Win32API.GetTickCount() < i) do
+// The following line was changed by TestComplete:
+//     	Sys.Delay(Options.Run.Timeout div 30);
+    	Delay(Options.Run.Timeout div 30);
+    // проверяем лог
+    Result := StringCompare('*произошло системное исключение*сервер*не отвечает*работа программы завершена*', GetFileBody(logFile) );
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.10: Проверить работу в автоматическом режиме, то есть с параметром -AUTO
+  (с параметрами по умолчанию).
+  	HLTC216.10.2: Скачано то, что нужно. То, что скачали с помощью утилиты download
+    сравнить с тем, что скачали <руками> с СПП (для того же комплекта, за тот же
+    период). Результат должен быть одинаковый. 
+    HLTC216.10.4: Проверить корректность информации в логе.
+}  
+function HLTC216_10_2_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, logFile, tempPath : String;
+    i : integer;
+	const MAXTIMEOUT = 1000*60*20;    
+begin
+	try       
+  	tempPath := GetFullPath(TEMP);
+    Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+    // задаем настройки
+    Win32API.WinExec( GetFullPath('\download.exe'), SW_HIDE);
+    SetSettings(true, 'proxy.garant.ru', '8080');
+    DoLogin(LOGIN, PASSWORD);
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+    // очищаем лог и временный каталог
+    logFile := GetFullPath(LOG_FILE);
+    DelFile( logFile ); 
+    RemoveFolders(tempPath);
+    ForceDirectories(tempPath);
+    // запускаем прогу в авто режиме
+    Win32API.WinExec( GetFullPath('\download.exe') + ' -auto -PATH "' + tempPath + '\"', SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    // ждем пока прога сделает свои грязные дела
+    i := Win32API.GetTickCount() + MAXTIMEOUT;
+    while (p.Exists) AND (Win32API.GetTickCount() < i) do
+// The following line was changed by TestComplete:
+//     	Sys.Delay(Options.Run.Timeout div 30);
+    	Delay(Options.Run.Timeout div 30);
+    // проверяем результаты работы
+    Result := CompareDeltas( GetFromArray(GetFileList(tempPath, '*.zip'), 0), ETALON_DELTA  ) AND
+    					StringCompare( '*загрузка*файлов*обновления*успешно*завершена*работа*программы*завершена*' , GetFileBody(logFile) );
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+ 
+{
+HLTC216: Тестирование Download для Гарант версии 6.2 
+	HLTC216.10: Проверить работу в автоматическом режиме, то есть с параметром -AUTO
+  (с параметрами по умолчанию).
+		HLTC216.10.3: Проверить, что работа в автоматическом режиме возможна только 
+    если в garant.ini есть секция Downloader, т.е. один раз к СПП уже подключались.
+    В ином случае утилита запускается в диалоговом режиме, даже если указан
+    параметр -auto.  
+}   
+function HLTC216_10_3_Execute(var  current_state: OleVariant): OleVariant;
+	var 
+		p, w, w1, mainWnd, arrParam : OleVariant;
+    str, logFile, tempPath : String;
+    i, j, k : integer;
+	const MAXTIMEOUT = 1000*60*20;    
+begin
+	try       
+  	tempPath := GetFullPath(TEMP);
+    Result := false;
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+    // бэкапим ини-файл и удаляем секцию Downloader
+    BuiltIn.CopyFiles(GetFullPath(INI_FILE), GetFullPath(INI_FILE) + 'bckp', false);
+    str := GetFileBody(GetFullPath(INI_FILE));
+    i := Pos('[Downloader]', str);
+    Delete(str, i, PosN('[', str, i + 1) - i );
+    SaveStrToFile(GetFullPath(INI_FILE), str); 
+    // запускаем прогу в авто режиме
+    Win32API.WinExec( GetFullPath('\download.exe') + ' -auto', SW_HIDE);
+    p := Sys.WaitProcess('F1Download', Options.Run.Timeout div 3);
+    // проверяем, что таки да, имеем диалоговый режим
+    Result := p.WaitWindow('#32770', 'Подключение к серверу пакетного пополнения', -1, Options.Run.Timeout div 3).Exists;
+    BuiltIn.CopyFiles(GetFullPath(INI_FILE) + 'bckp', GetFullPath(INI_FILE), false); 
+    CloseAllProcess('F1Shell');
+    CloseAllProcess('F1Download');
+  except
+    Result := false;
+  	raise(ExceptionMessage);
+  end;
+end;
+
+

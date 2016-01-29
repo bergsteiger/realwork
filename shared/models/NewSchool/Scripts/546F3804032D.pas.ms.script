@@ -1,0 +1,584 @@
+// TncsOneFileDeliverer 546F3804032D SimpleClass Class
+
+FORWARD ME_546F3804032D
+
+FORWARD ME_5472F63C0394
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5472F65B0085
+ CONST UID '5472F65B0085'
+ CONST Name 'cControlExt'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''.control'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_5472F65B0085 cControlExt
+
+: ME_5472F67B019A
+ CONST UID '5472F67B019A'
+ CONST Name 'cPartialExt'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '''.partial'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_5472F67B019A cPartialExt
+
+: ME_5472F63C0394
+ CONST UID '5472F63C0394'
+ CONST Name 'cFilesExtensions'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5472F65B0085 // cControlExt
+ ME_5472F67B019A // cPartialExt
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_5472F63C0394 cFilesExtensions
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '546EF14803A6.pas.ms.script'
+
+: ME_546F382B031E
+ CONST UID '546F382B031E'
+ CONST Name 'LocalDesc'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_546EF14803A6 // TncsTaskedFileDesc
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_546F382B031E LocalDesc
+
+: ME_546F388103BF
+ CONST UID '546F388103BF'
+ CONST Name 'f_Transporter'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5464B4730055 // IncsTransporter
+ ;
+
+ @SELF
+; // ME_546F388103BF f_Transporter
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_546F38FE021D
+ CONST UID '546F38FE021D'
+ CONST Name 'f_LocalPath'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_546F38FE021D f_LocalPath
+
+: ME_547588AA019E
+ CONST UID '547588AA019E'
+ CONST Name 'f_TaskID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_547588AA019E f_TaskID
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_5489456000B9
+ CONST UID '5489456000B9'
+ CONST Name 'f_Stream'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47E150FF028A // TStream
+ ;
+
+ @SELF
+; // ME_5489456000B9 f_Stream
+
+: ME_5489482402E9
+ CONST UID '5489482402E9'
+ CONST Name 'f_Progressor'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5489482402E9 f_Progressor
+
+: ME_EE1F95B8278E
+ CONST UID 'EE1F95B8278E'
+ CONST Name 'f_LocalDesc'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства LocalDesc' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_546EF14803A6 // TncsTaskedFileDesc
+ ;
+
+ @SELF
+; // ME_EE1F95B8278E f_LocalDesc
+
+FORWARD ME_546F389A0156
+
+: ME_5472FF6C0224
+ CONST UID '5472FF6C0224'
+ CONST Name 'aTransporter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5464B4730055 // IncsTransporter
+ ;
+
+ @SELF
+; // ME_5472FF6C0224 aTransporter
+
+: ME_5472FF6C0233
+ CONST UID '5472FF6C0233'
+ CONST Name 'aTaskID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5472FF6C0233 aTaskID
+
+: ME_5472FF6C0243
+ CONST UID '5472FF6C0243'
+ CONST Name 'aLocalPath'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5472FF6C0243 aLocalPath
+
+INCLUDE '546C52C001ED.pas.ms.script'
+
+: ME_5472FF6C0262
+ CONST UID '5472FF6C0262'
+ CONST Name 'aRemoteDesc'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_546C52C001ED // TncsFileDesc
+ ;
+
+ @SELF
+; // ME_5472FF6C0262 aRemoteDesc
+
+: ME_546F38A30119
+ CONST UID '546F38A30119'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5472FF6C0224 // aTransporter
+ ME_5472FF6C0233 // aTaskID
+ ME_5472FF6C0243 // aLocalPath
+ ME_5472FF6C0262 // aRemoteDesc
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_546F38A30119 DoIt
+
+: ME_546F389A0156
+ CONST UID '546F389A0156'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_546F38A30119 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_546F389A0156 Create
+
+FORWARD ME_5473254E0090
+
+: ME_547588EB0039
+ CONST UID '547588EB0039'
+ CONST Name 'aRemoteDesc'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_546C52C001ED // TncsFileDesc
+ ;
+
+ @SELF
+; // ME_547588EB0039 aRemoteDesc
+
+: ME_547325CA01EC
+ CONST UID '547325CA01EC'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_547588EB0039 // aRemoteDesc
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_547325CA01EC DoIt
+
+: ME_5473254E0090
+ CONST UID '5473254E0090'
+ CONST Name 'CheckContinue'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_547325CA01EC // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5473254E0090 CheckContinue
+
+FORWARD ME_5473255F03A1
+
+: ME_547588F80053
+ CONST UID '547588F80053'
+ CONST Name 'aRemoteDesc'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_546C52C001ED // TncsFileDesc
+ ;
+
+ @SELF
+; // ME_547588F80053 aRemoteDesc
+
+: ME_5473257F0260
+ CONST UID '5473257F0260'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_547588F80053 // aRemoteDesc
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5473257F0260 DoIt
+
+: ME_5473255F03A1
+ CONST UID '5473255F03A1'
+ CONST Name 'InitNew'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5473257F0260 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5473255F03A1 InitNew
+
+FORWARD ME_54732616034A
+
+: ME_547326290213
+ CONST UID '547326290213'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_547326290213 DoIt
+
+: ME_54732616034A
+ CONST UID '54732616034A'
+ CONST Name 'LocalControlFileName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_547326290213 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54732616034A LocalControlFileName
+
+FORWARD ME_5473263D00AC
+
+: ME_547326500188
+ CONST UID '547326500188'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_547326500188 DoIt
+
+: ME_5473263D00AC
+ CONST UID '5473263D00AC'
+ CONST Name 'LocalPartialFileName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_547326500188 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5473263D00AC LocalPartialFileName
+
+FORWARD ME_5474A3BD0077
+
+: ME_18646E20D15C
+ CONST UID '18646E20D15C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода SaveControl' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_18646E20D15C DoIt
+
+: ME_5474A3BD0077
+ CONST UID '5474A3BD0077'
+ CONST Name 'SaveControl'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_18646E20D15C // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5474A3BD0077 SaveControl
+
+FORWARD ME_5474A3D400D5
+
+: ME_54778D803EF5
+ CONST UID '54778D803EF5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода CommitDelivery' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54778D803EF5 DoIt
+
+: ME_5474A3D400D5
+ CONST UID '5474A3D400D5'
+ CONST Name 'CommitDelivery'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54778D803EF5 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5474A3D400D5 CommitDelivery
+
+FORWARD ME_5474A7B201FC
+
+: ME_5474A7BE010E
+ CONST UID '5474A7BE010E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5474A7BE010E DoIt
+
+: ME_5474A7B201FC
+ CONST UID '5474A7B201FC'
+ CONST Name 'LocalFileName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5474A7BE010E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5474A7B201FC LocalFileName
+
+: ME_54744E600038
+ CONST UID '54744E600038'
+ CONST Name 'aProgressor'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_54744E600038 aProgressor
+
+: ME_5472E6E201EE
+ CONST UID '5472E6E201EE'
+ CONST Name 'DoProcess'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_54744E600038 // aProgressor
+ ]
+ ; // Parameters
+ CONST "force overload" true
+
+ @SELF
+; // ME_5472E6E201EE DoProcess
+
+: ME_546F3804032D
+ CONST UID '546F3804032D'
+ CONST Name 'TncsOneFileDeliverer'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5460731E025E // IncsExecutor
+ ME_5460829B0384 // IncsMessageExecutorFactory
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_546F382B031E // LocalDesc
+ ME_546F388103BF // f_Transporter
+ ME_546F38FE021D // f_LocalPath
+ ME_547588AA019E // f_TaskID
+ ME_5489456000B9 // f_Stream
+ ME_5489482402E9 // f_Progressor
+ ME_EE1F95B8278E // f_LocalDesc
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_546F389A0156 // Create
+ ME_5473254E0090 // CheckContinue
+ ME_5473255F03A1 // InitNew
+ ME_54732616034A // LocalControlFileName
+ ME_5473263D00AC // LocalPartialFileName
+ ME_5474A3BD0077 // SaveControl
+ ME_5474A3D400D5 // CommitDelivery
+ ME_5474A7B201FC // LocalFileName
+ ME_5472E6E201EE // DoProcess
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_54607DDC0159 // Execute
+ ME_546082B801F3 // MakeExecutor
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ : Constants
+   [ ME_5472F63C0394 // cFilesExtensions
+ ]
+ ; // Constants
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_546F3804032D TncsOneFileDeliverer

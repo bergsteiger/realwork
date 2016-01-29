@@ -1,0 +1,70 @@
+// k2InternalInterfaces 47F11670007B Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F11670007B
+
+: ME_47F116A600A9
+ CONST UID '47F116A600A9'
+ CONST GUID 'DA643083-CC48-4A4A-A2AC-82187E5BEE79'
+ CONST Name 'Ik2FilerSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F11670007B // k2InternalInterfaces
+ ;
+
+ref; // ME_47F116A600A9 Ik2FilerSource
+
+: ME_4A25410C0355
+ CONST UID '4A25410C0355'
+ CONST GUID '6135A72A-EED6-42B4-8746-FD8A73BDA620'
+ CONST Name 'Ik2FilerSource2'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F11670007B // k2InternalInterfaces
+ ;
+ : Inherits
+   @ ( ME_47F116A600A9 // Ik2FilerSource
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4A25410C0355 Ik2FilerSource2
+
+: ME_47F11670007B
+ CONST UID '47F11670007B'
+ CONST Name 'k2InternalInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Внутренние интерфейсы библиотеки К-2.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Children
+   @ ( ME_47F116A600A9 // Ik2FilerSource
+ ME_4A25410C0355 // Ik2FilerSource2
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ CONST "started" '27.09.1999 12:58'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2InternalInterfaces.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47F11670007B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47F11670007B.pas.ms.script.runner'
+
+ref; // ME_47F11670007B k2InternalInterfaces

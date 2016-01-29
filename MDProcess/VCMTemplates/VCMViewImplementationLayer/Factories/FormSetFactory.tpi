@@ -1,0 +1,130 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/Factories/FormSetFactory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::Factories::FormSetFactory
+//
+// Фабрика сборки форм
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: FormSetFactory::Class
+? Фабрика сборки форм
+= method::Class
+= ModuleOpRecall::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+a f
+/ - тип абстракции
+// Параметры визуализации
+$ C 127,255,212
+$ l 64,224,208
+$ f 64,224,208
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+// Определяет, что элемент является фабрикой на VCM-модуле
+%f _IsFactoryOnModule
+// возвращаемый результат: boolean
+//#UC START# *4A816DBF0044for4A73234800B8*
+	true
+//#UC END# *4A816DBF0044for4A73234800B8*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа ModuleOpRecall::Class
+// Выводит реализацию метода перенаправления операции
+%f _OutRecallImpl
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A76CC1D010Dfor4A73234800B8*
+	[{%f_exists_in_list(RECALL_LIST,S)!=true}\
+	%f_add_to_list(RECALL_LIST,S)\
+	[{%SV=PublicAccess}%S%f_pas_MethodImplementation(%1,"r","recall")]\
+	]
+//#UC END# *4A76CC1D010Dfor4A73234800B8*
+
+// реализация абстрактного стереотипа ModuleOpRecall::Class
+// Выводит интерфейс метода перенаправления операции
+%f _OutRecallIntf
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A76CC1902FEfor4A73234800B8*
+	[{%f_exists_in_list(RECALL_LIST,S)!=true}\
+	%f_add_to_list(RECALL_LIST,S)\
+	[{%SV=PublicAccess}\n%S%f_pas_MethodInterface(%1,"r","recall")]\
+	]
+//#UC END# *4A76CC1902FEfor4A73234800B8*
+
+// реализация абстрактного стереотипа ModuleOpRecall::Class
+%f _RecallToImplUses
+//#UC START# *4A9CF8A30296for4A73234800B8*
+//#UC END# *4A9CF8A30296for4A73234800B8*
+
+// реализация абстрактного стереотипа ModuleOpRecall::Class
+%f _RecallToIntfUses
+//#UC START# *4A9CF892039Afor4A73234800B8*
+//#UC END# *4A9CF892039Afor4A73234800B8*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4A73234800B8*
+	%S%[inherited]\
+	[{%S{NO_FACTORY_BRACKECTS}!=true}\
+	[{"%{vcmBase}N"=""}%f_find_element(vcmBase,vcmBase)]\
+	%P%f_make_accessable(%{vcmBase}U)\
+	%f_addCDep(%P,%{vcmBase})\
+	%S%f_set_pre_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_var,\
+	var
+	 __WasEnter : Boolean;
+	)\
+	%S%f_set_pre_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_impl,\
+	 __WasEnter := vcmEnterFactory;
+	 try
+	)\
+	%S%f_set_post_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_impl,
+	 finally
+	  if __WasEnter then
+	   vcmLeaveFactory;
+	 end;//try..finally\
+	)\
+	]
+//#UC END# *4B2A19E3038Bfor4A73234800B8*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+%f _pas_MethodBodyPrim
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for4A73234800B8*
+	[{%2N=recall}{\
+	%S%[inherited]\
+	}
+	begin
+	 <{, }{%C#f_IsMethod()!=true&%CC=Operation}\
+	[{"%C%f_pas_ResultTypeName()"!=""}Result := ]\
+	%f_pas_TypeName(%P).%f_N(%S)[(%C<{, }%CN>)];>
+	end;\
+	]
+//#UC END# *494BB3A201A2for4A73234800B8*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа результата функции
+%f _pas_ResultTypeName
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for4A73234800B8*
+//#UC END# *494BDD190361for4A73234800B8*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

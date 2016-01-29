@@ -1,0 +1,50 @@
+// TkwCompiledIF 4DB6EE250251 SimpleClass Class
+
+INCLUDE '4DBAC27801EF.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_4DB6EE250251
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54FA85CF50C2
+ CONST UID '54FA85CF50C2'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwCompiledIF' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_54FA85CF50C2 Ini_Reg_Class
+
+: ME_4DB6EE250251
+ CONST UID '4DB6EE250251'
+ CONST Name 'TkwCompiledIF'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Внутренняя скомпилированная версия IF.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DBAC27801EF // TkwDualCompiledWordContainer
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_54FA85CF50C2 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4DB6EE250251 TkwCompiledIF

@@ -1,0 +1,42 @@
+// TK3956Common.Script
+// Общий код для TK395647218 и TK395659375
+
+USES
+ axiom:Control
+ axiom:Editor
+ 
+ ArchiSystem.script
+ QuickTestsUtils.script
+ @\TestWithParameters.script
+ @\TestParamsDefine.script
+ @\TestExecuteCommand.script
+;
+
+OBJECT VAR l_Editor
+
+PROCEDURE "Установить курсор в таблицу"
+ 7 раз "Нажать влево"
+ "Прокрутить вниз раз {(9)}"
+ "Обработать сообщения"
+ "Нажать вверх"
+;
+
+PROCEDURE "Выделить диапазон ячеек и объединить" INTEGER IN aCellX
+	aCellX 3 aCellX 4 l_Editor pop:editor:SelectCells
+	ed_maVert l_Editor pop:editor:MergeCells 
+;
+
+PROCEDURE TK3956Common
+	Параметры: ( "Курсор вниз на {(4)} строки" "Тестирование отрисованного" )
+	Выполнить ( 
+		 focused:control:push >>> l_Editor
+		 "Установить курсор в таблицу"
+		 INTEGER VAR l_CellX 
+		 0 >>> l_CellX
+		 5 LOOP (
+		  "Выделить диапазон ячеек и объединить {(l_CellX)}"
+		  1 +! l_CellX
+		 ) 
+	)
+;
+

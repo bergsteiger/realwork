@@ -1,0 +1,225 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Core/Abstract/Ifdef.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAGenerator::Class>> MDProcess$CoreTemplates::CoreTemplates::Core::Abstract::Ifdef
+//
+// предоставляет функциональность для генерации кода по условной компиляции
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Ifdef::MDAGenerator*
+? предоставляет функциональность для генерации кода по условной компиляции
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p ifdef:s ? Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+p ifndef:s ? Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{ifdef}"!="%S{!ifdef}"}%f_up_prefix(%S) *ifdef* = *%S{ifdef}* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+	][{"%S{ifndef}"!="%S{!ifndef}"}%f_up_prefix(%S) *ifndef* = *%S{ifndef}* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+	]
+
+// закрывает блок условной компиляции (если блок нужен)
+%f _close_ifdef
+//#UC START# *4976EBC9015Ffor4976EB82018C*
+	[{%f_end_ifdef(%S)=true}[{%X{lid}!=delphi}{[\{$IfEnd\} //%f_dump_close_ifdef_str(%S)]}[\#endif //%f_dump_close_ifdef_str(%S)]]]
+
+f _dump_close_ifdef_str
+	%f_clear_list(IFDEFS)\
+	%f_clear_list(IFNDEFS)\
+	%f_collect_ifdefs(%S,"IFDEFS")\
+	%f_collect_ifndefs(%S,"IFNDEFS")\
+	%f_clear_list(IFDEFS_STR)\
+	<{}{%f_is_empty(IFDEFS)=false}{W}[%f_pop_first_to_var(IFDEFS,IFDEF)%f_add_to_list(IFDEFS_STR,"%{IFDEF}N")]>\
+	<{}{%f_is_empty(IFNDEFS)=false}{W}[%f_pop_first_to_var(IFNDEFS,IFNDEF)%f_add_to_list(IFDEFS_STR,"[{%X{lid}!=delphi}{not }!]%{IFNDEF}N")]>\
+	<{%f_ifdef_delim(%S)}{%f_is_empty(IFDEFS_STR)=false}{W}[%f_pop_first_to_var(IFDEFS_STR,IFDEF)%{IFDEF}N]>
+//#UC END# *4976EBC9015Ffor4976EB82018C*
+
+// открывает блок условной компиляции (если необходимо)
+%f _open_ifdef
+//#UC START# *4976EBCD03ABfor4976EB82018C*
+//инициализиурем список открытых ifdef, если он ещё не был проинициализирован:
+	[{%f_is_empty(OPEN_IFDEFS)=true}%f_add_to_list(OPEN_IFDEFS,"")%f_clear_list(OPEN_IFDEFS)]\
+//получаем дефайн для текущего элемента:
+	%f_set_var(TEMP_IFDEF,"%f_dump_open_ifdef_str(%S)")\
+//если TEMP_IFDEF пуст - ничего не выводим, в список открытых IFDEF добавляем признак пустого Ifdef-а:
+	[{"%{TEMP_IFDEF}N"!=""}{%f_add_to_list(OPEN_IFDEFS,"%f_get_empty_ifdef_flag(%S)")}\
+//если TEMP_IFDEF не пуст - нужно проверить, не находимся ли мы уже под нужным ifdef-ом
+//для этого нужно взять первый НЕ пустой ifdef из списка открытых,
+//если уже под нужным ifdef'ом - в список открытых IFDEF добавляем признак пустого Ifdef-а
+//если не находимся под нужным ifdef'ом - в список открытых IFDEF добавляем признак пустого %{TEMP_IFDEF}N и выводим ifdef
+	[{%f_is_already_under_ifdef(%S,"%{TEMP_IFDEF}N")=false}{%f_add_to_list(OPEN_IFDEFS,"%f_get_empty_ifdef_flag(%S)")\
+	}\
+	%f_add_to_list(OPEN_IFDEFS,"%{TEMP_IFDEF}N")\
+	[{%X{lid}!=delphi}{\{$If}\#if] %{TEMP_IFDEF}N[{%X{lid}!=delphi}{\}}]]\
+	]
+
+
+f _new_file_flag
+	111
+
+f _start_new_file
+	%f_add_to_list(OPEN_IFDEFS,"%f_new_file_flag(%S)")
+
+f _end_new_file
+	%f_pop_last_to_var(OPEN_IFDEFS,__TMP__)
+
+f _is_already_under_ifdef
+///получаем последний не пустой ifdef:
+	%f_clear_list(__TEMP_LIST__)\
+	%f_copy_list(OPEN_IFDEFS,__TEMP_LIST__)\
+	%f_remove_from_list(__TEMP_LIST__,"%f_get_empty_ifdef_flag(%S)")\
+	%f_set_var(LAST_OPENED,"%f_get_empty_ifdef_flag(%S)")\
+	[{%f_is_empty(__TEMP_LIST__)=false}%f_pop_last_to_var(__TEMP_LIST__,LAST_OPENED)]\
+	[{%{LAST_OPENED}N!=%f_get_empty_ifdef_flag(%S)}{false}\
+	[{%f_is_ifdef_already_defined("%{LAST_OPENED}N","%1N")=false}{true}false]]
+
+
+
+f _get_last_non_empty_ifdef_str
+
+
+
+f _get_empty_ifdef_flag
+	000
+
+//f _start_ifdef11
+//	[{%f_is_empty(OPEN_IFDES)=false}{%f_add_to_list(OPEN_IFDES,"")%f_clear_list(OPEN_IFDES)}\
+//	%f_get_last_non_empty_ifdef("OPEN_IFDES","IFDEF")]\
+//	%f_warning("%SN (3), %XU: %{IFDEF}N, %1N")\
+//	[{%f_is_ifdef_already_defined("%{IFDEF}N","%1N")=false}{%f_add_to_list(OPEN_IFDES,"%f_get_empty_ifdef_flag(%S)")}\
+//	%f_add_to_list(OPEN_IFDES,"%1N")]
+
+//f _get_last_non_empty_ifdef111
+//	[{"%SN"=""}%B[%f_error("_get_last_non_empty_ifdef: не задан идентификатор списка")]]\
+//	[{"%1N"=""}%B[%f_error("_get_current_ifdef_str: не задан идентификатор переменной")]]\
+//	%f_clear_list(__TEMP_IFDEFS__)\
+//	%f_copy_list(%SN,__TEMP_IFDEFS__)\
+//	%B[%f_warning("%SN (4), %XU: %f_dump_list(%S,"__TEMP_IFDEFS__")")]\
+//	%f_remove_from_list(__TEMP_IFDEFS__,"%f_get_empty_ifdef_flag(%S)")\
+//	%f_set_var(%1N,"%f_get_empty_ifdef_flag(%S)")\
+//	%f_pop_last_to_var(__TEMP_IFDEFS__,%1N)
+
+f _get_current_ifdef_str
+	[{"%SN"=""}%B[%f_error("_get_current_ifdef_str: не задан идентификатор списка")]]\
+	%f_clear_list(__TEMP_IFDEFS__)\
+	%f_copy_list(%SN,__TEMP_IFDEFS__)\
+	%f_pop_last_to_var(__TEMP_IFDEFS__,__TEMP_IFDEF__)\
+	%{__TEMP_IFDEF__}N
+
+
+//%S - текущий флаг условной компиляции
+//%1 - проверяемый флаг
+//проверяет, что флаг уже учтен в текущем флаге условной компиляции, например:
+//%f_is_ifdef_already_defined("defined(A) && !defined(B)","!defined(B)") вернёт true
+//это позволяет не генерить ifdef для вложенных элементов, если они уже под нужным дефайном
+
+f _is_ifdef_already_defined
+	%f_clear_list(CURRENT_IFDEFS)\
+	%f_clear_list(CHECK_IFDEFS)\
+	%f_split_to_list(CURRENT_IFDEFS,%SN,%f_ifdef_delim(%S))\
+	%f_split_to_list(CHECK_IFDEFS,%1N,%f_ifdef_delim(%S))\
+	%f_set_var(RES,"[{%f_is_empty(CURRENT_IFDEFS)=true&%f_is_empty(CHECK_IFDEFS)=true}{false}true]")\
+	[{%{RES}N!=true}\
+	<{}{%f_is_empty(CURRENT_IFDEFS)=false&%f_is_empty(CHECK_IFDEFS)=false}{W}[%f_pop_first_to_var(CURRENT_IFDEFS,CHECK)\
+	%f_remove_from_list(CHECK_IFDEFS,"%{CHECK}N")\
+	]>\
+	%f_set_var(RES,"%f_is_empty(CHECK_IFDEFS)")]\
+	%{RES}N
+
+f _ifdef_delim
+	[{%X{lid}!=delphi}{ AND } && ]
+
+f _end_ifdef
+	[{%f_is_empty(OPEN_IFDEFS)=false}{false}\
+//	%f_warning(2: %SN (%XU): %f_dump_list(%S,"OPEN_IFDEFS"))\
+	%f_pop_last_to_var(OPEN_IFDEFS,IFDEF)\
+	[{"%{IFDEF}N"!="%f_get_empty_ifdef_flag(%S)"}{false}true]]
+
+f _dump_open_ifdef_str
+	%f_clear_list(IFDEFS)\
+	%f_clear_list(IFNDEFS)\
+	%f_collect_ifdefs(%S,"IFDEFS")\
+	%f_collect_ifndefs(%S,"IFNDEFS")\
+	%f_clear_list(IFDEFS_STR)\
+	<{}{%f_is_empty(IFDEFS)=false}{W}[%f_pop_first_to_var(IFDEFS,IFDEF)%f_add_ifdef_to_list(%S,%{IFDEF},"IFDEFS_STR","true")]>\
+	<{}{%f_is_empty(IFNDEFS)=false}{W}[%f_pop_first_to_var(IFNDEFS,IFNDEF)%f_add_ifdef_to_list(%S,%{IFNDEF},"IFDEFS_STR","false")]>\
+	<{%f_ifdef_delim(%S)}{%f_is_empty(IFDEFS_STR)=false}{W}[%f_pop_first_to_var(IFDEFS_STR,IFDEF)%{IFDEF}N]>
+
+f _add_ifdef_to_list
+	[{"%2N"=""}%f_error("_add_ifdef_to_list: не задан идентификатор списка")]\
+	[{"%3N"=""}%f_error("_add_ifdef_to_list: не задан тип дефайна (true - для defined и false для !defined)")]\
+	[{%f_string_find(%1N,\>)!=-1|%f_string_find(%1N,\<)!=-1|%f_string_find(%1N,%f_equal(%S))!=-1|%f_string_find(%1N,[{%X{lid}!=delphi}{not }!]%f_equal(%S))!=-1}{%f_add_to_list(%2N,"[{%3N=false}[{%X{lid}!=delphi}{not }!]]defined(%1N)")}\
+	%f_set_var(IFDEF_STR,"%1N")\
+	%f_set_var(POS,"%f_string_find(%{IFDEF_STR}N,%f_space(%S))")\
+	%f_set_var(VAR1,"")\
+	%f_set_var(VAR2,"")\
+	%f_set_var(OP,"")\
+	%f_set_var(STR_SIZE,"%f_string_length(%{IFDEF_STR}N)")\
+	%f_set_var(CURR_TOKEN,"var1")\
+	<{}{"%{IFDEF_STR}N"!=""}{W}%f_set_var(CURR_SYMBOL,"%f_substr_from_begin(%{IFDEF_STR}N,1)")\
+	%f_set_var(IFDEF_STR,"%f_delsubstr_from_begin(%{IFDEF_STR}N,1)")\
+	[{%{CURR_SYMBOL}N=\>|%{CURR_SYMBOL}N=\<|%{CURR_SYMBOL}N=!|%{CURR_SYMBOL}N=%f_equal(%S)}{[{%{CURR_TOKEN}N=op}%f_set_var(CURR_TOKEN,"var2")]}%f_set_var(CURR_TOKEN,"op")]\
+	[{%{CURR_TOKEN}N=var1}%f_set_var(VAR1,"%{VAR1}N%{CURR_SYMBOL}N")]\
+	[{%{CURR_TOKEN}N=op}%f_set_var(OP,"%{OP}N%{CURR_SYMBOL}N")]\
+	[{%{CURR_TOKEN}N=var2}%f_set_var(VAR2,"%{VAR2}N%{CURR_SYMBOL}N")]\
+	>\
+	%f_set_var(VAR1,"%f_str_replace(%{VAR1}N,%f_space(%S),)")\
+	%f_set_var(OP,"%f_str_replace(%{OP}N,%f_space(%S),)")\
+	%f_set_var(VAR2,"%f_str_replace(%{VAR2}N,%f_space(%S),)")\
+	[{"%{VAR1}N"=""|"%{OP}N"=""|"%{VAR2}N"=""}%f_error("%PN::%SN: не правильно задан ifdef: %{POS}N, %1N (%{VAR1}N %{OP}N %{VAR2}N)")]\
+	[{%f_is_variable_def(%S,"%{VAR1}N")=true}%f_add_to_list(%2N,"[{%3N=false}[{%X{lid}!=delphi}{not }!]]defined(%{VAR1}N)")]\
+	[{%f_is_variable_def(%S,"%{VAR2}N")=true}%f_add_to_list(%2N,"[{%3N=false}[{%X{lid}!=delphi}{not }!]]defined(%{VAR2}N)")]\
+	%f_add_to_list(%2N,"[{%3N=false}[{%X{lid}!=delphi}{not }!]](%{VAR1}N %{OP}N %{VAR2}N)")\
+	]
+
+
+f _in_diapason
+	[{%f_string_cmp("%SN","%1N","\>")=1&%f_string_cmp("%SN","%2N","\<")=1}{[{%SN=%1N|%SN=%2N}{false}true]}true]
+
+//проверяет, что имя является именем переменной, т.е начинается с буквы или символа подчеркивания
+f _is_variable_def
+	%f_set_var(SMB,"%f_substr_from_begin(%1N,1)")\
+	[{%f_in_diapason("%{SMB}N","A","Z")=true|%f_in_diapason("%{SMB}N","a","z")=true|%{SMB}N=_|}{false}true]
+
+f _split_string
+	[{"%1N"=""}%f_error("_collect_ifdefs: не задан идентификатор списка")]\
+	%f_set_var(ID,"%1N")\
+	%f_set_var(STR,"%f_str_replace(%2N,%f_space(%S),%f_empty(%S))")\
+	%f_clear_list(SPLITED)\
+	%f_split_to_list(SPLITED,%{STR}N,%f_comma(%S))\
+	%f_del_var(STR)\
+	<{}{%f_is_empty(SPLITED)=false}{W}[%f_pop_first_to_var(SPLITED,ITEM)%f_add_to_list(%{ID}N,"%{ITEM}N")]>\
+	%f_clear_list(SPLITED)
+
+f _collect_ifdefs
+	[{"%1N"=""}%f_error("_collect_ifdefs: не задан идентификатор списка")]\
+	%f_set_var(ID,"%1N")\
+	%f_split_string(%S,"%{ID}N","%S{ifdef}")\
+	<{}{}{%P}%f_split_string(%S,"%{ID}N","%P{ifdef}")>\
+	%f_remove_from_list(%{ID}N,"")\
+	%f_unique_list(%{ID}N,"%SN")
+
+f _collect_ifndefs
+	[{"%1N"=""}%f_error("_collect_ifndefs: не задан идентификатор списка")]\
+	%f_set_var(ID,"%1N")\
+	%f_split_string(%S,"%{ID}N","%S{ifndef}")\
+	<{}{}{%P}%f_split_string(%S,"%{ID}N","%P{ifndef}")>\
+	%f_remove_from_list(%{ID}N,"")\
+	%f_unique_list(%{ID}N,"%SN")
+//#UC END# *4976EBCD03ABfor4976EB82018C*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

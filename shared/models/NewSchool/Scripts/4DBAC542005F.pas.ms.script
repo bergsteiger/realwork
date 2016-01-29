@@ -1,0 +1,61 @@
+// TryFinally 4DBAC542005F ScriptKeyword Class
+
+INCLUDE '4DBAC32F02B5.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4DBAC542005F
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_DC08F91B3992
+ CONST UID 'DC08F91B3992'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TryFinally' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DC08F91B3992 Ini_Reg
+
+: ME_4DBAC542005F
+ CONST UID '4DBAC542005F'
+ CONST Name 'TryFinally'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Полный аналог try finally Delphi' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DBAC32F02B5 // TtfwDualWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_DC08F91B3992 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DB6C99F026E // EndBracket
+ ME_4DBAC41301F2 // MedianBracket
+ ME_4DBAC44D02CC // MakeDualCompiled
+ ME_4DBADF3E02CC // MedianBracket2
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'TRY'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 18:04'
+
+ @SELF
+; // ME_4DBAC542005F TryFinally

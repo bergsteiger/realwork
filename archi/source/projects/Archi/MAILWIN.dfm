@@ -1,0 +1,238 @@
+object SendMailWin: TSendMailWin
+  Left = 377
+  Top = 132
+  Width = 452
+  Height = 364
+  ActiveControl = edtName
+  Caption = #1053#1054#1042#1054#1045' '#1057#1054#1054#1041#1065#1045#1053#1048#1045
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = True
+  Position = poDefault
+  Visible = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnResize = FormResize
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Splitter1: TvtSplitter
+    Left = 0
+    Top = 223
+    Width = 444
+    Height = 3
+    Cursor = crVSplit
+    Align = alTop
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 29
+    Width = 444
+    Height = 60
+    Align = alTop
+    TabOrder = 0
+    object TLabel
+      Left = 8
+      Top = 10
+      Width = 3
+      Height = 16
+    end
+    object Label2: TLabel
+      Left = 5
+      Top = 34
+      Width = 77
+      Height = 16
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+    end
+    object Label1: TLabel
+      Left = 5
+      Top = 8
+      Width = 76
+      Height = 16
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = #1050#1086#1084#1091
+    end
+    object edtTo: TComboBox
+      Left = 86
+      Top = 4
+      Width = 336
+      Height = 24
+      ItemHeight = 16
+      TabOrder = 0
+    end
+    object edtName: TEdit
+      Left = 86
+      Top = 31
+      Width = 336
+      Height = 24
+      TabOrder = 1
+    end
+  end
+  object memMessage: TevMemo
+    Left = 0
+    Top = 89
+    Width = 444
+    Height = 134
+    Align = alTop
+    RMargin = 8
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    Ctl3D = True
+    ParentFont = False
+    ParentCtl3D = False
+    TabOrder = 1
+    TabStop = True
+    BorderStyle = bsSingle
+  end
+  object pnlButton: TPanel
+    Left = 0
+    Top = 0
+    Width = 444
+    Height = 29
+    Align = alTop
+    TabOrder = 2
+    object sbSend: TToolbarButton97
+      Left = 3
+      Top = 2
+      Width = 25
+      Height = 25
+      Hint = #1055#1086#1089#1083#1072#1090#1100' '#1089#1086#1086#1073#1097#1077#1085#1080#1077'|'
+      Alignment = taLeftJustify
+      Glyph.Data = {
+        F6010000424DF60100000000000076000000280000001A000000180000000100
+        0400000000008001000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+        5555555555555500000055555555555555555555555555000000555550000000
+        0000000000555500000055EC4777777777777777705555000000555550FFFFFF
+        FFFF7F7F70555500000055EC477FFFCCCCCCC7F7705555000000555550FFFFFF
+        FFFFFF7F70555500000055EC477FFFCCCCCCCFF7705555000000555550FFFFFF
+        FFFFFFFF70555500000055EC477FFFFFFFFFFF11705555000000555550FCCCFF
+        FFFFFF99705555000000550008FFFFFFFFFFFFFF705555000000558778888888
+        88888888805555000000558FFFFFFFFFF7F7F705555555000000558FFFFCCCCC
+        CC7F7774CE5555000000558FFFFFFFFFFFF7F705555555000000558FFFFCCCCC
+        CCFF7774CE5555000000558FFFFFFFFFFFFFF705555555000000558FFFFFFFFF
+        FFF11774CE5555000000558FCCCFFFFFFFF99705555555000000558FFFFFFFFF
+        FFFFF774CE555500000055888888888888888805555555000000555555555555
+        5555555555555500000055555555555555555555555555000000}
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = sbSendClick
+    end
+    object sbAddObject: TToolbarButton97
+      Left = 28
+      Top = 2
+      Width = 25
+      Height = 25
+      Alignment = taLeftJustify
+      Glyph.Data = {
+        06020000424D0602000000000000760000002800000028000000140000000100
+        0400000000009001000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+        77777777777777777777777FFFF777777777777777000077777FFFFF77777788
+        88F7777000007777770AA07777F00000F777778F78FF770BBBBB0777000AA000
+        7F0FFFFF0F77888F788870BB0888B0770AAAAAA0F0FF0888F0F78FFF77788BB0
+        70078B070AAAAAA08FF0F00F8F0F8777FFF88B870BB078B0000AA0008F8F0FF0
+        F8F08887F8888B88B88B078B070AA0778F88F88F0F8F0F87F8778B88B078B078
+        B00000778F88F0F8F0F8F08888778B878B078B078B0777778F8F8F0F8F0F8F0F
+        777778B078B078B078B0777778F0F8F0F8F0F8F0F777778B078B078B078B0777
+        778F0F8F0F8F0F8F0F777778B078B078B078B0777778F0F8F0F8F0F8F0F77777
+        8B078B078B078B0777778F0F8F0F8F0F8F0F777778B078B078B070B0777778F0
+        F8F0F8F0F0F07777778B078B078870B07777778F0F8F0F88F0F077777778B078
+        B07770B077777778F0F8F0FFF0F0777777778B078B0000B0777777778F078F00
+        00F077777777788778BBBB0777777777788778FFFF0777777777777777888877
+        77777777777777888877}
+      NumGlyphs = 2
+      OnClick = sbAddObjectClick
+    end
+    object sbDelObject: TToolbarButton97
+      Left = 53
+      Top = 2
+      Width = 25
+      Height = 25
+      Alignment = taLeftJustify
+      Glyph.Data = {
+        06020000424D0602000000000000760000002800000028000000140000000100
+        0400000000009001000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+        777777777777777777777777777777777777777777777777777FFFFF777777FF
+        FFFF7770000077770000000077F00000F77778888888770BBBBB077709999990
+        7F0FFFFF0F7778F7777870BB0888B07709999990F0FF0888F0F778FFFFF88BB0
+        70078B07000000008FF0F00F8F0F788888888B870BB078B0777777778F8F0FF0
+        F8F0F77777778B88B88B078B077777778F88F88F0F8F0F7777778B88B078B078
+        B07777778F88F0F8F0F8F0F777778B878B078B078B0777778F8F8F0F8F0F8F0F
+        777778B078B078B078B0777778F0F8F0F8F0F8F0F777778B078B078B078B0777
+        778F0F8F0F8F0F8F0F777778B078B078B078B0777778F0F8F0F8F0F8F0F77777
+        8B078B078B078B0777778F0F8F0F8F0F8F0F777778B078B078B070B0777778F0
+        F8F0F8F0F0F07777778B078B078870B07777778F0F8F0F88F0F077777778B078
+        B07770B077777778F0F8F0FFF0F0777777778B078B0000B0777777778F078F00
+        00F077777777788778BBBB0777777777788778FFFF0777777777777777888877
+        77777777777777888877}
+      NumGlyphs = 2
+      OnClick = sbDelObjectClick
+    end
+  end
+  object lstLinkObj: TvtLister
+    Left = 0
+    Top = 226
+    Width = 444
+    Height = 91
+    Images = ArchiResources.CommonImageList
+    AutoRowHeight = False
+    Header.Left = 0
+    Header.Top = 0
+    Header.Width = 440
+    Header.Height = 0
+    IntegralHeight = False
+    MultiSelect = True
+    ProtectColor.BackColor = clRed
+    ProtectColor.TextColor = clWhite
+    RowHeight = 19
+    SelectColor.BackColor = clHighlight
+    SelectColor.TextColor = clHighlightText
+    SelectNonFocusColor.BackColor = clInactiveCaption
+    SelectNonFocusColor.TextColor = clHighlightText
+    MultiStrokeItem = True
+    ReadOnly = False
+    ViewOptions = [voShowInterRowSpace]
+    OnGetPCharItem = lstLinkObjGetPCharItem
+    OnGetItemImageIndex = lstLinkObjGetItemImageIndex
+    OnCurrentChanged = lstLinkObjCurrentChanged
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    ParentColor = False
+    TabOrder = 3
+    TabStop = True
+    OnActionElement = lstLinkObjActionElement
+  end
+  object FooterPanel: TvtStatusBar
+    Left = 0
+    Top = 317
+    Width = 444
+    Height = 20
+    Panels = <
+      item
+        Alignment = taCenter
+        Width = 150
+      end
+      item
+        Width = 50
+      end>
+  end
+end

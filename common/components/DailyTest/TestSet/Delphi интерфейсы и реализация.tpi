@@ -1,0 +1,2049 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/AllGenerators/DelphiGens/Delphi интерфейсы и реализация.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAGenerator::Class>> MDProcess$Templates::CommonTemplates::AllGenerators::DelphiGens::Delphi интерфейсы и реализация
+//
+// группа генераторов в Delphi
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Delphi интерфейсы и реализация::MDAGenerator
+? группа генераторов в Delphi
+= Документация::MDAGenerator
+= Ifdef::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p finished:b=true ? Определяет, что элемент полностью описан на модели.
+p children prefix:s ? Префикс непосредственных детей.
+p elements prefix:s ? Префикс приписываемый вложенным элементам. <none> - ничего не приписывать. Если не задан, то берём у родителя.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Трансформаторы стереотипа
+
+%t _IsTypeForCleanup
+//#UC START# *4AE0718003CDfor470F151302FD*
+@ %SU
+c          {}
+r {%t_interface(%S)=true}: {true}
+r {%f_IsVector(%S)=true}: {true}
+r {%S#f_IsStruct()=true}: {true}
+r {""=""}: {false}
+//#UC END# *4AE0718003CDfor470F151302FD*
+
+
+%t _IsStereoForCleanup
+//#UC START# *4AE074330009for470F151302FD*
+c          {}
+r {%SC=Attribute&"%SS"=""}: {true}
+r {""=""}: {false}
+//#UC END# *4AE074330009for470F151302FD*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{finished}"!="%S{!finished}"}%f_up_prefix(%S) *finished* = *%S{finished}* - Определяет, что элемент полностью описан на модели.
+	][{"%S{children prefix}"!="%S{!children prefix}"}%f_up_prefix(%S) *children prefix* = *%S{children prefix}* - Префикс непосредственных детей.
+	][{"%S{elements prefix}"!="%S{!elements prefix}"}%f_up_prefix(%S) *elements prefix* = *%S{elements prefix}* - Префикс приписываемый вложенным элементам. \<none\> - ничего не приписывать. Если не задан, то берём у родителя.
+	]
+
+// Определяет префикс элемента
+%f _pas_ElementPrefix
+// параметры: anElement: void = %1
+//#UC START# *493D246701FEfor470F151302FD*
+@ %SU_%1C
+	%S%f_pas_ElementPrefixBase(%1)[{"%S%f_pas_ElementPrefixBase(%1)"!=""}[{%1C!=Operation|"%S{children prefix}"!=""}_]]%S{children prefix}
+//#UC END# *493D246701FEfor470F151302FD*
+
+// нет документации
+%f _pas_ElementPrefixBase
+// параметры: anElement: void = %1
+//#UC START# *493D246A025Bfor470F151302FD*
+@ %SU
+	[{%S#f_pas_ElementPrefixPrim(%1)=\<none\>}{%S#f_pas_ElementPrefixPrim(%1)}]
+//#UC END# *493D246A025Bfor470F151302FD*
+
+// Рекурсивно определяет префикс элемента
+%f _pas_ElementPrefixPrim
+// параметры: anElement: void = %1
+//#UC START# *493D246E0016for470F151302FD*
+@ %SU
+	[{}{[%P#f_pas_ElementPrefixPrim(%1)]}%S{elements prefix}]
+//#UC END# *493D246E0016for470F151302FD*
+
+// Префикс имени
+%f _pas_Prefix
+//#UC START# *493D24710142for470F151302FD*
+@ %SU
+	%P%f_pas_ElementPrefix(%S)
+//#UC END# *493D24710142for470F151302FD*
+
+// Определяет, что это свойство.
+%f _IsProp
+//#UC START# *493D2D510282for470F151302FD*
+	false
+//#UC END# *493D2D510282for470F151302FD*
+
+// Определяет, что метод глобальный
+%f _IsGlobal
+//#UC START# *493D2E45011Bfor470F151302FD*
+@ %SU
+	[{%P#f_IsUtilityPack()=true|%PS=Function|%S{isGlobal}=true}{\
+	[{%P#f_IsMethod()=true&%P%P#f_IsUtilityPack()=true}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//#UC END# *493D2E45011Bfor470F151302FD*
+
+// Является ли простым классом реализации
+%f _IsSimpleClass
+//#UC START# *4947E4DA0227for470F151302FD*
+@ %SU
+	[{%SS=SimpleClass|%SS=GuiControl|%SS=ViewAreaControllerImp}{false}true]
+//#UC END# *4947E4DA0227for470F151302FD*
+
+// Является ли примесью
+%f _IsMixIn
+//#UC START# *4947E5D40127for470F151302FD*
+	false
+//#UC END# *4947E5D40127for470F151302FD*
+
+// Определяет, что элемент производит файл (Unit)
+%f _IsUnitFileProducer
+//#UC START# *4947EC0F0380for470F151302FD*
+@ %SU
+	[{%S#f_IsUtilityPack()=true|%S#f_IsSimpleClass()=true|%S#f_IsMixIn()=true}{false}true]
+//#UC END# *4947EC0F0380for470F151302FD*
+
+// Имя типа
+%f _pas_TypeName
+//#UC START# *4947F8AD02A1for470F151302FD*
+//#UC END# *4947F8AD02A1for470F151302FD*
+
+// Элемент определён на стороне обёртки С++
+%f _InTie
+//#UC START# *494802B40121for470F151302FD*
+@ %SU
+	[{%P%P{gui}=tie|%P{gui}=tie}{false}true]
+//#UC END# *494802B40121for470F151302FD*
+
+// Имя модуля в котором содержится элемент
+%f _pas_UnitName
+//#UC START# *4948065C01DFfor470F151302FD*
+//#UC END# *4948065C01DFfor470F151302FD*
+
+// Путь к модулю
+%f _pas_UnitPath
+//#UC START# *4948C3290020for470F151302FD*
+	%S{path prefix}
+//#UC END# *4948C3290020for470F151302FD*
+
+// нет документации
+%f _pas_DefaultAncestor
+//#UC START# *4948E5B60391for470F151302FD*
+//#UC END# *4948E5B60391for470F151302FD*
+
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+%f _pas_ImplUses
+//#UC START# *4948EB2601FAfor470F151302FD*
+//#UC END# *4948EB2601FAfor470F151302FD*
+
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+%f _pas_IntfUses
+//#UC START# *4948F2EE0334for470F151302FD*
+//#UC END# *4948F2EE0334for470F151302FD*
+
+// Определяет, что элемент это readonly-свойство
+%f _IsReadOnlyProp
+//#UC START# *4948F9190291for470F151302FD*
+	[{%S#f_IsAttribute()=true}{false}[{%SS=readonly|%S#f_IsVCMArea()=true}{false}true]]
+//#UC END# *4948F9190291for470F151302FD*
+
+// Определяет, что элемент это writeonly-свойство
+%f _IsWriteOnlyProp
+//#UC START# *4948F93D038Afor470F151302FD*
+	[{%S#f_IsAttribute()=true}{false}[{%SS=writeonly}{false}true]]
+
+f _OutIncludePrimPrim
+	\{$Include \
+	%f_IncPath(%S,%1)\
+	\\%f_pas_UnitFileName(%S)\}
+
+f _OutIncludePrim
+//@ %SU_%1U
+	#%f_OutIncludePrimPrim(%S,%1)
+
+f _OutInclude
+	[%1%f_open_ifdef()\n]\
+	%f_OutIncludePrim(%S,%1)\
+	[\n%1%f_close_ifdef()]
+//#UC END# *4948F93D038Afor470F151302FD*
+
+// Выводит объявление класса
+%f _pas_OutClassInterface
+//#UC START# *494B7197025Afor470F151302FD*
+//	[{%S#f_IsMixIn()=true}\
+//	%f_set_var(POS,"%f_string_find(%S{ifndef},DesignTimeLibrary)")\
+//	[{%{POS}N!=-1}\
+//	\n\{$IfDef DesignTimeLibrary\}
+//	 %f_pas_TypeName(%S) = %f_pas_ImpurityParentName(%S);
+//	\{$EndIf DesignTimeLibrary\}
+//	]\
+//	]\
+//
+	%f_set_var(NeedElse,"false")\
+	[{%S#f_IsMixIn()=true}\
+	%f_set_var(CLASS_IFDEF,"%f_dump_open_ifdef_str(%S)")\
+	[{%f_is_already_under_ifdef(%S,"%{CLASS_IFDEF}N")=false&"%{CLASS_IFDEF}N"!=""}\
+	%f_set_var(NeedElse,"true")\
+	]\
+	]\
+
+	[\n%S%f_open_ifdef()]\
+	<{}{%t_interface(%R)=true}%R<{}{%CS=impurity value}%f_set_var(%CN,"%f_pas_TypeName(%C%T)")>>\
+// - устанавливаем типы параметров реализуемых методов
+	[{%S#f_IsMixIn()=true}%f_set_var(WAS_TYPE,"1")]\
+// - чтобы лишнее ключевое слово не выводить
+	%f_shift_intend(-1)\
+
+	<{}{%CV!=PrivateAccess&%C%f_IsClassInner()!=true&"%CO"=""}\
+	[{%CS!=Typedef|%C%GU!=%SU|%C{isClassRef}=true}\
+	[{"%C{ifdef}"!=""|"%C{ifndef}"!=""}\
+	%f_pas_OpenType(%S)\
+	]\
+	[%CX\n]]\
+	>\
+
+	%f_shift_intend(+1)\
+	%f_pas_OpenType(%S)\
+	[{%S{need UC}=true}%U[{ci}\n]\n]\
+	%S%f_pas_OutMixInValues()\
+	<{}{"%CS"="impurity value"}\
+	[{%SU=%C%TU}%SF]\
+	#_%CN_ = %f_pas_TypeName(%C%T);\n\
+	>\
+	<{}{%C#f_IsDefine()=true&%CV=PublicAccess}%CX>\
+//
+	%f_CalcParentAndInclude(%S)\
+//
+	#%f_pas_TypeName(%S) = \
+
+	[{%Sa=abstract}{\
+	[{%Sa=final}{\
+	%f_set_var(CLASS_MARK_PREFIX,"")\
+	}\
+	%f_set_var(CLASS_MARK_PREFIX,"final")\
+	]}\
+	%f_set_var(CLASS_MARK_PREFIX,"abstract")\
+	]\
+	[{"%S%f_pas_OutClassMark()"!=""}{\
+	[{"%{CLASS_MARK_PREFIX}N"!=""}\{%{CLASS_MARK_PREFIX}N\} ]\
+	}\
+	\{\
+	[{"%{CLASS_MARK_PREFIX}N"!=""}%{CLASS_MARK_PREFIX}N ]\
+	%S%f_pas_OutClassMark()\} ]\
+	class[(%S%f_pas_OutAncestor()\
+	[<{}{%R#f_ClassImplementable()=true&%S%f_SomeAncestorImplements(%R)!=true}\
+	[ %R#f_open_ifdef()]\
+	, %f_pas_TypeName(%R)\
+
+	[%R<{}{%R#f_ClassImplementable()=true&%1#f_Implements(%R)!=true}\
+	, %f_pas_TypeName(%R) \{from %f_pas_TypeName(%S)\}\
+	>\
+	]\
+
+	[%R#f_close_ifdef()\n#]\
+
+	>\
+
+	])\
+	]\
+	[\n# \{* %f_Doc(%S) \}]\
+	%S%f_pas_OutBeforeFields()
+	[#private
+	#// private fields
+	<{}{%CV=PrivateAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS!=static}[%CX\n]>]\
+	\
+
+//	[{%S%f_HasAnyVCMAreaLink()=true}\
+////	#private
+////	#// auto fields
+//////	%f_with_gen_id(intf3.pas,<%R<{}{%CC=Class&%C#f_IsVCMAreaLink()=true}[%CX\n]>>)\
+////	%f_with_gen_id(intf3.pas,<{}{%o#f_IsVCMAreaLink()=true}[%oX\n]>)\
+
+//	#protected
+//	#  procedure ClearRefs; override;
+//	]\
+
+	[#protected
+	%S%f_pas_OutOverridesIntf()\
+	]\
+	\
+//	[#private
+//	#// property fields
+//	%f_with_gen_id(intf3.pas,<{}{%C#f_IsStaticObject()!=true&%C#f_IsStruct()!=true}[%CX\n]>)]\
+	\
+	[#private
+	#// private methods
+	<{}{%CV=PrivateAccess&%C#f_IsAttribute()!=true&%C%f_IsClassInner()=true}[%CX\n]>]\
+	\
+	[#protected
+	#// property methods
+	<{}{%C#f_IsProp()=true}[%CX\n]>]\
+	\
+
+	%f_clear_list(REALIZED_METHODS)\
+	[{%S{is_friend}!=true}\
+	[#protected
+	#// realized methods\
+
+// Генерируем интерфейс методов "квадратиком", вложенных в фасеты/интерфейсы:
+	<\
+
+	%R<{}{%CC=Class&%C#f_IsClassImplementableElement()=true&%C#f_IsRealizedBySomeClassElement(%1)!=true}\
+	[\n%C%f_pas_MethodInterface(%1,"r")]\
+	>\
+
+	%R<{}{%1#f_Implements(%G)!=true}{%G}\
+	%G<{}{%CC=Class&%C#f_IsClassImplementableElement()=true&%C#f_IsRealizedBySomeClassElement(%2)!=true}\
+	[\n%C%f_pas_MethodInterface(%2,"r")]\
+	>\
+	>\
+
+	>\
+// end Генерируем интерфейс методов "квадратиком"...
+
+	<{}{%oS!=inline}\
+	[{%o#f_IsAttribute()=true|%S%f_IsPublicRealizedMethod(%o)!=true}\
+	[\n%o%f_pas_MethodInterface(%S,"r")]\
+	]\
+	>\n\
+	]\
+	]\
+//	#protected
+
+	[{%S{is_friend}!=true}\
+	[#public
+	#// realized methods
+	<{\n}{%oS!=inline}\
+	[{%o#f_IsAttribute()!=true&%S%f_IsPublicRealizedMethod(%o)=true}\
+	%o%f_pas_MethodInterface(%S,"r")\
+	]\
+	>\n\
+	]\
+	]\
+//	#public
+
+	[#protected
+	#// overridden property methods
+	<{\n}{%O#f_IsAttribute()=true}%O%f_pas_MethodInterface(%S,"o")>\n]\
+	[#protected
+	#// overridden protected methods
+	<{\n}{%OV=ProtectedAccess&%O#f_IsAttribute()!=true&%OS!=inline}\
+	%O%f_pas_MethodInterface(%S,"o")\
+	>\n\
+	]\
+//	#protected
+
+	[#public
+	#// overridden public methods
+	<{\n}{%OV=PublicAccess&%O#f_IsAttribute()!=true&%OS!=inline}\
+	%O%f_pas_MethodInterface(%S,"o")\
+	>\n\
+	]\
+//	#public
+
+	[#protected
+	#// protected fields
+	<{}{%CV=ProtectedAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS!=static}[%CX\n]>\
+	]\
+
+	[#public
+	#// public fields
+	<{}{%CV=PublicAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS!=static}[%CX\n]>\
+	]\
+
+	\
+	[#protected
+	#// protected methods
+	<{}{%CV=ProtectedAccess&%C#f_IsAttribute()!=true&%C%f_IsClassInner()=true&%C#f_IsPublishedAccess()!=true}[%CX\n]>]\
+	[#public
+	#// public methods
+	<{}{%CV=PublicAccess&%C#f_IsAttribute()!=true&%C%f_IsClassInner()=true&%C#f_IsPublishedAccess()!=true}[%CX\n]>]\
+	\
+	[#private
+	#// private properties
+	%f_with_gen_id(intf2.pas,<{}{%CV=PrivateAccess}[%CX\n]>)]\
+	[#protected
+	#// protected properties
+	%f_with_gen_id(intf2.pas,<{}{%CV=ProtectedAccess}[%CX\n]>)]\
+
+	[#public
+	#// public properties
+	%f_with_gen_id(intf2.pas,<{}{%CV=PublicAccess}[%CX\n]>)\
+	%f_with_gen_id(intf2.pas,<{}{%o#f_IsProp()=true&%o%P#f_IsContract()=true}[%oX\n]>)\
+	]\
+
+	[{%S{need UC}=true}%U[{publ}\n]\n]\
+	[{%S{singleton}=true&<{}{%C#f_IsFactory()=true}{C}>=0}\
+	#public
+	#// singleton factory method
+	#  class function Instance: %f_pas_TypeName(%S);
+	#   {- возвращает экземпляр синглетона. }
+	]\
+
+	%f_clear_list(CAST_METHODS)\
+	[#protected
+	#// Методы преобразования к реализуемым интерфейсам
+	<{}{%t_interface(%R)=true&%R%f_InTie()!=true}\
+	%R<{\n}{%R#f_IsPureMixIn()!=true&%t_interface(%R)=true&%f_exists_in_list(CAST_METHODS,R)!=true}\
+	%f_add_to_list(CAST_METHODS,R)\
+	%f_pas_OutCastMethodInterface(%R,%1)\
+	>\
+	>
+	]\
+	%f_clear_list(CAST_METHODS)\
+
+	[#published
+	#// published methods
+	<{}{%CV=PublicAccess&%C#f_IsAttribute()!=true&%C%f_IsClassInner()=true&%C#f_IsPublishedAccess()=true&%C{isPublishedAccess}!=true}\
+	[%CX\n]\
+	>\
+	]\
+
+	%S%f_pas_BeforeClassEnd()\
+	#end;//%f_pas_TypeName(%S)\
+	%S%f_pas_AfterClassEnd()\
+	<{}{%t_interface(%R)=true}%R<{}{%CS=impurity value}%f_set_var(%CN,"")>>\
+	%f_shift_intend(-1)\
+
+	<{}{%CV!=PrivateAccess&%C%f_IsClassInner()!=true&"%CO"=""}\
+	[{%CS=Typedef&%C%GU=%SU&%C{isClassRef}!=true}[%CX\n]]\
+	>\
+
+	%f_shift_intend(+1)\
+
+	[{%{NeedElse}N=true}\
+	\n\{$Else\}
+	
+
+	%f_CalcParentAndInclude(%S)\
+
+	#%f_pas_TypeName(%S) = %S%f_pas_OutAncestor();
+	]\
+
+	[\n%S%f_close_ifdef()]\
+	%f_shift_intend(-1)\
+//	%f_warning(%SN)\
+	%f_with_gen_id(intf3.pas,<{}{%C#f_IsStaticObject()=true|%C#f_IsStruct()=true|%t_interface(%C)=true|%C#f_IsPureMixIn()=true}\
+//	%f_warning(%CN)\
+	[\n%CX]>)\
+// - генерируем псевдо-конструкторы записей и StaticObject'ов
+	%f_shift_intend(+1)\
+	[\n\
+	<{}{%CV=PublicAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS=static}\
+	[\n%CX]\
+	>\
+	]\
+
+	%f_clear_list(REALIZED_METHODS)
+
+f _CalcParentAndInclude
+	[{%S#f_IsMixIn()=true}{\
+	%f_set_var(PARENT,"%f_pas_MainParentName(%S)")\
+	}\
+	[{<{}{%G#f_IsMixIn()!=true}{C}>=0}{\
+	%f_set_var(PARENT,"%f_pas_TypeName(%G)")\
+	}\
+	%f_set_var(PARENT,"%f_pas_ImpurityParentName(%S)")\
+	]\
+	]\
+//
+	%f_set_var(WAS_PROLOGUE,"false")\
+	<{}{%G#f_IsMixIn()=true}\
+//	[{"%{PARENT}N"!=""}#%f_pas_ImpurityParentName(%G) = %{PARENT}N;\n]\
+	[{%G<{}{%g#f_IsMixIn()!=true}{C}>=0&"%{PARENT}N"!=""}#%f_pas_ImpurityParentName(%G) = %{PARENT}N;\n]\
+	%f_set_var(PARENT,"%f_pas_TypeName(%G)")\
+	%S%f_OutL3ItemsPrologue(%G,"WAS_PROLOGUE")\
+	%f_OutIncludePrim(%G,%S)\n\
+	>\
+//
+	<{}{%R#f_IsMixIn()=true}\
+	#%f_pas_ImpurityParentName(%R) = %{PARENT}N;\n\
+	%f_set_var(PARENT,"%f_pas_TypeName(%R)")\
+	%S%f_OutL3ItemsPrologue(%R,"WAS_PROLOGUE")\
+	%f_OutIncludePrim(%R,%S)\n\
+	>
+//#UC END# *494B7197025Afor470F151302FD*
+
+// Выводит спец-метку класса
+%f _pas_OutClassMark
+//#UC START# *494B74D7016Bfor470F151302FD*
+//#UC END# *494B74D7016Bfor470F151302FD*
+
+// Выводит значения параметров примесей
+%f _pas_OutMixInValues
+//#UC START# *494B7E6D0125for470F151302FD*
+//#UC END# *494B7E6D0125for470F151302FD*
+
+// Определяет является ли элемент контроллером прецедента
+%f _IsUseCaseController
+//#UC START# *494B7E8B02B1for470F151302FD*
+	false
+//#UC END# *494B7E8B02B1for470F151302FD*
+
+// Выводит интерфейс переопределённых методов
+%f _pas_OutOverridesIntf
+//#UC START# *494B856502ECfor470F151302FD*
+//	[{%S%f_NeedCleanupFields()=true}\
+//	#  procedure ClearFields; override;
+//	]
+//#UC END# *494B856502ECfor470F151302FD*
+
+// Выводит реализацию переопределённых методов
+%f _pas_OutOverridesImpl
+//#UC START# *494B86B5014Bfor470F151302FD*
+//	[{%S%f_NeedCleanupFields()=true}\
+//	%f_pas_OpenMethodImplementation("ClearFields",%S)\
+//	procedure %f_pas_TypeName(%S).ClearFields;
+//	begin
+//	<{}{%C#f_IsFieldForCleanup()=true}\
+//	 [{%C%T#f_IsStruct()=true}{\
+//	[{"%C%{clearViaProperty}N"!=""}{%C%f_pas_AttrName()}%C%{clearViaProperty}N]\
+//	 := nil\
+//	}\
+//	Finalize(%C%f_pas_AttrName())];\n\
+//	>\
+//	 inherited;
+//	end;\
+//	]
+//#UC END# *494B86B5014Bfor470F151302FD*
+
+// Имя атрибута
+%f _pas_AttrName
+//#UC START# *494B9868000Afor470F151302FD*
+	%SN
+//#UC END# *494B9868000Afor470F151302FD*
+
+// Заглушка-реализация метода
+%f _pas_MethodStub
+// параметры: Implementator: void = %1, Modification: void = %2
+//#UC START# *494BAFBF00C0for470F151302FD*
+	 !!! Needs to be implemented !!!
+//#UC END# *494BAFBF00C0for470F151302FD*
+
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+%f _pas_MethodBodyPrim
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for470F151302FD*
+	\n\
+	[{"%4N"!=""}{\
+	%S%f_pas_MethodDeclarations(%1,%2)\
+	}\
+	%4%f_pas_MethodDeclarations(%1,%2)\
+	]\
+	\n\
+	%S%f_Ind()\
+	[{%S{isAsm}=true}{\
+	begin\
+	}\
+	asm\
+	]
+	%S%f_pas_BeforeMethodBodyImplementation(%1,%2)\
+	%S%f_pas_MethodBodyImplementation(%1,%2)
+	%S%f_Ind()\
+	end;//%f_pas_FullMethodName(%S,%1,%3,%2)
+//#UC END# *494BB3A201A2for470F151302FD*
+
+// Выводит реализацию итератора
+%f _pas_IteratorBody
+//#UC START# *494BBE430242for470F151302FD*
+	\n\
+	var
+	 Hack : Pointer absolute anAction;
+	begin
+	 try
+	  \
+	[{%S{needs result}=true}\
+	Result := \
+	]\
+	%f_N(%S)(anAction[, <{, }%CN>]);
+	 finally
+	  l3FreeLocalStub(Hack);
+	 end;//try..finally
+	end;
+//#UC END# *494BBE430242for470F151302FD*
+
+// Выводит имя метода
+%f _pas_MethodName
+// параметры: Modification: a-string = %1
+//#UC START# *494BD6C80075for470F151302FD*
+@ %SU_%1N
+	[{%P#f_IsUtilityPack()=true}%S%f_pas_Prefix()]%t_pas_MethodName(%S,%1)
+//#UC END# *494BD6C80075for470F151302FD*
+
+// Параметры операции
+%f _pas_Params
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor470F151302FD*
+	[{%t_interface(%P)=true&%P#f_InTie()=true}{\
+	%f_set_var(FIRST_PARAM,"true")\
+	<{}{%C#f_IsNotParam()!=true}\
+	[\n#  %C#f_open_ifdef()\n#  ]\
+	[{%{FIRST_PARAM}N!=true}{\
+	%f_set_var(FIRST_PARAM,"false")\
+	}\
+	;\n#  \
+	%S%f_Ind()\
+	]\
+	%t_pas_ParamPrefix(%C)%CN\
+	[: %t_pas_ParamType(%C%T)]\
+	[{"%C%VN"!=""} = %C%V%T#f_pas_ElementPrefix()%C%VN]\
+	[{%CD!=undefined}[\n#  \{* %f_Doc(%C)\}]]\
+	[\n#  %C#f_close_ifdef()\n#  ]\
+	>\
+	}\
+	%f_set_var(FIRST_PARAM,"true")\
+	<{;\n#  }{%C#f_IsNotParam()!=true}\
+	%f_set_var(FIRST_PARAM,"false")\
+	%t_pas_ParamPrefix(%C)a%f_to_borland(%CN)\
+	[: %t_pas_ParamType(%C%T)][{"%C%VN"!=""} = %C%V%T#f_pas_ElementPrefix()%C%VN]\
+	[{%CD!=undefined}[\n#  \{* %f_Doc(%C)\}]]>\
+
+	[{"%S%f_pas_ResultTypeName()"=""&"%f_pas_TypeName(%T)"!=""}\
+	[{%{FIRST_PARAM}N!=true}; ]\
+	out aRet \{: %f_pas_TypeName(%T)\}\
+	]\
+
+	]
+//#UC END# *494BDCF3030Efor470F151302FD*
+
+// Имя типа результата функции
+%f _pas_ResultTypeName
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for470F151302FD*
+//@ %SU
+	%f_pas_ResultTypeNamePrim(%T,%S)
+//#UC END# *494BDD190361for470F151302FD*
+
+// выводит параметры и результат метода
+%f _pas_MethodParams
+// параметры: Modification: void = %1
+//#UC START# *494BE0CC0226for470F151302FD*
+	[(%S%f_pas_Params(%1))]\
+	[: %S%f_pas_ResultTypeName(%1)]
+//#UC END# *494BE0CC0226for470F151302FD*
+
+// Параметры и результат итератора
+%f _pas_IteratorParams
+// параметры: Modification: a-string = %1
+//#UC START# *494BE0DB007Afor470F151302FD*
+	(anAction: %f_pas_TypeName(%S%{Action})\
+	[;\n#  %S%f_pas_Params(%1)])\
+	[{%S{needs result}=true}\
+	: [{}{Integer}<{}{%CS=result type}%f_pas_TypeName(%C%T)>]\
+	]
+//#UC END# *494BE0DB007Afor470F151302FD*
+
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodInterface
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor470F151302FD*
+	%S%f_pas_DoMethodInterface(%1,%2,%3)
+//#UC END# *494BEC6A038Afor470F151302FD*
+
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodImplementation
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for470F151302FD*
+	%S%f_pas_DoMethodImplementation(%1,%2,%3)
+//#UC END# *494BEC7C03E5for470F151302FD*
+
+// выводит ключевое слова типа абстракности
+// 
+// RealizeType = o|r|f
+// Modification = get|set|area|arearef
+%f _pas_AbstractionKeyword
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3
+//#UC START# *494BF05502ACfor470F151302FD*
+@ %SU_%1N_%2N_%3N
+	[{%3N!=recall}{\
+	%f_delphi_overload(%S)\
+	}\
+
+	[{"%1N"=""|%t_interface(%P)=true|%P#f_IsPureMixIn()=true}\
+	[{%S#f_IsFactory()=true|%P#f_IsFactory()=true}{\
+	[{%SN=Create|%PN=Create}\
+	[{%S#f_IsConstructor()=true|%P#f_IsConstructor()=true} reintroduce;]\
+	]\
+	}\
+	 reintroduce;\
+	]\
+	[%f_delphi_overload(%S) ]\
+	]\
+//	"%1N"=""|%t_interface(%P)=true|%P#f_IsPureMixIn()=true
+
+	[{%S#f_IsGlobal()!=true}\
+	[{%P#f_IsContract()!=true}{\
+	[{"%2N"="r"|"%1N"=""}{\
+	 override;\
+	}\
+	 virtual; abstract;\
+	]\
+	}\
+	[{%t_interface(%P)!=true&%P#f_IsPureMixIn()!=true}{\
+
+	[{"%1N"!=""&"%2N"="o"}\
+	%f_error("Метод %f_pas_FullMethodName(%S,%1,%2,%3) не может быть перекрыт")\
+	]}\
+
+	[{"%1N"=""}{\
+	 override;}\
+// - проверили, что это декларация обычного класса, и что метод не унаследован
+	[{%SS!=override}{\
+	 override;}\
+	[{%SS!=message}{\
+	 message %S{Message ID};}\
+	[{%Sa=abstract}{\
+	[{%S%f_IsVirtual()=true} virtual;]}\
+	 virtual; abstract;\
+	]\
+	]\
+	]\
+	]\
+	]\
+//	%t_interface(%P)!=true&%P#f_IsPureMixIn()!=true
+
+	]\
+	]\
+//	%S#f_IsGlobal()!=true
+
+	[{"%2N"!="o"}\
+	%S%f_pas_CallingConventionsDirective()\
+	]\
+//	"%2N"!="o"
+
+	]
+//#UC END# *494BF05502ACfor470F151302FD*
+
+// нет документации
+%f _pas_DoMethodInterface
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494FAB950174for470F151302FD*
+	[{%S#f_IsGlobal()=true}%f_shift_intend(-7)]\
+	[# %S%f_open_ifdef()\n]\
+	[{%S#f_IsAttribute()=true}{\
+	%f_pas_MethodSigInterface(%S,%1,%2,%3)\
+	%S%f_pas_AbstractionKeyword(%1,%2,%3)\
+// - выводим спецификатор абстрактности метода
+	[ // can raise <{, }%f_pas_TypeName(%E)>\
+	]\
+// - выводим список поднимаемых исключений
+	%f_set_var(METHOD_DOC,"")\
+	[{%P#f_IsMethod()=true&"%PD"!=""}\
+	%f_set_var(METHOD_DOC,"%f_Doc(%P)")\
+	]\
+
+	[{"%{METHOD_DOC}N"=""}\
+	%f_set_var(METHOD_DOC,"%f_Doc(%S)")\
+	]\
+
+	[{"%{METHOD_DOC}N"!=""}\
+	\n[{%S#f_IsGlobal()!=true}  ]\
+	   \{* %{METHOD_DOC}N \}\
+	]\
+	%f_set_var(METHOD_DOC,"")\
+// - выводим документацию метода
+	}%S%f_pas_PropertyMethodInterface(%1,%2,%3)\
+// - выводим методы от атрибута
+	]\
+	[\n# %S%f_close_ifdef()]\
+	[{%S#f_IsGlobal()=true}%f_shift_intend(+7)]
+//#UC END# *494FAB950174for470F151302FD*
+
+// нет документации
+%f _pas_DoMethodImplementation
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494FABD00055for470F151302FD*
+	%f_shift_intend(-7)\
+	[{%S#f_IsFactory()=true&%P{singleton}=true}\
+	[{%t_interface(%T)!=true}%f_error("Неверный тип синглетона - %f_pas_TypeName(%T) в %f_pas_FullMethodName(%S,%1,%2,%3) ")]\
+	%f_pas_OpenMethodImplementation(%S,%1,%2,%3)\
+	var g_%f_pas_TypeName(%P,%1) : Pointer = nil;
+	
+	procedure %f_pas_TypeName(%P,%1)Free;
+	begin
+	 IUnknown(g_%f_pas_TypeName(%P,%1)) := nil;
+	end;
+	]\
+	[{%Sa!=abstract|"%1N"!=""}\
+	[{%P#f_IsContract()!=true|"%2N"!="r"}\
+// - для абстрактных методов не генерируем реализацию
+	[{%S#f_IsAttribute()=true}{\
+	%f_pas_MethodSigImplementation(%S,%1,%2,%3)\
+	[ // can raise <{, }%f_pas_TypeName(%E)>]\
+// - выводим список поднимаемых исключений
+	%f_pas_MethodBody(%S,%1,%3,%2,%4)\
+// - выводим реализацию метода
+	[\n%S%f_close_ifdef()]\
+	}%S%f_pas_PropertyMethodImplementation(%1,%2,%3)\
+	]\
+	]\
+	]\
+// - выводим методы от атрибута
+	]\
+//	endif{%S#f_IsAttribute()=true
+	%f_shift_intend(+7)
+//#UC END# *494FABD00055for470F151302FD*
+
+// Определяет, что элемент может реализовываться классом
+%f _ClassImplementable
+//#UC START# *49551CA202CFfor470F151302FD*
+@ %SU
+	[{%S#f_IsMixIn()!=true&%S#f_IsPureMixIn()!=true&%S#f_evd_IsSchemaElement()!=true&%S#f_IsVCMOperations()!=true}{false}true]
+//#UC END# *49551CA202CFfor470F151302FD*
+
+// Определяет, что элемент является чистой примесью
+%f _IsPureMixIn
+//#UC START# *4977065602B3for470F151302FD*
+	false
+//#UC END# *4977065602B3for470F151302FD*
+
+// Определяет, что стереотип содержит хотя бы один VCM-контроллер среди своих детей
+%f _HasAnyVCMController
+//#UC START# *497874AD00B1for470F151302FD*
+@ %SU
+	[{<{}{%C#f_IsVCMController()=true}{C}>!=0}{false}true]
+//#UC END# *497874AD00B1for470F151302FD*
+
+// Определяет, что стереотип содержит хотя бы один именованный VCM-контроллер среди своих детей
+%f _HasAnyNamedVCMController
+//#UC START# *4978770402B4for470F151302FD*
+@ %SU
+	[{<{}{%C#f_IsVCMController()=true&"%CN"!=""}{C}>!=0}{false}true]
+//#UC END# *4978770402B4for470F151302FD*
+
+// Определяет, что элемент является контролелром области вывода
+%f _IsViewAreaController
+//#UC START# *497DF8C8028Efor470F151302FD*
+	false
+//#UC END# *497DF8C8028Efor470F151302FD*
+
+// Определяет, что элемент является интерфейсом
+%f _IsInterface
+//#UC START# *49809333028Cfor470F151302FD*
+	false
+//#UC END# *49809333028Cfor470F151302FD*
+
+// Выводит родительский класс по-умолчанию
+%f _pas_OutDefaultAncestor
+//#UC START# *4986B4FA0093for470F151302FD*
+	[{%S%f_IsMixIn()!=true}%S%f_pas_DefaultAncestor()]
+//#UC END# *4986B4FA0093for470F151302FD*
+
+// Выводит родительский класс
+%f _pas_OutAncestor
+//#UC START# *4989EB520196for470F151302FD*
+	[{}{%S%f_pas_OutDefaultAncestor()}\
+	%{PARENT}N]
+//#UC END# *4989EB520196for470F151302FD*
+
+// Выводит код перед поляпи класса. Для переопределения в потомках
+%f _pas_OutBeforeFields
+//#UC START# *498B054F03A1for470F151302FD*
+	<{}{%C#f_IsPublishedAccess()=true&%C#f_IsMethod()!=true}[\n%CX]>
+//#UC END# *498B054F03A1for470F151302FD*
+
+// Выводит код после секции implementation
+%f _pas_OutAfterUnitImplementation
+//#UC START# *498B059101B3for470F151302FD*
+//#UC END# *498B059101B3for470F151302FD*
+
+// Разделитель имени метода
+%f _pas_MethodOwnerDelim
+//#UC START# *4999789602FFfor470F151302FD*
+	.
+//#UC END# *4999789602FFfor470F151302FD*
+
+// документация отсутствует
+%f _pas_AttrIndexes
+//#UC START# *49998CA903A8for470F151302FD*
+	<{; }%t_pas_InPrefix(%C%T)%CN: %f_pas_TypeName(%C%T)>
+//#UC END# *49998CA903A8for470F151302FD*
+
+// Выводит реализацию тела метода
+%f _pas_MethodBodyImplementation
+//#UC START# *499A7D7E028Afor470F151302FD*
+	%S%f_Ind()\
+	%U[{_%f_pas_MethodOwnerID(%S,%1)%2N_impl}
+	%S%f_Ind()\
+	%S%f_pas_MethodStub(%1,%2)
+	%S%f_Ind()\
+	]
+//#UC END# *499A7D7E028Afor470F151302FD*
+
+// Выводит имя владельца метода
+%f _pas_MethodOwnerName
+//#UC START# *49CB3C99034Bfor470F151302FD*
+	%f_pas_TypeName(%S)
+//#UC END# *49CB3C99034Bfor470F151302FD*
+
+// Определяет, что элемент является "внутренностью" класса, атрибутом или операцией
+%f _IsClassInner
+//#UC START# *49CB3EE70382for470F151302FD*
+	[{%SC=Class}{true}false]
+//#UC END# *49CB3EE70382for470F151302FD*
+
+// Выводит секцию определений метода
+%f _pas_MethodDeclarations
+//#UC START# *49CB54AA033Afor470F151302FD*
+	%S%f_Ind()\
+	%U[{_%f_pas_MethodOwnerID(%S,%1)%2N_var}\n\
+	%S%f_Ind()\
+	]
+//#UC END# *49CB54AA033Afor470F151302FD*
+
+// Префикс типа
+%f _TypePrefix
+//#UC START# *49F5C7BD00B4for470F151302FD*
+//#UC END# *49F5C7BD00B4for470F151302FD*
+
+// Суффикс типа
+%f _TypeSuffix
+//#UC START# *49F5C87903C0for470F151302FD*
+//#UC END# *49F5C87903C0for470F151302FD*
+
+// Элемент попадает в секцию Published
+%f _IsPublishedAccess
+//#UC START# *49F703730268for470F151302FD*
+	[{%S{isPublishedAccess}=true}{\
+	false\
+	}\
+	true\
+	]
+//#UC END# *49F703730268for470F151302FD*
+
+// Определяет, что стереотип описывает область ввода (как составную часть прецедента)
+%f _IsVCMArea
+//#UC START# *4A3665370285for470F151302FD*
+	false
+//#UC END# *4A3665370285for470F151302FD*
+
+// Определяет, что это Link на область ввода, а не Reference
+%f _IsVCMAreaLink
+//#UC START# *4A37945D011Ffor470F151302FD*
+	false
+//#UC END# *4A37945D011Ffor470F151302FD*
+
+// Определяет, что стереотип является атрибутом
+%f _IsAttribute
+//#UC START# *4A37B6A9016Ffor470F151302FD*
+	[{%SC=Attribute}{false}true]
+//#UC END# *4A37B6A9016Ffor470F151302FD*
+
+// Имеет ли стереотип хотя бы одну область ввода
+%f _HasAnyVCMArea
+//#UC START# *4A37C60A0273for470F151302FD*
+@ %SU
+	[{<{}{%R<{}{%CC=Class&%C#f_IsVCMArea()=true}{C}>!=0}{C}>!=0|<{}{%o#f_IsVCMArea()=true}{C}>!=0}{false}true]
+//#UC END# *4A37C60A0273for470F151302FD*
+
+// Имеет ли стереотип хотя бы одну ССЫЛКУ на область ввода
+%f _HasAnyVCMAreaLink
+//#UC START# *4A37C6510297for470F151302FD*
+@ %SU
+	[{<{}{%o#f_IsVCMAreaLink()=true}{C}>!=0}{false}true]
+//	[{<{}{%R<{}{%CC=Class&%C#f_IsVCMAreaLink()=true}{C}>!=0}{C}>!=0|<{}{%o#f_IsVCMAreaLink()=true}{C}>!=0}{false}true]
+//#UC END# *4A37C6510297for470F151302FD*
+
+// Определяет, что метод должен быть реализован публично
+%f _IsPublicRealizedMethod
+// параметры: aMethod: void = %1
+//#UC START# *4A42517502CEfor470F151302FD*
+	[{%1%P#f_IsPureMixIn()=true|%1{is static}=true}{\
+	[{%1C=Operation&%1S=static}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//#UC END# *4A42517502CEfor470F151302FD*
+
+// Определяет, что элемент является контролом
+%f _IsControl
+// возвращаемый результат: boolean
+//#UC START# *4A794AED0078for470F151302FD*
+	false
+//#UC END# *4A794AED0078for470F151302FD*
+
+// Определяет - нужно ли определять поле данных для свойства.
+%f _pas_NeedsField
+//#UC START# *4A796BE403D6for470F151302FD*
+	[{%S#f_ReadsField()=true|%S{writes field}=true}{\
+	[{%Sa=abstract}{\
+	[{%S{needs field}=true}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	false\
+	]\
+	}\
+	true\
+	]
+//#UC END# *4A796BE403D6for470F151302FD*
+
+// выводит интерфейс методов для свойства
+%f _pas_PropertyMethodInterface
+//#UC START# *4A7ADF400052for470F151302FD*
+	[{%TS!=Constants}\
+	[# %S%f_open_ifdef()\n]\
+// - не выводим атрибуты, указывающие на константы
+	[{%f_pas_NeedsGetter(%S)=true}\
+	%f_pas_MethodDefInterface(%S,%1,%2,"get")[(%S%f_pas_AttrIndexes())]: %S%f_pas_ResultTypeName();\
+	%S%f_pas_AbstractionKeyword(%1,%2,"get")\
+// - выводим спецификатор абстрактности метода
+	]\
+// - выводим метод для чтения
+	[{%f_pas_NeedsSetter(%S)=true}\
+	[{%f_pas_NeedsGetter(%S)=true}\n]\
+	%f_pas_MethodDefInterface(%S,%1,%2,"set")([%S%f_pas_AttrIndexes(); ]%f_pas_InAttr(%S));\
+	%S%f_pas_AbstractionKeyword(%1,%2,"set")\
+// - выводим спецификатор абстрактности метода
+	]\
+	[{%S#f_IsVCMArea()=true}\
+	[{"%1N"!=""}
+	%f_pas_MethodDefInterface(%S,%1,%2,"area")[(%S%f_pas_AttrIndexes())]: %S%f_pas_ResultTypeName();\
+	%S%f_pas_AbstractionKeyword(%1,%2,"area")\
+//	[\n# %S%f_close_ifdef()]\
+	]\
+	[{%S#f_IsVCMAreaLink()!=true}
+	%f_pas_MethodDefInterface(%S,%1,%2,"arearef")[(%S%f_pas_AttrIndexes())]: IvcmViewAreaControllerRef;\
+	%S%f_pas_AbstractionKeyword(%1,%2,"arearef")\
+//	[\n# %S%f_close_ifdef()]\
+	]\
+	]\
+	[\n# %S%f_close_ifdef()]\
+// -  выводим метод для записи
+	]
+//#UC END# *4A7ADF400052for470F151302FD*
+
+// выводит реализацию методов для свойства
+%f _pas_PropertyMethodImplementation
+//#UC START# *4A7ADF4E0277for470F151302FD*
+	[{%TS!=Constants}\
+// - не выводим атрибуты, указывающие на константы
+	[{%f_pas_NeedsGetter(%S)=true}\
+	%f_pas_MethodDefImplementation(%S,%1,%2,"get")[(%S%f_pas_AttrIndexes())]: %S%f_pas_ResultTypeName();\
+	%f_pas_MethodBody(%S,%1,"get",%2)\
+	]\
+// - выводим метод для чтения
+	[{%f_pas_NeedsSetter(%S)=true}\
+	[{%f_pas_NeedsGetter(%S)=true}[\n%S%f_close_ifdef()]]\
+	%f_pas_MethodDefImplementation(%S,%1,%2,"set")([%S%f_pas_AttrIndexes(); ]%f_pas_InAttr(%S));\
+	%f_pas_MethodBody(%S,%1,"set",%2)\
+	]\
+	[{%S#f_IsVCMArea()=true}\
+	%f_pas_MethodDefImplementation(%S,%1,%2,"area")[(%S%f_pas_AttrIndexes())]: %S%f_pas_ResultTypeName();\
+	%f_pas_MethodBody(%S,%1,"area")\
+	[\n%S%f_close_ifdef()]\
+	[{%S#f_IsVCMAreaLink()!=true}\
+	%f_pas_MethodDefImplementation(%S,%1,%2,"arearef")[(%S%f_pas_AttrIndexes())]: IvcmViewAreaControllerRef;\
+	%f_pas_MethodBody(%S,%1,"arearef")\
+	[\n%S%f_close_ifdef()]\
+	]\
+	]\
+// -  выводим метод для записи
+	[{%f_pas_NeedsGetter(%S)=true|%f_pas_NeedsSetter(%S)=true}\
+	[\n%S%f_close_ifdef()]\
+	]\
+	]
+//#UC END# *4A7ADF4E0277for470F151302FD*
+
+// документация отсутствует
+%f _pas_dump_Property
+//#UC START# *4A7ADFAE0118for470F151302FD*
+	[{%TS!=Constants}%f_shift_intend(-1)\
+	[#%S%f_open_ifdef()\n]\
+	   property %S%f_pas_AttrName()[\[%S%f_pas_AttrIndexes()\]]: %S%f_pas_ResultTypeName()\
+	[{%S#f_IsWriteOnlyProp()!=true}\n\
+	     read [{%S#f_ReadsField()!=true}{%f_pas_FieldName(%S)}%S%f_pas_MethodName("get")]]\
+	[{%S#f_IsReadOnlyProp()!=true}\n\
+	     write [{%S{writes field}!=true}{%f_pas_FieldName(%S)}%S%f_pas_MethodName("set")]]\
+//	[\n     default %VN];\
+
+	[{%S{needs stored directive}=true}\
+	\n     stored %S%f_pas_AttrName()Stored\
+	]\
+
+	[{"%VN"!=""}\n     default %S%f_OutValue()];\
+	[{%S{is default}=true}\n     default;]\
+	[\n     \{* %f_Doc(%S) \}]\
+	[{%S#f_IsVCMArea()=true&%S#f_IsVCMAreaLink()!=true}
+	   property %SNRef[\[%S%f_pas_AttrIndexes()\]]: IvcmViewAreaControllerRef
+	     read %S%f_pas_MethodName("arearef");\
+	[\n     \{* Ссылка на "%f_Doc(%S)" \}]\
+	]\
+	[\n#%S%f_close_ifdef()]\
+	%f_shift_intend(+1)]
+//#UC END# *4A7ADFAE0118for470F151302FD*
+
+%f _pas_BeforeClassEnd
+//#UC START# *4A9293AE02DCfor470F151302FD*
+//#UC END# *4A9293AE02DCfor470F151302FD*
+
+%f _pas_TotalUses
+//#UC START# *4AA8B1D901E5for470F151302FD*
+	[{"%SS"!=""|"%SC"!=""}\
+	[{%S%{INTOTAL}N!=1}\
+	%S%f_set_var(INTOTAL,"1")\
+	%f_add_to_list(TOTAL_USES,S)\
+//	[{"%SS"=""&"%SC"=""}{\
+
+	[{%SC!=Category|%S#f_IsTarget()=true}{\
+	[{%S#f_IsInterfaces()=true}\
+	<%C#f_pas_TotalUses()>\
+	]\
+	}\
+
+	<{}{%CS=uses&%CC=Dependency&%C{isHighPriority}=true}\
+	%C%T#f_pas_TotalUses()\
+	>\
+
+	[{%S#f_IsAdapterTarget()=true}\
+	<{}{%DS=Library&%PU=%D%PU}\
+	%D<{}{}\
+	%C#f_pas_TotalUses()\
+	[{%C#f_IsUnit()=true}\
+	%C<{}{}\
+	%C#f_pas_TotalUses()\
+	>\
+	]\
+	>\
+	>\
+	]\
+
+	<%D#f_pas_TotalUses()>\
+	<%w#f_pas_TotalUses()>\
+	<%G#f_pas_TotalUses()>\
+	<%R#f_pas_TotalUses()>\
+	<%O#f_pas_TotalUses()>\
+	<%o#f_pas_TotalUses()>\
+	[{%S#f_IsInterfaces()=true}\
+	<%C#f_pas_TotalUses()>\
+	]\
+	[{%SS=TagTable}\
+	<%C<{}{%LS=Wrapper}%L#f_pas_TotalUses()>>\
+	<%C<{}{%LS=InterfaceFactory}%L#f_pas_TotalUses()>>\
+	<%C<{}{%LS=TagImplementator}%L%G#f_pas_TotalUses()\
+	%L#f_pas_TotalUses()>>\
+	]\
+//	%S#f_pas_IntfUses()\
+//	%S#f_pas_ImplUses()\
+
+	[{%S#f_IsTest()=true}\
+// Сначала перебираем чужие тестовые библиотеки:
+	<{}{%DS=TestLibrary&%D%PU!=%PU}\
+	%D<{}{%CS=TestUnit}\
+	%C<{}{%CS=TestCase}\
+	%C#f_pas_TotalUses()\
+	>\
+	>\
+	>\
+
+// Потом перебираем свои тестовые библиотеки:
+	<{}{%DS=TestLibrary&%D%PU=%PU}\
+	%D<{}{%CS=TestUnit}\
+	%C<{}{%CS=TestCase}\
+	%C#f_pas_TotalUses()\
+	>\
+	>\
+	>\
+	]\
+
+	<\
+	[{%CS=uses&%CC=Dependency}{\
+	%C#f_pas_TotalUses()}\
+	%C%T#f_pas_TotalUses()\
+	]\
+	>\
+
+	]\
+
+	[{%S#f_IsPureMixIn()!=true}\
+	[{"%So"!=""}{\
+	<%P#f_pas_TotalUses()>\
+	}\
+	%f_pas_PutToUses(%S)\
+	]\
+	]\
+	<{}{%aC=Dependency}{Sg}\
+	[{%aS=injects}\
+	%f_pas_PutToUses(%a%P)\
+
+	%a%P<\
+//	%f_pas_PutToUses(%g)\
+	%g#f_pas_TotalUses()\
+	>\
+
+	%a%P<\
+//	%f_pas_PutToUses(%r)\
+	%r#f_pas_TotalUses()\
+	>\
+
+	%a%P<{}{%CS=uses&%CC=Dependency}\
+	%C%T#f_pas_TotalUses()\
+//	%f_pas_PutToUses(%C%T)\
+	>\
+	]\
+	>\
+
+//	}\
+//	%f_pas_PutToUses(%S)\
+//	]\
+	]\
+	]
+
+f _clear_TotalUses
+//	%{TOTAL_USES}<%C%f_del_var(INTOTAL)>\
+//	<{}{"%AC"!=""&%A%{INTOTAL}N=1}%A%f_set_var(INTOTAL,"")>\
+	%{TOTAL_USES}<{}{"%CC"!=""}%C%f_set_var(INTOTAL,"")>\
+	%f_clear_list(TOTAL_USES)\
+	%f_clear_USED_UNITS(%S)
+//#UC END# *4AA8B1D901E5for470F151302FD*
+
+// Читаем ли из поля
+%f _ReadsField
+// возвращаемый результат: boolean
+//#UC START# *4ACB78A4017Ffor470F151302FD*
+	[{%S{reads field}=true}{false}true]
+//#UC END# *4ACB78A4017Ffor470F151302FD*
+
+// Пишем ли в поле
+%f _WritesField
+// возвращаемый результат: boolean
+//#UC START# *4ACB78D500C2for470F151302FD*
+//#UC END# *4ACB78D500C2for470F151302FD*
+
+%f _IsConstructor
+// возвращаемый результат: boolean
+//#UC START# *4AE025440082for470F151302FD*
+	[{%SS=ctor|%SS=vctor}{false}true]
+//#UC END# *4AE025440082for470F151302FD*
+
+%f _IsFactory
+// возвращаемый результат: boolean
+//#UC START# *4AE026A90143for470F151302FD*
+	false
+//#UC END# *4AE026A90143for470F151302FD*
+
+%f _pas_VCMFormFactoryParams
+// возвращаемый результат: a-string
+//#UC START# *4AE062A601E1for470F151302FD*
+	[{%S%f_IsMakeSingleChild()=true}\
+	\n#  const aCont   : IvcmContainer;\
+	[{%S%f_NeedAggregate()=true}\
+	\n#  const anAgg   : IvcmAggregate;\
+	]\
+	]\
+
+	[{%S%f_IsMakeSingleChild()!=true}\
+	\n#  const aParams : IvcmMakeParams = nil;\
+	]
+	#  aZoneType     : TvcmZoneType = vcm_ztAny;
+	#  aUserType     : TvcmEffectiveUserType = 0\
+	[{%S#f_FirstParamIsViewAreaController()!=true};
+	#  aDataSource   : IvcmFormDataSource = nil]
+//#UC END# *4AE062A601E1for470F151302FD*
+
+// Есть ли у операции параметры
+%f _HasParams
+// возвращаемый результат: boolean
+//#UC START# *4AE065E20005for470F151302FD*
+@ %SU
+	[{%Cx=true}{false}true]
+//#UC END# *4AE065E20005for470F151302FD*
+
+%f _OutCallParams
+// возвращаемый результат: a-string
+//#UC START# *4AE066F202E2for470F151302FD*
+	[(<{, }%CN>)]
+//#UC END# *4AE066F202E2for470F151302FD*
+
+// Нужно ли очищать поля объекта
+%f _NeedCleanupFields
+// возвращаемый результат: boolean
+//#UC START# *4AE06FBA02FEfor470F151302FD*
+//@ %SU
+	[{%S%f_IsSimpleClass()=true|%S%f_IsMixIn()=true}{\
+	false\
+	}\
+	[{<{}{%C#f_IsFieldForCleanup()=true}{C}>!=0}{false}true]\
+	]
+//#UC END# *4AE06FBA02FEfor470F151302FD*
+
+%f _IsStereoForCleanup
+// возвращаемый результат: boolean
+//#UC START# *4AE0713E0081for470F151302FD*
+	[{%S%f_IsAttribute()=true&%S%t_IsStereoForCleanup()=true}{false}true]
+//#UC END# *4AE0713E0081for470F151302FD*
+
+%f _IsFieldForCleanup
+// возвращаемый результат: boolean
+//#UC START# *4AE0738A0004for470F151302FD*
+@ %SU
+	[{%Sl=ref&%S%f_IsStereoForCleanup()=true&%S%T#t_IsTypeForCleanup()=true}{false}true]
+//#UC END# *4AE0738A0004for470F151302FD*
+
+%f _pas_AfterClassEnd
+//#UC START# *4B17BC05001Efor470F151302FD*
+//#UC END# *4B17BC05001Efor470F151302FD*
+
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor470F151302FD*
+	[{%S#f_IsInterface()!=true&%S#f_IsVCMFormSetFactory()!=true&%S#f_IsVCMZone()!=true}\
+	%f_set_var(PARENT_CLASS,S)\
+//	<{}{%P#f_IsControl()!=true}\
+//	%f_set_var(PARENT_CLASS,P)\
+//	%f_cycle_break(%S)\
+//	>\
+
+	<{}{%o#f_IsVCMAreaLink()=true}\
+	[{"%{IvcmViewAreaControllerRef}N"=""}%f_find_element(IvcmViewAreaControllerRef,IvcmViewAreaControllerRef)]\
+	%{PARENT_CLASS}%f_make_accessable(%{IvcmViewAreaControllerRef}U)\
+	%{PARENT_CLASS}%f_add_attribute(%oU_AutoField,,\
+	f_%oN: %{IvcmViewAreaControllerRef}U,\
+	Attr_Inst)\
+	%{Attr_Inst}%f_set_link_type(ref)\
+//	%{Attr_Inst}%f_set_abstraction_type(final)\
+	%{Attr_Inst}%f_set_visibility_type(PrivateAccess)\
+	%{Attr_Inst}%f_set_up(ifdef,%o{ifdef})\
+	%{Attr_Inst}%f_set_up(ifndef,%o{ifndef})\
+	%{Attr_Inst}%f_set_applied_gen(cpp,false)\
+	%{Attr_Inst}%f_set_applied_gen(h,false)\
+	%{Attr_Inst}%f_set_documentation(Поле для области вывода %oN)\
+	>\
+	]
+//#UC END# *4B2A19E3038Bfor470F151302FD*
+
+%f _pas_BeforeCloseUnit
+//#UC START# *4B2A253F0051for470F151302FD*
+//#UC END# *4B2A253F0051for470F151302FD*
+
+%f _IsMethod
+// возвращаемый результат: boolean
+//#UC START# *4B2A29440092for470F151302FD*
+	false
+//#UC END# *4B2A29440092for470F151302FD*
+
+%f _IsExeTarget
+// возвращаемый результат: boolean
+//#UC START# *4B2A4565034Dfor470F151302FD*
+	false
+//#UC END# *4B2A4565034Dfor470F151302FD*
+
+// Определяет, что элемент является секцией инициализации
+%f _IsIni
+// возвращаемый результат: boolean
+//#UC START# *4B38844D0399for470F151302FD*
+	false
+//#UC END# *4B38844D0399for470F151302FD*
+
+// Определяет, что элемент является секцией финализации
+%f _IsFini
+// возвращаемый результат: boolean
+//#UC START# *4B388478009Ffor470F151302FD*
+	false
+//#UC END# *4B388478009Ffor470F151302FD*
+
+// Выводит секции инициализации
+%f _pas_OutIni
+//#UC START# *4B3886890063for470F151302FD*
+	<\
+	[{%C#f_IsIni()=true}{\
+	[{%f_pas_IsSameUnit(%S,%C)=true}\
+	%C#f_pas_OutIni()\
+	]\
+	}\
+	%C#f_pas_OutIniFiniImpl()\
+	]\
+	>
+//#UC END# *4B3886890063for470F151302FD*
+
+// Выводит секции финализации
+%f _pas_OutFini
+//#UC START# *4B3886C50247for470F151302FD*
+	<\
+	[{%C#f_IsFini()=true}{\
+	[{%f_pas_IsSameUnit(%S,%C)=true}\
+	%C#f_pas_OutFini()\
+	]\
+	}\
+	%C#f_pas_OutIniFiniImpl()\
+	]\
+	>
+//#UC END# *4B3886C50247for470F151302FD*
+
+// Выводит реализацию секции инициализации/финализации
+%f _pas_OutIniFiniImpl
+//#UC START# *4B3898EB0368for470F151302FD*
+	\n\
+	[%S#f_open_ifdef()\n]\
+	%f_pas_CloseDefinitions(%S)\
+//	%f_pas_OpenMethodImplementation(%S)\
+	[// %f_Doc(%S)\n]\
+	%f_with_gen_id(intf.pas,%U[\n])\
+	%f_set_var(WAS_METHOD,"1")\
+	[\n%S#f_close_ifdef()]
+//#UC END# *4B3898EB0368for470F151302FD*
+
+%f _IsDataModule
+// возвращаемый результат: boolean
+//#UC START# *4B5D68660386for470F151302FD*
+	false
+//#UC END# *4B5D68660386for470F151302FD*
+
+%f _IsStaticObject
+// возвращаемый результат: boolean
+//#UC START# *4B6C3C5C01FCfor470F151302FD*
+	false
+//#UC END# *4B6C3C5C01FCfor470F151302FD*
+
+// Стереотип является структурой
+%f _IsStruct
+// возвращаемый результат: boolean
+//#UC START# *4B6C49DA0023for470F151302FD*
+	false
+//#UC END# *4B6C49DA0023for470F151302FD*
+
+%f _pas_BeforeMethodBodyImplementation
+// параметры: Implementator: void = %1, Modification: void = %2
+// возвращаемый результат: a-string
+//#UC START# *4B6C4DE70271for470F151302FD*
+//#UC END# *4B6C4DE70271for470F151302FD*
+
+%f _pas_StaticCtorBeforeMethodBodyImplementation
+// параметры: Implementator: void = %1, Modification: void = %2
+// возвращаемый результат: a-string
+//#UC START# *4B6C4E2903C5for470F151302FD*
+
+	%f_set_var(PARENT,1)\
+	[{"%{PARENT}N"=""}\
+	[{%P#f_IsConstructorsHolder()=true}{\
+	%f_set_var(PARENT,P)\
+	}\
+	%f_set_var(PARENT,P%G)\
+	]\
+	]\
+
+//	%f_warning(%{PARENT}N %{PARENT}S)\
+
+	[{%f_NeedFinalize(%{PARENT})=true}\
+	 Finalize(Result);\n\
+	]\
+	 System.FillChar(Result, SizeOf(Result), 0);\n
+
+t _isStruct
+@ %SU
+c {}
+r {%S#f_IsStruct()=true}: {true}
+r {%SS=Typedef&%S{isPointer}!=true}: {%t_isStruct(%G)}
+r {""=""}: {false}
+
+t _IsTypeForCleanup
+@ %SU
+c {}
+r {%t_interface(%S)=true}: {true}
+r {%f_IsVector(%S)=true&%f_NeedFinalize(%S)=true}: {true}
+r {%t_isStruct(%S)=true&%f_NeedFinalize(%S)=true}: {true}
+r {""=""}: {false}
+
+f _NeedFinalize
+	[{<{}{%CC=Attribute&%t_IsTypeForCleanup(%C%T)=true}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]
+
+//#UC END# *4B6C4E2903C5for470F151302FD*
+
+// Определяет, что элемент конечной модели является наследником от aClassName
+%f _InheritsFrom
+// параметры: aClassName: a-string = %1
+// возвращаемый результат: boolean
+//#UC START# *4B704DE10322for470F151302FD*
+@ %SU%1N
+	[{%f_pas_TypeName(%S)=%1N}{\
+	[{<{}{%G#f_InheritsFrom(%1)=true}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//#UC END# *4B704DE10322for470F151302FD*
+
+// Выводит пролог для _l3Items_
+%f _OutL3ItemsPrologue
+// параметры: anAncestor: void = %1, aWasVarName: a-string = %2
+//#UC START# *4B70554F0038for470F151302FD*
+	[{%{%2N}N!=true}\
+	%f_set_var(%2N,"true")\
+	[{%1#f_InheritsFrom("_l3Items_")=true}\
+	[{%S%f_InheritsFrom("Tl3ProtoObject")=true}{\
+	[{%S%f_InheritsFrom("Tl3DataContainerWithoutIUnknownPrim")=true&%S%f_InheritsFrom("Tl3DataContainerWithoutIUnknown")!=true}\
+	 \{$Define l3Items_IsProto\}\n\
+	]\
+	}\
+	 \{$Define l3Items_IsProto\}\n\
+	]\
+	]\
+	]
+//#UC END# *4B70554F0038for470F151302FD*
+
+%f _IsAdapterTarget
+// возвращаемый результат: boolean
+//#UC START# *4B72CB6A01CAfor470F151302FD*
+	false
+//#UC END# *4B72CB6A01CAfor470F151302FD*
+
+%f _IsTarget
+// возвращаемый результат: boolean
+//#UC START# *4B72CBF50223for470F151302FD*
+	[{%S#f_IsVCMGUI()=true|%S%f_IsExeTarget()=true|%S%f_IsAdapterTarget()=true}{false}true]
+//#UC END# *4B72CBF50223for470F151302FD*
+
+%f _ImplementedInlinesCount
+// возвращаемый результат: integer
+//#UC START# *4B8908F2014Bfor470F151302FD*
+@ %SU
+	%f_evaluate(<{}{%oS=inline}{C}>+<{}{%OS=inline}{C}>)
+//#UC END# *4B8908F2014Bfor470F151302FD*
+
+// Выводит значение (атрибута, константы, параметра)
+%f _OutValue
+//#UC START# *4B8FB23D01E8for470F151302FD*
+	[{"%S%VN"!=""}{\
+
+	[{%SS=static}\
+	[{%TS=Typedef&%T{isClassRef}=true}{\
+	[{%TS=Function}{\
+	[{%f_pas_TypeName(%T)=Boolean}{\
+	[{%f_pas_TypeName(%T)=Cardinal|%f_pas_TypeName(%T)=Integer}\
+	0\
+	]\
+	}\
+	false\
+	]\
+	}\
+	nil\
+	]\
+	}\
+	nil\
+	]\
+	]\
+
+	}\
+	[{%S{is define}=true&"%f_pas_TypeName(%S%T)"!=""}\
+	%f_pas_TypeName(%S%T)(\
+	]\
+
+	[{%S{is define}!=true}\
+	[{%S{no unit prefix}!=true}\
+	[{%S%T#f_IsSimpleClass()!=true&%t_interface(%S%T)!=true&%S%TS!=Vector&%TS!=Typedef&%T#f_IsStruct()!=true}\
+
+	[{%f_pas_IsSameUnit(%S,%S%V%T)!=true}\
+	[%f_pas_Unit(%S%V%T).]\
+	]\
+
+	]\
+	]\
+//	{%S{no unit prefix}!=true}
+	]\
+//	{%S{is define}!=true
+
+	[{"%S%V%TN"!=""}{\
+	%S%T#f_pas_ElementPrefix()\
+	}\
+	%S%V%T#f_pas_ElementPrefix()\
+	]\
+
+	[{%f_substr_from_begin(%S%VN,2)=0x}{\
+	%S%VN\
+	}\
+	$%f_delsubstr_from_begin(%S%VN,2)\
+	]\
+
+	[ %S{suffix expr}]\
+
+	[{%S{is define}=true&"%f_pas_TypeName(%S%T)"!=""}\
+	)\
+	]\
+
+	]
+//#UC END# *4B8FB23D01E8for470F151302FD*
+
+// Определяет реализует ли элемент указанный фасет/интерфейс
+%f _Implements
+// параметры: aFacet: MDAClass = %1
+// возвращаемый результат: boolean
+//#UC START# *4BA3925D035Cfor470F151302FD*
+@ %SU%1U
+	[{%1S=Typedef}{\
+	[{<{}{%RU=%1U}{C}>!=0}{\
+	%S%f_SomeAncestorImplements(%1)\
+	}\
+	true\
+	]\
+	}\
+	%S%f_Implements(%1%G)\
+	]
+//#UC END# *4BA3925D035Cfor470F151302FD*
+
+// Кто-то из предков (но не сам элемент) реализует указанный фасет
+%f _SomeAncestorImplements
+// параметры: aFacet: MDAClass = %1
+// возвращаемый результат: boolean
+//#UC START# *4BA3AF160024for470F151302FD*
+@ %SU%1U
+	[{<{}{%G#f_Implements(%1)=true}{C}>!=0}{\
+	[{<{}{%R#f_IsMixIn()=true&%R#f_Implements(%1)=true}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//#UC END# *4BA3AF160024for470F151302FD*
+
+// Реализация Spell'а для итератора
+%f _IteratorSpell
+//#UC START# *4BA884DD00A7for470F151302FD*
+	[{%SC!=Class|%Cx=true}\
+	[{%S#f_IsOverride()!=true}\
+//	- это чтобы C++ не сломать
+
+	[{%SC=Class}{\
+	%f_set_var(ELEMENT_TYPE,T)\
+	}\
+	<{}{%CS=element type}%f_set_var(ELEMENT_TYPE,C%T)>\
+	]\
+
+//	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}\
+//	%f_warning("%{%{ELEMENT_TYPE}N}U")\
+//	%f_set_var(ELEMENT_TYPE,{%{ELEMENT_TYPE}N})\
+//	]\
+
+	%P%f_add_class(%SU_Action,Function,%PN_%f_N(%S)_Action,Action_Inst)\
+	%{Action_Inst}%f_set_visibility_type(PublicAccess)\
+	%{Action_Inst}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
+	%{Action_Inst}%f_add_operation(%SU_Action_Sig,,\
+	DoIt (anItem: \
+//	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}{\
+	%{ELEMENT_TYPE}U\
+//	}\
+//	%{%{ELEMENT_TYPE}N}U\
+//	]\
+	[{%S{needs index}=true}\
+	, anIndex: [{}{long}<{}{%CS=index type}%C%TU>]\
+	]\
+	): boolean,Op_Instance\
+	)\
+	%{Op_Instance}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
+	%S%f_set_var(Action,{Action_Inst})\
+
+	%P%f_add_operation(%SU_Stub,static,L2_%PN_%f_N(%S)_Action (anAction: pointer): %{Action_Inst}U,Op_Instance)
+	%{Op_Instance}%f_set_documentation(Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для %PN.%f_N(%S))\
+	%{Op_Instance}%f_set_up(isGlobal,true)\
+	%{Op_Instance}%f_set_up(isAsm,true)\
+
+	%S%f_set_var(Stub,{Op_Instance})\
+
+	[{"%S%{SPELLER}N"!=""}\
+	%S%{SPELLER}%f_set_var(Stub,{Op_Instance})\
+	]\
+
+	[{"%{l3LocalStub}N"=""}%f_find_element(l3LocalStub,l3LocalStub)]\
+	%P%f_make_accessable(%{l3LocalStub}U)\
+	[{%SC=Class}\
+	%f_addCDep(%S,%{l3LocalStub})\
+	]\
+
+	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_var,\
+	 {-}\
+	)\
+	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_impl,\
+	\tjmp l3LocalStub\
+	)\
+
+	]\
+	]
+//#UC END# *4BA884DD00A7for470F151302FD*
+
+%f _IsIterator
+// возвращаемый результат: boolean
+//#UC START# *4BA899E20317for470F151302FD*
+	false
+//#UC END# *4BA899E20317for470F151302FD*
+
+// Элемент может реализовываться классом
+%f _IsClassImplementableElement
+// возвращаемый результат: boolean
+//#UC START# *4BA9EBAE0254for470F151302FD*
+	false
+//#UC END# *4BA9EBAE0254for470F151302FD*
+
+// Декларирует указатели на элемент
+%f _pas_ForwardPointers
+//#UC START# *4BAA50E802CAfor470F151302FD*
+	<{}{%ZS=Typedef&%Z{isPointer}=true&%f_pas_IsSameUnit(%S,%Z)=true}\
+	%ZX\
+	\n\
+	%f_add_to_list(FORWARDED_INTF,Z)\
+	>
+//#UC END# *4BAA50E802CAfor470F151302FD*
+
+// Определяет, что элемент переопределяет другой элемент
+%f _IsOverride
+// возвращаемый результат: boolean
+//#UC START# *4BAA5CAB02CFfor470F151302FD*
+	false
+//#UC END# *4BAA5CAB02CFfor470F151302FD*
+
+// Ключевое слово метода
+%f _pas_MethodKeyword
+// параметры: Modification: a-string = %1
+// возвращаемый результат: a-string
+//#UC START# *4BB0B1D202C2for470F151302FD*
+@ %SU_%1N
+	%t_pas_MethodKeyword(%S,%1)
+//#UC END# *4BB0B1D202C2for470F151302FD*
+
+// Отступ. Аналог #, только с учётом особенностей Delphi
+%f _Ind
+// возвращаемый результат: a-string
+//#UC START# *4BB2008E003Afor470F151302FD*
+//#UC END# *4BB2008E003Afor470F151302FD*
+
+// Элемент реализован каким-то элементом указанного класса
+%f _IsRealizedBySomeClassElement
+// параметры: aClass: MDAClass = %1
+// возвращаемый результат: boolean
+//#UC START# *4BBF125A02BFfor470F151302FD*
+@ %SU_%1U
+	[{<{}{%L%PU=%1U}{C}>!=0}{\
+	[{%1<{}{%oU=%1U}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//#UC END# *4BBF125A02BFfor470F151302FD*
+
+// Элемент является виртуальным
+%f _IsVirtual
+// возвращаемый результат: boolean
+//#UC START# *4BC4823500C1for470F151302FD*
+	[{%Sa=regular}{\
+	false\
+	}\
+	true\
+	]
+//#UC END# *4BC4823500C1for470F151302FD*
+
+// Выводит элемент как UtilityPack
+%f _pas_OutLikeUtilityPack
+//#UC START# *4BD1A77701B1for470F151302FD*
+	%f_pas_OpenUnitInterface(%S)\
+	[{%Cx=true}\
+	[\n%S%f_open_ifdef()]\
+	]\
+	%f_pas_Uses(%S)\
+	%f_pas_CloseUses(%S)\
+	<{\n}{%CV=PublicAccess&%C#f_IsMethod()!=true&"%CO"=""}%CX>\
+	<{}{%CV=PublicAccess&%C#f_IsMethod()=true&"%CO"=""}[\n%CX]>\
+	%f_with_gen_id(intf3.pas,[\n<{\n}%CX>])\
+	[{%Cx=true}\
+	[\n%S%f_close_ifdef()]\
+	]\
+	
+	%f_pas_OpenUnitImplementation(%S)\
+	[{%Cx=true}\
+	[\n%S%f_open_ifdef()]\
+	%f_pas_UsesInImpl(%S)\
+	%f_pas_CloseUses(%S)\
+	%f_with_gen_id(impl.pas,%SX)\
+	[\n%S%f_close_ifdef()]\
+	]\
+	%f_pas_CloseUnit(%S)\
+	<{}{"%CO"!=""}%CX>
+//#UC END# *4BD1A77701B1for470F151302FD*
+
+// Имя условной директивы
+%f _pas_DefineName
+// возвращаемый результат: a-string
+//#UC START# *4C0524A20161for470F151302FD*
+@ %SU
+	%f_str_replace(%f_pas_UnitName(%S),.,_)
+//#UC END# *4C0524A20161for470F151302FD*
+
+// Имеет ли секцию инициализации
+%f _HasIni
+// возвращаемый результат: boolean
+//#UC START# *4C05291601EEfor470F151302FD*
+@ %SU
+	[{<{}{%CS=ini}{C}>!=0}{\
+	[{%S#f_IsMixIn()=true&<{}{%G#f_IsMixIn()=true&%G%f_HasIni()=true}{C}>!=0}{\
+	[{<{}{"%CO"=""&%C#f_HasIni()=true}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//#UC END# *4C05291601EEfor470F151302FD*
+
+// Выводит включение секций инициализации примесей
+%f _pas_OutMixInIniInclude
+//#UC START# *4C0532EF02E3for470F151302FD*
+	<{}{%G#f_IsMixIn()=true}\
+	[{%G%f_HasIni()=true}\
+	\n%f_OutInclude(%G,%B)\
+	]\
+//	<%f_pas_OutMixInIniInclude(%G)>\
+	>\
+
+	<{}{%R#f_IsMixIn()=true&%R%f_HasIni()=true}\
+	\n%f_OutInclude(%R,%B)\
+	>
+//#UC END# *4C0532EF02E3for470F151302FD*
+
+%f _InheritsFromClass
+// параметры: aClass: MDAClass = %1
+// возвращаемый результат: boolean
+//#UC START# *4C342AB5032Efor470F151302FD*
+@ %SU%1U
+	[{<{}{%GU=%1U}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]
+//#UC END# *4C342AB5032Efor470F151302FD*
+
+// Элемент не является параметром
+%f _IsNotParam
+// возвращаемый результат: boolean
+//#UC START# *4C766D140383for470F151302FD*
+	[{%SS!=uses&%SS!=element type&%SS!=index type&%SS!=result type}{\
+	true\
+	}\
+	false\
+	]
+//#UC END# *4C766D140383for470F151302FD*
+
+%f _pas_CallingConventionsDirective
+// возвращаемый результат: a-string
+//#UC START# *4CBD7CFE025Bfor470F151302FD*
+	[{%S{calling conventions}!=none&"%S{calling conventions}"!=""}{\
+	[{%t_interface(%P)=true&%P#f_InTie()=true} stdcall;]\
+	}\
+	 %S{calling conventions};\
+	]
+//#UC END# *4CBD7CFE025Bfor470F151302FD*
+
+%f _FirstParamIsViewAreaController
+// возвращаемый результат: boolean
+//#UC START# *4CBEFA1402F2for470F151302FD*
+@ %SU
+	[{%S%f_HasParams()=true}{\
+	false\
+	}\
+	%f_set_var(RESULT,"false")\
+	<{}{%CC=Parameter}\
+	[{%C%T#f_IsViewAreaController()=true}\
+	%f_set_var(RESULT,"true")\
+	]\
+	%f_cycle_break(%S)\
+	>\
+	%{RESULT}N\
+	]
+//#UC END# *4CBEFA1402F2for470F151302FD*
+
+%f _FirstParamName
+// возвращаемый результат: a-string
+//#UC START# *4CBEFF7C020Bfor470F151302FD*
+@ %SU
+	[{%S%f_HasParams()=true}{\
+	\
+	}\
+	<{}{%CC=Parameter}\
+	%CN\
+	%f_cycle_break(%S)\
+	>\
+	]
+//#UC END# *4CBEFF7C020Bfor470F151302FD*
+
+%f _IsMakeSingleChild
+// возвращаемый результат: boolean
+//#UC START# *4CC01C0D0010for470F151302FD*
+	[{%f_N(%S)=MakeSingleChild}{\
+	false\
+	}\
+	true\
+	]
+//#UC END# *4CC01C0D0010for470F151302FD*
+
+// Нужна ли фабрике формы агрегация
+%f _NeedAggregate
+// возвращаемый результат: boolean
+//#UC START# *4CC02B360368for470F151302FD*
+	%S{need Aggregate}
+//#UC END# *4CC02B360368for470F151302FD*
+
+%f _HasFini
+// возвращаемый результат: boolean
+//#UC START# *4CEFC15B03C1for470F151302FD*
+@ %SU
+	[{<{}{%CS=fini}{C}>!=0}{\
+	[{%S#f_IsMixIn()=true&<{}{%G#f_IsMixIn()=true&%G%f_HasFini()=true}{C}>!=0}{\
+	[{<{}{"%CO"=""&%C#f_HasFini()=true}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//#UC END# *4CEFC15B03C1for470F151302FD*
+
+%f _pas_OutMixInFiniInclude
+//#UC START# *4CEFC1720254for470F151302FD*
+	<{}{%G#f_IsMixIn()=true}\
+	[{%G%f_HasFini()=true}\
+	\n%f_OutInclude(%G,%B)\
+	]\
+//	<%f_pas_OutMixInIniInclude(%G)>\
+	>\
+
+	<{}{%R#f_IsMixIn()=true&%R%f_HasFini()=true}\
+	\n%f_OutInclude(%R,%B)\
+	>
+//#UC END# *4CEFC1720254for470F151302FD*
+
+%f _IsUtilityPack
+// возвращаемый результат: boolean
+//#UC START# *4E7B630D000Dfor470F151302FD*
+	false
+//#UC END# *4E7B630D000Dfor470F151302FD*
+
+// Нужно ли документацию к слову скрипта, которое представляет элемента
+%f _NeedsKeywordDocumentation
+// возвращаемый результат: boolean
+//#UC START# *4F30B869036Efor470F151302FD*
+	false
+//#UC END# *4F30B869036Efor470F151302FD*
+
+// Создаёт документацию к словам скрипта
+%f _SpellKeywordsDocumentation
+// параметры: aSummoner: MDAClass = %1
+//#UC START# *4F30B8A403DFfor470F151302FD*
+	[{%S%{_WasSpelled}N!=1}\
+	[{%SS!=Requirements&%SS!=Constants&%SS!=TestLibrary}\
+	%S%f_set_var(_WasSpelled,"1")\
+//	[{%S%{WasSpelledToKeywordsDocumentation}N!=true}\
+//	%S%f_set_var(WasSpelledToKeywordsDocumentation,"true")\
+	%f_add_to_list(WasSpelledToKeywordsDocumentation_LIST,S)\
+	<{}{%CC=Class|%CC=Category}\
+	[{%C#f_IsMethod()!=true}\
+	%C#f_SpellKeywordsDocumentation(%1)\
+	]\
+	>\
+// - тут итерируем ТОЛЬКО по классам и категориям, не заходя внутрь методов,
+//   операций и связей, так наверное памяти СИЛЬНО меньше тратиться должно,
+//   до и по времени побыстрее должно быть
+	%S%f_DoSpellKeywordDocumentation(%1)\
+	]\
+	]
+//#UC END# *4F30B8A403DFfor470F151302FD*
+
+%f _ScriptKeywordDocumentationName
+// возвращаемый результат: a-string
+//#UC START# *4F30B8E60385for470F151302FD*
+	%f_N(%S)
+//#UC END# *4F30B8E60385for470F151302FD*
+
+// Выводит документацию для СЛОВА скрипта, которое представляет данный эелемент
+%f _DoSpellKeywordDocumentation
+// параметры: aSummoner: MDAClass = %1
+//#UC START# *4F30D27300BAfor470F151302FD*
+// - специально ничего не делаем
+//#UC END# *4F30D27300BAfor470F151302FD*
+
+%f _IsUnit
+// возвращаемый результат: boolean
+//#UC START# *4F30E88502A5for470F151302FD*
+	false
+//#UC END# *4F30E88502A5for470F151302FD*
+
+// Определяет, что элемент является проектом
+%f _IsProject
+// возвращаемый результат: boolean
+//#UC START# *4F379BBA00BFfor470F151302FD*
+	false
+//#UC END# *4F379BBA00BFfor470F151302FD*
+
+%f _NeedRegisterInScripts
+// возвращаемый результат: boolean
+//#UC START# *55278EA5036Afor470F151302FD*
+@ %SU
+	[{%S{register in scripts}!=false}{\
+	false\
+	}\
+	[{%S{register in scripts}=true}{\
+	[{<{}{%G#f_NeedRegisterInScripts()=true}{C}>!=0}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
+	]
+//#UC END# *55278EA5036Afor470F151302FD*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

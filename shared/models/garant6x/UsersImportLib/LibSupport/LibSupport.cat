@@ -1,0 +1,636 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "LibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Модель проекта "garant6x"/UsersImportLib/LibSupport|481D6DE602CF
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19779765379"))
+    quid       	"481D6DE602CF"
+    documentation 	"поддержка работы библиотеки"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"481D6EA602F5"
+	    supplier   	"Logical View::garant6x::UsersImportLib::UsersImport"
+	    quidu      	"481D6E5E02A5")
+	(object Visibility_Relationship
+	    quid       	"481EEE07022A"
+	    supplier   	"Logical View::garant6x::UsersImportLib::UsersImport_i"
+	    quidu      	"481D6E830258"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "UsersImportMain"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/garant6x/implementation/Garant/UsersImportLib/UsersImportMain.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/garant6x/implementation/Garant/UsersImportLib/UsersImportMain.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*481D6E04016B*"
+		    value      	(value Text 
+|//#UC START# *481D6E04016B*¤		{  // грохаем все бизнес-объекты перед остановом gcm¤			this->init_environment ();¤			std::string file_name;¤			this->get_path_to_datafile (file_name);¤			if (file_name.empty ()) {¤				LOG_E (("can't find file with data for import. Use '-f' option"));¤				this->usage ();¤				this->set_current_status(Core::Root::ES_ERROR);¤				return;¤			}¤¤			UsersImport::DataWriter_var writer (this->init ());¤			UsersImport::DataParser_var parser (UsersImport::DataParserFactory::make (writer._sretn ()));¤			try {¤				UsersImport::DataReader_var reader (¤					UsersImport::DataReaderFactory::make (file_name, parser.ptr ())¤				);¤			} catch (UsersImport_i::CantFindUserManager&) {¤				LOG_E (("error: can't get server component"));¤			} catch (UsersImport_i::BadSourceFile&) {¤				LOG_E (("can't read data from file: %s", file_name.c_str ()));¤			} catch (GslUserManager::LoginFailed&) {¤				LOG_E (("bad ADMIN password, use -pwd option"));¤				this->usage ();¤			} catch (UsersImport_i::AdminAlreadyLogged&) {¤				LOG_E (("user ADMIN already logged, please log off ADMIN before use this application"));¤			} catch (GslUserManager::LoginBlocked&) {¤				GDS_ASSERT (!"ADMIN is blocked, very strange");¤			} catch (GslUserManager::NoMoreConnections&) {¤				GDS_ASSERT (!"ADMIN can't be blocked");¤			} catch (GslUserManager::LoginDisabled&) {¤				GDS_ASSERT (!"LoginDisabled, i don't know what is it");¤			} catch (GslUserManager::TrialPeriodExpired&) {¤				LOG_E (("trial period expired, sorry"));¤			} catch (GslUserManager::ShutdownInited&) {¤				LOG_E (("server now is stopped, please restart it"));¤			}¤		}¤		this->fini ();¤		//#UC END# *481D6E04016B*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*481D6E04016B_FINI*"
+		    value      	(value Text 
+|//#UC START# *481D6E04016B_FINI*¤	//#UC END# *481D6E04016B_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*481D6E04016B_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *481D6E04016B_CUSTOM_INCLUDES*¤#include "shared/Core/Params/Params.h"¤¤#include "garantServer/src/Global/Core/Common/GCMManagerHome.h"¤#include "garantServer/src/Global/Core/Common/AutoIPConfig.h"¤#include "garantServer/src/Services/GslUserManager/Client/UserManagerClientHome.h"¤#include "garantServer/src/Services/GslSessionHandlerClient/Home/Server.h"¤//#UC END# *481D6E04016B_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*481D6E04016B_CUSTOM_BODY*"
+		    value      	(value Text "//#UC START# *481D6E04016B_CUSTOM_BODY*¤//#UC END# *481D6E04016B_CUSTOM_BODY*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*481D6E04016B_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *481D6E04016B_CUSTOM_INCLUDES*¤//#UC END# *481D6E04016B_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*481D6E04016B*"
+		    value      	"//#UC START# *481D6E04016B*¤//#UC END# *481D6E04016B*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis,key:NMS,guid:442BEDF00290/Home/Модель проекта "garant6x"/UsersImportLib/LibSupport/UsersImportMain|481D6E04016B
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*481D6E04016B_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *481D6E04016B_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *481D6E04016B_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19792732734"))
+	    quid       	"481D6E04016B"
+	    documentation 	"методы высокого уровня"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19779785677"))
+		    quid       	"481D8B8800E7"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::garant6x::UsersImportLib::UsersImport::DataReader"
+		    quidu      	"481D6ED302D2")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19779786039"))
+		    quid       	"481EEE2900E8"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::garant6x::UsersImportLib::UsersImport_i::Writer_i"
+		    quidu      	"481D7A0B00D7"))
+	    operations 	(list Operations
+		(object Operation "usage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*481D6E1A0146*"
+			    value      	(value Text 
+|//#UC START# *481D6E1A0146*¤	LOG_I (("usage: F1UsersImport -GCMConfigFile <path_to_garant_ini> -f <file_name> -pwd <password>"));¤	LOG_I (("-f <file_name>: path to file with data. Option is required"));¤	LOG_I (("-pwd <password>: password of ADMIN login. Default value is 'ADMIN'"));¤	LOG_I (("-GCMConfigFile <path_to_garant_ini>: path to garant.ini file. Default path is './../../garant.ini'"));¤	//#UC END# *481D6E1A0146*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19779782779"))
+		    quid       	"481D6E1A0146"
+		    documentation 	"описание использования утилиты"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "init"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*481EBA160187*"
+			    value      	(value Text 
+|//#UC START# *481EBA160187*¤	GCM::GCMManager_ptr manager = GCM::GCM_get_manager ();¤	GDS_ASSERT (manager && "can't get gcm manager");¤	manager->register_component (new GslUserManager::UserManagerClientHome ());¤	manager->register_component (new GCM::GCMSimpleClient (GblPilot::ComponentKey_c));¤	manager->register_local_component (new GslSessionHandlerClientServer::SessionHandlerClientServerHome ());¤¤	Core::Var<UsersImport_i::Writer_i> writer (Core::TypeTraits<UsersImport_i::Writer_i>::Factory::make ());¤	manager->register_local_component (writer._sretn ());¤¤	try {¤		manager->start_components (false);¤	} CATCH_LOG_AND_DO ("in init", std::cerr << "can't connect to server\n"; throw;)¤¤	return writer._retn ();¤	//#UC END# *481EBA160187*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"481D707501DC")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19779783134"))
+		    quid       	"481EBA160187"
+		    documentation 	"инициализация приложения (GCMManager-а),возвращает созданный объект для записи данных"
+		    result     	"DataWriter"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"481D707501DC")
+		(object Operation "fini"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*481F29DE0029*"
+			    value      	(value Text 
+|//#UC START# *481F29DE0029*¤	GCM::GCMManager_ptr manager = GCM::GCM_get_manager ();¤	GDS_ASSERT (manager && "can't get gcm manager");¤	manager->stop_components ();¤	//#UC END# *481F29DE0029*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19779783531"))
+		    quid       	"481F29DE0029"
+		    documentation 	"Останов приложения"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "get_path_to_application"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4821669F03B3*"
+			    value      	(value Text 
+|//#UC START# *4821669F03B3*¤#if defined (WIN32)¤	char full_path[MAX_PATH];¤	full_path[0] = 0;¤¤	char app_path [MAX_PATH];¤	DWORD res = GetModuleFileName (NULL, app_path, sizeof (app_path));¤	if (!res) {¤		return;¤	}¤¤	char drive [_MAX_DRIVE];¤	char dir [_MAX_DIR];¤	_splitpath (app_path, drive, dir, 0, 0);¤	if ((strlen (drive) + strlen (dir)) >= MAX_PATH) {¤		GDS_ASSERT (!"very long path");¤		return;¤	}¤	_makepath (full_path, drive, dir, 0, 0);¤	path = full_path;¤#else¤	GDS_ASSERT ("not released");¤	path = ".";¤#endif¤	if (path[path.size () - 1] != ACE_DIRECTORY_SEPARATOR_CHAR) {¤		path += ACE_DIRECTORY_SEPARATOR_STR;¤	}¤	//#UC END# *4821669F03B3*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19779783885"))
+		    quid       	"4821669F03B3"
+		    documentation 	"вернуть путь к приложению"
+		    parameters 	(list Parameters
+			(object Parameter "inout path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19779784201"))
+			    quid       	"482166E00001"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "init_environment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4821676E03BD*"
+			    value      	(value Text 
+|//#UC START# *4821676E03BD*¤	std::string path_to_app;¤	this->get_path_to_application (path_to_app);¤	if (path_to_app.empty ()) {¤		LOG_W (("can't find path to application, using '.'"));¤		path_to_app = ".";¤	}¤¤	if (!Core::ParamManagerFactory::get ().is_exist ("-GCMConfigFile")) {¤		// пытаемя использовать инишник по-умолчанию¤		std::string path_to_ini (path_to_app);¤		path_to_ini += "..";¤		path_to_ini += ACE_DIRECTORY_SEPARATOR_STR;¤		path_to_ini += "..";¤		path_to_ini += ACE_DIRECTORY_SEPARATOR_STR;¤		path_to_ini += "garant.ini";¤		Core::ParamManagerFactory::get ().add_string ("-GCMConfigFile", path_to_ini.c_str ());¤	}¤	// лог должен лежать под ногами¤	std::string path_to_log (path_to_app);¤	path_to_log += "F1UserImport.log";¤	Core::ParamManagerFactory::get ().add_string ("-ORBLogFile", path_to_log.c_str ());¤	// NotifyService нам не нужен пока¤	Core::ParamManagerFactory::get ().add_string ("-GCMNotifyServiceEnable", "0");¤	//#UC END# *4821676E03BD*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19779784600"))
+		    quid       	"4821676E03BD"
+		    documentation 	"установка параметров ParamManager"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "get_path_to_datafile"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*482199220094*"
+			    value      	(value Text 
+|//#UC START# *482199220094*¤	const std::string file_name_option ("-f");¤¤	path = Core::ParamManagerFactory::get ().get_string (file_name_option.c_str ());¤	if (path.empty ()) {¤		return;¤	}¤	if (path.find_first_of (ACE_DIRECTORY_SEPARATOR_CHAR) == std::string::npos) {¤		// относительный путь, приклеиваем каталог где лежит утилита¤		std::string current_path;¤		this->get_path_to_application (current_path);¤		GDS_ASSERT (!current_path.empty ());¤		path = current_path + path;¤	}¤	//#UC END# *482199220094*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19779784940"))
+		    quid       	"482199220094"
+		    documentation 	"получить полный путь к файлу с данными"
+		    parameters 	(list Parameters
+			(object Parameter "inout path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19779785251"))
+			    quid       	"48219957000F"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"481D6DFD03D7"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::UsersImportLib::LibSupport::UsersImportMain" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1105, 1112)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(689, 938)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	832
+			justify    	0
+			label      	"• UsersImportMain")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(689, 888)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	832
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"481D6E04016B"
+		    width      	850
+		    height     	472
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::UsersImportLib::UsersImport::DataReader" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1110, 572)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(957, 540)
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"DataReader")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(957, 490)
+			anchor     	10
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"481D6ED302D2"
+		    width      	324
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(1010, 756)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.568533
+			height     	98
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"481D8B8800E7"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(1106, 875)
+			(1108, 666))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garant6x::UsersImportLib::UsersImport_i::Writer_i" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1901, 1112)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705290
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1744, 1080)
+			nlines     	1
+			max_width  	314
+			justify    	0
+			label      	"• Writer_i")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1744, 1030)
+			anchor     	10
+			nlines     	1
+			max_width  	314
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    line_color 	705290
+		    fill_color 	16777215
+		    quidu      	"481D7A0B00D7"
+		    width      	332
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(1635, 1077)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.515351
+			height     	36
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"481EEE2900E8"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(1530, 1112)
+			(1734, 1112))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garantPIL::Core::GCM::GCMSimpleServer" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1902, 643)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1688, 611)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"• GCMSimpleServer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1688, 561)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"474C289B02E5"
+		    width      	446
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"481EED1D0290"
+		    client     	@5
+		    supplier   	@8
+		    vertices   	(list Points
+			(1901, 1017)
+			(1901, 737))
+		    line_style 	0)))))

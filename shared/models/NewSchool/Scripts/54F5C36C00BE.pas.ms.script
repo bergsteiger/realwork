@@ -1,0 +1,685 @@
+// ScrollInfoProcessing 54F5C36C00BE ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F5C36C00BE
+
+FORWARD ME_517939B9033C
+
+: ME_51793A310394
+ CONST UID '51793A310394'
+ CONST Name 'ScrollInfo'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_517939B9033C // TkwScrollInfoWord
+ ;
+ : Target WL 'ME_50222C8103A5' '4AB0C3F60375.pas.ms.script' // TScrollInfo
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_51793A310394 ScrollInfo
+
+: ME_847F141BB38F
+ CONST UID '847F141BB38F'
+ CONST Name 'f_ScrollInfo'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ScrollInfo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_517939B9033C // TkwScrollInfoWord
+ ;
+ : Target WL 'ME_50222C8103A5' '4AB0C3F60375.pas.ms.script' // TScrollInfo
+ ;
+
+ref; // ME_847F141BB38F f_ScrollInfo
+
+FORWARD ME_51793A950073
+
+: ME_51793AD203BE
+ CONST UID '51793AD203BE'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_51793AD203BE aCtx
+
+: ME_51793ACC03CF
+ CONST UID '51793ACC03CF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51793A950073 // DoScrollInfo
+ ;
+ : Parameters
+   @ ( ME_51793AD203BE // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_51793ACC03CF DoIt
+
+: ME_51793A950073
+ CONST UID '51793A950073'
+ CONST Name 'DoScrollInfo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_517939B9033C // TkwScrollInfoWord
+ ;
+ : Operations
+   @ ( ME_51793ACC03CF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_51793A950073 DoScrollInfo
+
+: ME_9EA4CA7BAB5E
+ CONST UID '9EA4CA7BAB5E'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwScrollInfoWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_517939B9033C // TkwScrollInfoWord
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_9EA4CA7BAB5E Ini_Reg_Class
+
+: ME_4F212C930149_ME_517939B9033C
+ CONST UID '4F212C930149'
+ CONST Name 'DoWinControl'
+ : Original WL 'ME_4F212C930149' '54DB92D203C9.pas.ms.script' // DoWinControl
+ ;
+ : Implementor ME_517939B9033C // TkwScrollInfoWord
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F212C930149_ME_517939B9033C DoWinControl
+
+: ME_5000565C019C_ME_517939B9033C
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_517939B9033C // TkwScrollInfoWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_517939B9033C ClearFields
+
+: ME_517939B9033C
+ CONST UID '517939B9033C'
+ CONST Name 'TkwScrollInfoWord'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_54F5C36C00BE // ScrollInfoProcessing
+ ;
+ : Inherits
+   @ ( WL 'ME_4F212C680161' '54DB92D203C9.pas.ms.script' // TkwWinControlFromStackWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_51793A310394 // ScrollInfo
+ ME_847F141BB38F // f_ScrollInfo
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_51793A950073 // DoScrollInfo
+ ME_9EA4CA7BAB5E // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4F212C930149_ME_517939B9033C // DoWinControl
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_517939B9033C // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwScrollInfoWord.pas'
+
+ref; // ME_517939B9033C TkwScrollInfoWord
+
+FORWARD ME_51793B050115
+
+: ME_E19C0D3023AC
+ CONST UID 'E19C0D3023AC'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_control_ScrollInfo_Min' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51793B050115 // pop_control_ScrollInfo_Min
+ ;
+
+ref; // ME_E19C0D3023AC Ini_Reg
+
+: ME_51793A950073_ME_51793B050115
+ CONST UID '51793A950073'
+ CONST Name 'DoScrollInfo'
+ : Original ME_51793A950073 // DoScrollInfo
+ ;
+ : Implementor ME_51793B050115 // pop_control_ScrollInfo_Min
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_51793A950073_ME_51793B050115 DoScrollInfo
+
+: ME_4DB0614603C8_ME_51793B050115
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_51793B050115 // pop_control_ScrollInfo_Min
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_51793B050115 GetWordNameForRegister
+
+: ME_51793B050115
+ CONST UID '51793B050115'
+ CONST Name 'pop_control_ScrollInfo_Min'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5C36C00BE // ScrollInfoProcessing
+ ;
+ : Inherits
+   @ ( ME_517939B9033C // TkwScrollInfoWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_E19C0D3023AC // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_51793A950073_ME_51793B050115 // DoScrollInfo
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_51793B050115 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoMin.pas'
+ CONST extprop:pas:TypeName 'TkwPopControlScrollInfoMin'
+
+ref; // ME_51793B050115 pop_control_ScrollInfo_Min
+
+FORWARD ME_51793B0D02BB
+
+: ME_E60440FB0814
+ CONST UID 'E60440FB0814'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_control_ScrollInfo_Max' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51793B0D02BB // pop_control_ScrollInfo_Max
+ ;
+
+ref; // ME_E60440FB0814 Ini_Reg
+
+: ME_51793A950073_ME_51793B0D02BB
+ CONST UID '51793A950073'
+ CONST Name 'DoScrollInfo'
+ : Original ME_51793A950073 // DoScrollInfo
+ ;
+ : Implementor ME_51793B0D02BB // pop_control_ScrollInfo_Max
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_51793A950073_ME_51793B0D02BB DoScrollInfo
+
+: ME_4DB0614603C8_ME_51793B0D02BB
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_51793B0D02BB // pop_control_ScrollInfo_Max
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_51793B0D02BB GetWordNameForRegister
+
+: ME_51793B0D02BB
+ CONST UID '51793B0D02BB'
+ CONST Name 'pop_control_ScrollInfo_Max'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5C36C00BE // ScrollInfoProcessing
+ ;
+ : Inherits
+   @ ( ME_517939B9033C // TkwScrollInfoWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_E60440FB0814 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_51793A950073_ME_51793B0D02BB // DoScrollInfo
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_51793B0D02BB // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoMax.pas'
+ CONST extprop:pas:TypeName 'TkwPopControlScrollInfoMax'
+
+ref; // ME_51793B0D02BB pop_control_ScrollInfo_Max
+
+FORWARD ME_51793B1402E2
+
+: ME_B63D7B6E0F1C
+ CONST UID 'B63D7B6E0F1C'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_control_ScrollInfo_PageSize' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51793B1402E2 // pop_control_ScrollInfo_PageSize
+ ;
+
+ref; // ME_B63D7B6E0F1C Ini_Reg
+
+: ME_51793A950073_ME_51793B1402E2
+ CONST UID '51793A950073'
+ CONST Name 'DoScrollInfo'
+ : Original ME_51793A950073 // DoScrollInfo
+ ;
+ : Implementor ME_51793B1402E2 // pop_control_ScrollInfo_PageSize
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_51793A950073_ME_51793B1402E2 DoScrollInfo
+
+: ME_4DB0614603C8_ME_51793B1402E2
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_51793B1402E2 // pop_control_ScrollInfo_PageSize
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_51793B1402E2 GetWordNameForRegister
+
+: ME_51793B1402E2
+ CONST UID '51793B1402E2'
+ CONST Name 'pop_control_ScrollInfo_PageSize'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5C36C00BE // ScrollInfoProcessing
+ ;
+ : Inherits
+   @ ( ME_517939B9033C // TkwScrollInfoWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_B63D7B6E0F1C // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_51793A950073_ME_51793B1402E2 // DoScrollInfo
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_51793B1402E2 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoPageSize.pas'
+ CONST extprop:pas:TypeName 'TkwPopControlScrollInfoPageSize'
+
+ref; // ME_51793B1402E2 pop_control_ScrollInfo_PageSize
+
+FORWARD ME_51793B1F01AA
+
+: ME_2859EB2E774B
+ CONST UID '2859EB2E774B'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_control_ScrollInfo_Position' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51793B1F01AA // pop_control_ScrollInfo_Position
+ ;
+
+ref; // ME_2859EB2E774B Ini_Reg
+
+: ME_51793A950073_ME_51793B1F01AA
+ CONST UID '51793A950073'
+ CONST Name 'DoScrollInfo'
+ : Original ME_51793A950073 // DoScrollInfo
+ ;
+ : Implementor ME_51793B1F01AA // pop_control_ScrollInfo_Position
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_51793A950073_ME_51793B1F01AA DoScrollInfo
+
+: ME_4DB0614603C8_ME_51793B1F01AA
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_51793B1F01AA // pop_control_ScrollInfo_Position
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_51793B1F01AA GetWordNameForRegister
+
+: ME_51793B1F01AA
+ CONST UID '51793B1F01AA'
+ CONST Name 'pop_control_ScrollInfo_Position'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5C36C00BE // ScrollInfoProcessing
+ ;
+ : Inherits
+   @ ( ME_517939B9033C // TkwScrollInfoWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_2859EB2E774B // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_51793A950073_ME_51793B1F01AA // DoScrollInfo
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_51793B1F01AA // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoPosition.pas'
+ CONST extprop:pas:TypeName 'TkwPopControlScrollInfoPosition'
+
+ref; // ME_51793B1F01AA pop_control_ScrollInfo_Position
+
+FORWARD ME_51793AE70134
+
+: ME_620C6D7E8ACE
+ CONST UID '620C6D7E8ACE'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_control_ScrollInfo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_51793AE70134 // pop_control_ScrollInfo
+ ;
+
+ref; // ME_620C6D7E8ACE Ini_Reg
+
+: ME_51793A950073_ME_51793AE70134
+ CONST UID '51793A950073'
+ CONST Name 'DoScrollInfo'
+ : Original ME_51793A950073 // DoScrollInfo
+ ;
+ : Implementor ME_51793AE70134 // pop_control_ScrollInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_51793A950073_ME_51793AE70134 DoScrollInfo
+
+: ME_4DB0614603C8_ME_51793AE70134
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_51793AE70134 // pop_control_ScrollInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_51793AE70134 GetWordNameForRegister
+
+: ME_51793AE70134
+ CONST UID '51793AE70134'
+ CONST Name 'pop_control_ScrollInfo'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5C36C00BE // ScrollInfoProcessing
+ ;
+ : Inherits
+   @ ( ME_517939B9033C // TkwScrollInfoWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_620C6D7E8ACE // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_51793A950073_ME_51793AE70134 // DoScrollInfo
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_51793AE70134 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfo.pas'
+ CONST extprop:pas:TypeName 'TkwPopControlScrollInfo'
+
+ref; // ME_51793AE70134 pop_control_ScrollInfo
+
+FORWARD ME_54F5C3C70126
+
+: ME_54F5C3CF0253
+ CONST UID '54F5C3CF0253'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ : Target ME_51793AE70134 // pop_control_ScrollInfo
+ ;
+
+ref; // ME_54F5C3CF0253 
+
+: ME_54F5C3D603D2
+ CONST UID '54F5C3D603D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ : Target ME_51793B050115 // pop_control_ScrollInfo_Min
+ ;
+
+ref; // ME_54F5C3D603D2 
+
+: ME_54F5C3DD02D5
+ CONST UID '54F5C3DD02D5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ : Target ME_51793B0D02BB // pop_control_ScrollInfo_Max
+ ;
+
+ref; // ME_54F5C3DD02D5 
+
+: ME_54F5C3E20052
+ CONST UID '54F5C3E20052'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ : Target ME_51793B1402E2 // pop_control_ScrollInfo_PageSize
+ ;
+
+ref; // ME_54F5C3E20052 
+
+: ME_54F5C3E502F2
+ CONST UID '54F5C3E502F2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ : Target ME_51793B1F01AA // pop_control_ScrollInfo_Position
+ ;
+
+ref; // ME_54F5C3E502F2 
+
+: ME_54F5C4010063
+ CONST UID '54F5C4010063'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_54F5C4010063 
+
+: ME_28AA8C2E2516
+ CONST UID '28AA8C2E2516'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_28AA8C2E2516 
+
+: ME_54F5C3C70126
+ CONST UID '54F5C3C70126'
+ CONST Name 'ScrollInfoProcessingPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5C36C00BE // ScrollInfoProcessing
+ ;
+ : Dependencies
+   @ ( ME_54F5C3CF0253 // 
+ ME_54F5C3D603D2 // 
+ ME_54F5C3DD02D5 // 
+ ME_54F5C3E20052 // 
+ ME_54F5C3E502F2 // 
+ ME_54F5C4010063 // 
+ ME_28AA8C2E2516 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScrollInfoProcessingPack.pas'
+
+ref; // ME_54F5C3C70126 ScrollInfoProcessingPack
+
+: ME_54F5C36C00BE
+ CONST UID '54F5C36C00BE'
+ CONST Name 'ScrollInfoProcessing'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
+ ;
+ : Children
+   @ ( ME_517939B9033C // TkwScrollInfoWord
+ ME_51793B050115 // pop_control_ScrollInfo_Min
+ ME_51793B0D02BB // pop_control_ScrollInfo_Max
+ ME_51793B1402E2 // pop_control_ScrollInfo_PageSize
+ ME_51793B1F01AA // pop_control_ScrollInfo_Position
+ ME_51793AE70134 // pop_control_ScrollInfo
+ ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts,NoVCL'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F5C36C00BE.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F5C36C00BE.pas.ms.script.runner'
+
+ref; // ME_54F5C36C00BE ScrollInfoProcessing

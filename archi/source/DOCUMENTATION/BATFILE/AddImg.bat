@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\DOCUMENTATION\AddImg.AdminGuide.hmxz "/tsk=Recent Publishes:AddImg.AdminGuide" "/tsk=Recent Publishes:AddImg.AdminGuide_!DAILY" "/tsk=Recent Publishes:AddImg.AdminGuide(web)_!DAILY"

@@ -1,0 +1,388 @@
+// VersionInfo 55DDB8900080 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55DDB8900080
+
+: ME_4F8BF8D40367
+ CONST UID '4F8BF8D40367'
+ CONST Name 'vtVerInf'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DDB8900080 // VersionInfo
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_vtVerInf.pas'
+
+ref; // ME_4F8BF8D40367 vtVerInf
+
+FORWARD ME_55DDCF7C004A
+
+FORWARD ME_9F707534EAE2
+
+: ME_30F5EA5AF6DF
+ CONST UID '30F5EA5AF6DF'
+ CONST Name 'VersionInfo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_9F707534EAE2 // Ml3VersionInfoService
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_30F5EA5AF6DF VersionInfo
+
+: ME_9F707534EAE2
+ CONST UID '9F707534EAE2'
+ CONST Name 'Ml3VersionInfoService'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3VersionInfoService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ : Operations
+   @ ( ME_30F5EA5AF6DF // VersionInfo
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_9F707534EAE2 Ml3VersionInfoService
+
+FORWARD ME_BDE9EFF83116
+
+: ME_30F5EA5AF6DF_ME_BDE9EFF83116
+ CONST UID '30F5EA5AF6DF'
+ CONST Name 'VersionInfo'
+ : Original ME_30F5EA5AF6DF // VersionInfo
+ ;
+ : Implementor ME_BDE9EFF83116 // Il3VersionInfoService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_30F5EA5AF6DF_ME_BDE9EFF83116 VersionInfo
+
+: ME_BDE9EFF83116
+ CONST UID 'BDE9EFF83116'
+ CONST GUID 'FC342D5B-DACB-416A-AC66-742EECFB5B6A'
+ CONST Name 'Il3VersionInfoService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса Tl3VersionInfoService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ : Implements
+   @ ( ME_9F707534EAE2 // Ml3VersionInfoService
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_30F5EA5AF6DF_ME_BDE9EFF83116 // VersionInfo
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_BDE9EFF83116 Il3VersionInfoService
+
+: ME_213C1435C00A
+ CONST UID '213C1435C00A'
+ CONST Name 'Alien'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса Il3VersionInfoService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ : Target ME_BDE9EFF83116 // Il3VersionInfoService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_213C1435C00A Alien
+
+: ME_ECBEA8EA6F74
+ CONST UID 'ECBEA8EA6F74'
+ CONST Name 'f_Alien'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ : Target ME_BDE9EFF83116 // Il3VersionInfoService
+ ;
+
+ref; // ME_ECBEA8EA6F74 f_Alien
+
+: ME_55DDCFBE0096
+ CONST UID '55DDCFBE0096'
+ CONST Name 'VersionInfo'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55DDCFBE0096 VersionInfo
+
+: ME_65F1D4822964
+ CONST UID '65F1D4822964'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_65F1D4822964 Exists
+
+: ME_55DDCFB403BB
+ CONST UID '55DDCFB403BB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ : Target ME_4F8BF8D40367 // vtVerInf
+ ;
+
+ref; // ME_55DDCFB403BB 
+
+: ME_55DDD84A00AB
+ CONST UID '55DDD84A00AB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ : Target WL 'ME_4DE89E560091' '4AB0C3C60310.pas.ms.script' // Format
+ ;
+
+ref; // ME_55DDD84A00AB 
+
+: ME_30F5EA5AF6DF_ME_55DDCF7C004A
+ CONST UID '30F5EA5AF6DF'
+ CONST Name 'VersionInfo'
+ : Original ME_30F5EA5AF6DF // VersionInfo
+ ;
+ : Implementor ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_30F5EA5AF6DF_ME_55DDCF7C004A VersionInfo
+
+: ME_5000565C019C_ME_55DDCF7C004A
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_55DDCF7C004A ClearFields
+
+: ME_55DDCF7C004A
+ CONST UID '55DDCF7C004A'
+ CONST Name 'Tl3VersionInfoService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DDB8900080 // VersionInfo
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_9F707534EAE2 // Ml3VersionInfoService
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_213C1435C00A // Alien
+ ME_ECBEA8EA6F74 // f_Alien
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55DDCFBE0096 // VersionInfo
+ ME_65F1D4822964 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_30F5EA5AF6DF_ME_55DDCF7C004A // VersionInfo
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_5000565C019C_ME_55DDCF7C004A // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_9F707534EAE2 // Ml3VersionInfoService
+ ME_BDE9EFF83116 // Il3VersionInfoService
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_55DDCFB403BB // 
+ ME_55DDD84A00AB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3VersionInfoService.pas'
+
+ref; // ME_55DDCF7C004A Tl3VersionInfoService
+
+FORWARD ME_55DDD0110086
+
+: ME_DB74325CC883
+ CONST UID 'DB74325CC883'
+ CONST Name 'bind'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tf1VersionInfoService' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DDD0110086 // Tf1VersionInfoService
+ ;
+
+ref; // ME_DB74325CC883 bind
+
+: ME_082545F9DBB0
+ CONST UID '082545F9DBB0'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DDD0110086 // Tf1VersionInfoService
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_082545F9DBB0 Exists
+
+: ME_55DDD05B0205
+ CONST UID '55DDD05B0205'
+ CONST Class class_Dependency
+ : Stereotype st_implements::Dependency ;
+ : Parent ME_55DDD0110086 // Tf1VersionInfoService
+ ;
+ : Target ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+
+ref; // ME_55DDD05B0205 
+
+: ME_30F5EA5AF6DF_ME_55DDD0110086
+ CONST UID '30F5EA5AF6DF'
+ CONST Name 'VersionInfo'
+ : Original ME_30F5EA5AF6DF // VersionInfo
+ ;
+ : Implementor ME_55DDD0110086 // Tf1VersionInfoService
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_30F5EA5AF6DF_ME_55DDD0110086 VersionInfo
+
+: ME_55DDD0110086
+ CONST UID '55DDD0110086'
+ CONST Name 'Tf1VersionInfoService'
+ CONST Class class_Class
+ : Stereotype st_ServiceImplementation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DDB8900080 // VersionInfo
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_BDE9EFF83116 // Il3VersionInfoService
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_DB74325CC883 // bind
+ ME_082545F9DBB0 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_30F5EA5AF6DF_ME_55DDD0110086 // VersionInfo
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_55DDD05B0205 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifdef" 'Nemesis'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\f1VersionInfoService.pas'
+
+ref; // ME_55DDD0110086 Tf1VersionInfoService
+
+: ME_55DDB8900080
+ CONST UID '55DDB8900080'
+ CONST Name 'VersionInfo'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_4F8BF8D40367 // vtVerInf
+ ME_55DDCF7C004A // Tl3VersionInfoService
+ ME_55DDD0110086 // Tf1VersionInfoService
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55DDB8900080.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55DDB8900080.pas.ms.script.runner'
+
+ref; // ME_55DDB8900080 VersionInfo

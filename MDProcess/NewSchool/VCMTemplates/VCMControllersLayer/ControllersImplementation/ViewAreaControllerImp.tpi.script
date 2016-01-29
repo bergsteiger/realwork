@@ -1,0 +1,561 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMControllersLayer/ControllersImplementation/ViewAreaControllerImp.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMControllersLayer::ControllersImplementation::ViewAreaControllerImp
+//
+// Реализация контроллера области ввода
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ViewAreaControllerImp::Class
+implementation @ <<ViewAreaControllerImp>>
+//? Реализация контроллера области ввода
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_vcm_viewarea_controller_i.gif
+//L code_vcm_viewarea_controller_i
+// Параметры визуализации
+//$ C 191,255,191
+//$ l 20,170,120
+//$ f 20,170,120
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что стереотип содержит хотя бы один именованный VCM-контроллер среди своих детей
+//%f _HasAnyNamedVCMController
+; // st_space_key
+
+: HasAnyNamedVCMController OBJECT IN %S
+//#UC START# *4978770402B4for492EC6CB020F*
+//@ %SU
+//	[{<{}{%C#f_IsVCMController()=true&"%CN"!=""&%CN!=SDS}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsVCMController %( )% ) %==  true AND 
+    ( ( %C |N ) %!= ''  ) AND 
+    ( ( %C |N ) %!= 'SDS'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4978770402B4for492EC6CB020F*
+; // HasAnyNamedVCMController
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Является ли примесью
+//%f _IsMixIn
+: IsMixIn OBJECT IN %S
+//#UC START# *4947E5D40127for492EC6CB020F*
+//	[{%Sa=abstract}{false}true]
+ if ( ( %S |a ) %== 'abstract' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4947E5D40127for492EC6CB020F*
+; // IsMixIn
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Является ли простым классом реализации
+//%f _IsSimpleClass
+: IsSimpleClass OBJECT IN %S
+//#UC START# *4947E4DA0227for492EC6CB020F*
+//	[{%Sa=abstract}{true}false]
+ if ( ( %S |a ) %== 'abstract' ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *4947E4DA0227for492EC6CB020F*
+; // IsSimpleClass
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor492EC6CB020F*
+//	%S%[inherited]\
+ inherited
+//	[{%S%f_HasAnyNamedVCMController()=true}%f_pas_PutToUses("SysUtils")]
+ if ( ( %S %f HasAnyNamedVCMController %( )% ) %==  true ) then
+ begin
+  [%f] pas_PutToUses %( 'SysUtils' )% 
+ end // if
+//#UC END# *4948EB2601FAfor492EC6CB020F*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for492EC6CB020F*
+//	%S%[inherited]\
+ inherited
+//	[{%S%f_HasAnyVCMController()=true}%f_pas_PutToUses("vcmInterfaces")\
+ if ( ( %S %f HasAnyVCMController %( )% ) %==  true ) then
+ begin
+  [%f] pas_PutToUses %( 'vcmInterfaces' )% 
+//	%f_pas_PutToUses("vcmControllers")]
+  [%f] pas_PutToUses %( 'vcmControllers' )% 
+ end // if
+//#UC END# *4948F2EE0334for492EC6CB020F*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит спец-метку класса
+//%f _pas_OutClassMark
+: pas_OutClassMark OBJECT IN %S
+//#UC START# *494B74D7016Bfor492EC6CB020F*
+//	vac
+ 'vac'
+//#UC END# *494B74D7016Bfor492EC6CB020F*
+; // pas_OutClassMark
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит значения параметров примесей
+//%f _pas_OutMixInValues
+: pas_OutMixInValues OBJECT IN %S
+//#UC START# *494B7E6D0125for492EC6CB020F*
+//	%S%[inherited]\
+ inherited
+//	[{%Sa=final}\
+ if ( ( %S |a ) %== 'final' ) then
+ begin
+//	[{<{}{%G#f_IsMixIn()!=true}{C}>=0}{\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( %G %?f IsMixIn %( )% ) %!=  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %== 0 ) then
+  begin
+//	[{<{}{%R#f_IsViewAreaController()=true&%Ra!=abstract}{C}>!=0}{\
+   if ( 
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R %?f IsViewAreaController %( )% ) %==  true AND 
+      ( ( %R |a ) %!= 'abstract'  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for R
+    l_Counter
+    %!= 0 ) then
+   begin
+
+//	[#_FormDataSourceType_ = <{}{%R#f_IsViewAreaController()=true}%f_pas_TypeName(%R)%f_cycle_break(%R)>;\n]\
+//	#_FormDataSourceType_ = <{}{%R#f_IsViewAreaController()=true&%Ra!=abstract}%f_pas_TypeName(%R)%f_cycle_break(%R)>;\n\
+    out_indent '_FormDataSourceType_ = '
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R %?f IsViewAreaController %( )% ) %==  true AND 
+      ( ( %R |a ) %!= 'abstract'  ) ) then
+     begin
+      [%f] pas_TypeName %( %R )% [%f] cycle_break %( %R )% 
+      ++! l_Counter
+     end // if
+    end // for R
+    ';'#13#10
+//	]\
+   end // if
+   else
+   begin
+
+//	[#_FormDataSourceType_ = <%G<{}{%R#f_IsViewAreaController()=true}%f_pas_TypeName(%R)%f_cycle_break(%R)>>;\n]\
+//	#_FormDataSourceType_ = <%G<{}{%R#f_IsViewAreaController()=true&%Ra!=abstract}%f_pas_TypeName(%R)%f_cycle_break(%R)>>;\n\
+    out_indent '_FormDataSourceType_ = '
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%G
+    begin
+     OBJECT IN %G
+     if true then
+     begin
+      %G
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%R
+       begin
+        OBJECT IN %R
+        if ( ( %R %?f IsViewAreaController %( )% ) %==  true AND 
+         ( ( %R |a ) %!= 'abstract'  ) ) then
+        begin
+         [%f] pas_TypeName %( %R )% [%f] cycle_break %( %R )% 
+         ++! l_Counter
+        end // if
+       end // for R
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for G
+    ';'#13#10
+
+// - берём тип контроллера от предка
+//	}\
+   end // else
+//	]\
+  end // if
+  else
+  begin
+
+// - странная проверка на то, что кто-то из предков не примесь
+
+//   А если все примесь, то что? Надо наверное ругаться?
+//	%f_error("%SN : %SS не может быть финальным контроллером, т.к. все его предки - примеси")\
+   [%f] error %( %S |N ' : '
+   %S |S ' не может быть финальным контроллером' %, ' т.к. все его предки - примеси' )% 
+//	[#_FormDataSourceType_ = <%G<{}{%R#f_IsViewAreaController()=true}%f_pas_TypeName(%R)>>;\n]\
+
+// - берём тип контроллера от предка
+//	}\
+  end // else
+//	]
+ end // if
+//#UC END# *494B7E6D0125for492EC6CB020F*
+; // pas_OutMixInValues
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит реализацию переопределённых методов
+//%f _pas_OutOverridesImpl
+: pas_OutOverridesImpl OBJECT IN %S
+//#UC START# *494B86B5014Bfor492EC6CB020F*
+//	%S%[inherited]\
+ inherited
+//	[{%S%f_HasAnyVCMController()=true}\
+ if ( ( %S %f HasAnyVCMController %( )% ) %==  true ) then
+ begin
+//	%f_pas_OpenMethodImplementation("InitRefs",%S)\
+  [%f] pas_OpenMethodImplementation %( 'InitRefs"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).InitRefs(const aDS: IvcmUseCaseController);
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.InitRefs(const aDS: IvcmUseCaseController);'
+//	begin
+  'begin'
+//	 inherited;
+  ' inherited;'
+//	 <{\n }{%C#f_IsVCMController()=true}[{"%CN"=""|%CN=SDS}{\
+  ' '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsVCMController %( )% ) %==  true ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10' ' )
+    if ( ( %C |N ) %== '' OR 
+      ( ( %C |N ) %== 'SDS'  ) ) then
+    begin
+//	%C%f_pas_AttrName() := aDS As %f_pas_TypeName(%C%T)];>
+     %C %f pas_AttrName %( )% ' := aDS As '
+     [%f] pas_TypeName %( %C ->T  )% 
+    end // if
+    else
+    begin
+//	Supports(aDS, %f_pas_TypeName(%C%T), %C%f_pas_AttrName())\
+     'Supports(aDS, '
+     [%f] pas_TypeName %( %C ->T  )% ', '
+     %C %f pas_AttrName %( )% ')'
+//	}\
+    end // else
+    ';' 
+    ++! l_Counter
+   end // if
+  end // for C
+//	end;\
+  'end;'
+//	%f_pas_OpenMethodImplementation("ClearRefs",%S)\
+  [%f] pas_OpenMethodImplementation %( 'ClearRefs"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).ClearRefs;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.ClearRefs;'
+//	begin
+  'begin'
+//	 inherited;
+  ' inherited;'
+//	 <{\n }{%C#f_IsVCMController()=true}%C%f_pas_AttrName() := nil;>
+  ' '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsVCMController %( )% ) %==  true ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10' ' )
+    %C %f pas_AttrName %( )% ' := nil;' 
+    ++! l_Counter
+   end // if
+  end // for C
+//	end;\
+  'end;'
+//	]
+ end // if
+//#UC END# *494B86B5014Bfor492EC6CB020F*
+; // pas_OutOverridesImpl
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит интерфейс переопределённых методов
+//%f _pas_OutOverridesIntf
+: pas_OutOverridesIntf OBJECT IN %S
+//#UC START# *494B856502ECfor492EC6CB020F*
+//	%S%[inherited]\
+ inherited
+//	[{%S%f_HasAnyVCMController()=true}\
+ if ( ( %S %f HasAnyVCMController %( )% ) %==  true ) then
+ begin
+//	%f_pas_OpenMethodInterface("InitRefs",%S)\
+  [%f] pas_OpenMethodInterface %( 'InitRefs"' %, %S )% 
+//	# procedure InitRefs(const aDS: IvcmUseCaseController); override;
+  out_indent ' procedure InitRefs(const aDS: IvcmUseCaseController); override;'
+//	%f_pas_OpenMethodInterface("ClearRefs",%S)\
+  [%f] pas_OpenMethodInterface %( 'ClearRefs"' %, %S )% 
+//	# procedure ClearRefs; override;
+  out_indent ' procedure ClearRefs; override;'
+//	]
+ end // if
+//#UC END# *494B856502ECfor492EC6CB020F*
+; // pas_OutOverridesIntf
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for492EC6CB020F*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for492EC6CB020F*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: ViewAreaControllerImp::Class::UseCase::Attribute
+end. // <<ViewAreaControllerImp>>
+
+implementation @ :: <<ViewAreaControllerImp>> <<UseCase>> ;
+//? Контроллер прецедента, в который входит данная область ввода
+//= ClassBase::Class::Attribute
+
+// Параметры стереотипа
+//v #-
+// - типы видимости
+//a f
+// - тип абстракции
+//l l
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4978621501D1*
+//#UC END# *46E6D4BB0339for4978621501D1*
+; // wiki
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4978621501D1*
+//#UC END# *47022CCF00EAfor4978621501D1*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4978621501D1*
+//#UC END# *470321C1038Afor4978621501D1*
+; // fctr.java
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4978621501D1*
+//#UC END# *477398E501C0for4978621501D1*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4978621501D1*
+//#UC END# *55B8D28B0157for4978621501D1*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4978621501D1*
+//#UC END# *55B8D2F80145for4978621501D1*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4978621501D1*
+//#UC END# *55B8DD9C0301for4978621501D1*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+// Элемент является VCM-контроллером
+//%f _IsVCMController
+; // st_space_key
+
+: IsVCMController OBJECT IN %S
+//#UC START# *4978632500D7for4978621501D1*
+//	true
+ true
+//#UC END# *4978632500D7for4978621501D1*
+; // IsVCMController
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4978621501D1*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4978621501D1*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4978621501D1*
+//#UC END# *470484D50138for4978621501D1*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет является ли элемент контроллером прецедента
+//%f _IsUseCaseController
+: IsUseCaseController OBJECT IN %S
+//#UC START# *494B7E8B02B1for4978621501D1*
+//	true
+ true
+//#UC END# *494B7E8B02B1for4978621501D1*
+; // IsUseCaseController
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя атрибута
+//%f _pas_AttrName
+: pas_AttrName OBJECT IN %S
+//#UC START# *494B9868000Afor4978621501D1*
+//@ %SU
+//	[{"%SN"!=""}{[{%S%T#f_IsUseCaseController()=true}{ucp_}ucc_]%f_pas_TypeName(%S%T)}[{%SN=SDS}{[{%S%T#f_IsUseCaseController()=true}ucc_]%SN}%SN]]
+ if ( ( %S |N ) %!= '' ) then
+ begin
+  if ( ( %S |N ) %== 'SDS' ) then
+  begin
+   %S |N 
+  end // if
+  else
+  begin
+   if ( ( %S ->T %?f IsUseCaseController %( )%  ) %==  true ) then
+   begin
+    'ucc_' 
+   end // if
+   %S |N 
+  end // else
+ end // if
+ else
+ begin
+  if ( ( %S ->T %?f IsUseCaseController %( )%  ) %==  true ) then
+  begin
+   'ucc_' 
+  end // if
+  else
+  begin
+   'ucp_' 
+  end // else
+  [%f] pas_TypeName %( %S ->T  )% 
+ end // else
+//#UC END# *494B9868000Afor4978621501D1*
+; // pas_AttrName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<ViewAreaControllerImp>> <<UseCase>> ;
+

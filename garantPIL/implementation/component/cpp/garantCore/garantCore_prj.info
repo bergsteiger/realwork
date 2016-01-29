@@ -1,0 +1,25 @@
+garantCore : Project - Проект ядра системы Гарант
+version: 11
+MorphoAdapterLib : Library - Библиотека с экспортируемой морфологией
+ Def : Interfaces - Интерфейсы и типы морфо-адаптера
+  MorphoAdapter : Interface - Адаптер для морфо-алгоритмов
+   make : factory - фабрика
+   normalize : chg - нормализация
+  MlmaRu : Interface - API библиотеки mlma
+   make : factory - фабрика
+   lemmatize : chg - mlmaruLemmatize
+   build_form : chg - mlmaruBuildForm
+   check_word : chg - mlmaruCheckWord
+   build_form_gi : chg - mlmaruBuildFormGI
+   check_help : chg - mlmaruCheckHelp
+  MorphoManager : Interface - Интерфейс для инициализации/деинициализации морфологии
+   make : factory - фабрика
+   init : chg - инициализация
+   done : chg - деинициализация
+ Impl : Impl - Пакет имплементации
+  MorphoAdapter_i : Servant - Реализация интерфейса MorphoAdapter
+    : uses - 
+  MorphoManager_i : Servant - Реализация интерфейса MorphoManager
+    : uses - 
+  MlmaRu_i : Servant - Сервант-обертка для экспорта функций библиотеки mlmaru
+MorphoAdapter : AdapterTarget - Dll морфологии

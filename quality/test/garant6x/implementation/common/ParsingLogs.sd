@@ -1,0 +1,1909 @@
+uses  
+  common,
+  DocumentWork,
+  exceptions,
+  FileWork,
+  FoldersWork,
+  ListWork,
+  MenuWork,  
+  RunPrograms,
+  SearchWork,
+  SettingsWork,
+  States,
+  Clicks,  
+  commonEventHandlers;
+
+//заголовки функций
+function PL_GetLoginOperations(  fileName) : OleVariant; forward;
+function PL_GetNecessaryUserLogined(fileName; maxCountUsers; onlyNecessaryUsers; exceptedUsers) : OleVariant; forward;
+function PL_GetParamFromOperation(  validOperation; lineFromLog) : OleVariant; forward;
+function PL_GetMapaOperationsForEachUser(  arrayUsers;  fileName) : OleVariant; forward;
+function PL_ConvertOperationsToScripts( mapa;  user; arrayUsers; isWithoutTimeoutsAndOrder:boolean=false; isWithoutTimeouts:boolean=false) : OleVariant; forward;
+function PL_GetScenarioPPR(  searchParam: string) : string; forward;
+function PL_GetScenarioPPS(  searchParam: string) : OleVariant; forward;
+function PL_GetScenarioAnalyticReview(  searchParam: string ) : OleVariant; forward; 
+function PL_GetScenarioBP(  searchParam: string) : string; forward;
+function PL_StrToDateTime(  strTime) : OleVariant; forward;
+procedure writeResult(  text : string); forward;
+procedure PL_Write_Result(  operationName; timeInLog;isValidOperation; resultStr; user); forward;
+
+const
+  PATH_TO_LOG = 'd:\garant.log';
+  PL_MAP_START_REAL_TIME = 'START_REAL_TIME';
+  PL_MAP_FILE_NAME_START_REAL_TIME = 'PL_REAL_TIME.map';
+  //Валидные операции
+  LD_OPER_LOGIN = '-LM_GARANT: LOGIN ';    
+  LD_OPER_PSEUDO_LOGIN = '-LM_GARANT: PSEUDO_LOGIN ';
+  LD_OPER_LOGOUT = '-LM_GARANT: USER_LOGOUT ';
+  LD_OPER_LOGOUT_BY_ADMIN = '-LM_GARANT: LOGOUT_BY_ADMIN '; //Сделано, как аналого обычного LOGOUT
+  LD_OPER_OPEN_MAIN_MENU = '-LM_GARANT: OPEN_MAIN_MENU '; 
+  LD_OPER_SEARCH = '-LM_GARANT: SEARCH ';  
+  LD_OPER_SAVE_DOC_TO_FOLDERS = '-LM_GARANT: SAVE_DOC_TO_FOLDERS ';
+  LD_OPER_SAVE_LIST_TO_FOLDERS = '-LM_GARANT: SAVE_LIST_TO_FOLDERS ';
+  LD_OPER_OPEN_DOCUMENT_FROM_LIST = '-LM_GARANT: OPEN_DOCUMENT_FROM_LIST ';
+  LD_OPER_OPEN_DOCUMENT_BY_NUMBER = '-LM_GARANT: OPEN_DOCUMENT_BY_NUMBER ';
+  LD_OPER_CONTEXT_FILTER_IN_TREE = '-LM_GARANT: CONTEXT_FILTER_IN_TREE ';
+  LD_OPER_DELETE_FROM_MY_DOCUMENTS = '-LM_GARANT: DELETE_FROM_MY_DOCUMENTS ';  
+  LD_OPER_EXPORT_TO_WORD = '-LM_GARANT: EXPORT_TO_WORD ';
+  LD_OPER_OPEN_DOCUMENT_FROM_LINK = '-LM_GARANT: OPEN_DOCUMENT_FROM_LINK ';
+  LD_OPER_SEARCH_IN_DOCUMENT = '-LM_GARANT: SEARCH_IN_DOCUMENT ';
+  LD_OPER_SEARCH_IN_LIST = '-LM_GARANT: SEARCH_IN_LIST ';
+  LD_OPER_BACK = '-LM_GARANT: BACK ';
+  LD_OPER_FORWARD = '-LM_GARANT: FORWARD ';         
+  LD_OPER_OPEN_CONSULTATION = '-LM_GARANT: OPEN_CONSULTATION ';
+  LD_OPER_INTERNET_IMAGE = '-LM_GARANT: INTERNET_IMAGE ';
+  LD_OPER_OPEN_DICTIONARY = '-LM_GARANT: OPEN_DICTIONARY ';  
+  LD_OPER_DOCUMENT_PRINT = '-LM_GARANT: DOCUMENT_PRINT ';
+  LD_OPER_EXPORT_TO_FILE = '-LM_GARANT: EXPORT_TO_FILE ';
+  LD_OPER_SYNCHROVIEW_ACTIVATE = '-LM_GARANT: SYNCHROVIEW_ACTIVATE ';
+  LD_OPER_GET_CORRESPONDENT = '-LM_GARANT: GET_CORRESPONDENT '; //Переделать, что бы можно было типизировать
+  LD_OPER_GET_RESPONDENT = '-LM_GARANT: GET_RESPONDENT '; //Переделать, что бы можно было типизировать
+  //
+  PL_MAP_FILE_NAME_IS_LAST_OPERATION = 'IS_LAST_OPERATION.map';
+  PL_IS_LAST_OPERATION = 'IS_LAST_OPERATION';
+var  
+	gblSynchroPointNameOne: String;    //Точка синхронизации
+  gblSynchroPointNameTwo: String;    //Точка синхронизации  
+  gblStartTimeInLog: String;//Время самой первой операции в логе
+//------------------------------------------------------------------------------
+
+{
+  TYPE: 
+  DESC: 
+  операции.
+  RESULT: 
+  REMARK:
+}
+function PL_GetRegExpArr : OleVariant;
+const
+  FUNCTION_NAME = 'PL_GetRegExpArr';
+var
+  arr;
+begin
+try
+  arr := ([             
+    ([LD_OPER_LOGIN, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_LOGIN + ')\[(.*)\].*']), 							//3-й параметр: логин, 4-й параметр: пароль
+    ([LD_OPER_PSEUDO_LOGIN, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_PSEUDO_LOGIN + ')\[(.*)\].*']), 							//3-й параметр: логин, 4-й параметр: пароль    
+    ([LD_OPER_LOGOUT, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_LOGOUT + ').*']),			//3-го параметра нет
+    ([LD_OPER_LOGOUT_BY_ADMIN, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_LOGOUT_BY_ADMIN + ').*']),			//3-го параметра нет
+    ([LD_OPER_OPEN_MAIN_MENU, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_OPEN_MAIN_MENU + ').*']),			//3-го параметра нет
+    ([LD_OPER_SEARCH, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_SEARCH + ')\[.*\]\[(.*)\].*']),				//3-й : параметры запроса    
+    ([LD_OPER_SAVE_DOC_TO_FOLDERS, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_SAVE_DOC_TO_FOLDERS + ')\[.*\]\[(.*)\].*']),					//3-й : номер документа, в котором ставится закладка    
+    ([LD_OPER_SAVE_LIST_TO_FOLDERS, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_SAVE_LIST_TO_FOLDERS + ')\[.*\]\[(.*)\].*']),					//3-й : имя закладки на список
+    ([LD_OPER_OPEN_DOCUMENT_FROM_LIST, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_OPEN_DOCUMENT_FROM_LIST + ')\[.*\]\[(.*)\].*']),					//3-й : номер открываемого документа из списка
+    ([LD_OPER_OPEN_DOCUMENT_BY_NUMBER, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_OPEN_DOCUMENT_BY_NUMBER + ')\[.*\]\[(.*)\].*']),					 //3-й: номер открываемого документа
+    ([LD_OPER_CONTEXT_FILTER_IN_TREE, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_CONTEXT_FILTER_IN_TREE + ')\[.*\]\[(.*)\]\[(.*)\].*']), 					 //3-й: - контекст, по которому происходит фильтрация, 4-й: вкладка, которая фильтруется
+    ([LD_OPER_DELETE_FROM_MY_DOCUMENTS, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_DELETE_FROM_MY_DOCUMENTS + ')\[.*\]\[(.*)\]\[(.*)\]\[(.*)\].*']),//3-й : тип удаляемого объекта, 4-й : имя удаляемого контента, 5-й: имя родительской папки
+    ([LD_OPER_EXPORT_TO_WORD, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_EXPORT_TO_WORD + ')\[.*\]\[(.*)\].*']),                            //3-й : номер экспортируемого документа
+    ([LD_OPER_OPEN_DOCUMENT_FROM_LINK, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_OPEN_DOCUMENT_FROM_LINK + ')\[.*\]\[(.*)\].*']),          //3-й : номер документа, на который происходит переход по гиперссылке
+    ([LD_OPER_SEARCH_IN_DOCUMENT, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_SEARCH_IN_DOCUMENT + ')\[.*\]\[(.*)\]\[(.*)\].*']),  					 //3-й : номер документа, 4-й : контекст
+    ([LD_OPER_SEARCH_IN_LIST,     '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_SEARCH_IN_LIST + ')\[.*\]\[Базовый поиск: (.*)\s-\s(.*)\].*']),  			//3-й : где искать (в тексте\в названии), 4-й : контекст
+    ([LD_OPER_BACK, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_BACK + ').*']),			//3-го параметра нет
+    ([LD_OPER_FORWARD, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_FORWARD + ').*']),			//3-го параметра нет
+    ([LD_OPER_OPEN_CONSULTATION, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_OPEN_CONSULTATION + ').*']),			//3-го параметра нет
+    ([LD_OPER_INTERNET_IMAGE, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_INTERNET_IMAGE + ').*']),			//3-го параметра нет
+    ([LD_OPER_DOCUMENT_PRINT, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_DOCUMENT_PRINT + ').*']),			//3-го параметра нет, так при вызове печати неважно что открыто, документ или список
+    ([LD_OPER_EXPORT_TO_FILE, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_EXPORT_TO_FILE + ').*']),			//3-го параметра нет
+    ([LD_OPER_SYNCHROVIEW_ACTIVATE, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_SYNCHROVIEW_ACTIVATE + ').*']),			//3-го параметра нет
+    ([LD_OPER_OPEN_DICTIONARY, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_OPEN_DICTIONARY + ').*']),					//3-го параметра нет
+    //Получение корресп\респондентов нужно доделать, что бы можно было открывать типизированные
+    ([LD_OPER_GET_CORRESPONDENT, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_GET_CORRESPONDENT + ').*']),	//3-го параметра нет    
+    ([LD_OPER_GET_RESPONDENT, '(?-g).*(\d{2}\:\d{2}\:\d{2}\.\d{3}).*(' + LD_OPER_GET_RESPONDENT + ').*'])	//3-го параметра нет
+  ]);
+  Result := arr;
+except
+  Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;       
+end;
+end;
+
+{
+  TYPE: 
+  DESC:  Разбрасывает пользователей по машинам
+  RESULT:   Потзователь, которого привязали к машине. Если не удалось, то возвращаем ""
+  REMARK:
+}    
+function PL_SortUserOnComp(
+  arrayUsers
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_SortUserOnComp';
+var
+  csName;
+  mapFileName;
+  userInMap;
+  mapComps;
+  i;
+begin
+try
+  Result := '';
+  csName := FUNCTION_NAME;  
+  mapFileName := FUNCTION_NAME + '.map';
+  VarClear(userInMap);
+  for i := VarArrayLowBound(arrayUsers,1) to VarArrayHighBound(arrayUsers,1) do
+  begin
+    if EnterCriticalSectionByFile(csName) then
+    begin
+      try      
+        Map(mapComps, 'load from file', mapFileName);
+        userInMap := Map(mapComps, 'get', arrayUsers[i]);
+        if IsEmpty(userInMap) then
+        begin
+          userInMap := arrayUsers[i]; 
+          Map(mapComps, 'put', userInMap, CompName);
+          Map(mapComps, 'save to file', mapFileName);
+          Result := userInMap;
+          break;
+        end; 
+      finally
+        LeaveCriticalSectionByFile(csName);
+      end;  
+    end    
+    else
+      Raise('Не удалось войти в критическую секцию!');      
+  end;//for  
+except
+  Result := '';
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION')); 
+  Raise; 
+end;
+end;
+
+var
+  gblIfFirstOperation;//Первая ли операция
+{
+  TYPE: 
+  DESC:  Проверяется, является ли скритп первым в очереди на выполнение
+  RESULT:   
+  REMARK: Если скрипт можно запускать, то возвращаем true и пишем в мапу, что скрипт запустился
+}    
+function PL_IfScriptIsLastFromRealized(
+  mapa; //Мапа с операциями всех пользователей
+  currentUser; //Пользователь, привязанный к данной машине
+  numOperation; //Номер операции
+  arrayUsers //tmp
+) : boolean;
+const
+  FUNCTION_NAME = 'PL_IfScriptIsLastFromRealized';
+  TIME = 0;
+var
+  timeOperation;
+  csName;
+  mapFileName;  
+  mapComps;  mapFirstOper;
+  timeScriptsOtherUser;
+  timeScriptsCurrentUser;
+  i;
+  arrayKeys;  
+  startRealTime;  
+begin
+try    
+  timeOperation := mapa[currentUser][numOperation][TIME];
+  csName := PL_IS_LAST_OPERATION;  
+  mapFileName := PL_MAP_FILE_NAME_IS_LAST_OPERATION;  
+  VarClear(timeScriptsCurrentUser);
+  
+  if VarType(gblIfFirstOperation) <> varBoolean then gblIfFirstOperation := true;
+  if gblIfFirstOperation then
+  begin    
+    if EnterCriticalSectionByFile(csName) then
+    try      
+      Map(mapComps, 'load from file', mapFileName);
+    finally
+      LeaveCriticalSectionByFile(csName);
+    end;  
+      timeScriptsCurrentUser := Map(mapComps, 'get', currentUser);              
+      if IsEmpty(timeScriptsCurrentUser) then //Если значение пустое, значит это первая операция. 
+      begin//Записываем время ПЕРВОЙ операции                   
+        timeScriptsCurrentUser:= timeOperation; 
+        Map(mapComps, 'put', currentUser, timeScriptsCurrentUser);
+        Map(mapComps, 'save to file', mapFileName);     
+      end// if IsEmpty
+      else
+        Log.Error('Для первой операции в мапе уже уже есть какое то значение, а не должно!!!');      
+  end;    
+  //Ждём пока все пользователи запишут в мапу время своей Первой операции
+  if gblIfFirstOperation then
+  begin
+    Log.Message('Начинаем синхронизироваться (входим в синхропоинт), пока все машины не записали в мапу свою первую операцию'); 
+		SynchroPoint('SYNCHRONIZE', gblSynchroPointNameOne);
+    Log.Message('Вышли из синхропоинта. Все машины записали в мапу свою первую операцию');
+    gblIfFirstOperation := false;//Следующая операция будет уже не первая
+  end;  
+  {tmp: для отладки} Log.Message('Точка 5(before Critical Load) : ' + FUNCTION_NAME);
+  
+  arrayKeys := arrayUsers;
+  //Смотрим последующие операции каждого пользователя и проверяем, является ли наша операция самая ранняя из всех            
+  if EnterCriticalSectionByFile(csName) then    
+  try
+    {tmp: для отладки} Log.Message('Точка 6 (in Critical Load): ' + FUNCTION_NAME);
+    Map(mapComps, 'load from file', mapFileName);    
+  finally
+    LeaveCriticalSectionByFile(csName);
+  end;
+      									
+  {tmp: для отладки} Log.Message('Точка 7 (After Critical Load): ' + FUNCTION_NAME);
+  for i := VarArrayLowBound(arrayKeys,1) to VarArrayHighBound(arrayKeys,1) do			
+  begin        
+  	timeScriptsOtherUser := Map(mapComps, 'get', arrayKeys[i]);            
+    Log.Message('Сравниваем время операции текущего пользователя ( ' + timeOperation + ' )со временем операции остальных пользователей ( ' + timeScriptsOtherUser + ' )');        
+    if PL_StrToDateTime(timeOperation) <= PL_StrToDateTime(timeScriptsOtherUser) then //Если операция нашего пользователя имее более раннее время        										
+  		Result := true
+  	else
+  	begin
+  		Result := false;
+  		break;
+  	end;					
+  end;//for
+           
+    //пишем в мапу
+  if Result then
+  begin
+    //Если это самый первый скрипт, тогда Фиксируем время запуска
+    if (numOperation = 0) AND (gblStartTimeInLog = mapa[currentUser][numOperation][TIME]) then
+    begin
+      startRealTime := Utilities.FormatDateTime('hh:nn:ss,zzz' , Utilities.Now); 
+      Map(mapFirstOper, 'put', PL_MAP_START_REAL_TIME, startRealTime);
+      if EnterCriticalSectionByFile(csName) then
+      try
+        Map(mapFirstOper, 'save to file', PL_MAP_FILE_NAME_START_REAL_TIME);
+      finally
+        LeaveCriticalSectionByFile(csName);
+      end;
+      Log.Message('Время первой реальной операции: ' + startRealTime);
+    end;
+    //Если последняя операция пользователя, тогда пишем в мапу заведомо большое значение ИНАЧЕ время следующей операции
+    if timeOperation = mapa[currentUser][VarArrayHighBound(mapa[currentUser], 1 )][TIME] then
+      Map(mapComps, 'put', currentUser, Utilities.DateTimeToStr(1000000))          
+    else           
+      Map(mapComps, 'put', currentUser, mapa[currentUser][numOperation + 1][TIME]);
+    {tmp: для отладки} Log.Message('Точка 8 (befor Critical): ' + FUNCTION_NAME);             
+    if EnterCriticalSectionByFile(csName) then
+    try
+      Map(mapComps, 'save to file', mapFileName);
+    {tmp: для отладки} Log.Message('Точка 9(in Critical) : ' + FUNCTION_NAME);  
+    finally
+      LeaveCriticalSectionByFile(csName);
+    end;            
+    {tmp: для отладки} Log.Message('Точка 9 (after Critical): ' + FUNCTION_NAME);    
+  end;
+        
+except
+  Result := false;
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION')); 
+  Raise; 
+end;
+end;
+
+{
+  TYPE: 
+  DESC:  Проверяем, истекло ли время (дельта) перед началом скрипта
+  RESULT:   
+  REMARK:
+}    
+function ifTimeIsUpBeforRunScript(  
+  currentScriptTime
+) : boolean;
+const
+  FUNCTION_NAME = 'ifTimeIsUpBeforRunScript';  
+var  
+  deltaInLog;
+  deltaReal;
+  mapFirstOper;
+  startRealTime;
+begin
+try
+  Map(mapFirstOper, 'load from file', PL_MAP_FILE_NAME_START_REAL_TIME);
+  startRealTime := Map(mapFirstOper, 'get', PL_MAP_START_REAL_TIME); 
+  deltaInLog := PL_StrToDateTime(currentScriptTime) - PL_StrToDateTime(gblStartTimeInLog);
+  deltaReal := Utilities.Time - PL_StrToDateTime(startRealTime);
+ 
+  Log.Message('deltaReal = ' + aqConvert.DateTimeToStr(deltaReal) );
+  
+  Log.Message('deltaInLog = ' + aqConvert.DateTimeToStr(deltaInLog) );
+  
+  Result :=  deltaReal>= deltaInLog;
+  
+except
+  Result := false;
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION')); 
+  Raise; 
+end;
+end;
+  
+var
+  gblCheckingOnOnlyTime : boolean; //Проверять операцию, что она проходит только по времени или что она последняя в списке + проходжит по времени   
+
+{
+  TYPE: 
+  DESC:  //Проверяется, наступил ли момент для запуска текущего скрипта
+  RESULT:   false\true
+  REMARK:
+}    
+function PL_ifMayRunScript(
+  mapa; //Мапа с операциями всех пользователей
+  currentUser; //Пользователь, привязанный к данной машине
+  numOperation;//номер текущей операции
+  arrayUsers; //tmp
+  isWithoutTimeoutsAndOrder: boolean = false;//Учитывать или нет временные таймауты\последовательность и последовательность действий
+  isWithoutTimeouts: boolean = false////Учитывать или нет временные таймауты
+) : boolean;
+const
+  FUNCTION_NAME = 'PL_ifMayRunScript';
+  TIME = 0;
+var
+  currentScriptTime;      
+begin
+try
+  if isWithoutTimeoutsAndOrder then//Вообще не проверяется, говорим что скрипт в любом случае готов к запуску 
+    Result := true
+  else
+  begin  
+    if VarType(gblCheckingOnOnlyTime) <> varBoolean then gblCheckingOnOnlyTime := false;   
+    currentScriptTime := mapa[currentUser][numOperation][TIME];
+    if NOT gblCheckingOnOnlyTime then //проверяем скрипт на то, что он в списке стоит на первом месте и проходит по времени
+    begin
+      //Проверяем, является ли скритп последним выполнившемся в списке скриптов всех машин
+      Log.Message('Проверяем скрипт на то что он первый в списке. Его время = ' + currentScriptTime, '', pmNormal, GetLogAttr('YELLOW'));   
+      Result := PL_IfScriptIsLastFromRealized(mapa, currentUser, numOperation, arrayUsers);
+      if Result then
+      //Проверяем, истекло ли время (дельта) перед началом скрипта
+      begin
+        if NOT isWithoutTimeouts then//Временно, потом лучше завести константы и сделать CASE
+        begin
+          Log.Message('Проверили скрипт на то что он первый в списке, теперь проверяем что он проходит по времени.');              
+          Result := ifTimeIsUpBeforRunScript(currentScriptTime);
+          if NOT Result then gblCheckingOnOnlyTime := true;//Упрозднить  gblCheckingOnOnlyTime
+        end
+        else
+          Result := true;   
+      end;
+    end
+    else
+    begin//проверяем скрипт только на то, что он проходит по времени
+      if NOT isWithoutTimeouts then//Временно, потом лучше завести константы и сделать CASE
+      begin
+        Log.Message('Проверяем скрипт только на то, что он проходит по времени.'); 
+        Result := ifTimeIsUpBeforRunScript(currentScriptTime);
+        if Result then gblCheckingOnOnlyTime := false;
+      end
+      else
+        Result := true;
+    end;
+  end;//if          
+except
+  gblCheckingOnOnlyTime := false;
+  Result := false;
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION')); 
+  Raise; 
+end;
+end;
+
+{
+  TYPE: 
+  DESC:  //Конвертирует строковое время в число с плавающей точко
+  RESULT:   
+  REMARK://Сделано для потому, что стандартная StrToDateTime не может паботать с милисекундами 
+}    
+function PL_StrToDateTime(
+  strTime    
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_StrToDateTime';
+  FIRST_OPERATION = 0;
+  TIME = 0;
+var
+  milisecunds; 
+  timesWithoutMilisunds;
+  regExp;  
+begin
+try
+	regExp := HISUtils.RegExpr;       	  
+	regExp.Expression := '(?g)(.*)[\.^\,](.*)';
+  if regExp.Exec(strTime) then
+  begin
+    timesWithoutMilisunds := regExp.Match[1];
+    milisecunds := regExp.Match[2];
+  end
+  else
+    Raise('Некоректный формат времени!');
+  Result := Utilities.StrToDateTime(timesWithoutMilisunds) + ( StrToInt(milisecunds) /86400000);
+except
+  Result := NonExObj;
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION')); 
+  Raise; 
+end;
+end;
+
+
+{
+  TYPE: 
+  DESC:  //Выдёргивается из лога время самой первой операции
+  RESULT:   
+  REMARK:
+}    
+function PL_GetTimeFirstOperation(
+  mapa; //Мапа с операциями всех пользователей
+  arrayUsers  
+) : string;
+const
+  FUNCTION_NAME = 'PL_GetTimeFirstOperation';
+  FIRST_OPERATION = 0;
+  TIME = 0;
+var
+  i;
+  arrayKeys;
+  minimalTimeStr;
+  minimalTime;
+   
+begin
+try
+
+	//arrayKeys := Map(mapa, 'keys array');
+  arrayKeys:=  arrayUsers;
+  minimalTimeStr := mapa[arrayKeys[VarArrayLowBound(arrayKeys,1)]][FIRST_OPERATION][TIME];  
+  minimalTime := PL_StrToDateTime(minimalTimeStr);
+  
+               
+	for i := VarArrayLowBound(arrayKeys,1) to VarArrayHighBound(arrayKeys,1) do
+  begin	
+    if minimalTime > PL_StrToDateTime(mapa[arrayKeys[i]][FIRST_OPERATION][TIME]) then
+    begin
+      minimalTimeStr := mapa[arrayKeys[i]][FIRST_OPERATION][TIME]; 
+      minimalTime := PL_StrToDateTime(minimalTimeStr);
+      
+    end;
+  end;       
+  Result := minimalTimeStr; 
+except
+  Result := '';
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION')); 
+  Raise; 
+end;
+end;
+    
+{!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  TYPE: 
+  DESC: Пускач  
+  RESULT: 
+  REMARK:
+}    
+function PL_RunScripts(
+  fileName: string;
+  maxCountUsers : integer = 30;
+  onlyNecessaryUsers : string = ''; //Необходимые пользователи, если несколько пользователей, то передаём через ;
+  exceptedUsers : string = ''//Исключающие пользователи
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_RunScripts';
+var
+  fileVar;
+  lineFromLog;
+  arrayUsers;
+  i;
+  mapa;
+  res;
+  userName;
+  mapComps; 
+begin
+try  
+	
+  //
+  //Должна идти фйнкция, которая приобразовывает лог к файлу, содержащему только записи с -LM-GARANT 
+  //
+    
+  arrayUsers := PL_GetNecessaryUserLogined(fileName, maxCountUsers, onlyNecessaryUsers, exceptedUsers);  
+  Log.AppendFolder('Список пользователей, операции которых будем обрабатывать:', '', pmNormal, GetLogAttr('YELLOW'));
+  for i := VarArrayLowBound(arrayUsers,1) to VarArrayHighBound(arrayUsers,1) do
+    Log.Message(arrayUsers[i]);
+  Log.PopLogFolder();
+  
+  //Раскидываем пользователей по машинам
+  userName := PL_SortUserOnComp(arrayUsers); 
+  if userName = '' then
+  begin
+    Log.Message('Не удалось взять пользователя, так как уже все разобраны!');
+    Exit;// Не удалось взять пользователя, так уже все  разобраны (или какой то косяк)    
+  end
+  else
+    Log.Message('Взяли пользователя : ' + userName);
+    
+  gblSynchroPointNameOne := FUNCTION_NAME + '_synhroPoin_One';
+	SynchroPoint('REGISTER', gblSynchroPointNameOne);    
+  Delay(60 * 1000);
+  
+  Log.Message('Начинаем парсить лог в мапу.');  
+  mapa := PL_GetMapaOperationsForEachUser(arrayUsers, fileName);
+  //Вычисляем время самой первой операции
+  gblStartTimeInLog := PL_GetTimeFirstOperation(mapa, arrayUsers);
+  Log.Message('Время точки отсчёта (самой первой операции по логу) : ' + gblStartTimeInLog);
+  res := PL_ConvertOperationsToScripts(mapa, userName, arrayUsers, false, true);
+  //res := PL_ConvertOperationsToScripts(mapa, 'TUzhva1'); 
+except
+  //Если вдруг вылетели в исключение, тогда говорим что пользователт доработал, что бы остальные его не ждали
+  if EnterCriticalSectionByFile(PL_IS_LAST_OPERATION) then
+  begin
+    try
+      Map(mapComps, 'load from file', PL_MAP_FILE_NAME_IS_LAST_OPERATION);    	
+      Map(mapComps, 'put', userName, Utilities.DateTimeToStr(1000000));        
+      Map(mapComps, 'save to file', PL_MAP_FILE_NAME_IS_LAST_OPERATION);
+    finally
+      LeaveCriticalSectionByFile(PL_IS_LAST_OPERATION);
+    end; 
+  end;
+      
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION')); 
+  Raise;        
+end;
+end;
+
+{!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  TYPE: 
+  DESC: Пускач  
+  RESULT: 
+  REMARK: Запускаем последовательность сценариев ПООЧЕРЕДИ ОДНОЙ машине, начиная первым и заканчивая последним пользователем
+  Так же не учитываются временные задержки
+}    
+function PL_RunScripts_for_single_comp(
+  fileName: string;
+  maxCountUsers : integer = 30;
+  onlyNecessaryUsers : string = ''; //Необходимые пользователи, если несколько пользователей, то передаём через ;
+  exceptedUsers : string = ''//Исключающие пользователи
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_RunScripts_for_single_comp';
+var
+  fileVar;
+  lineFromLog;
+  arrayUsers;
+  arrayFromSingleUser;
+  i;
+  mapa;
+  res;
+  userName;
+  mapComps; 
+begin
+try  
+  //
+  //Должна идти фйнкция, которая приобразовывает лог к файлу, содержащему только записи с -LM-GARANT 
+  //
+  maxCountUsers := 1000;
+  
+  arrayUsers := PL_GetNecessaryUserLogined(fileName, maxCountUsers, onlyNecessaryUsers, exceptedUsers);  
+  Log.AppendFolder('Список пользователей, операции которых будем обрабатывать:', '', pmNormal, GetLogAttr('YELLOW'));
+  for i := VarArrayLowBound(arrayUsers,1) to VarArrayHighBound(arrayUsers,1) do
+    Log.Message(arrayUsers[i]);
+  Log.PopLogFolder();
+  
+  //Поочереди работаем с каждым пользователем
+  for i := VarArrayLowBound(arrayUsers,1) to VarArrayHighBound(arrayUsers,1) do
+  begin
+    arrayFromSingleUser := '';  
+    AddToArray(arrayFromSingleUser, arrayUsers[i]); 
+    
+    userName := arrayFromSingleUser[VarArrayLowBound(arrayFromSingleUser,1)];    
+    Log.Message('Взяли пользователя : ' + userName);
+    
+    gblSynchroPointNameOne := FUNCTION_NAME + '_synhroPoin_One';
+  	SynchroPoint('REGISTER', gblSynchroPointNameOne);    
+      
+    Log.Message('Начинаем парсить лог в мапу.');//Достаточно распарсить только на первой итерации
+    if i = VarArrayLowBound(arrayUsers,1) then   
+      mapa := PL_GetMapaOperationsForEachUser(arrayUsers, fileName);
+    
+    res := PL_ConvertOperationsToScripts(mapa, userName, arrayUsers, true);      
+  end; //for
+  
+except        
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION')); 
+  Raise;        
+end;
+end;
+
+{
+  TYPE: 
+  DESC: 
+  операции.
+  RESULT:  Массив со всеми строками из лога, в которых присутствуют операции логина 
+  REMARK:
+}
+function PL_GetLoginOperations(
+  fileName
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_GetLoginOperations';
+var
+  fileVar;
+  lineFromLog;
+begin
+try
+  AssignFile(fileVar, fileName);
+  Reset(fileVar);
+  while NOT Eof(fileVar) do
+  begin
+    Readln(fileVar, lineFromLog);
+    if (Pos(LD_OPER_LOGIN, lineFromLog) > 0 ) OR (Pos(LD_OPER_PSEUDO_LOGIN, lineFromLog) > 0) then
+    begin
+      AddToArray(Result, lineFromLog);
+      Log.Message('Считаем, что строка содержит операцию логина : ' + lineFromLog);
+    end;
+  end;
+  CloseFile(fileVar);
+except
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+{
+  TYPE: 
+  DESC:  Обрабатывается лог и из него выдерается в массив список всех пользователей 
+  операции.
+  RESULT:  
+  REMARK:
+}
+
+function PL_GetNecessaryUserLogined(
+  fileName;
+  maxCountUsers;
+  onlyNecessaryUsers;
+  exceptedUsers
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_GetNecessaryUserLogined';  
+var
+  arrayOnlyNecessaryUsers;
+  arrayExceptedUsers;
+  allLoginOperations;
+  i, j, count;
+  regExp;
+  res;
+  isExceptedUsers;
+begin
+try
+  Result := CreateVariantArray(0, 0);  
+  allLoginOperations := PL_GetLoginOperations(fileName);
+  
+  if VarArrayHighBound(allLoginOperations,1) > maxCountUsers then 
+    count := maxCountUsers-1 
+  else
+    count := VarArrayHighBound(allLoginOperations,1);
+  Log.Message('allLoginOperations = ' + IntToStr(count));
+  if onlyNecessaryUsers = '' then arrayOnlyNecessaryUsers := ''
+  else arrayOnlyNecessaryUsers := String2Array(onlyNecessaryUsers, ';');
+    
+  if exceptedUsers = '' then arrayExceptedUsers := ''
+  else arrayExceptedUsers := String2Array(exceptedUsers, ';');  
+  
+  Log.Message('От  ' +IntToStr(VarArrayLowBound(allLoginOperations,1)) + '   до    ' + IntToStr(count) );  
+  if NOT IsArray[arrayOnlyNecessaryUsers] then 
+  // Обрабатываем всех N пользователей. Если их больше чем максимально допустимое количество, обрабатываем только допустимое max количество  
+  begin
+    Log.Message('Нет исключающих пользователей, начинаем обрабатывать всех подряд.');
+  	for i := VarArrayLowBound(allLoginOperations,1) to count do
+  	begin
+  		regExp := HISUtils.RegExpr; 
+    	regExp.Expression := '(?-g)LOGIN \[(.*)\]';
+    	if regExp.Exec(allLoginOperations[i]) then	      
+      begin
+        //Исключаем указанных пользователей
+        Log.Message('Пользователь : ' + IntToStr(i) + ' : ' +  regExp.Match[1]);
+        isExceptedUsers := false;
+        Log.Message('Начинаем обрабатывать исключающих пользователей');
+        if IsArray(arrayExceptedUsers) then
+        begin
+          Log.Error('Сюда не должны были попасть 1!');                         
+          for j := VarArrayLowBound(arrayExceptedUsers ,1) to VarArrayHighBound(arrayExceptedUsers ,1) do        
+            if regExp.Match[1] = arrayExceptedUsers[j] then
+            begin
+              isExceptedUsers := true;
+              break;
+            end;
+        end;                    
+        Log.Message('Закончили обрабатывать исключающих пользователей');
+                            
+        if NOT isExceptedUsers then
+        //Проверяем, текущий пользователь не является ли повторным, если да - то отбрасываем его        
+          if (NOT IsArray(Result)) OR (IsArray(Result) AND NOT FindElement(Result, regExp.Match[1])) then
+            AddToArray(Result, regExp.Match[1]);
+      end;    
+  	end;
+  end
+  
+  else//Обрабатываем вначале необходимых пользователей, а потом всех оставшихся
+  begin  
+  	for i := VarArrayLowBound(allLoginOperations,1) to VarArrayHighBound(allLoginOperations,1) do
+  	begin	//Обрабатываем только нужных
+  		for j := VarArrayLowBound(arrayOnlyNecessaryUsers ,1) to VarArrayHighBound(arrayOnlyNecessaryUsers ,1) do
+  		begin
+  			if Pos(arrayOnlyNecessaryUsers[j], allLoginOperations[i]) > 0 then
+          if (NOT IsArray(Result)) OR (IsArray(Result) AND NOT FindElement(Result, arrayOnlyNecessaryUsers[j])) then            	
+	  			  AddToArray(Result, arrayOnlyNecessaryUsers[j]);		   
+		  end;
+	  end;
+    //Обрабатываем всех оставшихся
+    Log.Message('Количество пользователей : ' + IntToStr( VarArrayHighBound(allLoginOperations,1) ));
+    i := VarArrayLowBound(allLoginOperations,1);
+    res := true;
+    while (i <= count) AND (res) do	  
+  	begin      
+  		regExp := HISUtils.RegExpr; 
+    	regExp.Expression := '(?-g)LOGIN \[(.*)\]';
+    	if regExp.Exec(allLoginOperations[i]) then
+      begin
+        //Исключаем указанных пользователей
+        isExceptedUsers := false;
+        if IsArray(arrayExceptedUsers) then
+        begin
+          Log.Error('Сюда не должны были попасть 2!');
+          for j := VarArrayLowBound(arrayExceptedUsers ,1) to VarArrayHighBound(arrayExceptedUsers ,1) do
+          begin
+            if regExp.Match[1] = arrayExceptedUsers[j] then
+            begin
+              isExceptedUsers := true;
+              break;
+            end;
+          end;//for j
+        end;//if IsArray(arrayExceptedUsers)
+        
+        if NOT isExceptedUsers then
+        begin
+          Log.Message('Обрабатываем пользователя = ' + regExp.Match[1] +'; i='+ IntToStr(i));       
+          for j := VarArrayLowBound(arrayOnlyNecessaryUsers ,1) to VarArrayHighBound(arrayOnlyNecessaryUsers ,1) do
+          begin  		  
+            if NOT ( regExp.Match[1] = arrayOnlyNecessaryUsers[j] ) then
+            begin
+              if (VarArrayHighBound(Result ,1) + 1) = maxCountUsers then 
+                res := false
+              else
+                if (NOT IsArray(Result)) OR (IsArray(Result) AND NOT FindElement(Result, regExp.Match[1])) then
+                  AddToArray(Result, regExp.Match[1]);  	                          
+              break;
+            end;  
+          end;//for j
+        end;  
+        inc(i);            
+      end;                  
+  	end;//while      	 
+  end;
+except
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+{
+  TYPE: 
+  DESC: Возвращает структуру данных, содержащую в себе последовательности пользовательских операций для каждого пользователя  
+  RESULT:  
+  REMARK: 
+}
+function PL_GetMapaOperationsForEachUser(
+  arrayUsers; //Массив со списком пользователей
+  fileName  // Путь к файлу с логом(уже преобразованным к -LM-GARANT) 
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_GetMapaOperationsForEachUser';
+var
+  i, j;
+  fileVar;
+  lineFromLog;
+  arrayAllValidOperations;
+  resMapa;  
+  paramFromOperation;
+begin
+try
+  AssignFile(fileVar, fileName);
+  Reset(fileVar);
+  while NOT Eof(fileVar) do
+  begin
+    Readln(fileVar, lineFromLog);    
+    for i := VarArrayLowBound(arrayUsers,1) to VarArrayHighBound(arrayUsers,1) do
+    begin
+      //Проверям строку на наличие в ней имени пользователя
+      if Pos(arrayUsers[i], lineFromLog) > 0 then
+      begin      
+        //Проверяем строку с пользователем на наличие в ней валидной операции
+        arrayAllValidOperations := PL_GetRegExpArr;
+        for j := VarArrayLowBound(arrayAllValidOperations,1) to VarArrayHighBound(arrayAllValidOperations,1) do
+        begin
+          if Pos(arrayAllValidOperations[j][0], lineFromLog) > 0 then
+          begin          
+            //Парсим строку с валидной операции, и с соответствующими параметрами загоняем её в мапу
+            paramFromOperation := Map(resMapa, 'get', arrayUsers[i]);            
+            AddToArray( paramFromOperation, PL_GetParamFromOperation(arrayAllValidOperations[j] , lineFromLog) );
+            Map(resMapa, 'put', arrayUsers[i], paramFromOperation);
+            break;
+          end;  
+        end;//for j
+        
+      end;  
+      //AddToArray(Result, lineFromLog);    
+    end;//for i    
+  end;
+  CloseFile(fileVar);
+  
+  Result := resMapa; 
+except
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+{
+  TYPE: 
+  DESC:  Парсим строку с валидно й операйией для пользователя на параметры
+  RESULT:  
+  REMARK: 
+}
+function PL_GetParamFromOperation(
+  validOperation;   //
+  lineFromLog     
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_GetParamFromOperation';
+var
+  i;
+  regExp;
+  times;
+  operation;
+  addParams;  
+  pass;
+begin
+try
+  regExp := HISUtils.RegExpr; 
+	regExp.Expression := validOperation[1];
+	if regExp.Exec(lineFromLog) then
+  begin
+    times := regExp.Match[1];//Время
+    operation := regExp.Match[2];//Операция(из заданных констант)
+    //Высчитываем дополнительные параметры
+    case operation of
+      LD_OPER_LOGIN :
+    	begin
+        pass := '';
+        addParams := CreateVariantArray(0, 1);
+        addParams[0] := regExp.Match[3];//Логин
+        addParams[1] := pass;//пароль
+    	end;
+      
+      LD_OPER_PSEUDO_LOGIN:
+      begin
+        pass := '';
+        addParams := CreateVariantArray(0, 1);
+        addParams[0] := regExp.Match[3];//Логин
+        addParams[1] := pass;//пароль
+    	end;
+      
+      LD_OPER_LOGOUT: 
+      	addParams := [''];
+        
+      LD_OPER_LOGOUT_BY_ADMIN:
+        addParams := [''];
+                   
+      LD_OPER_OPEN_MAIN_MENU: 
+      	addParams := [''];
+         
+      LD_OPER_SEARCH:
+    	begin  
+      	addParams := [ regExp.Match[3] ];
+    	end;
+            
+      LD_OPER_SAVE_DOC_TO_FOLDERS : 
+      	addParams := [ regExp.Match[3] ];
+        
+      LD_OPER_SAVE_LIST_TO_FOLDERS : 
+      	addParams := [ regExp.Match[3] ];  
+        
+      LD_OPER_OPEN_DOCUMENT_FROM_LIST : 
+      	addParams := [ regExp.Match[3] ];
+        
+      LD_OPER_OPEN_DOCUMENT_BY_NUMBER : 
+      	addParams := [ regExp.Match[3] ];
+        
+      LD_OPER_CONTEXT_FILTER_IN_TREE :
+      begin
+      	addParams := CreateVariantArray(0, 1);
+      	addParams[0] := regExp.Match[3];
+        addParams[1] := regExp.Match[4];
+      end;  
+      LD_OPER_DELETE_FROM_MY_DOCUMENTS :
+      begin
+        addParams := CreateVariantArray(0, 1);
+      	addParams[0] := regExp.Match[4];
+        addParams[1] := regExp.Match[5];
+      end;
+      
+      LD_OPER_EXPORT_TO_WORD :
+      	addParams := [ regExp.Match[3] ];
+        
+      LD_OPER_OPEN_DOCUMENT_FROM_LINK :
+      	addParams := [ regExp.Match[3] ];
+        
+      LD_OPER_SEARCH_IN_DOCUMENT :
+      begin
+        addParams := CreateVariantArray(0, 1);
+      	addParams[0] := regExp.Match[3];
+        addParams[1] := regExp.Match[4];
+      end;
+      
+      LD_OPER_SEARCH_IN_LIST :
+      begin
+        addParams := CreateVariantArray(0, 1);
+      	addParams[0] := regExp.Match[3];
+        addParams[1] := regExp.Match[4];
+      end;
+       
+      LD_OPER_BACK :
+      	addParams := [''];
+        
+      LD_OPER_FORWARD :
+      	addParams := [''];
+        
+      LD_OPER_OPEN_CONSULTATION:
+        addParams := [''];
+        
+      LD_OPER_INTERNET_IMAGE:
+        addParams := [''];          
+           
+      LD_OPER_DOCUMENT_PRINT :
+        addParams := [''];
+        
+      LD_OPER_EXPORT_TO_FILE:
+        addParams := [''];
+          
+      LD_OPER_SYNCHROVIEW_ACTIVATE:
+        addParams := [''];
+             
+      LD_OPER_OPEN_DICTIONARY :
+      	addParams := [''];
+        
+      LD_OPER_GET_CORRESPONDENT:
+        addParams := [''];
+        
+      LD_OPER_GET_RESPONDENT:        
+        addParams := [''];
+    end;//case    
+    Result := [ times, operation, addParams];
+  end
+  else
+    Result := [''];  
+except
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+const
+  PL_SEARCH_PPS = 'Поиск по ситуациям';
+  PL_SEARCH_PPR = 'Поиск по реквизитам';//
+  PL_SEARCH_BP  = 'Базовый поиск';//  
+  PL_SEARCH_NEWS_LENTS = 'Новостная лента';
+  PL_SEARCH_ANALYSTIC_REVIEW = 'Обзор изменений законодательства';
+  PL_SEARCH_PPIO = 'Поиск по источнику опубликования';
+  
+  PL_PPR_ATR_WORD_IN_NAME = 'СЛОВА В НАЗВАНИИ';
+  PL_PPR_ATR_WORD_IN_TEXT  = 'СЛОВА В ТЕКСТЕ';
+  PL_PPR_ATR_TYPE  = 'ТИП';
+  PL_PPR_ATR_ORGAN_SOURCE  = 'ОРГАН'; 
+  PL_PPR_ATR_TOPIC = 'РАЗДЕЛ';
+  PL_PPR_DATE = 'Дата';//
+  PL_PPR_ATR_DATA_WITH = 'Дата принятия С';
+  PL_PPR_ATR_DATA_TO = 'Дата принятия По';
+  PL_PPR_ATR_NUMBER = 'НОМЕР';
+  PL_PPR_REG_DATE = 'ДАТА В МЮ';//
+  PL_PPR_ATR_DATE_REG_WITH = 'ДАТА В МЮ С';
+  PL_PPR_ATR_DATE_REG_TO = 'ДАТА В МЮ По';
+  PL_PPR_ATR_REG_NUMBER = 'НОМЕР В МЮ';
+  PL_PPR_ATR_REG_STATUS = 'СТАТУС В МЮ';
+  PL_PPR_ATR_RELEVANCE = 'ЗНАЧИМОСТЬ';
+  PL_PPR_ATR_STATUS = 'СТАТУС';
+  PL_PPR_ATR_SEARCN_IN_NOT_VALID_RED = 'Искать в недействующих редакциях';
+  PL_PPR_ATR_VIEW_INFO = 'ВИД ИНФОРМАЦИИ';
+  PL_PPR_ATR_TERRITORY_REGULATION = 'ТЕРРИТОРИЯ';
+  PL_PPR_ATR_INFORMATION_BLOCK = 'БЛОК';
+ 
+ 
+{
+  TYPE: Sting;
+  DESK: Считается количество вхождений подстроки в строку
+  RESUKL: Количество вхождений, в случае не нахождения подстроки - Result = 0
+  REMARK:  
+}  
+function GetCountSubStrInString (
+  str: string; //Исходная строка
+  subStr //подстрока
+): integer; //Подстрока, количество вхождений которой считается
+var
+  count;
+  i;    
+  res;
+begin
+try
+  count := 0;
+  res := true;
+  while res do
+  begin
+	  i := aqString.Contains(str, subStr, 0);
+	  if i <> -1 then
+	  begin
+	    inc(count);
+	    str := aqString.SubString(str, i + length(subStr),  length(Str)-i-length(subStr));
+	  end
+	  else
+	  	Res := false;	
+	 end; 
+   Result := count; 
+except
+  Result := 0;
+end;
+end; 
+ 
+ 
+{
+  TYPE: 
+  DESC: 
+  операции.
+  RESULT:   
+  REMARK:   
+           Сделать ППР(случай, когда в поиске один атрибут может иметь несколько значений, например "один или два кроме три")
+           Сделать удаление объектов (сейчас пока реализована только чистка Журнала Работы)
+           //Сделать открытие документа по ссылке
+           Сделать контекстный фильтр дерева не только для вкладки меню           
+           Сделать получение операции "Моя Новостная лента" по первому вхождению, а не по последнему как щас
+}
+function PL_ConvertOperationsToScripts(
+  mapa;  //Мапа с данными
+  user;  //Имя пользователя
+  arrayUsers; //Массив пользователей, временно(пока не получается вытянуть этот массив из мапы)
+  isWithoutTimeoutsAndOrder : boolean = false;//Учитывать или нет временные таймауты\последовательность и последовательность действий
+  isWithoutTimeouts : boolean = false//Учитывать или нет временные таймауты\  
+) : OleVariant;
+const
+  FUNCTION_NAME = 'PL_ConvertOperationsToScripts';
+  TIME = 0;
+  OPERATION = 1;
+  PARAMS = 2;
+  MAIN_PARAMS = 0;
+  ADD_PARAMS = 1;
+var
+  operationName;
+	objFromOperations;
+  fileVar;
+  i, j;   
+  mainPar;
+  addPar;
+  searchType; searchTypePrev; searchParam;
+  regExp; regExpAdd;  
+  arr;
+  isMayRunScript;
+  criticalSectionName;
+  synchroEventName;
+  synchroPointName;  
+  isValidOperation;
+  mapComps;
+  csName; 
+  isNewCardPPS;//Обозначает, открывать ли КЗ ППС перед поиском (что бы делать контекстный фильтр и что бы он не сбрасывался)
+  isNewCardPPIO;
+begin
+try
+  synchroEventName := FUNCTION_NAME + '_event';
+  synchroPointName := FUNCTION_NAME + '_synchroPoint';;  
+  Result := '';
+  isNewCardPPS := true;//этот Параметр только чисто для ППС  
+  isNewCardPPIO := true;
+  criticalSectionName := FUNCTION_NAME;  
+  for i := VarArrayLowBound(mapa[user],1) to VarArrayHighBound(mapa[user],1) do
+  begin
+    operationName := mapa[user][i][OPERATION];     
+    objFromOperations :=  mapa[user][i][PARAMS];
+    isValidOperation := true;   
+        
+    //Если поиск, то перед проверкой на выполнимость, сразу получаем параметры поиска (Сделано для новостной ленты, так как её операций в логе много плодится, что бы не терять время на их проверку)    
+    if (operationName = LD_OPER_SEARCH )then    
+    begin
+      mainPar := objFromOperations[MAIN_PARAMS];      	
+      regExp := HISUtils.RegExpr; 
+	    regExp.Expression := '(.*): (.*)$';
+      if regExp.Exec(mainPar) then
+      begin
+        searchType := regExp.Match[1];
+        searchParam := regExp.Match[2];
+      end
+      else
+      begin
+        searchType := '';
+        searchParam := '';
+      end;  
+      if (searchType = PL_SEARCH_NEWS_LENTS) then
+      begin 
+        searchTypePrev := '';              
+        regExp := HISUtils.RegExpr; 
+        regExp.Expression := '(.*): (.*)$';
+        if regExp.Exec(mapa[user][i -1][PARAMS][MAIN_PARAMS]) then	    	
+      	  searchTypePrev := regExp.Match[1];//Считаем значение предыдущего SEARCH                  
+        if (searchTypePrev = PL_SEARCH_NEWS_LENTS) then
+        begin      
+          isValidOperation := false;
+          operationName := '';//Чтобы в CASE не попасть
+          //Дописываем в мапу значение следующей операции, что бы не зациклится
+          csName := PL_IS_LAST_OPERATION;
+          Log.Message('Пытаемся отбросить ненужный GoToPtime');
+          if EnterCriticalSectionByFile(csName) then
+          begin
+            try
+              Map(mapComps, 'load from file', PL_MAP_FILE_NAME_IS_LAST_OPERATION);	
+              if mapa[user][i][TIME] = mapa[user][VarArrayHighBound(mapa[user], 1 )][TIME] then
+                Map(mapComps, 'put', currentUser, Utilities.DateTimeToStr(1000000))        
+              else
+                Map(mapComps, 'put', user, mapa[user][i + 1][TIME]);
+              Map(mapComps, 'save to file', PL_MAP_FILE_NAME_IS_LAST_OPERATION);
+              Log.Message('Отбрасываем ненужный GoToPtime');
+            finally
+              LeaveCriticalSectionByFile(csName);
+            end;  
+          end;
+        end;//if (searchTypePrev = PL_SEARCH_NEWS_LENTS) then
+      end;            
+    end;
+    
+    if isValidOperation then
+    begin
+      isMayRunScript := PL_ifMayRunScript(mapa, user, i, arrayUsers, isWithoutTimeoutsAndOrder, isWithoutTimeouts);
+      while NOT isMayRunScript do
+      begin
+        isMayRunScript := PL_ifMayRunScript(mapa, user, i, arrayUsers, isWithoutTimeoutsAndOrder, isWithoutTimeouts);
+        //Delay(1000);      
+      end;
+    end;
+    
+    Result := '';
+    
+    case operationName of    
+      LD_OPER_LOGIN:
+      begin      
+        Result := 'LoginAnyHow(' + objFromOperations[MAIN_PARAMS] + ',' + objFromOperations[ADD_PARAMS] +');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          StartF1Shell;
+          LoginAnyHow(objFromOperations[MAIN_PARAMS], objFromOperations[ADD_PARAMS]);
+        Log.PopLogFolder();
+      end;
+      LD_OPER_PSEUDO_LOGIN:
+      begin      
+        Result := 'LoginAnyHow(' + objFromOperations[MAIN_PARAMS] + ',' + objFromOperations[ADD_PARAMS] +');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          StartF1Shell;
+          LoginAnyHow(objFromOperations[MAIN_PARAMS], objFromOperations[ADD_PARAMS]);
+        Log.PopLogFolder();
+      end;
+      LD_OPER_LOGOUT:
+      begin
+        Result := 'CloseF1Shell;';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);        
+          CloseF1Shell;
+        Log.PopLogFolder();
+      end;      
+      LD_OPER_LOGOUT_BY_ADMIN:
+      begin
+        Result := 'CloseF1Shell;';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);        
+          CloseF1Shell;
+        Log.PopLogFolder();
+      end;
+      LD_OPER_OPEN_MAIN_MENU:
+      begin
+        Result := 'GoToMainMenu;';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          GoToMainMenu;
+        Log.PopLogFolder();
+      end; 
+      LD_OPER_SEARCH:
+      begin      		
+	      	case searchType of
+						'БП', PL_SEARCH_BP:
+            begin
+							Result := PL_GetScenarioBP(searchParam);
+              Log.AppendFolder('BaseSearch(nil, ' + Result[0] + ',' + Result[1]+')', '', pmNormal, GetLogAttr('YELLOW'));
+                PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, 'BaseSearch(nil,' + Result[0] + ',' + Result[1] + ')', user);
+                if Result[1] = '' then
+                  BaseSearch(nil, Result[0])
+                else  
+                  BaseSearchInTheme(nil, Result[0], Result[1]);
+              Log.PopLogFolder();
+            end;  
+	      	  'ППР', PL_SEARCH_PPR:
+	      	  begin
+              Result := PL_GetScenarioPPR(searchParam);                         
+              Log.AppendFolder('SearchInPPR(....)', '', pmNormal, GetLogAttr('YELLOW'));
+                PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, 'SearchInPPR(....)', user);
+                SearchInPPR(Result);              
+              Log.PopLogFolder();              
+	      	  end; 	
+						'ППС', PL_SEARCH_PPS:
+            begin
+              Result := PL_GetScenarioPPS(searchParam);              							
+              Log.AppendFolder('SearchInPPS(....)', '', pmNormal, GetLogAttr('YELLOW'));
+                PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, 'SearchInPPS(....)', user);                 
+                SearchInPPS(Result, true, isNewCardPPS);
+                Result := 'SearchInPPS(....)'; 
+                isNewCardPPS := true;//обнуляем
+              Log.PopLogFolder(); 
+            end;
+            'ППИО', PL_SEARCH_PPIO:
+            begin
+              Result := 'SearchInPPIO(....)';
+              Log.AppendFolder('SearchInPPIO(....)', '', pmNormal, GetLogAttr('YELLOW'));
+                PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+                if  NOT isNewCardPPIO then Sys.Keys('^[Enter]') else   begin GoToPPIO; Sys.Keys('^[Enter]'); end;//Надо переделать
+                isNewCardPPIO := true;
+              Log.PopLogFolder();
+            end;
+            'ОБЗОР ИЗМЕНЕНИЙ ЗАКОНОДАТЕЛЬСТВА', PL_SEARCH_ANALYSTIC_REVIEW:
+            begin        
+              Result := PL_GetScenarioAnalyticReview(searchParam);                         
+              Log.AppendFolder('SearchInAnalyticReview(....)', '', pmNormal, GetLogAttr('YELLOW'));
+                PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, 'SearchInAnalyticReview(..)', user);              
+                SearchInAnalyticReview(Result);
+             
+              Log.PopLogFolder();
+            end;
+						'НОВОСТНАЯ ЛЕНТА', PL_SEARCH_NEWS_LENTS:
+            begin
+              Result := 'GoToPrime;';
+                Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+                  PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+                  GoToPrime;
+                Log.PopLogFolder();
+            end;
+            '': //НАВИГАТОР: Возможно операция SEARCH - это открытие из рубрикатора
+            begin
+              if ( Pos('Правовой навигатор\', mainPar) ) OR ( Pos('Справочная информация\', mainPar) ) OR ( Pos('ИнФарм\', mainPar) ) then
+              begin
+                Result := 'OpenObjectFromFolder(''' + mainPar + ''', OpenMenuTab);';
+                Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+                  PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+                  OpenObjectFromFolder( mainPar, OpenMenuTab );
+                Log.PopLogFolder();
+              end;
+            end;  
+					end;//case
+      end;  
+      LD_OPER_SAVE_DOC_TO_FOLDERS:
+      begin        
+        Result := 'SetBookmark(BOOKMARK_' + IntToStr(i) +');'; //i для уникальности закладки
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          SetBookmark('BOOKMARK_' + IntToStr(i) );
+        Log.PopLogFolder();
+      end;      
+      LD_OPER_SAVE_LIST_TO_FOLDERS:
+      begin
+        Result := 'SetBookmark(' + objFromOperations[MAIN_PARAMS] +');'; //i для уникальности закладки
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          SetBookmark(objFromOperations[MAIN_PARAMS] );
+        Log.PopLogFolder();       
+        
+      end;
+      LD_OPER_OPEN_DOCUMENT_FROM_LIST:
+      begin
+        Result := 'OpenDocFromListByNumber(' + IntToStr( StrToInt(objFromOperations[MAIN_PARAMS]) -100000) + ');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          OpenDocFromListByNumber( StrToInt(objFromOperations[MAIN_PARAMS]) -100000) ;
+        Log.PopLogFolder();
+      end;      
+      LD_OPER_OPEN_DOCUMENT_BY_NUMBER:
+      begin
+        Result := 'OpenDocByNumber(' + objFromOperations[MAIN_PARAMS] + ');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          OpenDocByNumber( StrToInt(objFromOperations[MAIN_PARAMS] - 100000) );
+        Log.PopLogFolder();
+      end;      
+      LD_OPER_CONTEXT_FILTER_IN_TREE:
+      begin
+        case objFromOperations[ADD_PARAMS] of
+          '', 'Меню':
+          begin
+            Result := 'SetContextFilter(''' + objFromOperations[MAIN_PARAMS] + ''', '');';
+            addPar := '';
+          end; 
+          'Толковый словарь':
+          begin
+            Result := 'SetContextFilter(''' + objFromOperations[MAIN_PARAMS] + ''', GetFromDictionary(''ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"''));';
+            GoToDictionary;           
+            addPar := GetFromDictionary('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"'); 
+          end;  
+          'Поиск по ситуации' :
+          begin
+            Result := 'SetContextFilter(''' + objFromOperations[MAIN_PARAMS] + ''', GetFromPPS(''ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"''));';
+            GoToPPS;
+            addPar := GetFromPPS('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+            isNewCardPPS := false;  //Что бы при поиске не открылась заново КЗ, а то фильтр сброситься
+          end;   
+          'Поиск по источнику опубликования' :
+          begin
+            Result := 'SetContextFilter(''' + objFromOperations[MAIN_PARAMS] + ''', GetFromPPIO(''ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"''));';
+            GoToPPIO;
+            addPar := GetFromPPIO('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+            isNewCardPPIO := false;  //Что бы при поиске не открылась заново КЗ, а то фильтр сброситься
+          end;
+          else
+          begin
+            Result := LD_OPER_CONTEXT_FILTER_IN_TREE;
+            Raise('Не удалось распознать параметр : ' + LD_OPER_CONTEXT_FILTER_IN_TREE);
+          end;  
+        end;
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          SetContextFilter( objFromOperations[MAIN_PARAMS], addPar);
+        Log.PopLogFolder();        
+      end;      
+      LD_OPER_DELETE_FROM_MY_DOCUMENTS: 
+      begin //Сделано только для Журнала работы, надо доделать для остальных объектов
+        if objFromOperations[ADD_PARAMS] = 'Журнал работы' then
+        begin
+          Result := 'JurnalClear;';
+          Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+            PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+            JurnalClear;
+          Log.PopLogFolder();
+        end  
+        else
+        begin   
+          Result := 'DeleteObjectFromFolder('''');';
+          Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+            PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+//-->           DeleteObjectFromFolder('');  //доделать
+          Log.PopLogFolder();
+        end;  
+      end;        
+      LD_OPER_EXPORT_TO_WORD:
+      begin
+        Result := 'ExportToWord;';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          ExportToWordPad;
+        Log.PopLogFolder();
+      end;      
+      LD_OPER_OPEN_DOCUMENT_FROM_LINK:
+      begin
+        Result := 'OpenDocByNumber(' + objFromOperations[MAIN_PARAMS] + ');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          OpenDocByNumber( StrToInt(objFromOperations[MAIN_PARAMS] - 100000) );
+        Log.PopLogFolder();
+      end;      
+      LD_OPER_SEARCH_IN_DOCUMENT:
+      begin
+        Result := 'BaseSearchInDocument(nil,''' + objFromOperations[ADD_PARAMS] + ''');';        
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          BaseSearchInDocument(nil, objFromOperations[ADD_PARAMS]);
+        Log.PopLogFolder();
+      end;
+      LD_OPER_SEARCH_IN_LIST:
+      begin
+        Result := 'BaseSearchInList(GetFromList(''СПИСОК ДОКУМЕНТОВ''),''' + objFromOperations[ADD_PARAMS] + ''');';
+        //Надо доделать
+        //objFromOperations[MAIN_PARAMS]) - это где искать : В названии\ В тексте.            
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          BaseSearchInList(GetFromList('СПИСОК ДОКУМЕНТОВ'), objFromOperations[ADD_PARAMS]);
+        Log.PopLogFolder();
+      end;       
+      LD_OPER_BACK:
+      begin
+        Result := 'GoByHistory(''BACK'');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          GoByHistory('BACK');
+        Log.PopLogFolder();
+      end;
+      LD_OPER_FORWARD:
+      begin
+        Result := 'GoByHistory(''FORWARD'');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          GoByHistory('FORWARD');
+        Log.PopLogFolder();
+      end;
+      LD_OPER_OPEN_CONSULTATION:
+      begin
+        Result := 'GoToMyConsultation;';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          GoToMyConsultation;
+        Log.PopLogFolder();
+      end;
+      LD_OPER_INTERNET_IMAGE:
+      begin
+        Result := 'OpenInternetImage;';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          OpenInternetImage;
+        Log.PopLogFolder();
+      end;
+      LD_OPER_SYNCHROVIEW_ACTIVATE:
+      begin
+        Result := 'OpenInList(''СИНХРОННЫЙ ПРОСМОТР'');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          OpenInList('СИНХРОННЫЙ ПРОСМОТР');
+        Log.PopLogFolder();
+      end;
+      LD_OPER_EXPORT_TO_FILE:
+      begin
+        Result := 'SaveDocToFile(GetFromEditor(''ТЕКСТ ДОКУМЕНТА''), GetTempDirectory+''~LogParser'', SAVE_HTML, 0, false);';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          SaveDocToFile(GetFromEditor('ТЕКСТ ДОКУМЕНТА'), GetTempDirectory+'~LogParser', SAVE_HTML, 0, false);
+        Log.PopLogFolder();
+      end;
+      LD_OPER_DOCUMENT_PRINT:
+      begin
+        Result := 'GoToDocumentPrint;';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          GoToDocumentPrint;
+        Log.PopLogFolder();
+      end;
+      LD_OPER_OPEN_DICTIONARY:
+      begin
+        Result := 'GoToDictionary;';          
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          GoToDictionary;
+        Log.PopLogFolder();
+      end;
+      LD_OPER_GET_CORRESPONDENT:  //Нужно доделать, что бы можно было типизировать
+      begin
+        Result := 'OpenInDocument(''ССЫЛКИ НА ДОКУМЕНТ'');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ');
+        Log.PopLogFolder();
+      end;
+      LD_OPER_GET_RESPONDENT:  //Нужно доделать, что бы можно было типизировать
+      begin
+        Result := 'OpenInDocument(''ССЫЛКИ ИЗ ДОКУМЕНТА'');';
+        Log.AppendFolder(Result, '', pmNormal, GetLogAttr('YELLOW'));
+          PL_Write_Result(operationName, mapa[user][i][TIME], isValidOperation, Result, user);
+          OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА');
+        Log.PopLogFolder();
+      end;
+    end;//case
+       
+  end;//for    
+except
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+
+{
+DESK: Пишется время запуска операции в текстовый файл
+}
+procedure PL_Write_Result(
+  operationName;
+  timeInLog;
+  isValidOperation;
+  resultStr;
+  user
+);
+begin
+  if isValidOperation AND (resultStr<>'')then
+  begin
+  writeResult(
+        user + '___' + operationName + '__' + resultStr + '___timeInLog : ' + timeInLog + '____realTime : '+ 
+        Utilities.FormatDateTime('hh:nn:ss,zzz' , Utilities.Now)  + endOfLine
+      );
+      Log.Picture(Sys_Desktop, 'СкринШот экрана.');
+  end;    
+end;
+
+
+{
+  TYPE: 
+  DESK: Парсит операцию поиска по реквизитам
+  RESUKL: 
+  REMARK:  
+}  
+function PL_GetScenarioPPR(
+  searchParam: string  
+) : string;  
+const
+  FUNCTION_NAME = 'PL_GetScenarioPPR';
+  OPER_IN_LOG = 0; 
+  OPER_IN_SCRIPT = 1;
+var
+  arr;
+  l, j;    
+  regExp, regExpAdd;
+  count;
+  pprExpression;
+  tmp;
+  
+  tmpPPR_Atribute;
+  regExpTmpPPR;  
+begin
+try
+	arr := [
+		([PL_PPR_ATR_WORD_IN_NAME,            FD_WORDS_IN_CAPTION]),
+    ([PL_PPR_ATR_WORD_IN_TEXT,            FD_WORDS_IN_TEXT]),    
+    ([PL_PPR_ATR_TYPE,                    FD_TYPE]),
+    ([PL_PPR_ATR_ORGAN_SOURCE,            FD_SOURCE]),
+    ([PL_PPR_ATR_TOPIC,                   FD_THEME]),
+    ([PL_PPR_REG_DATE,                    FD_MU_REG_DATE]),//заточка, специально перенесён в массиве "Дата", так как в операции "Дата в МЮ" находился элемент "Дата"
+    ([PL_PPR_ATR_DATE_REG_WITH,           FD_MU_REG_DATE_FROM]),
+    ([PL_PPR_ATR_DATE_REG_TO,             FD_MU_REG_DATE_TO]),                                          
+    ([PL_PPR_DATE,                        FD_ACCEPTANCE_DATE]),
+    ([PL_PPR_ATR_DATA_WITH,               FD_ACCEPTANCE_DATE_FROM]),
+    ([PL_PPR_ATR_DATA_TO,                 FD_ACCEPTANCE_DATE_TO]),
+    ([PL_PPR_ATR_REG_NUMBER,              FD_MU_REG_NUMBER]),
+    ([PL_PPR_ATR_NUMBER,                  FD_NUMBER]), //заточка, специально перенесён в массиве после "НОМЕР в МЮ", так как в операции "НОМЕР в МЮ" находился элемент "Номер"   
+    ([PL_PPR_ATR_REG_STATUS,              FD_MU_REG_STATUS]),
+    ([PL_PPR_ATR_RELEVANCE,               FD_MEANING]),
+    ([PL_PPR_ATR_STATUS,                  FD_STATUS]),
+    ([PL_PPR_ATR_SEARCN_IN_NOT_VALID_RED, FD_INOPERATIVE_EDITION]),
+    ([PL_PPR_ATR_VIEW_INFO,               FD_KIND_OF_INFORMATION]),
+    ([PL_PPR_ATR_TERRITORY_REGULATION,    FD_REGULATION_TERRITORY]),
+    ([PL_PPR_ATR_INFORMATION_BLOCK,       FD_INFORMATIONAL_BLOCK])
+	];
+ 
+	count := GetCountSubStrInString(searchParam, '; ') ;
+	regExp := HISUtils.RegExpr;       	  
+	regExp.Expression := '(?-g)(.*)';
+	for j := 1 to count do //создаём регЭксп для того, что бы разбить строку на элементы с отдельными поисковыми атрибутами
+  	regExp.Expression := regExp.Expression + '; (.*)';//разбиваем на блоки количеству ; в строке					    	
+  regExp.Expression := regExp.Expression + '$';	
+  if regExp.Exec(searchParam) then
+  begin
+    for j := 1 to ( count + 1 ) do
+    begin									
+    	for l := VarArrayLowBound(arr,1) to VarArrayHighBound(arr,1) do
+    	begin
+    		pprExpression: = regExp.Match[j];        
+	      if Pos(arr[l][OPER_IN_LOG], pprExpression) then//Ищем вхождение уже в разбитых по ; блоках
+  			begin
+          if (arr[l][OPER_IN_LOG] = PL_PPR_REG_DATE) then//Ищем операцию "ДАТА В МЮ"
+          begin
+            regExpAdd := HISUtils.RegExpr;
+    			  regExpAdd.Expression := '(?-g)ДАТА В МЮ - (\d{2}.\d{2}.\d{4})';
+            if regExpAdd.Exec(pprExpression) then//Значит "ДАТА В МЮ ../../.."
+            begin//Преобразуем "Дата (x/x/x) к Дата с (x/x/x) по (x/x/x)"              
+              AddToArray(Result , ([FD_MU_REG_DATE_FROM, ([regExpAdd.Match[1]]) ]) );
+              AddToArray(Result , ([FD_MU_REG_DATE_TO,   ([regExpAdd.Match[1]]) ]) )
+            end    
+            else
+            begin
+              regExpAdd := HISUtils.RegExpr;
+    			    regExpAdd.Expression := '(?-g)ДАТА В МЮ - с (\d{2}.\d{2}.\d{4}) по (\d{2}.\d{2}.\d{4})';
+              if regExpAdd.Exec(pprExpression) then//Значит "ДАТА В МЮ c ../../.. по ../../.."
+              begin
+                AddToArray(Result , ([FD_MU_REG_DATE_FROM, ([regExpAdd.Match[1]]) ]) );
+                AddToArray(Result , ([FD_MU_REG_DATE_TO,   ([regExpAdd.Match[2]]) ]) )
+              end  
+              else
+              begin
+                regExpAdd := HISUtils.RegExpr;
+      			    regExpAdd.Expression := '(?-g)ДАТА В МЮ - с (\d{2}.\d{2}.\d{4})';
+                if regExpAdd.Exec(pprExpression) then//Значит "ДАТА В МЮ с ../../.."
+                begin       
+                  AddToArray(Result , ([FD_MU_REG_DATE_FROM, ([regExpAdd.Match[1]]) ]) );
+                  AddToArray(Result , ([FD_MU_REG_DATE_TO,   EMPTY_FIELD_VALUES ]) );
+                end                    
+                else
+                begin
+                  regExpAdd := HISUtils.RegExpr;
+        			    regExpAdd.Expression := '(?-g)ДАТА В МЮ - по (\d{2}.\d{2}.\d{4})';
+                  if regExpAdd.Exec(pprExpression) then//Значит "ДАТА В МЮ по ../../.."
+                  begin
+                    AddToArray(Result , ([FD_MU_REG_DATE_FROM, EMPTY_FIELD_VALUES ]) );
+                    AddToArray(Result , ([FD_MU_REG_DATE_TO, ([regExpAdd.Match[1]]) ]) )
+                  end;    
+                end;  
+              end;  
+            end;
+          end
+          else
+          if (arr[l][OPER_IN_LOG] = PL_PPR_DATE) then//Ищем операцию "Дата"
+          begin
+            regExpAdd := HISUtils.RegExpr;
+    			  regExpAdd.Expression := '(?-g)Дата - (\d{2}.\d{2}.\d{4})';
+            if regExpAdd.Exec(pprExpression) then//Значит "Дата ../../.."
+            begin//Преобразуем "Дата (x/x/x) к Дата с (x/x/x) по (x/x/x)"
+              //AddToArray(Result , ([FD_ACCEPTANCE_DATE, ([regExpAdd.Match[1]]) ]) )
+              AddToArray(Result , ([FD_ACCEPTANCE_DATE_FROM, ([regExpAdd.Match[1]]) ]) );                                                                 
+			        AddToArray(Result , ([FD_ACCEPTANCE_DATE_TO, ([regExpAdd.Match[1]]) ]) );
+            end  
+            else
+            begin
+              regExpAdd := HISUtils.RegExpr;
+    			    regExpAdd.Expression := '(?-g)Дата - с (\d{2}.\d{2}.\d{4}) по (\d{2}.\d{2}.\d{4})';
+              if regExpAdd.Exec(pprExpression) then//Значит "Дата c ../../.. по ../../.."
+              begin   
+      					AddToArray(Result , ([FD_ACCEPTANCE_DATE_FROM, ([regExpAdd.Match[1]]) ]) );                                                                 
+			          AddToArray(Result , ([FD_ACCEPTANCE_DATE_TO, ([regExpAdd.Match[2]]) ]) );
+              end   
+              else
+              begin
+                regExpAdd := HISUtils.RegExpr;
+      			    regExpAdd.Expression := '(?-g)Дата - с (\d{2}.\d{2}.\d{4})';
+                if regExpAdd.Exec(pprExpression) then//Значит "Дата с ../../.."
+                begin
+                  AddToArray(Result , ([FD_ACCEPTANCE_DATE_FROM, ([regExpAdd.Match[1]]) ]) );
+                  AddToArray(Result , ([FD_ACCEPTANCE_DATE_TO,   EMPTY_FIELD_VALUES ]) );
+                end  
+                else
+                begin
+                  regExpAdd := HISUtils.RegExpr;
+        			    regExpAdd.Expression := '(?-g)Дата - по (\d{2}.\d{2}.\d{4})';
+                  if regExpAdd.Exec(pprExpression) then//Значит "Дата по ../../.."
+                  begin
+                    AddToArray(Result , ([FD_ACCEPTANCE_DATE_FROM, EMPTY_FIELD_VALUES ]) );
+                    AddToArray(Result , ([FD_ACCEPTANCE_DATE_TO, ([regExpAdd.Match[1]]) ]) );
+                  end;  
+                end;  
+              end;  
+            end;                 
+          end
+          else
+             
+          begin//Ищем все остальные операции  
+    			  regExpAdd := HISUtils.RegExpr;
+    			  regExpAdd.Expression := '(?g)' + arr[l][OPER_IN_LOG] + ' - (.*)';
+    			  if regExpAdd.Exec(pprExpression) then
+              //Ищем операции, которые при заполнении КЗ в предверии контекста имеют [ИЛИ][И]
+              
+              //Временная заточка для сложных поискоа, например ТИП: Приказ ИЛИ Акт
+              //Оставляется только первый атрибут, остально еотбразывается, потом надо сделать что бы всё корректно обрабатывалось
+              //"ТИП: Приказ ИЛИ Акт" должно преобразоваться а "ТИП: Приказ"
+              tmpPPR_Atribute := regExpAdd.Match[1];
+              regExpTmpPPR := HISUtils.RegExpr;
+              regExpTmpPPR.Expression := '(?-g)(.*) ИЛИ.*';
+    			    if regExpTmpPPR.Exec(tmpPPR_Atribute) then                 
+                tmpPPR_Atribute := regExpTmpPPR.Match[1];                  
+                         
+              
+              if StringCompare(' КРОМЕ*', tmpPPR_Atribute) then
+              begin
+                Delete(tmpPPR_Atribute, 1, 7);//Вырезаем КРОМЕ
+                AddToArray(Result , ([arr[l][OPER_IN_SCRIPT], (['[КРОМЕ]' + tmpPPR_Atribute]) ]) );               
+              end     
+              else
+              begin
+                if (arr[l][OPER_IN_LOG] = PL_PPR_ATR_TYPE)       OR 
+                   (arr[l][OPER_IN_LOG] = PL_PPR_ATR_ORGAN_SOURCE) OR
+                   (arr[l][OPER_IN_LOG] = PL_PPR_ATR_TOPIC)        OR
+                   (arr[l][OPER_IN_LOG] = PL_PPR_ATR_VIEW_INFO) then                 
+                  AddToArray(Result , ([arr[l][OPER_IN_SCRIPT], (['[ИЛИ]' + tmpPPR_Atribute]) ]) )
+                else
+                  AddToArray(Result , ([arr[l][OPER_IN_SCRIPT], ([tmpPPR_Atribute]) ]) );
+              end;
+          end;
+          
+          break;
+  			end;	//if pos()				    		
+						    		
+    	end;				    	
+    end;    
+  end;//for
+  tmp := Result; 
+  Result := [CARD_PPR, tmp ];  
+  //carddata :=
+  //  [
+  //  	CARD_PPR,  ([
+  //      ([ FD_WORDS_IN_CAPTION, (['Конституция']) ]),
+  //      ([ FD_INOPERATIVE_EDITION, (['Да']) ])
+  //     ]) 
+  //  ];    
+  //SearchInPPR(carddata);
+except
+  Result := '';
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+{
+DESK: Возвращает строку параметров для функции SearchInAnalyticReview;
+RESULT: КЗ парсим как для  ППР, только меняем идентификатор карточки
+}
+function PL_GetScenarioAnalyticReview(
+  searchParam: string  
+) : OleVariant;  
+const
+  FUNCTION_NAME = 'PL_GetScenarioAnalyticReview';
+begin
+try    
+   Result := PL_GetScenarioPPR(searchParam);
+   Result[0] := CARD_PPOIZ; 
+except
+  Result := '';
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+
+{
+DESK: Возвращает строку параметров для функции SearchInPPS;
+RESULT: Возвращается массив 
+}
+function PL_GetScenarioPPS(
+  searchParam: string  
+) : OleVariant;  
+const
+  FUNCTION_NAME = 'PL_GetScenarioPPS';  
+var      
+ regExp;
+ res;
+ param;
+begin
+try
+  param := searchParam;
+  regExp := HISUtils.RegExpr;
+  regExp.Expression := '(?g)СИТУАЦИИ\s-\s(.*)';
+  if regExp.Exec(param) then
+    param := regExp.Match[1]
+  else
+    Raise(FUNCTION_NAME + ' : Неверный формат! : ' + param);
+    
+  regExp := HISUtils.RegExpr;
+  regExp.Expression := '(?-g)((.+)\s(ИЛИ)\s)+|(.+$)';        
+  if regExp.Exec(param) then
+  begin
+    repeat    
+      if regExp.Match[2] <> '' then        
+        res := regExp.Match[2]  else 
+        if regExp.Match[4] <> '' then
+          res := regExp.Match[4]  else 
+            Raise('Неудалось посчитать RegExp!');            
+      AddToArray(Result, res)
+    until NOT (regExp.ExecNext);
+  end
+  else
+    Raise(FUNCTION_NAME + ' : Неверный формат! : ' + param);
+except
+   Result := '';
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+{
+  TYPE: 
+  DESK: Парсит операцию Базового поиска
+  RESUKL: 
+  REMARK: может иметь два параметра (СЛОВА В ТЕКСТЕ : PL_PPR_ATR_WORD_IN_TEXT и ВИД ИНФОРМАЦИИ : PL_PPR_ATR_VIEW_INFO)   
+}  
+function PL_GetScenarioBP(
+  searchParam: string  
+) : string;  
+const
+  FUNCTION_NAME = 'PL_GetScenarioBP';
+var  
+  count;
+  regExp;
+begin
+try
+  Result := CreateVariantArray(0, 1);	
+  count := GetCountSubStrInString(searchParam, '; ') ;
+  
+  if (count = 0) then
+  begin//Только один параметр "СЛОВА В ТЕКСТЕ"
+	  regExp := HISUtils.RegExpr;       	  
+	  regExp.Expression := '(?g)' + PL_PPR_ATR_WORD_IN_TEXT+ ' - (.*)';
+    if regExp.Exec(searchParam) then
+    begin
+  	  Result[0] := regExp.Match[1];
+      Result[1] := ''; 
+    end;      
+  end
+  else
+    if count = 1 then
+    begin
+      regExp := HISUtils.RegExpr;     	  
+      regExp.Expression := '(?g)' + PL_PPR_ATR_WORD_IN_TEXT+ ' - (.*);\s' + PL_PPR_ATR_VIEW_INFO + '\s-\s(.*)';
+      if regExp.Exec(searchParam) then
+        Result[0] := regExp.Match[1];
+        Result[1] := regExp.Match[2];
+    end
+    else  Raise(FUNCTION_NAME + ': Не смогли распарсить сценарий!');
+except
+  Result[0] := '';
+  Result[1] := '';
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+end;
+end;
+
+  
+//-----------------------------------------------------------------------------
+procedure writeResult(
+  text : string
+);
+const
+  PROCEDURE_NAME = 'writeResult';
+var
+  fileVar;
+  fileName;
+  csName;
+begin
+  csName := PROCEDURE_NAME;
+  EnterCriticalSectionByFile(csName);
+  try          
+    fileName := '\\strelka\qc\for_RunnerTC6\SharedPath\PL\res.log';
+    AssignFile(fileVar, fileName);
+    Append(fileVar);    
+    WriteLn(fileVar, text);    
+    CloseFile(fileVar);
+  finally                           
+    LeaveCriticalSectionByFile(csName);
+  end;
+end;
+
+
+procedure test111;
+var  
+  res;
+  val; 
+  str1, str2; 
+begin
+  //OpenDocFromListByNumber( 10003000) ;
+  //Options.Run.Timeout := 30000;  
+  Log.Message(BaseSearchInTheme(nil, 'мы', SRCH_BASE_THEME_ACTS));
+  // res := OpenDocFromListByNumber(2008);   
+  // Log.Message(res);
+  //str := Utilities.FormatDateTime('hh:nn:ss,zzz' , Utilities.Now);
+                     {
+  val := Utilities.Now;
+  str1 := Utilities.FormatDateTime('hh:nn:ss,zzz' , val);   
+  res := val + (1 / 86400000);
+  str2 := Utilities.FormatDateTime('hh:nn:ss,zzz' ,res);
+  SearchInPPR();      }
+end;
+//////////
+procedure PL_test;
+var
+  fileName;
+begin
+  //Options.Run.Timeout := 300000;//для пьюрефая
+    Options.Run.Timeout := 30000;
+    
+  ProductVersion('set', PRODUCT_VERSION_7_4);
+  SynchroObjectsParams('set', SO_ALL_SHARED_PATH, '\\strelka\qc\for_RunnerTC6\SharedPath\PL\_test');
+
+   //fileName := '\\strelka\qc\for_RunnerTC6\SharedPath\PL\g2_lm_garant.log';
+   fileName := 'C:\Program Files\Garant-Server\1.client\actions.log'; 
+   PL_RunScripts_for_single_comp(fileName);
+end;  
+  

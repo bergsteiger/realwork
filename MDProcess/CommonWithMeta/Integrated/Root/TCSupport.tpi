@@ -1,0 +1,63 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonWithMeta/Integrated/Root/TCSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonWithMeta::Integrated::Root::TCSupport
+//
+// Утилитные функции для TC
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Выводит описание всех вложенных форм и контролов
+f _tc_OutControlsDefinitions
+//#UC START# *4DE79F440317*
+	[{%SC!=Dependency}\
+	[{%S#f_IsVCMForm()=true&%Sa=final}{\
+	[{%S#f_IsControl()=true&%S#f_IsOverride()!=true}\
+	%f_set_var(NAME,"%f_N(%S)")\
+	[{%f_exists_in_list(CONTROLS,"%{NAME}N")=true}\
+	%f_set_var(NAME,"%f_N(%P)_%f_N(%S)")\
+	]\
+	[{%f_exists_in_list(CONTROLS,"%{NAME}N")!=true}\
+	%f_add_to_list(CONTROLS,"%{NAME}N")\
+	const %f_tc_ProjectPrefix(%B)_CD_CONTROL_CLASS_%f_to_upper(%{NAME}N) = '%S%f_pas_ResultTypeName()';
+	const %f_tc_ProjectPrefix(%B)_CD_CONTROL_CLASS_%SU = '%S%f_pas_ResultTypeName()';
+	const %f_tc_ProjectPrefix(%B)_CD_CONTROL_%f_to_upper(%{NAME}N) = '%f_N(%S)';
+	const %f_tc_ProjectPrefix(%B)_CD_CONTROL_%SU = '%{NAME}N';
+	const %f_tc_ProjectPrefix(%B)_CD_CONTROL_PATH_%f_to_upper(%{NAME}N) = 'NAME:=%f_N(%S);WNDCLASS:=%S%f_pas_ResultTypeName()';
+	const %f_tc_ProjectPrefix(%B)_CD_CONTROL_PATH_%SU = 'NAME:=%f_N(%S);WNDCLASS:=%S%f_pas_ResultTypeName()';
+	const %f_tc_ProjectPrefix(%B)_CD_CONTROL_VCL_PATH_%f_to_upper(%{NAME}N) = 'NAME:=%f_N(%S);VCLCLASS:=%S%f_pas_ResultTypeName()';
+	const %f_tc_ProjectPrefix(%B)_CD_CONTROL_VCL_PATH_%SU = 'NAME:=%f_N(%S);VCLCLASS:=%S%f_pas_ResultTypeName()';
+	 \{ Идентификатор контрола %PN.%SN [: "%SD" ]\}
+	
+	]\
+	]\
+	}\
+	const %f_tc_ProjectPrefix(%B)_CD_FORM_CLASS_%f_to_upper(%f_N(%S)) = '%f_pas_TypeName(%S)';
+	const %f_tc_ProjectPrefix(%B)_CD_FORM_CLASS_%SU = '%f_pas_TypeName(%S)';
+	const %f_tc_ProjectPrefix(%B)_CD_FORM_%f_to_upper(%f_N(%S)) = '%f_cut_prefix(%f_pas_TypeName(%S),T)';
+	const %f_tc_ProjectPrefix(%B)_CD_FORM_%SU = '%f_cut_prefix(%f_pas_TypeName(%S),T)';
+	const %f_tc_ProjectPrefix(%B)_CD_FORM_PATH_%f_to_upper(%f_N(%S)) = 'NAME:=%f_cut_prefix(%f_pas_TypeName(%S),T);WNDCLASS:=%f_pas_TypeName(%S)';
+	const %f_tc_ProjectPrefix(%B)_CD_FORM_PATH_%SU = 'NAME:=%f_cut_prefix(%f_pas_TypeName(%S),T);WNDCLASS:=%f_pas_TypeName(%S)';
+	 \{ Идентификатор формы %SN [: "%SD" ]\}
+	
+	]\
+
+	[{%SC=Class|%SC=Category}\
+	<{}{%CC!=Dependency}%f_tc_OutControlsDefinitions(%C)>\
+	]\
+	]
+//#UC END# *4DE79F440317*
+
+// Префикс проекта
+f _tc_ProjectPrefix
+//#UC START# *4DE7A1AC02A2*
+@ %SU
+	%f_set_var(POS,"%f_string_find(%SN, )")\
+	[{%{POS}N!=-1}{%SN}%f_substr_from_begin(%SN,%{POS}N)]
+//#UC END# *4DE7A1AC02A2*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

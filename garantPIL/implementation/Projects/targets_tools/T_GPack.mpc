@@ -1,0 +1,39 @@
+project (T_GPack) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_GPack {
+	exename = gpack
+	
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += STORE_FORM_N
+	macros += QUICK_NEW_DOC
+	macros += ONLY_NORM_INDEX
+	macros += BLOCKSINHERIT
+	macros += NEMESIS
+	macros += MIN_MEM_CONTEXT
+	macros -= UPDATE_FACE
+
+	after += Core
+	libs += Core
+	after += GCL
+	libs += GCL
+
+	after += vcontrol_ggu
+	after += gkdb_gudll
+	after += gctx_gpack
+	after += cchlp1
+	after += cchlp2
+	after += gsscreen_gpack
+	after += mrglib_gpack
+	after += delta_gpack
+	after += dummies_tools
+	
+	libs += vcontrol_ggu
+	libs += gkdb_gudll
+	libs += gctx_gpack
+	libs += cchlp1
+	libs += cchlp2
+	libs += gsscreen_gpack
+	libs += mrglib_gpack
+	libs += delta_gpack
+	libs += dummies_tools
+}
+

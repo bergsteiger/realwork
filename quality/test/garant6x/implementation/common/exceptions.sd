@@ -1,0 +1,130 @@
+///////////////////////////////////////////////////////////////////////////////
+// Модуль содержит стандартные исключения
+///////////////////////////////////////////////////////////////////////////////
+
+//стандартные мсключения
+
+const
+
+{
+  Возбуждается, если окно не может получить фокус  
+}
+  EX_CANNOT_WINDOW_GET_FOCUS = 'Окно не может получить фокус';
+   
+{
+  Возбуждается, если после клика по кнопке тулбара документа "Следующий документ в списке",
+  не меняется заголовок окна в течение определенного времени
+}
+  EX_CANNOT_GET_NEXT_DOC_IN_LIST = 'Невозможно перейти к следующему документу списка';
+
+{  
+ Стандартные исключения используемые в модуле "MenuWorks"
+ Возможно их лучше там и определять
+}
+  EX_CANNOT_OPEN_MENU_TAB = 'Не удалось открыть вкладку навигатора <Меню>';
+  EX_CANNOT_OPEN_MYDOC_TAB = 'Не удалось открыть вкладку навигатора <Мои Документы>';
+  
+{  
+ Стандартные исключения используемые в модуле "DocumentWorks"
+ Возможно их лучше там и определять
+}
+  EX_CANNOT_FOCUS_CONTENTS_TAB = 'Не удалось перевести фокус на вкладку навигатора <Структура документа>';
+  
+  EX_CANNOT_FIND_WINDOW = 'Не получилось найти указанное окно';
+  EX_NOT_VALID_WINDOW = 'Найден невалидный объект (окно)';
+  
+  EX_BUTTON_NOT_FOUND = 'Кнопка не найдена';
+  EX_COMBOBOX_NOT_FOUND = 'Комбобокс не найден';
+  EX_EDIT_NOT_FOUND = 'Поле не найдено';
+  EX_DATEEDIT_NOT_FOUND = 'Поле календаря не найдено';
+  EX_BUTTON_DISABLED = 'Кнопка неактивна';
+  EX_CANNOT_FIND_TAB = 'Не получилось найти вкладку';
+  EX_CANNOT_SWITCH_TAB = 'Не получилось сделать вкладку активной';  
+  EX_OBJECT_NOT_EXISTS = 'Объект не существует!';
+  
+  EX_PERMISSSIONS_CHECK_FAILED_PREFIX = 'Permissions check failed: ';
+  
+
+  END_EX = #13#10;
+  _EX_PREFIX = 'Exception: ';
+  _TIME_STAMP = 'TimeStamp: ';
+  
+  
+  EX_EXCEPTION = 
+    'EX_EXCEPTION: BaseException' +
+  END_EX;
+    
+  EX_NOTHING_FOUND =
+    EX_EXCEPTION + 
+    'EX_NOTHING_FOUND: Ничего не найдено!' +
+  END_EX;
+
+
+var
+  gbl_ExTimestamp;
+  gbl_ExData;
+
+// Формирует строку исключения. Ее нужно передавать непосредственно в Raise      
+function ExNew(
+  const sExceptionType : String; // константа, идентифицирующая исключение
+  const data : OleVariant = nil // какие-то данные  
+) : String;
+begin
+  gbl_ExTimestamp := aqConvert.VarToStr(Win32API.GetTickCount());
+  gbl_ExData := data;
+  Result := 
+    _EX_PREFIX + sExceptionType + 
+    _TIME_STAMP + gbl_ExTimestamp;        
+end;
+
+// Отдает тип  перехваченного исключения
+function ExGetType(
+  sExMessage : String = ''
+) : String;
+begin
+  if sExMessage = '' then
+    sExMessage := ExceptionMessage;
+  with HISUtils.RegExpr do
+  begin
+    Expression := '(?s).*?([^' + END_EX + ']*' + END_EX + ')' + _TIME_STAMP;
+    Compile;
+    Exec(sExMessage);
+    Result := Match(1); 
+  end;      
+end;
+
+// Вспомогательная функция. Извлекает уникальный идентификатор исключения
+function _ExGetTimestamp(
+  const sExMessage : String
+) : String;
+begin  
+  with HISUtils.RegExpr do
+  begin
+    Expression := '(?s)' + _TIME_STAMP + '(.*)$';
+    Compile;
+    Exec(sExMessage);
+    Result := Match(1); 
+  end;
+end;
+
+// Отдает данные, переданные при выбросе исключения
+function ExGetData(
+  sExMessage : String = ''
+) : String;
+begin
+  if sExMessage = '' then
+    sExMessage := ExceptionMessage;
+  // отдаем данные только для того исключения для которого их сохранили  
+  if _ExGetTimestamp(sExMessage) = gbl_ExTimestamp then
+    Result := gbl_ExData
+  else
+    VarClear(Result);   
+end;
+
+// Говорит имеет ли перехваченное исключение нужный тип
+function ExHasBeenCaught(
+  const sException : String // константа, идентифицирующая исключение
+) : Boolean;
+begin
+  Result := Pos(sException, ExceptionMessage) = Length(_EX_PREFIX)+1;  
+end;

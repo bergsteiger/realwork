@@ -1,0 +1,770 @@
+'$include "sqautil.sbh"
+Const commercialType = 40
+Const nonCommercialType=43
+Const trialType = 44
+Const demoType=45
+
+'Заведение нового клиента
+Function fz_211_new_client(clientName as String, commerceType as Integer)
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    GenericObject Click, "Text=Клиенты", "Coords=10,17"
+    
+    Window SetContext, "Caption=Внесение информации о новом клиенте", ""
+    if commerceType=0 then
+        InputKeys ClientName$+"{TAB}{TAB}{DOWN}{TAB}{DOWN}{TAB}{TAB}3"
+    else
+        InputKeys ClientName$+"{TAB}{TAB}{DOWN}{DOWN}{DOWN}{TAB}{DOWN}{TAB}{TAB}3"
+    end if
+    InputKeys "{TAB}wr{TAB}{DOWN}{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 12
+End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Function fz_211_sell(postavkaID As Integer, tip As Integer, netID As Integer, isDelta As Integer, freqID As Integer)
+'postavkaID 42 -коммерческая 45-некоммерч 46-ознакомит 47-демо
+'tip 0..36 тип продукта
+'netID 0..2
+'isDelta 0..1
+'freqID 0..6
+        Dim j, bmax, bmin, bcur As Integer
+        Dim v1() As String
+        
+        'коммерческая поставка
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect postavkaID
+        
+        'в триальной версии - тестовый период.
+        if postavkaID=trialType then
+            Window SetContext, "CurrentWindow", ""
+            InputKeys "{ENTER}"
+        end if
+    
+        'окно продажи
+        Window SetContext, "CurrentWindow", ""
+        GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=8,7"
+        GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=8,7"
+        InputKeys "{TAB}{TAB}"
+
+        'выбор типа
+        InputKeys "%{DOWN}"
+        For j=0 to (tip mod 7)    
+            InputKeys "{DOWN}"
+        Next j
+        For j=1 to int(tip/7)    
+            InputKeys "{PGDN}"
+        Next j
+        InputKeys "%{UP}"
+      
+        InputKeys "{TAB}{TAB}"
+
+        'сеть
+        For j=0 to netID
+            InputKeys "{DOWN}"
+        Next j
+        
+        'способ обновления
+        if tip<37 then
+            InputKeys "{TAB}{DOWN}"
+            if isDelta = 1 then 
+                InputKeys "{DOWN}"
+            end if
+        end if 
+            
+        'частота
+        InputKeys "{TAB}"
+        For j=0 to freqID
+            InputKeys "{DOWN}"
+        Next j
+
+        'выбор баз
+        InputKeys "{TAB}"
+        if rnd<0.5 then
+        'Зак-во России
+            For j=0 to 6
+                InputKeys "{DOWN}"
+            Next       
+            InputKeys " "
+        end if 
+add_base:     
+        InputKeys "{HOME}"
+        if rnd>0.5 then 
+            For j=0 to rnd*12
+                InputKeys "{PGDN}"
+            Next       
+        elseIf rnd>0.4 then
+                InputKeys "{PGDN}"
+        end if        
+        For j=0 to rnd*12
+            InputKeys "{DOWN}"
+        Next       
+        InputKeys " "
+        
+    'v1(1)=Вес с 2 по 2
+    'v1(2)=Набрано: 1
+        bmin = SQAGetPropertyArrayAsString("Type=StatusBar;ObjectIndex=1", "PartText", v1())
+        bmin = Val( GetField$(v1(1),3," ") )
+        bmax = Val( GetField$(v1(1),5," ") )
+        bcur = Val( GetField$(v1(2),2," ") )
+
+        if bmin>bcur or bcur=0 then goto add_base
+        if (bmin=bcur) and (bmin<>bmax) and rnd<0.3 then goto add_base
+        if (bmax>bcur) and (bmin<>bmax) and rnd<0.3 then goto add_base
+
+
+        InputKeys "{ENTER}"
+'Save changes           
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect 12
+End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'Заказ продукта
+'isDelta 0..1
+'deliveryID 0..2
+'isGroup 0..1
+'nositelID 0..4
+'isWork 0..1
+'secID 0..2
+'isSeparate 0-не разд 1-разд 2-разные носители
+Function fz_211_order(isDelta As Integer, deliveryID as Integer, isGroup As Integer, nositelID as Integer, isWork as Integer, secID as Integer, isSeparate as Integer)
+    Dim j As Integer
+    Dim State As String
+    
+    'выходим из режима редактирования
+     Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+     MenuIDSelect 11
+     MenuIDSelect 88
+     
+     'заказ - переходим на техпараметры и заполняем
+     Window SetContext, "Caption={Параметры заказа *}", ""
+     TabControl Click, "ObjectIndex=1;\;ItemText=Технические параметры", ""
+     InputKeys "{TAB}{TAB}"
+     
+     'тип доставки
+     for j=0 to deliveryID
+        InputKeys "{DOWN}"
+     next j
+     
+     'персональный - групповой
+     InputKeys "{TAB}{DOWN}"
+     if isGroup=1 then InputKeys "{DOWN}"
+     
+     'носитель
+     InputKeys "{TAB}"
+     for j=0 to nositelID
+        InputKeys "{DOWN}"
+     next j
+     
+     'тип инсталляции - персональный
+     if isGroup=0 then
+        InputKeys "{TAB}{DOWN}{DOWN}{DOWN}"
+        if isWork=0 then
+            InputKeys "{UP}"
+            'защита
+            InputKeys "{TAB}"
+            for j=0 to secID
+                InputKeys "{DOWN}"
+            next j
+            'колво дискет
+            if secID=0 then 
+                InputKeys "{TAB}"+Str$(int(rnd*4)+1)
+            end if
+        end if
+        if isSeparate<>0 then
+            j=SQAGetPropertyAsString("Type=CheckBox;Text=Разделить на части","Enabled",State)
+            if State$<>"False" then CheckBox Click, "Text=Разделить на части"
+            if isSeparate=2 then
+                j=SQAGetPropertyAsString("Type=CheckBox;Text=Запись на разные носители","Enabled",State)
+                if State$<>"False" then CheckBox Click, "Text=Запись на разные носители"
+            end if
+        end if
+    'тип инсталляции груповой   логнос - первый из списка
+    else
+        InputKeys "{TAB}{DOWN}"
+        if secID=2 then InputKeys "{DOWN}"
+        InputKeys "{ENTER}"
+    end if
+    
+    PushButton Click, "Text=Включить"
+    
+    'вкл режим редактирования
+     Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+     MenuIDSelect 11
+End Function    
+     
+Sub Main 'МАЛЫЙ
+    Dim i, numberOfproductsPerType, isDelta As Integer
+    randomize timer()
+    'Initially Recorded: 18.03.2003  10:43:51
+    'Script Name: 211_FZ_full
+    isDelta=0     
+    
+    Const Practic = 0
+    Const Classic = 1
+    Const ClassicPlus = 1
+    Const StroyUniver = 5
+    Const Director = 16
+    Const StroyMaster = 17
+    Const GlavBuhExpert = 18
+    Const Analyst = 19
+    Const FinDir = 20
+    Const GlavJur = 21
+    Const StroyAnalyst = 22
+    Const MaxFAS = 23
+    Const StroyMaxFAS = 24
+    Const InPharmSmall = 40
+    Const InPharmBig = 41
+    
+'КОММЕРЧЕСКИ НАСТРОЕННЫЕ ЗАКАЗЫ
+    Call fz_211_new_client ("a1", 0)
+    Call fz_211_sell (commercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,1,0)
+
+    Call fz_211_new_client ("a3", 0)
+    Call fz_211_sell (commercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,0,0,0)
+    Call fz_211_sell (commercialType, MaxFAS,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,0,0,0)
+    
+    Call fz_211_new_client ("a4", 0)
+    Call fz_211_sell (commercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,1,0,0)          'раб
+    Call fz_211_sell (commercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,1,0,0)          'раб
+
+    Call fz_211_new_client ("a11", 0)
+    Call fz_211_sell (commercialType, InPharmBig,2,isDelta, int(rnd*7)) 'ИнФ бол
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("a12", 0)
+    Call fz_211_sell (commercialType, StroyUniver,0,isDelta, int(rnd*7)) 'CУнив
+    Call fz_211_order(isDelta,0,0,0,0,0,1)
+
+    Call fz_211_new_client ("a25", 0)
+    Call fz_211_sell (commercialType, Director,0,isDelta, int(rnd*7))'Директор
+    Call fz_211_order(isDelta,0,0,0,1,0,2)          'раб
+    Call fz_211_sell (commercialType, Analyst,1,isDelta, int(rnd*7))'Аналитик
+    Call fz_211_order(isDelta,0,0,0,1,1,0)          'раб
+    Call fz_211_sell (commercialType, GlavBuhExpert,2,isDelta, int(rnd*7))'ГлБухЭксперт
+    Call fz_211_order(isDelta,0,0,0,1,1,0)          'раб
+
+'НЕКОММЕРЧЕСКИ НАСТРОЕННЫЕ ЗАКАЗЫ
+    Call fz_211_new_client ("b1", 1)
+    Call fz_211_sell (nonCommercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,1,0)
+    Call fz_211_sell (nonCommercialType, Classic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("b25", 1)
+    Call fz_211_sell (nonCommercialType, StroyMaster,0,isDelta, int(rnd*7)) 'CМастер
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, FinDir,1,isDelta, int(rnd*7)) 'Финдир
+    Call fz_211_order(isDelta,0,0,0,1,1,0)          'раб
+    Call fz_211_sell (nonCommercialType, Director,2,isDelta, int(rnd*7)) 'дир
+    Call fz_211_order(isDelta,0,0,0,1,1,2)          'раб
+    Call fz_211_sell (nonCommercialType, GlavJur,0,isDelta, int(rnd*7)) 'гл юр
+    Call fz_211_order(isDelta,0,0,0,1,1,2)          'раб
+
+'ТРИАЛЬНО НАСТРОЕННЫЕ ЗАКАЗЫ
+    Call fz_211_new_client ("c1", 1)
+    Call fz_211_sell (trialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,1,0)
+    Call fz_211_sell (trialType, Classic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("c2", 1)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+
+    Call fz_211_new_client ("c10", 1)
+    Call fz_211_sell (trialType, InPharmBig,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+
+    Call fz_211_new_client ("c24", 1)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+'ДЕМЫ
+    Call fz_211_new_client ("d2", 1)
+    Call fz_211_sell (demoType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    
+    Call fz_211_new_client ("d4", 1)
+    Call fz_211_sell (demoType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (demoType, MaxFAS,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+End Sub
+
+Sub Main2 'БОЛЬШОЙ
+    Dim i, numberOfproductsPerType, isDelta As Integer
+    randomize timer()
+    'Initially Recorded: 18.03.2003  10:43:51
+    'Script Name: 211_FZ_full
+    isDelta=0     
+    
+    Const Practic = 0
+    Const Classic = 1
+    Const ClassicPlus = 1
+    Const StroyUniver = 5
+    Const Director = 16
+    Const StroyMaster = 17
+    Const GlavBuhExpert = 18
+    Const Analyst = 19
+    Const FinDir = 20
+    Const GlavJur = 21
+    Const StroyAnalyst = 22
+    Const MaxFAS = 23
+    Const StroyMaxFAS = 24
+    Const InPharmSmall = 40
+    Const InPharmBig = 41
+    
+'КОММЕРЧЕСКИ НАСТРОЕННЫЕ ЗАКАЗЫ
+    Call fz_211_new_client ("a1", 0)
+    Call fz_211_sell (commercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,1,0)
+    Call fz_211_sell (commercialType, Classic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("a2", 0)
+    Call fz_211_sell (commercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (commercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    
+    Call fz_211_new_client ("a3", 0)
+    Call fz_211_sell (commercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,0,0,0)
+    Call fz_211_sell (commercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,0,0,0)
+    Call fz_211_sell (commercialType, MaxFAS,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,0,0,0)
+    
+    Call fz_211_new_client ("a4", 0)
+    Call fz_211_sell (commercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,1,0,0)          'раб
+    Call fz_211_sell (commercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,1,0,0)          'раб
+    Call fz_211_sell (commercialType, MaxFAS,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,1,0,0)          'раб
+
+    Call fz_211_new_client ("a5", 0)
+    Call fz_211_sell (commercialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (commercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (commercialType, MaxFAS,1,isDelta, int(rnd*7)) 'МаксФАС
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+
+    Call fz_211_new_client ("a6", 0)
+    Call fz_211_sell (commercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (commercialType, StroyMaxFAS,0,isDelta, int(rnd*7)) 'CМАксФАС
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("a7", 0)
+    Call fz_211_sell (commercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (commercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (commercialType, ClassicPlus,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (commercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("a8", 0)
+    Call fz_211_sell (commercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (commercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (commercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("a9", 0)
+    Call fz_211_sell (commercialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (commercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("a10", 0)
+    Call fz_211_sell (commercialType, InPharmSmall,2,isDelta, int(rnd*7)) 'ИнФ мал
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+
+    Call fz_211_new_client ("a11", 0)
+    Call fz_211_sell (commercialType, InPharmBig,2,isDelta, int(rnd*7)) 'ИнФ бол
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("a12", 0)
+    Call fz_211_sell (commercialType, StroyUniver,0,isDelta, int(rnd*7)) 'CУнив
+    Call fz_211_order(isDelta,0,0,0,0,0,1)
+
+    Call fz_211_new_client ("a13", 0)
+    Call fz_211_sell (commercialType, StroyUniver,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,1)          'раб
+
+    Call fz_211_new_client ("a14", 0)
+    Call fz_211_sell (commercialType, InPharmBig,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,2)
+
+    Call fz_211_new_client ("a15", 0)
+    Call fz_211_sell (commercialType, InPharmBig,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,2)          'раб
+
+    Call fz_211_new_client ("a16", 0)
+    Call fz_211_sell (commercialType, InPharmBig,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,2)
+
+    Call fz_211_new_client ("a17", 0)
+    Call fz_211_sell (commercialType, StroyUniver,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,2)
+
+    Call fz_211_new_client ("a18", 0)
+    Call fz_211_sell (commercialType, InPharmBig,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,1,2)
+
+    Call fz_211_new_client ("a19", 0)
+    Call fz_211_sell (commercialType, StroyUniver,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,2)          'раб
+
+    Call fz_211_new_client ("a20", 0)
+    Call fz_211_sell (commercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (commercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (commercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    
+    Call fz_211_new_client ("a21", 0)
+    Call fz_211_sell (commercialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("a22", 0)
+    Call fz_211_sell (commercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (commercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("a23", 0)
+    Call fz_211_sell (commercialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("a24", 0)
+    Call fz_211_sell (commercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("a25", 0)
+    Call fz_211_sell (commercialType, Director,0,isDelta, int(rnd*7))'Директор
+    Call fz_211_order(isDelta,0,0,0,1,0,2)          'раб
+    Call fz_211_sell (commercialType, Analyst,1,isDelta, int(rnd*7))'Аналитик
+    Call fz_211_order(isDelta,0,0,0,1,1,0)          'раб
+    Call fz_211_sell (commercialType, GlavBuhExpert,2,isDelta, int(rnd*7))'ГлБухЭксперт
+    Call fz_211_order(isDelta,0,0,0,1,1,0)          'раб
+
+'НЕКОММЕРЧЕСКИ НАСТРОЕННЫЕ ЗАКАЗЫ
+    Call fz_211_new_client ("b1", 1)
+    Call fz_211_sell (nonCommercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,1,0)
+    Call fz_211_sell (nonCommercialType, Classic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("b2", 1)
+    Call fz_211_sell (nonCommercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (nonCommercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)           'раб
+    
+    Call fz_211_new_client ("b3", 1)
+    Call fz_211_sell (nonCommercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (nonCommercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (nonCommercialType, MaxFAS,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("b4", 1)
+    Call fz_211_sell (nonCommercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, MaxFAS,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("b5", 1)
+    Call fz_211_sell (nonCommercialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,0,0,0)
+    Call fz_211_sell (nonCommercialType, MaxFAS,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,1,0,0,0)
+
+    Call fz_211_new_client ("b6", 1)
+    Call fz_211_sell (nonCommercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, StroyMaxFAS,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("b7", 1)
+    Call fz_211_sell (nonCommercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (nonCommercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (nonCommercialType, ClassicPlus,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (nonCommercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("b8", 1)
+    Call fz_211_sell (nonCommercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("b9", 1)
+    Call fz_211_sell (nonCommercialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("b10", 1)
+    Call fz_211_sell (nonCommercialType, InPharmBig,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+
+    Call fz_211_new_client ("b11", 1)
+    Call fz_211_sell (nonCommercialType, InPharmSmall,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("b12", 1)
+    Call fz_211_sell (nonCommercialType, StroyUniver,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,1)
+
+    Call fz_211_new_client ("b13", 1)
+    Call fz_211_sell (nonCommercialType, StroyUniver,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,1)          'раб
+
+    Call fz_211_new_client ("b14", 1)
+    Call fz_211_sell (nonCommercialType, InPharmBig,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,2)
+
+    Call fz_211_new_client ("b15", 1)
+    Call fz_211_sell (nonCommercialType, InPharmBig,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,2)          'раб
+
+    Call fz_211_new_client ("b16", 1)
+    Call fz_211_sell (nonCommercialType, InPharmBig,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,2)
+
+    Call fz_211_new_client ("b17", 1)
+    Call fz_211_sell (nonCommercialType, StroyUniver,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,2)
+
+    Call fz_211_new_client ("b18", 1)
+    Call fz_211_sell (nonCommercialType, InPharmBig,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,1,2)
+
+    Call fz_211_new_client ("b19", 1)
+    Call fz_211_sell (nonCommercialType, StroyUniver,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,2)          'раб
+
+    Call fz_211_new_client ("b20", 1)
+    Call fz_211_sell (nonCommercialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (nonCommercialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (nonCommercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    
+    Call fz_211_new_client ("b21", 1)
+    Call fz_211_sell (nonCommercialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("b22", 1)
+    Call fz_211_sell (nonCommercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (nonCommercialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("b23", 1)
+    Call fz_211_sell (nonCommercialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("b24", 1)
+    Call fz_211_sell (nonCommercialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    
+    Call fz_211_new_client ("b25", 1)
+    Call fz_211_sell (nonCommercialType, StroyMaster,0,isDelta, int(rnd*7)) 'CМастер
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (nonCommercialType, FinDir,1,isDelta, int(rnd*7)) 'Финдир
+    Call fz_211_order(isDelta,0,0,0,1,1,0)          'раб
+    Call fz_211_sell (nonCommercialType, Director,2,isDelta, int(rnd*7)) 'дир
+    Call fz_211_order(isDelta,0,0,0,1,1,2)          'раб
+    Call fz_211_sell (nonCommercialType, GlavJur,0,isDelta, int(rnd*7)) 'гл юр
+    Call fz_211_order(isDelta,0,0,0,1,1,2)          'раб
+
+'ТРИАЛЬНО НАСТРОЕННЫЕ ЗАКАЗЫ
+    Call fz_211_new_client ("c1", 1)
+    Call fz_211_sell (trialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,1,0)
+    Call fz_211_sell (trialType, Classic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("c2", 1)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+'    Call fz_211_sell (trialType, Practic,2,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    
+    Call fz_211_new_client ("c3", 1)
+    Call fz_211_sell (trialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (trialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (trialType, StroyAnalyst,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("c4", 1)
+'    Call fz_211_sell (trialType, Practic,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+'    Call fz_211_sell (trialType, Practic,2,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+'    Call fz_211_sell (trialType, MaxFAS,2,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("c5", 1)
+    Call fz_211_sell (trialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (trialType, MaxFAS,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+
+    Call fz_211_new_client ("c6", 1)
+'    Call fz_211_sell (trialType, Classic,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+'    Call fz_211_sell (trialType, StroyMaxFAS,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("c7", 1)
+    Call fz_211_sell (trialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (trialType, ClassicPlus,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("c8", 1)
+'    Call fz_211_sell (trialType, Classic,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+'    Call fz_211_sell (trialType, Practic,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+'    Call fz_211_sell (trialType, Classic,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("c9", 1)
+'    Call fz_211_sell (trialType, Classic,1,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+'    Call fz_211_sell (trialType, Practic,2,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("c10", 1)
+    Call fz_211_sell (trialType, InPharmBig,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,0)
+
+    Call fz_211_new_client ("c11", 1)
+'    Call fz_211_sell (trialType, InPharmBig,2,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("c12", 1)
+    Call fz_211_sell (trialType, StroyUniver,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,1)
+
+    Call fz_211_new_client ("c13", 1)
+'    Call fz_211_sell (trialType, StroyUniver,1,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,1)          'раб
+
+    Call fz_211_new_client ("c17", 1)
+    Call fz_211_sell (trialType, StroyUniver,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,0,0,2)
+
+    Call fz_211_new_client ("c19", 1)
+'    Call fz_211_sell (trialType, StroyUniver,1,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,2)          'раб
+
+    Call fz_211_new_client ("c20", 1)
+    Call fz_211_sell (trialType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (trialType, Classic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    
+    Call fz_211_new_client ("c21", 1)
+    Call fz_211_sell (trialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("c22", 1)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+    Call fz_211_sell (trialType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("c23", 1)
+    Call fz_211_sell (trialType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("c24", 1)
+    Call fz_211_sell (trialType, Practic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,1,0,0,1,0)
+
+    Call fz_211_new_client ("c25", 0)
+'    Call fz_211_sell (trialType, StroyMaster,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+'    Call fz_211_sell (trialType, Analyst,1,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,1,0)          'раб
+'    Call fz_211_sell (trialType, Director,2,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,1,1,0)          'раб
+
+'ДЕМЫ
+    Call fz_211_new_client ("d1", 1)
+'    Call fz_211_sell (demoType, Practic,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,0,1,0)
+'    Call fz_211_sell (demoType, Classic,2,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("d2", 1)
+ '   Call fz_211_sell (demoType, Practic,1,isDelta, int(rnd*7))
+ '   Call fz_211_order(isDelta,0,0,0,0,0,0)
+    Call fz_211_sell (demoType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    
+    Call fz_211_new_client ("d3", 1)
+ ' Call fz_211_sell (demoType, Practic,2,isDelta, int(rnd*7))
+ '   Call fz_211_order(isDelta,0,0,0,0,0,0)
+'    Call fz_211_sell (demoType, Practic,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,0,0,0)
+'    Call fz_211_sell (demoType, MaxFAS,0,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,0,0,0)
+    
+    Call fz_211_new_client ("d4", 1)
+    Call fz_211_sell (demoType, Practic,0,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (demoType, Practic,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+    Call fz_211_sell (demoType, MaxFAS,2,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+
+    Call fz_211_new_client ("d5", 1)
+    Call fz_211_sell (demoType, Classic,1,isDelta, int(rnd*7))
+    Call fz_211_order(isDelta,0,0,0,1,0,0)          'раб
+'    Call fz_211_sell (demoType, Practic,1,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,0,0,0)          
+'    Call fz_211_sell (demoType, MaxFAS,1,isDelta, int(rnd*7))
+'    Call fz_211_order(isDelta,0,0,0,0,0,0)
+
+End Sub

@@ -1,0 +1,3471 @@
+// Editor 4952683C007B Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4952683C007B
+
+FORWARD ME_4B877FE00340
+
+FORWARD ME_54BF88B903AF
+
+: ME_54BF8922008D
+ CONST UID '54BF8922008D'
+ CONST Name 'f_ID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54BF8922008D f_ID
+
+: ME_54BF892C027B
+ CONST UID '54BF892C027B'
+ CONST Name 'f_LayerID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54BF892C027B f_LayerID
+
+FORWARD ME_54BF89AF0252
+
+: ME_54BF89C50312
+ CONST UID '54BF89C50312'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
+ ;
+
+ref; // ME_54BF89C50312 aDocument
+
+: ME_54BF89C5032D
+ CONST UID '54BF89C5032D'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54BF89C5032D anID
+
+: ME_54BF89C50347
+ CONST UID '54BF89C50347'
+ CONST Name 'aLayerID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54BF89C50347 aLayerID
+
+: ME_54BF89C2031E
+ CONST UID '54BF89C2031E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54BF89AF0252 // Create
+ ;
+ : Parameters
+   @ ( ME_54BF89C50312 // aDocument
+ ME_54BF89C5032D // anID
+ ME_54BF89C50347 // aLayerID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54BF89C2031E DoIt
+
+: ME_54BF89AF0252
+ CONST UID '54BF89AF0252'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Operations
+   @ ( ME_54BF89C2031E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54BF89AF0252 Create
+
+FORWARD ME_54BF89CB0008
+
+: ME_9B40C0453B86
+ CONST UID '9B40C0453B86'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
+ ;
+
+ref; // ME_9B40C0453B86 aDocument
+
+: ME_F6E9E7FC725A
+ CONST UID 'F6E9E7FC725A'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_F6E9E7FC725A anID
+
+: ME_952941F90B9F
+ CONST UID '952941F90B9F'
+ CONST Name 'aLayerID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_952941F90B9F aLayerID
+
+: ME_9B0E3F5184F7
+ CONST UID '9B0E3F5184F7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TeeBlock.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54BF89CB0008 // Make
+ ;
+ : Parameters
+   @ ( ME_9B40C0453B86 // aDocument
+ ME_F6E9E7FC725A // anID
+ ME_952941F90B9F // aLayerID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_9B0E3F5184F7 DoIt
+
+: ME_54BF89CB0008
+ CONST UID '54BF89CB0008'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Inherits
+   @ ( ME_54BF89AF0252 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_9B0E3F5184F7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_54BF89CB0008 Make
+
+: ME_54BFA37D03A4
+ CONST UID '54BFA37D03A4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_54BFA37D03A4 
+
+: ME_54BFA3A602BC
+ CONST UID '54BFA3A602BC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_47CFE7F00221' '47BB24D30205.pas.ms.script' // l3InterfacesMisc
+ ;
+
+ref; // ME_54BFA3A602BC 
+
+: ME_54BFA41A01B5
+ CONST UID '54BFA41A01B5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_54817DA2016E' '4912E16B01B4.pas.ms.script' // TeeSub
+ ;
+
+ref; // ME_54BFA41A01B5 
+
+: ME_54BFA42C01DA
+ CONST UID '54BFA42C01DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_54BE4D0B0117' '4912E16B01B4.pas.ms.script' // eePara
+ ;
+
+ref; // ME_54BFA42C01DA 
+
+: ME_54BFA451005D
+ CONST UID '54BFA451005D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_54BFA451005D 
+
+: ME_54BFA48900D7
+ CONST UID '54BFA48900D7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54BF88B903AF // TeeBlock
+ ;
+ : Target WL 'ME_53317D14019D' '47913B47006E.pas.ms.script' // l3Variant
+ ;
+
+ref; // ME_54BFA48900D7 
+
+: ME_548188CE0291_ME_54BF88B903AF
+ CONST UID '548188CE0291'
+ CONST Name 'Delete'
+ : Original WL 'ME_548188CE0291' '4912DD020283.pas.ms.script' // Delete
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ref; // ME_548188CE0291_ME_54BF88B903AF Delete
+
+: ME_548188E50006_ME_54BF88B903AF
+ CONST UID '548188E50006'
+ CONST Name 'Exists'
+ : Original WL 'ME_548188E50006' '4912DD020283.pas.ms.script' // Exists
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ref; // ME_548188E50006_ME_54BF88B903AF Exists
+
+: ME_548188FC0305_ME_54BF88B903AF
+ CONST UID '548188FC0305'
+ CONST Name 'Select'
+ : Original WL 'ME_548188FC0305' '4912DD020283.pas.ms.script' // Select
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ref; // ME_548188FC0305_ME_54BF88B903AF Select
+
+: ME_5481891302A1_ME_54BF88B903AF
+ CONST UID '5481891302A1'
+ CONST Name 'IsSame'
+ : Original WL 'ME_5481891302A1' '4912DD020283.pas.ms.script' // IsSame
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ref; // ME_5481891302A1_ME_54BF88B903AF IsSame
+
+: ME_548189A0022F_ME_54BF88B903AF
+ CONST UID '548189A0022F'
+ CONST Name 'SubPlace'
+ : Original WL 'ME_548189A0022F' '4912DD020283.pas.ms.script' // SubPlace
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_548189A0022F_ME_54BF88B903AF SubPlace
+
+: ME_548189BC01DF_ME_54BF88B903AF
+ CONST UID '548189BC01DF'
+ CONST Name 'ID'
+ : Original WL 'ME_548189BC01DF' '4912DD020283.pas.ms.script' // ID
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_548189BC01DF_ME_54BF88B903AF ID
+
+: ME_548189D0014C_ME_54BF88B903AF
+ CONST UID '548189D0014C'
+ CONST Name 'LayerID'
+ : Original WL 'ME_548189D0014C' '4912DD020283.pas.ms.script' // LayerID
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_548189D0014C_ME_54BF88B903AF LayerID
+
+: ME_548189EE0355_ME_54BF88B903AF
+ CONST UID '548189EE0355'
+ CONST Name 'Flag'
+ : Original WL 'ME_548189EE0355' '4912DD020283.pas.ms.script' // Flag
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_548189EE0355_ME_54BF88B903AF Flag
+
+: ME_548189F9001A_ME_54BF88B903AF
+ CONST UID '548189F9001A'
+ CONST Name 'Flags'
+ : Original WL 'ME_548189F9001A' '4912DD020283.pas.ms.script' // Flags
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_548189F9001A_ME_54BF88B903AF Flags
+
+: ME_54818A59008A_ME_54BF88B903AF
+ CONST UID '54818A59008A'
+ CONST Name 'Name'
+ : Original WL 'ME_54818A59008A' '4912DD020283.pas.ms.script' // Name
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_54818A59008A_ME_54BF88B903AF Name
+
+: ME_54818A7B0210_ME_54BF88B903AF
+ CONST UID '54818A7B0210'
+ CONST Name 'Next'
+ : Original WL 'ME_54818A7B0210' '4912DD020283.pas.ms.script' // Next
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_54818A7B0210_ME_54BF88B903AF Next
+
+: ME_54818A9700C3_ME_54BF88B903AF
+ CONST UID '54818A9700C3'
+ CONST Name 'LeafPara'
+ : Original WL 'ME_54818A9700C3' '4912DD020283.pas.ms.script' // LeafPara
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_54818A9700C3_ME_54BF88B903AF LeafPara
+
+: ME_54818AA901FF_ME_54BF88B903AF
+ CONST UID '54818AA901FF'
+ CONST Name 'Para'
+ : Original WL 'ME_54818AA901FF' '4912DD020283.pas.ms.script' // Para
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_54818AA901FF_ME_54BF88B903AF Para
+
+: ME_5481960900A7_ME_54BF88B903AF
+ CONST UID '5481960900A7'
+ CONST Name 'Document'
+ : Original WL 'ME_5481960900A7' '4912DD020283.pas.ms.script' // Document
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_5481960900A7_ME_54BF88B903AF Document
+
+: ME_548196150340_ME_54BF88B903AF
+ CONST UID '548196150340'
+ CONST Name 'ParentBlock'
+ : Original WL 'ME_548196150340' '4912DD020283.pas.ms.script' // ParentBlock
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ CONST "pm" false
+ref; // ME_548196150340_ME_54BF88B903AF ParentBlock
+
+: ME_5481962D00FB_ME_54BF88B903AF
+ CONST UID '5481962D00FB'
+ CONST Name 'IsKindOf'
+ : Original WL 'ME_5481962D00FB' '4912DD020283.pas.ms.script' // IsKindOf
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ref; // ME_5481962D00FB_ME_54BF88B903AF IsKindOf
+
+: ME_4A60B23E00C3_ME_54BF88B903AF
+ CONST UID '4A60B23E00C3'
+ CONST Name 'COMQueryInterface'
+ : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
+ ;
+ : Implementor ME_54BF88B903AF // TeeBlock
+ ;
+ref; // ME_4A60B23E00C3_ME_54BF88B903AF COMQueryInterface
+
+: ME_54BF88B903AF
+ CONST UID '54BF88B903AF'
+ CONST Name 'TeeBlock'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Inherits
+   @ ( WL 'ME_54817DBA01BE' '4912E16B01B4.pas.ms.script' // TeeDocumentTool
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_5481957B01D4' '4912DD020283.pas.ms.script' // IeeBlock
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_54BF8922008D // f_ID
+ ME_54BF892C027B // f_LayerID
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_54BF89AF0252 // Create
+ ME_54BF89CB0008 // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_548188CE0291_ME_54BF88B903AF // Delete
+ ME_548188E50006_ME_54BF88B903AF // Exists
+ ME_548188FC0305_ME_54BF88B903AF // Select
+ ME_5481891302A1_ME_54BF88B903AF // IsSame
+ ME_548189A0022F_ME_54BF88B903AF // SubPlace
+ ME_548189BC01DF_ME_54BF88B903AF // ID
+ ME_548189D0014C_ME_54BF88B903AF // LayerID
+ ME_548189EE0355_ME_54BF88B903AF // Flag
+ ME_548189F9001A_ME_54BF88B903AF // Flags
+ ME_54818A59008A_ME_54BF88B903AF // Name
+ ME_54818A7B0210_ME_54BF88B903AF // Next
+ ME_54818A9700C3_ME_54BF88B903AF // LeafPara
+ ME_54818AA901FF_ME_54BF88B903AF // Para
+ ME_5481960900A7_ME_54BF88B903AF // Document
+ ME_548196150340_ME_54BF88B903AF // ParentBlock
+ ME_5481962D00FB_ME_54BF88B903AF // IsKindOf
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4A60B23E00C3_ME_54BF88B903AF // COMQueryInterface
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_54BFA37D03A4 // 
+ ME_54BFA3A602BC // 
+ ME_54BFA41A01B5 // 
+ ME_54BFA42C01DA // 
+ ME_54BFA451005D // 
+ ME_54BFA48900D7 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifdef" 'Nemesis'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_54BF88B903AF TeeBlock
+
+FORWARD ME_54C0D4B10005
+
+: ME_54C0D4CD0299
+ CONST UID '54C0D4CD0299'
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_54C0D4CD0299 aSender
+
+: ME_54C0D4CD02D7
+ CONST UID '54C0D4CD02D7'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495239F201D9' '4912DD020283.pas.ms.script' // IeePara
+ ;
+
+ref; // ME_54C0D4CD02D7 aPara
+
+: ME_54C0D4CD0315
+ CONST UID '54C0D4CD0315'
+ CONST Name 'Allow'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C0D4CD0315 Allow
+
+: ME_54C0D4C7031A
+ CONST UID '54C0D4C7031A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54C0D4B10005 // TeeCanSplitParaEvent
+ ;
+ : Parameters
+   @ ( ME_54C0D4CD0299 // aSender
+ ME_54C0D4CD02D7 // aPara
+ ME_54C0D4CD0315 // Allow
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C0D4C7031A DoIt
+
+: ME_54C0D4B10005
+ CONST UID '54C0D4B10005'
+ CONST Name 'TeeCanSplitParaEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Operations
+   @ ( ME_54C0D4C7031A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_54C0D4B10005 TeeCanSplitParaEvent
+
+: ME_54C0EDDE01B9
+ CONST UID '54C0EDDE01B9'
+ CONST Name 'TeeBlockChangeEvent'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Inherits
+   @ ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_54C0EDDE01B9 TeeBlockChangeEvent
+
+FORWARD ME_54C0EE180013
+
+: ME_54C0EE2D0297
+ CONST UID '54C0EE2D0297'
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_54C0EE2D0297 aSender
+
+: ME_54C0EE2D02B4
+ CONST UID '54C0EE2D02B4'
+ CONST Name 'aDown'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C0EE2D02B4 aDown
+
+: ME_54C0EE2B0057
+ CONST UID '54C0EE2B0057'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54C0EE180013 // TeeBlockScrollEvent
+ ;
+ : Parameters
+   @ ( ME_54C0EE2D0297 // aSender
+ ME_54C0EE2D02B4 // aDown
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C0EE2B0057 DoIt
+
+: ME_54C0EE180013
+ CONST UID '54C0EE180013'
+ CONST Name 'TeeBlockScrollEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Operations
+   @ ( ME_54C0EE2B0057 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_54C0EE180013 TeeBlockScrollEvent
+
+: ME_54C0D4DF0183
+ CONST UID '54C0D4DF0183'
+ CONST Name 'OnCanSplitPara'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target ME_54C0D4B10005 // TeeCanSplitParaEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0D4DF0183 OnCanSplitPara
+
+: ME_54C0EE450168
+ CONST UID '54C0EE450168'
+ CONST Name 'OnBlockChange'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target ME_54C0EDDE01B9 // TeeBlockChangeEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0EE450168 OnBlockChange
+
+: ME_54C0EE6D02AA
+ CONST UID '54C0EE6D02AA'
+ CONST Name 'OnBlockScroll'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target ME_54C0EE180013 // TeeBlockScrollEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0EE6D02AA OnBlockScroll
+
+: ME_2ACEEDA2EA87
+ CONST UID '2ACEEDA2EA87'
+ CONST Name 'f_OnCanSplitPara'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnCanSplitPara' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target ME_54C0D4B10005 // TeeCanSplitParaEvent
+ ;
+
+ref; // ME_2ACEEDA2EA87 f_OnCanSplitPara
+
+: ME_16CE08B1FAF3
+ CONST UID '16CE08B1FAF3'
+ CONST Name 'f_OnBlockChange'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnBlockChange' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target ME_54C0EDDE01B9 // TeeBlockChangeEvent
+ ;
+
+ref; // ME_16CE08B1FAF3 f_OnBlockChange
+
+: ME_D765CF15B625
+ CONST UID 'D765CF15B625'
+ CONST Name 'f_OnBlockScroll'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnBlockScroll' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target ME_54C0EE180013 // TeeBlockScrollEvent
+ ;
+
+ref; // ME_D765CF15B625 f_OnBlockScroll
+
+FORWARD ME_54BFFE5B0166
+
+: ME_54BFFEA4016B
+ CONST UID '54BFFEA4016B'
+ CONST Name 'aPt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_473D8F4C03CD' '467823B7002C.pas.ms.script' // TafwPoint
+ ;
+
+ref; // ME_54BFFEA4016B aPt
+
+: ME_54BFFEA40185
+ CONST UID '54BFFEA40185'
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ ;
+
+ref; // ME_54BFFEA40185 aHotSpot
+
+: ME_54BFFEA4019F
+ CONST UID '54BFFEA4019F'
+ CONST Name 'theHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_4F82F62D03BE' '4912DD020283.pas.ms.script' // IeeHotSpot
+ ;
+
+ref; // ME_54BFFEA4019F theHotSpot
+
+: ME_54BFFEA002EB
+ CONST UID '54BFFEA002EB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54BFFE5B0166 // MakeHotSpot
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_54BFFEA4016B // aPt
+ ME_54BFFEA40185 // aHotSpot
+ ME_54BFFEA4019F // theHotSpot
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54BFFEA002EB DoIt
+
+: ME_54BFFE5B0166
+ CONST UID '54BFFE5B0166'
+ CONST Name 'MakeHotSpot'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Operations
+   @ ( ME_54BFFEA002EB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54BFFE5B0166 MakeHotSpot
+
+FORWARD ME_54C0D31200D7
+
+: ME_54C0D31A030D
+ CONST UID '54C0D31A030D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C0D31200D7 // AsIeeDocumentEx
+ ;
+ : Target WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
+ ;
+
+ref; // ME_54C0D31A030D DoIt
+
+: ME_54C0D31200D7
+ CONST UID '54C0D31200D7'
+ CONST Name 'AsIeeDocumentEx'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Operations
+   @ ( ME_54C0D31A030D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C0D31200D7 AsIeeDocumentEx
+
+: ME_1D96841A7033
+ CONST UID '1D96841A7033'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeEditorExportModelPart' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_1D96841A7033 Ini_Reg_Class
+
+: ME_54C0D96D0314
+ CONST UID '54C0D96D0314'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+
+ref; // ME_54C0D96D0314 
+
+: ME_54C0D98101EC
+ CONST UID '54C0D98101EC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_54C0D98101EC 
+
+: ME_54C0D9A00133
+ CONST UID '54C0D9A00133'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_5481DD0C0363' '4912E16B01B4.pas.ms.script' // TeeHotSpot
+ ;
+
+ref; // ME_54C0D9A00133 
+
+: ME_54C0D9A300CB
+ CONST UID '54C0D9A300CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_54BE41340249' '4912E16B01B4.pas.ms.script' // TeeSubList
+ ;
+
+ref; // ME_54C0D9A300CB 
+
+: ME_54C0DA3B0339
+ CONST UID '54C0DA3B0339'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_47C695D90332' '47C695A10172.pas.ms.script' // TevSelectTarget
+ ;
+
+ref; // ME_54C0DA3B0339 
+
+: ME_552BAA5F00D1
+ CONST UID '552BAA5F00D1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_552BAA150205' '47ECB04A01F8.pas.ms.script' // evStandardActions
+ ;
+
+ref; // ME_552BAA5F00D1 
+
+: ME_55CDCC160398
+ CONST UID '55CDCC160398'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_50222A54016C' '4678209200A6.pas.ms.script' // TnevAACLikeMode
+ ;
+
+ref; // ME_55CDCC160398 
+
+: ME_7D6A506B3ACE
+ CONST UID '7D6A506B3ACE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_7D6A506B3ACE 
+
+: ME_4A8C083300C3_ME_4B877FE00340
+ CONST UID '4A8C083300C3'
+ CONST Name 'CanInsertParaOnMove'
+ : Original WL 'ME_4A8C083300C3' '47F088300159.pas.ms.script' // CanInsertParaOnMove
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_4A8C083300C3_ME_4B877FE00340 CanInsertParaOnMove
+
+: ME_4A8C24130193_ME_4B877FE00340
+ CONST UID '4A8C24130193'
+ CONST Name 'IsInReadOnlyPara'
+ : Original WL 'ME_4A8C24130193' '47F088300159.pas.ms.script' // IsInReadOnlyPara
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_4A8C24130193_ME_4B877FE00340 IsInReadOnlyPara
+
+: ME_548196F902DF_ME_4B877FE00340
+ CONST UID '548196F902DF'
+ CONST Name 'Block'
+ : Original WL 'ME_548196F902DF' '4912DD020283.pas.ms.script' // Block
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_548196F902DF_ME_4B877FE00340 Block
+
+: ME_5481973F00EA_ME_4B877FE00340
+ CONST UID '5481973F00EA'
+ CONST Name 'BlockEx'
+ : Original WL 'ME_5481973F00EA' '4912DD020283.pas.ms.script' // BlockEx
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_5481973F00EA_ME_4B877FE00340 BlockEx
+
+: ME_548197920363_ME_4B877FE00340
+ CONST UID '548197920363'
+ CONST Name 'Subs'
+ : Original WL 'ME_548197920363' '4912DD020283.pas.ms.script' // Subs
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_548197920363_ME_4B877FE00340 Subs
+
+: ME_548197A50084_ME_4B877FE00340
+ CONST UID '548197A50084'
+ CONST Name 'Markers'
+ : Original WL 'ME_548197A50084' '4912DD020283.pas.ms.script' // Markers
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_548197A50084_ME_4B877FE00340 Markers
+
+: ME_548197AE02B9_ME_4B877FE00340
+ CONST UID '548197AE02B9'
+ CONST Name 'Bookmarks'
+ : Original WL 'ME_548197AE02B9' '4912DD020283.pas.ms.script' // Bookmarks
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_548197AE02B9_ME_4B877FE00340 Bookmarks
+
+: ME_548197B8028C_ME_4B877FE00340
+ CONST UID '548197B8028C'
+ CONST Name 'Marks'
+ : Original WL 'ME_548197B8028C' '4912DD020283.pas.ms.script' // Marks
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_548197B8028C_ME_4B877FE00340 Marks
+
+: ME_548197F202C4_ME_4B877FE00340
+ CONST UID '548197F202C4'
+ CONST Name 'ExternalHandle'
+ : Original WL 'ME_548197F202C4' '4912DD020283.pas.ms.script' // ExternalHandle
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_548197F202C4_ME_4B877FE00340 ExternalHandle
+
+: ME_5481988203C9_ME_4B877FE00340
+ CONST UID '5481988203C9'
+ CONST Name 'Document'
+ : Original WL 'ME_5481988203C9' '4912DD020283.pas.ms.script' // Document
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_5481988203C9_ME_4B877FE00340 Document
+
+: ME_548198C00194_ME_4B877FE00340
+ CONST UID '548198C00194'
+ CONST Name 'Cut'
+ : Original WL 'ME_548198C00194' '4912DD020283.pas.ms.script' // Cut
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_548198C00194_ME_4B877FE00340 Cut
+
+: ME_548198CA0185_ME_4B877FE00340
+ CONST UID '548198CA0185'
+ CONST Name 'Copy'
+ : Original WL 'ME_548198CA0185' '4912DD020283.pas.ms.script' // Copy
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_548198CA0185_ME_4B877FE00340 Copy
+
+: ME_548198D20380_ME_4B877FE00340
+ CONST UID '548198D20380'
+ CONST Name 'Delete'
+ : Original WL 'ME_548198D20380' '4912DD020283.pas.ms.script' // Delete
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_548198D20380_ME_4B877FE00340 Delete
+
+: ME_548198D902BA_ME_4B877FE00340
+ CONST UID '548198D902BA'
+ CONST Name 'Paste'
+ : Original WL 'ME_548198D902BA' '4912DD020283.pas.ms.script' // Paste
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_548198D902BA_ME_4B877FE00340 Paste
+
+: ME_548198ED0189_ME_4B877FE00340
+ CONST UID '548198ED0189'
+ CONST Name 'SelectAll'
+ : Original WL 'ME_548198ED0189' '4912DD020283.pas.ms.script' // SelectAll
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_548198ED0189_ME_4B877FE00340 SelectAll
+
+: ME_548198F403CE_ME_4B877FE00340
+ CONST UID '548198F403CE'
+ CONST Name 'HideSelection'
+ : Original WL 'ME_548198F403CE' '4912DD020283.pas.ms.script' // HideSelection
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_548198F403CE_ME_4B877FE00340 HideSelection
+
+: ME_54819F7C006B_ME_4B877FE00340
+ CONST UID '54819F7C006B'
+ CONST Name 'GetHotspotOnPoint'
+ : Original WL 'ME_54819F7C006B' '4912DD020283.pas.ms.script' // GetHotspotOnPoint
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_54819F7C006B_ME_4B877FE00340 GetHotspotOnPoint
+
+: ME_54819FA40295_ME_4B877FE00340
+ CONST UID '54819FA40295'
+ CONST Name 'CanSplitPara'
+ : Original WL 'ME_54819FA40295' '4912DD020283.pas.ms.script' // CanSplitPara
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_54819FA40295_ME_4B877FE00340 CanSplitPara
+
+: ME_54819FB9026A_ME_4B877FE00340
+ CONST UID '54819FB9026A'
+ CONST Name 'Commands'
+ : Original WL 'ME_54819FB9026A' '4912DD020283.pas.ms.script' // Commands
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_54819FB9026A_ME_4B877FE00340 Commands
+
+: ME_54819FC5013E_ME_4B877FE00340
+ CONST UID '54819FC5013E'
+ CONST Name 'Data'
+ : Original WL 'ME_54819FC5013E' '4912DD020283.pas.ms.script' // Data
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "pm" false
+ref; // ME_54819FC5013E_ME_4B877FE00340 Data
+
+: ME_4B877E7B0330_ME_4B877FE00340
+ CONST UID '4B877E7B0330'
+ CONST Name 'AllowParaType'
+ : Original WL 'ME_4B877E7B0330' '4829D7D50156.pas.ms.script' // AllowParaType
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4B877E7B0330_ME_4B877FE00340 AllowParaType
+
+: ME_55CDBD7600D4_ME_4B877FE00340
+ CONST UID '55CDBD7600D4'
+ CONST Name 'DoSearchHyperLink'
+ : Original WL 'ME_55CDBD7600D4' '4829D7D50156.pas.ms.script' // DoSearchHyperLink
+ ;
+ : Implementor ME_4B877FE00340 // TeeEditorExportModelPart
+ ;
+ref; // ME_55CDBD7600D4_ME_4B877FE00340 DoSearchHyperLink
+
+: ME_4B877FE00340
+ CONST UID '4B877FE00340'
+ CONST Name 'TeeEditorExportModelPart'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Часть TeeEditorExport перенесённная на модель' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Inherits
+   @ ( WL 'ME_4845367E03B1' '4829D7D50156.pas.ms.script' // TevTunedEditor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4A8C09B70219' '4912DD020283.pas.ms.script' // IeeEditor
+ WL 'ME_548195EF0017' '4912DD020283.pas.ms.script' // IeeDocument
+ WL 'ME_5481986D03D1' '4912DD020283.pas.ms.script' // IeeData
+ WL 'ME_548198AA02EF' '4912DD020283.pas.ms.script' // IeeCommands
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_54C0D4DF0183 // OnCanSplitPara
+ ME_54C0EE450168 // OnBlockChange
+ ME_54C0EE6D02AA // OnBlockScroll
+ ME_2ACEEDA2EA87 // f_OnCanSplitPara
+ ME_16CE08B1FAF3 // f_OnBlockChange
+ ME_D765CF15B625 // f_OnBlockScroll
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_54BFFE5B0166 // MakeHotSpot
+ ME_54C0D31200D7 // AsIeeDocumentEx
+ ME_1D96841A7033 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4A8C083300C3_ME_4B877FE00340 // CanInsertParaOnMove
+ ME_4A8C24130193_ME_4B877FE00340 // IsInReadOnlyPara
+ ME_548196F902DF_ME_4B877FE00340 // Block
+ ME_5481973F00EA_ME_4B877FE00340 // BlockEx
+ ME_548197920363_ME_4B877FE00340 // Subs
+ ME_548197A50084_ME_4B877FE00340 // Markers
+ ME_548197AE02B9_ME_4B877FE00340 // Bookmarks
+ ME_548197B8028C_ME_4B877FE00340 // Marks
+ ME_548197F202C4_ME_4B877FE00340 // ExternalHandle
+ ME_5481988203C9_ME_4B877FE00340 // Document
+ ME_548198C00194_ME_4B877FE00340 // Cut
+ ME_548198CA0185_ME_4B877FE00340 // Copy
+ ME_548198D20380_ME_4B877FE00340 // Delete
+ ME_548198D902BA_ME_4B877FE00340 // Paste
+ ME_548198ED0189_ME_4B877FE00340 // SelectAll
+ ME_548198F403CE_ME_4B877FE00340 // HideSelection
+ ME_54819F7C006B_ME_4B877FE00340 // GetHotspotOnPoint
+ ME_54819FA40295_ME_4B877FE00340 // CanSplitPara
+ ME_54819FB9026A_ME_4B877FE00340 // Commands
+ ME_54819FC5013E_ME_4B877FE00340 // Data
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4B877E7B0330_ME_4B877FE00340 // AllowParaType
+ ME_55CDBD7600D4_ME_4B877FE00340 // DoSearchHyperLink
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_54BF88B903AF // TeeBlock
+ ME_54C0D4B10005 // TeeCanSplitParaEvent
+ ME_54C0EDDE01B9 // TeeBlockChangeEvent
+ ME_54C0EE180013 // TeeBlockScrollEvent
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_54C0D96D0314 // 
+ ME_54C0D98101EC // 
+ ME_54C0D9A00133 // 
+ ME_54C0D9A300CB // 
+ ME_54C0DA3B0339 // 
+ ME_552BAA5F00D1 // 
+ ME_55CDCC160398 // 
+ ME_7D6A506B3ACE // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.02.2010 11:02'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeEditorExportModelPart.pas'
+
+ref; // ME_4B877FE00340 TeeEditorExportModelPart
+
+FORWARD ME_4952693000EA
+
+FORWARD ME_54C0F81701B1
+
+: ME_54C0F85D0023
+ CONST UID '54C0F85D0023'
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_54C0F85D0023 aSender
+
+: ME_54C0F85D005D
+ CONST UID '54C0F85D005D'
+ CONST Name 'aHotSpot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82F62D03BE' '4912DD020283.pas.ms.script' // IeeHotSpot
+ ;
+
+ref; // ME_54C0F85D005D aHotSpot
+
+: ME_54C0F85D00A3
+ CONST UID '54C0F85D00A3'
+ CONST Name 'aButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82F5DD00CA' '4912DD020283.pas.ms.script' // TeeMouseButton
+ ;
+
+ref; // ME_54C0F85D00A3 aButton
+
+: ME_54C0F85D00E3
+ CONST UID '54C0F85D00E3'
+ CONST Name 'anAction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82F5E703B6' '4912DD020283.pas.ms.script' // TeeMouseAction
+ ;
+
+ref; // ME_54C0F85D00E3 anAction
+
+: ME_54C0F85D0124
+ CONST UID '54C0F85D0124'
+ CONST Name 'Keys'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F82F5F402A5' '4912DD020283.pas.ms.script' // TeeShiftState
+ ;
+
+ref; // ME_54C0F85D0124 Keys
+
+: ME_54C0F85D0174
+ CONST UID '54C0F85D0174'
+ CONST Name 'aWasSelection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C0F85D0174 aWasSelection
+
+: ME_54C0F852005C
+ CONST UID '54C0F852005C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54C0F81701B1 // TeeMouseActionEvent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_54C0F85D0023 // aSender
+ ME_54C0F85D005D // aHotSpot
+ ME_54C0F85D00A3 // aButton
+ ME_54C0F85D00E3 // anAction
+ ME_54C0F85D0124 // Keys
+ ME_54C0F85D0174 // aWasSelection
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C0F852005C DoIt
+
+: ME_54C0F81701B1
+ CONST UID '54C0F81701B1'
+ CONST Name 'TeeMouseActionEvent'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C0F852005C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "of object" true
+
+ref; // ME_54C0F81701B1 TeeMouseActionEvent
+
+: ME_54C0F6E701DB
+ CONST UID '54C0F6E701DB'
+ CONST Name 'VScrollBar'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_50220B0E0061' '50220AA101CA.pas.ms.script' // TvtScrollBar
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_54C0F6E701DB VScrollBar
+
+: ME_54C0F71400F4
+ CONST UID '54C0F71400F4'
+ CONST Name 'f_PrevScrollPos'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_54C0F71400F4 f_PrevScrollPos
+
+: ME_54C0F75B02F8
+ CONST UID '54C0F75B02F8'
+ CONST Name 'f_PrevScrollPart'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_54C0F75B02F8 f_PrevScrollPart
+
+: ME_54C0F77502EE
+ CONST UID '54C0F77502EE'
+ CONST Name 'f_PrevPart'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_54C0F77502EE f_PrevPart
+
+: ME_54C0F7B3028C
+ CONST UID '54C0F7B3028C'
+ CONST Name 'NeedDrawDocumentEdge'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0F7B3028C NeedDrawDocumentEdge
+
+: ME_54C0F86F0286
+ CONST UID '54C0F86F0286'
+ CONST Name 'OnMouseAction'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target ME_54C0F81701B1 // TeeMouseActionEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0F86F0286 OnMouseAction
+
+: ME_54C0F8A70310
+ CONST UID '54C0F8A70310'
+ CONST Name 'OnVScroll'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0F8A70310 OnVScroll
+
+: ME_54C0F9190088
+ CONST UID '54C0F9190088'
+ CONST Name 'OnUserCommentsHidden'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_54C0F9190088 OnUserCommentsHidden
+
+: ME_2D6F8AF04038
+ CONST UID '2D6F8AF04038'
+ CONST Name 'f_VScrollBar'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства VScrollBar' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_50220B0E0061' '50220AA101CA.pas.ms.script' // TvtScrollBar
+ ;
+
+ref; // ME_2D6F8AF04038 f_VScrollBar
+
+: ME_2A1A24EFA05D
+ CONST UID '2A1A24EFA05D'
+ CONST Name 'f_NeedDrawDocumentEdge'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства NeedDrawDocumentEdge' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_2A1A24EFA05D f_NeedDrawDocumentEdge
+
+: ME_EDF7920B7E46
+ CONST UID 'EDF7920B7E46'
+ CONST Name 'f_OnMouseAction'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnMouseAction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target ME_54C0F81701B1 // TeeMouseActionEvent
+ ;
+
+ref; // ME_EDF7920B7E46 f_OnMouseAction
+
+: ME_1BEA2569CB68
+ CONST UID '1BEA2569CB68'
+ CONST Name 'f_OnVScroll'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnVScroll' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_1BEA2569CB68 f_OnVScroll
+
+: ME_D7041A351942
+ CONST UID 'D7041A351942'
+ CONST Name 'f_OnUserCommentsHidden'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnUserCommentsHidden' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_D7041A351942 f_OnUserCommentsHidden
+
+FORWARD ME_54C0FD320345
+
+: ME_54C0FD3E005F
+ CONST UID '54C0FD3E005F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C0FD320345 // DontBreakInAACMode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C0FD3E005F DoIt
+
+: ME_54C0FD320345
+ CONST UID '54C0FD320345'
+ CONST Name 'DontBreakInAACMode'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C0FD3E005F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C0FD320345 DontBreakInAACMode
+
+FORWARD ME_54C0FE7902BD
+
+: ME_54C0FE8C01AD
+ CONST UID '54C0FE8C01AD'
+ CONST Name 'aStream'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
+ ;
+
+ref; // ME_54C0FE8C01AD aStream
+
+: ME_54C0FE8C01CA
+ CONST UID '54C0FE8C01CA'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_54C0FE8C01CA aFormat
+
+: ME_54C0FE8C01E8
+ CONST UID '54C0FE8C01E8'
+ CONST Name 'aSaveSelection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C0FE8C01E8 aSaveSelection
+
+: ME_54C0FE84013E
+ CONST UID '54C0FE84013E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C0FE7902BD // SaveTo
+ ;
+ : Parameters
+   @ ( ME_54C0FE8C01AD // aStream
+ ME_54C0FE8C01CA // aFormat
+ ME_54C0FE8C01E8 // aSaveSelection
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C0FE84013E DoIt
+
+: ME_54C0FE7902BD
+ CONST UID '54C0FE7902BD'
+ CONST Name 'SaveTo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C0FE84013E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C0FE7902BD SaveTo
+
+FORWARD ME_54C100260224
+
+: ME_54C1002D01CE
+ CONST UID '54C1002D01CE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C100260224 // InUserComment
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C1002D01CE DoIt
+
+: ME_54C100260224
+ CONST UID '54C100260224'
+ CONST Name 'InUserComment'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C1002D01CE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C100260224 InUserComment
+
+FORWARD ME_54C106630180
+
+: ME_54C1067E01E5
+ CONST UID '54C1067E01E5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C106630180 // CanInsertParaOnMove
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C1067E01E5 DoIt
+
+: ME_54C106630180
+ CONST UID '54C106630180'
+ CONST Name 'CanInsertParaOnMove'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Можно ли вставлять параграфы при движении курсора' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C1067E01E5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C106630180 CanInsertParaOnMove
+
+FORWARD ME_54C106AB020C
+
+: ME_54C106BB00C9
+ CONST UID '54C106BB00C9'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_54C106BB00C9 aPara
+
+: ME_54C106BB00E8
+ CONST UID '54C106BB00E8'
+ CONST Name 'Delete'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54C106BB00E8 Delete
+
+: ME_54C106B500AC
+ CONST UID '54C106B500AC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C106AB020C // IsInReadOnlyPara
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_54C106BB00C9 // aPara
+ ME_54C106BB00E8 // Delete
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C106B500AC DoIt
+
+: ME_54C106AB020C
+ CONST UID '54C106AB020C'
+ CONST Name 'IsInReadOnlyPara'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Находимся ли в параграфе, в котором запрещено редактирование' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C106B500AC // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C106AB020C IsInReadOnlyPara
+
+FORWARD ME_54C10A9901CD
+
+: ME_54C10AA703CB
+ CONST UID '54C10AA703CB'
+ CONST Name 'aCursor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_54C10AA703CB aCursor
+
+: ME_54C10AA20075
+ CONST UID '54C10AA20075'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C10A9901CD // GetBlockByCursor
+ ;
+ : Target WL 'ME_47C6B7A6039D' '47C5207602D1.pas.ms.script' // IevDocumentPart
+ ;
+ : Parameters
+   @ ( ME_54C10AA703CB // aCursor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C10AA20075 DoIt
+
+: ME_54C10A9901CD
+ CONST UID '54C10A9901CD'
+ CONST Name 'GetBlockByCursor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C10AA20075 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C10A9901CD GetBlockByCursor
+
+FORWARD ME_54C10B750137
+
+: ME_7DEA3EFB9412
+ CONST UID '7DEA3EFB9412'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода InsertUserComment' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54C10B750137 // InsertUserComment
+ ;
+
+ref; // ME_7DEA3EFB9412 DoIt
+
+: ME_54C10B750137
+ CONST UID '54C10B750137'
+ CONST Name 'InsertUserComment'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_7DEA3EFB9412 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C10B750137 InsertUserComment
+
+FORWARD ME_54C10B810344
+
+: ME_54C10B920048
+ CONST UID '54C10B920048'
+ CONST Name 'aCursor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_54C10B920048 aCursor
+
+: ME_54C10B8D01F1
+ CONST UID '54C10B8D01F1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C10B810344 // GetNearestSubByCursor
+ ;
+ : Target WL 'ME_4AE9DFBF0327' '4912DD020283.pas.ms.script' // IeeSub
+ ;
+ : Parameters
+   @ ( ME_54C10B920048 // aCursor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C10B8D01F1 DoIt
+
+: ME_54C10B810344
+ CONST UID '54C10B810344'
+ CONST Name 'GetNearestSubByCursor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C10B8D01F1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C10B810344 GetNearestSubByCursor
+
+FORWARD ME_54C10B9F01AE
+
+: ME_54C10BAA00B3
+ CONST UID '54C10BAA00B3'
+ CONST Name 'aCursor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_54C10BAA00B3 aCursor
+
+: ME_54C10BA60129
+ CONST UID '54C10BA60129'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C10B9F01AE // GetNearestBlockByCursor
+ ;
+ : Target WL 'ME_47C6B7A6039D' '47C5207602D1.pas.ms.script' // IevDocumentPart
+ ;
+ : Parameters
+   @ ( ME_54C10BAA00B3 // aCursor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C10BA60129 DoIt
+
+: ME_54C10B9F01AE
+ CONST UID '54C10B9F01AE'
+ CONST Name 'GetNearestBlockByCursor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C10BA60129 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54C10B9F01AE GetNearestBlockByCursor
+
+FORWARD ME_54C10C4B034D
+
+: ME_ADEDB3DB98D2
+ CONST UID 'ADEDB3DB98D2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода RaiseUserCommentsHidden' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54C10C4B034D // RaiseUserCommentsHidden
+ ;
+
+ref; // ME_ADEDB3DB98D2 DoIt
+
+: ME_54C10C4B034D
+ CONST UID '54C10C4B034D'
+ CONST Name 'RaiseUserCommentsHidden'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_ADEDB3DB98D2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_54C10C4B034D RaiseUserCommentsHidden
+
+FORWARD ME_54C10EA7019B
+
+: ME_54C10EBD0328
+ CONST UID '54C10EBD0328'
+ CONST Name 'aButton'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4D5EBB350068' '4799D29F033F.pas.ms.script' // TMouseButton
+ ;
+
+ref; // ME_54C10EBD0328 aButton
+
+: ME_54C10EB90274
+ CONST UID '54C10EB90274'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C10EA7019B // MB2eeMB
+ ;
+ : Target WL 'ME_4F82F5DD00CA' '4912DD020283.pas.ms.script' // TeeMouseButton
+ ;
+ : Parameters
+   @ ( ME_54C10EBD0328 // aButton
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_54C10EB90274 DoIt
+
+: ME_54C10EA7019B
+ CONST UID '54C10EA7019B'
+ CONST Name 'MB2eeMB'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Operations
+   @ ( ME_54C10EB90274 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_54C10EA7019B MB2eeMB
+
+: ME_6DD677A56EEF
+ CONST UID '6DD677A56EEF'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeEditorExport' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_6DD677A56EEF Ini_Reg_Class
+
+: ME_54C13BB40230
+ CONST UID '54C13BB40230'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_54C13B850149' '54C13B1601FD.pas.ms.script' // EeeUserCommentsHidden
+ ;
+
+ref; // ME_54C13BB40230 
+
+: ME_54C13CB102D6
+ CONST UID '54C13CB102D6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
+ ;
+
+ref; // ME_54C13CB102D6 
+
+: ME_54C13CB60218
+ CONST UID '54C13CB60218'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_4A2E44B70095' '48492FC0029D.pas.ms.script' // ContentsElement
+ ;
+
+ref; // ME_54C13CB60218 
+
+: ME_54C13CB90054
+ CONST UID '54C13CB90054'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_4857C9C20131' '48492FC0029D.pas.ms.script' // CommentPara
+ ;
+
+ref; // ME_54C13CB90054 
+
+: ME_54C13CBB0013
+ CONST UID '54C13CBB0013'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_4CEBC4B702DD' '48492FC0029D.pas.ms.script' // LeafParaDecorationsHolder
+ ;
+
+ref; // ME_54C13CBB0013 
+
+: ME_54C13CBC031C
+ CONST UID '54C13CBC031C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ ;
+
+ref; // ME_54C13CBC031C 
+
+: ME_54C13CBE02BB
+ CONST UID '54C13CBE02BB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_4857D48E00F4' '48492FC0029D.pas.ms.script' // Table
+ ;
+
+ref; // ME_54C13CBE02BB 
+
+: ME_54C13CF5018E
+ CONST UID '54C13CF5018E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
+ ;
+
+ref; // ME_54C13CF5018E 
+
+: ME_54C13D4100D2
+ CONST UID '54C13D4100D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47AC759800AF' '47AC75550330.pas.ms.script' // ExtTags
+ ;
+
+ref; // ME_54C13D4100D2 
+
+: ME_54C13EB303E5
+ CONST UID '54C13EB303E5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_48453B7601F9' '47F1F38601A3.pas.ms.script' // evCursorTools
+ ;
+
+ref; // ME_54C13EB303E5 
+
+: ME_54C13F150296
+ CONST UID '54C13F150296'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47F1F3BC0330' '47F1F38601A3.pas.ms.script' // evParaTools
+ ;
+
+ref; // ME_54C13F150296 
+
+: ME_54C13F360053
+ CONST UID '54C13F360053'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47ECAB310336' '47ECAB0B0265.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_54C13F360053 
+
+: ME_54C13F550007
+ CONST UID '54C13F550007'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_54817DA2016E' '4912E16B01B4.pas.ms.script' // TeeSub
+ ;
+
+ref; // ME_54C13F550007 
+
+: ME_54C13F6E0062
+ CONST UID '54C13F6E0062'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_48453A750156' '48453A40017C.pas.ms.script' // Operations
+ ;
+
+ref; // ME_54C13F6E0062 
+
+: ME_54C1400B0088
+ CONST UID '54C1400B0088'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47D00CC20108' '47C52679006D.pas.ms.script' // nevFacade
+ ;
+
+ref; // ME_54C1400B0088 
+
+: ME_54C1400E0136
+ CONST UID '54C1400E0136'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_54C1400E0136 
+
+: ME_54C140100192
+ CONST UID '54C140100192'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_54C140100192 
+
+: ME_54C14012015C
+ CONST UID '54C14012015C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47542EDE038A' '47542EA70394.pas.ms.script' // TeeTextSourceExport
+ ;
+
+ref; // ME_54C14012015C 
+
+: ME_54C1401400EA
+ CONST UID '54C1401400EA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_48C78D5402A6' '4799D29F033F.pas.ms.script' // StdCtrls
+ ;
+
+ref; // ME_54C1401400EA 
+
+: ME_54C1401600B4
+ CONST UID '54C1401600B4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_54C1401600B4 
+
+: ME_54C1401801F6
+ CONST UID '54C1401801F6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
+ ;
+
+ref; // ME_54C1401801F6 
+
+: ME_54C145B2016A
+ CONST UID '54C145B2016A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_54C145B2016A 
+
+: ME_76082C21453C
+ CONST UID '76082C21453C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952693000EA // TeeEditorExport
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_76082C21453C 
+
+: ME_54872A3C0371_ME_4952693000EA
+ CONST UID '54872A3C0371'
+ CONST Name 'DocumentPart'
+ : Original WL 'ME_54872A3C0371' '49523C640160.pas.ms.script' // DocumentPart
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872A3C0371_ME_4952693000EA DocumentPart
+
+: ME_54872A520084_ME_4952693000EA
+ CONST UID '54872A520084'
+ CONST Name 'DocumentPartEx'
+ : Original WL 'ME_54872A520084' '49523C640160.pas.ms.script' // DocumentPartEx
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872A520084_ME_4952693000EA DocumentPartEx
+
+: ME_54872A8901AE_ME_4952693000EA
+ CONST UID '54872A8901AE'
+ CONST Name 'Sub'
+ : Original WL 'ME_54872A8901AE' '49523C640160.pas.ms.script' // Sub
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872A8901AE_ME_4952693000EA Sub
+
+: ME_54872AA70157_ME_4952693000EA
+ CONST UID '54872AA70157'
+ CONST Name 'SubEx'
+ : Original WL 'ME_54872AA70157' '49523C640160.pas.ms.script' // SubEx
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872AA70157_ME_4952693000EA SubEx
+
+: ME_54872B13014E_ME_4952693000EA
+ CONST UID '54872B13014E'
+ CONST Name 'Selection'
+ : Original WL 'ME_54872B13014E' '49523C640160.pas.ms.script' // Selection
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872B13014E_ME_4952693000EA Selection
+
+: ME_54872B4900D7_ME_4952693000EA
+ CONST UID '54872B4900D7'
+ CONST Name 'EntryPoint'
+ : Original WL 'ME_54872B4900D7' '49523C640160.pas.ms.script' // EntryPoint
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872B4900D7_ME_4952693000EA EntryPoint
+
+: ME_54872BB40123_ME_4952693000EA
+ CONST UID '54872BB40123'
+ CONST Name 'Processor'
+ : Original WL 'ME_54872BB40123' '49523C640160.pas.ms.script' // Processor
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872BB40123_ME_4952693000EA Processor
+
+: ME_54872BBC00B3_ME_4952693000EA
+ CONST UID '54872BBC00B3'
+ CONST Name 'NewSub'
+ : Original WL 'ME_54872BBC00B3' '49523C640160.pas.ms.script' // NewSub
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872BBC00B3_ME_4952693000EA NewSub
+
+: ME_54872BE102BF_ME_4952693000EA
+ CONST UID '54872BE102BF'
+ CONST Name 'NewSubEx'
+ : Original WL 'ME_54872BE102BF' '49523C640160.pas.ms.script' // NewSubEx
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" false
+ref; // ME_54872BE102BF_ME_4952693000EA NewSubEx
+
+: ME_54C0D31200D7_ME_4952693000EA
+ CONST UID '54C0D31200D7'
+ CONST Name 'AsIeeDocumentEx'
+ : Original ME_54C0D31200D7 // AsIeeDocumentEx
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C0D31200D7_ME_4952693000EA AsIeeDocumentEx
+
+: ME_479731C50290_ME_4952693000EA
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_479731C50290_ME_4952693000EA Cleanup
+
+: ME_47D1602000C6_ME_4952693000EA
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_47D1602000C6_ME_4952693000EA Create
+
+: ME_482BFA340236_ME_4952693000EA
+ CONST UID '482BFA340236'
+ CONST Name 'ParaChange'
+ : Original WL 'ME_482BFA340236' '4829D7D50156.pas.ms.script' // ParaChange
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_482BFA340236_ME_4952693000EA ParaChange
+
+: ME_482BFB0A00E0_ME_4952693000EA
+ CONST UID '482BFB0A00E0'
+ CONST Name 'MakeTextSource'
+ : Original WL 'ME_482BFB0A00E0' '4829D7D50156.pas.ms.script' // MakeTextSource
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_482BFB0A00E0_ME_4952693000EA MakeTextSource
+
+: ME_482BFBEE00D5_ME_4952693000EA
+ CONST UID '482BFBEE00D5'
+ CONST Name 'AllowDrawDocumentEdge'
+ : Original WL 'ME_482BFBEE00D5' '4829D7D50156.pas.ms.script' // AllowDrawDocumentEdge
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_482BFBEE00D5_ME_4952693000EA AllowDrawDocumentEdge
+
+: ME_482BFCAE0072_ME_4952693000EA
+ CONST UID '482BFCAE0072'
+ CONST Name 'WantTab'
+ : Original WL 'ME_482BFCAE0072' '4829D7D50156.pas.ms.script' // WantTab
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_482BFCAE0072_ME_4952693000EA WantTab
+
+: ME_48BFA1300211_ME_4952693000EA
+ CONST UID '48BFA1300211'
+ CONST Name 'DoDoDragOver'
+ : Original WL 'ME_48BFA1300211' '467BA8C8017E.pas.ms.script' // DoDoDragOver
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_48BFA1300211_ME_4952693000EA DoDoDragOver
+
+: ME_48BFB42C002A_ME_4952693000EA
+ CONST UID '48BFB42C002A'
+ CONST Name 'DoGetAcceptableFormats'
+ : Original WL 'ME_48BFB42C002A' '467BA8C8017E.pas.ms.script' // DoGetAcceptableFormats
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_48BFB42C002A_ME_4952693000EA DoGetAcceptableFormats
+
+: ME_48BFB6D800B3_ME_4952693000EA
+ CONST UID '48BFB6D800B3'
+ CONST Name 'DoDoDrop'
+ : Original WL 'ME_48BFB6D800B3' '467BA8C8017E.pas.ms.script' // DoDoDrop
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_48BFB6D800B3_ME_4952693000EA DoDoDrop
+
+: ME_48C7C4990287_ME_4952693000EA
+ CONST UID '48C7C4990287'
+ CONST Name 'COMQueryInterface'
+ : Original WL 'ME_48C7C4990287' '467BA8C8017E.pas.ms.script' // COMQueryInterface
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_48C7C4990287_ME_4952693000EA COMQueryInterface
+
+: ME_4E7896270076_ME_4952693000EA
+ CONST UID '4E7896270076'
+ CONST Name 'MouseUp'
+ : Original WL 'ME_4E7896270076' '4799D29F033F.pas.ms.script' // MouseUp
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_4E7896270076_ME_4952693000EA MouseUp
+
+: ME_4F884378016A_ME_4952693000EA
+ CONST UID '4F884378016A'
+ CONST Name 'Notification'
+ : Original WL 'ME_4F884378016A' '4AB0997B00A2.pas.ms.script' // Notification
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_4F884378016A_ME_4952693000EA Notification
+
+: ME_4F88473B03CD_ME_4952693000EA
+ CONST UID '4F88473B03CD'
+ CONST Name 'MouseDown'
+ : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_4F88473B03CD_ME_4952693000EA MouseDown
+
+: ME_54C0FC1000D3_ME_4952693000EA
+ CONST UID '54C0FC1000D3'
+ CONST Name 'TextSource'
+ : Original WL 'ME_54C0FC1000D3' '4829D7D50156.pas.ms.script' // TextSource
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "pm" true
+ref; // ME_54C0FC1000D3_ME_4952693000EA TextSource
+
+: ME_54C0FCF701F6_ME_4952693000EA
+ CONST UID '54C0FCF701F6'
+ CONST Name 'DoHitTest'
+ : Original WL 'ME_54C0FCF701F6' '4829D7D50156.pas.ms.script' // DoHitTest
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C0FCF701F6_ME_4952693000EA DoHitTest
+
+: ME_54C0FF240304_ME_4952693000EA
+ CONST UID '54C0FF240304'
+ CONST Name 'TextGetTarget'
+ : Original WL 'ME_54C0FF240304' '4829D7D50156.pas.ms.script' // TextGetTarget
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "ifndef" 'NoVCM'
+ref; // ME_54C0FF240304_ME_4952693000EA TextGetTarget
+
+: ME_54C0FF7C0012_ME_4952693000EA
+ CONST UID '54C0FF7C0012'
+ CONST Name 'InTable'
+ : Original WL 'ME_54C0FF7C0012' '4829D7D50156.pas.ms.script' // InTable
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C0FF7C0012_ME_4952693000EA InTable
+
+: ME_54C0FFEF0266_ME_4952693000EA
+ CONST UID '54C0FFEF0266'
+ CONST Name 'IsReadOnlyTarget'
+ : Original WL 'ME_54C0FFEF0266' '4829D7D50156.pas.ms.script' // IsReadOnlyTarget
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C0FFEF0266_ME_4952693000EA IsReadOnlyTarget
+
+: ME_54C1012501EA_ME_4952693000EA
+ CONST UID '54C1012501EA'
+ CONST Name 'CheckMouseUp'
+ : Original WL 'ME_54C1012501EA' '4829D7D50156.pas.ms.script' // CheckMouseUp
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C1012501EA_ME_4952693000EA CheckMouseUp
+
+: ME_54C101DD01C5_ME_4952693000EA
+ CONST UID '54C101DD01C5'
+ CONST Name 'ScrollInfoChange'
+ : Original WL 'ME_54C101DD01C5' '4829D7D50156.pas.ms.script' // ScrollInfoChange
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C101DD01C5_ME_4952693000EA ScrollInfoChange
+
+: ME_54C1028A038A_ME_4952693000EA
+ CONST UID '54C1028A038A'
+ CONST Name 'DoBreakPara'
+ : Original WL 'ME_54C1028A038A' '4829D7D50156.pas.ms.script' // DoBreakPara
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C1028A038A_ME_4952693000EA DoBreakPara
+
+: ME_54C1033D03DF_ME_4952693000EA
+ CONST UID '54C1033D03DF'
+ CONST Name 'HandledReadOnly'
+ : Original WL 'ME_54C1033D03DF' '4829D7D50156.pas.ms.script' // HandledReadOnly
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C1033D03DF_ME_4952693000EA HandledReadOnly
+
+: ME_54C1051E0360_ME_4952693000EA
+ CONST UID '54C1051E0360'
+ CONST Name 'CanCut'
+ : Original WL 'ME_54C1051E0360' '4829D7D50156.pas.ms.script' // CanCut
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ CONST "ifndef" 'NoVCM'
+ref; // ME_54C1051E0360_ME_4952693000EA CanCut
+
+: ME_54C108A40224_ME_4952693000EA
+ CONST UID '54C108A40224'
+ CONST Name 'VScrollWidth'
+ : Original WL 'ME_54C108A40224' '4829D7D50156.pas.ms.script' // VScrollWidth
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C108A40224_ME_4952693000EA VScrollWidth
+
+: ME_54C10AFF0075_ME_4952693000EA
+ CONST UID '54C10AFF0075'
+ CONST Name 'InsertPageBreak'
+ : Original WL 'ME_54C10AFF0075' '4829D7D50156.pas.ms.script' // InsertPageBreak
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C10AFF0075_ME_4952693000EA InsertPageBreak
+
+: ME_54C10BEA0345_ME_4952693000EA
+ CONST UID '54C10BEA0345'
+ CONST Name 'DecIndent'
+ : Original WL 'ME_54C10BEA0345' '4829D7D50156.pas.ms.script' // DecIndent
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C10BEA0345_ME_4952693000EA DecIndent
+
+: ME_54C10BFE0098_ME_4952693000EA
+ CONST UID '54C10BFE0098'
+ CONST Name 'IncIndent'
+ : Original WL 'ME_54C10BFE0098' '4829D7D50156.pas.ms.script' // IncIndent
+ ;
+ : Implementor ME_4952693000EA // TeeEditorExport
+ ;
+ref; // ME_54C10BFE0098_ME_4952693000EA IncIndent
+
+: ME_4952693000EA
+ CONST UID '4952693000EA'
+ CONST Name 'TeeEditorExport'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Inherits
+   @ ( ME_4B877FE00340 // TeeEditorExportModelPart
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_49523C96004A' '49523C640160.pas.ms.script' // IeeDocumentEx
+ WL 'ME_4A8C065802BD' '47F088300159.pas.ms.script' // IevF1LikeEditor
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_54C0F6E701DB // VScrollBar
+ ME_54C0F71400F4 // f_PrevScrollPos
+ ME_54C0F75B02F8 // f_PrevScrollPart
+ ME_54C0F77502EE // f_PrevPart
+ ME_54C0F7B3028C // NeedDrawDocumentEdge
+ ME_54C0F86F0286 // OnMouseAction
+ ME_54C0F8A70310 // OnVScroll
+ ME_54C0F9190088 // OnUserCommentsHidden
+ ME_2D6F8AF04038 // f_VScrollBar
+ ME_2A1A24EFA05D // f_NeedDrawDocumentEdge
+ ME_EDF7920B7E46 // f_OnMouseAction
+ ME_1BEA2569CB68 // f_OnVScroll
+ ME_D7041A351942 // f_OnUserCommentsHidden
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_54C0FD320345 // DontBreakInAACMode
+ ME_54C0FE7902BD // SaveTo
+ ME_54C100260224 // InUserComment
+ ME_54C106630180 // CanInsertParaOnMove
+ ME_54C106AB020C // IsInReadOnlyPara
+ ME_54C10A9901CD // GetBlockByCursor
+ ME_54C10B750137 // InsertUserComment
+ ME_54C10B810344 // GetNearestSubByCursor
+ ME_54C10B9F01AE // GetNearestBlockByCursor
+ ME_54C10C4B034D // RaiseUserCommentsHidden
+ ME_54C10EA7019B // MB2eeMB
+ ME_6DD677A56EEF // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_54872A3C0371_ME_4952693000EA // DocumentPart
+ ME_54872A520084_ME_4952693000EA // DocumentPartEx
+ ME_54872A8901AE_ME_4952693000EA // Sub
+ ME_54872AA70157_ME_4952693000EA // SubEx
+ ME_54872B13014E_ME_4952693000EA // Selection
+ ME_54872B4900D7_ME_4952693000EA // EntryPoint
+ ME_54872BB40123_ME_4952693000EA // Processor
+ ME_54872BBC00B3_ME_4952693000EA // NewSub
+ ME_54872BE102BF_ME_4952693000EA // NewSubEx
+ ME_54C0D31200D7_ME_4952693000EA // AsIeeDocumentEx
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_4952693000EA // Cleanup
+ ME_47D1602000C6_ME_4952693000EA // Create
+ ME_482BFA340236_ME_4952693000EA // ParaChange
+ ME_482BFB0A00E0_ME_4952693000EA // MakeTextSource
+ ME_482BFBEE00D5_ME_4952693000EA // AllowDrawDocumentEdge
+ ME_482BFCAE0072_ME_4952693000EA // WantTab
+ ME_48BFA1300211_ME_4952693000EA // DoDoDragOver
+ ME_48BFB42C002A_ME_4952693000EA // DoGetAcceptableFormats
+ ME_48BFB6D800B3_ME_4952693000EA // DoDoDrop
+ ME_48C7C4990287_ME_4952693000EA // COMQueryInterface
+ ME_4E7896270076_ME_4952693000EA // MouseUp
+ ME_4F884378016A_ME_4952693000EA // Notification
+ ME_4F88473B03CD_ME_4952693000EA // MouseDown
+ ME_54C0FC1000D3_ME_4952693000EA // TextSource
+ ME_54C0FCF701F6_ME_4952693000EA // DoHitTest
+ ME_54C0FF240304_ME_4952693000EA // TextGetTarget
+ ME_54C0FF7C0012_ME_4952693000EA // InTable
+ ME_54C0FFEF0266_ME_4952693000EA // IsReadOnlyTarget
+ ME_54C1012501EA_ME_4952693000EA // CheckMouseUp
+ ME_54C101DD01C5_ME_4952693000EA // ScrollInfoChange
+ ME_54C1028A038A_ME_4952693000EA // DoBreakPara
+ ME_54C1033D03DF_ME_4952693000EA // HandledReadOnly
+ ME_54C1051E0360_ME_4952693000EA // CanCut
+ ME_54C108A40224_ME_4952693000EA // VScrollWidth
+ ME_54C10AFF0075_ME_4952693000EA // InsertPageBreak
+ ME_54C10BEA0345_ME_4952693000EA // DecIndent
+ ME_54C10BFE0098_ME_4952693000EA // IncIndent
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_54C0F81701B1 // TeeMouseActionEvent
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_54C13BB40230 // 
+ ME_54C13CB102D6 // 
+ ME_54C13CB60218 // 
+ ME_54C13CB90054 // 
+ ME_54C13CBB0013 // 
+ ME_54C13CBC031C // 
+ ME_54C13CBE02BB // 
+ ME_54C13CF5018E // 
+ ME_54C13D4100D2 // 
+ ME_54C13EB303E5 // 
+ ME_54C13F150296 // 
+ ME_54C13F360053 // 
+ ME_54C13F550007 // 
+ ME_54C13F6E0062 // 
+ ME_54C1400B0088 // 
+ ME_54C1400E0136 // 
+ ME_54C140100192 // 
+ ME_54C14012015C // 
+ ME_54C1401400EA // 
+ ME_54C1401600B4 // 
+ ME_54C1401801F6 // 
+ ME_54C145B2016A // 
+ ME_76082C21453C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeEditorExport.pas'
+
+ref; // ME_4952693000EA TeeEditorExport
+
+FORWARD ME_4AC5D3DB0371
+
+FORWARD ME_54C26D790097
+
+: ME_0A8B701A3C85
+ CONST UID '0A8B701A3C85'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeCustomMemo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54C26D790097 // TeeCustomMemo
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_0A8B701A3C85 Ini_Reg_Class
+
+: ME_81A36744A220
+ CONST UID '81A36744A220'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54C26D790097 // TeeCustomMemo
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_81A36744A220 
+
+: ME_47D1602000C6_ME_54C26D790097
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_54C26D790097 // TeeCustomMemo
+ ;
+ref; // ME_47D1602000C6_ME_54C26D790097 Create
+
+: ME_54C26D790097
+ CONST UID '54C26D790097'
+ CONST Name 'TeeCustomMemo'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC5D3DB0371 // TeeMemo
+ ;
+ : Inherits
+   @ ( WL 'ME_4829D81D02E5' '4829D7D50156.pas.ms.script' // TevCustomMemo
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_0A8B701A3C85 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47D1602000C6_ME_54C26D790097 // Create
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_81A36744A220 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_54C26D790097 TeeCustomMemo
+
+: ME_54C27E9C0222
+ CONST UID '54C27E9C0222'
+ CONST Name 'TBevelKind'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC5D3DB0371 // TeeMemo
+ ;
+ : Inherits
+   @ ( WL 'ME_54C27E8C0136' '4799D29F033F.pas.ms.script' // TBevelKind
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_54C27E9C0222 TBevelKind
+
+: ME_4CB30ACFA0A1
+ CONST UID '4CB30ACFA0A1'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeMemo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AC5D3DB0371 // TeeMemo
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_4CB30ACFA0A1 Ini_Reg_Class
+
+: ME_FF4A386FA919
+ CONST UID 'FF4A386FA919'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AC5D3DB0371 // TeeMemo
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_FF4A386FA919 
+
+: ME_4AC5D3DB0371
+ CONST UID '4AC5D3DB0371'
+ CONST Name 'TeeMemo'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Inherits
+   @ ( ME_54C26D790097 // TeeCustomMemo
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4CB30ACFA0A1 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_54C26D790097 // TeeCustomMemo
+ ME_54C27E9C0222 // TBevelKind
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_FF4A386FA919 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeMemo.pas'
+
+ref; // ME_4AC5D3DB0371 TeeMemo
+
+FORWARD ME_4AC5D35601BB
+
+: ME_54C2765801AA
+ CONST UID '54C2765801AA'
+ CONST Name 'TeeCustomMemo'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC5D35601BB // eeCustomMemo
+ ;
+ : Inherits
+   @ ( ME_54C26D790097 // TeeCustomMemo
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_54C2765801AA TeeCustomMemo
+
+: ME_4AC5D35601BB
+ CONST UID '4AC5D35601BB'
+ CONST Name 'eeCustomMemo'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Children
+   @ ( ME_54C2765801AA // TeeCustomMemo
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCustomMemo.pas'
+
+ref; // ME_4AC5D35601BB eeCustomMemo
+
+FORWARD ME_4AC5D3380185
+
+: ME_F3A28F71F336
+ CONST UID 'F3A28F71F336'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeMemoWithEditOperations' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AC5D3380185 // TeeMemoWithEditOperations
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_F3A28F71F336 Ini_Reg_Class
+
+: ME_D6F86E88C977
+ CONST UID 'D6F86E88C977'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AC5D3380185 // TeeMemoWithEditOperations
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_D6F86E88C977 
+
+: ME_48735C4A03C3_ME_4AC5D3380185
+ CONST UID '48735C4A03C3'
+ CONST Name 'DefineProvideOperations'
+ : Original WL 'ME_48735C4A03C3' '4829D7D50156.pas.ms.script' // DefineProvideOperations
+ ;
+ : Implementor ME_4AC5D3380185 // TeeMemoWithEditOperations
+ ;
+ref; // ME_48735C4A03C3_ME_4AC5D3380185 DefineProvideOperations
+
+: ME_4AC5D3380185
+ CONST UID '4AC5D3380185'
+ CONST Name 'TeeMemoWithEditOperations'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Inherits
+   @ ( ME_4AC5D3DB0371 // TeeMemo
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_F3A28F71F336 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_48735C4A03C3_ME_4AC5D3380185 // DefineProvideOperations
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_D6F86E88C977 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeMemoWithEditOperations.pas'
+
+ref; // ME_4AC5D3380185 TeeMemoWithEditOperations
+
+FORWARD ME_495268900201
+
+FORWARD ME_4952687202A0
+
+: ME_54C231250045
+ CONST UID '54C231250045'
+ CONST Name 'Editor'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4952687202A0 // TeeCustomEditor
+ ;
+ : Target WL 'ME_4A8C09B70219' '4912DD020283.pas.ms.script' // IeeEditor
+ ;
+ CONST "pm" true
+
+ref; // ME_54C231250045 Editor
+
+: ME_F3978E67AB0C
+ CONST UID 'F3978E67AB0C'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeCustomEditor' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4952687202A0 // TeeCustomEditor
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_F3978E67AB0C Ini_Reg_Class
+
+: ME_08C7B9B4DE16
+ CONST UID '08C7B9B4DE16'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4952687202A0 // TeeCustomEditor
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_08C7B9B4DE16 
+
+: ME_47D1602000C6_ME_4952687202A0
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_4952687202A0 // TeeCustomEditor
+ ;
+ref; // ME_47D1602000C6_ME_4952687202A0 Create
+
+: ME_4952687202A0
+ CONST UID '4952687202A0'
+ CONST Name 'TeeCustomEditor'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_495268900201 // TeeEditor
+ ;
+ : Inherits
+   @ ( ME_4952693000EA // TeeEditorExport
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_54C231250045 // Editor
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_F3978E67AB0C // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47D1602000C6_ME_4952687202A0 // Create
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_08C7B9B4DE16 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4952687202A0 TeeCustomEditor
+
+: ME_70607F6F6EFA
+ CONST UID '70607F6F6EFA'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeEditor' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_495268900201 // TeeEditor
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_70607F6F6EFA Ini_Reg_Class
+
+: ME_B048533C08DA
+ CONST UID 'B048533C08DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_495268900201 // TeeEditor
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_B048533C08DA 
+
+: ME_495268900201
+ CONST UID '495268900201'
+ CONST Name 'TeeEditor'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Inherits
+   @ ( ME_4952687202A0 // TeeCustomEditor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_70607F6F6EFA // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4952687202A0 // TeeCustomEditor
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_B048533C08DA // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeEditor.pas'
+
+ref; // ME_495268900201 TeeEditor
+
+FORWARD ME_4CFFD97801C0
+
+FORWARD ME_4CFFD98700DD
+
+: ME_89CB7C1DA2DF
+ CONST UID '89CB7C1DA2DF'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeCustomPreviewPanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CFFD98700DD // TeeCustomPreviewPanel
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_89CB7C1DA2DF Ini_Reg_Class
+
+: ME_99D16B71B5FB
+ CONST UID '99D16B71B5FB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CFFD98700DD // TeeCustomPreviewPanel
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_99D16B71B5FB 
+
+: ME_4CFFD98700DD
+ CONST UID '4CFFD98700DD'
+ CONST Name 'TeeCustomPreviewPanel'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CFFD97801C0 // TeePreviewPanel
+ ;
+ : Inherits
+   @ ( WL 'ME_4C2238D10107' '4A7960CC03A4.pas.ms.script' // TvtCustomPreviewPanel
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_89CB7C1DA2DF // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_99D16B71B5FB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4CFFD98700DD TeeCustomPreviewPanel
+
+: ME_4CFFD97801C0
+ CONST UID '4CFFD97801C0'
+ CONST Name 'TeePreviewPanel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Children
+   @ ( ME_4CFFD98700DD // TeeCustomPreviewPanel
+ ) .SequenceCode.It
+ ; // Children
+ CONST "base wnd class" 'CWnd'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eePreviewPanel.pas'
+
+ref; // ME_4CFFD97801C0 TeePreviewPanel
+
+FORWARD ME_54C24DE1010C
+
+: ME_54C27689016C
+ CONST UID '54C27689016C'
+ CONST Name 'TeeCustomEditor'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54C24DE1010C // eeCustomEditor
+ ;
+ : Inherits
+   @ ( ME_4952687202A0 // TeeCustomEditor
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_54C27689016C TeeCustomEditor
+
+: ME_54C24DE1010C
+ CONST UID '54C24DE1010C'
+ CONST Name 'eeCustomEditor'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Children
+   @ ( ME_54C27689016C // TeeCustomEditor
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCustomEditor.pas'
+
+ref; // ME_54C24DE1010C eeCustomEditor
+
+FORWARD ME_4CFFD8F603A0
+
+: ME_81DBA3D84CAE
+ CONST UID '81DBA3D84CAE'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TeeEditorWithoutOperations' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CFFD8F603A0 // TeeEditorWithoutOperations
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_81DBA3D84CAE Ini_Reg_Class
+
+: ME_96E819CDDF54
+ CONST UID '96E819CDDF54'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CFFD8F603A0 // TeeEditorWithoutOperations
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_96E819CDDF54 
+
+: ME_48735C4A03C3_ME_4CFFD8F603A0
+ CONST UID '48735C4A03C3'
+ CONST Name 'DefineProvideOperations'
+ : Original WL 'ME_48735C4A03C3' '4829D7D50156.pas.ms.script' // DefineProvideOperations
+ ;
+ : Implementor ME_4CFFD8F603A0 // TeeEditorWithoutOperations
+ ;
+ref; // ME_48735C4A03C3_ME_4CFFD8F603A0 DefineProvideOperations
+
+: ME_4CFFD8F603A0
+ CONST UID '4CFFD8F603A0'
+ CONST Name 'TeeEditorWithoutOperations'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4952683C007B // Editor
+ ;
+ : Inherits
+   @ ( ME_495268900201 // TeeEditor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_81DBA3D84CAE // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_48735C4A03C3_ME_4CFFD8F603A0 // DefineProvideOperations
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_96E819CDDF54 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeEditorWithoutOperations.pas'
+
+ref; // ME_4CFFD8F603A0 TeeEditorWithoutOperations
+
+: ME_4952683C007B
+ CONST UID '4952683C007B'
+ CONST Name 'Editor'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
+ ;
+ : Children
+   @ ( ME_4B877FE00340 // TeeEditorExportModelPart
+ ME_4952693000EA // TeeEditorExport
+ ME_4AC5D3DB0371 // TeeMemo
+ ME_4AC5D35601BB // eeCustomMemo
+ ME_4AC5D3380185 // TeeMemoWithEditOperations
+ ME_495268900201 // TeeEditor
+ ME_4CFFD97801C0 // TeePreviewPanel
+ ME_54C24DE1010C // eeCustomEditor
+ ME_4CFFD8F603A0 // TeeEditorWithoutOperations
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
+ WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
+ WL 'ME_47542EA70394' '47542EA70394.pas.ms.script' // eeTextSource
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47C52679006D' '47C52679006D.pas.ms.script' // nevUtils
+ WL 'ME_47C695A10172' '47C695A10172.pas.ms.script' // evTypes
+ WL 'ME_47ECAB0B0265' '47ECAB0B0265.pas.ms.script' // evMsgCode
+ WL 'ME_47ECB04A01F8' '47ECB04A01F8.pas.ms.script' // Processors
+ WL 'ME_47F088300159' '47F088300159.pas.ms.script' // evInternalInterfaces
+ WL 'ME_47F1F38601A3' '47F1F38601A3.pas.ms.script' // ParaUtils
+ WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4912DD020283' '4912DD020283.pas.ms.script' // eeInterfaces
+ WL 'ME_4912E16B01B4' '4912E16B01B4.pas.ms.script' // Engine Core
+ WL 'ME_49523C640160' '49523C640160.pas.ms.script' // eeInterfacesEx
+ WL 'ME_4A1FCBA0014C' '4A1FCBA0014C.pas.ms.script' // nevGUIInterfaces
+ WL 'ME_4A251D6E00BD' '4A251D6E00BD.pas.ms.script' // nevNavigation
+ WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_50220AA101CA' '50220AA101CA.pas.ms.script' // Scrollbar
+ WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_54C13B1601FD' '54C13B1601FD.pas.ms.script' // eeExceptions
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4952683C007B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4952683C007B.pas.ms.script.runner'
+
+ref; // ME_4952683C007B Editor

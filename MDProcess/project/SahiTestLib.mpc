@@ -1,0 +1,58 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/SahiTestLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::SahiTestLib
+//
+// библиотека, контролирующая выполнение тестов sahi в рамках фреймворка тестирования ночных сборок
+// и передачу результатов тестов серверу запуска тестов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (SahiTestLib) : project_generic_core_corba {
+	sharedname = SahiTestLib
+	staticname = SahiTestLib
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../
+
+	after += FilePublishLib
+	libs  += FilePublishLib
+
+	Header_Files {
+		Std_Headers {
+			./../SahiTestLib/LibHome.h
+		}
+	
+		TestPerformer {
+			./../SahiTestLib/SahiSettings.h
+			./../SahiTestLib/TestExecutor.h
+			./../SahiTestLib/TestPlaceSettings.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		TestPerformer {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../SahiTestLib/LibHome.cpp
+		}
+	
+		TestPerformer {
+			./../SahiTestLib/SahiSettings.cpp
+			./../SahiTestLib/TestExecutor.cpp
+			./../SahiTestLib/TestPlaceSettings.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

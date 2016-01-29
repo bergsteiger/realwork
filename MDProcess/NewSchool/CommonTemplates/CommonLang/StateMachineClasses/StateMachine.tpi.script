@@ -1,0 +1,2109 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/StateMachineClasses/StateMachine.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::StateMachineClasses::StateMachine
+//
+// Машина состояний
+// ---
+// Машина состояний представляет собой конечный автомат, состоящий из множества состояний,
+// соединенных между собой переходами.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: StateMachine::Class
+implementation @ <<StateMachine>>
+//? Машина состояний
+//? Машина состояний представляет собой конечный автомат, состоящий из множества состояний, соединенных между собой переходами.
+//> TransitionEvent::Class
+//> State::Class
+
+//= WikiImplClass::Class
+//= Java::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_state_machine.gif
+//L code_state_machine
+// Параметры визуализации
+//$ C 248,225,232
+//$ l 249,100,145
+//$ f 249,100,145
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// возвращает пакет реализации, в котором находится описание элемента
+//%f _get_realization_package
+; // st_space_key
+
+: get_realization_package OBJECT IN %S
+//#UC START# *470F3C1A0399for470F3B8B032C*
+//	%f_dump_java_package(%S)
+ [%f] dump_java_package %( %S )% 
+//#UC END# *470F3C1A0399for470F3B8B032C*
+; // get_realization_package
+
+
+// метод поиска базового события - ищет среди всех событий, определенных для машины состояний,
+// событие, у котого свойство "is base" = true, найденный элемент-событие сохраняет в переменной
+// BASE_EVENT, если такого базового элемента не найдено, то все события должны реализовывать фасет
+// события, определённого в фреймворке
+//%f _find_specific_base_event
+: find_specific_base_event OBJECT IN %S
+//#UC START# *475D3363002Bfor470F3B8B032C*
+//	%f_set_var(BASE_EVENT,"")<{}{%f_is_base_event(%C)=true}%f_set_var(BASE_EVENT,C)>
+ [%f] set_var %( 'BASE_EVENT' %, '' )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_base_event %( %C )% ) %==  true ) then
+  begin
+   [%f] set_var %( 'BASE_EVENT' %, 'C' )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *475D3363002Bfor470F3B8B032C*
+; // find_specific_base_event
+
+
+// метод поиска базового состояния - ищет среди всех состояний определенных для машины состояний,
+// состояние, у которого свойство "is base" = true, найденный элемент-состояние сохраняет в
+// переменной BASE_STATE, если такого базового элемента не найдено, то все состояниz должны
+// наследоваться от базового состояние события, определённого в фреймворке.
+//%f _find_specific_base_state
+: find_specific_base_state OBJECT IN %S
+//#UC START# *475F8D2C03D3for470F3B8B032C*
+//	%f_set_var(BASE_STATE,"")<{}{%CM=State::Class&%C{is base}=true}%f_set_var(BASE_STATE,C)>
+ [%f] set_var %( 'BASE_STATE' %, '' )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'State::Class' AND 
+   ( ( %C get_up ( 'is base' ) ) %==  true  ) ) then
+  begin
+   [%f] set_var %( 'BASE_STATE' %, 'C' )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *475F8D2C03D3for470F3B8B032C*
+; // find_specific_base_state
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F3B8B032C*
+//c                                                                                 {}
+//r {<{}{%SM!=%GM}{%GC}>!=0}:                                                       {%SS может наследоваться только от %SS}
+//r {%f_number_cmp("<{}{%SM=%GM}{%GC}>","1","\>")=1}:                               {Множественное наследование запрещено}
+//r {<{}{%AC=State&"%f_check_event(%A)"!=""}{%AC}>!=0}:                             {Can't use the same event in many transitions from one source state(<{, }{%AC=State&"%f_check_event(%A)"!=""}{%A}\[%f_check_event(%A)\]>)}
+//r {<{}{%AC=State&"%f_check_guard(%A)"!=""}{%AC}>!=0}:                             {Can't use the guard event in many transitions from one source state(<{, }{%AC=State&"%f_check_guard(%A)"!=""}{%A}\[%f_check_guard(%A)\]>)}
+//r {"%f_check_state(%S)"!=""}:                                                     {Only one initial state permited (%f_check_state(%S))}
+//r {<{}{%AC=State&%AK=Initial}{%AC}>=0}:                                            {State machine must have initial state}
+//r {<{}{%AC=State&%AK=Final}{%AC}>=0}:                                              {State machine must have final state}
+//r {"%f_check_event_correspondence1(%S)"!=""}:                                     {This events not corresponding with events on state diagram: %f_check_event_correspondence1(%S)}
+//r {"%f_check_correspondence_state(%S)"!=""}:                                      {This states not corresponding with states on state diagram: %f_check_correspondence_state(%S)}
+//r {"%f_check_event_correspondence2(%S)"!=""}:                                    {This events on state diagram not corresponding with event Class: %f_check_event_correspondence2(%S)}
+//r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}:               {%SS ни кем (включая прецеденты) не используется}
+//r {%f_number_cmp("<{}{%CM=TransitionEvent::Class&%C{is base}=true}{%CC}>","1","\>")=1}:     {%SS может содержать только одно базовое событие}
+//r {%f_sm_has_base_state(%S)=true&<{}{%f_sm_has_base_state(%g)=true}{%gC}>!=0}:    {%SS не может определять собственное базовое состояние, т.к оно уже определено в базовой машине состояний}
+//r {%f_sm_has_base_event(%S)=true&<{}{%f_sm_has_base_event(%g)=true}{%gC}>!=0}:    {%SS не может определять собственное базовое событие, т.к оно уже определено в базовой машине состояний}
+
+//f _sm_has_base_state
+; // constraint
+
+end. // <<StateMachine>>
+
+: sm_has_base_state OBJECT IN %S
+//	[{<{}{%AM=State::Class&%A{is base}=true}{%AC}>=0}{true}false]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'State::Class' AND 
+    ( ( %A get_up ( 'is base' ) ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %== 0 ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+
+//f _sm_has_base_event
+; // sm_has_base_state
+
+: sm_has_base_event OBJECT IN %S
+//	[{<{}{%AM=TransitionEvent::Class&%A{is base}=true}{%AC}>=0}{true}false]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'TransitionEvent::Class' AND 
+    ( ( %A get_up ( 'is base' ) ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %== 0 ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+//#UC END# *4704C0E30186for470F3B8B032C*
+; // sm_has_base_event
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+implementation @ <<StateMachine>>
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F3B8B032C*
+//O %SNImpl.java
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	%f_set_var(SERV,S)\
+ [%f] set_var %( 'SERV' %, 'S' )% 
+//	package %f_dump_java_package_ex(%S);
+ 'package '
+ [%f] dump_java_package_ex %( %S )% ';'
+//	
+//	import java.util.Arrays;
+ 'import java.util.Arrays;'
+//	import ru.garant.shared.FSM.BaseEvent;
+ 'import ru.garant.shared.FSM.BaseEvent;'
+//	import ru.garant.shared.FSM.BaseStateMachine;
+ 'import ru.garant.shared.FSM.BaseStateMachine;'
+//	import ru.garant.shared.FSM.BaseState.AccessibleData;
+ 'import ru.garant.shared.FSM.BaseState.AccessibleData;'
+//	import ru.garant.shared.FSM.IContext;
+ 'import ru.garant.shared.FSM.IContext;'
+//	
+//	%f_clear_list(EVENT_LIST)<{}{%AM=TransitionEvent::Class&"%AN"!=""}[{%f_exists_in_list(EVENT_LIST,"%AN")=false}%f_add_to_list(EVENT_LIST,"%AN")\
+//	import %f_type(%A);
+//	]>
+//	
+//	public class %SNImpl
+ 'public class '
+ %S |N 'Impl'
+//		extends [{}{BaseStateMachine}<{, }{}%f_type(%G)Impl>]
+ '	extends '
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %G )% 'Impl' 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+ else
+ begin
+  'BaseStateMachine' 
+ end // else
+//		implements %f_with_gen_id(java,%f_type(%S))
+ '	implements '
+ [%f] with_gen_id %( 'java' %, [%f] type %( %S )% )% 
+//	{
+ '{'
+//		//callback-interface
+ '	//callback-interface'
+//		public interface %SNComm extends [{}{IContext}<{, }{}%f_type(%G)Impl.%GNComm>] {[
+ '	public interface '
+ %S |N 'Comm extends '
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %G )% 'Impl.'
+    %G |N 'Comm' 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+ else
+ begin
+  'IContext' 
+ end // else
+ ' {'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	[		//State actions
+  if NOT-EMPTY
+  begin
+   '		//State actions'
+//	<{}{%AC=State}%f_clear_list(ACTION_LIST)%A<{}{%CC=Action&%f_is_override_state_action(%C,%{SERV})=false}[{%f_exists_in_list(ACTION_LIST,"%CN")=false}%f_add_to_list(ACTION_LIST,"%CN")
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |C ) %== 'State' ) then
+    begin
+     [%f] clear_list %( 'ACTION_LIST' )% %A
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |C ) %== 'Action' AND 
+        ( ( [%f] is_override_state_action %( %C %, ( get_global_var ( 'SERV' ) ) )% ) %==  false  ) ) then
+       begin
+        if ( ( [%f] exists_in_list %( 'ACTION_LIST' %, %C |N )% ) %==  false ) then
+        begin
+         [%f] add_to_list %( 'ACTION_LIST' %, %C |N )% 
+//			public void %f_to_java(post_%f_to_omg(%C%PN)_%CN) (final BaseEvent event);
+         '		public void '
+         [%f] to_java %( 'post_'
+         [%f] to_omg %( %C ->P |N  )% '_'
+         %C |N )% ' (final BaseEvent event);'
+//	]>>%f_clear_list(ACTION_LIST)
+        end // if
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for A
+   [%f] clear_list %( 'ACTION_LIST' )% 
+//	][		//validation states methods and preEnter/preExit actions
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   '		//validation states methods and preEnter/preExit actions'
+//	<{}{%AC=State&%f_is_override_state(%A,%{SERV})=false}
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |C ) %== 'State' AND 
+     ( ( [%f] is_override_state %( %A %, ( get_global_var ( 'SERV' ) ) )% ) %==  false  ) ) then
+    begin
+     #13#10
+
+//			public void validate%AN () throws ru.garant.shared.FSM.ValidationFailed;
+     '		public void validate'
+     %A |N ' () throws ru.garant.shared.FSM.ValidationFailed;'
+//			
+     '		'
+//			public void preEnterAction%AN (final BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed;
+     '		public void preEnterAction'
+     %A |N ' (final BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed;'
+//			
+     '		'
+//			public void preExitAction%AN (final BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed;
+     '		public void preExitAction'
+     %A |N ' (final BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed;'
+//	>
+
+     ++! l_Counter
+    end // if
+   end // for A
+//	]]
+  end // if
+  NOP
+ end // if
+ NOP
+//		}
+ '	}'
+//	
+//		public %SNImpl (%SNComm comm) {
+ '	public '
+ %S |N 'Impl ('
+ %S |N 'Comm comm) {'
+//			[{%f_is_inherit_sm(%S)=false}{super (comm);}this.registerComm (comm);]
+ '		'
+ if ( ( [%f] is_inherit_sm %( %S )% ) %==  false ) then
+ begin
+  'this.registerComm (comm);' 
+ end // if
+ else
+ begin
+  'super (comm);' 
+ end // else
+//		}
+ '	}'
+//	[{%f_is_inherit_sm(%S)=false}
+ if ( ( [%f] is_inherit_sm %( %S )% ) %==  false ) then
+ begin
+  #13#10
+
+//		public void executeTransitionAction (
+  '	public void executeTransitionAction ('
+//			final String actionId
+  '		final String actionId'
+//			, final BaseEvent event
+  '		, final BaseEvent event'
+//		) {
+  '	) {'
+//			if (getComm () != null) {
+  '		if (getComm () != null) {'
+//				getComm ().executeTransitionAction (actionId, event);
+  '			getComm ().executeTransitionAction (actionId, event);'
+//			}
+  '		}'
+//		}
+  '	}'
+//	
+  #13#10
+
+//		public boolean executeTransitionGuard (final String guradId) {
+  '	public boolean executeTransitionGuard (final String guradId) {'
+//			if (getComm () != null) {
+  '		if (getComm () != null) {'
+//				return comm_.executeTransitionGuard (guradId);
+  '			return comm_.executeTransitionGuard (guradId);'
+//			}
+  '		}'
+//			return false;
+  '		return false;'
+//		}
+  '	}'
+//		
+  '	'
+//		public void executeSave () throws ru.garant.shared.FSM.SaveFailed {
+  '	public void executeSave () throws ru.garant.shared.FSM.SaveFailed {'
+//			if (getComm () != null) {
+  '		if (getComm () != null) {'
+//				getComm ().executeSave ();
+  '			getComm ().executeSave ();'
+//			}
+  '		}'
+//		}
+  '	}'
+//	]
+ end // if
+//		static {<{}{%AC=Transition&"%AS"=""}
+ '	static {'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |C ) %== 'Transition' AND 
+   ( ( %A |S ) %== ''  ) ) then
+  begin
+   #13#10
+
+//			%f_dump_connect(%A)
+   '		'
+   [%f] dump_connect %( %A )% 
+//	><{}{%AC=Transition&"%AS"="combine"}		%f_dump_combine(%A)
+
+   ++! l_Counter
+  end // if
+ end // for A
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |C ) %== 'Transition' AND 
+   ( ( %A |S ) %== 'combine'  ) ) then
+  begin
+   '		'
+   [%f] dump_combine %( %A )% 
+//	>	}
+
+   ++! l_Counter
+  end // if
+ end // for A
+ '	}'
+//		
+ '	'
+//		protected void init () {
+ '	protected void init () {'
+//	<{}{%AC=State&%AK=Initial}
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |C ) %== 'State' AND 
+   ( ( %A |K ) %== 'Initial'  ) ) then
+  begin
+   #13#10
+
+//			this.add (%{SERV}N.%f_to_upper(st_%f_to_omg(%AN)));
+   '		this.add ('
+   ( get_global_var ( 'SERV' ) |N ) '.'
+   [%f] to_upper %( 'st_'
+   [%f] to_omg %( %A |N )% )% ');'
+//	><{}{%AC=State&%AK=Normal}
+
+   ++! l_Counter
+  end // if
+ end // for A
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |C ) %== 'State' AND 
+   ( ( %A |K ) %== 'Normal'  ) ) then
+  begin
+   #13#10
+
+//			this.add (%{SERV}N.%f_to_upper(st_%f_to_omg(%AN)));
+   '		this.add ('
+   ( get_global_var ( 'SERV' ) |N ) '.'
+   [%f] to_upper %( 'st_'
+   [%f] to_omg %( %A |N )% )% ');'
+//	><{}{%AC=State&%AK=Final}
+
+   ++! l_Counter
+  end // if
+ end // for A
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |C ) %== 'State' AND 
+   ( ( %A |K ) %== 'Final'  ) ) then
+  begin
+   #13#10
+
+//			this.add (%{SERV}N.%f_to_upper(st_%f_to_omg(%AN)));
+   '		this.add ('
+   ( get_global_var ( 'SERV' ) |N ) '.'
+   [%f] to_upper %( 'st_'
+   [%f] to_omg %( %A |N )% )% ');'
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for A
+//		}
+ '	}'
+//	
+//	][	//State actions
+ ']'
+ if NOT-EMPTY
+ begin
+  '	//State actions'
+//	<{}{%AC=State}%f_clear_list(ACTION_LIST)%A<{}{%CC=Action&%f_is_override_state_action(%C,%{SERV})=false}[{%f_exists_in_list(ACTION_LIST,"%CN")=false}%f_add_to_list(ACTION_LIST,"%CN")\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |C ) %== 'State' ) then
+   begin
+    [%f] clear_list %( 'ACTION_LIST' )% %A
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C |C ) %== 'Action' AND 
+       ( ( [%f] is_override_state_action %( %C %, ( get_global_var ( 'SERV' ) ) )% ) %==  false  ) ) then
+      begin
+       if ( ( [%f] exists_in_list %( 'ACTION_LIST' %, %C |N )% ) %==  false ) then
+       begin
+        [%f] add_to_list %( 'ACTION_LIST' %, %C |N )% 
+//		public void %f_to_java(post_%f_to_omg(%C%PN)_%CN) (final BaseEvent event) {
+        '	public void '
+        [%f] to_java %( 'post_'
+        [%f] to_omg %( %C ->P |N  )% '_'
+        %C |N )% ' (final BaseEvent event) {'
+//			if (getComm () != null) {
+        '		if (getComm () != null) {'
+//				getComm ().%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+        '			getComm ().'
+        [%f] to_java %( 'post_'
+        [%f] to_omg %( %C ->P |N  )% '_'
+        %C |N )% ' (event);'
+//			}
+        '		}'
+//		}
+        '	}'
+//	]
+       end // if
+//	>>%f_clear_list(ACTION_LIST)][	//validation states methods and preEnter/preExit actions
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for A
+  [%f] clear_list %( 'ACTION_LIST' )% 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	//validation states methods and preEnter/preExit actions'
+//	<{}{%AC=State&%f_is_override_state(%A,%{SERV})=false}	public void validate%AN () throws ru.garant.shared.FSM.ValidationFailed {
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |C ) %== 'State' AND 
+    ( ( [%f] is_override_state %( %A %, ( get_global_var ( 'SERV' ) ) )% ) %==  false  ) ) then
+   begin
+    '	public void validate'
+    %A |N ' () throws ru.garant.shared.FSM.ValidationFailed {'
+//			if (getComm () != null) {
+    '		if (getComm () != null) {'
+//				getComm ().validate%AN ();
+    '			getComm ().validate'
+    %A |N ' ();'
+//			}
+    '		}'
+//		}
+    '	}'
+//		
+    '	'
+//		public void preEnterAction%AN (final BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed {
+    '	public void preEnterAction'
+    %A |N ' (final BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed {'
+//			if (getComm () != null) {
+    '		if (getComm () != null) {'
+//				getComm ().preEnterAction%AN (event);
+    '			getComm ().preEnterAction'
+    %A |N ' (event);'
+//			}
+    '		}'
+//		}
+    '	}'
+//		
+    '	'
+//		public void preExitAction%AN (final BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed {
+    '	public void preExitAction'
+    %A |N ' (final BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed {'
+//			if (getComm () != null) {
+    '		if (getComm () != null) {'
+//				getComm ().preExitAction%AN (event);
+    '			getComm ().preExitAction'
+    %A |N ' (event);'
+//			}
+    '		}'
+//		}
+    '	}'
+//		
+    '	'
+//	>]][{%f_is_inherit_sm(%S)=false}{\
+
+    ++! l_Counter
+   end // if
+  end // for A
+ end // if
+ NOP
+ ']'
+ if ( ( [%f] is_inherit_sm %( %S )% ) %==  false ) then
+ begin
+//		protected %SNComm getComm () {
+  '	protected '
+  %S |N 'Comm getComm () {'
+//			return comm_;
+  '		return comm_;'
+//		}
+  '	}'
+//		
+  '	'
+//		final public void registerComm (%SNComm comm) {
+  '	final public void registerComm ('
+  %S |N 'Comm comm) {'
+//			comm_ = comm;
+  '		comm_ = comm;'
+//		}
+  '	}'
+//	
+  #13#10
+
+//		final public void unregisterComm () {
+  '	final public void unregisterComm () {'
+//			comm_ = null;
+  '		comm_ = null;'
+//		}
+  '	}'
+//	
+  #13#10
+
+//		private %SNComm comm_ = null;]
+  '	private '
+  %S |N 'Comm comm_ = null;' 
+ end // if
+ else
+ begin
+//		protected %SNComm getComm () \{
+  '	protected '
+  %S |N 'Comm getComm () {'
+//			return (%SNComm)super.getComm ();
+  '		return ('
+  %S |N 'Comm)super.getComm ();'
+//		\}}\
+  '	}' 
+ end // else
+//	
+//	} //class %SNImpl
+ '} //class '
+ %S |N 'Impl'
+//	
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//наследует ли машину состояний
+//f _is_inherit_sm
+; // fctr.java
+
+end. // <<StateMachine>>
+
+: is_inherit_sm OBJECT IN %S
+//	[{<{}{%GM=StateMachine::Class}{%GC}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |M ) %== 'StateMachine::Class' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *470321C1038Afor470F3B8B032C*
+; // is_inherit_sm
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+implementation @ <<StateMachine>>
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F3B8B032C*
+//O %SN.java
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_set_var(INT,S)\
+ [%f] set_var %( 'INT' %, 'S' )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	package %f_dump_java_package_ex(%S);
+ 'package '
+ [%f] dump_java_package_ex %( %S )% ';'
+//	[
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%f_java_dump_import_block(%S)][{<{}{%AC=State}>!=0}\
+  [%f] java_dump_import_block %( %S )% 
+ end // if
+ NOP
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |C ) %== 'State' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  %!= 0 ) then
+ begin
+//	import %f_dump_java_package_ex(%S).sm.%SN.*;
+  'import '
+  [%f] dump_java_package_ex %( %S )% '.sm.'
+  %S |N '.*;'
+//	
+  #13#10
+
+//	]
+ end // if
+//	public interface %SN extends [{}{ru.garant.shared.FSM.IStateMachine}<{, }%f_type(%G)>] {[
+ 'public interface '
+ %S |N ' extends '
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+ else
+ begin
+  'ru.garant.shared.FSM.IStateMachine' 
+ end // else
+ ' {'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+
+//генерим элементы-события, определённые как отдельные классы
+//	%S%f_find_specific_base_event()[{"%{BASE_EVENT}U"!=""}%{BASE_EVENT}X
+  %S %f find_specific_base_event %( )% if ( ( ( get_global_var ( 'BASE_EVENT' ) |U ) ) %!= '' ) then
+  begin
+   ( get_global_var ( 'BASE_EVENT' ) |X ) 
+//	
+   #13#10
+
+//	]<{\n\n}{%CM=TransitionEvent::Class&%CU!=%{BASE_EVENT}U}%CX>
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |M ) %== 'TransitionEvent::Class' AND 
+    ( ( %C |U ) %!= ( ( get_global_var ( 'BASE_EVENT' ) |U ) )  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10#13#10 )
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+
+////заполняем список именами Event'ов с диаграммы состояний, для которых нет
+
+////соответствующих классов
+//	%f_clear_list(EVENT_LIST)<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""}[{%f_exists_in_list(EVENT_LIST,"%AN")=false}%f_add_to_list(EVENT_LIST,"%AN")]>>\
+  [%f] clear_list %( 'EVENT_LIST' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |C ) %== 'Transition' AND 
+    ( ( %A |S ) %== ''  ) ) then
+   begin
+    %A
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |C ) %== 'TransitionEvent' AND 
+       ( ( %A |N ) %!= ''  ) ) then
+      begin
+       if ( ( [%f] exists_in_list %( 'EVENT_LIST' %, %A |N )% ) %==  false ) then
+       begin
+        [%f] add_to_list %( 'EVENT_LIST' %, %A |N )% 
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for A
+//	<{}{%AM=TransitionEvent::Class&%Aa!=abstract}%f_remove_from_list(EVENT_LIST,"%AN")>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |M ) %== 'TransitionEvent::Class' AND 
+    ( ( %A |a ) %!= 'abstract'  ) ) then
+   begin
+    [%f] remove_from_list %( 'EVENT_LIST' %, %A |N )% 
+    ++! l_Counter
+   end // if
+  end // for A
+//	[%{EVENT_LIST}<{}{}{%C}{%CSo}\
+  if NOT-EMPTY
+  begin
+   ( get_global_var ( 'EVENT_LIST' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      '{'
+      %C |S 'o}'
+//		static final %CN %f_to_upper(ev_%f_to_omg(%CN)) = new %CN ();
+      '	static final '
+      %C |N ' '
+      [%f] to_upper %( 'ev_'
+      [%f] to_omg %( %C |N )% )% ' = new '
+      %C |N ' ();'
+//	>
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+//	][<{}{%AC=State}{%ASo}\
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Ao
+   begin
+    OBJECT IN %A
+    if ( ( %A |C ) %== 'State' ) then
+    begin
+//		static final %AN %f_to_upper(st_%f_to_omg(%AN)) = %AN.make ();
+     '	static final '
+     %A |N ' '
+     [%f] to_upper %( 'st_'
+     [%f] to_omg %( %A |N )% )% ' = '
+     %A |N '.make ();'
+//	>
+
+     ++! l_Counter
+    end // if
+   end // for A
+//	]<{}{%f_is_empty(EVENT_LIST)=false}{W}%f_pop_last_to_var(EVENT_LIST,EVENT)%f_find_specific_base_event(%{INT},%{EVENT},"BASE_EVENT")\
+  end // if
+  NOP
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'EVENT_LIST' )% ) %==  false ) then
+   begin
+    [%f] pop_last_to_var %( 'EVENT_LIST' %, 'EVENT' )% [%f] find_specific_base_event %( ( get_global_var ( 'INT' ) ) %, ( get_global_var ( 'EVENT' ) ) %, 'BASE_EVENT' )% 
+//		public static class %{EVENT}N[{"%{BASE_EVENT}U"!=""}{ implements ru.garant.shared.FSM.BaseEvent} extends %f_type(%{BASE_EVENT})] {
+    '	public static class '
+    ( get_global_var ( 'EVENT' ) |N ) if ( ( ( get_global_var ( 'BASE_EVENT' ) |U ) ) %!= '' ) then
+    begin
+     ' extends '
+     [%f] type %( ( get_global_var ( 'BASE_EVENT' ) ) )% 
+    end // if
+    else
+    begin
+     ' implements ru.garant.shared.FSM.BaseEvent' 
+    end // else
+    ' {'
+//			protected %{EVENT}N () {
+    '		protected '
+    ( get_global_var ( 'EVENT' ) |N ) ' () {'
+//				%U[{_CTOR_%f_to_upper(%{EVENT}N)}
+    '			'
+    %Usersection (
+     '_CTOR_'
+     [%f] to_upper %( ( get_global_var ( 'EVENT' ) |N ) )% 
+    )
+    (
+     #13#10
+
+//				[{%{BASE_EVENT}C=TransitionEvent}super ();
+     '			'
+     if ( ( ( get_global_var ( 'BASE_EVENT' ) |C ) ) %== 'TransitionEvent' ) then
+     begin
+      'super ();'
+//				]]
+      '			' 
+     end // if
+
+    ) // Usersection
+ //			}
+    '		}'
+//	[{"%{BASE_EVENT}U"=""|%f_is_base_event(%{BASE_EVENT})=true}
+    if ( ( ( get_global_var ( 'BASE_EVENT' ) |U ) ) %== '' OR 
+      ( ( [%f] is_base_event %( ( get_global_var ( 'BASE_EVENT' ) ) )% ) %==  true  ) ) then
+    begin
+     #13#10
+
+//			public int getUid () {
+     '		public int getUid () {'
+//				return %{EVENT}N.class.hashCode();
+     '			return '
+     ( get_global_var ( 'EVENT' ) |N ) '.class.hashCode();'
+//			}
+     '		}'
+//	]	} // class %{EVENT}N
+    end // if
+    '	} // class '
+    ( get_global_var ( 'EVENT' ) |N ) 
+//	
+    #13#10
+
+//	>]
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+ end // if
+ NOP
+//	}
+ '}'
+//генерим элементы-состояния, определённые как отдельные классы
+//	%f_shift_intend(-1)%S%f_find_specific_base_state()[{"%{BASE_STATE}U"!=""}%{BASE_STATE}X]\
+ [%f] shift_intend %( -1 )% %S %f find_specific_base_state %( )% if ( ( ( get_global_var ( 'BASE_STATE' ) |U ) ) %!= '' ) then
+ begin
+  ( get_global_var ( 'BASE_STATE' ) |X ) 
+ end // if
+//	<{}{%CM=State::Class&%CU!=%{BASE_STATE}U}%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'State::Class' AND 
+   ( ( %C |U ) %!= ( ( get_global_var ( 'BASE_STATE' ) |U ) )  ) ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+////заполняем список именами State'ов с диаграммы состояний, для которых нет
+////соответствующих классов
+//	%f_clear_list(STATE_LIST)<{}{%AC=State&"%AN"!=""}\
+ [%f] clear_list %( 'STATE_LIST' )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |C ) %== 'State' AND 
+   ( ( %A |N ) %!= ''  ) ) then
+  begin
+//	[{%f_exists_in_list(STATE_LIST,"%AN")=false}%f_add_to_list(STATE_LIST,"%AN")]>\
+   if ( ( [%f] exists_in_list %( 'STATE_LIST' %, %A |N )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( 'STATE_LIST' %, %A |N )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for A
+//	<{}{%CM=State::Class&%Ca!=abstract}%f_remove_from_list(STATE_LIST,"%CN")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'State::Class' AND 
+   ( ( %C |a ) %!= 'abstract'  ) ) then
+  begin
+   [%f] remove_from_list %( 'STATE_LIST' %, %C |N )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%AC=State&"%AN"!=""}[{%f_exists_in_list(STATE_LIST,"%AN")=true}%AX]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |C ) %== 'State' AND 
+   ( ( %A |N ) %!= ''  ) ) then
+  begin
+   if ( ( [%f] exists_in_list %( 'STATE_LIST' %, %A |N )% ) %==  true ) then
+   begin
+    %A |X 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for A
+//	%f_clear_list(STATE_LIST)%f_shift_intend(1)
+ [%f] clear_list %( 'STATE_LIST' )% [%f] shift_intend %( 1 )% 
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//f _is_base_event
+; // java
+
+end. // <<StateMachine>>
+
+: is_base_event OBJECT IN %S
+//	[{%SM=TransitionEvent::Class&%S{is base}=true}{false}true]
+ if ( ( %S |M ) %== 'TransitionEvent::Class' AND 
+   ( ( %S get_up ( 'is base' ) ) %==  true  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *470321950119for470F3B8B032C*
+; // is_base_event
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+implementation @ <<StateMachine>>
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F3B8B032C*
+//= Facet::Class;wiki
+%call-other-gen ( 'Facet' 'wiki' )
+//#UC END# *46E6D4BB0339for470F3B8B032C*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: StateMachine::Class::StateMachine
+end. // <<StateMachine>>
+
+implementation @ :: <<StateMachine>> <<StateMachine>> ;
+//? Машина состояний
+//= Java::MDAGenerator
+
+// Параметры стереотипа
+//Y code_state_machine_internal.gif
+//L code_state_machine_internal
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F468F0109*
+//#UC END# *46E6D4BB0339for470F468F0109*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F468F0109*
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470321950119for470F468F0109*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F468F0109*
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470321C1038Afor470F468F0109*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F468F0109*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for470F468F0109*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor470F468F0109*
+//#UC END# *4705CBD6003Efor470F468F0109*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for470F468F0109*
+//#UC END# *470484D50138for470F468F0109*
+; // wiki_up_add_gen
+
+
+// Вложенные стереотипы
+//: StateMachine::Class::StateMachine::State
+end. // :: <<StateMachine>> <<StateMachine>> ;
+
+implementation @ :: <<StateMachine>> <<StateMachine>> ;
+//? Состояние
+//= Java::MDAGenerator
+
+// Параметры стереотипа
+//Y code_sm_int_state.gif
+//L code_sm_int_state
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F46A5034B*
+//#UC END# *46E6D4BB0339for470F46A5034B*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F46A5034B*
+//C /sm/%P%PN
+//O %SN.java
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	%f_set_var(SERV,S)\
+ [%f] set_var %( 'SERV' %, 'S' )% 
+//	%f_set_var(BASE_STATE,"")\
+ [%f] set_var %( 'BASE_STATE' %, '' )% 
+//	%f_find_specific_base_state(%S,"BASE_STATE")\
+ [%f] find_specific_base_state %( %S %, 'BASE_STATE' )% 
+//	package %f_dump_java_package_ex(%S);
+ 'package '
+ [%f] dump_java_package_ex %( %S )% ';'
+//	
+//	import ru.garant.shared.Core.Logs;
+ 'import ru.garant.shared.Core.Logs;'
+//	[{%f_has_base_state(%S)=false|<{}{%CC=Action&%f_is_override_state_action(%C,%{SERV}%P%P)=false}{C}>!=0}import ru.garant.shared.FSM.IContext;
+ if ( ( [%f] has_base_state %( %S )% ) %==  false OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Action' AND 
+    ( ( [%f] is_override_state_action %( %C %, ( get_global_var ( 'SERV' )  ->P ->P  ) )% ) %==  false  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  'import ru.garant.shared.FSM.IContext;'
+//	]import ru.garant.shared.GCI.I18N.Messages;
+ end // if
+ 'import ru.garant.shared.GCI.I18N.Messages;'
+//	import %f_type(%P%P)Impl;
+ 'import '
+ [%f] type %( %P ->P  )% 'Impl;'
+//	
+//	public class %SN[{"%{BASE_STATE}U"!=""}{ extends ru.garant.shared.FSM.BaseState} extends %f_type(%{BASE_STATE})] {
+ 'public class '
+ %S |N if ( ( ( get_global_var ( 'BASE_STATE' ) |U ) ) %!= '' ) then
+ begin
+  ' extends '
+  [%f] type %( ( get_global_var ( 'BASE_STATE' ) ) )% 
+ end // if
+ else
+ begin
+  ' extends ru.garant.shared.FSM.BaseState' 
+ end // else
+ ' {'
+//		
+ '	'
+//		public static %SN make () {
+ '	public static '
+ %S |N ' make () {'
+//			return new %SN ();
+ '		return new '
+ %S |N ' ();'
+//		}
+ '	}'
+//		
+ '	'
+//		protected %SN () {
+ '	protected '
+ %S |N ' () {'
+//			%U[{_CTOR_%f_to_upper(%SN)}
+ '		'
+ %Usersection (
+  '_CTOR_'
+  [%f] to_upper %( %S |N )% 
+ )
+ (
+  #13#10
+
+//			[{%f_has_base_state(%S)=true}super ();
+  '		'
+  if ( ( [%f] has_base_state %( %S )% ) %==  true ) then
+  begin
+   'super ();'
+//			]]
+   '		' 
+  end // if
+
+ ) // Usersection
+ //		}
+ '	}'
+//		
+ '	'
+//	[{%f_has_base_state(%S)=false}\
+ if ( ( [%f] has_base_state %( %S )% ) %==  false ) then
+ begin
+//		public String getName () {
+  '	public String getName () {'
+//			return Messages.Factory.messages ().get (
+  '		return Messages.Factory.messages ().get ('
+//				"<{}{}{r}%PN.>%SN"
+  '			"'
+  INTEGER VAR l_Counter l_Counter := 0
+  for downto %S%P
+  begin
+   OBJECT IN %P
+   if true then
+   begin
+    %P |N '.' 
+    ++! l_Counter
+   end // if
+  end // for P
+  %S |N 
+//			);
+  '		);'
+//		}
+  '	}'
+//		
+  '	'
+//	][{<{}{%CC=Action&%CK=entry&%f_is_override_state_action(%C,%{SERV}%P%P)=false}{C}>!=0}\
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Action' AND 
+    ( ( %C |K ) %== 'entry'  ) AND 
+    ( ( [%f] is_override_state_action %( %C %, ( get_global_var ( 'SERV' )  ->P ->P  ) )% ) %==  false  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//		public void postEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {
+  '	public void postEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {'
+//			[{%f_has_base_state(%{SERV})=true}super.postEnterAction (event, conn);
+  '		'
+  if ( ( [%f] has_base_state %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+  begin
+   'super.postEnterAction (event, conn);'
+//			]%P%PNImpl context = (%P%PNImpl)conn;
+   '		' 
+  end // if
+  %P ->P |N  'Impl context = ('
+  %P ->P |N  'Impl)conn;'
+//	<{}{%CC=Action&%CK=entry&%f_is_override_state_action(%C,%{SERV}%P%P)=false}[		try {
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Action' AND 
+    ( ( %C |K ) %== 'entry'  ) AND 
+    ( ( [%f] is_override_state_action %( %C %, ( get_global_var ( 'SERV' )  ->P ->P  ) )% ) %==  false  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '		try {'
+//				context.%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+     '			context.'
+     [%f] to_java %( 'post_'
+     [%f] to_omg %( %C ->P |N  )% '_'
+     %C |N )% ' (event);'
+//			} catch (Throwable ex) {
+     '		} catch (Throwable ex) {'
+//				Logs.LOG_SEX (ex);
+     '			Logs.LOG_SEX (ex);'
+//			}
+     '		}'
+//	]>	}
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+  '	}'
+//		
+  '	'
+//	][{<{}{%CC=Action&%CK=exit&%f_is_override_state_action(%C,%{SERV}%P%P)=false}{C}>!=0}\
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Action' AND 
+    ( ( %C |K ) %== 'exit'  ) AND 
+    ( ( [%f] is_override_state_action %( %C %, ( get_global_var ( 'SERV' )  ->P ->P  ) )% ) %==  false  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//		public void postExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {
+  '	public void postExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {'
+//			[{%f_has_base_state(%{SERV})=true}super.postExitAction (event, conn);
+  '		'
+  if ( ( [%f] has_base_state %( ( get_global_var ( 'SERV' ) ) )% ) %==  true ) then
+  begin
+   'super.postExitAction (event, conn);'
+//			]%P%PNImpl context = (%P%PNImpl)conn;
+   '		' 
+  end // if
+  %P ->P |N  'Impl context = ('
+  %P ->P |N  'Impl)conn;'
+//	<{}{%CC=Action&%CK=exit&%f_is_override_state_action(%C,%{SERV}%P%P)=false}[		try {
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Action' AND 
+    ( ( %C |K ) %== 'exit'  ) AND 
+    ( ( [%f] is_override_state_action %( %C %, ( get_global_var ( 'SERV' )  ->P ->P  ) )% ) %==  false  ) ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '		try {'
+//				context.%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+     '			context.'
+     [%f] to_java %( 'post_'
+     [%f] to_omg %( %C ->P |N  )% '_'
+     %C |N )% ' (event);'
+//			} catch (Throwable ex) {
+     '		} catch (Throwable ex) {'
+//				Logs.LOG_SEX (ex);
+     '			Logs.LOG_SEX (ex);'
+//			}
+     '		}'
+//	]>	}
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+  '	}'
+//		
+  '	'
+//	][{%SK=Final|%SK=Initial|[{%f_has_base_state(%S)=true&%{BASE_STATE}K!=%SK}{false}true]=true}\
+ end // if
+ if ( ( %S |K ) %== 'Final' OR 
+   ( ( %S |K ) %== 'Initial'  ) OR 
+   ( if ( ( [%f] has_base_state %( %S )% ) %==  true AND 
+    ( ( ( get_global_var ( 'BASE_STATE' ) |K ) ) %!= ( %S |K )  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+  %==  true  ) ) then
+ begin
+//		public ru.garant.shared.FSM.StateType getType () {
+  '	public ru.garant.shared.FSM.StateType getType () {'
+//			return ru.garant.shared.FSM.StateType.ST_%f_to_upper(%SK);
+  '		return ru.garant.shared.FSM.StateType.ST_'
+  [%f] to_upper %( %S |K )% ';'
+//		}
+  '	}'
+//		
+  '	'
+//	][{%f_has_base_state(%S)=false}\
+ end // if
+ if ( ( [%f] has_base_state %( %S )% ) %==  false ) then
+ begin
+//		public void validate (final IContext conn) throws ru.garant.shared.FSM.ValidationFailed {
+  '	public void validate (final IContext conn) throws ru.garant.shared.FSM.ValidationFailed {'
+//			%P%PNImpl context = (%P%PNImpl)conn;
+  '		'
+  %P ->P |N  'Impl context = ('
+  %P ->P |N  'Impl)conn;'
+//			context.validate%SN ();
+  '		context.validate'
+  %S |N ' ();'
+//		}
+  '	}'
+//		
+  '	'
+//		public void preEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreEnterFailed {
+  '	public void preEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreEnterFailed {'
+//			%P%PNImpl context = (%P%PNImpl)conn;
+  '		'
+  %P ->P |N  'Impl context = ('
+  %P ->P |N  'Impl)conn;'
+//			context.preEnterAction%SN (event);
+  '		context.preEnterAction'
+  %S |N ' (event);'
+//		}
+  '	}'
+//		
+  '	'
+//		public void preExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreExitFailed {
+  '	public void preExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreExitFailed {'
+//			%P%PNImpl context = (%P%PNImpl)conn;
+  '		'
+  %P ->P |N  'Impl context = ('
+  %P ->P |N  'Impl)conn;'
+//			context.preExitAction%SN (event);
+  '		context.preExitAction'
+  %S |N ' (event);'
+//		}]
+  '	}' 
+ end // if
+//	}
+ '}'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//собираем из базовых SM одноименные состояния
+//f _collect_base_states
+; // java
+
+end. // :: <<StateMachine>> <<StateMachine>> ;
+
+: collect_base_states OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_base_states: не задан идентифкатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_base_states: не задан идентифкатор списка' )% 
+ end // if
+//	%f_set_var(__STATE__,S)\
+ [%f] set_var %( '__STATE__' %, 'S' )% 
+//	%f_set_var(__LIST_ID__,"%1N")\
+ [%f] set_var %( '__LIST_ID__' %, %1 |N )% 
+//	%P%P<{}{}%g<{}{}{%A}[{%AC=State&%AN=%{__STATE__}N}%f_add_to_list(%{__LIST_ID__}N,A)]\
+ %P ->P
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if true then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if true then
+      begin
+       if ( ( %A |C ) %== 'State' AND 
+         ( ( %A |N ) %== ( ( get_global_var ( '__STATE__' ) |N ) )  ) ) then
+       begin
+        [%f] add_to_list %( ( get_global_var ( '__LIST_ID__' ) |N ) %, 'A' )% 
+       end // if
+//	[{%AN=%{__STATE__}N&%AM=State::Class&%A{is base}=true}%f_add_to_list(%{__LIST_ID__}N,A)]>>>
+       if ( ( %A |N ) %== ( ( get_global_var ( '__STATE__' ) |N ) ) AND 
+         ( ( %A |M ) %== 'State::Class'  ) AND 
+         ( ( %A get_up ( 'is base' ) ) %==  true  ) ) then
+       begin
+        [%f] add_to_list %( ( get_global_var ( '__LIST_ID__' ) |N ) %, 'A' )% 
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+
+ ) // bind
+   '>'
+
+//собираем из базовых SM одноименные события
+//f _collect_base_events
+; // collect_base_states
+
+: collect_base_events OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_base_events: не задано имя события")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_base_events: не задано имя события' )% 
+ end // if
+//	[{"%2N"=""}%f_error("_collect_base_events: не задан идентифкатор списка")]\
+ if ( ( %2 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_base_events: не задан идентифкатор списка' )% 
+ end // if
+//	%f_set_var(__EVENT__,1)\
+ [%f] set_var %( '__EVENT__' %, 1 )% 
+//	%f_set_var(__LIST_ID__,"%2N")\
+ [%f] set_var %( '__LIST_ID__' %, %2 |N )% 
+//	<{}{}%g<{}{}{%A}[{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"="%{__EVENT__}N"}%f_add_to_list(%{__LIST_ID__}N,A)>]\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%g
+ begin
+  OBJECT IN %g
+  if true then
+  begin
+   %g
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      if ( ( %A |C ) %== 'Transition' AND 
+        ( ( %A |S ) %== ''  ) ) then
+      begin
+       %A
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%A
+        begin
+         OBJECT IN %A
+         if ( ( %A |C ) %== 'TransitionEvent' AND 
+          ( ( %A |N ) %== ( ( get_global_var ( '__EVENT__' ) |N ) )  ) ) then
+         begin
+          [%f] add_to_list %( ( get_global_var ( '__LIST_ID__' ) |N ) %, 'A' )% 
+          ++! l_Counter
+         end // if
+        end // for A
+
+       ) // bind
+       end // if
+//	[{"%AN"="%{__EVENT__}N"&%AM=TransitionEvent::Class}%f_add_to_list(%{__LIST_ID__}N,A)]>>
+      if ( ( %A |N ) %== ( ( get_global_var ( '__EVENT__' ) |N ) ) AND 
+        ( ( %A |M ) %== 'TransitionEvent::Class'  ) ) then
+      begin
+       [%f] add_to_list %( ( get_global_var ( '__LIST_ID__' ) |N ) %, 'A' )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for g
+
+
+//f _has_base_state
+; // collect_base_events
+
+: has_base_state OBJECT IN %S
+//	%f_clear_list(__BASE_STATES__)\
+ [%f] clear_list %( '__BASE_STATES__' )% 
+//	%f_collect_base_states(%S,"__BASE_STATES__")\
+ [%f] collect_base_states %( %S %, '__BASE_STATES__' )% 
+//	[{%f_is_empty(__BASE_STATES__)=false}{false}true]
+ if ( ( [%f] is_empty %( '__BASE_STATES__' )% ) %==  false ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+
+//инициализируем переменную элементом - базовым состоянием
+//f _find_specific_base_state
+; // has_base_state
+
+: find_specific_base_state OBJECT IN %S
+//	[{"%1N"=""}%f_error("_find_specific_base_state: не задан идентифкатор переменной")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_find_specific_base_state: не задан идентифкатор переменной' )% 
+ end // if
+//	%f_set_var(BASE_ID,"%1N")\
+ [%f] set_var %( 'BASE_ID' %, %1 |N )% 
+//	%f_clear_list(BASE_STATES)\
+ [%f] clear_list %( 'BASE_STATES' )% 
+//	%f_collect_base_states(%S,"BASE_STATES")\
+ [%f] collect_base_states %( %S %, 'BASE_STATES' )% 
+//	%f_set_var(FINDED,"false")\
+ [%f] set_var %( 'FINDED' %, false )% 
+//	[{%f_is_empty(BASE_STATES)=false}{%f_find_specific_abstract_base_state_i(%P%P)}%f_pop_first_to_var(BASE_STATES,%{BASE_ID}N)%f_set_var(FINDED,"true")]
+ if ( ( [%f] is_empty %( 'BASE_STATES' )% ) %==  false ) then
+ begin
+  [%f] pop_first_to_var %( 'BASE_STATES' %, ( get_global_var ( 'BASE_ID' ) |N ) )% [%f] set_var %( 'FINDED' %, true )% 
+ end // if
+ else
+ begin
+  [%f] find_specific_abstract_base_state_i %( %P ->P  )% 
+ end // else
+
+//f _find_specific_abstract_base_state_i
+; // find_specific_base_state
+
+: find_specific_abstract_base_state_i OBJECT IN %S
+//	<{}{%CM=State::Class&%C{is base}=true}%f_set_var(%{BASE_ID}N,C)%f_set_var(FINDED,"true")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |M ) %== 'State::Class' AND 
+   ( ( %C get_up ( 'is base' ) ) %==  true  ) ) then
+  begin
+   [%f] set_var %( ( get_global_var ( 'BASE_ID' ) |N ) %, 'C' )% [%f] set_var %( 'FINDED' %, true )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//	[{%{FINDED}N=false}<{}{%GM=StateMachine::Class}%f_find_specific_abstract_base_state_i(%G)>]
+ if ( ( ( get_global_var ( 'FINDED' ) |N ) ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |M ) %== 'StateMachine::Class' ) then
+   begin
+    [%f] find_specific_abstract_base_state_i %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+
+//инициализируем переменную элементом - базовым состоянием
+//f _find_specific_base_event
+; // find_specific_abstract_base_state_i
+
+: find_specific_base_event OBJECT IN %S
+//	[{"%1N"=""}%f_error("_find_specific_base_event: не задано имя события")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_find_specific_base_event: не задано имя события' )% 
+ end // if
+//	[{"%2N"=""}%f_error("_find_specific_base_event: не задан идентифкатор переменной")]\
+ if ( ( %2 |N ) %== '' ) then
+ begin
+  [%f] error %( '_find_specific_base_event: не задан идентифкатор переменной' )% 
+ end // if
+//	%f_set_var(BASE_ID,"%2N")\
+ [%f] set_var %( 'BASE_ID' %, %2 |N )% 
+//	%f_clear_list(__BASE_EVENTS__)\
+ [%f] clear_list %( '__BASE_EVENTS__' )% 
+//	%f_collect_base_events(%S,%1,"__BASE_EVENTS__")\
+ [%f] collect_base_events %( %S %, %1 %, '__BASE_EVENTS__' )% 
+//	%f_set_var(FINDED,"false")\
+ [%f] set_var %( 'FINDED' %, false )% 
+//	[{%f_is_empty(__BASE_EVENTS__)=false}{%f_find_specific_abstract_base_event_i(%S)}%f_pop_first_to_var(__BASE_EVENTS__,%{BASE_ID}N)%f_set_var(FINDED,"true")]
+ if ( ( [%f] is_empty %( '__BASE_EVENTS__' )% ) %==  false ) then
+ begin
+  [%f] pop_first_to_var %( '__BASE_EVENTS__' %, ( get_global_var ( 'BASE_ID' ) |N ) )% [%f] set_var %( 'FINDED' %, true )% 
+ end // if
+ else
+ begin
+  [%f] find_specific_abstract_base_event_i %( %S )% 
+ end // else
+
+//f _find_specific_abstract_base_event_i
+; // find_specific_base_event
+
+: find_specific_abstract_base_event_i OBJECT IN %S
+//	<{}{%f_is_base_event(%C)=true}%f_set_var(%{BASE_ID}N,C)%f_set_var(FINDED,"true")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( [%f] is_base_event %( %C )% ) %==  true ) then
+  begin
+   [%f] set_var %( ( get_global_var ( 'BASE_ID' ) |N ) %, 'C' )% [%f] set_var %( 'FINDED' %, true )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//	[{%{FINDED}N=false}<{}{%GM=StateMachine::Class}%f_find_specific_abstract_base_event_i(%G)>]
+ if ( ( ( get_global_var ( 'FINDED' ) |N ) ) %==  false ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |M ) %== 'StateMachine::Class' ) then
+   begin
+    [%f] find_specific_abstract_base_event_i %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+//#UC END# *470321950119for470F46A5034B*
+; // find_specific_abstract_base_event_i
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+implementation @ :: <<StateMachine>> <<StateMachine>> ;
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F46A5034B*
+//#UC END# *470321C1038Afor470F46A5034B*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F46A5034B*
+//r {%f_check_unconditional_transition(%S)=false}:                                {Can't use more than one unconditional transition from one state}
+//r {"%SN"=""}:                                                                   {State must have name}
+//r {%f_check_base_state_type(%S)=false}:                                         {Базовые состояния не могут иметь другой тип!}
+//r {%f_number_cmp("<{}{%AC=Transition&%AS=combine}{%AC}>","1","\>")=1}:          {Состояние может быть объединено только с одним состоянием}
+//r {%f_number_cmp("<{}{%aC=Transition&%aS=combine}{%aC}>","1","\>")=1}:          {Состояние может быть объединено только с одним состоянием}
+
+//f _check_base_state_type
+; // constraint
+
+end. // :: <<StateMachine>> <<StateMachine>> ;
+
+: check_base_state_type OBJECT IN %S
+//	%f_clear_list(__BASE_STATES__)\
+ [%f] clear_list %( '__BASE_STATES__' )% 
+//	%f_collect_base_states(%S,"__BASE_STATES__")\
+ [%f] collect_base_states %( %S %, '__BASE_STATES__' )% 
+//	[{"<{}{%f_is_empty(__BASE_STATES__)=false}{W}%f_pop_first_to_var(__BASE_STATES__,__STATE__)[{%{__STATE__}K!=%SK}.]>"=""}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( '__BASE_STATES__' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( '__BASE_STATES__' %, '__STATE__' )% if ( ( ( get_global_var ( '__STATE__' ) |K ) ) %!= ( %S |K ) ) then
+    begin
+     '.' 
+    end // if
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+  %== '' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4704C0E30186for470F46A5034B*
+; // check_base_state_type
+
+
+// Вложенные стереотипы
+//: StateMachine::Class::StateMachine::State::Action
+implementation @ :: <<StateMachine>> <<StateMachine>> Action ;
+//? действие связанное с состоянием
+// Параметры стереотипа
+//Y code_sm_int_state_action.gif
+//L code_sm_int_state_action
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F47E40222*
+//#UC END# *46E6D4BB0339for470F47E40222*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F47E40222*
+//#UC END# *470321950119for470F47E40222*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F47E40222*
+//#UC END# *470321C1038Afor470F47E40222*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: StateMachine::Class::StateMachine::State::combine::Transition
+; // st_space_key
+
+end. // :: <<StateMachine>> <<StateMachine>> Action ;
+
+implementation @ :: <<StateMachine>> <<StateMachine>> combine::Transition ;
+//? Связь-объединение
+//? Определяет условие, по которому два состояния могут объединятся в одно
+//= Java::MDAGenerator
+
+// Параметры стереотипа
+//Y code_sm_int_state_combine_transition.gif
+//L code_sm_int_state_combine_transition
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47A697BA0068*
+//#UC END# *46E6D4BB0339for47A697BA0068*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47A697BA0068*
+//#UC END# *470321950119for47A697BA0068*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47A697BA0068*
+//#UC END# *470321C1038Afor47A697BA0068*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47A697BA0068*
+//c                               {}
+//r {%PU=%TU}:                    {Состояние не может быть объединено с собой (%PN)}
+//r {"%SI"=""}:     {Для объединения состояний должно быть задано условие (%PN-\>%TN)}
+//#UC END# *4704C0E30186for47A697BA0068*
+; // constraint
+
+
+
+//: StateMachine::Class::StateMachine::State::Transition
+end. // :: <<StateMachine>> <<StateMachine>> combine::Transition ;
+
+implementation @ :: <<StateMachine>> <<StateMachine>> Transition ;
+//? переход
+//= Java::MDAGenerator
+
+// Параметры стереотипа
+//Y code_sm_int_state_transition.gif
+//L code_sm_int_state_transition
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F47A401C5*
+//#UC END# *46E6D4BB0339for470F47A401C5*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F47A401C5*
+//#UC END# *470321950119for470F47A401C5*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F47A401C5*
+//#UC END# *470321C1038Afor470F47A401C5*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F47A401C5*
+//c                                                                       {}
+//r {%f_is_guarded_transition(%S)=true&%f_dump_guard(%S)=null&%PU=%TU}:   {Состояние не может быть связано безусловным переходом с собой (%PN)}
+//#UC END# *4704C0E30186for470F47A401C5*
+; // constraint
+
+
+// Вложенные стереотипы
+//: StateMachine::Class::StateMachine::State::Transition::Action
+end. // :: <<StateMachine>> <<StateMachine>> Transition ;
+
+implementation @ :: <<StateMachine>> <<StateMachine>> Transition::Action ;
+//? действие связанное с переходом
+// Параметры стереотипа
+//Y code_sm_int_state_action_transition.gif
+//L code_sm_int_state_action_transition
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F47C500DA*
+//#UC END# *46E6D4BB0339for470F47C500DA*
+; // wiki
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F47C500DA*
+//#UC END# *470321950119for470F47C500DA*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor470F47C500DA*
+//#UC END# *470321C1038Afor470F47C500DA*
+; // fctr.java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<StateMachine>> <<StateMachine>> Transition::Action ;
+

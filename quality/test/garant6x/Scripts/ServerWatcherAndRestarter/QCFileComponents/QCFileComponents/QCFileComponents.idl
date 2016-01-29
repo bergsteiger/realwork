@@ -1,0 +1,66 @@
+// QCFileComponents.idl : IDL source for QCFileComponents
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (QCFileComponents.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef enum {
+    QCForReading = 1,
+    QCForWriting = 2,
+    QCForAppending = 8
+} QCIOMode;
+
+[
+	object,
+	uuid(3C906DC7-C54D-49F4-A93C-53B6E1C98683),
+	dual,
+	nonextensible,
+	helpstring("IQCTextStream Interface"),
+	pointer_default(unique)
+]
+interface IQCTextStream : IDispatch{
+};
+
+[
+	object,
+	uuid(01C5278E-1006-4130-837E-EA27CFBD4899),
+	dual,
+	nonextensible,
+	helpstring("IComponentsFactory Interface"),
+	pointer_default(unique)
+]
+interface IQCComponentsFactory : IDispatch{
+	[id(1), helpstring("Открывает текстовый файл")] HRESULT MakeQCTextStream([in] BSTR path_to_file, [in] QCIOMode iomode, [in] VARIANT_BOOL is_create, [out,retval] IQCTextStream** result);
+};
+
+[
+	uuid(AA5B6FB8-FC61-4A34-ABDA-734282E7FE43),
+	version(1.0),
+	helpstring("QCFileComponents 1.0 Type Library")
+]
+library QCFileComponentsLib
+{
+	importlib("stdole2.tlb");
+	importlib("scrrun.dll");
+	[
+		uuid(E0FE23B0-93BC-4786-91D8-AE51F6696172),
+		helpstring("QCTextStream Class")
+	]
+	coclass QCTextStream
+	{
+		[default] interface IQCTextStream;
+	};
+	[
+		uuid(4D1DB86A-5827-418D-BE54-CDD11446C73C),
+		helpstring("ComponentsFactory Class")
+	]
+	coclass QCComponentsFactory
+	{
+		[default] interface IQCComponentsFactory;
+	};
+};
+
+

@@ -1,0 +1,83 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/BuildTestLib.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::BuildTestLib
+//
+// библиотека реализующая логику сервера запуска тестов ночных сборок
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (BuildTestLib) : project_generic_core_corba {
+	staticname = BuildTestLib
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += BuildTestLib_cs
+	libs  += BuildTestLib_cs
+
+	after += GCL
+	libs  += GCL
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	after += boost_filesystem boost_system
+	libs  += boost_filesystem boost_system
+
+	Header_Files {
+		Std_Headers {
+			./../BuildTestLib/ServerLibHome.h
+		}
+	
+		OnBuildDone {
+			./../BuildTestLib/impl/OnBuildDone/OnBuildDone.h
+			./../BuildTestLib/impl/OnBuildDone/OnBuildDoneFactories.h
+			./../BuildTestLib/impl/OnBuildDone/BuildListener_i.h
+			./../BuildTestLib/impl/OnBuildDone/BuildListener_i_factory.h
+			./../BuildTestLib/impl/OnBuildDone/FunctionalTest_i.h
+			./../BuildTestLib/impl/OnBuildDone/FunctionalTest_i_factory.h
+			./../BuildTestLib/impl/OnBuildDone/KLoginParams.h
+			./../BuildTestLib/impl/OnBuildDone/ListenerParams.h
+			./../BuildTestLib/impl/OnBuildDone/LocalPageLogin_i.h
+			./../BuildTestLib/impl/OnBuildDone/LocalPageLogin_i_factory.h
+			./../BuildTestLib/impl/OnBuildDone/Publish_i.h
+			./../BuildTestLib/impl/OnBuildDone/Publish_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		OnBuildDone {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../BuildTestLib/ServerLibHome.cpp
+		}
+	
+		OnBuildDone {
+			./../BuildTestLib/impl/OnBuildDone/OnBuildDone.cpp
+			./../BuildTestLib/impl/OnBuildDone/OnBuildDoneFactories.cpp
+			./../BuildTestLib/impl/OnBuildDone/BuildListener_i.cpp
+			./../BuildTestLib/impl/OnBuildDone/BuildListener_i_factory.cpp
+			./../BuildTestLib/impl/OnBuildDone/FunctionalTest_i.cpp
+			./../BuildTestLib/impl/OnBuildDone/FunctionalTest_i_factory.cpp
+			./../BuildTestLib/impl/OnBuildDone/KLoginParams.cpp
+			./../BuildTestLib/impl/OnBuildDone/ListenerParams.cpp
+			./../BuildTestLib/impl/OnBuildDone/LocalPageLogin_i.cpp
+			./../BuildTestLib/impl/OnBuildDone/LocalPageLogin_i_factory.cpp
+			./../BuildTestLib/impl/OnBuildDone/Publish_i.cpp
+			./../BuildTestLib/impl/OnBuildDone/Publish_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,38 @@
+USES
+	QuickTestsUtils.script
+;
+
+INTEGER VAR l_Step 
+
+PROCEDURE InitNewSubDlg
+  // Заполняем диалог только на шаге 1, иначе - по умолчанию... 
+ Если ( l_Step 1 == ) то
+  ( "Контрол по имени {(carSubNumField)}" pop:Control:SetFocus ASSERT
+   3 IntToStr emitstring   
+  ) 
+ "Нажать ОКBtn"
+;
+
+PROCEDURE "Выделить и создать метку"  
+ "Обработать сообщения" 
+ @ ( "Установить саб" ) MODAL InitNewSubDlg
+;
+
+Тест TK345637305
+	Параметры: ( "Документ с формулой с ошибкой" "Проверка EVD документа" )
+	Выполнить ( 	
+		  0 >>> l_Step
+		  3 LOOP (
+			l_Step CASE
+			  0 ( 16 LOOP cc:Down )
+			  1 ( 2 LOOP cc:Down )
+			  2 ( 7 LOOP cc:Down )
+			  DEFAULT ( ASSERT )
+                        END
+		   "Выделить и создать метку" 
+		  1 +! l_Step
+		  )   		
+	)
+;
+
+TK345637305

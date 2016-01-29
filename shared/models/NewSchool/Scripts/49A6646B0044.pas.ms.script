@@ -1,0 +1,253 @@
+// k2BaseTypes 49A6646B0044 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49A6646B0044
+
+FORWARD ME_469F6CD10123
+
+: ME_469F6CE801D0
+ CONST UID '469F6CE801D0'
+ CONST Name 'l3_spfScalars'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_469F6CD10123 // Tk2StorePropertyFlag
+ ;
+
+ref; // ME_469F6CE801D0 l3_spfScalars
+
+: ME_469F6CF1025F
+ CONST UID '469F6CF1025F'
+ CONST Name 'l3_spfObjects'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_469F6CD10123 // Tk2StorePropertyFlag
+ ;
+
+ref; // ME_469F6CF1025F l3_spfObjects
+
+: ME_469F6CFB01A5
+ CONST UID '469F6CFB01A5'
+ CONST Name 'l3_spfChildren'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_469F6CD10123 // Tk2StorePropertyFlag
+ ;
+
+ref; // ME_469F6CFB01A5 l3_spfChildren
+
+: ME_469F6D050109
+ CONST UID '469F6D050109'
+ CONST Name 'l3_spfRawData'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_469F6CD10123 // Tk2StorePropertyFlag
+ ;
+
+ref; // ME_469F6D050109 l3_spfRawData
+
+: ME_469F6CD10123
+ CONST UID '469F6CD10123'
+ CONST Name 'Tk2StorePropertyFlag'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Режим сохранения типов тегов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A6646B0044 // k2BaseTypes
+ ;
+ : Attributes
+   @ ( ME_469F6CE801D0 // l3_spfScalars
+ ME_469F6CF1025F // l3_spfObjects
+ ME_469F6CFB01A5 // l3_spfChildren
+ ME_469F6D050109 // l3_spfRawData
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_469F6CD10123 Tk2StorePropertyFlag
+
+: ME_469F700E01BB
+ CONST UID '469F700E01BB'
+ CONST Name 'Tk2StorePropertyFlags'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Режимы сохранения типов тегов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A6646B0044 // k2BaseTypes
+ ;
+ : Inherits
+   @ ( ME_469F6CD10123 // Tk2StorePropertyFlag
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_469F700E01BB Tk2StorePropertyFlags
+
+: ME_469F7CBE0071
+ CONST UID '469F7CBE0071'
+ CONST Name 'l3_spfAll'
+ CONST Class class_Class
+ : Stereotype st_SetConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'режим сохранения всех типов тегов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A6646B0044 // k2BaseTypes
+ ;
+ : Inherits
+   @ ( ME_469F700E01BB // Tk2StorePropertyFlags
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "spell names" false
+
+ref; // ME_469F7CBE0071 l3_spfAll
+
+: ME_469F7D84008A
+ CONST UID '469F7D84008A'
+ CONST Name 'l3_spfInner'
+ CONST Class class_Class
+ : Stereotype st_SetConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'режим сохранения всех вложенных тегов целиком.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A6646B0044 // k2BaseTypes
+ ;
+ : Inherits
+   @ ( ME_469F7CBE0071 // l3_spfAll
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "force usage" true
+ CONST "spell names" false
+
+ref; // ME_469F7D84008A l3_spfInner
+
+FORWARD ME_469F6D170322
+
+: ME_469F6D270126
+ CONST UID '469F6D270126'
+ CONST Name 'k2_amNull'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_469F6D170322 // Tk2AssignMode
+ ;
+
+ref; // ME_469F6D270126 k2_amNull
+
+: ME_469F6D3101AD
+ CONST UID '469F6D3101AD'
+ CONST Name 'k2_amTransparent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_469F6D170322 // Tk2AssignMode
+ ;
+
+ref; // ME_469F6D3101AD k2_amTransparent
+
+: ME_469F6D170322
+ CONST UID '469F6D170322'
+ CONST Name 'Tk2AssignMode'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Режим копирования спецзначений тегов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A6646B0044 // k2BaseTypes
+ ;
+ : Attributes
+   @ ( ME_469F6D270126 // k2_amNull
+ ME_469F6D3101AD // k2_amTransparent
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_469F6D170322 Tk2AssignMode
+
+: ME_469F7035001C
+ CONST UID '469F7035001C'
+ CONST Name 'Tk2AssignModes'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Режимы копирования спецзначений тегов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A6646B0044 // k2BaseTypes
+ ;
+ : Inherits
+   @ ( ME_469F6D170322 // Tk2AssignMode
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_469F7035001C Tk2AssignModes
+
+: ME_469F7CE1016C
+ CONST UID '469F7CE1016C'
+ CONST Name 'k2_amAll'
+ CONST Class class_Class
+ : Stereotype st_SetConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'режим копирования всех значений тегов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49A6646B0044 // k2BaseTypes
+ ;
+ : Inherits
+   @ ( ME_469F7035001C // Tk2AssignModes
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "force usage" true
+ CONST "spell names" false
+
+ref; // ME_469F7CE1016C k2_amAll
+
+: ME_49A6646B0044
+ CONST UID '49A6646B0044'
+ CONST Name 'k2BaseTypes'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Базовые типы библиотеки. На них опирается описание интерфейсов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_469F6CD10123 // Tk2StorePropertyFlag
+ ME_469F700E01BB // Tk2StorePropertyFlags
+ ME_469F7CBE0071 // l3_spfAll
+ ME_469F7D84008A // l3_spfInner
+ ME_469F6D170322 // Tk2AssignMode
+ ME_469F7035001C // Tk2AssignModes
+ ME_469F7CE1016C // k2_amAll
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '26.02.2009 12:44'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\k2BaseTypes.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49A6646B0044.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49A6646B0044.pas.ms.script.runner'
+
+ref; // ME_49A6646B0044 k2BaseTypes

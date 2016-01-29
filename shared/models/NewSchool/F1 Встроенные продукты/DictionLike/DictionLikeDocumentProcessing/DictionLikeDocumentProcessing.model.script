@@ -1,0 +1,99 @@
+<<Library>> DictionLikeDocumentProcessing
+ %UID '4D358BAD038E'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4797632D0273' /* Everest */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4797632D0273' /* Everest */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> DocumentContainers
+   %UID '4D358BD90052'
+   %DEPENDS
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '467FC9F80281' /* DocumentTagNodes */
+    U$ '4680E826036D' /* eeDocumentContainer */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '48492FC0029D' /* Standard */
+    U$ '4C6A7BA001A5' /* F1DocumentContainers */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677E16A022A' /* K2 */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '4797632D0273' /* Everest */
+    U$ '4C6A65ED0374' /* F1DocumentProcessing */
+    U$ '4CEBA36A00AA' /* f1DocumentTagsImplementation */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsDictionDocumentContainer
+      %UID '4CE662B803DA'
+      %SUMMARY 'Контейнер документа толкового словаря' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '19.11.2010 14:43'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '4C6A65ED0374' /* F1DocumentProcessing */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4680E83D00C8' /* TeeDocumentContainer */
+       U$ '4C6A955F00D6' /* nsDocumentContainer */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47F27DA80172' /* GetDocument */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CE663D10309"
+         %UID '4CE663D10309'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 4CE663D10309
+        <<uses>> "4CE668E0000F"
+         %UID '4CE668E0000F'
+         %TARGET U$ '4857A87D0337' /* Block */
+        ; // 4CE668E0000F
+        <<uses>> "4CE669DA0170"
+         %UID '4CE669DA0170'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4CE669DA0170
+        <<uses>> "4CE670F802AC"
+         %UID '4CE670F802AC'
+         %TARGET U$ '4C6A750F024E' /* TnsF1DocumentTagNode */
+        ; // 4CE670F802AC
+        <<uses>> "5065AB4B02F5"
+         %UID '5065AB4B02F5'
+         %TARGET U$ '4857CB7D0340' /* DictEntry */
+        ; // 5065AB4B02F5
+        <<uses>> "524A936B0153"
+         %UID '524A936B0153'
+         %TARGET U$ '456EB454018E' /* CanNotFindData */
+        ; // 524A936B0153
+      ; // %LINKS
+     ; // TnsDictionDocumentContainer
+   ; // %CHILDREN
+  ; // DocumentContainers
+ ; // %CHILDREN
+; // DictionLikeDocumentProcessing

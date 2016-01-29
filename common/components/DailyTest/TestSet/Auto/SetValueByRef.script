@@ -1,0 +1,53 @@
+USES
+ Testing.ms.dict
+;
+
+ VOID IMMEDIATE OPERATOR >>>^
+   /*{IN aValue}*/ // - слева должно быть значение
+   ^ IN aVar
+
+  %SUMMARY 'Присваивает значение aValue по адресу слова в переменной aVar' ; 
+  aVar CompileValue
+  @ pop:Word:SetValue CompileValue
+ ; // >>>^
+ 
+/*{// VOID : >>>^
+ : >>>^
+ // - пока так, иначе конструкция Ctx:Engine pop:ScriptEngine:CascadeDict := false - не работает, т.к. Ctx:Engine снимается со стека уже в контексте >>>^ И срабатывает КОНТРОЛЬ СТЕКА
+ // На самом деле надо делать getter/setter'ы для свойств, чтобы они получали левый параметр по ссылке
+ // Т.е. брали параметр из компилированного кода, а не из стека
+ // Как будто там ^@ IN aSelf написано
+ // Да и вообще для всех "методов"
+   IN aValue
+   ^ IN aVar
+  
+  %SUMMARY 'Присваивает значение aValue по адресу слова в переменной aVar' ; 
+  aValue 
+  aVar DO 
+   pop:Word:GetRef 
+   // - убрано, т.к. http://mdp.garant.ru/pages/viewpage.action?pageId=600103362&focusedCommentId=605371522#comment-605371522
+   // Что-то всё-таки с GetRef - я сам себе не догоняю
+   // ВЕРНУЛ, потому, что переделал TkwObjRefParam.GetRef
+    pop:Word:SetValue
+ ; // >>>^}*/
+ 
+Test&Dump SetValueByRefTest 
+ VAR A
+ VAR B
+ VAR pA
+ VAR pB
+ 
+ @ A >>> pA
+ @ B >>> pB
+ 
+ 1 >>>^ pA
+ '3' >>>^ pB
+ 
+ A .
+ B .
+ 
+ pA .
+ pB .
+; // SetValueByRefTest
+
+SetValueByRefTest

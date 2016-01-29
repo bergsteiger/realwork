@@ -1,0 +1,3 @@
+#ifndef PROTINS_VERSION
+#define PROTINS_VERSION 1
+#endif

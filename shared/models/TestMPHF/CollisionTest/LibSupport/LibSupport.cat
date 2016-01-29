@@ -1,0 +1,682 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "LibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49897DFE0071/Home/Ìîäåëü ïðîåêòà "RandomAlg"/CollisionTest/LibSupport|4992DF0A0157
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"4992DF0A0157"
+    documentation 	"áèçíåñ ëîãèêà òåñòà"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4992DF1F00C3"
+	    supplier   	"Logical View::RandomAlg::ClientMPHF::MPHFAPI"
+	    quidu      	"49897F1303C5")
+	(object Visibility_Relationship
+	    quid       	"4993ECE60250"
+	    supplier   	"Logical View::shared::GCL::math"
+	    quidu      	"45018D5E036B")
+	(object Visibility_Relationship
+	    quid       	"4995939301E6"
+	    supplier   	"Logical View::RandomAlg::Random::Generators"
+	    quidu      	"49958ACD021D")
+	(object Visibility_Relationship
+	    quid       	"499597F701C8"
+	    supplier   	"Logical View::RandomAlg::Random::Types"
+	    quidu      	"499596F102C2"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "EntryPoint"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/RandomAlg/CollisionTest/EntryPoint.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/RandomAlg/CollisionTest/EntryPoint.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4992DF25023F*"
+		    value      	(value Text 
+|//#UC START# *4992DF25023F*¤		m_iteration_count = 1000*1000;¤		m_keys_count_to_build_mphf = 1000;¤¤		m_bits_count_for_second_hash = 1;¤¤		LOG_I (("KEYSET FORMING"));¤		const unsigned long long MAX_FOR_RANDOM = 0xFFFFFFFFFFFFFFFF;¤		GCL::long_rand (MAX_FOR_RANDOM);¤¤		Random::Types::KeySet key_set;¤		std::set<Random::Types::Key> keys_for_fast_search;¤¤		ClientMPHF::MPHFAPI::MPHP_var hash_func;¤		unsigned long i = 10;¤		while (i > 0) {¤			try {¤				while (key_set.size () < m_keys_count_to_build_mphf) {¤					unsigned long long id = GCL::long_rand (MAX_FOR_RANDOM);¤					if (keys_for_fast_search.find(id) == keys_for_fast_search.end()) {¤						key_set.push_back (id);¤						keys_for_fast_search.insert (id);¤					}¤					if (key_set.size()%100 == 0) {¤						LOG_I (("FORMING %d keys", key_set.size()));¤					}¤				}¤¤				LOG_I (("MPHF GENERATION (%d)", i));		¤				hash_func = ClientMPHF::MPHFAPI::MPHPFactory::generate (key_set);¤				break;¤			} catch (...) {¤				keys_for_fast_search.clear();¤				key_set.clear ();¤			}¤			i--;¤		}¤		if (i == 0) {¤			LOG_I (("CAN'T BUILD MPHF. EXIT"));¤			ExecutorBase::execute_ ();¤			return;¤		}¤¤		std::map<unsigned long, unsigned long> mphf_to_2nd_hash;¤		for (Random::Types::KeySet::const_iterator it = key_set.begin (); it != key_set.end (); ++it) {¤			Random::Types::Key id = *it;¤			mphf_to_2nd_hash[hash_func->hash (id)] = make_second_hash (id);¤		}¤¤		//check¤		for (Random::Types::KeySet::const_iterator it = key_set.begin (); it != key_set.end (); ++it) {¤			Random::Types::Key id = *it;¤			if (keys_for_fast_search.find(id) == keys_for_fast_search.end()) {¤				LOG_E (("no id (%d) in search set, how?!", id));¤				ExecutorBase::execute_ ();¤				return;¤			}¤			unsigned long hash2 = make_second_hash (id);¤			if (mphf_to_2nd_hash[hash_func->hash (id)] != hash2) {¤				LOG_E (("stored hash not valid for id (%d), how?!", id));¤				ExecutorBase::execute_ ();¤				return;¤			}¤		}¤¤		LOG_I (("CALCULATE COLLISIONS"));		¤		unsigned long collisions_count = 0;¤		unsigned long ok_count = 0;¤		unsigned long mphf_false_negative = 0;¤		unsigned long mphf_return_fake_hash = 0;¤		for (i = 0; i < m_iteration_count; i++) {¤			unsigned long long id = GCL::long_rand (MAX_FOR_RANDOM);¤			unsigned long hash1 = hash_func->hash (id);¤			unsigned long hash2 = make_second_hash (id);¤			std::map<unsigned long, unsigned long>::iterator it = mphf_to_2nd_hash.find (hash1);¤			if (mphf_to_2nd_hash.end () != it) {¤				if (it->second == hash2) {¤					if (keys_for_fast_search.end() == keys_for_fast_search.find (id)) {¤						collisions_count++;¤					} else {¤						ok_count++;¤					}¤				}¤			} else {¤				mphf_return_fake_hash++;¤				if (keys_for_fast_search.end() != keys_for_fast_search.find (id)) {¤					mphf_false_negative++;¤				}¤			}¤			if ((i+1) % (1000000) == 0) {¤				LOG_I (("Process %dM keys", (i+1)/(1000000)));¤			}¤		}¤¤		LOG_I ((¤			"******************RESUME************************\n"\¤			"Collisions percent (by Max theory) (by SES theory): %.6f (%.3f) (%.6f)\n"\¤			"MPHF false negative: %.6f, OK_COUNT/ALL_COUNT: %.6f, FAKE HASH RETURN: %d"¤			, double(collisions_count)/m_iteration_count * 100¤			, double(1)/pow(double(2), m_bits_count_for_second_hash) * 100¤			, double(1)/(pow(double(2), m_bits_count_for_second_hash)*m_keys_count_to_build_mphf) * 100¤			, double(mphf_false_negative)/m_iteration_count * 100¤			, double(ok_count)/m_iteration_count * 100¤			, mphf_return_fake_hash¤		));¤		//#UC END# *4992DF25023F*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4992DF25023F_FINI*"
+		    value      	(value Text 
+|//#UC START# *4992DF25023F_FINI*¤	//#UC END# *4992DF25023F_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4992DF25023F_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *4992DF25023F_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *4992DF25023F_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49897DFE0071/Home/Ìîäåëü ïðîåêòà "RandomAlg"/CollisionTest/LibSupport/EntryPoint|4992DF25023F
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4992DF25023F"
+	    documentation 	"òî÷êà âõîäà â ïðèëîæåíèå"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4992DF8D02F1"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::RandomAlg::ClientMPHF::MPHFAPI::MPHP"
+		    quidu      	"49897F40018A")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4993DF8300DF"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::RandomAlg::Random::Generators::UniqGen"
+		    quidu      	"4993DD5201C0")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49953E8D0387"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCL::math::long_rand"
+		    quidu      	"45018DA0002E")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4995462A0186"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::std::containers::set"
+		    quidu      	"499540D7032D"))
+	    operations 	(list Operations
+		(object Operation "make_second_hash"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"calling conventions"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"force overload"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4993EA330013*"
+			    value      	(value Text 
+|//#UC START# *4993EA330013*¤	return id % (unsigned long)pow(double(2), m_bits_count_for_second_hash);¤	//#UC END# *4993EA330013*
+			    )))
+		    quid       	"4993EA330013"
+		    documentation 	"ñãåíåðèòü õýø âòîðîãî óðîâíÿ."
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    quid       	"49953EAA02A7"
+			    type       	"Key"
+			    quidu      	"4989AD3D0088"))
+		    result     	"unsigned long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"3DBFFDE101CA"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "iteration_count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4993EA90007D"
+		    documentation 	"êîëè÷åñòâî èòåðàöèé äëÿ ðàñ÷åòà êîëëèçèé"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    Containment 	"By Value")
+		(object ClassAttribute "keys_count_to_build_mphf"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4993EACC0309"
+		    documentation 	"êîëè÷åñòâî êëþ÷åé íà êîòîðûõ ñòðîèòñÿ MPHF"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    Containment 	"By Value")
+		(object ClassAttribute "bits_count_for_second_hash"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4993EB0B0136"
+		    documentation 	"ðàçðÿäíîñòü âòîðîãî õýøà"
+		    type       	"octet"
+		    quidu      	"3DBFFE500260"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4992DF21009E"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	375
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::RandomAlg::CollisionTest::LibSupport::EntryPoint" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1278, 774)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(858, 648)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	840
+			justify    	0
+			label      	"EntryPoint")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(858, 598)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	840
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4992DF25023F"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(858, 709)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	873
+			justify    	1)
+		    width      	858
+		    height     	376
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::RandomAlg::ClientMPHF::MPHFAPI::MPHP" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(393, 777)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(257, 745)
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"MPHP")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(257, 695)
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49897F40018A"
+		    width      	290
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(663, 729)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.596935
+			height     	47
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4992DF8D02F1"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(848, 774)
+			(538, 776))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::RandomAlg::Random::Generators::UniqGen" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(444, 360)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(305, 328)
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"UniqGen")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(305, 278)
+			anchor     	10
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4993DD5201C0"
+		    width      	296
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(698, 579)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.538535
+			height     	85
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4993DF8300DF"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(902, 585)
+			(592, 432))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GCL::math::long_rand" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1746, 237)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1582, 205)
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"• long_rand")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1582, 155)
+			anchor     	10
+			nlines     	1
+			max_width  	325
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"45018DA0002E"
+		    width      	346
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(1462, 381)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49953E8D0387"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(1440, 585)
+			(1662, 331))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::external::std::containers::set" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(993, 213)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(836, 181)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	314
+			justify    	0
+			label      	"• set")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(836, 131)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	314
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"499540D7032D"
+		    width      	332
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @12
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @13
+			Parent_View 	@12
+			location   	(1004, 500)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4995462A0186"
+		    client     	@1
+		    supplier   	@11
+		    vertices   	(list Points
+			(1181, 585)
+			(1040, 307))
+		    line_style 	0)))))

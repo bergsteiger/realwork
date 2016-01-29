@@ -1,0 +1,82 @@
+// l3Dict 47AC79EA0132 UtilityPack Class
+
+FORWARD ME_47AC79EA0132
+
+FORWARD ME_47AC79B70202
+
+: ME_4B88DAED0223
+ CONST UID '4B88DAED0223'
+ CONST Name 'l3Items_NeedsBeforeFreeItem'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4B88DAED0223 l3Items_NeedsBeforeFreeItem
+
+: ME_4B88DB0A010F
+ CONST UID '4B88DB0A010F'
+ CONST Name 'l3Items_NoSort'
+ CONST Class 'Class'
+ CONST Stereotype 'Undef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4B88DB0A010F l3Items_NoSort
+
+INCLUDE '4B88E96A02CC.pas.ms.script'
+
+INCLUDE '53036F2101D3.pas.ms.script'
+
+: ME_47AC79B70202
+ CONST UID '47AC79B70202'
+ CONST Name 'Tl3Dictionary'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Словарь. Используется для преобразования строки в идентификатор и наоборот. Имеет два индекса сортировки' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4B88E96A02CC // Tl3DictionaryPrim
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_53036F2101D3 // l3Dictionary
+ ]
+ ; // Implements
+ : Children
+   [ ME_4B88DAED0223 // l3Items_NeedsBeforeFreeItem
+ ME_4B88DB0A010F // l3Items_NoSort
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '11.10.1999 12:50'
+
+ @SELF
+; // ME_47AC79B70202 Tl3Dictionary
+
+: ME_47AC79EA0132
+ CONST UID '47AC79EA0132'
+ CONST Name 'l3Dict'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'описание объекта-"словаря"' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_47AC79B70202 // Tl3Dictionary
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '11.10.1999 12:50'
+
+ @SELF
+; // ME_47AC79EA0132 l3Dict

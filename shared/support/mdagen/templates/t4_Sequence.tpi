@@ -1,0 +1,318 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Sequence (class)
+//////////////////////////////////////////////////////////////////////////////////
+
+: Sequence::Class::Attribute
+A const
+Y t5_attr.gif
+
+: Sequence::Class
+? Интерфейс неограниченного массива
+? Определяет стандартныей интерфейс к неограниченному массиву элементов заданного типа.
+? Для данных элементов вся реализация генерируется автоматически. В пользовательских свойствах можно выбрать тип генерируемой реализации:
+? на основе стандартного контейнрера или на основе простого массива-буфера.
+< *::Category,*::Class
+$ S
+$ s
+$ C 215,245,255
+p std impl:b=true ? определяет необходимость генерации реализации сиквенса на основе стандартного контейнрера
+p nocopy impl:b=false ? определяет необходимость генерации реализации сиквенса на основе простого массива-буфера
+
+%t _constraint
+c                              {}
+r {%ax=false}: {%SS ни кем не используется}
+
++ idl
+	<#%FF
+	>%f_docs(%S)\
+	#typedef sequence\<%C[%T<%NN::>]%C[%TN]\> %SN;
+
++ h
+	class %SN : virtual public ::Core::IObject {
+	public:
+		virtual [{"%t_simple(%C%T,"")"="false"}const ]%f_seq_ret(%C%T) get_at (unsigned int index) const = 0;[{"%t_simple(%C%T,"")"="false"&"%Cs"!="const"}
+	
+		virtual %f_seq_ret(%C%T) get_at (unsigned int index) = 0;]
+	
+		virtual void set_at (unsigned int index, [{"%Cs"="const"}const ]%tv(%C%T,"attr_in") obj) = 0;
+	
+		virtual unsigned int size () const = 0;
+	
+		virtual void resize (unsigned int size) = 0;
+	
+		virtual void reserve (unsigned int maximum) = 0;
+	
+		virtual void push_back ([{"%Cs"="const"}const ]%tv(%C%T,"attr_in") obj) = 0;
+	
+		virtual void erase_at (unsigned long index) = 0;
+		
+		virtual void erase_all () = 0;
+	
+		virtual void truncate () = 0;
+	};
+	
+	typedef ::Core::Var\<%SN\> %SN_var;
+	typedef ::Core::Var\<const %SN\> %SN_cvar;
+	
+	// factory class for %SN
+	class %SNFactory {
+	public:
+		static %SN* make ();
+		static %SN* make (unsigned long maximum);
+		[{"%t_interface(%C%T)"!="true"}static %SN* make ([{"%Cs"="const"}const ]%f_type(%C%T)* buffer, unsigned long length, bool orphan);
+		]static %SN* make ([{"%Cs"="const"}const ]%f_type(%C%T)[{"%t_interface(%C%T)"="true"}*] const* buffer, unsigned long size);
+	};
+
++ fctr.cpp
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	// standart implementations for list class %SN
+	
+	[{"%S{std impl}"="true"}class %SN_std_i : virtual public %SN, virtual public ::Core::RefCountObjectBase {
+		friend class %SNFactory;
+	protected:
+		%SN_std_i () {
+		}
+		
+		%SN_std_i (unsigned long maximum) : m_buffer(maximum) {
+		}
+		
+		%SN_std_i ([{"%Cs"="const"}const ]%f_type(%C%T)[{"%t_interface(%C%T)"="true"}*] const* buffer, unsigned long size): m_buffer(buffer, buffer + size) {
+		[{"%t_interface(%C%T)"="true"}
+			do {
+				buffer\[size-1\]-\>addref();
+			} while (size--);
+		]}
+		
+		[{"%t_simple(%C%T,"")"="false"}const ]%f_seq_ret(%C%T) get_at (unsigned int index) const {
+			assert (index \<= m_buffer.size());
+			return m_buffer.at(index)[{"%t_interface(%C%T)"="true"}._sretn()];
+		}[{"%t_simple(%C%T,"")"="false"&"%Cs"!="const"}
+		
+		%f_seq_ret(%C%T) get_at (unsigned int index) {
+			assert (index \<= m_buffer.size());
+			return m_buffer.at(index)[{"%t_interface(%C%T)"="true"}._sretn()];
+		}]
+		
+		void set_at (unsigned int index, [{"%Cs"="const"}const ]%tv(%C%T,"attr_in") obj) {
+			assert (index \<= m_buffer.size());
+			[{"%t_interface(%C%T)"="true"}obj-\>addref();
+			]m_buffer\[index\] = obj;
+		}
+	
+		unsigned int size () const {
+			return m_buffer.size();
+		}
+	
+		void resize (unsigned int size) {
+			m_buffer.resize(size);
+		}
+	
+		void reserve (unsigned int maximum) {
+			m_buffer.reserve(maximum);
+		}
+		
+		void push_back ([{"%Cs"="const"}const ]%tv(%C%T,"attr_in") obj) {
+			[{"%t_interface(%C%T)"="true"}obj-\>addref();
+			]m_buffer.push_back(obj);
+		}
+	
+		void erase_at (unsigned long index) {
+			m_buffer.erase(m_buffer.begin() + index);
+		}
+		
+		void erase_all () {
+			m_buffer.clear();
+		}
+		
+		void truncate () {
+			assert (0); // don't know how to truncate stl vector
+		}
+	
+/		std::vector\<%f_type(%C%T)[{"%t_interface(%C%T)"="true"}_var]\> m_buffer;
+		std::vector\<%f_attr(%C)\> m_buffer;
+	};
+	
+	][{"%S{nocopy impl}"="true"}class %SN_nocopy_i : virtual public %SN, virtual public ::Core::RefCountObjectBase {
+		[{"%t_interface(%C%T)"="true"}ERROR - we dont know how to implement no-copy constructors for sequence of Interfaces
+		]friend class %SNFactory;
+	protected:
+		%SN_nocopy_i (%f_type(%C%T)[{"%t_interface(%C%T)"="true"}*] const* buffer, unsigned long size) : m_buffer(buffer), m_size(size), m_maximum(size) {
+		}
+		
+		[{"%t_simple(%C%T,"")"="false"}const ]%f_seq_ret(%C%T) get_at (unsigned int index) const {
+			assert (index \<= m_size);
+			return m_buffer\[index\];
+		}[{"%t_simple(%C%T,"")"="false"}
+		
+		%f_seq_ret(%C%T) get_at (unsigned int index) {
+			assert (index \<= m_size);
+			return m_buffer\[index\];
+		}]
+		
+		void set_at (unsigned int index, %tv(%C%T,"attr_in") obj) {
+			assert (index \<= m_size);
+			m_buffer\[index\] = obj;			
+		}
+	
+		unsigned int size () const {
+			return m_size;
+		}
+	
+		void resize (unsigned int size) {
+			if (size \> m_maximum) {
+				this-\>reserve(size);
+			}
+			m_size = size;
+		}
+	
+		void reserve (unsigned int maximum) {
+			if (maximum \> m_maximum) {
+				::Core::Aptr\<%f_type(%C%T)\> tmp = m_buffer;
+				m_buffer = new %f_type(%C%T)\[maximum\];
+				memmov (m_buffer, tmp.ptr(), m_size);
+				m_maximum = maximum;
+			}
+		}
+		
+		void truncate () {
+			if (size != m_maximum) {
+				::Core::Aptr\<%f_type(%C%T)\> tmp = m_buffer;
+				m_buffer = new %f_type(%C%T)\[m_size\];
+				memmov (m_buffer, tmp.ptr(), m_size);
+			}
+		}
+		
+		void push_back (%tv(%C%T,"attr_in") obj) {
+			if (m_size >= m_maximum) {
+				this->reserve (m_size + 1);
+			}
+			m_buffer[m_size++] = obj;
+		}
+	
+		void erase_at (unsigned long) {
+			assert (0);
+			// need to implement in TPL
+		}
+		
+		void erase_all () {
+			m_buffer = 0;
+			m_size = 0;
+			m_maximum = 0;
+		}
+	
+		::Core::Aptr\<%f_type(%C%T)\> m_buffer;
+	};
+	
+	]// implementation of factory methods for %SN
+
+	%SN* %SNFactory::make () {
+		[{"%S{std impl}"!="true"}{return new %SN_std_i();}%U[{_MAKE_IMPL}
+			assert (0);
+			return 0;
+		]]
+	}
+	
+	%SN* %SNFactory::make (unsigned long maximum) {
+		[{"%S{std impl}"!="true"}{return new %SN_std_i(maximum);}%U[{_MAKE_MAX_IMPL}
+			assert (0);
+			return 0;
+		]]
+	}
+	
+	[{"%t_interface(%C%T)"!="true"}%SN* %SNFactory::make ([{"%Cs"="const"}const ]%f_type(%C%T)* buffer, unsigned long size, bool orphan) {
+		if (orphan) {
+			[{"%S{nocopy impl}"!="true"}{return new %SN_nocopy_i (buffer, size);}%U[{_MAKE_NOCOPY_IMPL}
+				assert (0);
+				return 0;
+			]]			
+		} else {
+			return %SNFactory::make (buffer, size);
+		}
+	}
+	
+	]%SN* %SNFactory::make ([{"%Cs"="const"}const ]%f_type(%C%T)[{"%t_interface(%C%T)"="true"}*] const* buffer, unsigned long size) {
+		[{"%S{std impl}"!="true"}{return new %SN_std_i (buffer, size);}%U[{_MAKE_COPY_IMPL}
+			assert (0);
+			return 0;
+		]]		
+	}
+
++ dll.h
+	class %SN_tie {
+		SET_OBJECT_COUNTER (%SN_tie)
+	protected:
+	%f_tie_object_refcount_base_h(%S)
+	
+	protected:
+		virtual [{"%t_simple(%C%T,"")"="true"}%f_ret(%C) __stdcall get_at (int ind) const {
+			assert (ind \>= 0);
+			return m_impl-\>get_at (ind);
+		}][{"%t_simple(%C%T,"")"="false"}void __stdcall get_at (int ind, %tv(%C%T,"out") ret)[{"%t_interface(%C%T)"="false"} const] {
+			assert (ind \>= 0);
+			[{"%f_need_tie(%C%T)"="true"}{ret = m_impl-\>get_at (ind)}%f_type(%C%T)::make_tie(m_impl-\>get_at (ind), ret)];
+		}]
+		
+		virtual void __stdcall set_at (int ind, %tv(%C%T,"in") obj) {
+			assert (ind \>= 0);
+		[{"%f_need_tie(%C%T)"="true"}	%f_cpp_type(%C%T)[{"%t_interface(%C%T)"="true"}*] obj_;
+			%f_type(%C%T)::make_cpp(obj, obj_);
+		]	m_impl-\>set_at(ind, [{"%f_need_tie(%C%T)"="true"}{obj}obj_]);
+		}
+		
+		virtual int __stdcall get_size () const {
+			return m_impl-\>size();
+		}
+		
+		virtual void __stdcall resize (int count) {
+			assert (count \>= 0);
+			m_impl-\>resize(count);
+		}
+						
+		virtual void __stdcall reserve (int max) {
+			assert (max \>= 0);
+			m_impl-\>reserve(max);
+		}
+		
+		virtual void __stdcall push_back (%tv(%C%T,"attr_in") obj) {
+		[{"%f_need_tie(%C%T)"="true"}	%f_cpp_type(%C%T)[{"%t_interface(%C%T)"="true"}*] obj_;
+			%f_type(%C%T)::make_cpp(obj, obj_);
+		]	m_impl-\>push_back([{"%f_need_tie(%C%T)"="true"}{obj}obj_]);
+		}
+	
+		virtual void __stdcall erase_at (unsigned long index) {
+			m_impl-\>erase_at(index);
+		}
+		
+		virtual void __stdcall erase_all () {
+			m_impl-\>erase_all();
+		}
+	
+		virtual void __stdcall truncate () {
+			m_impl-\>truncate();
+		}
+	};
+
++ dll.cpp
+P
+	%f_tie_object_refcount_base_cpp(%S)
+/	%SN_tie::MyPool %SN_tie::s_obj_pool;
+
++ pas
+	%f_docs(%S)\
+	#%SN = interface (IInterface) \['{%SG}'\]	
+	#	[{"%t_simple(%C%T,"")"="true"}{procedure GetAt (aInd: Longint; out aItem {: %f_type(%C%T)})}function GetAt (aInd: Longint): %f_type(%C%T)]; stdcall;
+	#	procedure SetAt (aInd: Longint; const aItem: %f_type(%C%T)); stdcall;
+	#	function GetSize (): Longint; stdcall;
+	#	procedure Resize (aCount: Longint); stdcall;	
+	#	procedure Reserve (aCount: Longint); stdcall;
+	#	procedure PushBack (const aItem: %f_type(%C%T)); stdcall;
+	#	procedure EraseAt (aInd: Longint); stdcall;
+	#	procedure EraseAll (); stdcall;	
+	#	procedure Truncate (); stdcall;
+	#end;
+
+//////////////////////////////////////////////////////////////////////////////////
+// support functions
+
+f _seq_ret
+	[{"%SM"="Struct::Class"}{%tv(%S,"ret")}%f_type(%S)&]

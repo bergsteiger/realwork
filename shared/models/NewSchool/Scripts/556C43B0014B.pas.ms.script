@@ -1,0 +1,347 @@
+// LibPQ 556C43B0014B UtilityPack Class
+
+FORWARD ME_556C43B0014B
+
+FORWARD ME_556C692502A8
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_556C69620228
+ CONST UID '556C69620228'
+ CONST Name 'CONNECTION_OK'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C69620228 CONNECTION_OK
+
+: ME_556C697200F5
+ CONST UID '556C697200F5'
+ CONST Name 'CONNECTION_BAD'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C697200F5 CONNECTION_BAD
+
+: ME_556C697D02D7
+ CONST UID '556C697D02D7'
+ CONST Name 'CONNECTION_STARTED'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Waiting for connection to be made.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C697D02D7 CONNECTION_STARTED
+
+: ME_556C69A202AC
+ CONST UID '556C69A202AC'
+ CONST Name 'CONNECTION_MADE'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Connection OK; waiting to send.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C69A202AC CONNECTION_MADE
+
+: ME_556C69BC0003
+ CONST UID '556C69BC0003'
+ CONST Name 'CONNECTION_AWAITING_RESPONSE'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Waiting for a response from the postmaster.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C69BC0003 CONNECTION_AWAITING_RESPONSE
+
+: ME_556C69CE0266
+ CONST UID '556C69CE0266'
+ CONST Name 'CONNECTION_AUTH_OK'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Received authentication; waiting for backend startup.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C69CE0266 CONNECTION_AUTH_OK
+
+: ME_556C69E60194
+ CONST UID '556C69E60194'
+ CONST Name 'CONNECTION_SETENV'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Negotiating environment.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C69E60194 CONNECTION_SETENV
+
+: ME_556C6A0703E4
+ CONST UID '556C6A0703E4'
+ CONST Name 'CONNECTION_SSL_STARTUP'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Negotiating SSL.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C6A0703E4 CONNECTION_SSL_STARTUP
+
+: ME_556C6A1C029C
+ CONST UID '556C6A1C029C'
+ CONST Name 'CONNECTION_NEEDED'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Internal state: connect() needed' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_556C6A1C029C CONNECTION_NEEDED
+
+: ME_556C692502A8
+ CONST UID '556C692502A8'
+ CONST Name 'TpgConnectStatusType'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_556C69620228 // CONNECTION_OK
+ ME_556C697200F5 // CONNECTION_BAD
+ ME_556C697D02D7 // CONNECTION_STARTED
+ ME_556C69A202AC // CONNECTION_MADE
+ ME_556C69BC0003 // CONNECTION_AWAITING_RESPONSE
+ ME_556C69CE0266 // CONNECTION_AUTH_OK
+ ME_556C69E60194 // CONNECTION_SETENV
+ ME_556C6A0703E4 // CONNECTION_SSL_STARTUP
+ ME_556C6A1C029C // CONNECTION_NEEDED
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_556C692502A8 TpgConnectStatusType
+
+: ME_556C693F00DA
+ CONST UID '556C693F00DA'
+ CONST Name 'TPGconn'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_556C693F00DA TPGconn
+
+: ME_556C694900CA
+ CONST UID '556C694900CA'
+ CONST Name 'PPGconn'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_556C693F00DA // TPGconn
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_556C694900CA PPGconn
+
+: ME_556DA4F400D1
+ CONST UID '556DA4F400D1'
+ CONST Name 'TPGresult'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_556DA4F400D1 TPGresult
+
+: ME_556DA51E037C
+ CONST UID '556DA51E037C'
+ CONST Name 'PPGresult'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_556DA4F400D1 // TPGresult
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_556DA51E037C PPGresult
+
+FORWARD ME_5604F9D900DD
+
+: ME_5604FA0D02F2
+ CONST UID '5604FA0D02F2'
+ CONST Name 'PGRES_EMPTY_QUERY'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5604FA0D02F2 PGRES_EMPTY_QUERY
+
+: ME_5604FA1D00B6
+ CONST UID '5604FA1D00B6'
+ CONST Name 'PGRES_COMMAND_OK'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'a query command that doesn''t return anything'#13#10'was executed properly by the backend' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5604FA1D00B6 PGRES_COMMAND_OK
+
+: ME_5604FA3E02D3
+ CONST UID '5604FA3E02D3'
+ CONST Name 'PGRES_TUPLES_OK'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'a query command that returns tuples'#13#10'was executed properly by the backend,'#13#10'PGresult contains the result tuples' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5604FA3E02D3 PGRES_TUPLES_OK
+
+: ME_5604FA60007B
+ CONST UID '5604FA60007B'
+ CONST Name 'PGRES_COPY_OUT'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Copy Out data transfer in progress' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5604FA60007B PGRES_COPY_OUT
+
+: ME_5604FA790294
+ CONST UID '5604FA790294'
+ CONST Name 'PGRES_COPY_IN'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Copy In data transfer in progress' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5604FA790294 PGRES_COPY_IN
+
+: ME_5604FA8F0187
+ CONST UID '5604FA8F0187'
+ CONST Name 'PGRES_BAD_RESPONSE'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'an unexpected response was recv''d from the backend' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5604FA8F0187 PGRES_BAD_RESPONSE
+
+: ME_5604FAAA036E
+ CONST UID '5604FAAA036E'
+ CONST Name 'PGRES_NONFATAL_ERROR'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5604FAAA036E PGRES_NONFATAL_ERROR
+
+: ME_5604FAB80165
+ CONST UID '5604FAB80165'
+ CONST Name 'PGRES_FATAL_ERROR'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5604FAB80165 PGRES_FATAL_ERROR
+
+: ME_5604F9D900DD
+ CONST UID '5604F9D900DD'
+ CONST Name 'TpgExecStatusType'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5604FA0D02F2 // PGRES_EMPTY_QUERY
+ ME_5604FA1D00B6 // PGRES_COMMAND_OK
+ ME_5604FA3E02D3 // PGRES_TUPLES_OK
+ ME_5604FA60007B // PGRES_COPY_OUT
+ ME_5604FA790294 // PGRES_COPY_IN
+ ME_5604FA8F0187 // PGRES_BAD_RESPONSE
+ ME_5604FAAA036E // PGRES_NONFATAL_ERROR
+ ME_5604FAB80165 // PGRES_FATAL_ERROR
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_5604F9D900DD TpgExecStatusType
+
+: ME_556C43B0014B
+ CONST UID '556C43B0014B'
+ CONST Name 'LibPQ'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'И никогда не будет Finished - бо импортирует функции из dll. А модель так не умеет.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_556C692502A8 // TpgConnectStatusType
+ ME_556C693F00DA // TPGconn
+ ME_556C694900CA // PPGconn
+ ME_556DA4F400D1 // TPGresult
+ ME_556DA51E037C // PPGresult
+ ME_5604F9D900DD // TpgExecStatusType
+ ]
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+
+ @SELF
+; // ME_556C43B0014B LibPQ

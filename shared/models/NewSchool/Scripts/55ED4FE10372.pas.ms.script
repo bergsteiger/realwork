@@ -1,0 +1,46 @@
+// SimpleTests 55ED4FE10372 TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_55ED4FE10372
+ CONST UID '55ED4FE10372'
+ CONST Name 'SimpleTests'
+ CONST Class class_Category
+ : Stereotype st_TestLibrary ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_51945CDA0027' '51945CDA0027.pas.ms.script' // archi$ImportExprortTest
+ ;
+ : Children
+   @ ( WL 'ME_55FFC20F00A6' '55FFC20F00A6.pas.ms.script' // ExportPipeTestsSupport
+ WL 'ME_55ED516B0072' '55ED516B0072.pas.ms.script' // ExportPipeTests
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4B30CC420206' '4B30CC420206.pas.ms.script' // Shared Delphi Testing Framework
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_55F29ABD02C2' '55F29ABD02C2.pas.ms.script' // ArchiDBTests
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "ifdef" 'nsTest'
+ CONST "vendor" '/ImportExportTest'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\archi$ImportExprortTest\SimpleTests\SimpleTests.model.script'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55ED4FE10372.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55ED4FE10372.pas.ms.script.runner'
+
+ref; // ME_55ED4FE10372 SimpleTests

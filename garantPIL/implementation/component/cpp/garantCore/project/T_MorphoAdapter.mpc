@@ -1,0 +1,89 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garantPIL/implementation/component/cpp/garantCore/project/T_MorphoAdapter.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<AdapterTarget::Category>> garantCore::MorphoAdapter
+//
+// Dll морфологии
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_MorphoAdapter) : project_generic_core, project_subsystem_windows {
+	sharedname = MorphoAdapter
+	after += Core
+	libs  += Core
+	
+
+	after += DB
+	libs  += DB
+	after += GCI
+	after += GCI_tie
+	libs  += GCI
+	libs  += GCI_tie
+	after += GCL
+	libs  += GCL
+	after += Morpho
+	libs  += Morpho
+	after += MorphoAdapterLib
+	after += MorphoAdapterLib_tie
+	libs  += MorphoAdapterLib
+	libs  += MorphoAdapterLib_tie
+
+	//#UC START# *4E9EDBA602CB_CUSTOM_DEPENDENSES*
+	after += gkdb
+	libs  += gkdb
+	after += SearchBase
+	libs  += SearchBase
+	after += cchlp1
+	libs  += cchlp1
+	after += zlib
+	libs  += zlib
+	after += gctx
+	libs  += gctx
+
+	macros += INSTLL_CIB
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += NO_GSSCREEN
+	macros += STORE_FORM_N
+	macros += USE_CPP_ZIP
+	macros += WINENCODE
+	macros += GDS_NLOG_TRACE
+	macros += VERSION56
+	macros += VERSION61
+	macros += VERSION62
+	macros += VERSION63
+	macros += USE_ACE
+
+	includes += W:\garantPIL\implementation\component\cpp\include
+	includes += W:\garantPIL\implementation\component\cpp\include\win32
+	includes += W:\garantPIL\implementation\component\cpp\libs\cchlp\src
+	includes += W:\garantPIL\implementation\component\cpp\libs\gkdb\src
+	includes += W:\garantPIL\implementation\component\cpp\libs\zlib\src
+	//#UC END# *4E9EDBA602CB_CUSTOM_DEPENDENSES*
+	includes += ../../
+
+	Header_Files {
+		Std_Headers {
+			./../MorphoAdapter/MorphoAdapter.h
+			./../MorphoAdapter/MorphoAdapter_tie.h
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../MorphoAdapter/MorphoAdapter.cpp
+			./../MorphoAdapter/MorphoAdapter_tie.cpp
+		}
+	}
+	
+	Resource_Files {
+		
+		
+		
+		//#UC START# *4E9EDBA602CB_RESOURCE_FILES*
+		//#UC END# *4E9EDBA602CB_RESOURCE_FILES*
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

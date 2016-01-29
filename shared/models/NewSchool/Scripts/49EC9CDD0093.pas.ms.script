@@ -1,0 +1,118 @@
+// Web 49EC9CDD0093 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EC9CDD0093
+
+FORWARD ME_49EC9CF0030B
+
+FORWARD ME_49EC9D0E00F0
+
+: ME_4B91F18CB75A
+ CONST UID '4B91F18CB75A'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TWebBrowser' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC9D0E00F0 // TWebBrowser
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_4B91F18CB75A Ini_Reg_Class
+
+: ME_0A0028BD5E33
+ CONST UID '0A0028BD5E33'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC9D0E00F0 // TWebBrowser
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_0A0028BD5E33 
+
+: ME_49EC9D0E00F0
+ CONST UID '49EC9D0E00F0'
+ CONST Name 'TWebBrowser'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC9CF0030B // shdocvw
+ ;
+ : Inherits
+   @ ( WL 'ME_49EEFABF023A' '4799D29F033F.pas.ms.script' // TOleControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4B91F18CB75A // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_0A0028BD5E33 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_49EC9D0E00F0 TWebBrowser
+
+: ME_49EC9CF0030B
+ CONST UID '49EC9CF0030B'
+ CONST Name 'shdocvw'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC9CDD0093 // Web
+ ;
+ : Children
+   @ ( ME_49EC9D0E00F0 // TWebBrowser
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Internet\NOT_FINISHED_shdocvw.pas'
+
+ref; // ME_49EC9CF0030B shdocvw
+
+: ME_49EC9CDD0093
+ CONST UID '49EC9CDD0093'
+ CONST Name 'Web'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_483E96C10305' '483E96C10305.pas.ms.script' // Internet
+ ;
+ : Children
+   @ ( ME_49EC9CF0030B // shdocvw
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49EC9CDD0093.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49EC9CDD0093.pas.ms.script.runner'
+
+ref; // ME_49EC9CDD0093 Web

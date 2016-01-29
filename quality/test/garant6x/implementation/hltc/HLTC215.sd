@@ -1,0 +1,2410 @@
+////////////////////////////////////////////////////////////////////////////////
+////////////// HLTC 215: Конвертация пользовательских настроек. ////////////////
+////////////////////////////////////////////////////////////////////////////////
+uses common, States, RunPrograms, SettingsWork, Clicks, DocumentWork, 
+     MenuWork, FoldersWork, ListWork, SearchWork, FileWork, Administrator, Installer, MDP;
+     
+function TestingReInstal : OleVariant; forward;
+
+
+    
+{
+  TYPE: Выливка настроек 
+  DESC: Функция проверяет, что после выливки Xml - корректен 
+  RESULT: true - если структура XML правильная  
+  REMARK:
+}    
+function CheckXMLAfterExport(
+  trgXml: string;
+  userEtalon: string //Будем проверять наличие такого пользователя в XML 
+): boolean;
+var
+  fileXml;
+  str;
+  i;
+  user;
+begin  
+try
+  user := [userEtalon, '_predefined_data', 'admin'];
+
+  fileXml := GetFileList(trgXml, '*.xml', 0);
+  if NOT IsArray(fileXml) then//Если в папке нет ни одного файла *.xml
+  begin
+    Log.Error('Не удалось найти <*.xml> в папке: ' + trgXml);
+    Raise;
+  end;
+  str := fileXml[VarArrayLowBound(fileXml, 1)];
+  str := ExtractFileName(str);
+  str := GetSubStr(str, '', '.');
+  if NOT DirectoryExists(trgXml + '\' + str) then
+  begin
+    Log.Error('Не удалось найти папку с xml <' + str + '> в папке:' + trgXml);
+    Raise;
+  end; 
+  // Проверяем, что существуют папки с xml для эталонных пользователей
+  for i := VarArrayLowBound(user, 1) to VarArrayHighBound(user, 1) do
+    if NOT DirectoryExists(trgXml + '\' + str + '\' + user[i] ) then
+    begin
+      Log.Error('Не удалось найти папку с xml эталонного пользователя <' + user[i] + '> в папке' + trgXml + '\' + str);
+      Raise;
+    end;
+  
+  result := true; 
+except
+  Log.Message('CheckXMLAfterExport: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result :=false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: Выливка настроек 
+  DESC: Функция проверяет , что после заливки XML, настройки корректны
+  RESULT: true - если структура настроек правильная  
+  REMARK:
+}    
+function CheckingSettingsAfterConvert(
+  settingsPath: string;
+  trgXml: string 
+): boolean;
+begin
+try
+  //Проверяем, что после заливки настроек settings-xml- пустая
+  result := false;
+  
+  if NOT IsFolderEmpty (trgXml) then
+  begin   
+    Log.Error('После заливки настроек, папка с Xml <' + trgXml + '> не очистилась');
+    Exit; 
+  end;
+  //Проверяем, что после заливки настроек существует файл settings\garant.ini
+  if NOT FileExists (settingsPath + '\garant.ini') then
+  begin
+    Log.Error('После заливки настроек, в папке с настройками <' + settingsPath + '> нет файла garant.ini');
+    Exit; 
+  end;
+  //ПРоверяем, что после заливки  настроек существуе папка settings\userData
+  if NOT DirectoryExists (settingsPath + '\userdata') then
+  begin
+    Log.Error('После заливки настроек, в папке с настройками <' + settingsPath + '> нет подпаки userdata');
+    Exit; 
+  end;
+  //ПРоверяем, что после заливки  настроек существуе папка settings\xmlTools
+  if NOT DirectoryExists (settingsPath + '\xmltools') then
+  begin
+    Log.Error('После заливки настроек, в папке с настройками <' + settingsPath + '> нет подпаки xmltools');
+    Exit; 
+  end;                                                   
+
+  result := true;
+except                                                      
+  Log.Message('CheckingSettingsAfterConvert: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result :=false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: Конвертация настроек
+  DESC: Изменяет пароль админа при помощи утилиты pswd.exe
+  RESULT:  True - если удалось залогинится Админом под новым изменённым паролем 
+  REMARK:  !!Работает только для КС версии, перед запуском функции сервер должен быть запущен
+}
+function  ChangeAdminPswd(
+  newPswd: string
+): boolean;
+var
+  fileNameBat;
+  fileNameInput;
+  dirName;
+  countOsAttempts;
+begin                                  
+try
+  dirName := GetF1Directory;
+  fileNameBat := 'passwd.bat';
+  fileNameInput := 'cmd';
+  //Если запущена оболочка, закрываем её
+  countOsAttempts := 2;
+  CloseF1Shell(countOsAttempts, Options.Run.Timeout div 6);
+  //Создаём файл passwd.bat
+  SaveStrToFile(
+    dirName + '\tools\' + fileNameBat,
+    '@echo off' + EndOfLine + 'if "%OS%"=="Windows_NT" "' + dirName+ '\apps\winNT\F1Passwd.exe" <"' + dirName + '\tools\' + fileNameInput + '" -GCMConfigFile "' + dirName + '\garant.ini" -GPMAdapterConfigSection "F1Client Params" -ORBLogFile "' + dirName + '\tools\passwd.log" %*'
+  );
+  //Создаем файл, который будет подовать входной поток  в passwd.bat
+  SaveStrToFile(
+    dirName + '\tools\' + fileNameInput,
+    'ADMIN' + EndOfLine + newPswd + EndOfLine + 'y'
+  );
+  //Запускаем passwd.bat  
+  Win32API.WinExec('"' + dirName + '\tools\' + fileNameBat + '"', Win32API.SW_SHOWNORMAL);
+  Delay(1000*10);
+  StartF1Shell;
+  Delay(1000*5);
+  result := LoginExistingUser('ADMIN', 'ADMIN');
+  if result then
+    Log.Error('После изменения пароля Админа, удалось залогинится под старым паролем: ADMIN');
+  countOsAttempts := 2;//Будем Срубаем процесс
+  CloseF1Shell(countOsAttempts, Options.Run.Timeout div 6);
+  
+  result := true;
+except
+  CloseF1Shell;
+  Log.Message('ChangeAdminPswd: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+  TYPE: Выливка настроек 
+  DESC: Функция формирует XML в заданную папку <TrgXML>
+  XML могут браться сразу готовый из CVS или же выливаться при прмощи F1UsersSave из текущих бинарных настроек   
+  RESULT: После себя закрывает оболочку и если КС, тогда стопит сервер
+  
+  REMARK: BEFORE(эталонные настройки предидущей версии)/CURRENT(эталонные настройки текущей версии)
+  
+  Если у нас настройки конвертируются при помощи F1UsersSave и стоит КС версия, тогда пароль Аджмина меняется
+}    
+function ConvertXMLToBinSettings(
+  srcSettings : string // Before\Current 
+) : boolean;
+const
+  ETALON_USER = 'Etalon'; 
+  ETALON_PSWD = 'Etalon';
+  INFO_MESSAGE = 'В новой версии изменены настройки конфигурации. Новые настройки*Созданная Вами конфигурация сохранена, по умолчанию используется новая настройка.';
+var
+ src: string;
+ fileName;
+ productType;
+ process;
+ timeWaite;
+ res, str;
+ countOsAttempts;
+ settingsPath, trgXML, installRoot;
+ tempDir; 
+ fromLog;
+ pathFSLog;
+ pathToSettingsInCVS;
+ strExceptFromLog;
+ strParam;
+begin
+try
+  //pathToSettingsInCVS := 'W:\quality\test\garant6x\UserConvertTest\';
+  pathToSettingsInCVS := GetPathTo(PATH_TO_USERCONVERTTEST);
+  productType := GetProductType;
+  tempDir := GetTempDirectory;
+  //Если ФС версия, тогда в дальнейшем при анализе лога будем учитывать, что лог нужно брать из Темпа 
+  
+  if productType = PT_FILESERVER then//Если ФС версии- тогда пути читаются из реестра, если нет- то из инишника(только путь к логу из инишника)
+  begin
+    installRoot := Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER ).GetOption('InstallRoot', '');
+    if installRoot = '' then Raise('Не удалось получить параметр InstallRoot из реестра');
+    settingsPath := installRoot + '\settings';
+    trgXml := installRoot + '\settings\xmllocal';
+    //Читаем путь к логу
+    pathFSLog := GetValueFromGarantINI('[F1Server Params]', 'SBELogFile');
+    pathFSLog := GetSubStr(pathFSLog,'%TEMP%' , '');
+    pathFSLog := tempDir + pathFSLog;
+    strParam := 'IsFromLastServerStart:=true; inFileName:=' + pathFSLog;      
+  end
+  else
+  begin
+    settingsPath := GetValueFromGarantINI('[F1Server Params]', 'GCMSettingsPath');
+    if settingsPath = '' then Raise('Не удалось получить путь к Settings из инишника');
+
+    trgXml := GetValueFromGarantINI('[F1UsersSave Params]', 'XMLSavePath');
+    if trgXml = '' then Raise('Не удалось получить путь к Settings-XML из инишника');
+    strParam := 'IsFromLastServerStart:=true';
+  end;
+  
+  //Если папка settingsXml не пустая, тогда очищаем её 
+  //____!!! Так как теперь settings-xml не чистится, соответственно мы не имеем право её очищать, надо это сделать
+  
+  if NOT IsFolderEmpty(trgXml) then
+    if NOT EmptyFolder(trgXml) then Raise('Не удалось очистить папку: ' + trgXml); 
+  
+  case srcSettings of    
+    'BEFORE':
+      begin
+        src := pathToSettingsInCVS + 'AutoTest\Before\settings-xml\';
+        if CopyFilesExt(src , trgXML, ['*\CVS\*']) = 0  then
+          Raise('Не удалось скопировать не одного файла из  < ' + src +' >  в  < ' + trgXML + ' >.');          
+          
+      end;
+    'CURRENT'://XML получаем Выливкой из текущих бинарных настроек при помощи F1UsersSave.bat(за исключением 
+              //ФС, там просто подлаживаем текущий XML)
+      begin
+        if productType = PT_FILESERVER then//Если ФС- тогда просто подлаживаем XML текущей версии из CVS (F1UsersSave для ФС не проверяем по согласованию с Сашей Доброгорским)
+        begin
+          src := pathToSettingsInCVS + 'AutoTest\Current\settings-xml\';
+          if CopyFilesExt(src , trgXML, ['*\CVS\*']) = 0  then
+            Raise('Не удалось скопировать не одного файла из  < ' + src +' >  в  < ' + trgXML + ' >.');
+          countOsAttempts := 5;
+          CloseF1Shell(countOsAttempts, Options.Run.Timeout div 6);          
+        end
+        else
+        begin
+          //Закрываем оболочку, если КС тогда вдобавок ещё и стопим сервер(чтобы вылить XML)        
+          countOsAttempts := 5;
+          CloseF1Shell(countOsAttempts, Options.Run.Timeout div 6);        
+          if ((productType = PT_SERVER) OR (productType = PT_CLIENT)) then 
+            if NOT StopF1Server then Raise('Не удалось остановить сервер!');          
+          Delay(1000 * 10);
+          //Предварительно сохраняем текущий F1UsersSave.exe (сохраняем всю папку /xmlTools/winNT)
+          if CopyFilesExt(settingsPath + '\xmltools\winnt\', IncludeTrailingBackslash(tempDir) ) = 0  then
+            Raise('Не удалось скопировать файл папку ..\xmltools\winnt во временную папку: ' + tempDir);
+          Delay(1000 * 3);
+          //Берём бинарные эталонные настройки из CVS (F1UsersSave остаётся текущим)
+          if NOT EmptyFolder(settingsPath) then Raise('Не удалось очистить папку settings');
+          src := pathToSettingsInCVS + 'AutoTest\Current\Bin\';
+          if CopyFilesExt(src , settingsPath) = 0  then
+            Raise('Не удалось скопировать эталонные настройки текущей версии из  < ' + src +' >  в  < ' + settingsPath + ' >.');
+          //Возвращаем ранее сохранённый F1UserSave.exe  (всю папку /xmlTools/winNT)
+          if CopyFilesExt(tempDir + '\winnt\' , settingsPath + '\xmltools\winnt' ) = 0  then
+            Raise('Не удалось скопировать файлы из временной папки <' + tempDir + '\winnt> в  <..xmltools\winnt >.');    
+          //Запускаем сервер(чтоб можно было изменить пароль админа) и Меням пароль АДМИНА
+          if ((productType = PT_SERVER) OR (productType = PT_CLIENT)) then
+          begin
+            if NOT StartF1Server then Raise('Не удалось запустить сервер!');
+            if NOT ChangeAdminPswd('12345') then
+              Log.Error('Не удалось изменить пароль админа, продолжаем работу скрипта с умолчательным паролем админа')
+            else
+              Log.Message('Пароль Админа успешно изменён.');    
+            //Стопим сервер
+            if NOT StopF1Server then Raise('Не удалось остановить сервер!');  
+          end; 
+          //Создаём F1UsersSave.bat
+          fileName := settingsPath + '\xmltools\winNT\F1UsersSave.bat';
+          SaveStrToFile(
+            fileName,
+            '@"' + ExtractFileDir(fileName) + '\F1UsersSave.exe" -GCMConfigFile "' + GetF1Directory + '\garant.ini"'
+          );
+          //Проверяем, что файл создался
+          if NOT FileExists(fileName) then
+          begin
+            Log.Error('Не удалось создать файл:' + fileName);
+            Raise;
+          end;
+          //Запускаем F1UsersSave.bat
+          process := Sys.WaitProcess('F1UsersSave', Options.Run.Timeout div 30);       
+          if IsExists(process) then process.Terminate;
+          if ShellExecute(0, 'open', fileName, '', ExtractFilePath(fileName), Win32API.SW_SHOWNORMAL ) <= 32 then
+            Log.Message('ShellExecute не удалось запусть F1UserSave.bat');
+        //  Win32API.WinExec('"' + fileName + '"', Win32API.SW_SHOWNORMAL);
+          Log.Picture(Sys.Desktop.Picture, 'Скриншот экрана сразу после запуска F1UserSave.bat.');
+          Delay(1000*5);
+          Log.Picture(Sys.Desktop.Picture, 'Скриншот экрана чере 5 секунд после запуска F1UserSave.bat.');
+          process := Sys.WaitProcess('F1UsersSave', Options.Run.Timeout div 30);
+          if NOT IsExists(process) then
+          begin
+            Log.Error('После запуска <' + fileName +'> не удалось найти процесс F1UsersSave');
+            Raise;  
+          end;      
+          timeWaite := 0;
+          res := false;
+          while  timeWaite <= (1000*60*20) do 
+          begin
+            process := Sys.WaitProcess('F1UsersSave', Options.Run.Timeout div 30);
+            if NOT IsExists(process) then  begin  res := true;  break;  end;  
+            Delay(1000*5);
+            timeWaite := timeWaite + 1000*5;
+          end;//while      
+          if NOT res then
+          begin
+            Log.Error('Процесс F1UsersSave висит в памяти в течении 20 минут, видимо с ним какие то траблы, мы его прибили');
+            process.Terminate;
+            Raise;
+          end;
+                                
+          //Проверяем что в логе F1UsersSave нет ошибок 
+          StrExceptFromLog := (['SecurityManager::set_access_rights: can''t change rights for ADMIN']);                     
+          fromLog := ProcessingLogForErrors(nil, StrExceptFromLog, strParam);
+          if fromLog <> '' then
+          begin
+            Log.Error('После работы утилиты F1UsersSave в логе есть ошибки, соответственно считаем что выливка прошла неудачно', fromLog);
+            Raise;
+          end;
+          //Проверяем что в логе F1UsersSave есть запись вида:
+          //-LM_INFO: SettingsSave::save_users_data: data for user 'Etalon' is saved          
+          fromLog := ProcessingLogForErrors( (['-LM_INFO: SettingsSave::save_users_data: data for user ''Etalon'' is saved']), nil, strParam);
+          if fromLog = '' then
+          begin
+            Log.Error('После работы утилиты F1UsersSave в логе не обнаружилось записи, что настройки эталонного пользователя успешно сохранены',
+              '-LM_INFO: SettingsSave::save_users_data: data for user ''Etalon'' is saved' );
+            Raise;
+          end;
+          Log.Message('Утилита F1UsersSave успешно вылила настройки.');
+        end;//else
+      end;
+    else
+      Raise('В ф-цию <GetXMLSettings> передан неправильный параметр <srcSettings>');   
+  end;//case 
+  
+  //Если мы только просто подложили XML(без UsersSave), тогда гасим сервер, т.к. если srcSettings = 'CURRENT' - тогда сервер уже погашен 
+  if srcSettings <> 'CURRENT' then
+  begin
+    countOsAttempts := 5;
+    CloseF1Shell(countOsAttempts, Options.Run.Timeout div 6);
+
+    if ((productType = PT_SERVER) OR (productType = PT_CLIENT)) then 
+      if NOT StopF1Server then Raise('Не удалось остановить сервер!');    
+  end;
+  Delay(1000 * 10);
+  //Проверяем, что XML вылился или скопировался корректно
+  if NOT CheckXMLAfterExport(trgXml, ETALON_USER) then 
+  begin
+    Log.Error('После выливки(или копирования) XML, папка с XML:' + trgXml + 'содержит неправильные данные или неправильную структуру.');
+    Raise;
+  end
+  else Log.Message('XML вылился нормально.');
+     
+  //Подкладываем чистые текущие бинарные настройки
+  if productType = PT_FILESERVER then //Если файл серверная версия, тогда пересохраняем ещё и settings/xmllocal
+  begin
+    //Сначала сохраняем папку с XML
+   if CopyFilesExt(IncludeTrailingBackslash(trgXml) , tempDir) = 0  then
+            Raise('Не удалось скопировать папку с XML <' + trgXml + '> во временную папку: ' + tempDir); 
+    if NOT EmptyFolder(settingsPath) then Raise('Не удалось очистить папку:' + settingsPath);
+    
+    src := pathToSettingsInCVS + 'AutoTest\EmptySettings\';
+    if CopyFilesExt(src , settingsPath) = 0  then
+      Raise('Не удалось скопировать чистые текущие настройки  из < ' + src +' >  в  < ' + settingsPath + ' >.');
+    
+    if CopyFilesExt(tempDir + 'xmllocal\' , IncludeTrailingBackslash(settingsPath) )= 0  then
+      Raise('Не удалось восстановить папку с XML  из временной папки <' + tempDir + '\xmllocal>  в  < ' + settingsPath + ' >.');  
+    RemoveFoldersExt(tempDir + 'xmllocal\');
+  end
+  else
+  begin
+    if NOT EmptyFolder(settingsPath) then Raise('Не удалось очистить папку:' + settingsPath);
+    src := pathToSettingsInCVS + 'AutoTest\EmptySettings\';
+    if CopyFilesExt(src , settingsPath) = 0  then
+      Raise('Не удалось скопировать чистые текущие настройки  из < ' + src +' >  в  < ' + settingsPath + ' >.');
+  end;
+      
+  //Запускаем оболочку(если КС, тогда предварительно запускаем сервер)
+  if ((productType = PT_SERVER) OR (productType = PT_CLIENT)) then
+    if NOT StartF1Server then Raise('Не удалось запустить сервер!');
+  Delay(1000*3);  
+  StartF1Shell;
+  Delay(1000*15);
+  //Проверяем, что удалось зайти пользователем Etalon
+  if NOT LoginExistingUser(ETALON_USER, ETALON_PSWD) then
+  begin
+    Log.Error('После заливки настроек не удалось зайти эталонным пользователем <' + ETALON_USER+ '> с эталонным паролем<' + ETALON_PSWD + '>');
+    Raise;
+  end;
+  //Проверяем, что после заливки настроек, они корректны
+  if NOT CheckingSettingsAfterConvert(settingsPath, trgXml) then
+  begin  
+    Log.Error('После заливки настроек, папки с настройками: ' + settingsPath + '; ' + trgXml + 
+      'содержут неправильные данные их неправильную структуру.');
+    Raise;
+  end;     
+  //Проверяем, что если настройки вылились не из текущей версии, тогда при открытии оболочки должно существовать 
+  //информационное окно "В новой вепрсии изменены настройки конфигурации..."
+  if srcSettings <> 'CURRENT' then
+  begin
+    str := WaitForInfoWindow;
+    if NOT StringCompare(INFO_MESSAGE ,str) then
+    begin
+      Log.Error('После открытия оболочки с только что залитыми настройками, не выдалось информационное окно ', INFO_MESSAGE);
+      Raise;
+    end;
+  end;
+  //Проверяем, что после заливки настроек Лог заливки не содержит ошибок
+  //!!! Есть только одна ошибка(её игнорируем)
+  fromLog := ProcessingLogForErrors(nil, StrExceptFromLog, strParam);
+ // if NOT ( StringCompare('*-LM_ERROR: SecurityManager::set_access_rights: can''t change rights for ADMIN' + endOfLine, fromLog) AND
+ //          (NOT StringCompare('*' + endOfLine + '*' + endOfLine + '*', fromLog) ) )then
+  if fromLog <> '' then
+  begin
+    Log.Error('После заливки настроек в логе есть ошибки, соответственно считаем что заливка прошла неудачно', fromLog);
+    Raise;
+  end;
+  //Проверяем что в логе есть записи вида:
+  //*\etalon' is restored                  
+  fromLog := ProcessingLogForErrors( (['\etalon'' is restored']), nil, strParam);
+  if NOT StringCompare('*\etalon'' is restored*\etalon'' is restored*', fromLog) then
+  begin
+    Log.Error('После заливки настроек в логе не обнаружилось записи, что настройки эталонного пользователя успешно сохранены', fromLog);
+    Raise;
+  end;
+  
+  result :=true;
+except
+  Log.Message('GetXMLSettings: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result :=false;
+  CommonExceptionHandler;
+end;
+end;
+      
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////////  Скрипты    /////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+{
+HLTC215.3.1.1.1: В папке «Мои документы» есть закладка «Конституция РФ (статья 67)», 
+  при переходе по ней попадаем на статью 67 Конституции РФ.
+}
+function HLTC215_3_1_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  ETALON_PLACE = 'Статья 67';
+var
+  path;
+  obj;
+  str;
+begin                                  
+try
+  path := MY_DOCS_PATH + 'Конституция РФ (статья 67)';
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть закладку: '+ path);
+    Raise;
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('После открытия закладки Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  str := CopyToClipboard(obj, 'STRING', 'Trim := true');
+  if NOT StringCompare(str, ETALON_PLACE) then
+  begin
+    Log.Error('После открытия закладки, в тексте документа мы перешли не в эталонное место', str);
+    Raise;
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC215_3_1_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.2: В папке «Мои документы» есть закладка «Конституция РФ (начало)», 
+  при переходе по ней попадаем на начало Конституции РФ.
+}
+function HLTC215_3_1_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  ETALON_PLACE = 'КОНСТИТУЦИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ';
+var
+  path;
+  obj;
+  str;
+begin
+try
+  path := MY_DOCS_PATH + 'Конституция РФ (начало)';
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть закладку: '+ path);
+    Raise;
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('После открытия закладки Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  str := CopyToClipboard(obj, 'STRING', 'Trim := true');
+  if NOT StringCompare(str, ETALON_PLACE) then
+  begin
+    Log.Error('После открытия закладки, в тексте документа мы перешли не в эталонное место', str);
+    Raise;
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC215_3_1_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.3: В папке «Мои документы» есть закладка «Конституция РФ (конец)», при переходе
+  по ней попадаем в конец Конституции РФ..
+}
+function HLTC215_3_1_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  ETALON_PLACE = 'См. комментарии к разделу второму Конституции РФ';
+var
+  path;
+  obj;
+  str;
+begin
+try
+  path := MY_DOCS_PATH + 'Конституция РФ (конец)';
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть закладку: '+ path);
+    Raise;
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('После открытия закладки Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  str := CopyToClipboard(obj, 'STRING', 'Trim := true');
+  if NOT StringCompare(str, ETALON_PLACE) then
+  begin
+    Log.Error('После открытия закладки, в тексте документа мы перешли не в эталонное место', str);
+    Raise;
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC215_3_1_1_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.5: В папке «Мои документы» есть закладка «Редакция только в тестовой базе »,
+  при переходе по ней попадаем на редакцию «...(действительна с 10.03.2004)» документа «Документ (900100) ver 1.0».
+}
+function HLTC215_3_1_1_5_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  ETALON_PLACE = 'Ссылка на документ с NOTTM (9004). В базе*';
+  DOC_NAME = '*Документ (900100) ver 1.0';
+var
+  path;
+  obj;
+  str;
+begin
+try
+  path := MY_DOCS_PATH + 'Редакция только в тестовой базе';
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть закладку: '+ path);
+    Raise;
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('После открытия закладки Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;   
+  str := CopyToClipboard(obj, 'STRING', 'Trim := true');
+  if NOT ( StringCompare(DOC_NAME, GetMainWindow.Caption) AND StringCompare(ETALON_PLACE, str) )then
+  begin
+    Log.Error('Переход по закладке осуществился Не в эталонное место', str);
+    Raise;
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC215_3_1_1_5_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.6: В папке «Мои документы» есть закладка «Аваль (сравнить толкование в словаре и в примечании к данной
+закладке)», при переходе по ней попадаем на толкование термина «Аваль».
+  HLTC215.3.1.1.6.1: Проверить, что в примечании к закладке на термин Аваль написан текст «непереводимое португальское 
+  оскорбление единственной дочери вашей бабаушки»  
+}
+function HLTC215_3_1_1_6_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  DOC_NAME = '*Текст словарной статьи : Аваль Aval; guarantee; security*';
+  NOTE = 'непереводимое португальское оскорбление единственной дочери вашей бабаушки';
+var
+  path;
+  obj;
+  str;
+begin
+try
+  path := MY_DOCS_PATH + 'ТС: Аваль';      
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть закладку: '+ path);
+    Raise;
+  end;  
+  obj := GetFromDictionary('ТЕКСТ СТАТЬИ');
+  if NOT IsExists(obj) then Raise('После открытия закладки Не удалось получить ТЕКСТ СТАТЬИ');     
+  str := GetMainWindow.Caption;
+  if NOT StringCompare(DOC_NAME, str) then
+  begin
+    Log.Error('После перехода закладки, мы не попали на Толкование словарной статьи', str);
+    Raise;
+  end
+  else
+    Log.Message('По закладки перешли корректно в ТС.');
+  Indicator.Hide;  
+  str := GetFromProperties(path, 'ПОЛЕ "ПРИМЕЧАНИЕ"', true);
+  Indicator.Show;
+  if NOT StringCompare(NOTE ,str) then
+  begin
+    Log.Error('Значение поля "ПРИМЕЧАНИЕ" не равно эталонному');
+    Raise;
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC215_3_1_1_6_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.7: В папке «Мои документы» есть закладка «Контроль паспортный= ДОГОВОР "О СОЗДАНИИ (руки на капот!,
+где ваша регистрация!?)» - закладка на «Договор о создании союзного государства...»
+  HLTC215.3.1.1.7.1: У этой закладки должен быть выставлен значок «На контроле» и соответствующая иконка  
+}
+function HLTC215_3_1_1_7_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  DOC_NAME = '*Договор "О создании Союзного*';
+var
+  path;
+  obj;
+  str;
+  x, y, x1, y1;
+begin
+try
+  path := MY_DOCS_PATH + 'Контроль паспортный= ДОГОВОР "О СОЗДАНИИ (руки на капот!, где ваша регистрация!?)';
+  obj := OpenMyDocTab;      
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть закладку: '+ path);
+    Raise;
+  end;       
+  str := GetMainWindow.Caption;
+  if NOT StringCompare(DOC_NAME, str) then
+  begin
+    Log.Error('После перехода закладки, открылся не эталонный документ', str);
+    Raise;
+  end;
+  Indicator.Hide;
+  if NOT ( GetFromProperties(path, 'ЧЕКБОКС "НА КОНТРОЛЕ"') = 1 ) then
+  begin
+    Log.Error('У закладки не выставлена галка "На контроле"');
+    Raise;
+  end;
+  Indicator.Show;
+  if NOT CheckSelectedListItemIcon(obj, 'Doc_OnControl.bmp') then
+  begin
+    Log.Error('Закладка не имеет иконки "Документ на контроле"');
+    Raise;
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC215_3_1_1_7_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.7: В папке «Мои документы» есть закладка «Контроль паспортный= ДОГОВОР "О СОЗДАНИИ (руки на капот!,
+где ваша регистрация!?)» - закладка на «Договор о создании союзного государства...»
+  HLTC215.3.1.1.7.2: На вкладке «На контроле»  должен быть этот документ. 
+}
+function HLTC215_3_1_1_7_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NAME = '*Договор "О создании союзного*';
+var
+  path;
+  obj;
+  str;  
+begin
+try
+  path := 'Договор "О создании союзного*';
+  obj := OpenDocUnderControlTab;      
+  if NOT OpenObjectFromFolder(path, obj) then
+  begin
+    Log.Error('Не удалось открыть документ со вкладки "Документы на контроле"');
+    Raise;
+  end;  
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('После открытия закладки Не удалось получить ТЕКСТ ДОКУМЕНТА');     
+  str := GetMainWindow.Caption;
+  if NOT StringCompare(DOC_NAME, str) then
+  begin
+    Log.Error('После перехода закладки, открылся не эталонный документ', str);
+    Raise;
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC215_3_1_1_7_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.8: В папке «Мои документы» есть сохранённый список «Тематика: Правовой навигатор\Документы\
+  Основы государственно-правового устройства\Основы конституционного строя;», при открытии загружается список
+  из 34 документов».
+}
+function HLTC215_3_1_1_8_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  COUNT_ELEMENTS = 34;
+var
+  path;
+  obj;
+  str;
+  count;
+  listCaption;  
+begin
+try     
+  path := MY_DOCS_PATH + 'Рубрикатор (документы*Основы государственного правого устройства)';
+  listCaption := '*Список, сохраненный в "Мои документы" : Рубрикатор (документы\ Основы государственного правого устройства)';       
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть список, сохранённый в мои документы: ' + path);
+    Raise;
+  end;  
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('После открытия сохранённого списка не удалось получить СПИСОК ДОКУМЕНТОВ');     
+  str := GetMainWindow.Caption;
+  if NOT StringCompare(listCaption, str) then
+  begin
+    Log.Error('После открытия списка из Моих документов, caption главного окна не эталонный', str);
+    Raise;
+  end;
+  count := CountElementInList(obj); 
+  if NOT ( count = COUNT_ELEMENTS) then
+  begin
+    Log.Error('Количество документов в загруженном списке не равно эталонному: ' + count);
+    Raise;
+  end;     
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC215_3_1_1_8_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.9: В папке «Мои документы» есть сохранённый список «По запросу: Гражданское законодательство, 
+  приватизация\Общие положения», при открытии загружается список аналогичный списку, полученному по поиску 
+  «Гражданское законодательство, приватизация\Общие положения».
+}
+function HLTC215_3_1_1_9_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  str;
+  listOne, listTwo;
+  pathOne, pathTwo;  
+begin
+try
+  pathOne := MY_DOCS_PATH + 'По запросу: Гражданское законодательство, приватизация*Общие положения';
+  pathTwo := PNAV + '\Гражданское законодательство, приватизация\Общие положения';         
+  if NOT OpenObjectFromFolder(pathOne) then
+  begin
+    Log.Error('Не удалось открыть список, сохранённый в мои документы: ' + pathOne);
+    Raise;
+  end;  
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('После открытия сохранённого списка не удалось получить СПИСОК ДОКУМЕНТОВ');
+  listOne := GetElementsFromTree(obj);
+  
+  if NOT OpenObjectFromFolder(pathTwo, OpenMenuTab) then
+  begin
+    Log.Error('Не удалось открыть список по рубрикатору: ' + pathTwo);
+    Raise;
+  end;  
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('После открытия списка  по рубрикатору не удалось получить СПИСОК ДОКУМЕНТОВ');
+  listTwo := GetElementsFromTree(obj);
+  
+  result := CompareArray(listOne,listTwo);
+  if NOT Result then
+    Log.Error('Список, сохранённый в Моих документах <' + pathOne + '> не аналогичен списку по рубрикатору <' + pathTwo + '>');
+except  
+  Log.Message('HLTC215_3_1_1_9_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.10: В папке «Мои документы» есть сохранённый список «1 документ», при открытии загружается список, в 
+  котором один единственный документ «Договор о создании союзного государства...» (список получен удалением всех (кроме
+  Договора...) элементов из списка , полученного по запросу: Гражданское законодательство, приватизация\Общие положения).
+}
+function HLTC215_3_1_1_10_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  path;  
+  list;
+  listEtalon;   
+begin
+try
+  path := MY_DOCS_PATH + '1 документ';
+  listEtalon := ['Договор "О создании Союзного государства" (Москва, 8 декабря 1999 г.)'];           
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть список из Моих документов: ' + path);
+    Raise;
+  end;  
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('После открытия сохранённого списка не удалось получить СПИСОК ДОКУМЕНТОВ');  
+  list := GetElementsFromTree(obj);    
+  result := CompareArray(list,listEtalon);
+  if NOT result then
+    Log.Error('Список, из Моих документах <' + path + '> не аналогичен эталонному списку');
+except  
+  Log.Message('HLTC215_3_1_1_10_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.11: В папке «Мои документы» должен быть список «Все документы», но элементов в этом списке должно быть только 10000.
+}
+function HLTC215_3_1_1_11_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  COUNT_ETALON = 10000;
+var  
+  obj;
+  path; 
+  count;   
+begin
+try
+  path := MY_DOCS_PATH + 'Все документы';               
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть список из Моих документов: ' + path);
+    Raise;
+  end;  
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('После открытия сохранённого списка не удалось получить СПИСОК ДОКУМЕНТОВ');
+  count := CountElementInList(obj);
+      
+  result := count = COUNT_ETALON;
+  if NOT result then
+    Log.Error('Количество элементов в списке из Моих документах <' + path + '> : ' + IntToStr(count) + ' не не равно эталонному количеству: ' + IntToStr(COUNT_ETALON) );
+except  
+  Log.Message('HLTC215_3_1_1_11_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.12: В папке «Мои документы» должен быть сохранённый запрос «ППР - АКТ», при открытии в карточку  ППР
+  загружается запрос – выбран реквизит ТИП: Акт.
+}
+function HLTC215_3_1_1_12_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  path; 
+  etalonData;  
+begin
+try
+  path := MY_DOCS_PATH + 'ППР - АКТ';
+  etalonData := [
+  	CARD_PPR, ([([
+	  FD_TYPE, ([		  
+		  '[ИЛИ]Акт']) ]),([
+  	FD_INOPERATIVE_EDITION, ([
+		  'Нет']) ]) ]) 
+  ];
+  
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть запрос из Моих документов: ' + path);
+    Raise;
+  end;
+  obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КАРТОЧКА ЗАПРОСА');  
+  
+  result := CompareQueryCardData(etalonData, ExtractQueryCardData(obj));
+  if NOT result then
+    Log.Error('Загрузившаяся Карточка Запроса не равна Эталонной');
+except  
+  Log.Message('HLTC215_3_1_1_12_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.13: В папке «Мои документы» должен быть сохранённый запрос «ППР – Все атрибуты», при открытии в
+  карточку ППР загружается запрос – выбраны все реквизиты (первые элементы деревьев, например Значимость: Индивидуальны,
+  Статус: Действующие и т.д), кроме атрибутов дат и номеров.
+  
+}
+function HLTC215_3_1_1_13_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  path; 
+  etalonData;  
+begin
+try
+  path := MY_DOCS_PATH + 'ППР - Все Атрибуты';
+    etalonData := [
+    	CARD_PPR, ([([
+    	FD_WHERE_SEARCH, ([
+    		'По всему тексту']) ]),([
+    	FD_TYPE, ([
+    		'[ИЛИ]Комментарии']) ]),([
+    	FD_SOURCE, ([
+    		'[ИЛИ]Органы законодательной власти России и СССР']) ]),([
+    	FD_THEME, ([
+    		'[ИЛИ]Основы государственно-правового устройства']) ]),([
+    	FD_MU_REG_STATUS, ([
+    		'Зарегистрированные']) ]),([
+    	FD_MEANING, ([
+    		'Индивидуальные']) ]),([
+    	FD_STATUS, ([
+    		'Действующие']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]),([
+    	FD_REGULATION_TERRITORY, ([
+    		'[ИЛИ]Российская Федерация']) ]),([
+    	FD_INFORMATIONAL_BLOCK, ([
+    		'Международное право (Россия - СНГ)']) ]) ]) 
+  ];
+  
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть запрос из Моих документов: ' + path);
+    Raise;
+  end;
+  obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КАРТОЧКА ЗАПРОСА');  
+  
+  result := CompareQueryCardData(etalonData, ExtractQueryCardData(obj));
+  if NOT result then
+    Log.Error('Загрузившаяся Карточка Запроса не равна Эталонной');
+except  
+  Log.Message('HLTC215_3_1_1_13_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  HLTC215.3.1.1.16: В папке «Мои документы» должен должна быть следующая структура папок: «1\2\3\4\5...\30».
+}
+function HLTC215_3_1_1_16_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  i;
+  path;
+  param;
+begin
+try
+  obj := OpenMyDocTab;
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку "Мои документы"');
+  for i := 1 to 30 do
+  begin
+    if i = 1 then
+    begin 
+      param := 'IsPressHome := true';
+      path := MY_DOCS_PATH + '' + IntToStr(i);
+    end
+    else
+    begin
+      param := 'IsPressHome := false';
+      path := IntToStr(i - 1) + '\' + IntToStr(i);
+    end; 
+    if NOT Position_Internal(obj, path, '\', false, param) then
+    begin
+      Log.Error('Не удалось обнаружить папку:' + path);
+      Raise;
+    end;    
+  end;  
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_16_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.17: В папке «Мои документы» должна должна быть папка «Для пользователя 1 и 2»
+  HLTC215.3.1.1.17.1: У папки должно быть примечание: «Эта папка открыта на только чтение пользователю 1
+  и на чтение/запись пользователю 2»
+}
+function HLTC215_3_1_1_17_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  NOTE = 'Эта папка открыта на только чтение пользователю 1 и на чтение/запись пользователю 2';
+var  
+  obj;  
+  tempObj;
+  path;
+  str;  
+begin
+try
+  obj := OpenMyDocTab;
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку "Мои документы"');
+  path := MY_DOCS_PATH + 'Для пользователя 1 и 2';
+  if NOT Position_Internal(obj, path, '\', false, 'IsPressHome := true') then
+  begin
+    Log.Error('Не удалось обнаружить папку:' + path);
+    Raise;
+  end;
+  Sys.Keys('[Apps]');    
+  if NOT ClickByPopupMenuItem(obj, 'Показать свойства') then
+    Raise('Не могу в контекстном меню кликнуть по пункту "Показать свойства"'); 
+  tempObj := GetFromFolderForm('ПОЛЕ "ПРИМЕЧАНИЕ"', obj);
+  if NOT IsExists(tempObj) then Raise('Не удалось получить ПОЛЕ "ПРИМЕЧАНИЕ"');
+  str := CopyToClipBoard(tempObj, 'ALL', 'Trim:=true');
+  if NOT StringCompare(NOTE,  str) then
+  begin
+    Log.Error('Примечание к папке <' + str + '> не равно эталонному', str);
+    Raise;
+  end;
+  if NOT ClickToolbarButton(GetFromFolderForm('НИЖНИЙ ТУЛБАР', obj),'Отмена') then
+    Log.Warning('Не удалось кликнуть на нижнем тулбаре по кнопке "Отмена"');    
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_17_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.17: В папке «Мои документы» должна должна быть папка «Для пользователя 1 и 2»
+  HLTC215.3.1.1.17.2: Папка должны быть открыта на общий доступ, только чтение пользователю 1 и 
+  на чтение/запись пользователю 2.
+}
+function HLTC215_3_1_1_17_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  USER_1 = '1';
+  USER_2 = '2';
+var  
+  obj;  
+  tempObj_1;
+  tempObj_2;
+  path;
+  str;
+  user1, user2;
+begin
+try
+  obj := OpenMyDocTab;
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку "Мои документы"');
+  path := MY_DOCS_PATH + 'Для пользователя 1 и 2';
+  if NOT Position_Internal(obj, path, '\', false, 'IsPressHome := true') then
+  begin
+    Log.Error('Не удалось обнаружить папку:' + path);
+    Raise;
+  end;  
+  Sys.Keys('[Apps]');    
+  if NOT ClickByPopupMenuItem(obj, 'Показать свойства') then
+    Raise('Не могу в контекстном меню кликнуть по пункту "Показать свойства"');    
+  SwitchToPageRight(GetFromFolderForm('ЗАКЛАДКИ', obj));
+  tempObj_1 := GetFromFolderForm('КОМБОБОКС ВЫБОРА ПОЛЬЗОВАТЕЛЯ',obj);
+  tempObj_2 := GetFromFolderForm('КОМБОБОКС ВЫБОРА ПОЛЬЗОВАТЕЛЯ',obj,'VOrder := 2');
+  user1 := 'Все\' + USER_1 + ' (' + USER_1 + ')';
+  user2 := 'Все\' + USER_2 + ' (' + USER_2 + ')';   
+  if NOT StringCompare( user1,  common.GetWindowText(tempObj_1.Handle)) AND
+         StringCompare( user2,  common.GetWindowText(tempObj_2.Handle)) then
+  begin
+    Log.Error('На вкладке "Доступ" значения КОМБОБОКС-ов ВЫБОРА ПОЛЬЗОВАТЕЛЯ не равны эталонным');
+    Raise;
+  end;
+  if NOT ClickToolbarButton(GetFromFolderForm('НИЖНИЙ ТУЛБАР', obj), 'Отмена') then
+    Log.Warning('Не удалось кликнуть на нижнем тулбаре по кнопке "Отмена"');
+  //             
+  if NOT ( (RightAccess(path, 'GET', user1) = RIGHT_READ) AND
+           (RightAccess(path, 'GET', user2) = RIGHT_READ_AND_WRITE) ) then
+  begin
+     Log.Error('Права на доступ к папки <' + path + '> оказались не эталонны');
+     Raise;
+  end;         
+       
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_17_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.19:	В документе «Договор о создании союзного государства» (№1055132) проверить наличие различных
+  комментариев и убедиться, что после импорта XML предыдущей версии данные комментарии редактируются и изменения
+  сохраняются (выйти и войти после редактирования): 
+  HLTC215.3.1.1.19.1	После заголовка «Раздел 1 Общие положения». Должен быть комментарий (проверить правильность
+  оформления: жирность, курсив и т.д):
+    <b>123</b><br>
+    <s>345</s><br>
+    <u>678</u><br>
+    <b><i><u><s>окончание комментария</b></i></u></s> 
+
+}
+function HLTC215_3_1_1_19_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+  CONTEXT = 'демократическое правовое государство';
+var  
+  obj; 
+  etalonComment;
+  comment : array [0..4] of string;
+  str;
+  i;
+begin
+try
+  etalonComment := ['Это первый комментарий', '123', '345', '678', 'конец комментария'];
+  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('СТРУКТУРА ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку СТРУКТУРА ДОКУМЕНТА');
+  if NOT OpenObjectFromFolder('Мои комментарии\Это первый комментарий', obj) then
+    Raise('Не удалось спозиционироваться: Структура документа\Мои комментарии\Это первый комментарий');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  
+  if NOT ClickNearIconOnSubInDocument(obj, 'КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ') then
+    Raise('Не удалось кликнуть в докумнете возле иконки КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ');
+  for i := 0 to 4 do
+  begin  
+    comment[i] := CopyToClipboard(obj, 'STRING', 'Trim:=true; IsCleanClipboard:=false');
+    if NOT StringCompare(comment[i], etalonComment[i]) then
+    begin
+      Log.Error('Одна из строк комментария не эталонная', comment[i]);
+      Raise;      
+    end;
+    case i of//Из за того, что при переносе любого текста в ворд, он всё время Italic, и на КУРСИВ не проверять
+      0: if NOT ( (NOT IsTextBold) AND (NOT IsTextStrikeThrough) AND (NOT IsTextUnderline) ) then
+         begin
+           Log.Error('Строка комментария: ' + comment[i] + 'имеет не эталонный стиль, должен быть обычный');
+           Raise;
+         end;
+      1: if NOT ( IsTextBold AND (NOT IsTextStrikeThrough) AND (NOT IsTextUnderline) ) then
+         begin
+           Log.Error('Строка комментария: ' + comment[i] + 'имеет не эталонный стиль, должна быть только жирной');
+           Raise;
+         end; 
+      2: if NOT ( (NOT IsTextBold)  AND IsTextStrikeThrough AND (NOT IsTextUnderline) ) then
+         begin
+           Log.Error('Строка комментария: ' + comment[i] + 'имеет не эталонный стиль, должна быть только перечёркнутый');
+           Raise;
+         end;
+      3: if NOT ( (NOT IsTextBold) AND (NOT IsTextStrikeThrough) AND IsTextUnderline ) then
+         begin
+           Log.Error('Строка комментария: ' + comment[i] + 'имеет не эталонный стиль, должна быть курсив и подчёркнутый');
+           Raise;
+         end;
+      4: if NOT ( IsTextBold AND IsTextStrikeThrough AND IsTextUnderline) then
+         begin
+           Log.Error('Строка комментария: "' + Sys.ClipBoard + '" имеет не эталонный стиль, должна быть жирной, курсив, подчёркнутый и перечёркнутый');
+           Raise;
+         end;                          
+    end;  
+    Sys.Keys('[Down]' + keyPause + '[Home]');
+  end;
+  //Проверяем, что по тексту комментарий располагается в эталонном месте
+  if NOT ClickOnContext(obj, CONTEXT) then
+    Raise('Не удалось найти искомый контекст');
+  Sys.Keys('[Down]');//Что б перейти на коментраий, который должен находится на одну строку ниже контекста
+  str := CopyToClipboard(obj, 'STRING', 'Trim:=true');    
+  if NOT StringCompare(str, etalonComment[VarArrayLowBound(etalonComment, 1)]) then
+  begin
+    Log.Error('Комментраий находится не в эталонном месте', str);
+    Raise;      
+  end;     
+       
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_19_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC215.3.1.1.19:	В документе «Договор о создании союзного государства» (№1055132) проверить наличие различных
+  комментариев и убедиться, что после импорта XML предыдущей версии данные комментарии редактируются и изменения
+  сохраняются (выйти и войти после редактирования): 
+  HLTC215.3.1.1.19.2: После заголовка <Статья 9>. Должен быть комментарий - картинка (скриншот диалога печати.)
+
+}
+function HLTC215_3_1_1_19_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+  CONTEXT = 'статья 9';
+var  
+  obj; 
+  etalonComment;
+  str;
+  x, y;
+begin
+try
+  etalonComment := 'Это первый комментарий';
+  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('СТРУКТУРА ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку СТРУКТУРА ДОКУМЕНТА');
+  if NOT Position_Internal(obj, 'Мои комментарии\Это первый комментарий','\', true, 'IsPressHome:=true') then
+    Raise('Не удалось спозиционироваться: Структура документа\Мои комментарии\Это первый комментарий');
+  Sys.Keys('[Down]' + keyPause);//Поидеи должны спозиционироваться на нужный нам (2-ой сверху) комментарий
+  Sys.Keys('[Enter]');   
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  
+  if NOT ClickNearIconOnSubInDocument(obj, 'КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ') then
+    Raise('Не удалось кликнуть в докумнете возле иконки КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ');
+    
+  obj := GetFromMainWindow('ГРАФИЧЕСКИЙ ОБЪЕКТ');  
+  if NOT IsExists(obj) then
+  begin
+    Log.Error('Не удалось найти графический объект после клика по картинке');
+    Raise;
+  end;
+  if NOT FindPicture(obj, 'print.bmp', x, y) then
+  begin
+    Log.Error('Открывшаясь картинка не эталонная');
+    Raise;
+  end;
+  PressKeyWithCheck(['[Esc]']);
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('После закрытия картинки Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  Sys.Keys('[Up]');//Перемещаемся на строку вверх от комментария, что проверить в нужнол ли месте документа находится комментарий 
+  str := CopyToClipboard(obj, 'STRING', 'Trim:=true');    
+  if NOT StringCompare(str, CONTEXT) then
+  begin
+    Log.Error('Комментраий с картинкой находится не в эталонном месте документа, должен быть после: ' + CONTEXT, str);
+    Raise;      
+  end;     
+       
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_19_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.19:	В документе «Договор о создании союзного государства» (№1055132) проверить наличие различных
+  комментариев и убедиться, что после импорта XML предыдущей версии данные комментарии редактируются и изменения
+  сохраняются (выйти и войти после редактирования): 
+    HLTC215.3.1.1.19.3: После заголовка <Статья 33>. Должен быть комментарий (при переходе по ссылке во второй ячейке
+    должны переходить  на Конституцию РФ):
+
+}
+function HLTC215_3_1_1_19_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+  CONTEXT = 'Парламент Советом Министров Союзного государства';
+var  
+  obj; 
+  tableText;
+  etalonComment;
+  str;
+  i;
+  wndCap;
+begin
+try
+  etalonComment := 'Таблица 1.1';
+  wndCap := 'Конституция Российской Федерации';
+  tableText := 'Таблица 1.1' + EndOfLine +
+               'Г—————————————————————T———————————————————————¬' + EndOfLine +
+               '| строка 1, столбец 1 | строка 1, столбец 2   |' + EndOfLine +
+               '+—————————————————————+———————————————————————+' + EndOfLine +
+               '| строка 2, столбец 1 | строка 2, столбец 2   |' + EndOfLine +
+               '+—————————————————————+———————————————————————+' + EndOfLine +
+               '|                     | столбец 3, строка 3   |' + EndOfLine + 
+               '+—————————————————————+———————————————————————+';
+
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('СТРУКТУРА ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку СТРУКТУРА ДОКУМЕНТА');
+  if NOT OpenObjectFromFolder('Мои комментарии\' + etalonComment, obj) then
+    Raise('Не удалось спозиционироваться: ' + etalonComment);
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  
+  if NOT ClickNearIconOnSubInDocument(obj, 'КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ') then
+    Raise('Не удалось кликнуть в докумнете возле иконки КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ');
+  Sys.Keys('[Home]');
+  for i := 1 to 5 do
+    PressKeyWithCheck(['![Down]']);
+  str := CopyToClipboard(obj, '', 'Trim:=true');    
+  if NOT StringCompare(str, tableText) then
+  begin
+    Log.Error('Комментраий с таблицей не эталонный', str);
+    Raise;      
+  end;   
+  //Проверяем, что по тексту комментарий располагается в эталонном месте
+  if NOT ClickOnContext(obj, CONTEXT) then
+    Raise('Не удалось найти искомый контекст');
+  Sys.Keys('[Down]');//Что б перейти на коментраий, который должен находится на одну строку ниже контекста
+  str := CopyToClipboard(obj, 'STRING', 'Trim:=true');    
+  if NOT StringCompare(etalonComment, str ) then
+  begin
+    Log.Error('Комментраий находится не в эталонном месте', str);
+    Raise;      
+  end;  
+  Sys.Keys('[Down]' + keyPause + '[Tab]');//Что переместиться на гиперссылку
+  Sys.Keys('[Apps]');
+  if NOT ClickByPopupMenuItem(obj, 'Перейти по гиперссылке') then
+    Raise('Не могу в контекстном меню кликнуть по пункту "Перейти по гиперссылке"');
+  str := GetMainWindow.Caption;  
+  if NOT StringCompare('*' + wndCap + '*', str) then
+  begin
+     Log.Error('По гиперссылке из комментария перешли не в эталонное место');
+     Raise;
+  end;
+       
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_19_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.19:	В документе «Договор о создании союзного государства» (№1055132) проверить наличие различных
+  комментариев и убедиться, что после импорта XML предыдущей версии данные комментарии редактируются и изменения
+  сохраняются (выйти и войти после редактирования): 
+    HLTC215.3.1.1.19.4: В конце документа должен быть комментарий:
+    <i>
+    <br>Статья 10</br>
+    <br></br>
+    <br>1. Союзное государство имеет свой герб, флаг, гимн и другие атрибуты государственности.</br>
+    <br>2. Государственная символика Союзного государства устанавливается Парламентом Союзного государства и подлежит утверждению Высшим Государственным Советом.</br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br>Статья 11</br>
+    <br></br>
+    <br>Официальными языками Союзного государства являются государственные языки государств-участников без ущерба для конституционного статуса их государственных языков. В качестве рабочего языка в органах Союзного государства используется русский язык.</br>
+    </i>
+
+}
+function HLTC215_3_1_1_19_4_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+  CONTEXT = 'За Республику Беларусь';
+  PREF = 'HLTC215_3_1_1_19_4';
+var  
+  obj; 
+  tableText;
+  etalonComment;
+  str;
+  i;
+  count;
+begin
+try
+  etalonComment := 'Статья 10';
+  tableText := 'Статья 10' + EndOfLine + '*' + 
+               '1. Союзное государство имеет свой герб*' + EndOfLine +
+               '2. Государственная символика Союзного*' + EndOfLine + '*' +
+               'Статья 11' + EndOfLine + '*' +
+               'Официальными языками Союзного государства *';
+
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('СТРУКТУРА ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку СТРУКТУРА ДОКУМЕНТА');
+  if NOT OpenObjectFromFolder('Мои комментарии\' + etalonComment, obj) then
+    Raise('Не удалось спозиционироваться: ' + etalonComment);
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  
+  if NOT ClickNearIconOnSubInDocument(obj, 'КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ') then
+    Raise('Не удалось кликнуть в докумнете возле иконки КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ');
+  //Проверяем, что комментарий располагается в эталонном месте 
+  Sys.Keys('[Up]');
+  Sys.Keys('[Apps]');
+  if NOT ClickByPopupMenuItem(obj, 'Выделить текущий абзац') then
+    Raise('Не могу в контекстном меню кликнуть по пункту "Выделить текущий абзац"');
+  str := CopyToClipboard(obj, '', 'Trim:=true');  
+  if NOT StringCompare('*' + CONTEXT, str ) then
+  begin
+    Log.Error('Комментраий находится не в эталонном месте', str);
+    Raise;      
+  end;
+  //Выделяем сам комментарий
+  Sys.Keys('[Down]' + keyPause + '[Home]');
+  for i := 1 to 13 do
+    PressKeyWithCheck(['![Down]']);
+  str := CopyToClipboard(obj, '', 'Trim:=true');    
+  if NOT StringCompare(tableText, str) then
+  begin
+    Log.Error('Комментарий не эталонный', str);
+    Raise;      
+  end;
+  
+  //Проверяем, что комментарий можно редактировать, и что после перезагрузки он сохранчется.
+  Sys.Keys('[Up]' + keyPause + '[End]' + keyPause + '[Enter]' + keyPause + PREF);
+  count := 5;
+  RestartF1Shell(count, Options.Run.Timeout div 6, 'Etalon', 'Etalon');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('СТРУКТУРА ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку СТРУКТУРА ДОКУМЕНТА');
+  if NOT OpenObjectFromFolder('Мои комментарии\' + etalonComment, obj) then
+    Raise('Не удалось спозиционироваться: ' + etalonComment);
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  
+  if NOT ClickNearIconOnSubInDocument(obj, 'КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ') then
+    Raise('Не удалось кликнуть в докумнете возле иконки КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ');  
+  Sys.Keys('[Home]');
+  //Выделяем сам комментарий
+  for i := 1 to 14 do
+    PressKeyWithCheck(['![Down]']);
+  str := CopyToClipboard(obj, '', 'Trim:=true');    
+  if NOT StringCompare(tableText + PREF, str) then
+  begin
+    Log.Error('КПосле редактировани, комментарий не эталонный', str);
+    Raise;      
+  end;     
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_19_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+
+{
+HLTC215.3.1.1.20: Активная конфигурация должна быть «Основная»
+}
+function HLTC215_3_1_1_20_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  etalonConfiguration;
+  activeConfiguration; 
+begin
+try
+  etalonConfiguration := 'Основная';
+  obj := OpenConfigurationsTab(false);
+  if NOT Position_Internal(obj, '*активная*', '\', true, 'IsPressHome := true') then 
+    Raise('На вкладке Конфигурации не удалось найти "активную" конфигурации');  
+  activeConfiguration := common.GetWindowText(obj.Handle);
+  if activeConfiguration = '' then Raise('Не удалось считать имя активной конфигурации');  
+  activeConfiguration := GetSubStr(activeConfiguration, '', ' (активная)');
+  if NOT StringCompare(activeConfiguration, etalonConfiguration) then
+  begin
+    Log.Error('Конфигурация [' + etalonConfiguration + '] почему то не активна, хотя должна быть', activeConfiguration);
+    Raise;
+  end;
+       
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_20_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.21: У пользователя должна быть конфигурация  «Стандартная Clone»
+}
+function HLTC215_3_1_1_21_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  etalonConfiguration;
+begin
+try
+  etalonConfiguration := 'Стандартная Clone';
+  obj := OpenConfigurationsTab(false);
+  if NOT Position_Internal(obj, etalonConfiguration, '\', true, 'IsPressHome := true') then
+  begin
+    Log.Error('На вкладке Конфигурации не удалось найти конфигурации: ' + etalonConfiguration);
+    Raise;
+  end;    
+       
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_21_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.22: Переключиться на конфигурацию «Расширенную (сохраненная)» и проверить настройки (Файл\Настройка конфигурации):
+  HLTC215.3.1.1.22.1: «Настройки интерфейса\Панель навигации\С правой стороны\Положение» - Свёрнута.
+  HLTC215.3.1.1.22.2: «Поведение системы\Начало работы» - Правовой навигатор
+  HLTC215.3.1.1.22.3: «Документы на контроле\Сброс статуса» - вручную.
+  HLTC215.3.1.1.22.4: «Поиск\Подтверждения\Построение списка\Подтверждать построения списка» - галка установлена.
+  HLTC215.3.1.1.22.5: «Поведение системы\Вкладки\”Мои документы”\Показывать» - Справа.
+}
+function HLTC215_3_1_1_22_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  activeConfiguration;
+  mass;
+  p;
+  page, name, value;
+  i;
+  etalonValue;
+  res;
+begin
+try  
+  res := [true, true, true, true, true];
+  etalonValue := ['Свернута', 'Правовой навигатор', 'Вручную', '1', 'Справа'];
+  
+  if NOT SelectConfiguration('Расширенная (сохраненная)*') then
+    Raise('Не удалось переключится на конфигурацию "Расширенная (сохраненная)"');
+
+  mass := [
+      (['Настройки интерфейса',  'ПАНЕЛЬ НАВИГАЦИИ\С ПРАВОЙ СТОРОНЫ\ПОЛОЖЕНИЕ [COMBOBOX]']),
+      (['Поведение системы',     'НАЧАЛО РАБОТЫ [COMBOBOX]']),
+      (['Документы на контроле', 'СБРОС СТАТУСА [COMBOBOX]']),
+      (['ПОИСК\ПОДТВЕРЖДЕНИЯ',   'ПОСТРОЕНИЕ СПИСКА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ СПИСКА [CHECKBOX]']),
+      (['Поведение системы',     'ВКЛАДКИ\"МОИ ДОКУМЕНТЫ"\ПОКАЗЫВАТЬ [COMBOBOX]'])
+    ];
+  p := GetSettings( mass );
+  for i := 0 to 4 do
+  begin   
+    page := mass[i][0];
+    name := mass[i][1];      
+    value := GetFromSettingsArr(p, page, name);
+    if NOT StringCompare(etalonValue[i], value) then
+    begin
+      Log.Error('Значение в настройках: ' + page + '\' + name + 'должно быть: ' + etalonValue[i], value);
+      res[i] := false; 
+    end;  
+  end;//for
+
+  result := res[0] AND res[1] AND res[2] AND res[3] AND res[4];
+except  
+  Log.Message('HLTC215_3_1_1_22_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.26: Изменены стили (эти изменения должны быть отражены как в редакторе стилей, 
+  так и в оформлении различных частей текста):
+  HLTC215.3.1.1.26.1: Для стиля <Текст> установлен размер = 12.
+  HLTC215.3.1.1.26.2: Для стиля <Цветовое выделение> установлен цвет = Красный.
+  HLTC215.3.1.1.26.3: Для стиля <Гипертекстовая ссылка> установлена галка Жирный.
+  HLTC215.3.1.1.26.4: Для стиля <Гипертекстовая ссылка> тип наследования Названия установлен в Прозрачный.
+  HLTC215.3.1.1.26.5: Для стиля <Комментарий пользователя> установлен цвет = Жёлтый.
+  HLTC215.3.1.1.26.6: Для стиля <Словарная статья> установлены:
+    HLTC215.3.1.1.26.6.1: Тип наследования Жирный = Собственный	
+    HLTC215.3.1.1.26.6.2: Установлена галка Жирный
+    HLTC215.3.1.1.26.6.3: Тип наследования Наклонный = Собственный
+    HLTC215.3.1.1.26.6.4: Установлена галка Наклонный
+    HLTC215.3.1.1.26.6.5: Тип наследования Подчёркнутый = Собственный
+    HLTC215.3.1.1.26.6.6: Установлена галка Подчёркнутый
+    HLTC215.3.1.1.26.6.7: Тип наследования Перечёркнутый = Собственный
+    HLTC215.3.1.1.26.6.8: Установлена галка Перечёркнутый
+  HLTC215.3.1.1.26.7: Для стиля <Утратил силу> установлены:
+    HLTC215.3.1.1.26.7.1: Тип наследования Фон = Собственный
+    HLTC215.3.1.1.26.7.2: Фон = Синий.
+}
+function HLTC215_3_1_1_26_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  arrSetttings;
+  resSettings;
+  i;
+  etalonSettings;
+begin
+try
+  if NOT SelectConfiguration('Расширенная (сохраненная)*') then
+    Raise('Не удалось переключится на конфигурацию "Гарант 5.x (сохраненная)"');
+    
+  etalonSettings := [
+    (['ТЕКСТ',  'КОМБОБОКС "РАЗМЕР"', '12']),
+    (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ',  'КОМБОБОКС "ЦВЕТ"', clRed]),
+    (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ\ГИПЕРТЕКСТОВАЯ ССЫЛКА',  'ЧЕКБОКС "ЖИРНЫЙ"', true]),      
+    (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ\ГИПЕРТЕКСТОВАЯ ССЫЛКА', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "НАЗВАНИЕ"', 'П']),
+    (['ТЕКСТ\КОММЕНТАРИЙ\КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ', 'КОМБОБОКС "ЦВЕТ"', clYellow]),
+    (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ЖИРНЫЙ"', 'С']),
+    (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'ЧЕКБОКС "ЖИРНЫЙ"', true]),
+    (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "НАКЛОННЫЙ"', 'С']),
+    (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'ЧЕКБОКС "НАКЛОННЫЙ"', true]),
+    (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ПОДЧЁРКНУТЫЙ"', 'С']),
+    (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'ЧЕКБОКС "ПОДЧЁРКНУТЫЙ"', true]),
+    (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ПЕРЕЧЁРКНУТЫЙ"', 'С']),
+    (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'ЧЕКБОКС "ПЕРЕЧЁРКНУТЫЙ"', true]),
+    (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ\УТРАТИЛ СИЛУ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ФОН"', 'С']),
+    (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ\УТРАТИЛ СИЛУ', 'КОМБОБОКС "ФОН"', clBlue])
+  ];  
+    
+  arrSetttings := [
+      (['ТЕКСТ',  'КОМБОБОКС "РАЗМЕР"']),
+      (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ',  'КОМБОБОКС "ЦВЕТ"']),
+      (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ\ГИПЕРТЕКСТОВАЯ ССЫЛКА',  'ЧЕКБОКС "ЖИРНЫЙ"']),      
+      (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ\ГИПЕРТЕКСТОВАЯ ССЫЛКА', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "НАЗВАНИЕ"']),
+      (['ТЕКСТ\КОММЕНТАРИЙ\КОММЕНТАРИЙ ПОЛЬЗОВАТЕЛЯ', 'КОМБОБОКС "ЦВЕТ"']),
+      (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ЖИРНЫЙ"']),
+      (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'ЧЕКБОКС "ЖИРНЫЙ"']),
+      (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "НАКЛОННЫЙ"']),
+      (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'ЧЕКБОКС "НАКЛОННЫЙ"']),
+      (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ПОДЧЁРКНУТЫЙ"']),
+      (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'ЧЕКБОКС "ПОДЧЁРКНУТЫЙ"']),
+      (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ПЕРЕЧЁРКНУТЫЙ"']),
+      (['ТЕКСТ\СЛОВАРНАЯ СТАТЬЯ', 'ЧЕКБОКС "ПЕРЕЧЁРКНУТЫЙ"']),
+      (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ\УТРАТИЛ СИЛУ', 'КНОПКА ТИПА НАСЛЕДОВАНИЯ "ФОН"']),
+      (['ТЕКСТ\ЦВЕТОВОЕ ВЫДЕЛЕНИЕ\УТРАТИЛ СИЛУ', 'КОМБОБОКС "ФОН"'])
+  ];
+    
+  resSettings := GetSettingsStyleEditor( arrSetttings );
+    
+      
+  if NOT CompareArray(resSettings, etalonSettings) then
+  begin
+    Log.Error('Значения редактора стилей не равны эталонным');
+    Raise('Значения редактора стилей не равны эталонным');
+  end;   
+           
+  result := true;            
+except  
+  Log.Message('HLTC215_3_1_1_26_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION')); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC215.3.1.1.27: В папке «Мои документы» должен быть сохранённый запрос «НОМЕР 45-Ф3 ИЛИ 122-Ф3»,
+  при открытии в карточку  ППР загружается запрос – выбран реквизит Номер: 45-Ф3 ИЛИ 122-Ф3.
+}
+function HLTC215_3_1_1_27_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  path; 
+  etalonData;
+begin
+try
+  path := MY_DOCS_PATH + 'НОМЕР 45-Ф3 ИЛИ 122-Ф3';
+  etalonData := [
+  	CARD_PPR, ([([
+	  FD_NUMBER, (['122-Ф3', '45-Ф3'])
+       ]) ]) 
+  ];
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть запрос из Моих документов: ' + path);
+    Raise;
+  end;
+  obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КАРТОЧКА ЗАПРОСА');  
+  
+  result := CompareQueryCardData(etalonData, ExtractQueryCardData(obj));
+  if NOT result then
+    Log.Error('Загрузившаяся Карточка Запроса не равна Эталонной');
+except  
+  Log.Message('HLTC215_3_1_1_27_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.28: В папке «Мои документы» должен быть сохранённый запрос «Контекст [труд]+[законадательство]. 
+В редакциях.», при открытии в карточку  ППР загружается запрос:
+  <br>
+  <li>Конекст:
+  	<ul>труд</ul>
+  	<ul> законадательство </ul>
+  </li>  
+  <li>Искать в недействующих редакциях:
+  	<ul>Да</ul>
+  </li>
+}
+function HLTC215_3_1_1_28_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  path; 
+  etalonData;
+begin
+try
+  path := MY_DOCS_PATH + 'Контекст [труд]+[законадательство]. В редакциях.';
+  
+  etalonData := [
+  	CARD_PPR, ([([
+	  FD_WORDS_IN_TEXT, (['труд', 'законодательно']) ]),([
+  	FD_INOPERATIVE_EDITION, (['Да']) ]) ]) 
+  ];
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть запрос из Моих документов: ' + path);
+    Raise;
+  end;
+  obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КАРТОЧКА ЗАПРОСА');  
+  
+  result := CompareQueryCardData(etalonData, ExtractQueryCardData(obj));
+  if NOT result then
+    Log.Error('Загрузившаяся Карточка Запроса не равна Эталонной');
+except  
+  Log.Message('HLTC215_3_1_1_28_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.29: В папке «Мои документы» должен быть сохранённый запрос «Сложный запрос», при открытии в 
+карточку  ППР загружается запрос:
+  <br>  
+  <li>Орган/Источчник:
+  	<ul>[КРОМЕ]Федеральные министерства и ведомства\ВЭК России</ul>
+  </li>
+  <li>Раздел/Тема:
+  	<ul>Бухгалтерский учет, аудит, статистическая отчетность\Бухгалтерский учет\Счета бухгалтерского учета\Резервы предстоящих расходов</ul>
+  </li>
+}
+function HLTC215_3_1_1_29_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  path; 
+  etalonData;
+begin
+try
+  path := MY_DOCS_PATH + 'Сложный запрос';
+  
+  etalonData := [
+  	CARD_PPR, ([([
+	  FD_SOURCE, (['[КРОМЕ]Федеральные министерства и ведомства\ВЭК России']) ]),([
+  	FD_THEME,  (['[И]Бухгалтерский учет, аудит, статистическая отчетность\Бухгалтерский учет\Счета бухгалтерского учета\Резервы предстоящих расходов']) ]) ]) 
+  ];
+  if NOT OpenObjectFromFolder(path) then
+  begin
+    Log.Error('Не удалось открыть запрос из Моих документов: ' + path);
+    Raise;
+  end;
+  obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КАРТОЧКА ЗАПРОСА');  
+  
+  result := CompareQueryCardData(etalonData, ExtractQueryCardData(obj));
+  if NOT result then
+    Log.Error('Загрузившаяся Карточка Запроса не равна Эталонной');
+except  
+  Log.Message('HLTC215_3_1_1_29_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.30: В документе «Документ с нормальной цепочкой редакций.ACTIVE 01/03/2003 - 31/03/2003
+ (первоначальная ред.) Вхождение 1 (первоначальная ред.)» (это первоначальная редакция документа 8901001)
+  должен быть пользовательский комментарий после слов «Конец блока 100»
+}
+function HLTC215_3_1_1_30_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  str;
+  etalonComment;
+begin
+try
+  etalonComment := 'Это комментарий в редакции' + endOfLine + '[первоначальная редакция]';
+  if NOT OpenDocByNumber(8901100) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');  
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickOnContext(obj, 'Конец блока 100') then Raise('Не удалось кликнуть на искомый контекст');
+  //Копируем комментарий
+  Sys.Keys('[Down]![Down]![Down]');
+  str := CopyToClipBoard(obj, '', 'Trim:=true');
+  if NOT StringCompare(str, etalonComment) then
+  begin
+    Log.Error('Комментарий не существует либо его текст не эталонный', str);
+    Raise('Комментарий не существует либо его текст не эталонный');
+  end;
+  result := true;
+except  
+  Log.Message('HLTC215_3_1_1_30_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC215.3.1.1.31: В толковании термина «Авизо (1)», после первого параграфа должен быть пользовательский
+  комментарий.
+}
+function HLTC215_3_1_1_31_Execute (var  CurrentState: OleVariant): OleVariant;
+var  
+  obj;
+  str;
+  etalonComment;
+begin
+try
+  etalonComment := 'комментарий';
+  if NOT GoToDictionary then Raise ('Не удалось перейти в ТС');
+  obj := GetFromDictionary('СПИСОК ТЕРМИНОВ');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК ТЕРМИНОВ');
+  if NOT Position_Internal(obj, 'Авизо (1)', '\', true, 'IsPressHome:=true' ) then 
+    Raise('Не удалось спозиционироваться в ТС на термин Авизо (1)');
+  obj := GetFromDictionary('ТЕКСТ СТАТЬИ');  
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ СТАТЬИ');  
+  //Копируем комментарий (он находится в конце документа)
+  obj.SetFocus;
+  Sys.Keys('^[End]');
+  str := CopyToClipBoard(obj, 'STRING', 'Trim:=true');
+  if NOT StringCompare(str, etalonComment) then
+  begin
+    Log.Error('Комментарий не существует либо его текст не эталонный', str);
+    Raise('Комментарий не существует либо его текст не эталонный');
+  end;
+  result := true;
+except  
+  Log.Message('HLTC215_3_1_1_31_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+  ////////////////////   Обвёртка скриптов    ////////////////////////////////////
+{
+  TYPE: Объвертка для скриптов
+  DESC:
+  RESULT:
+  REMARK: Внутри ф-ции выполняется группа скпиптов, после завершения в лог выводит список не выполнненых скриптов
+}
+function AroundScripts : boolean;
+var
+  cur;
+  report;
+  arrScripts;
+  i;
+  bResult : Boolean;
+  oTS : OleVariant;
+begin                                  
+try
+  report := '';
+  //Надо развернуть вкладку Мои документы 
+  //....................................
+  
+  arrScripts := [
+  
+    'HLTC215_3_1_1_1_Execute',
+    'HLTC215_3_1_1_2_Execute',
+    'HLTC215_3_1_1_3_Execute',
+    
+    'HLTC215_3_1_1_5_Execute',
+    'HLTC215_3_1_1_6_1_Execute',
+    'HLTC215_3_1_1_7_1_Execute',
+    'HLTC215_3_1_1_7_2_Execute',
+    'HLTC215_3_1_1_8_Execute',
+    'HLTC215_3_1_1_9_Execute',
+    'HLTC215_3_1_1_10_Execute',
+    'HLTC215_3_1_1_11_Execute',
+    'HLTC215_3_1_1_12_Execute',
+    'HLTC215_3_1_1_13_Execute',
+    
+    'HLTC215_3_1_1_16_Execute',
+    'HLTC215_3_1_1_17_1_Execute',
+    'HLTC215_3_1_1_19_1_Execute',
+    'HLTC215_3_1_1_19_2_Execute',
+    'HLTC215_3_1_1_19_3_Execute',
+    'HLTC215_3_1_1_19_4_Execute',
+    'HLTC215_3_1_1_20_Execute',
+    'HLTC215_3_1_1_21_Execute',
+    
+    'HLTC215_3_1_1_27_Execute',
+    'HLTC215_3_1_1_28_Execute',
+    'HLTC215_3_1_1_29_Execute',
+    'HLTC215_3_1_1_30_Execute',
+    
+    //Переключаемся на конфигурацию "Гарант 5.х (сохранённая)"? все дальнейшие скрипты работают на этой конфигурации       
+    'Переключаем конфигурацию на "Расширенная (сохранённая)"', 
+    'HLTC215_3_1_1_22_1_Execute',
+    'HLTC215_3_1_1_26_Execute'
+    
+  ];
+  for i := VarArrayLowBound(arrScripts, 1) to VarArrayHighBound(arrScripts, 1) do
+  begin
+    Log.AppendFolder('Скрипт ' + arrScripts[i]);
+    if NOT StringCompare(arrScripts[i], 'Переключаем конфигурацию на "Расширенная (сохранённая)"') then
+    begin
+      bResult := Runner.CallMethod('HLTC215.' + arrScripts[i], cur);   
+      if NOT bResult then
+      begin              
+        Log.Error('Скрипт <' + arrScripts[i] + '> выдал False');
+        report := report + arrScripts[i] + endOfLine;              
+      end;
+      
+      //Пишем в К, результат выполнения скрипта
+      oTS := GetTSByName(GetSubStr(arrScripts[i], '', '_Execute'));
+      if VarType(oTS) = varDispatch then
+        RefreshScriptAndTracedHLTCs(oTS, bResult)
+      else
+        Log.Error('Скрипт не найден!');
+    end
+    else
+    begin
+      if NOT SelectConfiguration('Расширенная (сохраненная)*') then
+      begin        
+        Log.Error('Не удалось переключится на конфигурацию "Расширенная (сохраненная), обрываем выполнение скриптов"');
+        Raise('Не удалось переключится на конфигурацию "Расширенная (сохраненная)", обрываем выполнение скриптов');
+      end;
+    end;
+    Log.PopLogFolder();    
+  end;
+  
+  if report <> '' then
+  begin 
+    Log.Error('Список невыполнившихся скриптов:', report);
+    result := false;
+  end
+  else
+    result := true;
+except
+  Log.Message('AroundScripts: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+{
+HLTC215.3: Проверить правильность заливки настроек
+  HLTC215.3.1: Взять эталонные базы (CVS\quality\test\garant6x\UserConvertTest \EtalonBase) и поставить 
+  соответствующую им версию оболочки, для версии 6.3 и выше изменить там пароль Admin’a. 
+  Затем поставить последнюю версию оболочки поверх. 
+    HLTC215.3.1.1: Зайти в F1 под пользоватлем Etalon (пароль - Etalon). Должно показаться сообщение о 
+    смене версии настроек и обновлении конфигурации. Проверить, что у этого пользователя:
+  
+  !!Сейчас просто подкладывается XML предидущей версии
+  !!!На КС версии
+}
+function HLTC215_3_CS_Execute (var CurrentState: OleVariant): OleVariant;
+const 
+  PREF = 'HLTC215_3_CS';
+var
+  count;
+begin                                  
+try
+  if NOT ConvertXMLToBinSettings('BEFORE') then
+  begin
+    Log.Error('Процесс Конвертации настроек отработал НЕ успешно');
+    Raise;
+  end;      
+  //Переключаемся на конфигурацию Гарант 5.х (сохраненная)
+  if NOT SelectConfiguration('Гарант 5.x (сохраненная)') then
+  begin
+    Log.Error('Не удалось переключится на конфигурацию "Гарант 5.х (cохраненная)", соответственно дальнейшие скрипты не выполняем');
+    Raise;
+  end;     
+  //Идут сами скрипты
+  if NOT AroundScripts then
+  begin
+    Log.Error('Выполнелись не все скрипты "по проверки данных после конвертации настроек", выше по логу должен быть представлен список невыполненных скриптов');
+    Raise;
+  end;
+  //Перелогиниваемся новым пользователем(что б для дальнейших скриптов были чистые настройки )
+  count := 5;
+  RestartF1Shell(count, Options.Run.Timeout div 6, PREF, PREF);  
+  result := true;  
+except   
+  count := 5;
+  RestartF1Shell(count, Options.Run.Timeout div 6, PREF, PREF);
+  Log.Message('HLTC215_3_CS_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+{
+HLTC215.3: Проверить правильность заливки настроек
+  HLTC215.3.1: Взять эталонные базы (CVS\quality\test\garant6x\UserConvertTest \EtalonBase) и поставить 
+  соответствующую им версию оболочки, для версии 6.3 и выше изменить там пароль Admin’a. 
+  Затем поставить последнюю версию оболочки поверх. 
+     HLTC215.3.1.1: Зайти в F1 под пользоватлем Etalon (пароль - Etalon). Должно показаться сообщение о 
+    смене версии настроек и обновлении конфигурации. Проверить, что у этого пользователя:
+  
+  !!Сейчас просто подкладывается XML предидущей версии 
+  !!!На ФС версии
+}
+function HLTC215_3_FS_Execute (var CurrentState: OleVariant): OleVariant;
+const 
+  PREF = 'HLTC215_3_FS';
+var
+  count;
+begin                                  
+try
+ if NOT ConvertXMLToBinSettings('BEFORE') then
+  begin
+    Log.Error('Процесс Конвертации настроек отработал НЕ успешно');
+    Raise;
+  end;      
+  //Переключаемся на конфигурацию Гарант 5.х (сохраненная)
+  if NOT SelectConfiguration('Гарант 5.x (сохраненная)') then
+  begin
+    Log.Error('Не удалось переключится на конфигурацию "Гарант 5.х (cохраненная)", соответственно дальнейшие скрипты не выполняем');
+    Raise;
+  end;     
+  //Идут сами скрипты
+  if NOT AroundScripts then
+  begin
+    Log.Error('Выполнелись не все скрипты "по проверки данных после конвертации настроек", выше по логу должен быть представлен список невыполненных скриптов');
+    Raise;
+  end;
+  //Перелогиниваемся новым пользователем(что б для дальнейших скриптов были чистые настройки )
+  count := 5;
+  RestartF1Shell(count, Options.Run.Timeout div 6, PREF, PREF);  
+  result := true;  
+except   
+  count := 5;
+  RestartF1Shell(count, Options.Run.Timeout div 6, PREF, PREF);
+  Log.Message('HLTC215_3_FS_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+{
+HLTC215.3: Проверить правильность заливки настроек
+  HLTC215.3.1: Взять эталонные базы (CVS\quality\test\garant6x\UserConvertTest \EtalonBase) и поставить 
+  соответствующую им версию оболочки, для версии 6.3 и выше изменить там пароль Admin’a. 
+  Затем поставить последнюю версию оболочки поверх. 
+     HLTC215.3.1.1: Зайти в F1 под пользоватлем Etalon (пароль - Etalon). Должно показаться сообщение о 
+    смене версии настроек и обновлении конфигурации. Проверить, что у этого пользователя:
+  
+  !!Сейчас просто подкладывается XML предидущей версии
+  !!!На КС версии
+}
+function HLTC215_3_Execute (var CurrentState: OleVariant): OleVariant;
+begin                                  
+try    
+  result := testingReinstal;  
+except  
+  Log.Message('HLTC215_3_Decktop: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC215: Конвертация пользовательских настроек.
+  HLTC215.4: Проверить правильность работы F1UsersSave.exe  
+  !!!На десктопной версии
+}
+function HLTC215_4_Desktop_Execute (var CurrentState: OleVariant): OleVariant;
+const 
+  PREF = 'HLTC215_4_Desktop';
+var
+  count;
+begin                                  
+try
+  if NOT ConvertXMLToBinSettings('CURRENT') then
+  begin
+    Log.Error('Процесс Конвертации настроек отработал НЕ успешно');
+    Raise;
+  end;     
+  //Идут сами скрипты
+  if NOT AroundScripts then
+  begin
+    Log.Error('Выполнелись не все скрипты "по проверки данных после конвертации настроек", выше по логу должен быть представлен список невыполненных скриптов');
+    Raise;
+  end;
+  //Перелогиниваемся новым пользователем(что б для дальнейших скриптов были чистые настройки )
+  count := 5;
+  RestartF1Shell(count, Options.Run.Timeout div 6, PREF, PREF);  
+  result := true;  
+except   
+  count := 5;
+  RestartF1Shell(count, Options.Run.Timeout div 6, PREF, PREF);  
+  Log.Message('HLTC215_4_Desktop_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  DESK: Функция подкладывает эталонные(указанные) настройки в заданную папку  
+}
+function CopyEtalonSettings(
+  oldSettingsPath : string;
+  newSettingsPath : string
+): boolean;
+var
+  removePath;
+begin
+try  
+  removePath := oldSettingsPath + '\userData';
+  if DirectoryExists(removePath) then
+    if NOT RemoveFoldersExt(removePath) then 
+      Raise('Не удалось удалить каталог: ' + removePath);
+  removePath := oldSettingsPath + '\*.*';
+  if DeleteFilesExt(removePath) = 0 then Raise('Не удалось удалить не одного файла :' + removePath);
+  
+  if CopyFilesExt(newSettingsPath, oldSettingsPath) = 0 then 
+    Raise('Не удалось скопировать настройки из "' + newSettingsPath + '" в "' + oldSettingsPath + '"');
+  result := true;
+except
+  Log.Message('CopyEtalonSettings: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+DESK: ф-ция увеличивает значение Property_value в settings.xml  на единичку больше
+REMARK: временная, что бы залить дефолтные settings-xml
+}
+function ChangePropertyValue(
+  pathToSettingsXml
+) : boolean;
+var
+  str : string;    
+  rexp;
+  oldName;
+  newName;
+begin
+try  
+  str := GetFileBody(pathToSettingsXml); 
+  rexp := HISUtils.RegExpr;
+  rexp.Expression := '<PropertyValues version="([0-9])">';
+  if NOT rexp.Exec(str) then Raise('Не удалось найти регулярное выражение 1');  
+  str := rexp.Replace(str,  '<PropertyValues version="' 
+    + IntToStr( StrToInt(rexp.Match[1]) + 1 ) + '">');  
+  SaveStrToFile(pathToSettingsXml, str);
+  
+  oldName := ExtractFileDir(pathToSettingsXml);
+  rexp.Expression := 'FFFF-7_02_0-0([0-9])';
+  if NOT rexp.Exec(oldName) then Raise('Не удалось найти регулярное выражение 2'); 
+  newName := rexp.Replace(oldName, 'FFFF-7_02_0-0' + IntToStr( StrToInt(rexp.Match[1]) + 1)); 
+  if NOT RenameFile(oldName, newName) then 
+    Raise('Не удалось переименовать директорию');
+  if NOT RenameFile(oldName + '.xml', newName + '.xml') then 
+    Raise('Не удалось переименовать файл');
+  
+  result := true; 
+except
+  Log.Message('ChangePropertyValue: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;  
+end;
+{
+DESK: Перестановка оболочки   7.2 поверх 7.1 (десктопная версия)
+  После окончание требует восстановление бэкапа
+}
+function TestingReInstal : OleVariant;
+const 
+    FUNCTION_NAME = 'TestingReInstal';
+var
+  dataPath;
+  settingPath;
+  f1ShellDir;
+  productType;
+  pid;
+  countOfAttempt;
+  fso;
+begin
+try
+    productType := GetProductType;
+    //1.1.Установка версии 7.1 в новый каталог  
+    f1ShellDir := IncludeTrailingBackslash(TestStandParams('get', 'TestStandBasePath') ) + 'testHLTC215';
+    //f1ShellDir := 'c:\test\' + 'testHLTC215';    
+    fso := Sys.OleObject('Scripting.FileSystemObject');    
+    if fso.FolderExists(f1ShellDir) then  fso.DeleteFolder(f1ShellDir, true);
+    fso.CreateFolder(f1ShellDir);
+          
+    if productType = PT_SERVER then
+    begin    
+      pid := PID_KS;
+      StopF1Server;
+    end  
+    else
+    if productType = PT_DESKTOP then      
+      pid := PID_DESKTOP;
+    //Перед запуском инсталятора закрываем оболочку        
+    countOfAttempt := 3;      
+    CloseF1Shell(countOfAttempt, Options.Run.Timeout div 6);
+    //                    
+    ProductVersion('set', PRODUCT_VERSION_7_1);         
+    if NOT InstallF1ByProductID(pid, f1ShellDir, '', 'pathToInstaller:=' + PATH_INSTALLER_OLD) then
+      Raise('Не удалось установить продукт msi инсталятором')
+    else
+      Log.Message('Успешно msi инсталятором установили Гарант версии 7.1', '',  pmNormal, GetLogAttr('YELLOW'));    
+
+    //Если сервер,то стопим его, что бы корректно покласть данные и эталонные настройки
+    if productType = PT_SERVER  then  
+      if NOT StopF1Server then Raise('Не удалось остановить сервер');
+    //1.2.Копирование данных 7.1
+    dataPath := '\\developer\garant-nemesis-ro\deployment\data\7.1\testbase\fullbase\240904\';
+    if CopyFilesExt(dataPath, f1ShellDir + '\data2') = 0 then
+      Raise('Не удалось скопировать ТБ24 для 7.1 в соответствующий каталог с установленным Продуктом')
+    else
+      Log.Message('Успешно скопировали данные версии 7.1', '',  pmNormal, GetLogAttr('YELLOW'));
+    //1.3.Подкладывание эталонных настроек от 7.1     
+    settingPath := f1ShellDir + '\settings';  
+    if NOT CopyEtalonSettings(settingPath, GetPathTo(PATH_TO_USERCONVERTTEST) + 'EtalonBase\settings.72\') then 
+       Raise('Не удалось скопировать эталонные настройки в соответствующий каталог с установленным Продуктом')
+     else
+       Log.Message('Успешно скопировали бинарные эталонные настройки версии 7.1', '',  pmNormal, GetLogAttr('YELLOW'));  
+    //1.4.Запуск оболочки (проверка что всё запускается и есть юзер Etalon)    
+    //Если серверный продукт, тогда перезапускаем сервер
+    if productType = PT_SERVER then
+      if NOT StartF1Server then
+        Raise('Не удалось запустить сервер');
+    //Избавляемся от автологина при первом старте
+    Log.Message('Правил реест!');    
+    Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).SetOption('FirstStart', 'false');     
+    Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).RemoveOption('Login');
+    Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).RemoveOption('IsAutoLogin');
+        
+   if NOT StartF1Shell(f1ShellDir) then Raise('Не удалось запустить процесс F1Shell');
+   if NOT LoginExistingUser('Etalon', 'Etalon') then 
+     Raise('Не удалось залогиниться эталонным юзером "Etalon" ')
+   else
+     Log.Message('Успешно залогинились эталонным юзером "Etalon"', '',  pmNormal, GetLogAttr('YELLOW'));     
+    //1.5.Изменение пароля ADMINа           
+    if NOT Administrator.ChangeAdminPswd('111') then
+      Log.Error('Не удалось изменить пароль ADMIN-а')
+    else   
+      Log.Message('Успешно изменили пароль ADMIN-а в версии 7.1', '',  pmNormal, GetLogAttr('YELLOW'));
+    //на десктопе проверям, случайно не присутствуют ли в applicationData настройки Garant-Local, если есть - то удаляем их 
+    if productType = PT_DESKTOP then 
+      if FSO.FolderExists(GetPathToDesktopSettings) then
+      begin
+        Log.Message('Удаляем какие-то старые десктопные настройки : ' +  GetPathToDesktopSettings);             
+        FSO.DeleteFolder(GetPathToDesktopSettings, true);
+      end;  
+    //2.1.Установка 7.2 поверх 7.1
+    ProductVersion('set', PRODUCT_VERSION_7_2);
+    if NOT ReinstallF1ByProductID( pid, f1ShellDir) then
+      Raise('Не удалось установить продукт msi инсталятором')
+    else
+      Log.Message('Успешно msi инсталятором ПЕРЕустановили Гарант версии 7.2 поверх 7.1', '',  pmNormal, GetLogAttr('YELLOW'));
+    //Если сервер,то стопим его, что бы корректно покласть данные и эталонные настройки
+    if productType = PT_SERVER then
+      if NOT StopF1Server then Raise('Не удалось остановить сервер');     
+    //2.2.Копирование данных 7.2
+    if NOT EmptyFolder(f1ShellDir + '\data2') then Raise('Не удалось очистить папку: ' + f1ShellDir + '\settings');     
+    dataPath := '\\developer\garant-nemesis-ro\deployment\data\7.2\testbase\fullbase\240904\';
+    if CopyFilesExt(dataPath, f1ShellDir + '\data2') = 0 then
+      Raise('Не удалось скопировать ТБ24 для 7.2 в соответствующий каталог с установленным Продуктом')
+    else
+      Log.Message('Успешно скопировали данные версии 7.2', '',  pmNormal, GetLogAttr('YELLOW'));
+ //!!!!!!! Временно 
+  //Увеличиваем в settings.xml значение PropertyValue на единицу,    
+  // что бы залились дефолтные settings-xml (Cаша Доброгорский)
+    if NOT ChangePropertyValue(f1ShellDir + '\settings-xml\FFFF-7_02_0-02\settings.xml') then 
+      Raise('Не удалось увеличить значение PropertyValue в файле :' + f1ShellDir + '\settings-xml\FFFF-7_01_0-02\settings.xml');
+    //3.Запуск оболочки уже после переустановки (проверка что всё запускается и существует эталонный юзер Etalon)
+    if productType = PT_SERVER then 
+      if NOT StartF1Server then
+        Raise('Не удалось запустить сервер');
+    //Избавляемся от автологина при первом старте    
+    Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).SetOption('FirstStart', 'false');     
+    Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).RemoveOption('Login');
+    Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).RemoveOption('IsAutoLogin');    
+    if NOT StartF1Shell(f1ShellDir) then Raise('Не удалось запустить процесс F1Shell');
+    if NOT LoginExistingUser('Etalon', 'Etalon') then
+      Raise('После переустановки Не удалось залогиниться эталонным юзером "Etalon" ')
+    else
+      Log.Message('После переустановки Успешно залогинились эталонным юзером "Etalon"', '',  pmNormal, GetLogAttr('YELLOW'));
+    //4.Скрипты
+    Log.Message('Начинаем выполнять сами скрипты', '',  pmNormal, GetLogAttr('YELLOW'));
+    if NOT AroundScripts then
+    begin    
+      Log.Error('Выполнелись не все скрипты "по проверки данных после конвертации настроек", выше по логу должен быть представлен список невыполненных скриптов');
+      Raise('Выполнелись не все скрипты "по проверки данных после конвертации настроек", выше по логу должен быть представлен список невыполненных скриптов');
+   end
+   else
+    Log.Message('Все скрипты выполнились успешно', '',  pmNormal, GetLogAttr('YELLOW'));
+    //5.Удаление каталога с оболочкой
+   if productType = PT_SERVER then StopF1Server;
+              
+    CloseF1Shell;
+    UninstallF1ByProductID(pid);   
+    if fso.FolderExists(f1ShellDir) then  fso.DeleteFolder(f1ShellDir, true);
+    
+    result := true;   
+except  
+  ProductVersion('set', PRODUCT_VERSION_7_2);    
+  if productType = PT_SERVER  then
+  begin
+    pid := PID_KS;
+    StopF1Server;  
+  end    
+  else
+  if productType = PT_DESKTOP then   pid := PID_DESKTOP;
+      
+  CloseF1Shell;
+  UninstallF1ByProductID(pid);
+  if fso.FolderExists(f1ShellDir) then  fso.DeleteFolder(f1ShellDir, true);
+  Log.Message( FUNCTION_NAME + ': ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler; 
+end;
+end;
+ 
+////////////////////////////////////////////////////////////////////////////////
+
+procedure RykovTest215;
+var cur;
+i:integer;
+begin                        
+
+
+ Log.Message( HLTC215_3_Execute(cur));
+ //Log.Message( HLTC215_4_CS_Execute(cur));
+// Log.Message( HLTC215_4_FS_Execute(cur));
+// Log.Message( HLTC215_4_Desktop_Execute(cur));
+
+  
+  
+end;
+
+
+
+ 
+
+
+procedure test1;
+var
+  cur;
+begin
+  
+ // if NOT ConvertXMLToBinSettings('BEFORE') then Log.Error('Fuck');
+  
+
+
+  //Log.Message(HLTC215_3_1_1_3_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_5_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_6_1_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_7_1_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_7_2_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_8_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_9_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_10_Execute(cur));  
+//  Log.Message(HLTC215_3_1_1_11_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_12_Execute(cur));  
+//  Log.Message(HLTC215_3_1_1_13_Execute(cur));  
+//  Log.Message(HLTC215_3_1_1_16_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_17_1_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_17_2_Execute(cur));
+//  Log.Message(HLTC215_3_1_1_19_1_Execute(cur));  
+  //Log.Message(HLTC215_3_1_1_19_2_Execute(cur));
+  //Log.Message(HLTC215_3_1_1_19_3_Execute(cur));
+  //Log.Message(HLTC215_3_1_1_19_4_Execute(cur));  
+  //Log.Message(HLTC215_3_1_1_20_Execute(cur));  
+  //Log.Message(HLTC215_3_1_1_21_Execute(cur));
+  //Log.Message(HLTC215_3_1_1_22_1_Execute(cur));
+  //Log.Message(HLTC215_3_1_1_26_Execute(cur));
+  
+  //Log.Message(HLTC215_3_1_1_27_Execute(cur));
+  //Log.Message(HLTC215_3_1_1_28_Execute(cur));
+  //Log.Message(HLTC215_3_1_1_29_Execute(cur));
+  //Log.Message(HLTC215_3_1_1_30_Execute(cur));
+  Log.Message(HLTC215_3_1_1_31_Execute(cur));
+// _SimpleGetCardData_;
+end;
+
+
+procedure test;
+var
+  fso;
+  f1ShellDir;
+begin
+  f1ShellDir := 'c:\test\' + 'testHLTC215';
+  fso := Sys.OleObject('Scripting.FileSystemObject');    
+  //if fso.FolderExists(f1ShellDir) then
+//    fso.DeleteFolder(f1ShellDir, true);
+        
+  fso.CreateFolder('c:\test1');  
+end;  

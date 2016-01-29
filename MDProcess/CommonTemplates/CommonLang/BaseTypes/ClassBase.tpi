@@ -1,0 +1,1349 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/ClassBase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::ClassBase
+//
+// Базовый стереотип класса. Определяет атрибуты, операции связи, которые должны присутствовать во
+// всех стереотипах классов реализации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ClassBase::Class
+? Базовый стереотип класса. Определяет атрибуты, операции связи, которые должны присутствовать во всех стереотипах классов реализации
+= WikiImplClass::Class
+= UsesContainer::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+W true
+/ - может быть параметризован
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+// Дополнительный метод для перекрытия в серванте сущности
+%f _servant_cpp_operation_cpp_base
+//#UC START# *498C0CA500AEfor4705C18D0261*
+	%f_servant_cpp_operation_cpp(%1)
+//#UC END# *498C0CA500AEfor4705C18D0261*
+
+// Метод для перекрытия реализации аксеcсоров атрибутов
+%f _servant_cpp_attribute_cpp_base
+//#UC START# *498FE2E002FDfor4705C18D0261*
+	%f_servant_cpp_attribute_cpp(%1,%2N,%3N)
+//#UC END# *498FE2E002FDfor4705C18D0261*
+
+// Метод для определения дополнительных условий генерации определения методов на серванте.
+// Перекрывается в серванте сущности
+%f _additional_condition
+//#UC START# *49B8DAAB00A0for4705C18D0261*
+	true
+//#UC END# *49B8DAAB00A0for4705C18D0261*
+
+%f _IsClassBase
+// возвращаемый результат: boolean
+//#UC START# *4E09B26D0348for4705C18D0261*
+	true
+//#UC END# *4E09B26D0348for4705C18D0261*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4705C18D0261*
+c	{}
+r {""=""}: {}
+
+%f _check_template_params
+	[{%SK=ParameterizedClass}{true}%f_set_var(FIRST_WITH_DEF,"1000")%f_set_var(LAST_WITHOUT_DEF,"0")\
+	<{}{%CC=Parameter}[{"%CI"=""}{[{"%{FIRST_WITH_DEF}N"="1000"}%f_set_var(FIRST_WITH_DEF,"%Cn")]}\
+	%f_set_var(LAST_WITHOUT_DEF,"%Cn")]>\
+//проверяем, что номер первого параметра со значением по-умолчанию больше, чем номер последнего параметра без значения по-умолчаниб
+//т.е не должно быть такого порядка: A = 1, B, C, должно быть B, C, A=1
+	[{%f_number_cmp("%{LAST_WITHOUT_DEF}N","%{FIRST_WITH_DEF}N","\>")=1}{true}false]]
+//#UC END# *4704C0E30186for4705C18D0261*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: ClassBase::Class::Attribute
+? Член данных
+? Член данных всегда генерируеться в приватную часть класса.
+= ClassBaseGenerator::MDAGenerator
+= CommonAttribute::MDAGenerator
+
+// Параметры стереотипа
+v -#+
+/ - типы видимости
+Y code_attr.gif
+L code_attr
+A const
+/ - стереотипы "цели" (типа/результата)
+l arl
+/ - возможные типы связи атрибута
+
+// Пользовательские свойства
+p is mutable:b=false ? Определяет, что атрибут является мутирующим, т.е может изменяться даже при выполнении константных методов. Например, любой КЕШ должен являться мутирующим.
+p smart pointer:b=false ? Член данных хранится в умном указателе без счетчика ссылок (только в случае связи типа Reference, в остальных случаях свойство ни на что не влияет)
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47049A0701B5*
+	[{%S{needs field}!=false}%f_docs(%S)\
+	[#%S%f_open_ifdef()
+	]#[{%S{is mutable}=true}mutable ]%f_attr(%S) m_[{}{%f_to_omg(%TN)}%SN];[
+	#%S%f_close_ifdef()]]
+//#UC END# *47022C88029Ffor47049A0701B5*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47049A0701B5*
+//#UC END# *47022CB8034Bfor47049A0701B5*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47049A0701B5*
+	[{%S{needs field}!=false}%f_docs(%S)\
+	#private %f_attr(%S) [{}{%f_to_java(%TN)_}%f_to_java(%SN)_][{%f_can_be_init(%S)=true}{[ = %f_init(%S)];} = %f_to_java(init_%SN) ();
+	
+	#static private %f_attr(%S) %f_to_java(init_%SN) () {
+	#	%U[{_INIT_%SN}
+	#	return %f_attr_init_java(%S);
+	#	]
+	#}]]
+//#UC END# *470321950119for47049A0701B5*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor47049A0701B5*
+	%f_pas_dump_Field(%S)
+//#UC END# *470F1571031Cfor47049A0701B5*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor47049A0701B5*
+//#UC END# *470F15B800CBfor47049A0701B5*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{is mutable}"!="%S{!is mutable}"}%f_up_prefix(%S) *is mutable* = *%S{is mutable}* - Определяет, что атрибут является мутирующим, т.е может изменяться даже при выполнении константных методов. Например, любой КЕШ должен являться мутирующим.
+	][{"%S{smart pointer}"!="%S{!smart pointer}"}%f_up_prefix(%S) *smart pointer* = *%S{smart pointer}* - Член данных хранится в умном указателе без счетчика ссылок (только в случае связи типа Reference, в остальных случаях свойство ни на что не влияет)
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor47049A0701B5*
+	attr
+//#UC END# *4705CBD6003Efor47049A0701B5*
+
+: ClassBase::Class::template::Attribute
+? Параметр инстанцирования шаблона
+? имя должно совпадать с именем аргумента шаблона
+? должен использоваться ТОЛЬКО в параметризированных классах или наследниках от таких классов
+= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+Y code_template_attr.gif
+L code_template_attr
+A const
+/ - стереотипы "цели" (типа/результата)
+l l
+/ - возможные типы связи атрибута
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47049B3F008C*
+c             {}
+r {"%f_need_template_arg(%P)"="true"}: {%SS Attribute must use only in ParameterizedClass or in Class that Generaliztion or Realization another ParameterizedClass}
+//#UC END# *4704C0E30186for47049B3F008C*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor47049B3F008C*
+	inst_arg
+//#UC END# *4705CBD6003Efor47049B3F008C*
+
+: ClassBase::Class::Operation
+? Константный метод
+? По умолчанию все методы константные. Дл того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<chg>>
+= Annotate::Class
+= CallingConventionsHolder::Class
+= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+v -#+
+/ - типы видимости
+e g
+/ - возможность использовать исключения
+a raf
+/ - тип абстракции
+Y code_const_method.gif
+L code_const_method
+T 
+/ - может не иметь "цели" (типа/результата)
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+A const|cached|const,cached
+/ - стереотипы "цели" (типа/результата)
+
+// Пользовательские свойства
+p debug log:b=false ? включает генерацию вывода в лог обращений данному методу
+p force overload:b=false ? Определяет, что метод перегружен.
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47049A220138*
+	%f_servant_cpp_operation_h(%S)
+//#UC END# *47022C88029Ffor47049A220138*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47049A220138*
+	%f_servant_cpp_operation_cpp(%S)
+//#UC END# *47022CB8034Bfor47049A220138*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor47049A220138*
+= cpp
+//#UC END# *47022CCF00EAfor47049A220138*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47049A220138*
+	%f_servant_java_operation(%S,"servant")
+//#UC END# *470321950119for47049A220138*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor47049A220138*
+R  
+	%S%f_pas_MethodInterface()
+//#UC END# *470F1571031Cfor47049A220138*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor47049A220138*
+R  
+	%S%f_pas_MethodImplementation()
+//#UC END# *470F15B800CBfor47049A220138*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[ClassBaseGenerator::MDAGenerator]f_wiki_up_print()[{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений данному методу
+	][{"%S{force overload}"!="%S{!force overload}"}%f_up_prefix(%S) *force overload* = *%S{force overload}* - Определяет, что метод перегружен.
+	][{"%S{annotation}"!="%S{!annotation}"}%f_up_prefix(%S) *annotation* = *%S{annotation}* - Имя аннотации. Несколько аннтоаций задаются через запятую: Ann1, Ann2
+	][{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - Соглашения о вызове
+	]
+
+// признак, что метод статический
+%f _is_static
+//#UC START# *496AE51C03D5for47049A220138*
+	false
+//#UC END# *496AE51C03D5for47049A220138*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47049A220138*
+c                                                       {}
+r {%Ss=cached&%SS!=chg&%SS!=oneway,chg&%SS!=static}:    {const function cant return non const cached value}
+//#UC END# *4704C0E30186for47049A220138*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor47049A220138*
+	method
+//#UC END# *4705CBD6003Efor47049A220138*
+
+// Вложенные стереотипы
+: ClassBase::Class::Operation::Parameter
+? параметр операции
+= Ifdef::MDAGenerator
+= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+Y code_param.gif
+L code_param
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47144994003E*
+//#UC END# *47022C88029Ffor47144994003E*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47144994003E*
+//#UC END# *47022CB8034Bfor47144994003E*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor47144994003E*
+//#UC END# *47022CCF00EAfor47144994003E*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47144994003E*
+//#UC END# *470321950119for47144994003E*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor47144994003E*
+//#UC END# *470F1571031Cfor47144994003E*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor47144994003E*
+//#UC END# *470F15B800CBfor47144994003E*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()
+
+
+
+: ClassBase::Class::chg::Operation
+? Неконстантный метод
+? Метод который может изменить состояние объекта своего класса.
+= ClassBase::Class::Operation
+
+// Параметры стереотипа
+Y code_method.gif
+L code_method
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: ClassBase::Class::ctor::Operation
+? Конструктор
+? Конструктор объектов класса
+= ClassBase::Class::Operation
+
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+a fr
+/ - тип абстракции
+Y code_factory.gif
+L code_factory
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+A
+/ - стереотипы "цели" (типа/результата)
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47049AA3038A*
+	%f_docs(%S)\
+	[#%S%f_open_ifdef()
+	]%f_set_var(CTOR,"#%f_dump_explicit(%S)%{SERV}N (<{, }%f_arg_full_decl(%C)>);")\
+	%f_set_var(OP_LEN,"%f_string_length("%{CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{CTOR}N}#%f_dump_explicit(%S)%{SERV}N (\n\t\t<{\n\t\t, }%f_arg_full_decl(%C)>\n\t);][
+	#%S%f_close_ifdef()]
+//#UC END# *47022C88029Ffor47049AA3038A*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47049AA3038A*
+	%f_docs(%S)\
+	[%S%f_open_ifdef()
+	]%f_set_var(CTOR,"%f_templ_header(%{SERV})%f_function_scope(%{SERV})%{SERV}N (<{, }%f_arg_full_decl(%C)>)[ : %S%f_addit_init()[{"%S%f_addit_init()"!=""&%{SERV}<{}{"%CI"!=""}{C}>!=0}, ]%{SERV}<{, }{"%CI"!=""&%CS!=static&%CS!=template&%CS!=switch}m_%CN (%f_init(%C))>]")\
+	%f_set_var(OP_LEN,"%f_string_length("%{CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{CTOR}N}%f_templ_header(%{SERV})%f_function_scope(%{SERV})%{SERV}N (\n\t<{\n\t, }%f_arg_full_decl(%C)>\n)[ :\n\t%S%f_addit_init()[{"%S%f_addit_init()"!=""&%{SERV}<{}{"%CI"!=""&%CS!=static&%CS!=template&%CS!=switch}{C}>!=0}\n\t, ]%{SERV}<{\n\t, }{"%CI"!=""}m_%CN (%f_init(%C))>]]
+	%U[{_BASE_INIT[{"%{SERV}U"!="%PU"}_%{SERV}U]!cpp!}
+	]
+	{%f_start_func_cpp(%S,"%PN::%PN")
+		%U[{_BODY[{"%{SERV}U"!="%PU"}_%{SERV}U]!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+	%f_end_func_cpp(%S)}[
+	%S%f_close_ifdef()]
+//#UC END# *47022CB8034Bfor47049AA3038A*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor47049AA3038A*
+= cpp
+//#UC END# *47022CCF00EAfor47049AA3038A*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47049AA3038A*
+	%f_docs(%S)\
+	#%t_visibility(%S)%{SERV}N (<{, }%f_arg_full_decl(%C)>) {%f_start_func_cpp(%S,"%PN::%PN")
+	#	%U[{_BODY[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}
+	#	]
+	#%f_end_func_cpp(%S)}
+//#UC END# *470321950119for47049AA3038A*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+// генерация кода инициализации
+%f _addit_init
+//#UC START# *471444AD001Ffor47049AA3038A*
+//#UC END# *471444AD001Ffor47049AA3038A*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _IsConstructor
+// возвращаемый результат: boolean
+//#UC START# *4AE025440082for47049AA3038A*
+	true
+//#UC END# *4AE025440082for47049AA3038A*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor47049AA3038A*
+	mng
+//#UC END# *4705CBD6003Efor47049AA3038A*
+
+: ClassBase::Class::oneway::Operation
+? Асинхронная операция
+? Вызов операции будет выполнен асинхронна. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+= ClassBase::Class::Operation
+
+// Параметры стереотипа
+a raf
+/ - тип абстракции
+Y code_const_method.gif
+L code_const_method
+
+// Пользовательские свойства
+p separate thread pool=none|per class|per object|per operation|user defined ? определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{separate thread pool}"!="%S{!separate thread pool}"}%f_up_prefix(%S) *separate thread pool* = *%S{separate thread pool}* - определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47049A720399*
+c                                                                        {}
+r {<{}{%CS=out|%CS=inout&%t_class_type(%C%T)=false}{C}>!=0|%TN!=void}:   {%SM can't contain inout/out parameters or return result}
+
+//#UC END# *4704C0E30186for47049A720399*
+
+: ClassBase::Class::oneway,chg::Operation
+? Асинхронная неконстантная операция
+? Вызов операции будет выполнен асинхронно. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.
+? Неконстантная операция может изменять состояние своего объекта
+= ClassBase::Class::oneway::Operation
+
+// Параметры стереотипа
+Y code_method.gif
+L code_method
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+: ClassBase::Class::static::Operation
+? Статический метод
+? Статический метод является методом класса а не объекта. Статический метод может иметь доступ только к статическим данным класса, и может быть вызван на самом классе, а не на его экземпляре.
+= ClassBase::Class::Operation
+
+// Параметры стереотипа
+Y code_static_method.gif
+L code_static_method
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47049ADD02FD*
+	%f_docs(%S)\
+	[#%S%f_open_ifdef()
+	][{%PS=TemplateFunctions}#%f_templ_header(%P)]\
+	#static %f_ret(%S) %SN (<{, }%f_arg_full_decl(%C)>)[
+	#	/*throw (<{, }%E<%NN::>%EN>)*/];[
+	#%S%f_close_ifdef()]
+//#UC END# *47022C88029Ffor47049ADD02FD*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47049ADD02FD*
+	%f_docs(%S)\
+	[%S%f_open_ifdef()
+	]%f_templ_header(%{SERV})\
+	[{%PS=TemplateFunctions}%f_templ_header(%P)]\
+	%f_ret(%S) %f_function_scope(%{SERV})%SN (<{, }%f_arg_full_decl(%C)>) [
+		/*throw (<{, }%E<%NN::>%EN>)*/
+	]{%f_start_func_cpp(%S,"%{SERV}N::%SN")
+		%f_s_c_op_c_uc(%S)
+	%f_end_func_cpp(%S)}[
+	%S%f_close_ifdef()]
+//#UC END# *47022CB8034Bfor47049ADD02FD*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor47049ADD02FD*
+= cpp
+//#UC END# *47022CCF00EAfor47049ADD02FD*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47049ADD02FD*
+	%f_servant_java_operation(%S,"servant")
+//#UC END# *470321950119for47049ADD02FD*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassBase::Class::Operation
+// признак, что метод статический
+%f _is_static
+//#UC START# *496AE51C03D5for47049ADD02FD*
+	true
+//#UC END# *496AE51C03D5for47049ADD02FD*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47049ADD02FD*
+c	{}
+r {""=""}: {}
+
+//проверяем правильность задания шаблонных параметров
+//параметры со значением по-умолчанию должны быть последними в списке!
+//#UC END# *4704C0E30186for47049ADD02FD*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor47049ADD02FD*
+	static_method
+//#UC END# *4705CBD6003Efor47049ADD02FD*
+
+: ClassBase::Class::static::Attribute
+? Статический атрибут
+? Статический атрибюут является членом данных класса а не объекта.
+= ClassBase::Class::Attribute
+
+// Параметры стереотипа
+Y code_static_attr.gif
+L code_static_attr
+
+// Генераторы
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4705C24F008C*
+= cpp
+//#UC END# *47022CCF00EAfor4705C24F008C*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4705C24F008C*
+	[{%S{needs field}!=false}%f_docs(%S)\
+	[#%S%f_open_ifdef()
+	][{%f_can_be_static(%S)=true}#static %f_attr(%S) s_[{}{%f_to_omg(%TN)}%SN];]\
+	[{%f_can_be_static(%S)!=true}\
+	#struct %f_to_borland(%SN)SingletonDataType {
+	#	%f_type(%T) ptr;
+	#};
+	#
+	#typedef ACE_Singleton \<
+	#	%f_to_borland(%SN)SingletonDataType
+	#	, ACE_SYNCH_RECURSIVE_MUTEX
+	#\> %f_to_borland(%SN)Singleton;]][
+	#%S%f_close_ifdef()]
+//#UC END# *47022C88029Ffor4705C24F008C*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4705C24F008C*
+	[{%S{needs field}!=false&%f_can_be_static(%S)=true}%f_docs(%S)\
+	[%S%f_open_ifdef()
+	]%f_set_var(__SCOPE,S)%f_attr(%S) %PN::s_[{}{%f_to_omg(%TN)}%SN][ = %SI];[
+	%S%f_close_ifdef()]]
+//#UC END# *47022CB8034Bfor4705C24F008C*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4705C24F008C*
+	[{%S{needs field}!=false}%f_docs(%S)\
+	#private static %f_attr(%S) [{}{%f_to_java(s_%TN)_}%f_to_java(s_%SN)_][ = %f_init(%S)];]
+//#UC END# *470321950119for4705C24F008C*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если атрибут статический
+%f _is_static
+//#UC START# *49782FAA0070for4705C24F008C*
+	true
+//#UC END# *49782FAA0070for4705C24F008C*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4705C24F008C*
+	static_attr
+//#UC END# *4705CBD6003Efor4705C24F008C*
+
+: ClassBase::Class::friend::ClassDependency
+? Друг
+? Определяет что класс (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.
+? 
+? ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!
+= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+Y code_dep_friend.gif
+L code_dep_friend
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4705E460003E*
+	friend
+//#UC END# *4705CBD6003Efor4705E460003E*
+
+: ClassBase::Class::Parameter
+? шаблонный параметр
+= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+Y code_param.gif
+L code_param
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor471482B5033C*
+	%f_dump_template_param_h(%S)
+
+f _dump_template_param_h
+	[{%SS=withref|%SS=primitive|%SS=in}{%SS}[{%t_simple(%S)=true}{class}typename]] %SN[ = %SI ]
+//#UC END# *47022C88029Ffor471482B5033C*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor471482B5033C*
+	%f_dump_template_param_cpp(%S)
+
+f _dump_template_param_cpp
+	[{%SS=withref|%SS=primitive|%SS=in}{%SS}[{%t_simple(%S)=true}{class}typename]] %SN
+//#UC END# *47022CB8034Bfor471482B5033C*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor471482B5033C*
+= cpp
+
+//hack
++ fctr.h
+= i.h
+//#UC END# *47022CCF00EAfor471482B5033C*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor471482B5033C*
+	inst_arg
+//#UC END# *4705CBD6003Efor471482B5033C*
+
+: ClassBase::Class::property::Attribute
+? Свойство
+? для данного атрибута будут сгенерированы методы получения и установки его значения и, если задано свойство needs field, собственно поле
+= ClassBase::Class::Attribute
+= Annotate::Class
+= CallingConventionsHolder::Class
+
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+e a
+/ - возможность использовать исключения
+a far
+/ - тип абстракции
+Y code_property.gif
+L code_property
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+
+// Пользовательские свойства
+p force use const arg:b=false ? Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.
+p inherits getter from some ancestor:tribool=undefined ? Наследует Getter'а из какого-то предка и объявлять его не надо ---- Костыль для Delphi
+p inherits setter from some ancestor:tribool=undefined ? Наследует Setter'а из какого-то предка и объявлять его не надо ---- Костыль для Delphi
+p is default:b=false ? Определяет свойство по-умолчанию.
+p needs field:tribool=undefined ? Определяет - нужно ли выводить поле для свойства.
+p needs stored directive:tribool=undefined ? Указывает, что необходима директива stored ---- Костыль для Delphi
+p pm:b=true ? выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+p reads field:b=false ? Определяет, что читаем из поля.
+p writes field:b=false ? Определяет, что пишем в поле.
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for4773ED2300A0*
+//#UC END# *46E6D4BB0339for4773ED2300A0*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4773ED2300A0*
+//#UC END# *47022CCF00EAfor4773ED2300A0*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4773ED2300A0*
+//#UC END# *470321C1038Afor4773ED2300A0*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for4773ED2300A0*
+R  
+	%S%f_pas_dump_Property()
+//#UC END# *477398E501C0for4773ED2300A0*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for4773ED2300A0*
+R  
+//	%S%f_pas_OutField()
+//#UC END# *4774D2A20372for4773ED2300A0*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4773ED2300A0*
+//#UC END# *49F5795900ECfor4773ED2300A0*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for4773ED2300A0*
+//#UC END# *55B8D28B0157for4773ED2300A0*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for4773ED2300A0*
+//#UC END# *55B8D2F80145for4773ED2300A0*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for4773ED2300A0*
+//#UC END# *55B8DD9C0301for4773ED2300A0*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4773ED2300A0*
+R  
+	%S%f_pas_PropertyMethodInterface()
+//#UC END# *470F1571031Cfor4773ED2300A0*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor4773ED2300A0*
+R  
+	%S%f_pas_MethodImplementation()
+//#UC END# *470F15B800CBfor4773ED2300A0*
+
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for4773ED2300A0*
+	<%CX>\
+	%S%f_DoSpell()
+//#UC END# *4A41A13D03D5for4773ED2300A0*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[ClassBase::Class::Attribute]f_wiki_up_print()[{"%S{pm}"!="%S{!pm}"}%f_up_prefix(%S) *pm* = *%S{pm}* - выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+	][{"%S{is default}"!="%S{!is default}"}%f_up_prefix(%S) *is default* = *%S{is default}* - Определяет свойство по-умолчанию.
+	][{"%S{needs field}"!="%S{!needs field}"}%f_up_prefix(%S) *needs field* = *%S{needs field}* - Определяет - нужно ли выводить поле для свойства.
+	][{"%S{reads field}"!="%S{!reads field}"}%f_up_prefix(%S) *reads field* = *%S{reads field}* - Определяет, что читаем из поля.
+	][{"%S{writes field}"!="%S{!writes field}"}%f_up_prefix(%S) *writes field* = *%S{writes field}* - Определяет, что пишем в поле.
+	][{"%S{force use const arg}"!="%S{!force use const arg}"}%f_up_prefix(%S) *force use const arg* = *%S{force use const arg}* - Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.
+	][{"%S{annotation}"!="%S{!annotation}"}%f_up_prefix(%S) *annotation* = *%S{annotation}* - Имя аннотации. Несколько аннтоаций задаются через запятую: Ann1, Ann2
+	][{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - Соглашения о вызове
+	][{"%S{inherits getter from some ancestor}"!="%S{!inherits getter from some ancestor}"}%f_up_prefix(%S) *inherits getter from some ancestor* = *%S{inherits getter from some ancestor}* - Наследует Getter'а из какого-то предка и объявлять его не надо ---- Костыль для Delphi
+	][{"%S{inherits setter from some ancestor}"!="%S{!inherits setter from some ancestor}"}%f_up_prefix(%S) *inherits setter from some ancestor* = *%S{inherits setter from some ancestor}* - Наследует Setter'а из какого-то предка и объявлять его не надо ---- Костыль для Delphi
+	][{"%S{needs stored directive}"!="%S{!needs stored directive}"}%f_up_prefix(%S) *needs stored directive* = *%S{needs stored directive}* - Указывает, что необходима директива stored ---- Костыль для Delphi
+	]
+
+// Выводит поле для свойства
+%f _pas_OutField
+//#UC START# *4A797AC90346for4773ED2300A0*
+	[{%S%f_pas_NeedsField()=true}\
+	[#%S%f_open_ifdef()\n]\
+	%f_shift_intend(-1)\
+	   %f_pas_FieldName(%S) : [{}{%S%f_pas_ResultTypeName()}%f_pas_TypeName(%T)];\
+	%f_shift_intend(+1)\
+	[\n#%S%f_close_ifdef()]]
+
+%f _SpellField
+	[{%S%f_pas_NeedsField()=true}\
+
+	%f_SpellFieldPrim(%S,%S%P)\
+
+	[{%S#f_IsReadOnlyProp()!=true}{\
+	%{Attr_Inst}%f_set_var(clearViaProperty,"")\
+	}\
+	%{Attr_Inst}%f_set_var(clearViaProperty,S)\
+	]\
+
+	]
+
+f _DoSpellField
+	%S#f_SpellField()\
+//	%f_warning("got %SN")\
+	[{%S{needs stored directive}=true}\
+	%P%f_add_operation(%SU_stored,,\
+	%S%f_pas_AttrName()Stored (): boolean,Op_Instance\
+	)\
+	%{Op_Instance}%f_set_documentation("Функция определяющая, что свойство %S%f_pas_AttrName() сохраняется")\
+	%{Op_Instance}%f_set_visibility_type(ProtectedAccess)\
+	%{Op_Instance}%f_set_abstraction_type(final)\
+	]
+//#UC END# *4A797AC90346for4773ED2300A0*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4773ED2300A0*
+c                                  {}
+r {""=""}:                         {[Метод с похожей сигнатурой уже определён: %f_method_already_defined(%S)]}
+
+f _method_already_defined
+	%f_set_var(SELF,S)\
+	%f_clear_list(__METHODS__)\
+	%P<{}{"%oU"!=""}{%o}%f_add_to_list(__METHODS__,o)>\
+	%P<{}{"%OU"!=""}{%O}%f_add_to_list(__METHODS__,O)>\
+	%P<{}{%CC=Operation}{%C}%f_add_to_list(__METHODS__,C)>\
+	<{, }{%f_is_empty(__METHODS__)=false}{W}[%f_pop_first_to_var(__METHODS__,__METHOD__)[{%f_is_already_defined(%{__METHOD__},%{SELF})!=false}%{__METHOD__}%PN::%{__METHOD__}N]]>
+
+/	<{, }{%f_is_already_defined(%o,%{SELF})!=false}{%o}%o%PN::%oN>
+
+f _is_already_defined
+	[{%t_signature(%S)=%t_signature(%1)}{false}\
+	[{%f_is_property(%S)=true&%Sa=abstract&%f_is_property(%1)=true}{true}false]]
+
+t _signature
+c                                                                  {}
+r "%f_is_property(%S)"="true"&"%t_need_ro(%S)"="true":             {get_%SN () const}
+r "%SC"="Operation":                                               {%SN (<%C%TU>)[ %f_op_const_spec(%S)]}
+r "%f_is_property(%S)"="true":                                     {%SN::%TU}
+//#UC END# *4704C0E30186for4773ED2300A0*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for4773ED2300A0*
+//#UC END# *470484D50138for4773ED2300A0*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+%f _need_ro_accessor
+//#UC START# *49782FB50256for4773ED2300A0*
+	true
+//#UC END# *49782FB50256for4773ED2300A0*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+%f _need_rw_accessor
+//#UC START# *49782FBC0027for4773ED2300A0*
+	true
+//#UC END# *49782FBC0027for4773ED2300A0*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4773ED2300A0*
+	%S%[inherited]\
+	%f_DoSpellField(%S)
+//#UC END# *4B2A19E3038Bfor4773ED2300A0*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это свойство.
+%f _IsProp
+//#UC START# *493D2D510282for4773ED2300A0*
+	true
+//#UC END# *493D2D510282for4773ED2300A0*
+
+// Вложенные стереотипы
+: ClassBase::Class::property::Attribute::Attribute
+? ключ
+= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+Y code_attr_key.gif
+L code_attr_key
+A in|inout
+/ - стереотипы "цели" (типа/результата)
+l l
+/ - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for479EF1F303A6*
+//#UC END# *46E6D4BB0339for479EF1F303A6*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor479EF1F303A6*
+//#UC END# *47022CCF00EAfor479EF1F303A6*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor479EF1F303A6*
+//#UC END# *470321C1038Afor479EF1F303A6*
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
++ intf2.pas
+R  
+//#UC START# *477398E501C0for479EF1F303A6*
+//#UC END# *477398E501C0for479EF1F303A6*
+
+// 3-я секция интерфейса. Например поле для свойства.
++ intf3.pas
+R  
+//#UC START# *4774D2A20372for479EF1F303A6*
+//#UC END# *4774D2A20372for479EF1F303A6*
+
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor479EF1F303A6*
+//#UC END# *49F5795900ECfor479EF1F303A6*
+
+// Ресурсы (.rc)
++ rc.pas
+R  
+//#UC START# *55B8D28B0157for479EF1F303A6*
+//#UC END# *55B8D28B0157for479EF1F303A6*
+
+// Скрипты в ресурсах (.rc.script)
++ rc.script.pas
+R  
+//#UC START# *55B8D2F80145for479EF1F303A6*
+//#UC END# *55B8D2F80145for479EF1F303A6*
+
+// Компилятор ресурса (.res.cmd)
++ res.cmd.pas
+R  
+//#UC START# *55B8DD9C0301for479EF1F303A6*
+//#UC END# *55B8DD9C0301for479EF1F303A6*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor479EF1F303A6*
+//#UC END# *470F1571031Cfor479EF1F303A6*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor479EF1F303A6*
+//#UC END# *470F15B800CBfor479EF1F303A6*
+
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for479EF1F303A6*
+	%S#f_DoSpell()
+//#UC END# *4A41A13D03D5for479EF1F303A6*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+: ClassBase::Class::readonly::Attribute
+? Свойство только для чтения
+= ClassBase::Class::property::Attribute
+
+// Параметры стереотипа
+e g
+/ - возможность использовать исключения
+Y code_readonly_attr.gif
+L code_readonly_attr
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+%f _need_ro_accessor
+//#UC START# *49782FB50256for4773ED64017E*
+	true
+//#UC END# *49782FB50256for4773ED64017E*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+%f _need_rw_accessor
+//#UC START# *49782FBC0027for4773ED64017E*
+	false
+//#UC END# *49782FBC0027for4773ED64017E*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+%f _IsReadOnlyProp
+//#UC START# *4948F9190291for4773ED64017E*
+	true
+//#UC END# *4948F9190291for4773ED64017E*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+%f _IsWriteOnlyProp
+//#UC START# *4948F93D038Afor4773ED64017E*
+	false
+//#UC END# *4948F93D038Afor4773ED64017E*
+
+: ClassBase::Class::writeonly::Attribute
+? Свойство только для записи.
+= ClassBase::Class::property::Attribute
+
+// Параметры стереотипа
+e s
+/ - возможность использовать исключения
+Y code_writeonly_attr.gif
+L code_writeonly_attr
+m t
+/ - может быть реализован/иметь перекрытую реализацию
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+%f _need_ro_accessor
+//#UC START# *49782FB50256for4773ED880366*
+	false
+//#UC END# *49782FB50256for4773ED880366*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+%f _need_rw_accessor
+//#UC START# *49782FBC0027for4773ED880366*
+	true
+//#UC END# *49782FBC0027for4773ED880366*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+%f _IsReadOnlyProp
+//#UC START# *4948F9190291for4773ED880366*
+	false
+//#UC END# *4948F9190291for4773ED880366*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+%f _IsWriteOnlyProp
+//#UC START# *4948F93D038Afor4773ED880366*
+	true
+//#UC END# *4948F93D038Afor4773ED880366*
+
+: ClassBase::Class::static property::Attribute
+? Статическое свойство
+? для данного атрибута будут сгенерированы методы получения и установки его значения и, если задано свойство needs field, собственно поле
+= ClassBase::Class::property::Attribute
+
+// Параметры стереотипа
+e a
+/ - возможность использовать исключения
+a r
+/ - тип абстракции
+m f
+/ - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor47CE829D00F6*
+	[{%S{needs field}!=false}%f_docs(%S)\
+	[#%S%f_open_ifdef()
+	][{%f_can_be_static(%S)=true}#static %f_attr(%S) s_[{}{%f_to_omg(%TN)}%SN];]\
+	[{%f_can_be_static(%S)!=true}\
+	#struct %f_to_borland(%SN)SingletonDataType {
+	#	%f_type(%T) ptr;
+	#};
+	#
+	#typedef ACE_Singleton \<
+	#	%f_to_borland(%SN)SingletonDataType
+	#	, ACE_SYNCH_RECURSIVE_MUTEX
+	#\> %f_to_borland(%SN)Singleton;][
+	#%S%f_close_ifdef()]]
+//#UC END# *47022C88029Ffor47CE829D00F6*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor47CE829D00F6*
+	[{%S{needs field}!=false&%f_can_be_static(%S)=true}%f_docs(%S)\
+	[%S%f_open_ifdef()
+	]%f_set_var(__SCOPE,S)%f_attr(%S) %PN::s_[{}{%f_to_omg(%TN)}%SN][ = %SI];[
+	%S%f_close_ifdef()]]
+//#UC END# *47022CB8034Bfor47CE829D00F6*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47CE829D00F6*
+	[{%S{needs field}!=false}%f_docs(%S)\
+	#private static %f_attr(%S) [{}{%f_to_java(s_%TN)_}%f_to_java(s_%SN)_][ = %f_init(%S)];]
+//#UC END# *470321950119for47CE829D00F6*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если атрибут статический
+%f _is_static
+//#UC START# *49782FAA0070for47CE829D00F6*
+	true
+//#UC END# *49782FAA0070for47CE829D00F6*
+
+: ClassBase::Class::static readonly::Attribute
+? Статическое свойство только для чтения
+= ClassBase::Class::static property::Attribute
+
+// Параметры стереотипа
+e g
+/ - возможность использовать исключения
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+%f _need_ro_accessor
+//#UC START# *49782FB50256for47CE82CB018D*
+	true
+//#UC END# *49782FB50256for47CE82CB018D*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+%f _need_rw_accessor
+//#UC START# *49782FBC0027for47CE82CB018D*
+	false
+//#UC END# *49782FBC0027for47CE82CB018D*
+
+: ClassBase::Class::static writeonly::Attribute
+? Статическое свойство только для записи
+= ClassBase::Class::static property::Attribute
+
+// Параметры стереотипа
+e s
+/ - возможность использовать исключения
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// возвращает true, если нужен RO-акцессор
+%f _need_ro_accessor
+//#UC START# *49782FB50256for47CE842F03CC*
+	false
+//#UC END# *49782FB50256for47CE842F03CC*
+
+// перекрытие базового стереотипа CommonAttribute::MDAGenerator
+// Возвращает true, если нужен RW-акцессор
+%f _need_rw_accessor
+//#UC START# *49782FBC0027for47CE842F03CC*
+	true
+//#UC END# *49782FBC0027for47CE842F03CC*
+
+: ClassBase::Class::consume::ClassDependency
+? Получатель нотификации
+? Данная связь означает, что элемент источник является получателем (subscriber) нотификации. Тип нотификации определяется целью связи, это может быть Event либо ServerEvent.
+= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+Y code_dep_consume.gif
+L code_dep_consume
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47FC942F02A9*
+c                                                    {}
+r {%TM!=ServerEvent::Class&%TM!=Event::Class}:       {целью связи может быть только ServerEvent или Event}
+r {%f_check_multiply_consumer(%S)=false}:             {%PS уже является получателем %TS}
+
+f _check_multiply_consumer
+	%f_clear_list(CONSUME_LIST)\
+	%f_collect_consume_internal(%P)\
+	[{%f_number_cmp("%f_count_in_list(CONSUME_LIST,"%TU")","1","\>")=1}{true}false]
+
+f _collect_consume_internal
+	<{}{%CC=Dependency&%CS=consume}%f_add_to_list(CONSUME_LIST,"%C%TU")>\
+	<%f_collect_consume_internal(%R)><{}{%ga=abstract}%f_collect_consume_internal(%g)>
+//#UC END# *4704C0E30186for47FC942F02A9*
+
+: ClassBase::Class::supply::ClassDependency
+? Поставщик нотификаций
+? Данная связь означает, что элемент источник является поставщиком (pusblisher) нотификации. Тип нотификации определяется целью связи, это может быть Event либо ServerEvent.
+= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+Y code_dep_supply.gif
+L code_dep_supply
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47FC94300102*
+c                                                    {}
+r {%TM!=ServerEvent::Class&%TM!=Event::Class}:       {целью связи может быть только ServerEvent или Event}
+r {%f_check_multiply_supply(%S)=false}:              {%PS уже является поставщиком %TS}
+
+f _check_multiply_supply
+	%f_clear_list(SUPPLY_LIST)\
+	%f_collect_supply_internal(%P)\
+	[{%f_number_cmp("%f_count_in_list(SUPPLY_LIST,"%TU")","1","\>")=1}{true}false]
+
+f _collect_supply_internal
+	<{}{%CC=Dependency&%CS=supply}%f_add_to_list(SUPPLY_LIST,"%C%TU")>\
+	<%f_collect_supply_internal(%R)><{}{%ga=abstract}%f_collect_supply_internal(%g)>
+//#UC END# *4704C0E30186for47FC94300102*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

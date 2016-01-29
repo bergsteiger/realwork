@@ -1,0 +1,1476 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Core/Support/CommonFunc.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$CoreTemplates::CoreTemplates::Core::Support::CommonFunc
+//
+// Общие функции пакета
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// форматирует и выводит документацию
+//f _docs
+: docs OBJECT IN %S
+//#UC START# *46E6D0A70210*
+//	[{%XU!=cpp&%XU!=fctr.cpp&%XU!=mda&%XU!=p.cpp}{[%f_str_split(%SD,[{}{// }%1N])
+ if ( ( %X |U ) %!= 'cpp' AND 
+   ( ( %X |U ) %!= 'fctr.cpp'  ) AND 
+   ( ( %X |U ) %!= 'mda'  ) AND 
+   ( ( %X |U ) %!= 'p.cpp'  ) ) then
+ begin
+  if NOT-EMPTY
+  begin
+   [%f] str_split %( %S |D %, if NOT-EMPTY
+   begin
+    %1 |N 
+   end // if
+   NOP
+   else
+   begin
+    out_indent '// ' 
+   end // else
+)% //	][{%SK=ParameterizedClass}[<{}{%CC=Parameter}[{"%CD"!=""}%f_str_split(%CN - %CD,[{}{#// }%1N])
+  end // if
+  NOP
+  if ( ( %S |K ) %== 'ParameterizedClass' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Parameter' ) then
+     begin
+      if ( ( %C |D ) %!= '' ) then
+      begin
+       [%f] str_split %( %C |N ' - '
+       %C |D %, if NOT-EMPTY
+       begin
+        %1 |N 
+       end // if
+       NOP
+       else
+       begin
+        out_indent '// ' 
+       end // else
+)% //	]>]]]
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for C
+   end // if
+   NOP
+  end // if
+ end // if
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   [%f] str_split %( %S |D %, if NOT-EMPTY
+   begin
+    %1 |N 
+   end // if
+   NOP
+   else
+   begin
+    '// ' 
+   end // else
+)% //	][{%SK=ParameterizedClass}[<{}{%CC=Parameter}[{"%CD"!=""}%f_str_split(%CN - %CD,[{}{// }%1N])
+  end // if
+  NOP
+  if ( ( %S |K ) %== 'ParameterizedClass' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Parameter' ) then
+     begin
+      if ( ( %C |D ) %!= '' ) then
+      begin
+       [%f] str_split %( %C |N ' - '
+       %C |D %, if NOT-EMPTY
+       begin
+        %1 |N 
+       end // if
+       NOP
+       else
+       begin
+        '// ' 
+       end // else
+)% //	]>]]}[%f_str_split(%SD,[{}{#// }%1N])
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for C
+   end // if
+   NOP
+  end // if
+ end // else
+
+//f _k_common_elem_docs
+; // docs
+
+: k_common_elem_docs OBJECT IN %S
+//	[{%Sa!=regular}
+ if ( ( %S |a ) %!= 'regular' ) then
+ begin
+  #13#10
+
+//	abstraction type: %Sa][
+  'abstraction type: '
+  %S |a 
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	target stereotype: %Ss][
+  'target stereotype: '
+  %S |s 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	link type: %Sl][
+  'link type: '
+  %S |l 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%f_k_up_dump(%S)]
+  [%f] k_up_dump %( %S )% 
+ end // if
+ NOP
+
+//f _k_up_dump
+; // k_common_elem_docs
+
+: k_up_dump OBJECT IN %S
+//	%f_set_var(UP_PRINT,"%S#f_wiki_up_print()")[{"%{UP_PRINT}N"!=""}\
+ [%f] set_var %( 'UP_PRINT' %, %S %?f wiki_up_print %( )% )% if ( ( ( get_global_var ( 'UP_PRINT' ) |N ) ) %!= '' ) then
+ begin
+//	%f_up_open(%S)Дополнительные свойства:
+  [%f] up_open %( %S )% 'Дополнительные свойства:'
+//	%f_cut_postfix(%{UP_PRINT}N,\n)[
+  [%f] cut_postfix %( ( get_global_var ( 'UP_PRINT' ) |N ) %, #13#10 )% if NOT-EMPTY
+  begin
+   #13#10
+
+//	%f_up_close(%S)]]
+   [%f] up_close %( %S )% 
+  end // if
+  NOP
+ end // if
+
+//f _up_open
+; // k_up_dump
+
+: up_open OBJECT IN %S
+//	[{%SC=Class|%SC=Category}{(!) }\n\{note\}]
+ if ( ( %S |C ) %== 'Class' OR 
+   ( ( %S |C ) %== 'Category'  ) ) then
+ begin
+  #13#10'{note}' 
+ end // if
+ else
+ begin
+  '(!) ' 
+ end // else
+
+//f _up_close
+; // up_open
+
+: up_close OBJECT IN %S
+//	[{%SC=Class|%SC=Category}\{note\}]
+ if ( ( %S |C ) %== 'Class' OR 
+   ( ( %S |C ) %== 'Category'  ) ) then
+ begin
+  '{note}' 
+ end // if
+
+//f _up_prefix
+; // up_close
+
+: up_prefix OBJECT IN %S
+//	[{%SC=Class|%SC=Category}{\#*}*]
+ if ( ( %S |C ) %== 'Class' OR 
+   ( ( %S |C ) %== 'Category'  ) ) then
+ begin
+  '*' 
+ end // if
+ else
+ begin
+  '#*' 
+ end // else
+//#UC END# *46E6D0A70210*
+; // up_prefix
+
+
+// генерирует ссылку на элемент для представления в wiki (с расширением выидимости родителя,
+// иконками и т.д.)
+//f _k_link
+: k_link OBJECT IN %S
+//#UC START# *46E83157007A*
+//%1N - true, если нужно поставить якорь
+//	[{%1N=true&"%SN"!=""}[{"%SO"!=""&%Se=false}{\{anchor:%SU\}}]][\{IconForLabel:%Sb\} ][{"%SO"!=""&%Se=false}{[{}{\<\<[{}{default}%SS]\>\>}[{%1N=true&"%SN"!=""}{%SN}\[%SN|\#%SU\]]]}\{LinkByGUID:%SU\}]
+ if ( ( %1 |N ) %==  true AND 
+   ( ( %S |N ) %!= ''  ) ) then
+ begin
+  if ( ( %S |O ) %!= '' AND 
+    ( ( %S |e ) %==  false  ) ) then
+  begin
+  end // if
+  else
+  begin
+   '{anchor:'
+   %S |U '}' 
+  end // else
+ end // if
+ if NOT-EMPTY
+ begin
+  '{IconForLabel:'
+  %S |b '} ' 
+ end // if
+ NOP
+ if ( ( %S |O ) %!= '' AND 
+   ( ( %S |e ) %==  false  ) ) then
+ begin
+  '{LinkByGUID:'
+  %S |U '}' 
+ end // if
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   if ( ( %1 |N ) %==  true AND 
+     ( ( %S |N ) %!= ''  ) ) then
+   begin
+    '['
+    %S |N '|#'
+    %S |U ']' 
+   end // if
+   else
+   begin
+    %S |N 
+   end // else
+  end // if
+  NOP
+  else
+  begin
+   '<<'
+   if NOT-EMPTY
+   begin
+    %S |S 
+   end // if
+   NOP
+   else
+   begin
+    'default' 
+   end // else
+   '>>' 
+  end // else
+ end // else
+//#UC END# *46E83157007A*
+; // k_link
+
+
+// генерация ссылки для wiki (аналогично k_link но с вместе префиксом сслыкой на родителя)
+//f _k_link_wp
+: k_link_wp OBJECT IN %S
+//#UC START# *46E832A1003B*
+//%2N - true, если нужно поставить якорь
+//	%f_k_link(%S,"%2N")[{%PW!=[{%SC!=Operation&%SC!=Attribute}{%1W}%1%PW]&%SS!=UMLPrimitive} _(из %f_k_link_ex(%P))_]
+ [%f] k_link %( %S %, %2 |N )% if ( ( %P |W ) %!= if ( ( %S |C ) %!= 'Operation' AND 
+    ( ( %S |C ) %!= 'Attribute'  ) ) then
+  begin
+   %1 ->P |W  
+  end // if
+  else
+  begin
+   %1 |W 
+  end // else
+  AND 
+   ( ( %S |S ) %!= 'UMLPrimitive'  ) ) then
+ begin
+  ' _(из '
+  [%f] k_link_ex %( %P )% ')_' 
+ end // if
+//это старая реализация - в таком виде могли не генерить ссылку на родителя операции
+//	%f_k_link(%S)[{%PU!=%1%PU&%SS!=UMLPrimitive} _(из %f_k_link_ex(%P))_]
+//f _get_output
+; // k_link_wp
+
+: get_output OBJECT IN %S
+//	%f_set_var(OUTPUT,S)[{"%So"=""}<{}{"%Po"!=""}{%Pr}%f_set_var(OUTPUT,P)>]%{OUTPUT}o
+ [%f] set_var %( 'OUTPUT' %, 'S' )% if ( ( %S |o ) %== '' ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for downto %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P |o ) %!= '' ) then
+   begin
+    [%f] set_var %( 'OUTPUT' %, 'P' )% 
+    ++! l_Counter
+   end // if
+  end // for P
+ end // if
+ ( get_global_var ( 'OUTPUT' ) |o ) 
+//f _k_link_ex
+; // get_output
+
+: k_link_ex OBJECT IN %S
+//	[{%SS!=Project&%SS!=UMLPrimitive}<%f_k_link(%N)::>]%f_k_link(%S)
+ if ( ( %S |S ) %!= 'Project' AND 
+   ( ( %S |S ) %!= 'UMLPrimitive'  ) ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%N
+  begin
+   OBJECT IN %N
+   if true then
+   begin
+    [%f] k_link %( %N )% '::' 
+    ++! l_Counter
+   end // if
+  end // for N
+ end // if
+ [%f] k_link %( %S )% 
+//#UC END# *46E832A1003B*
+; // k_link_ex
+
+
+// выводит ссылку и краткое описание метода для wiki
+//f _k_method_dump
+: k_method_dump OBJECT IN %S
+//#UC START# *46E93AEF00B8*
+//	\# *%f_k_link(%S,"true")*[{%TN!=void} : %f_k_link_wp(%T,%S)][ (%SU)][
+ '# *'
+ [%f] k_link %( %S %, true )% '*'
+ if ( ( %T |N ) %!= 'void' ) then
+ begin
+  ' : '
+  [%f] k_link_wp %( %T %, %S )% 
+ end // if
+ if NOT-EMPTY
+ begin
+  ' ('
+  %S |U ')' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	_%S?_[, %f_str_replace(%SD,\n\n,\n\\\\)]]<
+  '_'
+  %S |? '_'
+  if NOT-EMPTY
+  begin
+   ', '
+   [%f] str_replace %( %S |D %, #13#10#13#10 %, #13#10'\\' )% 
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   #13#10
+
+//	\#* [\<\<%CS\>\> ]%CN : %f_k_link_wp(%C%T,%S)[ = %f_k_text_convert(%CI)]]>[
+   '#* '
+   if NOT-EMPTY
+   begin
+    '<<'
+    %C |S '>> ' 
+   end // if
+   NOP
+   %C |N ' : '
+   [%f] k_link_wp %( %C ->T  %, %S )% if NOT-EMPTY
+   begin
+    ' = '
+    [%f] k_text_convert %( %C |I )% 
+   end // if
+   NOP
+   ']' 
+   ++! l_Counter
+  end // if
+ end // for C
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	Генерирует исключения:<
+  'Генерирует исключения:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    #13#10
+
+//	\#* %f_k_link_wp(%E,%S)[ - %f_str_replace(%ED,\n\n,\n\\\\)]>][\
+    '#* '
+    [%f] k_link_wp %( %E %, %S )% if NOT-EMPTY
+    begin
+     ' - '
+     [%f] str_replace %( %E |D %, #13#10#13#10 %, #13#10'\\' )% 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for E
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+//	%f_k_common_elem_docs(%S)]
+  [%f] k_common_elem_docs %( %S )% 
+ end // if
+ NOP
+//#UC END# *46E93AEF00B8*
+; // k_method_dump
+
+
+// выводит ссылку и краткое описание атрибута для wiki
+//f _k_attr_dump
+: k_attr_dump OBJECT IN %S
+//#UC START# *46E93B3500C8*
+//	\# *%f_k_link(%S,"true")*\
+ '# *'
+ [%f] k_link %( %S %, true )% '*'
+//	[{%TN!=void} : %f_k_link_wp(%T,%S)][ = %f_k_text_convert(%SI)]\
+ if ( ( %T |N ) %!= 'void' ) then
+ begin
+  ' : '
+  [%f] k_link_wp %( %T %, %S )% 
+ end // if
+ if NOT-EMPTY
+ begin
+  ' = '
+  [%f] k_text_convert %( %S |I )% 
+ end // if
+ NOP
+//	[ (%SU)][
+ if NOT-EMPTY
+ begin
+  ' ('
+  %S |U ')' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	[_%S?_][, %f_str_replace(%SD,\n\n,\n\\\\)]][
+  if NOT-EMPTY
+  begin
+   '_'
+   %S |? '_' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   ', '
+   [%f] str_replace %( %S |D %, #13#10#13#10 %, #13#10'\\' )% 
+  end // if
+  NOP
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	Генерирует исключения:<
+  'Генерирует исключения:'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    #13#10
+
+//	\#* \<\<get\>\> %f_k_link_wp(%E,%S)[ - %f_str_replace(%ED,\n\n,\n\\\\)]><
+    '#* <<get>> '
+    [%f] k_link_wp %( %E %, %S )% if NOT-EMPTY
+    begin
+     ' - '
+     [%f] str_replace %( %E |D %, #13#10#13#10 %, #13#10'\\' )% 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for E
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%e
+  begin
+   OBJECT IN %e
+   if true then
+   begin
+    #13#10
+
+//	\#* \<\<set\>\> %f_k_link_wp(%e,%S)[ - %f_str_replace(%eD,\n\n,\n\\\\)]>][\
+    '#* <<set>> '
+    [%f] k_link_wp %( %e %, %S )% if NOT-EMPTY
+    begin
+     ' - '
+     [%f] str_replace %( %e |D %, #13#10#13#10 %, #13#10'\\' )% 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for e
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+//	%f_k_common_elem_docs(%S)]
+  [%f] k_common_elem_docs %( %S )% 
+ end // if
+ NOP
+//#UC END# *46E93B3500C8*
+; // k_attr_dump
+
+
+// выводит ссылку и краткое описание вложенного типа для wiki
+//f _k_type_dump
+: k_type_dump OBJECT IN %S
+//#UC START# *46E93B460200*
+//	\# *%f_k_link(%S,"true")*[{%SS!=Servant&%SS!=SimpleClass&%SS!=Facet}\
+ '# *'
+ [%f] k_link %( %S %, true )% '*'
+ if ( ( %S |S ) %!= 'Servant' AND 
+   ( ( %S |S ) %!= 'SimpleClass'  ) AND 
+   ( ( %S |S ) %!= 'Facet'  ) ) then
+ begin
+//	[{%Rx=true}: %f_k_link_wp(%R,%S)]\
+  if ( ( %R |x ) %==  true ) then
+  begin
+   ': '
+   [%f] k_link_wp %( %R %, %S )% 
+  end // if
+//	[{%Gx=true}: %f_k_link_wp(%G,%S)]\
+  if ( ( %G |x ) %==  true ) then
+  begin
+   ': '
+   [%f] k_link_wp %( %G %, %S )% 
+  end // if
+//	[{%t_is_container(%S)=true}: <{}{"%CS"=""}%f_k_link_wp(%C%T,%S)>]][ (%SU)]\
+  if ( ( [%t] is_container %( %S )% ) %==  true ) then
+  begin
+   ': '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== '' ) then
+    begin
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+ end // if
+ if NOT-EMPTY
+ begin
+  ' ('
+  %S |U ')' 
+ end // if
+ NOP
+
+//	[{%SS!=ScriptKeywordDocumentation}{\
+ if ( ( %S |S ) %!= 'ScriptKeywordDocumentation' ) then
+ begin
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	_%S?_\
+   '_'
+   %S |? '_'
+//	[, %f_str_replace(%SD,\n\n,\n\\\\)]\
+   if NOT-EMPTY
+   begin
+    ', '
+    [%f] str_replace %( %S |D %, #13#10#13#10 %, #13#10'\\' )% 
+   end // if
+   NOP
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+ else
+ begin
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	_%S?_\
+   '_'
+   %S |? '_'
+//	[, %SD]\
+   if NOT-EMPTY
+   begin
+    ', '
+    %S |D 
+   end // if
+   NOP
+//	]\
+  end // if
+  NOP
+//	}\
+ end // else
+
+//	[{%SS=Enum|%SS=Constants|%SS=Union}<
+ if ( ( %S |S ) %== 'Enum' OR 
+   ( ( %S |S ) %== 'Constants'  ) OR 
+   ( ( %S |S ) %== 'Union'  ) ) then
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    #13#10
+
+//	\#* [\<\<%CS\>\> ]%CN[{%C%TN!=void} : %f_k_link_wp(%C%T,%S)][ - %f_str_replace(%CD,\n\n,\n\\\\)]>]
+    '#* '
+    if NOT-EMPTY
+    begin
+     '<<'
+     %C |S '>> ' 
+    end // if
+    NOP
+    %C |N if ( ( %C ->T |N  ) %!= 'void' ) then
+    begin
+     ' : '
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+    end // if
+    if NOT-EMPTY
+    begin
+     ' - '
+     [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+//#UC END# *46E93B460200*
+; // k_type_dump
+
+
+// определяет нужно ли генерить список исходников в шапке wiki страницы (результат выичлсяется на
+// основании того, генерится ли с элемента хоть один исходник всеми возвожмными генераторами (кроме
+// wiki))
+//f _need_source_list
+: need_source_list OBJECT IN %S
+//#UC START# *471F0A37033C*
+//	%f_all_generators(%S)[{"<{}{%f_is_empty(ALL_GENERATORS_ID)=false}{W}%f_pop_first_to_var(ALL_GENERATORS_ID,GEN_ID)[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell&%f_has_non_empty_gen(S,%{GEN_ID}N)=true}%f_with_gen_id(%{GEN_ID}N,%SW)]>"!=""}{false}true]
+ [%f] all_generators %( %S )% if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'ALL_GENERATORS_ID' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'ALL_GENERATORS_ID' %, 'GEN_ID' )% if ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'wiki' AND 
+      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'spell'  ) AND 
+      ( ( [%f] has_non_empty_gen %( 'S' %, ( get_global_var ( 'GEN_ID' ) |N ) )% ) %==  true  ) ) then
+    begin
+     [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |W )% 
+    end // if
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+  %!= '' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *471F0A37033C*
+; // need_source_list
+
+
+// генерит ссылку на страницу с описанием стереотипа
+//f _k_st_def_link
+: k_st_def_link OBJECT IN %S
+//#UC START# *4725D77C00EA*
+//	[{%SN!=MDAClass} \<\<\[%f_k_st_def_link_impl(%S)\]\>\>]
+ if ( ( %S |N ) %!= 'MDAClass' ) then
+ begin
+  ' <<['
+  [%f] k_st_def_link_impl %( %S )% ']>>' 
+ end // if
+
+
+//f _dump_st_space_key
+; // k_st_def_link
+
+: dump_st_space_key OBJECT IN %S
+//	[{"%SU"!=""}[{}{%f_dump_st_space_key(%P)}%S#f_st_space_key()]]
+ if ( ( %S |U ) %!= '' ) then
+ begin
+  if NOT-EMPTY
+  begin
+   %S %?f st_space_key %( )% 
+  end // if
+  NOP
+  else
+  begin
+   [%f] dump_st_space_key %( %P )% 
+  end // else
+ end // if
+
+//f _k_st_def_link_impl
+; // dump_st_space_key
+
+: k_st_def_link_impl OBJECT IN %S
+//	%f_set_var(ST_SPACE_KEY,"%f_dump_st_space_key(%S)")\
+ [%f] set_var %( 'ST_SPACE_KEY' %, [%f] dump_st_space_key %( %S )% )% 
+//	%f_set_var(EL_SPACE_KEY,"%S{space key}")\
+ [%f] set_var %( 'EL_SPACE_KEY' %, %S get_up ( 'space key' ) )% 
+//	<{}{"%P{space key}"!=""&"%{EL_SPACE_KEY}N"=""}{%Pr}%f_set_var(EL_SPACE_KEY,"%P{space key}")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for downto %S%P
+ begin
+  OBJECT IN %P
+  if ( ( %P get_up ( 'space key' ) ) %!= '' AND 
+   ( ( ( get_global_var ( 'EL_SPACE_KEY' ) |N ) ) %== ''  ) ) then
+  begin
+   [%f] set_var %( 'EL_SPACE_KEY' %, %P get_up ( 'space key' ) )% 
+   ++! l_Counter
+  end // if
+ end // for P
+//	[{%{ST_SPACE_KEY}N!=%{EL_SPACE_KEY}N}[%{ST_SPACE_KEY}N:]]%SS
+ if ( ( ( get_global_var ( 'ST_SPACE_KEY' ) |N ) ) %!= ( ( get_global_var ( 'EL_SPACE_KEY' ) |N ) ) ) then
+ begin
+  if NOT-EMPTY
+  begin
+   ( get_global_var ( 'ST_SPACE_KEY' ) |N ) ':' 
+  end // if
+  NOP
+ end // if
+ %S |S 
+//#UC END# *4725D77C00EA*
+; // k_st_def_link_impl
+
+
+// генерит ссылку на файл-исходник, генерируемый элементом текущим генератором (если  сам элемент
+// не создаёт файла, то генерится ссылка на файл родителя)
+//f _k_source_link
+: k_source_link OBJECT IN %S
+//#UC START# *4728392D032C*
+//	%f_clear_list(PATH_LIST)\
+ [%f] clear_list %( 'PATH_LIST' )% 
+//	%f_split_to_list(PATH_LIST,%SR/%SW,:)\
+ [%f] split_to_list %( 'PATH_LIST' %, %S |R '/'
+ %S |W %, ':' )% 
+//	[{%f_number_cmp("%f_size_list(PATH_LIST)","1","\>")=1}\
+ if ( ( [%f] number_cmp %( [%f] size_list %( 'PATH_LIST' )% %, 1 %, '>' )% ) %== 1 ) then
+ begin
+//	%f_pop_first_to_var(PATH_LIST,SOURCE_PATH)\
+  [%f] pop_first_to_var %( 'PATH_LIST' %, 'SOURCE_PATH' )% 
+//	]\
+ end // if
+//	[{%f_is_empty(PATH_LIST)=true}\
+ if ( ( [%f] is_empty %( 'PATH_LIST' )% ) %==  true ) then
+ begin
+//	%f_error("_k_source_link: Wrong source path (%SR/%SW)")\
+  [%f] error %( '_k_source_link: Wrong source path ('
+  %S |R '/'
+  %S |W ')' )% 
+//	]\
+ end // if
+//	%f_pop_first_to_var(PATH_LIST,SOURCE_PATH)\
+ [%f] pop_first_to_var %( 'PATH_LIST' %, 'SOURCE_PATH' )% 
+//	%f_set_var(SOURCE_PATH,"%f_str_replace(%{SOURCE_PATH}N,NotFinished/)")\
+ [%f] set_var %( 'SOURCE_PATH' %, [%f] str_replace %( ( get_global_var ( 'SOURCE_PATH' ) |N ) %, 'NotFinished/' )% )% 
+//	%f_set_var(SOURCE_PATH,"%f_cut_prefix(%f_str_replace(%{SOURCE_PATH}N,NOT_FINISHED_),/)")\
+ [%f] set_var %( 'SOURCE_PATH' %, [%f] cut_prefix %( [%f] str_replace %( ( get_global_var ( 'SOURCE_PATH' ) |N ) %, 'NOT_FINISHED_' )% %, '/' )% )% 
+//	\# \{sourcelink:%{SOURCE_PATH}N\}[{"%SO"=""}\
+ '# {sourcelink:'
+ ( get_global_var ( 'SOURCE_PATH' ) |N ) '}'
+ if ( ( %S |O ) %== '' ) then
+ begin
+//	 (from %f_k_link_nearest_parent_with_output(%S))]\
+  ' (from '
+  [%f] k_link_nearest_parent_with_output %( %S )% ')' 
+ end // if
+//	[{"%SO"=""}{%f_add_metadatas(S,SourceFile,%{SOURCE_PATH}N)}\
+ if ( ( %S |O ) %== '' ) then
+ begin
+//	[%f_set_var(OUTPUT_PARENT,S)\
+  if NOT-EMPTY
+  begin
+   [%f] set_var %( 'OUTPUT_PARENT' %, 'S' )% 
+//	<{}{"%PO"!=""}{%Pr}%f_set_var(OUTPUT_PARENT,P)>[{%{OUTPUT_PARENT}U!=SU}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for downto %S%P
+   begin
+    OBJECT IN %P
+    if ( ( %P |O ) %!= '' ) then
+    begin
+     [%f] set_var %( 'OUTPUT_PARENT' %, 'P' )% 
+     ++! l_Counter
+    end // if
+   end // for P
+   if ( ( ( get_global_var ( 'OUTPUT_PARENT' ) |U ) ) %!= 'SU' ) then
+   begin
+//	%f_add_metadatas(S,SourceFileOwnerGUID,%{OUTPUT_PARENT}U)]]]
+    [%f] add_metadatas %( 'S' %, 'SourceFileOwnerGUID' %, ( get_global_var ( 'OUTPUT_PARENT' ) |U ) )% 
+   end // if
+  end // if
+  NOP
+ end // if
+ else
+ begin
+  [%f] add_metadatas %( 'S' %, 'SourceFile' %, ( get_global_var ( 'SOURCE_PATH' ) |N ) )% 
+ end // else
+//#UC END# *4728392D032C*
+; // k_source_link
+
+
+// генерит ссылку на ближайшего родителя имеющего собственный файл
+//f _k_link_nearest_parent_with_output
+: k_link_nearest_parent_with_output OBJECT IN %S
+//#UC START# *472839800196*
+//	[%f_set_var(OUTPUT_PARENT,S)\
+ if NOT-EMPTY
+ begin
+  [%f] set_var %( 'OUTPUT_PARENT' %, 'S' )% 
+//	<{}{"%PO"!=""}{%Pr}%f_set_var(OUTPUT_PARENT,P)>[{%{OUTPUT_PARENT}U!=SU}]%f_k_link(%{OUTPUT_PARENT})]
+  INTEGER VAR l_Counter l_Counter := 0
+  for downto %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P |O ) %!= '' ) then
+   begin
+    [%f] set_var %( 'OUTPUT_PARENT' %, 'P' )% 
+    ++! l_Counter
+   end // if
+  end // for P
+  if ( ( ( get_global_var ( 'OUTPUT_PARENT' ) |U ) ) %!= 'SU' ) then
+  begin
+  end // if
+  [%f] k_link %( ( get_global_var ( 'OUTPUT_PARENT' ) ) )% 
+ end // if
+ NOP
+//#UC END# *472839800196*
+; // k_link_nearest_parent_with_output
+
+
+// Стандартный шаблон-заголовок
+//f _header
+: header OBJECT IN %S
+//#UC START# *47382E3203B9*
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	//
+ '//'
+//	[{%X{lid}=delphi}[// Библиотека "%f_pas_LibName(%S)"\n]]\
+ if ( ( %X get_up ( 'lid' ) ) %== 'delphi' ) then
+ begin
+  if NOT-EMPTY
+  begin
+   '// Библиотека "'
+   [%f] pas_LibName %( %S )% #13#10 
+  end // if
+  NOP
+ end // if
+//	[{%X{lid}=delphi}[// Автор: %f_pas_Author(%S)\n]]\
+ if ( ( %X get_up ( 'lid' ) ) %== 'delphi' ) then
+ begin
+  if NOT-EMPTY
+  begin
+   '// Автор: '
+   [%f] pas_Author %( %S )% #13#10 
+  end // if
+  NOP
+ end // if
+//	// Модуль: "[{%f_IsSandBox(%S)!=true}{%SO}%So]"
+ '// Модуль: "'
+ if ( ( [%f] IsSandBox %( %S )% ) %!=  true ) then
+ begin
+  %S |o 
+ end // if
+ else
+ begin
+  %S |O 
+ end // else
+ '"'
+//	[{%X{lid}=delphi}[// Начат: %f_pas_Started(%S)\n]]\
+ if ( ( %X get_up ( 'lid' ) ) %== 'delphi' ) then
+ begin
+  if NOT-EMPTY
+  begin
+   '// Начат: '
+   [%f] pas_Started %( %S )% #13#10 
+  end // if
+  NOP
+ end // if
+//	// %XN
+ '// '
+ %X |N 
+//	// Generated from UML model, root element: \
+ '// Generated from UML model, root element: '
+//	[{%f_IsSandBox(%S)!=true}{\
+ if ( ( [%f] IsSandBox %( %S )% ) %!=  true ) then
+ begin
+//	\<\<%SM\>\>\
+  '<<'
+  %S |M '>>'
+//	]\
+ end // if
+ else
+ begin
+//	%SM\
+  %S |M 
+//	}\
+ end // else
+//	 <{}{%P#f_IsProjectGroup()!=true}{r}%PN::>%SN
+ ' '
+ INTEGER VAR l_Counter l_Counter := 0
+ for downto %S%P
+ begin
+  OBJECT IN %P
+  if ( ( %P %?f IsProjectGroup %( )% ) %!=  true ) then
+  begin
+   %P |N '::' 
+   ++! l_Counter
+  end // if
+ end // for P
+ %S |N 
+//	[// %S+
+ if NOT-EMPTY
+ begin
+  '// '
+  %S |+ 
+//	]//
+ end // if
+ NOP
+ '//'
+//	[%f_str_split(%SD,// )
+ if NOT-EMPTY
+ begin
+  [%f] str_split %( %S |D %, '// ' )% 
+//	//
+  '//'
+//	]\
+ end // if
+ NOP
+//	[{%f_IsSandBox(%S)!=true}\
+ if ( ( [%f] IsSandBox %( %S )% ) %!=  true ) then
+ begin
+//	//\
+  '//'
+//	\n// Все права принадлежат ООО НПП "Гарант-Сервис".
+  #13#10'// Все права принадлежат ООО НПП "Гарант-Сервис".'
+//	//\n\
+  '//'#13#10
+//	]\
+ end // if
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	%f_start_new_file(%S)
+ [%f] start_new_file %( %S )% //	[{%f_start_ifdef(%S,"")}]
+
+
+//f _PrjName
+; // header
+
+: PrjName OBJECT IN %S
+//	[{%S#f_IsProject()=true}{\
+ if ( ( %S %?f IsProject %( )% ) %==  true ) then
+ begin
+//	%SN\
+  %S |N 
+//	]
+ end // if
+ else
+ begin
+//	%f_PrjName(%P)\
+  [%f] PrjName %( %P )% 
+//	}\
+ end // else
+
+//f _IsSandBox
+; // PrjName
+
+: IsSandBox OBJECT IN %S
+//	[{%f_string_find(%SN,SandBox)=-1&%f_substr_from_begin(%f_pas_LibName(%S),7)!=SandBox&%f_substr_from_begin(%f_pas_LibName(%S),8)!=L3$Basic&%f_substr_from_begin(%f_pas_LibName(%S),12)!=ScriptEngine}{\
+ if ( ( [%f] string_find %( %S |N %, 'SandBox' )% ) %== -1 AND 
+   ( ( [%f] substr_from_begin %( [%f] pas_LibName %( %S )% %, 7 )% ) %!= 'SandBox'  ) AND 
+   ( ( [%f] substr_from_begin %( [%f] pas_LibName %( %S )% %, 8 )% ) %!= 'L3$Basic'  ) AND 
+   ( ( [%f] substr_from_begin %( [%f] pas_LibName %( %S )% %, 12 )% ) %!= 'ScriptEngine'  ) ) then
+ begin
+//	[{%f_string_find(%f_PrjName(%S),Sand Box)=-1}{\
+  if ( ( [%f] string_find %( [%f] PrjName %( %S )% %, 'Sand Box' )% ) %== -1 ) then
+  begin
+//	[{%f_string_find(%f_PrjName(%S),Scripting)=-1}{\
+   if ( ( [%f] string_find %( [%f] PrjName %( %S )% %, 'Scripting' )% ) %== -1 ) then
+   begin
+//	false\
+     false 
+//	]\
+   end // if
+   else
+   begin
+//	true\
+     true 
+//	}\
+   end // else
+//	]\
+  end // if
+  else
+  begin
+//	true\
+    true 
+//	}\
+  end // else
+//	]
+ end // if
+ else
+ begin
+//	true\
+   true 
+//	}\
+ end // else
+//#UC END# *47382E3203B9*
+; // IsSandBox
+
+
+// стандартный финальный шаблон
+//f _footer
+: footer OBJECT IN %S
+//#UC START# *47382E3D0186*
+//	[{%1N!=false&%X{lid}=cpp}[%S%f_close_ifdef()
+ if ( ( %1 |N ) %!=  false AND 
+   ( ( %X get_up ( 'lid' ) ) %== 'cpp'  ) ) then
+ begin
+  if NOT-EMPTY
+  begin
+   %S %f close_ifdef %( )% 
+//	]]////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  end // if
+  NOP
+ end // if
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	%f_end_new_file(%S)\
+ [%f] end_new_file %( %S )% // empty line
+
+//	
+//#UC END# *47382E3D0186*
+; // footer
+
+
+// Стандартный шаблон-заголовок (для генерации в wiki)
+//f _wiki_header
+: wiki_header OBJECT IN %S
+//#UC START# *47382E4B0280*
+//	{composition-setup}
+ '{composition-setup}'
+//	cloak.toggle.zone=true
+ 'cloak.toggle.zone=true'
+//	cloak.memory.duration=10
+ 'cloak.memory.duration=10'
+//	{composition-setup}
+ '{composition-setup}'
+//	{tip:title=%S?%f_k_st_def_link(%S)}%SN[[{%S#f_is_virtual()!=true} (\{ViewElemInRose:guid=%SU|title=открыть на модели\})] - %SD][
+ '{tip:title='
+ %S |? [%f] k_st_def_link %( %S )% '}'
+ %S |N if NOT-EMPTY
+ begin
+  if ( ( %S %?f is_virtual %( )% ) %!=  true ) then
+  begin
+   ' ({ViewElemInRose:guid='
+   %S |U '|title=открыть на модели})' 
+  end // if
+  ' - '
+  %S |D 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	_Идентификатор элемента:_ %SU[
+  '_Идентификатор элемента:_ '
+  %S |U if NOT-EMPTY
+  begin
+   #13#10
+
+//	_Диаграмма элемента находится в пакете:_ <{}{%PM=UseCases::Category|%PM=Features::Category|%PM=Problems::Category|%PM=ComInterfaces::Category|%P#f_IsInterfaces()=true|%PM=Impl::Category|%PM=LibSupport::Category|%PM=ServerInterfaces::Category|%PM=Unit::Category|%PM=Views::Category|%P#f_IsVCMUnit()=true|%PM=ControllerInterfaces::Category|%P#f_IsUnit()=true}%f_k_link(%P)>]]
+   '_Диаграмма элемента находится в пакете:_ '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%P
+   begin
+    OBJECT IN %P
+    if ( ( %P |M ) %== 'UseCases::Category' OR 
+     ( ( %P |M ) %== 'Features::Category'  ) OR 
+     ( ( %P |M ) %== 'Problems::Category'  ) OR 
+     ( ( %P |M ) %== 'ComInterfaces::Category'  ) OR 
+     ( ( %P %?f IsInterfaces %( )% ) %==  true  ) OR 
+     ( ( %P |M ) %== 'Impl::Category'  ) OR 
+     ( ( %P |M ) %== 'LibSupport::Category'  ) OR 
+     ( ( %P |M ) %== 'ServerInterfaces::Category'  ) OR 
+     ( ( %P |M ) %== 'Unit::Category'  ) OR 
+     ( ( %P |M ) %== 'Views::Category'  ) OR 
+     ( ( %P %?f IsVCMUnit %( )% ) %==  true  ) OR 
+     ( ( %P |M ) %== 'ControllerInterfaces::Category'  ) OR 
+     ( ( %P %?f IsUnit %( )% ) %==  true  ) ) then
+    begin
+     [%f] k_link %( %P )% 
+     ++! l_Counter
+    end // if
+   end // for P
+  end // if
+  NOP
+ end // if
+ NOP
+//	{tip}[{"%S{TODO}"!=""}
+ '{tip}'
+ if ( ( %S get_up ( 'TODO' ) ) %!= '' ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{warning:title=TODO}%S{TODO}
+  '{warning:title=TODO}'
+  %S get_up ( 'TODO' ) 
+//	{warning}][{%S{need UC}=true&"%S{no hands}"!="true"}
+  '{warning}' 
+ end // if
+ if ( ( %S get_up ( 'need UC' ) ) %==  true AND 
+   ( ( %S get_up ( 'no hands' ) ) %!= true  ) ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{warning}Не полностью определен на модели (есть дополнительные юзер-секции кода)
+  '{warning}Не полностью определен на модели (есть дополнительные юзер-секции кода)'
+//	{warning}]\
+  '{warning}' 
+ end // if
+//	[{"%S{no hands}"="true"&"%S{finished}"!="false"}
+ if ( ( %S get_up ( 'no hands' ) ) %== true AND 
+   ( ( %S get_up ( 'finished' ) ) %!= false  ) ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{warning:title=Предупреждение}Полностью генерируется с модели, править руками - нельзя.
+  '{warning:title=Предупреждение}Полностью генерируется с модели, править руками - нельзя.'
+//	{warning}]\
+  '{warning}' 
+ end // if
+//	[{"%S{finished}"="false"}
+ if ( ( %S get_up ( 'finished' ) ) %== false ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	{warning:title=Предупреждение}Не полностью определен на модели. Генерируемые файлы могут не компилироваться.
+  '{warning:title=Предупреждение}Не полностью определен на модели. Генерируемые файлы могут не компилироваться.'
+//	{warning}]\
+  '{warning}' 
+ end // if
+//	[{%f_need_source_list(%S)=true}
+ if ( ( [%f] need_source_list %( %S )% ) %==  true ) then
+ begin
+  #13#10
+
+//	\{toggle-cloak:id=GenSources\} \{_\}Исходники\{_\}
+  '{toggle-cloak:id=GenSources} {_}Исходники{_}'
+//	\{cloak:id=GenSources\}
+  '{cloak:id=GenSources}'
+//	%f_all_generators(%S)[<{}{%f_is_empty(ALL_GENERATORS_ID)=false}{W}%f_pop_first_to_var(ALL_GENERATORS_ID,GEN_ID)[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell&%f_has_non_empty_gen(S,%{GEN_ID}N)=true}[{"%f_with_gen_id(%{GEN_ID}N,%SW)"!=""}\
+  [%f] all_generators %( %S )% if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   while true
+   begin
+    if ( ( [%f] is_empty %( 'ALL_GENERATORS_ID' )% ) %==  false ) then
+    begin
+     [%f] pop_first_to_var %( 'ALL_GENERATORS_ID' %, 'GEN_ID' )% if ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'wiki' AND 
+       ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'spell'  ) AND 
+       ( ( [%f] has_non_empty_gen %( 'S' %, ( get_global_var ( 'GEN_ID' ) |N ) )% ) %==  true  ) ) then
+     begin
+      if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |W )% ) %!= '' ) then
+      begin
+//	%f_with_gen_id(%{GEN_ID}N,%f_k_source_link(%S))
+       [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, [%f] k_source_link %( %S )% )% 
+//	]]>]
+      end // if
+     end // if
+
+     ++! l_Counter
+    end // if
+    else
+     break
+   end // while
+  end // if
+  NOP
+//	\{cloak\}]
+  '{cloak}' 
+ end // if
+
+//#UC END# *47382E4B0280*
+; // wiki_header
+
+
+// стандартный финальный шаблон (для генерации в wiki)
+//f _wiki_footer
+: wiki_footer OBJECT IN %S
+//#UC START# *47382E66008C*
+//	\n\n
+ #13#10#13#10
+//#UC END# *47382E66008C*
+; // wiki_footer
+
+
+// Конвертирует переданную строку, заменяя спец. символы wiki-разметки
+//f _k_text_convert
+: k_text_convert OBJECT IN %S
+//#UC START# *48CE54FE0156*
+//	%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%SN,%f_lbracket(%S),\\%f_lbracket(%S)),%f_rbracket(%S),\\%f_rbracket(%S)),%f_lbrace(%S),\\%f_lbrace(%S)),%f_rbrace(%S),\\%f_rbrace(%S)),\\\\,%f_back_slash(%S))
+ [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( %S |N %, [%f] lbracket %( %S )% %, '\'
+ [%f] lbracket %( %S )% )% %, [%f] rbracket %( %S )% %, '\'
+ [%f] rbracket %( %S )% )% %, [%f] lbrace %( %S )% %, '\'
+ [%f] lbrace %( %S )% )% %, [%f] rbrace %( %S )% %, '\'
+ [%f] rbrace %( %S )% )% %, '\\' %, [%f] back_slash %( %S )% )% 
+
+//f _space
+; // k_text_convert
+
+: space OBJECT IN %S
+//	 
+ ' '
+//f _quote
+; // space
+
+: quote OBJECT IN %S
+//	"
+ '"'
+//f _empty
+; // quote
+
+: empty OBJECT IN %S
+//	
+//f _comma
+; // empty
+
+: comma OBJECT IN %S
+//	,
+ ','
+//f _lbracket
+; // comma
+
+: lbracket OBJECT IN %S
+//	\[
+ '['
+
+//f _rbracket
+; // lbracket
+
+: rbracket OBJECT IN %S
+//	\]
+ ']'
+
+//f _lbrace
+; // rbracket
+
+: lbrace OBJECT IN %S
+//	{
+ '{'
+
+//f _rbrace
+; // lbrace
+
+: rbrace OBJECT IN %S
+//	}
+ '}'
+
+//f _logic_and
+; // rbrace
+
+: logic_and OBJECT IN %S
+//	&
+ '&'
+
+//f _back_slash
+; // logic_and
+
+: back_slash OBJECT IN %S
+//	/
+ '/'
+
+//f _equal
+; // back_slash
+
+: equal OBJECT IN %S
+//	=
+ '='
+
+//f _less
+; // equal
+
+: less OBJECT IN %S
+//	\<
+ '<'
+
+//f _greater
+; // less
+
+: greater OBJECT IN %S
+//	\>
+ '>'
+//#UC END# *48CE54FE0156*
+; // greater
+
+
+// Имя без суффикса с $
+//f _N
+: N OBJECT IN %S
+//#UC START# *4B20FF510325*
+//@ %SU
+//	%f_set_var(POS,"%f_string_find(%SN,$)")[{%{POS}N!=-1}{%SN}%f_substr_from_begin(%SN,%{POS}N)]
+ [%f] set_var %( 'POS' %, [%f] string_find %( %S |N %, '$' )% )% if ( ( ( get_global_var ( 'POS' ) |N ) ) %!= -1 ) then
+ begin
+  [%f] substr_from_begin %( %S |N %, ( get_global_var ( 'POS' ) |N ) )% 
+ end // if
+ else
+ begin
+  %S |N 
+ end // else
+
+//f _dump_list
+; // N
+
+: dump_list OBJECT IN %S
+//	[{"%1N"=""}%f_error("_dump_list: не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_dump_list: не задан идентификатор списка' )% 
+ end // if
+//	%f_clear_list(_DUMP_LIST_TEMP_)\
+ [%f] clear_list %( '_DUMP_LIST_TEMP_' )% 
+//	%f_copy_list(%1N,_DUMP_LIST_TEMP_)\
+ [%f] copy_list %( %1 |N %, '_DUMP_LIST_TEMP_' )% 
+//	%1N:<{[{}{, }%2N]}{%f_is_empty(_DUMP_LIST_TEMP_)=false}{W}[%f_pop_first_to_var(_DUMP_LIST_TEMP_,_DUMP_LIST_TEMP_EL)%{_DUMP_LIST_TEMP_EL}N]>
+ %1 |N ':'
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( '_DUMP_LIST_TEMP_' )% ) %==  false ) then
+  begin
+   if ( l_Counter >0 ) then ( if NOT-EMPTY
+   begin
+    %2 |N 
+   end // if
+   NOP
+   else
+   begin
+    ', ' 
+   end // else
+)
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( '_DUMP_LIST_TEMP_' %, '_DUMP_LIST_TEMP_EL' )% ( get_global_var ( '_DUMP_LIST_TEMP_EL' ) |N ) 
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+
+//"добивает" слева число, записанное в виде строки префиксом (%2N - или 0, если не задан), чтобы длина получившейся строки была равна %1N
+//f _extends_number_with_prefix
+; // dump_list
+
+: extends_number_with_prefix OBJECT IN %S
+//	%f_set_var(KEY_LEN,"%f_string_length(%SN)")\
+ [%f] set_var %( 'KEY_LEN' %, [%f] string_length %( %S |N )% )% 
+//	%f_set_var(INDEX,"%f_evaluate(%1N - %{KEY_LEN}N)")\
+ [%f] set_var %( 'INDEX' %, [%f] evaluate %( %1 |N ' - '
+ ( get_global_var ( 'KEY_LEN' ) |N ) )% )% 
+//	<{}{%f_number_cmp("%{INDEX}N","0","\>")=1}{W}[{}{0}%2N]%f_set_var(INDEX,"%f_evaluate(%{INDEX}N - 1)")>%SN
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] number_cmp %( ( get_global_var ( 'INDEX' ) |N ) %, 0 %, '>' )% ) %== 1 ) then
+  begin
+   if NOT-EMPTY
+   begin
+    %2 |N 
+   end // if
+   NOP
+   else
+   begin
+    0 
+   end // else
+   [%f] set_var %( 'INDEX' %, [%f] evaluate %( ( get_global_var ( 'INDEX' ) |N ) ' - 1' )% )% 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+ %S |N 
+
+//f _dump_0
+; // extends_number_with_prefix
+
+: dump_0 OBJECT IN %S
+//	0
+ '0'
+//#UC END# *4B20FF510325*
+; // dump_0
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

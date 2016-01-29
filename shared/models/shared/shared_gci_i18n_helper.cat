@@ -1,0 +1,337 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.5.0503.xxx"
+    charSet    	204)
+
+(object Class_Category "I18NHelper"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/shared/GCI/I18NHelper/MessagesHelper.h::452F6A8F0148")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/shared/GCI/I18NHelper/MessagesHelper.cpp::452F6A8F0148"))
+    quid       	"452F571602FD"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"452F5E4603C8"
+	    supplier   	"Logical View::shared::GCI::I18N"
+	    quidu      	"452CBF700271"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "MessagesHelper"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452F6A8F0148_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *452F6A8F0148_CUSTOM_INCLUDES*¤#include <clocale>¤#include "shared/GCI/impl/I18N_i/Messages_i_factory.h"¤#include "shared/GCI/impl/I18N_i/Environment.h"¤//#UC END# *452F6A8F0148_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*452F6A8F0148*"
+		    value      	"//#UC START# *452F6A8F0148*¤//#UC END# *452F6A8F0148*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*452F6A8F0148_USER_INCLUDES*"
+		    value      	"//#UC START# *452F6A8F0148_USER_INCLUDES*¤//#UC END# *452F6A8F0148_USER_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*452F6A8F0148_USER_DEFINITION*"
+		    value      	"//#UC START# *452F6A8F0148_USER_DEFINITION*¤//#UC END# *452F6A8F0148_USER_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"ifdef"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/GCI/I18NHelper/MessagesHelper.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/GCI/I18NHelper/MessagesHelper.h"))
+	    quid       	"452F6A8F0148"
+	    documentation 	"ôóíêöèè-ïîìîùíèêè ïðè ðàáîòå ñ ëîêàëèçàöèåé"
+	    stereotype 	"UtilityPack"
+	    operations 	(list Operations
+		(object Operation "set_locale"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452F71DA0203*"
+			    value      	(value Text 
+|//#UC START# *452F71DA0203*¤#if defined (WIN32)¤	set_win_locale (locale);¤#else¤	set_posix_locale (locale);¤#endif¤	//#UC END# *452F71DA0203*
+			    )))
+		    quid       	"452F71DA0203"
+		    documentation 	"óñòàíàâëèâàåò òåêóùóþ ëîêàëü."
+		    parameters 	(list Parameters
+			(object Parameter "locale"
+			    quid       	"452F71F400AB"
+			    type       	"SupportedLocales"
+			    quidu      	"452CC0400196"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_locale"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452F720B00CB*"
+			    value      	(value Text 
+|//#UC START# *452F720B00CB*¤#if defined (WIN32)¤	return get_win_locale ();¤#else¤	return get_posix_locale ();¤#endif¤	//#UC END# *452F720B00CB*
+			    )))
+		    quid       	"452F720B00CB"
+		    documentation 	"âîçâðàùàåò òåêóùóþ ëîêàëü"
+		    result     	"SupportedLocales"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"452CC0400196")
+		(object Operation "string_to_locale"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*45336B07004E*"
+			    value      	(value Text 
+|//#UC START# *45336B07004E*¤	if (locale_text && ACE_OS::strlen (locale_text) > 1) {¤		unsigned char first = locale_text[0];¤		unsigned char second = locale_text[1];¤¤		if (((first == 'r') || (first == 'R')) && ((second == 'u') || (second == 'U'))) {¤			return I18N::SL_RU_CP1251;¤		}¤		if (((first == 'e') || (first == 'E')) && ((second == 'n') || (second == 'N'))) {¤			return I18N::SL_ENGLISH;¤		}¤	}¤¤	return GCI::I18N::SL_UNKNOWN;¤	//#UC END# *45336B07004E*
+			    )))
+		    quid       	"45336B07004E"
+		    documentation 	"âîçâðàùàåò çíà÷åíèå ëîêàëè ïî å¸ òåêñòîâîìó ïðåäñòàâëåíèþ"
+		    parameters 	(list Parameters
+			(object Parameter "locale_text"
+			    quid       	"45336B28008C"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"SupportedLocales"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"452CC0400196")
+		(object Operation "set_win_locale"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452F736401B5*"
+			    value      	(value Text 
+|//#UC START# *452F736401B5*¤	switch (locale) {¤		case GCI::I18N::SL_ENGLISH:¤			std::setlocale (LC_ALL, "eng");¤			break;¤		case GCI::I18N::SL_RU_CP1251:¤			std::setlocale (LC_ALL, "rus_rus.1251");¤			break;¤	}¤	//#UC END# *452F736401B5*
+			    )))
+		    quid       	"452F736401B5"
+		    parameters 	(list Parameters
+			(object Parameter "locale"
+			    quid       	"452F7377031C"
+			    type       	"SupportedLocales"
+			    quidu      	"452CC0400196"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "set_posix_locale"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452F742802EE*"
+			    value      	(value Text 
+|//#UC START# *452F742802EE*¤	switch (locale) {¤		case GCI::I18N::SL_ENGLISH:¤			std::setlocale (LC_ALL, "en");¤			break;¤		case GCI::I18N::SL_RU_CP1251:¤			std::setlocale (LC_ALL, "ru_RU.CP1251");¤			break;¤	}¤	//#UC END# *452F742802EE*
+			    )))
+		    quid       	"452F742802EE"
+		    parameters 	(list Parameters
+			(object Parameter "locale"
+			    quid       	"452F743C01B5"
+			    type       	"SupportedLocales"
+			    quidu      	"452CC0400196"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "get_win_locale"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452F744001C5*"
+			    value      	(value Text 
+|//#UC START# *452F744001C5*¤	const char* locale = std::setlocale (LC_ALL, 0);¤	if (ACE_OS::strnstr (locale, "Rus", sizeof ("Rus") - 1) == locale) {¤		return GCI::I18N::SL_RU_CP1251;¤	}¤	if (ACE_OS::strnstr (locale, "Eng", sizeof ("Eng") - 1) == locale) {¤		return GCI::I18N::SL_ENGLISH;¤	}¤¤	return GCI::I18N::SL_UNKNOWN;¤	//#UC END# *452F744001C5*
+			    )))
+		    quid       	"452F744001C5"
+		    result     	"SupportedLocales"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"452CC0400196")
+		(object Operation "get_posix_locale"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*452F7450003E*"
+			    value      	(value Text 
+|//#UC START# *452F7450003E*¤	const char* locale = std::setlocale (LC_ALL, 0);¤	if (ACE_OS::strnstr (locale, "ru", sizeof ("ru") - 1) == locale) {¤		return GCI::I18N::SL_RU_CP1251;¤	}¤	if (ACE_OS::strnstr (locale, "en", sizeof ("en") - 1) == locale) {¤		return GCI::I18N::SL_ENGLISH;¤	}¤¤	return GCI::I18N::SL_UNKNOWN;¤	//#UC END# *452F7450003E*
+			    )))
+		    quid       	"452F7450003E"
+		    result     	"SupportedLocales"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0
+		    quidu      	"452CC0400196"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272"))
+	    quid       	"452F57320186"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::GCI::I18NHelper::MessagesHelper" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1071, 933)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(556, 736)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1030
+			justify    	0
+			label      	"MessagesHelper")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(556, 686)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1030
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"452F6A8F0148"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(556, 797)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Label"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	8
+			max_width  	1027
+			justify    	1)
+		    width      	1048
+		    height     	518
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @2
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"452F6A8F0148"))
+		    location   	(1830, 933)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1692, 873)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	240
+			justify    	1
+			label      	"{need UC:=true}")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object AttachView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(1679, 933)
+			(1595, 933))
+		    line_style 	0)))))

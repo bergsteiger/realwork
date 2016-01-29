@@ -1,0 +1,872 @@
+<<Library>> ScriptEngine$VCM
+ %UID '54DCC1F8031A'
+ %DEPENDS
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'vcmDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifndef" 'NoScripts,NoVCM'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ScriptKeywords>> VCMFormsProcessing
+   %UID '54DCB32F019F'
+   %DEPENDS
+    U$ '4767743E00E5' /* TypInfo */
+    U$ '4AADF9450143' /* Visual */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B8E967100D5' /* vcmL10nImpl */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '5527F81C020E' /* TypesRegistration */
+    U$ '55BA28CE0290' /* tfwScriptingTypes */
+    U$ '55CCADD2013D' /* ClassLikeMapping */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'NoVCM'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ScriptKeywordsPack>> VCMFormsProcessingPack
+      %UID '54DCB28C0273'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" 'undefined'
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4E13416D0227' /* VCM$Visual */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49525B34022A' /* TvcmEntityForm */
+      ; // %INHERITS
+      %LINKS
+        <<injects>> "54DCB3050025"
+         %UID '54DCB3050025'
+         %TARGET U$ '4F22CB1E0009' /* TvcmEntityFormModelPart */
+        ; // 54DCB3050025
+        SUMMONED <<uses>> "79AE4A433042"
+         %UID '79AE4A433042'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // 79AE4A433042
+        SUMMONED <<injects>> "EDECAAF14C01"
+         %UID 'EDECAAF14C01'
+         %TARGET U$ '49525B34022A' /* TvcmEntityForm */
+        ; // EDECAAF14C01
+        SUMMONED <<uses>> "478AA6DADCD6"
+         %UID '478AA6DADCD6'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // 478AA6DADCD6
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE FINAL <<readonly>> IsFloatingStateAndParentNotVisible
+         %UID '55003B850144'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsFloatingStateAndParentNotVisible
+        PRIVATE FINAL <<readonly>> IsFloatingState
+         %UID '55003BA60133'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsFloatingState
+        PRIVATE FINAL <<readonly>> UserType
+         %UID '55003BCE02C3'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // UserType
+        PRIVATE FINAL <<readonly>> FormID
+         %UID '55003BED00FC'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // FormID
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<keyword>> IsFloatingStateAndParentNotVisible$0EFBF9F4DAD0
+         %UID '0EFBF9F4DAD0'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsFloatingStateAndParentNotVisible$0EFBF9F4DAD0
+        SUMMONED FINAL <<keyword>> IsFloatingState$67DFF55F21F5
+         %UID '67DFF55F21F5'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsFloatingState$67DFF55F21F5
+        SUMMONED FINAL <<keyword>> UserType$CED1A3F7A547
+         %UID 'CED1A3F7A547'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // UserType$CED1A3F7A547
+        SUMMONED FINAL <<keyword>> FormID$27D13BB1D318
+         %UID '27D13BB1D318'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // FormID$27D13BB1D318
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID '792269323959'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TvcmEntityForm
+         %UID '2F6B46B1F42F'
+         %SUMMARY 'Регистрация типа TvcmEntityForm' ;
+        ; // Reg_TvcmEntityForm
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Boolean
+         %UID '78FFD5CE59F6'
+         %SUMMARY 'Регистрация типа Boolean' ;
+        ; // Reg_Boolean
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Integer
+         %UID 'AFBED06269C4'
+         %SUMMARY 'Регистрация типа Integer' ;
+        ; // Reg_Integer
+        SUMMONED PRIVATE FINAL <<ini>> Reg_String
+         %UID '1DA5CA2746E0'
+         %SUMMARY 'Регистрация типа String' ;
+        ; // Reg_String
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_Form_IsFloatingStateAndParentNotVisible"
+         %UID 'B6E9E8EFCE95'
+         %SUMMARY 'Слово скрипта pop:Form:IsFloatingStateAndParentNotVisible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aForm pop:Form:IsFloatingStateAndParentNotVisible >>> l_Boolean'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:Form:IsFloatingStateAndParentNotVisible'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E13416D0227' /* VCM$Visual */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "2C0AB481E128"
+            %UID '2C0AB481E128'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 2C0AB481E128
+           SUMMONED <<uses>> "6019EADB2D64"
+            %UID '6019EADB2D64'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 6019EADB2D64
+           SUMMONED <<uses>> "130C99F916C0"
+            %UID '130C99F916C0'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 130C99F916C0
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> IsFloatingStateAndParentNotVisible
+            %UID '4A1ADA6890A6'
+            %SUMMARY 'Реализация слова скрипта pop:Form:IsFloatingStateAndParentNotVisible' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E13416D0227' /* VCM$Visual */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '7C3D9D6D3C13'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aForm
+               %UID '7C3D9D6D3C14'
+               %TARGET U$ '49525B34022A' /* TvcmEntityForm */
+               %TOBEINCLUDED
+                U$ '4E13416D0227' /* VCM$Visual */
+               ; // %TOBEINCLUDED
+              ; // aForm
+            ; // %PARAMETERS
+           ; // IsFloatingStateAndParentNotVisible
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '285BBA682208'
+            %SUMMARY 'Регистрация pop_Form_IsFloatingStateAndParentNotVisible' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_Form_IsFloatingStateAndParentNotVisible"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_Form_IsFloatingState"
+         %UID 'E5D04ADC6C87'
+         %SUMMARY 'Слово скрипта pop:Form:IsFloatingState'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aForm pop:Form:IsFloatingState >>> l_Boolean'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:Form:IsFloatingState'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E13416D0227' /* VCM$Visual */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "636E8725F059"
+            %UID '636E8725F059'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 636E8725F059
+           SUMMONED <<uses>> "DF184E75AEDE"
+            %UID 'DF184E75AEDE'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // DF184E75AEDE
+           SUMMONED <<uses>> "02443C42AC61"
+            %UID '02443C42AC61'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 02443C42AC61
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> IsFloatingState
+            %UID '1605D41D08A0'
+            %SUMMARY 'Реализация слова скрипта pop:Form:IsFloatingState' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E13416D0227' /* VCM$Visual */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '8C5F0C1ED788'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aForm
+               %UID '8C5F0C1ED789'
+               %TARGET U$ '49525B34022A' /* TvcmEntityForm */
+               %TOBEINCLUDED
+                U$ '4E13416D0227' /* VCM$Visual */
+               ; // %TOBEINCLUDED
+              ; // aForm
+            ; // %PARAMETERS
+           ; // IsFloatingState
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'A42CB40D21D5'
+            %SUMMARY 'Регистрация pop_Form_IsFloatingState' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_Form_IsFloatingState"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_Form_UserType"
+         %UID 'F96A7A339D27'
+         %SUMMARY 'Слово скрипта pop:Form:UserType'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aForm pop:Form:UserType >>> l_Integer'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:Form:UserType'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E13416D0227' /* VCM$Visual */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "7716D250E9B1"
+            %UID '7716D250E9B1'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 7716D250E9B1
+           SUMMONED <<uses>> "22138A782CD9"
+            %UID '22138A782CD9'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 22138A782CD9
+           SUMMONED <<uses>> "F1CB3FADC469"
+            %UID 'F1CB3FADC469'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // F1CB3FADC469
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> UserType
+            %UID '6E48299F798F'
+            %SUMMARY 'Реализация слова скрипта pop:Form:UserType' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E13416D0227' /* VCM$Visual */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '328A54F8C26F'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aForm
+               %UID '328A54F8C270'
+               %TARGET U$ '49525B34022A' /* TvcmEntityForm */
+               %TOBEINCLUDED
+                U$ '4E13416D0227' /* VCM$Visual */
+               ; // %TOBEINCLUDED
+              ; // aForm
+            ; // %PARAMETERS
+           ; // UserType
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'BFEACC6ED3D3'
+            %SUMMARY 'Регистрация pop_Form_UserType' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_Form_UserType"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_Form_FormID"
+         %UID 'B0B047C68F92'
+         %SUMMARY 'Слово скрипта pop:Form:FormID'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aForm pop:Form:FormID >>> l_String'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:Form:FormID'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E13416D0227' /* VCM$Visual */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "E90E4A008FA0"
+            %UID 'E90E4A008FA0'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // E90E4A008FA0
+           SUMMONED <<uses>> "14975AAC4405"
+            %UID '14975AAC4405'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 14975AAC4405
+           SUMMONED <<uses>> "C656C951AF2B"
+            %UID 'C656C951AF2B'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // C656C951AF2B
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> FormID
+            %UID 'C723C4FA73E4'
+            %SUMMARY 'Реализация слова скрипта pop:Form:FormID' ;
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E13416D0227' /* VCM$Visual */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'F865A5194A6D'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aForm
+               %UID 'F865A5194A6E'
+               %TARGET U$ '49525B34022A' /* TvcmEntityForm */
+               %TOBEINCLUDED
+                U$ '4E13416D0227' /* VCM$Visual */
+               ; // %TOBEINCLUDED
+              ; // aForm
+            ; // %PARAMETERS
+           ; // FormID
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'A20DEFF56C0F'
+            %SUMMARY 'Регистрация pop_Form_FormID' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_Form_FormID"
+      ; // %CHILDREN
+     ; // VCMFormsProcessingPack
+     FINAL <<ScriptKeywordsPack>> VCMApllicationSettingsPack
+      %UID '552BAE9B027D'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" 'undefined'
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4E13416D0227' /* VCM$Visual */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "552BAEC9028F"
+         %UID '552BAEC9028F'
+         %TARGET U$ '552BADA90096' /* TvcmToolbarGlyphService */
+        ; // 552BAEC9028F
+        <<injects>> "552BAECF03A7"
+         %UID '552BAECF03A7'
+         %TARGET U$ '552BADA90096' /* TvcmToolbarGlyphService */
+        ; // 552BAECF03A7
+        SUMMONED <<uses>> "D86C10878933"
+         %UID 'D86C10878933'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // D86C10878933
+        SUMMONED <<uses>> "997805D34634"
+         %UID '997805D34634'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // 997805D34634
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<globalkeyword>> vcm_Toolbar_SetGlyphSize
+         %UID '552BAF1E0177'
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aValue
+            %UID '552BAF3902F6'
+            %TARGET U$ '4B977802001D' /* TvcmGlyphSize */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aValue
+         ; // %PARAMETERS
+        ; // vcm_Toolbar_SetGlyphSize
+        FINAL <<globalkeyword>> vcm_Toolbar_GetGlyphSize
+         %UID '552BBC51039D'
+         %TARGET U$ '4B977802001D' /* TvcmGlyphSize */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // vcm_Toolbar_GetGlyphSize
+        FINAL <<globalkeyword>> vcm_Toolbar_GetGlyphColorDepth
+         %UID '552BC39B031D'
+         %TARGET U$ '52A08EFE0261' /* TvcmGlyphColordepth */
+         %TOBEINCLUDED
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+        ; // vcm_Toolbar_GetGlyphColorDepth
+        FINAL <<globalkeyword>> vcm_Toolbar_SetGlyphColorDepth
+         %UID '552BC3BA003E'
+         %TOBEINCLUDED
+          U$ '4E13416D0227' /* VCM$Visual */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aValue
+            %UID '552BC3C80358'
+            %TARGET U$ '52A08EFE0261' /* TvcmGlyphColordepth */
+            %TOBEINCLUDED
+             U$ '4E13416D0227' /* VCM$Visual */
+            ; // %TOBEINCLUDED
+           ; // aValue
+         ; // %PARAMETERS
+        ; // vcm_Toolbar_SetGlyphColorDepth
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID 'FB294CD5A00D'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TvcmGlyphSize
+         %UID '05737AE6A5ED'
+         %SUMMARY 'Регистрация типа TvcmGlyphSize' ;
+        ; // Reg_TvcmGlyphSize
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TvcmGlyphColordepth
+         %UID '4C11E006644D'
+         %SUMMARY 'Регистрация типа TvcmGlyphColordepth' ;
+        ; // Reg_TvcmGlyphColordepth
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "vcm_Toolbar_SetGlyphSize"
+         %UID '4463E51B5CE8'
+         %SUMMARY 'Слово скрипта vcm:Toolbar:SetGlyphSize'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue vcm:Toolbar:SetGlyphSize'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'vcm:Toolbar:SetGlyphSize'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "4900A01E9B5D"
+            %UID '4900A01E9B5D'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 4900A01E9B5D
+           SUMMONED <<uses>> "72FA2C5AD8C8"
+            %UID '72FA2C5AD8C8'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 72FA2C5AD8C8
+           SUMMONED <<uses>> "AF43E90D0580"
+            %UID 'AF43E90D0580'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // AF43E90D0580
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> vcm_Toolbar_SetGlyphSize
+            %UID '3E6A2A4DD8C9'
+            %SUMMARY 'Реализация слова скрипта vcm:Toolbar:SetGlyphSize' ;
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '6A681DEE22E0'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aValue
+               %UID '6A681DEE22E1'
+               %TARGET U$ '4B977802001D' /* TvcmGlyphSize */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aValue
+            ; // %PARAMETERS
+           ; // vcm_Toolbar_SetGlyphSize
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'E1494F4C8DCE'
+            %SUMMARY 'Регистрация vcm_Toolbar_SetGlyphSize' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "vcm_Toolbar_SetGlyphSize"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "vcm_Toolbar_GetGlyphSize"
+         %UID 'CB878D8D1F92'
+         %SUMMARY 'Слово скрипта vcm:Toolbar:GetGlyphSize'#13#10'*Тип результата:* TvcmGlyphSize'#13#10'*Пример:*'#13#10'{code}'#13#10'TvcmGlyphSize VAR l_TvcmGlyphSize'#13#10' vcm:Toolbar:GetGlyphSize >>> l_TvcmGlyphSize'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'vcm:Toolbar:GetGlyphSize'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "CFE82E5889E7"
+            %UID 'CFE82E5889E7'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // CFE82E5889E7
+           SUMMONED <<uses>> "980FA4AC194B"
+            %UID '980FA4AC194B'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 980FA4AC194B
+           SUMMONED <<uses>> "8C70ECABFAB3"
+            %UID '8C70ECABFAB3'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 8C70ECABFAB3
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> vcm_Toolbar_GetGlyphSize
+            %UID '0D29944D7496'
+            %SUMMARY 'Реализация слова скрипта vcm:Toolbar:GetGlyphSize' ;
+            %TARGET U$ '4B977802001D' /* TvcmGlyphSize */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'CAF433D2B7B1'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+            ; // %PARAMETERS
+           ; // vcm_Toolbar_GetGlyphSize
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '80E149DFE7AC'
+            %SUMMARY 'Регистрация vcm_Toolbar_GetGlyphSize' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "vcm_Toolbar_GetGlyphSize"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "vcm_Toolbar_GetGlyphColorDepth"
+         %UID '8FA6E0CDB066'
+         %SUMMARY 'Слово скрипта vcm:Toolbar:GetGlyphColorDepth'#13#10'*Тип результата:* TvcmGlyphColordepth'#13#10'*Пример:*'#13#10'{code}'#13#10'TvcmGlyphColordepth VAR l_TvcmGlyphColordepth'#13#10' vcm:Toolbar:GetGlyphColorDepth >>> l_TvcmGlyphColordepth'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'vcm:Toolbar:GetGlyphColorDepth'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E13416D0227' /* VCM$Visual */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "28ABB4B62D65"
+            %UID '28ABB4B62D65'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 28ABB4B62D65
+           SUMMONED <<uses>> "C197CC050913"
+            %UID 'C197CC050913'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // C197CC050913
+           SUMMONED <<uses>> "B27A7AB750FC"
+            %UID 'B27A7AB750FC'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // B27A7AB750FC
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> vcm_Toolbar_GetGlyphColorDepth
+            %UID '5358A0B19EFE'
+            %SUMMARY 'Реализация слова скрипта vcm:Toolbar:GetGlyphColorDepth' ;
+            %TARGET U$ '52A08EFE0261' /* TvcmGlyphColordepth */
+            %TOBEINCLUDED
+             U$ '4E13416D0227' /* VCM$Visual */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'DCC428AF6D4B'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+            ; // %PARAMETERS
+           ; // vcm_Toolbar_GetGlyphColorDepth
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'F03DA34943AE'
+            %SUMMARY 'Регистрация vcm_Toolbar_GetGlyphColorDepth' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "vcm_Toolbar_GetGlyphColorDepth"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "vcm_Toolbar_SetGlyphColorDepth"
+         %UID '2E579942A814'
+         %SUMMARY 'Слово скрипта vcm:Toolbar:SetGlyphColorDepth'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue vcm:Toolbar:SetGlyphColorDepth'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'vcm:Toolbar:SetGlyphColorDepth'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E13416D0227' /* VCM$Visual */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "BDFCD17F0155"
+            %UID 'BDFCD17F0155'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // BDFCD17F0155
+           SUMMONED <<uses>> "A5ACE23163E0"
+            %UID 'A5ACE23163E0'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // A5ACE23163E0
+           SUMMONED <<uses>> "58BC36ECB9AC"
+            %UID '58BC36ECB9AC'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 58BC36ECB9AC
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> vcm_Toolbar_SetGlyphColorDepth
+            %UID '47BBC580F855'
+            %SUMMARY 'Реализация слова скрипта vcm:Toolbar:SetGlyphColorDepth' ;
+            %TOBEINCLUDED
+             U$ '4E13416D0227' /* VCM$Visual */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'AB47EA9C951F'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aValue
+               %UID 'AB47EA9C9520'
+               %TARGET U$ '52A08EFE0261' /* TvcmGlyphColordepth */
+               %TOBEINCLUDED
+                U$ '4E13416D0227' /* VCM$Visual */
+               ; // %TOBEINCLUDED
+              ; // aValue
+            ; // %PARAMETERS
+           ; // vcm_Toolbar_SetGlyphColorDepth
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'B77C820C1112'
+            %SUMMARY 'Регистрация vcm_Toolbar_SetGlyphColorDepth' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "vcm_Toolbar_SetGlyphColorDepth"
+      ; // %CHILDREN
+     ; // VCMApllicationSettingsPack
+   ; // %CHILDREN
+  ; // VCMFormsProcessing
+ ; // %CHILDREN
+; // ScriptEngine$VCM

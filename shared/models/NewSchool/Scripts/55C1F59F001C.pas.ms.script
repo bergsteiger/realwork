@@ -1,0 +1,72 @@
+// TtfwCOMaker 55C1F59F001C SimpleClass Class
+
+FORWARD ME_55C1F59F001C
+
+FORWARD ME_55C1F5C100CC
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55C1F5DB02B4
+ CONST UID '55C1F5DB02B4'
+ CONST Name 'aFileName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55C1F5DB02B4 aFileName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55C1F5D102FF
+ CONST UID '55C1F5D102FF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55C1F5DB02B4 // aFileName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55C1F5D102FF DoIt
+
+: ME_55C1F5C100CC
+ CONST UID '55C1F5C100CC'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55C1F5D102FF // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_55C1F5C100CC Make
+
+: ME_55C1F59F001C
+ CONST UID '55C1F59F001C'
+ CONST Name 'TtfwCOMaker'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55C1F5C100CC // Make
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55C1F59F001C TtfwCOMaker

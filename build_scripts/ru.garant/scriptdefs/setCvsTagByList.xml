@@ -1,0 +1,153 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		ru.garant.extensions.properties.cvsRoot
+		ru.garant.extensions.properties.cvs_tag
+
+		ru.garant.extensions.scriptdefs.cleanupCvsByOutput
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.setCvsTagByList"
+	language = "javascript"
+>
+	<attribute name = "cvs.dirset.list"/>
+	<attribute name = "cvs.root.dir"/>
+	<attribute name = "cvs.tag.file"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importClass (
+				Packages.java.io.FileWriter
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_cvsDirsetList = (
+				attributes.get ("cvs.dirset.list")
+			);
+
+			var a_cvsRootDir = (
+				attributes.get ("cvs.root.dir")
+			);
+
+			if (a_cvsRootDir != null) {
+				var l_cvsRootDirFile = new File (a_cvsRootDir);
+				var l_cvsRootDirPath = l_cvsRootDirFile.getPath ();
+
+				a_cvsRootDir = l_cvsRootDirPath;
+			}
+
+			var a_cvsTagFile = (
+				attributes.get ("cvs.tag.file")
+			);
+
+			if (a_cvsTagFile != null) {
+				var l_cvsTagFileFile = new File (a_cvsTagFile);
+				var l_cvsTagFilePath = l_cvsTagFileFile.getPath ();
+
+				a_cvsTagFile = l_cvsTagFilePath;
+			}
+
+			var l_cvsTag = project.getProperty ("ru.garant.extensions.properties.cvs_tag");
+
+			if ((l_cvsTag != null) && (!l_cvsTag.isEmpty ())) {
+				if (l_cvsTag.compareToIgnoreCase ("NONE") != 0) {
+					var l_cvsDirset = project.createDataType ("dirset"); {
+						l_cvsDirset.setDir (new File (a_cvsRootDir));
+						l_cvsDirset.setIncludes (a_cvsDirsetList);
+					}
+
+					var l_cvsDirsetDirectoryScaner = l_cvsDirset.getDirectoryScanner (project);
+					var l_cvsDirsetIncludedDirectories = l_cvsDirsetDirectoryScaner.getIncludedDirectories ();
+
+					for (
+						var l_cvsDirsetIncludedDirectoriesIndex = 0
+						; (l_cvsDirsetIncludedDirectoriesIndex < l_cvsDirsetIncludedDirectories.length)
+						; ++l_cvsDirsetIncludedDirectoriesIndex
+					) {
+						var l_cvsDirectory = l_cvsDirsetDirectoryScaner.getBasedir ()+ l_cvsDirsetIncludedDirectories [l_cvsDirsetIncludedDirectoriesIndex];
+
+						project.log (
+							(
+								"\t"
+								+ "Set tag `"+ l_cvsTag+ "`"
+								+ " to cvs catalog `"+ l_cvsDirectory+ "`"
+							)
+							, project.MSG_INFO
+						);
+
+						var l_cvsOutputFile = File.createTempFile ("cvs", ".log"); {
+							l_cvsOutputFile.deleteOnExit ();
+						}
+
+						var l_cvsTask = project.createTask ("cvs"); {
+							l_cvsTask.setCommand (
+								"tag"
+								+ " -F"
+								+ " "+ l_cvsTag
+							);
+							l_cvsTask.setCompression (true);
+							l_cvsTask.setCompressionLevel (9);
+							l_cvsTask.setCvsRoot (project.getProperty ("ru.garant.extensions.properties.cvsRoot"));
+							l_cvsTask.setDest (new File (l_cvsDirectory));
+							l_cvsTask.setFailOnError (true);
+							l_cvsTask.setOutput (l_cvsOutputFile);
+							l_cvsTask.setQuiet (true);
+
+							l_cvsTask.reconfigure ();
+						}
+
+						l_cvsTask.execute ();
+
+						if (l_cvsOutputFile.length () != 0) {
+							var l_cleanupCvsByOutputTask = project.createTask ("ru.garant.extensions.scriptdefs.cleanupCvsByOutput"); {
+								var l_runtimeConfigurableWrapper = l_cleanupCvsByOutputTask.getRuntimeConfigurableWrapper (); {
+									var l_cvsDir = l_cvsDirectory;
+									var l_cvsOutputFile = l_cvsOutputFile.getPath ();
+
+									l_runtimeConfigurableWrapper.setAttribute ("cvs.dir", l_cvsDir);
+									l_runtimeConfigurableWrapper.setAttribute ("cvs.output.file", l_cvsOutputFile);
+								}
+
+								l_cleanupCvsByOutputTask.reconfigure ();
+							}
+
+							l_cleanupCvsByOutputTask.execute ();
+						}
+					}
+				}
+
+				project.log (
+					(
+						"\t"
+						+ "Update cvs tag-file `"+ a_cvsTagFile+ "`"
+					)
+					, project.MSG_INFO
+				);
+
+				var l_cvsTagFileWriter = new FileWriter (new File (a_cvsTagFile), false); {
+					l_cvsTagFileWriter.write (
+						l_cvsTag
+						+ "\n"
+					);
+
+					l_cvsTagFileWriter.flush ();
+				}
+
+				l_cvsTagFileWriter.close ();
+			}
+		}       
+	]]>
+</scriptdef>

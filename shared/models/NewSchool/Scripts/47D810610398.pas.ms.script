@@ -1,0 +1,474 @@
+// l3PureMixIns 47D810610398 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47D810610398
+
+: ME_47D823030380
+ CONST UID '47D823030380'
+ CONST Name 'ItemType'
+ CONST Class class_Class
+ : Stereotype st_ImpurityParamType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип элемента.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47D810610398 // l3PureMixIns
+ ;
+ CONST extprop:pas:TypeName '_ItemType_'
+
+ref; // ME_47D823030380 ItemType
+
+FORWARD ME_4BB08B690185
+
+: ME_4BB08B8902F2
+ CONST UID '4BB08B8902F2'
+ CONST Name 'Count'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Число элементов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4BB08B690185 // Ml3CountHolder
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_4BB08B8902F2 Count
+
+: ME_4BB08B690185
+ CONST UID '4BB08B690185'
+ CONST Name 'Ml3CountHolder'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D810610398 // l3PureMixIns
+ ;
+ : Attributes
+   @ ( ME_4BB08B8902F2 // Count
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4BB08B690185 Ml3CountHolder
+
+FORWARD ME_47D821AE00EF
+
+: ME_47E381E203D2
+ CONST UID '47E381E203D2'
+ CONST Name 'Empty'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47D821AE00EF // Ml3List
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_47E381E203D2 Empty
+
+: ME_47D823170041
+ CONST UID '47D823170041'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_param::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D821AE00EF // Ml3List
+ ;
+ : Target ME_47D823030380 // ItemType
+ ;
+
+ref; // ME_47D823170041 
+
+: ME_47D8233603DD
+ CONST UID '47D8233603DD'
+ CONST Name 'First'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Первый элемент.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47D821AE00EF // Ml3List
+ ;
+ : Target ME_47D823030380 // ItemType
+ ;
+ CONST "pm" true
+
+ref; // ME_47D8233603DD First
+
+: ME_47D823570315
+ CONST UID '47D823570315'
+ CONST Name 'Last'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Последний элемент.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47D821AE00EF // Ml3List
+ ;
+ : Target ME_47D823030380 // ItemType
+ ;
+ CONST "pm" true
+
+ref; // ME_47D823570315 Last
+
+FORWARD ME_47D8248802AD
+
+: ME_47D825090353
+ CONST UID '47D825090353'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47D8248802AD // Items
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47D825090353 anIndex
+
+: ME_47D8248802AD
+ CONST UID '47D8248802AD'
+ CONST Name 'Items'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47D821AE00EF // Ml3List
+ ;
+ : Target ME_47D823030380 // ItemType
+ ;
+ : Attributes
+   @ ( ME_47D825090353 // anIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is default" true
+ CONST "pm" true
+
+ref; // ME_47D8248802AD Items
+
+: ME_4BB08B8902F2_ME_47D821AE00EF
+ CONST UID '4BB08B8902F2'
+ CONST Name 'Count'
+ : Original ME_4BB08B8902F2 // Count
+ ;
+ : Implementor ME_47D821AE00EF // Ml3List
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4BB08B8902F2_ME_47D821AE00EF Count
+
+: ME_47D821AE00EF
+ CONST UID '47D821AE00EF'
+ CONST Name 'Ml3List'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D810610398 // l3PureMixIns
+ ;
+ : Inherits
+   @ ( ME_4BB08B690185 // Ml3CountHolder
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_47E381E203D2 // Empty
+ ME_47D823170041 // 
+ ME_47D8233603DD // First
+ ME_47D823570315 // Last
+ ME_47D8248802AD // Items
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_4BB08B8902F2_ME_47D821AE00EF // Count
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_47D821AE00EF Ml3List
+
+FORWARD ME_482955720131
+
+: ME_482955910087
+ CONST UID '482955910087'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47D823030380 // ItemType
+ ;
+
+ref; // ME_482955910087 anItem
+
+: ME_482955910076
+ CONST UID '482955910076'
+ CONST Name 'IndexOf'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_482955720131 // Ml3ListEx
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_482955910087 // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_482955910076 IndexOf
+
+: ME_482958B20226
+ CONST UID '482958B20226'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47D823030380 // ItemType
+ ;
+
+ref; // ME_482958B20226 anItem
+
+: ME_482958A203D0
+ CONST UID '482958A203D0'
+ CONST Name 'Add'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_482955720131 // Ml3ListEx
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_482958B20226 // anItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_482958A203D0 Add
+
+: ME_47D8233603DD_ME_482955720131
+ CONST UID '47D8233603DD'
+ CONST Name 'First'
+ : Original ME_47D8233603DD // First
+ ;
+ : Implementor ME_482955720131 // Ml3ListEx
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47D8233603DD_ME_482955720131 First
+
+: ME_47D823570315_ME_482955720131
+ CONST UID '47D823570315'
+ CONST Name 'Last'
+ : Original ME_47D823570315 // Last
+ ;
+ : Implementor ME_482955720131 // Ml3ListEx
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47D823570315_ME_482955720131 Last
+
+: ME_47D8248802AD_ME_482955720131
+ CONST UID '47D8248802AD'
+ CONST Name 'Items'
+ : Original ME_47D8248802AD // Items
+ ;
+ : Implementor ME_482955720131 // Ml3ListEx
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "is default" true
+ CONST "pm" true
+ref; // ME_47D8248802AD_ME_482955720131 Items
+
+: ME_47E381E203D2_ME_482955720131
+ CONST UID '47E381E203D2'
+ CONST Name 'Empty'
+ : Original ME_47E381E203D2 // Empty
+ ;
+ : Implementor ME_482955720131 // Ml3ListEx
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47E381E203D2_ME_482955720131 Empty
+
+: ME_4BB08B8902F2_ME_482955720131
+ CONST UID '4BB08B8902F2'
+ CONST Name 'Count'
+ : Original ME_4BB08B8902F2 // Count
+ ;
+ : Implementor ME_482955720131 // Ml3ListEx
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4BB08B8902F2_ME_482955720131 Count
+
+: ME_482955720131
+ CONST UID '482955720131'
+ CONST Name 'Ml3ListEx'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D810610398 // l3PureMixIns
+ ;
+ : Inherits
+   @ ( ME_47D821AE00EF // Ml3List
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_482955910076 // IndexOf
+ ME_482958A203D0 // Add
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47D8233603DD_ME_482955720131 // First
+ ME_47D823570315_ME_482955720131 // Last
+ ME_47D8248802AD_ME_482955720131 // Items
+ ME_47E381E203D2_ME_482955720131 // Empty
+ ME_4BB08B8902F2_ME_482955720131 // Count
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_482955720131 Ml3ListEx
+
+FORWARD ME_54D8A952031C
+
+: ME_46781407030C
+ CONST UID '46781407030C'
+ CONST Name 'aGUID'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
+ ;
+
+ref; // ME_46781407030C aGUID
+
+: ME_467813E40207
+ CONST UID '467813E40207'
+ CONST Name 'CheckStamp'
+ CONST Class class_Operation
+ %SUMMARY 'Проверяет метку реализации интерфейса. Например для того, чтобы узнать, что реализация наша "родная".' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_54D8A952031C // Ml3CheckStamp
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   @ ( ME_46781407030C // aGUID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_467813E40207 CheckStamp
+
+: ME_54D8A952031C
+ CONST UID '54D8A952031C'
+ CONST Name 'Ml3CheckStamp'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D810610398 // l3PureMixIns
+ ;
+ : Operations
+   @ ( ME_467813E40207 // CheckStamp
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54D8A952031C Ml3CheckStamp
+
+FORWARD ME_54D8B06301D2
+
+: ME_4A5CC00B03D5
+ CONST UID '4A5CC00B03D5'
+ CONST Name 'Changed'
+ CONST Class class_Operation
+ %SUMMARY 'нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54D8B06301D2 // Ml3ChangingChanged
+ ;
+
+ref; // ME_4A5CC00B03D5 Changed
+
+: ME_4A5CBFFE0157
+ CONST UID '4A5CBFFE0157'
+ CONST Name 'Changing'
+ CONST Class class_Operation
+ %SUMMARY 'нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54D8B06301D2 // Ml3ChangingChanged
+ ;
+
+ref; // ME_4A5CBFFE0157 Changing
+
+: ME_54D8B06301D2
+ CONST UID '54D8B06301D2'
+ CONST Name 'Ml3ChangingChanged'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47D810610398 // l3PureMixIns
+ ;
+ : Operations
+   @ ( ME_4A5CC00B03D5 // Changed
+ ME_4A5CBFFE0157 // Changing
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54D8B06301D2 Ml3ChangingChanged
+
+: ME_47D810610398
+ CONST UID '47D810610398'
+ CONST Name 'l3PureMixIns'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Абстрактные примеси.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ ;
+ : Children
+   @ ( ME_47D823030380 // ItemType
+ ME_4BB08B690185 // Ml3CountHolder
+ ME_47D821AE00EF // Ml3List
+ ME_482955720131 // Ml3ListEx
+ ME_54D8A952031C // Ml3CheckStamp
+ ME_54D8B06301D2 // Ml3ChangingChanged
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '12.03.2008 20:28'
+ CONST "weak" true
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3PureMixIns.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47D810610398.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47D810610398.pas.ms.script.runner'
+
+ref; // ME_47D810610398 l3PureMixIns

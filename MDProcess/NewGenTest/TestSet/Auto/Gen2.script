@@ -1,0 +1,30 @@
+USES
+ 'W:\shared\models\NewSchool\MDProcess.root.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\MDALike.tpl.script'
+;
+
+: Gen
+ 
+ : OUT IN %S
+  %SN .
+  %SS .
+ ;
+ 
+ @ MDProcess$Templates |S .
+ @ MDProcess$Templates NativeMembersIterator ==> OUT
+ 
+ @ MDProcess$ForDelphi |S .
+ @ MDProcess$ForDelphi NativeMembersIterator ==> OUT
+ 
+ @ MDProcess$ForF1 |S .
+ @ MDProcess$ForF1 NativeMembersIterator ==> OUT
+ 
+ @ MDProcess$Templates %C ==> OUT
+ @ MDProcess$ForDelphi %C ==> OUT
+ @ MDProcess$ForF1 %C ==> OUT
+;
+
+Gen

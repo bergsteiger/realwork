@@ -1,0 +1,80 @@
+// Editor 4D6BB43F02C7 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D6BB43F02C7
+
+FORWARD ME_4D6BB45600F0
+
+: ME_4D6BB4690207
+ CONST UID '4D6BB4690207'
+ CONST Name 'Buffer'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4D6BB45600F0 // TnscSimpleEditor$ForTests
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4D6BB4690207 Buffer
+
+: ME_4D6BB45600F0
+ CONST UID '4D6BB45600F0'
+ CONST Name 'TnscSimpleEditor'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6BB43F02C7 // Editor
+ ;
+ : Inherits
+   @ ( WL 'ME_4CFF6CF60266' '4E1352A60292.pas.ms.script' // TnscSimpleEditor
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4D6BB4690207 // Buffer
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscSimpleEditor_p.pas'
+
+ref; // ME_4D6BB45600F0 TnscSimpleEditor$ForTests
+
+: ME_4D6BB43F02C7
+ CONST UID '4D6BB43F02C7'
+ CONST Name 'Editor'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_499ABFAA038C' '499ABFAA038C.pas.ms.script' // NemesisTest
+ ;
+ : Children
+   @ ( ME_4D6BB45600F0 // TnscSimpleEditor$ForTests
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_495119A901CE' '495119A901CE.pas.ms.script' // Editor
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4E1352A60292' '4E1352A60292.pas.ms.script' // Editors
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D6BB43F02C7.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D6BB43F02C7.pas.ms.script.runner'
+
+ref; // ME_4D6BB43F02C7 Editor

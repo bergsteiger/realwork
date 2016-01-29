@@ -1,0 +1,22 @@
+// Тестируем значение по умолачнию в окне вставления оглавления для документа.
+USES	
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Выставить ноль"
+        "Контрол по имени {(acContents6SpinEdit)}" pop:SpinEdit:Value    := 0
+	"Контрол по имени {(acContentsEditDlgBtnOK)}" pop:Control:Click
+;
+
+CONST cnChangedNodeID 2
+CONST cnChangedSubID 2
+
+Тест TK522096709_3
+	Параметры: ( "Дерево оглавления" "Эталон для дерева оглавления" )
+	Выполнить (			
+		"развернуть узел {(cnChangedNodeID)}"
+		@ ( cnChangedSubID редактор:установить_оглавление ) MODAL "Выставить ноль"			
+	)		
+;
+
+TK522096709_3

@@ -1,0 +1,1042 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Parsers"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/MDProcess/MDAModel/Parsers/ParsersFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (fctr.h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/MDProcess/MDAModel/Parsers/ParsersFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (fctr.cpp)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/MDProcess/MDAModel/Parsers/Parsers.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (cpp)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/MDProcess/MDAModel/Parsers/Parsers.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (h)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAModel/Parsers|4A388A930154
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19030942974"))
+    quid       	"4A388A930154"
+    documentation 	"вспомогательные парсеры сигнатур функций, атрибутов"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "AttributeParser"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A388B7501E9_4A38BE5001B5_4A3890230033_BASE_INIT*"
+		    value      	"//#UC START# *4A388B7501E9_4A38BE5001B5_4A3890230033_BASE_INIT*¤//#UC END# *4A388B7501E9_4A38BE5001B5_4A3890230033_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A388B7501E9_4A38BE5001B5_4A3890230033_BODY*"
+		    value      	(value Text 
+|//#UC START# *4A388B7501E9_4A38BE5001B5_4A3890230033_BODY*¤	//#UC END# *4A388B7501E9_4A38BE5001B5_4A3890230033_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAModel/Parsers/AttributeParser|4A388B7501E9
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038256733"))
+	    quid       	"4A388B7501E9"
+	    documentation 	
+|парсер для "вычлеленения" параметров атрибута из строки. формат:
+|<имя>: <тип> = <значение по-умолчанию>
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "parse"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4A38BD330207_4A388FD20240*"
+			    value      	(value Text 
+|//#UC START# *4A38BD330207_4A388FD20240*¤	boost::regex operation_exp ("(.*)\\((.*)\\)\\s*:?(.*)");¤	boost::cmatch op_match;¤	if (regex_match (source, op_match, operation_exp)) {¤		¤		std::string name (op_match[1].first, op_match[1].second);¤		m_name = GCL::trim_ws(name.data());¤		¤		std::string params_str (op_match[2].first, op_match[2].second); ¤		¤		std::string return_type (op_match[3].first, op_match[3].second);¤		m_return_type = GCL::trim_ws(return_type.data());¤		¤		boost::char_separator<char> sep (",;", "", boost::drop_empty_tokens);¤		typedef boost::token_iterator_generator<boost::char_separator<char>>::type TokenIter;¤¤		TokenIter tok_begin = boost::make_token_iterator<std::string> (¤			params_str.begin(), params_str.end(), sep¤		);¤¤		TokenIter tok_end = boost::make_token_iterator<std::string> (¤			params_str.end(), params_str.end(), sep¤		); ¤¤		//GCL::StrVector params_vec = GCL::split_string_by (params_str.data(), ',');¤		for (TokenIter it = tok_begin; it != tok_end; ++it) {										¤			Parsers::AttributeParser_var param_parser = Parsers::AttributeParserFactory::make ();¤			if (param_parser->parse (*it)) {¤				m_parameters.push_back (param_parser->data ());¤			}¤		}¤	}¤¤	return false;¤	//#UC END# *4A38BD330207_4A388FD20240*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4A38BD330207_4A3890230033*"
+			    value      	(value Text 
+|//#UC START# *4A38BD330207_4A3890230033*¤	boost::regex param_exp ("^[[:space:]]*([\\w]+[^:=]*)?[[:space:]]*(:[^=]+[[:space:]]*)?[=|[:space:]]*[[:space:]]*(.*)");¤	boost::smatch param_match;¤	if (¤		!regex_match (source, param_match, param_exp)¤		|| param_match.size () < 2¤	) {		¤		throw Parsers::ParseError ("Неверный формат атрибута");¤	}¤¤	Core::Aptr<Parsers::AttributeData> data (new Parsers::AttributeData ());¤	std::string arg (param_match[1].first, param_match[1].second);¤	GCL::StrVector arg_vec = GCL::split_string_by (arg.data(), ' ');¤	if (arg_vec.size () > 1 && arg_vec[0] == "var") {¤		arg = "inout ";¤		arg += arg_vec[1];¤	}¤¤	std::string arg_type;¤	if (param_match.size () > 2) {¤		arg_type.assign (param_match[2].first, param_match[2].second);¤		if (!arg_type.empty ()) {¤			//отрезаем первый символ, т.к он согласно регулярному выражению¤			//является ":"¤			arg_type.erase (0, 1);¤		}¤	}¤¤	std::string arg_init;¤	if (param_match.size () > 3) {¤		arg_init.assign (param_match[3].first, param_match[3].second);¤	}¤¤	data->name = GCL::trim_ws(arg.data());¤	data->type = GCL::trim_ws(arg_type.data());¤	data->init_value = GCL::trim_ws(arg_init.data());¤¤	if (data->name.empty ()) {¤		throw Parsers::ParseError ("Имя параметра не может быть пустым");		¤	}¤¤	return data.forget ();¤	//#UC END# *4A38BD330207_4A3890230033*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"4A3896EF00CD")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4A388D230154")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19068943813"))
+		    quid       	"4A38BD330207"
+		    documentation 	"парсит строку, в случае успеха возвращает true"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "source"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014188196"))
+			    quid       	"4A38BD330228"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"AttributeData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4A388D230154")
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014188621"))
+		    quid       	"4A38BE5001B5"
+		    documentation 	"создает экземпляр парсера"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "OperationParser"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A388D0203B2_4A38BE54018D_4A388FD20240_BASE_INIT*"
+		    value      	"//#UC START# *4A388D0203B2_4A38BE54018D_4A388FD20240_BASE_INIT*¤//#UC END# *4A388D0203B2_4A38BE54018D_4A388FD20240_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A388D0203B2_4A38BE54018D_4A388FD20240_BODY*"
+		    value      	(value Text 
+|//#UC START# *4A388D0203B2_4A38BE54018D_4A388FD20240_BODY*¤	//#UC END# *4A388D0203B2_4A38BE54018D_4A388FD20240_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAModel/Parsers/OperationParser|4A388D0203B2
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038254288"))
+	    quid       	"4A388D0203B2"
+	    documentation 	"парсит сигнатуру функции"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "parse"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4A38BD8202C4_4A388FD20240*"
+			    value      	(value Text 
+|//#UC START# *4A38BD8202C4_4A388FD20240*¤	boost::regex operation_exp ("(.*)\\((.*)\\)\\s*:?(.*)");¤	boost::smatch op_match;¤	if (!regex_match (source, op_match, operation_exp)) {¤		throw Parsers::ParseError ("Неверный формат операции");¤	}¤	¤	Core::Aptr<Parsers::OperationData> data (new Parsers::OperationData ());¤¤	std::string name (op_match[1].first, op_match[1].second);¤	data->name = GCL::trim_ws(name.data());¤	¤	std::string params_str (op_match[2].first, op_match[2].second); ¤	¤	std::string return_type (op_match[3].first, op_match[3].second);¤	data->return_type = GCL::trim_ws(return_type.data());¤	¤	boost::char_separator<char> sep (",;", "", boost::drop_empty_tokens);¤	typedef boost::token_iterator_generator<boost::char_separator<char>>::type TokenIter;¤¤	TokenIter tok_begin = boost::make_token_iterator<std::string> (¤		params_str.begin(), params_str.end(), sep¤	);¤¤	TokenIter tok_end = boost::make_token_iterator<std::string> (¤		params_str.end(), params_str.end(), sep¤	); ¤¤	for (TokenIter it = tok_begin; it != tok_end; ++it) {										¤		Core::Aptr<Parsers::AttributeData> attr_data = Parsers::AttributeParserFactory::get ().parse (*it);¤		if (attr_data->type.empty ()) {¤			throw Parsers::ParseError ("Не задан тип параметра операции");		¤		}¤		data->parameters.push_back (*attr_data);¤	}¤¤	return data.forget ();¤	//#UC END# *4A38BD8202C4_4A388FD20240*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4A38BCC603E4")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19068912319"))
+		    quid       	"4A38BD8202C4"
+		    documentation 	"возвращает данные операции"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "source"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19014189865"))
+			    quid       	"4A38C04E0273"
+			    type       	"a-string"
+			    quidu      	"452257A0036F"))
+		    result     	"OperationData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4A38BCC603E4")
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014190280"))
+		    quid       	"4A38BE54018D"
+		    documentation 	"создает экземпляр парсера"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "AttributeData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAModel/Parsers/AttributeData|4A388D230154
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19030939507"))
+	    quid       	"4A388D230154"
+	    documentation 	"структура описывающая свойства параметра или атрибута"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014191242"))
+		    quid       	"4A3893170176"
+		    documentation 	"возвращает имя атрибута"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014191611"))
+		    quid       	"4A38931B00A2"
+		    documentation 	"тип атрибута"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "init_value"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014191985"))
+		    quid       	"4A38931D009F"
+		    documentation 	"знчение по-умолчанию"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "AttributeDataVector"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19030941719"))
+	    quid       	"4A388F010093"
+	    documentation 	"писок атрибутов или параметров"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "ParseError"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"57E0E30B-D39F-4615-8505-58B380751320")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A3896EF00CD_BASE_INIT*"
+		    value      	"//#UC START# *4A3896EF00CD_BASE_INIT*¤//#UC END# *4A3896EF00CD_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A3896EF00CD_BODY*"
+		    value      	(value Text 
+|//#UC START# *4A3896EF00CD_BODY*¤	//#UC END# *4A3896EF00CD_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4A3896EF00CD_WHAT_IMPL*"
+		    value      	(value Text 
+|//#UC START# *4A3896EF00CD_WHAT_IMPL*¤	return m_info.c_str ();¤	//#UC END# *4A3896EF00CD_WHAT_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAModel/Parsers/ParseError|4A3896EF00CD
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19030934349"))
+	    quid       	"4A3896EF00CD"
+	    documentation 	"parsing error"
+	    stereotype 	"Exception"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "info"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014193920"))
+		    quid       	"4A38986C0168"
+		    documentation 	"дполнительная информация об ошибке"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "OperationData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/MDAModel/Parsers/OperationData|4A38BCC603E4
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19014194509"))
+	    quid       	"4A38BCC603E4"
+	    documentation 	"данные для операции"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014194893"))
+		    quid       	"4A38BCDE0196"
+		    documentation 	"имя функции"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "return_type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014195257"))
+		    quid       	"4A38BCE1033D"
+		    documentation 	"тип возвращаемого параметра фукнции"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"4A388F710247"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014193024"))
+		    quid       	"4A388F7103C8"
+		    supplier   	"Logical View::MDProcess::MDAModel::Parsers::AttributeData"
+		    quidu      	"4A388D230154"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"4A388F7103CA"
+		    supplier   	"Logical View::MDProcess::MDAModel::Parsers::AttributeDataVector"
+		    quidu      	"4A388F010093"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"4A38BCE70232"
+	    roles      	(list role_list
+		(object Role "parameters"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014195644"))
+		    quid       	"4A38BCE703CA"
+		    documentation 	"параметры операции"
+		    label      	"parameters"
+		    supplier   	"Logical View::MDProcess::MDAModel::Parsers::AttributeDataVector"
+		    quidu      	"4A388F010093"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$4"
+		    quid       	"4A38BCE703CC"
+		    supplier   	"Logical View::MDProcess::MDAModel::Parsers::OperationData"
+		    quidu      	"4A38BCC603E4"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4A388AB3039A"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::MDAModel::Parsers::AttributeParser" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(546, 924)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(102, 844)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	888
+			justify    	0
+			label      	"• AttributeParser")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(102, 794)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	888
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4A388B7501E9"
+		    width      	906
+		    height     	284
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::MDAModel::Parsers::ParseError" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1941, 300)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1795, 241)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	292
+			justify    	0
+			label      	"ParseError")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1795, 191)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	292
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"4A3896EF00CD"
+		    width      	310
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::MDAModel::Parsers::OperationParser" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1665, 930)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1206, 850)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	918
+			justify    	0
+			label      	"• OperationParser")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1206, 800)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	918
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4A388D0203B2"
+		    width      	936
+		    height     	284
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::MDAModel::Parsers::AttributeData" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(579, 1437)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(382, 1328)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	394
+			justify    	0
+			label      	"• AttributeData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(382, 1278)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	394
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"4A388D230154"
+		    width      	412
+		    height     	342
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::MDAModel::Parsers::AttributeDataVector" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(585, 1872)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(389, 1843)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	392
+			justify    	0
+			label      	"AttributeDataVector")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(389, 1793)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	392
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4A388F010093"
+		    width      	410
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @6
+		    location   	(582, 1694)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A388F710247"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @7
+			    Parent_View 	@6
+			    location   	(78, -25)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A388F7103C8"
+			    client     	@6
+			    supplier   	@4
+			    vertices   	(list Points
+				(582, 1694)
+				(580, 1608))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @8
+			    Parent_View 	@6
+			    location   	(78, -25)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A388F7103CA"
+			    client     	@6
+			    supplier   	@5
+			    vertices   	(list Points
+				(582, 1694)
+				(582, 1780))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::MDProcess::MDAModel::Parsers::OperationData" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1554, 1875)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(1337, 1791)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	434
+			justify    	0
+			label      	"• OperationData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(1337, 1741)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	434
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"4A38BCC603E4"
+		    width      	452
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$3" @10
+		    location   	(1058, 1873)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A38BCE70232"
+		    roleview_list 	(list RoleViews
+			(object RoleView "parameters" @11
+			    Parent_View 	@10
+			    location   	(-313, 67)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @12
+				Parent_View 	@11
+				location   	(1089, 1823)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	235
+				justify    	0
+				label      	"+parameters"
+				pctDist    	-0.118812
+				height     	51
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A38BCE703CA"
+			    client     	@10
+			    supplier   	@5
+			    vertices   	(list Points
+				(1058, 1873)
+				(790, 1872))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$4" @13
+			    Parent_View 	@10
+			    location   	(-313, 67)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A38BCE703CC"
+			    client     	@10
+			    supplier   	@9
+			    vertices   	(list Points
+				(1058, 1873)
+				(1327, 1874))
+			    line_style 	0)))))))

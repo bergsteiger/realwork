@@ -1,0 +1,48 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Typedef
+//////////////////////////////////////////////////////////////////////////////////
+
+: Typedef::Class
+? Тип
+? Декларация типа определяет производный тип как копию исходного. Исходный задаются как базовый класс (связь наследования).
+< *::Class, *::Category
+$ S
+$ s
+$ C 240,230,210
+$ l 100,75,35
+$ f 100,75,35
+
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+p is default ancestor:b=false ? является ли предком по-умолчанию
+p newRTTI:b=false ? генерировать ли новые данные для RTTI
+Y t4_typedef.gif
+
+%t _constraint
+c                              {}
+r {<{}{}{%GC}>!=1}: {%SS должен наследоваться от одного типа}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+r {%M{force usage}=false&%S{force usage}=false&%S{is default ancestor}=false&%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ idl
+	%f_docs(%S)\
+	#typedef %G<%NN::>%GN %SN;
+
++ h
+	%f_docs(%S)\
+	#typedef %f_type(%G) %SN;[{%GN=string}
+	#typedef const char* %SN_const;
+	][{%t_interface(%G)=true}
+	#typedef %G<%NN::>%GN_var %SN_var;
+	#typedef %G<%NN::>%GN_cvar %SN_cvar;]
+
++ pas
+	%f_docs(%S)\
+	#P%SN = ^T%SN;
+	#T%SN = %f_type(%G);
+
++ intf.pas
+# PAS/pasTypeDef

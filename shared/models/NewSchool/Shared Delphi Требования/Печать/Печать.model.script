@@ -1,0 +1,124 @@
+<<Requirements>> "Печать"
+ %UID '4E31609B01A9'
+ %CHILDREN
+  
+  <<UseCases>> "Печать документа"
+   %UID '4E3160C802DA'
+   %TOBEINCLUDED
+    U$ '4E31609B01A9' /* "Печать" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<UseCase>> "Печать документа"
+      %UID '4E3160E1022B'
+      %TOBEINCLUDED
+       U$ '4E31609B01A9' /* "Печать" */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<UseCaseRequirement>> "Возможность печатать фиксированным шрифтом"
+         %UID '4E314D470350'
+         %SUMMARY '{RequestLink:209585097}' ;
+         %TOBEINCLUDED
+          U$ '4E31609B01A9' /* "Печать" */
+         ; // %TOBEINCLUDED
+         %CHILDREN
+          
+           <<UseCaseSetting>> "Печать и экспорт"
+            %UID '5214960C034B'
+            %SUMMARY '{RequestLink:414849897}' ;
+            %META
+             %upv "CodeName" 'PrintAndExport'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4E31609B01A9' /* "Печать" */
+            ; // %TOBEINCLUDED
+            %CHILDREN
+             
+              <<UseCaseSettingValue>> "Использовать для экспорта и печати размер шрифта, отображаемого на экране"
+               %UID '521496790363'
+               %META
+                %upv "CodeName" 'Default'
+               ; // %META
+              ; // "Использовать для экспорта и печати размер шрифта, отображаемого на экране"
+              <<UseCaseSettingValue>> "Использовать для экспорта и печати следующий размер шрифта"
+               %UID '5214969A004C'
+               %META
+                %upv "CodeName" 'Custom'
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4E31609B01A9' /* "Печать" */
+               ; // %TOBEINCLUDED
+               %INHERITS
+                U$ '521496790363' /* "Использовать для экспорта и печати размер шрифта, отображаемого на экране" */
+               ; // %INHERITS
+               %CHILDREN
+                
+                 <<UseCaseSetting>> "Использовать для экспорта и печати следующий размер шрифта"
+                  %UID '4E314EC80391'
+                  %SUMMARY '{RequestLink:414849897}' ;
+                  %META
+                   %upv "CodeName" 'PrintAndExportFontSize'
+                  ; // %META
+                  %CHILDREN
+                   
+                    <<UseCaseSettingValue>> "8"
+                     %UID '5213930A0140'
+                     %META
+                      %upv "CodeName" 'pef8'
+                     ; // %META
+                    ; // "8"
+                    <<UseCaseSettingValue>> "9"
+                     %UID '5213931A0342'
+                     %META
+                      %upv "CodeName" 'pef9'
+                     ; // %META
+                    ; // "9"
+                    <<UseCaseSettingValue>> "10"
+                     %UID '52139325024C'
+                     %META
+                      %upv "CodeName" 'pef10'
+                     ; // %META
+                    ; // "10"
+                    <<UseCaseSettingValue>> "11"
+                     %UID '5213932E00E5'
+                     %META
+                      %upv "CodeName" 'pef11'
+                     ; // %META
+                    ; // "11"
+                    <<UseCaseSettingValue>> "12"
+                     %UID '521393710134'
+                     %META
+                      %upv "CodeName" 'pef12'
+                     ; // %META
+                    ; // "12"
+                    <<UseCaseSettingValue>> "14"
+                     %UID '52139378031F'
+                     %META
+                      %upv "CodeName" 'pef14'
+                     ; // %META
+                    ; // "14"
+                    <<UseCaseSettingValue>> "16"
+                     %UID '5213938002C8'
+                     %META
+                      %upv "CodeName" 'pef16'
+                     ; // %META
+                    ; // "16"
+                  ; // %CHILDREN
+                 ; // "Использовать для экспорта и печати следующий размер шрифта"
+               ; // %CHILDREN
+              ; // "Использовать для экспорта и печати следующий размер шрифта"
+            ; // %CHILDREN
+           ; // "Печать и экспорт"
+         ; // %CHILDREN
+        ; // "Возможность печатать фиксированным шрифтом"
+        <<UseCaseRequirement>> "Не должны печататься декоративные элементы баллонов про изменения документа"
+         %UID '4F4B4800034D'
+         %SUMMARY '{RequestLink:321986755}' ;
+        ; // "Не должны печататься декоративные элементы баллонов про изменения документа"
+      ; // %CHILDREN
+     ; // "Печать документа"
+   ; // %CHILDREN
+  ; // "Печать документа"
+ ; // %CHILDREN
+; // "Печать"

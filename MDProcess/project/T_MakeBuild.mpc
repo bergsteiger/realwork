@@ -1,0 +1,54 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/T_MakeBuild.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ExeTarget::Category>> MDProcess::MakeBuild
+//
+// Создает на сервере MDС  объекты Сборки на основе событий сборочного скрипта (вызывается из него).
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_MakeBuild) : project_generic_core_corba, project_subsystem_console {
+	exename = MakeBuild
+	
+	includes += ../../
+	
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += BuildSupportLib
+	libs  += BuildSupportLib
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	
+	Header_Files {
+		Std_Headers {
+			
+		}
+	}
+	
+	Inline_Files {
+		Std_Inlines {
+			
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../MakeBuild/MakeBuild_main.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../MakeBuild/MakeBuild_vi.rc
+		./../MakeBuild/MakeBuild_vi.rch
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

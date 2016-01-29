@@ -1,0 +1,184 @@
+//////////////////////////////////////////////////////////////////////////////
+//  HLTC372: Английская версия
+//////////////////////////////////////////////////////////////////////////////
+
+uses Main, SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork, Installer, HTMLWork, commonEventHandlers;
+
+{
+HLTC372.1: Ini-файлы(проверять после установки инсталлятором)
+  HLTC372.1.1: ФС
+    HLTC372.1.1.1: В разделах [F1DataSetup], [F1Download] и [F1DataUpd] должен быть параметр -eng  в конце строк CommandLine
+    HLTC372.1.1.3: В разделе [F1Server Params] должна быть строка -Locale=en
+    HLTC372.1.1.4: В разделе [Launcher] должна быть строка: DefaultDirectory=$(DefaultPath)\Garant-NET.Eng
+    HLTC372.1.1.5: В разделе [Version] должна быть строка -ProductId=[FS-ENGLISH]
+}
+function HLTC372_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  pathToGarantIni, keysValueArr, keyValue, i;
+begin
+  try
+    Result := true;
+    keysValueArr := [
+                    (['F1DataSetup', 'CommandLine', '* -eng *']),
+                    (['F1Download', 'CommandLine', '* -eng *']),
+                    (['F1DataUpd', 'CommandLine', '* -eng *']),
+                    (['F1Server Params', '-Locale', 'en']),
+                    (['Launcher', 'DefaultDirectory', '$(DefaultPath)\Garant-NET.eng']),
+                    (['Version', '-ProductId', '{FS-ENGLISH}'])
+                    ];
+    
+    UninstallF1ByProductID(PID_FS_EN);
+    if not InstallF1ByProductID(PID_FS_EN, '', '', 'IsSkipChecker:=true') then
+      Raise('Не получилось установить английскую ФС версию');
+    pathToGarantIni := GetPathToGarantIniFromInstallDir;
+    if pathToGarantIni = '' then
+      Raise('Не смогли получить путь к garant.ini');
+    for i := VarArrayLowBound(keysValueArr,1) to VarArrayHighBound(keysValueArr,1) do
+    begin
+      keyValue := GetValueFromGarantINI(keysValueArr[i][0], keysValueArr[i][1], pathToGarantIni);
+      if not StringCompare(keysValueArr[i][2], keyValue) then
+        Result := ErrorResult('Не найдено "' + keysValueArr[i][2] + '" в значении параметра "[' + keysValueArr[i][0] + ']\' + keysValueArr[i][1] + '=' + keyValue + '"');
+    end;      
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_FS_EN);
+end;
+
+{
+  HLTC372.1.3: Локальная версия
+    HLTC372.1.3.1: В разделах [F1DataSetup], [F1Download] и [F1DataUpd] должен быть параметр -eng  в конце строк CommandLine
+    HLTC372.1.3.2: В разделе [F1Server Params] должна быть строка -Locale=en
+    HLTC372.1.3.3: В разделе [Version] должна быть строка -ProductId=[LOCAL-ENGLISH]  
+}
+function HLTC372_1_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  pathToGarantIni, keysValueArr, keyValue, i;
+begin
+  try
+    Result := true;
+    keysValueArr := [
+                    (['F1DataSetup', 'CommandLine', '* -eng *']),
+                    (['F1Download', 'CommandLine', '* -eng *']),
+                    (['F1DataUpd', 'CommandLine', '* -eng *']),
+                    (['F1Server Params', '-Locale', 'en']),
+                    (['Version', '-ProductId', '{LOCAL-ENGLISH}'])
+                    ];
+    
+    UninstallF1ByProductID(PID_DESKTOP_EN);
+    if not InstallF1ByProductID(PID_DESKTOP_EN, '', '', 'IsSkipChecker:=true') then
+      Raise('Не получилось установить английскую Десктоп версию');
+    pathToGarantIni := GetPathToGarantIniFromInstallDir;
+    if pathToGarantIni = '' then
+      Raise('Не смогли получить путь к garant.ini');
+    for i := VarArrayLowBound(keysValueArr,1) to VarArrayHighBound(keysValueArr,1) do
+    begin
+      keyValue := GetValueFromGarantINI(keysValueArr[i][0], keysValueArr[i][1], pathToGarantIni);
+      if not StringCompare(keysValueArr[i][2], keyValue) then
+        Result := ErrorResult('Не найдено "' + keysValueArr[i][2] + '" в значении параметра "[' + keysValueArr[i][0] + ']\' + keysValueArr[i][1] + '=' + keyValue + '"');
+    end;      
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_DESKTOP_EN);
+end;
+
+{
+  HLTC372.1.4: КС
+    HLTC372.1.4.2: На сервере в разделе [F1Server Params] должна быть строка -Locale=en
+    HLTC372.1.4.3: На сервере в разделах [F1DataSetup], [F1Download] и [F1DataUpd] должен быть параметр -eng  в конце строк CommandLine, если при установке использовался английский инсталлятор
+    HLTC372.1.4.4: В разделе [Version] и на сервере и на клиенте должна быть строка -ProductId=[CS-ENGLISH]
+}
+function HLTC372_1_4_Execute(var  current_state: OleVariant): OleVariant;
+var
+  pathToGarantIni, keysValueArr, keyValue, i;
+begin
+  try
+    Result := true;
+    keysValueArr := [
+                    (['F1DataSetup', 'CommandLine', '* -eng *']),
+                    (['F1Download', 'CommandLine', '* -eng *']),
+                    (['F1DataUpd', 'CommandLine', '* -eng *']),
+                    (['F1Server Params', '-Locale', 'en']),
+                    (['Version', '-ProductId', '{CS-ENGLISH}'])
+                    ];
+    
+    UninstallF1ByProductID(PID_KS_EN);
+    if not InstallF1ByProductID(PID_KS_EN, '', '', 'IsSkipChecker:=true') then
+      Raise('Не получилось установить английскую КС версию');
+    pathToGarantIni := GetPathToGarantIniFromInstallDir;
+    if pathToGarantIni = '' then
+      Raise('Не смогли получить путь к garant.ini');
+    for i := VarArrayLowBound(keysValueArr,1) to VarArrayHighBound(keysValueArr,1) do
+    begin
+      keyValue := GetValueFromGarantINI(keysValueArr[i][0], keysValueArr[i][1], pathToGarantIni);
+      if not StringCompare(keysValueArr[i][2], keyValue) then
+        Result := ErrorResult('Не найдено "' + keysValueArr[i][2] + '" в значении параметра "[' + keysValueArr[i][0] + ']\' + keysValueArr[i][1] + '=' + keyValue + '"');
+    end;      
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_KS_EN);
+end;
+
+{
+  HLTC372.1.4: КС
+    HLTC372.1.4.1: На клиенте в разделе [Launcher] должна быть строка LocaleValue=en
+}
+function HLTC372_1_4_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  pathToGarantIni, keysValueArr, keyValue, i;
+begin
+  try
+    Result := true;
+    keysValueArr := [
+                    (['Launcher', 'LocaleValue', 'en'])
+                    ];
+    
+    UninstallF1ByProductID(PID_CLIENT_EN);
+    if not InstallF1ByProductID(PID_CLIENT_EN, '', '', 'IsSkipChecker:=true') then
+      Raise('Не получилось установить английского клиента КС версии');
+    pathToGarantIni := GetPathToGarantIniFromInstallDir;
+    if pathToGarantIni = '' then
+      Raise('Не смогли получить путь к garant.ini');
+    for i := VarArrayLowBound(keysValueArr,1) to VarArrayHighBound(keysValueArr,1) do
+    begin
+      keyValue := GetValueFromGarantINI(keysValueArr[i][0], keysValueArr[i][1], pathToGarantIni);
+      if not StringCompare(keysValueArr[i][2], keyValue) then
+        Result := ErrorResult('Не найдено "' + keysValueArr[i][2] + '" в значении параметра "[' + keysValueArr[i][0] + ']\' + keysValueArr[i][1] + '=' + keyValue + '"');
+    end;      
+  except
+    Result := false;
+    Log.Error(ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));    
+    CommonExceptionHandler;
+  end;
+  UninstallF1ByProductID(PID_CLIENT_EN);
+end;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests372;
+var 
+  i, p, w : oleVariant;
+begin
+//  HLTC372_1_1_Execute(p);
+//  HLTC372_1_3_Execute(p);
+//  HLTC372_1_4_Execute(p);
+//  HLTC372_1_4_1_Execute(p);
+///////////////////////////////////////
+
+    
+    
+    
+    
+    
+    
+    
+end;

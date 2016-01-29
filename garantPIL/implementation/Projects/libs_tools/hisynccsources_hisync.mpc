@@ -1,0 +1,24 @@
+project (hisynccsources_hisync) : project-common-defines-tools, project-common-includes, project_generic_core {
+	staticname = hisynccsources_hisync
+	sharedname = hisynccsources_hisync
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+
+	includes += ./../../component/cpp/libs/gctx/src
+	includes += ./../../component/cpp/libs/mrglib/src
+	includes += ./../../component/cpp/libs/VControl/src
+	includes += ./../../component/cpp/tools/hisync/src
+
+	Header_Files {
+		./../../component/cpp/tools/hisync/src/ready.h
+	}
+		
+	Source_Files {
+		./../../component/cpp/tools/hisync/src/cmdline.c
+		./../../component/cpp/tools/hisync/src/hisync.c
+		./../../component/cpp/tools/hisync/src/main.c
+		./../../component/cpp/tools/hisync/src/synchind.c
+	}
+}
+

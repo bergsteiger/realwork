@@ -1,0 +1,77 @@
+// l3TreeConst 48F4B5300085 UtilityPack Class
+
+FORWARD ME_48F4B5300085
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_48F4B5600372
+ CONST UID '48F4B5600372'
+ CONST Name 'CF_TreeNode'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'формат для на одного узла в буфере' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A449A301E3 // Tl3ClipboardFormat
+ ;
+ CONST Value 0
+ : ValueType ME_46A449A301E3 // Tl3ClipboardFormat
+ ;
+
+ @SELF
+; // ME_48F4B5600372 CF_TreeNode
+
+: ME_48F4B57002CD
+ CONST UID '48F4B57002CD'
+ CONST Name 'CF_TreeNodes'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'формат для нескольких узлов в буфере' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A449A301E3 // Tl3ClipboardFormat
+ ;
+ CONST Value 0
+ : ValueType ME_46A449A301E3 // Tl3ClipboardFormat
+ ;
+
+ @SELF
+; // ME_48F4B57002CD CF_TreeNodes
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_48F4B57C010F
+ CONST UID '48F4B57C010F'
+ CONST Name 'ini'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_48F4B57C010F ini
+
+: ME_48F4B5300085
+ CONST UID '48F4B5300085'
+ CONST Name 'l3TreeConst'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_48F4B5600372 // CF_TreeNode
+ ME_48F4B57002CD // CF_TreeNodes
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_48F4B57C010F // ini
+ ]
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '26.12.2007 16:18'
+
+ @SELF
+; // ME_48F4B5300085 l3TreeConst

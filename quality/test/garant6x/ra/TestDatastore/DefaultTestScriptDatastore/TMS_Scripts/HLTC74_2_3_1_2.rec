@@ -1,0 +1,66 @@
+'$Include "global.sbl"
+'Not Completed!!!!!!!!!
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+Dim QueryName$,ItemText$
+    QueryName=SaveQuery
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    call Click_FindLoad
+    call LoadDlg("Мои документы\"+QueryName)
+'    Window SetContext, "Caption=Мои документы (Загрузить...)", ""
+'    ListBox Click, "ObjectIndex=1", "Coords=21,12"
+'    
+'    if Position_Internal("CurrentFocus","Мои документы\"+QueryName)<>0 then
+'        SQALogMessage sqaPass, "Элемент создался", "Элемент с именем """+QueryName+""" создался"
+'        ToolBar Click, "Text=Выбор действия", "Coords=33,6"
+'   else
+'        SQALogMessage sqaFail, "Элемент не создался", "Элемент с именем """+QueryName+""" не создался"
+'        exit sub
+'   end if
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=14,8"
+   SQAGetProperty "CurrentFocus","Text",ItemText
+   if ItemText="Не вступил в силу" then
+        SQALogMessage sqaPass, "Статус верный", "Статус верный """+ItemText+""""
+   else
+        SQALogMessage sqaFail, "Статус неверный", "Статус: """+ItemText+""";а должен быть: Не вступил в силу"
+   end if
+   EditBox Click, "ObjectIndex=4", ""
+   SQAGetProperty "CurrentFocus","Text",ItemText
+   if ItemText="20.01.2001" then
+        SQALogMessage sqaPass, "Дата верна", "Дата верна """+ItemText+""""
+   else
+        SQALogMessage sqaFail, "Дата неверна", "Дата: """+ItemText+""";а должна быть: 20.01.2001"
+   end if
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=5,130"
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   call DeleteFolder("Мои документы\"+QueryName,1)
+'   Window SetContext, "Caption={ГАРАНТ*}", ""
+'   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=11,135"
+'   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+'   ListBox Click, "ObjectIndex=1", "Coords=38,8"
+'   if Position_by_Text("CurrentFocus",QueryName)<>0 then
+'        SQALogMessage sqaPass, "Элемент создался", "Элемент с именем """+QueryName+""" создался"
+'        InputKeys "{DELETE}"   
+'        Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+'        InputKeys "{ENTER}"
+'        
+'   else
+'        SQALogMessage sqaFail, "Элемент не создался", "Элемент с именем """+QueryName+""" не создался"
+'       
+'   end if
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=5,130"
+   call Click_SetFiltertoDef
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   'GenericObject Click, "Class=TvcmToolbar;ClassIndex=5", "Coords=15,14"
+   'Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   MenuIDSelect 12
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,36"
+end Sub

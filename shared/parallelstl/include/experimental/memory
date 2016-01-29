@@ -1,0 +1,43 @@
+#pragma once
+
+#ifndef _PARALLEL_MEMORY_H_
+#define _PARALLEL_MEMORY_H_ 1
+
+#include <memory>
+#include <experimental\execution_policy>
+
+#pragma push_macro("_EXP_TRY")
+#pragma push_macro("_EXP_RETHROW")
+#pragma push_macro("_EXP_GENERIC_EXECUTION_POLICY")
+#undef _EXP_TRY
+#undef _EXP_RETHROW
+#undef _EXP_GENERIC_EXECUTION_POLICY
+
+#define _EXP_TRY try {
+
+#define _EXP_RETHROW \
+	} \
+	catch (const std::bad_alloc& e) { \
+		throw e; \
+	} \
+	catch (...) { \
+		throw exception_list(std::move(std::current_exception())); \
+	}
+
+#define _EXP_GENERIC_EXECUTION_POLICY(_Func, _Policy, ...) \
+	if (_Policy.type() == typeid(parallel_execution_policy)) \
+		return _Func(*_Policy.get<parallel_execution_policy>(), __VA_ARGS__); \
+	else if(_Policy.type() == typeid(parallel_vector_execution_policy)) \
+		return _Func(*_Policy.get<parallel_vector_execution_policy>(), __VA_ARGS__); \
+	else if(_Policy.type() == typeid(sequential_execution_policy)) \
+		return _Func(*_Policy.get<sequential_execution_policy>(), __VA_ARGS__); \
+	else throw std::invalid_argument("Not supported execution policy.");
+
+#include "impl\unintialized_copy.h"
+#include "impl\unintialized_fill.h"
+
+#pragma pop_macro("_EXP_TRY")
+#pragma pop_macro("_EXP_RETHROW")
+#pragma pop_macro("_EXP_GENERIC_EXECUTION_POLICY")
+
+#endif // _PARALLEL_MEMORY_H_ 

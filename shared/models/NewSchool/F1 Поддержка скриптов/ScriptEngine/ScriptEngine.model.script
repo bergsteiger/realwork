@@ -1,0 +1,113 @@
+<<Library>> ScriptEngine
+ %UID '4E202E250348'
+ %DEPENDS
+  U$ '4A7C095601DA' /* "Base Operations" */
+  U$ '4A7C099B004F' /* View */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4DB057A602EB' /* "F1 Words" */
+  U$ '4DCA567501F2' /* "F1 Shell Words" */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4A7C095601DA' /* "Base Operations" */
+  U$ '4A7C099B004F' /* View */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4DB057A602EB' /* "F1 Words" */
+  U$ '4DCA567501F2' /* "F1 Shell Words" */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> ScriptEngine
+   %UID '4DB01D120026'
+   %DEPENDS
+    U$ '4A815BFF0168' /* Navigation */
+    U$ '4DA318AB0254' /* TestsTuning */
+    U$ '4DAEEA14018A' /* "Scripting Axiomatics" */
+    U$ '4DB01F3800EB' /* Words */
+    U$ '4DCA5495025F' /* "F1 Shell Words" */
+    U$ '4DEF302C0007' /* ScriptEngine */
+    U$ '5130BE6E037B' /* TreeViewWords */
+    U$ '5135EFBE03D9' /* Integration */
+    U$ '53B5334701E8' /* InterfacedNodeWords */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4A7C099B004F' /* View */
+    U$ '4DB057A602EB' /* "F1 Words" */
+    U$ '4DCA567501F2' /* "F1 Shell Words" */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TF1ScriptEngine
+      %UID '4DAF061B02B8'
+      %META
+       %upv "author" 'Ëþëèí À.Â.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '20.04.2011 20:14'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4DB057A602EB' /* "F1 Words" */
+       U$ '4E1F0EB100C4' /* ScriptEngine */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DB7EAEB004D' /* F1WordsUser */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4DEF306102FF' /* TtfwScriptEngineEX */
+      ; // %INHERITS
+      %LINKS
+        <<uses>> "4DAF06D50098"
+         %UID '4DAF06D50098'
+         %TARGET U$ '4DAF069D0072' /* "AttributeSearch" */
+        ; // 4DAF06D50098
+        <<uses>> "4DAF149C0352"
+         %UID '4DAF149C0352'
+         %TARGET U$ '4DAF1471030D' /* "MainMenu" */
+        ; // 4DAF149C0352
+        <<uses>> "4DAF1E0A0163"
+         %UID '4DAF1E0A0163'
+         %TARGET U$ '4DAF1DD9017F' /* "Ok" */
+        ; // 4DAF1E0A0163
+        <<uses>> "4DB00B250066"
+         %UID '4DB00B250066'
+         %TARGET U$ '4DB00AF302F0' /* "OpenDocument" */
+        ; // 4DB00B250066
+        <<uses>> "4DCA55AB00DE"
+         %UID '4DCA55AB00DE'
+         %TARGET U$ '4DCA54B9020D' /* F1ShellWordsPack */
+        ; // 4DCA55AB00DE
+        <<injects>> "4E203E5A0214"
+         %UID '4E203E5A0214'
+         %TARGET U$ '4A8199550084' /* nsHyperLinkProcessor */
+         %META
+          %upv "injects as" 'interface'
+         ; // %META
+        ; // 4E203E5A0214
+        <<uses>> "5130D8B703C4"
+         %UID '5130D8B703C4'
+         %TARGET U$ '5130D80002C1' /* TreeViewWordsPack */
+        ; // 5130D8B703C4
+        <<uses>> "5135F1A60382"
+         %UID '5135F1A60382'
+         %TARGET U$ '5135EFD80062' /* Integration */
+        ; // 5135F1A60382
+        <<uses>> "53B533EA02CF"
+         %UID '53B533EA02CF'
+         %TARGET U$ '53B533CE01B6' /* InterfacedNodeWordsPack */
+        ; // 53B533EA02CF
+      ; // %LINKS
+     ; // TF1ScriptEngine
+   ; // %CHILDREN
+  ; // ScriptEngine
+ ; // %CHILDREN
+; // ScriptEngine

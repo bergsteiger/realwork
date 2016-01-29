@@ -1,0 +1,237 @@
+// l3Math 537B83AD01F0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537B83AD01F0
+
+FORWARD ME_47E0C36201C7
+
+: ME_47E0C3A0020E
+ CONST UID '47E0C3A0020E'
+ CONST Name 'aParamA'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_47E0C3A0020E aParamA
+
+: ME_47E0C3A00228
+ CONST UID '47E0C3A00228'
+ CONST Name 'aParamB'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_47E0C3A00228 aParamB
+
+: ME_47E0C3A00240
+ CONST UID '47E0C3A00240'
+ CONST Name 'aParamC'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_47E0C3A00240 aParamC
+
+: ME_47E0C38E037F
+ CONST UID '47E0C38E037F'
+ CONST Name 'l3MulDiv'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47E0C36201C7 // l3Math
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ : Parameters
+   @ ( ME_47E0C3A0020E // aParamA
+ ME_47E0C3A00228 // aParamB
+ ME_47E0C3A00240 // aParamC
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47E0C38E037F l3MulDiv
+
+: ME_47E0C36201C7
+ CONST UID '47E0C36201C7'
+ CONST Name 'l3Math'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Математические функции.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537B83AD01F0 // l3Math
+ ;
+ : Operations
+   @ ( ME_47E0C38E037F // l3MulDiv
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '22.11.1999 18:02'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Math.pas'
+
+ref; // ME_47E0C36201C7 l3Math
+
+FORWARD ME_47A066980016
+
+: ME_47A066CC01A6
+ CONST UID '47A066CC01A6'
+ CONST Name 'A'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_47A066CC01A6 A
+
+: ME_47A066CC01C6
+ CONST UID '47A066CC01C6'
+ CONST Name 'B'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_47A066CC01C6 B
+
+: ME_47A066C301D4
+ CONST UID '47A066C301D4'
+ CONST Name 'Max'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47A066980016 // l3MinMax
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ : Parameters
+   @ ( ME_47A066CC01A6 // A
+ ME_47A066CC01C6 // B
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47A066C301D4 Max
+
+: ME_47A066DC0120
+ CONST UID '47A066DC0120'
+ CONST Name 'A'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_47A066DC0120 A
+
+: ME_47A066DC013F
+ CONST UID '47A066DC013F'
+ CONST Name 'B'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_47A066DC013F B
+
+: ME_47A066D40062
+ CONST UID '47A066D40062'
+ CONST Name 'Min'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47A066980016 // l3MinMax
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ : Parameters
+   @ ( ME_47A066DC0120 // A
+ ME_47A066DC013F // B
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_47A066D40062 Min
+
+: ME_47A066980016
+ CONST UID '47A066980016'
+ CONST Name 'l3MinMax'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537B83AD01F0 // l3Math
+ ;
+ : Operations
+   @ ( ME_47A066C301D4 // Max
+ ME_47A066D40062 // Min
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '01.12.95 16:28'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3MinMax.pas'
+
+ref; // ME_47A066980016 l3MinMax
+
+: ME_54B7B2F900C2
+ CONST UID '54B7B2F900C2'
+ CONST Name 'l3Interlocked'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537B83AD01F0 // l3Math
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Interlocked.pas'
+
+ref; // ME_54B7B2F900C2 l3Interlocked
+
+: ME_537B83AD01F0
+ CONST UID '537B83AD01F0'
+ CONST Name 'l3Math'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ ;
+ : Children
+   @ ( ME_47E0C36201C7 // l3Math
+ ME_47A066980016 // l3MinMax
+ ME_54B7B2F900C2 // l3Interlocked
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\537B83AD01F0.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\537B83AD01F0.pas.ms.script.runner'
+
+ref; // ME_537B83AD01F0 l3Math

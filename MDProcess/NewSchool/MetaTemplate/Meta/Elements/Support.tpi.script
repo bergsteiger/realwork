@@ -1,0 +1,653 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::Support
+//
+// набор вспомогательных функций и трансформаторов для генерации шаблонов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// возвращает способ отображения стереотипа элемента диаграмме:
+// Stereotype
+// Icon
+// Decoration
+//t _visualization_type
+<<transformator>> visualization_type OBJECT IN %S
+//#UC START# *4709FA190196*
+//c	{}
+//r {"%S{visualization type}"="s"}: {Stereotype}
+//r {"%S{visualization type}"="i"}: {Icon}
+//r {"%S{visualization type}"="d"}: {Decoration}
+//r {""=""}: {}
+//#UC END# *4709FA190196*
+; // visualization_type
+
+
+// собирает рекурсивно все генераторы определенные или реализумые родителями
+//f _collect_parents_generators
+: collect_parents_generators OBJECT IN %S
+//#UC START# *470F600B0177*
+//	<%P<{}{%CC=Operation&%CS=generator}[{%f_exists_in_list(GENERATORS,C)=false}%f_add_to_list(GENERATORS,C)]>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%P
+ begin
+  OBJECT IN %P
+  if true then
+  begin
+   %P
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Operation' AND 
+      ( ( %C |S ) %== 'generator'  ) ) then
+     begin
+      if ( ( [%f] exists_in_list %( 'GENERATORS' %, 'C' )% ) %==  false ) then
+      begin
+       [%f] add_to_list %( 'GENERATORS' %, 'C' )% 
+      end // if
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ //	[{%f_need_collect_override_generators(%S)=true}%P<{}{%oC=Operation&%oS=generator}[{%f_exists_in_list(GENERATORS,o)=false}%f_add_to_list(GENERATORS,o)]>\
+   if ( ( [%f] need_collect_override_generators %( %S )% ) %==  true ) then
+   begin
+    %P
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%o
+     begin
+      OBJECT IN %o
+      if ( ( %o |C ) %== 'Operation' AND 
+       ( ( %o |S ) %== 'generator'  ) ) then
+      begin
+       if ( ( [%f] exists_in_list %( 'GENERATORS' %, 'o' )% ) %==  false ) then
+       begin
+        [%f] add_to_list %( 'GENERATORS' %, 'o' )% 
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for o
+
+    ) // bind
+ //	%P<{}{%OC=Operation&%OS=generator}[{%f_exists_in_list(GENERATORS,O)=false}%f_add_to_list(GENERATORS,O)]>\
+    %P
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%O
+     begin
+      OBJECT IN %O
+      if ( ( %O |C ) %== 'Operation' AND 
+       ( ( %O |S ) %== 'generator'  ) ) then
+      begin
+       if ( ( [%f] exists_in_list %( 'GENERATORS' %, 'O' )% ) %==  false ) then
+       begin
+        [%f] add_to_list %( 'GENERATORS' %, 'O' )% 
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for O
+
+    ) // bind
+ //	]>%S<{}{%oC=Operation&%oS=generator}[{%f_exists_in_list(GENERATORS,o)=false}%f_add_to_list(GENERATORS,o)]>\
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for P
+ %S
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%o
+  begin
+   OBJECT IN %o
+   if ( ( %o |C ) %== 'Operation' AND 
+    ( ( %o |S ) %== 'generator'  ) ) then
+   begin
+    if ( ( [%f] exists_in_list %( 'GENERATORS' %, 'o' )% ) %==  false ) then
+    begin
+     [%f] add_to_list %( 'GENERATORS' %, 'o' )% 
+    end // if
+
+    ++! l_Counter
+   end // if
+  end // for o
+
+ ) // bind
+ //	<{}{%OC=Operation&%OS=generator}[{%f_exists_in_list(GENERATORS,O)=false}%f_add_to_list(GENERATORS,O)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%O
+ begin
+  OBJECT IN %O
+  if ( ( %O |C ) %== 'Operation' AND 
+   ( ( %O |S ) %== 'generator'  ) ) then
+  begin
+   if ( ( [%f] exists_in_list %( 'GENERATORS' %, 'O' )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( 'GENERATORS' %, 'O' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for O
+//если стереотип наследуется от такого же стереотипа, то не собираем
+//генераторы его родителя, т.к в этом случае всё наследование идёт на смарку
+// - тело генераторов обнуляется
+//f _need_collect_override_generators
+; // collect_parents_generators
+
+: need_collect_override_generators OBJECT IN %S
+//	[{%Rx=false&%Gx=false}{[{%RS=%SS|%GS=%SS}{true}false]}true]
+ if ( ( %R |x ) %==  false AND 
+   ( ( %G |x ) %==  false  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  if ( ( %R |S ) %== ( %S |S ) OR 
+    ( ( %G |S ) %== ( %S |S )  ) ) then
+  begin
+    false 
+  end // if
+  else
+  begin
+    true 
+  end // else
+ end // else
+
+//f _dump_wiki_up_print
+; // need_collect_override_generators
+
+: dump_wiki_up_print OBJECT IN %S
+//	%f_set_var(BODY,"%f_dump_wiki_up_print_body(%S)")\
+ [%f] set_var %( 'BODY' %, [%f] dump_wiki_up_print_body %( %S )% )% 
+//	[{"%{BODY}N"!=""}%f_clear_list(LINES)%f_split_to_list(LINES,%{BODY}N,\n)\
+ if ( ( ( get_global_var ( 'BODY' ) |N ) ) %!= '' ) then
+ begin
+  [%f] clear_list %( 'LINES' )% [%f] split_to_list %( 'LINES' %, ( get_global_var ( 'BODY' ) |N ) %, #13#10 )% 
+//	\%f _wiki_up_print
+  '%f _wiki_up_print'
+//	[{}{	}<{\n}{%f_is_empty(LINES)=false}{W}[%f_pop_first_to_var(LINES,LINE)[	%{LINE}N]]>]]
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   while true
+   begin
+    if ( ( [%f] is_empty %( 'LINES' )% ) %==  false ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10 )
+     if NOT-EMPTY
+     begin
+      [%f] pop_first_to_var %( 'LINES' %, 'LINE' )% if NOT-EMPTY
+      begin
+       '	'
+       ( get_global_var ( 'LINE' ) |N ) 
+      end // if
+      NOP
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+    else
+     break
+   end // while
+  end // if
+  NOP
+  else
+  begin
+   '	' 
+  end // else
+ end // if
+
+//f _dump_wiki_up_print_body
+; // dump_wiki_up_print
+
+: dump_wiki_up_print_body OBJECT IN %S
+//	%f_clear_list(UPS_NAMES)\
+ [%f] clear_list %( 'UPS_NAMES' )% 
+//	%f_clear_list(UPS)\
+ [%f] clear_list %( 'UPS' )% 
+//	%f_clear_list(MAIN_UPS)\
+ [%f] clear_list %( 'MAIN_UPS' )% 
+//	%f_set_var(UP_MAIN,"")\
+ [%f] set_var %( 'UP_MAIN' %, '' )% 
+//	%f_set_var(INHERITANCE_COUNT,"%f_get_inheritance_count(%S)")\
+ [%f] set_var %( 'INHERITANCE_COUNT' %, [%f] get_inheritance_count %( %S )% )% 
+//
+//
+//	%f_collect_self_up(%S,%{UPS},%{UPS_NAMES})\
+ [%f] collect_self_up %( %S %, ( get_global_var ( 'UPS' ) ) %, ( get_global_var ( 'UPS_NAMES' ) ) )% 
+//	[{%{INHERITANCE_COUNT}N!=0&%{INHERITANCE_COUNT}N!=1}{[{%{INHERITANCE_COUNT}N!=0&%{UPS}<{}{}{%CC}>!=0}\%S\#\[inherited\]]}\
+ if ( ( ( get_global_var ( 'INHERITANCE_COUNT' ) |N ) ) %!= 0 AND 
+   ( ( ( get_global_var ( 'INHERITANCE_COUNT' ) |N ) ) %!= 1  ) ) then
+ begin
+//	%f_collect_inherited_up(%S,%{UPS},%{UPS_NAMES})\
+  [%f] collect_inherited_up %( %S %, ( get_global_var ( 'UPS' ) ) %, ( get_global_var ( 'UPS_NAMES' ) ) )% 
+//	%f_find_main_hierarhy_for_up(%S,"UP_MAIN")\
+  [%f] find_main_hierarhy_for_up %( %S %, 'UP_MAIN' )% 
+//
+
+//
+//	[{"%{UP_MAIN}U"!=""}\
+  if ( ( ( get_global_var ( 'UP_MAIN' ) |U ) ) %!= '' ) then
+  begin
+//	%f_clear_list(MAIN_NAMES)\
+   [%f] clear_list %( 'MAIN_NAMES' )% 
+//	%f_collect_self_up(%{UP_MAIN},%{MAIN_UPS},%{MAIN_NAMES})\
+   [%f] collect_self_up %( ( get_global_var ( 'UP_MAIN' ) ) %, ( get_global_var ( 'MAIN_UPS' ) ) %, ( get_global_var ( 'MAIN_NAMES' ) ) )% 
+//	%f_collect_inherited_up(%{UP_MAIN},%{MAIN_UPS},%{MAIN_NAMES})\
+   [%f] collect_inherited_up %( ( get_global_var ( 'UP_MAIN' ) ) %, ( get_global_var ( 'MAIN_UPS' ) ) %, ( get_global_var ( 'MAIN_NAMES' ) ) )% 
+//	%{UPS}%f_substract_list({MAIN_UPS})\
+   ( get_global_var ( 'UPS' ) %f substract_list %( '{MAIN_UPS}' )% ) 
+//	\%S\%\[%{UP_MAIN}#f_st_name()\]f_wiki_up_print()]\
+   '%S%['
+   ( get_global_var ( 'UP_MAIN' ) ) out_indent 'f_st_name()]f_wiki_up_print()' 
+  end // if
+//	]\
+ end // if
+ else
+ begin
+  if ( ( ( get_global_var ( 'INHERITANCE_COUNT' ) |N ) ) %!= 0 AND 
+    ( ( ( get_global_var ( 'UPS' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+)    %!= 0  ) ) then
+  begin
+   '%S#[inherited]' 
+  end // if
+ end // else
+//	%f_sort_list(UPS,g)\
+ [%f] sort_list %( 'UPS' %, 'g' )% 
+//	<{}{%f_is_empty(UPS)=false}{W}[%f_pop_first_to_var(UPS,UP)[\[\{"\%S\{%{UP}N\}"!=%t_dump_up_default_value(%{UP})\}\%f_up_prefix(\%S) *%{UP}N*[ = *%t_dump_up_value(%{UP})*][ - %f_convert_tpl_text("%f_str_replace(%{UP}D,\n,%f_space(%{UP}))")]
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'UPS' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'UPS' %, 'UP' )% if NOT-EMPTY
+    begin
+     '[{"%S{'
+     ( get_global_var ( 'UP' ) |N ) '}"!='
+     [%t] dump_up_default_value %( ( get_global_var ( 'UP' ) ) )% '}%f_up_prefix(%S) *'
+     ( get_global_var ( 'UP' ) |N ) '*'
+     if NOT-EMPTY
+     begin
+      ' = *'
+      [%t] dump_up_value %( ( get_global_var ( 'UP' ) ) )% '*' 
+     end // if
+     NOP
+     if NOT-EMPTY
+     begin
+      ' - '
+      [%f] convert_tpl_text %( [%f] str_replace %( ( get_global_var ( 'UP' ) |D ) %, #13#10 %, [%f] space %( ( get_global_var ( 'UP' ) ) )% )% )% 
+     end // if
+     NOP
+//	\]]]>
+     ']' 
+    end // if
+    NOP
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+
+//f _collect_up
+; // dump_wiki_up_print_body
+
+: collect_up OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_up: Не задан идентификатор списка!")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_up: Не задан идентификатор списка!' )% 
+ end // if
+//	%f_set_var(LIST_ID,1)\
+ [%f] set_var %( 'LIST_ID' %, 1 )% 
+//	%f_clear_list(FULL_NAMES)\
+ [%f] clear_list %( 'FULL_NAMES' )% 
+//	%f_collect_up_i(%S)\
+ [%f] collect_up_i %( %S )% 
+//	%f_sort_list(%{LIST_ID}N,g)
+ [%f] sort_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'g' )% 
+
+//f _collect_up_i
+; // collect_up
+
+: collect_up_i OBJECT IN %S
+//	[<{}{"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_collect_up_i(%G)>]\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G %?f st_name %( )% ) %!= '' AND 
+    ( ( %G %f need_st_define %( )% ) %==  true  ) ) then
+   begin
+    [%f] collect_up_i %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+//	[<{}{"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_collect_up_i(%R)>]\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R %?f st_name %( )% ) %!= '' AND 
+    ( ( %R %f need_st_define %( )% ) %==  true  ) ) then
+   begin
+    [%f] collect_up_i %( %R )% 
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+//	[<{}{%CC=Attribute&%f_exists_in_list(FULL_NAMES,"%CN")=false}%f_add_to_list(%{LIST_ID}N,C)%f_add_to_list(FULL_NAMES,"%CN")>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( [%f] exists_in_list %( 'FULL_NAMES' %, %C |N )% ) %==  false  ) ) then
+   begin
+    [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'C' )% [%f] add_to_list %( 'FULL_NAMES' %, %C |N )% 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+
+//возвращает количество базовых элементов
+//f _get_inheritance_count
+; // collect_up_i
+
+: get_inheritance_count OBJECT IN %S
+//	%f_evaluate(\
+ [%f] evaluate %( 
+//	<{}{"%G#f_st_name()"!="%S#f_st_name()"&"%G#f_st_name()"!=""&%G%f_need_st_define()=true&%f_has_user_properties(%G)=true}{%GC}>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if ( ( %G %?f st_name %( )% ) %!= ( %S %?f st_name %( )% ) AND 
+   ( ( %G %?f st_name %( )% ) %!= ''  ) AND 
+   ( ( %G %f need_st_define %( )% ) %==  true  ) AND 
+   ( ( [%f] has_user_properties %( %G )% ) %==  true  ) ) then
+  begin
+
+   ++! l_Counter
+  end // if
+ end // for G
+ l_Counter
+//	+ <{}{"%R#f_st_name()"!="%S#f_st_name()"&"%R#f_st_name()"!=""&%R%f_need_st_define()=true&%f_has_user_properties(%R)=true}{%RC}>\
+ '+ '
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R %?f st_name %( )% ) %!= ( %S %?f st_name %( )% ) AND 
+   ( ( %R %?f st_name %( )% ) %!= ''  ) AND 
+   ( ( %R %f need_st_define %( )% ) %==  true  ) AND 
+   ( ( [%f] has_user_properties %( %R )% ) %==  true  ) ) then
+  begin
+
+   ++! l_Counter
+  end // if
+ end // for R
+ l_Counter
+//	)
+)% 
+//находит основную иерархию для вывода юзер-свойств элемента,
+//возвращает УИД выбранного элемента (может вернуть "", если элемент ни от кого не наследует UP)
+//%1 - имя переменной, в которую нужно полжить результат
+//f _find_main_hierarhy_for_up
+; // get_inheritance_count
+
+: find_main_hierarhy_for_up OBJECT IN %S
+//	%f_set_var(CURR_MAX_UPS,"0")%f_set_var(CURR_MAIN,"")\
+ [%f] set_var %( 'CURR_MAX_UPS' %, 0 )% [%f] set_var %( 'CURR_MAIN' %, '' )% 
+//	[<{}{"%G#f_st_name()"!="%S#f_st_name()"&"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_update_main_hierarhy_for_up(%G,"CURR_MAX_UPS","CURR_MAIN")>]\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G %?f st_name %( )% ) %!= ( %S %?f st_name %( )% ) AND 
+    ( ( %G %?f st_name %( )% ) %!= ''  ) AND 
+    ( ( %G %f need_st_define %( )% ) %==  true  ) ) then
+   begin
+    [%f] update_main_hierarhy_for_up %( %G %, 'CURR_MAX_UPS"' %, 'CURR_MAIN' )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+//	[<{}{"%R#f_st_name()"!="%S#f_st_name()"&"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_update_main_hierarhy_for_up(%R,"CURR_MAX_UPS","CURR_MAIN")>]\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R %?f st_name %( )% ) %!= ( %S %?f st_name %( )% ) AND 
+    ( ( %R %?f st_name %( )% ) %!= ''  ) AND 
+    ( ( %R %f need_st_define %( )% ) %==  true  ) ) then
+   begin
+    [%f] update_main_hierarhy_for_up %( %R %, 'CURR_MAX_UPS"' %, 'CURR_MAIN' )% 
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+//	[{"%{CURR_MAIN}U"!=""}%f_set_var(%1N,{CURR_MAIN})]\
+ if ( ( ( get_global_var ( 'CURR_MAIN' ) |U ) ) %!= '' ) then
+ begin
+  [%f] set_var %( %1 |N %, '{CURR_MAIN}' )% 
+ end // if
+//	%f_set_var(CURR_MAX_UPS,"0")%f_set_var(CURR_MAIN,"")
+ [%f] set_var %( 'CURR_MAX_UPS' %, 0 )% [%f] set_var %( 'CURR_MAIN' %, '' )% 
+
+//%1 - CURR_MAX_UPS
+//%2 - CURR_MAIN
+//f _update_main_hierarhy_for_up
+; // find_main_hierarhy_for_up
+
+: update_main_hierarhy_for_up OBJECT IN %S
+//	%f_clear_list(_update_main_hierarhy_for_up_UPS)\
+ [%f] clear_list %( '_update_main_hierarhy_for_up_UPS' )% 
+//	%f_clear_list(_update_main_hierarhy_for_up_NAME_UPS)\
+ [%f] clear_list %( '_update_main_hierarhy_for_up_NAME_UPS' )% 
+//	%f_collect_self_up(%S,%{_update_main_hierarhy_for_up_UPS},%{_update_main_hierarhy_for_up_NAME_UPS})\
+ [%f] collect_self_up %( %S %, ( get_global_var ( '_update_main_hierarhy_for_up_UPS' ) ) %, ( get_global_var ( '_update_main_hierarhy_for_up_NAME_UPS' ) ) )% 
+//	%f_collect_inherited_up(%S,%{_update_main_hierarhy_for_up_UPS},%{_update_main_hierarhy_for_up_NAME_UPS})\
+ [%f] collect_inherited_up %( %S %, ( get_global_var ( '_update_main_hierarhy_for_up_UPS' ) ) %, ( get_global_var ( '_update_main_hierarhy_for_up_NAME_UPS' ) ) )% 
+//	[{%f_number_cmp("%f_size_list(_update_main_hierarhy_for_up_UPS)","%{%1N}N","\>")=1}\
+ if ( ( [%f] number_cmp %( [%f] size_list %( '_update_main_hierarhy_for_up_UPS' )% %, ( get_global_var ( %1 |N ) |N ) %, '>' )% ) %== 1 ) then
+ begin
+//	%f_set_var(%1N,"%f_size_list(_update_main_hierarhy_for_up_UPS)")%f_set_var(%2N,S)]\
+  [%f] set_var %( %1 |N %, [%f] size_list %( '_update_main_hierarhy_for_up_UPS' )% )% [%f] set_var %( %2 |N %, 'S' )% 
+ end // if
+//	%f_warning("%SN: %f_size_list(_update_main_hierarhy_for_up_UPS), %{%1N}N, %{CURR_MAX_UPS}N, %{CURR_MAIN}N")\
+//	%f_clear_list(_update_main_hierarhy_for_up_UPS)\
+ [%f] clear_list %( '_update_main_hierarhy_for_up_UPS' )% 
+//	%f_clear_list(_update_main_hierarhy_for_up_NAME_UPS)
+ [%f] clear_list %( '_update_main_hierarhy_for_up_NAME_UPS' )% 
+
+//f _has_user_properties
+; // update_main_hierarhy_for_up
+
+: has_user_properties OBJECT IN %S
+//	%f_clear_list(_has_user_properties_UPS)\
+ [%f] clear_list %( '_has_user_properties_UPS' )% 
+//	%f_clear_list(_has_user_properties_NAME_UPS)\
+ [%f] clear_list %( '_has_user_properties_NAME_UPS' )% 
+//	%f_collect_self_up(%S,%{_has_user_properties_UPS},%{_has_user_properties_NAME_UPS})\
+ [%f] collect_self_up %( %S %, ( get_global_var ( '_has_user_properties_UPS' ) ) %, ( get_global_var ( '_has_user_properties_NAME_UPS' ) ) )% 
+//	%f_collect_inherited_up(%S,%{_has_user_properties_UPS},%{_has_user_properties_NAME_UPS})\
+ [%f] collect_inherited_up %( %S %, ( get_global_var ( '_has_user_properties_UPS' ) ) %, ( get_global_var ( '_has_user_properties_NAME_UPS' ) ) )% 
+//	[{%{_has_user_properties_UPS}%Cx=true}{false}true]\
+ if ( ( ( get_global_var ( '_has_user_properties_UPS' )  ->C |x ) ) %==  true ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//	%f_clear_list(_has_user_properties_UPS)\
+ [%f] clear_list %( '_has_user_properties_UPS' )% 
+//	%f_clear_list(_has_user_properties_NAME_UPS)
+ [%f] clear_list %( '_has_user_properties_NAME_UPS' )% 
+
+//%1 - список UP
+//%2 - список имен UP
+//f _collect_inherited_up
+; // has_user_properties
+
+: collect_inherited_up OBJECT IN %S
+//	[<{}{"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_collect_self_up(%G,%1,%2)%f_collect_inherited_up(%G,%1,%2)>]\
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G %?f st_name %( )% ) %!= '' AND 
+    ( ( %G %f need_st_define %( )% ) %==  true  ) ) then
+   begin
+    [%f] collect_self_up %( %G %, %1 %, %2 )% [%f] collect_inherited_up %( %G %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+//	[<{}{"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_collect_self_up(%R,%1,%2)%f_collect_inherited_up(%R,%1,%2)>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R %?f st_name %( )% ) %!= '' AND 
+    ( ( %R %f need_st_define %( )% ) %==  true  ) ) then
+   begin
+    [%f] collect_self_up %( %R %, %1 %, %2 )% [%f] collect_inherited_up %( %R %, %1 %, %2 )% 
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+
+//%1 - список UP
+//%2 - список имен UP
+//f _collect_self_up
+; // collect_inherited_up
+
+: collect_self_up OBJECT IN %S
+//	[<{}{%CC=Attribute&%f_exists_in_list(%2N,"%CN")=false}%1%f_add_to_list(C)%2%f_add_to_list("%CN")>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' AND 
+    ( ( [%f] exists_in_list %( %2 |N %, %C |N )% ) %==  false  ) ) then
+   begin
+    %1 %f add_to_list %( 'C' )% %2 %f add_to_list %( %C |N )% 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+
+//t _dump_up_default_value
+; // collect_self_up
+
+<<transformator>> dump_up_default_value OBJECT IN %S
+//c                    {}
+//r {%SS=tribool}:    {"[{%SI=true|%SI=1}{[{%SI=false|%SI=0}{undefined}false]}true]"}
+//r {%SS=bool}:       {"[{%SI=true|%SI=1}{false}true]"}
+//r {%SS=list}:       {%f_clear_list(VALUES)%f_split_to_list(VALUES,%SI,|)%f_pop_first_to_var(VALUES,FIRST)"%f_convert_tpl_text(%{FIRST}N)"}
+//r {""=""}:           {"\%S\{!%{UP}N\}"}
+
+//t _dump_up_value
+; // dump_up_default_value
+
+<<transformator>> dump_up_value OBJECT IN %S
+//c                  {}
+//r {%SS=color}:     {\%f_to_rgb(\%S\{%SN\})}
+//r {""}:            {\%S\{%SN\}}
+
+//f _convert_tpl_text
+; // dump_up_value
+
+: convert_tpl_text OBJECT IN %S
+//	%f_str_replace(\
+ [%f] str_replace %( 
+//	%f_str_replace(\
+ [%f] str_replace %( 
+//	%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%SN,\\,\\\\),%f_rbracket(%S),\\%f_rbracket(%S)),%f_lbrace(%S),\\%f_lbrace(%S)),%f_rbrace(%S),\\%f_rbrace(%S)),%f_lbracket(%S),\\%f_lbracket(%S))\
+ [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( %S |N %, '\' %, '\\' )% %, [%f] rbracket %( %S )% %, '\'
+ [%f] rbracket %( %S )% )% %, [%f] lbrace %( %S )% %, '\'
+ [%f] lbrace %( %S )% )% %, [%f] rbrace %( %S )% %, '\'
+ [%f] rbrace %( %S )% )% %, [%f] lbracket %( %S )% %, '\'
+ [%f] lbracket %( %S )% )% 
+//	,%f_less(%S)\
+%,  [%f] less %( %S )% 
+//	,\\%f_less(%S)\
+%,  '\'
+ [%f] less %( %S )% 
+//	)\
+)% //	,%f_greater(%S)\
+%,  [%f] greater %( %S )% 
+//	,\\%f_greater(%S)\
+%,  '\'
+ [%f] greater %( %S )% 
+//	)
+)% //#UC END# *470F600B0177*
+; // convert_tpl_text
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

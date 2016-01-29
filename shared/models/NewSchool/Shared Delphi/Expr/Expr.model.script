@@ -1,0 +1,1814 @@
+<<Library>> Expr
+ %UID '473987420315'
+ %SUMMARY 'Библиотека для разбора и рисования математических формул.' ;
+ %DEPENDS
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'l3Define.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" false
+  %upv "is namespace" true
+  %upv "vendor" '/external'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> ExprDraw
+   %UID '47398897018F'
+   %SUMMARY 'Классы для рисования формул.' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '46A5E026007E' /* l3Core */
+    U$ '4739AB8601AA' /* l3Drawer */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '556F09AA036E' /* l3PrinterInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '473987420315' /* Expr */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> ExprDraw
+      %UID '4739B8DE0134'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '473987420315' /* Expr */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4D4949EA03C5"
+         %UID '4D4949EA03C5'
+         %TARGET U$ '4739ABDB029D' /* Tl3Drawer */
+        ; // 4D4949EA03C5
+      ; // %LINKS
+      %CHILDREN
+       
+        <<Enum>> TExprCapStyle
+         %UID '4739B8EE00D3'
+         %ATTRIBUTES
+           <<Attribute>> ecPoints
+            %UID '4739B8F90223'
+           ; // ecPoints
+           <<Attribute>> ecVector
+            %UID '4739B8FF0330'
+           ; // ecVector
+           <<Attribute>> ecCap
+            %UID '4739B90702D7'
+           ; // ecCap
+           <<Attribute>> ecTilde
+            %UID '4739B90F001C'
+           ; // ecTilde
+           <<Attribute>> ecLine
+            %UID '4739B9160012'
+           ; // ecLine
+         ; // %ATTRIBUTES
+        ; // TExprCapStyle
+        <<Enum>> TExprBracket
+         %UID '4739B91F0296'
+         %ATTRIBUTES
+           <<Attribute>> ebNone
+            %UID '4739B92601CE'
+           ; // ebNone
+           <<Attribute>> ebRound
+            %UID '4739B92D0336'
+           ; // ebRound
+           <<Attribute>> ebSquare
+            %UID '4739B933003C'
+           ; // ebSquare
+           <<Attribute>> ebFigure
+            %UID '4739B939003A'
+           ; // ebFigure
+           <<Attribute>> ebModule
+            %UID '4739B93E0222'
+           ; // ebModule
+         ; // %ATTRIBUTES
+        ; // TExprBracket
+        <<Enum>> TExprVertAlign
+         %UID '4739B946031E'
+         %ATTRIBUTES
+           <<Attribute>> evTop
+            %UID '4739B9520221'
+           ; // evTop
+           <<Attribute>> evCenter
+            %UID '4739B957035F'
+           ; // evCenter
+           <<Attribute>> evBottom
+            %UID '4739B95C0167'
+           ; // evBottom
+         ; // %ATTRIBUTES
+        ; // TExprVertAlign
+        <<Enum>> TExprHorAlign
+         %UID '4739B965021E'
+         %ATTRIBUTES
+           <<Attribute>> ehLeft
+            %UID '4739B96E02FE'
+           ; // ehLeft
+           <<Attribute>> ehCenter
+            %UID '4739B97500B9'
+           ; // ehCenter
+           <<Attribute>> ehRight
+            %UID '4739B9790317'
+           ; // ehRight
+         ; // %ATTRIBUTES
+        ; // TExprHorAlign
+        <<Enum>> TExprOrigin
+         %UID '4739B98301BD'
+         %ATTRIBUTES
+           <<Attribute>> eoTop
+            %UID '4739B98C0275'
+           ; // eoTop
+           <<Attribute>> eoBottom
+            %UID '4739B99102CC'
+           ; // eoBottom
+         ; // %ATTRIBUTES
+        ; // TExprOrigin
+        <<Enum>> Tl3ExprMetric
+         %UID '4739B99C03D6'
+         %ATTRIBUTES
+           <<Attribute>> tcWidth
+            %UID '4739B9A60131'
+           ; // tcWidth
+           <<Attribute>> tcHeight
+            %UID '4739B9AB0323'
+           ; // tcHeight
+           <<Attribute>> tcPowerXPos
+            %UID '4739B9B20374'
+           ; // tcPowerXPos
+           <<Attribute>> tcPowerYPos
+            %UID '4739B9B80033'
+           ; // tcPowerYPos
+           <<Attribute>> tcIndexXPos
+            %UID '4739B9BC0260'
+           ; // tcIndexXPos
+           <<Attribute>> tcIndexYPos
+            %UID '4739B9C300B1'
+           ; // tcIndexYPos
+           <<Attribute>> tcCapDX
+            %UID '4739B9C802F3'
+           ; // tcCapDX
+           <<Attribute>> tcCapDY
+            %UID '4739B9CD0264'
+           ; // tcCapDY
+           <<Attribute>> tcMidLineUp
+            %UID '4739B9D30050'
+           ; // tcMidLineUp
+           <<Attribute>> tcMidlineDn
+            %UID '4739B9D703DB'
+           ; // tcMidlineDn
+           <<Attribute>> tcSymbolWidth
+            %UID '4739B9DD03A7'
+           ; // tcSymbolWidth
+           <<Attribute>> tcSymbolHeight
+            %UID '4739B9E303C4'
+           ; // tcSymbolHeight
+         ; // %ATTRIBUTES
+        ; // Tl3ExprMetric
+        <<SimpleClass>> Tl3Expr
+         %UID '47398921031E'
+         %SUMMARY 'Базовым классом для всех классов библиотеки ExprDraw является Tl3Expr. Он поддерживает следующую'#13#10'функциональность: сообщает свои геометрические размеры (свойства Width и Height), параметры,'#13#10'необходимые для более красивого отображения узла (свойства MidLineUp, MidLineDown, PowerXPos,'#13#10'PowerYPos, IndexXPos, IndexYPos, CapDXRight, CapDXLeft, CapDY). Если узел не является корневым,'#13#10'то поле FParent содержит указатель на родительский узел. Свойство Next используется для построения'#13#10'цепочек классов. Изменение шрифта или канвы передаются далее по цепочке. Свойства Font и Canvas'#13#10'используются для задания шрифта и канвы отображения. По умолчанию используется шрифт Times New Roman,'#13#10'использование других гарнитур нежелательно, так как все размеры отсупов рассчитывались именно для'#13#10'этой гарнитуры. Изменение стилей шрифта не имеет смысла, так как каждый узел сам устанавливает себе'#13#10'стили, определяемые его смысловой нагрузкой. Единственный параметр шрифта, которым имеет смысл'#13#10'управлять - это его размер. Размер задаётся только для корневого узла дерева, далее установки'#13#10'передаются всем ветвям (узлы ветвей не обязательно получают такой же размер шрифта, что и корень: в'#13#10'некоторых случаях предусмотрено изменение размеров шрифта дочерних узлов, например, при добавлении'#13#10'верхнего или нижнего индекса). Канва также назначается корневому узлу и передаётся всем остальным'#13#10'узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены'#13#10'шрифт и канва.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '473987420315' /* Expr */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46780CCE037B' /* Tl3Base */
+         ; // %INHERITS
+         %ATTRIBUTES
+           <<property>> Next
+            %UID '473DB85F009F'
+            %SUMMARY 'Свойство Next используется для построения цепочек классов. Изменение шрифта или канвы передаются далее по цепочке.' ;
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %META
+             %upv "needs field" true
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+           ; // Next
+           <<property>> Color
+            %UID '473DB86E0051'
+            %SUMMARY 'Свойство Color определяет цвет, которым будет отображаться выражение. Если задан цвет clNone,'#13#10'используется цвет родительского узла. Если для корневого узла задан цвет clNone, используется'#13#10'чёрный цвет.' ;
+            %TARGET U$ '47703C1700DF' /* Tl3Color */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // Color
+           <<property>> Font
+            %UID '473DB87F03DA'
+            %SUMMARY 'Свойства Font и Canvas'#13#10'используются для задания шрифта и канвы отображения. По умолчанию используется шрифт Times New Roman,'#13#10'использование других гарнитур нежелательно, так как все размеры отсупов рассчитывались именно для'#13#10'этой гарнитуры. Изменение стилей шрифта не имеет смысла, так как каждый узел сам устанавливает себе'#13#10'стили, определяемые его смысловой нагрузкой. Единственный параметр шрифта, которым имеет смысл'#13#10'управлять - это его размер. Размер задаётся только для корневого узла дерева, далее установки'#13#10'передаются всем ветвям (узлы ветвей не обязательно получают такой же размер шрифта, что и корень: в'#13#10'некоторых случаях предусмотрено изменение размеров шрифта дочерних узлов, например, при добавлении'#13#10'верхнего или нижнего индекса). Канва также назначается корневому узлу и передаётся всем остальным'#13#10'узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены'#13#10'шрифт и канва.' ;
+            %TARGET U$ '46A61523001B' /* TFont */
+            %META
+             %upv "needs field" true
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // Font
+           <<property>> Canvas
+            %UID '473DB88D0113'
+            %SUMMARY 'Свойства Font и Canvas'#13#10'используются для задания шрифта и канвы отображения. По умолчанию используется шрифт Times New Roman,'#13#10'использование других гарнитур нежелательно, так как все размеры отсупов рассчитывались именно для'#13#10'этой гарнитуры. Изменение стилей шрифта не имеет смысла, так как каждый узел сам устанавливает себе'#13#10'стили, определяемые его смысловой нагрузкой. Единственный параметр шрифта, которым имеет смысл'#13#10'управлять - это его размер. Размер задаётся только для корневого узла дерева, далее установки'#13#10'передаются всем ветвям (узлы ветвей не обязательно получают такой же размер шрифта, что и корень: в'#13#10'некоторых случаях предусмотрено изменение размеров шрифта дочерних узлов, например, при добавлении'#13#10'верхнего или нижнего индекса). Канва также назначается корневому узлу и передаётся всем остальным'#13#10'узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены'#13#10'шрифт и канва.' ;
+            %TARGET U$ '46A46A030333' /* TCanvas */
+            %META
+             %upv "needs field" true
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // Canvas
+           <<readonly>> Width
+            %UID '473DB89D02ED'
+            %SUMMARY 'Ширина отрендеренной формулы.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Width
+           <<readonly>> Height
+            %UID '473DB8B30353'
+            %SUMMARY 'Высота отрендеренной формулы.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Height
+           <<readonly>> MidLineUp
+            %UID '473DB8FE02D9'
+            %SUMMARY 'MidLineUp, MidLineDown - расстояния (в пихелях) от средней линии до верхнего и нижнего края выражения.'#13#10'Средняя линия - это линия, на которой должен стоять знак "-", если его поставить перед выражением.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // MidLineUp
+           <<readonly>> MidLineDn
+            %UID '473DB90D0135'
+            %SUMMARY 'MidLineUp, MidLineDown - расстояния (в пихелях) от средней линии до верхнего и нижнего края выражения.'#13#10'Средняя линия - это линия, на которой должен стоять знак "-", если его поставить перед выражением.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // MidLineDn
+           <<readonly>> PowerXPos
+            %UID '473DB91702CA'
+            %SUMMARY 'PowerXPos, PowerYPos - если выражению добавляется верхний индекс, то эти параметры используются при'#13#10'расчёте его положения.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // PowerXPos
+           <<readonly>> PowerYPos
+            %UID '473DB92400E8'
+            %SUMMARY 'PowerXPos, PowerYPos - если выражению добавляется верхний индекс, то эти параметры используются при'#13#10'расчёте его положения.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // PowerYPos
+           <<readonly>> IndexXPos
+            %UID '473DB92F0134'
+            %SUMMARY 'IndexXPos, IndexYPos - аналогичная пара для нижнего индекса.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IndexXPos
+           <<readonly>> IndexYPos
+            %UID '473DB93C01DD'
+            %SUMMARY 'IndexXPos, IndexYPos - аналогичная пара для нижнего индекса.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IndexYPos
+           <<readonly>> CapDXLeft
+            %UID '473DB94602C8'
+            %SUMMARY 'CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака'#13#10'(вектора, тильды и т.п.), если он ставится над выражением.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // CapDXLeft
+           <<readonly>> CapDXRight
+            %UID '473DB9560299'
+            %SUMMARY 'CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака'#13#10'(вектора, тильды и т.п.), если он ставится над выражением.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // CapDXRight
+           <<readonly>> CapDY
+            %UID '473DB97D0187'
+            %SUMMARY 'CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака'#13#10'(вектора, тильды и т.п.), если он ставится над выражением.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "needs field" false
+             %upv "pm" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // CapDY
+           SUMMONED PRIVATE <<Attribute>> f_Next
+            %UID 'D27F17BF7EF3'
+            %SUMMARY 'Поле для свойства Next' ;
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+           ; // f_Next
+           SUMMONED PRIVATE <<Attribute>> f_Font
+            %UID '3709C0D41282'
+            %SUMMARY 'Поле для свойства Font' ;
+            %TARGET U$ '46A61523001B' /* TFont */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // f_Font
+           SUMMONED PRIVATE <<Attribute>> f_Canvas
+            %UID '676E2F4164C5'
+            %SUMMARY 'Поле для свойства Canvas' ;
+            %TARGET U$ '46A46A030333' /* TCanvas */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // f_Canvas
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           <<Operation>> FTType
+            %UID '473DB9890039'
+            %SUMMARY 'Функция FTType возвращает комбинацию флагов efXXXX, которые используются в библиотеке ExprMake при'#13#10'перемножении выражений с помощью символа "*". Данные флаги показывают, может ли выражение быть'#13#10'умножено без знака слева, справа, является ли оно числом и т.д.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // FTType
+           <<ctor>> Create
+            %UID '473DB99802C6'
+           ; // Create
+           <<Operation>> AddNext
+            %UID '473DB9A80279'
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aValue
+               %UID '473DB9AC00DA'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // aValue
+            ; // %PARAMETERS
+           ; // AddNext
+           <<Operation>> CutOff
+            %UID '473DB9B700A4'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+           ; // CutOff
+           <<Operation>> Draw
+            %UID '473DBBB100F1'
+            %SUMMARY 'Рисует формулу.' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> X
+               %UID '473DBBBE00E6'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // X
+              <<in>> Y
+               %UID '473DBBBE0140'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Y
+              <<in>> HorAlign
+               %UID '473DBBBE01A4'
+               %TARGET U$ '4739B965021E' /* TExprHorAlign */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // HorAlign
+              <<in>> VertAlign
+               %UID '473DBBBE0209'
+               %TARGET U$ '4739B946031E' /* TExprVertAlign */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // VertAlign
+            ; // %PARAMETERS
+           ; // Draw
+         ; // %OPERATIONS
+        ; // Tl3Expr
+        <<SimpleClass>> TExprStrokes
+         %UID '47399A520177'
+         %SUMMARY 'Класс TExprStrokes предназначен для отображения чёрточек, которыми обозначается производная.'#13#10'Используется совместно с классом TExprIndex: функция задаётся в TExprIndex.Son, TExprStrokes'#13#10'используется как верхний индекс.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47398921031E' /* Tl3Expr */
+         ; // %INHERITS
+        ; // TExprStrokes
+        <<SimpleClass>> TExprSpace
+         %UID '47399A2E00CB'
+         %SUMMARY 'Класс TExprSpace предназначен для разрядки, вставки в формулу пустого пространства. Параметр'#13#10'конструктора Space задаёт ширину этого пробела в единицах ширины (одна единица ширины примерно равна'#13#10'ширине вертикальной линии в символе "+").' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47398921031E' /* Tl3Expr */
+         ; // %INHERITS
+        ; // TExprSpace
+        <<SimpleClass>> TExprNumber
+         %UID '473998E4017B'
+         %SUMMARY 'Класс TExprNumber предназначен для отображения чисел в обычной или экспоненциальной форме. Если'#13#10'параметр конструктора ExpVal равен True, используется экспоненциальная форма, в противном случае -'#13#10'обычная.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47398921031E' /* Tl3Expr */
+         ; // %INHERITS
+        ; // TExprNumber
+        <<SimpleClass>> TExprExpNumber
+         %UID '473998FB0319'
+         %SUMMARY 'Класс TExprExpNumber является наследником TExprNumber. Служит для отображения чисел с возможностью'#13#10'гибкого управления форматированием числа.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473998E4017B' /* TExprNumber */
+         ; // %INHERITS
+        ; // TExprExpNumber
+        <<SimpleClass>> TExprEmpty
+         %UID '47399A7700D0'
+         %SUMMARY 'Класс TExprEmpty используется для отображения выражения с нулевой шириной, но высотой, равной высоте'#13#10'обычного текста. Используется вместе с TExprIndex для создания индексов, "висящих в воздухе".' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47398921031E' /* Tl3Expr */
+         ; // %INHERITS
+        ; // TExprEmpty
+        <<SimpleClass>> TExprSimple
+         %UID '473993380340'
+         %SUMMARY 'Класс TExprSimple служит для отображения плоского текста. Текст выводится прямым шрифтом.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47398921031E' /* Tl3Expr */
+         ; // %INHERITS
+        ; // TExprSimple
+        <<SimpleClass>> TExprFuncName
+         %UID '4739954A032E'
+         %SUMMARY 'Класс TExprFuncName является наследником класса TExprSimple. Он реализует имя функции в том случае,'#13#10'когда оно пишется прямым шрифтом. Переопределена функция ArgNeedBrackets таким образом, чтобы аргумент'#13#10'не заключался в скобки, если это не является необходимым. Чтобы аргумент мог воспользоваться'#13#10'результатом, возвращаемым функцией TExprFuncName.ArgNeedBrackets, он должен иметь тип TExprArgument.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473993380340' /* TExprSimple */
+         ; // %INHERITS
+        ; // TExprFuncName
+        <<SimpleClass>> TExprCustomText
+         %UID '47399382013D'
+         %SUMMARY 'Класс TExprCustomText является наследником TExprSimple. С его помощью можно вывести текст с любыми атрибутами и любой гарнитурой.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473993380340' /* TExprSimple */
+         ; // %INHERITS
+        ; // TExprCustomText
+        <<SimpleClass>> TExprVar
+         %UID '4739935C00B7'
+         %SUMMARY 'Класс TExprVar является наследником TExprSimple. Главное отличие - текст выводится не прямым шрифтом,'#13#10'а курсивом, как это принято при отображении переменных в выражениях.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473993380340' /* TExprSimple */
+         ; // %INHERITS
+        ; // TExprVar
+        <<SimpleClass>> TExprAsterix
+         %UID '47399A04020B'
+         %SUMMARY 'Класс TExprAsterix является наследником класса TExprSimple. Предназначен для отображения звёздочки (*),'#13#10'смещённой по горизонтали. Эта звёздочка используется в качестве верхнего индекса (в квантовой механике'#13#10'звёздочкой в верхнем индексе принято обозначать сопряжённые величины).' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473993380340' /* TExprSimple */
+         ; // %INHERITS
+        ; // TExprAsterix
+        <<SimpleClass>> TExprParent
+         %UID '473992790377'
+         %SUMMARY 'Класс TExprParent является базовым классом для всех компонентов-родителей. Свойство Son этого класса'#13#10'хранит указатель на дочерний узел дерева выражения. Создавать экземпляры TExprParent не имеет смысла,'#13#10'так как вся функциональность этого класса сводится к управлению шрифтами и канвой дочернего выражения.'#13#10''#13#10'Дочернее выражение и выражение, на которое ссылается свойство Next, сильно различаются по смыслу.'#13#10'Если класс включен в цепочку, организованную с помощью свойства Next, это никак не влияет на его'#13#10'размеры и вид выражения, отображаемого с его помощью. Строго говоря, значение свойства Next никак'#13#10'не используется самим классом, если не считать того, что канва, цвет и шрифт передаются далее по'#13#10'цепочке. То, что классы объединены в цепочку, может использоваться родительским узлом первого класса'#13#10'в цепочке. С другой стороны, выражение, задаваемое свойством Son, является неотъемлемой частью'#13#10'выражения, определяемого самим классом. В качестве примера можно привести класс, реализующий'#13#10'квадратный корень. Son указывает на подкоренное выражение. Когда, например, нужно вычислить размеры'#13#10'выражения, этот класс вызывает Son.Width и Son.Height и прибавляет к полученным величинам размеры'#13#10'знака извлечения корня. При вызове функции Draw этот класс рисует знак квадратного корня, а затем'#13#10'вызывает Son.Draw для отображения подкоренного выражения. Таким образом, свойство Next используется'#13#10'для организации цепочек классов, причём то, что класс входит в такую цепочку, им самим не используется.'#13#10'А свойство Son используется для задания выражения, являющегося частью того выражения, которое'#13#10'задаётся классом.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47398921031E' /* Tl3Expr */
+         ; // %INHERITS
+        ; // TExprParent
+        <<SimpleClass>> TExprCap
+         %UID '47399961009E'
+         %SUMMARY 'Класс TExprCap является наследником TExprParent. Рисует над выражением, на которое указывает Son,'#13#10'диакритический знак. Возможны следующие знаки:'#13#10''#13#10'ecPoints - точки, обозначающие производную по времени'#13#10'ecVector - стрелка, обозначающая вектор'#13#10'ecCap - "крышка" (^)'#13#10'ecTilde - тильда (~)'#13#10'ecLine - прямая линия'#13#10''#13#10'Конструктор содержит параметр Count, который задаёт число точек при стиле ecPoints. При прочих стилях'#13#10'этот параметр игнорируется.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992790377' /* TExprParent */
+         ; // %INHERITS
+        ; // TExprCap
+        <<SimpleClass>> TExprMatrix
+         %UID '473999B10393'
+         %SUMMARY 'TExprMatrix является наследником TExprParent. Предназначен для вывода матрицы. Размеры матрицы'#13#10'определяются параметрами конструктора HorSize и VertSize. Левый верхний элемент матрицы задаётся'#13#10'выражением Son, второй слева в верхней строке - Son.Next и так далее слева направо сверху вниз. Если'#13#10'цепочка длиннее, чем HorSize*VertSize, при отображении матрицы лишние элементы игнорируются (однако'#13#10'они не игнорируются при подсчёте размеров ячейки матрицы, что может привести к искажению вида матрицы).'#13#10'Если цепочка содержит меньше элементов, чем HorSize*VertSize, ячейки, на которые не хватило узлов,'#13#10'будут пустыми.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992790377' /* TExprParent */
+         ; // %INHERITS
+        ; // TExprMatrix
+        <<SimpleClass>> TExprCase
+         %UID '473999DF02DA'
+         %SUMMARY 'Класс TExprCase является наслдеником TExprParent. Этот класс используется для отображения вариантной'#13#10'конструкции: несколько выражений обводятся слева фигурной скобкой, после каждого ставится условие,'#13#10'когда данный вариант используется. Son указывает на первый вариант, Son.Next - на условие его'#13#10'применимости, Son.Next.Next - на второй вариант, Son.Next.Next.Next - на условие его применимости'#13#10'и т.д. Если цепочка содержит нечётное число узлов, последний вариант остаётся без условия.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992790377' /* TExprParent */
+         ; // %INHERITS
+        ; // TExprCase
+        <<SimpleClass>> TExprStand
+         %UID '4739997600EF'
+         %SUMMARY 'Класс TExprStand является наследником TExprParent. Предназначен для вывода нескольких выражений в'#13#10'виде столбика. Первым выводится выражение, на которое указывает Son, под ним - Son.Next, ещё ниже -'#13#10'Son.Next.Next и так далее до конца цепочки. Параметр конструктора Align показывает, будут ли выражения'#13#10'выравниваться по левому краю, по правому краю или по центру.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992790377' /* TExprParent */
+         ; // %INHERITS
+        ; // TExprStand
+        <<SimpleClass>> TExprExtSymbol
+         %UID '4739965A00A4'
+         %SUMMARY 'Класс TExprExtSymbol используется для отображения одиночных символов, которых нет в стандартной'#13#10'кодировке ANSI. В TExprExtSymbol используется кодировка Unicode. Символы выводятся прямым шрифтом.'#13#10''#13#10'Для простоты определены константы, содержащие коды часто используемых символов:'#13#10'esPlus - знак "+"'#13#10'esMinus - знак "-" (минус, а не дефис!)'#13#10'esLess - знак "<"'#13#10'esEqual - знак "="'#13#10'esGreater - знак ">"'#13#10'esNotEqual - знак "не равно"'#13#10'esMultiply - знак умножения в виде точки'#13#10'esLessOrEqual - знак "меньше или равно"'#13#10'esGreaterOrEqual - знак "больше или равно"'#13#10'esApproxEqual - знак "примерно равно"'#13#10'esCrossMultiply - знак умножения в виде косого креста'#13#10'esDivide - знак деления в виде черты и точек снизу и сверху.'#13#10'esTilde - знак тильды'#13#10'esEquivalent - знак "тождественно"'#13#10'esArrow - стрелка слева направо (знак "стремится к")'#13#10'esSlash - деление в виде косой черты'#13#10'esEllipsis - многоточие'#13#10'esInfinum - бесконечность'#13#10'esPartDiff - знак "частного дифференциала" (округлая d)' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47398921031E' /* Tl3Expr */
+         ; // %INHERITS
+        ; // TExprExtSymbol
+        <<SimpleClass>> TExprPlank
+         %UID '4739969A0146'
+         %SUMMARY 'Класс TExprPlank является наследником TExprExtSymbol. Предназначен для отображения "h с чертой",'#13#10'которая часто используется в квантовой механике. Выводится курсивом.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739965A00A4' /* TExprExtSymbol */
+         ; // %INHERITS
+        ; // TExprPlank
+        <<SimpleClass>> TExprNabla
+         %UID '473996CE0029'
+         %SUMMARY 'Класс TExprNabla является наследником TExprExtSymbol. Предназначен для отображения символа "набла".'#13#10'Такой символ отсутсвует в кодировке Unicode, поэтому для отображения используется заглавная греческая'#13#10'дельта, повёрнутая на 180 градусов.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739965A00A4' /* TExprExtSymbol */
+         ; // %INHERITS
+        ; // TExprNabla
+        <<SimpleClass>> TExprLambda
+         %UID '473996AF01D3'
+         %SUMMARY 'Класс TExprLambda является наследником TExprExtSymbol. Предназначен для отображения "лямбды с чертой",'#13#10'которая часто используется в квантовой механике. Такой символ отсутсвует в наборе Unicode, поэтому'#13#10'черта к лямбде пририсовывается вручную.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739965A00A4' /* TExprExtSymbol */
+         ; // %INHERITS
+        ; // TExprLambda
+        <<SimpleClass>> TExprComma
+         %UID '473996E50086'
+         %SUMMARY 'Класс TExprComma является наслдеником TExprExtSymbol. Предназначен для отображения запятой.'#13#10'Переопределена функция NeedBrackets (чтобы выражения, содержащие запятую, заключались при необходимости'#13#10'в скобки).' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739965A00A4' /* TExprExtSymbol */
+         ; // %INHERITS
+        ; // TExprComma
+        <<SimpleClass>> TExprSign
+         %UID '4739970400F9'
+         %SUMMARY 'Класс TExprSign является наследником TExprExtSymbol. Предназначен для отображения различных символов,'#13#10'в том числе и тех, которых нет в кодировке Unicode. Некоторыеиз таких символов получаются из имеющихся'#13#10'путём пририсовки недостающих элементов, некоторые рисуются целиком.'#13#10''#13#10'При автоматическом построении выражений даже для простых символов (например, "+", "-" и т.д.)'#13#10'рекомендуется пользоваться классом TExprSign, а не TExprExtSymbol или TExprSimple. Связано это с тем,'#13#10'что TExprSign переопределяет функцию NeedBrackets, которая помогает правильно расставить скобки.'#13#10''#13#10'Для расширенных символов определены следующие константы:'#13#10'esMuchLess - знак "много меньше" (<<)'#13#10'esMuchGreater - знак "много больше" (>>)'#13#10'esApproxLess - знак "меньше или порядка" (знак "меньше" с тильдой под ним)'#13#10'esApproxGreater - знак "больше или порядка" (знак "больше" с тильдой под ним)'#13#10'esPlusMinus - знак "плюс-минус"'#13#10'esMinusPlus - знак "минус-плюс"'#13#10'esAlmostEqual - знак "равно или порядка" (знак равенства с тильдой над ним)'#13#10'esParallel - знак "параллельно" (две вертикальные черты)'#13#10'esPerpendicular - знак "перпендикулярно" (горизонтальная черта внизу и вертикальная посередине)'#13#10'esAngle - знак угла' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739965A00A4' /* TExprExtSymbol */
+         ; // %INHERITS
+        ; // TExprSign
+        <<SimpleClass>> TExprChain
+         %UID '473993BF02B8'
+         %SUMMARY 'Класс TExprChain является наследником TExprParent. Этот класс служит для отображения цепочки выражений.'#13#10'Первым в цепочке выводится Son, затем Son.Next, затем - Son.Next.Next и так далее, пока не будет'#13#10'достигнут конец цепочки.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992790377' /* TExprParent */
+         ; // %INHERITS
+        ; // TExprChain
+        <<SimpleClass>> TExprBigParent
+         %UID '473992A0026F'
+         %SUMMARY 'Класс TExprBigParent является наследником класса TExprParent. В нём добавлена ссылка на ещё один'#13#10'дочерний узел - свойство Daughter. Этот класс является базовым для реализации выражений, в которых'#13#10'есть две составные части. Примером такого выражения может служить простая дробь, в которой одно из'#13#10'дочерних выражений определяет числитель, а другое - знаменатель.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992790377' /* TExprParent */
+         ; // %INHERITS
+        ; // TExprBigParent
+        <<SimpleClass>> TExprLim
+         %UID '473995B3016C'
+         %SUMMARY 'Класс TExprLim является наследником TExprParent. Этот класс реализует знак предела (lim), а под ним -'#13#10'выражение, на которое указывает Son. Класс разработан для совместного использования с TExprCommonFunc:'#13#10'TExprCommonFunc.Son указывает на экземпляр TExprLim, а TExprCommonFunc.Daughter - на выражение, для'#13#10'которого вычисляется предел.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992790377' /* TExprParent */
+         ; // %INHERITS
+        ; // TExprLim
+        <<SimpleClass>> TExprTwinParent
+         %UID '473992DB0101'
+         %SUMMARY 'Класс TExprTwinParent является наследником класса TExprParent. В нём добавлены указатели на два'#13#10'дочерних узла-близнеца. Примером выражения, для которого может понадобиться такой класс, является'#13#10'индексированное выражение. Son ссылается на то выражение, которому добавляются индексы, а Twin1 и'#13#10'Twin2 - на верхний и нижний индексы.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992790377' /* TExprParent */
+         ; // %INHERITS
+        ; // TExprTwinParent
+        <<SimpleClass>> TExprIndex
+         %UID '4739992901CA'
+         %SUMMARY 'Класс TExprIndex является наследником TExprTwinParent. Используется для отображения выражений с верхним'#13#10'или нижним индексом. Son указывает на выражение, которому добавляются индексы, Twin1 - нижний индекс,'#13#10'Twin2 - верхний индекс. Twin1 или Twin2 могут быть равны nil - в этом случае выражению добаляется'#13#10'только один индекс. Верхний индекс также используется как показатель степени.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992DB0101' /* TExprTwinParent */
+         ; // %INHERITS
+        ; // TExprIndex
+        <<SimpleClass>> TExprGroupOp
+         %UID '4739930C03E7'
+         %SUMMARY 'Класс TExprGroupOp является наследником класса TExprTwinParent. Это базовый класс для всех выражений'#13#10'типа суммы или интеграла. Все эти выражения характеризуются строятся одинаково: Son указывает на'#13#10'выражение, стоящее после знака суммы или интеграла, Twin1 - стоящее под знаком, Twin2 - над ним.'#13#10'Twin1 и Twin2 могут быть равны nil одновременно или по одному. В этом случае под знаком и/или над'#13#10'ним ничего не пишется.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992DB0101' /* TExprTwinParent */
+         ; // %INHERITS
+        ; // TExprGroupOp
+        <<SimpleClass>> TExprIntegral
+         %UID '473996280034'
+         %SUMMARY 'Класс TExprIntegral яаляется наследником TExprGroupOp. Реализует однократный или многократный'#13#10'интеграл. Параметр коснтруктора Mult задаёт кратность интеграла. Если Mult<=0, рисуется символ'#13#10'интеграла неопределённой кратности (два символа интеграла, многоточие, ещё один символ интеграла).' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739930C03E7' /* TExprGroupOp */
+         ; // %INHERITS
+        ; // TExprIntegral
+        <<SimpleClass>> TExprSumma
+         %UID '473995D00381'
+         %SUMMARY 'Класс TExprSumma является наследником TExprGroupOp. Реализует сумму (с помощью греческой буквы сигма).' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739930C03E7' /* TExprGroupOp */
+         ; // %INHERITS
+        ; // TExprSumma
+        <<SimpleClass>> TExprProd
+         %UID '473995EB02D5'
+         %SUMMARY 'Класс TExprProd является наследником TExprGroupOp. Реализует произведение (с помощью греческой буквы'#13#10'пи).' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739930C03E7' /* TExprGroupOp */
+         ; // %INHERITS
+        ; // TExprProd
+        <<SimpleClass>> TExprCirc
+         %UID '4739960700AF'
+         %SUMMARY 'Класс TExprCirc является наследником TExprGroupOp. Реализует циркуляцию (интеграл с колечком).' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739930C03E7' /* TExprGroupOp */
+         ; // %INHERITS
+        ; // TExprCirc
+        <<SimpleClass>> TExprBracketed
+         %UID '473993DA02C1'
+         %SUMMARY 'Класс TExprBracketed является наследником TExprChain. Он выводит цепочку выражений, заключённую в'#13#10'скобки. Возможны круглые, квадратные, фигурные и прямые скобки (задаются константами ebXXXX).'#13#10'Скобки могут быть непарными (например, открывающая скобка круглая, а закрывающая - квадратная).'#13#10'Возможен также вариант, когда скобка стоит только с одной стороны выражения. Выражение заключается'#13#10'в скобки только в том случае, если функция IsBracketed возвращает True.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473993BF02B8' /* TExprChain */
+         ; // %INHERITS
+        ; // TExprBracketed
+        <<SimpleClass>> TExprRatio
+         %UID '473994B1005D'
+         %SUMMARY 'Класс TExprRatio является наследником класса TExprBigParent. Реализует простую дробь. Son указывает на'#13#10'числитель, Daughter - на знаменатель.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992A0026F' /* TExprBigParent */
+         ; // %INHERITS
+        ; // TExprRatio
+        <<SimpleClass>> TExprRoot
+         %UID '473994CA0211'
+         %SUMMARY 'Класс TExprRoot является наследником класса TExprBigParent. Реализует извлечение корня. Son указывает'#13#10'на подкоренное выражение, Daughter - на показатель степени корня. Для Daughter допускается значение'#13#10'nil. В этом случае показатель степени перед корнем не ставится (квадратный корень).' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992A0026F' /* TExprBigParent */
+         ; // %INHERITS
+        ; // TExprRoot
+        <<SimpleClass>> TExprAtValue
+         %UID '47399501038D'
+         %SUMMARY 'Класс TExprAtValue является наследником класса TExprBigParent. Реализует "значение при условии".'#13#10'Отображается это следующим образом: после выражения, на которое указывает Son, ставится вертикальная'#13#10'черта, а справа от неё внизу пишется выражение, на которое указывает Daughter.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992A0026F' /* TExprBigParent */
+         ; // %INHERITS
+        ; // TExprAtValue
+        <<SimpleClass>> TExprCommonFunc
+         %UID '4739951F0246'
+         %SUMMARY 'Класс TExprCommonFunc является наследником класса TExprBigParent. Он реализует "общую" функцию,'#13#10'в качестве "имени" которой может использоваться любое выражение. Son указывает на "имя" функции,'#13#10'Daughter - на её аргумент.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473992A0026F' /* TExprBigParent */
+         ; // %INHERITS
+        ; // TExprCommonFunc
+        <<SimpleClass>> TExprFunc
+         %UID '4739957100B3'
+         %SUMMARY 'Класс TExprFunc является наследником TExprCommonFunc. Он реализует традиционную функцию, имя которой'#13#10'является обычной комбинацией букв. Конструктор сам создаёт класс нужного типа для отображения имени'#13#10'функции. Если имя имеет длину 1 символ, то используется класс TExprVar, если оно длиннее - класс'#13#10'TExprFuncName. В первом случае имя функции пишется курсивом, а аргумент всегда заключается в скобки,'#13#10'так как в классе TExprVar функция ArgNeedBrackets не переопределена соответствующим образом. Во втором'#13#10'случае имя функции пишется прямым шрифтом, а аргумент заключается в скобки лишь при необходимости.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4739951F0246' /* TExprCommonFunc */
+         ; // %INHERITS
+        ; // TExprFunc
+        <<SimpleClass>> TExprRound
+         %UID '473994010258'
+         %SUMMARY 'Класс TExprRound является наследником TExprBracketed. Он переопределяет функцию FTType. Этот класс'#13#10'используется библиотекой ExprMake при сокращении лишних скобок.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473993DA02C1' /* TExprBracketed */
+         ; // %INHERITS
+        ; // TExprRound
+        <<SimpleClass>> TExprArgument
+         %UID '4739941802AC'
+         %SUMMARY 'Класс TExprArgument является наследником TExprBracketed. В нём переопределён конструктор таким образом,'#13#10'чтобы скобки всегда были круглыми. Кроме того, переопределена функция IsBracketed таким образом, чтобы'#13#10'она возвращала True только в том случае, если хотя бы один из узлов цепочки, на которую указывает'#13#10'Son, нуждается в скобках (т.е. его функция NeedBrackets возвращает True). В скобках нуждаются,'#13#10'например, узлы, реализующие знаки "+" и "-". Таким образом, если цепочка выражений представляет собой'#13#10'сумму нескольких слагаемых, оно заключается в скобки, есди это произведение нескольких множителей -'#13#10'не заключается. Это совпадает с тем, как записываются аргументы функций (например, cos 2x, но cos(x+y)).'#13#10'Этот же класс используется для реализации отдельных множителей: если в составе множителя есть опреации'#13#10'сложения или вычитания, он заключается в скобки, если нет, то не заключается.'#13#10''#13#10'В класс также добавлена функция SetBrackets, которая заставляет рисовать скобки независимо от того,'#13#10'есть ли в цепочке нуждающиеся в скобках узлы.'#13#10''#13#10'Если класс TExprArgument используется как аргумент функции (в этом случае его родительский узел'#13#10'является экземпляром класса TExprCommonFunc), то вызывается соответсвующая функция родительского'#13#10'класса для определения, нужны ли скобки аргументу.'#13#10''#13#10'При построении дерева вручную для конкретного выражения всегда заранее известно, нужно ли заключать'#13#10'какие-то его части в скобки или нет. В этом случае лучше использовать классы TExprBracketed и'#13#10'TExprChain. Но при автоматизированном построении дерева (например, с помощью библиотеки ExprMake)'#13#10'данный класс может быть очень полезным.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473993DA02C1' /* TExprBracketed */
+         ; // %INHERITS
+        ; // TExprArgument
+        <<SimpleClass>> TExprBase
+         %UID '473994720341'
+         %SUMMARY 'Класс TExprBase является наследником TExprBracketed. Он отображает выражение, заключённое в круглые'#13#10'скобки, если цепочка, на которую указывает Son, содержит более одного узла. В противном случае'#13#10'выражение в скобки не заключается. Это совпадает с тем, как должна отображаться база при возведении'#13#10'в степень (например, x^2, но (2x)^2).'#13#10''#13#10'Класс TExprBase, как и TExprArgument, предназначен только для автоматизации построения дерева.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '473993DA02C1' /* TExprBracketed */
+         ; // %INHERITS
+        ; // TExprBase
+        <<SimpleClass>> TExprContainer
+         %UID '53075F9902B4'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TExprContainer
+      ; // %CHILDREN
+     ; // ExprDraw
+   ; // %CHILDREN
+  ; // ExprDraw
+  <<Unit>> ExprMake
+   %UID '4739A0A5032E'
+   %SUMMARY 'Библиотека ExprMake предназначена для автоматизации построения формул с помощью библиотеки ExprDraw.' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '47398897018F' /* ExprDraw */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '473987420315' /* Expr */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TexprTokensList
+      %UID '4BB3497F03CC'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '31.03.2010 17:10'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '473987420315' /* Expr */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+       U$ '4B223ADC02BF' /* l3RecordListPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B07CF403D0' /* IsSameItems */
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4BB34BAE01C0'
+         %TARGET U$ '4BB34A130179' /* TexprTokenInfo */
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+      %CHILDREN
+       
+        <<StaticObject>> TexprTokenInfo
+         %UID '4BB34A130179'
+         %SUMMARY 'Информация о токене' ;
+         %META
+          %upv "not treat as record for XE4" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           FINAL <<Attribute>> rChar
+            %UID '4BB34AF002A0'
+            %SUMMARY '"Символ"' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // rChar
+           FINAL <<Attribute>> rPos
+            %UID '4BB34B000210'
+            %SUMMARY 'Эффективная позиция символа (в исходной строке)' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // rPos
+           FINAL <<Attribute>> rString
+            %UID '4BB34B7C01CB'
+            %SUMMARY 'Дополнительная строка (если существует)' ;
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // rString
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<Constructor>> C
+            %UID '4BB34BE200EB'
+            %SUMMARY 'Создаёт информацию о токене' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> C
+               %UID '4BB34BEA02E1'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aChar
+                  %UID '4BB34C030276'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aChar
+                 <<in>> aPos
+                  %UID '4BB34C0302A1'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aPos
+                 <<in>> aString
+                  %UID '4BB34C0302BF'
+                  %TARGET U$ '46780DA40383' /* Il3CString */
+                  %VALUE 'nil'
+                  %TOBEINCLUDED
+                   U$ '4E2F0E1B03BB' /* L3$Domain */
+                  ; // %TOBEINCLUDED
+                 ; // aString
+               ; // %PARAMETERS
+              ; // C
+            ; // %OPERATIONS
+           ; // C
+           FINAL <<method>> IsA$Char$4BB34F6602CC
+            %UID '4BB34F6602CC'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$4BB34F7601B1
+               %UID '4BB34F7601B1'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aChar
+                  %UID '4BB34F86002B'
+                  %TARGET U$ '482C48430205' /* Char */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aChar
+               ; // %PARAMETERS
+              ; // DoIt$4BB34F7601B1
+            ; // %OPERATIONS
+           ; // IsA$Char$4BB34F6602CC
+           FINAL <<method>> IsA$Integer$4BB34F8B0303
+            %UID '4BB34F8B0303'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$4BB34F9900B9
+               %UID '4BB34F9900B9'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> anInt
+                  %UID '4BB34FA30293'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // anInt
+               ; // %PARAMETERS
+              ; // DoIt$4BB34F9900B9
+            ; // %OPERATIONS
+           ; // IsA$Integer$4BB34F8B0303
+         ; // %OPERATIONS
+        ; // TexprTokenInfo
+        FINAL <<Define>> l3Items_NoSort
+         %UID '4BB34DEA00BF'
+        ; // l3Items_NoSort
+      ; // %CHILDREN
+     ; // TexprTokensList
+     FINAL <<UtilityPack>> ExprMake
+      %UID '4739A8C90148'
+      %SUMMARY 'Глобальные методы для разбора формул.' ;
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '473987420315' /* Expr */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4BB349BD01DC"
+         %UID '4BB349BD01DC'
+         %TARGET U$ '4BB3497F03CC' /* TexprTokensList */
+        ; // 4BB349BD01DC
+      ; // %LINKS
+      %OPERATIONS
+        <<Operation>> BuildExpr
+         %UID '4739A90703E6'
+         %SUMMARY 'Разбирает формулу. Строит дерево разбора. Может возбуждать исключение.' ;
+         %TARGET U$ '47398921031E' /* Tl3Expr */
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %RAISES
+          U$ '4739B39B0259' /* EIncorrectExpr */
+         ; // %RAISES
+         %PARAMETERS
+           <<in>> Expr
+            %UID '4739A94C039F'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // Expr
+         ; // %PARAMETERS
+        ; // BuildExpr
+        <<Operation>> SafeBuildExpr
+         %UID '4739A9530128'
+         %SUMMARY 'Разбирает формулу. Строит дерево разбора. Не может возбуждать исключение.' ;
+         %TARGET U$ '47398921031E' /* Tl3Expr */
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> Expr
+            %UID '4739A9770275'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // Expr
+         ; // %PARAMETERS
+        ; // SafeBuildExpr
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Exception>> EIncorrectExpr
+         %UID '4739B39B0259'
+         %SUMMARY 'Во время разбора формулы обнаружена синтаксическая ошибка.' ;
+        ; // EIncorrectExpr
+        <<SimpleClass>> TExprBuilder
+         %UID '4739A0D8009C'
+         %SUMMARY 'Библиотека содержит класс TExprBuilder, который строит дерево выражения по строке, содержащей'#13#10'выражение в текстовом виде. Подробно синтаксис исходного выражения с примерами разобран в программе'#13#10'ExprGuide.'#13#10''#13#10'Класс TExprBuilder имеет две функции для построения выражений: BuildExpr и SafeBuildExpr. Обе эти'#13#10'функции в качестве параметра принимают строку и возвращают указатель на корень построенного дерева.'#13#10'Если выражение содержит ошибки, возникает исключение EIncorrectExpr. Если исключение возникло во'#13#10'время работы функции BuildExpr, в памяти остаётся мусор от частично построенного дерева, поэтому'#13#10'функцией BuildExpr можно пользоваться только для заведомо корректных строк. Функция SafeBuildExpr'#13#10'сначала осуществляет прогонку алгоритма построения дерева вхолостую. На этом этапе дерево не строится,'#13#10'но исключения при неверном синтаксисе возникают. И только если первый этап пройден успешно, функция'#13#10'приступает к следующему этапу: построению дерева. Дерево, созданное в результате работы функций'#13#10'BuildExpr и SafeBuidExpr, после использования надо освободить, вызвав Free.' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '473987420315' /* Expr */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46780CCE037B' /* Tl3Base */
+         ; // %INHERITS
+         %ATTRIBUTES
+           PROTECTED <<Attribute>> Build
+            %UID '4739B7D803E0'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Build
+           PROTECTED <<Attribute>> P
+            %UID '4739B7F400D3'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // P
+           PROTECTED STRING FUNCTION S
+            %UID '4739B8000365'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // S
+           <<Attribute>> FuncAutoIndex
+            %UID '473C3A1B027E'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // FuncAutoIndex
+           <<Attribute>> VarAutoIndex
+            %UID '473C3A30006C'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // VarAutoIndex
+           <<Attribute>> PostSymbols
+            %UID '473C3A3D00E3'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // PostSymbols
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE <<Operation>> RaiseError
+            %UID '4739B7BB02D0'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aMessage
+               %UID '4739B7C701AB'
+               %TARGET U$ '452257A0036F' /* "a-string" */
+              ; // aMessage
+              <<in>> aPosition
+               %UID '4739BA4100A8'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aPosition
+            ; // %PARAMETERS
+           ; // RaiseError
+           PROTECTED STRING FUNCTION Preprocess
+            %UID '4739B82302B2'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+            %PARAMETERS
+              <<in>> S
+               %UID '4739B82F0345'
+               %TARGET U$ '452257A0036F' /* "a-string" */
+              ; // S
+            ; // %PARAMETERS
+           ; // Preprocess
+           PROTECTED <<Operation>> AddMult
+            %UID '4739B83C0131'
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Existing
+               %UID '4739B8680301'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Existing
+              <<in>> Multiplier
+               %UID '4739BA490118'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Multiplier
+            ; // %PARAMETERS
+           ; // AddMult
+           PROTECTED <<Operation>> MakePower
+            %UID '4739B874036C'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Base
+               %UID '4739B8810285'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Base
+              <<in>> Exponent
+               %UID '4739B88102B7'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Exponent
+            ; // %PARAMETERS
+           ; // MakePower
+           PROTECTED <<Operation>> MakeIndex
+            %UID '4739B890024A'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Base
+               %UID '4739B89D01A9'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Base
+              <<in>> Index
+               %UID '4739B89D01DB'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Index
+            ; // %PARAMETERS
+           ; // MakeIndex
+           PROTECTED <<Operation>> MakeCap
+            %UID '4739B8A60328'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Base
+               %UID '4739B8BF03CE'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Base
+              <<in>> Style
+               %UID '4739BA5601A3'
+               %TARGET U$ '4739B8EE00D3' /* TExprCapStyle */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Style
+              <<in>> N
+               %UID '4739BA5601D5'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // N
+            ; // %PARAMETERS
+           ; // MakeCap
+           PROTECTED <<Operation>> Decorate
+            %UID '473C36980376'
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Base
+               %UID '473C36A90031'
+               %TARGET U$ '47398921031E' /* Tl3Expr */
+               %TOBEINCLUDED
+                U$ '473987420315' /* Expr */
+               ; // %TOBEINCLUDED
+              ; // Base
+            ; // %PARAMETERS
+           ; // Decorate
+           PROTECTED <<Operation>> ExprString
+            %UID '473C36B90107'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Need
+               %UID '473C36C0034C'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Need
+              <<in>> AllowComma
+               %UID '473C3766037C'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %VALUE false
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // AllowComma
+            ; // %PARAMETERS
+           ; // ExprString
+           PROTECTED <<Operation>> BoolExpr
+            %UID '473C36C802F3'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Flags
+               %UID '473C36FF0324'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Flags
+            ; // %PARAMETERS
+           ; // BoolExpr
+           PROTECTED <<Operation>> Expr
+            %UID '473C36DF00ED'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Flags
+               %UID '473C37060071'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Flags
+            ; // %PARAMETERS
+           ; // Expr
+           PROTECTED <<Operation>> Factor
+            %UID '473C36EB0040'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Flags
+               %UID '473C36F602F9'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Flags
+            ; // %PARAMETERS
+           ; // Factor
+           PROTECTED <<Operation>> Trans
+            %UID '473C37180135'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Flags
+               %UID '473C3721012E'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Flags
+            ; // %PARAMETERS
+           ; // Trans
+           PROTECTED <<Operation>> Func
+            %UID '473C372C0152'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Flags
+               %UID '473C37340208'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Flags
+            ; // %PARAMETERS
+           ; // Func
+           PROTECTED <<Operation>> FuncName
+            %UID '473C373E0311'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> N
+               %UID '473C375702BC'
+               %TARGET U$ '452257A0036F' /* "a-string" */
+              ; // N
+              <<inout>> Flags
+               %UID '473C37570303'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Flags
+              <<in>> Brackets
+               %UID '473C37570349'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Brackets
+            ; // %PARAMETERS
+           ; // FuncName
+           PROTECTED <<Operation>> Token
+            %UID '473C38AE03C4'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> N
+               %UID '473C38BE02CD'
+               %TARGET U$ '3DBFFE240068' /* string */
+              ; // N
+              <<inout>> Flags
+               %UID '473C38BE031D'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Flags
+            ; // %PARAMETERS
+           ; // Token
+           PROTECTED <<Operation>> GreekLetter
+            %UID '473C38CB002C'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> N
+               %UID '473C38D302CD'
+               %TARGET U$ '452257A0036F' /* "a-string" */
+              ; // N
+            ; // %PARAMETERS
+           ; // GreekLetter
+           PROTECTED <<Operation>> Comma
+            %UID '473C38DE02DD'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Comma
+           PROTECTED <<Operation>> LookForComma
+            %UID '473C38F1028A'
+           ; // LookForComma
+           <<Operation>> BuildExpr
+            %UID '473C390A0380'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Expr
+               %UID '473C391200B1'
+               %TARGET U$ '452257A0036F' /* "a-string" */
+              ; // Expr
+            ; // %PARAMETERS
+           ; // BuildExpr
+           <<Operation>> SafeBuildExpr
+            %UID '473C391B001D'
+            %TARGET U$ '47398921031E' /* Tl3Expr */
+            %TOBEINCLUDED
+             U$ '473987420315' /* Expr */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> Expr
+               %UID '473C392C0271'
+               %TARGET U$ '452257A0036F' /* "a-string" */
+              ; // Expr
+            ; // %PARAMETERS
+           ; // SafeBuildExpr
+           <<ctor>> Create
+            %UID '473C393C00A7'
+           ; // Create
+         ; // %OPERATIONS
+        ; // TExprBuilder
+        <<SimpleClass>> Tl3StringEx
+         %UID '4BB34C3C00C0'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '473987420315' /* Expr */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4BB3497F03CC' /* TexprTokensList */
+         ; // %INHERITS
+        ; // Tl3StringEx
+      ; // %CHILDREN
+     ; // ExprMake
+   ; // %CHILDREN
+  ; // ExprMake
+ ; // %CHILDREN
+; // Expr

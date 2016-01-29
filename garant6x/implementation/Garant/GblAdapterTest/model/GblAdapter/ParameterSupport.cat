@@ -1,0 +1,2820 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.2.0401.2700"
+    charSet    	204)
+
+(object Class_Category "ParameterSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"C++ DLL (cpp):*3F15091F00B1_CVS_LOG*"
+	    value      	(value Text "//#UC START# *3F15091F00B1_CVS_LOG*¤// ¤//#UC END# *3F15091F00B1_CVS_LOG*"))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"C++ DLL (h):*3F15091F00B1_CVS_LOG*"
+	    value      	(value Text "//#UC START# *3F15091F00B1_CVS_LOG*¤// ¤//#UC END# *3F15091F00B1_CVS_LOG*"))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"RootDir"
+	    value      	"W:\\garant6x\\implementation"))
+    quid       	"3F15091F00B1"
+    documentation 	"Общие интерфейсы, используемы в разных пакетах"
+    stereotype 	"AdapterUnit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"3F4E142B0194"
+	    supplier   	"Logical View::Garant::GblAdapter::BaseTypes"
+	    quidu      	"3F2557FD00CD"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ParameterType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ED7156F004E"
+	    documentation 	
+|Перечисление определяющее различные типы ограничения доступа к значениям параметра. 
+|Кроме того значение типа ограничения может косвено влиять на отображение параметра в абстрактном GUI. Например PT_LIST всего сорее будет соответсвовать list-box контролу для выбора значений из списка.
+	    
+	    stereotype 	"AdapterEnum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "PT_NULL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED715A0029D"
+		    documentation 	"Устанавливаемый параметр не может иметь значений"
+		    exportControl 	"Public")
+		(object ClassAttribute "PT_PATTERN"
+		    quid       	"3FF17F2600E2"
+		    documentation 	
+|Устанавлевоемый параметр может быть произвольным, однако типы значений и их последовательность должно четко совпадать с определенным в constraint_values. Параметер с данным типом ограничения является "завершенным".
+		    
+		    exportControl 	"Public")
+		(object ClassAttribute "PT_FREE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED715AC0255"
+		    documentation 	"Устанавлевоемый параметр может иметь произвольное количество значений, произвольного типа. "
+		    exportControl 	"Public")
+		(object ClassAttribute "PT_LIST"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED715B3009C"
+		    documentation 	"Параметер должен принять одно из значений списка (фиксированного типа), определенного в constraint_values."
+		    exportControl 	"Public")
+		(object ClassAttribute "PT_LIST_MAY_EMPTY"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED715DC0073"
+		    documentation 	"Параметер должен принять одно из значений списка (фиксированного типа), определенного в constraint_values, но может остаться и не заполненным."
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "ValueType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ED724530303"
+	    documentation 	"Типы значений атрибутов."
+	    stereotype 	"AdapterEnum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "VT_LONG"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED7249B0035"
+		    documentation 	"Беззнаковое целое."
+		    exportControl 	"Public")
+		(object ClassAttribute "VT_STRING"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED724A7008C"
+		    documentation 	"Строка."
+		    exportControl 	"Public")
+		(object ClassAttribute "VT_DATE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED724AD0009"
+		    documentation 	"Дата."
+		    exportControl 	"Public")
+		(object ClassAttribute "VT_BOOLEAN"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99"))
+		    quid       	"3ED724BC0123"
+		    documentation 	"Бинарное значение (0/1)."
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "InvalidParameterValue"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"709B8227-5ABE-402B-81F4-BB6CD151212C"))
+	    quid       	"3F0418770168"
+	    documentation 	"Исключение возникает, при попытке установить не допустимое значение (одно из значений) Параметра. Допустимые значения и ограничения на их изменение могут определяется конкретной фабрикой Параметра при его создании "
+	    stereotype 	"AdapterException"
+	    language   	"MDA Generator")
+	(object Class "InvalidValueType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"53443A7A-5ED8-4E63-990A-2F20E985BBF1"))
+	    quid       	"3ED7491D00B6"
+	    documentation 	"Возвращается при попытке прочитать или присвоить через интерфейс ParameterValues значение по типу, который не совпадает с реальным типом значения (реальный тип можно получить через свойство value_type)."
+	    stereotype 	"AdapterException"
+	    language   	"MDA Generator")
+	(object Class "InvalidIndex"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"56331F0C-AE40-4578-A38C-84316D7ABD7B")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"TempliteFile"
+		    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl"))
+	    quid       	"3EC1E63A0112"
+	    documentation 	"Возвращается при попытке получить элемент списка по несуществующему индексу. Т.е. index<0 или index>=count."
+	    stereotype 	"AdapterException"
+	    language   	"MDA Generator")
+	(object Class "Parameter"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"123CCF6A-4194-45A6-A694-A98350BE82B9")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Depricate Default Constructor"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Deprecate Default Constructor"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_CUSTOM_INCLUDES*"
+		    value      	(value Text "//#UC START# *3ED73DF102BC_CUSTOM_INCLUDES*¤//#UC END# *3ED73DF102BC_CUSTOM_INCLUDES*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_MAKE_INTERFACE_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_MAKE_INTERFACE_IMPLEMENTATION*¤¤	return new Parameter_i (¤		new Parameter_i::IParameterData_i¤	);¤¤	//#UC END# *3ED73DF102BC_MAKE_INTERFACE_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*¤¤IParameter* Parameter_i::make_interface (¤	ParameterData_box data¤) {¤	return new Parameter_i (data);¤}¤¤//#UC END# *3ED73DF102BC_CUSTOM_MAKE_INTERFACES_IMPLEMENTATIONS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_BASE_METHOD_IMPL*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_BASE_METHOD_IMPL*¤¤void Parameter_i::invalidate () {¤	m_data->invalidate ();¤}¤¤ValueType Parameter_i::translate_vt (ParameterMapper::TypeValue type) {¤	switch (type) {¤		case ParameterMapper::VT_LONG: ¤			return VT_LONG;¤		case ParameterMapper::VT_STRING: ¤			return VT_STRING;¤		case ParameterMapper::VT_DATE: ¤			return VT_DATE;¤		case ParameterMapper::VT_BOOLEAN: ¤			return VT_BOOLEAN;¤		default :¤			assert (false);¤			throw std::invalid_argument ("Parameter_i::translate_vt");¤	};	¤}¤¤ParameterMapper::TypeValue Parameter_i::translate_vt (ValueType type) {¤	switch (type) {¤		case VT_LONG : ¤			return ParameterMapper::VT_LONG;¤		case VT_STRING : ¤			return ParameterMapper::VT_STRING;¤		case VT_DATE : ¤			return ParameterMapper::VT_DATE;¤		case VT_BOOLEAN : ¤			return ParameterMapper::VT_BOOLEAN;¤		default :¤			assert (false);¤			throw std::invalid_argument ("Parameter_i::translate_vt");¤	};	¤}¤¤//#UC END# *3ED73DF102BC_BASE_METHOD_IMPL*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*¤Parameter_i::Parameter_i (¤	ParameterData_box data¤) :¤	m_data (data)¤	//, m_validator (validator)¤{¤}¤¤¤//#UC END# *3ED73DF102BC_CUSTOM_CONSTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_DESTRUCTOR_IMPLEMENTATION*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_DESTRUCTOR_IMPLEMENTATION*¤	//#UC END# *3ED73DF102BC_DESTRUCTOR_IMPLEMENTATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_CVS_LOG*"
+		    value      	(value Text "//#UC START# *3ED73DF102BC_CVS_LOG*¤// ¤//#UC END# *3ED73DF102BC_CVS_LOG*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_INCLUDES*¤#include "Application/GalUtils/Server/PropertyDB/ParameterMapperC.h"¤#include "Garant/GblAdapter/Settings/SettingsUnit.h"¤#include "Garant/GblAdapter/BaseTypes/String_i.h"¤#include "patterns/managers/Var.h"¤//#UC END# *3ED73DF102BC_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PUBLIC_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PUBLIC_TYPES*
+|	
+|	// Интерфейс доступа к данным параметра
+|	class IParameterData {
+|	public:
+|		virtual ParameterMapper::Parameter& ref () = 0;
+|		virtual void invalidate () = 0;
+|	}; // class IParameterData
+|
+|	// Интерфейсы, реализующие проверку корректности состояния GblAdapter::Property
+|	class IParameterValidator {
+|	public:
+|		virtual void check_boolean (unsigned long index, bool value) const = 0;
+|		virtual void check_string (unsigned long index, const char* value) const = 0;
+|		virtual void check_date (unsigned long index, const Date& value) const = 0;	
+|		virtual void check_long (unsigned long index, unsigned long value) const = 0;	
+|		virtual void can_clear () const = 0;	
+|	}; // class IParameterValidator
+|
+|   typedef Core::Var<IParameterData> ParameterData_var;
+|	 typedef Core::Var<IParameterValidator> ParameterValidator_var;
+|
+|	//#UC END# *3ED73DF102BC_EX_PUBLIC_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PROTECTED_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PROTECTED_TYPES*
+|	//#UC END# *3ED73DF102BC_EX_PROTECTED_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PRIVATE_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PRIVATE_TYPES*
+|	//#UC END# *3ED73DF102BC_EX_PRIVATE_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PUBLIC_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PUBLIC_STATIC_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PUBLIC_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PROTECTED_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PROTECTED_STATIC_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PROTECTED_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PRIVATE_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PRIVATE_STATIC_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PRIVATE_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PUBLIC_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PUBLIC_ABSTRACT_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PUBLIC_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PROTECTED_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PROTECTED_ABSTRACT_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PROTECTED_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PRIVATE_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PRIVATE_ABSTRACT_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PRIVATE_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PUBLIC_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PUBLIC_VIRTUAL_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PUBLIC_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PROTECTED_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PROTECTED_VIRTUAL_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PROTECTED_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PRIVATE_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PRIVATE_VIRTUAL_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PRIVATE_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PUBLIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PUBLIC_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PUBLIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PROTECTED_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PROTECTED_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PROTECTED_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PRIVATE_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PRIVATE_METHODS*
+|	//#UC END# *3ED73DF102BC_EX_PRIVATE_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_STATIC_PUBLIC_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_STATIC_PUBLIC_VARIABLES*
+|	//#UC END# *3ED73DF102BC_EX_STATIC_PUBLIC_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_STATIC_PROTECTED_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_STATIC_PROTECTED_VARIABLES*
+|	//#UC END# *3ED73DF102BC_EX_STATIC_PROTECTED_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_STATIC_PRIVATE_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_STATIC_PRIVATE_VARIABLES*
+|	//#UC END# *3ED73DF102BC_EX_STATIC_PRIVATE_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PUBLIC_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PUBLIC_VARIABLES*
+|	//#UC END# *3ED73DF102BC_EX_PUBLIC_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PROTECTED_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PROTECTED_VARIABLES*
+|	//#UC END# *3ED73DF102BC_EX_PROTECTED_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX_PRIVATE_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX_PRIVATE_VARIABLES*
+|	//#UC END# *3ED73DF102BC_EX_PRIVATE_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PUBLIC_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PUBLIC_TYPES*
+|	class ParameterDataBase_i : public IParameterEx::IParameterData {
+|	public:
+|		virtual void invalidate ();
+|	protected:
+|		IProperty_var m_property;
+|	};
+|	//#UC END# *3ED73DF102BC_CUSTOM_PUBLIC_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PROTECTED_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PROTECTED_TYPES*
+|	class IParameterData_i : public IParameterEx::IParameterData {
+|	public:
+|
+|		IParameterData_i () {
+|		}
+|	private:
+|		ParameterMapper::Parameter& ref () {
+|			return m_data;
+|		}
+|		void invalidate () {
+|		}
+|
+|	private:
+|		ParameterMapper::Parameter m_data;
+|	};
+|
+|	class IParameterValidator_i : public IParameterEx::IParameterValidator {
+|
+|		void check_boolean (unsigned long index, bool value) const {
+|		}
+|		void check_string (unsigned long index, const char* value) const {
+|		}
+|		void check_date (unsigned long index, const Date& value) const {
+|		}
+|		void check_long (unsigned long index, unsigned long value) const {
+|		}
+|		void can_clear () const {
+|		}
+|	};
+|
+|	//#UC END# *3ED73DF102BC_CUSTOM_PROTECTED_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PRIVATE_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PRIVATE_TYPES*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PRIVATE_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PUBLIC_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PUBLIC_STATIC_METHODS*
+|	
+|	static IParameter* make_interface (
+|		ApplicationHelper* const application_helper
+|		, IParameterEx::ParameterData_var data
+|		,	IParameterEx::ParameterValidator_var validator
+|	);
+|
+|	static ValueType translate_vt (ParameterMapper::TypeValue type);
+|	static ParameterMapper::TypeValue translate_vt (ValueType type);
+|	//#UC END# *3ED73DF102BC_CUSTOM_PUBLIC_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PROTECTED_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PROTECTED_STATIC_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PROTECTED_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PRIVATE_STATIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PRIVATE_STATIC_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PRIVATE_STATIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PUBLIC_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PUBLIC_ABSTRACT_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PUBLIC_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PROTECTED_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PROTECTED_ABSTRACT_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PROTECTED_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PRIVATE_ABSTRACT_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PRIVATE_ABSTRACT_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PRIVATE_ABSTRACT_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PUBLIC_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PUBLIC_VIRTUAL_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PUBLIC_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PROTECTED_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PROTECTED_VIRTUAL_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PROTECTED_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PRIVATE_VIRTUAL_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PRIVATE_VIRTUAL_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PRIVATE_VIRTUAL_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PUBLIC_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PUBLIC_METHODS*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PUBLIC_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PROTECTED_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PROTECTED_METHODS*
+|
+|	Parameter_i (
+|		ApplicationHelper* const application_helper
+|		, IParameterEx::ParameterData_var data
+|		,	IParameterEx::ParameterValidator_var validator
+|	);
+|
+|	//#UC END# *3ED73DF102BC_CUSTOM_PROTECTED_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PRIVATE_METHODS*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PRIVATE_METHODS*
+|	
+|	void invalidate ();
+|	
+|	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+|	
+|	void set_long (unsigned long index, unsigned long value);
+|	void set_string (unsigned long index, const char* value);
+|	void set_boolean (unsigned long index, bool value);
+|	void set_date (unsigned long index, const Date& value);
+|	
+|	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+|	
+|	unsigned long get_long (unsigned long index) const;
+|	ACE_CString get_string (unsigned long index) const;
+|	bool get_boolean (unsigned long index) const;
+|	Date get_date (unsigned long index) const;
+|	
+|	ParameterMapper::Parameter& ref () const;
+|
+|	//#UC END# *3ED73DF102BC_CUSTOM_PRIVATE_METHODS*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_STATIC_PUBLIC_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_STATIC_PUBLIC_VARIABLES*
+|	//#UC END# *3ED73DF102BC_CUSTOM_STATIC_PUBLIC_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_STATIC_PROTECTED_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_STATIC_PROTECTED_VARIABLES*
+|	//#UC END# *3ED73DF102BC_CUSTOM_STATIC_PROTECTED_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_STATIC_PRIVATE_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_STATIC_PRIVATE_VARIABLES*
+|	//#UC END# *3ED73DF102BC_CUSTOM_STATIC_PRIVATE_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PUBLIC_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PUBLIC_VARIABLES*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PUBLIC_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PROTECTED_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PROTECTED_VARIABLES*
+|	//#UC END# *3ED73DF102BC_CUSTOM_PROTECTED_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_PRIVATE_VARIABLES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_PRIVATE_VARIABLES*
+|	
+|	mutable ACE_SYNCH_MUTEX m_mutex;
+|	mutable IParameterEx::ParameterData_var m_data;
+|	IParameterEx::ParameterValidator_var m_validator;
+|
+|	//#UC END# *3ED73DF102BC_CUSTOM_PRIVATE_VARIABLES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_INLINE_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_INLINE_INCLUDES*¤#include "Parameter_i.i"¤//#UC END# *3ED73DF102BC_INLINE_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CVS_LOG*"
+		    value      	(value Text "//#UC START# *3ED73DF102BC_CVS_LOG*¤// ¤//#UC END# *3ED73DF102BC_CVS_LOG*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_EX*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_EX*¤public:¤	// Интерфейс доступа к данным параметра¤	class IParameterData {¤	public:¤		virtual ParameterMapper::Parameter& ref () = 0;¤		virtual void invalidate () = 0;¤	}; // class IParameterData¤¤	typedef GCL::Box <IParameterData> ParameterData_var;¤	¤	virtual ParameterData_var get_data () = 0;¤¤//#UC END# *3ED73DF102BC_EX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_TYPES*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_TYPES*¤public:¤	class IParameterData {¤	public:¤		virtual ParameterMapper::Parameter& ref () = 0;¤		virtual void invalidate () = 0;¤	}; // class IParameterData¤	typedef GCL::Box <IParameterData> ParameterData_box;¤¤protected:¤	class IParameterData_i : public IParameterData {¤	public:¤		IParameterData_i () {¤		}¤¤	private:¤		ParameterMapper::Parameter& ref () {¤			return m_data;¤		}¤		void invalidate () {¤		}¤¤	private:¤		ParameterMapper::Parameter m_data;¤	};¤¤//#UC END# *3ED73DF102BC_CUSTOM_TYPES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_STATIC*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_STATIC*¤	static IParameter* make_interface (¤		ParameterData_box data¤	);¤¤	static ValueType translate_vt (ParameterMapper::TypeValue type);¤	static ParameterMapper::TypeValue translate_vt (ValueType type);¤//#UC END# *3ED73DF102BC_CUSTOM_STATIC*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_ABSTRACT*"
+		    value      	(value Text "//#UC START# *3ED73DF102BC_CUSTOM_ABSTRACT*¤//#UC END# *3ED73DF102BC_CUSTOM_ABSTRACT*"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_METHODS_AND_DATA*¤public:¤	ParameterData_box get_data ();¤¤protected:¤	Parameter_i (¤		ParameterData_box data¤	);¤¤private:¤	void invalidate ();¤¤	void set_long (unsigned long index, long value);¤	void set_string (unsigned long index, const char* value);¤	void set_boolean (unsigned long index, bool value);¤	void set_date (unsigned long index, const Date& value);¤	¤	long get_long (unsigned long index) const;¤	ACE_CString get_string (unsigned long index) const;¤	bool get_boolean (unsigned long index) const;¤	Date get_date (unsigned long index) const;¤¤private:¤	mutable ACE_SYNCH_MUTEX m_mutex;¤	mutable ParameterData_box m_data;¤¤//#UC END# *3ED73DF102BC_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_CUSTOM_PREINCLUDES*"
+		    value      	"//#UC START# *3ED73DF102BC_CUSTOM_PREINCLUDES*¤//#UC END# *3ED73DF102BC_CUSTOM_PREINCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3ED73DF102BC_CUSTOM_QUERY_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_QUERY_INTERFACE*¤		//#UC END# *3ED73DF102BC_CUSTOM_QUERY_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3ED73DF102BC_CUSTOM_INHERITANCE*"
+		    value      	(value Text 
+|//#UC START# *3ED73DF102BC_CUSTOM_INHERITANCE*¤	//#UC END# *3ED73DF102BC_CUSTOM_INHERITANCE*
+		    )))
+	    quid       	"3ED73DF102BC"
+	    documentation 	
+|Интерфейс доступк к абстрактному параметру. Один параметер может содержать массив значений разных типов. Все значения лежат в порядке своего добавления, и доступны по соответствующему индексу.
+|Параметер может быть создан своей конкретной фабрикой с установленными ограничениями, к которым относятся свойство "константности" (значение параметра не может изменятся), свойство "завершенности" (список значений параметра не может изменятся ни по составу ни по типам), и ограничение на допустимые значения (может быть задан список допустимых значений). По соображениям упрощения интерфейса и его реализации, интерфейс чтения и установки ограничений не доступен через интерфейс самого Параметра. Вместо этого в случае необходимости, конкретная фабрика создающая Параметр с ограничениями должна возвращать интерфейс для чтения и/или модификации этих ограничений.
+|При попытке изменить Параметр с нарушением ограничений метод вызовит соответсвующее исключение (ConstantModify или InvalidParameterValue)
+	    
+	    stereotype 	"AdapterInterface"
+	    operations 	(list Operations
+		(object Operation "add_long"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3F0940350153,3F0418770168,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3EDC5E96027C*"
+			    value      	(value Text 
+|//#UC START# *3EDC5E96027C*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	unsigned long index = parameter.length ();¤	CORBA::ULong new_length = index+1;¤	parameter.length (new_length);¤	try {¤		this->set_long (index, value);	¤		this->invalidate ();¤	} catch (...) {¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤			parameter.length (new_length-1);¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤		throw;¤	}¤¤	//#UC END# *3EDC5E96027C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"F0AFAB62-20F0-4323-BDB7-3C1E675D10D2"))
+		    quid       	"3EDC5E96027C"
+		    documentation 	"Добавить зеначение типа long"
+		    parameters 	(list Parameters
+			(object Parameter "value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"Priority"
+				    value      	"99"))
+			    quid       	"3EDC5EB00193"
+			    type       	"unsigned long"
+			    quidu      	"3DBFFDE101CA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "add_string"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3F0940350153,3F0418770168,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3EDC5EB30147*"
+			    value      	(value Text 
+|//#UC START# *3EDC5EB30147*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	unsigned long index = parameter.length ();¤	CORBA::ULong new_length = index+1;¤	parameter.length (new_length);¤	try {¤		this->set_string (index, value);	¤		this->invalidate ();¤	} catch (...) {¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤			parameter.length (new_length-1);¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤		throw;¤	}¤¤	//#UC END# *3EDC5EB30147*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"7F77D127-AA70-410F-965D-C081DAF66C60"))
+		    quid       	"3EDC5EB30147"
+		    documentation 	"Добавить зеначение типа строка"
+		    parameters 	(list Parameters
+			(object Parameter "value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"Priority"
+				    value      	"99"))
+			    quid       	"3EDC5ECD02D5"
+			    type       	"wstring"
+			    quidu      	"3DBFFEBF038C"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "add_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3F0940350153,3F0418770168,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3EDC5ECD02B7*"
+			    value      	(value Text 
+|//#UC START# *3EDC5ECD02B7*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();	¤	unsigned long index = parameter.length ();¤	CORBA::ULong new_length = index+1;¤	parameter.length (new_length);¤	try {¤		this->set_date (index, value);	¤		this->invalidate ();¤	} catch (...) {¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤			parameter.length (new_length-1);¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤		throw;¤	}¤¤	//#UC END# *3EDC5ECD02B7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"622F9F30-ED67-40FC-945A-6CC5CCE2819D"))
+		    quid       	"3EDC5ECD02B7"
+		    parameters 	(list Parameters
+			(object Parameter "value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"Priority"
+				    value      	"99"))
+			    quid       	"3EDC5EDF0104"
+			    type       	"Date"
+			    quidu      	"3EC377520179"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "add_boolean"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3F0940350153,3F0418770168,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3EDC5E7E01FF*"
+			    value      	(value Text 
+|//#UC START# *3EDC5E7E01FF*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	unsigned long index = parameter.length ();¤	CORBA::ULong new_length = index+1;¤	parameter.length (new_length);¤	try {¤		this->set_boolean (index , value);	¤		this->invalidate ();¤	} catch (...) {¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤			parameter.length (new_length-1);¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤		throw;¤	}¤¤	//#UC END# *3EDC5E7E01FF*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"40DBE981-02CE-47C8-B0A8-4A5B5D9B1C4B"))
+		    quid       	"3EDC5E7E01FF"
+		    parameters 	(list Parameters
+			(object Parameter "value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"Priority"
+				    value      	"99"))
+			    quid       	"3EDC5E9401D9"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "clear_all"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TempliteFile"
+			    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3F0940350153,3F0418770168")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3EFC0A6201A5*"
+			    value      	(value Text 
+|//#UC START# *3EFC0A6201A5*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤¤	ParameterMapper::Parameter prev = parameter; // save ¤ ¤	parameter.length (0);¤	try {¤		this->invalidate ();¤	} catch (...) {¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤			parameter = prev;¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤		throw;¤	}¤¤	//#UC END# *3EFC0A6201A5*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"A249E37A-5D5B-49F4-82A4-8C0E19286E40"))
+		    quid       	"3EFC0A6201A5"
+		    documentation 	"Очистить все значения атрибута."
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "remove"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3F24D75702C9*"
+			    value      	(value Text 
+|//#UC START# *3F24D75702C9*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	¤	ParameterMapper::Parameter prev = parameter; // save ¤¤	CORBA::ULong length = parameter.length ();¤	for (CORBA::ULong i = index + 1; i < length; ++i) {¤		ParameterMapper::ParameterElement& target = parameter [CORBA::ULong (i - 1)];¤		ParameterMapper::ParameterElement& source = parameter [CORBA::ULong (i)];¤		switch (source._d ()) {¤			case ParameterMapper::VT_LONG :¤				target.long_value (source.long_value ());¤				break;¤			case ParameterMapper::VT_BOOLEAN :¤				target.bool_value (source.bool_value ());¤				break;¤			case ParameterMapper::VT_STRING :¤				target.string_value (source.string_value ());¤				break;¤			case ParameterMapper::VT_DATE :¤				target.date_value (source.date_value ());¤				break;¤			default : ¤				assert (false);¤				throw std::logic_error ("Parameter_i::remove");¤		}	¤	}¤¤	CORBA::ULong new_length = length - 1;¤	parameter.length (new_length);¤¤	try {¤		this->invalidate ();¤	} catch (...) {¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤			parameter = prev;¤		GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤		throw;¤	}¤	//#UC END# *3F24D75702C9*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Pure virtual"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3F0940350153,3F0418770168")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"5816B714-2CF1-4FFB-8285-8BC4128D8322"))
+		    quid       	"3F24D75702C9"
+		    parameters 	(list Parameters
+			(object Parameter "index"
+			    quid       	"3F24D79201F2"
+			    type       	"unsigned long"
+			    quidu      	"3DBFFDE101CA"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"Priority"
+			    value      	"99")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TempliteFile"
+			    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED741400224_GET*"
+			    value      	(value Text 
+|//#UC START# *3ED741400224_GET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	return ACE_static_cast (long, m_data->ref ().length ());¤	//#UC END# *3ED741400224_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"F89435FD-2D39-4A0F-BAC9-101DFE1D286A"))
+		    quid       	"3ED741400224"
+		    documentation 	"Количество заданных значений."
+		    stereotype 	"readonly"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"3ECCE76300DD"
+	    roles      	(list role_list
+		(object Role "parent"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_GET*¤	parent = INode::_duplicate (m_parent);¤	//#UC END# *3ECCE764032E_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*¤	Node_i::get_parent (parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*
+|	Node_i::get_parent(parent);
+|//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*¤	*parent;¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*¤	StaticNode_i::get_parent(parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*¤	QueryAttributeNode_i::get_parent(parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*¤	QueryAttributeNode_i::get_parent(parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*¤	QueryAttributeNode_i::get_parent(parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*¤	parent = dynamic_cast <StaticNode_i*> (StaticNode::parent ());¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*¤	StaticNode_i::get_parent (parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*¤	Node_i::get_parent(parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*¤	QueryAttributeNode_i::get_parent (parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*¤	StaticNode_i::get_parent (parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*¤	Node_i::get_parent (parent);¤	//#UC END# *3ECCE764032E_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"EFFDB048-7705-43B7-AD2B-FED31CC24AA7"))
+		    quid       	"3ECCE764032E"
+		    documentation 	"Cсылка на родительский элемент. Может быть равен nil для root_node."
+		    stereotype 	"readonly"
+		    label      	"parent"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTreeSupport::Node"
+		    quidu      	"3EC09A3D03C6"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"3ECCE7640342"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTreeSupport::Node"
+		    quidu      	"3EC09A3D03C6"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    quid       	"3ECCE7BA02D7"
+	    roles      	(list role_list
+		(object Role "previous_node"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_GET*¤	INode_var result;¤	if (m_index != 0) {¤		m_parent->get_child (m_index-1, result.out ());¤	}¤	previous_node = result._retn ();¤	//#UC END# *3ECCE7BB038D_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*¤	Node_i::get_previous_node (previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*
+|	Node_i::get_previous_node(previous_node);
+|//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*¤	StaticNode_i::get_previous_node(previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*¤	QueryAttributeNode_i::get_previous_node(previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*¤	QueryAttributeNode_i::get_previous_node(previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*¤	QueryAttributeNode_i::get_previous_node(previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*¤	previous_node = dynamic_cast <StaticNode_i*> (StaticNode::prev ());¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*¤	StaticNode_i::get_previous_node (previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*¤	Node_i::get_previous_node(previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*¤	QueryAttributeNode_i::get_previous_node (previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*¤	StaticNode_i::get_previous_node (previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*¤	Node_i::get_previous_node (previous_node);¤	//#UC END# *3ECCE7BB038D_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"CA62DC2F-2511-42A1-94CB-0B3B20045BD0"))
+		    quid       	"3ECCE7BB038D"
+		    documentation 	"Предыдущий элеммент на том же уровне иерархии (т.е. имеющий того же parent). Может вернуть nil для первого элемента на уровне."
+		    stereotype 	"readonly"
+		    label      	"previous_node"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTreeSupport::Node"
+		    quidu      	"3EC09A3D03C6"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$3"
+		    quid       	"3ECCE7BB03A1"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTreeSupport::Node"
+		    quidu      	"3EC09A3D03C6"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$4"
+	    quid       	"3ECCE7E60244"
+	    roles      	(list role_list
+		(object Role "next_node"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_GET*¤	INode_var result;¤	if (m_parent != 0) {¤		if (m_index+1 < static_cast<ACE_UINT32>(m_parent->get_child_count ())) {¤			m_parent->get_child (m_index+1, result.out ());¤		}¤	}¤	next_node = result._retn ();¤	//#UC END# *3ECCE7E8003E_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*¤	Node_i::get_next_node (next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ListNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*
+|	Node_i::get_next_node(next_node);
+|//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_NewClass_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*¤	StaticNode_i::get_next_node(next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryAttributeNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*¤	QueryAttributeNode_i::get_next_node(next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDateNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*¤	QueryAttributeNode_i::get_next_node(next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryContextNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*¤	QueryAttributeNode_i::get_next_node(next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryDictionaryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*¤	next_node = dynamic_cast <StaticNode_i*> (StaticNode::next ());¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_StaticNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*¤	StaticNode_i::get_next_node (next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_FoldersNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*¤	Node_i::get_next_node(next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_DictNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*¤	QueryAttributeNode_i::get_next_node (next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_QueryStringNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*¤	StaticNode_i::get_next_node (next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ProfileNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*"
+			    value      	(value Text 
+|//#UC START# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*¤	Node_i::get_next_node (next_node);¤	//#UC END# *3ECCE7E8003E_BASE_ATTRIBUTE_IMPLEMENTATION_ExplanatoryNode_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"8987702B-E40C-48C4-95E9-3464F01E50B1"))
+		    quid       	"3ECCE7E8003E"
+		    documentation 	"Cледующий элеммент на том же уровне иерархии (т.е. имеющий того же parent). Может вернуть nil для последнего элемента на уровне."
+		    stereotype 	"readonly"
+		    label      	"next_node"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTreeSupport::Node"
+		    quidu      	"3EC09A3D03C6"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"3ECCE7E8005C"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTreeSupport::Node"
+		    quidu      	"3EC09A3D03C6"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$6"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"TempliteFile"
+		    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl"))
+	    quid       	"3ED73EB5032C"
+	    roles      	(list role_list
+		(object Role "value_type "
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TempliteFile"
+			    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3EC1E63A0112")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED73EB60215_GET*"
+			    value      	(value Text 
+|//#UC START# *3ED73EB60215_GET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤¤		ParameterMapper::ParameterElement& element = parameter [CORBA::ULong (index)];¤		CORBA::Long discriminant = element._d ();¤		return Parameter_i::translate_vt (ACE_static_cast (ParameterMapper::TypeValue, discriminant));¤¤	} else {¤		throw InvalidIndex ();¤	}¤¤	//#UC END# *3ED73EB60215_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"A791381F-010B-401B-944B-29DA6E6BE991"))
+		    quid       	"3ED73EB60215"
+		    documentation 	"Тип значения."
+		    stereotype 	"readonly"
+		    label      	"value_type "
+		    supplier   	"Logical View::Garant::GblAdapter::ParameterSupport::ValueType"
+		    quidu      	"3ED724530303"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "index"
+			    quid       	"3EDC5F7E038E"
+			    type       	"unsigned long"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$7"
+		    quid       	"3ED73EB6021F"
+		    supplier   	"Logical View::Garant::GblAdapter::ParameterSupport::Parameter"
+		    quidu      	"3ED73DF102BC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$8"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"TempliteFile"
+		    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl"))
+	    quid       	"3ED740DD0312"
+	    roles      	(list role_list
+		(object Role "as_boolean"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"3F0940350153,3EC1E63A0112,3F0418770168,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3EC1E63A0112,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TempliteFile"
+			    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED740DE00BB_GET*"
+			    value      	(value Text 
+|//#UC START# *3ED740DE00BB_GET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤¤		ParameterMapper::ParameterElement& element = parameter [CORBA::ULong (index)];¤		CORBA::Long discriminant = element._d ();¤		ValueType vt = Parameter_i::translate_vt ( ACE_static_cast (ParameterMapper::TypeValue, discriminant));¤¤		if (vt == VT_BOOLEAN) {¤			return element.bool_value () ? true : false;¤		} else {¤			throw InvalidValueType ();¤		}¤¤	} else {¤		throw InvalidIndex ();¤	}¤¤	//#UC END# *3ED740DE00BB_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED740DE00BB_SET*"
+			    value      	(value Text 
+|//#UC START# *3ED740DE00BB_SET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤¤		ParameterMapper::Parameter prev = parameter;           // save¤¤		try {¤			this->set_boolean (index, as_boolean);	¤			this->invalidate ();¤		} catch (...) {¤			GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤				parameter = prev;                                  // restore¤			GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤			throw;¤		}¤¤	} else {¤		throw InvalidIndex ();¤	}¤	//#UC END# *3ED740DE00BB_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"7838DF48-ACF5-417A-B5B2-10529FB10348"))
+		    quid       	"3ED740DE00BB"
+		    documentation 	"Доступ по индексу к элементу массива значений, как к бинарному."
+		    label      	"as_boolean"
+		    supplier   	"Logical View::Garant::Primitives::boolean"
+		    quidu      	"3DBFFE100240"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "index"
+			    quid       	"3EDC5FAC01B3"
+			    type       	"unsigned long"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$9"
+		    quid       	"3ED740DE00C5"
+		    supplier   	"Logical View::Garant::GblAdapter::ParameterSupport::Parameter"
+		    quidu      	"3ED73DF102BC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$10"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"TempliteFile"
+		    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl"))
+	    quid       	"3ED740D00006"
+	    roles      	(list role_list
+		(object Role "as_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"3F0940350153,3EC1E63A0112,3F0418770168,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3EC1E63A0112,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TempliteFile"
+			    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED740D001C9_GET*"
+			    value      	(value Text 
+|//#UC START# *3ED740D001C9_GET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤¤		ParameterMapper::ParameterElement& element = parameter [CORBA::ULong (index)];¤		CORBA::Long discriminant = element._d ();¤		ValueType vt = Parameter_i::translate_vt ( ACE_static_cast (ParameterMapper::TypeValue, discriminant));¤¤		if (vt == VT_DATE) {¤			as_date.day = element.date_value ().day;¤			as_date.month = element.date_value ().month;¤			as_date.year = element.date_value ().year;¤		} else {¤			throw InvalidValueType ();¤		}¤¤	} else {¤		throw InvalidIndex ();¤	}¤¤	//#UC END# *3ED740D001C9_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED740D001C9_SET*"
+			    value      	(value Text 
+|//#UC START# *3ED740D001C9_SET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤¤		ParameterMapper::Parameter prev = parameter;        // save¤¤		try {¤			this->set_date (index, as_date);	¤			this->invalidate ();¤		} catch (...) {¤			GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤				parameter = prev;                               // restore¤			GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤			throw;¤		}¤¤	} else {¤		throw InvalidIndex ();¤	}¤	//#UC END# *3ED740D001C9_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"FCE6F469-20DA-4D1C-B997-99E948607F11"))
+		    quid       	"3ED740D001C9"
+		    documentation 	"Доступ по индексу к элементу массива значений, как к дате."
+		    label      	"as_date"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::Date"
+		    quidu      	"3EC377520179"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "index"
+			    quid       	"3EDC5FE802F0"
+			    type       	"unsigned long"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$11"
+		    quid       	"3ED740D001DD"
+		    supplier   	"Logical View::Garant::GblAdapter::ParameterSupport::Parameter"
+		    quidu      	"3ED73DF102BC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$12"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"TempliteFile"
+		    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl"))
+	    quid       	"3ED740BB0183"
+	    roles      	(list role_list
+		(object Role "as_string"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"3F0940350153,3EC1E63A0112,3F0418770168,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3EC1E63A0112,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TempliteFile"
+			    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED740BB03BD_GET*"
+			    value      	(value Text 
+|//#UC START# *3ED740BB03BD_GET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤¤		ParameterMapper::ParameterElement& element = parameter [CORBA::ULong (index)];¤		CORBA::Long discriminant = element._d ();¤		ValueType vt = Parameter_i::translate_vt ( ACE_static_cast (ParameterMapper::TypeValue, discriminant));¤¤		if (vt == VT_STRING) {¤			as_string = new String_i (element.string_value ());¤		} else {¤			throw InvalidValueType ();¤		}¤¤	} else {¤		throw InvalidIndex ();¤	}¤¤	//#UC END# *3ED740BB03BD_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED740BB03BD_SET*"
+			    value      	(value Text 
+|//#UC START# *3ED740BB03BD_SET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤¤		ParameterMapper::Parameter prev = parameter;        // save¤¤		try {¤			this->set_string (index, as_string);	¤			this->invalidate ();¤		} catch (...) {¤			GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤				parameter = prev;                               // restore¤			GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤			throw;¤		}¤¤	} else {¤		throw InvalidIndex ();¤	}¤	//#UC END# *3ED740BB03BD_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"40592E2A-0332-4771-B4E0-636C007C89D3"))
+		    quid       	"3ED740BB03BD"
+		    documentation 	"Доступ по индексу к элементу массива значений, как к строке."
+		    label      	"as_string"
+		    supplier   	"Logical View::Garant::Primitives::wstring"
+		    quidu      	"3DBFFEBF038C"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "index"
+			    quid       	"3EDC600602AD"
+			    type       	"unsigned long"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$13"
+		    quid       	"3ED740BB03BF"
+		    supplier   	"Logical View::Garant::GblAdapter::ParameterSupport::Parameter"
+		    quidu      	"3ED73DF102BC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$14"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"TempliteFile"
+		    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl"))
+	    quid       	"3ED740AB0360"
+	    roles      	(list role_list
+		(object Role "as_long"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SetRaises"
+			    value      	"3F0940350153,3EC1E63A0112,3F0418770168,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	"3EC1E63A0112,3ED7491D00B6")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TempliteFile"
+			    value      	"W:\\garant6x\\implementation\\Garant\\GblAdapter\\model\\GblAdapter.tpl")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED740AC0109_GET*"
+			    value      	(value Text 
+|//#UC START# *3ED740AC0109_GET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤		¤		ParameterMapper::ParameterElement& element = parameter [CORBA::ULong (index)];¤		CORBA::Long discriminant = element._d ();¤		ValueType vt = Parameter_i::translate_vt (ACE_static_cast (ParameterMapper::TypeValue, discriminant));¤		¤		if (vt == VT_LONG) {¤			return element.long_value ();¤		} else {¤			throw InvalidValueType ();¤		}¤	¤	} else {¤		throw InvalidIndex ();¤	}¤	//#UC END# *3ED740AC0109_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"C++ DLL (_i.cpp):*3ED740AC0109_SET*"
+			    value      	(value Text 
+|//#UC START# *3ED740AC0109_SET*¤	ACE_GUARD_THROW_EX (ACE_SYNCH_MUTEX, GUARD, m_mutex, CORBA::INTERNAL ());¤	ParameterMapper::Parameter& parameter = m_data->ref ();¤	if (index >= 0 && index < parameter.length ()) {¤		ParameterMapper::Parameter prev = parameter; // save ¤		try {¤			this->set_long (index, as_long);	¤			this->invalidate ();¤		} catch (...) {¤			GBLADAPTER_EXCEPTION_SAFE_BLOCK_INIT¤				parameter = prev;                        // restore¤			GBLADAPTER_EXCEPTION_SAFE_BLOCK_DONE¤			throw;¤		}¤¤	} else {¤		throw InvalidIndex ();¤	}¤¤	//#UC END# *3ED740AC0109_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OS_GUID"
+			    value      	"7D3E12EB-AE9B-44D3-BCE2-1697E42206F0"))
+		    quid       	"3ED740AC0109"
+		    documentation 	"Доступ по индексу к элементу массива значений, как к беззнаковому целому."
+		    label      	"as_long"
+		    supplier   	"Logical View::Garant::Primitives::unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "index"
+			    quid       	"3EDC601B028F"
+			    type       	"unsigned long"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$15"
+		    quid       	"3ED740AC011D"
+		    supplier   	"Logical View::Garant::GblAdapter::ParameterSupport::Parameter"
+		    quidu      	"3ED73DF102BC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$16"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC3544F022E"
+	    roles      	(list role_list
+		(object Role "sort_type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"1"))
+		    quid       	"3EC3544F022F"
+		    documentation 	"Тип."
+		    label      	"sort_type"
+		    supplier   	"Logical View::Garant::GblAdapter::List::SortType"
+		    quidu      	"3EC3544F0233"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$17"
+		    quid       	"3EC3544F0230"
+		    supplier   	"Logical View::Garant::GblAdapter::List::SortParams"
+		    quidu      	"3EC3544F022C"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$18"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC3544F0227"
+	    roles      	(list role_list
+		(object Role "sort_order"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"2")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"ArrayDimensions"
+			    value      	"")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"CaseSpecifier"
+			    value      	"")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"IsReadOnly"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"GenerateForwardReference"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"BoundedRoleType"
+			    value      	("AssocTypeSet" 47)))
+		    quid       	"3EC3544F0228"
+		    documentation 	"Направление."
+		    label      	"sort_order"
+		    supplier   	"Logical View::Garant::GblAdapter::List::SortOrder"
+		    quidu      	"3EC3544F0223"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$19"
+		    quid       	"3EC3544F0229"
+		    supplier   	"Logical View::Garant::GblAdapter::List::SortParams"
+		    quidu      	"3EC3544F022C"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$20"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC346E70301"
+	    roles      	(list role_list
+		(object Role "pid"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"1"))
+		    quid       	"3EC346E70302"
+		    documentation 	"Идентификатор объекта."
+		    label      	"pid"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::PId"
+		    quidu      	"3EC346E70306"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$21"
+		    quid       	"3EC346E70303"
+		    supplier   	"Logical View::Garant::GblAdapter::List::Topic"
+		    quidu      	"3EC346E702FE"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$22"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC34A1D02C0"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$23"
+		    quid       	"3EC34A1E0091"
+		    supplier   	"Logical View::Garant::GblAdapter::List::Topic"
+		    quidu      	"3EC346E702FE"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$24"
+		    quid       	"3EC34A1E009B"
+		    supplier   	"Logical View::Garant::GblAdapter::List::TopicList"
+		    quidu      	"3EC346E702FA"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$25"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC347A20050"
+	    roles      	(list role_list
+		(object Role "object_id"
+		    quid       	"3EC347A201C3"
+		    documentation 	"Идентификатор объекта."
+		    label      	"object_id"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::ObjectId"
+		    quidu      	"3EC3479000AE"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$26"
+		    quid       	"3EC347A201CD"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::PId"
+		    quidu      	"3EC346E70306"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$27"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC347A401C6"
+	    roles      	(list role_list
+		(object Role "class_id"
+		    quid       	"3EC347A403D8"
+		    documentation 	"Идентификатор класса."
+		    label      	"class_id"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::ClassId"
+		    quidu      	"3EC3479000A4"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$28"
+		    quid       	"3EC347A403E2"
+		    supplier   	"Logical View::Garant::GblAdapter::BaseTypes::PId"
+		    quidu      	"3EC346E70306"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$29"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC37A7A0371"
+	    roles      	(list role_list
+		(object Role "direction"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"2"))
+		    quid       	"3EC37A7A0372"
+		    documentation 	"Направление поиска."
+		    label      	"direction"
+		    supplier   	"Logical View::Garant::GblAdapter::ContextSearchSupport::SearchDirection"
+		    quidu      	"3EC37A7A0376"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$30"
+		    quid       	"3EC37A7A0373"
+		    supplier   	"Logical View::Garant::GblAdapter::ContextSearchSupport::SearchMode"
+		    quidu      	"3EC37A7A0365"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$31"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC37A7A0367"
+	    roles      	(list role_list
+		(object Role "status"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"1"))
+		    quid       	"3EC37A7A0368"
+		    documentation 	"Зона поиска."
+		    label      	"status"
+		    supplier   	"Logical View::Garant::GblAdapter::ContextSearchSupport::SearchStatus"
+		    quidu      	"3EC37A7A036C"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$32"
+		    quid       	"3EC37A7A0369"
+		    supplier   	"Logical View::Garant::GblAdapter::ContextSearchSupport::SearchMode"
+		    quidu      	"3EC37A7A0365"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$33"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC37E370260"
+	    roles      	(list role_list
+		(object Role "positions"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"002"))
+		    quid       	"3EC37E370261"
+		    documentation 	"Список позиций для подсветки."
+		    label      	"positions"
+		    supplier   	"Logical View::Garant::GblAdapter::ContextSearchSupport::HighlightPositionList"
+		    quidu      	"3EC37E370265"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$34"
+		    quid       	"3EC37E370262"
+		    supplier   	"Logical View::Garant::GblAdapter::ContextSearchSupport::ContextSearchResult"
+		    quidu      	"3EC37E37025D"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$35"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC37E4D02EB"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$36"
+		    quid       	"3EC37E4E0075"
+		    supplier   	"Logical View::Garant::GblAdapter::ContextSearchSupport::HighlightPosition"
+		    quidu      	"3EC37E370269"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$37"
+		    quid       	"3EC37E4E0077"
+		    supplier   	"Logical View::Garant::GblAdapter::ContextSearchSupport::HighlightPositionList"
+		    quidu      	"3EC37E370265"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$38"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3ED31D9102A6"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$39"
+		    quid       	"3ED31D9200DB"
+		    supplier   	"Logical View::Garant::GblAdapter::List::Position"
+		    quidu      	"3ED31CF20149"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$40"
+		    quid       	"3ED31D9200DD"
+		    supplier   	"Logical View::Garant::GblAdapter::List::PositionList"
+		    quidu      	"3ED31D77012C"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3F256B6F0176"
+	    title      	"Main"
+	    zoom       	95
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	113
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::ParameterSupport::InvalidValueType" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(441, 1425)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(240, 1401)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"InvalidValueType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(240, 1360)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"<<AdapterException>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3ED7491D00B6"
+		    width      	420
+		    height     	150
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::ParameterSupport::InvalidParameterValue" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1437, 1431)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1214, 1407)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	446
+			justify    	0
+			label      	"InvalidParameterValue")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1214, 1366)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	446
+			justify    	0
+			label      	"<<AdapterException>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3F0418770168"
+		    width      	464
+		    height     	150
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::ParameterSupport::InvalidIndex" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(927, 1428)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(727, 1404)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	400
+			justify    	0
+			label      	"InvalidIndex")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(727, 1363)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	400
+			justify    	0
+			label      	"<<AdapterException>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3EC1E63A0112"
+		    width      	418
+		    height     	150
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::ParameterSupport::ParameterType" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(906, 1002)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(629, 849)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	554
+			justify    	0
+			label      	"ParameterType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(629, 808)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	554
+			justify    	0
+			label      	"<<AdapterEnum>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3ED7156F004E"
+		    width      	572
+		    height     	408
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::ParameterSupport::ValueType" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(365, 996)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(176, 871)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"ValueType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(176, 830)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"<<AdapterEnum>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3ED724530303"
+		    width      	396
+		    height     	352
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::Primitives::boolean" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1929, 645)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1765, 603)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"boolean")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1765, 562)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"<<UMLPrimitive>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DBFFE100240"
+		    width      	346
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::BaseTypes::Date" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1721, 1034)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1494, 926)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	454
+			justify    	0
+			label      	"Date")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1494, 885)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	454
+			justify    	0
+			label      	"<<AdapterStruct>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3EC377520179"
+		    width      	472
+		    height     	318
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::Primitives::wstring" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1652, 384)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1465, 342)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"wstring")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(1465, 301)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"<<UMLPrimitive>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DBFFEBF038C"
+		    width      	392
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Garant::GblAdapter::ParameterSupport::Parameter" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(444, 333)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(88, 139)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	712
+			justify    	0
+			label      	"Parameter")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(88, 98)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	712
+			justify    	0
+			label      	"<<AdapterInterface>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3ED73DF102BC"
+		    width      	730
+		    height     	490
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$6" @10
+		    location   	(399, 698)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ED73EB5032C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$7" @11
+			    Parent_View 	@10
+			    location   	(-1578, -433)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @12
+				Parent_View 	@11
+				location   	(453, 607)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED73EB6021F"
+			    client     	@10
+			    supplier   	@9
+			    line_style 	0
+			    label      	(object SegLabel @13
+				Parent_View 	@11
+				location   	(414, 613)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	336
+				justify    	0
+				label      	"index : unsigned long"
+				pctDist    	0.900000
+				height     	12
+				orientation 	1))
+			(object RoleView "value_type " @14
+			    Parent_View 	@10
+			    location   	(-1578, -433)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @15
+				Parent_View 	@14
+				location   	(483, 776)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	324
+				justify    	0
+				label      	"+value_type "
+				pctDist    	0.552172
+				height     	93
+				orientation 	0)
+			    stereotype 	(object SegLabel @16
+				Parent_View 	@14
+				location   	(497, 710)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<readonly>>"
+				pctDist    	-0.042820
+				height     	173
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"3ED73EB60215"
+			    client     	@10
+			    supplier   	@5
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$8" @17
+		    location   	(1282, 508)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ED740DD0312"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$9" @18
+			    Parent_View 	@17
+			    location   	(1012, 388)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @19
+				Parent_View 	@18
+				location   	(913, 389)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED740DE00C5"
+			    client     	@17
+			    supplier   	@9
+			    line_style 	0
+			    label      	(object SegLabel @20
+				Parent_View 	@18
+				location   	(996, 409)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	336
+				justify    	0
+				label      	"index : unsigned long"
+				pctDist    	0.900000
+				height     	12
+				orientation 	1))
+			(object RoleView "as_boolean" @21
+			    Parent_View 	@17
+			    location   	(1012, 388)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @22
+				Parent_View 	@21
+				location   	(1606, 615)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	327
+				justify    	0
+				label      	"+as_boolean"
+				pctDist    	0.700000
+				height     	38
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED740DE00BB"
+			    client     	@17
+			    supplier   	@6
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$10" @23
+		    location   	(1146, 717)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ED740D00006"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$11" @24
+			    Parent_View 	@23
+			    location   	(876, -303)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @25
+				Parent_View 	@24
+				location   	(858, 606)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED740D001DD"
+			    client     	@23
+			    supplier   	@9
+			    line_style 	0
+			    label      	(object SegLabel @26
+				Parent_View 	@24
+				location   	(996, 532)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	336
+				justify    	0
+				label      	"index : unsigned long"
+				pctDist    	0.900000
+				height     	12
+				orientation 	0))
+			(object RoleView "as_date" @27
+			    Parent_View 	@23
+			    location   	(876, -303)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @28
+				Parent_View 	@27
+				location   	(1398, 903)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	240
+				justify    	0
+				label      	"+as_date"
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED740D001C9"
+			    client     	@23
+			    supplier   	@7
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$12" @29
+		    location   	(1132, 360)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ED740BB0183"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$13" @30
+			    Parent_View 	@29
+			    location   	(-488, 240)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @31
+				Parent_View 	@30
+				location   	(877, 309)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED740BB03BF"
+			    client     	@29
+			    supplier   	@9
+			    line_style 	0
+			    label      	(object SegLabel @32
+				Parent_View 	@30
+				location   	(996, 347)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	336
+				justify    	0
+				label      	"index : unsigned long"
+				pctDist    	0.900000
+				height     	12
+				orientation 	1))
+			(object RoleView "as_string" @33
+			    Parent_View 	@29
+			    location   	(-488, 240)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @34
+				Parent_View 	@33
+				location   	(1374, 395)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	271
+				justify    	0
+				label      	"+as_string"
+				pctDist    	0.749546
+				height     	25
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED740BB03BD"
+			    client     	@29
+			    supplier   	@8
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Garant::Primitives::unsigned long" @35
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1659, 136)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@35
+			location   	(1495, 94)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"unsigned long")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@35
+			location   	(1495, 53)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"<<UMLPrimitive>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DBFFDE101CA"
+		    width      	346
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$14" @36
+		    location   	(1147, 217)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3ED740AB0360"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$15" @37
+			    Parent_View 	@36
+			    location   	(157, -1253)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @38
+				Parent_View 	@37
+				location   	(884, 301)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED740AC011D"
+			    client     	@36
+			    supplier   	@9
+			    line_style 	0
+			    label      	(object SegLabel @39
+				Parent_View 	@37
+				location   	(996, 271)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	336
+				justify    	0
+				label      	"index : unsigned long"
+				pctDist    	0.900000
+				height     	12
+				orientation 	0))
+			(object RoleView "as_long" @40
+			    Parent_View 	@36
+			    location   	(157, -1253)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @41
+				Parent_View 	@40
+				location   	(1424, 215)
+				font       	(object Font
+				    size       	8
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	233
+				justify    	0
+				label      	"+as_long"
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3ED740AC0109"
+			    client     	@36
+			    supplier   	@35
+			    line_style 	0)))))))

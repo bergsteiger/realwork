@@ -1,0 +1,53 @@
+// TtfwBeginLikeWord 4DBAEF29031F SimpleClass Class
+
+INCLUDE '4DB9BB43017B.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+FORWARD ME_4DBAEF29031F
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_193627308835
+ CONST UID '193627308835'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwBeginLikeWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_193627308835 Ini_Reg_Class
+
+: ME_4DBAEF29031F
+ CONST UID '4DBAEF29031F'
+ CONST Name 'TtfwBeginLikeWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Поддержка слов-скобок.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4DB9BB43017B // TtfwAnonimousWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_193627308835 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB6CE2302C9 // AfterCompile
+ ME_4DBAEE0D028D // CompiledWordClass
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 21:02'
+
+ @SELF
+; // ME_4DBAEF29031F TtfwBeginLikeWord

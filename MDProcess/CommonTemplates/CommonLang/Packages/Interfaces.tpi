@@ -1,0 +1,449 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Packages/Interfaces.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Packages::Interfaces
+//
+// Интерфейсный пакет
+// ---
+// Содержит экспортируемые наружу компоненты типы и интерфейсы. Определяет неймспейс. Может
+// зависить только от других интерфейсных пакетов (своей компоненты или чужой)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Interfaces::Category
+? Интерфейсный пакет
+? Содержит экспортируемые наружу компоненты типы и интерфейсы. Определяет неймспейс. Может зависить только от других интерфейсных пакетов (своей компоненты или чужой)
+> Interface::Class
+> ImpurityParamType::Class
+> ConstantArray::Class
+> Event::Class
+> Settings::Class
+
+= InterfacePackageBase::Category
+= C++ интерфейсы и реализация::MDAGenerator
+= Java::MDAGenerator
+= Дельфи-DLL Адаптер::MDAGenerator
+= C++ Фабрики::MDAGenerator
+= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_interfaces.gif
+L code_interfaces
+D
+/ - запрещена форвард-декларация
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p weak:b=false ? определяет что модуль может шариться между динамичексими пакетами
+p path prefix:s ? определяет префикс пути
+p defines:s ? определяет файл с условиями компиляции
+p author:s ? автор
+p started:s ? дата и время начала
+p no hands:b=false ? предупреждение о том, что руками править нельзя (на время переходного периода)
+p debug tie log:b=false ? Нужно ли генерить логирование вызов всех tie-методов, на всех интерфейсах/фасетах, определённых в пакете
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()[{"%S{weak}"!="%S{!weak}"}%f_up_prefix(%S) *weak* = *%S{weak}* - определяет что модуль может шариться между динамичексими пакетами
+	][{"%S{path prefix}"!="%S{!path prefix}"}%f_up_prefix(%S) *path prefix* = *%S{path prefix}* - определяет префикс пути
+	][{"%S{defines}"!="%S{!defines}"}%f_up_prefix(%S) *defines* = *%S{defines}* - определяет файл с условиями компиляции
+	][{"%S{author}"!="%S{!author}"}%f_up_prefix(%S) *author* = *%S{author}* - автор
+	][{"%S{started}"!="%S{!started}"}%f_up_prefix(%S) *started* = *%S{started}* - дата и время начала
+	][{"%S{no hands}"!="%S{!no hands}"}%f_up_prefix(%S) *no hands* = *%S{no hands}* - предупреждение о том, что руками править нельзя (на время переходного периода)
+	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - Явно включает генерацию дополнительных секций Юзер-Кода
+	][{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли модуль неймспейсом
+	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Нужно ли генерить логирование вызов всех tie-методов, на всех интерфейсах/фасетах, определённых в пакете
+	]
+
+%f _pas_BeforeUnitImplementation
+//#UC START# *4A82C8F9037Cfor4704865603A9*
+	[{%S{need UC}=true}\
+	\n\
+	%U[{unit_intf}\n]\n\
+	]
+//#UC END# *4A82C8F9037Cfor4704865603A9*
+
+// Предназначена для перекрытия в потомках, чтоб иметь возможность сгенерить дополнительные инклуды.
+%f _additional_includes
+//#UC START# *4B4C82AB0199for4704865603A9*
+//#UC END# *4B4C82AB0199for4704865603A9*
+
+%f _IsInterfaces
+// возвращаемый результат: boolean
+//#UC START# *4E71D8FE00E9for4704865603A9*
+	true
+//#UC END# *4E71D8FE00E9for4704865603A9*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент производит файл (Unit)
+%f _IsUnitFileProducer
+//#UC START# *4947EC0F0380for4704865603A9*
+	true
+//#UC END# *4947EC0F0380for4704865603A9*
+
+// перекрытие базового стереотипа WikiPackageImpl::Category
+// Определяет, что пакет должен генериться в документации в секцию "Интерфейсные пакеты"
+%f _wiki_interface_package
+//#UC START# *48578600008Dfor4704865603A9*
+	true
+//#UC END# *48578600008Dfor4704865603A9*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for4704865603A9*
+P
+C /%SN
+O [{"%f_need_factory_files(%S)"="true"}%SNFactories.cpp]
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_factory_files(%S)"="true"}\
+	%f_header(%S)
+	%f_std_inc(%S)
+	[%P<{}{"%CM"="Interfaces::Category"}{%C}%C[{<{}{"%AM"="Identity::Class"}{C}>!=0}\#include %f_dump_include_path(%f_with_gen_id(p.h,%SL),%S)
+	]>][{%f_need_lexical_cast_pack(%S)=true}\#include "boost/lexical_cast.hpp"
+	][{<{}{%C#f_has_multi_factory()=true&%Ca!=abstract}{%CC}>!=0}\#include "boost/bind.hpp"
+	]\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)
+	[
+	//includes by FactoryMemories \<\<uses\>\>
+	<{}{%AS=FactoryMemory&%A<{}{%CS=common key}{%CC}>!=0}%A<{}{%CS=uses&%CC=Dependency}\#include %f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)
+	>>][{<{}{%AC=Operation&%AS=multi factory&%A{transparent multy}=true}{%AC}>!=0}
+	%U[{_CUSTOM_INCLUDES_FOR_TRANSPARENT_MULTI_FACTORY}
+	]
+	][{<{}{%AC=Operation&%f_is_factory(%A)=true&%A<{}{%CS=cache}{%CC}>!=0}{%AC}>!=0}
+	%U[{_CUSTOM_INCLUDES_FOR_FOR_CACHED_ARGS}
+	]
+	][
+	%S%f_open_ifdef()]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]<%CX>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp
+	%f_footer(%S)
+	]
+
+f _need_lexical_cast_pack
+	%f_set_var(FLAG,"false")<{}{%AS=Entity|%AS=Interface|%AS=ServerInterface|%AS=LocalInterface}[{%{FLAG}N!=true}%f_set_var(FLAG,"%f_need_lexical_cast(%A)")]>\
+	%{FLAG}N
+
+f _need_lexical_cast
+	%f_set_var(TEMP,"%S%f_dump_switch_type_name()")[{"%{TEMP}N"!=""&%f_is_string(%{TEMP})=false}{false}true]
+
+f _need_typeinfo_include_pack
+	[{<{}{%f_kind_of(A,LocalInterface::Class)=true&%A#f_use_bad_cast()=true}{%AC}>!=0}{false}true]
+//#UC END# *4705C54B01F4for4704865603A9*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for4704865603A9*
+C /%SN
+O [{"%f_need_factory_files(%S)"="true"|<{}{%AS=FactoryMemory}{%AC}>!=0}%SNFactories.h]
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_factory_files(%S)"="true"|<{}{%AS=FactoryMemory}{%AC}>!=0}\
+	%f_h_header(%S)
+	%f_std_inc(%S)
+	\#include \<map\>
+	\#include \<string\>
+	\#include "ace/Singleton.h"
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)[<{}{%SS=%DS&%f_set_var(DEP,D)"%S<{}{%CS=Interface}%C<{}{%ga=abstract&%g%PU=%{DEP}U}.>>"!=""}[
+	\#include %f_dump_include_path(%DL,%D)]>][{<{}{"%AM"="Entity::Class"&"%Aa"!="abstract"}{C}>!=0}
+	\#include "%f_with_gen_id(h,%PL)"]\
+	%S%f_additional_includes()[
+	%S%f_open_ifdef()]
+	
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	][{<{}{"%CM"="Entity::Class"}{C}>!=0}
+	// Entityes UID's
+	<{}{"%CM"="Entity::Class"}{%C}static const %f_type("unsigned long long") %CN_UID = 0x%CU;
+	>]<[%CX
+	
+	]>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp
+	%f_h_footer(%S)
+	]
+//#UC END# *4705C5490109for4704865603A9*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4704865603A9*
+P
+C /%SN
+O [{"%f_need_factory_files(%S)"="true"|%f_need_impl_cpp(%S)=true}%SN.cpp]
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_factory_files(%S)"="true"|%f_need_impl_cpp(%S)=true}{<%CX>}\
+	%f_header(%S)
+	%f_std_inc(%S)
+	[\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	][\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)
+	][
+	%S%f_open_ifdef()]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]
+	<%CX>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp
+	%f_footer(%S)
+	]
+//#UC END# *47022CB8034Bfor4704865603A9*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4704865603A9*
+C /%SN
+O %SN.h
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	%f_h_header(%S)
+	%f_std_inc(%S)
+	%f_set_var(PACK,S)%f_includes_by_contents(%S)\
+	%f_dump_interfaces_includes(%S)\
+	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDE}
+	]
+	][
+	%S%f_open_ifdef()][// forward decls for friend interface's servants
+	%f_dump_fwd_for_interfaces_friends(%S)]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]
+	<%CX
+	
+	>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp[
+	// TypeTraits specializations
+	namespace Core {	
+	<{}{%CM=Interface::Class&%f_has_factory_methods(%C)=true}\
+	template \<\>
+	struct TypeTraits \<%f_full_name(%C)\> {
+		typedef %f_full_name(%C)Factory Factory;
+	};
+	>} // namespace Core
+	]
+	%f_h_footer(%S)
+
+f _dump_interfaces_includes
+	%f_clear_list(INCLUDES)\
+	%f_collect_interfaces_includes(%S,"INCLUDES")\
+	<{}{%f_is_empty(INCLUDES)=false}{W}[%f_pop_first_to_var(INCLUDES,ITEM)\#include %{ITEM}N
+	]>
+
+f _collect_interfaces_includes
+	[{"%1N"=""}%f_error("_collect_interfaces_includes: Не задан идентификатор списка!")]\
+	%f_set_var(__LIST_ID__,1)\
+	<[{%D#f_IsUnit()=true}%D<{}{%C#f_IsUtilityPack()=true&%f_use_in_pack_child(%C)=true}%f_add_to_list(%{__LIST_ID__}N,"%f_dump_include_path(%CL,%C)")>]\
+	[%f_add_to_list(%{__LIST_ID__}N,"%f_dump_include_path(%DL,%D)")]>\
+	<{}{}%C<{}{%wN!=System}[%f_add_to_list(%{__LIST_ID__}N,"%f_dump_include_path(%wL,%w)")]>>\
+	%f_remove_from_list(%{__LIST_ID__}N,"%f_dump_include_path(%SL,%S)")\
+	%f_remove_from_list(%{__LIST_ID__}N,"")\
+	%f_sort_list(%{__LIST_ID__}N,n)%f_unique_list(%{__LIST_ID__}N)
+
+f _dump_fwd_for_interfaces_friends
+	<{}{}{%C}[
+	%C<{}{"%aM"="Interface::Class::friend::ClassDependency"}{Sp}%f_get_all_consumer_list(%a%P)%a%P<{}{%f_is_empty(CONSUMER_LIST)=false}{W}%f_pop_first_to_var(CONSUMER_LIST,TEMP)[{%{TEMP}S=Servant}%f_in_scope_name(%{TEMP})
+	]>>][{%C<{}{%CV!=PublicAccess&%CC!=Class}{%CC}>!=0}%f_get_all_consumer_list(%C)%f_set_var(INT,C)%C<{}{%f_is_empty(CONSUMER_LIST)=false}{W}%f_pop_first_to_var(CONSUMER_LIST,TEMP)[{%{TEMP}S=LocalInterface&%{TEMP}a!=abstract&[{%f_need_const_wrapper(%{TEMP})=true|%f_need_const_wrapper(%{INT})=true}{false}true]=true}%f_in_scope_name(%{TEMP},"ConstWrapper")
+	]>]>
+f _get_all_consumer_list
+	%f_clear_list(CONSUMER_LIST)\
+	%f_fill_consumer_list(%S)\
+	%f_unique_list(CONSUMER_LIST)
+
+f _fill_consumer_list
+	[{%Lx=true}<{}{}{%L}%f_add_to_list(CONSUMER_LIST,L)%f_fill_consumer_list(%L)>]\
+	[{%Zx=true}<{}{}{%Z}%f_add_to_list(CONSUMER_LIST,Z)%f_fill_consumer_list(%Z)>]
+//#UC END# *47022C88029Ffor4704865603A9*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4704865603A9*
+C /%SN
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//#UC END# *47022CCF00EAfor4704865603A9*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor4704865603A9*
+R  
+C %S%f_pas_UnitPath()
+O [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)
+	%f_pas_OpenUnitInterface(%S)\
+	[{%Cx=true}\
+	[\n%S%f_open_ifdef()]\
+	]\
+	%f_pas_Uses(%S)\
+	%f_pas_CloseUses(%S)\
+/
+	<{}{%C{is default ancestor}=true}%CX\
+	%f_set_var(DEFAULT_ANCESTOR,"%CN")\n>\
+	<{\n}{%C{is default ancestor}!=true}%CX>\
+	%f_with_gen_id(intf3.pas,[\n\n<{\n}{%CS!=UseCaseController}%CX>])
+	[{%Cx=true}\
+	[%S%f_close_ifdef()\n]\
+	]\
+	%S%f_pas_BeforeUnitImplementation()\
+
+	%f_pas_OpenUnitImplementation(%S)\
+	[{%Cx=true&"%f_with_gen_id(impl.pas,<{}{"%CO"=""}%CX>)"!=""}\
+	[\n%S%f_open_ifdef()]\
+	]\
+	%f_pas_UsesInImpl(%S)\
+	%f_pas_CloseUses(%S)\
+	\
+	%f_with_gen_id(impl.pas,<{}{"%CO"=""}%CX>)\
+	[{%Cx=true&"%f_with_gen_id(impl.pas,<{}{"%CO"=""}%CX>)"!=""}\
+	[\n%S%f_close_ifdef()\n]\
+	]\
+	%f_pas_CloseUnit(%S)\
+	%f_with_gen_id(impl.pas,<{}{"%CO"!=""}%CX>)
+//#UC END# *470F1571031Cfor4704865603A9*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4704865603A9*
+C [{%S{is namespace}=true}/%SN]
+P
+	<%CX>
+//#UC END# *470321C1038Afor4704865603A9*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4704865603A9*
+C [{%S{is namespace}=true}/%SN]
+P
+	<%CX>
+//#UC END# *470321950119for4704865603A9*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor4704865603A9*
+C /%SN
+O [{"%f_need_tie_files(%S)"="true"}%SN_tie.cpp]
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_tie_files(%S)"="true"}\
+	%f_header(%S)
+	
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(dll.h,%SL),%S)
+	[{<{}{"%C{native definition}"="DLL outside"}{%CC}>!=0}%U[{_CUSTOM_INCLUDE_FOR_NATIVE_DEFINITION}
+	]
+	][
+	%S%f_open_ifdef()]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]
+	<%CX
+	
+	>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp
+	%f_footer(%S)
+	]
+//#UC END# *47032ED002DEfor4704865603A9*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor4704865603A9*
+P
+C /%SN
+O [{"%f_need_tie_files(%S)"="true"}%SN_tie.h]
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_tie_files(%S)"="true"}\
+	%f_h_header(%S)
+	%f_std_inc(%S)
+	\#include "shared/Core/mng/IObject_tie.h"
+	\#include "shared/Core/mng/PoolObjectManager.h"
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	[<{\n}\#include %f_dump_include_path(%DL,%D)>
+	][
+	%S%f_open_ifdef()]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]
+	<%CX
+	
+	>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp	
+	%f_h_footer(%S)
+	]
+//#UC END# *47032EC4032Cfor4704865603A9*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor4704865603A9*
+P
+O %SNUnit.pas
+	%f_output_constraint(%S)\
+	%f_set_var(WAS_USES,"0")\
+	%f_set_var(WAS_TYPE,"0")\
+	%f_set_var(WAS_CONST,"0")\
+	unit %SNUnit; {$Z4}
+	
+	%f_header(%S)
+	
+	interface
+	
+	[uses\
+	%f_set_var(SELF,S)
+	%f_clear_list(USES_UNITS)\
+	[{"<{}{"%CM"="Exception::Class"}{C}>"!="0"}%f_add_to_list(USES_UNITS,"SysUtils")]\
+	<{}{%f_exists_in_list(USES_UNITS,"%DNUnit")=false}%f_add_to_list(USES_UNITS,"%DNUnit")>\
+	[	<{\n\t, }{%f_is_empty(USES_UNITS)=false}{W}%f_pop_first_to_var(USES_UNITS,USES_UNIT)%{USES_UNIT}N>]%f_clear_list(USES_UNITS)\
+	[{}{\n\t;}<%D<{\n\t, }{"%C{native definition}"="DLL outside"}
+		%U[{_%{SELF}U_UNIT_FOR_%CN}
+		]
+	>>	;]][{}{\n}
+	
+	<{}{%f_is_interface(%C)=true|[{%t_is_container(%C)=true&%t_tied_elem(%C)=true}{false}true]=true}%CF>]<{\n}{%f_is_interface(%C)=false&[{%t_is_container(%C)=true&%t_tied_elem(%C)=true}{false}true]=false&%CS!=Constants}
+	%CX><{}{%f_is_interface(%C)=true|[{%t_is_container(%C)=true&%t_tied_elem(%C)=true}{false}true]=true&%CS!=Constants}[
+	
+	%CX]><{}{%CS=Constants}
+	
+	%CX>
+	
+	implementation
+	end.
+//#UC END# *470F152700FAfor4704865603A9*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for4704865603A9*
+	<%CX>
+//#UC END# *4A41A13D03D5for4704865603A9*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

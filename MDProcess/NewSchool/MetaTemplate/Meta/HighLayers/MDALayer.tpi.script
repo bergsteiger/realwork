@@ -1,0 +1,350 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/HighLayers/MDALayer.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::MetaTemplate::Meta::HighLayers::MDALayer
+//
+// Слой шаблонов
+// ---
+// Логическая группа шаблонов в рамках билиотеки, как правило содержит родственные шаблоны одного
+// логического уровня проектирования
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: MDALayer::Category
+implementation @ <<MDALayer>>
+//? Слой шаблонов
+//? Логическая группа шаблонов в рамках билиотеки, как правило содержит родственные шаблоны одного логического уровня проектирования
+//> MDAClass::Class
+//> MDACategory::Class
+//> MDAGenerator::Class
+//> MDAUtilityPack::Class
+//> MDAReport::Class
+//> MDAAbstractClass::Class
+
+//= Мета-MDA::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_mda_layer.gif
+//L code_mda_layer
+// Параметры визуализации
+//$ C 250,170,250
+//$ l 230,80,230
+//$ f 230,80,230
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for46E1534D0399*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for46E1534D0399*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor46E1534D0399*
+//#UC END# *4705CBD6003Efor46E1534D0399*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for46E1534D0399*
+//#UC END# *470484D50138for46E1534D0399*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E1534D0399*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Использует слои шаблонов:
+   '{info}Использует слои шаблонов:'
+//	<* %f_k_link_wp(%D,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%D
+   begin
+    OBJECT IN %D
+    if true then
+    begin
+     '* '
+     [%f] k_link_wp %( %D %, %S )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for D
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Используется из слоев шаблонов:
+   '{info}Используется из слоев шаблонов:'
+//	<{}{%aS!=UseCases}{Sp}* %f_k_link_wp(%a,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %!= 'UseCases' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][\
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+//	%f_k_common_elem_docs(%S)][{%mx=true&%Cx=true}
+   [%f] k_common_elem_docs %( %S )% 
+  end // if
+  NOP
+  if ( ( %m |x ) %==  true AND 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма слоя шаблонов:_
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%m
+   begin
+    OBJECT IN %m
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( '----'#13#10 )
+     '_'
+     if ( ( %m |N ) %!= 'Main' ) then
+     begin
+      %m |N 
+     end // if
+     else
+     begin
+      'Основная' 
+     end // else
+     ' диаграмма слоя шаблонов:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>]][
+
+     ++! l_Counter
+    end // if
+   end // for m
+  end // if
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав слоя шаблонов[
+  'h2. Состав слоя шаблонов'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Стереотипы категорий:_<{}{%CS=MDACategory}
+   '_Стереотипы категорий:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'MDACategory' ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Стереотипы классов:_<{}{%CS=MDAClass}
+   '_Стереотипы классов:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'MDAClass' ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Дополнительные файлы и наборы функций:_<{}{%CS!=MDAClass&%CS!=MDACategory}
+   '_Дополнительные файлы и наборы функций:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'MDAClass' AND 
+     ( ( %C |S ) %!= 'MDACategory'  ) ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for46E1534D0399*
+; // wiki
+
+
+// реализация абстрактного стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E1534D0399*
+//P
+//C /%SN
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *46E28D830109for46E1534D0399*
+; // mda
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<MDALayer>>
+

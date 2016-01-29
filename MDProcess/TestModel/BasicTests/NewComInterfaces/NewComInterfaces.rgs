@@ -1,0 +1,26 @@
+HKCR
+{
+	NewComInterfaces.NewComInterface.1 = s 'NewComInterface Class'
+	{
+		CLSID = s '{1E1E4282-1347-45EE-AC2E-12D1CDEC9299}'
+	}
+	NewComInterfaces.NewComInterface = s 'NewComInterface Class'
+	{
+		CLSID = s '{1E1E4282-1347-45EE-AC2E-12D1CDEC9299}'
+		CurVer = s 'NewComInterfaces.NewComInterface.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1E1E4282-1347-45EE-AC2E-12D1CDEC9299} = s 'NewComInterface Class'
+		{
+			ProgID = s 'NewComInterfaces.NewComInterface.1'
+			VersionIndependentProgID = s 'NewComInterfaces.NewComInterface'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{476D9028-0B18-4B3C-9132-2E3F10DEED0B}'
+		}
+	}
+}

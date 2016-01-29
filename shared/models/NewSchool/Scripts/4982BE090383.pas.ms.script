@@ -1,0 +1,363 @@
+// vcmControllers 4982BE090383 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4982BE090383
+
+: ME_47FB5A0F0375
+ CONST UID '47FB5A0F0375'
+ CONST Name 'TvcmNeedMakeDS'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Перечислимый тип определяющий необходимость создания БОФ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4982BE090383 // vcmControllers
+ ;
+ : Inherits
+   @ ( WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_47FB5A0F0375 TvcmNeedMakeDS
+
+FORWARD ME_47EB514C0336
+
+: ME_4982B4940122
+ CONST UID '4982B4940122'
+ CONST Name 'IsEmpty'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'определяет наличие источника данных.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4982B4940122 IsEmpty
+
+: ME_4982B4A501A0
+ CONST UID '4982B4A501A0'
+ CONST Name 'CanBeClosed'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'можно ли закрыть' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4982B4A501A0 CanBeClosed
+
+: ME_4982B449023F
+ CONST UID '4982B449023F'
+ CONST Name 'Referred'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Ссылка на контроллер области вывода' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+ CONST "pm" true
+
+ref; // ME_4982B449023F Referred
+
+: ME_4982B4600057
+ CONST UID '4982B4600057'
+ CONST Name 'NeedMake'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'определяет необходимость создания БОФ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ : Target ME_47FB5A0F0375 // TvcmNeedMakeDS
+ ;
+ CONST "pm" true
+
+ref; // ME_4982B4600057 NeedMake
+
+: ME_4982B3B10155
+ CONST UID '4982B3B10155'
+ CONST Name 'Clear'
+ CONST Class class_Operation
+ %SUMMARY 'сбрасывает ссылку на _DataSource и NeedMake устанавливает как vcm_nmNo' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+
+ref; // ME_4982B3B10155 Clear
+
+: ME_4982B41402C7
+ CONST UID '4982B41402C7'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47FB5A0F0375 // TvcmNeedMakeDS
+ ;
+
+ref; // ME_4982B41402C7 aValue
+
+: ME_4982B40202EE
+ CONST UID '4982B40202EE'
+ CONST Name 'SetIfNeedMakeNo'
+ CONST Class class_Operation
+ %SUMMARY 'устанавливаем флаг если его значение vcm_nmNo' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ : Parameters
+   @ ( ME_4982B41402C7 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4982B40202EE SetIfNeedMakeNo
+
+: ME_4982B4350056
+ CONST UID '4982B4350056'
+ CONST Name 'aSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+
+ref; // ME_4982B4350056 aSource
+
+: ME_4982B4280318
+ CONST UID '4982B4280318'
+ CONST Name 'Assign'
+ CONST Class class_Operation
+ %SUMMARY 'скопировать данные aSource' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ : Parameters
+   @ ( ME_4982B4350056 // aSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4982B4280318 Assign
+
+: ME_47EB514C0336
+ CONST UID '47EB514C0336'
+ CONST GUID 'F5C8B83F-1541-4055-A90B-32A85E5C3969'
+ CONST Name 'IvcmFormDataSourceRef'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Самоочищаемая ссылка на бизнес объект формы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4982BE090383 // vcmControllers
+ ;
+ : Attributes
+   @ ( ME_4982B4940122 // IsEmpty
+ ME_4982B4A501A0 // CanBeClosed
+ ME_4982B449023F // Referred
+ ME_4982B4600057 // NeedMake
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4982B3B10155 // Clear
+ ME_4982B40202EE // SetIfNeedMakeNo
+ ME_4982B4280318 // Assign
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_47EB514C0336 IvcmFormDataSourceRef
+
+: ME_4982B4D00032
+ CONST UID '4982B4D00032'
+ CONST Name 'IvcmViewAreaControllerRef'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4982BE090383 // vcmControllers
+ ;
+ : Inherits
+   @ ( ME_47EB514C0336 // IvcmFormDataSourceRef
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4982B4D00032 IvcmViewAreaControllerRef
+
+: ME_497841510139
+ CONST UID '497841510139'
+ CONST Name 'IvcmViewAreaController'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ссылка на IvcmFormDataSource. Для использования в автоматичексом кода. В ручном коде применять НЕЛЬЗЯ, надо применять IvcmFormDataSource' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4982BE090383 // vcmControllers
+ ;
+ : Inherits
+   @ ( WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_497841510139 IvcmViewAreaController
+
+: ME_4981E70101D7
+ CONST UID '4981E70101D7'
+ CONST Name 'IvcmUseCaseController'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ссылка на IvcmFormSetDataSource. Для использования в автоматичексом кода. В ручном коде применять НЕЛЬЗЯ, надо применять IvcmFormSetDataSource' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4982BE090383 // vcmControllers
+ ;
+ : Inherits
+   @ ( WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_4981E70101D7 IvcmUseCaseController
+
+FORWARD ME_F7CD5823F0E2
+
+: ME_312EA090287B
+ CONST UID '312EA090287B'
+ CONST Name 'vcm_nmForce'
+ CONST Class class_Attribute
+ %SUMMARY 'создавать не взирая ни на что' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F7CD5823F0E2 // TvcmNeedMakeDS_TvcmNeedMakeDS_Constants
+ ;
+ CONST Value 'vcm_nmForce'
+ : ValueType WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_312EA090287B vcm_nmForce
+
+: ME_BC67372683C1
+ CONST UID 'BC67372683C1'
+ CONST Name 'vcm_nmNo'
+ CONST Class class_Attribute
+ %SUMMARY 'нельзя создавать, например потому, что форма была закрыта пользователем и при обновлении сборки ее создавать не нужно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F7CD5823F0E2 // TvcmNeedMakeDS_TvcmNeedMakeDS_Constants
+ ;
+ CONST Value 'vcm_nmNo'
+ : ValueType WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_BC67372683C1 vcm_nmNo
+
+: ME_3098E092817A
+ CONST UID '3098E092817A'
+ CONST Name 'vcm_nmYes'
+ CONST Class class_Attribute
+ %SUMMARY 'начальное состояние' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F7CD5823F0E2 // TvcmNeedMakeDS_TvcmNeedMakeDS_Constants
+ ;
+ CONST Value 'vcm_nmYes'
+ : ValueType WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_3098E092817A vcm_nmYes
+
+: ME_F7CD5823F0E2
+ CONST UID 'F7CD5823F0E2'
+ CONST Name 'TvcmNeedMakeDS_TvcmNeedMakeDS_Constants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Алиасы для значений vcmBaseTypes.TvcmNeedMakeDS' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4982BE090383 // vcmControllers
+ ;
+ : Attributes
+   @ ( ME_312EA090287B // vcm_nmForce
+ ME_BC67372683C1 // vcm_nmNo
+ ME_3098E092817A // vcm_nmYes
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_F7CD5823F0E2 TvcmNeedMakeDS_TvcmNeedMakeDS_Constants
+
+: ME_4982BE090383
+ CONST UID '4982BE090383'
+ CONST Name 'vcmControllers'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы контроллеров' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_47FB5A0F0375 // TvcmNeedMakeDS
+ ME_47EB514C0336 // IvcmFormDataSourceRef
+ ME_4982B4D00032 // IvcmViewAreaControllerRef
+ ME_497841510139 // IvcmViewAreaController
+ ME_4981E70101D7 // IvcmUseCaseController
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_F7CD5823F0E2 // TvcmNeedMakeDS_TvcmNeedMakeDS_Constants
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_528C93040132' '528C93040132.pas.ms.script' // vcmBaseTypes
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '30.01.2009 11:45'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmControllers.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4982BE090383.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4982BE090383.pas.ms.script.runner'
+
+ref; // ME_4982BE090383 vcmControllers

@@ -1,0 +1,244 @@
+object MeshCollectionDesigner: TMeshCollectionDesigner
+  Left = 497
+  Top = 171
+  Caption = 'Mesh Collection Editor'
+  ClientHeight = 523
+  ClientWidth = 651
+  Position = poScreenCenter
+  FormFactor.Width = 1920
+  FormFactor.Height = 1080
+  FormFactor.Devices = [dkDesktop]
+  FormFamily = 'TForm'
+  OnCreate = FormCreate
+  Left = 497
+  Top = 171
+  DesignerMobile = False
+  DesignerWidth = 0
+  DesignerHeight = 0
+  DesignerDeviceName = ''
+  DesignerOrientation = 0
+  object Viewport1: TViewport3D
+    Align = alClient
+    Camera = camera
+    Height = 523.000000000000000000
+    UsingDesignCamera = False
+    Width = 520.000000000000000000
+    OnMouseDown = Viewport1MouseDown
+    OnMouseMove = Viewport1MouseMove
+    OnMouseWheel = Viewport1MouseWheel
+    object cameray: TDummy
+      Width = 1.000000000000000000
+      Height = 1.000000000000000000
+      Depth = 1.000000000000000000
+      object camerax: TDummy
+        Locked = True
+        Width = 1.000000000000000000
+        Height = 1.000000000000000000
+        Depth = 1.000000000000000000
+        object camera: TCamera
+          Position.Z = -5.000000000000000000
+          Width = 1.000000000000000000
+          Height = 1.000000000000000000
+          Depth = 1.000000000000000000
+          object Light1: TLight
+            Color = claWhite
+            LightType = ltDirectional
+            SpotCutOff = 180.000000000000000000
+            Position.X = -3.668534755706787000
+            Position.Y = 0.042867120355367660
+            Position.Z = 0.000000238418579102
+            RotationAngle.X = 30.000000000000000000
+            RotationAngle.Y = 5.000000000000000000
+            Width = 1.000000000000000000
+            Height = 1.000000000000000000
+            Depth = 1.000000000000000000
+            Quanternion = 
+              '(0.351868540048599,0.0156562440097332,-0.00278703821823001,-0.93' +
+              '5914278030396)'
+          end
+        end
+      end
+    end
+    object Model3D1: TModel3D
+      Width = 2.000000000000000000
+      Height = 2.000000000000000000
+      Depth = 2.000000000000000000
+      Data = {0000}
+    end
+  end
+  object Layout1: TLayout
+    Align = alRight
+    Height = 523.000000000000000000
+    Padding.Left = 9.000000000000000000
+    Padding.Top = 9.000000000000000000
+    Padding.Right = 9.000000000000000000
+    Padding.Bottom = 9.000000000000000000
+    Position.X = 520.000000000000000000
+    Width = 131.000000000000000000
+    object btnLoad: TButton
+      Align = alTop
+      DisableFocusEffect = False
+      Height = 25.000000000000000000
+      Margins.Bottom = 9.000000000000000000
+      Position.X = 9.000000000000000000
+      Position.Y = 9.000000000000000000
+      TabOrder = 0
+      Text = 'Load...'
+      Width = 113.000000000000000000
+      OnClick = btnLoadClick
+    end
+    object btnCancel: TButton
+      Align = alTop
+      DisableFocusEffect = False
+      Height = 25.000000000000000000
+      Margins.Bottom = 9.000000000000000000
+      Position.X = 9.000000000000000000
+      Position.Y = 111.000000000000000000
+      TabOrder = 1
+      Text = 'Cancel'
+      Width = 113.000000000000000000
+      OnClick = btnCancelClick
+    end
+    object btnOk: TButton
+      Align = alTop
+      DisableFocusEffect = False
+      Height = 25.000000000000000000
+      Margins.Bottom = 9.000000000000000000
+      Position.X = 9.000000000000000000
+      Position.Y = 77.000000000000000000
+      TabOrder = 2
+      Text = 'OK'
+      Width = 113.000000000000000000
+      OnClick = btnOkClick
+    end
+    object btnClear: TButton
+      Align = alTop
+      DisableFocusEffect = False
+      Height = 25.000000000000000000
+      Margins.Bottom = 9.000000000000000000
+      Position.X = 9.000000000000000000
+      Position.Y = 43.000000000000000000
+      TabOrder = 3
+      Text = 'Clear'
+      Width = 113.000000000000000000
+      OnClick = btnClearClick
+    end
+    object TrackBar1: TTrackBar
+      DisableFocusEffect = False
+      Height = 193.000000000000000000
+      Max = 4.000000000000000000
+      Min = -4.000000000000000000
+      Orientation = orVertical
+      Position.X = -24.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 4
+      Width = 20.000000000000000000
+      OnChange = TrackBar1Change
+    end
+    object MoveLayout: TLayout
+      Height = 33.000000000000000000
+      Position.X = 8.000000000000000000
+      Position.Y = 144.000000000000000000
+      Width = 113.000000000000000000
+      object btnDown: TButton
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Margins.Right = 8.000000000000000000
+        Position.X = 57.000000000000000000
+        Position.Y = 9.000000000000000000
+        TabOrder = 0
+        Width = 23.000000000000000000
+        OnClick = btnDownClick
+        object Path2: TPath
+          Align = alCenter
+          Data.Path = {
+            08000000000000007DFF9F4373888843010000006AECAA430AE79A4301000000
+            6ABCA2430AE79A43010000006ABCA2438D47B043010000004E429D438D47B043
+            010000004E429D430AE79A43010000004E1295430AE79A43030000007DFF9F43
+            73888843}
+          Fill.Kind = bkNone
+          Height = 13.000000000000000000
+          HitTest = False
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          RotationAngle = 180.000000000000000000
+          Width = 13.000000000000000000
+        end
+      end
+      object btnLeft: TButton
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Margins.Right = 8.000000000000000000
+        Position.X = 9.000000000000000000
+        Position.Y = 9.000000000000000000
+        TabOrder = 1
+        Width = 23.000000000000000000
+        OnClick = btnLeftClick
+        object Path3: TPath
+          Align = alCenter
+          Data.Path = {
+            08000000000000007DFF9F4373888843010000006AECAA430AE79A4301000000
+            6ABCA2430AE79A43010000006ABCA2438D47B043010000004E429D438D47B043
+            010000004E429D430AE79A43010000004E1295430AE79A43030000007DFF9F43
+            73888843}
+          Fill.Kind = bkNone
+          Height = 13.000000000000000000
+          HitTest = False
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          RotationAngle = 270.000000000000000000
+          Width = 13.000000000000000000
+        end
+      end
+      object btnRight: TButton
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Margins.Right = 8.000000000000000000
+        Position.X = 81.000000000000000000
+        Position.Y = 9.000000000000000000
+        TabOrder = 2
+        Width = 23.000000000000000000
+        OnClick = btnRightClick
+        object Path4: TPath
+          Align = alCenter
+          Data.Path = {
+            08000000000000007DFF9F4373888843010000006AECAA430AE79A4301000000
+            6ABCA2430AE79A43010000006ABCA2438D47B043010000004E429D438D47B043
+            010000004E429D430AE79A43010000004E1295430AE79A43030000007DFF9F43
+            73888843}
+          Fill.Kind = bkNone
+          Height = 13.000000000000000000
+          HitTest = False
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          RotationAngle = 90.000000000000000000
+          Width = 13.000000000000000000
+        end
+      end
+      object btnUp: TButton
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Margins.Right = 8.000000000000000000
+        Position.X = 33.000000000000000000
+        Position.Y = 9.000000000000000000
+        TabOrder = 3
+        Width = 23.000000000000000000
+        OnClick = btnUpClick
+        object Path1: TPath
+          Align = alCenter
+          Data.Path = {
+            08000000000000007DFF9F4373888843010000006AECAA430AE79A4301000000
+            6ABCA2430AE79A43010000006ABCA2438D47B043010000004E429D438D47B043
+            010000004E429D430AE79A43010000004E1295430AE79A43030000007DFF9F43
+            73888843}
+          Fill.Kind = bkNone
+          Height = 13.000000000000000000
+          HitTest = False
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          Width = 13.000000000000000000
+        end
+      end
+    end
+  end
+end

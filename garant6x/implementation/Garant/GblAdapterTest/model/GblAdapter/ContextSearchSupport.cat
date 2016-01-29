@@ -1,0 +1,1170 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.4.0410.2500"
+    charSet    	204)
+
+(object Class_Category "ContextSearchSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false"))
+    quid       	"3F2562310083"
+    stereotype 	"Interface"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "SearchDirection"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"CORBA"
+		    name       	"ImplementationType"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3EC37A7A0376"
+	    documentation 	"Направление поиска."
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "SD_UP"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"001"))
+		    quid       	"3EC37A7A0377"
+		    documentation 	"Поис вверх."
+		    exportControl 	"Public")
+		(object ClassAttribute "SD_DOWN"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"002"))
+		    quid       	"3EC37A7A0378"
+		    documentation 	"Поиск вниз."
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "SearchMode"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"CORBA"
+		    name       	"ImplementationType"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (h):*3EC37A7A0365_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *3EC37A7A0365_CUSTOM_DECLARATIONS*¤//#UC END# *3EC37A7A0365_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"old.dll.h:*3EC37A7A0365_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *3EC37A7A0365_CUSTOM_DECLARATIONS*¤//#UC END# *3EC37A7A0365_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3EC37A7A0365"
+	    documentation 	
+|Перечислимый тип, определяющий способ поиска в линейных структурах (списках, текстах и т.п.).
+|Сочетание ss_Global + sd_Up - поиск с конца вверх.
+|Сочетание ss_Global + sd_Down - поиск сначала вниз.
+|Сочетание c ss_Current - поиск от текущего элемента вверх или вниз.
+	    
+	    stereotype 	"Struct"
+	    language   	"MDA Generator")
+	(object Class "SearchStatus"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"CORBA"
+		    name       	"ImplementationType"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3EC37A7A036C"
+	    documentation 	"Зона поиска."
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "SS_GLOBAL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"001"))
+		    quid       	"3EC37A7A036D"
+		    documentation 	"Поиск по всему объекту."
+		    exportControl 	"Public")
+		(object ClassAttribute "SS_CURENT"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"002"))
+		    quid       	"3EC37A7A036E"
+		    documentation 	"Поиск от текущего элемента."
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "ContextSearchResult"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"CORBA"
+		    name       	"ImplementationType"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (h):*3EC37E37025D_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *3EC37E37025D_CUSTOM_DECLARATIONS*¤//#UC END# *3EC37E37025D_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"old.dll.h:*3EC37E37025D_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *3EC37E37025D_CUSTOM_DECLARATIONS*¤//#UC END# *3EC37E37025D_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3EC37E37025D"
+	    documentation 	"Результат поиска по контексту."
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "item_index"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"003")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"ArrayDimensions"
+			    value      	"")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"CaseSpecifier"
+			    value      	"")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"IsReadOnly"
+			    value      	FALSE))
+		    quid       	"3EC37E37025E"
+		    documentation 	"Индекс найденного элемента."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "HighlightPositionList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"CORBA"
+		    name       	"ArrayDimensions"
+		    value      	"")
+		(object Attribute
+		    tool       	"CORBA"
+		    name       	"ImplementationType"
+		    value      	"sequence <HighlightPosition>")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"0311883B-7352-4AA9-8B38-B853D9B37FF8")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EC37E370265_CUSTOM_DESTRUCTOR_FIX*"
+		    value      	(value Text 
+|//#UC START# *3EC37E370265_CUSTOM_DESTRUCTOR_FIX*¤	//#UC END# *3EC37E370265_CUSTOM_DESTRUCTOR_FIX*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*3EC37E370265_CUSTOM_DESTROY_DECLARATION*"
+		    value      	"//#UC START# *3EC37E370265_CUSTOM_DESTROY_DECLARATION*¤//#UC END# *3EC37E370265_CUSTOM_DESTROY_DECLARATION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Delphi DLL Realizatoion (pas):*3EC37E370265_CUSTOM_DESTROY_BODY*"
+		    value      	(value Text 
+|//#UC START# *3EC37E370265_CUSTOM_DESTROY_BODY*¤		//#UC END# *3EC37E370265_CUSTOM_DESTROY_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EC37E370265CUSTOM_MAKE_INTERFACE_IMPL*"
+		    value      	"//#UC START# *3EC37E370265CUSTOM_MAKE_INTERFACE_IMPL*¤//#UC END# *3EC37E370265CUSTOM_MAKE_INTERFACE_IMPL*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.h):*3EC37E370265CUSTOM_MAKE_INTERFACE*"
+		    value      	(value Text 
+|//#UC START# *3EC37E370265CUSTOM_MAKE_INTERFACE*¤	//#UC END# *3EC37E370265CUSTOM_MAKE_INTERFACE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (_i.cpp):*3EC37E370265CUSTOM_INCLUDE*"
+		    value      	"//#UC START# *3EC37E370265CUSTOM_INCLUDE*¤//#UC END# *3EC37E370265CUSTOM_INCLUDE*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3EC37E370265"
+	    documentation 	"Список позиций для подсветки."
+	    stereotype 	"Sequence"
+	    language   	"MDA Generator")
+	(object Class "HighlightPosition"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"CORBA"
+		    name       	"ImplementationType"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"C++ DLL (h):*3EC37E370269_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *3EC37E370269_CUSTOM_DECLARATIONS*¤//#UC END# *3EC37E370269_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"old.dll.h:*3EC37E370269_CUSTOM_DECLARATIONS*"
+		    value      	"//#UC START# *3EC37E370269_CUSTOM_DECLARATIONS*¤//#UC END# *3EC37E370269_CUSTOM_DECLARATIONS*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"3EC37E370269"
+	    documentation 	"Позиции для подсветки найденных слов."
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "start"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"1")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"ArrayDimensions"
+			    value      	"")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"CaseSpecifier"
+			    value      	"")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"IsReadOnly"
+			    value      	FALSE))
+		    quid       	"3EC37E37026A"
+		    documentation 	"начало выделения"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public")
+		(object ClassAttribute "finish"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"2")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"ArrayDimensions"
+			    value      	"")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"CaseSpecifier"
+			    value      	"")
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"IsReadOnly"
+			    value      	FALSE))
+		    quid       	"3EC37E37026B"
+		    documentation 	"конец выделения"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC37A7A0371"
+	    roles      	(list role_list
+		(object Role "direction"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"3EC37A7A0372"
+		    documentation 	"Направление поиска."
+		    label      	"direction"
+		    supplier   	"Logical View::garant6x::GblAdapter::ContextSearchSupport::SearchDirection"
+		    quidu      	"3EC37A7A0376"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"3EC37A7A0373"
+		    supplier   	"Logical View::garant6x::GblAdapter::ContextSearchSupport::SearchMode"
+		    quidu      	"3EC37A7A0365"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC37A7A0367"
+	    roles      	(list role_list
+		(object Role "status"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"1")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"3EC37A7A0368"
+		    documentation 	"Зона поиска."
+		    label      	"status"
+		    supplier   	"Logical View::garant6x::GblAdapter::ContextSearchSupport::SearchStatus"
+		    quidu      	"3EC37A7A036C"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$3"
+		    quid       	"3EC37A7A0369"
+		    supplier   	"Logical View::garant6x::GblAdapter::ContextSearchSupport::SearchMode"
+		    quidu      	"3EC37A7A0365"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$4"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC37E370260"
+	    roles      	(list role_list
+		(object Role "positions"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"CORBA"
+			    name       	"Order"
+			    value      	"002")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"3EC37E370261"
+		    documentation 	"Список позиций для подсветки."
+		    label      	"positions"
+		    supplier   	"Logical View::garant6x::GblAdapter::ContextSearchSupport::HighlightPositionList"
+		    quidu      	"3EC37E370265"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"3EC37E370262"
+		    supplier   	"Logical View::garant6x::GblAdapter::ContextSearchSupport::ContextSearchResult"
+		    quidu      	"3EC37E37025D"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$6"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"Priority"
+		    value      	"99"))
+	    quid       	"3EC37E4D02EB"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$7"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"3EC37E4E0075"
+		    supplier   	"Logical View::garant6x::GblAdapter::ContextSearchSupport::HighlightPosition"
+		    quidu      	"3EC37E370269"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$8"
+		    quid       	"3EC37E4E0077"
+		    supplier   	"Logical View::garant6x::GblAdapter::ContextSearchSupport::HighlightPositionList"
+		    quidu      	"3EC37E370265"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3F256ADB0123"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ContextSearchSupport::ContextSearchResult" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(525, 201)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(257, 168)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	536
+			justify    	0
+			label      	"ContextSearchResult")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(257, 118)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	536
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"3EC37E37025D"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(257, 229)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Label"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	1
+			max_width  	543
+			justify    	1)
+		    width      	554
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ContextSearchSupport::HighlightPositionList" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(522, 609)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(319, 593)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	406
+			justify    	0
+			label      	"HighlightPositionList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(319, 543)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	406
+			justify    	0
+			label      	"<<Sequence>>")
+		    icon_style 	"Label"
+		    fill_color 	16774615
+		    quidu      	"3EC37E370265"
+		    width      	424
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$4" @3
+		    location   	(523, 413)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3EC37E370260"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$5" @4
+			    Parent_View 	@3
+			    location   	(-119, -403)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @5
+				Parent_View 	@4
+				location   	(484, 321)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.789482
+				height     	41
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC37E370262"
+			    client     	@3
+			    supplier   	@1
+			    vertices   	(list Points
+				(523, 413)
+				(524, 296))
+			    line_style 	0)
+			(object RoleView "positions" @6
+			    Parent_View 	@3
+			    location   	(-119, -403)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @7
+				Parent_View 	@6
+				location   	(488, 419)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	204
+				justify    	0
+				label      	"+positions"
+				pctDist    	0.053835
+				height     	35
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC37E370261"
+			    client     	@3
+			    supplier   	@2
+			    vertices   	(list Points
+				(523, 413)
+				(522, 530))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ContextSearchSupport::HighlightPosition" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1158, 609)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(935, 550)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	446
+			justify    	0
+			label      	"HighlightPosition")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(935, 500)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	446
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"3EC37E370269"
+		    compartment 	(object Compartment
+			Parent_View 	@8
+			location   	(935, 611)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Label"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	440
+			justify    	1)
+		    width      	464
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$6" @9
+		    location   	(829, 609)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3EC37E4D02EB"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$8" @10
+			    Parent_View 	@9
+			    location   	(-503, 162)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @11
+				Parent_View 	@10
+				location   	(753, 569)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.795455
+				height     	41
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC37E4E0077"
+			    client     	@9
+			    supplier   	@2
+			    vertices   	(list Points
+				(829, 609)
+				(734, 609))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$7" @12
+			    Parent_View 	@9
+			    location   	(-503, 162)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @13
+				Parent_View 	@12
+				location   	(905, 569)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.795455
+				height     	41
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC37E4E0075"
+			    client     	@9
+			    supplier   	@8
+			    vertices   	(list Points
+				(829, 609)
+				(925, 609))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ContextSearchSupport::SearchDirection" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(888, 1335)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(722, 1276)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"SearchDirection")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(722, 1226)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"3EC37A7A0376"
+		    compartment 	(object Compartment
+			Parent_View 	@14
+			location   	(722, 1337)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Label"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	265
+			justify    	1)
+		    width      	350
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ContextSearchSupport::SearchMode" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(597, 951)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(458, 922)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"SearchMode")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(458, 872)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"3EC37A7A0365"
+		    width      	296
+		    height     	183
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @16
+		    location   	(729, 1127)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3EC37A7A0371"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @17
+			    Parent_View 	@16
+			    location   	(-702, 152)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @18
+				Parent_View 	@17
+				location   	(712, 1037)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.782380
+				height     	41
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC37A7A0373"
+			    client     	@16
+			    supplier   	@15
+			    vertices   	(list Points
+				(729, 1127)
+				(666, 1042))
+			    line_style 	0)
+			(object RoleView "direction" @19
+			    Parent_View 	@16
+			    location   	(-702, 152)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @20
+				Parent_View 	@19
+				location   	(804, 1136)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	178
+				justify    	0
+				label      	"+direction"
+				pctDist    	0.486103
+				height     	54
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC37A7A0372"
+			    client     	@16
+			    supplier   	@14
+			    vertices   	(list Points
+				(729, 1127)
+				(794, 1213))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::garant6x::GblAdapter::ContextSearchSupport::SearchStatus" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(285, 1326)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(132, 1267)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"SearchStatus")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(132, 1217)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"3EC37A7A036C"
+		    compartment 	(object Compartment
+			Parent_View 	@21
+			location   	(132, 1328)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Label"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	300
+			justify    	1)
+		    width      	324
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$2" @22
+		    location   	(452, 1123)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3EC37A7A0367"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$3" @23
+			    Parent_View 	@22
+			    location   	(-991, -335)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @24
+				Parent_View 	@23
+				location   	(537, 1086)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	12
+				justify    	0
+				label      	""
+				pctDist    	0.790677
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC37A7A0369"
+			    client     	@22
+			    supplier   	@15
+			    vertices   	(list Points
+				(452, 1123)
+				(519, 1042))
+			    line_style 	0)
+			(object RoleView "status" @25
+			    Parent_View 	@22
+			    location   	(-991, -335)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @26
+				Parent_View 	@25
+				location   	(438, 1132)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	140
+				justify    	0
+				label      	"+status"
+				pctDist    	0.149114
+				height     	5
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EC37A7A0368"
+			    client     	@22
+			    supplier   	@21
+			    vertices   	(list Points
+				(452, 1123)
+				(382, 1204))
+			    line_style 	0)))))))

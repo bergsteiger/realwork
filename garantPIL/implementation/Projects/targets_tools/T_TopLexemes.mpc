@@ -1,0 +1,40 @@
+project (T_TopLexemes) : project-common-defines, project-common-includes, project_generic_core, project_subsystem_console {
+	exename = TopLexemes
+
+	after += Core
+	libs  += Core
+
+	after += GCL
+	libs  += GCL
+
+	after += Morpho
+	libs  += Morpho
+
+	after += ContextSearch
+	libs  += ContextSearch
+
+	after += SearchAdapterLib
+	libs  += SearchAdapterLib
+
+	after += gkdb
+	libs  += gkdb
+
+	after += SearchBase
+	libs  += SearchBase
+
+	after += cchlp1
+	libs  += cchlp1
+
+	after += gctx_tools
+	libs  += gctx_tools
+
+	after += zlib
+	libs  += zlib
+
+	Header_Files {
+	}
+
+	Source_Files {
+		./../../component/cpp/tools/TopLexemes/Main.cpp
+	}
+}

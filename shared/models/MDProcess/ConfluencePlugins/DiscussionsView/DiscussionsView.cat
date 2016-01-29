@@ -1,0 +1,285 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "DiscussionsView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (vm)"
+	    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/DiscussionsView/DiscussionsMacro.vm::46120DA70290")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/DiscussionsView/DiscussionsMacro|46120DA70290::46120DA70290
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/DiscussionsView|477E2B2B02EC
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19026165394"))
+    quid       	"477E2B2B02EC"
+    documentation 	
+|Ýëåìåíòû ïðåäñòàâëåíèÿ äëÿ ðàáîòû ñ îáñóæäåíèÿìè
+|
+|
+    
+    stereotype 	"HtmlUnit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4AB2118B018E"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit"
+	    quidu      	"490ACC32003C"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DiscussionsMacro"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (output.xml)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"output.xml:*46120DA70290_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*46120DA70290_CUSTOM_CONTENT*¤¤<script language="Javascript">¤    function ajaxUnreadStateRequest${macroKey}(action, type, id) {¤        var xmlhttp = getXmlHttp();¤        xmlhttp.open("GET", action + "?id=" + id + "&type=" + type);¤        xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState==4) {¤                var flagThs = document.getElementById('unreadFlag${macroKey}-'+id);¤                var imgThs = document.getElementById('unreadImage${macroKey}-'+id);¤                var fontThs = document.getElementById('title${macroKey}-'+id);¤                if (flagThs.value == '1') {¤                    flagThs.value = '0';¤                    var unviewedThs = document.getElementById('unviewedCount${macroKey}-'+id);¤                    if (unviewedThs)¤                        unviewedThs.style.visibility = 'hidden';¤                    fontThs.color="#003366";¤                    imgThs.src = "$req.contextPath/images/icons/garicons/readed_mark.gif";¤                } else {¤                    flagThs.value = '1';¤                    fontThs.color="#CC0000";¤                    imgThs.src = "$req.contextPath/images/icons/garicons/unreaded_mark.gif";¤                }¤            }¤        }¤        xmlhttp.send(null);¤    }¤¤    function setContentState${macroKey}(type, id) {¤        var flagThs = document.getElementById('unreadFlag${macroKey}-'+id);¤        if (flagThs.value == '1') {¤            #if($isDiscussion)¤                ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setReadState.action",type,id);¤            #else¤                ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setReadEtityState.action",type,id);¤            #end¤        } else {¤            #if($isDiscussion)¤                ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setUnreadState.action",type,id);¤            #else¤                ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setUnreadEtityState.action",type,id);¤            #end¤        }¤    }¤¤    function ajaxUnreadStateAllRequest${macroKey}(action, tab, visible) {¤        var xmlhttp = getXmlHttp();¤        var countDocs = "";¤        if (visible == 1) {¤            countDocs = "maxCount=$itemListCount&forceOnlyUnread=$forceOnlyUnread";¤        } else {¤            countDocs = "all=1";¤        }¤        xmlhttp.open("GET", action + "?spacesSelectedTab=" + tab + "&dashboardListKey=${macroKey}&" + countDocs);¤        xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState==4) {¤                var respList = xmlhttp.responseXML.getElementsByTagName("state");¤                var resp = respList[0].text;¤                if (!resp) {¤                    resp = respList[0].textContent;¤                }¤                if (resp == "Completed") {¤                    window.location.replace (window.location.href);¤                } else if (resp == "InProgress") {¤                    alert("Please wait. Your request is processing.")¤                } else if (resp == "Failed") {¤                    alert("Your request is failed. Sorry.")¤                } else {¤                    alert("Unknown status '" + resp + "', textContent='" + resp + "', respList.length="+respList.length)¤                }¤            }¤        }¤        xmlhttp.send(null);¤    }¤¤    function readAll${macroKey}(tab, visible) {¤        ajaxUnreadStateAllRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setReadStateForAll.action", tab, visible);¤    }¤</script>¤¤#if (!$thereAreNoPages)¤    #set ($thereAreNoPages = $action.getText("there.are.no.pages"))¤#end¤¤¤¤#if ($showEmptyList || ($itemList && $itemList.size() > 0))¤    <div class="tabletitle" style="width: 100%">¤        #if ($showless || $showmore)¤            <div style="float:right;" valign="bottom" class="tabletitleops">¤                #if ($showless)¤                    <a href="$showless"><img border="0" width="12" height="12" src="$req.contextPath/images/icons/subtract_16.gif" title="Show Fewer"></a>¤                #end¤                #if ($showmore)¤                    <a href="$showmore"><img border="0" width="12" height="12" src="$req.contextPath/images/icons/add_16.gif" title="Show More"></a>¤                #end¤            </div>¤        #end¤        #if($header) $header #end¤        &nbsp;<font size="1">($itemList.size()#if($maxCount) from $maxCount#end)</font>¤        #if($queryTime)&nbsp;<font size="1">[$queryTime ms]</font>#end¤        #if ($remoteUser)¤            &nbsp;¤            <font size="1">¤                Mark as Read: ¤                #set ($tab = $req.getParameter("spacesSelectedTab"))¤                <span id="readAll${macroKey}" style="text-decoration: underline;cursor: pointer;" onClick="readAll${macroKey}('#if($tab)${tab}#end', 1)">visible</span>¤                ,&nbsp;¤                <span id="readAll${macroKey}" style="text-decoration: underline;cursor: pointer;" onClick="readAll${macroKey}('#if($tab)${tab}#end', 0)">all</span>¤            </font>¤        #end¤        <br>¤    </div>¤¤    #set ($commentPlace = $garProfile.get('CommentPlace'))¤    #if (!$commentPlace || $commentPlace != 'intab')¤        #set ($isCommentsInTab = 0)¤    #else¤        #set ($isCommentsInTab = 1)¤    #end¤¤    <table width="100%" cellspacing="1"  border="0" class="tableview">¤        #if ($itemList && $itemList.size() > 0)¤            #foreach ($item in $itemList)¤                <tr><td>¤                    <div style="float:right;" class="smalltext">¤                        #if ($item.author)¤                            by <a href="$req.contextPath/display/~$generalUtil.urlEncode($!item.author)">$action.getUserFullName($!item.author)</a> ($generalUtil.getRelativeTime($!item.date))¤                        #else¤                            by <a>Anonymous</a> ($generalUtil.getRelativeTime($!item.date))¤                        #end¤                        #if ($remoteUser)¤                            #if ($item.isRead)¤                                #set ($stateIcon = "readed_mark.gif")¤                                #set ($unreadFlag = "0")¤                            #else¤                                #set ($stateIcon = "unreaded_mark.gif")¤                                #set ($unreadFlag = "1")¤                            #end¤                            <input type="hidden" id='unreadFlag${macroKey}-$item.page.id' value="$unreadFlag"/>¤                            <img id='unreadImage${macroKey}-$item.page.id' align="absmiddle" src="$req.contextPath/images/icons/garicons/$stateIcon" width="6" height="16" border="0" style="cursor: pointer;" onclick="setContentState${macroKey}('$item.page.type','$item.page.id')">¤                        #end¤                    </div>¤                    #if ($macroKey == "RECENTLY" && $item.page.id)¤                        #set ($changesType = $diffInfoHelper.changesType($item.page))¤                        #if ($changesType == "NEW_PAGE")¤                            <a href="$req.contextPath/pages/viewpage.action?pageId=$item.page.id"><img src="/download/attachments/295027/pcs_new.gif" title="Íîâàÿ ñòðàíèöà" alt="New" border=0></a>¤                        #else¤                            #set ($diffUrl = "$req.contextPath/pages/diffpagesbyversion.action?pageId=${item.page.id}&originalVersion=${item.page.previousVersion}&revisedVersion=$item.page.version")¤                            #if ($changesType == "CONTENT_ONLY")¤                                <a href="$diffUrl"><img src="/download/attachments/295027/pcs_change.gif" title="Ïîìåíÿëñÿ òåêñò" alt="TXT" border=0 align="absmiddle"></a>¤                            #end¤                            #if ($changesType == "LOCATION_ONLY")¤                                <a href="$diffUrl"><img src="/download/attachments/295027/pcs_move.gif" title="Ïîìåíÿëîñü ìåñòîïîëîæåíèå" alt="LOCATION" border=0 align="absmiddle"></a>¤                            #end¤                            #if ($changesType == "FULL")¤                                <a href="$diffUrl"><img src="/download/attachments/295027/pcs_change_and_move.gif" title="Ïîìåíÿëîñü è ìåñòîïîëîæåíèå è òåêñò" alt="ALL" border=0 align="absmiddle"></a>¤                            #end¤                        #end¤                    #end¤                    #contentIconWithLinkPrefix($item.page $req.contextPath)¤                    #set ($titleUrl = "$req.contextPath/pages/viewpage.action?pageId=${item.page.id}")¤                    #if ("$item.lastCommentId" != "0")¤                        #if ($isCommentsInTab == 0)¤                            #set ($titleUrl = "$titleUrl&focusedCommentId=${item.lastCommentId}#comment-${item.lastCommentId}")¤                        #else¤                            #set ($titleUrl = "$req.contextPath/ru/garant/MDProcess/ConfluencePlugins/CommentsTabSupport/CommentsTabXWorkPlugin/CommentsTabXPackage/commentstab-viewcomments.action?pageId=${item.page.id}&focusedCommentId=${item.lastCommentId}")¤                        #end¤                    #end¤                    <a href="$titleUrl">¤                        <font id='title${macroKey}-$item.page.id' #if ($remoteUser && !$item.isRead) color="#CC0000" #end >$item.page.title</font>¤                    </a>¤¤                    #if ($needSpace)¤                        <span class="smalltext">#contentOther($item.page)</span>¤                    #end¤¤                    #if ($item.page.type == "blogpost")¤                        <span class="smalltext">&lt;from $generalUtil.getFormatDateSimple($item.page.creationDate)&gt;</span>¤                    #end¤¤                    #if ($item.unreadCommentCount > 0)¤                        <span id='unviewedCount${macroKey}-$item.page.id'>¤                            <a>&nbsp;(<font color="#CC0000">$item.unreadCommentCount</font>)</a>¤                        </span>¤                    #end¤                </td></tr>¤            #end¤        #end¤    </table>¤#end¤##UC_END*46120DA70290_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/DiscussionPlugins/DiscussionsView/DiscussionsMacro|46120DA70290
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*46120DA70290_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*46120DA70290_CUSTOM_CONTENT*¤#requireResource('confluence.web.resources:utils')¤¤#parse("/ConfluencePlugins/UserNotificationUnit/changenotify_js.vm")¤¤<script language="Javascript">¤    var requestInProgress = new Object();¤¤    function clearUnreadState${macroKey} (id) {¤    	changeDiscussionState${macroKey} (id);¤    	return true;¤    }¤¤    function changeDiscussionState${macroKey} (id) {¤        var flagThs = document.getElementById('unreadFlag${macroKey}-'+id);¤        var imgThs = document.getElementById('unreadImage${macroKey}-'+id);¤        var fontThs = document.getElementById('title${macroKey}-'+id);¤        if (flagThs.value == '1') {¤            flagThs.value = '0';¤            fontThs.style.color="#003366";¤            imgThs.src = "$req.contextPath/images/icons/garicons/readed_mark.gif";¤            imgThs.title = '$garHelper.getText("discussion.markasread")';¤        } else {¤            flagThs.value = '1';¤            fontThs.style.color="#CC0000";¤            imgThs.src = "$req.contextPath/images/icons/garicons/unreaded_mark.gif";¤            imgThs.title = '$garHelper.getText("discussion.markasunread")';¤        }¤        var unviewedThs = document.getElementById('unviewedCount${macroKey}-'+id);¤        if (unviewedThs)¤            unviewedThs.style.visibility = 'hidden';¤    }¤¤    function ajaxUnreadStateRequest${macroKey}(action, type, id) {¤		if (requestInProgress[id + "${macroKey}"]) {¤            alert("$garHelper.getText('load.another.request')");¤            return;¤        }¤        requestInProgress[id + "${macroKey}"] = true;¤        changeDiscussionState${macroKey}(id);¤        var xmlhttp = getXmlHttp();¤        xmlhttp.open("GET", action + "?id=" + id + "&type=" + type, true);¤        xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState==4 && xmlhttp.status==200) {¤                delete requestInProgress[id + "${macroKey}"];¤            }¤        }¤        xmlhttp.send(null);¤    }¤¤    function setContentState${macroKey}(type, id) {¤        var flagThs = document.getElementById('unreadFlag${macroKey}-'+id);¤        var iconThs = document.getElementById('unreadImage${macroKey}-'+id);¤			if (flagThs.value == '1') {¤				#if ($macroKey == "WARNING_REQUEST")¤					ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setreadtwostates.action",type,id);¤				#else¤					#if($isDiscussion)¤						ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setreadstate.action",type,id);¤					#else¤						ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setreadentitystate.action",type,id);¤					#end¤				#end¤			} else {¤				#if ($macroKey == "WARNING_REQUEST")¤					ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setunreadtwostates.action",type,id);¤				#else¤					#if($isDiscussion)¤						ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setunreadstate.action",type,id);¤					#else¤						ajaxUnreadStateRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setunreadentitystate.action",type,id);¤					#end¤				#end¤			}¤    }¤¤    function ajaxUnreadStateAllRequest${macroKey}(action, tab, idList) {¤		var xmlhttp = getXmlHttp();¤        var params = "dashboardListKey=${macroKey}&isDiscussion=${isDiscussion}";¤        if (idList) {¤            params += "&idList=" + idList;¤        } else {¤            params += "&all=1";¤        }¤¤        xmlhttp.open("POST", action, true);¤		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");¤		xmlhttp.setRequestHeader("Content-length", params.length);¤		xmlhttp.setRequestHeader("Connection", "close");¤        xmlhttp.onreadystatechange=function() {¤            if (xmlhttp.readyState==4 && xmlhttp.status==200) {¤                var respList = xmlhttp.responseXML.getElementsByTagName("state");¤                var resp = respList[0].text;¤                if (!resp) {¤                    resp = respList[0].textContent;¤                }¤                if (resp == "Completed") {¤                    window.location.replace (window.location.href);¤                } else if (resp == "InProgress") {¤                    alert("$garHelper.getText('load.request')")¤                } else if (resp == "Failed") {¤                    alert("$garHelper.getText('failed.request')")¤                } else {¤                    alert("$garHelper.getText('unknown.status')" + " '" + resp + "', textContent='" + resp + "', respList.length="+respList.length)¤                }¤            }¤        }¤        xmlhttp.send(params);¤    }¤¤¤    function readAll${macroKey}(tab) {¤        ajaxUnreadStateAllRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setreadstateforall.action", tab);¤    }¤	¤    function readVisible${macroKey}(tab) {¤	    var idsToSetReadState = "";¤		var authorList = getElementsByName_iefix('div', '${macroKey}author');¤		for (var i = 0; i < authorList.length; ++i) {¤            var entityId = authorList[i].attributes["value"].value;¤            var flagThs = document.getElementById('unreadFlag${macroKey}-'+entityId);¤            if (flagThs.value == '1') {¤                idsToSetReadState += entityId + " ";¤            }¤        }¤        if (idsToSetReadState != "") {¤                ajaxUnreadStateAllRequest${macroKey}("/ru/garant/MDProcess/ConfluencePlugins/DiscussionsSupport/UnreadStateXWorkPlugin/UnreadStateXPackage/setreadstateforall.action", tab, idsToSetReadState);¤        }¤    }¤	¤</script>¤¤#if (!$thereAreNoPages)¤    #set ($thereAreNoPages = $garHelper.getText("there.are.no.pages"))¤#end¤¤¤¤#if ($itemList && $itemList.size() > 0)¤¤		#set($headerToolTip1 = $garHelper.getHelpTooltipJs("${macroKey}"))¤		#set($headerToolTip2 = $garHelper.getHelpTooltipJs("dashboard.discussions.commands.1.visible"))¤		#set($headerToolTip3 = $garHelper.getHelpTooltipJs("dashboard.discussions.commands.1.all"))¤		¤		<table cellspacing=0 style="width: 100%"><tr>¤			<td class="tabletitle">¤				#if($header)<span onmouseover="${headerToolTip1}" onmouseout="UnTip()">$header</span>#end¤				#if ($showmore)¤					<a href="$showmore"><img border="0" width="12" height="12" src="$req.contextPath/images/icons/add_16.gif" title="$garHelper.getText('show.more')"></a>¤				#end¤¤				#if ($showless)¤					<a href="$showless"><img border="0" width="12" height="12" src="$req.contextPath/images/icons/subtract_16.gif" title="$garHelper.getText('show.fewer')"></a>¤				#end¤			</td>¤			<td align="right" class="tabletitle">¤				#if ($macroKey != "WARNING_REQUEST")¤					#if ($remoteUser)¤					<div class="smalltext">¤						#if($unreadCountInList)¤							<span>$unreadCountInList</span>¤							<span id="readAll${macroKey}" style="cursor: pointer;" onClick="readVisible${macroKey}('#if($tab)${tab}#end')" onmouseover="${headerToolTip2}" onmouseout="UnTip()">							¤								$garIcon.getIcon('unreaded_mark_light').toHtml("", "")¤##								<img align="absmiddle" src="$req.contextPath/download/attachments/127041844/unreaded_mark_light.png" width="6" height="16" border="0">¤							</span>¤							#if($maxUnreadCount && $maxUnreadCount > $unreadCountInList)¤								<span>¤									$garHelper.getText('from')&nbsp;$maxCount							¤								</span>¤								<span id="readAll${macroKey}" style="cursor: pointer;" onClick="readAll${macroKey}('#if($tab)${tab}#end')" onmouseover="${headerToolTip3}" onmouseout="UnTip()">¤									$garIcon.getIcon('unreaded_mark_light').toHtml("", "")¤##									<img align="absmiddle" src="$req.contextPath/download/attachments/127041844/unreaded_mark_light.png" width="6" height="16" border="0">¤								</span>¤							#end¤						#end¤					</div>¤					#end¤				#else  ## render notifications¤					#if ($remoteUser)¤					<div class="smalltext">¤						<span style="font-weight: normal;">¤							(<a href ="/ru/garant/MDProcess/ConfluencePlugins/NotifyMonitoringProfileSupport/NotifyMonitoringProfileTabXWorkPlugin/NotifyMonitoringProfileTabXPackage/notifymonitoringprofiletab.action"><span id="ArchiveNotify${macroKey}" style="text-decoration: underline;cursor: pointer;">$garHelper.getText('archive')</span></a>)¤						</span>¤						#if($unreadCountInList)¤							<span>$unreadCountInList</span>¤							<span id="readAll${macroKey}" style="cursor: pointer;" onClick="readVisible${macroKey}('#if($tab)${tab}#end')" onmouseover="${headerToolTip2}" onmouseout="UnTip()">							¤							$garIcon.getIcon('unreaded_mark_light').toHtml("", "")¤##							<img align="absmiddle" src="$req.contextPath/download/attachments/127041844/unreaded_mark_light.png" width="6" height="16" border="0">¤							</span>¤							#if($maxUnreadCount && $maxUnreadCount > $unreadCountInList)¤								<span>¤									$garHelper.getText('from')&nbsp;$maxCount							¤								</span>¤								<span id="readAll${macroKey}" style="cursor: pointer;" onClick="readAll${macroKey}('#if($tab)${tab}#end')" onmouseover="${headerToolTip3}" onmouseout="UnTip()">¤									$garIcon.getIcon('unreaded_mark_light').toHtml("", "")¤##									<img align="absmiddle" src="$req.contextPath/download/attachments/127041844/unreaded_mark_light.png" width="6" height="16" border="0">¤								</span>¤							#end¤						#end¤					</div>¤					#end				¤				#end  ## render notifications¤			</td>¤			<td align="right" class="tabletitle" style="width: 11px;">¤				&nbsp;¤			</td>¤		</tr></table>¤¤¤    <table width="100%" cellspacing="1"  border="0" class="tableview">¤        #if ($itemList && $itemList.size() > 0)¤			#set ($index = 0)¤			¤			#set($textBy = $garHelper.getText('by'))¤			#set($textTooltipDiscussionUnread = $garHelper.getText("discussion.markasread"))¤			#set($textTooltipDiscussionRead = $garHelper.getText("discussion.markasunread"))¤			¤			#set($textDateFrom = $garHelper.getText('date.from'))¤			#if($macroKey.equals("WARNING_REQUEST"))¤				#set($textGoToLastComment = $garHelper.getText('go.to.last.comment'))¤				#set($textHuntingStop = $garHelper.getText('hunting.stop'))¤			#end¤			#set($message = $action.getText("loading.page"))¤			#foreach ($item in $itemList)¤				#if(!$macroKey.equals("WARNING_REQUEST") || $flagNotifyList.get($index))¤				<tr><td>¤                    <div style="float:right;" class="smalltext" name="${macroKey}author" value="$item.page.id">¤                        #if ($item.author && $item.author != "")¤                            $textBy <a href="$req.contextPath/display/~$generalUtil.urlEncode($!item.author)">$action.getUserFullName($!item.author)</a> ($garHelper.getRelativeTime($!item.date))¤                        #else¤                            $textBy <a>$garHelper.getText('anonymous.name')</a> ($generalUtil.getRelativeTime($!item.date))¤                        #end¤						#if ($remoteUser)¤							#if((!$macroKey.equals("WARNING_REQUEST") || $item.unreadCommentCount == 0) && $item.isRead)¤								#set ($stateIconTooltip = $textTooltipDiscussionUnread)¤								#set ($stateIcon = "readed_mark.gif")¤								#set ($unreadFlag = "0")¤							#else¤								#set ($stateIconTooltip = $textTooltipDiscussionRead)¤								#set ($stateIcon = "unreaded_mark.gif")¤								#set ($unreadFlag = "1")¤							#end¤							<input type="hidden" id='unreadFlag${macroKey}-$item.page.id' value="$unreadFlag"/>¤							<img id='unreadImage${macroKey}-$item.page.id' align="absmiddle" src="$req.contextPath/images/icons/garicons/$stateIcon" width="6" height="16" border="0" style="cursor: pointer;" onclick="if (typeof setContentState${macroKey} == 'undefined'){ alert('$message');} else {setContentState${macroKey}('$item.page.type','$item.page.id')}" title='${stateIconTooltip}' />¤						#end¤                    </div>¤¤           #set ($titleUrl = "$req.contextPath/pages/viewpage.action?pageId=${item.page.id}")¤           ¤           #if ($garProfile.get("DashboardOpenLinkInNewWindow") == "DOLINW_YES")¤           	#set ($openLinkInNewWindow = " target='_blank'")¤           #else¤           	#set ($openLinkInNewWindow = "")¤           #end¤                      ¤           #if (($macroKey == "RECENTLY" || $macroKey.equals("WARNING_REQUEST")) && $item.page.id)¤           	#set ($rulb = $diffInfoHelper.getRecentlyUpdatedLinksBlockFor($item.page))¤           	#set ($titleUrl = $rulb.titleHyperlink)¤           	¤           	#if (!$item.isDocumentBodyRead || !$item.isRead)¤           	¤           		#if ($garProfile.get("DashboardOpenTextOrDiff").equals("DOTOD_NO"))¤           			#set ($titleUrl = $rulb.changesHyperlink)¤           		#end¤           		¤           		#if ($garProfile.get("DashboardOpenLinkInNewWindow") == "DOLINW_YES")¤           			#set ($onClickFunc = "clearUnreadState${macroKey}($item.page.id)")¤           			#set ($openLinkInNewWindow = " target='_blank' onClick='$onClickFunc'")¤           		#end¤           	#end           	¤           	  	           	¤           	<a href="$rulb.changesHyperlink"${openLinkInNewWindow}>$rulb.changesIconInHREF</a>¤           	¤           #end¤           ¤           #contentIconWithLinkPrefix($item.page $req.contextPath)¤           ¤           #if($macroKey.equals("WARNING_REQUEST"))¤           		#if(!$userNotifyWarningPlaceId.get($index).equals($userNotifyContentId.get($index)))¤           			#set($idComment = $userNotifyWarningPlaceId.get($index))¤           			#set ($titleUrl = "$req.contextPath/pages/viewpage.action?pageId=${item.page.id}&focusedCommentId=$idComment#comment-$idComment")¤           		#end¤           #else¤           	#if ("$item.lastCommentId" != "0")¤           		#set ($titleUrl = "$req.contextPath/pages/viewpage.action?pageId=${item.page.id}&focusedCommentId=${item.lastCommentId}#comment-${item.lastCommentId}")¤           	#end¤           #end¤           ¤					<a href="$titleUrl"${openLinkInNewWindow} #if ($remoteUser && (!$item.isRead || ($macroKey.equals("WARNING_REQUEST") && $item.unreadCommentCount > 0))) style="color:#CC0000" #end id='title${macroKey}-$item.page.id'><font>$item.title</font></a>¤					¤           #if($garProfile.get("filter_type") == "uvs_query")¤	           	<span class="smalltext">(#if($item.page.parent)$item.page.parent.title#else $item.page.space.name #end)</span>¤           #else						¤						#if ($needSpace)¤							<span class="smalltext">#contentOtherFixed($item.page)</span>¤						#end¤					#end¤					¤					#if ($item.page.type == "blogpost")¤						<span class="smalltext">&lt; $textDateFrom $generalUtil.getFormatDateSimple($item.page.creationDate)&gt;</span>¤					#end¤¤            #if($macroKey.equals("WARNING_REQUEST"))¤						#set ($titleUrl = "$req.contextPath/pages/viewpage.action?pageId=${item.page.id}")¤						#if ($item.unreadCommentCount > 0)¤							#set ($commentUrl = "$titleUrl&focusedCommentId=${item.lastCommentId}#comment-${item.lastCommentId}")¤¤							<span id='unviewedCount${macroKey}-$item.page.id'>¤								&nbsp;(<a href="$commentUrl" style="color:#CC0000"><font>$item.unreadCommentCount</font></a>)¤							</span>¤						#else	¤                            #if ("$item.lastCommentId" != "0")¤									#set ($noUnreadCommentsUrl = "$titleUrl&focusedCommentId=${item.lastCommentId}#comment-${item.lastCommentId}")¤								<span id='unviewedCount${macroKey}-$item.page.id'>¤									<a href="$noUnreadCommentsUrl">¤										$garIcon.getIcon('shift_right').toHtml("$textGoToLastComment", "ALL")¤##										<img src="/download/attachments/10171/shift_right.png" title="$textGoToLastComment" alt="ALL" border=0 align="absmiddle">¤									</a>¤								</span>¤							#end¤						#end¤					#else¤						#if ($item.unreadCommentCount > 0)¤							<span id='unviewedCount${macroKey}-$item.page.id'>¤								<a>&nbsp;(<font color="#CC0000">$item.unreadCommentCount</font>)</a>¤							</span>¤						#end¤					#end	¤                </td>¤				#if ($macroKey.equals("WARNING_REQUEST"))¤						<td width="1%"> ¤							<a href="" onClick="return false;"><img id="notify-$index" onClick="addOrRemoveNotifyFromFavourites${macroKey}('$idNotifyList.get($index)', '$watchOnForSender.get($index)', '$watchOnDeferred.get($index)', this);" ¤							border="0" onClick="" #if($watchOnForSender.get($index)) src="$garIcon.getTypeIcon('forgui_watch_on_only_for_sender')" #elseif($watchOnDeferred.get($index)) src="$garIcon.getTypeIcon('forgui_deferred_watch_on')" #else src="$garIcon.getTypeIcon('forgui_watch_on')" #end title="$textHuntingStop"></a>¤						</td>¤				#end¤				</tr>¤				#end¤¤				#if ($macroKey.equals("WARNING_REQUEST"))¤					#set ($index = $index + 1)¤				#end¤¤			#end¤        #end¤    </table>¤#end¤##UC_END*46120DA70290_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ConfluencePlugins/DiscussionsView/DiscussionsMacro.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039227158"))
+	    quid       	"46120DA70290"
+	    documentation 	"Òåìïëåéò äëÿ îáñóæäåíèé."
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010730491"))
+		    quid       	"4AB2116C0070"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::changenotify_js"
+		    quidu      	"4AB2108200AF"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"477E2B43016E"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	381
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::DiscussionsView::DiscussionsMacro" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"285")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"879")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"394")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"182"))
+		    location   	(897, 1101)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(709, 1071)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	376
+			justify    	0
+			label      	"DiscussionsMacro")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(709, 1021)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	376
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"46120DA70290"
+		    width      	394
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotificationUnit::changenotify_js" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(915, 1563)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	13110000
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(705, 1535)
+			nlines     	1
+			max_width  	420
+			justify    	0
+			label      	"changenotify_js")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(705, 1485)
+			anchor     	10
+			nlines     	1
+			max_width  	420
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    line_color 	13110000
+		    fill_color 	16777215
+		    quidu      	"4AB2108200AF"
+		    width      	438
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(1025, 1330)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4AB2116C0070"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(900, 1193)
+			(910, 1472))
+		    line_style 	0)))))

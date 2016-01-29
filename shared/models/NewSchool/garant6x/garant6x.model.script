@@ -1,0 +1,206 @@
+USES
+ 'w:\shared\models\NewSchool\garantPIL\garantPIL.model.script'
+ 'w:\shared\models\NewSchool\external\external.model.script'
+ 'w:\shared\models\NewSchool\shared\shared.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi\Shared Delphi.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Требования для F1\Shared Delphi Требования для F1.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Требования\Shared Delphi Требования.model.script'
+;
+
+
+// Необходимые forward определения
+ // garantPIL 445B74DE017F
+
+<<Project>> garant6x
+ %UID '442BEDF00290'
+ %DOCUMENTATION 'ГАРАНТ'
+ %INCLUDES
+  'w:\shared\models\NewSchool\garant6x\CommonUtils\CommonUtils.model.script' /* CommonUtils */
+  'w:\shared\models\NewSchool\garant6x\HCAdapterLib\HCAdapterLib.model.script' /* HCAdapterLib */
+  'w:\shared\models\NewSchool\garant6x\XMLIniConverterLib\XMLIniConverterLib.model.script' /* XMLIniConverterLib */
+  'w:\shared\models\NewSchool\garant6x\GblAdapterLib\GblAdapterLib.model.script' /* GblAdapterLib */
+  'w:\shared\models\NewSchool\garant6x\GblAdapterLibClient\GblAdapterLibClient.model.script' /* GblAdapterLibClient */
+  'w:\shared\models\NewSchool\garant6x\GblAdapterLibDesktop\GblAdapterLibDesktop.model.script' /* GblAdapterLibDesktop */
+  'w:\shared\models\NewSchool\garant6x\UsersImportLib\UsersImportLib.model.script' /* UsersImportLib */
+  'w:\shared\models\NewSchool\garant6x\NemesisChatImplementation\NemesisChatImplementation.model.script' /* NemesisChatImplementation */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '445B74DE017F' /* garantPIL */
+  U$ '450293CD0000' /* external */
+  U$ '45ED6F0303D2' /* shared */
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '4E5BC2810343' /* "Shared Delphi Требования для F1" */
+  U$ '4E78C3EC018D' /* "Shared Delphi Требования" */
+ ; // %DEPENDS
+ %META
+  %upv "Full MDP" false
+  %upv "create project" true
+  %upv "defines" 'nsDefine.inc'
+  %upv "fix version" 0
+  %upv "full constraint" false
+  %upv "major version" 7
+  %upv "minor version" 12
+  %upv "need UC" true
+  %upv "package prefix" 'ru.garant'
+  %upv "root path suffix" '/implementation/Garant'
+  %upv "space key" 'NMS'
+  %upv "space name" 'Nemesis'
+ ; // %META
+ %FORWARDS
+  U$ '445B74DE017F' /* garantPIL */
+ ; // %FORWARDS
+ %TOBEINCLUDED
+  U$ '445B5C260315' /* GblConsulting */
+  U$ '447878770121' /* GCI */
+  U$ '447878CD0121' /* CommonUtils */
+  U$ '44EC25FD0119' /* xerces */
+  U$ '44FEB5D501E5' /* GCL */
+  U$ '450293CD0000' /* external */
+  U$ '450293DF0167' /* ace */
+  U$ '4503D5DC0290' /* omg */
+  U$ '450811FE0213' /* Core */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '45802EAC0167' /* tao */
+  U$ '45C715F602EE' /* std */
+  U$ '45E43D74036B' /* HCAdapterLib */
+  U$ '45E43EE50128' /* XMLIniConverterLib */
+  U$ '45ED326800BA' /* GblConsultingClient */
+  U$ '45ED3CF802F9' /* GblPilot */
+  U$ '45ED6F0303D2' /* shared */
+  U$ '45F121020232' /* GblSettings */
+  U$ '45F6A3E20203' /* GblFolders */
+  U$ '45FE46FE022D' /* GblUnderControl */
+  U$ '4607E0DE03B9' /* GslUserManager */
+  U$ '460BAE7C03B9' /* GslSecurity */
+  U$ '460BB62F02AF' /* GblLogging */
+  U$ '46160A340270' /* Defines */
+  U$ '462CD49B0138' /* GslDataPipe */
+  U$ '46332B810070' /* GslHeartbeatManager */
+  U$ '46332C070244' /* GslSessionHandlerClient */
+  U$ '46332C5E0253' /* GblUserComments */
+  U$ '463F5B5103B9' /* GblIntegration */
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '4680FB0903BF' /* GblXMLSave */
+  U$ '46B85FB7037A' /* boost */
+  U$ '474E8E58022D' /* GblAdapterLibClient */
+  U$ '474E8E7E00E7' /* GblAdapterLibDesktop */
+  U$ '47BAF68702AC' /* GblPrime */
+  U$ '481D6D4F010F' /* UsersImportLib */
+  U$ '488D8E2D027A' /* FakeCore */
+  U$ '491C05CA0197' /* XercesHelpers */
+  U$ '4A2E061E0198' /* ChatLibrary */
+  U$ '4A30E8E402C2' /* NemesisChatImplementation */
+  U$ '4A41C53F00C6' /* IDLCompilationSet */
+  U$ '4A7AD92D005A' /* GblUserJournal */
+  U$ '4AADF69301ED' /* GblChatSupportServer */
+  U$ '4AC4D3A50377' /* GblSearchMachine */
+  U$ '4AC5E06A01EA' /* GblExternalSearchMachine */
+  U$ '4AEFF8510211' /* GslSessionIdentifier */
+  U$ '4BD554F5026D' /* GblRemoteDocumentSupport */
+  U$ '4CA5C5D10187' /* GblFilters */
+  U$ '4E5BC2810343' /* "Shared Delphi Требования для F1" */
+  U$ '4E78C3EC018D' /* "Shared Delphi Требования" */
+  U$ '541147260106' /* GslAuthenticator */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<AdapterTarget>> HCAdapter
+   %UID '442BEE8500AB'
+   %DOCUMENTATION 'Библиотека для взаимодействия сервера консультаций и ПО отдела правовой поддержки'
+   %DEPENDS
+    U$ '45E43D74036B' /* HCAdapterLib */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "load strategy" 'dynamic'
+    %upv "old format" true
+   ; // %META
+   %TOBEINCLUDED
+    U$ '45E43D74036B' /* HCAdapterLib */
+   ; // %TOBEINCLUDED
+  ; // HCAdapter
+  <<ExeTarget>> XMLIniConverter
+   %UID '455B085A0399'
+   %DOCUMENTATION 'Утилита конвертации ini-файлов'
+   %DEPENDS
+    U$ '45E43EE50128' /* XMLIniConverterLib */
+    U$ '491C05CA0197' /* XercesHelpers */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "console" false
+    %upv "external name" 'F1IniConverter'
+    %upv "need UC in project" false
+    %upv "old format" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '45E43EE50128' /* XMLIniConverterLib */
+    U$ '491C05CA0197' /* XercesHelpers */
+   ; // %TOBEINCLUDED
+  ; // XMLIniConverter
+  <<AdapterTarget>> GblAdapterServer
+   %UID '47397F650051'
+   %DEPENDS
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '474E8E7E00E7' /* GblAdapterLibDesktop */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "load strategy" 'static'
+    %upv "old format" true
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '474E8E7E00E7' /* GblAdapterLibDesktop */
+   ; // %TOBEINCLUDED
+  ; // GblAdapterServer
+  <<AdapterTarget>> GblAdapterClient
+   %UID '4785DFB00230'
+   %DEPENDS
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '474E8E58022D' /* GblAdapterLibClient */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "load strategy" 'static'
+    %upv "old format" true
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '474E8E58022D' /* GblAdapterLibClient */
+   ; // %TOBEINCLUDED
+  ; // GblAdapterClient
+  <<AdapterTargetUnion>> GblAdapter
+   %UID '47397FF900B6'
+   %DEPENDS
+    U$ '47397F650051' /* GblAdapterServer */
+    U$ '4785DFB00230' /* GblAdapterClient */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "load strategy" 'static'
+    %upv "old format" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '442BEDF00290' /* garant6x */
+   ; // %TOBEINCLUDED
+  ; // GblAdapter
+  <<ExeTarget>> UsersImport
+   %UID '481D6CF50225'
+   %DOCUMENTATION 'утилита импорта списка пользователей, ТЗ - К14517328.'
+   %DEPENDS
+    U$ '481D6D4F010F' /* UsersImportLib */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "console" false
+    %upv "external name" 'F1UsersImport'
+    %upv "need UC in project" false
+    %upv "old format" true
+   ; // %META
+   %TOBEINCLUDED
+    U$ '481D6D4F010F' /* UsersImportLib */
+   ; // %TOBEINCLUDED
+  ; // UsersImport
+ ; // %CHILDREN
+; // garant6x

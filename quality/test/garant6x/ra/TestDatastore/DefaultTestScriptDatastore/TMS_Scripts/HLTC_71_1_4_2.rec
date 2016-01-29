@@ -1,0 +1,65 @@
+'$include "global.sbl"
+'$include "States.sbl"
+
+'*** Проверка тесткейса № 71.1.4.2 ***
+
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+Sub Main
+    Dim Result As Integer
+    Dim i%, value$
+    Dim ItemNamesArray (1 To 17) As String
+    
+  ItemNamesArray (1) = "Основы государственно-правового устройства"
+  ItemNamesArray (2) = "Гражданское законодательство, приватизация"
+  ItemNamesArray (3) = "Налоговое законодательство"
+  ItemNamesArray (4) = "Бухгалтерский учет, аудит, статистическая отчетность"
+  ItemNamesArray (5) = "Таможенное законодательство, внешнеэкономическая деятельность"
+  ItemNamesArray (6) = "Ценные бумаги, рынок ценных бумаг"
+  ItemNamesArray (7) = "Законодательство о жилых и нежилых помещениях и коммунальном хозяйстве"
+  ItemNamesArray (8) = "Законодательство о земле, природных ресурсах и охране природы"
+  ItemNamesArray (9) = "Общие вопросы хозяйственной и предпринимательской деятельности"
+  ItemNamesArray (10) = "Законодательство об отдельных видах деятельности"
+  ItemNamesArray (11) = "Законодательство о труде и трудоустройстве"
+  ItemNamesArray (12) = "Социальная защита, пенсии, компенсации"
+  ItemNamesArray (13) = "Здравоохранение, образование, наука, культура, спорт и туризм"
+  ItemNamesArray (14) = "Законодательство об обороне"
+  ItemNamesArray (15) = "Охрана правопорядка, безопасность, правоохранительные органы"
+  ItemNamesArray (16) = "Законодательство об административных правонарушениях"
+  ItemNamesArray (17) = "Международное право, международные отношения"
+  
+  
+  Call NeedState (ST_MAIN_MENU)
+  CUR_STATE = ST_NONE_STANDART
+    
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Правовой навигатор \ Формы документов
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=90,11"
+  GenericObject Click, "Text=Формы документов", "Coords=83,11"
+  
+'Переводим фокус на закладку навигатора "Разъяснения, комментарии, схемы"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+
+'Разворачиваем все элементы кнопкой "Развренуть все"
+  Call Click_NavExpClps
+
+'Сворачиваем 4 элемента дерева
+  InputKeys "{DOWN}{Num+}{DOWN}{Num+}{DOWN}{Num+}{DOWN}{Num+}{DOWN}"
+
+'Проверяем названия 5-и первых узлов
+  Call CheckItemNames ( ItemNamesArray, "{Up}", 4, 5)
+ 
+'Сворачиваем дерево кнопкой "Свернуть все"
+  Call Click_NavExpClps
+  InputKeys "{Down}"
+  
+'Проверяем что все дерево свернуто
+  Call CheckItemNames ( ItemNamesArray, "{Down}", 0, 17)
+
+'Проверяем что текущее состояние кнопки "Развернуть все"
+  Result = GenericObjectVP (CompareImage, "Class=TvcmToolbar;ClassIndex=2", "VP=Expand")
+End Sub

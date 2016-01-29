@@ -1,0 +1,2564 @@
+<<Library>> HT
+ %UID '543388C10144'
+ %SUMMARY 'Реализация доступа к HyTech' ;
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47BC4FCB0115' /* DT */
+  U$ '5214D28E024C' /* dd$AppConfig */
+  U$ '543244050044' /* DA */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'htDefineDA.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47BC4FCB0115' /* DT */
+  U$ '5214D28E024C' /* dd$AppConfig */
+  U$ '543244050044' /* DA */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> htInterfaces
+   %UID '550981B402B9'
+   %DEPENDS
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '5432448401BC' /* daTypes */
+    U$ '5432518A0316' /* daInterfaces */
+    U$ '555331D10378' /* Core */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47BC4FCB0115' /* DT */
+    U$ '543244050044' /* DA */
+    U$ '543388C10144' /* HT */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> IhtParamsStorage
+      %UID '550981CC01F6'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '543244050044' /* DA */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5507D90F00D2' /* IdaParamsStorage */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5507D9B100F7' /* ProviderKey */
+       U$ '55095596033F' /* InitStorage */
+       U$ '550963930391' /* Login */
+       U$ '550963A60121' /* Password */
+       U$ '550963BC00B0' /* DocStoragePath */
+       U$ '550963CF0092' /* DocImagePath */
+       U$ '550963EB02F8' /* HomeDirPath */
+       U$ '5515121F0358' /* OuterConfigEdit */
+       U$ '551512370064' /* BuildConfig$551512370064 */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> StationName
+         %UID '550981E5026A'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // StationName
+        ABSTRACT LINK <<property>> TablePath
+         %UID '550981FF0138'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // TablePath
+        ABSTRACT LINK <<property>> LockPath
+         %UID '550982210098'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // LockPath
+        ABSTRACT LINK <<property>> TempPath
+         %UID '550982360334'
+         %TARGET U$ '476136D3010B' /* String */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // TempPath
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> StationErrorMessage
+         %UID '5512621F0352'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // StationErrorMessage
+        ABSTRACT <<Operation>> TablePathErrorMessage
+         %UID '551262410001'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // TablePathErrorMessage
+        ABSTRACT <<Operation>> LockPathErrorMessage
+         %UID '551262530061'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // LockPathErrorMessage
+      ; // %OPERATIONS
+     ; // IhtParamsStorage
+     <<Facet>> IhtDataSchemeHelper
+      %UID '555EF7B1002F'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '543244050044' /* DA */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<Operation>> TableFullPath
+         %UID '555EF7F5009F'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTable
+            %UID '555EF81501E3'
+            %TARGET U$ '55377C9C0289' /* TdaTables */
+            %TOBEINCLUDED
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+           ; // aTable
+         ; // %PARAMETERS
+        ; // TableFullPath
+        ABSTRACT <<Operation>> TablePassword
+         %UID '555EF81A03BF'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTable
+            %UID '555EF83302FB'
+            %TARGET U$ '55377C9C0289' /* TdaTables */
+            %TOBEINCLUDED
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+           ; // aTable
+         ; // %PARAMETERS
+        ; // TablePassword
+        ABSTRACT <<Operation>> TableFamily
+         %UID '555EF83803BE'
+         %TARGET U$ '551E7DD302E0' /* TdaFamilyID */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTable
+            %UID '555EF84902AA'
+            %TARGET U$ '55377C9C0289' /* TdaTables */
+            %TOBEINCLUDED
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+           ; // aTable
+         ; // %PARAMETERS
+        ; // TableFamily
+      ; // %OPERATIONS
+     ; // IhtDataSchemeHelper
+     <<Facet>> IhtFromTable
+      %UID '555C848200DA'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47BC4FCB0115' /* DT */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '555303840193' /* IdaFromTable */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5553634C0218' /* TableAlias */
+       U$ '555363590242' /* Table */
+       U$ '5608E5F20118' /* BuildSQLValue */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> Handle
+         %UID '555C8490016F'
+         %TARGET U$ '555C84FC0026' /* ThtTblHandle */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // Handle
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> Prepare
+         %UID '555C91AF003A'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aHelper
+            %UID '555EF86C012C'
+            %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+            %TOBEINCLUDED
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+           ; // aHelper
+           <<in>> RequireNewHandle
+            %UID '555C91D40222'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // RequireNewHandle
+         ; // %PARAMETERS
+        ; // Prepare
+        ABSTRACT <<Operation>> Unprepare
+         %UID '555C91D8022C'
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aHelper
+            %UID '555EFFB70089'
+            %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+            %TOBEINCLUDED
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+           ; // aHelper
+         ; // %PARAMETERS
+        ; // Unprepare
+      ; // %OPERATIONS
+     ; // IhtFromTable
+     <<Facet>> IhtDataConverter
+      %UID '55C0B2A30315'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+       U$ '543244050044' /* DA */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5559950F0013' /* IdaDataConverter */
+      ; // %INHERITS
+      %REALIZES
+       U$ '555995210007' /* AllocateParamBuffer */
+       U$ '5559955500DF' /* ParamToDataBase */
+       U$ '55599596005B' /* ParamFromDataBase */
+       U$ '5559D14D02D1' /* FreeParamBuffer */
+      ; // %REALIZES
+      %OPERATIONS
+        ABSTRACT <<Operation>> ToLargeInt
+         %UID '55C89B830012'
+         %TARGET U$ '559390220212' /* LargeInt */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47BC4FCB0115' /* DT */
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55C89BA803C0'
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<const>> aDesc
+            %UID '55C89BA90007'
+            %TARGET U$ '559FA10A0133' /* OPEL */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+           ; // aDesc
+         ; // %PARAMETERS
+        ; // ToLargeInt
+        ABSTRACT <<Operation>> ToInteger
+         %UID '55C89BB40093'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55C89BC1031E'
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<const>> aDesc
+            %UID '55C89BC1033D'
+            %TARGET U$ '559FA10A0133' /* OPEL */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+           ; // aDesc
+         ; // %PARAMETERS
+        ; // ToInteger
+        ABSTRACT <<Operation>> ToStDate
+         %UID '55C89BC8017D'
+         %TARGET U$ '4E8EDFCA01C0' /* TStDate */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55C89BD601B5'
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<const>> aDesc
+            %UID '55C89BD601E4'
+            %TARGET U$ '559FA10A0133' /* OPEL */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+           ; // aDesc
+         ; // %PARAMETERS
+        ; // ToStDate
+        ABSTRACT <<Operation>> ToStTime
+         %UID '55C89BDC012F'
+         %TARGET U$ '5593952A0301' /* TStTime */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55C89BE8010D'
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<const>> aDesc
+            %UID '55C89BE8013C'
+            %TARGET U$ '559FA10A0133' /* OPEL */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+           ; // aDesc
+         ; // %PARAMETERS
+        ; // ToStTime
+        ABSTRACT <<Operation>> ToString
+         %UID '55FA9B9301D7'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55FA9B9F0222'
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<const>> aDesc
+            %UID '55FA9B9F0260'
+            %TARGET U$ '559FA10A0133' /* OPEL */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+           ; // aDesc
+         ; // %PARAMETERS
+        ; // ToString
+        ABSTRACT <<Operation>> ToByte
+         %UID '562E0F8F02F3'
+         %TARGET U$ '476130E5023C' /* Byte */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '562E0F990314'
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+           <<const>> aDesc
+            %UID '562E0F990333'
+            %TARGET U$ '559FA10A0133' /* OPEL */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+           ; // aDesc
+         ; // %PARAMETERS
+        ; // ToByte
+      ; // %OPERATIONS
+     ; // IhtDataConverter
+     <<Vector>> ThtSubItemDescriptionArray
+      %UID '55C4911E03DF'
+      %META
+       %upv "array type" 'dynamic'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        <<Attribute>> "55C49B6B0265"
+         %UID '55C49B6B0265'
+         %TARGET U$ '559FA10A0133' /* OPEL */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // 55C49B6B0265
+      ; // %ATTRIBUTES
+     ; // ThtSubItemDescriptionArray
+   ; // %CHILDREN
+  ; // htInterfaces
+  <<Unit>> Provider
+   %UID '54F9AF550087'
+   %DEPENDS
+    U$ '4678193C009C' /* l3Types */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47BB24D30205' /* "Стандартные примеси" */
+    U$ '47BC51FE018B' /* dt_Types */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '47E246C90144' /* l3Trees */
+    U$ '4849284D0067' /* Standard */
+    U$ '484A470100DD' /* Standard */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B990EDE031A' /* AppConfig */
+    U$ '4F6843C101D1' /* ddCommon */
+    U$ '519B70FC02AB' /* DataAccess */
+    U$ '519B797A0048' /* Servers */
+    U$ '52FBA554014B' /* Users */
+    U$ '5432448401BC' /* daTypes */
+    U$ '5432518A0316' /* daInterfaces */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '54F85B2500FB' /* Provider */
+    U$ '550981B402B9' /* htInterfaces */
+    U$ '552D07D0005E' /* DataScheme */
+    U$ '555331D10378' /* Core */
+    U$ '559D0BE101B4' /* dtIntf */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47BC4FCB0115' /* DT */
+    U$ '5214D28E024C' /* dd$AppConfig */
+    U$ '543244050044' /* DA */
+    U$ '543388C10144' /* HT */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> ThtDataProviderParams
+      %UID '54F9AF6B00DD'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E18600C2' /* dd */
+       U$ '467A8734039C' /* EVD */
+       U$ '543244050044' /* DA */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '5432829E0143' /* HyTechProviderParams */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '54F9A60200A8' /* TdaDataProviderParams */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '53AC03EE01FD' /* GetTaggedDataType */
+       U$ '55195AE803E0' /* ChangeBasePath */
+       U$ '553A37E902C9' /* AssignParams */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "551175D903A3"
+         %UID '551175D903A3'
+         %TARGET U$ '4F191FDD0358' /* ConcatDirName */
+        ; // 551175D903A3
+        <<uses>> "5511762B039F"
+         %UID '5511762B039F'
+         %TARGET U$ '5511287702D5' /* GetWindowsTempFolder */
+        ; // 5511762B039F
+        <<uses>> "551958420072"
+         %UID '551958420072'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 551958420072
+        SUMMONED <<uses>> "6EE2A60AC863"
+         %UID '6EE2A60AC863'
+         %TARGET U$ '5432829E0143' /* HyTechProviderParams */
+        ; // 6EE2A60AC863
+      ; // %LINKS
+      %ATTRIBUTES
+        SUMMONED FINAL <<property>> StationName
+         %UID '818595D6D5F9'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+         %META
+          %upv "pm" true
+         ; // %META
+        ; // StationName
+        SUMMONED FINAL <<property>> TablePath
+         %UID 'C4877C0D468E'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+         %META
+          %upv "pm" true
+         ; // %META
+        ; // TablePath
+        SUMMONED FINAL <<property>> TmpDirPath
+         %UID '98857C6A95A2'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+         %META
+          %upv "pm" true
+         ; // %META
+        ; // TmpDirPath
+        SUMMONED FINAL <<property>> LockPath
+         %UID 'CD710F71E829'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+         %META
+          %upv "pm" true
+         ; // %META
+        ; // LockPath
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Operation>> MakePathRec
+         %UID '55114DCA0351'
+         %TARGET U$ '55114E8701D6' /* TPathRec */
+         %TOBEINCLUDED
+          U$ '4677E18600C2' /* dd */
+         ; // %TOBEINCLUDED
+        ; // MakePathRec
+      ; // %OPERATIONS
+     ; // ThtDataProviderParams
+     <<SimpleClass>> ThtDataProviderFactory
+      %UID '54FEAD4402AB'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '543244050044' /* DA */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '54F85EE102D1' /* TdaDataProviderFactory */
+      ; // %INHERITS
+      %REALIZES
+       U$ '54F8635B023E' /* Key */
+       U$ '54FEB57302B0' /* MakeFromConfig */
+       U$ '550AAD0101F9' /* SaveToConfig */
+       U$ '550FD49301BF' /* ParamType */
+       U$ '5512BAB20128' /* FillOutConfig */
+       U$ '5512BB030346' /* FillInConfig */
+       U$ '5512BB1F023F' /* BuildConfig */
+       U$ '551904FC039A' /* LoadDBVersion */
+       U$ '551D06D402AF' /* DoMakeProvider */
+       U$ '55D706D201C3' /* LoginCheckSucceed */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '55110FBB00E5' /* CorrectByClient */
+       U$ '551166B40046' /* IsParamsValid */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "54FEB98E0179"
+         %UID '54FEB98E0179'
+         %TARGET U$ '54F9AF6B00DD' /* ThtDataProviderParams */
+        ; // 54FEB98E0179
+        <<uses>> "550986770313"
+         %UID '550986770313'
+         %TARGET U$ '550981CC01F6' /* IhtParamsStorage */
+        ; // 550986770313
+        <<uses>> "5511211601CB"
+         %UID '5511211601CB'
+         %TARGET U$ '5511287702D5' /* GetWindowsTempFolder */
+        ; // 5511211601CB
+        <<uses>> "551128B1037A"
+         %UID '551128B1037A'
+         %TARGET U$ '5511283A02C9' /* IntToHex */
+        ; // 551128B1037A
+        <<uses>> "55125B6B0358"
+         %UID '55125B6B0358'
+         %TARGET U$ '4CDD241C0184' /* l3System */
+        ; // 55125B6B0358
+        <<uses>> "5513E6810015"
+         %UID '5513E6810015'
+         %TARGET U$ '523038DB01A5' /* TddFolderNameConfigItem */
+        ; // 5513E6810015
+        <<uses>> "55190C9600ED"
+         %UID '55190C9600ED'
+         %TARGET U$ '55190C630258' /* DBVersion */
+        ; // 55190C9600ED
+        <<uses>> "551912600385"
+         %UID '551912600385'
+         %TARGET U$ '5433C1D30101' /* TCfgList */
+        ; // 551912600385
+        <<uses>> "551912640247"
+         %UID '551912640247'
+         %TARGET U$ '4F191FDD0358' /* ConcatDirName */
+        ; // 551912640247
+        <<uses>> "55191268029E"
+         %UID '55191268029E'
+         %TARGET U$ '55097F16032A' /* IfThen */
+        ; // 55191268029E
+        <<uses>> "5519352B0041"
+         %UID '5519352B0041'
+         %TARGET U$ '5519351D01BE' /* ThtDataProvider */
+        ; // 5519352B0041
+        <<uses>> "55C34F5F00C7"
+         %UID '55C34F5F00C7'
+         %TARGET U$ '4E302F4201D5' /* TddBaseConfigItem */
+        ; // 55C34F5F00C7
+      ; // %LINKS
+     ; // ThtDataProviderFactory
+     <<SimpleClass>> ThtDataProvider
+      %UID '5519351D01BE'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '54EDC87C00B5' /* IdaDataProvider */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '551A929E02D5' /* UserID */
+       U$ '551A933F02AE' /* RegionID */
+       U$ '551BE2D701DE' /* CheckLogin */
+       U$ '551D25D00024' /* InitRegionFromIni */
+       U$ '551D2C300060' /* IsRegionExists */
+       U$ '551D2C3603E0' /* GetRegionName */
+       U$ '551D35040362' /* FillRegionDataList */
+       U$ '551E636F0314' /* BaseName */
+       U$ '551E6389027F' /* AdminRights */
+       U$ '551E63A1025A' /* CurUserIsServer */
+       U$ '551E63B5008C' /* LoginAsServer */
+       U$ '551E7E1501D8' /* GetFreeExtObjID */
+       U$ '551E7E35030B' /* GetFreeExtDocID */
+       U$ '5522326E0355' /* LockAll */
+       U$ '5522327B01D9' /* UnlockAll */
+       U$ '5522496C00CD' /* BaseLanguage */
+       U$ '55226E4B01E0' /* TextBase */
+       U$ '552391490184' /* GetHomePathName */
+       U$ '552391830231' /* GetHomePath */
+       U$ '5523983D0254' /* CurHomePath */
+       U$ '5523984A0349' /* GlobalHomePath */
+       U$ '5523BD100174' /* ConvertAliasPath */
+       U$ '5524D30D007F' /* SubscribeLongProcess */
+       U$ '5524D33101AC' /* UnSubscribeLongProcess */
+       U$ '552514320149' /* SubscribeProgress */
+       U$ '5525144701F3' /* UnSubscribeProgress */
+       U$ '5526537A00CE' /* Start */
+       U$ '5526538202A5' /* Stop */
+       U$ '55409258013F' /* Journal */
+       U$ '554C7A3002BF' /* TableQueryFactory */
+       U$ '555995CF0292' /* DataConverter */
+       U$ '561795EA02BF' /* ImpersonatedUserID */
+       U$ '561796070253' /* BeginImpersonate */
+       U$ '5617961F0105' /* EndImpersonate */
+       U$ '5628D25600E6' /* UserManager */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "55193A5603E3"
+         %UID '55193A5603E3'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 55193A5603E3
+        <<uses>> "551A513C02AA"
+         %UID '551A513C02AA'
+         %TARGET U$ '5406A83E013E' /* dt_Serv */
+        ; // 551A513C02AA
+        <<uses>> "551A86470319"
+         %UID '551A86470319'
+         %TARGET U$ '551A7DB8018C' /* SetGlobalDataProvider */
+        ; // 551A86470319
+        <<uses>> "551A87C90029"
+         %UID '551A87C90029'
+         %TARGET U$ '551A7D9602DC' /* GlobalDataProvider */
+        ; // 551A87C90029
+        <<uses>> "5540D3410330"
+         %UID '5540D3410330'
+         %TARGET U$ '5540D3060300' /* ThtJournal */
+        ; // 5540D3410330
+        <<uses>> "554C8D920328"
+         %UID '554C8D920328'
+         %TARGET U$ '554C7FE80228' /* ThtTableQueryFactory */
+        ; // 554C8D920328
+        <<uses>> "55599B800141"
+         %UID '55599B800141'
+         %TARGET U$ '55599B5C014A' /* ThtDataConverter */
+        ; // 55599B800141
+        <<uses>> "555F0CAB03DE"
+         %UID '555F0CAB03DE'
+         %TARGET U$ '555F0C89007D' /* ThtDataSchemeHelper */
+        ; // 555F0CAB03DE
+        <<uses>> "5617A6BD0335"
+         %UID '5617A6BD0335'
+         %TARGET U$ '4CDD241C0184' /* l3System */
+        ; // 5617A6BD0335
+        <<uses>> "5629E36C0111"
+         %UID '5629E36C0111'
+         %TARGET U$ '5629E343023B' /* ThtUserManager */
+        ; // 5629E36C0111
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Params
+         %UID '5519355502AD'
+         %TARGET U$ '54F9AF6B00DD' /* ThtDataProviderParams */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_Params
+        PRIVATE <<Attribute>> f_NeedClearGlobalDataProvider
+         %UID '551A8824035E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_NeedClearGlobalDataProvider
+        PRIVATE <<Attribute>> f_LongProcessList
+         %UID '5524D2C50268'
+         %TARGET U$ '5524D27A00D3' /* TdaLongProcessSubscriberList */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_LongProcessList
+        PRIVATE <<Attribute>> f_ProgressList
+         %UID '5525152D003C'
+         %TARGET U$ '552514FD0144' /* TdaProgressSubscriberList */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_ProgressList
+        PRIVATE <<Attribute>> f_IsStarted
+         %UID '55265C3302AD'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_IsStarted
+        PRIVATE <<Attribute>> f_ForCheckLogin
+         %UID '55265DDE0365'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_ForCheckLogin
+        PRIVATE <<Attribute>> f_Journal
+         %UID '5540D35E0110'
+         %TARGET U$ '5540922C0376' /* IdaJournal */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_Journal
+        PRIVATE <<Attribute>> f_Factory
+         %UID '554C80800396'
+         %TARGET U$ '554C78BD038C' /* IdaTableQueryFactory */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_Factory
+        PRIVATE <<Attribute>> f_DataConverter
+         %UID '55599B37027D'
+         %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_DataConverter
+        PRIVATE <<Attribute>> f_Helper
+         %UID '555F0C5D0028'
+         %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_Helper
+        PRIVATE <<Attribute>> f_AllowClearLocks
+         %UID '5564866E03C6'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_AllowClearLocks
+        PRIVATE <<Attribute>> f_ImpersonatedUserID
+         %UID '56179E0C0195'
+         %TARGET U$ '543244A30197' /* TdaUserID */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_ImpersonatedUserID
+        PRIVATE <<Attribute>> f_UserManager
+         %UID '5629E397016A'
+         %TARGET U$ '5628D14000F6' /* IdaUserManager */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_UserManager
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '551938260196'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55193830033B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aParams
+               %UID '551D04D803B5'
+               %TARGET U$ '54F9AF6B00DD' /* ThtDataProviderParams */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aParams
+              <<in>> ForCheckLogin
+               %UID '551D04D803C4'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // ForCheckLogin
+              <<in>> AllowClearLocks
+               %UID '556486BF0198'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // AllowClearLocks
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '551938550022'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '54EDC87C00B5' /* IdaDataProvider */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '551938260196' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '551A929E02D5' /* UserID */
+          U$ '551A933F02AE' /* RegionID */
+          U$ '551BE2D701DE' /* CheckLogin */
+          U$ '551D25D00024' /* InitRegionFromIni */
+          U$ '551D2C300060' /* IsRegionExists */
+          U$ '551D2C3603E0' /* GetRegionName */
+          U$ '551D35040362' /* FillRegionDataList */
+          U$ '551E636F0314' /* BaseName */
+          U$ '551E6389027F' /* AdminRights */
+          U$ '551E63A1025A' /* CurUserIsServer */
+          U$ '551E63B5008C' /* LoginAsServer */
+          U$ '551E7E1501D8' /* GetFreeExtObjID */
+          U$ '551E7E35030B' /* GetFreeExtDocID */
+          U$ '5522326E0355' /* LockAll */
+          U$ '5522327B01D9' /* UnlockAll */
+          U$ '5522496C00CD' /* BaseLanguage */
+          U$ '55226E4B01E0' /* TextBase */
+          U$ '552391490184' /* GetHomePathName */
+          U$ '552391830231' /* GetHomePath */
+          U$ '5523983D0254' /* CurHomePath */
+          U$ '5523984A0349' /* GlobalHomePath */
+          U$ '5523BD100174' /* ConvertAliasPath */
+          U$ '5524D30D007F' /* SubscribeLongProcess */
+          U$ '5524D33101AC' /* UnSubscribeLongProcess */
+          U$ '552514320149' /* SubscribeProgress */
+          U$ '5525144701F3' /* UnSubscribeProgress */
+          U$ '5526537A00CE' /* Start */
+          U$ '5526538202A5' /* Stop */
+          U$ '55409258013F' /* Journal */
+          U$ '554C7A3002BF' /* TableQueryFactory */
+          U$ '555995CF0292' /* DataConverter */
+          U$ '561795EA02BF' /* ImpersonatedUserID */
+          U$ '561796070253' /* BeginImpersonate */
+          U$ '5617961F0105' /* EndImpersonate */
+          U$ '5628D25600E6' /* UserManager */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '0FE1F75F1C58'
+            %SUMMARY 'Сигнатура фабрики ThtDataProvider.Make' ;
+            %TARGET U$ '54EDC87C00B5' /* IdaDataProvider */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '543244050044' /* DA */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aParams
+               %UID 'A9EF711C4732'
+               %TARGET U$ '54F9AF6B00DD' /* ThtDataProviderParams */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aParams
+              SUMMONED <<in>> ForCheckLogin
+               %UID '1E466A689B7C'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // ForCheckLogin
+              SUMMONED <<in>> AllowClearLocks
+               %UID 'F617EE09C011'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // AllowClearLocks
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+        PRIVATE FINAL <<method>> DoLongProcessNotify
+         %UID '5524D2E200C4'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5524D04900F4' /* TdaOnLongProcessEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '3B476546FAA3'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aState
+               %UID '4E2E47CF3C62'
+               %TARGET U$ '5524CFE701C5' /* TdaProcessState */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aState
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoLongProcessNotify
+        PRIVATE FINAL <<method>> DoProgressNotify
+         %UID '552514C803BB'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F1922630272' /* Tl3ProgressProc */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'F885ED3550BD'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aState
+               %UID 'A7C58B6F0024'
+               %TARGET U$ '476130E5023C' /* Byte */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aState
+              SUMMONED <<in>> aValue
+               %UID 'F1037F859057'
+               %TARGET U$ '3DBFFD7002C2' /* long */
+              ; // aValue
+              SUMMONED <<in>> aMsg
+               %UID 'C94B3974B6B8'
+               %TARGET U$ '476136D3010B' /* String */
+               %VALUE ''''''
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aMsg
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoProgressNotify
+      ; // %OPERATIONS
+     ; // ThtDataProvider
+     <<SimpleClass>> ThtJournal
+      %UID '5540D3060300'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '559A3BD901CC' /* TdaJournal */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5549F6220397' /* LogEvent */
+       U$ '559A42120304' /* CurStatTree */
+       U$ '559B6A290200' /* CheckUser */
+       U$ '559B6A7C03AA' /* UserChanged */
+       U$ '559B6A8C0034' /* SessionChanged */
+       U$ '559B889B030B' /* DoStartCaching */
+       U$ '559B88B00126' /* DoStopCaching */
+       U$ '559CF9D300FA' /* MakeResultSet */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "5540DD4E035C"
+         %UID '5540DD4E035C'
+         %TARGET U$ '4E8EDFCA01C0' /* TStDate */
+        ; // 5540DD4E035C
+        <<uses>> "5540E6FF01AF"
+         %UID '5540E6FF01AF'
+         %TARGET U$ '5540E6D302BE' /* dt_BBLog */
+        ; // 5540E6FF01AF
+        <<uses>> "554A093B02EA"
+         %UID '554A093B02EA'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 554A093B02EA
+        <<uses>> "555494AF0152"
+         %UID '555494AF0152'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 555494AF0152
+        <<uses>> "559D081403C7"
+         %UID '559D081403C7'
+         %TARGET U$ '559121CE0393' /* ThtResultSet */
+        ; // 559D081403C7
+        <<uses>> "559D10AF0363"
+         %UID '559D10AF0363'
+         %TARGET U$ '519B71CF03DC' /* ISab */
+        ; // 559D10AF0363
+        <<uses>> "559D2683027B"
+         %UID '559D2683027B'
+         %TARGET U$ '559D266C032B' /* MakeSab */
+        ; // 559D2683027B
+        <<uses>> "559D26C80208"
+         %UID '559D26C80208'
+         %TARGET U$ '5553320F016B' /* HT_Const */
+        ; // 559D26C80208
+        <<uses>> "559D26E401EC"
+         %UID '559D26E401EC'
+         %TARGET U$ '53CD0E83039E' /* dt_User */
+        ; // 559D26E401EC
+        <<uses>> "55C1C8DA022B"
+         %UID '55C1C8DA022B'
+         %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+        ; // 55C1C8DA022B
+        <<uses>> "55C4B81F0358"
+         %UID '55C4B81F0358'
+         %TARGET U$ '55C84D190010' /* TdaSelectFieldList */
+        ; // 55C4B81F0358
+        <<uses>> "55C868C4005C"
+         %UID '55C868C4005C'
+         %TARGET U$ '552D07EB03CB' /* TdaScheme */
+        ; // 55C868C4005C
+        <<uses>> "55CC52A30236"
+         %UID '55CC52A30236'
+         %TARGET U$ '483FF50C00F4' /* TMemoryStream */
+        ; // 55CC52A30236
+        <<uses>> "55D47A3E006E"
+         %UID '55D47A3E006E'
+         %TARGET U$ '55D47A1500CB' /* EHtErrors */
+        ; // 55D47A3E006E
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Table
+         %UID '555492700341'
+         %TARGET U$ '5549F31C03AC' /* TBigBrotherTbl */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // f_Table
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '5540D6BB015A'
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5540D6C203B0'
+            %TOBEINCLUDED
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFactory
+               %UID '554C83D00028'
+               %TARGET U$ '554C78BD038C' /* IdaTableQueryFactory */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aFactory
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '5540D6EC0340'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5540922C0376' /* IdaJournal */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '5540D6BB015A' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '554092F701E2' /* CurStatisticTreeRoot */
+          U$ '554093EC02FE' /* CalcStatistics */
+          U$ '55409430035F' /* LogExport */
+          U$ '5540943F02DB' /* LogImport */
+          U$ '5540945201E3' /* LogPause */
+          U$ '55409462014D' /* LogPrintDoc */
+          U$ '554094740288' /* LogSaveDoc */
+          U$ '554096B30178' /* LogEditDoc$554096B30178 */
+          U$ '5540970E00EA' /* LogEditDoc$5540970E00EA */
+          U$ '554097C303BF' /* LogDeleteDoc */
+          U$ '554097DC02FC' /* LogEditDict */
+          U$ '554098710243' /* LogCreateDoc */
+          U$ '554098930337' /* LogAutoClass */
+          U$ '554098A40242' /* LogOpenDoc */
+          U$ '5541F3E6031F' /* UserID */
+          U$ '5541F6EC00DE' /* StartCaching */
+          U$ '5541F6FB0124' /* StopCaching */
+          U$ '554A037B0325' /* SessionDone */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'F5104368A59D'
+            %SUMMARY 'Сигнатура фабрики ThtJournal.Make' ;
+            %TARGET U$ '5540922C0376' /* IdaJournal */
+            %TOBEINCLUDED
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aFactory
+               %UID 'A0FAD81C877E'
+               %TARGET U$ '554C78BD038C' /* IdaTableQueryFactory */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aFactory
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+        PRIVATE FINAL <<method>> BigBrother
+         %UID '5549F376004F'
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5549F6170232'
+            %TARGET U$ '5549F33A0245' /* TBigBrotherAccess */
+            %TOBEINCLUDED
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // BigBrother
+        PRIVATE FINAL <<method>> GetUserStatistic
+         %UID '5563286A0387'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '47BC4FCB0115' /* DT */
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5563289D0091'
+            %TARGET U$ '519B71CF03DC' /* ISab */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '47BC4FCB0115' /* DT */
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> FromDate
+               %UID '559E2EC500A6'
+               %TARGET U$ '4E8EDFCA01C0' /* TStDate */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // FromDate
+              <<in>> ToDate
+               %UID '559E2EC500B6'
+               %TARGET U$ '4E8EDFCA01C0' /* TStDate */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // ToDate
+              <<in>> UserOrGroupID
+               %UID '559E2EC500C5'
+               %TARGET U$ '543244A30197' /* TdaUserID */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // UserOrGroupID
+              <<in>> UserGr
+               %UID '559E2EC500C6'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // UserGr
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetUserStatistic
+        PRIVATE FINAL <<method>> GetDocStatistic
+         %UID '556328D003C8'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '47BC4FCB0115' /* DT */
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '556328D70346'
+            %TARGET U$ '519B71CF03DC' /* ISab */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+             U$ '47BC4FCB0115' /* DT */
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> FromDate
+               %UID '559E2EB90339'
+               %TARGET U$ '4E8EDFCA01C0' /* TStDate */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // FromDate
+              <<in>> ToDate
+               %UID '559E2EB90348'
+               %TARGET U$ '4E8EDFCA01C0' /* TStDate */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // ToDate
+              <<in>> aDocID
+               %UID '559E2EB90358'
+               %TARGET U$ '551E7DC1024B' /* TdaDocID */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aDocID
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetDocStatistic
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        FINAL <<SimpleClass>> TBigBrotherAccess
+         %UID '5549F33A0245'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5549F31C03AC' /* TBigBrotherTbl */
+         ; // %INHERITS
+        ; // TBigBrotherAccess
+      ; // %CHILDREN
+     ; // ThtJournal
+     <<SimpleClass>> ThtTableQueryFactory
+      %UID '554C7FE80228'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '554C78BD038C' /* IdaTableQueryFactory */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5549C65D038D' /* MakeTabledQuery */
+       U$ '559B80BD00A8' /* MakeSelectField */
+       U$ '559B810003CF' /* MakeParamsCondition */
+       U$ '559BAF4401C8' /* GetUserNameStr */
+       U$ '55C1BFA402E3' /* DataConverter */
+       U$ '56405475021D' /* MakeLogicCondition */
+       U$ '5641E5DB02C3' /* MakeSubQueryCondition */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "5551AB62030B"
+         %UID '5551AB62030B'
+         %TARGET U$ '5551AB1602F4' /* ThtTabledQuery */
+        ; // 5551AB62030B
+        <<uses>> "559BA65C01A0"
+         %UID '559BA65C01A0'
+         %TARGET U$ '5551DD0F02A1' /* TdaParamsCondition */
+        ; // 559BA65C01A0
+        <<uses>> "559BA6600091"
+         %UID '559BA6600091'
+         %TARGET U$ '5551DCD200EE' /* TdaSelectField */
+        ; // 559BA6600091
+        <<uses>> "559BB85902B1"
+         %UID '559BB85902B1'
+         %TARGET U$ '53CD0E83039E' /* dt_User */
+        ; // 559BB85902B1
+        <<uses>> "56405EC90202"
+         %UID '56405EC90202'
+         %TARGET U$ '5640598000F0' /* TdaLogicCondition */
+        ; // 56405EC90202
+        <<uses>> "5641F1AB0330"
+         %UID '5641F1AB0330'
+         %TARGET U$ '5641ED5A01D1' /* TdaSubQueryCondition */
+        ; // 5641F1AB0330
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_DataConverter
+         %UID '5559C7400307'
+         %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_DataConverter
+        PRIVATE <<Attribute>> f_Helper
+         %UID '555F096A0130'
+         %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_Helper
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '554C8017020C'
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5559C7570209'
+            %TOBEINCLUDED
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aDataConverter
+               %UID '5559C76F00AC'
+               %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aDataConverter
+              <<in>> aHelper
+               %UID '555F097F01F9'
+               %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aHelper
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '554C80230044'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '554C78BD038C' /* IdaTableQueryFactory */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '554C8017020C' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '5549C65D038D' /* MakeTabledQuery */
+          U$ '559B80BD00A8' /* MakeSelectField */
+          U$ '559B810003CF' /* MakeParamsCondition */
+          U$ '559BAF4401C8' /* GetUserNameStr */
+          U$ '55C1BFA402E3' /* DataConverter */
+          U$ '56405475021D' /* MakeLogicCondition */
+          U$ '5641E5DB02C3' /* MakeSubQueryCondition */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '89793FD6E368'
+            %SUMMARY 'Сигнатура фабрики ThtTableQueryFactory.Make' ;
+            %TARGET U$ '554C78BD038C' /* IdaTableQueryFactory */
+            %TOBEINCLUDED
+             U$ '543244050044' /* DA */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataConverter
+               %UID 'D3DA90661C8A'
+               %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aDataConverter
+              SUMMONED <<in>> aHelper
+               %UID '417CDBBF11D7'
+               %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aHelper
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // ThtTableQueryFactory
+     <<SimpleClass>> ThtTabledQuery
+      %UID '5551AB1602F4'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '5600FA2301B9' /* TdaTabledQuery */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5600FFF80332' /* MakeFromTable */
+       U$ '56010A7801F2' /* MakeResultSet */
+       U$ '56010AB70258' /* PrepareTable */
+       U$ '56010ACB00F0' /* UnprepareTable */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "55530E730383"
+         %UID '55530E730383'
+         %TARGET U$ '55530BB9007A' /* ThtFromTable */
+        ; // 55530E730383
+        <<uses>> "555C916F02C8"
+         %UID '555C916F02C8'
+         %TARGET U$ '555C8EC2018E' /* TdaTablesSet */
+        ; // 555C916F02C8
+        <<uses>> "55910D3203E0"
+         %UID '55910D3203E0'
+         %TARGET U$ '5553322F03C9' /* SAB */
+        ; // 55910D3203E0
+        <<uses>> "559125260158"
+         %UID '559125260158'
+         %TARGET U$ '559121CE0393' /* ThtResultSet */
+        ; // 559125260158
+        <<uses>> "559131470327"
+         %UID '559131470327'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 559131470327
+        <<uses>> "55913430027E"
+         %UID '55913430027E'
+         %TARGET U$ '55533C7600A0' /* HT_DLL */
+        ; // 55913430027E
+        <<uses>> "56011A3C0270"
+         %UID '56011A3C0270'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 56011A3C0270
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Helper
+         %UID '555F06CA00CC'
+         %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_Helper
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '5551AB780328'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5551AFC8018F'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '543244050044' /* DA */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aDataConverter
+               %UID '563B409602C2'
+               %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aDataConverter
+              <<in>> aHelper
+               %UID '563B409602C3'
+               %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aHelper
+              <<in>> aTable
+               %UID '563B409602D2'
+               %TARGET U$ '552FADE50173' /* IdaTableDescription */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aTable
+              <<const>> anAlias
+               %UID '563B409602E1'
+               %TARGET U$ '476136D3010B' /* String */
+               %VALUE ''''''
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anAlias
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '5551AB82025D'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5549C4060117' /* IdaTabledQuery */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '5551AB780328' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '5549C42400DA' /* OpenResultSet */
+          U$ '5551BB340256' /* Prepare */
+          U$ '5551BEA500AE' /* Param */
+          U$ '5551DC42038C' /* AddSelectField */
+          U$ '555334DD023B' /* UnPrepare */
+          U$ '563B18FB0212' /* WhereCondition */
+          U$ '564318160268' /* BuildSQLValue */
+          U$ '5666B5E20108' /* Table */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'C55AC0DAF977'
+            %SUMMARY 'Сигнатура фабрики ThtTabledQuery.Make' ;
+            %TARGET U$ '5549C4060117' /* IdaTabledQuery */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '543244050044' /* DA */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataConverter
+               %UID '198585B224D7'
+               %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aDataConverter
+              SUMMONED <<in>> aHelper
+               %UID '1AB2DBC22F11'
+               %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aHelper
+              SUMMONED <<in>> aTable
+               %UID '2E56A55B775C'
+               %TARGET U$ '552FADE50173' /* IdaTableDescription */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aTable
+              SUMMONED <<const>> anAlias
+               %UID '8BFB65CCC1F3'
+               %TARGET U$ '476136D3010B' /* String */
+               %VALUE ''''''
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anAlias
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+        PRIVATE FINAL <<method>> FindTable
+         %UID '555CA4CC00D6'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '555CA4D5023E'
+            %TARGET U$ '555C848200DA' /* IhtFromTable */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anAlias
+               %UID '555CA4EB03B2'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anAlias
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FindTable
+      ; // %OPERATIONS
+     ; // ThtTabledQuery
+     <<SimpleClass>> ThtFromTable
+      %UID '55530BB9007A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47BC4FCB0115' /* DT */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '555C848200DA' /* IhtFromTable */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '55FFB14A031C' /* TdaFromTable */
+      ; // %INHERITS
+      %REALIZES
+       U$ '555C8490016F' /* Handle */
+       U$ '555C91AF003A' /* Prepare */
+       U$ '555C91D8022C' /* Unprepare */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "555DC29E00CD"
+         %UID '555DC29E00CD'
+         %TARGET U$ '55533C7600A0' /* HT_DLL */
+        ; // 555DC29E00CD
+        <<uses>> "555DCBCA021B"
+         %UID '555DCBCA021B'
+         %TARGET U$ '5406A83E013E' /* dt_Serv */
+        ; // 555DCBCA021B
+        <<uses>> "555F037C0358"
+         %UID '555F037C0358'
+         %TARGET U$ '555F035A031E' /* HT */
+        ; // 555F037C0358
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Handle
+         %UID '55FFB642011B'
+         %TARGET U$ '555C84FC0026' /* ThtTblHandle */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // f_Handle
+      ; // %ATTRIBUTES
+     ; // ThtFromTable
+     <<SimpleClass>> ThtDataConverter
+      %UID '55599B5C014A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '55C0B2A30315' /* IhtDataConverter */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '555995210007' /* AllocateParamBuffer */
+       U$ '5559955500DF' /* ParamToDataBase */
+       U$ '55599596005B' /* ParamFromDataBase */
+       U$ '5559D14D02D1' /* FreeParamBuffer */
+       U$ '55C89B830012' /* ToLargeInt */
+       U$ '55C89BB40093' /* ToInteger */
+       U$ '55C89BC8017D' /* ToStDate */
+       U$ '55C89BDC012F' /* ToStTime */
+       U$ '55FA9B9301D7' /* ToString */
+       U$ '562E0F8F02F3' /* ToByte */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "5559A54A029E"
+         %UID '5559A54A029E'
+         %TARGET U$ '5535180A0366' /* TdaDataType */
+        ; // 5559A54A029E
+        <<uses>> "5559A9B802DD"
+         %UID '5559A9B802DD'
+         %TARGET U$ '4CDD241C0184' /* l3System */
+        ; // 5559A9B802DD
+        <<uses>> "55FAA475026C"
+         %UID '55FAA475026C'
+         %TARGET U$ '55FAA491026E' /* l3ArrayToString */
+        ; // 55FAA475026C
+        <<uses>> "55FAAA320369"
+         %UID '55FAAA320369'
+         %TARGET U$ '4B2A12BA0288' /* IntToStr */
+        ; // 55FAAA320369
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '55599D240026'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '80D9C888A065'
+            %SUMMARY 'Сигнатура метода Create' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '55599D3302BD'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '55C0B2A30315' /* IhtDataConverter */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '55599D240026' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '555995210007' /* AllocateParamBuffer */
+          U$ '5559955500DF' /* ParamToDataBase */
+          U$ '55599596005B' /* ParamFromDataBase */
+          U$ '5559D14D02D1' /* FreeParamBuffer */
+          U$ '55C89B830012' /* ToLargeInt */
+          U$ '55C89BB40093' /* ToInteger */
+          U$ '55C89BC8017D' /* ToStDate */
+          U$ '55C89BDC012F' /* ToStTime */
+          U$ '55FA9B9301D7' /* ToString */
+          U$ '562E0F8F02F3' /* ToByte */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'E49C37C2A7F8'
+            %SUMMARY 'Сигнатура фабрики ThtDataConverter.Make' ;
+            %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+            %TOBEINCLUDED
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+        PRIVATE FINAL <<method>> MakeString
+         %UID '562E1BAB0090'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '562E1BEE020C'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aData
+               %UID '562E1C180303'
+               %TARGET U$ '46A608F00301' /* Pointer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aData
+              <<const>> aDesc
+               %UID '562E1C180322'
+               %TARGET U$ '559FA10A0133' /* OPEL */
+               %TOBEINCLUDED
+                U$ '47BC4FCB0115' /* DT */
+               ; // %TOBEINCLUDED
+              ; // aDesc
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeString
+      ; // %OPERATIONS
+     ; // ThtDataConverter
+     <<SimpleClass>> ThtDataSchemeHelper
+      %UID '555F0C89007D'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '555EF7F5009F' /* TableFullPath */
+       U$ '555EF81A03BF' /* TablePassword */
+       U$ '555EF83803BE' /* TableFamily */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "555F146C02D5"
+         %UID '555F146C02D5'
+         %TARGET U$ '5511283A02C9' /* IntToHex */
+        ; // 555F146C02D5
+        <<uses>> "555F146F03BA"
+         %UID '555F146F03BA'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 555F146F03BA
+        <<uses>> "555F1488026B"
+         %UID '555F1488026B'
+         %TARGET U$ '4F191FDD0358' /* ConcatDirName */
+        ; // 555F1488026B
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Params
+         %UID '555F0D0D013F'
+         %TARGET U$ '54F9AF6B00DD' /* ThtDataProviderParams */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_Params
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '555F0CCD008C'
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '555F0CD5012B'
+            %TOBEINCLUDED
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aParams
+               %UID '555F0CE60229'
+               %TARGET U$ '54F9AF6B00DD' /* ThtDataProviderParams */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aParams
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '555F0CEB0175'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '555F0CCD008C' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '555EF7F5009F' /* TableFullPath */
+          U$ '555EF81A03BF' /* TablePassword */
+          U$ '555EF83803BE' /* TableFamily */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '2F146717A337'
+            %SUMMARY 'Сигнатура фабрики ThtDataSchemeHelper.Make' ;
+            %TARGET U$ '555EF7B1002F' /* IhtDataSchemeHelper */
+            %TOBEINCLUDED
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aParams
+               %UID '0187392FF83F'
+               %TARGET U$ '54F9AF6B00DD' /* ThtDataProviderParams */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aParams
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // ThtDataSchemeHelper
+     <<SimpleClass>> ThtResultSet
+      %UID '559121CE0393'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '558BDCD00086' /* IdaResultSet */
+       U$ '55A63E0A00E7' /* IdaResultBuffer */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5549C44C037A' /* Next */
+       U$ '5549C45A025C' /* EOF */
+       U$ '558BF63203D7' /* IsEmpty */
+       U$ '5590FD57027D' /* Field */
+       U$ '55A63E22019B' /* RegisterField */
+       U$ '55A63E3D0122' /* UnregisterField */
+       U$ '55C8996702B1' /* FieldBufferPtr */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "55912EED0377"
+         %UID '55912EED0377'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 55912EED0377
+        <<uses>> "559D1860010A"
+         %UID '559D1860010A'
+         %TARGET U$ '55533C9001BE' /* htClearResults */
+        ; // 559D1860010A
+        <<uses>> "559D1BF2020F"
+         %UID '559D1BF2020F'
+         %TARGET U$ '555F035A031E' /* HT */
+        ; // 559D1BF2020F
+        <<uses>> "559E5FB50308"
+         %UID '559E5FB50308'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 559E5FB50308
+        <<uses>> "559E68B9026F"
+         %UID '559E68B9026F'
+         %TARGET U$ '559E689001F4' /* TOpenMode */
+        ; // 559E68B9026F
+        <<uses>> "559E7814021C"
+         %UID '559E7814021C'
+         %TARGET U$ '559E77B902D8' /* ThtField */
+        ; // 559E7814021C
+        <<uses>> "55A65B7B02F0"
+         %UID '55A65B7B02F0'
+         %TARGET U$ '559E77B902D8' /* ThtField */
+        ; // 55A65B7B02F0
+        <<uses>> "5637616300C5"
+         %UID '5637616300C5'
+         %TARGET U$ '476F958501F2' /* Tl3SortIndex */
+        ; // 5637616300C5
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_SAB
+         %UID '5591221202BA'
+         %TARGET U$ '5553322F03C9' /* SAB */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // f_SAB
+        PRIVATE <<Attribute>> f_CurrentPos
+         %UID '559D21FC02AA'
+         %TARGET U$ '4DE60F5E00A6' /* LongInt */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CurrentPos
+        PRIVATE <<Attribute>> f_Data
+         %UID '559E5F930263'
+         %TARGET U$ '559E5F6802C5' /* TAbstractList */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // f_Data
+        PRIVATE <<Attribute>> f_Fields
+         %UID '559FB6D500D9'
+         %TARGET U$ '5637497102C9' /* TdaFieldList */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_Fields
+        PRIVATE <<Attribute>> f_DataConverter
+         %UID '55C1B8C402F1'
+         %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_DataConverter
+        PRIVATE <<Attribute>> f_SabDescription
+         %UID '55C497C502C8'
+         %TARGET U$ '55C4911E03DF' /* ThtSubItemDescriptionArray */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_SabDescription
+        PRIVATE <<Attribute>> f_FieldsDescription
+         %UID '55C4A9C901A4'
+         %TARGET U$ '55C84D190010' /* TdaSelectFieldList */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_FieldsDescription
+        PRIVATE <<Attribute>> f_EOF
+         %UID '55CB29DA00AB'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_EOF
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '5591222303A9'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47BC4FCB0115' /* DT */
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55912C76012A'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '47BC4FCB0115' /* DT */
+             U$ '543244050044' /* DA */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aDataConverter
+               %UID '55C1CB3A03D0'
+               %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aDataConverter
+              <<const>> aSAB
+               %UID '55912C7F0080'
+               %TARGET U$ '5553322F03C9' /* SAB */
+               %TOBEINCLUDED
+                U$ '47BC4FCB0115' /* DT */
+               ; // %TOBEINCLUDED
+              ; // aSAB
+              <<in>> aSelectFields
+               %UID '55C4A9FF0311'
+               %TARGET U$ '55C84D190010' /* TdaSelectFieldList */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aSelectFields
+              <<in>> Unidirectional
+               %UID '559E648103AF'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Unidirectional
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '5591223A02B2'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47BC4FCB0115' /* DT */
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '558BDCD00086' /* IdaResultSet */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '5591222303A9' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '5549C44C037A' /* Next */
+          U$ '5549C45A025C' /* EOF */
+          U$ '558BF63203D7' /* IsEmpty */
+          U$ '5590FD57027D' /* Field */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '1E0AF2A72558'
+            %SUMMARY 'Сигнатура фабрики ThtResultSet.Make' ;
+            %TARGET U$ '558BDCD00086' /* IdaResultSet */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '47BC4FCB0115' /* DT */
+             U$ '543244050044' /* DA */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataConverter
+               %UID 'BAB35A7CF87F'
+               %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aDataConverter
+              SUMMONED <<const>> aSAB
+               %UID '9B504FA9D37C'
+               %TARGET U$ '5553322F03C9' /* SAB */
+               %TOBEINCLUDED
+                U$ '47BC4FCB0115' /* DT */
+               ; // %TOBEINCLUDED
+              ; // aSAB
+              SUMMONED <<in>> aSelectFields
+               %UID '016F00BEF3D3'
+               %TARGET U$ '55C84D190010' /* TdaSelectFieldList */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aSelectFields
+              SUMMONED <<in>> Unidirectional
+               %UID 'B445B2AAF83F'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Unidirectional
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // ThtResultSet
+     <<SimpleClass>> ThtField
+      %UID '559E77B902D8'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '5590FD3101DE' /* IdaField */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5593905401D1' /* AsLargeInt */
+       U$ '55939068000C' /* AsInteger */
+       U$ '559393510239' /* AsStDate */
+       U$ '5593936A031A' /* AsStTime */
+       U$ '55FA82A80085' /* AsString */
+       U$ '562E07C801CF' /* AsByte */
+       U$ '56375577038B' /* Alias */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_ClientInfo
+         %UID '559F9CFB005E'
+         %TARGET U$ '5551DC0F012D' /* IdaSelectField */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_ClientInfo
+        PRIVATE <<Attribute>> f_ServerInfo
+         %UID '559FA2CB01E2'
+         %TARGET U$ '559FA10A0133' /* OPEL */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // f_ServerInfo
+        PRIVATE <<Attribute>> f_DataBuffer
+         %UID '55A641D403BA'
+         %TARGET U$ '55A63E0A00E7' /* IdaResultBuffer */
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+        ; // f_DataBuffer
+        PRIVATE <<Attribute>> f_DataConverter
+         %UID '55C1B44500A0'
+         %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+         %TOBEINCLUDED
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+        ; // f_DataConverter
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '559E77D30158'
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '559F9EC0014C'
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+             U$ '543244050044' /* DA */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aDataBuffer
+               %UID '55A641F10174'
+               %TARGET U$ '55A63E0A00E7' /* IdaResultBuffer */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aDataBuffer
+              <<in>> aDataConverter
+               %UID '55C1CB48010C'
+               %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aDataConverter
+              <<in>> aClientInfo
+               %UID '559F9ECB011C'
+               %TARGET U$ '5551DC0F012D' /* IdaSelectField */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aClientInfo
+              <<const>> aServerInfo
+               %UID '55C8900C034F'
+               %TARGET U$ '559FA10A0133' /* OPEL */
+               %TOBEINCLUDED
+                U$ '47BC4FCB0115' /* DT */
+               ; // %TOBEINCLUDED
+              ; // aServerInfo
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '559E77DD01E5'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5590FD3101DE' /* IdaField */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '559E77D30158' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '5593905401D1' /* AsLargeInt */
+          U$ '55939068000C' /* AsInteger */
+          U$ '559393510239' /* AsStDate */
+          U$ '5593936A031A' /* AsStTime */
+          U$ '55FA82A80085' /* AsString */
+          U$ '562E07C801CF' /* AsByte */
+          U$ '56375577038B' /* Alias */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'B68832768997'
+            %SUMMARY 'Сигнатура фабрики ThtField.Make' ;
+            %TARGET U$ '5590FD3101DE' /* IdaField */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+             U$ '543244050044' /* DA */
+             U$ '543388C10144' /* HT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDataBuffer
+               %UID 'E42754FE3451'
+               %TARGET U$ '55A63E0A00E7' /* IdaResultBuffer */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aDataBuffer
+              SUMMONED <<in>> aDataConverter
+               %UID '68CD9FB16BDB'
+               %TARGET U$ '55C0B2A30315' /* IhtDataConverter */
+               %TOBEINCLUDED
+                U$ '543388C10144' /* HT */
+               ; // %TOBEINCLUDED
+              ; // aDataConverter
+              SUMMONED <<in>> aClientInfo
+               %UID '8EC5D67370A9'
+               %TARGET U$ '5551DC0F012D' /* IdaSelectField */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aClientInfo
+              SUMMONED <<const>> aServerInfo
+               %UID '9FA0A60ADF44'
+               %TARGET U$ '559FA10A0133' /* OPEL */
+               %TOBEINCLUDED
+                U$ '47BC4FCB0115' /* DT */
+               ; // %TOBEINCLUDED
+              ; // aServerInfo
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+        PRIVATE FINAL <<method>> BufferPtr
+         %UID '55C8A09B00F0'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55C8A0AA01B2'
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // BufferPtr
+      ; // %OPERATIONS
+     ; // ThtField
+     <<SimpleClass>> ThtUserManager
+      %UID '5629E343023B'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '543244050044' /* DA */
+       U$ '543388C10144' /* HT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '5628D14000F6' /* IdaUserManager */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '5628D14D0151' /* CheckPassword */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "5629EAD402A8"
+         %UID '5629EAD402A8'
+         %TARGET U$ '5406A83E013E' /* dt_Serv */
+        ; // 5629EAD402A8
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '5629F0F901C8'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'BC177A5E285B'
+            %SUMMARY 'Сигнатура метода Create' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '5629F11200B8'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '543244050044' /* DA */
+          U$ '543388C10144' /* HT */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '5628D14000F6' /* IdaUserManager */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '5629F0F901C8' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '5628D14D0151' /* CheckPassword */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '5F1F064B5F6B'
+            %SUMMARY 'Сигнатура фабрики ThtUserManager.Make' ;
+            %TARGET U$ '5628D14000F6' /* IdaUserManager */
+            %TOBEINCLUDED
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+      ; // %OPERATIONS
+     ; // ThtUserManager
+   ; // %CHILDREN
+  ; // Provider
+ ; // %CHILDREN
+; // HT

@@ -1,0 +1,257 @@
+// TtfwScriptEngine 4DAEEA9E0049 SimpleClass Class
+
+FORWARD ME_4DAEEA9E0049
+
+FORWARD ME_4DAEEB9602CF
+
+INCLUDE '52F4E6AA02BB.pas.ms.script'
+
+: ME_4DAEEBC302CD
+ CONST UID '4DAEEBC302CD'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52F4E6AA02BB // TtfwStreamFactory
+ ;
+
+ @SELF
+; // ME_4DAEEBC302CD aStream
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_4DAF1A650357
+ CONST UID '4DAF1A650357'
+ CONST Name 'aCaller'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAF1A1700F7 // ItfwScriptCaller
+ ;
+
+ @SELF
+; // ME_4DAF1A650357 aCaller
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4DAEEBB40249
+ CONST UID '4DAEEBB40249'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4DAEEBC302CD // aStream
+ ME_4DAF1A650357 // aCaller
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DAEEBB40249 DoIt
+
+: ME_4DAEEB9602CF
+ CONST UID '4DAEEB9602CF'
+ CONST Name 'Script'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4DAEEBB40249 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_4DAEEB9602CF Script
+
+FORWARD ME_4DAEEBC90028
+
+INCLUDE '52F4FAF80376.pas.ms.script'
+
+: ME_4DAEF5D102C9
+ CONST UID '4DAEF5D102C9'
+ CONST Name 'SS'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_52F4FAF80376 // TtfwStringStreamFactory
+ ;
+ CONST "IsResult" false
+
+ @SELF
+; // ME_4DAEF5D102C9 SS
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4DAEEBE5031E
+ CONST UID '4DAEEBE5031E'
+ CONST Name 'aString'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4DAEEBE5031E aString
+
+: ME_4DAF1A7102EC
+ CONST UID '4DAF1A7102EC'
+ CONST Name 'aCaller'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAF1A1700F7 // ItfwScriptCaller
+ ;
+
+ @SELF
+; // ME_4DAF1A7102EC aCaller
+
+: ME_4DAEEBDC03A7
+ CONST UID '4DAEEBDC03A7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4DAEEBE5031E // aString
+ ME_4DAF1A7102EC // aCaller
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DAEEBDC03A7 DoIt
+
+: ME_4DAEEBC90028
+ CONST UID '4DAEEBC90028'
+ CONST Name 'Script$FromString'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_4DAEF5D102C9 // SS
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4DAEEBDC03A7 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_4DAEEBC90028 Script$FromString
+
+FORWARD ME_4DB02B590048
+
+INCLUDE '52F4E85300D4.pas.ms.script'
+
+: ME_4DB02B90039D
+ CONST UID '4DB02B90039D'
+ CONST Name 'FS'
+ CONST Class 'Attribute'
+ CONST Stereotype 'var'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_52F4E85300D4 // TtfwFileStreamFactory
+ ;
+ CONST "IsResult" false
+
+ @SELF
+; // ME_4DB02B90039D FS
+
+: ME_4DB02B6E0201
+ CONST UID '4DB02B6E0201'
+ CONST Name 'aFileName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4DB02B6E0201 aFileName
+
+: ME_4DB02E6400C6
+ CONST UID '4DB02E6400C6'
+ CONST Name 'aCaller'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAF1A1700F7 // ItfwScriptCaller
+ ;
+
+ @SELF
+; // ME_4DB02E6400C6 aCaller
+
+: ME_4DB02B6601F9
+ CONST UID '4DB02B6601F9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4DB02B6E0201 // aFileName
+ ME_4DB02E6400C6 // aCaller
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DB02B6601F9 DoIt
+
+: ME_4DB02B590048
+ CONST UID '4DB02B590048'
+ CONST Name 'ScriptFromFile'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_4DB02B90039D // FS
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4DB02B6601F9 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_4DB02B590048 ScriptFromFile
+
+: ME_4DAEEA9E0049
+ CONST UID '4DAEEA9E0049'
+ CONST Name 'TtfwScriptEngine'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Машина для исполнения скриптов. Базовый класс.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4DAEEB9602CF // Script
+ ME_4DAEEBC90028 // Script$FromString
+ ME_4DB02B590048 // ScriptFromFile
+ ]
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 18:16'
+
+ @SELF
+; // ME_4DAEEA9E0049 TtfwScriptEngine

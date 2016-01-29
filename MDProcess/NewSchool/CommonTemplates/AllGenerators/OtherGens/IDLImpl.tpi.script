@@ -1,0 +1,99 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/AllGenerators/OtherGens/IDLImpl.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::AllGenerators::OtherGens::IDLImpl
+//
+// Стереотип - примесь
+// ---
+// для генерации в idl классов реализации.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: IDLImpl::Class
+implementation @ <<IDLImpl>>
+//? Стереотип - примесь
+//? для генерации в idl классов реализации.
+//= CORBA IDL::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+; // st_space_key
+
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for471445E501F4*
+//F [{"%Sa"="abstract"}abstract ]interface %SN;
+//	<#%FF
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%F
+ begin
+  OBJECT IN %F
+  if true then
+  begin
+   out_indent %F |F 
+//	>%f_docs(%S)\
+
+   ++! l_Counter
+  end // if
+ end // for F
+ [%f] docs %( %S )% 
+//	#[{"%Sa"="abstract"}abstract ]interface %SNCombine[: <{, }{%f_is_server_type(%R)=true}%f_type(%R)>] {
+ out_indent if ( ( %S |a ) %== 'abstract' ) then
+ begin
+  'abstract ' 
+ end // if
+ 'interface '
+ %S |N 'Combine'
+ if NOT-EMPTY
+ begin
+  ': '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( [%f] is_server_type %( %R )% ) %==  true ) then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    [%f] type %( %R )% 
+    ++! l_Counter
+   end // if
+  end // for R
+ end // if
+ NOP
+ ' {'
+//	#};
+ out_indent '};'
+//#UC END# *47022BBE0261for471445E501F4*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for471445E501F4*
+//#UC END# *47022C0F01E4for471445E501F4*
+; // idl_ami
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<IDLImpl>>
+

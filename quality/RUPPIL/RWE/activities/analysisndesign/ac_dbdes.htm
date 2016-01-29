@@ -1,0 +1,351 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Активность: Спроектировать базу данных</title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="XE_database__designing"></a><a name="Top"></a>Активность: Спроектировать базу данных</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)" bordercolor="#000000">
+  <tr>
+    <td colspan="2" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Получить уверенность в том, что сохраняемые данные представлены наиболее эффективно и 
+правильно.</li>
+      <li>Задать поведение, которое должно реализовываться системой.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Шаги</font></strong></small>
+    <ul>
+      <li><a href="#Map Persistent Design Classes to the Data Model">Перевести сохраняемые проектные классы в Модель Данных.</a></li>
+      <li><a href="#Optimize the Data Model for Performance">Оптимизировать производительность модели данных</a></li>
+      <li><a href="#Optimize Data Access">Оптимизировать доступ к данным</a></li>
+      <li><a href="#Define Storage Characteristics">Задать характеристики хранилища</a></li>
+      <li><a href="#Define Data and Referential Integrity Enforcement Rules">Задать данные и правила целостности</a></li>
+      <li><a href="#Distribute Class behavior to the Database">Распределить поведение класса по Базе Данных</a></li>
+      <li><a href="#Review the Results">Провсети обзор результатов</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Input
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/requirements/pa_supspec.htm">Дополнительные спецификации</a></li>
+      <li><a href="../../artifacts/environment/pa_design.htm">Инструкция проектирования</a></li>
+      <li><a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектная модель</a></li>
+      <li><a href="../../artifacts/analysisndesign/pa_datamod.htm">Модель данных</a>(может отсутствовать)</li>
+    </ul>
+    </td>
+    <td style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/analysisndesign/pa_datamod.htm">Модель данных</a>(может отсутствовать)</li>
+      <li><a href="../../artifacts/environment/pa_request.htm">Запросы на изменение</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_dbdsr.htm">Проектировщик БД</a></td>
+  </tr>
+</table>
+</center></div>
+
+<p>Шаги, представленные ниже подразумевают реляционную модель данных. Шаги для объектных 
+баз подобны описанным, но в деталях различаются.
+<h3><a name="Map Persistent Design Classes to the Data Model">Перевести сохраняемые проектные классы в Модель Данных</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)" bordercolor="#000000">
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Создать, задать и уточнить модель данных, описывающую хранилище и хранимые классы.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+<p>Как только структура хранимых классов стала стабильной, они должны быть переведены в 
+модель данных.
+
+<h3><a name="Optimize the Data Model for Performance">Оптимизировать производительность модели данных</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Оптимизировать структуру данных для увеличения производительности.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+<p>Объекты, получаемые совместно, должны совместно храниться в целях улучшения производительности.</p>
+<p>В случае <b>реляционной модели данных</b>, начальный этап сводится к простому 
+переводу классов в таблицы БД. Если кроме атрибутов объектов одного класса необходимо одновременно
+получать атрибутов объекты других классов, используется операция <strong>join</strong>. 
+Для часто используемых данных, join могут быть очень медленными операциями. Чтобы уменьшить цену
+<strong>join</strong>, используется <strong>де-нормализация</strong>.</p>
+<p>Денормализация подразумевает совмещение нескольких столбцов разных таблиц в единую таблицу, 
+чтобы повысить эффективность <strong>pre-joining</strong> информации.
+Денормализация - своего рода уступка для ускорения операций чтения перед операциями записи.
+Денормализация также уменьшает производительность системы при запросах, которым необходимо 
+использование нескольких атрибутов одного из объектов, между тем все атрибуты получаются на каждом 
+запросе. Однако во многих случаях денормализация существенно повышает производительность.
+<p>Денормализация на более чем двух таблицах редка и увеличивает стоимость операций
+inserts и updates.
+<p>Денормализация может быть вычленена из <a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектных Классов (см. Проектную Модель)</a> 
+при рассмотрении стыковок между классами. 
+<p>Некоторые объектные СУБД позволяют проводить концепции, подобные денормализации, в которых
+связанные объекты вместе сгруппированы на диске и получаются одной операцией.
+Концепция та же: уменьшение времени получения за счет отказа получения 
+связанных объектов по отдельности.</p>
+
+<h3><a name="Optimize Data Access">Оптимизировать доступ к данным</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)" bordercolor="#000000">
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Ускорить доступ за счет индексирования.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>После получения структуры таблиц, определите типы запросов, которые будут производиться 
+над данными. Индексирование используется для ускорения доступа.
+Есть следующие стратегии:
+<ul>
+  <li>Первичный ключ всегда индексирован.</li>
+  <li>На небольших таблицах (менее 100 записей) выигрыш от индексирования минимален. Маленькие 
+таблицы обычно кешируются в базе данных.</li>
+  <li>Индексы должны быть построены для часто выполняемых запросов, или запросов где наиболее 
+важна скорость ответа. Индекс задается для каждого набора атрибутов, по которому идет поиск.</li>
+  <li>Индексы обычно выстраиваются на столбцы которые содержат идентификаторы, а не значения.</li>
+  <li>Индексы должны быть построены скорее на атрибуты целочисленных типов, чем на атрибуты 
+плавающей точки или на строки. Сравнение производится быстрее на целых числах, чем на остальных,
+поэтому и выгода от использования индексов выше, кроме того, такие индексы занимают меньший объем.</li>
+</ul>
+<p>С другой стороны, индексирование увеличивает продолжительность выполнения 
+операций insert и update. Используйте следующие обстоятельства и советы:
+<ul>
+  <li>Не ускоряйте редко выполняемые запросы путем индексирования, если конечно, время их выполнения не критично.</li>
+  <li>В ряде случаев выполнение inserta или update более важно чем select.</li>
+  <li>Помните, что каждый индекс скрыто увеличивает затраты на проведение операций update, delete, insert.</li>
+</ul>
+<p>Многие СУБД позволяют выбрать тип индексирования:
+<ul>
+  <li><strong>B-деревья. </strong>Самый часто используемый тип индекса, основанный на
+сбалансированных структурах b-деревьев. Они хороши для случайно распределенных значений и 
+имеющих широкое разнообразие. Они не дают желаемых результатов, когда данные уже расположены в последовательном порядке.</li>
+  <li><strong>Hash. </strong>Менее часто используется <strong>хеширование</strong>.
+    Hashing предлагает лучшую производительность когда  спектр значений определен и известен,
+сравнительно неизменен и уникален. Хеш основан на вычислении по значению ключа адреса интересующих 
+данных. Так как нужно предсказывание, хеш-индексы полезны на небольших таблицах, которые 
+редко изменяются.</li>
+</ul>
+<p>Выбор стратегии индексирования оказывает огромное влияние на производительность.
+Массивная закачка данных проводится без индексирования (сначала индекс удаляется, затем перекачиваются 
+данные, потом индекс выстраивается). Причина для таких действий в том, что с добавлением 
+каждой строки идет перестройка индекса.
+
+<h3><a name="Define Storage Characteristics">Задать характеристики хранилища</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Задать требования по пространству и организации дисковых страниц базы данных.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>Базы данных выполняют операции ввода вывода не по строкам или записям таблиц, а по 
+Рассмотрите
+<ul>
+  <li>Плотность данных на дисковых страницах</li>
+  <li>Расположение страниц на диске, и между отдельными дисками</li>
+  <li>Необходимое дисковое пространство для таблицы</li>
+</ul>
+<h4><strong>Плотность дисковых страниц</strong></h4>
+<p>Плотность дисковых страниц зависит от ожидаемого увеличения данных во времени.
+Если данные изменчивы, лучше если плотность будет меньше, и наоборот, чтение данных 
+эффективнее на более плотных дисковых страницах.
+<p>Распределите таблицы по группам высокой, средней и низкой динамики изменений.
+Высокодинамичные таблицы расположите на страницах с высоким процентом свободного
+пространства (30%), средние - 15%, низкие - 5%
+<h4><strong>Расположите дисковые страницы</strong></h4>
+<p>Определите где будут находиться дисковые страницы
+<ul>
+  <li>Желательно не вукладывать данные на один диск с тем, где стоит ОС.</li>
+  <li>По возможности располагайте данные на различных дисках, чтобы сбалансировать 
+перегрузку и уменьшить время одидания завершения операций чтения/записи. В некоторых 
+случаях возможно использование данных на параллельных каналах.
+  <li>Кладите индексы отдельно от данных, на разные носители.</li>
+</ul>
+<p>Процесс балансирования итерацтивный и подразумевает проведение множества экспериментов.</p>
+<h4><strong>Выделение дискового пространства</strong></h4>
+<p>Оцените количество объектов, которые должны быть сохранены. Количество дискового пространства
+отличается для каждой конкретной СУБД, но оценка - обычно функция:
+<p align="center">размер = (фиксированный заголовок таблицы) + (количество записей *
+(средний размер записи/средняя плотность данных))</p>
+
+<h3><a name="Define Data and Referential Integrity Enforcement Rules">Задать данные и правила целостности</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Обеспечить целостность базы данных.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+<p>Правила целостности данных, известные как constraints, обеспечивают нахождение значений данных
+в заданных пределах. Необходимо задать где необходимо, такие правила.</p>
+<p>Целостность ссылок в БД обязательна. Это подразумевает что каждое значение foreign key 
+имеется в ссылаемой таблице как значение primary key. Более того, СУБД использует 
+такие ссылки для оптимизации запросов выборки.</p>
+
+<h3><a name="Distribute Class behavior to the Database">Распределить поведение класса по Базе Данных</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Определить поведение класса, которое будет распределено или реализовано базой данных.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>Большинство СУБД поддерживает <strong>сохраненные процедуры</strong>. Они предствляют
+выполнимый код, который работает в процессном пространсте СУБД и производят операции, связанные 
+с базой данных. Их использование существенно повышает производительность.</p>
+<p>Два типа сохраненных процедур: собственно процедуры и триггеры.
+Процедуры выполняются приложением, имеют параметры и возвращают значения. Триггеры
+вызываются, когда в БД происходит какое-то событие (добавляется запись, изменяется, удаляется
+и т.д.), они не имеют параметров и не возвращают значений.</p>
+<p>Часто триггеры используются как constraints, для обеспечения целостности.</p>
+<h3><a name="Review the Results">Провести обзор результатов</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li>Убедиться в качестве и целостности <a href="../../artifacts/analysisndesign/pa_datamod.htm">Модели данных</a></li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+Проведите обзор модели данных, как только будет подготовлена ее первая и каждая очередная законченная 
+версия
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+</body>
+
+</html>

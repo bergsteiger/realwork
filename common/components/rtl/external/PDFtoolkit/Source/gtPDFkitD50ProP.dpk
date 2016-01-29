@@ -1,0 +1,58 @@
+package gtPDFkitD50ProP;
+
+{$I gtDefines.inc}
+
+{$R *.RES}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl50,
+  Vclx50,
+  vcljpg50,
+  gtPDF32D5;
+
+contains
+{$IFDEF gtProPlus}
+  gtPDFViewer in 'gtPDFViewer.pas',
+  gtExProPDFDoc in 'gtExProPDFDoc.pas',
+  gtPDFSearchPanel in 'gtPDFSearchPanel.pas',
+  gtViewerWidgets in 'gtViewerWidgets.pas',
+  gtScrollingPanel in 'gtScrollingPanel.pas', 
+  gtPDFOutlineViewer in 'gtPDFOutlineViewer.pas',
+  gtPDFPrinter in 'gtPDFPrinter.pas',
+  gtMouseWheelRectifier in 'gtMouseWheelRectifier.pas',
+{$ENDIF}  
+  gtCstPDFDoc in 'gtCstPDFDoc.pas',
+  gtPDFClasses in 'gtPDFClasses.pas',
+  gtExPDFDoc in 'gtExPDFDoc.pas',
+  gtPDFUtils in 'gtPDFUtils.pas',
+  gtCrypt in 'gtCrypt.pas',
+  gtPDFTypes in 'gtPDFTypes.pas',
+  gtPDFResStrs in 'gtPDFResStrs.pas',
+  gtPDFConsts in 'gtPDFConsts.pas',
+  gtPDFDoc in 'gtPDFDoc.pas',
+  gtSettingsDlg in 'gtSettingsDlg.pas';
+
+end.

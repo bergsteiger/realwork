@@ -1,0 +1,856 @@
+// ConstantsRegistration 53C7C3100231 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53C7C3100231
+
+FORWARD ME_53C7E84E012D
+
+FORWARD ME_53C7E877024C
+
+: ME_53C7E8F70070
+ CONST UID '53C7E8F70070'
+ CONST Name 'aTypeInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_53C7E8F70070 aTypeInfo
+
+: ME_53C7E8EC0126
+ CONST UID '53C7E8EC0126'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7E877024C // RegisterEnum
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_53C7E8F70070 // aTypeInfo
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_53C7E8EC0126 DoIt
+
+: ME_53C7E877024C
+ CONST UID '53C7E877024C'
+ CONST Name 'RegisterEnum'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ : Operations
+   @ ( ME_53C7E8EC0126 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_53C7E877024C RegisterEnum
+
+FORWARD ME_55C0D99E0109
+
+: ME_53C7E86A0060
+ CONST UID '53C7E86A0060'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ : Target ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+
+ref; // ME_53C7E86A0060 
+
+FORWARD ME_53C7ED5A01A0
+
+: ME_53C7ED6E0278
+ CONST UID '53C7ED6E0278'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ : Target ME_53C7ED5A01A0 // TtfwRegisteredEnums
+ ;
+
+ref; // ME_53C7ED6E0278 
+
+: ME_5527F8910184
+ CONST UID '5527F8910184'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ : Target WL 'ME_508528D10384' '4F3E3F5F0160.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_5527F8910184 
+
+FORWARD ME_553128CE018D
+
+: ME_553128F00129
+ CONST UID '553128F00129'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ : Target ME_553128CE018D // TtfwIntegerToEnumName
+ ;
+
+ref; // ME_553128F00129 
+
+: ME_5571AFFA026F
+ CONST UID '5571AFFA026F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ : Target WL 'ME_5571AC8301BE' '4F3E3F5F0160.pas.ms.script' // TtfwTypeModifier
+ ;
+
+ref; // ME_5571AFFA026F 
+
+: ME_53C7E84E012D
+ CONST UID '53C7E84E012D'
+ CONST Name 'TtfwEnumRegistrator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7C3100231 // ConstantsRegistration
+ ;
+ : Operations
+   @ ( ME_53C7E877024C // RegisterEnum
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_53C7E86A0060 // 
+ ME_53C7ED6E0278 // 
+ ME_5527F8910184 // 
+ ME_553128F00129 // 
+ ME_5571AFFA026F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwEnumRegistrator.pas'
+
+ref; // ME_53C7E84E012D TtfwEnumRegistrator
+
+FORWARD ME_53C7ED350038
+
+: ME_53C7ED4B02E0
+ CONST UID '53C7ED4B02E0'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_53C7ED350038 // TtfwRTTITypeInfoList
+ ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_53C7ED4B02E0 ItemType
+
+: ME_47B07CF403D0_ME_53C7ED350038
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_53C7ED350038 // TtfwRTTITypeInfoList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_53C7ED350038 IsSameItems
+
+: ME_47B2C42A0163_ME_53C7ED350038
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_53C7ED350038 // TtfwRTTITypeInfoList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_53C7ED350038 AssignItem
+
+: ME_47B99D4503A2_ME_53C7ED350038
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_53C7ED350038 // TtfwRTTITypeInfoList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_53C7ED350038 CompareExistingItems
+
+: ME_53C7ED350038
+ CONST UID '53C7ED350038'
+ CONST Name 'TtfwRTTITypeInfoList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C7C3100231 // ConstantsRegistration
+ ;
+ : Inherits
+   @ ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_53C7ED4B02E0 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_53C7ED350038 // IsSameItems
+ ME_47B2C42A0163_ME_53C7ED350038 // AssignItem
+ ME_47B99D4503A2_ME_53C7ED350038 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRTTITypeInfoList.pas'
+
+ref; // ME_53C7ED350038 TtfwRTTITypeInfoList
+
+: ME_7FDA9112BE29
+ CONST UID '7FDA9112BE29'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C7ED5A01A0 // TtfwRegisteredEnums
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_7FDA9112BE29 Exists
+
+: ME_53C7ED5A01A0
+ CONST UID '53C7ED5A01A0'
+ CONST Name 'TtfwRegisteredEnums'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C7C3100231 // ConstantsRegistration
+ ;
+ : Inherits
+   @ ( ME_53C7ED350038 // TtfwRTTITypeInfoList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_7FDA9112BE29 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRegisteredEnums.pas'
+
+ref; // ME_53C7ED5A01A0 TtfwRegisteredEnums
+
+: ME_553129CB00CF
+ CONST UID '553129CB00CF'
+ CONST Name 'f_TypeInfo'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_553128CE018D // TtfwIntegerToEnumName
+ ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_553129CB00CF f_TypeInfo
+
+FORWARD ME_553129980377
+
+: ME_553129B50026
+ CONST UID '553129B50026'
+ CONST Name 'aTypeInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_553129B50026 aTypeInfo
+
+: ME_553129A200E1
+ CONST UID '553129A200E1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_553129980377 // Register
+ ;
+ : Parameters
+   @ ( ME_553129B50026 // aTypeInfo
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_553129A200E1 DoIt
+
+: ME_553129980377
+ CONST UID '553129980377'
+ CONST Name 'Register'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_553128CE018D // TtfwIntegerToEnumName
+ ;
+ : Operations
+   @ ( ME_553129A200E1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_553129980377 Register
+
+: ME_EA67F42908FE
+ CONST UID 'EA67F42908FE'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TtfwIntegerToEnumName' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_553128CE018D // TtfwIntegerToEnumName
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_EA67F42908FE Ini_Reg_Class
+
+: ME_553132B30377
+ CONST UID '553132B30377'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_553128CE018D // TtfwIntegerToEnumName
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_553132B30377 
+
+FORWARD ME_553132CA032A
+
+: ME_553132DA02B0
+ CONST UID '553132DA02B0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_553128CE018D // TtfwIntegerToEnumName
+ ;
+ : Target ME_553132CA032A // TtfwStringToEnumValue
+ ;
+
+ref; // ME_553132DA02B0 
+
+: ME_4DAEEDE10285_ME_553128CE018D
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_553128CE018D // TtfwIntegerToEnumName
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_553128CE018D DoDoIt
+
+: ME_551544E2001A_ME_553128CE018D
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_553128CE018D // TtfwIntegerToEnumName
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_553128CE018D GetResultTypeInfo
+
+: ME_553128CE018D
+ CONST UID '553128CE018D'
+ CONST Name 'TtfwIntegerToEnumName'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C7C3100231 // ConstantsRegistration
+ ;
+ : Inherits
+   @ ( WL 'ME_54D229E702B6' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWordPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_553129CB00CF // f_TypeInfo
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_553129980377 // Register
+ ME_EA67F42908FE // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_553128CE018D // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_551544E2001A_ME_553128CE018D // GetResultTypeInfo
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_553132B30377 // 
+ ME_553132DA02B0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwIntegerToEnumName.pas'
+
+ref; // ME_553128CE018D TtfwIntegerToEnumName
+
+: ME_5531331902AE
+ CONST UID '5531331902AE'
+ CONST Name 'f_TypeInfo'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_5531331902AE f_TypeInfo
+
+FORWARD ME_55313331027C
+
+: ME_5531333D016E
+ CONST UID '5531333D016E'
+ CONST Name 'aTypeInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_5531333D016E aTypeInfo
+
+: ME_5531333A0311
+ CONST UID '5531333A0311'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55313331027C // Register
+ ;
+ : Parameters
+   @ ( ME_5531333D016E // aTypeInfo
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5531333A0311 DoIt
+
+: ME_55313331027C
+ CONST UID '55313331027C'
+ CONST Name 'Register'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ : Operations
+   @ ( ME_5531333A0311 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_55313331027C Register
+
+: ME_856730F72448
+ CONST UID '856730F72448'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TtfwStringToEnumValue' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_856730F72448 Ini_Reg_Class
+
+: ME_5531332002CF
+ CONST UID '5531332002CF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_5531332002CF 
+
+: ME_4DAEEDE10285_ME_553132CA032A
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_553132CA032A DoDoIt
+
+: ME_551544E2001A_ME_553132CA032A
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_553132CA032A GetResultTypeInfo
+
+: ME_553132CA032A
+ CONST UID '553132CA032A'
+ CONST Name 'TtfwStringToEnumValue'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C7C3100231 // ConstantsRegistration
+ ;
+ : Inherits
+   @ ( WL 'ME_54D229E702B6' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWordPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_5531331902AE // f_TypeInfo
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55313331027C // Register
+ ME_856730F72448 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_553132CA032A // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_551544E2001A_ME_553132CA032A // GetResultTypeInfo
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5531332002CF // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStringToEnumValue.pas'
+
+ref; // ME_553132CA032A TtfwStringToEnumValue
+
+: ME_55C0DA5A015D
+ CONST UID '55C0DA5A015D'
+ CONST Name 'f_TypeInfo'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_55C0DA5A015D f_TypeInfo
+
+FORWARD ME_55C0DA200397
+
+: ME_55C0DA2A030D
+ CONST UID '55C0DA2A030D'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55C0DA2A030D aValue
+
+: ME_55C0DA48036E
+ CONST UID '55C0DA48036E'
+ CONST Name 'aTypeInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_55C0DA48036E aTypeInfo
+
+: ME_55C0DA29001E
+ CONST UID '55C0DA29001E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C0DA200397 // Create
+ ;
+ : Parameters
+   @ ( ME_55C0DA2A030D // aValue
+ ME_55C0DA48036E // aTypeInfo
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55C0DA29001E DoIt
+
+: ME_55C0DA200397
+ CONST UID '55C0DA200397'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+ : Operations
+   @ ( ME_55C0DA29001E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55C0DA200397 Create
+
+FORWARD ME_55C0DA7C026A
+
+: ME_55C0DA910239
+ CONST UID '55C0DA910239'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55C0DA910239 aName
+
+: ME_55C0DA910261
+ CONST UID '55C0DA910261'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55C0DA910261 aValue
+
+: ME_55C0DAA40125
+ CONST UID '55C0DAA40125'
+ CONST Name 'aTypeInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_55C0DAA40125 aTypeInfo
+
+: ME_55C0DA8F03C4
+ CONST UID '55C0DA8F03C4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C0DA7C026A // Register
+ ;
+ : Parameters
+   @ ( ME_55C0DA910239 // aName
+ ME_55C0DA910261 // aValue
+ ME_55C0DAA40125 // aTypeInfo
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55C0DA8F03C4 DoIt
+
+: ME_55C0DA88018C
+ CONST UID '55C0DA88018C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C0DA7C026A // Register
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55C0DA88018C 
+
+: ME_55C0DA7C026A
+ CONST UID '55C0DA7C026A'
+ CONST Name 'Register'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+ : Operations
+   @ ( ME_55C0DA8F03C4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_55C0DA88018C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "is static" true
+
+ref; // ME_55C0DA7C026A Register
+
+: ME_FCED495E89D6
+ CONST UID 'FCED495E89D6'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TtfwEnumConstantRegistrator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+
+ref; // ME_FCED495E89D6 Ini_Reg
+
+: ME_52CFC11603C8_ME_55C0D99E0109
+ CONST UID '52CFC11603C8'
+ CONST Name 'ResultTypeInfo'
+ : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
+ ;
+ : Implementor ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_52CFC11603C8_ME_55C0D99E0109 ResultTypeInfo
+
+: ME_55C0D99E0109
+ CONST UID '55C0D99E0109'
+ CONST Name 'TtfwEnumConstantRegistrator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C7C3100231 // ConstantsRegistration
+ ;
+ : Inherits
+   @ ( WL 'ME_53C7C4BF03D9' '4F3E3F5F0160.pas.ms.script' // TtfwIntegerConstantRegistrator
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55C0DA5A015D // f_TypeInfo
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55C0DA200397 // Create
+ ME_55C0DA7C026A // Register
+ ME_FCED495E89D6 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_52CFC11603C8_ME_55C0D99E0109 // ResultTypeInfo
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwEnumConstantRegistrator.pas'
+
+ref; // ME_55C0D99E0109 TtfwEnumConstantRegistrator
+
+: ME_53C7C3100231
+ CONST UID '53C7C3100231'
+ CONST Name 'ConstantsRegistration'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ ;
+ : Children
+   @ ( ME_53C7E84E012D // TtfwEnumRegistrator
+ ME_53C7ED350038 // TtfwRTTITypeInfoList
+ ME_53C7ED5A01A0 // TtfwRegisteredEnums
+ ME_553128CE018D // TtfwIntegerToEnumName
+ ME_553132CA032A // TtfwStringToEnumValue
+ ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53C7C3100231.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53C7C3100231.pas.ms.script.runner'
+
+ref; // ME_53C7C3100231 ConstantsRegistration

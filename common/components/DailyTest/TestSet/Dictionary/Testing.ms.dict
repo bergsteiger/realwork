@@ -1,0 +1,31 @@
+// Testing.ms.dict
+
+USES
+ axiom:RunTests
+;
+
+EXPORTS
+ axiom:RunTests
+
+USES
+ CodeDump.ms.dict
+;
+
+EXPORTS
+ CodeDump.ms.dict
+EXPORTS 
+ CodeDump.script
+
+MACRO TestWithDump
+ Literal IN aName
+ %SUMMARY 'Аналог слова Test, но с дампингом кода слова в стандартный вывод' ;
+
+ @SELF Ctx:SetWordProducerForCompiledClass
+ axiom:PushSymbol VOID
+ axiom:PushSymbol axiom:operator
+ aName |N Ctx:Parser:PushSymbol
+ axiom:PushSymbol @SELF
+ axiom:PushSymbol DumpElement
+; // TestWithDump
+
+WordAlias Test&Dump TestWithDump

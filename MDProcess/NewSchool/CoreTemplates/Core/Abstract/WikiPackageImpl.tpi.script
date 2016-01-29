@@ -1,0 +1,374 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Core/Abstract/WikiPackageImpl.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$CoreTemplates::CoreTemplates::Core::Abstract::WikiPackageImpl
+//
+// Базовый стереотип для всех стереотипов - папок, реализует генерацию в wiki.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: WikiPackageImpl::Category
+implementation @ <<WikiPackageImpl>>
+//? Базовый стереотип для всех стереотипов - папок, реализует генерацию в wiki.
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// Определяет, что пакет должен генериться в документации в секцию "Пакеты реализации и
+// вспомогательные пакеты"
+//%f _wiki_impl_or_support_package
+; // st_space_key
+
+: wiki_impl_or_support_package OBJECT IN %S
+//#UC START# *485784EC028Cfor471738DF00DA*
+//	false
+ false
+//#UC END# *485784EC028Cfor471738DF00DA*
+; // wiki_impl_or_support_package
+
+
+// Определяет, что пакет должен генериться в документации в секцию "Утилитные пакеты"
+//%f _wiki_utility_package
+: wiki_utility_package OBJECT IN %S
+//#UC START# *485785D603C1for471738DF00DA*
+//	false
+ false
+//#UC END# *485785D603C1for471738DF00DA*
+; // wiki_utility_package
+
+
+// Определяет, что пакет должен генериться в документации в секцию "Интерфейсные пакеты"
+//%f _wiki_interface_package
+: wiki_interface_package OBJECT IN %S
+//#UC START# *48578600008Dfor471738DF00DA*
+//	false
+ false
+//#UC END# *48578600008Dfor471738DF00DA*
+; // wiki_interface_package
+
+
+// Определяет, что пакет должен генериться в документации в секцию "Схемы данных"
+//%f _data_scheme_package
+: data_scheme_package OBJECT IN %S
+//#UC START# *485789C102E3for471738DF00DA*
+//	false
+ false
+//#UC END# *485789C102E3for471738DF00DA*
+; // data_scheme_package
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471738DF00DA*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for471738DF00DA*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471738DF00DA*
+//#UC END# *4705CBD6003Efor471738DF00DA*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for471738DF00DA*
+//#UC END# *470484D50138for471738DF00DA*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for471738DF00DA*
+//C /%SN:%SU
+//O %SN
+//S %SN
+
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Включает реализацию пакетов прецедентов:
+   '{info}Включает реализацию пакетов прецедентов:'
+//	<{}{%aS=UseCases}{Sg}* %f_k_link_wp(%a,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ag
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %== 'UseCases' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Использует пакеты:
+   '{info}Использует пакеты:'
+//	<{}{%DS!=UseCases}{Sn}* %f_k_link_wp(%D,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Dn
+   begin
+    OBJECT IN %D
+    if ( ( %D |S ) %!= 'UseCases' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %D %, %S )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for D
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	{info}Используется пакетами:
+   '{info}Используется пакетами:'
+//	<{}{%aS!=UseCases}{Sp}{Sn}* %f_k_link_wp(%a,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %!= 'UseCases' ) then
+    begin
+     '{Sn}* '
+     [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][\
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+//	%f_k_common_elem_docs(%S)][{%mx=true&%Cx=true}
+   [%f] k_common_elem_docs %( %S )% 
+  end // if
+  NOP
+  if ( ( %m |x ) %==  true AND 
+    ( ( %C |x ) %==  true  ) ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма пакета:_
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%m
+   begin
+    OBJECT IN %m
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( '----'#13#10 )
+     '_'
+     if ( ( %m |N ) %!= 'Main' ) then
+     begin
+      %m |N 
+     end // if
+     else
+     begin
+      'Основная' 
+     end // else
+     ' диаграмма пакета:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>]][
+
+     ++! l_Counter
+    end // if
+   end // for m
+  end // if
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав пакета[
+  'h2. Состав пакета'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Интерфейсы:_<{}{%t_interface(%C)=true}{Sn}
+   '_Интерфейсы:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( [%t] interface %( %C )% ) %==  true ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Дополнительные типы и утилиты:_<{}{%t_interface(%C)=false&%CS!=Servant&%CS!=ComServant}{Sn}
+   '_Дополнительные типы и утилиты:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( [%t] interface %( %C )% ) %==  false AND 
+     ( ( %C |S ) %!= 'Servant'  ) AND 
+     ( ( %C |S ) %!= 'ComServant'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_type_dump(%C)>][
+     [%f] k_type_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Реализация:_<{}{%CS=Servant|%CS=ComServant}{Sn}
+   '_Реализация:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'Servant' OR 
+     ( ( %C |S ) %== 'ComServant'  ) ) then
+    begin
+     #13#10
+
+//	\# *%f_k_link(%C)*
+     '# *'
+     [%f] k_link %( %C )% '*'
+//	_%C?_[, [{"%CD"=""}{%f_str_replace(%CD,\n\n,\n\\\\)}реализация интерфейса %f_k_link(%C%R)]]>]]<%CX>
+     '_'
+     %C |? '_'
+     if NOT-EMPTY
+     begin
+      ', '
+      if ( ( %C |D ) %== '' ) then
+      begin
+       'реализация интерфейса '
+       [%f] k_link %( %C ->R  )% 
+      end // if
+      else
+      begin
+       [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+      end // else
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for471738DF00DA*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<WikiPackageImpl>>
+

@@ -1,0 +1,267 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/ServiceImplementation.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::ServiceImplementation
+//
+// Реализация сервиса
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ServiceImplementation::Class
+implementation @ <<ServiceImplementation>>
+//? Реализация сервиса
+//= ServicePrim::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a f
+// - тип абстракции
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // st_space_key
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor5502BADD01CB*
+//	%S%[inherited]
+ inherited
+//#UC END# *4B2A19E3038Bfor5502BADD01CB*
+; // DoSpell
+
+
+// перекрытие базового стереотипа ServicePrim::Class
+//%f _AfterClassSpell
+: AfterClassSpell OBJECT IN %S
+//#UC START# *5502CBD4031Efor5502BADD01CB*
+//	%S%[inherited]
+ inherited
+//#UC END# *5502CBD4031Efor5502BADD01CB*
+; // AfterClassSpell
+
+
+// перекрытие базового стереотипа ServicePrim::Class
+//%f _BeforeClassSpell
+: BeforeClassSpell OBJECT IN %S
+//#UC START# *5502C6A200F5for5502BADD01CB*
+//	<{}{%CC=Dependency&%CS=implements}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Dependency' AND 
+   ( ( %C |S ) %== 'implements'  ) ) then
+  begin
+//	%C%T#f_CheckOrMakeFacet()\
+   %C ->T %?f CheckOrMakeFacet %( )%  
+//	%C%T#f_CheckFacet()\
+   %C ->T %?f CheckFacet %( )%  
+
+
+//	%f_warning(%C%TN)\
+
+//	%f_warning(%C%T%{Facet}N)\
+
+//	%f_warning(%C%T%{Facet}U)\
+
+
+//	[{"%C%T%{Facet}N"!=""}\
+   if ( ( %C ->T ( get_object_var ( 'Facet' ) |N )   ) %!= '' ) then
+   begin
+//	%S%f_make_accessable(%C%T%{Facet}U)\
+    %S %f make_accessable %( %C ->T ( get_object_var ( 'Facet' ) |U )   )% 
+//	%f_addR(%S,%C%T%{Facet})\
+    [%f] addR %( %S %, %C ->T ( get_object_var ( 'Facet' ) )   )% 
+//	]\
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	%S%f_add_operation(%SU_Ini_Reg_Class,ini,bind (),Op_Instance)\
+ %S %f add_operation %( %S |U '_Ini_Reg_Class' %, 'ini' %, 'bind ()' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_documentation(Регистрация %SN)\
+ ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Регистрация '
+ %S |N )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+ ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+ ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+ ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	<{\n}{%CC=Dependency&%CS=implements}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |C ) %== 'Dependency' AND 
+   ( ( %C |S ) %== 'implements'  ) ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+//	[ %C%T#f_open_ifdef()\n]\
+   if NOT-EMPTY
+   begin
+    ' '
+    %C ->T %?f open_ifdef %( )%  #13#10 
+   end // if
+   NOP
+//	 %f_pas_TypeName(%C%T).Instance.Alien := %f_pas_TypeName(%S).Instance;\
+   ' '
+   [%f] pas_TypeName %( %C ->T  )% '.Instance.Alien := '
+   [%f] pas_TypeName %( %S )% '.Instance;'
+//	[\n %C%T#f_close_ifdef()\n]\
+   if NOT-EMPTY
+   begin
+    #13#10' '
+    %C ->T %?f close_ifdef %( )%  #13#10 
+   end // if
+   NOP
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	)\
+)% ) 
+//	%S%[inherited]
+ inherited
+//#UC END# *5502C6A200F5for5502BADD01CB*
+; // BeforeClassSpell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: ServiceImplementation::Class::implements::ClassDependency
+end. // <<ServiceImplementation>>
+
+implementation @ :: <<ServiceImplementation>> <<implements>> ;
+//? Указание, что реализуется
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for5502BC8E029A*
+//#UC END# *46E6D4BB0339for5502BC8E029A*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor5502BC8E029A*
+//#UC END# *470F1571031Cfor5502BC8E029A*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor5502BC8E029A*
+//#UC END# *470F15B800CBfor5502BC8E029A*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for5502BC8E029A*
+//#UC END# *477398E501C0for5502BC8E029A*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for5502BC8E029A*
+//#UC END# *55B8D28B0157for5502BC8E029A*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for5502BC8E029A*
+//#UC END# *55B8D2F80145for5502BC8E029A*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for5502BC8E029A*
+//#UC END# *55B8DD9C0301for5502BC8E029A*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for5502BC8E029A*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for5502BC8E029A*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor5502BC8E029A*
+//#UC END# *4705CBD6003Efor5502BC8E029A*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for5502BC8E029A*
+//#UC END# *470484D50138for5502BC8E029A*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<ServiceImplementation>> <<implements>> ;
+

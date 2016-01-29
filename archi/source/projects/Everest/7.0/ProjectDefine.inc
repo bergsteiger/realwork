@@ -1,0 +1,2 @@
+{$DEFINE NoVGScene}
+{$DEFINE NoScripts}

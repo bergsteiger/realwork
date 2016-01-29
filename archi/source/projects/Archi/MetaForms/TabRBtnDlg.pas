@@ -1,0 +1,24 @@
+unit TabRBtnDlg;
+
+{ $Id: TabRBtnDlg.pas,v 1.2 1999/12/28 12:27:46 law Exp $ }
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, ExtCtrls, RBtnDlg, ComCtrls;
+
+type
+  TTabRBtnDlg = class(TRBtnDlg)
+    PageCtrl: TPageControl;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+implementation
+
+{$R *.DFM}
+
+end.

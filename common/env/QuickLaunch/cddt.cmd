@@ -1,0 +1,1 @@
+cd \\test-low1\dailytest

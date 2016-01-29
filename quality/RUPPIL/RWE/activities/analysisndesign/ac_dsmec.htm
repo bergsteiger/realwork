@@ -1,0 +1,278 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Определить механизмы проектирования </title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="Top"></a>Активность: Определить механизмы проектирования</h2>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td colspan="2" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li><font size="3"><a name="XE_class__refining_analysis_classes"></a>Уточнить механизмы анализа 
+и создать механизмы проектирования, ограниченные средой разработки</font></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Шаги</font></strong></small>
+    <ul>
+      <li><a href="#categorize clients">Categorize Clients of Analysis
+        Mechanisms</a></li>
+      <li><a href="#inventory impl mechanisms">Inventory the Implementation
+        Mechanisms</a></li>
+      <li><a href="#Map Design Mechanisms to Implementation Mechanisms">Map
+        Design Mechanisms to Implementation Mechanisms</a></li>
+      <li><a href="#document mechanisms">Document Architectural Mechanisms</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Input
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+      <li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+      <li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+      <li><a href="../artifact/ar_aclss.htm">Analysis Classes</a></li>
+      <li><a href="../artifact/ar_desgl.htm">Design Guidelines</a></li>
+    </ul>
+    </td>
+    <td style="text-indent: 0px" valign="top" bordercolor="#808080"><small><font face="Arial"><strong>Resulting
+    Artifacts:</strong></font></small>
+    <ul>
+      <li><a href="../artifact/ar_desmd.htm">Design Model</a> (<a href="../artifact/ar_class.htm">Classes</a>,
+        <a href="../artifact/ar_despk.htm">Packages</a> and <a href="../artifact/ar_dsub.htm">Subsystems</a>)</li>
+      <li>Updated <a href="../artifact/ar_sadoc.htm">Software Architecture
+        Document</a></li>
+      <li><a href="../artifact/ar_desgl.htm">Design Guidelines</a></li>
+    </ul>
+    <p>&nbsp;
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><small><font face="Arial">Frequency:</font></small>
+    </strong><font size="3">Once per iteration</font></td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080"><small><font face="Arial"><strong>Concepts:
+    </strong></font></small><a href="../workflow/ana_desi/co_amech.htm">Analysis
+    Mechanisms</a>, <a href="../workflow/ana_desi/co_dmech.htm">Design and
+    Implementation Mechanisms</a></td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080"><strong><font face="Arial"><small>Role:</small>
+    </font></strong><a href="../workers/wk_archt.htm">Software Architect</a></td>
+  </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p><table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+<tr>
+<td valign="top" colspan="2" bordercolor="#808080"><small><font face="Arial"><strong>Workflow Details:</strong></font></small><ul>
+<li><b><a href="../workflow/ovu_and.htm">Core Workflow: Analysis & Design</a></b></li><ul>
+<li><a href="../workflow/ana_desi/wfs_and2.htm">Refine the Architecture</a></li>
+</ul>
+</ul>
+</td>
+</tr>
+</table>
+<!-- Linked to Workflow End -->
+</center></div>
+
+<h3><a name="XE_analysis_mechanisms__categorizing"></a><a name="categorize clients">Categorize
+Clients of Analysis Mechanisms</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Analysis mechanisms provide conceptual sets of services which are used by
+analysis objects. They offer a convenient short-hand for fairly complex
+behaviors which will ultimately have to be worried about, but which are out of
+scope for the analysis effort. Their main purpose is to allow us to capture the
+requirements on these yet-to-be designed services of the system without having
+to be concerned about the details of the service provider itself.</p>
+<p>Now we must begin the refine the information gathered on the analysis
+mechanisms. The steps for doing this are as follows:</p>
+<p><strong>Identify the clients of each analysis mechanism. </strong>Scan all
+clients of a given analysis mechanism, looking at the characteristics they
+require for that mechanism. For example, a number of analysis objects may make
+use of a Persistence mechanism, but their requirements on this may widely vary:
+a class which will have a thousand persistent instances has significantly
+different persistence requirements than a class which will have four million
+persistent instances. Similarly, a class whose instances must provide
+sub-millisecond response to instance data will require a different persistence
+approach than a class whose instance data is only accessed through ad-hoc
+queries and batch reporting applications.</p>
+<p><strong>Identify characteristic profiles for each analysis mechanism</strong>.
+There may be widely varying <strong>characteristics profiles</strong>, providing
+varying degrees of performance, footprint, security, economic cost, etc. Each
+analysis mechanism is different - different characteristics will apply to each.
+Many mechanisms will require estimates of the number of instances to be managed,
+and their expected size in terms of the expected number of bytes. The movement
+of large amounts of data through any system will create tremendous performance
+issues which must be dealt with.</p>
+<p><strong>Group clients according to their use of characteristic profiles.</strong>
+Form groups of clients that seem to share a need for an analysis mechanism with
+a similar characteristics profile; identify a design mechanism based on each
+such need. These groupings provide an initial cut at the design mechanisms. An
+example analysis mechanism, &quot;inter-process communication&quot;, may map
+onto a design mechanism &quot;object request broker&quot;. Different
+characteristic profiles will lead to different design mechanisms which emerge
+from the same analysis mechanism. The simple persistence mechanism in analysis
+will give rise to a number of persistence mechanisms in design: in-memory
+persistence, file-based, database-based, distributed, etc. The design mechanisms
+are refinements of the analysis mechanisms, based on different characteristic
+profiles.</p>
+<h3><a name="XE_implementation_mechanism__inventorying"></a><a name="inventory impl mechanisms">Inventory
+the Implementation Mechanisms</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Proceed bottom-up and make an inventory of the implementation mechanisms (see
+<a href="../workflow/ana_desi/co_dmech.htm">Concepts: Design and Implementation
+Mechanisms</a>) that you have at your disposal:
+<ul>
+  <li>Mechanisms offered by a middleware product.</li>
+  <li>Mechanisms offered by operating systems.</li>
+  <li>Mechanisms offered by a component.</li>
+  <li>Mechanisms offered by a class library.</li>
+  <li>Legacy code (see also <a href="ac_incds.htm">Activity: Incorporate
+    Existing Design Elements</a>)</li>
+  <li>Special purpose packages: GUI builder, Geographical Information System,
+    DBMS, etc.</li>
+</ul>
+<p>Determine where existing implementation mechanisms can be used and where new
+implementation mechanisms need to be built.</p>
+<h3><a name="XE_implementation_mechanism__mapping_from_design_mechanisms"></a><a name="XE_design_mechanism__mapping_to_implementation_mechanisms"></a><a name="Map Design Mechanisms to Implementation Mechanisms">Map
+Design Mechanisms to Implementation Mechanisms</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Design mechanisms provide an abstraction of the implementation mechanisms,
+bridging the gap between Analysis Mechanisms and Implementation Mechanisms. The
+use of abstract architectural mechanisms during design allows us to consider how
+we are going to provide architectural mechanisms without obscuring the
+problem-at-hand with the details of a particular mechanism. It also allows us to
+potentially substitute one specific implementation mechanism for another without
+adversely affecting the design.</p>
+<p><strong>Determine the ranges of characteristics. </strong>Take the
+characteristics identified for the design mechanisms to determine reasonable, economical,
+or feasible ranges of values to use in the candidate-implementation mechanism.</p>
+<p><strong>Consider the cost of acquisition for purchased components</strong>.
+For candidate implementation mechanisms, consider the cost of acquisition or
+licensing, the maturity of the product, relationship with the vendor, support,
+etc. in addition to purely technical criteria.</p>
+<p><strong>Conduct a search for the right components, or build the components. </strong>You
+will often find that there is no apparently suitable implementation mechanism
+for some design mechanisms; this will trigger a search for the right product, or
+identify the need for in-house development. You may also find that some
+implementation mechanisms are not used at all.<br>
+<br>
+The choice of implementation mechanisms is based not only on a good match for
+the technical characteristics, but also on the non-technical characteristics,
+such as cost. Some of the choices may be <strong>provisional</strong>; almost
+all have some risks attached to them: performance, robustness, and scalability
+are nearly always concerns and must be validated by evaluation, exploratory
+prototyping, or inclusion in the architectural prototype.</p>
+<h3><a name="XE_architectural_mechanism__documenting"></a><a name="document mechanisms">Document
+Architectural Mechanisms</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The role of the Software Architect in this activity is to decide upon and validate
+these mechanisms by building, or integrating them, and verifying that they do
+the job, then consistently impose them upon the rest of the system design. The
+mechanisms, and details regarding their use, should be documented in the <a href="../artifact/ar_desgl.htm">Artifact:
+Design Guidelines</a> specific to the project. The relationship (or mapping) of
+analysis mechanisms to design mechanisms to implementation mechanisms, and the
+associated rationale for these choices, should be documented in the <a href="../artifact/ar_sadoc.htm">Software
+Architecture Document</a>.<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+<p><img src="../../images/rup1.gif" border="0" alt="Display Rational Unified Process using frames" name="Home" border="0" width="20" height="110"></a></p>
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; <img border="0" src="../../_borders/rupversion.gif" width="63" height="7"></small></small></font>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

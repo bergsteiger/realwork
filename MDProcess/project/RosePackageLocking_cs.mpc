@@ -1,0 +1,78 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/RosePackageLocking_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::RosePackageLocking
+//
+// библиотека с основной функциональностью сервера залочек
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (RosePackageLocking_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = RosePackageLocking_cs
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += GCL
+	libs  += GCL
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	IDL_Files (RosePackageLockingServer) {
+		idlflags += -o ./../RosePackageLocking/RosePackageLockingServer
+		./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServer.idl
+	}
+
+	Header_Files {
+		Std_Headers {
+			./../RosePackageLocking/LibHome.h
+		}
+	
+		RosePackageLockingServer {
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServer.h
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServerC.h
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServerS.h
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServerFactories.h
+		}
+	
+		LibSupport {
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		RosePackageLockingServer {
+			
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServerC.inl
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServerS.inl
+		}
+	
+		LibSupport {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../RosePackageLocking/LibHome.cpp
+		}
+	
+		RosePackageLockingServer {
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServer.cpp
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServerC.cpp
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServerS.cpp
+			./../RosePackageLocking/RosePackageLockingServer/RosePackageLockingServerFactories.cpp
+		}
+	
+		LibSupport {
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

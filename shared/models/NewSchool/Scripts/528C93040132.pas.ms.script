@@ -1,0 +1,450 @@
+// vcmBaseTypes 528C93040132 InternalInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_528C93040132
+
+FORWARD ME_528C9354017B
+
+: ME_528C938103E3
+ CONST UID '528C938103E3'
+ CONST Name 'rName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_528C9354017B // TvcmFormID
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_528C938103E3 rName
+
+: ME_528C938D0129
+ CONST UID '528C938D0129'
+ CONST Name 'rID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_528C9354017B // TvcmFormID
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_528C938D0129 rID
+
+FORWARD ME_528C93AC00EB
+
+: ME_528C93BA029D
+ CONST UID '528C93BA029D'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_528C9354017B // TvcmFormID
+ ;
+
+ref; // ME_528C93BA029D anOther
+
+: ME_528C93B6011F
+ CONST UID '528C93B6011F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_528C93AC00EB // EQ
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_528C93BA029D // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_528C93B6011F DoIt
+
+: ME_528C93AC00EB
+ CONST UID '528C93AC00EB'
+ CONST Name 'EQ'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_528C9354017B // TvcmFormID
+ ;
+ : Operations
+   @ ( ME_528C93B6011F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_528C93AC00EB EQ
+
+: ME_528C9354017B
+ CONST UID '528C9354017B'
+ CONST Name 'TvcmFormID'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_528C93040132 // vcmBaseTypes
+ ;
+ : Attributes
+   @ ( ME_528C938103E3 // rName
+ ME_528C938D0129 // rID
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_528C93AC00EB // EQ
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_528C9354017B TvcmFormID
+
+FORWARD ME_528C93FD01EA
+
+: ME_528C940A03BD
+ CONST UID '528C940A03BD'
+ CONST Name 'Any'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C940A03BD Any
+
+: ME_528C941101FC
+ CONST UID '528C941101FC'
+ CONST Name 'Main'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C941101FC Main
+
+: ME_528C94160294
+ CONST UID '528C94160294'
+ CONST Name 'Navigator'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C94160294 Navigator
+
+: ME_528C941F00C5
+ CONST UID '528C941F00C5'
+ CONST Name 'Parent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C941F00C5 Parent
+
+: ME_528C942500CF
+ CONST UID '528C942500CF'
+ CONST Name 'Child'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C942500CF Child
+
+: ME_528C942A0139
+ CONST UID '528C942A0139'
+ CONST Name 'Reminder'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C942A0139 Reminder
+
+: ME_528C94300005
+ CONST UID '528C94300005'
+ CONST Name 'Floating'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C94300005 Floating
+
+: ME_528C943B0211
+ CONST UID '528C943B0211'
+ CONST Name 'Modal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C943B0211 Modal
+
+: ME_528C9441014B
+ CONST UID '528C9441014B'
+ CONST Name 'ManualModal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C9441014B ManualModal
+
+: ME_528C9449015F
+ CONST UID '528C9449015F'
+ CONST Name 'ForToolbarsInfo'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C9449015F ForToolbarsInfo
+
+: ME_528C9451011B
+ CONST UID '528C9451011B'
+ CONST Name 'SimpleFloat'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C9451011B SimpleFloat
+
+: ME_528C945901DA
+ CONST UID '528C945901DA'
+ CONST Name 'MainObjectForm'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C945901DA MainObjectForm
+
+: ME_528C946201CF
+ CONST UID '528C946201CF'
+ CONST Name 'ForFocus'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ref; // ME_528C946201CF ForFocus
+
+: ME_528C93FD01EA
+ CONST UID '528C93FD01EA'
+ CONST Name 'TvcmZoneType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_528C93040132 // vcmBaseTypes
+ ;
+ : Attributes
+   @ ( ME_528C940A03BD // Any
+ ME_528C941101FC // Main
+ ME_528C94160294 // Navigator
+ ME_528C941F00C5 // Parent
+ ME_528C942500CF // Child
+ ME_528C942A0139 // Reminder
+ ME_528C94300005 // Floating
+ ME_528C943B0211 // Modal
+ ME_528C9441014B // ManualModal
+ ME_528C9449015F // ForToolbarsInfo
+ ME_528C9451011B // SimpleFloat
+ ME_528C945901DA // MainObjectForm
+ ME_528C946201CF // ForFocus
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "children prefix" 'zt'
+ CONST "elements prefix" 'vcm'
+ CONST extprop:pas:ElementPrefixBase 'vcm'
+ CONST extprop:pas:ElementPrefix 'vcm_zt'
+
+ref; // ME_528C93FD01EA TvcmZoneType
+
+FORWARD ME_528D9F530036
+
+: ME_528D9F70002F
+ CONST UID '528D9F70002F'
+ CONST Name 'vcm_nmForce'
+ CONST Class class_Attribute
+ %SUMMARY 'создавать не взирая ни на что' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528D9F530036 // TvcmNeedMakeDS
+ ;
+
+ref; // ME_528D9F70002F vcm_nmForce
+
+: ME_528D9F7A02F2
+ CONST UID '528D9F7A02F2'
+ CONST Name 'vcm_nmNo'
+ CONST Class class_Attribute
+ %SUMMARY 'нельзя создавать, например потому, что форма была закрыта пользователем и при обновлении сборки ее создавать не нужно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528D9F530036 // TvcmNeedMakeDS
+ ;
+
+ref; // ME_528D9F7A02F2 vcm_nmNo
+
+: ME_528D9F800248
+ CONST UID '528D9F800248'
+ CONST Name 'vcm_nmYes'
+ CONST Class class_Attribute
+ %SUMMARY 'начальное состояние' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_528D9F530036 // TvcmNeedMakeDS
+ ;
+
+ref; // ME_528D9F800248 vcm_nmYes
+
+: ME_528D9F530036
+ CONST UID '528D9F530036'
+ CONST Name 'TvcmNeedMakeDS'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Перечислимый тип определяющий необходимость создания БОФ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_528C93040132 // vcmBaseTypes
+ ;
+ : Attributes
+   @ ( ME_528D9F70002F // vcm_nmForce
+ ME_528D9F7A02F2 // vcm_nmNo
+ ME_528D9F800248 // vcm_nmYes
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_528D9F530036 TvcmNeedMakeDS
+
+FORWARD ME_52A567390016
+
+: ME_52A5674D033E
+ CONST UID '52A5674D033E'
+ CONST Name 'vcm_utAny'
+ CONST Class class_Attribute
+ %SUMMARY 'любой пользовательский тип' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52A567390016 // UserTypes
+ ;
+ CONST Value 31
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_52A5674D033E vcm_utAny
+
+: ME_52A567390016
+ CONST UID '52A567390016'
+ CONST Name 'UserTypes'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_528C93040132 // vcmBaseTypes
+ ;
+ : Attributes
+   @ ( ME_52A5674D033E // vcm_utAny
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_52A567390016 UserTypes
+
+: ME_53D1DC0400B7
+ CONST UID '53D1DC0400B7'
+ CONST Name 'TvcmIteratorAction'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_528C93040132 // vcmBaseTypes
+ ;
+ : Inherits
+   @ ( WL 'ME_469FA03900D4' '4678193C009C.pas.ms.script' // Tl3IteratorAction
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_53D1DC0400B7 TvcmIteratorAction
+
+: ME_528C93040132
+ CONST UID '528C93040132'
+ CONST Name 'vcmBaseTypes'
+ CONST Class class_Category
+ : Stereotype st_InternalInterfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_528C9354017B // TvcmFormID
+ ME_528C93FD01EA // TvcmZoneType
+ ME_528D9F530036 // TvcmNeedMakeDS
+ ME_53D1DC0400B7 // TvcmIteratorAction
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_52A567390016 // UserTypes
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmBaseTypes.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\528C93040132.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\528C93040132.pas.ms.script.runner'
+
+ref; // ME_528C93040132 vcmBaseTypes

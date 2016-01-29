@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/CallingConventionsHolder.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::CallingConventionsHolder
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: CallingConventionsHolder::Class
+implementation @ <<CallingConventionsHolder>>
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p calling conventions=none|stdcall|register|pascal|cdecl|safecall ? Соглашения о вызове
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - Соглашения о вызове
+ if ( ( %S get_up ( 'calling conventions' ) ) %!= ( %S get_up_def ( 'calling conventions' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *calling conventions* = *'
+  %S get_up ( 'calling conventions' ) '* - Соглашения о вызове'
+//	]
+ end // if
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // wiki_up_print
+
+end. // <<CallingConventionsHolder>>
+

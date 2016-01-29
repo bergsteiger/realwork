@@ -1,0 +1,74 @@
+Menu Help
+{
+	option "Contacting &Technical Support"
+	{
+		RoseScript $SCRIPT_PATH\webgorationalsupport.ebx
+	}
+   	Menu "Rational on the &Web"
+	{
+		Option "&Rational Home Page"
+		{
+			RoseScript $SCRIPT_PATH\webgorationalhome.ebx
+		}
+		Option "Rose &Home Page"
+		{
+			RoseScript $SCRIPT_PATH\webgorational.ebx
+		}
+		Option "&Technical Support"
+		{
+			RoseScript $SCRIPT_PATH\webgorationalsupport.ebx
+		}
+	}
+}
+Menu Report
+{
+option "Show &Participants in UC..."
+
+   {
+	enable %selected_items:empty:false
+	RoseScript $SCRIPT_PATH\participants.ebx
+   }
+}
+Menu Tools
+{
+	
+  Separator
+  option "Class Wizard..."
+   {
+	enable %model:writeable
+	RoseScript $SCRIPT_PATH\cwizard.ebx
+   }
+}
+
+Menu Edit
+{
+    Separator
+    option "Spell Check Model..."
+    {
+        RoseScript W:\quality\additional_artifacts\rose\scripts\spellingchecker.ebx
+    }
+  separator
+  option "Add From Browser"
+  {
+        RoseScript W:\quality\additional_artifacts\rose\scripts\multi_select.ebs
+  }
+  option "Edit IDL property"
+  {
+        RoseScript W:\quality\additional_artifacts\rose\scripts\editIDLParamProperty.ebs
+  }
+}
+
+Menu Add-Ins
+{
+    Separator
+    option "Create VOPC diagramm..."
+    {
+        RoseScript W:\quality\additional_artifacts\rose\scripts\VOPC.ebx
+    }
+    Separator
+    option "Create abstract method realization..."
+    {
+        RoseScript W:\quality\additional_artifacts\rose\scripts\generalize.ebs 
+    }
+
+}

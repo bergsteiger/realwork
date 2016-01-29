@@ -1,0 +1,31 @@
+StereotypeProducer Before ;
+
+<<Before>> Group1
+;
+
+<<Group1>> BeforeCond1
+ 'world' .
+;
+
+<<Group1>> BeforeCond2
+ 'again' .
+;
+
+<<Group1>> BeforeCond3 STRING IN aParam
+ 'with left param: ' . aParam .
+;
+
+<<Group1>> BeforeCond4 ^ IN aParam
+ 'with right param: ' . aParam DO .
+;
+
+BeforeCond1
+
+'hello' .
+
+BeforeCond2
+
+'123' BeforeCond3
+
+//BeforeCond4 '456'
+// - пока не работает

@@ -1,0 +1,101 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/HCAdapterLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> garant6x::HCAdapterLib
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (HCAdapterLib) : project_generic_core_corba {
+	sharedname = HCAdapterLib
+	staticname = HCAdapterLib
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../../../
+
+	//#UC START# *45E43D74036B_CUSTOM_DEPENDENCES*
+	//#UC END# *45E43D74036B_CUSTOM_DEPENDENCES*
+	after += GblConsultingC_corba
+	libs  += GblConsultingC_corba
+
+	after += GCI
+	libs  += GCI
+
+	after += CommonUtils
+	libs  += CommonUtils
+
+	after += xerces-c
+	libs  += xerces-c
+
+	after += CoreOld_corba_client
+	libs  += CoreOld_corba_client
+
+	after += GblPilotC_corba
+	libs  += GblPilotC_corba
+
+	after += XercesHelpers
+	libs  += XercesHelpers
+
+	Header_Files {
+		Std_Headers {
+			./../HCAdapterLib/LibHome.h
+		}
+	
+		HCInterfaces {
+			./../HCAdapterLib/HCInterfaces/HCInterfaces.h
+			./../HCAdapterLib/HCInterfaces/HCInterfacesFactories.h
+		}
+	
+		HCInterfaces_i {
+			./../HCAdapterLib/impl/HCInterfaces_i/BusinessLogicLifeCycle_i.h
+			./../HCAdapterLib/impl/HCInterfaces_i/BusinessLogicLifeCycle_i_factory.h
+			./../HCAdapterLib/impl/HCInterfaces_i/ConsultingData_i.h
+			./../HCAdapterLib/impl/HCInterfaces_i/ConsultingRequests_i.h
+			./../HCAdapterLib/impl/HCInterfaces_i/ConsultingRequests_i_factory.h
+			./../HCAdapterLib/impl/HCInterfaces_i/MarkConsultingData70_i.h
+			./../HCAdapterLib/impl/HCInterfaces_i/MarkConsultingData70_i_factory.h
+			./../HCAdapterLib/impl/HCInterfaces_i/Query70ConsultingData_i.h
+			./../HCAdapterLib/impl/HCInterfaces_i/Query70ConsultingData_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		HCInterfaces {
+		}
+	
+		HCInterfaces_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../HCAdapterLib/LibHome.cpp
+		}
+	
+		HCInterfaces {
+			./../HCAdapterLib/HCInterfaces/HCInterfaces.cpp
+			./../HCAdapterLib/HCInterfaces/HCInterfacesFactories.cpp
+		}
+	
+		HCInterfaces_i {
+			./../HCAdapterLib/impl/HCInterfaces_i/BusinessLogicLifeCycle_i.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/BusinessLogicLifeCycle_i_factory.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/ConsultingData_i.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/ConsultingRequests_i.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/ConsultingRequests_i_factory.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/ConsultingRequests_i_IDListCreator.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/MarkConsultingData70_i.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/MarkConsultingData70_i_factory.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/Query70ConsultingData_i.cpp
+			./../HCAdapterLib/impl/HCInterfaces_i/Query70ConsultingData_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

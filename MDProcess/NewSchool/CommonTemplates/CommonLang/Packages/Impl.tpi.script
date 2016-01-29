@@ -1,0 +1,1150 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Packages/Impl.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Packages::Impl
+//
+// Пакет реализации
+// ---
+// Содержит реализацию интерфесных пакетов. Может зависить от других пакетов реализации своей
+// компоненты. Данный пакет предназначен в основном для размещения сервантов, реализующих
+// интерфейсы и вспомогательных элементов, также используемых для реализации интерфейсов.
+// Определяет неймспейс.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Impl::Category
+implementation @ <<Impl>>
+//? Пакет реализации
+//? Содержит реализацию интерфесных пакетов. Может зависить от других пакетов реализации своей компоненты. Данный пакет предназначен в основном для размещения сервантов, реализующих интерфейсы и вспомогательных элементов, также используемых для реализации интерфейсов. Определяет неймспейс.
+//> CustomFactory::Class
+//> Servant::Class
+//> ComServant::Class
+//> LocalInterface::Class
+
+//= AbstractImplBase::Category
+//= CORBA IDL::MDAGenerator
+//= C++ Фабрики::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_impl.gif
+//L code_impl
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 195,245,195
+//$ l 10,195,10
+//$ f 10,195,10
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p is namespace:b=true ? определяет является ли пакет реализации неймспейсом
+//p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[AbstractImplBase::Category]f_wiki_up_print()[{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определяет является ли пакет реализации неймспейсом
+ call-inherited:: 'AbstractImplBase' wiki_up_print %( )%
+ if ( ( %S get_up ( 'is namespace' ) ) %!= ( %S get_up_def ( 'is namespace' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is namespace* = *'
+  %S get_up ( 'is namespace' ) '* - определяет является ли пакет реализации неймспейсом'
+//	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+ end // if
+ if ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '* - явно включает генерацию дополнительных секций Юзер-Кода'
+//	]
+ end // if
+
+// нужно ли генерить idl
+//%f _need_idl
+; // wiki_up_print
+
+: need_idl OBJECT IN %S
+//#UC START# *47049344007Dfor4704917C01F4*
+//	[{<{}{%f_servant_or_simpleclass(%C)=true&%f_realize_more_than_one_facet(%C)=true}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] servant_or_simpleclass %( %C )% ) %==  true AND 
+    ( ( [%f] realize_more_than_one_facet %( %C )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47049344007Dfor4704917C01F4*
+; // need_idl
+
+
+// геенрация idl-модуля
+//%f _idl_subsystem
+: idl_subsystem OBJECT IN %S
+//#UC START# *4716EBD9030Dfor4704917C01F4*
+//	[{"%XU"="idl"}
+ if ( ( %X |U ) %== 'idl' ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	\#ifndef __<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+  '#ifndef __'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P |M ) %== 'Interfaces::Category' ) then
+   begin
+    if ( l_Counter >0 ) then ( '_' )
+    [%f] to_upper %( %P |N )% 
+    ++! l_Counter
+   end // if
+  end // for P
+  '_'
+  [%f] to_upper %( %S |N )% '_IDL__'
+//	\#define __<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+  '#define __'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P |M ) %== 'Interfaces::Category' ) then
+   begin
+    if ( l_Counter >0 ) then ( '_' )
+    [%f] to_upper %( %P |N )% 
+    ++! l_Counter
+   end // if
+  end // for P
+  '_'
+  [%f] to_upper %( %S |N )% '_IDL__'
+//	[%f_idl_pre_include(%S)
+  if NOT-EMPTY
+  begin
+   [%f] idl_pre_include %( %S )% 
+//	
+   #13#10
+
+//	][{%SN!=RootSrv}\#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+  end // if
+  NOP
+  if ( ( %S |N ) %!= 'RootSrv' ) then
+  begin
+   '#include "shared/CoreSrv/RootSrv/RootSrv.idl"'
+//	][{"%f_need_ami(%S)"="true"}{<\n\#include %f_dump_include_path(%IL,%I)>}\#include %f_dump_include_path(%f_with_gen_id(idl_ami,%SL),%S)
+  end // if
+  if ( ( [%f] need_ami %( %S )% ) %== true ) then
+  begin
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'idl_ami' %, %S |L )% %, %S )% 
+//	]
+  end // if
+  else
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%I
+   begin
+    OBJECT IN %I
+    if true then
+    begin
+     #13#10'#include '
+     [%f] dump_include_path %( %I |L %, %I )% 
+     ++! l_Counter
+    end // if
+   end // for I
+  end // else
+//	[\#pragma prefix "%f_idl_prefix(%S)"
+  if NOT-EMPTY
+  begin
+   '#pragma prefix "'
+   [%f] idl_prefix %( %S )% 
+//	
+   #13#10
+
+//	]%SP[{%S{is namespace}=true}
+  end // if
+  NOP
+  %S |P if ( ( %S get_up ( 'is namespace' ) ) %==  true ) then
+  begin
+   #13#10
+
+//	#module %SN {]<{\n}{%C<{}{%RS=ServerFacet|%RS=ServerInterface}{C}>!=0&%C<{}{%RS=ServerFacet|%RS=ServerInterface}{C}>!=1}{%C}[
+   out_indent 'module '
+   %S |N ' {' 
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R |S ) %== 'ServerFacet' OR 
+      ( ( %R |S ) %== 'ServerInterface'  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for R
+    l_Counter
+
+   ) // bind
+ )    %!= 0 AND 
+    ( ( %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R |S ) %== 'ServerFacet' OR 
+      ( ( %R |S ) %== 'ServerInterface'  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for R
+    l_Counter
+
+   ) // bind
+ )    %!= 1  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//	[{"%f_print_in_ami_file(%C)"="false"}{\n#\t%CF // AMI forwarded}%CX]]>
+     if ( ( [%f] print_in_ami_file %( %C )% ) %== false ) then
+     begin
+      %C |X 
+     end // if
+     else
+     begin
+      #13#10
+      out_indent #9
+      %C |F ' // AMI forwarded' 
+     end // else
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	[{%S{is namespace}=true}#};
+  if ( ( %S get_up ( 'is namespace' ) ) %==  true ) then
+  begin
+   out_indent '};'
+//	]%Sp
+  end // if
+  %S |p 
+//	][{"%XU"="idl_ami"}
+ end // if
+ if ( ( %X |U ) %== 'idl_ami' ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	\#ifndef __AMI_<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+  '#ifndef __AMI_'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P |M ) %== 'Interfaces::Category' ) then
+   begin
+    if ( l_Counter >0 ) then ( '_' )
+    [%f] to_upper %( %P |N )% 
+    ++! l_Counter
+   end // if
+  end // for P
+  '_'
+  [%f] to_upper %( %S |N )% '_IDL__'
+//	\#define __AMI_<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+  '#define __AMI_'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P |M ) %== 'Interfaces::Category' ) then
+   begin
+    if ( l_Counter >0 ) then ( '_' )
+    [%f] to_upper %( %P |N )% 
+    ++! l_Counter
+   end // if
+  end // for P
+  '_'
+  [%f] to_upper %( %S |N )% '_IDL__'
+//	
+  #13#10
+
+//	[%f_idl_pre_include(%S)
+  if NOT-EMPTY
+  begin
+   [%f] idl_pre_include %( %S )% 
+//	]
+  end // if
+  NOP
+//	[<\n\#include %f_dump_include_path(%f_with_gen_id(idl,%IL),%I)>
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%I
+   begin
+    OBJECT IN %I
+    if true then
+    begin
+     #13#10'#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'idl' %, %I |L )% %, %I )% 
+     ++! l_Counter
+    end // if
+   end // for I
+//	]
+  end // if
+  NOP
+//	[\#pragma prefix "%f_idl_prefix(%S)"
+  if NOT-EMPTY
+  begin
+   '#pragma prefix "'
+   [%f] idl_prefix %( %S )% 
+//	
+   #13#10
+
+//	]%SP[{%S{is namespace}=true}
+  end // if
+  NOP
+  %S |P if ( ( %S get_up ( 'is namespace' ) ) %==  true ) then
+  begin
+   #13#10
+
+//	#module %SN {]<{\n}{"%f_print_in_ami_file(%C)"="true"&%C<{}{%RS=ServerFacet|%RS=ServerInterface}{C}>!=0&%C<{}{%RS=ServerFacet|%RS=ServerInterface}{C}>!=1}
+   out_indent 'module '
+   %S |N ' {' 
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%f] print_in_ami_file %( %C )% ) %== true AND 
+    ( ( %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R |S ) %== 'ServerFacet' OR 
+      ( ( %R |S ) %== 'ServerInterface'  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for R
+    l_Counter
+
+   ) // bind
+ )    %!= 0  ) AND 
+    ( ( %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R |S ) %== 'ServerFacet' OR 
+      ( ( %R |S ) %== 'ServerInterface'  ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for R
+    l_Counter
+
+   ) // bind
+ )    %!= 1  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    #13#10
+
+//	%C<{}{%f_use_ami(%n)=false&%f_kind_of(n,ServerFacet::Class)=true}[%f_with_gen_id(idl,#%nF)
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%n
+     begin
+      OBJECT IN %n
+      if ( ( [%f] use_ami %( %n )% ) %==  false AND 
+       ( ( [%f] kind_of %( 'n' %, 'ServerFacet::Class' )% ) %==  true  ) ) then
+      begin
+       if NOT-EMPTY
+       begin
+        [%f] with_gen_id %( 'idl' %, out_indent %n |F )% 
+//	]>%f_with_gen_id(idl,%CX)>
+       end // if
+       NOP
+
+       ++! l_Counter
+      end // if
+     end // for n
+
+    ) // bind
+     [%f] with_gen_id %( 'idl' %, %C |X )% 
+    ++! l_Counter
+   end // if
+  end // for C
+//	[{%S{is namespace}=true}#};
+  if ( ( %S get_up ( 'is namespace' ) ) %==  true ) then
+  begin
+   out_indent '};'
+//	]%Sp
+  end // if
+  %S |p 
+//	]
+ end // if
+//	
+//	\#endif
+ '#endif'
+//#UC END# *4716EBD9030Dfor4704917C01F4*
+; // idl_subsystem
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа WikiPackageImpl::Category
+// Определяет, что пакет должен генериться в документации в секцию "Пакеты реализации и
+// вспомогательные пакеты"
+//%f _wiki_impl_or_support_package
+: wiki_impl_or_support_package OBJECT IN %S
+//#UC START# *485784EC028Cfor4704917C01F4*
+//	true
+ true
+//#UC END# *485784EC028Cfor4704917C01F4*
+; // wiki_impl_or_support_package
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for4704917C01F4*
+//C /impl/%SN
+//O [{<{}{%CS=LocalInterface&%f_has_factory_methods(%C)=true}{%CC}>!=0}%SNFactories.cpp]
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{<{}{%CS=LocalInterface&%f_has_factory_methods(%C)=true}{%CC}>!=0|<{}{%AS=FactoryMemory}{%AC}>!=0}{<%CX>}[{"%f_need_factory_files(%S)"="true"}\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'LocalInterface' AND 
+    ( ( [%f] has_factory_methods %( %C )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'FactoryMemory' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  if ( ( [%f] need_factory_files %( %S )% ) %== true ) then
+  begin
+//	%f_header(%S)
+   [%f] header %( %S )% 
+//	%f_std_inc(%S)
+   [%f] std_inc %( %S )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %S |L )% %, %S )% 
+//	[{%f_need_lexical_cast_pack(%S)=true}\#include "boost/lexical_cast.hpp"
+   if ( ( [%f] need_lexical_cast_pack %( %S )% ) %==  true ) then
+   begin
+    '#include "boost/lexical_cast.hpp"'
+//	][
+   end // if
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	//includes by FactoryMemories \<\<uses\>\>
+    '//includes by FactoryMemories <<uses>>'
+//	<{}{%AS=FactoryMemory&%A<{}{%CS=common key}{%CC}>!=0}%A<{}{%CS=uses&%CC=Dependency}\#include %f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |S ) %== 'FactoryMemory' AND 
+      ( ( %A
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'common key' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for C
+      l_Counter
+
+     ) // bind
+ )      %!= 0  ) ) then
+     begin
+      %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |S ) %== 'uses' AND 
+         ( ( %C |C ) %== 'Dependency'  ) ) then
+        begin
+         '#include '
+         [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C ->T |W  )% %, %C ->T  )% 
+//	>>][
+
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for A
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	%S%f_open_ifdef()]
+    %S %f open_ifdef %( )% 
+   end // if
+   NOP
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+   %S |P if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+   begin
+    'namespace '
+    %S |N ' {'
+//	]<%CX>[{"%S{is namespace}"="true"}} // namespace %SN
+   end // if
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+   if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+   begin
+    '} // namespace '
+    %S |N 
+//	]%Sp
+   end // if
+   %S |p 
+//	%f_footer(%S)
+   [%f] footer %( %S )% 
+//	]]
+  end // if
+ end // if
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // else
+//#UC END# *4705C54B01F4for4704917C01F4*
+; // fctr.cpp
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for4704917C01F4*
+//C /impl/%SN
+//O [{<{}{%CS=LocalInterface&%f_has_factory_methods(%C)=true}{%CC}>!=0|<{}{%AS=FactoryMemory}{%AC}>!=0}%SNFactories.h]
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{<{}{%CS=LocalInterface&%f_has_factory_methods(%C)=true}{%CC}>!=0|<{}{%AS=FactoryMemory}{%AC}>!=0}{<%CX>}[{"%f_need_factory_files(%S)"="true"|<{}{%AS=FactoryMemory}{%AC}>!=0}\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'LocalInterface' AND 
+    ( ( [%f] has_factory_methods %( %C )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%A
+  begin
+   OBJECT IN %A
+   if ( ( %A |S ) %== 'FactoryMemory' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for A
+  l_Counter
+  %!= 0  ) ) then
+ begin
+  if ( ( [%f] need_factory_files %( %S )% ) %== true OR 
+    ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%A
+   begin
+    OBJECT IN %A
+    if ( ( %A |S ) %== 'FactoryMemory' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for A
+   l_Counter
+   %!= 0  ) ) then
+  begin
+//	%f_h_header(%S)
+   [%f] h_header %( %S )% 
+//	%f_std_inc(%S)
+   [%f] std_inc %( %S )% 
+//	\#include \<map\>
+   '#include <map>'
+//	\#include \<string\>
+   '#include <string>'
+//	\#include "ace/Singleton.h"[
+   '#include "ace/Singleton.h"'
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)][<{}{%f_set_var(DEP,D)"%S<{}{%CS=LocalInterface}%C<{}{%R%PU=%{DEP}U}.>>"!=""}[
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%D
+    begin
+     OBJECT IN %D
+     if ( ( [%f] set_var %( 'DEP' %, 'D' )% ) ( %S
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'LocalInterface' ) then
+       begin
+        %C
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%R
+         begin
+          OBJECT IN %R
+          if ( ( %R ->P |U  ) %== ( ( get_global_var ( 'DEP' ) |U ) ) ) then
+          begin
+           '.' 
+           ++! l_Counter
+          end // if
+         end // for R
+
+        ) // bind
+ 
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ )      %!= '' ) then
+     begin
+      if NOT-EMPTY
+      begin
+       #13#10
+
+//	\#include %f_dump_include_path(%DL,%D)]>][
+       '#include '
+       [%f] dump_include_path %( %D |L %, %D )% 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for D
+   end // if
+   NOP
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	%S%f_open_ifdef()]
+    %S %f open_ifdef %( )% 
+   end // if
+   NOP
+//	
+   #13#10
+
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+   %S |P if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+   begin
+    'namespace '
+    %S |N ' {'
+//	]<[%CX
+   end // if
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     if NOT-EMPTY
+     begin
+      %C |X 
+//	
+      #13#10
+
+//	]>[{"%S{is namespace}"="true"}} // namespace %SN
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+   if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+   begin
+    '} // namespace '
+    %S |N 
+//	]%Sp
+   end // if
+   %S |p 
+//	%f_h_footer(%S)
+   [%f] h_footer %( %S )% 
+//	]]
+  end // if
+ end // if
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // else
+//#UC END# *4705C5490109for4704917C01F4*
+; // fctr.h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4704917C01F4*
+//C /impl/%SN
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//P
+//O [{%f_need_inline_file(%S)=true}%SN.i.h]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_need_inline_file(%S)=true}{<%CX>}\
+ if ( ( [%f] need_inline_file %( %S )% ) %==  true ) then
+ begin
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_set_var(SELF,S)<{}{%CM=UtilityPack::Class::uses::ClassDependency}{}[\#include %f_dump_include_path(%f_with_gen_id(h,%C%TL),%C%T)
+  [%f] set_var %( 'SELF' %, 'S' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |M ) %== 'UtilityPack::Class::uses::ClassDependency' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C ->T |L  )% %, %C ->T  )% 
+//	]>[<{}{"%f_with_gen_id(h,%CO)"=""}
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( [%f] with_gen_id %( 'h' %, %C |O )% ) %== '' ) then
+    begin
+     #13#10
+
+//	%C<{}{"%CS"="uses"&"%CC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'uses' AND 
+        ( ( %C |C ) %== 'Dependency'  ) ) then
+       begin
+        if NOT-EMPTY
+        begin
+         '#include '
+         [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C ->T |W  )% %, %C ->T  )% 
+//	]>>][{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+        end // if
+        NOP
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+  begin
+   %Usersection (
+    '_CUSTOM_INCLUDES' 
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	][
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+  %S |P if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+  begin
+   'namespace '
+   %S |N ' {'
+//	][{%S{need UC}=true}
+  end // if
+  if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+  begin
+   #13#10
+
+//	%U[
+   %Usersection (
+
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	]<%CX>
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+//	[{"%S{is namespace}"="true"}
+  if ( ( %S get_up ( 'is namespace' ) ) %== true ) then
+  begin
+   #13#10
+
+//	} // namespace %SN]
+   '} // namespace '
+   %S |N 
+  end // if
+//	%Sp
+  %S |p 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ end // if
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // else
+//#UC END# *47022CCF00EAfor4704917C01F4*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for4704917C01F4*
+//C /impl/%SN
+//O [{%S%f_need_idl()=true}%SN.idl]
+//S [{"%S{is namespace}"="true"}#module %SN {]
+//s [{"%S{is namespace}"="true"}#};]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%S%f_need_idl()=true}\
+ if ( ( %S %f need_idl %( )% ) %==  true ) then
+ begin
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%S%f_idl_subsystem(%S)
+  %S %f idl_subsystem %( %S )% 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ end // if
+//#UC END# *47022BBE0261for4704917C01F4*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for4704917C01F4*
+//S [{"%S{is namespace}"="true"}#module %SN {]
+//s [{"%S{is namespace}"="true"}#};]
+//C /%SN
+//O [{"%f_need_ami(%S)"="true"&%S%f_need_idl()=true}%SN_ami.idl]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%f_need_ami(%S)"="true"&%S%f_need_idl()=true}
+ if ( ( [%f] need_ami %( %S )% ) %== true AND 
+   ( ( %S %f need_idl %( )% ) %==  true  ) ) then
+ begin
+  #13#10
+
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%S%f_idl_subsystem(%S)
+  %S %f idl_subsystem %( %S )% 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ end // if
+//	
+//#UC END# *47022C0F01E4for4704917C01F4*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4704917C01F4*
+//#UC END# *470F15B800CBfor4704917C01F4*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4704917C01F4*
+//C %S%f_pas_UnitPath()
+//R  
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F1571031Cfor4704917C01F4*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4704917C01F4*
+//#UC END# *477398E501C0for4704917C01F4*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4704917C01F4*
+//#UC END# *55B8D28B0157for4704917C01F4*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4704917C01F4*
+//#UC END# *55B8D2F80145for4704917C01F4*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4704917C01F4*
+//#UC END# *55B8DD9C0301for4704917C01F4*
+; // res.cmd.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4704917C01F4*
+//C [{%S{is namespace}=true}/%SN]
+//C /%SN
+//P
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470321C1038Afor4704917C01F4*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4704917C01F4*
+//= fctr.java
+%call-other-gen ( 'fctr.java' )
+//#UC END# *470321950119for4704917C01F4*
+; // java
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Impl>>
+

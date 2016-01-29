@@ -1,0 +1,342 @@
+'$Include "sqautil.sbh"
+
+Function BigSelling(tip As Integer, netID As Integer, isDelta As Integer, freqID As Integer)
+'tip 0..36
+'netID 0..2
+'isDelta 0..1
+'freqID 0..6
+        Dim j, bmax, bmin, bcur As Integer
+        Dim v1() As String
+        
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect 48
+    
+        Window SetContext, "CurrentWindow", ""
+        GenericObject DblClick, "Class=TWinControl;ClassIndex=1", "Coords=10,7"
+        InputKeys "{TAB}{TAB}{TAB}{TAB}"
+'choose product type
+        ComboBox Click, "ObjectIndex=1", "Coords=259,7"
+        For j=0 to (tip mod 7)    
+            InputKeys "{DOWN}"
+        Next j
+        For j=1 to int(tip/7)    
+            InputKeys "{PGDN}"
+        Next j
+        ComboBox Click, "ObjectIndex=1", "Coords=259,7"
+      
+        InputKeys "{TAB}{TAB}"
+'choose net
+        For j=0 to netID
+            InputKeys "{DOWN}"
+        Next j
+'choose update type
+        InputKeys "{TAB}{DOWN}"
+        if isDelta = 1 then 
+            InputKeys "{DOWN}"
+        end if
+        
+'choose freq update
+        InputKeys "{TAB}"
+        For j=0 to freqID
+            InputKeys "{DOWN}"
+        Next j
+'choose bases
+        InputKeys "{TAB}"
+        if rnd<0.5 then
+        'Зак-во России
+            For j=0 to 7
+                InputKeys "{DOWN}"
+            Next       
+            InputKeys " "
+        end if 
+add_base:     
+        InputKeys "{HOME}"
+        if rnd>0.5 then 
+            For j=0 to rnd*12
+                InputKeys "{PGDN}"
+            Next       
+        elseIf rnd>0.4 then
+                InputKeys "{PGDN}"
+        end if        
+        For j=0 to rnd*12
+            InputKeys "{DOWN}"
+        Next       
+        InputKeys " "
+        
+    'v1(1)=Вес с 2 по 2
+    'v1(2)=Набрано: 1
+        bmin = SQAGetPropertyArrayAsString("Type=StatusBar;ObjectIndex=1", "PartText", v1())
+        bmin = Val( GetField$(v1(1),3," ") )
+        bmax = Val( GetField$(v1(1),5," ") )
+        bcur = Val( GetField$(v1(2),2," ") )
+
+        if bmin>bcur or bcur=0 then goto add_base
+        if (bmin=bcur) and (bmin<>bmax) and rnd<0.3 then goto add_base
+        if (bmax>bcur) and (bmin<>bmax) and rnd<0.3 then goto add_base
+
+
+        InputKeys "{ENTER}"
+'Save changes           
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect 21
+'Redactor mode disable 
+        MenuIDSelect 20
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+Function BigOrdering(isDelta As Integer, deliveryID As Integer, isGroup As Integer, nositelID as Integer, isWork As Integer, secID as Integer)
+'isDelta 0..1
+'deliveryID 0..2
+'nositelID 0..4
+'isWork 0..1
+'secID 0..2
+    Dim j As Integer
+'ordering
+        InputKeys "{ALT}{RIGHT}{RIGHT}{RIGHT}{RIGHT}{RIGHT}{RIGHT}{DOWN}{DOWN}{ENTER}" 'пункт меню заказ
+        Window SetContext, "Caption={Параметры заказа *}", ""
+            
+        TabControl Click, "ObjectIndex=1;\;ItemText=Технические параметры", ""
+        InputKeys "{TAB}{TAB}"            
+'type of delivery
+        for j=0 to deliveryID
+            InputKeys "{DOWN}"
+        next j
+'distr personal-group 
+        InputKeys "{TAB}{DOWN}"
+        if isGroup=1 then InputKeys "{DOWN}"
+'nositel 
+        InputKeys "{TAB}"
+        for j=0 to nositelID
+            InputKeys "{DOWN}"
+        next j
+'install-type
+        if isGroup=0 then
+            InputKeys "{TAB}{DOWN}{DOWN}{DOWN}"
+            if isWork=0 then            
+                InputKeys "{UP}"
+    'security type
+                InputKeys "{TAB}"
+                for j=0 to secID 
+                    InputKeys "{DOWN}"
+                next j
+         'install number for diskettes
+                if secID=0 then
+                    InputKeys "{TAB}"+Str$(int(rnd*4)+1)
+                end if
+            end if
+            InputKeys "{ENTER}"
+        else 'group
+            InputKeys "{TAB}{DOWN}"
+            if secID=2 then InputKeys "{DOWN}"
+            InputKeys "{ENTER}"
+        end if
+        PushButton Click, "Text=Включить"
+'Redactor mode enable     
+        Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+        MenuIDSelect 20
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+Sub Main
+    Dim Result As Integer
+    Dim i, NumberOfProductsPerType, isDelta As Integer
+    'Initially Recorded: 21.11.2002  19:16:20
+    'Script Name: A1_sell
+    CallScript "A1_begin_app"
+    Randomize
+    isDelta=0
+
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'CD Разделенный c дискетой
+    Call BigSelling( 5, 2, isDelta, int(rnd*6)) 'suniversal
+    Call BigOrdering(isDelta,0,0,0,0,0)
+    Call BigSelling( 12, 0, isDelta, int(rnd*6)) 'sprof
+    Call BigOrdering(isDelta,1,0,0,0,1)
+    Call BigSelling( 5, 1, isDelta, int(rnd*6)) 'suniversal
+    Call BigOrdering(isDelta,2,0,0,0,2)
+    Call BigSelling( 5, 1, isDelta, int(rnd*6)) 'suniversal рабочий
+    Call BigOrdering(isDelta,2,0,0,1,0)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'CD Разделенный-совместный c ключом на DVD
+    Call BigSelling( 5, 1, isDelta, int(rnd*6)) 'suniversal
+    Call BigOrdering(isDelta,2,0,1,0,1)
+'ИнФармы
+    Call BigSelling( 36, 0, isDelta, int(rnd*6)) 'inpharm m
+    Call BigOrdering(isDelta,2,0,0,0,0)
+    Call BigSelling( 36, 2, isDelta, int(rnd*6)) 'inpharm m
+    Call BigOrdering(isDelta,2,0,0,0,1)
+    Call BigSelling( 36, 1, isDelta, int(rnd*6)) 'inpharm m
+    Call BigOrdering(isDelta,2,0,0,0,2)
+    Call BigSelling( 37, 1, isDelta, int(rnd*6)) 'inpharm b
+    Call BigOrdering(isDelta,2,0,2,0,0)
+    Call BigSelling( 37, 2, isDelta, int(rnd*6)) 'inpharm b
+    Call BigOrdering(isDelta,2,0,0,0,1)
+    Call BigSelling( 37, 0, isDelta, int(rnd*6)) 'inpharm b
+    Call BigOrdering(isDelta,2,0,0,0,1)
+    
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'WORK CD
+    Call BigSelling( 4, 0, isDelta, int(rnd*6))
+    Call BigOrdering(isDelta,int(rnd*3),0,0,1,0)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'WORK CD Объединенный
+    Call BigSelling( 23, 0, isDelta, int(rnd*6)) 'maximum
+    Call BigOrdering(isDelta,1,0,0,1,0)
+    Call BigSelling( 0, 0, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,0,1,0)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'DVD Объединенный
+    Call BigSelling( 23, 0, isDelta, int(rnd*6)) 'maximum
+    Call BigOrdering(isDelta,1,0,1,0,0)
+    Call BigSelling( 0, 0, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,1,0,0)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'CD Совместный с ключом
+    Call BigSelling( 0, 2, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,0,0,1)
+    Call BigSelling( 0, 2, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,0,0,1)
+    Call BigSelling( 0, 2, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,0,0,1)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'DVD Совместный с дискетой
+    Call BigSelling( 0, 0, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,1,0,0)
+    Call BigSelling( 0, 0, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,1,0,0)
+    Call BigSelling( 1, 0, isDelta, int(rnd*6)) 'classic
+    Call BigOrdering(isDelta,1,0,1,0,0)
+    Call BigSelling( 3, 0, isDelta, int(rnd*6)) 'univer
+    Call BigOrdering(isDelta,1,0,1,0,0)
+    Call BigSelling( 2, 0, isDelta, int(rnd*6)) 'C+
+    Call BigOrdering(isDelta,1,0,1,0,0)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'HDD Совместный с паролем 
+    Call BigSelling( 0, 1, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,2,0,2)
+    Call BigSelling( 0, 1, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,2,0,2)
+    Call BigSelling( 1, 1, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,0,2,0,2)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+
+
+
+
+
+'BIG ORDER
+    NumberOfProductsPerType = 1
+    For i=0 to 36*NumberOfProductsPerType
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'tip 0..36
+'netID 0..2
+'isDelta 0..1
+'freqID 0..6
+'deliveryID 0..2
+'nositelID 0..4
+'isWork 0..1
+'secID 0..2
+        isDelta=0
+        if rnd>0.5 then isDelta=1
+        Call BigSelling( int(i/NumberOfProductsPerType), i mod 3, isDelta,int(rnd*6))
+'isDelta 0..1
+'deliveryID 0..2
+'nositelID 0..4
+'isWork 0..1
+'secID 0..2
+        Call BigOrdering(isDelta,int(rnd*3),0,0,0,int(rnd*3))
+    Next i
+
+'ГРУППОВЫЕ
+        isDelta=0
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'CD для группового
+    Call BigSelling( int(rnd*5), 2, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 1, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 0, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 0, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'CD для группового
+    Call BigSelling( int(rnd*5), 2, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 1, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 0, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 0, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+'New client
+        if rnd<0.7 or i=0 then 
+            CallScript "A1_new_client"
+        end if
+'CD для группового
+    Call BigSelling( int(rnd*5), 2, isDelta, int(rnd*6)) 'practic
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 1, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 0, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+    Call BigSelling( int(rnd*5), 0, isDelta, int(rnd*6)) 
+    Call BigOrdering(isDelta,1,1,0,0,2)
+End Sub

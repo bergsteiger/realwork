@@ -1,0 +1,52 @@
+// TtfwSysUtilsWord 4DD0CE0E02AA SimpleClass Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '54D4C583002A.pas.ms.script'
+
+FORWARD ME_4DD0CE0E02AA
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5A74EFA6801B
+ CONST UID '5A74EFA6801B'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwSysUtilsWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_5A74EFA6801B Ini_Reg_Class
+
+: ME_4DD0CE0E02AA
+ CONST UID '4DD0CE0E02AA'
+ CONST Name 'TtfwSysUtilsWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Поддержка слов из SysUtils' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_54D4C583002A // tfwSysUtilsWordUses
+ ]
+ ; // Implements
+ : Operations
+   [ ME_5A74EFA6801B // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '16.05.2011 11:11'
+
+ @SELF
+; // ME_4DD0CE0E02AA TtfwSysUtilsWord

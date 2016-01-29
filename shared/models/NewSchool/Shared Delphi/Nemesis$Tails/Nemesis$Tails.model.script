@@ -1,0 +1,274 @@
+<<Library>> Nemesis$Tails
+ %UID '4E1352670215'
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4797632D0273' /* Everest */
+  U$ '561F9F7D02A7' /* ScriptEngine */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'nscDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4797632D0273' /* Everest */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Views>> Editors
+   %UID '4E1352A60292'
+   %DEPENDS
+    U$ '476F78840219' /* Messages */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '4829D7D50156' /* Editors */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4797632D0273' /* Everest */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+    U$ '4E1352670215' /* Nemesis$Tails */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<GuiControl>> TnscSimpleEditor
+      %UID '4CFF6CF60266'
+      %META
+       %upv "base wnd class" 'CWnd'
+       %upv "need UC" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '4E1352670215' /* Nemesis$Tails */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4829D81D02E5' /* TevCustomMemo */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47D1602000C6' /* Create */
+       U$ '47E136A80191' /* WndProc */
+       U$ '482BFBEE00D5' /* AllowDrawDocumentEdge */
+       U$ '482BFCBF01F0' /* DoBreakPara$482BFCBF01F0 */
+       U$ '48735C4A03C3' /* DefineProvideOperations */
+       U$ '48E22AD302CE' /* SelectWhenUnfocused */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "50191EF60191"
+         %UID '50191EF60191'
+         %TARGET U$ '48C78D6601CC' /* TScrollStyle */
+        ; // 50191EF60191
+        <<uses>> "530B113D0022"
+         %UID '530B113D0022'
+         %TARGET U$ '4AC9A47200C3' /* TWMMouseWheel */
+        ; // 530B113D0022
+        <<uses>> "530B21C60022"
+         %UID '530B21C60022'
+         %TARGET U$ '47E13C6B0341' /* Forms */
+        ; // 530B21C60022
+        <<uses>> "530B250F029A"
+         %UID '530B250F029A'
+         %TARGET U$ '47E11FC3021E' /* Controls */
+        ; // 530B250F029A
+        SUMMONED <<uses>> "A779FB8E6440"
+         %UID 'A779FB8E6440'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // A779FB8E6440
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_OnBreakingPara
+         %UID '5018FA4600BB'
+         %TARGET U$ '5018F93C01CC' /* TBreakingParaEvent */
+         %TOBEINCLUDED
+          U$ '4E1352670215' /* Nemesis$Tails */
+         ; // %TOBEINCLUDED
+        ; // f_OnBreakingPara
+        <<property>> DisableMouseWheelProcessing
+         %UID '530B25360303'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // DisableMouseWheelProcessing
+        SUMMONED PRIVATE <<Attribute>> f_DisableMouseWheelProcessing
+         %UID 'D804E3C7B610'
+         %SUMMARY 'Поле для свойства DisableMouseWheelProcessing' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_DisableMouseWheelProcessing
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '70CF45D7D5FA'
+         %SUMMARY 'Регистрация TnscSimpleEditor' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Function>> TBreakingParaEvent
+         %UID '5018F93C01CC'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '5018F96E0159'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSender
+               %UID '5018F9990331'
+               %TARGET U$ '4807745602C8' /* TObject */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSender
+              <<out>> aHandled
+               %UID '5018F9990397'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aHandled
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TBreakingParaEvent
+      ; // %CHILDREN
+     ; // TnscSimpleEditor
+     <<GuiControl>> TnscSimpleEditorForDialogs
+      %UID '4D6B981E0319'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '28.02.2011 15:42'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E1352670215' /* Nemesis$Tails */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4CFF6CF60266' /* TnscSimpleEditor */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47D1602000C6' /* Create */
+       U$ '482D9D1701E0' /* TextSourceClass */
+       U$ '48735C4A03C3' /* DefineProvideOperations */
+       U$ '4A8A6D4701CC' /* KeepParaFormattingTag */
+       U$ '4D6B97CB00AA' /* UseMemoFontForParagraphs */
+       U$ '4E1350DE0094' /* CanFocus */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4D6BAF21020E"
+         %UID '4D6BAF21020E'
+         %TARGET U$ '4D6BAF110364' /* TnscSimpleEditorForDialogsTextSource */
+        ; // 4D6BAF21020E
+        <<uses>> "4D6BD00F0286"
+         %UID '4D6BD00F0286'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4D6BD00F0286
+        <<uses>> "4E1352CE03B1"
+         %UID '4E1352CE03B1'
+         %TARGET U$ '4D6BAF110364' /* TnscSimpleEditorForDialogsTextSource */
+        ; // 4E1352CE03B1
+        SUMMONED <<uses>> "C22A6545335E"
+         %UID 'C22A6545335E'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // C22A6545335E
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '31EEDFFECF50'
+         %SUMMARY 'Регистрация TnscSimpleEditorForDialogs' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // TnscSimpleEditorForDialogs
+     <<SimpleClass>> TnscSimpleEditorForDialogsTextSource
+      %UID '4D6BAF110364'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '28.02.2011 17:20'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '482D98A20190' /* TevCustomMemoTextSource */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '482D9A030221' /* DoMakeDocumentContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4D6BAFBB00A5"
+         %UID '4D6BAFBB00A5'
+         %TARGET U$ '4D6BAF99010E' /* TnscSimpleEditorForDialogsContainer */
+        ; // 4D6BAFBB00A5
+        <<uses>> "4E1352D80230"
+         %UID '4E1352D80230'
+         %TARGET U$ '4D6BAF99010E' /* TnscSimpleEditorForDialogsContainer */
+        ; // 4E1352D80230
+      ; // %LINKS
+     ; // TnscSimpleEditorForDialogsTextSource
+     <<SimpleClass>> TnscSimpleEditorForDialogsContainer
+      %UID '4D6BAF99010E'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '28.02.2011 17:22'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '482D888D039E' /* TevCustomMemoContainer */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4D6BAFE8013D' /* UseWikiMarkup */
+      ; // %OVERRIDES
+     ; // TnscSimpleEditorForDialogsContainer
+   ; // %CHILDREN
+  ; // Editors
+ ; // %CHILDREN
+; // Nemesis$Tails

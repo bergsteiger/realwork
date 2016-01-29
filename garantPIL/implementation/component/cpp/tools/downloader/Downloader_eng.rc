@@ -1,0 +1,554 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Downloader.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DESIGNED            BITMAP                  "res\\2060.bmp"
+IDB_GARANT              BITMAP                  "res\\garant.bmp"
+IDB_PROGRESS            BITMAP                  "res\\Progress.bmp"
+IDB_PROGRESS_           BITMAP                  "res\\bitmap1.bmp"
+IDB_NTCOMPATIBLE        BITMAP                  "res\\2061.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Downloader.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DOWNLOAD_PROCESS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 310
+        BOTTOMMARGIN, 209
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_DOWNLOADER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_INTERNET_ACCESS_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+    END
+
+    IDD_DIALOG_REWRITE_EXIST_FILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 272
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LOGIN DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Connection to package update server"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_LOGIN,154,18,149,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,154,38,149,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "&Settings",IDC_INET_SETTINGS,100,190,50,14
+    DEFPUSHBUTTON   "&Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Login",IDC_STATIC,117,21,30,8
+    LTEXT           "Password",IDC_STATIC,117,41,31,8
+    GROUPBOX        "Registration entries ",IDC_STATIC,107,3,204,172
+    LTEXT           "Check of user registration...",IDC_STATIC_CHECK_REGISTRATION,117,77,162,10,NOT WS_VISIBLE
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,116,67,185,1,WS_EX_STATICEDGE
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_DOWNLOAD_PROCESS DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Loading of data from server of package update"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDOK,205,190,51,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,260,190,50,14
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Status process",IDC_STATUS_STATIC,114,64,187,10
+    CONTROL         "Progress1",IDC_PROGRESS_STATUS,"msctls_progress32",WS_BORDER,116,82,185,11
+    LTEXT           "Data loading in progress..",IDC_STATIC_COMMENT,108,12,186,11
+    ICON            "",IDC_IMAGE_PROGRESS,198,80,20,20
+    GROUPBOX        "",IDC_STATIC,107,25,203,151
+    ICON            "",IDC_STATIC____,199,129,20,20,SS_CENTERIMAGE | SS_REALSIZEIMAGE
+END
+
+IDD_END_PROCESS DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Loading completed"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "&Next >",IDOK,150,190,50,14,WS_DISABLED
+    PUSHBUTTON      "Exit",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Loading of data from server of the update package successfully completed..",IDC_FINAL_MESSAGE_TEXT,112,12,186,62
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_ABOUTBOX DIALOG  0, 0, 235, 82
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About the software.."
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Program of automatic transfer of data from server of package update, for renewing the Garant system database",IDC_STATIC,40,10,129,33,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2002",IDC_STATIC,40,60,119,8
+    DEFPUSHBUTTON   "Close",IDOK,178,7,45,14,WS_GROUP
+    LTEXT           "Version 1.0",IDC_STATIC,40,49,38,8
+END
+
+IDD_DOWNLOADER_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Settings adjustment"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO_COMPLECT,152,45,153,83,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "DateTimePicker1",IDC_BEGIN_DATE,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,168,64,56,15
+    CONTROL         "DateTimePicker2",IDC_END_DATE,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,249,64,56,15
+    EDITTEXT        IDC_PATH,113,155,138,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    PUSHBUTTON      "Browse",IDC_BROWSE,258,152,46,15
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14
+    DEFPUSHBUTTON   "&Start >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    GROUPBOX        "",IDC_STATIC,107,32,203,56
+    CTEXT           "to",IDC_STATIC,232,66,10,9
+    GROUPBOX        "Catalog",IDC_STATIC,107,139,203,36
+    PUSHBUTTON      "<>",IDC_APPLY,290,95,20,9,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "The program is ready to download package update files for the indicated kit and interval of dates",IDC_STATIC,107,13,202,19
+    LTEXT           "Kit",IDC_STATIC,112,47,34,8
+    LTEXT           "Update from",IDC_STATIC,112,66,48,8
+    LTEXT           "Package update files will be placed into the indicated catalog. To choose another catalog click the ""Browse"" button",IDC_STATIC,107,110,200,26
+    PUSHBUTTON      "-->",IDC_START_DOWNLOAD,267,95,21,9,NOT WS_VISIBLE | WS_DISABLED
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_INTERNET_ACCESS_SETTINGS DIALOGEX  0, 0, 301, 191
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Setting of access to Internet"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Use settings from the system register",IDC_RADIO_OPEN_TYPE_PRECONFIG,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,14,16,183,10
+    CONTROL         "Use proxy-server",IDC_RADIO_OPEN_TYPE_PROXY,"Button",BS_AUTORADIOBUTTON,14,29,119,10
+    EDITTEXT        IDC_EDIT_PROXY_NAME,46,57,92,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PROXY_PORT,46,75,37,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Accept",IDOK,187,170,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,243,170,50,14
+    CONTROL         "Local computing of names for leading networks",IDC_RADIO_OPEN_TYPE_DIRECT,
+                    "Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,139,29,143,10
+    GROUPBOX        "Type of internet access",IDC_STATIC,7,4,286,114
+    CTEXT           "Port:",IDC_STATIC,20,78,20,8
+    RTEXT           "Host:",IDC_STATIC,20,59,19,8
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,7,168,37,16
+    GROUPBOX        "Request parameters",IDC_STATIC,7,122,286,41
+    CONTROL         "Download of data from the origin server, not from the cache",IDC_CHECK_RELOAD_CACHE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,134,268,10
+    CONTROL         "Does not add the returned entity to the cache",IDC_CHECK_NO_CACHE_WRITE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,147,223,10
+    GROUPBOX        "Proxy-server",IDC_STATIC,15,44,269,66
+    CONTROL         "Authorization",IDC_CHECK_PROXY_AUTHENTICATION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,151,94,60,10
+    LTEXT           "Login:",IDC_STATIC,151,59,24,8
+    LTEXT           "Password:",IDC_STATIC,151,78,33,8
+    EDITTEXT        IDC_EDIT_PROXY_LOGIN,187,57,88,14,ES_AUTOHSCROLL
+    GROUPBOX        "",IDC_STATIC,145,44,139,66
+    EDITTEXT        IDC_EDIT_PROXY_PASSWORD,187,75,88,14,ES_PASSWORD | ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_REWRITE_EXIST_FILE DIALOG  0, 0, 279, 66
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Attention"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Recopy",IDOK,51,45,57,14
+    PUSHBUTTON      "Cancel",IDCANCEL,171,45,56,14
+    LTEXT           "File %s in this catalog already exists, \nbut not fully downloaded. You can either re-copy or finish downloading the existing file, or leave it without changes.",IDC_STATIC,45,8,223,27
+    PUSHBUTTON      "Fully download",IDC_BTN_ADD,111,45,57,14
+END
+
+IDD_PILOT_LOGIN DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Authorization"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_LOGIN,185,60,120,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,185,80,120,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "&Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         164,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    LTEXT           "",IDC_INPUT_NAME_STATIC,111,7,199,18
+    LTEXT           "Note: You should have the right to carry out package update of the system.",IDC_STATIC,110,30,200,20
+    LTEXT           "User name:",IDC_STATIC,110,63,70,8
+    LTEXT           "Password:",IDC_STATIC,110,83,65,8,NOT WS_GROUP
+END
+
+IDD_NEMESIS_LOGIN DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Authorization"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_LOGIN,185,60,120,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,185,80,120,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "< &Back",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "&Next >",IDOK,150,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Help",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         164,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    LTEXT           "",IDC_INPUT_NAME_STATIC,111,7,199,18
+    LTEXT           "Note: You should have the right to carry out package update of the system.",IDC_STATIC,110,30,200,20
+    LTEXT           "User name:",IDC_STATIC,110,63,70,8
+    LTEXT           "Password:",IDC_STATIC,110,83,65,8,NOT WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 7,12,0,0
+ PRODUCTVERSION 7,12,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "Comments", """GARANT"" - english resources"
+            VALUE "CompanyName", "SIE ""GARANT-SERVICE-UNIVERSITY"" LLC"
+            VALUE "FileDescription", """GARANT"" - english resources"
+            VALUE "FileVersion", "7.12.0.0"
+            VALUE "InternalName", "Downloader_eng"
+            VALUE "LegalCopyright", "(C) SIE ""GARANT-SERVICE-UNIVERSITY"" LLC, 1990-2015"
+            VALUE "LegalTrademarks", "GARANT system"
+            VALUE "OriginalFilename", "F1Download_eng.dll"
+            VALUE "ProductName", "GARANT"
+            VALUE "ProductVersion", "7"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About the software..."
+    IDS_CONNECTION_FAILED   "It is not possible to establish a link with the package update server.\nCheck access to Internet and repeat attempt."
+    IDS_ERROR_INCORRECT_LOGIN 
+                            "Incorrect login or password.\nEnsure that Caps Lock key is not on\nand symbols are entered in Latin letters."
+    IDS_ERROR_HTTP_ERROR    "Package update server not answering.\nRepeat attempt in a few minutes."
+    IDS_DOWNLOAD_CANCEL     "Stop file download %s?"
+    IDS_QUEST_FILE_ALREADY_EXIST 
+                            "File: %s, of size: %.2f Mb, in this catalog\nallready exists.\n\nCopy new file over existing one?"
+    IDS_STATIC_DOWNLOAD_NORMAL 
+                            "Loading of update files successfully completed. \n\nTo update info bank launch DATAUPD.EXE program"
+    IDS_STATIC_DOWNLOAD_CANCELED "Loading of update files stopped by user."
+    IDS_STATIC_DOWNLOAD_ABORTED 
+                            "Downloading of data files from package update server was interrupted."
+    IDS_ERROR_CLOSED_FILE   "It was not possible to close the file %s."
+    IDS_QUEST_EXIT_FROM_PROGAM "Close the application?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSG_CLOSED_PROGRAM  "Program's work is finished."
+    IDS_APPLICATION_ALREADY_RUNNING 
+                            "Program of loading update has already been launched.\nLaunch of second copy not possible."
+    IDS_DONT_RUN_PROGRAM    "Launch of program not possible"
+    IDS_FILE_NOTFOUND       "The completeness or structure of the GARANT system has been infringed. \n\n(file %s not found.)"
+    IDS_ERROR_DOWNLOAD      "Error by data downloading."
+    IDS_UNEXPECTED_ERROR    "Unclear breakdown in operating system. \n\nIf overloading of system does not resolve the problem, \nturn to GARANT technical help service."
+    IDS_QUERY_TO_SERVER     "Request to package update server being carried out"
+    IDS_DOWNLOAD_FILE       "Loading of file %s by size %.2f Mb"
+    IDS_ERROR_NO_UPDATE     "For the kit '%s' for the period from ñ %s until %s\nupdate is not foreseen.\n\nCheck correctness of data interval."
+    IDS_ERROR_INCORRECT_UPDATE_PERIOD 
+                            "Unallowable data interval entered. \n\nDate ""until"" should be more than date ""from"" and not exceed current date."
+    IDS_ERROR_FILE_NOT_OPEN "Has not been possible to open the database (file %s). \nContinuation of work impossible."
+    IDS_MSG_CHECK_REGISTRATION "Check of registration entries."
+    IDS_MSG_RUNNING_PROGRAM "Application's work mode: MANUAL."
+    IDS_ERROR_LOAD_SECOND_APPLICATION 
+                            "Attempt to launch second copy. Work on given copy will be completed."
+    IDS_ERROR_NOT_INIT_LOGIN_OR_PASSWORD 
+                            """Login"" and ""password"" dialog fields should be\n filled in without fail."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ERROR_NOT_CREATE_THREAD "Error in creating flow"
+    IDS_ERROR_PROGRAM_CANT_RUNNING 
+                            "Completeness of GARANT system infringed. \n\nGiven program cannot be found in catalog %s."
+    IDS_ERROR_CANT_RECEIVE_DIRECTORY_PATH 
+                            "Completeness or structure of GARANT system infringed. \n\n(Working catalog unreachable.)"
+    IDS_BASESORG_NOTFOUND   "Completeness or structure of GARANT system infringed. \n\n(Protection file missing.)"
+    IDS_BASESORGPRIMARY     "Completeness or structure of GARANT system infringed. \n\n(Protection file damaged.)"
+    IDS_BASESORGBADCOMPLECT "Completeness or structure of GARANT system infringed. \n\n(Information on established bases missing.)"
+    IDS_ERROROPENINGBASE    "Completeness or structure of GARANT system infringed. \n\n(Error in opening base %s.)"
+    IDS_ERRORREADINGHERE    "Completeness or structure of GARANT system infringed. \n\n(Error in reading HERE index in the base %s.)"
+    IDS_BASEPACKED          "Base %s packed. This base cannot be updated."
+    IDS_BASENOTGL           "Completeness of GARANT system infringed. \n\n(Process of building main menu was not carried out to base %s.)"
+    IDS_CANTFINDBASEINFO    "Completeness of GARANT system infringed. \n\n(Impossible to determine information on base %s segment %d.)"
+    IDS_BASEBADREVS         "Completeness of GARANT system infringed. \n\n(Set consisting of segments of various revisions cannot be updated.)"
+    IDS_MSG_RUNNING_PROGRAM_IN_AUTO_MODE "Work load of attaching: AUTO."
+    IDS_ERROR_DOWNLOAD_DATA "Data loading error:\n%s\nRepeat attempt?\n"
+    IDS_ERROR_HTTP_GETINFO  "Impossible to obtain information from package update server:\n%s"
+    IDS_MSG_STOP_DOWNLOAD   "Data loading stopped.."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ERROR_NOT_LOAD_DLL  "Was not possible to load ICMP.DLL library\nContinuation of work impossible."
+    IDS_ERROR_LOAD_DLL      "Error loading ICMP.DLL library\nContinuation of work impossible."
+    IDS_ERROR_WSA_STARTUP   "Error initializing Windows Sockets library.\nContinuation of work impossible."
+    IDS_ERROR_WINSOCK_NOT_SUPPORT 
+                            "Windows Sockets library version 1.1 not supported.\nContinuation of work impossible."
+    IDS_ERROR_PROXY_ADDR_EMPTY "Proxy address not entered."
+    IDS_ERROR_PROXY_PORT_EMPTY "Proxy port not entered."
+    IDS_ERROR_EMPTY_FILE_NAME 
+                            "Was not possible to initialize file name with updated data."
+    IDS_ERROR_USERS_AUTHORIZATION 
+                            "Wrong reply from server: Signature missing in buffer set returned by request. "
+    IDS_QUEST_ABORTED_FILE_ALREADY_EXIST 
+                            "File %s in given catalog does not exist, but not fully downloaded.\nSize of existing file: %.2f Mb, actual size: %.2f Mb.\nChoose ""Yes"" to complete file download, or ""No"" to re-copy.\n\nComplete download of existing file?"
+    IDS_DOWNLOAD_FILE_PLUS  "Complete download of file %s of size %.2f Mb"
+    IDS_PROXY_PING          "Attempt to ping proxy %s"
+    IDS_USE_PROXY_SERVER    "Connection to internet: proxy-server (adress: %s, port: %s)"
+    IDS_INCORRECT_PROXY_SETTINGS "Incorrect proxy-server settings."
+    IDS_USE_SERVER_FROM_COMMAND_LINE 
+                            "Attempt to establish connection with server\nof program parameters: %s, port: %s"
+    IDS_REG_PROXY_NOT_FOUND "Proxy-server not found in system register. "
+    IDS_USE_SERVER          "Attempt to establish connection to server %s, port: %s"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_INTERNET_NOT_FOUND  "No internet connection."
+    IDS_GARANT_SERVERS_NOT_FOUND 
+                            "Package update server not accessible.\nAccess to internet exists."
+    IDS_CONNECT_SYSTEM_EXCEPTION "System error during attempt to connect."
+    IDS_USE_PRECONFIG_TYPE  "Connection to internet: settings from system register."
+    IDS_PING_HOST           "Attempt to ping host %s"
+    IDS_RECONNECT_MESSAGE   "Carrying out re-connect, as WinInet library does not allow more than 5 connections."
+    IDS_SESSION_LOG_DELIMITER 
+                            "-----------------------------------------------------------------------------------------------------"
+    IDS_DOWNLOAD_QUERY      "You can download file: %s, of size: %.2f Mb\n\nContinue?"
+    IDS_DOWNLOAD_INFO       "Loading of update for kit '%s'\nFile name: %s, file size: %.2f Mb."
+    IDS_ADD_DOWNLOAD_INFO   "Complete download for kit '%s'\nFile name: %s.\nActual size of file: %.2f Mb, size of file downloaded: %.2f Mb."
+    IDS_USER_AGENT          "Name of attachment as agent in HTTP protocol (user agent): %s"
+    IDS_IP_CONFIG           "IP address of work station: %s"
+    IDS_INET_ACCESS_SETTING_CHANGE "Change of internet access settings."
+    IDS_SYSTEM_EXCEPTION    "System error has taken place.\nInformation: %s"
+    IDS_RUN_UPDATE_UTIL     "Automatic launch of utility DATAUPD.EXE"
+    IDS_STATIC_NOT_DOWLOAD_DATA "Process of loading data was not launched."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_COMPLECT_NOT_REGISTRED 
+                            "The kit with identification number %d for the given user is not registered"
+    IDS_CHECK_INFO          "Cheking of update for for kit '%s'\nfor period from %s to %s."
+    IDS_NOT_ENOUGH_SPACE    "There is not enough space on disk"
+    IDS_SERVER_IS_STARTING  "The application's server is in process of initialization. Try to start the program later!"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CANT_RUN_PROCESS    "Impossible to launch %s\nInformation : "
+    IDS_ATTEMPT_USER_AUTHORIZATION "Attempt to authorize user '%s' for SPU"
+    IDS_QUERY_RECEIVE_FILE_LENGTH_RESULT_MSG 
+                            "Result of carrying out request to obtain size of file carried out\n"
+    IDS_UNKNOWN_EXCEPTION   "Indeterminable exception."
+    IDS_ATTEMPT_RENEW_CONNECTION "Attempt to restore connection.."
+    IDS_DOWNLOAD_DATA_PROCESS "Loading of data in progress.."
+    IDS_INCORRECT_TIMEOUT_PARAM 
+                            "Incorrect meaning for command line parameter -dsc.\nMeaning of temporary interval (minutes), within which attempt to restore connection takes place,\nshould be more than 0."
+    IDS_FATAL_ERROR_CLOSE   "Emergency completion of program's work.."
+    IDS_FATAL_ERROR_DOWNLOAD_DATA "Error in loading data:\n%s\n"
+    IDS_TRANSIENT           "Connection with attachment server missing."
+    IDS_SERVER_NOT_FOUND    "Application server not accessible."
+    IDS_BAD_NETWORK_CONFIG  "Return call from attachment server not received, client's firewall likely blocking incoming calls."
+    IDS_IP_ADDRESS_NOT_FOUND "Incorrect IP address."
+    IDS_DATANOTFOUND        "Incorrect parameters."
+    IDS_USER_ALREADY_EXIST_IN_ONLINE 
+                            "User with this name already working in system."
+    IDS_USER_IS_LOCKED      "User blocked. Contact system administrator."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PILOT_DATE_NOT_INITIALIZE "Unable to initialize start date."
+    IDS_EXCEPTION_USER_AUTHORIZATION "Authorisation of user impossible.\n"
+    IDS_PILOT_NAME          "Garant - Intranet"
+    IDS_NEMESIS_NAME        "Garant 6kh"
+    IDS_INPUT_USERNAME      "Enter name that will identify you as a system user"
+    IDS_ERROR_PROXY_LOGIN_EMPTY 
+                            "User login for authorization of proxy not entered."
+    IDS_ERROR_PROXY_PASSWORD_EMPTY 
+                            "User password for authorization of proxy not entered."
+    IDS_ATTEMPT_USER_AUTHORIZATION_ON_PROXY 
+                            "User '%s' authorisation for proxy."
+    IDS_NEMESIS_BASE_NOT_EXIST "GARANT update system base not established."
+    IDS_BAD_PARAMS          "Proxy-server not accessible or parameters for connection with internet not correct."
+    IDS_BAD_PROXYPORT       "Parameters for connection to internet incorrectly given."
+    IDS_BADPING_MESSAGE     "Update package loading expert did not receive answer from proxy-server. If the connection with the update package server is not established, check the correctness of the internet connection parameters."
+    IDS_ATTENTION           "Attention"
+    IDS_ATTENTION_COLON	    "Attention: %s"
+    IDS_CHOOSE_DIR          "Choose working directory"
+    IDS_FATAL_ERROR         "Work of this program is impossible"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Downloader.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

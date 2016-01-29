@@ -1,0 +1,199 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garantPIL/implementation/component/cpp/garantCore/project/Search.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> garantCore::Search
+//
+// Библиотека поиска
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (Search) : project_generic_core {
+	sharedname = Search
+	staticname = Search
+
+	includes += ../../
+
+	//#UC START# *509D0143025F_CUSTOM_DEPENDENCES*
+	includes += fake
+	includes += W:\garantPIL\implementation\component\cpp\include
+	includes += W:\garantPIL\implementation\component\cpp\include\win32
+	includes += W:\garantPIL\implementation\component\cpp\libs\cchlp\src
+	includes += W:\garantPIL\implementation\component\cpp\libs\gkdb\src
+	includes += W:\garantPIL\implementation\component\cpp\libs\zlib\src
+	includes += ../../
+
+	macros += INSTLL_CIB
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += NO_GSSCREEN
+	macros += STORE_FORM_N
+	macros += USE_CPP_ZIP
+	macros += WINENCODE
+	macros += GDS_NLOG_TRACE
+	macros += VERSION56
+	macros += VERSION61
+	macros += VERSION62
+	macros += VERSION63
+	macros += USE_ACE
+	//#UC END# *509D0143025F_CUSTOM_DEPENDENCES*
+	after += GCL
+	libs  += GCL
+
+	after += Morpho
+	libs  += Morpho
+
+	after += SearchAdapterLib
+	libs  += SearchAdapterLib
+
+	Header_Files {
+		Std_Headers {
+			./../Search/LibHome.h
+		}
+	
+		Cache {
+			./../Search/Cache/AttrCache.h
+			./../Search/Cache/Cache.h
+		}
+	
+		ContextSearch {
+			./../Search/ContextSearch/Collector_i.h
+			./../Search/ContextSearch/ContextSearcher.h
+			./../Search/ContextSearch/RelevancyTuner.h
+			./../Search/ContextSearch/RequestSplit.h
+		}
+	
+		Def {
+			./../Search/Def/Def.h
+		}
+	
+		External_ {
+			./../../garantPIL/implementation/component/cpp/libs/gkdb/src/BaseCache.h
+			./../../garantPIL/implementation/component/cpp/tools/CSAdapter/AdapterLoader.h
+		}
+	
+		Facade {
+			./../Search/Facade/Facade.h
+			./../Search/Facade/Factory.h
+			./../Search/Facade/Helper.h
+		}
+	
+		Filters_i {
+			./../Search/impl/Filters_i/AsVector_i.h
+			./../Search/impl/Filters_i/BooleanFilter_i.h
+			./../Search/impl/Filters_i/Filters.h
+			./../Search/impl/Filters_i/FiltersFactory.h
+			./../Search/impl/Filters_i/InitList_i.h
+			./../Search/impl/Filters_i/LoadList_i.h
+		}
+	
+		Queries_i {
+			./../Search/impl/Queries_i/BooleanQuery_i.h
+			./../Search/impl/Queries_i/Query_i.h
+		}
+	
+		Searcher_i {
+			./../Search/impl/Searcher_i/Invoker.h
+			./../Search/impl/Searcher_i/NonContextSearcher.h
+			./../Search/impl/Searcher_i/SearchHelper.h
+			./../Search/impl/Searcher_i/Searcher_i.h
+			./../Search/impl/Searcher_i/StorageData.h
+		}
+	
+		Utils {
+			./../Search/Utils/Interpreter.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Cache {
+		}
+	
+		ContextSearch {
+		}
+	
+		Def {
+		}
+	
+		External_ {
+		}
+	
+		Facade {
+		}
+	
+		Filters_i {
+		}
+	
+		Queries_i {
+		}
+	
+		Searcher_i {
+		}
+	
+		Utils {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../Search/LibHome.cpp
+		}
+	
+		Cache {
+			./../Search/Cache/AttrCache.cpp
+			./../Search/Cache/Cache.cpp
+		}
+	
+		ContextSearch {
+			./../Search/ContextSearch/Collector_i.cpp
+			./../Search/ContextSearch/ContextSearcher.cpp
+			./../Search/ContextSearch/RelevancyTuner.cpp
+			./../Search/ContextSearch/RequestSplit.cpp
+		}
+	
+		Def {
+			./../Search/Def/Def.cpp
+		}
+	
+		External_ {
+		}
+	
+		Facade {
+			./../Search/Facade/Facade.cpp
+			./../Search/Facade/Factory.cpp
+			./../Search/Facade/Helper.cpp
+		}
+	
+		Filters_i {
+			./../Search/impl/Filters_i/AsVector_i.cpp
+			./../Search/impl/Filters_i/BooleanFilter_i.cpp
+			./../Search/impl/Filters_i/Filters.cpp
+			./../Search/impl/Filters_i/FiltersFactory.cpp
+			./../Search/impl/Filters_i/InitList_i.cpp
+			./../Search/impl/Filters_i/LoadList_i.cpp
+		}
+	
+		Queries_i {
+			./../Search/impl/Queries_i/BooleanQuery_i.cpp
+			./../Search/impl/Queries_i/Query_i.cpp
+		}
+	
+		Searcher_i {
+			./../Search/impl/Searcher_i/Invoker.cpp
+			./../Search/impl/Searcher_i/NonContextSearcher.cpp
+			./../Search/impl/Searcher_i/Searcher_i_Result.cpp
+			./../Search/impl/Searcher_i/SearchHelper.cpp
+			./../Search/impl/Searcher_i/Searcher_i.cpp
+			./../Search/impl/Searcher_i/StorageData.cpp
+		}
+	
+		Utils {
+			./../Search/Utils/Interpreter.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,23 @@
+USES
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Задать размеры окна редактора"
+	OBJECT VAR l_EditorWindow
+	focused:control:push >>> l_EditorWindow
+	l_EditorWindow pop:Control:GetParentForm >>> l_EditorWindow
+	l_EditorWindow pop:Control:Left := 10
+	l_EditorWindow pop:Control:Top := 10
+        l_EditorWindow pop:Control:Width := 778
+        l_EditorWindow pop:Control:Height := 400
+;
+
+Тест TK233014754 
+	Параметры: ( "Не разварачивать редактор" )
+	Выполнить ( 
+				"Задать размеры окна редактора"
+				"Прокрутить документ вниз до конца" 
+			)
+;
+
+TK233014754 

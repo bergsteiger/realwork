@@ -1,0 +1,62 @@
+// ScriptEngine$Everest 54ECA252008F Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_54ECA252008F
+ CONST UID '54ECA252008F'
+ CONST Name 'ScriptEngine'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ ;
+ : Children
+   @ ( WL 'ME_52D643A301A9' '52D643A301A9.pas.ms.script' // SubPanelWords
+ WL 'ME_54EDDC8A013D' '54EDDC8A013D.pas.ms.script' // SchemaWords
+ WL 'ME_54EDDF000377' '54EDDF000377.pas.ms.script' // ParaWords
+ WL 'ME_4E1C0134031B' '4E1C0134031B.pas.ms.script' // MixIns
+ WL 'ME_4F4CB50403CC' '4F4CB50403CC.pas.ms.script' // EditorFromStackKeyWords
+ WL 'ME_4F954EC9038E' '4F954EC9038E.pas.ms.script' // MoveMouseByPara
+ WL 'ME_4F6994E701CB' '4F6994E701CB.pas.ms.script' // QueryCardProcessing
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
+ WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_48EEE54C0072' '48EEE54C0072.pas.ms.script' // EverestCommon
+ WL 'ME_4ACDBBED0241' '4ACDBBED0241.pas.ms.script' // ImageEn
+ WL 'ME_4E2EE37B0097' '4E2EE37B0097.pas.ms.script' // Everest$EditorUsers
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
+ WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'seDefine.inc'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "ifndef" 'NoScripts'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi\ScriptEngine$Everest\ScriptEngine$Everest.model.script'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScriptEngine$Everest_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\54ECA252008F.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54ECA252008F.pas.ms.script.runner'
+
+ref; // ME_54ECA252008F ScriptEngine$Everest

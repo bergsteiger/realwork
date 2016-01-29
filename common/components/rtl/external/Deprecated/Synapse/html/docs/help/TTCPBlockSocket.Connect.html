@@ -1,0 +1,31 @@
+<Html><Head><Title>TTCPBlockSocket.Connect</Title></Head><Body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+<!---1--->
+<font face="Arial">
+<P Align="left"><BIG><B>TTCPBlockSocket.Connect</B></BIG><BR>
+
+<A href="TTCPBlockSocket.html">TTCPBlockSocket</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P><B>procedure</B> Connect(IP, Port: string);<B> override;</B><BR>
+<BR>
+<B>Unit</B><BR>
+<A href="blcksock.html">blcksock</A><BR>
+<BR>
+<B>Description</B><BR>
+Connects socket to remote IP address and PORT. The same rules as with BIND method are valid. The only exception is that PORT with 0 value will not be connected. <BR>
+<BR>
+After call to this method a communication channel between local and remote socket is created. Local socket is assigned automatically if not controlled by previous call to BIND method. <BR>
+<BR>
+Structures LocalSin and RemoteSin will be filled with valid values.<BR>
+<BR>
+If you use SOCKS5, activate outgoing TCP connection by SOCKS5 proxy specified in SocksIP. (By CONNECT method of SOCKS5.) <BR>
+<BR>
+If you use HTTP-tunnel mode, activate outgoing TCP connection by HTTP tunnel specified in HTTPTunnelIP. (By CONNECT method of HTTP protocol.)<BR>
+<BR>
+If you additionally use SSL mode, then SSL/TLS session is started.<BR>
+<BR>
+Structures LocalSin and RemoteSin will be filled with valid values.<BR>
+<BR>
+Note: If you call this on non-created socket, then socket is created automaticly.<BR>
+<BR>
+<BR>
+<B>See also:</B><BR>
+<A href="TTCPBlockSocket.HTTPTunnelIP.html">HTTPTunnelIP</A><BR>
+</font></Body></Html>

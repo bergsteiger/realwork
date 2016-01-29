@@ -1,0 +1,58 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/GblAdapterLibDesktop.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> garant6x::GblAdapterLibDesktop
+//
+// Реализация кода, специфичная для серверного адаптера
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (GblAdapterLibDesktop) : project_generic_core_corba {
+	sharedname = GblAdapterLibDesktop
+	staticname = GblAdapterLibDesktop
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../../../
+
+	//#UC START# *474E8E7E00E7_CUSTOM_DEPENDENCES*
+	includes += ../../../../garantServer/src
+	//#UC END# *474E8E7E00E7_CUSTOM_DEPENDENCES*
+	after += GblAdapterLib
+	libs  += GblAdapterLib
+
+	Header_Files {
+		Std_Headers {
+			./../GblAdapterLibDesktop/LibHome.h
+		}
+	
+		Start_i {
+			./../GblAdapterLibDesktop/impl/Start_i/Desktop.h
+			./../GblAdapterLibDesktop/impl/Start_i/Desktop_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Start_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../GblAdapterLibDesktop/LibHome.cpp
+		}
+	
+		Start_i {
+			./../GblAdapterLibDesktop/impl/Start_i/Desktop.cpp
+			./../GblAdapterLibDesktop/impl/Start_i/Desktop_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

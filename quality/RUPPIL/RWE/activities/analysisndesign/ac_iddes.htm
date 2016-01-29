@@ -1,0 +1,255 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WIN1251">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title> Активность: Определить проектные элементы</title>
+<link rel="stylesheet" href="../../css/project.css" type="text/css">
+</head>
+<body>
+
+<h2 class="banner"><a name="Top"></a>Активность: Определить проектные элементы</h2>
+<div align="center"><center>
+
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td colspan="2" valign="top" bordercolor="#808080" width="646"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li><font size="3"><a name="XE_class__refining_analysis_classes"></a>Проанализировать взаимодействие классов 
+анализа, чтобы определить элементы проектной модели</font></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" bordercolor="#808080" width="335"><small><font face="Arial"><strong>Входные артефакты:</strong></font></small>
+    <ul>
+      <li><a href="../../artifacts/requirements/pa_supspec.htm">Дополнительные спецификации</a></li>
+      <li><a href="../../artifacts/analysisndesign/pa_sad.htm">Документ Программная архитектура</a></li>
+      <li><a href="../../artifacts/analysisndesign/pa_anmod.htm">Модель анализа</a></li>
+      <li><a href="../../artifacts/environment/pa_design.htm">Инструкция проектирования</a></li>
+    </ul>
+    <pre> </pre>
+    </td>
+    <td style="text-indent: 0px" valign="top" bordercolor="#808080" width="305"><small><font face="Arial"><strong>Результирующие артефакты:</strong></font></small>
+    <p><a href="../../artifacts/analysisndesign/pa_desmod.htm">Проектная модель</a> и ее элементы (классы, интерфейсы, события и пр.)
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2" style="text-indent: 4px" bordercolor="#808080" width="646"><strong><font face="Arial"><small>Роль:</small>
+    </font></strong><a href="../../workers/wk_archi.htm">Архитектор</a></td>
+  </tr>
+</table>
+</div>
+</center></div>
+
+<p>Следуйте <a href="../../library/name_rules.htm">Правилам именования</a> элементов модели при
+проведении работ по проектированию.
+
+<p>В ходе <a href="ac_ucana.htm">Активности: Провести анализ прецедента</a> были выделены <strong>
+классы анализа</strong>, которые представляют собой <strong>концептуальные вещи, которые позволяют реализовать поведение прецедента</strong>. 
+В ходе проектирования <strong>классы анализа</strong>преобразуются в подмножество
+проектных элемнтов следующих типов:
+<ul>
+  <li>классы, с набором хорошо обозначенных ответственностей;</li>
+  <li>компоненты (подсистемы), с укрупненными ответственностями , возможно состоящая их
+набора компонент (подсистем), но в большинстве случаев - из классов;</li>
+  <li>активные классы, представляющие нити потоков управления;</li>
+  <li>интерфейсы, представляющие абстрактные декларации ответственностей класса или компоненты 
+(подсистемы).</li>
+</ul>
+<p>Также определяются события, сигналы и пр. элементы, позволяющие управлять взаимодействием 
+компонент и систем в асинхронном режиме.
+
+<h3><a name="XE_events__identification of"></a><a name="Identify and Specify Events">Определить и задать события</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td height="1" valign="top" bordercolor="#808080"><small><strong><font face="Arial">Purpose</font></strong></small>
+    <ul>
+      <li>Определить и уточнить внешние и внутренние события, на которые должны реагировать система.</li>
+    </ul>
+    
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p>События представляют собой внешние и внутренние инциденты, которые приводят к действиям системы;
+они могут быть случайными и потенциально независимыми одно от другого.
+<p>Чтобы определить события, на которые система должна отвечать, взгляните на прецеденты и их реализации.
+Каждое воздействие от актера к системе длолжно быть проработано: будет ли система опрашивать пользователя,
+ожидая ответа, или будет ли обрабатывать оповещения от устройств?
+<p>Механизм системных прерываний информаирует систему о том, что в системе что-то произошло.
+прерывания полезны для передачи информации о непериодических событиях.
+<p>Опрос более подходит для периодических событий, или событий, которые происходят с той или иной 
+случайной вероятностью. 
+<p>Важный аспект - выделить события, на которые необходимо отвечать немедленно, и на какие - можно
+ответить через некоторый промежуток времени, т.е. какие события более приоритетны. 
+Например, некоторые события можно поставить в очередь и обрабатывать постепенно.
+С другой стороны, нужно показать, как система будет реагировать на события. С этой точки зрения,
+есть <i>вызовы</i> (где абонент ждет отработки события), <i>изменения</i> (показывающие изменение
+состояния некоторого логического условия), <i>сигналы</i>, <i>таймеры</i>. Выбор типа события 
+оказывает существенное влияние на архитектуру системы.</p>
+
+<h3><a name="Identify Classes, Active Classes and Subsystems">Определить классы и активные классы</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center"><center>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">
+  <tr>
+    <td valign="top" bordercolor="#808080"><small><strong><font face="Arial">Цель</font></strong></small>
+    <ul>
+      <li><font size="3">Совершить переход от <font color="#000000"><b>классов анализа</b></font>
+к элементам проектной модели</font></li>
+    </ul>
+    </td>
+  </tr>
+</table>
+</center></div>
+
+<p><strong>Определите классы. </strong>
+<p>Когда классы анализа просты и уже представлены на нужном абстрактном
+уровне, они могут напрямую переведены, 1:1, в проектные классы. Обычно это относится к классам-сущностям.
+<p>При переходе к модели проектирования, классы анализа должны быть переведены в классы проектирования. 
+В общем случае можно сказать, что граничные классы должны перейти в классы визуальных форм и классы, 
+управляющие бизнес-поведением таких форм, сущности переходят в интерфейсы и/или классы данных (массивы, 
+последовательности, записи и т.д.), а контроллеры могут переходить только в интерфейсы. Ответственности, 
+которые выделены на этапе анализа, для таких классов должны перейти либо в атрибуты соответствующих классов, 
+либо в их методы.
+<p>Классы проектирования должны быть специфицированы, как классы языка описания интерфейсов [Interface Definition Language (IDL)]. 
+Для этого вводятся специальные CORBA-стереотипы (см. <a href="../../library/uml_stereotypes.htm">Описание стереотипов UML</a>).
+<p>В силу особенностей реализации визуального интерфейса проектируемой системы в общем случае нельзя описать 
+граничные классы с помощью IDL (т.к. это описание сильно зависит от языка реализации и 
+библиотеки пользовательского интерфейса, которая, как правило, имеет свою структуру, 
+модель поведения и правила реализации визуальных объектов), поэтому такие классы остаются в 
+терминах модели анализа и не переходят в классы проектирования.
+
+<p><strong>Проектирование сохраняемых классов.</strong>
+<p>При проектировании сохраняемых классов необходимо использовать адаптеры.
+<p>Адаптер представляет собой шлюз или переходник, между сущностью, которую необходимо сохранить, 
+и хранилищем, где она будет храниться. Адаптеры не могут изменять своего поведения, что позволяет 
+при смене хранилища не перепроектировать сохраняемые классы.
+<p>При проектировании адаптера используется подход, когда адаптер проектируется с учетом &quot;удобства&quot; 
+работы с ним той сущности для которой он проектируется, а не с которой он взаимодействует.
+<p>Все адаптеры должны быть расположены в архитектурном слое, отвечающем за данные. Так, для уровня 
+бизнес-логики – это будет <i>Уровень данных бизнес-логики</i> [<i>BusinessData</i>], а для уровня 
+общеупотребимых служб – <i>Уровень данных общеупотребимых служб</i> [<i>ServicesData</i>].
+
+<p><strong>Управление транзакциями.</strong>
+<p>При проектировании системы с использованием механизма транзакций, необходимо, чтобы классы, 
+использующие механизмы транзакций предоставляли способ управления этими транзакциями. Т.е. должны
+быть спроектированы интерфейсы, управляющие транзакциями. При проектировании таких интерфейсов 
+необходимо понимать, что транзакции могут быть как обычными, так и вложенными.
+<p>Управление транзакциями должно быть показано на диаграммах последовательности, как вызовы 
+методов интерфейса, которые отвечают за транзакции.
+<p>В общем случае, если во время транзакции происходит ошибка, связанная с выполнением операции 
+участвующей в транзакции, то система должна "откатить" результаты на состояние начала транзакции,
+т.е. состояние и логическая согласованность сохраняемых данных должно быть всегда непротиворечивым.
+
+
+<p><strong>Определите активные классы. </strong>
+<p>Активные классы передставляют собой производимые актерами стимулирующие воздействия, 
+взаимодействующие с системой.
+<p>Экземпляры активных классов представляют независимые логические нити выполнения.
+Они не могут указывать или напрямую быть потоками ОС.
+<p>Другой источник - <b>это классы, представляющие внешние устройства</b>, 
+которые изначально параллельно работают системе. Эти &quot;драйвера устройств&quot;
+не только наблюдают и контролируют физические устройства, но и изолируют 
+систему от специфики устройств.</p>
+
+<p><strong>Задайте интерфейсы компонент. </strong>
+Как только сформирован интерфейс, создайте <strong>реализацию</strong> между компонентой и 
+реализуемым ей интерфейсом. Реализация показывает, что элементы внутри компоненты реализуют
+операции интерфейса.
+
+
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2002 Отдел информационных технологий</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p><a href="../../index.htm"></a></p>
+<script language="JavaScript">
+<!--
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    if(window.name=="ory_doc")
+    {
+      window.name = "xyz1234";
+    }
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+       top.location = new_ory_doc_loc;
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+</script>
+<a href="JavaScript:loadTop();" onmouseover="if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true" onmouseout="if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true">
+</body>

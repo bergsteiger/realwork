@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<project name="SubTestLibrary" basedir=".">
+	<property name="build.dir" value="w:/build/target"/>
+	<property environment="env"/>
+	
+	<target name="idlcomp"/>
+	<target name="gcomp">
+	</target>
+	<target name="makejar">
+		<mkdir dir="${build.dir}/jar"/>
+		<jar destfile="${build.dir}/jar/SubTestLibrary.jar">
+			<fileset dir ="${build.dir}/classes">
+				<include name="ru/garant/TestModel/SubTestLibrary/"/>
+			</fileset>
+		</jar>
+	</target>
+	
+</project>

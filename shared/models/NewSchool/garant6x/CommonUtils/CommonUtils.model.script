@@ -1,0 +1,60 @@
+<<Library>> CommonUtils
+ %UID '447878CD0121'
+ %DOCUMENTATION 'общий код'
+ %DEPENDS
+  U$ '445B5C260315' /* GblConsulting */
+  U$ '447878770121' /* GCI */
+  U$ '450811FE0213' /* Core */
+  U$ '491C05CA0197' /* XercesHelpers */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'tie'
+  %upv "is namespace" true
+  %upv "need UC" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '445B5C260315' /* GblConsulting */
+  U$ '447878770121' /* GCI */
+  U$ '450811FE0213' /* Core */
+  U$ '491C05CA0197' /* XercesHelpers */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  PROTECTED <<Impl>> XML_i
+   %UID '44312D2701E4'
+   %META
+    %upv "is namespace" true
+   ; // %META
+   %TOBEINCLUDED
+    U$ '447878CD0121' /* CommonUtils */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Servant>> XMLReader_i
+      %UID '443136380271'
+      %META
+       %upv "Factory auto reg" true
+       %upv "Factory default impl" true
+       %upv "Servant Pool" 'none'
+       %upv "factory priority" 0
+       %upv "need UC" true
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '447878CD0121' /* CommonUtils */
+      ; // %TOBEINCLUDED
+     ; // XMLReader_i
+     <<SimpleClass>> XMLReader_on_server
+      %UID '45D72058004C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+     ; // XMLReader_on_server
+   ; // %CHILDREN
+  ; // XML_i
+ ; // %CHILDREN
+; // CommonUtils

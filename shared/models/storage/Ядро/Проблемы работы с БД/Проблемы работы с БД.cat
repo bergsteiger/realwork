@@ -1,0 +1,300 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Проблемы работы с БД"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Невозможно оперировать разными наборами данных|47176CC40034::47176CC40034;New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Непреднамеренное изменение данных|471DBB2B00FF::471DBB2B00FF;New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Несанкционированное изменение данных|471DBB2B00FF::471DBB2B00FF;New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Нет API для хранения данных объектов|4716341B033E::4716341B033E;New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Нужно работать с данными на носителе, защищенном от записи|471DBB2B00FF::471DBB2B00FF;New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Разнородные API работы с индексами|4716341B033E::4716341B033E;New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Хранение всех данных в одной базе|47176CC40034::47176CC40034
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД|471633EB0234
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"471633EB0234"
+    documentation 	"Общие проблемы при работе с БД"
+    stereotype 	"Problems"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Нет API для хранения данных объектов"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Нет API для хранения данных объектов|4716341B033E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4716341B033E"
+	    documentation 	"Различные низкоуровневые БД имею различные API для работы со своими примитивами, прежде всего с индексами. При этом ни в одной из них нет специалтизированного API для сохранения и восстановления (сереализации) данных объектов (в терминах ООП)."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Хранение всех данных в одной базе"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Хранение всех данных в одной базе|47176CC40034
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"47176CC40034"
+	    documentation 	
+|Если заставлять хранить все данные (данные всех сущностей предметной области) в одной БД, то это не позволить разбиваь из на различные "наборы данных", которые могут обладать разным временем и циклом жизни. Например, в Гаранте - есть как минимум два таких независимых набора данных: база документов и база настроек.
+	    
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator")
+	(object Class "Непреднамеренное изменение данных"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Проблемы работы с БД/Непреднамеренное изменение данных|471DBB2B00FF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"471DBB2B00FF"
+	    documentation 	"Если, на уровне API к данным всегда предоставлять полный доступ, то велика вероятность их непреднамеренного изменения, или возникновения исключительной ситуации (например, если на уровне интерфейса допустимо выполнить изменяющую операцию на объекте, рассположенном на read-only носителе)"
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"47163419010C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Проблемы работы с БД::Нет API для хранения данных объектов" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"771")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"366")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"804")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"156"))
+		    location   	(771, 366)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(382, 345)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	778
+			justify    	0
+			label      	"Нет API для хранения данных объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(382, 295)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	778
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"4716341B033E"
+		    width      	796
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Проблемы работы с БД::Хранение всех данных в одной базе" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1632")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"363")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"764")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"156"))
+		    location   	(1632, 363)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1259, 342)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	746
+			justify    	0
+			label      	"Хранение всех данных в одной базе")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1259, 292)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	746
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"47176CC40034"
+		    width      	764
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Проблемы работы с БД::Непреднамеренное изменение данных" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"999")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"618")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"816")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"156"))
+		    location   	(1029, 618)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(630, 597)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	798
+			justify    	0
+			label      	"Непреднамеренное изменение данных")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(630, 547)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	798
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"471DBB2B00FF"
+		    width      	816
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)))))

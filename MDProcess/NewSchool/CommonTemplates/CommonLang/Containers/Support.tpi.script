@@ -1,0 +1,542 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::Support
+//
+// набор вспомогательных функций
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// выводит тип функтора сравнения
+//f _comp_dump
+: comp_dump OBJECT IN %S
+//#UC START# *47187725031C*
+//	[{}{[{"<{}{%CS=allocator}{%CC}>"!="0"}, std::less\<[{%SM=Set::Class}{%f_key_dump(%S)}%f_data_dump(%S)]\>]}<{}{"%CS"="compare"}, %f_type(%C%T)>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'compare' ) then
+   begin
+    ', '
+    [%f] type %( %C ->T  )% 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'allocator' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+   ', std::less<'
+   if ( ( %S |M ) %== 'Set::Class' ) then
+   begin
+    [%f] data_dump %( %S )% 
+   end // if
+   else
+   begin
+    [%f] key_dump %( %S )% 
+   end // else
+   '>' 
+  end // if
+ end // else
+
+//#UC END# *47187725031C*
+; // comp_dump
+
+
+// дампит тип данных для ассоциативного контэйнера
+//f _data_dump
+: data_dump OBJECT IN %S
+//#UC START# *4718773C0261*
+//	%f_set_var(SELF,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% 
+//	<{}{"%CS"=""}{%C}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== '' ) then
+  begin
+//	%C[%f_set_var(ATTR_TYPE,T)]\
+   %C
+   bind ( 
+    OBJECT VAR %S
+    if NOT-EMPTY
+    begin
+     [%f] set_var %( 'ATTR_TYPE' %, 'T' )% 
+    end // if
+    NOP
+
+   ) // bind
+ //	[{%{SELF}%PC=Category&%{SELF}%PS=Impl&%{SELF}%P<{}{%D<{}{%CU=%{ATTR_TYPE}U}{%CC}>!=0}{%DC}>=0}%f_set_var(__SCOPE,S)]\
+   if ( ( ( get_global_var ( 'SELF' )  ->P |C ) ) %== 'Category' AND 
+     ( ( ( get_global_var ( 'SELF' )  ->P |S ) ) %== 'Impl'  ) AND 
+     ( ( ( get_global_var ( 'SELF' )  ->P
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%D
+     begin
+      OBJECT IN %D
+      if ( ( %D
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |U ) %== ( ( get_global_var ( 'ATTR_TYPE' ) |U ) ) ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for C
+       l_Counter
+
+      ) // bind
+ )       %!= 0 ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for D
+     l_Counter
+
+    ) // bind
+ ) )     %== 0  ) ) then
+   begin
+    [%f] set_var %( '__SCOPE' %, 'S' )% 
+   end // if
+//	[{%C%TS=DataElement}{%f_attr(%C)}%t_attr(%C%T,"ref",%C)]\
+   if ( ( %C ->T |S  ) %== 'DataElement' ) then
+   begin
+    [%t] attr %( %C ->T  %, 'ref"' %, %C )% 
+   end // if
+   else
+   begin
+    [%f] attr %( %C )% 
+   end // else
+//	%f_set_var(__SCOPE,"")>
+   [%f] set_var %( '__SCOPE' %, '' )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4718773C0261*
+; // data_dump
+
+
+// дампит тип функтора-сравнения для хэш-мапы
+//f _equalto_dump
+: equalto_dump OBJECT IN %S
+//#UC START# *4718774402DE*
+//	[{}{[{<{}{%CS=allocator}{%CC}>!=0|%f_need_key_hash(%S)=true}Core::equal_to\<%f_key_dump(%S)\>]}<{}{%CS=compare}%f_type(%C%T)>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'compare' ) then
+   begin
+    [%f] type %( %C ->T  )% 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'allocator' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 OR 
+    ( ( [%f] need_key_hash %( %S )% ) %==  true  ) ) then
+  begin
+   'Core::equal_to<'
+   [%f] key_dump %( %S )% '>' 
+  end // if
+ end // else
+
+//#UC END# *4718774402DE*
+; // equalto_dump
+
+
+// дампит тип хэш-функтора для хэш-мапы
+//f _hasher_dump
+: hasher_dump OBJECT IN %S
+//#UC START# *4718774C02BF*
+//	[{}{[{<{}{%CS=allocator|%CS=compare}{%CC}>!=0|%f_need_key_hash(%S)=true}Core::hash\<%f_key_dump(%S)\>]}<{}{%CS=hasher}%f_type(%C%T)>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'hasher' ) then
+   begin
+    [%f] type %( %C ->T  )% 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'allocator' OR 
+     ( ( %C |S ) %== 'compare'  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 OR 
+    ( ( [%f] need_key_hash %( %S )% ) %==  true  ) ) then
+  begin
+   'Core::hash<'
+   [%f] key_dump %( %S )% '>' 
+  end // if
+ end // else
+
+//f _allocator_dump
+; // hasher_dump
+
+: allocator_dump OBJECT IN %S
+//	<{}{%CS=allocator}%f_type(%C%T)>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'allocator' ) then
+  begin
+   [%f] type %( %C ->T  )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4718774C02BF*
+; // allocator_dump
+
+
+// возвращает false, если элемент и его тип являются детьми одного родителя
+//f _is_foreign_target
+: is_foreign_target OBJECT IN %S
+//#UC START# *4718775800CB*
+//	[{%T<{}{%PC=Category}%PU>!=%P<{}{%PC=Category}%PU>}{false}true]
+ if ( ( %T
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%P
+   begin
+    OBJECT IN %P
+    if ( ( %P |C ) %== 'Category' ) then
+    begin
+     %P |U 
+     ++! l_Counter
+    end // if
+   end // for P
+
+  ) // bind
+ )   %!= ( %P
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%P
+   begin
+    OBJECT IN %P
+    if ( ( %P |C ) %== 'Category' ) then
+    begin
+     %P |U 
+     ++! l_Counter
+    end // if
+   end // for P
+
+  ) // bind
+ ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4718775800CB*
+; // is_foreign_target
+
+
+// дампит ключ ассоциативного контэйнера
+//f _key_dump
+: key_dump OBJECT IN %S
+//#UC START# *4718775F035B*
+//	[{%SS!=UnsortedSet&%SS!=Set}{%f_data_dump(%S)}%f_set_var(SELF,S)\
+ if ( ( %S |S ) %!= 'UnsortedSet' AND 
+   ( ( %S |S ) %!= 'Set'  ) ) then
+ begin
+  [%f] set_var %( 'SELF' %, 'S' )% 
+//	<{}{"%CS"=""}{%C}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== '' ) then
+   begin
+//	%C[%f_set_var(ATTR_TYPE,T)]\
+    %C
+    bind ( 
+     OBJECT VAR %S
+     if NOT-EMPTY
+     begin
+      [%f] set_var %( 'ATTR_TYPE' %, 'T' )% 
+     end // if
+     NOP
+
+    ) // bind
+ //	[{%{SELF}%PC=Category&%{SELF}%PS=Impl&%{SELF}%P<{}{%D<{}{%CU=%{ATTR_TYPE}U}{%CC}>!=0}{C}>=0}%f_set_var(__SCOPE,S)]\
+    if ( ( ( get_global_var ( 'SELF' )  ->P |C ) ) %== 'Category' AND 
+      ( ( ( get_global_var ( 'SELF' )  ->P |S ) ) %== 'Impl'  ) AND 
+      ( ( ( get_global_var ( 'SELF' )  ->P
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%D
+      begin
+       OBJECT IN %D
+       if ( ( %D
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( %C |U ) %== ( ( get_global_var ( 'ATTR_TYPE' ) |U ) ) ) then
+         begin
+
+          ++! l_Counter
+         end // if
+        end // for C
+        l_Counter
+
+       ) // bind
+ )        %!= 0 ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for D
+      l_Counter
+
+     ) // bind
+ ) )      %== 0  ) ) then
+    begin
+     [%f] set_var %( '__SCOPE' %, 'S' )% 
+    end // if
+//	[{%C%Cl=agr}{%f_attr(%C%C)}[{%t_simple(%C%C%T)=true|%f_check_if_type(%C%C%T,"a-string")=true|%f_check_if_type(%C%C%T,"a-wstring")=true}{%t_attr(%C%C%T,"%C%Cl-const")}%f_attr(%C%C)]]\
+    if ( ( %C ->C |l  ) %== 'agr' ) then
+    begin
+     if ( ( [%t] simple %( %C ->C ->T   )% ) %==  true OR 
+       ( ( [%f] check_if_type %( %C ->C ->T   %, 'a-string' )% ) %==  true  ) OR 
+       ( ( [%f] check_if_type %( %C ->C ->T   %, 'a-wstring' )% ) %==  true  ) ) then
+     begin
+      [%f] attr %( %C ->C  )% 
+     end // if
+     else
+     begin
+      [%t] attr %( %C ->C ->T   %, %C ->C |l  '-const' )% 
+     end // else
+    end // if
+    else
+    begin
+     [%f] attr %( %C ->C  )% 
+    end // else
+//	%f_set_var(__SCOPE,"")>]
+    [%f] set_var %( '__SCOPE' %, '' )% 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ else
+ begin
+  [%f] data_dump %( %S )% 
+ end // else
+
+//f _need_key_hash
+; // key_dump
+
+: need_key_hash OBJECT IN %S
+//	[{%SS!=UnsortedSet&%SS!=Set}{[{<{}{"%CS"=""&%Cx=true&%Cl=ref}{%CC}>!=0}{false}true]}[{<{}{"%CS"=""&%C%Cx=true&%C%Cl=ref}{%CC}>!=0}{false}true]]
+ if ( ( %S |S ) %!= 'UnsortedSet' AND 
+   ( ( %S |S ) %!= 'Set'  ) ) then
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== '' AND 
+     ( ( %C ->C |x  ) %==  true  ) AND 
+     ( ( %C ->C |l  ) %== 'ref'  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== '' AND 
+     ( ( %C |x ) %==  true  ) AND 
+     ( ( %C |l ) %== 'ref'  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // else
+//#UC END# *4718775F035B*
+; // need_key_hash
+
+
+// определяет нужно ли генерить определение контэйнера
+// или оно уже было сгенерено раньше как форвард декларация
+//f _need_container_def
+: need_container_def OBJECT IN %S
+//#UC START# *49015F0C0207*
+//	%f_set_var(SELF,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% 
+//	[{<{}{%n<{}{%{SELF}U=%FU}{%FC}>!=0}{%nC}>=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%n
+  begin
+   OBJECT IN %n
+   if ( ( %n
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%F
+    begin
+     OBJECT IN %F
+     if ( ( ( get_global_var ( 'SELF' ) |U ) ) %== ( %F |U ) ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for F
+    l_Counter
+
+   ) // bind
+ )    %!= 0 ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for n
+  l_Counter
+  %== 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *49015F0C0207*
+; // need_container_def
+
+
+// гененрит необходимые форвард декларации типом, используемых контэйнером
+//f _dump_container_fwds_h
+: dump_container_fwds_h OBJECT IN %S
+//#UC START# *4901625A0198*
+//	[\
+ if NOT-EMPTY
+ begin
+
+//	<#%FF
+
+//	>\
+//	[{%f_need_container_def(%S)=false}[<{}{%AC=Attribute}#%A%TF
+  if ( ( [%f] need_container_def %( %S )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |C ) %== 'Attribute' ) then
+     begin
+      out_indent %A ->T |F  
+//	>]]
+
+      ++! l_Counter
+     end // if
+    end // for A
+   end // if
+   NOP
+  end // if
+//	]
+ end // if
+ NOP
+//#UC END# *4901625A0198*
+; // dump_container_fwds_h
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

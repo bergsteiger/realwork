@@ -1,0 +1,33 @@
+
+Sub Main
+    Dim Result As Integer
+
+    'Initially Recorded: 21.06.2002  22:28:02
+    'Script Name: change_1x
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 51
+    
+    Window SetContext, "Caption=Сложный переход с КИБ на КИБ", ""
+    InputKeys "{DOWN} "
+    GroupBox Click, "ObjectIndex=2", "Coords=6,19"
+    
+    Window SetContext, "Caption=Создание замещающего продукта", ""
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{TAB}{TAB}{DOWN}{TAB}{DOWN}"
+    InputKeys "{TAB}{DOWN}{TAB}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN} {DOWN} "
+    InputKeys "{DOWN} {DOWN} {DOWN} {ENTER}"
+    
+    Window SetContext, "Caption=Сложный переход с КИБ на КИБ", ""
+    GroupBox Click, "ObjectIndex=2", "Coords=16,21"
+    
+    Window SetContext, "Caption=Создание замещающего продукта", ""
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}"
+    InputKeys "{TAB}{TAB}{DOWN}{TAB}{DOWN}{TAB}{DOWN}{ENTER}"
+    
+    Window SetContext, "Caption=Сложный переход с КИБ на КИБ", ""
+    GenericObject Click, "Class=TWinControl;ClassIndex=1", "Coords=11,5"
+    InputKeys "{PGUP}{PGUP}{PGUP}{UP}{UP}{RIGHT}{UP}{ENTER}{ENTER}"
+
+End Sub

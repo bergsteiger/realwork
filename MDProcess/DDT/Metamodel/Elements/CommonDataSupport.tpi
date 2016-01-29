@@ -1,0 +1,88 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DDT/Metamodel/Elements/CommonDataSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess::DDT::Metamodel::Elements::CommonDataSupport
+//
+// Набор вспомогательных методов для генерации основной структуры данных, которая может быть
+// определена несколькими форматами
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Возвращает true, если элемент определяет основной тип данных
+f _is_main_data_type
+//#UC START# *48C654CC01EF*
+	%f_set_var(ELEM,S)\
+	%f_set_var(MAIN_GRAMMAR,"")\
+	<{}{}{%c}[{%cS=Grammar&%c{is main}=true}%f_set_var(MAIN_GRAMMAR,c)]>\
+	[{"%{MAIN_GRAMMAR}U"!=""}{[{<{}{%cS=Grammar}{%cC}>!=0}{false}true]}%f_clear_list(ATTRS)%f_collect_attrs_req(%{MAIN_GRAMMAR},"ATTRS")\
+//теперь нужно проверить, что элемент включается в main грамматику не как внешний (extern)
+	[{"<{}{%f_is_empty(ATTRS)=false}{W}[%f_pop_first_to_var(ATTRS,ATTR)[{%{ATTR}S!=extern&%{ATTR}%TU=%{ELEM}U}.]]>"!=""}{false}true]]\
+	%f_clear_list(ATTRS)
+
+//рекурсивно собирает атрибуты в один список, а типы атрибутов в другой
+f _collect_attrs_req
+	[{"%1N"=""}%f_error("_collect_attrs_req: не задан идентификатор списка, в который складывать атрибуты")]\
+	[{"%2N"=""}{%f_set_var(TYPES_LIST_ID,"%2N")}%f_set_var(TYPES_LIST_ID,"VISITED_TYPES")%f_clear_list(%{TYPES_LIST_ID}N)]\
+	%f_set_var(LIST_ID,"%1N")\
+	%f_collect_attrs_req_i(%S)\
+	%f_clear_list(VISITED_TYPES)
+
+f _collect_attrs_req_i
+	[{%f_exists_in_list(%{TYPES_LIST_ID}N,S)=false}%f_add_to_list(%{TYPES_LIST_ID}N,S)\
+	<{}{%CC=Attribute}%f_add_to_list(%{LIST_ID}N,C)%f_collect_attrs_req_i(%C%T)>]
+
+//нужно ли генерить описание типа для элемента
+f _need_type_def
+/	[{%f_is_main_data_type(%S)=true}{[{<{}{%sS=extern}{%sC}>!=0}{true}false]}true]
+	true
+
+f _find_main_type
+	[{"%1N"=""}%f_error("_find_main_type: Не задано имя переменной, в которую поместить результат")]\
+	%f_set_var(ARG,"%1N")\
+	[{%f_need_type_def(%S)=true}{<{}{%sS=extern}%s[%f_set_var(%{ARG}N,P)]>}%f_set_var(%{ARG}N,S)]
+
+//ищет объединяющую рутовую грамматику
+f _find_union_grammar
+	%f_set_var(ARG,"%1N")\
+	%f_find_union_grammar_i(%S)
+
+f _find_union_grammar_i
+	[{<{}{%s%PS=Grammar}{%sC}>!=0}{%f_set_var(%{ARG}N,S)}<{}{%s%PS=Grammar}%f_find_union_grammar_i(%s%P)>]
+
+f _set_main_grammar_result
+	%S%f_set_root_rule_type()%f_set_var(%1N,{ROOT_TYPE_%SU})
+
+f _is_main_grammar
+	[{%S{is main}=true|<{}{%s%PS=Grammar}{%sC}>=0}{false}[{<{}{%CC=Attribute&%C%TS=Grammar}{%CC}>=0}{false}true]]
+
+f _find_main_grammar
+	[{"%1N"=""}%f_error("_find_main_grammar: Не задано имя переменной, в которую поместить результат")]\
+	%f_set_var(ARG,"%1N")\
+	[{%f_is_main_grammar(%S)!=true}{%f_set_var(%{ARG}N,S)}\
+	%f_set_var(ROOT_GRAMMAR,"")%f_find_union_grammar(%S,"ROOT_GRAMMAR")\
+	[{"%{ROOT_GRAMMAR}U"!=""}%f_clear_list(ATTRS)%f_collect_attrs_req(%{ROOT_GRAMMAR},"ATTRS")%f_set_var(BREAK_CYCLE,"false")%f_set_var(ARG,"%1N")\
+	<{}{%f_is_empty(ATTRS)=false&%{BREAK_CYCLE}N=false}{W}%f_pop_first_to_var(ATTRS,ATTR)[{%{ATTR}%TS=Grammar&%f_is_main_grammar(%{ATTR}%T)=true}%{ATTR}%T[%f_set_var(%{ARG}N,S)]%f_set_var(BREAK_CYCLE,"true")]>]]
+
+
+f _find_main_grammar_result
+	%f_set_var(ARG,"%1N")\
+	[{%f_is_main_grammar(%S)!=true}{%f_set_main_grammar_result(%S,"%{ARG}N")}\
+	%f_set_var(ROOT_GRAMMAR,"")%f_find_union_grammar(%S,"ROOT_GRAMMAR")\
+	[{"%{ROOT_GRAMMAR}U"!=""}%f_clear_list(ATTRS)%f_collect_attrs_req(%{ROOT_GRAMMAR},"ATTRS")%f_set_var(BREAK_CYCLE,"false")%f_set_var(ARG,"%1N")\
+	<{}{%f_is_empty(ATTRS)=false&%{BREAK_CYCLE}N=false}{W}%f_pop_first_to_var(ATTRS,ATTR)[{%{ATTR}%TS=Grammar&%f_is_main_grammar(%{ATTR}%T)=true}%f_set_main_grammar_result(%{ATTR}%T,"%{ARG}N")%f_set_var(BREAK_CYCLE,"true")]>]]
+
+//определяет, что тип используется грамматикой напрямую, т.е является рутовым типом
+f _used_by_grammar
+	[{<{}{%aC=Attribute&%a%PS=Grammar}{C}>!=0}{false}true]
+
+
+//формирует список атрибутов до нужного типа
+f _make_attr_path_to_type
+	[]
+//#UC END# *48C654CC01EF*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

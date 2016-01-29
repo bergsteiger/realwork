@@ -1,0 +1,69 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/project/T_NewAdapterTarget.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<AdapterTarget::Category>> TestModel::NewAdapterTarget
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_NewAdapterTarget) : project_generic_core_corba, project_subsystem_windows {
+	sharedname = NewAdapterTarget/NewInstallerTarget
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += BasicTests
+	after += BasicTests_tie
+	libs  += BasicTests
+	libs  += BasicTests_tie
+	after += NewLibrary
+	after += NewLibrary_tie
+	libs  += NewLibrary
+	libs  += NewLibrary_tie
+	after += NewServerLibrary_cs
+	libs  += NewServerLibrary_cs
+	after += NewTestLibrary
+	after += NewTestLibrary_tie
+	libs  += NewTestLibrary
+	libs  += NewTestLibrary_tie
+	after += SubServerLibrary_cs
+	libs  += SubServerLibrary_cs
+	after += SubTestLibrary
+	after += SubTestLibrary_tie
+	libs  += SubTestLibrary
+	libs  += SubTestLibrary_tie
+	after += NewServerLibrary
+	libs  += NewServerLibrary
+
+	//#UC START# *49AECD1003CC_CUSTOM_DEPENDENSES*
+	//#UC END# *49AECD1003CC_CUSTOM_DEPENDENSES*
+	includes += ../../
+
+	Header_Files {
+		Std_Headers {
+			./../NewAdapterTarget/NewAdapterTarget.h
+			./../NewAdapterTarget/NewAdapterTarget_tie.h
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../NewAdapterTarget/NewAdapterTarget.cpp
+			./../NewAdapterTarget/NewAdapterTarget_tie.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../NewAdapterTarget/NewAdapterTarget_vi.rc
+		./../NewAdapterTarget/NewAdapterTarget_vi.rch
+		
+		//#UC START# *49AECD1003CC_RESOURCE_FILES*
+		//#UC END# *49AECD1003CC_RESOURCE_FILES*
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

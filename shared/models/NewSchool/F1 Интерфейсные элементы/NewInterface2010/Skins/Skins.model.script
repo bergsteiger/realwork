@@ -1,0 +1,247 @@
+<<VCMViews>> Skins
+ %UID '4CC7FE720049'
+ %SUMMARY '"Скины"' ;
+ %DEPENDS
+  U$ '4677FF4B0036' /* Data */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '472745450206' /* l3Units */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4799D29F033F' /* Implementation */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4CC81F680162' /* SkinnedControls */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '55C4AEC801CA' /* Graphics */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677FF4B0036' /* Data */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4CC81F680162' /* SkinnedControls */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<VCMForms>> Core
+   %UID '4CC8099102F5'
+   %SUMMARY 'Базовые элементы для поддержки скинов' ;
+   %DEPENDS
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4CC81FAC02D6' /* Core */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4CC81F680162' /* SkinnedControls */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<VCMForm>> RegionableForm
+      %UID '4CC809BC0082'
+      %SUMMARY 'Форма с поддержкой региона' ;
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+       %upv "started" '27.10.2010'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '4CC81F680162' /* SkinnedControls */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4CC815A201A8' /* MForm */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4CC81FB7008B' /* RegionableControl */
+      ; // %INHERITS
+     ; // RegionableForm
+     ABSTRACT <<VCMForm>> SkinnedForm
+      %UID '4CC95A2201B5'
+      %SUMMARY 'Форма с поддержкой скинов' ;
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+       %upv "started" '28.10.2010 15:11'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        PROTECTED <<method>> IsSkinned
+         %UID '4CC95A76016F'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CC95A830296'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsSkinned
+      ; // %OPERATIONS
+     ; // SkinnedForm
+   ; // %CHILDREN
+  ; // Core
+  <<VCMForms>> BaseSearch
+   %UID '4CC7FF0E03BA'
+   %SUMMARY 'Базовый поиск' ;
+   %DEPENDS
+    U$ '472745450206' /* l3Units */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '48F747EC0073' /* Common */
+    U$ '4AADF9450143' /* Visual */
+    U$ '4CC8099102F5' /* Core */
+    U$ '55C4AEC801CA' /* Graphics */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677FF4B0036' /* Data */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '4CC7FE720049' /* Skins */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<VCMForm>> BaseSearch2010
+      %UID '4CC804B60371'
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+       %upv "started" '27.10.2010'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '4CC7FE720049' /* Skins */
+       U$ '4E13416D0227' /* VCM$Visual */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4A82BCFA02EF' /* MvcmEntityForm */
+       U$ '4CC95A2201B5' /* SkinnedForm */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4CC809BC0082' /* RegionableForm */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4A8E8F2E0195' /* InitControls */
+       U$ '4CC847800383' /* TuneRegion */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CC857DC0340"
+         %UID '4CC857DC0340'
+         %TARGET U$ '4728976B0154' /* Tl3SRect */
+        ; // 4CC857DC0340
+        <<uses>> "4CC95BBF036E"
+         %UID '4CC95BBF036E'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 4CC95BBF036E
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED FINAL <<method>> BackColor1
+         %UID '4CC95AAD0069'
+         %SUMMARY 'Начало градиента' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CC95B07002B'
+            %TARGET U$ '46A44A2F01C7' /* TColor */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // BackColor1
+        PROTECTED FINAL <<method>> BackColor2
+         %UID '4CC95B14022B'
+         %SUMMARY 'Конец градиента' ;
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CC95B3400B8'
+            %TARGET U$ '46A44A2F01C7' /* TColor */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // BackColor2
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Constants>> Colors
+         %UID '4CC85AA402DF'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> GradientStartColor
+            %UID '4CC85ABF0285'
+            %VALUE '$CF9560'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // GradientStartColor
+           <<Attribute>> GradientEndColor
+            %UID '4CC85AE40145'
+            %VALUE '$E1B484'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // GradientEndColor
+         ; // %ATTRIBUTES
+        ; // Colors
+      ; // %CHILDREN
+     ; // BaseSearch2010
+   ; // %CHILDREN
+  ; // BaseSearch
+ ; // %CHILDREN
+; // Skins

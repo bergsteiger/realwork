@@ -1,0 +1,3 @@
+{DEFINE FC}
+{$DEFINE ZF}
+//{$DEFINE ZF_int}

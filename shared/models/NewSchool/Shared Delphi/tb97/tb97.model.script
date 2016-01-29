@@ -1,0 +1,1027 @@
+<<Library>> tb97
+ %UID '4C43E84F0304'
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '561F9F7D02A7' /* ScriptEngine */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'TB97VER.INC'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifndef" 'NoTB97'
+  %upv "is namespace" true
+  %upv "vendor" '/external'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Views>> tb97utils
+   %UID '5028898902A2'
+   %DEPENDS
+    U$ '467BA8C8017E' /* afwControl */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+    U$ '4C43E84F0304' /* tb97 */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> Ttb97Control
+      %UID '50288ABF02F4'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790B4F00236' /* AFW */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48BBE37E00A2' /* TafwCustomCommonControl */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "FCE6EA0B7872"
+         %UID 'FCE6EA0B7872'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // FCE6EA0B7872
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID 'A7F58AE0060E'
+         %SUMMARY 'Регистрация Ttb97Control' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+     ; // Ttb97Control
+     FINAL <<UtilityPack>> TB97
+      %UID '502889FF0054'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4C43E84F0304' /* tb97 */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TCustomToolWindow97
+         %UID '50288A3D023C'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50288ABF02F4' /* Ttb97Control */
+         ; // %INHERITS
+         %LINKS
+           <<uses>> "552E106A02E8"
+            %UID '552E106A02E8'
+            %TARGET U$ '47E13C6B0341' /* Forms */
+           ; // 552E106A02E8
+           SUMMONED <<uses>> "ACEEB45EA9C4"
+            %UID 'ACEEB45EA9C4'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // ACEEB45EA9C4
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> UpdateEmpty
+            %UID '5028A1220383'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5028A1370341'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aUpdateVisibility
+                  %UID '5028A13A02FB'
+                  %TARGET U$ '46A603BB0391' /* Boolean */
+                  %VALUE true
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aUpdateVisibility
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // UpdateEmpty
+           <<method>> BeginUpdate
+            %UID '5028A78000B6'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '233919BBCD7A'
+               %SUMMARY 'Сигнатура метода BeginUpdate' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // BeginUpdate
+           <<method>> EndUpdate
+            %UID '5028A78B015A'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '295D21D61A97'
+               %SUMMARY 'Сигнатура метода EndUpdate' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // EndUpdate
+           PROTECTED <<method>> NeedActivateMainForm
+            %UID '552E0FD5016D'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '552E0FEF020E'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // NeedActivateMainForm
+           PROTECTED <<method>> ActivateMainForm
+            %UID '552E10010067'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'EE072599FA78'
+               %SUMMARY 'Сигнатура метода ActivateMainForm' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ActivateMainForm
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '1843EB8E78EA'
+            %SUMMARY 'Регистрация TCustomToolWindow97' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomToolWindow97
+        <<SimpleClass>> TDock97
+         %UID '5028DD12007F'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50288ABF02F4' /* Ttb97Control */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "54A2600909E1"
+            %UID '54A2600909E1'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 54A2600909E1
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> SizeGripWidth
+            %UID '5028DD25024B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5028DD4800CC'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SizeGripWidth
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'B41AB14DF939'
+            %SUMMARY 'Регистрация TDock97' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TDock97
+      ; // %CHILDREN
+     ; // TB97
+     <<SimpleClass>> Ttb97GraphicControl
+      %UID '502CD8FA02E1'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4C43E84F0304' /* tb97 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '502CD936004A' /* Ttb97CustomGraphicControl */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "FD6CFEE92176"
+         %UID 'FD6CFEE92176'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // FD6CFEE92176
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '269F37F2142F'
+         %SUMMARY 'Регистрация Ttb97GraphicControl' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> Ttb97CustomGraphicControl
+         %UID '502CD936004A'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '47913F970159' /* l3Unknown */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4F2A5AA1012C' /* TGraphicControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "3E0BAB3449C8"
+            %UID '3E0BAB3449C8'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 3E0BAB3449C8
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'A3785EB1DA66'
+            %SUMMARY 'Регистрация Ttb97CustomGraphicControl' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // Ttb97CustomGraphicControl
+        <<SimpleClass>> Ttb97GraphicTextControl
+         %UID '502CD89E0200'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '502CD8FA02E1' /* Ttb97GraphicControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "93A26C7D09E4"
+            %UID '93A26C7D09E4'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 93A26C7D09E4
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'A52232776F00'
+            %SUMMARY 'Регистрация Ttb97GraphicTextControl' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // Ttb97GraphicTextControl
+      ; // %CHILDREN
+     ; // Ttb97GraphicControl
+   ; // %CHILDREN
+  ; // tb97utils
+  <<Views>> Toolbar
+   %UID '5028887002FD'
+   %DEPENDS
+    U$ '4728A7020026' /* Types */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '5028898902A2' /* tb97utils */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+    U$ '4C43E84F0304' /* tb97 */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> TB97Tlbr
+      %UID '5028888A0160'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4C43E84F0304' /* tb97 */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TCustomToolbar97
+         %UID '502888EA0114'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50288A3D023C' /* TCustomToolWindow97 */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4F2A599E0283' /* SetBounds */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "40BF6CE839C9"
+            %UID '40BF6CE839C9'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 40BF6CE839C9
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_Bounds
+            %UID '50589F4B0042'
+            %TARGET U$ '4728A7190065' /* TRect */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Bounds
+           PROTECTED <<readonly>> ResizeLockedCount
+            %UID '50589F5201F9'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "pm" true
+             %upv "reads field" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // ResizeLockedCount
+           SUMMONED PRIVATE <<Attribute>> f_ResizeLockedCount
+            %UID '6BF503CC2AB6'
+            %SUMMARY 'Поле для свойства ResizeLockedCount' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_ResizeLockedCount
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PROTECTED <<method>> ExecuteHandler
+            %UID '5028A00600B5'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5028A0110376'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Sender
+                  %UID '5028A0160130'
+                  %TARGET U$ '4807745602C8' /* TObject */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Sender
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ExecuteHandler
+           PROTECTED <<method>> ExecuteDefered
+            %UID '5028A09900D5'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '568672D064D3'
+               %SUMMARY 'Сигнатура метода ExecuteDefered' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ExecuteDefered
+           PROTECTED <<method>> IsGToolbarSizeNeeded
+            %UID '503DE79F02BA'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '503DE7BA0232'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsGToolbarSizeNeeded
+           PROTECTED FINAL <<method>> LockResize
+            %UID '504F06E0002A'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '19AF9DECB118'
+               %SUMMARY 'Сигнатура метода LockResize' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // LockResize
+           PROTECTED FINAL <<method>> UnlockResize
+            %UID '504F06EB033F'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '00844CB3002F'
+               %SUMMARY 'Сигнатура метода UnlockResize' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // UnlockResize
+           PROTECTED <<method>> AdjustSizeForPanels
+            %UID '5058B29A007C'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID '51EE05C4C915'
+               %SUMMARY 'Сигнатура метода AdjustSizeForPanels' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AdjustSizeForPanels
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '32E8F8A98807'
+            %SUMMARY 'Регистрация TCustomToolbar97' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomToolbar97
+        <<SimpleClass>> TToolbar97
+         %UID '502888D60048'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '502888EA0114' /* TCustomToolbar97 */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "A36CF4AC693B"
+            %UID 'A36CF4AC693B'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // A36CF4AC693B
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '5C59A1D3DE16'
+            %SUMMARY 'Регистрация TToolbar97' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TToolbar97
+        <<SimpleClass>> TToolbarSep97
+         %UID '5028A2FC03A5'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '502CD936004A' /* Ttb97CustomGraphicControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "064294E686C9"
+            %UID '064294E686C9'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 064294E686C9
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'ECA310AF3D23'
+            %SUMMARY 'Регистрация TToolbarSep97' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TToolbarSep97
+        <<SimpleClass>> Ttb97MoreButton
+         %UID '5374B0D9013D'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" true
+         ; // %META
+         %LINKS
+           SUMMONED <<uses>> "28F39A601A5F"
+            %UID '28F39A601A5F'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 28F39A601A5F
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'C338CCC15531'
+            %SUMMARY 'Регистрация Ttb97MoreButton' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // Ttb97MoreButton
+      ; // %CHILDREN
+     ; // TB97Tlbr
+   ; // %CHILDREN
+  ; // Toolbar
+  <<Views>> Buttons
+   %UID '4C43E8750153'
+   %DEPENDS
+    U$ '4728A7020026' /* Types */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '5028898902A2' /* tb97utils */
+    U$ '561F9F7D02A7' /* ScriptEngine */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4B63155B0328' /* MDProcess$ForDelphi */
+    U$ '4C43E84F0304' /* tb97 */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> tb97Ctls
+      %UID '4C43E892032F'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4C43E84F0304' /* tb97 */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "53CE3AC60242"
+         %UID '53CE3AC60242'
+         %TARGET U$ '47E13C6B0341' /* Forms */
+        ; // 53CE3AC60242
+      ; // %LINKS
+      %CHILDREN
+       
+        <<SimpleClass>> TCustomToolbarButton97
+         %UID '4F69EF8C027C'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '502CD89E0200' /* Ttb97GraphicTextControl */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "F3A56CA02D8A"
+            %UID 'F3A56CA02D8A'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // F3A56CA02D8A
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> IsGtbToolbarButtonSizeNeeded
+            %UID '503DE82B0311'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '503DE8330065'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsGtbToolbarButtonSizeNeeded
+           PROTECTED <<method>> GetIsAutoCenter
+            %UID '503E27CA010E'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '503E27EB01F0'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetIsAutoCenter
+           PROTECTED <<method>> CalcSize
+            %UID '504779E00385'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '504779E90294'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<inout>> aSize
+                  %UID '504779ED0391'
+                  %TARGET U$ '50477FCE0307' /* TSize */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aSize
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CalcSize
+           PROTECTED <<method>> NeedAutoDown
+            %UID '50477A430157'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '50477A4C002D'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // NeedAutoDown
+           PROTECTED <<method>> AutoAllUp
+            %UID '52A08B2C0001'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '52A08B3301CE'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AutoAllUp
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '4A89C24FFE9E'
+            %SUMMARY 'Регистрация TCustomToolbarButton97' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomToolbarButton97
+        <<SimpleClass>> TToolbarButton97
+         %UID '4C43E8A60084'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F69EF8C027C' /* TCustomToolbarButton97 */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "FDC5335AACBC"
+            %UID 'FDC5335AACBC'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // FDC5335AACBC
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '3F3C896470EF'
+            %SUMMARY 'Регистрация TToolbarButton97' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TToolbarButton97
+        <<SimpleClass>> TCustomToolbarPanel97
+         %UID '503DEAA102E9'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F69EF8C027C' /* TCustomToolbarButton97 */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "DF6831FB8E40"
+            %UID 'DF6831FB8E40'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // DF6831FB8E40
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '6D44D41D4F3C'
+            %SUMMARY 'Регистрация TCustomToolbarPanel97' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TCustomToolbarPanel97
+        <<SimpleClass>> TSizeGripPanel
+         %UID '5058B6600074'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '4C43E84F0304' /* tb97 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '503DEAA102E9' /* TCustomToolbarPanel97 */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "199A82DB0AAD"
+            %UID '199A82DB0AAD'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 199A82DB0AAD
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> GetFormToResize
+            %UID '53CE39CD0045'
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '53CE39DE0073'
+               %TARGET U$ '484529DC0276' /* TCustomForm */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetFormToResize
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID 'AA48BBA283B4'
+            %SUMMARY 'Регистрация TSizeGripPanel' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+         ; // %OPERATIONS
+        ; // TSizeGripPanel
+        <<SimpleClass>> TToolbarButton97ActionLink
+         %UID '52A087450138'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '48BBF59C024E' /* TControlActionLink */
+         ; // %INHERITS
+        ; // TToolbarButton97ActionLink
+      ; // %CHILDREN
+     ; // tb97Ctls
+   ; // %CHILDREN
+  ; // Buttons
+  <<Interfaces>> TB97ExtInterfaces
+   %UID '52A8439001F3'
+   %DEPENDS
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> ITB97Ctrl
+      %UID '52A843B3028F'
+      %SUMMARY 'интерфейс поддерживаемый по необходимости компонентами размещенными на toolbar-е' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> FullWidth
+         %UID '52A8447101AF'
+         %SUMMARY 'обычный размер компонента, для вычисления и размещения компонентов' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // FullWidth
+        ABSTRACT LINK <<readonly>> IsSizeable
+         %UID '52A8448E0050'
+         %SUMMARY 'компонент может изменять размеры' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsSizeable
+        ABSTRACT LINK <<readonly>> MinWidth
+         %UID '52A844A300F5'
+         %SUMMARY 'минимальный размер до которого может сжиматься компонент' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // MinWidth
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<facetmethod>> DoFitToWidth
+         %UID '52A844D303D9'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52A844D900E6'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aWidth
+               %UID '52A844DC011B'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aWidth
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoFitToWidth
+        ABSTRACT <<facetmethod>> DoUnFitToWidth
+         %UID '52A844E6012E'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '52A844EA02A6'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aWidth
+               %UID '52A844EC0287'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aWidth
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoUnFitToWidth
+        ABSTRACT <<facetmethod>> Expand
+         %UID '52A844F600E6'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '9EA634B49ABA'
+            %SUMMARY 'Сигнатура метода Expand' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Expand
+      ; // %OPERATIONS
+     ; // ITB97Ctrl
+   ; // %CHILDREN
+  ; // TB97ExtInterfaces
+  <<Unit>> TB97
+   %UID '52AB1AAD01E5'
+   %META
+    %upv "finished" false
+   ; // %META
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> tb97vt
+      %UID '52AB1AC403E7'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<Constants>> MessageConstants
+         %UID '52EB804601CE'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> CM_TBMOUSEQUERY
+            %UID '52EB80B60166'
+            %VALUE 'WM_USER + 12345'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // CM_TBMOUSEQUERY
+           <<Attribute>> CM_TBCHECKCONTROL
+            %UID '52EB80CB00DD'
+            %VALUE 'CB_TBMOUSEQUERY + 1'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // CM_TBCHECKCONTROL
+         ; // %ATTRIBUTES
+        ; // MessageConstants
+      ; // %CHILDREN
+     ; // tb97vt
+   ; // %CHILDREN
+  ; // TB97
+ ; // %CHILDREN
+; // tb97

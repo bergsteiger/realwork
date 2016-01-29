@@ -1,0 +1,2 @@
+MakeCo CustomFormProcessingPack.rc.script
+brcc32 CustomFormProcessingPack.rc

@@ -1,0 +1,131 @@
+object frmSVGTool: TfrmSVGTool
+  Left = 463
+  Top = 218
+  Width = 718
+  Height = 596
+  Caption = 'SVG to VGScene'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object vgScene1: TvgScene
+    Left = 0
+    Top = 0
+    Width = 702
+    Height = 558
+    Align = alClient
+    DesignSnapGridShow = False
+    DesignSnapToGrid = False
+    DesignSnapToLines = True
+    object Root1: TvgBackground
+      Width = 702.000000000000000000
+      Height = 558.000000000000000000
+      object ToolBar1: TvgToolBar
+        Cursor = crArrow
+        Width = 702.000000000000000000
+        Height = 62.000000000000000000
+        Margins.Rect = '(2,2,2,2)'
+        TabOrder = 0
+        object Layout1: TvgLayout
+          Align = vaCenter
+          Position.Point = '(267,2)'
+          Width = 168.000000000000000000
+          Height = 58.000000000000000000
+          object btnSave: TvgToolPathButton
+            Align = vaLeft
+            Position.Point = '(72,0)'
+            Width = 72.000000000000000000
+            Height = 58.000000000000000000
+            OnClick = btnSaveClick
+            TabOrder = 0
+            StaysPressed = False
+            IsPressed = False
+            CanFocused = True
+            TextAlign = vgTextAlignCenter
+            Text = 'Export VG...'
+            Path.Path = {
+              2D000000000000004C679443F6C8F9430100000021B01A41FE74194401000000
+              665694C3F6C8F94301000000665694C308BCBB430100000085ABB1C2022BA743
+              0100000006C116C3E3C57C43010000009E2FE2C2E3257743010000005C8F8AC2
+              E3C57C43010000005C8F8AC2084C064301000000AAF1DFC10C22034301000000
+              8D97BA42EC910B43010000008D97BA420CC288430100000025864043F6E88E43
+              010000003333DB4208ACAD43010000004C67944308BCBB430300000000000000
+              00000000000000005238344306519043010000001BAFAA4206B18A4301000000
+              1BAFAA4204160F430100000077BEE5C1084C06430100000033B369C2E71B0943
+              0100000058394D42088C11430100000058394D420A278D43010000008FA20F43
+              F8F39243010000005A6475C10AA7D043010000001F8571410050CD4303000000
+              0000000000000000000000005C8F8AC2FC898443010000005C8F8AC2F6D88043
+              01000000E77BE1C210B87B4301000000254608C3FE2480430300000000000000
+              0000000000000000B0628343F212BF43010000003D0AC4420611B24301000000
+              9CC49541086CCF4301000000AC1CA6C1022BD443010000001F85A7C20C82AA43
+              01000000640B84C3F47DBD430100000021B01A4104D6DD430100000077BE7542
+              FAAED7430100000064BB9A420671D943010000007DBFD942F833F84301000000
+              48A1524308BCE843010000004EC25C43FAFEC343030000000000000000000000}
+            PathSize = 32.000000000000000000
+            PathPadding = 2.000000000000000000
+            PathFill.Style = vgBrushNone
+            PathStroke.Color = '#FFFDFDFD'
+          end
+          object btnLoad: TvgToolPathButton
+            Align = vaLeft
+            Width = 72.000000000000000000
+            Height = 58.000000000000000000
+            OnClick = btnLoadClick
+            TabOrder = 1
+            StaysPressed = False
+            IsPressed = False
+            CanFocused = True
+            TextAlign = vgTextAlignCenter
+            Text = 'Load SVG...'
+            Path.Path = {
+              27000000000000004C679443089CF9430100000021B01A410048194401000000
+              665694C3089CF94301000000665694C3FA8EBB43010000000CC284C2FEB4A443
+              010000000CC284C20611854301000000A0DA13C30CE27E4301000000EE7C0341
+              F0E7F84201000000BE1F5042E7FBF34201000000E96647430E9D8F4301000000
+              0AD71E4306219343010000005A64C042F2428F43010000005A64C04202CBAC43
+              010000004C679443FA8EBB430300000000000000000000000000000025864043
+              0C628E4301000000F2524A42CFB7FB420100000052B84E4108AC004301000000
+              C9361F43FE049143030000000000000000000000000000006ABCB7420AD7CD43
+              010000006ABCB74204168F4301000000310860420A278D430100000031086042
+              0CE2D14303000000000000000000000000000000B062834304E6BE4301000000
+              5A64C042FC89B143010000005A64C042F698CF4301000000CB215D421058D443
+              010000000CC284C20EDDC743010000000CC284C2F638A84301000000640B84C3
+              F823BD430100000021B01A41087CDD430100000077BE75420C82D74301000000
+              64BB9A42F843D943010000007DBFD942FCD9F7430100000048A15243FA8EE843
+              010000004EC25C430CD2C343030000000000000000000000}
+            PathSize = 32.000000000000000000
+            PathPadding = 2.000000000000000000
+            PathFill.Style = vgBrushNone
+            PathStroke.Color = '#FFFDFDFD'
+          end
+        end
+      end
+      object SVG: TvgScaledLayout
+        Position.Point = '(209,131)'
+        Width = 292.000000000000000000
+        Height = 345.000000000000000000
+        Padding.Rect = '(10,70,10,10)'
+        OriginalWidth = 50.000000000000000000
+        OriginalHeight = 50.000000000000000000
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'SVG Files|*.svg'
+    Left = 558
+    Top = 14
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = 'vg'
+    Filter = 'VGScene Object|*.vg'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    Left = 588
+    Top = 14
+  end
+end

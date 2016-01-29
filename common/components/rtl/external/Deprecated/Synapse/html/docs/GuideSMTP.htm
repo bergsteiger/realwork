@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<META HTTP-EQUIV="Content-language" CONTENT="en">
+	<META NAME="Robots" CONTENT="ALL; FOLLOW">
+	<META name="description" content="SYNAPSE - Synchronous TCP/IP Library for Delphi">
+	<META name="keywords" content="Synapse, TCP/IP, Socket, Synchronous, Blocking">
+	<title>SYNAPSE - Synchronous TCP/IP Library for Delphi</title>
+</head>
+<body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+
+<CENTER>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue">
+<B>SYNAPSE - Synchronous TCP/IP Library for Delphi</B>
+</FONT>
+<br>
+Other related information can be found at <A HREF="http://www.ararat.cz/synapse/">http://www.ararat.cz/synapse/</A>
+</CENTER>
+<hr>
+<font face="sans-serif" size="+2" color="Blue"><b>SMTP guide</b></font><p>
+<b>Class:</b> TSMTPSend<p>
+<b>RFC:</b> 821, 1870, 1893, 1985, 2034, 2104, 2195, 2554<p>
+<b>Features:</b>
+<ul>
+	<li>support all minimal required SMTP commands
+	<li>support for VRFY SMTP command
+	<li>support for ETRN SMTP command
+	<li>support for AUTH SMTP command with method LOGIN and CRAM-MD5 (preffered)
+	<li>support for SIZE ESMTP parameter
+	<li>support for handling enhanced result codes
+	<li>detailed control SMTP session
+</ul>
+<b>Typical use:</b><p>
+
+<ul>
+	<li>In all cases you must have <i>SMTPsend</i> in your <b>uses</b>.
+	<li>For simple sending e-mails from your applications call function <i>SendTo</i>. Not need any more. This function create needed object, complete needed e-mail headers, control all SMTP session,...
+	<li>If you can detailed control SMTP session, see example:<p> 
+<font size="-1">
+<font color="Teal"><I>
+{you must create object for SMTP session}
+</I></FONT><br>
+SMTP:=TSMTPSend.Create;<br>
+<B>try</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{set address of SMTP server, throw you can send e-mails}
+  </I></FONT><br>
+  &nbsp;&nbsp;SMTP.SMTPHost:=SMTPHost;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{begin SMTP session with server}
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>if not</B> SMTP.login <B>then</B>
+  <font color="Teal"><I>
+  {error connecting to server}
+  </I></FONT>;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{send e-mail address of sender.}
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>if not</B> SMTP.mailfrom(EMailOfSender,0) <B>then</B> 
+  <font color="Teal"><I>
+  {server not allow e-mails from this sender}
+  </I></FONT>;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{send e-mail address of receiver. You may run this line multiply, if e-mail for multiple receivers}
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>if not</B> SMTP.mailto(EMailOfFirstReceiver) <B>then</B>
+  <font color="Teal"><I>
+  {server not allow send e-mail to this receiver from sender address}
+  </I></FONT>;<br>
+  &nbsp;&nbsp;<B>if not</B> SMTP.mailto(EMailOfSecondFirstReceiver) <B>then</B>
+  <font color="Teal"><I>
+  {server not allow send e-mail to this receiver from sender address}
+  </I></FONT>;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;//...etc...
+  </I></FONT><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{now send raw data of e-mail stored as text in Stringlist.}<br>
+  &nbsp;&nbsp;{Remember, text data must have headers lines. Practical headers is FROM, TO, DATE and SUBJECT}<br>
+  &nbsp;&nbsp;{If you can send MIME e-mails, you must code it to stringlist first}
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>if not</B> SMTP.maildata(t) <B>then</B> 
+  <font color="Teal"><I>
+  {this e-mail body is not accepted}
+  </I></FONT>;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{closing session and disconnect from SMTP server}
+  </I></FONT><br>
+  &nbsp;&nbsp;SMTP.logout;<br>
+  <B>finally</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{destroy SMTP object}
+  </I></FONT><br>
+  &nbsp;&nbsp;SMTP.Free;<br>
+  <B>end</B>;
+</font>
+</ul>
+
+<hr>
+</body>
+</html>
+

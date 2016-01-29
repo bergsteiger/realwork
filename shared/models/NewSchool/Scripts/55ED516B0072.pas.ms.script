@@ -1,0 +1,1121 @@
+// ExportPipeTests 55ED516B0072 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55ED516B0072
+
+FORWARD ME_55ED52510115
+
+: ME_55ED54F10251
+ CONST UID '55ED54F10251'
+ CONST Name 'Pipe'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_519B8DB20186' '50598FD9019C.pas.ms.script' // TExportPipe
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_55ED54F10251 Pipe
+
+: ME_55FFFFB201C7
+ CONST UID '55FFFFB201C7'
+ CONST Name 'f_IsNSRC'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_55FFFFB201C7 f_IsNSRC
+
+: ME_62F7F5BCC979
+ CONST UID '62F7F5BCC979'
+ CONST Name 'f_Pipe'
+ CONST Class class_Attribute
+ %SUMMARY 'ѕоле дл€ свойства Pipe' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_519B8DB20186' '50598FD9019C.pas.ms.script' // TExportPipe
+ ;
+
+ref; // ME_62F7F5BCC979 f_Pipe
+
+FORWARD ME_55ED5FF503B2
+
+: ME_95C9AEAF0D9B
+ CONST UID '95C9AEAF0D9B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY '—игнатура метода FillDocSub' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED5FF503B2 // FillDocSub
+ ;
+
+ref; // ME_95C9AEAF0D9B DoIt
+
+: ME_55ED604A016B
+ CONST UID '55ED604A016B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED5FF503B2 // FillDocSub
+ ;
+ : Target WL 'ME_519B71CF03DC' '559D0BE101B4.pas.ms.script' // ISab
+ ;
+
+ref; // ME_55ED604A016B 
+
+: ME_55ED607802D6
+ CONST UID '55ED607802D6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED5FF503B2 // FillDocSub
+ ;
+ : Target WL 'ME_559D266C032B' '519B70FC02AB.pas.ms.script' // MakeSab
+ ;
+
+ref; // ME_55ED607802D6 
+
+: ME_55ED858C002B
+ CONST UID '55ED858C002B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED5FF503B2 // FillDocSub
+ ;
+ : Target WL 'ME_55E6E03B01A7' '519A10AF03DE.pas.ms.script' // cFamily
+ ;
+
+ref; // ME_55ED858C002B 
+
+: ME_55ED862B03D2
+ CONST UID '55ED862B03D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED5FF503B2 // FillDocSub
+ ;
+ : Target WL 'ME_4DE60AE303AD' '47BC51FE018B.pas.ms.script' // TDocID
+ ;
+
+ref; // ME_55ED862B03D2 
+
+: ME_55ED5FF503B2
+ CONST UID '55ED5FF503B2'
+ CONST Name 'FillDocSub'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '‘ормирование выборки дл€ экспорта (она одна дл€ всех потомков)' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Operations
+   @ ( ME_95C9AEAF0D9B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_55ED604A016B // 
+ ME_55ED607802D6 // 
+ ME_55ED858C002B // 
+ ME_55ED862B03D2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_55ED5FF503B2 FillDocSub
+
+FORWARD ME_55EEA16603AE
+
+: ME_561EFAA7DB2C
+ CONST UID '561EFAA7DB2C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY '—игнатура метода TuneExportPipe' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55EEA16603AE // TuneExportPipe
+ ;
+
+ref; // ME_561EFAA7DB2C DoIt
+
+: ME_55EEA16603AE
+ CONST UID '55EEA16603AE'
+ CONST Name 'TuneExportPipe'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'ѕроцедура настройки трубы. ћетод дл€ перекрыти€ в потомках.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Operations
+   @ ( ME_561EFAA7DB2C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55EEA16603AE TuneExportPipe
+
+: ME_55EEA1AC0299
+ CONST UID '55EEA1AC0299'
+ CONST Name 'DoExport'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '—обственно, экспорт' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+
+ref; // ME_55EEA1AC0299 DoExport
+
+FORWARD ME_55F2E1EE014B
+
+: ME_55F2E20C00DB
+ CONST UID '55F2E20C00DB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55F2E1EE014B // InternalExport
+ ;
+
+ref; // ME_55F2E20C00DB DoIt
+
+: ME_55F2F8C401A1
+ CONST UID '55F2F8C401A1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55F2E1EE014B // InternalExport
+ ;
+ : Target WL 'ME_5199D8D90011' '47D0290B016D.pas.ms.script' // DelDir
+ ;
+
+ref; // ME_55F2F8C401A1 
+
+: ME_55F2E1EE014B
+ CONST UID '55F2E1EE014B'
+ CONST Name 'InternalExport'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Operations
+   @ ( ME_55F2E20C00DB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_55F2F8C401A1 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_55F2E1EE014B InternalExport
+
+FORWARD ME_55F2E21F02A5
+
+: ME_55F2E23403DD
+ CONST UID '55F2E23403DD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55F2E21F02A5 // CompareResults
+ ;
+
+ref; // ME_55F2E23403DD DoIt
+
+: ME_55F2F58A012F
+ CONST UID '55F2F58A012F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55F2E21F02A5 // CompareResults
+ ;
+ : Target WL 'ME_546C734403DC' '5279FD600133.pas.ms.script' // TddFileIterator
+ ;
+
+ref; // ME_55F2F58A012F 
+
+: ME_55FC02E702D9
+ CONST UID '55FC02E702D9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55F2E21F02A5 // CompareResults
+ ;
+ : Target WL 'ME_4D199B3302E4' '4B2A112B011A.pas.ms.script' // GetAppTestSetPath
+ ;
+
+ref; // ME_55FC02E702D9 
+
+: ME_55F2E21F02A5
+ CONST UID '55F2E21F02A5'
+ CONST Name 'CompareResults'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Operations
+   @ ( ME_55F2E23403DD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_55F2F58A012F // 
+ ME_55FC02E702D9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_55F2E21F02A5 CompareResults
+
+FORWARD ME_55F806E500B6
+
+: ME_55F8070E0180
+ CONST UID '55F8070E0180'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55F806E500B6 // GetResultHeaderStartingChar
+ ;
+ : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
+
+ref; // ME_55F8070E0180 DoIt
+
+: ME_55F806E500B6
+ CONST UID '55F806E500B6'
+ CONST Name 'GetResultHeaderStartingChar'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Operations
+   @ ( ME_55F8070E0180 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55F806E500B6 GetResultHeaderStartingChar
+
+FORWARD ME_55FFFF57037B
+
+: ME_55FFFF7400DE
+ CONST UID '55FFFF7400DE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55FFFF57037B // CheckNumberOfTopicsInResult
+ ;
+
+ref; // ME_55FFFF7400DE DoIt
+
+: ME_560103D50177
+ CONST UID '560103D50177'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFFF57037B // CheckNumberOfTopicsInResult
+ ;
+ : Target WL 'ME_53A05AFD02CC' '47913B47006E.pas.ms.script' // Tl3DOSFiler
+ ;
+
+ref; // ME_560103D50177 
+
+: ME_5601043602CC
+ CONST UID '5601043602CC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFFF57037B // CheckNumberOfTopicsInResult
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_5601043602CC 
+
+: ME_5601048D01A0
+ CONST UID '5601048D01A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFFF57037B // CheckNumberOfTopicsInResult
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_5601048D01A0 
+
+: ME_55FFFF57037B
+ CONST UID '55FFFF57037B'
+ CONST Name 'CheckNumberOfTopicsInResult'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Operations
+   @ ( ME_55FFFF7400DE // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_560103D50177 // 
+ ME_5601043602CC // 
+ ME_5601048D01A0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_55FFFF57037B CheckNumberOfTopicsInResult
+
+: ME_55ED580801C1
+ CONST UID '55ED580801C1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_519B8D8D00E7' '50598FD9019C.pas.ms.script' // ExportPipe
+ ;
+
+ref; // ME_55ED580801C1 
+
+: ME_55ED62BF02A5
+ CONST UID '55ED62BF02A5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_519B719002F1' '519B70FC02AB.pas.ms.script' // dt_Sab
+ ;
+
+ref; // ME_55ED62BF02A5 
+
+: ME_55ED859D0194
+ CONST UID '55ED859D0194'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_519A10DD036F' '519A10AF03DE.pas.ms.script' // dt_Const
+ ;
+
+ref; // ME_55ED859D0194 
+
+: ME_55ED867D02CE
+ CONST UID '55ED867D02CE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_519B75E200C7' '519B75D1009E.pas.ms.script' // dt_Renum
+ ;
+
+ref; // ME_55ED867D02CE 
+
+: ME_55ED86DA00A1
+ CONST UID '55ED86DA00A1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_51B6CE6100D8' '519B797A0048.pas.ms.script' // dt_Doc
+ ;
+
+ref; // ME_55ED86DA00A1 
+
+: ME_55ED86DE0212
+ CONST UID '55ED86DE0212'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_519B79940228' '519B797A0048.pas.ms.script' // dt_LinkServ
+ ;
+
+ref; // ME_55ED86DE0212 
+
+: ME_55F2D4B40377
+ CONST UID '55F2D4B40377'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_55F2D4B40377 
+
+: ME_726E6CBEADF5
+ CONST UID '726E6CBEADF5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_726E6CBEADF5 
+
+: ME_4B2F40FD0088_ME_55ED52510115
+ CONST UID '4B2F40FD0088'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_4B2F40FD0088' '4B2A0D6A0077.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ref; // ME_4B2F40FD0088_ME_55ED52510115 Cleanup
+
+: ME_4C937013031D_ME_55ED52510115
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ref; // ME_4C937013031D_ME_55ED52510115 GetFolder
+
+: ME_4DAED6F60146_ME_55ED52510115
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ref; // ME_4DAED6F60146_ME_55ED52510115 GetModelElementGUID
+
+: ME_51B1A75D0367_ME_55ED52510115
+ CONST UID '51B1A75D0367'
+ CONST Name 'OutputFolderName'
+ : Original WL 'ME_51B1A75D0367' '4B2A112B011A.pas.ms.script' // OutputFolderName
+ ;
+ : Implementor ME_55ED52510115 // ExportPipeTestPrim
+ ;
+ref; // ME_51B1A75D0367_ME_55ED52510115 OutputFolderName
+
+: ME_55ED52510115
+ CONST UID '55ED52510115'
+ CONST Name 'ExportPipeTestPrim'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55ED516B0072 // ExportPipeTests
+ ;
+ : Inherits
+   @ ( WL 'ME_55F29BD60218' '55F29BB0025D.pas.ms.script' // TarchiDBTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_55FFC24301D0' '55FFC20F00A6.pas.ms.script' // DTTypesUser
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_55ED54F10251 // Pipe
+ ME_55FFFFB201C7 // f_IsNSRC
+ ME_62F7F5BCC979 // f_Pipe
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55ED5FF503B2 // FillDocSub
+ ME_55EEA16603AE // TuneExportPipe
+ ME_55EEA1AC0299 // DoExport
+ ME_55F2E1EE014B // InternalExport
+ ME_55F2E21F02A5 // CompareResults
+ ME_55F806E500B6 // GetResultHeaderStartingChar
+ ME_55FFFF57037B // CheckNumberOfTopicsInResult
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4B2F40FD0088_ME_55ED52510115 // Cleanup
+ ME_4C937013031D_ME_55ED52510115 // GetFolder
+ ME_4DAED6F60146_ME_55ED52510115 // GetModelElementGUID
+ ME_51B1A75D0367_ME_55ED52510115 // OutputFolderName
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55ED580801C1 // 
+ ME_55ED62BF02A5 // 
+ ME_55ED859D0194 // 
+ ME_55ED867D02CE // 
+ ME_55ED86DA00A1 // 
+ ME_55ED86DE0212 // 
+ ME_55F2D4B40377 // 
+ ME_726E6CBEADF5 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportPipeTestPrim.pas'
+ CONST extprop:pas:TypeName 'TExportPipeTestPrim'
+
+ref; // ME_55ED52510115 ExportPipeTestPrim
+
+FORWARD ME_55F28FE60235
+
+: ME_9FB9734D6256
+ CONST UID '9FB9734D6256'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55F28FE60235 // ExportToSeparateNSRTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_9FB9734D6256 
+
+: ME_55EEA16603AE_ME_55F28FE60235
+ CONST UID '55EEA16603AE'
+ CONST Name 'TuneExportPipe'
+ : Original ME_55EEA16603AE // TuneExportPipe
+ ;
+ : Implementor ME_55F28FE60235 // ExportToSeparateNSRTest
+ ;
+ref; // ME_55EEA16603AE_ME_55F28FE60235 TuneExportPipe
+
+: ME_4C937013031D_ME_55F28FE60235
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_55F28FE60235 // ExportToSeparateNSRTest
+ ;
+ref; // ME_4C937013031D_ME_55F28FE60235 GetFolder
+
+: ME_4DAED6F60146_ME_55F28FE60235
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_55F28FE60235 // ExportToSeparateNSRTest
+ ;
+ref; // ME_4DAED6F60146_ME_55F28FE60235 GetModelElementGUID
+
+: ME_55F28FE60235
+ CONST UID '55F28FE60235'
+ CONST Name 'ExportToSeparateNSRTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт в NSRC, разделЄнные по топикам.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55ED516B0072 // ExportPipeTests
+ ;
+ : Inherits
+   @ ( ME_55ED52510115 // ExportPipeTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_55EEA16603AE_ME_55F28FE60235 // TuneExportPipe
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_55F28FE60235 // GetFolder
+ ME_4DAED6F60146_ME_55F28FE60235 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_9FB9734D6256 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportToSeparateNSRTest.pas'
+ CONST extprop:pas:TypeName 'TExportToSeparateNSRTest'
+
+ref; // ME_55F28FE60235 ExportToSeparateNSRTest
+
+FORWARD ME_55FF9F1102C9
+
+: ME_D5339A402E66
+ CONST UID 'D5339A402E66'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FF9F1102C9 // ExportToSingleNSRTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_D5339A402E66 
+
+: ME_55EEA16603AE_ME_55FF9F1102C9
+ CONST UID '55EEA16603AE'
+ CONST Name 'TuneExportPipe'
+ : Original ME_55EEA16603AE // TuneExportPipe
+ ;
+ : Implementor ME_55FF9F1102C9 // ExportToSingleNSRTest
+ ;
+ref; // ME_55EEA16603AE_ME_55FF9F1102C9 TuneExportPipe
+
+: ME_4C937013031D_ME_55FF9F1102C9
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_55FF9F1102C9 // ExportToSingleNSRTest
+ ;
+ref; // ME_4C937013031D_ME_55FF9F1102C9 GetFolder
+
+: ME_4DAED6F60146_ME_55FF9F1102C9
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_55FF9F1102C9 // ExportToSingleNSRTest
+ ;
+ref; // ME_4DAED6F60146_ME_55FF9F1102C9 GetModelElementGUID
+
+: ME_55FF9F1102C9
+ CONST UID '55FF9F1102C9'
+ CONST Name 'ExportToSingleNSRTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт в один NSRC' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55ED516B0072 // ExportPipeTests
+ ;
+ : Inherits
+   @ ( ME_55ED52510115 // ExportPipeTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_55EEA16603AE_ME_55FF9F1102C9 // TuneExportPipe
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_55FF9F1102C9 // GetFolder
+ ME_4DAED6F60146_ME_55FF9F1102C9 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_D5339A402E66 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportToSingleNSRTest.pas'
+ CONST extprop:pas:TypeName 'TExportToSingleNSRTest'
+
+ref; // ME_55FF9F1102C9 ExportToSingleNSRTest
+
+FORWARD ME_55FFA0290014
+
+: ME_1B98FE979A1B
+ CONST UID '1B98FE979A1B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFA0290014 // ExportSeparatedByMainTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_1B98FE979A1B 
+
+: ME_55EEA16603AE_ME_55FFA0290014
+ CONST UID '55EEA16603AE'
+ CONST Name 'TuneExportPipe'
+ : Original ME_55EEA16603AE // TuneExportPipe
+ ;
+ : Implementor ME_55FFA0290014 // ExportSeparatedByMainTest
+ ;
+ref; // ME_55EEA16603AE_ME_55FFA0290014 TuneExportPipe
+
+: ME_4C937013031D_ME_55FFA0290014
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_55FFA0290014 // ExportSeparatedByMainTest
+ ;
+ref; // ME_4C937013031D_ME_55FFA0290014 GetFolder
+
+: ME_4DAED6F60146_ME_55FFA0290014
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_55FFA0290014 // ExportSeparatedByMainTest
+ ;
+ref; // ME_4DAED6F60146_ME_55FFA0290014 GetModelElementGUID
+
+: ME_55FFA0290014
+ CONST UID '55FFA0290014'
+ CONST Name 'ExportSeparatedByMainTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт в NSRC, разделЄнные по мейну, с помощью свойства DivideBy' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55ED516B0072 // ExportPipeTests
+ ;
+ : Inherits
+   @ ( ME_55ED52510115 // ExportPipeTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_55EEA16603AE_ME_55FFA0290014 // TuneExportPipe
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_55FFA0290014 // GetFolder
+ ME_4DAED6F60146_ME_55FFA0290014 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_1B98FE979A1B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportSeparatedByMainTest.pas'
+ CONST extprop:pas:TypeName 'TExportSeparatedByMainTest'
+
+ref; // ME_55FFA0290014 ExportSeparatedByMainTest
+
+FORWARD ME_55FFA0650118
+
+: ME_1E71717F0F55
+ CONST UID '1E71717F0F55'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFA0650118 // ExportSeparatedBySizeTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_1E71717F0F55 
+
+: ME_55EEA16603AE_ME_55FFA0650118
+ CONST UID '55EEA16603AE'
+ CONST Name 'TuneExportPipe'
+ : Original ME_55EEA16603AE // TuneExportPipe
+ ;
+ : Implementor ME_55FFA0650118 // ExportSeparatedBySizeTest
+ ;
+ref; // ME_55EEA16603AE_ME_55FFA0650118 TuneExportPipe
+
+: ME_4C937013031D_ME_55FFA0650118
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_55FFA0650118 // ExportSeparatedBySizeTest
+ ;
+ref; // ME_4C937013031D_ME_55FFA0650118 GetFolder
+
+: ME_4DAED6F60146_ME_55FFA0650118
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_55FFA0650118 // ExportSeparatedBySizeTest
+ ;
+ref; // ME_4DAED6F60146_ME_55FFA0650118 GetModelElementGUID
+
+: ME_55FFA0650118
+ CONST UID '55FFA0650118'
+ CONST Name 'ExportSeparatedBySizeTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт в NSRC, разделЄнные по размеру с помощью свойства DivideBy' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55ED516B0072 // ExportPipeTests
+ ;
+ : Inherits
+   @ ( ME_55ED52510115 // ExportPipeTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_55EEA16603AE_ME_55FFA0650118 // TuneExportPipe
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_55FFA0650118 // GetFolder
+ ME_4DAED6F60146_ME_55FFA0650118 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_1E71717F0F55 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportSeparatedBySizeTest.pas'
+ CONST extprop:pas:TypeName 'TExportSeparatedBySizeTest'
+
+ref; // ME_55FFA0650118 ExportSeparatedBySizeTest
+
+FORWARD ME_55FFA1DB00DB
+
+: ME_1A29D38599D2
+ CONST UID '1A29D38599D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFA1DB00DB // ExportByMainRelNamedTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_1A29D38599D2 
+
+: ME_55EEA16603AE_ME_55FFA1DB00DB
+ CONST UID '55EEA16603AE'
+ CONST Name 'TuneExportPipe'
+ : Original ME_55EEA16603AE // TuneExportPipe
+ ;
+ : Implementor ME_55FFA1DB00DB // ExportByMainRelNamedTest
+ ;
+ref; // ME_55EEA16603AE_ME_55FFA1DB00DB TuneExportPipe
+
+: ME_4C937013031D_ME_55FFA1DB00DB
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_55FFA1DB00DB // ExportByMainRelNamedTest
+ ;
+ref; // ME_4C937013031D_ME_55FFA1DB00DB GetFolder
+
+: ME_4DAED6F60146_ME_55FFA1DB00DB
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_55FFA1DB00DB // ExportByMainRelNamedTest
+ ;
+ref; // ME_4DAED6F60146_ME_55FFA1DB00DB GetModelElementGUID
+
+: ME_55FFA1DB00DB
+ CONST UID '55FFA1DB00DB'
+ CONST Name 'ExportByMainRelNamedTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт документов в один NSRC со справками, разделЄнные по мейнам с помощью шаблона имени. (DivideBy = divNone)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55ED516B0072 // ExportPipeTests
+ ;
+ : Inherits
+   @ ( ME_55ED52510115 // ExportPipeTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_55EEA16603AE_ME_55FFA1DB00DB // TuneExportPipe
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_55FFA1DB00DB // GetFolder
+ ME_4DAED6F60146_ME_55FFA1DB00DB // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_1A29D38599D2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportByMainRelNamedTest.pas'
+ CONST extprop:pas:TypeName 'TExportByMainRelNamedTest'
+
+ref; // ME_55FFA1DB00DB ExportByMainRelNamedTest
+
+FORWARD ME_55FFF13302B8
+
+: ME_51E79A35081C
+ CONST UID '51E79A35081C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55FFF13302B8 // ExportBySizeAndMain
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_51E79A35081C 
+
+: ME_55EEA16603AE_ME_55FFF13302B8
+ CONST UID '55EEA16603AE'
+ CONST Name 'TuneExportPipe'
+ : Original ME_55EEA16603AE // TuneExportPipe
+ ;
+ : Implementor ME_55FFF13302B8 // ExportBySizeAndMain
+ ;
+ref; // ME_55EEA16603AE_ME_55FFF13302B8 TuneExportPipe
+
+: ME_4C937013031D_ME_55FFF13302B8
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_55FFF13302B8 // ExportBySizeAndMain
+ ;
+ref; // ME_4C937013031D_ME_55FFF13302B8 GetFolder
+
+: ME_4DAED6F60146_ME_55FFF13302B8
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_55FFF13302B8 // ExportBySizeAndMain
+ ;
+ref; // ME_4DAED6F60146_ME_55FFF13302B8 GetModelElementGUID
+
+: ME_55FFF13302B8
+ CONST UID '55FFF13302B8'
+ CONST Name 'ExportBySizeAndMain'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт, разделЄнный по размеру и мейну (мейн - в шаблонах имЄн файлов)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55ED516B0072 // ExportPipeTests
+ ;
+ : Inherits
+   @ ( ME_55ED52510115 // ExportPipeTestPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_55EEA16603AE_ME_55FFF13302B8 // TuneExportPipe
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4C937013031D_ME_55FFF13302B8 // GetFolder
+ ME_4DAED6F60146_ME_55FFF13302B8 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_51E79A35081C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportBySizeAndMain.pas'
+ CONST extprop:pas:TypeName 'TExportBySizeAndMain'
+
+ref; // ME_55FFF13302B8 ExportBySizeAndMain
+
+: ME_55ED516B0072
+ CONST UID '55ED516B0072'
+ CONST Name 'ExportPipeTests'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_55ED4FE10372' '55ED4FE10372.pas.ms.script' // SimpleTests
+ ;
+ : Children
+   @ ( ME_55ED52510115 // ExportPipeTestPrim
+ ME_55F28FE60235 // ExportToSeparateNSRTest
+ ME_55FF9F1102C9 // ExportToSingleNSRTest
+ ME_55FFA0290014 // ExportSeparatedByMainTest
+ ME_55FFA0650118 // ExportSeparatedBySizeTest
+ ME_55FFA1DB00DB // ExportByMainRelNamedTest
+ ME_55FFF13302B8 // ExportBySizeAndMain
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.pas.ms.script' // DUnit
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_50598FD9019C' '50598FD9019C.pas.ms.script' // PipeOut
+ WL 'ME_519A10AF03DE' '519A10AF03DE.pas.ms.script' // dt_Const
+ WL 'ME_519B70FC02AB' '519B70FC02AB.pas.ms.script' // DataAccess
+ WL 'ME_519B75D1009E' '519B75D1009E.pas.ms.script' // Tables
+ WL 'ME_519B797A0048' '519B797A0048.pas.ms.script' // Servers
+ WL 'ME_5279FD600133' '5279FD600133.pas.ms.script' // Misc
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_559D0BE101B4' '559D0BE101B4.pas.ms.script' // dtIntf
+ WL 'ME_55F29BB0025D' '55F29BB0025D.pas.ms.script' // ArchiDBTests
+ WL 'ME_55FFC20F00A6' '55FFC20F00A6.pas.ms.script' // ExportPipeTestsSupport
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55ED516B0072.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55ED516B0072.pas.ms.script.runner'
+
+ref; // ME_55ED516B0072 ExportPipeTests

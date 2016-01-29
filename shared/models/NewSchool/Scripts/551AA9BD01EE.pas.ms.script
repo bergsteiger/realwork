@@ -1,0 +1,310 @@
+// Tl3IterateComponentParents 551AA9BD01EE Service Class
+
+FORWARD ME_551AA9BD01EE
+
+FORWARD ME_8F612712D29F
+
+FORWARD ME_29DCAB941EB5
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_41DE64DA5AB2
+ CONST UID '41DE64DA5AB2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Тип подитеративной функции для Ml3IterateComponentParents.IterateF' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_3DBFFE100240 // boolean
+ ;
+
+ @SELF
+; // ME_41DE64DA5AB2 DoIt
+
+: ME_29DCAB941EB5
+ CONST UID '29DCAB941EB5'
+ CONST Name 'Ml3IterateComponentParents_IterateF_Action'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ %SUMMARY 'Тип подитеративной функции для Ml3IterateComponentParents.IterateF' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_41DE64DA5AB2 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" false
+
+ @SELF
+; // ME_29DCAB941EB5 Ml3IterateComponentParents_IterateF_Action
+
+FORWARD ME_3410F441967F
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+: ME_24C2D2F69431
+ CONST UID '24C2D2F69431'
+ CONST Name 'aComponent'
+ CONST Class 'Attribute'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_24C2D2F69431 aComponent
+
+: ME_C55E2E29D333
+ CONST UID 'C55E2E29D333'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype 'element type'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_C55E2E29D333 
+
+: ME_3410F441967F
+ CONST UID '3410F441967F'
+ CONST Name 'IterateF'
+ CONST Class 'Class'
+ CONST Stereotype 'facetiterator'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Attributes
+   [ ME_24C2D2F69431 // aComponent
+ ME_C55E2E29D333 // 
+ ]
+ ; // Attributes
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+
+ @SELF
+; // ME_3410F441967F IterateF
+
+: ME_C3947A7CDC61
+ CONST UID 'C3947A7CDC61'
+ CONST Name 'anAction'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3ECB343C024C // pointer
+ ;
+
+ @SELF
+; // ME_C3947A7CDC61 anAction
+
+: ME_40223A2E3EEA
+ CONST UID '40223A2E3EEA'
+ CONST Name 'L2_Ml3IterateComponentParents_IterateF_Action'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
+ ;
+ : Parameters
+   [ ME_C3947A7CDC61 // anAction
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_40223A2E3EEA L2_Ml3IterateComponentParents_IterateF_Action
+
+: ME_8F612712D29F
+ CONST UID '8F612712D29F'
+ CONST Name 'Ml3IterateComponentParents'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3IterateComponentParents' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_3410F441967F // IterateF
+ ME_40223A2E3EEA // L2_Ml3IterateComponentParents_IterateF_Action
+ ]
+ ; // Operations
+ : Children
+   [ ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
+ ]
+ ; // Children
+
+ @SELF
+; // ME_8F612712D29F Ml3IterateComponentParents
+
+: ME_7D793C9B4E2A
+ CONST UID '7D793C9B4E2A'
+ CONST GUID '5A7F04AD-BABF-4265-8160-3A5BDA277D22'
+ CONST Name 'Il3IterateComponentParents'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3IterateComponentParents' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_8F612712D29F // Ml3IterateComponentParents
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_3410F441967F // IterateF
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_7D793C9B4E2A Il3IterateComponentParents
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_A40B60CED801
+ CONST UID 'A40B60CED801'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3IterateComponentParents' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_7D793C9B4E2A // Il3IterateComponentParents
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_A40B60CED801 Alien
+
+: ME_33A73AC9104F
+ CONST UID '33A73AC9104F'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_7D793C9B4E2A // Il3IterateComponentParents
+ ;
+
+ @SELF
+; // ME_33A73AC9104F f_Alien
+
+FORWARD ME_551AAAFB036B
+
+: ME_551AB83701BC
+ CONST UID '551AB83701BC'
+ CONST Name 'aComponent'
+ CONST Class 'Attribute'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_551AB83701BC aComponent
+
+: ME_551AB59F02E1
+ CONST UID '551AB59F02E1'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype 'element type'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_551AB59F02E1 
+
+: ME_551AAAFB036B
+ CONST UID '551AAAFB036B'
+ CONST Name 'Iterate'
+ CONST Class 'Class'
+ CONST Stereotype 'serviceiterator'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Attributes
+   [ ME_551AB83701BC // aComponent
+ ME_551AB59F02E1 // 
+ ]
+ ; // Attributes
+ CONST "needs index" 'undefined'
+ CONST "needs result" 'undefined'
+
+ @SELF
+; // ME_551AAAFB036B Iterate
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_0F4F88FFEF30
+ CONST UID '0F4F88FFEF30'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_0F4F88FFEF30 Exists
+
+: ME_551AA9BD01EE
+ CONST UID '551AA9BD01EE'
+ CONST Name 'Tl3IterateComponentParents'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_8F612712D29F // Ml3IterateComponentParents
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_A40B60CED801 // Alien
+ ME_33A73AC9104F // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_551AAAFB036B // Iterate
+ ME_0F4F88FFEF30 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_3410F441967F // IterateF
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_8F612712D29F // Ml3IterateComponentParents
+ ME_7D793C9B4E2A // Il3IterateComponentParents
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_551AA9BD01EE Tl3IterateComponentParents

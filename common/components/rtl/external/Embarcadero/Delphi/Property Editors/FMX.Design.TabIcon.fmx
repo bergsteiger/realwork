@@ -1,0 +1,127 @@
+object TabIconDesigner: TTabIconDesigner
+  Left = 0
+  Top = 0
+  Caption = 'Custom Tab Icon Selector'
+  ClientHeight = 412
+  ClientWidth = 593
+  FormFactor.Width = 2233
+  FormFactor.Height = 1301
+  FormFactor.Devices = [dkDesktop]
+  DesignerMobile = False
+  DesignerWidth = 0
+  DesignerHeight = 0
+  DesignerDeviceName = ''
+  DesignerOrientation = 0
+  object Label1: TLabel
+    AutoSize = True
+    Height = 19.000000000000000000
+    Position.X = 18.000000000000000000
+    Position.Y = 18.000000000000000000
+    Text = 'Standard Resolution (30x30px):'
+    Width = 154.000000000000000000
+    WordWrap = False
+  end
+  object Icon: TImageControl
+    Height = 143.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 36.000000000000000000
+    TabOrder = 1
+    Width = 247.000000000000000000
+    OnChange = IconChange
+    object PreviewLabel: TLabel
+      Align = alCenter
+      AutoSize = True
+      Enabled = False
+      Height = 19.000000000000000000
+      Text = 'Click to load...'
+      Width = 71.000000000000000000
+      WordWrap = False
+    end
+  end
+  object Label2: TLabel
+    AutoSize = True
+    Height = 19.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 186.000000000000000000
+    Text = 'High Resolution (60x60px):'
+    Width = 134.000000000000000000
+    WordWrap = False
+  end
+  object IconHiRes: TImageControl
+    Height = 143.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 204.000000000000000000
+    TabOrder = 3
+    Width = 247.000000000000000000
+    OnChange = IconChange
+    object PreviewLabelHiRes: TLabel
+      Align = alCenter
+      AutoSize = True
+      Enabled = False
+      Height = 19.000000000000000000
+      Text = 'Click to load...'
+      Width = 71.000000000000000000
+      WordWrap = False
+    end
+  end
+  object Button2: TButton
+    Anchors = [akRight, akBottom]
+    Height = 22.000000000000000000
+    ModalResult = 1
+    Position.X = 394.000000000000000000
+    Position.Y = 367.000000000000000000
+    TabOrder = 4
+    Text = 'OK'
+    Width = 80.000000000000000000
+  end
+  object Button3: TButton
+    Anchors = [akRight, akBottom]
+    Height = 22.000000000000000000
+    ModalResult = 2
+    Position.X = 492.000000000000000000
+    Position.Y = 367.000000000000000000
+    TabOrder = 5
+    Text = 'Cancel'
+    Width = 80.000000000000000000
+  end
+  object Preview: TGroupBox
+    Height = 153.000000000000000000
+    Position.X = 280.000000000000000000
+    Position.Y = 28.000000000000000000
+    Text = 'Preview:'
+    Width = 297.000000000000000000
+    TabOrder = 6
+    object ResultImage: TImage
+      Align = alCenter
+      Height = 32.000000000000000000
+      Margins.Left = -100.000000000000000000
+      Width = 48.000000000000000000
+    end
+    object ResultImageActive: TImage
+      Align = alCenter
+      Height = 32.000000000000000000
+      Margins.Left = 100.000000000000000000
+      Width = 48.000000000000000000
+    end
+  end
+  object PreviewHiRes: TGroupBox
+    Height = 153.000000000000000000
+    Position.X = 280.000000000000000000
+    Position.Y = 196.000000000000000000
+    Text = 'Preview High Resolution:'
+    Width = 297.000000000000000000
+    TabOrder = 7
+    object ResultImageHiRes: TImage
+      Align = alCenter
+      Height = 64.000000000000000000
+      Margins.Left = -120.000000000000000000
+      Width = 96.000000000000000000
+    end
+    object ResultImageHiResActive: TImage
+      Align = alCenter
+      Height = 64.000000000000000000
+      Margins.Left = 120.000000000000000000
+      Width = 96.000000000000000000
+    end
+  end
+end

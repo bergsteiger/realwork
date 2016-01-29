@@ -1,0 +1,52 @@
+'$include "global.sbl"
+'$include "States.sbl"
+
+'*** Проверка тесткейса № 71.1.4.1 ***
+
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+Sub Main
+    Dim Result As Integer
+    Dim i%, value$
+    Dim ItemsNameArray (1 To 3) As String 'Массив имен узлов свернутого дерева
+
+    ItemsNameArray (1) = "Документы, включенные за период с 22/01/2004 по 23/01/2004"
+    ItemsNameArray (2) = "Документы, включенные за период с 21/01/2004 по 22/01/2004"
+    ItemsNameArray (3) = "Документы, включенные за период с 11/01/2004 по 17/01/2004"
+    
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE = ST_NONE_STANDART
+    
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Обновление \ Новые документы
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Обновление", "Coords=62,12"
+  GenericObject Click, "Class=TMainMenuPanelNode;ClassIndex=4", "Coords=53,8"
+  
+'Переводим фокус на закладку навигатора "Новые документы"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+
+'Разворачиваем все элементы кнопкой "Развренуть все"
+  Call Click_NavExpClps
+
+'Сворачиваем поочередно все элементы дерева
+    InputKeys "{DOWN}{Num+}{DOWN}{Num+}{DOWN}{Num+}"
+  
+'Проверяем что все элементы свернуты и текущее состояние кнопки "Свернуть все"
+  InputKeys "{Home}{Down}"
+  Call CheckItemNames (ItemsNameArray, "{Down}", 0, 2)
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Документы, включенные за период с 11/01/2004 по 17/01/2004", value)  
+  Result = GenericObjectVP (CompareImage, "Class=TvcmToolbar;ClassIndex=2", "VP=Collapse")
+ 
+'Сворачиваем дерево кнопкой "Свернуть все"
+  Call Click_NavExpClps
+  InputKeys "{Tab}{Tab}{Tab}"
+
+'Проверяем что все элементы остались свернуты и текущее состояние кнопки "Развернуть все"
+  Call CheckItemNames (ItemsNameArray, "{Up}", 2, 3)
+  Result = GenericObjectVP (CompareImage, "Class=TvcmToolbar;ClassIndex=2", "VP=Expand")
+End Sub

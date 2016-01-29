@@ -1,0 +1,51 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ mda
+/ Генератор шаблонов MDA.
+//#UC START# *46A8509C01B9*
+C %S{root path suffix}
+O %SN.tpl
+	MDA GENERATOR TEMPLATE FILE
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	// %SD
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	Generator definitions:
+	group "All" \{
+	%U[{gen}\n]
+	<%C<{\n}{%C%f_mda_IsGroup()=true}\tgroup "%CD" \{
+	%C<{\n}{%C%f_mda_IsGenerator()=true}\t\tgenerator "%CN" \{
+	\t\t\tDescription: %CD
+	\t\t\tlid: %C{lid}
+	\t\t\}>
+	\t\}\n>>
+	\}
+	
+	Stereotype definitions:
+	
+	//////////////////////////////////////////////////////////////////////////////////
+	// default
+	
+	: default
+	%U[{def}\n]
+	
+	//////////////////////////////////////////////////////////////////////////////////
+	// default Category
+	
+	: default::Category
+	= default
+	\> default::Category
+	<%C<{}{%C{can be main}=true}[%f_mda_IncludeSt(%C)\n]>>
+	//////////////////////////////////////////////////////////////////////////////////
+	// includes
+	
+	<{\n}{%C{include to project}=true}\# MDAGen[{%C{create folder}=true}/%CN]/%f_mda_StFileName(%C)>	
+	
+	%U[{inc}\n]
+	
+	Reports definitions:
+	
+	%U[{rep}\n]
+	
+	<%CX>
+//#UC END# *46A8509C01B9*

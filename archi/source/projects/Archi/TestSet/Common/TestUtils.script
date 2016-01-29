@@ -1,0 +1,817 @@
+// TestUtils.script
+// Вспомогательные слова, которые могут быть доступны другим тестам
+
+USES
+ axiom:push
+ axiom:Control
+ axiom:Form
+ axiom:Wait
+ axiom:Waited
+ axiom:Base
+ axiom:ComboBox
+ axiom:CheckListBox
+ axiom:Tests
+ axiom:SubDescriptor
+ axiom:ImageEnViewer
+ axiom:Lister
+ axiom:Test
+ axiom:RadioButton
+ axiom:RadioGroup
+ axiom:SpinEdit
+ axiom:vtStatusBar
+ axiom:vtStatusPanel
+ 
+ ArchiSystem.script
+ ArchiControls.script
+	MainFormUtils.script
+	EditorTools.script	
+;
+
+BOOLEAN FUNCTION "Сохранить?" IN aID
+ aID push:MainForm pop:form:MDIChildren IsNeedSaveDocument =: Result
+;
+
+PROCEDURE "Закрыть окно" IN aID
+ aID push:MainForm pop:form:MDIChildren pop:form:Close
+;
+
+PROCEDURE "Закрыть все окна"
+  VAR l_WinID
+  VAR l_NeedSave
+  
+  0 >>> l_WinID
+  push:MainForm pop:form:MDIChildCount LOOP (    
+   "Сохранить?{(l_WinID)}" >>> l_NeedSave
+   Если ( l_NeedSave ) то
+    ( wait:No )
+   "Закрыть окно{(l_WinID)}"  
+   Если ( l_NeedSave ) то
+    ( waited:? ASSERT ) 
+   1 +! l_WinID 
+  )  
+;
+
+PROCEDURE "Закрыть без сохранения"
+OBJECT VAR l_Object
+push:MainForm pop:form:ActiveMDIChild >>> l_Object
+Если ( l_Object pop:object:IsNil ! ) то	
+	( 
+		Если ( l_Object IsNeedSaveDocument ) то
+			( wait:No
+	 		  Закрыть
+	  	          waited:? ASSERT )
+		иначе
+			( Закрыть )
+	)
+;
+
+//  Работа с базой
+
+PROCEDURE "Очистка тестовой базы"
+	"Закрыть все окна"
+	ProcessMessages 
+	'testbase.zip' 'C:\Base\testbase' ClearDataBase 
+;
+
+CONST csExportNSRCDir 'C:\Base\222'
+
+STRING VAR g_ExportDirectory
+
+FUNCTION "Директория для экспорта"
+		g_ExportDirectory =: Result
+;
+
+PROCEDURE "Почистить за собой"
+	g_ExportDirectory PureDir
+;
+
+PROCEDURE "Инициализировать директорию экспорта"
+	csExportNSRCDir >>> g_ExportDirectory
+	g_ExportDirectory sysutils:ForceDirectories ASSERT
+;
+
+PROCEDURE "Включить WebStyle"
+        focused:control:push pop:Editor:WebStyle := true
+;
+
+STRING FUNCTION "Сформировать имя документа NSR из полного имени скрипта"
+	 script:FileName '.NSR' sysutils:ChangeFileExt
+	 sysutils:ExtractFileName >>> Result
+;
+
+ PROCEDURE "Выбрать 'Экспортировать Анотации'"
+	OBJECT VAR l_CheckListBox 
+	"Контрол по имени {('checkExportParts')}" >>> l_CheckListBox    
+	l_CheckListBox pop:CheckListBox:UncheckAll	
+    true 2 l_CheckListBox pop:CheckListBox:SetChecked
+	"Обработать сообщения"
+;
+
+PROCEDURE "Заполнить поле 'Рабочая директория'"
+    OBJECT VAR l_WorkDirectory
+	"Контрол по имени {( "Поле 'Рабочая директория'" )}" >>> l_WorkDirectory
+	g_ExportDirectory 'Text' l_WorkDirectory pop:object:SetStrProp
+;
+
+PROCEDURE "Заполнить окно экспорта документа с аннотацией" INTEGER IN anExportID STRING IN anExportName
+	"Заполнить поле 'Рабочая директория'"
+	anExportID "Контрол по имени {('cbOutFormat')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('edtAnnoFileName')}" pop:Control:SetFocus ASSERT
+	anExportName emitstring		
+	"Выбрать 'Экспортировать Анотации'"	
+	"Контрол по имени {('OK')}" pop:Control:Click
+ ;
+
+PROCEDURE "Сравнить с эталоном KW" STRING IN l_DocName
+	STRING VAR l_FullFileName
+	[ g_ExportDirectory '\' l_DocName ] strings:Cat >>> l_FullFileName 
+	l_FullFileName sysutils:FileExists ?ASSURE [ 'Вылитый KW файл не создался: ' l_FullFileName ]
+	l_FullFileName ';' tests:CheckEtalon
+;
+
+PROCEDURE "Выбрать 'Экспортировать Текущий документ'"
+         "Контрол по имени {("Тип экспорта выборки")} " pop:RadioGroup:ItemIndex := "Текущий документ"
+;
+
+PROCEDURE "Выбрать 'Экспортировать Всю выборку'"
+         "Контрол по имени {("Тип экспорта выборки")} " pop:RadioGroup:ItemIndex := "Всю выборку"
+;
+
+PROCEDURE "Выбрать метод 'Каждый документ отдельно'"
+         "Контрол по имени {("Каждый файл отдельно")} " pop:RadioButton:Checked := true
+;
+
+PROCEDURE "Выбрать метод 'Все документы в один файл'"
+         "Контрол по имени {("Все документы в один файл")} " pop:RadioButton:Checked := true
+;
+
+PROCEDURE "Заполнить окно экспорта выборки" INTEGER IN anExportID STRING IN anExportName
+	"Заполнить поле 'Рабочая директория'"
+	anExportID "Контрол по имени {('cbOutFormat')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('edtDocFileName')}" pop:Control:SetFocus ASSERT 
+	anExportName emitstring	
+	"Выбрать 'Экспортировать Всю выборку'"
+	OBJECT VAR l_CheckListBox 
+	"Контрол по имени {('checkExportParts')}" >>> l_CheckListBox    
+	l_CheckListBox pop:CheckListBox:UncheckAll	
+        true 0 l_CheckListBox pop:CheckListBox:SetChecked   
+	ProcessMessages
+	"Контрол по имени {('OK')}" pop:Control:Click  
+;
+
+PROCEDURE "Проверить в каталоге экспорта картинки и NSRC"
+	STRING VAR l_FullFileName
+	STRING VAR l_PictureDirName
+	STRING VAR l_ExportNSRName
+	STRING VAR l_PictureName 
+	STRING VAR l_NewDocIDNumber
+	'4000000.png' >>> l_PictureName 
+	'12345' >>> l_NewDocIDNumber
+	"Сформировать имя документа NSR из полного имени скрипта" >>> l_ExportNSRName
+	[ g_ExportDirectory '\' l_ExportNSRName ] strings:Cat >>> l_FullFileName 
+	l_FullFileName sysutils:FileExists ?ASSURE [ 'Вылитый NSRC файл не создался: ' l_FullFileName ] 
+	l_FullFileName ';' tests:CheckEtalon
+	[ g_ExportDirectory '\' l_NewDocIDNumber ] strings:Cat >>> l_PictureDirName 	
+	l_PictureDirName sysutils:DirectoryExists ?ASSURE [ 'Директория с картинкой файл не создалась: ' l_PictureDirName ]
+	[ l_PictureDirName '\' l_PictureName ] strings:Cat >>> l_FullFileName 	
+	l_FullFileName sysutils:FileExists ?ASSURE [ 'Не вылилась картинка: ' l_FullFileName ]
+;
+
+PROCEDURE "Выбрать 'Ключевые слова'"
+	OBJECT VAR l_CheckListBox 
+	"Контрол по имени {('checkExportParts')}" >>> l_CheckListBox    
+	l_CheckListBox pop:CheckListBox:UncheckAll	
+	true 4 l_CheckListBox pop:CheckListBox:SetChecked
+	ProcessMessages
+;
+
+PROCEDURE "Заполнить окно экспорта выборки. Атрибут 'Ключевые слова'" INTEGER IN anExportID 
+	"Заполнить поле 'Рабочая директория'"
+	anExportID "Контрол по имени {('cbOutFormat')}" pop:ComboBox:SetItemIndex
+	"Выбрать 'Экспортировать Всю выборку'"
+	"Выбрать 'Ключевые слова'"	
+	"Контрол по имени {('OK')}" pop:Control:Click  
+;
+
+PROCEDURE "Экспортировать всю выборку в один файл KW. Атрибут 'Ключевые слова'"
+	TRY
+		"Обработать сообщения"		
+		"Инициализировать директорию экспорта"
+		"Почистить за собой"
+		@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта выборки. Атрибут 'Ключевые слова' {(cnNSRCItemIndex)}" )
+	FINALLY 
+		Закрыть
+	END
+;
+
+PROCEDURE "Заполнить окно экспорта выборки с Анатацией" INTEGER IN anExportID STRING IN anExportName STRING IN 
+anExportNameAnno 
+	"Заполнить поле 'Рабочая директория'"
+	"Контрол по имени {('edtDocFileName')}" pop:Control:SetFocus ASSERT 
+	anExportName emitstring	
+	anExportID "Контрол по имени {('cbOutFormat')}" pop:ComboBox:SetItemIndex
+	"Контрол по имени {('edtAnnoFileName')}" pop:Control:SetFocus ASSERT
+	anExportNameAnno emitstring	
+	"Выбрать 'Экспортировать Всю выборку'"	
+	"Выбрать 'Экспортировать Анотации'"
+	"Контрол по имени {('OK')}" pop:Control:Click  
+;
+
+PROCEDURE "Сравнить с эталоном EVD" STRING IN l_DocName
+	STRING VAR l_FullFileName
+	
+	[ g_ExportDirectory '\' l_DocName ] strings:Cat >>> l_FullFileName 
+	l_FullFileName sysutils:FileExists ?ASSURE [ 'Вылитый EVD файл не создался: ' l_FullFileName ] 
+	l_FullFileName '%' tests:CheckEtalon
+; 
+ 
+PROCEDURE "Включить Структуру документа"
+	focused:control:push pop:Editor:ShowDocumentParts := true
+;
+
+PROCEDURE "Перевести фокус на контрол ID Документа и ввести номер" INTEGER IN aNumber
+	"Контрол по имени {('edtDocID')}" pop:Control:SetFocus ASSERT 
+	aNumber IntToStr emitstring 
+;
+
+PROCEDURE "Закончить работу с документом"
+	"Сохранить документ"
+	Закрыть
+;
+
+PROCEDURE "Выполнить проверку таблицы"
+	focused:control:push pop:editor:CheckContinueCells ! 'Найдены непустые объединенные ячейки!' ASSERTS	
+	"Сравнить текст с эталоном"
+;
+
+PROCEDURE "Перерисовать и сравнить с эталоном в текущем редакторе"
+	focused:control:push pop:editor:RepaintAndCheckWithEtalon     
+;
+
+PROCEDURE "Проверить нижний якорь"
+	false focused:control:push pop:editor:PrintAcnhor
+ ;
+ 
+ PROCEDURE "Проверить верхний якорь"
+	true focused:control:push pop:editor:PrintAcnhor
+ ;
+
+ PROCEDURE "Вылить параметры ячеек и сравнить с эталоном"
+	focused:control:push pop:editor:PrintTableCellsParams	
+ ;
+ 
+PROCEDURE "Перевести фокус на контрол Тип в Журнале документа" 
+	// V - К сожалению, у ComboBox'а выставлено значение DropDownList и текст нельзя записать вручную. Поэтому Focused возвратит False, но фокус будет установлен.
+	BOOLEAN VAR l_Focused
+	"Контрол по имени {('cbUserType')}" pop:Control:SetFocus >>> l_Focused 
+;
+
+PROCEDURE "Выставить флаг записи картинок"
+	EnabledSaveRTFPictures
+;
+
+PROCEDURE "Вызвать base_RelCorrecter"
+	STRING VAR l_File
+	script:FileName '.txt' sysutils:ChangeFileExt 
+	sysutils:ExtractFileName >>> l_File
+	l_File base:RelCorrecter
+	"Обработать сообщения"
+;
+
+PROCEDURE "Ожидать Yes"
+	wait:Yes
+;
+
+PROCEDURE "Сохранить имя активной вкладки" 
+	"Имя активной вкладки" . 
+;
+
+PROCEDURE "Сохранить изображение и сравнить с эталоном" INTEGER IN aHeight INTEGER IN aWidth INTEGER IN aTop INTEGER IN aLeft INTEGER IN aHandle
+	STRING VAR l_FileName
+	script:FileName '.bmp' sysutils:ChangeFileExt
+	sysutils:ExtractFileName >>> l_FileName		
+	l_FileName aHeight aWidth aTop aLeft aHandle ScreenShot2FileWithCheck	
+;
+
+PROCEDURE "Сохранить изображение параграфа и сравнить с эталоном"
+	OBJECT VAR l_Editor
+	INTEGER VAR l_EditorLeft
+	INTEGER VAR l_EditorTop
+	focused:control:push >>> l_Editor 
+	l_Editor pop:Control:Left >>> l_EditorLeft
+	l_Editor pop:Control:Top >>> l_EditorTop
+	l_EditorLeft l_EditorTop l_Editor pop:Control:ClientToScreen >>> l_EditorTop >>> l_EditorLeft
+
+	INTEGER VAR l_Left
+	INTEGER VAR l_Top
+	l_Editor pop:editor:ParaCoordsToScreen >>> l_Top >>> l_Left
+	
+	INTEGER VAR l_Right
+	INTEGER VAR l_Bottom
+	l_Editor pop:editor:ParaEndCoordsToScreen >>> l_Bottom >>> l_Right		
+	
+	INTEGER VAR l_Height 	
+	l_Bottom l_Top - >>> l_Height
+	
+	INTEGER VAR l_Width	
+	l_Editor pop:Control:Width >>> l_Width
+	l_Width l_Left - >>> l_Width 	
+	l_EditorTop l_Top - >>> l_Top
+	l_EditorLeft l_Left - >>> l_Left	
+	
+	l_Height 10 + >>> l_Height
+	l_Editor pop:Control:Repaint
+	INTEGER VAR l_Handle
+	l_Editor pop:Control:GetHandle >>> l_Handle	
+	"Спрятать каретку редактора {(l_Editor)}"	
+	TRY
+	 "Сохранить изображение и сравнить с эталоном {(l_Height)} {(l_Width)} {(l_Top)} {(l_Left)} {(l_Handle)}"
+	FINALLY
+	 "Показать каретку редактора {(l_Editor)}"	
+	END
+;
+
+PROCEDURE "Заполнить окно экспорта документа" INTEGER IN anExportID STRING IN anExportName
+	"Заполнить поле 'Рабочая директория'"
+	"Выбрать 'Экспортировать Текущий документ'"
+	"Выбрать метод 'Все документы в один файл'"
+	Если ( 
+		( anExportID РАВНО cnRTFItemIndex ) ИЛИ 
+		( anExportID РАВНО cnHTMLItemIndex ) ИЛИ 
+		( anExportID РАВНО cnXMLItemIndex ) 
+	) то
+	( 
+		cnEVDItemIndex "Контрол по имени {("Список 'Формат экспорта'")}" pop:ComboBox:SetItemIndex
+		"Контрол по имени {("Поле 'Имя файла для документов'")}" pop:Control:SetFocus ?ASSURE [ 'Нельзя установить фокус в поле ' "Поле 'Имя файла для документов'" ]
+		anExportName emitstring
+		OBJECT VAR l_CheckListBox 
+		"Контрол по имени {("Список 'Экспортировать следующие части'")}" >>> l_CheckListBox    
+		l_CheckListBox pop:CheckListBox:UncheckAll	
+        true 0 l_CheckListBox pop:CheckListBox:SetChecked
+		anExportID "Контрол по имени {("Список 'Формат экспорта'")}" pop:ComboBox:SetItemIndex
+    	) 
+	иначе (
+		anExportID "Контрол по имени {("Список 'Формат экспорта'")}" pop:ComboBox:SetItemIndex
+		"Контрол по имени {("Поле 'Имя файла для документов'")}" pop:Control:SetFocus ?ASSURE [ 'Нельзя установить фокус в поле ' "Поле 'Имя файла для документов'" ]
+		anExportName emitstring		
+
+		OBJECT VAR l_CheckListBox 
+		"Контрол по имени {("Список 'Экспортировать следующие части'")}" >>> l_CheckListBox    
+		l_CheckListBox pop:CheckListBox:UncheckAll	
+        true 0 l_CheckListBox pop:CheckListBox:SetChecked 			
+	)
+	"Контрол по имени {(acButtonOK)}" pop:Control:Click  
+;
+
+PROCEDURE "Экспортировать выборку в формате EVD" STRING IN anExportName
+	"Инициализировать директорию экспорта"
+	"Почистить за собой"
+	@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта документа {(cnEVDTextItemIndex)} {(anExportName)}" )
+;
+
+PROCEDURE "Экспортировать выборку в формате NSRC" STRING IN anExportName
+	"Инициализировать директорию экспорта"
+	"Почистить за собой"	
+	@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта документа {(cnNSRCItemIndex)} {(anExportName)}" )	
+;
+
+PROCEDURE "Сравнить с эталоном NSRC" STRING IN l_DocName
+	STRING VAR l_FullFileName
+	[ g_ExportDirectory '\' l_DocName ] strings:Cat >>> l_FullFileName 
+	l_FullFileName sysutils:FileExists ?ASSURE [ 'Вылитый NSRC файл не создался: ' l_FullFileName ]
+	l_FullFileName ';' tests:CheckEtalon
+;
+
+STRING FUNCTION "DrawType2String" INTEGER IN aDrawType 
+	aDrawType CASE
+		0 ( 'Number' =: Result )
+		1 ( 'Char' =: Result )
+		2 ( 'CharNumber' =: Result )
+		3 ( 'Bitmap' =: Result )
+		4 ( 'OwnerDraw' =: Result )
+		DEFAULT ( 'None' =: Result )
+        END
+;
+
+PROCEDURE PrintSubDescription OBJECT IN aSubDescription INTEGER IN aHandle 
+	'Handle:' . 
+	aHandle .
+    'DrawType:' . 
+	aSubDescription "DrawType2String {(subdescriptor:GetDrawType)}" .
+	'BitmapIndex:' . 
+	aSubDescription subdescriptor:GetDocumentBitmapIndex .
+	'BlockBitmapIndex:' . 
+	aSubDescription subdescriptor:GetBlockBitmapIndex .
+	'Visible:' . 
+	aSubDescription subdescriptor:GetVisible .
+;
+
+PROCEDURE "Работа с сабпанелью. Записать все видимые иконки на панели в эталон"
+	OBJECT VAR l_SubPanel		
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	@ PrintSubDescription l_SubPanel IterateSubDecriptorsOnSubPanel
+;
+ 
+PROCEDURE "Проверить с сабпанель"
+		"Работа с сабпанелью. Включить/выключить все иконки"  
+		"Работа с сабпанелью. Записать все видимые иконки на панели в эталон"
+		"Работа с сабпанелью. Включить/выключить все иконки"
+; 
+
+PROCEDURE "Проверить, изменился ли документ"
+	focused:control:push pop:Editor:Modified ?ASSURE [ 'Документ не изменен' ]
+; 
+
+PROCEDURE "Проверить появление диалога"
+	waited:? 'Ожидали диалог, а он не появился!' ASSERTS
+;
+
+PROCEDURE "Сравнить Combobox с эталоном" IN ComboboxName
+	 OBJECT VAR l_Combobox
+	 "Контрол по имени {(ComboboxName)}" >>> l_Combobox
+	 true l_Combobox pop:ComboBox:DropDown	
+	 false l_Combobox pop:ComboBox:DropDown	
+	 STRING VAR l_File
+	 script:FileName '.cmbx' sysutils:ChangeFileExt
+	 sysutils:ExtractFileName >>> l_File
+	 l_File l_Combobox pop:ComboBox:SaveItems
+	 l_File '%' tests:CheckEtalon
+;
+ 
+PROCEDURE "Сохранить текст выделения"
+	focused:control:push pop:editor:GetSelectionText .
+; 
+ 
+PROCEDURE "Сравнить список выборки с эталоном" 
+	STRING VAR l_File
+	script:FileName csLSTEtln sysutils:ChangeFileExt
+	sysutils:ExtractFileName >>> l_File
+	l_File "Сохранить список документов выборки" 
+	l_File '%' tests:CheckEtalon
+;
+
+PROCEDURE "Сохранить в BMP и сравнить с эталоном" OBJECT IN aViewer
+	aViewer ImageEnViewer:SaveBitmap
+	STRING VAR l_FileName
+	script:FileName csBMPExt sysutils:ChangeFileExt
+	sysutils:ExtractFileName >>> l_FileName
+	l_FileName '' tests:CheckEtalon	
+;
+
+PROCEDURE "Сохранить текущий пункт списка"
+	focused:control:push pop:Lister:Current .
+;
+PROCEDURE "Вызвать 'Редактор шаблона' на редактирование шаблона"
+ 'acInsTemplateEdit' arEditorWindowActionList "Текущее родительское окно" pop:form:ExecuteAction
+;
+
+VOID WORDWORKER "Открыть редактирование текстового шаблона и выполнить"
+	@ ( "Вызвать 'Редактор шаблона' на редактирование шаблона" ) MODAL ( WordToWork DO )		
+;
+
+PROCEDURE "Включить/выключить иконку 'Номер метки' на вкладке 'Справка'"
+	OBJECT VAR l_SubPanel	
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel 
+	'acPMRelSubPanelSubNum' arEditorWindowActionList "Текущее родительское окно" pop:form:ExecuteAction
+;
+
+OBJECT FUNCTION "Найти контрол на форме" STRING IN aControl OBJECT IN aForm
+ aControl aForm pop:Control:FindControlByName =: Result
+ Result pop:object:IsNil ! 'Не удалось найти ' aControl Cat
+  ASSERTS 
+;
+
+PROCEDURE "Перейти на вкладку 'Справка' и записать все видимые иконки сабпанели в эталон"
+	"Перейти на вкладку Справка" 
+	"Обработать сообщения"
+	"Включить/выключить иконку 'Номер метки' на вкладке 'Справка'" 
+	OBJECT VAR l_Control 
+	"Контрол по имени {( 'SprTextEditor' )}" >>> l_Control
+	OBJECT VAR l_Result
+	"Найти контрол {( acSubShowPanel )} на форме {( l_Control )}" >>> l_Result	
+	@ PrintSubDescription l_Result IterateSubDecriptorsOnSubPanel 
+	"Включить/выключить иконку 'Номер метки' на вкладке 'Справка'" 
+; 
+
+PROCEDURE "Включить Спецсимволы"
+        focused:control:push pop:Editor:DrawSpecial := true
+;
+
+STRING FUNCTION "Сформировать имя документа EVD из полного имени скрипта"
+	script:FileName '.EVD' sysutils:ChangeFileExt
+	sysutils:ExtractFileName >>> Result
+;
+
+PROCEDURE "Заполнить поле 'Имя файла'" STRING IN aFile
+	"Контрол по имени {('FileEdit')}" pop:Control:SetFocus ASSERT
+	"Набить текст {(aFile)}"
+;
+
+PROCEDURE "Получить полный путь к файлу и заполнить поле 'Имя файла'" STRING IN aExtFile
+	STRING VAR l_File
+	script:FileName aExtFile sysutils:ChangeFileExt 
+	sysutils:ExtractFileName >>> l_File
+	[ l_File test:ResolveInputFilePath ] strings:Cat >>> l_File
+	"Заполнить поле 'Имя файла' {(l_File)}"
+;
+
+VOID WORDWORKER "Открыть модальное окно 'Новый документ' и выполнить"
+	@ ( acNewDocument arGeneralActionList push:MainForm pop:form:ExecuteAction ) MODAL ( WordToWork DO )	 
+;
+
+PROCEDURE "Указать тип документа 'Текстовый документ'" 
+	0 "Контрол по имени {('cbDocKind')}" pop:ComboBox:SetItemIndex
+;
+
+PROCEDURE "Указать тип документа 'Документ-объект'" 
+	1 "Контрол по имени {('cbDocKind')}" pop:ComboBox:SetItemIndex
+;
+
+USES
+ AttributeUtils.script
+;
+
+PROCEDURE "Создать текстовый документ из " STRING IN aType
+	"Открыть модальное окно 'Новый документ' и выполнить" (
+		"Указать тип документа 'Текстовый документ'"  
+		"Получить полный путь к файлу {(aType)} и заполнить поле 'Имя файла'"
+		"Нажать кнопку ОК" 
+	)		
+;
+
+PROCEDURE "Создать документ-объект из " STRING IN aType
+	"Открыть модальное окно 'Новый документ' и выполнить" (
+		"Указать тип документа 'Документ-объект'"  
+		"Получить полный путь к файлу {(aType)} и заполнить поле 'Имя файла'"
+		"Нажать кнопку ОК" 
+	)		
+;
+
+PROCEDURE "Очистить текстовое поле в 'Редакторе текстовых шаблонов'"
+	"Открыть редактирование текстового шаблона и выполнить"
+		(	
+			OBJECT VAR l_Control
+			"Контрол по имени {('memTemplateText')}" >>> l_Control
+			"Нажать удалить"		
+			"Нажать кнопку ОК"
+		)
+;
+
+PROCEDURE "Включить 'Рисование линий'"
+        focused:control:push pop:Editor:DrawLines := true
+;
+
+PROCEDURE "Выполнить операцию 'Пометить как измененные'"
+	'actGroupTouch' alSearchActions "Текущее родительское окно" pop:form:ExecuteAction  	
+; 
+
+PROCEDURE "Установить счётчику 'Масштаб' значение 100" 
+        "Контрол по имени {(carZoomSpinEdit)}" pop:SpinEdit:Value    := 100
+;
+
+PROCEDURE "Указать название документа" STRING IN aDocName
+	"Контрол по имени {('edtDocName')}" pop:Control:SetFocus ASSERT
+	"Набить текст {(aDocName)}"
+;
+
+PROCEDURE "Создать документ с названием" STRING IN aDocName
+	"Открыть модальное окно 'Новый документ' и выполнить" (
+		"Указать тип документа 'Текстовый документ'" 
+		"Указать название документа {(aDocName)}"
+		"Нажать кнопку ОК" 
+	)		
+;
+
+PROCEDURE "Указать номер документа" INTEGER IN aDocNumber
+         "Контрол по имени {('edtDocID')}" pop:SpinEdit:Value := aDocNumber
+        
+;
+
+PROCEDURE "Создать документ с номером" INTEGER IN aDocNumber
+	"Открыть модальное окно 'Новый документ' и выполнить" ( 
+		"Указать тип документа 'Текстовый документ'" 
+		"Указать номер документа {(aDocNumber)}"
+		"Нажать кнопку ОК" 
+	)		
+;
+
+PROCEDURE "Создать документ без названия"
+	"Открыть модальное окно 'Новый документ' и выполнить" (
+		"Указать тип документа 'Текстовый документ'" 
+		"Указать название документа {('')}"
+		"Нажать кнопку ОК" 
+	)		
+;
+
+PROCEDURE "Переместиться на пользователя"
+  3 раза "Нажать вниз"
+  "Обработать сообщения"
+  "Развернуть узел"
+  "Обработать сообщения"
+  "Нажать вниз"
+  "Обработать сообщения"
+  "Развернуть узел"
+  "Обработать сообщения"
+  "Нажать вниз"
+  "Обработать сообщения"
+;
+
+PROCEDURE "Создать новое сообщение"
+  "Фокус на РЕЕСТР ОБЪЕКТОВ"
+  "Переместиться на пользователя"
+  "Обработать сообщения"
+  "Нажать Enter"    
+;
+
+USES
+ ContentsTree.script
+;
+
+PROCEDURE "Открыть сообщение с названием" STRING IN aName
+	"Показать РЕЕСТР ОБЪЕКТОВ" 
+	"Фокус на РЕЕСТР ОБЪЕКТОВ"
+	"Найти {( 'СООБЩЕНИЯ' )} и выделить элемент в дереве"
+	"Развернуть узел"
+	"Обработать сообщения"
+	"Найти {( aName )} и выделить элемент в дереве"
+	"Нажать Enter"
+;
+
+PROCEDURE "Получить из статусбара число после предлога 'из', сравнить с нулём и записать в эталон"
+	OBJECT VAR l_Control
+	STRING VAR l_Result
+	STRING VAR l_ResultLeft
+	STRING VAR l_ResultRight
+	CONST csDelimited ' '
+	"Контрол по имени {('FooterPanel')}" >>> l_Control
+	0 l_Control pop:vtStatusBar:GetPanel >>> l_Control
+	l_Control pop:vtStatusPanel:GetText >>> l_Result
+	l_Result csDelimited string:Split >>> l_ResultRight >>> l_ResultLeft 
+	l_ResultRight csDelimited string:Split >>> l_ResultRight >>> l_ResultLeft
+	Если ( l_ResultRight StrToInt <= csPublicZero ) то 
+		( 'В выборке нет ни одного документа!' . )
+	иначе	
+		( 'В выборке есть документ(ы).' . )
+;
+
+PROCEDURE "Экспортировать выборку в формате HTML" STRING IN anExportName
+	"Инициализировать директорию экспорта"
+	"Почистить за собой"
+	@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта документа {(cnHTMLItemIndex)} {(anExportName)}" )
+;
+
+PROCEDURE "Экспортировать выборку в формате RTF" STRING IN anExportName
+	"Инициализировать директорию экспорта"
+	"Почистить за собой"
+	@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта документа {(cnRTFItemIndex)} {(anExportName)}" )
+;
+
+BOOLEAN operator "начинается с" STRING IN aLeft ^ IN aRight
+	aRight DO aLeft StartsStr >>> Result
+;
+
+STRING operator "заменить на" IN Строка IN "Что заменять" ^ IN "На что заменять"
+	Строка "Что заменять" "На что заменять" DO string:ReplaceFirst  >>> Result
+;
+
+STRING operator "без префикса" STRING IN "Имя файла" ^ IN aRight
+	STRING VAR Префикс
+	( aRight DO ) >>> Префикс
+		Если ( "Имя файла" "начинается с" Префикс ) то
+			( "Имя файла" Префикс "заменить на" '' >>> Result )
+		иначе
+			( "Имя файла" >>> Result )
+;
+
+PROCEDURE "Проверить наличие HTML-файла и сверить эталон" STRING IN aDocName
+	aDocName "без префикса" 'TK' >>> aDocName
+	[ g_ExportDirectory '\' aDocName ] strings:Cat >>> aDocName
+	aDocName sysutils:FileExists ?ASSURE [ 'Вылитый HTML файл не создался: ' aDocName ]
+	aDocName ';' tests:CheckEtalon
+;
+
+PROCEDURE PrintFileName
+	.
+;
+
+PROCEDURE "Проверить наличие в каталоге графических файлов для HTML" STRING IN aPath
+	@ PrintFileName '*.png' aPath ProcessFilesWithMask
+;
+
+PROCEDURE "Проверить наличие каталога для HTML-файла" STRING IN aDocName
+	STRING VAR l_PictureDirName
+	aDocName '' sysutils:ChangeFileExt >>> aDocName
+	[ g_ExportDirectory '\TK' aDocName '\' ] strings:Cat >>> l_PictureDirName
+	Если ( l_PictureDirName sysutils:DirectoryExists ) то
+	(
+		@ ( "Проверить наличие в каталоге графических файлов для HTML {(l_PictureDirName)}" )  l_PictureDirName ProcessSubDirs
+	)
+;	
+
+PROCEDURE "Сравнить с эталоном HTML" STRING IN aDocName
+	"Проверить наличие HTML-файла и сверить эталон {(aDocName)}"
+	 "Проверить наличие каталога для HTML-файла {(aDocName)}"
+;
+
+PROCEDURE "Проверить наличие RTF-файла и сверить эталон" STRING IN aDocName
+	aDocName "без префикса" 'TK' >>> aDocName
+	[ g_ExportDirectory '\' aDocName ] strings:Cat >>> aDocName
+	aDocName sysutils:FileExists ?ASSURE [ 'Вылитый RTF файл не создался: ' aDocName ]
+	aDocName ';' tests:CheckEtalon
+;
+
+/* PROCEDURE "Проверить наличие каталога для RTF-файла" STRING IN aDocName
+	STRING VAR l_PictureDirName
+	aDocName '' sysutils:ChangeFileExt >>> aDocName
+	[ g_ExportDirectory '\' aDocName '\' ] strings:Cat >>> l_PictureDirName
+	@ ( "Проверить наличие в каталоге графических файлов для R {(l_PictureDirName)}" )  l_PictureDirName ProcessSubDirs
+;	*/
+PROCEDURE "Сравнить с эталоном RTF" STRING IN aDocName
+	"Проверить наличие RTF-файла и сверить эталон {(aDocName)}"
+	 // "Проверить наличие каталога для RTF-файла {(aDocName)}"
+;
+
+PROCEDURE "Добавить документы" IN anID
+ 	INTEGER VAR l_Loop
+	0 >>> l_Loop
+	anID Array:Count раз (
+	@ ( "Добавить ID" ) MODAL ( "Заполнить ID {( l_Loop anID [i] )}" )
+	++! l_Loop
+	)
+;
+
+PROCEDURE "Открыть и закрыть выпадающий список" OBJECT IN aComboBox
+	true aComboBox pop:ComboBox:DropDown	
+	false aComboBox pop:ComboBox:DropDown	
+;
+
+PROCEDURE "Выбрать в выпадающем списке 'Стиль' значение" STRING IN aValue
+	OBJECT VAR l_Combobox
+	"Контрол по имени {('cbStyle')}" >>> l_Combobox
+	"Открыть и закрыть выпадающий список {(l_Combobox)}"
+	aValue l_Combobox pop:ComboBox:SelectItem
+	"Обработать сообщения"
+;
+
+USES
+ Mouse.script
+;
+
+PROCEDURE "Открыть окно 'Исправить метку'"
+	OBJECT VAR l_SubPanel
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Установить курсор мыши по координатам {(15 10)} относительно контрола {(l_SubPanel)}"
+ 	THREAD ( 500 SLEEP 
+		"Установить курсор мыши по координатам {(30 15)} относительно контрола в фокусе"
+		"Клик левой кнопкой мыши" 
+	)
+	"Клик правой кнопкой мыши"
+;
+
+USES
+ CommonWords.script
+;
+
+PROCEDURE "Вызвать окно 'Исправить метку' и установить стиль 'Разворачиваемый текст' на блок"
+	@ ( "Открыть окно 'Исправить метку'" ) MODAL ( 
+		"Выбрать в выпадающем списке 'Стиль' значение {( 'Разворачиваемый текст' )}"
+		"Нажать ОКBtn"
+	)
+;
+
+PROCEDURE "Удалить стиль 'Разворачиваемый текст'"
+	@ ( "Открыть окно 'Исправить метку'" ) MODAL ( 
+		"Выбрать в выпадающем списке 'Стиль' значение {( '[не определён]' )}"
+		"Нажать ОКBtn"
+	)
+;
+
+VOID WORDWORKER "Открыть окно 'Исправить метку' и выполнить в нём"
+	@ ( "Открыть окно 'Исправить метку'" )
+		MODAL (	
+		WordToWork DO
+ 	)
+;
+
+PROCEDURE "Сравнить Combobox свойств блока с эталоном" IN ComboboxName
+	 OBJECT VAR l_Combobox
+	 STRING VAR l_File
+	"Открыть окно 'Исправить метку' и выполнить в нём" (
+		"Контрол по имени {(ComboboxName)}" >>> l_Combobox
+		"Открыть и закрыть выпадающий список {(l_Combobox)}"
+	 	script:FileName '.cmbx' sysutils:ChangeFileExt
+	 	sysutils:ExtractFileName >>> l_File
+	 	l_File l_Combobox pop:ComboBox:SaveItems
+	 	l_File '%' tests:CheckEtalon
+		"Нажать ОКBtn"
+	)
+;
+
+PROCEDURE "Вызвать 'Дизайнер стилей'" 
+ "Событие вызова дизайнера стилей" arGeneralActionList push:MainForm pop:form:ExecuteAction
+;
+
+PROCEDURE "Перезагрузить стили"
+	@ ( "Вызвать 'Дизайнер стилей'" )
+		MODAL (	"Нажать ОКBtn" )
+;

@@ -1,0 +1,61 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/project/TestModel.mwc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Project::Category>> TestModel
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+workspace (TestModel) {
+	static_projects {
+		cmdline += -ti lib:msvc90-lib-generic-static
+		cmdline += -static
+		
+		w:/MDProcess/TestModel/project/BasicTests.mpc
+		w:/MDProcess/TestModel/project/BasicTests_tie.mpc
+		w:/MDProcess/TestModel/project/SubTestLibrary.mpc
+		w:/MDProcess/TestModel/project/SubTestLibrary_tie.mpc
+		w:/MDProcess/TestModel/project/SubServerLibrary_cs.mpc
+		w:/MDProcess/TestModel/project/SubServerLibrary.mpc
+		w:/MDProcess/TestModel/project/SubServerLibrary_tie.mpc
+		w:/MDProcess/TestModel/project/NewLibrary.mpc
+		w:/MDProcess/TestModel/project/NewLibrary_tie.mpc
+		w:/MDProcess/TestModel/project/NewServerLibrary_cs.mpc
+		w:/MDProcess/TestModel/project/NewServerLibrary.mpc
+		w:/MDProcess/TestModel/project/NewServerLibrary_tie.mpc
+		w:/MDProcess/TestModel/project/NewTestLibrary.mpc
+		w:/MDProcess/TestModel/project/NewTestLibrary_tie.mpc
+		
+		w:/shared/project/Core.mpc
+		w:/shared/project/CoreSrv_cs.mpc
+		w:/shared/project/CoreSrv.mpc
+		
+	}
+	dll_target_newadaptertarget {
+		cmdline += -ti dll:msvc90-dll-generic-static
+		//#UC START# *49AECD1003CC_DLL_TARGET*
+		//#UC END# *49AECD1003CC_DLL_TARGET*
+		w:/MDProcess/TestModel/project/T_NewAdapterTarget.mpc
+	
+	}
+	dll_target_newcomtarget {
+		cmdline += -ti dll:msvc90-dll-generic-static
+		//#UC START# *49AECD1A0248_DLL_TARGET*
+		//#UC END# *49AECD1A0248_DLL_TARGET*
+		cmdline += -value_template link_options+=/def:./NewComTarget.def
+		w:/MDProcess/TestModel/project/T_NewComTarget.mpc
+	
+	}
+	exe_target_newexetarget {
+		cmdline += -ti dll_exe:msvc90-exe-generic-static
+		//#UC START# *49AECD2203BD_EXE_TARGET*
+		//#UC END# *49AECD2203BD_EXE_TARGET*
+		w:/MDProcess/TestModel/project/T_NewExeTarget.mpc
+	
+	}
+	
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,151 @@
+// DataAccess 519B70FC02AB Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_519B70FC02AB
+
+FORWARD ME_519B719002F1
+
+: ME_519B71FD024C
+ CONST UID '519B71FD024C'
+ CONST GUID '2312E8B1-47E7-4451-AA07-3A9E4E07812D'
+ CONST Name 'IValueSetFiller'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_519B719002F1 // dt_Sab
+ ;
+
+ref; // ME_519B71FD024C IValueSetFiller
+
+FORWARD ME_559D266C032B
+
+: ME_3ABFA89841A4
+ CONST UID '3ABFA89841A4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода MakeSab' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_559D266C032B // MakeSab
+ ;
+
+ref; // ME_3ABFA89841A4 DoIt
+
+: ME_559D266C032B
+ CONST UID '559D266C032B'
+ CONST Name 'MakeSab'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_519B719002F1 // dt_Sab
+ ;
+ : Operations
+   @ ( ME_3ABFA89841A4 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_559D266C032B MakeSab
+
+: ME_519B719002F1
+ CONST UID '519B719002F1'
+ CONST Name 'dt_Sab'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_519B70FC02AB // DataAccess
+ ;
+ : Operations
+   @ ( ME_559D266C032B // MakeSab
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_519B71FD024C // IValueSetFiller
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Sab.pas'
+
+ref; // ME_519B719002F1 dt_Sab
+
+FORWARD ME_559E5F4702B7
+
+: ME_559E5F6802C5
+ CONST UID '559E5F6802C5'
+ CONST Name 'TAbstractList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_559E5F4702B7 // dt_List
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_559E5F6802C5 TAbstractList
+
+: ME_559E5F4702B7
+ CONST UID '559E5F4702B7'
+ CONST Name 'dt_List'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_519B70FC02AB // DataAccess
+ ;
+ : Children
+   @ ( ME_559E5F6802C5 // TAbstractList
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_List.pas'
+
+ref; // ME_559E5F4702B7 dt_List
+
+: ME_519B70FC02AB
+ CONST UID '519B70FC02AB'
+ CONST Name 'DataAccess'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ ;
+ : Children
+   @ ( ME_519B719002F1 // dt_Sab
+ ME_559E5F4702B7 // dt_List
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\519B70FC02AB.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\519B70FC02AB.pas.ms.script.runner'
+
+ref; // ME_519B70FC02AB DataAccess

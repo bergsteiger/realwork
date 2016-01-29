@@ -1,0 +1,141 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{E4D52048-F046-4EA0-86B5-AA3783625DDE}</ProjectGuid>
+			<MainSource>gtPDFkitD2010ProP.dpk</MainSource>
+			<ProjectVersion>12.0</ProjectVersion>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<BRCC_OutputDir>..\Lib\D2010</BRCC_OutputDir>
+			<BRCC_IncludePath>..\Lib\D2010;$(BRCC_IncludePath)</BRCC_IncludePath>
+			<DCC_UnitSearchPath>..\Lib\D2010;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_Description>Gnostice PDFtoolkit v3.0</DCC_Description>
+			<DesignOnlyPackage>false</DesignOnlyPackage>
+			<RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+			<DCC_BplOutput>..\Lib\D2010</DCC_BplOutput>
+			<DCC_DcuOutput>..\Lib\D2010</DCC_DcuOutput>
+			<DCC_DcpOutput>..\Lib\D2010</DCC_DcpOutput>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_DependencyCheckOutputName>..\Lib\D2010\gtPDFkitD2010ProP.bpl</DCC_DependencyCheckOutputName>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<GenDll>true</GenDll>
+			<GenPackage>true</GenPackage>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_Platform>x86</DCC_Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="gtPDFkitD2010ProP.dpk">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="rtl.dcp"/>
+			<DCCReference Include="vcl.dcp"/>
+			<DCCReference Include="vclx.dcp"/>
+			<DCCReference Include="vclimg.dcp"/>
+			<DCCReference Include="xmlrtl.dcp"/>
+			<DCCReference Include="gtPDF32D2010.dcp"/>
+			<DCCReference Include="gtCrypt.pas" />
+			<DCCReference Include="gtCstPDFDoc.pas" />
+			<DCCReference Include="gtExPDFDoc.pas" />
+			<DCCReference Include="gtExProPDFDoc.pas" />
+			<DCCReference Include="gtPDF32.dcp" />
+			<DCCReference Include="gtPDFClasses.pas" />
+			<DCCReference Include="gtPDFConsts.pas" />
+			<DCCReference Include="gtPDFDoc.pas" />
+			<DCCReference Include="gtPDFOutlineViewer.pas" />
+			<DCCReference Include="gtPDFPrinter.pas" />
+			<DCCReference Include="gtPDFResStrs.pas" />
+			<DCCReference Include="gtPDFSearchPanel.pas" />
+			<DCCReference Include="gtPDFTypes.pas" />
+			<DCCReference Include="gtPDFUtils.pas" />
+			<DCCReference Include="gtPDFViewer.pas" />
+			<DCCReference Include="gtScrollingPanel.pas" />
+			<DCCReference Include="gtSettingsDlg.pas" />
+			<DCCReference Include="gtViewerTypes.pas" />
+			<DCCReference Include="gtViewerWidgets.pas" />
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>Package</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">gtPDFkitD2010ProP.dpk</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">3</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1033</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Gnostice Information Technologies Pvt. Ltd.</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">Gnostice PDFtoolkit v3.0</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">3.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName">Gnostice PDFtoolkit v3.0</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">3.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments">© 2002-2009 Gnostice Information Technologies Private Limited. All rights reserved.</VersionInfoKeys>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\bin\bcboffice2k120.bpl">CodeGear C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\bin\bcbofficexp120.bpl">CodeGear C++Builder Office XP Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\bin\dcloffice2k120.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\bin\dclofficexp120.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

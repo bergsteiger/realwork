@@ -1,0 +1,483 @@
+What's new
+----------------
+ '+' = New feature
+ '-' = Bug fixed
+ '*' = behavior changed
+----------------
+
+==========================================
+Version 4.11
+==========================================
+
++ Included run-time package for D6.
+
++ Compatible with C3/C4/C5/D3/D4 again
+(V4.1 was only for D5/D6)
+
+* Removed QReport usage in Instant Report 
+under D6 because QReport for D6 requires 
+designintf which can not be distributed
+with the application. 
+
+- Removed hints and warnings under C3 and D4
+
++ Under D3 Format function have limitation
+on input str length to be less than 4095.
+Implemented SafeFormat which overcomes this
+and used in the places in Dream VCL which
+did not worked properly under D3.
+
++ Created MakeDiff project files for 
+C++Builder 4 and C++Builder 5
+
+
+--------[InfoTree]--------
+
+* Dream InfoTree demo for C++Builder now have
+different projects for the different
+C++Builder versions
+
+- Fixed compiler exception on dcntree.pas
+under C3
+
+
+--------[InfoTreeGrid]--------
+
++ Created C++Builder projects for Dream InfoTree
+Grid demos (grideditors,gridexplorer,gridregedit).
+
++ Demo projects can now be compiled in 
+C++ Builder 4 
+
+--------[Scripter]--------
+
+- Bug with bad comparison of byte
+variables under Delphi3 is fixed.
+
++ Now possible to assign Script
+property to scripter at runtime
+in designed form under D6
+
++ Created C++Builder projects for 
+SCRIPTTHREADS demo
+
++ Import files for Dream Scripter for
+VCL and Dream Controls are included
+with the installation.
+
++ Added "Import QReport" and "Prepare for
+QReport Import" buttons in UNITImporter
+project
+
+- Removed QReport oriented scripts from
+the installation package.
+
+- Was Exception when clicking run in 
+SCRIPTTHREADS demo under C++Builder. 
+Note: You need to call CreateScriptRunner
+method of DCScripter before calling
+script methods from the different
+threads.
+
+
+--------[Memo]--------
+
+* Memo's SpecialSymbol members EolString and 
+EofString are now stored differently in DFM.
+This fixed incompatibilties when opening
+form with memo under lower version of 
+Delphi than in which form was created. 
+
+
+==========================================
+Version 4.1
+==========================================
+
+* dclib.pas was renamed to dcdreamlib.pas because
+unit with similar name was appeared in D6
+
++ D6 compatibility
+
+- Quite a few bugs are fixed
+
++ dcdsgnstuff.pas unit. Now Dream Designer and 
+Dream Inspector don't need dsgnintf.pas
+
+* Parameters declaration of TPropertyEditor type in 
+all events and methods was changes so their type now
+is TDCDsgnProperty (declared in dcgen.pas)
+
+* All parameters of TComponenEditor are declared as TDCDsgnComp
+now
+
+!!!!!!!!!!!!!!!!!!
+If you install Dream Controls in Delphi 6 IDE using some other package
+than dcctd6.dpk you need to modify your package and add there
+defines: 
+
+{$DEFINE USEVCLDESIGNER}
+{$I dc.inc}
+
+(before requires keyword)
+
+!!!!!!!!!!!!!!!!!!
+If you get [Fatal Error] File not found: 'DesignIntf.dcu' error
+or some other file not found error while compiling your app 
+just do Project | Build All
+
+
++ Dream Controls now can be compiled without compiler optimization
+
++ More demos are included, old demos are slightly improved.
+
+--------[Designer]--------
+
+- several bugs with Changes storage are fixed
+
+--------[Memo]--------
+
++ OnPaintGutter event added
+
+- bug with invisible lines fixed.
+
+--------[Scripter]--------
+
++ DCPASCAL define now is defined in the script 
+when our pascal scripter is used.
+
+* When some event is not registered with RegisterEvent but is used in script
+warning dialog will be shown (if you don't want to show dialog
+just set dcscript.DCShowWarnIfNoEventType to False)
+
+- When some module with form was loaded for more than once at the same time
+we had an exception during application close.
+
+- UnitImporter incorrectly processes non Register function that have record
+type parameters
+
++ Delphi Script: Cos, Sin, Exp, Ln, ArcTan, Sqr, and Sqrt functions work now
+  significantly faster
+
++ Delphi Script is much faster when used in multithreaded apps now
+
+* IMPGEN utility was rremoved. Please use 
+UNITIMPORTER instead of it.
+
++ UNITIMPORTER
+   + ignores VCL units that were not included by Borland in Delphi/CPB
+     package but are used by other VCL units
+   - exceptions when some VCL units were imported
+   + additional menu where user with single mouse click can create import 
+     units for VCL units for the each delphi version. 
+   + Menu items which will fill form editors with some default values in 
+     order to make import for different delphi versions easier. 
+   + methods and procedures which have unit name in type of parameter 
+     are imported correctly now
+   + D6 style enumerated types are supported now
+   + Indexed properties which params are not compatible with OleVariant
+     are imported properly now
+   + Many file can be added to the project files at one time
+   + menu for importing of Dream Controls units with single mouse click is 
+     added
+   + when individual unit element are selected fo import it is possible now
+     to select/unselect all items of the specified kind through popup menu
+   * When some type is used but is not declared in the used units or in the
+     unit it is considered as TObject if it starts from T and is considered
+     as IUnknown if it starts from I
+   * uses in imported unit is now organized in more correct way
+     (previously invokeregistry.pas import was impossiblee)
+   + dctestunit.bat and dctestunit.pas additionally generated in the 
+     destination folder, so you can quickly check whether import units
+     are compilable (just run dctestunit.bat)
+   + Units that are used by class for which is record wrapper is defined
+     are added to the uses clause of the import unit
+   + Events with set parameter like TShiftState are properly registered now
+==========================================
+Version 4.01
+==========================================
+
+--------[InfoTreeGrid]--------
+
+* DCTreeGrid Items Editor is improved
+
++ InfoTreeGrid: Image Editor is added
+
+- bug with DragnDrop between 2 grids
+
+- InfoTreeGrid: bug with columns reordering
+
++ grid painting is optimized
+
+- bug when InfoTree and InfoTreeGrid are linked with the same InfoSet
+
+- MakeVisible method doesn't work correctly
+
+--------[InfoTree]--------
+
+* Items Editor is localized
+
+- bug with DragnDrop between 2 trees
+
+- bugs with IncludeAllRecords
+
+--------[Scripter]--------
+
+- Sometimes AV occurs when exiting the program
+
+- UnitImporter bug with virtual methods having default parameters
+
+- UnitImporter bug with default parameters of Interface, PChar and PWideChar type
+
+- UnitImporter now correctly saves projects filenames
+
+--------[Designer]--------
+
+- bugs with new component palette
+
+- bugs with new Menu Designer
+
+--------[Memo]--------
+
+- several minor bugs
+
+
+==========================================
+Version 4.0
+==========================================
+
+--------[Common]--------
+
++ DCFileOperation bug when folder name contains spaces
+
++ Now DCEdit takes less GUI resources
+
++ TDCPackageLoader: OnGetPackageFileName event added
+
+* color names in DCColorCombo now does not contain 'cl' pre-
+  fix   ('Black',   'ActiveBorder'   intead  of   'clBlack',
+  'clActiveBorder')
+
+- fixed bug with TabStop in TCustomDCEdit
+
+- bugs with TCompFiler that lead to incorrect storing of as-
+  signed events
+
+--------[Scripter]--------
+
++ Cool demo of Delphi Script is added. Be careful, Tetris is
+  very addictive game!
+
++ ImpGen utility is replaced with UnitImporter
+
++ TDCScriptPageProducer is added
+
++ Delphi Script : Now you can use code like v[0] := x;
+
++ Default class properties are supported so you can write
+  var l : TList
+  ...
+  l[0] := 12;
+
++ Now you can instantiate  the variable of record type  like
+  pt := TPoint;
+
++ Delphi functions  that accept var record parameters  (like
+  FindFirst) now actually modify passed parameter
+
+- IMPGEN:  constant named 'ABSOLUTE' caused IMPGEN to ignore
+  all other constants.
+
++ OnModuleLoaded event
+
++ now Impgen creates functions like  ConvertTRectToVariant /
+  ConvertVariantToTRect for each record type
+
++ function TDelphiRunner.FindConstant
+
+- Delphi Script: EvaluateExpression doesn't evaluate objects
+  added with AddItem
+
++ Delphi Script: Arrays are supported.
+
++ Delphi Script: new built in function Evaluate which can be
+  used  to interpret strings  as program code during runtime
+  of a program and execute the code contained in the string.
+  For example you can write script like
+
+  Evaluate(ProcNames[ProcIndex]);
+
+  and   the   procedure   which   name   is   specified   in
+  ProcNames[ProcIndex] will be called.
+
++ Delphi Script:  UseUnit can be used  to dynamically add to
+  uses section any unit. For example, the following script
+
+  if FileExists('Update.pas') then    
+  begin
+    UseUnit('Update.pas');
+    Evaluate('Update.DoUpdate');
+  end;
+
+  checks whether the unit named Update.pas exists  and if so
+  calls DoUpdate method from there.
+
++ Delphi Script:  UnloadUnit  is  added.  You can unload any
+  unit added by "uses" section or with UseUnit call.
+
+- Delphi   Script:    crash   when   exception   occurs   in
+  'try except end' block and is not reraised.
+
++ Impgen  now  adds  unregistration code  to finalization of
+  each registration unit.
+
+- InterruptScript now correctly interrupts Delphi Script
+
+- Impgen incorrectly parses code like
+  var v : procedure of object;
+
+- CheckSyntaxEx now uses OnGetUserVarID event 
+
+- bug when EventItem.CallExisting = True  and  event has > 3
+  parameters.
+
++ Delphi Script: Include and Exclude are added
+
++ Delphi Script: Result value in function declaration can be
+  skipped now
+
++ ImpGen: the limitation on maximal constats number is remo-
+  ved
+
++ TDCScripter.UseExceptions  property.  If this property  is
+  set to True exception is raised instead of calling OnError
+
++ Delphi Script : Inc and Dec
+
++ Delphi Script : ExceptionMessage can be used to get error-
+  message string of the last exception
+
++ Impgen  imports routines  with default parameters  so they
+  can be used in scripts now.
+
++ Application  compiled with VCLIMP  now takes ~2.3Mb of RAM
+  less than before.
+
++ Delphi Script: LoadExternalProc.  Now it's possible to use
+  script like
+
+  procedure test;
+  var
+    func,
+    dllhandle;
+  begin
+    dllhandle := LoadLibrary('user32.dll');
+    if dllhandle > 0 then
+      try
+        func := LoadExternalProc(dllhandle, 'MessageBoxA',
+          'function (hWnd: HWND; lpText, lpCaption: PChar;'+
+          ' uType: UINT): Integer; stdcall;');
+        func(0, 'World', 'Hello', 0);
+      finally
+        FreeLibrary(dllhandle);
+      end;
+  end;
+
+- Safecall functions are now called correctly from script.
+
+--------[Designer]--------
+
++ OnStoreProp event can be used to determine what properties
+  are stored to stream.
+
++ OnProcessMenuItem event.
+
++ OnGetEventsList event
+
++ CompChangesStreamToStrings / CompChangesStreamToTextStream
+  routines
+
++ Component Palette  is rewritten.  Now it is  flicker free,
+  faster,  takes less resources  and  includes Customization
+  Dialog
+
++ Visual Menu Editor is added.
+
+--------[Inspector]--------
+
++ AUTOCOLLAPSE is supported in Aliases
+
+--------[Memo]--------
+
++ CustomDraw added OnCustomDraw, OnCustomString events.
+
++ soUsePrevIndent option
+
++ OnExportString event added
+
++ OemConvert property aded
+
++ Linear bookmarks added
+
++ Invisible lines support added.
+
+- Painting improved.
+
+- Bookmarks work more correctly.
+
++ MBCS support added.
+
++ moShowScrollHint added.
+
++ ReadOnly background color added.
+
++ CLX support added.
+
+- Bug with persistent blocks.
+
++ OnGetLineNumber event added.
+
++ Custom Draw support added.
+
++ moExtendedSel options - selection like in MSWord.
+
++ Nonmodal search/replace dialogs added.
+
++ moCenterOnBookmark option added.
+
++ moTripleClick option
+
++ moLimitLineNumbers  added  (displays line numbers only for
+  existing lines)
+
+- C/Jscript parser bug with str consts that contains # or \'
+  symbol.
+
++ Environment  Options:   'Display'  page  -  added  options
+  'Use     read-only     color',      'Read-only     color',
+  'Draw special symbols' and 'Special symbols'.
+
++ Environment Options:  support of TextStyles schemes added,
+  env. options 'Colors' improved.
+
++ dcsyntax.pas:         added         global        function
+  function GetSyntaxBlockAtCursor(AMemo: TDCMemo): TSyntaxBlock;
+  It allows  to determine  the syntax block  under cursor in
+  DCMemo.
+
++ added new component TDFMParser (based on TStringsParser)
+
++ added  new  syntax  schemes:  'C#' (CSharp), 'Unix Shell',
+  'XML' and 'XML with scripts'
+
+* TSyntaxParser:
+  + added new feature  -  now you can assign  Text Style for
+    any item in scheme and its attributes will be taken from
+    global options.  Added property UseGlobalOptions,  which
+    determines whether to use global or local text styles.
+  + now you can customize charsets,  used to determine iden-
+    tifiers  and  keywords.  So  it's possible  to highlight
+    'non-english' identifiers.
+  * improved scheme loading - now you can load broken files,
+    incorrect properties will be ignored.
+  - now correctly highlight URLs.
+  - fixed bugs with object properties.

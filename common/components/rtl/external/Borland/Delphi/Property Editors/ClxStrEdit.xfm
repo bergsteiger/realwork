@@ -1,0 +1,130 @@
+object ClxStrEditDlg: TClxStrEditDlg
+  HelpType = htContext
+  HelpContext = 26000
+  Left = 394
+  Top = 374
+  Width = 396
+  Height = 277
+  HorzScrollBar.Range = 181
+  VertScrollBar.Range = 29
+  ActiveControl = Memo
+  Caption = 'String list editor'
+  Color = clButton
+  Constraints.MinHeight = 277
+  Constraints.MinWidth = 396
+  PopupMenu = PopupMenu1
+  Position = poScreenCenter
+  Scaled = False
+  OnCreate = FormCreate
+  object Bevel1: TBevel
+    Left = 8
+    Top = 8
+    Width = 380
+    Height = 226
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Shape = bsFrame
+  end
+  object LineCount: TLabel
+    Left = 12
+    Top = 12
+    Width = 169
+    Height = 17
+    AutoSize = False
+    Caption = '0 lines'
+    Layout = tlCenter
+  end
+  object OKButton: TButton
+    Left = 154
+    Top = 241
+    Width = 70
+    Height = 27
+    Anchors = [akRight, akBottom]
+    Caption = '&OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 2
+  end
+  object CancelButton: TButton
+    Left = 234
+    Top = 241
+    Width = 73
+    Height = 27
+    Anchors = [akRight, akBottom]
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 3
+  end
+  object HelpButton: TButton
+    Left = 314
+    Top = 241
+    Width = 73
+    Height = 27
+    Anchors = [akRight, akBottom]
+    Caption = '&Help'
+    TabOrder = 1
+    OnClick = HelpButtonClick
+  end
+  object Memo: TMemo
+    Left = 19
+    Top = 34
+    Width = 357
+    Height = 181
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Lines.Strings = (
+      ' ')
+    PopupMenu = PopupMenu1
+    ScrollBars = ssAutoBoth
+    TabOrder = 4
+    WordWrap = False
+    OnChange = UpdateStatus
+  end
+  object OpenDialog: TOpenDialog
+    HelpType = htContext
+    HelpContext = 27040
+    Filter = 
+      'Text files (*.txt)|*.txt|Shell scripts (*.sh)|*.sh|Config files ' +
+      '(*.conf)|*.conf|All files (*)|*'
+    FilterIndex = 0
+    Options = [ofEnableSizing, ofHideReadOnly, ofViewDetail]
+    Height = 0
+    Title = 'Load string list'
+    Width = 0
+    Left = 276
+    Top = 4
+  end
+  object SaveDialog: TSaveDialog
+    HelpType = htContext
+    HelpContext = 27050
+    DefaultExt = 'txt'
+    Filter = 
+      'Text files (*.txt)|Config files (*.conf)|Shell scripts (*.sh)|Al' +
+      'l files (*)'
+    FilterIndex = 0
+    Options = [ofOverwritePrompt, ofEnableSizing]
+    Height = 0
+    Title = 'Save string list'
+    Width = 0
+    Left = 309
+    Top = 2
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 238
+    Top = 7
+    object Load1: TMenuItem
+      Caption = '&Load...'
+      OnClick = FileOpen
+      HelpType = htContext
+    end
+    object Save1: TMenuItem
+      Caption = '&Save...'
+      OnClick = FileSave
+      HelpType = htContext
+    end
+    object Clear1: TMenuItem
+      Caption = '&Clear'
+      OnClick = Clear1Click
+      HelpType = htContext
+    end
+  end
+end

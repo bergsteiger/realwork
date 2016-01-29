@@ -1,0 +1,69 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_debug_server <MPCXC_ROOT> <exe_server_name>"
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+if test "$LOKI_ROOT" = ""; then
+echo "You must export LOKI_ROOT for garant_server.mwc."
+exit
+fi
+
+if test "$XERCES_ROOT" = ""; then
+echo "You must export XERCES_ROOT for garant_server.mwc."
+exit
+fi
+
+if test "$BOOST_ROOT" = ""; then
+echo "You must export BOOST_ROOT for garant_server.mwc."
+exit
+fi
+
+export MPCXC_ROOT=$1
+
+taoace_target=`$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/uname2target.rb`
+target=$taoace_target"_server_debug"
+
+if test "$taoace_target" = "" ; then
+echo "mpcxc_full_rebuild_ace: FATAL: target platform = $taoace_target not supported."
+exit
+fi	  
+
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path
+ace_config_path=$MPCXC_ROOT/src/common/templates/mpc/make/TAOACE
+export MPCXC_CONFIG="" # ensure no config
+export MPCXC_TARGET=$target
+
+export TAOACE_MPCXC_ROOT=$MPCXC_ROOT
+export TAOACE_MPCXC_TARGET=$taoace_target
+
+export ACE_ROOT=$TAOACE_MPCXC_ROOT/src
+export TAO_ROOT=$ACE_ROOT/TAO
+
+#export LOKI_ROOT="/home2/grigorio/samba2/2005-10-11"
+#export XERCES_ROOT="/home/grigorio/tuning/xerces-c-src_2_6_0"
+
+
+export PATH=/usr/local/gcc402/bin:/usr/local/gcc344/bin:/usr/local/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/gcc402/lib:/usr/local/gcc344/lib:/usr/local/lib:$MPCXC_ROOT/out/$MPCXC_TARGET/lib:$TAOACE_MPCXC_ROOT/out/$TAOACE_MPCXC_TARGET/lib:$XERCES_ROOT/lib:$BOOST_ROOT/lib:$LD_LIBRARY_PATH
+
+
+gdb \
+-x $MPCXC_SH/x.gdb \
+-d $TAOACE_MPCXC_ROOT/src/ace \
+-d $TAOACE_MPCXC_ROOT/src/TAO \
+-d $TAOACE_MPCXC_ROOT/src/TAO/tao \
+-d $TAOACE_MPCXC_ROOT/src/TAO/tao/PortableServer \
+-d $MPCXC_ROOT/src \
+-d $MPCXC_ROOT/src/garantPIL/implementation/component \
+-d $MPCXC_ROOT/src/common \
+-d $MPCXC_ROOT/src/common/helpers \
+-d $MPCXC_ROOT/src/common/utils/ParamManager \
+-d $MPCXC_ROOT/src/common/patterns/managers \
+-d $MPCXC_ROOT/src/garantPIL/implementation/component/cpp/Garant/BusinessAdapter/GbaLegacyStorage/Server \
+-d $MPCXC_ROOT/src/garantPIL/implementation/component/cpp/libs/cchlp/src \
+-d $MPCXC_ROOT/src/garantPIL/implementation/component/cpp/Garant/Global/Core/Common \
+$MPCXC_ROOT/out/$MPCXC_TARGET/bin/$2

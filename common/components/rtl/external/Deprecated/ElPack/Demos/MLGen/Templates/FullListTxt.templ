@@ -1,0 +1,23 @@
+<macro name="Separator" char="-" width="auto" space="1" spacecol="3"/>
+<params>
+  <param name="OutputFileName" value="SampleData.txt"/>
+  <param name="OutputFileType" value="Text file"/>
+</params>
+         Demo template (plain-text format).
+<comment name="1">
+  Type: Text file; each cell is exported separately;
+</comment name="1">
+
+<if name="Header">
+<macro name="Separator" char="-" width="auto" space="1" spacecol="3"/>
+|<repeat name="Header"> <macro name="CellHeader" width="auto"/> |</repeat name="Header">
+</if name="Header">
+<macro name="Separator" char="-" width="auto" space="1" spacecol="3"/>
+<repeat name="Rows">
+|<repeat name="Cols"> <macro name="Cell" width="auto"/> |</repeat name="Cols">
+</repeat name="Rows">
+<macro name="Separator" char="-" width="auto" space="1" spacecol="3"/>
+<if name="Footer">
+
+Page <macro name="FileNumb"/> of <macro name="TotalFileNumb"/>.
+</if name="Footer">

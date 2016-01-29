@@ -1,0 +1,370 @@
+#ifndef __RC_IDL
+#define __RC_IDL
+/*
+ * definitions and pseudo-interfaces for custom Record Marshalling.
+ * (C) Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>, 1999
+ * (C) GradSoft, 2001
+ * $Id: RC.idl,v 1.1 2010/09/27 16:45:55 lulin Exp $
+ */
+
+#ifndef __COSQUERYCOLLECTION_IDL
+#include <CosQueryCollection.idl>
+#endif
+
+
+#pragma prefix "gradsoft.kiev.ua"
+
+/**
+ * pseudo-interfaces for custom Record Masrshalling
+ * The main entity is: RC-coded octet sequence.
+ * We provide 2 pseudo-interfaces: RCReader and RCWriter
+ * for reading/writing from/to RCSeq. 
+ **/
+module RC
+{
+
+///
+typedef sequence<octet> OctetSeq;
+//typedef CosQueryCollection::Record Record;
+///
+typedef sequence<CosQueryCollection::Record> RecordSeq;
+
+//typedef CosQueryCollection::Decimal Decimal;
+
+/**
+ * throwed, when Reader discovered error in OctSeq. 
+ **/
+exception BadOctSeq
+{
+ /**
+  * position of read failure (in bytes).
+  **/
+ long   pos;    
+ /**
+  * what was happened ?
+  **/
+ string reason; 
+};
+
+///
+exception TypeNotImplemented
+{
+ ///
+ CosQueryCollection::FieldType fieldType;
+};
+
+///
+exception FieldValueIsNull {};
+///
+exception InvalidPosition {};
+
+/**
+ * header of RC-coded octet sequence.
+ **/
+struct RCHeader
+{
+  ///
+  octet version;
+  /// number of records in sequence.
+  /// (if -1, than number of records is unknown).
+  long  nRecords;
+  /// number of fileds in one record.
+  unsigned long nFields;
+};
+
+///
+exception InvalidHeadData {};
+
+/**
+ * this pseudointerface must be mapped to RCWriter static class
+ * in host language.
+ */
+interface Writer // pseudo
+{
+  
+  /**
+   *write header of Octet Sequence to octSeq_.
+   *@param nRecords - number of records to be coded.
+   *@param nFields - number of fields in one record.
+   *@param pos - position (input really ignored, on output it
+   * is settet to first position after header).
+   *@param octSeq_ - sequence, in which we code.
+   **/
+  void  writeHeader(in long nRecords, in unsigned long nFields,
+                    inout unsigned long pos, inout OctetSeq octSeq_)
+                               raises (InvalidHeadData);
+
+  ///
+  void  writeHead(inout unsigned long pos, inout OctetSeq octSeq_)
+                               raises (InvalidHeadData);
+
+
+  ///
+  void  writeRecord(in CosQueryCollection::Record record,
+                     inout unsigned long pos,
+                     inout OctetSeq octSeq_ )
+                                           raises(TypeNotImplemented);
+
+  ///
+  void  writeRecordSeq(in RecordSeq recordSeq_)
+                                           raises(TypeNotImplemented);
+
+  ///
+  void  writeBoolean(in boolean value, inout unsigned long pos,
+                                       inout OctetSeq octSeq_);
+                                          
+  ///
+  void  writeChar(in char value, inout unsigned long pos,
+                                       inout OctetSeq octSeq_);
+
+  ///
+  void  writeShort(in short value, inout unsigned long pos,
+                                       inout OctetSeq octSeq_);
+
+  ///
+  void   writeLong(in long value, inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeULong(in unsigned long value, inout unsigned long pos, 
+                                            inout OctetSeq octSeq_);
+
+  ///
+  void   writeFloat(in float value, inout unsigned long pos,
+                                            inout OctetSeq octSeq_);
+
+  ///
+  void   writeDouble(in float value, inout unsigned long pos,
+                                            inout OctetSeq octSeq_);
+  
+  ///
+  void   writeString(in string value, inout unsigned long pos,
+                                            inout OctetSeq octSeq_);
+
+  ///
+  void   writeWString(in wstring value, inout unsigned long pos,
+                                            inout OctetSeq octSeq_);
+
+  ///
+  void   writeObject(in Object value, inout unsigned long pos,
+                                            inout OctetSeq octSeq_);
+
+  ///
+  void   writeDecimal(in CosQueryCollection::Decimal value, 
+                                    inout unsigned long pos,
+                                            inout OctetSeq octSeq_);
+
+  ///
+  void   writeRaw(in OctetSeq value, inout unsigned long pos,
+                                            inout OctetSeq octSeq_);
+
+  ///
+  void   writeDateTime(in CosQueryCollection::DateTime value, 
+                       inout unsigned long pos,
+                       inout OctetSeq octSeq_);
+
+  ///
+  void   writeFieldValue(in CosQueryCollection::FieldValue value,
+                         inout unsigned long pos, inout OctetSeq octSeq_); 
+
+  ///
+  void   writeNullField(inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeBooleanField(in boolean value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeCharField(in char value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeOctetField(in char value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeShortField(in short value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeUShortField(in unsigned short value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeLongField(in long value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeULongField(in unsigned long value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeFloatField(in float value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeDoubleField(in double value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeStringField(in string value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeObjectField(in Object value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeDecimalField(in CosQueryCollection::Decimal value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeRawField(in OctetSeq value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  void   writeLongRawField(in OctetSeq value,
+                           inout unsigned long pos, inout OctetSeq octSeq_);
+
+  ///
+  OctetSeq  copyStream(in unsigned long from_pos, in unsigned long to_pos,
+                     in OctetSeq octSeq_)
+                           raises(InvalidPosition);
+
+};
+
+/**
+* this pseudointerface must be mapped to RCReader static class
+* in host language.
+*/
+interface Reader
+{
+
+  ///
+  void    readHeader(inout RCHeader header, inout unsigned long pos,
+                                            in OctetSeq octSeq_)
+                                           raises(BadOctSeq);
+
+  ///
+  CosQueryCollection::Record  readRecord(inout unsigned long pos, in OctetSeq octSeq_ )
+                                           raises(BadOctSeq);
+
+  ///
+  RecordSeq  readRecordSeq(inout unsigned long pos, in OctetSeq octSeq_)
+                                           raises(BadOctSeq);
+   
+  ///
+  CosQueryCollection::FieldValue  readField(inout unsigned long pos,
+                                                 in OctetSeq octSeq_)
+                                           raises(BadOctSeq);
+
+  /**
+   * return true and skip null value, if return was null, otherwise
+   * return false and not touch pos.
+   */
+  boolean   nextFieldIsNull(inout unsigned long pos, in OctetSeq octSeq_)
+                                           raises(BadOctSeq);
+
+  ///
+  CosQueryCollection::FieldType nextFieldType(inout unsigned long pos,
+                                               in OctetSeq octSeq_)
+                                           raises(BadOctSeq);
+
+  ///
+  boolean   readBooleanField(inout unsigned long pos, in OctetSeq octSeq_)
+                                       raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  void      readBooleanField_inout(inout boolean value,
+                                 inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  char      readCharField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  void      readCharField_inout(inout char value,
+                                  inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  octet     readOctetField(inout unsigned long pos, in OctetSeq octSeq_)
+                                         raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  short     readShortField(inout unsigned long pos, in OctetSeq octSeq_) 
+                                         raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  unsigned short  readUShortField(inout unsigned long pos, in OctetSeq octSeq_) 
+                                        raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  long      readLongField(inout unsigned long pos, in OctetSeq octSeq_)
+                                         raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  unsigned long  readULongField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  float     readFloatField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  double    readDoubleField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  string    readStringField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  Object  readObjectField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  CosQueryCollection::Decimal readDecimalField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+  
+  ///
+  CosQueryCollection::Decimal readNumericField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  CosQueryCollection::DateTime readDateTimeField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  OctetSeq  readRawField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  void    readRawField_inout(inout OctetSeq value, 
+                             inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  OctetSeq  readLongRawField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  void    readLongRawField_inout(inout OctetSeq value, 
+                             inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  string  readLongStringField(inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+  ///
+  void  readLongStringField_inout(inout string value,
+                                  inout unsigned long pos, in OctetSeq octSeq_)
+                                          raises(BadOctSeq,FieldValueIsNull);
+
+};
+
+
+};
+
+#endif

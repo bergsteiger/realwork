@@ -1,0 +1,40 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_use_new_zlib <confirm>"
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+echo "mpcxc_use_new_zlib ..."
+
+target=`$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/uname2target.rb`; taoace_target=$target
+
+if test "$target" = "" ; then
+echo "mpcxc_full_rebuild_garant_tools: FATAL: target platform = $taoace_target not supported."
+exit
+fi	  
+
+if test "$1" = "O3" ; then
+echo "Optimize using -O3"
+target=$target"_O3"
+else
+echo "Optimize using -O0"
+fi
+
+export MPCXC_ROOT=$PWD
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path
+ace_config_path=$MPCXC_ROOT/src/common/templates/mpc/make/TAOACE
+export MPCXC_CONFIG="" # ensure no config
+export MPCXC_TARGET=$target
+
+export TAOACE_MPCXC_ROOT=$MPCXC_ROOT
+export TAOACE_MPCXC_TARGET=$MPCXC_TARGET
+
+find $MPCXC_ROOT/src/garant6x/implementation/Projects -type f -name "*.mwc" -exec $MPCXC_SH/fix_replace {} "zlib_optpack" "zlib_tools" BINARY_SUBSTR \;
+find $MPCXC_ROOT/src/garant6x/implementation/Projects -type f -name "*.mpc" -exec $MPCXC_SH/fix_replace {} "zlib_optpack" "zlib_tools" BINARY_SUBSTR \;
+
+find $MPCXC_ROOT/src/garant6x/implementation/Projects -type f -name "*.mpc" -exec $MPCXC_SH/fix_replace {} "ace+zlib_optpack-tools" "ace+zlib-tools" BINARY_SUBSTR \;
+
+echo "end."

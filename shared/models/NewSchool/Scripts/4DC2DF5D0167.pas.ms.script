@@ -1,0 +1,140 @@
+// TkwIncluded 4DC2DF5D0167 SimpleClass Class
+
+FORWARD ME_4DC2DF5D0167
+
+: ME_4F3AA333004F
+ CONST UID '4F3AA333004F'
+ CONST Name 'RkwIncluded'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DC2DF5D0167 // TkwIncluded
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_4F3AA333004F RkwIncluded
+
+INCLUDE '4E207A0002B2.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4DC2DFF102B7
+ CONST UID '4DC2DFF102B7'
+ CONST Name 'f_FileName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4DC2DFF102B7 f_FileName
+
+FORWARD ME_4DC2E00703AA
+
+: ME_4DC2E03C0109
+ CONST UID '4DC2E03C0109'
+ CONST Name 'aFileName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4DC2E03C0109 aFileName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4DC2E0300240
+ CONST UID '4DC2E0300240'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4DC2E03C0109 // aFileName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DC2E0300240 DoIt
+
+: ME_4DC2E00703AA
+ CONST UID '4DC2E00703AA'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4DC2E0300240 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DC2E00703AA Create
+
+: ME_0BA4D56CBF3F
+ CONST UID '0BA4D56CBF3F'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwIncluded' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_0BA4D56CBF3F Ini_Reg
+
+: ME_4DC2DF5D0167
+ CONST UID '4DC2DF5D0167'
+ CONST Name 'TkwIncluded'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4E207A0002B2 // TkwIncludedPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4DC2DFF102B7 // f_FileName
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4DC2E00703AA // Create
+ ME_0BA4D56CBF3F // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DAEEDE10285 // DoDoIt
+ ME_4DB6C99F026E // EndBracket
+ ME_4DB6F2760023 // UnknownWord
+ ]
+ ; // Overridden
+ : Children
+   [ ME_4F3AA333004F // RkwIncluded
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '05.05.2011 21:34'
+
+ @SELF
+; // ME_4DC2DF5D0167 TkwIncluded

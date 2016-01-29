@@ -1,0 +1,350 @@
+// TpgField 5627445F00C1 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5627445F00C1
+
+: ME_5627452D02A2
+ CONST UID '5627452D02A2'
+ CONST Name 'f_ClientInfo'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5551DC0F012D // IdaSelectField
+ ;
+
+ @SELF
+; // ME_5627452D02A2 f_ClientInfo
+
+: ME_5627453A03E5
+ CONST UID '5627453A03E5'
+ CONST Name 'f_DataBuffer'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_55A63E0A00E7 // IdaResultBuffer
+ ;
+
+ @SELF
+; // ME_5627453A03E5 f_DataBuffer
+
+INCLUDE '55DAD4150001.pas.ms.script'
+
+: ME_5627455001BF
+ CONST UID '5627455001BF'
+ CONST Name 'f_DataConverter'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_55E41C6E00E2 // IpgDataConverter
+ ;
+
+ @SELF
+; // ME_5627455001BF f_DataConverter
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_56274FD301C2
+ CONST UID '56274FD301C2'
+ CONST Name 'f_FieldIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_56274FD301C2 f_FieldIndex
+
+FORWARD ME_562744D501B9
+
+: ME_562744FD010B
+ CONST UID '562744FD010B'
+ CONST Name 'aDataBuffer'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55A63E0A00E7 // IdaResultBuffer
+ ;
+
+ @SELF
+; // ME_562744FD010B aDataBuffer
+
+: ME_562744FD012B
+ CONST UID '562744FD012B'
+ CONST Name 'aDataConverter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55E41C6E00E2 // IpgDataConverter
+ ;
+
+ @SELF
+; // ME_562744FD012B aDataConverter
+
+: ME_562744FD013A
+ CONST UID '562744FD013A'
+ CONST Name 'aClientInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5551DC0F012D // IdaSelectField
+ ;
+
+ @SELF
+; // ME_562744FD013A aClientInfo
+
+: ME_56274FBF0193
+ CONST UID '56274FBF0193'
+ CONST Name 'aFieldIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_56274FBF0193 aFieldIndex
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_562744E703AE
+ CONST UID '562744E703AE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_562744FD010B // aDataBuffer
+ ME_562744FD012B // aDataConverter
+ ME_562744FD013A // aClientInfo
+ ME_56274FBF0193 // aFieldIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_562744E703AE DoIt
+
+: ME_562744D501B9
+ CONST UID '562744D501B9'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_562744E703AE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_562744D501B9 Create
+
+FORWARD ME_5627450303CF
+
+: ME_D88CAAF294C8
+ CONST UID 'D88CAAF294C8'
+ CONST Name 'aDataBuffer'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55A63E0A00E7 // IdaResultBuffer
+ ;
+
+ @SELF
+; // ME_D88CAAF294C8 aDataBuffer
+
+: ME_2A61AA3E127B
+ CONST UID '2A61AA3E127B'
+ CONST Name 'aDataConverter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55E41C6E00E2 // IpgDataConverter
+ ;
+
+ @SELF
+; // ME_2A61AA3E127B aDataConverter
+
+: ME_3E9660BC2A09
+ CONST UID '3E9660BC2A09'
+ CONST Name 'aClientInfo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5551DC0F012D // IdaSelectField
+ ;
+
+ @SELF
+; // ME_3E9660BC2A09 aClientInfo
+
+: ME_11DB0139788C
+ CONST UID '11DB0139788C'
+ CONST Name 'aFieldIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_11DB0139788C aFieldIndex
+
+: ME_3EBA294DEA1A
+ CONST UID '3EBA294DEA1A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TpgField.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5590FD3101DE // IdaField
+ ;
+ : Parameters
+   [ ME_D88CAAF294C8 // aDataBuffer
+ ME_2A61AA3E127B // aDataConverter
+ ME_3E9660BC2A09 // aClientInfo
+ ME_11DB0139788C // aFieldIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_3EBA294DEA1A DoIt
+
+: ME_5627450303CF
+ CONST UID '5627450303CF'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_562744D501B9 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5590FD3101DE // IdaField
+ ]
+ ; // Implements
+ : Operations
+   [ ME_3EBA294DEA1A // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5593905401D1 // AsLargeInt
+ ME_55939068000C // AsInteger
+ ME_559393510239 // AsStDate
+ ME_5593936A031A // AsStTime
+ ME_55FA82A80085 // AsString
+ ME_562E07C801CF // AsByte
+ ME_56375577038B // Alias
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_5627450303CF Make
+
+FORWARD ME_56274C87017A
+
+: ME_56274C930032
+ CONST UID '56274C930032'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_56274C930032 DoIt
+
+: ME_56274C87017A
+ CONST UID '56274C87017A'
+ CONST Name 'BufferPtr'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_56274C930032 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_56274C87017A BufferPtr
+
+: ME_5627445F00C1
+ CONST UID '5627445F00C1'
+ CONST Name 'TpgField'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5590FD3101DE // IdaField
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5627452D02A2 // f_ClientInfo
+ ME_5627453A03E5 // f_DataBuffer
+ ME_5627455001BF // f_DataConverter
+ ME_56274FD301C2 // f_FieldIndex
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_562744D501B9 // Create
+ ME_5627450303CF // Make
+ ME_56274C87017A // BufferPtr
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5593905401D1 // AsLargeInt
+ ME_55939068000C // AsInteger
+ ME_559393510239 // AsStDate
+ ME_5593936A031A // AsStTime
+ ME_55FA82A80085 // AsString
+ ME_562E07C801CF // AsByte
+ ME_56375577038B // Alias
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5627445F00C1 TpgField

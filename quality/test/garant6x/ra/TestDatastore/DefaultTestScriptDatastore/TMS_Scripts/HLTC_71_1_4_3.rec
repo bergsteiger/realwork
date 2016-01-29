@@ -1,0 +1,54 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 71.1.4.3 ***
+
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+Sub Main
+    Dim Result As Integer
+    Dim value$
+    Dim ItemsNameArray (1 To 9) As String
+  ItemsNameArray (1) = "Документы, включенные за период с 22/01/2004 по 23/01/2004"
+  ItemsNameArray (2) = "Документы, подключенные с полной юридической обработкой"
+  ItemsNameArray (3) = "Документы, включенные за период с 21/01/2004 по 22/01/2004"
+  ItemsNameArray (4) = "Документы, подключенные с полной юридической обработкой"
+  ItemsNameArray (5) = "Документы, включенные за период с 11/01/2004 по 17/01/2004"
+  ItemsNameArray (6) = "Документы, подключенные с полной юридической обработкой"
+  ItemsNameArray (7) = ItemsNameArray (5)
+  ItemsNameArray (8) = ItemsNameArray (3)
+  ItemsNameArray (9) = ItemsNameArray (1)
+    
+  Call NeedState (ST_MAIN_MENU)
+  CUR_STATE = ST_NONE_STANDART
+  
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Обновления \ Новые документы
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Обновление", "Coords=62,12"
+  GenericObject Click, "Class=TMainMenuPanelNode;ClassIndex=4", "Coords=53,8"
+  
+'Переводим фокус на закладку навигатора "Новые документы"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+  
+'Разворачиваем все элементы
+  Call Click_NavExpClps
+
+'Проверяем что элементы первого узла развернуты
+  InputKeys "{DOWN}"
+  Call CheckItemNames ( ItemsNameArray, "{DOWN}", 0, 5)
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log(ItemsNameArray (6), value)
+  InputKeys "{HOME}"
+  
+'Сворачиваем все элементы  
+  Call Click_NavExpClps
+
+'Проверяем названия трех элементов списка
+  InputKeys "{Down}"
+  Call CheckItemNames ( ItemsNameArray, "{DOWN}", 8, 2)
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log(ItemsNameArray (7), value)
+End Sub

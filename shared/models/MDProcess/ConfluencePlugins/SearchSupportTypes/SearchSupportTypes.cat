@@ -1,0 +1,294 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "SearchSupportTypes"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/SearchSupportTypes|4AE951AF0198
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19033346102"))
+    quid       	"4AE951AF0198"
+    documentation 	"содержит вспомогательные классы для подсистемы поиска"
+    stereotype 	"Unit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "SortingType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/SearchSupportTypes/SortingType.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4AE952750044_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4AE952750044_CUSTOM_IMPORT*¤¤import java.util.Arrays;¤import java.util.Collections;¤import java.util.List;¤¤//#UC END# *4AE952750044_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4AE952750044_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4AE952750044_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4AE952750044_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4AE952750044_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4AE952750044_CUSTOM_METHODS_AND_DATA*¤	¤	public String makeNameWithValue(String value) {¤		return getName() + "_" + value;¤	}¤	¤	public String getValue(String nameWithValue) {¤		return nameWithValue.substring(getName().length() + 1);¤	}¤	¤	public static SortingType getByName (String name) {¤		for (SortingType t : values_) {¤			if (equalName(t, name)) {¤				return t;¤			}¤		}¤		return RELEVANCE;¤		//throw new IllegalArgumentException("Wrong SortingType name: " + name);¤	}¤	¤	protected static boolean equalName (SortingType type, String nameWithValue) {¤		String nameToCheck = nameWithValue;¤		if (type.getCanHaveValue() && nameToCheck.contains(type.getName())) {¤			nameToCheck = nameToCheck.substring(0, type.getName().length());¤		}¤		return type.getName().equals(nameToCheck);¤	}¤	¤	public static final SortingType RELEVANCE = new SortingType("RELEVANCE", false);¤	public static final SortingType CREATION_DATE = new SortingType("CREATION_DATE", false);¤	public static final SortingType LAST_MODIFICATION_DATE = new SortingType("LAST_MODIFICATION_DATE", false);¤	public static final SortingType FIELD = new SortingType("FIELD", true);¤¤	private static final List<SortingType> values_ = Collections.unmodifiableList(Arrays.asList(RELEVANCE, CREATION_DATE, LAST_MODIFICATION_DATE, FIELD));¤	¤	//#UC END# *4AE952750044_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/SearchSupportTypes/SortingType|4AE952750044
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19033354202"))
+	    quid       	"4AE952750044"
+	    documentation 	"Множество допустимых типов сортировки..."
+	    stereotype 	"SimpleClass"
+	    operations 	(list Operations
+		(object Operation "SortingType"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AE955CC0203_BODY*"
+			    value      	(value Text 
+|//#UC START# *4AE955CC0203_BODY*¤		name_ = name;¤		canHaveValue_ = canHaveValue;¤		//#UC END# *4AE955CC0203_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011773919"))
+		    quid       	"4AE955CC0203"
+		    documentation 	" "
+		    stereotype 	"ctor"
+		    parameters 	(list Parameters
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011774222"))
+			    quid       	"4AE9A23701ED"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "can_have_value"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011774594"))
+			    quid       	"4AE9A2370207"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Protected"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AE9559702E7_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4AE9559702E7_GET_ACCESSOR*¤		return name_;¤		//#UC END# *4AE9559702E7_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011773160"))
+		    quid       	"4AE9559702E7"
+		    documentation 	"уникальное имя"
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "can_have_value"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AE9A0170205_GET_ACCESSOR*"
+			    value      	(value Text 
+|//#UC START# *4AE9A0170205_GET_ACCESSOR*¤		return canHaveValue_;¤		//#UC END# *4AE9A0170205_GET_ACCESSOR*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011773535"))
+		    quid       	"4AE9A0170205"
+		    documentation 	" "
+		    stereotype 	"readonly"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4AE95271019A"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::SearchSupportTypes::SortingType" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(987, 387)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(368, 272)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1238
+			justify    	0
+			label      	"SortingType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(368, 222)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1238
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4AE952750044"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(368, 334)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	1200
+			justify    	1)
+		    width      	1256
+		    height     	354
+		    annotation 	8
+		    autoResize 	TRUE)))))

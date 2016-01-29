@@ -1,0 +1,59 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Integrated/Root/ProjectSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$CoreTemplates::CoreTemplates::Integrated::Root::ProjectSupport
+//
+// вспомогательные функции
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// используется ли Main элементом
+f _used_by_main
+//#UC START# *49F9A30300D5*
+	[{<{}{%c%PU=%X%MU}{C}>!=0}{false}true]
+//#UC END# *49F9A30300D5*
+
+// возвращает true, если для элемента не нужна документация
+f _dont_need_doc
+//#UC START# *49F9A30D0012*
+@ %SU
+	[{%t_dont_need_doc_impl(%S)=true}{false}true]
+
+f _is_mda
+	[{%SS=MDATemplates}{[{<{}{%PS=MDATemplates}{%PC}>!=0}{false}true]}true]
+
+
+t _dont_need_doc_impl
+c                                                   {}
+r %f_old_dont_doc(%S)=true:                         {true}
+r %SC=StateMachine:                                 {true}
+r %SC=Transition:                                   {true}
+r %SC=Action:                                       {true}
+r %SC=TransitionEvent&%PC=Transition:               {true}
+r %SC=Parameter:                                    {true}
+r %SS=AdapterRoot:                                  {true}
+r %SS=AdapterRootPackage:                           {true}
+r %SC=Attribute&%f_attrs_need_doc(%S)=false:        {true}
+r ""="":                                            {false}
+
+f _old_dont_doc
+	[{%PS=Vector|%PS=Map|%PS=Set|%PS=Queue|%PS=UnsortedSet|%PS=UnsortedMap|%SS=CustomFile|%SS=ctor|%SS=Servant|%SS=ComServant|%SS=Actor|%SS=Impl|%SC=Dependency}{false}true]
+//#UC END# *49F9A30D0012*
+
+// возвращает true, если для атрибута нужна документация
+f _attrs_need_doc
+//#UC START# *49F9A3150217*
+	%t_attrs_need_doc_i(%S)
+
+t _attrs_need_doc_i
+c                                    {}
+r %SS=factory switch:                {false}
+r %SS=switch:                        {false}
+r ""="":                             {[{%t_interface(%P)=true|%PS=Enum|%PS=Constants|%PS=Struct|%PS=Union&%SS!=switch&%SS!=factory switch}{false}true]}
+//#UC END# *49F9A3150217*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

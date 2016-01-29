@@ -1,0 +1,113 @@
+// evDef 47F2458300E4 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F2458300E4
+
+FORWARD ME_47F245BD01E1
+
+: ME_4845503B0261
+ CONST UID '4845503B0261'
+ CONST Name 'def_MemoScrollStyle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47F245BD01E1 // Defaults
+ ;
+ CONST Value 'ssVertical'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4845503B0261 def_MemoScrollStyle
+
+: ME_484654DC0040
+ CONST UID '484654DC0040'
+ CONST Name 'def_EditScrollStyle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47F245BD01E1 // Defaults
+ ;
+ CONST Value 'ssNone'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_484654DC0040 def_EditScrollStyle
+
+: ME_4D3985890011
+ CONST UID '4D3985890011'
+ CONST Name 'def_Zoom'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47F245BD01E1 // Defaults
+ ;
+ CONST Value 'def_Zoom'
+ : ValueType WL 'ME_4799ECBF00D6' '4799EC9300AF.pas.ms.script' // Defaults
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4D3985890011 def_Zoom
+
+: ME_47F245BD01E1
+ CONST UID '47F245BD01E1'
+ CONST Name 'Defaults'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F2458300E4 // evDef
+ ;
+ : Attributes
+   @ ( ME_4845503B0261 // def_MemoScrollStyle
+ ME_484654DC0040 // def_EditScrollStyle
+ ME_4D3985890011 // def_Zoom
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47F245BD01E1 Defaults
+
+: ME_47F2458300E4
+ CONST UID '47F2458300E4'
+ CONST Name 'evDef'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'значения свойств по умолчанию' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Constants
+   @ ( ME_47F245BD01E1 // Defaults
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_4799EC9300AF' '4799EC9300AF.pas.ms.script' // l3Defaults
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ CONST "started" '18.03.1997 10:41'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evDef.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47F2458300E4.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47F2458300E4.pas.ms.script.runner'
+
+ref; // ME_47F2458300E4 evDef

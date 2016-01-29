@@ -1,0 +1,955 @@
+// VCM_TFW 4B30FC850092 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B30FC850092
+
+FORWARD ME_4B3235370235
+
+FORWARD ME_4B30EEEB01EF
+
+: ME_4B3235790113
+ CONST UID '4B3235790113'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4B3235790113 
+
+FORWARD ME_4B323587024D
+
+: ME_4B32359B0123
+ CONST UID '4B32359B0123'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ : Target ME_4B323587024D // FreeMM
+ ;
+
+ref; // ME_4B32359B0123 
+
+: ME_4B3235B1023A
+ CONST UID '4B3235B1023A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4B3235B1023A 
+
+: ME_55019A3D01DF
+ CONST UID '55019A3D01DF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ : Target WL 'ME_550199070251' '550198F60382.pas.ms.script' // Tl3MenuManagerHelper
+ ;
+
+ref; // ME_55019A3D01DF 
+
+: ME_4B30EEA10210_ME_4B30EEEB01EF
+ CONST UID '4B30EEA10210'
+ CONST Name 'InitFields'
+ : Original WL 'ME_4B30EEA10210' '4B2A0D6A0077.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ref; // ME_4B30EEA10210_ME_4B30EEEB01EF InitFields
+
+: ME_4B30EEEB01EF
+ CONST UID '4B30EEEB01EF'
+ CONST Name 'TVCMBaseTest'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый тест для тестирования объектов VCM' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B3235370235 // VCMBaseTest
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4B30EEA10210_ME_4B30EEEB01EF // InitFields
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4B3235790113 // 
+ ME_4B32359B0123 // 
+ ME_4B3235B1023A // 
+ ME_55019A3D01DF // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '22.12.2009 20:07'
+
+ref; // ME_4B30EEEB01EF TVCMBaseTest
+
+: ME_4B3235920286
+ CONST UID '4B3235920286'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B323587024D // FreeMM
+ ;
+
+ref; // ME_4B3235920286 DoIt
+
+: ME_4B323587024D
+ CONST UID '4B323587024D'
+ CONST Name 'FreeMM'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B3235370235 // VCMBaseTest
+ ;
+ : Operations
+   @ ( ME_4B3235920286 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4B323587024D FreeMM
+
+: ME_4B3235370235
+ CONST UID '4B3235370235'
+ CONST Name 'VCMBaseTest'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B30FC850092 // VCM_TFW
+ ;
+ : Operations
+   @ ( ME_4B323587024D // FreeMM
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4B30EEEB01EF // TVCMBaseTest
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "ifndef" 'NoVCM'
+ CONST "no hands" true
+ CONST "started" '23.12.209 18:30'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\VCMBaseTest.pas'
+
+ref; // ME_4B3235370235 VCMBaseTest
+
+FORWARD ME_4DAECE5D0060
+
+: ME_4DCA426E02C3
+ CONST UID '4DCA426E02C3'
+ CONST Name 'f_Output'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_4B4F61AD01AA' '47913B47006E.pas.ms.script' // Tl3CustomDosFiler
+ ;
+
+ref; // ME_4DCA426E02C3 f_Output
+
+: ME_4F8520820323
+ CONST UID '4F8520820323'
+ CONST Name 'f_DontRaiseIfEtalonCreated'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F8520820323 f_DontRaiseIfEtalonCreated
+
+: ME_52EBC6170315
+ CONST UID '52EBC6170315'
+ CONST Name 'g_CompileOnly'
+ CONST Class class_Attribute
+ : Stereotype st_static::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52EBC6170315 g_CompileOnly
+
+FORWARD ME_4DB0333103BF
+
+: ME_4DB03358029A
+ CONST UID '4DB03358029A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB0333103BF // OwnScriptFromFile
+ ;
+
+ref; // ME_4DB03358029A DoIt
+
+: ME_4DB0333103BF
+ CONST UID '4DB0333103BF'
+ CONST Name 'OwnScriptFromFile'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Запускает "собственный" тест из файла' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Operations
+   @ ( ME_4DB03358029A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DB0333103BF OwnScriptFromFile
+
+FORWARD ME_4DC2E1040098
+
+: ME_4DC2E1890397
+ CONST UID '4DC2E1890397'
+ CONST Name 'aFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4DC2E1890397 aFile
+
+: ME_4DC2E12400E5
+ CONST UID '4DC2E12400E5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DC2E1040098 // DoResolveIncludedFilePath
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_4DC2E1890397 // aFile
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DC2E12400E5 DoIt
+
+: ME_4DC2E1040098
+ CONST UID '4DC2E1040098'
+ CONST Name 'DoResolveIncludedFilePath'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Operations
+   @ ( ME_4DC2E12400E5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4DC2E1040098 DoResolveIncludedFilePath
+
+FORWARD ME_4DCA421B0227
+
+: ME_52EBB63B010D
+ CONST UID '52EBB63B010D'
+ CONST Name 'aWasException'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52EBB63B010D aWasException
+
+: ME_4DCA422202AB
+ CONST UID '4DCA422202AB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DCA421B0227 // CheckOutputFiler
+ ;
+ : Parameters
+   @ ( ME_52EBB63B010D // aWasException
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DCA422202AB DoIt
+
+: ME_4DCA421B0227
+ CONST UID '4DCA421B0227'
+ CONST Name 'CheckOutputFiler'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Operations
+   @ ( ME_4DCA422202AB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4DCA421B0227 CheckOutputFiler
+
+FORWARD ME_4DCA92D403C9
+
+: ME_4DCA92EB02CC
+ CONST UID '4DCA92EB02CC'
+ CONST Name 'aFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4DCA92EB02CC aFile
+
+: ME_4DCA92E80092
+ CONST UID '4DCA92E80092'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DCA92D403C9 // DoResolveOutputFilePath
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_4DCA92EB02CC // aFile
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DCA92E80092 DoIt
+
+: ME_4DCA92D403C9
+ CONST UID '4DCA92D403C9'
+ CONST Name 'DoResolveOutputFilePath'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Operations
+   @ ( ME_4DCA92E80092 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4DCA92D403C9 DoResolveOutputFilePath
+
+FORWARD ME_4DECF5A5003B
+
+: ME_4DECF5B70251
+ CONST UID '4DECF5B70251'
+ CONST Name 'aFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4DECF5B70251 aFile
+
+: ME_4DECF5AD029E
+ CONST UID '4DECF5AD029E'
+ CONST Name 'DoResolveInputFilePath'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DECF5A5003B // DoResolveInputFilePath
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_4DECF5B70251 // aFile
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4DECF5AD029E DoResolveInputFilePath
+
+: ME_4DECF5A5003B
+ CONST UID '4DECF5A5003B'
+ CONST Name 'DoResolveInputFilePath'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Operations
+   @ ( ME_4DECF5AD029E // DoResolveInputFilePath
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4DECF5A5003B DoResolveInputFilePath
+
+: ME_4DC263E8038F
+ CONST UID '4DC263E8038F'
+ CONST Name 'GetScriptName'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4DC263E8038F GetScriptName
+
+: ME_4DB0332200DD
+ CONST UID '4DB0332200DD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.pas.ms.script' // ExtractFilePath
+ ;
+
+ref; // ME_4DB0332200DD 
+
+: ME_4DB173FF0231
+ CONST UID '4DB173FF0231'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4DB173FF0231 
+
+: ME_4DCA424701DC
+ CONST UID '4DCA424701DC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4DCA424701DC 
+
+: ME_4F5F29330198
+ CONST UID '4F5F29330198'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_4B2A6D4303A9' '4B2A112B011A.pas.ms.script' // KTestRunner
+ ;
+
+ref; // ME_4F5F29330198 
+
+: ME_4F8C11E0035C
+ CONST UID '4F8C11E0035C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_4F72AE860228' '4E1C0134031B.pas.ms.script' // TkwPrintDataSaver
+ ;
+
+ref; // ME_4F8C11E0035C 
+
+: ME_4F8C13E300D9
+ CONST UID '4F8C13E300D9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_4F8C1297029C' '4B2A0D6A0077.pas.ms.script' // ETestFailure
+ ;
+
+ref; // ME_4F8C13E300D9 
+
+: ME_52D805AA009E
+ CONST UID '52D805AA009E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_4BB3609E0331' '4AB0997B00A2.pas.ms.script' // AnsiStartsText
+ ;
+
+ref; // ME_52D805AA009E 
+
+: ME_555F4A93018C
+ CONST UID '555F4A93018C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_555F49A0015B' '555F498C03BA.pas.ms.script' // Tl3EtalonsService
+ ;
+
+ref; // ME_555F4A93018C 
+
+: ME_55E5D362002C
+ CONST UID '55E5D362002C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
+ ;
+
+ref; // ME_55E5D362002C 
+
+: ME_55E5D3890228
+ CONST UID '55E5D3890228'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ : Target WL 'ME_49082AE80393' '476BE98C01B8.pas.ms.script' // Code Pages
+ ;
+
+ref; // ME_55E5D3890228 
+
+: ME_4DAF1A280116_ME_4DAECE5D0060
+ CONST UID '4DAF1A280116'
+ CONST Name 'Check'
+ : Original WL 'ME_4DAF1A280116' '4DAF19F600C5.pas.ms.script' // Check
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4DAF1A280116_ME_4DAECE5D0060 Check
+
+: ME_4DB173AA005A_ME_4DAECE5D0060
+ CONST UID '4DB173AA005A'
+ CONST Name 'Print'
+ : Original WL 'ME_4DB173AA005A' '4DAF19F600C5.pas.ms.script' // Print
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4DB173AA005A_ME_4DAECE5D0060 Print
+
+: ME_4DB1785F011A_ME_4DAECE5D0060
+ CONST UID '4DB1785F011A'
+ CONST Name 'Print'
+ : Original WL 'ME_4DB1785F011A' '4DAF19F600C5.pas.ms.script' // Print
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4DB1785F011A_ME_4DAECE5D0060 Print
+
+: ME_4DC2E1470046_ME_4DAECE5D0060
+ CONST UID '4DC2E1470046'
+ CONST Name 'ResolveIncludedFilePath'
+ : Original WL 'ME_4DC2E1470046' '4DAF19F600C5.pas.ms.script' // ResolveIncludedFilePath
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4DC2E1470046_ME_4DAECE5D0060 ResolveIncludedFilePath
+
+: ME_4DCA915C0120_ME_4DAECE5D0060
+ CONST UID '4DCA915C0120'
+ CONST Name 'ResolveOutputFilePath'
+ : Original WL 'ME_4DCA915C0120' '4DAF19F600C5.pas.ms.script' // ResolveOutputFilePath
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4DCA915C0120_ME_4DAECE5D0060 ResolveOutputFilePath
+
+: ME_4DECF57B02D2_ME_4DAECE5D0060
+ CONST UID '4DECF57B02D2'
+ CONST Name 'ResolveInputFilePath'
+ : Original WL 'ME_4DECF57B02D2' '4DAF19F600C5.pas.ms.script' // ResolveInputFilePath
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4DECF57B02D2_ME_4DAECE5D0060 ResolveInputFilePath
+
+: ME_4F0D7AC900FA_ME_4DAECE5D0060
+ CONST UID '4F0D7AC900FA'
+ CONST Name 'CheckPrintEtalon'
+ : Original WL 'ME_4F0D7AC900FA' '4DAF19F600C5.pas.ms.script' // CheckPrintEtalon
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F0D7AC900FA_ME_4DAECE5D0060 CheckPrintEtalon
+
+: ME_4F0D8B740186_ME_4DAECE5D0060
+ CONST UID '4F0D8B740186'
+ CONST Name 'ShouldStop'
+ : Original WL 'ME_4F0D8B740186' '4DAF19F600C5.pas.ms.script' // ShouldStop
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F0D8B740186_ME_4DAECE5D0060 ShouldStop
+
+: ME_4F0D8C360085_ME_4DAECE5D0060
+ CONST UID '4F0D8C360085'
+ CONST Name 'CheckTimeout'
+ : Original WL 'ME_4F0D8C360085' '4DAF19F600C5.pas.ms.script' // CheckTimeout
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F0D8C360085_ME_4DAECE5D0060 CheckTimeout
+
+: ME_4F0D8C5A01A2_ME_4DAECE5D0060
+ CONST UID '4F0D8C5A01A2'
+ CONST Name 'StartTimer'
+ : Original WL 'ME_4F0D8C5A01A2' '4DAF19F600C5.pas.ms.script' // StartTimer
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F0D8C5A01A2_ME_4DAECE5D0060 StartTimer
+
+: ME_4F0D8CB0015D_ME_4DAECE5D0060
+ CONST UID '4F0D8CB0015D'
+ CONST Name 'StopTimer'
+ : Original WL 'ME_4F0D8CB0015D' '4DAF19F600C5.pas.ms.script' // StopTimer
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F0D8CB0015D_ME_4DAECE5D0060 StopTimer
+
+: ME_4F0D91AA0080_ME_4DAECE5D0060
+ CONST UID '4F0D91AA0080'
+ CONST Name 'KPage'
+ : Original WL 'ME_4F0D91AA0080' '4DAF19F600C5.pas.ms.script' // KPage
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F0D91AA0080_ME_4DAECE5D0060 KPage
+
+: ME_4F0DA2A7024A_ME_4DAECE5D0060
+ CONST UID '4F0DA2A7024A'
+ CONST Name 'ToLog'
+ : Original WL 'ME_4F0DA2A7024A' '4DAF19F600C5.pas.ms.script' // ToLog
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F0DA2A7024A_ME_4DAECE5D0060 ToLog
+
+: ME_4F72CEFE016D_ME_4DAECE5D0060
+ CONST UID '4F72CEFE016D'
+ CONST Name 'GetIsWritingToK'
+ : Original WL 'ME_4F72CEFE016D' '4DAF19F600C5.pas.ms.script' // GetIsWritingToK
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F72CEFE016D_ME_4DAECE5D0060 GetIsWritingToK
+
+: ME_4F72CF27029A_ME_4DAECE5D0060
+ CONST UID '4F72CF27029A'
+ CONST Name 'GetIsFakeCVS'
+ : Original WL 'ME_4F72CF27029A' '4DAF19F600C5.pas.ms.script' // GetIsFakeCVS
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F72CF27029A_ME_4DAECE5D0060 GetIsFakeCVS
+
+: ME_4F72CF78027D_ME_4DAECE5D0060
+ CONST UID '4F72CF78027D'
+ CONST Name 'GetCVSPath'
+ : Original WL 'ME_4F72CF78027D' '4DAF19F600C5.pas.ms.script' // GetCVSPath
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F72CF78027D_ME_4DAECE5D0060 GetCVSPath
+
+: ME_4F851D7B0399_ME_4DAECE5D0060
+ CONST UID '4F851D7B0399'
+ CONST Name 'DontRaiseIfEtalonCreated'
+ : Original WL 'ME_4F851D7B0399' '4DAF19F600C5.pas.ms.script' // DontRaiseIfEtalonCreated
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F851D7B0399_ME_4DAECE5D0060 DontRaiseIfEtalonCreated
+
+: ME_511BC7C60063_ME_4DAECE5D0060
+ CONST UID '511BC7C60063'
+ CONST Name 'TimeToLog'
+ : Original WL 'ME_511BC7C60063' '4DAF19F600C5.pas.ms.script' // TimeToLog
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_511BC7C60063_ME_4DAECE5D0060 TimeToLog
+
+: ME_513866B10237_ME_4DAECE5D0060
+ CONST UID '513866B10237'
+ CONST Name 'GetTestSetFolderName'
+ : Original WL 'ME_513866B10237' '4DAF19F600C5.pas.ms.script' // GetTestSetFolderName
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_513866B10237_ME_4DAECE5D0060 GetTestSetFolderName
+
+: ME_5138790002FF_ME_4DAECE5D0060
+ CONST UID '5138790002FF'
+ CONST Name 'GetEtalonSuffix'
+ : Original WL 'ME_5138790002FF' '4DAF19F600C5.pas.ms.script' // GetEtalonSuffix
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_5138790002FF_ME_4DAECE5D0060 GetEtalonSuffix
+
+: ME_52EBC5BB0300_ME_4DAECE5D0060
+ CONST UID '52EBC5BB0300'
+ CONST Name 'CompileOnly'
+ : Original WL 'ME_52EBC5BB0300' '4DAF19F600C5.pas.ms.script' // CompileOnly
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_52EBC5BB0300_ME_4DAECE5D0060 CompileOnly
+
+: ME_4B2F40FD0088_ME_4DAECE5D0060
+ CONST UID '4B2F40FD0088'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_4B2F40FD0088' '4B2A0D6A0077.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4B2F40FD0088_ME_4DAECE5D0060 Cleanup
+
+: ME_4B30EEA10210_ME_4DAECE5D0060
+ CONST UID '4B30EEA10210'
+ CONST Name 'InitFields'
+ : Original WL 'ME_4B30EEA10210' '4B2A0D6A0077.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4B30EEA10210_ME_4DAECE5D0060 InitFields
+
+: ME_4CA45DAA01BA_ME_4DAECE5D0060
+ CONST UID '4CA45DAA01BA'
+ CONST Name 'EtalonNeedsComputerName'
+ : Original WL 'ME_4CA45DAA01BA' '4B2A112B011A.pas.ms.script' // EtalonNeedsComputerName
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4CA45DAA01BA_ME_4DAECE5D0060 EtalonNeedsComputerName
+
+: ME_4CA5DAD4014C_ME_4DAECE5D0060
+ CONST UID '4CA5DAD4014C'
+ CONST Name 'RaiseIfEtalonCreated'
+ : Original WL 'ME_4CA5DAD4014C' '4B2A112B011A.pas.ms.script' // RaiseIfEtalonCreated
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4CA5DAD4014C_ME_4DAECE5D0060 RaiseIfEtalonCreated
+
+: ME_4DB03121022B_ME_4DAECE5D0060
+ CONST UID '4DB03121022B'
+ CONST Name 'ResolveScriptFilePath'
+ : Original WL 'ME_4DB03121022B' '4DAEEA14018A.pas.ms.script' // ResolveScriptFilePath
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4DB03121022B_ME_4DAECE5D0060 ResolveScriptFilePath
+
+: ME_4F5F28EB0242_ME_4DAECE5D0060
+ CONST UID '4F5F28EB0242'
+ CONST Name 'AlwaysShowAFC'
+ : Original WL 'ME_4F5F28EB0242' '4B2A112B011A.pas.ms.script' // AlwaysShowAFC
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_4F5F28EB0242_ME_4DAECE5D0060 AlwaysShowAFC
+
+: ME_51AF49E5001B_ME_4DAECE5D0060
+ CONST UID '51AF49E5001B'
+ CONST Name 'EtalonNeedsXE'
+ : Original WL 'ME_51AF49E5001B' '4B2A112B011A.pas.ms.script' // EtalonNeedsXE
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ CONST "ifdef" 'XE'
+ref; // ME_51AF49E5001B_ME_4DAECE5D0060 EtalonNeedsXE
+
+: ME_51AF4A1C036E_ME_4DAECE5D0060
+ CONST UID '51AF4A1C036E'
+ CONST Name 'EtalonNeedsOSName'
+ : Original WL 'ME_51AF4A1C036E' '4B2A112B011A.pas.ms.script' // EtalonNeedsOSName
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_51AF4A1C036E_ME_4DAECE5D0060 EtalonNeedsOSName
+
+: ME_51B0AF8E0378_ME_4DAECE5D0060
+ CONST UID '51B0AF8E0378'
+ CONST Name 'EtalonNeeds64'
+ : Original WL 'ME_51B0AF8E0378' '4B2A112B011A.pas.ms.script' // EtalonNeeds64
+ ;
+ : Implementor ME_4DAECE5D0060 // TvcmInsiderTest
+ ;
+ref; // ME_51B0AF8E0378_ME_4DAECE5D0060 EtalonNeeds64
+
+: ME_4DAECE5D0060
+ CONST UID '4DAECE5D0060'
+ CONST Name 'TvcmInsiderTest'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый тест запускающийся "внутри" тестируемого приложения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B30FC850092 // VCM_TFW
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4DAEEA2B029A' '4DAEEA14018A.pas.ms.script' // Scripter
+ WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4DCA426E02C3 // f_Output
+ ME_4F8520820323 // f_DontRaiseIfEtalonCreated
+ ME_52EBC6170315 // g_CompileOnly
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4DB0333103BF // OwnScriptFromFile
+ ME_4DC2E1040098 // DoResolveIncludedFilePath
+ ME_4DCA421B0227 // CheckOutputFiler
+ ME_4DCA92D403C9 // DoResolveOutputFilePath
+ ME_4DECF5A5003B // DoResolveInputFilePath
+ ME_4DC263E8038F // GetScriptName
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAF1A280116_ME_4DAECE5D0060 // Check
+ ME_4DB173AA005A_ME_4DAECE5D0060 // Print
+ ME_4DB1785F011A_ME_4DAECE5D0060 // Print
+ ME_4DC2E1470046_ME_4DAECE5D0060 // ResolveIncludedFilePath
+ ME_4DCA915C0120_ME_4DAECE5D0060 // ResolveOutputFilePath
+ ME_4DECF57B02D2_ME_4DAECE5D0060 // ResolveInputFilePath
+ ME_4F0D7AC900FA_ME_4DAECE5D0060 // CheckPrintEtalon
+ ME_4F0D8B740186_ME_4DAECE5D0060 // ShouldStop
+ ME_4F0D8C360085_ME_4DAECE5D0060 // CheckTimeout
+ ME_4F0D8C5A01A2_ME_4DAECE5D0060 // StartTimer
+ ME_4F0D8CB0015D_ME_4DAECE5D0060 // StopTimer
+ ME_4F0D91AA0080_ME_4DAECE5D0060 // KPage
+ ME_4F0DA2A7024A_ME_4DAECE5D0060 // ToLog
+ ME_4F72CEFE016D_ME_4DAECE5D0060 // GetIsWritingToK
+ ME_4F72CF27029A_ME_4DAECE5D0060 // GetIsFakeCVS
+ ME_4F72CF78027D_ME_4DAECE5D0060 // GetCVSPath
+ ME_4F851D7B0399_ME_4DAECE5D0060 // DontRaiseIfEtalonCreated
+ ME_511BC7C60063_ME_4DAECE5D0060 // TimeToLog
+ ME_513866B10237_ME_4DAECE5D0060 // GetTestSetFolderName
+ ME_5138790002FF_ME_4DAECE5D0060 // GetEtalonSuffix
+ ME_52EBC5BB0300_ME_4DAECE5D0060 // CompileOnly
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4B2F40FD0088_ME_4DAECE5D0060 // Cleanup
+ ME_4B30EEA10210_ME_4DAECE5D0060 // InitFields
+ ME_4CA45DAA01BA_ME_4DAECE5D0060 // EtalonNeedsComputerName
+ ME_4CA5DAD4014C_ME_4DAECE5D0060 // RaiseIfEtalonCreated
+ ME_4DB03121022B_ME_4DAECE5D0060 // ResolveScriptFilePath
+ ME_4F5F28EB0242_ME_4DAECE5D0060 // AlwaysShowAFC
+ ME_51AF49E5001B_ME_4DAECE5D0060 // EtalonNeedsXE
+ ME_51AF4A1C036E_ME_4DAECE5D0060 // EtalonNeedsOSName
+ ME_51B0AF8E0378_ME_4DAECE5D0060 // EtalonNeeds64
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4DB0332200DD // 
+ ME_4DB173FF0231 // 
+ ME_4DCA424701DC // 
+ ME_4F5F29330198 // 
+ ME_4F8C11E0035C // 
+ ME_4F8C13E300D9 // 
+ ME_52D805AA009E // 
+ ME_555F4A93018C // 
+ ME_55E5D362002C // 
+ ME_55E5D3890228 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "ifdef" 'nsTest'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 16:16'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\vcmInsiderTest.pas'
+
+ref; // ME_4DAECE5D0060 TvcmInsiderTest
+
+: ME_4B30FC850092
+ CONST UID '4B30FC850092'
+ CONST Name 'VCM_TFW'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ ;
+ : Children
+   @ ( ME_4B3235370235 // VCMBaseTest
+ ME_4DAECE5D0060 // TvcmInsiderTest
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_4787B0A8007B' '4787B0A8007B.pas.ms.script' // l3Except
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4E1C0134031B' '4E1C0134031B.pas.ms.script' // MixIns
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_550198F60382' '550198F60382.pas.ms.script' // VCMHelpers
+ WL 'ME_555F498C03BA' '555F498C03BA.pas.ms.script' // EtalonsServices
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B30FC850092.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B30FC850092.pas.ms.script.runner'
+
+ref; // ME_4B30FC850092 VCM_TFW

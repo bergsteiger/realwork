@@ -1,0 +1,12 @@
+# Garant session support module
+*shared*
+
+CPU=__x86__
+OS=__sunos__
+OV=__OSVERSION__=5
+PY_INCL=/usr/local/include/python2.1
+OMNI_INCL=/export/home/dimab/omni4/include
+OMNI_LIB=/export/home/dimab/omni4/lib/sun4_sosV_5.7
+OMNI_ORB=omniORB4
+OMNI_TL=omnithread
+garant garantmodule.cc -I$(OMNI_INCL) -I$(PY_INCL) -D$(CPU) -D$(OS) -D$(OV) -L$(OMNI_LIB) -lomniORB4 -lpthread

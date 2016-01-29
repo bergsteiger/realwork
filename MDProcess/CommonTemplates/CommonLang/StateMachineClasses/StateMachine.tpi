@@ -1,0 +1,676 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/StateMachineClasses/StateMachine.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::StateMachineClasses::StateMachine
+//
+// Машина состояний
+// ---
+// Машина состояний представляет собой конечный автомат, состоящий из множества состояний,
+// соединенных между собой переходами.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: StateMachine::Class
+? Машина состояний
+? Машина состояний представляет собой конечный автомат, состоящий из множества состояний, соединенных между собой переходами.
+> TransitionEvent::Class
+> State::Class
+
+= WikiImplClass::Class
+= Java::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_state_machine.gif
+L code_state_machine
+// Параметры визуализации
+$ C 248,225,232
+$ l 249,100,145
+$ f 249,100,145
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+// возвращает пакет реализации, в котором находится описание элемента
+%f _get_realization_package
+//#UC START# *470F3C1A0399for470F3B8B032C*
+	%f_dump_java_package(%S)
+//#UC END# *470F3C1A0399for470F3B8B032C*
+
+// метод поиска базового события - ищет среди всех событий, определенных для машины состояний,
+// событие, у котого свойство "is base" = true, найденный элемент-событие сохраняет в переменной
+// BASE_EVENT, если такого базового элемента не найдено, то все события должны реализовывать фасет
+// события, определённого в фреймворке
+%f _find_specific_base_event
+//#UC START# *475D3363002Bfor470F3B8B032C*
+	%f_set_var(BASE_EVENT,"")<{}{%f_is_base_event(%C)=true}%f_set_var(BASE_EVENT,C)>
+//#UC END# *475D3363002Bfor470F3B8B032C*
+
+// метод поиска базового состояния - ищет среди всех состояний определенных для машины состояний,
+// состояние, у которого свойство "is base" = true, найденный элемент-состояние сохраняет в
+// переменной BASE_STATE, если такого базового элемента не найдено, то все состояниz должны
+// наследоваться от базового состояние события, определённого в фреймворке.
+%f _find_specific_base_state
+//#UC START# *475F8D2C03D3for470F3B8B032C*
+	%f_set_var(BASE_STATE,"")<{}{%CM=State::Class&%C{is base}=true}%f_set_var(BASE_STATE,C)>
+//#UC END# *475F8D2C03D3for470F3B8B032C*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F3B8B032C*
+c                                                                                 {}
+r {<{}{%SM!=%GM}{%GC}>!=0}:                                                       {%SS может наследоваться только от %SS}
+r {%f_number_cmp("<{}{%SM=%GM}{%GC}>","1","\>")=1}:                               {Множественное наследование запрещено}
+r {<{}{%AC=State&"%f_check_event(%A)"!=""}{%AC}>!=0}:                             {Can't use the same event in many transitions from one source state(<{, }{%AC=State&"%f_check_event(%A)"!=""}{%A}\[%f_check_event(%A)\]>)}
+r {<{}{%AC=State&"%f_check_guard(%A)"!=""}{%AC}>!=0}:                             {Can't use the guard event in many transitions from one source state(<{, }{%AC=State&"%f_check_guard(%A)"!=""}{%A}\[%f_check_guard(%A)\]>)}
+r {"%f_check_state(%S)"!=""}:                                                     {Only one initial state permited (%f_check_state(%S))}
+r {<{}{%AC=State&%AK=Initial}{%AC}>=0}:                                            {State machine must have initial state}
+/r {<{}{%AC=State&%AK=Final}{%AC}>=0}:                                              {State machine must have final state}
+r {"%f_check_event_correspondence1(%S)"!=""}:                                     {This events not corresponding with events on state diagram: %f_check_event_correspondence1(%S)}
+r {"%f_check_correspondence_state(%S)"!=""}:                                      {This states not corresponding with states on state diagram: %f_check_correspondence_state(%S)}
+/r {"%f_check_event_correspondence2(%S)"!=""}:                                    {This events on state diagram not corresponding with event Class: %f_check_event_correspondence2(%S)}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}:               {%SS ни кем (включая прецеденты) не используется}
+r {%f_number_cmp("<{}{%CM=TransitionEvent::Class&%C{is base}=true}{%CC}>","1","\>")=1}:     {%SS может содержать только одно базовое событие}
+r {%f_sm_has_base_state(%S)=true&<{}{%f_sm_has_base_state(%g)=true}{%gC}>!=0}:    {%SS не может определять собственное базовое состояние, т.к оно уже определено в базовой машине состояний}
+r {%f_sm_has_base_event(%S)=true&<{}{%f_sm_has_base_event(%g)=true}{%gC}>!=0}:    {%SS не может определять собственное базовое событие, т.к оно уже определено в базовой машине состояний}
+
+f _sm_has_base_state
+	[{<{}{%AM=State::Class&%A{is base}=true}{%AC}>=0}{true}false]
+
+f _sm_has_base_event
+	[{<{}{%AM=TransitionEvent::Class&%A{is base}=true}{%AC}>=0}{true}false]
+//#UC END# *4704C0E30186for470F3B8B032C*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F3B8B032C*
+O %SNImpl.java
+	%f_output_constraint(%S)\
+	%f_header(%S)
+	%f_set_var(SERV,S)\
+	package %f_dump_java_package_ex(%S);
+	
+	import java.util.Arrays;
+	import ru.garant.shared.FSM.BaseEvent;
+	import ru.garant.shared.FSM.BaseStateMachine;
+	import ru.garant.shared.FSM.BaseState.AccessibleData;
+	import ru.garant.shared.FSM.IContext;
+	
+/	%f_clear_list(EVENT_LIST)<{}{%AM=TransitionEvent::Class&"%AN"!=""}[{%f_exists_in_list(EVENT_LIST,"%AN")=false}%f_add_to_list(EVENT_LIST,"%AN")\
+/	import %f_type(%A);
+/	]>
+/	
+	public class %SNImpl
+		extends [{}{BaseStateMachine}<{, }{}%f_type(%G)Impl>]
+		implements %f_with_gen_id(java,%f_type(%S))
+	{
+		//callback-interface
+		public interface %SNComm extends [{}{IContext}<{, }{}%f_type(%G)Impl.%GNComm>] {[
+	[		//State actions
+	<{}{%AC=State}%f_clear_list(ACTION_LIST)%A<{}{%CC=Action&%f_is_override_state_action(%C,%{SERV})=false}[{%f_exists_in_list(ACTION_LIST,"%CN")=false}%f_add_to_list(ACTION_LIST,"%CN")
+			public void %f_to_java(post_%f_to_omg(%C%PN)_%CN) (final BaseEvent event);
+	]>>%f_clear_list(ACTION_LIST)
+	][		//validation states methods and preEnter/preExit actions
+	<{}{%AC=State&%f_is_override_state(%A,%{SERV})=false}
+			public void validate%AN () throws ru.garant.shared.FSM.ValidationFailed;
+			
+			public void preEnterAction%AN (final BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed;
+			
+			public void preExitAction%AN (final BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed;
+	>
+	]]
+		}
+	
+		public %SNImpl (%SNComm comm) {
+			[{%f_is_inherit_sm(%S)=false}{super (comm);}this.registerComm (comm);]
+		}
+	[{%f_is_inherit_sm(%S)=false}
+		public void executeTransitionAction (
+			final String actionId
+			, final BaseEvent event
+		) {
+			if (getComm () != null) {
+				getComm ().executeTransitionAction (actionId, event);
+			}
+		}
+	
+		public boolean executeTransitionGuard (final String guradId) {
+			if (getComm () != null) {
+				return comm_.executeTransitionGuard (guradId);
+			}
+			return false;
+		}
+		
+		public void executeSave () throws ru.garant.shared.FSM.SaveFailed {
+			if (getComm () != null) {
+				getComm ().executeSave ();
+			}
+		}
+	]
+		static {<{}{%AC=Transition&"%AS"=""}
+			%f_dump_connect(%A)
+	><{}{%AC=Transition&"%AS"="combine"}		%f_dump_combine(%A)
+	>	}
+		
+		protected void init () {
+	<{}{%AC=State&%AK=Initial}
+			this.add (%{SERV}N.%f_to_upper(st_%f_to_omg(%AN)));
+	><{}{%AC=State&%AK=Normal}
+			this.add (%{SERV}N.%f_to_upper(st_%f_to_omg(%AN)));
+	><{}{%AC=State&%AK=Final}
+			this.add (%{SERV}N.%f_to_upper(st_%f_to_omg(%AN)));
+	>
+		}
+	
+	][	//State actions
+	<{}{%AC=State}%f_clear_list(ACTION_LIST)%A<{}{%CC=Action&%f_is_override_state_action(%C,%{SERV})=false}[{%f_exists_in_list(ACTION_LIST,"%CN")=false}%f_add_to_list(ACTION_LIST,"%CN")\
+		public void %f_to_java(post_%f_to_omg(%C%PN)_%CN) (final BaseEvent event) {
+			if (getComm () != null) {
+				getComm ().%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+			}
+		}
+	]
+	>>%f_clear_list(ACTION_LIST)][	//validation states methods and preEnter/preExit actions
+	<{}{%AC=State&%f_is_override_state(%A,%{SERV})=false}	public void validate%AN () throws ru.garant.shared.FSM.ValidationFailed {
+			if (getComm () != null) {
+				getComm ().validate%AN ();
+			}
+		}
+		
+		public void preEnterAction%AN (final BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed {
+			if (getComm () != null) {
+				getComm ().preEnterAction%AN (event);
+			}
+		}
+		
+		public void preExitAction%AN (final BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed {
+			if (getComm () != null) {
+				getComm ().preExitAction%AN (event);
+			}
+		}
+		
+	>]][{%f_is_inherit_sm(%S)=false}{\
+		protected %SNComm getComm () \{
+			return (%SNComm)super.getComm ();
+		\}}\
+		protected %SNComm getComm () {
+			return comm_;
+		}
+		
+		final public void registerComm (%SNComm comm) {
+			comm_ = comm;
+		}
+	
+		final public void unregisterComm () {
+			comm_ = null;
+		}
+	
+		private %SNComm comm_ = null;]
+	
+	} //class %SNImpl
+	
+	%f_footer(%S)
+
+//наследует ли машину состояний
+f _is_inherit_sm
+	[{<{}{%GM=StateMachine::Class}{%GC}>!=0}{false}true]
+//#UC END# *470321C1038Afor470F3B8B032C*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F3B8B032C*
+O %SN.java
+	%f_output_constraint(%S)\
+	%f_set_var(INT,S)\
+	%f_header(%S)
+	package %f_dump_java_package_ex(%S);
+	[
+	%f_java_dump_import_block(%S)][{<{}{%AC=State}>!=0}\
+	import %f_dump_java_package_ex(%S).sm.%SN.*;
+	
+	]
+	public interface %SN extends [{}{ru.garant.shared.FSM.IStateMachine}<{, }%f_type(%G)>] {[
+	
+//генерим элементы-события, определённые как отдельные классы
+	%S%f_find_specific_base_event()[{"%{BASE_EVENT}U"!=""}%{BASE_EVENT}X
+	
+	]<{\n\n}{%CM=TransitionEvent::Class&%CU!=%{BASE_EVENT}U}%CX>
+////заполняем список именами Event'ов с диаграммы состояний, для которых нет
+////соответствующих классов
+	%f_clear_list(EVENT_LIST)<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""}[{%f_exists_in_list(EVENT_LIST,"%AN")=false}%f_add_to_list(EVENT_LIST,"%AN")]>>\
+	<{}{%AM=TransitionEvent::Class&%Aa!=abstract}%f_remove_from_list(EVENT_LIST,"%AN")>\
+	[%{EVENT_LIST}<{}{}{%C}{%CSo}\
+		static final %CN %f_to_upper(ev_%f_to_omg(%CN)) = new %CN ();
+	>
+	][<{}{%AC=State}{%ASo}\
+		static final %AN %f_to_upper(st_%f_to_omg(%AN)) = %AN.make ();
+	>
+	]<{}{%f_is_empty(EVENT_LIST)=false}{W}%f_pop_last_to_var(EVENT_LIST,EVENT)%f_find_specific_base_event(%{INT},%{EVENT},"BASE_EVENT")\
+		public static class %{EVENT}N[{"%{BASE_EVENT}U"!=""}{ implements ru.garant.shared.FSM.BaseEvent} extends %f_type(%{BASE_EVENT})] {
+			protected %{EVENT}N () {
+				%U[{_CTOR_%f_to_upper(%{EVENT}N)}
+				[{%{BASE_EVENT}C=TransitionEvent}super ();
+				]]
+			}
+	[{"%{BASE_EVENT}U"=""|%f_is_base_event(%{BASE_EVENT})=true}
+			public int getUid () {
+				return %{EVENT}N.class.hashCode();
+			}
+	]	} // class %{EVENT}N
+	
+	>]
+	}
+//генерим элементы-состояния, определённые как отдельные классы
+	%f_shift_intend(-1)%S%f_find_specific_base_state()[{"%{BASE_STATE}U"!=""}%{BASE_STATE}X]\
+	<{}{%CM=State::Class&%CU!=%{BASE_STATE}U}%CX>\
+////заполняем список именами State'ов с диаграммы состояний, для которых нет
+////соответствующих классов
+	%f_clear_list(STATE_LIST)<{}{%AC=State&"%AN"!=""}\
+	[{%f_exists_in_list(STATE_LIST,"%AN")=false}%f_add_to_list(STATE_LIST,"%AN")]>\
+	<{}{%CM=State::Class&%Ca!=abstract}%f_remove_from_list(STATE_LIST,"%CN")>\
+	<{}{%AC=State&"%AN"!=""}[{%f_exists_in_list(STATE_LIST,"%AN")=true}%AX]>\
+	%f_clear_list(STATE_LIST)%f_shift_intend(1)
+	%f_footer(%S)
+
+f _is_base_event
+	[{%SM=TransitionEvent::Class&%S{is base}=true}{false}true]
+//#UC END# *470321950119for470F3B8B032C*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F3B8B032C*
+= Facet::Class;wiki
+//#UC END# *46E6D4BB0339for470F3B8B032C*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: StateMachine::Class::StateMachine
+? Машина состояний
+= Java::MDAGenerator
+
+// Параметры стереотипа
+Y code_state_machine_internal.gif
+L code_state_machine_internal
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F468F0109*
+//#UC END# *46E6D4BB0339for470F468F0109*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F468F0109*
+	<%CX>
+//#UC END# *470321950119for470F468F0109*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F468F0109*
+	<%CX>
+//#UC END# *470321C1038Afor470F468F0109*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F468F0109*
+c	{}
+r {""=""}: {}
+//#UC END# *4704C0E30186for470F468F0109*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor470F468F0109*
+//#UC END# *4705CBD6003Efor470F468F0109*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for470F468F0109*
+//#UC END# *470484D50138for470F468F0109*
+
+// Вложенные стереотипы
+: StateMachine::Class::StateMachine::State
+? Состояние
+= Java::MDAGenerator
+
+// Параметры стереотипа
+Y code_sm_int_state.gif
+L code_sm_int_state
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F46A5034B*
+//#UC END# *46E6D4BB0339for470F46A5034B*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F46A5034B*
+C /sm/%P%PN
+O %SN.java
+	%f_header(%S)
+	%f_set_var(SERV,S)\
+	%f_set_var(BASE_STATE,"")\
+	%f_find_specific_base_state(%S,"BASE_STATE")\
+	package %f_dump_java_package_ex(%S);
+	
+	import ru.garant.shared.Core.Logs;
+	[{%f_has_base_state(%S)=false|<{}{%CC=Action&%f_is_override_state_action(%C,%{SERV}%P%P)=false}{C}>!=0}import ru.garant.shared.FSM.IContext;
+	]import ru.garant.shared.GCI.I18N.Messages;
+	import %f_type(%P%P)Impl;
+	
+	public class %SN[{"%{BASE_STATE}U"!=""}{ extends ru.garant.shared.FSM.BaseState} extends %f_type(%{BASE_STATE})] {
+		
+		public static %SN make () {
+			return new %SN ();
+		}
+		
+		protected %SN () {
+			%U[{_CTOR_%f_to_upper(%SN)}
+			[{%f_has_base_state(%S)=true}super ();
+			]]
+		}
+		
+	[{%f_has_base_state(%S)=false}\
+		public String getName () {
+			return Messages.Factory.messages ().get (
+				"<{}{}{r}%PN.>%SN"
+			);
+		}
+		
+	][{<{}{%CC=Action&%CK=entry&%f_is_override_state_action(%C,%{SERV}%P%P)=false}{C}>!=0}\
+		public void postEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {
+			[{%f_has_base_state(%{SERV})=true}super.postEnterAction (event, conn);
+			]%P%PNImpl context = (%P%PNImpl)conn;
+	<{}{%CC=Action&%CK=entry&%f_is_override_state_action(%C,%{SERV}%P%P)=false}[		try {
+				context.%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+			} catch (Throwable ex) {
+				Logs.LOG_SEX (ex);
+			}
+	]>	}
+		
+	][{<{}{%CC=Action&%CK=exit&%f_is_override_state_action(%C,%{SERV}%P%P)=false}{C}>!=0}\
+		public void postExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {
+			[{%f_has_base_state(%{SERV})=true}super.postExitAction (event, conn);
+			]%P%PNImpl context = (%P%PNImpl)conn;
+	<{}{%CC=Action&%CK=exit&%f_is_override_state_action(%C,%{SERV}%P%P)=false}[		try {
+				context.%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+			} catch (Throwable ex) {
+				Logs.LOG_SEX (ex);
+			}
+	]>	}
+		
+	][{%SK=Final|%SK=Initial|[{%f_has_base_state(%S)=true&%{BASE_STATE}K!=%SK}{false}true]=true}\
+		public ru.garant.shared.FSM.StateType getType () {
+			return ru.garant.shared.FSM.StateType.ST_%f_to_upper(%SK);
+		}
+		
+	][{%f_has_base_state(%S)=false}\
+		public void validate (final IContext conn) throws ru.garant.shared.FSM.ValidationFailed {
+			%P%PNImpl context = (%P%PNImpl)conn;
+			context.validate%SN ();
+		}
+		
+		public void preEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreEnterFailed {
+			%P%PNImpl context = (%P%PNImpl)conn;
+			context.preEnterAction%SN (event);
+		}
+		
+		public void preExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreExitFailed {
+			%P%PNImpl context = (%P%PNImpl)conn;
+			context.preExitAction%SN (event);
+		}]
+	}
+	%f_footer(%S)
+
+//собираем из базовых SM одноименные состояния
+f _collect_base_states
+	[{"%1N"=""}%f_error("_collect_base_states: не задан идентифкатор списка")]\
+	%f_set_var(__STATE__,S)\
+	%f_set_var(__LIST_ID__,"%1N")\
+	%P%P<{}{}%g<{}{}{%A}[{%AC=State&%AN=%{__STATE__}N}%f_add_to_list(%{__LIST_ID__}N,A)]\
+	[{%AN=%{__STATE__}N&%AM=State::Class&%A{is base}=true}%f_add_to_list(%{__LIST_ID__}N,A)]>>>
+
+//собираем из базовых SM одноименные события
+f _collect_base_events
+	[{"%1N"=""}%f_error("_collect_base_events: не задано имя события")]\
+	[{"%2N"=""}%f_error("_collect_base_events: не задан идентифкатор списка")]\
+	%f_set_var(__EVENT__,1)\
+	%f_set_var(__LIST_ID__,"%2N")\
+	<{}{}%g<{}{}{%A}[{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"="%{__EVENT__}N"}%f_add_to_list(%{__LIST_ID__}N,A)>]\
+	[{"%AN"="%{__EVENT__}N"&%AM=TransitionEvent::Class}%f_add_to_list(%{__LIST_ID__}N,A)]>>
+
+
+f _has_base_state
+	%f_clear_list(__BASE_STATES__)\
+	%f_collect_base_states(%S,"__BASE_STATES__")\
+	[{%f_is_empty(__BASE_STATES__)=false}{false}true]
+
+//инициализируем переменную элементом - базовым состоянием
+f _find_specific_base_state
+	[{"%1N"=""}%f_error("_find_specific_base_state: не задан идентифкатор переменной")]\
+	%f_set_var(BASE_ID,"%1N")\
+	%f_clear_list(BASE_STATES)\
+	%f_collect_base_states(%S,"BASE_STATES")\
+	%f_set_var(FINDED,"false")\
+	[{%f_is_empty(BASE_STATES)=false}{%f_find_specific_abstract_base_state_i(%P%P)}%f_pop_first_to_var(BASE_STATES,%{BASE_ID}N)%f_set_var(FINDED,"true")]
+
+f _find_specific_abstract_base_state_i
+	<{}{%CM=State::Class&%C{is base}=true}%f_set_var(%{BASE_ID}N,C)%f_set_var(FINDED,"true")>\
+	[{%{FINDED}N=false}<{}{%GM=StateMachine::Class}%f_find_specific_abstract_base_state_i(%G)>]
+
+//инициализируем переменную элементом - базовым состоянием
+f _find_specific_base_event
+	[{"%1N"=""}%f_error("_find_specific_base_event: не задано имя события")]\
+	[{"%2N"=""}%f_error("_find_specific_base_event: не задан идентифкатор переменной")]\
+	%f_set_var(BASE_ID,"%2N")\
+	%f_clear_list(__BASE_EVENTS__)\
+	%f_collect_base_events(%S,%1,"__BASE_EVENTS__")\
+	%f_set_var(FINDED,"false")\
+	[{%f_is_empty(__BASE_EVENTS__)=false}{%f_find_specific_abstract_base_event_i(%S)}%f_pop_first_to_var(__BASE_EVENTS__,%{BASE_ID}N)%f_set_var(FINDED,"true")]
+
+f _find_specific_abstract_base_event_i
+	<{}{%f_is_base_event(%C)=true}%f_set_var(%{BASE_ID}N,C)%f_set_var(FINDED,"true")>\
+	[{%{FINDED}N=false}<{}{%GM=StateMachine::Class}%f_find_specific_abstract_base_event_i(%G)>]
+//#UC END# *470321950119for470F46A5034B*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F46A5034B*
+//#UC END# *470321C1038Afor470F46A5034B*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F46A5034B*
+r {%f_check_unconditional_transition(%S)=false}:                                {Can't use more than one unconditional transition from one state}
+r {"%SN"=""}:                                                                   {State must have name}
+/r {%f_check_base_state_type(%S)=false}:                                         {Базовые состояния не могут иметь другой тип!}
+r {%f_number_cmp("<{}{%AC=Transition&%AS=combine}{%AC}>","1","\>")=1}:          {Состояние может быть объединено только с одним состоянием}
+r {%f_number_cmp("<{}{%aC=Transition&%aS=combine}{%aC}>","1","\>")=1}:          {Состояние может быть объединено только с одним состоянием}
+
+f _check_base_state_type
+	%f_clear_list(__BASE_STATES__)\
+	%f_collect_base_states(%S,"__BASE_STATES__")\
+	[{"<{}{%f_is_empty(__BASE_STATES__)=false}{W}%f_pop_first_to_var(__BASE_STATES__,__STATE__)[{%{__STATE__}K!=%SK}.]>"=""}{false}true]
+//#UC END# *4704C0E30186for470F46A5034B*
+
+// Вложенные стереотипы
+: StateMachine::Class::StateMachine::State::Action
+? действие связанное с состоянием
+// Параметры стереотипа
+Y code_sm_int_state_action.gif
+L code_sm_int_state_action
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F47E40222*
+//#UC END# *46E6D4BB0339for470F47E40222*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F47E40222*
+//#UC END# *470321950119for470F47E40222*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F47E40222*
+//#UC END# *470321C1038Afor470F47E40222*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+: StateMachine::Class::StateMachine::State::combine::Transition
+? Связь-объединение
+? Определяет условие, по которому два состояния могут объединятся в одно
+= Java::MDAGenerator
+
+// Параметры стереотипа
+Y code_sm_int_state_combine_transition.gif
+L code_sm_int_state_combine_transition
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for47A697BA0068*
+//#UC END# *46E6D4BB0339for47A697BA0068*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for47A697BA0068*
+//#UC END# *470321950119for47A697BA0068*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor47A697BA0068*
+//#UC END# *470321C1038Afor47A697BA0068*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for47A697BA0068*
+c                               {}
+r {%PU=%TU}:                    {Состояние не может быть объединено с собой (%PN)}
+r {"%SI"=""}:     {Для объединения состояний должно быть задано условие (%PN-\>%TN)}
+//#UC END# *4704C0E30186for47A697BA0068*
+
+
+: StateMachine::Class::StateMachine::State::Transition
+? переход
+= Java::MDAGenerator
+
+// Параметры стереотипа
+Y code_sm_int_state_transition.gif
+L code_sm_int_state_transition
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F47A401C5*
+//#UC END# *46E6D4BB0339for470F47A401C5*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F47A401C5*
+//#UC END# *470321950119for470F47A401C5*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F47A401C5*
+//#UC END# *470321C1038Afor470F47A401C5*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F47A401C5*
+c                                                                       {}
+r {%f_is_guarded_transition(%S)=true&%f_dump_guard(%S)=null&%PU=%TU}:   {Состояние не может быть связано безусловным переходом с собой (%PN)}
+//#UC END# *4704C0E30186for470F47A401C5*
+
+// Вложенные стереотипы
+: StateMachine::Class::StateMachine::State::Transition::Action
+? действие связанное с переходом
+// Параметры стереотипа
+Y code_sm_int_state_action_transition.gif
+L code_sm_int_state_action_transition
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F47C500DA*
+//#UC END# *46E6D4BB0339for470F47C500DA*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F47C500DA*
+//#UC END# *470321950119for470F47C500DA*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor470F47C500DA*
+//#UC END# *470321C1038Afor470F47C500DA*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

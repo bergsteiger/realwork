@@ -1,0 +1,663 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMSubsystemLayer/ApplicationLevel/VCMApplication.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMSubsystemLayer::ApplicationLevel::VCMApplication
+//
+// Приложение VCM
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMApplication::Class
+implementation @ <<VCMApplication>>
+//? Приложение VCM
+//> !
+//> VCMMainForm::Class
+//> method::Class
+//> SimpleClass::Class
+//> Enum::Class
+//> Typedef::Class
+//> Struct::Class
+//> LocalConst::Class
+//> Range::Class
+//> SetConst::Class
+//> StaticObject::Class
+//> Define::Class
+//> SetOf::Class
+//> Undef::Class
+//> Constants::Class
+//> ConstantArray::Class
+//> VCMFinalMainForm::Class
+//> ScriptKeyword::Class
+//> ScriptKeywordsPack::Class
+
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a fa
+// - тип абстракции
+//Y code_exe_target.gif
+//L code_exe_target
+// Параметры визуализации
+//$ C 152,251,152
+//$ l 0,85,0
+//$ f 0,85,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+// Является ли элемент приложением VCM
+//%f _IsVCMApplication
+; // st_space_key
+
+: IsVCMApplication OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4A9255FB0137for4958D0CD0287*
+//	true
+ true
+//#UC END# *4A9255FB0137for4958D0CD0287*
+; // IsVCMApplication
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4958D0CD0287*
+//	%S%[inherited]\
+ inherited
+//	[{%Sa=final}\
+ if ( ( %S |a ) %== 'final' ) then
+ begin
+//	[{%Gx!=true}\
+  if ( ( %G |x ) %!=  true ) then
+  begin
+//	[{"%{TvcmApplication}N"=""}%f_find_element(TvcmApplication,TvcmApplication)]\
+   if ( ( ( get_global_var ( 'TvcmApplication' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'TvcmApplication' %, 'TvcmApplication' )% 
+   end // if
+//	%S%f_make_accessable(%{TvcmApplication}U)\
+   %S %f make_accessable %( ( get_global_var ( 'TvcmApplication' ) |U ) )% 
+//	%f_addG(%S,%{TvcmApplication})\
+   [%f] addG %( %S %, ( get_global_var ( 'TvcmApplication' ) ) )% 
+//	]\
+  end // if
+//	%S%f_add_class(%SU_Ref,Typedef,TvcmApplicationRef,Ref_Inst)\
+  %S %f add_class %( %S |U '_Ref' %, 'Typedef' %, 'TvcmApplicationRef' %, 'Ref_Inst' )% 
+//	%{Ref_Inst}%f_set_documentation(Ссылка на приложение для DesignTime редакторов)\
+  ( get_global_var ( 'Ref_Inst' ) %f set_documentation %( 'Ссылка на приложение для DesignTime редакторов' )% ) 
+//	%f_addG(%{Ref_Inst},%S)\
+  [%f] addG %( ( get_global_var ( 'Ref_Inst' ) ) %, %S )% 
+//	]
+ end // if
+//#UC END# *4B2A19E3038Bfor4958D0CD0287*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _pas_BeforeClassEnd
+: pas_BeforeClassEnd OBJECT IN %S
+//#UC START# *4A9293AE02DCfor4958D0CD0287*
+//	%S%[inherited]\
+ inherited
+//	[{%SS!=VCMTestApplication}\
+ if ( ( %S |S ) %!= 'VCMTestApplication' ) then
+ begin
+//	%f_clear_list(RECALL_LIST)\
+  [%f] clear_list %( 'RECALL_LIST' )% 
+//	[ public
+  if NOT-EMPTY
+  begin
+   ' public'
+//	 // modules operations\
+   ' // modules operations'
+//	<%C#f_OutRecallIntf(%S)\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     %C %?f OutRecallIntf %( %S )% 
+//	%C%T#f_OutRecallIntf(%S)>]\
+     %C ->T %?f OutRecallIntf %( %S )%  
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	%f_clear_list(PUBLISHED_OPERATIONS_LIST)\
+  [%f] clear_list %( 'PUBLISHED_OPERATIONS_LIST' )% 
+//	%f_clear_list(PUBLISHED_OPERATIONS_STATES_LIST)\
+  [%f] clear_list %( 'PUBLISHED_OPERATIONS_STATES_LIST' )% 
+//	[\n public
+  if NOT-EMPTY
+  begin
+   #13#10' public'
+//	 // operations codes\
+   ' // operations codes'
+//	<%C#f_OperationsToFuncIntf(%S)\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     %C %?f OperationsToFuncIntf %( %S )% 
+//	%C%T#f_OperationsToFuncIntf(%S)>\
+     %C ->T %?f OperationsToFuncIntf %( %S )%  
+     ++! l_Counter
+    end // if
+   end // for C
+//	]\n\
+  end // if
+  NOP
+  #13#10
+//	]
+ end // if
+//#UC END# *4A9293AE02DCfor4958D0CD0287*
+; // pas_BeforeClassEnd
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// нет документации
+//%f _pas_DefaultAncestor
+: pas_DefaultAncestor OBJECT IN %S
+//#UC START# *4948E5B60391for4958D0CD0287*
+//	TvcmApplication
+//#UC END# *4948E5B60391for4958D0CD0287*
+; // pas_DefaultAncestor
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor4958D0CD0287*
+//	%S%[inherited]\
+ inherited
+//	[{%SS!=VCMTestApplication}\
+ if ( ( %S |S ) %!= 'VCMTestApplication' ) then
+ begin
+//	<%C#f_OperationsToUses()\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C %?f OperationsToUses %( )% 
+//	%C%T#f_OperationsToUses()>\
+    %C ->T %?f OperationsToUses %( )%  
+    ++! l_Counter
+   end // if
+  end // for C
+//	%f_clear_list(RECALL_LIST)\
+  [%f] clear_list %( 'RECALL_LIST' )% 
+//	<%C#f_RecallToImplUses()\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C %?f RecallToImplUses %( )% 
+//	%C%T#f_RecallToImplUses()>\
+    %C ->T %?f RecallToImplUses %( )%  
+    ++! l_Counter
+   end // if
+  end // for C
+//	<{}{%CS=uses}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'uses' ) then
+   begin
+//	%C%T#f_FormSetFactoryToUses()\
+    %C ->T %?f FormSetFactoryToUses %( )%  
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+//#UC END# *4948EB2601FAfor4958D0CD0287*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for4958D0CD0287*
+//	%S%[inherited]\
+ inherited
+//	[{%Gx!=true}\
+ if ( ( %G |x ) %!=  true ) then
+ begin
+//	%f_pas_PutToUses("vcmApplication")\
+  [%f] pas_PutToUses %( 'vcmApplication' )% 
+//	]\
+ end // if
+//	%f_pas_PutToUses("Classes")\
+ [%f] pas_PutToUses %( 'Classes' )% 
+//	%f_pas_PutToUses("vcmInterfaces")\
+ [%f] pas_PutToUses %( 'vcmInterfaces' )% 
+//	%f_pas_PutToUses("vcmExternalInterfaces")\
+ [%f] pas_PutToUses %( 'vcmExternalInterfaces' )% 
+//	[{%SS!=VCMTestApplication}\
+ if ( ( %S |S ) %!= 'VCMTestApplication' ) then
+ begin
+//	%f_clear_list(RECALL_LIST)\
+  [%f] clear_list %( 'RECALL_LIST' )% 
+//	<%C#f_RecallToIntfUses()\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C %?f RecallToIntfUses %( )% 
+//	%C%T#f_RecallToIntfUses()>\
+    %C ->T %?f RecallToIntfUses %( )%  
+    ++! l_Counter
+   end // if
+  end // for C
+//	[{<{}{%CS=uses&%C%T#f_IsFinalVCMFormsPack()=true}{C}>!=0}\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'uses' AND 
+     ( ( %C ->T %?f IsFinalVCMFormsPack %( )%  ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+//	%f_pas_PutToUses("vcmMainForm")\
+   [%f] pas_PutToUses %( 'vcmMainForm' )% 
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4948F2EE0334for4958D0CD0287*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит реализацию переопределённых методов
+//%f _pas_OutOverridesImpl
+: pas_OutOverridesImpl OBJECT IN %S
+//#UC START# *494B86B5014Bfor4958D0CD0287*
+//	%S%[inherited]\
+ inherited
+
+//	[{%SS!=VCMTestApplication}\
+ if ( ( %S |S ) %!= 'VCMTestApplication' ) then
+ begin
+//	%f_pas_OpenMethodImplementation("RegisterFormSetFactories",%S)\
+  [%f] pas_OpenMethodImplementation %( 'RegisterFormSetFactories"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).RegisterFormSetFactories;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.RegisterFormSetFactories;'
+//	begin
+  'begin'
+//	 inherited;\
+  ' inherited;'
+//	%f_clear_list(PUBLISHED_FormSetFactories_LIST)\
+  [%f] clear_list %( 'PUBLISHED_FormSetFactories_LIST' )% 
+
+//	<{}{%CS=uses}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'uses' ) then
+   begin
+//	%C%T#f_PublishFormSetFactory()\
+    %C ->T %?f PublishFormSetFactory %( )%  
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+
+//	end;\
+  'end;'
+
+
+//	[{<{}{%CS=uses&%C%T#f_IsFinalVCMFormsPack()=true}{C}>!=0}\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'uses' AND 
+     ( ( %C ->T %?f IsFinalVCMFormsPack %( )%  ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+//	%f_pas_OpenMethodImplementation("RegisterModules",%S)\
+   [%f] pas_OpenMethodImplementation %( 'RegisterModules"' %, %S )% 
+//	class procedure %f_pas_TypeName(%S).RegisterModules(aMain: TvcmMainForm);
+   'class procedure '
+   [%f] pas_TypeName %( %S )% '.RegisterModules(aMain: TvcmMainForm);'
+//	begin
+   'begin'
+//	 inherited;\
+   ' inherited;'
+//	%f_clear_list(Registered_Modules_LIST)\
+   [%f] clear_list %( 'Registered_Modules_LIST' )% 
+//	[\n <{\n }{%CS=uses&%C%T#f_IsFinalVCMFormsPack()=true}\
+   if NOT-EMPTY
+   begin
+    #13#10' '
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %== 'uses' AND 
+      ( ( %C ->T %?f IsFinalVCMFormsPack %( )%  ) %==  true  ) ) then
+     begin
+      if ( l_Counter >0 ) then ( #13#10' ' )
+//	[{%f_exists_in_list(Registered_Modules_LIST,"%f_pas_TypeName(%C%T)")!=true}\
+      if ( ( [%f] exists_in_list %( 'Registered_Modules_LIST' %, [%f] pas_TypeName %( %C ->T  )% )% ) %!=  true ) then
+      begin
+//	%f_add_to_list(Registered_Modules_LIST,"%f_pas_TypeName(%C%T)")\
+       [%f] add_to_list %( 'Registered_Modules_LIST' %, [%f] pas_TypeName %( %C ->T  )% )% 
+//	[%C%T%f_open_ifdef()\n ]\
+       if NOT-EMPTY
+       begin
+        %C ->T %f open_ifdef %( )%  #13#10' ' 
+       end // if
+       NOP
+//	aMain.RegisterModule(%f_pas_TypeName(%C%T));\
+       'aMain.RegisterModule('
+       [%f] pas_TypeName %( %C ->T  )% ');'
+//	[\n %C%T%f_close_ifdef()]\
+       if NOT-EMPTY
+       begin
+        #13#10' '
+        %C ->T %f close_ifdef %( )%  
+       end // if
+       NOP
+//	]\
+      end // if
+//	>]
+
+      ++! l_Counter
+     end // if
+    end // for C
+   end // if
+   NOP
+//	end;\
+   'end;'
+//	]\
+  end // if
+
+
+//	%f_clear_list(PUBLISHED_OPERATIONS_LIST)\
+  [%f] clear_list %( 'PUBLISHED_OPERATIONS_LIST' )% 
+//	%f_clear_list(PUBLISHED_OPERATIONS_STATES_LIST)\
+  [%f] clear_list %( 'PUBLISHED_OPERATIONS_STATES_LIST' )% 
+//	[\n\nvar\
+  if NOT-EMPTY
+  begin
+   #13#10#13#10'var'
+//	<%C#f_OperationsToVar()\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     %C %?f OperationsToVar %( )% 
+//	%C%T#f_OperationsToVar()>\
+     %C ->T %?f OperationsToVar %( )%  
+     ++! l_Counter
+    end // if
+   end // for C
+//	]\
+  end // if
+  NOP
+
+
+//	%f_pas_OpenMethodImplementation("Loaded",%S)\
+  [%f] pas_OpenMethodImplementation %( 'Loaded"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).Loaded;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.Loaded;'
+//	begin
+  'begin'
+//	%f_clear_list(PUBLISHED_OPERATIONS_LIST)\
+  [%f] clear_list %( 'PUBLISHED_OPERATIONS_LIST' )% 
+//	%f_clear_list(PUBLISHED_OPERATIONS_STATES_LIST)\
+  [%f] clear_list %( 'PUBLISHED_OPERATIONS_STATES_LIST' )% 
+//	%f_clear_list(PUBLISHED_MODULES_LIST)\
+  [%f] clear_list %( 'PUBLISHED_MODULES_LIST' )% 
+//	 inherited;\
+  ' inherited;'
+
+
+//	[\n <{\n }{%CS=uses&%C%T#f_IsFinalVCMFormsPack()=true}\
+  if NOT-EMPTY
+  begin
+   #13#10' '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'uses' AND 
+     ( ( %C ->T %?f IsFinalVCMFormsPack %( )%  ) %==  true  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( #13#10' ' )
+//	%C%T#f_PublishModule()\
+     %C ->T %?f PublishModule %( )%  
+//	>]\
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+
+
+//	<%C#f_PublishOperations()\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C %?f PublishOperations %( )% 
+//	%C%T#f_PublishOperations()>
+    %C ->T %?f PublishOperations %( )%  
+    ++! l_Counter
+   end // if
+  end // for C
+
+
+//	end;\
+  'end;'
+
+
+//	%f_clear_list(RECALL_LIST)\
+  [%f] clear_list %( 'RECALL_LIST' )% 
+//	[\n\n// modules operations\
+  if NOT-EMPTY
+  begin
+   #13#10#13#10'// modules operations'
+//	<%C#f_OutRecallImpl(%S)\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     %C %?f OutRecallImpl %( %S )% 
+//	%C%T#f_OutRecallImpl(%S)>]\
+     %C ->T %?f OutRecallImpl %( %S )%  
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	[\n\n// operations codes\
+  if NOT-EMPTY
+  begin
+   #13#10#13#10'// operations codes'
+//	%f_clear_list(PUBLISHED_OPERATIONS_LIST)\
+   [%f] clear_list %( 'PUBLISHED_OPERATIONS_LIST' )% 
+//	%f_clear_list(PUBLISHED_OPERATIONS_STATES_LIST)\
+   [%f] clear_list %( 'PUBLISHED_OPERATIONS_STATES_LIST' )% 
+//	<%C#f_OperationsToFuncImpl(%S)\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     %C %?f OperationsToFuncImpl %( %S )% 
+//	%C%T#f_OperationsToFuncImpl(%S)>\
+     %C ->T %?f OperationsToFuncImpl %( %S )%  
+     ++! l_Counter
+    end // if
+   end // for C
+//	]\
+  end // if
+  NOP
+//	]
+ end // if
+//#UC END# *494B86B5014Bfor4958D0CD0287*
+; // pas_OutOverridesImpl
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит интерфейс переопределённых методов
+//%f _pas_OutOverridesIntf
+: pas_OutOverridesIntf OBJECT IN %S
+//#UC START# *494B856502ECfor4958D0CD0287*
+//	%S%[inherited]\
+ inherited
+//	[{%SS!=VCMTestApplication}\
+ if ( ( %S |S ) %!= 'VCMTestApplication' ) then
+ begin
+//	   procedure RegisterFormSetFactories; override;
+  '   procedure RegisterFormSetFactories; override;'
+//	[{<{}{%CS=uses&%C%T#f_IsFinalVCMFormsPack()=true}{C}>!=0}\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'uses' AND 
+     ( ( %C ->T %?f IsFinalVCMFormsPack %( )%  ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+//	   class procedure RegisterModules(aMain: TvcmMainForm); override;
+   '   class procedure RegisterModules(aMain: TvcmMainForm); override;'
+//	]\
+  end // if
+//	   procedure Loaded; override;\n\
+  '   procedure Loaded; override;'#13#10
+//	]
+ end // if
+//#UC END# *494B856502ECfor4958D0CD0287*
+; // pas_OutOverridesIntf
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for4958D0CD0287*
+//	T%SNRes
+ 'T'
+ %S |N 'Res'
+//#UC END# *4947F8AD02A1for4958D0CD0287*
+; // pas_TypeName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor4958D0CD0287*
+//	%SNRes
+ %S |N 'Res'
+//#UC END# *4948065C01DFfor4958D0CD0287*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Путь к модулю
+//%f _pas_UnitPath
+: pas_UnitPath OBJECT IN %S
+//#UC START# *4948C3290020for4958D0CD0287*
+//	%S%[inherited]
+//#UC END# *4948C3290020for4958D0CD0287*
+; // pas_UnitPath
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor4958D0CD0287*
+//	[{%SS!=VCMTestApplication}\
+ if ( ( %S |S ) %!= 'VCMTestApplication' ) then
+ begin
+//	<{}{"%CO"!=""}%CX>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |O ) %!= '' ) then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+//#UC END# *49F5795900ECfor4958D0CD0287*
+; // dfm
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMApplication>>
+

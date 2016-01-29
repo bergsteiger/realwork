@@ -1,0 +1,143 @@
+// m3RootStream 54073B760302 Impurity Class
+
+INCLUDE '53FDCEC40006.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '53FF134A03BA.pas.ms.script'
+
+FORWARD ME_54073B760302
+
+INCLUDE '540EE3000176.pas.ms.script'
+
+: ME_540F06CE030B
+ CONST UID '540F06CE030B'
+ CONST Name 'Logger'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_540EE3000176 // Tl3Logger
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_540F06CE030B Logger
+
+: ME_68CFECEAECA8
+ CONST UID '68CFECEAECA8'
+ CONST Name 'f_Logger'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Logger' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_540EE3000176 // Tl3Logger
+ ;
+
+ @SELF
+; // ME_68CFECEAECA8 f_Logger
+
+FORWARD ME_540F06F60288
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_540F070D0103
+ CONST UID '540F070D0103'
+ CONST Name 'aStream'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+
+ @SELF
+; // ME_540F070D0103 aStream
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_540F070D0132
+ CONST UID '540F070D0132'
+ CONST Name 'aAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_540F070D0132 aAccess
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_540F06FE00B6
+ CONST UID '540F06FE00B6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_540F070D0103 // aStream
+ ME_540F070D0132 // aAccess
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_540F06FE00B6 DoIt
+
+: ME_540F06F60288
+ CONST UID '540F06F60288'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_540F06FE00B6 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_540F06F60288 Create
+
+: ME_54073B760302
+ CONST UID '54073B760302'
+ CONST Name 'm3RootStream'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53FDCEC40006 // m3CustomHeaderStream
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_540F06CE030B // Logger
+ ME_68CFECEAECA8 // f_Logger
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_540F06F60288 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_53FDFD1D0164 // DefaultInitAction
+ ME_53FDFD34034B // DefaultDoneAction
+ ME_540F07260255 // DoLockHeader
+ ME_540F072F02B4 // DoUnlockHeader
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54073B760302 m3RootStream

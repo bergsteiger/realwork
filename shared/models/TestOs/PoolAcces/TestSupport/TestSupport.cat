@@ -1,0 +1,1216 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "TestSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Лаборатория,key:LAB,guid:4979C1050061/Home/Модель проекта "TestOs"/PoolAcces/TestSupport|49E7362A02FC
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	""))
+    quid       	"49E7362A02FC"
+    documentation 	"Среда для выполнения теста"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49E73658018D"
+	    supplier   	"Logical View::TestOs::PoolAcces::MemoryAccessTest"
+	    quidu      	"49E735C50348")
+	(object Visibility_Relationship
+	    quid       	"49E84B730235"
+	    supplier   	"Logical View::shared::GCL::math"
+	    quidu      	"45018D5E036B")
+	(object Visibility_Relationship
+	    quid       	"49E85016021B"
+	    supplier   	"Logical View::TestOs::PoolAcces::MemoryAccessTestImpl"
+	    quidu      	"49E735FD038C")
+	(object Visibility_Relationship
+	    quid       	"49F023C20280"
+	    supplier   	"Logical View::shared::GCI::MMap"
+	    quidu      	"4971D6A70073")
+	(object Visibility_Relationship
+	    quid       	"49F712F601F4"
+	    supplier   	"Logical View::shared::GCI::ResourceInfo"
+	    quidu      	"49990AA703BF"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "TestEntry"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/TestOs/PoolAcces/TestEntry.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Лаборатория,key:LAB,guid:4979C1050061/Home/Модель проекта "TestOs"/PoolAcces/TestSupport/TestEntry|49E7366300A3
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/TestOs/PoolAcces/TestEntry.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49E7366300A3*"
+		    value      	(value Text 
+|//#UC START# *49E7366300A3*¤		LOG_D (("Hello world, this is TestEntry!"));¤¤		std::string log_file = CommonSettings::get_log_file_name ();¤		if (log_file.empty () == false) {¤			ofstream* output_stream = new ofstream (); ¤			output_stream->open (log_file.data (), ios::out | ios::app);¤			if (!output_stream->bad ()) {¤				ACE_LOG_MSG->msg_ostream (output_stream, 1);¤			} else {¤				delete output_stream;¤			}¤			ACE_LOG_MSG->clr_flags (ACE_Log_Msg::STDERR | ACE_Log_Msg::LOGGER);¤			ACE_LOG_MSG->set_flags (ACE_Log_Msg::OSTREAM);¤		}¤¤		bool generate_offsets = CommonSettings::get_auto_generate ();¤		if(generate_offsets) {¤			LOG_D (("Starting to generate random offset!"));¤			unsigned long access_count = CommonSettings::get_common_access_count();¤			unsigned long file_size = CommonSettings::get_common_file_size();¤			unsigned long page_size = CommonSettings::get_common_page_size();¤			std::string	output_file_name = CommonSettings::get_output_file_name ();¤¤			MemoryAccessTest::OffsetList random_offset(access_count,0);¤			for (unsigned long i = 0; i < access_count; ++i) {¤				random_offset [i] = (unsigned long)::GCL::long_rand (file_size);¤			}¤			¤			try {¤				size_t inside_offset;¤				GCI::MMap::FileForMem_var mem_file = GCI::MMap::FileForMemFactory::create(output_file_name.c_str(), access_count*sizeof(unsigned long));¤				GCI::MMap::Memory_var memory = mem_file->get_memory(0, access_count*sizeof(unsigned long), inside_offset);¤				memcpy((unsigned char*)memory->get_base_addr(), &random_offset[0], access_count*sizeof(unsigned long));¤			} catch (Core::Exception&) {¤				throw;¤			}¤			LOG_D (("Data file generated succeful!"));¤			ExecutorBase::execute_ ();¤			return;¤		}¤¤		bool common_args = CommonSettings::get_common_args();¤¤		if(common_args) {¤			MemoryAccessTest::TestInfo test_info;¤			test_info.access_count = CommonSettings::get_common_access_count();¤			test_info.file_size = CommonSettings::get_common_file_size();¤			test_info.page_size = CommonSettings::get_common_page_size();¤			test_info.rw_size = CommonSettings::get_common_rw_size ();¤¤			MemoryAccessTest::OffsetList random_offset(test_info.access_count,0);¤			¤			std::string data_file_name = CommonSettings::get_data_file_name ();¤			if(data_file_name == "") {¤				for (unsigned long i = 0; i < test_info.access_count; ++i) {¤					random_offset [i] = (unsigned long)::GCL::long_rand (test_info.file_size);¤				}¤			} else {¤				try {¤					size_t inside_offset;¤					GCI::MMap::FileForMem_var mem_file = GCI::MMap::FileForMemFactory::create(data_file_name.c_str(), test_info.access_count*sizeof(unsigned long));¤					GCI::MMap::Memory_var memory = mem_file->get_memory(0, test_info.access_count*sizeof(unsigned long), inside_offset);¤					memcpy(&random_offset[0], (unsigned char*)memory->get_base_addr(), test_info.access_count*sizeof(unsigned long));¤				} catch (Core::Exception&) {¤					throw;¤				}¤			}¤¤			//test_info.file_name = MemoryAccessTestImpl::SimpleAccessSettings::get_simple_test_file_name();¤			//MemoryAccessTest::TestLauncher_var test_simple = MemoryAccessTest::TestLauncherFactory::create("FILE_FOR_MEM");¤			//test_simple->start(random_offset, test_info);¤¤			//test_info.file_name = MemoryAccessTestImpl::PoolTestSettings::get_pool_test_file_name();¤			//MemoryAccessTest::TestLauncher_var test_pool = MemoryAccessTest::TestLauncherFactory::create("POOL");¤			//test_pool->start(random_offset, test_info);¤¤			test_info.file_name = MemoryAccessTestImpl::OneTimeMappingSettings::get_one_time_file_name();¤			MemoryAccessTest::TestLauncher_var test_one_time = MemoryAccessTest::TestLauncherFactory::create("ONE_TIME_MAPPING");¤			test_one_time->start(random_offset, test_info);¤		} else {¤			MemoryAccessTest::TestLauncher_var test_simple = MemoryAccessTest::TestLauncherFactory::create("FILE_FOR_MEM");¤			test_simple->start();¤¤			MemoryAccessTest::TestLauncher_var test_pool = MemoryAccessTest::TestLauncherFactory::create("POOL");¤			test_pool->start();¤¤			MemoryAccessTest::TestLauncher_var test_one_time = MemoryAccessTest::TestLauncherFactory::create("ONE_TIME_MAPPING");¤			test_one_time->start();¤		}¤¤		// Выводим информацию по потреблённой пиковой памяти¤		GCI::ResourceInfo::ProcessMemoryInfo& process_memory_info = GCI::ResourceInfo::ProcessMemoryInfoFactory::get();¤		LOG_I (("Max Memory Usage(Peak Working Set): %u.", process_memory_info.get_max_usage()));¤¤		//#UC END# *49E7366300A3*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49E7366300A3_FINI*"
+		    value      	(value Text 
+|//#UC START# *49E7366300A3_FINI*¤	//#UC END# *49E7366300A3_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49E7366300A3_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *49E7366300A3_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *49E7366300A3_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49E7366300A3_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *49E7366300A3_CUSTOM_INCLUDES*¤#include <fstream>¤//#UC END# *49E7366300A3_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*49E7366300A3_CUSTOM_BODY*"
+		    value      	"//#UC START# *49E7366300A3_CUSTOM_BODY*¤//#UC END# *49E7366300A3_CUSTOM_BODY*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49E7366300A3_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *49E7366300A3_CUSTOM_INCLUDES*¤//#UC END# *49E7366300A3_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*49E7366300A3*"
+		    value      	"//#UC START# *49E7366300A3*¤//#UC END# *49E7366300A3*"))
+	    quid       	"49E7366300A3"
+	    documentation 	"Поток выполнения тестов"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49E84B90033F"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCL::math::long_rand"
+		    quidu      	"45018DA0002E")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49E84E3802B5"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestOs::PoolAcces::MemoryAccessTest::TestLauncher"
+		    quidu      	"49E736CE037F")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49EEC9FB0252"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestOs::PoolAcces::TestSupport::CommonSettings"
+		    quidu      	"49EEC84B0266")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49EED4F301C4"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestOs::PoolAcces::MemoryAccessTestImpl::PoolTestSettings"
+		    quidu      	"49E83642024E")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49EED4F70122"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestOs::PoolAcces::MemoryAccessTestImpl::SimpleAccessSettings"
+		    quidu      	"49E8366201BD")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49EF02EE0207"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::TestOs::PoolAcces::MemoryAccessTestImpl::OneTimeMappingSettings"
+		    quidu      	"49EEC35F02D7")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F023A50360"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCI::MMap::FileForMem"
+		    quidu      	"4971EE25002F")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F7130C027C"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::GCI::ResourceInfo::ProcessMemoryInfo"
+		    quidu      	"46DBF5D002FD"))
+	    language   	"MDA Generator")
+	(object Class "CommonSettings"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/TestOs/PoolAcces/CommonSettings.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/TestOs/PoolAcces/CommonSettings.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Лаборатория,key:LAB,guid:4979C1050061/Home/Модель проекта "TestOs"/PoolAcces/TestSupport/CommonSettings|49EEC84B0266
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49EEC84B0266"
+	    documentation 	"Настройки определяют нужен ли общий набор входных данных для каждого теста."
+	    stereotype 	"Settings"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "common_args"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49EEC8B703CC"
+		    documentation 	"Один и тот же набор входных данных для каждого теста"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    initv      	"true"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "common_access_count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49EEC9010317"
+		    documentation 	"Колличество доступов к памяти для всех тестов"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"100"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "common_file_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49EEC9AF01D2"
+		    documentation 	"Размер файла для каждого теста"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"1073741824"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "common_page_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49EEE22B0158"
+		    documentation 	"Общий размер страницы"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"33554432"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "auto_generate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F01C3F00FC"
+		    documentation 	"При заданном параметре равном true тест будет генерировать файл со случайным набором идентификаторов"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    initv      	"false"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "output_file_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F01C8A0101"
+		    documentation 	"Имя выходного файла со сгенерированными смещениями"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    initv      	"c:\\random_offset.dat"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "data_file_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F02DD10282"
+		    documentation 	"Файл с входными данными для теста, если имя файла не указано, данные будут сгенерированы динамически."
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    initv      	"c:\\random_offset.dat"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "common_rw_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F6A74A0393"
+		    documentation 	"Количество считанных/записанных байт в полученную область Memory."
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    initv      	"25165824"
+		    exportControl 	"Public"
+		    Containment 	"By Reference")
+		(object ClassAttribute "log_file_name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"49F6A83F02B7"
+		    documentation 	"Имя файла логов"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    initv      	"c:\\test_log.txt"
+		    exportControl 	"Public"
+		    Containment 	"By Reference"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49E7365F0095"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	91
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::TestOs::PoolAcces::TestSupport::TestEntry" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(762, 744)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(603, 714)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"• TestEntry")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(603, 664)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49E7366300A3"
+		    width      	336
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCL::math::long_rand" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1602, 744)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1452, 716)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• long_rand")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1452, 666)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"45018DA0002E"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::TestOs::PoolAcces::MemoryAccessTest::TestLauncher" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(228, 1176)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(41, 1148)
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"TestLauncher")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(41, 1098)
+			anchor     	10
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49E736CE037F"
+		    width      	392
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::TestOs::PoolAcces::TestSupport::CommonSettings" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1428, 1236)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(949, 1002)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	958
+			justify    	0
+			label      	"• CommonSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(949, 952)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	958
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    fill_color 	2154415
+		    quidu      	"49EEC84B0266"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(949, 1063)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	9
+			max_width  	956
+			justify    	1)
+		    width      	976
+		    height     	592
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::TestOs::PoolAcces::MemoryAccessTestImpl::PoolTestSettings" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(471, 249)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(251, 221)
+			nlines     	1
+			max_width  	440
+			justify    	0
+			label      	"• PoolTestSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(251, 171)
+			anchor     	10
+			nlines     	1
+			max_width  	440
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    line_color 	37632
+		    fill_color 	16777215
+		    quidu      	"49E83642024E"
+		    width      	458
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::TestOs::PoolAcces::MemoryAccessTestImpl::SimpleAccessSettings" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1068, 255)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(833, 227)
+			nlines     	1
+			max_width  	470
+			justify    	0
+			label      	"• SimpleAccessSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(833, 177)
+			anchor     	10
+			nlines     	1
+			max_width  	470
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    line_color 	37632
+		    fill_color 	16777215
+		    quidu      	"49E8366201BD"
+		    width      	488
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::TestOs::PoolAcces::MemoryAccessTestImpl::OneTimeMappingSettings" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1740, 249)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1470, 221)
+			nlines     	1
+			max_width  	540
+			justify    	0
+			label      	"• OneTimeMappingSettings")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1470, 171)
+			anchor     	10
+			nlines     	1
+			max_width  	540
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    line_color 	37632
+		    fill_color 	16777215
+		    quidu      	"49EEC35F02D7"
+		    width      	558
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @8
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @9
+			Parent_View 	@8
+			location   	(1186, 625)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49E84B90033F"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(930, 744)
+			(1442, 744))
+		    line_style 	0)
+		(object UsesView "" @10
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @11
+			Parent_View 	@10
+			location   	(567, 1053)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49E84E3802B5"
+		    client     	@1
+		    supplier   	@3
+		    vertices   	(list Points
+			(646, 836)
+			(338, 1085))
+		    line_style 	0)
+		(object UsesView "" @12
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @13
+			Parent_View 	@12
+			location   	(1008, 1055)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49EEC9FB0252"
+		    client     	@1
+		    supplier   	@4
+		    vertices   	(list Points
+			(888, 836)
+			(888, 1224)
+			(940, 1224))
+		    line_style 	3
+		    origin_attachment 	(888, 836)
+		    terminal_attachment 	(940, 1224))
+		(object UsesView "" @14
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @15
+			Parent_View 	@14
+			location   	(513, 556)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49EED4F301C4"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(707, 651)
+			(523, 339))
+		    line_style 	0)
+		(object UsesView "" @16
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @17
+			Parent_View 	@16
+			location   	(813, 436)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49EED4F70122"
+		    client     	@1
+		    supplier   	@6
+		    vertices   	(list Points
+			(818, 651)
+			(1010, 345))
+		    line_style 	0)
+		(object UsesView "" @18
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @19
+			Parent_View 	@18
+			location   	(1192, 392)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49EF02EE0207"
+		    client     	@1
+		    supplier   	@7
+		    vertices   	(list Points
+			(930, 657)
+			(1559, 339))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GCI::MMap::FileForMem" @20
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(387, 1599)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(233, 1571)
+			nlines     	1
+			max_width  	308
+			justify    	0
+			label      	"• FileForMem")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@20
+			location   	(233, 1521)
+			anchor     	10
+			nlines     	1
+			max_width  	308
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4971EE25002F"
+		    width      	326
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @21
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @22
+			Parent_View 	@21
+			location   	(682, 1220)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49F023A50360"
+		    client     	@1
+		    supplier   	@20
+		    vertices   	(list Points
+			(720, 836)
+			(425, 1508))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::GCI::ResourceInfo::ProcessMemoryInfo" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(702, 1986)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(476, 1958)
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"• ProcessMemoryInfo")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(476, 1908)
+			anchor     	10
+			nlines     	1
+			max_width  	452
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"46DBF5D002FD"
+		    width      	470
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @24
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @25
+			Parent_View 	@24
+			location   	(851, 1371)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49F7130C027C"
+		    client     	@1
+		    supplier   	@23
+		    vertices   	(list Points
+			(757, 836)
+			(705, 1895))
+		    line_style 	0)))))

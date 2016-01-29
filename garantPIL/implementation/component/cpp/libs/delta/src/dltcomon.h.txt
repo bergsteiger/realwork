@@ -1,0 +1,55 @@
+#if !defined(__DELTA_COMMON_UTILS_H__)
+#define __DELTA_COMMON_UTILS_H__
+
+#include <ctime> // GARANT_STDLIB
+#include "gardefs.h"
+#include "garutils.h"
+#include "dhr_ver.h"
+#include "rev.h"
+#include "SplaySet.h"
+#include "Logger.h"
+
+#ifdef __USE_HOARD__
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* SVID2/XPG mallinfo structure */
+
+struct mallinfo {
+  int arena;    /* total space allocated from system */
+  int ordblks;  /* number of non-inuse chunks */
+  int smblks;   /* unused -- always zero */
+  int hblks;    /* number of mmapped regions */
+  int hblkhd;   /* total space in mmapped regions */
+  int usmblks;  /* unused -- always zero */
+  int fsmblks;  /* unused -- always zero */
+  int uordblks; /* total allocated space */
+  int fordblks; /* total non-inuse space */
+  int keepcost; /* top-most, releasable (via malloc_trim) space */
+};	
+	
+#ifdef __cplusplus
+}  /* end of extern "C" */
+#endif
+#endif
+
+struct log_struct {
+	char* pDltName;
+	char* pCompName;
+	revision* pOldRev; 
+	revision* pNewRev;
+	char**     pArgv;
+	int        iArgc;
+	SplaySet<unsigned short>* segs;
+};
+
+extern void fprintTime ( FILE* file );
+
+extern void fprintLog ( LogSession* plog, logtype_t type, log_struct* pStruct, char* pHeader, int iExtendetLog );
+
+extern int FillDeltaName ( char* pName, revision theRev, revision theNewRev, char ext, int noName = 0 );
+
+extern unsigned long getUsedPhsMem ( LogSession* plog = 0, logtype_t type = lt_debug );
+
+#endif

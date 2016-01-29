@@ -1,0 +1,57 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_install_level0 <confirm>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT; see doc for details."
+exit
+fi
+
+if test "$MPCXC_MIRROR_HOME" = ""; then
+echo "You must export MPCXC_HOME; see doc for details."
+exit
+fi
+
+if test "$MPCXC_PATH_TO_ACE_WRAPPERS" = ""; then
+echo "You must export MPCXC_PATH_TO_ACE_WRAPPERS; see doc for details."
+exit
+fi
+
+if test "$MPCXC_PATH_TO_LOKI" = ""; then
+echo "You must export MPCXC_PATH_TO_LOKI; see doc for details."
+exit
+fi
+
+if test "$MPCXC_PATH_TO_BZLIB" = ""; then
+echo "You must export MPCXC_PATH_TO_BZLIB; see doc for details."
+exit
+fi
+
+echo "mpcxc_install_level1 ..."
+
+$MPCXC_MIRROR_HOME/build/mpcxc_install_ace \
+$MPCXC_ROOT \
+$MPCXC_MIRROR_HOME/build \
+$MPCXC_PATH_TO_ACE_WRAPPERS/ace \
+$MPCXC_PATH_TO_ACE_WRAPPERS/bin/MakeProjectCreator/config > $MPCXC_ROOT/install_level1.log 2>&1
+
+echo "creating loki directory ..."
+
+rm -rf $MPCXC_ROOT/src/loki
+cp -Rf $MPCXC_PATH_TO_LOKI $MPCXC_ROOT/src/
+
+echo "creating bzlib directory ..."
+
+rm -rf $MPCXC_ROOT/src/bzlib
+cp -Rf $MPCXC_PATH_TO_BZLIB $MPCXC_ROOT/src/
+
+echo "creating utf8 directory ..."
+
+rm -rf $MPCXC_ROOT/src/utf8
+cp -Rf $MPCXC_PATH_TO_UTF8 $MPCXC_ROOT/src/
+
+echo "You can make:"
+echo "update_cvs ace mlma32ru garant_tools."

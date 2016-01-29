@@ -1,0 +1,905 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "os"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/shared/Core/os/IniFile.cpp::450034D40290;w:/shared/Core/os/RegistryHelper.cpp::4500351F0119")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/shared/Core/os/IniFile.h::450034D40290;w:/shared/Core/os/RegistryHelper.h::4500351F0119")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"C++ èíòåðôåéñû è ðåàëèçàöèÿ|Äîêóìåíòàöèÿ")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/IniFile|450034D40290::450034D40290;Shared (c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/RegistryHelper|4500351F0119::4500351F0119;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/IniFile|450034D40290::450034D40290;Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/RegistryHelper|4500351F0119::4500351F0119
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os|4500347B000F
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16662176463"))
+    quid       	"4500347B000F"
+    documentation 	"ôóíêöèè ÎÑ èëè ìåòîäû äîñòóïà ê íèì"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"450042690138"
+	    supplier   	"Logical View::shared::Core::sys"
+	    quidu      	"4500359F003E"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "IniFile"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*450034D40290_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *450034D40290_CUSTOM_INCLUDES*¤#include "ace/ACE.h"¤#include "ace/OS_String.h"¤#include "ace/OS.h"¤#include <cstring>¤#include <cstdlib>¤#include <cassert>¤#include <cstdio>¤¤//#UC END# *450034D40290_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*450034D40290*"
+		    value      	(value Text 
+|//#UC START# *450034D40290*¤IniFile::IniFile(const char* lpszFileName)¤{¤	wMaxBufSize = 49152U;¤	memset (lpszProfileName, 0, sizeof(lpszProfileName));¤	strcpy (lpszProfileName, lpszFileName);¤¤	memset (lpszProfilePath, 0, sizeof(lpszProfilePath));¤	strcpy (lpszProfilePath, lpszProfileName);¤    ¤	size_t len = strlen(lpszProfilePath);¤¤	if (len > 0) {                                          ¤	    for (size_t i=len-1; i>0; i--) {¤			if ((lpszProfilePath[i]=='\\') || (lpszProfilePath[i]=='/'))¤				break;¤			else¤				lpszProfilePath[i]='\0';¤	    }¤	}¤	if (strlen(lpszProfilePath)==1)¤		lpszProfilePath[0]='\0'; ¤¤	lpMainBuf = (char*)calloc(1, wMaxBufSize+5);¤}¤¤¤IniFile::~IniFile()¤{¤	free (lpMainBuf);¤}¤¤¤ACE_UINT16 IniFile::ReadProfileString(const char* lpszSection, const char* lpszEntry, char* lpszBuf, ACE_UINT16* cbSize)¤{¤	int		file;                    // file handle¤	long		dwFileSize;              // file size¤	ACE_UINT16	i,k;					 // counters¤	char		sect[256];               // full section name (including [])¤	char		entry[256];              // full entry name (including =)¤	char		rc[2];                   // temporary string¤	size_t		wSectionLen;             // section length¤	size_t		wEntryLen;               // entry length¤	bool		isRequiredSection;       // true if required section is now active¤	bool		isSectionFound;¤	char*		lpsz;                    // temporary pointer¤	char		_0D_0A[2];¤	bool		isLastBlock;¤	size_t		dwFOfs, dwCurFOfs;¤	ACE_UINT16	wNumberOfBytes;¤¤	if (lpMainBuf == 0) {¤		return ERR_OUT_OF_MEM;¤	}¤	memset (lpMainBuf, 0, wMaxBufSize);¤¤	if ((file = ace_os_open (platform_independent_path(lpszProfileName).c_str(), O_RDWR | O_BINARY )) == (-1))¤	  return ERR_NO_PROFILE;¤¤	/*  VADIM, LOOK AT THIS WITH ATTENTION !!!!  */¤	if ( lpszBuf ) memset (lpszBuf, 0, *cbSize);¤	else *cbSize = 0;¤	¤	dwLastSectionOffset = 0;¤	dwLastEntryOffset = 0;¤¤	isSectionFound = false;¤	isRequiredSection = false;¤¤	dwFileSize = ace_os_filesize(file);¤¤	memset (rc,    0, sizeof(rc));¤	memset (sect,  0, sizeof(sect));¤	memset (entry, 0, sizeof(entry));¤¤	_0D_0A[0]=0x0D;¤	_0D_0A[1]=0x0A;¤¤	// check 0D,0A at the end of file and write if it's not exist¤	ace_os_lseek (file, (dwFileSize-2), SEEK_SET);¤	ace_os_read (file, &rc, 1);¤	if ((rc[0] != 0x0D) && (rc[0] != 0x0A)) {¤		ace_os_lseek (file, dwFileSize, SEEK_SET);¤		if (ace_os_write (file, &_0D_0A, sizeof(_0D_0A))==(-1)) {¤			ace_os_close (file);¤			return ERR_PROFILE_ACCESS_DENIED;¤		}¤	}¤	ace_os_lseek (file, 0, SEEK_SET);¤¤	sprintf(sect, "[%s]", lpszSection);  // sect = '['+lpszSection+']'¤	sprintf(entry,"%c%c%s=", 0x0D, 0x0A, lpszEntry);     // entry = 0x0D+0x0A+lpszEntry+'='¤¤	wSectionLen = strlen(sect);¤	wEntryLen   = strlen(entry);¤¤	dwFOfs = 0;¤¤	if (dwFileSize > wMaxBufSize) {     // big INI-file¤		isLastBlock = false;¤		wNumberOfBytes = wMaxBufSize;¤	}¤	else {                                  // small INI-file¤		isLastBlock = true;¤		wNumberOfBytes = (ACE_UINT16)dwFileSize;¤	}¤¤	do {¤	  if (!isLastBlock) {¤		if ((long)(dwFOfs + wMaxBufSize) > dwFileSize) {¤			wNumberOfBytes = (short)(dwFileSize-dwFOfs+1);¤			isLastBlock = true;¤		 } else wNumberOfBytes = wMaxBufSize;¤	  }¤		memset (lpMainBuf, 0, wMaxBufSize);¤		ace_os_read (file, (void*)lpMainBuf, wNumberOfBytes);¤¤		if (!isLastBlock) {¤			i=0;¤			do {¤				i++;¤				lpsz = lpMainBuf+wNumberOfBytes-i;¤			} while (*lpsz != 0x0D);¤			wNumberOfBytes -= i;¤			wNumberOfBytes += 3;¤			dwCurFOfs  = ace_os_lseek(file, 0, SEEK_CUR)-i+3;¤			ace_os_lseek(file, (long) dwCurFOfs, SEEK_SET);¤		}¤		lpsz = lpMainBuf;¤¤		for (i=0; i<wNumberOfBytes; i++) {¤			if (*lpsz=='[') {   // it's section¤				if (ACE_OS_String::strncasecmp(lpsz, sect, wSectionLen)==0) {   // it's required section¤					dwLastSectionOffset = (long) (i+wSectionLen+sizeof(_0D_0A)+dwFOfs);¤					dwLastSectionStart = (long) (i+dwFOfs);¤					isRequiredSection = true;¤					isSectionFound = true;¤				}¤				else {   // it's NOT required section¤					if (isRequiredSection) {¤						ace_os_close (file);¤						return ERR_NO_ENTRY;¤					}¤				}¤			}¤			else {  // it's entry¤				if ( (ACE_OS_String::strncasecmp(lpsz,entry,wEntryLen)==0) && (isRequiredSection) )  {¤					dwLastEntryOffset = (long) (i+dwFOfs+sizeof(_0D_0A));  //!!!!!!!!!!!!!!!!!!!!!!!¤					k=0;¤			   do {¤						rc[0] = *(lpsz+wEntryLen+k); ¤						if ((rc[0]!=0x0D) && (rc[0]!=0x0A) && (rc[0]!=0) && (k<*cbSize) && (lpszBuf != 0)) {¤							strcat (lpszBuf, rc);¤				  }¤				  k++;¤			   } while ((rc[0] != 0x0D));¤¤					ace_os_close (file);¤					if ((k > *cbSize) || (lpszBuf == 0)) {¤						*cbSize = k;¤				  return ERR_OUT_OF_DESTBUF;¤			   }¤			   else {¤				   return DEF_SUCCESS;¤			   }¤				}¤			}¤			lpsz++;¤		}¤		dwFOfs += wNumberOfBytes;¤	} while (!isLastBlock);¤¤	ace_os_close (file);¤¤	if (!isSectionFound)¤		return ERR_NO_SECTION;¤¤	return ERR_NO_ENTRY;¤}¤¤¤ACE_UINT16 IniFile::ReadProfileString(const char* lpszSection, const char* lpszEntry, char* lpszBuf, ACE_UINT16 cbSize)¤{¤	return ReadProfileString(lpszSection, lpszEntry, lpszBuf, &cbSize);¤}¤¤¤ACE_UINT16 IniFile::ReadProfileLong(const char* lpszSection, const char* lpszEntry, long *value)¤{¤	char buf[32];¤	ACE_UINT16 wRes,wBufSize;¤¤	wBufSize = sizeof(buf);¤	memset (buf, 0, wBufSize);¤	wRes = ReadProfileString(lpszSection, lpszEntry, buf, &wBufSize);¤	if (wRes==DEF_SUCCESS) {¤		*value = atol(buf);¤	} else {¤		*value =0;¤	}¤	return wRes;¤}¤¤¤ACE_UINT16 IniFile::ReadProfileInt(const char* lpszSection, const char* lpszEntry, int *value)¤{¤	char buf[32];¤	ACE_UINT16 wRes, wBufSize;¤¤	wBufSize = sizeof(buf);¤	memset (buf, 0, wBufSize);¤	wRes = ReadProfileString(lpszSection, lpszEntry, buf, &wBufSize);¤	if (wRes==DEF_SUCCESS) {¤		*value = atoi(buf);¤	} else {¤		*value = 0;¤	}¤	return wRes;¤}¤¤¤ACE_UINT16 IniFile::CopyBlock(int src, int dest, ACE_UINT32 dwSrcStart, ACE_UINT32 dwSrcEnd)¤{¤	ACE_UINT16	i,Big,Small;¤	ACE_UINT32	dwNumOfBytes;¤¤	if (lpMainBuf == 0) {¤		return ERR_OUT_OF_MEM;¤	}¤	memset (lpMainBuf, 0, wMaxBufSize);¤¤	dwNumOfBytes = dwSrcEnd-dwSrcStart+1;¤¤	Big = (ACE_UINT16)(dwNumOfBytes / wMaxBufSize);¤	Small = (ACE_UINT16)(dwNumOfBytes - wMaxBufSize*Big);¤¤	ace_os_lseek (src, dwSrcStart, SEEK_SET);¤	ace_os_lseek (dest, ace_os_filesize(dest), SEEK_SET);¤¤	if (Big>0) {¤		for (i=1; i<=Big; i++) {¤			ace_os_read  (src,  (void*)lpMainBuf, wMaxBufSize);¤			ace_os_write (dest, lpMainBuf, wMaxBufSize);¤		}¤	}¤	if (Small>0) {¤		ace_os_read  (src,  (void*)lpMainBuf, Small);¤		ace_os_write (dest, lpMainBuf, Small);¤	}¤	return DEF_SUCCESS;¤}¤¤¤ACE_UINT16 IniFile::DeleteEmptySection(const char* lpszSection)¤{¤	int		file, tmp_file;¤	char*		lpsz;¤	ACE_UINT16	i;¤	ACE_UINT32	dwFileSize;¤	bool		isDeleteSection;¤	char		TmpName[256];¤	¤	memset (TmpName, 0, sizeof(TmpName));¤¤	//strcpy (TmpName, tempnam(lpszProfilePath, "DES"));¤   strcpy (TmpName, lpszProfilePath);¤   strcat (TmpName, "DES_TMP.$1$");¤¤	file = ace_os_open (platform_independent_path(lpszProfileName).c_str(), O_RDONLY | O_BINARY);¤¤	dwFileSize = ace_os_filesize(file);¤	memset (lpMainBuf, 0, wMaxBufSize);¤	ace_os_lseek (file, dwLastSectionOffset, SEEK_SET);¤	ace_os_read (file, (void*)lpMainBuf, wMaxBufSize);¤¤	i=0;¤	lpsz = lpMainBuf;¤	isDeleteSection = true;¤¤	while ((*lpsz!='[') && (i<wMaxBufSize) && (i<(dwFileSize-dwLastSectionOffset+1))) {¤		if ((*lpsz!=0x0D)&&(*lpsz!=0x0A)) {¤			isDeleteSection = false;¤			break;¤		}¤		lpsz++;¤		i++;¤	} // while¤¤	if (isDeleteSection) {¤		tmp_file = ace_os_open (platform_independent_path(TmpName).c_str(), O_RDWR | O_BINARY | O_CREAT );¤		if (tmp_file == (-1)) {¤			ace_os_close (file);¤			return ERR_CANT_CREATE_TMPFILE;¤		}¤		CopyBlock(file, tmp_file, 0, dwLastSectionStart-1);¤		CopyBlock(file, tmp_file, (ACE_UINT32) (dwLastSectionStart+strlen(lpszSection)), dwFileSize-1);¤		ace_os_close (file);¤		ace_os_close (tmp_file);¤		ace_os_unlink (platform_independent_path(lpszProfileName).c_str());¤		ace_os_rename (platform_independent_path(TmpName).c_str(), platform_independent_path(lpszProfileName).c_str());¤		return DEF_SUCCESS;¤	} else {¤		ace_os_close (file);¤	}¤	return DEF_SUCCESS;¤}¤¤¤ACE_UINT16 IniFile::WriteProfileString(const char* lpszSection, const char* lpszEntry, const char* lpszValue)¤{¤	int		file, tmp_file;¤	ACE_UINT16	i,wRes;¤	char		rc[2];¤	char		sect[256];¤	char		entry[256];¤	char		_0D_0A[2];¤	long		dwFileSize;¤	char*		lpsz;¤	char		TmpFileName[256];¤¤	if (lpMainBuf == 0) {¤		return ERR_OUT_OF_MEM;¤	}¤	memset (lpMainBuf, 0, wMaxBufSize);¤	memset (TmpFileName, 0, sizeof(TmpFileName));¤¤	//strcpy (TmpFileName, tempnam(lpszProfilePath, "WPS"));¤¤	strcpy (TmpFileName, lpszProfilePath);¤	strcat (TmpFileName, "WPS_TMP.$1!");¤¤	memset (rc,    0, sizeof(rc));¤	memset (sect,  0, sizeof(sect));¤	memset (entry, 0, sizeof(entry));¤¤	sprintf(sect,"[%s]", lpszSection); // sect = '['+lpszSection+']'¤	sprintf(entry, "%s=", lpszEntry);  // entry = lpszEntry+'='¤¤	_0D_0A[0]=0x0D;¤	_0D_0A[1]=0x0A;¤¤	wRes = ReadProfileString(lpszSection, lpszEntry, lpMainBuf, &wMaxBufSize);¤¤	if (wRes == ERR_NO_PROFILE)¤		file = ace_os_open (platform_independent_path(lpszProfileName).c_str(), O_WRONLY | O_BINARY | O_CREAT);¤	else¤		file = ace_os_open (platform_independent_path(lpszProfileName).c_str(), O_RDWR | O_BINARY);¤¤	if (file == (-1)) {¤		return ERR_PROFILE_ACCESS_DENIED;¤   }¤¤	dwFileSize = ace_os_filesize(file);¤¤	switch (wRes) {¤¤		// create new profile, new section and new entry¤		case ERR_NO_PROFILE:¤			ace_os_write (file, &sect, strlen(sect));¤			ace_os_write (file, &_0D_0A, sizeof(_0D_0A));¤			ace_os_write (file, &entry, strlen(entry));¤			ace_os_write (file, lpszValue, strlen(lpszValue));¤			ace_os_write (file, &_0D_0A, sizeof(_0D_0A));¤			ace_os_close (file);¤			return DEF_SUCCESS;¤¤		// create new section and new entry¤		case ERR_NO_SECTION:¤			ace_os_lseek (file, dwFileSize, SEEK_SET);¤			ace_os_write (file, &_0D_0A, sizeof(_0D_0A));¤			ace_os_write (file, &sect, strlen(sect));¤			ace_os_write (file, &_0D_0A, sizeof(_0D_0A));¤			ace_os_write (file, &entry, strlen(entry));¤			ace_os_write (file, lpszValue, strlen(lpszValue));¤			ace_os_write (file, &_0D_0A, sizeof(_0D_0A));¤			ace_os_close (file);¤			return DEF_SUCCESS;¤¤		// create new entry¤		case ERR_NO_ENTRY:¤			assert ((dwLastSectionOffset>=0) && (dwLastSectionOffset<=dwFileSize));¤			tmp_file = ace_os_open (platform_independent_path(TmpFileName).c_str(), O_RDWR | O_BINARY | O_CREAT );¤			if (tmp_file==(-1)) {¤				ace_os_close (file);¤				return ERR_CANT_CREATE_TMPFILE;¤			}¤			CopyBlock (file, tmp_file, 0, dwLastSectionOffset-1);¤			ace_os_write (tmp_file, entry, strlen(entry));¤			ace_os_write (tmp_file, lpszValue, strlen(lpszValue));¤			ace_os_write (tmp_file, _0D_0A, sizeof(_0D_0A));¤			CopyBlock (file, tmp_file, dwLastSectionOffset, dwFileSize-1);¤			ace_os_close (file);¤			ace_os_close (tmp_file);¤			ace_os_unlink (platform_independent_path(lpszProfileName).c_str());¤			ace_os_rename (platform_independent_path(TmpFileName).c_str(), platform_independent_path(lpszProfileName).c_str());¤			return DEF_SUCCESS;¤¤		// change value¤		case DEF_SUCCESS:¤			assert ((dwLastSectionOffset>=0) && (dwLastSectionOffset<=dwFileSize));¤			assert ((dwLastEntryOffset>=0) && (dwLastEntryOffset<=dwFileSize));¤			tmp_file = ace_os_open (platform_independent_path(TmpFileName).c_str(), O_RDWR | O_BINARY | O_CREAT );¤			if (tmp_file==(-1)) {¤				ace_os_close (file);¤				return ERR_CANT_CREATE_TMPFILE;¤			}¤			CopyBlock (file, tmp_file, 0, dwLastEntryOffset-1);¤			if (lpszValue != 0) {¤				ace_os_write  (tmp_file, entry, strlen(entry));¤				ace_os_write  (tmp_file, lpszValue, strlen(lpszValue));¤				ace_os_write  (tmp_file, _0D_0A, sizeof(_0D_0A));¤			};¤			memset (lpMainBuf, 0, wMaxBufSize);¤			ace_os_lseek (file, (long) (dwLastEntryOffset+strlen(entry)), SEEK_SET);¤			ace_os_read (file, (void*)lpMainBuf, wMaxBufSize);¤			i=0;¤			lpsz=lpMainBuf;¤			while (*lpsz != 0x0D) {¤				i++;¤				lpsz++;¤			}¤			CopyBlock (file, tmp_file, (long) (dwLastEntryOffset + strlen(entry) + i + sizeof(_0D_0A)), dwFileSize-1);¤			ace_os_close (file);¤			ace_os_close (tmp_file);¤			ace_os_unlink(platform_independent_path(lpszProfileName).c_str());¤			ace_os_rename(platform_independent_path(TmpFileName).c_str(), platform_independent_path(lpszProfileName).c_str());¤			return DeleteEmptySection(sect);¤¤		default:¤			ace_os_close (file);¤			break;¤	}¤	return UNKNOWN_ERROR;¤}¤¤¤ACE_UINT16 IniFile::WriteProfileLong(const char* lpszSection, const char* lpszEntry, long value)¤{¤	char buf[32];¤	sprintf(buf,"%ld",value);¤	return WriteProfileString(lpszSection, lpszEntry, buf);¤}¤¤¤ACE_UINT16 IniFile::WriteProfileInt(const char* lpszSection, const char* lpszEntry, int value)¤{¤	char buf[32];¤	sprintf(buf,"%d",value);¤	return WriteProfileString(lpszSection, lpszEntry, buf);¤}¤¤¤ACE_UINT16 IniFile::ReadAllEntries(const char* lpszSection, char* lpszBuf, ACE_UINT16* cbSize)¤{¤	#define NOT_EXISTED_SECTION "Vadim V. Ivanov"¤¤	int		file;¤	ACE_UINT16	i,wRes,wBufSize;¤	long		dwFileSize;¤	char*		lpsz;¤	char		buf[12];¤	char		ch =0 ,t_ch;¤¤	wBufSize = sizeof(buf);¤¤	wRes = ReadProfileString(lpszSection, NOT_EXISTED_SECTION, buf, &wBufSize);¤	if (wRes != ERR_NO_ENTRY)¤		return wRes;¤¤	file = ace_os_open (platform_independent_path(lpszProfileName).c_str(), O_RDONLY | O_BINARY);¤	dwFileSize = ace_os_filesize(file);¤¤	assert((dwLastSectionOffset >= 0) && (dwLastSectionOffset < dwFileSize));¤	ace_os_lseek(file, dwLastSectionOffset, SEEK_SET);¤¤	lpsz = lpszBuf;¤	¤	i=1;¤	while ((ace_os_lseek(file, 0, SEEK_CUR)<dwFileSize) && (ch!='[')) {¤		ace_os_read (file, &ch, sizeof(ch));¤		switch (ch) {¤			case '=':¤				do {¤					ace_os_read (file, &t_ch, sizeof(t_ch));¤				} while (t_ch != 0x0A);¤				if (i<*cbSize) {¤					*lpsz=0;¤					lpsz++;¤				}¤				i++;¤				break;¤¤			default:¤				if ((ch!=0x0D)&&(ch!=0x0A)&&(i<=*cbSize)&&(ch!='[')) {¤					*lpsz=ch;¤					lpsz++;¤				}¤				i++;¤				break;¤		}¤	} // while¤	if (i <= *cbSize) {¤		*lpsz=0;¤		return DEF_SUCCESS;¤	}¤	else {¤		*cbSize=i;¤		return ERR_OUT_OF_DESTBUF;¤	}¤}¤//#UC END# *450034D40290*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*450034D40290_USER_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *450034D40290_USER_INCLUDES*¤#include "ace/Basic_Types.h"¤#include "shared/Core/fix/mpcxc.h" //cycle¤¤#define ERR_NO_PROFILE			0x302¤#define ERR_NO_SECTION			0x303¤#define ERR_NO_ENTRY			0x304¤#define ERR_PROFILE_ACCESS_DENIED	0x305¤¤#define ERR_OUT_OF_MEM			0x101¤#define ERR_OUT_OF_DESTBUF		0x102¤¤#define ERR_CANT_CREATE_TMPFILE		0x800¤#define UNKNOWN_ERROR			0x888¤#define DEF_SUCCESS			0¤¤//#UC END# *450034D40290_USER_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*450034D40290_USER_DEFINITION*"
+		    value      	(value Text 
+|//#UC START# *450034D40290_USER_DEFINITION*¤class IniFile {¤private:¤	char	lpszProfilePath[256];  // (profile path)¤	char	lpszProfileName[256];  // (profile path) + (profile name)¤	long	dwLastSectionOffset;¤	long	dwLastSectionStart;¤	long	dwLastEntryOffset;¤	char*	lpMainBuf;¤	ACE_UINT16	wMaxBufSize;¤	¤	ACE_UINT16	CopyBlock(int src, int dest, ACE_UINT32 dwSrcStart, ACE_UINT32 dwSrcEnd);¤public:¤	IniFile(const char* lpszFileName);¤	~IniFile();¤¤	ACE_UINT16	DeleteEmptySection(const char* lpszSection);¤	ACE_UINT16	ReadProfileString(const char* lpszSection, const char* lpszEntry, char* lpszBuf, ACE_UINT16* cbSize);¤	ACE_UINT16	ReadProfileString(const char* lpszSection, const char* lpszEntry, char* lpszBuf, ACE_UINT16 cbSize);¤	ACE_UINT16	ReadProfileLong(const char* lpszSection, const char* lpszEntry, long *value);¤	ACE_UINT16	ReadProfileInt(const char* lpszSection, const char* lpszEntry, int *value);¤¤	ACE_UINT16	WriteProfileString(const char* lpszSection, const char* lpszEntry, const char* lpszValue);¤	ACE_UINT16	WriteProfileLong(const char* lpszSection, const char* lpszEntry, long value);¤	ACE_UINT16	WriteProfileInt(const char* lpszSection, const char* lpszEntry, int value);¤¤	ACE_UINT16	ReadAllEntries(const char* lpszSection, char* lpszBuf, ACE_UINT16* cbSize);¤};¤¤//#UC END# *450034D40290_USER_DEFINITION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"ifdef"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/Core/os/IniFile.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/os/IniFile.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/IniFile|450034D40290
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16661988640"))
+	    quid       	"450034D40290"
+	    documentation 	"ðàáîòà ñ INI-ôàéëîì"
+	    stereotype 	"UtilityPack"
+	    language   	"MDA Generator")
+	(object Class "RegistryHelper"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4500351F0119_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4500351F0119_CUSTOM_INCLUDES*¤#include "ace/OS.h"¤#include <stdexcept>¤#include <iostream>¤#include <locale>¤#if defined(WIN32) || defined(_MSC_VER)¤#include <windows.h>¤#endif¤//#UC END# *4500351F0119_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4500351F0119*"
+		    value      	(value Text 
+|//#UC START# *4500351F0119*¤#if defined(WIN32) || defined(_MSC_VER) // GARANT_GCC_FINAL¤¤	RegistryHelper_i::RegistryHelper_i() {¤		this->KEY_LOCAL_MACHINE = HKEY_LOCAL_MACHINE;¤		this->KEY_CURRENT_USER = HKEY_CURRENT_USER;¤	}¤¤	RegistryHelper_i::~RegistryHelper_i() {¤	}¤¤	bool RegistryHelper_i::set_option_value ( // no del_option for  a while¤		const RegistryHelper_i::Key registry_key_root_in ¤		, const std::string& registry_key_path_in¤		, const std::string& registry_option_name_in¤		, const std::string& option_value_in¤		, bool create_if_not_exists // ignore, assume true¤	) {¤		const HKEY registry_key_root = reinterpret_cast<const HKEY>(registry_key_root_in);¤		const char* registry_key_path = registry_key_path_in.c_str();¤		const char* registry_option_name = registry_option_name_in.c_str();¤		const char* option_value = option_value_in.c_str();¤¤		bool result = false;¤		//¤		HKEY hkey = 0;¤		DWORD disposition = 0;¤		//¤		if (ACE_TEXT_RegCreateKeyEx (registry_key_root, registry_key_path, 0, 0, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, 0, &hkey, &disposition) == ERROR_SUCCESS) {¤			try {¤				const BYTE* data = (const BYTE*)option_value;¤				DWORD size = (DWORD)(sizeof (ACE_TCHAR)*(ACE_OS_String::strlen (option_value)+1));¤				//¤				DWORD type = 0;¤				//¤				if (ACE_TEXT_RegQueryValueEx (hkey, registry_option_name, 0, &type, 0, 0) == ERROR_SUCCESS) {¤					result = ((type == REG_SZ) && (ACE_TEXT_RegSetValueEx (hkey, registry_option_name, 0, REG_SZ, data, size) == ERROR_SUCCESS));¤				} else {¤					result = (ACE_TEXT_RegSetValueEx (hkey, registry_option_name, 0, REG_SZ, data, size) == ERROR_SUCCESS);¤				}¤			} catch (...) {¤				RegCloseKey (hkey);¤				//¤				throw;¤			}¤			RegCloseKey (hkey);¤		}¤		//¤		return result;¤	}¤¤	std::string RegistryHelper_i::get_option_value (¤		const RegistryHelper_i::Key registry_key_root_in¤		, const std::string& registry_key_path_in¤		, const std::string& registry_option_name_in¤		, const std::string& default_option_value_in¤	) {¤		const HKEY registry_key_root = reinterpret_cast<const HKEY>(registry_key_root_in);¤		const char* registry_key_path = registry_key_path_in.c_str();¤		const char* registry_option_name = registry_option_name_in.c_str();¤¤		std::string result = "";¤		//¤		HKEY hkey = 0;¤		//¤		if (ACE_TEXT_RegOpenKeyEx (registry_key_root, registry_key_path, 0, KEY_READ, &hkey) == ERROR_SUCCESS) {¤			try {¤				DWORD type = 0;¤				DWORD size = 0;¤				//¤				if ((ACE_TEXT_RegQueryValueEx (hkey, registry_option_name, 0, &type, 0, &size) == ERROR_SUCCESS) && (type == REG_SZ)) {¤					BYTE* data = (BYTE*)alloca(size+1);¤					//¤					if (ACE_TEXT_RegQueryValueEx (hkey, registry_option_name, 0, 0, data, &size) == ERROR_SUCCESS) {¤						data[size] = 0;¤						result = reinterpret_cast<char*>(data);¤					} else {¤						result = default_option_value_in;¤					}¤				} else {¤					result = default_option_value_in;¤				}¤			} catch (...) {¤				RegCloseKey (hkey);¤				//¤				throw;¤			}¤			RegCloseKey (hkey);¤		} else {¤			result = default_option_value_in;¤		}¤		//¤		return result;¤	}¤¤	bool RegistryHelper_i::is_subkey_exist (¤		const RegistryHelper_i::Key registry_key_root_in¤		, const std::string& registry_key_path_in¤	) {¤		const HKEY registry_key_root = reinterpret_cast<const HKEY>(registry_key_root_in);¤		const char* registry_key_path = registry_key_path_in.c_str();¤¤		HKEY hkey = 0;¤		if (ERROR_SUCCESS != ACE_TEXT_RegOpenKeyEx (registry_key_root, registry_key_path, 0, KEY_READ, &hkey)) {¤			return false;¤		}¤		RegCloseKey (hkey);¤		return true;¤	}¤¤	bool RegistryHelper_i::get_keys_array (¤		const RegistryHelper_i::Key registry_key_root_in¤		, const std::string& registry_key_path_in¤		, KeysArray& array¤	) {¤		const HKEY registry_key_root = reinterpret_cast<const HKEY>(registry_key_root_in);¤		const char* registry_key_path = registry_key_path_in.c_str();¤¤		HKEY hkey = 0;¤		if (ERROR_SUCCESS != ACE_TEXT_RegOpenKeyEx (registry_key_root, registry_key_path, 0, KEY_READ, &hkey)) {¤			return false;¤		}¤		static const unsigned long BUF_SIZE = 2048;¤		DWORD name_size = BUF_SIZE;¤		char name[BUF_SIZE];¤		DWORD value_size = BUF_SIZE;¤		BYTE value[BUF_SIZE];¤		DWORD type;¤		array.clear ();¤		for (long i = 0;¤				ERROR_SUCCESS == ACE_TEXT_RegEnumValue (¤						hkey, i, name, &name_size, 0, &type, value, &value_size¤					);¤				i++¤			) {¤			KeyInfo ki;¤			ki.name = name;¤			if (REG_SZ != type) {¤				char buf[BUF_SIZE];¤				sprintf (buf, "%d\0", *(reinterpret_cast<long*>(value)));¤				ki.value = buf;¤			} else {¤				ki.value = reinterpret_cast<char*>(value);¤			}¤			array.push_back (ki);¤			name_size = BUF_SIZE;¤			value_size = BUF_SIZE;¤		}¤		RegCloseKey (hkey);¤		return true;¤	}¤¤	bool RegistryHelper_i::parse_registry_path (const std::string& path, RegistryHelper_i::Key& key, std::string& subkey) {¤		std::string::size_type pos = path.find ('\\');¤		if (std::string::npos == pos) {¤			return false;¤		}¤		std::string key_str = path.substr (0, pos);¤		if ("Core::RegistryHelper::KEY_LOCAL_MACHINE" == key_str) {¤			key = reinterpret_cast<RegistryHelper_i::Key>(HKEY_LOCAL_MACHINE);¤		} else if ("Core::RegistryHelper::KEY_CURRENT_USER" == key_str){¤			key = reinterpret_cast<RegistryHelper_i::Key>(HKEY_CURRENT_USER);¤		} else {¤			return false;¤		}¤		subkey = path.substr (pos+1, path.length () - pos - 1);¤		return true;¤	}¤¤#else // operate upon xml file¤¤	RegistryHelper_i::RegistryHelper_i(): FILE_LOCAL_MACHINE("1"), FILE_CURRENT_USER("2") {¤		this->KEY_LOCAL_MACHINE = &this->FILE_LOCAL_MACHINE;¤		this->KEY_CURRENT_USER = &this->FILE_CURRENT_USER;¤	¤	}¤	¤	RegistryHelper_i::~RegistryHelper_i() {¤	}¤	¤	bool RegistryHelper_i::set_option_value (¤		const RegistryHelper_i::Key registry_key_root¤		, const std::string& registry_key_path_in¤		, const std::string& registry_option_name¤		, const std::string& option_value¤		, bool create_if_not_exists) {		¤		return true;¤	}¤¤	std::string RegistryHelper_i::get_option_value (¤		const RegistryHelper_i::Key registry_key_root¤		, const std::string& registry_key_path_in¤		, const std::string& registry_option_name¤		, const std::string& default_option_value¤	) {¤		return default_option_value;¤	}¤¤	bool RegistryHelper_i::is_subkey_exist (¤		const RegistryHelper_i::Key registry_key_root¤		, const std::string& registry_key_path_in¤	) {¤		return true;¤	}¤¤	bool RegistryHelper_i::get_keys_array (¤		const RegistryHelper_i::Key registry_key_root¤		, const std::string& registry_key_path_in¤		, RegistryHelper_i::KeysArray& array¤	) {¤		array = RegistryHelper_i::KeysArray();		¤		return true;¤	}¤¤	bool RegistryHelper_i::parse_registry_path (const std::string& path_in, RegistryHelper_i::Key& key, std::string& subkey) {¤		subkey = "";¤		key = RegistryHelper_i::KEY_LOCAL_MACHINE;¤		return true;¤	}¤¤#endif¤¤//#UC END# *4500351F0119*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4500351F0119_USER_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4500351F0119_USER_INCLUDES*¤#include "ace/ACE.h"¤#include "ace/Singleton.h"¤#include "ace/Null_Mutex.h"¤#include "ace/Auto_Ptr.h"¤#include <stdexcept>¤#include <vector>¤#include <string>¤¤¤/*  EXAMPLE:¤¤	const HKEY REGISTRY_KEY_ROOT = HKEY_LOCAL_MACHINE;¤	const ACE_TCHAR REGISTRY_KEY_PATH [] = ACE_TEXT ("SOFTWARE\\GARANT-NEMESIS");¤	const ACE_TCHAR REGISTRY_OPTION_NAME [] = ACE_TEXT ("UserJournalPath");¤	const ACE_TCHAR DEFAULT_OPTION_VALUE [] = ACE_TEXT ("\0");¤¤	ACE_Auto_Basic_Array_Ptr <ACE_TCHAR> option_value; ¤	¤	option_value.reset (¤		Core::RegistryHelper::get_option_value (¤			REGISTRY_KEY_ROOT¤			, REGISTRY_KEY_PATH¤			, REGISTRY_OPTION_NAME¤			, DEFAULT_OPTION_VALUE¤		)¤	);			¤¤	if (std::string (option_value.get ()) != "") {¤		UserJournal::s_log_path = option_value.get ();¤	}¤¤*/¤¤//#UC END# *4500351F0119_USER_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4500351F0119_USER_DEFINITION*"
+		    value      	(value Text 
+|//#UC START# *4500351F0119_USER_DEFINITION*¤¤class RegistryHelper_i {¤friend class ACE_Singleton<RegistryHelper_i, ACE_Null_Mutex>;¤friend class RegistryHelper;¤public:¤	typedef ACE_Singleton<RegistryHelper_i, ACE_Null_Mutex> Singleton;¤¤	typedef void* Key;¤	Key KEY_LOCAL_MACHINE;¤	Key KEY_CURRENT_USER;¤public:	¤	struct KeyInfo {¤		std::string name;¤		std::string value;¤		KeyInfo () {}¤		//KeyInfo (_name, _value) : name (_name), value (_value) {¤		//}¤	};¤	typedef std::vector<KeyInfo> KeysArray;¤private:	¤	std::string FILE_LOCAL_MACHINE;¤	std::string FILE_CURRENT_USER;¤// Áëîê îïðåäåëåíèÿ ñòàòè÷åñêèõ ìåòîäîâ¤	// Ñîõðàíåíèå çíà÷åíèÿ òåêñòîâîãî [REG_SZ] êëþ÷à¤	bool set_option_value (¤		const Key registry_key_root¤		, const std::string& registry_key_path¤		, const std::string& registry_option_name¤		, const std::string& option_value¤		, bool create_if_not_exists = true¤	);¤¤	// Ïîëó÷åíèå çíà÷åíèÿ òåêñòîâîãî [REG_SZ] êëþ÷à¤	std::string get_option_value (¤		const Key registry_key_root¤		, const std::string& registry_key_path¤		, const std::string& registry_option_name¤		, const std::string& default_option_value¤	);¤¤	// Ïðîâåðêà íà ñóùåñòâîâàíèå âåòêè ðååñòðà¤	bool is_subkey_exist (¤		const Key registry_key_root¤		, const std::string& registry_key_path¤	);¤	¤	// Ïîëó÷åíèå ìàññèâà, ñîäåðæàùåãî íàçâàíèÿ âñåõ ïîëÿ è èõ çíà÷åíèé â çàäàííîé âåòêå ðååñòðà ¤	bool get_keys_array (¤		const Key registry_key_root¤		, const std::string& registry_key_path¤		, KeysArray& array¤	);¤¤	// Âûäåëåíèå èç ïóòè â ðååñòðå predefined key (HKEY_LOCAL_MACHINE èëè HKEY_CURRENT_USER)¤	// è subkey (ïóòü âíóòðè predefined key)¤	bool parse_registry_path (const std::string& path, Key& key, std::string& subkey);¤private:	¤	RegistryHelper_i();¤	~RegistryHelper_i();¤}; // class RegistryHelper¤¤// wrapper around RegistryHelper_i::Singleton¤class RegistryHelper {¤public:¤	enum Key {¤		KEY_LOCAL_MACHINE,¤		KEY_CURRENT_USER¤	};¤private:¤	static RegistryHelper_i::Key key_to_i_key(const Key k) {¤		switch (k) {¤			case KEY_LOCAL_MACHINE: return RegistryHelper_i::Singleton::instance()->KEY_LOCAL_MACHINE;¤			case KEY_CURRENT_USER: return RegistryHelper_i::Singleton::instance()->KEY_CURRENT_USER;¤		}¤		throw std::logic_error("RegistryHelper: bad compiler supposes int is enum");¤	}¤	static Key i_key_to_key(const RegistryHelper_i::Key& i_key) {¤		if (i_key == RegistryHelper_i::Singleton::instance()->KEY_LOCAL_MACHINE) {¤			return KEY_LOCAL_MACHINE;¤		}¤		if (i_key == RegistryHelper_i::Singleton::instance()->KEY_CURRENT_USER) {¤			return KEY_CURRENT_USER;¤		}¤		throw std::logic_error("RegistryHelper: internal error: bad RegistryHelper_i::Key");¤	}¤public:¤	typedef RegistryHelper_i::KeyInfo KeyInfo;¤	typedef RegistryHelper_i::KeysArray KeysArray;¤	static bool set_option_value (¤		const Key registry_key_root¤		, const std::string& registry_key_path¤		, const std::string& registry_option_name¤		, const std::string& option_value¤		, bool create_if_not_exists = true¤	) { ¤		return RegistryHelper_i::Singleton::instance()->set_option_value(¤			key_to_i_key(registry_key_root)¤			, registry_key_path¤			, registry_option_name¤			, option_value¤			, create_if_not_exists¤		); ¤	}¤	static std::string get_option_value (¤		const Key registry_key_root¤		, const std::string& registry_key_path¤		, const std::string& registry_option_name¤		, const std::string& default_option_value¤	) {¤		return RegistryHelper_i::Singleton::instance()->get_option_value(¤			key_to_i_key(registry_key_root)¤			, registry_key_path¤			, registry_option_name¤			, default_option_value¤		);¤	}¤	static bool is_subkey_exist (¤		const Key registry_key_root¤		, const std::string& registry_key_path¤	) {¤		return RegistryHelper_i::Singleton::instance()->is_subkey_exist(¤			key_to_i_key(registry_key_root)¤			, registry_key_path¤		);¤	}¤	static bool get_keys_array (¤		const Key registry_key_root¤		, const std::string& registry_key_path¤		, KeysArray& array¤	) {¤		return RegistryHelper_i::Singleton::instance()->get_keys_array(¤			key_to_i_key(registry_key_root)¤			, registry_key_path¤			, array¤		);¤	}¤	static bool parse_registry_path (const std::string& path, Key& key, std::string& subkey) {¤		RegistryHelper_i::Key i_key;¤		bool res = RegistryHelper_i::Singleton::instance()->parse_registry_path(¤			path¤			, i_key¤			, subkey¤		);¤		if (res) {¤			key = i_key_to_key(i_key);¤		}¤		return res; 			¤	}¤};¤¤//#UC END# *4500351F0119_USER_DEFINITION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"ifdef"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/Core/os/RegistryHelper.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/os/RegistryHelper.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/RegistryHelper|4500351F0119
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16662204039"))
+	    quid       	"4500351F0119"
+	    documentation 	"Ìîäóëü-ïîìîøíèê [helper], îáåñïå÷èâàþùèé ìèíèìàëüíóþ ðàáîòó ñ ðååñòðîì [registry] îïåðàöèîííîé ñèñòåìû Windows. Ïîçâîëÿåò ïðî÷èòàòü çíà÷åíèå òåêñòîâîãî [REG_SZ] êëþ÷à. Åñëè êëþ÷ íå íàéäåí èëè ôóíêöèè API ñèñòåìû âîçâðàùàþò îøèáêè, òî èñïîëüçóåòñÿ çíà÷åíèå çàäàâàåìîå ïî óìîë÷àíèþ."
+	    stereotype 	"UtilityPack"
+	    language   	"MDA Generator")
+	(object Class "Process"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1318842872106184")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local helper"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no hands"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"weak"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/Process|4E9BF1F8005A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/Core/os/Process.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/os/Process.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4E9BF1F8005A_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4E9BF1F8005A_CUSTOM_INCLUDES*¤#include "shared/Core/Params/Params.h"¤#include "shared/Core/ParamsHelper/ParamConvert.h"¤#include "shared/Core/os/NTService.h"¤//#UC END# *4E9BF1F8005A_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4E9BF1F8005A*"
+		    value      	(value Text 
+|//#UC START# *4E9BF1F8005A*¤¤#if defined (_WIN32) || defined (_WIN64)¤¤// SERVICE_BOOT_START   0x00000000 // This value is valid only for driver services.¤// SERVICE_SYSTEM_START	0x00000001 // This value is valid only for driver services.¤// SERVICE_AUTO_START   0x00000002¤// SERVICE_DEMAND_START 0x00000003¤// SERVICE_DISABLED     0x00000004¤¤¤const std::string INSTALL_KEY                  = "-i";¤const std::string REMOVE_KEY                   = "-r";¤const std::string START_KEY                    = "-s";¤const std::string STOP_KEY                     = "-k";¤const std::string SET_SERVICE_STARTUP_TYPE_KEY = "-t";¤const std::string DEBUG_KEY                    = "-d";¤const std::string REGISTRY_SUBKEY              = "-subkey";¤const std::string REGISTRY_VALUE               = "-opt";¤const std::string SERVICE_NAME_KEY             = "-Sn";¤const std::string SERVICE_DESC_KEY             = "-Sd";¤const std::string PRINTHELP_KEY                = "-h";¤¤¤Process::Process (int argc, char* argv [])¤	: m_argc (argc)¤	, m_argv (argv)¤	, m_run_mode (RM_RUN_AS_SERVICE)¤	, m_service_startup_type (SERVICE_DEMAND_START) {¤}¤¤¤void Process::print_usage_and_exit () {¤	ACE_DEBUG ((LM_INFO,¤		"Usage: %s [options]\n"¤		"Options:\n"¤		"  -i<N>                 Install this program as an NT service, with specified startup N\n"¤		"  -r                    Remove this program from the Service Control Manager database\n"¤		"  -s                    Start the service\n"¤		"  -k                    Stop the service\n"¤		"  -t<N>                 Set startup type N for an existing service\n"¤		"  -d                    Debug mode\n"¤		"  -subkey               default is '%s'\n"¤		"  -opt                  default is '%s'\n"¤		"  -Sn <name>            Service name, default is '%s'\n"¤		"  -Sd <description>     Service description, default is '%s'\n"¤		"  -h                    This help\n"¤		, m_argv [0]¤		, m_registry_subkey.c_str ()¤		, m_registry_value.c_str ()¤		, m_service_name.c_str ()¤		, m_service_description.c_str ()¤		, 0¤	));¤¤	ACE_OS::exit (0);¤}¤¤void Process::parse_args () {¤	const char* pos = 0;¤	for (int i = 1; i < m_argc; ++i) {¤		if (m_argv [i] == REGISTRY_SUBKEY) { ¤			if (++i < m_argc) {¤				m_registry_subkey = m_argv [i];¤			}¤		} else if (m_argv [i] == REGISTRY_VALUE) {¤			if (++i < m_argc) {¤				m_registry_value = m_argv [i];¤			}¤		} else if (m_argv [i] == SERVICE_NAME_KEY) {¤			if (++i < m_argc) {¤				m_service_name = m_argv [i];¤			}¤		} else if (m_argv [i] == SERVICE_DESC_KEY) {¤			if (++i < m_argc) {¤				m_service_description = m_argv [i];¤			}¤		} else if (m_argv [i] == REMOVE_KEY) {¤			m_run_mode = RM_REMOVE;¤		} else if (m_argv [i] == START_KEY) {¤			m_run_mode = RM_START;¤		} else if (m_argv [i] == STOP_KEY) {¤			m_run_mode = RM_STOP;¤		} else if (m_argv [i] == DEBUG_KEY) {¤			m_run_mode = RM_DEBUG;¤		} else if (m_argv [i] == PRINTHELP_KEY) {¤			this->print_usage_and_exit ();¤		} else if ((pos = ACE_OS_String::strstr (m_argv [i], INSTALL_KEY.c_str ())) != 0) {¤			m_run_mode = RM_INSTALL;¤			this->check_and_set_service_startup_type (ACE_OS::atoi (pos + 2));¤		} else if ((pos = ACE_OS_String::strstr (m_argv [i], SET_SERVICE_STARTUP_TYPE_KEY.c_str ())) != 0) {¤			m_run_mode = RM_SET_SERVICE_STARTUP_TYPE;¤			this->check_and_set_service_startup_type (ACE_OS::atoi (pos + 2));¤		}¤	}¤}¤¤¤void Process::check_and_set_service_startup_type (int type) {¤	¤	if (SERVICE_SYSTEM_START < type && type < SERVICE_DISABLED) {¤		m_service_startup_type = type;¤		return;¤	}¤¤	ACE_DEBUG ((LM_INFO, "wrong the startup type: %d\n", m_service_startup_type));¤	this->print_usage_and_exit ();¤}¤¤¤static BOOL WINAPI console_handler (DWORD ctrl_type) {                 // Ctrl+C handler to cleanly shutdown¤	ACE_UNUSED_ARG (ctrl_type);¤	SERVICE::instance ()->handle_control (SERVICE_CONTROL_STOP);¤	return true;¤}¤¤ACE_NT_SERVICE_DEFINE (YetAnotherGarantServer, Core::NTService, ("Some Service"));¤¤int Process::run () {¤¤	m_registry_subkey     = this->get_registry_subkey ();¤	m_registry_value      = this->get_registry_value ();¤	m_service_name        = this->get_service_name ();¤	m_service_description = this->get_service_description ();¤	¤	this->parse_args ();¤	¤	SERVICE::instance ()->set_application_server (this->make_application_server ());¤	¤	SERVICE::instance ()->name (m_service_name.c_str (), m_service_description.c_str ());¤	SERVICE::instance ()->set_subkey_name (m_registry_subkey.c_str ());¤	SERVICE::instance ()->set_value_name (m_registry_value.c_str ());¤¤	switch (m_run_mode) {¤		case RM_INSTALL                  : return SERVICE::instance ()->insert (m_service_startup_type);¤		case RM_REMOVE                   : return SERVICE::instance ()->remove ();¤		case RM_START                    : return SERVICE::instance ()->start_svc ();¤		case RM_STOP	                   : return SERVICE::instance ()->stop_svc ();¤		case RM_SET_SERVICE_STARTUP_TYPE : return SERVICE::instance ()->startup (m_service_startup_type);¤		¤		case RM_DEBUG: {¤			SetConsoleCtrlHandler (&console_handler, static_cast<BOOL> (true));¤			SERVICE::instance()->init (m_argc, m_argv);¤			SERVICE::instance()->svc ();¤			return 0;¤		}¤		¤		case RM_RUN_AS_SERVICE: {¤			ACE_NT_SERVICE_RUN (YetAnotherGarantServer, SERVICE::instance (), ret);¤			return 0;¤		}¤		¤		default : GDS_ASSERT (false); return 0;¤	};¤}¤¤#endif¤¤//#UC END# *4E9BF1F8005A*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4E9BF1F8005A_USER_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4E9BF1F8005A_USER_INCLUDES*¤#include <string>¤#include "boost/shared_ptr.hpp"¤#include "shared/Core/os/ApplicationServer.h"¤//#UC END# *4E9BF1F8005A_USER_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4E9BF1F8005A_USER_DEFINITION*"
+		    value      	(value Text 
+|//#UC START# *4E9BF1F8005A_USER_DEFINITION*¤class ApplicationServer;¤¤enum RunMode {¤	RM_RUN_AS_SERVICE¤	, RM_INSTALL¤	, RM_REMOVE¤	, RM_START¤	, RM_STOP¤	, RM_SET_SERVICE_STARTUP_TYPE¤	, RM_DEBUG¤};¤¤class Process {¤public:¤	Process (int argc, char* argv []);¤	int run ();¤¤private:¤	void parse_args ();¤	void print_usage_and_exit ();¤	void check_and_set_service_startup_type (int type);¤	¤	virtual boost::shared_ptr<ApplicationServer> make_application_server () const = 0;¤	¤	virtual std::string get_registry_subkey () const = 0;¤	virtual std::string get_registry_value () const = 0;¤	virtual std::string get_service_name () const = 0;¤	virtual std::string get_service_description () const = 0;¤¤	std::string m_registry_subkey;    ¤	std::string m_registry_value;     ¤	std::string m_service_name;       ¤	std::string m_service_description;¤	¤	int    m_argc;¤	char** m_argv;¤	¤	RunMode m_run_mode;¤	int m_service_startup_type;¤};¤¤//#UC END# *4E9BF1F8005A_USER_DEFINITION*
+		    )))
+	    quid       	"4E9BF1F8005A"
+	    documentation 	"Ïðîñöåññ óïðàâëåíèÿ ñåðâèñîì NT"
+	    stereotype 	"UtilityPack"
+	    language   	"MDA Generator")
+	(object Class "ApplicationServer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1318842944634333")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local helper"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no hands"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"weak"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/ApplicationServer|4E9BF2400279
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/os/ApplicationServer.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/Core/os/ApplicationServer.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4E9BF2400279_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4E9BF2400279_CUSTOM_INCLUDES*¤#include "boost/scoped_ptr.hpp"¤#include "shared/Core/ParamsHelper/ParamConvert.h"¤#include "shared/Core/impl/ParamsImpl/ParamManagerImpl_factory.h"¤//#UC END# *4E9BF2400279_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4E9BF2400279*"
+		    value      	(value Text 
+|//#UC START# *4E9BF2400279*¤int ApplicationServer::init (int argc, char* argv []) {¤	try {¤		this->init_param_manager (argc, argv);¤		this->init_log_backend ();¤		this->init_server ();¤		return 0;¤	} catch (...) {¤		LOG_UEX ((GDS_CURRENT_FUNCTION));¤		return -1;¤	}¤}¤¤void ApplicationServer::init_param_manager (int argc, char* argv []) const {¤	try {¤		Core::ParamsImpl::ParamManagerImpl_factory_var param_manager_factory = new Core::ParamsImpl::ParamManagerImpl_factory ();¤		param_manager_factory->registrate_me(0);¤	} catch (Core::Root::DuplicatedFactoryKey&) { 		//ãàñèì, ò.ê ìåíåäæåð ìîæåò áûòü çàðåãåñòðèðîâàí â äðóãîì ìåñòå¤	}¤¤	ParamManagerFactory::get ().init (ParamConvert::make_arg_list (argc, argv), this->get_param_manager_data ());¤}¤¤void ApplicationServer::init_log_backend () { ¤	boost::scoped_ptr <Core::ParamArgs> arg_list (ParamManagerFactory::get ().command_line_for_sbe_init ());¤	boost::scoped_ptr <ACE_ARGV> arg (ParamConvert::make_ace_argv (*arg_list));¤¤	int argc = arg->argc ();¤	if (!m_log_msg_smart_backend.get ()) {¤		m_log_msg_smart_backend.reset (new LogMsgSmartBackend (argc, arg->argv ()));¤	}¤}¤¤int ApplicationServer::run () {¤	return this->start_work ();¤}¤¤int ApplicationServer::shutdown () {¤	return this->stop_work (); ¤}¤//#UC END# *4E9BF2400279*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4E9BF2400279_USER_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4E9BF2400279_USER_INCLUDES*¤#include "boost/shared_ptr.hpp"¤¤#include "shared/Core/Params/Params.h"¤#include "shared/Core/mng/LogMsgSmartBackend.h"¤//#UC END# *4E9BF2400279_USER_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4E9BF2400279_USER_DEFINITION*"
+		    value      	(value Text 
+|//#UC START# *4E9BF2400279_USER_DEFINITION*¤class ApplicationServer {¤public:¤¤	int init (int argc, char* argv[]);¤	int run ();¤	int shutdown ();¤¤private:¤	void init_log_backend ();¤	void init_param_manager (int argc, char* argv []) const;¤¤	virtual const ParamManagerInitData& get_param_manager_data () const = 0;¤	virtual void init_server () = 0;¤¤	virtual int start_work () = 0;¤	virtual int stop_work () = 0;¤¤private:¤	boost::shared_ptr <LogMsgSmartBackend> m_log_msg_smart_backend;	¤};¤//#UC END# *4E9BF2400279_USER_DEFINITION*
+		    )))
+	    quid       	"4E9BF2400279"
+	    documentation 	"Àáñòðàêòíûé ñåðâåð ïðèëîæåíèÿ"
+	    stereotype 	"UtilityPack"
+	    language   	"MDA Generator")
+	(object Class "NTService"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1318842966774601")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"final")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"is namespace"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local helper"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need impl-file"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need inline-file"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no hands"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"weak"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/Core/os/NTService|4E9BF2560306
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/shared/Core/os/NTService.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/shared/Core/os/NTService.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4E9BF2560306_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4E9BF2560306_CUSTOM_INCLUDES*¤#include "shared/Core/sys/start_stop.h"¤#include "shared/Core/sys/AutoInit.h"¤#include "ace/ARGV.h"¤//#UC END# *4E9BF2560306_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4E9BF2560306*"
+		    value      	(value Text 
+|//#UC START# *4E9BF2560306*¤¤#if defined (_WIN32) || defined (_WIN64)	¤¤#define REGISTRY_KEY_ROOT HKEY_LOCAL_MACHINE¤NTService::NTService ()¤	: m_argc (0)¤	, m_argc_save (0)¤	, m_argv (0)¤	, m_argv_save (0) {¤	svc_status_.dwControlsAccepted |= SERVICE_ACCEPT_SHUTDOWN;	// http://mdp.garant.ru/x/VyoVC¤}¤¤NTService::~NTService () {¤	if (m_argv_save) {¤		for (int i = 0; i < m_argc_save; i++) {¤			ACE_OS::free (m_argv_save[i]);¤		}¤		ACE_OS::free (m_argv_save);¤	}¤}¤¤¤ACE_THR_FUNC_RETURN application_server_shutdown (void* app_server) {¤	reinterpret_cast<Core::ApplicationServer*>(app_server)->shutdown ();¤	return 0;¤}¤¤void NTService::handle_control (DWORD control_code)¤{¤	LOG_D (("%s - start", GDS_CURRENT_FUNCTION));¤	if (control_code == SERVICE_CONTROL_SHUTDOWN ||¤		control_code == SERVICE_CONTROL_STOP) {¤		report_status(SERVICE_STOP_PENDING, 40000);¤		// ìû íå ìîæåì çäåñü áðàòü ïîòîê èç ïóëà, ò.ê. ñóùåñòâóåò íåáîëüøàÿ âåðîÿòíîñòü ÷òî îæèäàòü ñâîáîäíûé ïîòîê¤		// ìû áóäåì áîëüøå 40 ñåêóíä à çíà÷èò íå ñìîæåì ïîñëàòü ñîîáùåíèå þçåðàì îá îòêëþ÷åíèè ïîòîìó-÷òî âèíäà ñðóáèò¤		// ñåðâèñ ÷åðåç 40 ñåêóíä.¤		ACE_Thread_Manager::instance ()->spawn (application_server_shutdown, m_app_server.get ());¤	} else {¤		ACE_NT_Service::handle_control(control_code);¤	}¤	LOG_D (("%s - finish", GDS_CURRENT_FUNCTION));¤}¤¤int NTService::handle_exception (ACE_HANDLE h)¤{¤	ACE_UNUSED_ARG (h);¤	return 0;¤}¤¤void NTService::set_application_server (boost::shared_ptr<ApplicationServer> app_server) {¤	m_app_server = app_server;¤}¤¤int NTService::init (int argc, char* argv[]) {¤	HKEY hkey = 0;¤	BYTE buf [ACE_DEFAULT_ARGV_BUFSIZ];¤	buf [0] = '\0';¤¤	ACE_TEXT_RegOpenKeyEx (REGISTRY_KEY_ROOT, m_registry_subkey.c_str (), 0, KEY_READ, &hkey);¤¤	DWORD type;¤	DWORD bufSize = sizeof (buf);¤¤	ACE_TEXT_RegQueryValueEx (hkey, m_registry_value.c_str (), 0, &type, buf, &bufSize);¤¤	RegCloseKey (hkey);¤¤	// Add options to the args list (if any).¤	if (ACE_OS::strlen (reinterpret_cast <const char*> (buf)) > 0) {¤		ACE_ARGV args (reinterpret_cast <const char*> (buf));¤¤		// Allocate the internal args list to be one bigger than the¤		// args list passed into the function. We use a 'save' list in¤		// case we use a 'destructive' args list processor - this way we¤		// maintain the correct argv and argc for memory freeing¤		// operations in the destructor.¤		m_argv_save = (char**)ACE_OS::malloc ((argc + args.argc ()) * sizeof (char*));¤¤		// Copy the values into the internal args buffer.¤		int i;¤		for (int i = 0; i < argc; i++) {¤			m_argv_save[i] = ACE_OS::strdup (argv[i]);¤		}¤¤		int j = 0;¤		for (i = argc; i < static_cast<int> (args.argc () + argc); ++i) {¤			m_argv_save [i] = ACE_OS::strdup (args.argv ()[j++]);¤		}¤¤		// Set the arg counter.¤		m_argc_save = argc + args.argc ();¤		m_argc = m_argc_save;¤		m_argv = m_argv_save;¤	}¤	else {¤		m_argc = argc;¤		m_argv = argv;¤	}¤¤	return 0;¤}¤¤int NTService::svc () {¤	¤	if (!m_app_server.get ()) {¤		LOG_A (("%s: Application Server is not specified.", GDS_CURRENT_FUNCTION));¤		return -1;¤	}¤	¤	¤	Core::AutoInit core; // http://mdp.garant.ru/x/WoDzAg¤	¤	if (m_app_server->init (m_argc, m_argv) == -1) {¤		return -1;¤	}¤¤	try {¤		this->report_status (SERVICE_RUNNING);¤		return m_app_server->run ();¤	} catch (...) {¤		return -1;¤	}¤}¤¤void NTService::set_subkey_name (const std::string& subkey_name) {¤	m_registry_subkey = subkey_name;¤}¤¤void NTService::set_value_name (const std::string& value_name) {¤	m_registry_value = value_name;¤}¤¤#endif¤¤//#UC END# *4E9BF2560306*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4E9BF2560306_USER_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4E9BF2560306_USER_INCLUDES*¤#include "ace/OS.h"¤#include "ace/NT_Service.h"¤#include "ace/Singleton.h"¤#include "ace/Synch.h"¤#include "tao/orbconf.h"¤¤#include "boost/shared_ptr.hpp"¤¤#include "shared/Core/os/ApplicationServer.h"¤//#UC END# *4E9BF2560306_USER_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4E9BF2560306_USER_DEFINITION*"
+		    value      	(value Text 
+|//#UC START# *4E9BF2560306_USER_DEFINITION*¤¤#if defined (_WIN32) || defined (_WIN64)¤¤class NTService : public ACE_NT_Service {¤public:¤	NTService ();¤	virtual ~NTService ();¤¤	virtual void handle_control (DWORD control_code);¤	virtual int handle_exception (ACE_HANDLE h);¤	virtual int svc ();¤	int init (int argc, char* argv[]);¤	void set_application_server (boost::shared_ptr<ApplicationServer> app_server);¤¤	void set_subkey_name (const std::string& subkey_name);¤	void set_value_name (const std::string& value_name);¤¤private:¤	int m_argc;¤	int m_argc_save;¤¤	char** m_argv;¤	char** m_argv_save; ¤¤	std::string m_registry_subkey;¤	std::string m_registry_value;¤¤	boost::shared_ptr<ApplicationServer> m_app_server;¤¤	friend class ACE_Unmanaged_Singleton<NTService, ACE_Null_Mutex>;¤};¤¤typedef ACE_Unmanaged_Singleton<NTService, ACE_Null_Mutex> SERVICE;¤¤#endif¤//#UC END# *4E9BF2560306_USER_DEFINITION*
+		    )))
+	    quid       	"4E9BF2560306"
+	    documentation 	"Ñåðâèñ NT"
+	    stereotype 	"UtilityPack"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4500347E031C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	650
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::Core::os::IniFile" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1065")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"939")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"350")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(1155, 933)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1014, 912)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	282
+			justify    	0
+			label      	"IniFile")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1014, 862)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	282
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"450034D40290"
+		    width      	300
+		    height     	166
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::os::RegistryHelper" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1104")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"201")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"346")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(1104, 201)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(940, 173)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"• RegistryHelper")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(940, 123)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	325
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"4500351F0119"
+		    width      	346
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::sys::Exception" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"687")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"207")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"346")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"188"))
+		    location   	(687, 207)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(537, 179)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• Exception")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(537, 129)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"450035A90222"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::sys::assert" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"621")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"555")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"346")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"188"))
+		    location   	(621, 555)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658175
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(471, 527)
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• assert")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(471, 477)
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	658175
+		    fill_color 	16777215
+		    quidu      	"450E981C03D8"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::os::Process" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1533, 195)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1393, 174)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"• Process")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1393, 124)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"4E9BF1F8005A"
+		    width      	298
+		    height     	166
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::os::ApplicationServer" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1929, 198)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1730, 177)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"• ApplicationServer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1730, 127)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"4E9BF2400279"
+		    width      	416
+		    height     	166
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::Core::os::NTService" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2307, 195)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(2170, 174)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	274
+			justify    	0
+			label      	"• NTService")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(2170, 124)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	274
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"4E9BF2560306"
+		    width      	292
+		    height     	166
+		    annotation 	8
+		    autoResize 	TRUE)))))

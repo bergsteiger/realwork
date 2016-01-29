@@ -1,0 +1,52 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    Dim ListName$,OldList$
+    ListName="Список из одного документа"
+    OldList=SaveList(ListName)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=14,49"
+    ListBox Click, "ObjectIndex=1", "Coords=8,160"
+    InputKeys "{HOME}"
+    call Position_Internal("CurrentFocus","Правовой навигатор\Международные договоры")
+    InputKeys "{Enter}"
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=12,275"
+    ListBox Click, "ObjectIndex=1", "Coords=8,16"
+    call Position_Internal("CurrentFocus","Общие вопросы")
+    Dim CountElem%,NewCountElem%
+    ListBox Click, "ObjectIndex=5", "Coords=8,16"
+    SQAGetProperty "CurrentFocus","ItemCount",CountElem
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=8,16"
+    'Toolbar Click, "ObjectIndex=111;VisualText=Список", "Coords=267,10"
+    call Click_AddList
+    call LoadDlg("Мои документы\"+ListName)
+    
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=8,16"
+    
+    SQAGetProperty "CurrentFocus","ItemCount",NewCountElem
+    If NewCountElem=CountElem+1 then
+        SQALogMessage sqaPass, "Список верен", "Количество элементов в списке стало: "+CSTR(NewCountElem)
+    else
+        SQALogMessage sqaFail, "Список неверен", "Количество элементов в списке стало: "+CSTR(NewCountElem)
+    end if
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,128"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=11,9"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=11,9"
+    call DeleteFolder("Мои документы\"+ListName,2)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=5,130"
+    call Click_SetFiltertoDef
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=14,56"
+    Toolbar Click, "Text=Навигатор", "Coords=8,17"
+    Toolbar Click, "Text=Навигатор", "Coords=8,17"
+
+End Sub

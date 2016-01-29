@@ -1,0 +1,63 @@
+USES
+	QuickTests.script
+	DocumentConst.script
+;
+
+OBJECT VAR g_Editor  
+INTEGER VAR X
+INTEGER VAR Y  
+
+: "Посчитать координаты"	
+	g_Editor pop:Editor:PushParaFromCursor g_Editor pop:editor:ParaCoordsToScreen >>> Y >>> X
+	acSubShowPanel byname:control:push pop:control:Left >>> X
+	50 +! X
+	10 +! Y
+;
+
+: "Сместить мышь по координатам"
+	X Y mouse:SetCursorPosition
+	100 SLEEP
+	ProcessMessages
+;
+
+: "Задать размеры окна редактора"
+	OBJECT VAR l_EditorWindow
+	g_Editor pop:control:GetParentForm >>> l_EditorWindow
+	l_EditorWindow pop:control:Left := 10
+	l_EditorWindow pop:control:Top := 10
+	l_EditorWindow pop:control:Width := 800
+	l_EditorWindow pop:control:Height := 350
+;
+
+: "Задать размеры окна редактора1"
+	OBJECT VAR l_EditorWindow
+	focused:control:push >>> l_EditorWindow
+	l_EditorWindow pop:control:GetParentForm >>> l_EditorWindow
+	l_EditorWindow pop:control:Left := 100
+        l_EditorWindow pop:control:Top := 100
+	l_EditorWindow pop:control:Width := 650
+	l_EditorWindow pop:control:Height := 350
+;
+
+: "Действия"			
+	focused:control:push >>> g_Editor
+	"Задать размеры окна редактора"
+	"Поиск текста {('Закона')}"
+	"Посчитать координаты"	
+	cnFindTextDocument true Открыть
+	"Задать размеры окна редактора1"	
+	"Сместить мышь по координатам"
+	"Клик левой кнопкой мыши"
+;
+
+: TK358356153
+  TRY 
+	"Подготовить широкую главную форму"
+	cnDocumentWithComment true Открыть
+	"Действия"	
+  FINALLY
+	"Закрыть все окна"
+  END
+;
+
+TK358356153

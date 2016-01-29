@@ -1,0 +1,144 @@
+// csRequestTask 52FA4ACA0020 UtilityPack Class
+
+FORWARD ME_52FA4ACA0020
+
+INCLUDE '52FA49C7022C.pas.ms.script'
+
+FORWARD ME_52FA4AD90122
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_53B3DA12012D
+ CONST UID '53B3DA12012D'
+ CONST Name 'ini'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_53B3DA12012D ini
+
+INCLUDE '537F62DD009F.pas.ms.script'
+
+: ME_54C0FDB80161
+ CONST UID '54C0FDB80161'
+ CONST Name 'aPipe'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_537F62DD009F // TCsDataPipe
+ ;
+
+ @SELF
+; // ME_54C0FDB80161 aPipe
+
+: ME_54C0FDAD028B
+ CONST UID '54C0FDAD028B'
+ CONST Name 'SaveRequestToPipe'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_54C0FDB80161 // aPipe
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54C0FDAD028B SaveRequestToPipe
+
+: ME_52FA4AD90122
+ CONST UID '52FA4AD90122'
+ CONST Name 'TddRequestTask'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52FA49DF00EF // TddTaskItem
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_53B3DA12012D // ini
+ ME_54C0FDAD028B // SaveRequestToPipe
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52FA4AD90122 TddRequestTask
+
+FORWARD ME_54C6504A003A
+
+: ME_54C65068002A
+ CONST UID '54C65068002A'
+ CONST Name 'aPipe'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_537F62DD009F // TCsDataPipe
+ ;
+
+ @SELF
+; // ME_54C65068002A aPipe
+
+: ME_54C650610228
+ CONST UID '54C650610228'
+ CONST Name 'SaveTaskToPipe'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54C65068002A // aPipe
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54C650610228 SaveTaskToPipe
+
+: ME_54C6504A003A
+ CONST UID '54C6504A003A'
+ CONST Name 'TddRequestTaskAsTask'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52FA4AD90122 // TddRequestTask
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_54C650610228 // SaveTaskToPipe
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54C6504A003A TddRequestTaskAsTask
+
+: ME_52FA4ACA0020
+ CONST UID '52FA4ACA0020'
+ CONST Name 'csRequestTask'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_52FA4AD90122 // TddRequestTask
+ ME_54C6504A003A // TddRequestTaskAsTask
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_52FA4ACA0020 csRequestTask

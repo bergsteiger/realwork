@@ -1,0 +1,86 @@
+// l3DelphiStringSearcherPrim 4B891136016F Impurity Class
+
+INCLUDE '47B47E230134.pas.ms.script'
+
+FORWARD ME_4B891136016F
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4B8911AA00AF
+ CONST UID '4B8911AA00AF'
+ CONST Name 'FindDataType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_4B8911AA00AF FindDataType
+
+INCLUDE '47A1B1500302.pas.ms.script'
+
+: ME_5304D6E50098
+ CONST UID '5304D6E50098'
+ CONST Name 'anItem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_5304D6E50098 anItem
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_5304D6C5002B
+ CONST UID '5304D6C5002B'
+ CONST Name 'ItemToWStr'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+ : Parameters
+   [ ME_5304D6E50098 // anItem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5304D6C5002B ItemToWStr
+
+: ME_4B891136016F
+ CONST UID '4B891136016F'
+ CONST Name 'l3DelphiStringSearcherPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_47B47E230134 // l3Searcher
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4B8911AA00AF // FindDataType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5304D6C5002B // ItemToWStr
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47B9BAFD01F4 // CompareItemWithData
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4B891136016F l3DelphiStringSearcherPrim

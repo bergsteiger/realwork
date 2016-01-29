@@ -1,0 +1,16 @@
+project (test_pack_op) : project-common-defines-tools, project-common-includes, project_generic_core, project_subsystem_console {
+
+	macros += OPT_PACK
+
+	Source_Files {
+		./../../component/cpp/libs/zlib/src/main_pack.cpp
+	}
+
+	exename = test_pack_op
+
+	after += Core
+	libs += Core
+
+	after += zlib_optpack
+	libs  += zlib_optpack
+}

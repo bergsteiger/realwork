@@ -1,0 +1,56 @@
+project (T_GC) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_GC {
+	exename = gc
+
+	macros += WITH_DBL_THREAD
+	macros += PL_REPLCTR_FUNC
+	macros += MAKE_HDD
+	macros += VERSION63
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += BLOCKSINHERIT
+	macros += DOC_ONLY
+
+	macros -= INSTLL_CIB
+
+	macros += NEWNODOC // macro used in target *.cpp only
+	macros += FLUSH56 // macro used in target *.cpp only
+	macros += MIN_MEM_CONTEXT
+
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+
+	after += gchange_tools
+	after += lex_tools
+	after += vcontrol_ggu
+	after += gkdb_gc
+	after += gctx_gc
+	after += gc_gc
+	after += cchlp1
+	after += cchlp2
+	after += gsscreen_gc
+	after += dummies_tools
+	after += evd
+	after += endt
+	
+	libs += gchange_tools
+	libs += lex_tools
+	libs += vcontrol_ggu
+	libs += gkdb_gc
+	libs += gctx_gc
+	libs += gc_gc
+	libs += cchlp1
+	libs += cchlp2
+	libs += gsscreen_gc
+	libs += dummies_tools
+	libs += evd
+	libs += endt
+
+	after += GbaConsultingCrypt_corba
+	libs  += GbaConsultingCrypt_corba
+
+}

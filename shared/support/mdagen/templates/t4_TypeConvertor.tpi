@@ -1,0 +1,138 @@
+//////////////////////////////////////////////////////////////////////////////////
+// TypeConvertor
+//////////////////////////////////////////////////////////////////////////////////
+: TypeConvertor::Class::uses::ClassDependency
+? Использование
+? Определяет что источник использует указанный объект (цель) каким-либо образом (в том числе создает его через фабрики, есль цель-сервант).
+? НА основе данной связи будет сгенерированы пути включения файлов используемого объекта (для цели-серванта так же будет сгенерирована специальная фабрика возвращающая не интерфейс а сервант).
+
+%f _wiki_child_kind
+	uses
+
+: TypeConvertor::Class
+$ C 215,170,215
+? Конвертор типов
+? Однозначное соответствие (пока, потом может понадобится неоднозначное) между подмножествами 2-ух типов данных. 
+? Используется для конвертирования перечислимых типов в строки и обратно при сохранении/восстановлении xml, а также 
+? при конвертировании перечислимых типов.
+< *::Category, *::Class
+p is sorted:b=false ? свойство сортированности
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+Y t4_typeconv.gif
+
+%f _wiki_up_print
+	[{%S{is sorted}=true}* сортированный конвертор
+	]
+
+%f _wiki_up_add_gen
+
+$ C 240,205,240
+$ l 120,40,120
+$ f 120,40,120
+
+L code_type_convertor
+
+%t _constraint
+c                              {}
+r {<{}{%CM=TypeConvertor::Class::Type1::Attribute}{C}>!=1}: {%SS must specify Type1 data type}
+r {<{}{%CM=TypeConvertor::Class::Type2::Attribute}{C}>!=1}: {%SS can specify Type2 data type}
+r {%f_constraint_functor(%S,"Functor1")=false}: {%SS can specify only one Functor1 data type}
+r {%f_constraint_functor(%S,"Functor2")=false}: {%SS can specify only one Functor2 data type}
+r {%f_count_attr(%S,"Functor1")=0&%f_count_attr(%S,"Functor2")!=0}: {Can't use Functor2 without Functor1 %f_count_attr(%S,"Functor1") %f_count_attr(%S,"Functor2")}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ h
+F class %SN;
+S class %SN;
+O [{%t_nested_scope_def(%P)=false}%SN.h]
+	%f_output_constraint(%S)\
+	[{%t_nested_scope_def(%P)=false}\
+# t0_h_header
+	%f_std_inc(%S)%f_set_var(SERV,S)
+	%f_includes_by_contents(%S)<\#include %f_dump_include_path(%wL,%w)
+	>\#include "shared/Core/data/[{%S{is sorted}=true}{Unsorted}Sorted]TypeConverter.h"
+	[{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDES}
+	]
+	]
+	%SP]
+	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+	#class %SN : 
+	#	public Core::[{%S{is sorted}=true}{Unsorted}Sorted]TypeConverter\<%f_dump_template_list(%S)\> {
+	#	protected:
+	#		void fill_array () {
+	#			%U[{_FILL_ARRAY_IMPLEMETATION}
+	#			]
+	#		}
+	#}; // class %SN
+/	#%f_get_type_attr(%{SELF},Type1)
+	
+	#typedef ACE_Singleton\<%SN, ACE_SYNCH_NULL_MUTEX\> %SNSingleton;[{%t_nested_scope_def(%P)=false}
+	
+	%Sp
+# t0_h_footer
+	]
+
+: TypeConvertor::Class::Type1::Attribute
+? Первый тип данных для конвертирования
+v -+#
+l arl
+A const
+
+%f _wiki_child_kind
+	attr
+
+
+/+ h
+/	%t_arg(%S%T,"in")
+
+: TypeConvertor::Class::Type2::Attribute
+? Второй тип данных для конвертирования
+v -+#
+l arl
+A const
+
+%f _wiki_child_kind
+	attr
+
+/+ h
+/	%t_arg(%S%T,"in")
+
+: TypeConvertor::Class::Functor1::Attribute
+? Первый функтор сравенения/сортировки
+v -+#
+l arl
+
+%f _wiki_child_kind
+	attr
+
+
+/+ h
+/	%t_arg(%S%T,"in")
+
+: TypeConvertor::Class::Functor2::Attribute
+? Второй функтор сравенения/сортировки
+v -+#
+l arl
+
+%f _wiki_child_kind
+	attr
+
+
+/+ h
+/	%t_arg(%S%T,"in")
+
+f _get_type_attr
+	[<{}{%CM=TypeConvertor::Class::%1N::Attribute}%C%TN>]
+
+f _dump_template_list
+	[<{, }%f_attr(%C)>[{%f_count_attr(%{SELF},"Functor1")=0&[{%f_get_type_attr(%{SELF},"Type1")=string|%f_get_type_attr(%{SELF},"Type2")=string}{false}true]=true}, [{%{SELF}{is sorted}=true}{Core::ConstCharIsEqual}Core::ConstCharComparator]]]
+
+f _count_attr
+	[<{}{%CM=TypeConvertor::Class::%1N::Attribute}{C}>]
+
+f _constraint_functor
+	[{<{}{%CM=TypeConvertor::Class::%1N::Attribute}{C}>!=0}{true}[{<{}{%CM=TypeConvertor::Class::%1N::Attribute}{C}>=1}{false}true]]

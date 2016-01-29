@@ -1,0 +1,181 @@
+object frmFishFact: TfrmFishFact
+  Left = 420
+  Height = 533
+  Top = 143
+  Width = 691
+  Caption = 'Fish Fact'
+  ClientHeight = 533
+  ClientWidth = 691
+  LCLVersion = '0.9.29'
+  object vgScene1: TvgScene
+    Left = 0
+    Height = 533
+    Top = 0
+    Width = 691
+    Align = alClient
+    ActiveControl = DBGrid1
+    DesignSnapGridShow = False
+    DesignSnapToGrid = False
+    DesignSnapToLines = True
+    object Root1: TvgBackground
+      RotateAngle = 0
+      Width = 691
+      Height = 533
+      Margins.Rect = '(8,8,8,8)'
+      object DBGrid1: TvgDBGrid
+        Align = vaBottom
+        Position.Point = '(8,397)'
+        RotateAngle = 0
+        Width = 575
+        Height = 128
+        Padding.Rect = '(0,0,100,0)'
+        Resource = 'gridstyle'
+        TabOrder = 0
+        AlternatingRowBackground = True
+        DisableFocusEffect = True
+        RowHeight = 21
+        ShowHorzLines = False
+        ReadOnly = True
+        DataSource = DataSource1
+        object DBColumn1: TvgDBColumn
+          RotateAngle = 0
+          Width = 100
+          Height = 103
+          HitTest = False
+          TabOrder = 0
+          Header = 'Category'
+          FieldName = 'CATEGORY'
+        end
+        object DBColumn2: TvgDBColumn
+          Position.Point = '(100,0)'
+          RotateAngle = 0
+          Width = 133
+          Height = 103
+          HitTest = False
+          TabOrder = 1
+          Header = 'Species Name'
+          FieldName = 'SPECIES_NA'
+        end
+      end
+      object Panel1: TvgPanel
+        Align = vaClient
+        Position.Point = '(8,8)'
+        RotateAngle = 0
+        Width = 398
+        Height = 381
+        Margins.Rect = '(9,9,9,9)'
+        Padding.Rect = '(0,0,8,8)'
+        TabOrder = 1
+        object DBLabel1: TvgDBLabel
+          Align = vaBottom
+          Position.Point = '(9,348)'
+          RotateAngle = 0
+          Width = 380
+          Height = 24
+          Resource = 'DBLabel1Style1'
+          TabOrder = 0
+          Font.Family = 'Times'
+          Font.Size = 14
+          Font.Style = vgFontBoldItalic
+          TextAlign = vgTextAlignCenter
+          Text = 'Clown Triggerfish'
+          DataField = 'COMMON_NAM'
+          DataSource = DataSource1
+        end
+      end
+      object Layout1: TvgLayout
+        Align = vaRight
+        Position.Point = '(414,8)'
+        RotateAngle = 0
+        Width = 269
+        Height = 389
+        Margins.Rect = '(0,0,0,8)'
+        object Panel2: TvgPanel
+          Align = vaTop
+          RotateAngle = 0
+          Width = 269
+          Height = 24
+          Margins.Rect = '(8,3,8,3)'
+          TabOrder = 0
+          object Label1: TvgLabel
+            Align = vaLeft
+            Position.Point = '(8,3)'
+            RotateAngle = 0
+            Width = 43
+            Height = 18
+            TabOrder = 0
+            TextAlign = vgTextAlignNear
+            Text = 'About'
+          end
+          object DBLabel2: TvgDBLabel
+            Align = vaClient
+            Position.Point = '(51,3)'
+            RotateAngle = 0
+            Width = 210
+            Height = 18
+            Resource = 'labelstyle'
+            TabOrder = 1
+            TextAlign = vgTextAlignCenter
+            Text = 'Clown Triggerfish'
+            DataField = 'COMMON_NAM'
+            DataSource = DataSource1
+          end
+        end
+        object DBNavigator1: TvgDBNavigator
+          Align = vaBottom
+          Position.Point = '(0,356)'
+          RotateAngle = 0
+          Width = 269
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
+          xRadius = 4
+          yRadius = 4
+        end
+      end
+      object CircleButton1: TvgCircleButton
+        Align = vaBottomRight
+        Position.Point = '(607,432)'
+        RotateAngle = 0
+        Width = 59
+        Height = 63
+        TabOrder = 3
+        StaysPressed = False
+        IsPressed = False
+        TextAlign = vgTextAlignCenter
+        Text = 'Exit'
+      end
+    end
+  end
+  object DataSource1: TDatasource
+    DataSet = Table1
+    left = 14
+    top = 270
+  end
+  object Table1: TDbf
+    IndexDefs = <>
+    TableName = 'biolife.dbf'
+    TableLevel = 4
+    FilterOptions = []
+    left = 46
+    top = 270
+  end
+  object Resources1: TvgResources
+    left = 112
+    top = 270
+    ResourcesBin = {
+      545046300D5476674261636B67726F756E64000B526F74617465416E676C6505
+      0000000000000000000005576964746805000000000000008908400648656967
+      687405000000000000C088084000095476674C61796F7574000C5265736F7572
+      63654E616D65060E44424C6162656C315374796C65310E506F736974696F6E2E
+      506F696E740609283234392C323633290B526F74617465416E676C6505000000
+      000000000000000557696474680500000000000000C404400648656967687405
+      00000000000000A00340000754766754657874000C5265736F757263654E616D
+      6506047465787405416C69676E07087661436C69656E740B526F74617465416E
+      676C650500000000000000000000064C6F636B65640905576964746805000000
+      00000000C40440064865696768740500000000000000A0034007486974546573
+      74080A46696C6C2E436F6C6F7206092346464637314231420454657874120500
+      00006C006100620065006C0000000000
+    }
+  end
+end

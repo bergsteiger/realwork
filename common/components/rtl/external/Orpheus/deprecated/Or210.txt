@@ -1,0 +1,87 @@
+This file summarizes changes made between Orpheus versions 2.01 and
+2.10.  It is of interest primarily to users who have upgraded from a
+previous version.
+
+
+Bugs fixed
+---------------------------------------------------------------------
+
+MDIEDIT
+  - File Drag & Drop doesn't work under 32-bit
+FILEVIEW
+  - Font dialog's font not initialized properly
+OVCDBNF
+  - Changes not updated to TField in some cases
+OVCDBPF
+  - Changes not updated to TField in some cases
+OVCDBSF
+  - Changes not updated to TField in some cases
+OVCDBTBL
+  - ComboBox cell flashes when editing
+  - Edits not saved for TOvcTCString cells
+OVCEDIT
+  - RecreateWnd causes the text editor to re-load the file
+  - GPF with long lines and WordWrap off
+  - Cutting all text can cause a GPF
+  - Added OnChange event
+OVCEF
+  - Division by zero error with nul date or time db values
+OVCTABLE
+  - WMLButtonUp was not resetting state properly
+  - Hiding/unhiding column would not display full table
+  - OnColumnsChanged is not fired for column width change
+OVCVLB
+  - Selection is extended even if MultiSelect is False
+TEXTVIEW
+  - Font dialog's font not initialized properly
+
+
+
+New Features/Enhancements
+---------------------------------------------------------------------
+
+
+OVCDBTBL
+  - Added support for Shift-Enter to act like Left Arrow
+  - Horizontal scrolling optimized
+OVCEDIT
+  - Clipboard operations changed to allow > 64K
+  - Added OnChange event
+OVCEF
+  - Added support for BCD editing
+  - Added RightAlign for simple and picture entry fields
+  - Added ArrowIncDec property to all entry fields
+OVCVLB
+  - Added Scroll method the scroll H/V
+
+
+New components:
+
+The following components were added for version 2.10:
+
+TOvcAttachedButton
+  Provides a TBitBtn descendant that attaches to another control
+
+TOvcCheckList
+  A ListBox with check boxes instead of multi-selection
+
+TOvcDbColumnList
+  Read-Only access to a column from the datasource
+
+TOvcDbSearchEdit
+  Incremental search data-aware edit control
+
+TOvcDbIndexSelect
+  Specialized combo box to display and select table indexes
+
+TOvcSearchList
+  Incremental search list box
+
+
+See the on-line help for the full description of these components.
+
+
+TOvcButtonHeader and TOvcSplitter are also new components, but are included
+as "bonus" files (in the BONUS subdirectory).  See the comments at the top of
+each of the component source files for brief documentation.
+

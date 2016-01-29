@@ -1,0 +1,383 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "WebConvertedSystemObjectsImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/WebConvertedSystemObjectsImpl/DefaultSystemObjectProviderFactoryImpl.java::47A826F50371")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/WebConvertedSystemObjectsImpl/DefaultSystemObjectProvider.java::47A826F50371")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"VisabilityType"
+	    value      	"ImplementationAccess")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/WebConvertedSystemObjectsImpl/DefaultSystemObjectProvider|47A826F50371::47A826F50371
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/WebConvertedSystemObjectsImpl|47A8268B03BD
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19032987272"))
+    quid       	"47A8268B03BD"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"47A826AC01B4"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjects"
+	    quidu      	"47A824F70337")
+	(object Visibility_Relationship
+	    quid       	"47A826C2022D"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.user"
+	    quidu      	"4614A1C20186"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DefaultSystemObjectProvider"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/WebConvertedSystemObjectsImpl/DefaultSystemObjectProviderFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/WebConvertedSystemObjectsImpl/DefaultSystemObjectProvider.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A826F50371_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *47A826F50371_CUSTOM_IMPORT*¤import java.util.Iterator;¤import java.util.List;¤import java.util.SortedSet;¤import java.util.TreeSet;¤¤import ru.garant.shared.Core.Root.NoActiveFactory;¤¤import com.atlassian.confluence.spaces.Space;¤import com.atlassian.confluence.spaces.SpaceType;¤import com.atlassian.user.Group;¤import com.atlassian.user.search.page.DefaultPager;¤import com.atlassian.user.search.page.Pager;¤¤import ru.garant.MDProcess.ConfluencePlugins.SelectBoxPair;¤//#UC END# *47A826F50371_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A826F50371_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *47A826F50371_CUSTOM_CLASS_DEFINITION*¤//#UC END# *47A826F50371_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A826F50371_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *47A826F50371_CUSTOM_METHODS_AND_DATA*¤	SortedSet<SelectBoxPair> availableGroups_ = null;¤	SortedSet<SelectBoxPair> availableUsers_ = null;¤	SortedSet<SelectBoxPair> myTeamUsers_ = null;¤	SortedSet<SelectBoxPair> permittedSpaces_ = null;¤	SortedSet<SelectBoxPair> myTeamSpaces_ = null;¤	SortedSet<SelectBoxPair> personalSpaces_ = null;¤	SortedSet<SelectBoxPair> favouriteSpaces_ = null;¤	SortedSet<SelectBoxPair> allSpaces_ = null;¤	¤	private GarUserAccessor garUserAccessor_ = null;¤	protected ru.garant.shared.ConfluenceCore.UserSupport.GarUserAccessor getGarUserAccessor () {¤		try {¤			if(garUserAccessor_ == null)¤				garUserAccessor_ = ContainerManager.Factory.get().getUserAccessor();¤			return garUserAccessor_;¤		}¤		catch (NoActiveFactory e) {¤			Logs.LOG_SEX(e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private GarSpaceManager spaceManager_ = null;¤	protected GarSpaceManager getSpaceManager() {¤		if(spaceManager_ == null)¤			spaceManager_ = ContainerManager.Factory.get().getSpaceManager();¤		return spaceManager_;¤	}¤	¤	//#UC END# *47A826F50371_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/WebConvertedSystemObjectsImpl/DefaultSystemObjectProvider|47A826F50371
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A81F520251_47A820B8014C_47A826F50371_BODY*"
+		    value      	(value Text 
+|//#UC START# *47A81F520251_47A820B8014C_47A826F50371_BODY*¤		remoteUser_ = remoteUser;¤		//#UC END# *47A81F520251_47A820B8014C_47A826F50371_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47C540FD039A*"
+		    value      	(value Text 
+|//#UC START# *47C540FD039A*¤		return remoteUser_;¤		//#UC END# *47C540FD039A*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A9CC36001E_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A9CC36001E_47A826F50371*¤		if(allSpaces_ != null)¤			return allSpaces_;¤		¤		allSpaces_ = new TreeSet<SelectBoxPair>();¤		¤		List<Space> allSpaces = getSpaceManager().getPermittedSpaces(remoteUser_);¤		for(Space space : allSpaces)¤			allSpaces_.add(new SelectBoxPair(space.getKey(), space.getName()));¤		¤		return allSpaces_;¤		//#UC END# *47A9CC36001E_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A823D703AD_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A823D703AD_47A826F50371*¤		if(availableGroups_ != null)¤			return availableGroups_;¤		¤		availableGroups_ = new TreeSet<SelectBoxPair>();¤¤		Pager pager = getGarUserAccessor().getNotSystemGroups();¤		// pager = getGarUserAccessor().filterUnaccessibleGroups(pager,¤		// getRemoteUser());¤¤		Iterator<?> iter = pager.iterator();¤		while (iter.hasNext()) {¤			Group group = (Group) iter.next();¤			availableGroups_.add(new SelectBoxPair(group.getName(), group.getName()));¤		}¤		return availableGroups_;¤		//#UC END# *47A823D703AD_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A823300110_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A823300110_47A826F50371*¤		if(availableUsers_ != null)¤			return availableUsers_;¤		¤		availableUsers_ = new TreeSet<SelectBoxPair>();¤¤		Pager pager = getGarUserAccessor().getUserNames();¤		// pager = getGarUserAccessor().filterUnaccessibleUsers(pager,¤		// getRemoteUser());¤¤		Iterator<?> iter = pager.iterator();¤		while (iter.hasNext()) {¤			User user = getGarUserAccessor().getUser((String) iter.next());¤			if (user != null)¤				availableUsers_.add(new SelectBoxPair(user.getName(), user.getFullName()));¤		}¤		return availableUsers_;¤		//#UC END# *47A823300110_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A9CBA20377_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A9CBA20377_47A826F50371*¤		if(favouriteSpaces_ != null)¤			return favouriteSpaces_;¤		¤		favouriteSpaces_ = new TreeSet<SelectBoxPair>();¤		¤		List<Space> favouriteSpaces = ¤			ContainerManager.Factory.get().getLabelManager().getFavouriteSpaces(remoteUser_.getName());¤		for(Space space : favouriteSpaces)¤			favouriteSpaces_.add(new SelectBoxPair(space.getKey(), space.getName()));¤		¤		return favouriteSpaces_;¤		//#UC END# *47A9CBA20377_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A9CA2000A5_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A9CA2000A5_47A826F50371*¤		if(myTeamSpaces_ != null)¤			return myTeamSpaces_;¤		¤		myTeamSpaces_ = new TreeSet<SelectBoxPair>();¤		for(Space space : getSpaceManager().getWorkgroupSpaces(remoteUser_)) {¤			myTeamSpaces_.add(new SelectBoxPair(space.getKey(), space.getName()));¤		}¤		¤		return myTeamSpaces_;¤		//#UC END# *47A9CA2000A5_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A8238C028F_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A8238C028F_47A826F50371*¤		if(myTeamUsers_ != null)¤			return myTeamUsers_;¤		¤		myTeamUsers_ = new TreeSet<SelectBoxPair>();¤		¤		User currentUser = remoteUser_;¤		Pager userGroups = getGarUserAccessor().getNotSystemGroups(currentUser);¤		Iterator groupIter = userGroups.iterator();¤		while (groupIter.hasNext()) {¤			Group group = (Group) groupIter.next();¤			Pager pager = getGarUserAccessor().getMemberNames(group);¤			pager = getGarUserAccessor().filterUnaccessibleUsers(pager, currentUser);¤¤			Iterator<?> userIter = pager.iterator();¤			while (userIter.hasNext()) {¤				String userName = (String) userIter.next();¤				User user = getGarUserAccessor().getUser(userName);¤				if (user != null)¤					myTeamUsers_.add(new SelectBoxPair(user.getName(), user.getFullName()));¤			}¤		}¤		return myTeamUsers_;¤		//#UC END# *47A8238C028F_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A821CE0089_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A821CE0089_47A826F50371*¤		if(permittedSpaces_ != null)¤			return permittedSpaces_;¤		¤		try {¤			permittedSpaces_ = new TreeSet<SelectBoxPair>();¤			for (Object spaceObj : getSpaceManager().getPermittedSpacesByType(remoteUser_, SpaceType.GLOBAL)) {¤				Space space = (Space) spaceObj;¤				permittedSpaces_.add(new SelectBoxPair(space.getKey(), space.getName()));¤			}¤¤			return permittedSpaces_;¤		}¤		catch (NoActiveFactory e) {¤			Logs.LOG_SEX(e);¤			throw new RuntimeException(e);¤		}¤		//#UC END# *47A821CE0089_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A9CC1F0248_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A9CC1F0248_47A826F50371*¤		if(personalSpaces_ != null)¤			return personalSpaces_;¤		¤		personalSpaces_ = new TreeSet<SelectBoxPair>();¤		¤		List<Space> personalSpaces = getSpaceManager().getSpacesByType(SpaceType.PERSONAL);¤		for(Space space : personalSpaces)¤			personalSpaces_.add(new SelectBoxPair(space.getKey(), space.getName()));¤		¤		return personalSpaces_;¤		//#UC END# *47A9CC1F0248_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47A823580208_47A826F50371*"
+		    value      	(value Text 
+|//#UC START# *47A823580208_47A826F50371*¤		for(Space space : getSpaceManager().getWorkgroupSpaces(remoteUser_))¤			if(space.getKey().equals(spaceKey))¤				return true;¤		return false;¤		//#UC END# *47A823580208_47A826F50371*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19032992381"))
+	    quid       	"47A826F50371"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"47A8270E003D"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjects::SystemObjectProvider"
+		    quidu      	"47A81F520251"))
+	    operations 	(list Operations
+		(object Operation "get_remote_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47C540FD039A*"
+			    value      	(value Text 
+|//#UC START# *47C540FD039A*¤		return remoteUser_;¤		//#UC END# *47C540FD039A*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4614A1DF031C")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010798421"))
+		    quid       	"47C540FD039A"
+		    documentation 	"âîçâðàùàåò ïîëüçîâàòåëÿ"
+		    result     	"User"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Protected"
+		    uid        	0
+		    quidu      	"4614A1DF031C"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "remote_user"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Readonly accessor"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4614A1DF031C")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010798017"))
+		    quid       	"47A82DFE00D7"
+		    type       	"User"
+		    quidu      	"4614A1DF031C"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"47A826C701F6"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjects::SystemObjectProvider" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(582, 243)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(161, 212)
+			nlines     	1
+			max_width  	842
+			justify    	0
+			label      	"SystemObjectProvider")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(161, 161)
+			anchor     	10
+			nlines     	1
+			max_width  	842
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47A81F520251"
+		    width      	860
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjectsImpl::DefaultSystemObjectProvider" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(579, 708)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(218, 622)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	722
+			justify    	0
+			label      	"• DefaultSystemObjectProvider")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(218, 572)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	722
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"47A826F50371"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(218, 684)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	509
+			justify    	1)
+		    width      	740
+		    height     	296
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"47A8270E003D"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(579, 559)
+			(581, 337))
+		    line_style 	0)))))

@@ -1,0 +1,62 @@
+%producer 'щбепеяр 1.0.0.816' date '20.01.2005'
+%format version 0.132 revision date '31/05/2004' brackets { }
+: QueryCard = {
+ CardType = ev_qtSearchWithLawSupport
+ Subs = {
+  Children = 1
+  : = {
+   Handle = Sub
+   Children = 1
+   : = {
+    Handle = 1
+   }
+  }
+ }
+ Children = 1
+ : ControlsBlock = {
+  Handle = 1
+  Flat = False
+  ShortName = 'Request'
+  Children = 2
+  : Table = {
+   Children = 4
+   : ReqRow = {
+    ReqID = 'AT_CONSULTATION_TEXT'
+    Required = True
+    Children = 1
+    : = {
+     Frame = {
+     }
+     Width = 6060
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Height = 2000
+      Justification = ev_itLeft
+      Type = ev_ctMemoEdit
+     }
+    }
+   }
+   : ReqRow = {
+    ReqID = 'AT_CONSULTATION_DESCRIPTION'
+    ReqKind = ev_rkDescription
+    Enabled = False
+    Children = 2
+    : = {
+    Frame = {
+     }
+     Width = 8867
+     VerticalAligment = ev_valCenter
+     Children = 1
+     : ControlPara = {
+      Justification = ev_itLeft
+      Type = ev_ctPictureLabel
+      Flat = True
+      ImageIndex = 0
+      Text = 'Enter words and phrases completely, without abbreviations, for example, "accounting work for promissory notes", "filling out the tax declaration". The documents will be found where the mentioned words occurs in all forms (for example, for the word "tax", the words "taxes", "taxable" etc. will be found). If you want to find an exact match, put an exclamation mark "!" in the end (for example, "accounting!"). To find all words beginning with characters you entered, put an asterisk "*" in the end. For example, if you enter "tax*", you will find documents containing all forms for both the word "tax" and the words "taxable", "taxation".'
+     }
+    }
+   }
+  }
+ }
+}

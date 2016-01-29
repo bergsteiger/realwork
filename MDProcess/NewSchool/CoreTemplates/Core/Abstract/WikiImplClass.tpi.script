@@ -1,0 +1,1521 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Core/Abstract/WikiImplClass.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$CoreTemplates::CoreTemplates::Core::Abstract::WikiImplClass
+//
+// Базовый стереотип для всех стереотипов уровня классов, реализует генерацию в wiki.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: WikiImplClass::Class
+implementation @ <<WikiImplClass>>
+//? Базовый стереотип для всех стереотипов уровня классов, реализует генерацию в wiki.
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// Собирает ссылки на все элементы, которые используют данный в список, заданный идентифкатором
+// list_id.
+//%f _collect_used_in_links
+; // st_space_key
+
+: collect_used_in_links OBJECT IN %S
+// параметры: list_id: string = %1
+//#UC START# *49ABB47001E2for471723E1037A*
+//	[{"%1N"=""}%f_error("_collect_used_in_links: Не указан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_used_in_links: Не указан идентификатор списка' )% 
+ end // if
+//	<{}{%aS!=friend&%a#f_IsUseCase()!=true&%f_is_rg_derived(%a,%S)!=true}{Sp}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%ap
+ begin
+  OBJECT IN %a
+  if ( ( %a |S ) %!= 'friend' AND 
+   ( ( %a %?f IsUseCase %( )% ) %!=  true  ) AND 
+   ( ( [%f] is_rg_derived %( %a %, %S )% ) %!=  true  ) ) then
+  begin
+//	%f_set_var(LINK,"[{%t_is_container(%a%P)=true|%aC=Parameter}{* %f_k_link_wp(%a,%S)}* %f_k_link_wp(%a%P,%S)]")\
+   [%f] set_var %( 'LINK' %, if ( ( [%t] is_container %( %a ->P  )% ) %==  true OR 
+     ( ( %a |C ) %== 'Parameter'  ) ) then
+   begin
+    '* '
+    [%f] k_link_wp %( %a ->P  %, %S )% 
+   end // if
+   else
+   begin
+    '* '
+    [%f] k_link_wp %( %a %, %S )% 
+   end // else
+)% //	[{%f_exists_in_list(%1N,"%{LINK}N")=false}%f_add_to_list(%1N,"%{LINK}N")]>
+   if ( ( [%f] exists_in_list %( %1 |N %, ( get_global_var ( 'LINK' ) |N ) )% ) %==  false ) then
+   begin
+    [%f] add_to_list %( %1 |N %, ( get_global_var ( 'LINK' ) |N ) )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for a
+
+//f _is_rg_derived
+; // collect_used_in_links
+
+end. // <<WikiImplClass>>
+
+: is_rg_derived OBJECT IN %S
+//	%f_set_var(TEMP_ARG,1)[{<{}{%GU=%{TEMP_ARG}U}{C}>!=0|<{}{%RU=%{TEMP_ARG}U}{C}>!=0}{false}true]
+ [%f] set_var %( 'TEMP_ARG' %, 1 )% if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |U ) %== ( ( get_global_var ( 'TEMP_ARG' ) |U ) ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %!= 0 OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( %R |U ) %== ( ( get_global_var ( 'TEMP_ARG' ) |U ) ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *49ABB47001E2for471723E1037A*
+; // is_rg_derived
+
+
+//%f _WikiImplClassGParam
+implementation @ <<WikiImplClass>>
+: WikiImplClassGParam OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4E09A6E0018Dfor471723E1037A*
+//	[{%Cx=true}{%GU}%SU]
+ if ( ( %C |x ) %==  true ) then
+ begin
+  %S |U 
+ end // if
+ else
+ begin
+  %G |U 
+ end // else
+//#UC END# *4E09A6E0018Dfor471723E1037A*
+; // WikiImplClassGParam
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471723E1037A*
+//#UC END# *4705CBD6003Efor471723E1037A*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for471723E1037A*
+//#UC END# *470484D50138for471723E1037A*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for471723E1037A*
+//G %S%f_WikiImplClassGParam()
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+
+// WST = WasSpelledTo
+//	[{"%S{NameForScript}"!=""}{\
+ if ( ( %S get_up ( 'NameForScript' ) ) %!= '' ) then
+ begin
+//	(!) *Имя слова скрипта* - %S{NameForScript}\n\
+  '(!) *Имя слова скрипта* - '
+  %S get_up ( 'NameForScript' ) #13#10
+//	]\
+ end // if
+ else
+ begin
+//	[{"%S%{WST}N"!=""}\
+  if ( ( %S ( get_object_var ( 'WST' ) |N )  ) %!= '' ) then
+  begin
+//	(!) *Имя слова скрипта* - \
+   '(!) *Имя слова скрипта* - '
+//	[{"%f_loc_GetNameForScript(%S%{WST})"!=""}{\
+   if ( ( [%f] loc_GetNameForScript %( %S ( get_object_var ( 'WST' ) )  )% ) %!= '' ) then
+   begin
+//	%f_loc_GetNameForScript(%S%{WST})\
+    [%f] loc_GetNameForScript %( %S ( get_object_var ( 'WST' ) )  )% 
+//	]\
+   end // if
+   else
+   begin
+//	[%S%{WST}%P#f_pas_ElementPrefixBase():]%f_str_replace(%f_cut_prefix(%f_cut_prefix(%f_N(%S%{WST}),Tkw),_),_,:)\
+    if NOT-EMPTY
+    begin
+     %S ( get_object_var ( 'WST' )  ->P %?f pas_ElementPrefixBase %( )% )  ':' 
+    end // if
+    NOP
+    [%f] str_replace %( [%f] cut_prefix %( [%f] cut_prefix %( [%f] N %( %S ( get_object_var ( 'WST' ) )  )% %, 'Tkw' )% %, '_' )% %, '_' %, ':' )% 
+//	}\
+   end // else
+//	\n\
+   #13#10
+//	]\
+  end // if
+//	}\
+ end // else
+
+//	[{"%S%{WST}N"!=""}\
+ if ( ( %S ( get_object_var ( 'WST' ) |N )  ) %!= '' ) then
+ begin
+
+
+//	{tip}Документирует:
+  '{tip}Документирует:'
+//	* %f_k_link_wp(%S%{WST},%S)
+  '* '
+  [%f] k_link_wp %( %S ( get_object_var ( 'WST' ) )  %, %S )% 
+//	{tip}\
+  '{tip}'
+//	]\
+ end // if
+
+//	[h2. Модель\
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+
+
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{tip}Специализирует:
+   '{tip}Специализирует:'
+//	<* %f_k_link_wp(%G,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if true then
+    begin
+     '* '
+     [%f] k_link_wp %( %G %, %S )% 
+//	>{tip}\
+
+     ++! l_Counter
+    end // if
+   end // for G
+   '{tip}'
+//	]\
+  end // if
+  NOP
+
+
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{info}Реализует прецеденты:
+   '{info}Реализует прецеденты:'
+//	<{}{%R#f_IsUseCase()=true}* %f_k_link_wp(%R,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R %?f IsUseCase %( )% ) %==  true ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %R %, %S )% 
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for R
+//	<{}{%aS=realized_by}* %f_k_link_wp(%a%P,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%a
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %== 'realized_by' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %a ->P  %, %S )% 
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for a
+//	{info}][
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{info}Использует прецеденты:
+   '{info}Использует прецеденты:'
+//	<{}{%CS=uses&%C%T#f_IsUseCase()=true}* %f_k_link_wp(%C%T,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'uses' AND 
+     ( ( %C ->T %?f IsUseCase %( )%  ) %==  true  ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+//	>{info}]\
+
+     ++! l_Counter
+    end // if
+   end // for C
+   '{info}' 
+  end // if
+  NOP
+
+
+//	%f_set_var(NEED_SEP,"false")\
+  [%f] set_var %( 'NEED_SEP' %, false )% 
+//	[{%S{is_friend}!=true}\
+  if ( ( %S get_up ( 'is_friend' ) ) %!=  true ) then
+  begin
+//	[
+   if NOT-EMPTY
+   begin
+    #13#10
+
+
+
+//	{info}Конструируется из примесей:
+    '{info}Конструируется из примесей:'
+//	<{}{%R#f_IsPureMixIn()=true|%R#f_IsMixIn()=true}\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R %?f IsPureMixIn %( )% ) %==  true OR 
+      ( ( %R %?f IsMixIn %( )% ) %==  true  ) ) then
+     begin
+//	%f_set_var(NEED_SEP,"true")\
+      [%f] set_var %( 'NEED_SEP' %, true )% 
+//	* %f_k_link_wp(%R,%S)
+      '* '
+      [%f] k_link_wp %( %R %, %S )% 
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for R
+//	<{}{%gS!=MixInMirror}%g<{}{%R#f_IsPureMixIn()=true|%R#f_IsMixIn()=true}\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%g
+    begin
+     OBJECT IN %g
+     if ( ( %g |S ) %!= 'MixInMirror' ) then
+     begin
+      %g
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%R
+       begin
+        OBJECT IN %R
+        if ( ( %R %?f IsPureMixIn %( )% ) %==  true OR 
+         ( ( %R %?f IsMixIn %( )% ) %==  true  ) ) then
+        begin
+//	[{%{NEED_SEP}N=true}\
+         if ( ( ( get_global_var ( 'NEED_SEP' ) |N ) ) %==  true ) then
+         begin
+//	%f_set_var(NEED_SEP,"false")\
+          [%f] set_var %( 'NEED_SEP' %, false )% 
+//	----
+          '----'
+//	]\
+         end // if
+//	* %f_k_link_wp(%R,%1)
+         '* '
+         [%f] k_link_wp %( %R %, %1 )% 
+//	>>\
+
+         ++! l_Counter
+        end // if
+       end // for R
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for g
+//	<{}{%rS!=MixInMirror}%r<{}{%R#f_IsPureMixIn()=true|%R#f_IsMixIn()=true}\
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%r
+    begin
+     OBJECT IN %r
+     if ( ( %r |S ) %!= 'MixInMirror' ) then
+     begin
+      %r
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%R
+       begin
+        OBJECT IN %R
+        if ( ( %R %?f IsPureMixIn %( )% ) %==  true OR 
+         ( ( %R %?f IsMixIn %( )% ) %==  true  ) ) then
+        begin
+//	[{%{NEED_SEP}N=true}\
+         if ( ( ( get_global_var ( 'NEED_SEP' ) |N ) ) %==  true ) then
+         begin
+//	%f_set_var(NEED_SEP,"false")\
+          [%f] set_var %( 'NEED_SEP' %, false )% 
+//	----
+          '----'
+//	]\
+         end // if
+//	* %f_k_link_wp(%R,%1)
+         '* '
+         [%f] k_link_wp %( %R %, %1 )% 
+//	>>\
+
+         ++! l_Counter
+        end // if
+       end // for R
+
+      ) // bind
+ 
+      ++! l_Counter
+     end // if
+    end // for r
+//	{info}]\
+    '{info}' 
+   end // if
+   NOP
+//	]\
+  end // if
+
+
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{info}Реализует интерфейсы/фасеты:
+   '{info}Реализует интерфейсы/фасеты:'
+//	<{}{%t_interface(%R)=true|%RS=VCMFacet|%RS=VCMOperations}* %f_k_link_wp(%R,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( [%t] interface %( %R )% ) %==  true OR 
+     ( ( %R |S ) %== 'VCMFacet'  ) OR 
+     ( ( %R |S ) %== 'VCMOperations'  ) ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %R %, %S )% 
+//	>{info}][
+
+     ++! l_Counter
+    end // if
+   end // for R
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{info}Реализует машину состояний:
+   '{info}Реализует машину состояний:'
+//	<{}{%t_check_type(%R,"StateMachine::Class")=true}* %f_k_link_wp(%R,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( [%t] check_type %( %R %, 'StateMachine::Class' )% ) %==  true ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %R %, %S )% 
+//	>{info}]\
+
+     ++! l_Counter
+    end // if
+   end // for R
+   '{info}' 
+  end // if
+  NOP
+
+
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{info}Связан контрактами:
+   '{info}Связан контрактами:'
+//	<{}{%RS=MixInMirror}* %f_k_link_wp(%R,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if ( ( %R |S ) %== 'MixInMirror' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %R %, %S )% 
+//	>{info}]\
+
+     ++! l_Counter
+    end // if
+   end // for R
+   '{info}' 
+  end // if
+  NOP
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{info}Используется в реализации прецедентов:
+   '{info}Используется в реализации прецедентов:'
+//	<{}{%aM=UseCase::Class}{Sg}* %f_k_link_wp(%a,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ag
+   begin
+    OBJECT IN %a
+    if ( ( %a |M ) %== 'UseCase::Class' ) then
+    begin
+     '* '
+     [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][\
+
+     ++! l_Counter
+    end // if
+   end // for a
+   '{info}' 
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+//	%f_k_common_elem_docs(%S)]\
+   [%f] k_common_elem_docs %( %S )% 
+  end // if
+  NOP
+//	[{%mx=true}\
+  if ( ( %m |x ) %==  true ) then
+  begin
+
+//	[{%Cx=true}\
+//	
+   #13#10
+
+//	
+   #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма элемента:_
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%m
+   begin
+    OBJECT IN %m
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( '----'#13#10 )
+     '_'
+     if ( ( %m |N ) %!= 'Main' ) then
+     begin
+      %m |N 
+     end // if
+     else
+     begin
+      'Основная' 
+     end // else
+     ' диаграмма элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for m
+
+//	]\
+//	]\
+  end // if
+//	[{<{}{%CC=StateMachine&%C%mx=true}{%CC}>!=0}
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'StateMachine' AND 
+     ( ( %C ->m |x  ) %==  true  ) ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	<{}{%CC=StateMachine}%C<{----\n}_диаграмма состояний элемента:_
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'StateMachine' ) then
+    begin
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%m
+      begin
+       OBJECT IN %m
+       if true then
+       begin
+        if ( l_Counter >0 ) then ( '----'#13#10 )
+        '_диаграмма состояний элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+        [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+        %m |U '.jpg}'
+//	>>][
+
+        ++! l_Counter
+       end // if
+      end // for m
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Специализирован:_
+   '_Специализирован:_'
+//	<* %f_k_link_wp(%Z,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Z
+   begin
+    OBJECT IN %Z
+    if true then
+    begin
+     '* '
+     [%f] k_link_wp %( %Z %, %S )% 
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for Z
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Реализован:_
+   '_Реализован:_'
+//	<* %f_k_link_wp(%L,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%L
+   begin
+    OBJECT IN %L
+    if true then
+    begin
+     '* '
+     [%f] k_link_wp %( %L %, %S )% 
+//	>][
+
+     ++! l_Counter
+    end // if
+   end // for L
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Используется элементами:_
+   '_Используется элементами:_'
+//	%f_clear_list(USED_IN_LINKS)\
+   [%f] clear_list %( 'USED_IN_LINKS' )% 
+//	%S%f_collect_used_in_links("USED_IN_LINKS")\
+   %S %f collect_used_in_links %( 'USED_IN_LINKS' )% 
+//	<{}{%f_is_empty(USED_IN_LINKS)=false}{W}[%f_pop_first_to_var(USED_IN_LINKS,LINK)%{LINK}N
+   INTEGER VAR l_Counter l_Counter := 0
+   while true
+   begin
+    if ( ( [%f] is_empty %( 'USED_IN_LINKS' )% ) %==  false ) then
+    begin
+     if NOT-EMPTY
+     begin
+      [%f] pop_first_to_var %( 'USED_IN_LINKS' %, 'LINK' )% ( get_global_var ( 'LINK' ) |N ) 
+//	]>][
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+    else
+     break
+   end // while
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Дополнительные связи:_
+   '_Дополнительные связи:_'
+//	<{}{%CS=uses&%CC=Dependency&%C%T#f_IsUseCase()!=true}* использует %f_k_link_wp(%C%T,%S)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'uses' AND 
+     ( ( %C |C ) %== 'Dependency'  ) AND 
+     ( ( %C ->T %?f IsUseCase %( )%  ) %!=  true  ) ) then
+    begin
+     '* использует '
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+//	><{}{%CS=friend&%CC=Dependency}* использует как друга %f_k_link_wp(%C%T,%S)
+
+     ++! l_Counter
+    end // if
+   end // for C
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'friend' AND 
+     ( ( %C |C ) %== 'Dependency'  ) ) then
+    begin
+     '* использует как друга '
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+//	><{}{%aS=friend&%aC=Dependency}{Sp}* дружит с %f_k_link(%a%P,%S)
+
+     ++! l_Counter
+    end // if
+   end // for C
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %== 'friend' AND 
+     ( ( %a |C ) %== 'Dependency'  ) ) then
+    begin
+     '* дружит с '
+     [%f] k_link %( %a ->P  %, %S )% 
+//	><{}{%CS=injects&%CC=Dependency}* внедряется в %f_k_link_wp(%C%T,%S)
+
+     ++! l_Counter
+    end // if
+   end // for a
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'injects' AND 
+     ( ( %C |C ) %== 'Dependency'  ) ) then
+    begin
+     '* внедряется в '
+     [%f] k_link_wp %( %C ->T  %, %S )% 
+//	><{}{%aS=injects&%aC=Dependency}{Sp}* внедряет в себя %f_k_link(%a%P,%S)
+
+     ++! l_Counter
+    end // if
+   end // for C
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%ap
+   begin
+    OBJECT IN %a
+    if ( ( %a |S ) %== 'injects' AND 
+     ( ( %a |C ) %== 'Dependency'  ) ) then
+    begin
+     '* внедряет в себя '
+     [%f] k_link %( %a ->P  %, %S )% 
+//	>]][
+
+     ++! l_Counter
+    end // if
+   end // for a
+  end // if
+  NOP
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав элемента[{%SK=ParameterizedClass}[
+  'h2. Состав элемента'
+  if ( ( %S |K ) %== 'ParameterizedClass' ) then
+  begin
+   if NOT-EMPTY
+   begin
+    #13#10
+
+//	
+    #13#10
+
+//	_Шаблонные параметры:_<{}{%CC=Parameter}
+    '_Шаблонные параметры:_'
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Parameter' ) then
+     begin
+      #13#10
+
+//	\# *%CN*[ = %f_k_text_convert(%CI)][ - %f_str_replace(%CD,\n\n,\n\\\\)]>]][
+      '# *'
+      %C |N '*'
+      if NOT-EMPTY
+      begin
+       ' = '
+       [%f] k_text_convert %( %C |I )% 
+      end // if
+      NOP
+      if NOT-EMPTY
+      begin
+       ' - '
+       [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+      end // if
+      NOP
+
+      ++! l_Counter
+     end // if
+    end // for C
+   end // if
+   NOP
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Вложенные типы (публичные):_<{}{%CC=Class&%CV=PublicAccess}{Sn}
+   '_Вложенные типы (публичные):_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Class' AND 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_type_dump(%C)>][
+     [%f] k_type_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Вложенные типы (приватные):_<{}{%CC=Class&%CV!=PublicAccess}{Sn}
+   '_Вложенные типы (приватные):_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Class' AND 
+     ( ( %C |V ) %!= 'PublicAccess'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_type_dump(%C)>][
+     [%f] k_type_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Статические методы (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_method&%CV=PublicAccess}{Sn}
+   '_Статические методы (публичные):_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'static_method'  ) AND 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)>][
+     [%f] k_method_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Статические методы (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_method&%CV!=PublicAccess}{Sn}
+   '_Статические методы (приватные):_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'static_method'  ) AND 
+     ( ( %C |V ) %!= 'PublicAccess'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)>][
+     [%f] k_method_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Статические данные:_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_attr}{Sn}
+   '_Статические данные:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'static_attr'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_attr_dump(%C)>][
+     [%f] k_attr_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Менеджеры (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=mng&%CV=PublicAccess}{Sn}
+   '_Менеджеры (публичные):_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'mng'  ) AND 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)>][
+     [%f] k_method_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Менеджеры (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=mng&%CV!=PublicAccess}{Sn}
+   '_Менеджеры (приватные):_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'mng'  ) AND 
+     ( ( %C |V ) %!= 'PublicAccess'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)>][
+     [%f] k_method_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Методы (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=method&%CV=PublicAccess}{Sn}
+   '_Методы (публичные):_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'method'  ) AND 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)>][
+     [%f] k_method_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Методы (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=method&%CV!=PublicAccess}{Sn}
+   '_Методы (приватные):_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'method'  ) AND 
+     ( ( %C |V ) %!= 'PublicAccess'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)>][
+     [%f] k_method_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Атрибуты:_<{}{%CC!=Class&%C%f_wiki_child_kind()=attr}{Sn}
+   '_Атрибуты:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'attr'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_attr_dump(%C)>][
+     [%f] k_attr_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Свойства:_<{}{%CC!=Class&%C%f_wiki_child_kind()=property}{Sn}
+   '_Свойства:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %!= 'Class' AND 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'property'  ) ) then
+    begin
+     #13#10
+
+//	%f_k_attr_dump(%C)>]\
+     [%f] k_attr_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Реализуемые методы:_<{}{%oC=Operation|%o#f_IsMethod()=true|%o#f_wiki_child_kind()=method}{Sn}\
+   '_Реализуемые методы:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%on
+   begin
+    OBJECT IN %o
+    if ( ( %o |C ) %== 'Operation' OR 
+     ( ( %o %?f IsMethod %( )% ) %==  true  ) OR 
+     ( ( %o %?f wiki_child_kind %( )% ) %== 'method'  ) ) then
+    begin
+//	[{%SS!=Factory&%SS!=TestClass&%t_interface(%S)!=true&%S#f_IsPureMixIn()!=true&%o%PU!=%SU&%S#f_IsVCMArea()!=true}\n%f_k_method_dump(%o)]>]\
+     if ( ( %S |S ) %!= 'Factory' AND 
+       ( ( %S |S ) %!= 'TestClass'  ) AND 
+       ( ( [%t] interface %( %S )% ) %!=  true  ) AND 
+       ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) AND 
+       ( ( %o ->P |U  ) %!= ( %S |U )  ) AND 
+       ( ( %S %?f IsVCMArea %( )% ) %!=  true  ) ) then
+     begin
+      #13#10
+      [%f] k_method_dump %( %o )% 
+     end // if
+
+     ++! l_Counter
+    end // if
+   end // for o
+  end // if
+  NOP
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Реализуемые свойства:_<{}{%oC=Attribute|%o#f_IsAttribute()=true}{Sn}\
+   '_Реализуемые свойства:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%on
+   begin
+    OBJECT IN %o
+    if ( ( %o |C ) %== 'Attribute' OR 
+     ( ( %o %?f IsAttribute %( )% ) %==  true  ) ) then
+    begin
+//	[{%SS!=Factory&%SS!=TestClass&%t_interface(%S)!=true&%S#f_IsPureMixIn()!=true&%o%PU!=%SU&%S#f_IsVCMArea()!=true}\n%f_k_attr_dump(%o)]>]\
+     if ( ( %S |S ) %!= 'Factory' AND 
+       ( ( %S |S ) %!= 'TestClass'  ) AND 
+       ( ( [%t] interface %( %S )% ) %!=  true  ) AND 
+       ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) AND 
+       ( ( %o ->P |U  ) %!= ( %S |U )  ) AND 
+       ( ( %S %?f IsVCMArea %( )% ) %!=  true  ) ) then
+     begin
+      #13#10
+      [%f] k_attr_dump %( %o )% 
+     end // if
+
+     ++! l_Counter
+    end // if
+   end // for o
+  end // if
+  NOP
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Переопределяемые методы:_<{}{%OC=Operation|%O#f_IsMethod()=true|%O#f_wiki_child_kind()=method}{Sn}\
+   '_Переопределяемые методы:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%On
+   begin
+    OBJECT IN %O
+    if ( ( %O |C ) %== 'Operation' OR 
+     ( ( %O %?f IsMethod %( )% ) %==  true  ) OR 
+     ( ( %O %?f wiki_child_kind %( )% ) %== 'method'  ) ) then
+    begin
+//	[{%SS!=Factory&%SS!=TestClass&%t_interface(%S)!=true&%S#f_IsPureMixIn()!=true&%O%PU!=%SU&%S#f_IsVCMArea()!=true}\n%f_k_method_dump(%O)]>]\
+     if ( ( %S |S ) %!= 'Factory' AND 
+       ( ( %S |S ) %!= 'TestClass'  ) AND 
+       ( ( [%t] interface %( %S )% ) %!=  true  ) AND 
+       ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) AND 
+       ( ( %O ->P |U  ) %!= ( %S |U )  ) AND 
+       ( ( %S %?f IsVCMArea %( )% ) %!=  true  ) ) then
+     begin
+      #13#10
+      [%f] k_method_dump %( %O )% 
+     end // if
+
+     ++! l_Counter
+    end // if
+   end // for O
+  end // if
+  NOP
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Переопределяемые свойства:_<{}{%OC=Attribute|%O#f_IsAttribute()=true}{Sn}\
+   '_Переопределяемые свойства:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%On
+   begin
+    OBJECT IN %O
+    if ( ( %O |C ) %== 'Attribute' OR 
+     ( ( %O %?f IsAttribute %( )% ) %==  true  ) ) then
+    begin
+//	[{%SS!=Factory&%SS!=TestClass&%t_interface(%S)!=true&%S#f_IsPureMixIn()!=true&%O%PU!=%SU&%S#f_IsVCMArea()!=true}\n%f_k_attr_dump(%O)]>]\
+     if ( ( %S |S ) %!= 'Factory' AND 
+       ( ( %S |S ) %!= 'TestClass'  ) AND 
+       ( ( [%t] interface %( %S )% ) %!=  true  ) AND 
+       ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) AND 
+       ( ( %O ->P |U  ) %!= ( %S |U )  ) AND 
+       ( ( %S %?f IsVCMArea %( )% ) %!=  true  ) ) then
+     begin
+      #13#10
+      [%f] k_attr_dump %( %O )% 
+     end // if
+
+     ++! l_Counter
+    end // if
+   end // for O
+  end // if
+  NOP
+//	[
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	h2. Элементы машины состояний:%f_set_var(STATE_MACHINE,S)<{}{%CC=StateMachine}{Sn}
+   'h2. Элементы машины состояний:'
+   [%f] set_var %( 'STATE_MACHINE' %, 'S' )% 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'StateMachine' ) then
+    begin
+     #13#10
+
+//	[
+     if NOT-EMPTY
+     begin
+      #13#10
+
+//	_Состояния_:%C<{}{%CC=State}{Sn}
+      '_Состояния_:'
+      %C
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%Cn
+       begin
+        OBJECT IN %C
+        if ( ( %C |C ) %== 'State' ) then
+        begin
+         #13#10
+
+//	%f_k_state_dump(%C)>
+         [%f] k_state_dump %( %C )% 
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ //	]>][
+     end // if
+     NOP
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Авто-генерируемые методы:_
+   '_Авто-генерируемые методы:_'
+//	%S%f_wiki_up_add_gen()]]<%CX>
+   %S %f wiki_up_add_gen %( )% 
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+
+//f _loc_GetNameForScript
+; // wiki
+
+end. // <<WikiImplClass>>
+
+: loc_GetNameForScript OBJECT IN %S
+//	%S{NameForScript}
+ %S get_up ( 'NameForScript' ) 
+
+
+//f _k_state_dump
+; // loc_GetNameForScript
+
+: k_state_dump OBJECT IN %S
+//	%f_set_var(STATE,S)\# *%f_k_link(%S)*[([{%SK=Initial}{[{%SK=Final}конечное]}начальное])][%{STATE_MACHINE}<{, }{%CM=State::Class&%CN=%{STATE}N}{Sn} _соответствующий элемент: %f_k_link(%C)_>][
+ [%f] set_var %( 'STATE' %, 'S' )% '# *'
+ [%f] k_link %( %S )% '*'
+ if NOT-EMPTY
+ begin
+  '('
+  if ( ( %S |K ) %== 'Initial' ) then
+  begin
+   'начальное' 
+  end // if
+  else
+  begin
+   if ( ( %S |K ) %== 'Final' ) then
+   begin
+    'конечное' 
+   end // if
+  end // else
+  ')' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  ( get_global_var ( 'STATE_MACHINE' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |M ) %== 'State::Class' AND 
+     ( ( %C |N ) %== ( ( get_global_var ( 'STATE' ) |N ) )  ) ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     ' _соответствующий элемент: '
+     [%f] k_link %( %C )% '_' 
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%SD][
+  %S |D 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	_Возможные переходы_:[<{}{%CC=Transition&"%CS"=""}{Sn}
+  '_Возможные переходы_:'
+  if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Cn
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Transition' AND 
+     ( ( %C |S ) %== ''  ) ) then
+    begin
+     #13#10
+
+//	%f_k_transition_dump(%C)>]]
+     [%f] k_transition_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+ NOP
+
+//f _k_transition_dump
+; // k_state_dump
+
+: k_transition_dump OBJECT IN %S
+//	\#* [{%f_is_guarded_transition(%S)=true}{по событию *<{}{%CC=TransitionEvent&"%CN"!=""}{Sn}%CN>*}[{%f_dump_guard(%S)!=null}{безусловный}по условию *%f_dump_guard(%S)*]] в состояние: *%f_k_link(%T)*[
+ '#* '
+ if ( ( [%f] is_guarded_transition %( %S )% ) %==  true ) then
+ begin
+  if ( ( [%f] dump_guard %( %S )% ) %!= 'null' ) then
+  begin
+   'по условию *'
+   [%f] dump_guard %( %S )% '*' 
+  end // if
+  else
+  begin
+   'безусловный' 
+  end // else
+ end // if
+ else
+ begin
+  'по событию *'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'TransitionEvent' AND 
+    ( ( %C |N ) %!= ''  ) ) then
+   begin
+    %C |N 
+    ++! l_Counter
+   end // if
+  end // for C
+  '*' 
+ end // else
+ ' в состояние: *'
+ [%f] k_link %( %T )% '*'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%SD][{%f_dump_action(%S)!=null}
+  %S |D 
+ end // if
+ NOP
+ if ( ( [%f] dump_action %( %S )% ) %!= 'null' ) then
+ begin
+  #13#10
+
+//	действие связанное с переходом: *%f_dump_action(%S)*]
+  'действие связанное с переходом: *'
+  [%f] dump_action %( %S )% '*' 
+ end // if
+//#UC END# *46E6D4BB0339for471723E1037A*
+; // k_transition_dump
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

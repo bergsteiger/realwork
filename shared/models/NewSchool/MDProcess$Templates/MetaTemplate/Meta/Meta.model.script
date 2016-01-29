@@ -1,0 +1,1223 @@
+<<MDALibrary>> Meta
+ %UID '46E13A3C030D'
+ %SUMMARY 'библиотека мета-шаблонов' ;
+ %DEPENDS
+  U$ '46E801C00348' /* Core */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '46E801C00348' /* Core */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<MDALayer>> Abstracts
+   %UID '46E16545033C'
+   %SUMMARY 'слой абстрактных генераторов' ;
+   %DEPENDS
+    U$ '46E80398003B' /* "Abstract" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E801C00348' /* Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<MDAGenerator>> "Мета-MDA"
+      %UID '46E28D3A01E4'
+      %SUMMARY 'генераторы мета-шаблонов' ;
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E6D49602DB' /* Документация */
+      ; // %INHERITS
+      %OPERATIONS
+       ABSTRACT <<generator>> mda OBJECT IN %S
+        %UID '46E28D830109'
+        %SUMMARY 'Генерация мета-шаблонов' ;
+       ; // mda
+       <<generator>> mda.inc OBJECT IN %S
+        %UID '4A09484300C6'
+        %SUMMARY 'Генерация списка включения мета-шаблонов (mda.inc)' ;
+       ; // mda.inc
+       <<generator>> tpi.script OBJECT IN %S
+        %UID '5655E2B600CA'
+        %META
+         %upv "lang id" 'script'
+         %upv "tab replace" '\\s'
+        ; // %META
+       ; // tpi.script
+       STRING FUNCTION tpi_script_FileName OBJECT IN %S
+        %UID '5655ED7D0175'
+        %TARGET U$ '452257A0036F' /* "a-string" */
+       ; // tpi_script_FileName
+       STRING FUNCTION tpi_script_Name OBJECT IN %S
+        %UID '5655EDAD01E3'
+        %TARGET U$ '452257A0036F' /* "a-string" */
+       ; // tpi_script_Name
+       <<Operation>> tpi_script_GenerateForward OBJECT IN %S
+        %UID '5655F14C01C2'
+       ; // tpi_script_GenerateForward
+       STRING FUNCTION tpi_script_NamePrim OBJECT IN %S
+        %UID '565872E001A9'
+        %TARGET U$ '452257A0036F' /* "a-string" */
+       ; // tpi_script_NamePrim
+      ; // %OPERATIONS
+     ; // "Мета-MDA"
+     [EXPORT] "Мета-MDA"
+   ; // %CHILDREN
+  ; // Abstracts
+  <<MDALayer>> Elements
+   %UID '46E1536802AF'
+   %SUMMARY 'Элементы нижнего слоя (слой классов и под-стереотипов)' ;
+   %DEPENDS
+    U$ '46E16545033C' /* Abstracts */
+    U$ '46E80398003B' /* "Abstract" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E13A3C030D' /* Meta */
+    U$ '46E801C00348' /* Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDAClass>> MDAGenerator
+      %UID '46E1540F00AB'
+      %SUMMARY 'Абстрактный генератор'#13#10'---'#13#10'Формулирует абстрактный генератор, определяющий генераторы для всех наследников, и формирующий иерархию генераторов объединяя их в связанные группы, посредствам связи "group". Генераторы с установленным свойством "internal" просто объединяют несколько генераторов посредством наследования, не создавая никаких иерархий и групп.'#13#10''#13#10'Атрибуты генератора (и всех его логических потомков) трактуются как пользовательские свойства.'#13#10''#13#10'Функции как методы (генераторы, функции и трансформаторы) стереотипа. Функции могут перекрываться аналогично виртуальным функциям в обычных ЯП.' ;
+      %META
+       %upv "abstraction type" 'a'
+       %upv "has derived impl" true
+       %upv "personal label" 'code_mda_generator'
+       %upv "visability type" '+'
+       %upv "visualization bg color" 14148095
+       %upv "visualization f-font color" 4944890
+       %upv "visualization f-line color" 4944890
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+       U$ '46E801C00348' /* Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '46E28D3A01E4' /* "Мета-MDA" */
+       U$ '484E3DDD01F0' /* ModelSerialize */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '46E28D830109' /* mda */
+       U$ '46E6D4BB0339' /* wiki */
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4704C0E30186' /* constraint */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+       U$ '4F368B80039E' /* forth_structure */
+      ; // %REALIZES
+      %ATTRIBUTES
+       <<string>> "has exception"
+        %UID '46E3F5E90242'
+        %SUMMARY 'элемент может иметь исключения (s - SET, g - GET, a - SET и GET) по умолчанию - g. Для элементов с данным стереотипом будут доступны диалоги установки исключений' ;
+       ; // "has exception"
+       <<bool>> skip
+        %UID '46E3F6470203'
+        %SUMMARY 'элемент будет/не будет пропущен (включая всех его потомков) из загрузки модели и кодогенерации.' ;
+        %VALUE 0
+       ; // skip
+       <<string>> "abstraction type"
+        %UID '46E3F6EA0232'
+        %SUMMARY 'Возможные типы абстракции '#13#10'а=abstract;'#13#10'r=regular;'#13#10'f=final;' ;
+       ; // "abstraction type"
+       <<string>> "visability type"
+        %UID '46E3F706000F'
+        %SUMMARY 'возможные типы видимости элемента'#13#10'+ - public'#13#10'# - protected'#13#10'- - private'#13#10'i - implementation'#13#10'по умолчанию public' ;
+       ; // "visability type"
+       <<string>> "personal label"
+        %UID '46EFC8810347'
+        %SUMMARY 'лейбл идентифицирующий элемент и определяющий его визуальное представление (иконку) в wiki и в навигаторе Розы' ;
+       ; // "personal label"
+       <<bool>> internal
+        %UID '47148DBA034B'
+        %SUMMARY 'Определяет, что генератор является внутренним и используется только для объединения других генераторов (через наследование). Для конкретных стереотипов этот признак означает, что стереотип не может быть использован при проектировании модели, т.е проектировщику он не будет доступен для выбора, но этот стереотип можно использовать для построения виртуальных элементов' ;
+        %VALUE false
+       ; // internal
+       <<bool>> "no auto copy"
+        %UID '4B21008202BB'
+        %SUMMARY 'Не создавать копии вложенных стереотипов' ;
+        %VALUE false
+       ; // "no auto copy"
+       <<bool>> "make auto copies internal"
+        %UID '4B21008801A9'
+        %SUMMARY 'сделать все авто-копии внутренними (не доступными для проектировщика)' ;
+        %VALUE false
+       ; // "make auto copies internal"
+      ; // %ATTRIBUTES
+      %OPERATIONS
+       <<Operation>> st_name OBJECT IN %S
+        %UID '46E2BB3103B9'
+        %SUMMARY 'Генерирует полное имя стереотипа' ;
+       ; // st_name
+       <<Operation>> need_st_define OBJECT IN %S
+        %UID '46E2BB9400EA'
+        %SUMMARY 'Определяет необходимость создания описания стереотипа' ;
+       ; // need_st_define
+       <<Operation>> sub_st_auto_copy OBJECT IN %S
+        %UID '46E3EDE002DE'
+        %SUMMARY 'генерирует декларацию равенства для всех подстереотиппов, унаследованных от базовых стереотипов' ;
+       ; // sub_st_auto_copy
+       <<Operation>> st_class_name OBJECT IN %S
+        %UID '46E7AE5B00A8'
+        %SUMMARY 'возвращает имя (идентификатор) класса стереотипа' ;
+       ; // st_class_name
+       <<Operation>> define_up OBJECT IN %S
+        %UID '46E7BDF301F1'
+        %SUMMARY 'выводит определение всех UP' ;
+       ; // define_up
+       <<Operation>> st_kind OBJECT IN %S
+        %UID '47130CC40213'
+        %SUMMARY 'Возвращает вид стереотипа : main, sub' ;
+       ; // st_kind
+       <<Operation>> is_redefinition OBJECT IN %S
+        %UID '4986D3AD00DA'
+        %SUMMARY 'возвращает true, если элемент является переопределением уже существующего стереотипа' ;
+       ; // is_redefinition
+       <<Operation>> collect_base_stereotypes OBJECT IN %S STRING IN list_id
+        %UID '4986D3D1021C'
+        %SUMMARY 'собирает в список <<list_id>> базовые стереотипы элемента' ;
+        %PARAMETERS
+         <<in>> list_id
+          %UID '4986D40D035F'
+          %TARGET U$ '452257A0036F' /* "a-string" */
+         ; // list_id
+        ; // %PARAMETERS
+       ; // collect_base_stereotypes
+       <<Operation>> dump_inherit_list OBJECT IN %S
+        %UID '4986D44803C1'
+        %SUMMARY 'генерит список наследования для стереотипа' ;
+       ; // dump_inherit_list
+       <<Operation>> collect_generators OBJECT IN %S IN list_id
+        %UID '499B91DB0171'
+        %SUMMARY 'Алгоритм формирования списка генераторов, которые должны быть определены на стереотипе. Результат "складывается" в список с идентифкатором определяемым параметром list_id.' ;
+        %PARAMETERS
+         <<in>> list_id
+          %UID '499B91DB019D'
+          %TARGET U$ '3DBFFE240068' /* string */
+         ; // list_id
+        ; // %PARAMETERS
+       ; // collect_generators
+       <<Operation>> dump_main_hierarchy OBJECT IN %S
+        %UID '49F970B601B4'
+        %SUMMARY 'дампит стереотип, определяющий основную ветку наследования, этот стереотип используется для разрешения неоднозначностей при вызове функций и трасформаторов, в случае множественного наследования.' ;
+       ; // dump_main_hierarchy
+       <<Operation>> collect_exclude_for_auto_copy OBJECT IN %S IN list_id
+        %UID '4AE5851A019B'
+        %SUMMARY 'собирает в список с заданным идентификатором имена стереотипов (A::Class), которые НЕ должны включаться в элемент' ;
+        %PARAMETERS
+         <<in>> list_id
+          %UID '4AE585A001E5'
+          %TARGET U$ '3DBFFE240068' /* string */
+         ; // list_id
+        ; // %PARAMETERS
+       ; // collect_exclude_for_auto_copy
+       <<Operation>> is_internal_auto_copy OBJECT IN %S IN copy
+        %UID '4B21010C008F'
+        %SUMMARY 'нужно ли помечать авто-копируемый элемент как внутренний' ;
+        %PARAMETERS
+         <<in>> copy
+          %UID '4B2101360057'
+          %TARGET U$ '3ECB343C024C' /* pointer */
+         ; // copy
+        ; // %PARAMETERS
+       ; // is_internal_auto_copy
+      ; // %OPERATIONS
+      %CHILDREN
+       
+       <<MDAOperation>> generator
+        %UID '46E3DB9001C5'
+        %SUMMARY 'генератор'#13#10'---'#13#10'определяет конкретный целевой генератор' ;
+        %META
+         %upv "abstraction type" 'ar'
+         %upv "empty target" true
+         %upv "implementable" true
+         %upv "personal label" 'code_mda_op_generator'
+        ; // %META
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %IMPLEMENTS
+         U$ '46E28D3A01E4' /* "Мета-MDA" */
+        ; // %IMPLEMENTS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '4705CBD6003E' /* wiki_child_kind */
+        ; // %REALIZES
+        %ATTRIBUTES
+         <<string>> "tab replace"
+          %UID '46E406190128'
+          %SUMMARY 'задает строку заменитель для символа табулятора. Если задан, то в результирующем файле все табуляторы будут заменены на указанную строку. Вместо пробела следует использовать последовательность "\s".' ;
+         ; // "tab replace"
+         <<string>> "lang id"
+          %UID '470343440213'
+          %SUMMARY 'идентификатор языка' ;
+         ; // "lang id"
+         <<string>> ifdef_suffix
+          %UID '471C3DC90280'
+          %SUMMARY 'суффикс используемый при генерации деректив #ifdef' ;
+         ; // ifdef_suffix
+         <<string>> "newline replace"
+          %UID '49E8789303DB'
+          %SUMMARY 'Заменитель переноса строки. Если необходимо использовать специальные символы, то заменитель можно задать как последовательность кодов символов в шестнадцатиричном виде. Например заменитель 0D0A эквивалентен \n. Если не удалось распарсить последовательность, то заменителем будет просто строка, например: 0D123 так и останется 0D123.'#13#10'Вместо пробела следует использовать последовательность "\s".' ;
+         ; // "newline replace"
+         <<list>> encoding
+          %UID '4A434BC601E5'
+          %SUMMARY 'Кодировка выходного файла, по-умолчанию cp1251' ;
+          %VALUE 'default'
+          %VALUES
+           'utf8'
+           'koi8-r'
+           'cp866'
+          ; // %VALUES
+         ; // encoding
+        ; // %ATTRIBUTES
+       ; // generator
+       ABSTRACT <<MDAOperation>> function
+        %UID '46E3DB3B001F'
+        %SUMMARY 'функция стереотипа'#13#10'---'#13#10'определяет пользовательскую функцию принадлежащую стереотипу' ;
+        %META
+         %upv "abstraction type" 'ar'
+         %upv "empty target" true
+         %upv "implementable" true
+         %upv "personal label" 'code_mda_op_function'
+         %upv "unstereotyped" true
+        ; // %META
+       ; // function
+       ABSTRACT <<MDAOperation>> transformator
+        %UID '46E3F93A0128'
+        %SUMMARY 'Трансформатор'#13#10'---'#13#10'Задает пользовательский трансформатор принадлежащий стереотипу' ;
+        %META
+         %upv "abstraction type" 'ar'
+         %upv "empty target" true
+         %upv "implementable" true
+         %upv "personal label" 'code_mda_op_transformator'
+        ; // %META
+       ; // transformator
+       FINAL <<MDAAttribute>> UserProperty
+        %UID '46EFD6DC0192'
+        %SUMMARY 'базовый класс для пользовательских свойств' ;
+        %META
+         %upv "empty target" true
+         %upv "implementable" false
+         %upv "link type" 'a'
+         %upv "personal label" 'code_mda_attr_up'
+        ; // %META
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %IMPLEMENTS
+         U$ '46E28D3A01E4' /* "Мета-MDA" */
+        ; // %IMPLEMENTS
+        %REALIZES
+         U$ '46E6D4BB0339' /* wiki */
+         U$ '470484D50138' /* wiki_up_add_gen */
+         U$ '4704C0E30186' /* constraint */
+         U$ '4705CBD6003E' /* wiki_child_kind */
+        ; // %REALIZES
+       ; // UserProperty
+       ABSTRACT <<MDAAttribute>> bool
+        %UID '46E6B9A10135'
+        %SUMMARY 'UP-бинарное значение'#13#10'---'#13#10'Задает пользовательское свойство типа бинарное значение "on/off"' ;
+        %META
+         %upv "implementable" false
+        ; // %META
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '46EFD6DC0192' /* UserProperty */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+        ; // %REALIZES
+       ; // bool
+       ABSTRACT <<MDAAttribute>> string
+        %UID '46E6B9AC02FA'
+        %SUMMARY 'UP-строка'#13#10'---'#13#10'Задает пользовательское свойство типа "строка"' ;
+        %META
+         %upv "implementable" false
+        ; // %META
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '46EFD6DC0192' /* UserProperty */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+        ; // %REALIZES
+       ; // string
+       ABSTRACT <<MDADependency>> include
+        %UID '46E6CB280164'
+        %SUMMARY 'Разрешение использования'#13#10'---'#13#10'Связь разрешающая использование одного стереотипра (цель связи) внутри другого (рожитель связи).' ;
+        %META
+         %upv "personal label" 'code_mda_dep_include'
+        ; // %META
+        %ATTRIBUTES
+         <<bool>> internal
+          %UID '4AE69AC90108'
+          %SUMMARY 'определяет, что пользователь не может использовать стереотип, на который указывает (но можно использовать в суммонинге)' ;
+          %VALUE false
+         ; // internal
+        ; // %ATTRIBUTES
+       ; // include
+       FINAL <<MDADependency>> group
+        %UID '46E7DE3F03A6'
+        %SUMMARY 'Родительская группа'#13#10'---'#13#10'Определяет родительскую "группу" для генераторов' ;
+        %META
+         %upv "personal label" 'code_mda_dep_group'
+        ; // %META
+       ; // group
+       ABSTRACT <<MDAAttribute>> list
+        %UID '46E6B6890396'
+        %SUMMARY 'UP-список'#13#10'---'#13#10'Задает пользовательское свойство типа "список"' ;
+        %META
+         %upv "implementable" false
+        ; // %META
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '46EFD6DC0192' /* UserProperty */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+        ; // %REALIZES
+       ; // list
+       ABSTRACT <<MDAAttribute>> file
+        %UID '46FE5AA001E5'
+        %SUMMARY 'UP-файл'#13#10'---'#13#10'Задает пользовательское свойство типа "имя файла" (с возможностьб выбора стандартными средствами)' ;
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '46EFD6DC0192' /* UserProperty */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+        ; // %REALIZES
+       ; // file
+       ABSTRACT <<MDAAttribute>> color
+        %UID '46FE5AED032D'
+        %SUMMARY 'UP-цвет'#13#10'---'#13#10'Задает пользовательское свойство типа "цвет" в формате RGB (с возможностьб выбора стандартными средствами)' ;
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '46EFD6DC0192' /* UserProperty */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+        ; // %REALIZES
+       ; // color
+       ABSTRACT <<MDAAttribute>> tribool
+        %UID '470E033101F4'
+        %SUMMARY 'UP-булево значение с 3-мя состояними'#13#10'Задает пользовательское свойство с тремя состояниями "true/false/undefined"' ;
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '46EFD6DC0192' /* UserProperty */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+        ; // %REALIZES
+       ; // tribool
+       ABSTRACT <<MDADependency>> "main hierarchy"
+        %UID '49F847A30327'
+        %SUMMARY 'Основная ветка иерархии'#13#10'---'#13#10'цель данной связи определяет основного предка для стереотипа, этот основной элемент будет использоваться при разрешении неоднозначности при вызове метода на стереотипе-источнике' ;
+        %META
+         %upv "personal label" 'code_mda_dep_main_hierarchy'
+        ; // %META
+       ; // "main hierarchy"
+       ABSTRACT <<MDADependency>> "exclude auto copy"
+        %UID '4AE5844A0278'
+        %SUMMARY 'элементы, на которые указывают такие связи не копируется из родителя' ;
+        %META
+         %upv "personal label" 'code_mda_dep'
+        ; // %META
+       ; // "exclude auto copy"
+       ABSTRACT <<MDAAttribute>> text
+        %UID '4D6CD5FA03E7'
+        %SUMMARY 'UP-текст'#13#10'---'#13#10'Задает пользовательское свойство типа "текст"' ;
+        %TOBEINCLUDED
+         U$ '46E13A3C030D' /* Meta */
+        ; // %TOBEINCLUDED
+        %INHERITS
+         U$ '46EFD6DC0192' /* UserProperty */
+        ; // %INHERITS
+        %REALIZES
+         U$ '46E28D830109' /* mda */
+        ; // %REALIZES
+       ; // text
+      ; // %CHILDREN
+     ; // MDAGenerator
+     [EXPORT] <<MDAGenerator>>
+     ABSTRACT <<MDAClass>> MDAMainStereotype
+      %UID '46E7B7700193'
+      %SUMMARY 'Абстрактный стереотип база для основных элементов-стереотипов (класс, папка...)' ;
+      %META
+       %upv "abstraction type" 'ra'
+       %upv "has derived impl" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E1540F00AB' /* MDAGenerator */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E3DB3B001F' /* function */
+       U$ '46E3F93A0128' /* transformator */
+       U$ '46E6B6890396' /* list */
+       U$ '46E6B9A10135' /* bool */
+       U$ '46E6B9AC02FA' /* string */
+       U$ '46E6CB280164' /* include */
+       U$ '46FE5AA001E5' /* file */
+       U$ '46FE5AED032D' /* color */
+       U$ '470E033101F4' /* tribool */
+       U$ '49F847A30327' /* "main hierarchy" */
+       U$ '4AE5844A0278' /* "exclude auto copy" */
+       U$ '4D6CD5FA03E7' /* text */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E2BB9400EA' /* need_st_define */
+       U$ '46E7BDF301F1' /* define_up */
+       U$ '47130CC40213' /* st_kind */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+       <<color>> "visualization bg color"
+        %UID '46E7B7DF005A'
+        %SUMMARY 'определяет цвет заливки на "своей" диаграмме' ;
+       ; // "visualization bg color"
+       <<color>> "visualization f-font color"
+        %UID '46E7B7E101E1'
+        %SUMMARY 'определяет цвет шрифта на "чужой" диаграмме' ;
+       ; // "visualization f-font color"
+       <<string>> "visualization type"
+        %UID '46E7B7E4004B'
+        %SUMMARY 'определяет способ отображение стереотипа элемента'#13#10's - stereotype'#13#10'i = icon'#13#10'd = decoration' ;
+       ; // "visualization type"
+       <<color>> "visualization f-line color"
+        %UID '46E7B7E601F1'
+        %SUMMARY 'определяет цвет линий на "чужой" диаграмме' ;
+       ; // "visualization f-line color"
+       <<color>> "visualization font color"
+        %UID '46E7B7E80319'
+        %SUMMARY 'определяет цвет шрифта на "своей" диаграмме' ;
+       ; // "visualization font color"
+       <<color>> "visualization line color"
+        %UID '46E7B7EC03B6'
+        %SUMMARY 'определяет цвет линий на "своей" диаграмме' ;
+       ; // "visualization line color"
+       <<bool>> "disable forward decl"
+        %UID '46E7B81302EB'
+        %SUMMARY '"Disable forward declaration" - запрещает/разрешает forward-декларацию элементов,если не задано ни true ни false - по умолчанию принимается true.'#13#10'Этот параметр влияет на определение порядка вывода элементов из модели. Если forward-декларация разрешена, то при обнаружении циклических зависимостей элемент с таким стереотипом может быть forward-декларирован. В противном случае, forward-декларация будет сделана для второго элемента. Если для обоих элементов forward-декларация запрещена, то генератор выдаст ошибку о невозможности разрешения циклических зависимостей.' ;
+        %VALUE 0
+       ; // "disable forward decl"
+       <<bool>> "inherite constraints"
+        %UID '47EA16C9012E'
+        %SUMMARY 'Нужно ли наследовать включаемые/исключаемые элементы. В шаблоне данный признак обязательно должен быть указан перед списком включаемых/исключаемых стереотипов' ;
+        %VALUE true
+       ; // "inherite constraints"
+      ; // %ATTRIBUTES
+     ; // MDAMainStereotype
+     [EXPORT] <<MDAMainStereotype>>
+     <<@MDAClass>> MDAClass
+      %UID '46E1537802AF'
+      %SUMMARY 'Элемент-класс'#13#10'---'#13#10'Формулирует стереотип класса. '#13#10'Ключевой стереотип при создании мета-моделей шаблонов. Как можно видеть сама модель мета-шаблонов практически полностью построена за счет данного стереотипа. Т.к. именно он определяет основной строительный элемент - сущность класса-шаблона. Описывая при этом сам себя (что видно из равенства названий самого класса и его стереотипа).'#13#10''#13#10'Наследует все свойства своих базовых классов (прежде всего MDAGeneartor)'#13#10''#13#10'Вложенные классы определяют допустимые подстереотипы и генерируют их описание.'#13#10''#13#10'Абстрактность определяет возможность иметь экземпляры т.е. быть использованным на модели.'#13#10''#13#10'Атрибуты-пользовательские свойства определяют все основные команды-свойства стереотипов (определенные языком шаблона)'#13#10''#13#10'Большая часть мета-шаблона генерации определена в базовом классе MDAGenerator.' ;
+      %META
+       %upv "personal label" 'code_mda_class'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7B7700193' /* MDAMainStereotype */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+       U$ '46E7BDF301F1' /* define_up */
+       U$ '4704C0E30186' /* constraint */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "46E3DA7B00AB"
+        %UID '46E3DA7B00AB'
+        %TARGET U$ '46E3D9F10271' /* MDAOperation */
+       ; // 46E3DA7B00AB
+       <<include>> "46E4093003A9"
+        %UID '46E4093003A9'
+        %TARGET U$ '46E40915033C' /* MDAAttribute */
+       ; // 46E4093003A9
+       <<include>> "46E6C1060368"
+        %UID '46E6C1060368'
+        %TARGET U$ '46E6C0CB0116' /* MDADependency */
+       ; // 46E6C1060368
+       <<include>> "470F43090196"
+        %UID '470F43090196'
+        %TARGET U$ '470F42DA003E' /* MDAStateMachine */
+       ; // 470F43090196
+       <<include>> "470F59980119"
+        %UID '470F59980119'
+        %TARGET U$ '470F58AF0138' /* MDAParameter */
+       ; // 470F59980119
+      ; // %LINKS
+      %ATTRIBUTES
+       <<bool>> "has derived impl"
+        %UID '46E2D18A01D4'
+        %SUMMARY 'признак элемента указывающий на то что данный элемент может иметь унаследованную реализацию' ;
+        %VALUE 0
+       ; // "has derived impl"
+       <<bool>> exception
+        %UID '46E3F5C4035B'
+        %SUMMARY 'элемент может/не может быть использован, как исключение. В диалогах установки исключений, элементы с данным стереотипом будут доступны для выбора. Если не задано ни true ни false - по умолчанию принимается true.' ;
+        %VALUE 0
+       ; // exception
+       <<tribool>> "can be parametrized"
+        %UID '47144E2001E4'
+        %SUMMARY 'Указывает что элемент может/не может быть параметризован.' ;
+        %VALUE 'undefined'
+       ; // "can be parametrized"
+       <<string>> "forward weight"
+        %UID '47C5033802FE'
+        %SUMMARY 'вес форвард декларации - из двух элементов форвард декларирован будет тот, у которого больший вес' ;
+        %VALUE 0
+       ; // "forward weight"
+       <<tribool>> implementable
+        %UID '4BF269080017'
+        %SUMMARY 'признак элемента указывающий на то что данный элемент будет реализован в своем контейнере и может быть «перекрыт» в контейнере-наследнике' ;
+        %VALUE 'undefined'
+       ; // implementable
+      ; // %ATTRIBUTES
+     ; // MDAClass
+     [EXPORT] <<MDAClass>>
+     ABSTRACT <<MDAClass>> MDASubStereotype
+      %UID '46E7ADBC0377'
+      %SUMMARY 'Абстрактный стереотип база для всех под-стереотипов'#13#10''#13#10''#13#10'Финальные под-стереотипы не наследуются (не копируются) потомками' ;
+      %META
+       %upv "abstraction type" 'rf'
+       %upv "has derived impl" true
+       %upv "implementable" true
+       %upv "visualization bg color" 14811105
+       %upv "visualization f-font color" 6617700
+       %upv "visualization f-line color" 6617700
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E1540F00AB' /* MDAGenerator */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E3DB3B001F' /* function */
+       U$ '46E3F93A0128' /* transformator */
+       U$ '46E6B6890396' /* list */
+       U$ '46E6B9A10135' /* bool */
+       U$ '46E6B9AC02FA' /* string */
+       U$ '46FE5AA001E5' /* file */
+       U$ '46FE5AED032D' /* color */
+       U$ '470E033101F4' /* tribool */
+       U$ '49F847A30327' /* "main hierarchy" */
+       U$ '4AE5844A0278' /* "exclude auto copy" */
+       U$ '4D6CD5FA03E7' /* text */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E28D830109' /* mda */
+       U$ '46E2BB3103B9' /* st_name */
+       U$ '47130CC40213' /* st_kind */
+       U$ '4986D3AD00DA' /* is_redefinition */
+       U$ '499B91DB0171' /* collect_generators */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+       <<bool>> unstereotyped
+        %UID '46E7ADF3025E'
+        %SUMMARY 'Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.' ;
+       ; // unstereotyped
+      ; // %ATTRIBUTES
+      %OPERATIONS
+       <<Operation>> sub_st_name OBJECT IN %S
+        %UID '46E7AE3F01E1'
+        %SUMMARY 'генерирует имя подстереотипа на основе (с перфиксов) переданного аргумента родителя' ;
+       ; // sub_st_name
+      ; // %OPERATIONS
+     ; // MDASubStereotype
+     [EXPORT] <<MDASubStereotype>>
+     ABSTRACT <<MDAClass>> MDASubChild
+      %UID '46E7ACEF00E7'
+      %SUMMARY 'Абстрактный стереотип база для всех под-стереотипов являющихся непосредственными детьми контейнера (атрибуты, операции) кроме связей-зависимости'#13#10''#13#10'Абстрактные под-стереотипы не генерируются в шаблон.' ;
+      %META
+       %upv "abstraction type" 'rafo'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ADBC0377' /* MDASubStereotype */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '46E7BDF301F1' /* define_up */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+       <<bool>> "empty target"
+        %UID '46E7AD4101E1'
+        %SUMMARY 'разрешает/запрещает элементу иметь «пустой» TARGET  (например, атрибут без типа, или операция без типа результата), в противном случае генератор выдаст предупреждение, если не задано ни true ни false - по умолчанию принимается true.' ;
+        %VALUE 0
+       ; // "empty target"
+       <<tribool>> implementable
+        %UID '46E7AD460193'
+        %SUMMARY 'признак элемента указывающий на то что данный элемент будет реализован в своем контейнере и может быть «перекрыт» в контейнере-наследнике' ;
+        %VALUE 'undefined'
+       ; // implementable
+       <<string>> "available target stereotypes"
+        %UID '470CA1C101B5'
+        %SUMMARY 'определяет для элемента набор дополнительных пользовательских стереотипов «цели» (т.е. дополнительный стереотипов связанных с возвращаемым результатом или с целевой связью атрибута). Можно задавать несколько стереотипов через символ ''|''.'#13#10''#13#10'значение "empty" генерится в пустой список' ;
+       ; // "available target stereotypes"
+      ; // %ATTRIBUTES
+     ; // MDASubChild
+     [EXPORT] <<MDASubChild>>
+     <<@MDAClass>> MDADependency
+      %UID '46E6C0CB0116'
+      %SUMMARY 'Связь-зависимости'#13#10'---'#13#10'Формулирует под-стереотип отвечающий за связь-зависимости' ;
+      %META
+       %upv "abstraction type" 'raf'
+       %upv "personal label" 'code_mda_dependency'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ADBC0377' /* MDASubStereotype */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6CB280164' /* include */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+      ; // %OVERRIDES
+     ; // MDADependency
+     [EXPORT] <<MDADependency>>
+     <<MDAClass>> MDAUtilityPack
+      %UID '46E6CEA300A8'
+      %SUMMARY 'Набор-функций'#13#10'---'#13#10'Набор общих функций и трансформаторов не привязанных к стереотипу' ;
+      %META
+       %upv "personal label" 'code_mda_utility_pack'
+       %upv "visualization bg color" 16444380
+       %upv "visualization f-font color" 16099915
+       %upv "visualization f-line color" 16099915
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '46E28D3A01E4' /* "Мета-MDA" */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '46E28D830109' /* mda */
+       U$ '46E6D4BB0339' /* wiki */
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4704C0E30186' /* constraint */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+      ; // %REALIZES
+      %CHILDREN
+       
+       <<MDAOperation>> function
+        %UID '46E6CEE102CB'
+        %SUMMARY 'Общая функция'#13#10'---'#13#10'Пользовательская функция не привязанная к стереотипу - доступна из любого места шаблонов' ;
+        %META
+         %upv "empty target" true
+         %upv "personal label" 'code_mda_op_function'
+         %upv "unstereotyped" true
+        ; // %META
+       ; // function
+       <<MDAOperation>> transformator
+        %UID '46E81A760106'
+        %SUMMARY 'Общий трансформатор'#13#10'---'#13#10'Пользовательский трансформатор не привязанный к стереотипу - доступен из любого места шаблонов' ;
+        %META
+         %upv "empty target" true
+         %upv "personal label" 'code_mda_op_transformator'
+        ; // %META
+        %ATTRIBUTES
+         <<bool>> "is redefinition"
+          %UID '49EF07EE0012'
+          %SUMMARY 'признак того, что трансформатор является доопределение существующего, т.е к значениям существующего трансформатора добавятся значения данного' ;
+          %VALUE false
+         ; // "is redefinition"
+        ; // %ATTRIBUTES
+       ; // transformator
+      ; // %CHILDREN
+     ; // MDAUtilityPack
+     [EXPORT] <<MDAUtilityPack>>
+     <<@MDAClass>> MDAOperation
+      %UID '46E3D9F10271'
+      %SUMMARY 'Операция элемента-класса'#13#10'---'#13#10'Формулирует под-стереотип операции клласса.' ;
+      %META
+       %upv "abstraction type" 'rao'
+       %upv "personal label" 'code_mda_operation'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ACEF00E7' /* MDASubChild */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6CB280164' /* include */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "470F58EC00EA"
+        %UID '470F58EC00EA'
+        %TARGET U$ '470F58AF0138' /* MDAParameter */
+       ; // 470F58EC00EA
+      ; // %LINKS
+     ; // MDAOperation
+     [EXPORT] <<MDAOperation>>
+     <<@MDAClass>> MDAAttribute
+      %UID '46E40915033C'
+      %SUMMARY 'Атрибут элемента-класса'#13#10'---'#13#10'Формулирует под-стереотип атрибута клласса' ;
+      %META
+       %upv "personal label" 'code_mda_attribute'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ACEF00E7' /* MDASubChild */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6CB280164' /* include */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+       U$ '46E7BDF301F1' /* define_up */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "470F54FB006D"
+        %UID '470F54FB006D'
+        %TARGET U$ '46E40915033C' /* MDAAttribute */
+       ; // 470F54FB006D
+      ; // %LINKS
+      %ATTRIBUTES
+       <<string>> "link type"
+        %UID '46E6CC9A01A2'
+        %SUMMARY 'Возможные типы связей элемента'#13#10'a - aggregation'#13#10'r - reference'#13#10'l - link' ;
+       ; // "link type"
+      ; // %ATTRIBUTES
+     ; // MDAAttribute
+     [EXPORT] <<MDAAttribute>>
+     <<@MDAClass>> MDACategory
+      %UID '46E1538400EA'
+      %SUMMARY 'Элемент папка'#13#10'---'#13#10'Формулирует стереотип категории (папки)' ;
+      %META
+       %upv "personal label" 'code_mda_category'
+       %upv "visualization bg color" 16769023
+       %upv "visualization f-font color" 15093990
+       %upv "visualization f-line color" 15093990
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7B7700193' /* MDAMainStereotype */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+       U$ '46E7BDF301F1' /* define_up */
+       U$ '4704C0E30186' /* constraint */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+       <<bool>> "can be main"
+        %UID '46E2E5CE029F'
+        %SUMMARY 'признак может ли элемент быть основным элементом модели' ;
+        %VALUE 0
+       ; // "can be main"
+       <<bool>> "can set visibility level"
+        %UID '4AAA20190350'
+        %SUMMARY 'Можно ли для папки устанавливать глубину видимости детей' ;
+        %VALUE false
+       ; // "can set visibility level"
+      ; // %ATTRIBUTES
+     ; // MDACategory
+     [EXPORT] <<MDACategory>>
+     <<MDAUtilityPack>> Support
+      %UID '4709F9E70196'
+      %SUMMARY 'набор вспомогательных функций и трансформаторов для генерации шаблонов' ;
+      %OPERATIONS
+        <<transformator>> visualization_type IN %S
+         %UID '4709FA190196'
+         %SUMMARY 'возвращает способ отображения стереотипа элемента диаграмме:'#13#10'Stereotype'#13#10'Icon'#13#10'Decoration' ;
+        ; // visualization_type
+        <<Operation>> collect_parents_generators IN %S
+         %UID '470F600B0177'
+         %SUMMARY 'собирает рекурсивно все генераторы определенные или реализумые родителями' ;
+        ; // collect_parents_generators
+      ; // %OPERATIONS
+     ; // Support
+     [EXPORT] Support
+     <<MDAClass>> MDAStateMachine
+      %UID '470F42DA003E'
+      %SUMMARY 'Элемент - машина состояний' ;
+      %META
+       %upv "personal label" 'code_mda_statemachine'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ACEF00E7' /* MDASubChild */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6CB280164' /* include */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "470F43800271"
+        %UID '470F43800271'
+        %TARGET U$ '470F4363008C' /* MDAState */
+       ; // 470F43800271
+      ; // %LINKS
+     ; // MDAStateMachine
+     [EXPORT] <<MDAStateMachine>>
+     <<MDAClass>> MDAState
+      %UID '470F4363008C'
+      %SUMMARY 'Элемент-состояние'#13#10'---'#13#10'состояние в машине состояний' ;
+      %META
+       %upv "personal label" 'code_mda_state'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ACEF00E7' /* MDASubChild */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6CB280164' /* include */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "470F43F1004E"
+        %UID '470F43F1004E'
+        %TARGET U$ '470F43B201E4' /* MDAStateAction */
+       ; // 470F43F1004E
+       <<include>> "470F47160280"
+        %UID '470F47160280'
+        %TARGET U$ '470F44760251' /* MDATransition */
+       ; // 470F47160280
+      ; // %LINKS
+     ; // MDAState
+     [EXPORT] <<MDAState>>
+     <<MDAClass>> MDAStateAction
+      %UID '470F43B201E4'
+      %SUMMARY 'Элемент-действие'#13#10'---'#13#10'определяет стереотип действия связанного с состояниеми' ;
+      %META
+       %upv "personal label" 'code_mda_state_action'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ACEF00E7' /* MDASubChild */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6CB280164' /* include */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+      ; // %OVERRIDES
+     ; // MDAStateAction
+     [EXPORT] <<MDAStateAction>>
+     <<MDAClass>> MDATransition
+      %UID '470F44760251'
+      %SUMMARY 'Элемент - переход'#13#10'---'#13#10'определяет стереотип перехода связанного с состоянием' ;
+      %META
+       %upv "personal label" 'code_mda_transition'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ACEF00E7' /* MDASubChild */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6CB280164' /* include */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "470F44FF0138"
+        %UID '470F44FF0138'
+        %TARGET U$ '470F44DC0138' /* MDATransitionAttribute */
+       ; // 470F44FF0138
+      ; // %LINKS
+     ; // MDATransition
+     [EXPORT] <<MDATransition>>
+     <<MDAClass>> MDATransitionAttribute
+      %UID '470F44DC0138'
+      %SUMMARY 'Атрибут перехода'#13#10'---'#13#10'это может быть действие или событие' ;
+      %META
+       %upv "personal label" 'code_mda_transition_attribute'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ACEF00E7' /* MDASubChild */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46E6CB280164' /* include */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+      ; // %OVERRIDES
+     ; // MDATransitionAttribute
+     [EXPORT] <<MDATransitionAttribute>>
+     <<@MDAClass>> MDAParameter
+      %UID '470F58AF0138'
+      %SUMMARY 'Элемент-Параметр'#13#10'---'#13#10'определяет под-стереотип стереотипа, например параметр класса, параметр операции' ;
+      %META
+       %upv "personal label" 'code_mda_parameter'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E7ADBC0377' /* MDASubStereotype */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+       U$ '46E7BDF301F1' /* define_up */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+       <<bool>> unstereotyped
+        %UID '470F596A030D'
+        %SUMMARY 'Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.' ;
+        %VALUE true
+       ; // unstereotyped
+       <<bool>> "empty target"
+        %UID '4BA32E320045'
+        %SUMMARY 'Разрешает/запрещает элементу иметь «пустой» TARGET  (например, атрибут без типа, или операция без типа результата), В противном случае генератор выдаст предупреждение, если не задано ни true ни false - по умолчанию принимается true.' ;
+        %VALUE false
+       ; // "empty target"
+      ; // %ATTRIBUTES
+     ; // MDAParameter
+     [EXPORT] <<MDAParameter>>
+     <<@MDAClass>> MDAAbstractClass
+      %UID '485A71080391'
+      %SUMMARY 'Элемент - абстрактный класс.' ;
+      %META
+       %upv "abstraction type" 'a'
+       %upv "has derived impl" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '46E1540F00AB' /* MDAGenerator */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '46E7AE5B00A8' /* st_class_name */
+      ; // %OVERRIDES
+     ; // MDAAbstractClass
+     [EXPORT] <<MDAAbstractClass>>
+   ; // %CHILDREN
+  ; // Elements
+  <<MDALayer>> HighLayers
+   %UID '46E13A54030D'
+   %SUMMARY 'Элементы верхних слоев (слои пакетов)' ;
+   %DEPENDS
+    U$ '46E1536802AF' /* Elements */
+    U$ '46E16545033C' /* Abstracts */
+    U$ '46E80398003B' /* "Abstract" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E13A3C030D' /* Meta */
+    U$ '46E801C00348' /* Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDACategory>> MDATemplates
+      %UID '46E13A69005D'
+      %SUMMARY 'Модель шаблонов'#13#10'---'#13#10'Проект модели, которая описывает произвольные шаблоны и генерит их (на основе мета-шаблонов)' ;
+      %META
+       %upv "abstraction type" 'ra'
+       %upv "personal label" 'code_mda_templates'
+       %upv "visualization bg color" 16764265
+       %upv "visualization f-font color" 16764165
+       %upv "visualization f-line color" 16764165
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+       U$ '46E801C00348' /* Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '46E28D3A01E4' /* "Мета-MDA" */
+       U$ '484E3DDD01F0' /* ModelSerialize */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '46E28D830109' /* mda */
+       U$ '46E6D4BB0339' /* wiki */
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4704C0E30186' /* constraint */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+       U$ '4F368B80039E' /* forth_structure */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4A09484300C6' /* mda.inc */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "46E156060251"
+        %UID '46E156060251'
+        %TARGET U$ '46E155F80242' /* MDALibrary */
+       ; // 46E156060251
+      ; // %LINKS
+     ; // MDATemplates
+     [EXPORT] <<MDATemplates>>
+     <<MDACategory>> MDALayer
+      %UID '46E1534D0399'
+      %SUMMARY 'Слой шаблонов'#13#10'---'#13#10'Логическая группа шаблонов в рамках билиотеки, как правило содержит родственные шаблоны одного логического уровня проектирования' ;
+      %META
+       %upv "personal label" 'code_mda_layer'
+       %upv "visualization bg color" 16427770
+       %upv "visualization f-font color" 15093990
+       %upv "visualization f-line color" 15093990
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '46E28D3A01E4' /* "Мета-MDA" */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '46E28D830109' /* mda */
+       U$ '46E6D4BB0339' /* wiki */
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4704C0E30186' /* constraint */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+      ; // %REALIZES
+      %LINKS
+       <<include>> "46E153A400CB"
+        %UID '46E153A400CB'
+        %TARGET U$ '46E1537802AF' /* MDAClass */
+       ; // 46E153A400CB
+       <<include>> "46E153AA006D"
+        %UID '46E153AA006D'
+        %TARGET U$ '46E1538400EA' /* MDACategory */
+       ; // 46E153AA006D
+       <<include>> "46E179C803B9"
+        %UID '46E179C803B9'
+        %TARGET U$ '46E1540F00AB' /* MDAGenerator */
+       ; // 46E179C803B9
+       <<include>> "46E6D0540210"
+        %UID '46E6D0540210'
+        %TARGET U$ '46E6CEA300A8' /* MDAUtilityPack */
+       ; // 46E6D0540210
+       <<include>> "4725C8BB00CB"
+        %UID '4725C8BB00CB'
+        %TARGET U$ '4725C5D4004E' /* MDAReport */
+       ; // 4725C8BB00CB
+       <<include>> "485A724400B3"
+        %UID '485A724400B3'
+        %TARGET U$ '485A71080391' /* MDAAbstractClass */
+       ; // 485A724400B3
+      ; // %LINKS
+     ; // MDALayer
+     [EXPORT] <<MDALayer>>
+     <<MDACategory>> MDALibrary
+      %UID '46E155F80242'
+      %SUMMARY 'Библиотека шаблонов'#13#10'---'#13#10'Функцианальная завершенная группа шаблонов для какой-либо предметной области' ;
+      %META
+       %upv "personal label" 'code_mda_library'
+       %upv "visualization bg color" 16439180
+       %upv "visualization f-font color" 16110170
+       %upv "visualization f-line color" 16110170
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+       U$ '46E801C00348' /* Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '46E28D3A01E4' /* "Мета-MDA" */
+       U$ '484E3DDD01F0' /* ModelSerialize */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '46E28D830109' /* mda */
+       U$ '46E6D4BB0339' /* wiki */
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4704C0E30186' /* constraint */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+       U$ '4F368B80039E' /* forth_structure */
+      ; // %REALIZES
+      %LINKS
+       <<include>> "46E15359031C"
+        %UID '46E15359031C'
+        %TARGET U$ '46E1534D0399' /* MDALayer */
+       ; // 46E15359031C
+      ; // %LINKS
+     ; // MDALibrary
+     [EXPORT] <<MDALibrary>>
+     <<MDAClass>> MDAReport
+      %UID '4725C5D4004E'
+      %SUMMARY 'Абстрактный отчёт'#13#10'---'#13#10'Формирует иерархию отчётов, объединяя их в связанные группы посредством связи "group"' ;
+      %META
+       %upv "personal label" 'code_mda_report'
+       %upv "visualization bg color" 16444380
+       %upv "visualization f-font color" 16099915
+       %upv "visualization f-line color" 16099915
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E13A3C030D' /* Meta */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '46E28D3A01E4' /* "Мета-MDA" */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '46E28D830109' /* mda */
+       U$ '46E6D4BB0339' /* wiki */
+       U$ '470484D50138' /* wiki_up_add_gen */
+       U$ '4704C0E30186' /* constraint */
+       U$ '4705CBD6003E' /* wiki_child_kind */
+      ; // %REALIZES
+      %CHILDREN
+       
+       <<MDAOperation>> report
+        %UID '4725C6630128'
+        %SUMMARY 'отчёт'#13#10'---'#13#10'определяет конкретный отчёт.' ;
+        %META
+         %upv "empty target" true
+         %upv "personal label" 'code_mda_op_report'
+        ; // %META
+        %ATTRIBUTES
+         <<list>> auto
+          %UID '4725C6B502BF'
+          %SUMMARY 'Определяет тип отчёта:'#13#10'Warning - отчёт типа "Предупреждение", в случае непустого отчета будет выдано предпреждение'#13#10'Error - отчёт "Ошибка", в случае непустого отчета дальнейшая генерация невозможна' ;
+          %VALUE 'Warning'
+          %VALUES
+           'Error'
+          ; // %VALUES
+         ; // auto
+        ; // %ATTRIBUTES
+       ; // report
+       <<MDADependency>> group
+        %UID '4725C75E002E'
+        %SUMMARY 'Родительская группа'#13#10'---'#13#10'Определяет родительскую "группу" для отчёта' ;
+        %META
+         %upv "personal label" 'code_mda_dep_group'
+        ; // %META
+       ; // group
+      ; // %CHILDREN
+     ; // MDAReport
+     [EXPORT] <<MDAReport>>
+   ; // %CHILDREN
+  ; // HighLayers
+ ; // %CHILDREN
+; // Meta

@@ -1,0 +1,64 @@
+GblAdapterLib : Library - 
+
+
+type
+ ICompactSelectorList = array of ;
+type
+ TDynListContentImpl = (
+   DLCI_UNKNOWN
+ , DLCI_LEGAL
+ , DLCI_MEDIC
+ );//TDynListContentImpl
+ TDynListTypeImpl = (
+  {* типы списка для кода реализации }
+   T_CORRESPONDENT_IMPL
+ , T_CORRESPONDENT_TO_PART_IMPL
+ , T_RESPONDENT_IMPL
+ , T_RESPONDENT_TO_PART_IMPL
+ , T_UNKNOWN_IMPL
+ , T_SAME_DOCUMENTS_IMPL
+ );//TDynListTypeImpl
+type
+ INodeVector = array of INode;
+
+type
+ TNotify = record
+   status : TNotifyStatus;
+   folder_id : Cardinal;
+ end;//TNotify
+const
+  { названия опций из инишника }
+ AUTO_SHOW_HELP_OPTION : PAnsiChar = -AutoShowHelp;
+  { показывать ли информацию об обновлениях при старте }
+type
+ FoldersQueryFactories = interface(IUnknown{, IQuery})
+   ['{09E748FF-01E5-4C47-B27F-27BCFB72DABD}']
+ end;//FoldersQueryFactories
+ IAnyVector = array of any;
+ TFilterInfo = record
+   count : Integer;
+   flags : Cardinal;
+ end;//TFilterInfo
+ IErasedIds = array of Cardinal;
+type
+ TServerSettingData = record
+  {* данные для сохранения настройки на сервере }
+   conf_id : Integer;
+   prop_id : Integer;
+   prop_value : ;
+   time : Int64;
+ end;//TServerSettingData
+ CachedDataForServer = array of TServerSettingData;
+  {* данные для отправки на сервер }
+ TSettingsSaveStrategy = (
+  {* стратегия сохранения настроек }
+   SSS_INTIME // сразу писать настройки на сервер
+ , SSS_CACHE // сохранять настройки в кеше с периодическим сбросом на сервер
+ , SSS_NOTSAVE // не сохранять настройки на сервере
+ );//TSettingsSaveStrategy
+const
+  { константы, связанные с использованием кеша настроек для сбрасывания на сервер. Если таймаут меньше нуля, настройеки на сервер вообще не пишутся, если равен нулю, то пишутся сразу без использования кеша }
+ DELTA_OPTION_NAME : AnsiString = -SettingsFlushTimeout;
+  { название опции, задающей таймаут сбрасывания настроек на сервер }
+ DELTA_OPTION_VALUE : Integer = 600;
+  { значение таймаута по-умолчанию }

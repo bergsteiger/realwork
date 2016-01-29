@@ -1,0 +1,65 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+   Dim FolderName1$,FolderName2$
+   FolderName1="Empty Folder"
+   FolderName2="Another Element"
+   call CreateFolder("Мои документы",FolderName1)
+   call CreateFolder("Мои документы\"+FolderName1,FolderName2)
+'   
+   
+   ''
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=11,10"
+    call Click_FindSaveAs
+    
+    call SaveDlg("Мои документы\"+FolderName1,FolderName2)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+   
+   ''
+   ''
+    
+    call OpenDocByNum(650000)
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    RichEdit Click, "ObjectIndex=1", "Coords=36,12"
+    call Click_AddBookMark
+    call SaveDlg("Мои документы\"+FolderName1,FolderName2)
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+  
+  ''
+  ''
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=5,8"
+    InputKeys "^{ENTER}"
+    
+    Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+    InputKeys "{ENTER}"
+    DelayFor 5000
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    'ListBox Click, "ObjectIndex=4", "Coords=8,14"
+    InputKeys "{HOME}"
+    call Click_SaveAs
+    call SaveDlg("Мои документы\"+FolderName1,FolderName2)  
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    
+  ''
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=7,152"
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,9"
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,9"  
+  
+   call DeleteFolder("Мои документы\"+FolderName1,1)
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=15,52"
+End Sub

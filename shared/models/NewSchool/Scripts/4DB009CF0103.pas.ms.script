@@ -1,0 +1,195 @@
+// TtfwValueStack 4DB009CF0103 SimpleClass Class
+
+INCLUDE '4DCC11A10187.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_4DB009CF0103
+
+FORWARD ME_4DF069C60159
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55F0288E028B
+ CONST UID '55F0288E028B'
+ CONST Name 'aDelta'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_55F0288E028B aDelta
+
+: ME_4DF080C303B1
+ CONST UID '4DF080C303B1'
+ CONST Name 'aNeedPop'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4DF080C303B1 aNeedPop
+
+INCLUDE '55BF153300A4.pas.ms.script'
+
+: ME_4DF06A0E038A
+ CONST UID '4DF06A0E038A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DB00A510300 // TtfwStackValue
+ ;
+ : Parameters
+   [ ME_55F0288E028B // aDelta
+ ME_4DF080C303B1 // aNeedPop
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DF06A0E038A DoIt
+
+: ME_4DF069C60159
+ CONST UID '4DF069C60159'
+ CONST Name 'PrevTop'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'Получить значение предшествующее верхнему.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4DF06A0E038A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DF069C60159 PrevTop
+
+FORWARD ME_55EFF78F01D7
+
+: ME_55EFF7D90029
+ CONST UID '55EFF7D90029'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_55EEBA06006C // PtfwStackValue
+ ;
+
+ @SELF
+; // ME_55EFF7D90029 DoIt
+
+: ME_55EFF78F01D7
+ CONST UID '55EFF78F01D7'
+ CONST Name 'pLast'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55EFF7D90029 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55EFF78F01D7 pLast
+
+: ME_4DB009CF0103
+ CONST UID '4DB009CF0103'
+ CONST Name 'TtfwValueStack'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Стек переменных. Сюда помещаются/выводятся переменные при исполнении скрипта.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DCC11A10187 // TtfwValueList
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4DB048620395 // ValueStack
+ ]
+ ; // Implements
+ : Operations
+   [ ME_4DF069C60159 // PrevTop
+ ME_55EFF78F01D7 // pLast
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DB008F503BE // PushInt
+ ME_4DB0090A0000 // PopInt
+ ME_4DB013A10166 // PushBool
+ ME_4DB013AF01C9 // PopBool
+ ME_4DB04213007C // IsTopBool
+ ME_4DB047EF0005 // PushString
+ ME_4DB0480002EF // PushString
+ ME_4DB0480A0174 // PushString
+ ME_4DB0488A0157 // IsTopString
+ ME_4DB0489C0129 // PopDelphiString
+ ME_4DB1784F0388 // PopString
+ ME_4DB17E8502F0 // IsTopInt
+ ME_4DB6EE5E031F // Dup
+ ME_4DB6F04F02D2 // Drop
+ ME_4DB704AA00BF // Swap
+ ME_4DBAF89E0328 // Push
+ ME_4DBAF8B002CA // Pop
+ ME_4DBAF8C200E2 // IsTopType
+ ME_4DBAF910011B // PushObj
+ ME_4DBAF9210150 // PopObj
+ ME_4DCBD16302CD // DupIfNotZero
+ ME_4DEF28E400E0 // Rot
+ ME_4DEF5D850232 // Pick
+ ME_4DEF5FBB0157 // InvertRot
+ ME_4DEF5FE202B1 // Swap2
+ ME_4DEF5FF802E6 // Over2
+ ME_4DEF60050174 // Dup2
+ ME_4DEF6013023F // Drop2
+ ME_4DEF602000E4 // Nip
+ ME_4DEF602B03A2 // Tuck
+ ME_4DF06491010E // Over
+ ME_4DF0649B0073 // Roll
+ ME_4EB274C402BC // PopIntf
+ ME_4EB274E201C2 // PopIntf
+ ME_4EB2759D021C // IsTopIntf
+ ME_4F3E34A1009A // ValuesCount
+ ME_4F4749150158 // PushString
+ ME_4F4FD9790124 // PushFile
+ ME_4F4FD99A0182 // PopFile
+ ME_4F4FDC210286 // IsTopObj
+ ME_4F4FDCFB0195 // IsTopChar
+ ME_4F4FDD140127 // PushChar
+ ME_4F4FDD38028A // PopChar
+ ME_4F4FE1DC0081 // PushWStr
+ ME_4F4FEB6100A7 // PopPrintable
+ ME_508526FE0229 // PushClass
+ ME_5085273502AA // PopClass
+ ME_5085275F0044 // IsTopClass
+ ME_54F7390300EC // PopObjAs
+ ME_54F8664200B0 // PopClassAs
+ ME_54F9C2A502E9 // PopWideString
+ ME_54F9C2CF0044 // PushWideString
+ ME_54F9C6530229 // PopPoint
+ ME_54F9C66902E3 // PushPoint
+ ME_5510153F001C // PushList
+ ME_551015680218 // PopList
+ ME_55E848EA003D // DupN
+ ME_55E84904001E // DropN
+ ME_5601534A0012 // Top
+ ME_5613FA08013C // PushIntf
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4DB009CF0103 TtfwValueStack

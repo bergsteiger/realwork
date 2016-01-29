@@ -1,0 +1,30 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/GblAdapterLib/impl/DynamicTree_i/UC_tree.cpp"
+// генератор файлов реализации C++ (.cpp)
+// Generated from UML model, root element: <<Servant::Class>> garant6x::GblAdapterLib::DynamicTree_i::UC_tree
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "shared/CoreSrv/sys/std_inc.h"
+#include "garant6x/implementation/Garant/GblAdapterLib/LibHome.h"
+#include "garant6x/implementation/Garant/GblAdapterLib/impl/DynamicTree_i/UC_tree.h"
+
+namespace GblAdapterLib {
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// constructors and destructor
+
+UC_tree::~UC_tree () {
+	//#UC START# *475E79E00027_DESTR_BODY*
+	//#UC END# *475E79E00027_DESTR_BODY*
+}
+
+
+} // namespace GblAdapterLib
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,36 @@
+unit Persistent_Wrap;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "K2"
+// Автор: Люлин А.В.
+// Модуль: "w:/common/components/rtl/Garant/K2/Persistent_Wrap.pas"
+// Начат: 07.09.1998 12:46
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::K2::Standard::WPersistent
+//
+// WPersistent
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+{$Include ..\K2\k2Define.inc}
+
+interface
+
+uses
+  Object_Wrap
+  ;
+
+type
+ WPersistent = class(WObject)
+  {* WPersistent }
+ end;//WPersistent
+
+implementation
+
+end.

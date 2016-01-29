@@ -1,0 +1,1148 @@
+//////////////////////////////////////////////////////////////////////////////
+//  Функции работы со списком
+//////////////////////////////////////////////////////////////////////////////
+uses common, RunPrograms, MenuWork, DocumentWork, Clicks, States, foldersWork, settingsWork;
+
+/////////////// Часто используемые пути//////////////////////////////////////////////////////
+const
+	Not_Enter_In_Strength = 'Not_Enter_In_Strength.bmp';
+  Left_Strength = 'Left_Strength.bmp';
+  Active = 'Active74.bmp';
+  Node_Minus = 'node_minus.bmp';
+  Node_Plus = 'node_plus.bmp';  
+  LIST_PATTERN = 'list_pattern.bmp';
+
+////////////////////////////////////////////////////////////////////////////////////////////
+  MY_DOCS_PATH = 'Мои документы\';
+  JOURNAL_PATH = 'Журнал работы\';
+  PNAV = 'Правовой навигатор';
+
+	LIST_ALLCODES = 'Правовой навигатор\Тестовый класс для скриптов\Кодексы из ServiceInfo';
+	LIST_ALLFILTERS = 'Общие\Предустановленные данные\Предустановленные фильтры';
+  LIST_MY_COMMENT = 'Мои комментарии\Документы с комментариями пользователя';
+  LIST_PRIME_SEARCH = 'Поиск\Прайм. Обзор изменений законодательства'; 
+
+  LIST_RUBR_MAIN = 'Правовой навигатор\Основы государственно-правового устройства';
+  LIST_RUBR_LEGISLATION = 'Правовой навигатор\Гражданское законодательство, приватизация';
+  LIST_RUBR_BUH_AUDIT = 'Правовой навигатор\Бухгалтерский учет, аудит, статистическая отчетность';
+
+  LIST_MAIN = LIST_RUBR_MAIN + '\Основы конституционного строя';
+  LIST_MAIN1 = LIST_RUBR_MAIN + '\Разграничение компетенции между органами власти РФ и ее субъектов';
+  LIST_LANG = LIST_RUBR_MAIN + '\Государственный язык, языки народов Российской Федерации';
+  LIST_ORG_MASS = LIST_RUBR_MAIN + '\Порядок организации и проведения массовых мероприятий';
+
+  LIST_LEGISLATION_COMMON = LIST_RUBR_LEGISLATION + '\Общие положения'; 
+  LIST_INTERNATIONAL = 'Правовой навигатор\Уголовное право и процесс, уголовно-исполнительное законодательство\Уголовно-процессуальное законодательство\Международные договоры';
+  LIST_TEST_SORT = 'Правовой навигатор\Тестовый класс для скриптов\Документы для проверки сортировки';
+  LIST_TEST_MYCLASS_A = 'Правовой навигатор\My Class A';  
+  LIST_TEST_MYCLASS_B = PNAV + '\My Class B';
+  LIST_SUDEBN_PRACTICE = PNAV + '\Тестовый класс для скриптов\Документы для проверки похожих\Судебная практика';  
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+//              Константы, определяющие тип проверки списка для функции FindInList
+// Примечание: Если в имя константы НЕ оканчивается на INT - список документов будет получен 
+//             через GetElementsFromTree, это долго и нужно не всегда!
+  FL_LOG_ATTR = 'SILVER';
+  FL_LOG_ATTR_SUCCESS = 'GREEN';
+  FL_LOG_ATTR_ERROR = 'RED';
+  
+  FL_NUMBER = 'NUMBER'; // проверка количества документов списка на равенство
+  FL_NUMBER_BIG = 'NUMBER_INT'; // проверка количества документов списка на равенство в большом списке (быстро)
+  FL_NUMBER_BIG_MORE = 'NUMBER_MORE_INT'; // проверка количества документов списка на больше или равно в большом списке (быстро)
+  FL_NUMBER_BIG_LESS = 'NUMBER_LESS_INT'; // проверка количества документов списка на меньше или равно в большом списке (быстро)
+
+  FL_EXISTS = 'EXISTS'; // проверка существования документа в списке (долго, через GetElementsFromTree)
+  FL_NOT_EXISTS = 'NOT_EXISTS'; // проверка отсутствия документа в списке (долго, через GetElementsFromTree)
+  FL_EXISTS_INT = 'EXISTS_INT'; // проверка существования документа в списке (быстро, через Position_Internal)
+  FL_NOT_EXISTS_INT = 'NOT_EXISTS_INT'; // проверка отсутствия документа в списке (быстро, через Position_Internal)
+  FL_EXISTS_BIGLIST = 'EXISTS_BIG_INT'; // проверка существования документа в БОЛЬШОМ списке, УЛЬТРАБЫСТРО!!!, через копирование списка в буфер обмена
+  FL_NOT_EXISTS_BIGLIST = 'NOT_EXISTS_BIG_INT'; // проверка отсутствия документа в БОЛЬШОМ списке, УЛЬТРАБЫСТРО!!!, через копирование списка в буфер обмена
+
+  FL_EXISTS_RELEVANCE_INT = 'EXISTS_RELEVANCE_INT'; // проверка на наличие документа в списке и проверка его релевантности на равенство
+  FL_EXISTS_RELEVANCE_LOWER_INT = 'EXISTS_RELEVANCE_LOWER_INT'; // проверка на наличие документа в списке и проверка его релевантности на меньше
+  FL_EXISTS_RELEVANCE_MORE_INT = 'EXISTS_RELEVANCE_MORE_INT'; // проверка на наличие документа в списке и проверка его релевантности на больше
+  FL_EXISTS_EDITION = 'EDITION_EXISTS_INT'; // проверка существоания редакций документа в списке, УЧИТЫВАЕТСЯ ПОРЯДОК СЛЕДОВАНИЯ РЕДАКЦИЙ
+
+  FL_EXISTS_CONTEXT = 'CONTEXT_INT';  // проверка существования контекста в заданном документе через копирование документа в буфер обмена
+  FL_NOT_EXISTS_CONTEXT = 'NOT_CONTEXT_INT'; // проверка отсутствия контекста в заданном документе через копирование документа в буфер обмена
+  FL_EXISTS_CONTEXT_BY_NUM = 'CONTEXT_BY_NUM_INT'; // проверка на наличие контекста в существующем документе через копирование документа в буфер обмена, выбранного из списка по номеру
+  FL_NOT_EXISTS_CONTEXT_BY_NUM = 'NOT_CONTEXT_BY_NUM_INT'; // проверка на отсутствие контекста в существующем документе через копирование документа в буфер обмена, выбранного из списка по номеру
+  FL_EXISTS_CONTEXT_IN_STRING = 'CONTEXT_IN_STRING_INT'; // проверка существования контекста в *текущей строке* заданного документе через копирование в буфер обмена
+  FL_NOT_EXISTS_CONTEXT_IN_STRING = 'NOT_CONTEXT_IN_STRING_INT';// проверка отсутствия контекста в *текущей строке* заданного документе через копирование в буфер обмена
+  FL_EXISTS_CONTEXT_IN_2STRING = 'CONTEXT_IN_2STRING_INT'; // аналогично FL_EXISTS_CONTEXT_IN_STRING, только проверяется 2 строки
+  FL_NOT_EXISTS_CONTEXT_IN_2STRING = 'NOT_CONTEXT_IN_2STRING_INT'; // аналогично FL_NOT_EXISTS_CONTEXT_IN_STRING, только проверяется 2 строки
+
+  FL_EXISTS_CONTEXT_SEARCH = 'EXISTS_CONTEXT_SEARCH_INT'; // проверка существования контекста в заданном документе через БП  
+  FL_NOT_EXISTS_CONTEXT_SEARCH = 'NOT_EXISTS_CONTEXT_SEARCH_INT'; // проверка отсутствия контекста в заданном документе через БП
+  FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT = 'CONTEXT_SEARCH_AND_HIGHLIGHT_INT'; // проверка существования ПОДСВЕЧЕННОГО контекста в заданном документе через БП поиск внутри документа 
+  FL_EXISTS_CONTEXT_NOT_SEARCH_OR_NOT_HIGHLIGHT = 'CONTEXT_NOT_SEARCH_OR_NOT_HIGHLIGHT_INT'; // проверка отсутствия ПОДСВЕЧЕННОГО контекста в заданном документе через БП поиск внутри документа
+
+///////////////////////////////////////////////Функции////////////////////////////////////////
+Function FindInList_EnterInDoc(docname: string):boolean;
+begin
+  try
+    OpenDocFromList;
+    Result := IsExists(GetEditor);
+    if Result then
+      Log.Message('FindInList: Зашли в документ "' + docname + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR))
+    else
+      Log.Message('FindInList: Тело документа "' + docname + '" не найдено!', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+  except
+    Result := false;
+    Log.Message('FindInList: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Пороверка и сравнение названий документов в в текущем списке с массивом значений вида:
+    [
+    ([<Тип проверки1>, 'Название документа1']),
+    ([<Тип проверки2>, 'Название документа2']),
+     ...
+    ([<Тип проверкиN>, 'Название документаN']),    
+    ];
+
+  Ex:
+    [
+    ([FL_NOT_EXISTS, 'ДОКУМЕНТ 2002*']),
+    ([FL_EXISTS, 'ДОКУМЕНТ 2002*']),
+    ];
+  RESULT: True, если результат сравнения, удовлетворяет условию (массив значений)
+  REMARK:
+}
+function FindInList(
+  listData: OleVariant;
+  listTreeWnd : OleVariant = nil
+):boolean;
+const
+  HOME_KEY = '[Home]';
+  DOWN_KEY = '[Down]';
+  RIGHT_KEY = '[Right]';  
+  STR_EDITION = '\Редакции\';
+  BASESEARCH_ADDPARAMS = 'IsCloseWindow:=false';
+var
+  list, wordsArray, listTree, checkContext, checkEl, needGetTree, docText, i, j, t;
+  docName, tmp_string: string;
+begin
+try
+  Result := true;
+  
+  if listTreeWnd = nil then 
+    listTree := GetList 
+  else 
+    listTree := listTreeWnd;
+     
+  tmp_string := '';
+  if not IsExists(listTree) then 
+    Raise('Проверяемый список не найден!');
+    
+  listTree.SetFocus;
+  needGetTree := false;
+  for i := VarArrayLowBound(listData, 1) to VarArrayHighBound(listData, 1) do
+    if not (StringCompare('*INT', listData[i][0])) then
+    begin
+      needGetTree := true;
+      break;
+    end;
+  if needGetTree then
+    list := GetElementsFromTree(listTree);
+
+  for i := VarArrayLowBound(listData, 1) to VarArrayHighBound(listData, 1) do
+  begin
+    case listData[i][0] of
+    //Проверка на наличие/отсутствие контекста в существующем документе списка
+    //Наличие/отсутствие контекста в существующем документе списка
+    FL_EXISTS_CONTEXT, FL_NOT_EXISTS_CONTEXT, 
+    FL_EXISTS_CONTEXT_IN_STRING, FL_NOT_EXISTS_CONTEXT_IN_STRING,
+    FL_EXISTS_CONTEXT_IN_2STRING, FL_NOT_EXISTS_CONTEXT_IN_2STRING, 
+    FL_EXISTS_CONTEXT_SEARCH, FL_NOT_EXISTS_CONTEXT_SEARCH,
+    FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT,
+    FL_EXISTS_CONTEXT_NOT_SEARCH_OR_NOT_HIGHLIGHT:
+    begin
+      listTree.Keys(HOME_KEY);
+      listTree.Keys('[Up]');
+      checkEl := Position_Internal(listTree, listData[i][1], DELIM_CHAR, true);
+      if not checkEl then
+        Log.Message('FindInList: Не найден "' + listData[i][1] + '"', '', pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR))
+      else
+      begin
+        wordsArray := listData[i][2];
+        if not IsArray(wordsArray) then
+          Raise('Найден пустой массив образцов контекста для документа "' + listData[i][1] + '"');
+        checkContext := FindInList_EnterInDoc(listData[i][1]);
+        if not checkContext then
+          Raise('Не получилось для проверки контекста открыть документ "' + listData[i][1] + '"');
+
+        try
+          for j := VarArrayLowBound(wordsArray,1) to VarArrayHighBound(wordsArray,1) do
+          begin
+            case listData[i][0] of
+              FL_EXISTS_CONTEXT: begin docText := CopyToClipboard(GetEditor, 'ALL'); if not StringCompare('*' + wordsArray[j] + '*', docText) then begin checkContext := false; Log.Message('FindInList: В документе "' + listData[i][1] + '" НЕ найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR)); end; end;
+              FL_NOT_EXISTS_CONTEXT: begin docText := CopyToClipboard(GetEditor, 'ALL'); if StringCompare('*' + wordsArray[j] + '*', docText) then begin checkContext := false; Log.Message('FindInList: В документе "' + listData[i][1] + '" найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR)); end; end;
+              FL_EXISTS_CONTEXT_IN_STRING: begin docText := CopyToClipboard(GetEditor, 'STRING'); if not StringCompare('*' + wordsArray[j] + '*', docText) then begin checkContext := false; Log.Message('FindInList: В документе "' + listData[i][1] + '" НЕ найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR)); end; end;
+              FL_NOT_EXISTS_CONTEXT_IN_STRING: begin docText := CopyToClipboard(GetEditor, 'STRING'); if StringCompare('*' + wordsArray[j] + '*', docText) then begin checkContext := false; Log.Message('FindInList: В документе "' + listData[i][1] + '" найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR)); end; end;
+              FL_EXISTS_CONTEXT_IN_2STRING: begin docText := CopyToClipboard(GetEditor, 'STRING'); Sys.Keys('[Down]'); docText := docText + CopyToClipboard(GetEditor, 'STRING'); if not StringCompare('*' + wordsArray[j] + '*', docText) then begin checkContext := false; Log.Message('FindInList: В документе "' + listData[i][1] + '" НЕ найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR)); end; end;
+              FL_NOT_EXISTS_CONTEXT_IN_2STRING: begin docText := CopyToClipboard(GetEditor, 'STRING'); Sys.Keys('[Down]'); docText := docText + CopyToClipboard(GetEditor, 'STRING'); if StringCompare('*' + wordsArray[j] + '*', docText) then begin checkContext := false; Log.Message('FindInList: В документе "' + listData[i][1] + '" найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR)); end; end;
+              FL_EXISTS_CONTEXT_SEARCH: if not BaseSearchInDocument(GetEditor, wordsArray[j], BASESEARCH_ADDPARAMS) then begin checkContext := false; Log.Message('FindInList: В документе "' + listData[i][1] + '" через базовый поиск НЕ найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));end;
+              FL_NOT_EXISTS_CONTEXT_SEARCH: if BaseSearchInDocument(GetEditor, wordsArray[j], BASESEARCH_ADDPARAMS) then begin checkContext := false; Log.Message('FindInList: В документе "' + listData[i][1] + '" через базовый поиск найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));end;
+              FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT:
+              begin
+                if not BaseSearchInDocument(GetEditor, wordsArray[j], BASESEARCH_ADDPARAMS) then
+                begin
+                  checkContext := false; 
+                  Log.Message('FindInList: В документе "' + listData[i][1] + '" НЕ найден контекст  "' + wordsArray[j] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+                end
+                else
+                  if not CheckHighlightWords(GetEditor, listData[i][3]) then
+                  begin
+                    checkContext := false;
+                    Log.Message('FindInList: В документе "' + listData[i][1] + '" после поиска НЕ найден подсвеченный/выделенный контекст "' + listData[i][3] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+                  end;
+              end;            
+              FL_EXISTS_CONTEXT_NOT_SEARCH_OR_NOT_HIGHLIGHT:
+              begin
+                if BaseSearchInDocument(GetEditor, wordsArray[j], BASESEARCH_ADDPARAMS) and CheckHighlightWords(GetEditor, listData[i][3]) then
+                begin
+                  checkContext := false;
+                  Log.Message('FindInList: В документе "' + listData[i][1] + '" после поиска найден подсвеченный/выделенный контекст "' + listData[i][3] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+                end;
+              end;
+            end;
+            Log.Picture(Sys_Desktop.Picture, 'FindInList: Скриншот экрана после проверки контекста в строке', '',  pmNormal, GetLogAttr(FL_LOG_ATTR));
+          end;
+        finally
+          ClipboardClean;        
+          if VarToBool(gbl_F1ShellTabsEnabled) and (VarToBool(gbl_F1ShellOpenDocsInNewTab)) then
+          begin 
+            if not CloseTab then
+              Raise('Не получилось закрыть вкладку с открытым документом "' + listData[i][1] + '"');
+          end
+          else
+          begin
+            if not GoByHistory('НАЗАД') then 
+              Raise('Не получилось вернуться в список из открытого документа "' + listData[i][1] + '"');
+          end;
+        end;
+        checkEl := checkEl and checkContext;
+        if listTreeWnd = nil then listTree := GetList else listTree := listTreeWnd;
+        listTree.SetFocus;
+      end;
+    end;
+    // Проверка на наличие/отсутствие контекста в существующем документе,
+    // выбранного из списка по номеру 
+    FL_EXISTS_CONTEXT_BY_NUM, FL_NOT_EXISTS_CONTEXT_BY_NUM:
+    begin
+      listTree.Keys(HOME_KEY);
+      for j := 2 to StrToInt(listData[i][1]) do
+        listTree.Keys(DOWN_KEY);
+      docName := common.GetWindowText(listTree.Handle);
+      wordsArray := listData[i][2];
+      if not IsArray(wordsArray) then
+        Raise('Найден пустой массив образцов контекста для документа в списке по номеру "' + docName + '"');
+      checkEl := FindInList_EnterInDoc(listData[i][1]);
+      if not checkEl then
+        Raise('Не получилось открыть документ для проверки контекста в списке по номеру "' + docName + '"');
+      
+      try
+        docText := CopyToClipboard(GetEditor, 'ALL');
+        for j := VarArrayLowBound(wordsArray,1) to VarArrayHighBound(wordsArray,1) do
+        if listData[i][0] = FL_EXISTS_CONTEXT_BY_NUM then
+        begin
+          checkEl :=checkEl and StringCompare('*' + wordsArray[j] + '*', docText);
+          if not checkEl then
+            Log.Message('FindInList: НЕ найден контекст "' + wordsArray[j] + '" для документа "' + docName + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+        end
+        else
+        begin 
+          checkEl :=checkEl and (not StringCompare('*' + wordsArray[j] + '*', docText));
+          if not checkEl then
+            Log.Message('FindInList: Найден контекст "' + wordsArray[j] + '" для документа "' + docName + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+        end;
+      finally
+        ClipboardClean;        
+        if VarToBool(gbl_F1ShellTabsEnabled) and VarToBool(gbl_F1ShellOpenDocsInNewTab) then
+        begin 
+          if not CloseTab then
+            Raise('Не получилось закрыть вкладку с открытым документом "' + docName + '"');
+        end
+        else
+        begin
+          if not GoByHistory('НАЗАД') then 
+            Raise('Не получилось вернуться в список из открытого документа "' + docName + '"');
+        end;
+      end;
+      if listTreeWnd = nil then listTree := GetList else listTree := listTreeWnd;
+      listTree.SetFocus;
+    end;
+    // Проверка на наличие редакции в существующем документе списка   
+    FL_EXISTS_EDITION:
+    begin
+      listTree.Keys(HOME_KEY);
+      checkEl := Position_Internal(listTree, listData[i][1], DELIM_CHAR, true);
+      if not checkEl then
+        Log.Message('FindInList: Не найден "' + listData[i][1] + '"',  '', pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR))
+      else
+      begin
+        wordsArray := listData[i][2];
+        if not IsArray(wordsArray) then
+          Raise('Найден пустой массив редакций документа "' + listData[i][1] + '"');
+        checkContext := Position_Internal(listTree, listData[i][1] + STR_EDITION + wordsArray[VarArrayLowBound(wordsArray,1)], DELIM_CHAR, true);
+        
+        // Важен порядок следования редакций !!!
+        if not checkContext then
+          Log.Message('FindInList: Не найдена первая редакция для "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR))
+        else
+        begin
+          for j := VarArrayLowBound(wordsArray, 1) + 1 to VarArrayHighBound(wordsArray, 1) do
+          begin
+            listTree.Keys(DOWN_KEY);
+            if not StringCompare(wordsArray[j], common.GetWindowText(listTree.Handle)) then
+            begin
+              checkContext := false;
+              Log.Message('FindInList: Не найдена редакция "' + wordsArray[j] + '" для "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+            end;
+          end;
+        end;        
+        checkEl := checkEl and checkContext;
+        if listTreeWnd = nil then listTree := GetList else listTree := listTreeWnd;
+        listTree.SetFocus;
+      end;
+    end;
+    // Проверка на отсутствие документа в большом списке
+    FL_EXISTS_BIGLIST, FL_NOT_EXISTS_BIGLIST:
+    begin     
+      docText := CopyToClipboard(listTree, 'ALL');
+      if listTreeWnd = nil then listTree := GetList else listTree := listTreeWnd;
+      listTree.Keys(HOME_KEY);
+
+      if listData[i][0] = FL_EXISTS_BIGLIST then
+      begin
+        checkEl := StringCompare('*' + listData[i][1] + '*', docText);
+        if not checkEl then
+          Log.Message('FindInList: НЕ найден документ в БОЛЬШОМ списке "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+      end
+      else
+      begin 
+        checkEl := not StringCompare('*' + listData[i][1] + '*', docText);
+        if not checkEl then
+          Log.Message('FindInList: Найден документ в БОЛЬШОМ списке "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+      end;
+
+      ClipboardClean;
+    end;
+    // Проверка на наличие документа в списке
+    FL_EXISTS:            
+    begin
+      checkEl := FindElement(list, listData[i][1], true);
+      if not checkEl then
+        Log.Message('FindInList: Не найден "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+    end;
+    // Проверка на наличие документа в списке и проверка его релевантности
+    FL_EXISTS_RELEVANCE_INT, FL_EXISTS_RELEVANCE_LOWER_INT, FL_EXISTS_RELEVANCE_MORE_INT:
+    begin
+      listTree.Keys(HOME_KEY);
+      checkEl := Position_Internal(listTree, listData[i][1], DELIM_CHAR, true);
+      if not checkEl then
+        Log.Message('FindInList: Не найден "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR))
+      else
+      begin
+        Delay(Options.Run.Timeout div 30); // редко, но бывает, релевантность получается от предыдущего элемента          
+        t := VarToString(GetRelevanceForCurrentElementInList(listTree));
+        if listData[i][0] = FL_EXISTS_RELEVANCE_INT then
+        begin
+          checkEl := VarToInteger(listData[i][2]) = VarToInteger(t); 
+          if not checkEl then
+            Log.Message('FindInList: Отличается релевантность документа "' + listData[i][1] + '" в списке. Ожидалось: "' + listData[i][2] + '", получено: "' +  t + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+        end
+        else
+        if listData[i][0] = FL_EXISTS_RELEVANCE_LOWER_INT then        
+        begin
+          checkEl := VarToInteger(listData[i][2]) > VarToInteger(t); 
+          if not checkEl then
+            Log.Message('FindInList: Отличается релевантность документа "' + listData[i][1] + '" в списке. Ожидалось меньше чем: "' + listData[i][2] + '", получено: "' +  t + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+        end
+        else
+        begin
+          checkEl := VarToInteger(listData[i][2]) < VarToInteger(t); 
+          if not checkEl then
+            Log.Message('FindInList: Отличается релевантность документа "' + listData[i][1] + '" в списке. Ожидалось больше чем: "' + listData[i][2] + '", получено: "' +  t + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+        end;
+      end;
+    end;
+    // Проверка на отсутствие документа, в списке
+    FL_NOT_EXISTS:
+    begin
+      checkEl := not FindElement(list, listData[i][1], true);
+      if not checkEl then
+        Log.Message('FindInList: Найден "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+    end;    
+    // Проверка на наличие документа в списке используя путь 
+    FL_EXISTS_INT:
+    begin
+      listTree.Keys(HOME_KEY);
+      checkEl := Position_Internal(listTree, listData[i][1], DELIM_CHAR, true);
+      if not checkEl then
+        Log.Message('FindInList: Не найден "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+    end;
+    // Проверка на отсутствие документа в списке используя путь     
+    FL_NOT_EXISTS_INT:
+    begin
+      listTree.Keys(HOME_KEY);
+      checkEl := not Position_Internal(listTree, listData[i][1], DELIM_CHAR, true);
+      if not checkEl then
+        Log.Message('FindInList: Найден "' + listData[i][1] + '"', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+    end;
+    // Проверка количества документов в большом списке, меньше ли ? (CountElementInList);
+    FL_NUMBER_BIG_LESS:
+    begin
+      t := CountElementInList(listTree);
+      checkEl := (t <= StrToInt(listData[i][1]));
+      if not checkEl then
+        Log.Message('FindInList: Неправильное количество документов в большом списке: ' + IntToStr(t) + 
+        ', а должно быть меньше или равно ' + listData[i][1], '', pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+    end;
+    // Проверка количества документов в большом списке, больше ли ? (CountElementInList);
+    FL_NUMBER_BIG_MORE:
+    begin
+      t := CountElementInList(listTree);
+      checkEl := (t >= StrToInt(listData[i][1]));
+      if not checkEl then
+        Log.Message('FindInList: Неправильное количество документов в большом списке: ' + IntToStr(t) + 
+        ', а должно быть больше или равно ' + listData[i][1], '', pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+    end;
+    // Проверка количества документов в большом списке (CountElementInList);
+    FL_NUMBER_BIG:
+    begin
+      t := CountElementInList(listTree);
+      checkEl := (t = StrToInt(listData[i][1]));
+      if not checkEl then
+        Log.Message('FindInList: Неправильное количество документов в большом списке: ' + IntToStr(t) + 
+        ', а должно ' + listData[i][1], '', pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+    end;
+    // Проверка количества документов в списке
+    FL_NUMBER:
+    begin
+      t := ArrayLength(list);
+      checkEl := (t = StrToInt(listData[i][1]));
+      if not checkEl then
+        Log.Message('FindInList: Неправильное количество документов в списке: ' + IntToStr(t) +
+        ', а должно ' + listData[i][1], '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+    end;
+    else
+      Raise('Найден неизвестный тип проверки элемента списка "' + listData[i][0] + '"');
+    end;
+    Result := Result and checkEl;
+  end;
+  
+  if Result then  
+    Log.Message('FindInList: Проверка списка завершена без ошибок', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_SUCCESS))
+  else
+    Log.Message('FindInList: Проверка списка завершена, найдены ошибки', '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+except
+  Result := false;  
+  Log.Message('FindInList: ' + ExceptionMessage, '',  pmNormal, GetLogAttr(FL_LOG_ATTR_ERROR));
+  CommonExceptionHandler;
+end;
+end;
+
+
+{
+  TYPE: Работа со списком
+  DESC: Выбирает указанную операцию и применяет ее к заданному списку
+  RESULT: True, если удалось выбрать операцию и найти список.
+  REMARK:
+    paramString: 
+      IsExtendedResult - возвращать расширенный результат (массив разных значений)
+        default : false
+    
+    
+    ExtendedResult:
+      массив, значений возвращаются с помощью GetParam. 
+      Список имен возвращаемых значений:
+        Result - успешно ли выполнена функция (то же что и при IsExtendedResult:=false)
+        WarningFormText - текст в окне предупреждения (если появился)
+        IsResultIsEmptyList - является ли результатом операции пустой список?
+            
+}
+function ListLogicalOperation(
+  operation : String; // название операции со списком
+  const pathToList : String; // путь ко второму списку
+  listWnd : OleVariant = nil;
+  const paramString : String = ''
+) : OleVariant;
+  var
+    folderForm, paramList : OleVariant;
+    msg : String;
+    p_IsExtendedResult, res : boolean;
+begin
+  try
+    //
+    paramList := ParseParamString(paramString);
+    p_IsExtendedResult := VarToBool( GetParam(paramList, 'IsExtendedResult', 'false') );
+    //
+    if p_IsExtendedResult then 
+      SetParam(Result, 'Result', false)
+    else
+      Result := false;  
+      
+    if listWnd = nil then
+      listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(listWnd) then Raise('Список не найден!');
+    listWnd.SetFocus;
+    // вызываем указанную операцию
+    operation := AnsiUpperCase(operation);
+    case operation of
+      'ДОПОЛНИТЬ', 'ДОПОЛНИТЬ СПИСОК', 'ДОПОЛНИТЬ СПИСОК...' :
+        if ClickByMainMenuItem('Анализ\Дополнить список...') OR ClickToolbarButton( GetFromList('ТУЛБАР "СПИСОК"', listWnd), 'Дополнить список...') then
+          folderForm := GetFromShell('ДИАЛОГ "ДОПОЛНИТЬ СПИСОК"')
+        else
+          Raise('Не смогли вызвать указанную операцию!');
+      'ПЕРЕСЕЧЬ', 'ПЕРЕСЕЧЬ СО СПИСКОМ', 'ПЕРЕСЕЧЬ СО СПИСКОМ...' :
+        if ClickByMainMenuItem('Анализ\Пересечь со списком...') OR ClickToolbarButton( GetFromList('ТУЛБАР "СПИСОК"', listWnd), 'Пересечь со списком...') then
+          folderForm := GetFromShell('ДИАЛОГ "ПЕРЕСЕЧЬ СО СПИСКОМ"')
+        else
+          Raise('Не смогли вызвать указанную операцию!');
+      'ВЫЧЕСТЬ', 'ВЫЧЕСТЬ СПИСОК', 'ВЫЧЕСТЬ СПИСОК...' :
+        if ClickByMainMenuItem('Анализ\Вычесть список...') OR ClickToolbarButton( GetFromList('ТУЛБАР "СПИСОК"', listWnd), 'Вычесть список...') then
+          folderForm := GetFromShell('ДИАЛОГ "ВЫЧЕСТЬ СПИСОК"')
+        else  
+          Raise('Не смогли вызвать указанную операцию!');
+    else
+      Raise('Параметр operation не распознан!');    
+    end;
+    // выбираем указанный список
+    if NOT IsExists(folderForm) then Raise('Не найден диалог открытия списка!');
+    if Position_Internal( GetFromFolderForm('ДЕРЕВО ПАПОК', folderForm), pathToList ) then // если нашли список, то давим "Ок"
+    begin
+      res := ClickToolbarButton( GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderForm), 'Ок');
+      if p_IsExtendedResult then 
+        SetParam(Result, 'Result', res)
+      else
+        Result := res;
+    end  
+    else
+    begin  // если не нашли список, то закрываем диалог
+      if NOT ClickToolbarButton( GetFromFolderForm('НИЖНИЙ ТУЛБАР', folderForm), 'Отмена') then
+        folderForm.Close;
+      Raise('Не смогли найти список по указанному пути!');  
+    end;
+    
+    msg := WaitForWarningWindow(Options.Run.Timeout div 20{, '*Результат операции*-*пустой список*'});
+    if res AND (msg <> '') then
+    begin
+      if p_IsExtendedResult then
+      begin
+        SetParam(Result, 'WarningFormText', msg);
+        SetParam(Result, 'IsResultIsEmptyList', StringCompare('*Результат операции*-*пустой список*', msg) );
+      end;  
+      
+
+      Log.Message('ListLogicalOperation: После проведения логической операции было найдено окно предупреждения в котором написано: "' + msg + '"');
+      if IsExists(folderForm) then folderForm.Close;
+    end;  
+      
+    // проверяем, закрылась ли форма
+    Delay(Options.Run.Timeout div 100); // а то иногда форма не успевает закрыться
+    if IsExists(folderForm) then
+    begin
+      folderForm.Close;
+      Log.Error('Окно "' + folderForm.FullName + '" должно было быть закрыто ранее!');
+    end;  
+  except
+    Log.Message('ListLogicalOperation: ' + ExceptionMessage, 'operation: "' + operation + '"' + endOfLine +  'pathToList: "' + pathToList + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Функция закрывает окно "Анализ списка"
+  RESULT:
+  REMARK:
+}
+function CloseAnalysisList: boolean;
+begin
+  try
+    if IsExists(GetFromShell('ОКНО АНАЛИЗ СПИСКА', Options.Run.Timeout div 10)) then
+      GetFromShell('ОКНО АНАЛИЗ СПИСКА').Keys('[Esc]');
+
+    Result := not IsExists(GetFromShell('ОКНО АНАЛИЗ СПИСКА', Options.Run.Timeout div 10)); 
+    if not Result then
+      Raise('Найдено окно "Анализ списка", видимо окно не закрылось');
+  except
+    Result := false;
+    Log.Warning('CloseAnalysisList: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  end;
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Функция открывает окно "Анализ списка"
+  RESULT:
+  REMARK:
+}
+function OpenAnalysisList(
+  how : String = '';
+  const isReturnWindow : boolean = false
+) : OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+
+    GetMainWindow.SetFocus;
+    if not IsExists(GetList) then
+      Raise('Список не найден!');
+       
+    case how of
+      'МЕНЮ', '1' : ClickByMainMenuItem('Анализ\Анализ списка*');
+      'КНОПКА НА ТУЛБАРЕ', '2' :
+        ClickByPopupMenuItem(
+          ClickToolbarButton( GetFromList('ТУЛБАР "СПИСОК"'), 'Работа со списком','ClickForPopupMenu:=true' ), 
+          'Анализ списка*'
+        );
+      'ВКЛАДКА', '3' :
+        SwitchToPage(GetFromList('ЗАКЛАДКИ'), 'Анализ списка', false);
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          Result := OpenAnalysisList(VarToString(how_i), isReturnWindow);
+          if IsExists(Result) or IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+    
+    wnd := GetFromShell('ОКНО АНАЛИЗ СПИСКА');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть окно "Анализ списка"!');
+  except
+    Log.Message('OpenAnalysisList: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Функция производит всякие действия со списком
+  RESULT: Возвращает окна
+  REMARK:
+}
+function OpenInList(
+  whatToOpen : String
+): OleVariant;
+begin
+  try
+    Result := NonExObj;  
+
+    //GetMainWindow.SetFocus;
+    whatToOpen := AnsiUpperCase(whatToOpen);
+    case whatToOpen of // что можем открыть
+      'СПИСОК ДОКУМЕНТОВ', 'СПИСОК' :
+        if SwitchToPage( GetFromList('ЗАКЛАДКИ'), 'Список') then Result := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      'СПРАВКА К СПИСКУ' :
+        if SwitchToPage( GetFromList('ЗАКЛАДКИ'), 'Справка к списку') then Result := GetFromList('СПРАВКА К СПИСКУ');
+      'СИНХРОННЫЙ ПРОСМОТР' ://в SwitchToPage используем для переключения не свойство TabIndex, а кнопки -а то глючит
+        if SwitchToPage( GetFromList('ЗАКЛАДКИ'), 'Синхронный просмотр', false) then Result := GetFromList('ОБЛАСТЬ СИНХРОННОГО ПРОСМОТРА');
+      'СПИСОК ФИЛЬТРОВ', 'ФИЛЬТРЫ', 'ВКЛАДКА "ФИЛЬТРЫ"' :
+        if OpenFilterTab then Result := GetFromList('СПИСОК ФИЛЬТРОВ');
+      'АНАЛИЗ СПИСКА': 
+        Result := OpenAnalysisList('', true);
+    else 
+      Raise('Параметр не распознан!');
+    end;
+    if IsExists(Result) then Result.SetFocus;
+  except
+    Log.Message('OpenInDocument: ' + ExceptionMessage, 'whatToOpen: "' + whatToOpen + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с фильтрами
+  DESC: Включает/отключает фильтры; Возвращает состояние фильтров
+
+  RESULT: Строка включенных фильтров или true/false при установке
+  REMARK: Фильтры устанавливаются в порядке их задания. Если фильтр не найден, то прекращаем. 
+          Если ни один документв списке не удовлетворяет фильтрам, то прекращаем.
+          IsCloseWarningWindow - закрывать / не закрывать окно предупреждения
+}
+function WorkWithFilters(
+  const filterListWnd : OleVariant; // окно со списком фильтров
+  const whatToDo : String; // что делать set|get
+  filtersToSet : String = '';  // строка в виде *Формы документов;+Формы документов;-Проекты законов. Если задана пустая строка, то все сбрасывает
+  const paramString : String = ''
+) : OleVariant;
+var
+  filterArr, paramList : OleVariant;
+  currFilter, oldFilter, warningMessage : String;
+  i : integer;
+  p_IsCloseWarningWindow, res : boolean;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    p_IsCloseWarningWindow := VarToBool( GetParam(paramList, 'IsCloseWarningWindow', 'true') );
+    //
+    filterListWnd.SetFocus;
+    case AnsiUpperCase( whatToDo ) of
+      'SET' : // включает фильтры
+        begin
+          if filtersToSet = '' then 
+          begin // если ничего не задано, то все сбрасываем
+            Sys.Keys('[Apps]');
+            Result := ClickByPopupMenuItem(filterListWnd, 'Отменить все фильтры');
+            Exit;
+          end
+          else
+          begin // если что-то задано
+            if AnsiLastChar(filtersToSet) = ';' then Delete(filtersToSet, Length(filtersToSet), 1);
+            filterArr := String2Array(filtersToSet, ';');
+            if IsArray(filterArr) then Result := true;
+            
+            for i := VarArrayLowBound(filterArr, 1) to VarArrayHighBound(filterArr, 1) do
+            begin // перебираем фильтры в порядке их задания в строке параметров
+              if filterArr[i] = '' then continue;
+              filterListWnd.SetFocus;
+              Sys.Keys('[Home]');
+              currFilter := Copy(filterArr[i], 2, 1024);
+              if Position_By_Text(filterListWnd, currFilter, false, true) then
+              begin // если нашли фильтр, то пытаемся привести его к нужному состоянию
+                Sys.Keys('[Apps]');
+                // пытаемся изменить состояние фильтров если оно не нужное
+                case filterArr[i][1] of
+                  '+' : Result := Result AND ( (IsPopupMenuItemExists(filterListWnd, 'Отменить фильтр', false) AND ClosePopupMenu(filterListWnd)) OR ClickByPopupMenuItem(filterListWnd, 'Применить фильтр') );
+                  '-' : Result := Result AND ( (IsPopupMenuItemExists(filterListWnd, 'Применить фильтр', false) AND ClosePopupMenu(filterListWnd)) OR ClickByPopupMenuItem(filterListWnd, 'Отменить фильтр') );
+                  '*' : Result := Result AND ( ClickByPopupMenuItem(filterListWnd, 'Применять автоматически') );
+                else
+                  Log.Warning('Непонятная команда: "' + filterArr[i][1] + '" в "' + filterArr[i] + '"');  
+                end;
+                // проверяем результат, появилось ли сообщение о пустом
+                warningMessage := WaitForWarningWindow(Options.Run.Timeout div 60, '', p_IsCloseWarningWindow);
+                if warningMessage <> '' then
+                  Log.Warning('Вылезло предупреждение "' + warningMessage + '"');
+                  
+                if IsExists(GetFromList('ОБЛАСТЬ ПУСТОГО РЕЗУЛЬТАТА ФИЛЬТРА')) or 
+                   StringCompare('Фильтр не может быть применен*Один из указанных в фильтре реквизитов отсутствует в установленном у вас комплекте!', warningMessage) then
+                begin // если появилось предупреждение о несоответствии, то прерываем применение фильтров
+                  Result := false;  
+                  Exit;
+                end;
+              end
+              else // если не смогли найти заданный фильтр, то считаем что ничего не получилось
+              begin
+                Result := false;  
+                Exit;
+              end;  
+            end;  
+          end;
+        end;
+      'GET' : // отдает список (строку) включенных фильтров
+        begin
+          Sys.Keys('[Home]');
+          Result := '';
+          oldFilter := '';
+          currFilter := common.GetWindowText(filterListWnd.Handle);
+          while (currFilter <> oldFilter) do
+          begin // пробегаем вниз по списку фильтров
+            Sys.Keys('[Apps]'); // вызываем контекстное меню и если там есть пункт "Отменить фильтр", то значвит фильтр применен и заносим его в результат
+            if IsPopupMenuItemExists(filterListWnd, 'Отменить фильтр') AND (NOT IsPopupMenuItemExists(filterListWnd, 'Применить фильтр')) then
+              Result := Result + currFilter + ';';
+            ClosePopupMenu(filterListWnd);
+              
+            oldFilter := currFilter;
+            Sys.Keys('[Down]');
+            currFilter := common.GetWindowText(filterListWnd.Handle);
+          end;
+          if AnsiLastChar(Result) = ';' then Delete(Result, Length(Result), 1);
+        end;
+    else
+      Raise('Неправильно указан параметр');
+    end;  
+    
+  except
+    Log.Message('WorkWithFilters: ' + ExceptionMessage, 'whatToDo: "'  + whatToDo + '"; filtersToSet: "' + filtersToSet + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise(ExceptionMessage);
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Выделяет элемент по индексу в списке. Счет производится по номеру найденного шаблона изображения
+  RESULT: true/false
+  REMARK: 
+}
+function SelectItemInList(
+  listTree;
+  index : integer;
+  doselection: boolean = true;
+  picpattern: string = 'list_pattern.bmp'
+): boolean;
+const 
+  H = 20;           //высота элемента списка
+var
+  curList;
+  i, s, foundY, foundX;
+begin
+try
+  Result:=false;
+
+  s := 0;
+  if IsExists(listTree) then
+  begin
+    for i := 1 to index do 
+      if FindPicture(listTree, picpattern, foundX, foundY, H, s, 3*H, listTree.Height-s) then
+      begin
+       	s := foundY + H;
+        if i=index then 
+        begin
+          listTree.SetFocus;
+          if doselection then 
+            listTree.Click(2*H, s - H div 2, skCtrl)
+          else
+            listTree.Click(2*H, s - H div 2);
+          Result:=true;          
+          break;
+        end;
+      end
+      else 
+      begin
+        Log.Error('SelectItemInList: Не получилось найти нужный элемент. Не найдена иконка элемента "' + picpattern + '", или индекс вне диапазона');
+        break;
+      end;
+  end
+  else  
+    Log.Error('SelectItemInList: Не существует окна списка!');
+except
+  Log.Message('SelectItemInList: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  Raise;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: Свернутость / Развернутость узла
+  DESC: 
+  RESULT: возвращает true если текущий элемент дерева развёрнут и false в противном случае
+  REMARK:
+}
+function IsCurrentNodeExpanded(listTree: OleVariant): Boolean;
+begin
+  try
+    Result := false;
+    if not IsExists(listTree) then
+      Raise('Объект не существует!');
+    if not IsSupported(listTree, 'CurrentNodeExpanded') then
+      Raise('Объект не имеет свойства "CurrentNodeExpanded"');
+    Result := listTree.CurrentNodeExpanded;    
+  except
+    Log.Message('IsCurrentNodeExpanded: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;     
+  end;  
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:                              
+  REMARK:
+}
+function CheckSelectedListItemIcon(
+  const listWnd : OleVariant; 
+  const imagePattern : OleVariant // путь к картинке (или массив путей к картинке) 
+) : OleVariant; // см. FindPicture
+  var
+    x, y, tmpX, tmpY : integer;
+begin
+  try
+    Result := Choose( IsArray(imagePattern), '', false);
+    if NOT IsExists(listWnd) then Raise('Объект не существует!');
+    listWnd.SetFocus;
+    if GetTextSelectionCoords(listWnd, x, y) then
+      Result := FindPicture(listWnd, imagePattern, tmpX, tmpY, 1, y - 8, x, 32);
+  except
+    Log.Message('CheckSelectedListItemIcon: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;     
+  end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:                              
+  REMARK:
+}
+function ClickBySelectedListItemIcon(
+  const listWnd : OleVariant; 
+  const imagePattern : OleVariant // путь к картинке (или массив путей к картинке) 
+) : OleVariant; // см. FindPicture
+  var
+    x, y, tmpX, tmpY : integer;
+begin
+  try
+    Result := Choose( IsArray(imagePattern), '', false);
+    if NOT IsExists(listWnd) then Raise('Объект не существует!');
+    listWnd.SetFocus;
+    if not GetTextSelectionCoords(listWnd, x, y) then
+      Raise('Граница выделения не найдена!');
+    if not FindPicture(listWnd, imagePattern, tmpX, tmpY, 1, y-8, x, 64) then
+      Raise('Картинка "' + imagePattern + '" не найдена!'); 
+    listWnd.Click(tmpX + 2, tmpY +2);
+  except
+    Log.Message('CheckSelectedListItemIcon: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;     
+  end;
+end;
+
+{
+DESK:  Открываем эталонный список
+}
+function OpenEtalonList(
+  var etalonList : string  
+) : boolean;
+var
+  tempObj;
+  pathOne;
+  pathTwo;
+  pathThree;
+begin  
+  try
+    case etalonList of  
+    LIST_ALLCODES :
+      begin
+        if NOT OpenObjectFromFolder(LIST_ALLCODES, OpenMenuTab) then 
+          Raise('Не удалось открыть из ОМ список : "' + LIST_ALLCODES + '"');
+      end;
+      else
+        Raise('Передан неправильный параметр!'); 
+    end;//case  
+    Result := true;      
+  except
+    Result := false;
+    Log.Message('OpenEtalonList: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function GetCurrListElementParam(
+  listWnd : OleVariant;
+  whatToGet : String
+): OleVariant;
+  const
+    FUNCTION_NAME = 'GetCurrListElementParam';
+  var
+    statusBarText; 
+    regExp;
+    subst;
+begin
+  try
+    Result := -1;
+    if NOT IsExists(listWnd) then 
+      Raise('Окно списка не существует!');
+    if NOT listWnd.Focused then listWnd.SetFocus;
+      
+    whatToGet := AnsiUpperCase(whatToGet);
+    //
+    statusBarText := AnsiUpperCase( common.GetWindowText(GetFromMainWindow('СТАТУСБАР').Handle) );
+    regExp := HISUtils.RegExpr;
+    regExp.Expression := '(?g)\D*(\d*)\D*(\d*)\D*(\d*)\D*(\d*)';
+    if (NOT regExp.Exec(statusBarText)) then
+      Exit; // что-то ничего не нашли
+    //
+    case whatToGet of
+      'ТЕКУЩИЙ ДОКУМЕНТ' : subst := '$1';
+      'ВСЕГО ДОКУМЕНТОВ' : subst := '$2';
+      'ВЫДЕЛЕНО' : subst := '$3';
+      'РЕЛЕВАНТНОСТЬ' : subst := '$4';
+      'ТЕКУЩАЯ РЕДАКЦИЯ' : subst := '$1';
+      'ВСЕГО РЕДАКЦИЙ' : subst := '$2';
+      'КОЛИЧЕСТВО АННОТАЦИЙ' : subst := '$1';      
+    else
+      Raise('WhatToGet не распознан!');
+    end;
+    if (regExp.Substitute(subst) <> '') then 
+      Result := VarToInteger(regExp.Substitute(subst));
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([listWnd, whatToGet], ['listWnd', 'whatToGet']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE: Работа со списком
+  DESC: Функция производит всякие действия c вкладкой синхронный просмотр
+  RESULT: Возвращает окна
+  REMARK: 
+}
+function OpenInSynhroView(
+  whatToOpen : String;
+  paramString : String = '' 
+): OleVariant;
+var
+  toolBar;
+  paramList;
+  correspButtonName;
+  respondButtonName;
+begin
+  try    
+    paramList := ParseParamString(paramString);    
+    correspButtonName := VarToStr( GetParam(paramList, 'correspButtonName', 'Судебная практика') );
+    respondButtonName := VarToStr( GetParam(paramList, 'respondButtonName', 'Судебная практика') );
+    Result := OpenInList('СИНХРОННЫЙ ПРОСМОТР'); 
+    if NOT IsExists(Result) then 
+      Raise('Не удалось получить СИНХРОННЫЙ ПРОСМОТР');          
+    toolBar := GetFromSynchroView('ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР"');
+    if NOT IsExists(toolBar) then 
+      Raise('Не удалось получить ТУЛБАР "СИНХРОННЫЙ ПРОСМОТР"');
+    whatToOpen := AnsiUpperCase(whatToOpen);
+    case whatToOpen of
+      'ТЕКСТ ДОКУМЕНТА':
+        begin
+          if NOT ClickToolbarButton(toolBar, 'Текст документа', 'SetToState:=pressed') then
+            Raise('Не удалось нажать на тулбаре кнопку "Текст документа"');
+          Result := GetFromSynchroView('ТЕКСТ ДОКУМЕНТА');   
+          if NOT IsExists(Result) then Raise('В синхронном просмотре не удалось получить "ТЕКСТ ДОКУМЕНТА"!');
+        end;
+      'СПРАВКА К ДОКУМЕНТУ' :
+        begin
+          if NOT ClickToolbarButton(toolBar, 'Справка к документу', 'SetToState:=pressed') then
+            Raise('Не удалось нажать на тулбаре кнопку "Справка к документу"');
+          Result := GetFromSynchroView('СПРАВКА К ДОКУМЕНТУ');   
+          if NOT IsExists(Result) then Raise('В синхронном просмотре не удалось получить СПРАВКА К ДОКУМЕНТУ!');
+        end;
+      'АТТРИБУТЫ' :
+        begin
+          if NOT ClickToolbarButton(toolBar, 'Информация о документе', 'SetToState:=pressed') then
+            Raise('Не удалось нажать на тулбаре кнопку "Информация о документе"');
+          Result := GetFromSynchroView('АТТРИБУТЫ');   
+          if NOT IsExists(Result) then Raise('В синхронном просмотре не удалось получить АТТРИБУТЫ!');
+        end;
+      'ТЕКСТ АННОТАЦИИ' : 
+        begin          
+          if NOT ClickToolbarButton(toolBar, 'Аннотация к документу', 'SetToState:=pressed') then
+            Raise('Не удалось нажать на тулбаре кнопку "Аннотация к документу"');
+          Result := GetFromSynchroView('ТЕКСТ АННОТАЦИИ');   
+          if NOT IsExists(Result) then Raise('В синхронном просмотре не удалось получить ТЕКСТ АННОТАЦИИ!');
+        end;
+      'СПИСОК ССЫЛОК НА ДОКУМЕНТ' :
+        begin
+          if NOT ClickToolbarButton(toolBar, correspButtonName, 'SetToState:=pressed') then
+            Raise('Не удалось нажать на тулбаре кнопку "' + correspButtonName + '"');
+          Result := GetFromSynchroView('СПИСОК ССЫЛОК НА ДОКУМЕНТ');   
+          if NOT IsExists(Result) then Raise('В синхронном просмотре не удалось получить СПИСОК ССЫЛОК НА ДОКУМЕНТ!');
+        end;
+    else 
+      Raise('Параметр не распознан!');
+    end;
+    if IsExists(Result) then Result.SetFocus;
+  except
+    Log.Message('OpenInSynhroView: ' + ExceptionMessage, 'whatToOpen: "' + whatToOpen + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := NonExObj;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC:  Контекстная фильтрация во вкладках
+  RESULT:
+  REMARK: Работает только для вкладки Меню
+}
+function SetContextFilter(  
+  context : String;
+  filterWnd : OleVariant = nil 
+): OleVariant;
+  const
+    FUNCTION_NAME = 'SetContextFilter';
+  var 
+    contFiltrField; 
+    button;
+begin
+  try    
+    if filterWnd = nil then  
+      filterWnd := GetFromNavigator('ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+        
+    if NOT IsExists(filterWnd) then Raise('Не удалось получить ФОРМА "КОНТЕКСТНЫЙ ФИЛЬТР"');
+    
+    contFiltrField := GetFromContextFilterForm('КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"', filterWnd);
+    if NOT IsExists(contFiltrField) then Raise('Не удалось получить КОМБОБОКС "КОНТЕКСТНЫЙ ФИЛЬТР"');
+    contFiltrField.SetFocus;
+    PressKeyWithCheck([context], contFiltrField);
+      
+    button := GetFromContextFilterForm('КНОПКА "ВКЛЮЧИТЬ КОНТЕКСТНЫЙ ФИЛЬТР"', filterWnd);
+    if NOT IsExists(button) then Raise('Не удалось получить КНОПКА "ВКЛЮЧИТЬ КОНТЕКСТНЫЙ ФИЛЬТР"');
+    if NOT button.Down then button.Click;
+     
+    Result := true;
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));   
+    Raise;
+  end; 
+end;
+
+
+{
+  TYPE:
+  DESC:  Открывает докусент в списке по его внутреннему номеру
+  RESULT: false\true или объект ТЕКСТ ДОКУМЕНТА
+  REMARK: 
+}
+function OpenDocFromListByNumber(  
+  number : integer; //Внутренний номер в базе
+  maxCount : integer = 1000; //Максимально еколичество просматриваемых документов
+  wnd : OleVariant = nil;
+  isReturnWnd : boolean = false// Возвращать ли объект 
+): OleVariant;
+  const
+    FUNCTION_NAME = 'OpenDocFromListByNumber';
+  var    
+    num;
+    RegExp;
+begin
+  try
+    if wnd = nil then wnd := GetFromList('СПИСОК ДОКУМЕНТОВ');    
+    num := wnd.NodeIndexByDocNumber(IntToStr(number), maxCount, false);
+    RegExp := HISUtils.RegExpr;
+    RegExp.Expression := '(?g).*:(.*);';
+    if RegExp.Exec(num) then
+      num :=  RegExp.Match[1]
+    else
+      Raise(FUNCTION_NAME + ': Неверный формат!');
+    wnd.SetFocus;
+    Sys.Keys('^[Home]');
+    PressKeyNCount('[Down]', StrToInt(num));
+    Sys.Keys('[Enter]');
+    wnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+         
+    if IsExists(wnd) then
+    begin
+      if isReturnWnd then Result := wnd else Result := true;        
+    end
+    else    
+      if isReturnWnd then Result := NonExObj else Result := false;
+  except
+    if isReturnWnd then   Result := NonExObj  else  Result := false;  
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end; 
+end;

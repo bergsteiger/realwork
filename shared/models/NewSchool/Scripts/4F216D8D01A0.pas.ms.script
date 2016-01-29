@@ -1,0 +1,73 @@
+// TkwCompiledProcedure 4F216D8D01A0 SimpleClass Class
+
+INCLUDE '4DB6CA4F010D.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_4F216D8D01A0
+
+: ME_4F422364034B
+ CONST UID '4F422364034B'
+ CONST Name 'f_Modifiers'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_559D504A0081 // TtfwWordInfo
+ ;
+
+ @SELF
+; // ME_4F422364034B f_Modifiers
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_1086FB810269
+ CONST UID '1086FB810269'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwCompiledProcedure' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_1086FB810269 Ini_Reg_Class
+
+: ME_4F216D8D01A0
+ CONST UID '4F216D8D01A0'
+ CONST Name 'TkwCompiledProcedure'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DB6CA4F010D // TkwCompiledWord
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4F422364034B // f_Modifiers
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_1086FB810269 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_4DAEEDE10285 // DoDoIt
+ ME_4DB6D7F70155 // IsImmediate
+ ME_52CFC11603C8 // ResultTypeInfo
+ ME_52EA6A2C0111 // SetResultTypeInfo
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F216D8D01A0 TkwCompiledProcedure

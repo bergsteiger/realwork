@@ -1,0 +1,50 @@
+// evSelectConst 48E3A9B902F6 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E3A9B902F6
+
+: ME_48E3A9D401E7
+ CONST UID '48E3A9D401E7'
+ CONST Name 'SelectConsts'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48E3A9B902F6 // evSelectConst
+ ;
+ CONST "spell names" false
+
+ref; // ME_48E3A9D401E7 SelectConsts
+
+: ME_48E3A9B902F6
+ CONST UID '48E3A9B902F6'
+ CONST Name 'evSelectConst'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Constants
+   @ ( ME_48E3A9D401E7 // SelectConsts
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "finished" false
+ CONST "is namespace" true
+ CONST "no hands" false
+ CONST "started" '19.05.2005 19:59'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSelectConst.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\48E3A9B902F6.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48E3A9B902F6.pas.ms.script.runner'
+
+ref; // ME_48E3A9B902F6 evSelectConst

@@ -1,0 +1,52 @@
+'$include "States.sbl"
+'$include "global.sbl"
+'*** Проверка тесткейса № 71.1.3.2 ***
+
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+Sub Main
+    Dim Result As Integer
+    Dim value$
+
+  Call NeedState (ST_MAIN_MENU)
+  CUR_STATE = ST_NONE_STANDART
+  
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Правовой навигатор \ Разъяснения, комментарии, схемы
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=92,12"
+  GenericObject Click, "Text=Разъяснения, комментарии, схемы", "Coords=113,12"
+  
+'Переводим фокус на закладку навигатора "Разъяснения, комментарии, схемы"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+  
+'Разворачиваем узел "Прочие вопросы"
+  InputKeys "{DOWN}{Num+}{DOWN}{DOWN}{DOWN}{DOWN}{Num+}"
+  
+'Проверяем название выбранного элемента
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Прочие вопросы", value)
+  
+'Разворачиваем все элементы
+  Call Click_NavExpClps
+
+'Проверяем название текущего элемента - он не должен измениться
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Прочие вопросы", value)
+
+'Переходим на лист "Информация, информатизация и средства массовой информации"
+  InputKeys "{DOWN}{DOWN}{DOWN}"
+'Проверяем название текущего листа
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Информация, информатизация и средства массовой информации", value)
+  
+'Переходим на узел "Счета бухгалтерского учета"  
+  InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}"
+  
+'Проверяем название текущего узла
+  SQAGetProperty "CurrentFocus","Text",value
+  Call StrComp2Log("Счета бухгалтерского учета", value)
+End Sub

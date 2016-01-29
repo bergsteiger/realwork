@@ -1,0 +1,868 @@
+<<Library>> Splash
+ %UID '499C065E01E5'
+ %SUMMARY 'Показ сплеш-скрина в отцепленном процессе.'#13#10'Клиент - оболочка.'#13#10'Сервер - отдельный процесс, показывающий сплеш'#13#10'Данные передаются через файл проецируемый в память.' ;
+ %DEPENDS
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '54B90AC6014B' /* StringUtils */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> SplashTypes
+   %UID '499C07150302'
+   %SUMMARY 'Внутренние типы' ;
+   %DEPENDS
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '499C065E01E5' /* Splash */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Constants>> SplashConstants
+      %UID '499C079E018B'
+      %SUMMARY 'Константы' ;
+      %META
+       %upv "spell names" false
+      ; // %META
+      %ATTRIBUTES
+        <<Attribute>> cMemFileName
+         %UID '499C07B50202'
+         %SUMMARY 'Имя файла проецируемого в память' ;
+         %VALUE '''{FD2B7487-1FEB-40A4-9D66-8532A4BB7C10}'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // cMemFileName
+        <<Attribute>> cGuardName
+         %UID '499C07D002E0'
+         %SUMMARY 'Имя мьютекса для защиты данных' ;
+         %VALUE '''{36F75AF8-F8E5-4C52-9046-1720F059F9A1}'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // cGuardName
+        <<Attribute>> cFinishEventName
+         %UID '499C07DB029F'
+         %SUMMARY 'Сообщение от клиента к серверу о том, что оболочка все сделала и можно сплеш закрывать' ;
+         %VALUE '''{9B07B496-065C-474D-87D6-7FCA7A3184B0}'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // cFinishEventName
+        <<Attribute>> cSplashVersion
+         %UID '499C07EA0046'
+         %SUMMARY 'Версия протокола - для защиты от дурака' ;
+         %VALUE 1
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // cSplashVersion
+      ; // %ATTRIBUTES
+     ; // SplashConstants
+     <<Struct>> TnsSplashData
+      %UID '499C08380323'
+      %SUMMARY 'Заголовок файла проецируемого в память' ;
+      %META
+       %upv "packed" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        FINAL <<Attribute>> Version
+         %UID '499C094B0284'
+         %SUMMARY 'Версия данных - для защиты от дурака' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Version
+        FINAL <<Attribute>> ProcessID
+         %UID '499C097E02DE'
+         %SUMMARY 'ID процесса сервера - для защиты от дурака' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ProcessID
+        FINAL <<Attribute>> Size
+         %UID '499C098B0327'
+         %SUMMARY 'Полный размер данных (с заголовком)' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Size
+        FINAL <<Attribute>> MinimalShowTime
+         %UID '499C099C001F'
+         %SUMMARY 'Минимальное время показа сплеша' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // MinimalShowTime
+        FINAL <<Attribute>> ParentWnd
+         %UID '499C09A400FC'
+         %SUMMARY 'Окно клиента, которому надо передать обратно фокус' ;
+         %TARGET U$ '46A465F9028C' /* THandle */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ParentWnd
+        FINAL <<Attribute>> SplashDataOffset
+         %UID '499D33A403BA'
+         %SUMMARY 'Смещение для данных флеша/картинки' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // SplashDataOffset
+        FINAL <<Attribute>> SplashDataSize
+         %UID '499D33C901D9'
+         %SUMMARY 'Размер данных сплеша/картинки' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // SplashDataSize
+        FINAL <<Attribute>> ApplicationTitleOffset
+         %UID '499D340100D4'
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ApplicationTitleOffset
+        FINAL <<Attribute>> ApplicationTitleSize
+         %UID '499D34170246'
+         %SUMMARY 'Передается как AnsiChar, включает конечный нуль' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ApplicationTitleSize
+        FINAL <<Attribute>> UserInfoOffset
+         %UID '499D34330380'
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // UserInfoOffset
+        FINAL <<Attribute>> UserInfoSize
+         %UID '499D344A0243'
+         %SUMMARY 'Передается как WideChar, включает конечные нули' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // UserInfoSize
+        FINAL <<Attribute>> WarningOffset
+         %UID '499D345A00E2'
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // WarningOffset
+        FINAL <<Attribute>> WarningSize
+         %UID '499D346F00D0'
+         %SUMMARY 'Передается как WideChar, включает конечные нули' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // WarningSize
+        FINAL <<Attribute>> LogoOffset
+         %UID '499E5E1E00AD'
+         %SUMMARY 'Картинка с лого - едет компонент TvtPngImageList' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // LogoOffset
+        FINAL <<Attribute>> LogoSize
+         %UID '499E5E720094'
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // LogoSize
+      ; // %ATTRIBUTES
+     ; // TnsSplashData
+     <<Typedef>> PnsSplashData
+      %UID '499C08FA03D1'
+      %SUMMARY 'Указатель на заголовок' ;
+      %META
+       %upv "isPointer" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '499C065E01E5' /* Splash */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '499C08380323' /* TnsSplashData */
+      ; // %INHERITS
+     ; // PnsSplashData
+   ; // %CHILDREN
+  ; // SplashTypes
+  <<Interfaces>> SplashInterfaces
+   %UID '499D0684023C'
+   %SUMMARY 'Интерфесы для клиента' ;
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %CHILDREN
+    
+     <<Facet>> InsSplashClient
+      %UID '499D06CC02D2'
+      %SUMMARY 'Невизуальный объект.'#13#10'Готовит данные для сервера и запускает его.'#13#10'Перед разрушением говорит серверу, что можно уже не показывать сплеш.' ;
+     ; // InsSplashClient
+   ; // %CHILDREN
+  ; // SplashInterfaces
+  <<Interfaces>> SplashServerInterfaces
+   %UID '499D06A201BE'
+   %SUMMARY 'Интерфейсы для сервера' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '499C065E01E5' /* Splash */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> InsSplashWaiter
+      %UID '499D06FE010B'
+      %SUMMARY 'Объект ожидающий нотификацию о том, что клиент хочет погасить сплеш' ;
+      %OPERATIONS
+        ABSTRACT <<Operation>> CanCloseSplash
+         %UID '499D070E0287'
+         %SUMMARY 'Клиент разрешил закрыть сплеш' ;
+        ; // CanCloseSplash
+      ; // %OPERATIONS
+     ; // InsSplashWaiter
+     <<Facet>> InsSplashInfo
+      %UID '499D0728005B'
+      %SUMMARY 'Информация с описанием сплеша, который надо показать' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '499C065E01E5' /* Splash */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<property>> Waiter
+         %UID '499D074100CF'
+         %SUMMARY 'Нотификатор, которому надо сказать, что клиент кочет закрыть сплеш.'#13#10'По идее достаточно этого, а не полноценного Publisher/Subscriber' ;
+         %TARGET U$ '499D06FE010B' /* InsSplashWaiter */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '499C065E01E5' /* Splash */
+         ; // %TOBEINCLUDED
+        ; // Waiter
+        ABSTRACT LINK <<readonly>> IsValid
+         %UID '499D121F01A1'
+         %SUMMARY 'Данные успешно вычитаны и можно показывать сплеш' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsValid
+        ABSTRACT LINK <<readonly>> MinimalShowTime
+         %UID '499D12390040'
+         %SUMMARY 'Минимальное время показа сплеша' ;
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // MinimalShowTime
+        ABSTRACT LINK <<readonly>> Warning
+         %UID '499D12670256'
+         %SUMMARY 'Предупреждение о нарушении авторских прав.' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // Warning
+        ABSTRACT LINK <<readonly>> UserInfo
+         %UID '499D128B028A'
+         %SUMMARY 'Строка с информацией о пользователе' ;
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // UserInfo
+        ABSTRACT LINK <<readonly>> ApplicationTitle
+         %UID '499D1298014D'
+         %SUMMARY 'Заголовок клиентского приложения' ;
+         %TARGET U$ '4771179900D8' /* PChar */
+         %META
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ApplicationTitle
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> SwitchToParent
+         %UID '499D076503E0'
+         %SUMMARY 'Переключиться на окно клиента (в конце показа)' ;
+        ; // SwitchToParent
+        ABSTRACT <<Operation>> MakeSplashDataStream
+         %UID '499D3E8A0270'
+         %TARGET U$ '46A5B0060013' /* IStream */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // MakeSplashDataStream
+        ABSTRACT <<Operation>> MakeLogoStream
+         %UID '499E5EA40035'
+         %SUMMARY 'Создает поток для вычитывания TvtPngImageList в котормо лежит лого' ;
+         %TARGET U$ '46A5B0060013' /* IStream */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // MakeLogoStream
+      ; // %OPERATIONS
+     ; // InsSplashInfo
+   ; // %CHILDREN
+  ; // SplashServerInterfaces
+  <<Unit>> SplashServer
+   %UID '499D247F0173'
+   %SUMMARY 'Реализация сервера' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '499C07150302' /* SplashTypes */
+    U$ '499D06A201BE' /* SplashServerInterfaces */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '499C065E01E5' /* Splash */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsSplashInfo
+      %UID '499D24A503A6'
+      %SUMMARY 'Информация о том что показывать' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '499C065E01E5' /* Splash */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '499D0728005B' /* InsSplashInfo */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '499D074100CF' /* Waiter */
+       U$ '499D076503E0' /* SwitchToParent */
+       U$ '499D121F01A1' /* IsValid */
+       U$ '499D12390040' /* MinimalShowTime */
+       U$ '499D12670256' /* Warning */
+       U$ '499D128B028A' /* UserInfo */
+       U$ '499D1298014D' /* ApplicationTitle */
+       U$ '499D3E8A0270' /* MakeSplashDataStream */
+       U$ '499E5EA40035' /* MakeLogoStream */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "499D4DCA0101"
+         %UID '499D4DCA0101'
+         %TARGET U$ '47AB1FDE03E4' /* l3Memory */
+        ; // 499D4DCA0101
+        <<uses>> "499D504A0174"
+         %UID '499D504A0174'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 499D504A0174
+        <<uses>> "499E73D403A9"
+         %UID '499E73D403A9'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 499E73D403A9
+        <<uses>> "499E74AE01C0"
+         %UID '499E74AE01C0'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 499E74AE01C0
+        <<uses>> "499E74D201D4"
+         %UID '499E74D201D4'
+         %TARGET U$ '46A62147006A' /* CharSets */
+        ; // 499E74D201D4
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Header
+         %UID '499D26F1021B'
+         %TARGET U$ '499C08FA03D1' /* PnsSplashData */
+         %TOBEINCLUDED
+          U$ '499C065E01E5' /* Splash */
+         ; // %TOBEINCLUDED
+        ; // f_Header
+        PRIVATE <<Attribute>> f_Guard
+         %UID '499D276C0128'
+         %TARGET U$ '46A465F9028C' /* THandle */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Guard
+        PRIVATE <<Attribute>> f_CanCloseEvent
+         %UID '499D279F0172'
+         %TARGET U$ '46A465F9028C' /* THandle */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CanCloseEvent
+        PRIVATE <<Attribute>> f_Valid
+         %UID '499D27CD0241'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Valid
+        PRIVATE <<Attribute>> f_MemFile
+         %UID '499D27DC0007'
+         %TARGET U$ '46A465F9028C' /* THandle */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_MemFile
+        PRIVATE <<Attribute>> f_Waiter
+         %UID '499D2E1201EA'
+         %SUMMARY 'Сдабая ссылка на InsSplashWaiter' ;
+         %TARGET U$ '46A608F00301' /* Pointer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Waiter
+        PRIVATE <<Attribute>> f_WaiterGuard
+         %UID '499D2F8503BD'
+         %TARGET U$ '499D303B02E8' /* TRTLCriticalSection */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_WaiterGuard
+        PRIVATE <<Attribute>> f_Thread
+         %UID '499D331E02CC'
+         %SUMMARY 'Ждет сообщения от клиента' ;
+         %TARGET U$ '4787FD9103E6' /* TThread$Stub */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Thread
+        PRIVATE <<Attribute>> f_CanClose
+         %UID '499EC5DF00A0'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CanClose
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '499D25B501C4'
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '499D25E60202'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+        PRIVATE FINAL <<Operation>> SplashDataPointer
+         %UID '499D3344000F'
+         %SUMMARY 'Указатель на данные SplashData в файле проецируемом в память' ;
+         %TARGET U$ '46A608F00301' /* Pointer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // SplashDataPointer
+        PRIVATE FINAL <<Operation>> UserInfoPointer
+         %UID '499D37120197'
+         %TARGET U$ '46A608F00301' /* Pointer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // UserInfoPointer
+        PRIVATE FINAL <<Operation>> WarningPointer
+         %UID '499D372A02A8'
+         %TARGET U$ '46A608F00301' /* Pointer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // WarningPointer
+        PRIVATE FINAL <<Operation>> ApplicationTitlePointer
+         %UID '499D374D0203'
+         %TARGET U$ '46A608F00301' /* Pointer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ApplicationTitlePointer
+        PRIVATE FINAL <<Operation>> SignalCanClose
+         %UID '499D40ED018C'
+        ; // SignalCanClose
+        PRIVATE FINAL <<Operation>> LogoPointer
+         %UID '499E5F9102A0'
+         %TARGET U$ '46A608F00301' /* Pointer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // LogoPointer
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE <<SimpleClass>> TnsWaitThread
+         %UID '499D3B52019D'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '499C065E01E5' /* Splash */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4787FD9103E6' /* TThread$Stub */
+         ; // %INHERITS
+         %REALIZES
+          U$ '499D3BE0004D' /* Execute */
+         ; // %REALIZES
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_Info
+            %UID '499D3B91032C'
+            %TARGET U$ '499D24A503A6' /* TnsSplashInfo */
+            %TOBEINCLUDED
+             U$ '499C065E01E5' /* Splash */
+            ; // %TOBEINCLUDED
+           ; // f_Info
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<ctor>> Create
+            %UID '499D3BA602BC'
+            %TOBEINCLUDED
+             U$ '499C065E01E5' /* Splash */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aInfo
+               %UID '499D3BB9026F'
+               %TARGET U$ '499D24A503A6' /* TnsSplashInfo */
+               %TOBEINCLUDED
+                U$ '499C065E01E5' /* Splash */
+               ; // %TOBEINCLUDED
+              ; // aInfo
+            ; // %PARAMETERS
+           ; // Create
+           PRIVATE <<Operation>> DoDone
+            %UID '499D3C000104'
+           ; // DoDone
+         ; // %OPERATIONS
+        ; // TnsWaitThread
+      ; // %CHILDREN
+     ; // TnsSplashInfo
+   ; // %CHILDREN
+  ; // SplashServer
+  <<Unit>> SplashClient
+   %UID '499D5F2203AD'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '47750CE700D0' /* afwFacade */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '499C07150302' /* SplashTypes */
+    U$ '499D0684023C' /* SplashInterfaces */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790B4F00236' /* AFW */
+    U$ '4790D09A0378' /* L3 */
+    U$ '499C065E01E5' /* Splash */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsSplashVisualizer
+      %UID '499D5F560195'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '499C065E01E5' /* Splash */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '499D06CC02D2' /* InsSplashClient */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "499D705C0186"
+         %UID '499D705C0186'
+         %TARGET U$ '47752AF90375' /* afwFacade */
+        ; // 499D705C0186
+        <<uses>> "499D730B0037"
+         %UID '499D730B0037'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 499D730B0037
+        <<uses>> "499E56090279"
+         %UID '499E56090279'
+         %TARGET U$ '499C08FA03D1' /* PnsSplashData */
+        ; // 499E56090279
+        <<uses>> "499E561102CA"
+         %UID '499E561102CA'
+         %TARGET U$ '499C079E018B' /* SplashConstants */
+        ; // 499E561102CA
+        <<uses>> "499E58F2038C"
+         %UID '499E58F2038C'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 499E58F2038C
+        <<uses>> "499E64810209"
+         %UID '499E64810209'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 499E64810209
+        <<uses>> "499E69A401FC"
+         %UID '499E69A401FC'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+        ; // 499E69A401FC
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Process
+         %UID '499D600D02E0'
+         %TARGET U$ '46A465F9028C' /* THandle */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Process
+        PRIVATE <<Attribute>> f_MemFile
+         %UID '499D601B0163'
+         %TARGET U$ '46A465F9028C' /* THandle */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_MemFile
+        PRIVATE <<Attribute>> f_Guard
+         %UID '499D602B0169'
+         %TARGET U$ '46A465F9028C' /* THandle */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Guard
+        PRIVATE <<Attribute>> f_CanCloseEvent
+         %UID '499D60350178'
+         %TARGET U$ '46A465F9028C' /* THandle */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CanCloseEvent
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<factory>> Make
+         %UID '499D5FBA024C'
+         %TARGET U$ '499D06CC02D2' /* InsSplashClient */
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '499C065E01E5' /* Splash */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aPicture
+            %UID '49A6768E0008'
+            %TARGET U$ '47E150FF028A' /* TStream */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aPicture
+           <<in>> aLogo
+            %UID '49A6768E0056'
+            %TARGET U$ '47E150FF028A' /* TStream */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aLogo
+           <<in>> aMinShowTime
+            %UID '49A6768E0085'
+            %TARGET U$ '46A618AF0053' /* Cardinal */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aMinShowTime
+           <<in>> aWnd
+            %UID '49A6768E00C3'
+            %TARGET U$ '46A465F9028C' /* THandle */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aWnd
+           <<in>> anAppTitle
+            %UID '49A6768E0102'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // anAppTitle
+           <<in>> aUserInfo
+            %UID '49A6768E0140'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserInfo
+           <<in>> aWarning
+            %UID '49A6768E017F'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aWarning
+         ; // %PARAMETERS
+        ; // Make
+        FINAL <<ctor>> Create
+         %UID '499D5FDA0332'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aPicture
+            %UID '49A676830307'
+            %TARGET U$ '47E150FF028A' /* TStream */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aPicture
+           <<in>> aLogo
+            %UID '49A676830345'
+            %TARGET U$ '47E150FF028A' /* TStream */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aLogo
+           <<in>> aMinShowTime
+            %UID '49A676830383'
+            %TARGET U$ '46A618AF0053' /* Cardinal */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aMinShowTime
+           <<in>> aWnd
+            %UID '49A6768303C2'
+            %TARGET U$ '46A465F9028C' /* THandle */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aWnd
+           <<in>> anAppTitle
+            %UID '49A676840018'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // anAppTitle
+           <<in>> aUserInfo
+            %UID '49A676840047'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aUserInfo
+           <<in>> aWarning
+            %UID '49A676840085'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aWarning
+         ; // %PARAMETERS
+        ; // Create
+      ; // %OPERATIONS
+     ; // TnsSplashVisualizer
+   ; // %CHILDREN
+  ; // SplashClient
+ ; // %CHILDREN
+; // Splash

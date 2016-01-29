@@ -1,0 +1,565 @@
+
+'$Include "Clicks.sbl"
+'Константы, по которым в КЗ можно открыть диалог выбора реквизитов
+'(указаны в том же порядке как и в КЗ)
+'т.е делаем GenericObject Click, <нужная константа>, ""
+
+Global isContextFindFolded% 'состояние дилога контекстного поиска: 1- свернут, 0- развёрнут.
+
+Global const gl_Type="Class=TFocusLabelSearch;ClassIndex=16"
+Global const gl_Organ_Source="Class=TFocusLabelSearch;ClassIndex=15"
+Global const gl_Part_Topic="Class=TFocusLabelSearch;ClassIndex=14"
+Global const gl_Status="Class=TFocusLabelSearch;ClassIndex=13"
+Global const gl_Number="Class=TFocusLabelSearch;ClassIndex=12"
+Global const gl_DateON="Class=TFocusLabelSearch;ClassIndex=11"
+''''''''''''
+Global const gl_Status_Registration="Class=TFocusLabelSearch;ClassIndex=10"
+Global const gl_Date_Registration="Class=TFocusLabelSearch;ClassIndex=9"
+Global const gl_Number_Registration="Class=TFocusLabelSearch;ClassIndex=8"
+''''''''''''
+Global const gl_Meaning="Class=TFocusLabelSearch;ClassIndex=5"
+Global const gl_Form_Law_Info="Class=TFocusLabelSearch;ClassIndex=4"
+Global const gl_Territory="Class=TFocusLabelSearch;ClassIndex=3"
+Global const gl_Info_Block="Class=TFocusLabelSearch;ClassIndex=2"
+Global const gl_Source_Publication="Class=TFocusLabelSearch;ClassIndex=1"
+
+
+'SQABasic Source File
+'Сравнение 2-ух строк и запись в лог результата сравнения
+
+
+Sub StrComp2Log(str1$,str2$, optional InString)
+if IsMissing(InString) then
+  If str1=str2 Then
+      SQALogMessage sqaPass, "Строки совпали", "Эталон="+str1
+  Else
+      SQALogMessage sqaFail, "Эталон="+str1, "Текущая="+str2
+  End If
+else
+  If InStr(str2,str1)<>0 Then
+      SQALogMessage sqaPass, "Ок", "Строка """+str1+""" присутствует в строке """+str2+""""
+  Else
+      SQALogMessage sqaFail, "Эталон="+str1, "Текущая="+str2
+  End If
+end if
+End Sub
+
+'Функция проверки имен N(count%) последовательных элементов в дереве
+'при движении вверх или вниз (mButton$)
+'Элементы массива можно читать в прямом (inc=0) или
+'обратном порядке (если хотим читать элементы 5,4,3,2... то inc=4)
+Sub CheckItemNames ( mArray() As String , mButton$, inc%, count%, optional InString)
+  Dim i%, value$
+  Dim inc_flag% 'Пременная для хранения флага обратного отсчета
+  
+  inc_flag = inc 'Сохраняем флаг обратного отсчета
+  
+  For i=1 To count Step 1
+    SQAGetProperty "CurrentFocus","Text", value
+    if IsMissing(InString) then
+        Call StrComp2Log(mArray(i+inc), value)
+    else
+        Call StrComp2Log(mArray(i+inc), value, InString)
+    end if
+    InputKeys mButton
+    If (inc_flag<>0) Then 'Добиваемся обратного отсчета индекса массива
+      inc = inc - 2
+    End If
+  Next i
+End Sub
+
+
+'функция для позиционирования указателя на необходимом элементе
+'sPath - путь к нужному контролу (например "Type=ListBox;ObjectIndex=1")
+'sText - имя элемента в списке на котором необходимо спозиционироваться
+'ВНИМАНИЕ!!! Данная функция позиционируется только на элементах первого уровня!!!
+'AllText: Можно не указывать, тогда будет проверяться на полное соответствие. Если задано какое-нибудь значение (любое)
+'То будет искаться sText в тексте текущего контрола!!!
+'PressHome - если задано, то жмётся Home, если нету, то не жмём
+Function Position_by_Text_old(sPath$,sText$,optional AllText, optional PressHome) as integer
+    if IsMissing(PressHome)=0 then
+        InputKeys "{HOME}"
+    end if
+    Dim value$
+    Dim n as integer
+    Dim Count_elem as integer
+    SQAGetProperty sPath,"ItemCount",Count_elem
+    SQAGetProperty sPath,"Text",value
+    Dim res as integer
+    res=0
+    if value=sText then
+        res=res+1
+        Position_by_Text_old=res
+        Exit function
+    else
+        for n=1 to Count_elem-1
+            InputKeys "{DOWN}"
+            SQAGetProperty sPath,"Text",value
+            if IsMissing(AllText) then
+                if value=sText then
+                     res=res+1
+                     Position_by_Text_old=res
+                     Exit function
+                end if
+            else
+                if InStr(value,sText)<>0 then
+                     res=res+1
+                     Position_by_Text_old=res
+                     Exit function
+                end if
+            end if
+        next n
+    end if
+    Position_by_Text_old=res
+end function
+
+Function Position_by_Text(sPath$,sText$,optional AllText, optional PressHome) as integer
+    if IsMissing(PressHome)=0 then
+        InputKeys "{HOME}"
+    end if
+    Dim value$
+    Dim n as integer
+    Dim Count_elem as integer
+    InputKeys sText
+    SQAGetProperty sPath,"Text",value
+    
+    Dim res as integer
+    res=0
+    if InStr(value,sText)<>0 then
+        res=res+1
+    end if
+    Position_by_Text=res
+end function
+
+'''''''''''
+Function Position_by_Text_Add(sPath$,sText$,optional AllText, optional PressHome) as integer
+    if IsMissing(PressHome)=0 then
+        InputKeys "{HOME}"
+    end if
+    Dim value$
+    Dim n as integer
+    Dim Count_elem as integer
+    InputKeys sText
+    SQAGetProperty sPath,"Text",value
+    
+    Dim res as integer
+    res=0
+    
+   if InStr(value,sText)<>0 then
+        res=res+1
+    end if
+    Position_by_Text_Add=res
+end function
+'функция для позиционирования указателя на необходимом элементе, в том числе и находящегося в свёрнутом элементе
+'необходимо задавать полный путь к интересующему элементу, разделяя уровня косой чертой, например:
+' "Форма документа\Акт" - в результате позиционируемся на элементе Акт, находящемся в ветке Формы документа
+'! Не пойму почему так медленно работает в дилоге выбора реквизитов, похоже, что тормаза возникают при
+' получении текста текущего элемента дерева, но вроде в других деревьях нормально было!.
+'параметры передаваемые в функцию такие же как и в предыдущей (выполняющей простое позиционирование)
+Function Position_Internal(sPath,sText,optional noWrite_to_Log) as Integer
+    Dim i,res
+    Dim retvalue
+    i=1
+    res=1
+    retvalue=GetField(sText,i,"\")
+    if retvalue<>"" then
+'        SQAGetProperty sPath,"Text",value
+        if Position_by_Text_Add(sPath,retvalue)<>0 then
+            InputKeys "{Num+}"
+        else
+            if IsMissing(noWrite_to_Log) then
+                SQALogMessage sqaFail, "Элемент не найден", "Элемент """+retvalue+""" не найден"
+            end if
+            res=0
+        end if
+        
+        While retvalue<>""
+            i=i+1
+            retvalue=GetField(sText,i,"\")
+            if retvalue<>"" then
+                if Position_by_Text_Add(sPath,retvalue)<>0 then
+                    if retvalue<>Right(sText,Len(retvalue)) then
+                        'InputKeys "{Num+}"
+                        InputKeys "{Right}{UP}"
+                    end if
+                else
+                    if IsMissing(noWrite_to_Log) then
+                        SQALogMessage sqaFail, "Элемент не найден", "Элемент """+retvalue+""" не найден"
+                    end if
+                    res=0
+                end if
+            end if
+        WEnd
+    else
+        res=0
+    end if
+ Position_Internal=res     
+end Function
+
+Function Position_Internal_Add(sPath,sText,optional noWrite_to_Log) as Integer
+    Dim i,res
+    Dim retvalue
+    i=1
+    res=1
+    retvalue=GetField(sText,i,"\")
+    if retvalue<>"" then
+'        SQAGetProperty sPath,"Text",value
+        if Position_by_Text_Add(sPath,retvalue)<>0 then
+            InputKeys "{Num+}"
+        else
+            if IsMissing(noWrite_to_Log) then
+                SQALogMessage sqaFail, "Элемент не найден", "Элемент """+retvalue+""" не найден"
+            end if
+            res=0
+        end if
+        
+        While retvalue<>""
+            i=i+1
+            retvalue=GetField(sText,i,"\")
+            if retvalue<>"" then
+                if Position_by_Text_Add(sPath,retvalue)<>0 then
+                    if retvalue<>Right(sText,Len(retvalue)) then
+                        'InputKeys "{Num+}"
+                        InputKeys "{Right}{UP}"
+                    end if
+                else
+                    if IsMissing(noWrite_to_Log) then
+                        SQALogMessage sqaFail, "Элемент не найден", "Элемент """+retvalue+""" не найден"
+                    end if
+                    res=0
+                end if
+            end if
+        WEnd
+    else
+        res=0
+    end if
+ Position_Internal_Add=res     
+end Function
+
+
+
+
+
+'Переходим к просмотру списка через древовидный классификатор.
+Sub Goto_Spisok
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=17,53"
+    ListBox Click, "ObjectIndex=1", "Coords=7,10"
+    InputKeys "{HOME}"
+    call Position_by_Text("Type=ListBox;ObjectIndex=1","Правовой навигатор")
+    InputKeys "{Num+}"
+    call Position_by_Text("Type=ListBox;ObjectIndex=1","Документы")
+    InputKeys "{Enter}"
+    DelayFOr 2000
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=12,229"
+    ListBox Click, "ObjectIndex=1", "Coords=20,9"
+    call Position_Internal("CurrentFocus","Гражданское законодательство, приватизация\Публично-правовые образования")
+    
+end Sub
+
+'Функция устанавливает закладку в документе с номером nDoc
+'в начало документа: position=0; в середине документа: position=1; в конец документа: position=2;!!! - позиционирование в документе актуально только для конституции!!!
+function SetBookMark(nDoc$,position%) as String
+    Dim sBookMark$
+    'открываем документ по номеру
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "%n"
+    
+    Window SetContext, "Caption=Открыть документ по номеру", ""
+    InputKeys nDoc
+    PushButton Click, "Text=OK"
+    DelayFor 2000
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Select Case position
+    Case 0
+        Window SetContext, "Caption={ГАРАНТ*}", ""
+        RichEdit Click, "ObjectIndex=1", "Coords=149,21"
+        'GenericObject Click, "Class=TvcmToolbar;ClassIndex=113", "Coords=199,9"
+        'Window SetContext, "Caption={ГАРАНТ*}", ""
+        call Click_AddBookMark
+        Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+        SQAGetProperty "Type=EditBox;ObjectIndex=2","Text",sBookMark
+        ToolBar Click, "Text=Выбор действия", "Coords=47,7"
+    Case 1
+        Window SetContext, "Caption={ГАРАНТ*}", ""
+        RichEdit Click, "ObjectIndex=1", "Coords=149,21"
+'        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+'        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+'        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+'        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+    RichEdit ScrollPageDown, "ObjectIndex=1", ""
+        'GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=61,562"
+        call Click_AddBookMark
+    
+        Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+        SQAGetProperty "Type=EditBox;ObjectIndex=2","Text",sBookMark
+        ToolBar Click, "Text=Выбор действия", "Coords=35,3"
+    Case 2
+        Window SetContext, "Caption={ГАРАНТ*}", ""
+        RichEdit Click, "ObjectIndex=1", "Coords=149,21"
+        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+        InputKeys "{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}{PGDN}"
+        call Click_AddBookMark
+    
+        Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+        SQAGetProperty "Type=EditBox;ObjectIndex=2","Text",sBookMark
+        ToolBar Click, "Text=Выбор действия", "Coords=35,3"
+    
+    end Select
+    
+SetBookMark=sBookMark
+end Function
+
+Function SaveQuery as String
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=14,8"
+    InputKeys "Не вступил в силу{ENTER}"
+    EditBox Click, "ObjectIndex=4", ""
+    InputKeys "{HOME}20012001"
+    call Click_FindSaveAs
+    
+    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+    EditBox Click, "ObjectIndex=2", ""
+    InputKeys "{END}+{HOME}Запрос"
+    ToolBar Click, "Text=Выбор действия", "Coords=33,6"
+    SaveQuery="Запрос"
+end Function
+
+Sub Select_Property(Property$,sText,Logical%)
+Window SetContext, "Caption={ГАРАНТ*}", ""
+GenericObject Click, Property,""
+Window SetContext, "Caption=Выбор значений реквизита", ""
+ListBox Click, "ObjectIndex=1", ""    
+InputKeys "{HOME}"
+Dim i%
+'if Position_Internal("\;Type=Window;Caption=Выбор значений реквизита;\;Type=ListBox;ObjectIndex=1",sText)<>0 then
+if Position_Internal_Add("CurrentFocus",sText)<>0 then
+    for i=1 to Logical
+        InputKeys "{ENTER}"
+    next i
+    Toolbar Click, "Text=Выбор действия", "Coords=29,9"
+    
+else
+    SQALogMessage sqaFail, "Реквезит не найден", "Не смог найти реквизит"
+    Window SetContext, "Caption=Выбор значений реквизита", ""
+    Window CloseWin, "", ""
+    
+end if
+end sub
+
+'Открытие документ по внутреннему номеру
+Sub OpenDocByNum (IntNumber as Long)
+  Dim Result%
+  Dim CheckState As Variant
+  
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  InputKeys "%n"
+  
+  Window SetContext, "Caption=Открыть документ по номеру", ""
+ 'Проверяем есть ли в диалоге "галка": "Внутренний номер в базе"
+  Result = SQAGetProperty ("Text=Внутренний номер в базе", "State", CheckState)
+  If Result = sqaSuccess Then
+    If CheckState=0 Then
+      InputKeys Cstr(IntNumber + 100000) 'Воодим № док-та + 100000
+    Else
+      InputKeys Cstr(IntNumber)  'Воодим внутренний № док-та
+    End If
+  Else
+    SQALogMessage sqaFail, "Не получены св-ва объекта" , "Не удается определить состояние CheckBox-а"
+  End If
+
+  PushButton Click, "Text=OK"
+End Sub
+
+'Процедура создания папки с именем sName в папке sPath
+'
+'
+'
+Sub CreateFolder(sPath$,sName$)
+      
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=13,118"
+    ListBox Click, "ObjectIndex=1", "Coords=49,11"
+    if Position_Internal("CurrentFocus",sPath)<>0 then
+        call Click_FolderCreate
+        EditBox Click, "ObjectIndex=2", ""
+        InputKeys "{END}+{HOME}"
+        InputKeys sName
+        Toolbar Click, "ObjectIndex=10;VisualText=Выбор действия", "Coords=19,15"
+
+    else
+        SQALogMessage sqaFail, "Неудалось найти путь", "!Внимание! Не удалось найти путь: """+sPath+""""
+    end if
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   
+end Sub
+
+
+'Процедура удаления папки с sPath
+'
+'
+'
+Sub DeleteFolder(sPath$,optional isFolderEmpty)
+      
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=13,118"
+    ListBox Click, "ObjectIndex=1", "Coords=49,11"
+    if Position_Internal("CurrentFocus",sPath)<>0 then
+        InputKeys "{DELETE}"
+        if IsMissing(isFolderEmpty)=0 then
+            Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+            if isFolderEmpty<>2 then
+                'PushButton Click, "Text=OK"
+                InputKeys "{ENTER}"
+            else
+                'PushButton Click, "Text=Да"
+                InputKeys "{ENTER}"
+            end if
+            
+        end if
+    else
+        SQALogMessage sqaFail, "Неудалось найти путь", "!Внимание! Не удалось найти путь: """+sPath+""""
+    end if
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   
+end Sub
+
+'
+'
+'Созранение элемента в папке sPath под именем sName
+Sub SaveDlg(sPath$,sName$)
+    Window SetContext, "Caption=Мои документы (Сохранить как...)", ""
+    EditBox Click, "ObjectIndex=2", ""
+    InputKeys "{END}+{HOME}"
+    InputKeys sName
+    Toolbar Click, "Text=Папки", "Coords=12,16"
+    Toolbar Click, "Text=Папки", "Coords=12,16"
+    ListBox Click, "ObjectIndex=1", "Coords=40,9"
+    InputKeys "{HOME}"
+    'if Position_Internal("\;Type=Window;Caption=Мои документы (Сохранить как...);\;Type=ListBox;ObjectIndex=1",sPath)<>0 then
+    if Position_Internal("CurrentFocus",sPath)<>0 then
+        Toolbar Click, "Text=Выбор действия", "Coords=42,19"
+    else
+        SQALogMessage sqaFail, "Неудалось найти путь", "!Внимание! Не удалось найти путь: """+sPath+""""
+    end if
+end Sub
+
+Sub LoadDlg(sPath$)
+    Window SetContext, "Caption={Мои документы*}", ""
+    Toolbar Click, "Text=Папки", "Coords=12,16"
+    Toolbar Click, "Text=Папки", "Coords=12,16"
+    ListBox Click, "ObjectIndex=1", "Coords=40,9"
+    InputKeys "{HOME}"
+    'if Position_Internal("\;Type=Window;Caption=Мои документы (Загрузить...);\;Type=ListBox;ObjectIndex=1",sPath)<>0 then
+    if Position_Internal("CurrentFocus",sPath)<>0 then
+        Toolbar Click, "Text=Выбор действия", "Coords=26,10"
+    else
+        SQALogMessage sqaFail, "Неудалось найти путь", "!Внимание! Не удалось найти путь: """+sPath+""""
+    end if
+end Sub
+
+
+
+'Процедура Изменения свойств папки (sPath - путь к ней)
+'
+'
+'
+Sub ChangeProperty(sPath$,optional sComment,optional sName)
+      
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=13,118"
+    ListBox Click, "ObjectIndex=1", "Coords=49,11"
+    if Position_Internal("CurrentFocus",sPath)<>0 then
+        'Toolbar Click, "ObjectIndex=4;VisualText=Элемент папок", "Coords=6,10"
+        call Click_ChangeProperty
+        if IsMissing(sComment)=0 then
+           EditBox Click, "ObjectIndex=1", ""
+           InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{END}+{UP}+{UP}"
+           InputKeys "+{UP}+{UP}+{UP}+{UP}+{UP}+{UP}+{HOME}a"
+           InputKeys "{END}+{HOME}"+sComment
+        end if
+        if IsMissing(sName)=0 then
+           EditBox Click, "ObjectIndex=2", ""
+           InputKeys "{END}+{HOME}{}"+sName
+        end if
+        Toolbar Click, "Text=Выбор действия", "Coords=19,15"
+    else
+        SQALogMessage sqaFail, "Неудалось найти путь", "!Внимание! Не удалось найти путь: """+sPath+""""
+    end if
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   
+end Sub
+
+'
+'
+'
+'сохраняем список из одного документа в папку под именем sName
+Function SaveList(sName$) as String
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=14,49"
+    ListBox Click, "ObjectIndex=1", "Coords=8,160"
+    InputKeys "{HOME}"
+    call Position_Internal("CurrentFocus","Правовой навигатор\Международные договоры")
+    InputKeys "{Enter}"
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=12,275"
+    ListBox Click, "ObjectIndex=1", "Coords=8,16"
+    call Position_Internal("CurrentFocus","Международное гуманитарное право")
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=8,16"
+    Dim NameList$
+    SQAGetProperty "CurrentFocus","Text",NameList
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=8,16"
+    call Click_SaveAs
+    
+    call SaveDlg("Мои документы",sName)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=14,56"
+    Toolbar Click, "Text=Навигатор", "Coords=8,17"
+    Toolbar Click, "Text=Навигатор", "Coords=8,17"
+    SaveList=NameList
+end Function
+
+Sub LoadQueryAsFilter(sName$)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,212"
+   Toolbar Click, "VisualText=Фильтр", "Coords=120,63"
+    
+    Window SetContext, "Class=TvtPopupWindow", ""
+    GroupBox Click, "ObjectIndex=1", "Coords=16,13"
+    call LoadDlg(sName)
+end sub

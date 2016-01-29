@@ -1,0 +1,59 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/TestLib_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> shared::TestLib
+//
+// Тестирующая библиотека
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (TestLib_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = TestLib_cs
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += GCI
+	libs  += GCI
+
+	after += GSI
+	libs  += GSI
+
+	after += ContextSearch
+	libs  += ContextSearch
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	Header_Files {
+		Std_Headers {
+			./../TestLib/LibHome.h
+		}
+	
+		NewLibraryImpl {
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		NewLibraryImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../TestLib/LibHome.cpp
+		}
+	
+		NewLibraryImpl {
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

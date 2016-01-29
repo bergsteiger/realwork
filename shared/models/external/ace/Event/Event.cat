@@ -1,0 +1,410 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Event"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NATIVE_PATHh"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16660301684"))
+    quid       	"450E6CBF01A5"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"488D7B46014B"
+	    supplier   	"Logical View::external::ace::BasicTypes"
+	    quidu      	"488D78210283")
+	(object Visibility_Relationship
+	    quid       	"488D82E90040"
+	    supplier   	"Logical View::external::ace::EventInterfaces"
+	    quidu      	"488D82C10137")
+	(object Visibility_Relationship
+	    quid       	"4B5940A7037F"
+	    supplier   	"Logical View::external::ace::date_time"
+	    quidu      	"45519C540206"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ACE_Event"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/event.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16660316374"))
+	    quid       	"450E6CE1002E"
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator")
+	(object Class "ACE_Event_Handler"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/Event_Handler.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16660316851"))
+	    quid       	"4889E8F80224"
+	    stereotype 	"SimpleClass"
+	    operations 	(list Operations
+		(object Operation "handle_timeout"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"calling conventions"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"force overload"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*488D76F001B4_4889E960019F*"
+			    value      	(value Text 
+|//#UC START# *488D76F001B4_4889E960019F*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *488D76F001B4_4889E960019F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*488D76F001B4_45E56B7A00D7*"
+			    value      	(value Text 
+|//#UC START# *488D76F001B4_45E56B7A00D7*¤	this->store_infos ();¤¤	return 0;¤	//#UC END# *488D76F001B4_45E56B7A00D7*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*488D76F001B4_49550E0D02AA*"
+			    value      	(value Text 
+|//#UC START# *488D76F001B4_49550E0D02AA*¤	class AutoSession {¤	public:¤		AutoSession (const std::string& login, const std::string& pwd) {¤			Ebay::SessionFactory::get ().login (login, pwd);¤		}¤¤		~AutoSession () {¤			Ebay::SessionFactory::get ().logout ();¤		}¤	};¤	const std::string lot_id = LotSettings::get_lot_id ();¤	const std::string login = LotSettings::get_login ();¤	const std::string password = LotSettings::get_password ();¤¤	std::string url = "http://cgi.ebay.com/ws/eBayISAPI.dll?ViewItem&item=" + lot_id;¤	¤	try {¤		AutoSession sesion (login, password);¤		Ebay::Lot_var lot = Ebay::LotFactory::get (lot_id);¤		LOG_I(("Lot (%s): current bid = %0.2f, remaining time = %ds", lot->get_current_bid (), lot->get_remaining_time ()));¤	} CATCH_LOG_AND_DO(¤		("for lot: %s, login: %s, password: %s", lot_id.c_str (), login.c_str (), password.c_str ())¤		, this->end_watch ();¤	);¤¤	return 0;¤	//#UC END# *488D76F001B4_49550E0D02AA*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A61050251")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16660317136"))
+		    quid       	"488D76F001B4"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "current_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"488D773901FA")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16660317438"))
+			    quid       	"488D7A4303A6"
+			    type       	"ACE_Time_Value"
+			    quidu      	"488D773901FA")
+			(object Parameter "act"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3ECB343C024C")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16660317801"))
+			    quid       	"488D7AA703A2"
+			    type       	"pointer"
+			    quidu      	"3ECB343C024C"))
+		    result     	"Primitives::integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "handle_close"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*488D7AC200BC_4889E960019F*"
+			    value      	(value Text 
+|//#UC START# *488D7AC200BC_4889E960019F*¤	 LOG_D ((GDS_CURRENT_FUNCTION));¤¤	 delete this;¤	 return 0;¤	//#UC END# *488D7AC200BC_4889E960019F*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A61050251")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16660318207"))
+		    quid       	"488D7AC200BC"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "handle"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"488D78BD01E2")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16660318502"))
+			    quid       	"488D7AE60025"
+			    type       	"ACE_HANDLE"
+			    quidu      	"488D78BD01E2")
+			(object Parameter "close_mask"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"488D777E0275")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16660318875"))
+			    quid       	"488D7AE6006C"
+			    type       	"ACE_Reactor_Mask"
+			    quidu      	"488D777E0275"))
+		    result     	"Primitives::integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "ACE_Reactor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"All")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/Reactor.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16660319437"))
+	    quid       	"488E95FF000F"
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	"true"))
+	    quid       	"450E6CDD0261"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::external::ace::Event::ACE_Event" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(356, 364)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(190, 335)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"• ACE_Event")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(190, 285)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"450E6CE1002E"
+		    width      	350
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ace::Event::ACE_Event_Handler" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1134, 753)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(150, 665)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1968
+			justify    	0
+			label      	"• ACE_Event_Handler")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(150, 615)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1968
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4889E8F80224"
+		    width      	1986
+		    height     	300
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ace::EventInterfaces::ACE_Reactor_Mask" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(955, 350)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(754, 322)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"ACE_Reactor_Mask")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(754, 272)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"488D777E0275"
+		    width      	420
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ace::Event::ACE_Reactor" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(312, 1056)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(146, 1027)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"• ACE_Reactor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(146, 977)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"488E95FF000F"
+		    width      	350
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)))))

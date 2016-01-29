@@ -1,0 +1,97 @@
+IMPLEMENTATION MODULE Ticker;
+
+(* (C) Copyright 1987 Fitted Software Tools. All rights reserved.
+
+    This module is part of the example multitasking communications program
+    provided with the Fitted Software Tools' Modula-2 development system.
+
+    Registered users may use this program as is, or they may modify it to
+    suit their needs or as an exercise.
+
+    If you develop interesting derivatives of this program and would like
+    to share it with others, we encourage you to upload a copy to our BBS.
+*)
+
+
+FROM SYSTEM     IMPORT ASSEMBLER, ADDRESS;
+FROM System     IMPORT TermProcedure, GetVector, SetVector, ResetVector;
+
+(* $S- *)
+
+VAR
+    ClockTick       :ADDRESS;
+
+
+PROCEDURE Tick;
+(*
+    Timer tick ISR
+
+    This ISR could have been implemented as an IO process, but that
+    would be boring!
+
+    This serves as an example on how to write interrupt routines that
+    are attached to the interrupt vectors with some help from System.
+*)
+BEGIN
+    ASM
+        STI
+        PUSH    DS
+        MOV     DS, CS:[0]
+        INC     Ticks
+        PUSHF                       (* Chain interrupt *)
+        CALL    FAR ClockTick       (* Invoke the system's clock ISR *)
+        POP     DS
+        IRET
+    END;
+END Tick;
+
+
+PROCEDURE StopClock;
+BEGIN
+    (* restore the original clock ISR *)
+    ResetVector( 8, ClockTick );
+END StopClock;
+
+
+BEGIN
+    Ticks := 0;
+    GetVector( 8, ClockTick );      (* save system's clock ISR *)
+    TermProcedure( StopClock );     (* set procedure to restore system's ISR *)
+                                    (* on program termination *)
+    SetVector( 8, Tick );           (* install our own clock ISR *)
+
+END Ticker.
+
+IMPLEMENTATION MODULE People;
+  FROM Strings IMPORT CompareStr, Assign;
+
+  CLASS Person;    (* a class implementation *)
+    PROCEDURE isMale() :BOOLEAN;
+      BEGIN
+        RETURN sex = male;
+      END isMale;
+    INIT
+      name := "";
+      sex := unknown;
+ END Person;
+
+  CLASS Programmer;  (* a class implementation *)
+    PROCEDURE isSmart() :BOOLEAN;
+      BEGIN
+        RETURN CompareStr(favoriteLanguage,"Modula-2") = 0;
+      END isSmart;
+    INIT
+      favoriteLanguage := "?";
+  END Programmer;
+
+  CLASS Vendor;      (* a local class declaration *)
+    INHERIT Programmer;
+    BusinessAddress : ARRAY [0..40] OF CHAR;
+    PROCEDURE GetAddress (VAR Address : ARRAY OF CHAR);
+      BEGIN
+        Assign(BusinessAddress, Address)
+      END GetAddress;
+    INIT
+      BusinessAddress := "PO Box 867403, Plano, Texas"
+  END Vendor;
+END People.

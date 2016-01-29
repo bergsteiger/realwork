@@ -1,0 +1,637 @@
+<<Library>> m4
+ %UID '476BBDC80314'
+ %DEPENDS
+  U$ '469F3E37025A' /* Rtl */
+  U$ '472082480337' /* m3 */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '548712F60101' /* m3$DB */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'm4Define.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '469F3E37025A' /* Rtl */
+  U$ '472082480337' /* m3 */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '548712F60101' /* m3$DB */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> m4DBInterfaces
+   %UID '476BBF330336'
+   %SUMMARY 'Интерфейсы индексируемого хранилища.' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '472082A400B8' /* m3Interfaces */
+    U$ '4720831F012D' /* m3DBInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '18.08.2004 21:48'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '472082480337' /* m3 */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '548712F60101' /* m3$DB */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Function>> Tm4WordAction
+      %UID '476BBF8D0133'
+      %META
+       %upv "of object" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        <<Operation>> DoIt
+         %UID '476BBF9C023F'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aHandle
+            %UID '476BBFB60160'
+            %TARGET U$ '3DBFFD7002C2' /* long */
+           ; // aHandle
+           <<in>> aStr
+            %UID '476BBFB60179'
+            %TARGET U$ '47209E670266' /* Tl3PCharLen */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // aStr
+         ; // %PARAMETERS
+        ; // DoIt
+      ; // %OPERATIONS
+     ; // Tm4WordAction
+     <<Facet>> Im4DB
+      %UID '476BC039022B'
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '548712F60101' /* m3$DB */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '5411960801BF' /* Mm3DB */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '47272B980395' /* Stop */
+       U$ '47272BAA0251' /* Purge */
+       U$ '47272BBF01F7' /* Update */
+       U$ '47272C0C0284' /* Start */
+       U$ '47272C1D02C4' /* Finish */
+       U$ '4FA16B78016F' /* DeleteVersion */
+       U$ '5419A76B0193' /* CompareVersionWithBackup */
+       U$ '5419A79201B8' /* CopyBackupToVersion */
+       U$ '5419A7AA002A' /* CopyVersionToBackup */
+       U$ '541AE1C4006F' /* ExtractMainTo */
+       U$ '541AE4C701CE' /* ExtractVersionTo */
+       U$ '541AF7940108' /* ExtractBackupTo */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT <<property>> PackedIndex
+         %UID '476BC1F90149'
+         %SUMMARY 'паковать ли индекс?' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // PackedIndex
+        ABSTRACT <<property>> FakeIndex
+         %UID '476BC2120062'
+         %SUMMARY 'индексировать в пустоту?' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // FakeIndex
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<facetmethod>> DeleteIndex
+         %UID '4FBF8EE30376'
+         %SUMMARY 'Удаляет текстовый индекс' ;
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FBF8EF60129'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DeleteIndex
+        ABSTRACT <<facetmethod>> DeleteIndexDelta
+         %UID '563C863C0330'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '563C86480032'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DeleteIndexDelta
+        ABSTRACT INTEGER FUNCTION BuildIndex
+         %UID '476BC09F0011'
+         %SUMMARY 'строит контекстный индкс. Возвращает число проиндексированных файлов.' ;
+         %TARGET U$ '3DBFFD7002C2' /* long */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aDelta
+            %UID '476BC0C50258'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE false
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aDelta
+           <<in>> aExitIfExists
+            %UID '476BC0C50270'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %VALUE false
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aExitIfExists
+           <<in>> anIndexID
+            %UID '476BC0C50289'
+            %TARGET U$ '3DBFFD7002C2' /* long */
+            %VALUE 1
+           ; // anIndexID
+         ; // %PARAMETERS
+        ; // BuildIndex
+        ABSTRACT <<Operation>> UpdateIndex
+         %UID '476BC0D30367'
+         %SUMMARY 'обновляет или перестраивает индекс (в зависимости от его состояния).' ;
+         %PARAMETERS
+           <<in>> anIndexID
+            %UID '476BC0DD039B'
+            %TARGET U$ '3DBFFD7002C2' /* long */
+            %VALUE 1
+           ; // anIndexID
+         ; // %PARAMETERS
+        ; // UpdateIndex
+      ; // %OPERATIONS
+     ; // Im4DB
+   ; // %CHILDREN
+  ; // m4DBInterfaces
+  <<Unit>> Dict
+   %UID '4AB37BE502EA'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47BF042D029B' /* m2 */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '537B83AD01F0' /* l3Math */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '476BBDC80314' /* m4 */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> Tm4WordIDStr
+      %UID '4AB37C3E00BA'
+      %SUMMARY 'Элемент словаря. Список идентификаторов слов' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '18.09.2009 16:36'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '476BBDC80314' /* m4 */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47A1B04702C2' /* l3AtomicList */
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4AB3882501E1"
+         %UID '4AB3882501E1'
+         %TARGET U$ '47BF045E0138' /* m2MemLib */
+        ; // 4AB3882501E1
+        <<uses>> "4AB3884A02C6"
+         %UID '4AB3884A02C6'
+         %TARGET U$ '47A066980016' /* l3MinMax */
+        ; // 4AB3884A02C6
+      ; // %LINKS
+      %ATTRIBUTES
+        <<readonly>> ID
+         %UID '4AB38ADC008B'
+         %TARGET U$ '4ABA246700B4' /* Tm4DictItemAddr */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+        ; // ID
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4AB38B5E0320'
+         %TARGET U$ '4AB38B45023C' /* Tm4WordID */
+         %TOBEINCLUDED
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+        SUMMONED PRIVATE <<Attribute>> f_ID
+         %UID '9EE7090499DF'
+         %SUMMARY 'Поле для свойства ID' ;
+         %TARGET U$ '4ABA246700B4' /* Tm4DictItemAddr */
+         %TOBEINCLUDED
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+        ; // f_ID
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Operation>> Compare
+         %UID '4AB3856602A8'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anOther
+            %UID '4AB385790382'
+            %TARGET U$ '4AB37C3E00BA' /* Tm4WordIDStr */
+            %TOBEINCLUDED
+             U$ '476BBDC80314' /* m4 */
+            ; // %TOBEINCLUDED
+           ; // anOther
+         ; // %PARAMETERS
+        ; // Compare
+        FINAL <<ctor>> Create
+         %UID '4AB38AF30255'
+         %TOBEINCLUDED
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anID
+            %UID '4ABA218F03B6'
+            %TARGET U$ '4ABA246700B4' /* Tm4DictItemAddr */
+            %TOBEINCLUDED
+             U$ '476BBDC80314' /* m4 */
+            ; // %TOBEINCLUDED
+           ; // anID
+         ; // %PARAMETERS
+        ; // Create
+      ; // %OPERATIONS
+     ; // Tm4WordIDStr
+     <<SimpleClass>> Tm4WordIDStrListPrim
+      %UID '4AB37CFD0365'
+      %SUMMARY 'Список списков идентификаторов слов' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '18.09.2009 16:36'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '476BBDC80314' /* m4 */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B5A0AE03CC' /* l3ObjectRefListPrim */
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B935AF0066' /* FillItem */
+       U$ '47B94A5C006E' /* FreeItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4AB37D1D01CE'
+         %TARGET U$ '4AB37C3E00BA' /* Tm4WordIDStr */
+         %TOBEINCLUDED
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // Tm4WordIDStrListPrim
+     <<SimpleClass>> Tm4Word
+      %UID '4AB37F0D0301'
+      %SUMMARY 'Слово словаря' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '18.09.2009 12:57'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '476BBDC80314' /* m4 */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4773DED9004C' /* Tl3_String */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47BC3BFD017F' /* StringID */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_ID
+         %UID '4AB37F9903CA'
+         %TARGET U$ '4AB38B45023C' /* Tm4WordID */
+         %TOBEINCLUDED
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+        ; // f_ID
+        <<property>> FirstWordIDStrID
+         %UID '4AB773690008'
+         %SUMMARY 'Первый элемент словаря который начинается с данного слова' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // FirstWordIDStrID
+        SUMMONED PRIVATE <<Attribute>> f_FirstWordIDStrID
+         %UID '0FC8C0BDC2B5'
+         %SUMMARY 'Поле для свойства FirstWordIDStrID' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_FirstWordIDStrID
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4AB37FB103D8'
+         %TOBEINCLUDED
+          U$ '476BBDC80314' /* m4 */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aStr
+            %UID '4AB37FCC0111'
+            %TARGET U$ '46780D0003AF' /* Tl3WString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aStr
+           <<in>> anID
+            %UID '4AB3917D0200'
+            %TARGET U$ '4AB38B45023C' /* Tm4WordID */
+            %TOBEINCLUDED
+             U$ '476BBDC80314' /* m4 */
+            ; // %TOBEINCLUDED
+           ; // anID
+         ; // %PARAMETERS
+        ; // Create
+      ; // %OPERATIONS
+     ; // Tm4Word
+     <<SimpleClass>> Tm4WordList
+      %UID '4AB37F2003B6'
+      %SUMMARY 'Список слов' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '18.09.2009 12:57'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '476BBDC80314' /* m4 */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4773DCE302FF' /* Tl3StringList */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4AB38F850355"
+         %UID '4AB38F850355'
+         %TARGET U$ '4AB37F0D0301' /* Tm4Word */
+        ; // 4AB38F850355
+        <<uses>> "4AB73FA7010F"
+         %UID '4AB73FA7010F'
+         %TARGET U$ '476F958501F2' /* Tl3SortIndex */
+        ; // 4AB73FA7010F
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_NextID
+         %UID '4AB38F380358'
+         %TARGET U$ '4AB38B45023C' /* Tm4WordID */
+         %TOBEINCLUDED
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+        ; // f_NextID
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> AddWord
+         %UID '4AB38FE40091'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '476BBDC80314' /* m4 */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4AB392A300D3"
+            %UID '4AB392A300D3'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 4AB392A300D3
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE FINAL <<var>> Item
+            %UID '4AB38FFD027D'
+            %TARGET U$ '4AB37F0D0301' /* Tm4Word */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '476BBDC80314' /* m4 */
+            ; // %TOBEINCLUDED
+           ; // Item
+           PRIVATE FINAL <<var>> Index
+            %UID '4AB390A10104'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Index
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AB38FEE0208'
+            %TARGET U$ '4AB38B45023C' /* Tm4WordID */
+            %TOBEINCLUDED
+             U$ '476BBDC80314' /* m4 */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStr
+               %UID '4AB38FF400C3'
+               %TARGET U$ '46780D0003AF' /* Tl3WString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aStr
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AddWord
+        FINAL <<ctor>> Create
+         %UID '4AB38F9800B8'
+        ; // Create
+      ; // %OPERATIONS
+     ; // Tm4WordList
+     <<SimpleClass>> Tm4WordIDStrList
+      %UID '4AB386100070'
+      %SUMMARY 'Список элементов словаря в закодированном виде' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '476BBDC80314' /* m4 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4AB37CFD0365' /* Tm4WordIDStrListPrim */
+      ; // %INHERITS
+     ; // Tm4WordIDStrList
+     FINAL <<UtilityPack>> m4DictTypes
+      %UID '4AB38D7F0007'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "no hands" true
+       %upv "started" '18.09.2009 17:40'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '476BBDC80314' /* m4 */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<Typedef>> Tm4DictItemID
+         %UID '4AB38D9A0062'
+         %SUMMARY 'Идентификатор элемента словаря' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46A606AC03B2' /* Integer */
+         ; // %INHERITS
+        ; // Tm4DictItemID
+        <<Typedef>> Tm4WordID
+         %UID '4AB38B45023C'
+         %SUMMARY 'Буква в строке' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '46A606AC03B2' /* Integer */
+         ; // %INHERITS
+        ; // Tm4WordID
+        <<Struct>> Tm4DictItemAddr
+         %UID '4ABA246700B4'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '476BBDC80314' /* m4 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           FINAL <<Attribute>> rID
+            %UID '4ABA24A103E6'
+            %TARGET U$ '4AB38D9A0062' /* Tm4DictItemID */
+            %TOBEINCLUDED
+             U$ '476BBDC80314' /* m4 */
+            ; // %TOBEINCLUDED
+           ; // rID
+           FINAL <<Attribute>> rDictionaryID
+            %UID '4ABA24AC017E'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // rDictionaryID
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           <<ctor>> C
+            %UID '4ABA24E701F2'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '476BBDC80314' /* m4 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anID
+               %UID '4ABA25080130'
+               %TARGET U$ '4AB38D9A0062' /* Tm4DictItemID */
+               %TOBEINCLUDED
+                U$ '476BBDC80314' /* m4 */
+               ; // %TOBEINCLUDED
+              ; // anID
+              <<in>> aDictionaryID
+               %UID '4ABA2508017C'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aDictionaryID
+            ; // %PARAMETERS
+           ; // C
+         ; // %OPERATIONS
+        ; // Tm4DictItemAddr
+      ; // %CHILDREN
+     ; // m4DictTypes
+     <<SimpleClass>> Tm4DB
+      %UID '4F191E6C0189'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+     ; // Tm4DB
+   ; // %CHILDREN
+  ; // Dict
+ ; // %CHILDREN
+; // m4

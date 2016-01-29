@@ -1,0 +1,27 @@
+{$I ArchiGlobals.inc}
+{.$DEFINE OneInit}
+{$DEFINE enNotNeedDisp}
+{$Define ddLog}
+{$Define NotShowException}
+{$Define DebugStackTrace}
+{$Define notStackInExeption}
+{$Define ALCU}
+{$Define Synapse}
+{$Define m3NotUseForkStreamToOldBase}
+{$Define l3NotUseW95Meter}
+{$Define RxLibrary}
+{$DEFINE ddUseVTSpin}
+{$Define NOFORMS}
+{$Define NotImportTaskPriority}
+{$Define EnableClassEdit}
+{$DEFINE l3UseMMX}
+{$DEFINE AutoImport}
+{$Undef  l3TraceMemAllocStat}
+{$DEFINE Bilingual}
+{.$DEFINE Region}
+{$IFDEF Region}
+ {$UNDEF Bilingual}
+{$ENDIF}
+{$DEFINE NoVCM}
+{.$DEFINE NoVGScene}
+{.$DEFINE HT_NEWDLL}

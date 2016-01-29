@@ -1,0 +1,56 @@
+// Tl3BaseWithLargeIDListPrim 47BDA7D70208 SimpleClass Class
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '47BC3A07027F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_47BDA7D70208
+
+INCLUDE '47BD85FA015F.pas.ms.script'
+
+: ME_47BDA8030292
+ CONST UID '47BDA8030292'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'ref'
+ : Target ME_47BD85FA015F // Tl3BaseWithID
+ ;
+
+ @SELF
+; // ME_47BDA8030292 ItemType
+
+: ME_47BDA7D70208
+ CONST UID '47BDA7D70208'
+ CONST Name 'Tl3BaseWithLargeIDListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ME_47BC3A07027F // Tl3SimpleDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_47BDA8030292 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47BDA7D70208 Tl3BaseWithLargeIDListPrim

@@ -1,0 +1,204 @@
+<<TestLibrary>> VTTest
+ %UID '499A86490253'
+ %SUMMARY 'Тесты для VT' ;
+ %DEPENDS
+  U$ '467A75D90346' /* VT */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4CFCE4F203CE' /* VGScene */
+  U$ '4F91817500AC' /* VT$Rem */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '467A75D90346' /* VT */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4CFCE4F203CE' /* VGScene */
+  U$ '4F91817500AC' /* VT$Rem */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<TestUnit>> ComboTree
+   %UID '499A8677021B'
+   %SUMMARY 'Тесты для выпадающих деревьев' ;
+   %DEPENDS
+    U$ '48297E42011A' /* ComboTree */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '467A75D90346' /* VT */
+    U$ '469F3E37025A' /* Rtl */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<TestClass>> TFakeBox
+      %UID '499A86AA0326'
+      %META
+       %upv "is friend" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A75D90346' /* VT */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '483158FD0155' /* TFakeBox */
+      ; // %INHERITS
+      %ATTRIBUTES
+        FINAL LINK <<property>> ItemIndex
+         %UID '499A86B50355'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ItemIndex
+      ; // %ATTRIBUTES
+     ; // TFakeBox
+     FINAL <<TestClass>> TSubTree
+      %UID '499AE0580291'
+      %META
+       %upv "is friend" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A75D90346' /* VT */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '53EDF0B0003D' /* TSubTree */
+      ; // %INHERITS
+      %REALIZES
+       U$ '46A5AA4B003C' /* Invalidate */
+      ; // %REALIZES
+      %ATTRIBUTES
+        FINAL LINK <<readonly>> CurrentNodeLevel
+         %UID '499AE6750165'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // CurrentNodeLevel
+        FINAL LINK <<readonly>> CurrentNodeIndex
+         %UID '499AE7600051'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // CurrentNodeIndex
+        FINAL LINK <<readonly>> CurrentNodeExpanded
+         %UID '499AE76A0273'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // CurrentNodeExpanded
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Operation>> ExpandCurrentNode
+         %UID '499AE07B0052'
+        ; // ExpandCurrentNode
+        FINAL <<Operation>> GoToBeginNode
+         %UID '499AE507018E'
+         %SUMMARY 'этот метод нужен потому что дерево не реагирует на нажатие Home, и вообще не получается перейти на его начало с клавиатуры' ;
+        ; // GoToBeginNode
+      ; // %OPERATIONS
+     ; // TSubTree
+   ; // %CHILDREN
+  ; // ComboTree
+  <<TestUnit>> NewReminders
+   %UID '536A56A6004E'
+   %DEPENDS
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4CFCE51A00B0' /* Impl */
+    U$ '53288DFA03A7' /* NewReminders */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4CFCE4F203CE' /* VGScene */
+    U$ '4F91817500AC' /* VT$Rem */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<TestClass>> TvgRemindersLine
+      %UID '536A57190399'
+      %META
+       %upv "is friend" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4F91817500AC' /* VT$Rem */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '532322D901A3' /* TvgRemindersLine */
+      ; // %INHERITS
+      %ATTRIBUTES
+        FINAL LINK <<readonly>> Count
+         %UID '536B5DA30257'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Count
+        FINAL LINK <<readonly>> Reminder
+         %UID '536AC39500C3'
+         %TARGET U$ '532973740186' /* TvgReminder */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4F91817500AC' /* VT$Rem */
+         ; // %TOBEINCLUDED
+         %INDEXES
+          %INDEX Index %TARGET U$ '46A606AC03B2' /* Integer */
+          ;
+         ; // %INDEXES
+        ; // Reminder
+      ; // %ATTRIBUTES
+     ; // TvgRemindersLine
+     FINAL <<TestClass>> TvgReminder
+      %UID '536B5D600367'
+      %META
+       %upv "is friend" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4CFCE4F203CE' /* VGScene */
+       U$ '4F91817500AC' /* VT$Rem */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '532973740186' /* TvgReminder */
+      ; // %INHERITS
+      %ATTRIBUTES
+        FINAL LINK <<readonly>> Caption
+         %UID '536B5D8B01C6'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Caption
+        FINAL LINK <<readonly>> Flash
+         %UID '536B5D980340'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Flash
+        FINAL LINK <<readonly>> Visible
+         %UID '53712731020C'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Visible
+        FINAL LINK <<readonly>> vgImage
+         %UID '536B5E2E033B'
+         %TARGET U$ '5326E7230130' /* TvgImage */
+         %TOBEINCLUDED
+          U$ '4CFCE4F203CE' /* VGScene */
+         ; // %TOBEINCLUDED
+        ; // vgImage
+      ; // %ATTRIBUTES
+     ; // TvgReminder
+   ; // %CHILDREN
+  ; // NewReminders
+ ; // %CHILDREN
+; // VTTest

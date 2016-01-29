@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/json.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+//
+// The json-cpp library and this documentation are in Public Domain.
+// Author: Baptiste Lepilleur <blep@users.sourceforge.net>
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+project (json)  {
+	sharedname = json
+	staticname = json
+
+	Header_Files {
+		../jsoncpp/features.h
+		../jsoncpp/forwards.h
+		../jsoncpp/json.h
+		../jsoncpp/json_helper.h
+		../jsoncpp/reader.h
+		../jsoncpp/value.h
+		../jsoncpp/writer.h
+
+		../jsoncpp/impl/json_batchallocator.h
+
+		../jsoncpp/autolink.h
+		../jsoncpp/config.h
+	}
+
+	Inline_Files {
+		../jsoncpp/impl/json_internalarray.inl
+		../jsoncpp/impl/json_internalmap.inl
+		../jsoncpp/impl/json_valueiterator.inl
+	}
+
+	Source_Files {
+		../jsoncpp/impl/json_reader.cpp
+		../jsoncpp/impl/json_value.cpp
+		../jsoncpp/impl/json_writer.cpp
+		../jsoncpp/impl/json_helper.cpp
+	}
+}

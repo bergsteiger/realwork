@@ -1,0 +1,98 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/CustomDirectory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::CustomDirectory
+//
+// Дополнительная папка цели
+// ---
+// Определяет папку в CVS, которая должна попасть в инсталлятор, вместе со всем своим содержимым.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: CustomDirectory::Class
+implementation @ <<CustomDirectory>>
+//? Дополнительная папка цели
+//? Определяет папку в CVS, которая должна попасть в инсталлятор, вместе со всем своим содержимым.
+//> CustomFile::Class
+//> CustomDirectory::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_custom_directory.gif
+//L code_custom_directory
+// Параметры визуализации
+//$ C 125,215,125
+//$ l 30,210,30
+//$ f 30,210,30
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p source:s ? определяет путь к папке на файловой системе относительно рута ЦВС
+//p to dir prefix:s ? Префикс конечной директории
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{source}"!="%S{!source}"}%f_up_prefix(%S) *source* = *%S{source}* - определяет путь к папке на файловой системе относительно рута ЦВС
+ if ( ( %S get_up ( 'source' ) ) %!= ( %S get_up_def ( 'source' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *source* = *'
+  %S get_up ( 'source' ) '* - определяет путь к папке на файловой системе относительно рута ЦВС'
+//	][{"%S{to dir prefix}"!="%S{!to dir prefix}"}%f_up_prefix(%S) *to dir prefix* = *%S{to dir prefix}* - Префикс конечной директории
+ end // if
+ if ( ( %S get_up ( 'to dir prefix' ) ) %!= ( %S get_up_def ( 'to dir prefix' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *to dir prefix* = *'
+  %S get_up ( 'to dir prefix' ) '* - Префикс конечной директории'
+//	]
+ end // if
+
+// //метод дампит путь к папке от родительской папки, например
+// //-A (CustomDirectory)
+// //---B (CustomDirectory)
+// //-----C (CustomDirectory)
+// //для C вернёт: A/B/C
+//%f _dump_path_str
+; // wiki_up_print
+
+: dump_path_str OBJECT IN %S
+//#UC START# *47048CDA01F4for47048BD902EE*
+//	[<{}{%PM=CustomDirectory::Class}{%Pr}%PN/>%S{to dir prefix}%SN]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for downto %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P |M ) %== 'CustomDirectory::Class' ) then
+   begin
+    %P |N '/' 
+    ++! l_Counter
+   end // if
+  end // for P
+  %S get_up ( 'to dir prefix' ) %S |N 
+ end // if
+ NOP
+//#UC END# *47048CDA01F4for47048BD902EE*
+; // dump_path_str
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<CustomDirectory>>
+

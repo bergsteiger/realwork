@@ -1,0 +1,184 @@
+// TkwCompiledWordWorker 4DCBD50101CB SimpleClass Class
+
+FORWARD ME_4DCBD50101CB
+
+: ME_4DCBD660009C
+ CONST UID '4DCBD660009C'
+ CONST Name 'RkwCompiledWordWorker'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DCBD50101CB // TkwCompiledWordWorker
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_4DCBD660009C RkwCompiledWordWorker
+
+INCLUDE '556427250160.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_53DB7F940102
+ CONST UID '53DB7F940102'
+ CONST Name 'WordToWork'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_53DB7F940102 WordToWork
+
+: ME_AA2776B22574
+ CONST UID 'AA2776B22574'
+ CONST Name 'f_WordToWork'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства WordToWork' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_AA2776B22574 f_WordToWork
+
+FORWARD ME_4DCBB0CD028D
+
+: ME_5512E31201F3
+ CONST UID '5512E31201F3'
+ CONST Name 'aWordToPush'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_5512E31201F3 aWordToPush
+
+: ME_5512E3120218
+ CONST UID '5512E3120218'
+ CONST Name 'aWordToRun'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_5512E3120218 aWordToRun
+
+: ME_556305E702E4
+ CONST UID '556305E702E4'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_556305E702E4 aCtx
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4DCBB0DB03D3
+ CONST UID '4DCBB0DB03D3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5512E31201F3 // aWordToPush
+ ME_5512E3120218 // aWordToRun
+ ME_556305E702E4 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DCBB0DB03D3 DoIt
+
+: ME_4DCBB0CD028D
+ CONST UID '4DCBB0CD028D'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4DCBB0DB03D3 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DCBB0CD028D Create
+
+: ME_E34F7C4443D2
+ CONST UID 'E34F7C4443D2'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwCompiledWordWorker' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_E34F7C4443D2 Ini_Reg_Class
+
+: ME_4DCBD50101CB
+ CONST UID '4DCBD50101CB'
+ CONST Name 'TkwCompiledWordWorker'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Базовый класс для исполняемых скомпилированных слов.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_556427250160 // TkwSourcePointWord
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_53DB7F940102 // WordToWork
+ ME_AA2776B22574 // f_WordToWork
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4DCBB0CD028D // Create
+ ME_E34F7C4443D2 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ : Children
+   [ ME_4DCBD660009C // RkwCompiledWordWorker
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '12.05.2011 16:39'
+
+ @SELF
+; // ME_4DCBD50101CB TkwCompiledWordWorker

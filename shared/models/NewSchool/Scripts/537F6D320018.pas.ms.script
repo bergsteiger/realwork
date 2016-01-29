@@ -1,0 +1,453 @@
+// Containers 537F6D320018 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537F6D320018
+
+FORWARD ME_537F6DA00036
+
+: ME_537F6DE8030B
+ CONST UID '537F6DE8030B'
+ CONST Name 'LowNum'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_537F6DA00036 // TdtNumRange
+ ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+
+ref; // ME_537F6DE8030B LowNum
+
+: ME_537F6DF302D4
+ CONST UID '537F6DF302D4'
+ CONST Name 'HiNum'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_537F6DA00036 // TdtNumRange
+ ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+
+ref; // ME_537F6DF302D4 HiNum
+
+FORWARD ME_537F6E030167
+
+: ME_537F6E1A00CB
+ CONST UID '537F6E1A00CB'
+ CONST Name 'aLowNum'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+
+ref; // ME_537F6E1A00CB aLowNum
+
+: ME_537F6E1A00F4
+ CONST UID '537F6E1A00F4'
+ CONST Name 'aHiNum'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+
+ref; // ME_537F6E1A00F4 aHiNum
+
+: ME_537F6E0E02D6
+ CONST UID '537F6E0E02D6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6E030167 // Create
+ ;
+ : Parameters
+   @ ( ME_537F6E1A00CB // aLowNum
+ ME_537F6E1A00F4 // aHiNum
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_537F6E0E02D6 DoIt
+
+: ME_537F6E030167
+ CONST UID '537F6E030167'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6DA00036 // TdtNumRange
+ ;
+ : Operations
+   @ ( ME_537F6E0E02D6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_537F6E030167 Create
+
+FORWARD ME_537F6E2A0377
+
+: ME_537F6E40029C
+ CONST UID '537F6E40029C'
+ CONST Name 'aRange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_537F6DA00036 // TdtNumRange
+ ;
+
+ref; // ME_537F6E40029C aRange
+
+: ME_537F6E380119
+ CONST UID '537F6E380119'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6E2A0377 // HasIntersectionWith
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_537F6E40029C // aRange
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_537F6E380119 DoIt
+
+: ME_537F6E2A0377
+ CONST UID '537F6E2A0377'
+ CONST Name 'HasIntersectionWith'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6DA00036 // TdtNumRange
+ ;
+ : Operations
+   @ ( ME_537F6E380119 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_537F6E2A0377 HasIntersectionWith
+
+FORWARD ME_537F6E4E0207
+
+: ME_537F6E6702D3
+ CONST UID '537F6E6702D3'
+ CONST Name 'aRange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_537F6DA00036 // TdtNumRange
+ ;
+
+ref; // ME_537F6E6702D3 aRange
+
+: ME_537F6E610259
+ CONST UID '537F6E610259'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6E4E0207 // JoinWith
+ ;
+ : Parameters
+   @ ( ME_537F6E6702D3 // aRange
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_537F6E610259 DoIt
+
+: ME_537F6E4E0207
+ CONST UID '537F6E4E0207'
+ CONST Name 'JoinWith'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6DA00036 // TdtNumRange
+ ;
+ : Operations
+   @ ( ME_537F6E610259 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_537F6E4E0207 JoinWith
+
+FORWARD ME_537F6ED601AE
+
+: ME_537F6EDE002E
+ CONST UID '537F6EDE002E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6ED601AE // Amount
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_537F6EDE002E DoIt
+
+: ME_537F6ED601AE
+ CONST UID '537F6ED601AE'
+ CONST Name 'Amount'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6DA00036 // TdtNumRange
+ ;
+ : Operations
+   @ ( ME_537F6EDE002E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_537F6ED601AE Amount
+
+: ME_537F72D60064
+ CONST UID '537F72D60064'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_537F6DA00036 // TdtNumRange
+ ;
+ : Target WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ;
+
+ref; // ME_537F72D60064 
+
+: ME_537F72EF00A3
+ CONST UID '537F72EF00A3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_537F6DA00036 // TdtNumRange
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_537F72EF00A3 
+
+: ME_537F6DA00036
+ CONST UID '537F6DA00036'
+ CONST Name 'TdtNumRange'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'вспомогательный тип для TNumSet' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_537F6D320018 // Containers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_537F6DE8030B // LowNum
+ ME_537F6DF302D4 // HiNum
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_537F6E030167 // Create
+ ME_537F6E2A0377 // HasIntersectionWith
+ ME_537F6E4E0207 // JoinWith
+ ME_537F6ED601AE // Amount
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_537F72D60064 // 
+ ME_537F72EF00A3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtNumRange.pas'
+
+ref; // ME_537F6DA00036 TdtNumRange
+
+FORWARD ME_537F6EED0090
+
+: ME_537F6F040072
+ CONST UID '537F6F040072'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_537F6EED0090 // TdtNumRangeList
+ ;
+ : Target ME_537F6DA00036 // TdtNumRange
+ ;
+
+ref; // ME_537F6F040072 ItemType
+
+: ME_47B2C42A0163_ME_537F6EED0090
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_537F6EED0090 // TdtNumRangeList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_537F6EED0090 AssignItem
+
+: ME_47B99D4503A2_ME_537F6EED0090
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_537F6EED0090 // TdtNumRangeList
+ ;
+ref; // ME_47B99D4503A2_ME_537F6EED0090 CompareExistingItems
+
+: ME_537F6EED0090
+ CONST UID '537F6EED0090'
+ CONST Name 'TdtNumRangeList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_537F6D320018 // Containers
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_537F6F040072 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_537F6EED0090 // AssignItem
+ ME_47B99D4503A2_ME_537F6EED0090 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtNumRangeList.pas'
+
+ref; // ME_537F6EED0090 TdtNumRangeList
+
+FORWARD ME_537F6D3F0319
+
+FORWARD ME_537F6D5E0136
+
+: ME_537F6F740241
+ CONST UID '537F6F740241'
+ CONST Name 'f_Ranges'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_537F6D5E0136 // TNumSet
+ ;
+ : Target ME_537F6EED0090 // TdtNumRangeList
+ ;
+
+ref; // ME_537F6F740241 f_Ranges
+
+: ME_537F6D5E0136
+ CONST UID '537F6D5E0136'
+ CONST Name 'TNumSet'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_537F6D3F0319 // Dt_containers
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_537F6F740241 // f_Ranges
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_537F6D5E0136 TNumSet
+
+: ME_537F6D3F0319
+ CONST UID '537F6D3F0319'
+ CONST Name 'Dt_containers'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537F6D320018 // Containers
+ ;
+ : Children
+   @ ( ME_537F6D5E0136 // TNumSet
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_Dt_containers.pas'
+
+ref; // ME_537F6D3F0319 Dt_containers
+
+: ME_537F6D320018
+ CONST UID '537F6D320018'
+ CONST Name 'Containers'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ ;
+ : Children
+   @ ( ME_537F6DA00036 // TdtNumRange
+ ME_537F6EED0090 // TdtNumRangeList
+ ME_537F6D3F0319 // Dt_containers
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\537F6D320018.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\537F6D320018.pas.ms.script.runner'
+
+ref; // ME_537F6D320018 Containers

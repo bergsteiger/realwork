@@ -1,0 +1,63 @@
+project {
+
+	macros += _EXTERN_MAIN
+	macros += GUDLL_EXPORTS
+	macros += QUICK_NEW_DOC
+	macros += MIN_MEM_CONTEXT
+	macros += BLOCKSINHERIT
+
+	includes += ./../../component/cpp/libs/delta/src
+	includes += ./../../component/cpp/libs/gctx/src
+
+	Header_Files {
+		./../../component/cpp/tools/GUDll/GUDll.h
+		./../../component/cpp/tools/delta/src/clcache.h
+		./../../component/cpp/tools/delta/src/cntxtcol.h
+		./../../component/cpp/tools/delta/src/unfull.h
+
+
+		./../../component/cpp/libs/endt/Defines.h
+		./../../component/cpp/libs/endt/Common.h
+		./../../component/cpp/libs/endt/EndtInfo.h
+		./../../component/cpp/libs/endt/EndtReader.h
+		./../../component/cpp/libs/endt/EndtWriter.h
+		./../../component/cpp/libs/endt/EndtParser.h
+		./../../component/cpp/libs/endt/NsrcGenerator.h
+		./../../component/cpp/libs/endt/NsrcGenerator.i.h
+		./../../component/cpp/libs/endt/RefFilter.h
+		./../../component/cpp/libs/endt/Helpers.h
+		./../../component/cpp/libs/endt/EndtBuilder.h
+		./../../component/cpp/libs/endt/EndtGenerator_i.h
+		./../../component/cpp/libs/endt/Writers.h
+		./../../component/cpp/libs/endt/IsVersionComment.h
+		./../../component/cpp/libs/endt/TableDecompile.h
+	}
+
+	Source_Files {
+		./../../component/cpp/libs/gkdb/src/UpdtMorph.cpp
+		./../../component/cpp/tools/GUDll/GUDll.cpp
+		./../../component/cpp/tools/delta/src/clcache.cpp
+		./../../component/cpp/tools/delta/src/cntxtcol.cpp
+		./../../component/cpp/tools/delta/src/unfull.cpp
+		./../../component/cpp/tools/delta/src/update.cpp
+
+		./../../component/cpp/libs/endt/Common.cpp
+		./../../component/cpp/libs/endt/EndtReader.cpp
+		./../../component/cpp/libs/endt/EndtWriter.cpp
+		./../../component/cpp/libs/endt/EndtParser.cpp
+		./../../component/cpp/libs/endt/NsrcGenerator.cpp
+		./../../component/cpp/libs/endt/RefFilter.cpp
+		./../../component/cpp/libs/endt/Helpers.cpp
+		./../../component/cpp/libs/endt/EndtBuilder.cpp	
+		./../../component/cpp/libs/endt/EndtGenerator_i.cpp
+		./../../component/cpp/libs/endt/EndtWriter_i.cpp
+		./../../component/cpp/libs/endt/Writers.cpp
+		./../../component/cpp/libs/endt/IsVersionComment.cpp
+		./../../component/cpp/libs/endt/TableDecompile.cpp
+	}
+
+	Resource_Files {
+		./../../Projects/resources/GUDll.rc
+		./../../Projects/resources/GUDll.rch
+	}
+}

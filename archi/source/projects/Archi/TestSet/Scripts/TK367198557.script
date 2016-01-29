@@ -1,0 +1,25 @@
+USES	
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Выставить ноль"
+        "Контрол по имени {(acContents6SpinEdit)}" pop:SpinEdit:Value    := 0
+	"Контрол по имени {(acContentsEditDlgBtnOK)}" pop:Control:Click
+;
+
+CONST cnChangedNodeID 9
+CONST cnChangedSubID 1000
+
+Тест TK367198557
+	Параметры: ( "Документ с блоками" "Дерево оглавления" "Эталон для дерева оглавления" )
+	Выполнить (
+		cnChangedSubID окно_редактора:перейти_к_метке 
+		"Обработать сообщения"  
+		"Установить фокус в контрол с именем" carContentsTree	
+		"развернуть узел {(cnRootItem)}"
+		"развернуть узел {(cnChangedNodeID)}"
+		@ ( cnChangedSubID редактор:установить_оглавление ) MODAL "Выставить ноль"	
+	)
+;
+
+TK367198557

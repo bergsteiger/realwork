@@ -1,0 +1,22 @@
+project : project-common-defines, project-common-includes, project_generic_core {
+
+        specific(make) {
+                macros += _USE_STDOUT
+                compilerflags += -x none
+        }
+
+	Header_Files {
+		./../../component/cpp/libs/gsscreen/src/gsscreen.h
+		./../../component/cpp/libs/gsscreen/src/gsscreen_ver.h
+		./../../component/cpp/libs/gsscreen/src/iscreen.h
+		./../../component/cpp/libs/gsscreen/src/pscreen.h
+		./../../component/cpp/libs/gsscreen/src/toys.h
+	}
+
+	Source_Files {
+		./../../component/cpp/libs/gsscreen/src/gsscreen.cpp
+		./../../component/cpp/libs/gsscreen/src/pscreen.cpp
+		./../../component/cpp/libs/gsscreen/src/screen.c
+		./../../component/cpp/libs/gsscreen/src/face.c
+	}
+}

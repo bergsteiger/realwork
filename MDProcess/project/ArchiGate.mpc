@@ -1,0 +1,75 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/ArchiGate.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::ArchiGate
+//
+// серверная либа для коммуникации с арчи
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (ArchiGate) : project_generic_core_corba {
+	staticname = ArchiGate
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += ArchiGate_cs
+	libs  += ArchiGate_cs
+
+
+	Header_Files {
+		Std_Headers {
+			./../ArchiGate/ServerLibHome.h
+		}
+	
+		DocCardRemoteImpl {
+			./../ArchiGate/impl/DocCardRemoteImpl/ArchiEventsListenerImpl.h
+			./../ArchiGate/impl/DocCardRemoteImpl/ArchiEventsListenerImpl_factory.h
+			./../ArchiGate/impl/DocCardRemoteImpl/BigFileIteratorImpl.h
+			./../ArchiGate/impl/DocCardRemoteImpl/BigFileIteratorImpl_factory.h
+			./../ArchiGate/impl/DocCardRemoteImpl/GardocGetterImpl.h
+			./../ArchiGate/impl/DocCardRemoteImpl/GardocGetterImpl_factory.h
+			./../ArchiGate/impl/DocCardRemoteImpl/Searcher2Impl.h
+			./../ArchiGate/impl/DocCardRemoteImpl/Searcher2Impl_factory.h
+			./../ArchiGate/impl/DocCardRemoteImpl/SearcherImpl.h
+			./../ArchiGate/impl/DocCardRemoteImpl/SearcherImpl_factory.h
+			./../ArchiGate/impl/DocCardRemoteImpl/UtilsImpl.h
+			./../ArchiGate/impl/DocCardRemoteImpl/UtilsImpl_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		DocCardRemoteImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../ArchiGate/ServerLibHome.cpp
+		}
+	
+		DocCardRemoteImpl {
+			./../ArchiGate/impl/DocCardRemoteImpl/ArchiEventsListenerImpl.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/ArchiEventsListenerImpl_factory.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/BigFileIteratorImpl.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/BigFileIteratorImpl_factory.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/GardocGetterImpl.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/GardocGetterImpl_factory.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/Searcher2Impl.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/Searcher2Impl_factory.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/SearcherImpl.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/SearcherImpl_factory.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/UtilsImpl.cpp
+			./../ArchiGate/impl/DocCardRemoteImpl/UtilsImpl_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

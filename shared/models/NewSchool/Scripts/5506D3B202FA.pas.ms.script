@@ -1,0 +1,165 @@
+// Tl3MessagesService 5506D3B202FA Service Class
+
+FORWARD ME_5506D3B202FA
+
+FORWARD ME_1D128503AC70
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_B6C92677BBF7
+ CONST UID 'B6C92677BBF7'
+ CONST Name 'ProcessMessages'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_B6C92677BBF7 ProcessMessages
+
+: ME_1D128503AC70
+ CONST UID '1D128503AC70'
+ CONST Name 'Ml3MessagesService'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса Tl3MessagesService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_B6C92677BBF7 // ProcessMessages
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_1D128503AC70 Ml3MessagesService
+
+: ME_0B2A9A8C27FB
+ CONST UID '0B2A9A8C27FB'
+ CONST GUID '8169CB3B-D3C5-412F-82E9-1473799C89FD'
+ CONST Name 'Il3MessagesService'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3MessagesService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_1D128503AC70 // Ml3MessagesService
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_B6C92677BBF7 // ProcessMessages
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_0B2A9A8C27FB Il3MessagesService
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_BBA6975A0477
+ CONST UID 'BBA6975A0477'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3MessagesService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_0B2A9A8C27FB // Il3MessagesService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_BBA6975A0477 Alien
+
+: ME_224797B4B14D
+ CONST UID '224797B4B14D'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_0B2A9A8C27FB // Il3MessagesService
+ ;
+
+ @SELF
+; // ME_224797B4B14D f_Alien
+
+: ME_5506D3CD02AA
+ CONST UID '5506D3CD02AA'
+ CONST Name 'ProcessMessages'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5506D3CD02AA ProcessMessages
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_B73A8914E9C7
+ CONST UID 'B73A8914E9C7'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_B73A8914E9C7 Exists
+
+: ME_5506D3B202FA
+ CONST UID '5506D3B202FA'
+ CONST Name 'Tl3MessagesService'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_1D128503AC70 // Ml3MessagesService
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_BBA6975A0477 // Alien
+ ME_224797B4B14D // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5506D3CD02AA // ProcessMessages
+ ME_B73A8914E9C7 // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_B6C92677BBF7 // ProcessMessages
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_1D128503AC70 // Ml3MessagesService
+ ME_0B2A9A8C27FB // Il3MessagesService
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_5506D3B202FA Tl3MessagesService

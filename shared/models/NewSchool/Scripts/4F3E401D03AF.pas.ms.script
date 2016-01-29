@@ -1,0 +1,95 @@
+// TkwIntegerFactory 4F3E401D03AF SimpleClass Class
+
+INCLUDE '4F3E40EC0328.pas.ms.script'
+
+FORWARD ME_4F3E401D03AF
+
+FORWARD ME_4F3E412801B7
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4F3E41F2024F
+ CONST UID '4F3E41F2024F'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4F3E41F2024F aValue
+
+INCLUDE '4DB6CCE100E0.pas.ms.script'
+
+: ME_4F3E413D032E
+ CONST UID '4F3E413D032E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DB6CCE100E0 // TkwInteger
+ ;
+ : Parameters
+   [ ME_4F3E41F2024F // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F3E413D032E DoIt
+
+: ME_4F3E412801B7
+ CONST UID '4F3E412801B7'
+ CONST Name 'MakeKW'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F3E413D032E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F3E412801B7 MakeKW
+
+: ME_FA93B79695D6
+ CONST UID 'FA93B79695D6'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_FA93B79695D6 Exists
+
+: ME_4F3E401D03AF
+ CONST UID '4F3E401D03AF'
+ CONST Name 'TkwIntegerFactory'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4F3E40EC0328 // TkwIntegerArray
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4F3E412801B7 // MakeKW
+ ME_FA93B79695D6 // Exists
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_4F3E401D03AF TkwIntegerFactory

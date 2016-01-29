@@ -1,0 +1,308 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Connection"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16660406265"))
+    quid       	"495755A50311"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"495755B00365"
+	    supplier   	"Logical View::external::ace::Synch"
+	    quidu      	"4511352202CD"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Parameterized_Class "ACE_Svc_Handler"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/Svc_Handler.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16660406561"))
+	    quid       	"495755D6026F"
+	    stereotype 	"SimpleClass"
+	    operations 	(list Operations
+		(object Operation "open"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*495759440075_495757BC0155*"
+			    value      	(value Text 
+|//#UC START# *495759440075_495757BC0155*¤	return this->svc ();¤	//#UC END# *495759440075_495757BC0155*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A61050251")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16660406870"))
+		    quid       	"495759440075"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "ptr"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3ECB343C024C")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16660407203"))
+			    quid       	"495759590391"
+			    type       	"pointer"
+			    quidu      	"3ECB343C024C"
+			    initv      	"NULL"))
+		    result     	"integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"450A61050251")
+		(object Operation "svc"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4957596401B9_495757BC0155*"
+			    value      	(value Text 
+|//#UC START# *4957596401B9_495757BC0155*¤	static char buf[BUFSIZ];¤	int count = 0;¤¤	this->peer ().send_n (this->m_request.c_str (), this->m_request.size ());¤¤	// Read in characters until encounter \r\n\r\n¤	bool done = false;¤¤	do {¤		while (¤			((count += this->peer ().recv_n (buf + count, 1)) > 0) ¤			&& (static_cast<size_t> (count) < sizeof (buf))¤		) {¤			buf[count] = '\0';¤			¤			if (count < 2) {¤				continue;¤			}¤			¤			done = ACE_OS::strcmp (buf + count - 4, "\n\n") == 0;¤			¤			if (done)¤				break;¤¤			if (count < 4)¤				continue;¤¤			done = ACE_OS::strcmp (buf + count - 4, "\r\n\r\n") == 0;¤¤			if (done)¤				break;¤		}¤¤		this->m_readed_data += buf;¤	} while (!done);¤	¤	return 0;¤	//#UC END# *4957596401B9_495757BC0155*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A61050251")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16660407668"))
+		    quid       	"4957596401B9"
+		    stereotype 	"chg"
+		    result     	"integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"450A61050251"))
+	    language   	"MDA Generator"
+	    parameters 	(list Parameters
+		(object Parameter "ACE_PEER_STREAM_1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16660408060"))
+		    quid       	"495756010286")
+		(object Parameter "ACE_SYNCH_DECL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16660408413"))
+		    quid       	"495756010282")))
+	(object Parameterized_Class "ACE_Connector"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/Connector.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16660408944"))
+	    quid       	"495756D4035E"
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator"
+	    parameters 	(list Parameters
+		(object Parameter "SVC_HANDLER"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16660409252"))
+		    quid       	"495756F1033B")
+		(object Parameter "ACE_PEER_CONNECTOR_1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16660409633"))
+		    quid       	"495756F10338")))
+	(object Class "ACE_SOCK_Connector"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NATIVE_PATHh"
+		    value      	"/ace/SOCK_Connector.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16660410147"))
+	    quid       	"495757990133"
+	    stereotype 	"SimpleClass"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"495755B502E5"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "ParameterizedClass" "Logical View::external::ace::Connection::ACE_Svc_Handler" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(531, 366)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(105, 303)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	852
+			justify    	0
+			label      	"• ACE_Svc_Handler")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(105, 253)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	852
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"495755D6026F"
+		    width      	870
+		    height     	326
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "ParameterizedClass" "Logical View::external::ace::Connection::ACE_Connector" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1722, 828)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1556, 819)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"• ACE_Connector")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1556, 769)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"495756D4035E"
+		    width      	350
+		    height     	218
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ace::Connection::ACE_SOCK_Connector" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1590, 366)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1355, 338)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	470
+			justify    	0
+			label      	"• ACE_SOCK_Connector")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1355, 288)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	470
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"495757990133"
+		    width      	488
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)))))

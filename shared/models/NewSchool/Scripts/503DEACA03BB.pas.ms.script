@@ -1,0 +1,45 @@
+// TnscStatusBarPanel 503DEACA03BB GuiControl Class
+
+INCLUDE '505DA5E7038D.pas.ms.script'
+
+FORWARD ME_503DEACA03BB
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_A6AAB635D05F
+ CONST UID 'A6AAB635D05F'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TnscStatusBarPanel' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_A6AAB635D05F Ini_Reg_Class
+
+: ME_503DEACA03BB
+ CONST UID '503DEACA03BB'
+ CONST Name 'TnscStatusBarPanel'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_505DA5E7038D // nscStatusBarItemNotification
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A6AAB635D05F // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" true
+
+ @SELF
+; // ME_503DEACA03BB TnscStatusBarPanel

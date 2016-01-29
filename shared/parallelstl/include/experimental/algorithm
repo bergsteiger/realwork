@@ -1,0 +1,96 @@
+#pragma once
+
+#ifndef _PARALLEL_ALGORITHM_H_
+#define _PARALLEL_ALGORITHM_H_ 1
+
+#include <algorithm>
+#include <type_traits>
+
+#include <experimental\execution_policy>
+
+#pragma push_macro("_EXP_TRY")
+#pragma push_macro("_EXP_RETHROW")
+#pragma push_macro("_EXP_GENERIC_EXECUTION_POLICY")
+#pragma push_macro("_EXP_PRAGMA_VEC")
+#pragma push_macro("_EXP_PRAGMA_PAR")
+#undef _EXP_TRY
+#undef _EXP_RETHROW
+#undef _EXP_GENERIC_EXECUTION_POLICY
+#undef _EXP_PRAGMA_VEC
+#undef _EXP_PRAGMA_PAR
+
+#if _MSC_VER  >= 1900
+#define _EXP_PRAGMA_VEC __pragma(loop(execution_policy_vec))
+// Pragma not implemented yet thus empty
+#define _EXP_PRAGMA_PAR
+#else
+#define _EXP_PRAGMA_VEC
+#define _EXP_PRAGMA_PAR
+#endif
+
+#define _EXP_TRY try {
+
+#define _EXP_RETHROW \
+    } \
+    catch (const std::bad_alloc& e) { \
+        throw e; \
+    } \
+    catch (...) { \
+        throw exception_list(std::move(std::current_exception())); \
+    }
+
+#define _EXP_GENERIC_EXECUTION_POLICY(_Func, _Policy, ...) \
+    if (_Policy.type() == typeid(parallel_execution_policy)) \
+        return _Func(*_Policy.get<parallel_execution_policy>(), __VA_ARGS__); \
+    else if(_Policy.type() == typeid(parallel_vector_execution_policy)) \
+        return _Func(*_Policy.get<parallel_vector_execution_policy>(), __VA_ARGS__); \
+    else if(_Policy.type() == typeid(sequential_execution_policy)) \
+        return _Func(*_Policy.get<sequential_execution_policy>(), __VA_ARGS__); \
+    else throw std::invalid_argument("Not supported execution policy.");
+
+#pragma warning(push)
+// warning C4239 : nonstandard extension used : 'argument' : conversion from 'std::tuple<_It>' to 'std::tuple<_It> '
+#pragma warning(disable: 4239)
+
+// Sequential algorithm implementations
+#include "impl\sequential.h"
+
+#include "impl\adjacent_find.h"
+#include "impl\all_any_none_of.h"
+#include "impl\copy.h"
+#include "impl\count.h"
+#include "impl\equal.h"
+#include "impl\fill.h"
+#include "impl\find.h"
+#include "impl\foreach.h"
+#include "impl\generate.h"
+#include "impl\includes.h"
+#include "impl\is_partitioned.h"
+#include "impl\is_sorted.h"
+#include "impl\lexicographical_compare.h"
+#include "impl\merge.h"
+#include "impl\minmax_element.h"
+#include "impl\mismatch.h"
+#include "impl\move.h"
+#include "impl\nth_element.h"
+#include "impl\partition.h"
+#include "impl\remove.h"
+#include "impl\replace.h"
+#include "impl\reverse.h"
+#include "impl\rotate.h"
+#include "impl\search.h"
+#include "impl\set_operations.h"
+#include "impl\sort.h"
+#include "impl\swap_ranges.h"
+#include "impl\transform.h"
+#include "impl\unique.h"
+
+#pragma warning(pop) // C4239
+
+#pragma pop_macro("_EXP_TRY")
+#pragma pop_macro("_EXP_RETHROW")
+#pragma pop_macro("_EXP_GENERIC_EXECUTION_POLICY")
+#pragma pop_macro("_EXP_PRAGMA_VEC")
+#pragma pop_macro("_EXP_PRAGMA_PAR")
+
+#endif // _PARALLEL_ALGORITHM_H_ 

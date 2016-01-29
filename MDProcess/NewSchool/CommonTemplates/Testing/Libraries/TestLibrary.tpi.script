@@ -1,0 +1,326 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/Testing/Libraries/TestLibrary.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::Testing::Libraries::TestLibrary
+//
+// Тестовая библиотека
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TestLibrary::Category
+implementation @ <<TestLibrary>>
+//? Тестовая библиотека
+//> !
+//> TestUnit::Category
+//> Unit::Category
+
+//= Library::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_test_library.gif
+//L code_test_library
+// Параметры визуализации
+//$ C 251,174,243
+//$ l 227,43,209
+//$ f 227,43,209
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p gui=gui|prj|rtl ? Тип библиотеки --- prj - библиотека специфичная для проекта, rtl - утилитная библиотека, gui - библиотека представления
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{gui}"!="%S{!gui}"}%f_up_prefix(%S) *gui* = *%S{gui}* - Тип библиотеки --- prj - библиотека специфичная для проекта, rtl - утилитная библиотека, gui - библиотека представления
+ ?inherited
+ if ( ( %S get_up ( 'gui' ) ) %!= ( %S get_up_def ( 'gui' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *gui* = *'
+  %S get_up ( 'gui' ) '* - Тип библиотеки --- prj - библиотека специфичная для проекта, rtl - утилитная библиотека, gui - библиотека представления'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+; // wiki_up_print
+
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor499971A80065*
+//@ %SU
+//	[{<{}{%CS=TestUnit&"%C<{}{%CS=TestClass}{C}>"!="0"}{C}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'TestUnit' AND 
+    ( ( %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %== 'TestClass' ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+ )    %!= 0  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//	%f_N(%S)\
+  [%f] N %( %S )% 
+//	]
+ end // if
+ else
+ begin
+//	_none_}\
+  '_none_' 
+ end // else
+//#UC END# *4948065C01DFfor499971A80065*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа Library::Category
+// Деокрирует имя библиотеки
+//%f _pas_DecorLibName
+: pas_DecorLibName OBJECT IN %S
+//#UC START# *49997EB002BAfor499971A80065*
+//	[{%PS=VCMTestProject}{\
+ if ( ( %P |S ) %== 'VCMTestProject' ) then
+ begin
+//	%f_str_replace(%f_cut_postfix(%f_N(%S),Test), ,_)\
+  [%f] str_replace %( [%f] cut_postfix %( [%f] N %( %S )% %, 'Test' )% %, ' ' %, '_' )% 
+//	]
+ end // if
+ else
+ begin
+
+
+//	[{%S{gui}=prj}{\
+  if ( ( %S get_up ( 'gui' ) ) %== 'prj' ) then
+  begin
+//	]\
+  end // if
+  else
+  begin
+//	%f_str_replace(%f_cut_postfix(%f_N(%S),Test), ,_)\
+   [%f] str_replace %( [%f] cut_postfix %( [%f] N %( %S )% %, 'Test' )% %, ' ' %, '_' )% 
+//	}\
+  end // else
+
+
+//	}\
+ end // else
+//#UC END# *49997EB002BAfor499971A80065*
+; // pas_DecorLibName
+
+
+// реализация абстрактного стереотипа COM::MDAGenerator
+// генерация файла экспорта определений для COM DLL (.def)
+//+ com.def
+<<generator>> com.def OBJECT IN %S
+//#UC START# *470320C1030Dfor499971A80065*
+//#UC END# *470320C1030Dfor499971A80065*
+; // com.def
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor499971A80065*
+//#UC END# *470F15B800CBfor499971A80065*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// дополнительные файлы проектов (mpc)
+//+ mpc2
+<<generator>> mpc2 OBJECT IN %S
+//#UC START# *47031E850177for499971A80065*
+//#UC END# *47031E850177for499971A80065*
+; // mpc2
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// файл настроек (.ini)
+//+ s.ini
+<<generator>> s.ini OBJECT IN %S
+//#UC START# *47031EDE0138for499971A80065*
+//#UC END# *47031EDE0138for499971A80065*
+; // s.ini
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// настройки реестра (.reg)
+//+ s.reg
+<<generator>> s.reg OBJECT IN %S
+//#UC START# *47031EA5002Efor499971A80065*
+//#UC END# *47031EA5002Efor499971A80065*
+; // s.reg
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rc)
+//+ vi.rc
+<<generator>> vi.rc OBJECT IN %S
+//#UC START# *47031EF6005Dfor499971A80065*
+//#UC END# *47031EF6005Dfor499971A80065*
+; // vi.rc
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rch)
+//+ vi.rch
+<<generator>> vi.rch OBJECT IN %S
+//#UC START# *47031F13004Efor499971A80065*
+//#UC END# *47031F13004Efor499971A80065*
+; // vi.rch
+
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// Генерация файлов для конфигурации и запуска сборки
+//+ Makejar.launch
+<<generator>> Makejar.launch OBJECT IN %S
+//#UC START# *470322DF03A9for499971A80065*
+//#UC END# *470322DF03A9for499971A80065*
+; // Makejar.launch
+
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
+//+ output.classpath
+<<generator>> output.classpath OBJECT IN %S
+//#UC START# *470322910119for499971A80065*
+//#UC END# *470322910119for499971A80065*
+; // output.classpath
+
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов проекта для Ecllipse
+//+ output.project
+<<generator>> output.project OBJECT IN %S
+//#UC START# *47032220003Efor499971A80065*
+//#UC END# *47032220003Efor499971A80065*
+; // output.project
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor499971A80065*
+//R  
+//P
+//C %S%f_pas_LibPath()
+//O [{%S{finished}!=true&"%S{finished}"!=""}NOT_FINISHED_]%f_pas_UnitFileName(%S)
+//	[{"%SO"!=""}\
+ if ( ( %S |O ) %!= '' ) then
+ begin
+//	%f_pas_OpenUnitInterface(%S)\
+  [%f] pas_OpenUnitInterface %( %S )% 
+//	%f_pas_CloseUses(%S)\
+  [%f] pas_CloseUses %( %S )% 
+//	%f_pas_OpenUnitImplementation(%S)\
+  [%f] pas_OpenUnitImplementation %( %S )% 
+//	<{}{%DS=TestLibrary}%f_pas_PutToUses(%D)>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if ( ( %D |S ) %== 'TestLibrary' ) then
+   begin
+    [%f] pas_PutToUses %( %D )% 
+    ++! l_Counter
+   end // if
+  end // for D
+//	<%C<%f_pas_PutToUses(%C)>>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       [%f] pas_PutToUses %( %C )% 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for C
+//	%f_pas_PutToUses("tc5OpenApp")\
+  [%f] pas_PutToUses %( 'tc5OpenApp' )% 
+//	%f_pas_PutToUses("tc6OpenApp")\
+  [%f] pas_PutToUses %( 'tc6OpenApp' )% 
+//	%f_pas_CloseUses(%S)\
+  [%f] pas_CloseUses %( %S )% 
+//	%f_pas_CloseUnit(%S)\
+  [%f] pas_CloseUnit %( %S )% 
+//	]\
+ end // if
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F1571031Cfor499971A80065*
+; // intf.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<TestLibrary>>
+

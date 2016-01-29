@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\DOCUMENTATION\Archivarius.Setting.AdminGuide.hmxz "/tsk=Recent Publishes:Archivarius.Setting.AdminGuide" "/tsk=Recent Publishes:Archivarius.Setting.AdminGuide_!DAILY" "/tsk=Recent Publishes:Archivarius.Setting.AdminGuide(web)_!DAILY"

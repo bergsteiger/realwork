@@ -1,0 +1,1083 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/Union.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::Union
+//
+// Объединение
+// ---
+// Объединяет несколько типов используя для них смежную память. Конкретный используемый тип
+// определяется дескрименантом (switch).
+// Объединяемые типы указываются как атрибуты без стереотипа. Тип дескрименанта, как атрибут со
+// стереотипом switch. С каждым объединяемым типом должно быть связано значение дескрименанта, в
+// виде значения по умолчания соответствующего атрибута (например: type: MyType = 1)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Union::Class
+implementation @ <<Union>>
+//? Объединение
+//? Объединяет несколько типов используя для них смежную память. Конкретный используемый тип определяется дескрименантом (switch).
+//? Объединяемые типы указываются как атрибуты без стереотипа. Тип дескрименанта, как атрибут со стереотипом switch. С каждым объединяемым типом должно быть связано значение дескрименанта, в виде значения по умолчания соответствующего атрибута (например: type: MyType = 1)
+//< *::Class,*::Category
+
+//= InterfaceGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_union.gif
+//L code_union
+// Параметры визуализации
+//$ C 240,230,210
+//$ l 100,75,35
+//$ f 100,75,35
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+//p Need less:b=false ? Влючает генерацию дефолтного оератора сравнения
+//p packed:b=false ? определяет упакованность структуры
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+ ?inherited
+ if ( ( %S get_up ( 'force usage' ) ) %!= ( %S get_up_def ( 'force usage' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *force usage* = *'
+  %S get_up ( 'force usage' ) '* - явно определяет, что элемент будет кем-то использован (нужно для проверки)'
+//	][{"%S{Need less}"!="%S{!Need less}"}%f_up_prefix(%S) *Need less* = *%S{Need less}* - Влючает генерацию дефолтного оератора сравнения
+ end // if
+ if ( ( %S get_up ( 'Need less' ) ) %!= ( %S get_up_def ( 'Need less' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need less* = *'
+  %S get_up ( 'Need less' ) '* - Влючает генерацию дефолтного оератора сравнения'
+//	][{"%S{packed}"!="%S{!packed}"}%f_up_prefix(%S) *packed* = *%S{packed}* - определяет упакованность структуры
+ end // if
+ if ( ( %S get_up ( 'packed' ) ) %!= ( %S get_up_def ( 'packed' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *packed* = *'
+  %S get_up ( 'packed' ) '* - определяет упакованность структуры'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F3839033C*
+//c                                     {}
+//r {<{}{"%CS"="switch"}{%CC}>!=1}: {%SS must provide one SWICH member}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+//r {%M{force usage}=false&%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
+//#UC END# *4704C0E30186for470F3839033C*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F3839033C*
+//F class %f_type(%S);
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	][<#%FF
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%F
+  begin
+   OBJECT IN %F
+   if true then
+   begin
+    out_indent %F |F 
+//	>]%f_docs(%S)\
+
+    ++! l_Counter
+   end // if
+  end // for F
+ end // if
+ NOP
+ [%f] docs %( %S )% 
+//	#/*union*/ class %SN {
+ out_indent '/*union*/ class '
+ %S |N ' {'
+//	#public:
+ out_indent 'public:'
+//	#	class InvalidDiscrimenant: public Core::Exception {
+ out_indent '	class InvalidDiscrimenant: public Core::Exception {'
+//	#		const char* what () const throw () {
+ out_indent '		const char* what () const throw () {'
+//	#			return "%SN - access to data by invalid discrimenant";
+ out_indent '			return "'
+ %S |N ' - access to data by invalid discrimenant";'
+//	#		}
+ out_indent '		}'
+//	
+//	#		const char* uid () const /*throw ()*/ {
+ out_indent '		const char* uid () const /*throw ()*/ {'
+//	#			return "%SN::InvalidDiscrimenant";
+ out_indent '			return "'
+ %S |N '::InvalidDiscrimenant";'
+//	#		}
+ out_indent '		}'
+//	#	};
+ out_indent '	};'
+//	<{}{%CS=switch}%C[%f_set_var(SWITCH,T)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'switch' ) then
+  begin
+   %C
+   bind ( 
+    OBJECT VAR %S
+    if NOT-EMPTY
+    begin
+     [%f] set_var %( 'SWITCH' %, 'T' )% 
+    end // if
+    NOP
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+//	#	%SN () : m_d ((<{}{%CS=switch}%f_type(%C%T)>)-1) {
+ out_indent '	'
+ %S |N ' () : m_d (('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'switch' ) then
+  begin
+   [%f] type %( %C ->T  )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ')-1) {'
+//	#	}
+ out_indent '	}'
+//	
+//	#	%SN (const %SN& c) : m_d ((<{}{%CS=switch}%f_type(%C%T)>)-1) {
+ out_indent '	'
+ %S |N ' (const '
+ %S |N '& c) : m_d (('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'switch' ) then
+  begin
+   [%f] type %( %C ->T  )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ')-1) {'
+//	#			switch (c.m_d) {<{}{%CS!=switch}
+ out_indent '			switch (c.m_d) {'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %!= 'switch' ) then
+  begin
+   #13#10
+
+//	#			case %{SWITCH}<%NN::>%CI:
+   out_indent '			case '
+   ( get_global_var ( 'SWITCH' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%N
+    begin
+     OBJECT IN %N
+     if true then
+     begin
+      %N |N '::' 
+      ++! l_Counter
+     end // if
+    end // for N
+
+   ) // bind
+   %C |I ':'
+//	#				this-\>%CN (c.%CN());
+   out_indent '				this->'
+   %C |N ' (c.'
+   %C |N '());'
+//	#				break;
+   out_indent '				break;'
+//	#			>}
+   out_indent '			' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	#	}
+ out_indent '	}'
+//	
+//	#	~%SN () {
+ out_indent '	~'
+ %S |N ' () {'
+//	#		this-\>reset();
+ out_indent '		this->reset();'
+//	#	}
+ out_indent '	}'
+//	
+//	[{%S{Need less}=true}#	bool operator \< (const %SN& c) const {
+ if ( ( %S get_up ( 'Need less' ) ) %==  true ) then
+ begin
+  out_indent '	bool operator < (const '
+  %S |N '& c) const {'
+//	#		if (m_d != c.m_d) {
+  out_indent '		if (m_d != c.m_d) {'
+//	#			return m_d \< c.m_d;
+  out_indent '			return m_d < c.m_d;'
+//	#		} else {
+  out_indent '		} else {'
+//	#			switch (m_d) {<{}{%CS!=switch}[{"%t_interface(%C%T)"="true"}{
+  out_indent '			switch (m_d) {'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'switch' ) then
+   begin
+    if ( ( [%t] interface %( %C ->T  )% ) %== true ) then
+    begin
+     #13#10
+
+//	#			case %{SWITCH}<%NN::>%CI:
+     out_indent '			case '
+     ( get_global_var ( 'SWITCH' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%N
+      begin
+       OBJECT IN %N
+       if true then
+       begin
+        %N |N '::' 
+        ++! l_Counter
+       end // if
+      end // for N
+
+     ) // bind
+     %C |I ':'
+//	#				return m_u.%CN \< c.m_u.%CN;
+     out_indent '				return m_u.'
+     %C |N ' < c.m_u.'
+     %C |N ';'
+//	#			]>
+     out_indent '			' 
+    end // if
+    else
+    begin
+     #13#10
+
+//	#			case %{SWITCH}<%NN::>%CI:
+     out_indent '			case '
+     ( get_global_var ( 'SWITCH' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%N
+      begin
+       OBJECT IN %N
+       if true then
+       begin
+        %N |N '::' 
+        ++! l_Counter
+       end // if
+      end // for N
+
+     ) // bind
+     %C |I ':'
+//	#				return [{"%f_has_it_cc(%C%T)"="true"}*]m_u.%CN \< [{"%f_has_it_cc(%C%T)"="true"}*]c.m_u.%CN;}
+     out_indent '				return '
+     if ( ( [%f] has_it_cc %( %C ->T  )% ) %== true ) then
+     begin
+      '*' 
+     end // if
+     'm_u.'
+     %C |N ' < '
+     if ( ( [%f] has_it_cc %( %C ->T  )% ) %== true ) then
+     begin
+      '*' 
+     end // if
+     'c.m_u.'
+     %C |N ';' 
+    end // else
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	#			}
+  out_indent '			}'
+//	#			return false;
+  out_indent '			return false;'
+//	#		}
+  out_indent '		}'
+//	#	}
+  out_indent '	}'
+//	
+  #13#10
+
+//	]#	<{}{%CS=switch}%f_type(%C%T)> d_ () const {
+ end // if
+ out_indent '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'switch' ) then
+  begin
+   [%f] type %( %C ->T  )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ' d_ () const {'
+//	#		return m_d;
+ out_indent '		return m_d;'
+//	#	}
+ out_indent '	}'
+//	
+//	<%CX>#private:
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+ out_indent 'private:'
+//	#	void reset () {
+ out_indent '	void reset () {'
+//	#		switch (m_d) {<{}{%CS!=switch}[{"%t_interface(%C%T)"="true"}
+ out_indent '		switch (m_d) {'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %!= 'switch' ) then
+  begin
+   if ( ( [%t] interface %( %C ->T  )% ) %== true ) then
+   begin
+    #13#10
+
+//	#		case %{SWITCH}<%NN::>%CI:
+    out_indent '		case '
+    ( get_global_var ( 'SWITCH' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%N
+     begin
+      OBJECT IN %N
+      if true then
+      begin
+       %N |N '::' 
+       ++! l_Counter
+      end // if
+     end // for N
+
+    ) // bind
+    %C |I ':'
+//	#			if(m_u.%CN) {
+    out_indent '			if(m_u.'
+    %C |N ') {'
+//	#				m_u.%CN-\>[{%f_is_server_type(%C%T)=true}{release}_remove_ref]();
+    out_indent '				m_u.'
+    %C |N '->'
+    if ( ( [%f] is_server_type %( %C ->T  )% ) %==  true ) then
+    begin
+     '_remove_ref' 
+    end // if
+    else
+    begin
+     'release' 
+    end // else
+    '();'
+//	#			}
+    out_indent '			}'
+//	#			break;
+    out_indent '			break;'
+//	#		][{"%f_has_it_cc(%C%T)"="true"}
+    out_indent '		' 
+   end // if
+   if ( ( [%f] has_it_cc %( %C ->T  )% ) %== true ) then
+   begin
+    #13#10
+
+//	#		case %{SWITCH}<%NN::>%CI:
+    out_indent '		case '
+    ( get_global_var ( 'SWITCH' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%N
+     begin
+      OBJECT IN %N
+      if true then
+      begin
+       %N |N '::' 
+       ++! l_Counter
+      end // if
+     end // for N
+
+    ) // bind
+    %C |I ':'
+//	#			if(m_u.%CN) {
+    out_indent '			if(m_u.'
+    %C |N ') {'
+//	#				delete m_u.%CN;
+    out_indent '				delete m_u.'
+    %C |N ';'
+//	#			}
+    out_indent '			}'
+//	#			break;
+    out_indent '			break;'
+//	#		]>}
+    out_indent '		' 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for C
+ '}'
+//	#	}
+ out_indent '	}'
+//	#
+ out_indent 
+//	#private:
+ out_indent 'private:'
+//	#	<{}{%CS=switch}%f_type(%C%T)> m_d;
+ out_indent '	'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'switch' ) then
+  begin
+   [%f] type %( %C ->T  )% 
+   ++! l_Counter
+  end // if
+ end // for C
+ ' m_d;'
+//	#
+ out_indent 
+//	#	union {
+ out_indent '	union {'
+//	<{}{%CS!=switch}#		[%CS ][{%t_interface(%C%T)=true|%f_has_it_cc(%C%T)=true}{%f_attr(%C)}%f_type(%C%T)*] [{}{%f_to_omg(%C%TN)}%CN];
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %!= 'switch' ) then
+  begin
+   out_indent '		'
+   if NOT-EMPTY
+   begin
+    %C |S ' ' 
+   end // if
+   NOP
+   if ( ( [%t] interface %( %C ->T  )% ) %==  true OR 
+     ( ( [%f] has_it_cc %( %C ->T  )% ) %==  true  ) ) then
+   begin
+    [%f] type %( %C ->T  )% '*' 
+   end // if
+   else
+   begin
+    [%f] attr %( %C )% 
+   end // else
+   ' '
+   if NOT-EMPTY
+   begin
+    %C |N 
+   end // if
+   NOP
+   else
+   begin
+    [%f] to_omg %( %C ->T |N  )% 
+   end // else
+   ';'
+//	>#	} m_u;
+
+   ++! l_Counter
+  end // if
+ end // for C
+ out_indent '	} m_u;'
+//	#};[
+ out_indent '};'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47022C88029Ffor470F3839033C*
+; // h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F3839033C*
+//F union <%NN::>%SN;
+//	<#%FF
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%F
+ begin
+  OBJECT IN %F
+  if true then
+  begin
+   out_indent %F |F 
+//	>%f_docs(%S)\
+
+   ++! l_Counter
+  end // if
+ end // for F
+ [%f] docs %( %S )% 
+//	#union %SN switch (<{}{"%CS"="switch"}%C[%T<%NN::>]%C[%TN]>) {<{}{"%CS"!="switch"}
+ out_indent 'union '
+ %S |N ' switch ('
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'switch' ) then
+  begin
+   %C
+   bind ( 
+    OBJECT VAR %S
+    if NOT-EMPTY
+    begin
+     %T
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%N
+      begin
+       OBJECT IN %N
+       if true then
+       begin
+        %N |N '::' 
+        ++! l_Counter
+       end // if
+      end // for N
+
+     ) // bind
+     end // if
+    NOP
+
+   ) // bind
+    %C
+   bind ( 
+    OBJECT VAR %S
+    if NOT-EMPTY
+    begin
+     %T |N 
+    end // if
+    NOP
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for C
+ ') {'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %!= 'switch' ) then
+  begin
+   #13#10
+
+//	%CX>
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	#};
+ out_indent '};'
+//#UC END# *47022BBE0261for470F3839033C*
+; // idl
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F3839033C*
+//R  
+//	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+ if ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% ) %!=  true ) then
+ begin
+//	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+  [%f] add_to_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% 
+//	%f_pas_OpenType(%S)\
+  [%f] pas_OpenType %( %S )% 
+//	<{}{%C#f_IsDefine()=true}[%CX\n]>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsDefine %( )% ) %==  true ) then
+   begin
+    if NOT-EMPTY
+    begin
+     %C |X #13#10 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	[#%S#f_open_ifdef()\n]\
+  if NOT-EMPTY
+  begin
+   out_indent %S %?f open_ifdef %( )% #13#10 
+  end // if
+  NOP
+//	#%f_pas_TypeName(%S) = [{%S{packed}=true}packed ]record
+  out_indent [%f] pas_TypeName %( %S )% ' = '
+  if ( ( %S get_up ( 'packed' ) ) %==  true ) then
+  begin
+   'packed ' 
+  end // if
+  'record'
+//	# Case <{}{%CS=switch}[{%CN!=void}%CN: ]%f_pas_TypeName(%C%T)> of
+  out_indent ' Case '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'switch' ) then
+   begin
+    if ( ( %C |N ) %!= 'void' ) then
+    begin
+     %C |N ': ' 
+    end // if
+    [%f] pas_TypeName %( %C ->T  )% 
+    ++! l_Counter
+   end // if
+  end // for C
+  ' of'
+//	#  <{\n#  }{%CS!=switch}%CI: (%f_pas_UnionFields(%C));>
+  out_indent '  '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'switch' ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10
+    out_indent '  ' )
+    %C |I ': ('
+    [%f] pas_UnionFields %( %C )% ');' 
+    ++! l_Counter
+   end // if
+  end // for C
+//	#end;//%f_pas_TypeName(%S)\
+  out_indent 'end;//'
+  [%f] pas_TypeName %( %S )% 
+//	[\n#%S#f_close_ifdef()]\
+  if NOT-EMPTY
+  begin
+   #13#10
+   out_indent %S %?f close_ifdef %( )% 
+  end // if
+  NOP
+//	]
+ end // if
+//#UC END# *470F1571031Cfor470F3839033C*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F3839033C*
+//G %PU
+//#UC END# *46E6D4BB0339for470F3839033C*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Union::Class::Attribute
+end. // <<Union>>
+
+implementation @ :: <<Union>> <<Attribute>> ;
+//? Атрибут
+//= InterfaceGenerator::MDAGenerator
+
+// Параметры стереотипа
+//Y code_attr.gif
+//L code_attr
+//A const|ref|const,ref
+// - стереотипы "цели" (типа/результата)
+//l arl
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F38E001D4*
+//#UC END# *46E6D4BB0339for470F38E001D4*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F38E001D4*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#case %SI: %T<%NN::>%TN %SN;
+ out_indent 'case '
+ %S |I ': '
+ %T
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%N
+  begin
+   OBJECT IN %N
+   if true then
+   begin
+    %N |N '::' 
+    ++! l_Counter
+   end // if
+  end // for N
+
+ ) // bind
+  %T |N ' '
+ %S |N ';'
+//#UC END# *47022BBE0261for470F38E001D4*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F38E001D4*
+//	%f_set_var(__SCOPE,P)#[{%t_interface(%T)!=true}{%t_ret(%T,"%Ss") %SN () const /*throw (%PN::InvalidDiscrimenant)*/ {
+ [%f] set_var %( '__SCOPE' %, 'P' )% out_indent if ( ( [%t] interface %( %T )% ) %!=  true ) then
+ begin
+  ' else {'
+//	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+  out_indent '		return '
+  if ( ( [%f] has_it_cc %( %T )% ) %== true ) then
+  begin
+   '*' 
+  end // if
+  'm_u.'
+  %S |N ';'
+//	#	}
+  out_indent '	}'
+//	#}
+  out_indent '}'
+//	#}%t_ret(%T,"const,cached") %SN () const /*throw (%PN::InvalidDiscrimenant)*/ {
+  out_indent '}'
+  [%t] ret %( %T %, 'const' %, 'cached' )% ' '
+  %S |N ' () const /*throw ('
+  %P |N '::InvalidDiscrimenant)*/ {'
+//	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+  out_indent '	if (m_d != '
+  ( get_global_var ( 'SWITCH' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%N
+   begin
+    OBJECT IN %N
+    if true then
+    begin
+     %N |N '::' 
+     ++! l_Counter
+    end // if
+   end // for N
+
+  ) // bind
+  %S |I ') {'
+//	#		throw InvalidDiscrimenant ();
+  out_indent '		throw InvalidDiscrimenant ();'
+//	#	} else {
+  out_indent '	} else {'
+//	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+  out_indent '		return '
+  if ( ( [%f] has_it_cc %( %T )% ) %== true ) then
+  begin
+   '*' 
+  end // if
+  'm_u.'
+  %S |N ';'
+//	#	}
+  out_indent '	}'
+//	#}
+  out_indent '}'
+//	
+  #13#10
+
+//	#%t_ret(%T,"cached") %SN () /*throw (%PN::InvalidDiscrimenant)*/ {
+  out_indent [%t] ret %( %T %, 'cached' )% ' '
+  %S |N ' () /*throw ('
+  %P |N '::InvalidDiscrimenant)*/ {'
+//	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+  out_indent '	if (m_d != '
+  ( get_global_var ( 'SWITCH' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%N
+   begin
+    OBJECT IN %N
+    if true then
+    begin
+     %N |N '::' 
+     ++! l_Counter
+    end // if
+   end // for N
+
+  ) // bind
+  %S |I ') {'
+//	#		throw InvalidDiscrimenant ();
+  out_indent '		throw InvalidDiscrimenant ();'
+//	#	} else {
+  out_indent '	} else {'
+//	#		return [{"%f_has_it_cc(%T)"="true"}*]m_u.%SN;
+  out_indent '		return '
+  if ( ( [%f] has_it_cc %( %T )% ) %== true ) then
+  begin
+   '*' 
+  end // if
+  'm_u.'
+  %S |N ';'
+//	#	}
+  out_indent '	}'
+//	#}
+  out_indent '}'
+//	#]	
+  out_indent 
+ end // if
+ else
+ begin
+  [%t] ret %( %T %, %S |s )% ' '
+  %S |N ' () const /*throw ('
+  %P |N '::InvalidDiscrimenant)*/ {'
+//	#	if (m_d != %{SWITCH}<%NN::>%SI) {
+  out_indent '	if (m_d != '
+  ( get_global_var ( 'SWITCH' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%N
+   begin
+    OBJECT IN %N
+    if true then
+    begin
+     %N |N '::' 
+     ++! l_Counter
+    end // if
+   end // for N
+
+  ) // bind
+  %S |I ') {'
+//	#		throw InvalidDiscrimenant ();
+  out_indent '		throw InvalidDiscrimenant ();'
+//	#	} else {
+  out_indent '	' 
+ end // else
+ '	'
+//	#void %SN (%t_arg(%T,"[{%t_interface(%T)=true&%f_is_server_type(%T)=false}{in}inout]") val) {
+ out_indent 'void '
+ %S |N ' ('
+ [%t] arg %( %T %, if ( ( [%t] interface %( %T )% ) %==  true AND 
+   ( ( [%f] is_server_type %( %T )% ) %==  false  ) ) then
+ begin
+  'inout' 
+ end // if
+ else
+ begin
+  'in' 
+ end // else
+)%  ' val) {'
+//	#	this-\>reset ();
+ out_indent '	this->reset ();'
+//	#	m_d = %{SWITCH}<%NN::>%SI;
+ out_indent '	m_d = '
+ ( get_global_var ( 'SWITCH' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%N
+  begin
+   OBJECT IN %N
+   if true then
+   begin
+    %N |N '::' 
+    ++! l_Counter
+   end // if
+  end // for N
+
+ ) // bind
+ %S |I ';'
+//	#	m_u.%SN = [{%t_interface(%T)=true}{[{%f_has_it_cc(%T)=true}{val}new %f_type(%T) (val)]}%f_type(%T)::_duplicate (val)];
+ out_indent '	m_u.'
+ %S |N ' = '
+ if ( ( [%t] interface %( %T )% ) %==  true ) then
+ begin
+  [%f] type %( %T )% '::_duplicate (val)' 
+ end // if
+ else
+ begin
+  if ( ( [%f] has_it_cc %( %T )% ) %==  true ) then
+  begin
+   'new '
+   [%f] type %( %T )% ' (val)' 
+  end // if
+  else
+  begin
+   'val' 
+  end // else
+ end // else
+ ';'
+//	#}\n\n
+ out_indent '}'#13#10#13#10
+//#UC END# *47022C88029Ffor470F38E001D4*
+; // h
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F38E001D4*
+//#UC END# *470F1571031Cfor470F38E001D4*
+; // intf.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F38E001D4*
+//c               {}
+//r {"%SI"=""}:   {%SM must specify default value (of SWITCH type) to select theirs CASE}
+//#UC END# *4704C0E30186for470F38E001D4*
+; // constraint
+
+
+//: Union::Class::switch::Attribute
+end. // :: <<Union>> <<Attribute>> ;
+
+implementation @ :: <<Union>> <<switch>> ;
+//? Дескрименант объединения
+// Параметры стереотипа
+//Y code_switch_attr.gif
+//L code_switch_attr
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F3908000F*
+//#UC END# *46E6D4BB0339for470F3908000F*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F3908000F*
+//#UC END# *47022BBE0261for470F3908000F*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F3908000F*
+//#UC END# *47022C88029Ffor470F3908000F*
+; // h
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F3908000F*
+//#UC END# *470F1571031Cfor470F3908000F*
+; // intf.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<Union>> <<switch>> ;
+

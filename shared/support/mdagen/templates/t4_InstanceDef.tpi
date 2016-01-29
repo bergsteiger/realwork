@@ -1,0 +1,48 @@
+//////////////////////////////////////////////////////////////////////////////////
+// InstanceDef
+//////////////////////////////////////////////////////////////////////////////////
+
+: InstanceDef::Class
+$ C 235,255,220
+$ l 50,175,10
+$ f 50,175,10
+
+? Инстанцирование
+? Определение инстанцированого шаблона
+? Инстанцирует конеретными типами указанный шаблон, определяет соотвествующий тип (typedef)
+? Базовый шаблон определяется связью реализации, типы инстанцирования как атрибуты с именами соотвествующими аргумантам шаблона.
+< *::Category, *::Class
+$ S
+v +#-
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+Y t4_inst_def.gif
+
+%t _constraint
+c             {}
+r {"%RK"!="ParameterizedClass"}: {%SS must specify ParametrasedClass as base realization relation}
+r {%f_set_var(SELF,S)"%R<{, }{"%CC"="Parameter"}{%C}%f_set_var(ARG,C)[{"%{SELF}<{}{"%{ARG}N"="%CN"}{C}>"!="1"}.]>"!=""}: {%SS must specify all arguments defined in base %SN}
+r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+
++ wiki
+G %PU
+
++ h
+	%f_docs(%S)\
+	%f_set_var(SELF,S)%R<{\n}{"%CC"="Parameter"}{%C}%f_set_var(ARG,C)%{SELF}<{}{"%{ARG}N"="%CN"&%C%TM!=UMLPrimitive::Class}class %C%TN;>>
+	template \<%R<{, }{"%CC"="Parameter"}{%C}%f_set_var(ARG,C)%{SELF}<{}{"%{ARG}N"="%CN"}class %CN>>\> class %RN;
+	#typedef %f_type(%R)\< %f_instdef_args(%S) \> %SN;
+
+f _instdef_args
+	%f_set_var(SELF,S)%R<{, }{"%CC"="Parameter"}{%C}%f_set_var(ARG,C)%{SELF}<{}{"%{ARG}N"="%CN"}%f_type(%C%T)>>
+
+f _instdef_fwd_decl
+	
+: InstanceDef::Class::Attribute
+? параметр инстанцирования шаблона
+l l
+Y t5_attr.gif
+
+: InstanceDef::Class::uses::ClassDependency
+? Использование
+? Определяет что сервант (источник) использует указанный объект (цель) каким-либо образом (в том числе создает его через фабрики, есль цель-сервант).
+? НА основе данной связи будет сгенерированы пути включения файлов используемого объекта (для цели-серванта так же будет сгенерирована специальная фабрика возвращающая не интерфейс а сервант).

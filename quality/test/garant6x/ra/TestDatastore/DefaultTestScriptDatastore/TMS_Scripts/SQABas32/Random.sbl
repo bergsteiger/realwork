@@ -1,0 +1,63 @@
+Declare Function GetTickCount Lib "kernel32.dll" As Long
+Declare Sub FillArray (mArray() As Integer)
+Declare Function MakeFlag (mArray() As Integer, mIndex%) As Integer
+
+Global CallCount As Integer
+Global mUsedIndex () As Integer
+
+
+'*** Выдает последовательность случайных чисел (mPeriodic = 0) /ГСЧ
+'*** Выдает последовательность случайных неповторяющихся чисел
+'*** каждое число обязательно "выпадет" только один раз (mPeriodic = 1) /ГПК
+Function GetRandomIndex (mScriptNumber%, mPeriodic%)
+  Dim mIndex% 'Число получаемое с ГПК или ГСЧ
+
+  If mPeriodic Then          'Начало выполнения ГПК
+    If CallCount = 0 Then
+      ReDim mUsedIndex ( (mScriptNumber-1), 1) 'Реинициализируем массив
+      Call FillArray (mUsedIndex)              'и заполняем его полседоваетльными индексам
+    End If
+  'Находим в массиве неповторяющееся значение    
+    mIndex = GetTickCount mod (mScriptNumber - CallCount)
+    GetRandomIndex = MakeFlag (mUsedIndex, mIndex)
+    CallCount = CallCount + 1 'Считаем кол-во вызовов
+  'Кол-во вызовов = кол-ву скриптов, т.е. все номера "выпали" - обнуляем для послед-ей реинициализации
+    If CallCount = mScriptNumber Then
+      CallCount = 0
+    End If
+  Else                      'Начало выполнения ГСЧ
+    GetRandomIndex = (GetTickCount mod mScriptNumber) + 1
+  End If
+
+End Function
+
+'*** Заполнение массива последовательными индексами
+Sub FillArray (mArray() As Integer)
+  Dim index%
+  For index=0 To UBound (mArray, 1)
+    mArray(index,0) = index + 1
+    mArray(index,1) = 0 'Установка флага использованности данного номера
+  Next index
+End Sub
+
+'*** Поиск в массиве неповторяющееся значение (ранее не выдававшегося)
+Function MakeFlag (mArray() As Integer, mIndex%) As Integer
+  Dim i%, flag%, counter%
+  flag =1
+  counter = 0
+    For i=0 To UBound (mArray, 1)
+      If mArray(i, 1)<>1 Then 'Проверяем "выпадало" ли раньше это число
+        If counter = mIndex Then
+          flag = 0 'нашли новый элемент
+          MakeFlag = mArray (i, 0)
+          mArray (i, 1) = 1
+          Exit For
+        Else
+          counter = counter + 1
+        End If
+      End If
+    Next i
+    If flag <> 0 Then 
+      SQALogMessage sqaWarning, "Не найдено необходимого индекса", "Random.sbl/MakeFlag"
+    End If
+End Function

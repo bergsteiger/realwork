@@ -1,0 +1,57 @@
+// TseModalWorkerListPrim 4FC7562801FE SimpleClass Class
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '4B223ADC02BF.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_4FC7562801FE
+
+INCLUDE '4FC75F0F0061.pas.ms.script'
+
+: ME_4FC756510366
+ CONST UID '4FC756510366'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_4FC7557C0082 // TseModalWorker
+ ;
+
+ @SELF
+; // ME_4FC756510366 ItemType
+
+: ME_4FC7562801FE
+ CONST UID '4FC7562801FE'
+ CONST Name 'TseModalWorkerListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ME_4B223ADC02BF // l3RecordListPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4FC756510366 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4FC7562801FE TseModalWorkerListPrim

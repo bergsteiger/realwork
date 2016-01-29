@@ -1,0 +1,173 @@
+// TncsServerTransporterPtrPool 54917FF702A4 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '53A03846011C.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_54917FF702A4
+
+INCLUDE '5492D7AC0214.pas.ms.script'
+
+: ME_5492D81C00D8
+ CONST UID '5492D81C00D8'
+ CONST Name 'f_Data'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5492D7AC0214 // TncsServerTransporterPtrList
+ ;
+
+ @SELF
+; // ME_5492D81C00D8 f_Data
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+: ME_5492D83900EF
+ CONST UID '5492D83900EF'
+ CONST Name 'aTransporter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5465A5AB0324 // IncsServerTransporter
+ ;
+
+ @SELF
+; // ME_5492D83900EF aTransporter
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5492D83203D7
+ CONST UID '5492D83203D7'
+ CONST Name 'Register'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5492D83900EF // aTransporter
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5492D83203D7 Register
+
+: ME_5492D84C01FA
+ CONST UID '5492D84C01FA'
+ CONST Name 'aTransporter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5465A5AB0324 // IncsServerTransporter
+ ;
+
+ @SELF
+; // ME_5492D84C01FA aTransporter
+
+: ME_5492D8470118
+ CONST UID '5492D8470118'
+ CONST Name 'UnRegister'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5492D84C01FA // aTransporter
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5492D8470118 UnRegister
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5492D86002D4
+ CONST UID '5492D86002D4'
+ CONST Name 'aSessionID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_5492D86002D4 aSessionID
+
+: ME_5492D85A0389
+ CONST UID '5492D85A0389'
+ CONST Name 'FindTransporter'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_5465A5AB0324 // IncsServerTransporter
+ ;
+ : Parameters
+   [ ME_5492D86002D4 // aSessionID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5492D85A0389 FindTransporter
+
+: ME_A4EAA9E5A208
+ CONST UID 'A4EAA9E5A208'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_A4EAA9E5A208 Exists
+
+: ME_54917FF702A4
+ CONST UID '54917FF702A4'
+ CONST Name 'TncsServerTransporterPtrPool'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_53A03846011C // l3CriticalSectionHolder
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5492D81C00D8 // f_Data
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5492D83203D7 // Register
+ ME_5492D8470118 // UnRegister
+ ME_5492D85A0389 // FindTransporter
+ ME_A4EAA9E5A208 // Exists
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_54917FF702A4 TncsServerTransporterPtrPool

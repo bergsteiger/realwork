@@ -1,0 +1,24 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = gtPDF32D7.bpl gtPDFKitD70ProP.bpl DCLgtPDFKitD70ProP.bpl
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+gtPDFKitD70ProP.bpl: gtPDFKitD70ProP.dpk
+  $(DCC)
+
+DCLgtPDFKitD70ProP.bpl: DCLgtPDFKitD70ProP.dpk
+  $(DCC)
+
+gtPDF32D7.bpl: ..\PDFProcessor\Source\gtPDF32\gtPDF32D7.dpk
+  $(DCC)

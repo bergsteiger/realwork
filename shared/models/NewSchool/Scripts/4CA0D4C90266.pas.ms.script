@@ -1,0 +1,107 @@
+// TGarClientSecurity 4CA0D4C90266 SimpleClass Class
+
+INCLUDE '4CA0D16702D5.pas.ms.script'
+
+FORWARD ME_4CA0D4C90266
+
+INCLUDE '4CA0DD21015F.pas.ms.script'
+
+: ME_4CA0DD470280
+ CONST UID '4CA0DD470280'
+ CONST Name 'authorized_session'
+ CONST Class 'Attribute'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4CA0DD3403CA // TCoreSrv_SecuritySrv_Token
+ ;
+
+ @SELF
+; // ME_4CA0DD470280 authorized_session
+
+FORWARD ME_4CA0D4D6026F
+
+INCLUDE '4CA0D1FB01E0.pas.ms.script'
+
+: ME_4CA0D4EA004F
+ CONST UID '4CA0D4EA004F'
+ CONST Name 'info'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4CA0D21F022E // IORBInitInfo
+ ;
+
+ @SELF
+; // ME_4CA0D4EA004F info
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4CA0D4E301F5
+ CONST UID '4CA0D4E301F5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4CA0D4EA004F // info
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4CA0D4E301F5 DoIt
+
+: ME_4CA0D4D6026F
+ CONST UID '4CA0D4D6026F'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4CA0D4E301F5 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4CA0D4D6026F Create
+
+: ME_4CA0D4C90266
+ CONST UID '4CA0D4C90266'
+ CONST Name 'TGarClientSecurity'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4CA0D3070257 // TClientRequestInterceptor
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4CA0DD470280 // authorized_session
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4CA0D4D6026F // Create
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4CA0D39501A8 // __destroy
+ ME_4CA0D3AD017C // __get__name
+ ME_4CA0D42302FC // send__request
+ ME_4CA0D43401E5 // send__poll
+ ME_4CA0D44F0352 // receive__reply
+ ME_4CA0D46502E4 // receive__exception
+ ME_4CA0D47C037F // receive__other
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4CA0D4C90266 TGarClientSecurity

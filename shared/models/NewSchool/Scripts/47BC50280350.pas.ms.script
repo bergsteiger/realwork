@@ -1,0 +1,619 @@
+// Dictionary 47BC50280350 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BC50280350
+
+FORWARD ME_47BC507501AB
+
+: ME_47BC528601A2
+ CONST UID '47BC528601A2'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47BC507501AB // TdtCustomDictItem
+ ;
+ : Target WL 'ME_47BC52180382' '47BC51FE018B.pas.ms.script' // TDictID
+ ;
+ CONST "needs field" false
+ CONST "pm" false
+
+ref; // ME_47BC528601A2 Handle
+
+: ME_47BC3BFD017F_ME_47BC507501AB
+ CONST UID '47BC3BFD017F'
+ CONST Name 'StringID'
+ : Original WL 'ME_47BC3BFD017F' '47913B47006E.pas.ms.script' // StringID
+ ;
+ : Implementor ME_47BC507501AB // TdtCustomDictItem
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_47BC3BFD017F_ME_47BC507501AB StringID
+
+: ME_47BC507501AB
+ CONST UID '47BC507501AB'
+ CONST Name 'TdtCustomDictItem'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый элемент словаря.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47BC50280350 // Dictionary
+ ;
+ : Inherits
+   @ ( WL 'ME_47BC50F5038E' '47913B47006E.pas.ms.script' // Tl3NCString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_47BC528601A2 // Handle
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_47BC3BFD017F_ME_47BC507501AB // StringID
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtCustomDictItem.pas'
+
+ref; // ME_47BC507501AB TdtCustomDictItem
+
+FORWARD ME_47BC53EE023A
+
+: ME_47BC5421007E
+ CONST UID '47BC5421007E'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_ref
+ : Parent ME_47BC53EE023A // TdtDictItemsPrim
+ ;
+ : Target ME_47BC507501AB // TdtCustomDictItem
+ ;
+
+ref; // ME_47BC5421007E ItemType
+
+: ME_47B2C42A0163_ME_47BC53EE023A
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_47BC53EE023A // TdtDictItemsPrim
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_47BC53EE023A AssignItem
+
+: ME_47B99D4503A2_ME_47BC53EE023A
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_47BC53EE023A // TdtDictItemsPrim
+ ;
+ref; // ME_47B99D4503A2_ME_47BC53EE023A CompareExistingItems
+
+: ME_47BC53EE023A
+ CONST UID '47BC53EE023A'
+ CONST Name 'TdtDictItemsPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовый список элементов словаря.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47BC50280350 // Dictionary
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_47BC5421007E // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_47BC53EE023A // AssignItem
+ ME_47B99D4503A2_ME_47BC53EE023A // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtDictItemsPrim.pas'
+
+ref; // ME_47BC53EE023A TdtDictItemsPrim
+
+FORWARD ME_47BC55C00240
+
+: ME_47BC55F90059
+ CONST UID '47BC55F90059'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_ref
+ : Parent ME_47BC55C00240 // TdtDictItems
+ ;
+ : Target WL 'ME_47BC52180382' '47BC51FE018B.pas.ms.script' // TDictID
+ ;
+
+ref; // ME_47BC55F90059 FindDataType
+
+: ME_47B9BAFD01F4_ME_47BC55C00240
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_47BC55C00240 // TdtDictItems
+ ;
+ref; // ME_47B9BAFD01F4_ME_47BC55C00240 CompareItemWithData
+
+: ME_47BC55C00240
+ CONST UID '47BC55C00240'
+ CONST Name 'TdtDictItems'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список элементов словаря.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47BC50280350 // Dictionary
+ ;
+ : Inherits
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ME_47BC53EE023A // TdtDictItemsPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_47BC55F90059 // FindDataType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_47B9BAFD01F4_ME_47BC55C00240 // CompareItemWithData
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtDictItems.pas'
+
+ref; // ME_47BC55C00240 TdtDictItems
+
+FORWARD ME_4E25307E022D
+
+FORWARD ME_4E253095034C
+
+: ME_4E2530AD00AB
+ CONST UID '4E2530AD00AB'
+ CONST Name 'aDictID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55409CB903D4' '5432448401BC.pas.ms.script' // TdaDictionaryType
+ ;
+
+ref; // ME_4E2530AD00AB aDictID
+
+: ME_4E25309D027D
+ CONST UID '4E25309D027D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E253095034C // GetDictName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   @ ( ME_4E2530AD00AB // aDictID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4E25309D027D DoIt
+
+: ME_4E253095034C
+ CONST UID '4E253095034C'
+ CONST Name 'GetDictName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E25307E022D // DictsSup
+ ;
+ : Operations
+   @ ( ME_4E25309D027D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E253095034C GetDictName
+
+: ME_4E25307E022D
+ CONST UID '4E25307E022D'
+ CONST Name 'DictsSup'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47BC50280350 // Dictionary
+ ;
+ : Operations
+   @ ( ME_4E253095034C // GetDictName
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_DictsSup.pas'
+
+ref; // ME_4E25307E022D DictsSup
+
+FORWARD ME_55E6B6330367
+
+: ME_55E6B69701C1
+ CONST UID '55E6B69701C1'
+ CONST Name 'TDictMessageRec'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55E6B6330367 // dt_DictTypes
+ ;
+ CONST "finished" false
+
+ref; // ME_55E6B69701C1 TDictMessageRec
+
+FORWARD ME_55E6B64E030E
+
+: ME_55E6B6890215
+ CONST UID '55E6B6890215'
+ CONST Name 'Info'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_55E6B69701C1 // TDictMessageRec
+ ;
+
+ref; // ME_55E6B6890215 Info
+
+: ME_55E6B66A036E
+ CONST UID '55E6B66A036E'
+ CONST Name 'dcn__DictionaryChange'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55E6B64E030E // IDictChangeNotifyRecipient
+ ;
+ : Parameters
+   @ ( ME_55E6B6890215 // Info
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55E6B66A036E dcn__DictionaryChange
+
+: ME_55E6B64E030E
+ CONST UID '55E6B64E030E'
+ CONST GUID '29F5993F-AEC6-4EAF-B8E6-393D6C6DFD09'
+ CONST Name 'IDictChangeNotifyRecipient'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55E6B6330367 // dt_DictTypes
+ ;
+ : Operations
+   @ ( ME_55E6B66A036E // dcn__DictionaryChange
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55E6B64E030E IDictChangeNotifyRecipient
+
+: ME_55E6B6330367
+ CONST UID '55E6B6330367'
+ CONST Name 'dt_DictTypes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47BC50280350 // Dictionary
+ ;
+ : Children
+   @ ( ME_55E6B69701C1 // TDictMessageRec
+ ME_55E6B64E030E // IDictChangeNotifyRecipient
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_DictTypes.pas'
+
+ref; // ME_55E6B6330367 dt_DictTypes
+
+FORWARD ME_55E6DBED01B3
+
+: ME_55E6DC5C02C0
+ CONST UID '55E6DC5C02C0'
+ CONST Name 'TDictionaryServer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55E6DBED01B3 // dt_Dict
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55E6DC5C02C0 TDictionaryServer
+
+FORWARD ME_55E6DC0802A7
+
+: ME_55E6DC4C0134
+ CONST UID '55E6DC4C0134'
+ CONST Name 'aFamily'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_55E6DC4C0134 aFamily
+
+: ME_55E6DC37006A
+ CONST UID '55E6DC37006A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55E6DC0802A7 // DictServer
+ ;
+ : Target ME_55E6DC5C02C0 // TDictionaryServer
+ ;
+ : Parameters
+   @ ( ME_55E6DC4C0134 // aFamily
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55E6DC37006A DoIt
+
+: ME_55E6DC0802A7
+ CONST UID '55E6DC0802A7'
+ CONST Name 'DictServer'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55E6DBED01B3 // dt_Dict
+ ;
+ : Operations
+   @ ( ME_55E6DC37006A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "finished" false
+
+ref; // ME_55E6DC0802A7 DictServer
+
+: ME_55E6DBED01B3
+ CONST UID '55E6DBED01B3'
+ CONST Name 'dt_Dict'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47BC50280350 // Dictionary
+ ;
+ : Operations
+   @ ( ME_55E6DC0802A7 // DictServer
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_55E6DC5C02C0 // TDictionaryServer
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Dict.pas'
+
+ref; // ME_55E6DBED01B3 dt_Dict
+
+FORWARD ME_55E7042003D3
+
+FORWARD ME_55E94F580288
+
+: ME_55E94F65037D
+ CONST UID '55E94F65037D'
+ CONST Name 'cPublInNumLen'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E94F580288 // cLengths
+ ;
+ CONST Value 30
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55E94F65037D cPublInNumLen
+
+: ME_55E94F8E02C6
+ CONST UID '55E94F8E02C6'
+ CONST Name 'cSourceNameLen'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E94F580288 // cLengths
+ ;
+ CONST Value 200
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55E94F8E02C6 cSourceNameLen
+
+: ME_55E94FA40006
+ CONST UID '55E94FA40006'
+ CONST Name 'cSourceShortNameLen'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E94F580288 // cLengths
+ ;
+ CONST Value 70
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55E94FA40006 cSourceShortNameLen
+
+: ME_55E94FB2010A
+ CONST UID '55E94FB2010A'
+ CONST Name 'cSourceSynonimsLen'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E94F580288 // cLengths
+ ;
+ CONST Value 800
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_55E94FB2010A cSourceSynonimsLen
+
+: ME_55E94F580288
+ CONST UID '55E94F580288'
+ CONST Name 'cLengths'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55E7042003D3 // dt_DictConst
+ ;
+ : Attributes
+   @ ( ME_55E94F65037D // cPublInNumLen
+ ME_55E94F8E02C6 // cSourceNameLen
+ ME_55E94FA40006 // cSourceShortNameLen
+ ME_55E94FB2010A // cSourceSynonimsLen
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_55E94F580288 cLengths
+
+: ME_55E7042003D3
+ CONST UID '55E7042003D3'
+ CONST Name 'dt_DictConst'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47BC50280350 // Dictionary
+ ;
+ : Constants
+   @ ( ME_55E94F580288 // cLengths
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_DictConst.pas'
+
+ref; // ME_55E7042003D3 dt_DictConst
+
+: ME_47BC50280350
+ CONST UID '47BC50280350'
+ CONST Name 'Dictionary'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Классы для работы со словарями.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ ;
+ : Children
+   @ ( ME_47BC507501AB // TdtCustomDictItem
+ ME_47BC53EE023A // TdtDictItemsPrim
+ ME_47BC55C00240 // TdtDictItems
+ ME_4E25307E022D // DictsSup
+ ME_55E6B6330367 // dt_DictTypes
+ ME_55E6DBED01B3 // dt_Dict
+ ME_55E7042003D3 // dt_DictConst
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4C9CD07701E6' '4C9CD07701E6.pas.ms.script' // AttrSchema
+ WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47BC50280350.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47BC50280350.pas.ms.script.runner'
+
+ref; // ME_47BC50280350 Dictionary

@@ -1,0 +1,252 @@
+// Operations 52A73A4401B9 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52A73A4401B9
+
+FORWARD ME_52A73A5900E2
+
+FORWARD ME_52A73AE40326
+
+FORWARD ME_52A73C7103C7
+
+: ME_52A73C7D01F5
+ CONST UID '52A73C7D01F5'
+ CONST Name 'anEn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DDBBD1103C3' '4AB34028023E.pas.ms.script' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ref; // ME_52A73C7D01F5 anEn
+
+: ME_52A73C7D020D
+ CONST UID '52A73C7D020D'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4D7A109601C2' '4AB34028023E.pas.ms.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ref; // ME_52A73C7D020D anOp
+
+: ME_52A73C7B0327
+ CONST UID '52A73C7B0327'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A73C7103C7 // Register
+ ;
+ : Parameters
+   @ ( ME_52A73C7D01F5 // anEn
+ ME_52A73C7D020D // anOp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52A73C7B0327 DoIt
+
+: ME_52A73C7103C7
+ CONST UID '52A73C7103C7'
+ CONST Name 'Register'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52A73AE40326 // IvcmOperationsRegistrar
+ ;
+ : Operations
+   @ ( ME_52A73C7B0327 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52A73C7103C7 Register
+
+: ME_52A73AE40326
+ CONST UID '52A73AE40326'
+ CONST GUID '3E98A7F7-A01F-4D5A-8AB2-2C731A6E8CB5'
+ CONST Name 'IvcmOperationsRegistrar'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52A73A5900E2 // TvcmOperationsManager
+ ;
+ : Operations
+   @ ( ME_52A73C7103C7 // Register
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52A73AE40326 IvcmOperationsRegistrar
+
+: ME_52A73BF00215
+ CONST UID '52A73BF00215'
+ CONST Name 'Registrar'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52A73A5900E2 // TvcmOperationsManager
+ ;
+ : Target ME_52A73AE40326 // IvcmOperationsRegistrar
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_52A73BF00215 Registrar
+
+: ME_9ADC046262FE
+ CONST UID '9ADC046262FE'
+ CONST Name 'f_Registrar'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Registrar' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_52A73A5900E2 // TvcmOperationsManager
+ ;
+ : Target ME_52A73AE40326 // IvcmOperationsRegistrar
+ ;
+
+ref; // ME_9ADC046262FE f_Registrar
+
+FORWARD ME_52A73ABA0304
+
+: ME_52A73AC40013
+ CONST UID '52A73AC40013'
+ CONST Name 'anEn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DDBBD1103C3' '4AB34028023E.pas.ms.script' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ref; // ME_52A73AC40013 anEn
+
+: ME_52A73AC4002B
+ CONST UID '52A73AC4002B'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4D7A109601C2' '4AB34028023E.pas.ms.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ref; // ME_52A73AC4002B anOp
+
+: ME_52A73AC1001D
+ CONST UID '52A73AC1001D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A73ABA0304 // Register
+ ;
+ : Parameters
+   @ ( ME_52A73AC40013 // anEn
+ ME_52A73AC4002B // anOp
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52A73AC1001D DoIt
+
+: ME_52A73ABA0304
+ CONST UID '52A73ABA0304'
+ CONST Name 'Register'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52A73A5900E2 // TvcmOperationsManager
+ ;
+ : Operations
+   @ ( ME_52A73AC1001D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52A73ABA0304 Register
+
+: ME_BF7D6918D11C
+ CONST UID 'BF7D6918D11C'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52A73A5900E2 // TvcmOperationsManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_BF7D6918D11C Exists
+
+: ME_52A73A5900E2
+ CONST UID '52A73A5900E2'
+ CONST Name 'TvcmOperationsManager'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52A73A4401B9 // Operations
+ ;
+ : Attributes
+   @ ( ME_52A73BF00215 // Registrar
+ ME_9ADC046262FE // f_Registrar
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_52A73ABA0304 // Register
+ ME_BF7D6918D11C // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_52A73AE40326 // IvcmOperationsRegistrar
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmOperationsManager.pas'
+
+ref; // ME_52A73A5900E2 TvcmOperationsManager
+
+: ME_52A73A4401B9
+ CONST UID '52A73A4401B9'
+ CONST Name 'Operations'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ ;
+ : Children
+   @ ( ME_52A73A5900E2 // TvcmOperationsManager
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52A73A4401B9.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52A73A4401B9.pas.ms.script.runner'
+
+ref; // ME_52A73A4401B9 Operations

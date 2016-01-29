@@ -1,0 +1,48 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,50"
+    ListBox Click, "ObjectIndex=1", "Coords=14,260"
+    InputKeys "{HOME}"
+    call Position_Internal("CurrentFocus","Правовой навигатор\Судебная и арбитражная практика")
+    InputKeys "{ENTER}"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,234"
+    ListBox Click, "ObjectIndex=1", "Coords=14,9"
+    call Position_by_Text("CurrentFocus","Суд и судоустройство, адвокатура и юридическая помощь")
+    ListBox Click, "ObjectIndex=5", "Coords=12,49"
+    InputKeys "{HOME}"
+    InputKeys "{APPS}"
+    Window SetContext, "CurrentWindow", ""
+ '   PopupMenuIDSelect 165
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{ENTER}"
+    InputKeys "{APPS}"
+    Window SetContext, "CurrentWindow", ""
+'    PopupMenuIDSelect 164
+    InputKeys "{DOWN}{DOWN}{DOWN}{ENTER}"
+ 
+    
+    Dim ItemCount%,i%
+'    SQAGetProperty "CurrentFocus","ItemCount",ItemCount
+'    for i=1 to ItemCount
+'        InputKeys "{DELETE}"
+'    next i
+    Dim res%
+    SQAGetProperty "CurrentFocus","ItemCount",res
+    
+    if res<>0 then
+        SQALogMessage sqaFail, "Ошибка! Список не пуст", "В списке "+CStr(res)+" элемент"
+      
+    else
+      SQALogMessage sqaPass, "Список пуст", "В списке "+CStr(res)+" элемент"
+    end if 
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+    Toolbar Click, "Text=Навигатор", "Coords=11,15"
+    Toolbar Click, "Text=Навигатор", "Coords=11,15"
+    
+End Sub

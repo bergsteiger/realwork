@@ -1,0 +1,4152 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.5.0503.xxx"
+    charSet    	204)
+
+(object Class_Category "На контроле"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3FE5B34202E1"
+    external_docs 	(list external_doc_list
+	(object external_doc
+	    external_doc_path 	"W:\\garant6x\\requirements\\use_cases\\specification\\g6_na_kontrole.doc"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Немезис"
+	    quid       	"3FE5B1FF03E1"
+	    stereotype 	"Actor")
+	(object Class "Пользователь"
+	    quid       	"3FE5B14100E4"
+	    stereotype 	"Actor")
+	(object Class "GDK"
+	    quid       	"3FE5B4180361"
+	    stereotype 	"Actor")
+	(object Class "Сервер Немесис"
+	    quid       	"402777F700FC"
+	    stereotype 	"Actor")
+	(object UseCase "Сообщить об изменениях"
+	    quid       	"3FE5B1E80076"
+	    statemachine 	(object State_Machine "State/Activity Model6"
+		quid       	"3FE5C5D302C7"
+		states     	(list States
+		    (object State "$UNNAMED$0"
+			quid       	"3FE5C5DA028B"
+			type       	"StartState")
+		    (object ActivityState "Для каждого элемента получить его статус изменений"
+			quid       	"3FE5C5EF029F")
+		    (object ActivityState "Отобразить все элементы с визуализацией статуса"
+			quid       	"3FE5C6070109")
+		    (object ActivityState "Открыть закладку \"Контроль\""
+			quid       	"3FE5C5DC01EE")
+		    (object State "$UNNAMED$1"
+			quid       	"3FE5C62A03DB"
+			type       	"EndState")
+		    (object ActivityState "Обновить информацию об элементах Папок"
+			quid       	"3FE5D3BA0239"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5C61D013D"
+			supplier   	
+|Use Case View::На контроле::Сообщить об изменениях::State/Activity Model6::Открыть закладку "Контроль"
+			
+			supplier_quidu 	"3FE5C5DC01EE"
+			client     	"$UNNAMED$0"
+			client_quidu 	"3FE5C5DA028B"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C61D0140"))
+		    (object State_Transition
+			quid       	"3FE5D3CC00F4"
+			supplier   	"Use Case View::На контроле::Сообщить об изменениях::State/Activity Model6::Обновить информацию об элементах Папок"
+			supplier_quidu 	"3FE5D3BA0239"
+			client     	"$UNNAMED$0"
+			client_quidu 	"3FE5C5DA028B"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D3CC00F7"))
+		    (object State_Transition
+			quid       	"3FE5C6270354"
+			supplier   	"Use Case View::На контроле::Сообщить об изменениях::State/Activity Model6::Отобразить все элементы с визуализацией статуса"
+			supplier_quidu 	"3FE5C6070109"
+			client     	"Use Case View::На контроле::Сообщить об изменениях::State/Activity Model6::Для каждого элемента получить его статус изменений"
+			client_quidu 	"3FE5C5EF029F"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C6270357"))
+		    (object State_Transition
+			quid       	"3FE5C62C026B"
+			supplier   	"$UNNAMED$1"
+			supplier_quidu 	"3FE5C62A03DB"
+			client     	"Use Case View::На контроле::Сообщить об изменениях::State/Activity Model6::Отобразить все элементы с визуализацией статуса"
+			client_quidu 	"3FE5C6070109"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C62C026E"))
+		    (object State_Transition
+			quid       	"3FE5C6210189"
+			supplier   	"Use Case View::На контроле::Сообщить об изменениях::State/Activity Model6::Для каждого элемента получить его статус изменений"
+			supplier_quidu 	"3FE5C5EF029F"
+			client     	
+|Use Case View::На контроле::Сообщить об изменениях::State/Activity Model6::Открыть закладку "Контроль"
+			
+			client_quidu 	"3FE5C5DC01EE"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C621018C"))
+		    (object State_Transition
+			quid       	"3FE5D3CE00CF"
+			supplier   	"$UNNAMED$1"
+			supplier_quidu 	"3FE5C62A03DB"
+			client     	"Use Case View::На контроле::Сообщить об изменениях::State/Activity Model6::Обновить информацию об элементах Папок"
+			client_quidu 	"3FE5D3BA0239"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D3CE00D2")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "NewDiagram6"
+			quid       	"3FE5C5D302D1"
+			title      	"NewDiagram6"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @1
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "$UNNAMED$0" @2
+				Parent_View 	@1
+				location   	(719, 131)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@2
+				    location   	(761, 101)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5C5DA028B"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Для каждого элемента получить его статус изменений" @3
+				Parent_View 	@1
+				location   	(715, 534)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@3
+				    location   	(715, 521)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	777
+				    justify    	0
+				    label      	"Для каждого элемента получить его статус изменений")
+				icon_style 	"Label"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C5EF029F"
+				width      	913
+				height     	150
+				annotation 	1
+				autoResize 	TRUE)
+			    (object ActivityStateView "Отобразить все элементы с визуализацией статуса" @4
+				Parent_View 	@1
+				location   	(719, 795)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@4
+				    location   	(719, 771)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	642
+				    justify    	0
+				    label      	"Отобразить все элементы с визуализацией статуса")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C6070109"
+				width      	792
+				height     	172
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @5
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C6270354"
+				client     	@3
+				supplier   	@4
+				vertices   	(list Points
+				    (716, 608)
+				    (717, 709))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "Открыть закладку \"Контроль\"" @6
+				Parent_View 	@1
+				location   	(717, 317)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@6
+				    location   	(717, 302)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	478
+				    justify    	0
+				    label      	
+|Открыть закладку "Контроль"
+				    )
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C5DC01EE"
+				width      	616
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @7
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C6210189"
+				client     	@6
+				supplier   	@3
+				vertices   	(list Points
+				    (716, 393)
+				    (715, 459))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object StateView "EndState" "$UNNAMED$1" @8
+				Parent_View 	@1
+				location   	(715, 1008)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@8
+				    location   	(769, 966)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5C62A03DB"
+				autoResize 	TRUE)
+			    (object TransView "" @9
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C62C026B"
+				client     	@4
+				supplier   	@8
+				vertices   	(list Points
+				    (717, 881)
+				    (715, 965))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "Обновить информацию об элементах Папок" @10
+				Parent_View 	@1
+				location   	(1608, 529)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@10
+				    location   	(1608, 514)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	586
+				    justify    	0
+				    label      	"Обновить информацию об элементах Папок")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5D3BA0239"
+				width      	724
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @11
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D3CE00CF"
+				client     	@10
+				supplier   	@8
+				vertices   	(list Points
+				    (1590, 606)
+				    (1590, 1009)
+				    (757, 1009))
+				line_style 	3
+				origin_attachment 	(1590, 606)
+				terminal_attachment 	(757, 1009)
+				x_offset   	FALSE)
+			    (object TransView "" @12
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C61D013D"
+				client     	@2
+				supplier   	@6
+				vertices   	(list Points
+				    (718, 160)
+				    (717, 240))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @13
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D3CC00F4"
+				client     	@2
+				supplier   	@10
+				vertices   	(list Points
+				    (749, 141)
+				    (1605, 141)
+				    (1605, 452))
+				line_style 	3
+				origin_attachment 	(749, 141)
+				terminal_attachment 	(1605, 452)
+				x_offset   	FALSE))))))
+	(object UseCase "Список"
+	    quid       	"3FE5B16C035D"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3FE5B17D0040"
+		    supplier   	"Use Case View::На контроле::Поставить на контроль"
+		    quidu      	"3FE5B14F0199")))
+	(object UseCase "Снять с контроля"
+	    quid       	"3FE5B1A502D3"
+	    statemachine 	(object State_Machine "State/Activity Model8"
+		quid       	"3FE5C9BF0271"
+		states     	(list States
+		    (object State "$UNNAMED$2"
+			quid       	"3FE5C9F701D1"
+			type       	"StartState")
+		    (object State "$UNNAMED$3"
+			quid       	"3FE5C9F80287"
+			type       	"EndState")
+		    (object ActivityState "Пользователь выбирает операцию \"снять с контроля\" или удаляет элемент из закладки \"Контроль\""
+			quid       	"3FE5C9FA003B")
+		    (object ActivityState "Система удаляет ID элемента из списка на контроле"
+			quid       	"3FE5CA240172")
+		    (object ActivityState "В случае необходимости обновляется внешний вид элемента и содержимое закладки \"Контроль\""
+			quid       	"3FE5CA58032F"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5CA1F0142"
+			supplier   	
+|Use Case View::На контроле::Снять с контроля::State/Activity Model8::Пользователь выбирает операцию "снять с контроля" или удаляет элемент из закладки "Контроль"
+			
+			supplier_quidu 	"3FE5C9FA003B"
+			client     	"$UNNAMED$2"
+			client_quidu 	"3FE5C9F701D1"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5CA1F0145"))
+		    (object State_Transition
+			quid       	"3FE5CA3D02FE"
+			supplier   	"Use Case View::На контроле::Снять с контроля::State/Activity Model8::Система удаляет ID элемента из списка на контроле"
+			supplier_quidu 	"3FE5CA240172"
+			client     	
+|Use Case View::На контроле::Снять с контроля::State/Activity Model8::Пользователь выбирает операцию "снять с контроля" или удаляет элемент из закладки "Контроль"
+			
+			client_quidu 	"3FE5C9FA003B"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5CA3D0301"))
+		    (object State_Transition
+			quid       	"3FE5CA5C0303"
+			supplier   	
+|Use Case View::На контроле::Снять с контроля::State/Activity Model8::В случае необходимости обновляется внешний вид элемента и содержимое закладки "Контроль"
+			
+			supplier_quidu 	"3FE5CA58032F"
+			client     	"Use Case View::На контроле::Снять с контроля::State/Activity Model8::Система удаляет ID элемента из списка на контроле"
+			client_quidu 	"3FE5CA240172"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5CA5C0306"))
+		    (object State_Transition
+			quid       	"3FE5CA5E01B1"
+			supplier   	"$UNNAMED$3"
+			supplier_quidu 	"3FE5C9F80287"
+			client     	
+|Use Case View::На контроле::Снять с контроля::State/Activity Model8::В случае необходимости обновляется внешний вид элемента и содержимое закладки "Контроль"
+			
+			client_quidu 	"3FE5CA58032F"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5CA5E01B4")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "NewDiagram8"
+			quid       	"3FE5C9BF027B"
+			title      	"NewDiagram8"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @14
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "$UNNAMED$2" @15
+				Parent_View 	@14
+				location   	(789, 217)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@15
+				    location   	(831, 187)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5C9F701D1"
+				autoResize 	TRUE)
+			    (object StateView "EndState" "$UNNAMED$3" @16
+				Parent_View 	@14
+				location   	(789, 1183)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@16
+				    location   	(843, 1141)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5C9F80287"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Пользователь выбирает операцию \"снять с контроля\" или удаляет элемент из закладки \"Контроль\"" @17
+				Parent_View 	@14
+				location   	(789, 416)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@17
+				    location   	(789, 401)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	1320
+				    justify    	0
+				    label      	
+|Пользователь выбирает операцию "снять с контроля" или удаляет элемент из закладки "Контроль"
+				    )
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C9FA003B"
+				width      	1458
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @18
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5CA1F0142"
+				client     	@15
+				supplier   	@17
+				vertices   	(list Points
+				    (789, 247)
+				    (789, 339))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "Система удаляет ID элемента из списка на контроле" @19
+				Parent_View 	@14
+				location   	(789, 675)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@19
+				    location   	(789, 660)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	740
+				    justify    	0
+				    label      	"Система удаляет ID элемента из списка на контроле")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5CA240172"
+				width      	878
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @20
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5CA3D02FE"
+				client     	@17
+				supplier   	@19
+				vertices   	(list Points
+				    (789, 493)
+				    (789, 598))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "В случае необходимости обновляется внешний вид элемента и содержимое закладки \"Контроль\"" @21
+				Parent_View 	@14
+				location   	(794, 945)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@21
+				    location   	(794, 930)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	1214
+				    justify    	0
+				    label      	
+|В случае необходимости обновляется внешний вид элемента и содержимое закладки "Контроль"
+				    )
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5CA58032F"
+				width      	1352
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @22
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5CA5C0303"
+				client     	@19
+				supplier   	@21
+				vertices   	(list Points
+				    (790, 751)
+				    (792, 868))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @23
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5CA5E01B1"
+				client     	@21
+				supplier   	@16
+				vertices   	(list Points
+				    (792, 1022)
+				    (789, 1141))
+				line_style 	0
+				x_offset   	FALSE))))))
+	(object UseCase "Проверить изменения"
+	    quid       	"3FE5B1B50218"
+	    statemachine 	(object State_Machine "State/Activity Model5"
+		quid       	"3FE5B726001C"
+		states     	(list States
+		    (object State "Сервер"
+			quid       	"3FE5B7280336"
+			type       	"StartState")
+		    (object ActivityState "Получить элементы на контроле"
+			quid       	"3FE5B7810302")
+		    (object ActivityState "Для всех дат из диапазона [последняя дата контроля; дата ревизии]"
+			quid       	"3FE5B8CD02A5")
+		    (object ActivityState "Получить список изменившехся элементов на контроле"
+			quid       	"3FE5B9370243")
+		    (object State "$UNNAMED$4"
+			quid       	"3FE5B963011A"
+			type       	"Normal")
+		    (object ActivityState "Обновить статус изменения изменившихся элементов на контроле"
+			quid       	"3FE5B96800E5")
+		    (object ActivityState "Установить новую дату контроля равной дате ревизии"
+			quid       	"3FE5BA240027")
+		    (object Decision "Дата последнего контроля меньше даты ревизии"
+			quid       	"3FE5BA77012B")
+		    (object State "$UNNAMED$5"
+			quid       	"3FE5BADB0338"
+			type       	"EndState")
+		    (object State "Пользователь вошел в систему или получено сообщени о завершении обновления базы"
+			quid       	"3FE5C45B02F9"
+			type       	"Normal")
+		    (object ActivityState "Получить дату последнего контроля"
+			quid       	"3FE5C48A0210")
+		    (object Decision "Есть изменившиеся элементы на контроле?"
+			quid       	"3FE5C4CC0215")
+		    (object ActivityState "Вызвать прецедент \"Сообщить об изменениях\""
+			quid       	"3FE5C5570391"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5BA0A0160"
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Пользователь вошел в систему или получено сообщени о завершении обновления базы"
+			supplier_quidu 	"3FE5C45B02F9"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Сервер"
+			client_quidu 	"3FE5B7280336"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5BA0A0163"))
+		    (object State_Transition
+			quid       	"3FE5BA0C0380"
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Для всех дат из диапазона [последняя дата контроля; дата ревизии]"
+			supplier_quidu 	"3FE5B8CD02A5"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Получить элементы на контроле"
+			client_quidu 	"3FE5B7810302"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5BA0C0383"))
+		    (object State_Transition
+			quid       	"3FE5BA0E015C"
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Получить список изменившехся элементов на контроле"
+			supplier_quidu 	"3FE5B9370243"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Для всех дат из диапазона [последняя дата контроля; дата ревизии]"
+			client_quidu 	"3FE5B8CD02A5"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5BA0E015F"))
+		    (object State_Transition
+			quid       	"3FE5BA0F02D0"
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Есть изменившиеся элементы на контроле?"
+			supplier_quidu 	"3FE5C4CC0215"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Получить список изменившехся элементов на контроле"
+			client_quidu 	"3FE5B9370243"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5BA0F02D3"))
+		    (object State_Transition
+			quid       	"3FE5BA3A00B5"
+			supplier   	
+|Use Case View::На контроле::Проверить изменения::State/Activity Model5::Вызвать прецедент "Сообщить об изменениях"
+			
+			supplier_quidu 	"3FE5C5570391"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Обновить статус изменения изменившихся элементов на контроле"
+			client_quidu 	"3FE5B96800E5"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5BA3A00B8"))
+		    (object State_Transition
+			quid       	"3FE5C5690102"
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Установить новую дату контроля равной дате ревизии"
+			supplier_quidu 	"3FE5BA240027"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Обновить статус изменения изменившихся элементов на контроле"
+			client_quidu 	"3FE5B96800E5"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C5690105"))
+		    (object State_Transition
+			quid       	"3FE5BAE102B4"
+			supplier   	"$UNNAMED$5"
+			supplier_quidu 	"3FE5BADB0338"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Установить новую дату контроля равной дате ревизии"
+			client_quidu 	"3FE5BA240027"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5BAE102B7"))
+		    (object State_Transition
+			quid       	"3FE5BAE701FE"
+			label      	""
+			supplier   	"$UNNAMED$5"
+			supplier_quidu 	"3FE5BADB0338"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Дата последнего контроля меньше даты ревизии"
+			client_quidu 	"3FE5BA77012B"
+			Event      	(object Event "нет"
+			    quid       	"3FE5BAE701FF")
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5BAE70201"))
+		    (object State_Transition
+			quid       	"3FE5C4B703CD"
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Получить элементы на контроле"
+			supplier_quidu 	"3FE5B7810302"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Дата последнего контроля меньше даты ревизии"
+			client_quidu 	"3FE5BA77012B"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C4B703D0"))
+		    (object State_Transition
+			quid       	"3FE5C49F00E4"
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Получить дату последнего контроля"
+			supplier_quidu 	"3FE5C48A0210"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Пользователь вошел в систему или получено сообщени о завершении обновления базы"
+			client_quidu 	"3FE5C45B02F9"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C49F00E7"))
+		    (object State_Transition
+			quid       	"3FE5C4A0028A"
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Дата последнего контроля меньше даты ревизии"
+			supplier_quidu 	"3FE5BA77012B"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Получить дату последнего контроля"
+			client_quidu 	"3FE5C48A0210"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C4A0028D"))
+		    (object State_Transition
+			quid       	"3FE5C4E700E7"
+			label      	""
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Обновить статус изменения изменившихся элементов на контроле"
+			supplier_quidu 	"3FE5B96800E5"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Есть изменившиеся элементы на контроле?"
+			client_quidu 	"3FE5C4CC0215"
+			Event      	(object Event "да"
+			    quid       	"3FE5C4E700E8")
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C4E700EA"))
+		    (object State_Transition
+			quid       	"3FE5C5020082"
+			label      	""
+			supplier   	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Установить новую дату контроля равной дате ревизии"
+			supplier_quidu 	"3FE5BA240027"
+			client     	"Use Case View::На контроле::Проверить изменения::State/Activity Model5::Есть изменившиеся элементы на контроле?"
+			client_quidu 	"3FE5C4CC0215"
+			Event      	(object Event "нет"
+			    quid       	"3FE5C5020083")
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C5020085")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "NewDiagram5"
+			quid       	"3FE5B726001D"
+			title      	"NewDiagram5"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @24
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "Сервер" @25
+				Parent_View 	@24
+				location   	(851, 64)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@25
+				    location   	(893, 34)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"Сервер")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B7280336"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Получить элементы на контроле" @26
+				Parent_View 	@24
+				location   	(861, 852)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@26
+				    location   	(861, 843)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	576
+				    justify    	0
+				    label      	"Получить элементы на контроле")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B7810302"
+				width      	706
+				height     	143
+				annotation 	1
+				autoResize 	TRUE)
+			    (object ActivityStateView "Для всех дат из диапазона [последняя дата контроля; дата ревизии]" @27
+				Parent_View 	@24
+				location   	(857, 1078)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@27
+				    location   	(857, 1063)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	936
+				    justify    	0
+				    label      	"Для всех дат из диапазона [последняя дата контроля; дата ревизии]")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B8CD02A5"
+				width      	1074
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @28
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5BA0C0380"
+				client     	@26
+				supplier   	@27
+				vertices   	(list Points
+				    (859, 924)
+				    (858, 1000))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "Получить список изменившехся элементов на контроле" @29
+				Parent_View 	@24
+				location   	(864, 1304)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@29
+				    location   	(864, 1280)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	786
+				    justify    	0
+				    label      	"Получить список изменившехся элементов на контроле")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B9370243"
+				width      	936
+				height     	172
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @30
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5BA0E015C"
+				client     	@27
+				supplier   	@29
+				vertices   	(list Points
+				    (859, 1155)
+				    (861, 1217))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "Обновить статус изменения изменившихся элементов на контроле" @31
+				Parent_View 	@24
+				location   	(863, 1826)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@31
+				    location   	(863, 1793)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	882
+				    justify    	0
+				    label      	"Обновить статус изменения изменившихся элементов на контроле")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B96800E5"
+				width      	1044
+				height     	190
+				annotation 	1
+				autoResize 	TRUE)
+			    (object NoteView @32
+				Parent_View 	@24
+				location   	(1920, 1290)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@32
+				    location   	(1623, 1184)
+				    fill_color 	13434879
+				    nlines     	3
+				    max_width  	558
+				    justify    	1
+				    label      	"пересечь элементы на контроле с данными индекса")
+				line_color 	3342489
+				fill_color 	13434879
+				width      	618
+				height     	225)
+			    (object AttachView "" @33
+				stereotype 	TRUE
+				line_color 	3342489
+				client     	@32
+				supplier   	@29
+				vertices   	(list Points
+				    (1610, 1293)
+				    (1264, 1298))
+				line_style 	0)
+			    (object NoteView @34
+				Parent_View 	@24
+				location   	(1914, 1747)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@34
+				    location   	(1632, 1625)
+				    fill_color 	13434879
+				    nlines     	4
+				    max_width  	528
+				    justify    	1
+				    label      	"Объединить по ИЛИ текущую маску изменений элемента с маской из индекса")
+				line_color 	3342489
+				fill_color 	13434879
+				width      	588
+				height     	256)
+			    (object AttachView "" @35
+				stereotype 	TRUE
+				line_color 	3342489
+				client     	@34
+				supplier   	@31
+				vertices   	(list Points
+				    (1619, 1767)
+				    (1302, 1792))
+				line_style 	0)
+			    (object ActivityStateView "Установить новую дату контроля равной дате ревизии" @36
+				Parent_View 	@24
+				location   	(853, 2087)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@36
+				    location   	(853, 2072)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	764
+				    justify    	0
+				    label      	"Установить новую дату контроля равной дате ревизии")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5BA240027"
+				width      	902
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object DecisionView "Дата последнего контроля меньше даты ревизии" @37
+				Parent_View 	@24
+				location   	(846, 666)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@37
+				    location   	(902, 617)
+				    nlines     	2
+				    max_width  	626
+				    justify    	1
+				    label      	"Дата последнего контроля меньше даты ревизии")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5BA77012B"
+				autoResize 	TRUE)
+			    (object TransView "" @38
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C4B703CD"
+				client     	@37
+				supplier   	@26
+				vertices   	(list Points
+				    (846, 703)
+				    (853, 781))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object NoteView @39
+				Parent_View 	@24
+				location   	(1972, 678)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@39
+				    location   	(1612, 506)
+				    fill_color 	13434879
+				    nlines     	6
+				    max_width  	684
+				    justify    	1
+				    label      	"Определяется либо по событию завершения обновления, либо при старте сравнением текущей даты ревизии с предыдущей датой ревизии")
+				line_color 	3342489
+				fill_color 	13434879
+				width      	744
+				height     	356)
+			    (object AttachView "" @40
+				stereotype 	TRUE
+				line_color 	3342489
+				client     	@39
+				supplier   	@37
+				vertices   	(list Points
+				    (1599, 673)
+				    (921, 666))
+				line_style 	0)
+			    (object StateView "EndState" "$UNNAMED$5" @41
+				Parent_View 	@24
+				location   	(858, 2336)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@41
+				    location   	(912, 2294)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5BADB0338"
+				autoResize 	TRUE)
+			    (object TransView "" @42
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5BAE102B4"
+				client     	@36
+				supplier   	@41
+				vertices   	(list Points
+				    (854, 2163)
+				    (857, 2294))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @43
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @44
+				    Parent_View 	@43
+				    location   	(93, 1584)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"нет"
+				    pctDist    	0.048146
+				    height     	38
+				    orientation 	1)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5BAE701FE"
+				client     	@37
+				supplier   	@41
+				vertices   	(list Points
+				    (771, 666)
+				    (91, 666)
+				    (91, 2382)
+				    (816, 2382))
+				line_style 	3
+				origin_attachment 	(771, 666)
+				terminal_attachment 	(816, 2382)
+				x_offset   	FALSE)
+			    (object StateView "Normal" "Пользователь вошел в систему или получено сообщени о завершении обновления базы" @45
+				Parent_View 	@24
+				location   	(848, 267)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@45
+				    location   	(848, 253)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	1076
+				    justify    	0
+				    label      	"Пользователь вошел в систему или получено сообщени о завершении обновления базы")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C45B02F9"
+				width      	1172
+				height     	152
+				autoResize 	TRUE)
+			    (object TransView "" @46
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5BA0A0160"
+				client     	@25
+				supplier   	@45
+				vertices   	(list Points
+				    (850, 94)
+				    (849, 190))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "Получить дату последнего контроля" @47
+				Parent_View 	@24
+				location   	(852, 491)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@47
+				    location   	(852, 476)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	544
+				    justify    	0
+				    label      	"Получить дату последнего контроля")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C48A0210"
+				width      	682
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @48
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C49F00E4"
+				client     	@45
+				supplier   	@47
+				vertices   	(list Points
+				    (849, 342)
+				    (850, 414))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @49
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C4A0028A"
+				client     	@47
+				supplier   	@37
+				vertices   	(list Points
+				    (848, 568)
+				    (846, 629))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object DecisionView "Есть изменившиеся элементы на контроле?" @50
+				Parent_View 	@24
+				location   	(853, 1515)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@50
+				    location   	(909, 1466)
+				    nlines     	2
+				    max_width  	572
+				    justify    	1
+				    label      	"Есть изменившиеся элементы на контроле?")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C4CC0215"
+				autoResize 	TRUE)
+			    (object TransView "" @51
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5BA0F02D0"
+				client     	@29
+				supplier   	@50
+				vertices   	(list Points
+				    (859, 1390)
+				    (853, 1478))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @52
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @53
+				    Parent_View 	@52
+				    location   	(772, 1595)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"да"
+				    pctDist    	0.224803
+				    height     	82
+				    orientation 	1)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C4E700E7"
+				client     	@50
+				supplier   	@31
+				vertices   	(list Points
+				    (853, 1552)
+				    (859, 1731))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @54
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @55
+				    Parent_View 	@54
+				    location   	(227, 1621)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"нет"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C5020082"
+				client     	@50
+				supplier   	@36
+				vertices   	(list Points
+				    (778, 1515)
+				    (197, 1515)
+				    (197, 2126)
+				    (468, 2126))
+				line_style 	3
+				origin_attachment 	(778, 1515)
+				terminal_attachment 	(468, 2126)
+				x_offset   	FALSE)
+			    (object ActivityStateView "Вызвать прецедент \"Сообщить об изменениях\"" @56
+				Parent_View 	@24
+				location   	(1916, 2084)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@56
+				    location   	(1916, 2069)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	680
+				    justify    	0
+				    label      	
+|Вызвать прецедент "Сообщить об изменениях"
+				    )
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C5570391"
+				width      	818
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @57
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5BA3A00B5"
+				client     	@31
+				supplier   	@56
+				vertices   	(list Points
+				    (1250, 1921)
+				    (1608, 2008))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @58
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C5690102"
+				client     	@31
+				supplier   	@36
+				vertices   	(list Points
+				    (859, 1921)
+				    (855, 2010))
+				line_style 	0
+				x_offset   	FALSE)))))
+	    logical_models 	(list unit_reference_list
+		(object Mechanism @59
+		    logical_models 	(list unit_reference_list
+			(object Object "$UNNAMED$6"
+			    quid       	"402777F10090"
+			    class      	"Use Case View::На контроле::Пользователь"
+			    quidu      	"3FE5B14100E4"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE))))
+	    logical_presentations 	(list unit_reference_list
+		(object InteractionDiagram "NewDiagram10"
+		    mechanism_ref 	@59
+		    quid       	"402777DC0108"
+		    title      	"NewDiagram10"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object InterObjView "$UNNAMED$6" @60
+			    location   	(450, 225)
+			    font       	(object Font
+				size       	8
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@60
+				location   	(450, 245)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	360
+				justify    	0
+				label      	"")
+			    icon       	"Actor"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"402777F10090"
+			    width      	120
+			    height     	161
+			    icon_height 	162
+			    icon_width 	120
+			    icon_y_offset 	0
+			    annotation 	1)))))
+	(object UseCase "Поставить на контроль"
+	    quid       	"3FE5B14F0199"
+	    abstract   	TRUE
+	    statemachine 	(object State_Machine "State/Activity Model7"
+		quid       	"3FE5C8D503E7"
+		states     	(list States
+		    (object State "$UNNAMED$7"
+			quid       	"3FE5C8D703CC"
+			type       	"StartState")
+		    (object ActivityState "Пользователь вызывает операцию поставить на контроль"
+			quid       	"3FE5C8D900AD")
+		    (object ActivityState "Система добавлет ID выбранного элемента в список на контроле с нулевой маской изменений"
+			quid       	"3FE5C8F90103")
+		    (object State "$UNNAMED$8"
+			quid       	"3FE5C92302D1"
+			type       	"EndState")
+		    (object ActivityState "В случае необходимости обновляется внешний вид элемента и содержимое закладки \"Контроль\""
+			quid       	"3FE5C92A037B"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5C8F5009A"
+			supplier   	"Use Case View::На контроле::Поставить на контроль::State/Activity Model7::Пользователь вызывает операцию поставить на контроль"
+			supplier_quidu 	"3FE5C8D900AD"
+			client     	"$UNNAMED$7"
+			client_quidu 	"3FE5C8D703CC"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C8F5009D"))
+		    (object State_Transition
+			quid       	"3FE5C91C0226"
+			supplier   	"Use Case View::На контроле::Поставить на контроль::State/Activity Model7::Система добавлет ID выбранного элемента в список на контроле с нулевой маской изменений"
+			supplier_quidu 	"3FE5C8F90103"
+			client     	"Use Case View::На контроле::Поставить на контроль::State/Activity Model7::Пользователь вызывает операцию поставить на контроль"
+			client_quidu 	"3FE5C8D900AD"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C91C0229"))
+		    (object State_Transition
+			quid       	"3FE5C94C0077"
+			supplier   	
+|Use Case View::На контроле::Поставить на контроль::State/Activity Model7::В случае необходимости обновляется внешний вид элемента и содержимое закладки "Контроль"
+			
+			supplier_quidu 	"3FE5C92A037B"
+			client     	"Use Case View::На контроле::Поставить на контроль::State/Activity Model7::Система добавлет ID выбранного элемента в список на контроле с нулевой маской изменений"
+			client_quidu 	"3FE5C8F90103"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C94C007A"))
+		    (object State_Transition
+			quid       	"3FE5C9250048"
+			supplier   	"$UNNAMED$8"
+			supplier_quidu 	"3FE5C92302D1"
+			client     	
+|Use Case View::На контроле::Поставить на контроль::State/Activity Model7::В случае необходимости обновляется внешний вид элемента и содержимое закладки "Контроль"
+			
+			client_quidu 	"3FE5C92A037B"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5C925004B")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "NewDiagram7"
+			quid       	"3FE5C8D60009"
+			title      	"NewDiagram7"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @61
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "$UNNAMED$7" @62
+				Parent_View 	@61
+				location   	(698, 89)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@62
+				    location   	(740, 59)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5C8D703CC"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Пользователь вызывает операцию поставить на контроль" @63
+				Parent_View 	@61
+				location   	(706, 286)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@63
+				    location   	(706, 271)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	788
+				    justify    	0
+				    label      	"Пользователь вызывает операцию поставить на контроль")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C8D900AD"
+				width      	926
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @64
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C8F5009A"
+				client     	@62
+				supplier   	@63
+				vertices   	(list Points
+				    (699, 118)
+				    (702, 209))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "Система добавлет ID выбранного элемента в список на контроле с нулевой маской изменений" @65
+				Parent_View 	@61
+				location   	(722, 526)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@65
+				    location   	(722, 502)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	1174
+				    justify    	0
+				    label      	"Система добавлет ID выбранного элемента в список на контроле с нулевой маской изменений")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C8F90103"
+				width      	1324
+				height     	172
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @66
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C91C0226"
+				client     	@63
+				supplier   	@65
+				vertices   	(list Points
+				    (711, 363)
+				    (716, 439))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object StateView "EndState" "$UNNAMED$8" @67
+				Parent_View 	@61
+				location   	(739, 1017)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@67
+				    location   	(793, 975)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5C92302D1"
+				autoResize 	TRUE)
+			    (object ActivityStateView "В случае необходимости обновляется внешний вид элемента и содержимое закладки \"Контроль\"" @68
+				Parent_View 	@61
+				location   	(736, 779)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@68
+				    location   	(736, 764)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	1214
+				    justify    	0
+				    label      	
+|В случае необходимости обновляется внешний вид элемента и содержимое закладки "Контроль"
+				    )
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5C92A037B"
+				width      	1352
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @69
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C9250048"
+				client     	@68
+				supplier   	@67
+				vertices   	(list Points
+				    (736, 855)
+				    (738, 974))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @70
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5C94C0077"
+				client     	@65
+				supplier   	@68
+				vertices   	(list Points
+				    (726, 612)
+				    (731, 702))
+				line_style 	0
+				x_offset   	FALSE))))))
+	(object UseCase "Запрос"
+	    quid       	"3FE5B166020A"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3FE5B1780148"
+		    supplier   	"Use Case View::На контроле::Поставить на контроль"
+		    quidu      	"3FE5B14F0199")))
+	(object UseCase "Документ"
+	    quid       	"3FE5B15F00C9"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3FE5B17E025F"
+		    supplier   	"Use Case View::На контроле::Поставить на контроль"
+		    quidu      	"3FE5B14F0199")))
+	(object UseCase "Найти и сохранить изменения"
+	    quid       	"3FE5B41F039D"
+	    statemachine 	(object State_Machine "State/Activity Model"
+		quid       	"3FE5B4BF0003"
+		states     	(list States
+		    (object State "GREV"
+			quid       	"3FE5B4C1007F"
+			type       	"StartState")
+		    (object ActivityState "Сравнить новое и старое состояния документа"
+			quid       	"3FE5B4C500FC")
+		    (object ActivityState "Опредилить тип изменения"
+			quid       	"3FE5B51802AA")
+		    (object ActivityState "Сохранить документ и тип изменения в Индекс изменений"
+			quid       	"3FE5B5280109")
+		    (object State "$UNNAMED$9"
+			quid       	"3FE5B5650016"
+			type       	"EndState"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5B5670150"
+			supplier   	"Use Case View::На контроле::Найти и сохранить изменения::State/Activity Model::Сравнить новое и старое состояния документа"
+			supplier_quidu 	"3FE5B4C500FC"
+			client     	"Use Case View::На контроле::Найти и сохранить изменения::State/Activity Model::GREV"
+			client_quidu 	"3FE5B4C1007F"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B5670153"))
+		    (object State_Transition
+			quid       	"3FE5B56803BE"
+			supplier   	"Use Case View::На контроле::Найти и сохранить изменения::State/Activity Model::Опредилить тип изменения"
+			supplier_quidu 	"3FE5B51802AA"
+			client     	"Use Case View::На контроле::Найти и сохранить изменения::State/Activity Model::Сравнить новое и старое состояния документа"
+			client_quidu 	"3FE5B4C500FC"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B56803C1"))
+		    (object State_Transition
+			quid       	"3FE5B56A017C"
+			supplier   	"Use Case View::На контроле::Найти и сохранить изменения::State/Activity Model::Сохранить документ и тип изменения в Индекс изменений"
+			supplier_quidu 	"3FE5B5280109"
+			client     	"Use Case View::На контроле::Найти и сохранить изменения::State/Activity Model::Опредилить тип изменения"
+			client_quidu 	"3FE5B51802AA"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B56A017F"))
+		    (object State_Transition
+			quid       	"3FE5B56C0034"
+			supplier   	"$UNNAMED$9"
+			supplier_quidu 	"3FE5B5650016"
+			client     	"Use Case View::На контроле::Найти и сохранить изменения::State/Activity Model::Сохранить документ и тип изменения в Индекс изменений"
+			client_quidu 	"3FE5B5280109"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B56C0037")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "GkREV"
+			quid       	"3FE5B4BF0018"
+			title      	"GkREV"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @71
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "GREV" @72
+				Parent_View 	@71
+				location   	(823, 100)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@72
+				    location   	(865, 70)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"GREV")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B4C1007F"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Сравнить новое и старое состояния документа" @73
+				Parent_View 	@71
+				location   	(822, 329)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@73
+				    location   	(822, 314)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	616
+				    justify    	0
+				    label      	"Сравнить новое и старое состояния документа")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B4C500FC"
+				width      	754
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object ActivityStateView "Опредилить тип изменения" @74
+				Parent_View 	@71
+				location   	(817, 557)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@74
+				    location   	(817, 542)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	390
+				    justify    	0
+				    label      	"Опредилить тип изменения")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B51802AA"
+				width      	528
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object ActivityStateView "Сохранить документ и тип изменения в Индекс изменений" @75
+				Parent_View 	@71
+				location   	(818, 770)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@75
+				    location   	(818, 755)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	782
+				    justify    	0
+				    label      	"Сохранить документ и тип изменения в Индекс изменений")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B5280109"
+				width      	920
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object StateView "EndState" "$UNNAMED$9" @76
+				Parent_View 	@71
+				location   	(815, 973)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@76
+				    location   	(869, 931)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B5650016"
+				autoResize 	TRUE)
+			    (object TransView "" @77
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B5670150"
+				client     	@72
+				supplier   	@73
+				vertices   	(list Points
+				    (822, 129)
+				    (822, 252))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @78
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B56803BE"
+				client     	@73
+				supplier   	@74
+				vertices   	(list Points
+				    (820, 406)
+				    (818, 480))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @79
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B56A017C"
+				client     	@74
+				supplier   	@75
+				vertices   	(list Points
+				    (817, 634)
+				    (817, 692))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @80
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B56C0034"
+				client     	@75
+				supplier   	@76
+				vertices   	(list Points
+				    (816, 847)
+				    (815, 930))
+				line_style 	0
+				x_offset   	FALSE))))))
+	(object UseCase "Передать изменения"
+	    quid       	"3FE5B5A9003C"
+	    abstract   	TRUE)
+	(object UseCase "Дельтой"
+	    quid       	"3FE5B5B80160"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3FE5B5CC01FF"
+		    supplier   	"Use Case View::На контроле::Передать изменения"
+		    quidu      	"3FE5B5A9003C"))
+	    statemachine 	(object State_Machine "State/Activity Model2"
+		quid       	"3FE5B5D8008A"
+		states     	(list States
+		    (object State "GDLT"
+			quid       	"3FE5B5DC018A"
+			type       	"StartState")
+		    (object ActivityState "Построить и сохранить разницу индекса Изменений"
+			quid       	"3FE5B609003A")
+		    (object State "$UNNAMED$10"
+			quid       	"3FE5B61F01AE"
+			type       	"EndState"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5B62101A7"
+			supplier   	"Use Case View::На контроле::Дельтой::State/Activity Model2::Построить и сохранить разницу индекса Изменений"
+			supplier_quidu 	"3FE5B609003A"
+			client     	"Use Case View::На контроле::Дельтой::State/Activity Model2::GDLT"
+			client_quidu 	"3FE5B5DC018A"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B62101AA"))
+		    (object State_Transition
+			quid       	"3FE5B62300EC"
+			supplier   	"$UNNAMED$10"
+			supplier_quidu 	"3FE5B61F01AE"
+			client     	"Use Case View::На контроле::Дельтой::State/Activity Model2::Построить и сохранить разницу индекса Изменений"
+			client_quidu 	"3FE5B609003A"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B62300EF")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "NewDiagram2"
+			quid       	"3FE5B5D8008B"
+			title      	"NewDiagram2"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @81
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "GDLT" @82
+				Parent_View 	@81
+				location   	(1015, 136)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@82
+				    location   	(1057, 106)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"GDLT")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B5DC018A"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Построить и сохранить разницу индекса Изменений" @83
+				Parent_View 	@81
+				location   	(1016, 326)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@83
+				    location   	(1016, 311)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	668
+				    justify    	0
+				    label      	"Построить и сохранить разницу индекса Изменений")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B609003A"
+				width      	806
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object StateView "EndState" "$UNNAMED$10" @84
+				Parent_View 	@81
+				location   	(1016, 538)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@84
+				    location   	(1070, 496)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B61F01AE"
+				autoResize 	TRUE)
+			    (object TransView "" @85
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B62101A7"
+				client     	@82
+				supplier   	@83
+				vertices   	(list Points
+				    (1015, 166)
+				    (1015, 248))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @86
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B62300EC"
+				client     	@83
+				supplier   	@84
+				vertices   	(list Points
+				    (1016, 403)
+				    (1016, 496))
+				line_style 	0
+				x_offset   	FALSE))))))
+	(object UseCase "Переустановкой"
+	    quid       	"3FE5B5BC03B5"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3FE5B5CE032E"
+		    supplier   	"Use Case View::На контроле::Передать изменения"
+		    quidu      	"3FE5B5A9003C"))
+	    statemachine 	(object State_Machine "State/Activity Model4"
+		quid       	"3FE5B6A60162"
+		states     	(list States
+		    (object State "Breader"
+			quid       	"3FE5B6A800ED"
+			type       	"StartState")
+		    (object State "$UNNAMED$11"
+			quid       	"3FE5B6A901C1"
+			type       	"EndState")
+		    (object ActivityState "Установить новую базу"
+			quid       	"3FE5B6AB0232"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5B6B60292"
+			supplier   	"Use Case View::На контроле::Переустановкой::State/Activity Model4::Установить новую базу"
+			supplier_quidu 	"3FE5B6AB0232"
+			client     	"Use Case View::На контроле::Переустановкой::State/Activity Model4::Breader"
+			client_quidu 	"3FE5B6A800ED"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B6B60295"))
+		    (object State_Transition
+			quid       	"3FE5B6B800C8"
+			supplier   	"$UNNAMED$11"
+			supplier_quidu 	"3FE5B6A901C1"
+			client     	"Use Case View::На контроле::Переустановкой::State/Activity Model4::Установить новую базу"
+			client_quidu 	"3FE5B6AB0232"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B6B800CB")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "NewDiagram4"
+			quid       	"3FE5B6A6016C"
+			title      	"NewDiagram4"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @87
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "Breader" @88
+				Parent_View 	@87
+				location   	(794, 158)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@88
+				    location   	(836, 128)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"Breader")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B6A800ED"
+				autoResize 	TRUE)
+			    (object StateView "EndState" "$UNNAMED$11" @89
+				Parent_View 	@87
+				location   	(798, 550)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@89
+				    location   	(852, 508)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B6A901C1"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Установить новую базу" @90
+				Parent_View 	@87
+				location   	(794, 354)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@90
+				    location   	(794, 348)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	285
+				    justify    	0
+				    label      	"Установить новую базу")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B6AB0232"
+				width      	411
+				height     	136
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @91
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B6B60292"
+				client     	@88
+				supplier   	@90
+				vertices   	(list Points
+				    (794, 188)
+				    (794, 286))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @92
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B6B800C8"
+				client     	@90
+				supplier   	@89
+				vertices   	(list Points
+				    (795, 422)
+				    (797, 508))
+				line_style 	0
+				x_offset   	FALSE))))))
+	(object UseCase "Применить дельту"
+	    quid       	"3FE5B63303D4"
+	    statemachine 	(object State_Machine "State/Activity Model3"
+		quid       	"3FE5B6610091"
+		states     	(list States
+		    (object State "Update"
+			quid       	"3FE5B66203A9"
+			type       	"StartState")
+		    (object ActivityState "Применить разницу индекса Изменений"
+			quid       	"3FE5B66F00A5")
+		    (object State "$UNNAMED$12"
+			quid       	"3FE5B67D0127"
+			type       	"EndState"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5B67F001C"
+			supplier   	"Use Case View::На контроле::Применить дельту::State/Activity Model3::Применить разницу индекса Изменений"
+			supplier_quidu 	"3FE5B66F00A5"
+			client     	"Use Case View::На контроле::Применить дельту::State/Activity Model3::Update"
+			client_quidu 	"3FE5B66203A9"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B67F001F"))
+		    (object State_Transition
+			quid       	"3FE5B68100A1"
+			supplier   	"$UNNAMED$12"
+			supplier_quidu 	"3FE5B67D0127"
+			client     	"Use Case View::На контроле::Применить дельту::State/Activity Model3::Применить разницу индекса Изменений"
+			client_quidu 	"3FE5B66F00A5"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5B68100A4")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "NewDiagram3"
+			quid       	"3FE5B6610092"
+			title      	"NewDiagram3"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @93
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "Update" @94
+				Parent_View 	@93
+				location   	(612, 214)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@94
+				    location   	(654, 184)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"Update")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B66203A9"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Применить разницу индекса Изменений" @95
+				Parent_View 	@93
+				location   	(612, 432)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@95
+				    location   	(612, 417)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	536
+				    justify    	0
+				    label      	"Применить разницу индекса Изменений")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5B66F00A5"
+				width      	674
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object StateView "EndState" "$UNNAMED$12" @96
+				Parent_View 	@93
+				location   	(612, 629)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@96
+				    location   	(666, 587)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5B67D0127"
+				autoResize 	TRUE)
+			    (object TransView "" @97
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B67F001C"
+				client     	@94
+				supplier   	@95
+				vertices   	(list Points
+				    (612, 244)
+				    (612, 355))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @98
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5B68100A1"
+				client     	@95
+				supplier   	@96
+				vertices   	(list Points
+				    (612, 509)
+				    (612, 587))
+				line_style 	0
+				x_offset   	FALSE))))))
+	(object UseCase "Просмотр изменений"
+	    quid       	"3FE5CA8F03D8"
+	    statemachine 	(object State_Machine "State/Activity Model9"
+		quid       	"3FE5D1FF00A1"
+		states     	(list States
+		    (object State "$UNNAMED$13"
+			quid       	"3FE5D2000233"
+			type       	"StartState")
+		    (object ActivityState "Пользователь выбрал операцию \"сбросить изменения\""
+			quid       	"3FE5D201034D")
+		    (object ActivityState "Пользователь открыл для просмотра элемент"
+			quid       	"3FE5D21C02D3")
+		    (object Decision "Настройки"
+			quid       	"3FE5D23300CE")
+		    (object ActivityState "Добавить ID в спсисок просмотренных элементов"
+			quid       	"3FE5D25702B0")
+		    (object ActivityState "Обнулить маску изменений"
+			quid       	"3FE5D259017D")
+		    (object State "Ждем выхода из системы"
+			quid       	"3FE5D2FF00BD"
+			type       	"Normal")
+		    (object State "$UNNAMED$14"
+			quid       	"3FE5D31E0068"
+			type       	"EndState"))
+		partitions 	(list Partitions)
+		objects    	(list Objects)
+		transitions 	(list transition_list
+		    (object State_Transition
+			quid       	"3FE5D22C03DB"
+			supplier   	
+|Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Пользователь выбрал операцию "сбросить изменения"
+			
+			supplier_quidu 	"3FE5D201034D"
+			client     	"$UNNAMED$13"
+			client_quidu 	"3FE5D2000233"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D22C03DE"))
+		    (object State_Transition
+			quid       	"3FE5D23003AF"
+			supplier   	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Пользователь открыл для просмотра элемент"
+			supplier_quidu 	"3FE5D21C02D3"
+			client     	"$UNNAMED$13"
+			client_quidu 	"3FE5D2000233"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D23003B2"))
+		    (object State_Transition
+			quid       	"3FE5D2D80215"
+			supplier   	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Обнулить маску изменений"
+			supplier_quidu 	"3FE5D259017D"
+			client     	
+|Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Пользователь выбрал операцию "сбросить изменения"
+			
+			client_quidu 	"3FE5D201034D"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D2D80218"))
+		    (object State_Transition
+			quid       	"3FE5D2740348"
+			supplier   	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Настройки"
+			supplier_quidu 	"3FE5D23300CE"
+			client     	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Пользователь открыл для просмотра элемент"
+			client_quidu 	"3FE5D21C02D3"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D274034B"))
+		    (object State_Transition
+			quid       	"3FE5D25B0298"
+			label      	""
+			supplier   	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Добавить ID в спсисок просмотренных элементов"
+			supplier_quidu 	"3FE5D25702B0"
+			client     	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Настройки"
+			client_quidu 	"3FE5D23300CE"
+			Event      	(object Event "сбрасывать статус в конце сессии"
+			    quid       	"3FE5D25B0299")
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D25B029B"))
+		    (object State_Transition
+			quid       	"3FE5D2640038"
+			label      	""
+			supplier   	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Обнулить маску изменений"
+			supplier_quidu 	"3FE5D259017D"
+			client     	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Настройки"
+			client_quidu 	"3FE5D23300CE"
+			Event      	(object Event "сбрасывать статус немедленно"
+			    quid       	"3FE5D2640039")
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D264003B"))
+		    (object State_Transition
+			quid       	"3FE5D30D0171"
+			supplier   	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Ждем выхода из системы"
+			supplier_quidu 	"3FE5D2FF00BD"
+			client     	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Добавить ID в спсисок просмотренных элементов"
+			client_quidu 	"3FE5D25702B0"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D30D0174"))
+		    (object State_Transition
+			quid       	"3FE5D31F01D1"
+			supplier   	"$UNNAMED$14"
+			supplier_quidu 	"3FE5D31E0068"
+			client     	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Обнулить маску изменений"
+			client_quidu 	"3FE5D259017D"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D31F01D4"))
+		    (object State_Transition
+			quid       	"3FE5D30B0291"
+			supplier   	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Обнулить маску изменений"
+			supplier_quidu 	"3FE5D259017D"
+			client     	"Use Case View::На контроле::Просмотр изменений::State/Activity Model9::Ждем выхода из системы"
+			client_quidu 	"3FE5D2FF00BD"
+			sendEvent  	(object sendEvent
+			    quid       	"3FE5D30B0294")))
+		objectflows 	(list objectflow_list)
+		statediagrams 	(list StateDiagrams
+		    (object ActivityDiagram "NewDiagram9"
+			quid       	"3FE5D1FF00AB"
+			title      	"NewDiagram9"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object Swimlane "" @99
+				line_color 	3342489
+				width      	450)
+			    (object StateView "StartState" "$UNNAMED$13" @100
+				Parent_View 	@99
+				location   	(1042, 78)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@100
+				    location   	(1084, 48)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5D2000233"
+				autoResize 	TRUE)
+			    (object ActivityStateView "Пользователь выбрал операцию \"сбросить изменения\"" @101
+				Parent_View 	@99
+				location   	(540, 298)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@101
+				    location   	(540, 283)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	822
+				    justify    	0
+				    label      	
+|Пользователь выбрал операцию "сбросить изменения"
+				    )
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5D201034D"
+				width      	960
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @102
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D22C03DB"
+				client     	@100
+				supplier   	@101
+				vertices   	(list Points
+				    (1012, 91)
+				    (715, 221))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object ActivityStateView "Пользователь открыл для просмотра элемент" @103
+				Parent_View 	@99
+				location   	(1467, 312)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@103
+				    location   	(1467, 297)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	584
+				    justify    	0
+				    label      	"Пользователь открыл для просмотра элемент")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5D21C02D3"
+				width      	722
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @104
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D23003AF"
+				client     	@100
+				supplier   	@103
+				vertices   	(list Points
+				    (1072, 94)
+				    (1327, 234))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object DecisionView "Настройки" @105
+				Parent_View 	@99
+				location   	(1504, 515)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@105
+				    location   	(1560, 466)
+				    nlines     	2
+				    max_width  	583
+				    justify    	1
+				    label      	"Настройки")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5D23300CE"
+				autoResize 	TRUE)
+			    (object TransView "" @106
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D2740348"
+				client     	@103
+				supplier   	@105
+				vertices   	(list Points
+				    (1504, 389)
+				    (1504, 478))
+				line_style 	3
+				origin_attachment 	(1504, 389)
+				terminal_attachment 	(1504, 478)
+				x_offset   	FALSE)
+			    (object ActivityStateView "Добавить ID в спсисок просмотренных элементов" @107
+				Parent_View 	@99
+				location   	(2005, 731)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@107
+				    location   	(2005, 716)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	680
+				    justify    	0
+				    label      	"Добавить ID в спсисок просмотренных элементов")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5D25702B0"
+				width      	818
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @108
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @109
+				    Parent_View 	@108
+				    location   	(1947, 576)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	829
+				    justify    	0
+				    label      	"сбрасывать статус в конце сессии"
+				    pctDist    	0.855823
+				    height     	34
+				    orientation 	1)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D25B0298"
+				client     	@105
+				supplier   	@107
+				vertices   	(list Points
+				    (1579, 515)
+				    (1981, 515)
+				    (1981, 654))
+				line_style 	3
+				origin_attachment 	(1579, 515)
+				terminal_attachment 	(1981, 654)
+				x_offset   	FALSE)
+			    (object ActivityStateView "Обнулить маску изменений" @110
+				Parent_View 	@99
+				location   	(1102, 1184)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@110
+				    location   	(1102, 1169)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	390
+				    justify    	0
+				    label      	"Обнулить маску изменений")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5D259017D"
+				width      	528
+				height     	154
+				annotation 	1
+				autoResize 	TRUE)
+			    (object TransView "" @111
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @112
+				    Parent_View 	@111
+				    location   	(1104, 699)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	735
+				    justify    	0
+				    label      	"сбрасывать статус немедленно"
+				    pctDist    	0.536017
+				    height     	67
+				    orientation 	0)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D2640038"
+				client     	@105
+				supplier   	@110
+				vertices   	(list Points
+				    (1429, 515)
+				    (1072, 515)
+				    (1072, 1107))
+				line_style 	3
+				origin_attachment 	(1429, 515)
+				terminal_attachment 	(1072, 1107)
+				x_offset   	FALSE)
+			    (object TransView "" @113
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D2D80215"
+				client     	@101
+				supplier   	@110
+				vertices   	(list Points
+				    (550, 375)
+				    (550, 1184)
+				    (859, 1184))
+				line_style 	3
+				origin_attachment 	(550, 375)
+				terminal_attachment 	(859, 1184)
+				x_offset   	FALSE)
+			    (object StateView "Normal" "Ждем выхода из системы" @114
+				Parent_View 	@99
+				location   	(2006, 1028)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@114
+				    location   	(2006, 1005)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	368
+				    justify    	0
+				    label      	"Ждем выхода из системы")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"3FE5D2FF00BD"
+				width      	464
+				height     	170
+				autoResize 	TRUE)
+			    (object TransView "" @115
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D30B0291"
+				client     	@114
+				supplier   	@110
+				vertices   	(list Points
+				    (1774, 1068)
+				    (1332, 1144))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object TransView "" @116
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D30D0171"
+				client     	@107
+				supplier   	@114
+				vertices   	(list Points
+				    (2005, 808)
+				    (2005, 942))
+				line_style 	0
+				x_offset   	FALSE)
+			    (object StateView "EndState" "$UNNAMED$14" @117
+				Parent_View 	@99
+				location   	(1104, 1497)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@117
+				    location   	(1158, 1455)
+				    nlines     	2
+				    max_width  	600
+				    justify    	1
+				    label      	"")
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"3FE5D31E0068"
+				autoResize 	TRUE)
+			    (object TransView "" @118
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3FE5D31F01D1"
+				client     	@110
+				supplier   	@117
+				vertices   	(list Points
+				    (1102, 1261)
+				    (1103, 1455))
+				line_style 	0
+				x_offset   	FALSE))))))
+	(object Association "$UNNAMED$15"
+	    quid       	"3FE5B18301B1"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$16"
+		    quid       	"3FE5B18302DE"
+		    supplier   	"Use Case View::На контроле::Поставить на контроль"
+		    quidu      	"3FE5B14F0199"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$17"
+		    quid       	"3FE5B18302E0"
+		    supplier   	"Use Case View::На контроле::Пользователь"
+		    quidu      	"3FE5B14100E4")))
+	(object Association "$UNNAMED$18"
+	    quid       	"3FE5B1FA0054"
+	    stereotype 	"extend"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$19"
+		    quid       	"3FE5B1FA0112"
+		    supplier   	"Use Case View::На контроле::Сообщить об изменениях"
+		    quidu      	"3FE5B1E80076"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$20"
+		    quid       	"3FE5B1FA0114"
+		    supplier   	"Use Case View::На контроле::Проверить изменения"
+		    quidu      	"3FE5B1B50218")))
+	(object Association "$UNNAMED$21"
+	    quid       	"3FE5B1FC01B5"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$22"
+		    quid       	"3FE5B1FD0315"
+		    supplier   	"Use Case View::На контроле::Пользователь"
+		    quidu      	"3FE5B14100E4"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$23"
+		    quid       	"3FE5B1FD0317"
+		    supplier   	"Use Case View::На контроле::Сообщить об изменениях"
+		    quidu      	"3FE5B1E80076")))
+	(object Association "$UNNAMED$24"
+	    quid       	"3FE5B1B10316"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$25"
+		    quid       	"3FE5B1B200A1"
+		    supplier   	"Use Case View::На контроле::Снять с контроля"
+		    quidu      	"3FE5B1A502D3"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$26"
+		    quid       	"3FE5B1B200AB"
+		    supplier   	"Use Case View::На контроле::Пользователь"
+		    quidu      	"3FE5B14100E4")))
+	(object Association "$UNNAMED$27"
+	    quid       	"3FE5B207023E"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$28"
+		    quid       	"3FE5B2080022"
+		    supplier   	"Use Case View::На контроле::Проверить изменения"
+		    quidu      	"3FE5B1B50218"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$29"
+		    quid       	"3FE5B2080024"
+		    supplier   	"Use Case View::На контроле::Немезис"
+		    quidu      	"3FE5B1FF03E1")))
+	(object Association "$UNNAMED$30"
+	    quid       	"3FE5B448005C"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$31"
+		    quid       	"3FE5B4490144"
+		    supplier   	"Use Case View::На контроле::Найти и сохранить изменения"
+		    quidu      	"3FE5B41F039D"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$32"
+		    quid       	"3FE5B449014E"
+		    supplier   	"Use Case View::На контроле::GDK"
+		    quidu      	"3FE5B4180361")))
+	(object Association "$UNNAMED$33"
+	    quid       	"3FE5B5AB02FC"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$34"
+		    quid       	"3FE5B5AC0022"
+		    supplier   	"Use Case View::На контроле::Передать изменения"
+		    quidu      	"3FE5B5A9003C"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$35"
+		    quid       	"3FE5B5AC002D"
+		    supplier   	"Use Case View::На контроле::GDK"
+		    quidu      	"3FE5B4180361")))
+	(object Association "$UNNAMED$36"
+	    quid       	"3FE5B6410103"
+	    stereotype 	"include"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$37"
+		    quid       	"3FE5B64101AD"
+		    supplier   	"Use Case View::На контроле::Применить дельту"
+		    quidu      	"3FE5B63303D4"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$38"
+		    quid       	"3FE5B64101B8"
+		    supplier   	"Use Case View::На контроле::Дельтой"
+		    quidu      	"3FE5B5B80160")))
+	(object Association "$UNNAMED$39"
+	    quid       	"3FE5CA970177"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$40"
+		    quid       	"3FE5CA97031C"
+		    supplier   	"Use Case View::На контроле::Просмотр изменений"
+		    quidu      	"3FE5CA8F03D8"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$41"
+		    quid       	"3FE5CA97031E"
+		    supplier   	"Use Case View::На контроле::Пользователь"
+		    quidu      	"3FE5B14100E4"))))
+    logical_presentations 	(list unit_reference_list
+	(object UseCaseDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"3EB8AE7502E8"))
+	    quid       	"3FE5B139035B"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	106
+	    origin_y   	387
+	    items      	(list diagram_item_list
+		(object UseCaseView "Use Case View::На контроле::Документ" @119
+		    location   	(1281, 146)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@119
+			location   	(1281, 284)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Документ")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B15F00C9"
+		    height     	118)
+		(object UseCaseView "Use Case View::На контроле::Запрос" @120
+		    location   	(1284, 606)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@120
+			location   	(1284, 744)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Запрос")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B166020A"
+		    height     	118)
+		(object UseCaseView "Use Case View::На контроле::Список" @121
+		    location   	(1278, 384)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@121
+			location   	(1278, 522)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Список")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B16C035D"
+		    height     	118)
+		(object UseCaseView "Use Case View::На контроле::Найти и сохранить изменения" @122
+		    location   	(1438, 1487)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@122
+			location   	(1438, 1625)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Найти и сохранить изменения")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B41F039D"
+		    height     	118)
+		(object UseCaseView "Use Case View::На контроле::Передать изменения" @123
+		    location   	(1477, 1816)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@123
+			location   	(1477, 1954)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Передать изменения")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B5A9003C"
+		    height     	118)
+		(object ClassView "Class" "Use Case View::На контроле::GDK" @124
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1934, 1621)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@124
+			location   	(1823, 1593)
+			fill_color 	16777215
+			nlines     	1
+			max_width  	222
+			justify    	0
+			label      	"GDK")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@124
+			location   	(1823, 1543)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	219
+			justify    	0
+			label      	"<<Actor>>")
+		    icon       	"Actor"
+		    icon_style 	"Label"
+		    fill_color 	13434879
+		    quidu      	"3FE5B4180361"
+		    width      	240
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$30" @125
+		    location   	(1686, 1554)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B448005C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$31" @126
+			    Parent_View 	@125
+			    location   	(-254, 13)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B4490144"
+			    client     	@125
+			    supplier   	@122
+			    vertices   	(list Points
+				(1686, 1554)
+				(1438, 1487))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$32" @127
+			    Parent_View 	@125
+			    location   	(-254, 13)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B449014E"
+			    client     	@125
+			    supplier   	@124
+			    vertices   	(list Points
+				(1686, 1554)
+				(1934, 1621))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$33" @128
+		    location   	(1699, 1718)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B5AB02FC"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$34" @129
+			    Parent_View 	@128
+			    location   	(-217, 209)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B5AC0022"
+			    client     	@128
+			    supplier   	@123
+			    vertices   	(list Points
+				(1699, 1718)
+				(1585, 1765))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$35" @130
+			    Parent_View 	@128
+			    location   	(-217, 209)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B5AC002D"
+			    client     	@128
+			    supplier   	@124
+			    vertices   	(list Points
+				(1699, 1718)
+				(1813, 1671))
+			    line_style 	0)))
+		(object UseCaseView "Use Case View::На контроле::Переустановкой" @131
+		    location   	(932, 2031)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@131
+			location   	(932, 2169)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Переустановкой")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B5BC03B5"
+		    height     	118)
+		(object InheritView "" @132
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B5CE032E"
+		    client     	@131
+		    supplier   	@123
+		    vertices   	(list Points
+			(1040, 1984)
+			(1156, 1941))
+		    line_style 	0)
+		(object UseCaseView "Use Case View::На контроле::Применить дельту" @133
+		    location   	(472, 1763)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@133
+			location   	(472, 1901)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Применить дельту")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B63303D4"
+		    height     	118)
+		(object UseCaseView "Use Case View::На контроле::Дельтой" @134
+		    location   	(904, 1766)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@134
+			location   	(904, 1904)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Дельтой")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B5B80160"
+		    height     	118)
+		(object InheritView "" @135
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B5CC01FF"
+		    client     	@134
+		    supplier   	@123
+		    vertices   	(list Points
+			(1012, 1771)
+			(1367, 1802))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$36" @136
+		    location   	(686, 1762)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @137
+			Parent_View 	@136
+			location   	(714, 1715)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.966667
+			height     	48
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"3FE5B6410103"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$37" @138
+			    Parent_View 	@136
+			    location   	(-218, -4)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B64101AD"
+			    client     	@136
+			    supplier   	@133
+			    vertices   	(list Points
+				(686, 1762)
+				(580, 1762))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$38" @139
+			    Parent_View 	@136
+			    location   	(-218, -4)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B64101B8"
+			    client     	@136
+			    supplier   	@134
+			    vertices   	(list Points
+				(686, 1762)
+				(793, 1762))
+			    line_style 	0)))
+		(object ClassView "Class" "Use Case View::На контроле::Немезис" @140
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1911, 875)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@140
+			location   	(1800, 847)
+			fill_color 	16777215
+			nlines     	1
+			max_width  	222
+			justify    	0
+			label      	"Немезис")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@140
+			location   	(1800, 797)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	219
+			justify    	0
+			label      	"<<Actor>>")
+		    icon       	"Actor"
+		    icon_style 	"Label"
+		    fill_color 	13434879
+		    quidu      	"3FE5B1FF03E1"
+		    width      	240
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UseCaseView "Use Case View::На контроле::Проверить изменения" @141
+		    location   	(1410, 1164)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@141
+			location   	(1410, 1302)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Проверить изменения")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B1B50218"
+		    height     	118)
+		(object AssociationViewNew "$UNNAMED$27" @142
+		    location   	(1646, 1024)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B207023E"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$28" @143
+			    Parent_View 	@142
+			    location   	(-270, 208)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B2080022"
+			    client     	@142
+			    supplier   	@141
+			    vertices   	(list Points
+				(1646, 1024)
+				(1503, 1106))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$29" @144
+			    Parent_View 	@142
+			    location   	(-270, 208)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B2080024"
+			    client     	@142
+			    supplier   	@140
+			    vertices   	(list Points
+				(1646, 1024)
+				(1790, 943))
+			    line_style 	0)))
+		(object UseCaseView "Use Case View::На контроле::Поставить на контроль" @145
+		    location   	(725, 243)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@145
+			location   	(725, 381)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Поставить на контроль")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B14F0199"
+		    height     	118)
+		(object InheritView "" @146
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B1780148"
+		    client     	@120
+		    supplier   	@145
+		    vertices   	(list Points
+			(1194, 548)
+			(977, 406))
+		    line_style 	0)
+		(object InheritView "" @147
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B17D0040"
+		    client     	@121
+		    supplier   	@145
+		    vertices   	(list Points
+			(1166, 353)
+			(1045, 322))
+		    line_style 	0)
+		(object InheritView "" @148
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B17E025F"
+		    client     	@119
+		    supplier   	@145
+		    vertices   	(list Points
+			(960, 199)
+			(833, 220))
+		    line_style 	0)
+		(object UseCaseView "Use Case View::На контроле::Снять с контроля" @149
+		    location   	(783, 577)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@149
+			location   	(783, 715)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Снять с контроля")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B1A502D3"
+		    height     	118)
+		(object UseCaseView "Use Case View::На контроле::Сообщить об изменениях" @150
+		    location   	(797, 1159)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@150
+			location   	(797, 1297)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Сообщить об изменениях")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5B1E80076"
+		    height     	118)
+		(object AssociationViewNew "$UNNAMED$18" @151
+		    location   	(1101, 1159)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @152
+			Parent_View 	@151
+			location   	(1111, 1106)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<extend>>"
+			pctDist    	0.666667
+			height     	54
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"3FE5B1FA0054"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$19" @153
+			    Parent_View 	@151
+			    location   	(301, -266)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B1FA0112"
+			    client     	@151
+			    supplier   	@150
+			    vertices   	(list Points
+				(1101, 1159)
+				(905, 1158))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$20" @154
+			    Parent_View 	@151
+			    location   	(301, -266)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B1FA0114"
+			    client     	@151
+			    supplier   	@141
+			    vertices   	(list Points
+				(1101, 1159)
+				(1298, 1160))
+			    line_style 	0)))
+		(object UseCaseView "Use Case View::На контроле::Просмотр изменений" @155
+		    location   	(785, 850)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@155
+			location   	(785, 988)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Просмотр изменений")
+		    icon_style 	"Icon"
+		    line_color 	3947680
+		    fill_color 	13158655
+		    quidu      	"3FE5CA8F03D8"
+		    height     	118)
+		(object ClassView "Class" "Use Case View::На контроле::Пользователь" @156
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(245, 862)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@156
+			location   	(98, 834)
+			fill_color 	16777215
+			nlines     	1
+			max_width  	294
+			justify    	0
+			label      	"Пользователь")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@156
+			location   	(98, 784)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	294
+			justify    	0
+			label      	"<<Actor>>")
+		    icon       	"Actor"
+		    icon_style 	"Label"
+		    fill_color 	13434879
+		    quidu      	"3FE5B14100E4"
+		    width      	312
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$15" @157
+		    location   	(455, 588)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B18301B1"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$16" @158
+			    Parent_View 	@157
+			    location   	(182, -221)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B18302DE"
+			    client     	@157
+			    supplier   	@145
+			    vertices   	(list Points
+				(455, 588)
+				(597, 406))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$17" @159
+			    Parent_View 	@157
+			    location   	(182, -221)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B18302E0"
+			    client     	@157
+			    supplier   	@156
+			    vertices   	(list Points
+				(455, 588)
+				(314, 771))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$24" @160
+		    location   	(437, 758)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B1B10316"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$25" @161
+			    Parent_View 	@160
+			    location   	(195, -126)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B1B200A1"
+			    client     	@160
+			    supplier   	@149
+			    vertices   	(list Points
+				(437, 758)
+				(473, 740))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$26" @162
+			    Parent_View 	@160
+			    location   	(195, -126)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B1B200AB"
+			    client     	@160
+			    supplier   	@156
+			    vertices   	(list Points
+				(437, 758)
+				(401, 777))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$21" @163
+		    location   	(545, 1023)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5B1FC01B5"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$22" @164
+			    Parent_View 	@163
+			    location   	(-252, -136)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B1FD0315"
+			    client     	@163
+			    supplier   	@156
+			    vertices   	(list Points
+				(545, 1023)
+				(401, 945))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$23" @165
+			    Parent_View 	@163
+			    location   	(-252, -136)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5B1FD0317"
+			    client     	@163
+			    supplier   	@150
+			    vertices   	(list Points
+				(545, 1023)
+				(690, 1101))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$39" @166
+		    location   	(538, 854)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"3FE5CA970177"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$40" @167
+			    Parent_View 	@166
+			    location   	(293, -8)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5CA97031C"
+			    client     	@166
+			    supplier   	@155
+			    vertices   	(list Points
+				(538, 854)
+				(675, 850))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$41" @168
+			    Parent_View 	@166
+			    location   	(293, -8)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3FE5CA97031E"
+			    client     	@166
+			    supplier   	@156
+			    vertices   	(list Points
+				(538, 854)
+				(401, 858))
+			    line_style 	0)))
+		(object NoteView @169
+		    location   	(1764, 518)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@169
+			location   	(1626, 458)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	240
+			justify    	1
+			label      	"следующая версия")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	300
+		    height     	132)
+		(object AttachView "" @170
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@169
+		    supplier   	@121
+		    vertices   	(list Points
+			(1764, 518)
+			(1278, 384))
+		    line_style 	0)
+		(object AttachView "" @171
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@169
+		    supplier   	@120
+		    vertices   	(list Points
+			(1613, 545)
+			(1392, 583))
+		    line_style 	0)))))

@@ -1,0 +1,53 @@
+// l3StringList 4B88F8D6025A Impurity Class
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_4B88F8D6025A
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+: ME_4B88F9310209
+ CONST UID '4B88F9310209'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_47A8693601A1 // Tl3PrimString
+ ;
+
+ @SELF
+; // ME_4B88F9310209 ItemType
+
+: ME_4B88F8D6025A
+ CONST UID '4B88F8D6025A'
+ CONST Name 'l3StringList'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4B88F9310209 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4B88F8D6025A l3StringList

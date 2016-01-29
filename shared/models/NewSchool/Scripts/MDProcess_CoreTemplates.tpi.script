@@ -1,0 +1,184 @@
+INCLUDE 'classRelations.ms.dict'
+
+: gen_spell
+ CONST UID '4A41A13D03D5'
+ CONST Name 'spell'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_spell
+
+: gen_forth_structure
+ CONST UID '4F368B80039E'
+ CONST Name 'forth_structure'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_forth_structure
+
+: gen_wiki
+ CONST UID '46E6D4BB0339'
+ CONST Name 'wiki'
+ CONST Stereotype 'generator'
+ @SELF
+; // gen_wiki
+
+: st_WikiPackageImpl
+ CONST UID '471738DF00DA'
+ CONST Name 'WikiPackageImpl'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_WikiPackageImpl
+
+: st_WikiImplClass
+ CONST UID '471723E1037A'
+ CONST Name 'WikiImplClass'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_WikiImplClass
+
+: st_UMLModule
+ CONST UID '4704814501D4'
+ CONST Name 'UMLModule'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_UMLModule
+
+: st_UMLPrimitive
+ CONST UID '4704818D00DA'
+ CONST Name 'UMLPrimitive'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UMLPrimitive
+
+: st_Requirements
+ CONST UID '47047244009C'
+ CONST Name 'Requirements'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Requirements
+
+: st_UseCases
+ CONST UID '470472F6005D'
+ CONST Name 'UseCases'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_UseCases
+
+: st_Features
+ CONST UID '470473D60213'
+ CONST Name 'Features'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Features
+
+: st_Problems
+ CONST UID '4704742800BB'
+ CONST Name 'Problems'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Problems
+
+: st_Actor
+ CONST UID '4704752002AF'
+ CONST Name 'Actor'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Actor
+
+: st_UserNeeds
+ CONST UID '470476510157'
+ CONST Name 'UserNeeds'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UserNeeds
+
+: st_Feature
+ CONST UID '47047810029F'
+ CONST Name 'Feature'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Feature
+
+: st_UseCase
+ CONST UID '470478900251'
+ CONST Name 'UseCase'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UseCase
+
+: st_include::Dependency
+ CONST UID '470479110280'
+ CONST Name 'include'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_include::Dependency
+
+: st_extend::Dependency Inherits ( st_include::Dependency )
+ CONST UID '47047929006D'
+ CONST Name 'extend'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_extend::Dependency
+
+: st_notify::Dependency
+ CONST UID '4704795200AB'
+ CONST Name 'notify'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_notify::Dependency
+
+: st_follow::Dependency
+ CONST UID '48E35B39018E'
+ CONST Name 'follow'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_follow::Dependency
+
+: st_UseCaseRequirement Inherits ( st_UseCase )
+ CONST UID '4E3021A70212'
+ CONST Name 'UseCaseRequirement'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UseCaseRequirement
+
+: st_realized_by::Dependency
+ CONST UID '4E9F0231024F'
+ CONST Name 'realized_by'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_realized_by::Dependency
+
+: st_UseCaseSetting Inherits ( st_UseCaseRequirement )
+ CONST UID '4E3022100248'
+ CONST Name 'UseCaseSetting'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UseCaseSetting
+
+: st_UseCaseSettingValue
+ CONST UID '4E30271A0247'
+ CONST Name 'UseCaseSettingValue'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UseCaseSettingValue
+
+: st_UseCaseTagRequirement Inherits ( st_UseCaseRequirement )
+ CONST UID '4E5D084401FE'
+ CONST Name 'UseCaseTagRequirement'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UseCaseTagRequirement
+
+: st_UseCaseTagValueRequirement Inherits ( st_UseCaseRequirement )
+ CONST UID '4E5D0C7A0101'
+ CONST Name 'UseCaseTagValueRequirement'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_UseCaseTagValueRequirement
+
+: st_Project
+ CONST UID '49F99EB100B2'
+ CONST Name 'Project'
+ CONST Stereotype 'MDACategory'
+ @SELF
+; // st_Project
+

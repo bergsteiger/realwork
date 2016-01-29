@@ -1,0 +1,329 @@
+// ScriptedAxiomatics 55B7A3160128 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B7A3160128
+
+FORWARD ME_55B7A33101AF
+
+: ME_55B7B2D2039D
+ CONST UID '55B7B2D2039D'
+ CONST Name 'RtfwAxiomaticsResNameGetter'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ;
+ : Inherits
+   @ ( ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isClassRef" true
+
+ref; // ME_55B7B2D2039D RtfwAxiomaticsResNameGetter
+
+FORWARD ME_55B7A3AF0359
+
+: ME_55B7A3C7002A
+ CONST UID '55B7A3C7002A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B7A3AF0359 // ResName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55B7A3C7002A DoIt
+
+: ME_55B7A3AF0359
+ CONST UID '55B7A3AF0359'
+ CONST Name 'ResName'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ;
+ : Operations
+   @ ( ME_55B7A3C7002A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_55B7A3AF0359 ResName
+
+FORWARD ME_55B8C6800184
+
+: ME_55B8C68B0388
+ CONST UID '55B8C68B0388'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B8C6800184 // Register
+ ;
+
+ref; // ME_55B8C68B0388 DoIt
+
+: ME_55B8C6800184
+ CONST UID '55B8C6800184'
+ CONST Name 'Register'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ;
+ : Operations
+   @ ( ME_55B8C68B0388 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_55B8C6800184 Register
+
+FORWARD ME_55B7A39F0035
+
+: ME_55B8C673004C
+ CONST UID '55B8C673004C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ;
+ : Target ME_55B7A39F0035 // TtfwAxiomaticsResNameGetters
+ ;
+
+ref; // ME_55B8C673004C 
+
+: ME_55B7A33101AF
+ CONST UID '55B7A33101AF'
+ CONST Name 'TtfwAxiomaticsResNameGetter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55B7A3160128 // ScriptedAxiomatics
+ ;
+ : Operations
+   @ ( ME_55B7A3AF0359 // ResName
+ ME_55B8C6800184 // Register
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_55B7B2D2039D // RtfwAxiomaticsResNameGetter
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_55B8C673004C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetter.pas'
+
+ref; // ME_55B7A33101AF TtfwAxiomaticsResNameGetter
+
+FORWARD ME_55B7A37F010E
+
+: ME_55B7A38E028C
+ CONST UID '55B7A38E028C'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ ;
+ : Target ME_55B7B2D2039D // RtfwAxiomaticsResNameGetter
+ ;
+
+ref; // ME_55B7A38E028C ItemType
+
+: ME_47B99D4503A2_ME_55B7A37F010E
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_55B7A37F010E CompareExistingItems
+
+: ME_55B7A37F010E
+ CONST UID '55B7A37F010E'
+ CONST Name 'TtfwAxiomaticsResNameGetterList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55B7A3160128 // ScriptedAxiomatics
+ ;
+ : Inherits
+   @ ( WL 'ME_47B992F60244' '47913B47006E.pas.ms.script' // l3UnrefcountedList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55B7A38E028C // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B99D4503A2_ME_55B7A37F010E // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetterList.pas'
+
+ref; // ME_55B7A37F010E TtfwAxiomaticsResNameGetterList
+
+: ME_0F75CE939091
+ CONST UID '0F75CE939091'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B7A39F0035 // TtfwAxiomaticsResNameGetters
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_0F75CE939091 Exists
+
+: ME_55B7A39F0035
+ CONST UID '55B7A39F0035'
+ CONST Name 'TtfwAxiomaticsResNameGetters'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55B7A3160128 // ScriptedAxiomatics
+ ;
+ : Inherits
+   @ ( ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_0F75CE939091 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetters.pas'
+
+ref; // ME_55B7A39F0035 TtfwAxiomaticsResNameGetters
+
+FORWARD ME_55BA0CA0035A
+
+: ME_8614BE8B34F0
+ CONST UID '8614BE8B34F0'
+ CONST Name 'Exists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55BA0CA0035A // TtfwCompiledAxiomaticsRes
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_8614BE8B34F0 Exists
+
+: ME_55BA0CA0035A
+ CONST UID '55BA0CA0035A'
+ CONST Name 'TtfwCompiledAxiomaticsRes'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55B7A3160128 // ScriptedAxiomatics
+ ;
+ : Inherits
+   @ ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_8614BE8B34F0 // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCompiledAxiomaticsRes.pas'
+
+ref; // ME_55BA0CA0035A TtfwCompiledAxiomaticsRes
+
+: ME_55B7A3160128
+ CONST UID '55B7A3160128'
+ CONST Name 'ScriptedAxiomatics'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Аксиоматика порождаемая скриптами же. Всякие обёртки, алиасы, декораторы и т.д. и .п.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ ;
+ : Children
+   @ ( ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ ME_55B7A39F0035 // TtfwAxiomaticsResNameGetters
+ ME_55BA0CA0035A // TtfwCompiledAxiomaticsRes
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55B7A3160128.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55B7A3160128.pas.ms.script.runner'
+
+ref; // ME_55B7A3160128 ScriptedAxiomatics

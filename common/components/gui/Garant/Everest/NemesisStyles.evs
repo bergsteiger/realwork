@@ -1,0 +1,223 @@
+%producer 'ЭВЕРЕСТ 1.0.0.175' date '13.10.2003'
+%format version 0.140 revision date '10/09/2003' brackets { }
+: TextStyle = {
+ Handle = -1
+ Name = 'Текст'
+ Font = {
+  Name = 'Arial CYR'
+  Size = 10
+  BackColor = clDefault
+  ForeColor = clDefault
+  Bold = False
+  Italic = False
+  Underline = False
+  Strikeout = False
+ }
+ Justification = ev_itWidth
+ FirstIndent = 720
+ LeftIndent = 0
+ RightIndent = 0
+ SpaceBefore = 0
+ SpaceAfter = 0
+ Apply2Para = True
+ Visible = True
+}
+: TextStyle = {
+ Handle = -2
+ Name = 'Таблицы (моноширинный)'
+ Justification = ev_itPreformatted
+ FirstIndent = 0
+}
+ : TextStyle = {
+  Handle = -24
+  Name = 'Оглавление'
+  Font = {
+  }
+  FirstIndent = 140
+  LeftIndent = 140
+  Style = -2 // == 'Таблицы (моноширинный)'
+ }
+: TextStyle = {
+ Handle = -3
+ Name = 'Заголовок 1'
+ Font = {
+  ForeColor = clNavy
+  Bold = True
+ }
+ FirstIndent = 0
+ Justification = ev_itCenter
+ SpaceBefore = 108
+ SpaceAfter = 108
+}
+ : TextStyle = {
+  Handle = -4
+  Name = 'Заголовок 2'
+  Font = {
+  }
+  Style = -3 // == 'Заголовок 1'
+ }
+  : TextStyle = {
+   Handle = -5
+   Name = 'Заголовок 3'
+   Font = {
+   }
+   Style = -4 // == 'Заголовок 2'
+  }
+   : TextStyle = {
+    Handle = -6
+    Name = 'Заголовок 4'
+    Font = {
+    }
+    Style = -5 // == 'Заголовок 3'
+   }
+: TextStyle = {
+ Handle = -15
+ Name = 'Заголовок статьи'
+ LeftIndent = 1612
+}
+ : TextStyle = {
+  Handle = -23
+  Name = 'Комментарий пользователя'
+  Font = {
+   ForeColor = clNavy
+  }
+  Justification = ev_itLeft
+  Style = -9 // == 'Комментарий'
+ }
+: TextStyle = {
+ Handle = -14
+ Name = 'Текст (справка)'
+ Font = {
+ }
+ Justification = ev_itLeft
+ FirstIndent = 170
+ LeftIndent = 170
+ RightIndent = 170
+}
+: TextStyle = {
+ Handle = -18
+ Name = 'Текст (лев. подпись)'
+ Font = {
+ }
+ Justification = ev_itLeft
+ FirstIndent = 0
+}
+ : TextStyle = {
+  Handle = -27
+  Name = 'Колонтитул (левый)'
+  Font = {
+   Size = 6
+  }
+  Style = -18 // == 'Текст (лев. подпись)'
+ }
+: TextStyle = {
+ Handle = -19
+ Name = 'Текст (прав. подпись)'
+ Font = {
+ }
+ Justification = ev_itRight
+ FirstIndent = 0
+}
+ : TextStyle = {
+  Handle = -28
+  Name = 'Колонтитул (правый)'
+  Font = {
+   Size = 6
+  }
+  Style = -19 // == 'Текст (прав. подпись)'
+}
+: TextStyle = {
+ Handle = -10
+ Name = 'Цветовое выделение'
+ Font = {
+  Name = @
+  Pitch = @
+  Size = @
+  BackColor = @
+  ForeColor = clNavy
+  Bold = True
+  Italic = @
+  Underline = @
+  Strikeout = @
+  Index = @
+ }
+ Visible = @
+ Apply2Para = False
+}
+ : TextStyle = {
+  Handle = -7
+  Name = 'Утратил силу'
+  Font = {
+   ForeColor = clOlive
+   Bold = False
+   Strikeout = True
+  }
+  Style = -10 // == 'Цветовое выделение'
+ }
+  : TextStyle = {
+   Handle = -25
+   Name = 'Не вступил в силу'
+   Font = {
+    ForeColor = clTeal
+    Bold = False
+    Strikeout = True
+   }
+   Style = -10 // == 'Цветовое выделение'
+  }
+ : TextStyle = {
+  Handle = -8
+  Name = 'Гипертекстовая ссылка'
+  Font = {
+   ForeColor = clGreen
+   Bold = False
+  }
+  Style = -10 // == 'Цветовое выделение'
+ }
+: TextStyle = {
+ Handle = -13
+ Name = 'Найденные слова'
+ Font = {
+  Bold = True
+  ForeColor = clWhite
+  BackColor = clRed
+ }
+ Style = -10
+}
+  : TextStyle = {
+   Handle = -11
+   Name = 'Продолжение ссылки'
+   Font = {
+   }
+   Style = -8 // == 'Гипертекстовая ссылка'
+  }
+: TextStyle = {
+ Handle = -26
+ Name = 'Словарная статья'
+ FirstIndent = 0
+ RightIndent = 118
+}
+: TextStyle = {
+ Handle = -16
+ FirstIndent = 0
+ FirstLineIndent = 0
+ Name = 'Прижатый влево'
+ Justification = ev_itLeft
+}
+: TextStyle = {
+ Handle = -21
+ Name = 'Технический комментарий'
+ FirstIndent = 0
+ FirstLineIndent = 0
+ Justification = ev_itLeft
+ Font = {
+  BackColor = clYellow
+ } 
+}
+: TextStyle = {
+ FirstIndent = 500
+ FirstLineIndent = 500
+ Handle = -20
+ Style = -17
+ Name = 'Текст в таблице'
+ AllowHyphen = true
+}

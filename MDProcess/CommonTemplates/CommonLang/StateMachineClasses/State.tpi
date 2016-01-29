@@ -1,0 +1,159 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/StateMachineClasses/State.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::StateMachineClasses::State
+//
+// Состояние
+// ---
+// Соответствует элементу-сосотянию, определенному на диаграмме состояний, соответствие
+// определяется по совпадению имен. Абстрактное состояниеможет не соответствовать событию на
+// диаграмме состояний
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: State::Class
+? Состояние
+? Соответствует элементу-сосотянию, определенному на диаграмме состояний, соответствие определяется по совпадению имен. Абстрактное состояниеможет не соответствовать событию на диаграмме состояний
+= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_sm_state.gif
+L code_sm_state
+// Параметры визуализации
+$ C 248,225,232
+$ l 249,100,145
+$ f 249,100,145
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p is base:b=false ? Определяет, что данный элемент будет базовым для всех элементов - состояний в конкретной машине состояний
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{is base}"!="%S{!is base}"}%f_up_prefix(%S) *is base* = *%S{is base}* - Определяет, что данный элемент будет базовым для всех элементов - состояний в конкретной машине состояний
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа AbstractClass::Class
+// генерация списка базовых классов и реализуемых интерфейсов
+%f _java_base_class_decl
+//#UC START# *47173062030Dfor475F8CC801A5*
+	%f_find_specific_base_state(%P,%S,"BASE_STATE")\
+	[{}{[{"%{BASE_STATE}U"!=""&%{BASE_STATE}U!=%SU}{ extends ru.garant.shared.FSM.BaseState} extends %f_type(%{BASE_STATE})]}%f_java_base(%S)]
+//#UC END# *47173062030Dfor475F8CC801A5*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// генерация блока импорта серванта
+%f _java_servant_import_self
+//#UC START# *4717306F0157for475F8CC801A5*
+	%f_set_var(CORRSEPONDED_STATE,"")%P<{}{%AC=State&%AN=%{SELF}N}{%A}%f_set_var(CORRSEPONDED_STATE,A)>\
+	[{%S{is base}=false}import ru.garant.shared.FSM.IContext;
+	import ru.garant.shared.GCI.I18N.Messages;
+	][{"%{CORRSEPONDED_STATE}U"!=""}import %f_type(%{CORRSEPONDED_STATE}%P%P)Impl;]
+//#UC END# *4717306F0157for475F8CC801A5*
+
+// перекрытие базового стереотипа AbstractClass::Class
+// генерация специфичсекого содержимого
+%f _servant_content_java
+//#UC START# *47173078008Cfor475F8CC801A5*
+	[{%Sa!=abstract}\n\
+	#	public static %SN make () {
+	#		return new %SN ();
+	#	}
+	#	
+	#	protected %SN () {
+	#		%U[{_CTOR_%f_to_upper(%SN)}
+	#		]
+	#	}
+	#	
+	]%f_set_var(CORRSEPONDED_STATE,"")%P<{}{%AC=State&%AN=%{SELF}N}{%A}%f_set_var(CORRSEPONDED_STATE,A)>\
+	
+	#	public[{%Sa=abstract} abstract] String getName ()[{%Sa!=abstract}{;} \{
+	#		return ru.garant.shared.GCI.I18N.Messages.Factory.messages ().get (
+	#			"[{}{<{}{}{r}%PN.>}%{CORRSEPONDED_STATE}<{}{}{r}%PN.>]%SN"
+	#		);
+	#	}][{"%{CORRSEPONDED_STATE}U"!=""}
+	[
+	[{%{CORRSEPONDED_STATE}<{}{%CC=Action&%CK=entry}{C}>!=0}\
+	#	public void postEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {
+	#		%P%PNImpl context = (%P%PNImpl)conn;
+	%{CORRSEPONDED_STATE}<{}{%CC=Action&%CK=entry}#		try {
+	#			context.%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+	#		} catch (Throwable ex) {
+	#			Logs.LOG_SEX (ex);
+	#		}
+	>#	}
+	][{%{CORRSEPONDED_STATE}<{}{%CC=Action&%CK=exit}{C}>!=0}\
+	#	public void postExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) {
+	#		%P%PNImpl context = (%P%PNImpl)conn;
+	%{CORRSEPONDED_STATE}<{}{%CC=Action&%CK=exit}#		try {
+	#			context.%f_to_java(post_%f_to_omg(%C%PN)_%CN) (event);
+	#		} catch (Throwable ex) {
+	#			Logs.LOG_SEX (ex);
+	#		}
+	>#	}
+	][{%{CORRSEPONDED_STATE}K=Final|%{CORRSEPONDED_STATE}K=Initial}\
+	#	public ru.garant.shared.FSM.StateType getType () {
+	#		return ru.garant.shared.FSM.StateType.ST_%f_to_upper(%{CORRSEPONDED_STATE}K);
+	#	}
+	]
+	#	public void validate (final IContext conn) throws ru.garant.shared.FSM.ValidationFailed {
+	#		%{CORRSEPONDED_STATE}%P%PNImpl context = (%{CORRSEPONDED_STATE}%P%PNImpl)conn;
+	#		context.validate%{SELF}N ();
+	#	}
+	
+	#	public void preEnterAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreEnterFailed {
+	#		%{CORRSEPONDED_STATE}%P%PNImpl context = (%{CORRSEPONDED_STATE}%P%PNImpl)conn;
+	#		context.preEnterAction%{SELF}N (event);
+	#	}
+		
+	#	public void preExitAction (final ru.garant.shared.FSM.BaseEvent event, final IContext conn) throws ru.garant.shared.FSM.PreExitFailed {
+	#		%{CORRSEPONDED_STATE}%P%PNImpl context = (%{CORRSEPONDED_STATE}%P%PNImpl)conn;
+	#		context.preExitAction%{SELF}N (event);
+	#	}
+	>
+	]]
+//#UC END# *47173078008Cfor475F8CC801A5*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for475F8CC801A5*
+c           {}
+r {""=""}:  {}
+//#UC END# *4704C0E30186for475F8CC801A5*
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor475F8CC801A5*
+O []
+//#UC END# *470321C1038Afor475F8CC801A5*
+
+// перекрытие базового стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for475F8CC801A5*
+= SimpleClass::Class;java
+C /sm/%PN
+//#UC END# *470321950119for475F8CC801A5*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+~ State::Class::impurity value::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

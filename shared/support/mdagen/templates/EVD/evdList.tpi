@@ -1,0 +1,103 @@
+//////////////////////////////////////////////////////////////////////////////////
+// EvdList
+//////////////////////////////////////////////////////////////////////////////////
+
+: EvdList::Class
+? EVD-Список
+? Определяет структурный элемент данных формата EVD
+< *::Class,*::Category
+$ S
+$ C 5,230,180
+$ l 5,190,100
+$ f 5,190,100
+
+v +
+a ra
+
+%t _constraint
+c                              {}
+r {<{}{%GS!=EvdList&%GS!=EvdStruct}{C}>!=0}: {%SS должен наследоваться от Тэга или Структуры}
+/r {<{}{%GS!=UMLPrimitive&%GS!=EvdList&%GS!=Enum}{C}>!=0}: {%SS должен наследоваться от Тэга, Перечисления или от примитивного типа}
+r {%Sa=abstract&%Zx=false}: {абстрактный Тэг должен быть специализирован}
+/r {%ax=false}: {%SS ни кем не используется}
+
+L code_evd_tag
+
+%f _wiki_up_print
+
+%f _wiki_up_add_gen
+
++ wiki
+= Servant::Class;wiki
+
++ evd.pas
+R  
+	#%f_evd_TagVar(%S) := Result%t_evd_DefineList(%S);\
+	%f_evd_OutTagClasses(%S)\
+	%f_evd_OutAttrs(%S)
+
+: EvdList::Class::Attribute
+v +
+l al
+? Атрибут Тэга
+
+p Stored:b=true ? определяет персистентность связи
+p Default ? определяет значение атрибута по умолчанию
+p NeedMarkModified:b=false ? Определяет - меняется ли модифицированность документа при изменении этого атрибута.
+p EmptyMapping=-2 ? Определяет идентификатор вложенного тега от которого берется значение атрибута, если такового нет у родителя.
+
+%t _constraint
+c                              {}
+r {%TS!=UMLPrimitive&%TS!=EvdList&%TS!=EvdStruct&%TS!=EvdTag}: {Список тэгов может содержать только другие Тэги, Структуры, Списки}
+
+L code_attr
+
+%f _wiki_child_kind
+	attr
+
++ evd.pas
+	%t_evd_DefineAttr(%S);
+
+: EvdList::Class::vector::Attribute
+v +
+l al
+? Векторный атрибут списка тегов
+
+p Stored:b=true ? определяет персистентность связи
+p Default ? определяет значение атрибута по умолчанию
+p NeedMarkModified:b=false ? Определяет - меняется ли модифицированность документа при изменении этого атрибута.
+p EmptyMapping=-2 ? Определяет идентификатор вложенного тега от которого берется значение атрибута, если такового нет у родителя.
+
+%t _constraint
+c                              {}
+r {%TS!=UMLPrimitive&%TS!=EvdList&%TS!=EvdStruct&%TS!=EvdTag}: {Список тэгов может содержать только другие Тэги, Структуры, Списки}
+
+L code_attr
+
+%f _wiki_child_kind
+	attr
+
++ evd.pas
+	%t_evd_DefineAttr(%S);
+
+: EvdList::Class::defaultchild::Attribute
+v +
+l al
+? Тип детей по-умолчанию
+/
+/p Stored:b=true ? определяет персистентность связи
+/p Default ? определяет значение атрибута по умолчанию
+/p NeedMarkModified:b=false ? Определяет - меняется ли модифицированность документа при изменении этого атрибута.
+/p EmptyMapping=-2 ? Определяет идентификатор вложенного тега от которого берется значение атрибута, если такового нет у родителя.
+/
+/%t _constraint
+/c                              {}
+/r {%TS!=UMLPrimitive&%TS!=EvdTag&%TS!=EvdStruct&%TS!=EvdAtom&%TS!=EvdList&%TS!=Enum}: {Тэг может содержать только другие Тэги, Структуры, Атомы, Списки, Перечисления или примитивные типы}
+/
+/L code_attr
+/
+%f _wiki_child_kind
+	child_attr
+
++ evd.pas
+	%t_evd_DefineAttr(%S);

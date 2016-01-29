@@ -1,0 +1,291 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/LocalInterface.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::LocalInterface
+//
+// Локальный интерфейс
+// ---
+// определяет локальный интерфейс на уровне реализации, нужен для того что бы доопределить
+// существующие конкретные интерфейсы, задав на них недостающие методы или фабрики, которые не
+// будут видны клиенту библиотеки, но смогут использоваться внутри конкретного пакета реализации.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: LocalInterface::Class
+implementation @ <<LocalInterface>>
+//? Локальный интерфейс 
+//? определяет локальный интерфейс на уровне реализации, нужен для того что бы доопределить существующие конкретные интерфейсы, задав на них недостающие методы или фабрики, которые не будут видны клиенту библиотеки, но смогут использоваться внутри конкретного пакета реализации.
+//= Interface::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47A2D6A00142*
+//c                                                                                                                                       {}
+//r {<{}{%f_is_interface(%R)=false}{%RC}>!=0}:                                                                                            {%SS может реализовывать только интерфейсы}
+//r {%Sa!=abstract&%f_has_factory_methods(%S)=false&<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=false}{%RC}>!=0}:             {%SS реализующий интерфейс без фабрик должен сам определять фабрики}
+//r {<{}{%LS!=Servant}{%LC}>!=0}:                                                                                                         {%SS могут реализовывать только серванты}
+//r {%f_number_cmp("<{}{}{%RC}>","1","\>")=1}:                                                                                            {%SS может реализовывать только один Интерфейс}
+//r {%f_is_one_root_int(%S)!=true}:                                                                                                       {%SS can't recursively realize different Interfaces}
+//r {%Sa=abstract&<{}{%SS=%GS&%Ga!=abstract}{%GC}>!=0}:                                                                                   {Абстрактный %SS не может наследоваться от не абстрактных %SS}
+//r {%Sa!=abstract&<{}{%lS=Servant&%la!=abstract}{%lC}>=0}:                                                                               {Неабстрактный %SS должен быть реализован хотя бы одним неабстрактным сервантом}
+//r {%Sa=abstract&[{<{}{%SS=%ZS&%Za!=abstract}{%ZC}>=0&<{}{%LS=Servant&%La=abstract}{%LC}>=0}{true}false]=false}:                         {Абстрактный %SS должен быть специализирован неабстрактным %SS или быть реализован абстрактным сервантом}
+//r {""=""}:                                                                                                                              {%S%t_common_interface_constraint()}
+
+//f _is_one_root_int
+; // constraint
+
+end. // <<LocalInterface>>
+
+: is_one_root_int OBJECT IN %S
+//	%f_clear_list(ROOTS)\
+ [%f] clear_list %( 'ROOTS' )% 
+//	<%f_fill_roots(%r)>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%r
+ begin
+  OBJECT IN %r
+  if true then
+  begin
+   [%f] fill_roots %( %r )% 
+   ++! l_Counter
+  end // if
+ end // for r
+//	%f_unique_list(ROOTS)\
+ [%f] unique_list %( 'ROOTS' )% 
+//	[{%f_number_cmp("%f_roots_count(%S)","1","\>")=1}{true}false]
+ if ( ( [%f] number_cmp %( [%f] roots_count %( %S )% %, 1 %, '>' )% ) %== 1 ) then
+ begin
+   false 
+ end // if
+ else
+ begin
+   true 
+ end // else
+
+//f _roots_count
+; // is_one_root_int
+
+: roots_count OBJECT IN %S
+//	%f_set_var(COUNT,"0")<{}{%f_is_empty(ROOTS)=false}{W}%f_pop_first_to_var(ROOTS,TEMP)[{"%{TEMP}U"!=""}%f_set_var(COUNT,"%f_evaluate(1+%{COUNT}N)")]>\
+ [%f] set_var %( 'COUNT' %, 0 )% 
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'ROOTS' )% ) %==  false ) then
+  begin
+   [%f] pop_first_to_var %( 'ROOTS' %, 'TEMP' )% if ( ( ( get_global_var ( 'TEMP' ) |U ) ) %!= '' ) then
+   begin
+    [%f] set_var %( 'COUNT' %, [%f] evaluate %( 1 %integer:?+ ( get_global_var ( 'COUNT' ) |N ) )% )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%{COUNT}N
+ ( get_global_var ( 'COUNT' ) |N ) 
+
+//f _fill_roots
+; // roots_count
+
+: fill_roots OBJECT IN %S
+//	[{<{}{%f_is_interface(%G)=true}{%GC}>=0&<{}{%f_is_interface(%R)=true}{%RC}>=0&%f_is_interface(%S)=true&%f_exists_in_list(ROOTS,S)=false}\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( [%f] is_interface %( %G )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %== 0 AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%R
+  begin
+   OBJECT IN %R
+   if ( ( [%f] is_interface %( %R )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for R
+  l_Counter
+  %== 0  ) AND 
+   ( ( [%f] is_interface %( %S )% ) %==  true  ) AND 
+   ( ( [%f] exists_in_list %( 'ROOTS' %, 'S' )% ) %==  false  ) ) then
+ begin
+//	%f_add_to_list(ROOTS,S)]
+  [%f] add_to_list %( 'ROOTS' %, 'S' )% 
+ end // if
+
+//%f _use_bad_cast
+; // fill_roots
+
+implementation @ <<LocalInterface>>
+: use_bad_cast OBJECT IN %S
+//	[{"<{}{}{%g}%g<{}{%f_is_factory(%C)=true&%f_is_it_cached(%C)=true}.>>"!=""|"<{}{}{%r}%r<{}{%f_is_factory(%C)=true&%f_is_it_cached(%C)=true}.>>"!=""}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%g
+  begin
+   OBJECT IN %g
+   if true then
+   begin
+    %g
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( [%f] is_factory %( %C )% ) %==  true AND 
+       ( ( [%f] is_it_cached %( %C )% ) %==  true  ) ) then
+      begin
+       '.' 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for g
+  %!= '' OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%r
+  begin
+   OBJECT IN %r
+   if true then
+   begin
+    %r
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( [%f] is_factory %( %C )% ) %==  true AND 
+       ( ( [%f] is_it_cached %( %C )% ) %==  true  ) ) then
+      begin
+       '.' 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for r
+  %!= ''  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4704C0E30186for47A2D6A00142*
+; // use_bad_cast
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47A2D6A00142*
+//#UC END# *47022CCF00EAfor47A2D6A00142*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for47A2D6A00142*
+//#UC END# *47022BBE0261for47A2D6A00142*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for47A2D6A00142*
+//#UC END# *47022C0F01E4for47A2D6A00142*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47A2D6A00142*
+//#UC END# *477398E501C0for47A2D6A00142*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for47A2D6A00142*
+//#UC END# *55B8D28B0157for47A2D6A00142*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for47A2D6A00142*
+//#UC END# *55B8D2F80145for47A2D6A00142*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for47A2D6A00142*
+//#UC END# *55B8DD9C0301for47A2D6A00142*
+; // res.cmd.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<LocalInterface>>
+

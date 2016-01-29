@@ -1,0 +1,282 @@
+'в списке кликаем на тулбаре по кнопке сохранить список
+Sub Click_SaveAs
+ Toolbar Click, "VisualText=Файл", "Coords=270,36"
+end sub
+
+'в списке кликаем на тулбаре по кнопке дополнить список
+Sub Click_AddList
+Toolbar Click, "VisualText=Список", "Coords=830,36"
+end sub
+
+'в списке кликаем на тулбаре по кнопке Пересечь список
+Sub Click_CrossList
+Toolbar Click, "VisualText=Список", "Coords=855,36"
+end sub
+
+'в списке кликаем на тулбаре по кнопке вычесть список
+Sub Click_SubtractList
+Toolbar Click, "VisualText=Список", "Coords=880,36"
+end sub
+
+'в списке кликаем на тулбаре по кнопке вычесть список
+Sub Click_ChangeDirection
+Toolbar Click, "VisualText=Список", "Coords=790,36"
+end sub
+    
+ 
+    
+Sub Click_Izvle4enie
+    Toolbar Click, "VisualText=Список", "Coords=625,36"
+end sub
+
+'в списке кликаем на тулбаре по кнопке изменить направление сортировки
+Sub Click_ChangeSortDirection
+Toolbar Click, "VisualText=Список", "Coords=807,36"
+end sub
+
+'в КЗ кликаем на тулбаре по кнопке сохранить запрос
+Sub Click_FindSaveAs
+ Toolbar Click, "VisualText=Файл", "Coords=220,36"
+end sub
+
+'в КЗ кликаем на тулбаре по кнопке загрузить запрос
+Sub Click_FindLoad
+ Toolbar Click, "VisualText=Файл", "Coords=255,36"
+end sub
+
+
+'в "Мои документы" кликаем в тулбаре на Создать Папку
+Sub Click_FolderCreate
+ Toolbar Click, "VisualText=Файл", "Coords=98,60"
+end sub
+
+Sub Click_AddBookmark
+ Toolbar Click, "VisualText=Документ", "Coords=685,36"
+end sub
+
+'кликаем "Показать/скрыть пользовательские комментарии"
+Sub Click_UserComment
+ Toolbar Click, "VisualText=Документ", "Coords=665,36"
+end sub
+
+
+Sub Click_GarComment
+ Toolbar Click, "VisualText=Документ", "Coords=645,36"
+end sub
+
+Sub Click_ChangeProperty
+ Toolbar Click, "VisualText=Элемент папок", "Coords=128,60"
+end sub
+
+'устанавливаем фильтр контекстной фильтрации дерева - "Все объекты"
+Sub Click_SetFiltertoDef
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=28,14"
+    
+    Window SetContext, "Class=TvtPopupWindow", ""
+    ComboBox Click, "ObjectIndex=1", "Coords=16,12"
+    
+    Window SetContext, "Class=TSubTree", "Activate=0"
+    Window Click, "", "Coords=14,7"
+end sub
+
+'Клик кнопки тулбара "Back" - переход по истории на шаг назад
+Sub Click_Back
+  Toolbar Click, "Text=История", "Coords=11,9"
+End Sub
+
+'Клик кнопки тулбара навигатора Развернуть\Свернуть все
+Sub Click_NavExpClps
+   Toolbar Click, "ObjectIndex=3", "Coords=12,9"
+   Toolbar Click, "ObjectIndex=3", "Coords=-6,9" 'Дополнительный клик для перевода мышиного курсора
+End Sub
+
+'Клик по значку папки на рутовом элементе дерева навигатора (перевод фокуса)
+Sub Click_FirstKnot
+  ListBox Click, "ObjectIndex=1", "Coords=12,9"
+End Sub
+
+'''Клики в КЗ
+Sub Click_Find_Number
+    Window Click, "CurrentWindow","Coords=434,240"
+End Sub
+
+Sub Click_Find_DateAccept
+    Window Click, "CurrentWindow","Coords=434,270"
+End Sub
+Sub Click_Find_Type
+    Window Click, "CurrentWindow","Coords=434,90"
+End Sub
+
+'Клик по кнопке тулбара "Актуальная редакция"
+Sub Click_ActualRedaction
+  Toolbar Click, "ObjectIndex=111", "Coords=93,10"
+End Sub
+
+'*** Закладки Списка ***
+'Клик по закладке "Сихронный просмотр"
+Sub Click_pcSynchro
+  GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=291,11"
+End Sub
+
+'Клик по закладке "Список"
+Sub Click_pcList
+  GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=38,171"
+End Sub
+
+'Клик по закладке "Информация о списке"
+Sub Click_pcListInfo
+    GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=148,10"
+End Sub
+
+'*** Закладки Документа ***
+'Клик по закладке "Text"
+Sub Click_pcdocText
+  GenericObject Click, "Class=TElPageControl;ClassIndex=1", "Coords=40,169"
+End Sub
+
+'*** Тулбар Документа ***
+'Клик по кнопке СПРАВКА
+Sub Click_tbdocInfo
+  Window Click, "Caption={ГАРАНТ*}", "Coords=501,40"
+End Sub
+
+'Клик по кнопке КОРРеспонденты
+Sub Click_tbdocKORR
+  Window Click, "Caption={ГАРАНТ*}", "Coords=524,40"
+End Sub
+
+'Клик по кнопке РЕСПонденты
+Sub Click_tbdocRESP
+  Window Click, "Caption={ГАРАНТ*}", "Coords=560,40"
+End Sub
+
+'Клик по кнопке АТРИБУТЫ
+Sub Click_tbdocATTRIB
+  Window Click, "Caption={ГАРАНТ*}", "Coords=594,40"
+End Sub
+
+'Клик по кнопке ОГЛАВЛЕНИЕ
+Sub Click_tbdocContents
+  Window Click, "Caption={ГАРАНТ*}", "Coords=615,40"
+End Sub
+
+'Клик по кнопке КОММЕНТАРИИ ГАРАНТА
+Sub Click_tbdocGarComment
+  Window Click, "Caption={ГАРАНТ*}", "Coords=638,40"
+End Sub
+
+'Клик по кнопке КОММЕНТАРИИ ПОЛЬЗОВАТЕЛЯ
+Sub Click_tbdocUserComment
+  Window Click, "Caption={ГАРАНТ*}", "Coords=661,40"
+End Sub
+
+'Двойной клик по календарю машины времени, для последующего введения даты
+'При этом текущая дата выделяется
+Sub DblClick_Calendar
+  Calendar DblClick, "ObjectIndex=1", "Coords=2,8"
+End Sub
+
+'*** Тулбар окна Синхронного Просмотра ***
+'Клик по кнопке "Текст" на тулбаре синхронного просмотра
+Sub Click_tbsyncText
+  Window Click, "Caption={ГАРАНТ*}", "Coords=224,540"
+End Sub
+
+'Клик по кнопке "Атрибуты" на тулбаре синхронного просмотра
+Sub Click_tbsyncAttrib
+  Window Click, "Caption={ГАРАНТ*}", "Coords=246,540"
+End Sub
+
+'Клик по кнопке "Справка" на тулбаре синхронного просмотра
+Sub Click_tbsyncInfo
+  Window Click, "Caption={ГАРАНТ*}", "Coords=268,540"
+End Sub
+
+'Клик по кнопке "КОРРеспонденты" на тулбаре синхронного просмотра
+Sub Click_tbsyncKORR
+  Window Click, "Caption={ГАРАНТ*}", "Coords=290,540"
+End Sub
+
+'Клик по кнопке "РЕСПонденты" на тулбаре синхронного просмотра
+Sub Click_tbsyncRESP
+  Window Click, "Caption={ГАРАНТ*}", "Coords=312,540"
+End Sub
+
+'Клики по полям ввода в КЗ (попадам куда нужно только если выбрано не более одного поиского атрибута в каждом):
+Sub Click_Find_Group_CommonAttr
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,65"    
+end Sub
+
+
+Sub Click_FindType
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,100"    
+end Sub
+
+Sub Click_FindOrgan_Source
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,120"    
+end Sub
+
+Sub Click_FindPart_Topic
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,150"    
+end Sub
+
+Sub Click_FindStatus
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,180"    
+end Sub
+
+
+Sub Click_FindNumber
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,210"    
+end Sub
+
+Sub Click_FindDate_Since
+    Window Click, "Caption={ГАРАНТ*}", "Coords=450,250"    
+end Sub
+
+Sub Click_FindDate_To
+    Window Click, "Caption={ГАРАНТ*}", "Coords=600,250"    
+end Sub
+
+Sub Click_Find_Group_Justice
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,280"    
+end Sub
+
+Sub Click_FindStatus_Registration
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,310"    
+end Sub
+
+Sub Click_FindDate_Reg_Since
+    Window Click, "Caption={ГАРАНТ*}", "Coords=450,340"    
+end Sub
+
+Sub Click_FindDate_Reg_To
+    Window Click, "Caption={ГАРАНТ*}", "Coords=600,340"    
+end Sub
+
+Sub Click_FindNumber_Reg
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,370"    
+end Sub
+
+Sub Click_Find_Group_Text
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,400"    
+end Sub
+
+Sub Click_FindContext
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,430"    
+end Sub
+
+Sub Click_FindWhere_Context
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,460"    
+end Sub
+
+Sub Click_Find_Group_ExtendedAttr
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,490"    
+end Sub
+
+Sub Click_FindMeaning
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,515"    
+end Sub
+
+Sub Click_FindLaw_Info
+    Window Click, "Caption={ГАРАНТ*}", "Coords=550,515"    
+end Sub

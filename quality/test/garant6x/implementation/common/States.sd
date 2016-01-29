@@ -1,0 +1,1638 @@
+///////////////////////////////////////////////////////////////////////////////
+// Функции перевода приложениея в необходимое состояние
+///////////////////////////////////////////////////////////////////////////////
+uses common, RunPrograms, Clicks, MenuWork, DocumentWork, FoldersWork, SettingsWork;
+
+
+function GoToNeededState( var currState : OleVariant; const neededState : OleVariant; const paramString : String = '') : boolean; forward;
+
+procedure _ST_CONSTANTS; begin end;
+//определяем константы, соответствующие возможным состояниям.
+const
+  SSD = '.';
+  ST_PROP_SHELL_NOT_STARTED = SSD + 'оболочка не запущена' + SSD;
+  ST_PROP_SHELL_STARTED = SSD + 'оболочка запущена' + SSD;
+  ST_PROP_SHELL_LOGGED = SSD + 'пользователь залогинен' + SSD;
+  ST_PROP_SHELL_NOT_LOGGED = SSD + 'пользователь не залогинен' + SSD;  
+
+
+  ST_UNKNOWN = 'Совершенно ничего не известно';
+  ST_NONE = 'Нестандартное';
+  //ST_SHELL_STARTED = 'Оболочка запущена';
+  // в эти состояния оболочка может быть переведена
+  ST_MAIN_MENU = 'Основное Меню';
+  ST_LOGIN =  'Форма <Login>';
+  ST_DICTIONARY = 'Толковый Словарь';
+  ST_MAIN_MENU_AFTER_RESTART = 'Основное меню, после перезапуска';
+  ST_SHELL_CLOSED = 'Оболочка не запущена';
+  
+  
+  ST_PPR  = 'Карточка ППР';
+  ST_PPS  = 'Карточка ППС';
+  ST_PPIO = 'Карточка ППИО';
+  ST_CLEAN_PC  = 'Чистый Компьютер';
+  ST_ANALYTIC_REVIEW = 'Аналитический Обзор';
+  
+{
+  TYPE:
+  DESC: Отдает текущее состояние оболочки
+  RESULT:
+  REMARK:
+    Данная функций в целях быстродействия намеренно использует только тесткомплитовские методы получения окон
+    Также отдает расширенные результаты    
+    ExtResult
+      State - состояние
+
+}
+function GetShellState(
+  const paramString : String = '';
+  const isSelfCall : boolean = false  
+) : OleVariant;
+  var
+    p, wnd, mainWnd, parentForm, textForm : OleVariant;
+    isLoginFormExists, isMainWindowExists : boolean;
+begin
+  try
+    Result := ST_UNKNOWN;
+       
+    p := GetF1ShellProcess(0, 1, false);
+    if NOT IsExists(p) then
+    begin
+      Result := ST_SHELL_CLOSED; // оболочка вообще не найдена
+      Exit;
+    end;
+    
+    mainWnd := GetMainWindow('Timeout:=0');
+    isMainWindowExists := IsExists(mainWnd);
+    if isMainWindowExists then
+    begin
+      try
+        if IsExists( GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ') ) AND (GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ').Visible) then
+        begin
+          Result := ST_MAIN_MENU; // найдено главное меню
+          Exit;
+        end;
+      except
+      end;  
+      
+      try
+        if IsExists( GetFromDictionary('ТЕКСТ СТАТЬИ') ) then 
+        begin
+          Result := ST_DICTIONARY; // найден толковый словарь
+          Exit;
+        end;
+      except
+      end;  
+    end;
+    
+    wnd := p.WaitVCLObject(LOGINFORM_NAME, 0);
+    isLoginFormExists := IsExists(wnd);
+    if isLoginFormExists then
+    begin
+      Result := ST_LOGIN; // оболочка загружена и форма логина
+      Exit;
+    end;
+    
+    if (isMainWindowExists = isLoginFormExists) then
+      if isSelfCall then
+        Raise('Оболочка находится в странном и непонятном состоянии!!!')
+      else
+      begin // здесь попытка обработать ситуацию, когда оболочка в процессе запуска, процесс существует, но ни формы логина, ни форма главного окна еще не существует. Поэтому ждем некоторое время.
+        Delay(Options.Run.Timeout div 5);
+        Result := GetShellState(paramString, true);
+      end;
+      
+  except
+    Log.Message('GetCurrentState: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := ST_UNKNOWN;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function WaitForState(
+  const neededState : OleVariant;
+  timeOut : integer =  -1;
+  const isThrowException : boolean = true
+) : OleVariant;
+  var
+    deadLine : integer;
+    currState, extState : OleVariant;
+begin
+  try
+    if timeOut = -1 then timeOut := Options.Run.Timeout;
+    
+    deadLine := Win32API.GetTickCount + timeOut;
+    while ( Assign(currState, GetShellState) <> neededState) AND (Win32API.GetTickCount < deadLine) do Delay(200);
+    Result := currState;
+    if isThrowException AND (NOT (currState = neededState)) then
+      Raise('Состояние "' + neededState + '" не было достинуто за ' + IntToStr(timeOut) + ' мсек.' );
+  except
+    Log.Message('WaitForState: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;               
+end;
+
+{
+  TYPE: Работа с окнами
+  DESC: Пытаемся закрыть все диалоги.
+  RESULT: Если получилось отдизейблить главное окно, то true, иначе false.
+  REMARK:
+}
+function TryCloseAllDialogs: boolean;
+  var
+    timeOut, i : integer;
+    w : OleVariant;  
+begin
+  try
+    timeOut := Options.Run.Timeout div 40;
+    Result := false;
+    // пытаемся закрыть разные окна
+    i := 1;
+    while (true) do
+    begin
+      case i of
+        1   : WaitForConfirmationWindow(timeOut);
+        2   : WaitForInfoWindow(timeOut);
+        3   : WaitForWarningWindow(timeOut);
+        4   : WaitForErrorWindow(timeOut);
+        5   : WaitForConfirmationWindow(timeOut);
+        6   : WaitForInfoWindow(timeOut);
+        7   : WaitForWarningWindow(timeOut);
+        8   : WaitForErrorWindow(timeOut);
+        9   : w := GetF1ShellProcess.WaitWindow('#32770', '', -1, timeOut);
+        10  : w := GetFromShell('ДИАЛОГ СОХРАНЕНИЯ В ПАПКИ', timeOut);
+        11  : w := GetFromShell('О ПРОГРАММЕ', timeOut); 
+        12  : w := GetFromShell('ДИАЛОГ ОТКРЫТИЯ ИЗ ПАПОК', timeOut); 
+        13  : w := GetFromShell('ДИАЛОГ ПЕЧАТИ', timeOut);
+        14  : w := GetFromShell('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА', timeOut);         
+        15  : w := GetFromShell('СОХРАНЕНИЕ ФИЛЬТРА', timeOut);         
+        16  : w := GetFromShell('НАСТРОЙКИ', timeOut);
+        17  : w := GetFromShell('НАСТРОЙКИ СТРАНИЦЫ', timeOut);
+        18  : w := GetFromShell('РЕДАКТОР СТИЛЕЙ', timeOut);
+        19  : w := GetFromShell('НАСТРОЙКА ПАНЕЛЕЙ ИНСТРУМЕНТОВ', timeOut);        
+      else
+        break; // типа все кончилось
+      end;
+        
+      if IsExists(w) then
+      begin
+        w.Close;
+        WaitForConfirmationWindow(timeOut);
+      end; 
+      Result := GetMainWindow.Enabled;   
+      if Result then 
+      begin
+        GetMainWindow.SetFocus;
+        break; 
+      end; 
+
+      i := i + 1;  
+    end;
+  except
+    Log.Message('TryCloseAllDialogs: ' + ExceptionMessage, 'i: "' + IntToStr(i) + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise(ExceptionMessage);
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Основное Меню
+  RESULT:
+  REMARK:
+}
+function GoToMainMenu(
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;
+
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := AnsiUpperCase(how);
+    GetMainWindow.SetFocus;
+    case how of
+      'КЛАВИАТУРА', '3' : Sys.Keys('[F2]');
+      'МЕНЮ', '2' : ClickByMainMenuItem('Файл\Основное меню');
+      'КНОПКА НА ТУЛБАРЕ', '1' : ClickToolbarButton(GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Основное меню');
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToMainMenu(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+
+    wnd := GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ');
+    Result := IsExists(wnd);
+    if Result AND wnd.VisibleOnScreen then 
+    begin
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть Основное меню!');
+  except
+    Log.Message('GoToMainMenu: ' + ExceptionMessage, 'how : "' + VarToStr(how) + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Основное Меню с закрытием вкладок
+  RESULT:
+  REMARK: Закрытие вкладок выполняется для режима открытия документов в новой вкладке
+}
+function GoToMainMenuWithCloseTabsExceptOne: OleVariant;
+begin
+  try
+    if VarToBool(gbl_F1ShellTabsEnabled) and VarToBool(gbl_F1ShellOpenDocsInNewTab) then
+      Result := CloseTabsExceptOne
+    else
+      Result := GoToMainMenu;
+  except
+    Log.Message('GoToMainMenuWithCloseTabsExceptOne: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Основное Меню
+  RESULT:
+  REMARK:
+}
+function GoToMainMenu_Infarm(
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;
+
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of      
+      'МЕНЮ', '2' : ClickByMainMenuItem('Инфарм\Основное меню ИнФарм');
+      'КНОПКА НА ТУЛБАРЕ', '1' :
+        ClickByPopupMenuItem(
+          ClickToolbarButton(GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Основное меню', 'ClickForPopupMenu:=true'),
+          'Основное меню справочника Инфарм'          
+        );       
+      '': 
+        for how_i := 1 to 2 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToMainMenu_Infarm(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+
+    wnd := GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ ИНФАРМА');
+    Result := IsExists(wnd);
+    if Result AND wnd.VisibleOnScreen then 
+    begin
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть Основное меню Инфарма!');
+  except
+    Log.Message('GoToMainMenu_Infarm: ' + ExceptionMessage, 'how : "' + VarToStr(how) + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в ППР
+  RESULT: Возвращает окно карточки запроса
+  REMARK:
+}
+function GoToPPR(
+  how : String = '';
+  const isReturnWindow : boolean = false
+) : OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'КЛАВИАТУРА', '1' : Sys.Keys('[F7]');
+      'МЕНЮ', '3' : ClickByMainMenuItem('Поиск\Поиск по реквизитам');
+      'КНОПКА НА ТУЛБАРЕ', '2' :
+        ClickByPopupMenuItem(
+          ClickToolbarButton( GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Поиск','ClickForPopupMenu:=true' ), 
+          'Поиск по реквизитам'
+        );
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          how := VarToString(how_i);          
+          Result := GoToPPR(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+
+    wnd := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть ППР!');
+  except
+    Log.Message('GoToPPR: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Поиск лекарственного препарата
+  RESULT: Возвращает окно карточки запроса
+  REMARK:
+}
+function GoToPLP(
+  how : String = '';
+  const isReturnWindow : boolean = false  
+) : OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;    
+    case how of      
+      'МЕНЮ', '1' : ClickByMainMenuItem('Инфарм\Поиск лекарственных средств');
+      
+      '': 
+        for how_i := 1 to 1 do
+        begin
+          how := VarToString(how_i);          
+          Result := GoToPLP(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+    
+    wnd := GetFromPLP('КАРТОЧКА ЗАПРОСА');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть ПЛП!');
+  except
+    Log.Message('GoToPLP: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в ППО
+  RESULT: Возвращает окно карточки запроса
+  REMARK:
+}
+function GoToLawSupport(
+  how : String = '';
+  const isReturnWindow : boolean = false
+) : OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'КЛАВИАТУРА', '1' : Sys.Keys('~[F1]');
+      'МЕНЮ', '2' : ClickByMainMenuItem('Помощь\Правовая поддержка онлайн');
+      'КНОПКА В ОМ', '3' : begin
+        if not GoToMainMenu then
+          Raise('Не получилось открыть ОМ');
+        wnd := GetFromMainMenu('КНОПКА "ЗАДАТЬ ВОПРОС ЭКСПЕРТУ"');
+        if not IsExists(wnd) then
+          Raise('Не найдена КНОПКА "ЗАДАТЬ ВОПРОС ЭКСПЕРТУ" из области ОМ');
+        wnd.Click;
+      end;
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToLawSupport(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+
+    wnd := GetFromLawSupport('КАРТОЧКА ЗАПРОСА');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть "Правовую поддержку"!');
+  except
+    Log.Message('GoToLawSupport: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в ППС
+  RESULT: Возвращает окно ситуаций дополнительного уровня (в главной области)
+  REMARK:
+}
+function GoToPPS(
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+    isExistsWnd;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'КЛАВИАТУРА', '1' : Sys.Keys('[F5]');
+      'МЕНЮ', '2' : ClickByMainMenuItem('Поиск\Поиск по ситуации');
+      'КНОПКА НА ТУЛБАРЕ', '3' :
+        ClickByPopupMenuItem(
+          ClickToolbarButton( GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Поиск','ClickForPopupMenu:=true' ), 
+          'Поиск по ситуации'
+        ); 
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          how := VarToString(how_i);        
+          Result := GoToPPS(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+        
+    wnd := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+    isExistsWnd := IsExists(wnd); 
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      Sys.Keys('[Home]');
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть ППС!');
+  except
+    Log.Message('GoToPPS: ' + ExceptionMessage, 
+      DbgVarValueEx([how, wnd, Result, isExistsWnd], ['how', 'wnd', 'Result', 'isExistsWnd']),      
+      pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в ППИО
+  RESULT: Возвращает окно дерева изданий
+  REMARK:
+}
+function GoToPPIO(
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'КЛАВИАТУРА', '1' : Sys.Keys('[F6]');
+      'МЕНЮ', '2' : ClickByMainMenuItem('Поиск\Поиск по источнику опубликования');
+      'КНОПКА НА ТУЛБАРЕ', '3' : 
+        ClickByPopupMenuItem(
+          ClickToolbarButton( GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Поиск', 'ClickForPopupMenu:=true'), 
+          'Поиск по источнику опубликования'
+        );
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToPPIO(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+    
+    wnd := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      Sys.Keys('[Home]');
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть ППИО!');
+  except
+    Log.Message('GoToPPIO: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Базовый поиск
+  RESULT: Возвращает окно карточки запроса
+  REMARK:
+}
+function GoToBaseSearch(
+  how : String = '';
+  const isReturnWindow : boolean = false
+) : OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;    
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'КЛАВИАТУРА', '1' : Sys.Keys('[F4]');
+      'МЕНЮ', '3' : ClickByMainMenuItem('Поиск\Базовый поиск');
+      'КНОПКА НА ТУЛБАРЕ', '2' :
+        ClickByPopupMenuItem(
+          ClickToolbarButton( GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Поиск','ClickForPopupMenu:=true' ), 
+          'Базовый поиск'
+        );
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToBaseSearch(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+       
+    wnd := GetFromBaseSearch('ПАНЕЛЬ "БАЗОВЫЙ ПОИСК"');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть Базовый поиск!');
+  except
+    Log.Message('GoToBaseSearch: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+
+  TYPE: Состояния оболочки
+  DESC: Переход к форме <Login>
+  RESULT:
+  REMARK:
+}
+function  GoToLoginForm;
+var
+  p, w;
+begin
+  try
+    Result := GoToNeededState(p, ST_LOGIN);
+  except
+    Log.Message('GoToLoginForm: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;  
+    Result := false;
+  end;  
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Толковый словарь
+  RESULT: Возвращает окно текста статьи
+  REMARK:
+}
+function GoToDictionary(
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'МЕНЮ', '2' : ClickByMainMenuItem('Поиск\Толковый словарь');
+      'КНОПКА НА ТУЛБАРЕ', '1' : 
+        ClickByPopupMenuItem(
+          ClickToolbarButton(GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Поиск' , 'ClickForPopupMenu:=true' ),
+          'Толковый словарь'
+        );
+      '': 
+        for how_i := 1 to 2 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToDictionary(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+    
+    wnd := GetFromDictionary('ТЕКСТ СТАТЬИ');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть ТС!');
+  except
+    Log.Message('GoToDictionary: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в словарь Медицинских терминов
+  RESULT: Возвращает окно текста термина
+  REMARK:
+}
+function GoToInfarmDictionary(
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'МЕНЮ', '1' : ClickByMainMenuItem('Инфарм\Словарь медицинских терминов');
+      'НАВИГАТОР', '2' :  OpenObjectFromFolder('Инфарм\Словарь медицинских терминов', OpenMenuTab);        
+      '': 
+        for how_i := 1 to 2 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToInfarmDictionary(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+    
+    wnd := GetFromInfarmDictionary('ТЕКСТ СТАТЬИ');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть "Словарь медицинских теминов"!');
+  except
+    Log.Message('GoToInfarmDictionary: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в список Фирм производителей
+  RESULT: Возвращает список фирм производителей
+  REMARK:
+}
+function GoToInfarmListFirms(
+  how : String = '';
+  const isReturnWindow : boolean = false  
+) : OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;    
+    case how of      
+      'МЕНЮ', '1' : ClickByMainMenuItem('Инфарм\Фармацевтические фирмы');
+      
+      '': 
+        for how_i := 1 to 1 do
+        begin
+          how := VarToString(how_i);          
+          Result := GoToInfarmListFirms(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+    
+    wnd := GetFromInfarmListFirms('СПИСОК ФИРМ ПРОИЗВОДИТЕЛЕЙ');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть "список Фармацевтические фирмы"!');
+  except
+    Log.Message('GoToInfarmListFirms: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;
+  end;
+end; 
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Построение аналитического обзора
+  RESULT: Возвращает окно карточки запроса
+  REMARK:
+}
+function GoToAnalyticReview(
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;
+  var
+    wnd, pathOne, pathTwo, tempObj: OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'МЕНЮ', '2' : ClickByMainMenuItem('Поиск\ПРАЙМ. Обзор изменений законодательства');
+      'КНОПКА НА ТУЛБАРЕ', '1' : 
+        ClickByPopupMenuItem(
+          ClickToolbarButton( GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Поиск', 'ClickForPopupMenu:=true'), 
+          'ПРАЙМ. Обзор изменений законодательства'
+        );
+      'ССЫЛКА В ОМ', '3':
+      begin 
+        if IsLightConfiguration then
+        begin
+          pathOne := 'СПИСОК: ИЗМЕНЕНИЯ В ЗАКОНОДАТЕЛЬСТВЕ';
+          pathTwo := 'Прайм. Обзор изменений законодательства';
+        end
+        else
+        begin
+          pathOne := 'ГРУППА: ОБЗОР ИЗМЕНЕНИЙ ЗАКОНОДАТЕЛЬСТВА';
+          pathTwo := 'Прайм. Обзор изменений законодательства';
+        end;
+                
+        if NOT GoToMainMenu then Raise('Не удалось перейти в ОМ!');
+        tempObj := GetFromMainMenu(pathOne);
+        if NOT IsExists(tempObj) then Raise('Не удалось получить из ОМ : ' + pathOne);
+        
+        if NOT OpenObjectFromFolder(pathTwo, tempObj) then
+          Raise('Не удалось открыть из блока ОМ "' + pathOne + '"');          
+      end;  
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToAnalyticReview(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+   
+    wnd := GetFromAnalyticReview('КАРТОЧКА ЗАПРОСА');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть ПРАЙМ. Обзор изменений законодательства!');
+  except
+    Log.Message('GoToAnalyticReview: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Построение аналитического обзора
+  RESULT: Возвращает окно карточки запроса
+  REMARK:
+}
+function GoToPrime(
+  how : String = '';
+  const isReturnWindow : boolean = false;
+  const isCloseMaxDocsMessage : boolean = true
+): OleVariant;
+  const
+    PRIME_NAME = 'ПРАЙМ*Моя новостная лент*';
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'КЛАВИАТУРА', '1' : Sys.Keys('[F3]');
+      'МЕНЮ', '2' : ClickByMainMenuItem('Анализ\' + PRIME_NAME);
+      'КНОПКА НА ТУЛБАРЕ', '3' : 
+        ClickByPopupMenuItem(
+          ClickToolbarButton( GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"'), 'Моя информация', 'ClickForPopupMenu:=true'), 
+          PRIME_NAME
+        );
+      'НАВИГАТОР', '4' :
+        OpenObjectFromFolder(PRIME_NAME, OpenMenuTab); 
+      '': 
+        for how_i := 1 to 4 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToPrime(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+   
+    WaitForConfirmationWindow(Options.Run.Timeout div 10, '#*все*');
+
+    if isCloseMaxDocsMessage then
+      WaitForWarningWindow(Options.Run.Timeout div 10, '*открыто*максимальное*количество*');
+
+    // необходимо сбрасывать кэш, если открывается новая вкладка
+    ClearWindowCache(true);
+
+    wnd := GetEditor;
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть ПРАЙМ. Моя новостная лента!');
+  except
+    Log.Message('GoToPrime: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в Информацию о комплекте
+  RESULT: Возвращает окно инфомации о комплекте
+  REMARK:
+}
+function GoToComplectInfo(
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;  
+var
+  wnd : OleVariant;  
+  how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'КЛАВИАТУРА', '1' : Sys.Keys('^!I');
+      'МЕНЮ', '2' : ClickByMainMenuItem('Помощь\Информация о комплекте');
+      '': 
+        for how_i := 1 to 2 do
+        begin
+          how := VarToString(how_i);
+          Result := GoToComplectInfo(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+   
+    wnd := GetFromMainWindow('ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть Информация о комплекте!');
+  except
+    Log.Message('GoToComplectInfo: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    Не использовать напрямую в скриптах!!!
+    Функций предназначена для использования пускачом и очень может быть, что будет переписана.
+}
+function GoToNeededState(
+  var currState : OleVariant;
+  const neededState : OleVariant;
+  const paramString : String = ''
+) : boolean;
+  var
+    deadLine, countOfAttempts : integer;
+    i, p, w, paramList, extState : OleVariant;
+    p_Login;
+    p_Password;
+    p_PathToF1Shell;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    p_Login := GetParam(paramList, 'Login', CompName);
+    p_Password := GetParam(paramList, 'Password', p_Login);
+    p_PathToF1Shell := GetParam(paramList, 'PathToF1Shell', '');
+    //
+    currState := GetShellState;
+
+    case neededState of
+      ST_MAIN_MENU_AFTER_RESTART :
+        Result := GoToNeededState(currState, ST_LOGIN, paramString) AND GoToNeededState(currState, ST_MAIN_MENU, paramString);
+    end;
+    
+    // приводим оболочку в незапущенное состояние
+    if (neededState = ST_SHELL_CLOSED) then    
+    begin
+      currState := GetShellState;
+      Result := (currState = neededState);
+      if Result then Exit;
+      
+      countOfAttempts := 5;
+      CloseF1Shell(countOfAttempts, Options.Run.Timeout div 6);
+      currState := WaitForState(ST_SHELL_CLOSED); 
+      Result := (currState = ST_SHELL_CLOSED);
+      if Result then Exit;
+    end;
+    
+    // запускаем оболочку если она не запущена и ждем форму логина
+    if (currState = ST_SHELL_CLOSED) then
+    begin
+      StartF1Shell(p_PathToF1Shell);
+      currState := WaitForState(ST_LOGIN);     
+    end;  
+    
+// к этой строке оболочка должна быть как минимум запущена
+    
+    // **** приводим оболочку к состоянию ST_LOGIN 
+    if (neededState = ST_LOGIN) then
+    begin
+      currState := GetShellState;
+      Result := (currState = neededState);
+      if Result then Exit;
+      
+      countOfAttempts := 5;
+      CloseF1Shell(countOfAttempts, Options.Run.Timeout div 6);
+      WaitForState(ST_SHELL_CLOSED);
+      StartF1Shell; 
+      currState := WaitForState(ST_LOGIN);     
+      Result := (currState = ST_LOGIN);
+      if Result then Exit;
+    end; 
+
+    // логинимся
+    if (currState = ST_LOGIN) then
+    begin
+      LoginAnyhow(p_Login, p_Password);
+      currState := WaitForState(ST_MAIN_MENU);
+      // если не получилось залогиниться один раз, перезапускаем оболочку и пробуем еще, а то бывает, что не вводятся логин и пароль, а после перезапуска все нормально
+      if (currState <> ST_MAIN_MENU) then
+      begin
+        Log.Warning('Какая-то фигня, мы не смогли залогиниться');
+        countOfAttempts := 5;
+        CloseF1Shell(countOfAttempts, Options.Run.Timeout div 6);
+        if GoToNeededState(currState, ST_LOGIN, paramString) then
+        begin
+          LoginAnyhow(p_Login, p_Password);
+          currState := WaitForState(ST_MAIN_MENU);
+        end;
+      end;  
+    end;  
+        
+// к этой строке известно, что оболочка загружена и залогинена 
+
+    // закрываем разные диалоги
+    p := GetF1ShellProcess;
+    w := GetMainWindow;
+    if (IsExists(w) AND (NOT w.Enabled)) then TryCloseAllDialogs;
+
+    // закрываем лишние окна оболочки
+    if IsExists(w) then
+    begin
+      i := 0;
+      repeat
+        Inc(i);
+
+        if VarToBool(gbl_F1ShellTabsEnabled) then
+          w := GetMainContainer('ContainerIndex:=2')
+        else
+          w := p.WaitWindow('TnsMainWindow', '*', 2, Options.Run.Timeout div 100);
+  
+        if IsExists(w) then
+          w.Close;
+          
+        WaitForConfirmationWindow(Options.Run.Timeout div 30, '#Продолжить*');                      
+      until (not IsExists(w)) or (i >= MAX_WINDOW_TABS);
+    end;
+    
+    // **** Переводимся в состояние ST_MAIN_MENU
+    ReminderAway;
+    CloseConsultingReminder;
+    GoToMainMenu;
+    //ShowStructuraDocument; //На случай, если в настройках по умолчанию отдочена вкладка "Структура документа" | Сначала сделали, потом отрезали
+    if (neededState = ST_MAIN_MENU) then
+    begin
+      Result := (currState = neededState);
+      if Result then Exit;
+
+      GoToMainMenu;
+      currState := WaitForState(ST_MAIN_MENU);
+
+      Result := (neededState = currState);
+      if Result then Exit;
+    end; 
+    
+    //**** переводимся в состояние словаря
+    if (neededState = ST_DICTIONARY) then
+    begin
+      Result := (currState = neededState);
+      if Result then Exit;
+
+      GoToDictionary;
+      currState := WaitForState(ST_DICTIONARY);
+      Result := (neededState = currState);
+      if Result then Exit;
+    end;     
+      
+  except
+    Log.Message('GoToNeededState: ' + ExceptionMessage, 'currState: "' + VarToStr(currState) + '"; neededState: "' + VarToStr(neededState) + '"; '  ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+  end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Переход в список Лекарственных средств
+  RESULT: Возвращает список Лекарственных средств
+  REMARK:
+  
+  !!!!Доделать, что бы могли возвращать окно
+}
+function GoToMedicalProducts(
+  how : String = '';
+  const isReturnWindow : boolean = false  
+) : OleVariant;
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;    
+    case how of      
+      'МЕНЮ', '1' : ClickByMainMenuItem('Инфарм\Госреестр лекарственных средств');
+      
+      '': 
+        for how_i := 1 to 1 do
+        begin
+          how := VarToString(how_i);          
+          Result := GoToMedicalProducts(how, isReturnWindow);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+    
+    wnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+    Result := IsExists(wnd);
+    if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть список "Лекарственные средства"!');
+  except
+    Log.Message('GoToMedicalProducts: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    if isReturnWindow then Result := NonExObj else Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Превью
+  DESC: Строим превью 
+  RESULT:
+  REMARK: 
+} 
+function GoToPreview(  
+  how : String = '';
+  const isReturnWindow : boolean = false;
+  toolBar : OleVariant = nil// Если хотим кликать по тулбару, тогда надо его передавать
+): OleVariant;
+
+var
+   i;
+   wnd;
+begin                                   
+try   
+  case how of
+    'МЕНЮ', '1':  
+      if NOT ClickByMainMenuItem('Файл\Предварительный просмотр') then Raise('Не удалось вызвать операцию "Файл\Предварительный просмотр"');
+    'КНОПКА НА ТУЛБАРЕ', '3':
+      begin
+        if NOT IsExists(toolBar) then Raise('Не удалось получить Тулбар, что бы кликнуть на нём на "предварительный просмотр"');
+        if NOT ClickToolbarButton (toolBar, 'Предварительный просмотр') then  Raise('Не удалось кликнуть на тулбаре по кнопке "Предварительный просмотр"');
+      end;
+    'КЛАВИАТУРА', '2': Sys.Keys('^l');        
+    '' :
+      for i := 1 to 3 do
+      begin        
+        Result := GoToPreview(IntToStr(i), isReturnWindow, toolBar);
+        if IsExists(Result) OR IsTrue(Result) then break;
+      end;        
+   end;
+   
+   wnd := GetFromMainWindow('ПРЕВЬЮ');
+   Result := IsExists(wnd);
+   if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть Предварительный просмотр печати!');  
+except  
+  Log.Message('GoToPreview: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  if isReturnWindow then Result := NonExObj else Result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Превью
+  DESC: Выполняем печать 
+  RESULT:
+  REMARK: 
+} 
+function GoToDocumentPrint(  
+  how : String = '';  
+  toolBar : OleVarianr = nil// Если хотим кликать по тулбару, тогда надо его передавать
+): OleVariant;
+
+var
+   i;
+   wnd;  
+begin                                   
+try   
+  case how of
+    'МЕНЮ', '1':  
+      if NOT ClickByMainMenuItem('Файл\Печать...') then Raise('Не удалось вызвать операцию "Файл\Печать..."');
+    'КНОПКА НА ТУЛБАРЕ', '3':
+      begin
+        if NOT IsExists(toolBar) then Raise('Не удалось получить Тулбар, что бы кликнуть на нём на "Печать..."');
+        if NOT ClickToolbarButton (toolBar, 'Печать...') then  Raise('Не удалось кликнуть на тулбаре по кнопке "Печать..."');
+      end;
+    'КЛАВИАТУРА', '2': Sys.Keys('^p');        
+    '' :
+      for i := 1 to 3 do
+      begin        
+        Result := GoToDocumentPrint(IntToStr(i), toolBar);
+        if IsTrue(Result) then break;
+      end;        
+   end;
+   
+   if how <> '' then
+   begin 
+     wnd := GetFromPrintDialog('ТУЛБАР "ДИАЛОГ ПЕЧАТЬ"');
+     if NOT IsExists(wnd) then Raise('Не удалось обнаружить Тулбар в Диалоге Печати');
+     if NOT ClickToolbarButton (wnd, 'Печать') then  Raise('Не удалось кликнуть в Диалоге Печати по кнопке "Печать..."');
+   end;
+    
+   Result := true;
+    
+except  
+  Log.Message('GoToDocumentPrint: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  Result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: 
+  DESC: Открываем мои консультации 
+  RESULT:
+  REMARK: 
+} 
+function GoToMyConsultation(  
+  how : String = '';
+  const isReturnWindow : boolean = false;
+  toolBar : OleVarianr = nil// Если хотим кликать по тулбару, тогда надо его передавать
+): OleVariant;
+
+var
+   i;
+   wnd;
+begin                                   
+try
+  if toolBar = nil then toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');     
+  case how of    
+    'КНОПКА НА ТУЛБАРЕ', '1':
+      begin        
+        if NOT ClickByPopupMenuItem(
+          ClickToolbarButton( toolBar, 'Моя информация','ClickForPopupMenu:=true' ), 
+          'Мои консультации'
+        ) then
+        Raise ('Не удалось кликнуть на главном тулбаре тулбаре "Моя информация\Мои консультации"');        
+      end;            
+    '' :
+      for i := 1 to 1 do
+      begin        
+        Result := GoToMyConsultation(IntToStr(i), isReturnWindow, toolBar);
+        if IsTrue(Result) then break;
+      end;        
+   end;
+   
+   Result := true;  
+except  
+  Log.Message('GoToMyConsultation: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  if isReturnWindow then Result := NonExObj else Result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: 
+  DESC: Открываем Новости Онлайн
+  RESULT:
+  REMARK: 
+} 
+function GoToInternetAgent(  
+  how : String = '';
+  const isReturnWindow : boolean = false
+): OleVariant;
+var
+   i;
+   wnd;
+begin                                   
+try     
+  case how of    
+    'МЕНЮ', '1':
+      if not ClickByMainMenuItem('Помощь\Гарант в Интернет\Компания "Гарант"') then 
+        Raise('Не удалось кликнуть в главном меню "Помощь\Гарант в Интернет\Компания "Гарант"');
+    'КНОПКА В ОМ', '2': 
+      begin
+        if not GoToMainMenu then
+          Raise('Не получилось открыть ОМ');
+        wnd := GetFromMainMenu('КНОПКА "НОВОСТИ ОНЛАЙН"');
+        if not IsExists(wnd) then
+          Raise('Не найдена КНОПКА "НОВОСТИ ОНЛАЙН" из области ОМ');
+        wnd.Click;
+      end;
+    'ПАНЕЛЬ ЗАДАЧ', '3': 
+      begin
+        wnd := OpenTasksPanel;
+        if not IsExists(wnd) then Raise('Не удалось открыть Панель Задач');  
+        if not OpenItemInTasksPanel('Путеводитель', 'Новости онлайн') then
+          Raise('Не удалось вызвать ПАНЕЛЬ ЗАДАЧ\Путеводитель\Новости онлайн');
+      end;
+
+    '' :
+      for i := 1 to 3 do
+      begin        
+        Result := GoToInternetAgent(IntToStr(i), isReturnWindow);
+        if (not isReturnWindow) and IsTrue(Result) or (isReturnWindow) and IsExists(Result) then
+          break;
+      end;
+   end;
+
+   // закрываем окно запроса пользователя прокси
+   for i := 1 to 3 do
+   begin
+     Delay(Options.Run.Timeout div 5);
+     wnd := GetFromShell('ОКНО АВТОРИЗАЦИИ ПРОКСИ');
+     if IsExists(wnd) then
+       wnd.Keys('[Enter]')
+     else
+       break;
+   end;
+
+   // закрываем ошибку скрипта на старых IE
+   wnd := GetFromShell('ОКНО ОШИБКИ IE');
+   if IsExists(wnd) then
+    wnd.Keys('[Esc]'); 
+
+   wnd := GetFromInternetAgent('ОСНОВНАЯ ОБЛАСТЬ');
+   Result := IsExists(wnd);
+   if Result then
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть Новости онлайн!');
+except
+  Log.Message('GoToInternetAgent: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  if isReturnWindow then Result := NonExObj else Result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: 
+  DESC: Открываем графический образ
+  RESULT:
+  REMARK: 
+} 
+function OpenInternetImage(  
+  how : String = '';
+  const isReturnWindow : boolean = false;
+  toolBar : OleVarianr = nil// Если хотим кликать по тулбару, тогда надо его передавать
+): OleVariant;
+var
+   i;
+   wnd;
+begin                                   
+try     
+  case how of    
+    'МЕНЮ', '1':
+      begin
+        if NOT ClickByMainMenuItem('Документы\Графическая копия официальной публикации') then Raise('Не удалось кликнуть в главном меню "Документ\Графическая копия официальной публикации"');        
+      end;            
+    '' :
+      for i := 1 to 1 do
+      begin        
+        Result := OpenInternetImage(IntToStr(i), isReturnWindow, toolBar);
+        if IsTrue(Result) then break;
+      end;        
+   end;
+   wnd := GetFromInternetAgent('ОСНОВНАЯ ОБЛАСТЬ');
+   Result := IsExists(wnd);
+   if Result then 
+    begin
+      wnd.SetFocus;
+      if isReturnWindow then
+        Result := wnd;
+    end
+    else
+      Raise('Не получилось открыть Графический образ!');     
+except  
+  Log.Message('OpenInternetImage: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  if isReturnWindow then Result := NonExObj else Result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+  TYPE: Состояния оболочки
+  DESC: Открытие формы настроек тулбаров
+  RESULT: Может возвращать окно настройки Тулбаров
+  REMARK:
+}
+function OpenTbSettings(
+  const isReturnWindow : boolean = false;
+  toolBar : OleVariant = nil //Тулбар, из контекстнгого меню к которому будет открываться  окно настройки Тулбаров
+) : OleVariant;
+begin
+try
+  if toolBar = nil then toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  toolBar.ClickR(toolBar.Width div 2, toolBar.Height div 2);
+  if NOT ClickByPopUpMenuItem(toolBar, 'Настройка...') then 
+    Raise('Не удалось вызвать контекстную операцию "Настройка..."');
+  if isReturnWindow then  
+    result := GetFromShell('НАСТРОЙКА ПАНЕЛЕЙ ИНСТРУМЕНТОВ', -1)
+  else
+    result := true;  
+except
+  Log.Message('OpenTbSettings: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  if isReturnWindow then result := NonExObj else result := false;
+  CommonExceptionHandler;
+end;  
+end;
+
+
+{
+  TYPE: Редакции документа 
+  DESC: Открытие (если возможно) сравнения редакци в документе
+  RESULT: Возвращает boolean - получилось или нет
+  REMARK:
+}
+function OpenCompareEditions(
+  how : String = ''
+): boolean;
+  const
+    CMP_EDITIONS = 'Сравнение редакций';
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of
+      'МЕНЮ', '1' : ClickByMainMenuItem('Анализ\' + CMP_EDITIONS);
+      'КНОПКА НА ТУЛБАРЕ', '2' : 
+        ClickByPopupMenuItem(                                                             
+          ClickToolbarButton( GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), 'Изменения в документе', 'ClickForPopupMenu:=true'),
+          CMP_EDITIONS
+        );
+      'ПОПАП МЕНЮ ВКЛАДКИ "РЕДАКЦИИ"', '3' :        
+        OpenAndClickByPopupMenuItem(OpenEditionsTab, CMP_EDITIONS);
+      'ПОПАП МЕНЮ ВКЛАДКИ "ДОКУМЕНТЫ НА КОНТРОЛЕ"', '4' :        
+        OpenAndClickByPopupMenuItem(OpenDocUnderControlTab, CMP_EDITIONS);
+      '': 
+        for how_i := 1 to 2 do
+        begin
+          how := VarToString(how_i);
+          Result := OpenCompareEditions(how);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+   
+    if not IsExists(GetFromEditions('ФОРМА РЕДАКЦИИ СЛЕВА')) then
+      Raise('Не найдена форма редакции слева!');
+    if not IsExists(GetFromEditions('ФОРМА РЕДАКЦИИ СПРАВА')) then
+      Raise('Не найдена форма редакции справа!');
+    Result := StringCompare('*Сравнен*редакц*документ*', GetMainWindow.Caption);
+    if not Result then 
+      Raise('Не получилось открыть редакции документа. Возможно документ не имеет редакций!');
+  except
+    Result := false;
+    Log.Message('OpenCompareEditions: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;
+
+{
+  TYPE: Версионные комментарии 
+  DESC: Включение\Выключение режима показа информации об изменениях
+  RESULT: Возвращает boolean - получилось или нет
+  REMARK:
+}
+function OpenChangesInDocument(
+  how : String = '';
+  isEnableChangeInDoc : boolean = true//true - включить показ версионных комментариев; false  - выключить показ
+): boolean;
+  const
+    CHANG_IN_DOC = 'Информация об изменениях';
+    CHANG_IN_DOC_ON = 'Включить информацию об изменениях документа';
+    CHANG_IN_DOC_OFF = 'Выключить информацию об изменениях документа';
+  var
+    wnd : OleVariant;  
+    how_i, i : integer;
+    popupMenu;
+    subPanel;
+begin
+  try
+    how := Utilities.AnsiUpperCase(how);
+    //GetMainWindow.SetFocus;
+    case how of      
+      'КНОПКА НА ТУЛБАРЕ', '1' :
+      begin
+        popupMenu := ClickToolbarButton( GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), 'Изменения в документе', 'ClickForPopupMenu:=true');
+        if isEnableChangeInDoc then//Если надо включить
+        begin
+          if NOT IsMenuItemChecked(popupMenu, CHANG_IN_DOC) then                      
+            ClickByPopupMenuItem(popupMenu,  CHANG_IN_DOC)                                                
+          else           
+            Sys.Keys('[Esc]');          
+        end
+        else                  
+          if IsMenuItemChecked(popupMenu, CHANG_IN_DOC) then                      
+            ClickByPopupMenuItem(popupMenu,  CHANG_IN_DOC)              
+          else         
+            Sys.Keys('[Esc]');                    
+      end;  
+      'САБ ПАНЕЛЬ', '2' : 
+      begin        
+        subPanel := GetFromEditor('САБ ПАНЕЛЬ'); 
+        if isEnableChangeInDoc then//Если надо включить
+        begin
+          if NOT MoveMouseToObject(subPanel,'Ver_Comments_off.bmp',7,7,true) then
+            Raise('Не удалось кликнуть правой кнопкой на САб панели по иконке версионных комментариев');
+          ClickByPopupMenuItem(subPanel,  CHANG_IN_DOC_ON);            
+        end
+        else
+        begin
+          if NOT MoveMouseToObject(subPanel,'Ver_Comments_off.bmp',7,7,true) then
+            Raise('Не удалось кликнуть правой кнопкой на САб панели по иконке версионных комментариев');
+          ClickByPopupMenuItem(subPanel,  CHANG_IN_DOC_OFF);
+        end;          
+      end;       
+      'МЕНЮ', '3' : 
+      begin         
+        if isEnableChangeInDoc then//Если надо включить
+        begin
+          if NOT ClickByMainMenuItem('Документы\Комментарии\' + CHANG_IN_DOC_ON) then
+            Raise('Не удалось кликнуть пункт меню :' + CHANG_IN_DOC_ON);                      
+        end
+        else
+          if NOT ClickByMainMenuItem('Документы\Комментарии\' + CHANG_IN_DOC_OFF) then
+            Raise('Не удалось кликнуть пункт меню :' + CHANG_IN_DOC_OFF);
+      end;
+      '': 
+        for how_i := 1 to 3 do
+        begin
+          how := VarToString(how_i);
+          Result := OpenChangesInDocument(how, isEnableChangeInDoc);
+          if IsExists(Result) OR IsTrue(Result) then break;
+        end;  
+    else
+      Raise('Параметр не распознан!');
+    end;
+    //Проверяем что сделалось так как надо
+    popupMenu := ClickToolbarButton( GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), 'Изменения в документе', 'ClickForPopupMenu:=true');
+    if isEnableChangeInDoc then
+       Result := IsMenuItemChecked(popupMenu, CHANG_IN_DOC)
+    else
+       Result := NOT IsMenuItemChecked(popupMenu, CHANG_IN_DOC);         
+    Sys.Keys('[Esc]');//Закрываем popUpMenu   
+  except
+    Result := false;
+    Sys.Keys('[Esc]');
+    Log.Message('OpenChangesInDocument: ' + ExceptionMessage, 'how : "' + how + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;
+end;

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: checkout_cvs <module>"
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+mod_name=$1
+
+echo "checkout_cvs: $mod_name"
+
+tmp_curdir=$PWD
+
+mkdir -p $MPCXC_ROOT/src
+rm -rf $MPCXC_ROOT/src/$mod_name
+
+cd $MPCXC_ROOT/src
+
+export CVSROOT=":pserver:$MPCXC_CVS_USER@developer.garant.ru/export/home/cvs"
+
+cvs -Q checkout $mod_name
+
+cd $tmp_curdir
+
+echo "end."
+

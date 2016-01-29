@@ -1,0 +1,608 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "ExportSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"1445944333545673")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false"))
+    quid       	"562F5C0D020C"
+    stereotype 	"KPlugins"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"562F66B50204"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages.actions"
+	    quidu      	"4795D23101A0")
+	(object Visibility_Relationship
+	    quid       	"562F66BB00B9"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.plugin.descriptor.web.conditions"
+	    quidu      	"49523C25001F")
+	(object Visibility_Relationship
+	    quid       	"562F67070213"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl"
+	    quidu      	"4649E1A40231"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ExportUvsQueryMonthlyReportWebItem"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1445944357960071")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"section"
+		    value      	"system.content.action/secondary")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"accessKey"
+		    value      	"R")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"label key"
+		    value      	"pagemenu.exportdoc.uvsquerymonthlyreport")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"weight"
+		    value      	"11")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"styleClass"
+		    value      	"doc-report")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"output.xml:*562F5C2503C0LABEL_CONTENT*"
+		    value      	
+|<!--UC_BEGIN*562F5C2503C0LABEL_CONTENT*-->¤			<!--UC_END*562F5C2503C0LABEL_CONTENT*-->
+		    ))
+	    quid       	"562F5C2503C0"
+	    documentation 	"îòîáðàæåíèå â Èíñòðóìåíòû ýêñïîðòà îò÷åòà î ðàáîòå uvs îòäåëà â äîê"
+	    stereotype 	"WebItem"
+	    language   	"MDA Generator")
+	(object Class "ExportDocReportCondition"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1445944962920674")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/DocCardChange/ExportSupport/ExportDocReportCondition.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F5E820397_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *562F5E820397_CUSTOM_IMPORT*¤import com.atlassian.confluence.labels.Label;¤import com.atlassian.confluence.pages.AbstractPage;¤import com.atlassian.confluence.pages.Page;¤¤import com.atlassian.confluence.security.Permission;¤import com.atlassian.confluence.security.PermissionManager;¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.atlassian.user.User;¤¤import ru.garant.MDProcess.DocCardChange.DocCardCommon.DPOUVSManager;¤//#UC END# *562F5E820397_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F5E820397_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *562F5E820397_CUSTOM_CLASS_DEFINITION*¤//#UC END# *562F5E820397_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F5E820397_CUSTOM_METHODS_AND_DATA*"
+		    value      	
+|//#UC START# *562F5E820397_CUSTOM_METHODS_AND_DATA*¤	@Override¤	protected boolean shouldDisplay(WebInterfaceContext context) {¤		final AbstractPage pageObj = context.getPage();¤		if (pageObj instanceof Page == false) {¤			return false;¤		}¤		final Page page = (Page) pageObj;¤¤		Label monthlyReportLabel = ContainerManager.Factory.get().getLabelManager().getLabel("monthly_report");¤		if(page.getLabels().contains(monthlyReportLabel) == false){¤			return false;¤		}¤		¤		PermissionManager pm = ContainerManager.Factory.get().getPermissionManager();¤		if (!pm.hasPermission(context.getUser(), Permission.VIEW, page)) {¤			return false;¤		}¤		¤		User user = AuthenticatedUserThreadLocal.getUser();¤		DPOUVSManager manager = DPOUVSManager.Factory.get(pageObj.getSpaceKey());¤		¤		User dpoUvsLeader = manager.getLeaderDpoUvs();¤		User odUoLeader = manager.getLeaderOdUo();¤		User ribLeader = manager.getLeaderRib();¤		User uoLeader = manager.getLeaderUo();¤		User uvsLeader = manager.getLeaderUvs();¤¤		if(dpoUvsLeader != null && dpoUvsLeader.getName().equals(user.getName()) ||¤				odUoLeader != null && odUoLeader.getName().equals(user.getName()) ||¤						ribLeader != null && ribLeader.getName().equals(user.getName()) ||¤								uoLeader != null && uoLeader.getName().equals(user.getName()) ||¤										uvsLeader != null && uvsLeader.getName().equals(user.getName()) ¤		){¤			return true;¤		}¤		¤		return false;¤	}¤	//#UC END# *562F5E820397_CUSTOM_METHODS_AND_DATA*
+		    ))
+	    quid       	"562F5E820397"
+	    documentation 	"ìîãóò ýêñïîðòèðîâàòü òîëüêî ðóêîâîäèòåëè ïîäðàçäåëåíèé"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1445946867024593"))
+		    quid       	"562F65F30017"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.plugin.descriptor.web.conditions::BaseConfluenceCondition"
+		    quidu      	"4A53516B029A"))
+	    language   	"MDA Generator")
+	(object Class "ExportUvsQueryMonthlyReport"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1445945432973564")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/DocCardChange/ExportSupport/ExportUvsQueryMonthlyReport.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F605803CD_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *562F605803CD_CUSTOM_IMPORT*¤//#UC END# *562F605803CD_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F605803CD_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *562F605803CD_CUSTOM_CLASS_DEFINITION*¤//#UC END# *562F605803CD_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F605803CD_ACTION_NAME*"
+		    value      	
+|//#UC START# *562F605803CD_ACTION_NAME*¤		return new String (getClass ().getName ());¤		//#UC END# *562F605803CD_ACTION_NAME*
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F605803CD_CUSTOM_METHODS_AND_DATA*"
+		    value      	
+|//#UC START# *562F605803CD_CUSTOM_METHODS_AND_DATA*¤	public String execute(){¤		Page page = ContainerManager.Factory.get().getPageManager().getPage(pageId_);¤		if(page == null){¤			Logs.LOG_E("ERROR! Not page pageId=" + pageId_);¤		}¤		return SUCCESS;¤	}¤	¤	private long pageId_;¤	¤	public long getPageId(){¤		return pageId_;¤	}¤¤	public void setPageId(long pageId){¤		pageId_ = pageId;¤	}¤	//#UC END# *562F605803CD_CUSTOM_METHODS_AND_DATA*
+		    )
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"factory priority"
+		    value      	"0")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"url-pattern"
+		    value      	"/exportuvsquerymonthlyreport")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F605803CD_INIT_IMPLEMETATION*"
+		    value      	
+|//#UC START# *562F605803CD_INIT_IMPLEMETATION*¤		//#UC END# *562F605803CD_INIT_IMPLEMETATION*
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*562F605803CD_SERVICE_IMPLEMETATION*"
+		    value      	
+|//#UC START# *562F605803CD_SERVICE_IMPLEMETATION*¤		//#UC END# *562F605803CD_SERVICE_IMPLEMETATION*
+		    ))
+	    quid       	"562F605803CD"
+	    documentation 	"ýêñïîðò îò÷åòà î ðàáîòå uvs îòäåëà â äîê ñ ðàñêðàñêîé êîëîíîê â öâåòà"
+	    stereotype 	"KServletPlugin"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1445950344344487")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"562F73880157"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::DocCardChange::ExportSupport::ExportDocReportCondition"
+		    quidu      	"562F5E820397"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1445945231063011"))
+	    quid       	"562F5F8E00D2"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1445945236315313")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"562F5F8F003C"
+		    stereotype 	"condition"
+		    supplier   	"Logical View::MDProcess::DocCardChange::ExportSupport::ExportDocReportCondition"
+		    quidu      	"562F5E820397"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"562F5F8F003E"
+		    supplier   	"Logical View::MDProcess::DocCardChange::ExportSupport::ExportUvsQueryMonthlyReportWebItem"
+		    quidu      	"562F5C2503C0"))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	"true"))
+	    quid       	"562F5C1E0311"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::ExportSupport::ExportUvsQueryMonthlyReportWebItem" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(633, 669)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(241, 640)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	784
+			justify    	0
+			label      	"• ExportUvsQueryMonthlyReportWebItem")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(241, 590)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	784
+			justify    	0
+			label      	"<<WebItem>>")
+		    icon_style 	"Label"
+		    fill_color 	15448575
+		    quidu      	"562F5C2503C0"
+		    width      	802
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::ExportSupport::ExportDocReportCondition" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1503, 348)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1248, 319)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	510
+			justify    	0
+			label      	"ExportDocReportCondition")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1248, 269)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	510
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"562F5E820397"
+		    width      	528
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @3
+		    location   	(928, 342)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"562F5F8E00D2"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @4
+			    Parent_View 	@3
+			    location   	(292, -321)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    stereotype 	(object SegLabel @5
+				Parent_View 	@4
+				location   	(1048, 301)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<condition>>"
+				pctDist    	0.384365
+				height     	42
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"562F5F8F003C"
+			    client     	@3
+			    supplier   	@2
+			    vertices   	(list Points
+				(928, 342)
+				(1239, 342))
+			    line_style 	3
+			    origin_attachment 	(928, 342)
+			    terminal_attachment 	(1239, 342))
+			(object RoleView "$UNNAMED$2" @6
+			    Parent_View 	@3
+			    location   	(292, -321)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"562F5F8F003E"
+			    client     	@3
+			    supplier   	@1
+			    vertices   	(list Points
+				(928, 342)
+				(852, 342)
+				(852, 578))
+			    line_style 	3
+			    origin_attachment 	(928, 342)
+			    terminal_attachment 	(852, 578))))
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::ExportSupport::ExportUvsQueryMonthlyReport" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1629, 915)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1316, 886)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	626
+			justify    	0
+			label      	"• ExportUvsQueryMonthlyReport")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1316, 836)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	626
+			justify    	0
+			label      	"<<KServletPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	15448575
+		    quidu      	"562F605803CD"
+		    width      	644
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.plugin.descriptor.web.conditions::BaseConfluenceCondition" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2634, 198)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(2161, 170)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	946
+			justify    	0
+			label      	"• BaseConfluenceCondition")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(2161, 120)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	946
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4A53516B029A"
+		    width      	964
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @9
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"562F65F30017"
+		    client     	@2
+		    supplier   	@8
+		    vertices   	(list Points
+			(1767, 312)
+			(2151, 260))
+		    line_style 	0)
+		(object UsesView "" @10
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @11
+			Parent_View 	@10
+			location   	(1450, 658)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"562F73880157"
+		    client     	@7
+		    supplier   	@2
+		    vertices   	(list Points
+			(1608, 823)
+			(1523, 439))
+		    line_style 	0)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"562F613E019F")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	"true"))
+	    quid       	"562F614E00E2"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list))))

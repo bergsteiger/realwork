@@ -1,0 +1,2506 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ResultsPublishing"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/Storage/BuildTestLib/ResultsPublishing/ResultsPublishing.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/Storage/BuildTestLib/ResultsPublishing/ResultsPublishingFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/Storage/BuildTestLib/ResultsPublishing/ResultsPublishing.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/Storage/BuildTestLib/ResultsPublishing/ResultsPublishingFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (idl)"
+	    value      	"w:/Storage/BuildTestLib/ResultsPublishing/ResultsPublishing.idl")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/BuildTestLib/ResultsPublishing|4947766E002F
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (idl)"
+	    value      	"file"))
+    quid       	"4947766E002F"
+    documentation 	"Публикование результатов"
+    stereotype 	"ServerInterfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"494776C403CA"
+	    supplier   	"Logical View::MDProcess::ServerGate::Contents"
+	    quidu      	"4A03AD970046"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "TestResults"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/BuildTestLib/ResultsPublishing/TestResults|4947769203CC
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4947769203CC_494778A4009B_494784200278_BASE_INIT*"
+		    value      	"//#UC START# *4947769203CC_494778A4009B_494784200278_BASE_INIT*¤: m_total_duration (0.0)¤, m_logic_db_size (0.0)¤, m_object_a_size (0.0)¤, m_object_b_size (0.0)¤//#UC END# *4947769203CC_494778A4009B_494784200278_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4947769203CC_494778A4009B_494784200278_BODY*"
+		    value      	(value Text 
+|//#UC START# *4947769203CC_494778A4009B_494784200278_BODY*¤	this->clear_current_results ();¤	m_test_decorator_map [""] = TestDecorator ("Пропускная способность", "объектов в секунду", false);¤	ColumnsVector columns;¤	columns.push_back(Column("files_list", "Имя файла", false));¤	columns.push_back(Column("files_size", "Размер файла(Mb)", false));¤	columns.push_back(Column("total_size", "Общий размер базы(Mb)", true));¤	m_test_decorator_map ["size"] = TestDecorator ("Общий объем БД", "Мегабайты", columns, true);¤	m_test_decorator_map ["time"] = TestDecorator ("Общее время выполнения", "секунды", true);¤	m_test_decorator_map ["ratio"] = TestDecorator ("Физический оверхед объема БД", "проценты", true);¤	m_test_decorator_map ["mempeak"] = TestDecorator ("Максимум потребления физической памяти", "Мегабайты", true);¤	//#UC END# *4947769203CC_494778A4009B_494784200278_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4947769203CC"
+	    documentation 	"Результаты теста"
+	    stereotype 	"ServerInterface"
+	    operations 	(list Operations
+		(object Operation "start_test"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494776EF0337_494784200278*"
+			    value      	(value Text 
+|//#UC START# *494776EF0337_494784200278*¤	LOG_I (("%s (): %s", GDS_CURRENT_FUNCTION, "Generate initial wiki template"));¤¤	m_page_id = page_id;¤	m_login = login;¤	m_password = password;¤	LocalPageLogin lp (m_login, m_password, m_page_id);¤¤	try {¤		LOG_I (("%s (): replace label test_aborted by test_started, page_id = %d", GDS_CURRENT_FUNCTION, (int) page_id));¤		std::string labels = std::string (lp.p ()->get_labels ());¤		LOG_I (("%s (): lp.p ()->get_labels () returns = %s", GDS_CURRENT_FUNCTION, labels.c_str ()));¤		std::string test_aborted = "test_aborted";¤		std::string test_failed = "test_failed";¤		std::string test_done = "test_done";¤		std::string test_started = "test_started";¤		std::vector <std::string> split_labels_vec;¤		GCL::split_string_by (split_labels_vec, labels.c_str (), ',');¤		split_labels_vec.erase (¤			std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_started)¤			, split_labels_vec.end ()¤		);¤		split_labels_vec.erase (¤			std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_aborted)¤			, split_labels_vec.end ()¤		);¤		split_labels_vec.erase (¤			std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_failed)¤			, split_labels_vec.end ()¤		);¤		split_labels_vec.erase (¤			std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_done)¤			, split_labels_vec.end ()¤		);¤		split_labels_vec.push_back (test_started);¤		std::string new_labels = GCL::join (split_labels_vec, std::string (","));¤		LOG_I (("%s (): new_labels = %s", GDS_CURRENT_FUNCTION, new_labels.c_str ()));¤		lp.p ()->set_labels (new_labels.c_str ());¤		std::string labels2 = std::string (lp.p ()->get_labels ());¤		LOG_I (("%s (): lp.p ()->get_labels () returns2 = %s", GDS_CURRENT_FUNCTION, labels2.c_str ()));¤	} CATCH_AND_LOG ("lp.p ()->set_labels")¤¤	try {¤		ServerGate::Contents::PageId prev_page_id = 125436655; // default id for diff with previoud build¤		std::string wiki_body = "";¤		wiki_body += "h1. Автоматическое Тестирование";¤		wiki_body += "\n";¤		wiki_body += "\n";¤		wiki_body += "{toc:minLevel=2|maxLevel=2}";¤		wiki_body += "\n";¤		wiki_body += "\n";¤		lp.p ()->set_wiki_text (wiki_body.c_str ());¤		try {¤			ServerGate::Contents::KPage_var p_prev = ServerGate::BuildSupport::BuildManagerFactory::get ().get_prev_build (lp.p ());¤			prev_page_id = p_prev->get_id ();¤			LOG_I (("get_prev_build id = %d for diff", (int) prev_page_id));¤			char pbuf [65536];¤			sprintf (pbuf, "\nПредыдущая сборка: [$%d]\n", (int) prev_page_id);¤			lp.p ()->append_wiki_text (pbuf);¤		} catch (ServerGate::Contents::PageNotFound) {¤			LOG_E (("get_prev_build: PageNotFound, use page id = %d for diff", (int) prev_page_id));¤			char errbuf [65536];¤			sprintf (¤				errbuf¤				, "\nBuildManager::get_prev_build: *PageNotFound*, use page id = %d for diff\n"¤				, (int) prev_page_id¤			);¤			lp.p ()->append_wiki_text (errbuf);¤		}¤	} CATCH_AND_LOG ("set_wiki_text OR append_wiki_text OR set_labels")¤	//#UC END# *494776EF0337_494784200278*
+			    )))
+		    quid       	"494776EF0337"
+		    documentation 	"Начать тест"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "page_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47EA496903B7"))
+			    quid       	"4A4DE1BA0283"
+			    type       	"PageId"
+			    quidu      	"47EA496903B7")
+			(object Parameter "login"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4A4DE2D001C4"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "password"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4A4DE2D0024D"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "start_test_block"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494777190065_494784200278*"
+			    value      	(value Text 
+|//#UC START# *494777190065_494784200278*¤	LOG_I ((¤		"%s (): Generate block wiki template for batch number %d (replase procent s)"¤		, GDS_CURRENT_FUNCTION¤		, (int) batch_number¤	));¤	LocalPageLogin lp (m_login, m_password, m_page_id);¤	std::string wiki_body = "\n";¤	try {¤		std::string metadata_static_prefix = ListenerParams::get_metadata_static_prefix ();¤	// here was 'for' cycle by different 'objects_per_class'-es¤		char sbatch_number [1024];¤		sprintf (sbatch_number, "%d", (int) batch_number);¤¤		wiki_body += caption;¤		wiki_body += "\n";¤		wiki_body += "\n";¤		wiki_body += "{info}Входные параметры: ";¤		wiki_body += "\n";¤		wiki_body += "Размер объекта класса А = ";¤		wiki_body += "{metadata-from:%s|";¤		wiki_body += metadata_static_prefix;¤		wiki_body += "objectasize";¤		wiki_body += std::string (sbatch_number);¤		wiki_body += "} байт";¤		wiki_body += "\n";¤		wiki_body += "Размер объекта класса B = ";¤		wiki_body += "{metadata-from:%s|";¤		wiki_body += metadata_static_prefix;¤		wiki_body += "objectbsize";¤		wiki_body += std::string (sbatch_number);¤		wiki_body += "} байт";¤		wiki_body += "\n";¤		wiki_body += "Логический размер базы = ";¤		wiki_body += "{metadata-from:%s|";¤		std::string slogicalsize_name = metadata_static_prefix¤			+ std::string ("logicaldbsize") ¤			+ std::string (sbatch_number);¤		wiki_body += slogicalsize_name;¤		wiki_body += "} Мегабайт";¤		wiki_body += "\n";¤		wiki_body += "\n";¤		wiki_body += "Общая статистика по времени:";¤		wiki_body += "\n";¤		wiki_body += "* Общее время выполнения всех тестов = ";¤		wiki_body += "{metadata-from:%s|";¤		wiki_body += "All";¤		wiki_body += "totaltime";¤		wiki_body += std::string (sbatch_number);¤		wiki_body += "} секунд ";¤		wiki_body += "({metadata-from:%s|";¤		wiki_body += "All";¤		wiki_body += "totaltimehours";¤		wiki_body += std::string (sbatch_number);¤		wiki_body += "} часов)";¤		wiki_body += "\n";¤		wiki_body += "* Время выполнения тестов каждому кандидату:";¤		wiki_body += "\n";¤		{¤			for (CORBA::ULong i = 0; i < cand_list_in.length (); ++i) {¤				// (cand_list_in.get_buffer ()) [i] = candidate¤				wiki_body += std::string ("** ") + (cand_list_in.get_buffer ()) [i] + std::string (" = ");¤				wiki_body += "{metadata-from:%s|";¤				wiki_body += (cand_list_in.get_buffer ()) [i];¤				wiki_body += "totaltime";¤				wiki_body += std::string (sbatch_number);¤				wiki_body += "} секунд ";¤				wiki_body += "({metadata-from:%s|";¤				wiki_body += (cand_list_in.get_buffer ()) [i];¤				wiki_body += "totaltimehours";¤				wiki_body += std::string (sbatch_number);¤				wiki_body += "} часов)";¤				wiki_body += "\n";¤			}¤		}¤		wiki_body += "{info}";¤		wiki_body += "\n";¤		wiki_body += "\n";¤¤		char sobjects_per_class_buf2 [256];¤		sprintf (sobjects_per_class_buf2, "%u", batch_number);¤¤		ResultsPublishing::CandidatesList filtered_candidates_create;¤		for(unsigned long i=0; i<charts_list.length(); i++) {¤			if(strcmp(charts_list[i].objects_count.in(), sobjects_per_class_buf2) == 0) {¤				candidates_filtering(charts_list[i].candidate_list, cand_list_in, filtered_candidates_create, "create");¤				break;¤			}¤		}¤¤		std::string width;¤		std::string height;¤		std::string x_max;¤		std::string y_max;¤		std::string caption;¤		for(unsigned long i=0; i<charts_config_lst.length(); i++) {¤			if(strcmp(charts_config_lst[i].type.in(), "create") == 0) {¤				width = charts_config_lst[i].width;¤				height = charts_config_lst[i].height;¤				x_max = charts_config_lst[i].x_max;¤				y_max = charts_config_lst[i].y_max;¤				caption = charts_config_lst[i].caption;¤				break;¤			}¤		}¤¤		wiki_body += caption;¤		wiki_body += "\n";¤		wiki_body += "\n";¤¤		create_chart(¤			ACE_OS::atoi(x_max.c_str())¤			, ACE_OS::atoi(y_max.c_str())¤			, "create"¤			, batch_number¤			, filtered_candidates_create¤			, wiki_body¤			, "deg"¤			, "Деградация пропускной способности"¤			, width ¤			, height¤		);¤¤		create_chart(¤			ACE_OS::atoi(x_max.c_str())¤			, ACE_OS::atoi(y_max.c_str())¤			, "create"¤			, batch_number¤			, filtered_candidates_create¤			, wiki_body¤			, "ave"¤			, "Средняя пропускная способность с начала теста"¤			, width ¤			, height¤		);¤¤		ResultsPublishing::CandidatesList filtered_candidates_load;¤		for(unsigned long i=0; i<charts_list.length(); i++) {¤			if(strcmp(charts_list[i].objects_count.in(), sobjects_per_class_buf2) == 0) {¤				candidates_filtering(charts_list[i].candidate_list, cand_list_in, filtered_candidates_load, "load");¤				break;¤			}¤		}¤¤		width.clear();¤		height.clear();¤		x_max.clear();¤		y_max.clear();¤		caption.clear();¤		for(unsigned long i=0; i<charts_config_lst.length(); i++) {¤			if(strcmp(charts_config_lst[i].type.in(), "load") == 0) {¤				width = charts_config_lst[i].width;¤				height = charts_config_lst[i].height;¤				x_max = charts_config_lst[i].x_max;¤				y_max = charts_config_lst[i].y_max;¤				caption = charts_config_lst[i].caption;¤				break;¤			}¤		}¤¤		wiki_body += caption; ¤		wiki_body += "\n";¤		wiki_body += "\n";¤¤		create_chart(¤			ACE_OS::atoi(x_max.c_str())¤			, ACE_OS::atoi(y_max.c_str())¤			, "load"¤			, batch_number¤			, filtered_candidates_load¤			, wiki_body¤			, "deg"¤			, "Деградация пропускной способности"¤			, width ¤			, height¤		);¤¤		create_chart(¤			ACE_OS::atoi(x_max.c_str())¤			, ACE_OS::atoi(y_max.c_str())¤			, "load"¤			, batch_number¤			, filtered_candidates_load¤			, wiki_body¤			, "ave"¤			, "Средняя пропускная способность с начала теста"¤			, width ¤			, height¤		);¤¤		for (¤			TestDecoratorMap::const_iterator tl_it = m_test_decorator_map.begin ()¤			; tl_it != m_test_decorator_map.end ()¤			; ++ tl_it¤		) {¤			wiki_body += std::string ("h3. ") + tl_it->second.txt_header;¤			wiki_body += "\n";¤			wiki_body += "\n";¤			wiki_body += tl_it->second.txt_header + std::string (" (") + tl_it->second.y_label + std::string ("):");¤			wiki_body += "\n";¤			wiki_body += "\n";¤			wiki_body += std::string ("{cache:checkAttachments=false|showRefresh=true|showDate=false|refresh=1h}");¤			wiki_body += "\n";¤			{¤				wiki_body += "|| Кандидат || ";¤				if(tl_it->second.columns.size() != 0) {¤					for (unsigned long j = 0; j < tl_it->second.columns.size(); ++j) {¤						wiki_body += tl_it->second.columns[j].column_name.c_str();¤						wiki_body += " || ";¤					}¤				} else {¤					for (CORBA::ULong j = 0; j < pass_list_in.length (); ++j) {¤						wiki_body += (pass_list_in.get_buffer ()) [j];¤						//wiki_body += (tl_it->first); // optionally hide suffix because it's technical info¤						wiki_body += " || ";¤					}¤				}¤				wiki_body += "\n";¤			}¤			for (CORBA::ULong i = 0; i < cand_list_in.length (); ++i) {¤				wiki_body += "| ";¤				wiki_body += (cand_list_in.get_buffer ()) [i]; // candidate¤				wiki_body += " | ";¤				unsigned long len = tl_it->second.columns.size();¤				if(!len) {¤					len = pass_list_in.length ();¤				}¤				for (CORBA::ULong j = 0; j < len; ++j) {¤					wiki_body += "{metadata-from:%s|";¤					wiki_body += (cand_list_in.get_buffer ()) [i];¤					wiki_body += tl_it->second.columns.size() ¤						? tl_it->second.columns[j].column_id.c_str() ¤						: (pass_list_in.get_buffer ()) [j];¤					wiki_body += tl_it->first;¤					wiki_body += std::string (sbatch_number);¤					wiki_body += "}";¤					// Diff¤					if(tl_it->second.columns.size()) {¤						if(!tl_it->second.columns[j].diff_construct) {¤							wiki_body += " | ";¤							continue;¤						}¤					}¤//					wiki_body += "(";¤					wiki_body += "{metadata-from:%s|";¤					wiki_body += (cand_list_in.get_buffer ()) [i];¤					wiki_body += tl_it->second.columns.size() ¤						? tl_it->second.columns[j].column_id.c_str() ¤						: (pass_list_in.get_buffer ()) [j];¤					wiki_body += tl_it->first;¤					wiki_body += "diff";¤					wiki_body += std::string (sbatch_number);¤					wiki_body += "}";¤//					wiki_body += ")";¤					// End Diff block¤					wiki_body += " | ";¤				}¤				wiki_body += "\n";¤			}¤			wiki_body += "{cache}";¤			wiki_body += "\n";¤			wiki_body += "\n";¤		}¤		GCL::str_replace (wiki_body, "%s", lp.p ()->get_name ());¤		lp.p ()->append_wiki_text (wiki_body.c_str ());¤	} CATCH_AND_LOG ("append_wiki_text")¤	//#UC END# *494777190065_494784200278*
+			    )))
+		    quid       	"494777190065"
+		    documentation 	"Начать тестовый блок"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "caption"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4BA0EB720269"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "batch_number"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFDE101CA"))
+			    quid       	"4BA0FA4C02C6"
+			    type       	"unsigned long"
+			    quidu      	"3DBFFDE101CA")
+			(object Parameter "cand_list_in"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"494777BE0140"))
+			    quid       	"4947C40C0379"
+			    type       	"CandidatesList"
+			    quidu      	"494777BE0140")
+			(object Parameter "pass_list_in"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4947B43703A4"))
+			    quid       	"4947C40D008A"
+			    type       	"PassList"
+			    quidu      	"4947B43703A4")
+			(object Parameter "charts_list"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4B71354903A9"))
+			    quid       	"4B712FA20323"
+			    type       	"ChartsForObjectsCount"
+			    quidu      	"4B71354903A9")
+			(object Parameter "charts_config_lst"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4B72B21E0032"))
+			    quid       	"4B72B6920054"
+			    type       	"ChartsConfigLst"
+			    quidu      	"4B72B21E0032"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "finish_test_block"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947774500CA_494784200278*"
+			    value      	(value Text 
+|//#UC START# *4947774500CA_494784200278*¤¤	//#UC END# *4947774500CA_494784200278*
+			    )))
+		    quid       	"4947774500CA"
+		    documentation 	"Закончить тестовый блок"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "finish_test"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947776003CA_494784200278*"
+			    value      	(value Text 
+|//#UC START# *4947776003CA_494784200278*¤	LocalPageLogin lp (m_login, m_password, m_page_id);¤	try {¤		LOG_I ((¤			"%s (): replace label test_started by test_done or test_failed for lp.p ()->get_id () = %d"¤			, GDS_CURRENT_FUNCTION¤			, (int) lp.p ()->get_id ()¤		));¤		std::string labels = std::string (lp.p ()->get_labels ());¤		LOG_I (("%s (): lp.p ()->get_labels () returns = %s", GDS_CURRENT_FUNCTION, labels.c_str ()));¤		std::string test_donefailed = (status ? std::string ("test_done") : std::string ("test_failed"));¤		std::string test_aborted = "test_aborted";¤		std::string test_failed = "test_failed";¤		std::string test_done = "test_done";¤		std::string test_started = "test_started";¤		std::vector <std::string> split_labels_vec;¤		GCL::split_string_by (split_labels_vec, labels.c_str (), ',');¤		split_labels_vec.erase (¤			std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_started)¤			, split_labels_vec.end ()¤		);¤		split_labels_vec.erase (¤			std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_aborted)¤			, split_labels_vec.end ()¤		);¤		split_labels_vec.erase (¤			std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_failed)¤			, split_labels_vec.end ()¤		);¤		split_labels_vec.erase (¤			std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_done)¤			, split_labels_vec.end ()¤		);¤		split_labels_vec.push_back (test_donefailed);¤		std::string new_labels = GCL::join (split_labels_vec, std::string (","));¤		LOG_I (("%s (): new_labels = %s", GDS_CURRENT_FUNCTION, new_labels.c_str ()));¤		lp.p ()->set_labels (new_labels.c_str ());¤		std::string labels2 = std::string (lp.p ()->get_labels ());¤		LOG_I (("%s (): lp.p ()->get_labels () returns2 = %s", GDS_CURRENT_FUNCTION, labels2.c_str ()));¤	} CATCH_AND_LOG ("lp.p ()->set_labels")¤	//#UC END# *4947776003CA_494784200278*
+			    )))
+		    quid       	"4947776003CA"
+		    documentation 	"Закончить тест"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "status"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240"))
+			    quid       	"4A6D804902B1"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494778A4009B"
+		    documentation 	"Для простоты возвращаем новый экземпляр"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "post_total_results"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4948DDBE00F4_494784200278*"
+			    value      	(value Text 
+|//#UC START# *4948DDBE00F4_494784200278*¤	LocalPageLogin lp (m_login, m_password, m_page_id);¤¤	ServerGate::Contents::MetadataEntityList metas;¤	char key [1024];¤	char value [1024];¤¤	char key_format [1024];¤	sprintf (key_format, "%s%%s%d", candidate, (int) objects_per_class);¤¤	// totaltime¤	sprintf (key, key_format, "totaltime");¤	sprintf (value, "%-4.2f\n", this->get_total_duration ());¤	add_new_metadata (metas, key, value);¤	// totaltime hours¤	sprintf (key, key_format, "totaltimehours");¤	sprintf (value, "%-4.2f\n", this->get_total_duration () / 60.0 / 60.0);¤	add_new_metadata (metas, key, value);¤	try {¤		lp.p ()->add_metadata (metas);¤	} CATCH_AND_LOG ("m_page->append_wiki_text")¤	//#UC END# *4948DDBE00F4_494784200278*
+			    )))
+		    quid       	"4948DDBE00F4"
+		    documentation 	"Пост в К суммарных результатов"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "objects_per_class"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFDE101CA"))
+			    quid       	"494900710084"
+			    type       	"unsigned long"
+			    quidu      	"3DBFFDE101CA")
+			(object Parameter "candidate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4949015A01AE"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "post_current_results"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4948E393014F_494784200278*"
+			    value      	(value Text 
+|//#UC START# *4948E393014F_494784200278*¤	LocalPageLogin lp (m_login, m_password, m_page_id);¤¤	ServerGate::Contents::MetadataEntityList metas;¤	char key [1024];¤	char value [1024];¤¤	char key_format [1024];¤	sprintf (key_format, "%s%s%%s%d", candidate, pass, (int) objects_per_class);¤¤	if (this->get_throughput () > INVALID_VALUE) {¤		// throughput¤		sprintf (key, key_format, "");¤		sprintf (value, "%-4.1f\n", this->get_throughput ());¤		add_new_metadata (metas, key, value);¤	}¤	if (this->get_exe_pass_duration () > INVALID_VALUE) {¤		// exe_pass_duration¤		sprintf (key, key_format, "time");¤		sprintf (value, "%-4.2f\n", this->get_exe_pass_duration ());¤		add_new_metadata (metas, key, value);¤	}¤	if (this->get_phys_memory_used () > INVALID_VALUE) {¤		// phys_memory_used¤		sprintf (key, key_format, "mempeak");¤		sprintf (value, "%-4.2f\n", this->get_phys_memory_used () / 1024.0 / 1024.0); // Mb¤		add_new_metadata (metas, key, value);¤	}¤	if (this->get_phys_db_size () > INVALID_VALUE) {¤		// phys_db_size¤		//sprintf (key, key_format, "size");¤		//sprintf (value, "%-4.2f\n", this->get_phys_db_size () / 1024.0 / 1024.0); // Mb¤		//add_new_metadata (metas, key, value);¤¤		if(strcmp(pass, "create") == 0) {¤			// file_list¤			char key_for_list[100];¤			sprintf(key_for_list, "%s%s%s%d", candidate, "files_list", "size", (int) objects_per_class);¤			sprintf (value, "%s", this->get_files_list ());¤			add_new_metadata (metas, key_for_list, value);¤¤			LOG_I(("Fill metadata FILE LIST <%s>, KEY <%s>", this->get_files_list (), key_for_list));¤¤			// size_list¤			sprintf(key_for_list, "%s%s%s%d", candidate, "files_size", "size", (int) objects_per_class);¤			sprintf (value, "%s", this->get_size_list ());¤			add_new_metadata (metas, key_for_list, value);¤¤			LOG_I(("Fill metadata SIZE LIST <%s>, KEY <%s>", this->get_size_list (), key_for_list));¤¤			// total_size¤			sprintf(key_for_list, "%s%s%s%d", candidate, "total_size", "size", (int) objects_per_class);¤			sprintf (value, "%-4.2f\n", this->get_phys_db_size () / 1024.0 / 1024.0);¤			add_new_metadata (metas, key_for_list, value);¤¤			LOG_I(("Fill metadata for TOTAL SIZE <%-4.2f\n>, KEY <%s>", this->get_phys_db_size () / 1024.0 / 1024.0, key_for_list));¤		}¤¤		// phys_db_overhead¤		sprintf (key, key_format, "ratio");¤		sprintf (value, "%-4.2f\n", 100.0*this->get_phys_db_overhead ());¤		add_new_metadata (metas, key, value);¤	}¤¤	sprintf (key_format, "%s%sthr%%u%%s%d", candidate, pass, (int) objects_per_class);¤¤	post_degradation_chart(¤		key¤		, value¤		, key_format¤		, "deg"¤		, *this->get_throughput_degradation ()¤		, metas¤	);¤¤	post_degradation_chart(¤		key¤		, value¤		, key_format¤		, "ave"¤		, *(ResultsPublishing::ThroughputDegradation*)this->get_throughput_average ()¤		, metas¤	);¤¤	std::string metadata_static_prefix = ListenerParams::get_metadata_static_prefix ();¤	if ((metadata_static_prefix == std::string (candidate))  && (std::string (pass) == std::string ("load"))) {¤		sprintf (key_format, "%s%%s%d", candidate, (int) objects_per_class);¤		// logic db size¤		sprintf (key, key_format, "logicaldbsize");¤		sprintf (value, "%-4.2f\n", this->get_logic_db_size () / 1024.0 / 1024.0); // Mb¤		add_new_metadata (metas, key, value);¤		LOG_I (("this->get_logic_db_size () strbuf_value = %s", value));¤		// object a size¤		sprintf (key, key_format, "objectasize");¤		sprintf (value, "%-4.1f\n", this->get_object_a_size ());¤		add_new_metadata (metas, key, value);¤		LOG_I (("this->get_object_a_size () strbuf_value = %s", value));¤		// object b size¤		sprintf (key, key_format, "objectbsize");¤		sprintf (value, "%-4.1f\n", this->get_object_b_size ());¤		add_new_metadata (metas, key, value);¤		LOG_I (("this->get_object_b_size () strbuf_value = %s", value));¤	}¤¤	try {¤		lp.p () ->add_metadata (metas);¤	} CATCH_AND_LOG ("m_page->append_wiki_text")¤¤	std::string wiki_body = "";¤	this->add_diff_metadata (objects_per_class, candidate, pass, wiki_body, lp.p ());¤	GCL::str_replace (wiki_body, ",", ".");¤	//#UC END# *4948E393014F_494784200278*
+			    )))
+		    quid       	"4948E393014F"
+		    documentation 	"Пост в К текущих результатов"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "objects_per_class"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFDE101CA"))
+			    quid       	"4949006103D9"
+			    type       	"unsigned long"
+			    quidu      	"3DBFFDE101CA")
+			(object Parameter "candidate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4949004703A5"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "pass"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"494901350228"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "clear_current_results"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494F8F940068_494784200278*"
+			    value      	(value Text 
+|//#UC START# *494F8F940068_494784200278*¤	this->set_success (false);¤	this->set_throughput (INVALID_VALUE);¤	this->set_exe_pass_duration (INVALID_VALUE);¤	this->set_phys_db_size (INVALID_VALUE);¤	this->set_phys_memory_used (INVALID_VALUE);¤	this->set_degradation_detected_continue (false);¤	unsigned long td_len = this->get_throughput_degradation ()->length ();¤	for (unsigned long i = 0; i < td_len; ++i) {¤		((double&) this->get_throughput_degradation ()->operator [] (i)) = INVALID_VALUE;¤	}¤	unsigned long ta_len = this->get_throughput_degradation ()->length ();¤	for (unsigned long i = 0; i < ta_len; ++i) {¤		((double&) this->get_throughput_average ()->operator [] (i)) = INVALID_VALUE;¤	}¤	//#UC END# *494F8F940068_494784200278*
+			    )))
+		    quid       	"494F8F940068"
+		    documentation 	"Очищает текущие результаты"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "log_run"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4A67061202BA_494784200278*"
+			    value      	(value Text 
+|//#UC START# *4A67061202BA_494784200278*¤	LocalPageLogin lp (m_login, m_password, m_page_id);¤	try {¤		lp.p ()->append_wiki_text (wiki_line);¤	} CATCH_AND_LOG ("log_run: lp.p ()->append_wiki_text")¤	//#UC END# *4A67061202BA_494784200278*
+			    )))
+		    quid       	"4A67061202BA"
+		    documentation 	"добавляет на страницу строку вики-лога (сама добавляет переход на нов. строку)"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "wiki_line"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4A67066E037E"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "throughput"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A4010236_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4947A4010236_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A4010236_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A4010236_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4947A4010236_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A4010236_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"4947A4010236"
+		    documentation 	"Пропускная способность"
+		    stereotype 	"property"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "exe_pass_duration"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A42A0281_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4947A42A0281_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A42A0281_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A42A0281_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4947A42A0281_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A42A0281_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"4947A42A0281"
+		    documentation 	"Время выполнения одного прохода экзешника измеренное независимо извне"
+		    stereotype 	"property"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "phys_memory_used"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A471001C_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4947A471001C_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A471001C_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A471001C_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4947A471001C_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A471001C_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"4947A471001C"
+		    documentation 	"Максимум потребления физической памяти"
+		    stereotype 	"property"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "phys_db_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A5160103_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4947A5160103_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A5160103_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A5160103_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4947A5160103_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A5160103_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"4947A5160103"
+		    documentation 	"Физический размер БД на диске"
+		    stereotype 	"property"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "phys_db_overhead"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A54F00D6_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4947A54F00D6_494784200278_GET*¤	CORBA::Double result = (this->get_logic_db_size () > 0) ¤		? (this->get_phys_db_size () - this->get_logic_db_size ()) / this->get_logic_db_size () ¤		: 0.0;¤	LOG_I(("Total Phis size <%f>, Logical db size <%f>, result <%f>", this->get_phys_db_size (), this->get_logic_db_size (), result));¤	return result;¤	//#UC END# *4947A54F00D6_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4947A54F00D6_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4947A54F00D6_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4947A54F00D6_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"4947A54F00D6"
+		    documentation 	"Разница в проуентах между физическим и логическим размером БД (по отношению к логическому размеру)"
+		    stereotype 	"readonly"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "total_duration"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4948DE7A013D_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4948DE7A013D_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4948DE7A013D_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4948DE7A013D_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4948DE7A013D_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4948DE7A013D_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"4948DE7A013D"
+		    documentation 	"Общая продолжительность тестов"
+		    stereotype 	"property"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "logic_db_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4948FB2B02BD_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4948FB2B02BD_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4948FB2B02BD_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4948FB2B02BD_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4948FB2B02BD_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4948FB2B02BD_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"4948FB2B02BD"
+		    documentation 	"Логический размер базы"
+		    stereotype 	"property"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "object_a_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494B87F402FE_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *494B87F402FE_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *494B87F402FE_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494B87F402FE_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *494B87F402FE_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *494B87F402FE_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"494B87F402FE"
+		    documentation 	"Размер хранимого класса A"
+		    stereotype 	"property"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "object_b_size"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494B88200019_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *494B88200019_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *494B88200019_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*494B88200019_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *494B88200019_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *494B88200019_494784200278_SET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD9B0197"))
+		    quid       	"494B88200019"
+		    documentation 	"Размер хранимого класса B"
+		    stereotype 	"property"
+		    type       	"double"
+		    quidu      	"3DBFFD9B0197"
+		    exportControl 	"Public")
+		(object ClassAttribute "throughput_degradation"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4A24FA1D036B"))
+		    quid       	"4A24FAA200A3"
+		    documentation 	"throughput_degradation"
+		    stereotype 	"property"
+		    type       	"ThroughputDegradation"
+		    quidu      	"4A24FA1D036B"
+		    exportControl 	"Public")
+		(object ClassAttribute "throughput_average"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4A38DBDB0121"))
+		    quid       	"4A38DC220284"
+		    documentation 	"throughput_average"
+		    stereotype 	"property"
+		    type       	"ThroughputAverage"
+		    quidu      	"4A38DBDB0121"
+		    exportControl 	"Public")
+		(object ClassAttribute "success"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240"))
+		    quid       	"4A69A5910143"
+		    documentation 	"success"
+		    stereotype 	"property"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public")
+		(object ClassAttribute "degradation_detected_continue"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4B1FA41602CC_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4B1FA41602CC_494784200278_GET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4B1FA41602CC_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4B1FA41602CC_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4B1FA41602CC_494784200278_SET*¤	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);¤	//#UC END# *4B1FA41602CC_494784200278_SET*
+			    )))
+		    quid       	"4B1FA41602CC"
+		    documentation 	"тестируемый экзешник извещает сервер о наступлении деградации"
+		    stereotype 	"property"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public")
+		(object ClassAttribute "files_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4BA8CA21021F_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4BA8CA21021F_494784200278_GET*¤	return const_cast<char*>(m_files_list.c_str());¤	//#UC END# *4BA8CA21021F_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4BA8CA21021F_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4BA8CA21021F_494784200278_SET*¤	m_files_list = files_list;¤	//#UC END# *4BA8CA21021F_494784200278_SET*
+			    )))
+		    quid       	"4BA8CA21021F"
+		    documentation 	"Список файлов Б.Д. кандидата"
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public")
+		(object ClassAttribute "size_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4BA8CA4D00E7_494784200278_GET*"
+			    value      	(value Text 
+|//#UC START# *4BA8CA4D00E7_494784200278_GET*¤	return const_cast<char*>(m_files_size.c_str());¤	//#UC END# *4BA8CA4D00E7_494784200278_GET*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4BA8CA4D00E7_494784200278_SET*"
+			    value      	(value Text 
+|//#UC START# *4BA8CA4D00E7_494784200278_SET*¤	m_files_size = size_list;¤	//#UC END# *4BA8CA4D00E7_494784200278_SET*
+			    )))
+		    quid       	"4BA8CA4D00E7"
+		    documentation 	"Список размеров файлов кандидата."
+		    stereotype 	"property"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "CandidatesList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"494777BE0140"
+	    documentation 	"Список кандидатов"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "PassList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4947B43703A4"
+	    documentation 	"Список прогонов экзешников - create, load, loadro и т.д."
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "ThroughputDegradation"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4A24FA1D036B"
+	    documentation 	"ThroughputDegradation"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "ThroughputAverage"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4A38DBDB0121"
+	    documentation 	"ThroughputAverage"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "CandidateCharts"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/BuildTestLib/ResultsPublishing/CandidateCharts|4B712E15020C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4B712E15020C"
+	    documentation 	"Структура содержит имя кандидата и набор диаграмм на которых он должен быть отображён."
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4B712E5301EF"
+		    documentation 	"Имя кандидата"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "charts"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4B712ED70257"
+		    documentation 	"Набор диаграмм."
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "CandidateChartsList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4B712F2401EC"
+	    documentation 	"Вектор определяющий какие кандидаты на какие диаграммы должны выводиться."
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "ObjectsCountCharts"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/BuildTestLib/ResultsPublishing/ObjectsCountCharts|4B71345D02FD
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4B71345D02FD"
+	    documentation 	"Список диаграмм для каждого количества объектов."
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "objects_count"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4B7134FF0300"
+		    documentation 	"Количество объекто в тесте"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "candidate_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4B712F2401EC"))
+		    quid       	"4B71352D000B"
+		    documentation 	"Список кандидатов"
+		    type       	"CandidateChartsList"
+		    quidu      	"4B712F2401EC"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ChartsForObjectsCount"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4B71354903A9"
+	    documentation 	"Диаграммы для опрределённого колличества объектов."
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "ChartsConfigure"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/BuildTestLib/ResultsPublishing/ChartsConfigure|4B72B0C4025A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4B72B0C4025A"
+	    documentation 	"Конфигурация диаграммы."
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4B72B1560109"
+		    documentation 	"Тип диграммы (например create или load)"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "width"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4B72B18200E3"
+		    documentation 	"Ширина диаграммы в пикселах."
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "height"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4B72B1B7024D"
+		    documentation 	"Высота диаграммы в пикселах."
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "x_max"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4BA0EB8502F6"
+		    documentation 	"Шкала по оси X"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "y_max"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4BA0EBA102B2"
+		    documentation 	"Шкала по оси Y"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "caption"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4BA385F400DF"
+		    documentation 	"Заголовок графиков"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "ChartsConfigLst"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"4B72B21E0032"
+	    documentation 	"Список конфигураций для разных диаграмм."
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"494777D9027C"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"494777DA020D"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"494777DA020F"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::CandidatesList"
+		    quidu      	"494777BE0140"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"4947B4610296"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$4"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4947B462018C"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"4947B462019B"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::PassList"
+		    quidu      	"4947B43703A4"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$6"
+	    quid       	"4A24FC750189"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$7"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A24FC75031F"
+		    supplier   	"Logical View::Primitives::double"
+		    quidu      	"3DBFFD9B0197"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$8"
+		    quid       	"4A24FC75032F"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::ThroughputDegradation"
+		    quidu      	"4A24FA1D036B"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$9"
+	    quid       	"4A38DBF10091"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$10"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A38DBF10284"
+		    supplier   	"Logical View::Primitives::double"
+		    quidu      	"3DBFFD9B0197"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$11"
+		    quid       	"4A38DBF10286"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::ThroughputAverage"
+		    quidu      	"4A38DBDB0121"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$12"
+	    quid       	"4B712F700072"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$13"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4B712F7001F5"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::CandidateCharts"
+		    quidu      	"4B712E15020C"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$14"
+		    quid       	"4B712F7001F7"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::CandidateChartsList"
+		    quidu      	"4B712F2401EC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$15"
+	    quid       	"4B7135810042"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$16"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4B713581011A"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::ObjectsCountCharts"
+		    quidu      	"4B71345D02FD"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$17"
+		    quid       	"4B713581011C"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::ChartsForObjectsCount"
+		    quidu      	"4B71354903A9"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$18"
+	    quid       	"4B72B2610090"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$19"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4B72B2610232"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::ChartsConfigure"
+		    quidu      	"4B72B0C4025A"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$20"
+		    quid       	"4B72B2610234"
+		    supplier   	"Logical View::Storage::BuildTestLib::ResultsPublishing::ChartsConfigLst"
+		    quidu      	"4B72B21E0032"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4947768A01D6"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::TestResults" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2214, 750)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(346, 116)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	3736
+			justify    	0
+			label      	"• TestResults")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(346, 66)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	3736
+			justify    	0
+			label      	"<<ServerInterface>>")
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4947769203CC"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(346, 177)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	25
+			max_width  	3706
+			justify    	1)
+		    width      	3754
+		    height     	1392
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ServerGate::Contents::KPage" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(360, 1677)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(174, 1649)
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"• KPage")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(174, 1599)
+			anchor     	10
+			nlines     	1
+			max_width  	369
+			justify    	0
+			label      	"<<ServerInterface>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47EA46010200"
+		    width      	390
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::string" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1266, 1605)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1185, 1559)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"string")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE240068"
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::CandidatesList" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(843, 1611)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(693, 1583)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"CandidatesList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(693, 1533)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"494777BE0140"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @5
+		    location   	(1088, 1606)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"494777D9027C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @6
+			    Parent_View 	@5
+			    location   	(-238, 610)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"494777DA020D"
+			    client     	@5
+			    supplier   	@3
+			    vertices   	(list Points
+				(1088, 1606)
+				(1175, 1605))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @7
+			    Parent_View 	@5
+			    location   	(-238, 610)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"494777DA020F"
+			    client     	@5
+			    supplier   	@4
+			    vertices   	(list Points
+				(1088, 1606)
+				(1002, 1608))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Primitives::string" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1239, 1866)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1158, 1820)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"string")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE240068"
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::PassList" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(804, 1863)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(686, 1835)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	236
+			justify    	0
+			label      	"PassList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(686, 1785)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	234
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4947B43703A4"
+		    width      	254
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$3" @10
+		    location   	(1039, 1864)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4947B4610296"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$4" @11
+			    Parent_View 	@10
+			    location   	(-392, 460)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4947B462018C"
+			    client     	@10
+			    supplier   	@8
+			    vertices   	(list Points
+				(1039, 1864)
+				(1148, 1865))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$5" @12
+			    Parent_View 	@10
+			    location   	(-392, 460)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4947B462019B"
+			    client     	@10
+			    supplier   	@9
+			    vertices   	(list Points
+				(1039, 1864)
+				(931, 1863))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Primitives::double" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2226, 1599)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(2143, 1553)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	166
+			justify    	0
+			label      	"double")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFD9B0197"
+		    width      	184
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::ThroughputDegradation" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1680, 1602)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(1455, 1572)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"ThroughputDegradation")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(1455, 1522)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4A24FA1D036B"
+		    width      	468
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$6" @15
+		    location   	(2023, 1599)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A24FC750189"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$7" @16
+			    Parent_View 	@15
+			    location   	(328, 264)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A24FC75031F"
+			    client     	@15
+			    supplier   	@13
+			    vertices   	(list Points
+				(2023, 1599)
+				(2133, 1599))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$8" @17
+			    Parent_View 	@15
+			    location   	(328, 264)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A24FC75032F"
+			    client     	@15
+			    supplier   	@14
+			    vertices   	(list Points
+				(2023, 1599)
+				(1914, 1600))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Primitives::double" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2217, 1875)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(2134, 1829)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	166
+			justify    	0
+			label      	"double")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFD9B0197"
+		    width      	184
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::ThroughputAverage" @19
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1650, 1878)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(1459, 1848)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	382
+			justify    	0
+			label      	"ThroughputAverage")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@19
+			location   	(1459, 1798)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	382
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4A38DBDB0121"
+		    width      	400
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$9" @20
+		    location   	(1987, 1875)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A38DBF10091"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$10" @21
+			    Parent_View 	@20
+			    location   	(319, 264)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A38DBF10284"
+			    client     	@20
+			    supplier   	@18
+			    vertices   	(list Points
+				(1987, 1875)
+				(2124, 1875))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$11" @22
+			    Parent_View 	@20
+			    location   	(319, 264)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4A38DBF10286"
+			    client     	@20
+			    supplier   	@19
+			    vertices   	(list Points
+				(1987, 1875)
+				(1850, 1876))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::CandidateCharts" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1260, 2574)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(1059, 2490)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"• CandidateCharts")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(1059, 2440)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	402
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"4B712E15020C"
+		    compartment 	(object Compartment
+			Parent_View 	@23
+			location   	(1059, 2551)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	3
+			max_width  	309
+			justify    	1)
+		    width      	420
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::CandidateChartsList" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(480, 2574)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(280, 2544)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	400
+			justify    	0
+			label      	"CandidateChartsList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@24
+			location   	(280, 2494)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	400
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4B712F2401EC"
+		    width      	418
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$12" @25
+		    location   	(869, 2574)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B712F700072"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$13" @26
+			    Parent_View 	@25
+			    location   	(515, 405)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4B712F7001F5"
+			    client     	@25
+			    supplier   	@23
+			    vertices   	(list Points
+				(869, 2574)
+				(1049, 2574))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$14" @27
+			    Parent_View 	@25
+			    location   	(515, 405)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4B712F7001F7"
+			    client     	@25
+			    supplier   	@24
+			    vertices   	(list Points
+				(869, 2574)
+				(689, 2574))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::ObjectsCountCharts" @28
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1293, 2202)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@28
+			location   	(941, 2118)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	704
+			justify    	0
+			label      	"• ObjectsCountCharts")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@28
+			location   	(941, 2068)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	704
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"4B71345D02FD"
+		    compartment 	(object Compartment
+			Parent_View 	@28
+			location   	(941, 2179)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	3
+			max_width  	712
+			justify    	1)
+		    width      	722
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::ChartsForObjectsCount" @29
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(483, 2193)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@29
+			location   	(255, 2163)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	456
+			justify    	0
+			label      	"ChartsForObjectsCount")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@29
+			location   	(255, 2113)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	456
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4B71354903A9"
+		    width      	474
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$15" @30
+		    location   	(825, 2196)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B7135810042"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$16" @31
+			    Parent_View 	@30
+			    location   	(342, 3)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4B713581011A"
+			    client     	@30
+			    supplier   	@28
+			    vertices   	(list Points
+				(825, 2196)
+				(931, 2196))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$17" @32
+			    Parent_View 	@30
+			    location   	(342, 3)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4B713581011C"
+			    client     	@30
+			    supplier   	@29
+			    vertices   	(list Points
+				(825, 2196)
+				(720, 2194))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::ChartsConfigure" @33
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1251, 3045)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@33
+			location   	(1058, 2861)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"• ChartsConfigure")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@33
+			location   	(1058, 2811)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"4B72B0C4025A"
+		    compartment 	(object Compartment
+			Parent_View 	@33
+			location   	(1058, 2922)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	7
+			max_width  	328
+			justify    	1)
+		    width      	404
+		    height     	492
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::ResultsPublishing::ChartsConfigLst" @34
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(492, 3045)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@34
+			location   	(333, 3015)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"ChartsConfigLst")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@34
+			location   	(333, 2965)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4B72B21E0032"
+		    width      	336
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$18" @35
+		    location   	(854, 3045)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B72B2610090"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$19" @36
+			    Parent_View 	@35
+			    location   	(377, 75)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4B72B2610232"
+			    client     	@35
+			    supplier   	@33
+			    vertices   	(list Points
+				(854, 3045)
+				(1048, 3045))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$20" @37
+			    Parent_View 	@35
+			    location   	(377, 75)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4B72B2610234"
+			    client     	@35
+			    supplier   	@34
+			    vertices   	(list Points
+				(854, 3045)
+				(660, 3045))
+			    line_style 	0)))))))

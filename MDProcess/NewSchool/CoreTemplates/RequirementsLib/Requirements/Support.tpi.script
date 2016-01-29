@@ -1,0 +1,182 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$CoreTemplates::CoreTemplates::RequirementsLib::Requirements::Support
+//
+// ввспомогательные функции для генерации элементов требований
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+//f _specialize_usecase_that_used_by_actor
+: specialize_usecase_that_used_by_actor OBJECT IN %S
+//#UC START# *47184CA10232*
+//	[{<{}{%Ga!=abstract&%f_used_by_actor_anyway(%G)=true}{C}>!=0|<{}{%Ga=abstract&%f_use_by_actor(%G)=true|%Ga=abstract&%f_use_by_usecase_that_used_by_actor(%G)=true}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |a ) %!= 'abstract' AND 
+    ( ( [%f] used_by_actor_anyway %( %G )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %!= 0 OR 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |a ) %== 'abstract' AND 
+    ( ( [%f] use_by_actor %( %G )% ) %==  true  ) OR 
+    ( ( %G |a ) %== 'abstract'  ) AND 
+    ( ( [%f] use_by_usecase_that_used_by_actor %( %G )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47184CA10232*
+; // specialize_usecase_that_used_by_actor
+
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+//f _specialized_by_usecase_that_used_by_actor
+: specialized_by_usecase_that_used_by_actor OBJECT IN %S
+//#UC START# *47184CB002AF*
+//	[{%Sa=abstract&<{}{%f_used_by_actor_anyway(%Z)=true}{C}>!=0}{false}true]
+ if ( ( %S |a ) %== 'abstract' AND 
+   ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Z
+  begin
+   OBJECT IN %Z
+   if ( ( [%f] used_by_actor_anyway %( %Z )% ) %==  true ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for Z
+  l_Counter
+  %!= 0  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47184CB002AF*
+; // specialized_by_usecase_that_used_by_actor
+
+
+// используется ли актёром
+//f _use_by_actor
+: use_by_actor OBJECT IN %S
+//#UC START# *47184CBB0399*
+//	[{<{}{%a%PS=Actor}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%a
+  begin
+   OBJECT IN %a
+   if ( ( %a ->P |S  ) %== 'Actor' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for a
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47184CBB0399*
+; // use_by_actor
+
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+//f _use_by_usecase_that_used_by_actor
+: use_by_usecase_that_used_by_actor OBJECT IN %S
+//#UC START# *47184CC400EA*
+//	[{<{}{%aS=include&%f_used_by_actor_anyway(%a%P)=true|%aS=extend&%f_used_by_actor_anyway(%a%P)=true}{C}>!=0}{false}true]
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%a
+  begin
+   OBJECT IN %a
+   if ( ( %a |S ) %== 'include' AND 
+    ( ( [%f] used_by_actor_anyway %( %a ->P  )% ) %==  true  ) OR 
+    ( ( %a |S ) %== 'extend'  ) AND 
+    ( ( [%f] used_by_actor_anyway %( %a ->P  )% ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for a
+  l_Counter
+  %!= 0 ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47184CC400EA*
+; // use_by_usecase_that_used_by_actor
+
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+//f _used_by_actor_anyway
+: used_by_actor_anyway OBJECT IN %S
+//#UC START# *47184CCB02FD*
+//	[{%f_exists_in_list(REQURSION_CHECK_LIST,S)=false}{false}%f_add_to_list(REQURSION_CHECK_LIST,S)\
+ if ( ( [%f] exists_in_list %( 'REQURSION_CHECK_LIST' %, 'S' )% ) %==  false ) then
+ begin
+  [%f] add_to_list %( 'REQURSION_CHECK_LIST' %, 'S' )% 
+//	[{%f_use_by_actor(%S)=true|%f_specialized_by_usecase_that_used_by_actor(%S)=true|%f_use_by_usecase_that_used_by_actor(%S)=true|%f_specialize_usecase_that_used_by_actor(%S)=true}{false}true]\
+  if ( ( [%f] use_by_actor %( %S )% ) %==  true OR 
+    ( ( [%f] specialized_by_usecase_that_used_by_actor %( %S )% ) %==  true  ) OR 
+    ( ( [%f] use_by_usecase_that_used_by_actor %( %S )% ) %==  true  ) OR 
+    ( ( [%f] specialize_usecase_that_used_by_actor %( %S )% ) %==  true  ) ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+//	%f_remove_from_list(REQURSION_CHECK_LIST,S)]
+  [%f] remove_from_list %( 'REQURSION_CHECK_LIST' %, 'S' )% 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *47184CCB02FD*
+; // used_by_actor_anyway
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,246 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "HibernateSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/ConfluenceCore/HibernateSupport|4C32F25B007C
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16664027202"))
+    quid       	"4C32F25B007C"
+    documentation 	"HibernateSupport"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ToAvoidEhCacheUnsync"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/HibernateSupport/ToAvoidEhCacheUnsyncFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/HibernateSupport/ToAvoidEhCacheUnsync.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Модель проекта "shared"/ConfluenceCore/HibernateSupport/ToAvoidEhCacheUnsync|4C32F2F90182
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16664029397"))
+	    quid       	"4C32F2F90182"
+	    documentation 	"запоминает измененные объекты и принудительно синхронизирует их состояние с кэшом"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4C32F4730171_4C32F4730171_4C32F5DC0134_BODY*"
+			    value      	(value Text 
+|//#UC START# *4C32F4730171_4C32F4730171_4C32F5DC0134_BODY*¤		//#UC END# *4C32F4730171_4C32F4730171_4C32F5DC0134_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659651611"))
+		    quid       	"4C32F4730171"
+		    documentation 	"get"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "on_changed"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4C32F49503E0_4C32F5DC0134*"
+			    value      	(value Text 
+|//#UC START# *4C32F49503E0_4C32F5DC0134*¤		synchronized (this) {¤			changedObjects_.put(id, className);¤		}¤		//#UC END# *4C32F49503E0_4C32F5DC0134*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659651971"))
+		    quid       	"4C32F49503E0"
+		    documentation 	"сигнал, что объект поменялся"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47629BEE0169")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16659652279"))
+			    quid       	"4C32F4D90379"
+			    type       	"Serializable"
+			    quidu      	"47629BEE0169")
+			(object Parameter "class_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"16659652651"))
+			    quid       	"4C32F4D90398"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "evict"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4C32F5920151_4C32F5DC0134*"
+			    value      	(value Text 
+|//#UC START# *4C32F5920151_4C32F5DC0134*¤		synchronized (this) {¤			Logs.LOG_D("Start evict " + changedObjects_.size() + " changed object");¤			for (Map.Entry<Serializable, String> me : changedObjects_.entrySet()) {¤				try {¤					ContainerManager.Factory.get().getSessionFactory().evict(¤						Class.forName(me.getValue())¤						, me.getKey()¤					);¤				} catch (HibernateException he) {¤					Logs.LOG_SEX(he);¤				} catch (ClassNotFoundException cnf) {¤					Logs.LOG_E("Class not found " + me.getValue());¤				}¤			}¤			changedObjects_.clear();¤			Logs.LOG_D("Finish evict changed object");¤		}		//#UC END# *4C32F5920151_4C32F5DC0134*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659653059"))
+		    quid       	"4C32F5920151"
+		    documentation 	"синхронизирует состояние всех объектов, переданных ранее через on_change, с базой"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4C32F2920244"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::HibernateSupport::ToAvoidEhCacheUnsync" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1095, 273)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(544, 171)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1102
+			justify    	0
+			label      	"• ToAvoidEhCacheUnsync")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(544, 126)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1102
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"4C32F2F90182"
+		    width      	1120
+		    height     	316
+		    annotation 	8
+		    autoResize 	TRUE)))))

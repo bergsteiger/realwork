@@ -1,0 +1,134 @@
+// Tl3CustomRecListView 4DEFC4AE0296 SimpleClass Class
+
+INCLUDE '4DEFB2450043.pas.ms.script'
+
+FORWARD ME_4DEFC4AE0296
+
+INCLUDE '479DF9C5033A.pas.ms.script'
+
+: ME_4DEFC4D5035F
+ CONST UID '4DEFC4D5035F'
+ CONST Name 'ListType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+
+ @SELF
+; // ME_4DEFC4D5035F ListType
+
+INCLUDE '47B433E500BC.pas.ms.script'
+
+: ME_4DEFC4F903A7
+ CONST UID '4DEFC4F903A7'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_47B99B600208 // VOID
+ ;
+
+ @SELF
+; // ME_4DEFC4F903A7 ItemType
+
+FORWARD ME_4DEFCA7603C4
+
+: ME_4DEFCA9B0168
+ CONST UID '4DEFCA9B0168'
+ CONST Name 'aRec1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DEFC19A0263 // PItemType
+ ;
+
+ @SELF
+; // ME_4DEFCA9B0168 aRec1
+
+: ME_4DEFCA9B0192
+ CONST UID '4DEFCA9B0192'
+ CONST Name 'aRec2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DEFC19A0263 // PItemType
+ ;
+
+ @SELF
+; // ME_4DEFCA9B0192 aRec2
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4DEFCA8C01DE
+ CONST UID '4DEFCA8C01DE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_4DEFCA9B0168 // aRec1
+ ME_4DEFCA9B0192 // aRec2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DEFCA8C01DE DoIt
+
+: ME_4DEFCA7603C4
+ CONST UID '4DEFCA7603C4'
+ CONST Name 'CompareRecs'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_4DEFCA8C01DE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DEFCA7603C4 CompareRecs
+
+: ME_4DEFC4AE0296
+ CONST UID '4DEFC4AE0296'
+ CONST Name 'Tl3CustomRecListView'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4DEFB2450043 // l3OtherListView
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4DEFC4D5035F // ListType
+ ME_4DEFC4F903A7 // ItemType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4DEFCA7603C4 // CompareRecs
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DEFB2D90167 // CompareData
+ ]
+ ; // Implemented
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '08.06.2011 22:51'
+
+ @SELF
+; // ME_4DEFC4AE0296 Tl3CustomRecListView

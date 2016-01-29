@@ -1,0 +1,78 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Function SaveList1(sName$) as String
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=14,49"
+    ListBox Click, "ObjectIndex=1", "Coords=8,160"
+    InputKeys "{HOME}"
+    call Position_Internal("CurrentFocus","Правовой навигатор\Международные договоры")
+    InputKeys "{Enter}"
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=12,275"
+    ListBox Click, "ObjectIndex=1", "Coords=8,16"
+    InputKeys "{HOME}"
+    call Position_Internal("CurrentFocus","Международное гуманитарное право")
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=8,16"
+    Dim NameList$
+    SQAGetProperty "CurrentFocus","Text",NameList
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=5", "Coords=8,16"
+    call Click_SaveAs
+    
+    call SaveDlg("Мои документы",sName)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=14,56"
+    Toolbar Click, "Text=Навигатор", "Coords=8,17"
+    Toolbar Click, "Text=Навигатор", "Coords=8,17"
+    SaveList1=NameList
+end Function
+
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    Dim ListName$,OldList$
+    ListName="Список из одного документа"
+    OldList=SaveList1(ListName)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=24,8"
+    InputKeys "^{ENTER}"
+    
+    Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+    'PushButton Click, "Text=Да"
+    InputKeys "{ENTER}"
+    
+    
+    Dim CountElem%,NewCountElem%
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=4", "Coords=8,16"
+    SQAGetProperty "CurrentFocus","ItemCount",CountElem
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=4", "Coords=8,16"
+    call Click_CrossList
+    call LoadDlg("Мои документы\"+ListName)
+    
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=4", "Coords=8,16"
+    
+    SQAGetProperty "CurrentFocus","Text",NameList
+    call StrComp2Log(OldList,NameList)
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,128"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=11,9"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=11,9"
+    call DeleteFolder("Мои документы\"+ListName,2)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=5,130"
+    call Click_SetFiltertoDef
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=14,56"
+    Toolbar Click, "Text=Навигатор", "Coords=8,17"
+    Toolbar Click, "Text=Навигатор", "Coords=8,17"
+
+End Sub

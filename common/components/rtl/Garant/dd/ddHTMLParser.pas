@@ -1,0 +1,264 @@
+unit ddHTMLParser;
+{* Разборщик HTML на теги }
+
+{ $Id: ddHTMLParser.pas,v 1.16 2015/02/03 14:10:36 dinishev Exp $ }
+
+// $Log: ddHTMLParser.pas,v $
+// Revision 1.16  2015/02/03 14:10:36  dinishev
+// {Requestlink:522781827}. http://mdp.garant.ru/pages/viewpage.action?pageId=522781827&focusedCommentId=587164438#comment-587164438
+//
+// Revision 1.15  2015/01/29 13:37:01  dinishev
+// {Requestlink:522781827}
+//
+// Revision 1.14  2014/02/04 18:06:49  lulin
+// - рефакторинг парсера.
+//
+// Revision 1.13  2013/09/13 06:49:02  dinishev
+// Cleanup
+//
+// Revision 1.12  2013/06/06 11:03:17  dinishev
+// Фактичски правки для {Requestlink:459284359}
+//
+// Revision 1.11  2013/06/03 13:21:49  dinishev
+// {Requestlink:459284359}. Считаем <!doctype... > однострочным комментарием, т.к. все равно его не анализируем.
+//
+// Revision 1.10  2013/04/16 09:07:28  narry
+// Обновление
+//
+// Revision 1.9  2013/04/05 12:04:29  lulin
+// - портируем.
+//
+// Revision 1.8  2012/02/20 19:11:18  lulin
+// - первый шаг к использованию родных стереотипов с модели.
+//
+// Revision 1.7  2012/02/20 16:14:31  lulin
+// - более правильная сигнатура метода.
+//
+// Revision 1.6  2012/02/17 07:39:24  narry
+// Обработка ссылок на гарантовские документы в html (288786476)
+//
+// Revision 1.5  2011/10/07 07:51:52  narry
+// Поддержа неизвестных ключевых слов
+//
+// Revision 1.4  2011/10/06 12:36:05  narry
+// Забыли раскомментировать присвоение StartKeywordChar
+//
+// Revision 1.3  2011/10/06 11:53:20  narry
+// Виртуальный метод для обработки StartKeywordChar
+//
+// Revision 1.2  2011/10/05 15:13:09  lulin
+// - откатываем изменения Гарри.
+//
+// Revision 1.1  2011/10/04 12:21:18  narry
+// Рефакторинг чтения HTML
+//
+
+
+interface
+
+uses
+  l3Parser, l3Keywrd, l3Base,
+
+  l3Filer
+  ;
+
+type
+ TddHTMLParser = class(Tl3CustomParser)
+ private
+  f_KeywordStartChar: AnsiChar;
+  f_IgnoreHTMLComment: Boolean;
+  f_UnknownKeyword: Tl3KeyWord;
+ protected
+  function IsCommentBracket(anOpen: Boolean): Boolean; override;
+    {* - чтение комментария из нескольких символов. }
+  procedure CheckKeyWord; override;
+  function CheckSingleChar(aChar: AnsiChar; aString: Tl3String; aNTF: Tl3NextTokenFlags): Tl3TokenType; override;
+    {-}
+  procedure Cleanup; override;
+  procedure FillKeywords; virtual;
+  function CheckOherComment(aChar: AnsiChar; anOpen: Boolean): Boolean; override;
+    {-}
+ public
+    {public methods}
+  constructor Create;
+  property IgnoreHTMLComment: Boolean read f_IgnoreHTMLComment write f_IgnoreHTMLComment;
+  property KeywordStartChar: AnsiChar read f_KeywordStartChar write
+      f_KeywordStartChar;
+ end;
+
+const
+ cUnknownKeyword = MaxInt;
+
+implementation
+
+uses
+  SysUtils, ddHTMLTags, l3Types, l3Chars;
+
+const
+ casCSSComment: array [Boolean] of AnsiString = ('*/', '/*');
+
+{ start class TddHTMLParser }
+
+constructor TddHTMLParser.Create;
+  {override;}
+  {-}
+begin
+ inherited Create;
+ LineComment := ''; 
+ OpenComment := '<!--';
+ CloseComment := '-->';
+ WhiteSpace := htmlWhiteSpace;
+ WordChars := htmlWordChars;
+
+ CheckFloat := False;
+ CheckInt := False;
+ CheckHex := False;
+ AddDigits2WordChars := True;
+ KeywordStartChar:= '<';
+ FillKeywords;
+ f_UnknownKeyword := Tl3KeyWord.Create('unknown', cUnknownKeyword);
+end;
+
+procedure TddHTMLParser.CheckKeyWord;
+  {-}
+begin
+ if (TokenType = l3_ttSymbol) OR
+    ((TokenType = l3_ttDoubleQuotedString) AND
+     (cc_DoubleQuote in WordChars)) then
+ begin
+  if (KeyWords <> nil) then
+  begin
+   KeyWord := KeyWords.KeyWordByName[l3CStr(TokenLongString)] As Tl3KeyWord;
+   if (KeyWord <> nil) or (KeywordStartChar <> #0) then
+   begin
+    f_TokenType := l3_ttKeyWord;
+    if (Keyword = nil) then // неизвестное ключевое слово
+     Keyword:= f_UnknownKeyword;
+   end;  
+  end;//KW <> nil
+ end;//TokenType = l3_ttSymbol
+end;
+
+function TddHTMLParser.CheckSingleChar(aChar: AnsiChar; aString: Tl3String; aNTF: Tl3NextTokenFlags): Tl3TokenType;
+var
+ l_C: AnsiChar;
+ l_EnableKeyword: Boolean;
+begin//CheckSingleChar
+ l_EnableKeyword:= KeywordStartChar = #0;
+ l_C:= aChar;
+ if (l_C in WordChars) then
+ begin
+  if not CheckKeywords or (CheckKeywords and (l_C <> KeywordStartChar)) then
+   aString.Append(l_C, 1, Filer.CodePage)
+  else
+  if l_C = KeywordStartChar then
+   l_EnableKeyword:= True;
+  while not Filer.EOF do
+  begin
+   l_C := Filer.GetC.rAC;
+   if CheckKeywords and (l_C = KeywordStartChar) then
+   begin
+     Filer.UngetC;
+     break;
+   end
+   else
+    if (l_C in WordChars) then
+     aString.Append(l_C, 1, Filer.CodePage)
+    else
+    if AddDigits2WordChars AND (l_C in cc_Digits) then
+     aString.Append(l_C, 1, Filer.CodePage)
+    else
+    begin
+     Filer.UngetC;
+     break;
+    end;//AddDigits2WordChars AND (l_C in cc_Digits)
+  end;//while true
+  Result := l3_ttSymbol;
+  f_TokenType := Result;
+  if CheckKeyWords and l_EnableKeyword then
+  begin
+   CheckKeyWord;
+   Result := f_TokenType;
+  end;//CheckKeyWords
+ end//l_C in Word Chars
+ else
+ begin
+  aString.AsChar := l_C;
+  Result := l3_ttSingleChar;
+ end;//l_C in Word Chars
+end;//CheckSingleChar
+
+procedure TddHTMLParser.Cleanup;
+begin
+ inherited;
+ FreeAndNil(f_UnknownKeyword);
+end;
+
+procedure TddHTMLParser.FillKeywords;
+var
+ l_Keywords: Tl3Keywords;
+ i: Integer;
+begin
+ l_Keywords:= Tl3Keywords.Create;
+ try
+  with l_KeyWords do
+  begin
+   for i:= 0 to cMaxHTMLTag do
+   begin
+    AddKeyword(cHTMLTags[i].TagName, cHTMLTags[i].TagID);
+    AddKeyword('/'+cHTMLTags[i].TagName, -cHTMLTags[i].TagID);
+   end;
+  end;
+  Keywords:= l_Keywords;
+ finally
+  FreeAndNil(l_Keywords);
+ end;
+end;
+
+function TddHTMLParser.IsCommentBracket(anOpen: Boolean): Boolean;
+var
+ i       : Integer;
+ l_Char  : AnsiChar;
+ l_Count : Integer;
+begin
+ // Вычитываем весь комментарий, чтобы его ошметки при дальшейнем парсинге не мешались!
+ if anOpen then
+  l_Count := Length(OpenComment)
+ else
+  l_Count := Length(CloseComment);
+ for i := 2 to l_Count do
+ begin
+  l_Char := Filer.GetC.rAC;
+  if anOpen then
+   Result := l_Char = OpenComment[i]
+  else
+   Result := l_Char = CloseComment[i];
+  if not Result then Break;
+ end; // for i := 2 to l_Count do
+ if f_IgnoreHTMLComment and Result then
+ begin
+  l_Char := Filer.GetC.rAC;
+  Result := False;
+ end // if f_IgnoreHTMLComment and Result then
+ else
+  if not Result then
+   Filer.UngetChars(i - 1);
+end;
+
+function TddHTMLParser.CheckOherComment(aChar: AnsiChar;
+  anOpen: Boolean): Boolean;
+var
+ l_Char : AnsiChar;
+begin
+ Result := inherited CheckOherComment(aChar, anOpen);
+ if not Result then
+  if (aChar = casCSSComment[anOpen][1]) then
+  begin
+   l_Char := Filer.GetC.rAC;
+   Result := l_Char = casCSSComment[anOpen][2];
+   if not Result then
+    Filer.UngetC;
+  end; // if (aChar = casCSSComment[anOpen][1]) then
+end;
+
+end.

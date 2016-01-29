@@ -1,0 +1,22 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _mda_IsGenerator
+/ override
+//#UC START# *46A72B9801B5IsGenerator*
+	true
+//#UC END# *46A72B9801B5IsGenerator*
+
++ mda
+/ Генератор в шаблоны mda.
+//#UC START# *46A72B9801B5*
+O [{%f_mda_GeneratorNeedsFile(%S)=true}%f_mda_StFileName(%S).tpi]
+	[{"%SO"=""}\n]//////////////////////////////////////////////////////////////////////////////////////////////////
+/	[{%Gx=true&"%Go"!=""}\# %Go\n/ - здесь явно включаем все операции от родительского генератора\n]\
+	[<{\n}\n/\%f _%f_mda_NormName(%S)_%oN\n/ realize>\n\n]\
+	[<{\n}\n\%f _%f_mda_NormName(%S)_%ON\n/ override\n%U[{%ON}\n]>\n\n]\
+	[<{\n}%CX>\n\n]\
+	+ %SN
+	/ %SD\
+	[\n\# %S{include}]
+	%f_mda_GeneratorCode(%S)
+//#UC END# *46A72B9801B5*

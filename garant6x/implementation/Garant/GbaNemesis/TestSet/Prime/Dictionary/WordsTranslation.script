@@ -1,0 +1,218 @@
+USES
+ axiom:Control
+ axiom:BeginWait
+ axiom:EndWait
+ axiom:Wnd
+ axiom:MenuItem
+ axiom:Component
+ axiom:Form
+ axiom:cc
+ axiom:Mouse
+ axiom:Clipboard
+ axiom:оп
+ axiom:QueryCard
+;
+
+PROCEDURE "Закрыть все окна кроме текущего"
+ оп::Окна_Закрыть_все,_кроме_текущего
+ "Дождаться переключения вкладок"
+;
+
+OBJECT FUNCTION "Найти контрол по дескриптору" INTEGER IN aHandle
+ aHandle Control:ByHandle >>> Result
+;
+WordAlias "Найти контрол по дескриптору в стеке" Control:ByHandle
+
+: "Установить фокус" OBJECT IN aControl
+ aControl pop:Control:SetFocus ?ASSURE 'Не удалось установить фокус'
+; // "Установить фокус"
+
+WordAlias "Установить фокус в" "Установить фокус"
+
+PROCEDURE "Выключаем машину времени"
+ // заглушка
+;
+
+//pop:control:Width
+WordAlias "Померить ширину" pop:Control:Width
+
+//pop:control:Height
+WordAlias "Померить высоту" pop:Control:Height
+
+: "Ввести строку" STRING IN aString
+ aString emitstring
+;
+
+: "Выделить всё"
+ оп::Правка_Выделить_все
+ OnTest
+; // "Выделить всё"
+
+WordAlias "Удалить" оп::Правка_Удалить
+
+WordAlias "Удалить атрибут" "Удалить"
+
+WordAlias "Добавить ещё один атрибут" оп::Операции_карточки_Добавить_новый
+
+WordAlias "Операции карточки - Удалить всё" оп::Операции_карточки_Удалить_все
+
+WordAlias "Назад по истории" оп::История_Назад
+
+WordAlias "Вперёд по истории" оп::История_Вперед
+
+: "Предварительный просмотр"
+ оп::Файл_Предварительный_просмотр
+ OnTest
+; // "Предварительный просмотр"
+
+: "Предварительный просмотр с эталонами"
+ BeginWait:Print
+ TRY
+  "Предварительный просмотр"
+ FINALLY
+  EndWait:Print
+ END
+; // "Предварительный просмотр с эталонами"
+
+//focused:control:push
+WordAlias "Контрол в фокусе" focused:control:push
+
+//CloseWindow
+WordAlias "Закрыть сохраненное окно" wnd:CloseWindow
+
+//SetForegroundWindow
+WordAlias "Восстановить активное окно" wnd:SetForeground
+
+//оп::Окна_Новое
+WordAlias "Открыть новое окно гаранта" оп::Окна_Новое
+
+//pop:object:IsNil
+WordAlias "Объект не существует?" pop:object:IsNil
+
+//pop:control:Click
+WordAlias "Кликнуть" pop:Control:Click
+
+//оп::Панель_новостей_Удалить_индивидуальную_ленту
+WordAlias "Удалить новостную ленту" оп::Панель_новостей_Удалить_индивидуальную_ленту
+
+//pop:control:FindControlByName
+WordAlias "Найти контрол по имени на форме" pop:Control:FindControlByName
+
+//pop:Control:Enabled
+: "Проверить, активен ли контрол ?" OBJECT IN aControl
+ aControl pop:Control:Enabled .
+; // "Проверить, активен ли контрол?" 
+: "Убедиться, что контрол неактивен"
+ pop:Control:Enabled !
+; // "Убедиться, что контрол неактивен"
+WordAlias "Убедиться, что контрол активен" pop:Control:Enabled
+
+//menuitem:GetCount
+WordAlias "Узнать количество элементов меню" menuitem:GetCount
+
+//menuitem:GetItem
+WordAlias "Элемент меню" menuitem:GetItem
+
+//menuitem:IsVisible
+WordAlias "Узнать, видим ли элемент меню" menuitem:IsVisible
+
+//pop:object:GetStrProp
+: "Сравнить с эталоном строковую переменную объекта"
+ pop:object:GetStrProp .
+; // "Сравнить с эталоном строковую переменную объекта"
+WordAlias "Строковая переменная объекта" pop:object:GetStrProp
+
+//menuitem:GetCaption
+WordAlias "Узнать заголовок элемента меню" menuitem:GetCaption
+
+//menuitem:IsEnabled
+WordAlias "Узнать активность элемента меню" menuitem:IsEnabled
+
+//pop:Component:Name
+WordAlias "Имя компонента" pop:Component:Name
+
+//pop:form:FindMenuItem
+WordAlias "Найти элементы меню на форме " pop:form:FindMenuItem
+
+//pop:control:Left
+WordAlias "Померить отступ слева" pop:Control:Left
+
+//pop:control:Top
+WordAlias "Померить отступ сверху" pop:Control:Top
+
+//pop:control:Name
+WordAlias "Узнать имя контрола" pop:Control:Name
+
+//pop:control:GetParent
+WordAlias "Перейти к родительской форме" pop:Control:Parent
+WordAlias "Родительский объект" pop:Control:Parent
+
+//pop:control:Caption
+
+//pop:object:GetOrdProp
+: "Сравнить с эталоном численную переменную объекта"
+ pop:object:GetOrdProp .
+; // "Сравнить с эталоном численную переменную объекта"
+WordAlias "Узнать численную переменную объекта" pop:object:GetOrdProp
+
+//pop:WinControl:VScrollerVisible
+: "Проверить, что у контрола есть вертикальный скроллер" OBJECT IN aControl
+ aControl  pop:Control:VScrollerVisible ?ASSURE 'У данного контрола нет скроллера'
+;
+: "Проверить, что у контрола нет вертикального скроллера" OBJECT IN aControl
+ aControl  pop:Control:VScrollerVisible ! ?ASSURE 'У данного контрола есть скроллер!'
+;
+WordAlias "Узнать, есть ли у контрола вертикальный скроллер" pop:Control:VScrollerVisible
+
+//pop:control:HScrollerVisible
+WordAlias "Узнать, есть ли у контрола горизонтальный скроллер" pop:Control:HScrollerVisible
+
+//pop:control:SetHeight
+PROCEDURE "Установить высоту" INTEGER IN aHeight OBJECT IN aControl
+ aControl pop:Control:Height := aHeight
+ OnTest
+;
+
+//pop:control:SetWidth
+PROCEDURE "Установить ширину" INTEGER IN aWidth OBJECT IN aControl
+ aControl pop:Control:Width := aWidth
+ OnTest
+;
+
+//оп::Панель_новостей_Редактировать_индивидуальную_ленту
+WordAlias "Редактировать индивидуальную ленту" оп::Панель_новостей_Редактировать_индивидуальную_ленту
+
+//cc:Down
+WordAlias "Стрелка вниз" cc:Down
+
+//pop:Control:GetAnotherParentForm
+WordAlias "Получить родительскую форму" pop:Control:GetAnotherParentForm
+
+//pop:control:GetTopParentForm
+WordAlias "Нижняя форма" pop:Control:GetTopParentForm
+
+//application:IsHintVisible
+
+//mouse:GetCursorPosition
+WordAlias "Запомнить позицию мыши" mouse:GetCursorPosition
+
+//application:GetLastHint
+
+//pop:control:Visible
+: "Проверить, что контрол невидимый" OBJECT IN aControl
+ aControl pop:Control:Visible ! ?ASSURE 'Данный контрол видимый'
+;
+
+: "Проверить, что контрол видимый" OBJECT IN aControl
+ aControl pop:Control:Visible ?ASSURE 'Данный контрол невидимый'
+;
+
+WordAlias "Узнать, виден ли контрол" pop:Control:Visible
+
+WordAlias "Очистить буфер обмена" clipboard:clear
+
+PROCEDURE "Установить фокус в БП и сбросить ее в умолчательное состояние"
+;
+
+EXPORTS
+ axiom:QueryCard

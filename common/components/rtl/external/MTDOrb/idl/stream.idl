@@ -1,0 +1,73 @@
+/*
+ *  MICOStream - a simple stream service
+ *  Copyright (C) 1998 Christian Becker
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
+ *  Send comments and/or bug reports to:
+ *                 mico@informatik.uni-frankfurt.de
+ */
+
+module MICOStream
+{
+
+// Streams only transmit octet streams
+typedef sequence<octet> StreamData;
+
+
+exception NotBound{};
+exception NotConnected{};
+
+// common operations
+interface Transport
+{
+  StreamData poll()
+             raises(NotConnected);
+
+  StreamData read()
+             raises(NotConnected);
+
+  void       receive(in StreamData chunk);
+
+  void       write(in StreamData chunk)
+             raises(NotConnected);
+
+  void       write_async(in StreamData chunk)
+             raises(NotBound, NotConnected);
+
+};
+
+interface ActiveCEP : Transport
+{
+  void       connect(in string bind_addr)
+             raises(NotBound);
+
+  void       disconnect();
+
+};
+
+interface PassiveCEP : Transport
+{
+  string     bind_addr()
+             raises(NotBound);
+
+  void       bind(in string bind_addr)
+             raises(NotBound);
+
+  void       disconnect();
+
+};
+
+};

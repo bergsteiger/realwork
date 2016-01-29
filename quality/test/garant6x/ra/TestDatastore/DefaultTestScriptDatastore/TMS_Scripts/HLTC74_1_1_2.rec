@@ -1,0 +1,49 @@
+'$Include "global.sbl"
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+'Скрипт создаёт две папки на одном уровне с различными именами, соответсвенно,
+'выполняется проверка того что в списке появились эти папки!!!
+'Скрипт заканчивает свою работу переходом к  основного меню, и в левом навигаторе активна закладка "Навигатор" (это не обязательно)
+    Dim FolderName$
+    FolderName="Папка"
+    call CreateFolder("Мои документы",FolderName)
+    call CreateFolder("Мои документы\"+FolderName,FolderName)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,115"
+    ListBox Click, "ObjectIndex=1", "Coords=40,10"
+    
+'    GenericObject Click, "Class=TvcmToolbar;ClassIndex=4", "Coords=6,6"
+'    EditBox Click, "ObjectIndex=2", ""
+'    InputKeys "{END}+{HOME}Новая"
+'    GenericObject Click, "Class=TvcmToolbar;ClassIndex=9", "Coords=22,4"
+'    
+'    Window SetContext, "Caption={ГАРАНТ*}", ""
+'    GenericObject Click, "Class=TvcmToolbar;ClassIndex=4", "Coords=14,9"
+'    EditBox Click, "ObjectIndex=2", ""
+'    InputKeys "{END}+{HOME}Новая"
+'    GenericObject Click, "Class=TvcmToolbar;ClassIndex=9", "Coords=23,2"
+'    ListBox Click, "ObjectIndex=1", "Coords=187,7"
+    call Position_Internal("CurrentFocus","Мои документы\"+FolderName) 
+    InputKeys "{Num+}{DOWN}"
+'    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+'    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    if Position_by_Text("CurrentFocus",FolderName)<>0 then
+           SQALogMessage sqaPass, "Элемент найден", "Элемент """+FolderName+""" найден"
+        else
+           SQALogMessage sqaFail, "Элемент не найден", "Элемент """+FolderName+""" не найден"
+        end if
+    InputKeys "{HOME}"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    call DeleteFolder("Мои документы\"+FolderName,1)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    'Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,36"
+    
+End Sub

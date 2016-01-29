@@ -1,0 +1,1058 @@
+// ActiveX 46A0E6C5023A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46A0E6C5023A
+
+FORWARD ME_46A0E7200082
+
+: ME_48F337820294
+ CONST UID '48F337820294'
+ CONST Name 'celt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48F337820294 celt
+
+: ME_48F3378202B2
+ CONST UID '48F3378202B2'
+ CONST Name 'elt'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+
+ref; // ME_48F3378202B2 elt
+
+: ME_48F3378202CF
+ CONST UID '48F3378202CF'
+ CONST Name 'pceltFetched'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48F3383D02DB' '4AB0C3F60375.pas.ms.script' // PLongint
+ ;
+
+ref; // ME_48F3378202CF pceltFetched
+
+: ME_48F33755005D
+ CONST UID '48F33755005D'
+ CONST Name 'Next'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E7200082 // IEnumFORMATETC
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F337820294 // celt
+ ME_48F3378202B2 // elt
+ ME_48F3378202CF // pceltFetched
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F33755005D Next
+
+: ME_48F3379A033B
+ CONST UID '48F3379A033B'
+ CONST Name 'celt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48F3379A033B celt
+
+: ME_48F33790021D
+ CONST UID '48F33790021D'
+ CONST Name 'Skip'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E7200082 // IEnumFORMATETC
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F3379A033B // celt
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F33790021D Skip
+
+: ME_48F337A20394
+ CONST UID '48F337A20394'
+ CONST Name 'Reset'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E7200082 // IEnumFORMATETC
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F337A20394 Reset
+
+: ME_48F337CF0240
+ CONST UID '48F337CF0240'
+ CONST Name 'Enum'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_46A0E7200082 // IEnumFORMATETC
+ ;
+
+ref; // ME_48F337CF0240 Enum
+
+: ME_48F337B1039E
+ CONST UID '48F337B1039E'
+ CONST Name 'Clone'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E7200082 // IEnumFORMATETC
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F337CF0240 // Enum
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F337B1039E Clone
+
+: ME_46A0E7200082
+ CONST UID '46A0E7200082'
+ CONST GUID '8FDCFD24-3B06-444D-98A9-7C250B54D48C'
+ CONST Name 'IEnumFORMATETC'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Итератор по данным внутри IDataObject.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+ : Operations
+   @ ( ME_48F33755005D // Next
+ ME_48F33790021D // Skip
+ ME_48F337A20394 // Reset
+ ME_48F337B1039E // Clone
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_46A0E7200082 IEnumFORMATETC
+
+: ME_46A5B13C018B
+ CONST UID '46A5B13C018B'
+ CONST Name 'TStgMedium'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_46A5B13C018B TStgMedium
+
+: ME_46A5AFF103CA
+ CONST UID '46A5AFF103CA'
+ CONST GUID 'F9C63F24-4E9E-4D13-AEA7-2E1CC301DBC3'
+ CONST Name 'IStream'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поток.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_46A5AFF103CA IStream
+
+: ME_46A5B19203B6
+ CONST UID '46A5B19203B6'
+ CONST Name 'TFormatEtc'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_46A5B19203B6 TFormatEtc
+
+: ME_46A5D83000D7
+ CONST UID '46A5D83000D7'
+ CONST GUID '15439050-1E5B-4F96-AB3B-2F7215C67D66'
+ CONST Name 'IAdviseSink'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_46A5D83000D7 IAdviseSink
+
+: ME_46A5D8120200
+ CONST UID '46A5D8120200'
+ CONST GUID '776E8CD1-A4A3-4383-8647-2C34D8B8DAC9'
+ CONST Name 'IDropSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_46A5D8120200 IDropSource
+
+: ME_46A5D81E0167
+ CONST UID '46A5D81E0167'
+ CONST GUID '9B77F3D9-C3C7-4143-8439-3591802F77AE'
+ CONST Name 'IDropTarget'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_46A5D81E0167 IDropTarget
+
+: ME_46A5D83D031A
+ CONST UID '46A5D83D031A'
+ CONST GUID 'C190C4EA-7EB2-40F1-A77A-8CEBCB2B66E6'
+ CONST Name 'IEnumStatData'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_46A5D83D031A IEnumStatData
+
+: ME_48F332AE0339
+ CONST UID '48F332AE0339'
+ CONST Name 'IEnumFormatEtc'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+ : Inherits
+   @ ( ME_46A0E7200082 // IEnumFORMATETC
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_48F332AE0339 IEnumFormatEtc
+
+: ME_46A5D85103D7
+ CONST UID '46A5D85103D7'
+ CONST Name 'PFormatEtc'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_46A5D85103D7 PFormatEtc
+
+: ME_4FA27F3E0193
+ CONST UID '4FA27F3E0193'
+ CONST Name 'TStatStg'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_4FA27F3E0193 TStatStg
+
+FORWARD ME_46A0E6FF037E
+
+: ME_48F32DF70180
+ CONST UID '48F32DF70180'
+ CONST Name 'formatetcIn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ref; // ME_48F32DF70180 formatetcIn
+
+: ME_48F32DF701A2
+ CONST UID '48F32DF701A2'
+ CONST Name 'medium'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_46A5B13C018B // TStgMedium
+ ;
+
+ref; // ME_48F32DF701A2 medium
+
+: ME_48F32DD50284
+ CONST UID '48F32DD50284'
+ CONST Name 'GetData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F32DF70180 // formatetcIn
+ ME_48F32DF701A2 // medium
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F32DD50284 GetData
+
+: ME_48F32E1801DE
+ CONST UID '48F32E1801DE'
+ CONST Name 'formatetc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ref; // ME_48F32E1801DE formatetc
+
+: ME_48F32E1801FE
+ CONST UID '48F32E1801FE'
+ CONST Name 'medium'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_46A5B13C018B // TStgMedium
+ ;
+
+ref; // ME_48F32E1801FE medium
+
+: ME_48F32E0200AF
+ CONST UID '48F32E0200AF'
+ CONST Name 'GetDataHere'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F32E1801DE // formatetc
+ ME_48F32E1801FE // medium
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F32E0200AF GetDataHere
+
+: ME_48F32E2B020B
+ CONST UID '48F32E2B020B'
+ CONST Name 'formatetc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ref; // ME_48F32E2B020B formatetc
+
+: ME_48F32E20007F
+ CONST UID '48F32E20007F'
+ CONST Name 'QueryGetData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F32E2B020B // formatetc
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F32E20007F QueryGetData
+
+: ME_48F32E440280
+ CONST UID '48F32E440280'
+ CONST Name 'formatetc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ref; // ME_48F32E440280 formatetc
+
+: ME_48F32E4402AB
+ CONST UID '48F32E4402AB'
+ CONST Name 'formatetcOut'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ref; // ME_48F32E4402AB formatetcOut
+
+: ME_48F32E330154
+ CONST UID '48F32E330154'
+ CONST Name 'GetCanonicalFormatEtc'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F32E440280 // formatetc
+ ME_48F32E4402AB // formatetcOut
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F32E330154 GetCanonicalFormatEtc
+
+: ME_48F32E5D00B6
+ CONST UID '48F32E5D00B6'
+ CONST Name 'formatetc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ref; // ME_48F32E5D00B6 formatetc
+
+: ME_48F32E5D00E3
+ CONST UID '48F32E5D00E3'
+ CONST Name 'medium'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target ME_46A5B13C018B // TStgMedium
+ ;
+
+ref; // ME_48F32E5D00E3 medium
+
+: ME_48F32E5D0112
+ CONST UID '48F32E5D0112'
+ CONST Name 'fRelease'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5DAC5031C' '4AB0C3F60375.pas.ms.script' // BOOL
+ ;
+
+ref; // ME_48F32E5D0112 fRelease
+
+: ME_48F32E4D0179
+ CONST UID '48F32E4D0179'
+ CONST Name 'SetData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F32E5D00B6 // formatetc
+ ME_48F32E5D00E3 // medium
+ ME_48F32E5D0112 // fRelease
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F32E4D0179 SetData
+
+: ME_48F330BB02B9
+ CONST UID '48F330BB02B9'
+ CONST Name 'dwDirection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48F330BB02B9 dwDirection
+
+: ME_48F330BB0306
+ CONST UID '48F330BB0306'
+ CONST Name 'enumFormatEtc'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_48F332AE0339 // IEnumFormatEtc
+ ;
+
+ref; // ME_48F330BB0306 enumFormatEtc
+
+: ME_48F330A10257
+ CONST UID '48F330A10257'
+ CONST Name 'EnumFormatEtc'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F330BB02B9 // dwDirection
+ ME_48F330BB0306 // enumFormatEtc
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F330A10257 EnumFormatEtc
+
+: ME_48F3310200A9
+ CONST UID '48F3310200A9'
+ CONST Name 'formatetc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ref; // ME_48F3310200A9 formatetc
+
+: ME_48F3310200D9
+ CONST UID '48F3310200D9'
+ CONST Name 'advf'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48F3310200D9 advf
+
+: ME_48F33102010B
+ CONST UID '48F33102010B'
+ CONST Name 'advSink'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_46A5D83000D7 // IAdviseSink
+ ;
+
+ref; // ME_48F33102010B advSink
+
+: ME_48F33102013C
+ CONST UID '48F33102013C'
+ CONST Name 'dwConnection'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48F33102013C dwConnection
+
+: ME_48F330C40367
+ CONST UID '48F330C40367'
+ CONST Name 'DAdvise'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F3310200A9 // formatetc
+ ME_48F3310200D9 // advf
+ ME_48F33102010B // advSink
+ ME_48F33102013C // dwConnection
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F330C40367 DAdvise
+
+: ME_48F3313603D8
+ CONST UID '48F3313603D8'
+ CONST Name 'dwConnection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48F3313603D8 dwConnection
+
+: ME_48F3312B0381
+ CONST UID '48F3312B0381'
+ CONST Name 'DUnadvise'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F3313603D8 // dwConnection
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F3312B0381 DUnadvise
+
+: ME_48F3315200ED
+ CONST UID '48F3315200ED'
+ CONST Name 'enumAdvise'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_46A5D83D031A // IEnumStatData
+ ;
+
+ref; // ME_48F3315200ED enumAdvise
+
+: ME_48F3313E0339
+ CONST UID '48F3313E0339'
+ CONST Name 'EnumDAdvise'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A0E6FF037E // IDataObject
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_48F3315200ED // enumAdvise
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_48F3313E0339 EnumDAdvise
+
+: ME_46A0E6FF037E
+ CONST UID '46A0E6FF037E'
+ CONST GUID 'D1B49E97-39B1-4ED5-9B33-5B1093FF9C37'
+ CONST Name 'IDataObject'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Объект представляющий данные для буфера обмена или drag-and-drop.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+ : Operations
+   @ ( ME_48F32DD50284 // GetData
+ ME_48F32E0200AF // GetDataHere
+ ME_48F32E20007F // QueryGetData
+ ME_48F32E330154 // GetCanonicalFormatEtc
+ ME_48F32E4D0179 // SetData
+ ME_48F330A10257 // EnumFormatEtc
+ ME_48F330C40367 // DAdvise
+ ME_48F3312B0381 // DUnadvise
+ ME_48F3313E0339 // EnumDAdvise
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_46A0E6FF037E IDataObject
+
+: ME_54523014032A
+ CONST UID '54523014032A'
+ CONST GUID '441B4CA8-58FB-4B30-BAFA-C1D6521FF7D6'
+ CONST Name 'IEnumStatStg'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_54523014032A IEnumStatStg
+
+: ME_53FDFAAE0115
+ CONST UID '53FDFAAE0115'
+ CONST Name 'TCLSID'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_53FDFAAE0115 TCLSID
+
+FORWARD ME_54522C020216
+
+FORWARD ME_54522C200280
+
+: ME_54522C38011C
+ CONST UID '54522C38011C'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4FA284CE011F' '4AB0C3C60310.pas.ms.script' // PWideChar
+ ;
+
+ref; // ME_54522C38011C aName
+
+: ME_54522C2A02B7
+ CONST UID '54522C2A02B7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54522C200280 // DestroyElement
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_54522C38011C // aName
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_54522C2A02B7 DoIt
+
+: ME_54522C200280
+ CONST UID '54522C200280'
+ CONST Name 'DestroyElement'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_54522C020216 // MCommonStorage
+ ;
+ : Operations
+   @ ( ME_54522C2A02B7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54522C200280 DestroyElement
+
+FORWARD ME_5452303401DA
+
+: ME_5452308B03D3
+ CONST UID '5452308B03D3'
+ CONST Name 'unused1'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5452308B03D3 unused1
+
+: ME_5452308C0012
+ CONST UID '5452308C0012'
+ CONST Name 'unused2'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_5452308C0012 unused2
+
+: ME_5452308C003F
+ CONST UID '5452308C003F'
+ CONST Name 'unused3'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5452308C003F unused3
+
+: ME_5452308C0066
+ CONST UID '5452308C0066'
+ CONST Name 'theStatStg'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_54523014032A // IEnumStatStg
+ ;
+
+ref; // ME_5452308C0066 theStatStg
+
+: ME_545230400047
+ CONST UID '545230400047'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5452303401DA // EnumElements
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_5452308B03D3 // unused1
+ ME_5452308C0012 // unused2
+ ME_5452308C003F // unused3
+ ME_5452308C0066 // theStatStg
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_545230400047 DoIt
+
+: ME_5452303401DA
+ CONST UID '5452303401DA'
+ CONST Name 'EnumElements'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_54522C020216 // MCommonStorage
+ ;
+ : Operations
+   @ ( ME_545230400047 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5452303401DA EnumElements
+
+FORWARD ME_545244AA00BB
+
+: ME_545250200117
+ CONST UID '545250200117'
+ CONST Name 'theStatStg'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_4FA27F3E0193 // TStatStg
+ ;
+
+ref; // ME_545250200117 theStatStg
+
+: ME_545244DE021A
+ CONST UID '545244DE021A'
+ CONST Name 'aStatFlag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_545244DE021A aStatFlag
+
+: ME_545244B402D2
+ CONST UID '545244B402D2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_545244AA00BB // Stat
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ : Parameters
+   @ ( ME_545250200117 // theStatStg
+ ME_545244DE021A // aStatFlag
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_545244B402D2 DoIt
+
+: ME_545244AA00BB
+ CONST UID '545244AA00BB'
+ CONST Name 'Stat'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_54522C020216 // MCommonStorage
+ ;
+ : Operations
+   @ ( ME_545244B402D2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_545244AA00BB Stat
+
+: ME_54522C020216
+ CONST UID '54522C020216'
+ CONST Name 'MCommonStorage'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+ : Operations
+   @ ( ME_54522C200280 // DestroyElement
+ ME_5452303401DA // EnumElements
+ ME_545244AA00BB // Stat
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_54522C020216 MCommonStorage
+
+FORWARD ME_472093480190
+
+: ME_54522C200280_ME_472093480190
+ CONST UID '54522C200280'
+ CONST Name 'DestroyElement'
+ : Original ME_54522C200280 // DestroyElement
+ ;
+ : Implementor ME_472093480190 // IStorage
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54522C200280_ME_472093480190 DestroyElement
+
+: ME_5452303401DA_ME_472093480190
+ CONST UID '5452303401DA'
+ CONST Name 'EnumElements'
+ : Original ME_5452303401DA // EnumElements
+ ;
+ : Implementor ME_472093480190 // IStorage
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5452303401DA_ME_472093480190 EnumElements
+
+: ME_545244AA00BB_ME_472093480190
+ CONST UID '545244AA00BB'
+ CONST Name 'Stat'
+ : Original ME_545244AA00BB // Stat
+ ;
+ : Implementor ME_472093480190 // IStorage
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_545244AA00BB_ME_472093480190 Stat
+
+: ME_472093480190
+ CONST UID '472093480190'
+ CONST GUID 'DBD1670E-4A5F-4030-896C-85BCA17997B1'
+ CONST Name 'IStorage'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Структурированное хранилище.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+ : Implements
+   @ ( ME_54522C020216 // MCommonStorage
+ ) .SequenceCode.It
+ ; // Implements
+ : Implemented
+   @ ( ME_54522C200280_ME_472093480190 // DestroyElement
+ ME_5452303401DA_ME_472093480190 // EnumElements
+ ME_545244AA00BB_ME_472093480190 // Stat
+ ) .SequenceCode.It
+ ; // Implemented
+
+ref; // ME_472093480190 IStorage
+
+: ME_556DC8FD0311
+ CONST UID '556DC8FD0311'
+ CONST Name 'TIID'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+
+ref; // ME_556DC8FD0311 TIID
+
+: ME_556DCBD7038C
+ CONST UID '556DCBD7038C'
+ CONST Name 'POleStr'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+ : Inherits
+   @ ( WL 'ME_4FA284CE011F' '4AB0C3C60310.pas.ms.script' // PWideChar
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_556DCBD7038C POleStr
+
+: ME_556DCC0400AB
+ CONST UID '556DCC0400AB'
+ CONST Name 'TSNB'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_46A0E6C5023A // ActiveX
+ ;
+ : Inherits
+   @ ( ME_556DCBD7038C // POleStr
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isPointer" true
+
+ref; // ME_556DCC0400AB TSNB
+
+: ME_46A0E6C5023A
+ CONST UID '46A0E6C5023A'
+ CONST Name 'ActiveX'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'ActiveX / OLE 2 Interface Unit.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ ;
+ : Children
+   @ ( ME_46A0E7200082 // IEnumFORMATETC
+ ME_46A5B13C018B // TStgMedium
+ ME_46A5AFF103CA // IStream
+ ME_46A5B19203B6 // TFormatEtc
+ ME_46A5D83000D7 // IAdviseSink
+ ME_46A5D8120200 // IDropSource
+ ME_46A5D81E0167 // IDropTarget
+ ME_46A5D83D031A // IEnumStatData
+ ME_48F332AE0339 // IEnumFormatEtc
+ ME_46A5D85103D7 // PFormatEtc
+ ME_4FA27F3E0193 // TStatStg
+ ME_46A0E6FF037E // IDataObject
+ ME_54523014032A // IEnumStatStg
+ ME_53FDFAAE0115 // TCLSID
+ ME_54522C020216 // MCommonStorage
+ ME_472093480190 // IStorage
+ ME_556DC8FD0311 // TIID
+ ME_556DCBD7038C // POleStr
+ ME_556DCC0400AB // TSNB
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ CONST "path prefix" '/Win'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\ActiveX.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\46A0E6C5023A.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\46A0E6C5023A.pas.ms.script.runner'
+
+ref; // ME_46A0E6C5023A ActiveX

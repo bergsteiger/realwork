@@ -1,0 +1,151 @@
+<?xml encoding = "ISO-8859-1"?>
+
+<!--
+	uses:
+		ru.garant.extensions.scriptdefs.copyFile
+		ru.garant.extensions.scriptdefs.copyFileToDir
+-->
+
+<scriptdef
+	name = "ru.garant.extensions.scriptdefs.buildPasTarget"
+	language = "javascript"
+>
+	<attribute name = "pas.target.project.name"/>
+	<attribute name = "pas.target.compile.name"/>
+	<attribute name = "pas.target.config.file"/>
+	<attribute name = "pas.target.root.dir"/>
+
+	<![CDATA[
+		{
+			importClass (
+				Packages.java.io.File
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant
+			);
+
+			importPackage (
+				Packages.org.apache.tools.ant.types
+			);
+		} {
+			var a_pasTargetProjectName = (
+				attributes.get ("pas.target.project.name")
+			);
+
+			var a_pasTargetCompileName = (
+				attributes.get ("pas.target.compile.name")
+			);
+
+			var a_pasTargetConfigFile = (
+				attributes.get ("pas.target.config.file")
+			);
+
+			if (a_pasTargetConfigFile != null) {
+				var l_pasTargetConfigFileFile = new File (a_pasTargetConfigFile);
+				var l_pasTargetConfigFilePath = l_pasTargetConfigFileFile.getPath ();
+
+				a_pasTargetConfigFile = l_pasTargetConfigFilePath;
+			}
+
+			var a_pasTargetRootDir = (
+				attributes.get ("pas.target.root.dir")
+			);
+
+			if (a_pasTargetRootDir != null) {
+				var l_pasTargetRootDirFile = new File (a_pasTargetRootDir);
+				var l_pasTargetRootDirPath = l_pasTargetRootDirFile.getPath ();
+
+				a_pasTargetRootDir = l_pasTargetRootDirPath;
+			}
+
+			{
+				var l_workRootDir = project.getProperty ("ru.garant.extensions.properties.workRootDir");
+
+				if (l_workRootDir != null) {
+					var l_workRootDirFile = new File (l_workRootDir);
+					var l_workRootDirPath = l_workRootDirFile.getPath ();
+
+					l_workRootDir = l_workRootDirPath;
+				}
+
+				{
+					var l_cleanupAllFilesTask = project.createTask ("ru.garant.extensions.scriptdefs.cleanupAllFiles"); {
+						var l_runtimeConfigurableWrapper = l_cleanupAllFilesTask.getRuntimeConfigurableWrapper (); {
+							var l_rootDir = l_workRootDir+ "/build/units";
+
+							l_runtimeConfigurableWrapper.setAttribute ("root.dir", l_rootDir);
+						}
+
+						l_cleanupAllFilesTask.reconfigure ();
+					}
+
+					l_cleanupAllFilesTask.execute ();
+				}
+			}
+
+			var l_pasTargetFile = new File (a_pasTargetRootDir, a_pasTargetCompileName);
+			var l_pasTargetPath = l_pasTargetFile.getPath ();
+
+			project.log (
+				(
+					"\t"
+					+ "Build pas-target `"+ l_pasTargetPath+ "`"
+				)
+				, project.MSG_INFO
+			);
+
+			if (a_pasTargetProjectName.compareToIgnoreCase (a_pasTargetCompileName) != 0) {
+				var l_copyFileTask = project.createTask ("ru.garant.extensions.scriptdefs.copyFile"); {
+					var l_runtimeConfigurableWrapper = l_copyFileTask.getRuntimeConfigurableWrapper (); {
+						var l_file = a_pasTargetRootDir+ "/"+ a_pasTargetProjectName;
+						var l_toFile = a_pasTargetRootDir+ "/"+ a_pasTargetCompileName;
+
+						l_runtimeConfigurableWrapper.setAttribute ("file", l_file);
+						l_runtimeConfigurableWrapper.setAttribute ("to.file", l_toFile);
+					}
+
+					l_copyFileTask.reconfigure ();
+				}
+
+				l_copyFileTask.execute ();
+
+				a_pasTargetProjectName = a_pasTargetCompileName;
+			}
+
+			var l_copyFileToDirTask = project.createTask ("ru.garant.extensions.scriptdefs.copyFileToDir"); {
+				var l_runtimeConfigurableWrapper = l_copyFileToDirTask.getRuntimeConfigurableWrapper (); {
+					var l_file = a_pasTargetConfigFile;
+					var l_toDir = a_pasTargetRootDir;
+
+					l_runtimeConfigurableWrapper.setAttribute ("file", l_file);
+					l_runtimeConfigurableWrapper.setAttribute ("to.dir", l_toDir);
+				}
+
+				l_copyFileToDirTask.reconfigure ();
+			}
+
+			l_copyFileToDirTask.execute ();
+
+			var l_execTask = project.createTask ("exec"); {
+				l_execTask.setDir (new File (a_pasTargetRootDir));
+				l_execTask.setExecutable ("dcc32.exe");
+				l_execTask.setFailIfExecutionFails (true);
+				l_execTask.setFailonerror (true);
+				l_execTask.setLogError (true);
+
+				var l_execTaskArg = l_execTask.createArg (); {
+					l_execTaskArg.setLine (
+						"\""+ l_pasTargetPath+ "\""
+						+ " -B"
+						+ " -Q"
+					);
+				}
+
+				l_execTask.reconfigure ();
+			}
+
+			l_execTask.execute ();
+		}
+	]]>
+</scriptdef>

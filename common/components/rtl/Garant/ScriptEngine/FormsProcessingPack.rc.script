@@ -1,0 +1,84 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "ScriptEngine$RTLandVCL"
+// Модуль: "FormsProcessingPack.rc.script"
+// Скрипты в ресурсах (.rc.script)
+// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::FormsProcessing::FormsProcessingPack
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//#UC START# *50741A1F028Cman_uses*
+//#UC END# *50741A1F028Cman_uses*
+
+// Класс TForm - Form
+//  Операция pop_form_ActiveMDIChild 
+//  Класс реализующий операцию pop_form_ActiveMDIChild - pop:form:ActiveMDIChild
+WordAlias pop:Form:ActiveMDIChild pop:form:ActiveMDIChild
+//  Операция pop_form_Close 
+//  Класс реализующий операцию pop_form_Close - pop:form:Close
+WordAlias pop:Form:Close pop:form:Close
+//  Операция pop_form_FindMenuItem 
+//  Класс реализующий операцию pop_form_FindMenuItem - pop:form:FindMenuItem
+WordAlias pop:Form:FindMenuItem pop:form:FindMenuItem
+//  Операция pop_form_GetWindowState 
+//  Класс реализующий операцию pop_form_GetWindowState - pop:form:GetWindowState
+WordAlias pop:Form:GetWindowState pop:form:GetWindowState
+//  Операция pop_form_HasControl 
+//  Класс реализующий операцию pop_form_HasControl - pop:form:HasControl
+WordAlias pop:Form:HasControl pop:form:HasControl
+//  Операция pop_form_MDIChildCount 
+//  Класс реализующий операцию pop_form_MDIChildCount - pop:form:MDIChildCount
+WordAlias pop:Form:MDIChildCount pop:form:MDIChildCount
+//  Операция pop_form_MDIChildren 
+//  Класс реализующий операцию pop_form_MDIChildren - pop:form:MDIChildren
+WordAlias pop:Form:MDIChildren pop:form:MDIChildren
+//  Операция pop_form_ModalResult 
+//  Класс реализующий операцию pop_form_ModalResult - pop:form:ModalResult
+WordAlias pop:Form:ModalResult pop:form:ModalResult
+//  Операция pop_form_Next 
+//  Класс реализующий операцию pop_form_Next - pop:form:Next
+WordAlias pop:Form:Next pop:form:Next
+//  Операция pop_form_SetWindowState 
+//  Класс реализующий операцию pop_form_SetWindowState - pop:form:SetWindowState
+WordAlias pop:Form:SetWindowState pop:form:SetWindowState
+//  Операция pop_form_FindActionList 
+//  Класс реализующий операцию pop_form_FindActionList - pop:form:FindActionList
+WordAlias pop:Form:FindActionList pop:form:FindActionList
+
+//#UC START# *50741A1F028Cimpl*
+
+USES
+ axiom:Component
+ axiom:Form
+ axiom:ActionList
+ axiom:ContainedAction
+;
+
+//REDEFINITION
+ PROCEDURE pop:form:ExecuteAction
+    STRING IN anActionName
+    STRING IN aListName
+    TForm IN aForm
+    
+   TActionList VAR l_ActList
+   
+   aListName aForm pop:form:FindActionList >>> l_ActList
+   l_ActList pop:object:IsNil ! ?ASSURE [ 'Не найден компонент ' aListName ' на форме ' aForm pop:Component:Name ]
+   
+   TContainedAction VAR l_Action
+   
+   anActionName l_ActList pop:ActionList:FindAction >>> l_Action
+   l_Action pop:object:IsNil ! ?ASSURE [ 'Не найден Action ' anActionName ' в списке' aListName ]
+   
+   l_Action pop:ContainedAction:Execute
+   //anActionName aListName aForm inherited
+ ; // pop:form:ExecuteAction
+ 
+//#UC END# *50741A1F028Cimpl*
+
+
+EXPORTS
+//#UC START# *50741A1F028Cexports*
+ *
+//#UC END# *50741A1F028Cexports*
+

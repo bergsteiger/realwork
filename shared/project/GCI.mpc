@@ -1,0 +1,313 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/GCI.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> shared::GCI
+//
+// Garant Common Interfaces - общие интерфейсы повторного использования
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (GCI) : project_generic_core {
+	sharedname = GCI
+	staticname = GCI
+
+	includes += ../../
+
+	//#UC START# *447878770121_CUSTOM_DEPENDENCES*
+	Header_Files {
+		I18N {
+			./../GCI/impl/I18N_i/I18NInitializer.h 
+		}
+
+		IO_i {
+			./../GCI/impl/IO_i/FastStream_i.h
+		}
+	}
+
+	Source_Files {
+		I18N {
+			./../GCI/impl/I18N_i/I18NInitializer.cpp
+		}
+
+		IO_i {
+			./../GCI/impl/IO_i/FastStream_i.cpp
+		}
+	}
+	//#UC END# *447878770121_CUSTOM_DEPENDENCES*
+	after += GCL
+	libs  += GCL
+
+	Header_Files {
+		Std_Headers {
+			./../GCI/LibHome.h
+		}
+	
+		I18N {
+			./../GCI/I18N/I18N.h
+			./../GCI/I18N/I18NFactories.h
+		}
+	
+		I18N_i {
+			./../GCI/impl/I18N_i/I18N_i.h
+			./../GCI/impl/I18N_i/Environment.h
+			./../GCI/impl/I18N_i/GarantWinLocaleOperations.h
+			./../GCI/impl/I18N_i/GarantWinLocaleOperations_factory.h
+			./../GCI/impl/I18N_i/LocaleOperationsHelper.h
+			./../GCI/impl/I18N_i/Messages_i.h
+			./../GCI/impl/I18N_i/Messages_i_factory.h
+			./../GCI/impl/I18N_i/Params.h
+			./../GCI/impl/I18N_i/PosixLocaleOperations.h
+			./../GCI/impl/I18N_i/PosixLocaleOperations_factory.h
+			./../GCI/impl/I18N_i/WinLocaleOperations.h
+			./../GCI/impl/I18N_i/WinLocaleOperations_factory.h
+		}
+	
+		IO {
+			./../GCI/IO/IO.h
+			./../GCI/IO/IOFactories.h
+		}
+	
+		IO_i {
+			./../GCI/impl/IO_i/BinaryString_i.h
+			./../GCI/impl/IO_i/BinaryString_i_factory.h
+			./../GCI/impl/IO_i/MSDNStreamWrapper.h
+			./../GCI/impl/IO_i/MSDNStreamWrapper_factory.h
+			./../GCI/impl/IO_i/Stream_i.h
+			./../GCI/impl/IO_i/Stream_i_factory.h
+			./../GCI/impl/IO_i/String_i.h
+			./../GCI/impl/IO_i/String_i_factory.h
+		}
+	
+		MMap {
+			./../GCI/MMap/MMap.h
+			./../GCI/MMap/MMapFactories.h
+		}
+	
+		MMapComImpl {
+			./../GCI/impl/MMapComImpl/MMapComImpl.h
+			./../GCI/impl/MMapComImpl/MMapComImplFactories.h
+			./../GCI/impl/MMapComImpl/LargeMemoryImpl.h
+			./../GCI/impl/MMapComImpl/MemoryPoolImpl.h
+			./../GCI/impl/MMapComImpl/MemoryPoolImpl_factory.h
+		}
+	
+		MMapWin32 {
+			./../GCI/impl/MMapWin32/MMapWin32.h
+			./../GCI/impl/MMapWin32/FileForMemImpl.h
+			./../GCI/impl/MMapWin32/FileForMemImpl_factory.h
+			./../GCI/impl/MMapWin32/MemoryImpl.h
+		}
+	
+		Math {
+			./../GCI/Math/Math.h
+			./../GCI/Math/MathFactories.h
+		}
+	
+		MathImpl {
+			./../GCI/impl/MathImpl/CalculatorImpl.h
+			./../GCI/impl/MathImpl/CalculatorImpl_factory.h
+		}
+	
+		ResourceInfo {
+			./../GCI/ResourceInfo/ResourceInfo.h
+			./../GCI/ResourceInfo/ResourceInfoFactories.h
+		}
+	
+		ResourceInfoImpl {
+			./../GCI/impl/ResourceInfoImpl/CPUInfo.h
+			./../GCI/impl/ResourceInfoImpl/CPUInfo_factory.h
+			./../GCI/impl/ResourceInfoImpl/PhysicalMemoryInfoImpl.h
+			./../GCI/impl/ResourceInfoImpl/PhysicalMemoryInfoImpl_factory.h
+			./../GCI/impl/ResourceInfoImpl/ProcessMemoryInfoImpl.h
+			./../GCI/impl/ResourceInfoImpl/ProcessMemoryInfoImpl_factory.h
+		}
+	
+		ResourceInfoWin32Impl {
+			./../GCI/impl/ResourceInfoWin32Impl/CPUInfo.h
+			./../GCI/impl/ResourceInfoWin32Impl/CPUInfo_factory.h
+			./../GCI/impl/ResourceInfoWin32Impl/PhysicalMemoryInfoImpl.h
+			./../GCI/impl/ResourceInfoWin32Impl/PhysicalMemoryInfoImpl_factory.h
+			./../GCI/impl/ResourceInfoWin32Impl/ProcessMemoryInfoImpl.h
+			./../GCI/impl/ResourceInfoWin32Impl/ProcessMemoryInfoImpl_factory.h
+		}
+	
+		Unicode {
+			./../GCI/Unicode/Converters.h
+		}
+	
+		UnicodeHelper {
+			./../GCI/UnicodeHelper/UnicodeHelper.h
+			./../GCI/UnicodeHelper/UnicodeHelperFactories.h
+		}
+	
+		UnicodeHelper_i {
+			./../GCI/impl/UnicodeHelper_i/EmptyHelper.h
+			./../GCI/impl/UnicodeHelper_i/EmptyHelper_factory.h
+			./../GCI/impl/UnicodeHelper_i/TatarHelper.h
+			./../GCI/impl/UnicodeHelper_i/TatarHelper_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		I18N {
+		}
+	
+		I18N_i {
+		}
+	
+		IO {
+		}
+	
+		IO_i {
+		}
+	
+		MMap {
+		}
+	
+		MMapComImpl {
+		}
+	
+		MMapWin32 {
+		}
+	
+		Math {
+		}
+	
+		MathImpl {
+		}
+	
+		ResourceInfo {
+		}
+	
+		ResourceInfoImpl {
+		}
+	
+		ResourceInfoWin32Impl {
+		}
+	
+		Unicode {
+		}
+	
+		UnicodeHelper {
+		}
+	
+		UnicodeHelper_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../GCI/LibHome.cpp
+		}
+	
+		I18N {
+			./../GCI/I18N/I18N.cpp
+			./../GCI/I18N/I18NFactories.cpp
+		}
+	
+		I18N_i {
+			./../GCI/impl/I18N_i/GarantWinLocaleOperations.cpp
+			./../GCI/impl/I18N_i/GarantWinLocaleOperations_factory.cpp
+			./../GCI/impl/I18N_i/LocaleOperationsHelper.cpp
+			./../GCI/impl/I18N_i/Messages_i.cpp
+			./../GCI/impl/I18N_i/Messages_i_factory.cpp
+			./../GCI/impl/I18N_i/Params.cpp
+			./../GCI/impl/I18N_i/PosixLocaleOperations.cpp
+			./../GCI/impl/I18N_i/PosixLocaleOperations_factory.cpp
+			./../GCI/impl/I18N_i/WinLocaleOperations.cpp
+			./../GCI/impl/I18N_i/WinLocaleOperations_factory.cpp
+		}
+	
+		IO {
+			./../GCI/IO/IO.cpp
+			./../GCI/IO/IOFactories.cpp
+		}
+	
+		IO_i {
+			./../GCI/impl/IO_i/BinaryString_i.cpp
+			./../GCI/impl/IO_i/BinaryString_i_factory.cpp
+			./../GCI/impl/IO_i/MSDNStreamWrapper.cpp
+			./../GCI/impl/IO_i/MSDNStreamWrapper_factory.cpp
+			./../GCI/impl/IO_i/Stream_i.cpp
+			./../GCI/impl/IO_i/Stream_i_factory.cpp
+			./../GCI/impl/IO_i/String_i.cpp
+			./../GCI/impl/IO_i/String_i_factory.cpp
+		}
+	
+		MMap {
+			./../GCI/MMap/MMap.cpp
+			./../GCI/MMap/MMapFactories.cpp
+		}
+	
+		MMapComImpl {
+			./../GCI/impl/MMapComImpl/MMapComImpl.cpp
+			./../GCI/impl/MMapComImpl/MMapComImplFactories.cpp
+			./../GCI/impl/MMapComImpl/LargeMemoryImpl.cpp
+			./../GCI/impl/MMapComImpl/MemoryPoolImpl.cpp
+			./../GCI/impl/MMapComImpl/MemoryPoolImpl_factory.cpp
+		}
+	
+		MMapWin32 {
+			./../GCI/impl/MMapWin32/FileForMemImpl.cpp
+			./../GCI/impl/MMapWin32/FileForMemImpl_factory.cpp
+			./../GCI/impl/MMapWin32/MemoryImpl.cpp
+		}
+	
+		Math {
+			./../GCI/Math/Math.cpp
+			./../GCI/Math/MathFactories.cpp
+		}
+	
+		MathImpl {
+			./../GCI/impl/MathImpl/CalculatorImpl.cpp
+			./../GCI/impl/MathImpl/CalculatorImpl_factory.cpp
+			./../GCI/impl/MathImpl/CalculatorImpl_Rule.cpp
+		}
+	
+		ResourceInfo {
+			./../GCI/ResourceInfo/ResourceInfo.cpp
+			./../GCI/ResourceInfo/ResourceInfoFactories.cpp
+		}
+	
+		ResourceInfoImpl {
+			./../GCI/impl/ResourceInfoImpl/CPUInfo.cpp
+			./../GCI/impl/ResourceInfoImpl/CPUInfo_factory.cpp
+			./../GCI/impl/ResourceInfoImpl/PhysicalMemoryInfoImpl.cpp
+			./../GCI/impl/ResourceInfoImpl/PhysicalMemoryInfoImpl_factory.cpp
+			./../GCI/impl/ResourceInfoImpl/ProcessMemoryInfoImpl.cpp
+			./../GCI/impl/ResourceInfoImpl/ProcessMemoryInfoImpl_factory.cpp
+		}
+	
+		ResourceInfoWin32Impl {
+			./../GCI/impl/ResourceInfoWin32Impl/CPUInfo.cpp
+			./../GCI/impl/ResourceInfoWin32Impl/CPUInfo_factory.cpp
+			./../GCI/impl/ResourceInfoWin32Impl/PhysicalMemoryInfoImpl.cpp
+			./../GCI/impl/ResourceInfoWin32Impl/PhysicalMemoryInfoImpl_factory.cpp
+			./../GCI/impl/ResourceInfoWin32Impl/ProcessMemoryInfoImpl.cpp
+			./../GCI/impl/ResourceInfoWin32Impl/ProcessMemoryInfoImpl_factory.cpp
+		}
+	
+		Unicode {
+			./../GCI/Unicode/Converters.cpp
+		}
+	
+		UnicodeHelper {
+			./../GCI/UnicodeHelper/UnicodeHelper.cpp
+			./../GCI/UnicodeHelper/UnicodeHelperFactories.cpp
+		}
+	
+		UnicodeHelper_i {
+			./../GCI/impl/UnicodeHelper_i/EmptyHelper.cpp
+			./../GCI/impl/UnicodeHelper_i/EmptyHelper_factory.cpp
+			./../GCI/impl/UnicodeHelper_i/TatarHelper.cpp
+			./../GCI/impl/UnicodeHelper_i/TatarHelper_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

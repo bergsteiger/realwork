@@ -1,0 +1,51 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 73.7.2 ***
+Sub Main
+    Dim Result As Integer
+
+    Call NeedState (ST_FIRST_BRANCH)
+    CUR_STATE = ST_NONE_STANDART
+
+  DelayFor (3000) 'Ждем загрузки списка
+'Переводим на ст.1 конституции и сравниваем 1 экран синхронного просмотра
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  InputKeys "{Right}"
+  Call Click_pcSynchro
+  DelayFor (2000) 'Ждем загрузки синхронного просмотра
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=Const_gl1")
+  Call Click_pcList
+  ListBox Click, "ObjectIndex=5", "Coords=7,30"
+  
+'Сворачиваем вхождения конституции и переходим на sub 200 документа 2002
+  InputKeys "{Left}{Num+}{DOWN}{DOWN}{Right}"
+  Call Click_pcSynchro
+  DelayFor (2000) 'Ждем загрузки синхронного просмотра
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=Doc2002")
+  Call Click_pcList
+  ListBox Click, "ObjectIndex=5", "Coords=7,30"
+
+'Проверяем 2 вхождения в документ: "Приказ Минтранса РФ от 14 мая 2001 г. N 84"
+  InputKeys "{Left}{Num+}{END}{UP}{UP}{UP}{Right}"
+  Call Click_pcSynchro
+  DelayFor (2000) 'Ждем загрузки синхронного просмотра
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"
+  InputKeys "^+{Right}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=inp1")
+  Call Click_pcList
+  ListBox Click, "ObjectIndex=5", "Coords=7,30"
+  
+  InputKeys "{DOWN}"
+  Call Click_pcSynchro
+  DelayFor (2000) 'Ждем загрузки синхронного просмотра
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"  
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=inp2")
+  Call Click_pcList
+  ListBox Click, "ObjectIndex=5", "Coords=7,30"  
+  
+'Возвращаемся в исходный список и выставляем состояние  
+  InputKeys "{UP}{UP}{Num+}{HOME}"
+  CUR_STATE = ST_FIRST_BRANCH
+End Sub

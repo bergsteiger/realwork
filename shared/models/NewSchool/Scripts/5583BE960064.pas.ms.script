@@ -1,0 +1,165 @@
+// TcsTaskChangeHelper 5583BE960064 Service Class
+
+FORWARD ME_5583BE960064
+
+FORWARD ME_5E793B4475C3
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_F75B4443B80B
+ CONST UID 'F75B4443B80B'
+ CONST Name 'TaskGotErrorStatus'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_F75B4443B80B TaskGotErrorStatus
+
+: ME_5E793B4475C3
+ CONST UID '5E793B4475C3'
+ CONST Name 'McsTaskChangeHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ %SUMMARY 'Контракт сервиса TcsTaskChangeHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_F75B4443B80B // TaskGotErrorStatus
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5E793B4475C3 McsTaskChangeHelper
+
+: ME_7CDAE66D12BB
+ CONST UID '7CDAE66D12BB'
+ CONST GUID '9337EC2E-743E-421E-994C-15DEC812DC61'
+ CONST Name 'IcsTaskChangeHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса TcsTaskChangeHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_5E793B4475C3 // McsTaskChangeHelper
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_F75B4443B80B // TaskGotErrorStatus
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_7CDAE66D12BB IcsTaskChangeHelper
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_7FB9A4A45F1E
+ CONST UID '7FB9A4A45F1E'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса IcsTaskChangeHelper' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_7CDAE66D12BB // IcsTaskChangeHelper
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_7FB9A4A45F1E Alien
+
+: ME_AF78CDF6C2B9
+ CONST UID 'AF78CDF6C2B9'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_7CDAE66D12BB // IcsTaskChangeHelper
+ ;
+
+ @SELF
+; // ME_AF78CDF6C2B9 f_Alien
+
+: ME_5583BFE00181
+ CONST UID '5583BFE00181'
+ CONST Name 'TaskGotErrorStatus'
+ CONST Class 'Operation'
+ CONST Stereotype 'responsibility'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5583BFE00181 TaskGotErrorStatus
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_0FA1BDEC332D
+ CONST UID '0FA1BDEC332D'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_0FA1BDEC332D Exists
+
+: ME_5583BE960064
+ CONST UID '5583BE960064'
+ CONST Name 'TcsTaskChangeHelper'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5E793B4475C3 // McsTaskChangeHelper
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_7FB9A4A45F1E // Alien
+ ME_AF78CDF6C2B9 // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5583BFE00181 // TaskGotErrorStatus
+ ME_0FA1BDEC332D // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_F75B4443B80B // TaskGotErrorStatus
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_5E793B4475C3 // McsTaskChangeHelper
+ ME_7CDAE66D12BB // IcsTaskChangeHelper
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_5583BE960064 TcsTaskChangeHelper

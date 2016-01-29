@@ -1,0 +1,1641 @@
+Shared Delphi Tests : Project - Тесты для Shared Delphi
+version: 1543
+Abstract Tests : TestLibrary - Абстрактные тесты
+ EditorTests : TestUnit - 
+  TAutoBlockTest : TestCase - Тест разбиения документа на блоки
+    : uses - 
+    : uses - undefined
+  TTextViaEditorProcessorWithExternalSave : TestCase - 
+   DoSave : method - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TTextMetricsPrimTest : TestCase - Тест проверяющий метрики текста. Такие как AllChildrenCount, NettoCharCount, BruttoCharCount, TextParaCount, BitmapParaCount
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TTextMetricsTest : TestCase - Тест проверяющий метрики текста. Такие как AllChildrenCount, NettoCharCount, BruttoCharCount, TextParaCount, BitmapParaCount
+    : uses - undefined
+  TInsertPictureTest : TestCase - Тест вставки картинки в текст.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  THotSpotSelectionTest : TestCase - Тест выделения с помощью хотспота.
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TMouseMoveSelectionTest : TestCase - Выделение с помощью движения мыши.
+   f_StartPoint - 
+    : uses - 
+    : uses - undefined
+  TColumnResizeByMousePrimTest : TestCase - Тест изменения колонок с помощью мыши
+    : uses - 
+    : uses - undefined
+  TTabInTableTest : TestCase - Теситрование поведения таблицации в таблице
+   CheckPoint - 
+   GetDownMoveCount - Количество смещений вниз
+   GetTabMoveCount - Количество смещений по табуляциии
+    : uses - 
+    : uses - undefined
+  TShowBaseSearchTest : TestCase - Тест показа базового поиска
+   ShowBaseSearch : method - 
+   f_InText - 
+    : uses - 
+    : uses - undefined
+  TDrawSelectionInTableTest : TestCase - Тест для проверки правильности отрисовки выделения в таблице
+    : uses - 
+    : uses - undefined
+  TScrollerParamsTestPrim : TestCase - Тесты для провкрки параметров скроллера при прокрутке и переходе по сабам документа.
+    : uses - 
+    : uses - undefined
+  TScrollParamsTest : TestCase - Тесты для провкрки параметров скроллера при прокрутке и переходе по сабам документа.
+   GetSubNumber - 
+    : uses - undefined
+  TVerticalCursorMovingTest : TestCase - Тест вертикального перемещения курсора.
+    : uses - 
+    : uses - undefined
+  TMouseSelectPtTest : TestCase - Тест щелканья мышью по определенной точке.
+    : uses - undefined
+  TWrongSearchTest : TestCase - Поиск строки не должен проходить.
+    : uses - 
+    : uses - undefined
+  TLinesTest : TestCase - Тестирование отрисовки линий.
+   f_ObjID - 
+    : uses - 
+    : uses - undefined
+  TWholeSelectionWithMouseTest : TestCase - Выделение с помощью мыши всего документа (с прокруткой).
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TInsertFormulaTest : TestCase - Тест на вставку формулы.
+   GetFormulaText - 
+    : uses - undefined
+  TSelectCommentAndDelete : TestCase - Выделить комментарий и удалить.
+    : uses - undefined
+  TClickOnCommentTest : TestCase - Тестирование кликанья мышью на заголовке комментария.
+    : uses - undefined
+  TPreviewWithRowCompare : TestCase - Тест печати со сравнением строк.
+    : uses - 
+    : uses - undefined
+  TPreviewTestBefore235875079WithRowCmp : TestCase - 
+    : uses - 
+    : uses - undefined
+  TRowSelectionTest : TestCase - Тест выделения строки.
+    : uses - undefined
+  TInsertSectionBreak : TestCase - Тест на вставку разрыва раздела.
+   MoveCursorCount : method - 
+   CheckPara : method - 
+    : uses - 
+    : uses - undefined
+  TScrollAndLinesTest : TestCase - 
+   DoScroll : method - 
+   GetScrollCount : method - 
+    : uses - undefined
+  TAllChildreCountTest : TestCase - Тест для подсчета количества AllChildrenCount у тегов документа.
+   CheckTag : method - 
+   DoIt : Test - 
+   f_Filer - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+ FolderTestSupport : Unit - 
+  TCustomFolderTestSuite : SimpleClass - 
+   f_DataFolder - 
+ RenderEVD : TestUnit - 
+  TFormulaRender : TestCase - 
+   GetZoom : method - 
+   f_ParaNumber - 
+   f_FormulaNumber - 
+   f_RenderTarget - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TEVDtoRTFRender : TestCase - 
+   DoIt : Test - 
+   NeedEliminateCommentDecorations : method - 
+   TreatExceptionAsSuccess : method - 
+   GetHiddenStylesLength : method - 
+   THiddenStylesArray : Vector - 
+   GetHiddenStyles : method - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+ CheckFilesInFolderTest : TestUnit - 
+  TCheckingFilesInFolderTest : TestCase - 
+   DoIt : Test - 
+   DoDoit : method - 
+    : uses - undefined
+Keywords4Daily : Library - Ключевые слова специально для DailyTests
+ SupportWords : ScriptKeywords - 
+  LoadFromFile : ScriptKeyword - Загружает файл в форму дочернего класса TPrimTextLoadForm. 
+*Формат:* имя_файла LoadFromFile
+*Примечание:* Создан специально для тестов DailyTests в результате переделок form:Needs. Имя файла можно подавать без пути - будет автоматически добавлен путь к данным для тестов.
+   Ini_Reg : ini - Регистрация LoadFromFile
+  SupportKeyWords : ScriptKeywordsPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  SetFontSize : ScriptKeyword - Устанавливает размер шрифта для стиля "Нормальный".
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация SetFontSize
+  GetFontSize : ScriptKeyword - Возвращает установленный размер шрифта для стиля "Нормальный".
+    : uses - 
+    : uses - 
+   Ini_Reg : ini - Регистрация GetFontSize
+DailyTest : TestLibrary - 
+ Environment : Unit - Настройки тестов
+  TestGlobals : UtilityPack - 
+   Constants : Constants - 
+ Core : TestUnit - 
+  TTestMMX : TestCase - 
+   DoMMX : Test - 
+    : uses - undefined
+  TTestFilerReadLn : TestCase - 
+   ReadViaDelphi : Test - 
+   DoIt : Test - 
+   ReadViaDelphiPrim : method - 
+   ReadLnBadText : Test - Тест для {RequestLink:175540286}.
+   ReadLnBadUnicodeText : Test - Тест для {RequestLink:175540286}.
+    : uses - 
+    : uses - undefined
+  TTestFilerCopyViaReadLn : TestCase - 
+   DoIt : Test - Тест правильности копирования файлов с помощью ReadLn
+   CopyUnicode : Test - Тест для {RequestLink:175540286}.
+    : uses - 
+    : uses - undefined
+ Write : TestUnit - Запись
+  WriterTest : TestCase - Базовый тест записи
+   DoWrite : method - 
+   CreateEVDWriter : method - 
+   SomeFormatToEVD : method - 
+   AcceptBadPictureFormat : method - 
+   TreatExceptionAsSuccess : method - 
+   SetFilters - 
+    : uses - undefined
+ NSRCUtils : Unit - Классы-обертки для работы с NSRC
+  TtstNSRCGenerator : SimpleClass - Обертка над TddGenerator для чтения данных о внешних файлах и запоминания их в тесте для последующей проверки.
+   ItstNSRCListener : Facet - 
+   f_Listener - 
+   LinkNSRCListener - 
+   UnlinkNSRCListener - 
+ RTF : TestUnit - 
+  RTFWriterTest : TestCase - 
+   SomeFormatToRTF : method - 
+   EVDtoRTF : method - 
+   UseExternalLinks : method - 
+    : uses - undefined
+  EVDtoRTFWriterTest : TestCase - Тест преобразования EVD в RTF
+   DoIt : Test - 
+    : uses - undefined
+  RTFReaderTest : TestCase - 
+   RTFtoEVD : method - 
+   GetEnablePictures : method - 
+    : uses - undefined
+  RTFtoEVDWriterTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+  EVDwithFormulasToRTFWriterTest : TestCase - Тест преобразования EVD с формулами в RTF
+    : uses - undefined
+  DOCtoEVDWriterTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+  RTFtoEVDWithiddenTextExtractor : TestCase - 
+    : uses - 
+    : uses - undefined
+ EVD : TestUnit - Тесты записи в EVD
+  EVDWriterTest : TestCase - 
+   EVDtoEVD : method - 
+   UseFullEVDReader - Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже)
+   DisableParserLog - Запретить парсеру выводить в лог
+    : uses - undefined
+  EVDtoEVDWriterTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+  EVDtoEVDEmptyRowTest : TestCase - 
+    : uses - 
+    : uses - undefined
+  EVDtoEVDSectionRepairTest : TestCase - Тест для {IconForPage:175539595} [$175539595]
+    : uses - 
+    : uses - 
+    : uses - undefined
+  EVDtoEVDOEMTableFlagTest : TestCase - Тест фильтра"'Выливать в псевдографику"
+    : uses - 
+    : uses - undefined
+  EVDtoEVDBlockNameAdderTest : TestCase - 
+    : uses - 
+    : uses - undefined
+  EVDtoEVDEmptyRowAndEmptyTableTest : TestCase - 
+    : uses - 
+    : uses - undefined
+  UnicodeFormulasToUnicodeConverterTest : TestCase - 
+    : uses - 
+    : uses - undefined
+ NSRCTests : TestUnit - Тесты для NSRC
+  TNSRCWriterTest : TestCase - 
+   SomeFormatToNSRC : method - 
+   EVDtoNSRC : method - 
+   NSRCtoNSRC : method - 
+   CreateNSRCReader : method - Создаёт NSRCReader
+   NSRCtoMemory : method - Читает NSRC в память
+   NSRCtoEVD : method - 
+   PainterCodePage : virtualmethod - 
+   NSRCCodePage - Кодировка для выливки в NSRC
+    : uses - undefined
+  TEVDtoNSRCWriterTest : TestCase - Тест записи из EVD в NSRC
+   DoIt : Test - 
+   IsNSRCPlus - 
+    : uses - undefined
+  TStyleCtoStyleJTest : TestCase - [$180060974]
+   DoIt : Test - 
+   ToOldNSRC : Test - 
+    : uses - undefined
+  TEVDtoNSRCPlusWriterTest : TestCase - Тест записи в NSRC+
+    : uses - undefined
+  TEVDtoNSRCOldWriterTest : TestCase - 
+    : uses - undefined
+  K177964264 : TestCase - [$177964264]
+    : uses - undefined
+  K177964498 : TestCase - [$177964498]
+    : uses - undefined
+  NSRCtoMemoryTest : TestCase - Тест чтения NSRC в память
+   DoIt : Test - 
+    : uses - undefined
+  K180060897 : TestCase - [$180060897]
+    : uses - undefined
+  TEVDtoBothNSRCWriterTest : TestCase - Тест записи в NSRC+ и NSRC
+   ToOldNSRC : Test - 
+    : uses - undefined
+  K177963362 : TestCase - [$177963362]
+    : uses - undefined
+  K177963873 : TestCase - [$177963873]
+    : uses - undefined
+  K164596048 : TestCase - [$164596048]
+    : uses - undefined
+  K177964278 : TestCase - [$177964278]
+    : uses - undefined
+  K177964664 : TestCase - [$177964664]
+    : uses - undefined
+  K211878862 : TestCase - [$211878862]
+    : uses - undefined
+  NSRCtoEVDTest : TestCase - Тест преобразования NSRC в EVD
+   DoIt : Test - 
+    : uses - undefined
+  NSRCtoNSRCTest : TestCase - Тест преобразования NSRC в NSRC
+   DoIt : Test - 
+   IsPlus : method - NSRC+?
+    : uses - undefined
+  K412987699 : TestCase - {Requestlink:412987699}
+    : uses - undefined
+  K415728258 : TestCase - {Requestlink:415728258}
+    : uses - undefined
+  K404357586 : TestCase - {Requestlink:404357586}
+    : uses - undefined
+  K446824679 : TestCase - {Requestlink:446824679}
+    : uses - undefined
+  K565842263 : TestCase - {Requestlink:565842263}
+    : uses - undefined
+  K565862557 : TestCase - {Requestlink:565862557}
+    : uses - undefined
+ EditorTests : TestUnit - Шаблонные тесты редактора
+  TTextViaEditorProcessorWithNavigate : TestCase - 
+   DoProcess - 
+    : uses - undefined
+  TInsertStreamTest : TestCase - Тест вставки в редактор текста при помощи InsertStream
+   TextForInsert - Текст для вставки
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TMoveSubTest : TestCase - 
+    : uses - 
+    : uses - undefined
+  TInsertStreamTestWithImplementedNavigate : TestCase - То же что и TInsertStreamTest, но с пустым Navigate
+    : uses - undefined
+  TCopyPasteTest : TestCase - Тест копирования/вставки через буфер обмена
+   DoSelect : method - Выделяет текст в редакторе
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TDeleteCharTest : TestCase - 
+   CharCount : method - 
+    : uses - undefined
+  TScrollByLineTest : TestCase - Тест прокрутки вниз построчно
+    : uses - undefined
+  TDeleteColumnToolTest : TestCase - Тест удаления колонки через редактор
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TDrawTest : TestCase - Тест вида: нарисовали и сравнили с эталоном.
+    : uses - undefined
+  TMergeAndCheck : TestCase - Тест объединения ячеек и сравнения отрисованного
+    : uses - undefined
+  TInsertBreakInTextTableTest : TestCase - Вставка текста в моноширинную таблицу в режиме рисования текста.
+    : uses - 
+    : uses - undefined
+  TTableToolsTest : TestCase - Тесты инструментов работы с таблицами
+    : uses - undefined
+  TScrollByArrow : TestCase - Прокрутка документа стрелкой на клавиатуре.
+    : uses - undefined
+  TMergeCellsTest : TestCase - Объединение ячеек в таблице.
+    : uses - undefined
+  TTranslate2TextTest : TestCase - Преобразовать таблицу или её часть в текст
+    : uses - undefined
+  TSelectColumnAndDelete : TestCase - Тест выделения и удаления колонки.
+    : uses - 
+    : uses - undefined
+  TColumnAlignHorisontallyTest : TestCase - Выравнивание текста в колонке горизотально.
+    : uses - undefined
+  TMergeAndCheckSelectionTest : TestCase - Тест проверки выделения после объединения ячеек.
+    : uses - undefined
+  TMergeTablesTest : TestCase - Тестирование объединения таблиц
+    : uses - undefined
+  TSplitTableTest : TestCase - Тесты разбиения таблиц
+   GetLineCount - Количество строчек (текста), на которое нужно сдинуть курсор перед разбиванием табилцы на две.
+    : uses - undefined
+  TSelectRowAndDeleteTest : TestCase - Выделить строку и удалить.
+    : uses - undefined
+  TSelectPtTest : TestCase - Тест вида - загрузили и ткнули в точку со смещением относительно какого-нибудь параграфа
+    : uses - 
+    : uses - undefined
+  TScrollAndSelectPtTest : TestCase - тесты вида - загрузили, прокрутили и ткнули
+   NeedScrollUp : method - 
+   NeedScrollByLine : method - 
+   GetScrollCount - 
+   CheckAfterScroll - Операции после прокрутки
+    : uses - undefined
+  TCheckTopAnchorTest : TestCase - Тест для выбора точки после прокрутки и проверки изменился ли TopAnchor
+   f_PrevTopAnchor - Предыдущее значение TopAnchor'а.
+    : uses - undefined
+  TCellMouseSelectionTest : TestCase - Выделение ячейки с помощью мыши.
+    : uses - 
+    : uses - undefined
+  TTextMetricsAfterCopyPasteTest : TestCase - Проверка метрик после вставки-копирования текста.
+    : uses - undefined
+  TTextMericsAfterDeleteTest : TestCase - Проверка метрик после удаления.
+    : uses - undefined
+  TMouseMoveCellsSelectTest : TestCase - Тест выделения с помощью мыши диапазона ячеек.
+    : uses - 
+    : uses - undefined
+  TSelectionCellTest : TestCase - Тест на выделение ячейки.
+    : uses - undefined
+  TColumnResizeWithCtrl : TestCase - Изменение размера колонки с зажатым Ctrl
+    : uses - undefined
+  TSplitCellTest : TestCase - Тест разделения ячеек
+   GetLineCount - 
+   GetTabCount - 
+    : uses - undefined
+  TScrollAndCheckCursorTest : TestCase - 
+    : uses - undefined
+  TComplexScrollParams : TestCase - 
+   GetSubNumber - 
+    : uses - 
+    : uses - undefined
+  TScrollByArrowAndCheckShapesTest : TestCase - Прокрутить стрелкой до определенной позиции и сравнить "картинку".
+   GetScrollCount - 
+    : uses - undefined
+  TScrollUpAndDownAndCheckShapes : TestCase - Прокрутка вниз, потом вверх и сравнение разультатов.
+   GetScrollCount - 
+    : uses - undefined
+  THorzMergeCells : TestCase - Объединение ячеек по горизонтали.
+    : uses - undefined
+  TScrollByLineBackAndSelectPt : TestCase - 
+   f_PrevAnchor - 
+    : uses - undefined
+ GZip : TestUnit - 
+  GZipTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+  GZipUnzipTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+ 7.6 : TestUnit - 
+  K165514106 : TestCase - {RequestLink:165514106}
+    : uses - undefined
+  K219122895 : TestCase - {RequestLink:219122895}
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  K165512428 : TestCase - {RequestLink:165512428}
+    : uses - 
+    : uses - 
+    : uses - undefined
+  K221250480 : TestCase - [$221250480]
+    : uses - undefined
+  K217678457 : TestCase - {RequestLink:217678457}
+    : uses - undefined
+  K221251978 : TestCase - {RequestLink:221251978}
+    : uses - undefined
+  K222757750 : TestCase - {RequestLink:222757750}
+    : uses - undefined
+  K223608965 : TestCase - {RequestLink:223608965}
+    : uses - undefined
+  K224134476 : TestCase - [$224134476]
+    : uses - undefined
+  K224133899 : TestCase - [$224133899]
+    : uses - undefined
+  K224135562 : TestCase - {RequestLink:224135562}
+    : uses - undefined
+  K224788868 : TestCase - {RequestLink:224788868}
+    : uses - undefined
+  K200902351 : TestCase - [$200902351]
+    : uses - undefined
+  K224791621 : TestCase - [$224791621]
+    : uses - undefined
+  K226001213 : TestCase - [$226001213]
+    : uses - undefined
+  K226001269 : TestCase - [$226001269]
+    : uses - undefined
+  K226002079 : TestCase - [$226002079]
+    : uses - undefined
+  K226005005 : TestCase - [$226005005]
+    : uses - undefined
+  K226005021 : TestCase - [$226005021]
+    : uses - undefined
+  K227477159 : TestCase - [$227477159]
+    : uses - undefined
+  K227478617 : TestCase - {RequestLink:227478617}
+    : uses - 
+    : uses - undefined
+  K227477421 : TestCase - [$227477421]
+    : uses - undefined
+  K227478018 : TestCase - [$227478018]
+    : uses - undefined
+  K227972911 : TestCase - [$227972911]
+    : uses - undefined
+  K228691360 : TestCase - {RequestLink:228691360}
+    : uses - 
+    : uses - 
+    : uses - undefined
+  K228692531 : TestCase - {RequestLink:228692531}
+    : uses - undefined
+  K228692538 : TestCase - {RequestLink:228692538}
+    : uses - undefined
+  K228692711 : TestCase - {RequestLink:228692711}
+    : uses - undefined
+  K228693150 : TestCase - {RequestLink:228693150}
+    : uses - undefined
+  K229213001 : TestCase - {RequestLink:229213001}
+    : uses - undefined
+  K228693052 : TestCase - {RequestLink:228693052}
+    : uses - undefined
+  K228692043 : TestCase - {RequestLink:228692043}
+    : uses - 
+    : uses - undefined
+  K228689782 : TestCase - [$228689782]
+    : uses - undefined
+  K228688660 : TestCase - [$228688660]
+    : uses - undefined
+  K232097143 : TestCase - [$232097143]
+    : uses - undefined
+  K224133855 : TestCase - [$224133855]
+    : uses - undefined
+  K232099823 : TestCase - {RequestLink:232099823}
+    : uses - undefined
+  K233014754 : TestCase - [$233014754]
+    : uses - undefined
+  K233015524 : TestCase - [$233015524]
+    : uses - undefined
+  K226006206 : TestCase - {RequestLink:226006206}
+    : uses - undefined
+  K233019435 : TestCase - [$233019435]
+    : uses - undefined
+  K233014742 : TestCase - {RequestLink:233014742}
+    : uses - undefined
+  K226001945 : TestCase - {RequestLink:226001945}
+    : uses - undefined
+  K234361767 : TestCase - {RequestLink:234361767}
+    : uses - undefined
+  K234363360 : TestCase - [$234363360]
+    : uses - undefined
+  K235046445 : TestCase - {RequestLink:235046445}
+    : uses - undefined
+  K234363136 : TestCase - {RequestLink:234363136}
+    : uses - undefined
+  K234360974 : TestCase - {RequestLink:234360974}.
+    : uses - undefined
+  K235050903 : TestCase - {RequestLink:235050903}.
+    : uses - undefined
+  K234363615 : TestCase - {RequestLink:234363615}.
+    : uses - undefined
+  K235052899 : TestCase - {RequestLink:235052899}.
+    : uses - undefined
+  K235052988 : TestCase - {RequestLink:235052988}.
+    : uses - undefined
+  K235053014 : TestCase - {RequestLink:235053014}.
+    : uses - undefined
+  K235054083 : TestCase - {RequestLink:235054083}.
+    : uses - undefined
+  K235052965 : TestCase - [$235052965]
+    : uses - undefined
+  K235050021 : TestCase - [$235050021]
+    : uses - undefined
+  K235054362 : TestCase - {RequestLink:235054362}
+    : uses - undefined
+  K235057437 : TestCase - [$235057437]
+    : uses - undefined
+  K235058888 : TestCase - [$235058888]
+    : uses - undefined
+  K235060094 : TestCase - [$235060094]
+    : uses - undefined
+  K235058873 : TestCase - [$235058873]
+    : uses - undefined
+  K235050248 : TestCase - [$235050248]
+    : uses - undefined
+  K234360788 : TestCase - {RequestLink:234360788}
+    : uses - undefined
+  K235062061 : TestCase - {RequestLink:235062061}
+    : uses - undefined
+  K235864191 : TestCase - {RequestLink:235864191}
+    : uses - undefined
+  K235866053 : TestCase - {RequestLink:235866053}
+    : uses - undefined
+  K235864157 : TestCase - [$235864157]
+    : uses - undefined
+  K235866221 : TestCase - {RequestLink:235866221}
+    : uses - undefined
+  K235866981 : TestCase - {RequestLink:235866981}
+    : uses - undefined
+  K234360960 : TestCase - [$234360960]
+    : uses - undefined
+  K235864277 : TestCase - [$235864277]
+    : uses - undefined
+  K235873011 : TestCase - {RequestLink:235873011}
+    : uses - undefined
+  K235875463 : TestCase - [$235875463]
+    : uses - undefined
+  K235876236 : TestCase - {RequestLink:235876236}
+    : uses - undefined
+  K224789639 : TestCase - [$224789639]
+    : uses - undefined
+  K233015604 : TestCase - [$235869058]
+    : uses - undefined
+  K237503834 : TestCase - [$237503834]
+    : uses - undefined
+  K237503768 : TestCase - [$237503768]
+    : uses - undefined
+  K238420075 : TestCase - [$238420075]
+    : uses - undefined
+  K239372528 : TestCase - [$239372528]
+    : uses - undefined
+  K235869064 : TestCase - [$235869064]
+    : uses - undefined
+  K238420863 : TestCase - [$238420863]
+    : uses - undefined
+  K239894899 : TestCase - [$239894899]
+    : uses - undefined
+  K234357754 : TestCase - [$234357754]
+    : uses - undefined
+  K217681225 : TestCase - [$217681225]
+    : uses - undefined
+  K216530981 : TestCase - [$216530981]
+    : uses - undefined
+  K241011651 : TestCase - [$241011651]
+    : uses - undefined
+  K242843959 : TestCase - {RequestLink:242843959}
+    : uses - undefined
+  K213713837 : TestCase - [$213713837]
+    : uses - undefined
+  K216074128 : TestCase - [$216074128]
+    : uses - undefined
+  K111739572 : TestCase - [$111739572]
+    : uses - undefined
+  K242844505 : TestCase - [$242844505]
+    : uses - undefined
+  K244195248 : TestCase - {RequestLInk:244195248}
+    : uses - undefined
+  K245203249 : TestCase - [$245203249]
+    : uses - undefined
+  K245204495 : TestCase - [$245204495]
+    : uses - undefined
+ NSRC 7.6 : TestUnit - 
+  K245206060 : TestCase - {RequestLink:245206060}
+    : uses - undefined
+ OutlinerTests : TestUnit - Шаблонные тесты Outliner'а
+  OutlinerWithEVDStyleNodes : TestCase - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+ 7.7 : TestUnit - Тесты для F1 версии 7.7
+  K245761273 : TestCase - {RequestLink:245761273}
+    : uses - undefined
+  K245761265 : TestCase - {RequestLink:245761265}
+    : uses - undefined
+  K246939696 : TestCase - {RequestLink:246939696}
+    : uses - undefined
+  K206079417 : TestCase - {RequestLink:206079417}
+    : uses - undefined
+  K217685978 : TestCase - {RequestLink:217685978}
+    : uses - undefined
+  K247300520 : TestCase - {RequestLink:247300520}
+    : uses - undefined
+  K244712164 : TestCase - {RequestLink:244712164}
+    : uses - undefined
+  K248194804 : TestCase - {RequestLink:248194804}
+    : uses - undefined
+  K235875079 : TestCase - {RequestLink:235875079}
+    : uses - undefined
+  K247302160 : TestCase - [$247302160]
+    : uses - undefined
+  K249333540 : TestCase - [$249333540]
+    : uses - undefined
+  K249336513 : TestCase - {RequestLink:249336513}
+    : uses - undefined
+  K235870623 : TestCase - {RequestLink:235870623}
+    : uses - undefined
+  K251342574 : TestCase - [$251342574]
+    : uses - undefined
+  K251334429 : TestCase - [$251334429]
+    : uses - undefined
+  K252086528 : TestCase - [$252086528]
+    : uses - undefined
+  K252524029 : TestCase - [$252524029]
+    : uses - undefined
+  K252524358 : TestCase - [$252524358]
+    : uses - undefined
+  K253664689 : TestCase - [$253664689]
+    : uses - undefined
+  K252524333 : TestCase - [$252524333]
+    : uses - undefined
+  K177963847 : TestCase - [$177963847]
+    : uses - undefined
+  K252524299 : TestCase - [$252524299]
+    : uses - undefined
+  K253668263 : TestCase - [$253668263]
+    : uses - undefined
+  K253668417 : TestCase - {RequestLink:253668417}
+    : uses - undefined
+  K254941681 : TestCase - {RequestLink:254941681}
+    : uses - undefined
+  K182157315 : TestCase - {RequestLink:182157315}
+    : uses - undefined
+  K252520444 : TestCase - [$252520444]
+    : uses - undefined
+  K252524393 : TestCase - [$252524393]
+    : uses - undefined
+  K253659671 : TestCase - [$253659671]
+    : uses - undefined
+  K254354240 : TestCase - [$254354240]
+    : uses - undefined
+  K255956509 : TestCase - [$255956509]
+    : uses - undefined
+  K255958998 : TestCase - [$255958998]
+    : uses - undefined
+  K91850237 : TestCase - [$91850237]
+    : uses - undefined
+  K255975907 : TestCase - [$255975907]
+    : uses - undefined
+  K252520765 : TestCase - [$252520765]
+    : uses - undefined
+  K258610458 : TestCase - [$258610458]
+    : uses - undefined
+  K259175668 : TestCase - [$259175668]
+    : uses - undefined
+  K259163541 : TestCase - [$259163541]
+    : uses - undefined
+  K259163553 : TestCase - [$259163553]
+    : uses - undefined
+  K259164768 : TestCase - [$259164768]
+    : uses - undefined
+  K258613004 : TestCase - [$258613004]
+    : uses - undefined
+  K259893591 : TestCase - [$259893591]
+    : uses - undefined
+  K263293373 : TestCase - [$263293373]
+    : uses - undefined
+  K263750307 : TestCase - [$263750307]
+    : uses - undefined
+  K264900129 : TestCase - [$264900129]
+    : uses - undefined
+  K265411837 : TestCase - [$265411837]
+    : uses - undefined
+  K265412167 : TestCase - [$265412167]
+    : uses - undefined
+  K265412255 : TestCase - [$265412255]
+    : uses - undefined
+  K266405030 : TestCase - [$266405030]
+    : uses - 
+    : uses - undefined
+  K264902374 : TestCase - [$264902374]
+    : uses - undefined
+  K265409480 : TestCase - [$265409480]. Тест обычного поведения в редакторе.
+    : uses - undefined
+  K265409725 : TestCase - [$265409725]
+    : uses - undefined
+  K269062434 : TestCase - [$269062434]
+    : uses - undefined
+  K271754584 : TestCase - {RequestLink:271754584}
+    : uses - undefined
+  K272662869 : TestCase - [$272662869]
+    : uses - undefined
+  K272666734 : TestCase - [$272666734]
+    : uses - undefined
+  K272666721 : TestCase - [$272666721]
+    : uses - 
+    : uses - undefined
+  K278135327 : TestCase - [$278135327]
+    : uses - undefined
+  K269064546 : TestCase - [$269064546]
+    : uses - undefined
+  K267328230 : TestCase - [$267328230]
+    : uses - undefined
+  K283149108 : TestCase - {RequestLink:283149108}
+    : uses - undefined
+  K288787848 : TestCase - {Requestlink:288787848}
+    : uses - undefined
+  K296095866 : TestCase - {RequestLink:296095866}
+    : uses - undefined
+  K297705917 : TestCase - {RequestLink:297705917}
+    : uses - undefined
+  K330700128 : TestCase - {Requestlink:330700128}
+    : uses - undefined
+  K347636412 : TestCase - {Requestlink:347636412}
+    : uses - undefined
+ Wiki : TestUnit - 
+  WikiReaderTest : TestCase - 
+   WikiToEVD : method - 
+    : uses - undefined
+  WikiToEVDWriterTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+ HTML : TestUnit - 
+  HTMLtoEVDWriterTest : TestCase - 
+   HTMLtoEVD : method - 
+    : uses - 
+    : uses - undefined
+  HTMLtoEVDTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+  EVDtoHTMLWriterTest : TestCase - 
+   EVDtoHTML : method - 
+   SomeFormatToHTML : method - 
+    : uses - 
+    : uses - undefined
+  EVDtoHTMLTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+ NSRC 7.7 : TestUnit - 
+  K253662098 : TestCase - [$253662098]
+    : uses - undefined
+  K260442347 : TestCase - [$260442347]
+    : uses - undefined
+  K267324701 : TestCase - [$267324701]
+    : uses - undefined
+  K276535467 : TestCase - [$276535467]
+    : uses - undefined
+  K280859294 : TestCase - [$280859294]
+    : uses - undefined
+  K331186919 : TestCase - {RequestLink:331186919}
+    : uses - undefined
+  K332563400 : TestCase - {RequestLink:332563400}
+    : uses - undefined
+  K342865677 : TestCase - {RequestLink:342865677}
+    : uses - undefined
+  K532630317 : TestCase - {Requestlink:532630317}
+    : uses - undefined
+  K532634915 : TestCase - {Requestlink:532634915}
+    : uses - undefined
+ 7.5 : TestUnit - Тесты для изменений в версии Гарант 7.5
+  K197497243 : TestCase - [$199590833].
+    : uses - undefined
+  K199589954 : TestCase - [$199590833]
+    : uses - undefined
+  K199591594 : TestCase - [$199591594]
+   DoIt : Test - 
+    : uses - undefined
+  K200088144 : TestCase - {RequestLink:200088144}
+    : uses - undefined
+  K200901262 : TestCase - {RequestLink:200901262}
+    : uses - undefined
+  K203131097 : TestCase - {RequestLink:203131097}.
+    : uses - undefined
+  K205357352 : TestCase - [$205357352]
+    : uses - undefined
+  K206504616 : TestCase - {RequestLink:206504616}
+    : uses - undefined
+  K206504312 : TestCase - {RequestLink:206504312}
+    : uses - undefined
+  K207013375 : TestCase - {RequestLink:207013375}
+    : uses - undefined
+  K207388924 : TestCase - {RequestLink:207388924}
+    : uses - undefined
+  K207389888 : TestCase - {RequestLink:207389888}
+    : uses - undefined
+  K208699964 : TestCase - {RequestLink:208699964}
+    : uses - undefined
+  K208700993 : TestCase - {RequestLink:208700993}
+    : uses - undefined
+  K209584396 : TestCase - {RequestLink:209584396}
+    : uses - undefined
+  K210043510 : TestCase - {RequestLink:210043510}
+    : uses - undefined
+  K210043101 : TestCase - {RequestLink:210043101}
+    : uses - undefined
+  K210043160 : TestCase - {RequestLink:210043160}
+    : uses - undefined
+  K208701762 : TestCase - {RequestLink:208701762}
+    : uses - undefined
+  K209584437 : TestCase - {RequestLink:209584437}
+    : uses - undefined
+  K210437198 : TestCase - {RequestLink:210437198}
+    : uses - undefined
+  K210438353 : TestCase - {RequestLink:210438353}
+    : uses - undefined
+  K210438308 : TestCase - {RequestLink:210438308}
+    : uses - undefined
+  K211878214 : TestCase - {RequestLink:211878214}
+    : uses - undefined
+  K211878770 : TestCase - {RequestLink:211878770}
+    : uses - 
+    : uses - undefined
+  K210438932 : TestCase - {RequestLink:210438932}
+    : uses - undefined
+  K211879983 : TestCase - {RequestLink:211879983}
+   DoIt : Test - 
+    : uses - undefined
+  K213254256 : TestCase - {RequestLink:213254256}
+    : uses - undefined
+  K210043147 : TestCase - {RequestLink:210043147}
+    : uses - undefined
+  K210043095 : TestCase - {RequestLink:210043095}
+    : uses - undefined
+  K213713115 : TestCase - [$213713115]
+    : uses - undefined
+  K216072357 : TestCase - {RequestLink:216072357}
+    : uses - undefined
+  K210043423 : TestCase - {RequestLink:210043423}
+    : uses - undefined
+  K201493907 : TestCase - {RequestLink:201493907}
+    : uses - undefined
+  K204931408 : TestCase - {RequestLink:204931408}
+    : uses - undefined
+  K213713120 : TestCase - {RequestLink:213713120}
+    : uses - undefined
+  K210436976 : TestCase - {RequestLink:210436976}
+    : uses - undefined
+  K217681540 : TestCase - {RequestLink:217681540}
+    : uses - undefined
+  K217680060 : TestCase - {RequestLink:217680060}
+    : uses - undefined
+  K217683893 : TestCase - {RequestLink:217683893}.
+    : uses - undefined
+  K203130960 : TestCase - {RequestLink:203130960}.
+    : uses - undefined
+  K217684334 : TestCase - {RequestLink:217684334}
+    : uses - undefined
+  K217686256 : TestCase - {RequestLink:217686256}
+    : uses - undefined
+  K214074330 : TestCase - {RequestLink:214074330}
+    : uses - undefined
+  K204931515 : TestCase - {RequestLink:204931515}.
+    : uses - undefined
+  K217691824 : TestCase - [$217691824]
+    : uses - undefined
+  K217691845 : TestCase - [$217691845]
+    : uses - undefined
+  K217693956 : TestCase - [$217693956]
+    : uses - undefined
+  K217678468 : TestCase - {RequestLink:217678468}.
+    : uses - undefined
+  K206079241 : TestCase - {RequestLink:206079241}.
+    : uses - undefined
+  K207006496 : TestCase - {RequestLink:207006496}
+    : uses - undefined
+  K219119831 : TestCase - {RequestLink:219119831}
+    : uses - undefined
+  K218824755 : TestCase - {RequestLink:218824755}
+    : uses - undefined
+  K218464982 : TestCase - [$218464982]
+    : uses - undefined
+  K219120094 : TestCase - [$219120094]
+    : uses - undefined
+  K217680744 : TestCase - {RequestLink:217680744}
+    : uses - undefined
+  K219123621 : TestCase - [$219123621]
+    : uses - undefined
+  K217688170 : TestCase - [$217688170]
+    : uses - undefined
+  K219124975 : TestCase - {RequestLink:219124975}
+    : uses - 
+    : uses - 
+    : uses - undefined
+  K219124086 : TestCase - [$219124086]
+    : uses - undefined
+  K220594340 : TestCase - [$220594340]
+    : uses - undefined
+ ScriptSupport : Unit - Поддержка выполняемых скриптов
+  TSHDTestScriptEngine : SimpleClass - 
+    : uses - 
+    : uses - 
+ ScriptTest : TestUnit - 
+  K276537900 : TestCase - {Requestlink:276537900}. Тест на проверку изменения широкой ячейки после изменения ширины ячейки под ней.
+    : uses - undefined
+  K254349574 : TestCase - {Requestlink:252524299}. Вторичный тест на поведение табуляции. Первый находится {Requestlink:254349574}
+    : uses - undefined
+  K290266820 : TestCase - {RequestLink:290266820}
+    : uses - undefined
+  K290951357 : TestCase - {RequestLink:290951357}
+    : uses - undefined
+  K327822716 : TestCase - {Requestlink:327822716}
+    : uses - undefined
+ 7.7 Lulin : TestUnit - 
+  K254944075 : TestCase - {RequestLink:254944075}
+    : uses - undefined
+  K255966779 : TestCase - {RequestLink:255966779}
+    : uses - undefined
+  K269066487 : TestCase - {RequestLink:269066487}
+    : uses - undefined
+  K278136024 : TestCase - {RequestLink:278136024}
+    : uses - undefined
+  K280006084 : TestCase - {RequestLink:280006084}
+    : uses - undefined
+  K288010443 : TestCase - {RequestLink:288010443}
+    : uses - undefined
+  K288788279 : TestCase - {RequestLink:288788279}
+    : uses - undefined
+  K274825304 : TestCase - {RequestLink:274825304}
+    : uses - undefined
+  K289933137 : TestCase - {RequestLink:289933137}
+   DoIt : Test - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  K259890927 : TestCase - {RequestLink:259890927}
+    : uses - 
+    : uses - undefined
+  K293280527 : TestCase - {RequestLink:293280527}
+   DoIt : Test - 
+    : uses - undefined
+  K271188165 : TestCase - {RequestLink:271188165}
+{RequestLink:296625527}
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  K282693895 : TestCase - {RequestLink:282693895}
+    : uses - undefined
+  K321983051 : TestCase - {RequestLink:321983051}
+    : uses - undefined
+  K336664105 : TestCase - {RequestLink:336664105}
+    : uses - undefined
+  K336663851 : TestCase - {RequestLink:336663851}
+    : uses - undefined
+  K344139764 : TestCase - {RequestLink:344139764}
+    : uses - undefined
+ RegExpUtils : Unit - 
+  TK460275638Suite : SimpleClass - 
+ XML : TestUnit - 
+  XMLWriterTest : TestCase - 
+   SomeFormatToXML : method - 
+   EVDtoXML : method - 
+    : uses - undefined
+  EVDtoXMLWiterTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+  L3XMLWriterTest : TestCase - 
+   BuildXML : method - 
+   DoIt : Test - 
+    : uses - undefined
+ 7.8 : TestUnit - Тесты для F1 версии 7.8
+  K337510841 : TestCase - {Requestlink:337510841}
+    : uses - undefined
+  K362130309 : TestCase - {RequestLink:362130309}
+    : uses - undefined
+  K385025566 : TestCase - {RequestLink:385025566}
+    : uses - undefined
+  K408654725 : TestCase - {RequestLink:408654725}
+    : uses - undefined
+  K398275085 : TestCase - {RequestLink:398275085}
+    : uses - undefined
+  K415729926 : TestCase - {Requestlink:415729926}
+    : uses - undefined
+  K423621421 : TestCase - {RequestLink:423621421}
+    : uses - undefined
+  K424386600 : TestCase - {Requestlink:424386600}
+    : uses - undefined
+  K424399558 : TestCase - {RequestLink:424399558}
+    : uses - undefined
+  K356070665 : TestCase - {Reqeustlink:356070665}
+    : uses - undefined
+  K346754389 : TestCase - {Requestlink:346754389}
+    : uses - undefined
+  K431378356 : TestCase - {Requestlink:431378356}
+    : uses - undefined
+  K434763341 : TestCase - {RequestLink:434763341}
+    : uses - undefined
+  K435460794 : TestCase - {Requestlink:435460794}
+    : uses - undefined
+  K431386712 : TestCase - {Requestlink:431378358}
+    : uses - undefined
+  K439429165 : TestCase - {Requestlink:439429165}
+    : uses - undefined
+  K439979725 : TestCase - {Requestlink:439979725}
+    : uses - undefined
+  K440434932 : TestCase - {Requestlink:440434932}
+    : uses - undefined
+  K442368006 : TestCase - {Requestlink:442368006}
+    : uses - undefined
+  K444236481 : TestCase - {Requestlink:444236481}
+    : uses - undefined
+  K444999575 : TestCase - {Requestlink:444999575}
+    : uses - undefined
+  K444993775 : TestCase - {Requestlink:444993775}
+    : uses - undefined
+  K449682598 : TestCase - {Requestlink:449682598}
+    : uses - undefined
+  K332202037 : TestCase - {Requestlink:332202037}
+    : uses - undefined
+  K288786476 : TestCase - {Requestlink:288786476}
+    : uses - undefined
+  K336662790 : TestCase - {Requestlink:336662790}
+    : uses - undefined
+  K336666483 : TestCase - {Requestlink:336666483}
+    : uses - undefined
+  K251339809 : TestCase - {Requestlink:251339809}
+    : uses - undefined
+  K450277041 : TestCase - {Requestlink:450277041}
+    : uses - undefined
+  K452374409 : TestCase - {Requestlink:452374409}
+    : uses - undefined
+  K453151648 : TestCase - {Requestlink:453151648}
+    : uses - undefined
+  K453164226 : TestCase - {Requestlink:453164226}
+    : uses - undefined
+  K293279996 : TestCase - {Requestlink:293279996}
+    : uses - undefined
+  K321986755 : TestCase - {Requestlink:321986755}
+    : uses - undefined
+  K358359010 : TestCase - {Requestlink:358359010}
+    : uses - undefined
+  K459284317 : TestCase - {Requestlink:459284317}
+    : uses - undefined
+  K459284359 : TestCase - {Requestlink:459284359}
+    : uses - undefined
+  K459282006 : TestCase - {Requestlink:459282006}
+    : uses - undefined
+  K371654285 : TestCase - {Requestlink:371654285}
+    : uses - undefined
+ SandBoxTests : TestUnit - Экспериментальные тесты.
+  K460262716 : TestCase - {RequestLink:460262716}
+    : uses - undefined
+ RegExp : TestUnit - 
+  RegExpTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+  TK460275638 : TestCase - 
+    : uses - 
+    : uses - undefined
+ AppConfigUtils : Unit - 
+  TConfigStorageStub : SimpleClass - Заглушка для эмуляции чтения настроек.
+   Make : method - 
+    : uses - 
+ AppConfig : TestUnit - 
+  AppConfigTestMixin : TestCaseMixIn - 
+   f_Config - 
+   f_ConfigStorage - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TAppConfigBaseTest : TestCase - Тесты на работу конфигурации
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  LostNodeAppConfigTest : TestCase - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+ 7.9 : TestUnit - 
+  K462555833 : TestCase - {RequestLink:462555833}
+    : uses - undefined
+  K462555833_1 : TestCase - {RequestLink:462555833}
+    : uses - undefined
+  K466751465 : TestCase - {Requestlink:466751465}
+    : uses - undefined
+  K462555879 : TestCase - {Requestlink:462555879}
+    : uses - undefined
+  K461701432 : TestCase - {Requestlink:461701432}
+    : uses - undefined
+  K471764286 : TestCase - {RequestLink:471764286}
+    : uses - undefined
+  K460279011 : TestCase - {Requestlink:460279011}
+    : uses - undefined
+  K237503145 : TestCase - {Requestlink:237503145}
+    : uses - undefined
+  K481450949 : TestCase - {Requestlink:481450949}
+    : uses - undefined
+  TK480822492 : TestCase - {Requestlink:480822492}
+    : uses - undefined
+  TK481811864 : TestCase - 
+    : uses - undefined
+  K483405717 : TestCase - {RequestLink:483405717}
+    : uses - undefined
+  K480825135 : TestCase - {Requestlink:480825135}
+    : uses - undefined
+ 7.10 : TestUnit - 
+  K493868665 : TestCase - {Requestlink:493868665}
+    : uses - undefined
+  K493324121 : TestCase - {Requestlink:493324121}
+    : uses - undefined
+  K494524369 : TestCase - {RequestLink:494524369}
+    : uses - undefined
+  K494528807 : TestCase - {Requestlink:494528807}
+    : uses - undefined
+  K502351620 : TestCase - {RequestLink:502351620}
+    : uses - undefined
+  K103942050 : TestCase - {Requestlink:103942050}
+    : uses - undefined
+  K509706011 : TestCase - {RequestLink:509706011}
+    : uses - undefined
+  K509706011_1 : TestCase - {RequestLink:509706011}
+    : uses - undefined
+  K509706011_2 : TestCase - {RequestLink:509706011}
+    : uses - undefined
+  K512248597 : TestCase - {Requestlink:512248597}
+    : uses - undefined
+  K518756624 : TestCase - {RequestLink:518756624}
+    : uses - undefined
+  K519483189 : TestCase - {Requestlink:519483189}
+    : uses - undefined
+  K530839239 : TestCase - {Requestlink:530839239}
+    : uses - undefined
+  K531957202 : TestCase - {Requestlink:531957202}
+    : uses - undefined
+  K531975039 : TestCase - {Requestlink:531975039}
+    : uses - undefined
+  K371639884 : TestCase - {RequestLink:371639884}
+    : uses - undefined
+  K535902713 : TestCase - {Requestlink:535902713}
+    : uses - undefined
+  K537233020 : TestCase - {Requestlink:537233020}
+    : uses - undefined
+  K537234131 : TestCase - {Requestlink:537234131}
+    : uses - undefined
+  K537954167 : TestCase - {Requestlink:537954167}
+    : uses - undefined
+  K537768536 : TestCase - {Requestlink:537768536}
+    : uses - undefined
+  K537249545 : TestCase - {Requestlink:537249545}
+    : uses - undefined
+  K537974930 : TestCase - {Requestlink:537974930}
+    : uses - undefined
+  K537973036 : TestCase - {Requestlink:537973036}
+    : uses - undefined
+  K537974183 : TestCase - {RequestLink:537974183}
+    : uses - undefined
+  K538546220 : TestCase - {Requestlink:538546220}
+    : uses - undefined
+  K538561126 : TestCase - {Requestlink:538561126}
+    : uses - undefined
+  K538560814 : TestCase - {Requestlink:538560814}
+    : uses - undefined
+  K538566131 : TestCase - {Requestlink:538566131}
+    : uses - undefined
+  K538550781 : TestCase - {Requestlink:538550781}
+    : uses - undefined
+  K537973358 : TestCase - {Requestlink:537973358}
+    : uses - undefined
+  K540160887 : TestCase - {Requestlink:538550781}
+    : uses - undefined
+  K538550943 : TestCase - {Requestlink:538550943}
+    : uses - undefined
+  K540412066 : TestCase - {Requestlink:540412066}
+    : uses - undefined
+  K540414443 : TestCase - {Requestlink:540414443}
+    : uses - undefined
+  K540414514 : TestCase - {Requestlink:540414514}
+    : uses - undefined
+  K537232046 : TestCase - {Requestlink:537232046}
+    : uses - undefined
+  K540615571 : TestCase - {Requestlink:540414514}
+    : uses - undefined
+  K541116849 : TestCase - {Requestlink:541116849}
+    : uses - undefined
+  K541120799 : TestCase - {Requestlink:541120799}
+    : uses - undefined
+  K541895041 : TestCase - {Requestlink:541895041}
+    : uses - undefined
+  K543433648 : TestCase - {Requestlink:543433648}
+    : uses - undefined
+  K555392182 : TestCase - {RequestLink:555392182}
+    : uses - undefined
+  TK558471539 : TestCase - {Requestlink:558471539}
+    : uses - undefined
+  K558957526 : TestCase - {Requestlink:558957526}
+    : uses - undefined
+  K565008782 : TestCase - {Requestlink:565008782}
+    : uses - undefined
+  K565269737 : TestCase - {Requestlink:565269737}
+    : uses - undefined
+  K568147841 : TestCase - {Requestlink:568147841}
+    : uses - undefined
+  K571646843 : TestCase - {Requestlink:571646843}
+    : uses - undefined
+ BadEVD : TestUnit - 
+  TBadEVDTest : TestCase - 
+    : uses - 
+    : uses - undefined
+  K553427493 : TestCase - {RequestLink:553427493}
+    : uses - undefined
+  K553427493_notBad : TestCase - {RequestLink:553427493}
+    : uses - undefined
+ RenderFormula : TestUnit - 
+  K543448591 : TestCase - {RequestLink:543448591}
+    : uses - undefined
+  K554585756 : TestCase - {RequestLink:554585756}
+    : uses - undefined
+ 7.11 : TestUnit - 
+  K585129079 : TestCase - {RequestLink:585129079}
+    : uses - undefined
+  K585129079_NSRC : TestCase - {RequestLink:585129079}
+    : uses - undefined
+  K585129079_NSRC_ANSI : TestCase - {RequestLink:585129079}
+    : uses - 
+    : uses - undefined
+  K585129079_NSRC_EAST_EUROPE : TestCase - {RequestLink:585129079}
+    : uses - 
+    : uses - undefined
+  K585129079_NSRC_KeepExisting : TestCase - {RequestLink:585129079}
+    : uses - 
+    : uses - undefined
+  K569230238 : TestCase - {RequestLink:569230238}
+    : uses - undefined
+  K569230238_NSRC : TestCase - {RequestLink:569230238}
+    : uses - undefined
+  K569230238_EVD2EVD : TestCase - {RequestLink:569230238}
+    : uses - undefined
+  K585940757 : TestCase - {Requestlink:585940757}
+    : uses - undefined
+  K570542913 : TestCase - {RequestLink:570542913}
+    : uses - undefined
+  K585940693 : TestCase - {RequestLink:585940693}
+    : uses - undefined
+  K586353041 : TestCase - {Requestlink:586353041}
+    : uses - undefined
+  K586706776 : TestCase - {Requestlink:586706776}
+    : uses - undefined
+  K586173596 : TestCase - {Requestlink:586173596}
+    : uses - undefined
+  K586185519 : TestCase - {Requestlink:586185519}
+    : uses - undefined
+  K522781517 : TestCase - {Requestlink:522781517}
+    : uses - undefined
+  K522781827 : TestCase - {Requestlink:522781827}
+    : uses - undefined
+  K587155634 : TestCase - {Requestlink:587155634}
+    : uses - undefined
+  K588037593 : TestCase - {Requestlink:588037593}
+    : uses - undefined
+  K589860215 : TestCase - {Requestlink:589860215}
+    : uses - undefined
+  K590528525 : TestCase - {Requestlink:590528525}
+    : uses - undefined
+  K590512137 : TestCase - {Requestlink:590512137}
+    : uses - undefined
+  K590541952 : TestCase - {Requestlink:590541952}
+    : uses - undefined
+  K590745463 : TestCase - {Requestlink:590745463}
+    : uses - undefined
+  K590745831 : TestCase - {Requestlink:590745831}
+    : uses - undefined
+  K590774242 : TestCase - {Requestlink:590774242}
+    : uses - undefined
+  K591142760 : TestCase - {Requestlink:591142760}
+    : uses - undefined
+  K590757091 : TestCase - {Requestlink:590757091}
+    : uses - undefined
+  K590758825 : TestCase - {Requestlink:590758825}
+    : uses - undefined
+  K592250384 : TestCase - {Requestlink:592250384}
+    : uses - undefined
+  K592251812 : TestCase - {RequestLink:592251812}
+    : uses - undefined
+  K595456849 : TestCase - {Requestlink:595456849}
+    : uses - undefined
+  K595967367 : TestCase - {RequestLink:595967367}
+    : uses - undefined
+  K595976509 : TestCase - {Requestlink:595976509}
+    : uses - undefined
+  K596385595 : TestCase - {Requestlink:596385595}
+    : uses - undefined
+  K596386207 : TestCase - {Requestlink:596386207}
+    : uses - undefined
+  K596385658 : TestCase - {Requestlink:596385658}
+    : uses - undefined
+  K596385821 : TestCase - {Requestlink:596385821}
+    : uses - undefined
+  K598118986 : TestCase - {Requestlink:598118986}
+    : uses - undefined
+  K598131905 : TestCase - {Requestlink:598131905}
+    : uses - undefined
+  K599800930 : TestCase - {Requestlink:599800930}
+    : uses - undefined
+  K600665073 : TestCase - {Requestlink:600665073}
+    : uses - undefined
+  K600945017 : TestCase - {Requestlink:600945017}
+    : uses - undefined
+  K601206322 : TestCase - {Requestlnk:601206322}
+    : uses - undefined
+  K601992686 : TestCase - {Requestlink:601992686}
+    : uses - undefined
+  K602000766 : TestCase - {Requestlink:602000766}
+    : uses - undefined
+  K602940462 : TestCase - {Requestlink:602940462}
+    : uses - undefined
+  K602940495 : TestCase - {Requestlink:602940495}
+    : uses - undefined
+  K601686929 : TestCase - {Requestlink:601686929}
+    : uses - undefined
+  K602703982 : TestCase - {Requestlink:602703982}
+    : uses - undefined
+  K602943932 : TestCase - {Requestlink:602943932}
+    : uses - undefined
+  K601462517 : TestCase - {Requestlink:601462517}
+    : uses - undefined
+  K604494903 : TestCase - {Requestlink:604494903}
+    : uses - undefined
+  K604920400 : TestCase - {Requestlink:604920400}
+    : uses - undefined
+  K603416415 : TestCase - {Requestlink:603416415}
+    : uses - undefined
+  K605147298 : TestCase - {Requestlink:605147298}
+    : uses - undefined
+  K605380857 : TestCase - {Reqeuestlink:605380857}
+    : uses - undefined
+  K604908954 : TestCase - {Requestlink:604908954}
+    : uses - undefined
+  K605843892 : TestCase - {Requestlink:605843892}
+    : uses - undefined
+  K606111976 : TestCase - {Requestlink:606111976}
+    : uses - undefined
+  K606118757 : TestCase - {RequestLink:606118757}
+    : uses - undefined
+  K606129271 : TestCase - {RequestLink:606129271}
+    : uses - undefined
+  K606138650 : TestCase - {Requestlink:606138650}
+    : uses - undefined
+  K588577774 : TestCase - {Requestlink:588577774}
+    : uses - undefined
+  K606634250 : TestCase - {Requestlink:606634250}
+    : uses - undefined
+  K606129412 : TestCase - {Requestlink:606129412}
+    : uses - undefined
+  K606808862 : TestCase - {Requestlink:606808862}
+    : uses - undefined
+  K606808786 : TestCase - {Requestlink:606808786}
+    : uses - undefined
+  K607532057 : TestCase - {RequestLink:607532057}
+    : uses - undefined
+  K607532796 : TestCase - {RequestLink:607532796}
+    : uses - undefined
+  K607532072 : TestCase - {Requestlink:607532072}
+    : uses - undefined
+  K607750753 : TestCase - {Requestlink:607750753}
+    : uses - undefined
+  K607284377 : TestCase - {Requestlink:607284377}
+    : uses - undefined
+  Tl3IntegerToIntegerMapTest : TestCase - 
+   DoIt : Test - 
+    : uses - 
+    : uses - undefined
+ TestStrings : Unit - 
+  TtestCConstDelphiString : SimpleClass - 
+ Containers : TestUnit - 
+  TtfwParserTokenListTest : TestCase - 
+   TestAddAndDelete : Test - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+ DecorText : TestUnit - {RequestLink:604929313}
+  K604929313 : TestCase - {RequestLink:604929313}
+    : uses - undefined
+  K604929290 : TestCase - {RequestLink:604929290}
+    : uses - undefined
+ Unicode : TestUnit - 
+  K605362960 : TestCase - {RequestLink:605362960}
+    : uses - 
+    : uses - undefined
+ 7.12 : TestUnit - 
+  K607751255 : TestCase - {RequestLink:607751255}
+    : uses - undefined
+  K608627112 : TestCase - {Requestlink:608627112}
+    : uses - undefined
+  K608626880 : TestCase - {Requestlink:608626880}
+    : uses - undefined
+  K598131874 : TestCase - {RequestLink:598131874}
+    : uses - undefined
+  K598136171 : TestCase - {RequestLink:598136171}
+    : uses - undefined
+  K607531290 : TestCase - {RequestLink:607531290}
+    : uses - undefined
+  K608627000 : TestCase - {RequestLink:608627000}
+    : uses - undefined
+  K608627000_Back : TestCase - {RequestLink:608627000}
+    : uses - undefined
+  K607531290_Back : TestCase - {RequestLink:607531290}
+    : uses - undefined
+  K608627000_Restore : TestCase - {RequestLink:608627000}
+    : uses - undefined
+  K598136171_Restore : TestCase - {RequestLink:598136171}
+    : uses - undefined
+  K609131924 : TestCase - {Requestlink:609131924}
+    : uses - undefined
+  K607275587 : TestCase - {Requestlink:607275587}
+    : uses - undefined
+  K609886857 : TestCase - {Requestlink:609886857}
+    : uses - undefined
+  K609602166 : TestCase - {Requestlink:609602166}
+    : uses - undefined
+  K609132323 : TestCase - {Requestlink:609132323}
+    : uses - undefined
+  K610084627 : TestCase - {Requestlink:610084627}
+    : uses - undefined
+  K607284891 : TestCase - {Requestlink:607284891}
+    : uses - undefined
+  K138969449 : TestCase - {Requestlink:138969449}
+    : uses - undefined
+  K610503532 : TestCase - {Requestlink:610503532}
+    : uses - undefined
+  K610504218 : TestCase - {Requestlink:610504218}
+    : uses - undefined
+  K610745702 : TestCase - {Requestlink:610745702}
+    : uses - undefined
+  K610745715 : TestCase - {Requestlink:610745715}
+    : uses - undefined
+  K610745778 : TestCase - {Requestlink:610745778}
+    : uses - undefined
+  K610746048 : TestCase - {Requestlink:610746048}
+    : uses - undefined
+TestForTFW : TestLibrary - Тесты для тестирования собственно тестового фреймворка TFW
+ TFWTests : TestUnit - 
+  TSuccessTest : TestCase - Успешный тест
+   DoIt : Test - 
+    : uses - undefined
+  TFailedTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+  K235868845 : TestCase - {RequestLink:235868845}
+   DoIt : Test - 
+    : uses - undefined
+TFW : TestTarget - Тесты для тестирования собственно тестового фреймворка TFW
+ ItsLAW : TestResults - 
+Abstract Archi Tests : TestLibrary - 
+ Filters : TestUnit - 
+  AACFiltersTest : TestCase - {Requestlink:294595323}
+   DoIt : Test - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+ DataBaseTestUtils : Unit - 
+  TDataBaseTester : SimpleClass - 
+   Create : Constructor - 
+   DoBase : method - 
+   f_DataPath - 
+   f_BasePath - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Storage : TestUnit - 
+  TArchiStorageTest : TestCase - 
+   DoIt : Test - 
+   DoBase : virtualmethod - 
+   NeedTestRenaming : virtualmethod - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TArchiStorageTestWithRename : TestCase - 
+    : uses - undefined
+ DataBase : TestUnit - Тесты связанные с базой данных Арчи.
+  TStgIndexTest : TestCase - 
+   DoIt : Test - 
+   DBNames : Constants - 
+   f_IndexFile - 
+    : uses - 
+    : uses - undefined
+  TMultyOperationTest : TestCase - 
+   DoIt() : Test - 
+   ClearBase : method - 
+    : uses - undefined
+Archi Tests : TestLibrary - 
+ MultyFileTests : Unit - 
+  TK294595323Suite : SimpleClass - 
+ Tags : TestUnit - 
+  K275780190 : TestCase - {RequestLink:275780190}.
+    : uses - 
+    : uses - undefined
+ Filters : TestUnit - 
+  K294595323 : TestCase - {RequestLink:294595323}
+    : uses - 
+    : uses - undefined
+ DBTests : TestUnit - 
+  K327821495 : TestCase - {RequestLink:327821495}
+    : uses - undefined
+  K392696007 : TestCase - {Requestlink:392696007}
+    : uses - undefined
+ Storage : TestUnit - 
+  K361038156 : TestCase - {RequestLink:361038156}
+    : uses - undefined
+  K365838449 : TestCase - {RequestLink:365838449}
+    : uses - undefined
+Daily$Test : TestTarget - Ежедневные тесты нашей библиотеки компонент
+ TestSet : CustomDirectory - Тестовый набор
+  Auto : CustomDirectory - Тесты в виде скриптов
+ toK : TestResults - Стандартный вывод для ГК
+   : uses - 
+ ItsLAW : TestResults - Вывод для отладочных целей
+ Archi2 : TestResults - Тесты на Archi2
+ toK64 : TestResults - 
+ toKT : TestResults - Ежедневные тесты библиотек в Твери
+DailyTestSetup : InstallerTarget - Инсталлятор DailyTest
+ReleaseTFW : TestTarget - Тесты для тестирования собственно тестового фреймворка TFW (релизный вариант)
+ ReleaseItsLAW : TestResults -  (релизный вариант)
+ReleaseDaily$Test : TestTarget - Ежедневные тесты нашей библиотеки компонент (релизный вариант)
+ ReleasetoK : TestResults - Стандартный вывод для ГК (релизный вариант)
+ ReleaseItsLAW : TestResults - Вывод для отладочных целей (релизный вариант)
+ ReleaseArchi2 : TestResults - Тесты на Archi2 (релизный вариант)
+ ReleasetoK64 : TestResults -  (релизный вариант)
+ ReleasetoKT : TestResults - Ежедневные тесты библиотек в Твери (релизный вариант)

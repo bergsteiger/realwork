@@ -1,0 +1,65 @@
+// TncsServerTransporterList 545CBE61008B SimpleClass Class
+
+FORWARD ME_545CBE61008B
+
+: ME_545CC4210322
+ CONST UID '545CC4210322'
+ CONST Name 'l3Items_NoSort'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_545CC4210322 l3Items_NoSort
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47B57D830369.pas.ms.script'
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+: ME_545CBE9103D8
+ CONST UID '545CBE9103D8'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_5465A5AB0324 // IncsServerTransporter
+ ;
+
+ @SELF
+; // ME_545CBE9103D8 ItemType
+
+: ME_545CBE61008B
+ CONST UID '545CBE61008B'
+ CONST Name 'TncsServerTransporterList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_47B57D830369 // l3InterfaceRefList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_545CBE9103D8 // ItemType
+ ]
+ ; // Attributes
+ : Children
+   [ ME_545CC4210322 // l3Items_NoSort
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_545CBE61008B TncsServerTransporterList

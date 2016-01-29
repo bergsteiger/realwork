@@ -1,0 +1,1003 @@
+// tfwDictionaryExWordsPack 55AE5A8C035D ScriptKeywordsPack Class
+
+FORWARD ME_55AE5A8C035D
+
+INCLUDE '55B7A33101AF.pas.ms.script'
+
+FORWARD ME_EDB2EC981E9A
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4BC354C6D6D7
+ CONST UID '4BC354C6D6D7'
+ CONST Name 'RegAxiom'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4BC354C6D6D7 RegAxiom
+
+: ME_EDB2EC981E9A
+ CONST UID 'EDB2EC981E9A'
+ CONST Name 'TtfwDictionaryExWordsPackResNameGetter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4BC354C6D6D7 // RegAxiom
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55B7A3AF0359 // ResName
+ ]
+ ; // Implemented
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_EDB2EC981E9A TtfwDictionaryExWordsPackResNameGetter
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_06E8451D9B30
+
+: ME_7E3B920F576B
+ CONST UID '7E3B920F576B'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_7E3B920F576B aCtx
+
+INCLUDE '559E8B2E0385.pas.ms.script'
+
+: ME_7E3B920F576C
+ CONST UID '7E3B920F576C'
+ CONST Name 'aDictionaryEx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_7E3B920F576C aDictionaryEx
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_770C15F2EC2C
+ CONST UID '770C15F2EC2C'
+ CONST Name 'FileName'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:DictionaryEx:FileName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_7E3B920F576B // aCtx
+ ME_7E3B920F576C // aDictionaryEx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_770C15F2EC2C FileName
+
+: ME_D440C62674A8
+ CONST UID 'D440C62674A8'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_DictionaryEx_FileName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D440C62674A8 Ini_Reg
+
+: ME_06E8451D9B30
+ CONST UID '06E8451D9B30'
+ CONST Name 'pop_DictionaryEx_FileName'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:DictionaryEx:FileName'#13#10'*Тип результата:* Il3CString'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_Il3CString'#13#10' aDictionaryEx pop:DictionaryEx:FileName >>> l_Il3CString'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_770C15F2EC2C // FileName
+ ME_D440C62674A8 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:DictionaryEx:FileName'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_06E8451D9B30 pop_DictionaryEx_FileName
+
+FORWARD ME_B94C35EBE3DE
+
+: ME_B14B3B8084D7
+ CONST UID 'B14B3B8084D7'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_B14B3B8084D7 aCtx
+
+: ME_B14B3B8084D8
+ CONST UID 'B14B3B8084D8'
+ CONST Name 'aDictionaryEx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_B14B3B8084D8 aDictionaryEx
+
+: ME_2350C9F61A78
+ CONST UID '2350C9F61A78'
+ CONST Name 'UsedDictionaries'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:DictionaryEx:UsedDictionaries' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_B14B3B8084D7 // aCtx
+ ME_B14B3B8084D8 // aDictionaryEx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_2350C9F61A78 UsedDictionaries
+
+: ME_B324F16CE203
+ CONST UID 'B324F16CE203'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_DictionaryEx_UsedDictionaries' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B324F16CE203 Ini_Reg
+
+: ME_B94C35EBE3DE
+ CONST UID 'B94C35EBE3DE'
+ CONST Name 'pop_DictionaryEx_UsedDictionaries'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:DictionaryEx:UsedDictionaries'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aDictionaryEx pop:DictionaryEx:UsedDictionaries >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_2350C9F61A78 // UsedDictionaries
+ ME_B324F16CE203 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:DictionaryEx:UsedDictionaries'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_B94C35EBE3DE pop_DictionaryEx_UsedDictionaries
+
+FORWARD ME_6AF5E6295E46
+
+: ME_57086BE29D83
+ CONST UID '57086BE29D83'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_57086BE29D83 aCtx
+
+: ME_57086BE29D84
+ CONST UID '57086BE29D84'
+ CONST Name 'aDictionaryEx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_57086BE29D84 aDictionaryEx
+
+: ME_E6BE6C32473B
+ CONST UID 'E6BE6C32473B'
+ CONST Name 'ExportedDictionaries'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:DictionaryEx:ExportedDictionaries' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_57086BE29D83 // aCtx
+ ME_57086BE29D84 // aDictionaryEx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E6BE6C32473B ExportedDictionaries
+
+: ME_8B865E676002
+ CONST UID '8B865E676002'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_DictionaryEx_ExportedDictionaries' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8B865E676002 Ini_Reg
+
+: ME_6AF5E6295E46
+ CONST UID '6AF5E6295E46'
+ CONST Name 'pop_DictionaryEx_ExportedDictionaries'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:DictionaryEx:ExportedDictionaries'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aDictionaryEx pop:DictionaryEx:ExportedDictionaries >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E6BE6C32473B // ExportedDictionaries
+ ME_8B865E676002 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:DictionaryEx:ExportedDictionaries'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_6AF5E6295E46 pop_DictionaryEx_ExportedDictionaries
+
+FORWARD ME_4A28BCF78342
+
+: ME_0596EB785EE3
+ CONST UID '0596EB785EE3'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_0596EB785EE3 aCtx
+
+: ME_0596EB785EE4
+ CONST UID '0596EB785EE4'
+ CONST Name 'aDictionaryEx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_0596EB785EE4 aDictionaryEx
+
+: ME_0596EB785EE5
+ CONST UID '0596EB785EE5'
+ CONST Name 'aDictionary'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_0596EB785EE5 aDictionary
+
+: ME_E5F49D0B62DF
+ CONST UID 'E5F49D0B62DF'
+ CONST Name 'ExportDictionary'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:DictionaryEx:ExportDictionary' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_0596EB785EE3 // aCtx
+ ME_0596EB785EE4 // aDictionaryEx
+ ME_0596EB785EE5 // aDictionary
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E5F49D0B62DF ExportDictionary
+
+: ME_03FD50EDA384
+ CONST UID '03FD50EDA384'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_DictionaryEx_ExportDictionary' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_03FD50EDA384 Ini_Reg
+
+: ME_4A28BCF78342
+ CONST UID '4A28BCF78342'
+ CONST Name 'pop_DictionaryEx_ExportDictionary'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:DictionaryEx:ExportDictionary'#13#10'*Пример:*'#13#10'{code}'#13#10' aDictionary aDictionaryEx pop:DictionaryEx:ExportDictionary'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E5F49D0B62DF // ExportDictionary
+ ME_03FD50EDA384 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:DictionaryEx:ExportDictionary'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4A28BCF78342 pop_DictionaryEx_ExportDictionary
+
+FORWARD ME_F63A2FD719D9
+
+: ME_DBA2066F5CB1
+ CONST UID 'DBA2066F5CB1'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_DBA2066F5CB1 aCtx
+
+: ME_DBA2066F5CB2
+ CONST UID 'DBA2066F5CB2'
+ CONST Name 'aDictionaryEx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_DBA2066F5CB2 aDictionaryEx
+
+: ME_DBA2066F5CB3
+ CONST UID 'DBA2066F5CB3'
+ CONST Name 'aDictionary'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_DBA2066F5CB3 aDictionary
+
+: ME_D222E866EFCD
+ CONST UID 'D222E866EFCD'
+ CONST Name 'UseDictionary'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:DictionaryEx:UseDictionary' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_DBA2066F5CB1 // aCtx
+ ME_DBA2066F5CB2 // aDictionaryEx
+ ME_DBA2066F5CB3 // aDictionary
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_D222E866EFCD UseDictionary
+
+: ME_4CC29AF133E6
+ CONST UID '4CC29AF133E6'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_DictionaryEx_UseDictionary' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4CC29AF133E6 Ini_Reg
+
+: ME_F63A2FD719D9
+ CONST UID 'F63A2FD719D9'
+ CONST Name 'pop_DictionaryEx_UseDictionary'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:DictionaryEx:UseDictionary'#13#10'*Пример:*'#13#10'{code}'#13#10' aDictionary aDictionaryEx pop:DictionaryEx:UseDictionary'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_D222E866EFCD // UseDictionary
+ ME_4CC29AF133E6 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:DictionaryEx:UseDictionary'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_F63A2FD719D9 pop_DictionaryEx_UseDictionary
+
+FORWARD ME_308455C44800
+
+: ME_027A8FF93CF4
+ CONST UID '027A8FF93CF4'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_027A8FF93CF4 aCtx
+
+: ME_027A8FF93CF5
+ CONST UID '027A8FF93CF5'
+ CONST Name 'aDictionaryEx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_027A8FF93CF5 aDictionaryEx
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_9371B1AA3DFC
+ CONST UID '9371B1AA3DFC'
+ CONST Name 'FileDateTime'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:DictionaryEx:FileDateTime' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_027A8FF93CF4 // aCtx
+ ME_027A8FF93CF5 // aDictionaryEx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_9371B1AA3DFC FileDateTime
+
+: ME_678969748277
+ CONST UID '678969748277'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_DictionaryEx_FileDateTime' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_678969748277 Ini_Reg
+
+: ME_308455C44800
+ CONST UID '308455C44800'
+ CONST Name 'pop_DictionaryEx_FileDateTime'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:DictionaryEx:FileDateTime'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aDictionaryEx pop:DictionaryEx:FileDateTime >>> l_String'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_9371B1AA3DFC // FileDateTime
+ ME_678969748277 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:DictionaryEx:FileDateTime'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_308455C44800 pop_DictionaryEx_FileDateTime
+
+FORWARD ME_B74ACC6F66BC
+
+: ME_106F97C53CDE
+ CONST UID '106F97C53CDE'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_106F97C53CDE aCtx
+
+: ME_106F97C53CDF
+ CONST UID '106F97C53CDF'
+ CONST Name 'aDictionaryEx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_106F97C53CDF aDictionaryEx
+
+: ME_E3AF4D2A35E0
+ CONST UID 'E3AF4D2A35E0'
+ CONST Name 'RemoveFromCache'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:DictionaryEx:RemoveFromCache' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_106F97C53CDE // aCtx
+ ME_106F97C53CDF // aDictionaryEx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E3AF4D2A35E0 RemoveFromCache
+
+: ME_2B965FBBA736
+ CONST UID '2B965FBBA736'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_DictionaryEx_RemoveFromCache' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2B965FBBA736 Ini_Reg
+
+: ME_B74ACC6F66BC
+ CONST UID 'B74ACC6F66BC'
+ CONST Name 'pop_DictionaryEx_RemoveFromCache'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:DictionaryEx:RemoveFromCache'#13#10'{panel}Удаляет словарь из кешей скомпилированных словарей{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aDictionaryEx pop:DictionaryEx:RemoveFromCache'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E3AF4D2A35E0 // RemoveFromCache
+ ME_2B965FBBA736 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:DictionaryEx:RemoveFromCache'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_B74ACC6F66BC pop_DictionaryEx_RemoveFromCache
+
+: ME_55AE62910135
+ CONST UID '55AE62910135'
+ CONST Name 'FileName'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55AE62910135 FileName
+
+: ME_55AE6569010C
+ CONST UID '55AE6569010C'
+ CONST Name 'UsedDictionaries'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55AE6569010C UsedDictionaries
+
+: ME_55AE657A03C8
+ CONST UID '55AE657A03C8'
+ CONST Name 'ExportedDictionaries'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55AE657A03C8 ExportedDictionaries
+
+: ME_55AE65FF033D
+ CONST UID '55AE65FF033D'
+ CONST Name 'aDictionary'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_55AE65FF033D aDictionary
+
+: ME_55AE65FD001D
+ CONST UID '55AE65FD001D'
+ CONST Name 'ExportDictionary'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55AE65FF033D // aDictionary
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55AE65FD001D ExportDictionary
+
+: ME_55AE661E0103
+ CONST UID '55AE661E0103'
+ CONST Name 'aDictionary'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_559E8B2E0385 // TtfwDictionaryEx
+ ;
+
+ @SELF
+; // ME_55AE661E0103 aDictionary
+
+: ME_55AE661B00DA
+ CONST UID '55AE661B00DA'
+ CONST Name 'UseDictionary'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55AE661E0103 // aDictionary
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55AE661B00DA UseDictionary
+
+: ME_55AE66560055
+ CONST UID '55AE66560055'
+ CONST Name 'FileDateTime'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55AE66560055 FileDateTime
+
+: ME_55AE84FA0076
+ CONST UID '55AE84FA0076'
+ CONST Name 'RemoveFromCache'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ %SUMMARY 'Удаляет словарь из кешей скомпилированных словарей' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55AE84FA0076 RemoveFromCache
+
+: ME_B7410FD19020
+ CONST UID 'B7410FD19020'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B7410FD19020 Reg_TtfwContext
+
+: ME_4E69D89B8388
+ CONST UID '4E69D89B8388'
+ CONST Name 'Reg_TtfwDictionaryEx'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwDictionaryEx' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4E69D89B8388 Reg_TtfwDictionaryEx
+
+: ME_D3AED5BCB9F9
+ CONST UID 'D3AED5BCB9F9'
+ CONST Name 'Reg_Il3CString'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Il3CString' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D3AED5BCB9F9 Reg_Il3CString
+
+: ME_3B63B468DFE7
+ CONST UID '3B63B468DFE7'
+ CONST Name 'Reg_ItfwValueList'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа ItfwValueList' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3B63B468DFE7 Reg_ItfwValueList
+
+: ME_760D794BEE4B
+ CONST UID '760D794BEE4B'
+ CONST Name 'Reg_String'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_760D794BEE4B Reg_String
+
+: ME_55AE5A8C035D
+ CONST UID '55AE5A8C035D'
+ CONST Name 'tfwDictionaryExWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_559E8B2E0385 // TtfwDictionaryEx
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_55AE62910135 // FileName
+ ME_55AE6569010C // UsedDictionaries
+ ME_55AE657A03C8 // ExportedDictionaries
+ ME_55AE65FD001D // ExportDictionary
+ ME_55AE661B00DA // UseDictionary
+ ME_55AE66560055 // FileDateTime
+ ME_55AE84FA0076 // RemoveFromCache
+ ME_B7410FD19020 // Reg_TtfwContext
+ ME_4E69D89B8388 // Reg_TtfwDictionaryEx
+ ME_D3AED5BCB9F9 // Reg_Il3CString
+ ME_3B63B468DFE7 // Reg_ItfwValueList
+ ME_760D794BEE4B // Reg_String
+ ]
+ ; // Operations
+ : Children
+   [ ME_EDB2EC981E9A // TtfwDictionaryExWordsPackResNameGetter
+ ME_06E8451D9B30 // pop_DictionaryEx_FileName
+ ME_B94C35EBE3DE // pop_DictionaryEx_UsedDictionaries
+ ME_6AF5E6295E46 // pop_DictionaryEx_ExportedDictionaries
+ ME_4A28BCF78342 // pop_DictionaryEx_ExportDictionary
+ ME_F63A2FD719D9 // pop_DictionaryEx_UseDictionary
+ ME_308455C44800 // pop_DictionaryEx_FileDateTime
+ ME_B74ACC6F66BC // pop_DictionaryEx_RemoveFromCache
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" true
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_55AE5A8C035D tfwDictionaryExWordsPack

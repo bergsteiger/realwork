@@ -1,0 +1,105 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Library/WikiSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Library::WikiSupport
+//
+// набор вспомогательных функций для генерации в wiki
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// гененрирует ссылки в К на все библиотеки от которых зависит (рекурсивно)
+//f _link_all_dep
+: link_all_dep OBJECT IN %S
+//#UC START# *47038910029F*
+//	%f_clear_list(ALL_DEP)\
+ [%f] clear_list %( 'ALL_DEP' )% 
+//	%f_link_collect_dep_i(%S)\
+ [%f] link_collect_dep_i %( %S )% 
+//	%f_sort_list(ALL_DEP,g)%f_unique_list(ALL_DEP)\
+ [%f] sort_list %( 'ALL_DEP' %, 'g' )% [%f] unique_list %( 'ALL_DEP' )% 
+//	<{}{%f_is_empty(ALL_DEP)=false}{W}[%f_pop_first_to_var(ALL_DEP,DEP)* %f_k_link(%{DEP})
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'ALL_DEP' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'ALL_DEP' %, 'DEP' )% '* '
+    [%f] k_link %( ( get_global_var ( 'DEP' ) ) )% 
+//	]>
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+
+//f _link_collect_dep_i
+; // link_all_dep
+
+: link_collect_dep_i OBJECT IN %S
+//	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}[{%DS!=ServerLibrary|%t_target(%S)=true}%f_add_to_list(ALL_DEP,D)%f_link_collect_dep_i(%D)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%D
+ begin
+  OBJECT IN %D
+  if ( ( %D |e ) %==  false AND 
+   ( ( %D get_up ( 'old gcm' ) ) %!=  true  ) AND 
+   ( ( %D |S ) %!= 'Requirements'  ) ) then
+  begin
+   if ( ( %D |S ) %!= 'ServerLibrary' OR 
+     ( ( [%t] target %( %S )% ) %==  true  ) ) then
+   begin
+    [%f] add_to_list %( 'ALL_DEP' %, 'D' )% [%f] link_collect_dep_i %( %D )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for D
+//#UC END# *47038910029F*
+; // link_collect_dep_i
+
+
+// собирает все требования от которых зависим (рекурсивно) в список с идентификатором REQS
+//f _collect_req
+: collect_req OBJECT IN %S
+//#UC START# *4703893F0251*
+//	%f_clear_list(REQS)\
+ [%f] clear_list %( 'REQS' )% 
+//	%f_collect_req_i(%S)
+ [%f] collect_req_i %( %S )% 
+//#UC END# *4703893F0251*
+; // collect_req
+
+
+// реализация collect_req
+//f _collect_req_i
+: collect_req_i OBJECT IN %S
+//#UC START# *4715B2BC038A*
+//	<[{%aS=Requirements}%f_add_to_list(REQS,a)]>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%a
+ begin
+  OBJECT IN %a
+  if true then
+  begin
+   if ( ( %a |S ) %== 'Requirements' ) then
+   begin
+    [%f] add_to_list %( 'REQS' %, 'a' )% 
+   end // if
+
+   ++! l_Counter
+  end // if
+ end // for a
+//#UC END# *4715B2BC038A*
+; // collect_req_i
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

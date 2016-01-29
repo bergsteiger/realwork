@@ -1,0 +1,125 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormInner/Component.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::Component
+//
+// Компонент
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Component::Class
+implementation @ <<Component>>
+//? Компонент
+//< *::Class,*::Category
+
+//= FormInner::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+// Параметры визуализации
+//$ C 152,251,152
+//$ l 0,64,64
+//$ f 0,85,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p need Caption:tribool=false ? 
+//p ComponentClass=none|TevTextSource|TImageEnIO|TImageEnProc|TnscTextSource|TTimer ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{need Caption}"!="%S{!need Caption}"}%f_up_prefix(%S) *need Caption* = *%S{need Caption}*
+ ?inherited
+ if ( ( %S get_up ( 'need Caption' ) ) %!= ( %S get_up_def ( 'need Caption' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need Caption* = *'
+  %S get_up ( 'need Caption' ) '*'
+//	][{"%S{ComponentClass}"!="%S{!ComponentClass}"}%f_up_prefix(%S) *ComponentClass* = *%S{ComponentClass}*
+ end // if
+ if ( ( %S get_up ( 'ComponentClass' ) ) %!= ( %S get_up_def ( 'ComponentClass' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ComponentClass* = *'
+  %S get_up ( 'ComponentClass' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // wiki_up_print
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4A794D1700B2*
+//	%S%f_CheckG()\
+ %S %f CheckG %( )% 
+
+//	%S%[inherited]\
+ inherited
+
+//	<%C#f_DoSpell()>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C %?f DoSpell %( )% 
+   ++! l_Counter
+  end // if
+ end // for C
+
+//%f _CheckG
+; // DoSpell
+
+: CheckG OBJECT IN %S
+//	[{%S%f_IsOverride()!=true}\
+ if ( ( %S %f IsOverride %( )% ) %!=  true ) then
+ begin
+//	[{%Gx!=true}\
+  if ( ( %G |x ) %!=  true ) then
+  begin
+//	[{%S{ComponentClass}!=none&"%S{ComponentClass}"!=""}\
+   if ( ( %S get_up ( 'ComponentClass' ) ) %!= 'none' AND 
+     ( ( %S get_up ( 'ComponentClass' ) ) %!= ''  ) ) then
+   begin
+//	%f_find_element(%S{ComponentClass},l_Elem)\
+    [%f] find_element %( %S get_up ( 'ComponentClass' ) %, 'l_Elem' )% 
+//	%S%f_make_accessable(%{l_Elem}U)\
+    %S %f make_accessable %( ( get_global_var ( 'l_Elem' ) |U ) )% 
+//	%f_addG(%S,%{l_Elem})\
+    [%f] addG %( %S %, ( get_global_var ( 'l_Elem' ) ) )% 
+//	]\
+   end // if
+//	]\
+  end // if
+//	]
+ end // if
+//#UC END# *4B2A19E3038Bfor4A794D1700B2*
+; // CheckG
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+//~ Component::Class::property::Attribute::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Component>>
+

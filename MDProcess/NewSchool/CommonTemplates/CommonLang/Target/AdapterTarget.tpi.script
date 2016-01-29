@@ -1,0 +1,3820 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/AdapterTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::AdapterTarget
+//
+// Адаптер DLL
+// ---
+// Определляет генерацию ДЛЛ-Адаптера.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: AdapterTarget::Category
+implementation @ <<AdapterTarget>>
+//? Адаптер DLL
+//? Определляет генерацию ДЛЛ-Адаптера.
+//> AdapterRootPackage::Category
+
+//= AbstractTarget::Category
+//= C++ интерфейсы и реализация::MDAGenerator
+//= Дельфи-DLL Адаптер::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_adapter_target.gif
+//L code_adapter_target
+// Параметры визуализации
+//$ C 195,245,195
+//$ l 80,245,80
+//$ f 80,245,90
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p load strategy=static|dynamic ? стратегия загрузки ДЛЛ. static - ДЛЛ грузится один раз, выгруается при выходе, dynamic - ДЛЛ можно загружать/выгружать неограниченное число раз
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()[{"%S{load strategy}"!="%S{!load strategy}"}%f_up_prefix(%S) *load strategy* = *%S{load strategy}* - стратегия загрузки ДЛЛ. static - ДЛЛ грузится один раз, выгруается при выходе, dynamic - ДЛЛ можно загружать/выгружать неограниченное число раз
+ call-inherited:: 'Delphi интерфейсы и реализация' wiki_up_print %( )%
+ if ( ( %S get_up ( 'load strategy' ) ) %!= ( %S get_up_def ( 'load strategy' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *load strategy* = *'
+  %S get_up ( 'load strategy' ) '* - стратегия загрузки ДЛЛ. static - ДЛЛ грузится один раз, выгруается при выходе, dynamic - ДЛЛ можно загружать/выгружать неограниченное число раз'
+//	][{"%S{old format}"!="%S{!old format}"}%f_up_prefix(%S) *old format* = *%S{old format}* - включает генерацию дополнительного кода для совместимости со старым сервером
+ end // if
+ if ( ( %S get_up ( 'old format' ) ) %!= ( %S get_up_def ( 'old format' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *old format* = *'
+  %S get_up ( 'old format' ) '* - включает генерацию дополнительного кода для совместимости со старым сервером'
+//	][{"%S{CONFIG_UC}"!="%S{!CONFIG_UC}"}%f_up_prefix(%S) *CONFIG_UC* = *%S{CONFIG_UC}* - Генерить юзер-секции в конфигурационный файл
+ end // if
+ if ( ( %S get_up ( 'CONFIG_UC' ) ) %!= ( %S get_up_def ( 'CONFIG_UC' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *CONFIG_UC* = *'
+  %S get_up ( 'CONFIG_UC' ) '* - Генерить юзер-секции в конфигурационный файл'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsAdapterTarget
+; // wiki_up_print
+
+: IsAdapterTarget OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B72CB6A01CAfor47046C6B02FD*
+//	true
+ true
+//#UC END# *4B72CB6A01CAfor47046C6B02FD*
+; // IsAdapterTarget
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor47046C6B02FD*
+//	%f_N(%S)
+ [%f] N %( %S )% 
+//#UC END# *4948065C01DFfor47046C6B02FD*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Путь к модулю
+//%f _pas_UnitPath
+: pas_UnitPath OBJECT IN %S
+//#UC START# *4948C3290020for47046C6B02FD*
+//	%S%[inherited]/%f_N(%S)
+ inherited
+ '/'
+ [%f] N %( %S )% 
+//#UC END# *4948C3290020for47046C6B02FD*
+; // pas_UnitPath
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47046C6B02FD*
+//c                                     {}
+//r {%ax=true&<{}{}{%aC}>!=1}:          {Only one element can depend on %SS}
+//r {"%f_check_duplicate_params(%S,"LIB")"!=""}:     {Duplicate Attribute in diffrent Setting container:%f_check_duplicate_params(%S,"LIB")}
+//r {"%f_check_duplicate_params(%S,"TARGET")"!=""}:     {Duplicate Attribute in diffrent Setting container in one Target:%f_check_duplicate_params(%S,"TARGET")}
+//r {"%f_check_non_overload_member(%S)"!=""}:           {Non overided members found:%f_check_non_overload_member(%S)}
+//#UC END# *4704C0E30186for47046C6B02FD*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47046C6B02FD*
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//C /%SN
+//O %SN.cpp
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)[{%ax=true|%SS=AdapterTarget}{\n%f_std_inc(%S)\n\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)\n}
+ [%f] header %( %S )% if ( ( %a |x ) %==  true OR 
+   ( ( %S |S ) %== 'AdapterTarget'  ) ) then
+ begin
+  #13#10
+
+//	\#include "shared/Core/sys/start_stop.h"
+  '#include "shared/Core/sys/start_stop.h"'
+//	%f_std_inc(%S)
+  [%f] std_inc %( %S )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)[
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% if NOT-EMPTY
+  begin
+   #13#10
+
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%aL),%a)]
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %a |L )% %, %a )% 
+  end // if
+  NOP
+//	\#include "shared/Core/GDS/MemoryWatcher.h"
+  '#include "shared/Core/GDS/MemoryWatcher.h"'
+//	\#include "shared/Core/GDS/ObjectWatcher.h"	
+  '#include "shared/Core/GDS/ObjectWatcher.h"	'
+//	[{"%f_use_mem_pool(%S)"="true"}\#include "shared/Core/mng/PoolMemoryManager.h"
+  if ( ( [%f] use_mem_pool %( %S )% ) %== true ) then
+  begin
+   '#include "shared/Core/mng/PoolMemoryManager.h"'
+//	][{"%f_use_obj_pool(%S)"="true"}\#include "shared/Core/mng/PoolObjectManager.h"
+  end // if
+  if ( ( [%f] use_obj_pool %( %S )% ) %== true ) then
+  begin
+   '#include "shared/Core/mng/PoolObjectManager.h"'
+//	]\#include [{%f_use_server(%S)=true&"%S{old format}"="false"}{"shared/Core/impl/Root_i/StdLibHomeManager_factory.h"}"shared/CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.h"]
+  end // if
+  '#include '
+  if ( ( [%f] use_server %( %S )% ) %==  true AND 
+    ( ( %S get_up ( 'old format' ) ) %== false  ) ) then
+  begin
+   'shared/CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.h' 
+  end // if
+  else
+  begin
+   'shared/Core/impl/Root_i/StdLibHomeManager_factory.h' 
+  end // else
+//	\#include "shared/Core/impl/ParamsImpl/ParamManagerImpl_factory.h"
+  '#include "shared/Core/impl/ParamsImpl/ParamManagerImpl_factory.h"'
+//	\#include "shared/GCI/I18N/I18N.h"
+  '#include "shared/GCI/I18N/I18N.h"'
+//	\#include "shared/GCI/impl/I18N_i/Environment.h"
+  '#include "shared/GCI/impl/I18N_i/Environment.h"'
+//	\#include "shared/GCI/impl/I18N_i/GarantWinLocaleOperations_factory.h"
+  '#include "shared/GCI/impl/I18N_i/GarantWinLocaleOperations_factory.h"'
+//	\#include "shared/GCI/impl/I18N_i/PosixLocaleOperations_factory.h"
+  '#include "shared/GCI/impl/I18N_i/PosixLocaleOperations_factory.h"'
+//	[%f_inc_all_dep(%S)
+  if NOT-EMPTY
+  begin
+   [%f] inc_all_dep %( %S )% 
+//	][{"%f_use_server(%S)"="true"&"%S{old format}"="true"}\#include "garantServer/src/Global/Defines/DefinesC.h"
+  end // if
+  NOP
+  if ( ( [%f] use_server %( %S )% ) %== true AND 
+    ( ( %S get_up ( 'old format' ) ) %== true  ) ) then
+  begin
+   '#include "garantServer/src/Global/Defines/DefinesC.h"'
+//	\#include "garantServer/src/Global/Core/Common/GCMManagerHome.h"
+   '#include "garantServer/src/Global/Core/Common/GCMManagerHome.h"'
+//	]%f_set_var(PREV_INC,"")<{}{"%dM"="ServerLibrary::Category"}%d<{}{"%AM"="Valuetype::Class"}%f_set_var(CURR_INC,"\#include %f_with_gen_id(h,%f_dump_include_path(%AW,%A))")[{"%{PREV_INC}N"!="%{CURR_INC}N"}%f_set_var(PREV_INC,"%{CURR_INC}N")%{CURR_INC}N
+  end // if
+  [%f] set_var %( 'PREV_INC' %, '' )% 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if ( ( %d |M ) %== 'ServerLibrary::Category' ) then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Valuetype::Class' ) then
+      begin
+       [%f] set_var %( 'CURR_INC' %, '#include '
+       [%f] with_gen_id %( 'h' %, [%f] dump_include_path %( %A |W %, %A )% )% )% if ( ( ( get_global_var ( 'PREV_INC' ) |N ) ) %!= ( ( get_global_var ( 'CURR_INC' ) |N ) ) ) then
+       begin
+        [%f] set_var %( 'PREV_INC' %, ( get_global_var ( 'CURR_INC' ) |N ) )% ( get_global_var ( 'CURR_INC' ) |N ) 
+//	]>>[{"%S{old format}"="true"}%U[{_CUSTOM_INCLUDE}
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+  if ( ( %S get_up ( 'old format' ) ) %== true ) then
+  begin
+   %Usersection (
+    '_CUSTOM_INCLUDE' 
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	][{%f_use_event_service(%S)}\#include "orbsvcs/orbsvcs/Event/EC_Default_Factory.h"
+  end // if
+  if ( ( [%f] use_event_service %( %S )% ) ) then
+  begin
+   '#include "orbsvcs/orbsvcs/Event/EC_Default_Factory.h"'
+//	\#include "orbsvcs/Event/EC_Dispatching_Task.h"
+   '#include "orbsvcs/Event/EC_Dispatching_Task.h"'
+//	
+   #13#10
+
+//	\#if !defined (ACE_WIN32) || (defined (ACE_WIN32) && defined (ACE_AS_STATIC_LIBS))
+   '#if !defined (ACE_WIN32) || (defined (ACE_WIN32) && defined (ACE_AS_STATIC_LIBS))'
+//	ACE_STATIC_SVC_REQUIRE (TAO_EC_Default_Factory);
+   'ACE_STATIC_SVC_REQUIRE (TAO_EC_Default_Factory);'
+//	ACE_STATIC_SVC_REQUIRE (TAO_EC_Simple_Queue_Full_Action);
+   'ACE_STATIC_SVC_REQUIRE (TAO_EC_Simple_Queue_Full_Action);'
+//	\#endif][
+   '#endif' 
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	
+  #13#10
+
+//	namespace %SN {
+  'namespace '
+  %S |N ' {'
+//		Core::Mutex DllInintializator::s_init_mutex;
+  '	Core::Mutex DllInintializator::s_init_mutex;'
+//		unsigned long DllInintializator::s_count = 0;
+  '	unsigned long DllInintializator::s_count = 0;'
+//		
+  '	'
+//		void DllInintializator::init (unsigned long client_version, const char* locale_string) {
+  '	void DllInintializator::init (unsigned long client_version, const char* locale_string) {'
+//			GUARD (s_init_mutex);
+  '		GUARD (s_init_mutex);'
+//			if (s_count++ != 0) {
+  '		if (s_count++ != 0) {'
+//				return;
+  '			return;'
+//			}
+  '		}'
+//			Core::init ();
+  '		Core::init ();'
+//			{
+  '		{'
+//				[{%f_use_server(%S)=true&"%S{old format}"="false"}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory_var f = new [{%f_use_server(%S)=true&"%S{old format}"="false"}{Core::Root_i::Std}CoreSrv::Root_i::Corba]LibHomeManager_factory ();
+  '			'
+  if ( ( [%f] use_server %( %S )% ) %==  true AND 
+    ( ( %S get_up ( 'old format' ) ) %== false  ) ) then
+  begin
+   'CoreSrv::Root_i::Corba' 
+  end // if
+  else
+  begin
+   'Core::Root_i::Std' 
+  end // else
+  'LibHomeManager_factory_var f = new '
+  if ( ( [%f] use_server %( %S )% ) %==  true AND 
+    ( ( %S get_up ( 'old format' ) ) %== false  ) ) then
+  begin
+   'CoreSrv::Root_i::Corba' 
+  end // if
+  else
+  begin
+   'Core::Root_i::Std' 
+  end // else
+  'LibHomeManager_factory ();'
+//				f-\>registrate_me(0);
+  '			f->registrate_me(0);'
+//			}
+  '		}'
+//			{
+  '		{'
+//				Core::ParamsImpl::ParamManagerImpl_factory_var f = new Core::ParamsImpl::ParamManagerImpl_factory ();
+  '			Core::ParamsImpl::ParamManagerImpl_factory_var f = new Core::ParamsImpl::ParamManagerImpl_factory ();'
+//				f-\>registrate_me(0);
+  '			f->registrate_me(0);'
+//			}
+  '		}'
+//			
+  '		'
+//			{
+  '		{'
+//				\#if defined (WIN32)
+  '			#if defined (WIN32)'
+//					GCI::I18N_i::GarantWinLocaleOperations_factory_var fctr = new GCI::I18N_i::GarantWinLocaleOperations_factory ();
+  '				GCI::I18N_i::GarantWinLocaleOperations_factory_var fctr = new GCI::I18N_i::GarantWinLocaleOperations_factory ();'
+//					fctr-\>registrate_me(0);
+  '				fctr->registrate_me(0);'
+//				\#else
+  '			#else'
+//					GCI::I18N_i::PosixLocaleOperations_factory_var fctr = new GCI::I18N_i::PosixLocaleOperations_factory ();
+  '				GCI::I18N_i::PosixLocaleOperations_factory_var fctr = new GCI::I18N_i::PosixLocaleOperations_factory ();'
+//					fctr-\>registrate_me(0);
+  '				fctr->registrate_me(0);'
+//				\#endif
+  '			#endif'
+//			}
+  '		}'
+//			[{"%S{old format}"="false"}try {
+  '		'
+  if ( ( %S get_up ( 'old format' ) ) %== false ) then
+  begin
+   'try {'
+//				Core::ParamManagerInitData init = {"%SN", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\\\Software\\\\Garant\\\\%PN\\\\%SN"};
+   '			Core::ParamManagerInitData init = {"'
+   %S |N ', "Core::RegistryHelper::KEY_LOCAL_MACHINE\\Software\\Garant\\'
+   %P |N '\\'
+   %S |N '};'
+//				Core::ParamManagerFactory::get ().init (Core::ParamConvert::make_arg_list (0, 0), init);
+   '			Core::ParamManagerFactory::get ().init (Core::ParamConvert::make_arg_list (0, 0), init);'
+//			} CATCH_AND_LOG ("while init ParamManager executed")]
+   '		} CATCH_AND_LOG ("while init ParamManager executed")' 
+  end // if
+//			Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+  '		Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();'
+//		
+  '	'
+//	[%f_reg_all_dep(%S)
+  if NOT-EMPTY
+  begin
+   [%f] reg_all_dep %( %S )% 
+//		]	GCI::I18N_i::Environment::set_default_locale (GCI::I18N::SL_RU_CP1251);
+   '	' 
+  end // if
+  NOP
+  '	GCI::I18N_i::Environment::set_default_locale (GCI::I18N::SL_RU_CP1251);'
+//			GCI::I18N::SupportedLocales locale = GCI::I18N::LocaleOperationsFactory::make ().string_to_locale (locale_string);
+  '		GCI::I18N::SupportedLocales locale = GCI::I18N::LocaleOperationsFactory::make ().string_to_locale (locale_string);'
+//			GCI::I18N::LocaleOperationsFactory::make ().set_locale (locale);
+  '		GCI::I18N::LocaleOperationsFactory::make ().set_locale (locale);'
+//			
+  '		'
+//			if (dll_version () != client_version) {
+  '		if (dll_version () != client_version) {'
+//				Core::Root::WrongVersion ex (client_version, dll_version ());
+  '			Core::Root::WrongVersion ex (client_version, dll_version ());'
+//				LOG_D (("\%s: \%s", GDS_CURRENT_FUNCTION, ex.what ()));
+  '			LOG_D (("%s: %s", GDS_CURRENT_FUNCTION, ex.what ()));'
+//				throw ex;
+  '			throw ex;'
+//			}
+  '		}'
+//			try {
+  '		try {'
+//				lhm.execute ();
+  '			lhm.execute ();'
+//			} CATCH_AND_LOG ("while HomeManager processed")
+  '		} CATCH_AND_LOG ("while HomeManager processed")'
+
+//	[{"%S{old format}"="true"}		OldFormatSimpleServer::init ();]
+//		}
+  '	}'
+//		
+  '	'
+//		void DllInintializator::done () {
+  '	void DllInintializator::done () {'
+//			GUARD (s_init_mutex);
+  '		GUARD (s_init_mutex);'
+//			if (--s_count != 0) {
+  '		if (--s_count != 0) {'
+//				return;
+  '			return;'
+//			}
+  '		}'
+//			Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+  '		Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();'
+//			lhm.finalize ();
+  '		lhm.finalize ();'
+//	
+  #13#10
+
+//			Core::fini ();
+  '		Core::fini ();'
+//		}
+  '	}'
+//	
+  #13#10
+
+//	} //namespace %SN
+  '} //namespace '
+  %S |N 
+
+//	extern "C" __declspec (dllexport) void __stdcall dll_init (unsigned long client_version) {
+  'extern "C" __declspec (dllexport) void __stdcall dll_init (unsigned long client_version) {'
+//	_DLL_TRY
+  '_DLL_TRY'
+//		%SN::DllInintializator::init (client_version, "ru");
+  '	'
+  %S |N '::DllInintializator::init (client_version, "ru");'
+//	_DLL_CATCH
+  '_DLL_CATCH'
+//	}
+  '}'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall dll_init_with_locale (unsigned long client_version, const char* locale_string) {
+  'extern "C" __declspec (dllexport) void __stdcall dll_init_with_locale (unsigned long client_version, const char* locale_string) {'
+//	_DLL_TRY
+  '_DLL_TRY'
+//		%SN::DllInintializator::init (client_version, locale_string);
+  '	'
+  %S |N '::DllInintializator::init (client_version, locale_string);'
+//	_DLL_CATCH
+  '_DLL_CATCH'
+//	}
+  '}'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall dll_done () {
+  'extern "C" __declspec (dllexport) void __stdcall dll_done () {'
+//	_DLL_TRY
+  '_DLL_TRY'
+//		%SN::DllInintializator::done ();
+  '	'
+  %S |N '::DllInintializator::done ();'
+//	_DLL_CATCH
+  '_DLL_CATCH'
+//	}
+  '}'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall dll_get_root(
+  'extern "C" __declspec (dllexport) void __stdcall dll_get_root('
+//		%SN::Root*& root
+  '	'
+  %S |N '::Root*& root'
+//	) {
+  ') {'
+//	_DLL_TRY
+  '_DLL_TRY'
+//		root = %SN::Root::Singleton::instance();
+  '	root = '
+  %S |N '::Root::Singleton::instance();'
+//		root-\>addref ();
+  '	root->addref ();'
+//	_DLL_CATCH
+  '_DLL_CATCH'
+//	}][{%ax=false}
+  '}' 
+ end // if
+ else
+ begin
+  #13#10
+  [%f] std_inc %( %S )% #13#10'#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% #13#10 
+ end // else
+ if ( ( %a |x ) %==  false ) then
+ begin
+  #13#10
+
+//	extern "C" __declspec (dllexport) unsigned long __stdcall dll_version () {
+  'extern "C" __declspec (dllexport) unsigned long __stdcall dll_version () {'
+//		return %SA;
+  '	return '
+  %S |A ';'
+//	}
+  '}'
+//	]
+ end // if
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47022CB8034Bfor47046C6B02FD*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47046C6B02FD*
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//C /%SN
+//O %SN.h
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	[{%ax=true|%SS=AdapterTarget}\#include "shared/Core/sys/std_inc.h"
+ if ( ( %a |x ) %==  true OR 
+   ( ( %S |S ) %== 'AdapterTarget'  ) ) then
+ begin
+  '#include "shared/Core/sys/std_inc.h"'
+
+//включаем только необходимые хедеры
+//	%S%f_dump_exported_interfaces_includes()[{"%f_use_server(%S)"="true"&"%S{old format}"="true"}\#include "garantServer/src/Global/Core/Common/GCMSimpleComponents.h"
+  %S %f dump_exported_interfaces_includes %( )% if ( ( [%f] use_server %( %S )% ) %== true AND 
+    ( ( %S get_up ( 'old format' ) ) %== true  ) ) then
+  begin
+   '#include "garantServer/src/Global/Core/Common/GCMSimpleComponents.h"'
+//	<{}{"%dM"="ServerLibrary::Category"}%d<{}{"%AM"="Component::Class"}\#include %f_dump_include_path(%AW,%A)
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%d
+   begin
+    OBJECT IN %d
+    if ( ( %d |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     %d
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%A
+      begin
+       OBJECT IN %A
+       if ( ( %A |M ) %== 'Component::Class' ) then
+       begin
+        '#include '
+        [%f] dump_include_path %( %A |W %, %A )% 
+//	>>][{"%S{old format}"="true"}%U[{_CUSTOM_INCLUDE}
+
+        ++! l_Counter
+       end // if
+      end // for A
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for d
+  end // if
+  if ( ( %S get_up ( 'old format' ) ) %== true ) then
+  begin
+   %Usersection (
+    '_CUSTOM_INCLUDE' 
+   )
+   (
+    #13#10
+
+//	]
+
+   ) // Usersection
+ //	][
+  end // if
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  end // if
+  NOP
+//	namespace %SN {
+  'namespace '
+  %S |N ' {'
+//	
+  #13#10
+
+//	class Root : virtual public Core::RefCountObjectBase {
+  'class Root : virtual public Core::RefCountObjectBase {'
+//	public:
+  'public:'
+//	[{<{}{%CS=AdapterRootPackage}{%CC}>!=0}{<{}{}{Sn}%d<{}{}{Sn}%f_spec_factory_method(%A)>>}\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'AdapterRootPackage' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+   %!= 0 ) then
+  begin
+//	<{}{%CS=AdapterRootPackage}[{%C<{}{%CS=AdapterRoot}{%CC}>!=0}{%C<%D<{}{}{Sn}%f_spec_factory_method(%A)>>}%C<{}{%CS=AdapterRoot}{%C}%C<{}{%CS=export}%f_spec_factory_method(%C%T)>>]>]
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'AdapterRootPackage' ) then
+    begin
+     if ( ( %C
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |S ) %== 'AdapterRoot' ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for C
+       l_Counter
+
+      ) // bind
+ )       %!= 0 ) then
+     begin
+      %C
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |S ) %== 'AdapterRoot' ) then
+        begin
+         %C
+         bind ( 
+          OBJECT VAR %S
+          INTEGER VAR l_Counter l_Counter := 0
+          for %S%C
+          begin
+           OBJECT IN %C
+           if ( ( %C |S ) %== 'export' ) then
+           begin
+            [%f] spec_factory_method %( %C ->T  )% 
+            ++! l_Counter
+           end // if
+          end // for C
+
+         ) // bind
+ 
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+      end // if
+     else
+     begin
+      %C
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%D
+       begin
+        OBJECT IN %D
+        if true then
+        begin
+         %D
+         bind ( 
+          OBJECT VAR %S
+          INTEGER VAR l_Counter l_Counter := 0
+          for %S%An
+          begin
+           OBJECT IN %A
+           if true then
+           begin
+            [%f] spec_factory_method %( %A )% 
+            ++! l_Counter
+           end // if
+          end // for A
+
+         ) // bind
+ 
+         ++! l_Counter
+        end // if
+       end // for D
+
+      ) // bind
+      end // else
+
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  else
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%dn
+   begin
+    OBJECT IN %d
+    if true then
+    begin
+     %d
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%An
+      begin
+       OBJECT IN %A
+       if true then
+       begin
+        [%f] spec_factory_method %( %A )% 
+        ++! l_Counter
+       end // if
+      end // for A
+
+     ) // bind
+ 
+     ++! l_Counter
+    end // if
+   end // for d
+  end // else
+//		
+  '	'
+//		typedef ACE_Singleton \<Root, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+  '	typedef ACE_Singleton <Root, ACE_SYNCH_RECURSIVE_MUTEX> Singleton;'
+//		friend class ACE_Singleton \<Root, ACE_SYNCH_RECURSIVE_MUTEX\>;
+  '	friend class ACE_Singleton <Root, ACE_SYNCH_RECURSIVE_MUTEX>;'
+//	};
+  '};'
+//	
+  #13#10
+
+//	class DllInintializator {
+  'class DllInintializator {'
+//	public:
+  'public:'
+//		static void init (unsigned long client_version, const char* locale_string);
+  '	static void init (unsigned long client_version, const char* locale_string);'
+//		static void done ();
+  '	static void done ();'
+//	
+  #13#10
+
+//	private:
+  'private:'
+//		static Core::Mutex s_init_mutex;
+  '	static Core::Mutex s_init_mutex;'
+//		static unsigned long s_count;
+  '	static unsigned long s_count;'
+//	};
+  '};'
+//	} //namespace %SN
+  '} //namespace '
+  %S |N 
+//	
+  #13#10
+
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall dll_init (unsigned long client_version);
+  'extern "C" __declspec (dllexport) void __stdcall dll_init (unsigned long client_version);'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall dll_init_with_locale (unsigned long client_version, const char* locale_string);
+  'extern "C" __declspec (dllexport) void __stdcall dll_init_with_locale (unsigned long client_version, const char* locale_string);'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall dll_done ();
+  'extern "C" __declspec (dllexport) void __stdcall dll_done ();'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall dll_get_root (
+  'extern "C" __declspec (dllexport) void __stdcall dll_get_root ('
+//		%SN::Root*& root
+  '	'
+  %S |N '::Root*& root'
+//	);<%CX>][{%ax=false}
+  ');'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ if ( ( %a |x ) %==  false ) then
+ begin
+  #13#10
+
+//	extern "C" __declspec (dllexport) unsigned long __stdcall dll_version ();
+  'extern "C" __declspec (dllexport) unsigned long __stdcall dll_version ();'
+//	]
+ end // if
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+
+
+//%f _dump_exported_interfaces_includes
+; // h
+
+: dump_exported_interfaces_includes OBJECT IN %S
+//	[{<{}{%CS=AdapterRootPackage}{%CC}>!=0}{<%d<{}{"%AM"="Interfaces::Category"&%A<{}{%f_interface_need_export(%C)=true}{C}>!=0}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%AL),%A)
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'AdapterRootPackage' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  [%f] clear_list %( 'EXPORT_INCLUDES' )% 
+//	<{}{%CS=AdapterRootPackage}[{%C<{}{%CS=AdapterRoot}{%CC}>!=0}{%C<{}{"%DM"="Interfaces::Category"&%D<{}{%f_interface_need_export(%C)=true}{C}>!=0}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'AdapterRootPackage' ) then
+   begin
+    if ( ( %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'AdapterRoot' ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for C
+      l_Counter
+
+     ) // bind
+ )      %!= 0 ) then
+    begin
+//	%C<{}{%CS=AdapterRoot}{%C}%C<{}{%CS=export&%C%f_is_target_exported()=true}{%C}\
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'AdapterRoot' ) then
+       begin
+        %C
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%C
+         begin
+          OBJECT IN %C
+          if ( ( %C |S ) %== 'export' AND 
+           ( ( %C %f is_target_exported %( )% ) %==  true  ) ) then
+          begin
+//	%f_add_to_list(EXPORT_INCLUDES,"%f_dump_include_path(%f_with_gen_id(fctr.h,%C%T%PL),%C%T%P)")>>]>\
+           [%f] add_to_list %( 'EXPORT_INCLUDES' %, [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %C ->T ->P |L   )% %, %C ->T ->P   )% )% 
+           ++! l_Counter
+          end // if
+         end // for C
+
+        ) // bind
+ 
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+     end // if
+    else
+    begin
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%D
+      begin
+       OBJECT IN %D
+       if ( ( %D |M ) %== 'Interfaces::Category' AND 
+        ( ( %D
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( [%f] interface_need_export %( %C )% ) %==  true ) then
+         begin
+
+          ++! l_Counter
+         end // if
+        end // for C
+        l_Counter
+
+       ) // bind
+ )        %!= 0  ) ) then
+       begin
+//	%f_add_to_list(EXPORT_INCLUDES,"%f_dump_include_path(%f_with_gen_id(fctr.h,%DL),%D)")>}\
+        [%f] add_to_list %( 'EXPORT_INCLUDES' %, [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %D |L )% %, %D )% )% 
+        ++! l_Counter
+       end // if
+      end // for D
+
+     ) // bind
+     end // else
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	%f_sort_list(EXPORT_INCLUDES,n)%f_unique_list(EXPORT_INCLUDES)%f_remove_from_list(EXPORT_INCLUDES,"")\
+  [%f] sort_list %( 'EXPORT_INCLUDES' %, 'n' )% [%f] unique_list %( 'EXPORT_INCLUDES' )% [%f] remove_from_list %( 'EXPORT_INCLUDES' %, '' )% 
+//	%{EXPORT_INCLUDES}<{}{}{%C}\#include %CN
+  ( get_global_var ( 'EXPORT_INCLUDES' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     '#include '
+     %C |N 
+//	>%f_clear_list(EXPORT_INCLUDES)]
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+  [%f] clear_list %( 'EXPORT_INCLUDES' )% 
+ end // if
+ else
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Interfaces::Category' AND 
+       ( ( %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( [%f] interface_need_export %( %C )% ) %==  true ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for C
+       l_Counter
+
+      ) // bind
+ )       %!= 0  ) ) then
+      begin
+       if NOT-EMPTY
+       begin
+        '#include '
+        [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %A |L )% %, %A )% 
+//	]>>}%f_clear_list(EXPORT_INCLUDES)\
+       end // if
+       NOP
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+ end // else
+//#UC END# *47022C88029Ffor47046C6B02FD*
+; // dump_exported_interfaces_includes
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47046C6B02FD*
+//#UC END# *470F15B800CBfor47046C6B02FD*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47046C6B02FD*
+//O [{"%f_pas_UnitFileName(%S)"!=""}[{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)]
+//C %S%f_pas_UnitPath()
+//	%f_clear_list(TOTAL_USES)\
+ [%f] clear_list %( 'TOTAL_USES' )% 
+//	%f_pas_OpenUnitInterface(%S)\
+ [%f] pas_OpenUnitInterface %( %S )% 
+//	%S%f_pas_TotalUses()\
+ %S %f pas_TotalUses %( )% 
+//	%f_pas_CloseUses(%S)\
+ [%f] pas_CloseUses %( %S )% 
+//	%f_clear_TotalUses(%S)\
+ [%f] clear_TotalUses %( %S )% 
+//	
+//	\{$R [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitName(%S).res\}\
+ '{$R '
+ if ( ( %S get_up ( 'finished' ) ) %!=  true ) then
+ begin
+  'NOT_FINISHED_' 
+ end // if
+ [%f] pas_UnitName %( %S )% '.res}'
+//	[{%S{needs second icon}=true}\n\{$R main_icon2.res\} // вторая иконка приложения]
+//	
+//	
+//	exports
+ 'exports'
+//	%U[{exports}\n]
+ %Usersection (
+  'exports' 
+ )
+ (
+  #13#10 
+ ) // Usersection
+ //	;
+ ';'
+//	
+//	begin\
+ 'begin'
+//	%f_pas_CloseUnit(%S)
+ [%f] pas_CloseUnit %( %S )% 
+//#UC END# *470F1571031Cfor47046C6B02FD*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47046C6B02FD*
+//#UC END# *477398E501C0for47046C6B02FD*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for47046C6B02FD*
+//#UC END# *55B8D28B0157for47046C6B02FD*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for47046C6B02FD*
+//#UC END# *55B8D2F80145for47046C6B02FD*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for47046C6B02FD*
+//#UC END# *55B8DD9C0301for47046C6B02FD*
+; // res.cmd.pas
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor47046C6B02FD*
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//C /%SN
+//O [{%ax=true|%SS=AdapterTarget}%SN_tie.cpp]
+//	[{%ax=true|%SS=AdapterTarget}%f_dump_adapter_dll_cpp(%S)]
+ if ( ( %a |x ) %==  true OR 
+   ( ( %S |S ) %== 'AdapterTarget'  ) ) then
+ begin
+  [%f] dump_adapter_dll_cpp %( %S )% 
+ end // if
+
+//f _dump_adapter_dll_cpp
+; // dll.cpp
+
+end. // <<AdapterTarget>>
+
+: dump_adapter_dll_cpp OBJECT IN %S
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	\#pragma warning (disable: 4297)
+ '#pragma warning (disable: 4297)'
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(dll.h,%SL),%S)
+ '#include '
+ [%f] dump_include_path %( [%f] with_gen_id %( 'dll.h' %, %S |L )% %, %S )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)[
+ '#include '
+ [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% if NOT-EMPTY
+ begin
+  #13#10
+
+//	\#include %f_dump_include_path(%f_with_gen_id(dll.h,%aL),%a)
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'dll.h' %, %a |L )% %, %a )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%aL),%a)][
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %a |L )% %, %a )% 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+//	
+//	// DLL export methods
+ '// DLL export methods'
+//	extern "C" __declspec (dllexport) unsigned long __stdcall tie_dll_version () {
+ 'extern "C" __declspec (dllexport) unsigned long __stdcall tie_dll_version () {'
+//		return dll_version ();
+ '	return dll_version ();'
+//	}
+ '}'
+//	
+//	extern "C" __declspec (dllexport) void __stdcall tie_dll_init_with_locale (unsigned long client_version, const char* locale_string) {
+ 'extern "C" __declspec (dllexport) void __stdcall tie_dll_init_with_locale (unsigned long client_version, const char* locale_string) {'
+//		dll_init_with_locale (client_version, locale_string);
+ '	dll_init_with_locale (client_version, locale_string);'
+//	}
+ '}'
+//	
+//	extern "C" __declspec (dllexport) void __stdcall tie_dll_init (unsigned long client_version) {
+ 'extern "C" __declspec (dllexport) void __stdcall tie_dll_init (unsigned long client_version) {'
+//		dll_init (client_version);
+ '	dll_init (client_version);'
+//	}
+ '}'
+//	
+//	extern "C" __declspec (dllexport) void __stdcall tie_dll_done () {
+ 'extern "C" __declspec (dllexport) void __stdcall tie_dll_done () {'
+//		dll_done ();
+ '	dll_done ();'
+//	}
+ '}'
+//	
+//	extern "C" __declspec (dllexport) void __stdcall tie_dll_get_root (
+ 'extern "C" __declspec (dllexport) void __stdcall tie_dll_get_root ('
+//		[{}{%SN}%aN]::Root_tie*& root
+ '	'
+ if NOT-EMPTY
+ begin
+  %a |N 
+ end // if
+ NOP
+ else
+ begin
+  %S |N 
+ end // else
+ '::Root_tie*& root'
+//	) {
+ ') {'
+//	_DLL_TRY
+ '_DLL_TRY'
+//		root = [{}{%SN}%aN]::Root_tie::instance();
+ '	root = '
+ if NOT-EMPTY
+ begin
+  %a |N 
+ end // if
+ NOP
+ else
+ begin
+  %S |N 
+ end // else
+ '::Root_tie::instance();'
+//		root-\>addref();
+ '	root->addref();'
+//	_DLL_CATCH
+ '_DLL_CATCH'
+//	}<%CX>
+ '}'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+
+//#UC END# *47032ED002DEfor47046C6B02FD*
+; // dump_adapter_dll_cpp
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+implementation @ <<AdapterTarget>>
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor47046C6B02FD*
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//C /%SN
+//O %SN_tie.h
+//	%f_dump_adapter_dll_h(%S)
+ [%f] dump_adapter_dll_h %( %S )% 
+
+//f _dump_adapter_dll_h
+; // dll.h
+
+end. // <<AdapterTarget>>
+
+: dump_adapter_dll_h OBJECT IN %S
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	[{%ax=false}\
+ if ( ( %a |x ) %==  false ) then
+ begin
+
+//нужно включать все хедеры с TIE-обёртками, иначе компилятор может выкинуть неиспользуемые и в результате получим AV
+//	<%d<{}{"%AM"="Interfaces::Category"}[\#include %f_dump_include_path(%f_with_gen_id(dll.h,%AL),%A)
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Interfaces::Category' ) then
+      begin
+       if NOT-EMPTY
+       begin
+        '#include '
+        [%f] dump_include_path %( [%f] with_gen_id %( 'dll.h' %, %A |L )% %, %A )% 
+//	][{%A<{}{%f_interface_need_export(%C)=true}{C}>!=0}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%AL),%A)
+       end // if
+       NOP
+       if ( ( %A
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%C
+         begin
+          OBJECT IN %C
+          if ( ( [%f] interface_need_export %( %C )% ) %==  true ) then
+          begin
+
+           ++! l_Counter
+          end // if
+         end // for C
+         l_Counter
+
+        ) // bind
+ )         %!= 0 ) then
+       begin
+        if NOT-EMPTY
+        begin
+         '#include '
+         [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %A |L )% %, %A )% 
+//	]]>>][{%ax=true}\#include %f_dump_include_path(%f_with_gen_id(dll.h,%aL),%a)
+        end // if
+        NOP
+       end // if
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+ end // if
+ if ( ( %a |x ) %==  true ) then
+ begin
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'dll.h' %, %a |L )% %, %a )% 
+//	][
+ end // if
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	%S%f_open_ifdef()][{%ax=false}
+  %S %f open_ifdef %( )% 
+ end // if
+ NOP
+ if ( ( %a |x ) %==  false ) then
+ begin
+  #13#10
+
+//	namespace %SN {
+  'namespace '
+  %S |N ' {'
+//	
+  #13#10
+
+//	class Root_tie {
+  'class Root_tie {'
+//		SET_OBJECT_COUNTER (Root_tie)
+  '	SET_OBJECT_COUNTER (Root_tie)'
+//	protected:
+  'protected:'
+//		virtual unsigned long __stdcall query_interface (
+  '	virtual unsigned long __stdcall query_interface ('
+//			const ::Core::ComIID& iid
+  '		const ::Core::ComIID& iid'
+//			, void*& object
+  '		, void*& object'
+//		) {
+  '	) {'
+//			static ::Core::ComIID my_iid = {%f_comiid(%S)};
+  '		static ::Core::ComIID my_iid = {'
+  [%f] comiid %( %S )% '};'
+//			if (my_iid == iid) {
+  '		if (my_iid == iid) {'
+//				this-\>addref();
+  '			this->addref();'
+//				object = this;
+  '			object = this;'
+//				return 0x00000000UL;
+  '			return 0x00000000UL;'
+//			} else {
+  '		} else {'
+//				object = 0;
+  '			object = 0;'
+//				return 0x80004002UL;
+  '			return 0x80004002UL;'
+//			}
+  '		}'
+//		}
+  '	}'
+//	
+  #13#10
+
+//	public:
+  'public:'
+//		virtual unsigned long __stdcall addref () const {
+  '	virtual unsigned long __stdcall addref () const {'
+//			return ++m_counter;
+  '		return ++m_counter;'
+//		}
+  '	}'
+//	
+  #13#10
+
+//		virtual unsigned long __stdcall release () const {
+  '	virtual unsigned long __stdcall release () const {'
+//			if (m_counter == 1) {
+  '		if (m_counter == 1) {'
+//				delete this;
+  '			delete this;'
+//				return 0;
+  '			return 0;'
+//			}
+  '		}'
+//			return --m_counter;
+  '		return --m_counter;'
+//		}
+  '	}'
+//		
+  '	'
+//	private:
+  'private:'
+//		typedef ACE_Singleton\<Root_tie, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+  '	typedef ACE_Singleton<Root_tie, ACE_SYNCH_RECURSIVE_MUTEX> Singleton;'
+//	
+  #13#10
+
+//		mutable ACE_Atomic_Op \<ACE_Thread_Mutex, long\> m_counter;
+  '	mutable ACE_Atomic_Op <ACE_Thread_Mutex, long> m_counter;'
+//	
+  #13#10
+
+//	public:
+  'public:'
+
+// strange... if ctor is protected - compile error (no visible)
+//		Root_tie () : m_counter (1) {
+  '	Root_tie () : m_counter (1) {'
+//		}
+  '	}'
+//	
+  #13#10
+
+//		static Root_tie* instance() {
+  '	static Root_tie* instance() {'
+//			return Singleton::instance();
+  '		return Singleton::instance();'
+//		}
+  '	}'
+//	
+  #13#10
+
+//		// exported factories
+  '	// exported factories'
+//	
+  #13#10
+
+//	<{}{}{Sn}%d<{}{}{Sn}%f_spec_tie_factory_method(%A)>>
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%dn
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%An
+     begin
+      OBJECT IN %A
+      if true then
+      begin
+       [%f] spec_tie_factory_method %( %A )% 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+//	};
+  '};'
+//	
+  #13#10
+
+//	} //namespace %SN
+  '} //namespace '
+  %S |N 
+//	][{%ax=true|%SS=AdapterTarget}
+ end // if
+ if ( ( %a |x ) %==  true OR 
+   ( ( %S |S ) %== 'AdapterTarget'  ) ) then
+ begin
+  #13#10
+
+//	extern "C" __declspec (dllexport) unsigned long __stdcall tie_dll_version ();
+  'extern "C" __declspec (dllexport) unsigned long __stdcall tie_dll_version ();'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall tie_dll_init_with_locale (unsigned long client_version, const char* locale_string);
+  'extern "C" __declspec (dllexport) void __stdcall tie_dll_init_with_locale (unsigned long client_version, const char* locale_string);'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall tie_dll_init (unsigned long client_version);
+  'extern "C" __declspec (dllexport) void __stdcall tie_dll_init (unsigned long client_version);'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall tie_dll_done ();
+  'extern "C" __declspec (dllexport) void __stdcall tie_dll_done ();'
+//	
+  #13#10
+
+//	extern "C" __declspec (dllexport) void __stdcall tie_dll_get_root (
+  'extern "C" __declspec (dllexport) void __stdcall tie_dll_get_root ('
+//		[{}{%SN}%aN]::Root_tie*& root
+  '	'
+  if NOT-EMPTY
+  begin
+   %a |N 
+  end // if
+  NOP
+  else
+  begin
+   %S |N 
+  end // else
+  '::Root_tie*& root'
+//	);]<%CX>
+  ');' 
+ end // if
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+//#UC END# *47032EC4032Cfor47046C6B02FD*
+; // dump_adapter_dll_h
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+implementation @ <<AdapterTarget>>
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor47046C6B02FD*
+//P
+//C /%SN
+//O [{%ax=false}%SN.pas]
+//	<%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	[{"%SO"!=""}%f_dump_adapter_dll_pas(%S)]
+ if ( ( %S |O ) %!= '' ) then
+ begin
+  [%f] dump_adapter_dll_pas %( %S )% 
+ end // if
+
+//f _dump_adapter_dll_pas
+; // pas
+
+end. // <<AdapterTarget>>
+
+: dump_adapter_dll_pas OBJECT IN %S
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	unit %SN; {$Z4}
+ 'unit '
+ %S |N '; {$Z4}'
+//	
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	
+//	interface
+ 'interface'
+//	
+//	uses
+ 'uses'
+//		SysConst
+ '	SysConst'
+//		, SysUtils
+ '	, SysUtils'
+//		, Windows
+ '	, Windows'
+//		[{%S{load strategy}=static}, l3Base
+ '	'
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+  ', l3Base'
+//		, l3ProtoObject
+  '	, l3ProtoObject'
+//		], Classes
+  '	' 
+ end // if
+ ', Classes'
+//		, ActiveX<%d<{}{"%AM"="Interfaces::Category"}
+ '	, ActiveX'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%d
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%A
+    begin
+     OBJECT IN %A
+     if ( ( %A |M ) %== 'Interfaces::Category' ) then
+     begin
+      #13#10
+
+//		, %ANUnit>><{}{"%AM"="Interfaces::Category"}
+      '	, '
+      %A |N 'Unit' 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%A
+ begin
+  OBJECT IN %A
+  if ( ( %A |M ) %== 'Interfaces::Category' ) then
+  begin
+   #13#10
+
+//		, %ANUnit>;
+   '	, '
+   %A |N 'Unit' 
+   ++! l_Counter
+  end // if
+ end // for A
+ ';'
+//	
+//	const
+ 'const'
+//		CLibraryVersion: LongWord = %SA;
+ '	CLibraryVersion: LongWord = '
+ %S |A ';'
+//		CLibraryName: PAnsiChar = '%SN.dll';
+ '	CLibraryName: PAnsiChar = '''
+ %S |N '.dll';'
+//	
+//	{$IF DEFINED(UseNoServerExceptionEvent)}
+ '{$IF DEFINED(UseNoServerExceptionEvent)}'
+//	var
+ 'var'
+//		g_NoServerExceptionEvent: procedure (var a_Exception: Exception) = nil;
+ '	g_NoServerExceptionEvent: procedure (var a_Exception: Exception) = nil;'
+//	{$IFEND} // UseNoServerExceptionEvent
+ '{$IFEND} // UseNoServerExceptionEvent'
+//	
+//	type
+ 'type'
+//		// Системные исключения.
+ '	// Системные исключения.'
+//		ELoadLibraryError = class (Exception); // используется при загрузке dll; 
+ '	ELoadLibraryError = class (Exception); // используется при загрузке dll; '
+//		EGetProcAddressError = class (Exception); // используется при вызове операции dll; 
+ '	EGetProcAddressError = class (Exception); // используется при вызове операции dll; '
+//		EStdException = class (Exception); // используется при мапинге неизвестных Sdt исключений; 
+ '	EStdException = class (Exception); // используется при мапинге неизвестных Sdt исключений; '
+//		ECorbaException = class (Exception); // используется при мапинге неизвестных CORBA исключений;
+ '	ECorbaException = class (Exception); // используется при мапинге неизвестных CORBA исключений;'
+//		EWrongVersion = class (Exception); // выбрасывается в случае не соответствия версии клиента и dll
+ '	EWrongVersion = class (Exception); // выбрасывается в случае не соответствия версии клиента и dll'
+//		EUnknownFactoryKey = class (Exception); // выбрасывается в случае, если нет ни одного зарегестрированного серванта c заданным ключом для запрашиваемого интерфейса
+ '	EUnknownFactoryKey = class (Exception); // выбрасывается в случае, если нет ни одного зарегестрированного серванта c заданным ключом для запрашиваемого интерфейса'
+//		[{"%f_use_server(%S)"="true"}
+ '	'
+ if ( ( [%f] use_server %( %S )% ) %== true ) then
+ begin
+  #13#10
+
+//		ECantFindServer = class (Exception); // client-server DLL can't find corresponding server
+  '	ECantFindServer = class (Exception); // client-server DLL can't find corresponding server'
+//		]
+  '	' 
+ end // if
+//		// exported root factory interface
+ '	// exported root factory interface'
+//		I%SNRoot = interface (IInterface) \['{%SG}'\]%f_set_var(DLL,S)
+ '	I'
+ %S |N 'Root = interface (IInterface) [''{'
+ %S |G '}'']'
+ [%f] set_var %( 'DLL' %, 'S' )% 
+//	<{}{}{Sn}%f_spec_root_factory_method(%A)><{}{}{Sn}%d<{}{}{Sn}%f_spec_root_factory_method(%A)>>	end;
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%An
+ begin
+  OBJECT IN %A
+  if true then
+  begin
+   [%f] spec_root_factory_method %( %A )% 
+   ++! l_Counter
+  end // if
+ end // for A
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%dn
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      [%f] spec_root_factory_method %( %A )% 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+ '	end;'
+//	
+//		// DLL wrapper interface
+ '	// DLL wrapper interface'
+//		I%SNDll = interface (IInterface)
+ '	I'
+ %S |N 'Dll = interface (IInterface)'
+//			function GetVersion (): LongWord;
+ '		function GetVersion (): LongWord;'
+//	
+//			// Метод, возвращающий информацию о распределенной памяти библиотеки `%SN`.
+//			procedure GetMemoryInfo (out aMemoryInformation{: IStringOld}); stdcall;
+//	<{}{}{Sn}%f_spec_dll_factory_method(%A)><{}{}{Sn}%d<{}{}{Sn}%f_spec_dll_factory_method(%A)>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%An
+ begin
+  OBJECT IN %A
+  if true then
+  begin
+   [%f] spec_dll_factory_method %( %A )% 
+   ++! l_Counter
+  end // if
+ end // for A
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%dn
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      [%f] spec_dll_factory_method %( %A )% 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+//		end;
+ '	end;'
+//	
+//		// DLL wrapper impl
+ '	// DLL wrapper impl'
+//		T%SNDll = class ([{%S{load strategy}=static}{TInterfacedObject}Tl3ProtoObject], I%SNDll)
+ '	T'
+ %S |N 'Dll = class ('
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+  'Tl3ProtoObject' 
+ end // if
+ else
+ begin
+  'TInterfacedObject' 
+ end // else
+ ', I'
+ %S |N 'Dll)'
+//		private
+ '	private'
+//			f_HModule: HModule;
+ '		f_HModule: HModule;'
+//			f_DllRoot: I%SNRoot;
+ '		f_DllRoot: I'
+ %S |N 'Root;'
+//	
+//		private
+ '	private'
+//			procedure DllLoad;
+ '		procedure DllLoad;'
+//			procedure DllFree;
+ '		procedure DllFree;'
+//			procedure RootInit(aClientVersion: LongWord); overload;
+ '		procedure RootInit(aClientVersion: LongWord); overload;'
+//			procedure RootInit(aClientVersion: LongWord; const aLocale: PAnsiChar); overload;
+ '		procedure RootInit(aClientVersion: LongWord; const aLocale: PAnsiChar); overload;'
+//			procedure RootDone;
+ '		procedure RootDone;'
+//			function GetRoot: I%SNRoot;
+ '		function GetRoot: I'
+ %S |N 'Root;'
+//		
+ '	'
+//	[{%S{load strategy}=static}	protected
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+  '	protected'
+//			procedure Cleanup; override;
+  '		procedure Cleanup; override;'
+//	
+  #13#10
+
+//	]	public
+ end // if
+ '	public'
+//			constructor Create (aClientVersion: LongWord); reintroduce; overload;
+ '		constructor Create (aClientVersion: LongWord); reintroduce; overload;'
+//			constructor Create (aClientVersion: LongWord; const aLocale: PAnsiChar); reintroduce; overload;
+ '		constructor Create (aClientVersion: LongWord; const aLocale: PAnsiChar); reintroduce; overload;'
+//	[{%S{load strategy}=dynamic}		destructor Destroy; override;
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'dynamic' ) then
+ begin
+  '		destructor Destroy; override;'
+//	]
+ end // if
+//			class function Make(): I%SNDll; overload;[{"%f_use_server(%S)"="true"}{[ // can raise <{, }%f_type(%E)>]} // can raise ECantFindServer<, %f_type(%E)>];
+ '		class function Make(): I'
+ %S |N 'Dll; overload;'
+ if ( ( [%f] use_server %( %S )% ) %== true ) then
+ begin
+  ' // can raise ECantFindServer'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    ', '
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+ end // if
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   ' // can raise '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+  end // if
+  NOP
+ end // else
+ ';'
+//			class function Make(const aLocale: PAnsiChar): I%SNDll; overload;[{"%f_use_server(%S)"="true"}{[ // can raise <{, }%f_type(%E)>]} // can raise ECantFindServer<, %f_type(%E)>];
+ '		class function Make(const aLocale: PAnsiChar): I'
+ %S |N 'Dll; overload;'
+ if ( ( [%f] use_server %( %S )% ) %== true ) then
+ begin
+  ' // can raise ECantFindServer'
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    ', '
+    [%f] type %( %E )% 
+    ++! l_Counter
+   end // if
+  end // for E
+ end // if
+ else
+ begin
+  if NOT-EMPTY
+  begin
+   ' // can raise '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%E
+   begin
+    OBJECT IN %E
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] type %( %E )% 
+     ++! l_Counter
+    end // if
+   end // for E
+  end // if
+  NOP
+ end // else
+ ';'
+//	
+//			function GetVersion: LongWord;
+ '		function GetVersion: LongWord;'
+//
+//			// Метод, возвращающий информацию о распределенной памяти библиотеки `%SN`.
+//			procedure GetMemoryInfo (out aMemoryInformation{: IStringOld}); stdcall;
+//
+//		public
+ '	public'
+//	<{}{}{Sn}%f_spec_dll_factory_method(%A)><{}{}{Sn}%d<{}{}{Sn}%f_spec_dll_factory_method(%A)>>	end;
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%An
+ begin
+  OBJECT IN %A
+  if true then
+  begin
+   [%f] spec_dll_factory_method %( %A )% 
+   ++! l_Counter
+  end // if
+ end // for A
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%dn
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      [%f] spec_dll_factory_method %( %A )% 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+ '	end;'
+//	
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	implementation
+ 'implementation'
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	[{%S{load strategy}=static}
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+  #13#10
+
+//	var
+  'var'
+//		g_%SNDll: T%SNDll = nil;
+  '	g_'
+  %S |N 'Dll: T'
+  %S |N 'Dll = nil;'
+//	]
+ end // if
+//	<{}{}{Sn}%f_spec_dll_factory_method_impl(%A)><{}{}{Sn}%d<{}{}{Sn}%f_spec_dll_factory_method_impl(%A)>>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%An
+ begin
+  OBJECT IN %A
+  if true then
+  begin
+   [%f] spec_dll_factory_method_impl %( %A )% 
+   ++! l_Counter
+  end // if
+ end // for A
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%dn
+ begin
+  OBJECT IN %d
+  if true then
+  begin
+   %d
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%An
+    begin
+     OBJECT IN %A
+     if true then
+     begin
+      [%f] spec_dll_factory_method_impl %( %A )% 
+      ++! l_Counter
+     end // if
+    end // for A
+
+   ) // bind
+ 
+   ++! l_Counter
+  end // if
+ end // for d
+//	
+//	procedure T%SNDll.DllLoad;
+ 'procedure T'
+ %S |N 'Dll.DllLoad;'
+//	
+//		function GetOsDependentCatalog: string;
+ '	function GetOsDependentCatalog: string;'
+//		begin
+ '	begin'
+//			if (Longint (Windows.GetVersion) \< 0) then
+ '		if (Longint (Windows.GetVersion) < 0) then'
+//				Result := ExtractFilePath (ParamStr (0))+'win9X'
+ '			Result := ExtractFilePath (ParamStr (0))+'win9X''
+//			else
+ '		else'
+//				Result := ExtractFilePath (ParamStr (0))+'winNT';
+ '			Result := ExtractFilePath (ParamStr (0))+'winNT';'
+//		end;
+ '	end;'
+//	
+//	var
+ 'var'
+//		l_CurrentDir: string;
+ '	l_CurrentDir: string;'
+//		l_ErrorMode: UINT;
+ '	l_ErrorMode: UINT;'
+//		l_OsDependentCatalog: string;
+ '	l_OsDependentCatalog: string;'
+//	begin
+ 'begin'
+//		l_ErrorMode := SetErrorMode (SEM_FAILCRITICALERRORS);
+ '	l_ErrorMode := SetErrorMode (SEM_FAILCRITICALERRORS);'
+//		try
+ '	try'
+//			l_CurrentDir := GetCurrentDir;
+ '		l_CurrentDir := GetCurrentDir;'
+//	
+//			l_OsDependentCatalog := GetOsDependentCatalog;
+ '		l_OsDependentCatalog := GetOsDependentCatalog;'
+//			if SetCurrentDir (l_OsDependentCatalog) then
+ '		if SetCurrentDir (l_OsDependentCatalog) then'
+//				try
+ '			try'
+//					f_HModule := LoadLibraryA (CLibraryName);
+ '				f_HModule := LoadLibraryA (CLibraryName);'
+
+//					(* K: 384075072 *)
+ '				(* K: 384075072 *)'
+//					if (f_HModule = HMODULE (0)) then
+ '				if (f_HModule = HMODULE (0)) then'
+//						f_HModule := LoadLibraryExA (PAnsiChar (l_OsDependentCatalog+'\\'+CLibraryName), 0, LOAD_WITH_ALTERED_SEARCH_PATH);
+ '					f_HModule := LoadLibraryExA (PAnsiChar (l_OsDependentCatalog+''\''+CLibraryName), 0, LOAD_WITH_ALTERED_SEARCH_PATH);'
+//				finally
+ '			finally'
+//					SetCurrentDir (l_CurrentDir);
+ '				SetCurrentDir (l_CurrentDir);'
+//				end
+ '			end'
+//			else
+ '		else'
+//				f_HModule := LoadLibraryA (PAnsiChar (l_OsDependentCatalog+'\\'+CLibraryName));
+ '			f_HModule := LoadLibraryA (PAnsiChar (l_OsDependentCatalog+''\''+CLibraryName));'
+//			
+ '		'
+//			if (f_HModule = HMODULE (0)) then
+ '		if (f_HModule = HMODULE (0)) then'
+//			begin
+ '		begin'
+//				f_HModule := LoadLibraryA (CLibraryName);
+ '			f_HModule := LoadLibraryA (CLibraryName);'
+//			
+ '		'
+//				if (f_HModule = HMODULE (0)) then
+ '			if (f_HModule = HMODULE (0)) then'
+//					raise ELoadLibraryError.Create ('Dynamic library "'+CLibraryName+'" not found');
+ '				raise ELoadLibraryError.Create (''Dynamic library "''+CLibraryName+''" not found'');'
+//			end;
+ '		end;'
+//		finally
+ '	finally'
+//			SetErrorMode (l_ErrorMode);
+ '		SetErrorMode (l_ErrorMode);'
+//		end;
+ '	end;'
+//	end;
+ 'end;'
+//	
+//	procedure T%SNDll.DllFree;
+ 'procedure T'
+ %S |N 'Dll.DllFree;'
+//	begin
+ 'begin'
+//		if (f_HModule \<\> HMODULE (0)) then
+ '	if (f_HModule <> HMODULE (0)) then'
+//		begin
+ '	begin'
+//			try
+ '		try'
+//				FreeLibrary (f_HModule);
+ '			FreeLibrary (f_HModule);'
+//			except
+ '		except'
+//			end;
+ '		end;'
+//		end;
+ '	end;'
+//	end;
+ 'end;'
+//	
+//	constructor T%SNDll.Create(aClientVersion: LongWord);
+ 'constructor T'
+ %S |N 'Dll.Create(aClientVersion: LongWord);'
+//	begin
+ 'begin'
+//		inherited Create;
+ '	inherited Create;'
+//		DllLoad;
+ '	DllLoad;'
+//		RootInit(aClientVersion);
+ '	RootInit(aClientVersion);'
+//	end;
+ 'end;'
+//	
+//	constructor T%SNDll.Create (aClientVersion: LongWord; const aLocale: PAnsiChar);
+ 'constructor T'
+ %S |N 'Dll.Create (aClientVersion: LongWord; const aLocale: PAnsiChar);'
+//	begin
+ 'begin'
+//		inherited Create;
+ '	inherited Create;'
+//		DllLoad;
+ '	DllLoad;'
+//		RootInit(aClientVersion, aLocale);
+ '	RootInit(aClientVersion, aLocale);'
+//	end;
+ 'end;'
+//	
+//	[{%S{load strategy}=static}{destructor T%SNDll.Destroy}procedure T%SNDll.Cleanup];
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+  'procedure T'
+  %S |N 'Dll.Cleanup' 
+ end // if
+ else
+ begin
+  'destructor T'
+  %S |N 'Dll.Destroy' 
+ end // else
+ ';'
+//	begin
+ 'begin'
+//		f_DllRoot := nil;
+ '	f_DllRoot := nil;'
+//		RootDone;
+ '	RootDone;'
+//		DllFree;
+ '	DllFree;'
+//		inherited[{%S{load strategy}=static} Cleanup];
+ '	inherited'
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+  ' Cleanup' 
+ end // if
+ ';'
+//	end;
+ 'end;'
+//	
+//	class function T%SNDll.Make(const aLocale: PAnsiChar): I%SNDll;
+ 'class function T'
+ %S |N 'Dll.Make(const aLocale: PAnsiChar): I'
+ %S |N 'Dll;'
+//	[{%S{load strategy}=dynamic}begin
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'dynamic' ) then
+ begin
+  'begin'
+//		Result := T%SNDll.Create(CLibraryVersion, aLocale);
+  '	Result := T'
+  %S |N 'Dll.Create(CLibraryVersion, aLocale);'
+//	end;][{%S{load strategy}=static}\
+  'end;' 
+ end // if
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+//	begin
+  'begin'
+//		if g_%SNDLL = nil then
+  '	if g_'
+  %S |N 'DLL = nil then'
+//			g_%SNDLL := T%SNDll.Create(CLibraryVersion, aLocale);
+  '		g_'
+  %S |N 'DLL := T'
+  %S |N 'Dll.Create(CLibraryVersion, aLocale);'
+//		Result := g_%SNDLL;
+  '	Result := g_'
+  %S |N 'DLL;'
+//	end;
+  'end;'
+//	]
+ end // if
+//	
+//	class function T%SNDll.Make: I%SNDll;
+ 'class function T'
+ %S |N 'Dll.Make: I'
+ %S |N 'Dll;'
+//	[{%S{load strategy}=dynamic}begin
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'dynamic' ) then
+ begin
+  'begin'
+//		Result := T%SNDll.Create(CLibraryVersion);
+  '	Result := T'
+  %S |N 'Dll.Create(CLibraryVersion);'
+//	end;][{%S{load strategy}=static}\
+  'end;' 
+ end // if
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+//	begin
+  'begin'
+//		if g_%SNDLL = nil then
+  '	if g_'
+  %S |N 'DLL = nil then'
+//			g_%SNDLL := T%SNDll.Create(CLibraryVersion);
+  '		g_'
+  %S |N 'DLL := T'
+  %S |N 'Dll.Create(CLibraryVersion);'
+//		Result := g_%SNDLL;
+  '	Result := g_'
+  %S |N 'DLL;'
+//	end;
+  'end;'
+//	]
+ end // if
+//	
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	'
+//	// plain DLL method's wrappers
+ '// plain DLL method's wrappers'
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	
+//	function T%SNDll.GetVersion: LongWord;
+ 'function T'
+ %S |N 'Dll.GetVersion: LongWord;'
+//	const
+ 'const'
+//		CProcName = '_tie_dll_version@0';
+ '	CProcName = '_tie_dll_version@0';'
+//	type
+ 'type'
+//		TProcType = function: Integer; stdcall;
+ '	TProcType = function: Integer; stdcall;'
+//	var
+ 'var'
+//		l_ProcAddress: Pointer;
+ '	l_ProcAddress: Pointer;'
+//	begin
+ 'begin'
+//		l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));
+ '	l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));'
+
+//		if (not Assigned (l_ProcAddress)) then
+ '	if (not Assigned (l_ProcAddress)) then'
+//			raise EGetProcAddressError.Create ('DLL method not found: '+CLibraryName+'.'+CProcName);
+ '		raise EGetProcAddressError.Create (''DLL method not found: ''+CLibraryName+''.''+CProcName);'
+//	
+//		Result := TProcType (l_ProcAddress);
+ '	Result := TProcType (l_ProcAddress);'
+//	end;
+ 'end;'
+//	
+//	function T%SNDll.GetRoot: I%SNRoot;
+ 'function T'
+ %S |N 'Dll.GetRoot: I'
+ %S |N 'Root;'
+//	const
+ 'const'
+//		CProcName = '_tie_dll_get_root@4';
+ '	CProcName = '_tie_dll_get_root@4';'
+//	type
+ 'type'
+//		TProcType = procedure (out aRoot{: I%SNRoot}); stdcall;
+ '	TProcType = procedure (out aRoot{: I'
+ %S |N 'Root}); stdcall;'
+//	var
+ 'var'
+//		l_ProcAddress: Pointer;
+ '	l_ProcAddress: Pointer;'
+//	begin
+ 'begin'
+//		if (not Assigned (f_DllRoot)) then
+ '	if (not Assigned (f_DllRoot)) then'
+//		begin
+ '	begin'
+//			l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));
+ '		l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));'
+//		
+ '	'
+//			if (not Assigned (l_ProcAddress)) then
+ '		if (not Assigned (l_ProcAddress)) then'
+//				raise EGetProcAddressError.Create ('DLL method not found: '+CLibraryName+'.'+CProcName);
+ '			raise EGetProcAddressError.Create (''DLL method not found: ''+CLibraryName+''.''+CProcName);'
+//		
+ '	'
+//			TProcType (l_ProcAddress)(f_DllRoot);
+ '		TProcType (l_ProcAddress)(f_DllRoot);'
+//		end;
+ '	end;'
+//		
+ '	'
+//		Result := f_DllRoot;
+ '	Result := f_DllRoot;'
+//	end;
+ 'end;'
+//	
+//	procedure T%SNDll.RootInit (aClientVersion: LongWord; const aLocale: PAnsiChar);
+ 'procedure T'
+ %S |N 'Dll.RootInit (aClientVersion: LongWord; const aLocale: PAnsiChar);'
+//	const
+ 'const'
+//		CProcName = '_tie_dll_init_with_locale@8';
+ '	CProcName = '_tie_dll_init_with_locale@8';'
+//	type
+ 'type'
+//		TProcType = procedure (aClientVersion: LongWord; const aLocale: PAnsiChar); stdcall;
+ '	TProcType = procedure (aClientVersion: LongWord; const aLocale: PAnsiChar); stdcall;'
+//	var
+ 'var'
+//		l_ProcAddress: Pointer;
+ '	l_ProcAddress: Pointer;'
+//	begin
+ 'begin'
+//		l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));
+ '	l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));'
+//	
+//		if (not Assigned (l_ProcAddress)) then
+ '	if (not Assigned (l_ProcAddress)) then'
+//			raise EGetProcAddressError.Create ('DLL method not found: '+CLibraryName+'.'+CProcName);
+ '		raise EGetProcAddressError.Create (''DLL method not found: ''+CLibraryName+''.''+CProcName);'
+//	
+//		TProcType (l_ProcAddress) (aClientVersion, aLocale);
+ '	TProcType (l_ProcAddress) (aClientVersion, aLocale);'
+//	end;
+ 'end;'
+//	
+//	procedure T%SNDll.RootInit(aClientVersion: LongWord);
+ 'procedure T'
+ %S |N 'Dll.RootInit(aClientVersion: LongWord);'
+//	const
+ 'const'
+//		CProcName = '_tie_dll_init@4';
+ '	CProcName = '_tie_dll_init@4';'
+//	type
+ 'type'
+//		TProcType = procedure (aClientVersion: LongWord); stdcall;
+ '	TProcType = procedure (aClientVersion: LongWord); stdcall;'
+//	var
+ 'var'
+//		l_ProcAddress: Pointer;
+ '	l_ProcAddress: Pointer;'
+//	begin
+ 'begin'
+//		l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));
+ '	l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));'
+//	
+//		if (not Assigned (l_ProcAddress)) then
+ '	if (not Assigned (l_ProcAddress)) then'
+//			raise EGetProcAddressError.Create ('DLL method not found: '+CLibraryName+'.'+CProcName);
+ '		raise EGetProcAddressError.Create (''DLL method not found: ''+CLibraryName+''.''+CProcName);'
+//	
+//		TProcType (l_ProcAddress) (aClientVersion);
+ '	TProcType (l_ProcAddress) (aClientVersion);'
+//	end;
+ 'end;'
+//	
+//	procedure T%SNDll.RootDone;
+ 'procedure T'
+ %S |N 'Dll.RootDone;'
+//	const
+ 'const'
+//		CProcName = '_tie_dll_done@0';
+ '	CProcName = '_tie_dll_done@0';'
+//	type
+ 'type'
+//		TProcType = procedure; stdcall;
+ '	TProcType = procedure; stdcall;'
+//	var
+ 'var'
+//		l_ProcAddress: Pointer;
+ '	l_ProcAddress: Pointer;'
+//	begin
+ 'begin'
+//		if f_HModule \<\> HMODULE (0) then
+ '	if f_HModule <> HMODULE (0) then'
+//		begin
+ '	begin'
+//			l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));
+ '		l_ProcAddress := GetProcAddress (f_HModule, PAnsiChar (CProcName));'
+//		
+ '	'
+//			if (not Assigned (l_ProcAddress)) then
+ '		if (not Assigned (l_ProcAddress)) then'
+//				raise EGetProcAddressError.Create ('DLL method not found: '+CLibraryName+'.'+CProcName);
+ '			raise EGetProcAddressError.Create (''DLL method not found: ''+CLibraryName+''.''+CProcName);'
+//				
+ '			'
+//			TProcType (l_ProcAddress);
+ '		TProcType (l_ProcAddress);'
+//		end;
+ '	end;'
+//	end;
+ 'end;'
+
+
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	'
+//	// exception maping support
+ '// exception maping support'
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+
+//	type
+ 'type'
+//		TExceptionIdMapItem = record
+ '	TExceptionIdMapItem = record'
+//			rId: AnsiString;
+ '		rId: AnsiString;'
+//			rEClass: ExceptClass;
+ '		rEClass: ExceptClass;'
+//			rMessage: string;
+ '		rMessage: string;'
+//		end;
+ '	end;'
+//	
+//	[{"%f_has_exception(%S)"="true"}resourcestring
+ if ( ( [%f] has_exception %( %S )% ) %== true ) then
+ begin
+  'resourcestring'
+//		// "Нормальные" текстовые сообщения для исключений, которые "видит" пользователь.
+  '	// "Нормальные" текстовые сообщения для исключений, которые "видит" пользователь.'
+//		// (!) Общий формат для имен: строка с именем `S\<ИмяИсключения\>` соответствует классу с именем `E\<ИмяИсключения\>`.
+  '	// (!) Общий формат для имен: строка с именем `S<ИмяИсключения>` соответствует классу с именем `E<ИмяИсключения>`.'
+//		//
+  '	//'
+//	<{}{}{Sn}%d<{\n}{"%AM"="Exception::Class"&%A<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}{Sn}	_S%AN = '%f_str_conv("[{}{%AN}%f_str_replace(%f_str_replace(%AD,',''),\n,%f_space(%A))]","%250[^\0]%15s","%s%s")';
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%dn
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%An
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Exception::Class' AND 
+       ( ( %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%P
+       begin
+        OBJECT IN %P
+        if ( ( %P %?f IsInterfaces %( )% ) %==  true ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for P
+       l_Counter
+
+      ) // bind
+ )       %!= 0  ) ) then
+      begin
+       if ( l_Counter >0 ) then ( #13#10 )
+       '	_S'
+       %A |N ' = '''
+       [%f] str_conv %( if NOT-EMPTY
+       begin
+        [%f] str_replace %( [%f] str_replace %( %A |D %, '''' %, '''''' )% %, #13#10 %, [%f] space %( %A )% )% 
+       end // if
+       NOP
+       else
+       begin
+        %A |N 
+       end // else
+%,        %2 50 if NOT-EMPTY
+       begin
+        '^0' 
+       end // if
+       NOP
+       %1 5 's"' %, %s ->s  )% '';'
+//	>>
+
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	
+  #13#10
+
+//	const
+  'const'
+//		// Карта \[map\] перекодировки: текстовой строке ставиться в соответствие нужный мета-класс исключения и сообщение.
+  '	// Карта [map] перекодировки: текстовой строке ставиться в соответствие нужный мета-класс исключения и сообщение.'
+//		//
+  '	//'
+//		cIdToExceptionMapMaxItems = %f_evaluate(<{ + }{}%d<{}{"%AM"="Exception::Class"&%A<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}{C}>>[{"%f_use_server(%S)"="true"} + 1] + 4); // максимальное количество элементов в таблице
+  '	cIdToExceptionMapMaxItems = '
+  [%f] evaluate %( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ' + ' )
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Exception::Class' AND 
+       ( ( %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%P
+       begin
+        OBJECT IN %P
+        if ( ( %P %?f IsInterfaces %( )% ) %==  true ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for P
+       l_Counter
+
+      ) // bind
+ )       %!= 0  ) ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for A
+     l_Counter
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+  if ( ( [%f] use_server %( %S )% ) %== true ) then
+  begin
+   ' + 1' 
+  end // if
+  ' + 4' )% '; // максимальное количество элементов в таблице'
+//	
+  #13#10
+
+//	type
+  'type'
+//		TIdToExceptionMapArray = array \[0..cIdToExceptionMapMaxItems - 1\] of TExceptionIdMapItem;
+  '	TIdToExceptionMapArray = array [0..cIdToExceptionMapMaxItems - 1] of TExceptionIdMapItem;'
+//	
+  #13#10
+
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	
+  #13#10
+
+//	type
+  'type'
+//		TIdToExceptionMap = class([{%S{load strategy}=static}{TObject}Tl3ProtoObject])
+  '	TIdToExceptionMap = class('
+  if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+  begin
+   'Tl3ProtoObject' 
+  end // if
+  else
+  begin
+   'TObject' 
+  end // else
+  ')'
+//		private
+  '	private'
+//			f_Map: TIdToExceptionMapArray;
+  '		f_Map: TIdToExceptionMapArray;'
+//		public
+  '	public'
+//			constructor Create;
+  '		constructor Create;'
+//				reintroduce;
+  '			reintroduce;'
+//			function ConvertIdToIndex(const aId: PAnsiChar; out aIndex: Longword): Boolean;
+  '		function ConvertIdToIndex(const aId: PAnsiChar; out aIndex: Longword): Boolean;'
+//			function GetExceptionClass(anIndex: Longword): ExceptClass;
+  '		function GetExceptionClass(anIndex: Longword): ExceptClass;'
+//			function CreateException(anIndex: Longword): Exception;
+  '		function CreateException(anIndex: Longword): Exception;'
+//	end;
+  'end;'
+//	
+  #13#10
+
+//	{TIdToExceptionMap}
+  '{TIdToExceptionMap}'
+//	
+  #13#10
+
+//	function TIdToExceptionMap.ConvertIdToIndex(const aId: PAnsiChar; out aIndex: Longword): Boolean;
+  'function TIdToExceptionMap.ConvertIdToIndex(const aId: PAnsiChar; out aIndex: Longword): Boolean;'
+//	var
+  'var'
+//		l_Index: Longword;
+  '	l_Index: Longword;'
+//	begin
+  'begin'
+//		Result := False;
+  '	Result := False;'
+//		aIndex := 0;
+  '	aIndex := 0;'
+//		for l_Index := Low (f_Map) to High (f_Map) do
+  '	for l_Index := Low (f_Map) to High (f_Map) do'
+//			if (StrComp (aId, PAnsiChar (f_Map\[l_Index\].rId)) = 0) then
+  '		if (StrComp (aId, PAnsiChar (f_Map[l_Index].rId)) = 0) then'
+//			begin
+  '		begin'
+//				aIndex := l_Index;
+  '			aIndex := l_Index;'
+//				Result := True;
+  '			Result := True;'
+//				
+  '			'
+//				Break;
+  '			Break;'
+//			end;
+  '		end;'
+//	end;
+  'end;'
+//	
+  #13#10
+
+//	constructor TIdToExceptionMap.Create;
+  'constructor TIdToExceptionMap.Create;'
+//		procedure lp_Init(anIndex: Longword; const aGUID, aMessage: string; const aClass: ExceptClass);
+  '	procedure lp_Init(anIndex: Longword; const aGUID, aMessage: string; const aClass: ExceptClass);'
+//		begin
+  '	begin'
+//			with f_Map\[anIndex\] do
+  '		with f_Map[anIndex] do'
+//			begin
+  '		begin'
+//				rId := aGUID;
+  '			rId := aGUID;'
+//				rEClass := aClass;
+  '			rEClass := aClass;'
+//				rMessage := aMessage;
+  '			rMessage := aMessage;'
+//			end;
+  '		end;'
+//		end;
+  '	end;'
+//	
+  #13#10
+
+//	begin
+  'begin'
+//		inherited Create;
+  '	inherited Create;'
+//		// заполнение f_Map
+  '	// заполнение f_Map'
+//		%f_set_var(INDEX,"4")
+  '	'
+  [%f] set_var %( 'INDEX' %, 4 )% 
+//		lp_Init (0, '0000-0000-0000-0000-000000000000', 'dummy exception', EStdException);
+  '	lp_Init (0, ''0000-0000-0000-0000-000000000000'', ''dummy exception'', EStdException);'
+//		lp_Init (1, '4DDEBC97-3F88-4811-9423-8BDEE07A9C21', 'Выход за границы массива', EListError);
+  '	lp_Init (1, ''4DDEBC97-3F88-4811-9423-8BDEE07A9C21'', ''Выход за границы массива'', EListError);'
+//		lp_Init (2, '69708A24-C2D3-4685-8016-7E2FD8A5888C', 'Неправильная версия ДЛЛ', EWrongVersion);
+  '	lp_Init (2, ''69708A24-C2D3-4685-8016-7E2FD8A5888C'', ''Неправильная версия ДЛЛ'', EWrongVersion);'
+//		lp_Init (3, '42540CD0-2B0C-45F2-82DB-0474D2D29867', 'No one servant was registers in factory with a given key', EUnknownFactoryKey);[{"%f_use_server(%S)"="true"}
+  '	lp_Init (3, ''42540CD0-2B0C-45F2-82DB-0474D2D29867'', ''No one servant was registers in factory with a given key'', EUnknownFactoryKey);'
+  if ( ( [%f] use_server %( %S )% ) %== true ) then
+  begin
+   #13#10
+
+//		lp_Init (4, 'F11331C9-6903-4F59-9876-78B3CCEE3209', 'DLL can''t find corresponding server', ECantFindServer);]<%d<{}{"%AM"="Exception::Class"&%A<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}%f_set_var(INDEX,"%f_evaluate(%{INDEX}N+1)")
+   '	lp_Init (4, ''F11331C9-6903-4F59-9876-78B3CCEE3209'', ''DLL can''''t find corresponding server'', ECantFindServer);' 
+  end // if
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%d
+  begin
+   OBJECT IN %d
+   if true then
+   begin
+    %d
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%A
+     begin
+      OBJECT IN %A
+      if ( ( %A |M ) %== 'Exception::Class' AND 
+       ( ( %A
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%P
+       begin
+        OBJECT IN %P
+        if ( ( %P %?f IsInterfaces %( )% ) %==  true ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for P
+       l_Counter
+
+      ) // bind
+ )       %!= 0  ) ) then
+      begin
+       [%f] set_var %( 'INDEX' %, [%f] evaluate %( ( get_global_var ( 'INDEX' ) |N ) integer:?++ )% )% 
+//		lp_Init (%{INDEX}N, '%AG', '_S%AN', E%AN);>>
+       '	lp_Init ('
+       ( get_global_var ( 'INDEX' ) |N ) ', '''
+       %A |G ''', ''_S'
+       %A |N ''', E'
+       %A |N ');' 
+       ++! l_Counter
+      end // if
+     end // for A
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for d
+//	end;
+  'end;'
+//	
+  #13#10
+
+//	function TIdToExceptionMap.CreateException(anIndex: Longword): Exception;
+  'function TIdToExceptionMap.CreateException(anIndex: Longword): Exception;'
+//	begin
+  'begin'
+//		with f_Map \[anIndex\] do
+  '	with f_Map [anIndex] do'
+//			Result := rEClass.Create (rMessage);
+  '		Result := rEClass.Create (rMessage);'
+//	end;
+  'end;'
+//	
+  #13#10
+
+//	function TIdToExceptionMap.GetExceptionClass(anIndex: Longword): ExceptClass;
+  'function TIdToExceptionMap.GetExceptionClass(anIndex: Longword): ExceptClass;'
+//	begin
+  'begin'
+//		Result := f_Map \[anIndex\].rEClass;
+  '	Result := f_Map [anIndex].rEClass;'
+//	end;
+  'end;'
+//	
+  #13#10
+
+//	var
+  'var'
+//		g_ExceptionMap: TIdToExceptionMap = nil;
+  '	g_ExceptionMap: TIdToExceptionMap = nil;'
+//	]
+ end // if
+//	var
+ 'var'
+//		gExceptClsProc: Pointer;
+ '	gExceptClsProc: Pointer;'
+//		gExceptObjProc: Pointer;
+ '	gExceptObjProc: Pointer;'
+//	
+//	
+//	function GetExceptionClass (aExceptionRecord: PExceptionRecord): ExceptClass;
+ 'function GetExceptionClass (aExceptionRecord: PExceptionRecord): ExceptClass;'
+//	type
+ 'type'
+//		TExceptClsProc = function (aExceptionRecord: PExceptionRecord): ExceptClass;
+ '	TExceptClsProc = function (aExceptionRecord: PExceptionRecord): ExceptClass;'
+//	[{"%f_has_exception(%S)"="true"}var
+ if ( ( [%f] has_exception %( %S )% ) %== true ) then
+ begin
+  'var'
+//		lIndex: Cardinal;
+  '	lIndex: Cardinal;'
+//	]begin
+ end // if
+ 'begin'
+//		Result := nil;
+ '	Result := nil;'
+//		case aExceptionRecord^.ExceptionCode of
+ '	case aExceptionRecord^.ExceptionCode of'
+//			DWORD ($E0040200):
+ '		DWORD ($E0040200):'
+//			begin
+ '		begin'
+//				if (
+ '			if ('
+//					((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0)
+ '				((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0)'
+//					and (aExceptionRecord^.NumberParameters = 0)
+ '				and (aExceptionRecord^.NumberParameters = 0)'
+//				) then
+ '			) then'
+//				begin
+ '			begin'
+//					Result := EOutOfMemory;
+ '				Result := EOutOfMemory;'
+//				end;
+ '			end;'
+//			end;
+ '		end;'
+//			DWORD ($E0040201):
+ '		DWORD ($E0040201):'
+//			begin
+ '		begin'
+//				if (
+ '			if ('
+//					((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0)
+ '				((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0)'
+//					and (aExceptionRecord^.NumberParameters = 1)
+ '				and (aExceptionRecord^.NumberParameters = 1)'
+//					and (aExceptionRecord^.ExceptionInformation \[0\] \<\> 0)
+ '				and (aExceptionRecord^.ExceptionInformation [0] <> 0)'
+//				) then
+ '			) then'
+//				begin
+ '			begin'
+//					Result := EStdException;
+ '				Result := EStdException;'
+//				end;
+ '			end;'
+//			end;
+ '		end;'
+//			DWORD ($E0040202):
+ '		DWORD ($E0040202):'
+//			begin
+ '		begin'
+//				if (
+ '			if ('
+//					((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0)
+ '				((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0)'
+//					and (aExceptionRecord^.NumberParameters = 1)
+ '				and (aExceptionRecord^.NumberParameters = 1)'
+//					and (aExceptionRecord^.ExceptionInformation \[0\] \<\> 0)
+ '				and (aExceptionRecord^.ExceptionInformation [0] <> 0)'
+//				) then
+ '			) then'
+//				begin
+ '			begin'
+//					Result := ECorbaException;
+ '				Result := ECorbaException;'
+//				end;
+ '			end;'
+//			end;
+ '		end;'
+//			[{"%f_has_exception(%S)"="true"}DWORD ($E0040203):
+ '		'
+ if ( ( [%f] has_exception %( %S )% ) %== true ) then
+ begin
+  'DWORD ($E0040203):'
+//			begin
+  '		begin'
+//				if (
+  '			if ('
+//					((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0)
+  '				((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0)'
+//					and (aExceptionRecord^.NumberParameters = 1)
+  '				and (aExceptionRecord^.NumberParameters = 1)'
+//					and (aExceptionRecord^.ExceptionInformation \[0\] \<\> 0)
+  '				and (aExceptionRecord^.ExceptionInformation [0] <> 0)'
+//					and g_ExceptionMap.ConvertIdToIndex (PAnsiChar (aExceptionRecord^.ExceptionInformation \[0\]), lIndex)
+  '				and g_ExceptionMap.ConvertIdToIndex (PAnsiChar (aExceptionRecord^.ExceptionInformation [0]), lIndex)'
+//				) then
+  '			) then'
+//					begin
+  '				begin'
+//						Result := g_ExceptionMap.GetExceptionClass(lIndex);
+  '					Result := g_ExceptionMap.GetExceptionClass(lIndex);'
+//					end
+  '				end'
+//				else
+  '			else'
+//					if (
+  '				if ('
+//						((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0)
+  '					((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0)'
+//						and (aExceptionRecord^.NumberParameters = 2)
+  '					and (aExceptionRecord^.NumberParameters = 2)'
+//						and (aExceptionRecord^.ExceptionInformation \[0\] = 0)
+  '					and (aExceptionRecord^.ExceptionInformation [0] = 0)'
+//						and (aExceptionRecord^.ExceptionInformation \[1\] \<\> 0)
+  '					and (aExceptionRecord^.ExceptionInformation [1] <> 0)'
+//					) then
+  '				) then'
+//						begin
+  '					begin'
+//							Result := g_ExceptionMap.GetExceptionClass(aExceptionRecord^.ExceptionInformation \[1\]);
+  '						Result := g_ExceptionMap.GetExceptionClass(aExceptionRecord^.ExceptionInformation [1]);'
+//						end;
+  '					end;'
+//			end;]
+  '		end;' 
+ end // if
+//		end;
+ '	end;'
+//		if (
+ '	if ('
+//			Result = nil
+ '		Result = nil'
+//		) then
+ '	) then'
+//		begin
+ '	begin'
+//			Result := TExceptClsProc (gExceptClsProc) (aExceptionRecord);
+ '		Result := TExceptClsProc (gExceptClsProc) (aExceptionRecord);'
+//		end;
+ '	end;'
+//	end;
+ 'end;'
+//	
+//	var
+ 'var'
+//		g_CorbaExceptionMessage : String = '';
+ '	g_CorbaExceptionMessage : String = '';'
+//		g_StdExceptionMessage : String = '';
+ '	g_StdExceptionMessage : String = '';'
+//	
+//	function GetExceptionObject (aExceptionRecord: PExceptionRecord): Exception;
+ 'function GetExceptionObject (aExceptionRecord: PExceptionRecord): Exception;'
+//	type
+ 'type'
+//		TExceptObjProc = function (aExceptionRecord: PExceptionRecord): Exception;
+ '	TExceptObjProc = function (aExceptionRecord: PExceptionRecord): Exception;'
+//	[{"%f_has_exception(%S)"="true"}var
+ if ( ( [%f] has_exception %( %S )% ) %== true ) then
+ begin
+  'var'
+//		lIndex: Cardinal;
+  '	lIndex: Cardinal;'
+//	]begin
+ end // if
+ 'begin'
+//		Result := nil;
+ '	Result := nil;'
+//		case aExceptionRecord^.ExceptionCode of
+ '	case aExceptionRecord^.ExceptionCode of'
+//			DWORD ($E0040200):
+ '		DWORD ($E0040200):'
+//			begin
+ '		begin'
+//				if (
+ '			if ('
+//					((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0)
+ '				((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0)'
+//					and (aExceptionRecord^.NumberParameters = 0)
+ '				and (aExceptionRecord^.NumberParameters = 0)'
+//				) then
+ '			) then'
+//				begin
+ '			begin'
+//					// (!) Специальный трюк: это исключение о "нехватке" памяти и оно не может быть создано динамически.
+ '				// (!) Специальный трюк: это исключение о "нехватке" памяти и оно не может быть создано динамически.'
+//					try
+ '				try'
+//						OutOfMemoryError ();
+ '					OutOfMemoryError ();'
+//					except
+ '				except'
+//						on l_Exception: EOutOfMemory do Result := l_Exception;
+ '					on l_Exception: EOutOfMemory do Result := l_Exception;'
+//					end;
+ '				end;'
+//				end;
+ '			end;'
+//			end;
+ '		end;'
+//			DWORD ($E0040201):
+ '		DWORD ($E0040201):'
+//			begin
+ '		begin'
+//				if ((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0) then
+ '			if ((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0) then'
+//				begin
+ '			begin'
+//					if (
+ '				if ('
+//						(aExceptionRecord^.NumberParameters = 1)
+ '					(aExceptionRecord^.NumberParameters = 1)'
+//						and (aExceptionRecord^.ExceptionInformation \[0\] \<\> 0)
+ '					and (aExceptionRecord^.ExceptionInformation [0] <> 0)'
+//					) then
+ '				) then'
+//					begin
+ '				begin'
+//						try
+ '					try'
+//							g_StdExceptionMessage := PAnsiChar (aExceptionRecord^.ExceptionInformation \[0\]);
+ '						g_StdExceptionMessage := PAnsiChar (aExceptionRecord^.ExceptionInformation [0]);'
+//							Result := EStdException.Create (g_StdExceptionMessage);
+ '						Result := EStdException.Create (g_StdExceptionMessage);'
+//						finally
+ '					finally'
+//							try
+ '						try'
+//								CoTaskMemFree (Pointer (aExceptionRecord^.ExceptionInformation \[0\]));
+ '							CoTaskMemFree (Pointer (aExceptionRecord^.ExceptionInformation [0]));'
+//							finally
+ '						finally'
+//								aExceptionRecord^.NumberParameters := 2;
+ '							aExceptionRecord^.NumberParameters := 2;'
+//								aExceptionRecord^.ExceptionInformation \[0\] := 0;
+ '							aExceptionRecord^.ExceptionInformation [0] := 0;'
+//								aExceptionRecord^.ExceptionInformation \[1\] := DWORD (-1);
+ '							aExceptionRecord^.ExceptionInformation [1] := DWORD (-1);'
+//							end;
+ '						end;'
+//						end;
+ '					end;'
+//					end
+ '				end'
+//					else
+ '				else'
+//					begin
+ '				begin'
+//						if (
+ '					if ('
+//							(aExceptionRecord^.NumberParameters = 2)
+ '						(aExceptionRecord^.NumberParameters = 2)'
+//							and (aExceptionRecord^.ExceptionInformation \[0\]  = 0)
+ '						and (aExceptionRecord^.ExceptionInformation [0]  = 0)'
+//							and (aExceptionRecord^.ExceptionInformation \[1\] = DWORD (-1))
+ '						and (aExceptionRecord^.ExceptionInformation [1] = DWORD (-1))'
+//						) then
+ '					) then'
+//						begin
+ '					begin'
+//							Result := EStdException.Create (g_StdExceptionMessage);
+ '						Result := EStdException.Create (g_StdExceptionMessage);'
+//						end;
+ '					end;'
+//					end;
+ '				end;'
+//				end;
+ '			end;'
+//			end;
+ '		end;'
+//			DWORD ($E0040202):
+ '		DWORD ($E0040202):'
+//			begin
+ '		begin'
+//				if ((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0) then
+ '			if ((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0) then'
+//				begin
+ '			begin'
+//					if (
+ '				if ('
+//						(aExceptionRecord^.NumberParameters = 1)
+ '					(aExceptionRecord^.NumberParameters = 1)'
+//						and (aExceptionRecord^.ExceptionInformation \[0\] \<\> 0)
+ '					and (aExceptionRecord^.ExceptionInformation [0] <> 0)'
+//					) then
+ '				) then'
+//					begin
+ '				begin'
+//						try
+ '					try'
+//							g_CorbaExceptionMessage := PAnsiChar (aExceptionRecord^.ExceptionInformation \[0\]);
+ '						g_CorbaExceptionMessage := PAnsiChar (aExceptionRecord^.ExceptionInformation [0]);'
+//							Result := ECorbaException.Create (g_CorbaExceptionMessage);
+ '						Result := ECorbaException.Create (g_CorbaExceptionMessage);'
+//						finally
+ '					finally'
+//							try
+ '						try'
+//								CoTaskMemFree (Pointer (aExceptionRecord^.ExceptionInformation \[0\]));
+ '							CoTaskMemFree (Pointer (aExceptionRecord^.ExceptionInformation [0]));'
+//							finally
+ '						finally'
+//								aExceptionRecord^.NumberParameters := 2;
+ '							aExceptionRecord^.NumberParameters := 2;'
+//								aExceptionRecord^.ExceptionInformation \[0\] := 0;
+ '							aExceptionRecord^.ExceptionInformation [0] := 0;'
+//								aExceptionRecord^.ExceptionInformation \[1\] := DWORD (-1);
+ '							aExceptionRecord^.ExceptionInformation [1] := DWORD (-1);'
+//							end;
+ '						end;'
+//						end;
+ '					end;'
+//					end
+ '				end'
+//					else
+ '				else'
+//					begin
+ '				begin'
+//						if (
+ '					if ('
+//							(aExceptionRecord^.NumberParameters = 2)
+ '						(aExceptionRecord^.NumberParameters = 2)'
+//							and (aExceptionRecord^.ExceptionInformation \[0\]  = 0)
+ '						and (aExceptionRecord^.ExceptionInformation [0]  = 0)'
+//							and (aExceptionRecord^.ExceptionInformation \[1\] = DWORD (-1))
+ '						and (aExceptionRecord^.ExceptionInformation [1] = DWORD (-1))'
+//						) then
+ '					) then'
+//						begin
+ '					begin'
+//							Result := ECorbaException.Create (g_CorbaExceptionMessage);
+ '						Result := ECorbaException.Create (g_CorbaExceptionMessage);'
+//						end;
+ '					end;'
+//					end;
+ '				end;'
+//				end;
+ '			end;'
+//			end;
+ '		end;'
+//			[{"%f_has_exception(%S)"="true"}DWORD ($E0040203):
+ '		'
+ if ( ( [%f] has_exception %( %S )% ) %== true ) then
+ begin
+  'DWORD ($E0040203):'
+//			begin
+  '		begin'
+//				if ((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) \<\> 0) then
+  '			if ((aExceptionRecord^.ExceptionFlags and EXCEPTION_NONCONTINUABLE) <> 0) then'
+//				begin
+  '			begin'
+//					if (
+  '				if ('
+//						(aExceptionRecord^.NumberParameters = 1)
+  '					(aExceptionRecord^.NumberParameters = 1)'
+//						and (aExceptionRecord^.ExceptionInformation \[0\] \<\> 0)
+  '					and (aExceptionRecord^.ExceptionInformation [0] <> 0)'
+//					) then
+  '				) then'
+//					begin
+  '				begin'
+//						try
+  '					try'
+//							if (
+  '						if ('
+//								g_ExceptionMap.ConvertIdToIndex (PAnsiChar (aExceptionRecord^.ExceptionInformation \[0\]), lIndex)
+  '							g_ExceptionMap.ConvertIdToIndex (PAnsiChar (aExceptionRecord^.ExceptionInformation [0]), lIndex)'
+//							) then
+  '						) then'
+//							begin
+  '						begin'
+//								Result := g_ExceptionMap.CreateException(lIndex);
+  '							Result := g_ExceptionMap.CreateException(lIndex);'
+//							end;
+  '						end;'
+//						finally
+  '					finally'
+//							try
+  '						try'
+//								CoTaskMemFree (Pointer (aExceptionRecord^.ExceptionInformation \[0\]));
+  '							CoTaskMemFree (Pointer (aExceptionRecord^.ExceptionInformation [0]));'
+//							finally
+  '						finally'
+//								aExceptionRecord^.NumberParameters := 2;
+  '							aExceptionRecord^.NumberParameters := 2;'
+//								aExceptionRecord^.ExceptionInformation \[0\] := 0;
+  '							aExceptionRecord^.ExceptionInformation [0] := 0;'
+//								aExceptionRecord^.ExceptionInformation \[1\] := DWORD (lIndex);
+  '							aExceptionRecord^.ExceptionInformation [1] := DWORD (lIndex);'
+//							end;
+  '						end;'
+//						end;
+  '					end;'
+//					end
+  '				end'
+//					else
+  '				else'
+//					begin
+  '				begin'
+//						if (
+  '					if ('
+//							(aExceptionRecord^.NumberParameters = 2)
+  '						(aExceptionRecord^.NumberParameters = 2)'
+//							and (aExceptionRecord^.ExceptionInformation \[0\]  = 0)
+  '						and (aExceptionRecord^.ExceptionInformation [0]  = 0)'
+//							and (aExceptionRecord^.ExceptionInformation \[1\] \<\> 0)
+  '						and (aExceptionRecord^.ExceptionInformation [1] <> 0)'
+//						) then
+  '					) then'
+//						begin
+  '					begin'
+//							lIndex := Longword (aExceptionRecord^.ExceptionInformation \[1\]);
+  '						lIndex := Longword (aExceptionRecord^.ExceptionInformation [1]);'
+//							Result := g_ExceptionMap.CreateException(lIndex);
+  '						Result := g_ExceptionMap.CreateException(lIndex);'
+//						end;
+  '					end;'
+//					end;
+  '				end;'
+//				end;
+  '			end;'
+//			end;]
+  '		end;' 
+ end // if
+//		end;
+ '	end;'
+//	
+//		if (Result = nil) then
+ '	if (Result = nil) then'
+//		begin
+ '	begin'
+//			Result := TExceptObjProc (gExceptObjProc) (aExceptionRecord);
+ '		Result := TExceptObjProc (gExceptObjProc) (aExceptionRecord);'
+//		end
+ '	end'
+//		else
+ '	else'
+//		begin
+ '	begin'
+//			{$IF DEFINED(UseNoServerExceptionEvent)}
+ '		{$IF DEFINED(UseNoServerExceptionEvent)}'
+//			if ((Result is ENoServer) and Assigned(g_NoServerExceptionEvent)) then
+ '		if ((Result is ENoServer) and Assigned(g_NoServerExceptionEvent)) then'
+//			begin
+ '		begin'
+//				g_NoServerExceptionEvent(Result);
+ '			g_NoServerExceptionEvent(Result);'
+//			end;
+ '		end;'
+//			{$IFEND} // UseNoServerExceptionEvent
+ '		{$IFEND} // UseNoServerExceptionEvent'
+//		end;
+ '	end;'
+//	end;
+ 'end;'
+//	
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	
+//	procedure ExitProc;
+ 'procedure ExitProc;'
+//	begin
+ 'begin'
+//		[{%S{load strategy}=static}FreeAndNil(g_%SNDLL);
+ '	'
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+  'FreeAndNil(g_'
+  %S |N 'DLL);'
+//		]ExceptObjProc := gExceptObjProc;
+  '	' 
+ end // if
+ 'ExceptObjProc := gExceptObjProc;'
+//		ExceptClsProc := gExceptClsProc;[{"%f_has_exception(%S)"="true"}
+ '	ExceptClsProc := gExceptClsProc;'
+ if ( ( [%f] has_exception %( %S )% ) %== true ) then
+ begin
+  #13#10
+
+//		FreeAndNil(g_ExceptionMap);]
+  '	FreeAndNil(g_ExceptionMap);' 
+ end // if
+//	end;
+ 'end;'
+//	
+//	procedure InitProc;
+ 'procedure InitProc;'
+//	begin[{"%f_has_exception(%S)"="true"}
+ 'begin'
+ if ( ( [%f] has_exception %( %S )% ) %== true ) then
+ begin
+  #13#10
+
+//		g_ExceptionMap := TIdToExceptionMap.Create;]
+  '	g_ExceptionMap := TIdToExceptionMap.Create;' 
+ end // if
+//		gExceptClsProc := ExceptClsProc;
+ '	gExceptClsProc := ExceptClsProc;'
+//		gExceptObjProc := ExceptObjProc;
+ '	gExceptObjProc := ExceptObjProc;'
+//		//
+ '	//'
+//		ExceptClsProc := @GetExceptionClass;
+ '	ExceptClsProc := @GetExceptionClass;'
+//		ExceptObjProc := @GetExceptionObject;
+ '	ExceptObjProc := @GetExceptionObject;'
+//	[{%S{load strategy}=static}	//
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'static' ) then
+ begin
+  '	//'
+//		l3System.AddExitProc (ExitProc);
+  '	l3System.AddExitProc (ExitProc);'
+//	]end;
+ end // if
+ 'end;'
+//	
+//	[{%S{need UC}=true}%U[{_CUSTOM_MAPPINHG_IMPL}
+ if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
+ begin
+  %Usersection (
+   '_CUSTOM_MAPPINHG_IMPL' 
+  )
+  (
+   #13#10
+
+//	]
+
+  ) // Usersection
+ //	]
+ end // if
+//	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	
+//	initialization
+ 'initialization'
+//		InitProc;
+ '	InitProc;'
+//	
+//	finalization
+ 'finalization'
+//		[{%S{load strategy}=dynamic}ExitProc;
+ '	'
+ if ( ( %S get_up ( 'load strategy' ) ) %== 'dynamic' ) then
+ begin
+  'ExitProc;'
+//		]Finalize(g_CorbaExceptionMessage);
+  '	' 
+ end // if
+ 'Finalize(g_CorbaExceptionMessage);'
+//		Finalize(g_StdExceptionMessage);
+ '	Finalize(g_StdExceptionMessage);'
+//	
+//	end.
+ 'end.'
+//#UC END# *470F152700FAfor47046C6B02FD*
+; // dump_adapter_dll_pas
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
+//+ mpc
+implementation @ <<AdapterTarget>>
+<<generator>> mpc OBJECT IN %S
+//#UC START# *47031E41002Efor47046C6B02FD*
+//P
+//O T_%SN.mpc
+//X W:/shared/support/mpc/scripts/mpc_comp.bat %SR%Sd T_%SN dll
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	project (T_%SN) : project_generic_core[{%f_use_server(%S)=true}_corba], project_subsystem_windows[{%f_mpc_need_antrl_proj(%S)=true}, project_antlr] {
+ 'project (T_'
+ %S |N ') : project_generic_core'
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  '_corba' 
+ end // if
+ ', project_subsystem_windows'
+ if ( ( [%f] mpc_need_antrl_proj %( %S )% ) %==  true ) then
+ begin
+  ', project_antlr' 
+ end // if
+ ' {'
+//		sharedname = %SN[/%aN]
+ '	sharedname = '
+ %S |N if NOT-EMPTY
+ begin
+  '/'
+  %a |N 
+ end // if
+ NOP
+//		after += Core
+ '	after += Core'
+//		libs  += Core
+ '	libs  += Core'
+//		[{%f_use_server(%S)=true}after += CoreSrv_cs
+ '	'
+ if ( ( [%f] use_server %( %S )% ) %==  true ) then
+ begin
+  'after += CoreSrv_cs'
+//		libs  += CoreSrv_cs
+  '	libs  += CoreSrv_cs'
+//		after += CoreSrv
+  '	after += CoreSrv'
+//		libs  += CoreSrv]
+  '	libs  += CoreSrv' 
+ end // if
+//	
+//	<{}{%de=false&%dS!=Requirements|"%d{native name}"!=""&%dS!=Requirements}{Sn}	after += [{%de=false}{%d{native name}}%dN[{"%dM"="ServerLibrary::Category"}_cs]][{"%dM"!="ServerLibrary::Category"}[
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%dn
+ begin
+  OBJECT IN %d
+  if ( ( %d |e ) %==  false AND 
+   ( ( %d |S ) %!= 'Requirements'  ) OR 
+   ( ( %d get_up ( 'native name' ) ) %!= ''  ) AND 
+   ( ( %d |S ) %!= 'Requirements'  ) ) then
+  begin
+   '	after += '
+   if ( ( %d |e ) %==  false ) then
+   begin
+    %d |N if ( ( %d |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     '_cs' 
+    end // if
+   end // if
+   else
+   begin
+    %d get_up ( 'native name' ) 
+   end // else
+   if ( ( %d |M ) %!= 'ServerLibrary::Category' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//		after += %f_with_gen_id(mpc.dll,%dN)_tie]]
+     '	after += '
+     [%f] with_gen_id %( 'mpc.dll' %, %d |N )% '_tie' 
+    end // if
+    NOP
+   end // if
+//		libs  += [{%de=false}{%d{native name}}%dN[{"%dM"="ServerLibrary::Category"}_cs]][{"%dM"!="ServerLibrary::Category"}[
+   '	libs  += '
+   if ( ( %d |e ) %==  false ) then
+   begin
+    %d |N if ( ( %d |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     '_cs' 
+    end // if
+   end // if
+   else
+   begin
+    %d get_up ( 'native name' ) 
+   end // else
+   if ( ( %d |M ) %!= 'ServerLibrary::Category' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     #13#10
+
+//		libs  += %f_with_gen_id(mpc.dll,%dN)_tie]]
+     '	libs  += '
+     [%f] with_gen_id %( 'mpc.dll' %, %d |N )% '_tie' 
+    end // if
+    NOP
+   end // if
+//	><{}{%DM=ServerLibrary::Category&%De=false}{Sn}	after += %DN
+
+   ++! l_Counter
+  end // if
+ end // for d
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Dn
+ begin
+  OBJECT IN %D
+  if ( ( %D |M ) %== 'ServerLibrary::Category' AND 
+   ( ( %D |e ) %==  false  ) ) then
+  begin
+   '	after += '
+   %D |N 
+//		libs  += %DN
+   '	libs  += '
+   %D |N 
+//	>
+
+   ++! l_Counter
+  end // if
+ end // for D
+//		%U[{_CUSTOM_DEPENDENSES}
+ '	'
+ %Usersection (
+  '_CUSTOM_DEPENDENSES' 
+ )
+ (
+  #13#10
+
+//		]
+  '	' 
+ ) // Usersection
+ //		includes += %f_root_relative_path(%S)
+ '	includes += '
+ [%f] root_relative_path %( %S )% 
+//	
+//		Header_Files {
+ '	Header_Files {'
+//			Std_Headers {
+ '		Std_Headers {'
+//			[	%f_normolized_path(h,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'h' %, 'S' )% 
+//			][	%f_normolized_path(h,a)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'h' %, 'a' )% 
+//			][	%f_normolized_path(dll.h,S)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'dll.h' %, 'S' )% 
+//			][	%f_normolized_path(dll.h,a)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'dll.h' %, 'a' )% 
+//			][	%f_normolized_path(fctr.h,S)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'fctr.h' %, 'S' )% 
+//			]}
+  '		' 
+ end // if
+ NOP
+ '}'
+//		}
+ '	}'
+//	
+//		Source_Files {
+ '	Source_Files {'
+//			Std_Sources {
+ '		Std_Sources {'
+//			[	%f_normolized_path(cpp,S)
+ '		'
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'cpp' %, 'S' )% 
+//			][	%f_normolized_path(cpp,a)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'cpp' %, 'a' )% 
+//			][	%f_normolized_path(dll.cpp,S)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'dll.cpp' %, 'S' )% 
+//			][	%f_normolized_path(fctr.cpp,S)
+  '		' 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '	'
+  [%f] normolized_path %( 'fctr.cpp' %, 'S' )% 
+//			]}
+  '		' 
+ end // if
+ NOP
+ '}'
+//		}
+ '	}'
+//		
+ '	'
+//		Resource_Files {
+ '	Resource_Files {'
+//			%f_normolized_path(vi.rc,S)
+ '		'
+ [%f] normolized_path %( 'vi.rc' %, 'S' )% 
+//			%f_normolized_path(vi.rch,S)
+ '		'
+ [%f] normolized_path %( 'vi.rch' %, 'S' )% 
+//			
+ '		'
+//			%U[{_RESOURCE_FILES}
+ '		'
+ %Usersection (
+  '_RESOURCE_FILES' 
+ )
+ (
+  #13#10
+
+//			]
+  '		' 
+ ) // Usersection
+ //		}
+ '	}'
+//	}
+ '}'
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//f _dump_target_dep
+; // mpc
+
+end. // <<AdapterTarget>>
+
+: dump_target_dep OBJECT IN %S
+//	%f_clear_list(TARGET_DEP)\
+ [%f] clear_list %( 'TARGET_DEP' )% 
+//	%f_collect_target_dep(%S)\
+ [%f] collect_target_dep %( %S )% 
+//	%f_sort_list(TARGET_DEP,n)\
+ [%f] sort_list %( 'TARGET_DEP' %, 'n' )% 
+//	%f_unique_list(TARGET_DEP)\
+ [%f] unique_list %( 'TARGET_DEP' )% 
+//	<{}{%f_is_empty(TARGET_DEP)=false}{W}[%f_pop_first_to_var(TARGET_DEP,_DEP_)	%{_DEP_}N
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'TARGET_DEP' )% ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    [%f] pop_first_to_var %( 'TARGET_DEP' %, '_DEP_' )% '	'
+    ( get_global_var ( '_DEP_' ) |N ) 
+//	]>
+   end // if
+   NOP
+
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//	%f_clear_list(TARGET_DEP)
+ [%f] clear_list %( 'TARGET_DEP' )% 
+
+//f _collect_target_dep
+; // dump_target_dep
+
+: collect_target_dep OBJECT IN %S
+//	<{}{%de=false&%dS!=Requirements|"%d{native name}"!=""&%dS!=Requirements}{Sn}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%dn
+ begin
+  OBJECT IN %d
+  if ( ( %d |e ) %==  false AND 
+   ( ( %d |S ) %!= 'Requirements'  ) OR 
+   ( ( %d get_up ( 'native name' ) ) %!= ''  ) AND 
+   ( ( %d |S ) %!= 'Requirements'  ) ) then
+  begin
+//	%f_add_to_list(TARGET_DEP,"after += [{%de=false}{%d{native name}}%dN[{"%dM"="ServerLibrary::Category"}_cs]]")\
+   [%f] add_to_list %( 'TARGET_DEP' %, 'after += '
+   if ( ( %d |e ) %==  false ) then
+   begin
+    %d |N if ( ( %d |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     '_cs' 
+    end // if
+   end // if
+   else
+   begin
+    %d get_up ( 'native name' ) 
+   end // else
+)% //	%f_add_to_list(TARGET_DEP,"[{"%dM"!="ServerLibrary::Category"}[after += %f_with_gen_id(mpc.dll,%dN)_tie]]")\
+   [%f] add_to_list %( 'TARGET_DEP' %, if ( ( %d |M ) %!= 'ServerLibrary::Category' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     'after += '
+     [%f] with_gen_id %( 'mpc.dll' %, %d |N )% '_tie' 
+    end // if
+    NOP
+   end // if
+)% //	%f_add_to_list(TARGET_DEP,"libs += [{%de=false}{%d{native name}}%dN[{"%dM"="ServerLibrary::Category"}_cs]]")\
+   [%f] add_to_list %( 'TARGET_DEP' %, 'libs += '
+   if ( ( %d |e ) %==  false ) then
+   begin
+    %d |N if ( ( %d |M ) %== 'ServerLibrary::Category' ) then
+    begin
+     '_cs' 
+    end // if
+   end // if
+   else
+   begin
+    %d get_up ( 'native name' ) 
+   end // else
+)% //	%f_add_to_list(TARGET_DEP,"[{"%dM"!="ServerLibrary::Category"}[libs += %f_with_gen_id(mpc.dll,%dN)_tie]]")\
+   [%f] add_to_list %( 'TARGET_DEP' %, if ( ( %d |M ) %!= 'ServerLibrary::Category' ) then
+   begin
+    if NOT-EMPTY
+    begin
+     'libs += '
+     [%f] with_gen_id %( 'mpc.dll' %, %d |N )% '_tie' 
+    end // if
+    NOP
+   end // if
+)% //	><{}{%DM=ServerLibrary::Category&%De=false}{Sn}%f_add_to_list(TARGET_DEP,"after += %DN")\
+
+   ++! l_Counter
+  end // if
+ end // for d
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%Dn
+ begin
+  OBJECT IN %D
+  if ( ( %D |M ) %== 'ServerLibrary::Category' AND 
+   ( ( %D |e ) %==  false  ) ) then
+  begin
+   [%f] add_to_list %( 'TARGET_DEP' %, 'after += '
+   %D |N )% 
+//	%f_add_to_list(TARGET_DEP,"libs += %DN")>
+   [%f] add_to_list %( 'TARGET_DEP' %, 'libs += '
+   %D |N )% 
+   ++! l_Counter
+  end // if
+ end // for D
+//#UC END# *47031E41002Efor47046C6B02FD*
+; // collect_target_dep
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

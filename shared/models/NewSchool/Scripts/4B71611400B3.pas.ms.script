@@ -1,0 +1,43 @@
+// l3AtomicListPrim 4B71611400B3 Impurity Class
+
+FORWARD ME_4B71611400B3
+
+: ME_4B7EC0380258
+ CONST UID '4B7EC0380258'
+ CONST Name 'l3Items_IsAtomic'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ %SUMMARY 'Определяет, что элементы списка - атомарные' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4B7EC0380258 l3Items_IsAtomic
+
+INCLUDE '47B992F60244.pas.ms.script'
+
+: ME_4B71611400B3
+ CONST UID '4B71611400B3'
+ CONST Name 'l3AtomicListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY 'Список атомарных элементов' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B992F60244 // l3UnrefcountedList
+ ]
+ ; // Inherits
+ : Children
+   [ ME_4B7EC0380258 // l3Items_IsAtomic
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "need objcounter" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4B71611400B3 l3AtomicListPrim

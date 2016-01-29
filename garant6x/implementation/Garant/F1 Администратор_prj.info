@@ -1,0 +1,340 @@
+F1 Администратор : VCMProject - ГАРАНТ. Платформа F1. Интерфейс администтратора
+version: 759
+Требования : Requirements - 
+ Интерфейс Администратора : UseCases - Работа с интерфейсом администрирования пользовательских учетных записей и списком пользователей системы
+  Запрет создания учетной записи : UseCase - Запрет самостоятельного создания учетной записи для пользователей - при работе с интерфейсом Администратора запрещаем всем пользователям системы создавать *новые* учетные записи
+  Администратор : Actor - 
+  Пакетные операции для пользователей : UseCase - Выполнение однотипной операции над несколькими учетными записями одновременно
+  Администрирование пользователей : UseCase - Работа со списком пользователей и изменение параметров их учетных записей
+   Возможность назначения пользователям общих фильтров в администраторе : UseCaseRequirement - {RequestLink:278826721}.
+    : include - 
+    : include - 
+    : include - 
+    : include - 
+    : include - 
+  Привилегированные учетные записи : UseCase - Реализация привилегированных рабочих мест и учетных записей
+  Ограничение спектра видимых пользователю баз  : UseCase - Возможность администратора ограничить для конкретного пользователя(логина) спектр видимых ему баз
+  Группы пользователей : UseCase - Группировка пользователей в интерфейсе Администратора
+ Утилиты : UseCases - Различные вспомогательные программы, облегчающие выполнение пакетных операций или обслуживание Банка данных
+  Администратор : Actor - Администратор, обеспечивающий работу с системой
+  Утилита импорта списка пользователей : UseCase - Утилита предназначеная для создания в системе ГАРАНТ Платформа F1 списка пользователей из CSV-файла, передаваемого ей в качестве параметра
+Admin : VCMUseCase - Функциональность для администратора
+ Admin$UC : VCMUseCaseRealization - Администрирование пользователей
+ Admin : VCMControllers - Администирование
+  AdminInterfaces : ControllerInterfaces - 
+   IdsForbidAutoregistration : ViewAreaController - Запрет авторегистрации
+   IdsUserProperty : ViewAreaController - Бизнес объект формы "efUserProperty"
+   TUserState : Enum - Состояния пользователя для списка пользователей
+   TUserStates : SetOf - Состояния пользователя для списка пользователей
+   TUserListFilterTypes : Enum - Типы фильтров для списка пользователей
+   IdeNode : Facet - Интерфейс обмена данными содержащий Node
+   ETryLogoutCurrentUser : Exception - Попытка отключить текущего пользователя
+   IdsAdmin : ViewAreaController - 
+   TbsGroupNodeType : Enum - 
+   IbsUserListViewListener : Facet - 
+   IdsGroupsList : ViewAreaController - Группы пользователей
+   IadminUserNodeList : Facet - 
+   IbsEditGroupName : Facet - Редактировщик имени группы
+   EDuplicateGroupName : Exception - Дублирующееся имя группы.
+Имя группы идет как Message
+   IbsUserPropertyListener : Facet - 
+   IdeAdmin : Facet - 
+   IdeProfile : Facet - 
+   IdsUserList : ViewAreaController - Бизнес объект формы "efUserList"
+   IbsGroupListViewListener : Facet - 
+   IsdsAdmin : UseCaseController - 
+  UsersDataObjects : Unit - 
+   TbsUserDataObject : SimpleClass - Данные списка пользователей
+   TnsUserDataObject : SimpleClass - Объект данных для нод дерева пользователей
+   TnsUserInterfacedDataObject : SimpleClass - 
+   TbsUserTreeData : SimpleClass - 
+   TbsSelectedUsers : SimpleClass - 
+  Users : Unit - Структуры данных для работы с учётными записями пользователей
+   TnsGroupTreeStruct : SimpleClass - 
+   TnsUserTreeStructWithDrag : SimpleClass - 
+   TnsGroupTreeStructWithDrop : SimpleClass - 
+   nsUserNodes : UtilityPack - 
+  Admin : ControllerUnit - Администрирование пользоватеелй
+   TdsAdmin : ViewAreaControllerImp - бизнес объект контейнера cfAdmin
+   TdsForbidAutoregistration : ViewAreaControllerImp - Запрет авторегистрации
+   TdsUserProperty : ViewAreaControllerImp - 
+   TdsUserList : ViewAreaControllerImp - бизнес объект формы efUserList
+   AdminRes : UtilityPack - 
+   TsdsAdmin : UseCaseControllerImp - бизнес объект сборки администратор пользователей
+   TdsGroupsList : ViewAreaControllerImp - Группы пользователей
+   TbsEditGroupName : SimpleClass - 
+   TdsBasesAccess : ViewAreaControllerImp - 
+   TdeAdmin : SimpleClass - Интерфейс обмена данными содержащий Node
+   TdeNode : SimpleClass - 
+   TdeProfile : SimpleClass - Интерфейс обмена данными для формы "efUserProfile"
+   TadminUserNodeList : SimpleClass - 
+ View : VCMViews - Представление прецедента Администратор
+  Users : VCMControls - Операции для работ с учётными записями пользователей
+   Users : VCMOperations - Пользователи
+   Groups : VCMOperations - Группы
+   Result : VCMOperations - 
+  FormDefinitions : VCMControls - 
+   AdminForm : VCMFormDefinition - 
+   GroupList : VCMFormDefinition - 
+   UserList : VCMFormDefinition - 
+   UserProperty : VCMFormDefinition - 
+   Tkw_Form_AdminForm_ID : ScriptKeyword - Слово словаря для идентификатора формы AdminForm
+----
+*Пример использования*:
+{code}
+'aControl' форма::AdminForm TryFocus ASSERT
+{code}
+   Tkw_Form_GroupList_ID : ScriptKeyword - Слово словаря для идентификатора формы GroupList
+----
+*Пример использования*:
+{code}
+'aControl' форма::GroupList TryFocus ASSERT
+{code}
+   Tkw_Form_UserList_ID : ScriptKeyword - Слово словаря для идентификатора формы UserList
+----
+*Пример использования*:
+{code}
+'aControl' форма::UserList TryFocus ASSERT
+{code}
+   Tkw_Form_UserProperty_ID : ScriptKeyword - Слово словаря для идентификатора формы UserProperty
+----
+*Пример использования*:
+{code}
+'aControl' форма::UserProperty TryFocus ASSERT
+{code}
+  Admin : VCMModule - Интерфейс администратора
+   PrimUserList : VCMForm - 
+   PrimForbidAutoregistration : VCMForm - Используется при запрете авторегистрации
+   PrimUserProperty : VCMForm - 
+   PrimGroupList : VCMForm - Группы пользователей
+   PrimGroupProperty : VCMForm - Свойства группы
+   PrimAdmin : VCMContainer - 
+   PrimUserListOptions : VCMForm - 
+   PrimAdminOptions : VCMContainer - 
+   PrimForbidAutoregistrationOptions : VCMForm - 
+   PrimGroupListOptions : VCMForm - Группы пользователей
+   PrimGroupPropertyOptions : VCMForm - Свойства группы
+   PrimUserPropertyOptions : VCMForm - 
+   Admin : VCMFormsPack - 
+Admin$Shell : VCMGUI - Оболочка Admin
+ AdminApp : VCMApplication - Оболочка Admin
+  PrimAdminMain : VCMMainForm - 
+   utEmptyMainWindow : UserType - Главное окно
+   utEmptyMainWindowLocalConstants : LocalConst - Локализуемые константы для типа формы utEmptyMainWindow
+    : uses - undefined
+    : uses - undefined
+   LCImplutEmptyMainWindowLocalConstants : Constants - Локализуемые строки utEmptyMainWindowLocalConstants
+   Init_utEmptyMainWindowCaption : ini - Инициализация str_utEmptyMainWindowCaption
+   Init_utEmptyMainWindowSettingsCaption : ini - Инициализация str_utEmptyMainWindowSettingsCaption
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация PrimAdminMain
+  AdminTitle : LocalConst - 
+   AdminTitle - 
+  AdminMain : VCMMainForm - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация AdminMain
+   AdminMain$Def : VCMFormDefinition - Идентификатор формы AdminMain
+   Ini_FormFactory_AdminMain$Def : ini - Регистрация фабрики формы AdminMain
+   : uses - 
+   : uses - 
+   : uses - undefined
+   : uses - undefined
+  LCImplAdminTitle : Constants - Локализуемые строки AdminTitle
+   AdminTitle - 'ГАРАНТ аэро'
+  Init_AdminTitle : ini - Инициализация str_AdminTitle
+  AdminMainKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы AdminMain
+   Tkw_Form_AdminMain : ScriptKeyword - Слово словаря для идентификатора формы AdminMain
+----
+*Пример использования*:
+{code}
+'aControl' форма::AdminMain TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_StatusBar : ScriptKeyword - Слово словаря для идентификатора контрола StatusBar
+----
+*Пример использования*:
+{code}
+контрол::StatusBar TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_StatusBar_Push : ScriptKeyword - Слово словаря для контрола StatusBar
+----
+*Пример использования*:
+{code}
+контрол::StatusBar:push pop:control:SetFocus ASSERT
+{code}
+   StatusBar : readonly - Контрол StatusBar формы TAdminMainForm
+   Tkw_AdminMain_Control_ClientZone : ScriptKeyword - Слово словаря для идентификатора контрола ClientZone
+----
+*Пример использования*:
+{code}
+контрол::ClientZone TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_ClientZone_Push : ScriptKeyword - Слово словаря для контрола ClientZone
+----
+*Пример использования*:
+{code}
+контрол::ClientZone:push pop:control:SetFocus ASSERT
+{code}
+   ClientZone : readonly - Контрол ClientZone формы TAdminMainForm
+   Tkw_AdminMain_Control_MainZone : ScriptKeyword - Слово словаря для идентификатора контрола MainZone
+----
+*Пример использования*:
+{code}
+контрол::MainZone TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_MainZone_Push : ScriptKeyword - Слово словаря для контрола MainZone
+----
+*Пример использования*:
+{code}
+контрол::MainZone:push pop:control:SetFocus ASSERT
+{code}
+   MainZone : readonly - Контрол MainZone формы TAdminMainForm
+   Tkw_AdminMain_Control_ParentZonePanel : ScriptKeyword - Слово словаря для идентификатора контрола ParentZonePanel
+----
+*Пример использования*:
+{code}
+контрол::ParentZonePanel TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_ParentZonePanel_Push : ScriptKeyword - Слово словаря для контрола ParentZonePanel
+----
+*Пример использования*:
+{code}
+контрол::ParentZonePanel:push pop:control:SetFocus ASSERT
+{code}
+   ParentZonePanel : readonly - Контрол ParentZonePanel формы TAdminMainForm
+   Tkw_AdminMain_Control_ChildZonePanel : ScriptKeyword - Слово словаря для идентификатора контрола ChildZonePanel
+----
+*Пример использования*:
+{code}
+контрол::ChildZonePanel TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_ChildZonePanel_Push : ScriptKeyword - Слово словаря для контрола ChildZonePanel
+----
+*Пример использования*:
+{code}
+контрол::ChildZonePanel:push pop:control:SetFocus ASSERT
+{code}
+   ChildZonePanel : readonly - Контрол ChildZonePanel формы TAdminMainForm
+   Tkw_AdminMain_Control_BaseSearchPanel : ScriptKeyword - Слово словаря для идентификатора контрола BaseSearchPanel
+----
+*Пример использования*:
+{code}
+контрол::BaseSearchPanel TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_BaseSearchPanel_Push : ScriptKeyword - Слово словаря для контрола BaseSearchPanel
+----
+*Пример использования*:
+{code}
+контрол::BaseSearchPanel:push pop:control:SetFocus ASSERT
+{code}
+   BaseSearchPanel : readonly - Контрол BaseSearchPanel формы TAdminMainForm
+   Tkw_AdminMain_Control_LeftNavigator : ScriptKeyword - Слово словаря для идентификатора контрола LeftNavigator
+----
+*Пример использования*:
+{code}
+контрол::LeftNavigator TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_LeftNavigator_Push : ScriptKeyword - Слово словаря для контрола LeftNavigator
+----
+*Пример использования*:
+{code}
+контрол::LeftNavigator:push pop:control:SetFocus ASSERT
+{code}
+   LeftNavigator : readonly - Контрол LeftNavigator формы TAdminMainForm
+   Tkw_AdminMain_Control_RightNavigator : ScriptKeyword - Слово словаря для идентификатора контрола RightNavigator
+----
+*Пример использования*:
+{code}
+контрол::RightNavigator TryFocus ASSERT
+{code}
+   Tkw_AdminMain_Control_RightNavigator_Push : ScriptKeyword - Слово словаря для контрола RightNavigator
+----
+*Пример использования*:
+{code}
+контрол::RightNavigator:push pop:control:SetFocus ASSERT
+{code}
+   RightNavigator : readonly - Контрол RightNavigator формы TAdminMainForm
+    : uses - undefined
+   StatusBar : keyword - Контрол StatusBar формы TAdminMainForm
+   ClientZone : keyword - Контрол ClientZone формы TAdminMainForm
+   MainZone : keyword - Контрол MainZone формы TAdminMainForm
+   ParentZonePanel : keyword - Контрол ParentZonePanel формы TAdminMainForm
+   ChildZonePanel : keyword - Контрол ChildZonePanel формы TAdminMainForm
+   BaseSearchPanel : keyword - Контрол BaseSearchPanel формы TAdminMainForm
+   LeftNavigator : keyword - Контрол LeftNavigator формы TAdminMainForm
+   RightNavigator : keyword - Контрол RightNavigator формы TAdminMainForm
+    : injects - undefined
+   AdminMainForm_StatusBar : ScriptKeyword - Слово скрипта .TAdminMainForm.StatusBar
+{panel}Контрол StatusBar формы TAdminMainForm{panel}
+*Тип результата:* TnscStatusBar
+*Пример:*
+{code}
+OBJECT VAR l_TnscStatusBar
+ aAdminMainForm .TAdminMainForm.StatusBar >>> l_TnscStatusBar
+{code} 
+   AdminMainForm_ClientZone : ScriptKeyword - Слово скрипта .TAdminMainForm.ClientZone
+{panel}Контрол ClientZone формы TAdminMainForm{panel}
+*Тип результата:* TvtPanel
+*Пример:*
+{code}
+OBJECT VAR l_TvtPanel
+ aAdminMainForm .TAdminMainForm.ClientZone >>> l_TvtPanel
+{code} 
+   AdminMainForm_MainZone : ScriptKeyword - Слово скрипта .TAdminMainForm.MainZone
+{panel}Контрол MainZone формы TAdminMainForm{panel}
+*Тип результата:* TvtProportionalPanel
+*Пример:*
+{code}
+OBJECT VAR l_TvtProportionalPanel
+ aAdminMainForm .TAdminMainForm.MainZone >>> l_TvtProportionalPanel
+{code} 
+   AdminMainForm_ParentZonePanel : ScriptKeyword - Слово скрипта .TAdminMainForm.ParentZonePanel
+{panel}Контрол ParentZonePanel формы TAdminMainForm{panel}
+*Тип результата:* TvtPanel
+*Пример:*
+{code}
+OBJECT VAR l_TvtPanel
+ aAdminMainForm .TAdminMainForm.ParentZonePanel >>> l_TvtPanel
+{code} 
+   AdminMainForm_ChildZonePanel : ScriptKeyword - Слово скрипта .TAdminMainForm.ChildZonePanel
+{panel}Контрол ChildZonePanel формы TAdminMainForm{panel}
+*Тип результата:* TvtSizeablePanel
+*Пример:*
+{code}
+OBJECT VAR l_TvtSizeablePanel
+ aAdminMainForm .TAdminMainForm.ChildZonePanel >>> l_TvtSizeablePanel
+{code} 
+   AdminMainForm_BaseSearchPanel : ScriptKeyword - Слово скрипта .TAdminMainForm.BaseSearchPanel
+{panel}Контрол BaseSearchPanel формы TAdminMainForm{panel}
+*Тип результата:* TvtPanel
+*Пример:*
+{code}
+OBJECT VAR l_TvtPanel
+ aAdminMainForm .TAdminMainForm.BaseSearchPanel >>> l_TvtPanel
+{code} 
+   AdminMainForm_LeftNavigator : ScriptKeyword - Слово скрипта .TAdminMainForm.LeftNavigator
+{panel}Контрол LeftNavigator формы TAdminMainForm{panel}
+*Тип результата:* TnscNavigator
+*Пример:*
+{code}
+OBJECT VAR l_TnscNavigator
+ aAdminMainForm .TAdminMainForm.LeftNavigator >>> l_TnscNavigator
+{code} 
+   AdminMainForm_RightNavigator : ScriptKeyword - Слово скрипта .TAdminMainForm.RightNavigator
+{panel}Контрол RightNavigator формы TAdminMainForm{panel}
+*Тип результата:* TnscNavigator
+*Пример:*
+{code}
+OBJECT VAR l_TnscNavigator
+ aAdminMainForm .TAdminMainForm.RightNavigator >>> l_TnscNavigator
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_AdminMain : ini - Регистрация типа AdminMain
+   Reg_TnscStatusBar : ini - Регистрация типа TnscStatusBar
+   Reg_TvtPanel : ini - Регистрация типа TvtPanel
+   Reg_TvtProportionalPanel : ini - Регистрация типа TvtProportionalPanel
+   Reg_TvtSizeablePanel : ini - Регистрация типа TvtSizeablePanel
+   Reg_TnscNavigator : ini - Регистрация типа TnscNavigator
+  TvcmApplicationRef : Typedef - Ссылка на приложение для DesignTime редакторов
+   : uses - undefined
+   : uses - undefined

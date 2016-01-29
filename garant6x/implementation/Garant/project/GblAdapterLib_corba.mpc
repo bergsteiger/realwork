@@ -1,0 +1,942 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/GblAdapterLib_corba.mpc"
+// Additional MPC (mpc)
+// Generated from UML model, root element: <<Library::Category>> garant6x::GblAdapterLib
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (GblAdapterLib_corba) : project_generic_core_corba {
+	sharedname = GblAdapterLib_corba
+	staticname = GblAdapterLib_corba
+
+	after += CoreSrvC_corba
+	libs  += CoreSrvC_corba
+
+	includes += w:/
+
+	//#UC START# *456EA3D2031C_CUSTOM_DEPENDENCES*
+	//#UC END# *456EA3D2031C_CUSTOM_DEPENDENCES*
+	after += GblConsultingC_corba
+	libs  += GblConsultingC_corba
+
+	after += GCI_corba
+	libs  += GCI_corba
+
+	after += GSI_corba
+	libs  += GSI_corba
+
+	after += GCL_corba
+	libs  += GCL_corba
+
+	after += GblConsultingClientC_corba
+	libs  += GblConsultingClientC_corba
+
+	after += GblPilotC_corba
+	libs  += GblPilotC_corba
+
+	after += GblFoldersC_corba
+	libs  += GblFoldersC_corba
+
+	after += GblUnderControlC_corba
+	libs  += GblUnderControlC_corba
+
+	Header_Files {
+		Std_Headers {
+			./../GblAdapterLib/LibHome.h
+		}
+	
+		BaseTreeSupport {
+			./../GblAdapterLib/BaseTreeSupport/BaseTreeSupport.h
+		}
+	
+		BaseTreeSupport_i {
+			./../GblAdapterLib/impl/BaseTreeSupport_i/Node_i.h
+		}
+	
+		BaseTypes {
+			./../GblAdapterLib/BaseTypes/BaseTypes.h
+			./../GblAdapterLib/BaseTypes/BaseTypesFactories.h
+		}
+	
+		BaseTypes_i {
+			./../GblAdapterLib/impl/BaseTypes_i/BaseTypes_i.h
+			./../GblAdapterLib/impl/BaseTypes_i/SearchEntity_i.h
+			./../GblAdapterLib/impl/BaseTypes_i/SearchEntity_i_factory.h
+			./../GblAdapterLib/impl/BaseTypes_i/Variant_i.h
+			./../GblAdapterLib/impl/BaseTypes_i/Variant_i_factory.h
+		}
+	
+		Complect {
+			./../GblAdapterLib/Complect/Complect.h
+			./../GblAdapterLib/Complect/ComplectFactories.h
+		}
+	
+		Complect_i {
+			./../GblAdapterLib/impl/Complect_i/ComplectInfoNode_i.h
+			./../GblAdapterLib/impl/Complect_i/ComplectInfo_i.h
+			./../GblAdapterLib/impl/Complect_i/ComplectInfo_i_factory.h
+		}
+	
+		Consulting {
+			./../GblAdapterLib/Consulting/Consulting.h
+			./../GblAdapterLib/Consulting/ConsultingFactories.h
+		}
+	
+		Consulting_i {
+			./../GblAdapterLib/impl/Consulting_i/ConsultationManager_i.h
+			./../GblAdapterLib/impl/Consulting_i/ConsultationManager_i_factory.h
+			./../GblAdapterLib/impl/Consulting_i/Consultation_i.h
+			./../GblAdapterLib/impl/Consulting_i/Consultation_i_factory.h
+			./../GblAdapterLib/impl/Consulting_i/Estimation_i.h
+			./../GblAdapterLib/impl/Consulting_i/Estimation_i_factory.h
+		}
+	
+		ContextSearchSupport {
+			./../GblAdapterLib/ContextSearchSupport/ContextSearchSupport.h
+		}
+	
+		ContextSearchSupport_i {
+		}
+	
+		DocTree {
+			./../GblAdapterLib/DocTree/DocTree.h
+			./../GblAdapterLib/DocTree/DocTreeFactories.h
+		}
+	
+		DocTree_i {
+			./../GblAdapterLib/impl/DocTree_i/DocNodeFilter_i.h
+			./../GblAdapterLib/impl/DocTree_i/DocNodeFilter_i_factory.h
+		}
+	
+		Document {
+			./../GblAdapterLib/Document/Document.h
+		}
+	
+		Document_i {
+			./../GblAdapterLib/impl/Document_i/Document_i.h
+		}
+	
+		DynamicDocList {
+			./../GblAdapterLib/DynamicDocList/DynamicDocList.h
+		}
+	
+		DynamicDocList_i {
+			./../GblAdapterLib/impl/DynamicDocList_i/DynList_i.h
+		}
+	
+		DynamicTree {
+			./../GblAdapterLib/DynamicTree/DynamicTree.h
+			./../GblAdapterLib/DynamicTree/DynamicTreeFactories.h
+		}
+	
+		DynamicTreeDefines {
+			./../GblAdapterLib/DynamicTreeDefines/DynamicTreeDefines.h
+		}
+	
+		DynamicTreeLocal {
+			./../GblAdapterLib/impl/DynamicTreeLocal/DynamicTreeLocal.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/DelegateNodeBase.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/FlagMaskStubPostProcess.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/FlagNodeBase.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/FlagNodeStub.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/NodeBase.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/RealNodeBase.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/Tree.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/TreeBase.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/View.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/ViewBase.h
+		}
+	
+		DynamicTree_i {
+			./../GblAdapterLib/impl/DynamicTree_i/CatalogBase_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/ContextFilter_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/ContextFilter_i_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/FindIterator_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/FindIterator_i_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/FrozenNode_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/FrozenNode_i_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/LayerFilter_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/LayerFilter_i_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/NodeBase_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/NodeBase_i_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/NodeDelegate.h
+			./../GblAdapterLib/impl/DynamicTree_i/NodeDelegate_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/NodeIterator_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/NodeIterator_i_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/NodeServerTree.h
+			./../GblAdapterLib/impl/DynamicTree_i/RealNodeRoot.h
+			./../GblAdapterLib/impl/DynamicTree_i/RealNodeRoot_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/SortFilter_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/SortFilter_i_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/TextOpFilter_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/TextOpFilter_i_factory.h
+			./../GblAdapterLib/impl/DynamicTree_i/TrimFilter_i.h
+			./../GblAdapterLib/impl/DynamicTree_i/TrimFilter_i_factory.h
+		}
+	
+		Explanatory {
+			./../GblAdapterLib/Explanatory/Explanatory.h
+			./../GblAdapterLib/Explanatory/ExplanatoryFactories.h
+		}
+	
+		Explanatory_i {
+		}
+	
+		ExternalObject {
+			./../GblAdapterLib/ExternalObject/ExternalObject.h
+			./../GblAdapterLib/ExternalObject/ExternalObjectFactories.h
+		}
+	
+		ExternalObject_i {
+			./../GblAdapterLib/impl/ExternalObject_i/ExternalLink_i.h
+			./../GblAdapterLib/impl/ExternalObject_i/ExternalLink_i_factory.h
+			./../GblAdapterLib/impl/ExternalObject_i/ExternalObject_i.h
+			./../GblAdapterLib/impl/ExternalObject_i/ExternalObject_i_factory.h
+			./../GblAdapterLib/impl/ExternalObject_i/SplashScreen_i.h
+			./../GblAdapterLib/impl/ExternalObject_i/SplashScreen_i_factory.h
+		}
+	
+		ExternalOperation {
+			./../GblAdapterLib/ExternalOperation/ExternalOperation.h
+			./../GblAdapterLib/ExternalOperation/ExternalOperationFactories.h
+		}
+	
+		ExternalOperation_i {
+			./../GblAdapterLib/impl/ExternalOperation_i/ExternalOperation.h
+			./../GblAdapterLib/impl/ExternalOperation_i/ExternalOperation_factory.h
+		}
+	
+		Filters {
+			./../GblAdapterLib/Filters/Filters.h
+		}
+	
+		Filters_i {
+		}
+	
+		Folders {
+			./../GblAdapterLib/Folders/Folders.h
+			./../GblAdapterLib/Folders/FoldersFactories.h
+		}
+	
+		Folders_i {
+			./../GblAdapterLib/impl/Folders_i/Folders_i.h
+			./../GblAdapterLib/impl/Folders_i/ExternalFoldersChangeNotifier_i.h
+			./../GblAdapterLib/impl/Folders_i/ExternalFoldersChangeNotifier_i_factory.h
+			./../GblAdapterLib/impl/Folders_i/Folder_i.h
+			./../GblAdapterLib/impl/Folders_i/Folder_i_factory.h
+			./../GblAdapterLib/impl/Folders_i/FoldersManager_i.h
+			./../GblAdapterLib/impl/Folders_i/FoldersManager_i_factory.h
+			./../GblAdapterLib/impl/Folders_i/FoldersNode_i.h
+			./../GblAdapterLib/impl/Folders_i/FoldersNode_i_factory.h
+		}
+	
+		ImportExport {
+			./../GblAdapterLib/ImportExport/ImportExport.h
+			./../GblAdapterLib/ImportExport/ImportExportFactories.h
+		}
+	
+		ImportExport_i {
+			./../GblAdapterLib/impl/ImportExport_i/ImportExport_i.h
+			./../GblAdapterLib/impl/ImportExport_i/Import5x_i.h
+			./../GblAdapterLib/impl/ImportExport_i/Import5x_i_factory.h
+			./../GblAdapterLib/impl/ImportExport_i/UserProfile5x_i.h
+			./../GblAdapterLib/impl/ImportExport_i/UserProfile5x_i_factory.h
+		}
+	
+		Logging {
+			./../GblAdapterLib/Logging/Logging.h
+			./../GblAdapterLib/Logging/LoggingFactories.h
+		}
+	
+		Logging_i {
+			./../GblAdapterLib/impl/Logging_i/Logging_i.h
+			./../GblAdapterLib/impl/Logging_i/LogEventData_i.h
+			./../GblAdapterLib/impl/Logging_i/LogEventData_i_factory.h
+			./../GblAdapterLib/impl/Logging_i/LogManager_i.h
+			./../GblAdapterLib/impl/Logging_i/LogManager_i_factory.h
+			./../GblAdapterLib/impl/Logging_i/LogWriter.h
+		}
+	
+		Monitoring {
+			./../GblAdapterLib/Monitoring/Monitoring.h
+			./../GblAdapterLib/Monitoring/MonitoringFactories.h
+		}
+	
+		Monitoring_i {
+		}
+	
+		NewsLine {
+			./../GblAdapterLib/NewsLine/NewsLine.h
+			./../GblAdapterLib/NewsLine/NewsLineFactories.h
+		}
+	
+		NewsLine_i {
+		}
+	
+		Notify {
+			./../GblAdapterLib/Notify/Notify.h
+			./../GblAdapterLib/Notify/NotifyFactories.h
+		}
+	
+		NotifyLocal {
+			./../GblAdapterLib/NotifyLocal/NotifyLocal.h
+			./../GblAdapterLib/NotifyLocal/NotifyLocalFactories.h
+		}
+	
+		Notify_i {
+			./../GblAdapterLib/impl/Notify_i/Notify_i.h
+			./../GblAdapterLib/impl/Notify_i/BoolTransformer_i.h
+			./../GblAdapterLib/impl/Notify_i/BoolTransformer_i_factory.h
+			./../GblAdapterLib/impl/Notify_i/DataTransformer_i.h
+			./../GblAdapterLib/impl/Notify_i/LongTransformer_i.h
+			./../GblAdapterLib/impl/Notify_i/LongTransformer_i_factory.h
+			./../GblAdapterLib/impl/Notify_i/Notification_i.h
+			./../GblAdapterLib/impl/Notify_i/Notification_i_factory.h
+			./../GblAdapterLib/impl/Notify_i/NotifyManager_i.h
+			./../GblAdapterLib/impl/Notify_i/NotifyManager_i_factory.h
+			./../GblAdapterLib/impl/Notify_i/StringDataTransformer_i.h
+			./../GblAdapterLib/impl/Notify_i/StringDataTransformer_i_factory.h
+		}
+	
+		PrefixTree {
+			./../GblAdapterLib/PrefixTree/PrefixTree.h
+		}
+	
+		PrefixTree_i {
+		}
+	
+		Profile {
+			./../GblAdapterLib/Profile/Profile.h
+			./../GblAdapterLib/Profile/ProfileFactories.h
+		}
+	
+		Profile_i {
+			./../GblAdapterLib/impl/Profile_i/StopWatchEx_i.h
+			./../GblAdapterLib/impl/Profile_i/StopWatchEx_i_factory.h
+			./../GblAdapterLib/impl/Profile_i/StopWatch_i.h
+			./../GblAdapterLib/impl/Profile_i/StopWatch_i_factory.h
+		}
+	
+		ProgressIndicatorSupport {
+			./../GblAdapterLib/ProgressIndicatorSupport/ProgressIndicatorSupport.h
+		}
+	
+		ProgressIndicatorSupport_i {
+		}
+	
+		Rubricator {
+			./../GblAdapterLib/Rubricator/Rubricator.h
+		}
+	
+		Rubricator_i {
+			./../GblAdapterLib/impl/Rubricator_i/RubricatorNode_i.h
+			./../GblAdapterLib/impl/Rubricator_i/RubricatorNode_i_factory.h
+		}
+	
+		Search {
+			./../GblAdapterLib/Search/Search.h
+		}
+	
+		SearchDefines {
+			./../GblAdapterLib/SearchDefines/SearchDefines.h
+		}
+	
+		Search_i {
+		}
+	
+		Security {
+			./../GblAdapterLib/Security/Security.h
+		}
+	
+		Security_i {
+		}
+	
+		Settings {
+			./../GblAdapterLib/Settings/Settings.h
+			./../GblAdapterLib/Settings/SettingsFactories.h
+		}
+	
+		Settings_i {
+			./../GblAdapterLib/impl/Settings_i/Configuration_i.h
+			./../GblAdapterLib/impl/Settings_i/Configuration_i_factory.h
+			./../GblAdapterLib/impl/Settings_i/DefaultValuesChangesIndicator_i.h
+			./../GblAdapterLib/impl/Settings_i/DefaultValuesChangesIndicator_i_factory.h
+			./../GblAdapterLib/impl/Settings_i/Settings_i.h
+			./../GblAdapterLib/impl/Settings_i/Settings_i_factory.h
+		}
+	
+		Start {
+			./../GblAdapterLib/Start/Start.h
+		}
+	
+		StartLocal {
+			./../GblAdapterLib/StartLocal/StartLocal.h
+		}
+	
+		Start_i {
+			./../GblAdapterLib/impl/Start_i/BaseUpdateChecker_i.h
+		}
+	
+		TextSearchOption {
+			./../GblAdapterLib/TextSearchOption/TextSearchOption.h
+			./../GblAdapterLib/TextSearchOption/TextSearchOptionFactories.h
+		}
+	
+		TextSearchOption_i {
+		}
+	
+		UnderControl {
+			./../GblAdapterLib/UnderControl/UnderControl.h
+			./../GblAdapterLib/UnderControl/UnderControlFactories.h
+		}
+	
+		UnderControlLocal {
+			./../GblAdapterLib/UnderControlLocal/UnderControlLocal.h
+		}
+	
+		UnderControl_i {
+			./../GblAdapterLib/impl/UnderControl_i/ControlManager_i.h
+			./../GblAdapterLib/impl/UnderControl_i/ControlManager_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		BaseTreeSupport {
+		}
+	
+		BaseTreeSupport_i {
+		}
+	
+		BaseTypes {
+		}
+	
+		BaseTypes_i {
+		}
+	
+		Complect {
+		}
+	
+		Complect_i {
+		}
+	
+		Consulting {
+		}
+	
+		Consulting_i {
+		}
+	
+		ContextSearchSupport {
+		}
+	
+		ContextSearchSupport_i {
+		}
+	
+		DocTree {
+		}
+	
+		DocTree_i {
+		}
+	
+		Document {
+		}
+	
+		Document_i {
+		}
+	
+		DynamicDocList {
+		}
+	
+		DynamicDocList_i {
+		}
+	
+		DynamicTree {
+		}
+	
+		DynamicTreeDefines {
+		}
+	
+		DynamicTreeLocal {
+			./../GblAdapterLib/impl/DynamicTreeLocal/Tree.i.h
+			./../GblAdapterLib/impl/DynamicTreeLocal/View.i.h
+		}
+	
+		DynamicTree_i {
+			./../GblAdapterLib/impl/DynamicTree_i/NodeServerTree.i.h
+		}
+	
+		Explanatory {
+		}
+	
+		Explanatory_i {
+		}
+	
+		ExternalObject {
+		}
+	
+		ExternalObject_i {
+		}
+	
+		ExternalOperation {
+		}
+	
+		ExternalOperation_i {
+		}
+	
+		Filters {
+		}
+	
+		Filters_i {
+		}
+	
+		Folders {
+		}
+	
+		Folders_i {
+		}
+	
+		ImportExport {
+		}
+	
+		ImportExport_i {
+		}
+	
+		Logging {
+		}
+	
+		Logging_i {
+		}
+	
+		Monitoring {
+		}
+	
+		Monitoring_i {
+		}
+	
+		NewsLine {
+		}
+	
+		NewsLine_i {
+		}
+	
+		Notify {
+		}
+	
+		NotifyLocal {
+		}
+	
+		Notify_i {
+			./../GblAdapterLib/impl/Notify_i/DataTransformer_i.i.h
+		}
+	
+		PrefixTree {
+		}
+	
+		PrefixTree_i {
+		}
+	
+		Profile {
+		}
+	
+		Profile_i {
+		}
+	
+		ProgressIndicatorSupport {
+		}
+	
+		ProgressIndicatorSupport_i {
+		}
+	
+		Rubricator {
+		}
+	
+		Rubricator_i {
+		}
+	
+		Search {
+		}
+	
+		SearchDefines {
+		}
+	
+		Search_i {
+		}
+	
+		Security {
+		}
+	
+		Security_i {
+		}
+	
+		Settings {
+		}
+	
+		Settings_i {
+		}
+	
+		Start {
+		}
+	
+		StartLocal {
+		}
+	
+		Start_i {
+		}
+	
+		TextSearchOption {
+		}
+	
+		TextSearchOption_i {
+		}
+	
+		UnderControl {
+		}
+	
+		UnderControlLocal {
+		}
+	
+		UnderControl_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../GblAdapterLib/LibHome.cpp
+		}
+	
+		BaseTreeSupport {
+		}
+	
+		BaseTreeSupport_i {
+			./../GblAdapterLib/impl/BaseTreeSupport_i/Node_i.cpp
+		}
+	
+		BaseTypes {
+			./../GblAdapterLib/BaseTypes/BaseTypes.cpp
+			./../GblAdapterLib/BaseTypes/BaseTypesFactories.cpp
+		}
+	
+		BaseTypes_i {
+			./../GblAdapterLib/impl/BaseTypes_i/SearchEntity_i.cpp
+			./../GblAdapterLib/impl/BaseTypes_i/SearchEntity_i_factory.cpp
+			./../GblAdapterLib/impl/BaseTypes_i/Variant_i.cpp
+			./../GblAdapterLib/impl/BaseTypes_i/Variant_i_factory.cpp
+		}
+	
+		Complect {
+			./../GblAdapterLib/Complect/Complect.cpp
+			./../GblAdapterLib/Complect/ComplectFactories.cpp
+		}
+	
+		Complect_i {
+			./../GblAdapterLib/impl/Complect_i/ComplectInfoNode_i.cpp
+			./../GblAdapterLib/impl/Complect_i/ComplectInfo_i.cpp
+			./../GblAdapterLib/impl/Complect_i/ComplectInfo_i_factory.cpp
+		}
+	
+		Consulting {
+			./../GblAdapterLib/Consulting/Consulting.cpp
+			./../GblAdapterLib/Consulting/ConsultingFactories.cpp
+		}
+	
+		Consulting_i {
+			./../GblAdapterLib/impl/Consulting_i/ConsultationManager_i.cpp
+			./../GblAdapterLib/impl/Consulting_i/ConsultationManager_i_factory.cpp
+			./../GblAdapterLib/impl/Consulting_i/Consultation_i.cpp
+			./../GblAdapterLib/impl/Consulting_i/Consultation_i_factory.cpp
+			./../GblAdapterLib/impl/Consulting_i/Estimation_i.cpp
+			./../GblAdapterLib/impl/Consulting_i/Estimation_i_factory.cpp
+		}
+	
+		ContextSearchSupport {
+		}
+	
+		ContextSearchSupport_i {
+		}
+	
+		DocTree {
+			./../GblAdapterLib/DocTree/DocTree.cpp
+			./../GblAdapterLib/DocTree/DocTreeFactories.cpp
+		}
+	
+		DocTree_i {
+			./../GblAdapterLib/impl/DocTree_i/DocNodeFilter_i.cpp
+			./../GblAdapterLib/impl/DocTree_i/DocNodeFilter_i_factory.cpp
+		}
+	
+		Document {
+		}
+	
+		Document_i {
+			./../GblAdapterLib/impl/Document_i/Document_i.cpp
+		}
+	
+		DynamicDocList {
+		}
+	
+		DynamicDocList_i {
+			./../GblAdapterLib/impl/DynamicDocList_i/DynList_i.cpp
+		}
+	
+		DynamicTree {
+			./../GblAdapterLib/DynamicTree/DynamicTree.cpp
+			./../GblAdapterLib/DynamicTree/DynamicTreeFactories.cpp
+		}
+	
+		DynamicTreeDefines {
+		}
+	
+		DynamicTreeLocal {
+			./../GblAdapterLib/impl/DynamicTreeLocal/DelegateNodeBase.cpp
+			./../GblAdapterLib/impl/DynamicTreeLocal/FlagMaskStubPostProcess.cpp
+			./../GblAdapterLib/impl/DynamicTreeLocal/FlagNodeBase.cpp
+			./../GblAdapterLib/impl/DynamicTreeLocal/FlagNodeStub.cpp
+			./../GblAdapterLib/impl/DynamicTreeLocal/NodeBase.cpp
+			./../GblAdapterLib/impl/DynamicTreeLocal/TreeBase_NodeExpander.cpp
+			./../GblAdapterLib/impl/DynamicTreeLocal/TreeBase.cpp
+			./../GblAdapterLib/impl/DynamicTreeLocal/ViewBase.cpp
+		}
+	
+		DynamicTree_i {
+			./../GblAdapterLib/impl/DynamicTree_i/CatalogBase_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/ContextFilter_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/ContextFilter_i_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/FindIterator_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/FindIterator_i_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/FrozenNode_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/FrozenNode_i_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/LayerFilter_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/LayerFilter_i_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/NodeBase_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/NodeBase_i_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/NodeDelegate.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/NodeDelegate_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/NodeIterator_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/NodeIterator_i_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/RealNodeRoot.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/RealNodeRoot_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/SortFilter_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/SortFilter_i_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/TextOpFilter_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/TextOpFilter_i_factory.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/TrimFilter_i.cpp
+			./../GblAdapterLib/impl/DynamicTree_i/TrimFilter_i_factory.cpp
+		}
+	
+		Explanatory {
+			./../GblAdapterLib/Explanatory/Explanatory.cpp
+			./../GblAdapterLib/Explanatory/ExplanatoryFactories.cpp
+		}
+	
+		Explanatory_i {
+		}
+	
+		ExternalObject {
+			./../GblAdapterLib/ExternalObject/ExternalObject.cpp
+			./../GblAdapterLib/ExternalObject/ExternalObjectFactories.cpp
+		}
+	
+		ExternalObject_i {
+			./../GblAdapterLib/impl/ExternalObject_i/ExternalLink_i.cpp
+			./../GblAdapterLib/impl/ExternalObject_i/ExternalLink_i_factory.cpp
+			./../GblAdapterLib/impl/ExternalObject_i/ExternalObject_i.cpp
+			./../GblAdapterLib/impl/ExternalObject_i/ExternalObject_i_factory.cpp
+			./../GblAdapterLib/impl/ExternalObject_i/SplashScreen_i.cpp
+			./../GblAdapterLib/impl/ExternalObject_i/SplashScreen_i_factory.cpp
+		}
+	
+		ExternalOperation {
+			./../GblAdapterLib/ExternalOperation/ExternalOperation.cpp
+			./../GblAdapterLib/ExternalOperation/ExternalOperationFactories.cpp
+		}
+	
+		ExternalOperation_i {
+			./../GblAdapterLib/impl/ExternalOperation_i/ExternalOperation.cpp
+			./../GblAdapterLib/impl/ExternalOperation_i/ExternalOperation_factory.cpp
+		}
+	
+		Filters {
+		}
+	
+		Filters_i {
+		}
+	
+		Folders {
+			./../GblAdapterLib/Folders/Folders.cpp
+			./../GblAdapterLib/Folders/FoldersFactories.cpp
+		}
+	
+		Folders_i {
+			./../GblAdapterLib/impl/Folders_i/ExternalFoldersChangeNotifier_i.cpp
+			./../GblAdapterLib/impl/Folders_i/ExternalFoldersChangeNotifier_i_factory.cpp
+			./../GblAdapterLib/impl/Folders_i/Folder_i.cpp
+			./../GblAdapterLib/impl/Folders_i/Folder_i_factory.cpp
+			./../GblAdapterLib/impl/Folders_i/FoldersManager_i.cpp
+			./../GblAdapterLib/impl/Folders_i/FoldersManager_i_factory.cpp
+			./../GblAdapterLib/impl/Folders_i/FoldersNode_i.cpp
+			./../GblAdapterLib/impl/Folders_i/FoldersNode_i_factory.cpp
+		}
+	
+		ImportExport {
+			./../GblAdapterLib/ImportExport/ImportExport.cpp
+			./../GblAdapterLib/ImportExport/ImportExportFactories.cpp
+		}
+	
+		ImportExport_i {
+			./../GblAdapterLib/impl/ImportExport_i/Import5x_i.cpp
+			./../GblAdapterLib/impl/ImportExport_i/Import5x_i_factory.cpp
+			./../GblAdapterLib/impl/ImportExport_i/UserProfile5x_i.cpp
+			./../GblAdapterLib/impl/ImportExport_i/UserProfile5x_i_factory.cpp
+		}
+	
+		Logging {
+			./../GblAdapterLib/Logging/Logging.cpp
+			./../GblAdapterLib/Logging/LoggingFactories.cpp
+		}
+	
+		Logging_i {
+			./../GblAdapterLib/impl/Logging_i/LogEventData_i.cpp
+			./../GblAdapterLib/impl/Logging_i/LogEventData_i_factory.cpp
+			./../GblAdapterLib/impl/Logging_i/LogManager_i.cpp
+			./../GblAdapterLib/impl/Logging_i/LogManager_i_factory.cpp
+			./../GblAdapterLib/impl/Logging_i/LogWriter.cpp
+		}
+	
+		Monitoring {
+			./../GblAdapterLib/Monitoring/Monitoring.cpp
+			./../GblAdapterLib/Monitoring/MonitoringFactories.cpp
+		}
+	
+		Monitoring_i {
+		}
+	
+		NewsLine {
+			./../GblAdapterLib/NewsLine/NewsLine.cpp
+			./../GblAdapterLib/NewsLine/NewsLineFactories.cpp
+		}
+	
+		NewsLine_i {
+		}
+	
+		Notify {
+			./../GblAdapterLib/Notify/Notify.cpp
+			./../GblAdapterLib/Notify/NotifyFactories.cpp
+		}
+	
+		NotifyLocal {
+			./../GblAdapterLib/NotifyLocal/NotifyLocal.cpp
+			./../GblAdapterLib/NotifyLocal/NotifyLocalFactories.cpp
+		}
+	
+		Notify_i {
+			./../GblAdapterLib/impl/Notify_i/BoolTransformer_i.cpp
+			./../GblAdapterLib/impl/Notify_i/BoolTransformer_i_factory.cpp
+			./../GblAdapterLib/impl/Notify_i/LongTransformer_i.cpp
+			./../GblAdapterLib/impl/Notify_i/LongTransformer_i_factory.cpp
+			./../GblAdapterLib/impl/Notify_i/Notification_i.cpp
+			./../GblAdapterLib/impl/Notify_i/Notification_i_factory.cpp
+			./../GblAdapterLib/impl/Notify_i/NotifyManager_i.cpp
+			./../GblAdapterLib/impl/Notify_i/NotifyManager_i_factory.cpp
+			./../GblAdapterLib/impl/Notify_i/StringDataTransformer_i.cpp
+			./../GblAdapterLib/impl/Notify_i/StringDataTransformer_i_factory.cpp
+		}
+	
+		PrefixTree {
+		}
+	
+		PrefixTree_i {
+		}
+	
+		Profile {
+			./../GblAdapterLib/Profile/Profile.cpp
+			./../GblAdapterLib/Profile/ProfileFactories.cpp
+		}
+	
+		Profile_i {
+			./../GblAdapterLib/impl/Profile_i/StopWatchEx_i.cpp
+			./../GblAdapterLib/impl/Profile_i/StopWatchEx_i_factory.cpp
+			./../GblAdapterLib/impl/Profile_i/StopWatch_i.cpp
+			./../GblAdapterLib/impl/Profile_i/StopWatch_i_factory.cpp
+		}
+	
+		ProgressIndicatorSupport {
+		}
+	
+		ProgressIndicatorSupport_i {
+		}
+	
+		Rubricator {
+		}
+	
+		Rubricator_i {
+			./../GblAdapterLib/impl/Rubricator_i/RubricatorNode_i.cpp
+			./../GblAdapterLib/impl/Rubricator_i/RubricatorNode_i_factory.cpp
+		}
+	
+		Search {
+		}
+	
+		SearchDefines {
+		}
+	
+		Search_i {
+		}
+	
+		Security {
+		}
+	
+		Security_i {
+		}
+	
+		Settings {
+			./../GblAdapterLib/Settings/Settings.cpp
+			./../GblAdapterLib/Settings/SettingsFactories.cpp
+		}
+	
+		Settings_i {
+			./../GblAdapterLib/impl/Settings_i/Configuration_i.cpp
+			./../GblAdapterLib/impl/Settings_i/Configuration_i_factory.cpp
+			./../GblAdapterLib/impl/Settings_i/DefaultValuesChangesIndicator_i.cpp
+			./../GblAdapterLib/impl/Settings_i/DefaultValuesChangesIndicator_i_factory.cpp
+			./../GblAdapterLib/impl/Settings_i/Settings_i.cpp
+			./../GblAdapterLib/impl/Settings_i/Settings_i_factory.cpp
+		}
+	
+		Start {
+		}
+	
+		StartLocal {
+		}
+	
+		Start_i {
+			./../GblAdapterLib/impl/Start_i/BaseUpdateChecker_i.cpp
+		}
+	
+		TextSearchOption {
+			./../GblAdapterLib/TextSearchOption/TextSearchOption.cpp
+			./../GblAdapterLib/TextSearchOption/TextSearchOptionFactories.cpp
+		}
+	
+		TextSearchOption_i {
+		}
+	
+		UnderControl {
+			./../GblAdapterLib/UnderControl/UnderControl.cpp
+			./../GblAdapterLib/UnderControl/UnderControlFactories.cpp
+		}
+	
+		UnderControlLocal {
+		}
+	
+		UnderControl_i {
+			./../GblAdapterLib/impl/UnderControl_i/ControlManager_i.cpp
+			./../GblAdapterLib/impl/UnderControl_i/ControlManager_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

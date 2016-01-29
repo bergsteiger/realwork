@@ -1,0 +1,533 @@
+// Garbage 4B8931DC0339 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8931DC0339
+
+FORWARD ME_4B8919220120
+
+: ME_4B89195B00B1
+ CONST UID '4B89195B00B1'
+ CONST Name 'FindDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4B8919220120 // l3ObjectByHandleSearcher
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B89195B00B1 FindDataType
+
+: ME_47B9BAFD01F4_ME_4B8919220120
+ CONST UID '47B9BAFD01F4'
+ CONST Name 'CompareItemWithData'
+ : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
+ ;
+ : Implementor ME_4B8919220120 // l3ObjectByHandleSearcher
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B9BAFD01F4_ME_4B8919220120 CompareItemWithData
+
+: ME_4B8919220120
+ CONST UID '4B8919220120'
+ CONST Name 'l3ObjectByHandleSearcher'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B8931DC0339 // Garbage
+ ;
+ : Inherits
+   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4B89195B00B1 // FindDataType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B9BAFD01F4_ME_4B8919220120 // CompareItemWithData
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas'
+ CONST extprop:pas:TypeName '_l3ObjectByHandleSearcher_'
+
+ref; // ME_4B8919220120 l3ObjectByHandleSearcher
+
+FORWARD ME_52FCC02A0232
+
+: ME_52FCC0BA02D5
+ CONST UID '52FCC0BA02D5'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_52FCC02A0232 // Tl3ProtoObjectWithHandle
+ ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+ CONST "pm" true
+
+ref; // ME_52FCC0BA02D5 Handle
+
+FORWARD ME_52FCC10F0202
+
+: ME_52FCC1310143
+ CONST UID '52FCC1310143'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_52FCC02A0232 // Tl3ProtoObjectWithHandle
+ ;
+
+ref; // ME_52FCC1310143 anOther
+
+: ME_52FCC119002B
+ CONST UID '52FCC119002B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52FCC10F0202 // CompareWith
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_52FCC1310143 // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52FCC119002B DoIt
+
+: ME_52FCC10F0202
+ CONST UID '52FCC10F0202'
+ CONST Name 'CompareWith'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52FCC02A0232 // Tl3ProtoObjectWithHandle
+ ;
+ : Operations
+   @ ( ME_52FCC119002B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52FCC10F0202 CompareWith
+
+: ME_52FCC02A0232
+ CONST UID '52FCC02A0232'
+ CONST Name 'Tl3ProtoObjectWithHandle'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B8931DC0339 // Garbage
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_52FCC0BA02D5 // Handle
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_52FCC10F0202 // CompareWith
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoObjectWithHandle.pas'
+
+ref; // ME_52FCC02A0232 Tl3ProtoObjectWithHandle
+
+FORWARD ME_52FCBFC3000D
+
+: ME_52FCC03B0075
+ CONST UID '52FCC03B0075'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_52FCBFC3000D // Tl3ObjectWithHandleRefListPrim
+ ;
+ : Target ME_52FCC02A0232 // Tl3ProtoObjectWithHandle
+ ;
+
+ref; // ME_52FCC03B0075 ItemType
+
+: ME_47B2C42A0163_ME_52FCBFC3000D
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_52FCBFC3000D // Tl3ObjectWithHandleRefListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_52FCBFC3000D AssignItem
+
+: ME_47B99D4503A2_ME_52FCBFC3000D
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_52FCBFC3000D // Tl3ObjectWithHandleRefListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_52FCBFC3000D CompareExistingItems
+
+: ME_47A6FEE600FC_ME_52FCBFC3000D
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_52FCBFC3000D // Tl3ObjectWithHandleRefListPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_52FCBFC3000D IsCacheable
+
+: ME_52FCBFC3000D
+ CONST UID '52FCBFC3000D'
+ CONST Name 'Tl3ObjectWithHandleRefListPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B8931DC0339 // Garbage
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_52FCC03B0075 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_52FCBFC3000D // AssignItem
+ ME_47B99D4503A2_ME_52FCBFC3000D // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A6FEE600FC_ME_52FCBFC3000D // IsCacheable
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ObjectWithHandleRefListPrim.pas'
+
+ref; // ME_52FCBFC3000D Tl3ObjectWithHandleRefListPrim
+
+: ME_47BDAECF039A
+ CONST UID '47BDAECF039A'
+ CONST Name 'Tl3ObjectWithHandleRefList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B8931DC0339 // Garbage
+ ;
+ : Inherits
+   @ ( ME_52FCBFC3000D // Tl3ObjectWithHandleRefListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_4B8919220120 // l3ObjectByHandleSearcher
+ ) .SequenceCode.It
+ ; // Implements
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ObjectWithHandleRefList.pas'
+
+ref; // ME_47BDAECF039A Tl3ObjectWithHandleRefList
+
+FORWARD ME_52FCC6C002D7
+
+: ME_52FCC6CE00E2
+ CONST UID '52FCC6CE00E2'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_52FCC6C002D7 // Tl3ProtoPersistentWithHandle
+ ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+ CONST "pm" true
+
+ref; // ME_52FCC6CE00E2 Handle
+
+FORWARD ME_52FCC73E00CC
+
+: ME_52FCC75C0201
+ CONST UID '52FCC75C0201'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_52FCC6C002D7 // Tl3ProtoPersistentWithHandle
+ ;
+
+ref; // ME_52FCC75C0201 anOther
+
+: ME_52FCC7500277
+ CONST UID '52FCC7500277'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52FCC73E00CC // CompareWith
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_52FCC75C0201 // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52FCC7500277 DoIt
+
+: ME_52FCC73E00CC
+ CONST UID '52FCC73E00CC'
+ CONST Name 'CompareWith'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_52FCC6C002D7 // Tl3ProtoPersistentWithHandle
+ ;
+ : Operations
+   @ ( ME_52FCC7500277 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52FCC73E00CC CompareWith
+
+: ME_52FCC6C002D7
+ CONST UID '52FCC6C002D7'
+ CONST Name 'Tl3ProtoPersistentWithHandle'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B8931DC0339 // Garbage
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7725102DA' '47913B47006E.pas.ms.script' // Tl3ProtoPersistent
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_52FCC6CE00E2 // Handle
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_52FCC73E00CC // CompareWith
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoPersistentWithHandle.pas'
+
+ref; // ME_52FCC6C002D7 Tl3ProtoPersistentWithHandle
+
+FORWARD ME_52FCCB1B0273
+
+: ME_52FCCB2B01F2
+ CONST UID '52FCCB2B01F2'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_52FCCB1B0273 // Tl3ProtoPersistentWithHandleRefListPrim
+ ;
+ : Target ME_52FCC6C002D7 // Tl3ProtoPersistentWithHandle
+ ;
+
+ref; // ME_52FCCB2B01F2 ItemType
+
+: ME_47B2C42A0163_ME_52FCCB1B0273
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_52FCCB1B0273 // Tl3ProtoPersistentWithHandleRefListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_52FCCB1B0273 AssignItem
+
+: ME_47B99D4503A2_ME_52FCCB1B0273
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_52FCCB1B0273 // Tl3ProtoPersistentWithHandleRefListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_52FCCB1B0273 CompareExistingItems
+
+: ME_52FCCB1B0273
+ CONST UID '52FCCB1B0273'
+ CONST Name 'Tl3ProtoPersistentWithHandleRefListPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B8931DC0339 // Garbage
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_52FCCB2B01F2 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_52FCCB1B0273 // AssignItem
+ ME_47B99D4503A2_ME_52FCCB1B0273 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoPersistentWithHandleRefListPrim.pas'
+
+ref; // ME_52FCCB1B0273 Tl3ProtoPersistentWithHandleRefListPrim
+
+: ME_52FCCB450032
+ CONST UID '52FCCB450032'
+ CONST Name 'Tl3ProtoPersistentWithHandleRefList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B8931DC0339 // Garbage
+ ;
+ : Inherits
+   @ ( ME_52FCCB1B0273 // Tl3ProtoPersistentWithHandleRefListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( ME_4B8919220120 // l3ObjectByHandleSearcher
+ ) .SequenceCode.It
+ ; // Implements
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoPersistentWithHandleRefList.pas'
+
+ref; // ME_52FCCB450032 Tl3ProtoPersistentWithHandleRefList
+
+: ME_4B8931DC0339
+ CONST UID '4B8931DC0339'
+ CONST Name 'Garbage'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Всякий мусорок от ошибок молодости' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_4B8919220120 // l3ObjectByHandleSearcher
+ ME_52FCC02A0232 // Tl3ProtoObjectWithHandle
+ ME_52FCBFC3000D // Tl3ObjectWithHandleRefListPrim
+ ME_47BDAECF039A // Tl3ObjectWithHandleRefList
+ ME_52FCC6C002D7 // Tl3ProtoPersistentWithHandle
+ ME_52FCCB1B0273 // Tl3ProtoPersistentWithHandleRefListPrim
+ ME_52FCCB450032 // Tl3ProtoPersistentWithHandleRefList
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B8931DC0339.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B8931DC0339.pas.ms.script.runner'
+
+ref; // ME_4B8931DC0339 Garbage

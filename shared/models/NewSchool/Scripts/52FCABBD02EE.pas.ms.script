@@ -1,0 +1,214 @@
+// Query 52FCABBD02EE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52FCABBD02EE
+
+: ME_52FCABD0022E
+ CONST UID '52FCABD0022E'
+ CONST Name 'TSavedQuery'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FCABBD02EE // Query
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_SavedQuery.pas'
+
+ref; // ME_52FCABD0022E TSavedQuery
+
+FORWARD ME_52FCAC0E0384
+
+: ME_52FCB2F403E2
+ CONST UID '52FCB2F403E2'
+ CONST Name 'l3Items_IsProto'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FCAC0E0384 // TQueryListPrim
+ ;
+
+ref; // ME_52FCB2F403E2 l3Items_IsProto
+
+: ME_52FCB31C01E0
+ CONST UID '52FCB31C01E0'
+ CONST Name 'l3Items_HasChanging'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FCAC0E0384 // TQueryListPrim
+ ;
+
+ref; // ME_52FCB31C01E0 l3Items_HasChanging
+
+: ME_52FCAC2B02FA
+ CONST UID '52FCAC2B02FA'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_52FCAC0E0384 // TQueryListPrim
+ ;
+ : Target ME_52FCABD0022E // TSavedQuery
+ ;
+
+ref; // ME_52FCAC2B02FA ItemType
+
+: ME_47B2C42A0163_ME_52FCAC0E0384
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_52FCAC0E0384 // TQueryListPrim
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_52FCAC0E0384 AssignItem
+
+: ME_47B99D4503A2_ME_52FCAC0E0384
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_52FCAC0E0384 // TQueryListPrim
+ ;
+ref; // ME_47B99D4503A2_ME_52FCAC0E0384 CompareExistingItems
+
+: ME_52FCAC0E0384
+ CONST UID '52FCAC0E0384'
+ CONST Name 'TQueryListPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FCABBD02EE // Query
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4A5CBFAB03AF' '47BB24D30205.pas.ms.script' // l3Changing
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_48FCA1F20259' '47913B47006E.pas.ms.script' // l3ChangingChangedNotifier
+ WL 'ME_492ABDE901A7' '47BB24D30205.pas.ms.script' // l3LockedChange
+ WL 'ME_4B86890E0307' '47913B47006E.pas.ms.script' // l3OpenArray
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_52FCAC2B02FA // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_52FCAC0E0384 // AssignItem
+ ME_47B99D4503A2_ME_52FCAC0E0384 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_52FCB2F403E2 // l3Items_IsProto
+ ME_52FCB31C01E0 // l3Items_HasChanging
+ ) .SequenceCode.It
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\QueryListPrim.pas'
+
+ref; // ME_52FCAC0E0384 TQueryListPrim
+
+FORWARD ME_52FCB4700035
+
+: ME_52FCB4770122
+ CONST UID '52FCB4770122'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52FCB4700035 // DT_AskList
+ ;
+ : Target ME_52FCAC0E0384 // TQueryListPrim
+ ;
+
+ref; // ME_52FCB4770122 
+
+: ME_52FCB4700035
+ CONST UID '52FCB4700035'
+ CONST Name 'DT_AskList'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FCABBD02EE // Query
+ ;
+ : Dependencies
+   @ ( ME_52FCB4770122 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_DT_AskList.pas'
+
+ref; // ME_52FCB4700035 DT_AskList
+
+: ME_52FCABBD02EE
+ CONST UID '52FCABBD02EE'
+ CONST Name 'Query'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ ;
+ : Children
+   @ ( ME_52FCABD0022E // TSavedQuery
+ ME_52FCAC0E0384 // TQueryListPrim
+ ME_52FCB4700035 // DT_AskList
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52FCABBD02EE.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52FCABBD02EE.pas.ms.script.runner'
+
+ref; // ME_52FCABBD02EE Query

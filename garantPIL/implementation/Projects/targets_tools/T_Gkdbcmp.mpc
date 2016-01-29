@@ -1,0 +1,40 @@
+project (T_Gkdbcmp) : project-common-defines-tools, project-common-includes, project_generic_core+zlib-tools, project_subsystem_console, Base_T_Gkdbcmp {
+	exename = gkdbcmp
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += MIN_MEM_CONTEXT
+
+	after += Core
+	libs += Core
+
+	after += GCL
+	libs += GCL
+
+	after += DBExt
+	libs += DBExt
+
+	after += Morpho
+	libs += Morpho
+
+	after += cchlp1
+	after += cchlp2
+	after += gsscreen_gc
+	after += gkdb_gudll
+	after += gctx_gc
+	after += vcontrol_ggu
+
+	libs += cchlp1
+	libs += cchlp2
+	libs += gsscreen_gc
+	libs += gkdb_gudll
+	libs += gctx_gc
+	libs += vcontrol_ggu
+
+	after += boost_thread
+	libs  += boost_thread
+
+	after += boost_system
+	libs += boost_system
+}
+

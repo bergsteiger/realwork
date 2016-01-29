@@ -1,0 +1,47 @@
+#ifndef __COSQUERY_IDL
+#define __COSQUERY_IDL
+
+/*
+* module CosQuery.
+* from specifications of OMG group for CORBA Query Service.
+* (C) Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>, 1998, 1999, 2000
+* $Id: CosQuery.idl,v 1.1 2010/09/27 16:45:54 lulin Exp $
+*/ 
+
+
+#pragma prefix "omg.org"
+
+/**
+ * CosQuery: legacy definitions from OMG Query Service.
+ **/
+module CosQuery {
+
+      ///
+      exception QueryInvalid 
+      { 
+       ///
+       string why; 
+      };
+
+      ///
+      exception QueryProcessingError 
+      { 
+       ///
+       string why; 
+      };
+
+      ///
+      exception QueryTypeInvalid { };
+
+      /// 
+      enum QueryStatus 
+      {
+       ///
+       complete, 
+       ///
+       incomplete
+      };
+
+};
+
+#endif

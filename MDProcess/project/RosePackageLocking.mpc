@@ -1,0 +1,104 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/RosePackageLocking.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::RosePackageLocking
+//
+// библиотека с основной функциональностью сервера залочек
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (RosePackageLocking) : project_generic_core_corba, project_compile_g {
+	staticname = RosePackageLocking
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += RosePackageLocking_cs
+	libs  += RosePackageLocking_cs
+
+	after += GCL
+	libs  += GCL
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	Grammar_Files (LockStarageDef) {
+		gflags += -o ./../RosePackageLocking/LockStarageDef
+		./../RosePackageLocking/LockStarageDef/LockStorage.cpp.g >> ./../RosePackageLocking/LockStarageDef/LockStorageLexer.hpp ./../RosePackageLocking/LockStarageDef/LockStorageLexer.cpp ./../RosePackageLocking/LockStarageDef/LockStorageParser.hpp ./../RosePackageLocking/LockStarageDef/LockStorageParser.cpp
+
+	}
+	Header_Files {
+		Std_Headers {
+			./../RosePackageLocking/ServerLibHome.h
+		}
+	
+		LibSupport {
+			./../RosePackageLocking/Executor.h
+		}
+	
+		LockStarageDef {
+			./../RosePackageLocking/LockStarageDef/LockStarageDef.h
+			./../RosePackageLocking/LockStarageDef/LockStorage.h
+			./../RosePackageLocking/LockStarageDef/LockStorageParser.hpp
+			./../RosePackageLocking/LockStarageDef/LockStorageLexer.hpp
+			./../RosePackageLocking/LockStarageDef/PackageInfo.h
+		}
+	
+		RosePackageLockingServerImpl {
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/RosePackageLockingServerImpl.h
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/RosePackageLockingServerImplFactories.h
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/PackageContainer.h
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/PackageContainer_factory.h
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/PackageParams.h
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/Package_i.h
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/Package_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		LibSupport {
+		}
+	
+		LockStarageDef {
+		}
+	
+		RosePackageLockingServerImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../RosePackageLocking/ServerLibHome.cpp
+		}
+	
+		LibSupport {
+			./../RosePackageLocking/Executor.cpp
+		}
+	
+		LockStarageDef {
+			./../RosePackageLocking/LockStarageDef/LockStorage.cpp
+			./../RosePackageLocking/LockStarageDef/LockStorageParser.cpp
+			./../RosePackageLocking/LockStarageDef/LockStorageLexer.cpp
+			./../RosePackageLocking/LockStarageDef/PackageInfo.cpp
+		}
+	
+		RosePackageLockingServerImpl {
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/RosePackageLockingServerImpl.cpp
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/RosePackageLockingServerImplFactories.cpp
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/PackageContainer.cpp
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/PackageContainer_factory.cpp
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/PackageParams.cpp
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/Package_i.cpp
+			./../RosePackageLocking/impl/RosePackageLockingServerImpl/Package_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

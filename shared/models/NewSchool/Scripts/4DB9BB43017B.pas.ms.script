@@ -1,0 +1,157 @@
+// TtfwAnonimousWord 4DB9BB43017B SimpleClass Class
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_4DB9BB43017B
+
+FORWARD ME_4DB9BBD6024F
+
+: ME_4DB9BBFD025F
+ CONST UID '4DB9BBFD025F'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_4DB9BBFD025F aWord
+
+: ME_4DB9BE900230
+ CONST UID '4DB9BE900230'
+ CONST Name 'aContext'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_4DB9BE900230 aContext
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4DB9BBF900A5
+ CONST UID '4DB9BBF900A5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4DB9BBFD025F // aWord
+ ME_4DB9BE900230 // aContext
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4DB9BBF900A5 DoIt
+
+: ME_4DB9BBD6024F
+ CONST UID '4DB9BBD6024F'
+ CONST Name 'DoCompiledWord'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4DB9BBF900A5 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DB9BBD6024F DoCompiledWord
+
+FORWARD ME_5512949D0048
+
+: ME_551294B900E8
+ CONST UID '551294B900E8'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_551294B900E8 aCtx
+
+: ME_551294AF0050
+ CONST UID '551294AF0050'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_551294B900E8 // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_551294AF0050 DoIt
+
+: ME_5512949D0048
+ CONST UID '5512949D0048'
+ CONST Name 'DoRun'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_551294AF0050 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5512949D0048 DoRun
+
+: ME_B239E65B0791
+ CONST UID 'B239E65B0791'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwAnonimousWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_B239E65B0791 Ini_Reg_Class
+
+: ME_4DB9BB43017B
+ CONST UID '4DB9BB43017B'
+ CONST Name 'TtfwAnonimousWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4DB6C8F30161 // TtfwCompilingWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4DB9BBD6024F // DoCompiledWord
+ ME_5512949D0048 // DoRun
+ ME_B239E65B0791 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4F3AB3600008 // IsAnonimous
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.04.2011 23:09'
+
+ @SELF
+; // ME_4DB9BB43017B TtfwAnonimousWord

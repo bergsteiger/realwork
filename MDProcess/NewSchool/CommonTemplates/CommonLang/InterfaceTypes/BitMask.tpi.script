@@ -1,0 +1,383 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/BitMask.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::BitMask
+//
+// Битовая маска
+// ---
+// определяет битовую маску указанной разрядности (связь наследования от примитивного
+// целочисленного типа).
+// дополнительно может определять группы битов, и расширять имеющиеся битовые маски
+// различные BitMask имеют разный тип с т.з. компилятора
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: BitMask::Class
+implementation @ <<BitMask>>
+//? Битовая маска
+//? определяет битовую маску указанной разрядности (связь наследования от примитивного целочисленного типа).
+//? дополнительно может определять группы битов, и расширять имеющиеся битовые маски
+//? различные BitMask имеют разный тип с т.з. компилятора
+//< *::Class,*::Category
+
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_bitmask.gif
+//L code_bitmask
+// Параметры визуализации
+//$ C 240,205,240
+//$ l 120,40,120
+//$ f 120,40,120
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F39A900EA*
+//c                              {}
+//r {<{}{}{%GC}>!=1}: {%SS должен наследоваться от одного типа}
+//r {%GS!=UMLPrimitive&%GS!=Enum}: {%SS должен наследоваться от Перечисления или примитивного целочисленного типа}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+//r {%ax=false}: {%SS ни кем не используется}
+//#UC END# *4704C0E30186for470F39A900EA*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F39A900EA*
+//	[{%GS=Enum}%f_error("Генерация БитМаски на основе Перечисления - не реализована, сообщите разработчикам")
+ if ( ( %G |S ) %== 'Enum' ) then
+ begin
+  [%f] error %( 'Генерация БитМаски на основе Перечисления - не реализована' %, ' сообщите разработчикам' )% 
+//	]%f_docs(%S)\
+ end // if
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#class %SN : public Core::BitMaskType\<%f_type(%G), %SN\> {
+ end // if
+ NOP
+ out_indent 'class '
+ %S |N ' : public Core::BitMaskType<'
+ [%f] type %( %G )% ', '
+ %S |N '> {'
+//	#	friend class Core::BitMaskType\<%f_type(%G), %SN\>;
+ out_indent '	friend class Core::BitMaskType<'
+ [%f] type %( %G )% ', '
+ %S |N '>;'
+//	#	%SN (%t_arg(%G,"in") val) : Core::BitMaskType\<%f_type(%G), %SN\> (val) {
+ out_indent '	'
+ %S |N ' ('
+ [%t] arg %( %G %, 'in' )% ' val) : Core::BitMaskType<'
+ [%f] type %( %G )% ', '
+ %S |N '> (val) {'
+//	#	}
+ out_indent '	}'
+//	#public:
+ out_indent 'public:'
+//	#	%SN () : Core::BitMaskType\<%f_type(%G), %SN\> (0) {
+ out_indent '	'
+ %S |N ' () : Core::BitMaskType<'
+ [%f] type %( %G )% ', '
+ %S |N '> (0) {'
+//	#	}
+ out_indent '	}'
+//	<{}{}{%C}
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   #13#10
+
+//	#	static const %SN %CN () {
+   out_indent '	static const '
+   %S |N ' '
+   %C |N ' () {'
+//	#		return 1 \<\< %Cn;
+   out_indent '		return 1 << '
+   %C |n ';'
+//	#	}>
+   out_indent '	}' 
+   ++! l_Counter
+  end // if
+ end // for C
+//	#};[
+ out_indent '};'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47022C88029Ffor470F39A900EA*
+; // h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F39A900EA*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	????
+ '????'
+//#UC END# *47022BBE0261for470F39A900EA*
+; // idl
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F39A900EA*
+//O [{"%PO"=""&%f_is_server_type(%S)=false}%SN.java]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_is_server_type(%S)=false}[{"%PO"=""}\
+ if ( ( [%f] is_server_type %( %S )% ) %==  false ) then
+ begin
+  if ( ( %P |O ) %== '' ) then
+  begin
+//	%f_header(%S)
+   [%f] header %( %S )% 
+//	package %f_dump_java_package(%S);
+   'package '
+   [%f] dump_java_package %( %S )% ';'
+//	
+   #13#10
+
+//	]#%t_visibility(%S,"%XU")[{"%PO"!=""}static ]class %SN extends java.util.BitSet {
+  end // if
+  out_indent [%t] visibility %( %S %, %X |U )% if ( ( %P |O ) %!= '' ) then
+  begin
+   'static ' 
+  end // if
+  'class '
+  %S |N ' extends java.util.BitSet {'
+//	%f_docs(%S)\
+  [%f] docs %( %S )% 
+//	<{}{}{%C}#	private static %SN s%CN = null;
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    out_indent '	private static '
+    %S |N ' s'
+    %C |N ' = null;'
+//	>%f_set_var(BIT_COUNT,"[{}{0}<{}{}{%CC}>]")\
+
+    ++! l_Counter
+   end // if
+  end // for C
+  [%f] set_var %( 'BIT_COUNT' %, if NOT-EMPTY
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+  end // if
+  NOP
+  else
+  begin
+   0 
+  end // else
+)% //	
+  #13#10
+
+//	#	public %SN () {
+  out_indent '	public '
+  %S |N ' () {'
+//	#		super (%{BIT_COUNT}N);
+  out_indent '		super ('
+  ( get_global_var ( 'BIT_COUNT' ) |N ) ');'
+//	#	}
+  out_indent '	}'
+//	<{}{}{%C}
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    #13#10
+
+//	#	public static %SN %CN () {
+    out_indent '	public static '
+    %S |N ' '
+    %C |N ' () {'
+//	#		if (s%CN == null) {
+    out_indent '		if (s'
+    %C |N ' == null) {'
+//	#			s%CN = new %SN ();
+    out_indent '			s'
+    %C |N ' = new '
+    %S |N ' ();'
+//	#			s%CN.set (%f_evaluate(%Cn-1));
+    out_indent '			s'
+    %C |N '.set ('
+    [%f] evaluate %( %C |n integer:?-- )% ');'
+//	#		}
+    out_indent '		}'
+//	#		return s%CN;
+    out_indent '		return s'
+    %C |N ';'
+//	#	}
+    out_indent '	}'
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	#};
+  out_indent '};'
+//	[{"%PO"=""}
+  if ( ( %P |O ) %== '' ) then
+  begin
+   #13#10
+
+//	%f_footer(%S)
+   [%f] footer %( %S )% 
+//	]]
+  end // if
+ end // if
+//#UC END# *470321950119for470F39A900EA*
+; // java
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F39A900EA*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	????
+ '????'
+//#UC END# *470F152700FAfor470F39A900EA*
+; // pas
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F39A900EA*
+//G %PU
+//#UC END# *46E6D4BB0339for470F39A900EA*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: BitMask::Class::Attribute
+end. // <<BitMask>>
+
+implementation @ :: <<BitMask>> <<Attribute>> ;
+//? Атрибут
+// Параметры стереотипа
+//v +
+// - типы видимости
+//Y code_attr.gif
+//L code_attr
+//T 
+// - может не иметь "цели" (типа/результата)
+//l a
+// - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F3A1C038A*
+//#UC END# *46E6D4BB0339for470F3A1C038A*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F3A1C038A*
+//#UC END# *47022BBE0261for470F3A1C038A*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F3A1C038A*
+//#UC END# *47022C88029Ffor470F3A1C038A*
+; // h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F3A1C038A*
+//#UC END# *470321950119for470F3A1C038A*
+; // java
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F3A1C038A*
+//#UC END# *470F152700FAfor470F3A1C038A*
+; // pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<BitMask>> <<Attribute>> ;
+

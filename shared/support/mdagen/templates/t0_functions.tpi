@@ -1,0 +1,984 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// common functions
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+f _dump_cpp_derrived_impl_cpp
+	%f_set_var(SERV,S)[
+	[//////////////////////////////////////////////////////////////////////////////////////////
+	// implemented interface's methods<{}{}{Sp}
+	
+	// implemented method from %f_type(%o%P)
+	[{"%oC"="Attribute"}%f_servant_cpp_attribute_cpp(%o)][{"%oC"="Operation"}%f_servant_cpp_operation_cpp(%o)]>][{%f_has_overloaded_mathods(%S)=true}
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// overloaded base methods<{}{"%OS"!="ctor"}{Sp}
+	
+	// overloaded method from %f_type(%O%P)
+	[{"%OC"="Attribute"}%f_servant_cpp_attribute_cpp(%O)][{"%OC"="Operation"}%f_servant_cpp_operation_cpp(%O)]>
+	]][{%S{Need unsorted less}=true}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// overrided less method for unsorted containers
+	bool %SN::is_unsorted_less (const Core::IUnsortedLess* c) const {
+		%U[{_UNSORTED_LESS}
+		]
+	}
+	]
+
+f _dump_implemented_method
+	#// implemented method from %f_type(%S%P)
+	[{"%SC"="Attribute"}%f_servant_cpp_attribute_h(%S)][{"%SC"="Operation"}%f_servant_cpp_operation_h(%S)]
+
+f _dump_cpp_derrived_impl_h
+	%f_set_var(SERV,S)[
+	[{%ox=true}#//////////////////////////////////////////////////////////////////////////////////////////
+	#// implemented interface's methods
+	[{%t_simple_class(%S)=false}#protected:<{}{}{Sp}
+	
+	%f_dump_implemented_method(%o)>][{%t_simple_class(%S)=true}[#public:<{}{%oV=PublicAccess&%t_simple_class(%o%P)=true}{Sp}
+	
+	%f_dump_implemented_method(%o)>][{<{}{%oV=ProtectedAccess|%t_simple_class(%o%P)=false}{C}>!=0}\
+	[{<{}{%oV=PublicAccess&%t_simple_class(%o%P)=true}{C}>!=0}\n]#protected:<{}{%oV=ProtectedAccess|%t_simple_class(%o%P)=false}{Sp}
+	
+	%f_dump_implemented_method(%o)>][{<{}{%oV=PrivateAccess&%t_simple_class(%o%P)=true}{C}>!=0}\
+	[{<{}{%oV=PublicAccess&%t_simple_class(%o%P)=true}{C}>!=0|<{}{%oV=ProtectedAccess|%t_simple_class(%o%P)=false}{C}>!=0}\n]\
+	#private:<{}{%oV=PrivateAccess&%t_simple_class(%o%P)=true}{Sp}
+	
+	%f_dump_implemented_method(%o)>]]][{%f_has_overloaded_mathods(%S)=true}
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// overloaded base methods
+	[#public:<{}{"%OV"="PublicAccess"&"%t_interface(%O%P)"="false"&"%OS"!="ctor"}{Sp}
+	
+	#	// overloaded method from %f_type(%O%P)
+	[{"%OC"="Attribute"}%f_servant_cpp_attribute_h(%O)][{"%OC"="Operation"}%f_servant_cpp_operation_h(%O)]>][
+	#protected:<{}{"%OV"="ProtectedAccess"|"%t_interface(%O%P)"="true"&"%OS"!="ctor"}{Sp}
+	
+	#	// overloaded method from %f_type(%O%P)
+	[{"%OC"="Attribute"}%f_servant_cpp_attribute_h(%O)][{"%OC"="Operation"}%f_servant_cpp_operation_h(%O)]>][
+	#private:<{}{"%OV"="PrivateAccess"&"%OS"!="ctor"}{Sp}
+	
+	#	// overloaded method from %f_type(%O%P)
+	[{"%OC"="Attribute"}%f_servant_cpp_attribute_h(%O)][{"%OC"="Operation"}%f_servant_cpp_operation_h(%O)]>]
+	]][{%S{Need unsorted less}=true}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// overrided less method for unsorted containers
+	protected:
+		[{%t_interface(%S)=false&%SS!=Servant}template <class _VarType> friend struct Core::ArbitraryLess;
+		]virtual bool is_unsorted_less (const Core::IUnsortedLess* c) const;]
+
+f _dump_cpp_derrived_constr_h
+	%f_set_var(SERV,S)[{%f_has_overloaded_ctors(%S)=true}[#public:
+	<{}{"%OV"="PublicAccess"&"%OS"="ctor"}{Sp}#	// inherited from %O%PN
+	%OX
+	
+	>][#protected:
+	<{}{"%OV"="ProtectedAccess"&"%OS"="ctor"}{Sp}#	// inherited from %O%PN
+	%OX
+	
+	>]]
+
+f _dump_cpp_servant_derrived_constr_h
+	%f_set_var(SERV,S)<{}{"%OS"="ctor"}{Sp}#	// inherited from %O%PN
+	%OX
+	
+	>
+
+f _dump_cpp_servant_derrived_constr_java
+	%f_set_var(SERV,S)<{}{"%OS"="ctor"}{Sp}#	// inherited from %O%PN
+	%OX
+	
+	>
+
+f _dump_cpp_derrived_constr_cpp
+	%f_set_var(SERV,S)<{}{"%OS"="ctor"}{Sp}// inherited from %O%PN
+	%OX
+	
+	>
+
+f _has_overloaded_mathods
+	[{"<{}{%OS!=ctor}{C}>"!="0"}{false}true]
+
+f _has_overloaded_ctors
+	[{"<{}{%OS=ctor}{C}>"!="0"}{false}true]
+
+f _comiid
+	%f_str_conv("%SG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","0x%s, 0x%s, 0x%s, {0x%s, 0x%s, 0x%s, 0x%s, 0x%s, 0x%s, 0x%s, 0x%s}")
+
+f _tie_object_refcount_base_cpp
+	const ::Core::ComIID %SN_tie::s_com_iid = {[{"%S{native definition}"="DLL outside"}{%f_comiid(%S)}
+		%U[{_NATIVE_IID}
+		#error "enter valid ComIID"
+		]
+	]};[{%SS=Interface|%SS=Facet}
+	
+	%SN_tie::IidRegistrator %SN_tie::s_iid_registrator;]
+
+f _tie_object_refcount_base_h
+		virtual unsigned long __stdcall query_interface (
+			const ::Core::ComIID& iid
+			, void*& object
+		) {
+			if (iid == s_com_iid) {
+				this-\>addref();
+				object = this;
+				return 0x00000000UL;
+			} else {
+				return ::Core::IidMapManagerSgl::instance()-\>tie_query_interface (iid, m_impl, object);
+			}
+		}
+	
+		virtual unsigned long __stdcall addref () const {
+			return ++m_counter;
+		}
+	
+	public:
+		virtual unsigned long __stdcall release () const {
+			long const counter = --m_counter;
+	
+			if (counter == 0) {			
+				MyPool::instance()-\>release_obj(const_cast\<%SN_tie* const\>(this));
+			}
+			return counter;
+		}
+	
+	// For ObjectPool's objects initialisation and destruction
+	public:
+		void init () {
+			m_counter = 1;
+		}
+	
+		void done () {
+			m_impl-\>release();
+			m_impl = NULL;
+		}
+	
+	private:
+		%SN_tie () : m_impl(NULL) {
+		}
+	
+		typedef ::Core::PoolObjectManager\<%SN_tie\>::PoolObjectManagerSingleton MyPool;
+		typedef ::Core::PoolObjectManager\<%SN_tie\> Pool;
+		friend class ::Core::PoolObjectManager\<%SN_tie\>;
+		typedef ::Core::IidMapRegistrator\<%SN_tie\> IidRegistrator;
+		static IidRegistrator s_iid_registrator;
+		
+	public:
+		static const ::Core::ComIID s_com_iid;
+		
+		static void* cast (::Core::IObject* obj) {
+			%SN* ret = dynamic_cast\<%SN*\>(obj);
+			if (ret) {
+				ret-\>addref();
+			}
+			%SN_tie* ret_ = NULL;
+			%SN_tie::make_tie (ret, ret_);
+			return ret_;
+		}
+	
+		inline static void make_cpp (const %SN_tie* obj, %SN*& ret_, bool interface_addref = false) {
+			if (!obj) {
+				ret_ = 0;
+			} else {
+				ret_ = obj-\>m_impl;
+				if (interface_addref) {
+					ret_-\>addref();
+				}
+			}
+		}
+	
+		static void make_tie (const %SN* obj, %SN_tie*& ret_, bool interface_addref = false) {
+			if (!obj) {
+				ret_ = NULL;
+			} else {
+				if (ret_) {
+					ret_-\>release();
+				}
+				ret_ = MyPool::instance()-\>new_obj();
+				ret_-\>m_impl = const_cast\<%SN*\>(obj);
+				if (interface_addref) {
+					ret_-\>m_impl-\>addref();
+				}
+			}
+		}
+		
+		static void make_tie (const %SN& obj, %SN_tie*& ret_, const Core::TIEBase* owner) {
+			if (ret_) {
+				ret_-\>release();
+			}
+			ret_ = MyPool::instance()-\>new_obj();
+			ret_-\>m_impl = const_cast\<%SN*\>(&obj);
+		
+			ret_-\>m_impl-\>addref();
+			owner-\>addref ();
+			ret_-\>m_tie_owner = owner;
+		}
+	
+		%SN* m_impl;
+
+f _tie_container_refcount_base_h
+		virtual unsigned long __stdcall query_interface (
+			const ::Core::ComIID& iid
+			, void*& object
+		) {
+			if (iid == s_com_iid) {
+				this-\>addref();
+				object = this;
+				return 0x00000000UL;
+			} else {
+				return 0x80004002UL;
+			}
+		}
+	
+		virtual unsigned long __stdcall addref () const {
+			return ++m_counter;
+		}
+	
+	public:
+		virtual unsigned long __stdcall release () const {
+			long const counter = --m_counter;
+	
+			if (counter == 0) {			
+				MyPool::instance()-\>release_obj(const_cast\<%SN_tie* const\>(this));
+			}
+			return counter;
+		}
+	
+	// For ObjectPool's objects initialisation and destruction
+	public:
+		void init () {
+			m_counter = 1;
+		}
+	
+		void done () {
+			GDS_ASSERT_MSG (0, ("Данный TIE-алгритм (удаление tie-вектора)не тестировался!!!"));
+			if (m_orphan && m_impl) {
+				delete m_impl;
+			}
+			m_impl = NULL;
+		}
+	
+	private:
+		%SN_tie () : m_impl(NULL), m_orphan(true) {
+		}
+	
+		typedef ::Core::PoolObjectManager\<%SN_tie\>::PoolObjectManagerSingleton MyPool;
+		typedef ::Core::PoolObjectManager\<%SN_tie\> Pool;
+		friend class ::Core::PoolObjectManager\<%SN_tie\>;
+	
+	public:
+		static const ::Core::ComIID s_com_iid;
+		
+		inline static void make_cpp (const %SN_tie* obj, %SN*& ret_) {
+			if (!obj) {
+				ret_ = 0;
+			} else {
+				ret_ = obj-\>m_impl;
+			}
+		}
+	
+		static void make_tie (const %SN* obj, %SN_tie*& ret_) {
+			if (!obj) {
+				ret_ = NULL;
+			} else {
+				if (ret_) {
+					ret_-\>release();
+				}
+				ret_ = MyPool::instance()-\>new_obj();
+				ret_-\>m_impl = const_cast\<%SN*\>(obj);
+			}
+		}
+		
+		static void make_tie (const %SN& obj, %SN_tie*& ret_, const Core::TIEBase* owner) {
+			GDS_ASSERT_MSG (0, ("Данный TIE-алгритм (tie-трансформация вектора c кеш-хозяином) не тестировался!!!"));
+			if (ret_) {
+				ret_-\>release();
+			}
+			ret_ = MyPool::instance()-\>new_obj();
+			ret_-\>m_impl = const_cast\<%SN*\>(&obj);
+		
+			owner-\>addref ();
+			ret_-\>m_tie_owner = owner;
+			if (owner) {
+				ret_-\>m_orphan = false;
+			}
+		}
+	
+		%SN* m_impl;
+		bool m_orphan;
+
+f _has_factory_methods
+	[{"%Sa"!="abstract"}{false}%f_has_self_factory_methods(%S)]
+
+f _has_self_factory_methods
+	[{"%SM"!="Servant::Class"&"%SM"!="SrvServant::Class"&"%SM"!="TestServant::Class"}{%f_has_realize_factory_methods(%S)}[{"<{}{"%f_is_factory(%C)"="true"}{%CC}>"="0"}{true}%f_has_base_factory_methods(%S)]]
+
+f _has_base_factory_methods
+	[{"<{}{"%f_has_self_factory_methods(%G)"="true"&"%Ga"="abstract"}{%GC}>"="0"}{true}false]
+
+f _has_realize_factory_methods
+	[{"<{}{"%f_has_self_factory_methods(%r)"="true"}{%rC}>"="0"}{true}false]
+
+f _is_factory
+	[{"%SS"="factory"|"%SS"="multi factory"|"%SS"="remover"}{false}true]
+
+/////////////////////////////////////////////////////////////////////////////
+// Servant's CPP-interface operation and attribute
+f _servant_cpp_attribute_h
+	%f_docs(%S)\
+	[{"%SS"!="writeonly"}	[{"%{SERV}a"!="final"|%t_interface(%{SERV})=true}virtual ]\
+	%f_iget_attr(%S) get_%SN ()[{%PM!=ServerInterface::Class} const][{%f_realize_srv_interface(%S)=false}{\n\t\tthrow (CORBA::SystemException<, %E<%NN::>%EN>)}[
+			/*throw (<{, }%E<%NN::>%EN>)*/]];[{"%f_beaccessed(%S)"="true"}
+		[{"%{SERV}a"!="final"|%t_interface(%{SERV})=true}virtual ]%f_igetnc_attr(%S) get_%SN ()[{%f_realize_srv_interface(%S)=false}{\n\t\tthrow (CORBA::SystemException<, %E<%NN::>%EN>)}[
+			/*throw (<{, }%E<%NN::>%EN>)*/]];]][{"%SS"!="readonly"}
+		[{"%{SERV}a"!="final"|%t_interface(%{SERV})=true}virtual ]void set_%SN (%f_iset_attr(%S) %SN)[{%f_realize_srv_interface(%S)=false}{\n\t\tthrow (CORBA::SystemException<, %e<%NN::>%eN>)}[
+			/*throw (<{, }%e<%NN::>%eN>)*/]];]
+
+f _is_impl_atrr
+	[{"<{}{"%CC"="Attribute"&"%CN"="%1N"&"%CV"="ImplementationAccess"}{%CC}>"!="0"}{false}true]
+
+f _servant_cpp_attribute_cpp
+	%f_docs(%S)\
+	[{"%SS"!="writeonly"}%f_templ_header(%{SERV})%f_iget_attr(%S) %{SERV}N%f_templ_footer(%{SERV})::get_%SN ()[{%PM!=ServerInterface::Class} const][{%f_realize_srv_interface(%S)=false}{\n	throw (CORBA::SystemException<, %E<%NN::>%EN>)\n}[{%Ex=true}{ }
+		/*throw (<{, }%E<%NN::>%EN>)*/
+	]]{%f_start_func_cpp(%S,"%{SERV}N::get_%SN const")%f_set_var(OP,S)
+		[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_GET]}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]}return m_%SN;]
+	}[{"%f_beaccessed(%S)"="true"}
+	
+	%f_templ_header(%{SERV})%f_igetnc_attr(%S) %{SERV}N%f_templ_footer(%{SERV})::get_%SN ()[{%f_realize_srv_interface(%S)=false}{\n	throw (CORBA::SystemException<, %E<%NN::>%EN>)\n}[{%Ex=true}{ }
+		/*throw (<{, }%E<%NN::>%EN>)*/
+	]]{%f_start_func_cpp(%S,"%{SERV}N::get_%SN")
+		return const_cast\<%f_igetnc_attr(%S)\>(((const %{SERV}N*)this)-\>get_%SN ());
+	}
+	]
+	][{"%SS"!="readonly"}
+	%f_templ_header(%{SERV})void %{SERV}N%f_templ_footer(%{SERV})::set_%SN (%f_iset_attr(%S) %SN)[{%f_realize_srv_interface(%S)=false}{\n	throw (CORBA::SystemException<, %e<%NN::>%eN>)\n}[{%ex=true}{ }
+		/*throw (<{, }%e<%NN::>%eN>)*/
+	]]{%f_start_func_cpp(%S,"%{SERV}N::set_%SN")
+		[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_SET]}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]}m_%SN = %SN;]
+	}]
+
+f _servant_cpp_oneway_operation_thr_h
+	#static ACE_THR_FUNC_RETURN thr_%SN_ (void* arg);
+
+f _servant_cpp_oneway_operation_impl_h	
+	%f_set_var(ONEWAY_OP,"#[{"%Sa"="abstract"|"%Sa"="regular"&"%{SERV}a"!="final"}virtual ]%f_ret(%S) %SN_ (<{, }%f_arg_full_decl(%C)>)[{%SS!=oneway,chg} const][{"%Sa"="abstract"&"%PU"="%{SERV}U"} = 0];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{ONEWAY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{ONEWAY_OP}N}#[{"%Sa"="abstract"|"%Sa"="regular"&"%{SERV}a"!="final"}virtual ]%f_ret(%S) %SN_ (\n\t\t<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[{%SS!=oneway,chg} const][{"%Sa"="abstract"&"%PU"="%{SERV}U"} = 0];]
+
+f _oneway_params_ctor
+	%f_set_var(ONEWAY_PARAMS_CTOR,"%f_to_borland(%SN)Params_ ([{%SS!=oneway,chg}const ]%PN* self_<, %f_arg(%C) %CN_>) : self([{%t_refcounted(%P)=true}{self_}%PN::_duplicate(self_)])<, %CN([{%t_refcounted(%C%T)=true}{%CN_}%f_type(%C%T)::_duplicate(%CN_)])> {")\
+	%f_set_var(OP_LEN,"%f_string_length("%{ONEWAY_PARAMS_CTOR}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{ONEWAY_PARAMS_CTOR}N}%f_to_borland(%SN)Params_ (\n\t\t[{%SS!=oneway,chg}const ]%PN* self_<\n\t\t, %f_arg(%C) %CN_>\n\t) :\n\t\tself([{%t_refcounted(%P)=true}{self_}%PN::_duplicate(self_)])<\n\t\t, %CN([{%t_refcounted(%C%T)=true}{%CN_}%f_type(%C%T)::_duplicate(%CN_)])>\n\t{]
+
+f _servant_cpp_oneway_operation_thr_cpp
+	struct %f_to_borland(%SN)Params_ {
+		%PN[{%t_refcounted(%P)=true}{[{%SS!=oneway,chg} const]*}_[{%SS!=oneway,chg}c]var] self;
+	<{}{}{%C}	[{%C%TN=string|%C%T%GN=string}{%f_var(%C%T) %CN;}%f_var("a-string") %CN;]
+	>	%f_oneway_params_ctor(%S)
+		}
+	};
+	
+	%f_templ_header(%{SERV})ACE_THR_FUNC_RETURN %f_function_scope(%{SERV})thr_%SN_ (void* arg) {%f_start_func_cpp(%S,"%{SERV}N::%SN")
+		try {
+			Core::Aptr\<%f_to_borland(%SN)Params_\> arg_ (reinterpret_cast\<%f_to_borland(%SN)Params_*\>(arg));
+			arg_-\>self-\>%SN_ (<{, }arg_-\>%CN[{%C%TN=string|%C%T%GN=string}.data ()]>);
+		} catch (Core::Exception& ex) {
+			LOG_SEX ((ex, "while execute %PN::%SN oneway function"));
+		} catch (...) {
+			LOG_UEX (("while execute %PN::%SN oneway function"));
+		}
+		return 1;
+	%f_end_func_cpp(%S)}
+
+f _servant_oneway_operation_header_impl_cpp
+	%f_set_var(ONEWAY_OP,"/*oneway*/ %f_templ_header(%{SERV})Core::ThreadHandle %f_function_scope(%{SERV})%SN (<{, }%f_arg_full_decl(%C)>)[{%SS!=oneway,chg} const] {")\
+	%f_set_var(OP_LEN,"%f_string_length("%{ONEWAY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{ONEWAY_OP}N}/*oneway*/ %f_templ_header(%{SERV})Core::ThreadHandle %f_function_scope(%{SERV})%SN (\n\t<{\n\t, }%f_arg_full_decl(%C)>\n)[{%SS!=oneway,chg} const] {]
+
+f _servant_cpp_oneway_operation_impl_cpp
+	%f_servant_oneway_operation_header_impl_cpp(%S)%f_start_func_cpp(%S,"%{SERV}N::%SN")
+		Core::Aptr\<%f_to_borland(%SN)Params_\> arg = new %f_to_borland(%SN)Params_ (this<, %CN>);
+		Core::ThreadHandle ret = [{%S{separate thread pool}=none}{m_objects_thread_pool-\>}Core::ThreadPoolFactory::def().]spawn_thread (
+			%f_function_scope(%{SERV})thr_%SN_, arg.in ()
+		);
+		if (ret == 0) {
+			throw; //CantSpawnThread ();
+		} else {
+			arg.forget ();
+		}
+		return ret;
+	%f_end_func_cpp(%S)}
+
+f _servant_cpp_operation_h_i
+	%f_set_var(SERVANT_OPERATION,"#[{%SS=static|%SV=PrivateAccess&%PM=UtilityPack::Class}static ][{%SS=oneway&%PU=%{SERV}U|%SS=oneway,chg&%PU=%{SERV}U}{[{%t_interface(%{SERV})=true|%Sa=abstract&%{SERV}a!=final|%Sa=regular&%{SERV}a!=final&%SS!=static&%PS!=TemplateFunctions}virtual ]%f_ret(%S) }/*oneway*/ Core::ThreadHandle ]%SN[{%PS!=ServerInterface&%PS!=ServerFacet}[{%SS=oneway&%PU!=%{SERV}U|%SS=oneway,chg&%PU!=%{SERV}U}_]] (<{, }%f_arg_full_decl(%C)>)[{%SS!=chg&%SS!=oneway,chg&%SS!=static&%PM!=UtilityPack::Class&%PM!=ServerInterface::Class&%PM!=ServerFacet::Class&"[{%PS=TemplateFunctions&%P%PM=UtilityPack::Class}{false}true]"="false"} const][{%f_realize_srv_interface(%S)=false}{ throw (CORBA::SystemException<, %E<%NN::>%EN>)}[ /*throw (<{, }%E<%NN::>%EN>)*/]][{%Sa=abstract&%PU=%{SERV}U&%SS!=oneway&%SS!=oneway,chg} = 0];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SERVANT_OPERATION}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SERVANT_OPERATION}N}#[{%SS"="static|%SV=PrivateAccess&%PM=UtilityPack::Class}static ][{%SS=oneway&%PU=%{SERV}U|%SS=oneway,chg&%PU=%{SERV}U}{[{%t_interface(%{SERV})=true|%Sa=abstract&%{SERV}a!=final|%Sa=regular&%{SERV}a!=final&%SS!=static&%PS!=TemplateFunctions}virtual ]%f_ret(%S) }/*oneway*/ Core::ThreadHandle ]%SN[{%PS!=ServerInterface&%PS!=ServerFacet}[{%SS=oneway&%PU!=%{SERV}U|%SS=oneway,chg&%PU!=%{SERV}U}_]] (\n\t\t<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[{%SS!=chg&%SS!=oneway,chg&%SS!=static&%PM!=UtilityPack::Class&%PM!=ServerInterface::Class&%PM!=ServerFacet::Class&"[{%PS=TemplateFunctions&%P%PM=UtilityPack::Class}{false}true]"="false"} const][{%f_realize_srv_interface(%S)=false}{ throw (\n\t\tCORBA::SystemException<\n\t\t, %E<%NN::>%EN>\n\t)}[ /*throw (\n\t\t<{\n\t\t, }%E<%NN::>%EN>\n\t)*/]][{%Sa=abstract&%PU=%{SERV}U&%SS!=oneway&%SS!="oneway,chg} = 0];]
+
+f _servant_cpp_operation_h
+	%f_docs(%S)\
+	[{%PS=TemplateFunctions}#%f_templ_header(%P)]\
+	%f_servant_cpp_operation_h_i(%S)
+
+
+f _servant_cpp_operation_cpp_i
+	%f_set_var(SERVANT_OPERATION,"%f_ret(%S) %f_function_scope(%{SERV})%SN[{%PS!=ServerInterface&%PS!=ServerFacet}[{%SS=oneway|%SS=oneway,chg}_]] (<{, }%f_arg_full_decl(%C)>)[{%SS!=chg&%SS!=oneway,chg&%SS!=static&%PM!=UtilityPack::Class&%PM!=ServerInterface::Class&%PM!=ServerFacet::Class&"[{%PS=TemplateFunctions&%P%PM=UtilityPack::Class}{false}true]"="false"} const] [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException<, %E<%NN::>%EN>) }[/*throw (<{, }%E<%NN::>%EN>)*/ ]]")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SERVANT_OPERATION}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SERVANT_OPERATION}N}%f_ret(%S) %f_function_scope(%{SERV})%SN[{%PS!=ServerInterface&%PS!=ServerFacet}[{%SS=oneway|%SS=oneway,chg}_]] (\n\t<{\n\t, }%f_arg_full_decl(%C)>\n)[{%SS!=chg&%SS!=oneway,chg&%SS!=static&%PM!=UtilityPack::Class&%PM!=ServerInterface::Class&%PM!=ServerFacet::Class&"[{%PS=TemplateFunctions&%P%PM=UtilityPack::Class}{false}true]"="false"} const] [{%f_realize_srv_interface(%S)=false}{throw (\n\tCORBA::SystemException<\n\t, %E<%NN::>%EN>\n) }[/*throw (\n\t<{\n\t, }%E<%NN::>%EN>\n)*/ ]]]
+
+f _servant_cpp_operation_cpp
+	%f_docs(%S)\
+	%f_templ_header(%{SERV})\
+	[{%PS=TemplateFunctions}%f_templ_header(%P)]\
+	%f_servant_cpp_operation_cpp_i(%S){%f_start_func_cpp(%S,"%{SERV}N::%SN")
+		%f_s_c_op_c_uc(%S)
+	%f_end_func_cpp(%S)}
+
+f _realize_srv_interface
+	[{%PM=ServerFacet::Class|%PM=ServerInterface::Class}{false}true]
+f _s_c_op_c_uc
+	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!cpp!}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+
+f _function_scope
+	[{%SM!=UtilityPack::Class}<{}{%t_nested_scope_def(%P)=true}{r}%PN::>%SN%f_templ_footer(%S)::]
+
+f _templ_header
+	[{"%SK"="ParameterizedClass"}template \<<{, }{"%CC"="Parameter"}%CX>\>
+	]
+f _templ_footer
+	[{"%SK"="ParameterizedClass"}\<<{, }{"%CC"="Parameter"}%CN>\>]
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Servant's self operation and attribute
+
+f _cached_servant_attribute_h
+	// cached attribute impl
+	%f_docs(%S)\
+	#%f_attr(%S) get_%SN_ (); // return cached value		
+	#void invalidate_%SN_ (); // invalidate cached value
+	#%f_attr(%S) load_%SN_ (); // load value into cache (callback)
+
+f _cached_servant_attribute_cpp
+	// cached attribute impl
+	%f_docs(%S)\
+	%f_attr(%S) %PN::get_%SN_ () {
+		return s_cache.get_%SN (this);
+	}
+	
+	void %PN::invalidate_%SN_ () {
+		s_cache.invalidate_%SN (this);
+	}
+	
+	%f_attr(%S) %PN::load_%SN_ () {
+		%U[
+		]
+	}
+
+f _servant_cpp_destructor_cpp
+	%f_templ_header(%S)%f_function_scope(%S)~%SN () {%f_start_func_cpp(%S,"%SN::~%SN")
+		%U[{_DESTR_BODY!cpp!}
+		]
+	%f_end_func_cpp(%S)}
+
+f _reg_all_factories
+	%f_set_var(SELF,S)void register_all_factories () {
+	#	%U[{_ENVIRONMENTS_CONFIG}
+	#	]
+	<{}{"%AM"="Servant::Class"&"%f_has_factory_methods(%A)"="true"&"%A{Factory auto reg}"="true"}
+	#	{
+	#		[{"%S{is namespace}"="true"}%SN::]%f_type(%A)_factory_var fctr = new [{"%S{is namespace}"="true"}%SN::]%f_type(%A)_factory ();
+	#		fctr-\>registrate_me(0);
+	#	}
+	#	><%d<{}{"%AM"="Servant::Class"&"%f_has_factory_methods(%A)"="true"&"%A{Factory auto reg}"="true"}
+	#	{
+	#		%f_type(%A)_factory_var fctr = new %f_type(%A)_factory ();
+	#		fctr-\>registrate_me(0);
+	#	}
+	#	>>
+	#	%U[{_CUSTOM_REGISTRATE}
+	#	]
+	#}
+
+f _dump_cpp_functors_h_fd
+	<{}{%f_used_as_compare_func(%s)=true}{%s}%f_set_compare_key_type(%s)[{"%{COMP_KEY}%TM"!="UMLPrimitive::Class"}#[{"%{COMP_KEY}%TM"="Struct::Class"}{class}struct] %f_type(%{COMP_KEY}%T);
+	]><{}{%f_used_as_hash_func(%s)=true}{%s}%f_set_hash_key_type(%s)[{"%t_simple(%{COMP_KEY}%T)"="false"}#[{"%{COMP_KEY}%TM"="Struct::Class"}{class}struct] %f_type(%{COMP_KEY}%T);
+	]>
+
+f _test_unic
+	[{"%{COMP_KEY}%TU"="%{_SAVED_COMP_KEY}%TU"&%{COMP_KEY}l=%{_SAVED_COMP_KEY}l&"%SU"="%{_SAVED_S}U"}{true%f_set_var(_SAVED_COMP_KEY,{COMP_KEY})%f_set_var(_SAVED_S,S)}false]
+
+f _reset_unic
+	%f_set_var(_SAVED_COMP_KEY,M)%f_set_var(_SAVED_S,M)
+
+f _test_unic_dbg
+	%{COMP_KEY}%TN = %{_SAVED_COMP_KEY}%TN & %SN = %{_SAVED_S}N
+
+f _comp_funct_arg
+	[{%TN!=c-string}{%t_attr(%T,"%Sl-const",%S)[{%Sl!=lnk}&]}[{%f_is_not_fixed_simple(%T)=true&%Sl!=ref}{const %f_with_gen_id(h,%f_attr(%S))[{%Sl!=lnk}&]}[{%Sl=agr}{%f_with_gen_id(h,%f_attr(%S)) const}[{%Ss!=const}const ]%f_with_gen_id(h,%f_attr(%S))]]]
+
+f _dump_cpp_functors_h
+	<{}{%f_used_as_compare_func(%s)=true}{%s}%f_set_compare_key_type(%s)\
+	[{%f_test_unic(%S)=true}#	bool operator () (%f_comp_funct_arg(%{COMP_KEY}) x, %f_comp_funct_arg(%{COMP_KEY}) y) const;
+	
+	]>%f_reset_unic(%S)<{}{%f_used_as_hash_func(%s)=true}{%s}%f_set_hash_key_type(%s)[{%f_test_unic(%S)=true}#	size_t operator () (%f_comp_funct_arg(%{COMP_KEY}) x) const;
+	
+	]>%f_reset_unic(%S)<{}{%f_used_as_deallocator_func(%s)=true}{%s}#	static void destroy (%f_type(%s%P%G)* content) {
+	#		%U[
+	#		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);
+	#		]
+	#	}
+	
+	>[{%f_need_less_func(%S)=true}#	bool operator \< (const %SN& y) const;
+	]
+
+f _dump_cpp_functors_cpp
+	<{}{%f_used_as_compare_func(%s)=true}{%s}%f_set_compare_key_type(%s)\
+	[{%f_test_unic(%S)=true}%f_templ_header(%S)bool %f_function_scope(%S)operator () (%f_comp_funct_arg(%{COMP_KEY}) x, %f_comp_funct_arg(%{COMP_KEY}) y) const {
+		%U[{_%{COMP_KEY}U_COMP}
+		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);
+		]
+	}
+	
+	]>%f_reset_unic(%S)<{}{%f_used_as_hash_func(%s)=true}{%s}%f_set_hash_key_type(%s)\
+	[{%f_test_unic(%S)=true}%f_templ_header(%S)size_t %f_function_scope(%S)operator () (%f_comp_funct_arg(%{COMP_KEY}) x) const {
+		%U[{_%{COMP_KEY}U_HASH}
+		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);
+		]
+	}
+	
+	]>%f_reset_unic(%S)[{%f_need_less_func(%S)=true}%f_templ_header(%S)bool %f_function_scope(%S)operator \< (const %SN& y) const {
+		%U[{_LESS}
+		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);
+		]
+	}
+	
+	]
+
+f _set_compare_key_type
+	[{%PM!=Set::Class}%P<{}{%C%Cx=true}%C[%f_set_var(COMP_KEY,C)]>]\
+	[{%PM=Set::Class}%P<{}{"%CS"=""}{%C}%f_set_var(COMP_KEY,C)>]
+
+f _set_hash_key_type
+	[{%PM=HashMap::Class}%P<{}{%C%Cx=true}%C[%f_set_var(COMP_KEY,C)]>]
+
+f _used_as_compare_func
+	[{%SS=compare}{false}true]
+
+f _used_as_hash_func
+	[{%SS=hasher}{false}true]
+
+f _used_as_deallocator_func
+	[{%SS=deallocator}{false}true]
+
+f _need_less_func
+	[{"<{}{%f_need_less_func_for_(%s,%S)=true}{%sC}>"="0"}{true}false]
+
+f _need_less_func_for_
+	[{%PM=Set::Class}{%f_need_less_func_for_map(%S,%1)}%P[{"<{}{%CS=compare}{C}>"="0"&"<{}{"%CS"=""&"%Cl"="agr"&"%CU"="%1U"}{C}>"="1"}{false}true]]
+
+f _need_less_func_for_map
+	%P[{"%PM"="Map::Class"|"%PM"="HashMap::Class"}{false}%P[{"<{}{%CS=compare}{C}>"="0"&"<{}{"%C%Cx"="true"&"%C%Cl"="agr"&"%C%C%TU"="%3U"}{%CC}>"="1"}{false}true]]
+
+f _dump_standart_parent
+	<{}{%P{is standart}=true}{C}>
+
+f _is_standart
+	[{"<{}{%P{is standart}=true}{%PC}>"!="0"}{false}true]
+
+f _dump_include_path
+	[{"%SN"!=""}{}[{%f_is_standart(%1)=false&%S{is standart}!=true}{\<%SN\>}"%SN"]]
+
+f _true
+	[{%SN=1}{false}true]
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// mpc related
+////////////////////////////////////////////////////////////////////////////////////////////////////
+f _mpc_name
+	[{%Se=true&"%S{mpc name}"!=""}{%SN}%S{mpc name}]
+
+f _use_server
+	[{%SS!=ServerLibrary&%S{force use server}!=true}{true}[{%f_with_gen_id(h,<{}{%dS=ServerLibrary}{C}>)!=0|<{}{%dS=ServerLibrary|%S{force use server}=true}{C}>!=0}{false}true]]
+
+f _used_in_server
+	[{<{}{%f_use_server(%a)=true}{%aCSp}>!=0}{false}true]
+
+f _used_not_in_server
+	[{<{}{%f_use_server(%a)=false}{%aCSp}>!=0}{false}true]
+
+f _includes_by_contents
+	[{"<{}{"%A%TN"="tribool"}{C}>"!="0"}\#include "boost/logic/tribool.hpp"
+	][{"<{}{"%AM"="Queue::Class"}{C}>"!="0"}\#include \<queue\>
+	][{"<{}{"%AM"="Set::Class"}{C}>"!="0"}\#include \<set\>
+	][{"<{}{"%AM"="Map::Class"|"%AM"="MultiMap::Class"}{C}>"!="0"}\#include \<map\>
+	][{"<{}{"%AM"="Vector::Class"}{C}>"!="0"}\#include \<vector\>
+	][{"<{}{"%AM"="HashMap::Class"}{C}>"!="0"}\#include \<hash_map\>
+	][{"%S{singleton}"="true"|"%S{Servant Pool}"="obj"}\#include "ace/Singleton.h"
+	][{"%S{Servant Pool}"="mem"}\#include "shared/Core/mng/PoolMemoryManager.h"
+	][{"%S{Servant Pool}"="obj"}\#include "shared/Core/mng/PoolObjectManager.h"
+	][{"<{}{"%AM"="TypeConvertor::Class"&"%A{is sorted}"="true"}{C}>"!="0"}\#include "shared/Core/data/SortedTypeConverter.h"
+	][{"<{}{"%AM"="TypeConvertor::Class"&"%A{is sorted}"="false"}{C}>"!="0"}\#include "shared/Core/data/UnsortedTypeConverter.h"
+	]
+
+f _include_factory_by_uses
+	[{<{}{%RK=ParameterizedClass}{C}>!=0}[// by \<\<uses\>\> dependencies
+	<{}{"%AS"="uses"&"%AC"="Dependency"}[{%A%TS=Servant|%A%TS=SrvServant}\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+	]>]]
+
+f _is_equal_type
+	[{"%SN"="%1N"|"%SM"="Typedef::Class"&"%S[%GN]"="%1N"}{false}true]
+
+f _docs
+	[{%XU!=cpp&%XU!=fctr.cpp}{[%f_str_split(%SD,// )
+/	]}[%f_str_split(%f_doc_prefix(%S)%SD,#/// )
+	]}[%f_str_split(%SD,#// )
+	]]
+
+f _doc_prefix
+	[{%SM=Library::Category}БИБЛИОТЕКА ]\
+	[{%SM=ServerLibrary::Category}СЕРВЕРНАЯ БИБЛИОТЕКА ]\
+	[{%SM=Interface::Category}ИНТЕРФЕСНЫЙ ПАКЕТ ]\
+	[{%SM=Impl::Category}ПАКЕТ РЕАЛИЗАЦИИ ]\
+	[{%SM=Unit::Category}УТИЛИТНЫЙ ПАКЕТ ]\
+	[{%SM=Interface::Class}[{%Sa=abstract}АБСТРАКТНЫЙ ]ИНТЕРФЕЙС ]\
+	[{%SM=Servant::Class}СЕРВАНТ-\>%f_type(%R) ]\
+	[{%SM=SimpleClass::Class}ПРОСТОЙ КЛАСС ]\
+	[{%SM=UtilityPack::Class}УТИЛИТНЫЙ НАБОР ]\
+	[{%SM=Struct::Class}СТРУКТУРА ]\
+	[{%SM=Exception::Class}ИСКЛЮЧЕНИЕ ]\
+	[{%SM=Union::Class}ОБЪЕДИНЕНИЕ ]
+
+f _std_inc
+	\#include "[{<{}{%f_use_server(%P)=true}{C}>=0}{\
+	[{%XU!=h|%PS=Impl|<{}{%PN=CoreSrv}{C}>=0}{shared/Core/sys/std_inc.h}shared/CoreSrv/sys/std_inc.h]}\
+	[{%SM=Interface::Category|<{}{%PN=Core}{C}>=0}{ace/ACE.h}shared/Core/sys/std_inc.h]]"
+
+f _check_if_type
+	[{"%SN"="%1N"|"%SM"="Typedef::Class"&"%S[%GN]"="%1N"}{false}true]
+
+///////////////////////////////////////////////////////////////////////////////
+///For java generator only
+f _dump_java_package
+	[{%Se=false|"%SL"=""}{%SL}<{}{%PM=Project::Category}%P{package prefix}.>%S<{.}{%P{is namespace}=true|%PM=Project::Category|%PM=CPluginsPackage::Category|%t_nested_scope_def(%P)=true}{%Pr}%PN>]
+/f _dump_java_package
+/	[{%Se=false}{<{.}{%P{is namespace}!=false&%PM!=Project::Category}{%Pr}%PN>}ru.garant%S<{}{%P{is namespace}=true|%PM=Project::Category|%PM=CPluginsPackage::Category|%t_nested_scope_def(%P)=true}{%Pr}.%PN>]
+
+//метод дампит имя пакета по правилам java (имя пакета должено соответствовать файловой системе)
+f _dump_java_package_ex
+	[{%Se=false|"%SL"=""}{%SL}<{}{%PM=Project::Category}\
+	%f_str_replace(%P{package prefix}/%PN%f_delsubstr_from_begin(%Sd,%f_string_length(%Pd)),/,.)>]
+
+//включает все часто (всегда) используемые импорты в джава коде
+f _dump_std_java_imports
+	import ru.garant.shared.Core.Logs;
+t _visibility
+c							{java}		{}
+r "%SV"="PublicAccess":		{public } 	{public }
+r "%SV"="PrivateAccess":	{private } 	{private }
+r "%SV"="ProtectedAccess":	{protected } {protected }
+r ""="":					{public } 	{public }
+
+t _abstract_type
+c	{}
+r "%Sa"="regular":	{}
+r "%Sa"="abstract":	{abstract }
+r "%Sa"="final":	{final }
+r ""="":			{}
+
+f _servant_java_operation
+	%f_docs(%S)\
+	#%t_visibility(%S,"XU")[{"%1N"!="interface"}%t_abstract_type(%S)][{%SS=static}static ]%f_ret(%S) %SN (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>][{%Sa!=abstract}{;} {
+	#	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}[
+	#	%f_java_return(%S%T)]
+	#	]
+	#}]
+
+f _servant_java_derived_operation
+	%f_docs(%S)\
+	#[%t_visibility(%S)[{"%1N"!="interface"}%t_abstract_type(%S)][{%SS=static}static ]%f_ret(%S) %SN (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>] {
+	#	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}[
+	#	%f_java_return(%S%T)]
+	#	]
+	#}]
+
+f _servant_java_attribute
+	%f_docs(%S)\
+	#[{"%SS"!="writeonly"}%f_templ_header(%{SERV})%t_visibility(%S)%f_ret(%S) get_%SN ()[{%PM!=ServerInterface::Class}][
+	#	throws <{, }%f_type(%E)>
+	#][{%Ex=false} ]{%f_start_func_cpp(%S,"get%f_to_borland(%SN)")%f_set_var(OP,S)
+	#	[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_GET]}
+	#	%f_java_return(%S%T)
+	#	]}return this.%SN;]
+	#}
+	][{"%SS"!="readonly"}
+	#%t_visibility(%S)void set_%SN (%f_iset_attr(%S) %SN)[
+	#	throws <{, }%f_type(%e)>
+	#][{%ex=false} ]{%f_start_func_cpp(%S,"%{SERV}N::set_%SN")
+	#	[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_SET]}	
+	#	]}this.%SN = %SN;]
+	#}]
+
+f _dump_java_derrived_impl
+	%f_set_var(SERV,S)[
+	[#//////////////////////////////////////////////////////////////////////////////////////////
+	#// implemented interface's methods
+	[<{\n}{}{Sp}\
+	
+	#	// implemented method from %f_type(%o%P)
+	[{"%oC"="Attribute"}%f_servant_java_attribute(%o)][{"%oC"="Operation"}%f_servant_java_derived_operation(%o,"interface")]>]][{%f_has_overloaded_mathods(%S)=true}
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// overloaded base methods
+	[#<{}{"%OV"="PublicAccess"&"%t_interface(%O%P)"="false"&"%OS"!="ctor"}{Sp}
+	
+	#	// overloaded method from %f_type(%O%P)
+	[{"%OC"="Attribute"}%f_servant_java_attribute(%O)][{"%OC"="Operation"}%f_servant_java_derived_operation(%O,"interface")]>][\
+	#<{}{"%OV"="ProtectedAccess"|"%t_interface(%O%P)"="true"&"%OS"!="ctor"}{Sp}
+	
+	#	// overloaded method from %f_type(%O%P)
+	[{"%OC"="Attribute"}%f_servant_java_attribute(%O)][{"%OC"="Operation"}%f_servant_java_derived_operation(%O,"interface")]>][\
+	#<{}{"%OV"="PrivateAccess"&"%OS"!="ctor"}{Sp}
+	
+	#	// overloaded method from %f_type(%O%P)
+	[{"%OC"="Attribute"}%f_servant_java_attribute(%O)][{"%OC"="Operation"}%f_servant_java_derived_operation(%O,"interface")]>]
+	]]
+/	%f_set_var(SERV,S)[
+/	[#	//////////////////////////////////////////////////////////////////////////////////////////
+/	#	// implemented interface's methods
+/	[#<{\n}{"%oC"!="Attribute"}{Sp}
+/	#	// implemented method %oN from %f_type(%o%P)
+/	[{"%oC"="Operation"}[%f_docs(%o)\
+/	]%f_servant_java_operation(%o,"interface")]>]][{%f_has_overloaded_mathods(%S)=true}
+/	#	//////////////////////////////////////////////////////////////////////////////////////////
+/	#	// overloaded base methods
+/	[<\n{}{"%OS"!="ctor"}{Sp}
+/	#	// overloaded method from %f_type(%O%P)
+/	[{"%OC"="Operation"}[%f_docs(%o)\
+/	]%f_servant_java_derived_operation(%O,"interface")]>]
+/	]]
+
+f _dump_java_self_impl
+	[[#<{}{"%CC"!="Attribute"}{Sp}
+	[{"%CC"="Operation"}%f_servant_java_operation(%C)]>]]
+	
+f _includes_by_contents_java
+/	[{"<{}{"%AM"="Set::Class"}{C}>"!="0"}import java.util.Set;
+/	][{"<{}{"%AM"="Map::Class"|"%AM"="MultiMap::Class"}{C}>"!="0"}import java.util.Map;
+/	][{"<{}{"%AM"="Vector::Class"}{C}>"!="0"}import java.util.Vector;
+/	][{"<{}{"%AM"="HashMap::Class"}{C}>"!="0"}import java.util.HashMap;
+/	]
+
+f _need_poa
+	[{%SS=ServerInterface|%SS=ServerFacet}{false}true]
+
+f _is_server_type_java
+	[{%f_is_server_type(%S)=true&%t_simple(%S)=false}{false}true]
+
+f _java_import
+	[{%Se=false}{[{"%SL"!=""}import %SL;]}[{"%So"!=""|%t_nested_scope_def(%P)=true|%f_is_server_type_java(%S)=true}import %f_dump_java_package(%S).%SN[{%XU=fctr.java}FactoryImpl][{%f_need_poa(%S)=true&"%1S"!="uses"}POA;\nimport %f_dump_java_package(%S).%SN];]]
+
+f _java_core_exceptions
+	import ru.garant.shared.Core.Root.UnknownFactoryKey;[{%f_is_server_type(%S)=false}
+	import ru.garant.shared.Core.Root.NoActiveFactory;]
+	import ru.garant.shared.Core.Root.DuplicatedFactoryKey;
+
+t _java_return
+c                                  {}
+r "%SN"="void":                    {}
+r "%SM"="BitMask::Class":          {true}
+r "%SC"="Operation":               {true}
+r "%SN"="short":                   {0}
+r "%SN"="size":                    {0}
+r "%SN"="integer":                 {0}
+r "%SN"="long":                    {0}
+r "%SN"="atomic":                  {0}
+r "%SN"="hthread":                 {0}
+r "%SN"="unsigned atomic":         {0}
+r "%SN"="long long":               {0}
+r "%SN"="unsigned short":          {0}
+r "%SN"="unsigned integer":        {0}
+r "%SN"="unsigned long":           {0}
+r "%SN"="unsigned long long":      {0}
+r "%SN"="float":                   {0.0}
+r "%SN"="double":                  {0.0}
+r "%SN"="boolean":                 {true}
+r "%SN"="char":                    {0}
+r "%SN"="octet":                   {0}
+r "%SN"="string":                  {new String ("")}
+r "%SN"="pointer":                 {null}
+r "%SN"="HWND":                    {null}
+r "%SN"="WPARAM":                  {null}
+r "%SN"="LPARAM":                  {null}
+r "%SN"="BOOL":                    {true}
+r "%SN"="LRESULT":                 {null}
+r "%SN"="UINT":                    {0}
+r "%SN"="HANDLE":                  {0}
+r "%SN"="HHOOK":                   {null}
+r "%S%PN"="Win32":                 {0}
+r "%SM"="Typedef::Class":          {[{%Gx=true}{true}%t_java_return(%G)]}
+r ""="":                           {null}
+
+f _java_return
+	[return %t_java_return(%S);]
+
+f _dump_lib_home
+	%f_dump_java_package(%S).%SN
+
+f _reg_all_dep_java
+	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements}		lhm.registrate_lib_home (%f_dump_lib_home(%D).LibHome.get());
+	[{%DS=ServerLibrary&"[{%t_target(%S)=true|%SM=ConfluencePluginTarget::Category}{false}true]"="true"}		lhm.registrate_lib_home (%f_dump_lib_home(%D).ServerLibHome.get());
+	][{%DS!=ServerLibrary|%t_target(%S)=true|%SM=ConfluencePluginTarget::Category}%f_reg_all_dep_java(%D)]>
+
+f _self_data_accessor
+	[
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// self data accessors
+	[public:<{}{"%CC"="Attribute"&"%CV"="PublicAccess"&%CS!=template}{Sn}
+	%C%f_accessor()
+	>][protected:<{}{"%CC"="Attribute"&"%CV"="ProtectedAccess"&%CS!=template}{Sn}
+	%C%f_accessor()
+	>]]
+
+f _full_name
+	<{}{%P{is namespace}=true}{r}%PN::>%SN
+
+t _lbl_to_icon
+c {}
+r {%Sb=code_project}: {!http://mdp.garant.ru/images/icons/garicons/t0_project.gif!}
+r {%Sb=requirements}: {!http://mdp.garant.ru/images/icons/garicons/t2_requirements.gif!}
+r {%Sb=problems}: {!http://mdp.garant.ru/images/icons/garicons/problems.gif!}
+r {%Sb=features}: {!http://mdp.garant.ru/images/icons/garicons/features.gif!}
+r {%Sb=usecases}: {!http://mdp.garant.ru/images/icons/garicons/t3_usecases.gif!}
+
+r {%Sb=userneeds}: {!http://mdp.garant.ru/images/icons/garicons/UserNeed.png!}
+r {%Sb=feature}: {!http://mdp.garant.ru/images/icons/garicons/Feature.png!}
+r {%Sb=usecase}: {!http://mdp.garant.ru/images/icons/garicons/UseCase.png!}
+
+r {%Sb=code_library}: {!http://mdp.garant.ru/images/icons/garicons/lib.gif!}
+r {%Sb=code_server_library}: {!http://mdp.garant.ru/images/icons/garicons/server_lib.gif!}
+r {%Sb=code_exe_target}: {!http://mdp.garant.ru/images/icons/garicons/target.gif!}
+r {%Sb=code_adapter_target}: {!http://mdp.garant.ru/images/icons/garicons/target.gif!}
+r {%Sb=code_com_target}: {!http://mdp.garant.ru/images/icons/garicons/target.gif!}
+r {%Sb=code_cplugin_target}: {!http://mdp.garant.ru/images/icons/garicons/target.gif!}
+r {%Sb=code_installer}: {!http://mdp.garant.ru/images/icons/garicons/install.gif!}
+
+r {%Sb=code_interfaces}: {!http://mdp.garant.ru/images/icons/garicons/t3_interface.gif!}
+r {%Sb=code_server_interfaces}: {!http://mdp.garant.ru/images/icons/garicons/t3_server_interface.gif!}
+r {%Sb=code_com_interfaces}: {!http://mdp.garant.ru/images/icons/garicons/t3_com_interface.gif!}
+r {%Sb=code_impl}: {!http://mdp.garant.ru/images/icons/garicons/t3_impl.gif!}
+r {%Sb=code_unit}: {!http://mdp.garant.ru/images/icons/garicons/t3_unit.gif!}
+r {%Sb=code_views}: {!http://mdp.garant.ru/images/icons/garicons/t3_views.gif!}
+r {%Sb=code_lib_support}: {!http://mdp.garant.ru/images/icons/garicons/t3_libsupport.gif!}
+r {%Sb=code_cplugin_pack}: {!http://mdp.garant.ru/images/icons/garicons/t3_cplugpack.gif!}
+
+r {%Sb=code_facet}: {!http://mdp.garant.ru/images/icons/garicons/t4_facet.gif!}
+r {%Sb=code_server_facet}: {!http://mdp.garant.ru/images/icons/garicons/t4_server_facet.gif!}
+r {%Sb=code_interface}: {!http://mdp.garant.ru/images/icons/garicons/t4_interface.gif!}
+r {%Sb=code_server_interafce}: {!http://mdp.garant.ru/images/icons/garicons/t4_server_interface.gif!}
+r {%Sb=code_com_interface}: {!http://mdp.garant.ru/images/icons/garicons/t4_com_interface.gif!}
+r {%Sb=code_servant}: {!http://mdp.garant.ru/images/icons/garicons/t4_servant.gif!}
+r {%Sb=code_com_servant}: {!http://mdp.garant.ru/images/icons/garicons/t4_com_servant.gif!}
+r {%Sb=code_simple_class}: {!http://mdp.garant.ru/images/icons/garicons/t4_simple_class.gif!}
+r {%Sb=code_utility_class}: {!http://mdp.garant.ru/images/icons/garicons/t4_utility_class.gif!}
+r {%Sb=code_utility_pack}: {!http://mdp.garant.ru/images/icons/garicons/t4_utility_pack.gif!}
+r {%Sb=code_lib_executer}: {!http://mdp.garant.ru/images/icons/garicons/t4_lib_exec.gif!}
+
+r {%Sb=code_gui_property_page}: {!http://mdp.garant.ru/images/icons/garicons/t4_pp.gif!}
+r {%Sb=code_gui_property_sheet}: {!http://mdp.garant.ru/images/icons/garicons/t4_ps.gif!}
+r {%Sb=code_gui_dialog}: {!http://mdp.garant.ru/images/icons/garicons/t4_dialog.gif!}
+r {%Sb=code_gui_control}: {!http://mdp.garant.ru/images/icons/garicons/t4_gui_control.gif!}
+
+r {%Sb=code_cplugin}: {!http://mdp.garant.ru/images/icons/garicons/t4_cplugin.gif!}
+r {%Sb=code_vm}: {!http://mdp.garant.ru/images/icons/garicons/t4_vm.gif!}
+
+r {%Sb=code_interceptor}: {!http://mdp.garant.ru/images/icons/garicons/t4_interceptor.gif!}
+r {%Sb=code_deallocator}: {!http://mdp.garant.ru/images/icons/garicons/t4_deallocator.gif!}
+r {%Sb=code_exception}: {!http://mdp.garant.ru/images/icons/garicons/t4_exeption.gif!}
+r {%Sb=code_valuetype}: {!http://mdp.garant.ru/images/icons/garicons/t4_valuetype.gif!}
+r {%Sb=code_functor}: {!http://mdp.garant.ru/images/icons/garicons/t4_functor.gif!}
+r {%Sb=code_struct}: {!http://mdp.garant.ru/images/icons/garicons/t4_struct.gif!}
+r {%Sb=code_type_convertor}: {!http://mdp.garant.ru/images/icons/garicons/t4_typeconv.gif!}
+
+r {%Sb=code_const_method}: {!http://mdp.garant.ru/images/icons/garicons/t5_const_method.gif!}
+r {%Sb=code_static_method}: {!http://mdp.garant.ru/images/icons/garicons/t5_static_method.gif!}
+r {%Sb=code_method}: {!http://mdp.garant.ru/images/icons/garicons/t5_method.gif!}
+r {%Sb=code_factory}: {!http://mdp.garant.ru/images/icons/garicons/t5_factory.gif!}
+r {%Sb=code_remover}: {!http://mdp.garant.ru/images/icons/garicons/t5_remover.gif!}
+r {%Sb=code_property}: {!http://mdp.garant.ru/images/icons/garicons/t5_property.gif!}
+
+r {%SS=UnsortedSet}: {!http://mdp.garant.ru/images/icons/garicons/t4_unsorted_set.gif!}
+r {%SS=Vector|%SS=List}: {!http://mdp.garant.ru/images/icons/garicons/t4_vector.gif!}
+r {%SS=Queue}: {!http://mdp.garant.ru/images/icons/garicons/t4_queue.gif!}
+r {%SS=Set}: {!http://mdp.garant.ru/images/icons/garicons/t4_set.gif!}
+r {%SS=Map|%SS=HashMap|%SS=MultyMap}: {!http://mdp.garant.ru/images/icons/garicons/t4_map.gif!}
+r {%SS=UnsortedMap}: {!http://mdp.garant.ru/images/icons/garicons/t4_unsorted_map.gif!}
+r {%SS=Union}: {!http://mdp.garant.ru/images/icons/garicons/t4_union.gif!}
+r {%SS=Environment}: {!http://mdp.garant.ru/images/icons/garicons/t4_env.gif!}
+r {%SS=InstanceDef}: {!http://mdp.garant.ru/images/icons/garicons/t4_inst_def.gif!}
+r {%SS=Iterator|%SS=Const Iterator}: {!http://mdp.garant.ru/images/icons/garicons/t4_iterator.gif!}
+r {%SS=BitMask}: {!http://mdp.garant.ru/images/icons/garicons/t4_bitmask.gif!}
+r {%SS=Box}: {!http://mdp.garant.ru/images/icons/garicons/t4_box.gif!}
+r {%SS=Constants}: {!http://mdp.garant.ru/images/icons/garicons/t4_constants.gif!}
+r {%SS=CurrentSlot}: {!http://mdp.garant.ru/images/icons/garicons/t4_current_slot.gif!}
+r {%SS=Enum}: {!http://mdp.garant.ru/images/icons/garicons/t4_enum.gif!}
+r {%SS=Typedef}: {!http://mdp.garant.ru/images/icons/garicons/t4_typedef.gif!}
+r {%SC=Attribute&%PC=Class&%SS=static}: {!http://mdp.garant.ru/images/icons/garicons/t5_static_attr.gif!}
+r {%SC=Attribute&%PC=Class}: {!http://mdp.garant.ru/images/icons/garicons/t5_attr.gif!}
+r {""=""} : {}
+
+f _k_method_dump
+	\# *%f_k_link(%S)*[{%TN!=void} : %f_k_link_wp(%T,%S)][
+	_%S?_[, %SD]]<
+	\#* [\<\<%CS\>\> ]%CN : %f_k_link_wp(%C%T,%S)>[
+	Генерирует исключения:<
+	\#* %f_k_link_wp(%E,%S)[ - %ED]>]
+
+f _k_attr_dump
+	\# *%f_k_link(%S)*[{%TN!=void} : %f_k_link_wp(%T,%S)][
+	[_%S?_][, %SD]][
+	Генерирует исключения:<
+	\#* \<\<get\>\> %f_k_link_wp(%E,%S)[ - %ED]><
+	\#* \<\<set\>\> %f_k_link_wp(%e,%S)[ - %eD]>]
+
+f _k_type_dump
+	\# *%f_k_link(%S)*[{%SS!=Servant&%SS!=SimpleClass&%SS!=Facet}\
+	[{%Rx=true}: %f_k_link_wp(%R,%S)]\
+	[{%Gx=true}: %f_k_link_wp(%G,%S)]\
+	[{%t_is_container(%S)=true}: <{}{"%CS"=""}%f_k_link_wp(%C%T,%S)>]][
+	_%S?_[, %SD]][{%SS=Enum|%SS=Constants|%SS=Union}<
+	\#* [\<\<%CS\>\> ]%CN[{%C%TN!=void} : %f_k_link_wp(%C%T,%S)][ - %CD]>]
+
+f _k_link_wp
+	%f_k_link(%S)[{%PU!=%1%PU&%SS!=UMLPrimitive} _(из %f_k_link_ex(%P))_]
+
+f _k_link
+	[%t_lbl_to_icon(%S) ][{"%SO"!=""&%Se=false}{%SN}\{LinkByGUID:%SU\}]
+
+f _k_link_ex
+/	[{"%SO"=""&%SS!=Project&%SS!=UMLPrimitive}%f_k_link_ex(%P)::]%f_k_link(%S)
+	[{%SS!=Project&%SS!=UMLPrimitive}<%f_k_link(%N)::>]%f_k_link(%S)
+
+f _is_rg_derived
+	%f_set_var(TEMP_ARG,1)[{<{}{%GU=%{TEMP_ARG}U}{C}>!=0|<{}{%RU=%{TEMP_ARG}U}{C}>!=0}{false}true]
+
+//фукнция сравнивает output-файл элемента
+//и его родителя, если они совпадают вызывает f_error
+f _output_constraint
+	[{%So=%Po&"%So"!=""}%f_error("Error, because output file for element \<\<%SS\>\>%SN is equal to output file his parent (\<\<%PS\>\>%SN)")]
+
+//выводит относительный путь до рутовой папки проекта
+f _root_relative_path
+	%f_clear_list(ROOT_RELATIVE_PATH)\
+	%f_split_to_list(ROOT_RELATIVE_PATH,%Sd,/)\
+	<{}{%f_is_empty(ROOT_RELATIVE_PATH)=false}{W}%f_pop_front_to_var(ROOT_RELATIVE_PATH,PATH_ITEM)%f_str_replace(%{PATH_ITEM}N,%{PATH_ITEM}N,../)>%f_clear_list(ROOT_RELATIVE_PATH)
+/	%f_delsubstr_from_end(%Sd,%f_string_length(%Pd))

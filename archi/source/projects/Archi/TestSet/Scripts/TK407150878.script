@@ -1,0 +1,17 @@
+USES
+ QuickTestsUtils.script
+;
+
+Тест TK407150878 
+  	Параметры: ( "Размеры для проверки отрисованного"  "Эталон отрисованного" ) 
+	Выполнить ( 
+				 VAR l_Editor
+				 "Контрол в фокусе" >>> l_Editor
+				 51 раз (
+				  false true l_Editor pop:editor:WheelScroll 
+				  "Обработать сообщения"
+				 ) 
+				)
+;
+
+TK407150878
